@@ -102,6 +102,146 @@ typedef interface IAMovieSetup IAMovieSetup;
 typedef interface IMediaSeeking IMediaSeeking;
 #endif
 
+#ifndef __IEnumRegFilters_FWD_DEFINED__
+#define __IEnumRegFilters_FWD_DEFINED__
+typedef interface IEnumRegFilters IEnumRegFilters;
+#endif
+
+#ifndef __IFilterMapper_FWD_DEFINED__
+#define __IFilterMapper_FWD_DEFINED__
+typedef interface IFilterMapper IFilterMapper;
+#endif
+
+#ifndef __IFilterMapper2_FWD_DEFINED__
+#define __IFilterMapper2_FWD_DEFINED__
+typedef interface IFilterMapper2 IFilterMapper2;
+#endif
+
+#ifndef __IFilterMapper3_FWD_DEFINED__
+#define __IFilterMapper3_FWD_DEFINED__
+typedef interface IFilterMapper3 IFilterMapper3;
+#endif
+
+#ifndef __IQualityControl_FWD_DEFINED__
+#define __IQualityControl_FWD_DEFINED__
+typedef interface IQualityControl IQualityControl;
+#endif
+
+#ifndef __IOverlayNotify_FWD_DEFINED__
+#define __IOverlayNotify_FWD_DEFINED__
+typedef interface IOverlayNotify IOverlayNotify;
+#endif
+
+#ifndef __IOverlayNotify2_FWD_DEFINED__
+#define __IOverlayNotify2_FWD_DEFINED__
+typedef interface IOverlayNotify2 IOverlayNotify2;
+#endif
+
+#ifndef __IOverlay_FWD_DEFINED__
+#define __IOverlay_FWD_DEFINED__
+typedef interface IOverlay IOverlay;
+#endif
+
+#ifndef __IMediaEventSink_FWD_DEFINED__
+#define __IMediaEventSink_FWD_DEFINED__
+typedef interface IMediaEventSink IMediaEventSink;
+#endif
+
+#ifndef __IFileSourceFilter_FWD_DEFINED__
+#define __IFileSourceFilter_FWD_DEFINED__
+typedef interface IFileSourceFilter IFileSourceFilter;
+#endif
+
+#ifndef __IFileSinkFilter_FWD_DEFINED__
+#define __IFileSinkFilter_FWD_DEFINED__
+typedef interface IFileSinkFilter IFileSinkFilter;
+#endif
+
+#ifndef __IFileSinkFilter2_FWD_DEFINED__
+#define __IFileSinkFilter2_FWD_DEFINED__
+typedef interface IFileSinkFilter2 IFileSinkFilter2;
+#endif
+
+#ifndef __IGraphBuilder_FWD_DEFINED__
+#define __IGraphBuilder_FWD_DEFINED__
+typedef interface IGraphBuilder IGraphBuilder;
+#endif
+
+#ifndef __ICaptureGraphBuilder_FWD_DEFINED__
+#define __ICaptureGraphBuilder_FWD_DEFINED__
+typedef interface ICaptureGraphBuilder ICaptureGraphBuilder;
+#endif
+
+#ifndef __IAMCopyCaptureFileProgress_FWD_DEFINED__
+#define __IAMCopyCaptureFileProgress_FWD_DEFINED__
+typedef interface IAMCopyCaptureFileProgress IAMCopyCaptureFileProgress;
+#endif
+
+#ifndef __ICaptureGraphBuilder2_FWD_DEFINED__
+#define __ICaptureGraphBuilder2_FWD_DEFINED__
+typedef interface ICaptureGraphBuilder2 ICaptureGraphBuilder2;
+#endif
+
+#ifndef __IFilterGraph2_FWD_DEFINED__
+#define __IFilterGraph2_FWD_DEFINED__
+typedef interface IFilterGraph2 IFilterGraph2;
+#endif
+
+#ifndef __IStreamBuilder_FWD_DEFINED__
+#define __IStreamBuilder_FWD_DEFINED__
+typedef interface IStreamBuilder IStreamBuilder;
+#endif
+
+#ifndef __IAMStreamConfig_FWD_DEFINED__
+#define __IAMStreamConfig_FWD_DEFINED__
+typedef interface IAMStreamConfig IAMStreamConfig;
+#endif
+
+#ifndef __IAMVideoProcAmp_FWD_DEFINED__
+#define __IAMVideoProcAmp_FWD_DEFINED__
+typedef interface IAMVideoProcAmp IAMVideoProcAmp;
+#endif
+
+#ifndef __IAsyncReader_FWD_DEFINED__
+#define __IAsyncReader_FWD_DEFINED__
+typedef interface IAsyncReader IAsyncReader;
+#endif
+
+#ifndef __IGraphVersion_FWD_DEFINED__
+#define __IGraphVersion_FWD_DEFINED__
+typedef interface IGraphVersion IGraphVersion;
+#endif
+
+#ifndef __IResourceConsumer_FWD_DEFINED__
+#define __IResourceConsumer_FWD_DEFINED__
+typedef interface IResourceConsumer IResourceConsumer;
+#endif
+
+#ifndef __IResourceManager_FWD_DEFINED__
+#define __IResourceManager_FWD_DEFINED__
+typedef interface IResourceManager IResourceManager;
+#endif
+
+#ifndef __IKsPropertySet_FWD_DEFINED__
+#define __IKsPropertySet_FWD_DEFINED__
+typedef interface IKsPropertySet IKsPropertySet;
+#endif
+
+#ifndef __ISeekingPassThru_FWD_DEFINED__
+#define __ISeekingPassThru_FWD_DEFINED__
+typedef interface ISeekingPassThru ISeekingPassThru;
+#endif
+
+#ifndef __IAMFilterMiscFlags_FWD_DEFINED__
+#define __IAMFilterMiscFlags_FWD_DEFINED__
+typedef interface IAMFilterMiscFlags IAMFilterMiscFlags;
+#endif
+
+#ifndef __IAMGraphBuilderCallback_FWD_DEFINED__
+#define __IAMGraphBuilderCallback_FWD_DEFINED__
+typedef interface IAMGraphBuilderCallback IAMGraphBuilderCallback;
+#endif
+
 /* Headers for imported files */
 
 #include <unknwn.h>
@@ -3085,121 +3225,4253 @@ enum tagAM_MEDIAEVENT_FLAGS {
     AM_MEDIAEVENT_NONOTIFY = 0x1
 };
 
-#ifndef __IReferenceClock2_FWD_DEFINED__
-#define __IReferenceClock2_FWD_DEFINED__
-typedef struct IReferenceClock2 IReferenceClock2;
+#ifndef __IAMAnalogVideoDecoder_FWD_DEFINED__
+#define __IAMAnalogVideoDecoder_FWD_DEFINED__
+typedef interface IAMAnalogVideoDecoder IAMAnalogVideoDecoder;
 #endif
 
-#ifndef __IEnumRegFilters_FWD_DEFINED__
-#define __IEnumRegFilters_FWD_DEFINED__
-typedef struct IEnumRegFilters IEnumRegFilters;
+#ifndef __IAMAnalogVideoEncoder_FWD_DEFINED__
+#define __IAMAnalogVideoEncoder_FWD_DEFINED__
+typedef interface IAMAnalogVideoEncoder IAMAnalogVideoEncoder;
 #endif
 
-#ifndef __IFilterMapper_FWD_DEFINED__
-#define __IFilterMapper_FWD_DEFINED__
-typedef struct IFilterMapper IFilterMapper;
+#ifndef __IAMAudioInputMixer_FWD_DEFINED__
+#define __IAMAudioInputMixer_FWD_DEFINED__
+typedef interface IAMAudioInputMixer IAMAudioInputMixer;
 #endif
 
-#ifndef __IFilterMapper2_FWD_DEFINED__
-#define __IFilterMapper2_FWD_DEFINED__
-typedef struct IFilterMapper2 IFilterMapper2;
+#ifndef __IAMAudioRendererStats_FWD_DEFINED__
+#define __IAMAudioRendererStats_FWD_DEFINED__
+typedef interface IAMAudioRendererStats IAMAudioRendererStats;
 #endif
 
-#ifndef __IFilterMapper3_FWD_DEFINED__
-#define __IFilterMapper3_FWD_DEFINED__
-typedef struct IFilterMapper3 IFilterMapper3;
+#ifndef __IAMBufferNegotiation_FWD_DEFINED__
+#define __IAMBufferNegotiation_FWD_DEFINED__
+typedef interface IAMBufferNegotiation IAMBufferNegotiation;
 #endif
 
-#ifndef __IQualityControl_FWD_DEFINED__
-#define __IQualityControl_FWD_DEFINED__
-typedef struct IQualityControl IQualityControl;
-#endif
-
-#ifndef __IOverlayNotify_FWD_DEFINED__
-#define __IOverlayNotify_FWD_DEFINED__
-typedef struct IOverlayNotify IOverlayNotify;
-#endif
-
-#ifndef __IOverlayNotify2_FWD_DEFINED__
-#define __IOverlayNotify2_FWD_DEFINED__
-typedef struct IOverlayNotify2 IOverlayNotify2;
-#endif
-
-#ifndef __IOverlay_FWD_DEFINED__
-#define __IOverlay_FWD_DEFINED__
-typedef struct IOverlay IOverlay;
-#endif
-
-#ifndef __IMediaEventSink_FWD_DEFINED__
-#define __IMediaEventSink_FWD_DEFINED__
-typedef struct IMediaEventSink IMediaEventSink;
-#endif
-
-#ifndef __IFileSourceFilter_FWD_DEFINED__
-#define __IFileSourceFilter_FWD_DEFINED__
-typedef struct IFileSourceFilter IFileSourceFilter;
-#endif
-
-#ifndef __IFileSinkFilter_FWD_DEFINED__
-#define __IFileSinkFilter_FWD_DEFINED__
-typedef struct IFileSinkFilter IFileSinkFilter;
-#endif
-
-#ifndef __IFileSinkFilter2_FWD_DEFINED__
-#define __IFileSinkFilter2_FWD_DEFINED__
-typedef struct IFileSinkFilter2 IFileSinkFilter2;
-#endif
-
-#ifndef __IGraphBuilder_FWD_DEFINED__
-#define __IGraphBuilder_FWD_DEFINED__
-typedef struct IGraphBuilder IGraphBuilder;
-#endif
-
-#ifndef __ICaptureGraphBuilder_FWD_DEFINED__
-#define __ICaptureGraphBuilder_FWD_DEFINED__
-typedef struct ICaptureGraphBuilder ICaptureGraphBuilder;
+#ifndef __IAMCameraControl_FWD_DEFINED__
+#define __IAMCameraControl_FWD_DEFINED__
+typedef interface IAMCameraControl IAMCameraControl;
 #endif
 
 #ifndef __IAMCopyCaptureFileProgress_FWD_DEFINED__
 #define __IAMCopyCaptureFileProgress_FWD_DEFINED__
-typedef struct IAMCopyCaptureFileProgress IAMCopyCaptureFileProgress;
+typedef interface IAMCopyCaptureFileProgress IAMCopyCaptureFileProgress;
+#endif
+
+#ifndef __IAMCrossbar_FWD_DEFINED__
+#define __IAMCrossbar_FWD_DEFINED__
+typedef interface IAMCrossbar IAMCrossbar;
+#endif
+
+#ifndef __IAMDevMemoryAllocator_FWD_DEFINED__
+#define __IAMDevMemoryAllocator_FWD_DEFINED__
+typedef interface IAMDevMemoryAllocator IAMDevMemoryAllocator;
+#endif
+
+#ifndef __IAMDevMemoryControl_FWD_DEFINED__
+#define __IAMDevMemoryControl_FWD_DEFINED__
+typedef interface IAMDevMemoryControl IAMDevMemoryControl;
+#endif
+
+#ifndef __IAMDroppedFrames_FWD_DEFINED__
+#define __IAMDroppedFrames_FWD_DEFINED__
+typedef interface IAMDroppedFrames IAMDroppedFrames;
+#endif
+
+#ifndef __IAMExtDevice_FWD_DEFINED__
+#define __IAMExtDevice_FWD_DEFINED__
+typedef interface IAMExtDevice IAMExtDevice;
+#endif
+
+#ifndef __IAMExtTransport_FWD_DEFINED__
+#define __IAMExtTransport_FWD_DEFINED__
+typedef interface IAMExtTransport IAMExtTransport;
+#endif
+
+#ifndef __IAMGraphStreams_FWD_DEFINED__
+#define __IAMGraphStreams_FWD_DEFINED__
+typedef interface IAMGraphStreams IAMGraphStreams;
+#endif
+
+#ifndef __IAMLatency_FWD_DEFINED__
+#define __IAMLatency_FWD_DEFINED__
+typedef interface IAMLatency IAMLatency;
+#endif
+
+#ifndef __IAMOpenProgress_FWD_DEFINED__
+#define __IAMOpenProgress_FWD_DEFINED__
+typedef interface IAMOpenProgress IAMOpenProgress;
+#endif
+
+#ifndef __IAMOverlayFX_FWD_DEFINED__
+#define __IAMOverlayFX_FWD_DEFINED__
+typedef interface IAMOverlayFX IAMOverlayFX;
+#endif
+
+#ifndef __IAMPhysicalPinInfo_FWD_DEFINED__
+#define __IAMPhysicalPinInfo_FWD_DEFINED__
+typedef interface IAMPhysicalPinInfo IAMPhysicalPinInfo;
+#endif
+
+#ifndef __IAMPushSource_FWD_DEFINED__
+#define __IAMPushSource_FWD_DEFINED__
+typedef interface IAMPushSource IAMPushSource;
+#endif
+
+#ifndef __IAMStreamConfig_FWD_DEFINED__
+#define __IAMStreamConfig_FWD_DEFINED__
+typedef interface IAMStreamConfig IAMStreamConfig;
+#endif
+
+#ifndef __IAMTimecodeDisplay_FWD_DEFINED__
+#define __IAMTimecodeDisplay_FWD_DEFINED__
+typedef interface IAMTimecodeDisplay IAMTimecodeDisplay;
+#endif
+
+#ifndef __IAMTimecodeGenerator_FWD_DEFINED__
+#define __IAMTimecodeGenerator_FWD_DEFINED__
+typedef interface IAMTimecodeGenerator IAMTimecodeGenerator;
+#endif
+
+#ifndef __IAMTimecodeReader_FWD_DEFINED__
+#define __IAMTimecodeReader_FWD_DEFINED__
+typedef interface IAMTimecodeReader IAMTimecodeReader;
+#endif
+
+#ifndef __IAMTVTuner_FWD_DEFINED__
+#define __IAMTVTuner_FWD_DEFINED__
+typedef interface IAMTVTuner IAMTVTuner;
+#endif
+
+#ifndef __IAMVfwCaptureDialogs_FWD_DEFINED__
+#define __IAMVfwCaptureDialogs_FWD_DEFINED__
+typedef interface IAMVfwCaptureDialogs IAMVfwCaptureDialogs;
+#endif
+
+#ifndef __IAMVfwCompressDialogs_FWD_DEFINED__
+#define __IAMVfwCompressDialogs_FWD_DEFINED__
+typedef interface IAMVfwCompressDialogs IAMVfwCompressDialogs;
+#endif
+
+#ifndef __IAMVideoCompression_FWD_DEFINED__
+#define __IAMVideoCompression_FWD_DEFINED__
+typedef interface IAMVideoCompression IAMVideoCompression;
+#endif
+
+#ifndef __IAMVideoDecimationProperties_FWD_DEFINED__
+#define __IAMVideoDecimationProperties_FWD_DEFINED__
+typedef interface IAMVideoDecimationProperties IAMVideoDecimationProperties;
+#endif
+
+#ifndef __IAMVideoProcAmp_FWD_DEFINED__
+#define __IAMVideoProcAmp_FWD_DEFINED__
+typedef interface IAMVideoProcAmp IAMVideoProcAmp;
+#endif
+
+#ifndef __IAMGraphBuilderCallback_FWD_DEFINED__
+#define __IAMGraphBuilderCallback_FWD_DEFINED__
+typedef interface IAMGraphBuilderCallback IAMGraphBuilderCallback;
+#endif
+
+#ifndef __ICaptureGraphBuilder_FWD_DEFINED__
+#define __ICaptureGraphBuilder_FWD_DEFINED__
+typedef interface ICaptureGraphBuilder ICaptureGraphBuilder;
 #endif
 
 #ifndef __ICaptureGraphBuilder2_FWD_DEFINED__
 #define __ICaptureGraphBuilder2_FWD_DEFINED__
-typedef struct ICaptureGraphBuilder2 ICaptureGraphBuilder2;
+typedef interface ICaptureGraphBuilder2 ICaptureGraphBuilder2;
 #endif
 
-#ifndef __IFilterGraph2_FWD_DEFINED__
-#define __IFilterGraph2_FWD_DEFINED__
-typedef struct IFilterGraph2 IFilterGraph2;
+#ifndef __IConfigAviMux_FWD_DEFINED__
+#define __IConfigAviMux_FWD_DEFINED__
+typedef interface IConfigAviMux IConfigAviMux;
 #endif
 
-#ifndef __IStreamBuilder_FWD_DEFINED__
-#define __IStreamBuilder_FWD_DEFINED__
-typedef struct IStreamBuilder IStreamBuilder;
+#ifndef __IConfigInterleaving_FWD_DEFINED__
+#define __IConfigInterleaving_FWD_DEFINED__
+typedef interface IConfigInterleaving IConfigInterleaving;
 #endif
 
-#ifndef __IAsyncReader_FWD_DEFINED__
-#define __IAsyncReader_FWD_DEFINED__
-typedef struct IAsyncReader IAsyncReader;
+#ifndef __IDecimateVideoImage_FWD_DEFINED__
+#define __IDecimateVideoImage_FWD_DEFINED__
+typedef interface IDecimateVideoImage IDecimateVideoImage;
 #endif
 
-#ifndef __IGraphVersion_FWD_DEFINED__
-#define __IGraphVersion_FWD_DEFINED__
-typedef struct IGraphVersion IGraphVersion;
+#ifndef __IDrawVideoImage_FWD_DEFINED__
+#define __IDrawVideoImage_FWD_DEFINED__
+typedef interface IDrawVideoImage IDrawVideoImage;
 #endif
 
-#ifndef __IResourceConsumer_FWD_DEFINED__
-#define __IResourceConsumer_FWD_DEFINED__
-typedef struct IResourceConsumer IResourceConsumer;
+#ifndef __IEnumRegFilters_FWD_DEFINED__
+#define __IEnumRegFilters_FWD_DEFINED__
+typedef interface IEnumRegFilters IEnumRegFilters;
 #endif
 
-#ifndef __IResourceManager_FWD_DEFINED__
-#define __IResourceManager_FWD_DEFINED__
-typedef struct IResourceManager IResourceManager;
+#ifndef __IEnumStreamIdMap_FWD_DEFINED__
+#define __IEnumStreamIdMap_FWD_DEFINED__
+typedef interface IEnumStreamIdMap IEnumStreamIdMap;
 #endif
 
+#ifndef __IFileSourceFilter_FWD_DEFINED__
+#define __IFileSourceFilter_FWD_DEFINED__
+typedef interface IFileSourceFilter IFileSourceFilter;
+#endif
+
+#ifndef __IFileSinkFilter_FWD_DEFINED__
+#define __IFileSinkFilter_FWD_DEFINED__
+typedef interface IFileSinkFilter IFileSinkFilter;
+#endif
+
+#ifndef __IFileSinkFilter2_FWD_DEFINED__
+#define __IFileSinkFilter2_FWD_DEFINED__
+typedef interface IFileSinkFilter2 IFileSinkFilter2;
+#endif
+
+#ifndef __IFilterMapper_FWD_DEFINED__
+#define __IFilterMapper_FWD_DEFINED__
+typedef interface IFilterMapper IFilterMapper;
+#endif
+
+#ifndef __IFilterMapper2_FWD_DEFINED__
+#define __IFilterMapper2_FWD_DEFINED__
+typedef interface IFilterMapper2 IFilterMapper2;
+#endif
+
+#ifndef __IGraphBuilder_FWD_DEFINED__
+#define __IGraphBuilder_FWD_DEFINED__
+typedef interface IGraphBuilder IGraphBuilder;
+#endif
+
+#ifndef __IKsPropertySet_FWD_DEFINED__
+#define __IKsPropertySet_FWD_DEFINED__
+typedef interface IKsPropertySet IKsPropertySet;
+#endif
+
+#ifndef __IMediaEventSink_FWD_DEFINED__
+#define __IMediaEventSink_FWD_DEFINED__
+typedef interface IMediaEventSink IMediaEventSink;
+#endif
+
+#ifndef __IMpeg2Demultiplexer_FWD_DEFINED__
+#define __IMpeg2Demultiplexer_FWD_DEFINED__
+typedef interface IMpeg2Demultiplexer IMpeg2Demultiplexer;
+#endif
+
+#ifndef __IMPEG2StreamIdMap_FWD_DEFINED__
+#define __IMPEG2StreamIdMap_FWD_DEFINED__
+typedef interface IMPEG2StreamIdMap IMPEG2StreamIdMap;
+#endif
+
+#ifndef __IOverlay_FWD_DEFINED__
+#define __IOverlay_FWD_DEFINED__
+typedef interface IOverlay IOverlay;
+#endif
+
+#ifndef __IOverlayNotify_FWD_DEFINED__
+#define __IOverlayNotify_FWD_DEFINED__
+typedef interface IOverlayNotify IOverlayNotify;
+#endif
+
+#ifndef __IOverlayNotify2_FWD_DEFINED__
+#define __IOverlayNotify2_FWD_DEFINED__
+typedef interface IOverlayNotify2 IOverlayNotify2;
+#endif
+
+#ifndef __IQualityControl_FWD_DEFINED__
+#define __IQualityControl_FWD_DEFINED__
+typedef interface IQualityControl IQualityControl;
+#endif
+
+#ifndef __ISeekingPassThru_FWD_DEFINED__
+#define __ISeekingPassThru_FWD_DEFINED__
+typedef interface ISeekingPassThru ISeekingPassThru;
+#endif
+
+typedef struct __WIDL_axextend_generated_name_00000000 {
+    CLSID Clsid;
+    LPWSTR Name;
+} REGFILTER;
+/*****************************************************************************
+ * IEnumRegFilters interface
+ */
+#ifndef __IEnumRegFilters_INTERFACE_DEFINED__
+#define __IEnumRegFilters_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IEnumRegFilters, 0x56a868a4, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a868a4-0ad4-11ce-b03a-0020af0ba770")
+IEnumRegFilters : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Next(
+        ULONG cFilters,
+        REGFILTER **apRegFilter,
+        ULONG *pcFetched) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Skip(
+        ULONG cFilters) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Reset(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Clone(
+        IEnumRegFilters **ppEnum) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IEnumRegFilters, 0x56a868a4, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IEnumRegFiltersVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IEnumRegFilters* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IEnumRegFilters* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IEnumRegFilters* This);
+
+    /*** IEnumRegFilters methods ***/
+    HRESULT (STDMETHODCALLTYPE *Next)(
+        IEnumRegFilters* This,
+        ULONG cFilters,
+        REGFILTER **apRegFilter,
+        ULONG *pcFetched);
+
+    HRESULT (STDMETHODCALLTYPE *Skip)(
+        IEnumRegFilters* This,
+        ULONG cFilters);
+
+    HRESULT (STDMETHODCALLTYPE *Reset)(
+        IEnumRegFilters* This);
+
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IEnumRegFilters* This,
+        IEnumRegFilters **ppEnum);
+
+    END_INTERFACE
+} IEnumRegFiltersVtbl;
+interface IEnumRegFilters {
+    CONST_VTBL IEnumRegFiltersVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IEnumRegFilters_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IEnumRegFilters_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IEnumRegFilters_Release(This) (This)->lpVtbl->Release(This)
+/*** IEnumRegFilters methods ***/
+#define IEnumRegFilters_Next(This,cFilters,apRegFilter,pcFetched) (This)->lpVtbl->Next(This,cFilters,apRegFilter,pcFetched)
+#define IEnumRegFilters_Skip(This,cFilters) (This)->lpVtbl->Skip(This,cFilters)
+#define IEnumRegFilters_Reset(This) (This)->lpVtbl->Reset(This)
+#define IEnumRegFilters_Clone(This,ppEnum) (This)->lpVtbl->Clone(This,ppEnum)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IEnumRegFilters_Next_Proxy(
+    IEnumRegFilters* This,
+    ULONG cFilters,
+    REGFILTER **apRegFilter,
+    ULONG *pcFetched);
+void __RPC_STUB IEnumRegFilters_Next_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumRegFilters_Skip_Proxy(
+    IEnumRegFilters* This,
+    ULONG cFilters);
+void __RPC_STUB IEnumRegFilters_Skip_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumRegFilters_Reset_Proxy(
+    IEnumRegFilters* This);
+void __RPC_STUB IEnumRegFilters_Reset_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumRegFilters_Clone_Proxy(
+    IEnumRegFilters* This,
+    IEnumRegFilters **ppEnum);
+void __RPC_STUB IEnumRegFilters_Clone_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IEnumRegFilters_INTERFACE_DEFINED__ */
+
+typedef IEnumRegFilters *PENUMREGFILTERS;
+/*****************************************************************************
+ * IFilterMapper interface
+ */
+#ifndef __IFilterMapper_INTERFACE_DEFINED__
+#define __IFilterMapper_INTERFACE_DEFINED__
+
+enum {
+    MERIT_PREFERRED = 0x800000,
+    MERIT_NORMAL = 0x600000,
+    MERIT_UNLIKELY = 0x400000,
+    MERIT_DO_NOT_USE = 0x200000,
+    MERIT_SW_COMPRESSOR = 0x100000,
+    MERIT_HW_COMPRESSOR = 0x100050
+};
+
+DEFINE_GUID(IID_IFilterMapper, 0x56a868a3, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a868a3-0ad4-11ce-b03a-0020af0ba770")
+IFilterMapper : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE RegisterFilter(
+        CLSID clsid,
+        LPCWSTR Name,
+        DWORD dwMerit) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RegisterFilterInstance(
+        CLSID clsid,
+        LPCWSTR Name,
+        CLSID *MRId) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RegisterPin(
+        CLSID Filter,
+        LPCWSTR Name,
+        WINBOOL bRendered,
+        WINBOOL bOutput,
+        WINBOOL bZero,
+        WINBOOL bMany,
+        CLSID ConnectsToFilter,
+        LPCWSTR ConnectsToPin) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RegisterPinType(
+        CLSID clsFilter,
+        LPCWSTR strName,
+        CLSID clsMajorType,
+        CLSID clsSubType) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE UnregisterFilter(
+        CLSID Filter) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE UnregisterFilterInstance(
+        CLSID MRId) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE UnregisterPin(
+        CLSID Filter,
+        LPCWSTR Name) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EnumMatchingFilters(
+        IEnumRegFilters **ppEnum,
+        DWORD dwMerit,
+        WINBOOL bInputNeeded,
+        CLSID clsInMaj,
+        CLSID clsInSub,
+        WINBOOL bRender,
+        WINBOOL bOututNeeded,
+        CLSID clsOutMaj,
+        CLSID clsOutSub) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IFilterMapper, 0x56a868a3, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IFilterMapperVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IFilterMapper* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IFilterMapper* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IFilterMapper* This);
+
+    /*** IFilterMapper methods ***/
+    HRESULT (STDMETHODCALLTYPE *RegisterFilter)(
+        IFilterMapper* This,
+        CLSID clsid,
+        LPCWSTR Name,
+        DWORD dwMerit);
+
+    HRESULT (STDMETHODCALLTYPE *RegisterFilterInstance)(
+        IFilterMapper* This,
+        CLSID clsid,
+        LPCWSTR Name,
+        CLSID *MRId);
+
+    HRESULT (STDMETHODCALLTYPE *RegisterPin)(
+        IFilterMapper* This,
+        CLSID Filter,
+        LPCWSTR Name,
+        WINBOOL bRendered,
+        WINBOOL bOutput,
+        WINBOOL bZero,
+        WINBOOL bMany,
+        CLSID ConnectsToFilter,
+        LPCWSTR ConnectsToPin);
+
+    HRESULT (STDMETHODCALLTYPE *RegisterPinType)(
+        IFilterMapper* This,
+        CLSID clsFilter,
+        LPCWSTR strName,
+        CLSID clsMajorType,
+        CLSID clsSubType);
+
+    HRESULT (STDMETHODCALLTYPE *UnregisterFilter)(
+        IFilterMapper* This,
+        CLSID Filter);
+
+    HRESULT (STDMETHODCALLTYPE *UnregisterFilterInstance)(
+        IFilterMapper* This,
+        CLSID MRId);
+
+    HRESULT (STDMETHODCALLTYPE *UnregisterPin)(
+        IFilterMapper* This,
+        CLSID Filter,
+        LPCWSTR Name);
+
+    HRESULT (STDMETHODCALLTYPE *EnumMatchingFilters)(
+        IFilterMapper* This,
+        IEnumRegFilters **ppEnum,
+        DWORD dwMerit,
+        WINBOOL bInputNeeded,
+        CLSID clsInMaj,
+        CLSID clsInSub,
+        WINBOOL bRender,
+        WINBOOL bOututNeeded,
+        CLSID clsOutMaj,
+        CLSID clsOutSub);
+
+    END_INTERFACE
+} IFilterMapperVtbl;
+interface IFilterMapper {
+    CONST_VTBL IFilterMapperVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IFilterMapper_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFilterMapper_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFilterMapper_Release(This) (This)->lpVtbl->Release(This)
+/*** IFilterMapper methods ***/
+#define IFilterMapper_RegisterFilter(This,clsid,Name,dwMerit) (This)->lpVtbl->RegisterFilter(This,clsid,Name,dwMerit)
+#define IFilterMapper_RegisterFilterInstance(This,clsid,Name,MRId) (This)->lpVtbl->RegisterFilterInstance(This,clsid,Name,MRId)
+#define IFilterMapper_RegisterPin(This,Filter,Name,bRendered,bOutput,bZero,bMany,ConnectsToFilter,ConnectsToPin) (This)->lpVtbl->RegisterPin(This,Filter,Name,bRendered,bOutput,bZero,bMany,ConnectsToFilter,ConnectsToPin)
+#define IFilterMapper_RegisterPinType(This,clsFilter,strName,clsMajorType,clsSubType) (This)->lpVtbl->RegisterPinType(This,clsFilter,strName,clsMajorType,clsSubType)
+#define IFilterMapper_UnregisterFilter(This,Filter) (This)->lpVtbl->UnregisterFilter(This,Filter)
+#define IFilterMapper_UnregisterFilterInstance(This,MRId) (This)->lpVtbl->UnregisterFilterInstance(This,MRId)
+#define IFilterMapper_UnregisterPin(This,Filter,Name) (This)->lpVtbl->UnregisterPin(This,Filter,Name)
+#define IFilterMapper_EnumMatchingFilters(This,ppEnum,dwMerit,bInputNeeded,clsInMaj,clsInSub,bRender,bOututNeeded,clsOutMaj,clsOutSub) (This)->lpVtbl->EnumMatchingFilters(This,ppEnum,dwMerit,bInputNeeded,clsInMaj,clsInSub,bRender,bOututNeeded,clsOutMaj,clsOutSub)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IFilterMapper_RegisterFilter_Proxy(
+    IFilterMapper* This,
+    CLSID clsid,
+    LPCWSTR Name,
+    DWORD dwMerit);
+void __RPC_STUB IFilterMapper_RegisterFilter_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFilterMapper_RegisterFilterInstance_Proxy(
+    IFilterMapper* This,
+    CLSID clsid,
+    LPCWSTR Name,
+    CLSID *MRId);
+void __RPC_STUB IFilterMapper_RegisterFilterInstance_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFilterMapper_RegisterPin_Proxy(
+    IFilterMapper* This,
+    CLSID Filter,
+    LPCWSTR Name,
+    WINBOOL bRendered,
+    WINBOOL bOutput,
+    WINBOOL bZero,
+    WINBOOL bMany,
+    CLSID ConnectsToFilter,
+    LPCWSTR ConnectsToPin);
+void __RPC_STUB IFilterMapper_RegisterPin_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFilterMapper_RegisterPinType_Proxy(
+    IFilterMapper* This,
+    CLSID clsFilter,
+    LPCWSTR strName,
+    CLSID clsMajorType,
+    CLSID clsSubType);
+void __RPC_STUB IFilterMapper_RegisterPinType_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFilterMapper_UnregisterFilter_Proxy(
+    IFilterMapper* This,
+    CLSID Filter);
+void __RPC_STUB IFilterMapper_UnregisterFilter_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFilterMapper_UnregisterFilterInstance_Proxy(
+    IFilterMapper* This,
+    CLSID MRId);
+void __RPC_STUB IFilterMapper_UnregisterFilterInstance_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFilterMapper_UnregisterPin_Proxy(
+    IFilterMapper* This,
+    CLSID Filter,
+    LPCWSTR Name);
+void __RPC_STUB IFilterMapper_UnregisterPin_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFilterMapper_EnumMatchingFilters_Proxy(
+    IFilterMapper* This,
+    IEnumRegFilters **ppEnum,
+    DWORD dwMerit,
+    WINBOOL bInputNeeded,
+    CLSID clsInMaj,
+    CLSID clsInSub,
+    WINBOOL bRender,
+    WINBOOL bOututNeeded,
+    CLSID clsOutMaj,
+    CLSID clsOutSub);
+void __RPC_STUB IFilterMapper_EnumMatchingFilters_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IFilterMapper_INTERFACE_DEFINED__ */
+
+typedef struct __WIDL_axextend_generated_name_00000001 {
+    const CLSID *clsMajorType;
+    const CLSID *clsMinorType;
+} REGPINTYPES;
+typedef struct __WIDL_axextend_generated_name_00000002 {
+    LPWSTR strName;
+    WINBOOL bRendered;
+    WINBOOL bOutput;
+    WINBOOL bZero;
+    WINBOOL bMany;
+    const CLSID *clsConnectsToFilter;
+    const WCHAR *strConnectsToPin;
+    UINT nMediaTypes;
+    const REGPINTYPES *lpMediaType;
+} REGFILTERPINS;
+typedef struct __WIDL_axextend_generated_name_00000003 {
+    CLSID clsMedium;
+    DWORD dw1;
+    DWORD dw2;
+} REGPINMEDIUM;
+enum {
+    REG_PINFLAG_B_ZERO = 0x1,
+    REG_PINFLAG_B_RENDERER = 0x2,
+    REG_PINFLAG_B_MANY = 0x4,
+    REG_PINFLAG_B_OUTPUT = 0x8
+};
+
+typedef struct __WIDL_axextend_generated_name_00000004 {
+    DWORD dwFlags;
+    UINT cInstances;
+    UINT nMediaTypes;
+    const REGPINTYPES *lpMediaType;
+    UINT nMediums;
+    const REGPINMEDIUM *lpMedium;
+    const CLSID *clsPinCategory;
+} REGFILTERPINS2;
+typedef struct __WIDL_axextend_generated_name_00000005 {
+    DWORD dwVersion;
+    DWORD dwMerit;
+    __C89_NAMELESS union {
+        __C89_NAMELESS struct {
+            ULONG cPins;
+            const REGFILTERPINS *rgPins;
+        } __C89_NAMELESSSTRUCTNAME1;
+        __C89_NAMELESS struct {
+            ULONG cPins2;
+            const REGFILTERPINS2 *rgPins2;
+        } __C89_NAMELESSSTRUCTNAME2;
+    } __C89_NAMELESSUNIONNAME;
+} REGFILTER2;
+/*****************************************************************************
+ * IFilterMapper2 interface
+ */
+#ifndef __IFilterMapper2_INTERFACE_DEFINED__
+#define __IFilterMapper2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IFilterMapper2, 0xb79bb0b0, 0x33c1, 0x11d1, 0xab,0xe1, 0x00,0xa0,0xc9,0x05,0xf3,0x75);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("b79bb0b0-33c1-11d1-abe1-00a0c905f375")
+IFilterMapper2 : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE CreateCategory(
+        REFCLSID clsidCategory,
+        DWORD dwCategoryMerit,
+        LPCWSTR Description) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE UnregisterFilter(
+        const CLSID *pclsidCategory,
+        LPCOLESTR szInstance,
+        REFCLSID Filter) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RegisterFilter(
+        REFCLSID clsidFilter,
+        LPCWSTR Name,
+        IMoniker **ppMoniker,
+        const CLSID *pclsidCategory,
+        LPCOLESTR szInstance,
+        const REGFILTER2 *prf2) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EnumMatchingFilters(
+        IEnumMoniker **ppEnum,
+        DWORD dwFlags,
+        WINBOOL bExactMatch,
+        DWORD dwMerit,
+        WINBOOL bInputNeeded,
+        DWORD cInputTypes,
+        const GUID *pInputTypes,
+        const REGPINMEDIUM *pMedIn,
+        const CLSID *pPinCategoryIn,
+        WINBOOL bRender,
+        WINBOOL bOutputNeeded,
+        DWORD cOutputTypes,
+        const GUID *pOutputTypes,
+        const REGPINMEDIUM *pMedOut,
+        const CLSID *pPinCategoryOut) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IFilterMapper2, 0xb79bb0b0, 0x33c1, 0x11d1, 0xab,0xe1, 0x00,0xa0,0xc9,0x05,0xf3,0x75)
+#endif
+#else
+typedef struct IFilterMapper2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IFilterMapper2* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IFilterMapper2* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IFilterMapper2* This);
+
+    /*** IFilterMapper2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateCategory)(
+        IFilterMapper2* This,
+        REFCLSID clsidCategory,
+        DWORD dwCategoryMerit,
+        LPCWSTR Description);
+
+    HRESULT (STDMETHODCALLTYPE *UnregisterFilter)(
+        IFilterMapper2* This,
+        const CLSID *pclsidCategory,
+        LPCOLESTR szInstance,
+        REFCLSID Filter);
+
+    HRESULT (STDMETHODCALLTYPE *RegisterFilter)(
+        IFilterMapper2* This,
+        REFCLSID clsidFilter,
+        LPCWSTR Name,
+        IMoniker **ppMoniker,
+        const CLSID *pclsidCategory,
+        LPCOLESTR szInstance,
+        const REGFILTER2 *prf2);
+
+    HRESULT (STDMETHODCALLTYPE *EnumMatchingFilters)(
+        IFilterMapper2* This,
+        IEnumMoniker **ppEnum,
+        DWORD dwFlags,
+        WINBOOL bExactMatch,
+        DWORD dwMerit,
+        WINBOOL bInputNeeded,
+        DWORD cInputTypes,
+        const GUID *pInputTypes,
+        const REGPINMEDIUM *pMedIn,
+        const CLSID *pPinCategoryIn,
+        WINBOOL bRender,
+        WINBOOL bOutputNeeded,
+        DWORD cOutputTypes,
+        const GUID *pOutputTypes,
+        const REGPINMEDIUM *pMedOut,
+        const CLSID *pPinCategoryOut);
+
+    END_INTERFACE
+} IFilterMapper2Vtbl;
+interface IFilterMapper2 {
+    CONST_VTBL IFilterMapper2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IFilterMapper2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFilterMapper2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFilterMapper2_Release(This) (This)->lpVtbl->Release(This)
+/*** IFilterMapper2 methods ***/
+#define IFilterMapper2_CreateCategory(This,clsidCategory,dwCategoryMerit,Description) (This)->lpVtbl->CreateCategory(This,clsidCategory,dwCategoryMerit,Description)
+#define IFilterMapper2_UnregisterFilter(This,pclsidCategory,szInstance,Filter) (This)->lpVtbl->UnregisterFilter(This,pclsidCategory,szInstance,Filter)
+#define IFilterMapper2_RegisterFilter(This,clsidFilter,Name,ppMoniker,pclsidCategory,szInstance,prf2) (This)->lpVtbl->RegisterFilter(This,clsidFilter,Name,ppMoniker,pclsidCategory,szInstance,prf2)
+#define IFilterMapper2_EnumMatchingFilters(This,ppEnum,dwFlags,bExactMatch,dwMerit,bInputNeeded,cInputTypes,pInputTypes,pMedIn,pPinCategoryIn,bRender,bOutputNeeded,cOutputTypes,pOutputTypes,pMedOut,pPinCategoryOut) (This)->lpVtbl->EnumMatchingFilters(This,ppEnum,dwFlags,bExactMatch,dwMerit,bInputNeeded,cInputTypes,pInputTypes,pMedIn,pPinCategoryIn,bRender,bOutputNeeded,cOutputTypes,pOutputTypes,pMedOut,pPinCategoryOut)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IFilterMapper2_CreateCategory_Proxy(
+    IFilterMapper2* This,
+    REFCLSID clsidCategory,
+    DWORD dwCategoryMerit,
+    LPCWSTR Description);
+void __RPC_STUB IFilterMapper2_CreateCategory_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFilterMapper2_UnregisterFilter_Proxy(
+    IFilterMapper2* This,
+    const CLSID *pclsidCategory,
+    LPCOLESTR szInstance,
+    REFCLSID Filter);
+void __RPC_STUB IFilterMapper2_UnregisterFilter_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFilterMapper2_RegisterFilter_Proxy(
+    IFilterMapper2* This,
+    REFCLSID clsidFilter,
+    LPCWSTR Name,
+    IMoniker **ppMoniker,
+    const CLSID *pclsidCategory,
+    LPCOLESTR szInstance,
+    const REGFILTER2 *prf2);
+void __RPC_STUB IFilterMapper2_RegisterFilter_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFilterMapper2_EnumMatchingFilters_Proxy(
+    IFilterMapper2* This,
+    IEnumMoniker **ppEnum,
+    DWORD dwFlags,
+    WINBOOL bExactMatch,
+    DWORD dwMerit,
+    WINBOOL bInputNeeded,
+    DWORD cInputTypes,
+    const GUID *pInputTypes,
+    const REGPINMEDIUM *pMedIn,
+    const CLSID *pPinCategoryIn,
+    WINBOOL bRender,
+    WINBOOL bOutputNeeded,
+    DWORD cOutputTypes,
+    const GUID *pOutputTypes,
+    const REGPINMEDIUM *pMedOut,
+    const CLSID *pPinCategoryOut);
+void __RPC_STUB IFilterMapper2_EnumMatchingFilters_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IFilterMapper2_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IFilterMapper3 interface
+ */
+#ifndef __IFilterMapper3_INTERFACE_DEFINED__
+#define __IFilterMapper3_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IFilterMapper3, 0xb79bb0b1, 0x33c1, 0x11d1, 0xab,0xe1, 0x00,0xa0,0xc9,0x05,0xf3,0x75);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("b79bb0b1-33c1-11d1-abe1-00a0c905f375")
+IFilterMapper3 : public IFilterMapper2
+{
+    virtual HRESULT STDMETHODCALLTYPE GetICreateDevEnum(
+        ICreateDevEnum **ppEnum) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IFilterMapper3, 0xb79bb0b1, 0x33c1, 0x11d1, 0xab,0xe1, 0x00,0xa0,0xc9,0x05,0xf3,0x75)
+#endif
+#else
+typedef struct IFilterMapper3Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IFilterMapper3* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IFilterMapper3* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IFilterMapper3* This);
+
+    /*** IFilterMapper2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateCategory)(
+        IFilterMapper3* This,
+        REFCLSID clsidCategory,
+        DWORD dwCategoryMerit,
+        LPCWSTR Description);
+
+    HRESULT (STDMETHODCALLTYPE *UnregisterFilter)(
+        IFilterMapper3* This,
+        const CLSID *pclsidCategory,
+        LPCOLESTR szInstance,
+        REFCLSID Filter);
+
+    HRESULT (STDMETHODCALLTYPE *RegisterFilter)(
+        IFilterMapper3* This,
+        REFCLSID clsidFilter,
+        LPCWSTR Name,
+        IMoniker **ppMoniker,
+        const CLSID *pclsidCategory,
+        LPCOLESTR szInstance,
+        const REGFILTER2 *prf2);
+
+    HRESULT (STDMETHODCALLTYPE *EnumMatchingFilters)(
+        IFilterMapper3* This,
+        IEnumMoniker **ppEnum,
+        DWORD dwFlags,
+        WINBOOL bExactMatch,
+        DWORD dwMerit,
+        WINBOOL bInputNeeded,
+        DWORD cInputTypes,
+        const GUID *pInputTypes,
+        const REGPINMEDIUM *pMedIn,
+        const CLSID *pPinCategoryIn,
+        WINBOOL bRender,
+        WINBOOL bOutputNeeded,
+        DWORD cOutputTypes,
+        const GUID *pOutputTypes,
+        const REGPINMEDIUM *pMedOut,
+        const CLSID *pPinCategoryOut);
+
+    /*** IFilterMapper3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetICreateDevEnum)(
+        IFilterMapper3* This,
+        ICreateDevEnum **ppEnum);
+
+    END_INTERFACE
+} IFilterMapper3Vtbl;
+interface IFilterMapper3 {
+    CONST_VTBL IFilterMapper3Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IFilterMapper3_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFilterMapper3_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFilterMapper3_Release(This) (This)->lpVtbl->Release(This)
+/*** IFilterMapper2 methods ***/
+#define IFilterMapper3_CreateCategory(This,clsidCategory,dwCategoryMerit,Description) (This)->lpVtbl->CreateCategory(This,clsidCategory,dwCategoryMerit,Description)
+#define IFilterMapper3_UnregisterFilter(This,pclsidCategory,szInstance,Filter) (This)->lpVtbl->UnregisterFilter(This,pclsidCategory,szInstance,Filter)
+#define IFilterMapper3_RegisterFilter(This,clsidFilter,Name,ppMoniker,pclsidCategory,szInstance,prf2) (This)->lpVtbl->RegisterFilter(This,clsidFilter,Name,ppMoniker,pclsidCategory,szInstance,prf2)
+#define IFilterMapper3_EnumMatchingFilters(This,ppEnum,dwFlags,bExactMatch,dwMerit,bInputNeeded,cInputTypes,pInputTypes,pMedIn,pPinCategoryIn,bRender,bOutputNeeded,cOutputTypes,pOutputTypes,pMedOut,pPinCategoryOut) (This)->lpVtbl->EnumMatchingFilters(This,ppEnum,dwFlags,bExactMatch,dwMerit,bInputNeeded,cInputTypes,pInputTypes,pMedIn,pPinCategoryIn,bRender,bOutputNeeded,cOutputTypes,pOutputTypes,pMedOut,pPinCategoryOut)
+/*** IFilterMapper3 methods ***/
+#define IFilterMapper3_GetICreateDevEnum(This,ppEnum) (This)->lpVtbl->GetICreateDevEnum(This,ppEnum)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IFilterMapper3_GetICreateDevEnum_Proxy(
+    IFilterMapper3* This,
+    ICreateDevEnum **ppEnum);
+void __RPC_STUB IFilterMapper3_GetICreateDevEnum_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IFilterMapper3_INTERFACE_DEFINED__ */
+
+typedef enum tagQualityMessageType {
+    Famine = 0,
+    Flood = 1
+} QualityMessageType;
+typedef struct tagQuality {
+    QualityMessageType Type;
+    LONG Proportion;
+    REFERENCE_TIME Late;
+    REFERENCE_TIME TimeStamp;
+} Quality;
+typedef IQualityControl *PQUALITYCONTROL;
+/*****************************************************************************
+ * IQualityControl interface
+ */
+#ifndef __IQualityControl_INTERFACE_DEFINED__
+#define __IQualityControl_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IQualityControl, 0x56a868a5, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a868a5-0ad4-11ce-b03a-0020af0ba770")
+IQualityControl : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Notify(
+        IBaseFilter *pSelf,
+        Quality q) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetSink(
+        IQualityControl *piqc) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IQualityControl, 0x56a868a5, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IQualityControlVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IQualityControl* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IQualityControl* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IQualityControl* This);
+
+    /*** IQualityControl methods ***/
+    HRESULT (STDMETHODCALLTYPE *Notify)(
+        IQualityControl* This,
+        IBaseFilter *pSelf,
+        Quality q);
+
+    HRESULT (STDMETHODCALLTYPE *SetSink)(
+        IQualityControl* This,
+        IQualityControl *piqc);
+
+    END_INTERFACE
+} IQualityControlVtbl;
+interface IQualityControl {
+    CONST_VTBL IQualityControlVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IQualityControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IQualityControl_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IQualityControl_Release(This) (This)->lpVtbl->Release(This)
+/*** IQualityControl methods ***/
+#define IQualityControl_Notify(This,pSelf,q) (This)->lpVtbl->Notify(This,pSelf,q)
+#define IQualityControl_SetSink(This,piqc) (This)->lpVtbl->SetSink(This,piqc)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IQualityControl_Notify_Proxy(
+    IQualityControl* This,
+    IBaseFilter *pSelf,
+    Quality q);
+void __RPC_STUB IQualityControl_Notify_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IQualityControl_SetSink_Proxy(
+    IQualityControl* This,
+    IQualityControl *piqc);
+void __RPC_STUB IQualityControl_SetSink_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IQualityControl_INTERFACE_DEFINED__ */
+
+enum {
+    CK_NOCOLORKEY = 0x0,
+    CK_INDEX = 0x1,
+    CK_RGB = 0x2
+};
+
+typedef struct tagCOLORKEY {
+    DWORD KeyType;
+    DWORD PaletteIndex;
+    COLORREF LowColorValue;
+    COLORREF HighColorValue;
+} COLORKEY;
+enum {
+    ADVISE_NONE = 0x0,
+    ADVISE_CLIPPING = 0x1,
+    ADVISE_PALETTE = 0x2,
+    ADVISE_COLORKEY = 0x4,
+    ADVISE_POSITION = 0x8,
+    ADVISE_DISPLAY_CHANGE = 0x10
+};
+
+#define ADVISE_ALL (((ADVISE_CLIPPING | ADVISE_PALETTE) | ADVISE_COLORKEY) | ADVISE_POSITION)
+
+#define ADVISE_ALL2 (ADVISE_ALL | ADVISE_DISPLAY_CHANGE)
+
+#ifndef _WINGDI_
+typedef struct _RGNDATAHEADER {
+    DWORD dwSize;
+    DWORD iType;
+    DWORD nCount;
+    DWORD nRgnSize;
+    RECT rcBound;
+} RGNDATAHEADER;
+typedef struct _RGNDATA {
+    RGNDATAHEADER rdh;
+    char Buffer[1];
+} RGNDATA;
+#endif /* _WINGDI_ */
+/*****************************************************************************
+ * IOverlayNotify interface
+ */
+#ifndef __IOverlayNotify_INTERFACE_DEFINED__
+#define __IOverlayNotify_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IOverlayNotify, 0x56a868a0, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a868a0-0ad4-11ce-b03a-0020af0ba770")
+IOverlayNotify : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE OnPaletteChange(
+        DWORD dwColors,
+        const PALETTEENTRY *pPalette) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OnClipChange(
+        const RECT *pSourceRect,
+        const RECT *pDestinationRect,
+        const RGNDATA *pRgnData) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OnColorKeyChange(
+        const COLORKEY *pColorKey) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OnPositionChange(
+        const RECT *pSourceRect,
+        const RECT *pDestinationRect) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IOverlayNotify, 0x56a868a0, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IOverlayNotifyVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IOverlayNotify* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IOverlayNotify* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IOverlayNotify* This);
+
+    /*** IOverlayNotify methods ***/
+    HRESULT (STDMETHODCALLTYPE *OnPaletteChange)(
+        IOverlayNotify* This,
+        DWORD dwColors,
+        const PALETTEENTRY *pPalette);
+
+    HRESULT (STDMETHODCALLTYPE *OnClipChange)(
+        IOverlayNotify* This,
+        const RECT *pSourceRect,
+        const RECT *pDestinationRect,
+        const RGNDATA *pRgnData);
+
+    HRESULT (STDMETHODCALLTYPE *OnColorKeyChange)(
+        IOverlayNotify* This,
+        const COLORKEY *pColorKey);
+
+    HRESULT (STDMETHODCALLTYPE *OnPositionChange)(
+        IOverlayNotify* This,
+        const RECT *pSourceRect,
+        const RECT *pDestinationRect);
+
+    END_INTERFACE
+} IOverlayNotifyVtbl;
+interface IOverlayNotify {
+    CONST_VTBL IOverlayNotifyVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IOverlayNotify_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IOverlayNotify_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IOverlayNotify_Release(This) (This)->lpVtbl->Release(This)
+/*** IOverlayNotify methods ***/
+#define IOverlayNotify_OnPaletteChange(This,dwColors,pPalette) (This)->lpVtbl->OnPaletteChange(This,dwColors,pPalette)
+#define IOverlayNotify_OnClipChange(This,pSourceRect,pDestinationRect,pRgnData) (This)->lpVtbl->OnClipChange(This,pSourceRect,pDestinationRect,pRgnData)
+#define IOverlayNotify_OnColorKeyChange(This,pColorKey) (This)->lpVtbl->OnColorKeyChange(This,pColorKey)
+#define IOverlayNotify_OnPositionChange(This,pSourceRect,pDestinationRect) (This)->lpVtbl->OnPositionChange(This,pSourceRect,pDestinationRect)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IOverlayNotify_OnPaletteChange_Proxy(
+    IOverlayNotify* This,
+    DWORD dwColors,
+    const PALETTEENTRY *pPalette);
+void __RPC_STUB IOverlayNotify_OnPaletteChange_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IOverlayNotify_OnClipChange_Proxy(
+    IOverlayNotify* This,
+    const RECT *pSourceRect,
+    const RECT *pDestinationRect,
+    const RGNDATA *pRgnData);
+void __RPC_STUB IOverlayNotify_OnClipChange_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IOverlayNotify_OnColorKeyChange_Proxy(
+    IOverlayNotify* This,
+    const COLORKEY *pColorKey);
+void __RPC_STUB IOverlayNotify_OnColorKeyChange_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IOverlayNotify_OnPositionChange_Proxy(
+    IOverlayNotify* This,
+    const RECT *pSourceRect,
+    const RECT *pDestinationRect);
+void __RPC_STUB IOverlayNotify_OnPositionChange_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IOverlayNotify_INTERFACE_DEFINED__ */
+
+typedef IOverlayNotify *POVERLAYNOTIFY;
+#if 0
+typedef HANDLE HMONITOR;
+#endif /* 0 */
+/*****************************************************************************
+ * IOverlayNotify2 interface
+ */
+#ifndef __IOverlayNotify2_INTERFACE_DEFINED__
+#define __IOverlayNotify2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IOverlayNotify2, 0x680efa10, 0xd535, 0x11d1, 0x87,0xc8, 0x00,0xa0,0xc9,0x22,0x31,0x96);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("680efa10-d535-11d1-87c8-00a0c9223196")
+IOverlayNotify2 : public IOverlayNotify
+{
+    virtual HRESULT STDMETHODCALLTYPE OnDisplayChange(
+        HMONITOR hMonitor) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IOverlayNotify2, 0x680efa10, 0xd535, 0x11d1, 0x87,0xc8, 0x00,0xa0,0xc9,0x22,0x31,0x96)
+#endif
+#else
+typedef struct IOverlayNotify2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IOverlayNotify2* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IOverlayNotify2* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IOverlayNotify2* This);
+
+    /*** IOverlayNotify methods ***/
+    HRESULT (STDMETHODCALLTYPE *OnPaletteChange)(
+        IOverlayNotify2* This,
+        DWORD dwColors,
+        const PALETTEENTRY *pPalette);
+
+    HRESULT (STDMETHODCALLTYPE *OnClipChange)(
+        IOverlayNotify2* This,
+        const RECT *pSourceRect,
+        const RECT *pDestinationRect,
+        const RGNDATA *pRgnData);
+
+    HRESULT (STDMETHODCALLTYPE *OnColorKeyChange)(
+        IOverlayNotify2* This,
+        const COLORKEY *pColorKey);
+
+    HRESULT (STDMETHODCALLTYPE *OnPositionChange)(
+        IOverlayNotify2* This,
+        const RECT *pSourceRect,
+        const RECT *pDestinationRect);
+
+    /*** IOverlayNotify2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *OnDisplayChange)(
+        IOverlayNotify2* This,
+        HMONITOR hMonitor);
+
+    END_INTERFACE
+} IOverlayNotify2Vtbl;
+interface IOverlayNotify2 {
+    CONST_VTBL IOverlayNotify2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IOverlayNotify2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IOverlayNotify2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IOverlayNotify2_Release(This) (This)->lpVtbl->Release(This)
+/*** IOverlayNotify methods ***/
+#define IOverlayNotify2_OnPaletteChange(This,dwColors,pPalette) (This)->lpVtbl->OnPaletteChange(This,dwColors,pPalette)
+#define IOverlayNotify2_OnClipChange(This,pSourceRect,pDestinationRect,pRgnData) (This)->lpVtbl->OnClipChange(This,pSourceRect,pDestinationRect,pRgnData)
+#define IOverlayNotify2_OnColorKeyChange(This,pColorKey) (This)->lpVtbl->OnColorKeyChange(This,pColorKey)
+#define IOverlayNotify2_OnPositionChange(This,pSourceRect,pDestinationRect) (This)->lpVtbl->OnPositionChange(This,pSourceRect,pDestinationRect)
+/*** IOverlayNotify2 methods ***/
+#define IOverlayNotify2_OnDisplayChange(This,hMonitor) (This)->lpVtbl->OnDisplayChange(This,hMonitor)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IOverlayNotify2_OnDisplayChange_Proxy(
+    IOverlayNotify2* This,
+    HMONITOR hMonitor);
+void __RPC_STUB IOverlayNotify2_OnDisplayChange_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IOverlayNotify2_INTERFACE_DEFINED__ */
+
+typedef IOverlayNotify2 *POVERLAYNOTIFY2;
+/*****************************************************************************
+ * IOverlay interface
+ */
+#ifndef __IOverlay_INTERFACE_DEFINED__
+#define __IOverlay_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IOverlay, 0x56a868a1, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a868a1-0ad4-11ce-b03a-0020af0ba770")
+IOverlay : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetPalette(
+        DWORD *pdwColors,
+        PALETTEENTRY **ppPalette) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetPalette(
+        DWORD dwColors,
+        PALETTEENTRY *pPalette) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDefaultColorKey(
+        COLORKEY *pColorKey) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetColorKey(
+        COLORKEY *pColorKey) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetColorKey(
+        COLORKEY *pColorKey) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetWindowHandle(
+        HWND *pHwnd) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetClipList(
+        RECT *pSourceRect,
+        RECT *pDestinationRect,
+        RGNDATA **ppRgnData) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetVideoPosition(
+        RECT *pSourceRect,
+        RECT *pDestinationRect) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Advise(
+        IOverlayNotify *pOverlayNotify,
+        DWORD dwInterests) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Unadvise(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IOverlay, 0x56a868a1, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IOverlayVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IOverlay* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IOverlay* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IOverlay* This);
+
+    /*** IOverlay methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetPalette)(
+        IOverlay* This,
+        DWORD *pdwColors,
+        PALETTEENTRY **ppPalette);
+
+    HRESULT (STDMETHODCALLTYPE *SetPalette)(
+        IOverlay* This,
+        DWORD dwColors,
+        PALETTEENTRY *pPalette);
+
+    HRESULT (STDMETHODCALLTYPE *GetDefaultColorKey)(
+        IOverlay* This,
+        COLORKEY *pColorKey);
+
+    HRESULT (STDMETHODCALLTYPE *GetColorKey)(
+        IOverlay* This,
+        COLORKEY *pColorKey);
+
+    HRESULT (STDMETHODCALLTYPE *SetColorKey)(
+        IOverlay* This,
+        COLORKEY *pColorKey);
+
+    HRESULT (STDMETHODCALLTYPE *GetWindowHandle)(
+        IOverlay* This,
+        HWND *pHwnd);
+
+    HRESULT (STDMETHODCALLTYPE *GetClipList)(
+        IOverlay* This,
+        RECT *pSourceRect,
+        RECT *pDestinationRect,
+        RGNDATA **ppRgnData);
+
+    HRESULT (STDMETHODCALLTYPE *GetVideoPosition)(
+        IOverlay* This,
+        RECT *pSourceRect,
+        RECT *pDestinationRect);
+
+    HRESULT (STDMETHODCALLTYPE *Advise)(
+        IOverlay* This,
+        IOverlayNotify *pOverlayNotify,
+        DWORD dwInterests);
+
+    HRESULT (STDMETHODCALLTYPE *Unadvise)(
+        IOverlay* This);
+
+    END_INTERFACE
+} IOverlayVtbl;
+interface IOverlay {
+    CONST_VTBL IOverlayVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IOverlay_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IOverlay_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IOverlay_Release(This) (This)->lpVtbl->Release(This)
+/*** IOverlay methods ***/
+#define IOverlay_GetPalette(This,pdwColors,ppPalette) (This)->lpVtbl->GetPalette(This,pdwColors,ppPalette)
+#define IOverlay_SetPalette(This,dwColors,pPalette) (This)->lpVtbl->SetPalette(This,dwColors,pPalette)
+#define IOverlay_GetDefaultColorKey(This,pColorKey) (This)->lpVtbl->GetDefaultColorKey(This,pColorKey)
+#define IOverlay_GetColorKey(This,pColorKey) (This)->lpVtbl->GetColorKey(This,pColorKey)
+#define IOverlay_SetColorKey(This,pColorKey) (This)->lpVtbl->SetColorKey(This,pColorKey)
+#define IOverlay_GetWindowHandle(This,pHwnd) (This)->lpVtbl->GetWindowHandle(This,pHwnd)
+#define IOverlay_GetClipList(This,pSourceRect,pDestinationRect,ppRgnData) (This)->lpVtbl->GetClipList(This,pSourceRect,pDestinationRect,ppRgnData)
+#define IOverlay_GetVideoPosition(This,pSourceRect,pDestinationRect) (This)->lpVtbl->GetVideoPosition(This,pSourceRect,pDestinationRect)
+#define IOverlay_Advise(This,pOverlayNotify,dwInterests) (This)->lpVtbl->Advise(This,pOverlayNotify,dwInterests)
+#define IOverlay_Unadvise(This) (This)->lpVtbl->Unadvise(This)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IOverlay_GetPalette_Proxy(
+    IOverlay* This,
+    DWORD *pdwColors,
+    PALETTEENTRY **ppPalette);
+void __RPC_STUB IOverlay_GetPalette_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IOverlay_SetPalette_Proxy(
+    IOverlay* This,
+    DWORD dwColors,
+    PALETTEENTRY *pPalette);
+void __RPC_STUB IOverlay_SetPalette_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IOverlay_GetDefaultColorKey_Proxy(
+    IOverlay* This,
+    COLORKEY *pColorKey);
+void __RPC_STUB IOverlay_GetDefaultColorKey_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IOverlay_GetColorKey_Proxy(
+    IOverlay* This,
+    COLORKEY *pColorKey);
+void __RPC_STUB IOverlay_GetColorKey_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IOverlay_SetColorKey_Proxy(
+    IOverlay* This,
+    COLORKEY *pColorKey);
+void __RPC_STUB IOverlay_SetColorKey_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IOverlay_GetWindowHandle_Proxy(
+    IOverlay* This,
+    HWND *pHwnd);
+void __RPC_STUB IOverlay_GetWindowHandle_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IOverlay_GetClipList_Proxy(
+    IOverlay* This,
+    RECT *pSourceRect,
+    RECT *pDestinationRect,
+    RGNDATA **ppRgnData);
+void __RPC_STUB IOverlay_GetClipList_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IOverlay_GetVideoPosition_Proxy(
+    IOverlay* This,
+    RECT *pSourceRect,
+    RECT *pDestinationRect);
+void __RPC_STUB IOverlay_GetVideoPosition_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IOverlay_Advise_Proxy(
+    IOverlay* This,
+    IOverlayNotify *pOverlayNotify,
+    DWORD dwInterests);
+void __RPC_STUB IOverlay_Advise_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IOverlay_Unadvise_Proxy(
+    IOverlay* This);
+void __RPC_STUB IOverlay_Unadvise_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IOverlay_INTERFACE_DEFINED__ */
+
+typedef IOverlay *POVERLAY;
+/*****************************************************************************
+ * IMediaEventSink interface
+ */
+#ifndef __IMediaEventSink_INTERFACE_DEFINED__
+#define __IMediaEventSink_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMediaEventSink, 0x56a868a2, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a868a2-0ad4-11ce-b03a-0020af0ba770")
+IMediaEventSink : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Notify(
+        LONG EventCode,
+        LONG_PTR EventParam1,
+        LONG_PTR EventParam2) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMediaEventSink, 0x56a868a2, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IMediaEventSinkVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMediaEventSink* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMediaEventSink* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMediaEventSink* This);
+
+    /*** IMediaEventSink methods ***/
+    HRESULT (STDMETHODCALLTYPE *Notify)(
+        IMediaEventSink* This,
+        LONG EventCode,
+        LONG_PTR EventParam1,
+        LONG_PTR EventParam2);
+
+    END_INTERFACE
+} IMediaEventSinkVtbl;
+interface IMediaEventSink {
+    CONST_VTBL IMediaEventSinkVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IMediaEventSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMediaEventSink_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMediaEventSink_Release(This) (This)->lpVtbl->Release(This)
+/*** IMediaEventSink methods ***/
+#define IMediaEventSink_Notify(This,EventCode,EventParam1,EventParam2) (This)->lpVtbl->Notify(This,EventCode,EventParam1,EventParam2)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IMediaEventSink_Notify_Proxy(
+    IMediaEventSink* This,
+    LONG EventCode,
+    LONG_PTR EventParam1,
+    LONG_PTR EventParam2);
+void __RPC_STUB IMediaEventSink_Notify_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IMediaEventSink_INTERFACE_DEFINED__ */
+
+typedef IMediaEventSink *PMEDIAEVENTSINK;
+/*****************************************************************************
+ * IFileSourceFilter interface
+ */
+#ifndef __IFileSourceFilter_INTERFACE_DEFINED__
+#define __IFileSourceFilter_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IFileSourceFilter, 0x56a868a6, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a868a6-0ad4-11ce-b03a-0020af0ba770")
+IFileSourceFilter : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Load(
+        LPCOLESTR pszFileName,
+        const AM_MEDIA_TYPE *pmt) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCurFile(
+        LPOLESTR *ppszFileName,
+        AM_MEDIA_TYPE *pmt) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IFileSourceFilter, 0x56a868a6, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IFileSourceFilterVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IFileSourceFilter* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IFileSourceFilter* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IFileSourceFilter* This);
+
+    /*** IFileSourceFilter methods ***/
+    HRESULT (STDMETHODCALLTYPE *Load)(
+        IFileSourceFilter* This,
+        LPCOLESTR pszFileName,
+        const AM_MEDIA_TYPE *pmt);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurFile)(
+        IFileSourceFilter* This,
+        LPOLESTR *ppszFileName,
+        AM_MEDIA_TYPE *pmt);
+
+    END_INTERFACE
+} IFileSourceFilterVtbl;
+interface IFileSourceFilter {
+    CONST_VTBL IFileSourceFilterVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IFileSourceFilter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFileSourceFilter_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFileSourceFilter_Release(This) (This)->lpVtbl->Release(This)
+/*** IFileSourceFilter methods ***/
+#define IFileSourceFilter_Load(This,pszFileName,pmt) (This)->lpVtbl->Load(This,pszFileName,pmt)
+#define IFileSourceFilter_GetCurFile(This,ppszFileName,pmt) (This)->lpVtbl->GetCurFile(This,ppszFileName,pmt)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IFileSourceFilter_Load_Proxy(
+    IFileSourceFilter* This,
+    LPCOLESTR pszFileName,
+    const AM_MEDIA_TYPE *pmt);
+void __RPC_STUB IFileSourceFilter_Load_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFileSourceFilter_GetCurFile_Proxy(
+    IFileSourceFilter* This,
+    LPOLESTR *ppszFileName,
+    AM_MEDIA_TYPE *pmt);
+void __RPC_STUB IFileSourceFilter_GetCurFile_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IFileSourceFilter_INTERFACE_DEFINED__ */
+
+typedef IFileSourceFilter *PFILTERFILESOURCE;
+/*****************************************************************************
+ * IFileSinkFilter interface
+ */
+#ifndef __IFileSinkFilter_INTERFACE_DEFINED__
+#define __IFileSinkFilter_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IFileSinkFilter, 0xa2104830, 0x7c70, 0x11cf, 0x8b,0xce, 0x00,0xaa,0x00,0xa3,0xf1,0xa6);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("a2104830-7c70-11cf-8bce-00aa00a3f1a6")
+IFileSinkFilter : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetFileName(
+        LPCOLESTR pszFileName,
+        const AM_MEDIA_TYPE *pmt) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCurFile(
+        LPOLESTR *ppszFileName,
+        AM_MEDIA_TYPE *pmt) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IFileSinkFilter, 0xa2104830, 0x7c70, 0x11cf, 0x8b,0xce, 0x00,0xaa,0x00,0xa3,0xf1,0xa6)
+#endif
+#else
+typedef struct IFileSinkFilterVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IFileSinkFilter* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IFileSinkFilter* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IFileSinkFilter* This);
+
+    /*** IFileSinkFilter methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetFileName)(
+        IFileSinkFilter* This,
+        LPCOLESTR pszFileName,
+        const AM_MEDIA_TYPE *pmt);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurFile)(
+        IFileSinkFilter* This,
+        LPOLESTR *ppszFileName,
+        AM_MEDIA_TYPE *pmt);
+
+    END_INTERFACE
+} IFileSinkFilterVtbl;
+interface IFileSinkFilter {
+    CONST_VTBL IFileSinkFilterVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IFileSinkFilter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFileSinkFilter_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFileSinkFilter_Release(This) (This)->lpVtbl->Release(This)
+/*** IFileSinkFilter methods ***/
+#define IFileSinkFilter_SetFileName(This,pszFileName,pmt) (This)->lpVtbl->SetFileName(This,pszFileName,pmt)
+#define IFileSinkFilter_GetCurFile(This,ppszFileName,pmt) (This)->lpVtbl->GetCurFile(This,ppszFileName,pmt)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IFileSinkFilter_SetFileName_Proxy(
+    IFileSinkFilter* This,
+    LPCOLESTR pszFileName,
+    const AM_MEDIA_TYPE *pmt);
+void __RPC_STUB IFileSinkFilter_SetFileName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFileSinkFilter_GetCurFile_Proxy(
+    IFileSinkFilter* This,
+    LPOLESTR *ppszFileName,
+    AM_MEDIA_TYPE *pmt);
+void __RPC_STUB IFileSinkFilter_GetCurFile_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IFileSinkFilter_INTERFACE_DEFINED__ */
+
+typedef IFileSinkFilter *PFILTERFILESINK;
+/*****************************************************************************
+ * IFileSinkFilter2 interface
+ */
+#ifndef __IFileSinkFilter2_INTERFACE_DEFINED__
+#define __IFileSinkFilter2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IFileSinkFilter2, 0x00855b90, 0xce1b, 0x11d0, 0xbd,0x4f, 0x00,0xa0,0xc9,0x11,0xce,0x86);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("00855b90-ce1b-11d0-bd4f-00a0c911ce86")
+IFileSinkFilter2 : public IFileSinkFilter
+{
+    virtual HRESULT STDMETHODCALLTYPE SetMode(
+        DWORD dwFlags) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMode(
+        DWORD *pdwFlags) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IFileSinkFilter2, 0x00855b90, 0xce1b, 0x11d0, 0xbd,0x4f, 0x00,0xa0,0xc9,0x11,0xce,0x86)
+#endif
+#else
+typedef struct IFileSinkFilter2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IFileSinkFilter2* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IFileSinkFilter2* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IFileSinkFilter2* This);
+
+    /*** IFileSinkFilter methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetFileName)(
+        IFileSinkFilter2* This,
+        LPCOLESTR pszFileName,
+        const AM_MEDIA_TYPE *pmt);
+
+    HRESULT (STDMETHODCALLTYPE *GetCurFile)(
+        IFileSinkFilter2* This,
+        LPOLESTR *ppszFileName,
+        AM_MEDIA_TYPE *pmt);
+
+    /*** IFileSinkFilter2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetMode)(
+        IFileSinkFilter2* This,
+        DWORD dwFlags);
+
+    HRESULT (STDMETHODCALLTYPE *GetMode)(
+        IFileSinkFilter2* This,
+        DWORD *pdwFlags);
+
+    END_INTERFACE
+} IFileSinkFilter2Vtbl;
+interface IFileSinkFilter2 {
+    CONST_VTBL IFileSinkFilter2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IFileSinkFilter2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFileSinkFilter2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFileSinkFilter2_Release(This) (This)->lpVtbl->Release(This)
+/*** IFileSinkFilter methods ***/
+#define IFileSinkFilter2_SetFileName(This,pszFileName,pmt) (This)->lpVtbl->SetFileName(This,pszFileName,pmt)
+#define IFileSinkFilter2_GetCurFile(This,ppszFileName,pmt) (This)->lpVtbl->GetCurFile(This,ppszFileName,pmt)
+/*** IFileSinkFilter2 methods ***/
+#define IFileSinkFilter2_SetMode(This,dwFlags) (This)->lpVtbl->SetMode(This,dwFlags)
+#define IFileSinkFilter2_GetMode(This,pdwFlags) (This)->lpVtbl->GetMode(This,pdwFlags)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IFileSinkFilter2_SetMode_Proxy(
+    IFileSinkFilter2* This,
+    DWORD dwFlags);
+void __RPC_STUB IFileSinkFilter2_SetMode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFileSinkFilter2_GetMode_Proxy(
+    IFileSinkFilter2* This,
+    DWORD *pdwFlags);
+void __RPC_STUB IFileSinkFilter2_GetMode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IFileSinkFilter2_INTERFACE_DEFINED__ */
+
+typedef IFileSinkFilter2 *PFILESINKFILTER2;
+typedef enum __WIDL_axextend_generated_name_00000006 {
+    AM_FILE_OVERWRITE = 0x1
+} AM_FILESINK_FLAGS;
+/*****************************************************************************
+ * IGraphBuilder interface
+ */
+#ifndef __IGraphBuilder_INTERFACE_DEFINED__
+#define __IGraphBuilder_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IGraphBuilder, 0x56a868a9, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a868a9-0ad4-11ce-b03a-0020af0ba770")
+IGraphBuilder : public IFilterGraph
+{
+    virtual HRESULT STDMETHODCALLTYPE Connect(
+        IPin *ppinOut,
+        IPin *ppinIn) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Render(
+        IPin *ppinOut) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RenderFile(
+        LPCWSTR lpcwstrFile,
+        LPCWSTR lpcwstrPlayList) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddSourceFilter(
+        LPCWSTR lpcwstrFileName,
+        LPCWSTR lpcwstrFilterName,
+        IBaseFilter **ppFilter) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetLogFile(
+        DWORD_PTR hFile) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Abort(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ShouldOperationContinue(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IGraphBuilder, 0x56a868a9, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IGraphBuilderVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IGraphBuilder* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IGraphBuilder* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IGraphBuilder* This);
+
+    /*** IFilterGraph methods ***/
+    HRESULT (STDMETHODCALLTYPE *AddFilter)(
+        IGraphBuilder* This,
+        IBaseFilter *pFilter,
+        LPCWSTR pName);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveFilter)(
+        IGraphBuilder* This,
+        IBaseFilter *pFilter);
+
+    HRESULT (STDMETHODCALLTYPE *EnumFilters)(
+        IGraphBuilder* This,
+        IEnumFilters **ppEnum);
+
+    HRESULT (STDMETHODCALLTYPE *FindFilterByName)(
+        IGraphBuilder* This,
+        LPCWSTR pName,
+        IBaseFilter **ppFilter);
+
+    HRESULT (STDMETHODCALLTYPE *ConnectDirect)(
+        IGraphBuilder* This,
+        IPin *ppinOut,
+        IPin *ppinIn,
+        const AM_MEDIA_TYPE *pmt);
+
+    HRESULT (STDMETHODCALLTYPE *Reconnect)(
+        IGraphBuilder* This,
+        IPin *ppin);
+
+    HRESULT (STDMETHODCALLTYPE *Disconnect)(
+        IGraphBuilder* This,
+        IPin *ppin);
+
+    HRESULT (STDMETHODCALLTYPE *SetDefaultSyncSource)(
+        IGraphBuilder* This);
+
+    /*** IGraphBuilder methods ***/
+    HRESULT (STDMETHODCALLTYPE *Connect)(
+        IGraphBuilder* This,
+        IPin *ppinOut,
+        IPin *ppinIn);
+
+    HRESULT (STDMETHODCALLTYPE *Render)(
+        IGraphBuilder* This,
+        IPin *ppinOut);
+
+    HRESULT (STDMETHODCALLTYPE *RenderFile)(
+        IGraphBuilder* This,
+        LPCWSTR lpcwstrFile,
+        LPCWSTR lpcwstrPlayList);
+
+    HRESULT (STDMETHODCALLTYPE *AddSourceFilter)(
+        IGraphBuilder* This,
+        LPCWSTR lpcwstrFileName,
+        LPCWSTR lpcwstrFilterName,
+        IBaseFilter **ppFilter);
+
+    HRESULT (STDMETHODCALLTYPE *SetLogFile)(
+        IGraphBuilder* This,
+        DWORD_PTR hFile);
+
+    HRESULT (STDMETHODCALLTYPE *Abort)(
+        IGraphBuilder* This);
+
+    HRESULT (STDMETHODCALLTYPE *ShouldOperationContinue)(
+        IGraphBuilder* This);
+
+    END_INTERFACE
+} IGraphBuilderVtbl;
+interface IGraphBuilder {
+    CONST_VTBL IGraphBuilderVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IGraphBuilder_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IGraphBuilder_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IGraphBuilder_Release(This) (This)->lpVtbl->Release(This)
+/*** IFilterGraph methods ***/
+#define IGraphBuilder_AddFilter(This,pFilter,pName) (This)->lpVtbl->AddFilter(This,pFilter,pName)
+#define IGraphBuilder_RemoveFilter(This,pFilter) (This)->lpVtbl->RemoveFilter(This,pFilter)
+#define IGraphBuilder_EnumFilters(This,ppEnum) (This)->lpVtbl->EnumFilters(This,ppEnum)
+#define IGraphBuilder_FindFilterByName(This,pName,ppFilter) (This)->lpVtbl->FindFilterByName(This,pName,ppFilter)
+#define IGraphBuilder_ConnectDirect(This,ppinOut,ppinIn,pmt) (This)->lpVtbl->ConnectDirect(This,ppinOut,ppinIn,pmt)
+#define IGraphBuilder_Reconnect(This,ppin) (This)->lpVtbl->Reconnect(This,ppin)
+#define IGraphBuilder_Disconnect(This,ppin) (This)->lpVtbl->Disconnect(This,ppin)
+#define IGraphBuilder_SetDefaultSyncSource(This) (This)->lpVtbl->SetDefaultSyncSource(This)
+/*** IGraphBuilder methods ***/
+#define IGraphBuilder_Connect(This,ppinOut,ppinIn) (This)->lpVtbl->Connect(This,ppinOut,ppinIn)
+#define IGraphBuilder_Render(This,ppinOut) (This)->lpVtbl->Render(This,ppinOut)
+#define IGraphBuilder_RenderFile(This,lpcwstrFile,lpcwstrPlayList) (This)->lpVtbl->RenderFile(This,lpcwstrFile,lpcwstrPlayList)
+#define IGraphBuilder_AddSourceFilter(This,lpcwstrFileName,lpcwstrFilterName,ppFilter) (This)->lpVtbl->AddSourceFilter(This,lpcwstrFileName,lpcwstrFilterName,ppFilter)
+#define IGraphBuilder_SetLogFile(This,hFile) (This)->lpVtbl->SetLogFile(This,hFile)
+#define IGraphBuilder_Abort(This) (This)->lpVtbl->Abort(This)
+#define IGraphBuilder_ShouldOperationContinue(This) (This)->lpVtbl->ShouldOperationContinue(This)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IGraphBuilder_Connect_Proxy(
+    IGraphBuilder* This,
+    IPin *ppinOut,
+    IPin *ppinIn);
+void __RPC_STUB IGraphBuilder_Connect_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IGraphBuilder_Render_Proxy(
+    IGraphBuilder* This,
+    IPin *ppinOut);
+void __RPC_STUB IGraphBuilder_Render_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IGraphBuilder_RenderFile_Proxy(
+    IGraphBuilder* This,
+    LPCWSTR lpcwstrFile,
+    LPCWSTR lpcwstrPlayList);
+void __RPC_STUB IGraphBuilder_RenderFile_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IGraphBuilder_AddSourceFilter_Proxy(
+    IGraphBuilder* This,
+    LPCWSTR lpcwstrFileName,
+    LPCWSTR lpcwstrFilterName,
+    IBaseFilter **ppFilter);
+void __RPC_STUB IGraphBuilder_AddSourceFilter_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IGraphBuilder_SetLogFile_Proxy(
+    IGraphBuilder* This,
+    DWORD_PTR hFile);
+void __RPC_STUB IGraphBuilder_SetLogFile_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IGraphBuilder_Abort_Proxy(
+    IGraphBuilder* This);
+void __RPC_STUB IGraphBuilder_Abort_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IGraphBuilder_ShouldOperationContinue_Proxy(
+    IGraphBuilder* This);
+void __RPC_STUB IGraphBuilder_ShouldOperationContinue_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IGraphBuilder_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ICaptureGraphBuilder interface
+ */
+#ifndef __ICaptureGraphBuilder_INTERFACE_DEFINED__
+#define __ICaptureGraphBuilder_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ICaptureGraphBuilder, 0xbf87b6e0, 0x8c27, 0x11d0, 0xb3,0xf0, 0x00,0xaa,0x00,0x37,0x61,0xc5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("bf87b6e0-8c27-11d0-b3f0-00aa003761c5")
+ICaptureGraphBuilder : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetFiltergraph(
+        IGraphBuilder *pfg) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFiltergraph(
+        IGraphBuilder **ppfg) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetOutputFileName(
+        const GUID *pType,
+        LPCOLESTR lpstrFile,
+        IBaseFilter **ppf,
+        IFileSinkFilter **ppSink) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FindInterface(
+        const GUID *pCategory,
+        IBaseFilter *pf,
+        REFIID riid,
+        void **ppint) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RenderStream(
+        const GUID *pCategory,
+        IUnknown *pSource,
+        IBaseFilter *pfCompressor,
+        IBaseFilter *pfRenderer) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ControlStream(
+        const GUID *pCategory,
+        IBaseFilter *pFilter,
+        REFERENCE_TIME *pstart,
+        REFERENCE_TIME *pstop,
+        WORD wStartCookie,
+        WORD wStopCookie) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AllocCapFile(
+        LPCOLESTR lpstr,
+        DWORDLONG dwlSize) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CopyCaptureFile(
+        LPOLESTR lpwstrOld,
+        LPOLESTR lpwstrNew,
+        int fAllowEscAbort,
+        IAMCopyCaptureFileProgress *pCallback) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ICaptureGraphBuilder, 0xbf87b6e0, 0x8c27, 0x11d0, 0xb3,0xf0, 0x00,0xaa,0x00,0x37,0x61,0xc5)
+#endif
+#else
+typedef struct ICaptureGraphBuilderVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ICaptureGraphBuilder* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ICaptureGraphBuilder* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ICaptureGraphBuilder* This);
+
+    /*** ICaptureGraphBuilder methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetFiltergraph)(
+        ICaptureGraphBuilder* This,
+        IGraphBuilder *pfg);
+
+    HRESULT (STDMETHODCALLTYPE *GetFiltergraph)(
+        ICaptureGraphBuilder* This,
+        IGraphBuilder **ppfg);
+
+    HRESULT (STDMETHODCALLTYPE *SetOutputFileName)(
+        ICaptureGraphBuilder* This,
+        const GUID *pType,
+        LPCOLESTR lpstrFile,
+        IBaseFilter **ppf,
+        IFileSinkFilter **ppSink);
+
+    HRESULT (STDMETHODCALLTYPE *FindInterface)(
+        ICaptureGraphBuilder* This,
+        const GUID *pCategory,
+        IBaseFilter *pf,
+        REFIID riid,
+        void **ppint);
+
+    HRESULT (STDMETHODCALLTYPE *RenderStream)(
+        ICaptureGraphBuilder* This,
+        const GUID *pCategory,
+        IUnknown *pSource,
+        IBaseFilter *pfCompressor,
+        IBaseFilter *pfRenderer);
+
+    HRESULT (STDMETHODCALLTYPE *ControlStream)(
+        ICaptureGraphBuilder* This,
+        const GUID *pCategory,
+        IBaseFilter *pFilter,
+        REFERENCE_TIME *pstart,
+        REFERENCE_TIME *pstop,
+        WORD wStartCookie,
+        WORD wStopCookie);
+
+    HRESULT (STDMETHODCALLTYPE *AllocCapFile)(
+        ICaptureGraphBuilder* This,
+        LPCOLESTR lpstr,
+        DWORDLONG dwlSize);
+
+    HRESULT (STDMETHODCALLTYPE *CopyCaptureFile)(
+        ICaptureGraphBuilder* This,
+        LPOLESTR lpwstrOld,
+        LPOLESTR lpwstrNew,
+        int fAllowEscAbort,
+        IAMCopyCaptureFileProgress *pCallback);
+
+    END_INTERFACE
+} ICaptureGraphBuilderVtbl;
+interface ICaptureGraphBuilder {
+    CONST_VTBL ICaptureGraphBuilderVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define ICaptureGraphBuilder_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ICaptureGraphBuilder_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ICaptureGraphBuilder_Release(This) (This)->lpVtbl->Release(This)
+/*** ICaptureGraphBuilder methods ***/
+#define ICaptureGraphBuilder_SetFiltergraph(This,pfg) (This)->lpVtbl->SetFiltergraph(This,pfg)
+#define ICaptureGraphBuilder_GetFiltergraph(This,ppfg) (This)->lpVtbl->GetFiltergraph(This,ppfg)
+#define ICaptureGraphBuilder_SetOutputFileName(This,pType,lpstrFile,ppf,ppSink) (This)->lpVtbl->SetOutputFileName(This,pType,lpstrFile,ppf,ppSink)
+#define ICaptureGraphBuilder_FindInterface(This,pCategory,pf,riid,ppint) (This)->lpVtbl->FindInterface(This,pCategory,pf,riid,ppint)
+#define ICaptureGraphBuilder_RenderStream(This,pCategory,pSource,pfCompressor,pfRenderer) (This)->lpVtbl->RenderStream(This,pCategory,pSource,pfCompressor,pfRenderer)
+#define ICaptureGraphBuilder_ControlStream(This,pCategory,pFilter,pstart,pstop,wStartCookie,wStopCookie) (This)->lpVtbl->ControlStream(This,pCategory,pFilter,pstart,pstop,wStartCookie,wStopCookie)
+#define ICaptureGraphBuilder_AllocCapFile(This,lpstr,dwlSize) (This)->lpVtbl->AllocCapFile(This,lpstr,dwlSize)
+#define ICaptureGraphBuilder_CopyCaptureFile(This,lpwstrOld,lpwstrNew,fAllowEscAbort,pCallback) (This)->lpVtbl->CopyCaptureFile(This,lpwstrOld,lpwstrNew,fAllowEscAbort,pCallback)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ICaptureGraphBuilder_SetFiltergraph_Proxy(
+    ICaptureGraphBuilder* This,
+    IGraphBuilder *pfg);
+void __RPC_STUB ICaptureGraphBuilder_SetFiltergraph_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICaptureGraphBuilder_GetFiltergraph_Proxy(
+    ICaptureGraphBuilder* This,
+    IGraphBuilder **ppfg);
+void __RPC_STUB ICaptureGraphBuilder_GetFiltergraph_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICaptureGraphBuilder_SetOutputFileName_Proxy(
+    ICaptureGraphBuilder* This,
+    const GUID *pType,
+    LPCOLESTR lpstrFile,
+    IBaseFilter **ppf,
+    IFileSinkFilter **ppSink);
+void __RPC_STUB ICaptureGraphBuilder_SetOutputFileName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICaptureGraphBuilder_RemoteFindInterface_Proxy(
+    ICaptureGraphBuilder* This,
+    const GUID *pCategory,
+    IBaseFilter *pf,
+    REFIID riid,
+    IUnknown **ppint);
+void __RPC_STUB ICaptureGraphBuilder_RemoteFindInterface_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICaptureGraphBuilder_RenderStream_Proxy(
+    ICaptureGraphBuilder* This,
+    const GUID *pCategory,
+    IUnknown *pSource,
+    IBaseFilter *pfCompressor,
+    IBaseFilter *pfRenderer);
+void __RPC_STUB ICaptureGraphBuilder_RenderStream_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICaptureGraphBuilder_ControlStream_Proxy(
+    ICaptureGraphBuilder* This,
+    const GUID *pCategory,
+    IBaseFilter *pFilter,
+    REFERENCE_TIME *pstart,
+    REFERENCE_TIME *pstop,
+    WORD wStartCookie,
+    WORD wStopCookie);
+void __RPC_STUB ICaptureGraphBuilder_ControlStream_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICaptureGraphBuilder_AllocCapFile_Proxy(
+    ICaptureGraphBuilder* This,
+    LPCOLESTR lpstr,
+    DWORDLONG dwlSize);
+void __RPC_STUB ICaptureGraphBuilder_AllocCapFile_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICaptureGraphBuilder_CopyCaptureFile_Proxy(
+    ICaptureGraphBuilder* This,
+    LPOLESTR lpwstrOld,
+    LPOLESTR lpwstrNew,
+    int fAllowEscAbort,
+    IAMCopyCaptureFileProgress *pCallback);
+void __RPC_STUB ICaptureGraphBuilder_CopyCaptureFile_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT CALLBACK ICaptureGraphBuilder_FindInterface_Proxy(
+    ICaptureGraphBuilder* This,
+    const GUID *pCategory,
+    IBaseFilter *pf,
+    REFIID riid,
+    void **ppint);
+HRESULT __RPC_STUB ICaptureGraphBuilder_FindInterface_Stub(
+    ICaptureGraphBuilder* This,
+    const GUID *pCategory,
+    IBaseFilter *pf,
+    REFIID riid,
+    IUnknown **ppint);
+
+#endif  /* __ICaptureGraphBuilder_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAMCopyCaptureFileProgress interface
+ */
+#ifndef __IAMCopyCaptureFileProgress_INTERFACE_DEFINED__
+#define __IAMCopyCaptureFileProgress_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IAMCopyCaptureFileProgress, 0x670d1d20, 0xa068, 0x11d0, 0xb3,0xf0, 0x00,0xaa,0x00,0x37,0x61,0xc5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("670d1d20-a068-11d0-b3f0-00aa003761c5")
+IAMCopyCaptureFileProgress : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Progress(
+        int iProgress) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAMCopyCaptureFileProgress, 0x670d1d20, 0xa068, 0x11d0, 0xb3,0xf0, 0x00,0xaa,0x00,0x37,0x61,0xc5)
+#endif
+#else
+typedef struct IAMCopyCaptureFileProgressVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IAMCopyCaptureFileProgress* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IAMCopyCaptureFileProgress* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IAMCopyCaptureFileProgress* This);
+
+    /*** IAMCopyCaptureFileProgress methods ***/
+    HRESULT (STDMETHODCALLTYPE *Progress)(
+        IAMCopyCaptureFileProgress* This,
+        int iProgress);
+
+    END_INTERFACE
+} IAMCopyCaptureFileProgressVtbl;
+interface IAMCopyCaptureFileProgress {
+    CONST_VTBL IAMCopyCaptureFileProgressVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IAMCopyCaptureFileProgress_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAMCopyCaptureFileProgress_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAMCopyCaptureFileProgress_Release(This) (This)->lpVtbl->Release(This)
+/*** IAMCopyCaptureFileProgress methods ***/
+#define IAMCopyCaptureFileProgress_Progress(This,iProgress) (This)->lpVtbl->Progress(This,iProgress)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IAMCopyCaptureFileProgress_Progress_Proxy(
+    IAMCopyCaptureFileProgress* This,
+    int iProgress);
+void __RPC_STUB IAMCopyCaptureFileProgress_Progress_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IAMCopyCaptureFileProgress_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ICaptureGraphBuilder2 interface
+ */
+#ifndef __ICaptureGraphBuilder2_INTERFACE_DEFINED__
+#define __ICaptureGraphBuilder2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ICaptureGraphBuilder2, 0x93e5a4e0, 0x2d50, 0x11d2, 0xab,0xfa, 0x00,0xa0,0xc9,0xc6,0xe3,0x8d);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("93e5a4e0-2d50-11d2-abfa-00a0c9c6e38d")
+ICaptureGraphBuilder2 : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetFiltergraph(
+        IGraphBuilder *pfg) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFiltergraph(
+        IGraphBuilder **ppfg) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetOutputFileName(
+        const GUID *pType,
+        LPCOLESTR lpstrFile,
+        IBaseFilter **ppf,
+        IFileSinkFilter **ppSink) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FindInterface(
+        const GUID *pCategory,
+        const GUID *pType,
+        IBaseFilter *pf,
+        REFIID riid,
+        void **ppint) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RenderStream(
+        const GUID *pCategory,
+        const GUID *pType,
+        IUnknown *pSource,
+        IBaseFilter *pfCompressor,
+        IBaseFilter *pfRenderer) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ControlStream(
+        const GUID *pCategory,
+        const GUID *pType,
+        IBaseFilter *pFilter,
+        REFERENCE_TIME *pstart,
+        REFERENCE_TIME *pstop,
+        WORD wStartCookie,
+        WORD wStopCookie) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AllocCapFile(
+        LPCOLESTR lpstr,
+        DWORDLONG dwlSize) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CopyCaptureFile(
+        LPOLESTR lpwstrOld,
+        LPOLESTR lpwstrNew,
+        int fAllowEscAbort,
+        IAMCopyCaptureFileProgress *pCallback) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FindPin(
+        IUnknown *pSource,
+        PIN_DIRECTION pindir,
+        const GUID *pCategory,
+        const GUID *pType,
+        WINBOOL fUnconnected,
+        int num,
+        IPin **ppPin) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ICaptureGraphBuilder2, 0x93e5a4e0, 0x2d50, 0x11d2, 0xab,0xfa, 0x00,0xa0,0xc9,0xc6,0xe3,0x8d)
+#endif
+#else
+typedef struct ICaptureGraphBuilder2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ICaptureGraphBuilder2* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ICaptureGraphBuilder2* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ICaptureGraphBuilder2* This);
+
+    /*** ICaptureGraphBuilder2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetFiltergraph)(
+        ICaptureGraphBuilder2* This,
+        IGraphBuilder *pfg);
+
+    HRESULT (STDMETHODCALLTYPE *GetFiltergraph)(
+        ICaptureGraphBuilder2* This,
+        IGraphBuilder **ppfg);
+
+    HRESULT (STDMETHODCALLTYPE *SetOutputFileName)(
+        ICaptureGraphBuilder2* This,
+        const GUID *pType,
+        LPCOLESTR lpstrFile,
+        IBaseFilter **ppf,
+        IFileSinkFilter **ppSink);
+
+    HRESULT (STDMETHODCALLTYPE *FindInterface)(
+        ICaptureGraphBuilder2* This,
+        const GUID *pCategory,
+        const GUID *pType,
+        IBaseFilter *pf,
+        REFIID riid,
+        void **ppint);
+
+    HRESULT (STDMETHODCALLTYPE *RenderStream)(
+        ICaptureGraphBuilder2* This,
+        const GUID *pCategory,
+        const GUID *pType,
+        IUnknown *pSource,
+        IBaseFilter *pfCompressor,
+        IBaseFilter *pfRenderer);
+
+    HRESULT (STDMETHODCALLTYPE *ControlStream)(
+        ICaptureGraphBuilder2* This,
+        const GUID *pCategory,
+        const GUID *pType,
+        IBaseFilter *pFilter,
+        REFERENCE_TIME *pstart,
+        REFERENCE_TIME *pstop,
+        WORD wStartCookie,
+        WORD wStopCookie);
+
+    HRESULT (STDMETHODCALLTYPE *AllocCapFile)(
+        ICaptureGraphBuilder2* This,
+        LPCOLESTR lpstr,
+        DWORDLONG dwlSize);
+
+    HRESULT (STDMETHODCALLTYPE *CopyCaptureFile)(
+        ICaptureGraphBuilder2* This,
+        LPOLESTR lpwstrOld,
+        LPOLESTR lpwstrNew,
+        int fAllowEscAbort,
+        IAMCopyCaptureFileProgress *pCallback);
+
+    HRESULT (STDMETHODCALLTYPE *FindPin)(
+        ICaptureGraphBuilder2* This,
+        IUnknown *pSource,
+        PIN_DIRECTION pindir,
+        const GUID *pCategory,
+        const GUID *pType,
+        WINBOOL fUnconnected,
+        int num,
+        IPin **ppPin);
+
+    END_INTERFACE
+} ICaptureGraphBuilder2Vtbl;
+interface ICaptureGraphBuilder2 {
+    CONST_VTBL ICaptureGraphBuilder2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define ICaptureGraphBuilder2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ICaptureGraphBuilder2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ICaptureGraphBuilder2_Release(This) (This)->lpVtbl->Release(This)
+/*** ICaptureGraphBuilder2 methods ***/
+#define ICaptureGraphBuilder2_SetFiltergraph(This,pfg) (This)->lpVtbl->SetFiltergraph(This,pfg)
+#define ICaptureGraphBuilder2_GetFiltergraph(This,ppfg) (This)->lpVtbl->GetFiltergraph(This,ppfg)
+#define ICaptureGraphBuilder2_SetOutputFileName(This,pType,lpstrFile,ppf,ppSink) (This)->lpVtbl->SetOutputFileName(This,pType,lpstrFile,ppf,ppSink)
+#define ICaptureGraphBuilder2_FindInterface(This,pCategory,pType,pf,riid,ppint) (This)->lpVtbl->FindInterface(This,pCategory,pType,pf,riid,ppint)
+#define ICaptureGraphBuilder2_RenderStream(This,pCategory,pType,pSource,pfCompressor,pfRenderer) (This)->lpVtbl->RenderStream(This,pCategory,pType,pSource,pfCompressor,pfRenderer)
+#define ICaptureGraphBuilder2_ControlStream(This,pCategory,pType,pFilter,pstart,pstop,wStartCookie,wStopCookie) (This)->lpVtbl->ControlStream(This,pCategory,pType,pFilter,pstart,pstop,wStartCookie,wStopCookie)
+#define ICaptureGraphBuilder2_AllocCapFile(This,lpstr,dwlSize) (This)->lpVtbl->AllocCapFile(This,lpstr,dwlSize)
+#define ICaptureGraphBuilder2_CopyCaptureFile(This,lpwstrOld,lpwstrNew,fAllowEscAbort,pCallback) (This)->lpVtbl->CopyCaptureFile(This,lpwstrOld,lpwstrNew,fAllowEscAbort,pCallback)
+#define ICaptureGraphBuilder2_FindPin(This,pSource,pindir,pCategory,pType,fUnconnected,num,ppPin) (This)->lpVtbl->FindPin(This,pSource,pindir,pCategory,pType,fUnconnected,num,ppPin)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ICaptureGraphBuilder2_SetFiltergraph_Proxy(
+    ICaptureGraphBuilder2* This,
+    IGraphBuilder *pfg);
+void __RPC_STUB ICaptureGraphBuilder2_SetFiltergraph_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICaptureGraphBuilder2_GetFiltergraph_Proxy(
+    ICaptureGraphBuilder2* This,
+    IGraphBuilder **ppfg);
+void __RPC_STUB ICaptureGraphBuilder2_GetFiltergraph_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICaptureGraphBuilder2_SetOutputFileName_Proxy(
+    ICaptureGraphBuilder2* This,
+    const GUID *pType,
+    LPCOLESTR lpstrFile,
+    IBaseFilter **ppf,
+    IFileSinkFilter **ppSink);
+void __RPC_STUB ICaptureGraphBuilder2_SetOutputFileName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICaptureGraphBuilder2_RemoteFindInterface_Proxy(
+    ICaptureGraphBuilder2* This,
+    const GUID *pCategory,
+    const GUID *pType,
+    IBaseFilter *pf,
+    REFIID riid,
+    IUnknown **ppint);
+void __RPC_STUB ICaptureGraphBuilder2_RemoteFindInterface_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICaptureGraphBuilder2_RenderStream_Proxy(
+    ICaptureGraphBuilder2* This,
+    const GUID *pCategory,
+    const GUID *pType,
+    IUnknown *pSource,
+    IBaseFilter *pfCompressor,
+    IBaseFilter *pfRenderer);
+void __RPC_STUB ICaptureGraphBuilder2_RenderStream_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICaptureGraphBuilder2_ControlStream_Proxy(
+    ICaptureGraphBuilder2* This,
+    const GUID *pCategory,
+    const GUID *pType,
+    IBaseFilter *pFilter,
+    REFERENCE_TIME *pstart,
+    REFERENCE_TIME *pstop,
+    WORD wStartCookie,
+    WORD wStopCookie);
+void __RPC_STUB ICaptureGraphBuilder2_ControlStream_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICaptureGraphBuilder2_AllocCapFile_Proxy(
+    ICaptureGraphBuilder2* This,
+    LPCOLESTR lpstr,
+    DWORDLONG dwlSize);
+void __RPC_STUB ICaptureGraphBuilder2_AllocCapFile_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICaptureGraphBuilder2_CopyCaptureFile_Proxy(
+    ICaptureGraphBuilder2* This,
+    LPOLESTR lpwstrOld,
+    LPOLESTR lpwstrNew,
+    int fAllowEscAbort,
+    IAMCopyCaptureFileProgress *pCallback);
+void __RPC_STUB ICaptureGraphBuilder2_CopyCaptureFile_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ICaptureGraphBuilder2_FindPin_Proxy(
+    ICaptureGraphBuilder2* This,
+    IUnknown *pSource,
+    PIN_DIRECTION pindir,
+    const GUID *pCategory,
+    const GUID *pType,
+    WINBOOL fUnconnected,
+    int num,
+    IPin **ppPin);
+void __RPC_STUB ICaptureGraphBuilder2_FindPin_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT CALLBACK ICaptureGraphBuilder2_FindInterface_Proxy(
+    ICaptureGraphBuilder2* This,
+    const GUID *pCategory,
+    const GUID *pType,
+    IBaseFilter *pf,
+    REFIID riid,
+    void **ppint);
+HRESULT __RPC_STUB ICaptureGraphBuilder2_FindInterface_Stub(
+    ICaptureGraphBuilder2* This,
+    const GUID *pCategory,
+    const GUID *pType,
+    IBaseFilter *pf,
+    REFIID riid,
+    IUnknown **ppint);
+
+#endif  /* __ICaptureGraphBuilder2_INTERFACE_DEFINED__ */
+
+enum _AM_RENSDEREXFLAGS {
+    AM_RENDEREX_RENDERTOEXISTINGRENDERERS = 0x1
+};
+
+/*****************************************************************************
+ * IFilterGraph2 interface
+ */
+#ifndef __IFilterGraph2_INTERFACE_DEFINED__
+#define __IFilterGraph2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IFilterGraph2, 0x36b73882, 0xc2c8, 0x11cf, 0x8b,0x46, 0x00,0x80,0x5f,0x6c,0xef,0x60);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("36b73882-c2c8-11cf-8b46-00805f6cef60")
+IFilterGraph2 : public IGraphBuilder
+{
+    virtual HRESULT STDMETHODCALLTYPE AddSourceFilterForMoniker(
+        IMoniker *pMoniker,
+        IBindCtx *pCtx,
+        LPCWSTR lpcwstrFilterName,
+        IBaseFilter **ppFilter) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ReconnectEx(
+        IPin *ppin,
+        const AM_MEDIA_TYPE *pmt) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RenderEx(
+        IPin *pPinOut,
+        DWORD dwFlags,
+        DWORD *pvContext) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IFilterGraph2, 0x36b73882, 0xc2c8, 0x11cf, 0x8b,0x46, 0x00,0x80,0x5f,0x6c,0xef,0x60)
+#endif
+#else
+typedef struct IFilterGraph2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IFilterGraph2* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IFilterGraph2* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IFilterGraph2* This);
+
+    /*** IFilterGraph methods ***/
+    HRESULT (STDMETHODCALLTYPE *AddFilter)(
+        IFilterGraph2* This,
+        IBaseFilter *pFilter,
+        LPCWSTR pName);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveFilter)(
+        IFilterGraph2* This,
+        IBaseFilter *pFilter);
+
+    HRESULT (STDMETHODCALLTYPE *EnumFilters)(
+        IFilterGraph2* This,
+        IEnumFilters **ppEnum);
+
+    HRESULT (STDMETHODCALLTYPE *FindFilterByName)(
+        IFilterGraph2* This,
+        LPCWSTR pName,
+        IBaseFilter **ppFilter);
+
+    HRESULT (STDMETHODCALLTYPE *ConnectDirect)(
+        IFilterGraph2* This,
+        IPin *ppinOut,
+        IPin *ppinIn,
+        const AM_MEDIA_TYPE *pmt);
+
+    HRESULT (STDMETHODCALLTYPE *Reconnect)(
+        IFilterGraph2* This,
+        IPin *ppin);
+
+    HRESULT (STDMETHODCALLTYPE *Disconnect)(
+        IFilterGraph2* This,
+        IPin *ppin);
+
+    HRESULT (STDMETHODCALLTYPE *SetDefaultSyncSource)(
+        IFilterGraph2* This);
+
+    /*** IGraphBuilder methods ***/
+    HRESULT (STDMETHODCALLTYPE *Connect)(
+        IFilterGraph2* This,
+        IPin *ppinOut,
+        IPin *ppinIn);
+
+    HRESULT (STDMETHODCALLTYPE *Render)(
+        IFilterGraph2* This,
+        IPin *ppinOut);
+
+    HRESULT (STDMETHODCALLTYPE *RenderFile)(
+        IFilterGraph2* This,
+        LPCWSTR lpcwstrFile,
+        LPCWSTR lpcwstrPlayList);
+
+    HRESULT (STDMETHODCALLTYPE *AddSourceFilter)(
+        IFilterGraph2* This,
+        LPCWSTR lpcwstrFileName,
+        LPCWSTR lpcwstrFilterName,
+        IBaseFilter **ppFilter);
+
+    HRESULT (STDMETHODCALLTYPE *SetLogFile)(
+        IFilterGraph2* This,
+        DWORD_PTR hFile);
+
+    HRESULT (STDMETHODCALLTYPE *Abort)(
+        IFilterGraph2* This);
+
+    HRESULT (STDMETHODCALLTYPE *ShouldOperationContinue)(
+        IFilterGraph2* This);
+
+    /*** IFilterGraph2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *AddSourceFilterForMoniker)(
+        IFilterGraph2* This,
+        IMoniker *pMoniker,
+        IBindCtx *pCtx,
+        LPCWSTR lpcwstrFilterName,
+        IBaseFilter **ppFilter);
+
+    HRESULT (STDMETHODCALLTYPE *ReconnectEx)(
+        IFilterGraph2* This,
+        IPin *ppin,
+        const AM_MEDIA_TYPE *pmt);
+
+    HRESULT (STDMETHODCALLTYPE *RenderEx)(
+        IFilterGraph2* This,
+        IPin *pPinOut,
+        DWORD dwFlags,
+        DWORD *pvContext);
+
+    END_INTERFACE
+} IFilterGraph2Vtbl;
+interface IFilterGraph2 {
+    CONST_VTBL IFilterGraph2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IFilterGraph2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IFilterGraph2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IFilterGraph2_Release(This) (This)->lpVtbl->Release(This)
+/*** IFilterGraph methods ***/
+#define IFilterGraph2_AddFilter(This,pFilter,pName) (This)->lpVtbl->AddFilter(This,pFilter,pName)
+#define IFilterGraph2_RemoveFilter(This,pFilter) (This)->lpVtbl->RemoveFilter(This,pFilter)
+#define IFilterGraph2_EnumFilters(This,ppEnum) (This)->lpVtbl->EnumFilters(This,ppEnum)
+#define IFilterGraph2_FindFilterByName(This,pName,ppFilter) (This)->lpVtbl->FindFilterByName(This,pName,ppFilter)
+#define IFilterGraph2_ConnectDirect(This,ppinOut,ppinIn,pmt) (This)->lpVtbl->ConnectDirect(This,ppinOut,ppinIn,pmt)
+#define IFilterGraph2_Reconnect(This,ppin) (This)->lpVtbl->Reconnect(This,ppin)
+#define IFilterGraph2_Disconnect(This,ppin) (This)->lpVtbl->Disconnect(This,ppin)
+#define IFilterGraph2_SetDefaultSyncSource(This) (This)->lpVtbl->SetDefaultSyncSource(This)
+/*** IGraphBuilder methods ***/
+#define IFilterGraph2_Connect(This,ppinOut,ppinIn) (This)->lpVtbl->Connect(This,ppinOut,ppinIn)
+#define IFilterGraph2_Render(This,ppinOut) (This)->lpVtbl->Render(This,ppinOut)
+#define IFilterGraph2_RenderFile(This,lpcwstrFile,lpcwstrPlayList) (This)->lpVtbl->RenderFile(This,lpcwstrFile,lpcwstrPlayList)
+#define IFilterGraph2_AddSourceFilter(This,lpcwstrFileName,lpcwstrFilterName,ppFilter) (This)->lpVtbl->AddSourceFilter(This,lpcwstrFileName,lpcwstrFilterName,ppFilter)
+#define IFilterGraph2_SetLogFile(This,hFile) (This)->lpVtbl->SetLogFile(This,hFile)
+#define IFilterGraph2_Abort(This) (This)->lpVtbl->Abort(This)
+#define IFilterGraph2_ShouldOperationContinue(This) (This)->lpVtbl->ShouldOperationContinue(This)
+/*** IFilterGraph2 methods ***/
+#define IFilterGraph2_AddSourceFilterForMoniker(This,pMoniker,pCtx,lpcwstrFilterName,ppFilter) (This)->lpVtbl->AddSourceFilterForMoniker(This,pMoniker,pCtx,lpcwstrFilterName,ppFilter)
+#define IFilterGraph2_ReconnectEx(This,ppin,pmt) (This)->lpVtbl->ReconnectEx(This,ppin,pmt)
+#define IFilterGraph2_RenderEx(This,pPinOut,dwFlags,pvContext) (This)->lpVtbl->RenderEx(This,pPinOut,dwFlags,pvContext)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IFilterGraph2_AddSourceFilterForMoniker_Proxy(
+    IFilterGraph2* This,
+    IMoniker *pMoniker,
+    IBindCtx *pCtx,
+    LPCWSTR lpcwstrFilterName,
+    IBaseFilter **ppFilter);
+void __RPC_STUB IFilterGraph2_AddSourceFilterForMoniker_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFilterGraph2_ReconnectEx_Proxy(
+    IFilterGraph2* This,
+    IPin *ppin,
+    const AM_MEDIA_TYPE *pmt);
+void __RPC_STUB IFilterGraph2_ReconnectEx_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IFilterGraph2_RenderEx_Proxy(
+    IFilterGraph2* This,
+    IPin *pPinOut,
+    DWORD dwFlags,
+    DWORD *pvContext);
+void __RPC_STUB IFilterGraph2_RenderEx_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IFilterGraph2_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IStreamBuilder interface
+ */
+#ifndef __IStreamBuilder_INTERFACE_DEFINED__
+#define __IStreamBuilder_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IStreamBuilder, 0x56a868bf, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a868bf-0ad4-11ce-b03a-0020af0ba770")
+IStreamBuilder : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Render(
+        IPin *ppinOut,
+        IGraphBuilder *pGraph) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Backout(
+        IPin *ppinOut,
+        IGraphBuilder *pGraph) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IStreamBuilder, 0x56a868bf, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IStreamBuilderVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IStreamBuilder* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IStreamBuilder* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IStreamBuilder* This);
+
+    /*** IStreamBuilder methods ***/
+    HRESULT (STDMETHODCALLTYPE *Render)(
+        IStreamBuilder* This,
+        IPin *ppinOut,
+        IGraphBuilder *pGraph);
+
+    HRESULT (STDMETHODCALLTYPE *Backout)(
+        IStreamBuilder* This,
+        IPin *ppinOut,
+        IGraphBuilder *pGraph);
+
+    END_INTERFACE
+} IStreamBuilderVtbl;
+interface IStreamBuilder {
+    CONST_VTBL IStreamBuilderVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IStreamBuilder_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IStreamBuilder_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IStreamBuilder_Release(This) (This)->lpVtbl->Release(This)
+/*** IStreamBuilder methods ***/
+#define IStreamBuilder_Render(This,ppinOut,pGraph) (This)->lpVtbl->Render(This,ppinOut,pGraph)
+#define IStreamBuilder_Backout(This,ppinOut,pGraph) (This)->lpVtbl->Backout(This,ppinOut,pGraph)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IStreamBuilder_Render_Proxy(
+    IStreamBuilder* This,
+    IPin *ppinOut,
+    IGraphBuilder *pGraph);
+void __RPC_STUB IStreamBuilder_Render_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IStreamBuilder_Backout_Proxy(
+    IStreamBuilder* This,
+    IPin *ppinOut,
+    IGraphBuilder *pGraph);
+void __RPC_STUB IStreamBuilder_Backout_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IStreamBuilder_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAMStreamConfig interface
+ */
+#ifndef __IAMStreamConfig_INTERFACE_DEFINED__
+#define __IAMStreamConfig_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IAMStreamConfig, 0xc6e13340, 0x30ac, 0x11d0, 0xa1,0x8c, 0x00,0xa0,0xc9,0x11,0x89,0x56);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("c6e13340-30ac-11d0-a18c-00a0c9118956")
+IAMStreamConfig : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetFormat(
+        AM_MEDIA_TYPE *pmt) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFormat(
+        AM_MEDIA_TYPE **pmt) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetNumberOfCapabilities(
+        int *piCount,
+        int *piSize) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetStreamCaps(
+        int iIndex,
+        AM_MEDIA_TYPE **pmt,
+        BYTE *pSCC) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAMStreamConfig, 0xc6e13340, 0x30ac, 0x11d0, 0xa1,0x8c, 0x00,0xa0,0xc9,0x11,0x89,0x56)
+#endif
+#else
+typedef struct IAMStreamConfigVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IAMStreamConfig* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IAMStreamConfig* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IAMStreamConfig* This);
+
+    /*** IAMStreamConfig methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetFormat)(
+        IAMStreamConfig* This,
+        AM_MEDIA_TYPE *pmt);
+
+    HRESULT (STDMETHODCALLTYPE *GetFormat)(
+        IAMStreamConfig* This,
+        AM_MEDIA_TYPE **pmt);
+
+    HRESULT (STDMETHODCALLTYPE *GetNumberOfCapabilities)(
+        IAMStreamConfig* This,
+        int *piCount,
+        int *piSize);
+
+    HRESULT (STDMETHODCALLTYPE *GetStreamCaps)(
+        IAMStreamConfig* This,
+        int iIndex,
+        AM_MEDIA_TYPE **pmt,
+        BYTE *pSCC);
+
+    END_INTERFACE
+} IAMStreamConfigVtbl;
+interface IAMStreamConfig {
+    CONST_VTBL IAMStreamConfigVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IAMStreamConfig_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAMStreamConfig_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAMStreamConfig_Release(This) (This)->lpVtbl->Release(This)
+/*** IAMStreamConfig methods ***/
+#define IAMStreamConfig_SetFormat(This,pmt) (This)->lpVtbl->SetFormat(This,pmt)
+#define IAMStreamConfig_GetFormat(This,pmt) (This)->lpVtbl->GetFormat(This,pmt)
+#define IAMStreamConfig_GetNumberOfCapabilities(This,piCount,piSize) (This)->lpVtbl->GetNumberOfCapabilities(This,piCount,piSize)
+#define IAMStreamConfig_GetStreamCaps(This,iIndex,pmt,pSCC) (This)->lpVtbl->GetStreamCaps(This,iIndex,pmt,pSCC)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IAMStreamConfig_SetFormat_Proxy(
+    IAMStreamConfig* This,
+    AM_MEDIA_TYPE *pmt);
+void __RPC_STUB IAMStreamConfig_SetFormat_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMStreamConfig_GetFormat_Proxy(
+    IAMStreamConfig* This,
+    AM_MEDIA_TYPE **pmt);
+void __RPC_STUB IAMStreamConfig_GetFormat_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMStreamConfig_GetNumberOfCapabilities_Proxy(
+    IAMStreamConfig* This,
+    int *piCount,
+    int *piSize);
+void __RPC_STUB IAMStreamConfig_GetNumberOfCapabilities_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMStreamConfig_GetStreamCaps_Proxy(
+    IAMStreamConfig* This,
+    int iIndex,
+    AM_MEDIA_TYPE **pmt,
+    BYTE *pSCC);
+void __RPC_STUB IAMStreamConfig_GetStreamCaps_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IAMStreamConfig_INTERFACE_DEFINED__ */
+
+typedef enum tagVideoProcAmpProperty {
+    VideoProcAmp_Brightness = 0,
+    VideoProcAmp_Contrast = 1,
+    VideoProcAmp_Hue = 2,
+    VideoProcAmp_Saturation = 3,
+    VideoProcAmp_Sharpness = 4,
+    VideoProcAmp_Gamma = 5,
+    VideoProcAmp_ColorEnable = 6,
+    VideoProcAmp_WhiteBalance = 7,
+    VideoProcAmp_BacklightCompensation = 8,
+    VideoProcAmp_Gain = 9
+} VideoProcAmpProperty;
+typedef enum tagVideoProcAmpFlags {
+    VideoProcAmp_Flags_Auto = 0x1,
+    VideoProcAmp_Flags_Manual = 0x2
+} VideoProcAmpFlags;
+/*****************************************************************************
+ * IAMVideoProcAmp interface
+ */
+#ifndef __IAMVideoProcAmp_INTERFACE_DEFINED__
+#define __IAMVideoProcAmp_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IAMVideoProcAmp, 0xc6e13360, 0x30ac, 0x11d0, 0xa1,0x8c, 0x00,0xa0,0xc9,0x11,0x89,0x56);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("c6e13360-30ac-11d0-a18c-00a0c9118956")
+IAMVideoProcAmp : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetRange(
+        LONG Property,
+        LONG *pMin,
+        LONG *pMax,
+        LONG *pSteppingDelta,
+        LONG *pDefault,
+        LONG *pCapsFlags) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Set(
+        LONG Property,
+        LONG lValue,
+        LONG Flags) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Get(
+        LONG Property,
+        LONG *lValue,
+        LONG *Flags) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAMVideoProcAmp, 0xc6e13360, 0x30ac, 0x11d0, 0xa1,0x8c, 0x00,0xa0,0xc9,0x11,0x89,0x56)
+#endif
+#else
+typedef struct IAMVideoProcAmpVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IAMVideoProcAmp* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IAMVideoProcAmp* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IAMVideoProcAmp* This);
+
+    /*** IAMVideoProcAmp methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetRange)(
+        IAMVideoProcAmp* This,
+        LONG Property,
+        LONG *pMin,
+        LONG *pMax,
+        LONG *pSteppingDelta,
+        LONG *pDefault,
+        LONG *pCapsFlags);
+
+    HRESULT (STDMETHODCALLTYPE *Set)(
+        IAMVideoProcAmp* This,
+        LONG Property,
+        LONG lValue,
+        LONG Flags);
+
+    HRESULT (STDMETHODCALLTYPE *Get)(
+        IAMVideoProcAmp* This,
+        LONG Property,
+        LONG *lValue,
+        LONG *Flags);
+
+    END_INTERFACE
+} IAMVideoProcAmpVtbl;
+interface IAMVideoProcAmp {
+    CONST_VTBL IAMVideoProcAmpVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IAMVideoProcAmp_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAMVideoProcAmp_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAMVideoProcAmp_Release(This) (This)->lpVtbl->Release(This)
+/*** IAMVideoProcAmp methods ***/
+#define IAMVideoProcAmp_GetRange(This,Property,pMin,pMax,pSteppingDelta,pDefault,pCapsFlags) (This)->lpVtbl->GetRange(This,Property,pMin,pMax,pSteppingDelta,pDefault,pCapsFlags)
+#define IAMVideoProcAmp_Set(This,Property,lValue,Flags) (This)->lpVtbl->Set(This,Property,lValue,Flags)
+#define IAMVideoProcAmp_Get(This,Property,lValue,Flags) (This)->lpVtbl->Get(This,Property,lValue,Flags)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IAMVideoProcAmp_GetRange_Proxy(
+    IAMVideoProcAmp* This,
+    LONG Property,
+    LONG *pMin,
+    LONG *pMax,
+    LONG *pSteppingDelta,
+    LONG *pDefault,
+    LONG *pCapsFlags);
+void __RPC_STUB IAMVideoProcAmp_GetRange_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMVideoProcAmp_Set_Proxy(
+    IAMVideoProcAmp* This,
+    LONG Property,
+    LONG lValue,
+    LONG Flags);
+void __RPC_STUB IAMVideoProcAmp_Set_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMVideoProcAmp_Get_Proxy(
+    IAMVideoProcAmp* This,
+    LONG Property,
+    LONG *lValue,
+    LONG *Flags);
+void __RPC_STUB IAMVideoProcAmp_Get_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IAMVideoProcAmp_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAsyncReader interface
+ */
+#ifndef __IAsyncReader_INTERFACE_DEFINED__
+#define __IAsyncReader_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IAsyncReader, 0x56a868aa, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a868aa-0ad4-11ce-b03a-0020af0ba770")
+IAsyncReader : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE RequestAllocator(
+        IMemAllocator *pPreferred,
+        ALLOCATOR_PROPERTIES *pProps,
+        IMemAllocator **ppActual) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Request(
+        IMediaSample *pSample,
+        DWORD_PTR dwUser) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WaitForNext(
+        DWORD dwTimeout,
+        IMediaSample **ppSample,
+        DWORD_PTR *pdwUser) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SyncReadAligned(
+        IMediaSample *pSample) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SyncRead(
+        LONGLONG llPosition,
+        LONG lLength,
+        BYTE *pBuffer) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Length(
+        LONGLONG *pTotal,
+        LONGLONG *pAvailable) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE BeginFlush(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EndFlush(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAsyncReader, 0x56a868aa, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IAsyncReaderVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IAsyncReader* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IAsyncReader* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IAsyncReader* This);
+
+    /*** IAsyncReader methods ***/
+    HRESULT (STDMETHODCALLTYPE *RequestAllocator)(
+        IAsyncReader* This,
+        IMemAllocator *pPreferred,
+        ALLOCATOR_PROPERTIES *pProps,
+        IMemAllocator **ppActual);
+
+    HRESULT (STDMETHODCALLTYPE *Request)(
+        IAsyncReader* This,
+        IMediaSample *pSample,
+        DWORD_PTR dwUser);
+
+    HRESULT (STDMETHODCALLTYPE *WaitForNext)(
+        IAsyncReader* This,
+        DWORD dwTimeout,
+        IMediaSample **ppSample,
+        DWORD_PTR *pdwUser);
+
+    HRESULT (STDMETHODCALLTYPE *SyncReadAligned)(
+        IAsyncReader* This,
+        IMediaSample *pSample);
+
+    HRESULT (STDMETHODCALLTYPE *SyncRead)(
+        IAsyncReader* This,
+        LONGLONG llPosition,
+        LONG lLength,
+        BYTE *pBuffer);
+
+    HRESULT (STDMETHODCALLTYPE *Length)(
+        IAsyncReader* This,
+        LONGLONG *pTotal,
+        LONGLONG *pAvailable);
+
+    HRESULT (STDMETHODCALLTYPE *BeginFlush)(
+        IAsyncReader* This);
+
+    HRESULT (STDMETHODCALLTYPE *EndFlush)(
+        IAsyncReader* This);
+
+    END_INTERFACE
+} IAsyncReaderVtbl;
+interface IAsyncReader {
+    CONST_VTBL IAsyncReaderVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IAsyncReader_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAsyncReader_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAsyncReader_Release(This) (This)->lpVtbl->Release(This)
+/*** IAsyncReader methods ***/
+#define IAsyncReader_RequestAllocator(This,pPreferred,pProps,ppActual) (This)->lpVtbl->RequestAllocator(This,pPreferred,pProps,ppActual)
+#define IAsyncReader_Request(This,pSample,dwUser) (This)->lpVtbl->Request(This,pSample,dwUser)
+#define IAsyncReader_WaitForNext(This,dwTimeout,ppSample,pdwUser) (This)->lpVtbl->WaitForNext(This,dwTimeout,ppSample,pdwUser)
+#define IAsyncReader_SyncReadAligned(This,pSample) (This)->lpVtbl->SyncReadAligned(This,pSample)
+#define IAsyncReader_SyncRead(This,llPosition,lLength,pBuffer) (This)->lpVtbl->SyncRead(This,llPosition,lLength,pBuffer)
+#define IAsyncReader_Length(This,pTotal,pAvailable) (This)->lpVtbl->Length(This,pTotal,pAvailable)
+#define IAsyncReader_BeginFlush(This) (This)->lpVtbl->BeginFlush(This)
+#define IAsyncReader_EndFlush(This) (This)->lpVtbl->EndFlush(This)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IAsyncReader_RequestAllocator_Proxy(
+    IAsyncReader* This,
+    IMemAllocator *pPreferred,
+    ALLOCATOR_PROPERTIES *pProps,
+    IMemAllocator **ppActual);
+void __RPC_STUB IAsyncReader_RequestAllocator_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAsyncReader_Request_Proxy(
+    IAsyncReader* This,
+    IMediaSample *pSample,
+    DWORD_PTR dwUser);
+void __RPC_STUB IAsyncReader_Request_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAsyncReader_WaitForNext_Proxy(
+    IAsyncReader* This,
+    DWORD dwTimeout,
+    IMediaSample **ppSample,
+    DWORD_PTR *pdwUser);
+void __RPC_STUB IAsyncReader_WaitForNext_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAsyncReader_SyncReadAligned_Proxy(
+    IAsyncReader* This,
+    IMediaSample *pSample);
+void __RPC_STUB IAsyncReader_SyncReadAligned_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAsyncReader_SyncRead_Proxy(
+    IAsyncReader* This,
+    LONGLONG llPosition,
+    LONG lLength,
+    BYTE *pBuffer);
+void __RPC_STUB IAsyncReader_SyncRead_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAsyncReader_Length_Proxy(
+    IAsyncReader* This,
+    LONGLONG *pTotal,
+    LONGLONG *pAvailable);
+void __RPC_STUB IAsyncReader_Length_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAsyncReader_BeginFlush_Proxy(
+    IAsyncReader* This);
+void __RPC_STUB IAsyncReader_BeginFlush_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAsyncReader_EndFlush_Proxy(
+    IAsyncReader* This);
+void __RPC_STUB IAsyncReader_EndFlush_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IAsyncReader_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IGraphVersion interface
+ */
+#ifndef __IGraphVersion_INTERFACE_DEFINED__
+#define __IGraphVersion_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IGraphVersion, 0x56a868ab, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a868ab-0ad4-11ce-b03a-0020af0ba770")
+IGraphVersion : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE QueryVersion(
+        LONG *pVersion) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IGraphVersion, 0x56a868ab, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IGraphVersionVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IGraphVersion* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IGraphVersion* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IGraphVersion* This);
+
+    /*** IGraphVersion methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryVersion)(
+        IGraphVersion* This,
+        LONG *pVersion);
+
+    END_INTERFACE
+} IGraphVersionVtbl;
+interface IGraphVersion {
+    CONST_VTBL IGraphVersionVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IGraphVersion_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IGraphVersion_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IGraphVersion_Release(This) (This)->lpVtbl->Release(This)
+/*** IGraphVersion methods ***/
+#define IGraphVersion_QueryVersion(This,pVersion) (This)->lpVtbl->QueryVersion(This,pVersion)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IGraphVersion_QueryVersion_Proxy(
+    IGraphVersion* This,
+    LONG *pVersion);
+void __RPC_STUB IGraphVersion_QueryVersion_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IGraphVersion_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IResourceConsumer interface
+ */
+#ifndef __IResourceConsumer_INTERFACE_DEFINED__
+#define __IResourceConsumer_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IResourceConsumer, 0x56a868ad, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a868ad-0ad4-11ce-b03a-0020af0ba770")
+IResourceConsumer : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE AcquireResource(
+        LONG idResource) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ReleaseResource(
+        LONG idResource) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IResourceConsumer, 0x56a868ad, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IResourceConsumerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IResourceConsumer* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IResourceConsumer* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IResourceConsumer* This);
+
+    /*** IResourceConsumer methods ***/
+    HRESULT (STDMETHODCALLTYPE *AcquireResource)(
+        IResourceConsumer* This,
+        LONG idResource);
+
+    HRESULT (STDMETHODCALLTYPE *ReleaseResource)(
+        IResourceConsumer* This,
+        LONG idResource);
+
+    END_INTERFACE
+} IResourceConsumerVtbl;
+interface IResourceConsumer {
+    CONST_VTBL IResourceConsumerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IResourceConsumer_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IResourceConsumer_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IResourceConsumer_Release(This) (This)->lpVtbl->Release(This)
+/*** IResourceConsumer methods ***/
+#define IResourceConsumer_AcquireResource(This,idResource) (This)->lpVtbl->AcquireResource(This,idResource)
+#define IResourceConsumer_ReleaseResource(This,idResource) (This)->lpVtbl->ReleaseResource(This,idResource)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IResourceConsumer_AcquireResource_Proxy(
+    IResourceConsumer* This,
+    LONG idResource);
+void __RPC_STUB IResourceConsumer_AcquireResource_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IResourceConsumer_ReleaseResource_Proxy(
+    IResourceConsumer* This,
+    LONG idResource);
+void __RPC_STUB IResourceConsumer_ReleaseResource_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IResourceConsumer_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IResourceManager interface
+ */
+#ifndef __IResourceManager_INTERFACE_DEFINED__
+#define __IResourceManager_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IResourceManager, 0x56a868ac, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a868ac-0ad4-11ce-b03a-0020af0ba770")
+IResourceManager : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Register(
+        LPCWSTR pName,
+        LONG cResource,
+        LONG *plToken) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RegisterGroup(
+        LPCWSTR pName,
+        LONG cResource,
+        LONG *palTokens,
+        LONG *plToken) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RequestResource(
+        LONG idResource,
+        IUnknown *pFocusObject,
+        IResourceConsumer *pConsumer) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE NotifyAcquire(
+        LONG idResource,
+        IResourceConsumer *pConsumer,
+        HRESULT hr) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE NotifyRelease(
+        LONG idResource,
+        IResourceConsumer *pConsumer,
+        WINBOOL bStillWant) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CancelRequest(
+        LONG idResource,
+        IResourceConsumer *pConsumer) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetFocus(
+        IUnknown *pFocusObject) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ReleaseFocus(
+        IUnknown *pFocusObject) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IResourceManager, 0x56a868ac, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IResourceManagerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IResourceManager* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IResourceManager* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IResourceManager* This);
+
+    /*** IResourceManager methods ***/
+    HRESULT (STDMETHODCALLTYPE *Register)(
+        IResourceManager* This,
+        LPCWSTR pName,
+        LONG cResource,
+        LONG *plToken);
+
+    HRESULT (STDMETHODCALLTYPE *RegisterGroup)(
+        IResourceManager* This,
+        LPCWSTR pName,
+        LONG cResource,
+        LONG *palTokens,
+        LONG *plToken);
+
+    HRESULT (STDMETHODCALLTYPE *RequestResource)(
+        IResourceManager* This,
+        LONG idResource,
+        IUnknown *pFocusObject,
+        IResourceConsumer *pConsumer);
+
+    HRESULT (STDMETHODCALLTYPE *NotifyAcquire)(
+        IResourceManager* This,
+        LONG idResource,
+        IResourceConsumer *pConsumer,
+        HRESULT hr);
+
+    HRESULT (STDMETHODCALLTYPE *NotifyRelease)(
+        IResourceManager* This,
+        LONG idResource,
+        IResourceConsumer *pConsumer,
+        WINBOOL bStillWant);
+
+    HRESULT (STDMETHODCALLTYPE *CancelRequest)(
+        IResourceManager* This,
+        LONG idResource,
+        IResourceConsumer *pConsumer);
+
+    HRESULT (STDMETHODCALLTYPE *SetFocus)(
+        IResourceManager* This,
+        IUnknown *pFocusObject);
+
+    HRESULT (STDMETHODCALLTYPE *ReleaseFocus)(
+        IResourceManager* This,
+        IUnknown *pFocusObject);
+
+    END_INTERFACE
+} IResourceManagerVtbl;
+interface IResourceManager {
+    CONST_VTBL IResourceManagerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IResourceManager_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IResourceManager_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IResourceManager_Release(This) (This)->lpVtbl->Release(This)
+/*** IResourceManager methods ***/
+#define IResourceManager_Register(This,pName,cResource,plToken) (This)->lpVtbl->Register(This,pName,cResource,plToken)
+#define IResourceManager_RegisterGroup(This,pName,cResource,palTokens,plToken) (This)->lpVtbl->RegisterGroup(This,pName,cResource,palTokens,plToken)
+#define IResourceManager_RequestResource(This,idResource,pFocusObject,pConsumer) (This)->lpVtbl->RequestResource(This,idResource,pFocusObject,pConsumer)
+#define IResourceManager_NotifyAcquire(This,idResource,pConsumer,hr) (This)->lpVtbl->NotifyAcquire(This,idResource,pConsumer,hr)
+#define IResourceManager_NotifyRelease(This,idResource,pConsumer,bStillWant) (This)->lpVtbl->NotifyRelease(This,idResource,pConsumer,bStillWant)
+#define IResourceManager_CancelRequest(This,idResource,pConsumer) (This)->lpVtbl->CancelRequest(This,idResource,pConsumer)
+#define IResourceManager_SetFocus(This,pFocusObject) (This)->lpVtbl->SetFocus(This,pFocusObject)
+#define IResourceManager_ReleaseFocus(This,pFocusObject) (This)->lpVtbl->ReleaseFocus(This,pFocusObject)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IResourceManager_Register_Proxy(
+    IResourceManager* This,
+    LPCWSTR pName,
+    LONG cResource,
+    LONG *plToken);
+void __RPC_STUB IResourceManager_Register_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IResourceManager_RegisterGroup_Proxy(
+    IResourceManager* This,
+    LPCWSTR pName,
+    LONG cResource,
+    LONG *palTokens,
+    LONG *plToken);
+void __RPC_STUB IResourceManager_RegisterGroup_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IResourceManager_RequestResource_Proxy(
+    IResourceManager* This,
+    LONG idResource,
+    IUnknown *pFocusObject,
+    IResourceConsumer *pConsumer);
+void __RPC_STUB IResourceManager_RequestResource_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IResourceManager_NotifyAcquire_Proxy(
+    IResourceManager* This,
+    LONG idResource,
+    IResourceConsumer *pConsumer,
+    HRESULT hr);
+void __RPC_STUB IResourceManager_NotifyAcquire_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IResourceManager_NotifyRelease_Proxy(
+    IResourceManager* This,
+    LONG idResource,
+    IResourceConsumer *pConsumer,
+    WINBOOL bStillWant);
+void __RPC_STUB IResourceManager_NotifyRelease_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IResourceManager_CancelRequest_Proxy(
+    IResourceManager* This,
+    LONG idResource,
+    IResourceConsumer *pConsumer);
+void __RPC_STUB IResourceManager_CancelRequest_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IResourceManager_SetFocus_Proxy(
+    IResourceManager* This,
+    IUnknown *pFocusObject);
+void __RPC_STUB IResourceManager_SetFocus_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IResourceManager_ReleaseFocus_Proxy(
+    IResourceManager* This,
+    IUnknown *pFocusObject);
+void __RPC_STUB IResourceManager_ReleaseFocus_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IResourceManager_INTERFACE_DEFINED__ */
+
+#ifndef _IKsPropertySet_
+#define _IKsPropertySet_
+#define KSPROPERTY_SUPPORT_GET  1
+#define KSPROPERTY_SUPPORT_SET  2
+/*****************************************************************************
+ * IKsPropertySet interface
+ */
+#ifndef __IKsPropertySet_INTERFACE_DEFINED__
+#define __IKsPropertySet_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IKsPropertySet, 0x31efac30, 0x515c, 0x11d0, 0xa9,0xaa, 0x00,0xaa,0x00,0x61,0xbe,0x93);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("31efac30-515c-11d0-a9aa-00aa0061be93")
+IKsPropertySet : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Set(
+        REFGUID guidPropSet,
+        DWORD dwPropID,
+        LPVOID pInstanceData,
+        DWORD cbInstanceData,
+        LPVOID pPropData,
+        DWORD cbPropData) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Get(
+        REFGUID guidPropSet,
+        DWORD dwPropID,
+        LPVOID pInstanceData,
+        DWORD cbInstanceData,
+        LPVOID pPropData,
+        DWORD cbPropData,
+        DWORD *pcbReturned) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE QuerySupported(
+        REFGUID guidPropSet,
+        DWORD dwPropID,
+        DWORD *pTypeSupport) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IKsPropertySet, 0x31efac30, 0x515c, 0x11d0, 0xa9,0xaa, 0x00,0xaa,0x00,0x61,0xbe,0x93)
+#endif
+#else
+typedef struct IKsPropertySetVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IKsPropertySet* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IKsPropertySet* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IKsPropertySet* This);
+
+    /*** IKsPropertySet methods ***/
+    HRESULT (STDMETHODCALLTYPE *Set)(
+        IKsPropertySet* This,
+        REFGUID guidPropSet,
+        DWORD dwPropID,
+        LPVOID pInstanceData,
+        DWORD cbInstanceData,
+        LPVOID pPropData,
+        DWORD cbPropData);
+
+    HRESULT (STDMETHODCALLTYPE *Get)(
+        IKsPropertySet* This,
+        REFGUID guidPropSet,
+        DWORD dwPropID,
+        LPVOID pInstanceData,
+        DWORD cbInstanceData,
+        LPVOID pPropData,
+        DWORD cbPropData,
+        DWORD *pcbReturned);
+
+    HRESULT (STDMETHODCALLTYPE *QuerySupported)(
+        IKsPropertySet* This,
+        REFGUID guidPropSet,
+        DWORD dwPropID,
+        DWORD *pTypeSupport);
+
+    END_INTERFACE
+} IKsPropertySetVtbl;
+interface IKsPropertySet {
+    CONST_VTBL IKsPropertySetVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IKsPropertySet_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IKsPropertySet_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IKsPropertySet_Release(This) (This)->lpVtbl->Release(This)
+/*** IKsPropertySet methods ***/
+#define IKsPropertySet_Set(This,guidPropSet,dwPropID,pInstanceData,cbInstanceData,pPropData,cbPropData) (This)->lpVtbl->Set(This,guidPropSet,dwPropID,pInstanceData,cbInstanceData,pPropData,cbPropData)
+#define IKsPropertySet_Get(This,guidPropSet,dwPropID,pInstanceData,cbInstanceData,pPropData,cbPropData,pcbReturned) (This)->lpVtbl->Get(This,guidPropSet,dwPropID,pInstanceData,cbInstanceData,pPropData,cbPropData,pcbReturned)
+#define IKsPropertySet_QuerySupported(This,guidPropSet,dwPropID,pTypeSupport) (This)->lpVtbl->QuerySupported(This,guidPropSet,dwPropID,pTypeSupport)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IKsPropertySet_Set_Proxy(
+    IKsPropertySet* This,
+    REFGUID guidPropSet,
+    DWORD dwPropID,
+    LPVOID pInstanceData,
+    DWORD cbInstanceData,
+    LPVOID pPropData,
+    DWORD cbPropData);
+void __RPC_STUB IKsPropertySet_Set_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IKsPropertySet_Get_Proxy(
+    IKsPropertySet* This,
+    REFGUID guidPropSet,
+    DWORD dwPropID,
+    LPVOID pInstanceData,
+    DWORD cbInstanceData,
+    LPVOID pPropData,
+    DWORD cbPropData,
+    DWORD *pcbReturned);
+void __RPC_STUB IKsPropertySet_Get_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IKsPropertySet_QuerySupported_Proxy(
+    IKsPropertySet* This,
+    REFGUID guidPropSet,
+    DWORD dwPropID,
+    DWORD *pTypeSupport);
+void __RPC_STUB IKsPropertySet_QuerySupported_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IKsPropertySet_INTERFACE_DEFINED__ */
+
+#endif /* _IKsPropertySet_ */
+/*****************************************************************************
+ * ISeekingPassThru interface
+ */
+#ifndef __ISeekingPassThru_INTERFACE_DEFINED__
+#define __ISeekingPassThru_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ISeekingPassThru, 0x36b73883, 0xc2c8, 0x11cf, 0x8b,0x46, 0x00,0x80,0x5f,0x6c,0xef,0x60);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("36b73883-c2c8-11cf-8b46-00805f6cef60")
+ISeekingPassThru : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Init(
+        WINBOOL bSupportRendering,
+        IPin *pPin) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ISeekingPassThru, 0x36b73883, 0xc2c8, 0x11cf, 0x8b,0x46, 0x00,0x80,0x5f,0x6c,0xef,0x60)
+#endif
+#else
+typedef struct ISeekingPassThruVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ISeekingPassThru* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ISeekingPassThru* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ISeekingPassThru* This);
+
+    /*** ISeekingPassThru methods ***/
+    HRESULT (STDMETHODCALLTYPE *Init)(
+        ISeekingPassThru* This,
+        WINBOOL bSupportRendering,
+        IPin *pPin);
+
+    END_INTERFACE
+} ISeekingPassThruVtbl;
+interface ISeekingPassThru {
+    CONST_VTBL ISeekingPassThruVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define ISeekingPassThru_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ISeekingPassThru_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ISeekingPassThru_Release(This) (This)->lpVtbl->Release(This)
+/*** ISeekingPassThru methods ***/
+#define ISeekingPassThru_Init(This,bSupportRendering,pPin) (This)->lpVtbl->Init(This,bSupportRendering,pPin)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ISeekingPassThru_Init_Proxy(
+    ISeekingPassThru* This,
+    WINBOOL bSupportRendering,
+    IPin *pPin);
+void __RPC_STUB ISeekingPassThru_Init_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ISeekingPassThru_INTERFACE_DEFINED__ */
+
+enum _AM_FILTER_MISC_FLAGS {
+    AM_FILTER_MISC_FLAGS_IS_RENDERER = 0x1,
+    AM_FILTER_MISC_FLAGS_IS_SOURCE = 0x2
+};
+
+/*****************************************************************************
+ * IAMFilterMiscFlags interface
+ */
+#ifndef __IAMFilterMiscFlags_INTERFACE_DEFINED__
+#define __IAMFilterMiscFlags_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IAMFilterMiscFlags, 0x2dd74950, 0xa890, 0x11d1, 0xab,0xe8, 0x00,0xa0,0xc9,0x05,0xf3,0x75);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("2dd74950-a890-11d1-abe8-00a0c905f375")
+IAMFilterMiscFlags : public IUnknown
+{
+    virtual ULONG STDMETHODCALLTYPE GetMiscFlags(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAMFilterMiscFlags, 0x2dd74950, 0xa890, 0x11d1, 0xab,0xe8, 0x00,0xa0,0xc9,0x05,0xf3,0x75)
+#endif
+#else
+typedef struct IAMFilterMiscFlagsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IAMFilterMiscFlags* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IAMFilterMiscFlags* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IAMFilterMiscFlags* This);
+
+    /*** IAMFilterMiscFlags methods ***/
+    ULONG (STDMETHODCALLTYPE *GetMiscFlags)(
+        IAMFilterMiscFlags* This);
+
+    END_INTERFACE
+} IAMFilterMiscFlagsVtbl;
+interface IAMFilterMiscFlags {
+    CONST_VTBL IAMFilterMiscFlagsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IAMFilterMiscFlags_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAMFilterMiscFlags_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAMFilterMiscFlags_Release(This) (This)->lpVtbl->Release(This)
+/*** IAMFilterMiscFlags methods ***/
+#define IAMFilterMiscFlags_GetMiscFlags(This) (This)->lpVtbl->GetMiscFlags(This)
+#endif
+
+#endif
+
+ULONG STDMETHODCALLTYPE IAMFilterMiscFlags_GetMiscFlags_Proxy(
+    IAMFilterMiscFlags* This);
+void __RPC_STUB IAMFilterMiscFlags_GetMiscFlags_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IAMFilterMiscFlags_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAMGraphBuilderCallback interface
+ */
+#ifndef __IAMGraphBuilderCallback_INTERFACE_DEFINED__
+#define __IAMGraphBuilderCallback_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IAMGraphBuilderCallback, 0x4995f511, 0x9ddb, 0x4f12, 0xbd,0x3b, 0xf0,0x46,0x11,0x80,0x7b,0x79);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("4995f511-9ddb-4f12-bd3b-f04611807b79")
+IAMGraphBuilderCallback : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SelectedFilter(
+        IMoniker *pMon) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreatedFilter(
+        IBaseFilter *pFil) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAMGraphBuilderCallback, 0x4995f511, 0x9ddb, 0x4f12, 0xbd,0x3b, 0xf0,0x46,0x11,0x80,0x7b,0x79)
+#endif
+#else
+typedef struct IAMGraphBuilderCallbackVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IAMGraphBuilderCallback* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IAMGraphBuilderCallback* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IAMGraphBuilderCallback* This);
+
+    /*** IAMGraphBuilderCallback methods ***/
+    HRESULT (STDMETHODCALLTYPE *SelectedFilter)(
+        IAMGraphBuilderCallback* This,
+        IMoniker *pMon);
+
+    HRESULT (STDMETHODCALLTYPE *CreatedFilter)(
+        IAMGraphBuilderCallback* This,
+        IBaseFilter *pFil);
+
+    END_INTERFACE
+} IAMGraphBuilderCallbackVtbl;
+interface IAMGraphBuilderCallback {
+    CONST_VTBL IAMGraphBuilderCallbackVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IAMGraphBuilderCallback_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAMGraphBuilderCallback_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAMGraphBuilderCallback_Release(This) (This)->lpVtbl->Release(This)
+/*** IAMGraphBuilderCallback methods ***/
+#define IAMGraphBuilderCallback_SelectedFilter(This,pMon) (This)->lpVtbl->SelectedFilter(This,pMon)
+#define IAMGraphBuilderCallback_CreatedFilter(This,pFil) (This)->lpVtbl->CreatedFilter(This,pFil)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IAMGraphBuilderCallback_SelectedFilter_Proxy(
+    IAMGraphBuilderCallback* This,
+    IMoniker *pMon);
+void __RPC_STUB IAMGraphBuilderCallback_SelectedFilter_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMGraphBuilderCallback_CreatedFilter_Proxy(
+    IAMGraphBuilderCallback* This,
+    IBaseFilter *pFil);
+void __RPC_STUB IAMGraphBuilderCallback_CreatedFilter_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IAMGraphBuilderCallback_INTERFACE_DEFINED__ */
+
+#ifndef __IReferenceClock2_FWD_DEFINED__
+#define __IReferenceClock2_FWD_DEFINED__
+typedef struct IReferenceClock2 IReferenceClock2;
+#endif
 #ifndef __IDistributorNotify_FWD_DEFINED__
 #define __IDistributorNotify_FWD_DEFINED__
 typedef struct IDistributorNotify IDistributorNotify;
@@ -3208,21 +7480,6 @@ typedef struct IDistributorNotify IDistributorNotify;
 #ifndef __IAMStreamControl_FWD_DEFINED__
 #define __IAMStreamControl_FWD_DEFINED__
 typedef struct IAMStreamControl IAMStreamControl;
-#endif
-
-#ifndef __ISeekingPassThru_FWD_DEFINED__
-#define __ISeekingPassThru_FWD_DEFINED__
-typedef struct ISeekingPassThru ISeekingPassThru;
-#endif
-
-#ifndef __IAMStreamConfig_FWD_DEFINED__
-#define __IAMStreamConfig_FWD_DEFINED__
-typedef struct IAMStreamConfig IAMStreamConfig;
-#endif
-
-#ifndef __IConfigInterleaving_FWD_DEFINED__
-#define __IConfigInterleaving_FWD_DEFINED__
-typedef struct IConfigInterleaving IConfigInterleaving;
 #endif
 
 #ifndef __IConfigAviMux_FWD_DEFINED__
@@ -3263,11 +7520,6 @@ typedef struct IAMBufferNegotiation IAMBufferNegotiation;
 #ifndef __IAMAnalogVideoDecoder_FWD_DEFINED__
 #define __IAMAnalogVideoDecoder_FWD_DEFINED__
 typedef struct IAMAnalogVideoDecoder IAMAnalogVideoDecoder;
-#endif
-
-#ifndef __IAMVideoProcAmp_FWD_DEFINED__
-#define __IAMVideoProcAmp_FWD_DEFINED__
-typedef struct IAMVideoProcAmp IAMVideoProcAmp;
 #endif
 
 #ifndef __IAMCameraControl_FWD_DEFINED__
@@ -3318,11 +7570,6 @@ typedef struct IAMTVAudioNotification IAMTVAudioNotification;
 #ifndef __IAMAnalogVideoEncoder_FWD_DEFINED__
 #define __IAMAnalogVideoEncoder_FWD_DEFINED__
 typedef struct IAMAnalogVideoEncoder IAMAnalogVideoEncoder;
-#endif
-
-#ifndef __IKsPropertySet_FWD_DEFINED__
-#define __IKsPropertySet_FWD_DEFINED__
-typedef struct IKsPropertySet IKsPropertySet;
 #endif
 
 #ifndef __IMediaPropertyBag_FWD_DEFINED__
@@ -3388,11 +7635,6 @@ typedef struct IAMResourceControl IAMResourceControl;
 #ifndef __IAMClockAdjust_FWD_DEFINED__
 #define __IAMClockAdjust_FWD_DEFINED__
 typedef struct IAMClockAdjust IAMClockAdjust;
-#endif
-
-#ifndef __IAMFilterMiscFlags_FWD_DEFINED__
-#define __IAMFilterMiscFlags_FWD_DEFINED__
-typedef struct IAMFilterMiscFlags IAMFilterMiscFlags;
 #endif
 
 #ifndef __IDrawVideoImage_FWD_DEFINED__
@@ -3493,11 +7735,6 @@ typedef struct IRegisterServiceProvider IRegisterServiceProvider;
 #ifndef __IAMClockSlave_FWD_DEFINED__
 #define __IAMClockSlave_FWD_DEFINED__
 typedef struct IAMClockSlave IAMClockSlave;
-#endif
-
-#ifndef __IAMGraphBuilderCallback_FWD_DEFINED__
-#define __IAMGraphBuilderCallback_FWD_DEFINED__
-typedef struct IAMGraphBuilderCallback IAMGraphBuilderCallback;
 #endif
 
 #ifndef __ICodecAPI_FWD_DEFINED__
@@ -3735,1248 +7972,6 @@ typedef struct IAMPluginControl IAMPluginControl;
 
   typedef IReferenceClock2 *PREFERENCECLOCK2;
 
-  typedef struct __MIDL___MIDL_itf_strmif_0134_0001 {
-    CLSID Clsid;
-    LPWSTR Name;
-  } REGFILTER;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0134_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0134_v0_0_s_ifspec;
-#ifndef __IEnumRegFilters_INTERFACE_DEFINED__
-#define __IEnumRegFilters_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IEnumRegFilters;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IEnumRegFilters : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Next(ULONG cFilters,REGFILTER **apRegFilter,ULONG *pcFetched) = 0;
-    virtual HRESULT WINAPI Skip(ULONG cFilters) = 0;
-    virtual HRESULT WINAPI Reset(void) = 0;
-    virtual HRESULT WINAPI Clone(IEnumRegFilters **ppEnum) = 0;
-  };
-#else
-  typedef struct IEnumRegFiltersVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IEnumRegFilters *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IEnumRegFilters *This);
-      ULONG (WINAPI *Release)(IEnumRegFilters *This);
-      HRESULT (WINAPI *Next)(IEnumRegFilters *This,ULONG cFilters,REGFILTER **apRegFilter,ULONG *pcFetched);
-      HRESULT (WINAPI *Skip)(IEnumRegFilters *This,ULONG cFilters);
-      HRESULT (WINAPI *Reset)(IEnumRegFilters *This);
-      HRESULT (WINAPI *Clone)(IEnumRegFilters *This,IEnumRegFilters **ppEnum);
-    END_INTERFACE
-  } IEnumRegFiltersVtbl;
-  struct IEnumRegFilters {
-    CONST_VTBL struct IEnumRegFiltersVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IEnumRegFilters_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IEnumRegFilters_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IEnumRegFilters_Release(This) (This)->lpVtbl->Release(This)
-#define IEnumRegFilters_Next(This,cFilters,apRegFilter,pcFetched) (This)->lpVtbl->Next(This,cFilters,apRegFilter,pcFetched)
-#define IEnumRegFilters_Skip(This,cFilters) (This)->lpVtbl->Skip(This,cFilters)
-#define IEnumRegFilters_Reset(This) (This)->lpVtbl->Reset(This)
-#define IEnumRegFilters_Clone(This,ppEnum) (This)->lpVtbl->Clone(This,ppEnum)
-#endif
-#endif
-  HRESULT WINAPI IEnumRegFilters_Next_Proxy(IEnumRegFilters *This,ULONG cFilters,REGFILTER **apRegFilter,ULONG *pcFetched);
-  void __RPC_STUB IEnumRegFilters_Next_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumRegFilters_Skip_Proxy(IEnumRegFilters *This,ULONG cFilters);
-  void __RPC_STUB IEnumRegFilters_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumRegFilters_Reset_Proxy(IEnumRegFilters *This);
-  void __RPC_STUB IEnumRegFilters_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumRegFilters_Clone_Proxy(IEnumRegFilters *This,IEnumRegFilters **ppEnum);
-  void __RPC_STUB IEnumRegFilters_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IEnumRegFilters *PENUMREGFILTERS;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0136_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0136_v0_0_s_ifspec;
-#ifndef __IFilterMapper_INTERFACE_DEFINED__
-#define __IFilterMapper_INTERFACE_DEFINED__
-  enum __MIDL_IFilterMapper_0001 {
-    MERIT_PREFERRED = 0x800000,MERIT_NORMAL = 0x600000,MERIT_UNLIKELY = 0x400000,MERIT_DO_NOT_USE = 0x200000,MERIT_SW_COMPRESSOR = 0x100000,
-    MERIT_HW_COMPRESSOR = 0x100050
-  };
-  EXTERN_C const IID IID_IFilterMapper;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IFilterMapper : public IUnknown {
-  public:
-    virtual HRESULT WINAPI RegisterFilter(CLSID clsid,LPCWSTR Name,DWORD dwMerit) = 0;
-    virtual HRESULT WINAPI RegisterFilterInstance(CLSID clsid,LPCWSTR Name,CLSID *MRId) = 0;
-    virtual HRESULT WINAPI RegisterPin(CLSID Filter,LPCWSTR Name,WINBOOL bRendered,WINBOOL bOutput,WINBOOL bZero,WINBOOL bMany,CLSID ConnectsToFilter,LPCWSTR ConnectsToPin) = 0;
-    virtual HRESULT WINAPI RegisterPinType(CLSID clsFilter,LPCWSTR strName,CLSID clsMajorType,CLSID clsSubType) = 0;
-    virtual HRESULT WINAPI UnregisterFilter(CLSID Filter) = 0;
-    virtual HRESULT WINAPI UnregisterFilterInstance(CLSID MRId) = 0;
-    virtual HRESULT WINAPI UnregisterPin(CLSID Filter,LPCWSTR Name) = 0;
-    virtual HRESULT WINAPI EnumMatchingFilters(IEnumRegFilters **ppEnum,DWORD dwMerit,WINBOOL bInputNeeded,CLSID clsInMaj,CLSID clsInSub,WINBOOL bRender,WINBOOL bOututNeeded,CLSID clsOutMaj,CLSID clsOutSub) = 0;
-  };
-#else
-  typedef struct IFilterMapperVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IFilterMapper *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IFilterMapper *This);
-      ULONG (WINAPI *Release)(IFilterMapper *This);
-      HRESULT (WINAPI *RegisterFilter)(IFilterMapper *This,CLSID clsid,LPCWSTR Name,DWORD dwMerit);
-      HRESULT (WINAPI *RegisterFilterInstance)(IFilterMapper *This,CLSID clsid,LPCWSTR Name,CLSID *MRId);
-      HRESULT (WINAPI *RegisterPin)(IFilterMapper *This,CLSID Filter,LPCWSTR Name,WINBOOL bRendered,WINBOOL bOutput,WINBOOL bZero,WINBOOL bMany,CLSID ConnectsToFilter,LPCWSTR ConnectsToPin);
-      HRESULT (WINAPI *RegisterPinType)(IFilterMapper *This,CLSID clsFilter,LPCWSTR strName,CLSID clsMajorType,CLSID clsSubType);
-      HRESULT (WINAPI *UnregisterFilter)(IFilterMapper *This,CLSID Filter);
-      HRESULT (WINAPI *UnregisterFilterInstance)(IFilterMapper *This,CLSID MRId);
-      HRESULT (WINAPI *UnregisterPin)(IFilterMapper *This,CLSID Filter,LPCWSTR Name);
-      HRESULT (WINAPI *EnumMatchingFilters)(IFilterMapper *This,IEnumRegFilters **ppEnum,DWORD dwMerit,WINBOOL bInputNeeded,CLSID clsInMaj,CLSID clsInSub,WINBOOL bRender,WINBOOL bOututNeeded,CLSID clsOutMaj,CLSID clsOutSub);
-    END_INTERFACE
-  } IFilterMapperVtbl;
-  struct IFilterMapper {
-    CONST_VTBL struct IFilterMapperVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IFilterMapper_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IFilterMapper_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IFilterMapper_Release(This) (This)->lpVtbl->Release(This)
-#define IFilterMapper_RegisterFilter(This,clsid,Name,dwMerit) (This)->lpVtbl->RegisterFilter(This,clsid,Name,dwMerit)
-#define IFilterMapper_RegisterFilterInstance(This,clsid,Name,MRId) (This)->lpVtbl->RegisterFilterInstance(This,clsid,Name,MRId)
-#define IFilterMapper_RegisterPin(This,Filter,Name,bRendered,bOutput,bZero,bMany,ConnectsToFilter,ConnectsToPin) (This)->lpVtbl->RegisterPin(This,Filter,Name,bRendered,bOutput,bZero,bMany,ConnectsToFilter,ConnectsToPin)
-#define IFilterMapper_RegisterPinType(This,clsFilter,strName,clsMajorType,clsSubType) (This)->lpVtbl->RegisterPinType(This,clsFilter,strName,clsMajorType,clsSubType)
-#define IFilterMapper_UnregisterFilter(This,Filter) (This)->lpVtbl->UnregisterFilter(This,Filter)
-#define IFilterMapper_UnregisterFilterInstance(This,MRId) (This)->lpVtbl->UnregisterFilterInstance(This,MRId)
-#define IFilterMapper_UnregisterPin(This,Filter,Name) (This)->lpVtbl->UnregisterPin(This,Filter,Name)
-#define IFilterMapper_EnumMatchingFilters(This,ppEnum,dwMerit,bInputNeeded,clsInMaj,clsInSub,bRender,bOututNeeded,clsOutMaj,clsOutSub) (This)->lpVtbl->EnumMatchingFilters(This,ppEnum,dwMerit,bInputNeeded,clsInMaj,clsInSub,bRender,bOututNeeded,clsOutMaj,clsOutSub)
-#endif
-#endif
-  HRESULT WINAPI IFilterMapper_RegisterFilter_Proxy(IFilterMapper *This,CLSID clsid,LPCWSTR Name,DWORD dwMerit);
-  void __RPC_STUB IFilterMapper_RegisterFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterMapper_RegisterFilterInstance_Proxy(IFilterMapper *This,CLSID clsid,LPCWSTR Name,CLSID *MRId);
-  void __RPC_STUB IFilterMapper_RegisterFilterInstance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterMapper_RegisterPin_Proxy(IFilterMapper *This,CLSID Filter,LPCWSTR Name,WINBOOL bRendered,WINBOOL bOutput,WINBOOL bZero,WINBOOL bMany,CLSID ConnectsToFilter,LPCWSTR ConnectsToPin);
-  void __RPC_STUB IFilterMapper_RegisterPin_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterMapper_RegisterPinType_Proxy(IFilterMapper *This,CLSID clsFilter,LPCWSTR strName,CLSID clsMajorType,CLSID clsSubType);
-  void __RPC_STUB IFilterMapper_RegisterPinType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterMapper_UnregisterFilter_Proxy(IFilterMapper *This,CLSID Filter);
-  void __RPC_STUB IFilterMapper_UnregisterFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterMapper_UnregisterFilterInstance_Proxy(IFilterMapper *This,CLSID MRId);
-  void __RPC_STUB IFilterMapper_UnregisterFilterInstance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterMapper_UnregisterPin_Proxy(IFilterMapper *This,CLSID Filter,LPCWSTR Name);
-  void __RPC_STUB IFilterMapper_UnregisterPin_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterMapper_EnumMatchingFilters_Proxy(IFilterMapper *This,IEnumRegFilters **ppEnum,DWORD dwMerit,WINBOOL bInputNeeded,CLSID clsInMaj,CLSID clsInSub,WINBOOL bRender,WINBOOL bOututNeeded,CLSID clsOutMaj,CLSID clsOutSub);
-  void __RPC_STUB IFilterMapper_EnumMatchingFilters_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef struct __MIDL___MIDL_itf_strmif_0138_0001 {
-    const CLSID *clsMajorType;
-    const CLSID *clsMinorType;
-  } REGPINTYPES;
-
-  typedef struct __MIDL___MIDL_itf_strmif_0138_0002 {
-    LPWSTR strName;
-    WINBOOL bRendered;
-    WINBOOL bOutput;
-    WINBOOL bZero;
-    WINBOOL bMany;
-    const CLSID *clsConnectsToFilter;
-    const WCHAR *strConnectsToPin;
-    UINT nMediaTypes;
-    const REGPINTYPES *lpMediaType;
-  } REGFILTERPINS;
-
-  typedef struct __MIDL___MIDL_itf_strmif_0138_0003 {
-    CLSID clsMedium;
-    DWORD dw1;
-    DWORD dw2;
-  } REGPINMEDIUM;
-
-  enum __MIDL___MIDL_itf_strmif_0138_0004 {
-    REG_PINFLAG_B_ZERO = 0x1,REG_PINFLAG_B_RENDERER = 0x2,REG_PINFLAG_B_MANY = 0x4,REG_PINFLAG_B_OUTPUT = 0x8
-  };
-  typedef struct __MIDL___MIDL_itf_strmif_0138_0005 {
-    DWORD dwFlags;
-    UINT cInstances;
-    UINT nMediaTypes;
-    const REGPINTYPES *lpMediaType;
-    UINT nMediums;
-    const REGPINMEDIUM *lpMedium;
-    const CLSID *clsPinCategory;
-  } REGFILTERPINS2;
-
-  typedef struct __MIDL___MIDL_itf_strmif_0138_0006 {
-    DWORD dwVersion;
-    DWORD dwMerit;
-    __C89_NAMELESS union {
-      __C89_NAMELESS struct {
-	ULONG cPins;
-	const REGFILTERPINS *rgPins;
-      };
-      __C89_NAMELESS struct {
-	ULONG cPins2;
-	const REGFILTERPINS2 *rgPins2;
-      };
-    };
-  } REGFILTER2;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0138_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0138_v0_0_s_ifspec;
-#ifndef __IFilterMapper2_INTERFACE_DEFINED__
-#define __IFilterMapper2_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IFilterMapper2;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IFilterMapper2 : public IUnknown {
-  public:
-    virtual HRESULT WINAPI CreateCategory(REFCLSID clsidCategory,DWORD dwCategoryMerit,LPCWSTR Description) = 0;
-    virtual HRESULT WINAPI UnregisterFilter(const CLSID *pclsidCategory,const OLECHAR *szInstance,REFCLSID Filter) = 0;
-    virtual HRESULT WINAPI RegisterFilter(REFCLSID clsidFilter,LPCWSTR Name,IMoniker **ppMoniker,const CLSID *pclsidCategory,const OLECHAR *szInstance,const REGFILTER2 *prf2) = 0;
-    virtual HRESULT WINAPI EnumMatchingFilters(IEnumMoniker **ppEnum,DWORD dwFlags,WINBOOL bExactMatch,DWORD dwMerit,WINBOOL bInputNeeded,DWORD cInputTypes,const GUID *pInputTypes,const REGPINMEDIUM *pMedIn,const CLSID *pPinCategoryIn,WINBOOL bRender,WINBOOL bOutputNeeded,DWORD cOutputTypes,const GUID *pOutputTypes,const REGPINMEDIUM *pMedOut,const CLSID *pPinCategoryOut) = 0;
-  };
-#else
-  typedef struct IFilterMapper2Vtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IFilterMapper2 *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IFilterMapper2 *This);
-      ULONG (WINAPI *Release)(IFilterMapper2 *This);
-      HRESULT (WINAPI *CreateCategory)(IFilterMapper2 *This,REFCLSID clsidCategory,DWORD dwCategoryMerit,LPCWSTR Description);
-      HRESULT (WINAPI *UnregisterFilter)(IFilterMapper2 *This,const CLSID *pclsidCategory,const OLECHAR *szInstance,REFCLSID Filter);
-      HRESULT (WINAPI *RegisterFilter)(IFilterMapper2 *This,REFCLSID clsidFilter,LPCWSTR Name,IMoniker **ppMoniker,const CLSID *pclsidCategory,const OLECHAR *szInstance,const REGFILTER2 *prf2);
-      HRESULT (WINAPI *EnumMatchingFilters)(IFilterMapper2 *This,IEnumMoniker **ppEnum,DWORD dwFlags,WINBOOL bExactMatch,DWORD dwMerit,WINBOOL bInputNeeded,DWORD cInputTypes,const GUID *pInputTypes,const REGPINMEDIUM *pMedIn,const CLSID *pPinCategoryIn,WINBOOL bRender,WINBOOL bOutputNeeded,DWORD cOutputTypes,const GUID *pOutputTypes,const REGPINMEDIUM *pMedOut,const CLSID *pPinCategoryOut);
-    END_INTERFACE
-  } IFilterMapper2Vtbl;
-  struct IFilterMapper2 {
-    CONST_VTBL struct IFilterMapper2Vtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IFilterMapper2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IFilterMapper2_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IFilterMapper2_Release(This) (This)->lpVtbl->Release(This)
-#define IFilterMapper2_CreateCategory(This,clsidCategory,dwCategoryMerit,Description) (This)->lpVtbl->CreateCategory(This,clsidCategory,dwCategoryMerit,Description)
-#define IFilterMapper2_UnregisterFilter(This,pclsidCategory,szInstance,Filter) (This)->lpVtbl->UnregisterFilter(This,pclsidCategory,szInstance,Filter)
-#define IFilterMapper2_RegisterFilter(This,clsidFilter,Name,ppMoniker,pclsidCategory,szInstance,prf2) (This)->lpVtbl->RegisterFilter(This,clsidFilter,Name,ppMoniker,pclsidCategory,szInstance,prf2)
-#define IFilterMapper2_EnumMatchingFilters(This,ppEnum,dwFlags,bExactMatch,dwMerit,bInputNeeded,cInputTypes,pInputTypes,pMedIn,pPinCategoryIn,bRender,bOutputNeeded,cOutputTypes,pOutputTypes,pMedOut,pPinCategoryOut) (This)->lpVtbl->EnumMatchingFilters(This,ppEnum,dwFlags,bExactMatch,dwMerit,bInputNeeded,cInputTypes,pInputTypes,pMedIn,pPinCategoryIn,bRender,bOutputNeeded,cOutputTypes,pOutputTypes,pMedOut,pPinCategoryOut)
-#endif
-#endif
-  HRESULT WINAPI IFilterMapper2_CreateCategory_Proxy(IFilterMapper2 *This,REFCLSID clsidCategory,DWORD dwCategoryMerit,LPCWSTR Description);
-  void __RPC_STUB IFilterMapper2_CreateCategory_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterMapper2_UnregisterFilter_Proxy(IFilterMapper2 *This,const CLSID *pclsidCategory,const OLECHAR *szInstance,REFCLSID Filter);
-  void __RPC_STUB IFilterMapper2_UnregisterFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterMapper2_RegisterFilter_Proxy(IFilterMapper2 *This,REFCLSID clsidFilter,LPCWSTR Name,IMoniker **ppMoniker,const CLSID *pclsidCategory,const OLECHAR *szInstance,const REGFILTER2 *prf2);
-  void __RPC_STUB IFilterMapper2_RegisterFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterMapper2_EnumMatchingFilters_Proxy(IFilterMapper2 *This,IEnumMoniker **ppEnum,DWORD dwFlags,WINBOOL bExactMatch,DWORD dwMerit,WINBOOL bInputNeeded,DWORD cInputTypes,const GUID *pInputTypes,const REGPINMEDIUM *pMedIn,const CLSID *pPinCategoryIn,WINBOOL bRender,WINBOOL bOutputNeeded,DWORD cOutputTypes,const GUID *pOutputTypes,const REGPINMEDIUM *pMedOut,const CLSID *pPinCategoryOut);
-  void __RPC_STUB IFilterMapper2_EnumMatchingFilters_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-#ifndef __IFilterMapper3_INTERFACE_DEFINED__
-#define __IFilterMapper3_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IFilterMapper3;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IFilterMapper3 : public IFilterMapper2 {
-  public:
-    virtual HRESULT WINAPI GetICreateDevEnum(ICreateDevEnum **ppEnum) = 0;
-  };
-#else
-  typedef struct IFilterMapper3Vtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IFilterMapper3 *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IFilterMapper3 *This);
-      ULONG (WINAPI *Release)(IFilterMapper3 *This);
-      HRESULT (WINAPI *CreateCategory)(IFilterMapper3 *This,REFCLSID clsidCategory,DWORD dwCategoryMerit,LPCWSTR Description);
-      HRESULT (WINAPI *UnregisterFilter)(IFilterMapper3 *This,const CLSID *pclsidCategory,const OLECHAR *szInstance,REFCLSID Filter);
-      HRESULT (WINAPI *RegisterFilter)(IFilterMapper3 *This,REFCLSID clsidFilter,LPCWSTR Name,IMoniker **ppMoniker,const CLSID *pclsidCategory,const OLECHAR *szInstance,const REGFILTER2 *prf2);
-      HRESULT (WINAPI *EnumMatchingFilters)(IFilterMapper3 *This,IEnumMoniker **ppEnum,DWORD dwFlags,WINBOOL bExactMatch,DWORD dwMerit,WINBOOL bInputNeeded,DWORD cInputTypes,const GUID *pInputTypes,const REGPINMEDIUM *pMedIn,const CLSID *pPinCategoryIn,WINBOOL bRender,WINBOOL bOutputNeeded,DWORD cOutputTypes,const GUID *pOutputTypes,const REGPINMEDIUM *pMedOut,const CLSID *pPinCategoryOut);
-      HRESULT (WINAPI *GetICreateDevEnum)(IFilterMapper3 *This,ICreateDevEnum **ppEnum);
-    END_INTERFACE
-  } IFilterMapper3Vtbl;
-  struct IFilterMapper3 {
-    CONST_VTBL struct IFilterMapper3Vtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IFilterMapper3_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IFilterMapper3_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IFilterMapper3_Release(This) (This)->lpVtbl->Release(This)
-#define IFilterMapper3_CreateCategory(This,clsidCategory,dwCategoryMerit,Description) (This)->lpVtbl->CreateCategory(This,clsidCategory,dwCategoryMerit,Description)
-#define IFilterMapper3_UnregisterFilter(This,pclsidCategory,szInstance,Filter) (This)->lpVtbl->UnregisterFilter(This,pclsidCategory,szInstance,Filter)
-#define IFilterMapper3_RegisterFilter(This,clsidFilter,Name,ppMoniker,pclsidCategory,szInstance,prf2) (This)->lpVtbl->RegisterFilter(This,clsidFilter,Name,ppMoniker,pclsidCategory,szInstance,prf2)
-#define IFilterMapper3_EnumMatchingFilters(This,ppEnum,dwFlags,bExactMatch,dwMerit,bInputNeeded,cInputTypes,pInputTypes,pMedIn,pPinCategoryIn,bRender,bOutputNeeded,cOutputTypes,pOutputTypes,pMedOut,pPinCategoryOut) (This)->lpVtbl->EnumMatchingFilters(This,ppEnum,dwFlags,bExactMatch,dwMerit,bInputNeeded,cInputTypes,pInputTypes,pMedIn,pPinCategoryIn,bRender,bOutputNeeded,cOutputTypes,pOutputTypes,pMedOut,pPinCategoryOut)
-#define IFilterMapper3_GetICreateDevEnum(This,ppEnum) (This)->lpVtbl->GetICreateDevEnum(This,ppEnum)
-#endif
-#endif
-  HRESULT WINAPI IFilterMapper3_GetICreateDevEnum_Proxy(IFilterMapper3 *This,ICreateDevEnum **ppEnum);
-  void __RPC_STUB IFilterMapper3_GetICreateDevEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef enum tagQualityMessageType {
-    Famine = 0,Flood = Famine + 1
-  } QualityMessageType;
-
-  typedef struct tagQuality {
-    QualityMessageType Type;
-    long Proportion;
-    REFERENCE_TIME Late;
-    REFERENCE_TIME TimeStamp;
-  } Quality;
-
-  typedef IQualityControl *PQUALITYCONTROL;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0141_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0141_v0_0_s_ifspec;
-#ifndef __IQualityControl_INTERFACE_DEFINED__
-#define __IQualityControl_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IQualityControl;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IQualityControl : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Notify(IBaseFilter *pSelf,Quality q) = 0;
-    virtual HRESULT WINAPI SetSink(IQualityControl *piqc) = 0;
-  };
-#else
-  typedef struct IQualityControlVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IQualityControl *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IQualityControl *This);
-      ULONG (WINAPI *Release)(IQualityControl *This);
-      HRESULT (WINAPI *Notify)(IQualityControl *This,IBaseFilter *pSelf,Quality q);
-      HRESULT (WINAPI *SetSink)(IQualityControl *This,IQualityControl *piqc);
-    END_INTERFACE
-  } IQualityControlVtbl;
-  struct IQualityControl {
-    CONST_VTBL struct IQualityControlVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IQualityControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IQualityControl_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IQualityControl_Release(This) (This)->lpVtbl->Release(This)
-#define IQualityControl_Notify(This,pSelf,q) (This)->lpVtbl->Notify(This,pSelf,q)
-#define IQualityControl_SetSink(This,piqc) (This)->lpVtbl->SetSink(This,piqc)
-#endif
-#endif
-  HRESULT WINAPI IQualityControl_Notify_Proxy(IQualityControl *This,IBaseFilter *pSelf,Quality q);
-  void __RPC_STUB IQualityControl_Notify_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IQualityControl_SetSink_Proxy(IQualityControl *This,IQualityControl *piqc);
-  void __RPC_STUB IQualityControl_SetSink_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  enum __MIDL___MIDL_itf_strmif_0142_0001 {
-    CK_NOCOLORKEY = 0,CK_INDEX = 0x1,CK_RGB = 0x2
-  };
-  typedef struct tagCOLORKEY {
-    DWORD KeyType;
-    DWORD PaletteIndex;
-    COLORREF LowColorValue;
-    COLORREF HighColorValue;
-  } COLORKEY;
-
-  enum __MIDL___MIDL_itf_strmif_0142_0002 {
-    ADVISE_NONE = 0,ADVISE_CLIPPING = 0x1,ADVISE_PALETTE = 0x2,ADVISE_COLORKEY = 0x4,ADVISE_POSITION = 0x8,ADVISE_DISPLAY_CHANGE = 0x10
-  };
-#define ADVISE_ALL (ADVISE_CLIPPING | ADVISE_PALETTE | ADVISE_COLORKEY | ADVISE_POSITION)
-#define ADVISE_ALL2 (ADVISE_ALL | ADVISE_DISPLAY_CHANGE)
-
-#ifndef _WINGDI_
-  typedef struct _RGNDATAHEADER {
-    DWORD dwSize;
-    DWORD iType;
-    DWORD nCount;
-    DWORD nRgnSize;
-    RECT rcBound;
-  } RGNDATAHEADER;
-
-  typedef struct _RGNDATA {
-    RGNDATAHEADER rdh;
-    char Buffer[1];
-  } RGNDATA;
-#endif
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0142_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0142_v0_0_s_ifspec;
-#ifndef __IOverlayNotify_INTERFACE_DEFINED__
-#define __IOverlayNotify_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IOverlayNotify;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IOverlayNotify : public IUnknown {
-  public:
-    virtual HRESULT WINAPI OnPaletteChange(DWORD dwColors,const PALETTEENTRY *pPalette) = 0;
-    virtual HRESULT WINAPI OnClipChange(const RECT *pSourceRect,const RECT *pDestinationRect,const RGNDATA *pRgnData) = 0;
-    virtual HRESULT WINAPI OnColorKeyChange(const COLORKEY *pColorKey) = 0;
-    virtual HRESULT WINAPI OnPositionChange(const RECT *pSourceRect,const RECT *pDestinationRect) = 0;
-  };
-#else
-  typedef struct IOverlayNotifyVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IOverlayNotify *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IOverlayNotify *This);
-      ULONG (WINAPI *Release)(IOverlayNotify *This);
-      HRESULT (WINAPI *OnPaletteChange)(IOverlayNotify *This,DWORD dwColors,const PALETTEENTRY *pPalette);
-      HRESULT (WINAPI *OnClipChange)(IOverlayNotify *This,const RECT *pSourceRect,const RECT *pDestinationRect,const RGNDATA *pRgnData);
-      HRESULT (WINAPI *OnColorKeyChange)(IOverlayNotify *This,const COLORKEY *pColorKey);
-      HRESULT (WINAPI *OnPositionChange)(IOverlayNotify *This,const RECT *pSourceRect,const RECT *pDestinationRect);
-    END_INTERFACE
-  } IOverlayNotifyVtbl;
-  struct IOverlayNotify {
-    CONST_VTBL struct IOverlayNotifyVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IOverlayNotify_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IOverlayNotify_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IOverlayNotify_Release(This) (This)->lpVtbl->Release(This)
-#define IOverlayNotify_OnPaletteChange(This,dwColors,pPalette) (This)->lpVtbl->OnPaletteChange(This,dwColors,pPalette)
-#define IOverlayNotify_OnClipChange(This,pSourceRect,pDestinationRect,pRgnData) (This)->lpVtbl->OnClipChange(This,pSourceRect,pDestinationRect,pRgnData)
-#define IOverlayNotify_OnColorKeyChange(This,pColorKey) (This)->lpVtbl->OnColorKeyChange(This,pColorKey)
-#define IOverlayNotify_OnPositionChange(This,pSourceRect,pDestinationRect) (This)->lpVtbl->OnPositionChange(This,pSourceRect,pDestinationRect)
-#endif
-#endif
-  HRESULT WINAPI IOverlayNotify_OnPaletteChange_Proxy(IOverlayNotify *This,DWORD dwColors,const PALETTEENTRY *pPalette);
-  void __RPC_STUB IOverlayNotify_OnPaletteChange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IOverlayNotify_OnClipChange_Proxy(IOverlayNotify *This,const RECT *pSourceRect,const RECT *pDestinationRect,const RGNDATA *pRgnData);
-  void __RPC_STUB IOverlayNotify_OnClipChange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IOverlayNotify_OnColorKeyChange_Proxy(IOverlayNotify *This,const COLORKEY *pColorKey);
-  void __RPC_STUB IOverlayNotify_OnColorKeyChange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IOverlayNotify_OnPositionChange_Proxy(IOverlayNotify *This,const RECT *pSourceRect,const RECT *pDestinationRect);
-  void __RPC_STUB IOverlayNotify_OnPositionChange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IOverlayNotify *POVERLAYNOTIFY;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0143_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0143_v0_0_s_ifspec;
-#ifndef __IOverlayNotify2_INTERFACE_DEFINED__
-#define __IOverlayNotify2_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IOverlayNotify2;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IOverlayNotify2 : public IOverlayNotify {
-  public:
-    virtual HRESULT WINAPI OnDisplayChange(HMONITOR hMonitor) = 0;
-  };
-#else
-  typedef struct IOverlayNotify2Vtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IOverlayNotify2 *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IOverlayNotify2 *This);
-      ULONG (WINAPI *Release)(IOverlayNotify2 *This);
-      HRESULT (WINAPI *OnPaletteChange)(IOverlayNotify2 *This,DWORD dwColors,const PALETTEENTRY *pPalette);
-      HRESULT (WINAPI *OnClipChange)(IOverlayNotify2 *This,const RECT *pSourceRect,const RECT *pDestinationRect,const RGNDATA *pRgnData);
-      HRESULT (WINAPI *OnColorKeyChange)(IOverlayNotify2 *This,const COLORKEY *pColorKey);
-      HRESULT (WINAPI *OnPositionChange)(IOverlayNotify2 *This,const RECT *pSourceRect,const RECT *pDestinationRect);
-      HRESULT (WINAPI *OnDisplayChange)(IOverlayNotify2 *This,HMONITOR hMonitor);
-    END_INTERFACE
-  } IOverlayNotify2Vtbl;
-  struct IOverlayNotify2 {
-    CONST_VTBL struct IOverlayNotify2Vtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IOverlayNotify2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IOverlayNotify2_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IOverlayNotify2_Release(This) (This)->lpVtbl->Release(This)
-#define IOverlayNotify2_OnPaletteChange(This,dwColors,pPalette) (This)->lpVtbl->OnPaletteChange(This,dwColors,pPalette)
-#define IOverlayNotify2_OnClipChange(This,pSourceRect,pDestinationRect,pRgnData) (This)->lpVtbl->OnClipChange(This,pSourceRect,pDestinationRect,pRgnData)
-#define IOverlayNotify2_OnColorKeyChange(This,pColorKey) (This)->lpVtbl->OnColorKeyChange(This,pColorKey)
-#define IOverlayNotify2_OnPositionChange(This,pSourceRect,pDestinationRect) (This)->lpVtbl->OnPositionChange(This,pSourceRect,pDestinationRect)
-#define IOverlayNotify2_OnDisplayChange(This,hMonitor) (This)->lpVtbl->OnDisplayChange(This,hMonitor)
-#endif
-#endif
-  HRESULT WINAPI IOverlayNotify2_OnDisplayChange_Proxy(IOverlayNotify2 *This,HMONITOR hMonitor);
-  void __RPC_STUB IOverlayNotify2_OnDisplayChange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IOverlayNotify2 *POVERLAYNOTIFY2;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0144_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0144_v0_0_s_ifspec;
-#ifndef __IOverlay_INTERFACE_DEFINED__
-#define __IOverlay_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IOverlay;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IOverlay : public IUnknown {
-  public:
-    virtual HRESULT WINAPI GetPalette(DWORD *pdwColors,PALETTEENTRY **ppPalette) = 0;
-    virtual HRESULT WINAPI SetPalette(DWORD dwColors,PALETTEENTRY *pPalette) = 0;
-    virtual HRESULT WINAPI GetDefaultColorKey(COLORKEY *pColorKey) = 0;
-    virtual HRESULT WINAPI GetColorKey(COLORKEY *pColorKey) = 0;
-    virtual HRESULT WINAPI SetColorKey(COLORKEY *pColorKey) = 0;
-    virtual HRESULT WINAPI GetWindowHandle(HWND *pHwnd) = 0;
-    virtual HRESULT WINAPI GetClipList(RECT *pSourceRect,RECT *pDestinationRect,RGNDATA **ppRgnData) = 0;
-    virtual HRESULT WINAPI GetVideoPosition(RECT *pSourceRect,RECT *pDestinationRect) = 0;
-    virtual HRESULT WINAPI Advise(IOverlayNotify *pOverlayNotify,DWORD dwInterests) = 0;
-    virtual HRESULT WINAPI Unadvise(void) = 0;
-  };
-#else
-  typedef struct IOverlayVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IOverlay *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IOverlay *This);
-      ULONG (WINAPI *Release)(IOverlay *This);
-      HRESULT (WINAPI *GetPalette)(IOverlay *This,DWORD *pdwColors,PALETTEENTRY **ppPalette);
-      HRESULT (WINAPI *SetPalette)(IOverlay *This,DWORD dwColors,PALETTEENTRY *pPalette);
-      HRESULT (WINAPI *GetDefaultColorKey)(IOverlay *This,COLORKEY *pColorKey);
-      HRESULT (WINAPI *GetColorKey)(IOverlay *This,COLORKEY *pColorKey);
-      HRESULT (WINAPI *SetColorKey)(IOverlay *This,COLORKEY *pColorKey);
-      HRESULT (WINAPI *GetWindowHandle)(IOverlay *This,HWND *pHwnd);
-      HRESULT (WINAPI *GetClipList)(IOverlay *This,RECT *pSourceRect,RECT *pDestinationRect,RGNDATA **ppRgnData);
-      HRESULT (WINAPI *GetVideoPosition)(IOverlay *This,RECT *pSourceRect,RECT *pDestinationRect);
-      HRESULT (WINAPI *Advise)(IOverlay *This,IOverlayNotify *pOverlayNotify,DWORD dwInterests);
-      HRESULT (WINAPI *Unadvise)(IOverlay *This);
-    END_INTERFACE
-  } IOverlayVtbl;
-  struct IOverlay {
-    CONST_VTBL struct IOverlayVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IOverlay_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IOverlay_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IOverlay_Release(This) (This)->lpVtbl->Release(This)
-#define IOverlay_GetPalette(This,pdwColors,ppPalette) (This)->lpVtbl->GetPalette(This,pdwColors,ppPalette)
-#define IOverlay_SetPalette(This,dwColors,pPalette) (This)->lpVtbl->SetPalette(This,dwColors,pPalette)
-#define IOverlay_GetDefaultColorKey(This,pColorKey) (This)->lpVtbl->GetDefaultColorKey(This,pColorKey)
-#define IOverlay_GetColorKey(This,pColorKey) (This)->lpVtbl->GetColorKey(This,pColorKey)
-#define IOverlay_SetColorKey(This,pColorKey) (This)->lpVtbl->SetColorKey(This,pColorKey)
-#define IOverlay_GetWindowHandle(This,pHwnd) (This)->lpVtbl->GetWindowHandle(This,pHwnd)
-#define IOverlay_GetClipList(This,pSourceRect,pDestinationRect,ppRgnData) (This)->lpVtbl->GetClipList(This,pSourceRect,pDestinationRect,ppRgnData)
-#define IOverlay_GetVideoPosition(This,pSourceRect,pDestinationRect) (This)->lpVtbl->GetVideoPosition(This,pSourceRect,pDestinationRect)
-#define IOverlay_Advise(This,pOverlayNotify,dwInterests) (This)->lpVtbl->Advise(This,pOverlayNotify,dwInterests)
-#define IOverlay_Unadvise(This) (This)->lpVtbl->Unadvise(This)
-#endif
-#endif
-  HRESULT WINAPI IOverlay_GetPalette_Proxy(IOverlay *This,DWORD *pdwColors,PALETTEENTRY **ppPalette);
-  void __RPC_STUB IOverlay_GetPalette_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IOverlay_SetPalette_Proxy(IOverlay *This,DWORD dwColors,PALETTEENTRY *pPalette);
-  void __RPC_STUB IOverlay_SetPalette_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IOverlay_GetDefaultColorKey_Proxy(IOverlay *This,COLORKEY *pColorKey);
-  void __RPC_STUB IOverlay_GetDefaultColorKey_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IOverlay_GetColorKey_Proxy(IOverlay *This,COLORKEY *pColorKey);
-  void __RPC_STUB IOverlay_GetColorKey_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IOverlay_SetColorKey_Proxy(IOverlay *This,COLORKEY *pColorKey);
-  void __RPC_STUB IOverlay_SetColorKey_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IOverlay_GetWindowHandle_Proxy(IOverlay *This,HWND *pHwnd);
-  void __RPC_STUB IOverlay_GetWindowHandle_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IOverlay_GetClipList_Proxy(IOverlay *This,RECT *pSourceRect,RECT *pDestinationRect,RGNDATA **ppRgnData);
-  void __RPC_STUB IOverlay_GetClipList_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IOverlay_GetVideoPosition_Proxy(IOverlay *This,RECT *pSourceRect,RECT *pDestinationRect);
-  void __RPC_STUB IOverlay_GetVideoPosition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IOverlay_Advise_Proxy(IOverlay *This,IOverlayNotify *pOverlayNotify,DWORD dwInterests);
-  void __RPC_STUB IOverlay_Advise_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IOverlay_Unadvise_Proxy(IOverlay *This);
-  void __RPC_STUB IOverlay_Unadvise_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IOverlay *POVERLAY;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0145_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0145_v0_0_s_ifspec;
-#ifndef __IMediaEventSink_INTERFACE_DEFINED__
-#define __IMediaEventSink_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IMediaEventSink;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IMediaEventSink : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Notify(long EventCode,LONG_PTR EventParam1,LONG_PTR EventParam2) = 0;
-  };
-#else
-  typedef struct IMediaEventSinkVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IMediaEventSink *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IMediaEventSink *This);
-      ULONG (WINAPI *Release)(IMediaEventSink *This);
-      HRESULT (WINAPI *Notify)(IMediaEventSink *This,long EventCode,LONG_PTR EventParam1,LONG_PTR EventParam2);
-    END_INTERFACE
-  } IMediaEventSinkVtbl;
-  struct IMediaEventSink {
-    CONST_VTBL struct IMediaEventSinkVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IMediaEventSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IMediaEventSink_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IMediaEventSink_Release(This) (This)->lpVtbl->Release(This)
-#define IMediaEventSink_Notify(This,EventCode,EventParam1,EventParam2) (This)->lpVtbl->Notify(This,EventCode,EventParam1,EventParam2)
-#endif
-#endif
-  HRESULT WINAPI IMediaEventSink_Notify_Proxy(IMediaEventSink *This,long EventCode,LONG_PTR EventParam1,LONG_PTR EventParam2);
-  void __RPC_STUB IMediaEventSink_Notify_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IMediaEventSink *PMEDIAEVENTSINK;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0146_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0146_v0_0_s_ifspec;
-#ifndef __IFileSourceFilter_INTERFACE_DEFINED__
-#define __IFileSourceFilter_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IFileSourceFilter;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IFileSourceFilter : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Load(LPCOLESTR pszFileName,const AM_MEDIA_TYPE *pmt) = 0;
-    virtual HRESULT WINAPI GetCurFile(LPOLESTR *ppszFileName,AM_MEDIA_TYPE *pmt) = 0;
-  };
-#else
-  typedef struct IFileSourceFilterVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IFileSourceFilter *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IFileSourceFilter *This);
-      ULONG (WINAPI *Release)(IFileSourceFilter *This);
-      HRESULT (WINAPI *Load)(IFileSourceFilter *This,LPCOLESTR pszFileName,const AM_MEDIA_TYPE *pmt);
-      HRESULT (WINAPI *GetCurFile)(IFileSourceFilter *This,LPOLESTR *ppszFileName,AM_MEDIA_TYPE *pmt);
-    END_INTERFACE
-  } IFileSourceFilterVtbl;
-  struct IFileSourceFilter {
-    CONST_VTBL struct IFileSourceFilterVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IFileSourceFilter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IFileSourceFilter_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IFileSourceFilter_Release(This) (This)->lpVtbl->Release(This)
-#define IFileSourceFilter_Load(This,pszFileName,pmt) (This)->lpVtbl->Load(This,pszFileName,pmt)
-#define IFileSourceFilter_GetCurFile(This,ppszFileName,pmt) (This)->lpVtbl->GetCurFile(This,ppszFileName,pmt)
-#endif
-#endif
-  HRESULT WINAPI IFileSourceFilter_Load_Proxy(IFileSourceFilter *This,LPCOLESTR pszFileName,const AM_MEDIA_TYPE *pmt);
-  void __RPC_STUB IFileSourceFilter_Load_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFileSourceFilter_GetCurFile_Proxy(IFileSourceFilter *This,LPOLESTR *ppszFileName,AM_MEDIA_TYPE *pmt);
-  void __RPC_STUB IFileSourceFilter_GetCurFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IFileSourceFilter *PFILTERFILESOURCE;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0147_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0147_v0_0_s_ifspec;
-#ifndef __IFileSinkFilter_INTERFACE_DEFINED__
-#define __IFileSinkFilter_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IFileSinkFilter;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IFileSinkFilter : public IUnknown {
-  public:
-    virtual HRESULT WINAPI SetFileName(LPCOLESTR pszFileName,const AM_MEDIA_TYPE *pmt) = 0;
-    virtual HRESULT WINAPI GetCurFile(LPOLESTR *ppszFileName,AM_MEDIA_TYPE *pmt) = 0;
-  };
-#else
-  typedef struct IFileSinkFilterVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IFileSinkFilter *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IFileSinkFilter *This);
-      ULONG (WINAPI *Release)(IFileSinkFilter *This);
-      HRESULT (WINAPI *SetFileName)(IFileSinkFilter *This,LPCOLESTR pszFileName,const AM_MEDIA_TYPE *pmt);
-      HRESULT (WINAPI *GetCurFile)(IFileSinkFilter *This,LPOLESTR *ppszFileName,AM_MEDIA_TYPE *pmt);
-    END_INTERFACE
-  } IFileSinkFilterVtbl;
-  struct IFileSinkFilter {
-    CONST_VTBL struct IFileSinkFilterVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IFileSinkFilter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IFileSinkFilter_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IFileSinkFilter_Release(This) (This)->lpVtbl->Release(This)
-#define IFileSinkFilter_SetFileName(This,pszFileName,pmt) (This)->lpVtbl->SetFileName(This,pszFileName,pmt)
-#define IFileSinkFilter_GetCurFile(This,ppszFileName,pmt) (This)->lpVtbl->GetCurFile(This,ppszFileName,pmt)
-#endif
-#endif
-  HRESULT WINAPI IFileSinkFilter_SetFileName_Proxy(IFileSinkFilter *This,LPCOLESTR pszFileName,const AM_MEDIA_TYPE *pmt);
-  void __RPC_STUB IFileSinkFilter_SetFileName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFileSinkFilter_GetCurFile_Proxy(IFileSinkFilter *This,LPOLESTR *ppszFileName,AM_MEDIA_TYPE *pmt);
-  void __RPC_STUB IFileSinkFilter_GetCurFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IFileSinkFilter *PFILTERFILESINK;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0148_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0148_v0_0_s_ifspec;
-#ifndef __IFileSinkFilter2_INTERFACE_DEFINED__
-#define __IFileSinkFilter2_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IFileSinkFilter2;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IFileSinkFilter2 : public IFileSinkFilter {
-  public:
-    virtual HRESULT WINAPI SetMode(DWORD dwFlags) = 0;
-    virtual HRESULT WINAPI GetMode(DWORD *pdwFlags) = 0;
-  };
-#else
-  typedef struct IFileSinkFilter2Vtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IFileSinkFilter2 *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IFileSinkFilter2 *This);
-      ULONG (WINAPI *Release)(IFileSinkFilter2 *This);
-      HRESULT (WINAPI *SetFileName)(IFileSinkFilter2 *This,LPCOLESTR pszFileName,const AM_MEDIA_TYPE *pmt);
-      HRESULT (WINAPI *GetCurFile)(IFileSinkFilter2 *This,LPOLESTR *ppszFileName,AM_MEDIA_TYPE *pmt);
-      HRESULT (WINAPI *SetMode)(IFileSinkFilter2 *This,DWORD dwFlags);
-      HRESULT (WINAPI *GetMode)(IFileSinkFilter2 *This,DWORD *pdwFlags);
-    END_INTERFACE
-  } IFileSinkFilter2Vtbl;
-  struct IFileSinkFilter2 {
-    CONST_VTBL struct IFileSinkFilter2Vtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IFileSinkFilter2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IFileSinkFilter2_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IFileSinkFilter2_Release(This) (This)->lpVtbl->Release(This)
-#define IFileSinkFilter2_SetFileName(This,pszFileName,pmt) (This)->lpVtbl->SetFileName(This,pszFileName,pmt)
-#define IFileSinkFilter2_GetCurFile(This,ppszFileName,pmt) (This)->lpVtbl->GetCurFile(This,ppszFileName,pmt)
-#define IFileSinkFilter2_SetMode(This,dwFlags) (This)->lpVtbl->SetMode(This,dwFlags)
-#define IFileSinkFilter2_GetMode(This,pdwFlags) (This)->lpVtbl->GetMode(This,pdwFlags)
-#endif
-#endif
-  HRESULT WINAPI IFileSinkFilter2_SetMode_Proxy(IFileSinkFilter2 *This,DWORD dwFlags);
-  void __RPC_STUB IFileSinkFilter2_SetMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFileSinkFilter2_GetMode_Proxy(IFileSinkFilter2 *This,DWORD *pdwFlags);
-  void __RPC_STUB IFileSinkFilter2_GetMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  typedef IFileSinkFilter2 *PFILESINKFILTER2;
-
-  typedef enum __MIDL___MIDL_itf_strmif_0149_0001 {
-    AM_FILE_OVERWRITE = 0x1
-  } AM_FILESINK_FLAGS;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0149_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0149_v0_0_s_ifspec;
-#ifndef __IGraphBuilder_INTERFACE_DEFINED__
-#define __IGraphBuilder_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IGraphBuilder;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IGraphBuilder : public IFilterGraph {
-  public:
-    virtual HRESULT WINAPI Connect(IPin *ppinOut,IPin *ppinIn) = 0;
-    virtual HRESULT WINAPI Render(IPin *ppinOut) = 0;
-    virtual HRESULT WINAPI RenderFile(LPCWSTR lpcwstrFile,LPCWSTR lpcwstrPlayList) = 0;
-    virtual HRESULT WINAPI AddSourceFilter(LPCWSTR lpcwstrFileName,LPCWSTR lpcwstrFilterName,IBaseFilter **ppFilter) = 0;
-    virtual HRESULT WINAPI SetLogFile(DWORD_PTR hFile) = 0;
-    virtual HRESULT WINAPI Abort(void) = 0;
-    virtual HRESULT WINAPI ShouldOperationContinue(void) = 0;
-  };
-#else
-  typedef struct IGraphBuilderVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IGraphBuilder *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IGraphBuilder *This);
-      ULONG (WINAPI *Release)(IGraphBuilder *This);
-      HRESULT (WINAPI *AddFilter)(IGraphBuilder *This,IBaseFilter *pFilter,LPCWSTR pName);
-      HRESULT (WINAPI *RemoveFilter)(IGraphBuilder *This,IBaseFilter *pFilter);
-      HRESULT (WINAPI *EnumFilters)(IGraphBuilder *This,IEnumFilters **ppEnum);
-      HRESULT (WINAPI *FindFilterByName)(IGraphBuilder *This,LPCWSTR pName,IBaseFilter **ppFilter);
-      HRESULT (WINAPI *ConnectDirect)(IGraphBuilder *This,IPin *ppinOut,IPin *ppinIn,const AM_MEDIA_TYPE *pmt);
-      HRESULT (WINAPI *Reconnect)(IGraphBuilder *This,IPin *ppin);
-      HRESULT (WINAPI *Disconnect)(IGraphBuilder *This,IPin *ppin);
-      HRESULT (WINAPI *SetDefaultSyncSource)(IGraphBuilder *This);
-      HRESULT (WINAPI *Connect)(IGraphBuilder *This,IPin *ppinOut,IPin *ppinIn);
-      HRESULT (WINAPI *Render)(IGraphBuilder *This,IPin *ppinOut);
-      HRESULT (WINAPI *RenderFile)(IGraphBuilder *This,LPCWSTR lpcwstrFile,LPCWSTR lpcwstrPlayList);
-      HRESULT (WINAPI *AddSourceFilter)(IGraphBuilder *This,LPCWSTR lpcwstrFileName,LPCWSTR lpcwstrFilterName,IBaseFilter **ppFilter);
-      HRESULT (WINAPI *SetLogFile)(IGraphBuilder *This,DWORD_PTR hFile);
-      HRESULT (WINAPI *Abort)(IGraphBuilder *This);
-      HRESULT (WINAPI *ShouldOperationContinue)(IGraphBuilder *This);
-    END_INTERFACE
-  } IGraphBuilderVtbl;
-  struct IGraphBuilder {
-    CONST_VTBL struct IGraphBuilderVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IGraphBuilder_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IGraphBuilder_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IGraphBuilder_Release(This) (This)->lpVtbl->Release(This)
-#define IGraphBuilder_AddFilter(This,pFilter,pName) (This)->lpVtbl->AddFilter(This,pFilter,pName)
-#define IGraphBuilder_RemoveFilter(This,pFilter) (This)->lpVtbl->RemoveFilter(This,pFilter)
-#define IGraphBuilder_EnumFilters(This,ppEnum) (This)->lpVtbl->EnumFilters(This,ppEnum)
-#define IGraphBuilder_FindFilterByName(This,pName,ppFilter) (This)->lpVtbl->FindFilterByName(This,pName,ppFilter)
-#define IGraphBuilder_ConnectDirect(This,ppinOut,ppinIn,pmt) (This)->lpVtbl->ConnectDirect(This,ppinOut,ppinIn,pmt)
-#define IGraphBuilder_Reconnect(This,ppin) (This)->lpVtbl->Reconnect(This,ppin)
-#define IGraphBuilder_Disconnect(This,ppin) (This)->lpVtbl->Disconnect(This,ppin)
-#define IGraphBuilder_SetDefaultSyncSource(This) (This)->lpVtbl->SetDefaultSyncSource(This)
-#define IGraphBuilder_Connect(This,ppinOut,ppinIn) (This)->lpVtbl->Connect(This,ppinOut,ppinIn)
-#define IGraphBuilder_Render(This,ppinOut) (This)->lpVtbl->Render(This,ppinOut)
-#define IGraphBuilder_RenderFile(This,lpcwstrFile,lpcwstrPlayList) (This)->lpVtbl->RenderFile(This,lpcwstrFile,lpcwstrPlayList)
-#define IGraphBuilder_AddSourceFilter(This,lpcwstrFileName,lpcwstrFilterName,ppFilter) (This)->lpVtbl->AddSourceFilter(This,lpcwstrFileName,lpcwstrFilterName,ppFilter)
-#define IGraphBuilder_SetLogFile(This,hFile) (This)->lpVtbl->SetLogFile(This,hFile)
-#define IGraphBuilder_Abort(This) (This)->lpVtbl->Abort(This)
-#define IGraphBuilder_ShouldOperationContinue(This) (This)->lpVtbl->ShouldOperationContinue(This)
-#endif
-#endif
-  HRESULT WINAPI IGraphBuilder_Connect_Proxy(IGraphBuilder *This,IPin *ppinOut,IPin *ppinIn);
-  void __RPC_STUB IGraphBuilder_Connect_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGraphBuilder_Render_Proxy(IGraphBuilder *This,IPin *ppinOut);
-  void __RPC_STUB IGraphBuilder_Render_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGraphBuilder_RenderFile_Proxy(IGraphBuilder *This,LPCWSTR lpcwstrFile,LPCWSTR lpcwstrPlayList);
-  void __RPC_STUB IGraphBuilder_RenderFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGraphBuilder_AddSourceFilter_Proxy(IGraphBuilder *This,LPCWSTR lpcwstrFileName,LPCWSTR lpcwstrFilterName,IBaseFilter **ppFilter);
-  void __RPC_STUB IGraphBuilder_AddSourceFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGraphBuilder_SetLogFile_Proxy(IGraphBuilder *This,DWORD_PTR hFile);
-  void __RPC_STUB IGraphBuilder_SetLogFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGraphBuilder_Abort_Proxy(IGraphBuilder *This);
-  void __RPC_STUB IGraphBuilder_Abort_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGraphBuilder_ShouldOperationContinue_Proxy(IGraphBuilder *This);
-  void __RPC_STUB IGraphBuilder_ShouldOperationContinue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-#ifndef __ICaptureGraphBuilder_INTERFACE_DEFINED__
-#define __ICaptureGraphBuilder_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_ICaptureGraphBuilder;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct ICaptureGraphBuilder : public IUnknown {
-  public:
-    virtual HRESULT WINAPI SetFiltergraph(IGraphBuilder *pfg) = 0;
-    virtual HRESULT WINAPI GetFiltergraph(IGraphBuilder **ppfg) = 0;
-    virtual HRESULT WINAPI SetOutputFileName(const GUID *pType,LPCOLESTR lpstrFile,IBaseFilter **ppf,IFileSinkFilter **ppSink) = 0;
-    virtual HRESULT WINAPI FindInterface(const GUID *pCategory,IBaseFilter *pf,REFIID riid,void **ppint) = 0;
-    virtual HRESULT WINAPI RenderStream(const GUID *pCategory,IUnknown *pSource,IBaseFilter *pfCompressor,IBaseFilter *pfRenderer) = 0;
-    virtual HRESULT WINAPI ControlStream(const GUID *pCategory,IBaseFilter *pFilter,REFERENCE_TIME *pstart,REFERENCE_TIME *pstop,WORD wStartCookie,WORD wStopCookie) = 0;
-    virtual HRESULT WINAPI AllocCapFile(LPCOLESTR lpstr,DWORDLONG dwlSize) = 0;
-    virtual HRESULT WINAPI CopyCaptureFile(LPOLESTR lpwstrOld,LPOLESTR lpwstrNew,int fAllowEscAbort,IAMCopyCaptureFileProgress *pCallback) = 0;
-  };
-#else
-  typedef struct ICaptureGraphBuilderVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(ICaptureGraphBuilder *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(ICaptureGraphBuilder *This);
-      ULONG (WINAPI *Release)(ICaptureGraphBuilder *This);
-      HRESULT (WINAPI *SetFiltergraph)(ICaptureGraphBuilder *This,IGraphBuilder *pfg);
-      HRESULT (WINAPI *GetFiltergraph)(ICaptureGraphBuilder *This,IGraphBuilder **ppfg);
-      HRESULT (WINAPI *SetOutputFileName)(ICaptureGraphBuilder *This,const GUID *pType,LPCOLESTR lpstrFile,IBaseFilter **ppf,IFileSinkFilter **ppSink);
-      HRESULT (WINAPI *FindInterface)(ICaptureGraphBuilder *This,const GUID *pCategory,IBaseFilter *pf,REFIID riid,void **ppint);
-      HRESULT (WINAPI *RenderStream)(ICaptureGraphBuilder *This,const GUID *pCategory,IUnknown *pSource,IBaseFilter *pfCompressor,IBaseFilter *pfRenderer);
-      HRESULT (WINAPI *ControlStream)(ICaptureGraphBuilder *This,const GUID *pCategory,IBaseFilter *pFilter,REFERENCE_TIME *pstart,REFERENCE_TIME *pstop,WORD wStartCookie,WORD wStopCookie);
-      HRESULT (WINAPI *AllocCapFile)(ICaptureGraphBuilder *This,LPCOLESTR lpstr,DWORDLONG dwlSize);
-      HRESULT (WINAPI *CopyCaptureFile)(ICaptureGraphBuilder *This,LPOLESTR lpwstrOld,LPOLESTR lpwstrNew,int fAllowEscAbort,IAMCopyCaptureFileProgress *pCallback);
-    END_INTERFACE
-  } ICaptureGraphBuilderVtbl;
-  struct ICaptureGraphBuilder {
-    CONST_VTBL struct ICaptureGraphBuilderVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define ICaptureGraphBuilder_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define ICaptureGraphBuilder_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define ICaptureGraphBuilder_Release(This) (This)->lpVtbl->Release(This)
-#define ICaptureGraphBuilder_SetFiltergraph(This,pfg) (This)->lpVtbl->SetFiltergraph(This,pfg)
-#define ICaptureGraphBuilder_GetFiltergraph(This,ppfg) (This)->lpVtbl->GetFiltergraph(This,ppfg)
-#define ICaptureGraphBuilder_SetOutputFileName(This,pType,lpstrFile,ppf,ppSink) (This)->lpVtbl->SetOutputFileName(This,pType,lpstrFile,ppf,ppSink)
-#define ICaptureGraphBuilder_FindInterface(This,pCategory,pf,riid,ppint) (This)->lpVtbl->FindInterface(This,pCategory,pf,riid,ppint)
-#define ICaptureGraphBuilder_RenderStream(This,pCategory,pSource,pfCompressor,pfRenderer) (This)->lpVtbl->RenderStream(This,pCategory,pSource,pfCompressor,pfRenderer)
-#define ICaptureGraphBuilder_ControlStream(This,pCategory,pFilter,pstart,pstop,wStartCookie,wStopCookie) (This)->lpVtbl->ControlStream(This,pCategory,pFilter,pstart,pstop,wStartCookie,wStopCookie)
-#define ICaptureGraphBuilder_AllocCapFile(This,lpstr,dwlSize) (This)->lpVtbl->AllocCapFile(This,lpstr,dwlSize)
-#define ICaptureGraphBuilder_CopyCaptureFile(This,lpwstrOld,lpwstrNew,fAllowEscAbort,pCallback) (This)->lpVtbl->CopyCaptureFile(This,lpwstrOld,lpwstrNew,fAllowEscAbort,pCallback)
-#endif
-#endif
-  HRESULT WINAPI ICaptureGraphBuilder_SetFiltergraph_Proxy(ICaptureGraphBuilder *This,IGraphBuilder *pfg);
-  void __RPC_STUB ICaptureGraphBuilder_SetFiltergraph_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICaptureGraphBuilder_GetFiltergraph_Proxy(ICaptureGraphBuilder *This,IGraphBuilder **ppfg);
-  void __RPC_STUB ICaptureGraphBuilder_GetFiltergraph_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICaptureGraphBuilder_SetOutputFileName_Proxy(ICaptureGraphBuilder *This,const GUID *pType,LPCOLESTR lpstrFile,IBaseFilter **ppf,IFileSinkFilter **ppSink);
-  void __RPC_STUB ICaptureGraphBuilder_SetOutputFileName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICaptureGraphBuilder_RemoteFindInterface_Proxy(ICaptureGraphBuilder *This,const GUID *pCategory,IBaseFilter *pf,REFIID riid,IUnknown **ppint);
-  void __RPC_STUB ICaptureGraphBuilder_RemoteFindInterface_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICaptureGraphBuilder_RenderStream_Proxy(ICaptureGraphBuilder *This,const GUID *pCategory,IUnknown *pSource,IBaseFilter *pfCompressor,IBaseFilter *pfRenderer);
-  void __RPC_STUB ICaptureGraphBuilder_RenderStream_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICaptureGraphBuilder_ControlStream_Proxy(ICaptureGraphBuilder *This,const GUID *pCategory,IBaseFilter *pFilter,REFERENCE_TIME *pstart,REFERENCE_TIME *pstop,WORD wStartCookie,WORD wStopCookie);
-  void __RPC_STUB ICaptureGraphBuilder_ControlStream_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICaptureGraphBuilder_AllocCapFile_Proxy(ICaptureGraphBuilder *This,LPCOLESTR lpstr,DWORDLONG dwlSize);
-  void __RPC_STUB ICaptureGraphBuilder_AllocCapFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICaptureGraphBuilder_CopyCaptureFile_Proxy(ICaptureGraphBuilder *This,LPOLESTR lpwstrOld,LPOLESTR lpwstrNew,int fAllowEscAbort,IAMCopyCaptureFileProgress *pCallback);
-  void __RPC_STUB ICaptureGraphBuilder_CopyCaptureFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-#ifndef __IAMCopyCaptureFileProgress_INTERFACE_DEFINED__
-#define __IAMCopyCaptureFileProgress_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IAMCopyCaptureFileProgress;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IAMCopyCaptureFileProgress : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Progress(int iProgress) = 0;
-  };
-#else
-  typedef struct IAMCopyCaptureFileProgressVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IAMCopyCaptureFileProgress *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IAMCopyCaptureFileProgress *This);
-      ULONG (WINAPI *Release)(IAMCopyCaptureFileProgress *This);
-      HRESULT (WINAPI *Progress)(IAMCopyCaptureFileProgress *This,int iProgress);
-    END_INTERFACE
-  } IAMCopyCaptureFileProgressVtbl;
-  struct IAMCopyCaptureFileProgress {
-    CONST_VTBL struct IAMCopyCaptureFileProgressVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IAMCopyCaptureFileProgress_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IAMCopyCaptureFileProgress_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IAMCopyCaptureFileProgress_Release(This) (This)->lpVtbl->Release(This)
-#define IAMCopyCaptureFileProgress_Progress(This,iProgress) (This)->lpVtbl->Progress(This,iProgress)
-#endif
-#endif
-  HRESULT WINAPI IAMCopyCaptureFileProgress_Progress_Proxy(IAMCopyCaptureFileProgress *This,int iProgress);
-  void __RPC_STUB IAMCopyCaptureFileProgress_Progress_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-#ifndef __ICaptureGraphBuilder2_INTERFACE_DEFINED__
-#define __ICaptureGraphBuilder2_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_ICaptureGraphBuilder2;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct ICaptureGraphBuilder2 : public IUnknown {
-  public:
-    virtual HRESULT WINAPI SetFiltergraph(IGraphBuilder *pfg) = 0;
-    virtual HRESULT WINAPI GetFiltergraph(IGraphBuilder **ppfg) = 0;
-    virtual HRESULT WINAPI SetOutputFileName(const GUID *pType,LPCOLESTR lpstrFile,IBaseFilter **ppf,IFileSinkFilter **ppSink) = 0;
-    virtual HRESULT WINAPI FindInterface(const GUID *pCategory,const GUID *pType,IBaseFilter *pf,REFIID riid,void **ppint) = 0;
-    virtual HRESULT WINAPI RenderStream(const GUID *pCategory,const GUID *pType,IUnknown *pSource,IBaseFilter *pfCompressor,IBaseFilter *pfRenderer) = 0;
-    virtual HRESULT WINAPI ControlStream(const GUID *pCategory,const GUID *pType,IBaseFilter *pFilter,REFERENCE_TIME *pstart,REFERENCE_TIME *pstop,WORD wStartCookie,WORD wStopCookie) = 0;
-    virtual HRESULT WINAPI AllocCapFile(LPCOLESTR lpstr,DWORDLONG dwlSize) = 0;
-    virtual HRESULT WINAPI CopyCaptureFile(LPOLESTR lpwstrOld,LPOLESTR lpwstrNew,int fAllowEscAbort,IAMCopyCaptureFileProgress *pCallback) = 0;
-    virtual HRESULT WINAPI FindPin(IUnknown *pSource,PIN_DIRECTION pindir,const GUID *pCategory,const GUID *pType,WINBOOL fUnconnected,int num,IPin **ppPin) = 0;
-  };
-#else
-  typedef struct ICaptureGraphBuilder2Vtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(ICaptureGraphBuilder2 *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(ICaptureGraphBuilder2 *This);
-      ULONG (WINAPI *Release)(ICaptureGraphBuilder2 *This);
-      HRESULT (WINAPI *SetFiltergraph)(ICaptureGraphBuilder2 *This,IGraphBuilder *pfg);
-      HRESULT (WINAPI *GetFiltergraph)(ICaptureGraphBuilder2 *This,IGraphBuilder **ppfg);
-      HRESULT (WINAPI *SetOutputFileName)(ICaptureGraphBuilder2 *This,const GUID *pType,LPCOLESTR lpstrFile,IBaseFilter **ppf,IFileSinkFilter **ppSink);
-      HRESULT (WINAPI *FindInterface)(ICaptureGraphBuilder2 *This,const GUID *pCategory,const GUID *pType,IBaseFilter *pf,REFIID riid,void **ppint);
-      HRESULT (WINAPI *RenderStream)(ICaptureGraphBuilder2 *This,const GUID *pCategory,const GUID *pType,IUnknown *pSource,IBaseFilter *pfCompressor,IBaseFilter *pfRenderer);
-      HRESULT (WINAPI *ControlStream)(ICaptureGraphBuilder2 *This,const GUID *pCategory,const GUID *pType,IBaseFilter *pFilter,REFERENCE_TIME *pstart,REFERENCE_TIME *pstop,WORD wStartCookie,WORD wStopCookie);
-      HRESULT (WINAPI *AllocCapFile)(ICaptureGraphBuilder2 *This,LPCOLESTR lpstr,DWORDLONG dwlSize);
-      HRESULT (WINAPI *CopyCaptureFile)(ICaptureGraphBuilder2 *This,LPOLESTR lpwstrOld,LPOLESTR lpwstrNew,int fAllowEscAbort,IAMCopyCaptureFileProgress *pCallback);
-      HRESULT (WINAPI *FindPin)(ICaptureGraphBuilder2 *This,IUnknown *pSource,PIN_DIRECTION pindir,const GUID *pCategory,const GUID *pType,WINBOOL fUnconnected,int num,IPin **ppPin);
-    END_INTERFACE
-  } ICaptureGraphBuilder2Vtbl;
-  struct ICaptureGraphBuilder2 {
-    CONST_VTBL struct ICaptureGraphBuilder2Vtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define ICaptureGraphBuilder2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define ICaptureGraphBuilder2_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define ICaptureGraphBuilder2_Release(This) (This)->lpVtbl->Release(This)
-#define ICaptureGraphBuilder2_SetFiltergraph(This,pfg) (This)->lpVtbl->SetFiltergraph(This,pfg)
-#define ICaptureGraphBuilder2_GetFiltergraph(This,ppfg) (This)->lpVtbl->GetFiltergraph(This,ppfg)
-#define ICaptureGraphBuilder2_SetOutputFileName(This,pType,lpstrFile,ppf,ppSink) (This)->lpVtbl->SetOutputFileName(This,pType,lpstrFile,ppf,ppSink)
-#define ICaptureGraphBuilder2_FindInterface(This,pCategory,pType,pf,riid,ppint) (This)->lpVtbl->FindInterface(This,pCategory,pType,pf,riid,ppint)
-#define ICaptureGraphBuilder2_RenderStream(This,pCategory,pType,pSource,pfCompressor,pfRenderer) (This)->lpVtbl->RenderStream(This,pCategory,pType,pSource,pfCompressor,pfRenderer)
-#define ICaptureGraphBuilder2_ControlStream(This,pCategory,pType,pFilter,pstart,pstop,wStartCookie,wStopCookie) (This)->lpVtbl->ControlStream(This,pCategory,pType,pFilter,pstart,pstop,wStartCookie,wStopCookie)
-#define ICaptureGraphBuilder2_AllocCapFile(This,lpstr,dwlSize) (This)->lpVtbl->AllocCapFile(This,lpstr,dwlSize)
-#define ICaptureGraphBuilder2_CopyCaptureFile(This,lpwstrOld,lpwstrNew,fAllowEscAbort,pCallback) (This)->lpVtbl->CopyCaptureFile(This,lpwstrOld,lpwstrNew,fAllowEscAbort,pCallback)
-#define ICaptureGraphBuilder2_FindPin(This,pSource,pindir,pCategory,pType,fUnconnected,num,ppPin) (This)->lpVtbl->FindPin(This,pSource,pindir,pCategory,pType,fUnconnected,num,ppPin)
-#endif
-#endif
-  HRESULT WINAPI ICaptureGraphBuilder2_SetFiltergraph_Proxy(ICaptureGraphBuilder2 *This,IGraphBuilder *pfg);
-  void __RPC_STUB ICaptureGraphBuilder2_SetFiltergraph_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICaptureGraphBuilder2_GetFiltergraph_Proxy(ICaptureGraphBuilder2 *This,IGraphBuilder **ppfg);
-  void __RPC_STUB ICaptureGraphBuilder2_GetFiltergraph_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICaptureGraphBuilder2_SetOutputFileName_Proxy(ICaptureGraphBuilder2 *This,const GUID *pType,LPCOLESTR lpstrFile,IBaseFilter **ppf,IFileSinkFilter **ppSink);
-  void __RPC_STUB ICaptureGraphBuilder2_SetOutputFileName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICaptureGraphBuilder2_RemoteFindInterface_Proxy(ICaptureGraphBuilder2 *This,const GUID *pCategory,const GUID *pType,IBaseFilter *pf,REFIID riid,IUnknown **ppint);
-  void __RPC_STUB ICaptureGraphBuilder2_RemoteFindInterface_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICaptureGraphBuilder2_RenderStream_Proxy(ICaptureGraphBuilder2 *This,const GUID *pCategory,const GUID *pType,IUnknown *pSource,IBaseFilter *pfCompressor,IBaseFilter *pfRenderer);
-  void __RPC_STUB ICaptureGraphBuilder2_RenderStream_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICaptureGraphBuilder2_ControlStream_Proxy(ICaptureGraphBuilder2 *This,const GUID *pCategory,const GUID *pType,IBaseFilter *pFilter,REFERENCE_TIME *pstart,REFERENCE_TIME *pstop,WORD wStartCookie,WORD wStopCookie);
-  void __RPC_STUB ICaptureGraphBuilder2_ControlStream_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICaptureGraphBuilder2_AllocCapFile_Proxy(ICaptureGraphBuilder2 *This,LPCOLESTR lpstr,DWORDLONG dwlSize);
-  void __RPC_STUB ICaptureGraphBuilder2_AllocCapFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICaptureGraphBuilder2_CopyCaptureFile_Proxy(ICaptureGraphBuilder2 *This,LPOLESTR lpwstrOld,LPOLESTR lpwstrNew,int fAllowEscAbort,IAMCopyCaptureFileProgress *pCallback);
-  void __RPC_STUB ICaptureGraphBuilder2_CopyCaptureFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICaptureGraphBuilder2_FindPin_Proxy(ICaptureGraphBuilder2 *This,IUnknown *pSource,PIN_DIRECTION pindir,const GUID *pCategory,const GUID *pType,WINBOOL fUnconnected,int num,IPin **ppPin);
-  void __RPC_STUB ICaptureGraphBuilder2_FindPin_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  enum _AM_RENSDEREXFLAGS {
-    AM_RENDEREX_RENDERTOEXISTINGRENDERERS = 0x1
-  };
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0153_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0153_v0_0_s_ifspec;
-#ifndef __IFilterGraph2_INTERFACE_DEFINED__
-#define __IFilterGraph2_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IFilterGraph2;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IFilterGraph2 : public IGraphBuilder {
-  public:
-    virtual HRESULT WINAPI AddSourceFilterForMoniker(IMoniker *pMoniker,IBindCtx *pCtx,LPCWSTR lpcwstrFilterName,IBaseFilter **ppFilter) = 0;
-    virtual HRESULT WINAPI ReconnectEx(IPin *ppin,const AM_MEDIA_TYPE *pmt) = 0;
-    virtual HRESULT WINAPI RenderEx(IPin *pPinOut,DWORD dwFlags,DWORD *pvContext) = 0;
-  };
-#else
-  typedef struct IFilterGraph2Vtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IFilterGraph2 *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IFilterGraph2 *This);
-      ULONG (WINAPI *Release)(IFilterGraph2 *This);
-      HRESULT (WINAPI *AddFilter)(IFilterGraph2 *This,IBaseFilter *pFilter,LPCWSTR pName);
-      HRESULT (WINAPI *RemoveFilter)(IFilterGraph2 *This,IBaseFilter *pFilter);
-      HRESULT (WINAPI *EnumFilters)(IFilterGraph2 *This,IEnumFilters **ppEnum);
-      HRESULT (WINAPI *FindFilterByName)(IFilterGraph2 *This,LPCWSTR pName,IBaseFilter **ppFilter);
-      HRESULT (WINAPI *ConnectDirect)(IFilterGraph2 *This,IPin *ppinOut,IPin *ppinIn,const AM_MEDIA_TYPE *pmt);
-      HRESULT (WINAPI *Reconnect)(IFilterGraph2 *This,IPin *ppin);
-      HRESULT (WINAPI *Disconnect)(IFilterGraph2 *This,IPin *ppin);
-      HRESULT (WINAPI *SetDefaultSyncSource)(IFilterGraph2 *This);
-      HRESULT (WINAPI *Connect)(IFilterGraph2 *This,IPin *ppinOut,IPin *ppinIn);
-      HRESULT (WINAPI *Render)(IFilterGraph2 *This,IPin *ppinOut);
-      HRESULT (WINAPI *RenderFile)(IFilterGraph2 *This,LPCWSTR lpcwstrFile,LPCWSTR lpcwstrPlayList);
-      HRESULT (WINAPI *AddSourceFilter)(IFilterGraph2 *This,LPCWSTR lpcwstrFileName,LPCWSTR lpcwstrFilterName,IBaseFilter **ppFilter);
-      HRESULT (WINAPI *SetLogFile)(IFilterGraph2 *This,DWORD_PTR hFile);
-      HRESULT (WINAPI *Abort)(IFilterGraph2 *This);
-      HRESULT (WINAPI *ShouldOperationContinue)(IFilterGraph2 *This);
-      HRESULT (WINAPI *AddSourceFilterForMoniker)(IFilterGraph2 *This,IMoniker *pMoniker,IBindCtx *pCtx,LPCWSTR lpcwstrFilterName,IBaseFilter **ppFilter);
-      HRESULT (WINAPI *ReconnectEx)(IFilterGraph2 *This,IPin *ppin,const AM_MEDIA_TYPE *pmt);
-      HRESULT (WINAPI *RenderEx)(IFilterGraph2 *This,IPin *pPinOut,DWORD dwFlags,DWORD *pvContext);
-    END_INTERFACE
-  } IFilterGraph2Vtbl;
-  struct IFilterGraph2 {
-    CONST_VTBL struct IFilterGraph2Vtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IFilterGraph2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IFilterGraph2_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IFilterGraph2_Release(This) (This)->lpVtbl->Release(This)
-#define IFilterGraph2_AddFilter(This,pFilter,pName) (This)->lpVtbl->AddFilter(This,pFilter,pName)
-#define IFilterGraph2_RemoveFilter(This,pFilter) (This)->lpVtbl->RemoveFilter(This,pFilter)
-#define IFilterGraph2_EnumFilters(This,ppEnum) (This)->lpVtbl->EnumFilters(This,ppEnum)
-#define IFilterGraph2_FindFilterByName(This,pName,ppFilter) (This)->lpVtbl->FindFilterByName(This,pName,ppFilter)
-#define IFilterGraph2_ConnectDirect(This,ppinOut,ppinIn,pmt) (This)->lpVtbl->ConnectDirect(This,ppinOut,ppinIn,pmt)
-#define IFilterGraph2_Reconnect(This,ppin) (This)->lpVtbl->Reconnect(This,ppin)
-#define IFilterGraph2_Disconnect(This,ppin) (This)->lpVtbl->Disconnect(This,ppin)
-#define IFilterGraph2_SetDefaultSyncSource(This) (This)->lpVtbl->SetDefaultSyncSource(This)
-#define IFilterGraph2_Connect(This,ppinOut,ppinIn) (This)->lpVtbl->Connect(This,ppinOut,ppinIn)
-#define IFilterGraph2_Render(This,ppinOut) (This)->lpVtbl->Render(This,ppinOut)
-#define IFilterGraph2_RenderFile(This,lpcwstrFile,lpcwstrPlayList) (This)->lpVtbl->RenderFile(This,lpcwstrFile,lpcwstrPlayList)
-#define IFilterGraph2_AddSourceFilter(This,lpcwstrFileName,lpcwstrFilterName,ppFilter) (This)->lpVtbl->AddSourceFilter(This,lpcwstrFileName,lpcwstrFilterName,ppFilter)
-#define IFilterGraph2_SetLogFile(This,hFile) (This)->lpVtbl->SetLogFile(This,hFile)
-#define IFilterGraph2_Abort(This) (This)->lpVtbl->Abort(This)
-#define IFilterGraph2_ShouldOperationContinue(This) (This)->lpVtbl->ShouldOperationContinue(This)
-#define IFilterGraph2_AddSourceFilterForMoniker(This,pMoniker,pCtx,lpcwstrFilterName,ppFilter) (This)->lpVtbl->AddSourceFilterForMoniker(This,pMoniker,pCtx,lpcwstrFilterName,ppFilter)
-#define IFilterGraph2_ReconnectEx(This,ppin,pmt) (This)->lpVtbl->ReconnectEx(This,ppin,pmt)
-#define IFilterGraph2_RenderEx(This,pPinOut,dwFlags,pvContext) (This)->lpVtbl->RenderEx(This,pPinOut,dwFlags,pvContext)
-#endif
-#endif
-  HRESULT WINAPI IFilterGraph2_AddSourceFilterForMoniker_Proxy(IFilterGraph2 *This,IMoniker *pMoniker,IBindCtx *pCtx,LPCWSTR lpcwstrFilterName,IBaseFilter **ppFilter);
-  void __RPC_STUB IFilterGraph2_AddSourceFilterForMoniker_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterGraph2_ReconnectEx_Proxy(IFilterGraph2 *This,IPin *ppin,const AM_MEDIA_TYPE *pmt);
-  void __RPC_STUB IFilterGraph2_ReconnectEx_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFilterGraph2_RenderEx_Proxy(IFilterGraph2 *This,IPin *pPinOut,DWORD dwFlags,DWORD *pvContext);
-  void __RPC_STUB IFilterGraph2_RenderEx_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-#ifndef __IStreamBuilder_INTERFACE_DEFINED__
-#define __IStreamBuilder_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IStreamBuilder;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IStreamBuilder : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Render(IPin *ppinOut,IGraphBuilder *pGraph) = 0;
-    virtual HRESULT WINAPI Backout(IPin *ppinOut,IGraphBuilder *pGraph) = 0;
-  };
-#else
-  typedef struct IStreamBuilderVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IStreamBuilder *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IStreamBuilder *This);
-      ULONG (WINAPI *Release)(IStreamBuilder *This);
-      HRESULT (WINAPI *Render)(IStreamBuilder *This,IPin *ppinOut,IGraphBuilder *pGraph);
-      HRESULT (WINAPI *Backout)(IStreamBuilder *This,IPin *ppinOut,IGraphBuilder *pGraph);
-    END_INTERFACE
-  } IStreamBuilderVtbl;
-  struct IStreamBuilder {
-    CONST_VTBL struct IStreamBuilderVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IStreamBuilder_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IStreamBuilder_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IStreamBuilder_Release(This) (This)->lpVtbl->Release(This)
-#define IStreamBuilder_Render(This,ppinOut,pGraph) (This)->lpVtbl->Render(This,ppinOut,pGraph)
-#define IStreamBuilder_Backout(This,ppinOut,pGraph) (This)->lpVtbl->Backout(This,ppinOut,pGraph)
-#endif
-#endif
-  HRESULT WINAPI IStreamBuilder_Render_Proxy(IStreamBuilder *This,IPin *ppinOut,IGraphBuilder *pGraph);
-  void __RPC_STUB IStreamBuilder_Render_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStreamBuilder_Backout_Proxy(IStreamBuilder *This,IPin *ppinOut,IGraphBuilder *pGraph);
-  void __RPC_STUB IStreamBuilder_Backout_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-#ifndef __IAsyncReader_INTERFACE_DEFINED__
-#define __IAsyncReader_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IAsyncReader;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IAsyncReader : public IUnknown {
-  public:
-    virtual HRESULT WINAPI RequestAllocator(IMemAllocator *pPreferred,ALLOCATOR_PROPERTIES *pProps,IMemAllocator **ppActual) = 0;
-    virtual HRESULT WINAPI Request(IMediaSample *pSample,DWORD_PTR dwUser) = 0;
-    virtual HRESULT WINAPI WaitForNext(DWORD dwTimeout,IMediaSample **ppSample,DWORD_PTR *pdwUser) = 0;
-    virtual HRESULT WINAPI SyncReadAligned(IMediaSample *pSample) = 0;
-    virtual HRESULT WINAPI SyncRead(LONGLONG llPosition,LONG lLength,BYTE *pBuffer) = 0;
-    virtual HRESULT WINAPI Length(LONGLONG *pTotal,LONGLONG *pAvailable) = 0;
-    virtual HRESULT WINAPI BeginFlush(void) = 0;
-    virtual HRESULT WINAPI EndFlush(void) = 0;
-  };
-#else
-  typedef struct IAsyncReaderVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IAsyncReader *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IAsyncReader *This);
-      ULONG (WINAPI *Release)(IAsyncReader *This);
-      HRESULT (WINAPI *RequestAllocator)(IAsyncReader *This,IMemAllocator *pPreferred,ALLOCATOR_PROPERTIES *pProps,IMemAllocator **ppActual);
-      HRESULT (WINAPI *Request)(IAsyncReader *This,IMediaSample *pSample,DWORD_PTR dwUser);
-      HRESULT (WINAPI *WaitForNext)(IAsyncReader *This,DWORD dwTimeout,IMediaSample **ppSample,DWORD_PTR *pdwUser);
-      HRESULT (WINAPI *SyncReadAligned)(IAsyncReader *This,IMediaSample *pSample);
-      HRESULT (WINAPI *SyncRead)(IAsyncReader *This,LONGLONG llPosition,LONG lLength,BYTE *pBuffer);
-      HRESULT (WINAPI *Length)(IAsyncReader *This,LONGLONG *pTotal,LONGLONG *pAvailable);
-      HRESULT (WINAPI *BeginFlush)(IAsyncReader *This);
-      HRESULT (WINAPI *EndFlush)(IAsyncReader *This);
-    END_INTERFACE
-  } IAsyncReaderVtbl;
-  struct IAsyncReader {
-    CONST_VTBL struct IAsyncReaderVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IAsyncReader_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IAsyncReader_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IAsyncReader_Release(This) (This)->lpVtbl->Release(This)
-#define IAsyncReader_RequestAllocator(This,pPreferred,pProps,ppActual) (This)->lpVtbl->RequestAllocator(This,pPreferred,pProps,ppActual)
-#define IAsyncReader_Request(This,pSample,dwUser) (This)->lpVtbl->Request(This,pSample,dwUser)
-#define IAsyncReader_WaitForNext(This,dwTimeout,ppSample,pdwUser) (This)->lpVtbl->WaitForNext(This,dwTimeout,ppSample,pdwUser)
-#define IAsyncReader_SyncReadAligned(This,pSample) (This)->lpVtbl->SyncReadAligned(This,pSample)
-#define IAsyncReader_SyncRead(This,llPosition,lLength,pBuffer) (This)->lpVtbl->SyncRead(This,llPosition,lLength,pBuffer)
-#define IAsyncReader_Length(This,pTotal,pAvailable) (This)->lpVtbl->Length(This,pTotal,pAvailable)
-#define IAsyncReader_BeginFlush(This) (This)->lpVtbl->BeginFlush(This)
-#define IAsyncReader_EndFlush(This) (This)->lpVtbl->EndFlush(This)
-#endif
-#endif
-  HRESULT WINAPI IAsyncReader_RequestAllocator_Proxy(IAsyncReader *This,IMemAllocator *pPreferred,ALLOCATOR_PROPERTIES *pProps,IMemAllocator **ppActual);
-  void __RPC_STUB IAsyncReader_RequestAllocator_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAsyncReader_Request_Proxy(IAsyncReader *This,IMediaSample *pSample,DWORD_PTR dwUser);
-  void __RPC_STUB IAsyncReader_Request_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAsyncReader_WaitForNext_Proxy(IAsyncReader *This,DWORD dwTimeout,IMediaSample **ppSample,DWORD_PTR *pdwUser);
-  void __RPC_STUB IAsyncReader_WaitForNext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAsyncReader_SyncReadAligned_Proxy(IAsyncReader *This,IMediaSample *pSample);
-  void __RPC_STUB IAsyncReader_SyncReadAligned_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAsyncReader_SyncRead_Proxy(IAsyncReader *This,LONGLONG llPosition,LONG lLength,BYTE *pBuffer);
-  void __RPC_STUB IAsyncReader_SyncRead_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAsyncReader_Length_Proxy(IAsyncReader *This,LONGLONG *pTotal,LONGLONG *pAvailable);
-  void __RPC_STUB IAsyncReader_Length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAsyncReader_BeginFlush_Proxy(IAsyncReader *This);
-  void __RPC_STUB IAsyncReader_BeginFlush_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAsyncReader_EndFlush_Proxy(IAsyncReader *This);
-  void __RPC_STUB IAsyncReader_EndFlush_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-#ifndef __IGraphVersion_INTERFACE_DEFINED__
-#define __IGraphVersion_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IGraphVersion;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IGraphVersion : public IUnknown {
-  public:
-    virtual HRESULT WINAPI QueryVersion(LONG *pVersion) = 0;
-  };
-#else
-  typedef struct IGraphVersionVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IGraphVersion *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IGraphVersion *This);
-      ULONG (WINAPI *Release)(IGraphVersion *This);
-      HRESULT (WINAPI *QueryVersion)(IGraphVersion *This,LONG *pVersion);
-    END_INTERFACE
-  } IGraphVersionVtbl;
-  struct IGraphVersion {
-    CONST_VTBL struct IGraphVersionVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IGraphVersion_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IGraphVersion_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IGraphVersion_Release(This) (This)->lpVtbl->Release(This)
-#define IGraphVersion_QueryVersion(This,pVersion) (This)->lpVtbl->QueryVersion(This,pVersion)
-#endif
-#endif
-  HRESULT WINAPI IGraphVersion_QueryVersion_Proxy(IGraphVersion *This,LONG *pVersion);
-  void __RPC_STUB IGraphVersion_QueryVersion_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-#ifndef __IResourceConsumer_INTERFACE_DEFINED__
-#define __IResourceConsumer_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IResourceConsumer;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IResourceConsumer : public IUnknown {
-  public:
-    virtual HRESULT WINAPI AcquireResource(LONG idResource) = 0;
-    virtual HRESULT WINAPI ReleaseResource(LONG idResource) = 0;
-  };
-#else
-  typedef struct IResourceConsumerVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IResourceConsumer *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IResourceConsumer *This);
-      ULONG (WINAPI *Release)(IResourceConsumer *This);
-      HRESULT (WINAPI *AcquireResource)(IResourceConsumer *This,LONG idResource);
-      HRESULT (WINAPI *ReleaseResource)(IResourceConsumer *This,LONG idResource);
-    END_INTERFACE
-  } IResourceConsumerVtbl;
-  struct IResourceConsumer {
-    CONST_VTBL struct IResourceConsumerVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IResourceConsumer_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IResourceConsumer_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IResourceConsumer_Release(This) (This)->lpVtbl->Release(This)
-#define IResourceConsumer_AcquireResource(This,idResource) (This)->lpVtbl->AcquireResource(This,idResource)
-#define IResourceConsumer_ReleaseResource(This,idResource) (This)->lpVtbl->ReleaseResource(This,idResource)
-#endif
-#endif
-  HRESULT WINAPI IResourceConsumer_AcquireResource_Proxy(IResourceConsumer *This,LONG idResource);
-  void __RPC_STUB IResourceConsumer_AcquireResource_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IResourceConsumer_ReleaseResource_Proxy(IResourceConsumer *This,LONG idResource);
-  void __RPC_STUB IResourceConsumer_ReleaseResource_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-#ifndef __IResourceManager_INTERFACE_DEFINED__
-#define __IResourceManager_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IResourceManager;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IResourceManager : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Register(LPCWSTR pName,LONG cResource,LONG *plToken) = 0;
-    virtual HRESULT WINAPI RegisterGroup(LPCWSTR pName,LONG cResource,LONG *palTokens,LONG *plToken) = 0;
-    virtual HRESULT WINAPI RequestResource(LONG idResource,IUnknown *pFocusObject,IResourceConsumer *pConsumer) = 0;
-    virtual HRESULT WINAPI NotifyAcquire(LONG idResource,IResourceConsumer *pConsumer,HRESULT hr) = 0;
-    virtual HRESULT WINAPI NotifyRelease(LONG idResource,IResourceConsumer *pConsumer,WINBOOL bStillWant) = 0;
-    virtual HRESULT WINAPI CancelRequest(LONG idResource,IResourceConsumer *pConsumer) = 0;
-    virtual HRESULT WINAPI SetFocus(IUnknown *pFocusObject) = 0;
-    virtual HRESULT WINAPI ReleaseFocus(IUnknown *pFocusObject) = 0;
-  };
-#else
-  typedef struct IResourceManagerVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IResourceManager *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IResourceManager *This);
-      ULONG (WINAPI *Release)(IResourceManager *This);
-      HRESULT (WINAPI *Register)(IResourceManager *This,LPCWSTR pName,LONG cResource,LONG *plToken);
-      HRESULT (WINAPI *RegisterGroup)(IResourceManager *This,LPCWSTR pName,LONG cResource,LONG *palTokens,LONG *plToken);
-      HRESULT (WINAPI *RequestResource)(IResourceManager *This,LONG idResource,IUnknown *pFocusObject,IResourceConsumer *pConsumer);
-      HRESULT (WINAPI *NotifyAcquire)(IResourceManager *This,LONG idResource,IResourceConsumer *pConsumer,HRESULT hr);
-      HRESULT (WINAPI *NotifyRelease)(IResourceManager *This,LONG idResource,IResourceConsumer *pConsumer,WINBOOL bStillWant);
-      HRESULT (WINAPI *CancelRequest)(IResourceManager *This,LONG idResource,IResourceConsumer *pConsumer);
-      HRESULT (WINAPI *SetFocus)(IResourceManager *This,IUnknown *pFocusObject);
-      HRESULT (WINAPI *ReleaseFocus)(IResourceManager *This,IUnknown *pFocusObject);
-    END_INTERFACE
-  } IResourceManagerVtbl;
-  struct IResourceManager {
-    CONST_VTBL struct IResourceManagerVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IResourceManager_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IResourceManager_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IResourceManager_Release(This) (This)->lpVtbl->Release(This)
-#define IResourceManager_Register(This,pName,cResource,plToken) (This)->lpVtbl->Register(This,pName,cResource,plToken)
-#define IResourceManager_RegisterGroup(This,pName,cResource,palTokens,plToken) (This)->lpVtbl->RegisterGroup(This,pName,cResource,palTokens,plToken)
-#define IResourceManager_RequestResource(This,idResource,pFocusObject,pConsumer) (This)->lpVtbl->RequestResource(This,idResource,pFocusObject,pConsumer)
-#define IResourceManager_NotifyAcquire(This,idResource,pConsumer,hr) (This)->lpVtbl->NotifyAcquire(This,idResource,pConsumer,hr)
-#define IResourceManager_NotifyRelease(This,idResource,pConsumer,bStillWant) (This)->lpVtbl->NotifyRelease(This,idResource,pConsumer,bStillWant)
-#define IResourceManager_CancelRequest(This,idResource,pConsumer) (This)->lpVtbl->CancelRequest(This,idResource,pConsumer)
-#define IResourceManager_SetFocus(This,pFocusObject) (This)->lpVtbl->SetFocus(This,pFocusObject)
-#define IResourceManager_ReleaseFocus(This,pFocusObject) (This)->lpVtbl->ReleaseFocus(This,pFocusObject)
-#endif
-#endif
-  HRESULT WINAPI IResourceManager_Register_Proxy(IResourceManager *This,LPCWSTR pName,LONG cResource,LONG *plToken);
-  void __RPC_STUB IResourceManager_Register_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IResourceManager_RegisterGroup_Proxy(IResourceManager *This,LPCWSTR pName,LONG cResource,LONG *palTokens,LONG *plToken);
-  void __RPC_STUB IResourceManager_RegisterGroup_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IResourceManager_RequestResource_Proxy(IResourceManager *This,LONG idResource,IUnknown *pFocusObject,IResourceConsumer *pConsumer);
-  void __RPC_STUB IResourceManager_RequestResource_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IResourceManager_NotifyAcquire_Proxy(IResourceManager *This,LONG idResource,IResourceConsumer *pConsumer,HRESULT hr);
-  void __RPC_STUB IResourceManager_NotifyAcquire_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IResourceManager_NotifyRelease_Proxy(IResourceManager *This,LONG idResource,IResourceConsumer *pConsumer,WINBOOL bStillWant);
-  void __RPC_STUB IResourceManager_NotifyRelease_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IResourceManager_CancelRequest_Proxy(IResourceManager *This,LONG idResource,IResourceConsumer *pConsumer);
-  void __RPC_STUB IResourceManager_CancelRequest_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IResourceManager_SetFocus_Proxy(IResourceManager *This,IUnknown *pFocusObject);
-  void __RPC_STUB IResourceManager_SetFocus_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IResourceManager_ReleaseFocus_Proxy(IResourceManager *This,IUnknown *pFocusObject);
-  void __RPC_STUB IResourceManager_ReleaseFocus_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
 #ifndef __IDistributorNotify_INTERFACE_DEFINED__
 #define __IDistributorNotify_INTERFACE_DEFINED__
   EXTERN_C const IID IID_IDistributorNotify;
@@ -5081,37 +8076,6 @@ typedef struct IAMPluginControl IAMPluginControl;
   void __RPC_STUB IAMStreamControl_StopAt_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMStreamControl_GetInfo_Proxy(IAMStreamControl *This,AM_STREAM_INFO *pInfo);
   void __RPC_STUB IAMStreamControl_GetInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-#ifndef __ISeekingPassThru_INTERFACE_DEFINED__
-#define __ISeekingPassThru_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_ISeekingPassThru;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct ISeekingPassThru : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Init(WINBOOL bSupportRendering,IPin *pPin) = 0;
-  };
-#else
-  typedef struct ISeekingPassThruVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(ISeekingPassThru *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(ISeekingPassThru *This);
-      ULONG (WINAPI *Release)(ISeekingPassThru *This);
-      HRESULT (WINAPI *Init)(ISeekingPassThru *This,WINBOOL bSupportRendering,IPin *pPin);
-    END_INTERFACE
-  } ISeekingPassThruVtbl;
-  struct ISeekingPassThru {
-    CONST_VTBL struct ISeekingPassThruVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define ISeekingPassThru_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define ISeekingPassThru_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define ISeekingPassThru_Release(This) (This)->lpVtbl->Release(This)
-#define ISeekingPassThru_Init(This,bSupportRendering,pPin) (This)->lpVtbl->Init(This,bSupportRendering,pPin)
-#endif
-#endif
-  HRESULT WINAPI ISeekingPassThru_Init_Proxy(ISeekingPassThru *This,WINBOOL bSupportRendering,IPin *pPin);
-  void __RPC_STUB ISeekingPassThru_Init_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IAMStreamConfig_INTERFACE_DEFINED__
@@ -5776,60 +8740,6 @@ typedef struct IAMPluginControl IAMPluginControl;
   void __RPC_STUB IAMAnalogVideoDecoder_get_OutputEnable_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
-  typedef enum tagVideoProcAmpProperty {
-    VideoProcAmp_Brightness = 0,
-    VideoProcAmp_Contrast,VideoProcAmp_Hue,VideoProcAmp_Saturation,VideoProcAmp_Sharpness,
-    VideoProcAmp_Gamma,VideoProcAmp_ColorEnable,VideoProcAmp_WhiteBalance,
-    VideoProcAmp_BacklightCompensation,VideoProcAmp_Gain
-  } VideoProcAmpProperty;
-
-  typedef enum tagVideoProcAmpFlags {
-    VideoProcAmp_Flags_Auto = 0x1,VideoProcAmp_Flags_Manual = 0x2
-  } VideoProcAmpFlags;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0174_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0174_v0_0_s_ifspec;
-#ifndef __IAMVideoProcAmp_INTERFACE_DEFINED__
-#define __IAMVideoProcAmp_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IAMVideoProcAmp;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IAMVideoProcAmp : public IUnknown {
-  public:
-    virtual HRESULT WINAPI GetRange(long Property,long *pMin,long *pMax,long *pSteppingDelta,long *pDefault,long *pCapsFlags) = 0;
-    virtual HRESULT WINAPI Set(long Property,long lValue,long Flags) = 0;
-    virtual HRESULT WINAPI Get(long Property,long *lValue,long *Flags) = 0;
-  };
-#else
-  typedef struct IAMVideoProcAmpVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IAMVideoProcAmp *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IAMVideoProcAmp *This);
-      ULONG (WINAPI *Release)(IAMVideoProcAmp *This);
-      HRESULT (WINAPI *GetRange)(IAMVideoProcAmp *This,long Property,long *pMin,long *pMax,long *pSteppingDelta,long *pDefault,long *pCapsFlags);
-      HRESULT (WINAPI *Set)(IAMVideoProcAmp *This,long Property,long lValue,long Flags);
-      HRESULT (WINAPI *Get)(IAMVideoProcAmp *This,long Property,long *lValue,long *Flags);
-    END_INTERFACE
-  } IAMVideoProcAmpVtbl;
-  struct IAMVideoProcAmp {
-    CONST_VTBL struct IAMVideoProcAmpVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IAMVideoProcAmp_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IAMVideoProcAmp_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IAMVideoProcAmp_Release(This) (This)->lpVtbl->Release(This)
-#define IAMVideoProcAmp_GetRange(This,Property,pMin,pMax,pSteppingDelta,pDefault,pCapsFlags) (This)->lpVtbl->GetRange(This,Property,pMin,pMax,pSteppingDelta,pDefault,pCapsFlags)
-#define IAMVideoProcAmp_Set(This,Property,lValue,Flags) (This)->lpVtbl->Set(This,Property,lValue,Flags)
-#define IAMVideoProcAmp_Get(This,Property,lValue,Flags) (This)->lpVtbl->Get(This,Property,lValue,Flags)
-#endif
-#endif
-  HRESULT WINAPI IAMVideoProcAmp_GetRange_Proxy(IAMVideoProcAmp *This,long Property,long *pMin,long *pMax,long *pSteppingDelta,long *pDefault,long *pCapsFlags);
-  void __RPC_STUB IAMVideoProcAmp_GetRange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMVideoProcAmp_Set_Proxy(IAMVideoProcAmp *This,long Property,long lValue,long Flags);
-  void __RPC_STUB IAMVideoProcAmp_Set_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMVideoProcAmp_Get_Proxy(IAMVideoProcAmp *This,long Property,long *lValue,long *Flags);
-  void __RPC_STUB IAMVideoProcAmp_Get_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
   typedef enum tagCameraControlProperty {
     CameraControl_Pan = 0,
     CameraControl_Tilt,CameraControl_Roll,CameraControl_Zoom,CameraControl_Exposure,
@@ -6489,55 +9399,6 @@ typedef struct IAMPluginControl IAMPluginControl;
   typedef enum __MIDL___MIDL_itf_strmif_0185_0001 {
     AMPROPERTY_PIN_CATEGORY = 0,AMPROPERTY_PIN_MEDIUM = AMPROPERTY_PIN_CATEGORY + 1
   } AMPROPERTY_PIN;
-
-#ifndef _IKsPropertySet_
-#define _IKsPropertySet_
-#define KSPROPERTY_SUPPORT_GET 1
-#define KSPROPERTY_SUPPORT_SET 2
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0185_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0185_v0_0_s_ifspec;
-#ifndef __IKsPropertySet_INTERFACE_DEFINED__
-#define __IKsPropertySet_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IKsPropertySet;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IKsPropertySet : public IUnknown {
-  public:
-    virtual HRESULT WINAPI Set(REFGUID guidPropSet,DWORD dwPropID,LPVOID pInstanceData,DWORD cbInstanceData,LPVOID pPropData,DWORD cbPropData) = 0;
-    virtual HRESULT WINAPI Get(REFGUID guidPropSet,DWORD dwPropID,LPVOID pInstanceData,DWORD cbInstanceData,LPVOID pPropData,DWORD cbPropData,DWORD *pcbReturned) = 0;
-    virtual HRESULT WINAPI QuerySupported(REFGUID guidPropSet,DWORD dwPropID,DWORD *pTypeSupport) = 0;
-  };
-#else
-  typedef struct IKsPropertySetVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IKsPropertySet *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IKsPropertySet *This);
-      ULONG (WINAPI *Release)(IKsPropertySet *This);
-      HRESULT (WINAPI *Set)(IKsPropertySet *This,REFGUID guidPropSet,DWORD dwPropID,LPVOID pInstanceData,DWORD cbInstanceData,LPVOID pPropData,DWORD cbPropData);
-      HRESULT (WINAPI *Get)(IKsPropertySet *This,REFGUID guidPropSet,DWORD dwPropID,LPVOID pInstanceData,DWORD cbInstanceData,LPVOID pPropData,DWORD cbPropData,DWORD *pcbReturned);
-      HRESULT (WINAPI *QuerySupported)(IKsPropertySet *This,REFGUID guidPropSet,DWORD dwPropID,DWORD *pTypeSupport);
-    END_INTERFACE
-  } IKsPropertySetVtbl;
-  struct IKsPropertySet {
-    CONST_VTBL struct IKsPropertySetVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IKsPropertySet_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IKsPropertySet_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IKsPropertySet_Release(This) (This)->lpVtbl->Release(This)
-#define IKsPropertySet_Set(This,guidPropSet,dwPropID,pInstanceData,cbInstanceData,pPropData,cbPropData) (This)->lpVtbl->Set(This,guidPropSet,dwPropID,pInstanceData,cbInstanceData,pPropData,cbPropData)
-#define IKsPropertySet_Get(This,guidPropSet,dwPropID,pInstanceData,cbInstanceData,pPropData,cbPropData,pcbReturned) (This)->lpVtbl->Get(This,guidPropSet,dwPropID,pInstanceData,cbInstanceData,pPropData,cbPropData,pcbReturned)
-#define IKsPropertySet_QuerySupported(This,guidPropSet,dwPropID,pTypeSupport) (This)->lpVtbl->QuerySupported(This,guidPropSet,dwPropID,pTypeSupport)
-#endif
-#endif
-  HRESULT WINAPI IKsPropertySet_RemoteSet_Proxy(IKsPropertySet *This,REFGUID guidPropSet,DWORD dwPropID,byte *pInstanceData,DWORD cbInstanceData,byte *pPropData,DWORD cbPropData);
-  void __RPC_STUB IKsPropertySet_RemoteSet_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IKsPropertySet_RemoteGet_Proxy(IKsPropertySet *This,REFGUID guidPropSet,DWORD dwPropID,byte *pInstanceData,DWORD cbInstanceData,byte *pPropData,DWORD cbPropData,DWORD *pcbReturned);
-  void __RPC_STUB IKsPropertySet_RemoteGet_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IKsPropertySet_QuerySupported_Proxy(IKsPropertySet *This,REFGUID guidPropSet,DWORD dwPropID,DWORD *pTypeSupport);
-  void __RPC_STUB IKsPropertySet_QuerySupported_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-#endif
 
   extern RPC_IF_HANDLE __MIDL_itf_strmif_0186_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_strmif_0186_v0_0_s_ifspec;
@@ -7303,43 +10164,6 @@ typedef struct IAMPluginControl IAMPluginControl;
 #endif
   HRESULT WINAPI IAMClockAdjust_SetClockDelta_Proxy(IAMClockAdjust *This,REFERENCE_TIME rtDelta);
   void __RPC_STUB IAMClockAdjust_SetClockDelta_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-  enum _AM_FILTER_MISC_FLAGS {
-    AM_FILTER_MISC_FLAGS_IS_RENDERER = 0x1,AM_FILTER_MISC_FLAGS_IS_SOURCE = 0x2
-  };
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0348_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0348_v0_0_s_ifspec;
-#ifndef __IAMFilterMiscFlags_INTERFACE_DEFINED__
-#define __IAMFilterMiscFlags_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IAMFilterMiscFlags;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IAMFilterMiscFlags : public IUnknown {
-  public:
-    virtual ULONG WINAPI GetMiscFlags(void) = 0;
-  };
-#else
-  typedef struct IAMFilterMiscFlagsVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IAMFilterMiscFlags *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IAMFilterMiscFlags *This);
-      ULONG (WINAPI *Release)(IAMFilterMiscFlags *This);
-      ULONG (WINAPI *GetMiscFlags)(IAMFilterMiscFlags *This);
-    END_INTERFACE
-  } IAMFilterMiscFlagsVtbl;
-  struct IAMFilterMiscFlags {
-    CONST_VTBL struct IAMFilterMiscFlagsVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IAMFilterMiscFlags_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IAMFilterMiscFlags_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IAMFilterMiscFlags_Release(This) (This)->lpVtbl->Release(This)
-#define IAMFilterMiscFlags_GetMiscFlags(This) (This)->lpVtbl->GetMiscFlags(This)
-#endif
-#endif
-  ULONG WINAPI IAMFilterMiscFlags_GetMiscFlags_Proxy(IAMFilterMiscFlags *This);
-  void __RPC_STUB IAMFilterMiscFlags_GetMiscFlags_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IDrawVideoImage_INTERFACE_DEFINED__
@@ -8194,42 +11018,6 @@ typedef struct IAMPluginControl IAMPluginControl;
   void __RPC_STUB IAMClockSlave_SetErrorTolerance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMClockSlave_GetErrorTolerance_Proxy(IAMClockSlave *This,DWORD *pdwTolerance);
   void __RPC_STUB IAMClockSlave_GetErrorTolerance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-#ifndef __IAMGraphBuilderCallback_INTERFACE_DEFINED__
-#define __IAMGraphBuilderCallback_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IAMGraphBuilderCallback;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IAMGraphBuilderCallback : public IUnknown {
-  public:
-    virtual HRESULT WINAPI SelectedFilter(IMoniker *pMon) = 0;
-    virtual HRESULT WINAPI CreatedFilter(IBaseFilter *pFil) = 0;
-  };
-#else
-  typedef struct IAMGraphBuilderCallbackVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IAMGraphBuilderCallback *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IAMGraphBuilderCallback *This);
-      ULONG (WINAPI *Release)(IAMGraphBuilderCallback *This);
-      HRESULT (WINAPI *SelectedFilter)(IAMGraphBuilderCallback *This,IMoniker *pMon);
-      HRESULT (WINAPI *CreatedFilter)(IAMGraphBuilderCallback *This,IBaseFilter *pFil);
-    END_INTERFACE
-  } IAMGraphBuilderCallbackVtbl;
-  struct IAMGraphBuilderCallback {
-    CONST_VTBL struct IAMGraphBuilderCallbackVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IAMGraphBuilderCallback_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IAMGraphBuilderCallback_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IAMGraphBuilderCallback_Release(This) (This)->lpVtbl->Release(This)
-#define IAMGraphBuilderCallback_SelectedFilter(This,pMon) (This)->lpVtbl->SelectedFilter(This,pMon)
-#define IAMGraphBuilderCallback_CreatedFilter(This,pFil) (This)->lpVtbl->CreatedFilter(This,pFil)
-#endif
-#endif
-  HRESULT WINAPI IAMGraphBuilderCallback_SelectedFilter_Proxy(IAMGraphBuilderCallback *This,IMoniker *pMon);
-  void __RPC_STUB IAMGraphBuilderCallback_SelectedFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMGraphBuilderCallback_CreatedFilter_Proxy(IAMGraphBuilderCallback *This,IBaseFilter *pFil);
-  void __RPC_STUB IAMGraphBuilderCallback_CreatedFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifdef __cplusplus
@@ -11263,20 +14051,6 @@ DECLARE_INTERFACE_(IAMPluginControl,IUnknown)
 
   extern RPC_IF_HANDLE __MIDL_itf_strmif_0413_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_strmif_0413_v0_0_s_ifspec;
-
-  unsigned long __RPC_API VARIANT_UserSize(unsigned long *,unsigned long,VARIANT *);
-  unsigned char *__RPC_API VARIANT_UserMarshal(unsigned long *,unsigned char *,VARIANT *);
-  unsigned char *__RPC_API VARIANT_UserUnmarshal(unsigned long *,unsigned char *,VARIANT *);
-  void __RPC_API VARIANT_UserFree(unsigned long *,VARIANT *);
-
-  HRESULT WINAPI ICaptureGraphBuilder_FindInterface_Proxy(ICaptureGraphBuilder *This,const GUID *pCategory,IBaseFilter *pf,REFIID riid,void **ppint);
-  HRESULT WINAPI ICaptureGraphBuilder_FindInterface_Stub(ICaptureGraphBuilder *This,const GUID *pCategory,IBaseFilter *pf,REFIID riid,IUnknown **ppint);
-  HRESULT WINAPI ICaptureGraphBuilder2_FindInterface_Proxy(ICaptureGraphBuilder2 *This,const GUID *pCategory,const GUID *pType,IBaseFilter *pf,REFIID riid,void **ppint);
-  HRESULT WINAPI ICaptureGraphBuilder2_FindInterface_Stub(ICaptureGraphBuilder2 *This,const GUID *pCategory,const GUID *pType,IBaseFilter *pf,REFIID riid,IUnknown **ppint);
-  HRESULT WINAPI IKsPropertySet_Set_Proxy(IKsPropertySet *This,REFGUID guidPropSet,DWORD dwPropID,LPVOID pInstanceData,DWORD cbInstanceData,LPVOID pPropData,DWORD cbPropData);
-  HRESULT WINAPI IKsPropertySet_Set_Stub(IKsPropertySet *This,REFGUID guidPropSet,DWORD dwPropID,byte *pInstanceData,DWORD cbInstanceData,byte *pPropData,DWORD cbPropData);
-  HRESULT WINAPI IKsPropertySet_Get_Proxy(IKsPropertySet *This,REFGUID guidPropSet,DWORD dwPropID,LPVOID pInstanceData,DWORD cbInstanceData,LPVOID pPropData,DWORD cbPropData,DWORD *pcbReturned);
-  HRESULT WINAPI IKsPropertySet_Get_Stub(IKsPropertySet *This,REFGUID guidPropSet,DWORD dwPropID,byte *pInstanceData,DWORD cbInstanceData,byte *pPropData,DWORD cbPropData,DWORD *pcbReturned);
 /* Begin additional prototypes for all interfaces */
 
 
