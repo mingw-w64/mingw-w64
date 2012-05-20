@@ -81,6 +81,7 @@ IDL_SRCS = \
   include/textstor.idl \
   include/unknwn.idl \
   include/urlmon.idl \
+  include/wincodec.idl \
   include/wpcapi.idl \
   include/wtypes.idl \
   include/xmllite.idl \
