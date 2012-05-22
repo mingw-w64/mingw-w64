@@ -1,3 +1,8 @@
+2012-05-22  Kai Tietz  <ktietz@redhat.com>
+
+	* crt/crtexe.c (__mingw_winmain_hInstance): Initialize for
+	console-mode, too.
+
 2012-05-02  Kai Tietz  <ktietz@redhat.com>
 
 	PR 3521401
