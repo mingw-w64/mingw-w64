@@ -272,9 +272,9 @@ __tmainCRTStartup (void)
     __mingw_winmain_hInstance = (HINSTANCE) &__ImageBase;
 
 #ifdef WPRFLAG
-	lpszCommandLine = (_TCHAR *) _wcmdln;
+    lpszCommandLine = (_TCHAR *) _wcmdln;
 #else
-	lpszCommandLine = (char *) _acmdln;
+    lpszCommandLine = (char *) _acmdln;
 #endif
 
     if (lpszCommandLine)
@@ -296,6 +296,7 @@ __tmainCRTStartup (void)
 	  lpszCommandLine++;
 
 	__mingw_winmain_lpCmdLine = lpszCommandLine;
+      }
 
     if (mingw_app_type)
       {
