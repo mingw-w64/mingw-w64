@@ -6278,6 +6278,41 @@ void __RPC_STUB IStreamBuilder_Backout_Stub(
 #ifndef __IAMStreamConfig_INTERFACE_DEFINED__
 #define __IAMStreamConfig_INTERFACE_DEFINED__
 
+typedef struct _VIDEO_STREAM_CONFIG_CAPS {
+    GUID guid;
+    ULONG VideoStandard;
+    SIZE InputSize;
+    SIZE MinCroppingSize;
+    SIZE MaxCroppingSize;
+    int CropGranularityX;
+    int CropGranularityY;
+    int CropAlignX;
+    int CropAlignY;
+    SIZE MinOutputSize;
+    SIZE MaxOutputSize;
+    int OutputGranularityX;
+    int OutputGranularityY;
+    int StretchTapsX;
+    int StretchTapsY;
+    int ShrinkTapsX;
+    int ShrinkTapsY;
+    LONGLONG MinFrameInterval;
+    LONGLONG MaxFrameInterval;
+    LONG MinBitsPerSecond;
+    LONG MaxBitsPerSecond;
+} VIDEO_STREAM_CONFIG_CAPS;
+typedef struct _AUDIO_STREAM_CONFIG_CAPS {
+    GUID guid;
+    ULONG MinimumChannels;
+    ULONG MaximumChannels;
+    ULONG ChannelsGranularity;
+    ULONG MinimumBitsPerSample;
+    ULONG MaximumBitsPerSample;
+    ULONG BitsPerSampleGranularity;
+    ULONG MinimumSampleFrequency;
+    ULONG MaximumSampleFrequency;
+    ULONG SampleFrequencyGranularity;
+} AUDIO_STREAM_CONFIG_CAPS;
 DEFINE_GUID(IID_IAMStreamConfig, 0xc6e13340, 0x30ac, 0x11d0, 0xa1,0x8c, 0x00,0xa0,0xc9,0x11,0x89,0x56);
 #if defined(__cplusplus) && !defined(CINTERFACE)
 MIDL_INTERFACE("c6e13340-30ac-11d0-a18c-00a0c9118956")
@@ -8076,89 +8111,6 @@ typedef struct IAMPluginControl IAMPluginControl;
   void __RPC_STUB IAMStreamControl_StopAt_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMStreamControl_GetInfo_Proxy(IAMStreamControl *This,AM_STREAM_INFO *pInfo);
   void __RPC_STUB IAMStreamControl_GetInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-#ifndef __IAMStreamConfig_INTERFACE_DEFINED__
-#define __IAMStreamConfig_INTERFACE_DEFINED__
-  typedef struct _VIDEO_STREAM_CONFIG_CAPS {
-    GUID guid;
-    ULONG VideoStandard;
-    SIZE InputSize;
-    SIZE MinCroppingSize;
-    SIZE MaxCroppingSize;
-    int CropGranularityX;
-    int CropGranularityY;
-    int CropAlignX;
-    int CropAlignY;
-    SIZE MinOutputSize;
-    SIZE MaxOutputSize;
-    int OutputGranularityX;
-    int OutputGranularityY;
-    int StretchTapsX;
-    int StretchTapsY;
-    int ShrinkTapsX;
-    int ShrinkTapsY;
-    LONGLONG MinFrameInterval;
-    LONGLONG MaxFrameInterval;
-    LONG MinBitsPerSecond;
-    LONG MaxBitsPerSecond;
-  } VIDEO_STREAM_CONFIG_CAPS;
-
-  typedef struct _AUDIO_STREAM_CONFIG_CAPS {
-    GUID guid;
-    ULONG MinimumChannels;
-    ULONG MaximumChannels;
-    ULONG ChannelsGranularity;
-    ULONG MinimumBitsPerSample;
-    ULONG MaximumBitsPerSample;
-    ULONG BitsPerSampleGranularity;
-    ULONG MinimumSampleFrequency;
-    ULONG MaximumSampleFrequency;
-    ULONG SampleFrequencyGranularity;
-  } AUDIO_STREAM_CONFIG_CAPS;
-
-  EXTERN_C const IID IID_IAMStreamConfig;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IAMStreamConfig : public IUnknown {
-  public:
-    virtual HRESULT WINAPI SetFormat(AM_MEDIA_TYPE *pmt) = 0;
-    virtual HRESULT WINAPI GetFormat(AM_MEDIA_TYPE **ppmt) = 0;
-    virtual HRESULT WINAPI GetNumberOfCapabilities(int *piCount,int *piSize) = 0;
-    virtual HRESULT WINAPI GetStreamCaps(int iIndex,AM_MEDIA_TYPE **ppmt,BYTE *pSCC) = 0;
-  };
-#else
-  typedef struct IAMStreamConfigVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IAMStreamConfig *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IAMStreamConfig *This);
-      ULONG (WINAPI *Release)(IAMStreamConfig *This);
-      HRESULT (WINAPI *SetFormat)(IAMStreamConfig *This,AM_MEDIA_TYPE *pmt);
-      HRESULT (WINAPI *GetFormat)(IAMStreamConfig *This,AM_MEDIA_TYPE **ppmt);
-      HRESULT (WINAPI *GetNumberOfCapabilities)(IAMStreamConfig *This,int *piCount,int *piSize);
-      HRESULT (WINAPI *GetStreamCaps)(IAMStreamConfig *This,int iIndex,AM_MEDIA_TYPE **ppmt,BYTE *pSCC);
-    END_INTERFACE
-  } IAMStreamConfigVtbl;
-  struct IAMStreamConfig {
-    CONST_VTBL struct IAMStreamConfigVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IAMStreamConfig_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IAMStreamConfig_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IAMStreamConfig_Release(This) (This)->lpVtbl->Release(This)
-#define IAMStreamConfig_SetFormat(This,pmt) (This)->lpVtbl->SetFormat(This,pmt)
-#define IAMStreamConfig_GetFormat(This,ppmt) (This)->lpVtbl->GetFormat(This,ppmt)
-#define IAMStreamConfig_GetNumberOfCapabilities(This,piCount,piSize) (This)->lpVtbl->GetNumberOfCapabilities(This,piCount,piSize)
-#define IAMStreamConfig_GetStreamCaps(This,iIndex,ppmt,pSCC) (This)->lpVtbl->GetStreamCaps(This,iIndex,ppmt,pSCC)
-#endif
-#endif
-  HRESULT WINAPI IAMStreamConfig_SetFormat_Proxy(IAMStreamConfig *This,AM_MEDIA_TYPE *pmt);
-  void __RPC_STUB IAMStreamConfig_SetFormat_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMStreamConfig_GetFormat_Proxy(IAMStreamConfig *This,AM_MEDIA_TYPE **ppmt);
-  void __RPC_STUB IAMStreamConfig_GetFormat_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMStreamConfig_GetNumberOfCapabilities_Proxy(IAMStreamConfig *This,int *piCount,int *piSize);
-  void __RPC_STUB IAMStreamConfig_GetNumberOfCapabilities_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMStreamConfig_GetStreamCaps_Proxy(IAMStreamConfig *This,int iIndex,AM_MEDIA_TYPE **ppmt,BYTE *pSCC);
-  void __RPC_STUB IAMStreamConfig_GetStreamCaps_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
 #ifndef __IConfigInterleaving_INTERFACE_DEFINED__
