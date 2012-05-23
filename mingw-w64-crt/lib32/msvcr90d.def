@@ -1499,7 +1499,7 @@ sin
 sinh
 sprintf
 sprintf_s
-sqrt
+sqrt DATA
 srand
 sscanf
 sscanf_s

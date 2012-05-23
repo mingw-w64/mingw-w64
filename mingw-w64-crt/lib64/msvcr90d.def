@@ -1443,8 +1443,8 @@ sinh
 sinhf
 sprintf
 sprintf_s
-sqrt
-sqrtf
+sqrt DATA
+sqrtf DATA
 srand
 sscanf
 sscanf_s

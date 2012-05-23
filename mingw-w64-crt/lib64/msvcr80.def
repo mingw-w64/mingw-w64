@@ -780,8 +780,8 @@ sinf
 sinh
 sinhf
 sprintf
-sqrt
-sqrtf
+sqrt DATA
+sqrtf DATA
 srand
 sscanf
 strcat

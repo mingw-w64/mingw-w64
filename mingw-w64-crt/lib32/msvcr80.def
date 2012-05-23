@@ -645,7 +645,7 @@ signal
 sin
 sinh
 sprintf
-sqrt
+sqrt DATA
 srand
 sscanf
 strcat

@@ -1,3 +1,15 @@
+2012-05-23  Kai Tietz  <kietz@redhat.com>
+
+	* lib32/msvcr*.def: Make sqrt/sqrtf functions as DATA.
+	* lib64/msvcr*.def: Likewise.
+
+	* math/ceilf.S: Removed.
+	* math/ceil.S: New code.
+	* Makefile.am: Added ceil.S to build.
+	* Makefile.in: Regenerated.
+	* lib32/msvcr*.def: Mark ceilf and ceil as DATA.
+	* lib64/msvcr*.def: Likewise.
+
 2012-05-23  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/cabinet.def: New def, based on a patch by Ray Donnelly.
