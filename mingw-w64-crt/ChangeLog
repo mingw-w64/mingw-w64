@@ -1,6 +1,9 @@
 2012-05-23  Kai Tietz  <kietz@redhat.com>
 
-	* lib32/msvcr*.def: Make sqrt/sqrtf functions as DATA.
+	* lib32/msvcr*.def: Make exp/expf functions defined as DATA.
+	* lib64/msvcr*.def: Likewise.
+
+	* lib32/msvcr*.def: Make sqrt/sqrtf functions defined as DATA.
 	* lib64/msvcr*.def: Likewise.
 
 	* math/ceilf.S: Removed.

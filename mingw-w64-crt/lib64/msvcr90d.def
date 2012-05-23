@@ -1310,8 +1310,8 @@ cosh
 coshf
 div
 exit
-exp
-expf
+exp DATA
+expf DATA
 fabs
 fclose
 feof

@@ -535,7 +535,7 @@ ctime DATA
 difftime
 div
 exit
-exp
+exp DATA
 fabs
 fclose
 feof

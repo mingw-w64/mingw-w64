@@ -1376,7 +1376,7 @@ cos
 cosh
 div
 exit
-exp
+exp DATA
 fabs
 fclose
 feof
