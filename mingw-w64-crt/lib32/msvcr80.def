@@ -606,7 +606,7 @@ ldiv
 localeconv
 localtime DATA
 ;_localtime32 = localtime
-log
+log DATA
 log10
 longjmp DATA
 malloc

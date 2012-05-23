@@ -1388,10 +1388,10 @@ labs
 ldexp DATA
 ldiv
 localeconv
-log
+log DATA
 log10
 log10f
-logf
+logf DATA
 longjmp DATA
 malloc
 mblen
