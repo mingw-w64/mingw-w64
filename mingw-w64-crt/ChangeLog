@@ -1,3 +1,9 @@
+2012-05-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/cabinet.def: New def, based on a patch by Ray Donnelly.
+	* Makefile.am (lib32_DATA): Add lib32/cabinet.def to build.
+	* Makefile.in: Regenerate.
+
 2012-05-22  Kai Tietz  <ktietz@redhat.com>
 
 	* crt/crtexe.c (__mingw_winmain_hInstance): Initialize for
