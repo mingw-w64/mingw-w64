@@ -1662,7 +1662,7 @@ bsearch
 bsearch_s
 btowc DATA
 calloc
-ceil
+ceil DATA
 clearerr
 clearerr_s
 clock

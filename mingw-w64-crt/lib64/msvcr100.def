@@ -1613,7 +1613,7 @@ bsearch
 bsearch_s
 btowc DATA
 calloc
-ceil
+ceil DATA
 ceilf DATA
 clearerr
 clearerr_s

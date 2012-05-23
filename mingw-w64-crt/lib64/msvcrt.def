@@ -1026,8 +1026,8 @@ atol
 bsearch
 bsearch_s
 calloc
-ceil
-;ceilf
+ceil DATA
+ceilf DATA
 clearerr
 clearerr_s
 clock

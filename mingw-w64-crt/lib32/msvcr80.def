@@ -526,7 +526,7 @@ atoi
 atol
 bsearch
 calloc
-ceil
+ceil DATA
 clearerr
 clock
 cos

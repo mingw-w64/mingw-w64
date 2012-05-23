@@ -648,8 +648,8 @@ atoi
 atol
 bsearch
 calloc
-ceil
-ceilf
+ceil DATA
+ceilf DATA
 clearerr
 clock
 cos
