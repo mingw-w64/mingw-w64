@@ -79,7 +79,8 @@ typedef enum __WIDL_fusion_generated_name_00000000 {
     ASM_CACHE_ZAP = 0x1,
     ASM_CACHE_GAC = 0x2,
     ASM_CACHE_DOWNLOAD = 0x4,
-    ASM_CACHE_ROOT = 0x8
+    ASM_CACHE_ROOT = 0x8,
+    ASM_CACHE_ROOT_EX = 0x80
 } ASM_CACHE_FLAGS;
 typedef enum __WIDL_fusion_generated_name_00000001 {
     peNone = 0x0,
