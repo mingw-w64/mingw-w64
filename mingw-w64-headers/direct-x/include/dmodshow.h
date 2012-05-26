@@ -12,8 +12,8 @@
 #include <ole2.h>
 #endif
 
-#ifndef __WIDL_DMODSHOW_H
-#define __WIDL_DMODSHOW_H
+#ifndef __dmodshow_h__
+#define __dmodshow_h__
 
 /* Forward declarations */
 
@@ -110,4 +110,4 @@ void __RPC_STUB IDMOWrapperFilter_Init_Stub(
 }
 #endif
 
-#endif /* __WIDL_DMODSHOW_H */
+#endif /* __dmodshow_h__ */

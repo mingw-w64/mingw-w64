@@ -285,8 +285,10 @@ BUILT_SOURCES = _mingw_directx.h _mingw_ddk.h $(am__append_1)
 @HAVE_WIDL_TRUE@  direct-x/include/dmodshow.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/dxgi.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/mediaobj.idl \
+@HAVE_WIDL_TRUE@  direct-x/include/medparam.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/mmstream.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/qedit.idl \
+@HAVE_WIDL_TRUE@  direct-x/include/qnetwork.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/vmr9.idl
 
 all: $(BUILT_SOURCES) config.h

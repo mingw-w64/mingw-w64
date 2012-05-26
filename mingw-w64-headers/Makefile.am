@@ -96,8 +96,10 @@ IDL_SRCS = \
   direct-x/include/dmodshow.idl \
   direct-x/include/dxgi.idl \
   direct-x/include/mediaobj.idl \
+  direct-x/include/medparam.idl \
   direct-x/include/mmstream.idl \
   direct-x/include/qedit.idl \
+  direct-x/include/qnetwork.idl \
   direct-x/include/vmr9.idl
 
 BUILT_SOURCES += $(IDL_SRCS:.idl=.h)
