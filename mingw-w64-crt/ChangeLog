@@ -1,5 +1,8 @@
 2012-05-26  Kai Tietz  <ktietz@redhat.com>
 
+	* math/ceilf.c: Replaced by new implementation in ...
+	* math/ceilf.S: here.
+
 	* math/trunc*: Optimize for 64-bit without using fpu.
 	* Makefile.am: Adjust trunc and truncf source.
 	* Makefile.in: Regenerate.

@@ -176,7 +176,7 @@ src_libmingwex=\
   math/acosf.c        math/acosh.c        math/acoshf.c       math/acoshl.c        math/acosl.c       math/asinf.c       \
   math/asinh.c        math/asinhf.c       math/asinhl.c       math/asinl.c         math/atan2f.c      math/atan2l.c      \
   math/atanf.c        math/atanh.c        math/atanhf.c       math/atanhl.c        math/atanl.c       math/cbrt.c        \
-  math/cbrtf.c        math/cbrtl.c        math/ceilf.c        math/ceil.S \
+  math/cbrtf.c        math/cbrtl.c        math/ceilf.S        math/ceil.S \
   math/cephes_emath.c  math/copysign.c    math/copysignf.c   \
   math/coshf.c        math/coshl.c        math/erfl.c         math/expf.c          math/exp.c         math/expl.c        \
   math/expm1.c        math/expm1f.c       math/expm1l.c       math/fabs.c          math/fabsf.c       math/fabsl.c       \
