@@ -15,78 +15,18 @@
 #endif
 __MINGW_USYMBOL(floorf):
 #ifdef _WIN64
-	subq	$24, %rsp
-	.seh_stackalloc	24
-	.seh_endprologue
-	movd	%xmm0, 12(%rsp)
-	movl	12(%rsp), %eax
-	movl	%eax, %ecx
-	movl	%eax, %edx
-	sarl	$23, %ecx
-	andl	$255, %ecx
-	subl	$127, %ecx
-	cmpl	$22, %ecx
-	jg	.l3
-	testl	%ecx, %ecx
-	js	.l4
-	movl	$8388607, %r8d
-	sarl	%cl, %r8d
-	testl	%eax, %r8d
-	je	.retval
-	addss	.hugeval(%rip), %xmm0
-	ucomiss	.zeroval(%rip), %xmm0
-	jbe	.l2
-	testl	%eax, %eax
-	jle	.l1
-	movl	$8388608, %eax
-	sarl	%cl, %eax
-	addl	%eax, %edx
-.l1:
-	movl	%r8d, %eax
-	notl	%eax
-	andl	%edx, %eax
-.l2:
-	movl	%eax, 8(%rsp)
-	movss	8(%rsp), %xmm0
-.retval:
-	addq	$24, %rsp
-	ret
-	.p2align 4,,10
-.l3:
-	addl	$-128, %ecx
-	jne	.retval
-	addss	%xmm0, %xmm0
-	addq	$24, %rsp
-	ret
-	.p2align 4,,10
-.l4:
-	addss	.hugeval(%rip), %xmm0
-	ucomiss	.zeroval(%rip), %xmm0
-	jbe	.islesseqval
-	testl	%eax, %eax
-	js	.l5
-	movl	$1065353216, %edx
-	cmovne	%edx, %eax
-.islesseqval:
-	movl	%eax, 8(%rsp)
-	movss	8(%rsp), %xmm0
-	addq	$24, %rsp
-	ret
-	.p2align 4,,10
-.l5:
-	movl	$-2147483648, 8(%rsp)
-	movss	8(%rsp), %xmm0
-	addq	$24, %rsp
-	ret
-	.seh_endproc
-
-	.section .rdata,"dr"
-	.align 4
-.hugeval:
-	.long	1900671690
-	.align 4
-.zeroval:
-	.long	0
+        subq    $40, %rsp
+        .seh_stackalloc 40
+        .seh_endprologue
+        unpcklps        %xmm0, %xmm0
+        cvtps2pd        %xmm0, %xmm0
+        call    floor
+        unpcklpd        %xmm0, %xmm0
+        cvtpd2ps        %xmm0, %xmm0
+        addq    $40, %rsp
+        ret
+        .seh_endproc
+        .def    __MINGW_USYMBOL(floor);  .scl    2;      .type   32;     .endef
 #else
 	flds	4(%esp)
 	subl	$8,%esp
