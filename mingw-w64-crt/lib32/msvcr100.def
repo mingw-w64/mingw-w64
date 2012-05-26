@@ -1681,7 +1681,7 @@ fgetpos
 fgets
 fgetwc
 fgetws
-floor
+floor DATA
 fmod DATA
 fopen
 fopen_s

@@ -1,5 +1,11 @@
 2012-05-26  Kai Tietz  <ktietz@redhat.com>
 
+	* math/floor*: Optimize for 64-bit without using fpu.
+	* Makefile.am: Adjust floor and floorf sources.
+	* Makefile.in: Regenerated.
+	* lib32/ and lib64/: Adjust msvcr*.def files for providing
+	floor and floorf only as DATA.
+
 	* math/ceilf.c: Replaced by new implementation in ...
 	* math/ceilf.S: here.
 

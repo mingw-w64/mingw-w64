@@ -1387,8 +1387,8 @@ fgetpos
 fgets
 fgetwc
 fgetws
-floor
-fmod
+floor DATA
+fmod DATA
 fopen
 fopen_s
 fprintf

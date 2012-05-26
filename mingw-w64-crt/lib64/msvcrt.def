@@ -1052,8 +1052,8 @@ fgetpos
 fgets
 fgetwc
 fgetws
-floor
-;floorf
+floor DATA
+floorf DATA
 fmod
 ;fmodf
 fopen

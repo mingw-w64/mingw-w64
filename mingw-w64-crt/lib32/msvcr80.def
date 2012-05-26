@@ -547,7 +547,7 @@ fgetpos
 fgets
 fgetwc
 fgetws
-floor
+floor DATA
 fmod
 fopen
 fprintf

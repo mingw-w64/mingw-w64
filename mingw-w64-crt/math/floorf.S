@@ -1,44 +1,92 @@
-/*
- * Written by J.T. Conklin <jtc@netbsd.org>.
- * Public domain.
- *
- * Changes for long double by Ulrich Drepper <drepper@cygnus.com>
- * 
- * Removed header file dependency for use in libmingwex.a by
- *   Danny Smith <dannysmith@users.sourceforge.net>
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the w64 mingw-runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
-#include <_mingw_mac.h>
+ #include <_mingw_mac.h>
 
 	.file	"floorf.S"
 	.text
-#ifdef _WIN64
-	.align 8
-#else
-	.align 4
-#endif
+	.p2align 4,,15
 .globl __MINGW_USYMBOL(floorf)
 	.def	__MINGW_USYMBOL(floorf);	.scl	2;	.type	32;	.endef
+#ifdef _WIN64
+	.seh_proc __MINGW_USYMBOL(floorf)
+#endif
 __MINGW_USYMBOL(floorf):
 #ifdef _WIN64
-	subq	$24,%rsp
-	movss	%xmm0,8(%rsp)
-	flds	8(%rsp)
-
-	fstcw	4(%rsp)			/* store fpu control word */
-	movl	$0x400,%edx		/* round towards -oo */
-	orl	4(%rsp),%edx
-	andl	$0xf7ff,%edx
-	movl	%edx,(%rsp)
-	fldcw	(%rsp)			/* load modified control word */
-
-	frndint				/* round */
-
-	fldcw	4(%rsp)			/* restore original control word */
-
-	fstps	8(%rsp)
-	movss	8(%rsp),%xmm0
-	addq	$24,%rsp
+	subq	$24, %rsp
+	.seh_stackalloc	24
+	.seh_endprologue
+	movd	%xmm0, 12(%rsp)
+	movl	12(%rsp), %eax
+	movl	%eax, %ecx
+	movl	%eax, %edx
+	sarl	$23, %ecx
+	andl	$255, %ecx
+	subl	$127, %ecx
+	cmpl	$22, %ecx
+	jg	.l3
+	testl	%ecx, %ecx
+	js	.l4
+	movl	$8388607, %r8d
+	sarl	%cl, %r8d
+	testl	%eax, %r8d
+	je	.retval
+	addss	.hugeval(%rip), %xmm0
+	ucomiss	.zeroval(%rip), %xmm0
+	jbe	.l2
+	testl	%eax, %eax
+	jle	.l1
+	movl	$8388608, %eax
+	sarl	%cl, %eax
+	addl	%eax, %edx
+.l1:
+	movl	%r8d, %eax
+	notl	%eax
+	andl	%edx, %eax
+.l2:
+	movl	%eax, 8(%rsp)
+	movss	8(%rsp), %xmm0
+.retval:
+	addq	$24, %rsp
 	ret
+	.p2align 4,,10
+.l3:
+	addl	$-128, %ecx
+	jne	.retval
+	addss	%xmm0, %xmm0
+	addq	$24, %rsp
+	ret
+	.p2align 4,,10
+.l4:
+	addss	.hugeval(%rip), %xmm0
+	ucomiss	.zeroval(%rip), %xmm0
+	jbe	.islesseqval
+	testl	%eax, %eax
+	js	.l5
+	movl	$1065353216, %edx
+	cmovne	%edx, %eax
+.islesseqval:
+	movl	%eax, 8(%rsp)
+	movss	8(%rsp), %xmm0
+	addq	$24, %rsp
+	ret
+	.p2align 4,,10
+.l5:
+	movl	$-2147483648, 8(%rsp)
+	movss	8(%rsp), %xmm0
+	addq	$24, %rsp
+	ret
+	.seh_endproc
+
+	.section .rdata,"dr"
+	.align 4
+.hugeval:
+	.long	1900671690
+	.align 4
+.zeroval:
+	.long	0
 #else
 	flds	4(%esp)
 	subl	$8,%esp

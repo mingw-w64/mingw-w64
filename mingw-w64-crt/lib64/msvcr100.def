@@ -1636,7 +1636,7 @@ fgetpos
 fgets
 fgetwc
 fgetws
-floor
+floor DATA
 floorf DATA
 fmod DATA
 fmodf DATA

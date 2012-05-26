@@ -380,8 +380,8 @@ am__lib32_libmingwex_a_SOURCES_DIST = crt/dllentry.c crt/dllmain.c \
 	math/coshf.c math/coshl.c math/erfl.c math/expf.c math/exp.c \
 	math/expl.c math/expm1.c math/expm1f.c math/expm1l.c \
 	math/fabs.c math/fabsf.c math/fabsl.c math/fdim.c math/fdimf.c \
-	math/fdiml.c math/floorf.c math/fmal.c math/fmax.c \
-	math/fmaxf.c math/fmaxl.c math/fmin.c math/fminf.c \
+	math/fdiml.c math/floorf.S math/floor.S math/fmal.c \
+	math/fmax.c math/fmaxf.c math/fmaxl.c math/fmin.c math/fminf.c \
 	math/fminl.c math/fmodf.c math/fmod.c math/modf.c math/fmodl.c \
 	math/fpclassify.c math/fpclassifyf.c math/fpclassifyl.c \
 	math/fp_consts.c math/fp_constsf.c math/fp_constsl.c \
@@ -683,6 +683,7 @@ am__objects_13 = crt/lib32_libmingwex_a-dllentry.$(OBJEXT) \
 	math/lib32_libmingwex_a-fdimf.$(OBJEXT) \
 	math/lib32_libmingwex_a-fdiml.$(OBJEXT) \
 	math/lib32_libmingwex_a-floorf.$(OBJEXT) \
+	math/lib32_libmingwex_a-floor.$(OBJEXT) \
 	math/lib32_libmingwex_a-fmal.$(OBJEXT) \
 	math/lib32_libmingwex_a-fmax.$(OBJEXT) \
 	math/lib32_libmingwex_a-fmaxf.$(OBJEXT) \
@@ -1381,8 +1382,8 @@ am__lib64_libmingwex_a_SOURCES_DIST = crt/dllentry.c crt/dllmain.c \
 	math/coshf.c math/coshl.c math/erfl.c math/expf.c math/exp.c \
 	math/expl.c math/expm1.c math/expm1f.c math/expm1l.c \
 	math/fabs.c math/fabsf.c math/fabsl.c math/fdim.c math/fdimf.c \
-	math/fdiml.c math/floorf.c math/fmal.c math/fmax.c \
-	math/fmaxf.c math/fmaxl.c math/fmin.c math/fminf.c \
+	math/fdiml.c math/floorf.S math/floor.S math/fmal.c \
+	math/fmax.c math/fmaxf.c math/fmaxl.c math/fmin.c math/fminf.c \
 	math/fminl.c math/fmodf.c math/fmod.c math/modf.c math/fmodl.c \
 	math/fpclassify.c math/fpclassifyf.c math/fpclassifyl.c \
 	math/fp_consts.c math/fp_constsf.c math/fp_constsl.c \
@@ -1692,6 +1693,7 @@ am__objects_37 = crt/lib64_libmingwex_a-dllentry.$(OBJEXT) \
 	math/lib64_libmingwex_a-fdimf.$(OBJEXT) \
 	math/lib64_libmingwex_a-fdiml.$(OBJEXT) \
 	math/lib64_libmingwex_a-floorf.$(OBJEXT) \
+	math/lib64_libmingwex_a-floor.$(OBJEXT) \
 	math/lib64_libmingwex_a-fmal.$(OBJEXT) \
 	math/lib64_libmingwex_a-fmax.$(OBJEXT) \
 	math/lib64_libmingwex_a-fmaxf.$(OBJEXT) \
@@ -3356,7 +3358,8 @@ src_libmingwex = \
   math/cephes_emath.c  math/copysign.c    math/copysignf.c   \
   math/coshf.c        math/coshl.c        math/erfl.c         math/expf.c          math/exp.c         math/expl.c        \
   math/expm1.c        math/expm1f.c       math/expm1l.c       math/fabs.c          math/fabsf.c       math/fabsl.c       \
-  math/fdim.c         math/fdimf.c        math/fdiml.c        math/floorf.c        math/fmal.c        math/fmax.c        \
+  math/fdim.c         math/fdimf.c        math/fdiml.c        math/floorf.S \
+  math/floor.S        math/fmal.c        math/fmax.c        \
   math/fmaxf.c        math/fmaxl.c        math/fmin.c         math/fminf.c         math/fminl.c       math/fmodf.c       \
   math/fmod.c         math/modf.c         \
   math/fmodl.c        math/fpclassify.c   math/fpclassifyf.c  math/fpclassifyl.c   math/fp_consts.c   math/fp_constsf.c  \
@@ -5117,6 +5120,8 @@ math/lib32_libmingwex_a-fdiml.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/lib32_libmingwex_a-floorf.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
+math/lib32_libmingwex_a-floor.$(OBJEXT): math/$(am__dirstamp) \
+	math/$(DEPDIR)/$(am__dirstamp)
 math/lib32_libmingwex_a-fmal.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/lib32_libmingwex_a-fmax.$(OBJEXT): math/$(am__dirstamp) \
@@ -6567,6 +6572,8 @@ math/lib64_libmingwex_a-fdimf.$(OBJEXT): math/$(am__dirstamp) \
 math/lib64_libmingwex_a-fdiml.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/lib64_libmingwex_a-floorf.$(OBJEXT): math/$(am__dirstamp) \
+	math/$(DEPDIR)/$(am__dirstamp)
+math/lib64_libmingwex_a-floor.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
 math/lib64_libmingwex_a-fmal.$(OBJEXT): math/$(am__dirstamp) \
 	math/$(DEPDIR)/$(am__dirstamp)
@@ -8925,6 +8932,7 @@ mostlyclean-compile:
 	-rm -f math/lib32_libmingwex_a-fdim.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-fdimf.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-fdiml.$(OBJEXT)
+	-rm -f math/lib32_libmingwex_a-floor.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-floorf.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-floorl.$(OBJEXT)
 	-rm -f math/lib32_libmingwex_a-fma.$(OBJEXT)
@@ -9095,6 +9103,7 @@ mostlyclean-compile:
 	-rm -f math/lib64_libmingwex_a-fdim.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-fdimf.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-fdiml.$(OBJEXT)
+	-rm -f math/lib64_libmingwex_a-floor.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-floorf.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-floorl.$(OBJEXT)
 	-rm -f math/lib64_libmingwex_a-fma.$(OBJEXT)
@@ -10439,6 +10448,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-fdim.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-fdimf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-fdiml.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-floor.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-floorf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-floorl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib32_libmingwex_a-fma.Po@am__quote@
@@ -10609,6 +10619,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-fdim.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-fdimf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-fdiml.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-floor.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-floorf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-floorl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@math/$(DEPDIR)/lib64_libmingwex_a-fma.Po@am__quote@
@@ -11859,6 +11870,34 @@ math/lib32_libmingwex_a-ceil.obj: math/ceil.S
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib32_libmingwex_a-ceil.obj `if test -f 'math/ceil.S'; then $(CYGPATH_W) 'math/ceil.S'; else $(CYGPATH_W) '$(srcdir)/math/ceil.S'; fi`
 
+math/lib32_libmingwex_a-floorf.o: math/floorf.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib32_libmingwex_a-floorf.o -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-floorf.Tpo -c -o math/lib32_libmingwex_a-floorf.o `test -f 'math/floorf.S' || echo '$(srcdir)/'`math/floorf.S
+@am__fastdepCCAS_TRUE@	$(am__mv) math/$(DEPDIR)/lib32_libmingwex_a-floorf.Tpo math/$(DEPDIR)/lib32_libmingwex_a-floorf.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/floorf.S' object='math/lib32_libmingwex_a-floorf.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib32_libmingwex_a-floorf.o `test -f 'math/floorf.S' || echo '$(srcdir)/'`math/floorf.S
+
+math/lib32_libmingwex_a-floorf.obj: math/floorf.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib32_libmingwex_a-floorf.obj -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-floorf.Tpo -c -o math/lib32_libmingwex_a-floorf.obj `if test -f 'math/floorf.S'; then $(CYGPATH_W) 'math/floorf.S'; else $(CYGPATH_W) '$(srcdir)/math/floorf.S'; fi`
+@am__fastdepCCAS_TRUE@	$(am__mv) math/$(DEPDIR)/lib32_libmingwex_a-floorf.Tpo math/$(DEPDIR)/lib32_libmingwex_a-floorf.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/floorf.S' object='math/lib32_libmingwex_a-floorf.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib32_libmingwex_a-floorf.obj `if test -f 'math/floorf.S'; then $(CYGPATH_W) 'math/floorf.S'; else $(CYGPATH_W) '$(srcdir)/math/floorf.S'; fi`
+
+math/lib32_libmingwex_a-floor.o: math/floor.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib32_libmingwex_a-floor.o -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-floor.Tpo -c -o math/lib32_libmingwex_a-floor.o `test -f 'math/floor.S' || echo '$(srcdir)/'`math/floor.S
+@am__fastdepCCAS_TRUE@	$(am__mv) math/$(DEPDIR)/lib32_libmingwex_a-floor.Tpo math/$(DEPDIR)/lib32_libmingwex_a-floor.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/floor.S' object='math/lib32_libmingwex_a-floor.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib32_libmingwex_a-floor.o `test -f 'math/floor.S' || echo '$(srcdir)/'`math/floor.S
+
+math/lib32_libmingwex_a-floor.obj: math/floor.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib32_libmingwex_a-floor.obj -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-floor.Tpo -c -o math/lib32_libmingwex_a-floor.obj `if test -f 'math/floor.S'; then $(CYGPATH_W) 'math/floor.S'; else $(CYGPATH_W) '$(srcdir)/math/floor.S'; fi`
+@am__fastdepCCAS_TRUE@	$(am__mv) math/$(DEPDIR)/lib32_libmingwex_a-floor.Tpo math/$(DEPDIR)/lib32_libmingwex_a-floor.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/floor.S' object='math/lib32_libmingwex_a-floor.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib32_libmingwex_a-floor.obj `if test -f 'math/floor.S'; then $(CYGPATH_W) 'math/floor.S'; else $(CYGPATH_W) '$(srcdir)/math/floor.S'; fi`
+
 math/lib32_libmingwex_a-trunc.o: math/trunc.S
 @am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib32_libmingwex_a-trunc.o -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-trunc.Tpo -c -o math/lib32_libmingwex_a-trunc.o `test -f 'math/trunc.S' || echo '$(srcdir)/'`math/trunc.S
 @am__fastdepCCAS_TRUE@	$(am__mv) math/$(DEPDIR)/lib32_libmingwex_a-trunc.Tpo math/$(DEPDIR)/lib32_libmingwex_a-trunc.Po
@@ -12530,6 +12569,34 @@ math/lib64_libmingwex_a-ceil.obj: math/ceil.S
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/ceil.S' object='math/lib64_libmingwex_a-ceil.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib64_libmingwex_a-ceil.obj `if test -f 'math/ceil.S'; then $(CYGPATH_W) 'math/ceil.S'; else $(CYGPATH_W) '$(srcdir)/math/ceil.S'; fi`
+
+math/lib64_libmingwex_a-floorf.o: math/floorf.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib64_libmingwex_a-floorf.o -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-floorf.Tpo -c -o math/lib64_libmingwex_a-floorf.o `test -f 'math/floorf.S' || echo '$(srcdir)/'`math/floorf.S
+@am__fastdepCCAS_TRUE@	$(am__mv) math/$(DEPDIR)/lib64_libmingwex_a-floorf.Tpo math/$(DEPDIR)/lib64_libmingwex_a-floorf.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/floorf.S' object='math/lib64_libmingwex_a-floorf.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib64_libmingwex_a-floorf.o `test -f 'math/floorf.S' || echo '$(srcdir)/'`math/floorf.S
+
+math/lib64_libmingwex_a-floorf.obj: math/floorf.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib64_libmingwex_a-floorf.obj -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-floorf.Tpo -c -o math/lib64_libmingwex_a-floorf.obj `if test -f 'math/floorf.S'; then $(CYGPATH_W) 'math/floorf.S'; else $(CYGPATH_W) '$(srcdir)/math/floorf.S'; fi`
+@am__fastdepCCAS_TRUE@	$(am__mv) math/$(DEPDIR)/lib64_libmingwex_a-floorf.Tpo math/$(DEPDIR)/lib64_libmingwex_a-floorf.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/floorf.S' object='math/lib64_libmingwex_a-floorf.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib64_libmingwex_a-floorf.obj `if test -f 'math/floorf.S'; then $(CYGPATH_W) 'math/floorf.S'; else $(CYGPATH_W) '$(srcdir)/math/floorf.S'; fi`
+
+math/lib64_libmingwex_a-floor.o: math/floor.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib64_libmingwex_a-floor.o -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-floor.Tpo -c -o math/lib64_libmingwex_a-floor.o `test -f 'math/floor.S' || echo '$(srcdir)/'`math/floor.S
+@am__fastdepCCAS_TRUE@	$(am__mv) math/$(DEPDIR)/lib64_libmingwex_a-floor.Tpo math/$(DEPDIR)/lib64_libmingwex_a-floor.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/floor.S' object='math/lib64_libmingwex_a-floor.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib64_libmingwex_a-floor.o `test -f 'math/floor.S' || echo '$(srcdir)/'`math/floor.S
+
+math/lib64_libmingwex_a-floor.obj: math/floor.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib64_libmingwex_a-floor.obj -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-floor.Tpo -c -o math/lib64_libmingwex_a-floor.obj `if test -f 'math/floor.S'; then $(CYGPATH_W) 'math/floor.S'; else $(CYGPATH_W) '$(srcdir)/math/floor.S'; fi`
+@am__fastdepCCAS_TRUE@	$(am__mv) math/$(DEPDIR)/lib64_libmingwex_a-floor.Tpo math/$(DEPDIR)/lib64_libmingwex_a-floor.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/floor.S' object='math/lib64_libmingwex_a-floor.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib64_libmingwex_a-floor.obj `if test -f 'math/floor.S'; then $(CYGPATH_W) 'math/floor.S'; else $(CYGPATH_W) '$(srcdir)/math/floor.S'; fi`
 
 math/lib64_libmingwex_a-trunc.o: math/trunc.S
 @am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib64_libmingwex_a-trunc.o -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-trunc.Tpo -c -o math/lib64_libmingwex_a-trunc.o `test -f 'math/trunc.S' || echo '$(srcdir)/'`math/trunc.S
@@ -15808,20 +15875,6 @@ math/lib32_libmingwex_a-fdiml.obj: math/fdiml.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/fdiml.c' object='math/lib32_libmingwex_a-fdiml.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib32_libmingwex_a-fdiml.obj `if test -f 'math/fdiml.c'; then $(CYGPATH_W) 'math/fdiml.c'; else $(CYGPATH_W) '$(srcdir)/math/fdiml.c'; fi`
-
-math/lib32_libmingwex_a-floorf.o: math/floorf.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib32_libmingwex_a-floorf.o -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-floorf.Tpo -c -o math/lib32_libmingwex_a-floorf.o `test -f 'math/floorf.c' || echo '$(srcdir)/'`math/floorf.c
-@am__fastdepCC_TRUE@	$(am__mv) math/$(DEPDIR)/lib32_libmingwex_a-floorf.Tpo math/$(DEPDIR)/lib32_libmingwex_a-floorf.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/floorf.c' object='math/lib32_libmingwex_a-floorf.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib32_libmingwex_a-floorf.o `test -f 'math/floorf.c' || echo '$(srcdir)/'`math/floorf.c
-
-math/lib32_libmingwex_a-floorf.obj: math/floorf.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib32_libmingwex_a-floorf.obj -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-floorf.Tpo -c -o math/lib32_libmingwex_a-floorf.obj `if test -f 'math/floorf.c'; then $(CYGPATH_W) 'math/floorf.c'; else $(CYGPATH_W) '$(srcdir)/math/floorf.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) math/$(DEPDIR)/lib32_libmingwex_a-floorf.Tpo math/$(DEPDIR)/lib32_libmingwex_a-floorf.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/floorf.c' object='math/lib32_libmingwex_a-floorf.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib32_libmingwex_a-floorf.obj `if test -f 'math/floorf.c'; then $(CYGPATH_W) 'math/floorf.c'; else $(CYGPATH_W) '$(srcdir)/math/floorf.c'; fi`
 
 math/lib32_libmingwex_a-fmal.o: math/fmal.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib32_libmingwex_a-fmal.o -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-fmal.Tpo -c -o math/lib32_libmingwex_a-fmal.o `test -f 'math/fmal.c' || echo '$(srcdir)/'`math/fmal.c
@@ -24180,20 +24233,6 @@ math/lib64_libmingwex_a-fdiml.obj: math/fdiml.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/fdiml.c' object='math/lib64_libmingwex_a-fdiml.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib64_libmingwex_a-fdiml.obj `if test -f 'math/fdiml.c'; then $(CYGPATH_W) 'math/fdiml.c'; else $(CYGPATH_W) '$(srcdir)/math/fdiml.c'; fi`
-
-math/lib64_libmingwex_a-floorf.o: math/floorf.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib64_libmingwex_a-floorf.o -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-floorf.Tpo -c -o math/lib64_libmingwex_a-floorf.o `test -f 'math/floorf.c' || echo '$(srcdir)/'`math/floorf.c
-@am__fastdepCC_TRUE@	$(am__mv) math/$(DEPDIR)/lib64_libmingwex_a-floorf.Tpo math/$(DEPDIR)/lib64_libmingwex_a-floorf.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/floorf.c' object='math/lib64_libmingwex_a-floorf.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib64_libmingwex_a-floorf.o `test -f 'math/floorf.c' || echo '$(srcdir)/'`math/floorf.c
-
-math/lib64_libmingwex_a-floorf.obj: math/floorf.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib64_libmingwex_a-floorf.obj -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-floorf.Tpo -c -o math/lib64_libmingwex_a-floorf.obj `if test -f 'math/floorf.c'; then $(CYGPATH_W) 'math/floorf.c'; else $(CYGPATH_W) '$(srcdir)/math/floorf.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) math/$(DEPDIR)/lib64_libmingwex_a-floorf.Tpo math/$(DEPDIR)/lib64_libmingwex_a-floorf.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/floorf.c' object='math/lib64_libmingwex_a-floorf.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib64_libmingwex_a-floorf.obj `if test -f 'math/floorf.c'; then $(CYGPATH_W) 'math/floorf.c'; else $(CYGPATH_W) '$(srcdir)/math/floorf.c'; fi`
 
 math/lib64_libmingwex_a-fmal.o: math/fmal.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib64_libmingwex_a-fmal.o -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-fmal.Tpo -c -o math/lib64_libmingwex_a-fmal.o `test -f 'math/fmal.c' || echo '$(srcdir)/'`math/fmal.c
