@@ -53,8 +53,8 @@ extern "C" {
     struct IServiceProvider : public IUnknown {
     public:
       virtual HRESULT WINAPI QueryService(REFGUID guidService,REFIID riid,void **ppvObject) = 0;
-#if USE___UUIDOF != 0
-      template <class Q> HRESULT WINAPI QueryService(REFGUID guidService,Q **pp) { return QueryService(guidService,__uuidof(Q),(void **)pp); }
+#ifndef __STRICT_ANSI__
+      template <class Q> HRESULT WINAPI QueryService(REFGUID guidService,Q **pp) { return QueryService(guidService,__uuidof(*pp),(void **)pp); }
 #endif
     };
   }
