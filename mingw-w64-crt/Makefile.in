@@ -424,7 +424,7 @@ am__lib32_libmingwex_a_SOURCES_DIST = crt/dllentry.c crt/dllmain.c \
 	math/signbitf.c math/signbitl.c math/sinhf.c math/sinhl.c \
 	math/sqrtf.c math/sqrtl.c math/sqrt.c math/tanf.c math/tanhf.c \
 	math/tanhl.c math/tgamma.c math/tgammaf.c math/tgammal.c \
-	math/trunc.c math/truncf.c math/truncl.c math/cossin.c \
+	math/trunc.S math/truncf.S math/truncl.c math/cossin.c \
 	misc/mingw_matherr.c misc/mb_wc_common.h misc/mingw_getsp.S \
 	misc/mingw_get_codepage.c misc/strsafe.c misc/mempcpy.c \
 	misc/wmempcpy.c misc/alarm.c misc/basename.c misc/btowc.c \
@@ -1425,7 +1425,7 @@ am__lib64_libmingwex_a_SOURCES_DIST = crt/dllentry.c crt/dllmain.c \
 	math/signbitf.c math/signbitl.c math/sinhf.c math/sinhl.c \
 	math/sqrtf.c math/sqrtl.c math/sqrt.c math/tanf.c math/tanhf.c \
 	math/tanhl.c math/tgamma.c math/tgammaf.c math/tgammal.c \
-	math/trunc.c math/truncf.c math/truncl.c math/cossin.c \
+	math/trunc.S math/truncf.S math/truncl.c math/cossin.c \
 	misc/mingw_matherr.c misc/mb_wc_common.h misc/mingw_getsp.S \
 	misc/mingw_get_codepage.c misc/strsafe.c misc/mempcpy.c \
 	misc/wmempcpy.c misc/alarm.c misc/basename.c misc/btowc.c \
@@ -3407,8 +3407,9 @@ src_libmingwex = \
   math/sinhf.c        math/sinhl.c        \
   math/sqrtf.c        math/sqrtl.c        math/sqrt.c         \
   math/tanf.c         math/tanhf.c        \
-  math/tanhl.c        math/tgamma.c       math/tgammaf.c      math/tgammal.c       math/trunc.c       math/truncf.c      \
-  math/truncl.c       math/cossin.c       \
+  math/tanhl.c        math/tgamma.c       math/tgammaf.c      math/tgammal.c \
+  math/trunc.S       math/truncf.S        math/truncl.c \
+  math/cossin.c       \
   \
   misc/mingw_matherr.c \
   misc/mb_wc_common.h \
@@ -11873,6 +11874,34 @@ math/lib32_libmingwex_a-ceil.obj: math/ceil.S
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib32_libmingwex_a-ceil.obj `if test -f 'math/ceil.S'; then $(CYGPATH_W) 'math/ceil.S'; else $(CYGPATH_W) '$(srcdir)/math/ceil.S'; fi`
 
+math/lib32_libmingwex_a-trunc.o: math/trunc.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib32_libmingwex_a-trunc.o -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-trunc.Tpo -c -o math/lib32_libmingwex_a-trunc.o `test -f 'math/trunc.S' || echo '$(srcdir)/'`math/trunc.S
+@am__fastdepCCAS_TRUE@	$(am__mv) math/$(DEPDIR)/lib32_libmingwex_a-trunc.Tpo math/$(DEPDIR)/lib32_libmingwex_a-trunc.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/trunc.S' object='math/lib32_libmingwex_a-trunc.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib32_libmingwex_a-trunc.o `test -f 'math/trunc.S' || echo '$(srcdir)/'`math/trunc.S
+
+math/lib32_libmingwex_a-trunc.obj: math/trunc.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib32_libmingwex_a-trunc.obj -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-trunc.Tpo -c -o math/lib32_libmingwex_a-trunc.obj `if test -f 'math/trunc.S'; then $(CYGPATH_W) 'math/trunc.S'; else $(CYGPATH_W) '$(srcdir)/math/trunc.S'; fi`
+@am__fastdepCCAS_TRUE@	$(am__mv) math/$(DEPDIR)/lib32_libmingwex_a-trunc.Tpo math/$(DEPDIR)/lib32_libmingwex_a-trunc.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/trunc.S' object='math/lib32_libmingwex_a-trunc.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib32_libmingwex_a-trunc.obj `if test -f 'math/trunc.S'; then $(CYGPATH_W) 'math/trunc.S'; else $(CYGPATH_W) '$(srcdir)/math/trunc.S'; fi`
+
+math/lib32_libmingwex_a-truncf.o: math/truncf.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib32_libmingwex_a-truncf.o -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-truncf.Tpo -c -o math/lib32_libmingwex_a-truncf.o `test -f 'math/truncf.S' || echo '$(srcdir)/'`math/truncf.S
+@am__fastdepCCAS_TRUE@	$(am__mv) math/$(DEPDIR)/lib32_libmingwex_a-truncf.Tpo math/$(DEPDIR)/lib32_libmingwex_a-truncf.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/truncf.S' object='math/lib32_libmingwex_a-truncf.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib32_libmingwex_a-truncf.o `test -f 'math/truncf.S' || echo '$(srcdir)/'`math/truncf.S
+
+math/lib32_libmingwex_a-truncf.obj: math/truncf.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib32_libmingwex_a-truncf.obj -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-truncf.Tpo -c -o math/lib32_libmingwex_a-truncf.obj `if test -f 'math/truncf.S'; then $(CYGPATH_W) 'math/truncf.S'; else $(CYGPATH_W) '$(srcdir)/math/truncf.S'; fi`
+@am__fastdepCCAS_TRUE@	$(am__mv) math/$(DEPDIR)/lib32_libmingwex_a-truncf.Tpo math/$(DEPDIR)/lib32_libmingwex_a-truncf.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/truncf.S' object='math/lib32_libmingwex_a-truncf.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib32_libmingwex_a-truncf.obj `if test -f 'math/truncf.S'; then $(CYGPATH_W) 'math/truncf.S'; else $(CYGPATH_W) '$(srcdir)/math/truncf.S'; fi`
+
 misc/lib32_libmingwex_a-mingw_getsp.o: misc/mingw_getsp.S
 @am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/lib32_libmingwex_a-mingw_getsp.o -MD -MP -MF misc/$(DEPDIR)/lib32_libmingwex_a-mingw_getsp.Tpo -c -o misc/lib32_libmingwex_a-mingw_getsp.o `test -f 'misc/mingw_getsp.S' || echo '$(srcdir)/'`misc/mingw_getsp.S
 @am__fastdepCCAS_TRUE@	$(am__mv) misc/$(DEPDIR)/lib32_libmingwex_a-mingw_getsp.Tpo misc/$(DEPDIR)/lib32_libmingwex_a-mingw_getsp.Po
@@ -12502,6 +12531,34 @@ math/lib64_libmingwex_a-ceil.obj: math/ceil.S
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/ceil.S' object='math/lib64_libmingwex_a-ceil.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib64_libmingwex_a-ceil.obj `if test -f 'math/ceil.S'; then $(CYGPATH_W) 'math/ceil.S'; else $(CYGPATH_W) '$(srcdir)/math/ceil.S'; fi`
+
+math/lib64_libmingwex_a-trunc.o: math/trunc.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib64_libmingwex_a-trunc.o -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-trunc.Tpo -c -o math/lib64_libmingwex_a-trunc.o `test -f 'math/trunc.S' || echo '$(srcdir)/'`math/trunc.S
+@am__fastdepCCAS_TRUE@	$(am__mv) math/$(DEPDIR)/lib64_libmingwex_a-trunc.Tpo math/$(DEPDIR)/lib64_libmingwex_a-trunc.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/trunc.S' object='math/lib64_libmingwex_a-trunc.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib64_libmingwex_a-trunc.o `test -f 'math/trunc.S' || echo '$(srcdir)/'`math/trunc.S
+
+math/lib64_libmingwex_a-trunc.obj: math/trunc.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib64_libmingwex_a-trunc.obj -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-trunc.Tpo -c -o math/lib64_libmingwex_a-trunc.obj `if test -f 'math/trunc.S'; then $(CYGPATH_W) 'math/trunc.S'; else $(CYGPATH_W) '$(srcdir)/math/trunc.S'; fi`
+@am__fastdepCCAS_TRUE@	$(am__mv) math/$(DEPDIR)/lib64_libmingwex_a-trunc.Tpo math/$(DEPDIR)/lib64_libmingwex_a-trunc.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/trunc.S' object='math/lib64_libmingwex_a-trunc.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib64_libmingwex_a-trunc.obj `if test -f 'math/trunc.S'; then $(CYGPATH_W) 'math/trunc.S'; else $(CYGPATH_W) '$(srcdir)/math/trunc.S'; fi`
+
+math/lib64_libmingwex_a-truncf.o: math/truncf.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib64_libmingwex_a-truncf.o -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-truncf.Tpo -c -o math/lib64_libmingwex_a-truncf.o `test -f 'math/truncf.S' || echo '$(srcdir)/'`math/truncf.S
+@am__fastdepCCAS_TRUE@	$(am__mv) math/$(DEPDIR)/lib64_libmingwex_a-truncf.Tpo math/$(DEPDIR)/lib64_libmingwex_a-truncf.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/truncf.S' object='math/lib64_libmingwex_a-truncf.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib64_libmingwex_a-truncf.o `test -f 'math/truncf.S' || echo '$(srcdir)/'`math/truncf.S
+
+math/lib64_libmingwex_a-truncf.obj: math/truncf.S
+@am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT math/lib64_libmingwex_a-truncf.obj -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-truncf.Tpo -c -o math/lib64_libmingwex_a-truncf.obj `if test -f 'math/truncf.S'; then $(CYGPATH_W) 'math/truncf.S'; else $(CYGPATH_W) '$(srcdir)/math/truncf.S'; fi`
+@am__fastdepCCAS_TRUE@	$(am__mv) math/$(DEPDIR)/lib64_libmingwex_a-truncf.Tpo math/$(DEPDIR)/lib64_libmingwex_a-truncf.Po
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	source='math/truncf.S' object='math/lib64_libmingwex_a-truncf.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCCAS_FALSE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -c -o math/lib64_libmingwex_a-truncf.obj `if test -f 'math/truncf.S'; then $(CYGPATH_W) 'math/truncf.S'; else $(CYGPATH_W) '$(srcdir)/math/truncf.S'; fi`
 
 misc/lib64_libmingwex_a-mingw_getsp.o: misc/mingw_getsp.S
 @am__fastdepCCAS_TRUE@	$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CCASFLAGS) $(CCASFLAGS) -MT misc/lib64_libmingwex_a-mingw_getsp.o -MD -MP -MF misc/$(DEPDIR)/lib64_libmingwex_a-mingw_getsp.Tpo -c -o misc/lib64_libmingwex_a-mingw_getsp.o `test -f 'misc/mingw_getsp.S' || echo '$(srcdir)/'`misc/mingw_getsp.S
@@ -16942,34 +16999,6 @@ math/lib32_libmingwex_a-tgammal.obj: math/tgammal.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/tgammal.c' object='math/lib32_libmingwex_a-tgammal.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib32_libmingwex_a-tgammal.obj `if test -f 'math/tgammal.c'; then $(CYGPATH_W) 'math/tgammal.c'; else $(CYGPATH_W) '$(srcdir)/math/tgammal.c'; fi`
-
-math/lib32_libmingwex_a-trunc.o: math/trunc.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib32_libmingwex_a-trunc.o -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-trunc.Tpo -c -o math/lib32_libmingwex_a-trunc.o `test -f 'math/trunc.c' || echo '$(srcdir)/'`math/trunc.c
-@am__fastdepCC_TRUE@	$(am__mv) math/$(DEPDIR)/lib32_libmingwex_a-trunc.Tpo math/$(DEPDIR)/lib32_libmingwex_a-trunc.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/trunc.c' object='math/lib32_libmingwex_a-trunc.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib32_libmingwex_a-trunc.o `test -f 'math/trunc.c' || echo '$(srcdir)/'`math/trunc.c
-
-math/lib32_libmingwex_a-trunc.obj: math/trunc.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib32_libmingwex_a-trunc.obj -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-trunc.Tpo -c -o math/lib32_libmingwex_a-trunc.obj `if test -f 'math/trunc.c'; then $(CYGPATH_W) 'math/trunc.c'; else $(CYGPATH_W) '$(srcdir)/math/trunc.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) math/$(DEPDIR)/lib32_libmingwex_a-trunc.Tpo math/$(DEPDIR)/lib32_libmingwex_a-trunc.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/trunc.c' object='math/lib32_libmingwex_a-trunc.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib32_libmingwex_a-trunc.obj `if test -f 'math/trunc.c'; then $(CYGPATH_W) 'math/trunc.c'; else $(CYGPATH_W) '$(srcdir)/math/trunc.c'; fi`
-
-math/lib32_libmingwex_a-truncf.o: math/truncf.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib32_libmingwex_a-truncf.o -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-truncf.Tpo -c -o math/lib32_libmingwex_a-truncf.o `test -f 'math/truncf.c' || echo '$(srcdir)/'`math/truncf.c
-@am__fastdepCC_TRUE@	$(am__mv) math/$(DEPDIR)/lib32_libmingwex_a-truncf.Tpo math/$(DEPDIR)/lib32_libmingwex_a-truncf.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/truncf.c' object='math/lib32_libmingwex_a-truncf.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib32_libmingwex_a-truncf.o `test -f 'math/truncf.c' || echo '$(srcdir)/'`math/truncf.c
-
-math/lib32_libmingwex_a-truncf.obj: math/truncf.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib32_libmingwex_a-truncf.obj -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-truncf.Tpo -c -o math/lib32_libmingwex_a-truncf.obj `if test -f 'math/truncf.c'; then $(CYGPATH_W) 'math/truncf.c'; else $(CYGPATH_W) '$(srcdir)/math/truncf.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) math/$(DEPDIR)/lib32_libmingwex_a-truncf.Tpo math/$(DEPDIR)/lib32_libmingwex_a-truncf.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/truncf.c' object='math/lib32_libmingwex_a-truncf.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib32_libmingwex_a-truncf.obj `if test -f 'math/truncf.c'; then $(CYGPATH_W) 'math/truncf.c'; else $(CYGPATH_W) '$(srcdir)/math/truncf.c'; fi`
 
 math/lib32_libmingwex_a-truncl.o: math/truncl.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib32_libmingwex_a-truncl.o -MD -MP -MF math/$(DEPDIR)/lib32_libmingwex_a-truncl.Tpo -c -o math/lib32_libmingwex_a-truncl.o `test -f 'math/truncl.c' || echo '$(srcdir)/'`math/truncl.c
@@ -25356,34 +25385,6 @@ math/lib64_libmingwex_a-tgammal.obj: math/tgammal.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/tgammal.c' object='math/lib64_libmingwex_a-tgammal.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib64_libmingwex_a-tgammal.obj `if test -f 'math/tgammal.c'; then $(CYGPATH_W) 'math/tgammal.c'; else $(CYGPATH_W) '$(srcdir)/math/tgammal.c'; fi`
-
-math/lib64_libmingwex_a-trunc.o: math/trunc.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib64_libmingwex_a-trunc.o -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-trunc.Tpo -c -o math/lib64_libmingwex_a-trunc.o `test -f 'math/trunc.c' || echo '$(srcdir)/'`math/trunc.c
-@am__fastdepCC_TRUE@	$(am__mv) math/$(DEPDIR)/lib64_libmingwex_a-trunc.Tpo math/$(DEPDIR)/lib64_libmingwex_a-trunc.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/trunc.c' object='math/lib64_libmingwex_a-trunc.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib64_libmingwex_a-trunc.o `test -f 'math/trunc.c' || echo '$(srcdir)/'`math/trunc.c
-
-math/lib64_libmingwex_a-trunc.obj: math/trunc.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib64_libmingwex_a-trunc.obj -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-trunc.Tpo -c -o math/lib64_libmingwex_a-trunc.obj `if test -f 'math/trunc.c'; then $(CYGPATH_W) 'math/trunc.c'; else $(CYGPATH_W) '$(srcdir)/math/trunc.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) math/$(DEPDIR)/lib64_libmingwex_a-trunc.Tpo math/$(DEPDIR)/lib64_libmingwex_a-trunc.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/trunc.c' object='math/lib64_libmingwex_a-trunc.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib64_libmingwex_a-trunc.obj `if test -f 'math/trunc.c'; then $(CYGPATH_W) 'math/trunc.c'; else $(CYGPATH_W) '$(srcdir)/math/trunc.c'; fi`
-
-math/lib64_libmingwex_a-truncf.o: math/truncf.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib64_libmingwex_a-truncf.o -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-truncf.Tpo -c -o math/lib64_libmingwex_a-truncf.o `test -f 'math/truncf.c' || echo '$(srcdir)/'`math/truncf.c
-@am__fastdepCC_TRUE@	$(am__mv) math/$(DEPDIR)/lib64_libmingwex_a-truncf.Tpo math/$(DEPDIR)/lib64_libmingwex_a-truncf.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/truncf.c' object='math/lib64_libmingwex_a-truncf.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib64_libmingwex_a-truncf.o `test -f 'math/truncf.c' || echo '$(srcdir)/'`math/truncf.c
-
-math/lib64_libmingwex_a-truncf.obj: math/truncf.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib64_libmingwex_a-truncf.obj -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-truncf.Tpo -c -o math/lib64_libmingwex_a-truncf.obj `if test -f 'math/truncf.c'; then $(CYGPATH_W) 'math/truncf.c'; else $(CYGPATH_W) '$(srcdir)/math/truncf.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) math/$(DEPDIR)/lib64_libmingwex_a-truncf.Tpo math/$(DEPDIR)/lib64_libmingwex_a-truncf.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='math/truncf.c' object='math/lib64_libmingwex_a-truncf.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o math/lib64_libmingwex_a-truncf.obj `if test -f 'math/truncf.c'; then $(CYGPATH_W) 'math/truncf.c'; else $(CYGPATH_W) '$(srcdir)/math/truncf.c'; fi`
 
 math/lib64_libmingwex_a-truncl.o: math/truncl.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT math/lib64_libmingwex_a-truncl.o -MD -MP -MF math/$(DEPDIR)/lib64_libmingwex_a-truncl.Tpo -c -o math/lib64_libmingwex_a-truncl.o `test -f 'math/truncl.c' || echo '$(srcdir)/'`math/truncl.c

@@ -1,4 +1,10 @@
-2012-05-23  Kai Tietz  <kietz@redhat.com>
+2012-05-26  Kai Tietz  <ktietz@redhat.com>
+
+	* math/trunc*: Optimize for 64-bit without using fpu.
+	* Makefile.am: Adjust trunc and truncf source.
+	* Makefile.in: Regenerate.
+
+2012-05-23  Kai Tietz  <ktietz@redhat.com>
 
 	* lib32/msvcr*.def: Define log/logf imports as DATA.
 	* lib64/msvcr*.def: Likewise.

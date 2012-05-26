@@ -199,8 +199,9 @@ src_libmingwex=\
   math/sinhf.c        math/sinhl.c        \
   math/sqrtf.c        math/sqrtl.c        math/sqrt.c         \
   math/tanf.c         math/tanhf.c        \
-  math/tanhl.c        math/tgamma.c       math/tgammaf.c      math/tgammal.c       math/trunc.c       math/truncf.c      \
-  math/truncl.c       math/cossin.c       \
+  math/tanhl.c        math/tgamma.c       math/tgammaf.c      math/tgammal.c \
+  math/trunc.S       math/truncf.S        math/truncl.c \
+  math/cossin.c       \
   \
   misc/mingw_matherr.c \
   misc/mb_wc_common.h \
