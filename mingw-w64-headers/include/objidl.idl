@@ -380,11 +380,6 @@ cpp_quote("#ifndef __IInitializeSpy_FWD_DEFINED__")
 cpp_quote("#define __IInitializeSpy_FWD_DEFINED__")
 cpp_quote("typedef struct IInitializeSpy IInitializeSpy;")
 cpp_quote("#endif")
-cpp_quote("#ifndef __MIDL_user_allocate_free_DEFINED__")
-cpp_quote("#define __MIDL_user_allocate_free_DEFINED__")
-cpp_quote("  void *__RPC_API MIDL_user_allocate(size_t);")
-cpp_quote("  void __RPC_API MIDL_user_free(void *);")
-cpp_quote("#endif")
 
 typedef struct _COSERVERINFO {
     DWORD dwReserved1;
