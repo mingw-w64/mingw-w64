@@ -181,7 +181,7 @@ typedef int __missing_type__;
 #endif
 #endif
 
-#if !defined(_COM_NO_STANDARD_GUIDS_) && USE___UUIDOF != 0
+#if !defined(_COM_NO_STANDARD_GUIDS_)
 #if defined(__IFontDisp_INTERFACE_DEFINED__)
 #if !defined(Font)
   struct Font : IFontDisp {};
