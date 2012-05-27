@@ -104,7 +104,7 @@ src_libuuid=libsrc/uuid.c   libsrc/guid_nul.c         libsrc/devguid.c         l
   libsrc/urlmon-uuid.c      libsrc/vds-uuid.c         libsrc/virtdisk-uuid.c   \
   libsrc/wia-uuid.c         libsrc/powrprof-uuid.c    libsrc/usbcamdi-uuid.c   libsrc/usbiodef-uuid.c   libsrc/ntddkbd-uuid.c      \
   libsrc/ntddmou-uuid.c     libsrc/ntddpar-uuid.c     libsrc/ntddser-uuid.c    libsrc/ntddscsi-uuid.c   libsrc/ntddstor-uuid.c     \
-  libsrc/ntddvdeo-uuid.c    libsrc/dxva-uuid.c        libsrc/mshtmhst-uuid.c   libsrc/endpointvolume-uuid.c
+  libsrc/ntddvdeo-uuid.c    libsrc/dxva-uuid.c        libsrc/mshtmhst-uuid.c
 
 src_libws2_32=libsrc/ws2_32.c \
   \
