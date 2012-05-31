@@ -5,8 +5,8 @@
  */
 #include <_mingw.h>
 
-#ifndef __ERRCODE_DEFINED_MS
-#define __ERRCODE_DEFINED_MS
+#ifdef __ERRCODE_DEFINED_MS
+/* #define __ERRCODE_DEFINED_MS */
 typedef int errcode;
 #endif
 

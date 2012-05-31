@@ -1,3 +1,7 @@
+2012-05-31  Kai Tietz  <ktietz@redhat.com>
+
+	* crtdefs.h (errcode): Don't define it by default.
+
 2012-05-10  Christian Franke <Christian.Franke@t-...>
 	    Kai Tietz  <ktietz@redhat.com>
 
