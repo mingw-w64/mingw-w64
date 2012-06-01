@@ -40,11 +40,6 @@ cpp_quote("#define __IPrint_FWD_DEFINED__")
 cpp_quote("typedef struct IPrint IPrint;")
 cpp_quote("#endif")
 cpp_quote("")
-cpp_quote("#ifndef __IOleCommandTarget_FWD_DEFINED__")
-cpp_quote("#define __IOleCommandTarget_FWD_DEFINED__")
-cpp_quote("typedef struct IOleCommandTarget IOleCommandTarget;")
-cpp_quote("#endif")
-cpp_quote("")
 cpp_quote("#ifndef _LPOLEDOCUMENT_DEFINED")
 cpp_quote("#define _LPOLEDOCUMENT_DEFINED")
 cpp_quote("")
@@ -391,100 +386,168 @@ cpp_quote("  HRESULT WINAPI IPrint_RemotePrint_Proxy(IPrint *This,DWORD grfFlags
 cpp_quote("  void __RPC_STUB IPrint_RemotePrint_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
 cpp_quote("#endif")
 cpp_quote("#endif")
-cpp_quote("")
+
 cpp_quote("#ifndef _LPOLECOMMANDTARGET_DEFINED")
 cpp_quote("#define _LPOLECOMMANDTARGET_DEFINED")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_docobj_0270_v0_0_c_ifspec;")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_docobj_0270_v0_0_s_ifspec;")
-cpp_quote("#ifndef __IOleCommandTarget_INTERFACE_DEFINED__")
-cpp_quote("#define __IOleCommandTarget_INTERFACE_DEFINED__")
-cpp_quote("  typedef IOleCommandTarget *LPOLECOMMANDTARGET;")
-cpp_quote("  typedef enum OLECMDF {")
-cpp_quote("    OLECMDF_SUPPORTED = 0x1,OLECMDF_ENABLED = 0x2,OLECMDF_LATCHED = 0x4,OLECMDF_NINCHED = 0x8,OLECMDF_INVISIBLE = 0x10,")
-cpp_quote("    OLECMDF_DEFHIDEONCTXTMENU = 0x20")
-cpp_quote("  } OLECMDF;")
-cpp_quote("")
-cpp_quote("  typedef struct _tagOLECMD {")
-cpp_quote("    ULONG cmdID;")
-cpp_quote("    DWORD cmdf;")
-cpp_quote("  } OLECMD;")
-cpp_quote("")
-cpp_quote("  typedef struct _tagOLECMDTEXT {")
-cpp_quote("    DWORD cmdtextf;")
-cpp_quote("    ULONG cwActual;")
-cpp_quote("    ULONG cwBuf;")
-cpp_quote("    wchar_t rgwz[1 ];")
-cpp_quote("  } OLECMDTEXT;")
-cpp_quote("")
-cpp_quote("  typedef enum OLECMDTEXTF {")
-cpp_quote("    OLECMDTEXTF_NONE = 0,OLECMDTEXTF_NAME = 1,OLECMDTEXTF_STATUS = 2")
-cpp_quote("  } OLECMDTEXTF;")
-cpp_quote("")
-cpp_quote("  typedef enum OLECMDEXECOPT {")
-cpp_quote("    OLECMDEXECOPT_DODEFAULT = 0,OLECMDEXECOPT_PROMPTUSER = 1,OLECMDEXECOPT_DONTPROMPTUSER = 2,OLECMDEXECOPT_SHOWHELP = 3")
-cpp_quote("  } OLECMDEXECOPT;")
-cpp_quote("")
-cpp_quote("  typedef enum OLECMDID {")
-cpp_quote("    OLECMDID_OPEN = 1,OLECMDID_NEW = 2,OLECMDID_SAVE = 3,OLECMDID_SAVEAS = 4,OLECMDID_SAVECOPYAS = 5,OLECMDID_PRINT = 6,OLECMDID_PRINTPREVIEW = 7,OLECMDID_PAGESETUP = 8,OLECMDID_SPELL = 9,OLECMDID_PROPERTIES = 10,OLECMDID_CUT = 11,OLECMDID_COPY = 12,OLECMDID_PASTE = 13,OLECMDID_PASTESPECIAL = 14,OLECMDID_UNDO = 15,OLECMDID_REDO = 16,OLECMDID_SELECTALL = 17,OLECMDID_CLEARSELECTION = 18,OLECMDID_ZOOM = 19,OLECMDID_GETZOOMRANGE = 20,OLECMDID_UPDATECOMMANDS = 21,OLECMDID_REFRESH = 22,OLECMDID_STOP = 23,OLECMDID_HIDETOOLBARS = 24,OLECMDID_SETPROGRESSMAX = 25,OLECMDID_SETPROGRESSPOS = 26,OLECMDID_SETPROGRESSTEXT = 27,OLECMDID_SETTITLE = 28,OLECMDID_SETDOWNLOADSTATE = 29,OLECMDID_STOPDOWNLOAD = 30,OLECMDID_ONTOOLBARACTIVATED = 31,OLECMDID_FIND = 32,OLECMDID_DELETE = 33,OLECMDID_HTTPEQUIV = 34,OLECMDID_HTTPEQUIV_DONE = 35,OLECMDID_ENABLE_INTERACTION = 36,OLECMDID_ONUNLOAD = 37,OLECMDID_PROPERTYBAG2 = 38,OLECMDID_PREREFRESH = 39,OLECMDID_SHOWSCRIPTERROR = 40,OLECMDID_SHOWMESSAGE = 41,OLECMDID_SHOWFIND = 42,OLECMDID_SHOWPAGESETUP = 43,OLECMDID_SHOWPRINT = 44,OLECMDID_CLOSE = 45,OLECMDID_ALLOWUILESSSAVEAS = 46,OLECMDID_DONTDOWNLOADCSS = 47,OLECMDID_UPDATEPAGESTATUS = 48,OLECMDID_PRINT2 = 49,OLECMDID_PRINTPREVIEW2 = 50,OLECMDID_SETPRINTTEMPLATE = 51,OLECMDID_GETPRINTTEMPLATE = 52,OLECMDID_PAGEACTIONBLOCKED = 55,OLECMDID_PAGEACTIONUIQUERY = 56,OLECMDID_FOCUSVIEWCONTROLS = 57,OLECMDID_FOCUSVIEWCONTROLSQUERY = 58,OLECMDID_SHOWPAGEACTIONMENU = 59")
-cpp_quote("  } OLECMDID;")
-cpp_quote("")
-cpp_quote("#define OLECMDERR_E_FIRST (OLE_E_LAST+1)")
-cpp_quote("#define OLECMDERR_E_NOTSUPPORTED (OLECMDERR_E_FIRST)")
-cpp_quote("#define OLECMDERR_E_DISABLED (OLECMDERR_E_FIRST+1)")
-cpp_quote("#define OLECMDERR_E_NOHELP (OLECMDERR_E_FIRST+2)")
-cpp_quote("#define OLECMDERR_E_CANCELED (OLECMDERR_E_FIRST+3)")
-cpp_quote("#define OLECMDERR_E_UNKNOWNGROUP (OLECMDERR_E_FIRST+4)")
-cpp_quote("#define MSOCMDERR_E_FIRST OLECMDERR_E_FIRST")
-cpp_quote("#define MSOCMDERR_E_NOTSUPPORTED OLECMDERR_E_NOTSUPPORTED")
-cpp_quote("#define MSOCMDERR_E_DISABLED OLECMDERR_E_DISABLED")
-cpp_quote("#define MSOCMDERR_E_NOHELP OLECMDERR_E_NOHELP")
-cpp_quote("#define MSOCMDERR_E_CANCELED OLECMDERR_E_CANCELED")
-cpp_quote("#define MSOCMDERR_E_UNKNOWNGROUP OLECMDERR_E_UNKNOWNGROUP")
-cpp_quote("#define OLECMDARGINDEX_SHOWPAGEACTIONMENU_HWND 0")
-cpp_quote("#define OLECMDARGINDEX_SHOWPAGEACTIONMENU_X 1")
-cpp_quote("#define OLECMDARGINDEX_SHOWPAGEACTIONMENU_Y 2")
-cpp_quote("#define OLECMDARGINDEX_ACTIVEXINSTALL_PUBLISHER 0")
-cpp_quote("#define OLECMDARGINDEX_ACTIVEXINSTALL_DISPLAYNAME 1")
-cpp_quote("")
-cpp_quote("  typedef enum IGNOREMIME {")
-cpp_quote("    IGNOREMIME_PROMPT = 0x1,IGNOREMIME_TEXT = 0x2")
-cpp_quote("  } IGNOREMIME;")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_IOleCommandTarget;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IOleCommandTarget : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI QueryStatus(const GUID *pguidCmdGroup,ULONG cCmds,OLECMD prgCmds[],OLECMDTEXT *pCmdText) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Exec(const GUID *pguidCmdGroup,DWORD nCmdID,DWORD nCmdexecopt,VARIANT *pvaIn,VARIANT *pvaOut) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IOleCommandTargetVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IOleCommandTarget *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IOleCommandTarget *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IOleCommandTarget *This);")
-cpp_quote("      HRESULT (WINAPI *QueryStatus)(IOleCommandTarget *This,const GUID *pguidCmdGroup,ULONG cCmds,OLECMD prgCmds[],OLECMDTEXT *pCmdText);")
-cpp_quote("      HRESULT (WINAPI *Exec)(IOleCommandTarget *This,const GUID *pguidCmdGroup,DWORD nCmdID,DWORD nCmdexecopt,VARIANT *pvaIn,VARIANT *pvaOut);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IOleCommandTargetVtbl;")
-cpp_quote("  struct IOleCommandTarget {")
-cpp_quote("    CONST_VTBL struct IOleCommandTargetVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IOleCommandTarget_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IOleCommandTarget_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IOleCommandTarget_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IOleCommandTarget_QueryStatus(This,pguidCmdGroup,cCmds,prgCmds,pCmdText) (This)->lpVtbl->QueryStatus(This,pguidCmdGroup,cCmds,prgCmds,pCmdText)")
-cpp_quote("#define IOleCommandTarget_Exec(This,pguidCmdGroup,nCmdID,nCmdexecopt,pvaIn,pvaOut) (This)->lpVtbl->Exec(This,pguidCmdGroup,nCmdID,nCmdexecopt,pvaIn,pvaOut)")
+
+[
+    object,
+    uuid(b722bccb-4e68-101b-a2bc-00aa00404770),
+    pointer_default(unique)
+]
+interface IOleCommandTarget : IUnknown {
+    typedef [unique] IOleCommandTarget *LPOLECOMMANDTARGET;
+
+    typedef enum OLECMDF {
+        OLECMDF_SUPPORTED  = 0x0001,
+        OLECMDF_ENABLED    = 0x0002,
+        OLECMDF_LATCHED    = 0x0004,
+        OLECMDF_NINCHED    = 0x0008,
+        OLECMDF_INVISIBLE  = 0x0010,
+        OLECMDF_DEFHIDEONCTXTMENU = 0x0020
+    } OLECMDF;
+
+    typedef struct _tagOLECMD {
+        ULONG cmdID;
+        DWORD cmdf;
+    } OLECMD;
+
+    typedef struct _tagOLECMDTEXT{
+        DWORD cmdtextf;
+        ULONG cwActual;
+        ULONG cwBuf;
+        [size_is(cwBuf)] wchar_t rgwz[];
+    } OLECMDTEXT;
+
+    typedef enum OLECMDTEXTF {
+        OLECMDTEXTF_NONE = 0,
+        OLECMDTEXTF_NAME = 1,
+        OLECMDTEXTF_STATUS = 2
+    } OLECMDTEXTF;
+
+    typedef enum OLECMDEXECOPT {
+        OLECMDEXECOPT_DODEFAULT      = 0,
+        OLECMDEXECOPT_PROMPTUSER     = 1,
+        OLECMDEXECOPT_DONTPROMPTUSER = 2,
+        OLECMDEXECOPT_SHOWHELP       = 3
+    } OLECMDEXECOPT;
+
+    typedef enum OLECMDID {
+        OLECMDID_OPEN                   = 1,
+        OLECMDID_NEW                    = 2,
+        OLECMDID_SAVE                   = 3,
+        OLECMDID_SAVEAS                 = 4,
+        OLECMDID_SAVECOPYAS             = 5,
+        OLECMDID_PRINT                  = 6,
+        OLECMDID_PRINTPREVIEW           = 7,
+        OLECMDID_PAGESETUP              = 8,
+        OLECMDID_SPELL                  = 9,
+        OLECMDID_PROPERTIES             = 10,
+        OLECMDID_CUT                    = 11,
+        OLECMDID_COPY                   = 12,
+        OLECMDID_PASTE                  = 13,
+        OLECMDID_PASTESPECIAL           = 14,
+        OLECMDID_UNDO                   = 15,
+        OLECMDID_REDO                   = 16,
+        OLECMDID_SELECTALL              = 17,
+        OLECMDID_CLEARSELECTION         = 18,
+        OLECMDID_ZOOM                   = 19,
+        OLECMDID_GETZOOMRANGE           = 20,
+        OLECMDID_UPDATECOMMANDS         = 21,
+        OLECMDID_REFRESH                = 22,
+        OLECMDID_STOP                   = 23,
+        OLECMDID_HIDETOOLBARS           = 24,
+        OLECMDID_SETPROGRESSMAX         = 25,
+        OLECMDID_SETPROGRESSPOS         = 26,
+        OLECMDID_SETPROGRESSTEXT        = 27,
+        OLECMDID_SETTITLE               = 28,
+        OLECMDID_SETDOWNLOADSTATE       = 29,
+        OLECMDID_STOPDOWNLOAD           = 30,
+        OLECMDID_ONTOOLBARACTIVATED     = 31,
+        OLECMDID_FIND                   = 32,
+        OLECMDID_DELETE                 = 33,
+        OLECMDID_HTTPEQUIV              = 34,
+        OLECMDID_HTTPEQUIV_DONE         = 35,
+        OLECMDID_ENABLE_INTERACTION     = 36,
+        OLECMDID_ONUNLOAD               = 37,
+        OLECMDID_PROPERTYBAG2           = 38,
+        OLECMDID_PREREFRESH             = 39,
+        OLECMDID_SHOWSCRIPTERROR        = 40,
+        OLECMDID_SHOWMESSAGE            = 41,
+        OLECMDID_SHOWFIND               = 42,
+        OLECMDID_SHOWPAGESETUP          = 43,
+        OLECMDID_SHOWPRINT              = 44,
+        OLECMDID_CLOSE                  = 45,
+        OLECMDID_ALLOWUILESSSAVEAS      = 46,
+        OLECMDID_DONTDOWNLOADCSS        = 47,
+        OLECMDID_UPDATEPAGESTATUS       = 48,
+        OLECMDID_PRINT2                 = 49,
+        OLECMDID_PRINTPREVIEW2          = 50,
+        OLECMDID_SETPRINTTEMPLATE       = 51,
+        OLECMDID_GETPRINTTEMPLATE       = 52,
+        OLECMDID_PAGEACTIONBLOCKED      = 55,
+        OLECMDID_PAGEACTIONUIQUERY      = 56,
+        OLECMDID_FOCUSVIEWCONTROLS      = 57,
+        OLECMDID_FOCUSVIEWCONTROLSQUERY = 58,
+        OLECMDID_SHOWPAGEACTIONMENU     = 59,
+        OLECMDID_ADDTRAVELENTRY         = 60,
+        OLECMDID_UPDATETRAVELENTRY      = 61,
+        OLECMDID_UPDATEBACKFORWARDSTATE = 62,
+        OLECMDID_OPTICAL_ZOOM           = 63,
+        OLECMDID_OPTICAL_GETZOOMRANGE   = 64,
+        OLECMDID_WINDOWSTATECHANGED     = 65,
+        OLECMDID_ACTIVEXINSTALLSCOPE    = 66,
+        OLECMDID_UPDATETRAVELENTRY_DATARECOVERY = 67
+    } OLECMDID;
+
+    cpp_quote("#define OLECMDERR_E_FIRST (OLE_E_LAST+1)")
+    cpp_quote("#define OLECMDERR_E_NOTSUPPORTED (OLECMDERR_E_FIRST)")
+    cpp_quote("#define OLECMDERR_E_DISABLED (OLECMDERR_E_FIRST+1)")
+    cpp_quote("#define OLECMDERR_E_NOHELP (OLECMDERR_E_FIRST+2)")
+    cpp_quote("#define OLECMDERR_E_CANCELED (OLECMDERR_E_FIRST+3)")
+    cpp_quote("#define OLECMDERR_E_UNKNOWNGROUP (OLECMDERR_E_FIRST+4)")
+
+    cpp_quote("#define MSOCMDERR_E_FIRST OLECMDERR_E_FIRST")
+    cpp_quote("#define MSOCMDERR_E_NOTSUPPORTED OLECMDERR_E_NOTSUPPORTED")
+    cpp_quote("#define MSOCMDERR_E_DISABLED OLECMDERR_E_DISABLED")
+    cpp_quote("#define MSOCMDERR_E_NOHELP OLECMDERR_E_NOHELP")
+    cpp_quote("#define MSOCMDERR_E_CANCELED OLECMDERR_E_CANCELED")
+    cpp_quote("#define MSOCMDERR_E_UNKNOWNGROUP OLECMDERR_E_UNKNOWNGROUP")
+
+    cpp_quote("#define OLECMDARGINDEX_SHOWPAGEACTIONMENU_HWND 0")
+    cpp_quote("#define OLECMDARGINDEX_SHOWPAGEACTIONMENU_X 1")
+    cpp_quote("#define OLECMDARGINDEX_SHOWPAGEACTIONMENU_Y 2")
+    cpp_quote("#define OLECMDARGINDEX_ACTIVEXINSTALL_PUBLISHER 0")
+    cpp_quote("#define OLECMDARGINDEX_ACTIVEXINSTALL_DISPLAYNAME 1")
+
+    typedef enum IGNOREMIME {
+        IGNOREMIME_PROMPT = 1,
+        IGNOREMIME_TEXT = 2
+    } IGNOREMIME;
+
+    typedef enum WPCSETTING {
+        WPCSETTING_LOGGING_ENABLED = 1,
+        WPCSETTING_FILEDOWNLOAD_BLOCKED = 2
+    } WPCSETTING;
+
+    /* [input_sync] */
+    HRESULT QueryStatus(
+            [in, unique] const GUID *pguidCmdGroup,
+            [in] ULONG cCmds,
+            [in, out,size_is(cCmds)] OLECMD prgCmds[],
+            [in, out, unique] OLECMDTEXT *pCmdText);
+
+
+    HRESULT Exec(
+            [in, unique] const GUID *pguidCmdGroup,
+            [in] DWORD nCmdID,
+            [in] DWORD nCmdexecopt,
+            [in, unique] VARIANT *pvaIn,
+            [in, out, unique] VARIANT *pvaOut);
+}
+
 cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IOleCommandTarget_QueryStatus_Proxy(IOleCommandTarget *This,const GUID *pguidCmdGroup,ULONG cCmds,OLECMD prgCmds[],OLECMDTEXT *pCmdText);")
-cpp_quote("  void __RPC_STUB IOleCommandTarget_QueryStatus_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IOleCommandTarget_Exec_Proxy(IOleCommandTarget *This,const GUID *pguidCmdGroup,DWORD nCmdID,DWORD nCmdexecopt,VARIANT *pvaIn,VARIANT *pvaOut);")
-cpp_quote("  void __RPC_STUB IOleCommandTarget_Exec_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("")
+
 cpp_quote("  typedef enum {")
 cpp_quote("    OLECMDIDF_REFRESH_NORMAL = 0,OLECMDIDF_REFRESH_IFEXPIRED = 1,OLECMDIDF_REFRESH_CONTINUE = 2,OLECMDIDF_REFRESH_COMPLETELY = 3,")
 cpp_quote("    OLECMDIDF_REFRESH_NO_CACHE = 4,OLECMDIDF_REFRESH_RELOAD = 5,OLECMDIDF_REFRESH_LEVELMASK = 0x00FF,OLECMDIDF_REFRESH_CLEARUSERINPUT = 0x1000,")
@@ -562,11 +625,6 @@ cpp_quote("  EXTERN_C const GUID SID_SContainerDispatch;")
 cpp_quote("")
 cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_docobj_0271_v0_0_c_ifspec;")
 cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_docobj_0271_v0_0_s_ifspec;")
-cpp_quote("")
-cpp_quote("  unsigned long __RPC_API VARIANT_UserSize(unsigned long *,unsigned long,VARIANT *);")
-cpp_quote("  unsigned char *__RPC_API VARIANT_UserMarshal(unsigned long *,unsigned char *,VARIANT *);")
-cpp_quote("  unsigned char *__RPC_API VARIANT_UserUnmarshal(unsigned long *,unsigned char *,VARIANT *);")
-cpp_quote("  void __RPC_API VARIANT_UserFree(unsigned long *,VARIANT *);")
 cpp_quote("")
 cpp_quote("  HRESULT WINAPI IEnumOleDocumentViews_Next_Proxy(IEnumOleDocumentViews *This,ULONG cViews,IOleDocumentView **rgpView,ULONG *pcFetched);")
 cpp_quote("  HRESULT WINAPI IEnumOleDocumentViews_Next_Stub(IEnumOleDocumentViews *This,ULONG cViews,IOleDocumentView **rgpView,ULONG *pcFetched);")
