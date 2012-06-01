@@ -71,6 +71,7 @@ src_libdinput8=libsrc/dinput_private.h libsrc/dinput_joy.c libsrc/dinput_joy2.c 
 src_libdmoguids=libsrc/dmoguids.c
 src_libdxerr8=libsrc/dxerr8.c libsrc/dxerr8w.c
 src_libdxerr9=libsrc/dxerr9.c libsrc/dxerr9w.c
+src_libwindowscodecs=libsrc/windowscodecs.c
 src_libdxguid=libsrc/dxguid.c
 src_libksuser=libsrc/ksuser.c
 src_libksguid=libsrc/ksuser.c
@@ -365,6 +366,10 @@ lib32_LIBRARIES += lib32/libdxerr9.a
 lib32_libdxerr9_a_SOURCES = $(src_libdxerr9)
 lib32_libdxerr9_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 
+lib32_LIBRARIES += lib32/libwindowscodecs.a
+lib32_libwindowscodecs_a_SOURCES = $(src_libwindowscodecs)
+lib32_libwindowscodecs_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
+
 lib32_LIBRARIES += lib32/libdxguid.a
 lib32_libdxguid_a_SOURCES = $(src_libdxguid)
 lib32_libdxguid_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
@@ -470,7 +475,6 @@ lib32_DATA = \
   lib32/libversion.a   lib32/libvideoprt.a  lib32/libwin32k.a    lib32/libwin32spl.a  lib32/libwininet.a  \
   lib32/libwinmm.a     lib32/libwinspool.a  lib32/libwinstrm.a   lib32/libwldap32.a   lib32/libwow32.a    \
   lib32/libwsnmp32.a   lib32/libwsock32.a   lib32/libwst.a       lib32/libwtsapi32.a  lib32/libnormaliz.a \
-  lib32/libwindowscodecs.a \
   \
   lib32/libgpapi.a     lib32/libgpedit.a    lib32/libgpprefcl.a  lib32/libgpscript.a \
   lib32/libgptext.a    lib32/libmshtml.a    lib32/libmshtmled.a  \
@@ -643,6 +647,10 @@ lib64_libdxerr8_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 lib64_LIBRARIES += lib64/libdxerr9.a
 lib64_libdxerr9_a_SOURCES = $(src_libdxerr9)
 lib64_libdxerr9_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
+
+lib64_LIBRARIES += lib64/libwindowscodecs.a
+lib64_libwindowscodecs_a_SOURCES = $(src_libwindowscodecs)
+lib64_libwindowscodecs_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 
 lib64_LIBRARIES += lib64/libdxguid.a
 lib64_libdxguid_a_SOURCES = $(src_libdxguid)
@@ -945,7 +953,6 @@ lib64_DATA = \
   lib64/libwmisvc.a     lib64/libwow64cpu.a   lib64/libwow64.a        lib64/libwow64mib.a   lib64/libwow64win.a      \
   lib64/libwpd_ci.a     lib64/libws2help.a    lib64/libwscsvc.a       lib64/libwshatm.a     lib64/libwshbth.a        \
   lib64/libwshcon.a     lib64/libwsock32.a    lib64/libzoneoc.a       lib64/libnormaliz.a   \
-  lib64/libwindowscodecs.a \
   \
   lib64/libclfsw32.a    \
   lib64/libkernel32.a   lib64/libdwmapi.a     lib64/libntoskrnl.a     lib64/libuxtheme.a    \
