@@ -32,6 +32,11 @@ typedef interface IDXGIDeviceSubObject IDXGIDeviceSubObject;
 typedef interface IDXGIResource IDXGIResource;
 #endif
 
+#ifndef __IDXGIKeyedMutex_FWD_DEFINED__
+#define __IDXGIKeyedMutex_FWD_DEFINED__
+typedef interface IDXGIKeyedMutex IDXGIKeyedMutex;
+#endif
+
 #ifndef __IDXGISurface_FWD_DEFINED__
 #define __IDXGISurface_FWD_DEFINED__
 typedef interface IDXGISurface IDXGISurface;
@@ -572,6 +577,128 @@ void __RPC_STUB IDXGIResource_GetEvictionPriority_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __IDXGIResource_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IDXGIKeyedMutex interface
+ */
+#ifndef __IDXGIKeyedMutex_INTERFACE_DEFINED__
+#define __IDXGIKeyedMutex_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IDXGIKeyedMutex, 0x9d8e1289, 0xd7b3, 0x465f, 0x81,0x26, 0x25,0x0e,0x34,0x9a,0xf8,0x5d);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("9d8e1289-d7b3-465f-8126-250e349af85d")
+IDXGIKeyedMutex : public IDXGIDeviceSubObject
+{
+    virtual HRESULT STDMETHODCALLTYPE AcquireSync(
+        UINT64 Key,
+        DWORD dwMilliseconds) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ReleaseSync(
+        UINT64 Key) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDXGIKeyedMutex, 0x9d8e1289, 0xd7b3, 0x465f, 0x81,0x26, 0x25,0x0e,0x34,0x9a,0xf8,0x5d)
+#endif
+#else
+typedef struct IDXGIKeyedMutexVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IDXGIKeyedMutex* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IDXGIKeyedMutex* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IDXGIKeyedMutex* This);
+
+    /*** IDXGIObject methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        IDXGIKeyedMutex* This,
+        REFGUID guid,
+        UINT data_size,
+        const void *data);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        IDXGIKeyedMutex* This,
+        REFGUID guid,
+        const IUnknown *object);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        IDXGIKeyedMutex* This,
+        REFGUID guid,
+        UINT *data_size,
+        void *data);
+
+    HRESULT (STDMETHODCALLTYPE *GetParent)(
+        IDXGIKeyedMutex* This,
+        REFIID riid,
+        void **parent);
+
+    /*** IDXGIDeviceSubObject methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetDevice)(
+        IDXGIKeyedMutex* This,
+        REFIID riid,
+        void **device);
+
+    /*** IDXGIKeyedMutex methods ***/
+    HRESULT (STDMETHODCALLTYPE *AcquireSync)(
+        IDXGIKeyedMutex* This,
+        UINT64 Key,
+        DWORD dwMilliseconds);
+
+    HRESULT (STDMETHODCALLTYPE *ReleaseSync)(
+        IDXGIKeyedMutex* This,
+        UINT64 Key);
+
+    END_INTERFACE
+} IDXGIKeyedMutexVtbl;
+interface IDXGIKeyedMutex {
+    CONST_VTBL IDXGIKeyedMutexVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IDXGIKeyedMutex_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDXGIKeyedMutex_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDXGIKeyedMutex_Release(This) (This)->lpVtbl->Release(This)
+/*** IDXGIObject methods ***/
+#define IDXGIKeyedMutex_SetPrivateData(This,guid,data_size,data) (This)->lpVtbl->SetPrivateData(This,guid,data_size,data)
+#define IDXGIKeyedMutex_SetPrivateDataInterface(This,guid,object) (This)->lpVtbl->SetPrivateDataInterface(This,guid,object)
+#define IDXGIKeyedMutex_GetPrivateData(This,guid,data_size,data) (This)->lpVtbl->GetPrivateData(This,guid,data_size,data)
+#define IDXGIKeyedMutex_GetParent(This,riid,parent) (This)->lpVtbl->GetParent(This,riid,parent)
+/*** IDXGIDeviceSubObject methods ***/
+#define IDXGIKeyedMutex_GetDevice(This,riid,device) (This)->lpVtbl->GetDevice(This,riid,device)
+/*** IDXGIKeyedMutex methods ***/
+#define IDXGIKeyedMutex_AcquireSync(This,Key,dwMilliseconds) (This)->lpVtbl->AcquireSync(This,Key,dwMilliseconds)
+#define IDXGIKeyedMutex_ReleaseSync(This,Key) (This)->lpVtbl->ReleaseSync(This,Key)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IDXGIKeyedMutex_AcquireSync_Proxy(
+    IDXGIKeyedMutex* This,
+    UINT64 Key,
+    DWORD dwMilliseconds);
+void __RPC_STUB IDXGIKeyedMutex_AcquireSync_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIKeyedMutex_ReleaseSync_Proxy(
+    IDXGIKeyedMutex* This,
+    UINT64 Key);
+void __RPC_STUB IDXGIKeyedMutex_ReleaseSync_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IDXGIKeyedMutex_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IDXGISurface interface
