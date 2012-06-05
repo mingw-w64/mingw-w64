@@ -1,3 +1,8 @@
+2012-06-05  Kai Tietz  <ktietz@redhat.com>
+
+	* lib32/winhttp.def: New file.
+	* lib64/winhttp.def: New file.
+
 2012-05-26  Kai Tietz  <ktietz@redhat.com>
 
 	* math/floor*: Optimize for 64-bit without using fpu.
