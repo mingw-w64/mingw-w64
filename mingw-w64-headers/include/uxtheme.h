@@ -20,7 +20,21 @@
 
 typedef HANDLE HTHEME;
 
+#if (NTDDI_VERSION >= NTDDI_WIN7)
+WINBOOL WINAPI BeginPanningFeedback(HWND hwnd);
+WINBOOL WINAPI UpdatePanningFeedback(HWND hwnd,LONG lTotalOverpanOffsetX,LONG lTotalOverpanOffsetY,WINBOOL fInInertia);
+WINBOOL WINAPI EndPanningFeedback(HWND hwnd,WINBOOL fAnimateBack);
+#endif
+
 #if _WIN32_WINNT >= 0x0600
+
+#define GBF_DIRECT 0x00000001
+#define GBF_COPY 0x00000002
+#define GBF_VALIDBITS (GBF_DIRECT | GBF_COPY)
+
+THEMEAPI GetThemeBitmap(HTHEME hTheme,int iPartId,int iStateId,int iPropId,ULONG dwFlags,HBITMAP *phBitmap);
+THEMEAPI GetThemeStream(HTHEME hTheme,int iPartId,int iStateId,int iPropId,VOID **ppvStream,DWORD *pcbStream,HINSTANCE hInst);
+THEMEAPI GetThemeTransitionDuration(HTHEME hTheme,int iPartId,int iStateIdFrom,int iStateIdTo,int iPropId,DWORD *pdwDuration);
 
 DECLARE_HANDLE(HPAINTBUFFER);
 
@@ -35,9 +49,8 @@ typedef struct _BP_PAINTPARAMS {
     const BLENDFUNCTION *pBlendFunction;
 } BP_PAINTPARAMS, *PBP_PAINTPARAMS;
 
-THEMEAPI_(HPAINTBUFFER) BeginBufferedPaint(HDC hdcTarget,const RECT *prcTarget,BP_BUFFERFORMAT dwFormat,
-					   BP_PAINTPARAMS *pPaintParams,HDC *phdc);
-THEMEAPI_(HRESULT) EndBufferedPaint(HPAINTBUFFER hBufferedPaint,BOOL fUpdateTarget);
+THEMEAPI_(HPAINTBUFFER) BeginBufferedPaint(HDC hdcTarget,const RECT *prcTarget,BP_BUFFERFORMAT dwFormat,BP_PAINTPARAMS *pPaintParams,HDC *phdc);
+THEMEAPI_(HRESULT) EndBufferedPaint(HPAINTBUFFER hBufferedPaint,WINBOOL fUpdateTarget);
 THEMEAPI_(HRESULT) GetBufferedPaintTargetRect(HPAINTBUFFER hBufferedPaint,RECT *prc);
 THEMEAPI_(HDC) GetBufferedPaintTargetDC(HPAINTBUFFER hBufferedPaint);
 THEMEAPI_(HDC) GetBufferedPaintDC(HPAINTBUFFER hBufferedPaint);
@@ -47,15 +60,108 @@ THEMEAPI_(HRESULT) BufferedPaintSetAlpha(HPAINTBUFFER hBufferedPaint,const RECT 
 THEMEAPI_(HRESULT) BufferedPaintInit(VOID);
 THEMEAPI_(HRESULT) BufferedPaintUnInit(VOID);
 
+DECLARE_HANDLE(HANIMATIONBUFFER);
+
+typedef enum _BP_ANIMATIONSTYLE {
+    BPAS_NONE, BPAS_LINEAR, BPAS_CUBIC, BPAS_SINE
+} BP_ANIMATIONSTYLE;
+
+typedef struct _BP_ANIMATIONPARAMS {
+    DWORD cbSize;
+    DWORD  dwFlags;
+    BP_ANIMATIONSTYLE style;
+    DWORD dwDuration;
+} BP_ANIMATIONPARAMS, *PBP_ANIMATIONPARAMS;
+
+THEMEAPI_(HANIMATIONBUFFER) BeginBufferedAnimation(HWND hwnd,HDC hdcTarget,const RECT *rcTarget,BP_BUFFERFORMAT dwFormat,BP_PAINTPARAMS *pPaintParams,BP_ANIMATIONPARAMS *pAnimationParams,HDC *phdcFrom,HDC *phdcTo);
+THEMEAPI EndBufferedAnimation(HANIMATIONBUFFER hbpAnimation,WINBOOL fUpdateTarget);
+THEMEAPI_(WINBOOL) BufferedPaintRenderAnimation(HWND hwnd,HDC hdcTarget);
+THEMEAPI BufferedPaintStopAllAnimations(HWND hwnd);
+THEMEAPI_(WINBOOL) IsCompositionActive(void);
+
+typedef enum WINDOWTHEMEATTRIBUTETYPE {
+    WTA_NONCLIENT = 1 
+} WINDOWTHEMEATTRIBUTETYPE;
+
+typedef struct WTA_OPTIONS {
+    DWORD dwFlags;
+    DWORD dwMask;
+} WTA_OPTIONS, *PWTA_OPTIONS;
+
+#define WTNCA_NODRAWCAPTION 0x00000001
+#define WTNCA_NODRAWICON 0x00000002
+#define WTNCA_NOSYSMENU 0x00000004
+#define WTNCA_NOMIRRORHELP 0x00000008
+#define WTNCA_VALIDBITS (WTNCA_NODRAWCAPTION | WTNCA_NODRAWICON | WTNCA_NOSYSMENU | WTNCA_NOMIRRORHELP)
+
+THEMEAPI SetWindowThemeAttribute(HWND hwnd,enum WINDOWTHEMEATTRIBUTETYPE eAttribute,PVOID pvAttribute,DWORD cbAttribute);
+
+static __inline HRESULT SetWindowThemeNonClientAttributes(HWND hwnd,DWORD dwMask,DWORD dwAttributes)
+{
+    WTA_OPTIONS wta = { dwAttributes, dwMask };
+    return SetWindowThemeAttribute(hwnd, WTA_NONCLIENT, &wta, sizeof(WTA_OPTIONS));
+}
+
 #endif
 
 THEMEAPI_(HTHEME) OpenThemeData(HWND hwnd,LPCWSTR pszClassList);
+
+#if (_WIN32_WINNT >= 0x0600)
+#define OTD_FORCE_RECT_SIZING 0x00000001
+#define OTD_NONCLIENT 0x00000002
+#define OTD_VALIDBITS (OTD_FORCE_RECT_SIZING | OTD_NONCLIENT)
+THEMEAPI_(HTHEME) OpenThemeDataEx(HWND hwnd,LPCWSTR pszClassList,DWORD dwFlags);
+#endif
+
 THEMEAPI CloseThemeData(HTHEME hTheme);
 THEMEAPI DrawThemeBackground(HTHEME hTheme,HDC hdc,int iPartId,int iStateId,const RECT *pRect,const RECT *pClipRect);
 
 #define DTT_GRAYED 0x1
 
 THEMEAPI DrawThemeText(HTHEME hTheme,HDC hdc,int iPartId,int iStateId,LPCWSTR pszText,int iCharCount,DWORD dwTextFlags,DWORD dwTextFlags2,const RECT *pRect);
+
+#if (_WIN32_WINNT >= 0x0600)
+
+#define DTT_TEXTCOLOR (1UL << 0)
+#define DTT_BORDERCOLOR (1UL << 1)
+#define DTT_SHADOWCOLOR (1UL << 2)
+#define DTT_SHADOWTYPE (1UL << 3)
+#define DTT_SHADOWOFFSET (1UL << 4)
+#define DTT_BORDERSIZE (1UL << 5)
+#define DTT_FONTPROP (1UL << 6)
+#define DTT_COLORPROP (1UL << 7)
+#define DTT_STATEID (1UL << 8)
+#define DTT_CALCRECT (1UL << 9)
+#define DTT_APPLYOVERLAY (1UL << 10)
+#define DTT_GLOWSIZE (1UL << 11)
+#define DTT_CALLBACK (1UL << 12)
+#define DTT_COMPOSITED (1UL << 13)
+#define DTT_VALIDBITS (DTT_TEXTCOLOR | DTT_BORDERCOLOR | DTT_SHADOWCOLOR | DTT_SHADOWTYPE | DTT_SHADOWOFFSET | DTT_BORDERSIZE | \
+                       DTT_FONTPROP | DTT_COLORPROP | DTT_STATEID | DTT_CALCRECT | DTT_APPLYOVERLAY | DTT_GLOWSIZE | DTT_COMPOSITED)
+
+typedef int (WINAPI *DTT_CALLBACK_PROC)(HDC hdc,LPWSTR pszText,int cchText,LPRECT prc,UINT dwFlags,LPARAM lParam);
+
+typedef struct _DTTOPTS {
+    DWORD dwSize;
+    DWORD dwFlags;
+    COLORREF crText;
+    COLORREF crBorder;
+    COLORREF crShadow;
+    int iTextShadowType;
+    POINT ptShadowOffset;
+    int iBorderSize;
+    int iFontPropId;
+    int iColorPropId;
+    int iStateId;
+    WINBOOL fApplyOverlay;
+    int iGlowSize;
+    DTT_CALLBACK_PROC pfnDrawTextCallback;
+    LPARAM lParam;
+} DTTOPTS, *PDTTOPTS;
+
+THEMEAPI DrawThemeTextEx(HTHEME hTheme,HDC hdc,int iPartId,int iStateId,LPCWSTR pszText,int iCharCount,DWORD dwFlags,LPRECT pRect,const DTTOPTS *pOptions);
+#endif
+
 THEMEAPI GetThemeBackgroundContentRect(HTHEME hTheme,HDC hdc,int iPartId,int iStateId,const RECT *pBoundingRect,RECT *pContentRect);
 THEMEAPI GetThemeBackgroundExtent(HTHEME hTheme,HDC hdc,int iPartId,int iStateId,const RECT *pContentRect,RECT *pExtentRect);
 
@@ -140,6 +246,11 @@ THEMEAPI_(HTHEME) GetWindowTheme(HWND hwnd);
 #define ETDT_ENABLE 0x00000002
 #define ETDT_USETABTEXTURE 0x00000004
 #define ETDT_ENABLETAB (ETDT_ENABLE | ETDT_USETABTEXTURE)
+#if (_WIN32_WINNT >= 0x0600)
+#define ETDT_USEAEROWIZARDTABTEXTURE 0x00000008
+#define ETDT_ENABLEAEROWIZARDTAB (ETDT_ENABLE | ETDT_USEAEROWIZARDTABTEXTURE)
+#define ETDT_VALIDBITS (ETDT_DISABLE | ETDT_ENABLE | ETDT_USETABTEXTURE | ETDT_USEAEROWIZARDTABTEXTURE)
+#endif
 
 THEMEAPI EnableThemeDialogTexture(HWND hwnd,DWORD dwFlags);
 THEMEAPI_(WINBOOL) IsThemeDialogTextureEnabled(HWND hwnd);
@@ -159,16 +270,25 @@ THEMEAPI GetCurrentThemeName(LPWSTR pszThemeFileName,int cchMaxNameChars,LPWSTR 
 
 THEMEAPI GetThemeDocumentationProperty(LPCWSTR pszThemeName,LPCWSTR pszPropertyName,LPWSTR pszValueBuff,int cchMaxValChars);
 THEMEAPI DrawThemeParentBackground(HWND hwnd,HDC hdc,RECT *prc);
+
+#if (_WIN32_WINNT >= 0x0600)
+#define DTPB_WINDOWDC 0x00000001
+#define DTPB_USECTLCOLORSTATIC 0x00000002
+#define DTPB_USEERASEBKGND 0x00000004
+
+THEMEAPI DrawThemeParentBackgroundEx(HWND hwnd,HDC hdc,DWORD dwFlags,const RECT *prc);
+#endif
+
 THEMEAPI EnableTheming(WINBOOL fEnable);
 
 #define DTBG_CLIPRECT 0x00000001
 #define DTBG_DRAWSOLID 0x00000002
 #define DTBG_OMITBORDER 0x00000004
 #define DTBG_OMITCONTENT 0x00000008
-
 #define DTBG_COMPUTINGREGION 0x00000010
-
 #define DTBG_MIRRORDC 0x00000020
+#define DTBG_NOMIRROR 0x00000040
+#define DTBG_VALIDBITS (DTBG_CLIPRECT | DTBG_DRAWSOLID | DTBG_OMITBORDER | DTBG_OMITCONTENT | DTBG_COMPUTINGREGION | DTBG_MIRRORDC | DTBG_NOMIRROR)
 
 typedef struct _DTBGOPTS {
   DWORD dwSize;
