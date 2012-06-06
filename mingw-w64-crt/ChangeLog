@@ -1,3 +1,8 @@
+2012-06-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/winhttp.def (WinHttpCheckPlatform): Add missing @0
+	__stdcall suffix.
+
 2012-06-05  Kai Tietz  <ktietz@redhat.com>
 
 	* lib32/winhttp.def: New file.

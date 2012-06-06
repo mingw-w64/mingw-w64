@@ -9,7 +9,7 @@ Private1@20
 SvchostPushServiceGlobals@4
 WinHttpAddRequestHeaders@16
 WinHttpAutoProxySvcMain@8
-WinHttpCheckPlatform
+WinHttpCheckPlatform@0
 WinHttpCloseHandle@4
 WinHttpConnect@16
 WinHttpCrackUrl@16
