@@ -2166,6 +2166,24 @@ extern "C" {
   SHSTDAPI_(WINBOOL) Shell_GetImageLists(HIMAGELIST *phiml,HIMAGELIST *phimlSmall);
   SHSTDAPI_(int) Shell_GetCachedImageIndex(LPCWSTR pszIconPath,int iIconIndex,UINT uIconFlags);
 
+    enum tagOPEN_AS_INFO_FLAGS {
+        OAIF_ALLOW_REGISTRATION = 0x0001,
+        OAIF_REGISTER_EXT       = 0x0002,
+        OAIF_EXEC               = 0x0004,
+        OAIF_FORCE_REGISTRATION = 0x0008,
+        OAIF_HIDE_REGISTRATION  = 0x0020,
+        OAIF_URL_PROTOCOL       = 0x0040
+    };
+    typedef int OPEN_AS_INFO_FLAGS;
+
+#include <pshpack8.h>
+    typedef struct _openasinfo {
+        LPCWSTR pcszFile;
+        LPCWSTR pcszClass;
+        OPEN_AS_INFO_FLAGS oaifInFlags;
+    } OPENASINFO, *POPENASINFO;
+#include <poppack.h>
+
 #undef INTERFACE
 #define INTERFACE IDocViewSite
   DECLARE_INTERFACE_(IDocViewSite,IUnknown) {
