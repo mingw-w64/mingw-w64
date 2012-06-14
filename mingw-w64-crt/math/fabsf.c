@@ -8,7 +8,11 @@ float fabsf (float x);
 float
 fabsf (float x)
 {
+#ifdef __x86_64__
+  return __builtin_fabsf (x);
+#else
   float res = 0.0F;
   asm ("fabs;" : "=t" (res) : "0" (x));
   return res;
+#endif
 }

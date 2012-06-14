@@ -9,8 +9,12 @@
 double
 fabs (double x)
 {
+#ifdef __x86_64__
+  return __builtin_fabs (x);
+#else
   double res = 0.0;
 
   asm ("fabs;" : "=t" (res) : "0" (x));
   return res;
+#endif
 }
