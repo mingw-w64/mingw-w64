@@ -124,6 +124,9 @@ WINBOOL     WINAPI IsUrlCacheEntryExpiredW(LPCWSTR,DWORD,FILETIME*);
 WINBOOL     WINAPI SetUrlCacheConfigInfoA(LPINTERNET_CACHE_CONFIG_INFOA,DWORD);
 WINBOOL     WINAPI SetUrlCacheConfigInfoW(LPINTERNET_CACHE_CONFIG_INFOW,DWORD);
 #define     SetUrlCacheConfigInfo __MINGW_NAME_AW(SetUrlCacheConfigInfo)
+WINBOOL     WINAPI InternetGetSecurityInfoByURLA(LPSTR,PCCERT_CHAIN_CONTEXT*,DWORD*);
+WINBOOL     WINAPI InternetGetSecurityInfoByURLW(LPCWSTR,PCCERT_CHAIN_CONTEXT*,DWORD*);
+#define     InternetGetSecurityInfoByURL __MINGW_NAME_AW(InternetGetSecurityInfoByURL)
 
 #ifdef __cplusplus
 }
