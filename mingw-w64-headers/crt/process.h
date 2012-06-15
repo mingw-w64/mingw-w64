@@ -34,7 +34,7 @@ extern "C" {
 #ifndef _CRT_TERMINATE_DEFINED
 #define _CRT_TERMINATE_DEFINED
   void __cdecl __MINGW_NOTHROW exit(int _Code) __MINGW_ATTRIB_NORETURN;
-  _CRTIMP void __cdecl __MINGW_NOTHROW _exit(int _Code) __MINGW_ATTRIB_NORETURN;
+  void __cdecl __MINGW_NOTHROW _exit(int _Code) __MINGW_ATTRIB_NORETURN;
 
 #if !defined __NO_ISOCEXT /* extern stub in static libmingwex.a */
   /* C99 function name */
@@ -52,8 +52,8 @@ extern "C" {
 
 #endif /* _CRT_TERMINATE_DEFINED */
 
-  _CRTIMP void __cdecl __MINGW_NOTHROW _cexit(void);
-  _CRTIMP void __cdecl __MINGW_NOTHROW _c_exit(void);
+  void __cdecl __MINGW_NOTHROW _cexit(void);
+  void __cdecl __MINGW_NOTHROW _c_exit(void);
   _CRTIMP int __cdecl _getpid(void);
   _CRTIMP intptr_t __cdecl _cwait(int *_TermStat,intptr_t _ProcHandle,int _Action);
   _CRTIMP intptr_t __cdecl _execl(const char *_Filename,const char *_ArgList,...);
