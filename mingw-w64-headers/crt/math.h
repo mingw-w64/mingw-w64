@@ -127,7 +127,7 @@ extern "C" {
   __CRT_INLINE double __cdecl fabs (double x)
   {
 #ifdef __x86_64__
-    retrun __builtin_fabs (x);
+    return __builtin_fabs (x);
 #else
     double res = 0.0;
     __asm__ __volatile__ ("fabs;" : "=t" (res) : "0" (x));
@@ -580,7 +580,7 @@ typedef long double double_t;
   __CRT_INLINE float __cdecl fabsf (float x)
   {
 #ifdef __x86_64__
-    retrun __builtin_fabsf (x);
+    return __builtin_fabsf (x);
 #else
     float res = 0.0F;
     __asm__ __volatile__ ("fabs;" : "=t" (res) : "0" (x));
