@@ -17,6 +17,12 @@
 /* for MARGINS structure declaration.  */
 #include <uxtheme.h>
 
+/*
+ * This API is available only on Vista+ versions. It's not guarded by version check
+ * because that would cause problems with Mozilla code (and MSVC doesn't seem to be
+ * doing that as well).
+ */
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -158,10 +164,6 @@ typedef enum _DWMNCRENDERINGPOLICY {
 typedef HANDLE HTHUMBNAIL;
 typedef HTHUMBNAIL* PHTHUMBNAIL;
 
-/* Only for Vista and higher */
-/* FIXME: use WINVER instead? */
-#if _WIN32_WINNT >= 0x0600
-
 BOOL WINAPI DwmDefWindowProc(
     HWND hwnd,
     UINT msg,
@@ -251,8 +253,6 @@ HRESULT WINAPI DwmUpdateThumbnailProperties(
     HTHUMBNAIL hThumbnailId,
     const DWM_THUMBNAIL_PROPERTIES *ptnProperties
 );
-
-#endif
 
 #ifdef __cplusplus
 }
