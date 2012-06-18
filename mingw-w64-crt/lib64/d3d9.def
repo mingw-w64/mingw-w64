@@ -20,3 +20,4 @@ D3DPERF_SetRegion
 DebugSetLevel
 DebugSetMute
 Direct3DCreate9
+Direct3DCreate9Ex
