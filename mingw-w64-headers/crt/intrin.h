@@ -71,6 +71,16 @@ extern "C" {
 #endif
 #endif
 
+#ifdef __SSE3__
+#if defined(__cplusplus)
+extern "C" {
+#endif
+#include <pmmintrin.h>
+#if defined(__cplusplus)
+}
+#endif
+#endif
+
 #if (defined(_X86_) && !defined(__x86_64))
 #if defined(__cplusplus)
 extern "C" {
@@ -923,6 +933,7 @@ extern "C" {
     __MACHINEX86X(void _mm_stream_si32(int*,int))
     __MACHINEX86X(void _mm_pause(void))
 #endif
+#if !defined(__GNUC__) || !defined(__SSE3__)
     __MACHINEX86X(__m128 _mm_addsub_ps(__m128,__m128))
     __MACHINEX86X(__m128d _mm_addsub_pd(__m128d,__m128d))
     __MACHINEX86X(__m128 _mm_hadd_ps(__m128,__m128))
@@ -936,6 +947,7 @@ extern "C" {
     __MACHINEX86X(__m128 _mm_movehdup_ps(__m128))
     __MACHINEX86X(__m128 _mm_moveldup_ps(__m128))
     __MACHINEX86X(void _mm_mwait(unsigned int,unsigned int))
+#endif
     __MACHINEI(void _WriteBarrier(void))
     __MACHINEI(void _ReadWriteBarrier(void))
     __MACHINEIA64(void _WriteBarrier(void))
