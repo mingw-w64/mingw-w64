@@ -67,6 +67,16 @@ typedef interface IWICMetadataQueryWriter IWICMetadataQueryWriter;
 typedef interface IWICBitmapFrameDecode IWICBitmapFrameDecode;
 #endif
 
+#ifndef __IWICPixelFormatInfo_FWD_DEFINED__
+#define __IWICPixelFormatInfo_FWD_DEFINED__
+typedef interface IWICPixelFormatInfo IWICPixelFormatInfo;
+#endif
+
+#ifndef __IWICPixelFormatInfo2_FWD_DEFINED__
+#define __IWICPixelFormatInfo2_FWD_DEFINED__
+typedef interface IWICPixelFormatInfo2 IWICPixelFormatInfo2;
+#endif
+
 #ifndef __IWICBitmapCodecInfo_FWD_DEFINED__
 #define __IWICBitmapCodecInfo_FWD_DEFINED__
 typedef interface IWICBitmapCodecInfo IWICBitmapCodecInfo;
@@ -256,6 +266,15 @@ typedef enum WICComponentEnumerateOptions {
     WICComponentEnumerateUnsigned = 0x40000000,
     WICComponentEnumerateDisabled = 0x80000000
 } WICComponentEnumerateOptions;
+typedef enum WICPixelFormatNumericRepresentation {
+    WICPixelFormatNumericRepresentationUnspecified = 0x0,
+    WICPixelFormatNumericRepresentationIndexed = 0x1,
+    WICPixelFormatNumericRepresentationUnsignedInteger = 0x2,
+    WICPixelFormatNumericRepresentationSignedInteger = 0x3,
+    WICPixelFormatNumericRepresentationFixed = 0x4,
+    WICPixelFormatNumericRepresentationFloat = 0x5,
+    WICPIXELFORMATNUMERICREPRESENTATION_FORCE_DWORD = 0x7fffffff
+} WICPixelFormatNumericRepresentation;
 typedef GUID WICPixelFormatGUID;
 typedef REFGUID REFWICPixelFormatGUID;
 DEFINE_GUID(GUID_WICPixelFormatDontCare, 0x6fddc324,0x4e03,0x4bfe,0xb1,0x85,0x3d,0x77,0x76,0x8d,0xc9,0x00);
@@ -302,6 +321,7 @@ typedef UINT32 WICColor;
 #define WINCODEC_ERR_PALETTEUNAVAILABLE 0x88982f45
 #define WINCODEC_ERR_COMPONENTNOTFOUND 0x88982f50
 #define WINCODEC_ERR_FRAMEMISSING 0x88982f62
+#define WINCODEC_ERR_BADMETADATAHEADER 0x88982f63
 #define WINCODEC_ERR_UNSUPPORTEDPIXELFORMAT 0x88982f80
 #define WINCODEC_ERR_UNSUPPORTEDOPERATION 0x88982f81
 #define WINCODEC_ERR_INSUFFICIENTBUFFER 0x88982f8c
@@ -1778,6 +1798,359 @@ void __RPC_STUB IWICBitmapFrameDecode_GetThumbnail_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __IWICBitmapFrameDecode_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWICPixelFormatInfo interface
+ */
+#ifndef __IWICPixelFormatInfo_INTERFACE_DEFINED__
+#define __IWICPixelFormatInfo_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWICPixelFormatInfo, 0xe8eda601, 0x3d48, 0x431a, 0xab,0x44, 0x69,0x05,0x9b,0xe8,0x8b,0xbe);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("e8eda601-3d48-431a-ab44-69059be88bbe")
+IWICPixelFormatInfo : public IWICComponentInfo
+{
+    virtual HRESULT STDMETHODCALLTYPE GetFormatGUID(
+        GUID *pFormat) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetColorContext(
+        IWICColorContext **ppIColorContext) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetBitsPerPixel(
+        UINT *puiBitsPerPixel) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetChannelCount(
+        UINT *puiChannelCount) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetChannelMask(
+        UINT uiChannelIndex,
+        UINT cbMaskBuffer,
+        BYTE *pbMaskBuffer,
+        UINT *pcbActual) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICPixelFormatInfo, 0xe8eda601, 0x3d48, 0x431a, 0xab,0x44, 0x69,0x05,0x9b,0xe8,0x8b,0xbe)
+#endif
+#else
+typedef struct IWICPixelFormatInfoVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWICPixelFormatInfo* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWICPixelFormatInfo* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWICPixelFormatInfo* This);
+
+    /*** IWICComponentInfo methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetComponentType)(
+        IWICPixelFormatInfo* This,
+        WICComponentType *pType);
+
+    HRESULT (STDMETHODCALLTYPE *GetCLSID)(
+        IWICPixelFormatInfo* This,
+        CLSID *pclsid);
+
+    HRESULT (STDMETHODCALLTYPE *GetSigningStatus)(
+        IWICPixelFormatInfo* This,
+        DWORD *pStatus);
+
+    HRESULT (STDMETHODCALLTYPE *GetAuthor)(
+        IWICPixelFormatInfo* This,
+        UINT cchAuthor,
+        WCHAR *wzAuthor,
+        UINT *pcchActual);
+
+    HRESULT (STDMETHODCALLTYPE *GetVendorGUID)(
+        IWICPixelFormatInfo* This,
+        GUID *pguidVendor);
+
+    HRESULT (STDMETHODCALLTYPE *GetVersion)(
+        IWICPixelFormatInfo* This,
+        UINT cchVersion,
+        WCHAR *wzVersion,
+        UINT *pcchActual);
+
+    HRESULT (STDMETHODCALLTYPE *GetSpecVersion)(
+        IWICPixelFormatInfo* This,
+        UINT cchSpecVersion,
+        WCHAR *wzSpecVersion,
+        UINT *pcchActual);
+
+    HRESULT (STDMETHODCALLTYPE *GetFriendlyName)(
+        IWICPixelFormatInfo* This,
+        UINT cchFriendlyName,
+        WCHAR *wzFriendlyName,
+        UINT *pcchActual);
+
+    /*** IWICPixelFormatInfo methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetFormatGUID)(
+        IWICPixelFormatInfo* This,
+        GUID *pFormat);
+
+    HRESULT (STDMETHODCALLTYPE *GetColorContext)(
+        IWICPixelFormatInfo* This,
+        IWICColorContext **ppIColorContext);
+
+    HRESULT (STDMETHODCALLTYPE *GetBitsPerPixel)(
+        IWICPixelFormatInfo* This,
+        UINT *puiBitsPerPixel);
+
+    HRESULT (STDMETHODCALLTYPE *GetChannelCount)(
+        IWICPixelFormatInfo* This,
+        UINT *puiChannelCount);
+
+    HRESULT (STDMETHODCALLTYPE *GetChannelMask)(
+        IWICPixelFormatInfo* This,
+        UINT uiChannelIndex,
+        UINT cbMaskBuffer,
+        BYTE *pbMaskBuffer,
+        UINT *pcbActual);
+
+    END_INTERFACE
+} IWICPixelFormatInfoVtbl;
+interface IWICPixelFormatInfo {
+    CONST_VTBL IWICPixelFormatInfoVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IWICPixelFormatInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWICPixelFormatInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWICPixelFormatInfo_Release(This) (This)->lpVtbl->Release(This)
+/*** IWICComponentInfo methods ***/
+#define IWICPixelFormatInfo_GetComponentType(This,pType) (This)->lpVtbl->GetComponentType(This,pType)
+#define IWICPixelFormatInfo_GetCLSID(This,pclsid) (This)->lpVtbl->GetCLSID(This,pclsid)
+#define IWICPixelFormatInfo_GetSigningStatus(This,pStatus) (This)->lpVtbl->GetSigningStatus(This,pStatus)
+#define IWICPixelFormatInfo_GetAuthor(This,cchAuthor,wzAuthor,pcchActual) (This)->lpVtbl->GetAuthor(This,cchAuthor,wzAuthor,pcchActual)
+#define IWICPixelFormatInfo_GetVendorGUID(This,pguidVendor) (This)->lpVtbl->GetVendorGUID(This,pguidVendor)
+#define IWICPixelFormatInfo_GetVersion(This,cchVersion,wzVersion,pcchActual) (This)->lpVtbl->GetVersion(This,cchVersion,wzVersion,pcchActual)
+#define IWICPixelFormatInfo_GetSpecVersion(This,cchSpecVersion,wzSpecVersion,pcchActual) (This)->lpVtbl->GetSpecVersion(This,cchSpecVersion,wzSpecVersion,pcchActual)
+#define IWICPixelFormatInfo_GetFriendlyName(This,cchFriendlyName,wzFriendlyName,pcchActual) (This)->lpVtbl->GetFriendlyName(This,cchFriendlyName,wzFriendlyName,pcchActual)
+/*** IWICPixelFormatInfo methods ***/
+#define IWICPixelFormatInfo_GetFormatGUID(This,pFormat) (This)->lpVtbl->GetFormatGUID(This,pFormat)
+#define IWICPixelFormatInfo_GetColorContext(This,ppIColorContext) (This)->lpVtbl->GetColorContext(This,ppIColorContext)
+#define IWICPixelFormatInfo_GetBitsPerPixel(This,puiBitsPerPixel) (This)->lpVtbl->GetBitsPerPixel(This,puiBitsPerPixel)
+#define IWICPixelFormatInfo_GetChannelCount(This,puiChannelCount) (This)->lpVtbl->GetChannelCount(This,puiChannelCount)
+#define IWICPixelFormatInfo_GetChannelMask(This,uiChannelIndex,cbMaskBuffer,pbMaskBuffer,pcbActual) (This)->lpVtbl->GetChannelMask(This,uiChannelIndex,cbMaskBuffer,pbMaskBuffer,pcbActual)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWICPixelFormatInfo_GetFormatGUID_Proxy(
+    IWICPixelFormatInfo* This,
+    GUID *pFormat);
+void __RPC_STUB IWICPixelFormatInfo_GetFormatGUID_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWICPixelFormatInfo_GetColorContext_Proxy(
+    IWICPixelFormatInfo* This,
+    IWICColorContext **ppIColorContext);
+void __RPC_STUB IWICPixelFormatInfo_GetColorContext_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWICPixelFormatInfo_GetBitsPerPixel_Proxy(
+    IWICPixelFormatInfo* This,
+    UINT *puiBitsPerPixel);
+void __RPC_STUB IWICPixelFormatInfo_GetBitsPerPixel_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWICPixelFormatInfo_GetChannelCount_Proxy(
+    IWICPixelFormatInfo* This,
+    UINT *puiChannelCount);
+void __RPC_STUB IWICPixelFormatInfo_GetChannelCount_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWICPixelFormatInfo_GetChannelMask_Proxy(
+    IWICPixelFormatInfo* This,
+    UINT uiChannelIndex,
+    UINT cbMaskBuffer,
+    BYTE *pbMaskBuffer,
+    UINT *pcbActual);
+void __RPC_STUB IWICPixelFormatInfo_GetChannelMask_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWICPixelFormatInfo_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWICPixelFormatInfo2 interface
+ */
+#ifndef __IWICPixelFormatInfo2_INTERFACE_DEFINED__
+#define __IWICPixelFormatInfo2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWICPixelFormatInfo2, 0xa9db33a2, 0xaf5f, 0x43c7, 0xb6,0x79, 0x74,0xf5,0x98,0x4b,0x5a,0xa4);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("a9db33a2-af5f-43c7-b679-74f5984b5aa4")
+IWICPixelFormatInfo2 : public IWICPixelFormatInfo
+{
+    virtual HRESULT STDMETHODCALLTYPE SupportsTransparency(
+        WINBOOL *pfSupportsTransparency) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetNumericRepresentation(
+        WICPixelFormatNumericRepresentation *pNumericRepresentation) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICPixelFormatInfo2, 0xa9db33a2, 0xaf5f, 0x43c7, 0xb6,0x79, 0x74,0xf5,0x98,0x4b,0x5a,0xa4)
+#endif
+#else
+typedef struct IWICPixelFormatInfo2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWICPixelFormatInfo2* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWICPixelFormatInfo2* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWICPixelFormatInfo2* This);
+
+    /*** IWICComponentInfo methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetComponentType)(
+        IWICPixelFormatInfo2* This,
+        WICComponentType *pType);
+
+    HRESULT (STDMETHODCALLTYPE *GetCLSID)(
+        IWICPixelFormatInfo2* This,
+        CLSID *pclsid);
+
+    HRESULT (STDMETHODCALLTYPE *GetSigningStatus)(
+        IWICPixelFormatInfo2* This,
+        DWORD *pStatus);
+
+    HRESULT (STDMETHODCALLTYPE *GetAuthor)(
+        IWICPixelFormatInfo2* This,
+        UINT cchAuthor,
+        WCHAR *wzAuthor,
+        UINT *pcchActual);
+
+    HRESULT (STDMETHODCALLTYPE *GetVendorGUID)(
+        IWICPixelFormatInfo2* This,
+        GUID *pguidVendor);
+
+    HRESULT (STDMETHODCALLTYPE *GetVersion)(
+        IWICPixelFormatInfo2* This,
+        UINT cchVersion,
+        WCHAR *wzVersion,
+        UINT *pcchActual);
+
+    HRESULT (STDMETHODCALLTYPE *GetSpecVersion)(
+        IWICPixelFormatInfo2* This,
+        UINT cchSpecVersion,
+        WCHAR *wzSpecVersion,
+        UINT *pcchActual);
+
+    HRESULT (STDMETHODCALLTYPE *GetFriendlyName)(
+        IWICPixelFormatInfo2* This,
+        UINT cchFriendlyName,
+        WCHAR *wzFriendlyName,
+        UINT *pcchActual);
+
+    /*** IWICPixelFormatInfo methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetFormatGUID)(
+        IWICPixelFormatInfo2* This,
+        GUID *pFormat);
+
+    HRESULT (STDMETHODCALLTYPE *GetColorContext)(
+        IWICPixelFormatInfo2* This,
+        IWICColorContext **ppIColorContext);
+
+    HRESULT (STDMETHODCALLTYPE *GetBitsPerPixel)(
+        IWICPixelFormatInfo2* This,
+        UINT *puiBitsPerPixel);
+
+    HRESULT (STDMETHODCALLTYPE *GetChannelCount)(
+        IWICPixelFormatInfo2* This,
+        UINT *puiChannelCount);
+
+    HRESULT (STDMETHODCALLTYPE *GetChannelMask)(
+        IWICPixelFormatInfo2* This,
+        UINT uiChannelIndex,
+        UINT cbMaskBuffer,
+        BYTE *pbMaskBuffer,
+        UINT *pcbActual);
+
+    /*** IWICPixelFormatInfo2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *SupportsTransparency)(
+        IWICPixelFormatInfo2* This,
+        WINBOOL *pfSupportsTransparency);
+
+    HRESULT (STDMETHODCALLTYPE *GetNumericRepresentation)(
+        IWICPixelFormatInfo2* This,
+        WICPixelFormatNumericRepresentation *pNumericRepresentation);
+
+    END_INTERFACE
+} IWICPixelFormatInfo2Vtbl;
+interface IWICPixelFormatInfo2 {
+    CONST_VTBL IWICPixelFormatInfo2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+/*** IUnknown methods ***/
+#define IWICPixelFormatInfo2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWICPixelFormatInfo2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWICPixelFormatInfo2_Release(This) (This)->lpVtbl->Release(This)
+/*** IWICComponentInfo methods ***/
+#define IWICPixelFormatInfo2_GetComponentType(This,pType) (This)->lpVtbl->GetComponentType(This,pType)
+#define IWICPixelFormatInfo2_GetCLSID(This,pclsid) (This)->lpVtbl->GetCLSID(This,pclsid)
+#define IWICPixelFormatInfo2_GetSigningStatus(This,pStatus) (This)->lpVtbl->GetSigningStatus(This,pStatus)
+#define IWICPixelFormatInfo2_GetAuthor(This,cchAuthor,wzAuthor,pcchActual) (This)->lpVtbl->GetAuthor(This,cchAuthor,wzAuthor,pcchActual)
+#define IWICPixelFormatInfo2_GetVendorGUID(This,pguidVendor) (This)->lpVtbl->GetVendorGUID(This,pguidVendor)
+#define IWICPixelFormatInfo2_GetVersion(This,cchVersion,wzVersion,pcchActual) (This)->lpVtbl->GetVersion(This,cchVersion,wzVersion,pcchActual)
+#define IWICPixelFormatInfo2_GetSpecVersion(This,cchSpecVersion,wzSpecVersion,pcchActual) (This)->lpVtbl->GetSpecVersion(This,cchSpecVersion,wzSpecVersion,pcchActual)
+#define IWICPixelFormatInfo2_GetFriendlyName(This,cchFriendlyName,wzFriendlyName,pcchActual) (This)->lpVtbl->GetFriendlyName(This,cchFriendlyName,wzFriendlyName,pcchActual)
+/*** IWICPixelFormatInfo methods ***/
+#define IWICPixelFormatInfo2_GetFormatGUID(This,pFormat) (This)->lpVtbl->GetFormatGUID(This,pFormat)
+#define IWICPixelFormatInfo2_GetColorContext(This,ppIColorContext) (This)->lpVtbl->GetColorContext(This,ppIColorContext)
+#define IWICPixelFormatInfo2_GetBitsPerPixel(This,puiBitsPerPixel) (This)->lpVtbl->GetBitsPerPixel(This,puiBitsPerPixel)
+#define IWICPixelFormatInfo2_GetChannelCount(This,puiChannelCount) (This)->lpVtbl->GetChannelCount(This,puiChannelCount)
+#define IWICPixelFormatInfo2_GetChannelMask(This,uiChannelIndex,cbMaskBuffer,pbMaskBuffer,pcbActual) (This)->lpVtbl->GetChannelMask(This,uiChannelIndex,cbMaskBuffer,pbMaskBuffer,pcbActual)
+/*** IWICPixelFormatInfo2 methods ***/
+#define IWICPixelFormatInfo2_SupportsTransparency(This,pfSupportsTransparency) (This)->lpVtbl->SupportsTransparency(This,pfSupportsTransparency)
+#define IWICPixelFormatInfo2_GetNumericRepresentation(This,pNumericRepresentation) (This)->lpVtbl->GetNumericRepresentation(This,pNumericRepresentation)
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWICPixelFormatInfo2_SupportsTransparency_Proxy(
+    IWICPixelFormatInfo2* This,
+    WINBOOL *pfSupportsTransparency);
+void __RPC_STUB IWICPixelFormatInfo2_SupportsTransparency_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWICPixelFormatInfo2_GetNumericRepresentation_Proxy(
+    IWICPixelFormatInfo2* This,
+    WICPixelFormatNumericRepresentation *pNumericRepresentation);
+void __RPC_STUB IWICPixelFormatInfo2_GetNumericRepresentation_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWICPixelFormatInfo2_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IWICBitmapCodecInfo interface
@@ -4853,6 +5226,7 @@ DEFINE_GUID(CATID_WICBitmapDecoders, 0x7ed96837,0x96f0,0x4812,0xb2,0x11,0xf1,0x3
 DEFINE_GUID(CATID_WICBitmapEncoders, 0xac757296,0x3522,0x4e11,0x98,0x62,0xc1,0x7b,0xe5,0xa1,0x76,0x7e);
 DEFINE_GUID(CATID_WICFormatConverters, 0x7835eae8,0xbf14,0x49d1,0x93,0xce,0x53,0x3a,0x40,0x7b,0x22,0x48);
 DEFINE_GUID(CATID_WICMetadataReader, 0x05af94d8,0x7174,0x4cd2,0xbe,0x4a,0x41,0x24,0xb8,0x0e,0xe4,0xb8);
+DEFINE_GUID(CATID_WICPixelFormats, 0x2b46e70f,0xcda7,0x473e,0x89,0xf6,0xdc,0x96,0x30,0xa2,0x39,0x0b);
 /* Begin additional prototypes for all interfaces */
 
 ULONG           __RPC_USER BSTR_UserSize     (ULONG *, ULONG, BSTR *);
