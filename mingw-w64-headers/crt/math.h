@@ -881,7 +881,7 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
 
   __CRT_INLINE double __cdecl copysign (double x, double y)
   {
-    __mingw_dbl_type_p hx, hy;
+    __mingw_dbl_type_t hx, hy;
     hx.x = x; hy.x = y;
     hx.lh.high = (hx.lh.high & 0x7fffffff) | (hy.lh.high & 0x80000000);
     return hx.x;
