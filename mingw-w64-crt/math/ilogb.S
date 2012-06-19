@@ -7,41 +7,113 @@
 
 	.file	"ilogb.S"
 	.text
-#ifdef _WIN64
-	.align 8
-#else
-	.align 4
-#endif
+	.p2align 4,,15
 .globl __MINGW_USYMBOL(ilogb)
 	.def	__MINGW_USYMBOL(ilogb);	.scl	2;	.type	32;	.endef
+#ifdef _WIN64
+	.seh_proc __MINGW_USYMBOL(ilogb)
+#endif
 __MINGW_USYMBOL(ilogb):
 #ifdef _WIN64
-	subq	$24, %rsp
-	movsd	%xmm0,(%rsp)
-	fldl	(%rsp)
-	fxam			/* Is NaN or +-Inf?  */
-	fstsw   %ax
-	movb    $0x45, %dh
-	andb    %ah, %dh
-	cmpb    $0x05, %dh
-	je      1f		/* Is +-Inf, jump.  */
+/* Generated code by:
+int
+ilogb (double x)
+{
+  __mingw_dbl_type_t hlp;
+  int hx, lx, ix;
 
-	fxtract
-	pushq	%rax
-	fstp	%st
-
-	fistpl	(%rsp)
-	fwait
-	popq	%rax
-
-	addq	$24, %rsp
-
-	ret
-
-1:	fstp	%st
-	movl	$0x7fffffff, %eax
-	addq	$24, %rsp
-	ret
+  hlp.x = x;
+  hx = hpl.lh.high & 0x7fffffff;
+  if (hx < 0x100000)
+    {
+      lx = hlp.lh.low;
+      if ((hx | lx) == 0)
+        return 0x80000000;      // ilogb(0) = FP_ILOGB0
+      // subnormal x
+      if (hx == 0)
+        {
+          for (ix = -1043; lx > 0; lx <<= 1)
+            ix -=1;
+        }
+      else
+        {
+          for (ix = -1022,hx <<= 11; hx > 0; hx <<= 1)
+            ix -=1;
+        }
+      return ix;
+    }
+  if (hx < 0x7ff00000)
+    return (hx >> 20) - 1023;
+  lx = hlp.lh.low;
+  if (((hx ^ 0x7ff00000) | lx) == 0)
+    return 0x7fffffff;
+  return 0x80000000;
+} */
+        subq    $24, %rsp
+        .seh_stackalloc 24
+        .seh_endprologue
+        movsd   %xmm0, 8(%rsp)
+        movq    8(%rsp), %rdx
+        shrq    $32, %rdx
+        andl    $2147483647, %edx
+        cmpl    $1048575, %edx
+        jg      .L2
+        movq    8(%rsp), %rcx
+        movl    %edx, %eax
+        orl     %ecx, %eax
+        je      .L8
+        testl   %edx, %edx
+        jne     .L4
+        testl   %ecx, %ecx
+        movl    %ecx, %edx
+        movl    $-1043, %eax
+        jle     .L3
+        .p2align 4,,10
+.L5:
+        addl    %edx, %edx
+        subl    $1, %eax
+        testl   %edx, %edx
+        jg      .L5
+        addq    $24, %rsp
+        ret
+        .p2align 4,,10
+.L2:
+        cmpl    $2146435071, %edx
+        jle     .L13
+        movsd   %xmm0, 8(%rsp)
+        movq    8(%rsp), %rax
+        xorl    $2146435072, %edx
+        orl     %eax, %edx
+        cmpl    $1, %edx
+        sbbl    %eax, %eax
+        addl    $-2147483648, %eax
+.L3:
+        addq    $24, %rsp
+        ret
+        .p2align 4,,10
+.L4:
+        sall    $11, %edx
+        movl    $-1022, %eax
+        testl   %edx, %edx
+        jle     .L3
+        .p2align 4,,10
+.L6:
+        addl    %edx, %edx
+        subl    $1, %eax
+        testl   %edx, %edx
+        jg      .L6
+        addq    $24, %rsp
+        ret
+        .p2align 4,,10
+.L13:
+        sarl    $20, %edx
+        leal    -1023(%rdx), %eax
+        addq    $24, %rsp
+        ret
+.L8:
+        movl    $-2147483648, %eax
+        jmp     .L3
+        .seh_endproc
 #else
 
 	fldl	4(%esp)

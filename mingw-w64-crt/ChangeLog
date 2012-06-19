@@ -1,5 +1,7 @@
 2012-06-19  Kai Tietz  <ktietz@redhat.com>
 
+	* math/ilogb.S: Replace x64 variant by soft-float variant.
+	* math/ilogbf.S: Likewise.
 	* math/isnan.c: Special-case for x64.
 	* math/isnanf.c: Likewise.
 	* math/signbit.c: Likewise.
