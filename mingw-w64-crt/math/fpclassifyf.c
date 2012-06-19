@@ -6,12 +6,27 @@
 #define __CRT__NO_INLINE
 #include <math.h>
 
-int __fpclassifyf (float _x){
+int __fpclassifyf (float _x)
+{
+#ifdef __x86_64__
+    __mingw_flt_type_t hlp;
+
+    hlp.x = _x;
+    hlp.val &= 0x7fffffff;
+    if (hlp.val == 0)
+      return FP_ZERO;
+    if (hlp.val < 0x800000)
+      return FP_SUBNORMAL;
+    if (hlp.val >= 0x7f800000)
+      return (hlp.val > 0x7f800000 ? FP_NAN : FP_INFINITE);
+    return FP_NORMAL;
+#else
   unsigned short sw;
   __asm__ __volatile__ (
 	"fxam; fstsw %%ax;"
 	: "=a" (sw)
 	: "t" (_x)
 	);
-  return sw & (FP_NAN | FP_NORMAL | FP_ZERO );
+  return sw & (FP_NAN | FP_NORMAL | FP_ZERO);
+#endif
 }

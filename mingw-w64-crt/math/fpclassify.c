@@ -15,12 +15,30 @@
 
 and sets C1 flag (signbit) if neg */
 
-int __fpclassify (double _x){
+int __fpclassify (double _x)
+{
+#ifdef __x86_64__
+    __mingw_dbl_type_t hlp;
+    unsigned int l, h;
+
+    hlp.x = _x;
+    h = hlp.lh.high;
+    l = hlp.lh.low | (h & 0xfffff);
+    h &= 0x7ff00000;
+    if ((h | l) == 0)
+      return FP_ZERO;
+    if (!h)
+      return FP_SUBNORMAL;
+    if (h == 0x7ff00000)
+      return (l ? FP_NAN : FP_INFINITE);
+    return FP_NORMAL;
+#else
   unsigned short sw;
   __asm__ __volatile__ (
 	"fxam; fstsw %%ax;"
 	: "=a" (sw)
 	: "t" (_x)
 	);
-  return sw & (FP_NAN | FP_NORMAL | FP_ZERO );
+  return sw & (FP_NAN | FP_NORMAL | FP_ZERO);
+#endif
 }
