@@ -1,5 +1,8 @@
 2012-06-19  Kai Tietz  <ktietz@redhat.com>
 
+	* math/fdim.c: Adjust for being posix compatible.
+	* math/fdimf.c: Likewise.
+	* math/fdiml.c: Likewise.
 	* math/ilogb.S: Replace x64 variant by soft-float variant.
 	* math/ilogbf.S: Likewise.
 	* math/logb.c: Likewise.
