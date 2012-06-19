@@ -2,6 +2,8 @@
 
 	* math/isnan.c: Special-case for x64.
 	* math/isnanf.c: Likewise.
+	* math/signbit.c: Likewise.
+	* math/signbitf.c: Likewise.
 
 	* math/fpclassify.c: Special-case x64.
 	* math/fpclassifyf.c: Likewise.

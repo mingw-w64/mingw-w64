@@ -4,15 +4,30 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 #define __FP_SIGNBIT  0x0200
-
 int __signbit (double x);
 
-int __signbit (double x) {
+typedef union __mingw_dbl_type_t {
+  double x;
+  unsigned long long val;
+  __extension__ struct {
+    unsigned int low, high;
+  } lh;
+} __mingw_dbl_type_t;
+
+int __signbit (double x)
+{
+#ifdef __x86_64__
+    __mingw_dbl_type_t hlp;
+    
+    hlp.x = x;
+    return ((hlp.lh.high & 0x80000000) != 0);
+#else
   unsigned short sw;
   __asm__ __volatile__ ("fxam; fstsw %%ax;"
 	   : "=a" (sw)
 	   : "t" (x) );
   return (sw & __FP_SIGNBIT) != 0;
+#endif
 }
 
 #undef signbit
