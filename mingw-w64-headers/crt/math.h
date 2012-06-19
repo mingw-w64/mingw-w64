@@ -888,7 +888,7 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
   }
   __CRT_INLINE float __cdecl copysignf (float x, float y)
   {
-    __mingw_flt_type_p hx, hy;
+    __mingw_flt_type_t hx, hy;
     hx.x = x; hy.x = y;
     hx.val = (hx.val & 0x7fffffff) | (hy.val & 0x80000000);
     return hx.x;
