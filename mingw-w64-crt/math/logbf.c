@@ -14,8 +14,23 @@
 float
 logbf (float x)
 {
+#ifdef __x86_64__
+    int v;
+    __mingw_flt_type_t hlp;
+
+    hlp.x = x;
+    v = hlp.val & 0x7fffffff;                     /* high |x| */
+    if (!v)
+      return (float)-1.0 / fabsf (x);
+    if (v >= 0x7f800000)
+    return x * x;
+  if ((v >>= 23) == 0) /* IEEE 754 logb */
+    return -126.0;
+  return (float) (v - 127);
+#else
   float res = 0.0F;
   asm ("fxtract\n\t"
        "fstp	%%st" : "=t" (res) : "0" (x));
   return res;
+#endif
 }

@@ -2,6 +2,8 @@
 
 	* math/ilogb.S: Replace x64 variant by soft-float variant.
 	* math/ilogbf.S: Likewise.
+	* math/logb.c: Likewise.
+	* math/logbf.c: Likewise.
 	* math/isnan.c: Special-case for x64.
 	* math/isnanf.c: Likewise.
 	* math/signbit.c: Likewise.
