@@ -1,5 +1,8 @@
 2012-06-19  Kai Tietz  <ktietz@redhat.com>
 
+	* math/isnan.c: Special-case for x64.
+	* math/isnanf.c: Likewise.
+
 	* math/fpclassify.c: Special-case x64.
 	* math/fpclassifyf.c: Likewise.
 
