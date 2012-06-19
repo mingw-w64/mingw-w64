@@ -467,15 +467,28 @@ typedef long double double_t;
   extern int __cdecl __signbitl (long double);
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl __signbit (double x) {
+#ifdef __x86_64__
+    __mingw_dbl_type_t hlp;
+    
+    hlp.x = x;
+    return ((hlp.lh.high & 0x80000000) != 0);
+#else
     unsigned short stw;
     __asm__ __volatile__ ( "fxam; fstsw %%ax;": "=a" (stw) : "t" (x));
     return stw & 0x0200;
+#endif
   }
 
   __CRT_INLINE int __cdecl __signbitf (float x) {
+#ifdef __x86_64__
+    __mingw_flt_type_t hlp;
+    hlp.x = x;
+    return ((hlp.val & 0x80000000) != 0);
+#else
     unsigned short stw;
     __asm__ __volatile__ ("fxam; fstsw %%ax;": "=a" (stw) : "t" (x));
     return stw & 0x0200;
+#endif
   }
 
   __CRT_INLINE int __cdecl __signbitl (long double x) {
@@ -865,6 +878,21 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
   extern double __cdecl copysign (double, double); /* in libmoldname.a */
   extern float __cdecl copysignf (float, float);
   extern long double __cdecl copysignl (long double, long double);
+
+  __CRT_INLINE double __cdecl copysign (double x, double y)
+  {
+    __mingw_dbl_type_p hx, hy;
+    hx.x = x; hy.x = y;
+    hx.lh.high = (hx.lh.high & 0x7fffffff) | (hy.lh.high & 0x80000000);
+    return hx.x;
+  }
+  __CRT_INLINE float __cdecl copysignf (float x, float y)
+  {
+    __mingw_flt_type_p hx, hy;
+    hx.x = x; hy.x = y;
+    hx.val = (hx.val & 0x7fffffff) | (hy.val & 0x80000000);
+    return hx.x;
+  }
 
 /* 7.12.11.2 Return a NaN */
   extern double __cdecl nan(const char *tagp);

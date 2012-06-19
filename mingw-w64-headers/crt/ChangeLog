@@ -1,5 +1,8 @@
 2012-06-19  Kai Tietz  <ktietz@redhat.com>
 
+	* math.h (__signbit, __signbitf): Special-case x64 inline.
+	(copysign, copysignf): Likewise.
+
 	* math.h (__isnan, __isnanf): Special-case x64 inline.
 
 	* math.h (__fpclassify, __fpclassifyf): Special case x64.
