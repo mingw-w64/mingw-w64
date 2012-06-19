@@ -76,6 +76,37 @@ struct _exception;
 extern "C" {
 #endif
 
+#ifndef __MINGW_SOFTMATH
+#define __MINGW_SOFTMATH
+
+/* IEEE float/double type shapes.  */
+
+  typedef union __mingw_dbl_type_t {
+    double x;
+    unsigned long long val;
+    __C89_NAMELESS struct {
+      unsigned int low, high;
+    } lh;
+  } __mingw_dbl_type_t;
+
+  typedef union __mingw_flt_type_t {
+    float x;
+    unsigned int val;
+  } __mingw_flt_type_t;
+
+  typedef union __mingw_ldbl_type_t
+  {
+    long double x;
+    __C89_NAMELESS struct {
+      unsigned int low, high;
+      int sign_exponent : 16;
+      int res1 : 16;
+      int res0 : 32;
+    } lh;
+  } __mingw_ldbl_type_t;
+
+#endif
+
 #ifndef _HUGE
   extern double * __MINGW_IMP_SYMBOL(_HUGE);
 #define _HUGE	(* __MINGW_IMP_SYMBOL(_HUGE))
@@ -312,14 +343,45 @@ typedef long double double_t;
     return sw & (FP_NAN | FP_NORMAL | FP_ZERO );
   }
   __CRT_INLINE int __cdecl __fpclassify (double x) {
+#ifdef __x86_64__
+    __mingw_dbl_type_t hlp;
+    unsigned int l, h;
+
+    hlp.x = x;
+    h = hlp.lh.high;
+    l = hlp.lh.low | (h & 0xfffff);
+    h &= 0x7ff00000;
+    if ((h | l) == 0)
+      return FP_ZERO;
+    if (!h)
+      return FP_SUBNORMAL;
+    if (h == 0x7ff00000)
+      return (l ? FP_NAN : FP_INFINITE);
+    return FP_NORMAL;
+#else
     unsigned short sw;
     __asm__ __volatile__ ("fxam; fstsw %%ax;" : "=a" (sw): "t" (x));
     return sw & (FP_NAN | FP_NORMAL | FP_ZERO );
+#endif
   }
   __CRT_INLINE int __cdecl __fpclassifyf (float x) {
+#ifdef __x86_64__
+    __mingw_flt_type_t hlp;
+
+    hlp.x = x;
+    hlp.val &= 0x7fffffff;
+    if (hlp.val == 0)
+      return FP_ZERO;
+    if (hlp.val < 0x800000)
+      return FP_SUBNORMAL;
+    if (hlp.val >= 0x7f800000)
+      return (hlp.val > 0x7f800000 ? FP_NAN : FP_INFINITE);
+    return FP_NORMAL;
+#else
     unsigned short sw;
     __asm__ __volatile__ ("fxam; fstsw %%ax;" : "=a" (sw): "t" (x));
     return sw & (FP_NAN | FP_NORMAL | FP_ZERO );
+#endif
   }
 #endif
 
