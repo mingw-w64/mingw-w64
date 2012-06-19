@@ -1,5 +1,7 @@
 2012-06-19  Kai Tietz  <ktietz@redhat.com>
 
+	* math.h (__isnan, __isnanf): Special-case x64 inline.
+
 	* math.h (__fpclassify, __fpclassifyf): Special case x64.
 	(__mingw_dbl_type_t): New type.
 	(__mingw_ldbl_type_t): New type.

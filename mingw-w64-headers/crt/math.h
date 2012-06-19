@@ -406,20 +406,42 @@ typedef long double double_t;
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl __isnan (double _x)
   {
+#ifdef __x86_64__
+    __mingw_dbl_type_t hlp;
+    int l, h;
+
+    hlp.x = _x;
+    l = hlp.lh.low;
+    h = hlp.lh.high & 0x7fffffff;
+    h |= (unsigned int) (l | -l) >> 31;
+    h = 0x7ff00000 - h;
+    return (int) ((unsigned int) h) >> 31;
+#else
     unsigned short sw;
     __asm__ __volatile__ ("fxam;"
       "fstsw %%ax": "=a" (sw) : "t" (_x));
     return (sw & (FP_NAN | FP_NORMAL | FP_INFINITE | FP_ZERO | FP_SUBNORMAL))
       == FP_NAN;
+#endif
   }
 
   __CRT_INLINE int __cdecl __isnanf (float _x)
   {
+#ifdef __x86_64__
+    __mingw_flt_type_t hlp;
+    int i;
+    
+    hlp.x = _x;
+    i = hlp.val & 0x7fffffff;
+    i = 0x7f800000 - i;
+    return (int) (((unsigned int) i) >> 31);
+#else
     unsigned short sw;
     __asm__ __volatile__ ("fxam;"
       "fstsw %%ax": "=a" (sw) : "t" (_x));
     return (sw & (FP_NAN | FP_NORMAL | FP_INFINITE | FP_ZERO | FP_SUBNORMAL))
       == FP_NAN;
+#endif
   }
 
   __CRT_INLINE int __cdecl __isnanl (long double _x)
