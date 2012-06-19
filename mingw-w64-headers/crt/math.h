@@ -627,18 +627,49 @@ typedef long double double_t;
 #if !(__MINGW_GNUC_PREREQ (4, 0) && defined (__FAST_MATH__))
   __CRT_INLINE double __cdecl logb (double x)
   {
+#ifdef __x86_64__
+  __mingw_dbl_type_t hlp;
+  int lx, hx;
+
+  hlp.x = x;
+  lx = hlp.lh.low;
+  hx = hlp.lh.high & 0x7fffffff; /* high |x| */
+  if ((hx | lx) == 0)
+    return -1.0 / fabs (x);
+  if (hx >= 0x7ff00000)
+    return x * x;
+  if ((hx >>= 20) == 0) /* IEEE 754 logb */
+    return -1022.0;
+  return (double) (hx - 1023);
+#else
     double res = 0.0;
     __asm__ __volatile__ ("fxtract\n\t"
       "fstp	%%st" : "=t" (res) : "0" (x));
     return res;
+#endif
   }
 
   __CRT_INLINE float __cdecl logbf (float x)
   {
+#ifdef __x86_64__
+    int v;
+    __mingw_flt_type_t hlp;
+
+    hlp.x = x;
+    v = hlp.val & 0x7fffffff;                     /* high |x| */
+    if (!v)
+      return (float)-1.0 / fabsf (x);
+    if (v >= 0x7f800000)
+    return x * x;
+  if ((v >>= 23) == 0) /* IEEE 754 logb */
+    return -126.0;
+  return (float) (v - 127);
+#else
     float res = 0.0F;
     __asm__ __volatile__ ("fxtract\n\t"
       "fstp	%%st" : "=t" (res) : "0" (x));
     return res;
+#endif
   }
 
   __CRT_INLINE long double __cdecl logbl (long double x)

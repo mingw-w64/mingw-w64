@@ -1,5 +1,7 @@
 2012-06-19  Kai Tietz  <ktietz@redhat.com>
 
+	* math.h (logb, logbf): Special-case x64 inline.
+
 	* math.h (__signbit, __signbitf): Special-case x64 inline.
 	(copysign, copysignf): Likewise.
 
