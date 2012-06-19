@@ -879,6 +879,8 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
   extern float __cdecl copysignf (float, float);
   extern long double __cdecl copysignl (long double, long double);
 
+#ifndef __CRT__NO_INLINE
+#if !defined (__ia64__)
   __CRT_INLINE double __cdecl copysign (double x, double y)
   {
     __mingw_dbl_type_t hx, hy;
@@ -893,6 +895,8 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
     hx.val = (hx.val & 0x7fffffff) | (hy.val & 0x80000000);
     return hx.x;
   }
+#endif
+#endif
 
 /* 7.12.11.2 Return a NaN */
   extern double __cdecl nan(const char *tagp);
