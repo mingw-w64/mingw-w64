@@ -18,7 +18,7 @@ fdimf (float x, float y)
   if (x <= y)
     return 0.0f;
   r = x - y;
-  if (fplclassify (r) == FP_INFINITE)
+  if (fpclassify (r) == FP_INFINITE)
     errno = ERANGE;
   return r;
 }
