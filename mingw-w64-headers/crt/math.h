@@ -152,9 +152,32 @@ extern "C" {
   double __cdecl sqrt(double _X);
   double __cdecl ceil(double _X);
   double __cdecl floor(double _X);
-  double __cdecl fabs(double _X);
+
+/* 7.12.7.2 The fabs functions: Double in C89 */
+  extern  float __cdecl fabsf (float x);
+  extern long double __cdecl fabsl (long double);
+  extern double __cdecl fabs (double _X);
+
 #ifndef __CRT__NO_INLINE
 #if !defined (__ia64__)
+  __CRT_INLINE float __cdecl fabsf (float x)
+  {
+#ifdef __x86_64__
+    return __builtin_fabsf (x);
+#else
+    float res = 0.0F;
+    __asm__ __volatile__ ("fabs;" : "=t" (res) : "0" (x));
+    return res;
+#endif
+  }
+
+  __CRT_INLINE long double __cdecl fabsl (long double x)
+  {
+    long double res = 0.0l;
+    __asm__ __volatile__ ("fabs;" : "=t" (res) : "0" (x));
+    return res;
+  }
+
   __CRT_INLINE double __cdecl fabs (double x)
   {
 #ifdef __x86_64__
@@ -701,33 +724,6 @@ typedef long double double_t;
   extern float __cdecl cbrtf (float);
   extern long double __cdecl cbrtl (long double);
 
-/* 7.12.7.2 The fabs functions: Double in C89 */
-  extern  float __cdecl fabsf (float x);
-#ifndef __CRT__NO_INLINE
-#if !defined (__ia64__)
-  __CRT_INLINE float __cdecl fabsf (float x)
-  {
-#ifdef __x86_64__
-    return __builtin_fabsf (x);
-#else
-    float res = 0.0F;
-    __asm__ __volatile__ ("fabs;" : "=t" (res) : "0" (x));
-    return res;
-#endif
-  }
-#endif
-#endif
-  extern long double __cdecl fabsl (long double);
-#ifndef __CRT__NO_INLINE
-#if !defined (__ia64__)
-  __CRT_INLINE long double __cdecl fabsl (long double x)
-  {
-    long double res = 0.0l;
-    __asm__ __volatile__ ("fabs;" : "=t" (res) : "0" (x));
-    return res;
-  }
-#endif
-#endif
 /* 7.12.7.3  */
   extern double __cdecl hypot (double, double) __MINGW_ATTRIB_DEPRECATED_MSVC2005; /* in libmoldname.a */
   extern float __cdecl hypotf (float x, float y);
