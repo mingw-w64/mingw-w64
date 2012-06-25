@@ -41,7 +41,7 @@ AM_CONDITIONAL([HAVE_WIDL],[test -n "$widl_prog"])
 
 # Checks for header files.
 
-BASEHEAD_LIST="crt/_mingw.h "$srcdir/include/*.h
+BASEHEAD_LIST="crt/_mingw.h crt/_mingw_mac.h crt/_mingw_print_push.h crt/_mingw_print_pop.h crt/_mingw_secapi.h crt/_mingw_unicode.h crt/vadefs.h "$srcdir/include/*.h
 for i in dlg h16 hxx rh ver; do
   BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/include/*.$i
 done
