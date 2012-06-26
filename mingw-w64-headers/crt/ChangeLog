@@ -1,3 +1,10 @@
+2012-06-26  Corinna Vinschen  <vinschen@redhat.com>
+
+	* _cygwin.h: New file.
+	* _mingw.h.in: Include _cygwin.h when building a Cygwin application.
+	Allow building Cygwin applications even though _WIN32 isn't defined.
+	* vadefs.h: Drop test for _WIN32 since it's done in _mingw.h.
+
 2012-06-19  Kai Tietz  <ktietz@redhat.com>
 
 	* math.h (logb, logbf): Special-case x64 inline.
