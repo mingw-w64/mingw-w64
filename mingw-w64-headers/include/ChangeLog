@@ -1,3 +1,7 @@
+2012-06-27  Corinna Vinschen  <vinschen@redhat.com>
+
+	* stralign.h: Fix and add #endif comments.
+
 2012-06-27  Kai Tietz  <ktietz@redhat.com>
 
 	* wincrypt.h (WINADVAPI): Define as non-import iff
