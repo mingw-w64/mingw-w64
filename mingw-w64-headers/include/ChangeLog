@@ -1,3 +1,12 @@
+2012-06-27  Kai Tietz  <ktietz@redhat.com>
+
+	* wincrypt.h (WINADVAPI): Define as non-import iff
+	_ADVAPI32_ was defined.
+	* wincred.h: Likewise.
+	* winsvc.h: Likewise.
+	* perflib.h: Likewise.
+	* winbase.h: Likewise.
+
 2012-05-10  Kai Tietz  <ktietz@redhat.com>
 
 	PR 3523077

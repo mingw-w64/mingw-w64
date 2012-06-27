@@ -8,7 +8,14 @@
 
 #include <_mingw_unicode.h>
 
+#ifndef WINADVAPI
+#ifndef _ADVAPI32_
 #define WINADVAPI DECLSPEC_IMPORT
+#else
+#define WINADVAPI
+#endif
+#endif
+
 #define WINBASEAPI DECLSPEC_IMPORT
 #define ZAWPROXYAPI DECLSPEC_IMPORT
 
