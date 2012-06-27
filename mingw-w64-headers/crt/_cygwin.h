@@ -10,6 +10,9 @@
 #error Only Cygwin target is supported!
 #endif
 
+/* This includes the Cygwin gcc definitions for types like wchar_t or size_t. */
+#include <stddef.h>
+
 /* Make sure that POSIX types are not defined by _mingw.h if we're building
    for a Cygwin target.  In this case we have to make sure to use the types
    defined by the Cygwin/newlib headers. */

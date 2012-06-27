@@ -1,3 +1,7 @@
+2012-06-27  Corinna Vinschen  <vinschen@redhat.com>
+
+	* _cygwin.h: Include stddef.h.
+
 2012-06-26  Corinna Vinschen  <vinschen@redhat.com>
 
 	* _cygwin.h: New file.
