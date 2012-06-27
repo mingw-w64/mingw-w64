@@ -1,5 +1,12 @@
 2012-06-27  Corinna Vinschen  <vinschen@redhat.com>
 
+	* configure.ac (BASEHEAD_LIST): Add crt/_bsd_types.h, crt/_timeval.h,
+	and crt/excpt.h.
+	(SECHEAD_LIST): Define to include crt/sec_api/stralign_s.h by default.
+	* configure: Regenerate.
+
+2012-06-27  Corinna Vinschen  <vinschen@redhat.com>
+
 	* include/stralign.h: Fix and add #endif comments.
 
 2012-06-26  Corinna Vinschen  <vinschen@redhat.com>
