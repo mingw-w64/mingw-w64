@@ -5,6 +5,8 @@
  */
 #define __specstrings
 
+#include <sal.h>
+
 #ifdef __cplusplus
 #ifndef __nothrow
 #define __nothrow __declspec(nothrow)
