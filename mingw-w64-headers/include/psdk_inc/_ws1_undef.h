@@ -4,11 +4,6 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
-#undef FD_CLR
-#undef FD_ZERO
-#undef FD_ISSET
-#undef FD_SET
-
 #undef IOCPARM_MASK
 #undef IOC_VOID
 #undef IOC_OUT

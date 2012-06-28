@@ -1,3 +1,32 @@
+2012-06-28  Corinna Vinschen  <vinschen@redhat.com>
+
+	* winsock2.h (__WSAFDIsSet): Move declaration to psdk_inv/_fd_type.h.
+	(FD_CLR): Move definition to psdk_inv/_fd_type.h.
+	(FD_ZERO): Ditto.
+	(FD_ISSET): Ditto.
+	(FD_SET): Ditto.
+	(htonl): Don't declare when building Cygwin.
+	(htons): Ditto.
+	(ntohl): Ditto.
+	(ntohs): Ditto.
+	(gethostname): Ditto.
+	(select): Ditto.
+	* winsock.h: Ditto.
+	* psdk_inc/_fd_types.h: Add Cygwin build environment magic to avoid
+	multiple definition of the select function related datatypes and macros.
+	(__WSAFDIsSet): Declare here.
+	(FD_CLR): Define here.
+	(FD_ZERO): Ditto.
+	(FD_ISSET): Ditto.
+	(FD_SET): Ditto.  Make sure to undef FD_SET first, if it has been
+	defined from winsock.h before.
+	* psdk_inc/_ip_types.h: Rearrange slightly and don't define POSIX
+	compatible datatypes when building Cygwin.
+	* psdk_inc/_ws1_undef.h (FD_CLR): Drop #undef.
+	(FD_ZERO): Ditto.
+	(FD_ISSET): Ditto.
+	(FD_SET): Ditto.
+
 2012-06-28  Rafael Carre  <funman@videolan.org>
 
 	* dxva2api.h: Remove DXVA_* GUIDs and structs ...

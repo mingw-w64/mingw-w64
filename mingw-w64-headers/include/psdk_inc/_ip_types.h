@@ -9,6 +9,11 @@
 
 #include <_bsd_types.h>
 
+#ifndef __INSIDE_CYGWIN__
+
+#include <inaddr.h>
+#include <_timeval.h>
+
 #define h_addr h_addr_list[0]
 
 struct hostent {
@@ -44,20 +49,6 @@ struct protoent {
 	short	p_proto;
 };
 
-typedef struct hostent		HOSTENT;
-typedef struct hostent		*PHOSTENT;
-typedef struct hostent		*LPHOSTENT;
-
-typedef struct servent		SERVENT;
-typedef struct servent		*PSERVENT;
-typedef struct servent		*LPSERVENT;
-
-typedef struct protoent		PROTOENT;
-typedef struct protoent		*PPROTOENT;
-typedef struct protoent		*LPPROTOENT;
-
-
-#include <inaddr.h>
 
 struct sockaddr_in {
 	short	sin_family;
@@ -81,6 +72,20 @@ struct linger {
 	u_short	l_linger;
 };
 
+#endif /* !__INSIDE_CYGWIN__ */
+
+typedef struct hostent		HOSTENT;
+typedef struct hostent		*PHOSTENT;
+typedef struct hostent		*LPHOSTENT;
+
+typedef struct servent		SERVENT;
+typedef struct servent		*PSERVENT;
+typedef struct servent		*LPSERVENT;
+
+typedef struct protoent		PROTOENT;
+typedef struct protoent		*PPROTOENT;
+typedef struct protoent		*LPPROTOENT;
+
 typedef struct sockaddr		SOCKADDR;
 typedef struct sockaddr		*PSOCKADDR;
 typedef struct sockaddr		*LPSOCKADDR;
@@ -92,9 +97,6 @@ typedef struct sockaddr_in	*LPSOCKADDR_IN;
 typedef struct linger		LINGER;
 typedef struct linger		*PLINGER;
 typedef struct linger		*LPLINGER;
-
-
-#include <_timeval.h>
 
 typedef struct timeval		TIMEVAL;
 typedef struct timeval		*PTIMEVAL;
