@@ -1,5 +1,13 @@
 2012-06-28  Corinna Vinschen  <vinschen@redhat.com>
 
+	* ntdef.h (FILE_ATTRIBUTE_VALID_FLAGS): Define.
+	(FILE_SHARE_VALID_FLAGS): Define.
+	(FILE_SUPERSEDE, ...): Define native file creation dispositions.
+	(FILE_DIRECTORY_FILE, ...): Define native file open options.
+	(struct _REPARSE_DATA_BUFFER): Define.
+
+2012-06-28  Corinna Vinschen  <vinschen@redhat.com>
+
 	* winsock2.h (__WSAFDIsSet): Move declaration to psdk_inv/_fd_type.h.
 	(FD_CLR): Move definition to psdk_inv/_fd_type.h.
 	(FD_ZERO): Ditto.
