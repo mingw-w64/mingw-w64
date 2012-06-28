@@ -1,3 +1,8 @@
+2012-06-28  Rafael Carre  <funman@videolan.org>
+
+	* dxva2api.h: Remove DXVA_* GUIDs and structs ...
+	* dxva.h: ... And put them here.
+
 2012-06-28  Corinna Vinschen  <vinschen@redhat.com>
 
 	* ntdef.h (PHYSICAL_ADDRESS): Define unconditionally.
