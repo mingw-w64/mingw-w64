@@ -1,5 +1,9 @@
 2012-06-28  Corinna Vinschen  <vinschen@redhat.com>
 
+	* psdk_inc/_ip_types.h (sockaddr_in): Define unconditionally.
+
+2012-06-28  Corinna Vinschen  <vinschen@redhat.com>
+
 	* ntdef.h (FILE_ATTRIBUTE_VALID_FLAGS): Define.
 	(FILE_SHARE_VALID_FLAGS): Define.
 	(FILE_SUPERSEDE, ...): Define native file creation dispositions.

@@ -49,14 +49,6 @@ struct protoent {
 	short	p_proto;
 };
 
-
-struct sockaddr_in {
-	short	sin_family;
-	u_short	sin_port;
-	struct in_addr	sin_addr;
-	char	sin_zero[8];
-};
-
 struct sockaddr {
 	u_short	sa_family;
 	char	sa_data[14];
@@ -73,6 +65,13 @@ struct linger {
 };
 
 #endif /* !__INSIDE_CYGWIN__ */
+
+struct sockaddr_in {
+	short	sin_family;
+	u_short	sin_port;
+	struct in_addr	sin_addr;
+	char	sin_zero[8];
+};
 
 typedef struct hostent		HOSTENT;
 typedef struct hostent		*PHOSTENT;
