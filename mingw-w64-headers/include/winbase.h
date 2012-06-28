@@ -16,7 +16,14 @@
 #endif
 #endif
 
+#ifndef WINBASEAPI
+#ifndef _KERNEL32_
 #define WINBASEAPI DECLSPEC_IMPORT
+#else
+#define WINBASEAPI
+#endif
+#endif
+
 #define ZAWPROXYAPI DECLSPEC_IMPORT
 
 #ifdef __cplusplus
