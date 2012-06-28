@@ -1,3 +1,7 @@
+2012-06-28  Corinna Vinschen  <vinschen@redhat.com>
+
+	* ntdef.h (PHYSICAL_ADDRESS): Define unconditionally.
+
 2012-06-27  Corinna Vinschen  <vinschen@redhat.com>
 
 	* stralign.h: Fix and add #endif comments.
