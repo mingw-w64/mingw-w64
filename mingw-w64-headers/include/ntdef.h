@@ -421,9 +421,6 @@ typedef union _ULARGE_INTEGER {
   ULONGLONG QuadPart;
 } ULARGE_INTEGER, *PULARGE_INTEGER;
 
-/* Physical Addresses are always treated as 64-bit wide */
-typedef LARGE_INTEGER PHYSICAL_ADDRESS, *PPHYSICAL_ADDRESS;
-
 /* Locally Unique Identifier */
 typedef struct _LUID {
   ULONG LowPart;
@@ -431,6 +428,9 @@ typedef struct _LUID {
 } LUID, *PLUID;
 
 #endif /* _LARGE_INTEGER_DEFINED */
+
+/* Physical Addresses are always treated as 64-bit wide */
+typedef LARGE_INTEGER PHYSICAL_ADDRESS, *PPHYSICAL_ADDRESS;
 
 /* Native API Return Value Macros */
 #define NT_SUCCESS(Status)              (((NTSTATUS)(Status)) >= 0)
