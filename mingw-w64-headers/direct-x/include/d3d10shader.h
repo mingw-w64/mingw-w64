@@ -279,10 +279,19 @@ DECLARE_INTERFACE_(ID3D10ShaderReflection, IUnknown)
 };
 #undef INTERFACE
 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 LPCSTR WINAPI D3D10GetVertexShaderProfile(ID3D10Device *device);
 LPCSTR WINAPI D3D10GetGeometryShaderProfile(ID3D10Device *device);
 LPCSTR WINAPI D3D10GetPixelShaderProfile(ID3D10Device *device);
 
 HRESULT WINAPI D3D10ReflectShader(const void *data, SIZE_T data_size, ID3D10ShaderReflection **reflector);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __WINE_D3D10SHADER_H */
