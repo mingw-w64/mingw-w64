@@ -76,11 +76,11 @@ extern int mingw_app_type;
 
 HINSTANCE __mingw_winmain_hInstance;
 _TCHAR *__mingw_winmain_lpCmdLine;
-DWORD __mingw_winmain_nShowCmd;
+DWORD __mingw_winmain_nShowCmd = SW_SHOWDEFAULT;
 
 static int argc;
-#ifdef WPRFLAG
 extern void __main(void);
+#ifdef WPRFLAG
 static wchar_t **argv;
 static wchar_t **envp;
 #else
@@ -247,13 +247,16 @@ __tmainCRTStartup (void)
     
     _fpreset ();
 
-    if (mingw_app_type)
-      {
+    __mingw_winmain_hInstance = (HINSTANCE) &__ImageBase;
+
 #ifdef WPRFLAG
-	lpszCommandLine = (_TCHAR *) _wcmdln;
+    lpszCommandLine = (_TCHAR *) _wcmdln;
 #else
-	lpszCommandLine = (char *) _acmdln;
+    lpszCommandLine = (char *) _acmdln;
 #endif
+
+    if (lpszCommandLine)
+      {
 	while (*lpszCommandLine > SPACECHAR || (*lpszCommandLine && inDoubleQuote))
 	  {
 	    if (*lpszCommandLine == DQUOTECHAR)
@@ -261,8 +264,8 @@ __tmainCRTStartup (void)
 #ifdef _MBCS
 	    if (_ismbblead (*lpszCommandLine))
 	      {
-		if (lpszCommandLine) /* FIXME: Why this check? Should I check for *lpszCommandLine != 0 too? */
-		  lpszCommandLine++;
+		if (lpszCommandLine[1])
+		  ++lpszCommandLine;
 	      }
 #endif
 	    ++lpszCommandLine;
@@ -270,17 +273,20 @@ __tmainCRTStartup (void)
 	while (*lpszCommandLine && (*lpszCommandLine <= SPACECHAR))
 	  lpszCommandLine++;
 
-	__mingw_winmain_hInstance = (HINSTANCE) &__ImageBase;
 	__mingw_winmain_lpCmdLine = lpszCommandLine;
+      }
+
+    if (mingw_app_type)
+      {
 	__mingw_winmain_nShowCmd = StartupInfo.dwFlags & STARTF_USESHOWWINDOW ?
 				    StartupInfo.wShowWindow : SW_SHOWDEFAULT;
       }
     duplicate_ppstrings (argc, &argv);
+    __main ();
 #ifdef WPRFLAG
     __winitenv = envp;
     /* C++ initialization.
        gcc inserts this call automatically for a function called main, but not for wmain.  */
-    __main ();
     mainret = wmain (argc, argv, envp);
 #else
     __initenv = envp;

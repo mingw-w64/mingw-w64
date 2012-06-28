@@ -1,3 +1,13 @@
+2012-06-28  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merge from trunk revs.3817 & 5048:
+	2012-05-22  Kai Tietz  <ktietz@redhat.com>
+	* crt/crtexe.c (__mingw_winmain_hInstance): Initialize for
+	console-mode, too.
+	2010-11-13  Kai Tietz  <ktietz@redhat.com>
+	* crt/crtexe.c: Make reference to __main explicit even for non-
+	unicode startup
+
 2012-05-23  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/cabinet.def: New def, based on a patch by Ray Donnelly.
