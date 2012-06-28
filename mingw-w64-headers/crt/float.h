@@ -1,7 +1,7 @@
 /*
  * float.h
  * This file has no copyright assigned and is placed in the Public Domain.
- * This file is a part of the mingw-runtime package.
+ * This file is part of the mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within the package.
  *
  * Constants related to floating point arithmetic.

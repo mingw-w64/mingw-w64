@@ -1,6 +1,6 @@
 /**
  * This file has no copyright assigned and is placed in the Public Domain.
- * This file is part of the w64 mingw-runtime package.
+ * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 DEFINE_GUID(GUID_DEVCLASS_1394,0x6bdd1fc1L,0x810f,0x11d0,0xbe,0xc7,0x08,0x00,0x2b,0xe2,0x09,0x2f);

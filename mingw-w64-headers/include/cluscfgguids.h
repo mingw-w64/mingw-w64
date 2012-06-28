@@ -1,6 +1,6 @@
 /**
  * This file has no copyright assigned and is placed in the Public Domain.
- * This file is part of the w64 mingw-runtime package.
+ * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 DEFINE_GUID(CATID_ClusCfgCapabilities,0x4653eec4,0x2788,0x4ebd,0xa8,0x31,0x7e,0xd,0x9f,0x82,0xd6,0xe7);

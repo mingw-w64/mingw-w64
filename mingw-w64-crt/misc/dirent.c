@@ -1,7 +1,7 @@
 /*
  * dirent.c
  * This file has no copyright assigned and is placed in the Public Domain.
- * This file is a part of the mingw-runtime package.
+ * This file is part of the mingw-runtime package.
  * No warranty is given; refer to the file DISCLAIMER within the package.
  *
  * Derived from DIRLIB.C by Matt J. Weinstein

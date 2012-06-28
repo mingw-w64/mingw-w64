@@ -1,6 +1,6 @@
 /**
  * This file has no copyright assigned and is placed in the Public Domain.
- * This file is part of the w64 mingw-runtime package.
+ * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 #define PAB_PROVIDER_ID { 0xB5,0x3b,0xc2,0xc0,0x2c,0x77,0x10,0x1a,0xa1,0xbc,0x08,0x00,0x2b,0x2a,0x56,0xc2 }

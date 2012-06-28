@@ -1,7 +1,7 @@
 /*
  * CRT_noglob.c
  * This file has no copyright is assigned and is placed in the Public Domain.
- * This file is part of the w64 mingw-runtime package.
+ * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within the package.
  *
  * Include this object file to set _dowildcard to a state that will turn off
