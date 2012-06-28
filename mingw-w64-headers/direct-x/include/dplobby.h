@@ -105,7 +105,7 @@ typedef struct tagDPLDATA_PLAYERSCORE
  * System messages can be identified by dwMessageFlags having a value of DPLMSG_SYSTEM
  * after a call to ReceiveLobbyMessage.
  *
- * Standard messages can be indentified by dwMessageFlags having a value of DPLMSG_STANDARD
+ * Standard messages can be identified by dwMessageFlags having a value of DPLMSG_STANDARD
  * after a call to ReceiveLobbyMessage.
  */
 
@@ -129,7 +129,7 @@ typedef struct tagDPLDATA_PLAYERSCORE
 
 
 
-/* Used to indentify the message type */
+/* Used to identify the message type */
 typedef struct tagDPLMSG_GENERIC
 {
     DWORD       dwType;         /* Message type */
@@ -153,7 +153,7 @@ typedef struct tagDPLMSG_SETPROPERTY
         DWORD   dwPropertyData[1];   /* Buffer containing data */
 } DPLMSG_SETPROPERTY, *LPDPLMSG_SETPROPERTY;
 
-#define DPL_NOCONFIRMATION                      0L
+#define DPL_NOCONFIRMATION      0
 
 /* Reply to DPLMSG_SETPROPERTY */
 typedef struct tagDPLMSG_SETPROPERTYRESPONSE
