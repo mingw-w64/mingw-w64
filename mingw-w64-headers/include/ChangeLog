@@ -1,3 +1,12 @@
+2012-06-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merge from the trunk revs. 4808 and 5149:
+	2012-02-07  Rafaël Carré  <funman@videolan.org>
+	* dxva2api.h : Add missing UUIDS
+	2012-06-28  Rafaël Carré  <funman@videolan.org>
+	* dxva2api.h: Remove DXVA_* GUIDs and structs ...
+	* dxva.h: ... And put them here.
+
 2012-06-28  Corinna Vinschen  <vinschen@redhat.com>
 
 	* ntdef.h (PHYSICAL_ADDRESS): Define unconditionally.
