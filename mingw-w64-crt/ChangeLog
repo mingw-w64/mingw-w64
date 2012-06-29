@@ -1,3 +1,9 @@
+2012-06-29  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merge from the trunk rev. 4808:
+	2012-02-07  Rafaël Carré  <funman@videolan.org>
+	* libsrc/dxva-uuid.c (New file): Add DXVA UUIDs
+
 2012-06-28  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Merge from trunk rev.5048:
