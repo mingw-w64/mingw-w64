@@ -13,7 +13,7 @@
 #define __GETOPT_H__
 
 /* All the headers include this file. */
-#include <_mingw.h>
+#include <crtdefs.h>
 
 #ifdef __cplusplus
 extern "C" {

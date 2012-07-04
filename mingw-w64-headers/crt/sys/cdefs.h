@@ -4,7 +4,7 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
-#include <_mingw.h>
+#include <crtdefs.h>
 #ifndef	_SYS_CDEFS_H
 #define _SYS_CDEFS_H
 #ifdef	__cplusplus

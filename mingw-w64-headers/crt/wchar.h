@@ -6,7 +6,7 @@
 #ifndef _INC_WCHAR
 #define _INC_WCHAR
 
-#include <_mingw.h>
+#include <crtdefs.h>
 #include <_mingw_print_push.h>
 
 #pragma pack(push,_CRT_PACKING)

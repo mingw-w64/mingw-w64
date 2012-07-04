@@ -6,7 +6,7 @@
 #ifndef _INC_LOCALE
 #define _INC_LOCALE
 
-#include <_mingw.h>
+#include <crtdefs.h>
 
 #ifdef __cplusplus
 #include <stdio.h>
