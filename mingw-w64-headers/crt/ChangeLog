@@ -1,3 +1,9 @@
+2012-07-04  Kai Tietz  <ktietz@redhat.com>
+	    Tristan Gingold <gingold@adacore.com>
+
+	* setjmp.h (setjmp): Use frame-address builtin.
+	Reformat #if/#else block.
+
 2012-06-27  Corinna Vinschen  <vinschen@redhat.com>
 
 	* _cygwin.h: Include stddef.h.
