@@ -1,3 +1,8 @@
+2012-07-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw_mac.h (__MINGW_GCC_VERSION): New macro.
+	* setjmp.h (setjmp): Use mingw_getsp() with gcc < 4.7.2.
+
 2012-07-04  Kai Tietz  <ktietz@redhat.com>
 	    Tristan Gingold <gingold@adacore.com>
 
@@ -37,7 +42,6 @@
 2012-06-15 niXman <i.nixman@gmail.com>
 
 	* wchar.h (wmemcmp): Add missing __cdecl to prototype.
-
 	* math.h (fabs, fabsf): Fix typo.
 
 2012-05-31  Kai Tietz  <ktietz@redhat.com>

@@ -168,6 +168,14 @@
 #define __MSABI_LONG(x)  x ## l
 #endif
 
+#if __GNUC__
+#define __MINGW_GCC_VERSION	(__GNUC__	* 10000	+ \
+				 __GNUC_MINOR__	* 100	+ \
+				 __GNUC_PATCHLEVEL__)
+#else
+#define __MINGW_GCC_VERSION				0
+#endif
+
 #if defined (__GNUC__) && defined (__GNUC_MINOR__)
 #define __MINGW_GNUC_PREREQ(major, minor) \
   (__GNUC__ > (major) \
