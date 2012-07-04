@@ -1084,13 +1084,13 @@ extern "C" {
   __CRT_INLINE PVOID __cdecl
   __InlineInterlockedCompareExchangePointer(PVOID volatile *Destination,PVOID ExChange,PVOID Comperand) {
     return ((PVOID)(LONG_PTR)
-	    InterlockedCompareExchange((LONG volatile *)Destination,(LONG)(LONG_PTR)ExChange,(LONG)(LONG_PTR)Comperand));
+	    InterlockedCompareExchange((LONG volatile *)(LONG_PTR)Destination,(LONG)(LONG_PTR)ExChange,(LONG)(LONG_PTR)Comperand));
   }
 #define InterlockedCompareExchangePointer __InlineInterlockedCompareExchangePointer
 #else
 #define InterlockedCompareExchangePointer(Destination,ExChange,Comperand)	\
 	   (PVOID)(LONG_PTR)							\
-	    InterlockedCompareExchange((LONG volatile *)(Destination),(LONG)(LONG_PTR)(ExChange),(LONG)(LONG_PTR)(Comperand))
+	    InterlockedCompareExchange((LONG volatile *)(LONG_PTR)(Destination),(LONG)(LONG_PTR)(ExChange),(LONG)(LONG_PTR)(Comperand))
 #endif /* __cplusplus */
 
 #define InterlockedIncrementAcquire InterlockedIncrement
