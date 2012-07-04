@@ -1,6 +1,6 @@
 /**
  * This file has no copyright assigned and is placed in the Public Domain.
- * This file is part of the w64 mingw-runtime package.
+ * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 #ifndef _INC_SETJMP
@@ -148,34 +148,43 @@ extern "C" {
 #define _JMP_BUF_DEFINED
 #endif
 
-  void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp(void);
+void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp (void);
 
 #ifndef USE_NO_MINGW_SETJMP_TWO_ARGS
-#ifndef _INC_SETJMPEX
-#ifdef _WIN64
-#define setjmp(BUF) _setjmp((BUF), mingw_getsp())
-#else
-#define setjmp(BUF) _setjmp3((BUF), NULL)
-#endif
+#  ifndef _INC_SETJMPEX
+#    ifdef _WIN64
+#     if (__MINGW_GCC_VERSION < 40702)
+#      define setjmp(BUF) _setjmp((BUF), mingw_getsp())
+#     else
+#      define setjmp(BUF) _setjmp((BUF), __builtin_frame_address (0))
+#     endif
+#    else
+#      define setjmp(BUF) _setjmp3((BUF), NULL)
+#    endif
   int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp(jmp_buf _Buf, void *_Ctx);
   int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp3(jmp_buf _Buf, void *_Ctx);
-#else
-#undef setjmp
-#ifdef _WIN64
-#define setjmp(BUF) _setjmpex((BUF), mingw_getsp())
-#define setjmpex(BUF) _setjmpex((BUF), mingw_getsp())
-#else
-#define setjmp(BUF) _setjmpex((BUF), NULL)
-#define setjmpex(BUF) _setjmpex((BUF), NULL)
-#endif
+#  else
+#    undef setjmp
+#    ifdef _WIN64
+#     if (__MINGW_GCC_VERSION < 40702)
+#      define setjmp(BUF) _setjmpex((BUF), mingw_getsp())
+#      define setjmpex(BUF) _setjmpex((BUF), mingw_getsp())
+#     else
+#      define setjmp(BUF) _setjmpex((BUF), __builtin_frame_address (0))
+#      define setjmpex(BUF) _setjmpex((BUF), __builtin_frame_address (0))
+#     endif
+#    else
+#      define setjmp(BUF) _setjmpex((BUF), NULL)
+#      define setjmpex(BUF) _setjmpex((BUF), NULL)
+#    endif
   int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmpex(jmp_buf _Buf,void *_Ctx);
-#endif
+#  endif
 
 #else
 
-#ifndef _INC_SETJMPEX
-#define setjmp _setjmp
-#endif
+#  ifndef _INC_SETJMPEX
+#    define setjmp _setjmp
+#  endif
 
   int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) setjmp(jmp_buf _Buf);
 #endif
