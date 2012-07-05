@@ -1,3 +1,7 @@
+2012-07-05  Kai Tietz  <ktietz@redhat.com>
+
+	* ws2tcpip.h: Enable inline-functions always.
+
 2012-06-28  Corinna Vinschen  <vinschen@redhat.com>
 
 	* wincrypt.h (WINBASEAPI): Define as non-import iff
