@@ -1,3 +1,7 @@
+2012-07-05  Kai Tietz  <ktietz@redhat.com>
+
+	* stdio.h (asprintf, vasprintf): Disable definitions stubs.
+
 2012-07-04  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* _mingw_mac.h (__MINGW_GCC_VERSION): New macro.
