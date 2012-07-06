@@ -1,5 +1,9 @@
 2012-07-06  Corinna Vinschen  <vinschen@redhat.com>
 
+	* winsock2.h (gethostname): Drop __INSIDE_CYGWIN__ guard.
+
+2012-07-06  Corinna Vinschen  <vinschen@redhat.com>
+
 	* winnt.h (NtCurrentTeb): Always define inline implementation.
 	(GetCurrentFiber): Ditto.
 	(GetFiberData): Ditto.

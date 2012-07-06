@@ -986,9 +986,7 @@ typedef unsigned int GROUP;
   WINSOCK_API_LINKAGE SOCKET WSAAPI socket(int af,int type,int protocol);
   WINSOCK_API_LINKAGE struct hostent *WSAAPI gethostbyaddr(const char *addr,int len,int type);
   WINSOCK_API_LINKAGE struct hostent *WSAAPI gethostbyname(const char *name);
-#ifndef __INSIDE_CYGWIN__
   WINSOCK_API_LINKAGE int WSAAPI gethostname(char *name,int namelen);
-#endif /* !__INSIDE_CYGWIN__ */
   WINSOCK_API_LINKAGE struct servent *WSAAPI getservbyport(int port,const char *proto);
   WINSOCK_API_LINKAGE struct servent *WSAAPI getservbyname(const char *name,const char *proto);
   WINSOCK_API_LINKAGE struct protoent *WSAAPI getprotobynumber(int number);
