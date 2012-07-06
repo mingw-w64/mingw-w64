@@ -49,11 +49,6 @@ struct protoent {
 	short	p_proto;
 };
 
-struct sockaddr {
-	u_short	sa_family;
-	char	sa_data[14];
-};
-
 struct sockproto {
 	u_short	sp_family;
 	u_short	sp_protocol;
@@ -65,6 +60,11 @@ struct linger {
 };
 
 #endif /* !__INSIDE_CYGWIN__ */
+
+struct sockaddr {
+	u_short	sa_family;
+	char	sa_data[14];
+};
 
 struct sockaddr_in {
 	short	sin_family;

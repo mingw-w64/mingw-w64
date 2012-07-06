@@ -1,5 +1,9 @@
 2012-07-06  Corinna Vinschen  <vinschen@redhat.com>
 
+	* psdk_inc/_ip_types.h (struct sockaddr): Define always.
+
+2012-07-06  Corinna Vinschen  <vinschen@redhat.com>
+
 	* ntdef.h (struct _PROCESSOR_NUMBER): Guard definition with
 	___PROCESSOR_NUMBER_DEFINED.
 	(struct _GROUP_AFFINITY): Guard definition with
