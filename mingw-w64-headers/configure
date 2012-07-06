@@ -1315,7 +1315,7 @@ Optional Features:
                           sometimes confusing) to the casual installer
   --disable-crt           Do not use the default crt headers
   --enable-sdk=ARG        Add the desired SDK, where ARG can be one of ddk,
-                          directx, no or all
+                          directx, no or all. Default is all.
   --enable-idl            Enable installing idl files (default disabled)
   --enable-secure-api     Enable secure API by default
 
@@ -2568,40 +2568,20 @@ MINGWHELPERHEAD_LIST=$srcdir/include/psdk_inc/*.h
 
 
 
-enable_directx=no
-enable_ddk=no
-
-if test -d ${srcdir}/ddk/include/ddk
-then
-    # DDK headers have been fetched from ReactOS
-    ddk_present=yes
-else
-    # DDK heaers are absent
-    { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: svn checkout incomplete, ddk headers missing." >&5
-$as_echo "$as_me: WARNING: svn checkout incomplete, ddk headers missing." >&2;}
-    ddk_present=no
-fi
-
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for optional sdk headers" >&5
 $as_echo_n "checking for optional sdk headers... " >&6; }
 # Check whether --enable-sdk was given.
 if test "${enable_sdk+set}" = set; then :
   enableval=$enable_sdk;
 else
-
-  if test "${ddk_present}" = no
-  then
-    enable_sdk=directx
-  else
-    enable_sdk=all
-  fi
-
+  enable_sdkall=
 fi
+
 
 case $enable_sdk in #(
   all|yes) :
 
-    enable_sdk="ddk,directx"
+    enable_sdk=ddk,directx
     enable_ddk=yes
     enable_directx=yes ;; #(
   ddk) :
