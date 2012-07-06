@@ -23,8 +23,8 @@ AC_ARG_WITH([widl],
   [with_widl=no])
 
 AS_CASE([$with_widl],
-  [no],[with_widl=""],
-  [yes],[with_widl="mingw-w64-widl widl"],
+  [no],[AS_VAR_SET([with_widl])],
+  [yes],[AS_VAR_SET([with_widl],["mingw-w64-widl widl"])],
   [])
 AC_PATH_PROGS([WIDL], [$with_widl], [])
 AM_CONDITIONAL([HAVE_WIDL],[AS_VAR_TEST_SET([WIDL])])

@@ -2452,7 +2452,7 @@ fi
 
 case $with_widl in #(
   no) :
-    with_widl="" ;; #(
+    with_widl= ;; #(
   yes) :
     with_widl="mingw-w64-widl widl" ;; #(
   *) :
