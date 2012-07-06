@@ -26,7 +26,7 @@ dxhead_HEADERS = @DXHEAD_LIST@
 idlhead_HEADERS = @IDLHEAD_LIST@
 
 EXTRA_DIST = ChangeLog-2009
-DISTCHECK_CONFIGURE_FLAGS = --enable-sdk=all
+DISTCHECK_CONFIGURE_FLAGS = --enable-idl
 
 EXTRA_HEADERS = \
   include/*.dlg \
