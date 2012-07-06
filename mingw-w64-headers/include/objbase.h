@@ -11,8 +11,13 @@
 
 #include <pshpack8.h>
 
+#ifdef _OLE32_
+#define WINOLEAPI EXTERN_C HRESULT WINAPI
+#define WINOLEAPI_(type) EXTERN_C type WINAPI
+#else
 #define WINOLEAPI EXTERN_C DECLSPEC_IMPORT HRESULT WINAPI
 #define WINOLEAPI_(type) EXTERN_C DECLSPEC_IMPORT type WINAPI
+#endif
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
 

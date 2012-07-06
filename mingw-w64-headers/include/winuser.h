@@ -8,7 +8,11 @@
 
 #include <_mingw_unicode.h>
 
+#ifdef _USER32_
+#define WINUSERAPI
+#else
 #define WINUSERAPI DECLSPEC_IMPORT
+#endif
 
 #ifdef __cplusplus
 extern "C" {

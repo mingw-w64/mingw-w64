@@ -14,7 +14,11 @@
 #define WINGDIAPI DECLSPEC_IMPORT
 #endif
 
+#ifdef _SPOOL32_
+#define WINSPOOLAPI
+#else
 #define WINSPOOLAPI DECLSPEC_IMPORT
+#endif
 
 #ifdef __cplusplus
 extern "C" {

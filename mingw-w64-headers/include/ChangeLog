@@ -1,5 +1,15 @@
 2012-07-06  Corinna Vinschen  <vinschen@redhat.com>
 
+	* winbase.h (ZAWPROXYAPI): Define as empty if _ZAWPROXY_ is defined.
+	* objbase.h (WINOLEAPI): Define as empty if _OLE32_ is defined.
+	WINOLEAPI_: Ditto.
+	* winnt.h (NTSYSAPI): Define as empty if _NTSYSTEM_ is defined.
+	(NTSYSCALLAPI): Ditto.
+	* winuser.h (WINUSERAPI): Define as empty if _USER32_ is defined.
+	* wingdi.h (WINSPOOLAPI): Define as empty if _SPOOL32_ is defined.
+
+2012-07-06  Corinna Vinschen  <vinschen@redhat.com>
+
 	* windows.h: Don't include winsock.h on Cygwin, unless __USE_W32_SOCKETS
 	is defined.
 

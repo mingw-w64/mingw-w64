@@ -24,7 +24,11 @@
 #endif
 #endif
 
+#ifndef _ZAWPROXY_
 #define ZAWPROXYAPI DECLSPEC_IMPORT
+#else
+#define ZAWPROXYAPI
+#endif
 
 #ifdef __cplusplus
 extern "C" {

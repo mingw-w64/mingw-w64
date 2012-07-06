@@ -175,8 +175,13 @@ extern "C" {
 #define FASTCALL
 #endif
 #define NTAPI __stdcall
+#if !defined(_NTSYSTEM_)
 #define NTSYSAPI DECLSPEC_IMPORT
 #define NTSYSCALLAPI DECLSPEC_IMPORT
+#else
+#define NTSYSAPI
+#define NTSYSCALLAPI
+#endif
 
 #ifndef VOID
 #define VOID void
