@@ -1,5 +1,5 @@
 
-baseheaddir = $(includedir)/../$(host)/include
+baseheaddir = $(includedir)
 sysheaddir = $(baseheaddir)/sys
 secheaddir = $(baseheaddir)/sec_api
 secsysheaddir = $(baseheaddir)/sec_api/sys
