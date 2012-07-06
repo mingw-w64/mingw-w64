@@ -2449,16 +2449,22 @@ else
   with_widl=no
 fi
 
-
 case $with_widl in #(
   no) :
-    with_widl= ;; #(
+     ;; #(
   yes) :
     with_widl="mingw-w64-widl widl" ;; #(
   *) :
      ;;
 esac
-for ac_prog in $with_widl
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $with_widl" >&5
+$as_echo "$with_widl" >&6; }
+
+if test "x$with_widl" = xno; then :
+
+else
+
+  for ac_prog in $with_widl
 do
   # Extract the first word of "$ac_prog", so it can be a program name with args.
 set dummy $ac_prog; ac_word=$2
@@ -2503,6 +2509,11 @@ fi
   test -n "$WIDL" && break
 done
 
+  if ${WIDL:+false} :; then :
+  as_fn_error $? "Could not find widl installation, which is required in maintainer mode" "$LINENO" 5
+fi
+fi
+
  if ${WIDL+:} false; then
   HAVE_WIDL_TRUE=
   HAVE_WIDL_FALSE='#'
@@ -2511,13 +2522,6 @@ else
   HAVE_WIDL_FALSE=
 fi
 
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $WIDL" >&5
-$as_echo "$WIDL" >&6; }
-if ${WIDL+:} false; then :
-
-else
-  as_fn_error $? "Could not find widl installation, which is required in maintainer mode" "$LINENO" 5
-fi
 
 # Checks for libraries.
 

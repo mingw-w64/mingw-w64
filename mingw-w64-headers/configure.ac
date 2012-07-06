@@ -20,16 +20,18 @@ AC_ARG_WITH([widl],
   AS_HELP_STRING([--with-widl=PATH],
     [use widl to update idl-based headers]),
   [],
-  [with_widl=no])
-
+  [AS_VAR_SET([with_widl],[no])])
 AS_CASE([$with_widl],
-  [no],[AS_VAR_SET([with_widl])],
+  [no],[],
   [yes],[AS_VAR_SET([with_widl],["mingw-w64-widl widl"])],
   [])
-AC_PATH_PROGS([WIDL], [$with_widl], [])
+AC_MSG_RESULT([$with_widl])
+
+AS_VAR_IF([with_widl],[no],[],[
+  AC_PATH_PROGS([WIDL], [$with_widl], [])
+  AS_VAR_IF([WIDL],[],[AC_MSG_ERROR([Could not find widl installation, which is required in maintainer mode])])])
+
 AM_CONDITIONAL([HAVE_WIDL],[AS_VAR_TEST_SET([WIDL])])
-AC_MSG_RESULT([$WIDL])
-AS_VAR_SET_IF([WIDL],[],[AC_MSG_ERROR([Could not find widl installation, which is required in maintainer mode])])
 
 # Checks for libraries.
 
