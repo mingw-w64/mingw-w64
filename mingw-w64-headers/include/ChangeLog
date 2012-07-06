@@ -1,5 +1,9 @@
 2012-07-06  Corinna Vinschen  <vinschen@redhat.com>
 
+	* in6addr.h (s6_addr16): Define when building Cygwin.
+
+2012-07-06  Corinna Vinschen  <vinschen@redhat.com>
+
 	* winbase.h (ZAWPROXYAPI): Define as empty if _ZAWPROXY_ is defined.
 	* objbase.h (WINOLEAPI): Define as empty if _OLE32_ is defined.
 	WINOLEAPI_: Ditto.

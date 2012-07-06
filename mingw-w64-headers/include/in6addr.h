@@ -28,6 +28,7 @@ typedef struct in6_addr {
 #define s6_words	u.Word
 
 #ifdef __INSIDE_CYGWIN__
+#define s6_addr16	u.Word
 #define s6_addr32       u.__s6_addr32
 #endif
 
