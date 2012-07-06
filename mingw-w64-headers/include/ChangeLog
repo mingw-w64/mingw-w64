@@ -1,5 +1,9 @@
 2012-07-06  Corinna Vinschen  <vinschen@redhat.com>
 
+	* stralign.h (ua_wcscpy): Define as macro when building on Cygwin.
+
+2012-07-06  Corinna Vinschen  <vinschen@redhat.com>
+
 	* in6addr.h (s6_addr16): Define when building Cygwin.
 
 2012-07-06  Corinna Vinschen  <vinschen@redhat.com>

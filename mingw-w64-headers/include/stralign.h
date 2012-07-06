@@ -26,7 +26,7 @@ extern "C" {
 #define ua_wcsrchr wcsrchr
 
   PUWSTR ua_wcscpy(PUWSTR Destination,PCUWSTR Source);
-#ifndef __CRT__NO_INLINE
+#if !defined (__CRT__NO_INLINE) && !defined (__CYGWIN__)
   __CRT_INLINE PUWSTR ua_wcscpy(PUWSTR Destination,PCUWSTR Source) { return wcscpy(Destination,Source); }
 #else
 #define ua_wcscpy wcscpy
