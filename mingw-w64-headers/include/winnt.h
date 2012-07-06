@@ -1860,7 +1860,6 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
   }
 #endif
 
-#ifndef __CRT__NO_INLINE
   __CRT_INLINE VOID MemoryBarrier(VOID)
   {
     LONG Barrier = 0;
@@ -1890,7 +1889,6 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 	: "=r" (ret));
     return ret;
   }
-#endif /* !__CRT__NO_INLINE */
 #endif /* defined(__i386__) && !defined(__x86_64) */
 
 #define EXCEPTION_READ_FAULT 0

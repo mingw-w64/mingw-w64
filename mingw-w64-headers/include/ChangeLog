@@ -1,3 +1,10 @@
+2012-07-06  Corinna Vinschen  <vinschen@redhat.com>
+
+	* winnt.h (NtCurrentTeb): Always define inline implementation.
+	(GetCurrentFiber): Ditto.
+	(GetFiberData): Ditto.
+	(MemoryBarrier): Ditto.
+
 2012-07-05  Kai Tietz  <ktietz@redhat.com>
 
 	* ws2tcpip.h: Enable inline-functions always.
