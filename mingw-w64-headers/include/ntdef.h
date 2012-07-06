@@ -588,11 +588,14 @@ typedef struct _SINGLE_LIST_ENTRY {
 
 #endif /* _LIST_ENTRY_DEFINED */
 
+#ifndef ___PROCESSOR_NUMBER_DEFINED
+#define ___PROCESSOR_NUMBER_DEFINED
 typedef struct _PROCESSOR_NUMBER {
   USHORT Group;
   UCHAR Number;
   UCHAR Reserved;
 } PROCESSOR_NUMBER, *PPROCESSOR_NUMBER;
+#endif /* !___PROCESSOR_NUMBER_DEFINED */
 
 struct _CONTEXT;
 struct _EXCEPTION_RECORD;
@@ -607,11 +610,14 @@ typedef EXCEPTION_DISPOSITION
   PVOID DispatcherContext);
 #endif /* __PEXCEPTION_ROUTINE_DEFINED */
 
+#ifndef ___GROUP_AFFINITY_DEFINED
+#define ___GROUP_AFFINITY_DEFINED
 typedef struct _GROUP_AFFINITY {
   KAFFINITY Mask;
   USHORT Group;
   USHORT Reserved[3];
 } GROUP_AFFINITY, *PGROUP_AFFINITY;
+#endif /* !___GROUP_AFFINITY_DEFINED */
 
 /* Helper Macros */
 #define RTL_CONSTANT_STRING(s) { sizeof(s)-sizeof((s)[0]), sizeof(s), s }
