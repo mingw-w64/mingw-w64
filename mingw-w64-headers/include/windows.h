@@ -88,7 +88,9 @@
 #include <rpc.h>
 #include <shellapi.h>
 #include <winperf.h>
+#if defined(__USE_W32_SOCKETS) || !defined(__CYGWIN__)
 #include <winsock.h>
+#endif
 #ifndef NOCRYPT
 #include <wincrypt.h>
 #include <winefs.h>

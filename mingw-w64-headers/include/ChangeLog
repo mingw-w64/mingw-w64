@@ -1,5 +1,10 @@
 2012-07-06  Corinna Vinschen  <vinschen@redhat.com>
 
+	* windows.h: Don't include winsock.h on Cygwin, unless __USE_W32_SOCKETS
+	is defined.
+
+2012-07-06  Corinna Vinschen  <vinschen@redhat.com>
+
 	* psdk_inc/_ip_types.h (struct sockaddr): Define always.
 
 2012-07-06  Corinna Vinschen  <vinschen@redhat.com>
