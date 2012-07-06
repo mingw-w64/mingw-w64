@@ -74,7 +74,7 @@ AC_ARG_ENABLE([sdk],
   [AS_HELP_STRING([--enable-sdk=ARG],
     [Add the desired SDK, where ARG can be one of ddk, directx, no or all.  Default is all.])],
   [],
-  [AS_VAR_SET([enable_sdk][all])])
+  [AS_VAR_SET([enable_sdk],[all])])
 
 AS_CASE([$enable_sdk],
   [all|yes],[
