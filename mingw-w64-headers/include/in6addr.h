@@ -12,6 +12,9 @@ typedef struct in6_addr {
   union {
     u_char Byte[16];
     u_short Word[8];
+#ifdef __INSIDE_CYGWIN__
+    uint32_t __s6_addr32[4];
+#endif
   } u;
 } IN6_ADDR, *PIN6_ADDR, *LPIN6_ADDR;
 
@@ -23,6 +26,10 @@ typedef struct in6_addr {
 
 #define s6_bytes	u.Byte
 #define s6_words	u.Word
+
+#ifdef __INSIDE_CYGWIN__
+#define s6_addr32       u.__s6_addr32
+#endif
 
 #endif /* s6_addr */
 

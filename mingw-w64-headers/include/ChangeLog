@@ -1,5 +1,11 @@
 2012-07-06  Corinna Vinschen  <vinschen@redhat.com>
 
+	* in6addr.h (struct in6addr): Add u.__s6_addr32 member when
+	building Cygwin.
+	(s6_addr32): Define when building Cygwin.
+
+2012-07-06  Corinna Vinschen  <vinschen@redhat.com>
+
 	* winsock2.h (gethostname): Drop __INSIDE_CYGWIN__ guard.
 
 2012-07-06  Corinna Vinschen  <vinschen@redhat.com>
