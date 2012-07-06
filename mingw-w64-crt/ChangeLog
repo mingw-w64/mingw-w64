@@ -1,3 +1,7 @@
+2012-07-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crt/tlssup.c: Removed Windows 9X/Me mingwm10.dll support.
+
 2012-06-29  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Merge from the trunk rev. 4808:
