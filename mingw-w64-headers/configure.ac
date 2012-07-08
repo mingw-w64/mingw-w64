@@ -15,7 +15,7 @@ AC_CANONICAL_HOST
 # Checks for programs.
 AC_PROG_SED
 
-AC_MSG_CHECKING([for a usable widl])
+AC_MSG_CHECKING([whether to rebuild headers with widl])
 AC_ARG_WITH([widl],
   AS_HELP_STRING([--with-widl=PATH],
     [use widl to update idl-based headers]),
