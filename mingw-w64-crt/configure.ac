@@ -38,9 +38,9 @@ AC_PROG_CXX
 AC_PROG_INSTALL
 AC_PROG_RANLIB
 AC_CHECK_TOOL([DLLTOOL], [dlltool], [:])
+AM_PROG_AR
 AM_PROG_AS
-dnl Remove these once automake fixes the bug where they aren't defined according to $host
-AC_CHECK_TOOL([AR], [ar], [:])
+dnl Remove this once automake fixes the bug where AS is not defined according to $host
 AC_CHECK_TOOL([AS], [as], [:])
 dnl ---
 AM_PROG_CC_C_O
