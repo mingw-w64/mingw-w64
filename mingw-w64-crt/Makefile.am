@@ -13,7 +13,7 @@
 #AUTOMAKE_OPTIONS = color-tests
 
 if WITHSYSROOT
-  sysincludes=-I@TARGET_SYSTEM_ROOT@/$(host)/include
+  sysincludes=-I@TARGET_SYSTEM_ROOT@/include
   withsys=--with-sysroot=@TARGET_SYSTEM_ROOT@
 else
   sysincludes=

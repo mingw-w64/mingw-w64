@@ -682,9 +682,9 @@ LDFLAGS
 CFLAGS
 CC
 SED
-TARGET_SYSTEM_ROOT
 WITHSYSROOT_FALSE
 WITHSYSROOT_TRUE
+TARGET_SYSTEM_ROOT
 host_os
 host_vendor
 host_cpu
@@ -1430,7 +1430,8 @@ Optional Features:
 Optional Packages:
   --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
   --without-PACKAGE       do not use PACKAGE (same as --with-PACKAGE=no)
-  --with-sysroot=DIR      Search for include within DIR/mingw.
+  --with-sysroot=DIR      Search for headers within DIR/include (default:
+                          prefix/include)
 
 Some influential environment variables:
   CC          C compiler command
@@ -2775,46 +2776,28 @@ $as_echo_n "checking for sysroot... " >&6; }
 
 # Check whether --with-sysroot was given.
 if test "${with_sysroot+set}" = set; then :
-  withval=$with_sysroot; case $with_sysroot in #(
-  no) :
-    { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; } ;; #(
-  yes) :
-    { $as_echo "$as_me:${as_lineno-$LINENO}: result: none specified" >&5
-$as_echo "none specified" >&6; }
-      as_fn_error $? "Please specify a directory to the --with-sysroot=DIR option" "$LINENO" 5
-     ;; #(
-  *) :
-
-      { $as_echo "$as_me:${as_lineno-$LINENO}: result: $with_sysroot" >&5
-$as_echo "$with_sysroot" >&6; }
-      TARGET_SYSTEM_ROOT=$with_sysroot
-      { $as_echo "$as_me:${as_lineno-$LINENO}: checking if sysroot contains an include directory" >&5
-$as_echo_n "checking if sysroot contains an include directory... " >&6; }
-      if test -d $with_sysroot/$host/include; then :
-  { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
-$as_echo "yes" >&6; }
+  withval=$with_sysroot;
 else
-
-          { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-          as_fn_error $? "Sysroot directory does not contain $host/include" "$LINENO" 5
-          with_sysroot=no
-
+  with_sysroot=yes
 fi
+
+case $with_sysroot in #(
+  no) :
+     ;; #(
+  yes) :
+    with_sysroot=$prefix/include ;; #(
+  *) :
      ;;
 esac
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $with_sysroot" >&5
+$as_echo "$with_sysroot" >&6; }
+if test "x$with_sysroot" = xno; then :
 
 else
-
-    { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-    TARGET_SYSTEM_ROOT=
-    with_sysroot=no
-
+  TARGET_SYSTEM_ROOT=$with_sysroot
 fi
 
- if test $with_sysroot != no; then
+ if ${TARGET_SYSTEM_ROOT+:} false; then
   WITHSYSROOT_TRUE=
   WITHSYSROOT_FALSE='#'
 else

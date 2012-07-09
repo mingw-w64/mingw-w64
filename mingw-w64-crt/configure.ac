@@ -16,31 +16,18 @@ AC_CANONICAL_HOST
 AC_MSG_CHECKING([for sysroot])
 AC_ARG_WITH([sysroot],
   [AS_HELP_STRING([--with-sysroot=DIR],
-    [Search for include within DIR/mingw.])],
-  [AS_CASE([$with_sysroot],
-    [no],[AC_MSG_RESULT([no])],
-    [yes],[AC_MSG_RESULT([none specified])
-      AC_MSG_ERROR([Please specify a directory to the --with-sysroot=DIR option])
-    ],[
-      AC_MSG_RESULT([$with_sysroot])
-      TARGET_SYSTEM_ROOT=$with_sysroot
-      AC_MSG_CHECKING([if sysroot contains an include directory])
-      AS_IF([test -d $with_sysroot/$host/include],
-        [AC_MSG_RESULT([yes])],
-        [
-          AC_MSG_RESULT([no])
-          AC_MSG_ERROR([Sysroot directory does not contain $host/include])
-          with_sysroot=no
-        ])
-    ])
-  ],
-  [
-    AC_MSG_RESULT([no])
-    TARGET_SYSTEM_ROOT=
-    with_sysroot=no
-  ])
-AM_CONDITIONAL([WITHSYSROOT],[test $with_sysroot != no])
+    [Search for headers within DIR/include (default: prefix/include)])],
+  [],
+  [AS_VAR_SET([with_sysroot],[yes])])
+AS_CASE([$with_sysroot],
+  [no],[],
+  [yes],[AS_VAR_SET([with_sysroot],[$prefix/include])],
+  [])
+AC_MSG_RESULT([$with_sysroot])
+AS_VAR_IF([with_sysroot],[no],[],[AS_VAR_SET([TARGET_SYSTEM_ROOT],[$with_sysroot])])
 AC_SUBST([TARGET_SYSTEM_ROOT])
+AM_CONDITIONAL([WITHSYSROOT],[AS_VAR_TEST_SET([TARGET_SYSTEM_ROOT])])
+
 
 # Checks for programs.
 # Checks for headers, libs, etc need to utilize the sysroot... no idea how
