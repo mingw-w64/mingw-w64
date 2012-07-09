@@ -288,7 +288,7 @@ if LIB32
 # Compiling 32-bit runtime
 #
 
-lib32dir=$(prefix)/$(host)/@LIB32SUFFIXDIR@
+lib32dir=$(prefix)/@LIB32SUFFIXDIR@
 crt32dir=$(lib32dir)
 
 crt32_DATA = \
@@ -585,7 +585,7 @@ if LIB64
 # Compiling 64-bit runtime
 # #######################################################################
 
-lib64dir=$(prefix)/$(host)/@LIB64SUFFIXDIR@
+lib64dir=$(prefix)/@LIB64SUFFIXDIR@
 crt64dir=$(lib64dir)
 
 crt64_DATA = \
@@ -1050,7 +1050,7 @@ endif
 
 # Don't compile these, but install as is:
 #
-libsrcdir=$(prefix)/$(host)/libsrc
+libsrcdir=$(prefix)/libsrc
 libsrc_DATA = \
   libsrc/agtctl_i.c   libsrc/agtsvr_i.c     libsrc/cdoex_i.c    libsrc/cdoexm_i.c     \
   libsrc/cdosys_i.c   libsrc/emostore_i.c   libsrc/iisext_i.c   libsrc/mtsadmin_i.c   \
