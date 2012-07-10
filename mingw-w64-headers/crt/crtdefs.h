@@ -22,6 +22,22 @@ typedef int errcode;
 #define _CRTRESTRICT
 #endif
 
+#if defined(__cplusplus) && _CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES
+
+#define __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_2(__ret,__func,__dsttype,__dst,__type1,__arg1,__type2,__arg2)\
+  extern "C++" {\
+    template <size_t __size> inline\
+    __ret __cdecl __func(__dsttype (&__dst)[__size], __type1 __arg1, __type2 __arg2) { \
+        return __func(__dst,__size,__arg1,__arg2);  \
+    }\
+  }
+
+#else
+
+#define __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_2(__ret,__func,__dsttype,__dst,__type1,__arg1,__type2,__arg2)
+
+#endif
+
 struct threadlocaleinfostruct;
 struct threadmbcinfostruct;
 typedef struct threadlocaleinfostruct *pthreadlocinfo;
