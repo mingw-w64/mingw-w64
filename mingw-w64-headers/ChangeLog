@@ -1,3 +1,8 @@
+2012-07-11  Corinna Vinschen  <vinschen@redhat.com>
+
+	* configure.ac (BASEHEAD_LIST): Add crt/crtdefs.h.
+	* configure: Regenerate.
+
 2012-06-27  Corinna Vinschen  <vinschen@redhat.com>
 
 	* configure.ac (BASEHEAD_LIST): Add crt/_bsd_types.h, crt/_timeval.h,
