@@ -1,3 +1,16 @@
+2012-07-11  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* tapi.h: Move the unicode A/W macros after the function prototypes.
+	(lineAddProvider,lineBlindTransfer,lineConfigDialog,
+	lineConfigDialogEdit,lineDial,lineGatherDigits,lineGenerateDigits,
+	lineGetAddressID,lineGetAppPriority,lineGetDevConfig,lineGetIcon,
+	lineGetID,lineHandoff,lineMakeCall,linePark,linePickup,lineRedirect,
+	lineSetAppPriority,lineSetDevConfig,lineSetTollList,
+	lineTranslateAddress,lineTranslateDialog,lineUnpark,phoneConfigDialog,
+	phoneGetIcon,phoneGetID,tapiGetLocationInfo,tapiRequestMakeCall,
+	tapiRequestMediaCall): Define as *A variant only for TAPI2 or newer,
+	but always define as *W variant when UNICODE is defined.
+
 2012-07-06  Corinna Vinschen  <vinschen@redhat.com>
 
 	* stralign.h (ua_wcscpy): Define as macro when building on Cygwin.
@@ -221,13 +234,13 @@
 
 	* strsafe.h (MPRAPI_OBJECT_HEADER): Fix double extern qualifier in
 	_STRSAFE_EXTERN_C. __CRT_INLINE macro already has extern.
-    
+
 2012-01-26  Kai Tietz  <ktietz@redhat.com>
 
-        * nldef.h (NL_INTERFACE_OFFLOAD_ROD): Remove
-        TlStreamFastPathCompatible and TlDatagramFastPathCompatible
-        members, which are merged into FastPathCompatible.
-        (note msdn is wrong here).
+	* nldef.h (NL_INTERFACE_OFFLOAD_ROD): Remove
+	TlStreamFastPathCompatible and TlDatagramFastPathCompatible
+	members, which are merged into FastPathCompatible.
+	(note msdn is wrong here).
 
 2012-01-26  Jonathan Yong  <jon_y@users.sourceforge.net>
 
@@ -262,7 +275,6 @@
 2012-01-25  Kai Tietz  <ktietz@redhat.com>
 
 	* iprtrmib.h (MIB_TCP_STATE): New typedef.
-
 	* mprapi.h (MprAdminConnectionRemoveQuarantine): Remove
 	double definition.
 
