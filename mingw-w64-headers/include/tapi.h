@@ -1,6 +1,6 @@
 /**
  * This file has no copyright assigned and is placed in the Public Domain.
- * This file is part of the w64 mingw-runtime package.
+ * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 #ifndef TAPI_H
@@ -2007,66 +2007,6 @@ extern "C" {
     DWORD dwStringOffset;
   } VARSTRING,*LPVARSTRING;
 
-#define lineAddProvider __MINGW_NAME_AW(lineAddProvider)
-#define lineBlindTransfer __MINGW_NAME_AW(lineBlindTransfer)
-#define lineConfigDialog __MINGW_NAME_AW(lineConfigDialog)
-#define lineConfigDialogEdit __MINGW_NAME_AW(lineConfigDialogEdit)
-#define lineCreateAgent __MINGW_NAME_AW(lineCreateAgent)
-#define lineCreateAgent __MINGW_NAME_AW(lineCreateAgent)
-#define lineDial __MINGW_NAME_AW(lineDial)
-#define lineForward __MINGW_NAME_AW(lineForward)
-#define lineGatherDigits __MINGW_NAME_AW(lineGatherDigits)
-#define lineGenerateDigits __MINGW_NAME_AW(lineGenerateDigits)
-#define lineGetAddressCaps __MINGW_NAME_AW(lineGetAddressCaps)
-#define lineGetAddressID __MINGW_NAME_AW(lineGetAddressID)
-#define lineGetAddressStatus __MINGW_NAME_AW(lineGetAddressStatus)
-#define lineGetAgentActivityList __MINGW_NAME_AW(lineGetAgentActivityList)
-#define lineGetAgentCaps __MINGW_NAME_AW(lineGetAgentCaps)
-#define lineGetAgentGroupList __MINGW_NAME_AW(lineGetAgentGroupList)
-#define lineGetAgentStatus __MINGW_NAME_AW(lineGetAgentStatus)
-#define lineGetAppPriority __MINGW_NAME_AW(lineGetAppPriority)
-#define lineGetCallInfo __MINGW_NAME_AW(lineGetCallInfo)
-#define lineGetCountry __MINGW_NAME_AW(lineGetCountry)
-#define lineGetDevCaps __MINGW_NAME_AW(lineGetDevCaps)
-#define lineGetDevConfig __MINGW_NAME_AW(lineGetDevConfig)
-#define lineGetGroupList __MINGW_NAME_AW(lineGetGroupList)
-#define lineGetIcon __MINGW_NAME_AW(lineGetIcon)
-#define lineGetID __MINGW_NAME_AW(lineGetID)
-#define lineGetDevStatus __MINGW_NAME_AW(lineGetDevStatus)
-#define lineGetProviderList __MINGW_NAME_AW(lineGetProviderList)
-#define lineGetQueueList __MINGW_NAME_AW(lineGetQueueList)
-#define lineGetRequest __MINGW_NAME_AW(lineGetRequest)
-#define lineGetTranslateCaps __MINGW_NAME_AW(lineGetTranslateCaps)
-#define lineHandoff __MINGW_NAME_AW(lineHandoff)
-#define lineInitializeEx __MINGW_NAME_AW(lineInitializeEx)
-#define lineMakeCall __MINGW_NAME_AW(lineMakeCall)
-#define lineOpen __MINGW_NAME_AW(lineOpen)
-#define linePark __MINGW_NAME_AW(linePark)
-#define linePickup __MINGW_NAME_AW(linePickup)
-#define linePrepareAddToConference __MINGW_NAME_AW(linePrepareAddToConference)
-#define lineRedirect __MINGW_NAME_AW(lineRedirect)
-#define lineSetAppPriority __MINGW_NAME_AW(lineSetAppPriority)
-#define lineSetDevConfig __MINGW_NAME_AW(lineSetDevConfig)
-#define lineSetTollList __MINGW_NAME_AW(lineSetTollList)
-#define lineSetupConference __MINGW_NAME_AW(lineSetupConference)
-#define lineSetupTransfer __MINGW_NAME_AW(lineSetupTransfer)
-#define lineTranslateAddress __MINGW_NAME_AW(lineTranslateAddress)
-#define lineTranslateDialog __MINGW_NAME_AW(lineTranslateDialog)
-#define lineUnpark __MINGW_NAME_AW(lineUnpark)
-
-#define phoneConfigDialog __MINGW_NAME_AW(phoneConfigDialog)
-#define phoneGetButtonInfo __MINGW_NAME_AW(phoneGetButtonInfo)
-#define phoneGetDevCaps __MINGW_NAME_AW(phoneGetDevCaps)
-#define phoneGetIcon __MINGW_NAME_AW(phoneGetIcon)
-#define phoneGetID __MINGW_NAME_AW(phoneGetID)
-#define phoneGetStatus __MINGW_NAME_AW(phoneGetStatus)
-#define phoneInitializeEx __MINGW_NAME_AW(phoneInitializeEx)
-#define phoneSetButtonInfo __MINGW_NAME_AW(phoneSetButtonInfo)
-
-#define tapiGetLocationInfo __MINGW_NAME_AW(tapiGetLocationInfo)
-#define tapiRequestMakeCall __MINGW_NAME_AW(tapiRequestMakeCall)
-#define tapiRequestMediaCall __MINGW_NAME_AW(tapiRequestMediaCall)
-
   LONG WINAPI lineAccept(HCALL hCall,LPCSTR lpsUserUserInfo,DWORD dwSize);
   LONG WINAPI lineAddProvider(LPCSTR lpszProviderFilename,HWND hwndOwner,LPDWORD lpdwPermanentProviderID);
   LONG WINAPI lineAddProviderA(LPCSTR lpszProviderFilename,HWND hwndOwner,LPDWORD lpdwPermanentProviderID);
@@ -2316,6 +2256,70 @@ extern "C" {
   LONG WINAPI tapiRequestMediaCall(HWND hwnd,WPARAM wRequestID,LPCSTR lpszDeviceClass,LPCSTR lpDeviceID,DWORD dwSize,DWORD dwSecure,LPCSTR lpszDestAddress,LPCSTR lpszAppName,LPCSTR lpszCalledParty,LPCSTR lpszComment);
   LONG WINAPI tapiRequestMediaCallA(HWND hwnd,WPARAM wRequestID,LPCSTR lpszDeviceClass,LPCSTR lpDeviceID,DWORD dwSize,DWORD dwSecure,LPCSTR lpszDestAddress,LPCSTR lpszAppName,LPCSTR lpszCalledParty,LPCSTR lpszComment);
   LONG WINAPI tapiRequestMediaCallW(HWND hwnd,WPARAM wRequestID,LPCWSTR lpszDeviceClass,LPCWSTR lpDeviceID,DWORD dwSize,DWORD dwSecure,LPCWSTR lpszDestAddress,LPCWSTR lpszAppName,LPCWSTR lpszCalledParty,LPCWSTR lpszComment);
+
+#if defined(UNICODE) || (TAPI_CURRENT_VERSION >= 0x00020000)
+#define lineAddProvider __MINGW_NAME_AW(lineAddProvider)
+#define lineBlindTransfer __MINGW_NAME_AW(lineBlindTransfer)
+#define lineConfigDialog __MINGW_NAME_AW(lineConfigDialog)
+#define lineConfigDialogEdit __MINGW_NAME_AW(lineConfigDialogEdit)
+#define lineDial __MINGW_NAME_AW(lineDial)
+#define lineGatherDigits __MINGW_NAME_AW(lineGatherDigits)
+#define lineGenerateDigits __MINGW_NAME_AW(lineGenerateDigits)
+#define lineGetAddressID __MINGW_NAME_AW(lineGetAddressID)
+#define lineGetAppPriority __MINGW_NAME_AW(lineGetAppPriority)
+#define lineGetDevConfig __MINGW_NAME_AW(lineGetDevConfig)
+#define lineGetIcon __MINGW_NAME_AW(lineGetIcon)
+#define lineGetID __MINGW_NAME_AW(lineGetID)
+#define lineHandoff __MINGW_NAME_AW(lineHandoff)
+#define lineMakeCall __MINGW_NAME_AW(lineMakeCall)
+#define linePark __MINGW_NAME_AW(linePark)
+#define linePickup __MINGW_NAME_AW(linePickup)
+#define lineRedirect __MINGW_NAME_AW(lineRedirect)
+#define lineSetAppPriority __MINGW_NAME_AW(lineSetAppPriority)
+#define lineSetDevConfig __MINGW_NAME_AW(lineSetDevConfig)
+#define lineSetTollList __MINGW_NAME_AW(lineSetTollList)
+#define lineTranslateAddress __MINGW_NAME_AW(lineTranslateAddress)
+#define lineTranslateDialog __MINGW_NAME_AW(lineTranslateDialog)
+#define lineUnpark __MINGW_NAME_AW(lineUnpark)
+
+#define phoneConfigDialog __MINGW_NAME_AW(phoneConfigDialog)
+#define phoneGetIcon __MINGW_NAME_AW(phoneGetIcon)
+#define phoneGetID __MINGW_NAME_AW(phoneGetID)
+
+#define tapiGetLocationInfo __MINGW_NAME_AW(tapiGetLocationInfo)
+#define tapiRequestMakeCall __MINGW_NAME_AW(tapiRequestMakeCall)
+#define tapiRequestMediaCall __MINGW_NAME_AW(tapiRequestMediaCall)
+#endif /* UNICODE || TAPI2 */
+
+#define lineCreateAgent __MINGW_NAME_AW(lineCreateAgent)
+#define lineCreateAgent __MINGW_NAME_AW(lineCreateAgent)
+#define lineForward __MINGW_NAME_AW(lineForward)
+#define lineGetAddressCaps __MINGW_NAME_AW(lineGetAddressCaps)
+#define lineGetAddressStatus __MINGW_NAME_AW(lineGetAddressStatus)
+#define lineGetAgentActivityList __MINGW_NAME_AW(lineGetAgentActivityList)
+#define lineGetAgentCaps __MINGW_NAME_AW(lineGetAgentCaps)
+#define lineGetAgentGroupList __MINGW_NAME_AW(lineGetAgentGroupList)
+#define lineGetAgentStatus __MINGW_NAME_AW(lineGetAgentStatus)
+#define lineGetCallInfo __MINGW_NAME_AW(lineGetCallInfo)
+#define lineGetCountry __MINGW_NAME_AW(lineGetCountry)
+#define lineGetDevCaps __MINGW_NAME_AW(lineGetDevCaps)
+#define lineGetGroupList __MINGW_NAME_AW(lineGetGroupList)
+#define lineGetDevStatus __MINGW_NAME_AW(lineGetDevStatus)
+#define lineGetProviderList __MINGW_NAME_AW(lineGetProviderList)
+#define lineGetQueueList __MINGW_NAME_AW(lineGetQueueList)
+#define lineGetRequest __MINGW_NAME_AW(lineGetRequest)
+#define lineGetTranslateCaps __MINGW_NAME_AW(lineGetTranslateCaps)
+#define lineInitializeEx __MINGW_NAME_AW(lineInitializeEx)
+#define lineOpen __MINGW_NAME_AW(lineOpen)
+#define linePrepareAddToConference __MINGW_NAME_AW(linePrepareAddToConference)
+#define lineSetupConference __MINGW_NAME_AW(lineSetupConference)
+#define lineSetupTransfer __MINGW_NAME_AW(lineSetupTransfer)
+
+#define phoneGetButtonInfo __MINGW_NAME_AW(phoneGetButtonInfo)
+#define phoneGetDevCaps __MINGW_NAME_AW(phoneGetDevCaps)
+#define phoneGetStatus __MINGW_NAME_AW(phoneGetStatus)
+#define phoneInitializeEx __MINGW_NAME_AW(phoneInitializeEx)
+#define phoneSetButtonInfo __MINGW_NAME_AW(phoneSetButtonInfo)
 
 #define TAPIERROR_FORMATMESSAGE(__ErrCode__) (((__ErrCode__) > 0xFFFF0000) ? ((__ErrCode__) & 0x0000FFFF) : (((__ErrCode__) & 0x10000000) ? ((__ErrCode__) - 0x90000000 + 0xF000) : ((__ErrCode__) - 0x80000000 + 0xE000)))
 

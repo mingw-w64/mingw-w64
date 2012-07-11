@@ -1,3 +1,16 @@
+2012-07-11  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* tapi.h: Move the unicode A/W macros after the function prototypes.
+	(lineAddProvider,lineBlindTransfer,lineConfigDialog,
+	lineConfigDialogEdit,lineDial,lineGatherDigits,lineGenerateDigits,
+	lineGetAddressID,lineGetAppPriority,lineGetDevConfig,lineGetIcon,
+	lineGetID,lineHandoff,lineMakeCall,linePark,linePickup,lineRedirect,
+	lineSetAppPriority,lineSetDevConfig,lineSetTollList,
+	lineTranslateAddress,lineTranslateDialog,lineUnpark,phoneConfigDialog,
+	phoneGetIcon,phoneGetID,tapiGetLocationInfo,tapiRequestMakeCall,
+	tapiRequestMediaCall): Define as *A variant only for TAPI2 or newer,
+	but always define as *W variant when UNICODE is defined.
+
 2012-06-29  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Merge from the trunk revs. 4808 and 5149:
@@ -88,7 +101,6 @@
 2012-01-25  Kai Tietz  <ktietz@redhat.com>
 
 	* iprtrmib.h (MIB_TCP_STATE): New typedef.
-
 	* mprapi.h (MprAdminConnectionRemoveQuarantine): Remove
 	double definition.
 
