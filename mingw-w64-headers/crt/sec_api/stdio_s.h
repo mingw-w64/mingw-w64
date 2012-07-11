@@ -79,9 +79,18 @@ extern "C" {
   _CRTIMP int __cdecl _vsnprintf_c_l(char *_DstBuf,size_t _MaxCount,const char *,_locale_t _Locale,va_list _ArgList);
   _CRTIMP errno_t __cdecl fopen_s(FILE **_File,const char *_Filename,const char *_Mode);
 
+  _CRTIMP char* __cdecl gets_s(char*,rsize_t);
+  __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_0(char*,get_s,char,_DstBuf)
+
+  _CRTIMP errno_t __cdecl tmpnam_s(char*,rsize_t);
+  __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_0(errno_t,tmpnam_s,char,_DstBuf)
+
+
 #ifndef _WSTDIO_S_DEFINED
 #define _WSTDIO_S_DEFINED
   _CRTIMP wchar_t *__cdecl _getws_s(wchar_t *_Str,size_t _SizeInWords);
+  __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_0(wchar_t*,_getws_s,wchar_t,_DstBuf)
+
   int __cdecl fwprintf_s(FILE *_File,const wchar_t *_Format,...);
   int __cdecl wprintf_s(const wchar_t *_Format,...);
   int __cdecl vfwprintf_s(FILE *_File,const wchar_t *_Format,va_list _ArgList);
@@ -108,7 +117,10 @@ extern "C" {
   _CRTIMP int __cdecl _wscanf_s_l(const wchar_t *_Format,_locale_t _Locale,...);
   _CRTIMP errno_t __cdecl _wfopen_s(FILE **_File,const wchar_t *_Filename,const wchar_t *_Mode);
   _CRTIMP errno_t __cdecl _wfreopen_s(FILE **_File,const wchar_t *_Filename,const wchar_t *_Mode,FILE *_OldFile);
+
   _CRTIMP errno_t __cdecl _wtmpnam_s(wchar_t *_DstBuf,size_t _SizeInWords);
+  __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_0(errno_t,_wtmpnam_s,wchar_t,_DstBuf)
+
   _CRTIMP int __cdecl _fwprintf_p(FILE *_File,const wchar_t *_Format,...);
   _CRTIMP int __cdecl _wprintf_p(const wchar_t *_Format,...);
   _CRTIMP int __cdecl _vfwprintf_p(FILE *_File,const wchar_t *_Format,va_list _ArgList);

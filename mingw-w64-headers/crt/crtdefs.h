@@ -22,7 +22,20 @@ typedef int errcode;
 #define _CRTRESTRICT
 #endif
 
+#ifndef _RSIZE_T_DEFINED
+typedef size_t rsize_t;
+#define _RSIZE_T_DEFINED
+#endif
+
 #if defined(__cplusplus) && _CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES
+
+#define __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_0(__ret,__func,__dsttype,__dst) \
+  extern "C++" { \
+    template <size_t __size> \
+    inline __ret __cdecl __func(__dsttype (&__dst)[__size]) { \
+        return __func(__dst,__size); \
+    } \
+  }
 
 #define __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_2(__ret,__func,__dsttype,__dst,__type1,__arg1,__type2,__arg2)\
   extern "C++" {\
@@ -34,6 +47,7 @@ typedef int errcode;
 
 #else
 
+#define __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_0(__ret,__func,__dsttype,__dst)
 #define __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_2(__ret,__func,__dsttype,__dst,__type1,__arg1,__type2,__arg2)
 
 #endif
