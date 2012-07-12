@@ -129,6 +129,7 @@ __CRT_INLINE errno_t __cdecl _wctime_s(wchar_t *_Buffer,size_t _SizeInWords,cons
   __DEFINE_CPP_OVERLOAD_SECURE_FUNC_1_3(errno_t,mbsrtowcs_s,size_t*,_Retval,wchar_t,_Dst,const char**,_PSrc,size_t,_N,mbstate_t,_State)
 
   _CRTIMP errno_t __cdecl wcrtomb_s(size_t *_Retval,char *_Dst,size_t _SizeInBytes,wchar_t _Ch,mbstate_t *_State);
+  __DEFINE_CPP_OVERLOAD_SECURE_FUNC_1_2(errno_t,wcrtomb_s,size_t*,_Retval,char,_Dst,wchar_t,_Ch,mbstate_t,_State)
 
   _CRTIMP errno_t __cdecl wcsrtombs_s(size_t *_Retval,char *_Dst,size_t _SizeInBytes,const wchar_t **_Src,size_t _Size,mbstate_t *_State);
   __DEFINE_CPP_OVERLOAD_SECURE_FUNC_1_3(errno_t,wcsrtombs_s,size_t,_Retval,char,_Dst,const wchar_t**,_Src,size_t,_Size,mbstate_t,_State)
