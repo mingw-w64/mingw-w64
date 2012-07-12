@@ -1413,9 +1413,9 @@ Optional Features:
                           do not reject slow dependency extractors
   --disable-dependency-tracking
                           speeds up one-time build
-  --enable-lib32          Build the Win32 runtime
-  --enable-lib64          Build the Win64 runtime
-  --enable-libce          Build the WinCE runtime
+  --enable-lib32          Build the Win32 libraries
+  --enable-lib64          Build the Win64 libraries
+  --enable-libce          Build the WinCE libraries
   --enable-wildcard       Enable command line globbing
   --disable-leading-underscores
                           Disable leading underscores to match the MSVC
@@ -5019,21 +5019,21 @@ fi
 
 
 
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build the Win32 libraries" >&5
+$as_echo_n "checking whether to build the Win32 libraries... " >&6; }
 # Check whether --enable-lib32 was given.
 if test "${enable_lib32+set}" = set; then :
   enableval=$enable_lib32;
 else
-  { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build the Win32 runtime" >&5
-$as_echo_n "checking whether to build the Win32 runtime... " >&6; }
-   _save_CFLAGS="$CFLAGS"
-   CFLAGS="$CFLAGS -m32"
-   cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+
+    _save_CFLAGS="$CFLAGS"
+    CFLAGS="$CFLAGS -m32"
+    cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 const char test[(sizeof(void*)==4)?0:-1];
 int
 main ()
 {
-
 
   ;
   return 0;
@@ -5045,13 +5045,20 @@ else
   enable_lib32=no
 fi
 rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
-   { $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_lib32" >&5
-$as_echo "$enable_lib32" >&6; }
-   CFLAGS="$_save_CFLAGS"
-
+    CFLAGS="$_save_CFLAGS"
 fi
 
- if test $enable_lib32 = yes; then
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_lib32" >&5
+$as_echo "$enable_lib32" >&6; }
+case $enable_lib32 in #(
+  no) :
+     ;; #(
+  yes) :
+    LIB32= ;; #(
+  *) :
+    as_fn_error $? "invalid argument.  Must be either yes or no." "$LINENO" 5 ;;
+esac
+ if ${LIB32+:} false; then
   LIB32_TRUE=
   LIB32_FALSE='#'
 else
@@ -5060,21 +5067,21 @@ else
 fi
 
 
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build the Win64 libraries" >&5
+$as_echo_n "checking whether to build the Win64 libraries... " >&6; }
 # Check whether --enable-lib64 was given.
 if test "${enable_lib64+set}" = set; then :
   enableval=$enable_lib64;
 else
-  { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build the Win64 runtime" >&5
-$as_echo_n "checking whether to build the Win64 runtime... " >&6; }
-   _save_CFLAGS="$CFLAGS"
-   CFLAGS="$CFLAGS -m64"
-   cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+
+    _save_CFLAGS="$CFLAGS"
+    CFLAGS="$CFLAGS -m64"
+    cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 const char test[(sizeof(void*)==8)?0:-1];
 int
 main ()
 {
-
 
   ;
   return 0;
@@ -5086,13 +5093,20 @@ else
   enable_lib64=no
 fi
 rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
-   { $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_lib64" >&5
-$as_echo "$enable_lib64" >&6; }
-   CFLAGS="$_save_CFLAGS"
-
+    CFLAGS="$_save_CFLAGS"
 fi
 
- if test $enable_lib64 = yes; then
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_lib64" >&5
+$as_echo "$enable_lib64" >&6; }
+case $enable_lib64 in #(
+  no) :
+     ;; #(
+  yes) :
+    LIB64= ;; #(
+  *) :
+    as_fn_error $? "invalid argument.  Must be either yes or no." "$LINENO" 5 ;;
+esac
+ if ${LIB64+:} false; then
   LIB64_TRUE=
   LIB64_FALSE='#'
 else
@@ -5101,6 +5115,8 @@ else
 fi
 
 
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build the WinCE libraries" >&5
+$as_echo_n "checking whether to build the WinCE libraries... " >&6; }
 # Check whether --enable-libce was given.
 if test "${enable_libce+set}" = set; then :
   enableval=$enable_libce;
@@ -5116,7 +5132,17 @@ esac
 
 fi
 
- if test $enable_libce = yes; then
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_libce" >&5
+$as_echo "$enable_libce" >&6; }
+case $enable_libce in #(
+  no) :
+     ;; #(
+  yes) :
+    LIBCE= ;; #(
+  *) :
+    as_fn_error $? "invalid argument.  Must be either yes or no." "$LINENO" 5 ;;
+esac
+ if ${LIBCE+:} false; then
   LIBCE_TRUE=
   LIBCE_FALSE='#'
 else
@@ -5125,11 +5151,12 @@ else
 fi
 
 
-if test "$enable_lib32" = no && test "$enable_lib64" = no; then :
+if test "x$enable_libce" = xyes; then :
 
-elif test "$enable_libce" = yes; then :
+  if ${LIB32+:} false || ${LIB64+:} false; then :
   { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: Building the runtime to use libce with lib32 or lib64 is unsupported." >&5
 $as_echo "$as_me: WARNING: Building the runtime to use libce with lib32 or lib64 is unsupported." >&2;}
+fi
 fi
 
 case $host_cpu in #(
