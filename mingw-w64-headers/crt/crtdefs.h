@@ -113,6 +113,18 @@ typedef size_t rsize_t;
     }\
   }
 
+#define __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_2_ARGLIST(__ret,__func,__vfunc,__dsttype,__dst,__type1,__arg1,__type2,__arg2) \
+  extern "C++" {\
+    template <size_t __size> \
+    inline __ret __cdecl __func(__dsttype (&__dst)[__size], __type1 __arg1, __type2 __arg2, ...) { \
+      va_list __vaargs; \
+      _crt_va_start(__vaargs, __arg2); \
+      __ret __retval = __vfunc(__dst,__size,__arg1,__arg2,__vaargs); \
+      _crt_va_end(__vaargs); \
+      return __retval; \
+    }\
+  }
+
 #else
 
 #define __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_0(__ret,__func,__dsttype,__dst)
@@ -125,6 +137,7 @@ typedef size_t rsize_t;
 #define __DEFINE_CPP_OVERLOAD_SECURE_FUNC_1_3(__ret,__func,__type0,__arg0,__dsttype,__dst,__type1,__arg1,__type2,__arg2,__type3,__arg3)
 #define __DEFINE_CPP_OVERLOAD_SECURE_FUNC_2_0(__ret,__func,__type1,__arg1,__type2,__arg2,__dsttype,__dst)
 #define __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_1_ARGLIST(__ret,__func,__vfunc,__dsttype,__dst,__type1,__arg1)
+#define __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_2_ARGLIST(__ret,__func,__vfunc,__dsttype,__dst,__type1,__arg1,__type2,__arg2)
 
 #endif
 
