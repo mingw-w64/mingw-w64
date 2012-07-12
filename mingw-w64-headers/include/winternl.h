@@ -8,6 +8,10 @@
 
 #include <windef.h>
 
+#ifndef NT_SUCCESS
+#define NT_SUCCESS(status)	((NTSTATUS) (status) >= 0)
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -731,8 +735,58 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
   } SYSTEM_HANDLE_INFORMATION, *PSYSTEM_HANDLE_INFORMATION;
 
   typedef enum _PROCESSINFOCLASS {
-    ProcessBasicInformation = 0,ProcessQuotaLimits = 1,ProcessIoCounters = 2,ProcessVmCounters = 3,ProcessTimes = 4,ProcessBasePriority = 5,
-    ProcessRaisePriority = 6,ProcessDebugPort = 7,ProcessExceptionPort = 8,ProcessAccessToken = 9,ProcessWow64Information = 26,ProcessImageFileName = 27
+    ProcessBasicInformation,
+    ProcessQuotaLimits,
+    ProcessIoCounters,
+    ProcessVmCounters,
+    ProcessTimes,
+    ProcessBasePriority,
+    ProcessRaisePriority,
+    ProcessDebugPort,
+    ProcessExceptionPort,
+    ProcessAccessToken,
+    ProcessLdtInformation,
+    ProcessLdtSize,
+    ProcessDefaultHardErrorMode,
+    ProcessIoPortHandlers,
+    ProcessPooledUsageAndLimits,
+    ProcessWorkingSetWatch,
+    ProcessUserModeIOPL,
+    ProcessEnableAlignmentFaultFixup,
+    ProcessPriorityClass,
+    ProcessWx86Information,
+    ProcessHandleCount,
+    ProcessAffinityMask,
+    ProcessPriorityBoost,
+    ProcessDeviceMap,
+    ProcessSessionInformation,
+    ProcessForegroundInformation,
+    ProcessWow64Information,
+    ProcessImageFileName,
+    ProcessLUIDDeviceMapsEnabled,
+    ProcessBreakOnTermination,
+    ProcessDebugObjectHandle,
+    ProcessDebugFlags,
+    ProcessHandleTracing,
+    ProcessIoPriority,
+    ProcessExecuteFlags,
+    ProcessTlsInformation,
+    ProcessCookie,
+    ProcessImageInformation,
+    ProcessCycleTime,
+    ProcessPagePriority,
+    ProcessInstrumentationCallback,
+    ProcessThreadStackAllocation,
+    ProcessWorkingSetWatchEx,
+    ProcessImageFileNameWin32,
+    ProcessImageFileMapping,
+    ProcessAffinityUpdateMode,
+    ProcessMemoryAllocationMode,
+    ProcessGroupInformation,
+    ProcessTokenVirtualizationEnabled,
+    ProcessConsoleHostProcess,
+    ProcessWindowInformation,
+    MaxProcessInfoClass
   } PROCESSINFOCLASS;
 
   typedef enum _THREADINFOCLASS {
@@ -790,6 +844,7 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
   NTSTATUS WINAPI NtQueryObject(HANDLE Handle,OBJECT_INFORMATION_CLASS ObjectInformationClass,PVOID ObjectInformation,ULONG ObjectInformationLength,PULONG ReturnLength);
   NTSTATUS WINAPI NtQuerySystemInformation(SYSTEM_INFORMATION_CLASS SystemInformationClass,PVOID SystemInformation,ULONG SystemInformationLength,PULONG ReturnLength);
   NTSTATUS WINAPI NtQuerySystemTime(PLARGE_INTEGER SystemTime);
+  NTSTATUS NTAPI NtSetInformationProcess(HANDLE ProcessHandle, PROCESSINFOCLASS ProcessInformationClass, PVOID ProcessInformation, ULONG ProcessInformationLength);
   NTSTATUS WINAPI RtlLocalTimeToSystemTime(PLARGE_INTEGER LocalTime,PLARGE_INTEGER SystemTime);
   BOOLEAN WINAPI RtlTimeToSecondsSince1970(PLARGE_INTEGER Time,PULONG ElapsedSeconds);
   VOID WINAPI RtlFreeAnsiString(PANSI_STRING AnsiString);

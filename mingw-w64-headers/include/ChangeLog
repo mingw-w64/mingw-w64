@@ -1,3 +1,9 @@
+2012-07-12  Corinna Vinschen  <vinschen@redhat.com>
+
+	* winternl.h (NT_SUCCESS): Define.
+	(enum _PROCESSINFOCLASS): Copy from ddk/ntddk.h.
+	(NtSetInformationProcess): Declare.
+
 2012-07-11  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* tapi.h: Move the unicode A/W macros after the function prototypes.
