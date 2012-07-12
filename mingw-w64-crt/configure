@@ -649,6 +649,8 @@ LIB64_FALSE
 LIB64_TRUE
 LIB32_FALSE
 LIB32_TRUE
+STARTUP_FALSE
+STARTUP_TRUE
 AS
 am__fastdepCCAS_FALSE
 am__fastdepCCAS_TRUE
@@ -763,6 +765,7 @@ enable_option_checking
 enable_maintainer_mode
 with_sysroot
 enable_dependency_tracking
+enable_startup
 enable_lib32
 enable_lib64
 enable_libce
@@ -1413,6 +1416,8 @@ Optional Features:
                           do not reject slow dependency extractors
   --disable-dependency-tracking
                           speeds up one-time build
+  --disable-startup       Disable building the crt runtime startup code (*.o
+                          files)
   --enable-lib32          Build the Win32 libraries
   --enable-lib64          Build the Win64 libraries
   --enable-libce          Build the WinCE libraries
@@ -5019,6 +5024,34 @@ fi
 
 
 
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build the crt startup" >&5
+$as_echo_n "checking whether to build the crt startup... " >&6; }
+# Check whether --enable-startup was given.
+if test "${enable_startup+set}" = set; then :
+  enableval=$enable_startup;
+else
+  enable_startup=yes
+fi
+
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_startup" >&5
+$as_echo "$enable_startup" >&6; }
+case $enable_startup in #(
+  no) :
+     ;; #(
+  yes) :
+    STARTUP= ;; #(
+  *) :
+    as_fn_error $? "invalid argument.  Must be either yes or no." "$LINENO" 5 ;;
+esac
+ if ${STARTUP+:} false; then
+  STARTUP_TRUE=
+  STARTUP_FALSE='#'
+else
+  STARTUP_TRUE='#'
+  STARTUP_FALSE=
+fi
+
+
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build the Win32 libraries" >&5
 $as_echo_n "checking whether to build the Win32 libraries... " >&6; }
 # Check whether --enable-lib32 was given.
@@ -5961,6 +5994,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${am__fastdepCCAS_TRUE}" && test -z "${am__fastdepCCAS_FALSE}"; then
   as_fn_error $? "conditional \"am__fastdepCCAS\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${STARTUP_TRUE}" && test -z "${STARTUP_FALSE}"; then
+  as_fn_error $? "conditional \"STARTUP\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${LIB32_TRUE}" && test -z "${LIB32_FALSE}"; then

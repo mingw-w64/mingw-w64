@@ -45,6 +45,19 @@ AC_CHECK_TOOL([AS], [as], [:])
 dnl ---
 AM_PROG_CC_C_O
 
+AC_MSG_CHECKING([whether to build the crt startup])
+AC_ARG_ENABLE([startup],
+  [AS_HELP_STRING([--disable-startup],
+    [Disable building the crt runtime startup code (*.o files)])],
+  [],
+  [AS_VAR_SET([enable_startup],[yes])])
+AC_MSG_RESULT([$enable_startup])
+AS_CASE([$enable_startup],
+  [no],[],
+  [yes],[AS_VAR_SET([STARTUP])],
+  [AC_MSG_ERROR([invalid argument.  Must be either yes or no.])])
+AM_CONDITIONAL([STARTUP], [AS_VAR_TEST_SET([STARTUP])])
+
 AC_MSG_CHECKING([whether to build the Win32 libraries])
 AC_ARG_ENABLE([lib32],
   [AS_HELP_STRING([--enable-lib32],
