@@ -26,7 +26,10 @@ extern "C" {
   _CRTIMP int __cdecl _snprintf_s(char *_DstBuf,size_t _DstSize,size_t _MaxCount,const char *_Format,...);
   _CRTIMP int __cdecl _snprintf_c(char *_DstBuf,size_t _MaxCount,const char *_Format,...);
   _CRTIMP int __cdecl _vsnprintf_c(char *_DstBuf,size_t _MaxCount,const char *_Format,va_list _ArgList);
+
   int __cdecl sprintf_s(char *_DstBuf,size_t _DstSize,const char *_Format,...);
+  __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_1_ARGLIST(int,sprintf_s,vsprintf_s,char,_DstBuf,const char*,_Format)
+
   _CRTIMP int __cdecl _fscanf_l(FILE *_File,const char *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _sscanf_l(const char *_Src,const char *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _sscanf_s_l(const char *_Src,const char *_Format,_locale_t _Locale,...);
@@ -99,10 +102,12 @@ extern "C" {
   int __cdecl wprintf_s(const wchar_t *_Format,...);
   int __cdecl vfwprintf_s(FILE *_File,const wchar_t *_Format,va_list _ArgList);
   int __cdecl vwprintf_s(const wchar_t *_Format,va_list _ArgList);
-  int __cdecl swprintf_s(wchar_t *_Dst,size_t _SizeInWords,const wchar_t *_Format,...);
 
   int __cdecl vswprintf_s(wchar_t *_Dst,size_t _SizeInWords,const wchar_t *_Format,va_list _ArgList);
   __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_2(int, vswprintf_s, wchar_t, _Dst, const wchar_t*, _Format, va_list, _ArgList)
+
+  int __cdecl swprintf_s(wchar_t *_Dst,size_t _SizeInWords,const wchar_t *_Format,...);
+  __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_1_ARGLIST(int,swprintf_s,vswprintf_s,wchar_t,_Dst,const wchar_t*,_Format)
 
   _CRTIMP int __cdecl _snwprintf_s(wchar_t *_DstBuf,size_t _DstSizeInWords,size_t _MaxCount,const wchar_t *_Format,...);
 
