@@ -1,3 +1,7 @@
+2012-07-16  Corinna Vinschen  <vinschen@redhat.com>
+
+	* winbase.h: Use system types in calls to Interlocked functions.
+
 2012-07-12  Corinna Vinschen  <vinschen@redhat.com>
 
 	* winternl.h (NT_SUCCESS): Define.
