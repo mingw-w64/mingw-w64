@@ -17,6 +17,17 @@
 #include "_cygwin.h"
 #endif
 
+/* Target specific macro replacement for type "long".  In the Windows API,
+   the type long is always 32 bit, even if the target is 64 bit (LLP64).
+   On 64 bit Cygwin, the type long is 64 bit (LP64).  So, to get the right
+   sized definitions and declarations, all usage of type long in the Windows
+   headers have to be replaced by the below defined macro __LONG32. */
+#ifndef __LP64__	/* 32 bit target, 64 bit Mingw target */
+#define __LONG32 long
+#else			/* 64 bit Cygwin target */
+#define __LONG32 int
+#endif
+
 /* C/C++ specific language defines.  */
 #ifdef _WIN64
 #ifdef __stdcall

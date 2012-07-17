@@ -1,3 +1,7 @@
+2012-07-17  Corinna Vinschen  <vinschen@redhat.com>
+
+	* _mingw.h.in (__LONG32): Define.  Explain what it's good for.
+
 2012-07-05  Kai Tietz  <ktietz@redhat.com>
 
 	* stdio.h (asprintf, vasprintf): Disable definitions stubs.
