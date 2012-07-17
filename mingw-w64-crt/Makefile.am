@@ -538,7 +538,7 @@ lib32_DATA = \
   lib32/libxinput.a         lib32/libxaudio.a         lib32/libxaudiod.a   \
   lib32/libxapofx.a         lib32/libx3daudio.a       lib32/libd3dx9.a     \
   lib32/libd3dx10.a         lib32/libd3dx11.a         lib32/libd3dcsxd.a   \
-  lib32/libd3dcompiler.a
+  lib32/libd3dcompiler.a    lib32/libwinhttp.a
 
 # combine these two rules with the ones for lib64
 # Use two patterns, one for 32/64 in lib32/ and lib64/
@@ -1013,7 +1013,7 @@ lib64_DATA = \
   lib64/libxinput.a         lib64/libxaudio.a         lib64/libxaudiod.a   \
   lib64/libxapofx.a         lib64/libx3daudio.a       lib64/libd3dx9.a     \
   lib64/libd3dx10.a         lib64/libd3dx11.a         lib64/libd3dcsxd.a   \
-  lib64/libd3dcompiler.a
+  lib64/libd3dcompiler.a    lib64/libwinhttp.a
 
 lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
 	$(DTDEF64) $< --dllname $*.dll
