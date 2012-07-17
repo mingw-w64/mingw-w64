@@ -69,7 +69,7 @@ extern "C" {
 #endif
 
 #ifndef MAKE_HRESULT // fixme this if statment should not be here, but MAKE_HRESULT should be here
-#define MAKE_HRESULT(sev,fac,code) ((HRESULT) (((unsigned long)(sev)<<31) | ((unsigned long)(fac)<<16) | ((unsigned long)(code))) )
+#define MAKE_HRESULT(sev,fac,code) ((HRESULT) (((ULONG)(sev)<<31) | ((ULONG)(fac)<<16) | ((ULONG)(code))) )
 #endif
 
 #ifndef FLATPTR_DEFINED

@@ -1,3 +1,12 @@
+2012-07-17  Corinna Vinschen  <vinschen@redhat.com>
+
+	* ddk/include/ddrawint.h (MAKE_HRESULT): Define in terms of ULONG
+	instead of unsigned long.
+	* ddk/include/ddk/scsiwmi.h (struct _GUID): Define Data1 as ULONG.
+	* ddk/include/ddk/d4iface.h (CHANNEL_HANDLE, *PCHANNEL_HANDLE): Define
+	based on ULONG.
+	* ddk/include/ddk/ntstrsafe.h (DWORD): Ditto.
+
 2012-07-11  Corinna Vinschen  <vinschen@redhat.com>
 
 	* configure.ac (BASEHEAD_LIST): Add crt/crtdefs.h.

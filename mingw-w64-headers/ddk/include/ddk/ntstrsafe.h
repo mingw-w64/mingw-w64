@@ -29,7 +29,7 @@
 //
 // Typedefs
 //
-typedef unsigned long DWORD;
+typedef ULONG DWORD;
 
 /* PRIVATE FUNCTIONS *********************************************************/
 

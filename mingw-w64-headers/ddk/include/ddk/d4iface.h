@@ -31,7 +31,7 @@ extern "C" {
 #define CONFIG_UPLOAD			14
 #define CONFIG_DOWNLOAD			15
 
-typedef unsigned long CHANNEL_HANDLE, *PCHANNEL_HANDLE;
+typedef ULONG CHANNEL_HANDLE, *PCHANNEL_HANDLE;
 
 typedef struct _DOT4_ACTIVITY {
   ULONG ulMessage;
