@@ -165,7 +165,11 @@
 #endif
 
 #ifndef __MSABI_LONG
+#ifndef __LP64__
 #define __MSABI_LONG(x)  x ## l
+#else
+#define __MSABI_LONG(x)  x
+#endif
 #endif
 
 #if __GNUC__

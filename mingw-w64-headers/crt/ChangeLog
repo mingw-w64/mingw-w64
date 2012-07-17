@@ -1,5 +1,9 @@
 2012-07-17  Corinna Vinschen  <vinschen@redhat.com>
 
+	* _mingw_mac.h (__MSABI_LONG): Define for LP64 systems as well.
+
+2012-07-17  Corinna Vinschen  <vinschen@redhat.com>
+
 	* _mingw.h.in (__LONG32): Define.  Explain what it's good for.
 
 2012-07-05  Kai Tietz  <ktietz@redhat.com>
