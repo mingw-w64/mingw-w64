@@ -7,7 +7,7 @@
 #define __INTRIN_H_
 #ifndef RC_INVOKED
 
-#include <_mingw.h>
+#include <crtdefs.h>
 #include <setjmp.h>
 #include <stddef.h>
 

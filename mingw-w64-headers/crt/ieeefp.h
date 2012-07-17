@@ -1,7 +1,7 @@
 #ifndef _IEEEFP_H_
 #define _IEEEFP_H_
 
-#include <_mingw.h>
+#include <crtdefs.h>
 #include <math.h>
 #include <ansidecl.h>
 

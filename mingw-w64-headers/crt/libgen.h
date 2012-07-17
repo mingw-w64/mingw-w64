@@ -7,7 +7,7 @@
 #ifndef _LIBGEN_H_
 #define _LIBGEN_H_
 
-#include <_mingw.h>
+#include <crtdefs.h>
 
 #ifdef __cplusplus
 extern "C" {

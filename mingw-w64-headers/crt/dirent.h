@@ -10,7 +10,7 @@
 #define _DIRENT_H_
 
 /* All the headers include this file. */
-#include <_mingw.h>
+#include <crtdefs.h>
 
 #include <io.h>
 

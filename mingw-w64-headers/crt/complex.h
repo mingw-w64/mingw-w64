@@ -27,7 +27,7 @@
 #define _COMPLEX_H_
 
 /* All the headers include this file. */
-#include <_mingw.h>
+#include <crtdefs.h>
 
 /* These macros are specified by C99 standard */
 

@@ -6,7 +6,7 @@
 #ifndef _INC_EXCPT
 #define _INC_EXCPT
 
-#include <_mingw.h>
+#include <crtdefs.h>
 
 #pragma pack(push,_CRT_PACKING)
 

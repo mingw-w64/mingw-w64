@@ -6,7 +6,7 @@
 #ifndef _INC_STDIO
 #define _INC_STDIO
 
-#include <_mingw.h>
+#include <crtdefs.h>
 
 #include <_mingw_print_push.h>
 
