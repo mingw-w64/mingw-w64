@@ -1,3 +1,9 @@
+2012-07-17  Kai Tietz  <ktietz@redhat.com>
+
+	PR 3544372
+	* misc/mingw_pformat.h (PFORMAT_TO_FILE): Increased constant.
+	(PFORMAT_NOLIMIT): Likewise.
+
 2012-07-11  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* lib32/tapi32.def: Add missing exports.

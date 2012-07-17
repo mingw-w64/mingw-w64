@@ -58,8 +58,8 @@
 
 /* The following are the declarations specific to the `pformat' API...
  */
-#define PFORMAT_TO_FILE     0x1000
-#define PFORMAT_NOLIMIT     0x2000
+#define PFORMAT_TO_FILE     0x2000
+#define PFORMAT_NOLIMIT     0x4000
 
 #if defined(__MINGW32__) || defined(__MINGW64__)
  /*
