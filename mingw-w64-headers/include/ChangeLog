@@ -1,3 +1,7 @@
+2012-07-19  Corinna Vinschen  <vinschen@redhat.com>
+
+	* usb.h: Check for _WIN64 instead of WIN64.
+
 2012-07-16  Corinna Vinschen  <vinschen@redhat.com>
 
 	* winbase.h: Use system types in calls to Interlocked functions.

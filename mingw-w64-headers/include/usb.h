@@ -476,7 +476,7 @@ struct _URB_CONTROL_TRANSFER_EX {
   PVOID TransferBuffer;
   PMDL TransferBufferMDL;
   ULONG Timeout;
-#ifdef WIN64
+#ifdef _WIN64
   ULONG Pad;
 #endif
   struct _URB_HCD_AREA hca;
