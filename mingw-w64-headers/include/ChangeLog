@@ -1,5 +1,32 @@
 2012-07-19  Corinna Vinschen  <vinschen@redhat.com>
 
+	* msdasql.h: Throughout, drop 'L' modifier from Data1 member in
+	GUID definitions.
+	* ioevent.h: Ditto.
+	* msdaguid.h: Ditto.
+	* iiis.h: Ditto.
+	* usbiodef.h: Ditto.
+	* tcguid.h: Ditto.
+	* oledb.h: Ditto.
+	* recguids.h: Ditto.
+	* diskguid.h: Ditto.
+	* shlguid.h: Ditto.
+	* msdadc.h: Ditto.
+	* isguids.h: Ditto.
+	* batclass.h: Ditto.
+	* shobjidl.h: Ditto.
+	* devguid.h: Ditto.
+	* ntddscsi.h: Ditto.
+	* identitystore.h: Ditto.
+	* sti.h: Ditto.
+	* sqloledb.h: Ditto.
+	* mstask.h: Ditto.
+	* fwpmu.h: Ditto.
+	* oledbguid.h: Ditto.
+	* winioctl.h: Ditto.
+
+2012-07-19  Corinna Vinschen  <vinschen@redhat.com>
+
 	* Throughout, drop long qualifier in all casted numerical constant
 	expressions.
 

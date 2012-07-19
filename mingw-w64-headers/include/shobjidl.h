@@ -2935,7 +2935,7 @@ typedef ULONG SFGAOF;
 
 #ifndef __ITaskbarList_INTERFACE_DEFINED__
 #define __ITaskbarList_INTERFACE_DEFINED__
-  DEFINE_GUID(IID_ITaskbarList,0x56FDF342L,0xFD6D,0x11D0,0x95,0x8A,0x00,0x60,0x97,0xC9,0xA0,0x90);
+  DEFINE_GUID(IID_ITaskbarList,0x56FDF342,0xFD6D,0x11D0,0x95,0x8A,0x00,0x60,0x97,0xC9,0xA0,0x90);
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITaskbarList : public IUnknown {
   public:
@@ -2986,7 +2986,7 @@ typedef ULONG SFGAOF;
 
 #ifndef __ITaskbarList2_INTERFACE_DEFINED__
 #define __ITaskbarList2_INTERFACE_DEFINED__
-  DEFINE_GUID(IID_ITaskbarList2,0x602D4995L,0xB13A,0x429b,0xA6,0x6E,0x19,0x35,0xE4,0x4F,0x43,0x17);
+  DEFINE_GUID(IID_ITaskbarList2,0x602D4995,0xB13A,0x429b,0xA6,0x6E,0x19,0x35,0xE4,0x4F,0x43,0x17);
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITaskbarList2 : public ITaskbarList {
   public:

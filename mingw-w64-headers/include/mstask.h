@@ -163,7 +163,7 @@ extern "C" {
 
   typedef struct _TASK_TRIGGER *PTASK_TRIGGER;
 
-  DEFINE_GUID(IID_ITaskTrigger,0x148BD52BL,0xA2AB,0x11CE,0xB1,0x1F,0x00,0xAA,0x00,0x53,0x05,0x03);
+  DEFINE_GUID(IID_ITaskTrigger,0x148BD52B,0xA2AB,0x11CE,0xB1,0x1F,0x00,0xAA,0x00,0x53,0x05,0x03);
 
   extern RPC_IF_HANDLE __MIDL_itf_mstask_0000_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_mstask_0000_v0_0_s_ifspec;
@@ -209,7 +209,7 @@ extern "C" {
   void __RPC_STUB ITaskTrigger_GetTriggerString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
-  DEFINE_GUID(IID_IScheduledWorkItem,0xa6b952f0L,0xa4b1,0x11d0,0x99,0x7d,0x00,0xaa,0x00,0x68,0x87,0xec);
+  DEFINE_GUID(IID_IScheduledWorkItem,0xa6b952f0,0xa4b1,0x11d0,0x99,0x7d,0x00,0xaa,0x00,0x68,0x87,0xec);
   extern RPC_IF_HANDLE __MIDL_itf_mstask_0140_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_mstask_0140_v0_0_s_ifspec;
 #ifndef __IScheduledWorkItem_INTERFACE_DEFINED__
@@ -383,7 +383,7 @@ extern "C" {
   void __RPC_STUB IScheduledWorkItem_GetAccountInformation_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
-  DEFINE_GUID(IID_ITask,0x148BD524L,0xA2AB,0x11CE,0xB1,0x1F,0x00,0xAA,0x00,0x53,0x05,0x03);
+  DEFINE_GUID(IID_ITask,0x148BD524,0xA2AB,0x11CE,0xB1,0x1F,0x00,0xAA,0x00,0x53,0x05,0x03);
 
   extern RPC_IF_HANDLE __MIDL_itf_mstask_0141_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_mstask_0141_v0_0_s_ifspec;
@@ -532,7 +532,7 @@ extern "C" {
   void __RPC_STUB ITask_GetMaxRunTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
-  DEFINE_GUID(IID_IEnumWorkItems,0x148BD528L,0xA2AB,0x11CE,0xB1,0x1F,0x00,0xAA,0x00,0x53,0x05,0x03);
+  DEFINE_GUID(IID_IEnumWorkItems,0x148BD528,0xA2AB,0x11CE,0xB1,0x1F,0x00,0xAA,0x00,0x53,0x05,0x03);
 
   extern RPC_IF_HANDLE __MIDL_itf_mstask_0142_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_mstask_0142_v0_0_s_ifspec;
@@ -583,7 +583,7 @@ extern "C" {
   void __RPC_STUB IEnumWorkItems_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
-  DEFINE_GUID(IID_ITaskScheduler,0x148BD527L,0xA2AB,0x11CE,0xB1,0x1F,0x00,0xAA,0x00,0x53,0x05,0x03);
+  DEFINE_GUID(IID_ITaskScheduler,0x148BD527,0xA2AB,0x11CE,0xB1,0x1F,0x00,0xAA,0x00,0x53,0x05,0x03);
 
   extern RPC_IF_HANDLE __MIDL_itf_mstask_0143_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_mstask_0143_v0_0_s_ifspec;
@@ -666,7 +666,7 @@ extern "C" {
     TASKPAGE_TASK = 0,TASKPAGE_SCHEDULE = 1,TASKPAGE_SETTINGS = 2
   } TASKPAGE;
 
-  DEFINE_GUID(IID_IProvideTaskPage,0x4086658aL,0xcbbb,0x11cf,0xb6,0x04,0x00,0xc0,0x4f,0xd8,0xd5,0x65);
+  DEFINE_GUID(IID_IProvideTaskPage,0x4086658a,0xcbbb,0x11cf,0xb6,0x04,0x00,0xc0,0x4f,0xd8,0xd5,0x65);
 
   extern RPC_IF_HANDLE __MIDL_itf_mstask_0144_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_mstask_0144_v0_0_s_ifspec;
