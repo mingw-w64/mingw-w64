@@ -242,7 +242,7 @@ extern "C" {
     CLSID clsidUiObject;
   } NETCON_PROPERTIES;
 
-#define S_OBJECT_NO_LONGER_VALID ((HRESULT)0x00000002L)
+#define S_OBJECT_NO_LONGER_VALID ((HRESULT)0x00000002)
 
   EXTERN_C const IID IID_INetConnection;
 #if defined(__cplusplus) && !defined(CINTERFACE)

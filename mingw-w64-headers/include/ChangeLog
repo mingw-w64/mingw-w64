@@ -1,5 +1,10 @@
 2012-07-19  Corinna Vinschen  <vinschen@redhat.com>
 
+	* Throughout, drop long qualifier in all casted numerical constant
+	expressions.
+
+2012-07-19  Corinna Vinschen  <vinschen@redhat.com>
+
 	* ks.h: Throughout, drop 'L' modifier from Data1 member in GUID
 	definitions.
 	* ntddstor.h: Ditto.
