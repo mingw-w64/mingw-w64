@@ -1,3 +1,7 @@
+2012-07-19  Corinna Vinschen  <vinschen@redhat.com>
+
+	* _cygwin.h (_WIN64): Define if targeting x86_64.
+
 2012-07-17  Corinna Vinschen  <vinschen@redhat.com>
 
 	* _mingw_mac.h (__MSABI_LONG): Define for LP64 systems as well.

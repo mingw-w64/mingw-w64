@@ -26,4 +26,12 @@
 #define _ERRCODE_DEFINED	/* FIXME?  errno_t is no POSIX type. */
 #define _TIME_T_DEFINED
 
+/* _WIN64 is defined by the compiler specs when targeting Windows.
+   The Cygwin-targeting gcc does not define it by default, same as
+   with _WIN32.  Therefore we set it here.  The result is that _WIN64
+   is only defined if Windows headers are included. */
+#ifdef __x86_64__
+#define _WIN64
+#endif
+
 #endif /* _INC_CYGWIN */
