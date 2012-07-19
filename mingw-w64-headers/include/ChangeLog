@@ -1,5 +1,13 @@
 2012-07-19  Corinna Vinschen  <vinschen@redhat.com>
 
+	* ksmedia.h: Throughout, drop 'L' modifier from Data1 member in
+	GUID definitions.
+	* ksproxy.h: Ditto.
+	* ksuuids.h: Ditto.
+	* uuids.h: Ditto.
+
+2012-07-19  Corinna Vinschen  <vinschen@redhat.com>
+
 	* msdasql.h: Throughout, drop 'L' modifier from Data1 member in
 	GUID definitions.
 	* ioevent.h: Ditto.
