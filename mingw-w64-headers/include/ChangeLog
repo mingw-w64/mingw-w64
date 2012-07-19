@@ -1,5 +1,12 @@
 2012-07-19  Corinna Vinschen  <vinschen@redhat.com>
 
+	* ks.h: Throughout, drop 'L' modifier from Data1 member in GUID
+	definitions.
+	* ntddstor.h: Ditto.
+	* ntddser.h: Ditto.
+
+2012-07-19  Corinna Vinschen  <vinschen@redhat.com>
+
 	* usb.h: Check for _WIN64 instead of WIN64.
 
 2012-07-16  Corinna Vinschen  <vinschen@redhat.com>
