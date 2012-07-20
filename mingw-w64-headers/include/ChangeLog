@@ -1,5 +1,11 @@
 2012-07-20  Corinna Vinschen  <vinschen@redhat.com>
 
+	* directx/dxerr8.h (DXTRACE_MSG): Drop long qualifier from
+	empty non-debug definition.
+	* directx/dxerr9.h: Ditto.
+
+2012-07-20  Corinna Vinschen  <vinschen@redhat.com>
+
 	* winuser.h: Convert all HELP_xxx command macros to int macros.
 
 2012-07-19  Corinna Vinschen  <vinschen@redhat.com>

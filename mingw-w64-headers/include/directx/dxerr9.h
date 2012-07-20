@@ -42,7 +42,7 @@ HRESULT WINAPI DXTraceW(const char*,DWORD,HRESULT,const WCHAR*,BOOL);
 #define DXTRACE_ERR(str,hr)	DXTrace(__FILE__,(DWORD)__LINE__,hr,str,FALSE)
 #define DXTRACE_ERR_MSGBOX(str,hr)	DXTrace(__FILE__,(DWORD)__LINE__,hr,str,TRUE)
 #else
-#define DXTRACE_MSG(str)	(0L)
+#define DXTRACE_MSG(str)	(0)
 #define DXTRACE_ERR(str,hr)	(hr)
 #define DXTRACE_ERR_MSGBOX(str,hr)	(hr)
 #endif
