@@ -12,6 +12,9 @@
 #include <ole2.h>
 #endif
 
+#pragma push_macro("abort")
+#undef abort
+
 #ifndef __msxml_h__
 #define __msxml_h__
 
@@ -3384,3 +3387,5 @@ typedef struct XMLDocument XMLDocument;
 #endif
 
 #endif /* __msxml_h__ */
+
+#pragma pop_macro("abort")

@@ -8,6 +8,8 @@ import "unknwn.idl";
 import "objidl.idl";
 import "oaidl.idl";
 
+cpp_quote("#pragma push_macro(\"abort\")")
+cpp_quote("#undef abort")
 cpp_quote("#ifndef __IXMLDOMImplementation_FWD_DEFINED__")
 cpp_quote("#define __IXMLDOMImplementation_FWD_DEFINED__")
 cpp_quote("typedef struct IXMLDOMImplementation IXMLDOMImplementation;")
@@ -3355,3 +3357,4 @@ cpp_quote("#ifdef __cplusplus")
 cpp_quote("  class XMLDocument;")
 cpp_quote("#endif")
 cpp_quote("#endif")
+cpp_quote("#pragma pop_macro(\"abort\")")
