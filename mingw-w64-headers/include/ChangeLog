@@ -1,5 +1,10 @@
 2012-07-20  Corinna Vinschen  <vinschen@redhat.com>
 
+	* kcom.h (STATIC_KoCreateObject): Drop  'L' modifier from Data1
+	member in GUID definition.
+
+2012-07-20  Corinna Vinschen  <vinschen@redhat.com>
+
 	* directx/dxerr8.h (DXTRACE_MSG): Drop long qualifier from
 	empty non-debug definition.
 	* directx/dxerr9.h: Ditto.
