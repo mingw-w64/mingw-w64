@@ -1,3 +1,7 @@
+2012-07-20  Corinna Vinschen  <vinschen@redhat.com>
+
+	* winuser.h: Convert all HELP_xxx command macros to int macros.
+
 2012-07-19  Corinna Vinschen  <vinschen@redhat.com>
 
 	* ksmedia.h: Throughout, drop 'L' modifier from Data1 member in
