@@ -1,3 +1,7 @@
+2012-07-21  Corinna Vinschen  <vinschen@redhat.com>
+
+	* ws2tcpip.h (EAI_NODATA): Define as int value.
+
 2012-07-20  Corinna Vinschen  <vinschen@redhat.com>
 
 	* kcom.h (STATIC_KoCreateObject): Drop  'L' modifier from Data1
