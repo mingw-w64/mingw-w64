@@ -524,16 +524,16 @@ extern "C" {
   } VDS_SAN_POLICY;
 
   typedef enum _VDS_SERVICE_FLAG {
-    VDS_SVF_SUPPORT_DYNAMIC              = 0x1L,
-    VDS_SVF_SUPPORT_FAULT_TOLERANT       = 0x2L,
-    VDS_SVF_SUPPORT_GPT                  = 0x4L,
-    VDS_SVF_SUPPORT_DYNAMIC_1394         = 0x8L,
-    VDS_SVF_CLUSTER_SERVICE_CONFIGURED   = 0x10L,
-    VDS_SVF_AUTO_MOUNT_OFF               = 0x20L,
-    VDS_SVF_OS_UNINSTALL_VALID           = 0x40L,
-    VDS_SVF_EFI                          = 0x80L,
-    VDS_SVF_SUPPORT_MIRROR               = 0x100L,
-    VDS_SVF_SUPPORT_RAID5                = 0x200L 
+    VDS_SVF_SUPPORT_DYNAMIC              = 0x1,
+    VDS_SVF_SUPPORT_FAULT_TOLERANT       = 0x2,
+    VDS_SVF_SUPPORT_GPT                  = 0x4,
+    VDS_SVF_SUPPORT_DYNAMIC_1394         = 0x8,
+    VDS_SVF_CLUSTER_SERVICE_CONFIGURED   = 0x10,
+    VDS_SVF_AUTO_MOUNT_OFF               = 0x20,
+    VDS_SVF_OS_UNINSTALL_VALID           = 0x40,
+    VDS_SVF_EFI                          = 0x80,
+    VDS_SVF_SUPPORT_MIRROR               = 0x100,
+    VDS_SVF_SUPPORT_RAID5                = 0x200 
   } VDS_SERVICE_FLAG;
 
   typedef enum _VDS_STORAGE_IDENTIFIER_CODE_SET {

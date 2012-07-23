@@ -3332,161 +3332,161 @@ extern "C" {
 #ifndef __MSHTML_LIBRARY_DEFINED__
 #define __MSHTML_LIBRARY_DEFINED__
   typedef enum _htmlDesignMode {
-    htmlDesignModeInherit = -2,htmlDesignModeOn = -1,htmlDesignModeOff = 0,htmlDesignMode_Max = 2147483647L
+    htmlDesignModeInherit = -2,htmlDesignModeOn = -1,htmlDesignModeOff = 0,htmlDesignMode_Max = 2147483647
   } htmlDesignMode;
 
   typedef enum _htmlZOrder {
-    htmlZOrderFront = 0,htmlZOrderBack = 1,htmlZOrder_Max = 2147483647L
+    htmlZOrderFront = 0,htmlZOrderBack = 1,htmlZOrder_Max = 2147483647
   } htmlZOrder;
 
   typedef enum _htmlClear {
-    htmlClearNotSet = 0,htmlClearAll = 1,htmlClearLeft = 2,htmlClearRight = 3,htmlClearBoth = 4,htmlClearNone = 5,htmlClear_Max = 2147483647L
+    htmlClearNotSet = 0,htmlClearAll = 1,htmlClearLeft = 2,htmlClearRight = 3,htmlClearBoth = 4,htmlClearNone = 5,htmlClear_Max = 2147483647
   } htmlClear;
 
   typedef enum _htmlControlAlign {
     htmlControlAlignNotSet = 0,htmlControlAlignLeft = 1,htmlControlAlignCenter = 2,htmlControlAlignRight = 3,htmlControlAlignTextTop = 4,
     htmlControlAlignAbsMiddle = 5,htmlControlAlignBaseline = 6,htmlControlAlignAbsBottom = 7,htmlControlAlignBottom = 8,htmlControlAlignMiddle = 9,
-    htmlControlAlignTop = 10,htmlControlAlign_Max = 2147483647L
+    htmlControlAlignTop = 10,htmlControlAlign_Max = 2147483647
   } htmlControlAlign;
 
   typedef enum _htmlBlockAlign {
     htmlBlockAlignNotSet = 0,htmlBlockAlignLeft = 1,htmlBlockAlignCenter = 2,htmlBlockAlignRight = 3,htmlBlockAlignJustify = 4,
-    htmlBlockAlign_Max = 2147483647L
+    htmlBlockAlign_Max = 2147483647
   } htmlBlockAlign;
 
   typedef enum _htmlReadyState {
     htmlReadyStateuninitialized = 0,htmlReadyStateloading = 1,htmlReadyStateloaded = 2,htmlReadyStateinteractive = 3,htmlReadyStatecomplete = 4,
-    htmlReadyState_Max = 2147483647L
+    htmlReadyState_Max = 2147483647
   } htmlReadyState;
 
   typedef enum _htmlLoop {
-    htmlLoopLoopInfinite = -1,htmlLoop_Max = 2147483647L
+    htmlLoopLoopInfinite = -1,htmlLoop_Max = 2147483647
   } htmlLoop;
 
   typedef enum _mediaType {
     mediaTypeNotSet = 0,mediaTypeAll = 511,mediaTypeAural = 1,mediaTypeBraille = 2,mediaTypeEmbossed = 4,mediaTypeHandheld = 8,mediaTypePrint = 16,
-    mediaTypeProjection = 32,mediaTypeScreen = 64,mediaTypeTty = 128,mediaTypeTv = 256,mediaType_Max = 2147483647L
+    mediaTypeProjection = 32,mediaTypeScreen = 64,mediaTypeTty = 128,mediaTypeTv = 256,mediaType_Max = 2147483647
   } mediaType;
 
   typedef enum _styleTextTransform {
     styleTextTransformNotSet = 0,styleTextTransformCapitalize = 1,styleTextTransformLowercase = 2,styleTextTransformUppercase = 3,
-    styleTextTransformNone = 4,styleTextTransform_Max = 2147483647L
+    styleTextTransformNone = 4,styleTextTransform_Max = 2147483647
   } styleTextTransform;
 
   typedef enum _styleDataRepeat {
-    styleDataRepeatNone = 0,styleDataRepeatInner = 1,styleDataRepeat_Max = 2147483647L
+    styleDataRepeatNone = 0,styleDataRepeatInner = 1,styleDataRepeat_Max = 2147483647
   } styleDataRepeat;
 
   typedef enum _styleOverflow {
     styleOverflowNotSet = 0,styleOverflowAuto = 1,styleOverflowHidden = 2,styleOverflowVisible = 3,styleOverflowScroll = 4,
-    styleOverflow_Max = 2147483647L
+    styleOverflow_Max = 2147483647
   } styleOverflow;
 
   typedef enum _styleTableLayout {
-    styleTableLayoutNotSet = 0,styleTableLayoutAuto = 1,styleTableLayoutFixed = 2,styleTableLayout_Max = 2147483647L
+    styleTableLayoutNotSet = 0,styleTableLayoutAuto = 1,styleTableLayoutFixed = 2,styleTableLayout_Max = 2147483647
   } styleTableLayout;
 
   typedef enum _styleBorderCollapse {
-    styleBorderCollapseNotSet = 0,styleBorderCollapseSeparate = 1,styleBorderCollapseCollapse = 2,styleBorderCollapse_Max = 2147483647L
+    styleBorderCollapseNotSet = 0,styleBorderCollapseSeparate = 1,styleBorderCollapseCollapse = 2,styleBorderCollapse_Max = 2147483647
   } styleBorderCollapse;
 
   typedef enum _styleFontStyle {
-    styleFontStyleNotSet = 0,styleFontStyleItalic = 1,styleFontStyleOblique = 2,styleFontStyleNormal = 3,styleFontStyle_Max = 2147483647L
+    styleFontStyleNotSet = 0,styleFontStyleItalic = 1,styleFontStyleOblique = 2,styleFontStyleNormal = 3,styleFontStyle_Max = 2147483647
   } styleFontStyle;
 
   typedef enum _styleFontVariant {
-    styleFontVariantNotSet = 0,styleFontVariantSmallCaps = 1,styleFontVariantNormal = 2,styleFontVariant_Max = 2147483647L
+    styleFontVariantNotSet = 0,styleFontVariantSmallCaps = 1,styleFontVariantNormal = 2,styleFontVariant_Max = 2147483647
   } styleFontVariant;
 
   typedef enum _styleBackgroundRepeat {
-    styleBackgroundRepeatRepeat = 0,styleBackgroundRepeatRepeatX = 1,styleBackgroundRepeatRepeatY = 2,styleBackgroundRepeatNoRepeat = 3,styleBackgroundRepeatNotSet = 4,styleBackgroundRepeat_Max = 2147483647L
+    styleBackgroundRepeatRepeat = 0,styleBackgroundRepeatRepeatX = 1,styleBackgroundRepeatRepeatY = 2,styleBackgroundRepeatNoRepeat = 3,styleBackgroundRepeatNotSet = 4,styleBackgroundRepeat_Max = 2147483647
   } styleBackgroundRepeat;
 
   typedef enum _styleBackgroundAttachment {
     styleBackgroundAttachmentFixed = 0,styleBackgroundAttachmentScroll = 1,styleBackgroundAttachmentNotSet = 2,
-    styleBackgroundAttachment_Max = 2147483647L
+    styleBackgroundAttachment_Max = 2147483647
   } styleBackgroundAttachment;
 
   typedef enum _styleVerticalAlign {
     styleVerticalAlignAuto = 0,styleVerticalAlignBaseline = 1,styleVerticalAlignSub = 2,styleVerticalAlignSuper = 3,styleVerticalAlignTop = 4,
     styleVerticalAlignTextTop = 5,styleVerticalAlignMiddle = 6,styleVerticalAlignBottom = 7,styleVerticalAlignTextBottom = 8,
-    styleVerticalAlignInherit = 9,styleVerticalAlignNotSet = 10,styleVerticalAlign_Max = 2147483647L
+    styleVerticalAlignInherit = 9,styleVerticalAlignNotSet = 10,styleVerticalAlign_Max = 2147483647
   } styleVerticalAlign;
 
   typedef enum _styleFontWeight {
     styleFontWeightNotSet = 0,styleFontWeight100 = 1,styleFontWeight200 = 2,styleFontWeight300 = 3,styleFontWeight400 = 4,styleFontWeight500 = 5,
     styleFontWeight600 = 6,styleFontWeight700 = 7,styleFontWeight800 = 8,styleFontWeight900 = 9,styleFontWeightNormal = 10,styleFontWeightBold = 11,
-    styleFontWeightBolder = 12,styleFontWeightLighter = 13,styleFontWeight_Max = 2147483647L
+    styleFontWeightBolder = 12,styleFontWeightLighter = 13,styleFontWeight_Max = 2147483647
   } styleFontWeight;
 
   typedef enum _styleBackgroundPositionX {
     styleBackgroundPositionXNotSet = 0,styleBackgroundPositionXLeft = 1,styleBackgroundPositionXCenter = 2,styleBackgroundPositionXRight = 3,
-    styleBackgroundPositionX_Max = 2147483647L
+    styleBackgroundPositionX_Max = 2147483647
   } styleBackgroundPositionX;
 
   typedef enum _styleBackgroundPositionY {
     styleBackgroundPositionYNotSet = 0,styleBackgroundPositionYTop = 1,styleBackgroundPositionYCenter = 2,styleBackgroundPositionYBottom = 3,
-    styleBackgroundPositionY_Max = 2147483647L
+    styleBackgroundPositionY_Max = 2147483647
   } styleBackgroundPositionY;
 
   typedef enum _styleFontSize {
     styleFontSizeXXSmall = 0,styleFontSizeXSmall = 1,styleFontSizeSmall = 2,styleFontSizeMedium = 3,styleFontSizeLarge = 4,styleFontSizeXLarge = 5,
-    styleFontSizeXXLarge = 6,styleFontSizeSmaller = 7,styleFontSizeLarger = 8,styleFontSize_Max = 2147483647L
+    styleFontSizeXXLarge = 6,styleFontSizeSmaller = 7,styleFontSizeLarger = 8,styleFontSize_Max = 2147483647
   } styleFontSize;
 
   typedef enum _styleAuto {
-    styleAutoAuto = 0,styleAuto_Max = 2147483647L
+    styleAutoAuto = 0,styleAuto_Max = 2147483647
   } styleAuto;
 
   typedef enum _styleNormal {
-    styleNormalNormal = 0,styleNormal_Max = 2147483647L
-  } styleNormal;
+    styleNormalNormal = 0,styleNormal_Max = 2147483647
+   styleNormal;
 
   typedef enum _styleBorderWidth {
-    styleBorderWidthThin = 0,styleBorderWidthMedium = 1,styleBorderWidthThick = 2,styleBorderWidth_Max = 2147483647L
+    styleBorderWidthThin = 0,styleBorderWidthMedium = 1,styleBorderWidthThick = 2,styleBorderWidth_Max = 2147483647
   } styleBorderWidth;
 
   typedef enum _stylePosition {
     stylePositionNotSet = 0,stylePositionstatic = 1,stylePositionrelative = 2,stylePositionabsolute = 3,stylePositionfixed = 4,
-    stylePosition_Max = 2147483647L
+    stylePosition_Max = 2147483647
   } stylePosition;
 
   typedef enum _styleBorderStyle {
     styleBorderStyleNotSet = 0,styleBorderStyleDotted = 1,styleBorderStyleDashed = 2,styleBorderStyleSolid = 3,styleBorderStyleDouble = 4,
     styleBorderStyleGroove = 5,styleBorderStyleRidge = 6,styleBorderStyleInset = 7,styleBorderStyleOutset = 8,styleBorderStyleWindowInset = 9,
-    styleBorderStyleNone = 10,styleBorderStyle_Max = 2147483647L
+    styleBorderStyleNone = 10,styleBorderStyle_Max = 2147483647
   } styleBorderStyle;
 
   typedef enum _styleStyleFloat {
-    styleStyleFloatNotSet = 0,styleStyleFloatLeft = 1,styleStyleFloatRight = 2,styleStyleFloatNone = 3,styleStyleFloat_Max = 2147483647L
+    styleStyleFloatNotSet = 0,styleStyleFloatLeft = 1,styleStyleFloatRight = 2,styleStyleFloatNone = 3,styleStyleFloat_Max = 2147483647
   } styleStyleFloat;
 
   typedef enum _styleDisplay {
     styleDisplayNotSet = 0,styleDisplayBlock = 1,styleDisplayInline = 2,styleDisplayListItem = 3,styleDisplayNone = 4,styleDisplayTableHeaderGroup = 5,
-    styleDisplayTableFooterGroup = 6,styleDisplayInlineBlock = 7,styleDisplay_Max = 2147483647L
+    styleDisplayTableFooterGroup = 6,styleDisplayInlineBlock = 7,styleDisplay_Max = 2147483647
   } styleDisplay;
 
   typedef enum _styleVisibility {
-    styleVisibilityNotSet = 0,styleVisibilityInherit = 1,styleVisibilityVisible = 2,styleVisibilityHidden = 3,styleVisibility_Max = 2147483647L
+    styleVisibilityNotSet = 0,styleVisibilityInherit = 1,styleVisibilityVisible = 2,styleVisibilityHidden = 3,styleVisibility_Max = 2147483647
   } styleVisibility;
 
   typedef enum _styleListStyleType {
     styleListStyleTypeNotSet = 0,styleListStyleTypeDisc = 1,styleListStyleTypeCircle = 2,styleListStyleTypeSquare = 3,styleListStyleTypeDecimal = 4,
     styleListStyleTypeLowerRoman = 5,styleListStyleTypeUpperRoman = 6,styleListStyleTypeLowerAlpha = 7,styleListStyleTypeUpperAlpha = 8,
-    styleListStyleTypeNone = 9,styleListStyleType_Max = 2147483647L
+    styleListStyleTypeNone = 9,styleListStyleType_Max = 2147483647
   } styleListStyleType;
 
   typedef enum _styleListStylePosition {
-    styleListStylePositionNotSet = 0,styleListStylePositionInside = 1,styleListStylePositionOutSide = 2,styleListStylePosition_Max = 2147483647L
+    styleListStylePositionNotSet = 0,styleListStylePositionInside = 1,styleListStylePositionOutSide = 2,styleListStylePosition_Max = 2147483647
   } styleListStylePosition;
 
   typedef enum _styleWhiteSpace {
-    styleWhiteSpaceNotSet = 0,styleWhiteSpaceNormal = 1,styleWhiteSpacePre = 2,styleWhiteSpaceNowrap = 3,styleWhiteSpace_Max = 2147483647L
+    styleWhiteSpaceNotSet = 0,styleWhiteSpaceNormal = 1,styleWhiteSpacePre = 2,styleWhiteSpaceNowrap = 3,styleWhiteSpace_Max = 2147483647
   } styleWhiteSpace;
 
   typedef enum _stylePageBreak {
     stylePageBreakNotSet = 0,stylePageBreakAuto = 1,stylePageBreakAlways = 2,stylePageBreakLeft = 3,stylePageBreakRight = 4,
-    stylePageBreak_Max = 2147483647L
+    stylePageBreak_Max = 2147483647
   } stylePageBreak;
 
   typedef enum _styleCursor {
@@ -3494,103 +3494,103 @@ extern "C" {
     styleCursorNe_resize = 6,styleCursorNw_resize = 7,styleCursorN_resize = 8,styleCursorSe_resize = 9,styleCursorSw_resize = 10,
     styleCursorS_resize = 11,styleCursorW_resize = 12,styleCursorText = 13,styleCursorWait = 14,styleCursorHelp = 15,styleCursorPointer = 16,
     styleCursorProgress = 17,styleCursorNot_allowed = 18,styleCursorNo_drop = 19,styleCursorVertical_text = 20,styleCursorall_scroll = 21,
-    styleCursorcol_resize = 22,styleCursorrow_resize = 23,styleCursorcustom = 24,styleCursorNotSet = 25,styleCursor_Max = 2147483647L
+    styleCursorcol_resize = 22,styleCursorrow_resize = 23,styleCursorcustom = 24,styleCursorNotSet = 25,styleCursor_Max = 2147483647
   } styleCursor;
 
   typedef enum _styleDir {
-    styleDirNotSet = 0,styleDirLeftToRight = 1,styleDirRightToLeft = 2,styleDirInherit = 3,styleDir_Max = 2147483647L
+    styleDirNotSet = 0,styleDirLeftToRight = 1,styleDirRightToLeft = 2,styleDirInherit = 3,styleDir_Max = 2147483647
   } styleDir;
 
   typedef enum _styleBidi {
-    styleBidiNotSet = 0,styleBidiNormal = 1,styleBidiEmbed = 2,styleBidiOverride = 3,styleBidiInherit = 4,styleBidi_Max = 2147483647L
+    styleBidiNotSet = 0,styleBidiNormal = 1,styleBidiEmbed = 2,styleBidiOverride = 3,styleBidiInherit = 4,styleBidi_Max = 2147483647
   } styleBidi;
 
   typedef enum _styleImeMode {
-    styleImeModeAuto = 0,styleImeModeActive = 1,styleImeModeInactive = 2,styleImeModeDisabled = 3,styleImeModeNotSet = 4,styleImeMode_Max = 2147483647L
+    styleImeModeAuto = 0,styleImeModeActive = 1,styleImeModeInactive = 2,styleImeModeDisabled = 3,styleImeModeNotSet = 4,styleImeMode_Max = 2147483647
   } styleImeMode;
 
   typedef enum _styleRubyAlign {
     styleRubyAlignNotSet = 0,styleRubyAlignAuto = 1,styleRubyAlignLeft = 2,styleRubyAlignCenter = 3,styleRubyAlignRight = 4,
-    styleRubyAlignDistributeLetter = 5,styleRubyAlignDistributeSpace = 6,styleRubyAlignLineEdge = 7,styleRubyAlign_Max = 2147483647L
+    styleRubyAlignDistributeLetter = 5,styleRubyAlignDistributeSpace = 6,styleRubyAlignLineEdge = 7,styleRubyAlign_Max = 2147483647
   } styleRubyAlign;
 
   typedef enum _styleRubyPosition {
-    styleRubyPositionNotSet = 0,styleRubyPositionAbove = 1,styleRubyPositionInline = 2,styleRubyPosition_Max = 2147483647L
+    styleRubyPositionNotSet = 0,styleRubyPositionAbove = 1,styleRubyPositionInline = 2,styleRubyPosition_Max = 2147483647
   } styleRubyPosition;
 
   typedef enum _styleRubyOverhang {
-    styleRubyOverhangNotSet = 0,styleRubyOverhangAuto = 1,styleRubyOverhangWhitespace = 2,styleRubyOverhangNone = 3,styleRubyOverhang_Max = 2147483647L
+    styleRubyOverhangNotSet = 0,styleRubyOverhangAuto = 1,styleRubyOverhangWhitespace = 2,styleRubyOverhangNone = 3,styleRubyOverhang_Max = 2147483647
   } styleRubyOverhang;
 
   typedef enum _styleLayoutGridChar {
-    styleLayoutGridCharNotSet = 0,styleLayoutGridCharAuto = 1,styleLayoutGridCharNone = 2,styleLayoutGridChar_Max = 2147483647L
+    styleLayoutGridCharNotSet = 0,styleLayoutGridCharAuto = 1,styleLayoutGridCharNone = 2,styleLayoutGridChar_Max = 2147483647
   } styleLayoutGridChar;
 
   typedef enum _styleLayoutGridLine {
-    styleLayoutGridLineNotSet = 0,styleLayoutGridLineAuto = 1,styleLayoutGridLineNone = 2,styleLayoutGridLine_Max = 2147483647L
+    styleLayoutGridLineNotSet = 0,styleLayoutGridLineAuto = 1,styleLayoutGridLineNone = 2,styleLayoutGridLine_Max = 2147483647
   } styleLayoutGridLine;
 
   typedef enum _styleLayoutGridMode {
     styleLayoutGridModeNotSet = 0,styleLayoutGridModeChar = 1,styleLayoutGridModeLine = 2,styleLayoutGridModeBoth = 3,styleLayoutGridModeNone = 4,
-    styleLayoutGridMode_Max = 2147483647L
+    styleLayoutGridMode_Max = 2147483647
   } styleLayoutGridMode;
 
   typedef enum _styleLayoutGridType {
     styleLayoutGridTypeNotSet = 0,styleLayoutGridTypeLoose = 1,styleLayoutGridTypeStrict = 2,styleLayoutGridTypeFixed = 3,
-    styleLayoutGridType_Max = 2147483647L
+    styleLayoutGridType_Max = 2147483647
   } styleLayoutGridType;
 
   typedef enum _styleLineBreak {
-    styleLineBreakNotSet = 0,styleLineBreakNormal = 1,styleLineBreakStrict = 2,styleLineBreak_Max = 2147483647L
+    styleLineBreakNotSet = 0,styleLineBreakNormal = 1,styleLineBreakStrict = 2,styleLineBreak_Max = 2147483647
   } styleLineBreak;
 
   typedef enum _styleWordBreak {
-    styleWordBreakNotSet = 0,styleWordBreakNormal = 1,styleWordBreakBreakAll = 2,styleWordBreakKeepAll = 3,styleWordBreak_Max = 2147483647L
+    styleWordBreakNotSet = 0,styleWordBreakNormal = 1,styleWordBreakBreakAll = 2,styleWordBreakKeepAll = 3,styleWordBreak_Max = 2147483647
   } styleWordBreak;
 
   typedef enum _styleWordWrap {
-    styleWordWrapNotSet = 0,styleWordWrapOff = 1,styleWordWrapOn = 2,styleWordWrap_Max = 2147483647L
+    styleWordWrapNotSet = 0,styleWordWrapOff = 1,styleWordWrapOn = 2,styleWordWrap_Max = 2147483647
   } styleWordWrap;
 
   typedef enum _styleTextJustify {
     styleTextJustifyNotSet = 0,styleTextJustifyInterWord = 1,styleTextJustifyNewspaper = 2,styleTextJustifyDistribute = 3,
     styleTextJustifyDistributeAllLines = 4,styleTextJustifyInterIdeograph = 5,styleTextJustifyInterCluster = 6,styleTextJustifyKashida = 7,
-    styleTextJustifyAuto = 8,styleTextJustify_Max = 2147483647L
+    styleTextJustifyAuto = 8,styleTextJustify_Max = 2147483647
   } styleTextJustify;
 
   typedef enum _styleTextAlignLast {
     styleTextAlignLastNotSet = 0,styleTextAlignLastLeft = 1,styleTextAlignLastCenter = 2,styleTextAlignLastRight = 3,styleTextAlignLastJustify = 4,
-    styleTextAlignLastAuto = 5,styleTextAlignLast_Max = 2147483647L
+    styleTextAlignLastAuto = 5,styleTextAlignLast_Max = 2147483647
   } styleTextAlignLast;
 
   typedef enum _styleTextJustifyTrim {
     styleTextJustifyTrimNotSet = 0,styleTextJustifyTrimNone = 1,styleTextJustifyTrimPunctuation = 2,styleTextJustifyTrimPunctAndKana = 3,
-    styleTextJustifyTrim_Max = 2147483647L
+    styleTextJustifyTrim_Max = 2147483647
   } styleTextJustifyTrim;
 
   typedef enum _styleAccelerator {
-    styleAcceleratorFalse = 0,styleAcceleratorTrue = 1,styleAccelerator_Max = 2147483647L
+    styleAcceleratorFalse = 0,styleAcceleratorTrue = 1,styleAccelerator_Max = 2147483647
   } styleAccelerator;
 
   typedef enum _styleLayoutFlow {
-    styleLayoutFlowHorizontal = 0,styleLayoutFlowVerticalIdeographic = 1,styleLayoutFlowNotSet = 2,styleLayoutFlow_Max = 2147483647L
+    styleLayoutFlowHorizontal = 0,styleLayoutFlowVerticalIdeographic = 1,styleLayoutFlowNotSet = 2,styleLayoutFlow_Max = 2147483647
   } styleLayoutFlow;
 
   typedef enum _styleWritingMode {
-    styleWritingModeLrtb = 0,styleWritingModeTbrl = 1,styleWritingModeNotSet = 2,styleWritingMode_Max = 2147483647L
+    styleWritingModeLrtb = 0,styleWritingModeTbrl = 1,styleWritingModeNotSet = 2,styleWritingMode_Max = 2147483647
   } styleWritingMode;
 
   typedef enum _styleBool {
-    styleBoolFalse = 0,styleBoolTrue = 1,styleBool_Max = 2147483647L
+    styleBoolFalse = 0,styleBoolTrue = 1,styleBool_Max = 2147483647
   } styleBool;
 
   typedef enum _styleTextUnderlinePosition {
     styleTextUnderlinePositionBelow = 0,styleTextUnderlinePositionAbove = 1,styleTextUnderlinePositionAuto = 2,styleTextUnderlinePositionNotSet = 3,
-    styleTextUnderlinePosition_Max = 2147483647L
+    styleTextUnderlinePosition_Max = 2147483647
   } styleTextUnderlinePosition;
 
   typedef enum _styleTextOverflow {
-    styleTextOverflowClip = 0,styleTextOverflowEllipsis = 1,styleTextOverflowNotSet = 2,styleTextOverflow_Max = 2147483647L
+    styleTextOverflowClip = 0,styleTextOverflowEllipsis = 1,styleTextOverflowNotSet = 2,styleTextOverflow_Max = 2147483647
   } styleTextOverflow;
 
   EXTERN_C const GUID CLSID_CStyle;
@@ -3598,34 +3598,34 @@ extern "C" {
 
   typedef enum _styleTextLineThroughStyle {
     styleTextLineThroughStyleUndefined = 0,styleTextLineThroughStyleSingle = 1,styleTextLineThroughStyleDouble = 2,
-    styleTextLineThroughStyle_Max = 2147483647L
+    styleTextLineThroughStyle_Max = 2147483647
   } styleTextLineThroughStyle;
 
   typedef enum _styleTextUnderlineStyle {
     styleTextUnderlineStyleUndefined = 0,styleTextUnderlineStyleSingle = 1,styleTextUnderlineStyleDouble = 2,styleTextUnderlineStyleWords = 3,
     styleTextUnderlineStyleDotted = 4,styleTextUnderlineStyleThick = 5,styleTextUnderlineStyleDash = 6,styleTextUnderlineStyleDotDash = 7,
     styleTextUnderlineStyleDotDotDash = 8,styleTextUnderlineStyleWave = 9,styleTextUnderlineStyleSingleAccounting = 10,
-    styleTextUnderlineStyleDoubleAccounting = 11,styleTextUnderlineStyleThickDash = 12,styleTextUnderlineStyle_Max = 2147483647L
+    styleTextUnderlineStyleDoubleAccounting = 11,styleTextUnderlineStyleThickDash = 12,styleTextUnderlineStyle_Max = 2147483647
   } styleTextUnderlineStyle;
 
   typedef enum _styleTextEffect {
-    styleTextEffectNone = 0,styleTextEffectEmboss = 1,styleTextEffectEngrave = 2,styleTextEffectOutline = 3,styleTextEffect_Max = 2147483647L
+    styleTextEffectNone = 0,styleTextEffectEmboss = 1,styleTextEffectEngrave = 2,styleTextEffectOutline = 3,styleTextEffect_Max = 2147483647
   } styleTextEffect;
 
   typedef enum _styleDefaultTextSelection {
-    styleDefaultTextSelectionFalse = 0,styleDefaultTextSelectionTrue = 1,styleDefaultTextSelection_Max = 2147483647L
+    styleDefaultTextSelectionFalse = 0,styleDefaultTextSelectionTrue = 1,styleDefaultTextSelection_Max = 2147483647
   } styleDefaultTextSelection;
 
   typedef enum _styleTextDecoration {
     styleTextDecorationNone = 0,styleTextDecorationUnderline = 1,styleTextDecorationOverline = 2,styleTextDecorationLineThrough = 3,
-    styleTextDecorationBlink = 4,styleTextDecoration_Max = 2147483647L
+    styleTextDecorationBlink = 4,styleTextDecoration_Max = 2147483647
   } styleTextDecoration;
 
   EXTERN_C const GUID CLSID_CRenderStyle;
 
   typedef enum _textDecoration {
     textDecorationNone = 0,textDecorationUnderline = 1,textDecorationOverline = 2,textDecorationLineThrough = 3,textDecorationBlink = 4,
-    textDecoration_Max = 2147483647L
+    textDecoration_Max = 2147483647
   } textDecoration;
 
   EXTERN_C const GUID CLSID_CCurrentStyle;
@@ -3637,41 +3637,41 @@ extern "C" {
 
   typedef enum _htmlListType {
     htmlListTypeNotSet = 0,htmlListTypeLargeAlpha = 1,htmlListTypeSmallAlpha = 2,htmlListTypeLargeRoman = 3,htmlListTypeSmallRoman = 4,
-    htmlListTypeNumbers = 5,htmlListTypeDisc = 6,htmlListTypeCircle = 7,htmlListTypeSquare = 8,htmlListType_Max = 2147483647L
+    htmlListTypeNumbers = 5,htmlListTypeDisc = 6,htmlListTypeCircle = 7,htmlListTypeSquare = 8,htmlListType_Max = 2147483647
   } htmlListType;
 
   typedef enum _htmlMethod {
-    htmlMethodNotSet = 0,htmlMethodGet = 1,htmlMethodPost = 2,htmlMethod_Max = 2147483647L
+    htmlMethodNotSet = 0,htmlMethodGet = 1,htmlMethodPost = 2,htmlMethod_Max = 2147483647
   } htmlMethod;
 
   typedef enum _htmlWrap {
-    htmlWrapOff = 1,htmlWrapSoft = 2,htmlWrapHard = 3,htmlWrap_Max = 2147483647L
+    htmlWrapOff = 1,htmlWrapSoft = 2,htmlWrapHard = 3,htmlWrap_Max = 2147483647
   } htmlWrap;
 
   typedef enum _htmlDir {
-    htmlDirNotSet = 0,htmlDirLeftToRight = 1,htmlDirRightToLeft = 2,htmlDir_Max = 2147483647L
+    htmlDirNotSet = 0,htmlDirLeftToRight = 1,htmlDirRightToLeft = 2,htmlDir_Max = 2147483647
   } htmlDir;
 
   typedef enum _htmlEditable {
-    htmlEditableInherit = 0,htmlEditableTrue = 1,htmlEditableFalse = 2,htmlEditable_Max = 2147483647L
+    htmlEditableInherit = 0,htmlEditableTrue = 1,htmlEditableFalse = 2,htmlEditable_Max = 2147483647
   } htmlEditable;
 
   typedef enum _htmlInput {
     htmlInputNotSet = 0,htmlInputButton = 1,htmlInputCheckbox = 2,htmlInputFile = 3,htmlInputHidden = 4,htmlInputImage = 5,htmlInputPassword = 6,
     htmlInputRadio = 7,htmlInputReset = 8,htmlInputSelectOne = 9,htmlInputSelectMultiple = 10,htmlInputSubmit = 11,htmlInputText = 12,
-    htmlInputTextarea = 13,htmlInputRichtext = 14,htmlInput_Max = 2147483647L
+    htmlInputTextarea = 13,htmlInputRichtext = 14,htmlInput_Max = 2147483647
   } htmlInput;
 
   typedef enum _htmlEncoding {
-    htmlEncodingURL = 0,htmlEncodingMultipart = 1,htmlEncodingText = 2,htmlEncoding_Max = 2147483647L
+    htmlEncodingURL = 0,htmlEncodingMultipart = 1,htmlEncodingText = 2,htmlEncoding_Max = 2147483647
   } htmlEncoding;
 
   typedef enum _htmlAdjacency {
-    htmlAdjacencyBeforeBegin = 1,htmlAdjacencyAfterBegin = 2,htmlAdjacencyBeforeEnd = 3,htmlAdjacencyAfterEnd = 4,htmlAdjacency_Max = 2147483647L
+    htmlAdjacencyBeforeBegin = 1,htmlAdjacencyAfterBegin = 2,htmlAdjacencyBeforeEnd = 3,htmlAdjacencyAfterEnd = 4,htmlAdjacency_Max = 2147483647
   } htmlAdjacency;
 
   typedef enum _htmlTabIndex {
-    htmlTabIndexNotSet = -32768,htmlTabIndex_Max = 2147483647L
+    htmlTabIndexNotSet = -32768,htmlTabIndex_Max = 2147483647
   } htmlTabIndex;
 
   typedef enum _htmlComponent {
@@ -3681,15 +3681,15 @@ extern "C" {
     htmlComponentSbUp2 = 15,htmlComponentSbPageUp2 = 16,htmlComponentSbDown2 = 17,htmlComponentSbPageDown2 = 18,htmlComponentSbTop = 19,
     htmlComponentSbBottom = 20,htmlComponentOutside = 21,htmlComponentGHTopLeft = 22,htmlComponentGHLeft = 23,htmlComponentGHTop = 24,
     htmlComponentGHBottomLeft = 25,htmlComponentGHTopRight = 26,htmlComponentGHBottom = 27,htmlComponentGHRight = 28,htmlComponentGHBottomRight = 29,
-    htmlComponent_Max = 2147483647L
+    htmlComponent_Max = 2147483647
   } htmlComponent;
 
   typedef enum _htmlApplyLocation {
-    htmlApplyLocationInside = 0,htmlApplyLocationOutside = 1,htmlApplyLocation_Max = 2147483647L
+    htmlApplyLocationInside = 0,htmlApplyLocationOutside = 1,htmlApplyLocation_Max = 2147483647
   } htmlApplyLocation;
 
   typedef enum _htmlGlyphMode {
-    htmlGlyphModeNone = 0,htmlGlyphModeBegin = 1,htmlGlyphModeEnd = 2,htmlGlyphModeBoth = 3,htmlGlyphMode_Max = 2147483647L
+    htmlGlyphModeNone = 0,htmlGlyphModeBegin = 1,htmlGlyphModeEnd = 2,htmlGlyphModeBoth = 3,htmlGlyphMode_Max = 2147483647
   } htmlGlyphMode;
 
   EXTERN_C const GUID CLSID_CDefaults;
@@ -3710,21 +3710,21 @@ extern "C" {
   EXTERN_C const GUID CLSID_CLinkElement;
 
   typedef enum _htmlUnit {
-    htmlUnitCharacter = 1,htmlUnitWord = 2,htmlUnitSentence = 3,htmlUnitTextEdit = 6,htmlUnit_Max = 2147483647L
+    htmlUnitCharacter = 1,htmlUnitWord = 2,htmlUnitSentence = 3,htmlUnitTextEdit = 6,htmlUnit_Max = 2147483647
   } htmlUnit;
 
   typedef enum _htmlEndPoints {
-    htmlEndPointsStartToStart = 1,htmlEndPointsStartToEnd = 2,htmlEndPointsEndToStart = 3,htmlEndPointsEndToEnd = 4,htmlEndPoints_Max = 2147483647L
+    htmlEndPointsStartToStart = 1,htmlEndPointsStartToEnd = 2,htmlEndPointsEndToStart = 3,htmlEndPointsEndToEnd = 4,htmlEndPoints_Max = 2147483647
   } htmlEndPoints;
 
   typedef enum _htmlDirection {
-    htmlDirectionForward = 99999,htmlDirectionBackward = -99999,htmlDirection_Max = 2147483647L
+    htmlDirectionForward = 99999,htmlDirectionBackward = -99999,htmlDirection_Max = 2147483647
   } htmlDirection;
 
   EXTERN_C const GUID CLSID_CFormElement;
 
   typedef enum _htmlStart {
-    htmlStartfileopen = 0,htmlStartmouseover = 1,htmlStart_Max = 2147483647L
+    htmlStartfileopen = 0,htmlStartmouseover = 1,htmlStart_Max = 2147483647
   } htmlStart;
 
   EXTERN_C const GUID CLSID_CTextElement;
@@ -3732,7 +3732,7 @@ extern "C" {
   EXTERN_C const GUID CLSID_CImageElementFactory;
 
   typedef enum _bodyScroll {
-    bodyScrollyes = 1,bodyScrollno = 2,bodyScrollauto = 4,bodyScrolldefault = 3,bodyScroll_Max = 2147483647L
+    bodyScrollyes = 1,bodyScrollno = 2,bodyScrollauto = 4,bodyScrolldefault = 3,bodyScroll_Max = 2147483647
   } bodyScroll;
 
   EXTERN_C const GUID CLSID_CBodyElement;
@@ -3755,13 +3755,13 @@ extern "C" {
   EXTERN_C const GUID CLSID_CHeaderElement;
 
   typedef enum _htmlSelectType {
-    htmlSelectTypeSelectOne = 1,htmlSelectTypeSelectMultiple = 2,htmlSelectType_Max = 2147483647L
+    htmlSelectTypeSelectOne = 1,htmlSelectTypeSelectMultiple = 2,htmlSelectType_Max = 2147483647
   } htmlSelectType;
 
   EXTERN_C const GUID CLSID_CSelectElement;
 
   typedef enum _htmlSelection {
-    htmlSelectionNone = 0,htmlSelectionText = 1,htmlSelectionControl = 2,htmlSelectionTable = 3,htmlSelection_Max = 2147483647L
+    htmlSelectionNone = 0,htmlSelectionText = 1,htmlSelectionControl = 2,htmlSelectionTable = 3,htmlSelection_Max = 2147483647
   } htmlSelection;
 
   EXTERN_C const GUID CLSID_COptionElement;
@@ -3772,12 +3772,12 @@ extern "C" {
   EXTERN_C const GUID CLSID_CButton;
 
   typedef enum _htmlMarqueeBehavior {
-    htmlMarqueeBehaviorscroll = 1,htmlMarqueeBehaviorslide = 2,htmlMarqueeBehavioralternate = 3,htmlMarqueeBehavior_Max = 2147483647L
+    htmlMarqueeBehaviorscroll = 1,htmlMarqueeBehaviorslide = 2,htmlMarqueeBehavioralternate = 3,htmlMarqueeBehavior_Max = 2147483647
   } htmlMarqueeBehavior;
 
   typedef enum _htmlMarqueeDirection {
     htmlMarqueeDirectionleft = 1,htmlMarqueeDirectionright = 3,htmlMarqueeDirectionup = 5,htmlMarqueeDirectiondown = 7,
-    htmlMarqueeDirection_Max = 2147483647L
+    htmlMarqueeDirection_Max = 2147483647
   } htmlMarqueeDirection;
 
   EXTERN_C const GUID CLSID_CMarquee;
@@ -3799,17 +3799,17 @@ extern "C" {
 
   typedef enum _htmlPersistState {
     htmlPersistStateNormal = 0,htmlPersistStateFavorite = 1,htmlPersistStateHistory = 2,htmlPersistStateSnapshot = 3,htmlPersistStateUserData = 4,
-    htmlPersistState_Max = 2147483647L
+    htmlPersistState_Max = 2147483647
   } htmlPersistState;
 
   typedef enum _htmlDropEffect {
-    htmlDropEffectCopy = 0,htmlDropEffectLink = 1,htmlDropEffectMove = 2,htmlDropEffectNone = 3,htmlDropEffect_Max = 2147483647L
+    htmlDropEffectCopy = 0,htmlDropEffectLink = 1,htmlDropEffectMove = 2,htmlDropEffectNone = 3,htmlDropEffect_Max = 2147483647
   } htmlDropEffect;
 
   typedef enum _htmlEffectAllowed {
     htmlEffectAllowedCopy = 0,htmlEffectAllowedLink = 1,htmlEffectAllowedMove = 2,htmlEffectAllowedCopyLink = 3,htmlEffectAllowedCopyMove = 4,
     htmlEffectAllowedLinkMove = 5,htmlEffectAllowedAll = 6,htmlEffectAllowedNone = 7,htmlEffectAllowedUninitialized = 8,
-    htmlEffectAllowed_Max = 2147483647L
+    htmlEffectAllowed_Max = 2147483647
   } htmlEffectAllowed;
 
   EXTERN_C const GUID CLSID_CEventObj;
@@ -3819,14 +3819,14 @@ extern "C" {
   EXTERN_C const GUID CLSID_COmWindowProxy;
 
   typedef enum _htmlCompatMode {
-    htmlCompatModeBackCompat = 0,htmlCompatModeCSS1Compat = 1,htmlCompatMode_Max = 2147483647L
+    htmlCompatModeBackCompat = 0,htmlCompatModeCSS1Compat = 1,htmlCompatMode_Max = 2147483647
   } htmlCompatMode;
 
   EXTERN_C const GUID CLSID_CDocument;
   EXTERN_C const GUID CLSID_CScriptlet;
 
   typedef enum _BoolValue {
-    True = 1,False = 0,BoolValue_Max = 2147483647L
+    True = 1,False = 0,BoolValue_Max = 2147483647
   } BoolValue;
 
   EXTERN_C const GUID CLSID_CPluginSite;
@@ -3836,11 +3836,11 @@ extern "C" {
 
   typedef enum _htmlCaptionAlign {
     htmlCaptionAlignNotSet = 0,htmlCaptionAlignLeft = 1,htmlCaptionAlignCenter = 2,htmlCaptionAlignRight = 3,htmlCaptionAlignJustify = 4,
-    htmlCaptionAlignTop = 5,htmlCaptionAlignBottom = 6,htmlCaptionAlign_Max = 2147483647L
+    htmlCaptionAlignTop = 5,htmlCaptionAlignBottom = 6,htmlCaptionAlign_Max = 2147483647
   } htmlCaptionAlign;
 
   typedef enum _htmlCaptionVAlign {
-    htmlCaptionVAlignNotSet = 0,htmlCaptionVAlignTop = 1,htmlCaptionVAlignBottom = 2,htmlCaptionVAlign_Max = 2147483647L
+    htmlCaptionVAlignNotSet = 0,htmlCaptionVAlignTop = 1,htmlCaptionVAlignBottom = 2,htmlCaptionVAlign_Max = 2147483647
   } htmlCaptionVAlign;
 
   EXTERN_C const GUID CLSID_CTableCaption;
@@ -3850,21 +3850,21 @@ extern "C" {
 
   typedef enum _htmlFrame {
     htmlFrameNotSet = 0,htmlFramevoid = 1,htmlFrameabove = 2,htmlFramebelow = 3,htmlFramehsides = 4,htmlFramelhs = 5,htmlFramerhs = 6,
-    htmlFramevsides = 7,htmlFramebox = 8,htmlFrameborder = 9,htmlFrame_Max = 2147483647L
+    htmlFramevsides = 7,htmlFramebox = 8,htmlFrameborder = 9,htmlFrame_Max = 2147483647
   } htmlFrame;
 
   typedef enum _htmlRules {
-    htmlRulesNotSet = 0,htmlRulesnone = 1,htmlRulesgroups = 2,htmlRulesrows = 3,htmlRulescols = 4,htmlRulesall = 5,htmlRules_Max = 2147483647L
+    htmlRulesNotSet = 0,htmlRulesnone = 1,htmlRulesgroups = 2,htmlRulesrows = 3,htmlRulescols = 4,htmlRulesall = 5,htmlRules_Max = 2147483647
   } htmlRules;
 
   typedef enum _htmlCellAlign {
     htmlCellAlignNotSet = 0,htmlCellAlignLeft = 1,htmlCellAlignCenter = 2,htmlCellAlignRight = 3,htmlCellAlignMiddle = htmlCellAlignCenter,
-    htmlCellAlign_Max = 2147483647L
+    htmlCellAlign_Max = 2147483647
   } htmlCellAlign;
 
   typedef enum _htmlCellVAlign {
     htmlCellVAlignNotSet = 0,htmlCellVAlignTop = 1,htmlCellVAlignMiddle = 2,htmlCellVAlignBottom = 3,htmlCellVAlignBaseline = 4,
-    htmlCellVAlignCenter = htmlCellVAlignMiddle,htmlCellVAlign_Max = 2147483647L
+    htmlCellVAlignCenter = htmlCellVAlignMiddle,htmlCellVAlign_Max = 2147483647
   } htmlCellVAlign;
 
   EXTERN_C const GUID CLSID_CTable;
@@ -3878,7 +3878,7 @@ extern "C" {
   EXTERN_C const GUID CLSID_CParamElement;
 
   typedef enum _frameScrolling {
-    frameScrollingyes = 1,frameScrollingno = 2,frameScrollingauto = 4,frameScrolling_Max = 2147483647L
+    frameScrollingyes = 1,frameScrollingno = 2,frameScrollingauto = 4,frameScrolling_Max = 2147483647
   } frameScrolling;
 
   EXTERN_C const GUID CLSID_CFrameSite;
@@ -3895,29 +3895,29 @@ extern "C" {
 
   typedef enum _ELEMENT_CORNER {
     ELEMENT_CORNER_NONE = 0,ELEMENT_CORNER_TOP = 1,ELEMENT_CORNER_LEFT = 2,ELEMENT_CORNER_BOTTOM = 3,ELEMENT_CORNER_RIGHT = 4,
-    ELEMENT_CORNER_TOPLEFT = 5,ELEMENT_CORNER_TOPRIGHT = 6,ELEMENT_CORNER_BOTTOMLEFT = 7,ELEMENT_CORNER_BOTTOMRIGHT = 8,ELEMENT_CORNER_Max = 2147483647L
+    ELEMENT_CORNER_TOPLEFT = 5,ELEMENT_CORNER_TOPRIGHT = 6,ELEMENT_CORNER_BOTTOMLEFT = 7,ELEMENT_CORNER_BOTTOMRIGHT = 8,ELEMENT_CORNER_Max = 2147483647
   } ELEMENT_CORNER;
 
   typedef enum _SECUREURLHOSTVALIDATE_FLAGS {
-    SUHV_PROMPTBEFORENO = 0x1,SUHV_SILENTYES = 0x2,SUHV_UNSECURESOURCE = 0x4,SECUREURLHOSTVALIDATE_FLAGS_Max = 2147483647L
+    SUHV_PROMPTBEFORENO = 0x1,SUHV_SILENTYES = 0x2,SUHV_UNSECURESOURCE = 0x4,SECUREURLHOSTVALIDATE_FLAGS_Max = 2147483647
   } SECUREURLHOSTVALIDATE_FLAGS;
 
   typedef enum _POINTER_GRAVITY {
-    POINTER_GRAVITY_Left = 0,POINTER_GRAVITY_Right = 1,POINTER_GRAVITY_Max = 2147483647L
+    POINTER_GRAVITY_Left = 0,POINTER_GRAVITY_Right = 1,POINTER_GRAVITY_Max = 2147483647
   } POINTER_GRAVITY;
 
   typedef enum _ELEMENT_ADJACENCY {
-    ELEM_ADJ_BeforeBegin = 0,ELEM_ADJ_AfterBegin = 1,ELEM_ADJ_BeforeEnd = 2,ELEM_ADJ_AfterEnd = 3,ELEMENT_ADJACENCY_Max = 2147483647L
+    ELEM_ADJ_BeforeBegin = 0,ELEM_ADJ_AfterBegin = 1,ELEM_ADJ_BeforeEnd = 2,ELEM_ADJ_AfterEnd = 3,ELEMENT_ADJACENCY_Max = 2147483647
   } ELEMENT_ADJACENCY;
 
   typedef enum _MARKUP_CONTEXT_TYPE {
     CONTEXT_TYPE_None = 0,CONTEXT_TYPE_Text = 1,CONTEXT_TYPE_EnterScope = 2,CONTEXT_TYPE_ExitScope = 3,CONTEXT_TYPE_NoScope = 4,
-    MARKUP_CONTEXT_TYPE_Max = 2147483647L
+    MARKUP_CONTEXT_TYPE_Max = 2147483647
   } MARKUP_CONTEXT_TYPE;
 
   typedef enum _FINDTEXT_FLAGS {
     FINDTEXT_BACKWARDS = 0x1,FINDTEXT_WHOLEWORD = 0x2,FINDTEXT_MATCHCASE = 0x4,FINDTEXT_RAW = 0x20000,FINDTEXT_MATCHDIAC = 0x20000000,
-    FINDTEXT_MATCHKASHIDA = 0x40000000,FINDTEXT_MATCHALEFHAMZA = 0x80000000,FINDTEXT_FLAGS_Max = 2147483647L
+    FINDTEXT_MATCHKASHIDA = 0x40000000,FINDTEXT_MATCHALEFHAMZA = 0x80000000,FINDTEXT_FLAGS_Max = 2147483647
   } FINDTEXT_FLAGS;
 
   typedef enum _MOVEUNIT_ACTION {
@@ -3925,11 +3925,11 @@ extern "C" {
     MOVEUNIT_NEXTCLUSTEREND = 5,MOVEUNIT_PREVWORDBEGIN = 6,MOVEUNIT_NEXTWORDBEGIN = 7,MOVEUNIT_PREVWORDEND = 8,MOVEUNIT_NEXTWORDEND = 9,
     MOVEUNIT_PREVPROOFWORD = 10,MOVEUNIT_NEXTPROOFWORD = 11,MOVEUNIT_NEXTURLBEGIN = 12,MOVEUNIT_PREVURLBEGIN = 13,MOVEUNIT_NEXTURLEND = 14,
     MOVEUNIT_PREVURLEND = 15,MOVEUNIT_PREVSENTENCE = 16,MOVEUNIT_NEXTSENTENCE = 17,MOVEUNIT_PREVBLOCK = 18,MOVEUNIT_NEXTBLOCK = 19,
-    MOVEUNIT_ACTION_Max = 2147483647L
+    MOVEUNIT_ACTION_Max = 2147483647
   } MOVEUNIT_ACTION;
 
   typedef enum _PARSE_FLAGS {
-    PARSE_ABSOLUTIFYIE40URLS = 0x1,PARSE_FLAGS_Max = 2147483647L
+    PARSE_ABSOLUTIFYIE40URLS = 0x1,PARSE_FLAGS_Max = 2147483647
   } PARSE_FLAGS;
 
   typedef enum _ELEMENT_TAG_ID {
@@ -3946,49 +3946,49 @@ extern "C" {
     TAGID_SPAN = 86,TAGID_STRIKE = 87,TAGID_STRONG = 88,TAGID_STYLE = 89,TAGID_SUB = 90,TAGID_SUP = 91,TAGID_TABLE = 92,TAGID_TBODY = 93,TAGID_TC = 94,
     TAGID_TD = 95,TAGID_TEXTAREA = 96,TAGID_TFOOT = 97,TAGID_TH = 98,TAGID_THEAD = 99,TAGID_TITLE = 100,TAGID_TR = 101,TAGID_TT = 102,TAGID_U = 103,
     TAGID_UL = 104,TAGID_VAR = 105,TAGID_WBR = 106,TAGID_XMP = 107,TAGID_ROOT = 108,TAGID_OPTGROUP = 109,TAGID_COUNT = 110,
-    TAGID_LAST_PREDEFINED = 10000,ELEMENT_TAG_ID_Max = 2147483647L
+    TAGID_LAST_PREDEFINED = 10000,ELEMENT_TAG_ID_Max = 2147483647
   } ELEMENT_TAG_ID;
 
   typedef enum _SELECTION_TYPE {
-    SELECTION_TYPE_None = 0,SELECTION_TYPE_Caret = 1,SELECTION_TYPE_Text = 2,SELECTION_TYPE_Control = 3,SELECTION_TYPE_Max = 2147483647L
+    SELECTION_TYPE_None = 0,SELECTION_TYPE_Caret = 1,SELECTION_TYPE_Text = 2,SELECTION_TYPE_Control = 3,SELECTION_TYPE_Max = 2147483647
   } SELECTION_TYPE;
 
   typedef enum _SAVE_SEGMENTS_FLAGS {
-    SAVE_SEGMENTS_NoIE4SelectionCompat = 0x1,SAVE_SEGMENTS_FLAGS_Max = 2147483647L
+    SAVE_SEGMENTS_NoIE4SelectionCompat = 0x1,SAVE_SEGMENTS_FLAGS_Max = 2147483647
   } SAVE_SEGMENTS_FLAGS;
 
   typedef enum _CARET_DIRECTION {
     CARET_DIRECTION_INDETERMINATE = 0,CARET_DIRECTION_SAME = 1,CARET_DIRECTION_BACKWARD = 2,CARET_DIRECTION_FORWARD = 3,
-    CARET_DIRECTION_Max = 2147483647L
+    CARET_DIRECTION_Max = 2147483647
   } CARET_DIRECTION;
 
   typedef enum _LINE_DIRECTION {
-    LINE_DIRECTION_RightToLeft = 1,LINE_DIRECTION_LeftToRight = 2,LINE_DIRECTION_Max = 2147483647L
+    LINE_DIRECTION_RightToLeft = 1,LINE_DIRECTION_LeftToRight = 2,LINE_DIRECTION_Max = 2147483647
   } LINE_DIRECTION;
 
   typedef enum _HT_OPTIONS {
-    HT_OPT_AllowAfterEOL = 0x1,HT_OPTIONS_Max = 2147483647L
+    HT_OPT_AllowAfterEOL = 0x1,HT_OPTIONS_Max = 2147483647
   } HT_OPTIONS;
 
   typedef enum _HT_RESULTS {
-    HT_RESULTS_Glyph = 0x1,HT_RESULTS_Max = 2147483647L
+    HT_RESULTS_Glyph = 0x1,HT_RESULTS_Max = 2147483647
   } HT_RESULTS;
 
   typedef enum _DISPLAY_MOVEUNIT {
     DISPLAY_MOVEUNIT_PreviousLine = 1,DISPLAY_MOVEUNIT_NextLine = 2,DISPLAY_MOVEUNIT_CurrentLineStart = 3,DISPLAY_MOVEUNIT_CurrentLineEnd = 4,
-    DISPLAY_MOVEUNIT_TopOfWindow = 5,DISPLAY_MOVEUNIT_BottomOfWindow = 6,DISPLAY_MOVEUNIT_Max = 2147483647L
+    DISPLAY_MOVEUNIT_TopOfWindow = 5,DISPLAY_MOVEUNIT_BottomOfWindow = 6,DISPLAY_MOVEUNIT_Max = 2147483647
   } DISPLAY_MOVEUNIT;
 
   typedef enum _DISPLAY_GRAVITY {
-    DISPLAY_GRAVITY_PreviousLine = 1,DISPLAY_GRAVITY_NextLine = 2,DISPLAY_GRAVITY_Max = 2147483647L
+    DISPLAY_GRAVITY_PreviousLine = 1,DISPLAY_GRAVITY_NextLine = 2,DISPLAY_GRAVITY_Max = 2147483647
   } DISPLAY_GRAVITY;
 
   typedef enum _DISPLAY_BREAK {
-    DISPLAY_BREAK_None = 0,DISPLAY_BREAK_Block = 0x1,DISPLAY_BREAK_Break = 0x2,DISPLAY_BREAK_Max = 2147483647L
+    DISPLAY_BREAK_None = 0,DISPLAY_BREAK_Block = 0x1,DISPLAY_BREAK_Break = 0x2,DISPLAY_BREAK_Max = 2147483647
   } DISPLAY_BREAK;
 
   typedef enum _COORD_SYSTEM {
-    COORD_SYSTEM_GLOBAL = 0,COORD_SYSTEM_PARENT = 1,COORD_SYSTEM_CONTAINER = 2,COORD_SYSTEM_CONTENT = 3,COORD_SYSTEM_FRAME = 4,COORD_SYSTEM_Max = 2147483647L
+    COORD_SYSTEM_GLOBAL = 0,COORD_SYSTEM_PARENT = 1,COORD_SYSTEM_CONTAINER = 2,COORD_SYSTEM_CONTENT = 3,COORD_SYSTEM_FRAME = 4,COORD_SYSTEM_Max = 2147483647
   } COORD_SYSTEM;
 
   EXTERN_C const GUID CLSID_HtmlDlgSafeHelper;
@@ -4001,25 +4001,25 @@ extern "C" {
     HTMLPAINTER_OPAQUE = 0x1,HTMLPAINTER_TRANSPARENT = 0x2,HTMLPAINTER_ALPHA = 0x4,HTMLPAINTER_COMPLEX = 0x8,HTMLPAINTER_OVERLAY = 0x10,
     HTMLPAINTER_HITTEST = 0x20,HTMLPAINTER_SURFACE = 0x100,HTMLPAINTER_3DSURFACE = 0x200,HTMLPAINTER_NOBAND = 0x400,HTMLPAINTER_NODC = 0x1000,
     HTMLPAINTER_NOPHYSICALCLIP = 0x2000,HTMLPAINTER_NOSAVEDC = 0x4000,HTMLPAINTER_SUPPORTS_XFORM = 0x8000,HTMLPAINTER_EXPAND = 0x10000,
-    HTMLPAINTER_NOSCROLLBITS = 0x20000,HTML_PAINTER_Max = 2147483647L
+    HTMLPAINTER_NOSCROLLBITS = 0x20000,HTML_PAINTER_Max = 2147483647
   } HTML_PAINTER;
 
   typedef enum _HTML_PAINT_ZORDER {
     HTMLPAINT_ZORDER_NONE = 0,HTMLPAINT_ZORDER_REPLACE_ALL = 1,HTMLPAINT_ZORDER_REPLACE_CONTENT = 2,HTMLPAINT_ZORDER_REPLACE_BACKGROUND = 3,
     HTMLPAINT_ZORDER_BELOW_CONTENT = 4,HTMLPAINT_ZORDER_BELOW_FLOW = 5,HTMLPAINT_ZORDER_ABOVE_FLOW = 6,HTMLPAINT_ZORDER_ABOVE_CONTENT = 7,
-    HTMLPAINT_ZORDER_WINDOW_TOP = 8,HTML_PAINT_ZORDER_Max = 2147483647L
+    HTMLPAINT_ZORDER_WINDOW_TOP = 8,HTML_PAINT_ZORDER_Max = 2147483647
   } HTML_PAINT_ZORDER;
 
   typedef enum _HTML_PAINT_DRAW_FLAGS {
-    HTMLPAINT_DRAW_UPDATEREGION = 0x1,HTMLPAINT_DRAW_USE_XFORM = 0x2,HTML_PAINT_DRAW_FLAGS_Max = 2147483647L
+    HTMLPAINT_DRAW_UPDATEREGION = 0x1,HTMLPAINT_DRAW_USE_XFORM = 0x2,HTML_PAINT_DRAW_FLAGS_Max = 2147483647
   } HTML_PAINT_DRAW_FLAGS;
 
   typedef enum _HTML_PAINT_EVENT_FLAGS {
-    HTMLPAINT_EVENT_TARGET = 0x1,HTMLPAINT_EVENT_SETCURSOR = 0x2,HTML_PAINT_EVENT_FLAGS_Max = 2147483647L
+    HTMLPAINT_EVENT_TARGET = 0x1,HTMLPAINT_EVENT_SETCURSOR = 0x2,HTML_PAINT_EVENT_FLAGS_Max = 2147483647
   } HTML_PAINT_EVENT_FLAGS;
 
   typedef enum _HTML_PAINT_DRAW_INFO_FLAGS {
-    HTMLPAINT_DRAWINFO_VIEWPORT = 0x1,HTMLPAINT_DRAWINFO_UPDATEREGION = 0x2,HTMLPAINT_DRAWINFO_XFORM = 0x4,HTML_PAINT_DRAW_INFO_FLAGS_Max = 2147483647L
+    HTMLPAINT_DRAWINFO_VIEWPORT = 0x1,HTMLPAINT_DRAWINFO_UPDATEREGION = 0x2,HTMLPAINT_DRAWINFO_XFORM = 0x4,HTML_PAINT_DRAW_INFO_FLAGS_Max = 2147483647
   } HTML_PAINT_DRAW_INFO_FLAGS;
 
   typedef struct _HTML_PAINTER_INFO {
@@ -4046,20 +4046,20 @@ extern "C" {
 
   typedef enum _HTMLDlgFlag {
     HTMLDlgFlagNo = 0,HTMLDlgFlagOff = 0,HTMLDlgFlag0 = 0,HTMLDlgFlagYes = 1,HTMLDlgFlagOn = 1,HTMLDlgFlag1 = 1,HTMLDlgFlagNotSet = -1,
-    HTMLDlgFlag_Max = 2147483647L
+    HTMLDlgFlag_Max = 2147483647
   } HTMLDlgFlag;
 
   typedef enum _HTMLDlgBorder {
-    HTMLDlgBorderThin = 0,HTMLDlgBorderThick = 0x40000L,HTMLDlgBorder_Max = 2147483647L
+    HTMLDlgBorderThin = 0,HTMLDlgBorderThick = 0x40000,HTMLDlgBorder_Max = 2147483647
   } HTMLDlgBorder;
 
   typedef enum _HTMLDlgEdge {
-    HTMLDlgEdgeSunken = 0,HTMLDlgEdgeRaised = 16,HTMLDlgEdge_Max = 2147483647L
+    HTMLDlgEdgeSunken = 0,HTMLDlgEdgeRaised = 16,HTMLDlgEdge_Max = 2147483647
   } HTMLDlgEdge;
 
   typedef enum _HTMLDlgCenter {
     HTMLDlgCenterNo = 0,HTMLDlgCenterOff = 0,HTMLDlgCenter0 = 0,HTMLDlgCenterYes = 1,HTMLDlgCenterOn = 1,HTMLDlgCenter1 = 1,HTMLDlgCenterParent = 1,
-    HTMLDlgCenterDesktop = 2,HTMLDlgCenter_Max = 2147483647L
+    HTMLDlgCenterDesktop = 2,HTMLDlgCenter_Max = 2147483647
   } HTMLDlgCenter;
 
   EXTERN_C const GUID CLSID_CThreadDialogProcParam;
@@ -4067,47 +4067,47 @@ extern "C" {
   EXTERN_C const GUID CLSID_CHTMLPopup;
 
   typedef enum _HTMLAppFlag {
-    HTMLAppFlagNo = 0,HTMLAppFlagOff = 0,HTMLAppFlag0 = 0,HTMLAppFlagYes = 1,HTMLAppFlagOn = 1,HTMLAppFlag1 = 1,HTMLAppFlag_Max = 2147483647L
+    HTMLAppFlagNo = 0,HTMLAppFlagOff = 0,HTMLAppFlag0 = 0,HTMLAppFlagYes = 1,HTMLAppFlagOn = 1,HTMLAppFlag1 = 1,HTMLAppFlag_Max = 2147483647
   } HTMLAppFlag;
 
   typedef enum _HTMLMinimizeFlag {
-    HTMLMinimizeFlagNo = 0,HTMLMinimizeFlagYes = 0x20000L,HTMLMinimizeFlag_Max = 2147483647L
+    HTMLMinimizeFlagNo = 0,HTMLMinimizeFlagYes = 0x20000,HTMLMinimizeFlag_Max = 2147483647
   } HTMLMinimizeFlag;
 
   typedef enum _HTMLMaximizeFlag {
-    HTMLMaximizeFlagNo = 0,HTMLMaximizeFlagYes = 0x10000L,HTMLMaximizeFlag_Max = 2147483647L
+    HTMLMaximizeFlagNo = 0,HTMLMaximizeFlagYes = 0x10000,HTMLMaximizeFlag_Max = 2147483647
   } HTMLMaximizeFlag;
 
   typedef enum _HTMLCaptionFlag {
-    HTMLCaptionFlagNo = 0,HTMLCaptionFlagYes = 0xc00000L,HTMLCaptionFlag_Max = 2147483647L
+    HTMLCaptionFlagNo = 0,HTMLCaptionFlagYes = 0xc00000,HTMLCaptionFlag_Max = 2147483647
   } HTMLCaptionFlag;
 
   typedef enum _HTMLSysMenuFlag {
-    HTMLSysMenuFlagNo = 0,HTMLSysMenuFlagYes = 0x80000L,HTMLSysMenuFlag_Max = 2147483647L
+    HTMLSysMenuFlagNo = 0,HTMLSysMenuFlagYes = 0x80000,HTMLSysMenuFlag_Max = 2147483647
   } HTMLSysMenuFlag;
 
   typedef enum _HTMLBorder {
-    HTMLBorderNone = 0,HTMLBorderThick = 0x40000L,HTMLBorderDialog = 0x400000L,HTMLBorderThin = 0x800000L,HTMLBorder_Max = 2147483647L
+    HTMLBorderNone = 0,HTMLBorderThick = 0x40000,HTMLBorderDialog = 0x400000,HTMLBorderThin = 0x800000,HTMLBorder_Max = 2147483647
   } HTMLBorder;
 
   typedef enum _HTMLBorderStyle {
-    HTMLBorderStyleNormal = 0,HTMLBorderStyleRaised = 0x100L,HTMLBorderStyleSunken = 0x200L,HTMLBorderStylecombined = 0x300L,
-    HTMLBorderStyleStatic = 0x20000L,HTMLBorderStyle_Max = 2147483647L
+    HTMLBorderStyleNormal = 0,HTMLBorderStyleRaised = 0x100,HTMLBorderStyleSunken = 0x200,HTMLBorderStylecombined = 0x300,
+    HTMLBorderStyleStatic = 0x20000,HTMLBorderStyle_Max = 2147483647
   } HTMLBorderStyle;
 
   typedef enum _HTMLWindowState {
-    HTMLWindowStateNormal = 1,HTMLWindowStateMaximize = 3,HTMLWindowStateMinimize = 6,HTMLWindowState_Max = 2147483647L
+    HTMLWindowStateNormal = 1,HTMLWindowStateMaximize = 3,HTMLWindowStateMinimize = 6,HTMLWindowState_Max = 2147483647
   } HTMLWindowState;
 
   EXTERN_C const GUID CLSID_CAppBehavior;
 
   typedef enum _BEHAVIOR_EVENT {
     BEHAVIOREVENT_FIRST = 0,BEHAVIOREVENT_CONTENTREADY = 0,BEHAVIOREVENT_DOCUMENTREADY = 1,BEHAVIOREVENT_APPLYSTYLE = 2,
-    BEHAVIOREVENT_DOCUMENTCONTEXTCHANGE = 3,BEHAVIOREVENT_CONTENTSAVE = 4,BEHAVIOREVENT_LAST = 4,BEHAVIOR_EVENT_Max = 2147483647L
+    BEHAVIOREVENT_DOCUMENTCONTEXTCHANG = 3,BEHAVIOREVENT_CONTENTSAVE = 4,BEHAVIOREVENT_LAST = 4,BEHAVIOR_EVENT_Max = 2147483647
   } BEHAVIOR_EVENT;
 
   typedef enum _BEHAVIOR_EVENT_FLAGS {
-    BEHAVIOREVENTFLAGS_BUBBLE = 1,BEHAVIOREVENTFLAGS_STANDARDADDITIVE = 2,BEHAVIOR_EVENT_FLAGS_Max = 2147483647L
+    BEHAVIOREVENTFLAGS_BUBBLE = 1,BEHAVIOREVENTFLAGS_STANDARDADDITIVE = 2,BEHAVIOR_EVENT_FLAGS_Max = 2147483647
   } BEHAVIOR_EVENT_FLAGS;
 
   typedef enum _BEHAVIOR_RENDER_INFO {
@@ -4116,32 +4116,32 @@ extern "C" {
     BEHAVIORRENDERINFO_ALLLAYERS = 0xff,BEHAVIORRENDERINFO_DISABLEBACKGROUND = 0x100,BEHAVIORRENDERINFO_DISABLENEGATIVEZ = 0x200,
     BEHAVIORRENDERINFO_DISABLECONTENT = 0x400,BEHAVIORRENDERINFO_DISABLEPOSITIVEZ = 0x800,BEHAVIORRENDERINFO_DISABLEALLLAYERS = 0xf00,
     BEHAVIORRENDERINFO_HITTESTING = 0x1000,BEHAVIORRENDERINFO_SURFACE = 0x100000,BEHAVIORRENDERINFO_3DSURFACE = 0x200000,
-    BEHAVIOR_RENDER_INFO_Max = 2147483647L
+    BEHAVIOR_RENDER_INFO_Max = 2147483647
   } BEHAVIOR_RENDER_INFO;
 
   typedef enum _BEHAVIOR_RELATION {
     BEHAVIOR_FIRSTRELATION = 0,BEHAVIOR_SAMEELEMENT = 0,BEHAVIOR_PARENT = 1,BEHAVIOR_CHILD = 2,BEHAVIOR_SIBLING = 3,
     BEHAVIOR_LASTRELATION = 3,
-    BEHAVIOR_RELATION_Max = 2147483647L
+    BEHAVIOR_RELATION_Max = 2147483647
   } BEHAVIOR_RELATION;
 
   typedef enum _BEHAVIOR_LAYOUT_INFO {
     BEHAVIORLAYOUTINFO_FULLDELEGATION = 0x1,BEHAVIORLAYOUTINFO_MODIFYNATURAL = 0x2,BEHAVIORLAYOUTINFO_MAPSIZE = 0x4,
-    BEHAVIOR_LAYOUT_INFO_Max = 2147483647L
+    BEHAVIOR_LAYOUT_INFO_Max = 2147483647
   } BEHAVIOR_LAYOUT_INFO;
 
   typedef enum _BEHAVIOR_LAYOUT_MODE {
     BEHAVIORLAYOUTMODE_NATURAL = 0x1,BEHAVIORLAYOUTMODE_MINWIDTH = 0x2,BEHAVIORLAYOUTMODE_MAXWIDTH = 0x4,BEHAVIORLAYOUTMODE_MEDIA_RESOLUTION = 0x4000,
-    BEHAVIORLAYOUTMODE_FINAL_PERCENT = 0x8000,BEHAVIOR_LAYOUT_MODE_Max = 2147483647L
+    BEHAVIORLAYOUTMODE_FINAL_PERCENT = 0x8000,BEHAVIOR_LAYOUT_MODE_Max = 2147483647
   } BEHAVIOR_LAYOUT_MODE;
 
   typedef enum _ELEMENTDESCRIPTOR_FLAGS {
-    ELEMENTDESCRIPTORFLAGS_LITERAL = 1,ELEMENTDESCRIPTORFLAGS_NESTED_LITERAL = 2,ELEMENTDESCRIPTOR_FLAGS_Max = 2147483647L
+    ELEMENTDESCRIPTORFLAGS_LITERAL = 1,ELEMENTDESCRIPTORFLAGS_NESTED_LITERAL = 2,ELEMENTDESCRIPTOR_FLAGS_Max = 2147483647
   } ELEMENTDESCRIPTOR_FLAGS;
 
   typedef enum _ELEMENTNAMESPACE_FLAGS {
-    ELEMENTNAMESPACEFLAGS_ALLOWANYTAG = 0x1,ELEMENTNAMESPACEFLAGS_QUERYFORUNKNOWNTAGS = 0x2,ELEMENTNAMESPACE_FLAGS_Max = 2147483647L
-  } ELEMENTNAMESPACE_FLAGS;
+    ELEMENTNAMESPACEFLAGS_ALLOWANYTAG = 0x1,ELEMENTNAMESPACEFLAGS_QUERYFORUNKNOWNTAGS = 0x2,ELEMENTNAMESPACE_FLAGS_Max = 2147483647
+   ELEMENTNAMESPACE_FLAGS;
 
   EXTERN_C const IID LIBID_MSHTML;
 #ifndef __IHTMLEventObj_INTERFACE_DEFINED__

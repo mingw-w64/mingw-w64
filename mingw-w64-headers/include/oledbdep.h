@@ -165,10 +165,10 @@ extern "C" {
 #endif
 
   enum DBPROPENUM25_DEPRECATED {
-    DBPROP_ICommandCost = 0x8dL,DBPROP_ICommandTree = 0x8eL,DBPROP_ICommandValidate = 0x8fL,DBPROP_IDBSchemaCommand = 0x90L,
-    DBPROP_IProvideMoniker = 0x7dL,DBPROP_IQuery = 0x92L,DBPROP_IReadData = 0x93L,DBPROP_IRowsetAsynch = 0x94L,DBPROP_IRowsetCopyRows = 0x95L,
-    DBPROP_IRowsetKeys = 0x97L,DBPROP_IRowsetNewRowAfter = 0x98L,DBPROP_IRowsetNextRowset = 0x99L,DBPROP_IRowsetWatchAll = 0x9bL,
-    DBPROP_IRowsetWatchNotify = 0x9cL,DBPROP_IRowsetWatchRegion = 0x9dL,DBPROP_IRowsetWithParameters = 0x9eL
+    DBPROP_ICommandCost = 0x8d,DBPROP_ICommandTree = 0x8e,DBPROP_ICommandValidate = 0x8f,DBPROP_IDBSchemaCommand = 0x90,
+    DBPROP_IProvideMoniker = 0x7d,DBPROP_IQuery = 0x92,DBPROP_IReadData = 0x93,DBPROP_IRowsetAsynch = 0x94,DBPROP_IRowsetCopyRows = 0x95,
+    DBPROP_IRowsetKeys = 0x97,DBPROP_IRowsetNewRowAfter = 0x98,DBPROP_IRowsetNextRowset = 0x99,DBPROP_IRowsetWatchAll = 0x9b,
+    DBPROP_IRowsetWatchNotify = 0x9c,DBPROP_IRowsetWatchRegion = 0x9d,DBPROP_IRowsetWithParameters = 0x9e
   };
 
   enum DBREASONENUM25 {

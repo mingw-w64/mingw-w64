@@ -199,10 +199,10 @@ extern "C"{
   } SortOrderEnum;
 
   typedef enum RightsEnum {
-    adRightNone = 0L,adRightDrop = 0x100L,adRightExclusive = 0x200L,adRightReadDesign = 0x400L,adRightWriteDesign = 0x800L,
-    adRightWithGrant = 0x1000L,adRightReference = 0x2000L,adRightCreate = 0x4000L,adRightInsert = 0x8000L,adRightDelete = 0x10000L,
-    adRightReadPermissions = 0x20000L,adRightWritePermissions = 0x40000L,adRightWriteOwner = 0x80000L,adRightMaximumAllowed = 0x2000000L,
-    adRightFull = 0x10000000L,adRightExecute = 0x20000000L,adRightUpdate = 0x40000000L,adRightRead = 0x80000000L
+    adRightNone = 0,adRightDrop = 0x100,adRightExclusive = 0x200,adRightReadDesign = 0x400,adRightWriteDesign = 0x800,
+    adRightWithGrant = 0x1000,adRightReference = 0x2000,adRightCreate = 0x4000,adRightInsert = 0x8000,adRightDelete = 0x10000,
+    adRightReadPermissions = 0x20000,adRightWritePermissions = 0x40000,adRightWriteOwner = 0x80000,adRightMaximumAllowed = 0x2000000,
+    adRightFull = 0x10000000,adRightExecute = 0x20000000,adRightUpdate = 0x40000000,adRightRead = 0x80000000
   } RightsEnum;
 
 #ifdef _ADOINT_H_

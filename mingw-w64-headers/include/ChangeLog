@@ -1,3 +1,7 @@
+2012-07-23  Corinna Vinschen  <vinschen@redhat.com>
+
+	* Throughout, drop 'L' modifier from enumeration values.
+
 2012-07-21  Corinna Vinschen  <vinschen@redhat.com>
 
 	* ws2tcpip.h (EAI_NODATA): Define as int value.
