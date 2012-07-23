@@ -262,7 +262,7 @@ cpp_quote("#define _SECURITY_ATTRIBUTES_")
     typedef struct _SECURITY_ATTRIBUTES {
         DWORD nLength;
         LPVOID lpSecurityDescriptor;
-        WINBOOL bInheritHandle;
+        BOOL bInheritHandle;
     } SECURITY_ATTRIBUTES, *PSECURITY_ATTRIBUTES, *LPSECURITY_ATTRIBUTES;
 cpp_quote("#endif")
 
