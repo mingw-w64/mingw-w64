@@ -15,23 +15,27 @@ AC_CANONICAL_HOST
 # Checks for programs.
 AC_PROG_SED
 
-AC_MSG_CHECKING([whether to rebuild headers with widl])
 AC_ARG_WITH([widl],
   AS_HELP_STRING([--with-widl=PATH],
     [use widl to update idl-based headers]),
   [],
-  [AS_VAR_SET([with_widl],[no])])
-AS_CASE([$with_widl],
-  [no],[],
-  [yes],[AS_VAR_SET([with_widl],["mingw-w64-widl widl"])],
-  [])
-AC_MSG_RESULT([$with_widl])
+  [with_widl=no])
 
 AS_VAR_IF([with_widl],[no],[],[
-  AC_PATH_PROGS([WIDL], [$with_widl], [])
-  AS_VAR_IF([WIDL],[],[AC_MSG_ERROR([Could not find widl installation, which is required in maintainer mode])])])
+  AS_VAR_IF([with_widl],[yes],[
+    AC_PATH_PROGS([widl_prog], [mingw-w64-widl widl])
+    AS_VAR_IF([widl_prog],[],[
+      AC_MSG_ERROR([Could not find widl installation, which is required in maintainer mode])])
+  ],[
+    AS_IF(AC_TRY_COMMAND([$with_widl -V]),
+      [widl_prog=$with_widl],
+      [AC_MSG_ERROR([Specified widl command is not valid])])]
+  )])
 
-AM_CONDITIONAL([HAVE_WIDL],[AS_VAR_TEST_SET([WIDL])])
+AS_VAR_IF([widl_prog],[],[],[WIDL="$widl_prog"])
+
+AC_SUBST([WIDL])
+AM_CONDITIONAL([HAVE_WIDL],[test -n "$widl_prog"])
 
 # Checks for libraries.
 
