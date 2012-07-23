@@ -7,25 +7,30 @@ AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_SRCDIR([src/widl.c])
 AC_CONFIG_HEADERS([include/config.h])
 
+AC_CANONICAL_TARGET
+AC_CANONICAL_HOST
+
 AM_INIT_AUTOMAKE([foreign subdir-objects])
 AM_MAINTAINER_MODE
 
-AC_CANONICAL_HOST
+AC_ARG_PROGRAM
 
 # Checks for programs.
 AC_PROG_CC
 
-case $host in
+case $target in
   *-mingw32)
-    widl_bin_name=widl
-    CFLAGS="$CFLAGS -Wno-pedantic-ms-format"
     ;;
   *)
-    widl_bin_name=mingw-w64-widl
+    AC_MSG_ERROR([Unsupported target: $target. Only *-mingw32 targets are supported])
     ;;
 esac
 
-AC_SUBST(WIDL_BIN_NAME,[$widl_bin_name])
+case $host in
+  *-mingw32)
+    CFLAGS="$CFLAGS -Wno-pedantic-ms-format"
+    ;;
+esac
 
 # Checks for libraries.
 

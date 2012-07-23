@@ -23,9 +23,9 @@ AC_ARG_WITH([widl],
 
 AS_VAR_IF([with_widl],[no],[],[
   AS_VAR_IF([with_widl],[yes],[
-    AC_PATH_PROGS([widl_prog], [mingw-w64-widl widl])
+    AC_PATH_PROGS([widl_prog], [$host-widl widl])
     AS_VAR_IF([widl_prog],[],[
-      AC_MSG_ERROR([Could not find widl installation, which is required in maintainer mode])])
+      AC_MSG_ERROR([--with-widl is specified, but widl installation could not be found.])])
   ],[
     AS_IF(AC_TRY_COMMAND([$with_widl -V]),
       [widl_prog=$with_widl],

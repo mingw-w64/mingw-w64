@@ -34,7 +34,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-EXTRA_PROGRAMS = widl$(EXEEXT) mingw-w64-widl$(EXEEXT)
+target_triplet = @target@
+bin_PROGRAMS = widl$(EXEEXT)
 subdir = .
 DIST_COMMON = $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(top_srcdir)/configure \
@@ -54,31 +55,6 @@ CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am__dirstamp = $(am__leading_dot)dirstamp
-am__objects_1 = src/mingw_w64_widl-client.$(OBJEXT) \
-	src/mingw_w64_widl-expr.$(OBJEXT) \
-	src/mingw_w64_widl-hash.$(OBJEXT) \
-	src/mingw_w64_widl-header.$(OBJEXT) \
-	src/mingw_w64_widl-parser.tab.$(OBJEXT) \
-	src/mingw_w64_widl-parser.yy.$(OBJEXT) \
-	src/port/mingw_w64_widl-port.$(OBJEXT) \
-	src/mingw_w64_widl-proxy.$(OBJEXT) \
-	src/mingw_w64_widl-register.$(OBJEXT) \
-	src/mingw_w64_widl-server.$(OBJEXT) \
-	src/mingw_w64_widl-typegen.$(OBJEXT) \
-	src/mingw_w64_widl-typelib.$(OBJEXT) \
-	src/mingw_w64_widl-typetree.$(OBJEXT) \
-	src/mingw_w64_widl-utils.$(OBJEXT) \
-	src/mingw_w64_widl-widl.$(OBJEXT) \
-	src/mingw_w64_widl-write_msft.$(OBJEXT) \
-	src/wpp/mingw_w64_widl-ppl.yy.$(OBJEXT) \
-	src/wpp/mingw_w64_widl-ppy.tab.$(OBJEXT) \
-	src/wpp/mingw_w64_widl-preproc.$(OBJEXT) \
-	src/wpp/mingw_w64_widl-wpp.$(OBJEXT)
-am_mingw_w64_widl_OBJECTS = $(am__objects_1)
-mingw_w64_widl_OBJECTS = $(am_mingw_w64_widl_OBJECTS)
-mingw_w64_widl_LDADD = $(LDADD)
-mingw_w64_widl_LINK = $(CCLD) $(mingw_w64_widl_CFLAGS) $(CFLAGS) \
-	$(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_widl_OBJECTS = src/widl-client.$(OBJEXT) src/widl-expr.$(OBJEXT) \
 	src/widl-hash.$(OBJEXT) src/widl-header.$(OBJEXT) \
 	src/widl-parser.tab.$(OBJEXT) src/widl-parser.yy.$(OBJEXT) \
@@ -101,8 +77,8 @@ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(mingw_w64_widl_SOURCES) $(widl_SOURCES)
-DIST_SOURCES = $(mingw_w64_widl_SOURCES) $(widl_SOURCES)
+SOURCES = $(widl_SOURCES)
+DIST_SOURCES = $(widl_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -162,7 +138,6 @@ SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
 VERSION = @VERSION@
-WIDL_BIN_NAME = @WIDL_BIN_NAME@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
@@ -209,11 +184,14 @@ sbindir = @sbindir@
 sharedstatedir = @sharedstatedir@
 srcdir = @srcdir@
 sysconfdir = @sysconfdir@
+target = @target@
 target_alias = @target_alias@
+target_cpu = @target_cpu@
+target_os = @target_os@
+target_vendor = @target_vendor@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-bin_PROGRAMS = @WIDL_BIN_NAME@
 widl_SOURCES = \
   src/client.c \
   src/expr.c \
@@ -237,8 +215,6 @@ widl_SOURCES = \
   src/wpp/wpp.c
 
 widl_CFLAGS = -I$(top_srcdir)/include -O3 -g -Wall -Wformat -Wpacked -Wmissing-declarations -Wimplicit-function-declaration -Wmissing-prototypes -Wstrict-aliasing=2
-mingw_w64_widl_SOURCES = $(widl_SOURCES)
-mingw_w64_widl_CFLAGS = $(widl_CFLAGS)
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet)
 all: all-am
 
@@ -338,61 +314,6 @@ src/$(am__dirstamp):
 src/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) src/$(DEPDIR)
 	@: > src/$(DEPDIR)/$(am__dirstamp)
-src/mingw_w64_widl-client.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-src/mingw_w64_widl-expr.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-src/mingw_w64_widl-hash.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-src/mingw_w64_widl-header.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-src/mingw_w64_widl-parser.tab.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-src/mingw_w64_widl-parser.yy.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-src/port/$(am__dirstamp):
-	@$(MKDIR_P) src/port
-	@: > src/port/$(am__dirstamp)
-src/port/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) src/port/$(DEPDIR)
-	@: > src/port/$(DEPDIR)/$(am__dirstamp)
-src/port/mingw_w64_widl-port.$(OBJEXT): src/port/$(am__dirstamp) \
-	src/port/$(DEPDIR)/$(am__dirstamp)
-src/mingw_w64_widl-proxy.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-src/mingw_w64_widl-register.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-src/mingw_w64_widl-server.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-src/mingw_w64_widl-typegen.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-src/mingw_w64_widl-typelib.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-src/mingw_w64_widl-typetree.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-src/mingw_w64_widl-utils.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-src/mingw_w64_widl-widl.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-src/mingw_w64_widl-write_msft.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-src/wpp/$(am__dirstamp):
-	@$(MKDIR_P) src/wpp
-	@: > src/wpp/$(am__dirstamp)
-src/wpp/$(DEPDIR)/$(am__dirstamp):
-	@$(MKDIR_P) src/wpp/$(DEPDIR)
-	@: > src/wpp/$(DEPDIR)/$(am__dirstamp)
-src/wpp/mingw_w64_widl-ppl.yy.$(OBJEXT): src/wpp/$(am__dirstamp) \
-	src/wpp/$(DEPDIR)/$(am__dirstamp)
-src/wpp/mingw_w64_widl-ppy.tab.$(OBJEXT): src/wpp/$(am__dirstamp) \
-	src/wpp/$(DEPDIR)/$(am__dirstamp)
-src/wpp/mingw_w64_widl-preproc.$(OBJEXT): src/wpp/$(am__dirstamp) \
-	src/wpp/$(DEPDIR)/$(am__dirstamp)
-src/wpp/mingw_w64_widl-wpp.$(OBJEXT): src/wpp/$(am__dirstamp) \
-	src/wpp/$(DEPDIR)/$(am__dirstamp)
-mingw-w64-widl$(EXEEXT): $(mingw_w64_widl_OBJECTS) $(mingw_w64_widl_DEPENDENCIES) 
-	@rm -f mingw-w64-widl$(EXEEXT)
-	$(mingw_w64_widl_LINK) $(mingw_w64_widl_OBJECTS) $(mingw_w64_widl_LDADD) $(LIBS)
 src/widl-client.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/widl-expr.$(OBJEXT): src/$(am__dirstamp) \
@@ -405,6 +326,12 @@ src/widl-parser.tab.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/widl-parser.yy.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/port/$(am__dirstamp):
+	@$(MKDIR_P) src/port
+	@: > src/port/$(am__dirstamp)
+src/port/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) src/port/$(DEPDIR)
+	@: > src/port/$(DEPDIR)/$(am__dirstamp)
 src/port/widl-port.$(OBJEXT): src/port/$(am__dirstamp) \
 	src/port/$(DEPDIR)/$(am__dirstamp)
 src/widl-proxy.$(OBJEXT): src/$(am__dirstamp) \
@@ -425,6 +352,12 @@ src/widl-widl.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/widl-write_msft.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/wpp/$(am__dirstamp):
+	@$(MKDIR_P) src/wpp
+	@: > src/wpp/$(am__dirstamp)
+src/wpp/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) src/wpp/$(DEPDIR)
+	@: > src/wpp/$(DEPDIR)/$(am__dirstamp)
 src/wpp/widl-ppl.yy.$(OBJEXT): src/wpp/$(am__dirstamp) \
 	src/wpp/$(DEPDIR)/$(am__dirstamp)
 src/wpp/widl-ppy.tab.$(OBJEXT): src/wpp/$(am__dirstamp) \
@@ -439,22 +372,6 @@ widl$(EXEEXT): $(widl_OBJECTS) $(widl_DEPENDENCIES)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
-	-rm -f src/mingw_w64_widl-client.$(OBJEXT)
-	-rm -f src/mingw_w64_widl-expr.$(OBJEXT)
-	-rm -f src/mingw_w64_widl-hash.$(OBJEXT)
-	-rm -f src/mingw_w64_widl-header.$(OBJEXT)
-	-rm -f src/mingw_w64_widl-parser.tab.$(OBJEXT)
-	-rm -f src/mingw_w64_widl-parser.yy.$(OBJEXT)
-	-rm -f src/mingw_w64_widl-proxy.$(OBJEXT)
-	-rm -f src/mingw_w64_widl-register.$(OBJEXT)
-	-rm -f src/mingw_w64_widl-server.$(OBJEXT)
-	-rm -f src/mingw_w64_widl-typegen.$(OBJEXT)
-	-rm -f src/mingw_w64_widl-typelib.$(OBJEXT)
-	-rm -f src/mingw_w64_widl-typetree.$(OBJEXT)
-	-rm -f src/mingw_w64_widl-utils.$(OBJEXT)
-	-rm -f src/mingw_w64_widl-widl.$(OBJEXT)
-	-rm -f src/mingw_w64_widl-write_msft.$(OBJEXT)
-	-rm -f src/port/mingw_w64_widl-port.$(OBJEXT)
 	-rm -f src/port/widl-port.$(OBJEXT)
 	-rm -f src/widl-client.$(OBJEXT)
 	-rm -f src/widl-expr.$(OBJEXT)
@@ -471,10 +388,6 @@ mostlyclean-compile:
 	-rm -f src/widl-utils.$(OBJEXT)
 	-rm -f src/widl-widl.$(OBJEXT)
 	-rm -f src/widl-write_msft.$(OBJEXT)
-	-rm -f src/wpp/mingw_w64_widl-ppl.yy.$(OBJEXT)
-	-rm -f src/wpp/mingw_w64_widl-ppy.tab.$(OBJEXT)
-	-rm -f src/wpp/mingw_w64_widl-preproc.$(OBJEXT)
-	-rm -f src/wpp/mingw_w64_widl-wpp.$(OBJEXT)
 	-rm -f src/wpp/widl-ppl.yy.$(OBJEXT)
 	-rm -f src/wpp/widl-ppy.tab.$(OBJEXT)
 	-rm -f src/wpp/widl-preproc.$(OBJEXT)
@@ -483,21 +396,6 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/mingw_w64_widl-client.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/mingw_w64_widl-expr.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/mingw_w64_widl-hash.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/mingw_w64_widl-header.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/mingw_w64_widl-parser.tab.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/mingw_w64_widl-parser.yy.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/mingw_w64_widl-proxy.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/mingw_w64_widl-register.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/mingw_w64_widl-server.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/mingw_w64_widl-typegen.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/mingw_w64_widl-typelib.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/mingw_w64_widl-typetree.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/mingw_w64_widl-utils.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/mingw_w64_widl-widl.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/mingw_w64_widl-write_msft.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-client.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-expr.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-hash.Po@am__quote@
@@ -513,12 +411,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-utils.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-widl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-write_msft.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/port/$(DEPDIR)/mingw_w64_widl-port.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/port/$(DEPDIR)/widl-port.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/wpp/$(DEPDIR)/mingw_w64_widl-ppl.yy.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/wpp/$(DEPDIR)/mingw_w64_widl-ppy.tab.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/wpp/$(DEPDIR)/mingw_w64_widl-preproc.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/wpp/$(DEPDIR)/mingw_w64_widl-wpp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/wpp/$(DEPDIR)/widl-ppl.yy.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/wpp/$(DEPDIR)/widl-ppy.tab.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/wpp/$(DEPDIR)/widl-preproc.Po@am__quote@
@@ -539,286 +432,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
-
-src/mingw_w64_widl-client.o: src/client.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-client.o -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-client.Tpo -c -o src/mingw_w64_widl-client.o `test -f 'src/client.c' || echo '$(srcdir)/'`src/client.c
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-client.Tpo src/$(DEPDIR)/mingw_w64_widl-client.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/client.c' object='src/mingw_w64_widl-client.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-client.o `test -f 'src/client.c' || echo '$(srcdir)/'`src/client.c
-
-src/mingw_w64_widl-client.obj: src/client.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-client.obj -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-client.Tpo -c -o src/mingw_w64_widl-client.obj `if test -f 'src/client.c'; then $(CYGPATH_W) 'src/client.c'; else $(CYGPATH_W) '$(srcdir)/src/client.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-client.Tpo src/$(DEPDIR)/mingw_w64_widl-client.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/client.c' object='src/mingw_w64_widl-client.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-client.obj `if test -f 'src/client.c'; then $(CYGPATH_W) 'src/client.c'; else $(CYGPATH_W) '$(srcdir)/src/client.c'; fi`
-
-src/mingw_w64_widl-expr.o: src/expr.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-expr.o -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-expr.Tpo -c -o src/mingw_w64_widl-expr.o `test -f 'src/expr.c' || echo '$(srcdir)/'`src/expr.c
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-expr.Tpo src/$(DEPDIR)/mingw_w64_widl-expr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/expr.c' object='src/mingw_w64_widl-expr.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-expr.o `test -f 'src/expr.c' || echo '$(srcdir)/'`src/expr.c
-
-src/mingw_w64_widl-expr.obj: src/expr.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-expr.obj -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-expr.Tpo -c -o src/mingw_w64_widl-expr.obj `if test -f 'src/expr.c'; then $(CYGPATH_W) 'src/expr.c'; else $(CYGPATH_W) '$(srcdir)/src/expr.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-expr.Tpo src/$(DEPDIR)/mingw_w64_widl-expr.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/expr.c' object='src/mingw_w64_widl-expr.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-expr.obj `if test -f 'src/expr.c'; then $(CYGPATH_W) 'src/expr.c'; else $(CYGPATH_W) '$(srcdir)/src/expr.c'; fi`
-
-src/mingw_w64_widl-hash.o: src/hash.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-hash.o -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-hash.Tpo -c -o src/mingw_w64_widl-hash.o `test -f 'src/hash.c' || echo '$(srcdir)/'`src/hash.c
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-hash.Tpo src/$(DEPDIR)/mingw_w64_widl-hash.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/hash.c' object='src/mingw_w64_widl-hash.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-hash.o `test -f 'src/hash.c' || echo '$(srcdir)/'`src/hash.c
-
-src/mingw_w64_widl-hash.obj: src/hash.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-hash.obj -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-hash.Tpo -c -o src/mingw_w64_widl-hash.obj `if test -f 'src/hash.c'; then $(CYGPATH_W) 'src/hash.c'; else $(CYGPATH_W) '$(srcdir)/src/hash.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-hash.Tpo src/$(DEPDIR)/mingw_w64_widl-hash.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/hash.c' object='src/mingw_w64_widl-hash.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-hash.obj `if test -f 'src/hash.c'; then $(CYGPATH_W) 'src/hash.c'; else $(CYGPATH_W) '$(srcdir)/src/hash.c'; fi`
-
-src/mingw_w64_widl-header.o: src/header.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-header.o -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-header.Tpo -c -o src/mingw_w64_widl-header.o `test -f 'src/header.c' || echo '$(srcdir)/'`src/header.c
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-header.Tpo src/$(DEPDIR)/mingw_w64_widl-header.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/header.c' object='src/mingw_w64_widl-header.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-header.o `test -f 'src/header.c' || echo '$(srcdir)/'`src/header.c
-
-src/mingw_w64_widl-header.obj: src/header.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-header.obj -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-header.Tpo -c -o src/mingw_w64_widl-header.obj `if test -f 'src/header.c'; then $(CYGPATH_W) 'src/header.c'; else $(CYGPATH_W) '$(srcdir)/src/header.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-header.Tpo src/$(DEPDIR)/mingw_w64_widl-header.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/header.c' object='src/mingw_w64_widl-header.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-header.obj `if test -f 'src/header.c'; then $(CYGPATH_W) 'src/header.c'; else $(CYGPATH_W) '$(srcdir)/src/header.c'; fi`
-
-src/mingw_w64_widl-parser.tab.o: src/parser.tab.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-parser.tab.o -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-parser.tab.Tpo -c -o src/mingw_w64_widl-parser.tab.o `test -f 'src/parser.tab.c' || echo '$(srcdir)/'`src/parser.tab.c
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-parser.tab.Tpo src/$(DEPDIR)/mingw_w64_widl-parser.tab.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/parser.tab.c' object='src/mingw_w64_widl-parser.tab.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-parser.tab.o `test -f 'src/parser.tab.c' || echo '$(srcdir)/'`src/parser.tab.c
-
-src/mingw_w64_widl-parser.tab.obj: src/parser.tab.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-parser.tab.obj -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-parser.tab.Tpo -c -o src/mingw_w64_widl-parser.tab.obj `if test -f 'src/parser.tab.c'; then $(CYGPATH_W) 'src/parser.tab.c'; else $(CYGPATH_W) '$(srcdir)/src/parser.tab.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-parser.tab.Tpo src/$(DEPDIR)/mingw_w64_widl-parser.tab.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/parser.tab.c' object='src/mingw_w64_widl-parser.tab.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-parser.tab.obj `if test -f 'src/parser.tab.c'; then $(CYGPATH_W) 'src/parser.tab.c'; else $(CYGPATH_W) '$(srcdir)/src/parser.tab.c'; fi`
-
-src/mingw_w64_widl-parser.yy.o: src/parser.yy.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-parser.yy.o -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-parser.yy.Tpo -c -o src/mingw_w64_widl-parser.yy.o `test -f 'src/parser.yy.c' || echo '$(srcdir)/'`src/parser.yy.c
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-parser.yy.Tpo src/$(DEPDIR)/mingw_w64_widl-parser.yy.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/parser.yy.c' object='src/mingw_w64_widl-parser.yy.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-parser.yy.o `test -f 'src/parser.yy.c' || echo '$(srcdir)/'`src/parser.yy.c
-
-src/mingw_w64_widl-parser.yy.obj: src/parser.yy.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-parser.yy.obj -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-parser.yy.Tpo -c -o src/mingw_w64_widl-parser.yy.obj `if test -f 'src/parser.yy.c'; then $(CYGPATH_W) 'src/parser.yy.c'; else $(CYGPATH_W) '$(srcdir)/src/parser.yy.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-parser.yy.Tpo src/$(DEPDIR)/mingw_w64_widl-parser.yy.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/parser.yy.c' object='src/mingw_w64_widl-parser.yy.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-parser.yy.obj `if test -f 'src/parser.yy.c'; then $(CYGPATH_W) 'src/parser.yy.c'; else $(CYGPATH_W) '$(srcdir)/src/parser.yy.c'; fi`
-
-src/port/mingw_w64_widl-port.o: src/port/port.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/port/mingw_w64_widl-port.o -MD -MP -MF src/port/$(DEPDIR)/mingw_w64_widl-port.Tpo -c -o src/port/mingw_w64_widl-port.o `test -f 'src/port/port.c' || echo '$(srcdir)/'`src/port/port.c
-@am__fastdepCC_TRUE@	$(am__mv) src/port/$(DEPDIR)/mingw_w64_widl-port.Tpo src/port/$(DEPDIR)/mingw_w64_widl-port.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/port/port.c' object='src/port/mingw_w64_widl-port.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/port/mingw_w64_widl-port.o `test -f 'src/port/port.c' || echo '$(srcdir)/'`src/port/port.c
-
-src/port/mingw_w64_widl-port.obj: src/port/port.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/port/mingw_w64_widl-port.obj -MD -MP -MF src/port/$(DEPDIR)/mingw_w64_widl-port.Tpo -c -o src/port/mingw_w64_widl-port.obj `if test -f 'src/port/port.c'; then $(CYGPATH_W) 'src/port/port.c'; else $(CYGPATH_W) '$(srcdir)/src/port/port.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) src/port/$(DEPDIR)/mingw_w64_widl-port.Tpo src/port/$(DEPDIR)/mingw_w64_widl-port.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/port/port.c' object='src/port/mingw_w64_widl-port.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/port/mingw_w64_widl-port.obj `if test -f 'src/port/port.c'; then $(CYGPATH_W) 'src/port/port.c'; else $(CYGPATH_W) '$(srcdir)/src/port/port.c'; fi`
-
-src/mingw_w64_widl-proxy.o: src/proxy.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-proxy.o -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-proxy.Tpo -c -o src/mingw_w64_widl-proxy.o `test -f 'src/proxy.c' || echo '$(srcdir)/'`src/proxy.c
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-proxy.Tpo src/$(DEPDIR)/mingw_w64_widl-proxy.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/proxy.c' object='src/mingw_w64_widl-proxy.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-proxy.o `test -f 'src/proxy.c' || echo '$(srcdir)/'`src/proxy.c
-
-src/mingw_w64_widl-proxy.obj: src/proxy.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-proxy.obj -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-proxy.Tpo -c -o src/mingw_w64_widl-proxy.obj `if test -f 'src/proxy.c'; then $(CYGPATH_W) 'src/proxy.c'; else $(CYGPATH_W) '$(srcdir)/src/proxy.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-proxy.Tpo src/$(DEPDIR)/mingw_w64_widl-proxy.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/proxy.c' object='src/mingw_w64_widl-proxy.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-proxy.obj `if test -f 'src/proxy.c'; then $(CYGPATH_W) 'src/proxy.c'; else $(CYGPATH_W) '$(srcdir)/src/proxy.c'; fi`
-
-src/mingw_w64_widl-register.o: src/register.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-register.o -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-register.Tpo -c -o src/mingw_w64_widl-register.o `test -f 'src/register.c' || echo '$(srcdir)/'`src/register.c
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-register.Tpo src/$(DEPDIR)/mingw_w64_widl-register.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/register.c' object='src/mingw_w64_widl-register.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-register.o `test -f 'src/register.c' || echo '$(srcdir)/'`src/register.c
-
-src/mingw_w64_widl-register.obj: src/register.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-register.obj -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-register.Tpo -c -o src/mingw_w64_widl-register.obj `if test -f 'src/register.c'; then $(CYGPATH_W) 'src/register.c'; else $(CYGPATH_W) '$(srcdir)/src/register.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-register.Tpo src/$(DEPDIR)/mingw_w64_widl-register.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/register.c' object='src/mingw_w64_widl-register.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-register.obj `if test -f 'src/register.c'; then $(CYGPATH_W) 'src/register.c'; else $(CYGPATH_W) '$(srcdir)/src/register.c'; fi`
-
-src/mingw_w64_widl-server.o: src/server.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-server.o -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-server.Tpo -c -o src/mingw_w64_widl-server.o `test -f 'src/server.c' || echo '$(srcdir)/'`src/server.c
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-server.Tpo src/$(DEPDIR)/mingw_w64_widl-server.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/server.c' object='src/mingw_w64_widl-server.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-server.o `test -f 'src/server.c' || echo '$(srcdir)/'`src/server.c
-
-src/mingw_w64_widl-server.obj: src/server.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-server.obj -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-server.Tpo -c -o src/mingw_w64_widl-server.obj `if test -f 'src/server.c'; then $(CYGPATH_W) 'src/server.c'; else $(CYGPATH_W) '$(srcdir)/src/server.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-server.Tpo src/$(DEPDIR)/mingw_w64_widl-server.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/server.c' object='src/mingw_w64_widl-server.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-server.obj `if test -f 'src/server.c'; then $(CYGPATH_W) 'src/server.c'; else $(CYGPATH_W) '$(srcdir)/src/server.c'; fi`
-
-src/mingw_w64_widl-typegen.o: src/typegen.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-typegen.o -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-typegen.Tpo -c -o src/mingw_w64_widl-typegen.o `test -f 'src/typegen.c' || echo '$(srcdir)/'`src/typegen.c
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-typegen.Tpo src/$(DEPDIR)/mingw_w64_widl-typegen.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/typegen.c' object='src/mingw_w64_widl-typegen.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-typegen.o `test -f 'src/typegen.c' || echo '$(srcdir)/'`src/typegen.c
-
-src/mingw_w64_widl-typegen.obj: src/typegen.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-typegen.obj -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-typegen.Tpo -c -o src/mingw_w64_widl-typegen.obj `if test -f 'src/typegen.c'; then $(CYGPATH_W) 'src/typegen.c'; else $(CYGPATH_W) '$(srcdir)/src/typegen.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-typegen.Tpo src/$(DEPDIR)/mingw_w64_widl-typegen.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/typegen.c' object='src/mingw_w64_widl-typegen.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-typegen.obj `if test -f 'src/typegen.c'; then $(CYGPATH_W) 'src/typegen.c'; else $(CYGPATH_W) '$(srcdir)/src/typegen.c'; fi`
-
-src/mingw_w64_widl-typelib.o: src/typelib.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-typelib.o -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-typelib.Tpo -c -o src/mingw_w64_widl-typelib.o `test -f 'src/typelib.c' || echo '$(srcdir)/'`src/typelib.c
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-typelib.Tpo src/$(DEPDIR)/mingw_w64_widl-typelib.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/typelib.c' object='src/mingw_w64_widl-typelib.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-typelib.o `test -f 'src/typelib.c' || echo '$(srcdir)/'`src/typelib.c
-
-src/mingw_w64_widl-typelib.obj: src/typelib.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-typelib.obj -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-typelib.Tpo -c -o src/mingw_w64_widl-typelib.obj `if test -f 'src/typelib.c'; then $(CYGPATH_W) 'src/typelib.c'; else $(CYGPATH_W) '$(srcdir)/src/typelib.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-typelib.Tpo src/$(DEPDIR)/mingw_w64_widl-typelib.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/typelib.c' object='src/mingw_w64_widl-typelib.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-typelib.obj `if test -f 'src/typelib.c'; then $(CYGPATH_W) 'src/typelib.c'; else $(CYGPATH_W) '$(srcdir)/src/typelib.c'; fi`
-
-src/mingw_w64_widl-typetree.o: src/typetree.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-typetree.o -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-typetree.Tpo -c -o src/mingw_w64_widl-typetree.o `test -f 'src/typetree.c' || echo '$(srcdir)/'`src/typetree.c
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-typetree.Tpo src/$(DEPDIR)/mingw_w64_widl-typetree.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/typetree.c' object='src/mingw_w64_widl-typetree.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-typetree.o `test -f 'src/typetree.c' || echo '$(srcdir)/'`src/typetree.c
-
-src/mingw_w64_widl-typetree.obj: src/typetree.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-typetree.obj -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-typetree.Tpo -c -o src/mingw_w64_widl-typetree.obj `if test -f 'src/typetree.c'; then $(CYGPATH_W) 'src/typetree.c'; else $(CYGPATH_W) '$(srcdir)/src/typetree.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-typetree.Tpo src/$(DEPDIR)/mingw_w64_widl-typetree.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/typetree.c' object='src/mingw_w64_widl-typetree.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-typetree.obj `if test -f 'src/typetree.c'; then $(CYGPATH_W) 'src/typetree.c'; else $(CYGPATH_W) '$(srcdir)/src/typetree.c'; fi`
-
-src/mingw_w64_widl-utils.o: src/utils.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-utils.o -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-utils.Tpo -c -o src/mingw_w64_widl-utils.o `test -f 'src/utils.c' || echo '$(srcdir)/'`src/utils.c
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-utils.Tpo src/$(DEPDIR)/mingw_w64_widl-utils.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/utils.c' object='src/mingw_w64_widl-utils.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-utils.o `test -f 'src/utils.c' || echo '$(srcdir)/'`src/utils.c
-
-src/mingw_w64_widl-utils.obj: src/utils.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-utils.obj -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-utils.Tpo -c -o src/mingw_w64_widl-utils.obj `if test -f 'src/utils.c'; then $(CYGPATH_W) 'src/utils.c'; else $(CYGPATH_W) '$(srcdir)/src/utils.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-utils.Tpo src/$(DEPDIR)/mingw_w64_widl-utils.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/utils.c' object='src/mingw_w64_widl-utils.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-utils.obj `if test -f 'src/utils.c'; then $(CYGPATH_W) 'src/utils.c'; else $(CYGPATH_W) '$(srcdir)/src/utils.c'; fi`
-
-src/mingw_w64_widl-widl.o: src/widl.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-widl.o -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-widl.Tpo -c -o src/mingw_w64_widl-widl.o `test -f 'src/widl.c' || echo '$(srcdir)/'`src/widl.c
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-widl.Tpo src/$(DEPDIR)/mingw_w64_widl-widl.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/widl.c' object='src/mingw_w64_widl-widl.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-widl.o `test -f 'src/widl.c' || echo '$(srcdir)/'`src/widl.c
-
-src/mingw_w64_widl-widl.obj: src/widl.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-widl.obj -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-widl.Tpo -c -o src/mingw_w64_widl-widl.obj `if test -f 'src/widl.c'; then $(CYGPATH_W) 'src/widl.c'; else $(CYGPATH_W) '$(srcdir)/src/widl.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-widl.Tpo src/$(DEPDIR)/mingw_w64_widl-widl.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/widl.c' object='src/mingw_w64_widl-widl.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-widl.obj `if test -f 'src/widl.c'; then $(CYGPATH_W) 'src/widl.c'; else $(CYGPATH_W) '$(srcdir)/src/widl.c'; fi`
-
-src/mingw_w64_widl-write_msft.o: src/write_msft.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-write_msft.o -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-write_msft.Tpo -c -o src/mingw_w64_widl-write_msft.o `test -f 'src/write_msft.c' || echo '$(srcdir)/'`src/write_msft.c
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-write_msft.Tpo src/$(DEPDIR)/mingw_w64_widl-write_msft.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/write_msft.c' object='src/mingw_w64_widl-write_msft.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-write_msft.o `test -f 'src/write_msft.c' || echo '$(srcdir)/'`src/write_msft.c
-
-src/mingw_w64_widl-write_msft.obj: src/write_msft.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/mingw_w64_widl-write_msft.obj -MD -MP -MF src/$(DEPDIR)/mingw_w64_widl-write_msft.Tpo -c -o src/mingw_w64_widl-write_msft.obj `if test -f 'src/write_msft.c'; then $(CYGPATH_W) 'src/write_msft.c'; else $(CYGPATH_W) '$(srcdir)/src/write_msft.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/mingw_w64_widl-write_msft.Tpo src/$(DEPDIR)/mingw_w64_widl-write_msft.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/write_msft.c' object='src/mingw_w64_widl-write_msft.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/mingw_w64_widl-write_msft.obj `if test -f 'src/write_msft.c'; then $(CYGPATH_W) 'src/write_msft.c'; else $(CYGPATH_W) '$(srcdir)/src/write_msft.c'; fi`
-
-src/wpp/mingw_w64_widl-ppl.yy.o: src/wpp/ppl.yy.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/wpp/mingw_w64_widl-ppl.yy.o -MD -MP -MF src/wpp/$(DEPDIR)/mingw_w64_widl-ppl.yy.Tpo -c -o src/wpp/mingw_w64_widl-ppl.yy.o `test -f 'src/wpp/ppl.yy.c' || echo '$(srcdir)/'`src/wpp/ppl.yy.c
-@am__fastdepCC_TRUE@	$(am__mv) src/wpp/$(DEPDIR)/mingw_w64_widl-ppl.yy.Tpo src/wpp/$(DEPDIR)/mingw_w64_widl-ppl.yy.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/wpp/ppl.yy.c' object='src/wpp/mingw_w64_widl-ppl.yy.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/wpp/mingw_w64_widl-ppl.yy.o `test -f 'src/wpp/ppl.yy.c' || echo '$(srcdir)/'`src/wpp/ppl.yy.c
-
-src/wpp/mingw_w64_widl-ppl.yy.obj: src/wpp/ppl.yy.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/wpp/mingw_w64_widl-ppl.yy.obj -MD -MP -MF src/wpp/$(DEPDIR)/mingw_w64_widl-ppl.yy.Tpo -c -o src/wpp/mingw_w64_widl-ppl.yy.obj `if test -f 'src/wpp/ppl.yy.c'; then $(CYGPATH_W) 'src/wpp/ppl.yy.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/ppl.yy.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) src/wpp/$(DEPDIR)/mingw_w64_widl-ppl.yy.Tpo src/wpp/$(DEPDIR)/mingw_w64_widl-ppl.yy.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/wpp/ppl.yy.c' object='src/wpp/mingw_w64_widl-ppl.yy.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/wpp/mingw_w64_widl-ppl.yy.obj `if test -f 'src/wpp/ppl.yy.c'; then $(CYGPATH_W) 'src/wpp/ppl.yy.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/ppl.yy.c'; fi`
-
-src/wpp/mingw_w64_widl-ppy.tab.o: src/wpp/ppy.tab.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/wpp/mingw_w64_widl-ppy.tab.o -MD -MP -MF src/wpp/$(DEPDIR)/mingw_w64_widl-ppy.tab.Tpo -c -o src/wpp/mingw_w64_widl-ppy.tab.o `test -f 'src/wpp/ppy.tab.c' || echo '$(srcdir)/'`src/wpp/ppy.tab.c
-@am__fastdepCC_TRUE@	$(am__mv) src/wpp/$(DEPDIR)/mingw_w64_widl-ppy.tab.Tpo src/wpp/$(DEPDIR)/mingw_w64_widl-ppy.tab.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/wpp/ppy.tab.c' object='src/wpp/mingw_w64_widl-ppy.tab.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/wpp/mingw_w64_widl-ppy.tab.o `test -f 'src/wpp/ppy.tab.c' || echo '$(srcdir)/'`src/wpp/ppy.tab.c
-
-src/wpp/mingw_w64_widl-ppy.tab.obj: src/wpp/ppy.tab.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/wpp/mingw_w64_widl-ppy.tab.obj -MD -MP -MF src/wpp/$(DEPDIR)/mingw_w64_widl-ppy.tab.Tpo -c -o src/wpp/mingw_w64_widl-ppy.tab.obj `if test -f 'src/wpp/ppy.tab.c'; then $(CYGPATH_W) 'src/wpp/ppy.tab.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/ppy.tab.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) src/wpp/$(DEPDIR)/mingw_w64_widl-ppy.tab.Tpo src/wpp/$(DEPDIR)/mingw_w64_widl-ppy.tab.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/wpp/ppy.tab.c' object='src/wpp/mingw_w64_widl-ppy.tab.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/wpp/mingw_w64_widl-ppy.tab.obj `if test -f 'src/wpp/ppy.tab.c'; then $(CYGPATH_W) 'src/wpp/ppy.tab.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/ppy.tab.c'; fi`
-
-src/wpp/mingw_w64_widl-preproc.o: src/wpp/preproc.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/wpp/mingw_w64_widl-preproc.o -MD -MP -MF src/wpp/$(DEPDIR)/mingw_w64_widl-preproc.Tpo -c -o src/wpp/mingw_w64_widl-preproc.o `test -f 'src/wpp/preproc.c' || echo '$(srcdir)/'`src/wpp/preproc.c
-@am__fastdepCC_TRUE@	$(am__mv) src/wpp/$(DEPDIR)/mingw_w64_widl-preproc.Tpo src/wpp/$(DEPDIR)/mingw_w64_widl-preproc.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/wpp/preproc.c' object='src/wpp/mingw_w64_widl-preproc.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/wpp/mingw_w64_widl-preproc.o `test -f 'src/wpp/preproc.c' || echo '$(srcdir)/'`src/wpp/preproc.c
-
-src/wpp/mingw_w64_widl-preproc.obj: src/wpp/preproc.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/wpp/mingw_w64_widl-preproc.obj -MD -MP -MF src/wpp/$(DEPDIR)/mingw_w64_widl-preproc.Tpo -c -o src/wpp/mingw_w64_widl-preproc.obj `if test -f 'src/wpp/preproc.c'; then $(CYGPATH_W) 'src/wpp/preproc.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/preproc.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) src/wpp/$(DEPDIR)/mingw_w64_widl-preproc.Tpo src/wpp/$(DEPDIR)/mingw_w64_widl-preproc.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/wpp/preproc.c' object='src/wpp/mingw_w64_widl-preproc.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/wpp/mingw_w64_widl-preproc.obj `if test -f 'src/wpp/preproc.c'; then $(CYGPATH_W) 'src/wpp/preproc.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/preproc.c'; fi`
-
-src/wpp/mingw_w64_widl-wpp.o: src/wpp/wpp.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/wpp/mingw_w64_widl-wpp.o -MD -MP -MF src/wpp/$(DEPDIR)/mingw_w64_widl-wpp.Tpo -c -o src/wpp/mingw_w64_widl-wpp.o `test -f 'src/wpp/wpp.c' || echo '$(srcdir)/'`src/wpp/wpp.c
-@am__fastdepCC_TRUE@	$(am__mv) src/wpp/$(DEPDIR)/mingw_w64_widl-wpp.Tpo src/wpp/$(DEPDIR)/mingw_w64_widl-wpp.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/wpp/wpp.c' object='src/wpp/mingw_w64_widl-wpp.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/wpp/mingw_w64_widl-wpp.o `test -f 'src/wpp/wpp.c' || echo '$(srcdir)/'`src/wpp/wpp.c
-
-src/wpp/mingw_w64_widl-wpp.obj: src/wpp/wpp.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -MT src/wpp/mingw_w64_widl-wpp.obj -MD -MP -MF src/wpp/$(DEPDIR)/mingw_w64_widl-wpp.Tpo -c -o src/wpp/mingw_w64_widl-wpp.obj `if test -f 'src/wpp/wpp.c'; then $(CYGPATH_W) 'src/wpp/wpp.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/wpp.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) src/wpp/$(DEPDIR)/mingw_w64_widl-wpp.Tpo src/wpp/$(DEPDIR)/mingw_w64_widl-wpp.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/wpp/wpp.c' object='src/wpp/mingw_w64_widl-wpp.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(mingw_w64_widl_CFLAGS) $(CFLAGS) -c -o src/wpp/mingw_w64_widl-wpp.obj `if test -f 'src/wpp/wpp.c'; then $(CYGPATH_W) 'src/wpp/wpp.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/wpp.c'; fi`
 
 src/widl-client.o: src/client.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-client.o -MD -MP -MF src/$(DEPDIR)/widl-client.Tpo -c -o src/widl-client.o `test -f 'src/client.c' || echo '$(srcdir)/'`src/client.c
