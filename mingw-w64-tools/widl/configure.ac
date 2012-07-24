@@ -8,7 +8,6 @@ AC_CONFIG_SRCDIR([src/widl.c])
 AC_CONFIG_HEADERS([include/config.h])
 
 AC_CANONICAL_TARGET
-AC_CANONICAL_HOST
 
 AM_INIT_AUTOMAKE([foreign subdir-objects])
 AM_MAINTAINER_MODE
