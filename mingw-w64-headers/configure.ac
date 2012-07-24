@@ -15,27 +15,24 @@ AC_CANONICAL_HOST
 # Checks for programs.
 AC_PROG_SED
 
+# Search for a usable widl.  If PATH is given, search there.  Otherwise, search
+# in $PATH.  In all cases, search for a canonicalized name first ($host-widl),
+# followed by a non-canonicalized name (widl).  If these fail, error out.
+# NB: $host from this perspective is the same as $target while building widl.
+AC_MSG_CHECKING([whether to rebuild headers with widl])
 AC_ARG_WITH([widl],
   AS_HELP_STRING([--with-widl=PATH],
-    [use widl to update idl-based headers]),
+    [use widl to update idl-based headers.  Optionally search for a compatible widl in PATH]),
   [],
-  [with_widl=no])
+  [AS_VAR_SET([with_widl],[no])])
+AC_MSG_RESULT([$with_widl])
 
+AS_VAR_IF([with_widl],[yes],[AS_VAR_SET([with_widl],["$PATH"])])
 AS_VAR_IF([with_widl],[no],[],[
-  AS_VAR_IF([with_widl],[yes],[
-    AC_PATH_PROGS([widl_prog], [$host-widl widl])
-    AS_VAR_IF([widl_prog],[],[
-      AC_MSG_ERROR([--with-widl is specified, but widl installation could not be found.])])
-  ],[
-    AS_IF(AC_TRY_COMMAND([$with_widl -V]),
-      [widl_prog=$with_widl],
-      [AC_MSG_ERROR([Specified widl command is not valid])])]
-  )])
+  AC_PATH_PROGS([WIDL], [$host-widl widl], [], [$with_widl])
+  AS_VAR_IF([WIDL],[],[AC_MSG_ERROR([--with-widl is specified, but widl installation could not be found.])])])
 
-AS_VAR_IF([widl_prog],[],[],[WIDL="$widl_prog"])
-
-AC_SUBST([WIDL])
-AM_CONDITIONAL([HAVE_WIDL],[test -n "$widl_prog"])
+AM_CONDITIONAL([HAVE_WIDL],[AS_VAR_TEST_SET([WIDL])])
 
 # Checks for libraries.
 
