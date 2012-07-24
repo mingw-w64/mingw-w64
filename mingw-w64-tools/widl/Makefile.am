@@ -23,5 +23,6 @@ widl_SOURCES = \
   src/wpp/wpp.c
 
 widl_CFLAGS = -I$(top_srcdir)/include -O3 -g -Wall -Wformat -Wpacked -Wmissing-declarations -Wimplicit-function-declaration -Wmissing-prototypes -Wstrict-aliasing=2
+widl_CFLAGS += -DDEFAULT_INCLUDE_DIR=\"$(includedir)/../$(target)/include\"
 
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet)
