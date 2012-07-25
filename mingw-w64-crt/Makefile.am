@@ -175,6 +175,8 @@ src_libmingwex=\
   math/sin.c            math/sinf.c        math/sinhf.c          math/sinhl.c         math/sinl.c          math/sqrt.c          \
   math/sqrtf.c          math/sqrtl.c       math/tanf.c           math/tanhf.c         math/tanhl.c         math/tgamma.c        \
   math/tgammaf.c        math/tgammal.c     math/truncl.c         \
+  math/acosh.def.h      math/cos.def.h     math/exp.def.h        math/expm1.def.h     math/log.def.h       math/pow.def.h       \
+  math/powi.def.h       math/sin.def.h     math/sqrt.def.h       \
   math/cephes_emath.h  math/cephes_mconf.h  math/fastmath.h  math/fp_consts.h  \
   \
   misc/_ctime32.c        misc/_gmtime32.c             misc/_localtime32.c         misc/_mkgmtime.c           misc/_mkgmtime32.c    \
