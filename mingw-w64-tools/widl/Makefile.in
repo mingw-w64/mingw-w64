@@ -247,10 +247,8 @@ widl_SOURCES = \
   src/wpp/preproc.c \
   src/wpp/wpp.c
 
-widl_CFLAGS = -I$(top_srcdir)/include -O3 -g -Wall -Wformat -Wpacked \
-	-Wmissing-declarations -Wimplicit-function-declaration \
-	-Wmissing-prototypes -Wstrict-aliasing=2 \
-	-DDEFAULT_INCLUDE_DIR=\"$(includedir)/../$(target)/include\"
+widl_CPPFLAGS = -I$(top_srcdir)/include -DDEFAULT_INCLUDE_DIR=\"$(includedir)/../$(target)/include\"
+widl_CFLAGS = -O3 -g -Wall -Wformat -Wpacked -Wmissing-declarations -Wimplicit-function-declaration -Wmissing-prototypes -Wstrict-aliasing=2
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet)
 all: all-am
 
@@ -454,284 +452,284 @@ distclean-compile:
 @am__fastdepCC_FALSE@	$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
 src/widl-client.o: src/client.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-client.o -MD -MP -MF src/$(DEPDIR)/widl-client.Tpo -c -o src/widl-client.o `test -f 'src/client.c' || echo '$(srcdir)/'`src/client.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-client.o -MD -MP -MF src/$(DEPDIR)/widl-client.Tpo -c -o src/widl-client.o `test -f 'src/client.c' || echo '$(srcdir)/'`src/client.c
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-client.Tpo src/$(DEPDIR)/widl-client.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/client.c' object='src/widl-client.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-client.o `test -f 'src/client.c' || echo '$(srcdir)/'`src/client.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-client.o `test -f 'src/client.c' || echo '$(srcdir)/'`src/client.c
 
 src/widl-client.obj: src/client.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-client.obj -MD -MP -MF src/$(DEPDIR)/widl-client.Tpo -c -o src/widl-client.obj `if test -f 'src/client.c'; then $(CYGPATH_W) 'src/client.c'; else $(CYGPATH_W) '$(srcdir)/src/client.c'; fi`
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-client.obj -MD -MP -MF src/$(DEPDIR)/widl-client.Tpo -c -o src/widl-client.obj `if test -f 'src/client.c'; then $(CYGPATH_W) 'src/client.c'; else $(CYGPATH_W) '$(srcdir)/src/client.c'; fi`
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-client.Tpo src/$(DEPDIR)/widl-client.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/client.c' object='src/widl-client.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-client.obj `if test -f 'src/client.c'; then $(CYGPATH_W) 'src/client.c'; else $(CYGPATH_W) '$(srcdir)/src/client.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-client.obj `if test -f 'src/client.c'; then $(CYGPATH_W) 'src/client.c'; else $(CYGPATH_W) '$(srcdir)/src/client.c'; fi`
 
 src/widl-expr.o: src/expr.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-expr.o -MD -MP -MF src/$(DEPDIR)/widl-expr.Tpo -c -o src/widl-expr.o `test -f 'src/expr.c' || echo '$(srcdir)/'`src/expr.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-expr.o -MD -MP -MF src/$(DEPDIR)/widl-expr.Tpo -c -o src/widl-expr.o `test -f 'src/expr.c' || echo '$(srcdir)/'`src/expr.c
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-expr.Tpo src/$(DEPDIR)/widl-expr.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/expr.c' object='src/widl-expr.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-expr.o `test -f 'src/expr.c' || echo '$(srcdir)/'`src/expr.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-expr.o `test -f 'src/expr.c' || echo '$(srcdir)/'`src/expr.c
 
 src/widl-expr.obj: src/expr.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-expr.obj -MD -MP -MF src/$(DEPDIR)/widl-expr.Tpo -c -o src/widl-expr.obj `if test -f 'src/expr.c'; then $(CYGPATH_W) 'src/expr.c'; else $(CYGPATH_W) '$(srcdir)/src/expr.c'; fi`
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-expr.obj -MD -MP -MF src/$(DEPDIR)/widl-expr.Tpo -c -o src/widl-expr.obj `if test -f 'src/expr.c'; then $(CYGPATH_W) 'src/expr.c'; else $(CYGPATH_W) '$(srcdir)/src/expr.c'; fi`
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-expr.Tpo src/$(DEPDIR)/widl-expr.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/expr.c' object='src/widl-expr.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-expr.obj `if test -f 'src/expr.c'; then $(CYGPATH_W) 'src/expr.c'; else $(CYGPATH_W) '$(srcdir)/src/expr.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-expr.obj `if test -f 'src/expr.c'; then $(CYGPATH_W) 'src/expr.c'; else $(CYGPATH_W) '$(srcdir)/src/expr.c'; fi`
 
 src/widl-hash.o: src/hash.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-hash.o -MD -MP -MF src/$(DEPDIR)/widl-hash.Tpo -c -o src/widl-hash.o `test -f 'src/hash.c' || echo '$(srcdir)/'`src/hash.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-hash.o -MD -MP -MF src/$(DEPDIR)/widl-hash.Tpo -c -o src/widl-hash.o `test -f 'src/hash.c' || echo '$(srcdir)/'`src/hash.c
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-hash.Tpo src/$(DEPDIR)/widl-hash.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/hash.c' object='src/widl-hash.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-hash.o `test -f 'src/hash.c' || echo '$(srcdir)/'`src/hash.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-hash.o `test -f 'src/hash.c' || echo '$(srcdir)/'`src/hash.c
 
 src/widl-hash.obj: src/hash.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-hash.obj -MD -MP -MF src/$(DEPDIR)/widl-hash.Tpo -c -o src/widl-hash.obj `if test -f 'src/hash.c'; then $(CYGPATH_W) 'src/hash.c'; else $(CYGPATH_W) '$(srcdir)/src/hash.c'; fi`
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-hash.obj -MD -MP -MF src/$(DEPDIR)/widl-hash.Tpo -c -o src/widl-hash.obj `if test -f 'src/hash.c'; then $(CYGPATH_W) 'src/hash.c'; else $(CYGPATH_W) '$(srcdir)/src/hash.c'; fi`
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-hash.Tpo src/$(DEPDIR)/widl-hash.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/hash.c' object='src/widl-hash.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-hash.obj `if test -f 'src/hash.c'; then $(CYGPATH_W) 'src/hash.c'; else $(CYGPATH_W) '$(srcdir)/src/hash.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-hash.obj `if test -f 'src/hash.c'; then $(CYGPATH_W) 'src/hash.c'; else $(CYGPATH_W) '$(srcdir)/src/hash.c'; fi`
 
 src/widl-header.o: src/header.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-header.o -MD -MP -MF src/$(DEPDIR)/widl-header.Tpo -c -o src/widl-header.o `test -f 'src/header.c' || echo '$(srcdir)/'`src/header.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-header.o -MD -MP -MF src/$(DEPDIR)/widl-header.Tpo -c -o src/widl-header.o `test -f 'src/header.c' || echo '$(srcdir)/'`src/header.c
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-header.Tpo src/$(DEPDIR)/widl-header.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/header.c' object='src/widl-header.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-header.o `test -f 'src/header.c' || echo '$(srcdir)/'`src/header.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-header.o `test -f 'src/header.c' || echo '$(srcdir)/'`src/header.c
 
 src/widl-header.obj: src/header.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-header.obj -MD -MP -MF src/$(DEPDIR)/widl-header.Tpo -c -o src/widl-header.obj `if test -f 'src/header.c'; then $(CYGPATH_W) 'src/header.c'; else $(CYGPATH_W) '$(srcdir)/src/header.c'; fi`
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-header.obj -MD -MP -MF src/$(DEPDIR)/widl-header.Tpo -c -o src/widl-header.obj `if test -f 'src/header.c'; then $(CYGPATH_W) 'src/header.c'; else $(CYGPATH_W) '$(srcdir)/src/header.c'; fi`
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-header.Tpo src/$(DEPDIR)/widl-header.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/header.c' object='src/widl-header.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-header.obj `if test -f 'src/header.c'; then $(CYGPATH_W) 'src/header.c'; else $(CYGPATH_W) '$(srcdir)/src/header.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-header.obj `if test -f 'src/header.c'; then $(CYGPATH_W) 'src/header.c'; else $(CYGPATH_W) '$(srcdir)/src/header.c'; fi`
 
 src/widl-parser.tab.o: src/parser.tab.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-parser.tab.o -MD -MP -MF src/$(DEPDIR)/widl-parser.tab.Tpo -c -o src/widl-parser.tab.o `test -f 'src/parser.tab.c' || echo '$(srcdir)/'`src/parser.tab.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-parser.tab.o -MD -MP -MF src/$(DEPDIR)/widl-parser.tab.Tpo -c -o src/widl-parser.tab.o `test -f 'src/parser.tab.c' || echo '$(srcdir)/'`src/parser.tab.c
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-parser.tab.Tpo src/$(DEPDIR)/widl-parser.tab.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/parser.tab.c' object='src/widl-parser.tab.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-parser.tab.o `test -f 'src/parser.tab.c' || echo '$(srcdir)/'`src/parser.tab.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-parser.tab.o `test -f 'src/parser.tab.c' || echo '$(srcdir)/'`src/parser.tab.c
 
 src/widl-parser.tab.obj: src/parser.tab.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-parser.tab.obj -MD -MP -MF src/$(DEPDIR)/widl-parser.tab.Tpo -c -o src/widl-parser.tab.obj `if test -f 'src/parser.tab.c'; then $(CYGPATH_W) 'src/parser.tab.c'; else $(CYGPATH_W) '$(srcdir)/src/parser.tab.c'; fi`
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-parser.tab.obj -MD -MP -MF src/$(DEPDIR)/widl-parser.tab.Tpo -c -o src/widl-parser.tab.obj `if test -f 'src/parser.tab.c'; then $(CYGPATH_W) 'src/parser.tab.c'; else $(CYGPATH_W) '$(srcdir)/src/parser.tab.c'; fi`
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-parser.tab.Tpo src/$(DEPDIR)/widl-parser.tab.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/parser.tab.c' object='src/widl-parser.tab.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-parser.tab.obj `if test -f 'src/parser.tab.c'; then $(CYGPATH_W) 'src/parser.tab.c'; else $(CYGPATH_W) '$(srcdir)/src/parser.tab.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-parser.tab.obj `if test -f 'src/parser.tab.c'; then $(CYGPATH_W) 'src/parser.tab.c'; else $(CYGPATH_W) '$(srcdir)/src/parser.tab.c'; fi`
 
 src/widl-parser.yy.o: src/parser.yy.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-parser.yy.o -MD -MP -MF src/$(DEPDIR)/widl-parser.yy.Tpo -c -o src/widl-parser.yy.o `test -f 'src/parser.yy.c' || echo '$(srcdir)/'`src/parser.yy.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-parser.yy.o -MD -MP -MF src/$(DEPDIR)/widl-parser.yy.Tpo -c -o src/widl-parser.yy.o `test -f 'src/parser.yy.c' || echo '$(srcdir)/'`src/parser.yy.c
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-parser.yy.Tpo src/$(DEPDIR)/widl-parser.yy.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/parser.yy.c' object='src/widl-parser.yy.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-parser.yy.o `test -f 'src/parser.yy.c' || echo '$(srcdir)/'`src/parser.yy.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-parser.yy.o `test -f 'src/parser.yy.c' || echo '$(srcdir)/'`src/parser.yy.c
 
 src/widl-parser.yy.obj: src/parser.yy.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-parser.yy.obj -MD -MP -MF src/$(DEPDIR)/widl-parser.yy.Tpo -c -o src/widl-parser.yy.obj `if test -f 'src/parser.yy.c'; then $(CYGPATH_W) 'src/parser.yy.c'; else $(CYGPATH_W) '$(srcdir)/src/parser.yy.c'; fi`
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-parser.yy.obj -MD -MP -MF src/$(DEPDIR)/widl-parser.yy.Tpo -c -o src/widl-parser.yy.obj `if test -f 'src/parser.yy.c'; then $(CYGPATH_W) 'src/parser.yy.c'; else $(CYGPATH_W) '$(srcdir)/src/parser.yy.c'; fi`
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-parser.yy.Tpo src/$(DEPDIR)/widl-parser.yy.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/parser.yy.c' object='src/widl-parser.yy.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-parser.yy.obj `if test -f 'src/parser.yy.c'; then $(CYGPATH_W) 'src/parser.yy.c'; else $(CYGPATH_W) '$(srcdir)/src/parser.yy.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-parser.yy.obj `if test -f 'src/parser.yy.c'; then $(CYGPATH_W) 'src/parser.yy.c'; else $(CYGPATH_W) '$(srcdir)/src/parser.yy.c'; fi`
 
 src/port/widl-port.o: src/port/port.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/port/widl-port.o -MD -MP -MF src/port/$(DEPDIR)/widl-port.Tpo -c -o src/port/widl-port.o `test -f 'src/port/port.c' || echo '$(srcdir)/'`src/port/port.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/port/widl-port.o -MD -MP -MF src/port/$(DEPDIR)/widl-port.Tpo -c -o src/port/widl-port.o `test -f 'src/port/port.c' || echo '$(srcdir)/'`src/port/port.c
 @am__fastdepCC_TRUE@	$(am__mv) src/port/$(DEPDIR)/widl-port.Tpo src/port/$(DEPDIR)/widl-port.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/port/port.c' object='src/port/widl-port.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/port/widl-port.o `test -f 'src/port/port.c' || echo '$(srcdir)/'`src/port/port.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/port/widl-port.o `test -f 'src/port/port.c' || echo '$(srcdir)/'`src/port/port.c
 
 src/port/widl-port.obj: src/port/port.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/port/widl-port.obj -MD -MP -MF src/port/$(DEPDIR)/widl-port.Tpo -c -o src/port/widl-port.obj `if test -f 'src/port/port.c'; then $(CYGPATH_W) 'src/port/port.c'; else $(CYGPATH_W) '$(srcdir)/src/port/port.c'; fi`
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/port/widl-port.obj -MD -MP -MF src/port/$(DEPDIR)/widl-port.Tpo -c -o src/port/widl-port.obj `if test -f 'src/port/port.c'; then $(CYGPATH_W) 'src/port/port.c'; else $(CYGPATH_W) '$(srcdir)/src/port/port.c'; fi`
 @am__fastdepCC_TRUE@	$(am__mv) src/port/$(DEPDIR)/widl-port.Tpo src/port/$(DEPDIR)/widl-port.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/port/port.c' object='src/port/widl-port.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/port/widl-port.obj `if test -f 'src/port/port.c'; then $(CYGPATH_W) 'src/port/port.c'; else $(CYGPATH_W) '$(srcdir)/src/port/port.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/port/widl-port.obj `if test -f 'src/port/port.c'; then $(CYGPATH_W) 'src/port/port.c'; else $(CYGPATH_W) '$(srcdir)/src/port/port.c'; fi`
 
 src/widl-proxy.o: src/proxy.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-proxy.o -MD -MP -MF src/$(DEPDIR)/widl-proxy.Tpo -c -o src/widl-proxy.o `test -f 'src/proxy.c' || echo '$(srcdir)/'`src/proxy.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-proxy.o -MD -MP -MF src/$(DEPDIR)/widl-proxy.Tpo -c -o src/widl-proxy.o `test -f 'src/proxy.c' || echo '$(srcdir)/'`src/proxy.c
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-proxy.Tpo src/$(DEPDIR)/widl-proxy.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/proxy.c' object='src/widl-proxy.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-proxy.o `test -f 'src/proxy.c' || echo '$(srcdir)/'`src/proxy.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-proxy.o `test -f 'src/proxy.c' || echo '$(srcdir)/'`src/proxy.c
 
 src/widl-proxy.obj: src/proxy.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-proxy.obj -MD -MP -MF src/$(DEPDIR)/widl-proxy.Tpo -c -o src/widl-proxy.obj `if test -f 'src/proxy.c'; then $(CYGPATH_W) 'src/proxy.c'; else $(CYGPATH_W) '$(srcdir)/src/proxy.c'; fi`
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-proxy.obj -MD -MP -MF src/$(DEPDIR)/widl-proxy.Tpo -c -o src/widl-proxy.obj `if test -f 'src/proxy.c'; then $(CYGPATH_W) 'src/proxy.c'; else $(CYGPATH_W) '$(srcdir)/src/proxy.c'; fi`
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-proxy.Tpo src/$(DEPDIR)/widl-proxy.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/proxy.c' object='src/widl-proxy.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-proxy.obj `if test -f 'src/proxy.c'; then $(CYGPATH_W) 'src/proxy.c'; else $(CYGPATH_W) '$(srcdir)/src/proxy.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-proxy.obj `if test -f 'src/proxy.c'; then $(CYGPATH_W) 'src/proxy.c'; else $(CYGPATH_W) '$(srcdir)/src/proxy.c'; fi`
 
 src/widl-register.o: src/register.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-register.o -MD -MP -MF src/$(DEPDIR)/widl-register.Tpo -c -o src/widl-register.o `test -f 'src/register.c' || echo '$(srcdir)/'`src/register.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-register.o -MD -MP -MF src/$(DEPDIR)/widl-register.Tpo -c -o src/widl-register.o `test -f 'src/register.c' || echo '$(srcdir)/'`src/register.c
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-register.Tpo src/$(DEPDIR)/widl-register.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/register.c' object='src/widl-register.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-register.o `test -f 'src/register.c' || echo '$(srcdir)/'`src/register.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-register.o `test -f 'src/register.c' || echo '$(srcdir)/'`src/register.c
 
 src/widl-register.obj: src/register.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-register.obj -MD -MP -MF src/$(DEPDIR)/widl-register.Tpo -c -o src/widl-register.obj `if test -f 'src/register.c'; then $(CYGPATH_W) 'src/register.c'; else $(CYGPATH_W) '$(srcdir)/src/register.c'; fi`
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-register.obj -MD -MP -MF src/$(DEPDIR)/widl-register.Tpo -c -o src/widl-register.obj `if test -f 'src/register.c'; then $(CYGPATH_W) 'src/register.c'; else $(CYGPATH_W) '$(srcdir)/src/register.c'; fi`
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-register.Tpo src/$(DEPDIR)/widl-register.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/register.c' object='src/widl-register.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-register.obj `if test -f 'src/register.c'; then $(CYGPATH_W) 'src/register.c'; else $(CYGPATH_W) '$(srcdir)/src/register.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-register.obj `if test -f 'src/register.c'; then $(CYGPATH_W) 'src/register.c'; else $(CYGPATH_W) '$(srcdir)/src/register.c'; fi`
 
 src/widl-server.o: src/server.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-server.o -MD -MP -MF src/$(DEPDIR)/widl-server.Tpo -c -o src/widl-server.o `test -f 'src/server.c' || echo '$(srcdir)/'`src/server.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-server.o -MD -MP -MF src/$(DEPDIR)/widl-server.Tpo -c -o src/widl-server.o `test -f 'src/server.c' || echo '$(srcdir)/'`src/server.c
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-server.Tpo src/$(DEPDIR)/widl-server.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/server.c' object='src/widl-server.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-server.o `test -f 'src/server.c' || echo '$(srcdir)/'`src/server.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-server.o `test -f 'src/server.c' || echo '$(srcdir)/'`src/server.c
 
 src/widl-server.obj: src/server.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-server.obj -MD -MP -MF src/$(DEPDIR)/widl-server.Tpo -c -o src/widl-server.obj `if test -f 'src/server.c'; then $(CYGPATH_W) 'src/server.c'; else $(CYGPATH_W) '$(srcdir)/src/server.c'; fi`
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-server.obj -MD -MP -MF src/$(DEPDIR)/widl-server.Tpo -c -o src/widl-server.obj `if test -f 'src/server.c'; then $(CYGPATH_W) 'src/server.c'; else $(CYGPATH_W) '$(srcdir)/src/server.c'; fi`
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-server.Tpo src/$(DEPDIR)/widl-server.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/server.c' object='src/widl-server.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-server.obj `if test -f 'src/server.c'; then $(CYGPATH_W) 'src/server.c'; else $(CYGPATH_W) '$(srcdir)/src/server.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-server.obj `if test -f 'src/server.c'; then $(CYGPATH_W) 'src/server.c'; else $(CYGPATH_W) '$(srcdir)/src/server.c'; fi`
 
 src/widl-typegen.o: src/typegen.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-typegen.o -MD -MP -MF src/$(DEPDIR)/widl-typegen.Tpo -c -o src/widl-typegen.o `test -f 'src/typegen.c' || echo '$(srcdir)/'`src/typegen.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-typegen.o -MD -MP -MF src/$(DEPDIR)/widl-typegen.Tpo -c -o src/widl-typegen.o `test -f 'src/typegen.c' || echo '$(srcdir)/'`src/typegen.c
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-typegen.Tpo src/$(DEPDIR)/widl-typegen.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/typegen.c' object='src/widl-typegen.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-typegen.o `test -f 'src/typegen.c' || echo '$(srcdir)/'`src/typegen.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-typegen.o `test -f 'src/typegen.c' || echo '$(srcdir)/'`src/typegen.c
 
 src/widl-typegen.obj: src/typegen.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-typegen.obj -MD -MP -MF src/$(DEPDIR)/widl-typegen.Tpo -c -o src/widl-typegen.obj `if test -f 'src/typegen.c'; then $(CYGPATH_W) 'src/typegen.c'; else $(CYGPATH_W) '$(srcdir)/src/typegen.c'; fi`
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-typegen.obj -MD -MP -MF src/$(DEPDIR)/widl-typegen.Tpo -c -o src/widl-typegen.obj `if test -f 'src/typegen.c'; then $(CYGPATH_W) 'src/typegen.c'; else $(CYGPATH_W) '$(srcdir)/src/typegen.c'; fi`
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-typegen.Tpo src/$(DEPDIR)/widl-typegen.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/typegen.c' object='src/widl-typegen.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-typegen.obj `if test -f 'src/typegen.c'; then $(CYGPATH_W) 'src/typegen.c'; else $(CYGPATH_W) '$(srcdir)/src/typegen.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-typegen.obj `if test -f 'src/typegen.c'; then $(CYGPATH_W) 'src/typegen.c'; else $(CYGPATH_W) '$(srcdir)/src/typegen.c'; fi`
 
 src/widl-typelib.o: src/typelib.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-typelib.o -MD -MP -MF src/$(DEPDIR)/widl-typelib.Tpo -c -o src/widl-typelib.o `test -f 'src/typelib.c' || echo '$(srcdir)/'`src/typelib.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-typelib.o -MD -MP -MF src/$(DEPDIR)/widl-typelib.Tpo -c -o src/widl-typelib.o `test -f 'src/typelib.c' || echo '$(srcdir)/'`src/typelib.c
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-typelib.Tpo src/$(DEPDIR)/widl-typelib.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/typelib.c' object='src/widl-typelib.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-typelib.o `test -f 'src/typelib.c' || echo '$(srcdir)/'`src/typelib.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-typelib.o `test -f 'src/typelib.c' || echo '$(srcdir)/'`src/typelib.c
 
 src/widl-typelib.obj: src/typelib.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-typelib.obj -MD -MP -MF src/$(DEPDIR)/widl-typelib.Tpo -c -o src/widl-typelib.obj `if test -f 'src/typelib.c'; then $(CYGPATH_W) 'src/typelib.c'; else $(CYGPATH_W) '$(srcdir)/src/typelib.c'; fi`
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-typelib.obj -MD -MP -MF src/$(DEPDIR)/widl-typelib.Tpo -c -o src/widl-typelib.obj `if test -f 'src/typelib.c'; then $(CYGPATH_W) 'src/typelib.c'; else $(CYGPATH_W) '$(srcdir)/src/typelib.c'; fi`
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-typelib.Tpo src/$(DEPDIR)/widl-typelib.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/typelib.c' object='src/widl-typelib.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-typelib.obj `if test -f 'src/typelib.c'; then $(CYGPATH_W) 'src/typelib.c'; else $(CYGPATH_W) '$(srcdir)/src/typelib.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-typelib.obj `if test -f 'src/typelib.c'; then $(CYGPATH_W) 'src/typelib.c'; else $(CYGPATH_W) '$(srcdir)/src/typelib.c'; fi`
 
 src/widl-typetree.o: src/typetree.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-typetree.o -MD -MP -MF src/$(DEPDIR)/widl-typetree.Tpo -c -o src/widl-typetree.o `test -f 'src/typetree.c' || echo '$(srcdir)/'`src/typetree.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-typetree.o -MD -MP -MF src/$(DEPDIR)/widl-typetree.Tpo -c -o src/widl-typetree.o `test -f 'src/typetree.c' || echo '$(srcdir)/'`src/typetree.c
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-typetree.Tpo src/$(DEPDIR)/widl-typetree.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/typetree.c' object='src/widl-typetree.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-typetree.o `test -f 'src/typetree.c' || echo '$(srcdir)/'`src/typetree.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-typetree.o `test -f 'src/typetree.c' || echo '$(srcdir)/'`src/typetree.c
 
 src/widl-typetree.obj: src/typetree.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-typetree.obj -MD -MP -MF src/$(DEPDIR)/widl-typetree.Tpo -c -o src/widl-typetree.obj `if test -f 'src/typetree.c'; then $(CYGPATH_W) 'src/typetree.c'; else $(CYGPATH_W) '$(srcdir)/src/typetree.c'; fi`
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-typetree.obj -MD -MP -MF src/$(DEPDIR)/widl-typetree.Tpo -c -o src/widl-typetree.obj `if test -f 'src/typetree.c'; then $(CYGPATH_W) 'src/typetree.c'; else $(CYGPATH_W) '$(srcdir)/src/typetree.c'; fi`
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-typetree.Tpo src/$(DEPDIR)/widl-typetree.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/typetree.c' object='src/widl-typetree.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-typetree.obj `if test -f 'src/typetree.c'; then $(CYGPATH_W) 'src/typetree.c'; else $(CYGPATH_W) '$(srcdir)/src/typetree.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-typetree.obj `if test -f 'src/typetree.c'; then $(CYGPATH_W) 'src/typetree.c'; else $(CYGPATH_W) '$(srcdir)/src/typetree.c'; fi`
 
 src/widl-utils.o: src/utils.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-utils.o -MD -MP -MF src/$(DEPDIR)/widl-utils.Tpo -c -o src/widl-utils.o `test -f 'src/utils.c' || echo '$(srcdir)/'`src/utils.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-utils.o -MD -MP -MF src/$(DEPDIR)/widl-utils.Tpo -c -o src/widl-utils.o `test -f 'src/utils.c' || echo '$(srcdir)/'`src/utils.c
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-utils.Tpo src/$(DEPDIR)/widl-utils.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/utils.c' object='src/widl-utils.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-utils.o `test -f 'src/utils.c' || echo '$(srcdir)/'`src/utils.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-utils.o `test -f 'src/utils.c' || echo '$(srcdir)/'`src/utils.c
 
 src/widl-utils.obj: src/utils.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-utils.obj -MD -MP -MF src/$(DEPDIR)/widl-utils.Tpo -c -o src/widl-utils.obj `if test -f 'src/utils.c'; then $(CYGPATH_W) 'src/utils.c'; else $(CYGPATH_W) '$(srcdir)/src/utils.c'; fi`
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-utils.obj -MD -MP -MF src/$(DEPDIR)/widl-utils.Tpo -c -o src/widl-utils.obj `if test -f 'src/utils.c'; then $(CYGPATH_W) 'src/utils.c'; else $(CYGPATH_W) '$(srcdir)/src/utils.c'; fi`
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-utils.Tpo src/$(DEPDIR)/widl-utils.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/utils.c' object='src/widl-utils.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-utils.obj `if test -f 'src/utils.c'; then $(CYGPATH_W) 'src/utils.c'; else $(CYGPATH_W) '$(srcdir)/src/utils.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-utils.obj `if test -f 'src/utils.c'; then $(CYGPATH_W) 'src/utils.c'; else $(CYGPATH_W) '$(srcdir)/src/utils.c'; fi`
 
 src/widl-widl.o: src/widl.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-widl.o -MD -MP -MF src/$(DEPDIR)/widl-widl.Tpo -c -o src/widl-widl.o `test -f 'src/widl.c' || echo '$(srcdir)/'`src/widl.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-widl.o -MD -MP -MF src/$(DEPDIR)/widl-widl.Tpo -c -o src/widl-widl.o `test -f 'src/widl.c' || echo '$(srcdir)/'`src/widl.c
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-widl.Tpo src/$(DEPDIR)/widl-widl.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/widl.c' object='src/widl-widl.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-widl.o `test -f 'src/widl.c' || echo '$(srcdir)/'`src/widl.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-widl.o `test -f 'src/widl.c' || echo '$(srcdir)/'`src/widl.c
 
 src/widl-widl.obj: src/widl.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-widl.obj -MD -MP -MF src/$(DEPDIR)/widl-widl.Tpo -c -o src/widl-widl.obj `if test -f 'src/widl.c'; then $(CYGPATH_W) 'src/widl.c'; else $(CYGPATH_W) '$(srcdir)/src/widl.c'; fi`
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-widl.obj -MD -MP -MF src/$(DEPDIR)/widl-widl.Tpo -c -o src/widl-widl.obj `if test -f 'src/widl.c'; then $(CYGPATH_W) 'src/widl.c'; else $(CYGPATH_W) '$(srcdir)/src/widl.c'; fi`
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-widl.Tpo src/$(DEPDIR)/widl-widl.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/widl.c' object='src/widl-widl.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-widl.obj `if test -f 'src/widl.c'; then $(CYGPATH_W) 'src/widl.c'; else $(CYGPATH_W) '$(srcdir)/src/widl.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-widl.obj `if test -f 'src/widl.c'; then $(CYGPATH_W) 'src/widl.c'; else $(CYGPATH_W) '$(srcdir)/src/widl.c'; fi`
 
 src/widl-write_msft.o: src/write_msft.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-write_msft.o -MD -MP -MF src/$(DEPDIR)/widl-write_msft.Tpo -c -o src/widl-write_msft.o `test -f 'src/write_msft.c' || echo '$(srcdir)/'`src/write_msft.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-write_msft.o -MD -MP -MF src/$(DEPDIR)/widl-write_msft.Tpo -c -o src/widl-write_msft.o `test -f 'src/write_msft.c' || echo '$(srcdir)/'`src/write_msft.c
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-write_msft.Tpo src/$(DEPDIR)/widl-write_msft.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/write_msft.c' object='src/widl-write_msft.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-write_msft.o `test -f 'src/write_msft.c' || echo '$(srcdir)/'`src/write_msft.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-write_msft.o `test -f 'src/write_msft.c' || echo '$(srcdir)/'`src/write_msft.c
 
 src/widl-write_msft.obj: src/write_msft.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-write_msft.obj -MD -MP -MF src/$(DEPDIR)/widl-write_msft.Tpo -c -o src/widl-write_msft.obj `if test -f 'src/write_msft.c'; then $(CYGPATH_W) 'src/write_msft.c'; else $(CYGPATH_W) '$(srcdir)/src/write_msft.c'; fi`
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-write_msft.obj -MD -MP -MF src/$(DEPDIR)/widl-write_msft.Tpo -c -o src/widl-write_msft.obj `if test -f 'src/write_msft.c'; then $(CYGPATH_W) 'src/write_msft.c'; else $(CYGPATH_W) '$(srcdir)/src/write_msft.c'; fi`
 @am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-write_msft.Tpo src/$(DEPDIR)/widl-write_msft.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/write_msft.c' object='src/widl-write_msft.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-write_msft.obj `if test -f 'src/write_msft.c'; then $(CYGPATH_W) 'src/write_msft.c'; else $(CYGPATH_W) '$(srcdir)/src/write_msft.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-write_msft.obj `if test -f 'src/write_msft.c'; then $(CYGPATH_W) 'src/write_msft.c'; else $(CYGPATH_W) '$(srcdir)/src/write_msft.c'; fi`
 
 src/wpp/widl-ppl.yy.o: src/wpp/ppl.yy.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-ppl.yy.o -MD -MP -MF src/wpp/$(DEPDIR)/widl-ppl.yy.Tpo -c -o src/wpp/widl-ppl.yy.o `test -f 'src/wpp/ppl.yy.c' || echo '$(srcdir)/'`src/wpp/ppl.yy.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-ppl.yy.o -MD -MP -MF src/wpp/$(DEPDIR)/widl-ppl.yy.Tpo -c -o src/wpp/widl-ppl.yy.o `test -f 'src/wpp/ppl.yy.c' || echo '$(srcdir)/'`src/wpp/ppl.yy.c
 @am__fastdepCC_TRUE@	$(am__mv) src/wpp/$(DEPDIR)/widl-ppl.yy.Tpo src/wpp/$(DEPDIR)/widl-ppl.yy.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/wpp/ppl.yy.c' object='src/wpp/widl-ppl.yy.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-ppl.yy.o `test -f 'src/wpp/ppl.yy.c' || echo '$(srcdir)/'`src/wpp/ppl.yy.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-ppl.yy.o `test -f 'src/wpp/ppl.yy.c' || echo '$(srcdir)/'`src/wpp/ppl.yy.c
 
 src/wpp/widl-ppl.yy.obj: src/wpp/ppl.yy.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-ppl.yy.obj -MD -MP -MF src/wpp/$(DEPDIR)/widl-ppl.yy.Tpo -c -o src/wpp/widl-ppl.yy.obj `if test -f 'src/wpp/ppl.yy.c'; then $(CYGPATH_W) 'src/wpp/ppl.yy.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/ppl.yy.c'; fi`
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-ppl.yy.obj -MD -MP -MF src/wpp/$(DEPDIR)/widl-ppl.yy.Tpo -c -o src/wpp/widl-ppl.yy.obj `if test -f 'src/wpp/ppl.yy.c'; then $(CYGPATH_W) 'src/wpp/ppl.yy.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/ppl.yy.c'; fi`
 @am__fastdepCC_TRUE@	$(am__mv) src/wpp/$(DEPDIR)/widl-ppl.yy.Tpo src/wpp/$(DEPDIR)/widl-ppl.yy.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/wpp/ppl.yy.c' object='src/wpp/widl-ppl.yy.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-ppl.yy.obj `if test -f 'src/wpp/ppl.yy.c'; then $(CYGPATH_W) 'src/wpp/ppl.yy.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/ppl.yy.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-ppl.yy.obj `if test -f 'src/wpp/ppl.yy.c'; then $(CYGPATH_W) 'src/wpp/ppl.yy.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/ppl.yy.c'; fi`
 
 src/wpp/widl-ppy.tab.o: src/wpp/ppy.tab.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-ppy.tab.o -MD -MP -MF src/wpp/$(DEPDIR)/widl-ppy.tab.Tpo -c -o src/wpp/widl-ppy.tab.o `test -f 'src/wpp/ppy.tab.c' || echo '$(srcdir)/'`src/wpp/ppy.tab.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-ppy.tab.o -MD -MP -MF src/wpp/$(DEPDIR)/widl-ppy.tab.Tpo -c -o src/wpp/widl-ppy.tab.o `test -f 'src/wpp/ppy.tab.c' || echo '$(srcdir)/'`src/wpp/ppy.tab.c
 @am__fastdepCC_TRUE@	$(am__mv) src/wpp/$(DEPDIR)/widl-ppy.tab.Tpo src/wpp/$(DEPDIR)/widl-ppy.tab.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/wpp/ppy.tab.c' object='src/wpp/widl-ppy.tab.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-ppy.tab.o `test -f 'src/wpp/ppy.tab.c' || echo '$(srcdir)/'`src/wpp/ppy.tab.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-ppy.tab.o `test -f 'src/wpp/ppy.tab.c' || echo '$(srcdir)/'`src/wpp/ppy.tab.c
 
 src/wpp/widl-ppy.tab.obj: src/wpp/ppy.tab.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-ppy.tab.obj -MD -MP -MF src/wpp/$(DEPDIR)/widl-ppy.tab.Tpo -c -o src/wpp/widl-ppy.tab.obj `if test -f 'src/wpp/ppy.tab.c'; then $(CYGPATH_W) 'src/wpp/ppy.tab.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/ppy.tab.c'; fi`
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-ppy.tab.obj -MD -MP -MF src/wpp/$(DEPDIR)/widl-ppy.tab.Tpo -c -o src/wpp/widl-ppy.tab.obj `if test -f 'src/wpp/ppy.tab.c'; then $(CYGPATH_W) 'src/wpp/ppy.tab.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/ppy.tab.c'; fi`
 @am__fastdepCC_TRUE@	$(am__mv) src/wpp/$(DEPDIR)/widl-ppy.tab.Tpo src/wpp/$(DEPDIR)/widl-ppy.tab.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/wpp/ppy.tab.c' object='src/wpp/widl-ppy.tab.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-ppy.tab.obj `if test -f 'src/wpp/ppy.tab.c'; then $(CYGPATH_W) 'src/wpp/ppy.tab.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/ppy.tab.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-ppy.tab.obj `if test -f 'src/wpp/ppy.tab.c'; then $(CYGPATH_W) 'src/wpp/ppy.tab.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/ppy.tab.c'; fi`
 
 src/wpp/widl-preproc.o: src/wpp/preproc.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-preproc.o -MD -MP -MF src/wpp/$(DEPDIR)/widl-preproc.Tpo -c -o src/wpp/widl-preproc.o `test -f 'src/wpp/preproc.c' || echo '$(srcdir)/'`src/wpp/preproc.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-preproc.o -MD -MP -MF src/wpp/$(DEPDIR)/widl-preproc.Tpo -c -o src/wpp/widl-preproc.o `test -f 'src/wpp/preproc.c' || echo '$(srcdir)/'`src/wpp/preproc.c
 @am__fastdepCC_TRUE@	$(am__mv) src/wpp/$(DEPDIR)/widl-preproc.Tpo src/wpp/$(DEPDIR)/widl-preproc.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/wpp/preproc.c' object='src/wpp/widl-preproc.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-preproc.o `test -f 'src/wpp/preproc.c' || echo '$(srcdir)/'`src/wpp/preproc.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-preproc.o `test -f 'src/wpp/preproc.c' || echo '$(srcdir)/'`src/wpp/preproc.c
 
 src/wpp/widl-preproc.obj: src/wpp/preproc.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-preproc.obj -MD -MP -MF src/wpp/$(DEPDIR)/widl-preproc.Tpo -c -o src/wpp/widl-preproc.obj `if test -f 'src/wpp/preproc.c'; then $(CYGPATH_W) 'src/wpp/preproc.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/preproc.c'; fi`
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-preproc.obj -MD -MP -MF src/wpp/$(DEPDIR)/widl-preproc.Tpo -c -o src/wpp/widl-preproc.obj `if test -f 'src/wpp/preproc.c'; then $(CYGPATH_W) 'src/wpp/preproc.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/preproc.c'; fi`
 @am__fastdepCC_TRUE@	$(am__mv) src/wpp/$(DEPDIR)/widl-preproc.Tpo src/wpp/$(DEPDIR)/widl-preproc.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/wpp/preproc.c' object='src/wpp/widl-preproc.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-preproc.obj `if test -f 'src/wpp/preproc.c'; then $(CYGPATH_W) 'src/wpp/preproc.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/preproc.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-preproc.obj `if test -f 'src/wpp/preproc.c'; then $(CYGPATH_W) 'src/wpp/preproc.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/preproc.c'; fi`
 
 src/wpp/widl-wpp.o: src/wpp/wpp.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-wpp.o -MD -MP -MF src/wpp/$(DEPDIR)/widl-wpp.Tpo -c -o src/wpp/widl-wpp.o `test -f 'src/wpp/wpp.c' || echo '$(srcdir)/'`src/wpp/wpp.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-wpp.o -MD -MP -MF src/wpp/$(DEPDIR)/widl-wpp.Tpo -c -o src/wpp/widl-wpp.o `test -f 'src/wpp/wpp.c' || echo '$(srcdir)/'`src/wpp/wpp.c
 @am__fastdepCC_TRUE@	$(am__mv) src/wpp/$(DEPDIR)/widl-wpp.Tpo src/wpp/$(DEPDIR)/widl-wpp.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/wpp/wpp.c' object='src/wpp/widl-wpp.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-wpp.o `test -f 'src/wpp/wpp.c' || echo '$(srcdir)/'`src/wpp/wpp.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-wpp.o `test -f 'src/wpp/wpp.c' || echo '$(srcdir)/'`src/wpp/wpp.c
 
 src/wpp/widl-wpp.obj: src/wpp/wpp.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-wpp.obj -MD -MP -MF src/wpp/$(DEPDIR)/widl-wpp.Tpo -c -o src/wpp/widl-wpp.obj `if test -f 'src/wpp/wpp.c'; then $(CYGPATH_W) 'src/wpp/wpp.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/wpp.c'; fi`
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/wpp/widl-wpp.obj -MD -MP -MF src/wpp/$(DEPDIR)/widl-wpp.Tpo -c -o src/wpp/widl-wpp.obj `if test -f 'src/wpp/wpp.c'; then $(CYGPATH_W) 'src/wpp/wpp.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/wpp.c'; fi`
 @am__fastdepCC_TRUE@	$(am__mv) src/wpp/$(DEPDIR)/widl-wpp.Tpo src/wpp/$(DEPDIR)/widl-wpp.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/wpp/wpp.c' object='src/wpp/widl-wpp.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-wpp.obj `if test -f 'src/wpp/wpp.c'; then $(CYGPATH_W) 'src/wpp/wpp.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/wpp.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-wpp.obj `if test -f 'src/wpp/wpp.c'; then $(CYGPATH_W) 'src/wpp/wpp.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/wpp.c'; fi`
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
