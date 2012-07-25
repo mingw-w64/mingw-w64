@@ -25,4 +25,4 @@ widl_SOURCES = \
 widl_CPPFLAGS = -I$(top_srcdir)/include -DDEFAULT_INCLUDE_DIR=\"$(includedir)/../$(target)/include\"
 widl_CFLAGS = -O3 -g -Wall -Wformat -Wpacked -Wmissing-declarations -Wimplicit-function-declaration -Wmissing-prototypes -Wstrict-aliasing=2
 
-DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet)
+DISTCHECK_CONFIGURE_FLAGS = --host=$(host) --target=$(target)
