@@ -287,7 +287,7 @@ extern "C" {
 
   typedef struct res_file_enum_2 FRK;
 
-#define FRK_INIT(f) { (f).res_pad = 0L; (f).res_fs = 0; (f).res_pro = 0; }
+#define FRK_INIT(f) { (f).res_pad = 0; (f).res_fs = 0; (f).res_pro = 0; }
 
   extern API_FUNCTION NetServerGetInfo(const char *pszServer,short sLevel,char *pbBuffer,unsigned short cbBuffer,unsigned short *pcbTotalAvail);
 

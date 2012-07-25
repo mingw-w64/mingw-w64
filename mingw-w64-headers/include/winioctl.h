@@ -170,7 +170,7 @@ extern "C" {
 #define DeviceDsmAction_Trim 1
 #define DeviceDsmAction_Notification (2 | DeviceDsmActionFlag_NonDestructive)
 
-#define IsDsmActionNonDestructive(x) ((BOOLEAN)(((x) & DeviceDsmActionFlag_NonDestructive) != 0L))
+#define IsDsmActionNonDestructive(x) ((BOOLEAN)(!!((x) & DeviceDsmActionFlag_NonDestructive)))
 
 #define DEVICE_DSM_FLAG_ENTIRE_DATA_SET_RANGE 0x00000001L
 

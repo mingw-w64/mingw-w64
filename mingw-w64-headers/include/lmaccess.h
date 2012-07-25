@@ -466,7 +466,7 @@ extern "C" {
 #define DEF_MAX_PWHIST 8
 
 #define DEF_MAX_PWAGE TIMEQ_FOREVER
-#define DEF_MIN_PWAGE (unsigned long) 0L
+#define DEF_MIN_PWAGE (unsigned long) 0
 #define DEF_FORCE_LOGOFF (unsigned long) 0xffffffff
 #define DEF_MAX_BADPW 0
 #define ONE_DAY (unsigned long) 01*24*3600

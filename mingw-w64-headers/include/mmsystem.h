@@ -766,7 +766,7 @@ extern "C" {
 #define MEVT_F_CALLBACK 0x40000000L
 
 #define MEVT_EVENTTYPE(x) ((BYTE)(((x)>>24)&0xFF))
-#define MEVT_EVENTPARM(x) ((DWORD)((x)&0x00FFFFFFL))
+#define MEVT_EVENTPARM(x) ((DWORD)((x)&0x00FFFFFF))
 
 #define MEVT_SHORTMSG ((BYTE)0x00)
 #define MEVT_TEMPO ((BYTE)0x01)

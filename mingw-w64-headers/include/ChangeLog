@@ -1,3 +1,25 @@
+2012-07-25  Corinna Vinschen  <vinschen@redhat.com>
+
+	* wmiatlprov.h (CInstanceProviderHelper::CheckInstancePath):
+	Cast first parameter in call to GetInfo to ULONG.
+	* winioctl.h (IsDsmActionNonDestructive): Replace test for == 0L
+	with logical negation operator.
+	* wininet.h (INTERNET_INVALID_STATUS_CALLBACK): Drop 'L' modifier.
+	* lmaccess.h (DEF_MIN_PWAGE): Ditto.
+	* mmsystem.h (MEVT_EVENTPARM): Ditto.
+	* svrapi.h (FRK_INIT):  Ditto.
+	* vfw.h: Throughout, cast all constants in calls to SendMessage and
+	ICSendMessage to the expected type.
+	* prsht.h: Ditto, in calls to SendMessage and PostMessage.
+	* winuser.h: Ditto, in calls to CreateWindowEx, CreateDialogParam,
+	CreateDialogIndirectParam, DialogBoxParam, and DialogBoxIndirectParam.
+	* commctrl.h: Ditto, in calls to SendMessage.
+	(LPSTR_TEXTCALLBACKA): Drop 'L' modifier.
+	(LPSTR_TEXTCALLBACKW): Ditto.
+	* windowsx.h: Throughout, cast all constants in calls to SendMessage
+	and as return value from HANDLE_xxx macro.
+	(IsRestored): Replace test for == 0L with logical negation operator.
+
 2012-07-23  Corinna Vinschen  <vinschen@redhat.com>
 
 	* Throughout, drop 'L' modifier from enumeration values.

@@ -357,25 +357,25 @@ extern "C" {
 #define PropSheet_AddPage(hDlg,hpage) SNDMSG(hDlg,PSM_ADDPAGE,0,(LPARAM)hpage)
 
 #define PSM_CHANGED (WM_USER + 104)
-#define PropSheet_Changed(hDlg,hwnd) SNDMSG(hDlg,PSM_CHANGED,(WPARAM)hwnd,0L)
+#define PropSheet_Changed(hDlg,hwnd) SNDMSG(hDlg,PSM_CHANGED,(WPARAM)hwnd,(LPARAM)0)
 
 #define PSM_RESTARTWINDOWS (WM_USER + 105)
-#define PropSheet_RestartWindows(hDlg) SNDMSG(hDlg,PSM_RESTARTWINDOWS,0,0L)
+#define PropSheet_RestartWindows(hDlg) SNDMSG(hDlg,PSM_RESTARTWINDOWS,(WPARAM)0,(LPARAM)0)
 
 #define PSM_REBOOTSYSTEM (WM_USER + 106)
-#define PropSheet_RebootSystem(hDlg) SNDMSG(hDlg,PSM_REBOOTSYSTEM,0,0L)
+#define PropSheet_RebootSystem(hDlg) SNDMSG(hDlg,PSM_REBOOTSYSTEM,(WPARAM)0,(LPARAM)0)
 
 #define PSM_CANCELTOCLOSE (WM_USER + 107)
-#define PropSheet_CancelToClose(hDlg) PostMessage(hDlg,PSM_CANCELTOCLOSE,0,0L)
+#define PropSheet_CancelToClose(hDlg) PostMessage(hDlg,PSM_CANCELTOCLOSE,(WPARAM)0,(LPARAM)0)
 
 #define PSM_QUERYSIBLINGS (WM_USER + 108)
 #define PropSheet_QuerySiblings(hDlg,wParam,lParam) SNDMSG(hDlg,PSM_QUERYSIBLINGS,wParam,lParam)
 
 #define PSM_UNCHANGED (WM_USER + 109)
-#define PropSheet_UnChanged(hDlg,hwnd) SNDMSG(hDlg,PSM_UNCHANGED,(WPARAM)hwnd,0L)
+#define PropSheet_UnChanged(hDlg,hwnd) SNDMSG(hDlg,PSM_UNCHANGED,(WPARAM)hwnd,(LPARAM)0)
 
 #define PSM_APPLY (WM_USER + 110)
-#define PropSheet_Apply(hDlg) SNDMSG(hDlg,PSM_APPLY,0,0L)
+#define PropSheet_Apply(hDlg) SNDMSG(hDlg,PSM_APPLY,(WPARAM)0,(LPARAM)0)
 
 #define PSM_SETTITLEA (WM_USER + 111)
 #define PSM_SETTITLEW (WM_USER + 120)
@@ -385,7 +385,7 @@ extern "C" {
 #define PropSheet_SetTitle(hDlg,wStyle,lpszText) SNDMSG(hDlg,PSM_SETTITLE,wStyle,(LPARAM)(LPCTSTR)(lpszText))
 
 #define PSM_SETWIZBUTTONS (WM_USER + 112)
-#define PropSheet_SetWizButtons(hDlg,dwFlags) PostMessage(hDlg,PSM_SETWIZBUTTONS,0,(LPARAM)dwFlags)
+#define PropSheet_SetWizButtons(hDlg,dwFlags) PostMessage(hDlg,PSM_SETWIZBUTTONS,(WPARAM)0,(LPARAM)dwFlags)
 
 #define PSWIZB_BACK 0x00000001
 #define PSWIZB_NEXT 0x00000002
@@ -393,7 +393,7 @@ extern "C" {
 #define PSWIZB_DISABLEDFINISH 0x00000008
 
 #define PSM_PRESSBUTTON (WM_USER + 113)
-#define PropSheet_PressButton(hDlg,iButton) PostMessage(hDlg,PSM_PRESSBUTTON,(WPARAM)iButton,0)
+#define PropSheet_PressButton(hDlg,iButton) PostMessage(hDlg,PSM_PRESSBUTTON,(WPARAM)iButton,(LPARAM)0)
 
 #define PSBTN_BACK 0
 #define PSBTN_NEXT 1
@@ -421,7 +421,7 @@ extern "C" {
 #define PropSheet_IsDialogMessage(hDlg,pMsg) (WINBOOL)SNDMSG(hDlg,PSM_ISDIALOGMESSAGE,0,(LPARAM)pMsg)
 
 #define PSM_GETCURRENTPAGEHWND (WM_USER + 118)
-#define PropSheet_GetCurrentPageHwnd(hDlg) (HWND)SNDMSG(hDlg,PSM_GETCURRENTPAGEHWND,0,0L)
+#define PropSheet_GetCurrentPageHwnd(hDlg) (HWND)SNDMSG(hDlg,PSM_GETCURRENTPAGEHWND,(WPARAM)0,(LPARAM)0)
 
 #define PSM_INSERTPAGE (WM_USER + 119)
 #define PropSheet_InsertPage(hDlg,index,hpage) SNDMSG(hDlg,PSM_INSERTPAGE,(WPARAM)(index),(LPARAM)(hpage))
