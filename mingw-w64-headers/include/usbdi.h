@@ -40,7 +40,7 @@ extern "C" {
 
 
 #define USBD_HALTED(Status)  ((ULONG)(Status) >> 30 == 3)
-#define USBD_STATUS(Status) ((ULONG)(Status) & 0x0FFFFFFFL)
+#define USBD_STATUS(Status) ((ULONG)(Status) & __MSABI_LONG(0x0FFFFFFF))
 
 #define URB_FUNCTION_RESERVED0                      0x0016
 #define URB_FUNCTION_RESERVED                       0x001D

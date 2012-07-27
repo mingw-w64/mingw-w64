@@ -303,8 +303,8 @@ extern "C" {
   PDH_FUNCTION PdhGetCounterInfoW(PDH_HCOUNTER hCounter,BOOLEAN bRetrieveExplainText,LPDWORD pdwBufferSize,PPDH_COUNTER_INFO_W lpBuffer);
   PDH_FUNCTION PdhGetCounterInfoA(PDH_HCOUNTER hCounter,BOOLEAN bRetrieveExplainText,LPDWORD pdwBufferSize,PPDH_COUNTER_INFO_A lpBuffer);
 
-#define PDH_MAX_SCALE (7L)
-#define PDH_MIN_SCALE (-7L)
+#define PDH_MAX_SCALE (__MSABI_LONG(7))
+#define PDH_MIN_SCALE (__MSABI_LONG(-7))
 
   PDH_FUNCTION PdhSetCounterScaleFactor(PDH_HCOUNTER hCounter,LONG lFactor);
   PDH_FUNCTION PdhConnectMachineW(LPCWSTR szMachineName);

@@ -20,8 +20,8 @@ extern "C" {
 #define BERAPI __cdecl
 #endif
 
-#define LBER_ERROR 0xffffffffL
-#define LBER_DEFAULT 0xffffffffL
+#define LBER_ERROR __MSABI_LONG(0xffffffff)
+#define LBER_DEFAULT __MSABI_LONG(0xffffffff)
 
   typedef unsigned int ber_tag_t;
   typedef int ber_int_t;

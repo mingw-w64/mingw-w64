@@ -282,16 +282,16 @@ typedef struct _DEVHTADJDATA {
 #define GCAPS_NUP               0x80000000
 
 /* DEVINFO.iDitherFormat constants */
-#define BMF_1BPP       1L
-#define BMF_4BPP       2L
-#define BMF_8BPP       3L
-#define BMF_16BPP      4L
-#define BMF_24BPP      5L
-#define BMF_32BPP      6L
-#define BMF_4RLE       7L
-#define BMF_8RLE       8L
-#define BMF_JPEG       9L
-#define BMF_PNG       10L
+#define BMF_1BPP       __MSABI_LONG(1)
+#define BMF_4BPP       __MSABI_LONG(2)
+#define BMF_8BPP       __MSABI_LONG(3)
+#define BMF_16BPP      __MSABI_LONG(4)
+#define BMF_24BPP      __MSABI_LONG(5)
+#define BMF_32BPP      __MSABI_LONG(6)
+#define BMF_4RLE       __MSABI_LONG(7)
+#define BMF_8RLE       __MSABI_LONG(8)
+#define BMF_JPEG       __MSABI_LONG(9)
+#define BMF_PNG       __MSABI_LONG(10)
 
 /* DEVINFO.flGraphicsCaps2 flags */
 #define GCAPS2_JPEGSRC          0x00000001
@@ -332,100 +332,100 @@ typedef struct _DRIVEROBJ {
 } DRIVEROBJ;
 
 /* DRVFN.iFunc constants */
-#define INDEX_DrvEnablePDEV               0L
-#define INDEX_DrvCompletePDEV             1L
-#define INDEX_DrvDisablePDEV              2L
-#define INDEX_DrvEnableSurface            3L
-#define INDEX_DrvDisableSurface           4L
-#define INDEX_DrvAssertMode               5L
-#define INDEX_DrvOffset                   6L
-#define INDEX_DrvResetPDEV                7L
-#define INDEX_DrvDisableDriver            8L
-#define INDEX_DrvUnknown1                 9L
-#define INDEX_DrvCreateDeviceBitmap       10L
-#define INDEX_DrvDeleteDeviceBitmap       11L
-#define INDEX_DrvRealizeBrush             12L
-#define INDEX_DrvDitherColor              13L
-#define INDEX_DrvStrokePath               14L
-#define INDEX_DrvFillPath                 15L
-#define INDEX_DrvStrokeAndFillPath        16L
-#define INDEX_DrvPaint                    17L
-#define INDEX_DrvBitBlt                   18L
-#define INDEX_DrvCopyBits                 19L
-#define INDEX_DrvStretchBlt               20L
-#define INDEX_DrvUnknown2                 21L
-#define INDEX_DrvSetPalette               22L
-#define INDEX_DrvTextOut                  23L
-#define INDEX_DrvEscape                   24L
-#define INDEX_DrvDrawEscape               25L
-#define INDEX_DrvQueryFont                26L
-#define INDEX_DrvQueryFontTree            27L
-#define INDEX_DrvQueryFontData            28L
-#define INDEX_DrvSetPointerShape          29L
-#define INDEX_DrvMovePointer              30L
-#define INDEX_DrvLineTo                   31L
-#define INDEX_DrvSendPage                 32L
-#define INDEX_DrvStartPage                33L
-#define INDEX_DrvEndDoc                   34L
-#define INDEX_DrvStartDoc                 35L
-#define INDEX_DrvUnknown3                 36L
-#define INDEX_DrvGetGlyphMode             37L
-#define INDEX_DrvSynchronize              38L
-#define INDEX_DrvUnknown4                 39L
-#define INDEX_DrvSaveScreenBits           40L
-#define INDEX_DrvGetModes                 41L
-#define INDEX_DrvFree                     42L
-#define INDEX_DrvDestroyFont              43L
-#define INDEX_DrvQueryFontCaps            44L
-#define INDEX_DrvLoadFontFile             45L
-#define INDEX_DrvUnloadFontFile           46L
-#define INDEX_DrvFontManagement           47L
-#define INDEX_DrvQueryTrueTypeTable       48L
-#define INDEX_DrvQueryTrueTypeOutline     49L
-#define INDEX_DrvGetTrueTypeFile          50L
-#define INDEX_DrvQueryFontFile            51L
-#define INDEX_DrvMovePanning              52L
-#define INDEX_DrvQueryAdvanceWidths       53L
-#define INDEX_DrvSetPixelFormat           54L
-#define INDEX_DrvDescribePixelFormat      55L
-#define INDEX_DrvSwapBuffers              56L
-#define INDEX_DrvStartBanding             57L
-#define INDEX_DrvNextBand                 58L
-#define INDEX_DrvGetDirectDrawInfo        59L
-#define INDEX_DrvEnableDirectDraw         60L
-#define INDEX_DrvDisableDirectDraw        61L
-#define INDEX_DrvQuerySpoolType           62L
-#define INDEX_DrvUnknown5                 63L
-#define INDEX_DrvIcmCreateColorTransform  64L
-#define INDEX_DrvIcmDeleteColorTransform  65L
-#define INDEX_DrvIcmCheckBitmapBits       66L
-#define INDEX_DrvIcmSetDeviceGammaRamp    67L
-#define INDEX_DrvGradientFill             68L
-#define INDEX_DrvStretchBltROP            69L
-#define INDEX_DrvPlgBlt                   70L
-#define INDEX_DrvAlphaBlend               71L
-#define INDEX_DrvSynthesizeFont           72L
-#define INDEX_DrvGetSynthesizedFontFiles  73L
-#define INDEX_DrvTransparentBlt           74L
-#define INDEX_DrvQueryPerBandInfo         75L
-#define INDEX_DrvQueryDeviceSupport       76L
-#define INDEX_DrvReserved1                77L
-#define INDEX_DrvReserved2                78L
-#define INDEX_DrvReserved3                79L
-#define INDEX_DrvReserved4                80L
-#define INDEX_DrvReserved5                81L
-#define INDEX_DrvReserved6                82L
-#define INDEX_DrvReserved7                83L
-#define INDEX_DrvReserved8                84L
-#define INDEX_DrvDeriveSurface            85L
-#define INDEX_DrvQueryGlyphAttrs          86L
-#define INDEX_DrvNotify                   87L
-#define INDEX_DrvSynchronizeSurface       88L
-#define INDEX_DrvResetDevice              89L
-#define INDEX_DrvReserved9                90L
-#define INDEX_DrvReserved10               91L
-#define INDEX_DrvReserved11               92L
-#define INDEX_LAST                        93L
+#define INDEX_DrvEnablePDEV               __MSABI_LONG(0)
+#define INDEX_DrvCompletePDEV             __MSABI_LONG(1)
+#define INDEX_DrvDisablePDEV              __MSABI_LONG(2)
+#define INDEX_DrvEnableSurface            __MSABI_LONG(3)
+#define INDEX_DrvDisableSurface           __MSABI_LONG(4)
+#define INDEX_DrvAssertMode               __MSABI_LONG(5)
+#define INDEX_DrvOffset                   __MSABI_LONG(6)
+#define INDEX_DrvResetPDEV                __MSABI_LONG(7)
+#define INDEX_DrvDisableDriver            __MSABI_LONG(8)
+#define INDEX_DrvUnknown1                 __MSABI_LONG(9)
+#define INDEX_DrvCreateDeviceBitmap       __MSABI_LONG(10)
+#define INDEX_DrvDeleteDeviceBitmap       __MSABI_LONG(11)
+#define INDEX_DrvRealizeBrush             __MSABI_LONG(12)
+#define INDEX_DrvDitherColor              __MSABI_LONG(13)
+#define INDEX_DrvStrokePath               __MSABI_LONG(14)
+#define INDEX_DrvFillPath                 __MSABI_LONG(15)
+#define INDEX_DrvStrokeAndFillPath        __MSABI_LONG(16)
+#define INDEX_DrvPaint                    __MSABI_LONG(17)
+#define INDEX_DrvBitBlt                   __MSABI_LONG(18)
+#define INDEX_DrvCopyBits                 __MSABI_LONG(19)
+#define INDEX_DrvStretchBlt               __MSABI_LONG(20)
+#define INDEX_DrvUnknown2                 __MSABI_LONG(21)
+#define INDEX_DrvSetPalette               __MSABI_LONG(22)
+#define INDEX_DrvTextOut                  __MSABI_LONG(23)
+#define INDEX_DrvEscape                   __MSABI_LONG(24)
+#define INDEX_DrvDrawEscape               __MSABI_LONG(25)
+#define INDEX_DrvQueryFont                __MSABI_LONG(26)
+#define INDEX_DrvQueryFontTree            __MSABI_LONG(27)
+#define INDEX_DrvQueryFontData            __MSABI_LONG(28)
+#define INDEX_DrvSetPointerShape          __MSABI_LONG(29)
+#define INDEX_DrvMovePointer              __MSABI_LONG(30)
+#define INDEX_DrvLineTo                   __MSABI_LONG(31)
+#define INDEX_DrvSendPage                 __MSABI_LONG(32)
+#define INDEX_DrvStartPage                __MSABI_LONG(33)
+#define INDEX_DrvEndDoc                   __MSABI_LONG(34)
+#define INDEX_DrvStartDoc                 __MSABI_LONG(35)
+#define INDEX_DrvUnknown3                 __MSABI_LONG(36)
+#define INDEX_DrvGetGlyphMode             __MSABI_LONG(37)
+#define INDEX_DrvSynchronize              __MSABI_LONG(38)
+#define INDEX_DrvUnknown4                 __MSABI_LONG(39)
+#define INDEX_DrvSaveScreenBits           __MSABI_LONG(40)
+#define INDEX_DrvGetModes                 __MSABI_LONG(41)
+#define INDEX_DrvFree                     __MSABI_LONG(42)
+#define INDEX_DrvDestroyFont              __MSABI_LONG(43)
+#define INDEX_DrvQueryFontCaps            __MSABI_LONG(44)
+#define INDEX_DrvLoadFontFile             __MSABI_LONG(45)
+#define INDEX_DrvUnloadFontFile           __MSABI_LONG(46)
+#define INDEX_DrvFontManagement           __MSABI_LONG(47)
+#define INDEX_DrvQueryTrueTypeTable       __MSABI_LONG(48)
+#define INDEX_DrvQueryTrueTypeOutline     __MSABI_LONG(49)
+#define INDEX_DrvGetTrueTypeFile          __MSABI_LONG(50)
+#define INDEX_DrvQueryFontFile            __MSABI_LONG(51)
+#define INDEX_DrvMovePanning              __MSABI_LONG(52)
+#define INDEX_DrvQueryAdvanceWidths       __MSABI_LONG(53)
+#define INDEX_DrvSetPixelFormat           __MSABI_LONG(54)
+#define INDEX_DrvDescribePixelFormat      __MSABI_LONG(55)
+#define INDEX_DrvSwapBuffers              __MSABI_LONG(56)
+#define INDEX_DrvStartBanding             __MSABI_LONG(57)
+#define INDEX_DrvNextBand                 __MSABI_LONG(58)
+#define INDEX_DrvGetDirectDrawInfo        __MSABI_LONG(59)
+#define INDEX_DrvEnableDirectDraw         __MSABI_LONG(60)
+#define INDEX_DrvDisableDirectDraw        __MSABI_LONG(61)
+#define INDEX_DrvQuerySpoolType           __MSABI_LONG(62)
+#define INDEX_DrvUnknown5                 __MSABI_LONG(63)
+#define INDEX_DrvIcmCreateColorTransform  __MSABI_LONG(64)
+#define INDEX_DrvIcmDeleteColorTransform  __MSABI_LONG(65)
+#define INDEX_DrvIcmCheckBitmapBits       __MSABI_LONG(66)
+#define INDEX_DrvIcmSetDeviceGammaRamp    __MSABI_LONG(67)
+#define INDEX_DrvGradientFill             __MSABI_LONG(68)
+#define INDEX_DrvStretchBltROP            __MSABI_LONG(69)
+#define INDEX_DrvPlgBlt                   __MSABI_LONG(70)
+#define INDEX_DrvAlphaBlend               __MSABI_LONG(71)
+#define INDEX_DrvSynthesizeFont           __MSABI_LONG(72)
+#define INDEX_DrvGetSynthesizedFontFiles  __MSABI_LONG(73)
+#define INDEX_DrvTransparentBlt           __MSABI_LONG(74)
+#define INDEX_DrvQueryPerBandInfo         __MSABI_LONG(75)
+#define INDEX_DrvQueryDeviceSupport       __MSABI_LONG(76)
+#define INDEX_DrvReserved1                __MSABI_LONG(77)
+#define INDEX_DrvReserved2                __MSABI_LONG(78)
+#define INDEX_DrvReserved3                __MSABI_LONG(79)
+#define INDEX_DrvReserved4                __MSABI_LONG(80)
+#define INDEX_DrvReserved5                __MSABI_LONG(81)
+#define INDEX_DrvReserved6                __MSABI_LONG(82)
+#define INDEX_DrvReserved7                __MSABI_LONG(83)
+#define INDEX_DrvReserved8                __MSABI_LONG(84)
+#define INDEX_DrvDeriveSurface            __MSABI_LONG(85)
+#define INDEX_DrvQueryGlyphAttrs          __MSABI_LONG(86)
+#define INDEX_DrvNotify                   __MSABI_LONG(87)
+#define INDEX_DrvSynchronizeSurface       __MSABI_LONG(88)
+#define INDEX_DrvResetDevice              __MSABI_LONG(89)
+#define INDEX_DrvReserved9                __MSABI_LONG(90)
+#define INDEX_DrvReserved10               __MSABI_LONG(91)
+#define INDEX_DrvReserved11               __MSABI_LONG(92)
+#define INDEX_LAST                        __MSABI_LONG(93)
 
 typedef struct _DRVFN {
   ULONG  iFunc;
@@ -596,8 +596,8 @@ typedef struct _FONTSIM {
 } FONTSIM;
 
 /* FONTINFO.flCaps constants */
-#define FO_DEVICE_FONT                    1L
-#define FO_OUTLINE_CAPABLE                2L
+#define FO_DEVICE_FONT                    __MSABI_LONG(1)
+#define FO_OUTLINE_CAPABLE                __MSABI_LONG(2)
 
 typedef struct _FONTINFO {
   ULONG  cjThis;
@@ -983,14 +983,14 @@ typedef struct _IFIMETRICS {
 #define LA_STYLED                         0x00000008
 
 /* LINEATTRS.iJoin */
-#define JOIN_ROUND                        0L
-#define JOIN_BEVEL                        1L
-#define JOIN_MITER                        2L
+#define JOIN_ROUND                        __MSABI_LONG(0)
+#define JOIN_BEVEL                        __MSABI_LONG(1)
+#define JOIN_MITER                        __MSABI_LONG(2)
 
 /* LINEATTRS.iEndCap */
-#define ENDCAP_ROUND                      0L
-#define ENDCAP_SQUARE                     1L
-#define ENDCAP_BUTT                       2L
+#define ENDCAP_ROUND                      __MSABI_LONG(0)
+#define ENDCAP_SQUARE                     __MSABI_LONG(1)
+#define ENDCAP_BUTT                       __MSABI_LONG(2)
 
 typedef struct _LINEATTRS {
   FLONG  fl;
@@ -1041,9 +1041,9 @@ typedef struct _STROBJ {
 
 
 /* SURFOBJ.iType constants */
-#define STYPE_BITMAP                      0L
-#define STYPE_DEVICE                      1L
-#define STYPE_DEVBITMAP                   3L
+#define STYPE_BITMAP                      __MSABI_LONG(0)
+#define STYPE_DEVICE                      __MSABI_LONG(1)
+#define STYPE_DEVBITMAP                   __MSABI_LONG(3)
 
 /* SURFOBJ.fjBitmap constants */
 #define BMF_TOPDOWN                       0x0001
@@ -1165,7 +1165,7 @@ CLIPOBJ_bEnum(
   ULONG  *pv);
 
 /* CLIPOBJ_cEnumStart.iType constants */
-#define CT_RECTANGLES                     0L
+#define CT_RECTANGLES                     __MSABI_LONG(0)
 
 /* CLIPOBJ_cEnumStart.iDirection constants */
 #define CD_RIGHTDOWN                      0x00000000
@@ -2755,10 +2755,10 @@ WNDOBJ_vSetConsumer(
   PVOID  pvConsumer);
 
 /* XFORMOBJ_bApplyXform.iMode constants */
-#define XF_LTOL                           0L
-#define XF_INV_LTOL                       1L
-#define XF_LTOFX                          2L
-#define XF_INV_FXTOL                      3L
+#define XF_LTOL                           __MSABI_LONG(0)
+#define XF_INV_LTOL                       __MSABI_LONG(1)
+#define XF_LTOFX                          __MSABI_LONG(2)
+#define XF_INV_FXTOL                      __MSABI_LONG(3)
 
 WIN32KAPI
 WINBOOL
@@ -3013,9 +3013,9 @@ DrvFree(
   ULONG_PTR  id);
 
 /* DrvGetGlyphMode return values */
-#define FO_HGLYPHS                        0L
-#define FO_GLYPHBITS                      1L
-#define FO_PATHOBJ                        2L
+#define FO_HGLYPHS                        __MSABI_LONG(0)
+#define FO_GLYPHBITS                      __MSABI_LONG(1)
+#define FO_PATHOBJ                        __MSABI_LONG(2)
 
 ULONG
 APIENTRY
@@ -3228,14 +3228,14 @@ DrvQueryFontCaps(
   ULONG  *pulCaps);
 
 /* DrvQueryFontData.iMode constants */
-#define QFD_GLYPHANDBITMAP                1L
-#define QFD_GLYPHANDOUTLINE               2L
-#define QFD_MAXEXTENTS                    3L
-#define QFD_TT_GLYPHANDBITMAP             4L
-#define QFD_TT_GRAY1_BITMAP               5L
-#define QFD_TT_GRAY2_BITMAP               6L
-#define QFD_TT_GRAY4_BITMAP               8L
-#define QFD_TT_GRAY8_BITMAP               9L
+#define QFD_GLYPHANDBITMAP                __MSABI_LONG(1)
+#define QFD_GLYPHANDOUTLINE               __MSABI_LONG(2)
+#define QFD_MAXEXTENTS                    __MSABI_LONG(3)
+#define QFD_TT_GLYPHANDBITMAP             __MSABI_LONG(4)
+#define QFD_TT_GRAY1_BITMAP               __MSABI_LONG(5)
+#define QFD_TT_GRAY2_BITMAP               __MSABI_LONG(6)
+#define QFD_TT_GRAY4_BITMAP               __MSABI_LONG(8)
+#define QFD_TT_GRAY8_BITMAP               __MSABI_LONG(9)
 
 #define QFD_TT_MONO_BITMAP QFD_TT_GRAY1_BITMAP
 
@@ -3263,10 +3263,10 @@ DrvQueryFontFile(
   ULONG  *pulBuf);
 
 /* DrvQueryFontTree.iMode constants */
-#define QFT_UNICODE                       0L
-#define QFT_LIGATURES                     1L
-#define QFT_KERNPAIRS                     2L
-#define QFT_GLYPHSET                      3L
+#define QFT_UNICODE                       __MSABI_LONG(0)
+#define QFT_LIGATURES                     __MSABI_LONG(1)
+#define QFT_KERNPAIRS                     __MSABI_LONG(2)
+#define QFT_GLYPHSET                      __MSABI_LONG(3)
 
 PVOID
 APIENTRY
@@ -3318,7 +3318,7 @@ DrvQueryTrueTypeTable(
   ULONG *pcjTable);
 
 /* DrvRealizeBrush.iHatch constants */
-#define RB_DITHERCOLOR                    0x80000000L
+#define RB_DITHERCOLOR                    __MSABI_LONG(0x80000000)
 
 #define HS_DDI_MAX                        6
 
@@ -3390,13 +3390,13 @@ DrvSetPixelFormat(
 #define SPS_ACCEPT_SYNCHRONOUS            0x00000004
 
 /* DrvSetPointerShape.fl constants */
-#define SPS_CHANGE                        0x00000001L
-#define SPS_ASYNCCHANGE                   0x00000002L
-#define SPS_ANIMATESTART                  0x00000004L
-#define SPS_ANIMATEUPDATE                 0x00000008L
-#define SPS_ALPHA                         0x00000010L
-#define SPS_LENGTHMASK                    0x00000F00L
-#define SPS_FREQMASK                      0x000FF000L
+#define SPS_CHANGE                        __MSABI_LONG(0x00000001)
+#define SPS_ASYNCCHANGE                   __MSABI_LONG(0x00000002)
+#define SPS_ANIMATESTART                  __MSABI_LONG(0x00000004)
+#define SPS_ANIMATEUPDATE                 __MSABI_LONG(0x00000008)
+#define SPS_ALPHA                         __MSABI_LONG(0x00000010)
+#define SPS_LENGTHMASK                    __MSABI_LONG(0x00000F00)
+#define SPS_FREQMASK                      __MSABI_LONG(0x000FF000)
 
 ULONG
 APIENTRY

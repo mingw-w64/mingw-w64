@@ -443,25 +443,25 @@ extern "C" {
 #define ECBF_MASK                         0x00ff
 #endif
 
-#define OPTIF_COLLAPSE                 0x00000001L
-#define OPTIF_HIDE                     0x00000002L
-#define OPTIF_CALLBACK                 0x00000004L
-#define OPTIF_CHANGED                  0x00000008L
-#define OPTIF_CHANGEONCE               0x00000010L
-#define OPTIF_DISABLED                 0x00000020L
-#define OPTIF_ECB_CHECKED              0x00000040L
-#define OPTIF_EXT_HIDE                 0x00000080L
-#define OPTIF_EXT_DISABLED             0x00000100L
-#define OPTIF_SEL_AS_HICON             0x00000200L
-#define OPTIF_EXT_IS_EXTPUSH           0x00000400L
-#define OPTIF_NO_GROUPBOX_NAME         0x00000800L
-#define OPTIF_OVERLAY_WARNING_ICON     0x00001000L
-#define OPTIF_OVERLAY_STOP_ICON        0x00002000L
-#define OPTIF_OVERLAY_NO_ICON          0x00004000L
-#define OPTIF_INITIAL_TVITEM           0x00008000L
-#define OPTIF_HAS_POIEXT               0x00010000L
+#define OPTIF_COLLAPSE                 __MSABI_LONG(0x00000001)
+#define OPTIF_HIDE                     __MSABI_LONG(0x00000002)
+#define OPTIF_CALLBACK                 __MSABI_LONG(0x00000004)
+#define OPTIF_CHANGED                  __MSABI_LONG(0x00000008)
+#define OPTIF_CHANGEONCE               __MSABI_LONG(0x00000010)
+#define OPTIF_DISABLED                 __MSABI_LONG(0x00000020)
+#define OPTIF_ECB_CHECKED              __MSABI_LONG(0x00000040)
+#define OPTIF_EXT_HIDE                 __MSABI_LONG(0x00000080)
+#define OPTIF_EXT_DISABLED             __MSABI_LONG(0x00000100)
+#define OPTIF_SEL_AS_HICON             __MSABI_LONG(0x00000200)
+#define OPTIF_EXT_IS_EXTPUSH           __MSABI_LONG(0x00000400)
+#define OPTIF_NO_GROUPBOX_NAME         __MSABI_LONG(0x00000800)
+#define OPTIF_OVERLAY_WARNING_ICON     __MSABI_LONG(0x00001000)
+#define OPTIF_OVERLAY_STOP_ICON        __MSABI_LONG(0x00002000)
+#define OPTIF_OVERLAY_NO_ICON          __MSABI_LONG(0x00004000)
+#define OPTIF_INITIAL_TVITEM           __MSABI_LONG(0x00008000)
+#define OPTIF_HAS_POIEXT               __MSABI_LONG(0x00010000)
 
-#define OPTIF_MASK                     0x0001ffffL
+#define OPTIF_MASK                     __MSABI_LONG(0x0001ffff)
 
 
 #define DMPUB_NONE                     0

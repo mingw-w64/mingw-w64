@@ -65,87 +65,87 @@ extern "C" {
 
 #define SQL_COPT_SS_EX_MAX_USED SQL_COPT_SS_RESET_CONNECTION
 
-#define SQL_UP_OFF 0L
-#define SQL_UP_ON 1L
-#define SQL_UP_ON_DROP 2L
+#define SQL_UP_OFF __MSABI_LONG(0)
+#define SQL_UP_ON __MSABI_LONG(1)
+#define SQL_UP_ON_DROP __MSABI_LONG(2)
 #define SQL_UP_DEFAULT SQL_UP_ON
 
-#define SQL_IS_OFF 0L
-#define SQL_IS_ON 1L
+#define SQL_IS_OFF __MSABI_LONG(0)
+#define SQL_IS_ON __MSABI_LONG(1)
 #define SQL_IS_DEFAULT SQL_IS_OFF
 
-#define SQL_PC_OFF 0L
-#define SQL_PC_ON 1L
+#define SQL_PC_OFF __MSABI_LONG(0)
+#define SQL_PC_ON __MSABI_LONG(1)
 #define SQL_PC_DEFAULT SQL_PC_OFF
 
 #define SQL_UD_NOTSET NULL
 
-#define SQL_XL_OFF 0L
-#define SQL_XL_ON 1L
+#define SQL_XL_OFF __MSABI_LONG(0)
+#define SQL_XL_ON __MSABI_LONG(1)
 #define SQL_XL_DEFAULT SQL_XL_ON
 
-#define SQL_FB_OFF 0L
-#define SQL_FB_ON 1L
+#define SQL_FB_OFF __MSABI_LONG(0)
+#define SQL_FB_ON __MSABI_LONG(1)
 #define SQL_FB_DEFAULT SQL_FB_OFF
 
-#define SQL_BCP_OFF 0L
-#define SQL_BCP_ON 1L
+#define SQL_BCP_OFF __MSABI_LONG(0)
+#define SQL_BCP_ON __MSABI_LONG(1)
 #define SQL_BCP_DEFAULT SQL_BCP_OFF
 
-#define SQL_QI_OFF 0L
-#define SQL_QI_ON 1L
+#define SQL_QI_OFF __MSABI_LONG(0)
+#define SQL_QI_ON __MSABI_LONG(1)
 #define SQL_QI_DEFAULT SQL_QI_ON
 
-#define SQL_AD_OFF 0L
-#define SQL_AD_ON 1L
+#define SQL_AD_OFF __MSABI_LONG(0)
+#define SQL_AD_ON __MSABI_LONG(1)
 #define SQL_AD_DEFAULT SQL_AD_ON
 
-#define SQL_CN_OFF 0L
-#define SQL_CN_ON 1L
+#define SQL_CN_OFF __MSABI_LONG(0)
+#define SQL_CN_ON __MSABI_LONG(1)
 #define SQL_CN_DEFAULT SQL_CN_ON
 
-#define SQL_TL_OFF 0L
-#define SQL_TL_ON 1L
+#define SQL_TL_OFF __MSABI_LONG(0)
+#define SQL_TL_ON __MSABI_LONG(1)
 #define SQL_TL_DEFAULT SQL_TL_ON
 
-#define SQL_HC_OFF 0L
-#define SQL_HC_ON 1L
+#define SQL_HC_OFF __MSABI_LONG(0)
+#define SQL_HC_ON __MSABI_LONG(1)
 #define SQL_HC_DEFAULT SQL_HC_OFF
 
-#define SQL_NB_OFF 0L
-#define SQL_NB_ON 1L
+#define SQL_NB_OFF __MSABI_LONG(0)
+#define SQL_NB_ON __MSABI_LONG(1)
 #define SQL_NB_DEFAULT SQL_NB_OFF
 
-#define SQL_RE_OFF 0L
-#define SQL_RE_ON 1L
+#define SQL_RE_OFF __MSABI_LONG(0)
+#define SQL_RE_ON __MSABI_LONG(1)
 #define SQL_RE_DEFAULT SQL_RE_OFF
 
-#define SQL_CO_OFF 0L
-#define SQL_CO_FFO 1L
-#define SQL_CO_AF 2L
+#define SQL_CO_OFF __MSABI_LONG(0)
+#define SQL_CO_FFO __MSABI_LONG(1)
+#define SQL_CO_AF __MSABI_LONG(2)
 #define SQL_CO_FFO_AF (SQL_CO_FFO|SQL_CO_AF)
-#define SQL_CO_FIREHOSE_AF 4L
+#define SQL_CO_FIREHOSE_AF __MSABI_LONG(4)
 #define SQL_CO_DEFAULT SQL_CO_OFF
 
-#define SQL_NC_OFF 0L
-#define SQL_NC_ON 1L
+#define SQL_NC_OFF __MSABI_LONG(0)
+#define SQL_NC_ON __MSABI_LONG(1)
 
-#define SQL_DP_OFF 0L
-#define SQL_DP_ON 1L
+#define SQL_DP_OFF __MSABI_LONG(0)
+#define SQL_DP_ON __MSABI_LONG(1)
 
-#define SQL_EN_OFF 0L
-#define SQL_EN_ON 1L
+#define SQL_EN_OFF __MSABI_LONG(0)
+#define SQL_EN_ON __MSABI_LONG(1)
 
-#define SQL_MORE_INFO_NO 0L
-#define SQL_MORE_INFO_YES 1L
+#define SQL_MORE_INFO_NO __MSABI_LONG(0)
+#define SQL_MORE_INFO_YES __MSABI_LONG(1)
 
-#define SQL_CACHE_DATA_NO 0L
-#define SQL_CACHE_DATA_YES 1L
+#define SQL_CACHE_DATA_NO __MSABI_LONG(0)
+#define SQL_CACHE_DATA_YES __MSABI_LONG(1)
 
-#define SQL_RESET_YES 1L
+#define SQL_RESET_YES __MSABI_LONG(1)
 
-#define SQL_WARN_NO 0L
-#define SQL_WARN_YES 1L
+#define SQL_WARN_NO __MSABI_LONG(0)
+#define SQL_WARN_YES __MSABI_LONG(1)
 
 #define SQL_CURSOR_FAST_FORWARD_ONLY 8
 
@@ -543,12 +543,12 @@ extern "C" {
 
 #define SQL_FAST_CONNECT (SQL_COPT_SS_BASE+0)
 
-#define SQL_FC_OFF 0L
-#define SQL_FC_ON 1L
+#define SQL_FC_OFF __MSABI_LONG(0)
+#define SQL_FC_ON __MSABI_LONG(1)
 #define SQL_FC_DEFAULT SQL_FC_OFF
 #define SQL_COPT_SS_ANSI_OEM (SQL_COPT_SS_BASE+6)
-#define SQL_AO_OFF 0L
-#define SQL_AO_ON 1L
+#define SQL_AO_OFF __MSABI_LONG(0)
+#define SQL_AO_ON __MSABI_LONG(1)
 #define SQL_AO_DEFAULT SQL_AO_OFF
 
 #define SQL_REMOTE_PWD SQL_COPT_SS_REMOTE_PWD

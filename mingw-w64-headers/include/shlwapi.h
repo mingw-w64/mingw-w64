@@ -203,8 +203,8 @@ extern "C" {
 #define PathIsHTMLFileA(pszPath) PathIsContentTypeA(pszPath,SZ_CONTENTTYPE_HTMLA)
 #define PathIsHTMLFileW(pszPath) PathIsContentTypeW(pszPath,SZ_CONTENTTYPE_HTMLW)
 
-#define STIF_DEFAULT 0x00000000L
-#define STIF_SUPPORT_HEX 0x00000001L
+#define STIF_DEFAULT __MSABI_LONG(0x00000000)
+#define STIF_SUPPORT_HEX __MSABI_LONG(0x00000001)
 
 #define StrCatA lstrcatA
 #define StrCmpA lstrcmpA

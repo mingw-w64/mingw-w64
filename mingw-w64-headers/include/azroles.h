@@ -2589,7 +2589,7 @@ extern "C"{
 #endif
 
 #ifndef OLESCRIPT_E_SYNTAX
-#define OLESCRIPT_E_SYNTAX _HRESULT_TYPEDEF_(0x80020101L)
+#define OLESCRIPT_E_SYNTAX _HRESULT_TYPEDEF_(__MSABI_LONG(0x80020101))
 #endif
 
   extern RPC_IF_HANDLE __MIDL_itf_azroles_0279_v0_0_c_ifspec;

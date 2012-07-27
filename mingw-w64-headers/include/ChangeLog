@@ -1,5 +1,10 @@
 2012-07-27  Corinna Vinschen  <vinschen@redhat.com>
 
+	* Throughout, use __MSABI_LONG macro rather than 'L' qualifier
+	for numerical constants.
+
+2012-07-27  Corinna Vinschen  <vinschen@redhat.com>
+
 	* cdoex.h: Throughout, drop 'L' qualifier from numerical constants
 	defining const value.
 	* cdosys.h: Ditto.

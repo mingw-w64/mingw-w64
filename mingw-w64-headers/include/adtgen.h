@@ -23,13 +23,13 @@ typedef enum _AUDIT_PARAM_TYPE {
 } AUDIT_PARAM_TYPE;
 
 #define AP_ParamTypeBits 8
-#define AP_ParamTypeMask 0x000000ffL
+#define AP_ParamTypeMask __MSABI_LONG(0x000000ff)
 
-#define AP_FormatHex (0x0001L << AP_ParamTypeBits)
-#define AP_AccessMask (0x0002L << AP_ParamTypeBits)
-#define AP_Filespec (0x0001L << AP_ParamTypeBits)
-#define AP_PrimaryLogonId (0x0001L << AP_ParamTypeBits)
-#define AP_ClientLogonId (0x0002L << AP_ParamTypeBits)
+#define AP_FormatHex (__MSABI_LONG(0x0001) << AP_ParamTypeBits)
+#define AP_AccessMask (__MSABI_LONG(0x0002) << AP_ParamTypeBits)
+#define AP_Filespec (__MSABI_LONG(0x0001) << AP_ParamTypeBits)
+#define AP_PrimaryLogonId (__MSABI_LONG(0x0001) << AP_ParamTypeBits)
+#define AP_ClientLogonId (__MSABI_LONG(0x0002) << AP_ParamTypeBits)
 
 #define ApExtractType(TypeFlags) ((AUDIT_PARAM_TYPE)(TypeFlags & AP_ParamTypeMask))
 #define ApExtractFlags(TypeFlags) ((TypeFlags & ~AP_ParamTypeMask))

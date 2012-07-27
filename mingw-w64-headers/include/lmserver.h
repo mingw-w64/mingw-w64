@@ -753,7 +753,7 @@ extern "C" {
 #define SV_TYPE_DOMAIN_ENUM 0x80000000
 #define SV_TYPE_ALL 0xFFFFFFFF
 
-#define SV_NODISC (-1L)
+#define SV_NODISC (__MSABI_LONG(-1))
 
 #define SV_USERSECURITY 1
 #define SV_SHARESECURITY 0

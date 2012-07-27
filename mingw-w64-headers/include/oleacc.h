@@ -132,7 +132,7 @@ extern "C"{
   STDAPI CreateStdAccessibleProxyA(HWND hwnd,LPCSTR pClassName,LONG idObject,REFIID riid,void **ppvObject);
   STDAPI CreateStdAccessibleProxyW(HWND hwnd,LPCWSTR pClassName,LONG idObject,REFIID riid,void **ppvObject);
 
-#define MSAA_MENU_SIG 0xAA0DF00DL
+#define MSAA_MENU_SIG __MSABI_LONG(0xAA0DF00D)
 
   typedef struct tagMSAAMENUINFO {
     DWORD dwMSAASignature;

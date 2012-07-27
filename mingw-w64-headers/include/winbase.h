@@ -620,7 +620,7 @@ extern "C" {
 #define DRIVE_CDROM 5
 #define DRIVE_RAMDISK 6
 
-#define GetFreeSpace(w) (0x100000L)
+#define GetFreeSpace(w) (__MSABI_LONG(0x100000))
 #define FILE_TYPE_UNKNOWN 0x0
 #define FILE_TYPE_DISK 0x1
 #define FILE_TYPE_CHAR 0x2

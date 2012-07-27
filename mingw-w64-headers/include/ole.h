@@ -28,9 +28,9 @@ extern "C" {
 #define LRESULT LONG_PTR
 #define HGLOBAL HANDLE
 
-#define OT_LINK 1L
-#define OT_EMBEDDED 2L
-#define OT_STATIC 3L
+#define OT_LINK __MSABI_LONG(1)
+#define OT_EMBEDDED __MSABI_LONG(2)
+#define OT_STATIC __MSABI_LONG(3)
 
 #define OLEVERB_PRIMARY 0
 
