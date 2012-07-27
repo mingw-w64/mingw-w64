@@ -1,3 +1,8 @@
+2012-07-27  Corinna Vinschen  <vinschen@redhat.com>
+
+	* configure.ac (BASEHEAD_LIST): Add crt/intrin.h
+	* configure: Regenerate.
+
 2012-07-17  Corinna Vinschen  <vinschen@redhat.com>
 
 	* ddk/include/ddrawint.h (MAKE_HRESULT): Define in terms of ULONG
