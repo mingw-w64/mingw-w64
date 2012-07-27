@@ -449,9 +449,9 @@ extern "C" {
 
 #define NULL_USERSETINFO_PASSWD "              "
 
-#define TIMEQ_FOREVER ((unsigned long) -1L)
-#define USER_MAXSTORAGE_UNLIMITED ((unsigned long) -1L)
-#define USER_NO_LOGOFF ((unsigned long) -1L)
+#define TIMEQ_FOREVER ((unsigned long) -1)
+#define USER_MAXSTORAGE_UNLIMITED ((unsigned long) -1)
+#define USER_NO_LOGOFF ((unsigned long) -1)
 #define UNITS_PER_DAY 24
 #define UNITS_PER_WEEK UNITS_PER_DAY *7
 

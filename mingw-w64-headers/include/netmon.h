@@ -601,7 +601,7 @@ extern "C"{
 #define NETWORKSTATUS_FLAGS_TRIGGER_PENDING (0x1)
 
 #define MAKE_WORD(l,h) (((WORD) (l)) | (((WORD) (h)) << 8))
-#define MAKE_LONG(l,h) (((DWORD) (l)) | (((DWORD) (h)) << 16L))
+#define MAKE_LONG(l,h) (((DWORD) (l)) | (((DWORD) (h)) << 16))
 #define MAKE_SIG(a,b,c,d) MAKE_LONG(MAKE_WORD(a,b),MAKE_WORD(c,d))
 
 #define MAX_SESSIONS (100)

@@ -114,8 +114,8 @@ extern "C" {
   } STAT_SERVER_0,*PSTAT_SERVER_0,*LPSTAT_SERVER_0;
 
 #define STATSOPT_CLR 1
-#define STATS_NO_VALUE ((unsigned long) -1L)
-#define STATS_OVERFLOW ((unsigned long) -2L)
+#define STATS_NO_VALUE ((unsigned long) -1)
+#define STATS_OVERFLOW ((unsigned long) -2)
 
 #ifdef __cplusplus
 }

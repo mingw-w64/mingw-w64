@@ -368,7 +368,7 @@ typedef struct IPrint IPrint;
     ULONG cPageRange;
     PAGERANGE rgPages[1 ];
   } PAGESET;
-#define PAGESET_TOLASTPAGE ((WORD)(-1L))
+#define PAGESET_TOLASTPAGE ((WORD)(-1))
 
   EXTERN_C const IID IID_IPrint;
 #if defined(__cplusplus) && !defined(CINTERFACE)

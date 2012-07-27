@@ -11,7 +11,7 @@ extern "C" {
 #endif
 
 #ifndef S_ASYNCHRONOUS
-#define S_ASYNCHRONOUS _HRESULT_TYPEDEF_(0x401e8L)
+#define S_ASYNCHRONOUS _HRESULT_TYPEDEF_(0x401e8)
 #endif
 
 #define achRUNSETUPCOMMANDFUNCTION "RunSetupCommand"

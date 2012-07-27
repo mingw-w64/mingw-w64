@@ -1288,7 +1288,7 @@ extern "C" {
 
 #ifndef NOPENHRC
 
-#define dwDiffAT(at1,at2) (1000L*((at2).sec - (at1).sec) - (DWORD)(at1).ms + (DWORD)(at2).ms)
+#define dwDiffAT(at1,at2) (1000*((at2).sec - (at1).sec) - (DWORD)(at1).ms + (DWORD)(at2).ms)
 #define FLTAbsTime(at1,at2) ((at1).sec < (at2).sec || ((at1).sec==(at2).sec && (at1).ms < (at2).ms))
 #define FLTEAbsTime(at1,at2) ((at1).sec < (at2).sec || ((at1).sec==(at2).sec && (at1).ms <= (at2).ms))
 #define FEQAbsTime(at1,at2) ((at1).sec==(at2).sec && (at1).ms==(at2).ms)

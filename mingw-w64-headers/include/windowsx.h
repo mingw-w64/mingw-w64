@@ -101,7 +101,7 @@ extern "C" {
 #define HANDLE_WM_SYSTEMERROR(hwnd,wParam,lParam,fn) (LRESULT)0
 #define FORWARD_WM_SYSTEMERROR(hwnd,errCode,fn) (LRESULT)0
 
-#define HANDLE_WM_CREATE(hwnd,wParam,lParam,fn) ((fn)((hwnd),(LPCREATESTRUCT)(lParam)) ? (LRESULT)0 : (LRESULT)-1L)
+#define HANDLE_WM_CREATE(hwnd,wParam,lParam,fn) (LRESULT)((fn)((hwnd),(LPCREATESTRUCT)(lParam)) ? 0 : -1)
 #define FORWARD_WM_CREATE(hwnd,lpCreateStruct,fn) (WINBOOL)(DWORD)(fn)((hwnd),WM_CREATE,(WPARAM)0,(LPARAM)(LPCREATESTRUCT)(lpCreateStruct))
 
 #define HANDLE_WM_NCCREATE(hwnd,wParam,lParam,fn) (LRESULT)(DWORD)(WINBOOL)(fn)((hwnd),(LPCREATESTRUCT)(lParam))

@@ -1,3 +1,37 @@
+2012-07-27  Corinna Vinschen  <vinschen@redhat.com>
+
+	* cdoex.h: Throughout, drop 'L' qualifier from numerical constants
+	defining const value.
+	* cdosys.h: Ditto.
+	* lmaccess.h: Drop 'L' qualifier from numerical constants casted to
+	unsigned long.
+	* lmstats.h: Ditto.
+	* richole.h: Drop 'L' qualifier from numerical constants casted to
+	ULONG.
+	* dbgeng.h: Drop 'L' qualifier from numerical constants casted to
+	HRESULT (via HRESULT_FROM_NT).
+	* adserr.h: Throughout, drop 'L' qualifier from numerical
+	constants casted to HRESULT (via _HRESULT_TYPEDEF_).
+	* advpub.h: Ditto.
+	* naperror.h: Ditto.
+	* pstore.h: Ditto.
+	* subsmgr.h: Ditto.
+	* urlmon.h: Ditto.
+	* winerror.h: Ditto.
+	Define all WSA error codes based on WSABASEERR.
+	* netmon.h (MAKE_LONG): Drop unnecessary 'L' qualifier from shift
+	value.
+	* pdh.h (IsSuccessSeverity): Drop 'L' qualifier from mask value.
+	Cast result value to DWORD.
+	(IsInformationalSeverity): Ditto.
+	(IsWarningSeverity): Ditto.
+	(IsErrorSeverity): Ditto.
+	* penwin.h (dwDiffAT): Drop unnecessary 'L' qualifier from multiplier.
+	* windowsx.h (HANDLE_WM_CREATE): Drop 'L' qualifer from
+	constant casted to LRESULT and only cast the endresult once.
+	* wingdi.h (HGDI_ERROR): Drop 'L' qualifer.
+	* docobj.h (PAGESET_TOLASTPAGE): Ditto.
+
 2012-07-25  Corinna Vinschen  <vinschen@redhat.com>
 
 	* wmiatlprov.h (CInstanceProviderHelper::CheckInstancePath):

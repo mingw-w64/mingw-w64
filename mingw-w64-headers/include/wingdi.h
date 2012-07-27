@@ -69,7 +69,7 @@ extern "C" {
 #endif
 
 #define GDI_ERROR (0xFFFFFFFFL)
-#define HGDI_ERROR (LongToHandle(0xFFFFFFFFL))
+#define HGDI_ERROR (LongToHandle(0xFFFFFFFF))
 
 #define ERROR 0
 #define NULLREGION 1

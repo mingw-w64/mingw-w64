@@ -23,10 +23,10 @@ extern "C" {
 
 #define PDH_VERSION ((DWORD)((PDH_CVERSION_WIN50) + 0x0003))
 
-#define IsSuccessSeverity(ErrorCode) ((((DWORD)(ErrorCode) & (0xC0000000L))==0x00000000L) ? TRUE : FALSE)
-#define IsInformationalSeverity(ErrorCode) ((((DWORD)(ErrorCode) & (0xC0000000L))==0x40000000L) ? TRUE : FALSE)
-#define IsWarningSeverity(ErrorCode) ((((DWORD)(ErrorCode) & (0xC0000000L))==0x80000000L) ? TRUE : FALSE)
-#define IsErrorSeverity(ErrorCode) ((((DWORD)(ErrorCode) & (0xC0000000L))==0xC0000000L) ? TRUE : FALSE)
+#define IsSuccessSeverity(ErrorCode) ((!((DWORD)(ErrorCode) & 0xC0000000)) ? TRUE : FALSE)
+#define IsInformationalSeverity(ErrorCode) ((((DWORD)(ErrorCode) & 0xC0000000)==(DWORD)0x40000000) ? TRUE : FALSE)
+#define IsWarningSeverity(ErrorCode) ((((DWORD)(ErrorCode) & 0xC0000000)==(DWORD)0x80000000) ? TRUE : FALSE)
+#define IsErrorSeverity(ErrorCode) ((((DWORD)(ErrorCode) & 0xC0000000)==(DWORD)0xC0000000) ? TRUE : FALSE)
 
 #define MAX_COUNTER_PATH 256
 
