@@ -6,6 +6,7 @@
 #ifndef VER_H
 #define VER_H
 
+#include <_mingw.h>
 #include <_mingw_unicode.h>
 
 #ifdef __cplusplus
