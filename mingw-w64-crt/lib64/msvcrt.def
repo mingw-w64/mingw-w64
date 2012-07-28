@@ -770,6 +770,7 @@ _strupr_s
 _strupr_s_l
 _strxfrm_l
 _swab
+_swprintf == swprintf
 _swprintf_c
 _swprintf_c_l
 _swprintf_p_l

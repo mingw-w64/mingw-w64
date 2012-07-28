@@ -1049,6 +1049,7 @@ _strupr_l
 _strupr_s
 _strupr_s_l
 _strxfrm_l
+_swprintf == swprintf
 _swprintf_c_l
 _swprintf_p_l
 _swprintf_s_l
