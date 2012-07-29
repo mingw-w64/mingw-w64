@@ -53,6 +53,14 @@ _assert (const char *_Message, const char *_File, unsigned _Line);
 
 #endif /* !defined (__ASSERT_H_) */
 
+#if (defined _ISOC11_SOURCE \
+     || (defined __STDC_VERSION__ && __STDC_VERSION__ >= 201112L)) \
+    && !defined (__cplusplus)
+/* Static assertion.  Requires support in the compiler.  */
+#undef static_assert
+#define static_assert _Static_assert
+#endif
+
 #ifdef NDEBUG
 #define assert(_Expression) ((void)0)
 #else /* !defined (NDEBUG) */
