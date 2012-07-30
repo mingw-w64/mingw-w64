@@ -95,8 +95,8 @@ DWORD PXEAPI PxeProviderInitialize(HANDLE hProvider,HKEY hProviderKey);
 DWORD PXEAPI PxeProviderQueryIndex(LPCWSTR pszProviderName,PULONG puIndex);
 DWORD PXEAPI PxeProviderRecvRequest(HANDLE hClientRequest,PVOID pPacket,ULONG uPacketLen,PXE_ADDRESS *pLocalAddress,PXE_ADDRESS *pRemoteAddress,PXE_BOOT_ACTION pAction,PVOID pContext);
 
-#define PXE_REG_INDEX_TOP	0UL
-#define PXE_REG_INDEX_BOTTOM	0xFFFFFFFFUL
+#define PXE_REG_INDEX_TOP	__MSABI_LONG(0U)
+#define PXE_REG_INDEX_BOTTOM	__MSABI_LONG(0xFFFFFFFFU)
 
 DWORD PXEAPI PxeProviderRegister(LPCWSTR pszProviderName,LPCWSTR pszModulePath,PXE_REG_INDEX Index,WINBOOL bIsCritical,PHKEY phProviderKey);
 DWORD PXEAPI PxeProviderServiceControl(PVOID pContext,DWORD dwControl);

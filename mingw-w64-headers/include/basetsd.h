@@ -94,7 +94,7 @@ extern "C" {
 
 #else
 
-#define ADDRESS_TAG_BIT 0x80000000UL
+#define ADDRESS_TAG_BIT __MSABI_LONG(0x80000000U)
 
   typedef unsigned short UHALF_PTR,*PUHALF_PTR;
   typedef short HALF_PTR,*PHALF_PTR;

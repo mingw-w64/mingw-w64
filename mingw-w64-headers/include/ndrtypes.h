@@ -22,16 +22,16 @@ extern "C" {
 
 #define SIZEOF_INT3264() ((pCommand->Is64BitEnv()) ? 8 : 4)
 
-#define NDR_MAJOR_VERSION 5UL
-#define NDR_MINOR_VERSION 4UL
+#define NDR_MAJOR_VERSION __MSABI_LONG(5U)
+#define NDR_MINOR_VERSION __MSABI_LONG(4U)
 #define NDR_VERSION ((NDR_MAJOR_VERSION << 16) | NDR_MINOR_VERSION)
 
-#define NDR_VERSION_1_1 ((1UL << 16) | 1)
-#define NDR_VERSION_2_0 ((2UL << 16) | 0)
-#define NDR_VERSION_5_0 ((5UL << 16) | 0)
-#define NDR_VERSION_5_2 ((5UL << 16) | 2)
-#define NDR_VERSION_5_3 ((5UL << 16) | 3)
-#define NDR_VERSION_5_4 ((5UL << 16) | 4)
+#define NDR_VERSION_1_1 ((__MSABI_LONG(1U) << 16) | 1)
+#define NDR_VERSION_2_0 ((__MSABI_LONG(2U) << 16) | 0)
+#define NDR_VERSION_5_0 ((__MSABI_LONG(5U) << 16) | 0)
+#define NDR_VERSION_5_2 ((__MSABI_LONG(5U) << 16) | 2)
+#define NDR_VERSION_5_3 ((__MSABI_LONG(5U) << 16) | 3)
+#define NDR_VERSION_5_4 ((__MSABI_LONG(5U) << 16) | 4)
 
 #define LOAD_TLB_AS_64BIT 0
 #define LOAD_TLB_AS_32BIT 0

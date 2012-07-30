@@ -1,5 +1,10 @@
 2012-07-30  Corinna Vinschen  <vinschen@redhat.com>
 
+	* Throughout, use __MSABI_LONG macro rather than 'L' qualifier
+	for unsigned numerical constants as well.
+
+2012-07-30  Corinna Vinschen  <vinschen@redhat.com>
+
 	* winnt.h: In case of Cygwin, include gcc-provided intrinsic
 	files directly, instead of including intrin.h.
 

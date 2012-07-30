@@ -36,7 +36,7 @@ extern "C" {
 
 #define ckidAVINEWINDEX mmioFOURCC('i','d','x','1')
 
-#define streamtypeANY 0UL
+#define streamtypeANY __MSABI_LONG(0U)
 #define streamtypeVIDEO mmioFOURCC('v','i','d','s')
 #define streamtypeAUDIO mmioFOURCC('a','u','d','s')
 #define streamtypeMIDI mmioFOURCC('m','i','d','s')
