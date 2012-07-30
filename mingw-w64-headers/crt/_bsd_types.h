@@ -16,7 +16,7 @@ typedef unsigned int	u_int;
 #pragma push_macro("u_long")
 #undef u_long
 typedef unsigned long u_long;
-#pragma pop_macor("u_long")
+#pragma pop_macro("u_long")
 
 #if defined(__GNUC__) || \
     defined(__GNUG__)
