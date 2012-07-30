@@ -864,7 +864,7 @@ typedef unsigned int GROUP;
   typedef u_short (WSAAPI *LPFN_NTOHS)(u_short netshort);
   typedef int (WSAAPI *LPFN_RECV)(SOCKET s,char *buf,int len,int flags);
   typedef int (WSAAPI *LPFN_RECVFROM)(SOCKET s,char *buf,int len,int flags,struct sockaddr *from,int *fromlen);
-  typedef int (WSAAPI *LPFN_SELECT)(int nfds,fd_set *readfds,fd_set *writefds,fd_set *exceptfds,const struct timeval *timeout);
+  typedef int (WSAAPI *LPFN_SELECT)(int nfds,fd_set *readfds,fd_set *writefds,fd_set *exceptfds,const PTIMEVAL timeout);
   typedef int (WSAAPI *LPFN_SEND)(SOCKET s,const char *buf,int len,int flags);
   typedef int (WSAAPI *LPFN_SENDTO)(SOCKET s,const char *buf,int len,int flags,const struct sockaddr *to,int tolen);
   typedef int (WSAAPI *LPFN_SETSOCKOPT)(SOCKET s,int level,int optname,const char *optval,int optlen);
@@ -983,7 +983,7 @@ typedef unsigned int GROUP;
   WINSOCK_API_LINKAGE int WSAAPI recv(SOCKET s,char *buf,int len,int flags);
   WINSOCK_API_LINKAGE int WSAAPI recvfrom(SOCKET s,char *buf,int len,int flags,struct sockaddr *from,int *fromlen);
 #ifndef __INSIDE_CYGWIN__
-  WINSOCK_API_LINKAGE int WSAAPI select(int nfds,fd_set *readfds,fd_set *writefds,fd_set *exceptfds,const struct timeval *timeout);
+  WINSOCK_API_LINKAGE int WSAAPI select(int nfds,fd_set *readfds,fd_set *writefds,fd_set *exceptfds,const PTIMEVAL timeout);
 #endif /* !__INSIDE_CYGWIN__ */
   WINSOCK_API_LINKAGE int WSAAPI send(SOCKET s,const char *buf,int len,int flags);
   WINSOCK_API_LINKAGE int WSAAPI sendto(SOCKET s,const char *buf,int len,int flags,const struct sockaddr *to,int tolen);
@@ -1156,7 +1156,7 @@ WINSOCK_API_LINKAGE WINBOOL PASCAL WSAConnectByList(
   LPSOCKADDR LocalAddress,
   LPDWORD RemoteAddressLength,
   LPSOCKADDR RemoteAddress,
-  const struct timeval *timeout,
+  const PTIMEVAL timeout,
   LPWSAOVERLAPPED Reserved
 );
 
@@ -1168,7 +1168,7 @@ WINSOCK_API_LINKAGE WINBOOL PASCAL WSAConnectByNameA(
   LPSOCKADDR LocalAddress,
   LPDWORD RemoteAddressLength,
   LPSOCKADDR RemoteAddress,
-  const struct timeval *timeout,
+  const PTIMEVAL timeout,
   LPWSAOVERLAPPED Reserved
 );
 
@@ -1180,7 +1180,7 @@ WINSOCK_API_LINKAGE WINBOOL PASCAL WSAConnectByNameW(
   LPSOCKADDR LocalAddress,
   LPDWORD RemoteAddressLength,
   LPSOCKADDR RemoteAddress,
-  const struct timeval *timeout,
+  const PTIMEVAL timeout,
   LPWSAOVERLAPPED Reserved
 );
 #define WSAConnectByName __MINGW_NAME_AW(WSAConnectByName)

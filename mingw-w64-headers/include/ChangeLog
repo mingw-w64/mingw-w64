@@ -1,5 +1,17 @@
 2012-07-30  Corinna Vinschen  <vinschen@redhat.com>
 
+	* psdk_inc/_ip_types.h (struct __ms_timeval): Define on LP64 systems.
+	(TIMEVAL): Define based on struct __ms_timeval on LP64, based on
+	struct timeval otherwise.
+	(PTIMEVAL): Ditto.
+	(LPTIMEVAL): Ditto.
+	* winsock.h: Replace all `struct timeval *' usages with PTIMEVAL.
+	* winsock2.h: Ditto.
+	* ws2spi.h: Ditto.
+	* ws2tcpip.h: Ditto.
+
+2012-07-30  Corinna Vinschen  <vinschen@redhat.com>
+
 	* af_irda.h: Temporarily redefine u_long as __ms_u_long on LP64 systems.
 	* in6addr.h: Ditto.
 	* inaddr.h: Ditto.
