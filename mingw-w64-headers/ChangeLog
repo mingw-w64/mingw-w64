@@ -1,3 +1,9 @@
+2012-07-30  Corinna Vinschen  <vinschen@redhat.com>
+
+	Revert previous patch:
+	* configure.ac (BASEHEAD_LIST): Remove crt/intrin.h.
+	* configure: Regenerate.
+
 2012-07-27  Corinna Vinschen  <vinschen@redhat.com>
 
 	* configure.ac (BASEHEAD_LIST): Add crt/intrin.h
