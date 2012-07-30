@@ -6,6 +6,12 @@
 
 #ifndef s_addr
 
+#ifdef __LP64__
+#pragma push_macro("u_long")
+#undef u_long
+#define u_long __ms_u_long
+#endif
+
 #include <_bsd_types.h>
 
 typedef struct in_addr {
@@ -22,6 +28,10 @@ typedef struct in_addr {
 #define s_imp	S_un.S_un_w.s_w2
 #define s_impno	S_un.S_un_b.s_b4
 #define s_lh	S_un.S_un_b.s_b3
+
+#ifdef __LP64__
+#pragma pop_macro("u_long")
+#endif
 
 #endif /* s_addr */
 

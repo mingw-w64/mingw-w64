@@ -6,6 +6,12 @@
 #ifndef __AFIRDA__
 #define __AFIRDA__
 
+#ifdef __LP64__
+#pragma push_macro("u_long")
+#undef u_long
+#define u_long __ms_u_long
+#endif
+
 #include <_bsd_types.h>
 
 #define WINDOWS_AF_IRDA 26
@@ -206,5 +212,9 @@ typedef struct _WCE_IAS_QUERY {
 
 typedef WINDOWS_IAS_SET IAS_SET,*PIAS_SET,*LPIASSET;
 typedef WINDOWS_IAS_QUERY IAS_QUERY,*PIAS_QUERY,*LPIASQUERY;
+
+#ifdef __LP64__
+#pragma pop_macro("u_long")
+#endif
 
 #endif

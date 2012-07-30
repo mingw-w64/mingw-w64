@@ -7,6 +7,12 @@
 #ifndef _MINGW_IP_TYPES_H
 #define _MINGW_IP_TYPES_H
 
+#ifdef __LP64__
+#pragma push_macro("u_long")
+#undef u_long
+#define u_long __ms_u_long
+#endif
+
 #include <_bsd_types.h>
 
 #ifndef __INSIDE_CYGWIN__
@@ -100,6 +106,10 @@ typedef struct linger		*LPLINGER;
 typedef struct timeval		TIMEVAL;
 typedef struct timeval		*PTIMEVAL;
 typedef struct timeval		*LPTIMEVAL;
+
+#ifdef __LP64__
+#pragma pop_macro("u_long")
+#endif
 
 #endif	/* _MINGW_IP_TYPES_H */
 

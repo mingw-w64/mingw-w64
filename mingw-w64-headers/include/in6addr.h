@@ -6,6 +6,12 @@
 
 #ifndef s6_addr
 
+#ifdef __LP64__
+#pragma push_macro("u_long")
+#undef u_long
+#define u_long __ms_u_long
+#endif
+
 #include <_bsd_types.h>
 
 typedef struct in6_addr {
@@ -30,6 +36,10 @@ typedef struct in6_addr {
 #ifdef __INSIDE_CYGWIN__
 #define s6_addr16	u.Word
 #define s6_addr32       u.__s6_addr32
+#endif
+
+#ifdef __LP64__
+#pragma pop_macro("u_long")
 #endif
 
 #endif /* s6_addr */

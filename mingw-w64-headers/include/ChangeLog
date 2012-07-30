@@ -1,5 +1,14 @@
 2012-07-30  Corinna Vinschen  <vinschen@redhat.com>
 
+	* af_irda.h: Temporarily redefine u_long as __ms_u_long on LP64 systems.
+	* in6addr.h: Ditto.
+	* inaddr.h: Ditto.
+	* winsock.h: Ditto.
+	* winsock2.h: Ditto.
+	* psdk_inc/_ip_types.h: Ditto.
+
+2012-07-30  Corinna Vinschen  <vinschen@redhat.com>
+
 	* Throughout, use __MSABI_LONG macro rather than 'L' qualifier
 	for unsigned numerical constants as well.
 

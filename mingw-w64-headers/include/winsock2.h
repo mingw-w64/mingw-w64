@@ -43,6 +43,12 @@
 /* undefine macros from winsock.h */
 #include <psdk_inc/_ws1_undef.h>
 
+#ifdef __LP64__
+#pragma push_macro("u_long")
+#undef u_long
+#define u_long __ms_u_long
+#endif
+
 #include <_timeval.h>
 #include <_bsd_types.h>
 #include <inaddr.h>
@@ -1216,6 +1222,10 @@ int WSAAPI WSASendMsg(
 
 #ifdef IPV6STRICT
 #include <wsipv6ok.h>
+#endif
+
+#ifdef __LP64__
+#pragma pop_macro("u_long")
 #endif
 
 #endif /* _WINSOCK2API_ */

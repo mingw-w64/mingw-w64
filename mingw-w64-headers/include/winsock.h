@@ -23,6 +23,12 @@
 #endif /* WINSOCK_API_LINKAGE */
 #define WSAAPI			WINAPI
 
+#ifdef __LP64__
+#pragma push_macro("u_long")
+#undef u_long
+#define u_long __ms_u_long
+#endif
+
 #include <_timeval.h>
 #include <_bsd_types.h>
 #include <inaddr.h>
@@ -356,6 +362,10 @@ extern "C" {
 
 #ifdef IPV6STRICT
 #error WINSOCK2 required.
+#endif
+
+#ifdef __LP64__
+#pragma pop_macro("u_long")
 #endif
 
 #endif /* _WINSOCKAPI_ */
