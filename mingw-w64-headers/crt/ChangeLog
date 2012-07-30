@@ -1,3 +1,8 @@
+2012-07-30  Kai Tietz  <ktietz@redhat.com>
+
+	* _bsd_types.h (u_long): Make u_long type dependent to
+	__LONG32 define.
+
 2012-07-19  Corinna Vinschen  <vinschen@redhat.com>
 
 	* _cygwin.h (_WIN64): Define if targeting x86_64.

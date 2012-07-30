@@ -7,10 +7,13 @@
 #ifndef _BSDTYPES_DEFINED
 #define _BSDTYPES_DEFINED
 
+/* Make sure __LONG32 is defined.  */
+#include <_mingw.h>
+
 typedef unsigned char	u_char;
 typedef unsigned short	u_short;
 typedef unsigned int	u_int;
-typedef unsigned long	u_long;
+typedef unsigned __LONG32 u_long;
 #if defined(__GNUC__) || \
     defined(__GNUG__)
 __extension__
