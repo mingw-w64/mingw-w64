@@ -1,5 +1,10 @@
 2012-07-30  Corinna Vinschen  <vinschen@redhat.com>
 
+	* winnt.h: In case of Cygwin, include gcc-provided intrinsic
+	files directly, instead of including intrin.h.
+
+2012-07-30  Corinna Vinschen  <vinschen@redhat.com>
+
 	* ndrtypes.h (NDR_VERSION_1_1): Drop UL qualifier from or'ed
 	minor version value.
 	(NDR_VERSION_2_0): Ditto.

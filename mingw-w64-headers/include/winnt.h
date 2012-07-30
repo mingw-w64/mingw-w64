@@ -1448,7 +1448,27 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 
     VOID _ReadWriteBarrier(VOID);
 
-#include <intrin.h>
+/* Don't include intrin.h on Cygwin.  It pulls in unneeded stuff. */
+#ifdef __CYGWIN__
+# if defined(__cplusplus)
+extern "C" {
+# endif
+# include <x86intrin.h>
+# ifdef __MMX__
+#  include <mmintrin.h>
+# endif
+# ifdef __SSE2__
+#  include <emmintrin.h>
+# endif
+# ifdef __SSE3__
+#  include <pmmintrin.h>
+# endif
+# if defined(__cplusplus)
+}
+# endif
+#else /* !__CYGWIN__ */
+# include <intrin.h>
+#endif /* __CYGWIN__ */
 
 #define FastFence __faststorefence
 #define LoadFence _mm_lfence
