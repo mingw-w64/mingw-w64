@@ -160,7 +160,7 @@ typedef enum DXGI_FORMAT {
   DXGI_FORMAT_BC7_TYPELESS                 = 97,
   DXGI_FORMAT_BC7_UNORM                    = 98,
   DXGI_FORMAT_BC7_UNORM_SRGB               = 99,
-  DXGI_FORMAT_FORCE_UINT                   = 0xffffffffUL
+  DXGI_FORMAT_FORCE_UINT                   = 0xffffffff
 } DXGI_FORMAT, *LPDXGI_FORMAT;
 
 #endif /*__MINGW_HAS_DXSDK*/

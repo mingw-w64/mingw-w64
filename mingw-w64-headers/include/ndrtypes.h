@@ -26,12 +26,12 @@ extern "C" {
 #define NDR_MINOR_VERSION 4UL
 #define NDR_VERSION ((NDR_MAJOR_VERSION << 16) | NDR_MINOR_VERSION)
 
-#define NDR_VERSION_1_1 ((1UL << 16) | 1UL)
-#define NDR_VERSION_2_0 ((2UL << 16) | 0UL)
-#define NDR_VERSION_5_0 ((5UL << 16) | 0UL)
-#define NDR_VERSION_5_2 ((5UL << 16) | 2UL)
-#define NDR_VERSION_5_3 ((5UL << 16) | 3UL)
-#define NDR_VERSION_5_4 ((5UL << 16) | 4UL)
+#define NDR_VERSION_1_1 ((1UL << 16) | 1)
+#define NDR_VERSION_2_0 ((2UL << 16) | 0)
+#define NDR_VERSION_5_0 ((5UL << 16) | 0)
+#define NDR_VERSION_5_2 ((5UL << 16) | 2)
+#define NDR_VERSION_5_3 ((5UL << 16) | 3)
+#define NDR_VERSION_5_4 ((5UL << 16) | 4)
 
 #define LOAD_TLB_AS_64BIT 0
 #define LOAD_TLB_AS_32BIT 0
