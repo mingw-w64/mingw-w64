@@ -110,7 +110,9 @@
 #endif
 #endif
 
+#ifndef __CYGWIN__
 #include <stralign.h>
+#endif
 
 #ifdef INC_OLE2
 #include <ole2.h>
