@@ -209,9 +209,9 @@ _cabs
 _callnewh
 _cexit
 _cgets
-_cgets_s
+; _cgets_s replaced by emu
 _cgetws
-_cgetws_s
+; _cgetws_s replaced by emu
 _chdir
 _chdrive
 _chgsign
@@ -232,7 +232,7 @@ _cprintf
 _cprintf_l
 _cprintf_p
 _cprintf_p_l
-_cprintf_s
+; _cprintf_s Replaced by emu
 _cprintf_s_l
 _cputs
 _cputws

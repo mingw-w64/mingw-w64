@@ -1,3 +1,12 @@
+2012-07-31  Kai Tietz  <ktietz@redhat.com>
+
+	* secapi/: New folder.
+	* Makefile.am: Add _cgets_s.c _cgetwe_s.c and _cprintf_s.c files
+	to libmingwex.a library.
+	* Makefile.in: Regnerated.
+	* lib32/msvcrt.def: Comment replaced secured-API functions.
+	* lib64/msvcrt.def: Likewise.
+
 2012-07-17  Kai Tietz  <ktietz@redhat.com>
 
 	PR 3544372

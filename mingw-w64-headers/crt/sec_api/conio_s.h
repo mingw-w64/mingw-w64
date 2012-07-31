@@ -15,10 +15,10 @@
 extern "C" {
 #endif
 
-  _CRTIMP errno_t __cdecl _cgets_s(char *_Buffer,size_t _Size,size_t *_SizeRead);
+  errno_t __cdecl _cgets_s (char *_Buffer,size_t _Size,size_t *_SizeRead);
   __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_1(errno_t, _cgets_s, char, _Buffer, size_t*, _SizeRead)
 
-  _CRTIMP int __cdecl _cprintf_s(const char *_Format,...);
+  int __cdecl _cprintf_s (const char *_Format,...);
   _CRTIMP int __cdecl _cscanf_s(const char *_Format,...);
   _CRTIMP int __cdecl _cscanf_s_l(const char *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _vcprintf_s(const char *_Format,va_list _ArgList);
@@ -27,7 +27,7 @@ extern "C" {
 
 #ifndef _WCONIO_DEFINED_S
 #define _WCONIO_DEFINED_S
-  _CRTIMP errno_t __cdecl _cgetws_s(wchar_t *_Buffer,size_t _SizeInWords,size_t *_SizeRead);
+  errno_t __cdecl _cgetws_s (wchar_t *_Buffer,size_t _SizeInWords,size_t *_SizeRead);
   __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_1(errno_t, _cgetws_s, wchar_t, _Buffer, size_t*, _SizeRead)
 
   _CRTIMP int __cdecl _cwprintf_s(const wchar_t *_Format,...);
