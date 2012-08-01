@@ -1063,7 +1063,7 @@ _ui64toa_s
 _ui64tow_s
 _ultoa_s
 _ultow_s
-_umask_s
+; _umask_s Replaced by emu
 _vcprintf
 _vcprintf_l
 _vcprintf_p

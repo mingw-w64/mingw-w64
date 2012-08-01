@@ -1,5 +1,6 @@
 2012-08-01  Kai Tietz  <ktietz@redhat.com>
 
+	* secapi/_umask_s.c: New file.
 	* secapi/_chsize_s.c: New file.
 	* secapi/_mktemp_s.c: New file.
 	* secapi/_wmktemp_s.c: New file.

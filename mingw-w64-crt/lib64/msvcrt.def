@@ -801,7 +801,7 @@ _ultoa_s
 _ultow
 _ultow_s
 _umask
-_umask_s
+; _umask_s replaced by emu
 _ungetch
 _ungetwch
 _unlink
