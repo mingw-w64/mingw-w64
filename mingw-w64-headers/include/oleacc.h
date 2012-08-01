@@ -17,6 +17,11 @@
 
 /* Forward declarations */
 
+#ifndef __IAccessible_FWD_DEFINED__
+#define __IAccessible_FWD_DEFINED__
+typedef interface IAccessible IAccessible;
+#endif
+
 /* Headers for imported files */
 
 #include <oaidl.h>
@@ -26,11 +31,6 @@ extern "C" {
 #endif
 
 #include <_mingw_unicode.h>
-#ifndef __IAccessible_FWD_DEFINED__
-#define __IAccessible_FWD_DEFINED__
-typedef struct IAccessible IAccessible;
-#endif
-
 #ifndef __IAccessibleHandler_FWD_DEFINED__
 #define __IAccessibleHandler_FWD_DEFINED__
 typedef struct IAccessibleHandler IAccessibleHandler;
@@ -94,7 +94,6 @@ typedef struct CAccPropServices CAccPropServices;
   typedef HRESULT (WINAPI *LPFNACCESSIBLECHILDREN)(IAccessible *paccContainer,LONG iChildStart,LONG cChildren,VARIANT *rgvarChildren,LONG *pcObtained);
 
   DEFINE_GUID(LIBID_Accessibility,0x1ea4dbf0,0x3c3b,0x11cf,0x81,0x0c,0x00,0xaa,0x00,0x38,0x9b,0x71);
-  DEFINE_GUID(IID_IAccessible,0x618736e0,0x3c3d,0x11cf,0x81,0x0c,0x00,0xaa,0x00,0x38,0x9b,0x71);
   DEFINE_GUID(IID_IAccessibleHandler,0x03022430,0xABC4,0x11d0,0xBD,0xE2,0x00,0xAA,0x00,0x1A,0x19,0x53);
   DEFINE_GUID(IID_IAccIdentity,0x7852b78d,0x1cfd,0x41c1,0xa6,0x15,0x9c,0x0c,0x85,0x96,0x0b,0x5f);
   DEFINE_GUID(IID_IAccPropServer,0x76c0dbbb,0x15e0,0x4e7b,0xb6,0x1b,0x20,0xee,0xea,0x20,0x01,0xe0);
@@ -156,35 +155,6 @@ typedef struct CAccPropServices CAccPropServices;
   DEFINE_GUID(PROPID_ACC_STATEMAP ,0x43946c5e,0x0ac0,0x4042,0xb5,0x25,0x07,0xbb,0xdb,0xe1,0x7f,0xa7);
   DEFINE_GUID(PROPID_ACC_DESCRIPTIONMAP ,0x1ff1435f,0x8a14,0x477b,0xb2,0x26,0xa0,0xab,0xe2,0x79,0x97,0x5d);
   DEFINE_GUID(PROPID_ACC_DODEFAULTACTION ,0x1ba09523,0x2e3b,0x49a6,0xa0,0x59,0x59,0x68,0x2a,0x3c,0x48,0xfd);
-
-  extern RPC_IF_HANDLE __MIDL_itf_oleacc_0000_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_oleacc_0000_v0_0_s_ifspec;
-
-#ifndef __IAccessible_INTERFACE_DEFINED__
-#define __IAccessible_INTERFACE_DEFINED__
-
-#define DISPID_ACC_PARENT (-5000)
-#define DISPID_ACC_CHILDCOUNT (-5001)
-#define DISPID_ACC_CHILD (-5002)
-#define DISPID_ACC_NAME (-5003)
-#define DISPID_ACC_VALUE (-5004)
-#define DISPID_ACC_DESCRIPTION (-5005)
-#define DISPID_ACC_ROLE (-5006)
-#define DISPID_ACC_STATE (-5007)
-#define DISPID_ACC_HELP (-5008)
-#define DISPID_ACC_HELPTOPIC (-5009)
-#define DISPID_ACC_KEYBOARDSHORTCUT (-5010)
-#define DISPID_ACC_FOCUS (-5011)
-#define DISPID_ACC_SELECTION (-5012)
-#define DISPID_ACC_DEFAULTACTION (-5013)
-#define DISPID_ACC_SELECT (-5014)
-#define DISPID_ACC_LOCATION (-5015)
-#define DISPID_ACC_NAVIGATE (-5016)
-#define DISPID_ACC_HITTEST (-5017)
-#define DISPID_ACC_DODEFAULTACTION (-5018)
-
-  typedef IAccessible *LPACCESSIBLE;
-
 #define NAVDIR_MIN (0)
 #define NAVDIR_UP (0x1)
 #define NAVDIR_DOWN (0x2)
@@ -307,143 +277,622 @@ typedef struct CAccPropServices CAccPropServices;
 #define ROLE_SYSTEM_SPLITBUTTON (0x3e)
 #define ROLE_SYSTEM_IPADDRESS (0x3f)
 #define ROLE_SYSTEM_OUTLINEBUTTON (0x40)
+/*****************************************************************************
+ * IAccessible interface
+ */
+#ifndef __IAccessible_INTERFACE_DEFINED__
+#define __IAccessible_INTERFACE_DEFINED__
 
-  EXTERN_C const IID IID_IAccessible;
+typedef IAccessible *LPACCESSIBLE;
+#define DISPID_ACC_PARENT (-5000)
+
+#define DISPID_ACC_CHILDCOUNT (-5001)
+
+#define DISPID_ACC_CHILD (-5002)
+
+#define DISPID_ACC_NAME (-5003)
+
+#define DISPID_ACC_VALUE (-5004)
+
+#define DISPID_ACC_DESCRIPTION (-5005)
+
+#define DISPID_ACC_ROLE (-5006)
+
+#define DISPID_ACC_STATE (-5007)
+
+#define DISPID_ACC_HELP (-5008)
+
+#define DISPID_ACC_HELPTOPIC (-5009)
+
+#define DISPID_ACC_KEYBOARDSHORTCUT (-5010)
+
+#define DISPID_ACC_FOCUS (-5011)
+
+#define DISPID_ACC_SELECTION (-5012)
+
+#define DISPID_ACC_DEFAULTACTION (-5013)
+
+#define DISPID_ACC_SELECT (-5014)
+
+#define DISPID_ACC_LOCATION (-5015)
+
+#define DISPID_ACC_NAVIGATE (-5016)
+
+#define DISPID_ACC_HITTEST (-5017)
+
+#define DISPID_ACC_DODEFAULTACTION (-5018)
+
+DEFINE_GUID(IID_IAccessible, 0x618736e0, 0x3c3d, 0x11cf, 0x81,0x0c, 0x00,0xaa,0x00,0x38,0x9b,0x71);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IAccessible : public IDispatch {
-  public:
-    virtual HRESULT WINAPI get_accParent(IDispatch **ppdispParent) = 0;
-    virtual HRESULT WINAPI get_accChildCount(long *pcountChildren) = 0;
-    virtual HRESULT WINAPI get_accChild(VARIANT varChild,IDispatch **ppdispChild) = 0;
-    virtual HRESULT WINAPI get_accName(VARIANT varChild,BSTR *pszName) = 0;
-    virtual HRESULT WINAPI get_accValue(VARIANT varChild,BSTR *pszValue) = 0;
-    virtual HRESULT WINAPI get_accDescription(VARIANT varChild,BSTR *pszDescription) = 0;
-    virtual HRESULT WINAPI get_accRole(VARIANT varChild,VARIANT *pvarRole) = 0;
-    virtual HRESULT WINAPI get_accState(VARIANT varChild,VARIANT *pvarState) = 0;
-    virtual HRESULT WINAPI get_accHelp(VARIANT varChild,BSTR *pszHelp) = 0;
-    virtual HRESULT WINAPI get_accHelpTopic(BSTR *pszHelpFile,VARIANT varChild,long *pidTopic) = 0;
-    virtual HRESULT WINAPI get_accKeyboardShortcut(VARIANT varChild,BSTR *pszKeyboardShortcut) = 0;
-    virtual HRESULT WINAPI get_accFocus(VARIANT *pvarChild) = 0;
-    virtual HRESULT WINAPI get_accSelection(VARIANT *pvarChildren) = 0;
-    virtual HRESULT WINAPI get_accDefaultAction(VARIANT varChild,BSTR *pszDefaultAction) = 0;
-    virtual HRESULT WINAPI accSelect(long flagsSelect,VARIANT varChild) = 0;
-    virtual HRESULT WINAPI accLocation(long *pxLeft,long *pyTop,long *pcxWidth,long *pcyHeight,VARIANT varChild) = 0;
-    virtual HRESULT WINAPI accNavigate(long navDir,VARIANT varStart,VARIANT *pvarEndUpAt) = 0;
-    virtual HRESULT WINAPI accHitTest(long xLeft,long yTop,VARIANT *pvarChild) = 0;
-    virtual HRESULT WINAPI accDoDefaultAction(VARIANT varChild) = 0;
-    virtual HRESULT WINAPI put_accName(VARIANT varChild,BSTR szName) = 0;
-    virtual HRESULT WINAPI put_accValue(VARIANT varChild,BSTR szValue) = 0;
-  };
+MIDL_INTERFACE("618736e0-3c3d-11cf-810c-00aa00389b71")
+IAccessible : public IDispatch
+{
+    virtual HRESULT STDMETHODCALLTYPE get_accParent(
+        IDispatch **ppdispParent) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_accChildCount(
+        LONG *pcountChildren) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_accChild(
+        VARIANT varChildID,
+        IDispatch **ppdispChild) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_accName(
+        VARIANT varID,
+        BSTR *pszName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_accValue(
+        VARIANT varID,
+        BSTR *pszValue) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_accDescription(
+        VARIANT varID,
+        BSTR *pszDescription) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_accRole(
+        VARIANT varID,
+        VARIANT *pvarRole) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_accState(
+        VARIANT varID,
+        VARIANT *pvarState) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_accHelp(
+        VARIANT varID,
+        BSTR *pszHelp) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_accHelpTopic(
+        BSTR *pszHelpFile,
+        VARIANT varID,
+        LONG *pidTopic) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_accKeyboardShortcut(
+        VARIANT varID,
+        BSTR *pszKeyboardShortcut) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_accFocus(
+        VARIANT *pvarID) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_accSelection(
+        VARIANT *pvarID) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_accDefaultAction(
+        VARIANT varID,
+        BSTR *pszDefaultAction) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE accSelect(
+        LONG flagsSelect,
+        VARIANT varID) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE accLocation(
+        LONG *pxLeft,
+        LONG *pyTop,
+        LONG *pcxWidth,
+        LONG *pcyHeight,
+        VARIANT varID) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE accNavigate(
+        LONG navDir,
+        VARIANT varStart,
+        VARIANT *pvarEnd) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE accHitTest(
+        LONG xLeft,
+        LONG yTop,
+        VARIANT *pvarID) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE accDoDefaultAction(
+        VARIANT varID) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_accName(
+        VARIANT varID,
+        BSTR pszName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_accValue(
+        VARIANT varID,
+        BSTR pszValue) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAccessible, 0x618736e0, 0x3c3d, 0x11cf, 0x81,0x0c, 0x00,0xaa,0x00,0x38,0x9b,0x71)
+#endif
 #else
-  typedef struct IAccessibleVtbl {
+typedef struct IAccessibleVtbl {
     BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IAccessible *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IAccessible *This);
-      ULONG (WINAPI *Release)(IAccessible *This);
-      HRESULT (WINAPI *GetTypeInfoCount)(IAccessible *This,UINT *pctinfo);
-      HRESULT (WINAPI *GetTypeInfo)(IAccessible *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-      HRESULT (WINAPI *GetIDsOfNames)(IAccessible *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-      HRESULT (WINAPI *Invoke)(IAccessible *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_accParent)(IAccessible *This,IDispatch **ppdispParent);
-      HRESULT (WINAPI *get_accChildCount)(IAccessible *This,long *pcountChildren);
-      HRESULT (WINAPI *get_accChild)(IAccessible *This,VARIANT varChild,IDispatch **ppdispChild);
-      HRESULT (WINAPI *get_accName)(IAccessible *This,VARIANT varChild,BSTR *pszName);
-      HRESULT (WINAPI *get_accValue)(IAccessible *This,VARIANT varChild,BSTR *pszValue);
-      HRESULT (WINAPI *get_accDescription)(IAccessible *This,VARIANT varChild,BSTR *pszDescription);
-      HRESULT (WINAPI *get_accRole)(IAccessible *This,VARIANT varChild,VARIANT *pvarRole);
-      HRESULT (WINAPI *get_accState)(IAccessible *This,VARIANT varChild,VARIANT *pvarState);
-      HRESULT (WINAPI *get_accHelp)(IAccessible *This,VARIANT varChild,BSTR *pszHelp);
-      HRESULT (WINAPI *get_accHelpTopic)(IAccessible *This,BSTR *pszHelpFile,VARIANT varChild,long *pidTopic);
-      HRESULT (WINAPI *get_accKeyboardShortcut)(IAccessible *This,VARIANT varChild,BSTR *pszKeyboardShortcut);
-      HRESULT (WINAPI *get_accFocus)(IAccessible *This,VARIANT *pvarChild);
-      HRESULT (WINAPI *get_accSelection)(IAccessible *This,VARIANT *pvarChildren);
-      HRESULT (WINAPI *get_accDefaultAction)(IAccessible *This,VARIANT varChild,BSTR *pszDefaultAction);
-      HRESULT (WINAPI *accSelect)(IAccessible *This,long flagsSelect,VARIANT varChild);
-      HRESULT (WINAPI *accLocation)(IAccessible *This,long *pxLeft,long *pyTop,long *pcxWidth,long *pcyHeight,VARIANT varChild);
-      HRESULT (WINAPI *accNavigate)(IAccessible *This,long navDir,VARIANT varStart,VARIANT *pvarEndUpAt);
-      HRESULT (WINAPI *accHitTest)(IAccessible *This,long xLeft,long yTop,VARIANT *pvarChild);
-      HRESULT (WINAPI *accDoDefaultAction)(IAccessible *This,VARIANT varChild);
-      HRESULT (WINAPI *put_accName)(IAccessible *This,VARIANT varChild,BSTR szName);
-      HRESULT (WINAPI *put_accValue)(IAccessible *This,VARIANT varChild,BSTR szValue);
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IAccessible* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IAccessible* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IAccessible* This);
+
+    /*** IDispatch methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount)(
+        IAccessible* This,
+        UINT *pctinfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfo)(
+        IAccessible* This,
+        UINT iTInfo,
+        LCID lcid,
+        ITypeInfo **ppTInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetIDsOfNames)(
+        IAccessible* This,
+        REFIID riid,
+        LPOLESTR *rgszNames,
+        UINT cNames,
+        LCID lcid,
+        DISPID *rgDispId);
+
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        IAccessible* This,
+        DISPID dispIdMember,
+        REFIID riid,
+        LCID lcid,
+        WORD wFlags,
+        DISPPARAMS *pDispParams,
+        VARIANT *pVarResult,
+        EXCEPINFO *pExcepInfo,
+        UINT *puArgErr);
+
+    /*** IAccessible methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_accParent)(
+        IAccessible* This,
+        IDispatch **ppdispParent);
+
+    HRESULT (STDMETHODCALLTYPE *get_accChildCount)(
+        IAccessible* This,
+        LONG *pcountChildren);
+
+    HRESULT (STDMETHODCALLTYPE *get_accChild)(
+        IAccessible* This,
+        VARIANT varChildID,
+        IDispatch **ppdispChild);
+
+    HRESULT (STDMETHODCALLTYPE *get_accName)(
+        IAccessible* This,
+        VARIANT varID,
+        BSTR *pszName);
+
+    HRESULT (STDMETHODCALLTYPE *get_accValue)(
+        IAccessible* This,
+        VARIANT varID,
+        BSTR *pszValue);
+
+    HRESULT (STDMETHODCALLTYPE *get_accDescription)(
+        IAccessible* This,
+        VARIANT varID,
+        BSTR *pszDescription);
+
+    HRESULT (STDMETHODCALLTYPE *get_accRole)(
+        IAccessible* This,
+        VARIANT varID,
+        VARIANT *pvarRole);
+
+    HRESULT (STDMETHODCALLTYPE *get_accState)(
+        IAccessible* This,
+        VARIANT varID,
+        VARIANT *pvarState);
+
+    HRESULT (STDMETHODCALLTYPE *get_accHelp)(
+        IAccessible* This,
+        VARIANT varID,
+        BSTR *pszHelp);
+
+    HRESULT (STDMETHODCALLTYPE *get_accHelpTopic)(
+        IAccessible* This,
+        BSTR *pszHelpFile,
+        VARIANT varID,
+        LONG *pidTopic);
+
+    HRESULT (STDMETHODCALLTYPE *get_accKeyboardShortcut)(
+        IAccessible* This,
+        VARIANT varID,
+        BSTR *pszKeyboardShortcut);
+
+    HRESULT (STDMETHODCALLTYPE *get_accFocus)(
+        IAccessible* This,
+        VARIANT *pvarID);
+
+    HRESULT (STDMETHODCALLTYPE *get_accSelection)(
+        IAccessible* This,
+        VARIANT *pvarID);
+
+    HRESULT (STDMETHODCALLTYPE *get_accDefaultAction)(
+        IAccessible* This,
+        VARIANT varID,
+        BSTR *pszDefaultAction);
+
+    HRESULT (STDMETHODCALLTYPE *accSelect)(
+        IAccessible* This,
+        LONG flagsSelect,
+        VARIANT varID);
+
+    HRESULT (STDMETHODCALLTYPE *accLocation)(
+        IAccessible* This,
+        LONG *pxLeft,
+        LONG *pyTop,
+        LONG *pcxWidth,
+        LONG *pcyHeight,
+        VARIANT varID);
+
+    HRESULT (STDMETHODCALLTYPE *accNavigate)(
+        IAccessible* This,
+        LONG navDir,
+        VARIANT varStart,
+        VARIANT *pvarEnd);
+
+    HRESULT (STDMETHODCALLTYPE *accHitTest)(
+        IAccessible* This,
+        LONG xLeft,
+        LONG yTop,
+        VARIANT *pvarID);
+
+    HRESULT (STDMETHODCALLTYPE *accDoDefaultAction)(
+        IAccessible* This,
+        VARIANT varID);
+
+    HRESULT (STDMETHODCALLTYPE *put_accName)(
+        IAccessible* This,
+        VARIANT varID,
+        BSTR pszName);
+
+    HRESULT (STDMETHODCALLTYPE *put_accValue)(
+        IAccessible* This,
+        VARIANT varID,
+        BSTR pszValue);
+
     END_INTERFACE
-  } IAccessibleVtbl;
-  struct IAccessible {
-    CONST_VTBL struct IAccessibleVtbl *lpVtbl;
-  };
+} IAccessibleVtbl;
+interface IAccessible {
+    CONST_VTBL IAccessibleVtbl* lpVtbl;
+};
+
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
 #define IAccessible_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAccessible_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IAccessible_Release(This) (This)->lpVtbl->Release(This)
+/*** IDispatch methods ***/
 #define IAccessible_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
 #define IAccessible_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IAccessible_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
 #define IAccessible_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
+/*** IAccessible methods ***/
 #define IAccessible_get_accParent(This,ppdispParent) (This)->lpVtbl->get_accParent(This,ppdispParent)
 #define IAccessible_get_accChildCount(This,pcountChildren) (This)->lpVtbl->get_accChildCount(This,pcountChildren)
-#define IAccessible_get_accChild(This,varChild,ppdispChild) (This)->lpVtbl->get_accChild(This,varChild,ppdispChild)
-#define IAccessible_get_accName(This,varChild,pszName) (This)->lpVtbl->get_accName(This,varChild,pszName)
-#define IAccessible_get_accValue(This,varChild,pszValue) (This)->lpVtbl->get_accValue(This,varChild,pszValue)
-#define IAccessible_get_accDescription(This,varChild,pszDescription) (This)->lpVtbl->get_accDescription(This,varChild,pszDescription)
-#define IAccessible_get_accRole(This,varChild,pvarRole) (This)->lpVtbl->get_accRole(This,varChild,pvarRole)
-#define IAccessible_get_accState(This,varChild,pvarState) (This)->lpVtbl->get_accState(This,varChild,pvarState)
-#define IAccessible_get_accHelp(This,varChild,pszHelp) (This)->lpVtbl->get_accHelp(This,varChild,pszHelp)
-#define IAccessible_get_accHelpTopic(This,pszHelpFile,varChild,pidTopic) (This)->lpVtbl->get_accHelpTopic(This,pszHelpFile,varChild,pidTopic)
-#define IAccessible_get_accKeyboardShortcut(This,varChild,pszKeyboardShortcut) (This)->lpVtbl->get_accKeyboardShortcut(This,varChild,pszKeyboardShortcut)
-#define IAccessible_get_accFocus(This,pvarChild) (This)->lpVtbl->get_accFocus(This,pvarChild)
-#define IAccessible_get_accSelection(This,pvarChildren) (This)->lpVtbl->get_accSelection(This,pvarChildren)
-#define IAccessible_get_accDefaultAction(This,varChild,pszDefaultAction) (This)->lpVtbl->get_accDefaultAction(This,varChild,pszDefaultAction)
-#define IAccessible_accSelect(This,flagsSelect,varChild) (This)->lpVtbl->accSelect(This,flagsSelect,varChild)
-#define IAccessible_accLocation(This,pxLeft,pyTop,pcxWidth,pcyHeight,varChild) (This)->lpVtbl->accLocation(This,pxLeft,pyTop,pcxWidth,pcyHeight,varChild)
-#define IAccessible_accNavigate(This,navDir,varStart,pvarEndUpAt) (This)->lpVtbl->accNavigate(This,navDir,varStart,pvarEndUpAt)
-#define IAccessible_accHitTest(This,xLeft,yTop,pvarChild) (This)->lpVtbl->accHitTest(This,xLeft,yTop,pvarChild)
-#define IAccessible_accDoDefaultAction(This,varChild) (This)->lpVtbl->accDoDefaultAction(This,varChild)
-#define IAccessible_put_accName(This,varChild,szName) (This)->lpVtbl->put_accName(This,varChild,szName)
-#define IAccessible_put_accValue(This,varChild,szValue) (This)->lpVtbl->put_accValue(This,varChild,szValue)
+#define IAccessible_get_accChild(This,varChildID,ppdispChild) (This)->lpVtbl->get_accChild(This,varChildID,ppdispChild)
+#define IAccessible_get_accName(This,varID,pszName) (This)->lpVtbl->get_accName(This,varID,pszName)
+#define IAccessible_get_accValue(This,varID,pszValue) (This)->lpVtbl->get_accValue(This,varID,pszValue)
+#define IAccessible_get_accDescription(This,varID,pszDescription) (This)->lpVtbl->get_accDescription(This,varID,pszDescription)
+#define IAccessible_get_accRole(This,varID,pvarRole) (This)->lpVtbl->get_accRole(This,varID,pvarRole)
+#define IAccessible_get_accState(This,varID,pvarState) (This)->lpVtbl->get_accState(This,varID,pvarState)
+#define IAccessible_get_accHelp(This,varID,pszHelp) (This)->lpVtbl->get_accHelp(This,varID,pszHelp)
+#define IAccessible_get_accHelpTopic(This,pszHelpFile,varID,pidTopic) (This)->lpVtbl->get_accHelpTopic(This,pszHelpFile,varID,pidTopic)
+#define IAccessible_get_accKeyboardShortcut(This,varID,pszKeyboardShortcut) (This)->lpVtbl->get_accKeyboardShortcut(This,varID,pszKeyboardShortcut)
+#define IAccessible_get_accFocus(This,pvarID) (This)->lpVtbl->get_accFocus(This,pvarID)
+#define IAccessible_get_accSelection(This,pvarID) (This)->lpVtbl->get_accSelection(This,pvarID)
+#define IAccessible_get_accDefaultAction(This,varID,pszDefaultAction) (This)->lpVtbl->get_accDefaultAction(This,varID,pszDefaultAction)
+#define IAccessible_accSelect(This,flagsSelect,varID) (This)->lpVtbl->accSelect(This,flagsSelect,varID)
+#define IAccessible_accLocation(This,pxLeft,pyTop,pcxWidth,pcyHeight,varID) (This)->lpVtbl->accLocation(This,pxLeft,pyTop,pcxWidth,pcyHeight,varID)
+#define IAccessible_accNavigate(This,navDir,varStart,pvarEnd) (This)->lpVtbl->accNavigate(This,navDir,varStart,pvarEnd)
+#define IAccessible_accHitTest(This,xLeft,yTop,pvarID) (This)->lpVtbl->accHitTest(This,xLeft,yTop,pvarID)
+#define IAccessible_accDoDefaultAction(This,varID) (This)->lpVtbl->accDoDefaultAction(This,varID)
+#define IAccessible_put_accName(This,varID,pszName) (This)->lpVtbl->put_accName(This,varID,pszName)
+#define IAccessible_put_accValue(This,varID,pszValue) (This)->lpVtbl->put_accValue(This,varID,pszValue)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAccessible_QueryInterface(IAccessible* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAccessible_AddRef(IAccessible* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAccessible_Release(IAccessible* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static FORCEINLINE HRESULT IAccessible_GetTypeInfoCount(IAccessible* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static FORCEINLINE HRESULT IAccessible_GetTypeInfo(IAccessible* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static FORCEINLINE HRESULT IAccessible_GetIDsOfNames(IAccessible* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static FORCEINLINE HRESULT IAccessible_Invoke(IAccessible* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+/*** IAccessible methods ***/
+static FORCEINLINE HRESULT IAccessible_get_accParent(IAccessible* This,IDispatch **ppdispParent) {
+    return This->lpVtbl->get_accParent(This,ppdispParent);
+}
+static FORCEINLINE HRESULT IAccessible_get_accChildCount(IAccessible* This,LONG *pcountChildren) {
+    return This->lpVtbl->get_accChildCount(This,pcountChildren);
+}
+static FORCEINLINE HRESULT IAccessible_get_accChild(IAccessible* This,VARIANT varChildID,IDispatch **ppdispChild) {
+    return This->lpVtbl->get_accChild(This,varChildID,ppdispChild);
+}
+static FORCEINLINE HRESULT IAccessible_get_accName(IAccessible* This,VARIANT varID,BSTR *pszName) {
+    return This->lpVtbl->get_accName(This,varID,pszName);
+}
+static FORCEINLINE HRESULT IAccessible_get_accValue(IAccessible* This,VARIANT varID,BSTR *pszValue) {
+    return This->lpVtbl->get_accValue(This,varID,pszValue);
+}
+static FORCEINLINE HRESULT IAccessible_get_accDescription(IAccessible* This,VARIANT varID,BSTR *pszDescription) {
+    return This->lpVtbl->get_accDescription(This,varID,pszDescription);
+}
+static FORCEINLINE HRESULT IAccessible_get_accRole(IAccessible* This,VARIANT varID,VARIANT *pvarRole) {
+    return This->lpVtbl->get_accRole(This,varID,pvarRole);
+}
+static FORCEINLINE HRESULT IAccessible_get_accState(IAccessible* This,VARIANT varID,VARIANT *pvarState) {
+    return This->lpVtbl->get_accState(This,varID,pvarState);
+}
+static FORCEINLINE HRESULT IAccessible_get_accHelp(IAccessible* This,VARIANT varID,BSTR *pszHelp) {
+    return This->lpVtbl->get_accHelp(This,varID,pszHelp);
+}
+static FORCEINLINE HRESULT IAccessible_get_accHelpTopic(IAccessible* This,BSTR *pszHelpFile,VARIANT varID,LONG *pidTopic) {
+    return This->lpVtbl->get_accHelpTopic(This,pszHelpFile,varID,pidTopic);
+}
+static FORCEINLINE HRESULT IAccessible_get_accKeyboardShortcut(IAccessible* This,VARIANT varID,BSTR *pszKeyboardShortcut) {
+    return This->lpVtbl->get_accKeyboardShortcut(This,varID,pszKeyboardShortcut);
+}
+static FORCEINLINE HRESULT IAccessible_get_accFocus(IAccessible* This,VARIANT *pvarID) {
+    return This->lpVtbl->get_accFocus(This,pvarID);
+}
+static FORCEINLINE HRESULT IAccessible_get_accSelection(IAccessible* This,VARIANT *pvarID) {
+    return This->lpVtbl->get_accSelection(This,pvarID);
+}
+static FORCEINLINE HRESULT IAccessible_get_accDefaultAction(IAccessible* This,VARIANT varID,BSTR *pszDefaultAction) {
+    return This->lpVtbl->get_accDefaultAction(This,varID,pszDefaultAction);
+}
+static FORCEINLINE HRESULT IAccessible_accSelect(IAccessible* This,LONG flagsSelect,VARIANT varID) {
+    return This->lpVtbl->accSelect(This,flagsSelect,varID);
+}
+static FORCEINLINE HRESULT IAccessible_accLocation(IAccessible* This,LONG *pxLeft,LONG *pyTop,LONG *pcxWidth,LONG *pcyHeight,VARIANT varID) {
+    return This->lpVtbl->accLocation(This,pxLeft,pyTop,pcxWidth,pcyHeight,varID);
+}
+static FORCEINLINE HRESULT IAccessible_accNavigate(IAccessible* This,LONG navDir,VARIANT varStart,VARIANT *pvarEnd) {
+    return This->lpVtbl->accNavigate(This,navDir,varStart,pvarEnd);
+}
+static FORCEINLINE HRESULT IAccessible_accHitTest(IAccessible* This,LONG xLeft,LONG yTop,VARIANT *pvarID) {
+    return This->lpVtbl->accHitTest(This,xLeft,yTop,pvarID);
+}
+static FORCEINLINE HRESULT IAccessible_accDoDefaultAction(IAccessible* This,VARIANT varID) {
+    return This->lpVtbl->accDoDefaultAction(This,varID);
+}
+static FORCEINLINE HRESULT IAccessible_put_accName(IAccessible* This,VARIANT varID,BSTR pszName) {
+    return This->lpVtbl->put_accName(This,varID,pszName);
+}
+static FORCEINLINE HRESULT IAccessible_put_accValue(IAccessible* This,VARIANT varID,BSTR pszValue) {
+    return This->lpVtbl->put_accValue(This,varID,pszValue);
+}
 #endif
 #endif
-  HRESULT WINAPI IAccessible_get_accParent_Proxy(IAccessible *This,IDispatch **ppdispParent);
-  void __RPC_STUB IAccessible_get_accParent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAccessible_get_accChildCount_Proxy(IAccessible *This,long *pcountChildren);
-  void __RPC_STUB IAccessible_get_accChildCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAccessible_get_accChild_Proxy(IAccessible *This,VARIANT varChild,IDispatch **ppdispChild);
-  void __RPC_STUB IAccessible_get_accChild_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAccessible_get_accName_Proxy(IAccessible *This,VARIANT varChild,BSTR *pszName);
-  void __RPC_STUB IAccessible_get_accName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAccessible_get_accValue_Proxy(IAccessible *This,VARIANT varChild,BSTR *pszValue);
-  void __RPC_STUB IAccessible_get_accValue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAccessible_get_accDescription_Proxy(IAccessible *This,VARIANT varChild,BSTR *pszDescription);
-  void __RPC_STUB IAccessible_get_accDescription_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAccessible_get_accRole_Proxy(IAccessible *This,VARIANT varChild,VARIANT *pvarRole);
-  void __RPC_STUB IAccessible_get_accRole_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAccessible_get_accState_Proxy(IAccessible *This,VARIANT varChild,VARIANT *pvarState);
-  void __RPC_STUB IAccessible_get_accState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAccessible_get_accHelp_Proxy(IAccessible *This,VARIANT varChild,BSTR *pszHelp);
-  void __RPC_STUB IAccessible_get_accHelp_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAccessible_get_accHelpTopic_Proxy(IAccessible *This,BSTR *pszHelpFile,VARIANT varChild,long *pidTopic);
-  void __RPC_STUB IAccessible_get_accHelpTopic_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAccessible_get_accKeyboardShortcut_Proxy(IAccessible *This,VARIANT varChild,BSTR *pszKeyboardShortcut);
-  void __RPC_STUB IAccessible_get_accKeyboardShortcut_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAccessible_get_accFocus_Proxy(IAccessible *This,VARIANT *pvarChild);
-  void __RPC_STUB IAccessible_get_accFocus_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAccessible_get_accSelection_Proxy(IAccessible *This,VARIANT *pvarChildren);
-  void __RPC_STUB IAccessible_get_accSelection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAccessible_get_accDefaultAction_Proxy(IAccessible *This,VARIANT varChild,BSTR *pszDefaultAction);
-  void __RPC_STUB IAccessible_get_accDefaultAction_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAccessible_accSelect_Proxy(IAccessible *This,long flagsSelect,VARIANT varChild);
-  void __RPC_STUB IAccessible_accSelect_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAccessible_accLocation_Proxy(IAccessible *This,long *pxLeft,long *pyTop,long *pcxWidth,long *pcyHeight,VARIANT varChild);
-  void __RPC_STUB IAccessible_accLocation_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAccessible_accNavigate_Proxy(IAccessible *This,long navDir,VARIANT varStart,VARIANT *pvarEndUpAt);
-  void __RPC_STUB IAccessible_accNavigate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAccessible_accHitTest_Proxy(IAccessible *This,long xLeft,long yTop,VARIANT *pvarChild);
-  void __RPC_STUB IAccessible_accHitTest_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAccessible_accDoDefaultAction_Proxy(IAccessible *This,VARIANT varChild);
-  void __RPC_STUB IAccessible_accDoDefaultAction_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAccessible_put_accName_Proxy(IAccessible *This,VARIANT varChild,BSTR szName);
-  void __RPC_STUB IAccessible_put_accName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAccessible_put_accValue_Proxy(IAccessible *This,VARIANT varChild,BSTR szValue);
-  void __RPC_STUB IAccessible_put_accValue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
+
 #endif
+
+HRESULT STDMETHODCALLTYPE IAccessible_get_accParent_Proxy(
+    IAccessible* This,
+    IDispatch **ppdispParent);
+void __RPC_STUB IAccessible_get_accParent_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAccessible_get_accChildCount_Proxy(
+    IAccessible* This,
+    LONG *pcountChildren);
+void __RPC_STUB IAccessible_get_accChildCount_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAccessible_get_accChild_Proxy(
+    IAccessible* This,
+    VARIANT varChildID,
+    IDispatch **ppdispChild);
+void __RPC_STUB IAccessible_get_accChild_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAccessible_get_accName_Proxy(
+    IAccessible* This,
+    VARIANT varID,
+    BSTR *pszName);
+void __RPC_STUB IAccessible_get_accName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAccessible_get_accValue_Proxy(
+    IAccessible* This,
+    VARIANT varID,
+    BSTR *pszValue);
+void __RPC_STUB IAccessible_get_accValue_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAccessible_get_accDescription_Proxy(
+    IAccessible* This,
+    VARIANT varID,
+    BSTR *pszDescription);
+void __RPC_STUB IAccessible_get_accDescription_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAccessible_get_accRole_Proxy(
+    IAccessible* This,
+    VARIANT varID,
+    VARIANT *pvarRole);
+void __RPC_STUB IAccessible_get_accRole_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAccessible_get_accState_Proxy(
+    IAccessible* This,
+    VARIANT varID,
+    VARIANT *pvarState);
+void __RPC_STUB IAccessible_get_accState_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAccessible_get_accHelp_Proxy(
+    IAccessible* This,
+    VARIANT varID,
+    BSTR *pszHelp);
+void __RPC_STUB IAccessible_get_accHelp_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAccessible_get_accHelpTopic_Proxy(
+    IAccessible* This,
+    BSTR *pszHelpFile,
+    VARIANT varID,
+    LONG *pidTopic);
+void __RPC_STUB IAccessible_get_accHelpTopic_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAccessible_get_accKeyboardShortcut_Proxy(
+    IAccessible* This,
+    VARIANT varID,
+    BSTR *pszKeyboardShortcut);
+void __RPC_STUB IAccessible_get_accKeyboardShortcut_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAccessible_get_accFocus_Proxy(
+    IAccessible* This,
+    VARIANT *pvarID);
+void __RPC_STUB IAccessible_get_accFocus_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAccessible_get_accSelection_Proxy(
+    IAccessible* This,
+    VARIANT *pvarID);
+void __RPC_STUB IAccessible_get_accSelection_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAccessible_get_accDefaultAction_Proxy(
+    IAccessible* This,
+    VARIANT varID,
+    BSTR *pszDefaultAction);
+void __RPC_STUB IAccessible_get_accDefaultAction_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAccessible_accSelect_Proxy(
+    IAccessible* This,
+    LONG flagsSelect,
+    VARIANT varID);
+void __RPC_STUB IAccessible_accSelect_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAccessible_accLocation_Proxy(
+    IAccessible* This,
+    LONG *pxLeft,
+    LONG *pyTop,
+    LONG *pcxWidth,
+    LONG *pcyHeight,
+    VARIANT varID);
+void __RPC_STUB IAccessible_accLocation_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAccessible_accNavigate_Proxy(
+    IAccessible* This,
+    LONG navDir,
+    VARIANT varStart,
+    VARIANT *pvarEnd);
+void __RPC_STUB IAccessible_accNavigate_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAccessible_accHitTest_Proxy(
+    IAccessible* This,
+    LONG xLeft,
+    LONG yTop,
+    VARIANT *pvarID);
+void __RPC_STUB IAccessible_accHitTest_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAccessible_accDoDefaultAction_Proxy(
+    IAccessible* This,
+    VARIANT varID);
+void __RPC_STUB IAccessible_accDoDefaultAction_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAccessible_put_accName_Proxy(
+    IAccessible* This,
+    VARIANT varID,
+    BSTR pszName);
+void __RPC_STUB IAccessible_put_accName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAccessible_put_accValue_Proxy(
+    IAccessible* This,
+    VARIANT varID,
+    BSTR pszValue);
+void __RPC_STUB IAccessible_put_accValue_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IAccessible_INTERFACE_DEFINED__ */
 
 #ifndef __IAccessibleHandler_INTERFACE_DEFINED__
 #define __IAccessibleHandler_INTERFACE_DEFINED__
