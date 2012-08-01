@@ -218,7 +218,7 @@ _chgsign
 _chgsignf
 _chmod
 _chsize
-_chsize_s
+; _chsize_s replaced by emu
 _clearfp
 _close
 _commit

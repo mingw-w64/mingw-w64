@@ -15,7 +15,7 @@ extern "C" {
 #endif
 
   errno_t __cdecl _access_s (const char *_Filename,int _AccessMode);
-  _CRTIMP errno_t __cdecl _chsize_s(int _FileHandle,__int64 _Size);
+  errno_t __cdecl _chsize_s (int _FileHandle,__int64 _Size);
   _CRTIMP errno_t __cdecl _mktemp_s(char *_TemplateName,size_t _Size);
   _CRTIMP errno_t __cdecl _umask_s(int _NewMode,int *_OldMode);
 
