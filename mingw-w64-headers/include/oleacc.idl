@@ -265,31 +265,31 @@ interface IAccessible : IDispatch
 {
     typedef [unique] IAccessible  *LPACCESSIBLE;
 
-    const long DISPID_ACC_PARENT            = -5000;
-    const long DISPID_ACC_CHILDCOUNT        = -5001;
-    const long DISPID_ACC_CHILD             = -5002;
-    const long DISPID_ACC_NAME              = -5003;
-    const long DISPID_ACC_VALUE             = -5004;
-    const long DISPID_ACC_DESCRIPTION       = -5005;
-    const long DISPID_ACC_ROLE              = -5006;
-    const long DISPID_ACC_STATE             = -5007;
-    const long DISPID_ACC_HELP              = -5008;
-    const long DISPID_ACC_HELPTOPIC         = -5009;
-    const long DISPID_ACC_KEYBOARDSHORTCUT  = -5010;
-    const long DISPID_ACC_FOCUS             = -5011;
-    const long DISPID_ACC_SELECTION         = -5012;
-    const long DISPID_ACC_DEFAULTACTION     = -5013;
-    const long DISPID_ACC_SELECT            = -5014;
-    const long DISPID_ACC_LOCATION          = -5015;
-    const long DISPID_ACC_NAVIGATE          = -5016;
-    const long DISPID_ACC_HITTEST           = -5017;
-    const long DISPID_ACC_DODEFAULTACTION   = -5018;
+    const LONG DISPID_ACC_PARENT            = -5000;
+    const LONG DISPID_ACC_CHILDCOUNT        = -5001;
+    const LONG DISPID_ACC_CHILD             = -5002;
+    const LONG DISPID_ACC_NAME              = -5003;
+    const LONG DISPID_ACC_VALUE             = -5004;
+    const LONG DISPID_ACC_DESCRIPTION       = -5005;
+    const LONG DISPID_ACC_ROLE              = -5006;
+    const LONG DISPID_ACC_STATE             = -5007;
+    const LONG DISPID_ACC_HELP              = -5008;
+    const LONG DISPID_ACC_HELPTOPIC         = -5009;
+    const LONG DISPID_ACC_KEYBOARDSHORTCUT  = -5010;
+    const LONG DISPID_ACC_FOCUS             = -5011;
+    const LONG DISPID_ACC_SELECTION         = -5012;
+    const LONG DISPID_ACC_DEFAULTACTION     = -5013;
+    const LONG DISPID_ACC_SELECT            = -5014;
+    const LONG DISPID_ACC_LOCATION          = -5015;
+    const LONG DISPID_ACC_NAVIGATE          = -5016;
+    const LONG DISPID_ACC_HITTEST           = -5017;
+    const LONG DISPID_ACC_DODEFAULTACTION   = -5018;
 
     [hidden, propget, id(DISPID_ACC_PARENT)]
     HRESULT accParent([out, retval] IDispatch **ppdispParent);
 
     [hidden, propget, id(DISPID_ACC_CHILDCOUNT)]
-    HRESULT accChildCount([out, retval] long *pcountChildren);
+    HRESULT accChildCount([out, retval] LONG *pcountChildren);
 
     [hidden, propget, id(DISPID_ACC_CHILD)]
     HRESULT accChild(
@@ -330,7 +330,7 @@ interface IAccessible : IDispatch
     HRESULT accHelpTopic(
             [out] BSTR *pszHelpFile,
             [in] VARIANT varID,
-            [out, retval] long *pidTopic);
+            [out, retval] LONG *pidTopic);
 
     [hidden, propget, id(DISPID_ACC_KEYBOARDSHORTCUT)]
     HRESULT accKeyboardShortcut(
@@ -350,27 +350,27 @@ interface IAccessible : IDispatch
 
     [hidden, id(DISPID_ACC_SELECT)]
     HRESULT accSelect(
-            [in] long flagsSelect,
+            [in] LONG flagsSelect,
             [in] VARIANT varID);
 
     [hidden, id(DISPID_ACC_LOCATION)]
     HRESULT accLocation(
-            [out] long *pxLeft,
-            [out] long *pyTop,
-            [out] long *pcxWidth,
-            [out] long *pcyHeight,
+            [out] LONG *pxLeft,
+            [out] LONG *pyTop,
+            [out] LONG *pcxWidth,
+            [out] LONG *pcyHeight,
             [in] VARIANT varID);
 
     [hidden, id(DISPID_ACC_NAVIGATE)]
     HRESULT accNavigate(
-            [in] long navDir,
+            [in] LONG navDir,
             [in] VARIANT varStart,
             [out, retval] VARIANT *pvarEnd);
 
     [hidden, id(DISPID_ACC_HITTEST)]
     HRESULT accHitTest(
-            [in] long xLeft,
-            [in] long yTop,
+            [in] LONG xLeft,
+            [in] LONG yTop,
             [out,retval] VARIANT *pvarID);
 
     [hidden, id(DISPID_ACC_DODEFAULTACTION)]
@@ -395,7 +395,7 @@ cpp_quote("  EXTERN_C const IID IID_IAccessibleHandler;")
 cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
 cpp_quote("  struct IAccessibleHandler : public IUnknown {")
 cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI AccessibleObjectFromID(long hwnd,long lObjectID,LPACCESSIBLE *pIAccessible) = 0;")
+cpp_quote("    virtual HRESULT WINAPI AccessibleObjectFromID(LONG hwnd,LONG lObjectID,LPACCESSIBLE *pIAccessible) = 0;")
 cpp_quote("  };")
 cpp_quote("#else")
 cpp_quote("  typedef struct IAccessibleHandlerVtbl {")
@@ -403,7 +403,7 @@ cpp_quote("    BEGIN_INTERFACE")
 cpp_quote("      HRESULT (WINAPI *QueryInterface)(IAccessibleHandler *This,REFIID riid,void **ppvObject);")
 cpp_quote("      ULONG (WINAPI *AddRef)(IAccessibleHandler *This);")
 cpp_quote("      ULONG (WINAPI *Release)(IAccessibleHandler *This);")
-cpp_quote("      HRESULT (WINAPI *AccessibleObjectFromID)(IAccessibleHandler *This,long hwnd,long lObjectID,LPACCESSIBLE *pIAccessible);")
+cpp_quote("      HRESULT (WINAPI *AccessibleObjectFromID)(IAccessibleHandler *This,LONG hwnd,LONG lObjectID,LPACCESSIBLE *pIAccessible);")
 cpp_quote("    END_INTERFACE")
 cpp_quote("  } IAccessibleHandlerVtbl;")
 cpp_quote("  struct IAccessibleHandler {")
@@ -416,7 +416,7 @@ cpp_quote("#define IAccessibleHandler_Release(This) (This)->lpVtbl->Release(This
 cpp_quote("#define IAccessibleHandler_AccessibleObjectFromID(This,hwnd,lObjectID,pIAccessible) (This)->lpVtbl->AccessibleObjectFromID(This,hwnd,lObjectID,pIAccessible)")
 cpp_quote("#endif")
 cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IAccessibleHandler_AccessibleObjectFromID_Proxy(IAccessibleHandler *This,long hwnd,long lObjectID,LPACCESSIBLE *pIAccessible);")
+cpp_quote("  HRESULT WINAPI IAccessibleHandler_AccessibleObjectFromID_Proxy(IAccessibleHandler *This,LONG hwnd,LONG lObjectID,LPACCESSIBLE *pIAccessible);")
 cpp_quote("  void __RPC_STUB IAccessibleHandler_AccessibleObjectFromID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
 cpp_quote("#endif")
 cpp_quote("")
@@ -603,19 +603,19 @@ cpp_quote("  class CAccPropServices;")
 cpp_quote("#endif")
 cpp_quote("#endif")
 cpp_quote("")
-cpp_quote("  unsigned long __RPC_API BSTR_UserSize(unsigned long *,unsigned long,BSTR *);")
-cpp_quote("  unsigned char *__RPC_API BSTR_UserMarshal(unsigned long *,unsigned char *,BSTR *);")
-cpp_quote("  unsigned char *__RPC_API BSTR_UserUnmarshal(unsigned long *,unsigned char *,BSTR *);")
-cpp_quote("  void __RPC_API BSTR_UserFree(unsigned long *,BSTR *);")
-cpp_quote("  unsigned long __RPC_API HMENU_UserSize(unsigned long *,unsigned long,HMENU *);")
-cpp_quote("  unsigned char *__RPC_API HMENU_UserMarshal(unsigned long *,unsigned char *,HMENU *);")
-cpp_quote("  unsigned char *__RPC_API HMENU_UserUnmarshal(unsigned long *,unsigned char *,HMENU *);")
-cpp_quote("  void __RPC_API HMENU_UserFree(unsigned long *,HMENU *);")
-cpp_quote("  unsigned long __RPC_API HWND_UserSize(unsigned long *,unsigned long,HWND *);")
-cpp_quote("  unsigned char *__RPC_API HWND_UserMarshal(unsigned long *,unsigned char *,HWND *);")
-cpp_quote("  unsigned char *__RPC_API HWND_UserUnmarshal(unsigned long *,unsigned char *,HWND *);")
-cpp_quote("  void __RPC_API HWND_UserFree(unsigned long *,HWND *);")
-cpp_quote("  unsigned long __RPC_API VARIANT_UserSize(unsigned long *,unsigned long,VARIANT *);")
-cpp_quote("  unsigned char *__RPC_API VARIANT_UserMarshal(unsigned long *,unsigned char *,VARIANT *);")
-cpp_quote("  unsigned char *__RPC_API VARIANT_UserUnmarshal(unsigned long *,unsigned char *,VARIANT *);")
-cpp_quote("  void __RPC_API VARIANT_UserFree(unsigned long *,VARIANT *);")
+cpp_quote("  ULONG __RPC_API BSTR_UserSize(ULONG *,ULONG,BSTR *);")
+cpp_quote("  unsigned char *__RPC_API BSTR_UserMarshal(ULONG *,unsigned char *,BSTR *);")
+cpp_quote("  unsigned char *__RPC_API BSTR_UserUnmarshal(ULONG *,unsigned char *,BSTR *);")
+cpp_quote("  void __RPC_API BSTR_UserFree(ULONG *,BSTR *);")
+cpp_quote("  ULONG __RPC_API HMENU_UserSize(ULONG *,ULONG,HMENU *);")
+cpp_quote("  unsigned char *__RPC_API HMENU_UserMarshal(ULONG *,unsigned char *,HMENU *);")
+cpp_quote("  unsigned char *__RPC_API HMENU_UserUnmarshal(ULONG *,unsigned char *,HMENU *);")
+cpp_quote("  void __RPC_API HMENU_UserFree(ULONG *,HMENU *);")
+cpp_quote("  ULONG __RPC_API HWND_UserSize(ULONG *,ULONG,HWND *);")
+cpp_quote("  unsigned char *__RPC_API HWND_UserMarshal(ULONG *,unsigned char *,HWND *);")
+cpp_quote("  unsigned char *__RPC_API HWND_UserUnmarshal(ULONG *,unsigned char *,HWND *);")
+cpp_quote("  void __RPC_API HWND_UserFree(ULONG *,HWND *);")
+cpp_quote("  ULONG __RPC_API VARIANT_UserSize(ULONG *,ULONG,VARIANT *);")
+cpp_quote("  unsigned char *__RPC_API VARIANT_UserMarshal(ULONG *,unsigned char *,VARIANT *);")
+cpp_quote("  unsigned char *__RPC_API VARIANT_UserUnmarshal(ULONG *,unsigned char *,VARIANT *);")
+cpp_quote("  void __RPC_API VARIANT_UserFree(ULONG *,VARIANT *);")

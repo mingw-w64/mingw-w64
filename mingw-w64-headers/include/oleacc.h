@@ -902,7 +902,7 @@ void __RPC_STUB IAccessible_put_accValue_Stub(
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAccessibleHandler : public IUnknown {
   public:
-    virtual HRESULT WINAPI AccessibleObjectFromID(long hwnd,long lObjectID,LPACCESSIBLE *pIAccessible) = 0;
+    virtual HRESULT WINAPI AccessibleObjectFromID(LONG hwnd,LONG lObjectID,LPACCESSIBLE *pIAccessible) = 0;
   };
 #else
   typedef struct IAccessibleHandlerVtbl {
@@ -910,7 +910,7 @@ void __RPC_STUB IAccessible_put_accValue_Stub(
       HRESULT (WINAPI *QueryInterface)(IAccessibleHandler *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IAccessibleHandler *This);
       ULONG (WINAPI *Release)(IAccessibleHandler *This);
-      HRESULT (WINAPI *AccessibleObjectFromID)(IAccessibleHandler *This,long hwnd,long lObjectID,LPACCESSIBLE *pIAccessible);
+      HRESULT (WINAPI *AccessibleObjectFromID)(IAccessibleHandler *This,LONG hwnd,LONG lObjectID,LPACCESSIBLE *pIAccessible);
     END_INTERFACE
   } IAccessibleHandlerVtbl;
   struct IAccessibleHandler {
@@ -923,7 +923,7 @@ void __RPC_STUB IAccessible_put_accValue_Stub(
 #define IAccessibleHandler_AccessibleObjectFromID(This,hwnd,lObjectID,pIAccessible) (This)->lpVtbl->AccessibleObjectFromID(This,hwnd,lObjectID,pIAccessible)
 #endif
 #endif
-  HRESULT WINAPI IAccessibleHandler_AccessibleObjectFromID_Proxy(IAccessibleHandler *This,long hwnd,long lObjectID,LPACCESSIBLE *pIAccessible);
+  HRESULT WINAPI IAccessibleHandler_AccessibleObjectFromID_Proxy(IAccessibleHandler *This,LONG hwnd,LONG lObjectID,LPACCESSIBLE *pIAccessible);
   void __RPC_STUB IAccessibleHandler_AccessibleObjectFromID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1110,22 +1110,22 @@ void __RPC_STUB IAccessible_put_accValue_Stub(
 #endif
 #endif
 
-  unsigned long __RPC_API BSTR_UserSize(unsigned long *,unsigned long,BSTR *);
-  unsigned char *__RPC_API BSTR_UserMarshal(unsigned long *,unsigned char *,BSTR *);
-  unsigned char *__RPC_API BSTR_UserUnmarshal(unsigned long *,unsigned char *,BSTR *);
-  void __RPC_API BSTR_UserFree(unsigned long *,BSTR *);
-  unsigned long __RPC_API HMENU_UserSize(unsigned long *,unsigned long,HMENU *);
-  unsigned char *__RPC_API HMENU_UserMarshal(unsigned long *,unsigned char *,HMENU *);
-  unsigned char *__RPC_API HMENU_UserUnmarshal(unsigned long *,unsigned char *,HMENU *);
-  void __RPC_API HMENU_UserFree(unsigned long *,HMENU *);
-  unsigned long __RPC_API HWND_UserSize(unsigned long *,unsigned long,HWND *);
-  unsigned char *__RPC_API HWND_UserMarshal(unsigned long *,unsigned char *,HWND *);
-  unsigned char *__RPC_API HWND_UserUnmarshal(unsigned long *,unsigned char *,HWND *);
-  void __RPC_API HWND_UserFree(unsigned long *,HWND *);
-  unsigned long __RPC_API VARIANT_UserSize(unsigned long *,unsigned long,VARIANT *);
-  unsigned char *__RPC_API VARIANT_UserMarshal(unsigned long *,unsigned char *,VARIANT *);
-  unsigned char *__RPC_API VARIANT_UserUnmarshal(unsigned long *,unsigned char *,VARIANT *);
-  void __RPC_API VARIANT_UserFree(unsigned long *,VARIANT *);
+  ULONG __RPC_API BSTR_UserSize(ULONG *,ULONG,BSTR *);
+  unsigned char *__RPC_API BSTR_UserMarshal(ULONG *,unsigned char *,BSTR *);
+  unsigned char *__RPC_API BSTR_UserUnmarshal(ULONG *,unsigned char *,BSTR *);
+  void __RPC_API BSTR_UserFree(ULONG *,BSTR *);
+  ULONG __RPC_API HMENU_UserSize(ULONG *,ULONG,HMENU *);
+  unsigned char *__RPC_API HMENU_UserMarshal(ULONG *,unsigned char *,HMENU *);
+  unsigned char *__RPC_API HMENU_UserUnmarshal(ULONG *,unsigned char *,HMENU *);
+  void __RPC_API HMENU_UserFree(ULONG *,HMENU *);
+  ULONG __RPC_API HWND_UserSize(ULONG *,ULONG,HWND *);
+  unsigned char *__RPC_API HWND_UserMarshal(ULONG *,unsigned char *,HWND *);
+  unsigned char *__RPC_API HWND_UserUnmarshal(ULONG *,unsigned char *,HWND *);
+  void __RPC_API HWND_UserFree(ULONG *,HWND *);
+  ULONG __RPC_API VARIANT_UserSize(ULONG *,ULONG,VARIANT *);
+  unsigned char *__RPC_API VARIANT_UserMarshal(ULONG *,unsigned char *,VARIANT *);
+  unsigned char *__RPC_API VARIANT_UserUnmarshal(ULONG *,unsigned char *,VARIANT *);
+  void __RPC_API VARIANT_UserFree(ULONG *,VARIANT *);
 /* Begin additional prototypes for all interfaces */
 
 
