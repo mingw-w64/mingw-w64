@@ -197,6 +197,7 @@ interface ISensorManager {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ISensorManager_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ISensorManager_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -207,6 +208,34 @@ interface ISensorManager {
 #define ISensorManager_GetSensorByID(This,sensorID,ppSensor) (This)->lpVtbl->GetSensorByID(This,sensorID,ppSensor)
 #define ISensorManager_SetEventSink(This,pEvents) (This)->lpVtbl->SetEventSink(This,pEvents)
 #define ISensorManager_RequestPermissions(This,hParent,pSensors,fModal) (This)->lpVtbl->RequestPermissions(This,hParent,pSensors,fModal)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ISensorManager_QueryInterface(ISensorManager* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ISensorManager_AddRef(ISensorManager* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ISensorManager_Release(ISensorManager* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ISensorManager methods ***/
+static FORCEINLINE HRESULT ISensorManager_GetSensorsByCategory(ISensorManager* This,REFSENSOR_CATEGORY_ID sensorCategory,ISensorCollection **ppSensorsFound) {
+    return This->lpVtbl->GetSensorsByCategory(This,sensorCategory,ppSensorsFound);
+}
+static FORCEINLINE HRESULT ISensorManager_GetSensorsByType(ISensorManager* This,REFSENSOR_TYPE_ID sensorType,ISensorCollection **ppSensorsFound) {
+    return This->lpVtbl->GetSensorsByType(This,sensorType,ppSensorsFound);
+}
+static FORCEINLINE HRESULT ISensorManager_GetSensorByID(ISensorManager* This,REFSENSOR_ID sensorID,ISensor **ppSensor) {
+    return This->lpVtbl->GetSensorByID(This,sensorID,ppSensor);
+}
+static FORCEINLINE HRESULT ISensorManager_SetEventSink(ISensorManager* This,ISensorManagerEvents *pEvents) {
+    return This->lpVtbl->SetEventSink(This,pEvents);
+}
+static FORCEINLINE HRESULT ISensorManager_RequestPermissions(ISensorManager* This,HWND hParent,ISensorCollection *pSensors,WINBOOL fModal) {
+    return This->lpVtbl->RequestPermissions(This,hParent,pSensors,fModal);
+}
+#endif
 #endif
 
 #endif
@@ -341,6 +370,7 @@ interface ISensorCollection {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ISensorCollection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ISensorCollection_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -352,6 +382,37 @@ interface ISensorCollection {
 #define ISensorCollection_Remove(This,pSensor) (This)->lpVtbl->Remove(This,pSensor)
 #define ISensorCollection_RemoveByID(This,sensorID) (This)->lpVtbl->RemoveByID(This,sensorID)
 #define ISensorCollection_Clear(This) (This)->lpVtbl->Clear(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ISensorCollection_QueryInterface(ISensorCollection* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ISensorCollection_AddRef(ISensorCollection* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ISensorCollection_Release(ISensorCollection* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ISensorCollection methods ***/
+static FORCEINLINE HRESULT ISensorCollection_GetAt(ISensorCollection* This,ULONG ulIndex,ISensor **ppSensor) {
+    return This->lpVtbl->GetAt(This,ulIndex,ppSensor);
+}
+static FORCEINLINE HRESULT ISensorCollection_GetCount(ISensorCollection* This,ULONG *pCount) {
+    return This->lpVtbl->GetCount(This,pCount);
+}
+static FORCEINLINE HRESULT ISensorCollection_Add(ISensorCollection* This,ISensor *pSensor) {
+    return This->lpVtbl->Add(This,pSensor);
+}
+static FORCEINLINE HRESULT ISensorCollection_Remove(ISensorCollection* This,ISensor *pSensor) {
+    return This->lpVtbl->Remove(This,pSensor);
+}
+static FORCEINLINE HRESULT ISensorCollection_RemoveByID(ISensorCollection* This,REFSENSOR_ID sensorID) {
+    return This->lpVtbl->RemoveByID(This,sensorID);
+}
+static FORCEINLINE HRESULT ISensorCollection_Clear(ISensorCollection* This) {
+    return This->lpVtbl->Clear(This);
+}
+#endif
 #endif
 
 #endif
@@ -565,6 +626,7 @@ interface ISensor {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ISensor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ISensor_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -585,6 +647,64 @@ interface ISensor {
 #define ISensor_GetEventInterest(This,ppValues,pCount) (This)->lpVtbl->GetEventInterest(This,ppValues,pCount)
 #define ISensor_SetEventInterest(This,pValues,count) (This)->lpVtbl->SetEventInterest(This,pValues,count)
 #define ISensor_SetEventSink(This,pEvents) (This)->lpVtbl->SetEventSink(This,pEvents)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ISensor_QueryInterface(ISensor* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ISensor_AddRef(ISensor* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ISensor_Release(ISensor* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ISensor methods ***/
+static FORCEINLINE HRESULT ISensor_GetID(ISensor* This,SENSOR_ID *pID) {
+    return This->lpVtbl->GetID(This,pID);
+}
+static FORCEINLINE HRESULT ISensor_GetCategory(ISensor* This,SENSOR_CATEGORY_ID *pSensorCategory) {
+    return This->lpVtbl->GetCategory(This,pSensorCategory);
+}
+static FORCEINLINE HRESULT ISensor_GetType(ISensor* This,SENSOR_TYPE_ID *pSensorType) {
+    return This->lpVtbl->GetType(This,pSensorType);
+}
+static FORCEINLINE HRESULT ISensor_GetFriendlyName(ISensor* This,BSTR *pFriendlyName) {
+    return This->lpVtbl->GetFriendlyName(This,pFriendlyName);
+}
+static FORCEINLINE HRESULT ISensor_GetProperty(ISensor* This,REFPROPERTYKEY key,PROPVARIANT *pProperty) {
+    return This->lpVtbl->GetProperty(This,key,pProperty);
+}
+static FORCEINLINE HRESULT ISensor_GetProperties(ISensor* This,IPortableDeviceKeyCollection *pKeys,IPortableDeviceValues **ppProperties) {
+    return This->lpVtbl->GetProperties(This,pKeys,ppProperties);
+}
+static FORCEINLINE HRESULT ISensor_GetSupportedDataFields(ISensor* This,IPortableDeviceKeyCollection **ppDataFields) {
+    return This->lpVtbl->GetSupportedDataFields(This,ppDataFields);
+}
+static FORCEINLINE HRESULT ISensor_SetProperties(ISensor* This,IPortableDeviceValues *pProperties,IPortableDeviceValues **ppResults) {
+    return This->lpVtbl->SetProperties(This,pProperties,ppResults);
+}
+static FORCEINLINE HRESULT ISensor_SupportsDataField(ISensor* This,REFPROPERTYKEY key,VARIANT_BOOL *pIsSupported) {
+    return This->lpVtbl->SupportsDataField(This,key,pIsSupported);
+}
+static FORCEINLINE HRESULT ISensor_GetState(ISensor* This,SensorState *pState) {
+    return This->lpVtbl->GetState(This,pState);
+}
+static FORCEINLINE HRESULT ISensor_GetData(ISensor* This,ISensorDataReport **ppDataReport) {
+    return This->lpVtbl->GetData(This,ppDataReport);
+}
+static FORCEINLINE HRESULT ISensor_SupportsEvent(ISensor* This,REFGUID eventGuid,VARIANT_BOOL *pIsSupported) {
+    return This->lpVtbl->SupportsEvent(This,eventGuid,pIsSupported);
+}
+static FORCEINLINE HRESULT ISensor_GetEventInterest(ISensor* This,GUID **ppValues,ULONG *pCount) {
+    return This->lpVtbl->GetEventInterest(This,ppValues,pCount);
+}
+static FORCEINLINE HRESULT ISensor_SetEventInterest(ISensor* This,GUID *pValues,ULONG count) {
+    return This->lpVtbl->SetEventInterest(This,pValues,count);
+}
+static FORCEINLINE HRESULT ISensor_SetEventSink(ISensor* This,ISensorEvents *pEvents) {
+    return This->lpVtbl->SetEventSink(This,pEvents);
+}
+#endif
 #endif
 
 #endif
@@ -783,6 +903,7 @@ interface ISensorDataReport {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ISensorDataReport_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ISensorDataReport_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -791,6 +912,28 @@ interface ISensorDataReport {
 #define ISensorDataReport_GetTimestamp(This,pTimeStamp) (This)->lpVtbl->GetTimestamp(This,pTimeStamp)
 #define ISensorDataReport_GetSensorValue(This,pKey,pValue) (This)->lpVtbl->GetSensorValue(This,pKey,pValue)
 #define ISensorDataReport_GetSensorValues(This,pKeys,ppValues) (This)->lpVtbl->GetSensorValues(This,pKeys,ppValues)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ISensorDataReport_QueryInterface(ISensorDataReport* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ISensorDataReport_AddRef(ISensorDataReport* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ISensorDataReport_Release(ISensorDataReport* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ISensorDataReport methods ***/
+static FORCEINLINE HRESULT ISensorDataReport_GetTimestamp(ISensorDataReport* This,SYSTEMTIME *pTimeStamp) {
+    return This->lpVtbl->GetTimestamp(This,pTimeStamp);
+}
+static FORCEINLINE HRESULT ISensorDataReport_GetSensorValue(ISensorDataReport* This,REFPROPERTYKEY pKey,PROPVARIANT *pValue) {
+    return This->lpVtbl->GetSensorValue(This,pKey,pValue);
+}
+static FORCEINLINE HRESULT ISensorDataReport_GetSensorValues(ISensorDataReport* This,IPortableDeviceKeyCollection *pKeys,IPortableDeviceValues **ppValues) {
+    return This->lpVtbl->GetSensorValues(This,pKeys,ppValues);
+}
+#endif
 #endif
 
 #endif
@@ -872,12 +1015,29 @@ interface ISensorManagerEvents {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ISensorManagerEvents_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ISensorManagerEvents_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define ISensorManagerEvents_Release(This) (This)->lpVtbl->Release(This)
 /*** ISensorManagerEvents methods ***/
 #define ISensorManagerEvents_OnSensorEnter(This,pSensor,state) (This)->lpVtbl->OnSensorEnter(This,pSensor,state)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ISensorManagerEvents_QueryInterface(ISensorManagerEvents* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ISensorManagerEvents_AddRef(ISensorManagerEvents* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ISensorManagerEvents_Release(ISensorManagerEvents* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ISensorManagerEvents methods ***/
+static FORCEINLINE HRESULT ISensorManagerEvents_OnSensorEnter(ISensorManagerEvents* This,ISensor *pSensor,SensorState state) {
+    return This->lpVtbl->OnSensorEnter(This,pSensor,state);
+}
+#endif
 #endif
 
 #endif
@@ -969,6 +1129,7 @@ interface ISensorEvents {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ISensorEvents_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ISensorEvents_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -978,6 +1139,31 @@ interface ISensorEvents {
 #define ISensorEvents_OnDataUpdated(This,pSensor,pNewData) (This)->lpVtbl->OnDataUpdated(This,pSensor,pNewData)
 #define ISensorEvents_OnEvent(This,pSensor,eventID,pEventData) (This)->lpVtbl->OnEvent(This,pSensor,eventID,pEventData)
 #define ISensorEvents_OnLeave(This,ID) (This)->lpVtbl->OnLeave(This,ID)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ISensorEvents_QueryInterface(ISensorEvents* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ISensorEvents_AddRef(ISensorEvents* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ISensorEvents_Release(ISensorEvents* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ISensorEvents methods ***/
+static FORCEINLINE HRESULT ISensorEvents_OnStateChanged(ISensorEvents* This,ISensor *pSensor,SensorState state) {
+    return This->lpVtbl->OnStateChanged(This,pSensor,state);
+}
+static FORCEINLINE HRESULT ISensorEvents_OnDataUpdated(ISensorEvents* This,ISensor *pSensor,ISensorDataReport *pNewData) {
+    return This->lpVtbl->OnDataUpdated(This,pSensor,pNewData);
+}
+static FORCEINLINE HRESULT ISensorEvents_OnEvent(ISensorEvents* This,ISensor *pSensor,REFGUID eventID,IPortableDeviceValues *pEventData) {
+    return This->lpVtbl->OnEvent(This,pSensor,eventID,pEventData);
+}
+static FORCEINLINE HRESULT ISensorEvents_OnLeave(ISensorEvents* This,REFSENSOR_ID ID) {
+    return This->lpVtbl->OnLeave(This,ID);
+}
+#endif
 #endif
 
 #endif

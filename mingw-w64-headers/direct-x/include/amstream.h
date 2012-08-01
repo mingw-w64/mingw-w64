@@ -250,6 +250,7 @@ interface IDirectShowStream {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDirectShowStream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDirectShowStream_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -266,6 +267,50 @@ interface IDirectShowStream {
 #define IDirectShowStream_put_Video(This,newVal) (This)->lpVtbl->put_Video(This,newVal)
 #define IDirectShowStream_get_Audio(This,pVal) (This)->lpVtbl->get_Audio(This,pVal)
 #define IDirectShowStream_put_Audio(This,newVal) (This)->lpVtbl->put_Audio(This,newVal)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDirectShowStream_QueryInterface(IDirectShowStream* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDirectShowStream_AddRef(IDirectShowStream* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDirectShowStream_Release(IDirectShowStream* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static FORCEINLINE HRESULT IDirectShowStream_GetTypeInfoCount(IDirectShowStream* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static FORCEINLINE HRESULT IDirectShowStream_GetTypeInfo(IDirectShowStream* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static FORCEINLINE HRESULT IDirectShowStream_GetIDsOfNames(IDirectShowStream* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static FORCEINLINE HRESULT IDirectShowStream_Invoke(IDirectShowStream* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+/*** IDirectShowStream methods ***/
+static FORCEINLINE HRESULT IDirectShowStream_get_FileName(IDirectShowStream* This,BSTR *pVal) {
+    return This->lpVtbl->get_FileName(This,pVal);
+}
+static FORCEINLINE HRESULT IDirectShowStream_put_FileName(IDirectShowStream* This,BSTR newVal) {
+    return This->lpVtbl->put_FileName(This,newVal);
+}
+static FORCEINLINE HRESULT IDirectShowStream_get_Video(IDirectShowStream* This,OUTPUT_STATE *pVal) {
+    return This->lpVtbl->get_Video(This,pVal);
+}
+static FORCEINLINE HRESULT IDirectShowStream_put_Video(IDirectShowStream* This,OUTPUT_STATE newVal) {
+    return This->lpVtbl->put_Video(This,newVal);
+}
+static FORCEINLINE HRESULT IDirectShowStream_get_Audio(IDirectShowStream* This,OUTPUT_STATE *pVal) {
+    return This->lpVtbl->get_Audio(This,pVal);
+}
+static FORCEINLINE HRESULT IDirectShowStream_put_Audio(IDirectShowStream* This,OUTPUT_STATE newVal) {
+    return This->lpVtbl->put_Audio(This,newVal);
+}
+#endif
 #endif
 
 #endif
@@ -465,6 +510,7 @@ interface IAMMultiMediaStream {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAMMultiMediaStream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAMMultiMediaStream_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -487,6 +533,68 @@ interface IAMMultiMediaStream {
 #define IAMMultiMediaStream_OpenFile(This,pszFileName,dwFlags) (This)->lpVtbl->OpenFile(This,pszFileName,dwFlags)
 #define IAMMultiMediaStream_OpenMoniker(This,pCtx,pMoniker,dwFlags) (This)->lpVtbl->OpenMoniker(This,pCtx,pMoniker,dwFlags)
 #define IAMMultiMediaStream_Render(This,dwFlags) (This)->lpVtbl->Render(This,dwFlags)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAMMultiMediaStream_QueryInterface(IAMMultiMediaStream* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAMMultiMediaStream_AddRef(IAMMultiMediaStream* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAMMultiMediaStream_Release(IAMMultiMediaStream* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMultiMediaStream methods ***/
+static FORCEINLINE HRESULT IAMMultiMediaStream_GetInformation(IAMMultiMediaStream* This,DWORD *pdwFlags,STREAM_TYPE *pStreamType) {
+    return This->lpVtbl->GetInformation(This,pdwFlags,pStreamType);
+}
+static FORCEINLINE HRESULT IAMMultiMediaStream_GetMediaStream(IAMMultiMediaStream* This,REFMSPID idPurpose,IMediaStream **ppMediaStream) {
+    return This->lpVtbl->GetMediaStream(This,idPurpose,ppMediaStream);
+}
+static FORCEINLINE HRESULT IAMMultiMediaStream_EnumMediaStreams(IAMMultiMediaStream* This,LONG Index,IMediaStream **ppMediaStream) {
+    return This->lpVtbl->EnumMediaStreams(This,Index,ppMediaStream);
+}
+static FORCEINLINE HRESULT IAMMultiMediaStream_GetState(IAMMultiMediaStream* This,STREAM_STATE *pCurrentState) {
+    return This->lpVtbl->GetState(This,pCurrentState);
+}
+static FORCEINLINE HRESULT IAMMultiMediaStream_SetState(IAMMultiMediaStream* This,STREAM_STATE NewState) {
+    return This->lpVtbl->SetState(This,NewState);
+}
+static FORCEINLINE HRESULT IAMMultiMediaStream_GetTime(IAMMultiMediaStream* This,STREAM_TIME *pCurrentTime) {
+    return This->lpVtbl->GetTime(This,pCurrentTime);
+}
+static FORCEINLINE HRESULT IAMMultiMediaStream_GetDuration(IAMMultiMediaStream* This,STREAM_TIME *pDuration) {
+    return This->lpVtbl->GetDuration(This,pDuration);
+}
+static FORCEINLINE HRESULT IAMMultiMediaStream_Seek(IAMMultiMediaStream* This,STREAM_TIME SeekTime) {
+    return This->lpVtbl->Seek(This,SeekTime);
+}
+static FORCEINLINE HRESULT IAMMultiMediaStream_GetEndOfStreamEventHandle(IAMMultiMediaStream* This,HANDLE *phEOS) {
+    return This->lpVtbl->GetEndOfStreamEventHandle(This,phEOS);
+}
+/*** IAMMultiMediaStream methods ***/
+static FORCEINLINE HRESULT IAMMultiMediaStream_Initialize(IAMMultiMediaStream* This,STREAM_TYPE StreamType,DWORD dwFlags,IGraphBuilder *pFilterGraph) {
+    return This->lpVtbl->Initialize(This,StreamType,dwFlags,pFilterGraph);
+}
+static FORCEINLINE HRESULT IAMMultiMediaStream_GetFilterGraph(IAMMultiMediaStream* This,IGraphBuilder **ppGraphBuilder) {
+    return This->lpVtbl->GetFilterGraph(This,ppGraphBuilder);
+}
+static FORCEINLINE HRESULT IAMMultiMediaStream_GetFilter(IAMMultiMediaStream* This,IMediaStreamFilter **ppFilter) {
+    return This->lpVtbl->GetFilter(This,ppFilter);
+}
+static FORCEINLINE HRESULT IAMMultiMediaStream_AddMediaStream(IAMMultiMediaStream* This,IUnknown *pStreamObject,const MSPID *PurposeId,DWORD dwFlags,IMediaStream **ppNewStream) {
+    return This->lpVtbl->AddMediaStream(This,pStreamObject,PurposeId,dwFlags,ppNewStream);
+}
+static FORCEINLINE HRESULT IAMMultiMediaStream_OpenFile(IAMMultiMediaStream* This,LPCWSTR pszFileName,DWORD dwFlags) {
+    return This->lpVtbl->OpenFile(This,pszFileName,dwFlags);
+}
+static FORCEINLINE HRESULT IAMMultiMediaStream_OpenMoniker(IAMMultiMediaStream* This,IBindCtx *pCtx,IMoniker *pMoniker,DWORD dwFlags) {
+    return This->lpVtbl->OpenMoniker(This,pCtx,pMoniker,dwFlags);
+}
+static FORCEINLINE HRESULT IAMMultiMediaStream_Render(IAMMultiMediaStream* This,DWORD dwFlags) {
+    return This->lpVtbl->Render(This,dwFlags);
+}
+#endif
 #endif
 
 #endif
@@ -668,6 +776,7 @@ interface IAMMediaStream {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAMMediaStream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAMMediaStream_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -685,6 +794,53 @@ interface IAMMediaStream {
 #define IAMMediaStream_JoinAMMultiMediaStream(This,pAMMultiMediaStream) (This)->lpVtbl->JoinAMMultiMediaStream(This,pAMMultiMediaStream)
 #define IAMMediaStream_JoinFilter(This,pMediaStreamFilter) (This)->lpVtbl->JoinFilter(This,pMediaStreamFilter)
 #define IAMMediaStream_JoinFilterGraph(This,pFilterGraph) (This)->lpVtbl->JoinFilterGraph(This,pFilterGraph)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAMMediaStream_QueryInterface(IAMMediaStream* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAMMediaStream_AddRef(IAMMediaStream* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAMMediaStream_Release(IAMMediaStream* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMediaStream methods ***/
+static FORCEINLINE HRESULT IAMMediaStream_GetMultiMediaStream(IAMMediaStream* This,IMultiMediaStream **ppMultiMediaStream) {
+    return This->lpVtbl->GetMultiMediaStream(This,ppMultiMediaStream);
+}
+static FORCEINLINE HRESULT IAMMediaStream_GetInformation(IAMMediaStream* This,MSPID *pPurposeId,STREAM_TYPE *pType) {
+    return This->lpVtbl->GetInformation(This,pPurposeId,pType);
+}
+static FORCEINLINE HRESULT IAMMediaStream_SetSameFormat(IAMMediaStream* This,IMediaStream *pStreamThatHasDesiredFormat,DWORD dwFlags) {
+    return This->lpVtbl->SetSameFormat(This,pStreamThatHasDesiredFormat,dwFlags);
+}
+static FORCEINLINE HRESULT IAMMediaStream_AllocateSample(IAMMediaStream* This,DWORD dwFlags,IStreamSample **ppSample) {
+    return This->lpVtbl->AllocateSample(This,dwFlags,ppSample);
+}
+static FORCEINLINE HRESULT IAMMediaStream_CreateSharedSample(IAMMediaStream* This,IStreamSample *pExistingSample,DWORD dwFlags,IStreamSample **ppNewSample) {
+    return This->lpVtbl->CreateSharedSample(This,pExistingSample,dwFlags,ppNewSample);
+}
+static FORCEINLINE HRESULT IAMMediaStream_SendEndOfStream(IAMMediaStream* This,DWORD dwFlags) {
+    return This->lpVtbl->SendEndOfStream(This,dwFlags);
+}
+/*** IAMMediaStream methods ***/
+static FORCEINLINE HRESULT IAMMediaStream_Initialize(IAMMediaStream* This,IUnknown *pSourceObject,DWORD dwFlags,REFMSPID PurposeId,const STREAM_TYPE StreamType) {
+    return This->lpVtbl->Initialize(This,pSourceObject,dwFlags,PurposeId,StreamType);
+}
+static FORCEINLINE HRESULT IAMMediaStream_SetState(IAMMediaStream* This,FILTER_STATE State) {
+    return This->lpVtbl->SetState(This,State);
+}
+static FORCEINLINE HRESULT IAMMediaStream_JoinAMMultiMediaStream(IAMMediaStream* This,IAMMultiMediaStream *pAMMultiMediaStream) {
+    return This->lpVtbl->JoinAMMultiMediaStream(This,pAMMultiMediaStream);
+}
+static FORCEINLINE HRESULT IAMMediaStream_JoinFilter(IAMMediaStream* This,IMediaStreamFilter *pMediaStreamFilter) {
+    return This->lpVtbl->JoinFilter(This,pMediaStreamFilter);
+}
+static FORCEINLINE HRESULT IAMMediaStream_JoinFilterGraph(IAMMediaStream* This,IFilterGraph *pFilterGraph) {
+    return This->lpVtbl->JoinFilterGraph(This,pFilterGraph);
+}
+#endif
 #endif
 
 #endif
@@ -892,6 +1048,7 @@ interface IMediaStreamFilter {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IMediaStreamFilter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IMediaStreamFilter_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -921,6 +1078,85 @@ interface IMediaStreamFilter {
 #define IMediaStreamFilter_WaitUntil(This,WaitStreamTime) (This)->lpVtbl->WaitUntil(This,WaitStreamTime)
 #define IMediaStreamFilter_Flush(This,bCancelEOS) (This)->lpVtbl->Flush(This,bCancelEOS)
 #define IMediaStreamFilter_EndOfStream(This) (This)->lpVtbl->EndOfStream(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMediaStreamFilter_QueryInterface(IMediaStreamFilter* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMediaStreamFilter_AddRef(IMediaStreamFilter* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMediaStreamFilter_Release(IMediaStreamFilter* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPersist methods ***/
+static FORCEINLINE HRESULT IMediaStreamFilter_GetClassID(IMediaStreamFilter* This,CLSID *pClassID) {
+    return This->lpVtbl->GetClassID(This,pClassID);
+}
+/*** IMediaFilter methods ***/
+static FORCEINLINE HRESULT IMediaStreamFilter_Stop(IMediaStreamFilter* This) {
+    return This->lpVtbl->Stop(This);
+}
+static FORCEINLINE HRESULT IMediaStreamFilter_Pause(IMediaStreamFilter* This) {
+    return This->lpVtbl->Pause(This);
+}
+static FORCEINLINE HRESULT IMediaStreamFilter_Run(IMediaStreamFilter* This,REFERENCE_TIME tStart) {
+    return This->lpVtbl->Run(This,tStart);
+}
+static FORCEINLINE HRESULT IMediaStreamFilter_GetState(IMediaStreamFilter* This,DWORD dwMilliSecsTimeout,FILTER_STATE *State) {
+    return This->lpVtbl->GetState(This,dwMilliSecsTimeout,State);
+}
+static FORCEINLINE HRESULT IMediaStreamFilter_SetSyncSource(IMediaStreamFilter* This,IReferenceClock *pClock) {
+    return This->lpVtbl->SetSyncSource(This,pClock);
+}
+static FORCEINLINE HRESULT IMediaStreamFilter_GetSyncSource(IMediaStreamFilter* This,IReferenceClock **pClock) {
+    return This->lpVtbl->GetSyncSource(This,pClock);
+}
+/*** IBaseFilter methods ***/
+static FORCEINLINE HRESULT IMediaStreamFilter_EnumPins(IMediaStreamFilter* This,IEnumPins **ppEnum) {
+    return This->lpVtbl->EnumPins(This,ppEnum);
+}
+static FORCEINLINE HRESULT IMediaStreamFilter_FindPin(IMediaStreamFilter* This,LPCWSTR Id,IPin **ppPin) {
+    return This->lpVtbl->FindPin(This,Id,ppPin);
+}
+static FORCEINLINE HRESULT IMediaStreamFilter_QueryFilterInfo(IMediaStreamFilter* This,FILTER_INFO *pInfo) {
+    return This->lpVtbl->QueryFilterInfo(This,pInfo);
+}
+static FORCEINLINE HRESULT IMediaStreamFilter_JoinFilterGraph(IMediaStreamFilter* This,IFilterGraph *pGraph,LPCWSTR pName) {
+    return This->lpVtbl->JoinFilterGraph(This,pGraph,pName);
+}
+static FORCEINLINE HRESULT IMediaStreamFilter_QueryVendorInfo(IMediaStreamFilter* This,LPWSTR *pVendorInfo) {
+    return This->lpVtbl->QueryVendorInfo(This,pVendorInfo);
+}
+/*** IMediaStreamFilter methods ***/
+static FORCEINLINE HRESULT IMediaStreamFilter_AddMediaStream(IMediaStreamFilter* This,IAMMediaStream *pAMMediaStream) {
+    return This->lpVtbl->AddMediaStream(This,pAMMediaStream);
+}
+static FORCEINLINE HRESULT IMediaStreamFilter_GetMediaStream(IMediaStreamFilter* This,REFMSPID idPurpose,IMediaStream **ppMediaStream) {
+    return This->lpVtbl->GetMediaStream(This,idPurpose,ppMediaStream);
+}
+static FORCEINLINE HRESULT IMediaStreamFilter_EnumMediaStreams(IMediaStreamFilter* This,LONG Index,IMediaStream **ppMediaStream) {
+    return This->lpVtbl->EnumMediaStreams(This,Index,ppMediaStream);
+}
+static FORCEINLINE HRESULT IMediaStreamFilter_SupportSeeking(IMediaStreamFilter* This,WINBOOL bRenderer) {
+    return This->lpVtbl->SupportSeeking(This,bRenderer);
+}
+static FORCEINLINE HRESULT IMediaStreamFilter_ReferenceTimeToStreamTime(IMediaStreamFilter* This,REFERENCE_TIME *pTime) {
+    return This->lpVtbl->ReferenceTimeToStreamTime(This,pTime);
+}
+static FORCEINLINE HRESULT IMediaStreamFilter_GetCurrentStreamTime(IMediaStreamFilter* This,REFERENCE_TIME *pCurrentStreamTime) {
+    return This->lpVtbl->GetCurrentStreamTime(This,pCurrentStreamTime);
+}
+static FORCEINLINE HRESULT IMediaStreamFilter_WaitUntil(IMediaStreamFilter* This,REFERENCE_TIME WaitStreamTime) {
+    return This->lpVtbl->WaitUntil(This,WaitStreamTime);
+}
+static FORCEINLINE HRESULT IMediaStreamFilter_Flush(IMediaStreamFilter* This,WINBOOL bCancelEOS) {
+    return This->lpVtbl->Flush(This,bCancelEOS);
+}
+static FORCEINLINE HRESULT IMediaStreamFilter_EndOfStream(IMediaStreamFilter* This) {
+    return This->lpVtbl->EndOfStream(This);
+}
+#endif
 #endif
 
 #endif
@@ -1047,12 +1283,29 @@ interface IDirectDrawMediaSampleAllocator {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDirectDrawMediaSampleAllocator_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDirectDrawMediaSampleAllocator_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IDirectDrawMediaSampleAllocator_Release(This) (This)->lpVtbl->Release(This)
 /*** IDirectDrawMediaSampleAllocator methods ***/
 #define IDirectDrawMediaSampleAllocator_GetDirectDraw(This,ppDirectDraw) (This)->lpVtbl->GetDirectDraw(This,ppDirectDraw)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDirectDrawMediaSampleAllocator_QueryInterface(IDirectDrawMediaSampleAllocator* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDirectDrawMediaSampleAllocator_AddRef(IDirectDrawMediaSampleAllocator* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDirectDrawMediaSampleAllocator_Release(IDirectDrawMediaSampleAllocator* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDirectDrawMediaSampleAllocator methods ***/
+static FORCEINLINE HRESULT IDirectDrawMediaSampleAllocator_GetDirectDraw(IDirectDrawMediaSampleAllocator* This,IDirectDraw **ppDirectDraw) {
+    return This->lpVtbl->GetDirectDraw(This,ppDirectDraw);
+}
+#endif
 #endif
 
 #endif
@@ -1122,6 +1375,7 @@ interface IDirectDrawMediaSample {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDirectDrawMediaSample_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDirectDrawMediaSample_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1129,6 +1383,25 @@ interface IDirectDrawMediaSample {
 /*** IDirectDrawMediaSample methods ***/
 #define IDirectDrawMediaSample_GetSurfaceAndReleaseLock(This,ppDirectDrawSurface,pRect) (This)->lpVtbl->GetSurfaceAndReleaseLock(This,ppDirectDrawSurface,pRect)
 #define IDirectDrawMediaSample_LockMediaSamplePointer(This) (This)->lpVtbl->LockMediaSamplePointer(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDirectDrawMediaSample_QueryInterface(IDirectDrawMediaSample* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDirectDrawMediaSample_AddRef(IDirectDrawMediaSample* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDirectDrawMediaSample_Release(IDirectDrawMediaSample* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDirectDrawMediaSample methods ***/
+static FORCEINLINE HRESULT IDirectDrawMediaSample_GetSurfaceAndReleaseLock(IDirectDrawMediaSample* This,IDirectDrawSurface **ppDirectDrawSurface,RECT *pRect) {
+    return This->lpVtbl->GetSurfaceAndReleaseLock(This,ppDirectDrawSurface,pRect);
+}
+static FORCEINLINE HRESULT IDirectDrawMediaSample_LockMediaSamplePointer(IDirectDrawMediaSample* This) {
+    return This->lpVtbl->LockMediaSamplePointer(This);
+}
+#endif
 #endif
 
 #endif
@@ -1268,6 +1541,7 @@ interface IAMMediaTypeStream {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAMMediaTypeStream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAMMediaTypeStream_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1285,6 +1559,53 @@ interface IAMMediaTypeStream {
 #define IAMMediaTypeStream_CreateSample(This,lSampleSize,pbBuffer,dwFlags,pUnkOuter,ppAMMediaTypeSample) (This)->lpVtbl->CreateSample(This,lSampleSize,pbBuffer,dwFlags,pUnkOuter,ppAMMediaTypeSample)
 #define IAMMediaTypeStream_GetStreamAllocatorRequirements(This,pProps) (This)->lpVtbl->GetStreamAllocatorRequirements(This,pProps)
 #define IAMMediaTypeStream_SetStreamAllocatorRequirements(This,pProps) (This)->lpVtbl->SetStreamAllocatorRequirements(This,pProps)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAMMediaTypeStream_QueryInterface(IAMMediaTypeStream* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAMMediaTypeStream_AddRef(IAMMediaTypeStream* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAMMediaTypeStream_Release(IAMMediaTypeStream* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMediaStream methods ***/
+static FORCEINLINE HRESULT IAMMediaTypeStream_GetMultiMediaStream(IAMMediaTypeStream* This,IMultiMediaStream **ppMultiMediaStream) {
+    return This->lpVtbl->GetMultiMediaStream(This,ppMultiMediaStream);
+}
+static FORCEINLINE HRESULT IAMMediaTypeStream_GetInformation(IAMMediaTypeStream* This,MSPID *pPurposeId,STREAM_TYPE *pType) {
+    return This->lpVtbl->GetInformation(This,pPurposeId,pType);
+}
+static FORCEINLINE HRESULT IAMMediaTypeStream_SetSameFormat(IAMMediaTypeStream* This,IMediaStream *pStreamThatHasDesiredFormat,DWORD dwFlags) {
+    return This->lpVtbl->SetSameFormat(This,pStreamThatHasDesiredFormat,dwFlags);
+}
+static FORCEINLINE HRESULT IAMMediaTypeStream_AllocateSample(IAMMediaTypeStream* This,DWORD dwFlags,IStreamSample **ppSample) {
+    return This->lpVtbl->AllocateSample(This,dwFlags,ppSample);
+}
+static FORCEINLINE HRESULT IAMMediaTypeStream_CreateSharedSample(IAMMediaTypeStream* This,IStreamSample *pExistingSample,DWORD dwFlags,IStreamSample **ppNewSample) {
+    return This->lpVtbl->CreateSharedSample(This,pExistingSample,dwFlags,ppNewSample);
+}
+static FORCEINLINE HRESULT IAMMediaTypeStream_SendEndOfStream(IAMMediaTypeStream* This,DWORD dwFlags) {
+    return This->lpVtbl->SendEndOfStream(This,dwFlags);
+}
+/*** IAMMediaTypeStream methods ***/
+static FORCEINLINE HRESULT IAMMediaTypeStream_GetFormat(IAMMediaTypeStream* This,AM_MEDIA_TYPE *pMediaType,DWORD dwFlags) {
+    return This->lpVtbl->GetFormat(This,pMediaType,dwFlags);
+}
+static FORCEINLINE HRESULT IAMMediaTypeStream_SetFormat(IAMMediaTypeStream* This,AM_MEDIA_TYPE *pMediaType,DWORD dwFlags) {
+    return This->lpVtbl->SetFormat(This,pMediaType,dwFlags);
+}
+static FORCEINLINE HRESULT IAMMediaTypeStream_CreateSample(IAMMediaTypeStream* This,LONG lSampleSize,BYTE *pbBuffer,DWORD dwFlags,IUnknown *pUnkOuter,IAMMediaTypeSample **ppAMMediaTypeSample) {
+    return This->lpVtbl->CreateSample(This,lSampleSize,pbBuffer,dwFlags,pUnkOuter,ppAMMediaTypeSample);
+}
+static FORCEINLINE HRESULT IAMMediaTypeStream_GetStreamAllocatorRequirements(IAMMediaTypeStream* This,ALLOCATOR_PROPERTIES *pProps) {
+    return This->lpVtbl->GetStreamAllocatorRequirements(This,pProps);
+}
+static FORCEINLINE HRESULT IAMMediaTypeStream_SetStreamAllocatorRequirements(IAMMediaTypeStream* This,ALLOCATOR_PROPERTIES *pProps) {
+    return This->lpVtbl->SetStreamAllocatorRequirements(This,pProps);
+}
+#endif
 #endif
 
 #endif
@@ -1529,6 +1850,7 @@ interface IAMMediaTypeSample {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAMMediaTypeSample_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAMMediaTypeSample_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1557,6 +1879,86 @@ interface IAMMediaTypeSample {
 #define IAMMediaTypeSample_SetDiscontinuity(This,bDiscontinuity) (This)->lpVtbl->SetDiscontinuity(This,bDiscontinuity)
 #define IAMMediaTypeSample_GetMediaTime(This,pTimeStart,pTimeEnd) (This)->lpVtbl->GetMediaTime(This,pTimeStart,pTimeEnd)
 #define IAMMediaTypeSample_SetMediaTime(This,pTimeStart,pTimeEnd) (This)->lpVtbl->SetMediaTime(This,pTimeStart,pTimeEnd)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAMMediaTypeSample_QueryInterface(IAMMediaTypeSample* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAMMediaTypeSample_AddRef(IAMMediaTypeSample* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAMMediaTypeSample_Release(IAMMediaTypeSample* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IStreamSample methods ***/
+static FORCEINLINE HRESULT IAMMediaTypeSample_GetMediaStream(IAMMediaTypeSample* This,IMediaStream **ppMediaStream) {
+    return This->lpVtbl->GetMediaStream(This,ppMediaStream);
+}
+static FORCEINLINE HRESULT IAMMediaTypeSample_GetSampleTimes(IAMMediaTypeSample* This,STREAM_TIME *pStartTime,STREAM_TIME *pEndTime,STREAM_TIME *pCurrentTime) {
+    return This->lpVtbl->GetSampleTimes(This,pStartTime,pEndTime,pCurrentTime);
+}
+static FORCEINLINE HRESULT IAMMediaTypeSample_SetSampleTimes(IAMMediaTypeSample* This,const STREAM_TIME *pStartTime,const STREAM_TIME *pEndTime) {
+    return This->lpVtbl->SetSampleTimes(This,pStartTime,pEndTime);
+}
+static FORCEINLINE HRESULT IAMMediaTypeSample_Update(IAMMediaTypeSample* This,DWORD dwFlags,HANDLE hEvent,PAPCFUNC pfnAPC,DWORD dwAPCData) {
+    return This->lpVtbl->Update(This,dwFlags,hEvent,pfnAPC,dwAPCData);
+}
+static FORCEINLINE HRESULT IAMMediaTypeSample_CompletionStatus(IAMMediaTypeSample* This,DWORD dwFlags,DWORD dwMilliseconds) {
+    return This->lpVtbl->CompletionStatus(This,dwFlags,dwMilliseconds);
+}
+/*** IAMMediaTypeSample methods ***/
+static FORCEINLINE HRESULT IAMMediaTypeSample_SetPointer(IAMMediaTypeSample* This,BYTE *pBuffer,LONG lSize) {
+    return This->lpVtbl->SetPointer(This,pBuffer,lSize);
+}
+static FORCEINLINE HRESULT IAMMediaTypeSample_GetPointer(IAMMediaTypeSample* This,BYTE **ppBuffer) {
+    return This->lpVtbl->GetPointer(This,ppBuffer);
+}
+static FORCEINLINE LONG IAMMediaTypeSample_GetSize(IAMMediaTypeSample* This) {
+    return This->lpVtbl->GetSize(This);
+}
+static FORCEINLINE HRESULT IAMMediaTypeSample_GetTime(IAMMediaTypeSample* This,REFERENCE_TIME *pTimeStart,REFERENCE_TIME *pTimeEnd) {
+    return This->lpVtbl->GetTime(This,pTimeStart,pTimeEnd);
+}
+static FORCEINLINE HRESULT IAMMediaTypeSample_SetTime(IAMMediaTypeSample* This,REFERENCE_TIME *pTimeStart,REFERENCE_TIME *pTimeEnd) {
+    return This->lpVtbl->SetTime(This,pTimeStart,pTimeEnd);
+}
+static FORCEINLINE HRESULT IAMMediaTypeSample_IsSyncPoint(IAMMediaTypeSample* This) {
+    return This->lpVtbl->IsSyncPoint(This);
+}
+static FORCEINLINE HRESULT IAMMediaTypeSample_SetSyncPoint(IAMMediaTypeSample* This,WINBOOL bIsSyncPoint) {
+    return This->lpVtbl->SetSyncPoint(This,bIsSyncPoint);
+}
+static FORCEINLINE HRESULT IAMMediaTypeSample_IsPreroll(IAMMediaTypeSample* This) {
+    return This->lpVtbl->IsPreroll(This);
+}
+static FORCEINLINE HRESULT IAMMediaTypeSample_SetPreroll(IAMMediaTypeSample* This,WINBOOL bIsPreroll) {
+    return This->lpVtbl->SetPreroll(This,bIsPreroll);
+}
+static FORCEINLINE LONG IAMMediaTypeSample_GetActualDataLength(IAMMediaTypeSample* This) {
+    return This->lpVtbl->GetActualDataLength(This);
+}
+static FORCEINLINE HRESULT IAMMediaTypeSample_SetActualDataLength(IAMMediaTypeSample* This,LONG Len) {
+    return This->lpVtbl->SetActualDataLength(This,Len);
+}
+static FORCEINLINE HRESULT IAMMediaTypeSample_GetMediaType(IAMMediaTypeSample* This,AM_MEDIA_TYPE **ppMediaType) {
+    return This->lpVtbl->GetMediaType(This,ppMediaType);
+}
+static FORCEINLINE HRESULT IAMMediaTypeSample_SetMediaType(IAMMediaTypeSample* This,AM_MEDIA_TYPE *pMediaType) {
+    return This->lpVtbl->SetMediaType(This,pMediaType);
+}
+static FORCEINLINE HRESULT IAMMediaTypeSample_IsDiscontinuity(IAMMediaTypeSample* This) {
+    return This->lpVtbl->IsDiscontinuity(This);
+}
+static FORCEINLINE HRESULT IAMMediaTypeSample_SetDiscontinuity(IAMMediaTypeSample* This,WINBOOL bDiscontinuity) {
+    return This->lpVtbl->SetDiscontinuity(This,bDiscontinuity);
+}
+static FORCEINLINE HRESULT IAMMediaTypeSample_GetMediaTime(IAMMediaTypeSample* This,LONGLONG *pTimeStart,LONGLONG *pTimeEnd) {
+    return This->lpVtbl->GetMediaTime(This,pTimeStart,pTimeEnd);
+}
+static FORCEINLINE HRESULT IAMMediaTypeSample_SetMediaTime(IAMMediaTypeSample* This,LONGLONG *pTimeStart,LONGLONG *pTimeEnd) {
+    return This->lpVtbl->SetMediaTime(This,pTimeStart,pTimeEnd);
+}
+#endif
 #endif
 
 #endif

@@ -343,40 +343,40 @@ typedef struct IWrappedProtocol IWrappedProtocol;
 #define CFSTR_MIME_HTML (TEXT("text/html"))
 #define CFSTR_MIME_XML (TEXT("text/xml"))
 
-#define MK_S_ASYNCHRONOUS _HRESULT_TYPEDEF_(0x000401E8)
+#define MK_S_ASYNCHRONOUS _HRESULT_TYPEDEF_(0x000401E8L)
 #ifndef S_ASYNCHRONOUS
 #define S_ASYNCHRONOUS MK_S_ASYNCHRONOUS
 #endif
 
 #ifndef E_PENDING
-#define E_PENDING _HRESULT_TYPEDEF_(0x8000000A)
+#define E_PENDING _HRESULT_TYPEDEF_(0x8000000AL)
 #endif
 
-#define INET_E_INVALID_URL _HRESULT_TYPEDEF_(0x800C0002)
-#define INET_E_NO_SESSION _HRESULT_TYPEDEF_(0x800C0003)
-#define INET_E_CANNOT_CONNECT _HRESULT_TYPEDEF_(0x800C0004)
-#define INET_E_RESOURCE_NOT_FOUND _HRESULT_TYPEDEF_(0x800C0005)
-#define INET_E_OBJECT_NOT_FOUND _HRESULT_TYPEDEF_(0x800C0006)
-#define INET_E_DATA_NOT_AVAILABLE _HRESULT_TYPEDEF_(0x800C0007)
-#define INET_E_DOWNLOAD_FAILURE _HRESULT_TYPEDEF_(0x800C0008)
-#define INET_E_AUTHENTICATION_REQUIRED _HRESULT_TYPEDEF_(0x800C0009)
-#define INET_E_NO_VALID_MEDIA _HRESULT_TYPEDEF_(0x800C000A)
-#define INET_E_CONNECTION_TIMEOUT _HRESULT_TYPEDEF_(0x800C000B)
-#define INET_E_INVALID_REQUEST _HRESULT_TYPEDEF_(0x800C000C)
-#define INET_E_UNKNOWN_PROTOCOL _HRESULT_TYPEDEF_(0x800C000D)
-#define INET_E_SECURITY_PROBLEM _HRESULT_TYPEDEF_(0x800C000E)
-#define INET_E_CANNOT_LOAD_DATA _HRESULT_TYPEDEF_(0x800C000F)
-#define INET_E_CANNOT_INSTANTIATE_OBJECT _HRESULT_TYPEDEF_(0x800C0010)
-#define INET_E_REDIRECT_FAILED _HRESULT_TYPEDEF_(0x800C0014)
-#define INET_E_REDIRECT_TO_DIR _HRESULT_TYPEDEF_(0x800C0015)
-#define INET_E_CANNOT_LOCK_REQUEST _HRESULT_TYPEDEF_(0x800C0016)
-#define INET_E_USE_EXTEND_BINDING _HRESULT_TYPEDEF_(0x800C0017)
-#define INET_E_TERMINATED_BIND _HRESULT_TYPEDEF_(0x800C0018)
-#define INET_E_ERROR_FIRST _HRESULT_TYPEDEF_(0x800C0002)
-#define INET_E_CODE_DOWNLOAD_DECLINED _HRESULT_TYPEDEF_(0x800C0100)
-#define INET_E_RESULT_DISPATCHED _HRESULT_TYPEDEF_(0x800C0200)
-#define INET_E_CANNOT_REPLACE_SFP_FILE _HRESULT_TYPEDEF_(0x800C0300)
-#define INET_E_CODE_INSTALL_SUPPRESSED _HRESULT_TYPEDEF_(0x800C0400)
+#define INET_E_INVALID_URL _HRESULT_TYPEDEF_(0x800C0002L)
+#define INET_E_NO_SESSION _HRESULT_TYPEDEF_(0x800C0003L)
+#define INET_E_CANNOT_CONNECT _HRESULT_TYPEDEF_(0x800C0004L)
+#define INET_E_RESOURCE_NOT_FOUND _HRESULT_TYPEDEF_(0x800C0005L)
+#define INET_E_OBJECT_NOT_FOUND _HRESULT_TYPEDEF_(0x800C0006L)
+#define INET_E_DATA_NOT_AVAILABLE _HRESULT_TYPEDEF_(0x800C0007L)
+#define INET_E_DOWNLOAD_FAILURE _HRESULT_TYPEDEF_(0x800C0008L)
+#define INET_E_AUTHENTICATION_REQUIRED _HRESULT_TYPEDEF_(0x800C0009L)
+#define INET_E_NO_VALID_MEDIA _HRESULT_TYPEDEF_(0x800C000AL)
+#define INET_E_CONNECTION_TIMEOUT _HRESULT_TYPEDEF_(0x800C000BL)
+#define INET_E_INVALID_REQUEST _HRESULT_TYPEDEF_(0x800C000CL)
+#define INET_E_UNKNOWN_PROTOCOL _HRESULT_TYPEDEF_(0x800C000DL)
+#define INET_E_SECURITY_PROBLEM _HRESULT_TYPEDEF_(0x800C000EL)
+#define INET_E_CANNOT_LOAD_DATA _HRESULT_TYPEDEF_(0x800C000FL)
+#define INET_E_CANNOT_INSTANTIATE_OBJECT _HRESULT_TYPEDEF_(0x800C0010L)
+#define INET_E_REDIRECT_FAILED _HRESULT_TYPEDEF_(0x800C0014L)
+#define INET_E_REDIRECT_TO_DIR _HRESULT_TYPEDEF_(0x800C0015L)
+#define INET_E_CANNOT_LOCK_REQUEST _HRESULT_TYPEDEF_(0x800C0016L)
+#define INET_E_USE_EXTEND_BINDING _HRESULT_TYPEDEF_(0x800C0017L)
+#define INET_E_TERMINATED_BIND _HRESULT_TYPEDEF_(0x800C0018L)
+#define INET_E_ERROR_FIRST _HRESULT_TYPEDEF_(0x800C0002L)
+#define INET_E_CODE_DOWNLOAD_DECLINED _HRESULT_TYPEDEF_(0x800C0100L)
+#define INET_E_RESULT_DISPATCHED _HRESULT_TYPEDEF_(0x800C0200L)
+#define INET_E_CANNOT_REPLACE_SFP_FILE _HRESULT_TYPEDEF_(0x800C0300L)
+#define INET_E_CODE_INSTALL_SUPPRESSED _HRESULT_TYPEDEF_(0x800C0400L)
 #define INET_E_ERROR_LAST INET_E_CANNOT_REPLACE_SFP_FILE
 
 #ifndef _LPPERSISTMONIKER_DEFINED
@@ -608,6 +608,7 @@ interface IBinding {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IBinding_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IBinding_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -619,6 +620,37 @@ interface IBinding {
 #define IBinding_SetPriority(This,nPriority) (This)->lpVtbl->SetPriority(This,nPriority)
 #define IBinding_GetPriority(This,pnPriority) (This)->lpVtbl->GetPriority(This,pnPriority)
 #define IBinding_GetBindResult(This,pclsidProtocol,pdwResult,pszResult,pdwReserved) (This)->lpVtbl->GetBindResult(This,pclsidProtocol,pdwResult,pszResult,pdwReserved)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IBinding_QueryInterface(IBinding* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IBinding_AddRef(IBinding* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IBinding_Release(IBinding* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IBinding methods ***/
+static FORCEINLINE HRESULT IBinding_Abort(IBinding* This) {
+    return This->lpVtbl->Abort(This);
+}
+static FORCEINLINE HRESULT IBinding_Suspend(IBinding* This) {
+    return This->lpVtbl->Suspend(This);
+}
+static FORCEINLINE HRESULT IBinding_Resume(IBinding* This) {
+    return This->lpVtbl->Resume(This);
+}
+static FORCEINLINE HRESULT IBinding_SetPriority(IBinding* This,LONG nPriority) {
+    return This->lpVtbl->SetPriority(This,nPriority);
+}
+static FORCEINLINE HRESULT IBinding_GetPriority(IBinding* This,LONG *pnPriority) {
+    return This->lpVtbl->GetPriority(This,pnPriority);
+}
+static FORCEINLINE HRESULT IBinding_GetBindResult(IBinding* This,CLSID *pclsidProtocol,DWORD *pdwResult,LPOLESTR *pszResult,DWORD *pdwReserved) {
+    return This->lpVtbl->GetBindResult(This,pclsidProtocol,pdwResult,pszResult,pdwReserved);
+}
+#endif
 #endif
 
 #endif
@@ -965,6 +997,7 @@ interface IBindStatusCallback {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IBindStatusCallback_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IBindStatusCallback_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -978,6 +1011,43 @@ interface IBindStatusCallback {
 #define IBindStatusCallback_GetBindInfo(This,grfBINDF,pbindinfo) (This)->lpVtbl->GetBindInfo(This,grfBINDF,pbindinfo)
 #define IBindStatusCallback_OnDataAvailable(This,grfBSCF,dwSize,pformatetc,pstgmed) (This)->lpVtbl->OnDataAvailable(This,grfBSCF,dwSize,pformatetc,pstgmed)
 #define IBindStatusCallback_OnObjectAvailable(This,riid,punk) (This)->lpVtbl->OnObjectAvailable(This,riid,punk)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IBindStatusCallback_QueryInterface(IBindStatusCallback* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IBindStatusCallback_AddRef(IBindStatusCallback* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IBindStatusCallback_Release(IBindStatusCallback* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IBindStatusCallback methods ***/
+static FORCEINLINE HRESULT IBindStatusCallback_OnStartBinding(IBindStatusCallback* This,DWORD dwReserved,IBinding *pib) {
+    return This->lpVtbl->OnStartBinding(This,dwReserved,pib);
+}
+static FORCEINLINE HRESULT IBindStatusCallback_GetPriority(IBindStatusCallback* This,LONG *pnPriority) {
+    return This->lpVtbl->GetPriority(This,pnPriority);
+}
+static FORCEINLINE HRESULT IBindStatusCallback_OnLowResource(IBindStatusCallback* This,DWORD reserved) {
+    return This->lpVtbl->OnLowResource(This,reserved);
+}
+static FORCEINLINE HRESULT IBindStatusCallback_OnProgress(IBindStatusCallback* This,ULONG ulProgress,ULONG ulProgressMax,ULONG ulStatusCode,LPCWSTR szStatusText) {
+    return This->lpVtbl->OnProgress(This,ulProgress,ulProgressMax,ulStatusCode,szStatusText);
+}
+static FORCEINLINE HRESULT IBindStatusCallback_OnStopBinding(IBindStatusCallback* This,HRESULT hresult,LPCWSTR szError) {
+    return This->lpVtbl->OnStopBinding(This,hresult,szError);
+}
+static FORCEINLINE HRESULT IBindStatusCallback_GetBindInfo(IBindStatusCallback* This,DWORD *grfBINDF,BINDINFO *pbindinfo) {
+    return This->lpVtbl->GetBindInfo(This,grfBINDF,pbindinfo);
+}
+static FORCEINLINE HRESULT IBindStatusCallback_OnDataAvailable(IBindStatusCallback* This,DWORD grfBSCF,DWORD dwSize,FORMATETC *pformatetc,STGMEDIUM *pstgmed) {
+    return This->lpVtbl->OnDataAvailable(This,grfBSCF,dwSize,pformatetc,pstgmed);
+}
+static FORCEINLINE HRESULT IBindStatusCallback_OnObjectAvailable(IBindStatusCallback* This,REFIID riid,IUnknown *punk) {
+    return This->lpVtbl->OnObjectAvailable(This,riid,punk);
+}
+#endif
 #endif
 
 #endif
@@ -2219,11 +2289,11 @@ HRESULT __RPC_STUB IBindStatusCallback_OnDataAvailable_Stub(
   STDAPI CopyBindInfo(const BINDINFO *pcbiSrc,BINDINFO *pbiDest);
   STDAPI_(void) ReleaseBindInfo(BINDINFO *pbindinfo);
 
-#define INET_E_USE_DEFAULT_PROTOCOLHANDLER _HRESULT_TYPEDEF_(0x800C0011)
-#define INET_E_USE_DEFAULT_SETTING _HRESULT_TYPEDEF_(0x800C0012)
+#define INET_E_USE_DEFAULT_PROTOCOLHANDLER _HRESULT_TYPEDEF_(0x800C0011L)
+#define INET_E_USE_DEFAULT_SETTING _HRESULT_TYPEDEF_(0x800C0012L)
 #define INET_E_DEFAULT_ACTION INET_E_USE_DEFAULT_PROTOCOLHANDLER
-#define INET_E_QUERYOPTION_UNKNOWN _HRESULT_TYPEDEF_(0x800C0013)
-#define INET_E_REDIRECTING _HRESULT_TYPEDEF_(0x800C0014)
+#define INET_E_QUERYOPTION_UNKNOWN _HRESULT_TYPEDEF_(0x800C0013L)
+#define INET_E_REDIRECTING _HRESULT_TYPEDEF_(0x800C0014L)
 #define OInetParseUrl CoInternetParseUrl
 #define OInetCombineUrl CoInternetCombineUrl
 #define OInetCompareUrl CoInternetCompareUrl

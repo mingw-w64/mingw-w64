@@ -2439,6 +2439,7 @@ interface IPropertyBag2 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPropertyBag2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPropertyBag2_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2449,6 +2450,34 @@ interface IPropertyBag2 {
 #define IPropertyBag2_CountProperties(This,pcProperties) (This)->lpVtbl->CountProperties(This,pcProperties)
 #define IPropertyBag2_GetPropertyInfo(This,iProperty,cProperties,pPropBag,pcProperties) (This)->lpVtbl->GetPropertyInfo(This,iProperty,cProperties,pPropBag,pcProperties)
 #define IPropertyBag2_LoadObject(This,pstrName,dwHint,pUnkObject,pErrLog) (This)->lpVtbl->LoadObject(This,pstrName,dwHint,pUnkObject,pErrLog)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPropertyBag2_QueryInterface(IPropertyBag2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPropertyBag2_AddRef(IPropertyBag2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPropertyBag2_Release(IPropertyBag2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPropertyBag2 methods ***/
+static FORCEINLINE HRESULT IPropertyBag2_Read(IPropertyBag2* This,ULONG cProperties,PROPBAG2 *pPropBag,IErrorLog *pErrLog,VARIANT *pvarValue,HRESULT *phrError) {
+    return This->lpVtbl->Read(This,cProperties,pPropBag,pErrLog,pvarValue,phrError);
+}
+static FORCEINLINE HRESULT IPropertyBag2_Write(IPropertyBag2* This,ULONG cProperties,PROPBAG2 *pPropBag,VARIANT *pvarValue) {
+    return This->lpVtbl->Write(This,cProperties,pPropBag,pvarValue);
+}
+static FORCEINLINE HRESULT IPropertyBag2_CountProperties(IPropertyBag2* This,ULONG *pcProperties) {
+    return This->lpVtbl->CountProperties(This,pcProperties);
+}
+static FORCEINLINE HRESULT IPropertyBag2_GetPropertyInfo(IPropertyBag2* This,ULONG iProperty,ULONG cProperties,PROPBAG2 *pPropBag,ULONG *pcProperties) {
+    return This->lpVtbl->GetPropertyInfo(This,iProperty,cProperties,pPropBag,pcProperties);
+}
+static FORCEINLINE HRESULT IPropertyBag2_LoadObject(IPropertyBag2* This,LPCOLESTR pstrName,DWORD dwHint,IUnknown *pUnkObject,IErrorLog *pErrLog) {
+    return This->lpVtbl->LoadObject(This,pstrName,dwHint,pUnkObject,pErrLog);
+}
+#endif
 #endif
 
 #endif

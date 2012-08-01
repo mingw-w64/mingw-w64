@@ -197,6 +197,7 @@ interface IAMMediaContent {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAMMediaContent_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAMMediaContent_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -220,6 +221,71 @@ interface IAMMediaContent {
 #define IAMMediaContent_get_MoreInfoBannerImage(This,pbstrMoreInfoBannerImage) (This)->lpVtbl->get_MoreInfoBannerImage(This,pbstrMoreInfoBannerImage)
 #define IAMMediaContent_get_MoreInfoBannerURL(This,pbstrMoreInfoBannerURL) (This)->lpVtbl->get_MoreInfoBannerURL(This,pbstrMoreInfoBannerURL)
 #define IAMMediaContent_get_MoreInfoText(This,pbstrMoreInfoText) (This)->lpVtbl->get_MoreInfoText(This,pbstrMoreInfoText)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAMMediaContent_QueryInterface(IAMMediaContent* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAMMediaContent_AddRef(IAMMediaContent* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAMMediaContent_Release(IAMMediaContent* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static FORCEINLINE HRESULT IAMMediaContent_GetTypeInfoCount(IAMMediaContent* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static FORCEINLINE HRESULT IAMMediaContent_GetTypeInfo(IAMMediaContent* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static FORCEINLINE HRESULT IAMMediaContent_GetIDsOfNames(IAMMediaContent* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static FORCEINLINE HRESULT IAMMediaContent_Invoke(IAMMediaContent* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+/*** IAMMediaContent methods ***/
+static FORCEINLINE HRESULT IAMMediaContent_get_AuthorName(IAMMediaContent* This,BSTR *pbstrAuthorName) {
+    return This->lpVtbl->get_AuthorName(This,pbstrAuthorName);
+}
+static FORCEINLINE HRESULT IAMMediaContent_get_Title(IAMMediaContent* This,BSTR *pbstrTitle) {
+    return This->lpVtbl->get_Title(This,pbstrTitle);
+}
+static FORCEINLINE HRESULT IAMMediaContent_get_Rating(IAMMediaContent* This,BSTR *pbstrRating) {
+    return This->lpVtbl->get_Rating(This,pbstrRating);
+}
+static FORCEINLINE HRESULT IAMMediaContent_get_Description(IAMMediaContent* This,BSTR *pbstrDescription) {
+    return This->lpVtbl->get_Description(This,pbstrDescription);
+}
+static FORCEINLINE HRESULT IAMMediaContent_get_Copyright(IAMMediaContent* This,BSTR *pbstrCopyright) {
+    return This->lpVtbl->get_Copyright(This,pbstrCopyright);
+}
+static FORCEINLINE HRESULT IAMMediaContent_get_BaseURL(IAMMediaContent* This,BSTR *pbstrBaseURL) {
+    return This->lpVtbl->get_BaseURL(This,pbstrBaseURL);
+}
+static FORCEINLINE HRESULT IAMMediaContent_get_LogoURL(IAMMediaContent* This,BSTR *pbstrLogoURL) {
+    return This->lpVtbl->get_LogoURL(This,pbstrLogoURL);
+}
+static FORCEINLINE HRESULT IAMMediaContent_get_LogoIconURL(IAMMediaContent* This,BSTR *pbstrLogoURL) {
+    return This->lpVtbl->get_LogoIconURL(This,pbstrLogoURL);
+}
+static FORCEINLINE HRESULT IAMMediaContent_get_WatermarkURL(IAMMediaContent* This,BSTR *pbstrWatermarkURL) {
+    return This->lpVtbl->get_WatermarkURL(This,pbstrWatermarkURL);
+}
+static FORCEINLINE HRESULT IAMMediaContent_get_MoreInfoURL(IAMMediaContent* This,BSTR *pbstrMoreInfoURL) {
+    return This->lpVtbl->get_MoreInfoURL(This,pbstrMoreInfoURL);
+}
+static FORCEINLINE HRESULT IAMMediaContent_get_MoreInfoBannerImage(IAMMediaContent* This,BSTR *pbstrMoreInfoBannerImage) {
+    return This->lpVtbl->get_MoreInfoBannerImage(This,pbstrMoreInfoBannerImage);
+}
+static FORCEINLINE HRESULT IAMMediaContent_get_MoreInfoBannerURL(IAMMediaContent* This,BSTR *pbstrMoreInfoBannerURL) {
+    return This->lpVtbl->get_MoreInfoBannerURL(This,pbstrMoreInfoBannerURL);
+}
+static FORCEINLINE HRESULT IAMMediaContent_get_MoreInfoText(IAMMediaContent* This,BSTR *pbstrMoreInfoText) {
+    return This->lpVtbl->get_MoreInfoText(This,pbstrMoreInfoText);
+}
+#endif
 #endif
 
 #endif
@@ -449,6 +515,7 @@ interface IAMNetworkStatus {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAMNetworkStatus_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAMNetworkStatus_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -466,6 +533,53 @@ interface IAMNetworkStatus {
 #define IAMNetworkStatus_get_BufferingCount(This,pBufferingCount) (This)->lpVtbl->get_BufferingCount(This,pBufferingCount)
 #define IAMNetworkStatus_get_IsBroadcast(This,pIsBroadcast) (This)->lpVtbl->get_IsBroadcast(This,pIsBroadcast)
 #define IAMNetworkStatus_get_BufferingProgress(This,pBufferingProgress) (This)->lpVtbl->get_BufferingProgress(This,pBufferingProgress)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAMNetworkStatus_QueryInterface(IAMNetworkStatus* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAMNetworkStatus_AddRef(IAMNetworkStatus* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAMNetworkStatus_Release(IAMNetworkStatus* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static FORCEINLINE HRESULT IAMNetworkStatus_GetTypeInfoCount(IAMNetworkStatus* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static FORCEINLINE HRESULT IAMNetworkStatus_GetTypeInfo(IAMNetworkStatus* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static FORCEINLINE HRESULT IAMNetworkStatus_GetIDsOfNames(IAMNetworkStatus* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static FORCEINLINE HRESULT IAMNetworkStatus_Invoke(IAMNetworkStatus* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+/*** IAMNetworkStatus methods ***/
+static FORCEINLINE HRESULT IAMNetworkStatus_get_ReceivedPackets(IAMNetworkStatus* This,LONG *pReceivedPackets) {
+    return This->lpVtbl->get_ReceivedPackets(This,pReceivedPackets);
+}
+static FORCEINLINE HRESULT IAMNetworkStatus_get_RecoveredPackets(IAMNetworkStatus* This,LONG *pRecoveredPackets) {
+    return This->lpVtbl->get_RecoveredPackets(This,pRecoveredPackets);
+}
+static FORCEINLINE HRESULT IAMNetworkStatus_get_LostPackets(IAMNetworkStatus* This,LONG *pLostPackets) {
+    return This->lpVtbl->get_LostPackets(This,pLostPackets);
+}
+static FORCEINLINE HRESULT IAMNetworkStatus_get_ReceptionQuality(IAMNetworkStatus* This,LONG *pReceptionQuality) {
+    return This->lpVtbl->get_ReceptionQuality(This,pReceptionQuality);
+}
+static FORCEINLINE HRESULT IAMNetworkStatus_get_BufferingCount(IAMNetworkStatus* This,LONG *pBufferingCount) {
+    return This->lpVtbl->get_BufferingCount(This,pBufferingCount);
+}
+static FORCEINLINE HRESULT IAMNetworkStatus_get_IsBroadcast(IAMNetworkStatus* This,VARIANT_BOOL *pIsBroadcast) {
+    return This->lpVtbl->get_IsBroadcast(This,pIsBroadcast);
+}
+static FORCEINLINE HRESULT IAMNetworkStatus_get_BufferingProgress(IAMNetworkStatus* This,LONG *pBufferingProgress) {
+    return This->lpVtbl->get_BufferingProgress(This,pBufferingProgress);
+}
+#endif
 #endif
 
 #endif

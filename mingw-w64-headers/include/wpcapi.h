@@ -111,6 +111,7 @@ interface IWPCSettings {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWPCSettings_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWPCSettings_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -119,6 +120,28 @@ interface IWPCSettings {
 #define IWPCSettings_IsLoggingRequired(This,pfRequired) (This)->lpVtbl->IsLoggingRequired(This,pfRequired)
 #define IWPCSettings_GetLastSettingsChangeTime(This,pTime) (This)->lpVtbl->GetLastSettingsChangeTime(This,pTime)
 #define IWPCSettings_GetRestrictions(This,pdwRestrictions) (This)->lpVtbl->GetRestrictions(This,pdwRestrictions)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWPCSettings_QueryInterface(IWPCSettings* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWPCSettings_AddRef(IWPCSettings* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWPCSettings_Release(IWPCSettings* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWPCSettings methods ***/
+static FORCEINLINE HRESULT IWPCSettings_IsLoggingRequired(IWPCSettings* This,WINBOOL *pfRequired) {
+    return This->lpVtbl->IsLoggingRequired(This,pfRequired);
+}
+static FORCEINLINE HRESULT IWPCSettings_GetLastSettingsChangeTime(IWPCSettings* This,SYSTEMTIME *pTime) {
+    return This->lpVtbl->GetLastSettingsChangeTime(This,pTime);
+}
+static FORCEINLINE HRESULT IWPCSettings_GetRestrictions(IWPCSettings* This,DWORD *pdwRestrictions) {
+    return This->lpVtbl->GetRestrictions(This,pdwRestrictions);
+}
+#endif
 #endif
 
 #endif
@@ -211,6 +234,7 @@ interface IWPCGamesSettings {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWPCGamesSettings_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWPCGamesSettings_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -221,6 +245,32 @@ interface IWPCGamesSettings {
 #define IWPCGamesSettings_GetRestrictions(This,pdwRestrictions) (This)->lpVtbl->GetRestrictions(This,pdwRestrictions)
 /*** IWPCGamesSettings methods ***/
 #define IWPCGamesSettings_IsBlocked(This,guidAppID,pdwReasons) (This)->lpVtbl->IsBlocked(This,guidAppID,pdwReasons)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWPCGamesSettings_QueryInterface(IWPCGamesSettings* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWPCGamesSettings_AddRef(IWPCGamesSettings* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWPCGamesSettings_Release(IWPCGamesSettings* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWPCSettings methods ***/
+static FORCEINLINE HRESULT IWPCGamesSettings_IsLoggingRequired(IWPCGamesSettings* This,WINBOOL *pfRequired) {
+    return This->lpVtbl->IsLoggingRequired(This,pfRequired);
+}
+static FORCEINLINE HRESULT IWPCGamesSettings_GetLastSettingsChangeTime(IWPCGamesSettings* This,SYSTEMTIME *pTime) {
+    return This->lpVtbl->GetLastSettingsChangeTime(This,pTime);
+}
+static FORCEINLINE HRESULT IWPCGamesSettings_GetRestrictions(IWPCGamesSettings* This,DWORD *pdwRestrictions) {
+    return This->lpVtbl->GetRestrictions(This,pdwRestrictions);
+}
+/*** IWPCGamesSettings methods ***/
+static FORCEINLINE HRESULT IWPCGamesSettings_IsBlocked(IWPCGamesSettings* This,GUID guidAppID,DWORD *pdwReasons) {
+    return This->lpVtbl->IsBlocked(This,guidAppID,pdwReasons);
+}
+#endif
 #endif
 
 #endif
@@ -315,6 +365,7 @@ interface IWPCWebSettings {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWPCWebSettings_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWPCWebSettings_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -326,6 +377,35 @@ interface IWPCWebSettings {
 /*** IWPCWebSettings methods ***/
 #define IWPCWebSettings_GetSettings(This,pdwSettings) (This)->lpVtbl->GetSettings(This,pdwSettings)
 #define IWPCWebSettings_RequestURLOverride(This,hWnd,pcszURL,cURLs,ppcszSubURLs,pfChanged) (This)->lpVtbl->RequestURLOverride(This,hWnd,pcszURL,cURLs,ppcszSubURLs,pfChanged)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWPCWebSettings_QueryInterface(IWPCWebSettings* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWPCWebSettings_AddRef(IWPCWebSettings* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWPCWebSettings_Release(IWPCWebSettings* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWPCSettings methods ***/
+static FORCEINLINE HRESULT IWPCWebSettings_IsLoggingRequired(IWPCWebSettings* This,WINBOOL *pfRequired) {
+    return This->lpVtbl->IsLoggingRequired(This,pfRequired);
+}
+static FORCEINLINE HRESULT IWPCWebSettings_GetLastSettingsChangeTime(IWPCWebSettings* This,SYSTEMTIME *pTime) {
+    return This->lpVtbl->GetLastSettingsChangeTime(This,pTime);
+}
+static FORCEINLINE HRESULT IWPCWebSettings_GetRestrictions(IWPCWebSettings* This,DWORD *pdwRestrictions) {
+    return This->lpVtbl->GetRestrictions(This,pdwRestrictions);
+}
+/*** IWPCWebSettings methods ***/
+static FORCEINLINE HRESULT IWPCWebSettings_GetSettings(IWPCWebSettings* This,DWORD *pdwSettings) {
+    return This->lpVtbl->GetSettings(This,pdwSettings);
+}
+static FORCEINLINE HRESULT IWPCWebSettings_RequestURLOverride(IWPCWebSettings* This,HWND hWnd,LPCWSTR pcszURL,DWORD cURLs,LPCWSTR *ppcszSubURLs,WINBOOL *pfChanged) {
+    return This->lpVtbl->RequestURLOverride(This,hWnd,pcszURL,cURLs,ppcszSubURLs,pfChanged);
+}
+#endif
 #endif
 
 #endif
@@ -430,6 +510,7 @@ interface IWindowsParentalControlsCore {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWindowsParentalControlsCore_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWindowsParentalControlsCore_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -439,6 +520,31 @@ interface IWindowsParentalControlsCore {
 #define IWindowsParentalControlsCore_GetUserSettings(This,pcszSID,ppSettings) (This)->lpVtbl->GetUserSettings(This,pcszSID,ppSettings)
 #define IWindowsParentalControlsCore_GetWebSettings(This,pcszSID,ppSettings) (This)->lpVtbl->GetWebSettings(This,pcszSID,ppSettings)
 #define IWindowsParentalControlsCore_GetWebFilterInfo(This,pguidID,ppszName) (This)->lpVtbl->GetWebFilterInfo(This,pguidID,ppszName)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWindowsParentalControlsCore_QueryInterface(IWindowsParentalControlsCore* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWindowsParentalControlsCore_AddRef(IWindowsParentalControlsCore* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWindowsParentalControlsCore_Release(IWindowsParentalControlsCore* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWindowsParentalControlsCore methods ***/
+static FORCEINLINE HRESULT IWindowsParentalControlsCore_GetVisibility(IWindowsParentalControlsCore* This,WPCFLAG_VISIBILITY *peVisibility) {
+    return This->lpVtbl->GetVisibility(This,peVisibility);
+}
+static FORCEINLINE HRESULT IWindowsParentalControlsCore_GetUserSettings(IWindowsParentalControlsCore* This,LPCWSTR pcszSID,IWPCSettings **ppSettings) {
+    return This->lpVtbl->GetUserSettings(This,pcszSID,ppSettings);
+}
+static FORCEINLINE HRESULT IWindowsParentalControlsCore_GetWebSettings(IWindowsParentalControlsCore* This,LPCWSTR pcszSID,IWPCWebSettings **ppSettings) {
+    return This->lpVtbl->GetWebSettings(This,pcszSID,ppSettings);
+}
+static FORCEINLINE HRESULT IWindowsParentalControlsCore_GetWebFilterInfo(IWindowsParentalControlsCore* This,GUID *pguidID,LPWSTR *ppszName) {
+    return This->lpVtbl->GetWebFilterInfo(This,pguidID,ppszName);
+}
+#endif
 #endif
 
 #endif
@@ -549,6 +655,7 @@ interface IWindowsParentalControls {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWindowsParentalControls_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWindowsParentalControls_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -560,6 +667,35 @@ interface IWindowsParentalControls {
 #define IWindowsParentalControls_GetWebFilterInfo(This,pguidID,ppszName) (This)->lpVtbl->GetWebFilterInfo(This,pguidID,ppszName)
 /*** IWindowsParentalControls methods ***/
 #define IWindowsParentalControls_GetGamesSettings(This,pcszSID,ppSettings) (This)->lpVtbl->GetGamesSettings(This,pcszSID,ppSettings)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWindowsParentalControls_QueryInterface(IWindowsParentalControls* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWindowsParentalControls_AddRef(IWindowsParentalControls* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWindowsParentalControls_Release(IWindowsParentalControls* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWindowsParentalControlsCore methods ***/
+static FORCEINLINE HRESULT IWindowsParentalControls_GetVisibility(IWindowsParentalControls* This,WPCFLAG_VISIBILITY *peVisibility) {
+    return This->lpVtbl->GetVisibility(This,peVisibility);
+}
+static FORCEINLINE HRESULT IWindowsParentalControls_GetUserSettings(IWindowsParentalControls* This,LPCWSTR pcszSID,IWPCSettings **ppSettings) {
+    return This->lpVtbl->GetUserSettings(This,pcszSID,ppSettings);
+}
+static FORCEINLINE HRESULT IWindowsParentalControls_GetWebSettings(IWindowsParentalControls* This,LPCWSTR pcszSID,IWPCWebSettings **ppSettings) {
+    return This->lpVtbl->GetWebSettings(This,pcszSID,ppSettings);
+}
+static FORCEINLINE HRESULT IWindowsParentalControls_GetWebFilterInfo(IWindowsParentalControls* This,GUID *pguidID,LPWSTR *ppszName) {
+    return This->lpVtbl->GetWebFilterInfo(This,pguidID,ppszName);
+}
+/*** IWindowsParentalControls methods ***/
+static FORCEINLINE HRESULT IWindowsParentalControls_GetGamesSettings(IWindowsParentalControls* This,LPCWSTR pcszSID,IWPCGamesSettings **ppSettings) {
+    return This->lpVtbl->GetGamesSettings(This,pcszSID,ppSettings);
+}
+#endif
 #endif
 
 #endif

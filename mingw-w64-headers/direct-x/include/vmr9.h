@@ -272,6 +272,7 @@ interface IVMRImagePresenter9 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IVMRImagePresenter9_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IVMRImagePresenter9_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -280,6 +281,28 @@ interface IVMRImagePresenter9 {
 #define IVMRImagePresenter9_StartPresenting(This,id) (This)->lpVtbl->StartPresenting(This,id)
 #define IVMRImagePresenter9_StopPresenting(This,id) (This)->lpVtbl->StopPresenting(This,id)
 #define IVMRImagePresenter9_PresentImage(This,id,info) (This)->lpVtbl->PresentImage(This,id,info)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IVMRImagePresenter9_QueryInterface(IVMRImagePresenter9* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IVMRImagePresenter9_AddRef(IVMRImagePresenter9* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IVMRImagePresenter9_Release(IVMRImagePresenter9* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IVMRImagePresenter9 methods ***/
+static FORCEINLINE HRESULT IVMRImagePresenter9_StartPresenting(IVMRImagePresenter9* This,DWORD_PTR id) {
+    return This->lpVtbl->StartPresenting(This,id);
+}
+static FORCEINLINE HRESULT IVMRImagePresenter9_StopPresenting(IVMRImagePresenter9* This,DWORD_PTR id) {
+    return This->lpVtbl->StopPresenting(This,id);
+}
+static FORCEINLINE HRESULT IVMRImagePresenter9_PresentImage(IVMRImagePresenter9* This,DWORD_PTR id,VMR9PresentationInfo *info) {
+    return This->lpVtbl->PresentImage(This,id,info);
+}
+#endif
 #endif
 
 #endif
@@ -408,6 +431,7 @@ interface IVMRSurfaceAllocator9 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IVMRSurfaceAllocator9_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IVMRSurfaceAllocator9_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -417,6 +441,31 @@ interface IVMRSurfaceAllocator9 {
 #define IVMRSurfaceAllocator9_TerminateDevice(This,id) (This)->lpVtbl->TerminateDevice(This,id)
 #define IVMRSurfaceAllocator9_GetSurface(This,id,surfaceindex,flags,surface) (This)->lpVtbl->GetSurface(This,id,surfaceindex,flags,surface)
 #define IVMRSurfaceAllocator9_AdviseNotify(This,allocnotify) (This)->lpVtbl->AdviseNotify(This,allocnotify)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IVMRSurfaceAllocator9_QueryInterface(IVMRSurfaceAllocator9* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IVMRSurfaceAllocator9_AddRef(IVMRSurfaceAllocator9* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IVMRSurfaceAllocator9_Release(IVMRSurfaceAllocator9* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IVMRSurfaceAllocator9 methods ***/
+static FORCEINLINE HRESULT IVMRSurfaceAllocator9_InitializeDevice(IVMRSurfaceAllocator9* This,DWORD_PTR id,VMR9AllocationInfo *allocinfo,DWORD *numbuffers) {
+    return This->lpVtbl->InitializeDevice(This,id,allocinfo,numbuffers);
+}
+static FORCEINLINE HRESULT IVMRSurfaceAllocator9_TerminateDevice(IVMRSurfaceAllocator9* This,DWORD_PTR id) {
+    return This->lpVtbl->TerminateDevice(This,id);
+}
+static FORCEINLINE HRESULT IVMRSurfaceAllocator9_GetSurface(IVMRSurfaceAllocator9* This,DWORD_PTR id,DWORD surfaceindex,DWORD flags,IDirect3DSurface9 **surface) {
+    return This->lpVtbl->GetSurface(This,id,surfaceindex,flags,surface);
+}
+static FORCEINLINE HRESULT IVMRSurfaceAllocator9_AdviseNotify(IVMRSurfaceAllocator9* This,IVMRSurfaceAllocatorNotify9 *allocnotify) {
+    return This->lpVtbl->AdviseNotify(This,allocnotify);
+}
+#endif
 #endif
 
 #endif
@@ -537,6 +586,7 @@ interface IVMRSurfaceAllocatorEx9 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IVMRSurfaceAllocatorEx9_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IVMRSurfaceAllocatorEx9_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -548,6 +598,35 @@ interface IVMRSurfaceAllocatorEx9 {
 #define IVMRSurfaceAllocatorEx9_AdviseNotify(This,allocnotify) (This)->lpVtbl->AdviseNotify(This,allocnotify)
 /*** IVMRSurfaceAllocatorEx9 methods ***/
 #define IVMRSurfaceAllocatorEx9_GetSurfaceEx(This,id,surfaceindex,flags,surface,dest) (This)->lpVtbl->GetSurfaceEx(This,id,surfaceindex,flags,surface,dest)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IVMRSurfaceAllocatorEx9_QueryInterface(IVMRSurfaceAllocatorEx9* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IVMRSurfaceAllocatorEx9_AddRef(IVMRSurfaceAllocatorEx9* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IVMRSurfaceAllocatorEx9_Release(IVMRSurfaceAllocatorEx9* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IVMRSurfaceAllocator9 methods ***/
+static FORCEINLINE HRESULT IVMRSurfaceAllocatorEx9_InitializeDevice(IVMRSurfaceAllocatorEx9* This,DWORD_PTR id,VMR9AllocationInfo *allocinfo,DWORD *numbuffers) {
+    return This->lpVtbl->InitializeDevice(This,id,allocinfo,numbuffers);
+}
+static FORCEINLINE HRESULT IVMRSurfaceAllocatorEx9_TerminateDevice(IVMRSurfaceAllocatorEx9* This,DWORD_PTR id) {
+    return This->lpVtbl->TerminateDevice(This,id);
+}
+static FORCEINLINE HRESULT IVMRSurfaceAllocatorEx9_GetSurface(IVMRSurfaceAllocatorEx9* This,DWORD_PTR id,DWORD surfaceindex,DWORD flags,IDirect3DSurface9 **surface) {
+    return This->lpVtbl->GetSurface(This,id,surfaceindex,flags,surface);
+}
+static FORCEINLINE HRESULT IVMRSurfaceAllocatorEx9_AdviseNotify(IVMRSurfaceAllocatorEx9* This,IVMRSurfaceAllocatorNotify9 *allocnotify) {
+    return This->lpVtbl->AdviseNotify(This,allocnotify);
+}
+/*** IVMRSurfaceAllocatorEx9 methods ***/
+static FORCEINLINE HRESULT IVMRSurfaceAllocatorEx9_GetSurfaceEx(IVMRSurfaceAllocatorEx9* This,DWORD_PTR id,DWORD surfaceindex,DWORD flags,IDirect3DSurface9 **surface,RECT *dest) {
+    return This->lpVtbl->GetSurfaceEx(This,id,surfaceindex,flags,surface,dest);
+}
+#endif
 #endif
 
 #endif
@@ -655,6 +734,7 @@ interface IVMRSurfaceAllocatorNotify9 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IVMRSurfaceAllocatorNotify9_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IVMRSurfaceAllocatorNotify9_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -665,6 +745,34 @@ interface IVMRSurfaceAllocatorNotify9 {
 #define IVMRSurfaceAllocatorNotify9_ChangeD3DDevice(This,device,monitor) (This)->lpVtbl->ChangeD3DDevice(This,device,monitor)
 #define IVMRSurfaceAllocatorNotify9_AllocateSurfaceHelper(This,allocinfo,numbuffers,surface) (This)->lpVtbl->AllocateSurfaceHelper(This,allocinfo,numbuffers,surface)
 #define IVMRSurfaceAllocatorNotify9_NotifyEvent(This,code,param1,param2) (This)->lpVtbl->NotifyEvent(This,code,param1,param2)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IVMRSurfaceAllocatorNotify9_QueryInterface(IVMRSurfaceAllocatorNotify9* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IVMRSurfaceAllocatorNotify9_AddRef(IVMRSurfaceAllocatorNotify9* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IVMRSurfaceAllocatorNotify9_Release(IVMRSurfaceAllocatorNotify9* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IVMRSurfaceAllocatorNotify9 methods ***/
+static FORCEINLINE HRESULT IVMRSurfaceAllocatorNotify9_AdviseSurfaceAllocator(IVMRSurfaceAllocatorNotify9* This,DWORD_PTR id,IVMRSurfaceAllocator9 *alloc) {
+    return This->lpVtbl->AdviseSurfaceAllocator(This,id,alloc);
+}
+static FORCEINLINE HRESULT IVMRSurfaceAllocatorNotify9_SetD3DDevice(IVMRSurfaceAllocatorNotify9* This,IDirect3DDevice9 *device,HMONITOR monitor) {
+    return This->lpVtbl->SetD3DDevice(This,device,monitor);
+}
+static FORCEINLINE HRESULT IVMRSurfaceAllocatorNotify9_ChangeD3DDevice(IVMRSurfaceAllocatorNotify9* This,IDirect3DDevice9 *device,HMONITOR monitor) {
+    return This->lpVtbl->ChangeD3DDevice(This,device,monitor);
+}
+static FORCEINLINE HRESULT IVMRSurfaceAllocatorNotify9_AllocateSurfaceHelper(IVMRSurfaceAllocatorNotify9* This,VMR9AllocationInfo *allocinfo,DWORD *numbuffers,IDirect3DSurface9 **surface) {
+    return This->lpVtbl->AllocateSurfaceHelper(This,allocinfo,numbuffers,surface);
+}
+static FORCEINLINE HRESULT IVMRSurfaceAllocatorNotify9_NotifyEvent(IVMRSurfaceAllocatorNotify9* This,LONG code,LONG_PTR param1,LONG_PTR param2) {
+    return This->lpVtbl->NotifyEvent(This,code,param1,param2);
+}
+#endif
 #endif
 
 #endif
@@ -868,6 +976,7 @@ interface IVMRWindowlessControl9 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IVMRWindowlessControl9_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IVMRWindowlessControl9_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -886,6 +995,58 @@ interface IVMRWindowlessControl9 {
 #define IVMRWindowlessControl9_GetCurrentImage(This,dib) (This)->lpVtbl->GetCurrentImage(This,dib)
 #define IVMRWindowlessControl9_SetBorderColor(This,color) (This)->lpVtbl->SetBorderColor(This,color)
 #define IVMRWindowlessControl9_GetBorderColor(This,color) (This)->lpVtbl->GetBorderColor(This,color)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IVMRWindowlessControl9_QueryInterface(IVMRWindowlessControl9* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IVMRWindowlessControl9_AddRef(IVMRWindowlessControl9* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IVMRWindowlessControl9_Release(IVMRWindowlessControl9* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IVMRWindowlessControl9 methods ***/
+static FORCEINLINE HRESULT IVMRWindowlessControl9_GetNativeVideoSize(IVMRWindowlessControl9* This,LONG *width,LONG *height,LONG *arwidth,LONG *arheight) {
+    return This->lpVtbl->GetNativeVideoSize(This,width,height,arwidth,arheight);
+}
+static FORCEINLINE HRESULT IVMRWindowlessControl9_GetMinIdealVideoSize(IVMRWindowlessControl9* This,LONG *width,LONG *height) {
+    return This->lpVtbl->GetMinIdealVideoSize(This,width,height);
+}
+static FORCEINLINE HRESULT IVMRWindowlessControl9_GetMaxIdealVideoSize(IVMRWindowlessControl9* This,LONG *width,LONG *height) {
+    return This->lpVtbl->GetMaxIdealVideoSize(This,width,height);
+}
+static FORCEINLINE HRESULT IVMRWindowlessControl9_SetVideoPosition(IVMRWindowlessControl9* This,const RECT *source,const RECT *dest) {
+    return This->lpVtbl->SetVideoPosition(This,source,dest);
+}
+static FORCEINLINE HRESULT IVMRWindowlessControl9_GetVideoPosition(IVMRWindowlessControl9* This,RECT *source,RECT *dest) {
+    return This->lpVtbl->GetVideoPosition(This,source,dest);
+}
+static FORCEINLINE HRESULT IVMRWindowlessControl9_GetAspectRatioMode(IVMRWindowlessControl9* This,DWORD *mode) {
+    return This->lpVtbl->GetAspectRatioMode(This,mode);
+}
+static FORCEINLINE HRESULT IVMRWindowlessControl9_SetAspectRatioMode(IVMRWindowlessControl9* This,DWORD mode) {
+    return This->lpVtbl->SetAspectRatioMode(This,mode);
+}
+static FORCEINLINE HRESULT IVMRWindowlessControl9_SetVideoClippingWindow(IVMRWindowlessControl9* This,HWND hwnd) {
+    return This->lpVtbl->SetVideoClippingWindow(This,hwnd);
+}
+static FORCEINLINE HRESULT IVMRWindowlessControl9_RepaintVideo(IVMRWindowlessControl9* This,HWND hwnd,HDC hdc) {
+    return This->lpVtbl->RepaintVideo(This,hwnd,hdc);
+}
+static FORCEINLINE HRESULT IVMRWindowlessControl9_DisplayModeChanged(IVMRWindowlessControl9* This) {
+    return This->lpVtbl->DisplayModeChanged(This);
+}
+static FORCEINLINE HRESULT IVMRWindowlessControl9_GetCurrentImage(IVMRWindowlessControl9* This,BYTE **dib) {
+    return This->lpVtbl->GetCurrentImage(This,dib);
+}
+static FORCEINLINE HRESULT IVMRWindowlessControl9_SetBorderColor(IVMRWindowlessControl9* This,COLORREF color) {
+    return This->lpVtbl->SetBorderColor(This,color);
+}
+static FORCEINLINE HRESULT IVMRWindowlessControl9_GetBorderColor(IVMRWindowlessControl9* This,COLORREF *color) {
+    return This->lpVtbl->GetBorderColor(This,color);
+}
+#endif
 #endif
 
 #endif
@@ -1202,6 +1363,7 @@ interface IVMRMixerControl9 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IVMRMixerControl9_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IVMRMixerControl9_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1220,6 +1382,58 @@ interface IVMRMixerControl9 {
 #define IVMRMixerControl9_SetProcAmpControl(This,streamid,control) (This)->lpVtbl->SetProcAmpControl(This,streamid,control)
 #define IVMRMixerControl9_GetProcAmpControl(This,streamid,control) (This)->lpVtbl->GetProcAmpControl(This,streamid,control)
 #define IVMRMixerControl9_GetProcAmpControlRange(This,streamid,controlrange) (This)->lpVtbl->GetProcAmpControlRange(This,streamid,controlrange)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IVMRMixerControl9_QueryInterface(IVMRMixerControl9* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IVMRMixerControl9_AddRef(IVMRMixerControl9* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IVMRMixerControl9_Release(IVMRMixerControl9* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IVMRMixerControl9 methods ***/
+static FORCEINLINE HRESULT IVMRMixerControl9_SetAlpha(IVMRMixerControl9* This,DWORD streamid,FLOAT alpha) {
+    return This->lpVtbl->SetAlpha(This,streamid,alpha);
+}
+static FORCEINLINE HRESULT IVMRMixerControl9_GetAlpha(IVMRMixerControl9* This,DWORD streamid,FLOAT *alpha) {
+    return This->lpVtbl->GetAlpha(This,streamid,alpha);
+}
+static FORCEINLINE HRESULT IVMRMixerControl9_SetZOrder(IVMRMixerControl9* This,DWORD streamid,DWORD zorder) {
+    return This->lpVtbl->SetZOrder(This,streamid,zorder);
+}
+static FORCEINLINE HRESULT IVMRMixerControl9_GetZOrder(IVMRMixerControl9* This,DWORD streamid,DWORD *zorder) {
+    return This->lpVtbl->GetZOrder(This,streamid,zorder);
+}
+static FORCEINLINE HRESULT IVMRMixerControl9_SetOutputRect(IVMRMixerControl9* This,DWORD streamid,const VMR9NormalizedRect *rect) {
+    return This->lpVtbl->SetOutputRect(This,streamid,rect);
+}
+static FORCEINLINE HRESULT IVMRMixerControl9_GetOutputRect(IVMRMixerControl9* This,DWORD streamid,VMR9NormalizedRect *rect) {
+    return This->lpVtbl->GetOutputRect(This,streamid,rect);
+}
+static FORCEINLINE HRESULT IVMRMixerControl9_SetBackgroundClr(IVMRMixerControl9* This,COLORREF back) {
+    return This->lpVtbl->SetBackgroundClr(This,back);
+}
+static FORCEINLINE HRESULT IVMRMixerControl9_GetBackgroundClr(IVMRMixerControl9* This,COLORREF *back) {
+    return This->lpVtbl->GetBackgroundClr(This,back);
+}
+static FORCEINLINE HRESULT IVMRMixerControl9_SetMixingPrefs(IVMRMixerControl9* This,DWORD mixingprefs) {
+    return This->lpVtbl->SetMixingPrefs(This,mixingprefs);
+}
+static FORCEINLINE HRESULT IVMRMixerControl9_GetMixingPrefs(IVMRMixerControl9* This,DWORD *mixingprefs) {
+    return This->lpVtbl->GetMixingPrefs(This,mixingprefs);
+}
+static FORCEINLINE HRESULT IVMRMixerControl9_SetProcAmpControl(IVMRMixerControl9* This,DWORD streamid,VMR9ProcAmpControl *control) {
+    return This->lpVtbl->SetProcAmpControl(This,streamid,control);
+}
+static FORCEINLINE HRESULT IVMRMixerControl9_GetProcAmpControl(IVMRMixerControl9* This,DWORD streamid,VMR9ProcAmpControl *control) {
+    return This->lpVtbl->GetProcAmpControl(This,streamid,control);
+}
+static FORCEINLINE HRESULT IVMRMixerControl9_GetProcAmpControlRange(IVMRMixerControl9* This,DWORD streamid,VMR9ProcAmpControlRange *controlrange) {
+    return This->lpVtbl->GetProcAmpControlRange(This,streamid,controlrange);
+}
+#endif
 #endif
 
 #endif
@@ -1418,6 +1632,7 @@ interface IVMRMixerBitmap9 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IVMRMixerBitmap9_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IVMRMixerBitmap9_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1426,6 +1641,28 @@ interface IVMRMixerBitmap9 {
 #define IVMRMixerBitmap9_SetAlphaBitmap(This,bitmap) (This)->lpVtbl->SetAlphaBitmap(This,bitmap)
 #define IVMRMixerBitmap9_UpdateAlphaBitmapParameters(This,bitmap) (This)->lpVtbl->UpdateAlphaBitmapParameters(This,bitmap)
 #define IVMRMixerBitmap9_GetAlphaBitmapParameters(This,bitmap) (This)->lpVtbl->GetAlphaBitmapParameters(This,bitmap)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IVMRMixerBitmap9_QueryInterface(IVMRMixerBitmap9* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IVMRMixerBitmap9_AddRef(IVMRMixerBitmap9* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IVMRMixerBitmap9_Release(IVMRMixerBitmap9* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IVMRMixerBitmap9 methods ***/
+static FORCEINLINE HRESULT IVMRMixerBitmap9_SetAlphaBitmap(IVMRMixerBitmap9* This,const VMR9AlphaBitmap *bitmap) {
+    return This->lpVtbl->SetAlphaBitmap(This,bitmap);
+}
+static FORCEINLINE HRESULT IVMRMixerBitmap9_UpdateAlphaBitmapParameters(IVMRMixerBitmap9* This,const VMR9AlphaBitmap *bitmap) {
+    return This->lpVtbl->UpdateAlphaBitmapParameters(This,bitmap);
+}
+static FORCEINLINE HRESULT IVMRMixerBitmap9_GetAlphaBitmapParameters(IVMRMixerBitmap9* This,VMR9AlphaBitmap *bitmap) {
+    return This->lpVtbl->GetAlphaBitmapParameters(This,bitmap);
+}
+#endif
 #endif
 
 #endif
@@ -1522,6 +1759,7 @@ interface IVMRSurface9 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IVMRSurface9_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IVMRSurface9_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1531,6 +1769,31 @@ interface IVMRSurface9 {
 #define IVMRSurface9_LockSurface(This,surface) (This)->lpVtbl->LockSurface(This,surface)
 #define IVMRSurface9_UnlockSurface(This) (This)->lpVtbl->UnlockSurface(This)
 #define IVMRSurface9_GetSurface(This,surface) (This)->lpVtbl->GetSurface(This,surface)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IVMRSurface9_QueryInterface(IVMRSurface9* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IVMRSurface9_AddRef(IVMRSurface9* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IVMRSurface9_Release(IVMRSurface9* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IVMRSurface9 methods ***/
+static FORCEINLINE HRESULT IVMRSurface9_IsSurfaceLocked(IVMRSurface9* This) {
+    return This->lpVtbl->IsSurfaceLocked(This);
+}
+static FORCEINLINE HRESULT IVMRSurface9_LockSurface(IVMRSurface9* This,BYTE **surface) {
+    return This->lpVtbl->LockSurface(This,surface);
+}
+static FORCEINLINE HRESULT IVMRSurface9_UnlockSurface(IVMRSurface9* This) {
+    return This->lpVtbl->UnlockSurface(This);
+}
+static FORCEINLINE HRESULT IVMRSurface9_GetSurface(IVMRSurface9* This,IDirect3DSurface9 **surface) {
+    return This->lpVtbl->GetSurface(This,surface);
+}
+#endif
 #endif
 
 #endif
@@ -1625,6 +1888,7 @@ interface IVMRImagePresenterConfig9 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IVMRImagePresenterConfig9_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IVMRImagePresenterConfig9_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1632,6 +1896,25 @@ interface IVMRImagePresenterConfig9 {
 /*** IVMRImagePresenterConfig9 methods ***/
 #define IVMRImagePresenterConfig9_SetRenderingPrefs(This,renderflags) (This)->lpVtbl->SetRenderingPrefs(This,renderflags)
 #define IVMRImagePresenterConfig9_GetRenderingPrefs(This,renderflags) (This)->lpVtbl->GetRenderingPrefs(This,renderflags)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IVMRImagePresenterConfig9_QueryInterface(IVMRImagePresenterConfig9* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IVMRImagePresenterConfig9_AddRef(IVMRImagePresenterConfig9* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IVMRImagePresenterConfig9_Release(IVMRImagePresenterConfig9* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IVMRImagePresenterConfig9 methods ***/
+static FORCEINLINE HRESULT IVMRImagePresenterConfig9_SetRenderingPrefs(IVMRImagePresenterConfig9* This,DWORD renderflags) {
+    return This->lpVtbl->SetRenderingPrefs(This,renderflags);
+}
+static FORCEINLINE HRESULT IVMRImagePresenterConfig9_GetRenderingPrefs(IVMRImagePresenterConfig9* This,DWORD *renderflags) {
+    return This->lpVtbl->GetRenderingPrefs(This,renderflags);
+}
+#endif
 #endif
 
 #endif
@@ -1708,6 +1991,7 @@ interface IVMRVideoStreamControl9 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IVMRVideoStreamControl9_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IVMRVideoStreamControl9_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1715,6 +1999,25 @@ interface IVMRVideoStreamControl9 {
 /*** IVMRVideoStreamControl9 methods ***/
 #define IVMRVideoStreamControl9_SetStreamActiveState(This,active) (This)->lpVtbl->SetStreamActiveState(This,active)
 #define IVMRVideoStreamControl9_GetStreamActiveState(This,active) (This)->lpVtbl->GetStreamActiveState(This,active)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IVMRVideoStreamControl9_QueryInterface(IVMRVideoStreamControl9* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IVMRVideoStreamControl9_AddRef(IVMRVideoStreamControl9* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IVMRVideoStreamControl9_Release(IVMRVideoStreamControl9* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IVMRVideoStreamControl9 methods ***/
+static FORCEINLINE HRESULT IVMRVideoStreamControl9_SetStreamActiveState(IVMRVideoStreamControl9* This,WINBOOL active) {
+    return This->lpVtbl->SetStreamActiveState(This,active);
+}
+static FORCEINLINE HRESULT IVMRVideoStreamControl9_GetStreamActiveState(IVMRVideoStreamControl9* This,WINBOOL *active) {
+    return This->lpVtbl->GetStreamActiveState(This,active);
+}
+#endif
 #endif
 
 #endif
@@ -1832,6 +2135,7 @@ interface IVMRFilterConfig9 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IVMRFilterConfig9_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IVMRFilterConfig9_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1844,6 +2148,40 @@ interface IVMRFilterConfig9 {
 #define IVMRFilterConfig9_GetRenderingPrefs(This,renderflags) (This)->lpVtbl->GetRenderingPrefs(This,renderflags)
 #define IVMRFilterConfig9_SetRenderingMode(This,mode) (This)->lpVtbl->SetRenderingMode(This,mode)
 #define IVMRFilterConfig9_GetRenderingMode(This,mode) (This)->lpVtbl->GetRenderingMode(This,mode)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IVMRFilterConfig9_QueryInterface(IVMRFilterConfig9* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IVMRFilterConfig9_AddRef(IVMRFilterConfig9* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IVMRFilterConfig9_Release(IVMRFilterConfig9* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IVMRFilterConfig9 methods ***/
+static FORCEINLINE HRESULT IVMRFilterConfig9_SetImageCompositor(IVMRFilterConfig9* This,IVMRImageCompositor9 *compositor) {
+    return This->lpVtbl->SetImageCompositor(This,compositor);
+}
+static FORCEINLINE HRESULT IVMRFilterConfig9_SetNumberOfStreams(IVMRFilterConfig9* This,DWORD max) {
+    return This->lpVtbl->SetNumberOfStreams(This,max);
+}
+static FORCEINLINE HRESULT IVMRFilterConfig9_GetNumberOfStreams(IVMRFilterConfig9* This,DWORD *max) {
+    return This->lpVtbl->GetNumberOfStreams(This,max);
+}
+static FORCEINLINE HRESULT IVMRFilterConfig9_SetRenderingPrefs(IVMRFilterConfig9* This,DWORD renderflags) {
+    return This->lpVtbl->SetRenderingPrefs(This,renderflags);
+}
+static FORCEINLINE HRESULT IVMRFilterConfig9_GetRenderingPrefs(IVMRFilterConfig9* This,DWORD *renderflags) {
+    return This->lpVtbl->GetRenderingPrefs(This,renderflags);
+}
+static FORCEINLINE HRESULT IVMRFilterConfig9_SetRenderingMode(IVMRFilterConfig9* This,DWORD mode) {
+    return This->lpVtbl->SetRenderingMode(This,mode);
+}
+static FORCEINLINE HRESULT IVMRFilterConfig9_GetRenderingMode(IVMRFilterConfig9* This,DWORD *mode) {
+    return This->lpVtbl->GetRenderingMode(This,mode);
+}
+#endif
 #endif
 
 #endif
@@ -1960,6 +2298,7 @@ interface IVMRAspectRatioControl9 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IVMRAspectRatioControl9_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IVMRAspectRatioControl9_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1967,6 +2306,25 @@ interface IVMRAspectRatioControl9 {
 /*** IVMRAspectRatioControl9 methods ***/
 #define IVMRAspectRatioControl9_GetAspectRatioMode(This,mode) (This)->lpVtbl->GetAspectRatioMode(This,mode)
 #define IVMRAspectRatioControl9_SetAspectRatioMode(This,mode) (This)->lpVtbl->SetAspectRatioMode(This,mode)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IVMRAspectRatioControl9_QueryInterface(IVMRAspectRatioControl9* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IVMRAspectRatioControl9_AddRef(IVMRAspectRatioControl9* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IVMRAspectRatioControl9_Release(IVMRAspectRatioControl9* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IVMRAspectRatioControl9 methods ***/
+static FORCEINLINE HRESULT IVMRAspectRatioControl9_GetAspectRatioMode(IVMRAspectRatioControl9* This,DWORD *mode) {
+    return This->lpVtbl->GetAspectRatioMode(This,mode);
+}
+static FORCEINLINE HRESULT IVMRAspectRatioControl9_SetAspectRatioMode(IVMRAspectRatioControl9* This,DWORD mode) {
+    return This->lpVtbl->SetAspectRatioMode(This,mode);
+}
+#endif
 #endif
 
 #endif
@@ -2081,6 +2439,7 @@ interface IVMRMonitorConfig9 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IVMRMonitorConfig9_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IVMRMonitorConfig9_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2091,6 +2450,34 @@ interface IVMRMonitorConfig9 {
 #define IVMRMonitorConfig9_SetDefaultMonitor(This,uDev) (This)->lpVtbl->SetDefaultMonitor(This,uDev)
 #define IVMRMonitorConfig9_GetDefaultMonitor(This,uDev) (This)->lpVtbl->GetDefaultMonitor(This,uDev)
 #define IVMRMonitorConfig9_GetAvailableMonitors(This,info,arraysize,numdev) (This)->lpVtbl->GetAvailableMonitors(This,info,arraysize,numdev)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IVMRMonitorConfig9_QueryInterface(IVMRMonitorConfig9* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IVMRMonitorConfig9_AddRef(IVMRMonitorConfig9* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IVMRMonitorConfig9_Release(IVMRMonitorConfig9* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IVMRMonitorConfig9 methods ***/
+static FORCEINLINE HRESULT IVMRMonitorConfig9_SetMonitor(IVMRMonitorConfig9* This,UINT uDev) {
+    return This->lpVtbl->SetMonitor(This,uDev);
+}
+static FORCEINLINE HRESULT IVMRMonitorConfig9_GetMonitor(IVMRMonitorConfig9* This,UINT *uDev) {
+    return This->lpVtbl->GetMonitor(This,uDev);
+}
+static FORCEINLINE HRESULT IVMRMonitorConfig9_SetDefaultMonitor(IVMRMonitorConfig9* This,UINT uDev) {
+    return This->lpVtbl->SetDefaultMonitor(This,uDev);
+}
+static FORCEINLINE HRESULT IVMRMonitorConfig9_GetDefaultMonitor(IVMRMonitorConfig9* This,UINT *uDev) {
+    return This->lpVtbl->GetDefaultMonitor(This,uDev);
+}
+static FORCEINLINE HRESULT IVMRMonitorConfig9_GetAvailableMonitors(IVMRMonitorConfig9* This,VMR9MonitorInfo *info,DWORD arraysize,DWORD *numdev) {
+    return This->lpVtbl->GetAvailableMonitors(This,info,arraysize,numdev);
+}
+#endif
 #endif
 
 #endif
@@ -2286,6 +2673,7 @@ interface IVMRDeinterlaceControl9 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IVMRDeinterlaceControl9_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IVMRDeinterlaceControl9_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2298,6 +2686,40 @@ interface IVMRDeinterlaceControl9 {
 #define IVMRDeinterlaceControl9_GetDeinterlacePrefs(This,prefs) (This)->lpVtbl->GetDeinterlacePrefs(This,prefs)
 #define IVMRDeinterlaceControl9_SetDeinterlacePrefs(This,prefs) (This)->lpVtbl->SetDeinterlacePrefs(This,prefs)
 #define IVMRDeinterlaceControl9_GetActualDeinterlaceMode(This,streamid,mode) (This)->lpVtbl->GetActualDeinterlaceMode(This,streamid,mode)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IVMRDeinterlaceControl9_QueryInterface(IVMRDeinterlaceControl9* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IVMRDeinterlaceControl9_AddRef(IVMRDeinterlaceControl9* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IVMRDeinterlaceControl9_Release(IVMRDeinterlaceControl9* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IVMRDeinterlaceControl9 methods ***/
+static FORCEINLINE HRESULT IVMRDeinterlaceControl9_GetNumberOfDeinterlaceModes(IVMRDeinterlaceControl9* This,VMR9VideoDesc *desc,DWORD *nummodes,GUID *modes) {
+    return This->lpVtbl->GetNumberOfDeinterlaceModes(This,desc,nummodes,modes);
+}
+static FORCEINLINE HRESULT IVMRDeinterlaceControl9_GetDeinterlaceModeCaps(IVMRDeinterlaceControl9* This,GUID *mode,VMR9VideoDesc *desc,VMR9DeinterlaceCaps *caps) {
+    return This->lpVtbl->GetDeinterlaceModeCaps(This,mode,desc,caps);
+}
+static FORCEINLINE HRESULT IVMRDeinterlaceControl9_GetDeinterlaceMode(IVMRDeinterlaceControl9* This,DWORD streamid,GUID *mode) {
+    return This->lpVtbl->GetDeinterlaceMode(This,streamid,mode);
+}
+static FORCEINLINE HRESULT IVMRDeinterlaceControl9_SetDeinterlaceMode(IVMRDeinterlaceControl9* This,DWORD streamid,GUID *mode) {
+    return This->lpVtbl->SetDeinterlaceMode(This,streamid,mode);
+}
+static FORCEINLINE HRESULT IVMRDeinterlaceControl9_GetDeinterlacePrefs(IVMRDeinterlaceControl9* This,DWORD *prefs) {
+    return This->lpVtbl->GetDeinterlacePrefs(This,prefs);
+}
+static FORCEINLINE HRESULT IVMRDeinterlaceControl9_SetDeinterlacePrefs(IVMRDeinterlaceControl9* This,DWORD prefs) {
+    return This->lpVtbl->SetDeinterlacePrefs(This,prefs);
+}
+static FORCEINLINE HRESULT IVMRDeinterlaceControl9_GetActualDeinterlaceMode(IVMRDeinterlaceControl9* This,DWORD streamid,GUID *mode) {
+    return This->lpVtbl->GetActualDeinterlaceMode(This,streamid,mode);
+}
+#endif
 #endif
 
 #endif
@@ -2453,6 +2875,7 @@ interface IVMRImageCompositor9 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IVMRImageCompositor9_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IVMRImageCompositor9_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2461,6 +2884,28 @@ interface IVMRImageCompositor9 {
 #define IVMRImageCompositor9_InitCompositionDevice(This,d3ddev) (This)->lpVtbl->InitCompositionDevice(This,d3ddev)
 #define IVMRImageCompositor9_TermCompositionDevice(This,d3ddev) (This)->lpVtbl->TermCompositionDevice(This,d3ddev)
 #define IVMRImageCompositor9_CompositeImage(This,d3ddev,d3dtarget,mttarget,start,stop,back,info,streams) (This)->lpVtbl->CompositeImage(This,d3ddev,d3dtarget,mttarget,start,stop,back,info,streams)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IVMRImageCompositor9_QueryInterface(IVMRImageCompositor9* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IVMRImageCompositor9_AddRef(IVMRImageCompositor9* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IVMRImageCompositor9_Release(IVMRImageCompositor9* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IVMRImageCompositor9 methods ***/
+static FORCEINLINE HRESULT IVMRImageCompositor9_InitCompositionDevice(IVMRImageCompositor9* This,IUnknown *d3ddev) {
+    return This->lpVtbl->InitCompositionDevice(This,d3ddev);
+}
+static FORCEINLINE HRESULT IVMRImageCompositor9_TermCompositionDevice(IVMRImageCompositor9* This,IUnknown *d3ddev) {
+    return This->lpVtbl->TermCompositionDevice(This,d3ddev);
+}
+static FORCEINLINE HRESULT IVMRImageCompositor9_CompositeImage(IVMRImageCompositor9* This,IUnknown *d3ddev,IDirect3DSurface9 *d3dtarget,AM_MEDIA_TYPE *mttarget,REFERENCE_TIME start,REFERENCE_TIME stop,D3DCOLOR back,VMR9VideoStreamInfo *info,UINT streams) {
+    return This->lpVtbl->CompositeImage(This,d3ddev,d3dtarget,mttarget,start,stop,back,info,streams);
+}
+#endif
 #endif
 
 #endif

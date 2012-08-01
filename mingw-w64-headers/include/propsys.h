@@ -219,12 +219,29 @@ interface IInitializeWithFile {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IInitializeWithFile_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IInitializeWithFile_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IInitializeWithFile_Release(This) (This)->lpVtbl->Release(This)
 /*** IInitializeWithFile methods ***/
 #define IInitializeWithFile_Initialize(This,pszFilePath,grfMode) (This)->lpVtbl->Initialize(This,pszFilePath,grfMode)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IInitializeWithFile_QueryInterface(IInitializeWithFile* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IInitializeWithFile_AddRef(IInitializeWithFile* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IInitializeWithFile_Release(IInitializeWithFile* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInitializeWithFile methods ***/
+static FORCEINLINE HRESULT IInitializeWithFile_Initialize(IInitializeWithFile* This,LPCWSTR pszFilePath,DWORD grfMode) {
+    return This->lpVtbl->Initialize(This,pszFilePath,grfMode);
+}
+#endif
 #endif
 
 #endif
@@ -289,12 +306,29 @@ interface IInitializeWithStream {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IInitializeWithStream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IInitializeWithStream_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IInitializeWithStream_Release(This) (This)->lpVtbl->Release(This)
 /*** IInitializeWithStream methods ***/
 #define IInitializeWithStream_Initialize(This,pstream,grfMode) (This)->lpVtbl->Initialize(This,pstream,grfMode)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IInitializeWithStream_QueryInterface(IInitializeWithStream* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IInitializeWithStream_AddRef(IInitializeWithStream* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IInitializeWithStream_Release(IInitializeWithStream* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IInitializeWithStream methods ***/
+static FORCEINLINE HRESULT IInitializeWithStream_Initialize(IInitializeWithStream* This,IStream *pstream,DWORD grfMode) {
+    return This->lpVtbl->Initialize(This,pstream,grfMode);
+}
+#endif
 #endif
 
 #endif
@@ -381,6 +415,7 @@ interface IPropertyStore {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPropertyStore_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPropertyStore_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -391,6 +426,34 @@ interface IPropertyStore {
 #define IPropertyStore_GetValue(This,key,pv) (This)->lpVtbl->GetValue(This,key,pv)
 #define IPropertyStore_SetValue(This,key,propvar) (This)->lpVtbl->SetValue(This,key,propvar)
 #define IPropertyStore_Commit(This) (This)->lpVtbl->Commit(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPropertyStore_QueryInterface(IPropertyStore* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPropertyStore_AddRef(IPropertyStore* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPropertyStore_Release(IPropertyStore* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPropertyStore methods ***/
+static FORCEINLINE HRESULT IPropertyStore_GetCount(IPropertyStore* This,DWORD *cProps) {
+    return This->lpVtbl->GetCount(This,cProps);
+}
+static FORCEINLINE HRESULT IPropertyStore_GetAt(IPropertyStore* This,DWORD iProp,PROPERTYKEY *pkey) {
+    return This->lpVtbl->GetAt(This,iProp,pkey);
+}
+static FORCEINLINE HRESULT IPropertyStore_GetValue(IPropertyStore* This,REFPROPERTYKEY key,PROPVARIANT *pv) {
+    return This->lpVtbl->GetValue(This,key,pv);
+}
+static FORCEINLINE HRESULT IPropertyStore_SetValue(IPropertyStore* This,REFPROPERTYKEY key,REFPROPVARIANT propvar) {
+    return This->lpVtbl->SetValue(This,key,propvar);
+}
+static FORCEINLINE HRESULT IPropertyStore_Commit(IPropertyStore* This) {
+    return This->lpVtbl->Commit(This);
+}
+#endif
 #endif
 
 #endif
@@ -514,6 +577,7 @@ interface INamedPropertyStore {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define INamedPropertyStore_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define INamedPropertyStore_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -523,6 +587,31 @@ interface INamedPropertyStore {
 #define INamedPropertyStore_SetNamedValue(This,pszName,propvar) (This)->lpVtbl->SetNamedValue(This,pszName,propvar)
 #define INamedPropertyStore_GetNameCount(This,pdwCount) (This)->lpVtbl->GetNameCount(This,pdwCount)
 #define INamedPropertyStore_GetNameAt(This,iProp,pbstrName) (This)->lpVtbl->GetNameAt(This,iProp,pbstrName)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT INamedPropertyStore_QueryInterface(INamedPropertyStore* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG INamedPropertyStore_AddRef(INamedPropertyStore* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG INamedPropertyStore_Release(INamedPropertyStore* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** INamedPropertyStore methods ***/
+static FORCEINLINE HRESULT INamedPropertyStore_GetNamedValue(INamedPropertyStore* This,LPCWSTR pszName,PROPVARIANT *ppropvar) {
+    return This->lpVtbl->GetNamedValue(This,pszName,ppropvar);
+}
+static FORCEINLINE HRESULT INamedPropertyStore_SetNamedValue(INamedPropertyStore* This,LPCWSTR pszName,REFPROPVARIANT propvar) {
+    return This->lpVtbl->SetNamedValue(This,pszName,propvar);
+}
+static FORCEINLINE HRESULT INamedPropertyStore_GetNameCount(INamedPropertyStore* This,DWORD *pdwCount) {
+    return This->lpVtbl->GetNameCount(This,pdwCount);
+}
+static FORCEINLINE HRESULT INamedPropertyStore_GetNameAt(INamedPropertyStore* This,DWORD iProp,BSTR *pbstrName) {
+    return This->lpVtbl->GetNameAt(This,iProp,pbstrName);
+}
+#endif
 #endif
 
 #endif
@@ -631,6 +720,7 @@ interface IObjectWithPropertyKey {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IObjectWithPropertyKey_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IObjectWithPropertyKey_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -638,6 +728,25 @@ interface IObjectWithPropertyKey {
 /*** IObjectWithPropertyKey methods ***/
 #define IObjectWithPropertyKey_SetPropertyKey(This,key) (This)->lpVtbl->SetPropertyKey(This,key)
 #define IObjectWithPropertyKey_GetPropertyKey(This,key) (This)->lpVtbl->GetPropertyKey(This,key)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IObjectWithPropertyKey_QueryInterface(IObjectWithPropertyKey* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IObjectWithPropertyKey_AddRef(IObjectWithPropertyKey* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IObjectWithPropertyKey_Release(IObjectWithPropertyKey* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IObjectWithPropertyKey methods ***/
+static FORCEINLINE HRESULT IObjectWithPropertyKey_SetPropertyKey(IObjectWithPropertyKey* This,REFPROPERTYKEY key) {
+    return This->lpVtbl->SetPropertyKey(This,key);
+}
+static FORCEINLINE HRESULT IObjectWithPropertyKey_GetPropertyKey(IObjectWithPropertyKey* This,PROPERTYKEY *key) {
+    return This->lpVtbl->GetPropertyKey(This,key);
+}
+#endif
 #endif
 
 #endif
@@ -723,6 +832,7 @@ interface IPropertyChange {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPropertyChange_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPropertyChange_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -732,6 +842,29 @@ interface IPropertyChange {
 #define IPropertyChange_GetPropertyKey(This,key) (This)->lpVtbl->GetPropertyKey(This,key)
 /*** IPropertyChange methods ***/
 #define IPropertyChange_ApplyToPropVariant(This,propvarin,propvarout) (This)->lpVtbl->ApplyToPropVariant(This,propvarin,propvarout)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPropertyChange_QueryInterface(IPropertyChange* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPropertyChange_AddRef(IPropertyChange* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPropertyChange_Release(IPropertyChange* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IObjectWithPropertyKey methods ***/
+static FORCEINLINE HRESULT IPropertyChange_SetPropertyKey(IPropertyChange* This,REFPROPERTYKEY key) {
+    return This->lpVtbl->SetPropertyKey(This,key);
+}
+static FORCEINLINE HRESULT IPropertyChange_GetPropertyKey(IPropertyChange* This,PROPERTYKEY *key) {
+    return This->lpVtbl->GetPropertyKey(This,key);
+}
+/*** IPropertyChange methods ***/
+static FORCEINLINE HRESULT IPropertyChange_ApplyToPropVariant(IPropertyChange* This,REFPROPVARIANT propvarin,PROPVARIANT *propvarout) {
+    return This->lpVtbl->ApplyToPropVariant(This,propvarin,propvarout);
+}
+#endif
 #endif
 
 #endif
@@ -842,6 +975,7 @@ interface IPropertyChangeArray {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPropertyChangeArray_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPropertyChangeArray_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -854,6 +988,40 @@ interface IPropertyChangeArray {
 #define IPropertyChangeArray_AppendOrReplace(This,ppropChange) (This)->lpVtbl->AppendOrReplace(This,ppropChange)
 #define IPropertyChangeArray_RemoveAt(This,iIndex) (This)->lpVtbl->RemoveAt(This,iIndex)
 #define IPropertyChangeArray_IsKeyInArray(This,key) (This)->lpVtbl->IsKeyInArray(This,key)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPropertyChangeArray_QueryInterface(IPropertyChangeArray* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPropertyChangeArray_AddRef(IPropertyChangeArray* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPropertyChangeArray_Release(IPropertyChangeArray* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPropertyChangeArray methods ***/
+static FORCEINLINE HRESULT IPropertyChangeArray_GetCount(IPropertyChangeArray* This,UINT *pcOperations) {
+    return This->lpVtbl->GetCount(This,pcOperations);
+}
+static FORCEINLINE HRESULT IPropertyChangeArray_GetAt(IPropertyChangeArray* This,UINT iIndex,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetAt(This,iIndex,riid,ppv);
+}
+static FORCEINLINE HRESULT IPropertyChangeArray_InsertAt(IPropertyChangeArray* This,UINT iIndex,IPropertyChange *ppropChange) {
+    return This->lpVtbl->InsertAt(This,iIndex,ppropChange);
+}
+static FORCEINLINE HRESULT IPropertyChangeArray_Append(IPropertyChangeArray* This,IPropertyChange *ppropChange) {
+    return This->lpVtbl->Append(This,ppropChange);
+}
+static FORCEINLINE HRESULT IPropertyChangeArray_AppendOrReplace(IPropertyChangeArray* This,IPropertyChange *ppropChange) {
+    return This->lpVtbl->AppendOrReplace(This,ppropChange);
+}
+static FORCEINLINE HRESULT IPropertyChangeArray_RemoveAt(IPropertyChangeArray* This,UINT iIndex) {
+    return This->lpVtbl->RemoveAt(This,iIndex);
+}
+static FORCEINLINE HRESULT IPropertyChangeArray_IsKeyInArray(IPropertyChangeArray* This,REFPROPERTYKEY key) {
+    return This->lpVtbl->IsKeyInArray(This,key);
+}
+#endif
 #endif
 
 #endif
@@ -966,12 +1134,29 @@ interface IPropertyStoreCapabilities {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPropertyStoreCapabilities_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPropertyStoreCapabilities_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IPropertyStoreCapabilities_Release(This) (This)->lpVtbl->Release(This)
 /*** IPropertyStoreCapabilities methods ***/
 #define IPropertyStoreCapabilities_IsPropertyWritable(This,key) (This)->lpVtbl->IsPropertyWritable(This,key)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPropertyStoreCapabilities_QueryInterface(IPropertyStoreCapabilities* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPropertyStoreCapabilities_AddRef(IPropertyStoreCapabilities* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPropertyStoreCapabilities_Release(IPropertyStoreCapabilities* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPropertyStoreCapabilities methods ***/
+static FORCEINLINE HRESULT IPropertyStoreCapabilities_IsPropertyWritable(IPropertyStoreCapabilities* This,REFPROPERTYKEY key) {
+    return This->lpVtbl->IsPropertyWritable(This,key);
+}
+#endif
 #endif
 
 #endif
@@ -1095,6 +1280,7 @@ interface IPropertyStoreCache {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPropertyStoreCache_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPropertyStoreCache_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1110,6 +1296,47 @@ interface IPropertyStoreCache {
 #define IPropertyStoreCache_GetValueAndState(This,key,ppropvar,pstate) (This)->lpVtbl->GetValueAndState(This,key,ppropvar,pstate)
 #define IPropertyStoreCache_SetState(This,key,pstate) (This)->lpVtbl->SetState(This,key,pstate)
 #define IPropertyStoreCache_SetValueAndState(This,key,ppropvar,state) (This)->lpVtbl->SetValueAndState(This,key,ppropvar,state)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPropertyStoreCache_QueryInterface(IPropertyStoreCache* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPropertyStoreCache_AddRef(IPropertyStoreCache* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPropertyStoreCache_Release(IPropertyStoreCache* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPropertyStore methods ***/
+static FORCEINLINE HRESULT IPropertyStoreCache_GetCount(IPropertyStoreCache* This,DWORD *cProps) {
+    return This->lpVtbl->GetCount(This,cProps);
+}
+static FORCEINLINE HRESULT IPropertyStoreCache_GetAt(IPropertyStoreCache* This,DWORD iProp,PROPERTYKEY *pkey) {
+    return This->lpVtbl->GetAt(This,iProp,pkey);
+}
+static FORCEINLINE HRESULT IPropertyStoreCache_GetValue(IPropertyStoreCache* This,REFPROPERTYKEY key,PROPVARIANT *pv) {
+    return This->lpVtbl->GetValue(This,key,pv);
+}
+static FORCEINLINE HRESULT IPropertyStoreCache_SetValue(IPropertyStoreCache* This,REFPROPERTYKEY key,REFPROPVARIANT propvar) {
+    return This->lpVtbl->SetValue(This,key,propvar);
+}
+static FORCEINLINE HRESULT IPropertyStoreCache_Commit(IPropertyStoreCache* This) {
+    return This->lpVtbl->Commit(This);
+}
+/*** IPropertyStoreCache methods ***/
+static FORCEINLINE HRESULT IPropertyStoreCache_GetState(IPropertyStoreCache* This,REFPROPERTYKEY key,PSC_STATE *pstate) {
+    return This->lpVtbl->GetState(This,key,pstate);
+}
+static FORCEINLINE HRESULT IPropertyStoreCache_GetValueAndState(IPropertyStoreCache* This,REFPROPERTYKEY key,PROPVARIANT *ppropvar,PSC_STATE *pstate) {
+    return This->lpVtbl->GetValueAndState(This,key,ppropvar,pstate);
+}
+static FORCEINLINE HRESULT IPropertyStoreCache_SetState(IPropertyStoreCache* This,REFPROPERTYKEY key,PSC_STATE pstate) {
+    return This->lpVtbl->SetState(This,key,pstate);
+}
+static FORCEINLINE HRESULT IPropertyStoreCache_SetValueAndState(IPropertyStoreCache* This,REFPROPERTYKEY key,const PROPVARIANT *ppropvar,PSC_STATE state) {
+    return This->lpVtbl->SetValueAndState(This,key,ppropvar,state);
+}
+#endif
 #endif
 
 #endif
@@ -1235,6 +1462,7 @@ interface IPropertyEnumType {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPropertyEnumType_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPropertyEnumType_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1245,6 +1473,34 @@ interface IPropertyEnumType {
 #define IPropertyEnumType_GetRangeMinValue(This,ppropvar) (This)->lpVtbl->GetRangeMinValue(This,ppropvar)
 #define IPropertyEnumType_GetRangeSetValue(This,ppropvar) (This)->lpVtbl->GetRangeSetValue(This,ppropvar)
 #define IPropertyEnumType_GetDisplayText(This,ppszDisplay) (This)->lpVtbl->GetDisplayText(This,ppszDisplay)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPropertyEnumType_QueryInterface(IPropertyEnumType* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPropertyEnumType_AddRef(IPropertyEnumType* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPropertyEnumType_Release(IPropertyEnumType* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPropertyEnumType methods ***/
+static FORCEINLINE HRESULT IPropertyEnumType_GetEnumType(IPropertyEnumType* This,PROPENUMTYPE *penumtype) {
+    return This->lpVtbl->GetEnumType(This,penumtype);
+}
+static FORCEINLINE HRESULT IPropertyEnumType_GetValue(IPropertyEnumType* This,PROPVARIANT *ppropvar) {
+    return This->lpVtbl->GetValue(This,ppropvar);
+}
+static FORCEINLINE HRESULT IPropertyEnumType_GetRangeMinValue(IPropertyEnumType* This,PROPVARIANT *ppropvar) {
+    return This->lpVtbl->GetRangeMinValue(This,ppropvar);
+}
+static FORCEINLINE HRESULT IPropertyEnumType_GetRangeSetValue(IPropertyEnumType* This,PROPVARIANT *ppropvar) {
+    return This->lpVtbl->GetRangeSetValue(This,ppropvar);
+}
+static FORCEINLINE HRESULT IPropertyEnumType_GetDisplayText(IPropertyEnumType* This,LPWSTR *ppszDisplay) {
+    return This->lpVtbl->GetDisplayText(This,ppszDisplay);
+}
+#endif
 #endif
 
 #endif
@@ -1359,6 +1615,7 @@ interface IPropertyEnumType2 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPropertyEnumType2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPropertyEnumType2_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1371,6 +1628,38 @@ interface IPropertyEnumType2 {
 #define IPropertyEnumType2_GetDisplayText(This,ppszDisplay) (This)->lpVtbl->GetDisplayText(This,ppszDisplay)
 /*** IPropertyEnumType2 methods ***/
 #define IPropertyEnumType2_GetImageReference(This,ppszImageRes) (This)->lpVtbl->GetImageReference(This,ppszImageRes)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPropertyEnumType2_QueryInterface(IPropertyEnumType2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPropertyEnumType2_AddRef(IPropertyEnumType2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPropertyEnumType2_Release(IPropertyEnumType2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPropertyEnumType methods ***/
+static FORCEINLINE HRESULT IPropertyEnumType2_GetEnumType(IPropertyEnumType2* This,PROPENUMTYPE *penumtype) {
+    return This->lpVtbl->GetEnumType(This,penumtype);
+}
+static FORCEINLINE HRESULT IPropertyEnumType2_GetValue(IPropertyEnumType2* This,PROPVARIANT *ppropvar) {
+    return This->lpVtbl->GetValue(This,ppropvar);
+}
+static FORCEINLINE HRESULT IPropertyEnumType2_GetRangeMinValue(IPropertyEnumType2* This,PROPVARIANT *ppropvar) {
+    return This->lpVtbl->GetRangeMinValue(This,ppropvar);
+}
+static FORCEINLINE HRESULT IPropertyEnumType2_GetRangeSetValue(IPropertyEnumType2* This,PROPVARIANT *ppropvar) {
+    return This->lpVtbl->GetRangeSetValue(This,ppropvar);
+}
+static FORCEINLINE HRESULT IPropertyEnumType2_GetDisplayText(IPropertyEnumType2* This,LPWSTR *ppszDisplay) {
+    return This->lpVtbl->GetDisplayText(This,ppszDisplay);
+}
+/*** IPropertyEnumType2 methods ***/
+static FORCEINLINE HRESULT IPropertyEnumType2_GetImageReference(IPropertyEnumType2* This,LPWSTR *ppszImageRes) {
+    return This->lpVtbl->GetImageReference(This,ppszImageRes);
+}
+#endif
 #endif
 
 #endif
@@ -1463,6 +1752,7 @@ interface IPropertyEnumTypeList {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPropertyEnumTypeList_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPropertyEnumTypeList_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1472,6 +1762,31 @@ interface IPropertyEnumTypeList {
 #define IPropertyEnumTypeList_GetAt(This,itype,riid,ppv) (This)->lpVtbl->GetAt(This,itype,riid,ppv)
 #define IPropertyEnumTypeList_GetConditionAt(This,nIndex,riid,ppv) (This)->lpVtbl->GetConditionAt(This,nIndex,riid,ppv)
 #define IPropertyEnumTypeList_FindMatchingIndex(This,propvarCmp,pnIndex) (This)->lpVtbl->FindMatchingIndex(This,propvarCmp,pnIndex)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPropertyEnumTypeList_QueryInterface(IPropertyEnumTypeList* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPropertyEnumTypeList_AddRef(IPropertyEnumTypeList* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPropertyEnumTypeList_Release(IPropertyEnumTypeList* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPropertyEnumTypeList methods ***/
+static FORCEINLINE HRESULT IPropertyEnumTypeList_GetCount(IPropertyEnumTypeList* This,UINT *pctypes) {
+    return This->lpVtbl->GetCount(This,pctypes);
+}
+static FORCEINLINE HRESULT IPropertyEnumTypeList_GetAt(IPropertyEnumTypeList* This,UINT itype,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetAt(This,itype,riid,ppv);
+}
+static FORCEINLINE HRESULT IPropertyEnumTypeList_GetConditionAt(IPropertyEnumTypeList* This,UINT nIndex,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetConditionAt(This,nIndex,riid,ppv);
+}
+static FORCEINLINE HRESULT IPropertyEnumTypeList_FindMatchingIndex(IPropertyEnumTypeList* This,REFPROPVARIANT propvarCmp,UINT *pnIndex) {
+    return This->lpVtbl->FindMatchingIndex(This,propvarCmp,pnIndex);
+}
+#endif
 #endif
 
 #endif
@@ -1826,6 +2141,7 @@ interface IPropertyDescription {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPropertyDescription_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPropertyDescription_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1852,6 +2168,82 @@ interface IPropertyDescription {
 #define IPropertyDescription_CoerceToCanonicalValue(This,propvar) (This)->lpVtbl->CoerceToCanonicalValue(This,propvar)
 #define IPropertyDescription_FormatForDisplay(This,propvar,flags,ppszDisplay) (This)->lpVtbl->FormatForDisplay(This,propvar,flags,ppszDisplay)
 #define IPropertyDescription_IsValueCanonical(This,propvar) (This)->lpVtbl->IsValueCanonical(This,propvar)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPropertyDescription_QueryInterface(IPropertyDescription* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPropertyDescription_AddRef(IPropertyDescription* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPropertyDescription_Release(IPropertyDescription* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPropertyDescription methods ***/
+static FORCEINLINE HRESULT IPropertyDescription_GetPropertyKey(IPropertyDescription* This,PROPERTYKEY *pkey) {
+    return This->lpVtbl->GetPropertyKey(This,pkey);
+}
+static FORCEINLINE HRESULT IPropertyDescription_GetCanonicalName(IPropertyDescription* This,LPWSTR *ppszName) {
+    return This->lpVtbl->GetCanonicalName(This,ppszName);
+}
+static FORCEINLINE HRESULT IPropertyDescription_GetPropertyType(IPropertyDescription* This,VARTYPE *pvartype) {
+    return This->lpVtbl->GetPropertyType(This,pvartype);
+}
+static FORCEINLINE HRESULT IPropertyDescription_GetDisplayName(IPropertyDescription* This,LPWSTR *ppszName) {
+    return This->lpVtbl->GetDisplayName(This,ppszName);
+}
+static FORCEINLINE HRESULT IPropertyDescription_GetEditInvitation(IPropertyDescription* This,LPWSTR *ppszName) {
+    return This->lpVtbl->GetEditInvitation(This,ppszName);
+}
+static FORCEINLINE HRESULT IPropertyDescription_GetTypeFlags(IPropertyDescription* This,PROPDESC_TYPE_FLAGS mask,PROPDESC_TYPE_FLAGS *ppdtFlags) {
+    return This->lpVtbl->GetTypeFlags(This,mask,ppdtFlags);
+}
+static FORCEINLINE HRESULT IPropertyDescription_GetViewFlags(IPropertyDescription* This,PROPDESC_VIEW_FLAGS *ppdvFlags) {
+    return This->lpVtbl->GetViewFlags(This,ppdvFlags);
+}
+static FORCEINLINE HRESULT IPropertyDescription_GetDefaultColumnWidth(IPropertyDescription* This,UINT *pcxChars) {
+    return This->lpVtbl->GetDefaultColumnWidth(This,pcxChars);
+}
+static FORCEINLINE HRESULT IPropertyDescription_GetDisplayType(IPropertyDescription* This,PROPDESC_DISPLAYTYPE *pdisplaytype) {
+    return This->lpVtbl->GetDisplayType(This,pdisplaytype);
+}
+static FORCEINLINE HRESULT IPropertyDescription_GetColumnState(IPropertyDescription* This,SHCOLSTATEF *pcsFlags) {
+    return This->lpVtbl->GetColumnState(This,pcsFlags);
+}
+static FORCEINLINE HRESULT IPropertyDescription_GetGroupingRange(IPropertyDescription* This,PROPDESC_GROUPING_RANGE *psd) {
+    return This->lpVtbl->GetGroupingRange(This,psd);
+}
+static FORCEINLINE HRESULT IPropertyDescription_GetRelativeDescriptionType(IPropertyDescription* This,PROPDESC_RELATIVEDESCRIPTION_TYPE *prdt) {
+    return This->lpVtbl->GetRelativeDescriptionType(This,prdt);
+}
+static FORCEINLINE HRESULT IPropertyDescription_GetRelativeDescription(IPropertyDescription* This,REFPROPVARIANT propvar1,REFPROPVARIANT propvar2,LPWSTR *ppszDesc1,LPWSTR *ppszDesc2) {
+    return This->lpVtbl->GetRelativeDescription(This,propvar1,propvar2,ppszDesc1,ppszDesc2);
+}
+static FORCEINLINE HRESULT IPropertyDescription_GetSortDescription(IPropertyDescription* This,PROPDESC_SORTDESCRIPTION *psd) {
+    return This->lpVtbl->GetSortDescription(This,psd);
+}
+static FORCEINLINE HRESULT IPropertyDescription_GetSortDescriptionLabel(IPropertyDescription* This,WINBOOL fDescending,LPWSTR *ppszDescription) {
+    return This->lpVtbl->GetSortDescriptionLabel(This,fDescending,ppszDescription);
+}
+static FORCEINLINE HRESULT IPropertyDescription_GetAggregationType(IPropertyDescription* This,PROPDESC_AGGREGATION_TYPE *paggtype) {
+    return This->lpVtbl->GetAggregationType(This,paggtype);
+}
+static FORCEINLINE HRESULT IPropertyDescription_GetConditionType(IPropertyDescription* This,PROPDESC_CONDITION_TYPE *pcontype,CONDITION_OPERATION *popDefault) {
+    return This->lpVtbl->GetConditionType(This,pcontype,popDefault);
+}
+static FORCEINLINE HRESULT IPropertyDescription_GetEnumTypeList(IPropertyDescription* This,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetEnumTypeList(This,riid,ppv);
+}
+static FORCEINLINE HRESULT IPropertyDescription_CoerceToCanonicalValue(IPropertyDescription* This,PROPVARIANT *propvar) {
+    return This->lpVtbl->CoerceToCanonicalValue(This,propvar);
+}
+static FORCEINLINE HRESULT IPropertyDescription_FormatForDisplay(IPropertyDescription* This,REFPROPVARIANT propvar,PROPDESC_FORMAT_FLAGS flags,LPWSTR *ppszDisplay) {
+    return This->lpVtbl->FormatForDisplay(This,propvar,flags,ppszDisplay);
+}
+static FORCEINLINE HRESULT IPropertyDescription_IsValueCanonical(IPropertyDescription* This,REFPROPVARIANT propvar) {
+    return This->lpVtbl->IsValueCanonical(This,propvar);
+}
+#endif
 #endif
 
 #endif
@@ -2186,6 +2578,7 @@ interface IPropertyDescription2 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPropertyDescription2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPropertyDescription2_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2214,6 +2607,86 @@ interface IPropertyDescription2 {
 #define IPropertyDescription2_IsValueCanonical(This,propvar) (This)->lpVtbl->IsValueCanonical(This,propvar)
 /*** IPropertyDescription2 methods ***/
 #define IPropertyDescription2_GetImageReferenceForValue(This,propvar,ppszImageRes) (This)->lpVtbl->GetImageReferenceForValue(This,propvar,ppszImageRes)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPropertyDescription2_QueryInterface(IPropertyDescription2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPropertyDescription2_AddRef(IPropertyDescription2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPropertyDescription2_Release(IPropertyDescription2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPropertyDescription methods ***/
+static FORCEINLINE HRESULT IPropertyDescription2_GetPropertyKey(IPropertyDescription2* This,PROPERTYKEY *pkey) {
+    return This->lpVtbl->GetPropertyKey(This,pkey);
+}
+static FORCEINLINE HRESULT IPropertyDescription2_GetCanonicalName(IPropertyDescription2* This,LPWSTR *ppszName) {
+    return This->lpVtbl->GetCanonicalName(This,ppszName);
+}
+static FORCEINLINE HRESULT IPropertyDescription2_GetPropertyType(IPropertyDescription2* This,VARTYPE *pvartype) {
+    return This->lpVtbl->GetPropertyType(This,pvartype);
+}
+static FORCEINLINE HRESULT IPropertyDescription2_GetDisplayName(IPropertyDescription2* This,LPWSTR *ppszName) {
+    return This->lpVtbl->GetDisplayName(This,ppszName);
+}
+static FORCEINLINE HRESULT IPropertyDescription2_GetEditInvitation(IPropertyDescription2* This,LPWSTR *ppszName) {
+    return This->lpVtbl->GetEditInvitation(This,ppszName);
+}
+static FORCEINLINE HRESULT IPropertyDescription2_GetTypeFlags(IPropertyDescription2* This,PROPDESC_TYPE_FLAGS mask,PROPDESC_TYPE_FLAGS *ppdtFlags) {
+    return This->lpVtbl->GetTypeFlags(This,mask,ppdtFlags);
+}
+static FORCEINLINE HRESULT IPropertyDescription2_GetViewFlags(IPropertyDescription2* This,PROPDESC_VIEW_FLAGS *ppdvFlags) {
+    return This->lpVtbl->GetViewFlags(This,ppdvFlags);
+}
+static FORCEINLINE HRESULT IPropertyDescription2_GetDefaultColumnWidth(IPropertyDescription2* This,UINT *pcxChars) {
+    return This->lpVtbl->GetDefaultColumnWidth(This,pcxChars);
+}
+static FORCEINLINE HRESULT IPropertyDescription2_GetDisplayType(IPropertyDescription2* This,PROPDESC_DISPLAYTYPE *pdisplaytype) {
+    return This->lpVtbl->GetDisplayType(This,pdisplaytype);
+}
+static FORCEINLINE HRESULT IPropertyDescription2_GetColumnState(IPropertyDescription2* This,SHCOLSTATEF *pcsFlags) {
+    return This->lpVtbl->GetColumnState(This,pcsFlags);
+}
+static FORCEINLINE HRESULT IPropertyDescription2_GetGroupingRange(IPropertyDescription2* This,PROPDESC_GROUPING_RANGE *psd) {
+    return This->lpVtbl->GetGroupingRange(This,psd);
+}
+static FORCEINLINE HRESULT IPropertyDescription2_GetRelativeDescriptionType(IPropertyDescription2* This,PROPDESC_RELATIVEDESCRIPTION_TYPE *prdt) {
+    return This->lpVtbl->GetRelativeDescriptionType(This,prdt);
+}
+static FORCEINLINE HRESULT IPropertyDescription2_GetRelativeDescription(IPropertyDescription2* This,REFPROPVARIANT propvar1,REFPROPVARIANT propvar2,LPWSTR *ppszDesc1,LPWSTR *ppszDesc2) {
+    return This->lpVtbl->GetRelativeDescription(This,propvar1,propvar2,ppszDesc1,ppszDesc2);
+}
+static FORCEINLINE HRESULT IPropertyDescription2_GetSortDescription(IPropertyDescription2* This,PROPDESC_SORTDESCRIPTION *psd) {
+    return This->lpVtbl->GetSortDescription(This,psd);
+}
+static FORCEINLINE HRESULT IPropertyDescription2_GetSortDescriptionLabel(IPropertyDescription2* This,WINBOOL fDescending,LPWSTR *ppszDescription) {
+    return This->lpVtbl->GetSortDescriptionLabel(This,fDescending,ppszDescription);
+}
+static FORCEINLINE HRESULT IPropertyDescription2_GetAggregationType(IPropertyDescription2* This,PROPDESC_AGGREGATION_TYPE *paggtype) {
+    return This->lpVtbl->GetAggregationType(This,paggtype);
+}
+static FORCEINLINE HRESULT IPropertyDescription2_GetConditionType(IPropertyDescription2* This,PROPDESC_CONDITION_TYPE *pcontype,CONDITION_OPERATION *popDefault) {
+    return This->lpVtbl->GetConditionType(This,pcontype,popDefault);
+}
+static FORCEINLINE HRESULT IPropertyDescription2_GetEnumTypeList(IPropertyDescription2* This,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetEnumTypeList(This,riid,ppv);
+}
+static FORCEINLINE HRESULT IPropertyDescription2_CoerceToCanonicalValue(IPropertyDescription2* This,PROPVARIANT *propvar) {
+    return This->lpVtbl->CoerceToCanonicalValue(This,propvar);
+}
+static FORCEINLINE HRESULT IPropertyDescription2_FormatForDisplay(IPropertyDescription2* This,REFPROPVARIANT propvar,PROPDESC_FORMAT_FLAGS flags,LPWSTR *ppszDisplay) {
+    return This->lpVtbl->FormatForDisplay(This,propvar,flags,ppszDisplay);
+}
+static FORCEINLINE HRESULT IPropertyDescription2_IsValueCanonical(IPropertyDescription2* This,REFPROPVARIANT propvar) {
+    return This->lpVtbl->IsValueCanonical(This,propvar);
+}
+/*** IPropertyDescription2 methods ***/
+static FORCEINLINE HRESULT IPropertyDescription2_GetImageReferenceForValue(IPropertyDescription2* This,REFPROPVARIANT propvar,LPWSTR *ppszImageRes) {
+    return This->lpVtbl->GetImageReferenceForValue(This,propvar,ppszImageRes);
+}
+#endif
 #endif
 
 #endif
@@ -2381,6 +2854,7 @@ interface IPropertyDescriptionAliasInfo {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPropertyDescriptionAliasInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPropertyDescriptionAliasInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2410,6 +2884,89 @@ interface IPropertyDescriptionAliasInfo {
 /*** IPropertyDescriptionAliasInfo methods ***/
 #define IPropertyDescriptionAliasInfo_GetSortByAlias(This,riid,ppv) (This)->lpVtbl->GetSortByAlias(This,riid,ppv)
 #define IPropertyDescriptionAliasInfo_GetAdditionalSortByAliases(This,riid,ppv) (This)->lpVtbl->GetAdditionalSortByAliases(This,riid,ppv)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_QueryInterface(IPropertyDescriptionAliasInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPropertyDescriptionAliasInfo_AddRef(IPropertyDescriptionAliasInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPropertyDescriptionAliasInfo_Release(IPropertyDescriptionAliasInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPropertyDescription methods ***/
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_GetPropertyKey(IPropertyDescriptionAliasInfo* This,PROPERTYKEY *pkey) {
+    return This->lpVtbl->GetPropertyKey(This,pkey);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_GetCanonicalName(IPropertyDescriptionAliasInfo* This,LPWSTR *ppszName) {
+    return This->lpVtbl->GetCanonicalName(This,ppszName);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_GetPropertyType(IPropertyDescriptionAliasInfo* This,VARTYPE *pvartype) {
+    return This->lpVtbl->GetPropertyType(This,pvartype);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_GetDisplayName(IPropertyDescriptionAliasInfo* This,LPWSTR *ppszName) {
+    return This->lpVtbl->GetDisplayName(This,ppszName);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_GetEditInvitation(IPropertyDescriptionAliasInfo* This,LPWSTR *ppszName) {
+    return This->lpVtbl->GetEditInvitation(This,ppszName);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_GetTypeFlags(IPropertyDescriptionAliasInfo* This,PROPDESC_TYPE_FLAGS mask,PROPDESC_TYPE_FLAGS *ppdtFlags) {
+    return This->lpVtbl->GetTypeFlags(This,mask,ppdtFlags);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_GetViewFlags(IPropertyDescriptionAliasInfo* This,PROPDESC_VIEW_FLAGS *ppdvFlags) {
+    return This->lpVtbl->GetViewFlags(This,ppdvFlags);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_GetDefaultColumnWidth(IPropertyDescriptionAliasInfo* This,UINT *pcxChars) {
+    return This->lpVtbl->GetDefaultColumnWidth(This,pcxChars);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_GetDisplayType(IPropertyDescriptionAliasInfo* This,PROPDESC_DISPLAYTYPE *pdisplaytype) {
+    return This->lpVtbl->GetDisplayType(This,pdisplaytype);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_GetColumnState(IPropertyDescriptionAliasInfo* This,SHCOLSTATEF *pcsFlags) {
+    return This->lpVtbl->GetColumnState(This,pcsFlags);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_GetGroupingRange(IPropertyDescriptionAliasInfo* This,PROPDESC_GROUPING_RANGE *psd) {
+    return This->lpVtbl->GetGroupingRange(This,psd);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_GetRelativeDescriptionType(IPropertyDescriptionAliasInfo* This,PROPDESC_RELATIVEDESCRIPTION_TYPE *prdt) {
+    return This->lpVtbl->GetRelativeDescriptionType(This,prdt);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_GetRelativeDescription(IPropertyDescriptionAliasInfo* This,REFPROPVARIANT propvar1,REFPROPVARIANT propvar2,LPWSTR *ppszDesc1,LPWSTR *ppszDesc2) {
+    return This->lpVtbl->GetRelativeDescription(This,propvar1,propvar2,ppszDesc1,ppszDesc2);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_GetSortDescription(IPropertyDescriptionAliasInfo* This,PROPDESC_SORTDESCRIPTION *psd) {
+    return This->lpVtbl->GetSortDescription(This,psd);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_GetSortDescriptionLabel(IPropertyDescriptionAliasInfo* This,WINBOOL fDescending,LPWSTR *ppszDescription) {
+    return This->lpVtbl->GetSortDescriptionLabel(This,fDescending,ppszDescription);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_GetAggregationType(IPropertyDescriptionAliasInfo* This,PROPDESC_AGGREGATION_TYPE *paggtype) {
+    return This->lpVtbl->GetAggregationType(This,paggtype);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_GetConditionType(IPropertyDescriptionAliasInfo* This,PROPDESC_CONDITION_TYPE *pcontype,CONDITION_OPERATION *popDefault) {
+    return This->lpVtbl->GetConditionType(This,pcontype,popDefault);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_GetEnumTypeList(IPropertyDescriptionAliasInfo* This,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetEnumTypeList(This,riid,ppv);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_CoerceToCanonicalValue(IPropertyDescriptionAliasInfo* This,PROPVARIANT *propvar) {
+    return This->lpVtbl->CoerceToCanonicalValue(This,propvar);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_FormatForDisplay(IPropertyDescriptionAliasInfo* This,REFPROPVARIANT propvar,PROPDESC_FORMAT_FLAGS flags,LPWSTR *ppszDisplay) {
+    return This->lpVtbl->FormatForDisplay(This,propvar,flags,ppszDisplay);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_IsValueCanonical(IPropertyDescriptionAliasInfo* This,REFPROPVARIANT propvar) {
+    return This->lpVtbl->IsValueCanonical(This,propvar);
+}
+/*** IPropertyDescriptionAliasInfo methods ***/
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_GetSortByAlias(IPropertyDescriptionAliasInfo* This,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetSortByAlias(This,riid,ppv);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionAliasInfo_GetAdditionalSortByAliases(IPropertyDescriptionAliasInfo* This,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetAdditionalSortByAliases(This,riid,ppv);
+}
+#endif
 #endif
 
 #endif
@@ -2612,6 +3169,7 @@ interface IPropertyDescriptionSearchInfo {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPropertyDescriptionSearchInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPropertyDescriptionSearchInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2643,6 +3201,95 @@ interface IPropertyDescriptionSearchInfo {
 #define IPropertyDescriptionSearchInfo_GetColumnIndexType(This,ppdciType) (This)->lpVtbl->GetColumnIndexType(This,ppdciType)
 #define IPropertyDescriptionSearchInfo_GetProjectionString(This,ppszProjection) (This)->lpVtbl->GetProjectionString(This,ppszProjection)
 #define IPropertyDescriptionSearchInfo_GetMaxSize(This,pcbMaxSize) (This)->lpVtbl->GetMaxSize(This,pcbMaxSize)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_QueryInterface(IPropertyDescriptionSearchInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPropertyDescriptionSearchInfo_AddRef(IPropertyDescriptionSearchInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPropertyDescriptionSearchInfo_Release(IPropertyDescriptionSearchInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPropertyDescription methods ***/
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetPropertyKey(IPropertyDescriptionSearchInfo* This,PROPERTYKEY *pkey) {
+    return This->lpVtbl->GetPropertyKey(This,pkey);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetCanonicalName(IPropertyDescriptionSearchInfo* This,LPWSTR *ppszName) {
+    return This->lpVtbl->GetCanonicalName(This,ppszName);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetPropertyType(IPropertyDescriptionSearchInfo* This,VARTYPE *pvartype) {
+    return This->lpVtbl->GetPropertyType(This,pvartype);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetDisplayName(IPropertyDescriptionSearchInfo* This,LPWSTR *ppszName) {
+    return This->lpVtbl->GetDisplayName(This,ppszName);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetEditInvitation(IPropertyDescriptionSearchInfo* This,LPWSTR *ppszName) {
+    return This->lpVtbl->GetEditInvitation(This,ppszName);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetTypeFlags(IPropertyDescriptionSearchInfo* This,PROPDESC_TYPE_FLAGS mask,PROPDESC_TYPE_FLAGS *ppdtFlags) {
+    return This->lpVtbl->GetTypeFlags(This,mask,ppdtFlags);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetViewFlags(IPropertyDescriptionSearchInfo* This,PROPDESC_VIEW_FLAGS *ppdvFlags) {
+    return This->lpVtbl->GetViewFlags(This,ppdvFlags);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetDefaultColumnWidth(IPropertyDescriptionSearchInfo* This,UINT *pcxChars) {
+    return This->lpVtbl->GetDefaultColumnWidth(This,pcxChars);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetDisplayType(IPropertyDescriptionSearchInfo* This,PROPDESC_DISPLAYTYPE *pdisplaytype) {
+    return This->lpVtbl->GetDisplayType(This,pdisplaytype);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetColumnState(IPropertyDescriptionSearchInfo* This,SHCOLSTATEF *pcsFlags) {
+    return This->lpVtbl->GetColumnState(This,pcsFlags);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetGroupingRange(IPropertyDescriptionSearchInfo* This,PROPDESC_GROUPING_RANGE *psd) {
+    return This->lpVtbl->GetGroupingRange(This,psd);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetRelativeDescriptionType(IPropertyDescriptionSearchInfo* This,PROPDESC_RELATIVEDESCRIPTION_TYPE *prdt) {
+    return This->lpVtbl->GetRelativeDescriptionType(This,prdt);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetRelativeDescription(IPropertyDescriptionSearchInfo* This,REFPROPVARIANT propvar1,REFPROPVARIANT propvar2,LPWSTR *ppszDesc1,LPWSTR *ppszDesc2) {
+    return This->lpVtbl->GetRelativeDescription(This,propvar1,propvar2,ppszDesc1,ppszDesc2);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetSortDescription(IPropertyDescriptionSearchInfo* This,PROPDESC_SORTDESCRIPTION *psd) {
+    return This->lpVtbl->GetSortDescription(This,psd);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetSortDescriptionLabel(IPropertyDescriptionSearchInfo* This,WINBOOL fDescending,LPWSTR *ppszDescription) {
+    return This->lpVtbl->GetSortDescriptionLabel(This,fDescending,ppszDescription);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetAggregationType(IPropertyDescriptionSearchInfo* This,PROPDESC_AGGREGATION_TYPE *paggtype) {
+    return This->lpVtbl->GetAggregationType(This,paggtype);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetConditionType(IPropertyDescriptionSearchInfo* This,PROPDESC_CONDITION_TYPE *pcontype,CONDITION_OPERATION *popDefault) {
+    return This->lpVtbl->GetConditionType(This,pcontype,popDefault);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetEnumTypeList(IPropertyDescriptionSearchInfo* This,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetEnumTypeList(This,riid,ppv);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_CoerceToCanonicalValue(IPropertyDescriptionSearchInfo* This,PROPVARIANT *propvar) {
+    return This->lpVtbl->CoerceToCanonicalValue(This,propvar);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_FormatForDisplay(IPropertyDescriptionSearchInfo* This,REFPROPVARIANT propvar,PROPDESC_FORMAT_FLAGS flags,LPWSTR *ppszDisplay) {
+    return This->lpVtbl->FormatForDisplay(This,propvar,flags,ppszDisplay);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_IsValueCanonical(IPropertyDescriptionSearchInfo* This,REFPROPVARIANT propvar) {
+    return This->lpVtbl->IsValueCanonical(This,propvar);
+}
+/*** IPropertyDescriptionSearchInfo methods ***/
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetSearchInfoFlags(IPropertyDescriptionSearchInfo* This,PROPDESC_SEARCHINFO_FLAGS *ppdsiFlags) {
+    return This->lpVtbl->GetSearchInfoFlags(This,ppdsiFlags);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetColumnIndexType(IPropertyDescriptionSearchInfo* This,PROPDESC_COLUMNINDEX_TYPE *ppdciType) {
+    return This->lpVtbl->GetColumnIndexType(This,ppdciType);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetProjectionString(IPropertyDescriptionSearchInfo* This,LPWSTR *ppszProjection) {
+    return This->lpVtbl->GetProjectionString(This,ppszProjection);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionSearchInfo_GetMaxSize(IPropertyDescriptionSearchInfo* This,UINT *pcbMaxSize) {
+    return This->lpVtbl->GetMaxSize(This,pcbMaxSize);
+}
+#endif
 #endif
 
 #endif
@@ -2826,6 +3473,7 @@ interface IPropertyDescriptionRelatedPropertyInfo {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPropertyDescriptionRelatedPropertyInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPropertyDescriptionRelatedPropertyInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2854,6 +3502,86 @@ interface IPropertyDescriptionRelatedPropertyInfo {
 #define IPropertyDescriptionRelatedPropertyInfo_IsValueCanonical(This,propvar) (This)->lpVtbl->IsValueCanonical(This,propvar)
 /*** IPropertyDescriptionRelatedPropertyInfo methods ***/
 #define IPropertyDescriptionRelatedPropertyInfo_GetRelatedProperty(This,ppszRelationshipName,riid,ppv) (This)->lpVtbl->GetRelatedProperty(This,ppszRelationshipName,riid,ppv)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_QueryInterface(IPropertyDescriptionRelatedPropertyInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPropertyDescriptionRelatedPropertyInfo_AddRef(IPropertyDescriptionRelatedPropertyInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPropertyDescriptionRelatedPropertyInfo_Release(IPropertyDescriptionRelatedPropertyInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPropertyDescription methods ***/
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_GetPropertyKey(IPropertyDescriptionRelatedPropertyInfo* This,PROPERTYKEY *pkey) {
+    return This->lpVtbl->GetPropertyKey(This,pkey);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_GetCanonicalName(IPropertyDescriptionRelatedPropertyInfo* This,LPWSTR *ppszName) {
+    return This->lpVtbl->GetCanonicalName(This,ppszName);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_GetPropertyType(IPropertyDescriptionRelatedPropertyInfo* This,VARTYPE *pvartype) {
+    return This->lpVtbl->GetPropertyType(This,pvartype);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_GetDisplayName(IPropertyDescriptionRelatedPropertyInfo* This,LPWSTR *ppszName) {
+    return This->lpVtbl->GetDisplayName(This,ppszName);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_GetEditInvitation(IPropertyDescriptionRelatedPropertyInfo* This,LPWSTR *ppszName) {
+    return This->lpVtbl->GetEditInvitation(This,ppszName);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_GetTypeFlags(IPropertyDescriptionRelatedPropertyInfo* This,PROPDESC_TYPE_FLAGS mask,PROPDESC_TYPE_FLAGS *ppdtFlags) {
+    return This->lpVtbl->GetTypeFlags(This,mask,ppdtFlags);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_GetViewFlags(IPropertyDescriptionRelatedPropertyInfo* This,PROPDESC_VIEW_FLAGS *ppdvFlags) {
+    return This->lpVtbl->GetViewFlags(This,ppdvFlags);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_GetDefaultColumnWidth(IPropertyDescriptionRelatedPropertyInfo* This,UINT *pcxChars) {
+    return This->lpVtbl->GetDefaultColumnWidth(This,pcxChars);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_GetDisplayType(IPropertyDescriptionRelatedPropertyInfo* This,PROPDESC_DISPLAYTYPE *pdisplaytype) {
+    return This->lpVtbl->GetDisplayType(This,pdisplaytype);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_GetColumnState(IPropertyDescriptionRelatedPropertyInfo* This,SHCOLSTATEF *pcsFlags) {
+    return This->lpVtbl->GetColumnState(This,pcsFlags);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_GetGroupingRange(IPropertyDescriptionRelatedPropertyInfo* This,PROPDESC_GROUPING_RANGE *psd) {
+    return This->lpVtbl->GetGroupingRange(This,psd);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_GetRelativeDescriptionType(IPropertyDescriptionRelatedPropertyInfo* This,PROPDESC_RELATIVEDESCRIPTION_TYPE *prdt) {
+    return This->lpVtbl->GetRelativeDescriptionType(This,prdt);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_GetRelativeDescription(IPropertyDescriptionRelatedPropertyInfo* This,REFPROPVARIANT propvar1,REFPROPVARIANT propvar2,LPWSTR *ppszDesc1,LPWSTR *ppszDesc2) {
+    return This->lpVtbl->GetRelativeDescription(This,propvar1,propvar2,ppszDesc1,ppszDesc2);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_GetSortDescription(IPropertyDescriptionRelatedPropertyInfo* This,PROPDESC_SORTDESCRIPTION *psd) {
+    return This->lpVtbl->GetSortDescription(This,psd);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_GetSortDescriptionLabel(IPropertyDescriptionRelatedPropertyInfo* This,WINBOOL fDescending,LPWSTR *ppszDescription) {
+    return This->lpVtbl->GetSortDescriptionLabel(This,fDescending,ppszDescription);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_GetAggregationType(IPropertyDescriptionRelatedPropertyInfo* This,PROPDESC_AGGREGATION_TYPE *paggtype) {
+    return This->lpVtbl->GetAggregationType(This,paggtype);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_GetConditionType(IPropertyDescriptionRelatedPropertyInfo* This,PROPDESC_CONDITION_TYPE *pcontype,CONDITION_OPERATION *popDefault) {
+    return This->lpVtbl->GetConditionType(This,pcontype,popDefault);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_GetEnumTypeList(IPropertyDescriptionRelatedPropertyInfo* This,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetEnumTypeList(This,riid,ppv);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_CoerceToCanonicalValue(IPropertyDescriptionRelatedPropertyInfo* This,PROPVARIANT *propvar) {
+    return This->lpVtbl->CoerceToCanonicalValue(This,propvar);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_FormatForDisplay(IPropertyDescriptionRelatedPropertyInfo* This,REFPROPVARIANT propvar,PROPDESC_FORMAT_FLAGS flags,LPWSTR *ppszDisplay) {
+    return This->lpVtbl->FormatForDisplay(This,propvar,flags,ppszDisplay);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_IsValueCanonical(IPropertyDescriptionRelatedPropertyInfo* This,REFPROPVARIANT propvar) {
+    return This->lpVtbl->IsValueCanonical(This,propvar);
+}
+/*** IPropertyDescriptionRelatedPropertyInfo methods ***/
+static FORCEINLINE HRESULT IPropertyDescriptionRelatedPropertyInfo_GetRelatedProperty(IPropertyDescriptionRelatedPropertyInfo* This,LPCWSTR ppszRelationshipName,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetRelatedProperty(This,ppszRelationshipName,riid,ppv);
+}
+#endif
 #endif
 
 #endif
@@ -3011,6 +3739,7 @@ interface IPropertySystem {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPropertySystem_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPropertySystem_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -3025,6 +3754,46 @@ interface IPropertySystem {
 #define IPropertySystem_RegisterPropertySchema(This,pszPath) (This)->lpVtbl->RegisterPropertySchema(This,pszPath)
 #define IPropertySystem_UnregisterPropertySchema(This,pszPath) (This)->lpVtbl->UnregisterPropertySchema(This,pszPath)
 #define IPropertySystem_RefreshPropertySchema(This) (This)->lpVtbl->RefreshPropertySchema(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPropertySystem_QueryInterface(IPropertySystem* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPropertySystem_AddRef(IPropertySystem* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPropertySystem_Release(IPropertySystem* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPropertySystem methods ***/
+static FORCEINLINE HRESULT IPropertySystem_GetPropertyDescription(IPropertySystem* This,REFPROPERTYKEY propkey,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetPropertyDescription(This,propkey,riid,ppv);
+}
+static FORCEINLINE HRESULT IPropertySystem_GetPropertyDescriptionByName(IPropertySystem* This,LPCWSTR pszCanonicalName,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetPropertyDescriptionByName(This,pszCanonicalName,riid,ppv);
+}
+static FORCEINLINE HRESULT IPropertySystem_GetPropertyDescriptionListFromString(IPropertySystem* This,LPCWSTR pszPropList,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetPropertyDescriptionListFromString(This,pszPropList,riid,ppv);
+}
+static FORCEINLINE HRESULT IPropertySystem_EnumeratePropertyDescriptions(IPropertySystem* This,PROPDESC_ENUMFILTER filterOn,REFIID riid,void **ppv) {
+    return This->lpVtbl->EnumeratePropertyDescriptions(This,filterOn,riid,ppv);
+}
+static FORCEINLINE HRESULT IPropertySystem_FormatForDisplay(IPropertySystem* This,REFPROPERTYKEY key,REFPROPVARIANT propvar,PROPDESC_FORMAT_FLAGS pdff,LPWSTR pszText,DWORD cchText) {
+    return This->lpVtbl->FormatForDisplay(This,key,propvar,pdff,pszText,cchText);
+}
+static FORCEINLINE HRESULT IPropertySystem_FormatForDisplayAlloc(IPropertySystem* This,REFPROPERTYKEY key,REFPROPVARIANT propvar,PROPDESC_FORMAT_FLAGS pdff,LPWSTR *pszText) {
+    return This->lpVtbl->FormatForDisplayAlloc(This,key,propvar,pdff,pszText);
+}
+static FORCEINLINE HRESULT IPropertySystem_RegisterPropertySchema(IPropertySystem* This,LPCWSTR pszPath) {
+    return This->lpVtbl->RegisterPropertySchema(This,pszPath);
+}
+static FORCEINLINE HRESULT IPropertySystem_UnregisterPropertySchema(IPropertySystem* This,LPCWSTR pszPath) {
+    return This->lpVtbl->UnregisterPropertySchema(This,pszPath);
+}
+static FORCEINLINE HRESULT IPropertySystem_RefreshPropertySchema(IPropertySystem* This) {
+    return This->lpVtbl->RefreshPropertySchema(This);
+}
+#endif
 #endif
 
 #endif
@@ -3175,6 +3944,7 @@ interface IPropertyDescriptionList {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPropertyDescriptionList_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPropertyDescriptionList_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -3182,6 +3952,25 @@ interface IPropertyDescriptionList {
 /*** IPropertyDescriptionList methods ***/
 #define IPropertyDescriptionList_GetCount(This,pcelem) (This)->lpVtbl->GetCount(This,pcelem)
 #define IPropertyDescriptionList_GetAt(This,iElem,riid,ppv) (This)->lpVtbl->GetAt(This,iElem,riid,ppv)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPropertyDescriptionList_QueryInterface(IPropertyDescriptionList* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPropertyDescriptionList_AddRef(IPropertyDescriptionList* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPropertyDescriptionList_Release(IPropertyDescriptionList* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPropertyDescriptionList methods ***/
+static FORCEINLINE HRESULT IPropertyDescriptionList_GetCount(IPropertyDescriptionList* This,UINT *pcelem) {
+    return This->lpVtbl->GetCount(This,pcelem);
+}
+static FORCEINLINE HRESULT IPropertyDescriptionList_GetAt(IPropertyDescriptionList* This,UINT iElem,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetAt(This,iElem,riid,ppv);
+}
+#endif
 #endif
 
 #endif
@@ -3274,6 +4063,7 @@ interface IPropertyStoreFactory {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPropertyStoreFactory_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPropertyStoreFactory_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -3281,6 +4071,25 @@ interface IPropertyStoreFactory {
 /*** IPropertyStoreFactory methods ***/
 #define IPropertyStoreFactory_GetPropertyStore(This,flags,pUnkFactory,riid,ppv) (This)->lpVtbl->GetPropertyStore(This,flags,pUnkFactory,riid,ppv)
 #define IPropertyStoreFactory_GetPropertyStoreForKeys(This,rgKeys,cKeys,flags,riid,ppv) (This)->lpVtbl->GetPropertyStoreForKeys(This,rgKeys,cKeys,flags,riid,ppv)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPropertyStoreFactory_QueryInterface(IPropertyStoreFactory* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPropertyStoreFactory_AddRef(IPropertyStoreFactory* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPropertyStoreFactory_Release(IPropertyStoreFactory* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPropertyStoreFactory methods ***/
+static FORCEINLINE HRESULT IPropertyStoreFactory_GetPropertyStore(IPropertyStoreFactory* This,GETPROPERTYSTOREFLAGS flags,IUnknown *pUnkFactory,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetPropertyStore(This,flags,pUnkFactory,riid,ppv);
+}
+static FORCEINLINE HRESULT IPropertyStoreFactory_GetPropertyStoreForKeys(IPropertyStoreFactory* This,const PROPERTYKEY *rgKeys,UINT cKeys,GETPROPERTYSTOREFLAGS flags,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetPropertyStoreForKeys(This,rgKeys,cKeys,flags,riid,ppv);
+}
+#endif
 #endif
 
 #endif
@@ -3379,6 +4188,7 @@ interface IDelayedPropertyStoreFactory {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDelayedPropertyStoreFactory_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDelayedPropertyStoreFactory_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -3388,6 +4198,29 @@ interface IDelayedPropertyStoreFactory {
 #define IDelayedPropertyStoreFactory_GetPropertyStoreForKeys(This,rgKeys,cKeys,flags,riid,ppv) (This)->lpVtbl->GetPropertyStoreForKeys(This,rgKeys,cKeys,flags,riid,ppv)
 /*** IDelayedPropertyStoreFactory methods ***/
 #define IDelayedPropertyStoreFactory_GetDelayedPropertyStore(This,flags,dwStoreId,riid,ppv) (This)->lpVtbl->GetDelayedPropertyStore(This,flags,dwStoreId,riid,ppv)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDelayedPropertyStoreFactory_QueryInterface(IDelayedPropertyStoreFactory* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDelayedPropertyStoreFactory_AddRef(IDelayedPropertyStoreFactory* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDelayedPropertyStoreFactory_Release(IDelayedPropertyStoreFactory* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPropertyStoreFactory methods ***/
+static FORCEINLINE HRESULT IDelayedPropertyStoreFactory_GetPropertyStore(IDelayedPropertyStoreFactory* This,GETPROPERTYSTOREFLAGS flags,IUnknown *pUnkFactory,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetPropertyStore(This,flags,pUnkFactory,riid,ppv);
+}
+static FORCEINLINE HRESULT IDelayedPropertyStoreFactory_GetPropertyStoreForKeys(IDelayedPropertyStoreFactory* This,const PROPERTYKEY *rgKeys,UINT cKeys,GETPROPERTYSTOREFLAGS flags,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetPropertyStoreForKeys(This,rgKeys,cKeys,flags,riid,ppv);
+}
+/*** IDelayedPropertyStoreFactory methods ***/
+static FORCEINLINE HRESULT IDelayedPropertyStoreFactory_GetDelayedPropertyStore(IDelayedPropertyStoreFactory* This,GETPROPERTYSTOREFLAGS flags,DWORD dwStoreId,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetDelayedPropertyStore(This,flags,dwStoreId,riid,ppv);
+}
+#endif
 #endif
 
 #endif
@@ -3483,6 +4316,7 @@ interface IPersistSerializedPropStorage {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPersistSerializedPropStorage_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPersistSerializedPropStorage_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -3491,6 +4325,28 @@ interface IPersistSerializedPropStorage {
 #define IPersistSerializedPropStorage_SetFlags(This,flags) (This)->lpVtbl->SetFlags(This,flags)
 #define IPersistSerializedPropStorage_SetPropertyStorage(This,psps,cb) (This)->lpVtbl->SetPropertyStorage(This,psps,cb)
 #define IPersistSerializedPropStorage_GetPropertyStorage(This,psps,pcb) (This)->lpVtbl->GetPropertyStorage(This,psps,pcb)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPersistSerializedPropStorage_QueryInterface(IPersistSerializedPropStorage* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPersistSerializedPropStorage_AddRef(IPersistSerializedPropStorage* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPersistSerializedPropStorage_Release(IPersistSerializedPropStorage* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPersistSerializedPropStorage methods ***/
+static FORCEINLINE HRESULT IPersistSerializedPropStorage_SetFlags(IPersistSerializedPropStorage* This,PERSIST_SPROPSTORE_FLAGS flags) {
+    return This->lpVtbl->SetFlags(This,flags);
+}
+static FORCEINLINE HRESULT IPersistSerializedPropStorage_SetPropertyStorage(IPersistSerializedPropStorage* This,PCUSERIALIZEDPROPSTORAGE psps,DWORD cb) {
+    return This->lpVtbl->SetPropertyStorage(This,psps,cb);
+}
+static FORCEINLINE HRESULT IPersistSerializedPropStorage_GetPropertyStorage(IPersistSerializedPropStorage* This,SERIALIZEDPROPSTORAGE **psps,DWORD *pcb) {
+    return This->lpVtbl->GetPropertyStorage(This,psps,pcb);
+}
+#endif
 #endif
 
 #endif
@@ -3596,6 +4452,7 @@ interface IPersistSerializedPropStorage2 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPersistSerializedPropStorage2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPersistSerializedPropStorage2_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -3607,6 +4464,35 @@ interface IPersistSerializedPropStorage2 {
 /*** IPersistSerializedPropStorage2 methods ***/
 #define IPersistSerializedPropStorage2_GetpropertyStorageSize(This,pcb) (This)->lpVtbl->GetpropertyStorageSize(This,pcb)
 #define IPersistSerializedPropStorage2_GetPropertyStorageBuffer(This,psps,cb,pcbWritten) (This)->lpVtbl->GetPropertyStorageBuffer(This,psps,cb,pcbWritten)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPersistSerializedPropStorage2_QueryInterface(IPersistSerializedPropStorage2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPersistSerializedPropStorage2_AddRef(IPersistSerializedPropStorage2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPersistSerializedPropStorage2_Release(IPersistSerializedPropStorage2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPersistSerializedPropStorage methods ***/
+static FORCEINLINE HRESULT IPersistSerializedPropStorage2_SetFlags(IPersistSerializedPropStorage2* This,PERSIST_SPROPSTORE_FLAGS flags) {
+    return This->lpVtbl->SetFlags(This,flags);
+}
+static FORCEINLINE HRESULT IPersistSerializedPropStorage2_SetPropertyStorage(IPersistSerializedPropStorage2* This,PCUSERIALIZEDPROPSTORAGE psps,DWORD cb) {
+    return This->lpVtbl->SetPropertyStorage(This,psps,cb);
+}
+static FORCEINLINE HRESULT IPersistSerializedPropStorage2_GetPropertyStorage(IPersistSerializedPropStorage2* This,SERIALIZEDPROPSTORAGE **psps,DWORD *pcb) {
+    return This->lpVtbl->GetPropertyStorage(This,psps,pcb);
+}
+/*** IPersistSerializedPropStorage2 methods ***/
+static FORCEINLINE HRESULT IPersistSerializedPropStorage2_GetpropertyStorageSize(IPersistSerializedPropStorage2* This,DWORD *pcb) {
+    return This->lpVtbl->GetpropertyStorageSize(This,pcb);
+}
+static FORCEINLINE HRESULT IPersistSerializedPropStorage2_GetPropertyStorageBuffer(IPersistSerializedPropStorage2* This,SERIALIZEDPROPSTORAGE *psps,DWORD cb,DWORD *pcbWritten) {
+    return This->lpVtbl->GetPropertyStorageBuffer(This,psps,cb,pcbWritten);
+}
+#endif
 #endif
 
 #endif
@@ -3677,12 +4563,29 @@ interface IPropertySystemChangeNotify {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPropertySystemChangeNotify_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPropertySystemChangeNotify_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IPropertySystemChangeNotify_Release(This) (This)->lpVtbl->Release(This)
 /*** IPropertySystemChangeNotify methods ***/
 #define IPropertySystemChangeNotify_SchemaRefreshed(This) (This)->lpVtbl->SchemaRefreshed(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPropertySystemChangeNotify_QueryInterface(IPropertySystemChangeNotify* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPropertySystemChangeNotify_AddRef(IPropertySystemChangeNotify* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPropertySystemChangeNotify_Release(IPropertySystemChangeNotify* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPropertySystemChangeNotify methods ***/
+static FORCEINLINE HRESULT IPropertySystemChangeNotify_SchemaRefreshed(IPropertySystemChangeNotify* This) {
+    return This->lpVtbl->SchemaRefreshed(This);
+}
+#endif
 #endif
 
 #endif
@@ -3749,12 +4652,29 @@ interface ICreateObject {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ICreateObject_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ICreateObject_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define ICreateObject_Release(This) (This)->lpVtbl->Release(This)
 /*** ICreateObject methods ***/
 #define ICreateObject_CreateObject(This,clsid,pUnkOuter,riid,ppv) (This)->lpVtbl->CreateObject(This,clsid,pUnkOuter,riid,ppv)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ICreateObject_QueryInterface(ICreateObject* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ICreateObject_AddRef(ICreateObject* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ICreateObject_Release(ICreateObject* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ICreateObject methods ***/
+static FORCEINLINE HRESULT ICreateObject_CreateObject(ICreateObject* This,REFCLSID clsid,IUnknown *pUnkOuter,REFIID riid,void **ppv) {
+    return This->lpVtbl->CreateObject(This,clsid,pUnkOuter,riid,ppv);
+}
+#endif
 #endif
 
 #endif

@@ -195,6 +195,7 @@ interface IDirectDrawMediaStream {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDirectDrawMediaStream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDirectDrawMediaStream_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -213,6 +214,56 @@ interface IDirectDrawMediaStream {
 #define IDirectDrawMediaStream_SetDirectDraw(This,pDirectDraw) (This)->lpVtbl->SetDirectDraw(This,pDirectDraw)
 #define IDirectDrawMediaStream_CreateSample(This,pSurface,pRect,dwFlags,ppSample) (This)->lpVtbl->CreateSample(This,pSurface,pRect,dwFlags,ppSample)
 #define IDirectDrawMediaStream_GetTimePerFrame(This,pFrameTime) (This)->lpVtbl->GetTimePerFrame(This,pFrameTime)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDirectDrawMediaStream_QueryInterface(IDirectDrawMediaStream* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDirectDrawMediaStream_AddRef(IDirectDrawMediaStream* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDirectDrawMediaStream_Release(IDirectDrawMediaStream* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMediaStream methods ***/
+static FORCEINLINE HRESULT IDirectDrawMediaStream_GetMultiMediaStream(IDirectDrawMediaStream* This,IMultiMediaStream **ppMultiMediaStream) {
+    return This->lpVtbl->GetMultiMediaStream(This,ppMultiMediaStream);
+}
+static FORCEINLINE HRESULT IDirectDrawMediaStream_GetInformation(IDirectDrawMediaStream* This,MSPID *pPurposeId,STREAM_TYPE *pType) {
+    return This->lpVtbl->GetInformation(This,pPurposeId,pType);
+}
+static FORCEINLINE HRESULT IDirectDrawMediaStream_SetSameFormat(IDirectDrawMediaStream* This,IMediaStream *pStreamThatHasDesiredFormat,DWORD dwFlags) {
+    return This->lpVtbl->SetSameFormat(This,pStreamThatHasDesiredFormat,dwFlags);
+}
+static FORCEINLINE HRESULT IDirectDrawMediaStream_AllocateSample(IDirectDrawMediaStream* This,DWORD dwFlags,IStreamSample **ppSample) {
+    return This->lpVtbl->AllocateSample(This,dwFlags,ppSample);
+}
+static FORCEINLINE HRESULT IDirectDrawMediaStream_CreateSharedSample(IDirectDrawMediaStream* This,IStreamSample *pExistingSample,DWORD dwFlags,IStreamSample **ppNewSample) {
+    return This->lpVtbl->CreateSharedSample(This,pExistingSample,dwFlags,ppNewSample);
+}
+static FORCEINLINE HRESULT IDirectDrawMediaStream_SendEndOfStream(IDirectDrawMediaStream* This,DWORD dwFlags) {
+    return This->lpVtbl->SendEndOfStream(This,dwFlags);
+}
+/*** IDirectDrawMediaStream methods ***/
+static FORCEINLINE HRESULT IDirectDrawMediaStream_GetFormat(IDirectDrawMediaStream* This,DDSURFACEDESC *pDDSDCurrent,IDirectDrawPalette **ppDirectDrawPalette,DDSURFACEDESC *pDDSDDesired,DWORD *pdwFlags) {
+    return This->lpVtbl->GetFormat(This,pDDSDCurrent,ppDirectDrawPalette,pDDSDDesired,pdwFlags);
+}
+static FORCEINLINE HRESULT IDirectDrawMediaStream_SetFormat(IDirectDrawMediaStream* This,const DDSURFACEDESC *pDDSurfaceDesc,IDirectDrawPalette *pDirectDrawPalette) {
+    return This->lpVtbl->SetFormat(This,pDDSurfaceDesc,pDirectDrawPalette);
+}
+static FORCEINLINE HRESULT IDirectDrawMediaStream_GetDirectDraw(IDirectDrawMediaStream* This,IDirectDraw **ppDirectDraw) {
+    return This->lpVtbl->GetDirectDraw(This,ppDirectDraw);
+}
+static FORCEINLINE HRESULT IDirectDrawMediaStream_SetDirectDraw(IDirectDrawMediaStream* This,IDirectDraw *pDirectDraw) {
+    return This->lpVtbl->SetDirectDraw(This,pDirectDraw);
+}
+static FORCEINLINE HRESULT IDirectDrawMediaStream_CreateSample(IDirectDrawMediaStream* This,IDirectDrawSurface *pSurface,const RECT *pRect,DWORD dwFlags,IDirectDrawStreamSample **ppSample) {
+    return This->lpVtbl->CreateSample(This,pSurface,pRect,dwFlags,ppSample);
+}
+static FORCEINLINE HRESULT IDirectDrawMediaStream_GetTimePerFrame(IDirectDrawMediaStream* This,STREAM_TIME *pFrameTime) {
+    return This->lpVtbl->GetTimePerFrame(This,pFrameTime);
+}
+#endif
 #endif
 
 #endif
@@ -358,6 +409,7 @@ interface IDirectDrawStreamSample {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDirectDrawStreamSample_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDirectDrawStreamSample_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -371,6 +423,41 @@ interface IDirectDrawStreamSample {
 /*** IDirectDrawStreamSample methods ***/
 #define IDirectDrawStreamSample_GetSurface(This,ppDirectDrawSurface,pRect) (This)->lpVtbl->GetSurface(This,ppDirectDrawSurface,pRect)
 #define IDirectDrawStreamSample_SetRect(This,pRect) (This)->lpVtbl->SetRect(This,pRect)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDirectDrawStreamSample_QueryInterface(IDirectDrawStreamSample* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDirectDrawStreamSample_AddRef(IDirectDrawStreamSample* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDirectDrawStreamSample_Release(IDirectDrawStreamSample* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IStreamSample methods ***/
+static FORCEINLINE HRESULT IDirectDrawStreamSample_GetMediaStream(IDirectDrawStreamSample* This,IMediaStream **ppMediaStream) {
+    return This->lpVtbl->GetMediaStream(This,ppMediaStream);
+}
+static FORCEINLINE HRESULT IDirectDrawStreamSample_GetSampleTimes(IDirectDrawStreamSample* This,STREAM_TIME *pStartTime,STREAM_TIME *pEndTime,STREAM_TIME *pCurrentTime) {
+    return This->lpVtbl->GetSampleTimes(This,pStartTime,pEndTime,pCurrentTime);
+}
+static FORCEINLINE HRESULT IDirectDrawStreamSample_SetSampleTimes(IDirectDrawStreamSample* This,const STREAM_TIME *pStartTime,const STREAM_TIME *pEndTime) {
+    return This->lpVtbl->SetSampleTimes(This,pStartTime,pEndTime);
+}
+static FORCEINLINE HRESULT IDirectDrawStreamSample_Update(IDirectDrawStreamSample* This,DWORD dwFlags,HANDLE hEvent,PAPCFUNC pfnAPC,DWORD dwAPCData) {
+    return This->lpVtbl->Update(This,dwFlags,hEvent,pfnAPC,dwAPCData);
+}
+static FORCEINLINE HRESULT IDirectDrawStreamSample_CompletionStatus(IDirectDrawStreamSample* This,DWORD dwFlags,DWORD dwMilliseconds) {
+    return This->lpVtbl->CompletionStatus(This,dwFlags,dwMilliseconds);
+}
+/*** IDirectDrawStreamSample methods ***/
+static FORCEINLINE HRESULT IDirectDrawStreamSample_GetSurface(IDirectDrawStreamSample* This,IDirectDrawSurface **ppDirectDrawSurface,RECT *pRect) {
+    return This->lpVtbl->GetSurface(This,ppDirectDrawSurface,pRect);
+}
+static FORCEINLINE HRESULT IDirectDrawStreamSample_SetRect(IDirectDrawStreamSample* This,const RECT *pRect) {
+    return This->lpVtbl->SetRect(This,pRect);
+}
+#endif
 #endif
 
 #endif

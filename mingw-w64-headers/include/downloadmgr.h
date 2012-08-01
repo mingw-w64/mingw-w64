@@ -93,12 +93,29 @@ interface IDownloadManager {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDownloadManager_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDownloadManager_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IDownloadManager_Release(This) (This)->lpVtbl->Release(This)
 /*** IDownloadManager methods ***/
 #define IDownloadManager_Download(This,pmk,pbc,dwBindVerb,grfBINDF,pBindInfo,pszHeaders,pszRedir,uiCP) (This)->lpVtbl->Download(This,pmk,pbc,dwBindVerb,grfBINDF,pBindInfo,pszHeaders,pszRedir,uiCP)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDownloadManager_QueryInterface(IDownloadManager* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDownloadManager_AddRef(IDownloadManager* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDownloadManager_Release(IDownloadManager* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDownloadManager methods ***/
+static FORCEINLINE HRESULT IDownloadManager_Download(IDownloadManager* This,IMoniker *pmk,IBindCtx *pbc,DWORD dwBindVerb,LONG grfBINDF,BINDINFO *pBindInfo,LPCOLESTR pszHeaders,LPCOLESTR pszRedir,UINT uiCP) {
+    return This->lpVtbl->Download(This,pmk,pbc,dwBindVerb,grfBINDF,pBindInfo,pszHeaders,pszRedir,uiCP);
+}
+#endif
 #endif
 
 #endif

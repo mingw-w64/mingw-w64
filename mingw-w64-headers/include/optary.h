@@ -98,6 +98,7 @@ interface IOptionArray {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IOptionArray_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IOptionArray_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -105,6 +106,25 @@ interface IOptionArray {
 /*** IOptionArray methods ***/
 #define IOptionArray_QueryOption(This,dwOption,pBuffer,pcbBuf) (This)->lpVtbl->QueryOption(This,dwOption,pBuffer,pcbBuf)
 #define IOptionArray_SetOption(This,dwOption,pBuffer,cbBuf) (This)->lpVtbl->SetOption(This,dwOption,pBuffer,cbBuf)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IOptionArray_QueryInterface(IOptionArray* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IOptionArray_AddRef(IOptionArray* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IOptionArray_Release(IOptionArray* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IOptionArray methods ***/
+static FORCEINLINE HRESULT IOptionArray_QueryOption(IOptionArray* This,DWORD dwOption,LPVOID pBuffer,ULONG *pcbBuf) {
+    return This->lpVtbl->QueryOption(This,dwOption,pBuffer,pcbBuf);
+}
+static FORCEINLINE HRESULT IOptionArray_SetOption(IOptionArray* This,DWORD dwOption,LPVOID pBuffer,ULONG cbBuf) {
+    return This->lpVtbl->SetOption(This,dwOption,pBuffer,cbBuf);
+}
+#endif
 #endif
 
 #endif
@@ -189,6 +209,7 @@ interface IHtmlLoadOptions {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IHtmlLoadOptions_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IHtmlLoadOptions_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -196,6 +217,25 @@ interface IHtmlLoadOptions {
 /*** IOptionArray methods ***/
 #define IHtmlLoadOptions_QueryOption(This,dwOption,pBuffer,pcbBuf) (This)->lpVtbl->QueryOption(This,dwOption,pBuffer,pcbBuf)
 #define IHtmlLoadOptions_SetOption(This,dwOption,pBuffer,cbBuf) (This)->lpVtbl->SetOption(This,dwOption,pBuffer,cbBuf)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IHtmlLoadOptions_QueryInterface(IHtmlLoadOptions* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IHtmlLoadOptions_AddRef(IHtmlLoadOptions* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IHtmlLoadOptions_Release(IHtmlLoadOptions* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IOptionArray methods ***/
+static FORCEINLINE HRESULT IHtmlLoadOptions_QueryOption(IHtmlLoadOptions* This,DWORD dwOption,LPVOID pBuffer,ULONG *pcbBuf) {
+    return This->lpVtbl->QueryOption(This,dwOption,pBuffer,pcbBuf);
+}
+static FORCEINLINE HRESULT IHtmlLoadOptions_SetOption(IHtmlLoadOptions* This,DWORD dwOption,LPVOID pBuffer,ULONG cbBuf) {
+    return This->lpVtbl->SetOption(This,dwOption,pBuffer,cbBuf);
+}
+#endif
 #endif
 
 #endif

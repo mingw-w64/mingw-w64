@@ -200,6 +200,7 @@ interface IMMNotificationClient {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IMMNotificationClient_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IMMNotificationClient_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -210,6 +211,34 @@ interface IMMNotificationClient {
 #define IMMNotificationClient_OnDeviceRemoved(This,pwstrDeviceId) (This)->lpVtbl->OnDeviceRemoved(This,pwstrDeviceId)
 #define IMMNotificationClient_OnDefaultDeviceChanged(This,flow,role,pwstrDeviceId) (This)->lpVtbl->OnDefaultDeviceChanged(This,flow,role,pwstrDeviceId)
 #define IMMNotificationClient_OnPropertyValueChanged(This,pwstrDeviceId,key) (This)->lpVtbl->OnPropertyValueChanged(This,pwstrDeviceId,key)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMMNotificationClient_QueryInterface(IMMNotificationClient* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMMNotificationClient_AddRef(IMMNotificationClient* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMMNotificationClient_Release(IMMNotificationClient* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMMNotificationClient methods ***/
+static FORCEINLINE HRESULT IMMNotificationClient_OnDeviceStateChanged(IMMNotificationClient* This,LPCWSTR pwstrDeviceId,DWORD dwNewState) {
+    return This->lpVtbl->OnDeviceStateChanged(This,pwstrDeviceId,dwNewState);
+}
+static FORCEINLINE HRESULT IMMNotificationClient_OnDeviceAdded(IMMNotificationClient* This,LPCWSTR pwstrDeviceId) {
+    return This->lpVtbl->OnDeviceAdded(This,pwstrDeviceId);
+}
+static FORCEINLINE HRESULT IMMNotificationClient_OnDeviceRemoved(IMMNotificationClient* This,LPCWSTR pwstrDeviceId) {
+    return This->lpVtbl->OnDeviceRemoved(This,pwstrDeviceId);
+}
+static FORCEINLINE HRESULT IMMNotificationClient_OnDefaultDeviceChanged(IMMNotificationClient* This,EDataFlow flow,ERole role,LPCWSTR pwstrDeviceId) {
+    return This->lpVtbl->OnDefaultDeviceChanged(This,flow,role,pwstrDeviceId);
+}
+static FORCEINLINE HRESULT IMMNotificationClient_OnPropertyValueChanged(IMMNotificationClient* This,LPCWSTR pwstrDeviceId,const PROPERTYKEY key) {
+    return This->lpVtbl->OnPropertyValueChanged(This,pwstrDeviceId,key);
+}
+#endif
 #endif
 
 #endif
@@ -336,6 +365,7 @@ interface IMMDevice {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IMMDevice_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IMMDevice_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -345,6 +375,31 @@ interface IMMDevice {
 #define IMMDevice_OpenPropertyStore(This,stgmAccess,ppProperties) (This)->lpVtbl->OpenPropertyStore(This,stgmAccess,ppProperties)
 #define IMMDevice_GetId(This,ppstrId) (This)->lpVtbl->GetId(This,ppstrId)
 #define IMMDevice_GetState(This,pdwState) (This)->lpVtbl->GetState(This,pdwState)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMMDevice_QueryInterface(IMMDevice* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMMDevice_AddRef(IMMDevice* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMMDevice_Release(IMMDevice* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMMDevice methods ***/
+static FORCEINLINE HRESULT IMMDevice_Activate(IMMDevice* This,REFIID iid,DWORD dwClsCtx,PROPVARIANT *pActivationParams,void **ppv) {
+    return This->lpVtbl->Activate(This,iid,dwClsCtx,pActivationParams,ppv);
+}
+static FORCEINLINE HRESULT IMMDevice_OpenPropertyStore(IMMDevice* This,DWORD stgmAccess,IPropertyStore **ppProperties) {
+    return This->lpVtbl->OpenPropertyStore(This,stgmAccess,ppProperties);
+}
+static FORCEINLINE HRESULT IMMDevice_GetId(IMMDevice* This,LPWSTR *ppstrId) {
+    return This->lpVtbl->GetId(This,ppstrId);
+}
+static FORCEINLINE HRESULT IMMDevice_GetState(IMMDevice* This,DWORD *pdwState) {
+    return This->lpVtbl->GetState(This,pdwState);
+}
+#endif
 #endif
 
 #endif
@@ -443,6 +498,7 @@ interface IMMDeviceCollection {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IMMDeviceCollection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IMMDeviceCollection_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -450,6 +506,25 @@ interface IMMDeviceCollection {
 /*** IMMDeviceCollection methods ***/
 #define IMMDeviceCollection_GetCount(This,pcDevices) (This)->lpVtbl->GetCount(This,pcDevices)
 #define IMMDeviceCollection_Item(This,nDevice,ppdevice) (This)->lpVtbl->Item(This,nDevice,ppdevice)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMMDeviceCollection_QueryInterface(IMMDeviceCollection* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMMDeviceCollection_AddRef(IMMDeviceCollection* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMMDeviceCollection_Release(IMMDeviceCollection* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMMDeviceCollection methods ***/
+static FORCEINLINE HRESULT IMMDeviceCollection_GetCount(IMMDeviceCollection* This,UINT *pcDevices) {
+    return This->lpVtbl->GetCount(This,pcDevices);
+}
+static FORCEINLINE HRESULT IMMDeviceCollection_Item(IMMDeviceCollection* This,UINT nDevice,IMMDevice **ppdevice) {
+    return This->lpVtbl->Item(This,nDevice,ppdevice);
+}
+#endif
 #endif
 
 #endif
@@ -520,12 +595,29 @@ interface IMMEndpoint {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IMMEndpoint_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IMMEndpoint_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IMMEndpoint_Release(This) (This)->lpVtbl->Release(This)
 /*** IMMEndpoint methods ***/
 #define IMMEndpoint_GetDataFlow(This,pDataFlow) (This)->lpVtbl->GetDataFlow(This,pDataFlow)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMMEndpoint_QueryInterface(IMMEndpoint* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMMEndpoint_AddRef(IMMEndpoint* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMMEndpoint_Release(IMMEndpoint* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMMEndpoint methods ***/
+static FORCEINLINE HRESULT IMMEndpoint_GetDataFlow(IMMEndpoint* This,EDataFlow *pDataFlow) {
+    return This->lpVtbl->GetDataFlow(This,pDataFlow);
+}
+#endif
 #endif
 
 #endif
@@ -625,6 +717,7 @@ interface IMMDeviceEnumerator {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IMMDeviceEnumerator_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IMMDeviceEnumerator_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -635,6 +728,34 @@ interface IMMDeviceEnumerator {
 #define IMMDeviceEnumerator_GetDevice(This,pwstrId,ppDevice) (This)->lpVtbl->GetDevice(This,pwstrId,ppDevice)
 #define IMMDeviceEnumerator_RegisterEndpointNotificationCallback(This,pClient) (This)->lpVtbl->RegisterEndpointNotificationCallback(This,pClient)
 #define IMMDeviceEnumerator_UnregisterEndpointNotificationCallback(This,pClient) (This)->lpVtbl->UnregisterEndpointNotificationCallback(This,pClient)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMMDeviceEnumerator_QueryInterface(IMMDeviceEnumerator* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMMDeviceEnumerator_AddRef(IMMDeviceEnumerator* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMMDeviceEnumerator_Release(IMMDeviceEnumerator* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMMDeviceEnumerator methods ***/
+static FORCEINLINE HRESULT IMMDeviceEnumerator_EnumAudioEndpoints(IMMDeviceEnumerator* This,EDataFlow dataFlow,DWORD dwStateMask,IMMDeviceCollection **ppDevices) {
+    return This->lpVtbl->EnumAudioEndpoints(This,dataFlow,dwStateMask,ppDevices);
+}
+static FORCEINLINE HRESULT IMMDeviceEnumerator_GetDefaultAudioEndpoint(IMMDeviceEnumerator* This,EDataFlow dataFlow,ERole role,IMMDevice **ppEndpoint) {
+    return This->lpVtbl->GetDefaultAudioEndpoint(This,dataFlow,role,ppEndpoint);
+}
+static FORCEINLINE HRESULT IMMDeviceEnumerator_GetDevice(IMMDeviceEnumerator* This,LPCWSTR pwstrId,IMMDevice **ppDevice) {
+    return This->lpVtbl->GetDevice(This,pwstrId,ppDevice);
+}
+static FORCEINLINE HRESULT IMMDeviceEnumerator_RegisterEndpointNotificationCallback(IMMDeviceEnumerator* This,IMMNotificationClient *pClient) {
+    return This->lpVtbl->RegisterEndpointNotificationCallback(This,pClient);
+}
+static FORCEINLINE HRESULT IMMDeviceEnumerator_UnregisterEndpointNotificationCallback(IMMDeviceEnumerator* This,IMMNotificationClient *pClient) {
+    return This->lpVtbl->UnregisterEndpointNotificationCallback(This,pClient);
+}
+#endif
 #endif
 
 #endif
@@ -739,12 +860,29 @@ interface IMMDeviceActivator {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IMMDeviceActivator_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IMMDeviceActivator_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IMMDeviceActivator_Release(This) (This)->lpVtbl->Release(This)
 /*** IMMDeviceActivator methods ***/
 #define IMMDeviceActivator_Activate(This,iid,pDevice,pActivationParams,ppv) (This)->lpVtbl->Activate(This,iid,pDevice,pActivationParams,ppv)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMMDeviceActivator_QueryInterface(IMMDeviceActivator* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMMDeviceActivator_AddRef(IMMDeviceActivator* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMMDeviceActivator_Release(IMMDeviceActivator* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMMDeviceActivator methods ***/
+static FORCEINLINE HRESULT IMMDeviceActivator_Activate(IMMDeviceActivator* This,REFIID iid,IMMDevice *pDevice,PROPVARIANT *pActivationParams,void **ppv) {
+    return This->lpVtbl->Activate(This,iid,pDevice,pActivationParams,ppv);
+}
+#endif
 #endif
 
 #endif

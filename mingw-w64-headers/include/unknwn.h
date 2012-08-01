@@ -117,10 +117,23 @@ interface IUnknown {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IUnknown_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IUnknown_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IUnknown_Release(This) (This)->lpVtbl->Release(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IUnknown_QueryInterface(IUnknown* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IUnknown_AddRef(IUnknown* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IUnknown_Release(IUnknown* This) {
+    return This->lpVtbl->Release(This);
+}
+#endif
 #endif
 
 #endif
@@ -229,6 +242,7 @@ interface AsyncIUnknown {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define AsyncIUnknown_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define AsyncIUnknown_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -240,6 +254,37 @@ interface AsyncIUnknown {
 #define AsyncIUnknown_Finish_AddRef(This) (This)->lpVtbl->Finish_AddRef(This)
 #define AsyncIUnknown_Begin_Release(This) (This)->lpVtbl->Begin_Release(This)
 #define AsyncIUnknown_Finish_Release(This) (This)->lpVtbl->Finish_Release(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT AsyncIUnknown_QueryInterface(AsyncIUnknown* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG AsyncIUnknown_AddRef(AsyncIUnknown* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG AsyncIUnknown_Release(AsyncIUnknown* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** AsyncIUnknown methods ***/
+static FORCEINLINE HRESULT AsyncIUnknown_Begin_QueryInterface(AsyncIUnknown* This,REFIID riid) {
+    return This->lpVtbl->Begin_QueryInterface(This,riid);
+}
+static FORCEINLINE HRESULT AsyncIUnknown_Finish_QueryInterface(AsyncIUnknown* This,void **ppvObject) {
+    return This->lpVtbl->Finish_QueryInterface(This,ppvObject);
+}
+static FORCEINLINE HRESULT AsyncIUnknown_Begin_AddRef(AsyncIUnknown* This) {
+    return This->lpVtbl->Begin_AddRef(This);
+}
+static FORCEINLINE ULONG AsyncIUnknown_Finish_AddRef(AsyncIUnknown* This) {
+    return This->lpVtbl->Finish_AddRef(This);
+}
+static FORCEINLINE HRESULT AsyncIUnknown_Begin_Release(AsyncIUnknown* This) {
+    return This->lpVtbl->Begin_Release(This);
+}
+static FORCEINLINE ULONG AsyncIUnknown_Finish_Release(AsyncIUnknown* This) {
+    return This->lpVtbl->Finish_Release(This);
+}
+#endif
 #endif
 
 #endif
@@ -349,6 +394,7 @@ interface IClassFactory {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IClassFactory_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IClassFactory_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -356,6 +402,25 @@ interface IClassFactory {
 /*** IClassFactory methods ***/
 #define IClassFactory_CreateInstance(This,pUnkOuter,riid,ppvObject) (This)->lpVtbl->CreateInstance(This,pUnkOuter,riid,ppvObject)
 #define IClassFactory_LockServer(This,fLock) (This)->lpVtbl->LockServer(This,fLock)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IClassFactory_QueryInterface(IClassFactory* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IClassFactory_AddRef(IClassFactory* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IClassFactory_Release(IClassFactory* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IClassFactory methods ***/
+static FORCEINLINE HRESULT IClassFactory_CreateInstance(IClassFactory* This,IUnknown *pUnkOuter,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->CreateInstance(This,pUnkOuter,riid,ppvObject);
+}
+static FORCEINLINE HRESULT IClassFactory_LockServer(IClassFactory* This,WINBOOL fLock) {
+    return This->lpVtbl->LockServer(This,fLock);
+}
+#endif
 #endif
 
 #endif

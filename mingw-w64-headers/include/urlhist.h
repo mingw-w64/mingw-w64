@@ -150,6 +150,7 @@ interface IEnumSTATURL {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IEnumSTATURL_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumSTATURL_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -160,6 +161,34 @@ interface IEnumSTATURL {
 #define IEnumSTATURL_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumSTATURL_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)
 #define IEnumSTATURL_SetFilter(This,poszFilter,dwFlags) (This)->lpVtbl->SetFilter(This,poszFilter,dwFlags)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IEnumSTATURL_QueryInterface(IEnumSTATURL* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IEnumSTATURL_AddRef(IEnumSTATURL* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IEnumSTATURL_Release(IEnumSTATURL* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IEnumSTATURL methods ***/
+static FORCEINLINE HRESULT IEnumSTATURL_Next(IEnumSTATURL* This,ULONG celt,LPSTATURL rgelt,ULONG *pceltFetched) {
+    return This->lpVtbl->Next(This,celt,rgelt,pceltFetched);
+}
+static FORCEINLINE HRESULT IEnumSTATURL_Skip(IEnumSTATURL* This,ULONG celt) {
+    return This->lpVtbl->Skip(This,celt);
+}
+static FORCEINLINE HRESULT IEnumSTATURL_Reset(IEnumSTATURL* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IEnumSTATURL_Clone(IEnumSTATURL* This,IEnumSTATURL **ppenum) {
+    return This->lpVtbl->Clone(This,ppenum);
+}
+static FORCEINLINE HRESULT IEnumSTATURL_SetFilter(IEnumSTATURL* This,LPCOLESTR poszFilter,DWORD dwFlags) {
+    return This->lpVtbl->SetFilter(This,poszFilter,dwFlags);
+}
+#endif
 #endif
 
 #endif
@@ -298,6 +327,7 @@ interface IUrlHistoryStg {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IUrlHistoryStg_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IUrlHistoryStg_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -308,6 +338,34 @@ interface IUrlHistoryStg {
 #define IUrlHistoryStg_QueryUrl(This,pocsUrl,dwFlags,lpSTATURL) (This)->lpVtbl->QueryUrl(This,pocsUrl,dwFlags,lpSTATURL)
 #define IUrlHistoryStg_BindToObject(This,pocsUrl,riid,ppvOut) (This)->lpVtbl->BindToObject(This,pocsUrl,riid,ppvOut)
 #define IUrlHistoryStg_EnumUrls(This,ppEnum) (This)->lpVtbl->EnumUrls(This,ppEnum)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IUrlHistoryStg_QueryInterface(IUrlHistoryStg* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IUrlHistoryStg_AddRef(IUrlHistoryStg* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IUrlHistoryStg_Release(IUrlHistoryStg* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUrlHistoryStg methods ***/
+static FORCEINLINE HRESULT IUrlHistoryStg_AddUrl(IUrlHistoryStg* This,LPCOLESTR pocsUrl,LPCOLESTR pocsTitle,DWORD dwFlags) {
+    return This->lpVtbl->AddUrl(This,pocsUrl,pocsTitle,dwFlags);
+}
+static FORCEINLINE HRESULT IUrlHistoryStg_DeleteUrl(IUrlHistoryStg* This,LPCOLESTR pocsUrl,DWORD dwFlags) {
+    return This->lpVtbl->DeleteUrl(This,pocsUrl,dwFlags);
+}
+static FORCEINLINE HRESULT IUrlHistoryStg_QueryUrl(IUrlHistoryStg* This,LPCOLESTR pocsUrl,DWORD dwFlags,LPSTATURL lpSTATURL) {
+    return This->lpVtbl->QueryUrl(This,pocsUrl,dwFlags,lpSTATURL);
+}
+static FORCEINLINE HRESULT IUrlHistoryStg_BindToObject(IUrlHistoryStg* This,LPCOLESTR pocsUrl,REFIID riid,void **ppvOut) {
+    return This->lpVtbl->BindToObject(This,pocsUrl,riid,ppvOut);
+}
+static FORCEINLINE HRESULT IUrlHistoryStg_EnumUrls(IUrlHistoryStg* This,IEnumSTATURL **ppEnum) {
+    return This->lpVtbl->EnumUrls(This,ppEnum);
+}
+#endif
 #endif
 
 #endif
@@ -453,6 +511,7 @@ interface IUrlHistoryStg2 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IUrlHistoryStg2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IUrlHistoryStg2_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -466,6 +525,41 @@ interface IUrlHistoryStg2 {
 /*** IUrlHistoryStg2 methods ***/
 #define IUrlHistoryStg2_AddUrlAndNotify(This,pocsUrl,pocsTitle,dwFlags,fWriteHistory,poctNotify,punkISFolder) (This)->lpVtbl->AddUrlAndNotify(This,pocsUrl,pocsTitle,dwFlags,fWriteHistory,poctNotify,punkISFolder)
 #define IUrlHistoryStg2_ClearHistory(This) (This)->lpVtbl->ClearHistory(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IUrlHistoryStg2_QueryInterface(IUrlHistoryStg2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IUrlHistoryStg2_AddRef(IUrlHistoryStg2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IUrlHistoryStg2_Release(IUrlHistoryStg2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IUrlHistoryStg methods ***/
+static FORCEINLINE HRESULT IUrlHistoryStg2_AddUrl(IUrlHistoryStg2* This,LPCOLESTR pocsUrl,LPCOLESTR pocsTitle,DWORD dwFlags) {
+    return This->lpVtbl->AddUrl(This,pocsUrl,pocsTitle,dwFlags);
+}
+static FORCEINLINE HRESULT IUrlHistoryStg2_DeleteUrl(IUrlHistoryStg2* This,LPCOLESTR pocsUrl,DWORD dwFlags) {
+    return This->lpVtbl->DeleteUrl(This,pocsUrl,dwFlags);
+}
+static FORCEINLINE HRESULT IUrlHistoryStg2_QueryUrl(IUrlHistoryStg2* This,LPCOLESTR pocsUrl,DWORD dwFlags,LPSTATURL lpSTATURL) {
+    return This->lpVtbl->QueryUrl(This,pocsUrl,dwFlags,lpSTATURL);
+}
+static FORCEINLINE HRESULT IUrlHistoryStg2_BindToObject(IUrlHistoryStg2* This,LPCOLESTR pocsUrl,REFIID riid,void **ppvOut) {
+    return This->lpVtbl->BindToObject(This,pocsUrl,riid,ppvOut);
+}
+static FORCEINLINE HRESULT IUrlHistoryStg2_EnumUrls(IUrlHistoryStg2* This,IEnumSTATURL **ppEnum) {
+    return This->lpVtbl->EnumUrls(This,ppEnum);
+}
+/*** IUrlHistoryStg2 methods ***/
+static FORCEINLINE HRESULT IUrlHistoryStg2_AddUrlAndNotify(IUrlHistoryStg2* This,LPCOLESTR pocsUrl,LPCOLESTR pocsTitle,DWORD dwFlags,WINBOOL fWriteHistory,IOleCommandTarget *poctNotify,IUnknown *punkISFolder) {
+    return This->lpVtbl->AddUrlAndNotify(This,pocsUrl,pocsTitle,dwFlags,fWriteHistory,poctNotify,punkISFolder);
+}
+static FORCEINLINE HRESULT IUrlHistoryStg2_ClearHistory(IUrlHistoryStg2* This) {
+    return This->lpVtbl->ClearHistory(This);
+}
+#endif
 #endif
 
 #endif
@@ -548,6 +642,7 @@ interface IUrlHistoryNotify {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IUrlHistoryNotify_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IUrlHistoryNotify_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -555,6 +650,25 @@ interface IUrlHistoryNotify {
 /*** IOleCommandTarget methods ***/
 #define IUrlHistoryNotify_QueryStatus(This,pguidCmdGroup,cCmds,prgCmds,pCmdText) (This)->lpVtbl->QueryStatus(This,pguidCmdGroup,cCmds,prgCmds,pCmdText)
 #define IUrlHistoryNotify_Exec(This,pguidCmdGroup,nCmdID,nCmdexecopt,pvaIn,pvaOut) (This)->lpVtbl->Exec(This,pguidCmdGroup,nCmdID,nCmdexecopt,pvaIn,pvaOut)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IUrlHistoryNotify_QueryInterface(IUrlHistoryNotify* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IUrlHistoryNotify_AddRef(IUrlHistoryNotify* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IUrlHistoryNotify_Release(IUrlHistoryNotify* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IOleCommandTarget methods ***/
+static FORCEINLINE HRESULT IUrlHistoryNotify_QueryStatus(IUrlHistoryNotify* This,const GUID *pguidCmdGroup,ULONG cCmds,OLECMD prgCmds[],OLECMDTEXT *pCmdText) {
+    return This->lpVtbl->QueryStatus(This,pguidCmdGroup,cCmds,prgCmds,pCmdText);
+}
+static FORCEINLINE HRESULT IUrlHistoryNotify_Exec(IUrlHistoryNotify* This,const GUID *pguidCmdGroup,DWORD nCmdID,DWORD nCmdexecopt,VARIANT *pvaIn,VARIANT *pvaOut) {
+    return This->lpVtbl->Exec(This,pguidCmdGroup,nCmdID,nCmdexecopt,pvaIn,pvaOut);
+}
+#endif
 #endif
 
 #endif

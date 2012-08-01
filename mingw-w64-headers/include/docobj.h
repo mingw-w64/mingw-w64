@@ -368,7 +368,7 @@ typedef struct IPrint IPrint;
     ULONG cPageRange;
     PAGERANGE rgPages[1 ];
   } PAGESET;
-#define PAGESET_TOLASTPAGE ((WORD)(-1))
+#define PAGESET_TOLASTPAGE ((WORD)(-1L))
 
   EXTERN_C const IID IID_IPrint;
 #if defined(__cplusplus) && !defined(CINTERFACE)
@@ -600,6 +600,7 @@ interface IOleCommandTarget {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IOleCommandTarget_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IOleCommandTarget_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -607,6 +608,25 @@ interface IOleCommandTarget {
 /*** IOleCommandTarget methods ***/
 #define IOleCommandTarget_QueryStatus(This,pguidCmdGroup,cCmds,prgCmds,pCmdText) (This)->lpVtbl->QueryStatus(This,pguidCmdGroup,cCmds,prgCmds,pCmdText)
 #define IOleCommandTarget_Exec(This,pguidCmdGroup,nCmdID,nCmdexecopt,pvaIn,pvaOut) (This)->lpVtbl->Exec(This,pguidCmdGroup,nCmdID,nCmdexecopt,pvaIn,pvaOut)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IOleCommandTarget_QueryInterface(IOleCommandTarget* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IOleCommandTarget_AddRef(IOleCommandTarget* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IOleCommandTarget_Release(IOleCommandTarget* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IOleCommandTarget methods ***/
+static FORCEINLINE HRESULT IOleCommandTarget_QueryStatus(IOleCommandTarget* This,const GUID *pguidCmdGroup,ULONG cCmds,OLECMD prgCmds[],OLECMDTEXT *pCmdText) {
+    return This->lpVtbl->QueryStatus(This,pguidCmdGroup,cCmds,prgCmds,pCmdText);
+}
+static FORCEINLINE HRESULT IOleCommandTarget_Exec(IOleCommandTarget* This,const GUID *pguidCmdGroup,DWORD nCmdID,DWORD nCmdexecopt,VARIANT *pvaIn,VARIANT *pvaOut) {
+    return This->lpVtbl->Exec(This,pguidCmdGroup,nCmdID,nCmdexecopt,pvaIn,pvaOut);
+}
+#endif
 #endif
 
 #endif

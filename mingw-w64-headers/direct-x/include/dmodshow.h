@@ -79,12 +79,29 @@ interface IDMOWrapperFilter {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDMOWrapperFilter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDMOWrapperFilter_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IDMOWrapperFilter_Release(This) (This)->lpVtbl->Release(This)
 /*** IDMOWrapperFilter methods ***/
 #define IDMOWrapperFilter_Init(This,clsidDMO,catDMO) (This)->lpVtbl->Init(This,clsidDMO,catDMO)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDMOWrapperFilter_QueryInterface(IDMOWrapperFilter* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDMOWrapperFilter_AddRef(IDMOWrapperFilter* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDMOWrapperFilter_Release(IDMOWrapperFilter* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDMOWrapperFilter methods ***/
+static FORCEINLINE HRESULT IDMOWrapperFilter_Init(IDMOWrapperFilter* This,REFCLSID clsidDMO,REFCLSID catDMO) {
+    return This->lpVtbl->Init(This,clsidDMO,catDMO);
+}
+#endif
 #endif
 
 #endif

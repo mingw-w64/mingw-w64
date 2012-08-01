@@ -93,6 +93,7 @@ interface IObjectArray {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IObjectArray_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IObjectArray_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -100,6 +101,25 @@ interface IObjectArray {
 /*** IObjectArray methods ***/
 #define IObjectArray_GetCount(This,pcObjects) (This)->lpVtbl->GetCount(This,pcObjects)
 #define IObjectArray_GetAt(This,uiIndex,riid,ppv) (This)->lpVtbl->GetAt(This,uiIndex,riid,ppv)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IObjectArray_QueryInterface(IObjectArray* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IObjectArray_AddRef(IObjectArray* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IObjectArray_Release(IObjectArray* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IObjectArray methods ***/
+static FORCEINLINE HRESULT IObjectArray_GetCount(IObjectArray* This,UINT *pcObjects) {
+    return This->lpVtbl->GetCount(This,pcObjects);
+}
+static FORCEINLINE HRESULT IObjectArray_GetAt(IObjectArray* This,UINT uiIndex,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetAt(This,uiIndex,riid,ppv);
+}
+#endif
 #endif
 
 #endif
@@ -202,6 +222,7 @@ interface IObjectCollection {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IObjectCollection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IObjectCollection_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -214,6 +235,38 @@ interface IObjectCollection {
 #define IObjectCollection_AddFromArray(This,poaSource) (This)->lpVtbl->AddFromArray(This,poaSource)
 #define IObjectCollection_RemoveObjectAt(This,uiIndex) (This)->lpVtbl->RemoveObjectAt(This,uiIndex)
 #define IObjectCollection_Clear(This) (This)->lpVtbl->Clear(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IObjectCollection_QueryInterface(IObjectCollection* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IObjectCollection_AddRef(IObjectCollection* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IObjectCollection_Release(IObjectCollection* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IObjectArray methods ***/
+static FORCEINLINE HRESULT IObjectCollection_GetCount(IObjectCollection* This,UINT *pcObjects) {
+    return This->lpVtbl->GetCount(This,pcObjects);
+}
+static FORCEINLINE HRESULT IObjectCollection_GetAt(IObjectCollection* This,UINT uiIndex,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetAt(This,uiIndex,riid,ppv);
+}
+/*** IObjectCollection methods ***/
+static FORCEINLINE HRESULT IObjectCollection_AddObject(IObjectCollection* This,IUnknown *punk) {
+    return This->lpVtbl->AddObject(This,punk);
+}
+static FORCEINLINE HRESULT IObjectCollection_AddFromArray(IObjectCollection* This,IObjectArray *poaSource) {
+    return This->lpVtbl->AddFromArray(This,poaSource);
+}
+static FORCEINLINE HRESULT IObjectCollection_RemoveObjectAt(IObjectCollection* This,UINT uiIndex) {
+    return This->lpVtbl->RemoveObjectAt(This,uiIndex);
+}
+static FORCEINLINE HRESULT IObjectCollection_Clear(IObjectCollection* This) {
+    return This->lpVtbl->Clear(This);
+}
+#endif
 #endif
 
 #endif

@@ -139,6 +139,7 @@ interface IEnumDMO {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IEnumDMO_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumDMO_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -148,6 +149,31 @@ interface IEnumDMO {
 #define IEnumDMO_Skip(This,cItemsToSkip) (This)->lpVtbl->Skip(This,cItemsToSkip)
 #define IEnumDMO_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumDMO_Clone(This,ppEnum) (This)->lpVtbl->Clone(This,ppEnum)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IEnumDMO_QueryInterface(IEnumDMO* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IEnumDMO_AddRef(IEnumDMO* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IEnumDMO_Release(IEnumDMO* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IEnumDMO methods ***/
+static FORCEINLINE HRESULT IEnumDMO_Next(IEnumDMO* This,DWORD cItemsToFetch,CLSID *pCLSID,WCHAR **Names,DWORD *pcItemsFetched) {
+    return This->lpVtbl->Next(This,cItemsToFetch,pCLSID,Names,pcItemsFetched);
+}
+static FORCEINLINE HRESULT IEnumDMO_Skip(IEnumDMO* This,DWORD cItemsToSkip) {
+    return This->lpVtbl->Skip(This,cItemsToSkip);
+}
+static FORCEINLINE HRESULT IEnumDMO_Reset(IEnumDMO* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IEnumDMO_Clone(IEnumDMO* This,IEnumDMO **ppEnum) {
+    return This->lpVtbl->Clone(This,ppEnum);
+}
+#endif
 #endif
 
 #endif

@@ -169,6 +169,7 @@ interface IMediaParams {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IMediaParams_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IMediaParams_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -179,6 +180,34 @@ interface IMediaParams {
 #define IMediaParams_GetParam(This,dwParamIndex,pValue) (This)->lpVtbl->GetParam(This,dwParamIndex,pValue)
 #define IMediaParams_SetParam(This,dwParamIndex,value) (This)->lpVtbl->SetParam(This,dwParamIndex,value)
 #define IMediaParams_SetTimeFormat(This,guidTimeFormat,mpTimeData) (This)->lpVtbl->SetTimeFormat(This,guidTimeFormat,mpTimeData)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMediaParams_QueryInterface(IMediaParams* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMediaParams_AddRef(IMediaParams* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMediaParams_Release(IMediaParams* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMediaParams methods ***/
+static FORCEINLINE HRESULT IMediaParams_AddEnvelope(IMediaParams* This,DWORD dwParamIndex,DWORD cPoints,MP_ENVELOPE_SEGMENT *pEnvelope) {
+    return This->lpVtbl->AddEnvelope(This,dwParamIndex,cPoints,pEnvelope);
+}
+static FORCEINLINE HRESULT IMediaParams_FlushEnvelope(IMediaParams* This,DWORD dwParamIndex,REFERENCE_TIME refTimeStart,REFERENCE_TIME refTimeEnd) {
+    return This->lpVtbl->FlushEnvelope(This,dwParamIndex,refTimeStart,refTimeEnd);
+}
+static FORCEINLINE HRESULT IMediaParams_GetParam(IMediaParams* This,DWORD dwParamIndex,MP_DATA *pValue) {
+    return This->lpVtbl->GetParam(This,dwParamIndex,pValue);
+}
+static FORCEINLINE HRESULT IMediaParams_SetParam(IMediaParams* This,DWORD dwParamIndex,MP_DATA value) {
+    return This->lpVtbl->SetParam(This,dwParamIndex,value);
+}
+static FORCEINLINE HRESULT IMediaParams_SetTimeFormat(IMediaParams* This,GUID guidTimeFormat,MP_TIMEDATA mpTimeData) {
+    return This->lpVtbl->SetTimeFormat(This,guidTimeFormat,mpTimeData);
+}
+#endif
 #endif
 
 #endif
@@ -322,6 +351,7 @@ interface IMediaParamInfo {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IMediaParamInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IMediaParamInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -333,6 +363,37 @@ interface IMediaParamInfo {
 #define IMediaParamInfo_GetNumTimeFormats(This,pdwNumTimeFormats) (This)->lpVtbl->GetNumTimeFormats(This,pdwNumTimeFormats)
 #define IMediaParamInfo_GetSupportedTimeFormat(This,dwFormatIndex,pguidTimeFormat) (This)->lpVtbl->GetSupportedTimeFormat(This,dwFormatIndex,pguidTimeFormat)
 #define IMediaParamInfo_GetCurrentTimeFormat(This,pguidTimeFormat,pTimeData) (This)->lpVtbl->GetCurrentTimeFormat(This,pguidTimeFormat,pTimeData)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMediaParamInfo_QueryInterface(IMediaParamInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMediaParamInfo_AddRef(IMediaParamInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMediaParamInfo_Release(IMediaParamInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMediaParamInfo methods ***/
+static FORCEINLINE HRESULT IMediaParamInfo_GetParamCount(IMediaParamInfo* This,DWORD *pdwParams) {
+    return This->lpVtbl->GetParamCount(This,pdwParams);
+}
+static FORCEINLINE HRESULT IMediaParamInfo_GetParamInfo(IMediaParamInfo* This,DWORD dwParamIndex,MP_PARAMINFO *pInfo) {
+    return This->lpVtbl->GetParamInfo(This,dwParamIndex,pInfo);
+}
+static FORCEINLINE HRESULT IMediaParamInfo_GetParamText(IMediaParamInfo* This,DWORD dwParamIndex,WCHAR **ppwchText) {
+    return This->lpVtbl->GetParamText(This,dwParamIndex,ppwchText);
+}
+static FORCEINLINE HRESULT IMediaParamInfo_GetNumTimeFormats(IMediaParamInfo* This,DWORD *pdwNumTimeFormats) {
+    return This->lpVtbl->GetNumTimeFormats(This,pdwNumTimeFormats);
+}
+static FORCEINLINE HRESULT IMediaParamInfo_GetSupportedTimeFormat(IMediaParamInfo* This,DWORD dwFormatIndex,GUID *pguidTimeFormat) {
+    return This->lpVtbl->GetSupportedTimeFormat(This,dwFormatIndex,pguidTimeFormat);
+}
+static FORCEINLINE HRESULT IMediaParamInfo_GetCurrentTimeFormat(IMediaParamInfo* This,GUID *pguidTimeFormat,MP_TIMEDATA *pTimeData) {
+    return This->lpVtbl->GetCurrentTimeFormat(This,pguidTimeFormat,pTimeData);
+}
+#endif
 #endif
 
 #endif

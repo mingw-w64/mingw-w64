@@ -417,6 +417,7 @@ interface IWICColorContext {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICColorContext_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICColorContext_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -428,6 +429,37 @@ interface IWICColorContext {
 #define IWICColorContext_GetType(This,pType) (This)->lpVtbl->GetType(This,pType)
 #define IWICColorContext_GetProfileBytes(This,cbBuffer,pbBuffer,pcbActual) (This)->lpVtbl->GetProfileBytes(This,cbBuffer,pbBuffer,pcbActual)
 #define IWICColorContext_GetExifColorSpace(This,pValue) (This)->lpVtbl->GetExifColorSpace(This,pValue)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICColorContext_QueryInterface(IWICColorContext* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICColorContext_AddRef(IWICColorContext* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICColorContext_Release(IWICColorContext* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICColorContext methods ***/
+static FORCEINLINE HRESULT IWICColorContext_InitializeFromFilename(IWICColorContext* This,LPCWSTR wzFilename) {
+    return This->lpVtbl->InitializeFromFilename(This,wzFilename);
+}
+static FORCEINLINE HRESULT IWICColorContext_InitializeFromMemory(IWICColorContext* This,const BYTE *pbBuffer,UINT cbBufferSize) {
+    return This->lpVtbl->InitializeFromMemory(This,pbBuffer,cbBufferSize);
+}
+static FORCEINLINE HRESULT IWICColorContext_InitializeFromExifColorSpace(IWICColorContext* This,UINT value) {
+    return This->lpVtbl->InitializeFromExifColorSpace(This,value);
+}
+static FORCEINLINE HRESULT IWICColorContext_GetType(IWICColorContext* This,WICColorContextType *pType) {
+    return This->lpVtbl->GetType(This,pType);
+}
+static FORCEINLINE HRESULT IWICColorContext_GetProfileBytes(IWICColorContext* This,UINT cbBuffer,BYTE *pbBuffer,UINT *pcbActual) {
+    return This->lpVtbl->GetProfileBytes(This,cbBuffer,pbBuffer,pcbActual);
+}
+static FORCEINLINE HRESULT IWICColorContext_GetExifColorSpace(IWICColorContext* This,UINT *pValue) {
+    return This->lpVtbl->GetExifColorSpace(This,pValue);
+}
+#endif
 #endif
 
 #endif
@@ -570,6 +602,7 @@ interface IWICBitmapSource {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICBitmapSource_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICBitmapSource_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -580,6 +613,34 @@ interface IWICBitmapSource {
 #define IWICBitmapSource_GetResolution(This,pDpiX,pDpiY) (This)->lpVtbl->GetResolution(This,pDpiX,pDpiY)
 #define IWICBitmapSource_CopyPalette(This,pIPalette) (This)->lpVtbl->CopyPalette(This,pIPalette)
 #define IWICBitmapSource_CopyPixels(This,prc,cbStride,cbBufferSize,pbBuffer) (This)->lpVtbl->CopyPixels(This,prc,cbStride,cbBufferSize,pbBuffer)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICBitmapSource_QueryInterface(IWICBitmapSource* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICBitmapSource_AddRef(IWICBitmapSource* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICBitmapSource_Release(IWICBitmapSource* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICBitmapSource methods ***/
+static FORCEINLINE HRESULT IWICBitmapSource_GetSize(IWICBitmapSource* This,UINT *puiWidth,UINT *puiHeight) {
+    return This->lpVtbl->GetSize(This,puiWidth,puiHeight);
+}
+static FORCEINLINE HRESULT IWICBitmapSource_GetPixelFormat(IWICBitmapSource* This,WICPixelFormatGUID *pPixelFormat) {
+    return This->lpVtbl->GetPixelFormat(This,pPixelFormat);
+}
+static FORCEINLINE HRESULT IWICBitmapSource_GetResolution(IWICBitmapSource* This,double *pDpiX,double *pDpiY) {
+    return This->lpVtbl->GetResolution(This,pDpiX,pDpiY);
+}
+static FORCEINLINE HRESULT IWICBitmapSource_CopyPalette(IWICBitmapSource* This,IWICPalette *pIPalette) {
+    return This->lpVtbl->CopyPalette(This,pIPalette);
+}
+static FORCEINLINE HRESULT IWICBitmapSource_CopyPixels(IWICBitmapSource* This,const WICRect *prc,UINT cbStride,UINT cbBufferSize,BYTE *pbBuffer) {
+    return This->lpVtbl->CopyPixels(This,prc,cbStride,cbBufferSize,pbBuffer);
+}
+#endif
 #endif
 
 #endif
@@ -703,6 +764,7 @@ interface IWICBitmapLock {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICBitmapLock_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICBitmapLock_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -712,6 +774,31 @@ interface IWICBitmapLock {
 #define IWICBitmapLock_GetStride(This,pcbStride) (This)->lpVtbl->GetStride(This,pcbStride)
 #define IWICBitmapLock_GetDataPointer(This,pcbBufferSize,ppbData) (This)->lpVtbl->GetDataPointer(This,pcbBufferSize,ppbData)
 #define IWICBitmapLock_GetPixelFormat(This,pPixelFormat) (This)->lpVtbl->GetPixelFormat(This,pPixelFormat)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICBitmapLock_QueryInterface(IWICBitmapLock* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICBitmapLock_AddRef(IWICBitmapLock* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICBitmapLock_Release(IWICBitmapLock* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICBitmapLock methods ***/
+static FORCEINLINE HRESULT IWICBitmapLock_GetSize(IWICBitmapLock* This,UINT *pWidth,UINT *pHeight) {
+    return This->lpVtbl->GetSize(This,pWidth,pHeight);
+}
+static FORCEINLINE HRESULT IWICBitmapLock_GetStride(IWICBitmapLock* This,UINT *pcbStride) {
+    return This->lpVtbl->GetStride(This,pcbStride);
+}
+static FORCEINLINE HRESULT IWICBitmapLock_GetDataPointer(IWICBitmapLock* This,UINT *pcbBufferSize,BYTE **ppbData) {
+    return This->lpVtbl->GetDataPointer(This,pcbBufferSize,ppbData);
+}
+static FORCEINLINE HRESULT IWICBitmapLock_GetPixelFormat(IWICBitmapLock* This,WICPixelFormatGUID *pPixelFormat) {
+    return This->lpVtbl->GetPixelFormat(This,pPixelFormat);
+}
+#endif
 #endif
 
 #endif
@@ -827,6 +914,7 @@ interface IWICBitmapFlipRotator {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICBitmapFlipRotator_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICBitmapFlipRotator_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -839,6 +927,38 @@ interface IWICBitmapFlipRotator {
 #define IWICBitmapFlipRotator_CopyPixels(This,prc,cbStride,cbBufferSize,pbBuffer) (This)->lpVtbl->CopyPixels(This,prc,cbStride,cbBufferSize,pbBuffer)
 /*** IWICBitmapFlipRotator methods ***/
 #define IWICBitmapFlipRotator_Initialize(This,pISource,options) (This)->lpVtbl->Initialize(This,pISource,options)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICBitmapFlipRotator_QueryInterface(IWICBitmapFlipRotator* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICBitmapFlipRotator_AddRef(IWICBitmapFlipRotator* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICBitmapFlipRotator_Release(IWICBitmapFlipRotator* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICBitmapSource methods ***/
+static FORCEINLINE HRESULT IWICBitmapFlipRotator_GetSize(IWICBitmapFlipRotator* This,UINT *puiWidth,UINT *puiHeight) {
+    return This->lpVtbl->GetSize(This,puiWidth,puiHeight);
+}
+static FORCEINLINE HRESULT IWICBitmapFlipRotator_GetPixelFormat(IWICBitmapFlipRotator* This,WICPixelFormatGUID *pPixelFormat) {
+    return This->lpVtbl->GetPixelFormat(This,pPixelFormat);
+}
+static FORCEINLINE HRESULT IWICBitmapFlipRotator_GetResolution(IWICBitmapFlipRotator* This,double *pDpiX,double *pDpiY) {
+    return This->lpVtbl->GetResolution(This,pDpiX,pDpiY);
+}
+static FORCEINLINE HRESULT IWICBitmapFlipRotator_CopyPalette(IWICBitmapFlipRotator* This,IWICPalette *pIPalette) {
+    return This->lpVtbl->CopyPalette(This,pIPalette);
+}
+static FORCEINLINE HRESULT IWICBitmapFlipRotator_CopyPixels(IWICBitmapFlipRotator* This,const WICRect *prc,UINT cbStride,UINT cbBufferSize,BYTE *pbBuffer) {
+    return This->lpVtbl->CopyPixels(This,prc,cbStride,cbBufferSize,pbBuffer);
+}
+/*** IWICBitmapFlipRotator methods ***/
+static FORCEINLINE HRESULT IWICBitmapFlipRotator_Initialize(IWICBitmapFlipRotator* This,IWICBitmapSource *pISource,WICBitmapTransformOptions options) {
+    return This->lpVtbl->Initialize(This,pISource,options);
+}
+#endif
 #endif
 
 #endif
@@ -947,6 +1067,7 @@ interface IWICBitmap {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICBitmap_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICBitmap_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -961,6 +1082,44 @@ interface IWICBitmap {
 #define IWICBitmap_Lock(This,prcLock,flags,ppILock) (This)->lpVtbl->Lock(This,prcLock,flags,ppILock)
 #define IWICBitmap_SetPalette(This,pIPalette) (This)->lpVtbl->SetPalette(This,pIPalette)
 #define IWICBitmap_SetResolution(This,dpiX,dpiY) (This)->lpVtbl->SetResolution(This,dpiX,dpiY)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICBitmap_QueryInterface(IWICBitmap* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICBitmap_AddRef(IWICBitmap* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICBitmap_Release(IWICBitmap* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICBitmapSource methods ***/
+static FORCEINLINE HRESULT IWICBitmap_GetSize(IWICBitmap* This,UINT *puiWidth,UINT *puiHeight) {
+    return This->lpVtbl->GetSize(This,puiWidth,puiHeight);
+}
+static FORCEINLINE HRESULT IWICBitmap_GetPixelFormat(IWICBitmap* This,WICPixelFormatGUID *pPixelFormat) {
+    return This->lpVtbl->GetPixelFormat(This,pPixelFormat);
+}
+static FORCEINLINE HRESULT IWICBitmap_GetResolution(IWICBitmap* This,double *pDpiX,double *pDpiY) {
+    return This->lpVtbl->GetResolution(This,pDpiX,pDpiY);
+}
+static FORCEINLINE HRESULT IWICBitmap_CopyPalette(IWICBitmap* This,IWICPalette *pIPalette) {
+    return This->lpVtbl->CopyPalette(This,pIPalette);
+}
+static FORCEINLINE HRESULT IWICBitmap_CopyPixels(IWICBitmap* This,const WICRect *prc,UINT cbStride,UINT cbBufferSize,BYTE *pbBuffer) {
+    return This->lpVtbl->CopyPixels(This,prc,cbStride,cbBufferSize,pbBuffer);
+}
+/*** IWICBitmap methods ***/
+static FORCEINLINE HRESULT IWICBitmap_Lock(IWICBitmap* This,const WICRect *prcLock,DWORD flags,IWICBitmapLock **ppILock) {
+    return This->lpVtbl->Lock(This,prcLock,flags,ppILock);
+}
+static FORCEINLINE HRESULT IWICBitmap_SetPalette(IWICBitmap* This,IWICPalette *pIPalette) {
+    return This->lpVtbl->SetPalette(This,pIPalette);
+}
+static FORCEINLINE HRESULT IWICBitmap_SetResolution(IWICBitmap* This,double dpiX,double dpiY) {
+    return This->lpVtbl->SetResolution(This,dpiX,dpiY);
+}
+#endif
 #endif
 
 #endif
@@ -1116,6 +1275,7 @@ interface IWICPalette {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICPalette_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICPalette_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1131,6 +1291,49 @@ interface IWICPalette {
 #define IWICPalette_IsBlackWhite(This,pfIsBlackWhite) (This)->lpVtbl->IsBlackWhite(This,pfIsBlackWhite)
 #define IWICPalette_IsGrayscale(This,pfIsGrayscale) (This)->lpVtbl->IsGrayscale(This,pfIsGrayscale)
 #define IWICPalette_HasAlpha(This,pfHasAlpha) (This)->lpVtbl->HasAlpha(This,pfHasAlpha)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICPalette_QueryInterface(IWICPalette* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICPalette_AddRef(IWICPalette* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICPalette_Release(IWICPalette* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICPalette methods ***/
+static FORCEINLINE HRESULT IWICPalette_InitializePredefined(IWICPalette* This,WICBitmapPaletteType ePaletteType,WINBOOL fAddTransparentColor) {
+    return This->lpVtbl->InitializePredefined(This,ePaletteType,fAddTransparentColor);
+}
+static FORCEINLINE HRESULT IWICPalette_InitializeCustom(IWICPalette* This,WICColor *pColors,UINT colorCount) {
+    return This->lpVtbl->InitializeCustom(This,pColors,colorCount);
+}
+static FORCEINLINE HRESULT IWICPalette_InitializeFromBitmap(IWICPalette* This,IWICBitmapSource *pISurface,UINT colorCount,WINBOOL fAddTransparentColor) {
+    return This->lpVtbl->InitializeFromBitmap(This,pISurface,colorCount,fAddTransparentColor);
+}
+static FORCEINLINE HRESULT IWICPalette_InitializeFromPalette(IWICPalette* This,IWICPalette *pIPalette) {
+    return This->lpVtbl->InitializeFromPalette(This,pIPalette);
+}
+static FORCEINLINE HRESULT IWICPalette_GetType(IWICPalette* This,WICBitmapPaletteType *pePaletteType) {
+    return This->lpVtbl->GetType(This,pePaletteType);
+}
+static FORCEINLINE HRESULT IWICPalette_GetColorCount(IWICPalette* This,UINT *pcCount) {
+    return This->lpVtbl->GetColorCount(This,pcCount);
+}
+static FORCEINLINE HRESULT IWICPalette_GetColors(IWICPalette* This,UINT colorCount,WICColor *pColors,UINT *pcActualColors) {
+    return This->lpVtbl->GetColors(This,colorCount,pColors,pcActualColors);
+}
+static FORCEINLINE HRESULT IWICPalette_IsBlackWhite(IWICPalette* This,WINBOOL *pfIsBlackWhite) {
+    return This->lpVtbl->IsBlackWhite(This,pfIsBlackWhite);
+}
+static FORCEINLINE HRESULT IWICPalette_IsGrayscale(IWICPalette* This,WINBOOL *pfIsGrayscale) {
+    return This->lpVtbl->IsGrayscale(This,pfIsGrayscale);
+}
+static FORCEINLINE HRESULT IWICPalette_HasAlpha(IWICPalette* This,WINBOOL *pfHasAlpha) {
+    return This->lpVtbl->HasAlpha(This,pfHasAlpha);
+}
+#endif
 #endif
 
 #endif
@@ -1335,6 +1538,7 @@ interface IWICComponentInfo {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICComponentInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICComponentInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1348,6 +1552,43 @@ interface IWICComponentInfo {
 #define IWICComponentInfo_GetVersion(This,cchVersion,wzVersion,pcchActual) (This)->lpVtbl->GetVersion(This,cchVersion,wzVersion,pcchActual)
 #define IWICComponentInfo_GetSpecVersion(This,cchSpecVersion,wzSpecVersion,pcchActual) (This)->lpVtbl->GetSpecVersion(This,cchSpecVersion,wzSpecVersion,pcchActual)
 #define IWICComponentInfo_GetFriendlyName(This,cchFriendlyName,wzFriendlyName,pcchActual) (This)->lpVtbl->GetFriendlyName(This,cchFriendlyName,wzFriendlyName,pcchActual)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICComponentInfo_QueryInterface(IWICComponentInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICComponentInfo_AddRef(IWICComponentInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICComponentInfo_Release(IWICComponentInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICComponentInfo methods ***/
+static FORCEINLINE HRESULT IWICComponentInfo_GetComponentType(IWICComponentInfo* This,WICComponentType *pType) {
+    return This->lpVtbl->GetComponentType(This,pType);
+}
+static FORCEINLINE HRESULT IWICComponentInfo_GetCLSID(IWICComponentInfo* This,CLSID *pclsid) {
+    return This->lpVtbl->GetCLSID(This,pclsid);
+}
+static FORCEINLINE HRESULT IWICComponentInfo_GetSigningStatus(IWICComponentInfo* This,DWORD *pStatus) {
+    return This->lpVtbl->GetSigningStatus(This,pStatus);
+}
+static FORCEINLINE HRESULT IWICComponentInfo_GetAuthor(IWICComponentInfo* This,UINT cchAuthor,WCHAR *wzAuthor,UINT *pcchActual) {
+    return This->lpVtbl->GetAuthor(This,cchAuthor,wzAuthor,pcchActual);
+}
+static FORCEINLINE HRESULT IWICComponentInfo_GetVendorGUID(IWICComponentInfo* This,GUID *pguidVendor) {
+    return This->lpVtbl->GetVendorGUID(This,pguidVendor);
+}
+static FORCEINLINE HRESULT IWICComponentInfo_GetVersion(IWICComponentInfo* This,UINT cchVersion,WCHAR *wzVersion,UINT *pcchActual) {
+    return This->lpVtbl->GetVersion(This,cchVersion,wzVersion,pcchActual);
+}
+static FORCEINLINE HRESULT IWICComponentInfo_GetSpecVersion(IWICComponentInfo* This,UINT cchSpecVersion,WCHAR *wzSpecVersion,UINT *pcchActual) {
+    return This->lpVtbl->GetSpecVersion(This,cchSpecVersion,wzSpecVersion,pcchActual);
+}
+static FORCEINLINE HRESULT IWICComponentInfo_GetFriendlyName(IWICComponentInfo* This,UINT cchFriendlyName,WCHAR *wzFriendlyName,UINT *pcchActual) {
+    return This->lpVtbl->GetFriendlyName(This,cchFriendlyName,wzFriendlyName,pcchActual);
+}
+#endif
 #endif
 
 #endif
@@ -1500,6 +1741,7 @@ interface IWICMetadataQueryReader {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICMetadataQueryReader_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICMetadataQueryReader_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1509,6 +1751,31 @@ interface IWICMetadataQueryReader {
 #define IWICMetadataQueryReader_GetLocation(This,cchMaxLength,wzNamespace,pcchActualLength) (This)->lpVtbl->GetLocation(This,cchMaxLength,wzNamespace,pcchActualLength)
 #define IWICMetadataQueryReader_GetMetadataByName(This,wzName,pvarValue) (This)->lpVtbl->GetMetadataByName(This,wzName,pvarValue)
 #define IWICMetadataQueryReader_GetEnumerator(This,ppIEnumString) (This)->lpVtbl->GetEnumerator(This,ppIEnumString)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICMetadataQueryReader_QueryInterface(IWICMetadataQueryReader* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICMetadataQueryReader_AddRef(IWICMetadataQueryReader* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICMetadataQueryReader_Release(IWICMetadataQueryReader* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICMetadataQueryReader methods ***/
+static FORCEINLINE HRESULT IWICMetadataQueryReader_GetContainerFormat(IWICMetadataQueryReader* This,GUID *pguidContainerFormat) {
+    return This->lpVtbl->GetContainerFormat(This,pguidContainerFormat);
+}
+static FORCEINLINE HRESULT IWICMetadataQueryReader_GetLocation(IWICMetadataQueryReader* This,UINT cchMaxLength,WCHAR *wzNamespace,UINT *pcchActualLength) {
+    return This->lpVtbl->GetLocation(This,cchMaxLength,wzNamespace,pcchActualLength);
+}
+static FORCEINLINE HRESULT IWICMetadataQueryReader_GetMetadataByName(IWICMetadataQueryReader* This,LPCWSTR wzName,PROPVARIANT *pvarValue) {
+    return This->lpVtbl->GetMetadataByName(This,wzName,pvarValue);
+}
+static FORCEINLINE HRESULT IWICMetadataQueryReader_GetEnumerator(IWICMetadataQueryReader* This,IEnumString **ppIEnumString) {
+    return This->lpVtbl->GetEnumerator(This,ppIEnumString);
+}
+#endif
 #endif
 
 #endif
@@ -1626,6 +1893,7 @@ interface IWICMetadataQueryWriter {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICMetadataQueryWriter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICMetadataQueryWriter_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1638,6 +1906,38 @@ interface IWICMetadataQueryWriter {
 /*** IWICMetadataQueryWriter methods ***/
 #define IWICMetadataQueryWriter_SetMetadataByName(This,wzName,pvarValue) (This)->lpVtbl->SetMetadataByName(This,wzName,pvarValue)
 #define IWICMetadataQueryWriter_RemoveMetadataByName(This,wzName) (This)->lpVtbl->RemoveMetadataByName(This,wzName)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICMetadataQueryWriter_QueryInterface(IWICMetadataQueryWriter* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICMetadataQueryWriter_AddRef(IWICMetadataQueryWriter* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICMetadataQueryWriter_Release(IWICMetadataQueryWriter* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICMetadataQueryReader methods ***/
+static FORCEINLINE HRESULT IWICMetadataQueryWriter_GetContainerFormat(IWICMetadataQueryWriter* This,GUID *pguidContainerFormat) {
+    return This->lpVtbl->GetContainerFormat(This,pguidContainerFormat);
+}
+static FORCEINLINE HRESULT IWICMetadataQueryWriter_GetLocation(IWICMetadataQueryWriter* This,UINT cchMaxLength,WCHAR *wzNamespace,UINT *pcchActualLength) {
+    return This->lpVtbl->GetLocation(This,cchMaxLength,wzNamespace,pcchActualLength);
+}
+static FORCEINLINE HRESULT IWICMetadataQueryWriter_GetMetadataByName(IWICMetadataQueryWriter* This,LPCWSTR wzName,PROPVARIANT *pvarValue) {
+    return This->lpVtbl->GetMetadataByName(This,wzName,pvarValue);
+}
+static FORCEINLINE HRESULT IWICMetadataQueryWriter_GetEnumerator(IWICMetadataQueryWriter* This,IEnumString **ppIEnumString) {
+    return This->lpVtbl->GetEnumerator(This,ppIEnumString);
+}
+/*** IWICMetadataQueryWriter methods ***/
+static FORCEINLINE HRESULT IWICMetadataQueryWriter_SetMetadataByName(IWICMetadataQueryWriter* This,LPCWSTR wzName,const PROPVARIANT *pvarValue) {
+    return This->lpVtbl->SetMetadataByName(This,wzName,pvarValue);
+}
+static FORCEINLINE HRESULT IWICMetadataQueryWriter_RemoveMetadataByName(IWICMetadataQueryWriter* This,LPCWSTR wzName) {
+    return This->lpVtbl->RemoveMetadataByName(This,wzName);
+}
+#endif
 #endif
 
 #endif
@@ -1752,6 +2052,7 @@ interface IWICBitmapFrameDecode {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICBitmapFrameDecode_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICBitmapFrameDecode_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1766,6 +2067,44 @@ interface IWICBitmapFrameDecode {
 #define IWICBitmapFrameDecode_GetMetadataQueryReader(This,ppIMetadataQueryReader) (This)->lpVtbl->GetMetadataQueryReader(This,ppIMetadataQueryReader)
 #define IWICBitmapFrameDecode_GetColorContexts(This,cCount,ppIColorContexts,pcActualCount) (This)->lpVtbl->GetColorContexts(This,cCount,ppIColorContexts,pcActualCount)
 #define IWICBitmapFrameDecode_GetThumbnail(This,ppIThumbnail) (This)->lpVtbl->GetThumbnail(This,ppIThumbnail)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICBitmapFrameDecode_QueryInterface(IWICBitmapFrameDecode* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICBitmapFrameDecode_AddRef(IWICBitmapFrameDecode* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICBitmapFrameDecode_Release(IWICBitmapFrameDecode* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICBitmapSource methods ***/
+static FORCEINLINE HRESULT IWICBitmapFrameDecode_GetSize(IWICBitmapFrameDecode* This,UINT *puiWidth,UINT *puiHeight) {
+    return This->lpVtbl->GetSize(This,puiWidth,puiHeight);
+}
+static FORCEINLINE HRESULT IWICBitmapFrameDecode_GetPixelFormat(IWICBitmapFrameDecode* This,WICPixelFormatGUID *pPixelFormat) {
+    return This->lpVtbl->GetPixelFormat(This,pPixelFormat);
+}
+static FORCEINLINE HRESULT IWICBitmapFrameDecode_GetResolution(IWICBitmapFrameDecode* This,double *pDpiX,double *pDpiY) {
+    return This->lpVtbl->GetResolution(This,pDpiX,pDpiY);
+}
+static FORCEINLINE HRESULT IWICBitmapFrameDecode_CopyPalette(IWICBitmapFrameDecode* This,IWICPalette *pIPalette) {
+    return This->lpVtbl->CopyPalette(This,pIPalette);
+}
+static FORCEINLINE HRESULT IWICBitmapFrameDecode_CopyPixels(IWICBitmapFrameDecode* This,const WICRect *prc,UINT cbStride,UINT cbBufferSize,BYTE *pbBuffer) {
+    return This->lpVtbl->CopyPixels(This,prc,cbStride,cbBufferSize,pbBuffer);
+}
+/*** IWICBitmapFrameDecode methods ***/
+static FORCEINLINE HRESULT IWICBitmapFrameDecode_GetMetadataQueryReader(IWICBitmapFrameDecode* This,IWICMetadataQueryReader **ppIMetadataQueryReader) {
+    return This->lpVtbl->GetMetadataQueryReader(This,ppIMetadataQueryReader);
+}
+static FORCEINLINE HRESULT IWICBitmapFrameDecode_GetColorContexts(IWICBitmapFrameDecode* This,UINT cCount,IWICColorContext **ppIColorContexts,UINT *pcActualCount) {
+    return This->lpVtbl->GetColorContexts(This,cCount,ppIColorContexts,pcActualCount);
+}
+static FORCEINLINE HRESULT IWICBitmapFrameDecode_GetThumbnail(IWICBitmapFrameDecode* This,IWICBitmapSource **ppIThumbnail) {
+    return This->lpVtbl->GetThumbnail(This,ppIThumbnail);
+}
+#endif
 #endif
 
 #endif
@@ -1920,6 +2259,7 @@ interface IWICPixelFormatInfo {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICPixelFormatInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICPixelFormatInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1939,6 +2279,59 @@ interface IWICPixelFormatInfo {
 #define IWICPixelFormatInfo_GetBitsPerPixel(This,puiBitsPerPixel) (This)->lpVtbl->GetBitsPerPixel(This,puiBitsPerPixel)
 #define IWICPixelFormatInfo_GetChannelCount(This,puiChannelCount) (This)->lpVtbl->GetChannelCount(This,puiChannelCount)
 #define IWICPixelFormatInfo_GetChannelMask(This,uiChannelIndex,cbMaskBuffer,pbMaskBuffer,pcbActual) (This)->lpVtbl->GetChannelMask(This,uiChannelIndex,cbMaskBuffer,pbMaskBuffer,pcbActual)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICPixelFormatInfo_QueryInterface(IWICPixelFormatInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICPixelFormatInfo_AddRef(IWICPixelFormatInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICPixelFormatInfo_Release(IWICPixelFormatInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICComponentInfo methods ***/
+static FORCEINLINE HRESULT IWICPixelFormatInfo_GetComponentType(IWICPixelFormatInfo* This,WICComponentType *pType) {
+    return This->lpVtbl->GetComponentType(This,pType);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo_GetCLSID(IWICPixelFormatInfo* This,CLSID *pclsid) {
+    return This->lpVtbl->GetCLSID(This,pclsid);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo_GetSigningStatus(IWICPixelFormatInfo* This,DWORD *pStatus) {
+    return This->lpVtbl->GetSigningStatus(This,pStatus);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo_GetAuthor(IWICPixelFormatInfo* This,UINT cchAuthor,WCHAR *wzAuthor,UINT *pcchActual) {
+    return This->lpVtbl->GetAuthor(This,cchAuthor,wzAuthor,pcchActual);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo_GetVendorGUID(IWICPixelFormatInfo* This,GUID *pguidVendor) {
+    return This->lpVtbl->GetVendorGUID(This,pguidVendor);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo_GetVersion(IWICPixelFormatInfo* This,UINT cchVersion,WCHAR *wzVersion,UINT *pcchActual) {
+    return This->lpVtbl->GetVersion(This,cchVersion,wzVersion,pcchActual);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo_GetSpecVersion(IWICPixelFormatInfo* This,UINT cchSpecVersion,WCHAR *wzSpecVersion,UINT *pcchActual) {
+    return This->lpVtbl->GetSpecVersion(This,cchSpecVersion,wzSpecVersion,pcchActual);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo_GetFriendlyName(IWICPixelFormatInfo* This,UINT cchFriendlyName,WCHAR *wzFriendlyName,UINT *pcchActual) {
+    return This->lpVtbl->GetFriendlyName(This,cchFriendlyName,wzFriendlyName,pcchActual);
+}
+/*** IWICPixelFormatInfo methods ***/
+static FORCEINLINE HRESULT IWICPixelFormatInfo_GetFormatGUID(IWICPixelFormatInfo* This,GUID *pFormat) {
+    return This->lpVtbl->GetFormatGUID(This,pFormat);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo_GetColorContext(IWICPixelFormatInfo* This,IWICColorContext **ppIColorContext) {
+    return This->lpVtbl->GetColorContext(This,ppIColorContext);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo_GetBitsPerPixel(IWICPixelFormatInfo* This,UINT *puiBitsPerPixel) {
+    return This->lpVtbl->GetBitsPerPixel(This,puiBitsPerPixel);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo_GetChannelCount(IWICPixelFormatInfo* This,UINT *puiChannelCount) {
+    return This->lpVtbl->GetChannelCount(This,puiChannelCount);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo_GetChannelMask(IWICPixelFormatInfo* This,UINT uiChannelIndex,UINT cbMaskBuffer,BYTE *pbMaskBuffer,UINT *pcbActual) {
+    return This->lpVtbl->GetChannelMask(This,uiChannelIndex,cbMaskBuffer,pbMaskBuffer,pcbActual);
+}
+#endif
 #endif
 
 #endif
@@ -2107,6 +2500,7 @@ interface IWICPixelFormatInfo2 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICPixelFormatInfo2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICPixelFormatInfo2_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2129,6 +2523,66 @@ interface IWICPixelFormatInfo2 {
 /*** IWICPixelFormatInfo2 methods ***/
 #define IWICPixelFormatInfo2_SupportsTransparency(This,pfSupportsTransparency) (This)->lpVtbl->SupportsTransparency(This,pfSupportsTransparency)
 #define IWICPixelFormatInfo2_GetNumericRepresentation(This,pNumericRepresentation) (This)->lpVtbl->GetNumericRepresentation(This,pNumericRepresentation)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICPixelFormatInfo2_QueryInterface(IWICPixelFormatInfo2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICPixelFormatInfo2_AddRef(IWICPixelFormatInfo2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICPixelFormatInfo2_Release(IWICPixelFormatInfo2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICComponentInfo methods ***/
+static FORCEINLINE HRESULT IWICPixelFormatInfo2_GetComponentType(IWICPixelFormatInfo2* This,WICComponentType *pType) {
+    return This->lpVtbl->GetComponentType(This,pType);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo2_GetCLSID(IWICPixelFormatInfo2* This,CLSID *pclsid) {
+    return This->lpVtbl->GetCLSID(This,pclsid);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo2_GetSigningStatus(IWICPixelFormatInfo2* This,DWORD *pStatus) {
+    return This->lpVtbl->GetSigningStatus(This,pStatus);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo2_GetAuthor(IWICPixelFormatInfo2* This,UINT cchAuthor,WCHAR *wzAuthor,UINT *pcchActual) {
+    return This->lpVtbl->GetAuthor(This,cchAuthor,wzAuthor,pcchActual);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo2_GetVendorGUID(IWICPixelFormatInfo2* This,GUID *pguidVendor) {
+    return This->lpVtbl->GetVendorGUID(This,pguidVendor);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo2_GetVersion(IWICPixelFormatInfo2* This,UINT cchVersion,WCHAR *wzVersion,UINT *pcchActual) {
+    return This->lpVtbl->GetVersion(This,cchVersion,wzVersion,pcchActual);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo2_GetSpecVersion(IWICPixelFormatInfo2* This,UINT cchSpecVersion,WCHAR *wzSpecVersion,UINT *pcchActual) {
+    return This->lpVtbl->GetSpecVersion(This,cchSpecVersion,wzSpecVersion,pcchActual);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo2_GetFriendlyName(IWICPixelFormatInfo2* This,UINT cchFriendlyName,WCHAR *wzFriendlyName,UINT *pcchActual) {
+    return This->lpVtbl->GetFriendlyName(This,cchFriendlyName,wzFriendlyName,pcchActual);
+}
+/*** IWICPixelFormatInfo methods ***/
+static FORCEINLINE HRESULT IWICPixelFormatInfo2_GetFormatGUID(IWICPixelFormatInfo2* This,GUID *pFormat) {
+    return This->lpVtbl->GetFormatGUID(This,pFormat);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo2_GetColorContext(IWICPixelFormatInfo2* This,IWICColorContext **ppIColorContext) {
+    return This->lpVtbl->GetColorContext(This,ppIColorContext);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo2_GetBitsPerPixel(IWICPixelFormatInfo2* This,UINT *puiBitsPerPixel) {
+    return This->lpVtbl->GetBitsPerPixel(This,puiBitsPerPixel);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo2_GetChannelCount(IWICPixelFormatInfo2* This,UINT *puiChannelCount) {
+    return This->lpVtbl->GetChannelCount(This,puiChannelCount);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo2_GetChannelMask(IWICPixelFormatInfo2* This,UINT uiChannelIndex,UINT cbMaskBuffer,BYTE *pbMaskBuffer,UINT *pcbActual) {
+    return This->lpVtbl->GetChannelMask(This,uiChannelIndex,cbMaskBuffer,pbMaskBuffer,pcbActual);
+}
+/*** IWICPixelFormatInfo2 methods ***/
+static FORCEINLINE HRESULT IWICPixelFormatInfo2_SupportsTransparency(IWICPixelFormatInfo2* This,WINBOOL *pfSupportsTransparency) {
+    return This->lpVtbl->SupportsTransparency(This,pfSupportsTransparency);
+}
+static FORCEINLINE HRESULT IWICPixelFormatInfo2_GetNumericRepresentation(IWICPixelFormatInfo2* This,WICPixelFormatNumericRepresentation *pNumericRepresentation) {
+    return This->lpVtbl->GetNumericRepresentation(This,pNumericRepresentation);
+}
+#endif
 #endif
 
 #endif
@@ -2342,6 +2796,7 @@ interface IWICBitmapCodecInfo {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICBitmapCodecInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICBitmapCodecInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2368,6 +2823,80 @@ interface IWICBitmapCodecInfo {
 #define IWICBitmapCodecInfo_DoesSupportLossless(This,pfSupportLossless) (This)->lpVtbl->DoesSupportLossless(This,pfSupportLossless)
 #define IWICBitmapCodecInfo_DoesSupportMultiframe(This,pfSupportMultiframe) (This)->lpVtbl->DoesSupportMultiframe(This,pfSupportMultiframe)
 #define IWICBitmapCodecInfo_MatchesMimeType(This,wzMimeType,pfMatches) (This)->lpVtbl->MatchesMimeType(This,wzMimeType,pfMatches)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICBitmapCodecInfo_QueryInterface(IWICBitmapCodecInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICBitmapCodecInfo_AddRef(IWICBitmapCodecInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICBitmapCodecInfo_Release(IWICBitmapCodecInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICComponentInfo methods ***/
+static FORCEINLINE HRESULT IWICBitmapCodecInfo_GetComponentType(IWICBitmapCodecInfo* This,WICComponentType *pType) {
+    return This->lpVtbl->GetComponentType(This,pType);
+}
+static FORCEINLINE HRESULT IWICBitmapCodecInfo_GetCLSID(IWICBitmapCodecInfo* This,CLSID *pclsid) {
+    return This->lpVtbl->GetCLSID(This,pclsid);
+}
+static FORCEINLINE HRESULT IWICBitmapCodecInfo_GetSigningStatus(IWICBitmapCodecInfo* This,DWORD *pStatus) {
+    return This->lpVtbl->GetSigningStatus(This,pStatus);
+}
+static FORCEINLINE HRESULT IWICBitmapCodecInfo_GetAuthor(IWICBitmapCodecInfo* This,UINT cchAuthor,WCHAR *wzAuthor,UINT *pcchActual) {
+    return This->lpVtbl->GetAuthor(This,cchAuthor,wzAuthor,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapCodecInfo_GetVendorGUID(IWICBitmapCodecInfo* This,GUID *pguidVendor) {
+    return This->lpVtbl->GetVendorGUID(This,pguidVendor);
+}
+static FORCEINLINE HRESULT IWICBitmapCodecInfo_GetVersion(IWICBitmapCodecInfo* This,UINT cchVersion,WCHAR *wzVersion,UINT *pcchActual) {
+    return This->lpVtbl->GetVersion(This,cchVersion,wzVersion,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapCodecInfo_GetSpecVersion(IWICBitmapCodecInfo* This,UINT cchSpecVersion,WCHAR *wzSpecVersion,UINT *pcchActual) {
+    return This->lpVtbl->GetSpecVersion(This,cchSpecVersion,wzSpecVersion,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapCodecInfo_GetFriendlyName(IWICBitmapCodecInfo* This,UINT cchFriendlyName,WCHAR *wzFriendlyName,UINT *pcchActual) {
+    return This->lpVtbl->GetFriendlyName(This,cchFriendlyName,wzFriendlyName,pcchActual);
+}
+/*** IWICBitmapCodecInfo methods ***/
+static FORCEINLINE HRESULT IWICBitmapCodecInfo_GetContainerFormat(IWICBitmapCodecInfo* This,GUID *pguidContainerFormat) {
+    return This->lpVtbl->GetContainerFormat(This,pguidContainerFormat);
+}
+static FORCEINLINE HRESULT IWICBitmapCodecInfo_GetPixelFormats(IWICBitmapCodecInfo* This,UINT cFormats,GUID *pguidPixelFormats,UINT *pcActual) {
+    return This->lpVtbl->GetPixelFormats(This,cFormats,pguidPixelFormats,pcActual);
+}
+static FORCEINLINE HRESULT IWICBitmapCodecInfo_GetColorManagementVersion(IWICBitmapCodecInfo* This,UINT cchColorManagementVersion,WCHAR *wzColorManagementVersion,UINT *pcchActual) {
+    return This->lpVtbl->GetColorManagementVersion(This,cchColorManagementVersion,wzColorManagementVersion,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapCodecInfo_GetDeviceManufacturer(IWICBitmapCodecInfo* This,UINT cchDeviceManufacturer,WCHAR *wzDeviceManufacturer,UINT *pcchActual) {
+    return This->lpVtbl->GetDeviceManufacturer(This,cchDeviceManufacturer,wzDeviceManufacturer,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapCodecInfo_GetDeviceModels(IWICBitmapCodecInfo* This,UINT cchDeviceModels,WCHAR *wzDeviceModels,UINT *pcchActual) {
+    return This->lpVtbl->GetDeviceModels(This,cchDeviceModels,wzDeviceModels,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapCodecInfo_GetMimeTypes(IWICBitmapCodecInfo* This,UINT cchMimeTypes,WCHAR *wzMimeTypes,UINT *pcchActual) {
+    return This->lpVtbl->GetMimeTypes(This,cchMimeTypes,wzMimeTypes,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapCodecInfo_GetFileExtensions(IWICBitmapCodecInfo* This,UINT cchFileExtensions,WCHAR *wzFileExtensions,UINT *pcchActual) {
+    return This->lpVtbl->GetFileExtensions(This,cchFileExtensions,wzFileExtensions,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapCodecInfo_DoesSupportAnimation(IWICBitmapCodecInfo* This,WINBOOL *pfSupportAnimation) {
+    return This->lpVtbl->DoesSupportAnimation(This,pfSupportAnimation);
+}
+static FORCEINLINE HRESULT IWICBitmapCodecInfo_DoesSupportChromaKey(IWICBitmapCodecInfo* This,WINBOOL *pfSupportChromaKey) {
+    return This->lpVtbl->DoesSupportChromaKey(This,pfSupportChromaKey);
+}
+static FORCEINLINE HRESULT IWICBitmapCodecInfo_DoesSupportLossless(IWICBitmapCodecInfo* This,WINBOOL *pfSupportLossless) {
+    return This->lpVtbl->DoesSupportLossless(This,pfSupportLossless);
+}
+static FORCEINLINE HRESULT IWICBitmapCodecInfo_DoesSupportMultiframe(IWICBitmapCodecInfo* This,WINBOOL *pfSupportMultiframe) {
+    return This->lpVtbl->DoesSupportMultiframe(This,pfSupportMultiframe);
+}
+static FORCEINLINE HRESULT IWICBitmapCodecInfo_MatchesMimeType(IWICBitmapCodecInfo* This,LPCWSTR wzMimeType,WINBOOL *pfMatches) {
+    return This->lpVtbl->MatchesMimeType(This,wzMimeType,pfMatches);
+}
+#endif
 #endif
 
 #endif
@@ -2660,6 +3189,7 @@ interface IWICBitmapDecoderInfo {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICBitmapDecoderInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICBitmapDecoderInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2690,6 +3220,90 @@ interface IWICBitmapDecoderInfo {
 #define IWICBitmapDecoderInfo_GetPatterns(This,cbSizePatterns,pPatterns,pcPatterns,pcbPatternsActual) (This)->lpVtbl->GetPatterns(This,cbSizePatterns,pPatterns,pcPatterns,pcbPatternsActual)
 #define IWICBitmapDecoderInfo_MatchesPattern(This,pIStream,pfMatches) (This)->lpVtbl->MatchesPattern(This,pIStream,pfMatches)
 #define IWICBitmapDecoderInfo_CreateInstance(This,ppIBitmapDecoder) (This)->lpVtbl->CreateInstance(This,ppIBitmapDecoder)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_QueryInterface(IWICBitmapDecoderInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICBitmapDecoderInfo_AddRef(IWICBitmapDecoderInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICBitmapDecoderInfo_Release(IWICBitmapDecoderInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICComponentInfo methods ***/
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_GetComponentType(IWICBitmapDecoderInfo* This,WICComponentType *pType) {
+    return This->lpVtbl->GetComponentType(This,pType);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_GetCLSID(IWICBitmapDecoderInfo* This,CLSID *pclsid) {
+    return This->lpVtbl->GetCLSID(This,pclsid);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_GetSigningStatus(IWICBitmapDecoderInfo* This,DWORD *pStatus) {
+    return This->lpVtbl->GetSigningStatus(This,pStatus);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_GetAuthor(IWICBitmapDecoderInfo* This,UINT cchAuthor,WCHAR *wzAuthor,UINT *pcchActual) {
+    return This->lpVtbl->GetAuthor(This,cchAuthor,wzAuthor,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_GetVendorGUID(IWICBitmapDecoderInfo* This,GUID *pguidVendor) {
+    return This->lpVtbl->GetVendorGUID(This,pguidVendor);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_GetVersion(IWICBitmapDecoderInfo* This,UINT cchVersion,WCHAR *wzVersion,UINT *pcchActual) {
+    return This->lpVtbl->GetVersion(This,cchVersion,wzVersion,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_GetSpecVersion(IWICBitmapDecoderInfo* This,UINT cchSpecVersion,WCHAR *wzSpecVersion,UINT *pcchActual) {
+    return This->lpVtbl->GetSpecVersion(This,cchSpecVersion,wzSpecVersion,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_GetFriendlyName(IWICBitmapDecoderInfo* This,UINT cchFriendlyName,WCHAR *wzFriendlyName,UINT *pcchActual) {
+    return This->lpVtbl->GetFriendlyName(This,cchFriendlyName,wzFriendlyName,pcchActual);
+}
+/*** IWICBitmapCodecInfo methods ***/
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_GetContainerFormat(IWICBitmapDecoderInfo* This,GUID *pguidContainerFormat) {
+    return This->lpVtbl->GetContainerFormat(This,pguidContainerFormat);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_GetPixelFormats(IWICBitmapDecoderInfo* This,UINT cFormats,GUID *pguidPixelFormats,UINT *pcActual) {
+    return This->lpVtbl->GetPixelFormats(This,cFormats,pguidPixelFormats,pcActual);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_GetColorManagementVersion(IWICBitmapDecoderInfo* This,UINT cchColorManagementVersion,WCHAR *wzColorManagementVersion,UINT *pcchActual) {
+    return This->lpVtbl->GetColorManagementVersion(This,cchColorManagementVersion,wzColorManagementVersion,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_GetDeviceManufacturer(IWICBitmapDecoderInfo* This,UINT cchDeviceManufacturer,WCHAR *wzDeviceManufacturer,UINT *pcchActual) {
+    return This->lpVtbl->GetDeviceManufacturer(This,cchDeviceManufacturer,wzDeviceManufacturer,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_GetDeviceModels(IWICBitmapDecoderInfo* This,UINT cchDeviceModels,WCHAR *wzDeviceModels,UINT *pcchActual) {
+    return This->lpVtbl->GetDeviceModels(This,cchDeviceModels,wzDeviceModels,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_GetMimeTypes(IWICBitmapDecoderInfo* This,UINT cchMimeTypes,WCHAR *wzMimeTypes,UINT *pcchActual) {
+    return This->lpVtbl->GetMimeTypes(This,cchMimeTypes,wzMimeTypes,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_GetFileExtensions(IWICBitmapDecoderInfo* This,UINT cchFileExtensions,WCHAR *wzFileExtensions,UINT *pcchActual) {
+    return This->lpVtbl->GetFileExtensions(This,cchFileExtensions,wzFileExtensions,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_DoesSupportAnimation(IWICBitmapDecoderInfo* This,WINBOOL *pfSupportAnimation) {
+    return This->lpVtbl->DoesSupportAnimation(This,pfSupportAnimation);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_DoesSupportChromaKey(IWICBitmapDecoderInfo* This,WINBOOL *pfSupportChromaKey) {
+    return This->lpVtbl->DoesSupportChromaKey(This,pfSupportChromaKey);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_DoesSupportLossless(IWICBitmapDecoderInfo* This,WINBOOL *pfSupportLossless) {
+    return This->lpVtbl->DoesSupportLossless(This,pfSupportLossless);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_DoesSupportMultiframe(IWICBitmapDecoderInfo* This,WINBOOL *pfSupportMultiframe) {
+    return This->lpVtbl->DoesSupportMultiframe(This,pfSupportMultiframe);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_MatchesMimeType(IWICBitmapDecoderInfo* This,LPCWSTR wzMimeType,WINBOOL *pfMatches) {
+    return This->lpVtbl->MatchesMimeType(This,wzMimeType,pfMatches);
+}
+/*** IWICBitmapDecoderInfo methods ***/
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_GetPatterns(IWICBitmapDecoderInfo* This,UINT cbSizePatterns,WICBitmapPattern *pPatterns,UINT *pcPatterns,UINT *pcbPatternsActual) {
+    return This->lpVtbl->GetPatterns(This,cbSizePatterns,pPatterns,pcPatterns,pcbPatternsActual);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_MatchesPattern(IWICBitmapDecoderInfo* This,IStream *pIStream,WINBOOL *pfMatches) {
+    return This->lpVtbl->MatchesPattern(This,pIStream,pfMatches);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoderInfo_CreateInstance(IWICBitmapDecoderInfo* This,IWICBitmapDecoder **ppIBitmapDecoder) {
+    return This->lpVtbl->CreateInstance(This,ppIBitmapDecoder);
+}
+#endif
 #endif
 
 #endif
@@ -2840,6 +3454,7 @@ interface IWICBitmapDecoder {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICBitmapDecoder_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICBitmapDecoder_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2856,6 +3471,52 @@ interface IWICBitmapDecoder {
 #define IWICBitmapDecoder_GetThumbnail(This,ppIThumbnail) (This)->lpVtbl->GetThumbnail(This,ppIThumbnail)
 #define IWICBitmapDecoder_GetFrameCount(This,pCount) (This)->lpVtbl->GetFrameCount(This,pCount)
 #define IWICBitmapDecoder_GetFrame(This,index,ppIBitmapFrame) (This)->lpVtbl->GetFrame(This,index,ppIBitmapFrame)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICBitmapDecoder_QueryInterface(IWICBitmapDecoder* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICBitmapDecoder_AddRef(IWICBitmapDecoder* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICBitmapDecoder_Release(IWICBitmapDecoder* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICBitmapDecoder methods ***/
+static FORCEINLINE HRESULT IWICBitmapDecoder_QueryCapability(IWICBitmapDecoder* This,IStream *pIStream,DWORD *pdwCapability) {
+    return This->lpVtbl->QueryCapability(This,pIStream,pdwCapability);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoder_Initialize(IWICBitmapDecoder* This,IStream *pIStream,WICDecodeOptions cacheOptions) {
+    return This->lpVtbl->Initialize(This,pIStream,cacheOptions);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoder_GetContainerFormat(IWICBitmapDecoder* This,GUID *pguidContainerFormat) {
+    return This->lpVtbl->GetContainerFormat(This,pguidContainerFormat);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoder_GetDecoderInfo(IWICBitmapDecoder* This,IWICBitmapDecoderInfo **ppIDecoderInfo) {
+    return This->lpVtbl->GetDecoderInfo(This,ppIDecoderInfo);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoder_CopyPalette(IWICBitmapDecoder* This,IWICPalette *pIPalette) {
+    return This->lpVtbl->CopyPalette(This,pIPalette);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoder_GetMetadataQueryReader(IWICBitmapDecoder* This,IWICMetadataQueryReader **ppIMetadataQueryReader) {
+    return This->lpVtbl->GetMetadataQueryReader(This,ppIMetadataQueryReader);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoder_GetPreview(IWICBitmapDecoder* This,IWICBitmapSource **ppIBitmapSource) {
+    return This->lpVtbl->GetPreview(This,ppIBitmapSource);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoder_GetColorContexts(IWICBitmapDecoder* This,UINT cCount,IWICColorContext **ppIColorContexts,UINT *pcActualCount) {
+    return This->lpVtbl->GetColorContexts(This,cCount,ppIColorContexts,pcActualCount);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoder_GetThumbnail(IWICBitmapDecoder* This,IWICBitmapSource **ppIThumbnail) {
+    return This->lpVtbl->GetThumbnail(This,ppIThumbnail);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoder_GetFrameCount(IWICBitmapDecoder* This,UINT *pCount) {
+    return This->lpVtbl->GetFrameCount(This,pCount);
+}
+static FORCEINLINE HRESULT IWICBitmapDecoder_GetFrame(IWICBitmapDecoder* This,UINT index,IWICBitmapFrameDecode **ppIBitmapFrame) {
+    return This->lpVtbl->GetFrame(This,index,ppIBitmapFrame);
+}
+#endif
 #endif
 
 #endif
@@ -3085,6 +3746,7 @@ interface IWICBitmapFrameEncode {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICBitmapFrameEncode_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICBitmapFrameEncode_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -3101,6 +3763,52 @@ interface IWICBitmapFrameEncode {
 #define IWICBitmapFrameEncode_WriteSource(This,pIBitmapSource,prc) (This)->lpVtbl->WriteSource(This,pIBitmapSource,prc)
 #define IWICBitmapFrameEncode_Commit(This) (This)->lpVtbl->Commit(This)
 #define IWICBitmapFrameEncode_GetMetadataQueryWriter(This,ppIMetadataQueryWriter) (This)->lpVtbl->GetMetadataQueryWriter(This,ppIMetadataQueryWriter)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICBitmapFrameEncode_QueryInterface(IWICBitmapFrameEncode* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICBitmapFrameEncode_AddRef(IWICBitmapFrameEncode* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICBitmapFrameEncode_Release(IWICBitmapFrameEncode* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICBitmapFrameEncode methods ***/
+static FORCEINLINE HRESULT IWICBitmapFrameEncode_Initialize(IWICBitmapFrameEncode* This,IPropertyBag2 *pIEncoderOptions) {
+    return This->lpVtbl->Initialize(This,pIEncoderOptions);
+}
+static FORCEINLINE HRESULT IWICBitmapFrameEncode_SetSize(IWICBitmapFrameEncode* This,UINT uiWidth,UINT uiHeight) {
+    return This->lpVtbl->SetSize(This,uiWidth,uiHeight);
+}
+static FORCEINLINE HRESULT IWICBitmapFrameEncode_SetResolution(IWICBitmapFrameEncode* This,double dpiX,double dpiY) {
+    return This->lpVtbl->SetResolution(This,dpiX,dpiY);
+}
+static FORCEINLINE HRESULT IWICBitmapFrameEncode_SetPixelFormat(IWICBitmapFrameEncode* This,WICPixelFormatGUID *pPixelFormat) {
+    return This->lpVtbl->SetPixelFormat(This,pPixelFormat);
+}
+static FORCEINLINE HRESULT IWICBitmapFrameEncode_SetColorContexts(IWICBitmapFrameEncode* This,UINT cCount,IWICColorContext **ppIColorContext) {
+    return This->lpVtbl->SetColorContexts(This,cCount,ppIColorContext);
+}
+static FORCEINLINE HRESULT IWICBitmapFrameEncode_SetPalette(IWICBitmapFrameEncode* This,IWICPalette *pIPalette) {
+    return This->lpVtbl->SetPalette(This,pIPalette);
+}
+static FORCEINLINE HRESULT IWICBitmapFrameEncode_SetThumbnail(IWICBitmapFrameEncode* This,IWICBitmapSource *pIThumbnail) {
+    return This->lpVtbl->SetThumbnail(This,pIThumbnail);
+}
+static FORCEINLINE HRESULT IWICBitmapFrameEncode_WritePixels(IWICBitmapFrameEncode* This,UINT lineCount,UINT cbStride,UINT cbBufferSize,BYTE *pbPixels) {
+    return This->lpVtbl->WritePixels(This,lineCount,cbStride,cbBufferSize,pbPixels);
+}
+static FORCEINLINE HRESULT IWICBitmapFrameEncode_WriteSource(IWICBitmapFrameEncode* This,IWICBitmapSource *pIBitmapSource,WICRect *prc) {
+    return This->lpVtbl->WriteSource(This,pIBitmapSource,prc);
+}
+static FORCEINLINE HRESULT IWICBitmapFrameEncode_Commit(IWICBitmapFrameEncode* This) {
+    return This->lpVtbl->Commit(This);
+}
+static FORCEINLINE HRESULT IWICBitmapFrameEncode_GetMetadataQueryWriter(IWICBitmapFrameEncode* This,IWICMetadataQueryWriter **ppIMetadataQueryWriter) {
+    return This->lpVtbl->GetMetadataQueryWriter(This,ppIMetadataQueryWriter);
+}
+#endif
 #endif
 
 #endif
@@ -3356,6 +4064,7 @@ interface IWICBitmapEncoderInfo {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICBitmapEncoderInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICBitmapEncoderInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -3384,6 +4093,84 @@ interface IWICBitmapEncoderInfo {
 #define IWICBitmapEncoderInfo_MatchesMimeType(This,wzMimeType,pfMatches) (This)->lpVtbl->MatchesMimeType(This,wzMimeType,pfMatches)
 /*** IWICBitmapEncoderInfo methods ***/
 #define IWICBitmapEncoderInfo_CreateInstance(This,ppIBitmapEncoder) (This)->lpVtbl->CreateInstance(This,ppIBitmapEncoder)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_QueryInterface(IWICBitmapEncoderInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICBitmapEncoderInfo_AddRef(IWICBitmapEncoderInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICBitmapEncoderInfo_Release(IWICBitmapEncoderInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICComponentInfo methods ***/
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_GetComponentType(IWICBitmapEncoderInfo* This,WICComponentType *pType) {
+    return This->lpVtbl->GetComponentType(This,pType);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_GetCLSID(IWICBitmapEncoderInfo* This,CLSID *pclsid) {
+    return This->lpVtbl->GetCLSID(This,pclsid);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_GetSigningStatus(IWICBitmapEncoderInfo* This,DWORD *pStatus) {
+    return This->lpVtbl->GetSigningStatus(This,pStatus);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_GetAuthor(IWICBitmapEncoderInfo* This,UINT cchAuthor,WCHAR *wzAuthor,UINT *pcchActual) {
+    return This->lpVtbl->GetAuthor(This,cchAuthor,wzAuthor,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_GetVendorGUID(IWICBitmapEncoderInfo* This,GUID *pguidVendor) {
+    return This->lpVtbl->GetVendorGUID(This,pguidVendor);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_GetVersion(IWICBitmapEncoderInfo* This,UINT cchVersion,WCHAR *wzVersion,UINT *pcchActual) {
+    return This->lpVtbl->GetVersion(This,cchVersion,wzVersion,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_GetSpecVersion(IWICBitmapEncoderInfo* This,UINT cchSpecVersion,WCHAR *wzSpecVersion,UINT *pcchActual) {
+    return This->lpVtbl->GetSpecVersion(This,cchSpecVersion,wzSpecVersion,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_GetFriendlyName(IWICBitmapEncoderInfo* This,UINT cchFriendlyName,WCHAR *wzFriendlyName,UINT *pcchActual) {
+    return This->lpVtbl->GetFriendlyName(This,cchFriendlyName,wzFriendlyName,pcchActual);
+}
+/*** IWICBitmapCodecInfo methods ***/
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_GetContainerFormat(IWICBitmapEncoderInfo* This,GUID *pguidContainerFormat) {
+    return This->lpVtbl->GetContainerFormat(This,pguidContainerFormat);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_GetPixelFormats(IWICBitmapEncoderInfo* This,UINT cFormats,GUID *pguidPixelFormats,UINT *pcActual) {
+    return This->lpVtbl->GetPixelFormats(This,cFormats,pguidPixelFormats,pcActual);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_GetColorManagementVersion(IWICBitmapEncoderInfo* This,UINT cchColorManagementVersion,WCHAR *wzColorManagementVersion,UINT *pcchActual) {
+    return This->lpVtbl->GetColorManagementVersion(This,cchColorManagementVersion,wzColorManagementVersion,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_GetDeviceManufacturer(IWICBitmapEncoderInfo* This,UINT cchDeviceManufacturer,WCHAR *wzDeviceManufacturer,UINT *pcchActual) {
+    return This->lpVtbl->GetDeviceManufacturer(This,cchDeviceManufacturer,wzDeviceManufacturer,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_GetDeviceModels(IWICBitmapEncoderInfo* This,UINT cchDeviceModels,WCHAR *wzDeviceModels,UINT *pcchActual) {
+    return This->lpVtbl->GetDeviceModels(This,cchDeviceModels,wzDeviceModels,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_GetMimeTypes(IWICBitmapEncoderInfo* This,UINT cchMimeTypes,WCHAR *wzMimeTypes,UINT *pcchActual) {
+    return This->lpVtbl->GetMimeTypes(This,cchMimeTypes,wzMimeTypes,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_GetFileExtensions(IWICBitmapEncoderInfo* This,UINT cchFileExtensions,WCHAR *wzFileExtensions,UINT *pcchActual) {
+    return This->lpVtbl->GetFileExtensions(This,cchFileExtensions,wzFileExtensions,pcchActual);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_DoesSupportAnimation(IWICBitmapEncoderInfo* This,WINBOOL *pfSupportAnimation) {
+    return This->lpVtbl->DoesSupportAnimation(This,pfSupportAnimation);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_DoesSupportChromaKey(IWICBitmapEncoderInfo* This,WINBOOL *pfSupportChromaKey) {
+    return This->lpVtbl->DoesSupportChromaKey(This,pfSupportChromaKey);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_DoesSupportLossless(IWICBitmapEncoderInfo* This,WINBOOL *pfSupportLossless) {
+    return This->lpVtbl->DoesSupportLossless(This,pfSupportLossless);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_DoesSupportMultiframe(IWICBitmapEncoderInfo* This,WINBOOL *pfSupportMultiframe) {
+    return This->lpVtbl->DoesSupportMultiframe(This,pfSupportMultiframe);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_MatchesMimeType(IWICBitmapEncoderInfo* This,LPCWSTR wzMimeType,WINBOOL *pfMatches) {
+    return This->lpVtbl->MatchesMimeType(This,wzMimeType,pfMatches);
+}
+/*** IWICBitmapEncoderInfo methods ***/
+static FORCEINLINE HRESULT IWICBitmapEncoderInfo_CreateInstance(IWICBitmapEncoderInfo* This,IWICBitmapEncoder **ppIBitmapEncoder) {
+    return This->lpVtbl->CreateInstance(This,ppIBitmapEncoder);
+}
+#endif
 #endif
 
 #endif
@@ -3513,6 +4300,7 @@ interface IWICBitmapEncoder {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICBitmapEncoder_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICBitmapEncoder_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -3528,6 +4316,49 @@ interface IWICBitmapEncoder {
 #define IWICBitmapEncoder_CreateNewFrame(This,ppIFrameEncode,ppIEncoderOptions) (This)->lpVtbl->CreateNewFrame(This,ppIFrameEncode,ppIEncoderOptions)
 #define IWICBitmapEncoder_Commit(This) (This)->lpVtbl->Commit(This)
 #define IWICBitmapEncoder_GetMetadataQueryWriter(This,ppIMetadataQueryWriter) (This)->lpVtbl->GetMetadataQueryWriter(This,ppIMetadataQueryWriter)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICBitmapEncoder_QueryInterface(IWICBitmapEncoder* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICBitmapEncoder_AddRef(IWICBitmapEncoder* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICBitmapEncoder_Release(IWICBitmapEncoder* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICBitmapEncoder methods ***/
+static FORCEINLINE HRESULT IWICBitmapEncoder_Initialize(IWICBitmapEncoder* This,IStream *pIStream,WICBitmapEncoderCacheOption cacheOption) {
+    return This->lpVtbl->Initialize(This,pIStream,cacheOption);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoder_GetContainerFormat(IWICBitmapEncoder* This,GUID *pguidContainerFormat) {
+    return This->lpVtbl->GetContainerFormat(This,pguidContainerFormat);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoder_GetEncoderInfo(IWICBitmapEncoder* This,IWICBitmapEncoderInfo **ppIEncoderInfo) {
+    return This->lpVtbl->GetEncoderInfo(This,ppIEncoderInfo);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoder_SetColorContexts(IWICBitmapEncoder* This,UINT cCount,IWICColorContext **ppIColorContext) {
+    return This->lpVtbl->SetColorContexts(This,cCount,ppIColorContext);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoder_SetPalette(IWICBitmapEncoder* This,IWICPalette *pIPalette) {
+    return This->lpVtbl->SetPalette(This,pIPalette);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoder_SetThumbnail(IWICBitmapEncoder* This,IWICBitmapSource *pIThumbnail) {
+    return This->lpVtbl->SetThumbnail(This,pIThumbnail);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoder_SetPreview(IWICBitmapEncoder* This,IWICBitmapSource *pIPreview) {
+    return This->lpVtbl->SetPreview(This,pIPreview);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoder_CreateNewFrame(IWICBitmapEncoder* This,IWICBitmapFrameEncode **ppIFrameEncode,IPropertyBag2 **ppIEncoderOptions) {
+    return This->lpVtbl->CreateNewFrame(This,ppIFrameEncode,ppIEncoderOptions);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoder_Commit(IWICBitmapEncoder* This) {
+    return This->lpVtbl->Commit(This);
+}
+static FORCEINLINE HRESULT IWICBitmapEncoder_GetMetadataQueryWriter(IWICBitmapEncoder* This,IWICMetadataQueryWriter **ppIMetadataQueryWriter) {
+    return This->lpVtbl->GetMetadataQueryWriter(This,ppIMetadataQueryWriter);
+}
+#endif
 #endif
 
 #endif
@@ -3710,6 +4541,7 @@ interface IWICFormatConverter {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICFormatConverter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICFormatConverter_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -3723,6 +4555,41 @@ interface IWICFormatConverter {
 /*** IWICFormatConverter methods ***/
 #define IWICFormatConverter_Initialize(This,pISource,dstFormat,dither,pIPalette,alphaThresholdPercent,paletteTranslate) (This)->lpVtbl->Initialize(This,pISource,dstFormat,dither,pIPalette,alphaThresholdPercent,paletteTranslate)
 #define IWICFormatConverter_CanConvert(This,srcPixelFormat,dstPixelFormat,pfCanConvert) (This)->lpVtbl->CanConvert(This,srcPixelFormat,dstPixelFormat,pfCanConvert)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICFormatConverter_QueryInterface(IWICFormatConverter* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICFormatConverter_AddRef(IWICFormatConverter* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICFormatConverter_Release(IWICFormatConverter* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICBitmapSource methods ***/
+static FORCEINLINE HRESULT IWICFormatConverter_GetSize(IWICFormatConverter* This,UINT *puiWidth,UINT *puiHeight) {
+    return This->lpVtbl->GetSize(This,puiWidth,puiHeight);
+}
+static FORCEINLINE HRESULT IWICFormatConverter_GetPixelFormat(IWICFormatConverter* This,WICPixelFormatGUID *pPixelFormat) {
+    return This->lpVtbl->GetPixelFormat(This,pPixelFormat);
+}
+static FORCEINLINE HRESULT IWICFormatConverter_GetResolution(IWICFormatConverter* This,double *pDpiX,double *pDpiY) {
+    return This->lpVtbl->GetResolution(This,pDpiX,pDpiY);
+}
+static FORCEINLINE HRESULT IWICFormatConverter_CopyPalette(IWICFormatConverter* This,IWICPalette *pIPalette) {
+    return This->lpVtbl->CopyPalette(This,pIPalette);
+}
+static FORCEINLINE HRESULT IWICFormatConverter_CopyPixels(IWICFormatConverter* This,const WICRect *prc,UINT cbStride,UINT cbBufferSize,BYTE *pbBuffer) {
+    return This->lpVtbl->CopyPixels(This,prc,cbStride,cbBufferSize,pbBuffer);
+}
+/*** IWICFormatConverter methods ***/
+static FORCEINLINE HRESULT IWICFormatConverter_Initialize(IWICFormatConverter* This,IWICBitmapSource *pISource,REFWICPixelFormatGUID dstFormat,WICBitmapDitherType dither,IWICPalette *pIPalette,double alphaThresholdPercent,WICBitmapPaletteType paletteTranslate) {
+    return This->lpVtbl->Initialize(This,pISource,dstFormat,dither,pIPalette,alphaThresholdPercent,paletteTranslate);
+}
+static FORCEINLINE HRESULT IWICFormatConverter_CanConvert(IWICFormatConverter* This,REFWICPixelFormatGUID srcPixelFormat,REFWICPixelFormatGUID dstPixelFormat,WINBOOL *pfCanConvert) {
+    return This->lpVtbl->CanConvert(This,srcPixelFormat,dstPixelFormat,pfCanConvert);
+}
+#endif
 #endif
 
 #endif
@@ -3851,6 +4718,7 @@ interface IWICFormatConverterInfo {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICFormatConverterInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICFormatConverterInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -3867,6 +4735,50 @@ interface IWICFormatConverterInfo {
 /*** IWICFormatConverterInfo methods ***/
 #define IWICFormatConverterInfo_GetPixelFormats(This,cFormats,pPixelFormatGUIDs,pcActual) (This)->lpVtbl->GetPixelFormats(This,cFormats,pPixelFormatGUIDs,pcActual)
 #define IWICFormatConverterInfo_CreateInstance(This,ppIConverter) (This)->lpVtbl->CreateInstance(This,ppIConverter)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICFormatConverterInfo_QueryInterface(IWICFormatConverterInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICFormatConverterInfo_AddRef(IWICFormatConverterInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICFormatConverterInfo_Release(IWICFormatConverterInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICComponentInfo methods ***/
+static FORCEINLINE HRESULT IWICFormatConverterInfo_GetComponentType(IWICFormatConverterInfo* This,WICComponentType *pType) {
+    return This->lpVtbl->GetComponentType(This,pType);
+}
+static FORCEINLINE HRESULT IWICFormatConverterInfo_GetCLSID(IWICFormatConverterInfo* This,CLSID *pclsid) {
+    return This->lpVtbl->GetCLSID(This,pclsid);
+}
+static FORCEINLINE HRESULT IWICFormatConverterInfo_GetSigningStatus(IWICFormatConverterInfo* This,DWORD *pStatus) {
+    return This->lpVtbl->GetSigningStatus(This,pStatus);
+}
+static FORCEINLINE HRESULT IWICFormatConverterInfo_GetAuthor(IWICFormatConverterInfo* This,UINT cchAuthor,WCHAR *wzAuthor,UINT *pcchActual) {
+    return This->lpVtbl->GetAuthor(This,cchAuthor,wzAuthor,pcchActual);
+}
+static FORCEINLINE HRESULT IWICFormatConverterInfo_GetVendorGUID(IWICFormatConverterInfo* This,GUID *pguidVendor) {
+    return This->lpVtbl->GetVendorGUID(This,pguidVendor);
+}
+static FORCEINLINE HRESULT IWICFormatConverterInfo_GetVersion(IWICFormatConverterInfo* This,UINT cchVersion,WCHAR *wzVersion,UINT *pcchActual) {
+    return This->lpVtbl->GetVersion(This,cchVersion,wzVersion,pcchActual);
+}
+static FORCEINLINE HRESULT IWICFormatConverterInfo_GetSpecVersion(IWICFormatConverterInfo* This,UINT cchSpecVersion,WCHAR *wzSpecVersion,UINT *pcchActual) {
+    return This->lpVtbl->GetSpecVersion(This,cchSpecVersion,wzSpecVersion,pcchActual);
+}
+static FORCEINLINE HRESULT IWICFormatConverterInfo_GetFriendlyName(IWICFormatConverterInfo* This,UINT cchFriendlyName,WCHAR *wzFriendlyName,UINT *pcchActual) {
+    return This->lpVtbl->GetFriendlyName(This,cchFriendlyName,wzFriendlyName,pcchActual);
+}
+/*** IWICFormatConverterInfo methods ***/
+static FORCEINLINE HRESULT IWICFormatConverterInfo_GetPixelFormats(IWICFormatConverterInfo* This,UINT cFormats,WICPixelFormatGUID *pPixelFormatGUIDs,UINT *pcActual) {
+    return This->lpVtbl->GetPixelFormats(This,cFormats,pPixelFormatGUIDs,pcActual);
+}
+static FORCEINLINE HRESULT IWICFormatConverterInfo_CreateInstance(IWICFormatConverterInfo* This,IWICFormatConverter **ppIConverter) {
+    return This->lpVtbl->CreateInstance(This,ppIConverter);
+}
+#endif
 #endif
 
 #endif
@@ -4026,6 +4938,7 @@ interface IWICStream {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICStream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICStream_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -4048,6 +4961,66 @@ interface IWICStream {
 #define IWICStream_InitializeFromFilename(This,wzFileName,dwAccessMode) (This)->lpVtbl->InitializeFromFilename(This,wzFileName,dwAccessMode)
 #define IWICStream_InitializeFromMemory(This,pbBuffer,cbBufferSize) (This)->lpVtbl->InitializeFromMemory(This,pbBuffer,cbBufferSize)
 #define IWICStream_InitializeFromIStreamRegion(This,pIStream,ulOffset,ulMaxSize) (This)->lpVtbl->InitializeFromIStreamRegion(This,pIStream,ulOffset,ulMaxSize)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICStream_QueryInterface(IWICStream* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICStream_AddRef(IWICStream* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICStream_Release(IWICStream* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ISequentialStream methods ***/
+static FORCEINLINE HRESULT IWICStream_Read(IWICStream* This,void *pv,ULONG cb,ULONG *pcbRead) {
+    return This->lpVtbl->Read(This,pv,cb,pcbRead);
+}
+static FORCEINLINE HRESULT IWICStream_Write(IWICStream* This,const void *pv,ULONG cb,ULONG *pcbWritten) {
+    return This->lpVtbl->Write(This,pv,cb,pcbWritten);
+}
+/*** IStream methods ***/
+static FORCEINLINE HRESULT IWICStream_Seek(IWICStream* This,LARGE_INTEGER dlibMove,DWORD dwOrigin,ULARGE_INTEGER *plibNewPosition) {
+    return This->lpVtbl->Seek(This,dlibMove,dwOrigin,plibNewPosition);
+}
+static FORCEINLINE HRESULT IWICStream_SetSize(IWICStream* This,ULARGE_INTEGER libNewSize) {
+    return This->lpVtbl->SetSize(This,libNewSize);
+}
+static FORCEINLINE HRESULT IWICStream_CopyTo(IWICStream* This,IStream *pstm,ULARGE_INTEGER cb,ULARGE_INTEGER *pcbRead,ULARGE_INTEGER *pcbWritten) {
+    return This->lpVtbl->CopyTo(This,pstm,cb,pcbRead,pcbWritten);
+}
+static FORCEINLINE HRESULT IWICStream_Commit(IWICStream* This,DWORD grfCommitFlags) {
+    return This->lpVtbl->Commit(This,grfCommitFlags);
+}
+static FORCEINLINE HRESULT IWICStream_Revert(IWICStream* This) {
+    return This->lpVtbl->Revert(This);
+}
+static FORCEINLINE HRESULT IWICStream_LockRegion(IWICStream* This,ULARGE_INTEGER libOffset,ULARGE_INTEGER cb,DWORD dwLockType) {
+    return This->lpVtbl->LockRegion(This,libOffset,cb,dwLockType);
+}
+static FORCEINLINE HRESULT IWICStream_UnlockRegion(IWICStream* This,ULARGE_INTEGER libOffset,ULARGE_INTEGER cb,DWORD dwLockType) {
+    return This->lpVtbl->UnlockRegion(This,libOffset,cb,dwLockType);
+}
+static FORCEINLINE HRESULT IWICStream_Stat(IWICStream* This,STATSTG *pstatstg,DWORD grfStatFlag) {
+    return This->lpVtbl->Stat(This,pstatstg,grfStatFlag);
+}
+static FORCEINLINE HRESULT IWICStream_Clone(IWICStream* This,IStream **ppstm) {
+    return This->lpVtbl->Clone(This,ppstm);
+}
+/*** IWICStream methods ***/
+static FORCEINLINE HRESULT IWICStream_InitializeFromIStream(IWICStream* This,IStream *pIStream) {
+    return This->lpVtbl->InitializeFromIStream(This,pIStream);
+}
+static FORCEINLINE HRESULT IWICStream_InitializeFromFilename(IWICStream* This,LPCWSTR wzFileName,DWORD dwAccessMode) {
+    return This->lpVtbl->InitializeFromFilename(This,wzFileName,dwAccessMode);
+}
+static FORCEINLINE HRESULT IWICStream_InitializeFromMemory(IWICStream* This,BYTE *pbBuffer,DWORD cbBufferSize) {
+    return This->lpVtbl->InitializeFromMemory(This,pbBuffer,cbBufferSize);
+}
+static FORCEINLINE HRESULT IWICStream_InitializeFromIStreamRegion(IWICStream* This,IStream *pIStream,ULARGE_INTEGER ulOffset,ULARGE_INTEGER ulMaxSize) {
+    return This->lpVtbl->InitializeFromIStreamRegion(This,pIStream,ulOffset,ulMaxSize);
+}
+#endif
 #endif
 
 #endif
@@ -4169,6 +5142,7 @@ interface IWICBitmapScaler {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICBitmapScaler_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICBitmapScaler_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -4181,6 +5155,38 @@ interface IWICBitmapScaler {
 #define IWICBitmapScaler_CopyPixels(This,prc,cbStride,cbBufferSize,pbBuffer) (This)->lpVtbl->CopyPixels(This,prc,cbStride,cbBufferSize,pbBuffer)
 /*** IWICBitmapScaler methods ***/
 #define IWICBitmapScaler_Initialize(This,pISource,uiWidth,uiHeight,mode) (This)->lpVtbl->Initialize(This,pISource,uiWidth,uiHeight,mode)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICBitmapScaler_QueryInterface(IWICBitmapScaler* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICBitmapScaler_AddRef(IWICBitmapScaler* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICBitmapScaler_Release(IWICBitmapScaler* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICBitmapSource methods ***/
+static FORCEINLINE HRESULT IWICBitmapScaler_GetSize(IWICBitmapScaler* This,UINT *puiWidth,UINT *puiHeight) {
+    return This->lpVtbl->GetSize(This,puiWidth,puiHeight);
+}
+static FORCEINLINE HRESULT IWICBitmapScaler_GetPixelFormat(IWICBitmapScaler* This,WICPixelFormatGUID *pPixelFormat) {
+    return This->lpVtbl->GetPixelFormat(This,pPixelFormat);
+}
+static FORCEINLINE HRESULT IWICBitmapScaler_GetResolution(IWICBitmapScaler* This,double *pDpiX,double *pDpiY) {
+    return This->lpVtbl->GetResolution(This,pDpiX,pDpiY);
+}
+static FORCEINLINE HRESULT IWICBitmapScaler_CopyPalette(IWICBitmapScaler* This,IWICPalette *pIPalette) {
+    return This->lpVtbl->CopyPalette(This,pIPalette);
+}
+static FORCEINLINE HRESULT IWICBitmapScaler_CopyPixels(IWICBitmapScaler* This,const WICRect *prc,UINT cbStride,UINT cbBufferSize,BYTE *pbBuffer) {
+    return This->lpVtbl->CopyPixels(This,prc,cbStride,cbBufferSize,pbBuffer);
+}
+/*** IWICBitmapScaler methods ***/
+static FORCEINLINE HRESULT IWICBitmapScaler_Initialize(IWICBitmapScaler* This,IWICBitmapSource *pISource,UINT uiWidth,UINT uiHeight,WICBitmapInterpolationMode mode) {
+    return This->lpVtbl->Initialize(This,pISource,uiWidth,uiHeight,mode);
+}
+#endif
 #endif
 
 #endif
@@ -4273,6 +5279,7 @@ interface IWICBitmapClipper {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICBitmapClipper_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICBitmapClipper_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -4285,6 +5292,38 @@ interface IWICBitmapClipper {
 #define IWICBitmapClipper_CopyPixels(This,prc,cbStride,cbBufferSize,pbBuffer) (This)->lpVtbl->CopyPixels(This,prc,cbStride,cbBufferSize,pbBuffer)
 /*** IWICBitmapClipper methods ***/
 #define IWICBitmapClipper_Initialize(This,pISource,prc) (This)->lpVtbl->Initialize(This,pISource,prc)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICBitmapClipper_QueryInterface(IWICBitmapClipper* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICBitmapClipper_AddRef(IWICBitmapClipper* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICBitmapClipper_Release(IWICBitmapClipper* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICBitmapSource methods ***/
+static FORCEINLINE HRESULT IWICBitmapClipper_GetSize(IWICBitmapClipper* This,UINT *puiWidth,UINT *puiHeight) {
+    return This->lpVtbl->GetSize(This,puiWidth,puiHeight);
+}
+static FORCEINLINE HRESULT IWICBitmapClipper_GetPixelFormat(IWICBitmapClipper* This,WICPixelFormatGUID *pPixelFormat) {
+    return This->lpVtbl->GetPixelFormat(This,pPixelFormat);
+}
+static FORCEINLINE HRESULT IWICBitmapClipper_GetResolution(IWICBitmapClipper* This,double *pDpiX,double *pDpiY) {
+    return This->lpVtbl->GetResolution(This,pDpiX,pDpiY);
+}
+static FORCEINLINE HRESULT IWICBitmapClipper_CopyPalette(IWICBitmapClipper* This,IWICPalette *pIPalette) {
+    return This->lpVtbl->CopyPalette(This,pIPalette);
+}
+static FORCEINLINE HRESULT IWICBitmapClipper_CopyPixels(IWICBitmapClipper* This,const WICRect *prc,UINT cbStride,UINT cbBufferSize,BYTE *pbBuffer) {
+    return This->lpVtbl->CopyPixels(This,prc,cbStride,cbBufferSize,pbBuffer);
+}
+/*** IWICBitmapClipper methods ***/
+static FORCEINLINE HRESULT IWICBitmapClipper_Initialize(IWICBitmapClipper* This,IWICBitmapSource *pISource,const WICRect *prc) {
+    return This->lpVtbl->Initialize(This,pISource,prc);
+}
+#endif
 #endif
 
 #endif
@@ -4379,6 +5418,7 @@ interface IWICColorTransform {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICColorTransform_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICColorTransform_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -4391,6 +5431,38 @@ interface IWICColorTransform {
 #define IWICColorTransform_CopyPixels(This,prc,cbStride,cbBufferSize,pbBuffer) (This)->lpVtbl->CopyPixels(This,prc,cbStride,cbBufferSize,pbBuffer)
 /*** IWICColorTransform methods ***/
 #define IWICColorTransform_Initialize(This,pIBitmapSource,pIContextSource,pIContextDest,pixelFmtDest) (This)->lpVtbl->Initialize(This,pIBitmapSource,pIContextSource,pIContextDest,pixelFmtDest)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICColorTransform_QueryInterface(IWICColorTransform* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICColorTransform_AddRef(IWICColorTransform* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICColorTransform_Release(IWICColorTransform* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICBitmapSource methods ***/
+static FORCEINLINE HRESULT IWICColorTransform_GetSize(IWICColorTransform* This,UINT *puiWidth,UINT *puiHeight) {
+    return This->lpVtbl->GetSize(This,puiWidth,puiHeight);
+}
+static FORCEINLINE HRESULT IWICColorTransform_GetPixelFormat(IWICColorTransform* This,WICPixelFormatGUID *pPixelFormat) {
+    return This->lpVtbl->GetPixelFormat(This,pPixelFormat);
+}
+static FORCEINLINE HRESULT IWICColorTransform_GetResolution(IWICColorTransform* This,double *pDpiX,double *pDpiY) {
+    return This->lpVtbl->GetResolution(This,pDpiX,pDpiY);
+}
+static FORCEINLINE HRESULT IWICColorTransform_CopyPalette(IWICColorTransform* This,IWICPalette *pIPalette) {
+    return This->lpVtbl->CopyPalette(This,pIPalette);
+}
+static FORCEINLINE HRESULT IWICColorTransform_CopyPixels(IWICColorTransform* This,const WICRect *prc,UINT cbStride,UINT cbBufferSize,BYTE *pbBuffer) {
+    return This->lpVtbl->CopyPixels(This,prc,cbStride,cbBufferSize,pbBuffer);
+}
+/*** IWICColorTransform methods ***/
+static FORCEINLINE HRESULT IWICColorTransform_Initialize(IWICColorTransform* This,IWICBitmapSource *pIBitmapSource,IWICColorContext *pIContextSource,IWICColorContext *pIContextDest,REFWICPixelFormatGUID pixelFmtDest) {
+    return This->lpVtbl->Initialize(This,pIBitmapSource,pIContextSource,pIContextDest,pixelFmtDest);
+}
+#endif
 #endif
 
 #endif
@@ -4461,6 +5533,7 @@ interface IWICFastMetadataEncoder {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICFastMetadataEncoder_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICFastMetadataEncoder_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -4468,6 +5541,25 @@ interface IWICFastMetadataEncoder {
 /*** IWICFastMetadataEncoder methods ***/
 #define IWICFastMetadataEncoder_Commit(This) (This)->lpVtbl->Commit(This)
 #define IWICFastMetadataEncoder_GetMetadataQueryWriter(This,ppIMetadataQueryWriter) (This)->lpVtbl->GetMetadataQueryWriter(This,ppIMetadataQueryWriter)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICFastMetadataEncoder_QueryInterface(IWICFastMetadataEncoder* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICFastMetadataEncoder_AddRef(IWICFastMetadataEncoder* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICFastMetadataEncoder_Release(IWICFastMetadataEncoder* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICFastMetadataEncoder methods ***/
+static FORCEINLINE HRESULT IWICFastMetadataEncoder_Commit(IWICFastMetadataEncoder* This) {
+    return This->lpVtbl->Commit(This);
+}
+static FORCEINLINE HRESULT IWICFastMetadataEncoder_GetMetadataQueryWriter(IWICFastMetadataEncoder* This,IWICMetadataQueryWriter **ppIMetadataQueryWriter) {
+    return This->lpVtbl->GetMetadataQueryWriter(This,ppIMetadataQueryWriter);
+}
+#endif
 #endif
 
 #endif
@@ -4793,6 +5885,7 @@ interface IWICImagingFactory {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICImagingFactory_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICImagingFactory_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -4823,6 +5916,94 @@ interface IWICImagingFactory {
 #define IWICImagingFactory_CreateFastMetadataEncoderFromFrameDecode(This,pIFrameDecoder,ppIFastEncoder) (This)->lpVtbl->CreateFastMetadataEncoderFromFrameDecode(This,pIFrameDecoder,ppIFastEncoder)
 #define IWICImagingFactory_CreateQueryWriter(This,guidMetadataFormat,pguidVendor,ppIQueryWriter) (This)->lpVtbl->CreateQueryWriter(This,guidMetadataFormat,pguidVendor,ppIQueryWriter)
 #define IWICImagingFactory_CreateQueryWriterFromReader(This,pIQueryReader,pguidVendor,ppIQueryWriter) (This)->lpVtbl->CreateQueryWriterFromReader(This,pIQueryReader,pguidVendor,ppIQueryWriter)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICImagingFactory_QueryInterface(IWICImagingFactory* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICImagingFactory_AddRef(IWICImagingFactory* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICImagingFactory_Release(IWICImagingFactory* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICImagingFactory methods ***/
+static FORCEINLINE HRESULT IWICImagingFactory_CreateDecoderFromFilename(IWICImagingFactory* This,LPCWSTR wzFilename,const GUID *pguidVendor,DWORD dwDesiredAccess,WICDecodeOptions metadataOptions,IWICBitmapDecoder **ppIDecoder) {
+    return This->lpVtbl->CreateDecoderFromFilename(This,wzFilename,pguidVendor,dwDesiredAccess,metadataOptions,ppIDecoder);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateDecoderFromStream(IWICImagingFactory* This,IStream *pIStream,const GUID *pguidVendor,WICDecodeOptions metadataOptions,IWICBitmapDecoder **ppIDecoder) {
+    return This->lpVtbl->CreateDecoderFromStream(This,pIStream,pguidVendor,metadataOptions,ppIDecoder);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateDecoderFromFileHandle(IWICImagingFactory* This,ULONG_PTR hFile,const GUID *pguidVendor,WICDecodeOptions metadataOptions,IWICBitmapDecoder **ppIDecoder) {
+    return This->lpVtbl->CreateDecoderFromFileHandle(This,hFile,pguidVendor,metadataOptions,ppIDecoder);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateComponentInfo(IWICImagingFactory* This,REFCLSID clsidComponent,IWICComponentInfo **ppIInfo) {
+    return This->lpVtbl->CreateComponentInfo(This,clsidComponent,ppIInfo);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateDecoder(IWICImagingFactory* This,REFGUID guidContainerFormat,const GUID *pguidVendor,IWICBitmapDecoder **ppIDecoder) {
+    return This->lpVtbl->CreateDecoder(This,guidContainerFormat,pguidVendor,ppIDecoder);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateEncoder(IWICImagingFactory* This,REFGUID guidContainerFormat,const GUID *pguidVendor,IWICBitmapEncoder **ppIEncoder) {
+    return This->lpVtbl->CreateEncoder(This,guidContainerFormat,pguidVendor,ppIEncoder);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreatePalette(IWICImagingFactory* This,IWICPalette **ppIPalette) {
+    return This->lpVtbl->CreatePalette(This,ppIPalette);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateFormatConverter(IWICImagingFactory* This,IWICFormatConverter **ppIFormatConverter) {
+    return This->lpVtbl->CreateFormatConverter(This,ppIFormatConverter);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateBitmapScaler(IWICImagingFactory* This,IWICBitmapScaler **ppIBitmapScaler) {
+    return This->lpVtbl->CreateBitmapScaler(This,ppIBitmapScaler);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateBitmapClipper(IWICImagingFactory* This,IWICBitmapClipper **ppIBitmapClipper) {
+    return This->lpVtbl->CreateBitmapClipper(This,ppIBitmapClipper);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateBitmapFlipRotator(IWICImagingFactory* This,IWICBitmapFlipRotator **ppIBitmapFlipRotator) {
+    return This->lpVtbl->CreateBitmapFlipRotator(This,ppIBitmapFlipRotator);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateStream(IWICImagingFactory* This,IWICStream **ppIWICStream) {
+    return This->lpVtbl->CreateStream(This,ppIWICStream);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateColorContext(IWICImagingFactory* This,IWICColorContext **ppIWICColorContext) {
+    return This->lpVtbl->CreateColorContext(This,ppIWICColorContext);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateColorTransformer(IWICImagingFactory* This,IWICColorTransform **ppIWICColorTransform) {
+    return This->lpVtbl->CreateColorTransformer(This,ppIWICColorTransform);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateBitmap(IWICImagingFactory* This,UINT uiWidth,UINT uiHeight,REFWICPixelFormatGUID pixelFormat,WICBitmapCreateCacheOption option,IWICBitmap **ppIBitmap) {
+    return This->lpVtbl->CreateBitmap(This,uiWidth,uiHeight,pixelFormat,option,ppIBitmap);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateBitmapFromSource(IWICImagingFactory* This,IWICBitmapSource *piBitmapSource,WICBitmapCreateCacheOption option,IWICBitmap **ppIBitmap) {
+    return This->lpVtbl->CreateBitmapFromSource(This,piBitmapSource,option,ppIBitmap);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateBitmapFromSourceRect(IWICImagingFactory* This,IWICBitmapSource *piBitmapSource,UINT x,UINT y,UINT width,UINT height,IWICBitmap **ppIBitmap) {
+    return This->lpVtbl->CreateBitmapFromSourceRect(This,piBitmapSource,x,y,width,height,ppIBitmap);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateBitmapFromMemory(IWICImagingFactory* This,UINT uiWidth,UINT uiHeight,REFWICPixelFormatGUID pixelFormat,UINT cbStride,UINT cbBufferSize,BYTE *pbBuffer,IWICBitmap **ppIBitmap) {
+    return This->lpVtbl->CreateBitmapFromMemory(This,uiWidth,uiHeight,pixelFormat,cbStride,cbBufferSize,pbBuffer,ppIBitmap);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateBitmapFromHBITMAP(IWICImagingFactory* This,HBITMAP hBitmap,HPALETTE hPalette,WICBitmapAlphaChannelOption options,IWICBitmap **ppIBitmap) {
+    return This->lpVtbl->CreateBitmapFromHBITMAP(This,hBitmap,hPalette,options,ppIBitmap);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateBitmapFromHICON(IWICImagingFactory* This,HICON hIcon,IWICBitmap **ppIBitmap) {
+    return This->lpVtbl->CreateBitmapFromHICON(This,hIcon,ppIBitmap);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateComponentEnumerator(IWICImagingFactory* This,DWORD componentTypes,DWORD options,IEnumUnknown **ppIEnumUnknown) {
+    return This->lpVtbl->CreateComponentEnumerator(This,componentTypes,options,ppIEnumUnknown);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateFastMetadataEncoderFromDecoder(IWICImagingFactory* This,IWICBitmapDecoder *pIDecoder,IWICFastMetadataEncoder **ppIFastEncoder) {
+    return This->lpVtbl->CreateFastMetadataEncoderFromDecoder(This,pIDecoder,ppIFastEncoder);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateFastMetadataEncoderFromFrameDecode(IWICImagingFactory* This,IWICBitmapFrameDecode *pIFrameDecoder,IWICFastMetadataEncoder **ppIFastEncoder) {
+    return This->lpVtbl->CreateFastMetadataEncoderFromFrameDecode(This,pIFrameDecoder,ppIFastEncoder);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateQueryWriter(IWICImagingFactory* This,REFGUID guidMetadataFormat,const GUID *pguidVendor,IWICMetadataQueryWriter **ppIQueryWriter) {
+    return This->lpVtbl->CreateQueryWriter(This,guidMetadataFormat,pguidVendor,ppIQueryWriter);
+}
+static FORCEINLINE HRESULT IWICImagingFactory_CreateQueryWriterFromReader(IWICImagingFactory* This,IWICMetadataQueryReader *pIQueryReader,const GUID *pguidVendor,IWICMetadataQueryWriter **ppIQueryWriter) {
+    return This->lpVtbl->CreateQueryWriterFromReader(This,pIQueryReader,pguidVendor,ppIQueryWriter);
+}
+#endif
 #endif
 
 #endif
@@ -5148,6 +6329,7 @@ interface IWICEnumMetadataItem {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IWICEnumMetadataItem_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IWICEnumMetadataItem_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -5157,6 +6339,31 @@ interface IWICEnumMetadataItem {
 #define IWICEnumMetadataItem_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)
 #define IWICEnumMetadataItem_Reset(This) (This)->lpVtbl->Reset(This)
 #define IWICEnumMetadataItem_Clone(This,ppIEnumMetadataItem) (This)->lpVtbl->Clone(This,ppIEnumMetadataItem)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICEnumMetadataItem_QueryInterface(IWICEnumMetadataItem* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICEnumMetadataItem_AddRef(IWICEnumMetadataItem* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICEnumMetadataItem_Release(IWICEnumMetadataItem* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICEnumMetadataItem methods ***/
+static FORCEINLINE HRESULT IWICEnumMetadataItem_Next(IWICEnumMetadataItem* This,ULONG celt,PROPVARIANT *rgeltSchema,PROPVARIANT *rgeltId,PROPVARIANT *rgeltValue,ULONG *pceltFetched) {
+    return This->lpVtbl->Next(This,celt,rgeltSchema,rgeltId,rgeltValue,pceltFetched);
+}
+static FORCEINLINE HRESULT IWICEnumMetadataItem_Skip(IWICEnumMetadataItem* This,ULONG celt) {
+    return This->lpVtbl->Skip(This,celt);
+}
+static FORCEINLINE HRESULT IWICEnumMetadataItem_Reset(IWICEnumMetadataItem* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IWICEnumMetadataItem_Clone(IWICEnumMetadataItem* This,IWICEnumMetadataItem **ppIEnumMetadataItem) {
+    return This->lpVtbl->Clone(This,ppIEnumMetadataItem);
+}
+#endif
 #endif
 
 #endif

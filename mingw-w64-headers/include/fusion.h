@@ -227,6 +227,7 @@ interface IAssemblyCache {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAssemblyCache_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAssemblyCache_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -237,6 +238,34 @@ interface IAssemblyCache {
 #define IAssemblyCache_CreateAssemblyCacheItem(This,dwFlags,pvReserved,ppAsmItem,pszAssemblyName) (This)->lpVtbl->CreateAssemblyCacheItem(This,dwFlags,pvReserved,ppAsmItem,pszAssemblyName)
 #define IAssemblyCache_CreateAssemblyScavenger(This,ppUnkReserved) (This)->lpVtbl->CreateAssemblyScavenger(This,ppUnkReserved)
 #define IAssemblyCache_InstallAssembly(This,dwFlags,pszManifestFilePath,pRefData) (This)->lpVtbl->InstallAssembly(This,dwFlags,pszManifestFilePath,pRefData)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAssemblyCache_QueryInterface(IAssemblyCache* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAssemblyCache_AddRef(IAssemblyCache* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAssemblyCache_Release(IAssemblyCache* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAssemblyCache methods ***/
+static FORCEINLINE HRESULT IAssemblyCache_UninstallAssembly(IAssemblyCache* This,DWORD dwFlags,LPCWSTR pszAssemblyName,LPCFUSION_INSTALL_REFERENCE pRefData,ULONG *pulDisposition) {
+    return This->lpVtbl->UninstallAssembly(This,dwFlags,pszAssemblyName,pRefData,pulDisposition);
+}
+static FORCEINLINE HRESULT IAssemblyCache_QueryAssemblyInfo(IAssemblyCache* This,DWORD dwFlags,LPCWSTR pszAssemblyName,ASSEMBLY_INFO *pAsmInfo) {
+    return This->lpVtbl->QueryAssemblyInfo(This,dwFlags,pszAssemblyName,pAsmInfo);
+}
+static FORCEINLINE HRESULT IAssemblyCache_CreateAssemblyCacheItem(IAssemblyCache* This,DWORD dwFlags,PVOID pvReserved,IAssemblyCacheItem **ppAsmItem,LPCWSTR pszAssemblyName) {
+    return This->lpVtbl->CreateAssemblyCacheItem(This,dwFlags,pvReserved,ppAsmItem,pszAssemblyName);
+}
+static FORCEINLINE HRESULT IAssemblyCache_CreateAssemblyScavenger(IAssemblyCache* This,IUnknown **ppUnkReserved) {
+    return This->lpVtbl->CreateAssemblyScavenger(This,ppUnkReserved);
+}
+static FORCEINLINE HRESULT IAssemblyCache_InstallAssembly(IAssemblyCache* This,DWORD dwFlags,LPCWSTR pszManifestFilePath,LPCFUSION_INSTALL_REFERENCE pRefData) {
+    return This->lpVtbl->InstallAssembly(This,dwFlags,pszManifestFilePath,pRefData);
+}
+#endif
 #endif
 
 #endif
@@ -374,6 +403,7 @@ interface IAssemblyCacheItem {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAssemblyCacheItem_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAssemblyCacheItem_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -382,6 +412,28 @@ interface IAssemblyCacheItem {
 #define IAssemblyCacheItem_CreateStream(This,dwFlags,pszStreamName,dwFormat,dwFormatFlags,ppIStream,puliMaxSize) (This)->lpVtbl->CreateStream(This,dwFlags,pszStreamName,dwFormat,dwFormatFlags,ppIStream,puliMaxSize)
 #define IAssemblyCacheItem_Commit(This,dwFlags,pulDisposition) (This)->lpVtbl->Commit(This,dwFlags,pulDisposition)
 #define IAssemblyCacheItem_AbortItem(This) (This)->lpVtbl->AbortItem(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAssemblyCacheItem_QueryInterface(IAssemblyCacheItem* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAssemblyCacheItem_AddRef(IAssemblyCacheItem* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAssemblyCacheItem_Release(IAssemblyCacheItem* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAssemblyCacheItem methods ***/
+static FORCEINLINE HRESULT IAssemblyCacheItem_CreateStream(IAssemblyCacheItem* This,DWORD dwFlags,LPCWSTR pszStreamName,DWORD dwFormat,DWORD dwFormatFlags,IStream **ppIStream,ULARGE_INTEGER *puliMaxSize) {
+    return This->lpVtbl->CreateStream(This,dwFlags,pszStreamName,dwFormat,dwFormatFlags,ppIStream,puliMaxSize);
+}
+static FORCEINLINE HRESULT IAssemblyCacheItem_Commit(IAssemblyCacheItem* This,DWORD dwFlags,ULONG *pulDisposition) {
+    return This->lpVtbl->Commit(This,dwFlags,pulDisposition);
+}
+static FORCEINLINE HRESULT IAssemblyCacheItem_AbortItem(IAssemblyCacheItem* This) {
+    return This->lpVtbl->AbortItem(This);
+}
+#endif
 #endif
 
 #endif
@@ -621,6 +673,7 @@ interface IAssemblyName {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAssemblyName_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAssemblyName_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -635,6 +688,46 @@ interface IAssemblyName {
 #define IAssemblyName_GetVersion(This,pdwVersionHi,pdwVersionLow) (This)->lpVtbl->GetVersion(This,pdwVersionHi,pdwVersionLow)
 #define IAssemblyName_IsEqual(This,pName,dwCmpFlags) (This)->lpVtbl->IsEqual(This,pName,dwCmpFlags)
 #define IAssemblyName_Clone(This,pName) (This)->lpVtbl->Clone(This,pName)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAssemblyName_QueryInterface(IAssemblyName* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAssemblyName_AddRef(IAssemblyName* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAssemblyName_Release(IAssemblyName* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAssemblyName methods ***/
+static FORCEINLINE HRESULT IAssemblyName_SetProperty(IAssemblyName* This,DWORD PropertyId,LPVOID pvProperty,DWORD cbProperty) {
+    return This->lpVtbl->SetProperty(This,PropertyId,pvProperty,cbProperty);
+}
+static FORCEINLINE HRESULT IAssemblyName_GetProperty(IAssemblyName* This,DWORD PropertyId,LPVOID pvProperty,LPDWORD pcbProperty) {
+    return This->lpVtbl->GetProperty(This,PropertyId,pvProperty,pcbProperty);
+}
+static FORCEINLINE HRESULT IAssemblyName_Finalize(IAssemblyName* This) {
+    return This->lpVtbl->Finalize(This);
+}
+static FORCEINLINE HRESULT IAssemblyName_GetDisplayName(IAssemblyName* This,LPOLESTR szDisplayName,LPDWORD pccDisplayName,DWORD dwDisplayFlags) {
+    return This->lpVtbl->GetDisplayName(This,szDisplayName,pccDisplayName,dwDisplayFlags);
+}
+static FORCEINLINE HRESULT IAssemblyName_Reserved(IAssemblyName* This,REFIID refIID,IUnknown *pUnkReserved1,IUnknown *pUnkReserved2,LPCOLESTR szReserved,LONGLONG llReserved,LPVOID pvReserved,DWORD cbReserved,LPVOID *ppReserved) {
+    return This->lpVtbl->Reserved(This,refIID,pUnkReserved1,pUnkReserved2,szReserved,llReserved,pvReserved,cbReserved,ppReserved);
+}
+static FORCEINLINE HRESULT IAssemblyName_GetName(IAssemblyName* This,LPDWORD lpcwBuffer,WCHAR *pwzName) {
+    return This->lpVtbl->GetName(This,lpcwBuffer,pwzName);
+}
+static FORCEINLINE HRESULT IAssemblyName_GetVersion(IAssemblyName* This,LPDWORD pdwVersionHi,LPDWORD pdwVersionLow) {
+    return This->lpVtbl->GetVersion(This,pdwVersionHi,pdwVersionLow);
+}
+static FORCEINLINE HRESULT IAssemblyName_IsEqual(IAssemblyName* This,IAssemblyName *pName,DWORD dwCmpFlags) {
+    return This->lpVtbl->IsEqual(This,pName,dwCmpFlags);
+}
+static FORCEINLINE HRESULT IAssemblyName_Clone(IAssemblyName* This,IAssemblyName **pName) {
+    return This->lpVtbl->Clone(This,pName);
+}
+#endif
 #endif
 
 #endif
@@ -792,6 +885,7 @@ interface IAssemblyEnum {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAssemblyEnum_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAssemblyEnum_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -800,6 +894,28 @@ interface IAssemblyEnum {
 #define IAssemblyEnum_GetNextAssembly(This,pvReserved,ppName,dwFlags) (This)->lpVtbl->GetNextAssembly(This,pvReserved,ppName,dwFlags)
 #define IAssemblyEnum_Reset(This) (This)->lpVtbl->Reset(This)
 #define IAssemblyEnum_Clone(This,ppEnum) (This)->lpVtbl->Clone(This,ppEnum)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAssemblyEnum_QueryInterface(IAssemblyEnum* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAssemblyEnum_AddRef(IAssemblyEnum* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAssemblyEnum_Release(IAssemblyEnum* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAssemblyEnum methods ***/
+static FORCEINLINE HRESULT IAssemblyEnum_GetNextAssembly(IAssemblyEnum* This,LPVOID pvReserved,IAssemblyName **ppName,DWORD dwFlags) {
+    return This->lpVtbl->GetNextAssembly(This,pvReserved,ppName,dwFlags);
+}
+static FORCEINLINE HRESULT IAssemblyEnum_Reset(IAssemblyEnum* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IAssemblyEnum_Clone(IAssemblyEnum* This,IAssemblyEnum **ppEnum) {
+    return This->lpVtbl->Clone(This,ppEnum);
+}
+#endif
 #endif
 
 #endif
@@ -870,10 +986,23 @@ interface IInstallReferenceItem {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IInstallReferenceItem_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IInstallReferenceItem_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IInstallReferenceItem_Release(This) (This)->lpVtbl->Release(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IInstallReferenceItem_QueryInterface(IInstallReferenceItem* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IInstallReferenceItem_AddRef(IInstallReferenceItem* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IInstallReferenceItem_Release(IInstallReferenceItem* This) {
+    return This->lpVtbl->Release(This);
+}
+#endif
 #endif
 
 #endif
@@ -919,10 +1048,23 @@ interface IInstallReferenceEnum {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IInstallReferenceEnum_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IInstallReferenceEnum_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IInstallReferenceEnum_Release(This) (This)->lpVtbl->Release(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IInstallReferenceEnum_QueryInterface(IInstallReferenceEnum* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IInstallReferenceEnum_AddRef(IInstallReferenceEnum* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IInstallReferenceEnum_Release(IInstallReferenceEnum* This) {
+    return This->lpVtbl->Release(This);
+}
+#endif
 #endif
 
 #endif

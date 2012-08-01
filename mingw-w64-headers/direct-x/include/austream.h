@@ -163,6 +163,7 @@ interface IAudioMediaStream {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAudioMediaStream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAudioMediaStream_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -178,6 +179,47 @@ interface IAudioMediaStream {
 #define IAudioMediaStream_GetFormat(This,pWaveFormatCurrent) (This)->lpVtbl->GetFormat(This,pWaveFormatCurrent)
 #define IAudioMediaStream_SetFormat(This,lpWaveFormat) (This)->lpVtbl->SetFormat(This,lpWaveFormat)
 #define IAudioMediaStream_CreateSample(This,pAudioData,dwFlags,ppSample) (This)->lpVtbl->CreateSample(This,pAudioData,dwFlags,ppSample)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAudioMediaStream_QueryInterface(IAudioMediaStream* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAudioMediaStream_AddRef(IAudioMediaStream* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAudioMediaStream_Release(IAudioMediaStream* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMediaStream methods ***/
+static FORCEINLINE HRESULT IAudioMediaStream_GetMultiMediaStream(IAudioMediaStream* This,IMultiMediaStream **ppMultiMediaStream) {
+    return This->lpVtbl->GetMultiMediaStream(This,ppMultiMediaStream);
+}
+static FORCEINLINE HRESULT IAudioMediaStream_GetInformation(IAudioMediaStream* This,MSPID *pPurposeId,STREAM_TYPE *pType) {
+    return This->lpVtbl->GetInformation(This,pPurposeId,pType);
+}
+static FORCEINLINE HRESULT IAudioMediaStream_SetSameFormat(IAudioMediaStream* This,IMediaStream *pStreamThatHasDesiredFormat,DWORD dwFlags) {
+    return This->lpVtbl->SetSameFormat(This,pStreamThatHasDesiredFormat,dwFlags);
+}
+static FORCEINLINE HRESULT IAudioMediaStream_AllocateSample(IAudioMediaStream* This,DWORD dwFlags,IStreamSample **ppSample) {
+    return This->lpVtbl->AllocateSample(This,dwFlags,ppSample);
+}
+static FORCEINLINE HRESULT IAudioMediaStream_CreateSharedSample(IAudioMediaStream* This,IStreamSample *pExistingSample,DWORD dwFlags,IStreamSample **ppNewSample) {
+    return This->lpVtbl->CreateSharedSample(This,pExistingSample,dwFlags,ppNewSample);
+}
+static FORCEINLINE HRESULT IAudioMediaStream_SendEndOfStream(IAudioMediaStream* This,DWORD dwFlags) {
+    return This->lpVtbl->SendEndOfStream(This,dwFlags);
+}
+/*** IAudioMediaStream methods ***/
+static FORCEINLINE HRESULT IAudioMediaStream_GetFormat(IAudioMediaStream* This,WAVEFORMATEX *pWaveFormatCurrent) {
+    return This->lpVtbl->GetFormat(This,pWaveFormatCurrent);
+}
+static FORCEINLINE HRESULT IAudioMediaStream_SetFormat(IAudioMediaStream* This,const WAVEFORMATEX *lpWaveFormat) {
+    return This->lpVtbl->SetFormat(This,lpWaveFormat);
+}
+static FORCEINLINE HRESULT IAudioMediaStream_CreateSample(IAudioMediaStream* This,IAudioData *pAudioData,DWORD dwFlags,IAudioStreamSample **ppSample) {
+    return This->lpVtbl->CreateSample(This,pAudioData,dwFlags,ppSample);
+}
+#endif
 #endif
 
 #endif
@@ -285,6 +327,7 @@ interface IAudioStreamSample {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAudioStreamSample_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAudioStreamSample_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -297,6 +340,38 @@ interface IAudioStreamSample {
 #define IAudioStreamSample_CompletionStatus(This,dwFlags,dwMilliseconds) (This)->lpVtbl->CompletionStatus(This,dwFlags,dwMilliseconds)
 /*** IAudioStreamSample methods ***/
 #define IAudioStreamSample_GetAudioData(This,ppAudio) (This)->lpVtbl->GetAudioData(This,ppAudio)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAudioStreamSample_QueryInterface(IAudioStreamSample* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAudioStreamSample_AddRef(IAudioStreamSample* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAudioStreamSample_Release(IAudioStreamSample* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IStreamSample methods ***/
+static FORCEINLINE HRESULT IAudioStreamSample_GetMediaStream(IAudioStreamSample* This,IMediaStream **ppMediaStream) {
+    return This->lpVtbl->GetMediaStream(This,ppMediaStream);
+}
+static FORCEINLINE HRESULT IAudioStreamSample_GetSampleTimes(IAudioStreamSample* This,STREAM_TIME *pStartTime,STREAM_TIME *pEndTime,STREAM_TIME *pCurrentTime) {
+    return This->lpVtbl->GetSampleTimes(This,pStartTime,pEndTime,pCurrentTime);
+}
+static FORCEINLINE HRESULT IAudioStreamSample_SetSampleTimes(IAudioStreamSample* This,const STREAM_TIME *pStartTime,const STREAM_TIME *pEndTime) {
+    return This->lpVtbl->SetSampleTimes(This,pStartTime,pEndTime);
+}
+static FORCEINLINE HRESULT IAudioStreamSample_Update(IAudioStreamSample* This,DWORD dwFlags,HANDLE hEvent,PAPCFUNC pfnAPC,DWORD dwAPCData) {
+    return This->lpVtbl->Update(This,dwFlags,hEvent,pfnAPC,dwAPCData);
+}
+static FORCEINLINE HRESULT IAudioStreamSample_CompletionStatus(IAudioStreamSample* This,DWORD dwFlags,DWORD dwMilliseconds) {
+    return This->lpVtbl->CompletionStatus(This,dwFlags,dwMilliseconds);
+}
+/*** IAudioStreamSample methods ***/
+static FORCEINLINE HRESULT IAudioStreamSample_GetAudioData(IAudioStreamSample* This,IAudioData **ppAudio) {
+    return This->lpVtbl->GetAudioData(This,ppAudio);
+}
+#endif
 #endif
 
 #endif
@@ -380,6 +455,7 @@ interface IMemoryData {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IMemoryData_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IMemoryData_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -388,6 +464,28 @@ interface IMemoryData {
 #define IMemoryData_SetBuffer(This,cbSize,pbData,dwFlags) (This)->lpVtbl->SetBuffer(This,cbSize,pbData,dwFlags)
 #define IMemoryData_GetInfo(This,pdwLength,ppbData,pcbActualData) (This)->lpVtbl->GetInfo(This,pdwLength,ppbData,pcbActualData)
 #define IMemoryData_SetActual(This,cbDataValid) (This)->lpVtbl->SetActual(This,cbDataValid)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMemoryData_QueryInterface(IMemoryData* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMemoryData_AddRef(IMemoryData* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMemoryData_Release(IMemoryData* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMemoryData methods ***/
+static FORCEINLINE HRESULT IMemoryData_SetBuffer(IMemoryData* This,DWORD cbSize,BYTE *pbData,DWORD dwFlags) {
+    return This->lpVtbl->SetBuffer(This,cbSize,pbData,dwFlags);
+}
+static FORCEINLINE HRESULT IMemoryData_GetInfo(IMemoryData* This,DWORD *pdwLength,BYTE **ppbData,DWORD *pcbActualData) {
+    return This->lpVtbl->GetInfo(This,pdwLength,ppbData,pcbActualData);
+}
+static FORCEINLINE HRESULT IMemoryData_SetActual(IMemoryData* This,DWORD cbDataValid) {
+    return This->lpVtbl->SetActual(This,cbDataValid);
+}
+#endif
 #endif
 
 #endif
@@ -493,6 +591,7 @@ interface IAudioData {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAudioData_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAudioData_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -504,6 +603,35 @@ interface IAudioData {
 /*** IAudioData methods ***/
 #define IAudioData_GetFormat(This,pWaveFormatCurrent) (This)->lpVtbl->GetFormat(This,pWaveFormatCurrent)
 #define IAudioData_SetFormat(This,lpWaveFormat) (This)->lpVtbl->SetFormat(This,lpWaveFormat)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAudioData_QueryInterface(IAudioData* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAudioData_AddRef(IAudioData* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAudioData_Release(IAudioData* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMemoryData methods ***/
+static FORCEINLINE HRESULT IAudioData_SetBuffer(IAudioData* This,DWORD cbSize,BYTE *pbData,DWORD dwFlags) {
+    return This->lpVtbl->SetBuffer(This,cbSize,pbData,dwFlags);
+}
+static FORCEINLINE HRESULT IAudioData_GetInfo(IAudioData* This,DWORD *pdwLength,BYTE **ppbData,DWORD *pcbActualData) {
+    return This->lpVtbl->GetInfo(This,pdwLength,ppbData,pcbActualData);
+}
+static FORCEINLINE HRESULT IAudioData_SetActual(IAudioData* This,DWORD cbDataValid) {
+    return This->lpVtbl->SetActual(This,cbDataValid);
+}
+/*** IAudioData methods ***/
+static FORCEINLINE HRESULT IAudioData_GetFormat(IAudioData* This,WAVEFORMATEX *pWaveFormatCurrent) {
+    return This->lpVtbl->GetFormat(This,pWaveFormatCurrent);
+}
+static FORCEINLINE HRESULT IAudioData_SetFormat(IAudioData* This,const WAVEFORMATEX *lpWaveFormat) {
+    return This->lpVtbl->SetFormat(This,lpWaveFormat);
+}
+#endif
 #endif
 
 #endif

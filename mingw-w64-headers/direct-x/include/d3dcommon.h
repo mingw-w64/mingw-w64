@@ -92,6 +92,7 @@ interface ID3D10Blob {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ID3D10Blob_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ID3D10Blob_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -99,6 +100,25 @@ interface ID3D10Blob {
 /*** ID3D10Blob methods ***/
 #define ID3D10Blob_GetBufferPointer(This) (This)->lpVtbl->GetBufferPointer(This)
 #define ID3D10Blob_GetBufferSize(This) (This)->lpVtbl->GetBufferSize(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D10Blob_QueryInterface(ID3D10Blob* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D10Blob_AddRef(ID3D10Blob* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D10Blob_Release(ID3D10Blob* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D10Blob methods ***/
+static FORCEINLINE void * ID3D10Blob_GetBufferPointer(ID3D10Blob* This) {
+    return This->lpVtbl->GetBufferPointer(This);
+}
+static FORCEINLINE SIZE_T ID3D10Blob_GetBufferSize(ID3D10Blob* This) {
+    return This->lpVtbl->GetBufferSize(This);
+}
+#endif
 #endif
 
 #endif
@@ -178,9 +198,19 @@ interface ID3DInclude {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** ID3DInclude methods ***/
 #define ID3DInclude_Open(This,include_type,filename,parent_data,data,bytes) (This)->lpVtbl->Open(This,include_type,filename,parent_data,data,bytes)
 #define ID3DInclude_Close(This,data) (This)->lpVtbl->Close(This,data)
+#else
+/*** ID3DInclude methods ***/
+static FORCEINLINE HRESULT ID3DInclude_Open(ID3DInclude* This,D3D_INCLUDE_TYPE include_type,const char *filename,const void *parent_data,const void **data,UINT *bytes) {
+    return This->lpVtbl->Open(This,include_type,filename,parent_data,data,bytes);
+}
+static FORCEINLINE HRESULT ID3DInclude_Close(ID3DInclude* This,const void *data) {
+    return This->lpVtbl->Close(This,data);
+}
+#endif
 #endif
 
 #endif

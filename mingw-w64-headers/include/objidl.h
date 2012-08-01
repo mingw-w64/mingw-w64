@@ -1006,6 +1006,7 @@ interface IEnumUnknown {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IEnumUnknown_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumUnknown_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1015,6 +1016,31 @@ interface IEnumUnknown {
 #define IEnumUnknown_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)
 #define IEnumUnknown_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumUnknown_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IEnumUnknown_QueryInterface(IEnumUnknown* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IEnumUnknown_AddRef(IEnumUnknown* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IEnumUnknown_Release(IEnumUnknown* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IEnumUnknown methods ***/
+static FORCEINLINE HRESULT IEnumUnknown_Next(IEnumUnknown* This,ULONG celt,IUnknown **rgelt,ULONG *pceltFetched) {
+    return This->lpVtbl->Next(This,celt,rgelt,pceltFetched);
+}
+static FORCEINLINE HRESULT IEnumUnknown_Skip(IEnumUnknown* This,ULONG celt) {
+    return This->lpVtbl->Skip(This,celt);
+}
+static FORCEINLINE HRESULT IEnumUnknown_Reset(IEnumUnknown* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IEnumUnknown_Clone(IEnumUnknown* This,IEnumUnknown **ppenum) {
+    return This->lpVtbl->Clone(This,ppenum);
+}
+#endif
 #endif
 
 #endif
@@ -1228,6 +1254,7 @@ interface IBindCtx {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IBindCtx_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IBindCtx_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1243,6 +1270,49 @@ interface IBindCtx {
 #define IBindCtx_GetObjectParam(This,pszKey,ppunk) (This)->lpVtbl->GetObjectParam(This,pszKey,ppunk)
 #define IBindCtx_EnumObjectParam(This,ppenum) (This)->lpVtbl->EnumObjectParam(This,ppenum)
 #define IBindCtx_RevokeObjectParam(This,pszKey) (This)->lpVtbl->RevokeObjectParam(This,pszKey)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IBindCtx_QueryInterface(IBindCtx* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IBindCtx_AddRef(IBindCtx* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IBindCtx_Release(IBindCtx* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IBindCtx methods ***/
+static FORCEINLINE HRESULT IBindCtx_RegisterObjectBound(IBindCtx* This,IUnknown *punk) {
+    return This->lpVtbl->RegisterObjectBound(This,punk);
+}
+static FORCEINLINE HRESULT IBindCtx_RevokeObjectBound(IBindCtx* This,IUnknown *punk) {
+    return This->lpVtbl->RevokeObjectBound(This,punk);
+}
+static FORCEINLINE HRESULT IBindCtx_ReleaseBoundObjects(IBindCtx* This) {
+    return This->lpVtbl->ReleaseBoundObjects(This);
+}
+static FORCEINLINE HRESULT IBindCtx_SetBindOptions(IBindCtx* This,BIND_OPTS *pbindopts) {
+    return This->lpVtbl->SetBindOptions(This,pbindopts);
+}
+static FORCEINLINE HRESULT IBindCtx_GetBindOptions(IBindCtx* This,BIND_OPTS *pbindopts) {
+    return This->lpVtbl->GetBindOptions(This,pbindopts);
+}
+static FORCEINLINE HRESULT IBindCtx_GetRunningObjectTable(IBindCtx* This,IRunningObjectTable **pprot) {
+    return This->lpVtbl->GetRunningObjectTable(This,pprot);
+}
+static FORCEINLINE HRESULT IBindCtx_RegisterObjectParam(IBindCtx* This,LPOLESTR pszKey,IUnknown *punk) {
+    return This->lpVtbl->RegisterObjectParam(This,pszKey,punk);
+}
+static FORCEINLINE HRESULT IBindCtx_GetObjectParam(IBindCtx* This,LPOLESTR pszKey,IUnknown **ppunk) {
+    return This->lpVtbl->GetObjectParam(This,pszKey,ppunk);
+}
+static FORCEINLINE HRESULT IBindCtx_EnumObjectParam(IBindCtx* This,IEnumString **ppenum) {
+    return This->lpVtbl->EnumObjectParam(This,ppenum);
+}
+static FORCEINLINE HRESULT IBindCtx_RevokeObjectParam(IBindCtx* This,LPOLESTR pszKey) {
+    return This->lpVtbl->RevokeObjectParam(This,pszKey);
+}
+#endif
 #endif
 
 #endif
@@ -1414,6 +1484,7 @@ interface IEnumMoniker {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IEnumMoniker_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumMoniker_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1423,6 +1494,31 @@ interface IEnumMoniker {
 #define IEnumMoniker_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)
 #define IEnumMoniker_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumMoniker_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IEnumMoniker_QueryInterface(IEnumMoniker* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IEnumMoniker_AddRef(IEnumMoniker* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IEnumMoniker_Release(IEnumMoniker* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IEnumMoniker methods ***/
+static FORCEINLINE HRESULT IEnumMoniker_Next(IEnumMoniker* This,ULONG celt,IMoniker **rgelt,ULONG *pceltFetched) {
+    return This->lpVtbl->Next(This,celt,rgelt,pceltFetched);
+}
+static FORCEINLINE HRESULT IEnumMoniker_Skip(IEnumMoniker* This,ULONG celt) {
+    return This->lpVtbl->Skip(This,celt);
+}
+static FORCEINLINE HRESULT IEnumMoniker_Reset(IEnumMoniker* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IEnumMoniker_Clone(IEnumMoniker* This,IEnumMoniker **ppenum) {
+    return This->lpVtbl->Clone(This,ppenum);
+}
+#endif
 #endif
 
 #endif
@@ -1626,6 +1722,7 @@ interface IRunningObjectTable {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IRunningObjectTable_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IRunningObjectTable_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1638,6 +1735,40 @@ interface IRunningObjectTable {
 #define IRunningObjectTable_NoteChangeTime(This,dwRegister,pfiletime) (This)->lpVtbl->NoteChangeTime(This,dwRegister,pfiletime)
 #define IRunningObjectTable_GetTimeOfLastChange(This,pmkObjectName,pfiletime) (This)->lpVtbl->GetTimeOfLastChange(This,pmkObjectName,pfiletime)
 #define IRunningObjectTable_EnumRunning(This,ppenumMoniker) (This)->lpVtbl->EnumRunning(This,ppenumMoniker)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IRunningObjectTable_QueryInterface(IRunningObjectTable* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IRunningObjectTable_AddRef(IRunningObjectTable* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IRunningObjectTable_Release(IRunningObjectTable* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IRunningObjectTable methods ***/
+static FORCEINLINE HRESULT IRunningObjectTable_Register(IRunningObjectTable* This,DWORD grfFlags,IUnknown *punkObject,IMoniker *pmkObjectName,DWORD *pdwRegister) {
+    return This->lpVtbl->Register(This,grfFlags,punkObject,pmkObjectName,pdwRegister);
+}
+static FORCEINLINE HRESULT IRunningObjectTable_Revoke(IRunningObjectTable* This,DWORD dwRegister) {
+    return This->lpVtbl->Revoke(This,dwRegister);
+}
+static FORCEINLINE HRESULT IRunningObjectTable_IsRunning(IRunningObjectTable* This,IMoniker *pmkObjectName) {
+    return This->lpVtbl->IsRunning(This,pmkObjectName);
+}
+static FORCEINLINE HRESULT IRunningObjectTable_GetObject(IRunningObjectTable* This,IMoniker *pmkObjectName,IUnknown **ppunkObject) {
+    return This->lpVtbl->GetObject(This,pmkObjectName,ppunkObject);
+}
+static FORCEINLINE HRESULT IRunningObjectTable_NoteChangeTime(IRunningObjectTable* This,DWORD dwRegister,FILETIME *pfiletime) {
+    return This->lpVtbl->NoteChangeTime(This,dwRegister,pfiletime);
+}
+static FORCEINLINE HRESULT IRunningObjectTable_GetTimeOfLastChange(IRunningObjectTable* This,IMoniker *pmkObjectName,FILETIME *pfiletime) {
+    return This->lpVtbl->GetTimeOfLastChange(This,pmkObjectName,pfiletime);
+}
+static FORCEINLINE HRESULT IRunningObjectTable_EnumRunning(IRunningObjectTable* This,IEnumMoniker **ppenumMoniker) {
+    return This->lpVtbl->EnumRunning(This,ppenumMoniker);
+}
+#endif
 #endif
 
 #endif
@@ -1754,12 +1885,29 @@ interface IPersist {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPersist_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPersist_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IPersist_Release(This) (This)->lpVtbl->Release(This)
 /*** IPersist methods ***/
 #define IPersist_GetClassID(This,pClassID) (This)->lpVtbl->GetClassID(This,pClassID)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPersist_QueryInterface(IPersist* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPersist_AddRef(IPersist* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPersist_Release(IPersist* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPersist methods ***/
+static FORCEINLINE HRESULT IPersist_GetClassID(IPersist* This,CLSID *pClassID) {
+    return This->lpVtbl->GetClassID(This,pClassID);
+}
+#endif
 #endif
 
 #endif
@@ -1849,6 +1997,7 @@ interface IPersistStream {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPersistStream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPersistStream_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1860,6 +2009,35 @@ interface IPersistStream {
 #define IPersistStream_Load(This,pStm) (This)->lpVtbl->Load(This,pStm)
 #define IPersistStream_Save(This,pStm,fClearDirty) (This)->lpVtbl->Save(This,pStm,fClearDirty)
 #define IPersistStream_GetSizeMax(This,pcbSize) (This)->lpVtbl->GetSizeMax(This,pcbSize)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPersistStream_QueryInterface(IPersistStream* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPersistStream_AddRef(IPersistStream* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPersistStream_Release(IPersistStream* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPersist methods ***/
+static FORCEINLINE HRESULT IPersistStream_GetClassID(IPersistStream* This,CLSID *pClassID) {
+    return This->lpVtbl->GetClassID(This,pClassID);
+}
+/*** IPersistStream methods ***/
+static FORCEINLINE HRESULT IPersistStream_IsDirty(IPersistStream* This) {
+    return This->lpVtbl->IsDirty(This);
+}
+static FORCEINLINE HRESULT IPersistStream_Load(IPersistStream* This,IStream *pStm) {
+    return This->lpVtbl->Load(This,pStm);
+}
+static FORCEINLINE HRESULT IPersistStream_Save(IPersistStream* This,IStream *pStm,WINBOOL fClearDirty) {
+    return This->lpVtbl->Save(This,pStm,fClearDirty);
+}
+static FORCEINLINE HRESULT IPersistStream_GetSizeMax(IPersistStream* This,ULARGE_INTEGER *pcbSize) {
+    return This->lpVtbl->GetSizeMax(This,pcbSize);
+}
+#endif
 #endif
 
 #endif
@@ -2132,6 +2310,7 @@ interface IMoniker {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IMoniker_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IMoniker_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2159,6 +2338,81 @@ interface IMoniker {
 #define IMoniker_GetDisplayName(This,pbc,pmkToLeft,ppszDisplayName) (This)->lpVtbl->GetDisplayName(This,pbc,pmkToLeft,ppszDisplayName)
 #define IMoniker_ParseDisplayName(This,pbc,pmkToLeft,pszDisplayName,pchEaten,ppmkOut) (This)->lpVtbl->ParseDisplayName(This,pbc,pmkToLeft,pszDisplayName,pchEaten,ppmkOut)
 #define IMoniker_IsSystemMoniker(This,pdwMksys) (This)->lpVtbl->IsSystemMoniker(This,pdwMksys)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMoniker_QueryInterface(IMoniker* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMoniker_AddRef(IMoniker* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMoniker_Release(IMoniker* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPersist methods ***/
+static FORCEINLINE HRESULT IMoniker_GetClassID(IMoniker* This,CLSID *pClassID) {
+    return This->lpVtbl->GetClassID(This,pClassID);
+}
+/*** IPersistStream methods ***/
+static FORCEINLINE HRESULT IMoniker_IsDirty(IMoniker* This) {
+    return This->lpVtbl->IsDirty(This);
+}
+static FORCEINLINE HRESULT IMoniker_Load(IMoniker* This,IStream *pStm) {
+    return This->lpVtbl->Load(This,pStm);
+}
+static FORCEINLINE HRESULT IMoniker_Save(IMoniker* This,IStream *pStm,WINBOOL fClearDirty) {
+    return This->lpVtbl->Save(This,pStm,fClearDirty);
+}
+static FORCEINLINE HRESULT IMoniker_GetSizeMax(IMoniker* This,ULARGE_INTEGER *pcbSize) {
+    return This->lpVtbl->GetSizeMax(This,pcbSize);
+}
+/*** IMoniker methods ***/
+static FORCEINLINE HRESULT IMoniker_BindToObject(IMoniker* This,IBindCtx *pbc,IMoniker *pmkToLeft,REFIID riidResult,void **ppvResult) {
+    return This->lpVtbl->BindToObject(This,pbc,pmkToLeft,riidResult,ppvResult);
+}
+static FORCEINLINE HRESULT IMoniker_BindToStorage(IMoniker* This,IBindCtx *pbc,IMoniker *pmkToLeft,REFIID riid,void **ppvObj) {
+    return This->lpVtbl->BindToStorage(This,pbc,pmkToLeft,riid,ppvObj);
+}
+static FORCEINLINE HRESULT IMoniker_Reduce(IMoniker* This,IBindCtx *pbc,DWORD dwReduceHowFar,IMoniker **ppmkToLeft,IMoniker **ppmkReduced) {
+    return This->lpVtbl->Reduce(This,pbc,dwReduceHowFar,ppmkToLeft,ppmkReduced);
+}
+static FORCEINLINE HRESULT IMoniker_ComposeWith(IMoniker* This,IMoniker *pmkRight,WINBOOL fOnlyIfNotGeneric,IMoniker **ppmkComposite) {
+    return This->lpVtbl->ComposeWith(This,pmkRight,fOnlyIfNotGeneric,ppmkComposite);
+}
+static FORCEINLINE HRESULT IMoniker_Enum(IMoniker* This,WINBOOL fForward,IEnumMoniker **ppenumMoniker) {
+    return This->lpVtbl->Enum(This,fForward,ppenumMoniker);
+}
+static FORCEINLINE HRESULT IMoniker_IsEqual(IMoniker* This,IMoniker *pmkOtherMoniker) {
+    return This->lpVtbl->IsEqual(This,pmkOtherMoniker);
+}
+static FORCEINLINE HRESULT IMoniker_Hash(IMoniker* This,DWORD *pdwHash) {
+    return This->lpVtbl->Hash(This,pdwHash);
+}
+static FORCEINLINE HRESULT IMoniker_IsRunning(IMoniker* This,IBindCtx *pbc,IMoniker *pmkToLeft,IMoniker *pmkNewlyRunning) {
+    return This->lpVtbl->IsRunning(This,pbc,pmkToLeft,pmkNewlyRunning);
+}
+static FORCEINLINE HRESULT IMoniker_GetTimeOfLastChange(IMoniker* This,IBindCtx *pbc,IMoniker *pmkToLeft,FILETIME *pFileTime) {
+    return This->lpVtbl->GetTimeOfLastChange(This,pbc,pmkToLeft,pFileTime);
+}
+static FORCEINLINE HRESULT IMoniker_Inverse(IMoniker* This,IMoniker **ppmk) {
+    return This->lpVtbl->Inverse(This,ppmk);
+}
+static FORCEINLINE HRESULT IMoniker_CommonPrefixWith(IMoniker* This,IMoniker *pmkOther,IMoniker **ppmkPrefix) {
+    return This->lpVtbl->CommonPrefixWith(This,pmkOther,ppmkPrefix);
+}
+static FORCEINLINE HRESULT IMoniker_RelativePathTo(IMoniker* This,IMoniker *pmkOther,IMoniker **ppmkRelPath) {
+    return This->lpVtbl->RelativePathTo(This,pmkOther,ppmkRelPath);
+}
+static FORCEINLINE HRESULT IMoniker_GetDisplayName(IMoniker* This,IBindCtx *pbc,IMoniker *pmkToLeft,LPOLESTR *ppszDisplayName) {
+    return This->lpVtbl->GetDisplayName(This,pbc,pmkToLeft,ppszDisplayName);
+}
+static FORCEINLINE HRESULT IMoniker_ParseDisplayName(IMoniker* This,IBindCtx *pbc,IMoniker *pmkToLeft,LPOLESTR pszDisplayName,ULONG *pchEaten,IMoniker **ppmkOut) {
+    return This->lpVtbl->ParseDisplayName(This,pbc,pmkToLeft,pszDisplayName,pchEaten,ppmkOut);
+}
+static FORCEINLINE HRESULT IMoniker_IsSystemMoniker(IMoniker* This,DWORD *pdwMksys) {
+    return This->lpVtbl->IsSystemMoniker(This,pdwMksys);
+}
+#endif
 #endif
 
 #endif
@@ -2435,6 +2689,7 @@ interface IEnumString {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IEnumString_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumString_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2444,6 +2699,31 @@ interface IEnumString {
 #define IEnumString_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)
 #define IEnumString_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumString_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IEnumString_QueryInterface(IEnumString* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IEnumString_AddRef(IEnumString* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IEnumString_Release(IEnumString* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IEnumString methods ***/
+static FORCEINLINE HRESULT IEnumString_Next(IEnumString* This,ULONG celt,LPOLESTR *rgelt,ULONG *pceltFetched) {
+    return This->lpVtbl->Next(This,celt,rgelt,pceltFetched);
+}
+static FORCEINLINE HRESULT IEnumString_Skip(IEnumString* This,ULONG celt) {
+    return This->lpVtbl->Skip(This,celt);
+}
+static FORCEINLINE HRESULT IEnumString_Reset(IEnumString* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IEnumString_Clone(IEnumString* This,IEnumString **ppenum) {
+    return This->lpVtbl->Clone(This,ppenum);
+}
+#endif
 #endif
 
 #endif
@@ -2555,6 +2835,7 @@ interface ISequentialStream {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ISequentialStream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ISequentialStream_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2562,6 +2843,25 @@ interface ISequentialStream {
 /*** ISequentialStream methods ***/
 #define ISequentialStream_Read(This,pv,cb,pcbRead) (This)->lpVtbl->Read(This,pv,cb,pcbRead)
 #define ISequentialStream_Write(This,pv,cb,pcbWritten) (This)->lpVtbl->Write(This,pv,cb,pcbWritten)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ISequentialStream_QueryInterface(ISequentialStream* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ISequentialStream_AddRef(ISequentialStream* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ISequentialStream_Release(ISequentialStream* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ISequentialStream methods ***/
+static FORCEINLINE HRESULT ISequentialStream_Read(ISequentialStream* This,void *pv,ULONG cb,ULONG *pcbRead) {
+    return This->lpVtbl->Read(This,pv,cb,pcbRead);
+}
+static FORCEINLINE HRESULT ISequentialStream_Write(ISequentialStream* This,const void *pv,ULONG cb,ULONG *pcbWritten) {
+    return This->lpVtbl->Write(This,pv,cb,pcbWritten);
+}
+#endif
 #endif
 
 #endif
@@ -2773,6 +3073,7 @@ interface IStream {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IStream_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IStream_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2790,6 +3091,53 @@ interface IStream {
 #define IStream_UnlockRegion(This,libOffset,cb,dwLockType) (This)->lpVtbl->UnlockRegion(This,libOffset,cb,dwLockType)
 #define IStream_Stat(This,pstatstg,grfStatFlag) (This)->lpVtbl->Stat(This,pstatstg,grfStatFlag)
 #define IStream_Clone(This,ppstm) (This)->lpVtbl->Clone(This,ppstm)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IStream_QueryInterface(IStream* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IStream_AddRef(IStream* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IStream_Release(IStream* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ISequentialStream methods ***/
+static FORCEINLINE HRESULT IStream_Read(IStream* This,void *pv,ULONG cb,ULONG *pcbRead) {
+    return This->lpVtbl->Read(This,pv,cb,pcbRead);
+}
+static FORCEINLINE HRESULT IStream_Write(IStream* This,const void *pv,ULONG cb,ULONG *pcbWritten) {
+    return This->lpVtbl->Write(This,pv,cb,pcbWritten);
+}
+/*** IStream methods ***/
+static FORCEINLINE HRESULT IStream_Seek(IStream* This,LARGE_INTEGER dlibMove,DWORD dwOrigin,ULARGE_INTEGER *plibNewPosition) {
+    return This->lpVtbl->Seek(This,dlibMove,dwOrigin,plibNewPosition);
+}
+static FORCEINLINE HRESULT IStream_SetSize(IStream* This,ULARGE_INTEGER libNewSize) {
+    return This->lpVtbl->SetSize(This,libNewSize);
+}
+static FORCEINLINE HRESULT IStream_CopyTo(IStream* This,IStream *pstm,ULARGE_INTEGER cb,ULARGE_INTEGER *pcbRead,ULARGE_INTEGER *pcbWritten) {
+    return This->lpVtbl->CopyTo(This,pstm,cb,pcbRead,pcbWritten);
+}
+static FORCEINLINE HRESULT IStream_Commit(IStream* This,DWORD grfCommitFlags) {
+    return This->lpVtbl->Commit(This,grfCommitFlags);
+}
+static FORCEINLINE HRESULT IStream_Revert(IStream* This) {
+    return This->lpVtbl->Revert(This);
+}
+static FORCEINLINE HRESULT IStream_LockRegion(IStream* This,ULARGE_INTEGER libOffset,ULARGE_INTEGER cb,DWORD dwLockType) {
+    return This->lpVtbl->LockRegion(This,libOffset,cb,dwLockType);
+}
+static FORCEINLINE HRESULT IStream_UnlockRegion(IStream* This,ULARGE_INTEGER libOffset,ULARGE_INTEGER cb,DWORD dwLockType) {
+    return This->lpVtbl->UnlockRegion(This,libOffset,cb,dwLockType);
+}
+static FORCEINLINE HRESULT IStream_Stat(IStream* This,STATSTG *pstatstg,DWORD grfStatFlag) {
+    return This->lpVtbl->Stat(This,pstatstg,grfStatFlag);
+}
+static FORCEINLINE HRESULT IStream_Clone(IStream* This,IStream **ppstm) {
+    return This->lpVtbl->Clone(This,ppstm);
+}
+#endif
 #endif
 
 #endif
@@ -2971,6 +3319,7 @@ interface IEnumSTATSTG {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IEnumSTATSTG_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumSTATSTG_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2980,6 +3329,31 @@ interface IEnumSTATSTG {
 #define IEnumSTATSTG_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)
 #define IEnumSTATSTG_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumSTATSTG_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IEnumSTATSTG_QueryInterface(IEnumSTATSTG* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IEnumSTATSTG_AddRef(IEnumSTATSTG* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IEnumSTATSTG_Release(IEnumSTATSTG* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IEnumSTATSTG methods ***/
+static FORCEINLINE HRESULT IEnumSTATSTG_Next(IEnumSTATSTG* This,ULONG celt,STATSTG *rgelt,ULONG *pceltFetched) {
+    return This->lpVtbl->Next(This,celt,rgelt,pceltFetched);
+}
+static FORCEINLINE HRESULT IEnumSTATSTG_Skip(IEnumSTATSTG* This,ULONG celt) {
+    return This->lpVtbl->Skip(This,celt);
+}
+static FORCEINLINE HRESULT IEnumSTATSTG_Reset(IEnumSTATSTG* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IEnumSTATSTG_Clone(IEnumSTATSTG* This,IEnumSTATSTG **ppenum) {
+    return This->lpVtbl->Clone(This,ppenum);
+}
+#endif
 #endif
 
 #endif
@@ -3245,6 +3619,7 @@ interface IStorage {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IStorage_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IStorage_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -3265,6 +3640,64 @@ interface IStorage {
 #define IStorage_SetClass(This,clsid) (This)->lpVtbl->SetClass(This,clsid)
 #define IStorage_SetStateBits(This,grfStateBits,grfMask) (This)->lpVtbl->SetStateBits(This,grfStateBits,grfMask)
 #define IStorage_Stat(This,pstatstg,grfStatFlag) (This)->lpVtbl->Stat(This,pstatstg,grfStatFlag)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IStorage_QueryInterface(IStorage* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IStorage_AddRef(IStorage* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IStorage_Release(IStorage* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IStorage methods ***/
+static FORCEINLINE HRESULT IStorage_CreateStream(IStorage* This,LPCOLESTR pwcsName,DWORD grfMode,DWORD reserved1,DWORD reserved2,IStream **ppstm) {
+    return This->lpVtbl->CreateStream(This,pwcsName,grfMode,reserved1,reserved2,ppstm);
+}
+static FORCEINLINE HRESULT IStorage_OpenStream(IStorage* This,LPCOLESTR pwcsName,void *reserved1,DWORD grfMode,DWORD reserved2,IStream **ppstm) {
+    return This->lpVtbl->OpenStream(This,pwcsName,reserved1,grfMode,reserved2,ppstm);
+}
+static FORCEINLINE HRESULT IStorage_CreateStorage(IStorage* This,LPCOLESTR pwcsName,DWORD grfMode,DWORD dwStgFmt,DWORD reserved2,IStorage **ppstg) {
+    return This->lpVtbl->CreateStorage(This,pwcsName,grfMode,dwStgFmt,reserved2,ppstg);
+}
+static FORCEINLINE HRESULT IStorage_OpenStorage(IStorage* This,LPCOLESTR pwcsName,IStorage *pstgPriority,DWORD grfMode,SNB snbExclude,DWORD reserved,IStorage **ppstg) {
+    return This->lpVtbl->OpenStorage(This,pwcsName,pstgPriority,grfMode,snbExclude,reserved,ppstg);
+}
+static FORCEINLINE HRESULT IStorage_CopyTo(IStorage* This,DWORD ciidExclude,const IID *rgiidExclude,SNB snbExclude,IStorage *pstgDest) {
+    return This->lpVtbl->CopyTo(This,ciidExclude,rgiidExclude,snbExclude,pstgDest);
+}
+static FORCEINLINE HRESULT IStorage_MoveElementTo(IStorage* This,LPCOLESTR pwcsName,IStorage *pstgDest,LPCOLESTR pwcsNewName,DWORD grfFlags) {
+    return This->lpVtbl->MoveElementTo(This,pwcsName,pstgDest,pwcsNewName,grfFlags);
+}
+static FORCEINLINE HRESULT IStorage_Commit(IStorage* This,DWORD grfCommitFlags) {
+    return This->lpVtbl->Commit(This,grfCommitFlags);
+}
+static FORCEINLINE HRESULT IStorage_Revert(IStorage* This) {
+    return This->lpVtbl->Revert(This);
+}
+static FORCEINLINE HRESULT IStorage_EnumElements(IStorage* This,DWORD reserved1,void *reserved2,DWORD reserved3,IEnumSTATSTG **ppenum) {
+    return This->lpVtbl->EnumElements(This,reserved1,reserved2,reserved3,ppenum);
+}
+static FORCEINLINE HRESULT IStorage_DestroyElement(IStorage* This,LPCOLESTR pwcsName) {
+    return This->lpVtbl->DestroyElement(This,pwcsName);
+}
+static FORCEINLINE HRESULT IStorage_RenameElement(IStorage* This,LPCOLESTR pwcsOldName,LPCOLESTR pwcsNewName) {
+    return This->lpVtbl->RenameElement(This,pwcsOldName,pwcsNewName);
+}
+static FORCEINLINE HRESULT IStorage_SetElementTimes(IStorage* This,LPCOLESTR pwcsName,const FILETIME *pctime,const FILETIME *patime,const FILETIME *pmtime) {
+    return This->lpVtbl->SetElementTimes(This,pwcsName,pctime,patime,pmtime);
+}
+static FORCEINLINE HRESULT IStorage_SetClass(IStorage* This,REFCLSID clsid) {
+    return This->lpVtbl->SetClass(This,clsid);
+}
+static FORCEINLINE HRESULT IStorage_SetStateBits(IStorage* This,DWORD grfStateBits,DWORD grfMask) {
+    return This->lpVtbl->SetStateBits(This,grfStateBits,grfMask);
+}
+static FORCEINLINE HRESULT IStorage_Stat(IStorage* This,STATSTG *pstatstg,DWORD grfStatFlag) {
+    return This->lpVtbl->Stat(This,pstatstg,grfStatFlag);
+}
+#endif
 #endif
 
 #endif
@@ -3718,6 +4151,7 @@ interface IEnumFORMATETC {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IEnumFORMATETC_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumFORMATETC_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -3727,6 +4161,31 @@ interface IEnumFORMATETC {
 #define IEnumFORMATETC_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)
 #define IEnumFORMATETC_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumFORMATETC_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IEnumFORMATETC_QueryInterface(IEnumFORMATETC* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IEnumFORMATETC_AddRef(IEnumFORMATETC* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IEnumFORMATETC_Release(IEnumFORMATETC* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IEnumFORMATETC methods ***/
+static FORCEINLINE HRESULT IEnumFORMATETC_Next(IEnumFORMATETC* This,ULONG celt,FORMATETC *rgelt,ULONG *pceltFetched) {
+    return This->lpVtbl->Next(This,celt,rgelt,pceltFetched);
+}
+static FORCEINLINE HRESULT IEnumFORMATETC_Skip(IEnumFORMATETC* This,ULONG celt) {
+    return This->lpVtbl->Skip(This,celt);
+}
+static FORCEINLINE HRESULT IEnumFORMATETC_Reset(IEnumFORMATETC* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IEnumFORMATETC_Clone(IEnumFORMATETC* This,IEnumFORMATETC **ppenum) {
+    return This->lpVtbl->Clone(This,ppenum);
+}
+#endif
 #endif
 
 #endif
@@ -3864,6 +4323,7 @@ interface IEnumSTATDATA {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IEnumSTATDATA_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumSTATDATA_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -3873,6 +4333,31 @@ interface IEnumSTATDATA {
 #define IEnumSTATDATA_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)
 #define IEnumSTATDATA_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumSTATDATA_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IEnumSTATDATA_QueryInterface(IEnumSTATDATA* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IEnumSTATDATA_AddRef(IEnumSTATDATA* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IEnumSTATDATA_Release(IEnumSTATDATA* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IEnumSTATDATA methods ***/
+static FORCEINLINE HRESULT IEnumSTATDATA_Next(IEnumSTATDATA* This,ULONG celt,STATDATA *rgelt,ULONG *pceltFetched) {
+    return This->lpVtbl->Next(This,celt,rgelt,pceltFetched);
+}
+static FORCEINLINE HRESULT IEnumSTATDATA_Skip(IEnumSTATDATA* This,ULONG celt) {
+    return This->lpVtbl->Skip(This,celt);
+}
+static FORCEINLINE HRESULT IEnumSTATDATA_Reset(IEnumSTATDATA* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IEnumSTATDATA_Clone(IEnumSTATDATA* This,IEnumSTATDATA **ppenum) {
+    return This->lpVtbl->Clone(This,ppenum);
+}
+#endif
 #endif
 
 #endif
@@ -4118,6 +4603,7 @@ interface IAdviseSink {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAdviseSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAdviseSink_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -4128,6 +4614,34 @@ interface IAdviseSink {
 #define IAdviseSink_OnRename(This,pmk) (This)->lpVtbl->OnRename(This,pmk)
 #define IAdviseSink_OnSave(This) (This)->lpVtbl->OnSave(This)
 #define IAdviseSink_OnClose(This) (This)->lpVtbl->OnClose(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAdviseSink_QueryInterface(IAdviseSink* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAdviseSink_AddRef(IAdviseSink* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAdviseSink_Release(IAdviseSink* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAdviseSink methods ***/
+static FORCEINLINE void IAdviseSink_OnDataChange(IAdviseSink* This,FORMATETC *pFormatetc,STGMEDIUM *pStgmed) {
+    This->lpVtbl->OnDataChange(This,pFormatetc,pStgmed);
+}
+static FORCEINLINE void IAdviseSink_OnViewChange(IAdviseSink* This,DWORD dwAspect,LONG lindex) {
+    This->lpVtbl->OnViewChange(This,dwAspect,lindex);
+}
+static FORCEINLINE void IAdviseSink_OnRename(IAdviseSink* This,IMoniker *pmk) {
+    This->lpVtbl->OnRename(This,pmk);
+}
+static FORCEINLINE void IAdviseSink_OnSave(IAdviseSink* This) {
+    This->lpVtbl->OnSave(This);
+}
+static FORCEINLINE void IAdviseSink_OnClose(IAdviseSink* This) {
+    This->lpVtbl->OnClose(This);
+}
+#endif
 #endif
 
 #endif
@@ -4504,6 +5018,7 @@ interface IDataObject {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDataObject_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDataObject_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -4518,6 +5033,46 @@ interface IDataObject {
 #define IDataObject_DAdvise(This,pformatetc,advf,pAdvSink,pdwConnection) (This)->lpVtbl->DAdvise(This,pformatetc,advf,pAdvSink,pdwConnection)
 #define IDataObject_DUnadvise(This,dwConnection) (This)->lpVtbl->DUnadvise(This,dwConnection)
 #define IDataObject_EnumDAdvise(This,ppenumAdvise) (This)->lpVtbl->EnumDAdvise(This,ppenumAdvise)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDataObject_QueryInterface(IDataObject* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDataObject_AddRef(IDataObject* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDataObject_Release(IDataObject* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDataObject methods ***/
+static FORCEINLINE HRESULT IDataObject_GetData(IDataObject* This,FORMATETC *pformatetcIn,STGMEDIUM *pmedium) {
+    return This->lpVtbl->GetData(This,pformatetcIn,pmedium);
+}
+static FORCEINLINE HRESULT IDataObject_GetDataHere(IDataObject* This,FORMATETC *pformatetc,STGMEDIUM *pmedium) {
+    return This->lpVtbl->GetDataHere(This,pformatetc,pmedium);
+}
+static FORCEINLINE HRESULT IDataObject_QueryGetData(IDataObject* This,FORMATETC *pformatetc) {
+    return This->lpVtbl->QueryGetData(This,pformatetc);
+}
+static FORCEINLINE HRESULT IDataObject_GetCanonicalFormatEtc(IDataObject* This,FORMATETC *pformatectIn,FORMATETC *pformatetcOut) {
+    return This->lpVtbl->GetCanonicalFormatEtc(This,pformatectIn,pformatetcOut);
+}
+static FORCEINLINE HRESULT IDataObject_SetData(IDataObject* This,FORMATETC *pformatetc,STGMEDIUM *pmedium,WINBOOL fRelease) {
+    return This->lpVtbl->SetData(This,pformatetc,pmedium,fRelease);
+}
+static FORCEINLINE HRESULT IDataObject_EnumFormatEtc(IDataObject* This,DWORD dwDirection,IEnumFORMATETC **ppenumFormatEtc) {
+    return This->lpVtbl->EnumFormatEtc(This,dwDirection,ppenumFormatEtc);
+}
+static FORCEINLINE HRESULT IDataObject_DAdvise(IDataObject* This,FORMATETC *pformatetc,DWORD advf,IAdviseSink *pAdvSink,DWORD *pdwConnection) {
+    return This->lpVtbl->DAdvise(This,pformatetc,advf,pAdvSink,pdwConnection);
+}
+static FORCEINLINE HRESULT IDataObject_DUnadvise(IDataObject* This,DWORD dwConnection) {
+    return This->lpVtbl->DUnadvise(This,dwConnection);
+}
+static FORCEINLINE HRESULT IDataObject_EnumDAdvise(IDataObject* This,IEnumSTATDATA **ppenumAdvise) {
+    return This->lpVtbl->EnumDAdvise(This,ppenumAdvise);
+}
+#endif
 #endif
 
 #endif

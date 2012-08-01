@@ -281,6 +281,7 @@ interface IAudioClient {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAudioClient_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAudioClient_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -298,6 +299,55 @@ interface IAudioClient {
 #define IAudioClient_Reset(This) (This)->lpVtbl->Reset(This)
 #define IAudioClient_SetEventHandle(This,eventHandle) (This)->lpVtbl->SetEventHandle(This,eventHandle)
 #define IAudioClient_GetService(This,riid,ppv) (This)->lpVtbl->GetService(This,riid,ppv)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAudioClient_QueryInterface(IAudioClient* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAudioClient_AddRef(IAudioClient* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAudioClient_Release(IAudioClient* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAudioClient methods ***/
+static FORCEINLINE HRESULT IAudioClient_Initialize(IAudioClient* This,AUDCLNT_SHAREMODE ShareMode,DWORD StreamFlags,REFERENCE_TIME hnsBufferDuration,REFERENCE_TIME hnsPeriodicity,const WAVEFORMATEX *pFormat,LPCGUID AudioSessionGuid) {
+    return This->lpVtbl->Initialize(This,ShareMode,StreamFlags,hnsBufferDuration,hnsPeriodicity,pFormat,AudioSessionGuid);
+}
+static FORCEINLINE HRESULT IAudioClient_GetBufferSize(IAudioClient* This,UINT32 *pNumBufferFrames) {
+    return This->lpVtbl->GetBufferSize(This,pNumBufferFrames);
+}
+static FORCEINLINE HRESULT IAudioClient_GetStreamLatency(IAudioClient* This,REFERENCE_TIME *phnsLatency) {
+    return This->lpVtbl->GetStreamLatency(This,phnsLatency);
+}
+static FORCEINLINE HRESULT IAudioClient_GetCurrentPadding(IAudioClient* This,UINT32 *pNumPaddingFrames) {
+    return This->lpVtbl->GetCurrentPadding(This,pNumPaddingFrames);
+}
+static FORCEINLINE HRESULT IAudioClient_IsFormatSupported(IAudioClient* This,AUDCLNT_SHAREMODE ShareMode,const WAVEFORMATEX *pFormat,WAVEFORMATEX **ppClosestMatch) {
+    return This->lpVtbl->IsFormatSupported(This,ShareMode,pFormat,ppClosestMatch);
+}
+static FORCEINLINE HRESULT IAudioClient_GetMixFormat(IAudioClient* This,WAVEFORMATEX **ppDeviceFormat) {
+    return This->lpVtbl->GetMixFormat(This,ppDeviceFormat);
+}
+static FORCEINLINE HRESULT IAudioClient_GetDevicePeriod(IAudioClient* This,REFERENCE_TIME *phnsDefaultDevicePeriod,REFERENCE_TIME *phnsMinimumDevicePeriod) {
+    return This->lpVtbl->GetDevicePeriod(This,phnsDefaultDevicePeriod,phnsMinimumDevicePeriod);
+}
+static FORCEINLINE HRESULT IAudioClient_Start(IAudioClient* This) {
+    return This->lpVtbl->Start(This);
+}
+static FORCEINLINE HRESULT IAudioClient_Stop(IAudioClient* This) {
+    return This->lpVtbl->Stop(This);
+}
+static FORCEINLINE HRESULT IAudioClient_Reset(IAudioClient* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IAudioClient_SetEventHandle(IAudioClient* This,HANDLE eventHandle) {
+    return This->lpVtbl->SetEventHandle(This,eventHandle);
+}
+static FORCEINLINE HRESULT IAudioClient_GetService(IAudioClient* This,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetService(This,riid,ppv);
+}
+#endif
 #endif
 
 #endif
@@ -464,6 +514,7 @@ interface IAudioRenderClient {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAudioRenderClient_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAudioRenderClient_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -471,6 +522,25 @@ interface IAudioRenderClient {
 /*** IAudioRenderClient methods ***/
 #define IAudioRenderClient_GetBuffer(This,NumFramesRequested,ppData) (This)->lpVtbl->GetBuffer(This,NumFramesRequested,ppData)
 #define IAudioRenderClient_ReleaseBuffer(This,NumFramesWritten,dwFlags) (This)->lpVtbl->ReleaseBuffer(This,NumFramesWritten,dwFlags)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAudioRenderClient_QueryInterface(IAudioRenderClient* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAudioRenderClient_AddRef(IAudioRenderClient* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAudioRenderClient_Release(IAudioRenderClient* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAudioRenderClient methods ***/
+static FORCEINLINE HRESULT IAudioRenderClient_GetBuffer(IAudioRenderClient* This,UINT32 NumFramesRequested,BYTE **ppData) {
+    return This->lpVtbl->GetBuffer(This,NumFramesRequested,ppData);
+}
+static FORCEINLINE HRESULT IAudioRenderClient_ReleaseBuffer(IAudioRenderClient* This,UINT32 NumFramesWritten,DWORD dwFlags) {
+    return This->lpVtbl->ReleaseBuffer(This,NumFramesWritten,dwFlags);
+}
+#endif
 #endif
 
 #endif
@@ -564,6 +634,7 @@ interface IAudioCaptureClient {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAudioCaptureClient_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAudioCaptureClient_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -572,6 +643,28 @@ interface IAudioCaptureClient {
 #define IAudioCaptureClient_GetBuffer(This,ppData,pNumFramesToRead,pdwFlags,pu64DevicePosition,pu64QPCPosition) (This)->lpVtbl->GetBuffer(This,ppData,pNumFramesToRead,pdwFlags,pu64DevicePosition,pu64QPCPosition)
 #define IAudioCaptureClient_ReleaseBuffer(This,NumFramesRead) (This)->lpVtbl->ReleaseBuffer(This,NumFramesRead)
 #define IAudioCaptureClient_GetNextPacketSize(This,pNumFramesInNextPacket) (This)->lpVtbl->GetNextPacketSize(This,pNumFramesInNextPacket)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAudioCaptureClient_QueryInterface(IAudioCaptureClient* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAudioCaptureClient_AddRef(IAudioCaptureClient* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAudioCaptureClient_Release(IAudioCaptureClient* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAudioCaptureClient methods ***/
+static FORCEINLINE HRESULT IAudioCaptureClient_GetBuffer(IAudioCaptureClient* This,BYTE **ppData,UINT32 *pNumFramesToRead,DWORD *pdwFlags,UINT64 *pu64DevicePosition,UINT64 *pu64QPCPosition) {
+    return This->lpVtbl->GetBuffer(This,ppData,pNumFramesToRead,pdwFlags,pu64DevicePosition,pu64QPCPosition);
+}
+static FORCEINLINE HRESULT IAudioCaptureClient_ReleaseBuffer(IAudioCaptureClient* This,UINT32 NumFramesRead) {
+    return This->lpVtbl->ReleaseBuffer(This,NumFramesRead);
+}
+static FORCEINLINE HRESULT IAudioCaptureClient_GetNextPacketSize(IAudioCaptureClient* This,UINT32 *pNumFramesInNextPacket) {
+    return This->lpVtbl->GetNextPacketSize(This,pNumFramesInNextPacket);
+}
+#endif
 #endif
 
 #endif
@@ -670,6 +763,7 @@ interface IAudioClock {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAudioClock_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAudioClock_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -678,6 +772,28 @@ interface IAudioClock {
 #define IAudioClock_GetFrequency(This,pu64Frequency) (This)->lpVtbl->GetFrequency(This,pu64Frequency)
 #define IAudioClock_GetPosition(This,pu64Position,pu64QPCPosition) (This)->lpVtbl->GetPosition(This,pu64Position,pu64QPCPosition)
 #define IAudioClock_GetCharacteristics(This,pdwCharacteristics) (This)->lpVtbl->GetCharacteristics(This,pdwCharacteristics)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAudioClock_QueryInterface(IAudioClock* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAudioClock_AddRef(IAudioClock* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAudioClock_Release(IAudioClock* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAudioClock methods ***/
+static FORCEINLINE HRESULT IAudioClock_GetFrequency(IAudioClock* This,UINT64 *pu64Frequency) {
+    return This->lpVtbl->GetFrequency(This,pu64Frequency);
+}
+static FORCEINLINE HRESULT IAudioClock_GetPosition(IAudioClock* This,UINT64 *pu64Position,UINT64 *pu64QPCPosition) {
+    return This->lpVtbl->GetPosition(This,pu64Position,pu64QPCPosition);
+}
+static FORCEINLINE HRESULT IAudioClock_GetCharacteristics(IAudioClock* This,DWORD *pdwCharacteristics) {
+    return This->lpVtbl->GetCharacteristics(This,pdwCharacteristics);
+}
+#endif
 #endif
 
 #endif
@@ -758,12 +874,29 @@ interface IAudioClock2 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAudioClock2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAudioClock2_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IAudioClock2_Release(This) (This)->lpVtbl->Release(This)
 /*** IAudioClock2 methods ***/
 #define IAudioClock2_GetPosition(This,DevicePosition,QPCPosition) (This)->lpVtbl->GetPosition(This,DevicePosition,QPCPosition)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAudioClock2_QueryInterface(IAudioClock2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAudioClock2_AddRef(IAudioClock2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAudioClock2_Release(IAudioClock2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAudioClock2 methods ***/
+static FORCEINLINE HRESULT IAudioClock2_GetPosition(IAudioClock2* This,UINT64 *DevicePosition,UINT64 *QPCPosition) {
+    return This->lpVtbl->GetPosition(This,DevicePosition,QPCPosition);
+}
+#endif
 #endif
 
 #endif
@@ -826,12 +959,29 @@ interface IAudioClockAdjustment {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAudioClockAdjustment_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAudioClockAdjustment_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IAudioClockAdjustment_Release(This) (This)->lpVtbl->Release(This)
 /*** IAudioClockAdjustment methods ***/
 #define IAudioClockAdjustment_SetSampleRate(This,flSampleRate) (This)->lpVtbl->SetSampleRate(This,flSampleRate)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAudioClockAdjustment_QueryInterface(IAudioClockAdjustment* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAudioClockAdjustment_AddRef(IAudioClockAdjustment* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAudioClockAdjustment_Release(IAudioClockAdjustment* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAudioClockAdjustment methods ***/
+static FORCEINLINE HRESULT IAudioClockAdjustment_SetSampleRate(IAudioClockAdjustment* This,float flSampleRate) {
+    return This->lpVtbl->SetSampleRate(This,flSampleRate);
+}
+#endif
 #endif
 
 #endif
@@ -918,6 +1068,7 @@ interface ISimpleAudioVolume {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ISimpleAudioVolume_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ISimpleAudioVolume_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -927,6 +1078,31 @@ interface ISimpleAudioVolume {
 #define ISimpleAudioVolume_GetMasterVolume(This,pfLevel) (This)->lpVtbl->GetMasterVolume(This,pfLevel)
 #define ISimpleAudioVolume_SetMute(This,bMute,EventContext) (This)->lpVtbl->SetMute(This,bMute,EventContext)
 #define ISimpleAudioVolume_GetMute(This,pbMute) (This)->lpVtbl->GetMute(This,pbMute)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ISimpleAudioVolume_QueryInterface(ISimpleAudioVolume* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ISimpleAudioVolume_AddRef(ISimpleAudioVolume* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ISimpleAudioVolume_Release(ISimpleAudioVolume* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ISimpleAudioVolume methods ***/
+static FORCEINLINE HRESULT ISimpleAudioVolume_SetMasterVolume(ISimpleAudioVolume* This,float fLevel,LPCGUID EventContext) {
+    return This->lpVtbl->SetMasterVolume(This,fLevel,EventContext);
+}
+static FORCEINLINE HRESULT ISimpleAudioVolume_GetMasterVolume(ISimpleAudioVolume* This,float *pfLevel) {
+    return This->lpVtbl->GetMasterVolume(This,pfLevel);
+}
+static FORCEINLINE HRESULT ISimpleAudioVolume_SetMute(ISimpleAudioVolume* This,const WINBOOL bMute,LPCGUID EventContext) {
+    return This->lpVtbl->SetMute(This,bMute,EventContext);
+}
+static FORCEINLINE HRESULT ISimpleAudioVolume_GetMute(ISimpleAudioVolume* This,WINBOOL *pbMute) {
+    return This->lpVtbl->GetMute(This,pbMute);
+}
+#endif
 #endif
 
 #endif
@@ -1050,6 +1226,7 @@ interface IAudioStreamVolume {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAudioStreamVolume_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAudioStreamVolume_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1060,6 +1237,34 @@ interface IAudioStreamVolume {
 #define IAudioStreamVolume_GetChannelVolume(This,dwIndex,pfLevel) (This)->lpVtbl->GetChannelVolume(This,dwIndex,pfLevel)
 #define IAudioStreamVolume_SetAllVolumes(This,dwCount,pfVolumes) (This)->lpVtbl->SetAllVolumes(This,dwCount,pfVolumes)
 #define IAudioStreamVolume_GetAllVolumes(This,dwCount,pfVolumes) (This)->lpVtbl->GetAllVolumes(This,dwCount,pfVolumes)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAudioStreamVolume_QueryInterface(IAudioStreamVolume* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAudioStreamVolume_AddRef(IAudioStreamVolume* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAudioStreamVolume_Release(IAudioStreamVolume* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAudioStreamVolume methods ***/
+static FORCEINLINE HRESULT IAudioStreamVolume_GetChannelCount(IAudioStreamVolume* This,UINT32 *pdwCount) {
+    return This->lpVtbl->GetChannelCount(This,pdwCount);
+}
+static FORCEINLINE HRESULT IAudioStreamVolume_SetChannelVolume(IAudioStreamVolume* This,UINT32 dwIndex,const float fLevel) {
+    return This->lpVtbl->SetChannelVolume(This,dwIndex,fLevel);
+}
+static FORCEINLINE HRESULT IAudioStreamVolume_GetChannelVolume(IAudioStreamVolume* This,UINT32 dwIndex,float *pfLevel) {
+    return This->lpVtbl->GetChannelVolume(This,dwIndex,pfLevel);
+}
+static FORCEINLINE HRESULT IAudioStreamVolume_SetAllVolumes(IAudioStreamVolume* This,UINT32 dwCount,const float *pfVolumes) {
+    return This->lpVtbl->SetAllVolumes(This,dwCount,pfVolumes);
+}
+static FORCEINLINE HRESULT IAudioStreamVolume_GetAllVolumes(IAudioStreamVolume* This,UINT32 dwCount,float *pfVolumes) {
+    return This->lpVtbl->GetAllVolumes(This,dwCount,pfVolumes);
+}
+#endif
 #endif
 
 #endif
@@ -1197,6 +1402,7 @@ interface IChannelAudioVolume {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IChannelAudioVolume_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IChannelAudioVolume_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1207,6 +1413,34 @@ interface IChannelAudioVolume {
 #define IChannelAudioVolume_GetChannelVolume(This,dwIndex,pfLevel) (This)->lpVtbl->GetChannelVolume(This,dwIndex,pfLevel)
 #define IChannelAudioVolume_SetAllVolumes(This,dwCount,pfVolumes,EventContext) (This)->lpVtbl->SetAllVolumes(This,dwCount,pfVolumes,EventContext)
 #define IChannelAudioVolume_GetAllVolumes(This,dwCount,pfVolumes) (This)->lpVtbl->GetAllVolumes(This,dwCount,pfVolumes)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IChannelAudioVolume_QueryInterface(IChannelAudioVolume* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IChannelAudioVolume_AddRef(IChannelAudioVolume* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IChannelAudioVolume_Release(IChannelAudioVolume* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IChannelAudioVolume methods ***/
+static FORCEINLINE HRESULT IChannelAudioVolume_GetChannelCount(IChannelAudioVolume* This,UINT32 *pdwCount) {
+    return This->lpVtbl->GetChannelCount(This,pdwCount);
+}
+static FORCEINLINE HRESULT IChannelAudioVolume_SetChannelVolume(IChannelAudioVolume* This,UINT32 dwIndex,const float fLevel,LPCGUID EventContext) {
+    return This->lpVtbl->SetChannelVolume(This,dwIndex,fLevel,EventContext);
+}
+static FORCEINLINE HRESULT IChannelAudioVolume_GetChannelVolume(IChannelAudioVolume* This,UINT32 dwIndex,float *pfLevel) {
+    return This->lpVtbl->GetChannelVolume(This,dwIndex,pfLevel);
+}
+static FORCEINLINE HRESULT IChannelAudioVolume_SetAllVolumes(IChannelAudioVolume* This,UINT32 dwCount,const float *pfVolumes,LPCGUID EventContext) {
+    return This->lpVtbl->SetAllVolumes(This,dwCount,pfVolumes,EventContext);
+}
+static FORCEINLINE HRESULT IChannelAudioVolume_GetAllVolumes(IChannelAudioVolume* This,UINT32 dwCount,float *pfVolumes) {
+    return This->lpVtbl->GetAllVolumes(This,dwCount,pfVolumes);
+}
+#endif
 #endif
 
 #endif

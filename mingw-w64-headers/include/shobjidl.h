@@ -872,43 +872,43 @@ typedef interface IFileOpenDialog IFileOpenDialog;
   };
   typedef DWORD SHCONTF;
 
-#define SHCIDS_ALLFIELDS __MSABI_LONG(0x80000000)
-#define SHCIDS_CANONICALONLY __MSABI_LONG(0x10000000)
-#define SHCIDS_BITMASK __MSABI_LONG(0xFFFF0000)
-#define SHCIDS_COLUMNMASK __MSABI_LONG(0x0000FFFF)
+#define SHCIDS_ALLFIELDS 0x80000000L
+#define SHCIDS_CANONICALONLY 0x10000000L
+#define SHCIDS_BITMASK 0xFFFF0000L
+#define SHCIDS_COLUMNMASK 0x0000FFFFL
 #define SFGAO_CANCOPY DROPEFFECT_COPY
 #define SFGAO_CANMOVE DROPEFFECT_MOVE
 #define SFGAO_CANLINK DROPEFFECT_LINK
-#define SFGAO_STORAGE __MSABI_LONG(0x00000008)
-#define SFGAO_CANRENAME __MSABI_LONG(0x00000010)
-#define SFGAO_CANDELETE __MSABI_LONG(0x00000020)
-#define SFGAO_HASPROPSHEET __MSABI_LONG(0x00000040)
-#define SFGAO_DROPTARGET __MSABI_LONG(0x00000100)
-#define SFGAO_CAPABILITYMASK __MSABI_LONG(0x00000177)
-#define SFGAO_ENCRYPTED __MSABI_LONG(0x00002000)
-#define SFGAO_ISSLOW __MSABI_LONG(0x00004000)
-#define SFGAO_GHOSTED __MSABI_LONG(0x00008000)
-#define SFGAO_LINK __MSABI_LONG(0x00010000)
-#define SFGAO_SHARE __MSABI_LONG(0x00020000)
-#define SFGAO_READONLY __MSABI_LONG(0x00040000)
-#define SFGAO_HIDDEN __MSABI_LONG(0x00080000)
-#define SFGAO_DISPLAYATTRMASK __MSABI_LONG(0x000FC000)
-#define SFGAO_FILESYSANCESTOR __MSABI_LONG(0x10000000)
-#define SFGAO_FOLDER __MSABI_LONG(0x20000000)
-#define SFGAO_FILESYSTEM __MSABI_LONG(0x40000000)
-#define SFGAO_HASSUBFOLDER __MSABI_LONG(0x80000000)
-#define SFGAO_CONTENTSMASK __MSABI_LONG(0x80000000)
-#define SFGAO_VALIDATE __MSABI_LONG(0x01000000)
-#define SFGAO_REMOVABLE __MSABI_LONG(0x02000000)
-#define SFGAO_COMPRESSED __MSABI_LONG(0x04000000)
-#define SFGAO_BROWSABLE __MSABI_LONG(0x08000000)
-#define SFGAO_NONENUMERATED __MSABI_LONG(0x00100000)
-#define SFGAO_NEWCONTENT __MSABI_LONG(0x00200000)
-#define SFGAO_CANMONIKER __MSABI_LONG(0x00400000)
-#define SFGAO_HASSTORAGE __MSABI_LONG(0x00400000)
-#define SFGAO_STREAM __MSABI_LONG(0x00400000)
-#define SFGAO_STORAGEANCESTOR __MSABI_LONG(0x00800000)
-#define SFGAO_STORAGECAPMASK __MSABI_LONG(0x70C50008)
+#define SFGAO_STORAGE 0x00000008L
+#define SFGAO_CANRENAME 0x00000010L
+#define SFGAO_CANDELETE 0x00000020L
+#define SFGAO_HASPROPSHEET 0x00000040L
+#define SFGAO_DROPTARGET 0x00000100L
+#define SFGAO_CAPABILITYMASK 0x00000177L
+#define SFGAO_ENCRYPTED 0x00002000L
+#define SFGAO_ISSLOW 0x00004000L
+#define SFGAO_GHOSTED 0x00008000L
+#define SFGAO_LINK 0x00010000L
+#define SFGAO_SHARE 0x00020000L
+#define SFGAO_READONLY 0x00040000L
+#define SFGAO_HIDDEN 0x00080000L
+#define SFGAO_DISPLAYATTRMASK 0x000FC000L
+#define SFGAO_FILESYSANCESTOR 0x10000000L
+#define SFGAO_FOLDER 0x20000000L
+#define SFGAO_FILESYSTEM 0x40000000L
+#define SFGAO_HASSUBFOLDER 0x80000000L
+#define SFGAO_CONTENTSMASK 0x80000000L
+#define SFGAO_VALIDATE 0x01000000L
+#define SFGAO_REMOVABLE 0x02000000L
+#define SFGAO_COMPRESSED 0x04000000L
+#define SFGAO_BROWSABLE 0x08000000L
+#define SFGAO_NONENUMERATED 0x00100000L
+#define SFGAO_NEWCONTENT 0x00200000L
+#define SFGAO_CANMONIKER 0x00400000L
+#define SFGAO_HASSTORAGE 0x00400000L
+#define SFGAO_STREAM 0x00400000L
+#define SFGAO_STORAGEANCESTOR 0x00800000L
+#define SFGAO_STORAGECAPMASK 0x70C50008L
 typedef ULONG SFGAOF;
 #define STR_SKIP_BINDING_CLSID L"Skip Binding CLSID"
 #define STR_PARSE_PREFER_FOLDER_BROWSING L"Parse Prefer Folder Browsing"
@@ -2935,7 +2935,7 @@ typedef ULONG SFGAOF;
 
 #ifndef __ITaskbarList_INTERFACE_DEFINED__
 #define __ITaskbarList_INTERFACE_DEFINED__
-  DEFINE_GUID(IID_ITaskbarList,0x56FDF342,0xFD6D,0x11D0,0x95,0x8A,0x00,0x60,0x97,0xC9,0xA0,0x90);
+  DEFINE_GUID(IID_ITaskbarList,0x56FDF342L,0xFD6D,0x11D0,0x95,0x8A,0x00,0x60,0x97,0xC9,0xA0,0x90);
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITaskbarList : public IUnknown {
   public:
@@ -2986,7 +2986,7 @@ typedef ULONG SFGAOF;
 
 #ifndef __ITaskbarList2_INTERFACE_DEFINED__
 #define __ITaskbarList2_INTERFACE_DEFINED__
-  DEFINE_GUID(IID_ITaskbarList2,0x602D4995,0xB13A,0x429b,0xA6,0x6E,0x19,0x35,0xE4,0x4F,0x43,0x17);
+  DEFINE_GUID(IID_ITaskbarList2,0x602D4995L,0xB13A,0x429b,0xA6,0x6E,0x19,0x35,0xE4,0x4F,0x43,0x17);
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITaskbarList2 : public ITaskbarList {
   public:
@@ -5333,6 +5333,7 @@ interface IShellItem {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IShellItem_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IShellItem_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -5343,6 +5344,34 @@ interface IShellItem {
 #define IShellItem_GetDisplayName(This,sigdnName,ppszName) (This)->lpVtbl->GetDisplayName(This,sigdnName,ppszName)
 #define IShellItem_GetAttributes(This,sfgaoMask,psfgaoAttribs) (This)->lpVtbl->GetAttributes(This,sfgaoMask,psfgaoAttribs)
 #define IShellItem_Compare(This,psi,hint,piOrder) (This)->lpVtbl->Compare(This,psi,hint,piOrder)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IShellItem_QueryInterface(IShellItem* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IShellItem_AddRef(IShellItem* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IShellItem_Release(IShellItem* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IShellItem methods ***/
+static FORCEINLINE HRESULT IShellItem_BindToHandler(IShellItem* This,IBindCtx *pbc,REFGUID bhid,REFIID riid,void **ppv) {
+    return This->lpVtbl->BindToHandler(This,pbc,bhid,riid,ppv);
+}
+static FORCEINLINE HRESULT IShellItem_GetParent(IShellItem* This,IShellItem **ppsi) {
+    return This->lpVtbl->GetParent(This,ppsi);
+}
+static FORCEINLINE HRESULT IShellItem_GetDisplayName(IShellItem* This,SIGDN sigdnName,LPWSTR *ppszName) {
+    return This->lpVtbl->GetDisplayName(This,sigdnName,ppszName);
+}
+static FORCEINLINE HRESULT IShellItem_GetAttributes(IShellItem* This,SFGAOF sfgaoMask,SFGAOF *psfgaoAttribs) {
+    return This->lpVtbl->GetAttributes(This,sfgaoMask,psfgaoAttribs);
+}
+static FORCEINLINE HRESULT IShellItem_Compare(IShellItem* This,IShellItem *psi,SICHINTF hint,int *piOrder) {
+    return This->lpVtbl->Compare(This,psi,hint,piOrder);
+}
+#endif
 #endif
 
 #endif
@@ -6783,6 +6812,7 @@ interface IShellLibrary {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IShellLibrary_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IShellLibrary_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -6805,6 +6835,70 @@ interface IShellLibrary {
 #define IShellLibrary_Commit(This) (This)->lpVtbl->Commit(This)
 #define IShellLibrary_Save(This,psiFolderToSaveIn,pszLibraryName,lsf,ppsiSavedTo) (This)->lpVtbl->Save(This,psiFolderToSaveIn,pszLibraryName,lsf,ppsiSavedTo)
 #define IShellLibrary_SaveInKnownFolder(This,kfidToSaveIn,pszLibraryName,lsf,ppsiSavedTo) (This)->lpVtbl->SaveInKnownFolder(This,kfidToSaveIn,pszLibraryName,lsf,ppsiSavedTo)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IShellLibrary_QueryInterface(IShellLibrary* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IShellLibrary_AddRef(IShellLibrary* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IShellLibrary_Release(IShellLibrary* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IShellLibrary methods ***/
+static FORCEINLINE HRESULT IShellLibrary_LoadLibraryFromItem(IShellLibrary* This,IShellItem *psiLibrary,DWORD grfMode) {
+    return This->lpVtbl->LoadLibraryFromItem(This,psiLibrary,grfMode);
+}
+static FORCEINLINE HRESULT IShellLibrary_LoadLibraryFromKnownFolder(IShellLibrary* This,REFKNOWNFOLDERID kfidLibrary,DWORD grfMode) {
+    return This->lpVtbl->LoadLibraryFromKnownFolder(This,kfidLibrary,grfMode);
+}
+static FORCEINLINE HRESULT IShellLibrary_AddFolder(IShellLibrary* This,IShellItem *psiLocation) {
+    return This->lpVtbl->AddFolder(This,psiLocation);
+}
+static FORCEINLINE HRESULT IShellLibrary_RemoveFolder(IShellLibrary* This,IShellItem *psiLocation) {
+    return This->lpVtbl->RemoveFolder(This,psiLocation);
+}
+static FORCEINLINE HRESULT IShellLibrary_GetFolders(IShellLibrary* This,LIBRARYFOLDERFILTER lff,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetFolders(This,lff,riid,ppv);
+}
+static FORCEINLINE HRESULT IShellLibrary_ResolveFolder(IShellLibrary* This,IShellItem *psiFolderToResolve,DWORD dwTimeout,REFIID riid,void **ppv) {
+    return This->lpVtbl->ResolveFolder(This,psiFolderToResolve,dwTimeout,riid,ppv);
+}
+static FORCEINLINE HRESULT IShellLibrary_GetDefaultSaveFolder(IShellLibrary* This,DEFAULTSAVEFOLDERTYPE dsft,REFIID riid,void **ppv) {
+    return This->lpVtbl->GetDefaultSaveFolder(This,dsft,riid,ppv);
+}
+static FORCEINLINE HRESULT IShellLibrary_SetDefaultSaveFolder(IShellLibrary* This,DEFAULTSAVEFOLDERTYPE dsft,IShellItem *psi) {
+    return This->lpVtbl->SetDefaultSaveFolder(This,dsft,psi);
+}
+static FORCEINLINE HRESULT IShellLibrary_GetOptions(IShellLibrary* This,LIBRARYOPTIONFLAGS *plofOptions) {
+    return This->lpVtbl->GetOptions(This,plofOptions);
+}
+static FORCEINLINE HRESULT IShellLibrary_SetOptions(IShellLibrary* This,LIBRARYOPTIONFLAGS lofMask,LIBRARYOPTIONFLAGS lofOptions) {
+    return This->lpVtbl->SetOptions(This,lofMask,lofOptions);
+}
+static FORCEINLINE HRESULT IShellLibrary_GetFolderType(IShellLibrary* This,FOLDERTYPEID *pftid) {
+    return This->lpVtbl->GetFolderType(This,pftid);
+}
+static FORCEINLINE HRESULT IShellLibrary_SetFolderType(IShellLibrary* This,REFFOLDERTYPEID ftid) {
+    return This->lpVtbl->SetFolderType(This,ftid);
+}
+static FORCEINLINE HRESULT IShellLibrary_GetIcon(IShellLibrary* This,LPWSTR *ppszIcon) {
+    return This->lpVtbl->GetIcon(This,ppszIcon);
+}
+static FORCEINLINE HRESULT IShellLibrary_SetIcon(IShellLibrary* This,LPCWSTR pszIcon) {
+    return This->lpVtbl->SetIcon(This,pszIcon);
+}
+static FORCEINLINE HRESULT IShellLibrary_Commit(IShellLibrary* This) {
+    return This->lpVtbl->Commit(This);
+}
+static FORCEINLINE HRESULT IShellLibrary_Save(IShellLibrary* This,IShellItem *psiFolderToSaveIn,LPCWSTR pszLibraryName,LIBRARYSAVEFLAGS lsf,IShellItem **ppsiSavedTo) {
+    return This->lpVtbl->Save(This,psiFolderToSaveIn,pszLibraryName,lsf,ppsiSavedTo);
+}
+static FORCEINLINE HRESULT IShellLibrary_SaveInKnownFolder(IShellLibrary* This,REFKNOWNFOLDERID kfidToSaveIn,LPCWSTR pszLibraryName,LIBRARYSAVEFLAGS lsf,IShellItem **ppsiSavedTo) {
+    return This->lpVtbl->SaveInKnownFolder(This,kfidToSaveIn,pszLibraryName,lsf,ppsiSavedTo);
+}
+#endif
 #endif
 
 #endif

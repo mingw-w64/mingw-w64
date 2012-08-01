@@ -1185,6 +1185,7 @@ interface IDispatch {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDispatch_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDispatch_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1194,6 +1195,31 @@ interface IDispatch {
 #define IDispatch_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
 #define IDispatch_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
 #define IDispatch_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDispatch_QueryInterface(IDispatch* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDispatch_AddRef(IDispatch* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDispatch_Release(IDispatch* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static FORCEINLINE HRESULT IDispatch_GetTypeInfoCount(IDispatch* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static FORCEINLINE HRESULT IDispatch_GetTypeInfo(IDispatch* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static FORCEINLINE HRESULT IDispatch_GetIDsOfNames(IDispatch* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static FORCEINLINE HRESULT IDispatch_Invoke(IDispatch* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+#endif
 #endif
 
 #endif
@@ -1403,6 +1429,7 @@ interface ITypeComp {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITypeComp_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITypeComp_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1410,6 +1437,25 @@ interface ITypeComp {
 /*** ITypeComp methods ***/
 #define ITypeComp_Bind(This,szName,lHashVal,wFlags,ppTInfo,pDescKind,pBindPtr) (This)->lpVtbl->Bind(This,szName,lHashVal,wFlags,ppTInfo,pDescKind,pBindPtr)
 #define ITypeComp_BindType(This,szName,lHashVal,ppTInfo,ppTComp) (This)->lpVtbl->BindType(This,szName,lHashVal,ppTInfo,ppTComp)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITypeComp_QueryInterface(ITypeComp* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITypeComp_AddRef(ITypeComp* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITypeComp_Release(ITypeComp* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITypeComp methods ***/
+static FORCEINLINE HRESULT ITypeComp_Bind(ITypeComp* This,LPOLESTR szName,ULONG lHashVal,WORD wFlags,ITypeInfo **ppTInfo,DESCKIND *pDescKind,BINDPTR *pBindPtr) {
+    return This->lpVtbl->Bind(This,szName,lHashVal,wFlags,ppTInfo,pDescKind,pBindPtr);
+}
+static FORCEINLINE HRESULT ITypeComp_BindType(ITypeComp* This,LPOLESTR szName,ULONG lHashVal,ITypeInfo **ppTInfo,ITypeComp **ppTComp) {
+    return This->lpVtbl->BindType(This,szName,lHashVal,ppTInfo,ppTComp);
+}
+#endif
 #endif
 
 #endif
@@ -1706,6 +1752,7 @@ interface ITypeInfo {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITypeInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITypeInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1730,6 +1777,76 @@ interface ITypeInfo {
 #define ITypeInfo_ReleaseTypeAttr(This,pTypeAttr) (This)->lpVtbl->ReleaseTypeAttr(This,pTypeAttr)
 #define ITypeInfo_ReleaseFuncDesc(This,pFuncDesc) (This)->lpVtbl->ReleaseFuncDesc(This,pFuncDesc)
 #define ITypeInfo_ReleaseVarDesc(This,pVarDesc) (This)->lpVtbl->ReleaseVarDesc(This,pVarDesc)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITypeInfo_QueryInterface(ITypeInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITypeInfo_AddRef(ITypeInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITypeInfo_Release(ITypeInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITypeInfo methods ***/
+static FORCEINLINE HRESULT ITypeInfo_GetTypeAttr(ITypeInfo* This,TYPEATTR **ppTypeAttr) {
+    return This->lpVtbl->GetTypeAttr(This,ppTypeAttr);
+}
+static FORCEINLINE HRESULT ITypeInfo_GetTypeComp(ITypeInfo* This,ITypeComp **ppTComp) {
+    return This->lpVtbl->GetTypeComp(This,ppTComp);
+}
+static FORCEINLINE HRESULT ITypeInfo_GetFuncDesc(ITypeInfo* This,UINT index,FUNCDESC **ppFuncDesc) {
+    return This->lpVtbl->GetFuncDesc(This,index,ppFuncDesc);
+}
+static FORCEINLINE HRESULT ITypeInfo_GetVarDesc(ITypeInfo* This,UINT index,VARDESC **ppVarDesc) {
+    return This->lpVtbl->GetVarDesc(This,index,ppVarDesc);
+}
+static FORCEINLINE HRESULT ITypeInfo_GetNames(ITypeInfo* This,MEMBERID memid,BSTR *rgBstrNames,UINT cMaxNames,UINT *pcNames) {
+    return This->lpVtbl->GetNames(This,memid,rgBstrNames,cMaxNames,pcNames);
+}
+static FORCEINLINE HRESULT ITypeInfo_GetRefTypeOfImplType(ITypeInfo* This,UINT index,HREFTYPE *pRefType) {
+    return This->lpVtbl->GetRefTypeOfImplType(This,index,pRefType);
+}
+static FORCEINLINE HRESULT ITypeInfo_GetImplTypeFlags(ITypeInfo* This,UINT index,INT *pImplTypeFlags) {
+    return This->lpVtbl->GetImplTypeFlags(This,index,pImplTypeFlags);
+}
+static FORCEINLINE HRESULT ITypeInfo_GetIDsOfNames(ITypeInfo* This,LPOLESTR *rgszNames,UINT cNames,MEMBERID *pMemId) {
+    return This->lpVtbl->GetIDsOfNames(This,rgszNames,cNames,pMemId);
+}
+static FORCEINLINE HRESULT ITypeInfo_Invoke(ITypeInfo* This,PVOID pvInstance,MEMBERID memid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,pvInstance,memid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+static FORCEINLINE HRESULT ITypeInfo_GetDocumentation(ITypeInfo* This,MEMBERID memid,BSTR *pBstrName,BSTR *pBstrDocString,DWORD *pdwHelpContext,BSTR *pBstrHelpFile) {
+    return This->lpVtbl->GetDocumentation(This,memid,pBstrName,pBstrDocString,pdwHelpContext,pBstrHelpFile);
+}
+static FORCEINLINE HRESULT ITypeInfo_GetDllEntry(ITypeInfo* This,MEMBERID memid,INVOKEKIND invKind,BSTR *pBstrDllName,BSTR *pBstrName,WORD *pwOrdinal) {
+    return This->lpVtbl->GetDllEntry(This,memid,invKind,pBstrDllName,pBstrName,pwOrdinal);
+}
+static FORCEINLINE HRESULT ITypeInfo_GetRefTypeInfo(ITypeInfo* This,HREFTYPE hRefType,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetRefTypeInfo(This,hRefType,ppTInfo);
+}
+static FORCEINLINE HRESULT ITypeInfo_AddressOfMember(ITypeInfo* This,MEMBERID memid,INVOKEKIND invKind,PVOID *ppv) {
+    return This->lpVtbl->AddressOfMember(This,memid,invKind,ppv);
+}
+static FORCEINLINE HRESULT ITypeInfo_CreateInstance(ITypeInfo* This,IUnknown *pUnkOuter,REFIID riid,PVOID *ppvObj) {
+    return This->lpVtbl->CreateInstance(This,pUnkOuter,riid,ppvObj);
+}
+static FORCEINLINE HRESULT ITypeInfo_GetMops(ITypeInfo* This,MEMBERID memid,BSTR *pBstrMops) {
+    return This->lpVtbl->GetMops(This,memid,pBstrMops);
+}
+static FORCEINLINE HRESULT ITypeInfo_GetContainingTypeLib(ITypeInfo* This,ITypeLib **ppTLib,UINT *pIndex) {
+    return This->lpVtbl->GetContainingTypeLib(This,ppTLib,pIndex);
+}
+static FORCEINLINE void ITypeInfo_ReleaseTypeAttr(ITypeInfo* This,TYPEATTR *pTypeAttr) {
+    This->lpVtbl->ReleaseTypeAttr(This,pTypeAttr);
+}
+static FORCEINLINE void ITypeInfo_ReleaseFuncDesc(ITypeInfo* This,FUNCDESC *pFuncDesc) {
+    This->lpVtbl->ReleaseFuncDesc(This,pFuncDesc);
+}
+static FORCEINLINE void ITypeInfo_ReleaseVarDesc(ITypeInfo* This,VARDESC *pVarDesc) {
+    This->lpVtbl->ReleaseVarDesc(This,pVarDesc);
+}
+#endif
 #endif
 
 #endif
@@ -2327,6 +2444,7 @@ interface ITypeLib {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITypeLib_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITypeLib_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2342,6 +2460,49 @@ interface ITypeLib {
 #define ITypeLib_IsName(This,szNameBuf,lHashVal,pfName) (This)->lpVtbl->IsName(This,szNameBuf,lHashVal,pfName)
 #define ITypeLib_FindName(This,szNameBuf,lHashVal,ppTInfo,rgMemId,pcFound) (This)->lpVtbl->FindName(This,szNameBuf,lHashVal,ppTInfo,rgMemId,pcFound)
 #define ITypeLib_ReleaseTLibAttr(This,pTLibAttr) (This)->lpVtbl->ReleaseTLibAttr(This,pTLibAttr)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITypeLib_QueryInterface(ITypeLib* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITypeLib_AddRef(ITypeLib* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITypeLib_Release(ITypeLib* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITypeLib methods ***/
+static FORCEINLINE UINT ITypeLib_GetTypeInfoCount(ITypeLib* This) {
+    return This->lpVtbl->GetTypeInfoCount(This);
+}
+static FORCEINLINE HRESULT ITypeLib_GetTypeInfo(ITypeLib* This,UINT index,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,index,ppTInfo);
+}
+static FORCEINLINE HRESULT ITypeLib_GetTypeInfoType(ITypeLib* This,UINT index,TYPEKIND *pTKind) {
+    return This->lpVtbl->GetTypeInfoType(This,index,pTKind);
+}
+static FORCEINLINE HRESULT ITypeLib_GetTypeInfoOfGuid(ITypeLib* This,REFGUID guid,ITypeInfo **ppTinfo) {
+    return This->lpVtbl->GetTypeInfoOfGuid(This,guid,ppTinfo);
+}
+static FORCEINLINE HRESULT ITypeLib_GetLibAttr(ITypeLib* This,TLIBATTR **ppTLibAttr) {
+    return This->lpVtbl->GetLibAttr(This,ppTLibAttr);
+}
+static FORCEINLINE HRESULT ITypeLib_GetTypeComp(ITypeLib* This,ITypeComp **ppTComp) {
+    return This->lpVtbl->GetTypeComp(This,ppTComp);
+}
+static FORCEINLINE HRESULT ITypeLib_GetDocumentation(ITypeLib* This,INT index,BSTR *pBstrName,BSTR *pBstrDocString,DWORD *pdwHelpContext,BSTR *pBstrHelpFile) {
+    return This->lpVtbl->GetDocumentation(This,index,pBstrName,pBstrDocString,pdwHelpContext,pBstrHelpFile);
+}
+static FORCEINLINE HRESULT ITypeLib_IsName(ITypeLib* This,LPOLESTR szNameBuf,ULONG lHashVal,WINBOOL *pfName) {
+    return This->lpVtbl->IsName(This,szNameBuf,lHashVal,pfName);
+}
+static FORCEINLINE HRESULT ITypeLib_FindName(ITypeLib* This,LPOLESTR szNameBuf,ULONG lHashVal,ITypeInfo **ppTInfo,MEMBERID *rgMemId,USHORT *pcFound) {
+    return This->lpVtbl->FindName(This,szNameBuf,lHashVal,ppTInfo,rgMemId,pcFound);
+}
+static FORCEINLINE void ITypeLib_ReleaseTLibAttr(ITypeLib* This,TLIBATTR *pTLibAttr) {
+    This->lpVtbl->ReleaseTLibAttr(This,pTLibAttr);
+}
+#endif
 #endif
 
 #endif
@@ -2988,12 +3149,29 @@ interface IErrorLog {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IErrorLog_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IErrorLog_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IErrorLog_Release(This) (This)->lpVtbl->Release(This)
 /*** IErrorLog methods ***/
 #define IErrorLog_AddError(This,pszPropName,pExcepInfo) (This)->lpVtbl->AddError(This,pszPropName,pExcepInfo)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IErrorLog_QueryInterface(IErrorLog* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IErrorLog_AddRef(IErrorLog* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IErrorLog_Release(IErrorLog* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IErrorLog methods ***/
+static FORCEINLINE HRESULT IErrorLog_AddError(IErrorLog* This,LPCOLESTR pszPropName,EXCEPINFO *pExcepInfo) {
+    return This->lpVtbl->AddError(This,pszPropName,pExcepInfo);
+}
+#endif
 #endif
 
 #endif

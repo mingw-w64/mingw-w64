@@ -153,6 +153,7 @@ interface IGCThreadControl {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IGCThreadControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IGCThreadControl_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -161,6 +162,28 @@ interface IGCThreadControl {
 #define IGCThreadControl_ThreadIsBlockingForSuspension(This) (This)->lpVtbl->ThreadIsBlockingForSuspension(This)
 #define IGCThreadControl_SuspensionStarting(This) (This)->lpVtbl->SuspensionStarting(This)
 #define IGCThreadControl_SuspensionEnding(This,generation) (This)->lpVtbl->SuspensionEnding(This,generation)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IGCThreadControl_QueryInterface(IGCThreadControl* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IGCThreadControl_AddRef(IGCThreadControl* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IGCThreadControl_Release(IGCThreadControl* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IGCThreadControl methods ***/
+static FORCEINLINE HRESULT IGCThreadControl_ThreadIsBlockingForSuspension(IGCThreadControl* This) {
+    return This->lpVtbl->ThreadIsBlockingForSuspension(This);
+}
+static FORCEINLINE HRESULT IGCThreadControl_SuspensionStarting(IGCThreadControl* This) {
+    return This->lpVtbl->SuspensionStarting(This);
+}
+static FORCEINLINE HRESULT IGCThreadControl_SuspensionEnding(IGCThreadControl* This,DWORD generation) {
+    return This->lpVtbl->SuspensionEnding(This,generation);
+}
+#endif
 #endif
 
 #endif
@@ -238,12 +261,29 @@ interface IGCHostControl {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IGCHostControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IGCHostControl_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IGCHostControl_Release(This) (This)->lpVtbl->Release(This)
 /*** IGCHostControl methods ***/
 #define IGCHostControl_RequestVirtualMemLimit(This,nMaxVirtualMemMB,nNewMaxVirtualMemMB) (This)->lpVtbl->RequestVirtualMemLimit(This,nMaxVirtualMemMB,nNewMaxVirtualMemMB)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IGCHostControl_QueryInterface(IGCHostControl* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IGCHostControl_AddRef(IGCHostControl* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IGCHostControl_Release(IGCHostControl* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IGCHostControl methods ***/
+static FORCEINLINE HRESULT IGCHostControl_RequestVirtualMemLimit(IGCHostControl* This,SIZE_T nMaxVirtualMemMB,SIZE_T *nNewMaxVirtualMemMB) {
+    return This->lpVtbl->RequestVirtualMemLimit(This,nMaxVirtualMemMB,nNewMaxVirtualMemMB);
+}
+#endif
 #endif
 
 #endif
@@ -318,6 +358,7 @@ interface IDebuggerThreadControl {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDebuggerThreadControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDebuggerThreadControl_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -326,6 +367,28 @@ interface IDebuggerThreadControl {
 #define IDebuggerThreadControl_ThreadIsBlockingForDebugger(This) (This)->lpVtbl->ThreadIsBlockingForDebugger(This)
 #define IDebuggerThreadControl_ReleaseAllRuntimeThreads(This) (This)->lpVtbl->ReleaseAllRuntimeThreads(This)
 #define IDebuggerThreadControl_StartBlockingForDebugger(This,dwUnused) (This)->lpVtbl->StartBlockingForDebugger(This,dwUnused)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDebuggerThreadControl_QueryInterface(IDebuggerThreadControl* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDebuggerThreadControl_AddRef(IDebuggerThreadControl* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDebuggerThreadControl_Release(IDebuggerThreadControl* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDebuggerThreadControl methods ***/
+static FORCEINLINE HRESULT IDebuggerThreadControl_ThreadIsBlockingForDebugger(IDebuggerThreadControl* This) {
+    return This->lpVtbl->ThreadIsBlockingForDebugger(This);
+}
+static FORCEINLINE HRESULT IDebuggerThreadControl_ReleaseAllRuntimeThreads(IDebuggerThreadControl* This) {
+    return This->lpVtbl->ReleaseAllRuntimeThreads(This);
+}
+static FORCEINLINE HRESULT IDebuggerThreadControl_StartBlockingForDebugger(IDebuggerThreadControl* This,DWORD dwUnused) {
+    return This->lpVtbl->StartBlockingForDebugger(This,dwUnused);
+}
+#endif
 #endif
 
 #endif
@@ -422,6 +485,7 @@ interface ICorConfiguration {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ICorConfiguration_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ICorConfiguration_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -431,6 +495,31 @@ interface ICorConfiguration {
 #define ICorConfiguration_SetGCHostControl(This,GCHostControl) (This)->lpVtbl->SetGCHostControl(This,GCHostControl)
 #define ICorConfiguration_SetDebuggerThreadControl(This,debuggerThreadControl) (This)->lpVtbl->SetDebuggerThreadControl(This,debuggerThreadControl)
 #define ICorConfiguration_AddDebuggerSpecialThread(This,specialThreadId) (This)->lpVtbl->AddDebuggerSpecialThread(This,specialThreadId)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ICorConfiguration_QueryInterface(ICorConfiguration* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ICorConfiguration_AddRef(ICorConfiguration* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ICorConfiguration_Release(ICorConfiguration* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ICorConfiguration methods ***/
+static FORCEINLINE HRESULT ICorConfiguration_SetGCThreadControl(ICorConfiguration* This,IGCThreadControl *GCThreadControl) {
+    return This->lpVtbl->SetGCThreadControl(This,GCThreadControl);
+}
+static FORCEINLINE HRESULT ICorConfiguration_SetGCHostControl(ICorConfiguration* This,IGCHostControl *GCHostControl) {
+    return This->lpVtbl->SetGCHostControl(This,GCHostControl);
+}
+static FORCEINLINE HRESULT ICorConfiguration_SetDebuggerThreadControl(ICorConfiguration* This,IDebuggerThreadControl *debuggerThreadControl) {
+    return This->lpVtbl->SetDebuggerThreadControl(This,debuggerThreadControl);
+}
+static FORCEINLINE HRESULT ICorConfiguration_AddDebuggerSpecialThread(ICorConfiguration* This,DWORD specialThreadId) {
+    return This->lpVtbl->AddDebuggerSpecialThread(This,specialThreadId);
+}
+#endif
 #endif
 
 #endif
@@ -527,6 +616,7 @@ interface ICLRControl {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ICLRControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ICLRControl_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -534,6 +624,25 @@ interface ICLRControl {
 /*** ICLRControl methods ***/
 #define ICLRControl_GetCLRManager(This,riid,ppObject) (This)->lpVtbl->GetCLRManager(This,riid,ppObject)
 #define ICLRControl_SetAppDomainManagerType(This,appDomainManagerAssembly,appDomainManagerType) (This)->lpVtbl->SetAppDomainManagerType(This,appDomainManagerAssembly,appDomainManagerType)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ICLRControl_QueryInterface(ICLRControl* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ICLRControl_AddRef(ICLRControl* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ICLRControl_Release(ICLRControl* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ICLRControl methods ***/
+static FORCEINLINE HRESULT ICLRControl_GetCLRManager(ICLRControl* This,REFIID riid,void **ppObject) {
+    return This->lpVtbl->GetCLRManager(This,riid,ppObject);
+}
+static FORCEINLINE HRESULT ICLRControl_SetAppDomainManagerType(ICLRControl* This,LPCWSTR appDomainManagerAssembly,LPCWSTR appDomainManagerType) {
+    return This->lpVtbl->SetAppDomainManagerType(This,appDomainManagerAssembly,appDomainManagerType);
+}
+#endif
 #endif
 
 #endif
@@ -616,6 +725,7 @@ interface IHostControl {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IHostControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IHostControl_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -623,6 +733,25 @@ interface IHostControl {
 /*** IHostControl methods ***/
 #define IHostControl_GetHostManager(This,riid,ppObject) (This)->lpVtbl->GetHostManager(This,riid,ppObject)
 #define IHostControl_SetAppDomainManager(This,appDomainID,appDomainManager) (This)->lpVtbl->SetAppDomainManager(This,appDomainID,appDomainManager)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IHostControl_QueryInterface(IHostControl* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IHostControl_AddRef(IHostControl* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IHostControl_Release(IHostControl* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IHostControl methods ***/
+static FORCEINLINE HRESULT IHostControl_GetHostManager(IHostControl* This,REFIID riid,void **ppObject) {
+    return This->lpVtbl->GetHostManager(This,riid,ppObject);
+}
+static FORCEINLINE HRESULT IHostControl_SetAppDomainManager(IHostControl* This,DWORD appDomainID,IUnknown *appDomainManager) {
+    return This->lpVtbl->SetAppDomainManager(This,appDomainID,appDomainManager);
+}
+#endif
 #endif
 
 #endif
@@ -831,6 +960,7 @@ interface ICorRuntimeHost {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ICorRuntimeHost_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ICorRuntimeHost_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -855,6 +985,76 @@ interface ICorRuntimeHost {
 #define ICorRuntimeHost_CreateEvidence(This,evidence) (This)->lpVtbl->CreateEvidence(This,evidence)
 #define ICorRuntimeHost_UnloadDomain(This,appDomain) (This)->lpVtbl->UnloadDomain(This,appDomain)
 #define ICorRuntimeHost_CurrentDomain(This,appDomain) (This)->lpVtbl->CurrentDomain(This,appDomain)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ICorRuntimeHost_QueryInterface(ICorRuntimeHost* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ICorRuntimeHost_AddRef(ICorRuntimeHost* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ICorRuntimeHost_Release(ICorRuntimeHost* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ICorRuntimeHost methods ***/
+static FORCEINLINE HRESULT ICorRuntimeHost_CreateLogicalThreadState(ICorRuntimeHost* This) {
+    return This->lpVtbl->CreateLogicalThreadState(This);
+}
+static FORCEINLINE HRESULT ICorRuntimeHost_DeleteLogicalThreadState(ICorRuntimeHost* This) {
+    return This->lpVtbl->DeleteLogicalThreadState(This);
+}
+static FORCEINLINE HRESULT ICorRuntimeHost_SwitchInLogicalThreadState(ICorRuntimeHost* This,DWORD *fiberCookie) {
+    return This->lpVtbl->SwitchInLogicalThreadState(This,fiberCookie);
+}
+static FORCEINLINE HRESULT ICorRuntimeHost_SwitchOutLogicalThreadState(ICorRuntimeHost* This,DWORD **fiberCookie) {
+    return This->lpVtbl->SwitchOutLogicalThreadState(This,fiberCookie);
+}
+static FORCEINLINE HRESULT ICorRuntimeHost_LocksHeldByLogicalThread(ICorRuntimeHost* This,DWORD *pCount) {
+    return This->lpVtbl->LocksHeldByLogicalThread(This,pCount);
+}
+static FORCEINLINE HRESULT ICorRuntimeHost_MapFile(ICorRuntimeHost* This,HANDLE hFile,HMODULE *mapAddress) {
+    return This->lpVtbl->MapFile(This,hFile,mapAddress);
+}
+static FORCEINLINE HRESULT ICorRuntimeHost_GetConfiguration(ICorRuntimeHost* This,ICorConfiguration **pConfiguration) {
+    return This->lpVtbl->GetConfiguration(This,pConfiguration);
+}
+static FORCEINLINE HRESULT ICorRuntimeHost_Start(ICorRuntimeHost* This) {
+    return This->lpVtbl->Start(This);
+}
+static FORCEINLINE HRESULT ICorRuntimeHost_Stop(ICorRuntimeHost* This) {
+    return This->lpVtbl->Stop(This);
+}
+static FORCEINLINE HRESULT ICorRuntimeHost_CreateDomain(ICorRuntimeHost* This,LPCWSTR friendlyName,IUnknown *identityArray,IUnknown **appDomain) {
+    return This->lpVtbl->CreateDomain(This,friendlyName,identityArray,appDomain);
+}
+static FORCEINLINE HRESULT ICorRuntimeHost_GetDefaultDomain(ICorRuntimeHost* This,IUnknown **pAppDomain) {
+    return This->lpVtbl->GetDefaultDomain(This,pAppDomain);
+}
+static FORCEINLINE HRESULT ICorRuntimeHost_EnumDomains(ICorRuntimeHost* This,HDOMAINENUM *hEnum) {
+    return This->lpVtbl->EnumDomains(This,hEnum);
+}
+static FORCEINLINE HRESULT ICorRuntimeHost_NextDomain(ICorRuntimeHost* This,HDOMAINENUM hEnum,IUnknown **appDomain) {
+    return This->lpVtbl->NextDomain(This,hEnum,appDomain);
+}
+static FORCEINLINE HRESULT ICorRuntimeHost_CloseEnum(ICorRuntimeHost* This,HDOMAINENUM hEnum) {
+    return This->lpVtbl->CloseEnum(This,hEnum);
+}
+static FORCEINLINE HRESULT ICorRuntimeHost_CreateDomainEx(ICorRuntimeHost* This,LPCWSTR friendlyName,IUnknown *setup,IUnknown *evidence,IUnknown **appDomain) {
+    return This->lpVtbl->CreateDomainEx(This,friendlyName,setup,evidence,appDomain);
+}
+static FORCEINLINE HRESULT ICorRuntimeHost_CreateDomainSetup(ICorRuntimeHost* This,IUnknown **appDomainSetup) {
+    return This->lpVtbl->CreateDomainSetup(This,appDomainSetup);
+}
+static FORCEINLINE HRESULT ICorRuntimeHost_CreateEvidence(ICorRuntimeHost* This,IUnknown **evidence) {
+    return This->lpVtbl->CreateEvidence(This,evidence);
+}
+static FORCEINLINE HRESULT ICorRuntimeHost_UnloadDomain(ICorRuntimeHost* This,IUnknown *appDomain) {
+    return This->lpVtbl->UnloadDomain(This,appDomain);
+}
+static FORCEINLINE HRESULT ICorRuntimeHost_CurrentDomain(ICorRuntimeHost* This,IUnknown **appDomain) {
+    return This->lpVtbl->CurrentDomain(This,appDomain);
+}
+#endif
 #endif
 
 #endif
@@ -1142,6 +1342,7 @@ interface ICLRRuntimeHost {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ICLRRuntimeHost_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ICLRRuntimeHost_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1156,6 +1357,46 @@ interface ICLRRuntimeHost {
 #define ICLRRuntimeHost_GetCurrentAppDomainId(This,pdwAppDomainId) (This)->lpVtbl->GetCurrentAppDomainId(This,pdwAppDomainId)
 #define ICLRRuntimeHost_ExecuteApplication(This,pwzAppFullName,dwManifestPaths,ppwzManifestPaths,dwActivationData,ppwzActivationData,pReturnValue) (This)->lpVtbl->ExecuteApplication(This,pwzAppFullName,dwManifestPaths,ppwzManifestPaths,dwActivationData,ppwzActivationData,pReturnValue)
 #define ICLRRuntimeHost_ExecuteInDefaultAppDomain(This,pwzAssemblyPath,pwzTypeName,pwzMethodName,pwzArgument,pReturnValue) (This)->lpVtbl->ExecuteInDefaultAppDomain(This,pwzAssemblyPath,pwzTypeName,pwzMethodName,pwzArgument,pReturnValue)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ICLRRuntimeHost_QueryInterface(ICLRRuntimeHost* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ICLRRuntimeHost_AddRef(ICLRRuntimeHost* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ICLRRuntimeHost_Release(ICLRRuntimeHost* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ICLRRuntimeHost methods ***/
+static FORCEINLINE HRESULT ICLRRuntimeHost_Start(ICLRRuntimeHost* This) {
+    return This->lpVtbl->Start(This);
+}
+static FORCEINLINE HRESULT ICLRRuntimeHost_Stop(ICLRRuntimeHost* This) {
+    return This->lpVtbl->Stop(This);
+}
+static FORCEINLINE HRESULT ICLRRuntimeHost_SetHostControl(ICLRRuntimeHost* This,IHostControl *pHostControl) {
+    return This->lpVtbl->SetHostControl(This,pHostControl);
+}
+static FORCEINLINE HRESULT ICLRRuntimeHost_GetCLRControl(ICLRRuntimeHost* This,ICLRControl **pCLRControl) {
+    return This->lpVtbl->GetCLRControl(This,pCLRControl);
+}
+static FORCEINLINE HRESULT ICLRRuntimeHost_UnloadAppDomain(ICLRRuntimeHost* This,DWORD dwAppDomainId,WINBOOL fWaitUntilDone) {
+    return This->lpVtbl->UnloadAppDomain(This,dwAppDomainId,fWaitUntilDone);
+}
+static FORCEINLINE HRESULT ICLRRuntimeHost_ExecuteInAppDomain(ICLRRuntimeHost* This,DWORD dwAppDomainId,HRESULT (__stdcall * pCallback)(void *cookie),void *cookie) {
+    return This->lpVtbl->ExecuteInAppDomain(This,dwAppDomainId,pCallback,cookie);
+}
+static FORCEINLINE HRESULT ICLRRuntimeHost_GetCurrentAppDomainId(ICLRRuntimeHost* This,DWORD *pdwAppDomainId) {
+    return This->lpVtbl->GetCurrentAppDomainId(This,pdwAppDomainId);
+}
+static FORCEINLINE HRESULT ICLRRuntimeHost_ExecuteApplication(ICLRRuntimeHost* This,LPCWSTR pwzAppFullName,DWORD dwManifestPaths,LPCWSTR *ppwzManifestPaths,DWORD dwActivationData,LPCWSTR *ppwzActivationData,int *pReturnValue) {
+    return This->lpVtbl->ExecuteApplication(This,pwzAppFullName,dwManifestPaths,ppwzManifestPaths,dwActivationData,ppwzActivationData,pReturnValue);
+}
+static FORCEINLINE HRESULT ICLRRuntimeHost_ExecuteInDefaultAppDomain(ICLRRuntimeHost* This,LPCWSTR pwzAssemblyPath,LPCWSTR pwzTypeName,LPCWSTR pwzMethodName,LPCWSTR pwzArgument,DWORD *pReturnValue) {
+    return This->lpVtbl->ExecuteInDefaultAppDomain(This,pwzAssemblyPath,pwzTypeName,pwzMethodName,pwzArgument,pReturnValue);
+}
+#endif
 #endif
 
 #endif
@@ -1302,6 +1543,7 @@ interface IManagedObject {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IManagedObject_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IManagedObject_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1309,6 +1551,25 @@ interface IManagedObject {
 /*** IManagedObject methods ***/
 #define IManagedObject_GetSerializedBuffer(This,pBSTR) (This)->lpVtbl->GetSerializedBuffer(This,pBSTR)
 #define IManagedObject_GetObjectIdentity(This,pBSTRGUID,AppDomainID,pCCW) (This)->lpVtbl->GetObjectIdentity(This,pBSTRGUID,AppDomainID,pCCW)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IManagedObject_QueryInterface(IManagedObject* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IManagedObject_AddRef(IManagedObject* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IManagedObject_Release(IManagedObject* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IManagedObject methods ***/
+static FORCEINLINE HRESULT IManagedObject_GetSerializedBuffer(IManagedObject* This,BSTR *pBSTR) {
+    return This->lpVtbl->GetSerializedBuffer(This,pBSTR);
+}
+static FORCEINLINE HRESULT IManagedObject_GetObjectIdentity(IManagedObject* This,BSTR *pBSTRGUID,int *AppDomainID,int *pCCW) {
+    return This->lpVtbl->GetObjectIdentity(This,pBSTRGUID,AppDomainID,pCCW);
+}
+#endif
 #endif
 
 #endif

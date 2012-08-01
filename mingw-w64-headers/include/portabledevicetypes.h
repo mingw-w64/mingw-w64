@@ -461,6 +461,7 @@ interface IPortableDeviceValues {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPortableDeviceValues_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPortableDeviceValues_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -506,6 +507,139 @@ interface IPortableDeviceValues {
 #define IPortableDeviceValues_CopyValuesFromPropertyStore(This,pStore) (This)->lpVtbl->CopyValuesFromPropertyStore(This,pStore)
 #define IPortableDeviceValues_CopyValuesToPropertyStore(This,pStore) (This)->lpVtbl->CopyValuesToPropertyStore(This,pStore)
 #define IPortableDeviceValues_Clear(This) (This)->lpVtbl->Clear(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPortableDeviceValues_QueryInterface(IPortableDeviceValues* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPortableDeviceValues_AddRef(IPortableDeviceValues* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPortableDeviceValues_Release(IPortableDeviceValues* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPortableDeviceValues methods ***/
+static FORCEINLINE HRESULT IPortableDeviceValues_GetCount(IPortableDeviceValues* This,DWORD *pcelt) {
+    return This->lpVtbl->GetCount(This,pcelt);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_GetAt(IPortableDeviceValues* This,const DWORD index,PROPERTYKEY *pKey,PROPVARIANT *pValue) {
+    return This->lpVtbl->GetAt(This,index,pKey,pValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_SetValue(IPortableDeviceValues* This,REFPROPERTYKEY key,const PROPVARIANT *pValue) {
+    return This->lpVtbl->SetValue(This,key,pValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_GetValue(IPortableDeviceValues* This,REFPROPERTYKEY key,PROPVARIANT *pValue) {
+    return This->lpVtbl->GetValue(This,key,pValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_SetStringValue(IPortableDeviceValues* This,REFPROPERTYKEY key,LPCWSTR Value) {
+    return This->lpVtbl->SetStringValue(This,key,Value);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_GetStringValue(IPortableDeviceValues* This,REFPROPERTYKEY key,LPWSTR *pValue) {
+    return This->lpVtbl->GetStringValue(This,key,pValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_SetUnsignedIntegerValue(IPortableDeviceValues* This,REFPROPERTYKEY key,const ULONG Value) {
+    return This->lpVtbl->SetUnsignedIntegerValue(This,key,Value);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_GetUnsignedIntegerValue(IPortableDeviceValues* This,REFPROPERTYKEY key,ULONG *pValue) {
+    return This->lpVtbl->GetUnsignedIntegerValue(This,key,pValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_SetSignedIntegerValue(IPortableDeviceValues* This,REFPROPERTYKEY key,const LONG Value) {
+    return This->lpVtbl->SetSignedIntegerValue(This,key,Value);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_GetSignedIntegerValue(IPortableDeviceValues* This,REFPROPERTYKEY key,LONG *pValue) {
+    return This->lpVtbl->GetSignedIntegerValue(This,key,pValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_SetUnsignedLargeIntegerValue(IPortableDeviceValues* This,REFPROPERTYKEY key,const ULONGLONG Value) {
+    return This->lpVtbl->SetUnsignedLargeIntegerValue(This,key,Value);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_GetUnsignedLargeIntegerValue(IPortableDeviceValues* This,REFPROPERTYKEY key,ULONGLONG *pValue) {
+    return This->lpVtbl->GetUnsignedLargeIntegerValue(This,key,pValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_SetSignedLargeIntegerValue(IPortableDeviceValues* This,REFPROPERTYKEY key,const LONGLONG Value) {
+    return This->lpVtbl->SetSignedLargeIntegerValue(This,key,Value);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_GetSignedLargeIntegerValue(IPortableDeviceValues* This,REFPROPERTYKEY key,LONGLONG *pValue) {
+    return This->lpVtbl->GetSignedLargeIntegerValue(This,key,pValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_SetFloatValue(IPortableDeviceValues* This,REFPROPERTYKEY key,const FLOAT Value) {
+    return This->lpVtbl->SetFloatValue(This,key,Value);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_GetFloatValue(IPortableDeviceValues* This,REFPROPERTYKEY key,FLOAT *pValue) {
+    return This->lpVtbl->GetFloatValue(This,key,pValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_SetErrorValue(IPortableDeviceValues* This,REFPROPERTYKEY key,const HRESULT Value) {
+    return This->lpVtbl->SetErrorValue(This,key,Value);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_GetErrorValue(IPortableDeviceValues* This,REFPROPERTYKEY key,HRESULT *pValue) {
+    return This->lpVtbl->GetErrorValue(This,key,pValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_SetKeyValue(IPortableDeviceValues* This,REFPROPERTYKEY key,REFPROPERTYKEY Value) {
+    return This->lpVtbl->SetKeyValue(This,key,Value);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_GetKeyValue(IPortableDeviceValues* This,REFPROPERTYKEY key,PROPERTYKEY *pValue) {
+    return This->lpVtbl->GetKeyValue(This,key,pValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_SetBoolValue(IPortableDeviceValues* This,REFPROPERTYKEY key,const WINBOOL Value) {
+    return This->lpVtbl->SetBoolValue(This,key,Value);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_GetBoolValue(IPortableDeviceValues* This,REFPROPERTYKEY key,WINBOOL *pValue) {
+    return This->lpVtbl->GetBoolValue(This,key,pValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_SetIUnknownValue(IPortableDeviceValues* This,REFPROPERTYKEY key,IUnknown *pValue) {
+    return This->lpVtbl->SetIUnknownValue(This,key,pValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_GetIUnknownValue(IPortableDeviceValues* This,REFPROPERTYKEY key,IUnknown **ppValue) {
+    return This->lpVtbl->GetIUnknownValue(This,key,ppValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_SetGuidValue(IPortableDeviceValues* This,REFPROPERTYKEY key,REFGUID Value) {
+    return This->lpVtbl->SetGuidValue(This,key,Value);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_GetGuidValue(IPortableDeviceValues* This,REFPROPERTYKEY key,GUID *pValue) {
+    return This->lpVtbl->GetGuidValue(This,key,pValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_SetBufferValue(IPortableDeviceValues* This,REFPROPERTYKEY key,BYTE *pValue,DWORD cbValue) {
+    return This->lpVtbl->SetBufferValue(This,key,pValue,cbValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_GetBufferValue(IPortableDeviceValues* This,REFPROPERTYKEY key,BYTE **ppValue,DWORD *pcbValue) {
+    return This->lpVtbl->GetBufferValue(This,key,ppValue,pcbValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_SetIPortableDeviceValuesValue(IPortableDeviceValues* This,REFPROPERTYKEY key,IPortableDeviceValues *pValue) {
+    return This->lpVtbl->SetIPortableDeviceValuesValue(This,key,pValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_GetIPortableDeviceValuesValue(IPortableDeviceValues* This,REFPROPERTYKEY key,IPortableDeviceValues **ppValue) {
+    return This->lpVtbl->GetIPortableDeviceValuesValue(This,key,ppValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_SetIPortableDevicePropVariantCollectionValue(IPortableDeviceValues* This,REFPROPERTYKEY key,IPortableDevicePropVariantCollection *pValue) {
+    return This->lpVtbl->SetIPortableDevicePropVariantCollectionValue(This,key,pValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_GetIPortableDevicePropVariantCollectionValue(IPortableDeviceValues* This,REFPROPERTYKEY key,IPortableDevicePropVariantCollection **ppValue) {
+    return This->lpVtbl->GetIPortableDevicePropVariantCollectionValue(This,key,ppValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_SetIPortableDeviceKeyCollectionValue(IPortableDeviceValues* This,REFPROPERTYKEY key,IPortableDeviceKeyCollection *pValue) {
+    return This->lpVtbl->SetIPortableDeviceKeyCollectionValue(This,key,pValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_GetIPortableDeviceKeyCollectionValue(IPortableDeviceValues* This,REFPROPERTYKEY key,IPortableDeviceKeyCollection **ppValue) {
+    return This->lpVtbl->GetIPortableDeviceKeyCollectionValue(This,key,ppValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_SetIPortableDeviceValuesCollectionValue(IPortableDeviceValues* This,REFPROPERTYKEY key,IPortableDeviceValuesCollection *pValue) {
+    return This->lpVtbl->SetIPortableDeviceValuesCollectionValue(This,key,pValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_GetIPortableDeviceValuesCollectionValue(IPortableDeviceValues* This,REFPROPERTYKEY key,IPortableDeviceValuesCollection **ppValue) {
+    return This->lpVtbl->GetIPortableDeviceValuesCollectionValue(This,key,ppValue);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_RemoveValue(IPortableDeviceValues* This,REFPROPERTYKEY key) {
+    return This->lpVtbl->RemoveValue(This,key);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_CopyValuesFromPropertyStore(IPortableDeviceValues* This,IPropertyStore *pStore) {
+    return This->lpVtbl->CopyValuesFromPropertyStore(This,pStore);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_CopyValuesToPropertyStore(IPortableDeviceValues* This,IPropertyStore *pStore) {
+    return This->lpVtbl->CopyValuesToPropertyStore(This,pStore);
+}
+static FORCEINLINE HRESULT IPortableDeviceValues_Clear(IPortableDeviceValues* This) {
+    return This->lpVtbl->Clear(This);
+}
+#endif
 #endif
 
 #endif
@@ -945,6 +1079,7 @@ interface IPortableDeviceKeyCollection {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPortableDeviceKeyCollection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPortableDeviceKeyCollection_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -955,6 +1090,34 @@ interface IPortableDeviceKeyCollection {
 #define IPortableDeviceKeyCollection_Add(This,Key) (This)->lpVtbl->Add(This,Key)
 #define IPortableDeviceKeyCollection_Clear(This) (This)->lpVtbl->Clear(This)
 #define IPortableDeviceKeyCollection_RemoveAt(This,dwIndex) (This)->lpVtbl->RemoveAt(This,dwIndex)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPortableDeviceKeyCollection_QueryInterface(IPortableDeviceKeyCollection* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPortableDeviceKeyCollection_AddRef(IPortableDeviceKeyCollection* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPortableDeviceKeyCollection_Release(IPortableDeviceKeyCollection* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPortableDeviceKeyCollection methods ***/
+static FORCEINLINE HRESULT IPortableDeviceKeyCollection_GetCount(IPortableDeviceKeyCollection* This,DWORD *pcElems) {
+    return This->lpVtbl->GetCount(This,pcElems);
+}
+static FORCEINLINE HRESULT IPortableDeviceKeyCollection_GetAt(IPortableDeviceKeyCollection* This,const DWORD dwIndex,PROPERTYKEY *pKey) {
+    return This->lpVtbl->GetAt(This,dwIndex,pKey);
+}
+static FORCEINLINE HRESULT IPortableDeviceKeyCollection_Add(IPortableDeviceKeyCollection* This,REFPROPERTYKEY Key) {
+    return This->lpVtbl->Add(This,Key);
+}
+static FORCEINLINE HRESULT IPortableDeviceKeyCollection_Clear(IPortableDeviceKeyCollection* This) {
+    return This->lpVtbl->Clear(This);
+}
+static FORCEINLINE HRESULT IPortableDeviceKeyCollection_RemoveAt(IPortableDeviceKeyCollection* This,const DWORD dwIndex) {
+    return This->lpVtbl->RemoveAt(This,dwIndex);
+}
+#endif
 #endif
 
 #endif
@@ -1091,6 +1254,7 @@ interface IPortableDevicePropVariantCollection {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPortableDevicePropVariantCollection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPortableDevicePropVariantCollection_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1103,6 +1267,40 @@ interface IPortableDevicePropVariantCollection {
 #define IPortableDevicePropVariantCollection_ChangeType(This,vt) (This)->lpVtbl->ChangeType(This,vt)
 #define IPortableDevicePropVariantCollection_Clear(This) (This)->lpVtbl->Clear(This)
 #define IPortableDevicePropVariantCollection_RemoveAt(This,dwIndex) (This)->lpVtbl->RemoveAt(This,dwIndex)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPortableDevicePropVariantCollection_QueryInterface(IPortableDevicePropVariantCollection* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPortableDevicePropVariantCollection_AddRef(IPortableDevicePropVariantCollection* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPortableDevicePropVariantCollection_Release(IPortableDevicePropVariantCollection* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPortableDevicePropVariantCollection methods ***/
+static FORCEINLINE HRESULT IPortableDevicePropVariantCollection_GetCount(IPortableDevicePropVariantCollection* This,DWORD *pcElems) {
+    return This->lpVtbl->GetCount(This,pcElems);
+}
+static FORCEINLINE HRESULT IPortableDevicePropVariantCollection_GetAt(IPortableDevicePropVariantCollection* This,const DWORD dwIndex,PROPVARIANT *pValue) {
+    return This->lpVtbl->GetAt(This,dwIndex,pValue);
+}
+static FORCEINLINE HRESULT IPortableDevicePropVariantCollection_Add(IPortableDevicePropVariantCollection* This,const PROPVARIANT *pValue) {
+    return This->lpVtbl->Add(This,pValue);
+}
+static FORCEINLINE HRESULT IPortableDevicePropVariantCollection_GetType(IPortableDevicePropVariantCollection* This,VARTYPE *pvt) {
+    return This->lpVtbl->GetType(This,pvt);
+}
+static FORCEINLINE HRESULT IPortableDevicePropVariantCollection_ChangeType(IPortableDevicePropVariantCollection* This,const VARTYPE vt) {
+    return This->lpVtbl->ChangeType(This,vt);
+}
+static FORCEINLINE HRESULT IPortableDevicePropVariantCollection_Clear(IPortableDevicePropVariantCollection* This) {
+    return This->lpVtbl->Clear(This);
+}
+static FORCEINLINE HRESULT IPortableDevicePropVariantCollection_RemoveAt(IPortableDevicePropVariantCollection* This,const DWORD dwIndex) {
+    return This->lpVtbl->RemoveAt(This,dwIndex);
+}
+#endif
 #endif
 
 #endif
@@ -1241,6 +1439,7 @@ interface IPortableDeviceValuesCollection {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IPortableDeviceValuesCollection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IPortableDeviceValuesCollection_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1251,6 +1450,34 @@ interface IPortableDeviceValuesCollection {
 #define IPortableDeviceValuesCollection_Add(This,pValues) (This)->lpVtbl->Add(This,pValues)
 #define IPortableDeviceValuesCollection_Clear(This) (This)->lpVtbl->Clear(This)
 #define IPortableDeviceValuesCollection_RemoveAt(This,dwIndex) (This)->lpVtbl->RemoveAt(This,dwIndex)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPortableDeviceValuesCollection_QueryInterface(IPortableDeviceValuesCollection* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPortableDeviceValuesCollection_AddRef(IPortableDeviceValuesCollection* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPortableDeviceValuesCollection_Release(IPortableDeviceValuesCollection* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPortableDeviceValuesCollection methods ***/
+static FORCEINLINE HRESULT IPortableDeviceValuesCollection_GetCount(IPortableDeviceValuesCollection* This,DWORD *pcElems) {
+    return This->lpVtbl->GetCount(This,pcElems);
+}
+static FORCEINLINE HRESULT IPortableDeviceValuesCollection_GetAt(IPortableDeviceValuesCollection* This,DWORD dwIndex,IPortableDeviceValues **ppValues) {
+    return This->lpVtbl->GetAt(This,dwIndex,ppValues);
+}
+static FORCEINLINE HRESULT IPortableDeviceValuesCollection_Add(IPortableDeviceValuesCollection* This,IPortableDeviceValues *pValues) {
+    return This->lpVtbl->Add(This,pValues);
+}
+static FORCEINLINE HRESULT IPortableDeviceValuesCollection_Clear(IPortableDeviceValuesCollection* This) {
+    return This->lpVtbl->Clear(This);
+}
+static FORCEINLINE HRESULT IPortableDeviceValuesCollection_RemoveAt(IPortableDeviceValuesCollection* This,const DWORD dwIndex) {
+    return This->lpVtbl->RemoveAt(This,dwIndex);
+}
+#endif
 #endif
 
 #endif

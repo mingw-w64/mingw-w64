@@ -221,6 +221,7 @@ interface IAudioSessionEvents {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAudioSessionEvents_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAudioSessionEvents_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -233,6 +234,40 @@ interface IAudioSessionEvents {
 #define IAudioSessionEvents_OnGroupingParamChanged(This,NewGroupingParam,EventContext) (This)->lpVtbl->OnGroupingParamChanged(This,NewGroupingParam,EventContext)
 #define IAudioSessionEvents_OnStateChanged(This,NewState) (This)->lpVtbl->OnStateChanged(This,NewState)
 #define IAudioSessionEvents_OnSessionDisconnected(This,DisconnectReason) (This)->lpVtbl->OnSessionDisconnected(This,DisconnectReason)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAudioSessionEvents_QueryInterface(IAudioSessionEvents* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAudioSessionEvents_AddRef(IAudioSessionEvents* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAudioSessionEvents_Release(IAudioSessionEvents* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAudioSessionEvents methods ***/
+static FORCEINLINE HRESULT IAudioSessionEvents_OnDisplayNameChanged(IAudioSessionEvents* This,LPCWSTR NewDisplayName,LPCGUID EventContext) {
+    return This->lpVtbl->OnDisplayNameChanged(This,NewDisplayName,EventContext);
+}
+static FORCEINLINE HRESULT IAudioSessionEvents_OnIconPathChanged(IAudioSessionEvents* This,LPCWSTR NewIconPath,LPCGUID EventContext) {
+    return This->lpVtbl->OnIconPathChanged(This,NewIconPath,EventContext);
+}
+static FORCEINLINE HRESULT IAudioSessionEvents_OnSimpleVolumeChanged(IAudioSessionEvents* This,float NewVolume,WINBOOL NewMute,LPCGUID EventContext) {
+    return This->lpVtbl->OnSimpleVolumeChanged(This,NewVolume,NewMute,EventContext);
+}
+static FORCEINLINE HRESULT IAudioSessionEvents_OnChannelVolumeChanged(IAudioSessionEvents* This,DWORD ChannelCount,float *NewChannelVolumeArray,DWORD ChangedChannel,LPCGUID EventContext) {
+    return This->lpVtbl->OnChannelVolumeChanged(This,ChannelCount,NewChannelVolumeArray,ChangedChannel,EventContext);
+}
+static FORCEINLINE HRESULT IAudioSessionEvents_OnGroupingParamChanged(IAudioSessionEvents* This,LPCGUID NewGroupingParam,LPCGUID EventContext) {
+    return This->lpVtbl->OnGroupingParamChanged(This,NewGroupingParam,EventContext);
+}
+static FORCEINLINE HRESULT IAudioSessionEvents_OnStateChanged(IAudioSessionEvents* This,AudioSessionState NewState) {
+    return This->lpVtbl->OnStateChanged(This,NewState);
+}
+static FORCEINLINE HRESULT IAudioSessionEvents_OnSessionDisconnected(IAudioSessionEvents* This,AudioSessionDisconnectReason DisconnectReason) {
+    return This->lpVtbl->OnSessionDisconnected(This,DisconnectReason);
+}
+#endif
 #endif
 
 #endif
@@ -412,6 +447,7 @@ interface IAudioSessionControl {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAudioSessionControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAudioSessionControl_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -426,6 +462,46 @@ interface IAudioSessionControl {
 #define IAudioSessionControl_SetGroupingParam(This,Override,EventContext) (This)->lpVtbl->SetGroupingParam(This,Override,EventContext)
 #define IAudioSessionControl_RegisterAudioSessionNotification(This,NewNotifications) (This)->lpVtbl->RegisterAudioSessionNotification(This,NewNotifications)
 #define IAudioSessionControl_UnregisterAudioSessionNotification(This,NewNotifications) (This)->lpVtbl->UnregisterAudioSessionNotification(This,NewNotifications)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAudioSessionControl_QueryInterface(IAudioSessionControl* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAudioSessionControl_AddRef(IAudioSessionControl* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAudioSessionControl_Release(IAudioSessionControl* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAudioSessionControl methods ***/
+static FORCEINLINE HRESULT IAudioSessionControl_GetState(IAudioSessionControl* This,AudioSessionState *pRetVal) {
+    return This->lpVtbl->GetState(This,pRetVal);
+}
+static FORCEINLINE HRESULT IAudioSessionControl_GetDisplayName(IAudioSessionControl* This,LPWSTR *pRetVal) {
+    return This->lpVtbl->GetDisplayName(This,pRetVal);
+}
+static FORCEINLINE HRESULT IAudioSessionControl_SetDisplayName(IAudioSessionControl* This,LPCWSTR DisplayName,LPCGUID EventContext) {
+    return This->lpVtbl->SetDisplayName(This,DisplayName,EventContext);
+}
+static FORCEINLINE HRESULT IAudioSessionControl_GetIconPath(IAudioSessionControl* This,LPWSTR *pRetVal) {
+    return This->lpVtbl->GetIconPath(This,pRetVal);
+}
+static FORCEINLINE HRESULT IAudioSessionControl_SetIconPath(IAudioSessionControl* This,LPCWSTR Value,LPCGUID EventContext) {
+    return This->lpVtbl->SetIconPath(This,Value,EventContext);
+}
+static FORCEINLINE HRESULT IAudioSessionControl_GetGroupingParam(IAudioSessionControl* This,GUID *pRetVal) {
+    return This->lpVtbl->GetGroupingParam(This,pRetVal);
+}
+static FORCEINLINE HRESULT IAudioSessionControl_SetGroupingParam(IAudioSessionControl* This,LPCGUID Override,LPCGUID EventContext) {
+    return This->lpVtbl->SetGroupingParam(This,Override,EventContext);
+}
+static FORCEINLINE HRESULT IAudioSessionControl_RegisterAudioSessionNotification(IAudioSessionControl* This,IAudioSessionEvents *NewNotifications) {
+    return This->lpVtbl->RegisterAudioSessionNotification(This,NewNotifications);
+}
+static FORCEINLINE HRESULT IAudioSessionControl_UnregisterAudioSessionNotification(IAudioSessionControl* This,IAudioSessionEvents *NewNotifications) {
+    return This->lpVtbl->UnregisterAudioSessionNotification(This,NewNotifications);
+}
+#endif
 #endif
 
 #endif
@@ -621,6 +697,7 @@ interface IAudioSessionControl2 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAudioSessionControl2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAudioSessionControl2_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -641,6 +718,62 @@ interface IAudioSessionControl2 {
 #define IAudioSessionControl2_GetProcessId(This,pRetVal) (This)->lpVtbl->GetProcessId(This,pRetVal)
 #define IAudioSessionControl2_IsSystemSoundsSession(This) (This)->lpVtbl->IsSystemSoundsSession(This)
 #define IAudioSessionControl2_SetDuckingPreferences(This,optOut) (This)->lpVtbl->SetDuckingPreferences(This,optOut)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAudioSessionControl2_QueryInterface(IAudioSessionControl2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAudioSessionControl2_AddRef(IAudioSessionControl2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAudioSessionControl2_Release(IAudioSessionControl2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAudioSessionControl methods ***/
+static FORCEINLINE HRESULT IAudioSessionControl2_GetState(IAudioSessionControl2* This,AudioSessionState *pRetVal) {
+    return This->lpVtbl->GetState(This,pRetVal);
+}
+static FORCEINLINE HRESULT IAudioSessionControl2_GetDisplayName(IAudioSessionControl2* This,LPWSTR *pRetVal) {
+    return This->lpVtbl->GetDisplayName(This,pRetVal);
+}
+static FORCEINLINE HRESULT IAudioSessionControl2_SetDisplayName(IAudioSessionControl2* This,LPCWSTR DisplayName,LPCGUID EventContext) {
+    return This->lpVtbl->SetDisplayName(This,DisplayName,EventContext);
+}
+static FORCEINLINE HRESULT IAudioSessionControl2_GetIconPath(IAudioSessionControl2* This,LPWSTR *pRetVal) {
+    return This->lpVtbl->GetIconPath(This,pRetVal);
+}
+static FORCEINLINE HRESULT IAudioSessionControl2_SetIconPath(IAudioSessionControl2* This,LPCWSTR Value,LPCGUID EventContext) {
+    return This->lpVtbl->SetIconPath(This,Value,EventContext);
+}
+static FORCEINLINE HRESULT IAudioSessionControl2_GetGroupingParam(IAudioSessionControl2* This,GUID *pRetVal) {
+    return This->lpVtbl->GetGroupingParam(This,pRetVal);
+}
+static FORCEINLINE HRESULT IAudioSessionControl2_SetGroupingParam(IAudioSessionControl2* This,LPCGUID Override,LPCGUID EventContext) {
+    return This->lpVtbl->SetGroupingParam(This,Override,EventContext);
+}
+static FORCEINLINE HRESULT IAudioSessionControl2_RegisterAudioSessionNotification(IAudioSessionControl2* This,IAudioSessionEvents *NewNotifications) {
+    return This->lpVtbl->RegisterAudioSessionNotification(This,NewNotifications);
+}
+static FORCEINLINE HRESULT IAudioSessionControl2_UnregisterAudioSessionNotification(IAudioSessionControl2* This,IAudioSessionEvents *NewNotifications) {
+    return This->lpVtbl->UnregisterAudioSessionNotification(This,NewNotifications);
+}
+/*** IAudioSessionControl2 methods ***/
+static FORCEINLINE HRESULT IAudioSessionControl2_GetSessionIdentifier(IAudioSessionControl2* This,LPWSTR *pRetVal) {
+    return This->lpVtbl->GetSessionIdentifier(This,pRetVal);
+}
+static FORCEINLINE HRESULT IAudioSessionControl2_GetSessionInstanceIdentifier(IAudioSessionControl2* This,LPWSTR *pRetVal) {
+    return This->lpVtbl->GetSessionInstanceIdentifier(This,pRetVal);
+}
+static FORCEINLINE HRESULT IAudioSessionControl2_GetProcessId(IAudioSessionControl2* This,DWORD *pRetVal) {
+    return This->lpVtbl->GetProcessId(This,pRetVal);
+}
+static FORCEINLINE HRESULT IAudioSessionControl2_IsSystemSoundsSession(IAudioSessionControl2* This) {
+    return This->lpVtbl->IsSystemSoundsSession(This);
+}
+static FORCEINLINE HRESULT IAudioSessionControl2_SetDuckingPreferences(IAudioSessionControl2* This,WINBOOL optOut) {
+    return This->lpVtbl->SetDuckingPreferences(This,optOut);
+}
+#endif
 #endif
 
 #endif
@@ -748,6 +881,7 @@ interface IAudioSessionManager {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAudioSessionManager_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAudioSessionManager_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -755,6 +889,25 @@ interface IAudioSessionManager {
 /*** IAudioSessionManager methods ***/
 #define IAudioSessionManager_GetAudioSessionControl(This,AudioSessionGuid,StreamFlags,SessionControl) (This)->lpVtbl->GetAudioSessionControl(This,AudioSessionGuid,StreamFlags,SessionControl)
 #define IAudioSessionManager_GetSimpleAudioVolume(This,AudioSessionGuid,StreamFlags,AudioVolume) (This)->lpVtbl->GetSimpleAudioVolume(This,AudioSessionGuid,StreamFlags,AudioVolume)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAudioSessionManager_QueryInterface(IAudioSessionManager* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAudioSessionManager_AddRef(IAudioSessionManager* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAudioSessionManager_Release(IAudioSessionManager* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAudioSessionManager methods ***/
+static FORCEINLINE HRESULT IAudioSessionManager_GetAudioSessionControl(IAudioSessionManager* This,LPCGUID AudioSessionGuid,DWORD StreamFlags,IAudioSessionControl **SessionControl) {
+    return This->lpVtbl->GetAudioSessionControl(This,AudioSessionGuid,StreamFlags,SessionControl);
+}
+static FORCEINLINE HRESULT IAudioSessionManager_GetSimpleAudioVolume(IAudioSessionManager* This,LPCGUID AudioSessionGuid,DWORD StreamFlags,ISimpleAudioVolume **AudioVolume) {
+    return This->lpVtbl->GetSimpleAudioVolume(This,AudioSessionGuid,StreamFlags,AudioVolume);
+}
+#endif
 #endif
 
 #endif
@@ -837,6 +990,7 @@ interface IAudioVolumeDuckNotification {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAudioVolumeDuckNotification_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAudioVolumeDuckNotification_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -844,6 +998,25 @@ interface IAudioVolumeDuckNotification {
 /*** IAudioVolumeDuckNotification methods ***/
 #define IAudioVolumeDuckNotification_OnVolumeDuckNotification(This,sessionID,countCommunicationSessions) (This)->lpVtbl->OnVolumeDuckNotification(This,sessionID,countCommunicationSessions)
 #define IAudioVolumeDuckNotification_OnVolumeUnduckNotification(This,sessionID) (This)->lpVtbl->OnVolumeUnduckNotification(This,sessionID)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAudioVolumeDuckNotification_QueryInterface(IAudioVolumeDuckNotification* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAudioVolumeDuckNotification_AddRef(IAudioVolumeDuckNotification* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAudioVolumeDuckNotification_Release(IAudioVolumeDuckNotification* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAudioVolumeDuckNotification methods ***/
+static FORCEINLINE HRESULT IAudioVolumeDuckNotification_OnVolumeDuckNotification(IAudioVolumeDuckNotification* This,LPCWSTR sessionID,UINT32 countCommunicationSessions) {
+    return This->lpVtbl->OnVolumeDuckNotification(This,sessionID,countCommunicationSessions);
+}
+static FORCEINLINE HRESULT IAudioVolumeDuckNotification_OnVolumeUnduckNotification(IAudioVolumeDuckNotification* This,LPCWSTR sessionID) {
+    return This->lpVtbl->OnVolumeUnduckNotification(This,sessionID);
+}
+#endif
 #endif
 
 #endif
@@ -914,12 +1087,29 @@ interface IAudioSessionNotification {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAudioSessionNotification_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAudioSessionNotification_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IAudioSessionNotification_Release(This) (This)->lpVtbl->Release(This)
 /*** IAudioSessionNotification methods ***/
 #define IAudioSessionNotification_OnSessionCreated(This,NewSession) (This)->lpVtbl->OnSessionCreated(This,NewSession)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAudioSessionNotification_QueryInterface(IAudioSessionNotification* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAudioSessionNotification_AddRef(IAudioSessionNotification* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAudioSessionNotification_Release(IAudioSessionNotification* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAudioSessionNotification methods ***/
+static FORCEINLINE HRESULT IAudioSessionNotification_OnSessionCreated(IAudioSessionNotification* This,IAudioSessionControl *NewSession) {
+    return This->lpVtbl->OnSessionCreated(This,NewSession);
+}
+#endif
 #endif
 
 #endif
@@ -990,6 +1180,7 @@ interface IAudioSessionEnumerator {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAudioSessionEnumerator_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAudioSessionEnumerator_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -997,6 +1188,25 @@ interface IAudioSessionEnumerator {
 /*** IAudioSessionEnumerator methods ***/
 #define IAudioSessionEnumerator_GetCount(This,SessionCount) (This)->lpVtbl->GetCount(This,SessionCount)
 #define IAudioSessionEnumerator_GetSession(This,SessionCount,Session) (This)->lpVtbl->GetSession(This,SessionCount,Session)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAudioSessionEnumerator_QueryInterface(IAudioSessionEnumerator* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAudioSessionEnumerator_AddRef(IAudioSessionEnumerator* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAudioSessionEnumerator_Release(IAudioSessionEnumerator* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAudioSessionEnumerator methods ***/
+static FORCEINLINE HRESULT IAudioSessionEnumerator_GetCount(IAudioSessionEnumerator* This,INT *SessionCount) {
+    return This->lpVtbl->GetCount(This,SessionCount);
+}
+static FORCEINLINE HRESULT IAudioSessionEnumerator_GetSession(IAudioSessionEnumerator* This,INT SessionCount,IAudioSessionControl **Session) {
+    return This->lpVtbl->GetSession(This,SessionCount,Session);
+}
+#endif
 #endif
 
 #endif
@@ -1110,6 +1320,7 @@ interface IAudioSessionManager2 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IAudioSessionManager2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IAudioSessionManager2_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1123,6 +1334,41 @@ interface IAudioSessionManager2 {
 #define IAudioSessionManager2_UnregisterSessionNotification(This,SessionNotification) (This)->lpVtbl->UnregisterSessionNotification(This,SessionNotification)
 #define IAudioSessionManager2_RegisterDuckNotification(This,sessionID,duckNotification) (This)->lpVtbl->RegisterDuckNotification(This,sessionID,duckNotification)
 #define IAudioSessionManager2_UnregisterDuckNotification(This,duckNotification) (This)->lpVtbl->UnregisterDuckNotification(This,duckNotification)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAudioSessionManager2_QueryInterface(IAudioSessionManager2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAudioSessionManager2_AddRef(IAudioSessionManager2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAudioSessionManager2_Release(IAudioSessionManager2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAudioSessionManager methods ***/
+static FORCEINLINE HRESULT IAudioSessionManager2_GetAudioSessionControl(IAudioSessionManager2* This,LPCGUID AudioSessionGuid,DWORD StreamFlags,IAudioSessionControl **SessionControl) {
+    return This->lpVtbl->GetAudioSessionControl(This,AudioSessionGuid,StreamFlags,SessionControl);
+}
+static FORCEINLINE HRESULT IAudioSessionManager2_GetSimpleAudioVolume(IAudioSessionManager2* This,LPCGUID AudioSessionGuid,DWORD StreamFlags,ISimpleAudioVolume **AudioVolume) {
+    return This->lpVtbl->GetSimpleAudioVolume(This,AudioSessionGuid,StreamFlags,AudioVolume);
+}
+/*** IAudioSessionManager2 methods ***/
+static FORCEINLINE HRESULT IAudioSessionManager2_GetSessionEnumerator(IAudioSessionManager2* This,IAudioSessionEnumerator **SessionEnum) {
+    return This->lpVtbl->GetSessionEnumerator(This,SessionEnum);
+}
+static FORCEINLINE HRESULT IAudioSessionManager2_RegisterSessionNotification(IAudioSessionManager2* This,IAudioSessionNotification *SessionNotification) {
+    return This->lpVtbl->RegisterSessionNotification(This,SessionNotification);
+}
+static FORCEINLINE HRESULT IAudioSessionManager2_UnregisterSessionNotification(IAudioSessionManager2* This,IAudioSessionNotification *SessionNotification) {
+    return This->lpVtbl->UnregisterSessionNotification(This,SessionNotification);
+}
+static FORCEINLINE HRESULT IAudioSessionManager2_RegisterDuckNotification(IAudioSessionManager2* This,LPCWSTR sessionID,IAudioVolumeDuckNotification *duckNotification) {
+    return This->lpVtbl->RegisterDuckNotification(This,sessionID,duckNotification);
+}
+static FORCEINLINE HRESULT IAudioSessionManager2_UnregisterDuckNotification(IAudioSessionManager2* This,IAudioVolumeDuckNotification *duckNotification) {
+    return This->lpVtbl->UnregisterDuckNotification(This,duckNotification);
+}
+#endif
 #endif
 
 #endif

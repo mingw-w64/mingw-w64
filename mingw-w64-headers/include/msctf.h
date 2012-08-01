@@ -509,6 +509,7 @@ interface ITfThreadMgr {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfThreadMgr_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfThreadMgr_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -525,6 +526,52 @@ interface ITfThreadMgr {
 #define ITfThreadMgr_GetFunctionProvider(This,clsid,ppFuncProv) (This)->lpVtbl->GetFunctionProvider(This,clsid,ppFuncProv)
 #define ITfThreadMgr_EnumFunctionProviders(This,ppEnum) (This)->lpVtbl->EnumFunctionProviders(This,ppEnum)
 #define ITfThreadMgr_GetGlobalCompartment(This,ppCompMgr) (This)->lpVtbl->GetGlobalCompartment(This,ppCompMgr)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfThreadMgr_QueryInterface(ITfThreadMgr* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfThreadMgr_AddRef(ITfThreadMgr* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfThreadMgr_Release(ITfThreadMgr* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfThreadMgr methods ***/
+static FORCEINLINE HRESULT ITfThreadMgr_Activate(ITfThreadMgr* This,TfClientId *ptid) {
+    return This->lpVtbl->Activate(This,ptid);
+}
+static FORCEINLINE HRESULT ITfThreadMgr_Deactivate(ITfThreadMgr* This) {
+    return This->lpVtbl->Deactivate(This);
+}
+static FORCEINLINE HRESULT ITfThreadMgr_CreateDocumentMgr(ITfThreadMgr* This,ITfDocumentMgr **ppdim) {
+    return This->lpVtbl->CreateDocumentMgr(This,ppdim);
+}
+static FORCEINLINE HRESULT ITfThreadMgr_EnumDocumentMgrs(ITfThreadMgr* This,IEnumTfDocumentMgrs **ppEnum) {
+    return This->lpVtbl->EnumDocumentMgrs(This,ppEnum);
+}
+static FORCEINLINE HRESULT ITfThreadMgr_GetFocus(ITfThreadMgr* This,ITfDocumentMgr **ppdimFocus) {
+    return This->lpVtbl->GetFocus(This,ppdimFocus);
+}
+static FORCEINLINE HRESULT ITfThreadMgr_SetFocus(ITfThreadMgr* This,ITfDocumentMgr *pdimFocus) {
+    return This->lpVtbl->SetFocus(This,pdimFocus);
+}
+static FORCEINLINE HRESULT ITfThreadMgr_AssociateFocus(ITfThreadMgr* This,HWND hwnd,ITfDocumentMgr *pdimNew,ITfDocumentMgr **ppdimPrev) {
+    return This->lpVtbl->AssociateFocus(This,hwnd,pdimNew,ppdimPrev);
+}
+static FORCEINLINE HRESULT ITfThreadMgr_IsThreadFocus(ITfThreadMgr* This,WINBOOL *pfThreadFocus) {
+    return This->lpVtbl->IsThreadFocus(This,pfThreadFocus);
+}
+static FORCEINLINE HRESULT ITfThreadMgr_GetFunctionProvider(ITfThreadMgr* This,REFCLSID clsid,ITfFunctionProvider **ppFuncProv) {
+    return This->lpVtbl->GetFunctionProvider(This,clsid,ppFuncProv);
+}
+static FORCEINLINE HRESULT ITfThreadMgr_EnumFunctionProviders(ITfThreadMgr* This,IEnumTfFunctionProviders **ppEnum) {
+    return This->lpVtbl->EnumFunctionProviders(This,ppEnum);
+}
+static FORCEINLINE HRESULT ITfThreadMgr_GetGlobalCompartment(ITfThreadMgr* This,ITfCompartmentMgr **ppCompMgr) {
+    return This->lpVtbl->GetGlobalCompartment(This,ppCompMgr);
+}
+#endif
 #endif
 
 #endif
@@ -675,6 +722,7 @@ interface ITfCompositionView {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfCompositionView_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfCompositionView_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -682,6 +730,25 @@ interface ITfCompositionView {
 /*** ITfCompositionView methods ***/
 #define ITfCompositionView_GetOwnerClsid(This,pclsid) (This)->lpVtbl->GetOwnerClsid(This,pclsid)
 #define ITfCompositionView_GetRange(This,ppRange) (This)->lpVtbl->GetRange(This,ppRange)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfCompositionView_QueryInterface(ITfCompositionView* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfCompositionView_AddRef(ITfCompositionView* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfCompositionView_Release(ITfCompositionView* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfCompositionView methods ***/
+static FORCEINLINE HRESULT ITfCompositionView_GetOwnerClsid(ITfCompositionView* This,CLSID *pclsid) {
+    return This->lpVtbl->GetOwnerClsid(This,pclsid);
+}
+static FORCEINLINE HRESULT ITfCompositionView_GetRange(ITfCompositionView* This,ITfRange **ppRange) {
+    return This->lpVtbl->GetRange(This,ppRange);
+}
+#endif
 #endif
 
 #endif
@@ -796,6 +863,7 @@ interface ITfDocumentMgr {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfDocumentMgr_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfDocumentMgr_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -807,6 +875,37 @@ interface ITfDocumentMgr {
 #define ITfDocumentMgr_GetTop(This,ppic) (This)->lpVtbl->GetTop(This,ppic)
 #define ITfDocumentMgr_GetBase(This,ppic) (This)->lpVtbl->GetBase(This,ppic)
 #define ITfDocumentMgr_EnumContexts(This,ppEnum) (This)->lpVtbl->EnumContexts(This,ppEnum)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfDocumentMgr_QueryInterface(ITfDocumentMgr* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfDocumentMgr_AddRef(ITfDocumentMgr* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfDocumentMgr_Release(ITfDocumentMgr* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfDocumentMgr methods ***/
+static FORCEINLINE HRESULT ITfDocumentMgr_CreateContext(ITfDocumentMgr* This,TfClientId tidOwner,DWORD dwFlags,IUnknown *punk,ITfContext **ppic,TfEditCookie *pecTextStore) {
+    return This->lpVtbl->CreateContext(This,tidOwner,dwFlags,punk,ppic,pecTextStore);
+}
+static FORCEINLINE HRESULT ITfDocumentMgr_Push(ITfDocumentMgr* This,ITfContext *pic) {
+    return This->lpVtbl->Push(This,pic);
+}
+static FORCEINLINE HRESULT ITfDocumentMgr_Pop(ITfDocumentMgr* This,DWORD dwFlags) {
+    return This->lpVtbl->Pop(This,dwFlags);
+}
+static FORCEINLINE HRESULT ITfDocumentMgr_GetTop(ITfDocumentMgr* This,ITfContext **ppic) {
+    return This->lpVtbl->GetTop(This,ppic);
+}
+static FORCEINLINE HRESULT ITfDocumentMgr_GetBase(ITfDocumentMgr* This,ITfContext **ppic) {
+    return This->lpVtbl->GetBase(This,ppic);
+}
+static FORCEINLINE HRESULT ITfDocumentMgr_EnumContexts(ITfDocumentMgr* This,IEnumTfContexts **ppEnum) {
+    return This->lpVtbl->EnumContexts(This,ppEnum);
+}
+#endif
 #endif
 
 #endif
@@ -1086,6 +1185,7 @@ interface ITfContext {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfContext_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfContext_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1106,6 +1206,64 @@ interface ITfContext {
 #define ITfContext_EnumProperties(This,ppEnum) (This)->lpVtbl->EnumProperties(This,ppEnum)
 #define ITfContext_GetDocumentMgr(This,ppDm) (This)->lpVtbl->GetDocumentMgr(This,ppDm)
 #define ITfContext_CreateRangeBackup(This,ec,pRange,ppBackup) (This)->lpVtbl->CreateRangeBackup(This,ec,pRange,ppBackup)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfContext_QueryInterface(ITfContext* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfContext_AddRef(ITfContext* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfContext_Release(ITfContext* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfContext methods ***/
+static FORCEINLINE HRESULT ITfContext_RequestEditSession(ITfContext* This,TfClientId tid,ITfEditSession *pes,DWORD dwFlags,HRESULT *phrSession) {
+    return This->lpVtbl->RequestEditSession(This,tid,pes,dwFlags,phrSession);
+}
+static FORCEINLINE HRESULT ITfContext_InWriteSession(ITfContext* This,TfClientId tid,WINBOOL *pfWriteSession) {
+    return This->lpVtbl->InWriteSession(This,tid,pfWriteSession);
+}
+static FORCEINLINE HRESULT ITfContext_GetSelection(ITfContext* This,TfEditCookie ec,ULONG ulIndex,ULONG ulCount,TF_SELECTION *pSelection,ULONG *pcFetched) {
+    return This->lpVtbl->GetSelection(This,ec,ulIndex,ulCount,pSelection,pcFetched);
+}
+static FORCEINLINE HRESULT ITfContext_SetSelection(ITfContext* This,TfEditCookie ec,ULONG ulCount,const TF_SELECTION *pSelection) {
+    return This->lpVtbl->SetSelection(This,ec,ulCount,pSelection);
+}
+static FORCEINLINE HRESULT ITfContext_GetStart(ITfContext* This,TfEditCookie ec,ITfRange **ppStart) {
+    return This->lpVtbl->GetStart(This,ec,ppStart);
+}
+static FORCEINLINE HRESULT ITfContext_GetEnd(ITfContext* This,TfEditCookie ec,ITfRange **ppEnd) {
+    return This->lpVtbl->GetEnd(This,ec,ppEnd);
+}
+static FORCEINLINE HRESULT ITfContext_GetActiveView(ITfContext* This,ITfContextView **ppView) {
+    return This->lpVtbl->GetActiveView(This,ppView);
+}
+static FORCEINLINE HRESULT ITfContext_EnumViews(ITfContext* This,IEnumTfContextViews **ppEnum) {
+    return This->lpVtbl->EnumViews(This,ppEnum);
+}
+static FORCEINLINE HRESULT ITfContext_GetStatus(ITfContext* This,TF_STATUS *pdcs) {
+    return This->lpVtbl->GetStatus(This,pdcs);
+}
+static FORCEINLINE HRESULT ITfContext_GetProperty(ITfContext* This,REFGUID guidProp,ITfProperty **ppProp) {
+    return This->lpVtbl->GetProperty(This,guidProp,ppProp);
+}
+static FORCEINLINE HRESULT ITfContext_GetAppProperty(ITfContext* This,REFGUID guidProp,ITfReadOnlyProperty **ppProp) {
+    return This->lpVtbl->GetAppProperty(This,guidProp,ppProp);
+}
+static FORCEINLINE HRESULT ITfContext_TrackProperties(ITfContext* This,const GUID **prgProp,ULONG cProp,const GUID **prgAppProp,ULONG cAppProp,ITfReadOnlyProperty **ppProperty) {
+    return This->lpVtbl->TrackProperties(This,prgProp,cProp,prgAppProp,cAppProp,ppProperty);
+}
+static FORCEINLINE HRESULT ITfContext_EnumProperties(ITfContext* This,IEnumTfProperties **ppEnum) {
+    return This->lpVtbl->EnumProperties(This,ppEnum);
+}
+static FORCEINLINE HRESULT ITfContext_GetDocumentMgr(ITfContext* This,ITfDocumentMgr **ppDm) {
+    return This->lpVtbl->GetDocumentMgr(This,ppDm);
+}
+static FORCEINLINE HRESULT ITfContext_CreateRangeBackup(ITfContext* This,TfEditCookie ec,ITfRange *pRange,ITfRangeBackup **ppBackup) {
+    return This->lpVtbl->CreateRangeBackup(This,ec,pRange,ppBackup);
+}
+#endif
 #endif
 
 #endif
@@ -1310,6 +1468,7 @@ interface ITfSource {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfSource_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfSource_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1317,6 +1476,25 @@ interface ITfSource {
 /*** ITfSource methods ***/
 #define ITfSource_AdviseSink(This,riid,punk,pdwCookie) (This)->lpVtbl->AdviseSink(This,riid,punk,pdwCookie)
 #define ITfSource_UnadviseSink(This,dwCookie) (This)->lpVtbl->UnadviseSink(This,dwCookie)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfSource_QueryInterface(ITfSource* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfSource_AddRef(ITfSource* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfSource_Release(ITfSource* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfSource methods ***/
+static FORCEINLINE HRESULT ITfSource_AdviseSink(ITfSource* This,REFIID riid,IUnknown *punk,DWORD *pdwCookie) {
+    return This->lpVtbl->AdviseSink(This,riid,punk,pdwCookie);
+}
+static FORCEINLINE HRESULT ITfSource_UnadviseSink(ITfSource* This,DWORD dwCookie) {
+    return This->lpVtbl->UnadviseSink(This,dwCookie);
+}
+#endif
 #endif
 
 #endif
@@ -1577,6 +1755,7 @@ interface ITfInputProcessorProfiles {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfInputProcessorProfiles_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfInputProcessorProfiles_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1600,6 +1779,73 @@ interface ITfInputProcessorProfiles {
 #define ITfInputProcessorProfiles_IsEnabledLanguageProfile(This,rclsid,langid,guidProfile,pfEnable) (This)->lpVtbl->IsEnabledLanguageProfile(This,rclsid,langid,guidProfile,pfEnable)
 #define ITfInputProcessorProfiles_EnableLanguageProfileByDefault(This,rclsid,langid,guidProfile,fEnable) (This)->lpVtbl->EnableLanguageProfileByDefault(This,rclsid,langid,guidProfile,fEnable)
 #define ITfInputProcessorProfiles_SubstituteKeyboardLayout(This,rclsid,langid,guidProfile,hKL) (This)->lpVtbl->SubstituteKeyboardLayout(This,rclsid,langid,guidProfile,hKL)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfInputProcessorProfiles_QueryInterface(ITfInputProcessorProfiles* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfInputProcessorProfiles_AddRef(ITfInputProcessorProfiles* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfInputProcessorProfiles_Release(ITfInputProcessorProfiles* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfInputProcessorProfiles methods ***/
+static FORCEINLINE HRESULT ITfInputProcessorProfiles_Register(ITfInputProcessorProfiles* This,REFCLSID rclsid) {
+    return This->lpVtbl->Register(This,rclsid);
+}
+static FORCEINLINE HRESULT ITfInputProcessorProfiles_Unregister(ITfInputProcessorProfiles* This,REFCLSID rclsid) {
+    return This->lpVtbl->Unregister(This,rclsid);
+}
+static FORCEINLINE HRESULT ITfInputProcessorProfiles_AddLanguageProfile(ITfInputProcessorProfiles* This,REFCLSID rclsid,LANGID langid,REFGUID guidProfile,const WCHAR *pchDesc,ULONG cchDesc,const WCHAR *pchIconFile,ULONG cchFile,ULONG uIconIndex) {
+    return This->lpVtbl->AddLanguageProfile(This,rclsid,langid,guidProfile,pchDesc,cchDesc,pchIconFile,cchFile,uIconIndex);
+}
+static FORCEINLINE HRESULT ITfInputProcessorProfiles_RemoveLanguageProfile(ITfInputProcessorProfiles* This,REFCLSID rclsid,LANGID langid,REFGUID guidProfile) {
+    return This->lpVtbl->RemoveLanguageProfile(This,rclsid,langid,guidProfile);
+}
+static FORCEINLINE HRESULT ITfInputProcessorProfiles_EnumInputProcessorInfo(ITfInputProcessorProfiles* This,IEnumGUID **ppEnum) {
+    return This->lpVtbl->EnumInputProcessorInfo(This,ppEnum);
+}
+static FORCEINLINE HRESULT ITfInputProcessorProfiles_GetDefaultLanguageProfile(ITfInputProcessorProfiles* This,LANGID langid,REFGUID catid,CLSID *pclsid,GUID *pguidProfile) {
+    return This->lpVtbl->GetDefaultLanguageProfile(This,langid,catid,pclsid,pguidProfile);
+}
+static FORCEINLINE HRESULT ITfInputProcessorProfiles_SetDefaultLanguageProfile(ITfInputProcessorProfiles* This,LANGID langid,REFCLSID rclsid,REFGUID guidProfiles) {
+    return This->lpVtbl->SetDefaultLanguageProfile(This,langid,rclsid,guidProfiles);
+}
+static FORCEINLINE HRESULT ITfInputProcessorProfiles_ActivateLanguageProfile(ITfInputProcessorProfiles* This,REFCLSID rclsid,LANGID langid,REFGUID guidProfiles) {
+    return This->lpVtbl->ActivateLanguageProfile(This,rclsid,langid,guidProfiles);
+}
+static FORCEINLINE HRESULT ITfInputProcessorProfiles_GetActiveLanguageProfile(ITfInputProcessorProfiles* This,REFCLSID rclsid,LANGID *plangid,GUID *pguidProfile) {
+    return This->lpVtbl->GetActiveLanguageProfile(This,rclsid,plangid,pguidProfile);
+}
+static FORCEINLINE HRESULT ITfInputProcessorProfiles_GetLanguageProfileDescription(ITfInputProcessorProfiles* This,REFCLSID rclsid,LANGID langid,REFGUID guidProfile,BSTR *pbstrProfile) {
+    return This->lpVtbl->GetLanguageProfileDescription(This,rclsid,langid,guidProfile,pbstrProfile);
+}
+static FORCEINLINE HRESULT ITfInputProcessorProfiles_GetCurrentLanguage(ITfInputProcessorProfiles* This,LANGID *plangid) {
+    return This->lpVtbl->GetCurrentLanguage(This,plangid);
+}
+static FORCEINLINE HRESULT ITfInputProcessorProfiles_ChangeCurrentLanguage(ITfInputProcessorProfiles* This,LANGID langid) {
+    return This->lpVtbl->ChangeCurrentLanguage(This,langid);
+}
+static FORCEINLINE HRESULT ITfInputProcessorProfiles_GetLanguageList(ITfInputProcessorProfiles* This,LANGID **ppLangId,ULONG *pulCount) {
+    return This->lpVtbl->GetLanguageList(This,ppLangId,pulCount);
+}
+static FORCEINLINE HRESULT ITfInputProcessorProfiles_EnumLanguageProfiles(ITfInputProcessorProfiles* This,LANGID langid,IEnumTfLanguageProfiles **ppEnum) {
+    return This->lpVtbl->EnumLanguageProfiles(This,langid,ppEnum);
+}
+static FORCEINLINE HRESULT ITfInputProcessorProfiles_EnableLanguageProfile(ITfInputProcessorProfiles* This,REFCLSID rclsid,LANGID langid,REFGUID guidProfile,WINBOOL fEnable) {
+    return This->lpVtbl->EnableLanguageProfile(This,rclsid,langid,guidProfile,fEnable);
+}
+static FORCEINLINE HRESULT ITfInputProcessorProfiles_IsEnabledLanguageProfile(ITfInputProcessorProfiles* This,REFCLSID rclsid,LANGID langid,REFGUID guidProfile,WINBOOL *pfEnable) {
+    return This->lpVtbl->IsEnabledLanguageProfile(This,rclsid,langid,guidProfile,pfEnable);
+}
+static FORCEINLINE HRESULT ITfInputProcessorProfiles_EnableLanguageProfileByDefault(ITfInputProcessorProfiles* This,REFCLSID rclsid,LANGID langid,REFGUID guidProfile,WINBOOL fEnable) {
+    return This->lpVtbl->EnableLanguageProfileByDefault(This,rclsid,langid,guidProfile,fEnable);
+}
+static FORCEINLINE HRESULT ITfInputProcessorProfiles_SubstituteKeyboardLayout(ITfInputProcessorProfiles* This,REFCLSID rclsid,LANGID langid,REFGUID guidProfile,HKL hKL) {
+    return This->lpVtbl->SubstituteKeyboardLayout(This,rclsid,langid,guidProfile,hKL);
+}
+#endif
 #endif
 
 #endif
@@ -1895,6 +2141,7 @@ interface ITfDisplayAttributeInfo {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfDisplayAttributeInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfDisplayAttributeInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1905,6 +2152,34 @@ interface ITfDisplayAttributeInfo {
 #define ITfDisplayAttributeInfo_GetAttributeInfo(This,pda) (This)->lpVtbl->GetAttributeInfo(This,pda)
 #define ITfDisplayAttributeInfo_SetAttributeInfo(This,pda) (This)->lpVtbl->SetAttributeInfo(This,pda)
 #define ITfDisplayAttributeInfo_Reset(This) (This)->lpVtbl->Reset(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfDisplayAttributeInfo_QueryInterface(ITfDisplayAttributeInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfDisplayAttributeInfo_AddRef(ITfDisplayAttributeInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfDisplayAttributeInfo_Release(ITfDisplayAttributeInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfDisplayAttributeInfo methods ***/
+static FORCEINLINE HRESULT ITfDisplayAttributeInfo_GetGUID(ITfDisplayAttributeInfo* This,GUID *pguid) {
+    return This->lpVtbl->GetGUID(This,pguid);
+}
+static FORCEINLINE HRESULT ITfDisplayAttributeInfo_GetDescription(ITfDisplayAttributeInfo* This,BSTR *pbstrDesc) {
+    return This->lpVtbl->GetDescription(This,pbstrDesc);
+}
+static FORCEINLINE HRESULT ITfDisplayAttributeInfo_GetAttributeInfo(ITfDisplayAttributeInfo* This,TF_DISPLAYATTRIBUTE *pda) {
+    return This->lpVtbl->GetAttributeInfo(This,pda);
+}
+static FORCEINLINE HRESULT ITfDisplayAttributeInfo_SetAttributeInfo(ITfDisplayAttributeInfo* This,const TF_DISPLAYATTRIBUTE *pda) {
+    return This->lpVtbl->SetAttributeInfo(This,pda);
+}
+static FORCEINLINE HRESULT ITfDisplayAttributeInfo_Reset(ITfDisplayAttributeInfo* This) {
+    return This->lpVtbl->Reset(This);
+}
+#endif
 #endif
 
 #endif
@@ -2021,6 +2296,7 @@ interface IEnumTfDisplayAttributeInfo {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IEnumTfDisplayAttributeInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumTfDisplayAttributeInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2030,6 +2306,31 @@ interface IEnumTfDisplayAttributeInfo {
 #define IEnumTfDisplayAttributeInfo_Next(This,ulCount,rgInfo,pcFetched) (This)->lpVtbl->Next(This,ulCount,rgInfo,pcFetched)
 #define IEnumTfDisplayAttributeInfo_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumTfDisplayAttributeInfo_Skip(This,ulCount) (This)->lpVtbl->Skip(This,ulCount)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IEnumTfDisplayAttributeInfo_QueryInterface(IEnumTfDisplayAttributeInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IEnumTfDisplayAttributeInfo_AddRef(IEnumTfDisplayAttributeInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IEnumTfDisplayAttributeInfo_Release(IEnumTfDisplayAttributeInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IEnumTfDisplayAttributeInfo methods ***/
+static FORCEINLINE HRESULT IEnumTfDisplayAttributeInfo_Clone(IEnumTfDisplayAttributeInfo* This,IEnumTfDisplayAttributeInfo **ppEnum) {
+    return This->lpVtbl->Clone(This,ppEnum);
+}
+static FORCEINLINE HRESULT IEnumTfDisplayAttributeInfo_Next(IEnumTfDisplayAttributeInfo* This,ULONG ulCount,ITfDisplayAttributeInfo **rgInfo,ULONG *pcFetched) {
+    return This->lpVtbl->Next(This,ulCount,rgInfo,pcFetched);
+}
+static FORCEINLINE HRESULT IEnumTfDisplayAttributeInfo_Reset(IEnumTfDisplayAttributeInfo* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IEnumTfDisplayAttributeInfo_Skip(IEnumTfDisplayAttributeInfo* This,ULONG ulCount) {
+    return This->lpVtbl->Skip(This,ulCount);
+}
+#endif
 #endif
 
 #endif
@@ -2133,6 +2434,7 @@ interface ITfDisplayAttributeMgr {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfDisplayAttributeMgr_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfDisplayAttributeMgr_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2141,6 +2443,28 @@ interface ITfDisplayAttributeMgr {
 #define ITfDisplayAttributeMgr_OnUpdateInfo(This) (This)->lpVtbl->OnUpdateInfo(This)
 #define ITfDisplayAttributeMgr_EnumDisplayAttributeInfo(This,ppEnum) (This)->lpVtbl->EnumDisplayAttributeInfo(This,ppEnum)
 #define ITfDisplayAttributeMgr_GetDisplayAttributeInfo(This,guid,ppInfo,pclsidOwner) (This)->lpVtbl->GetDisplayAttributeInfo(This,guid,ppInfo,pclsidOwner)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfDisplayAttributeMgr_QueryInterface(ITfDisplayAttributeMgr* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfDisplayAttributeMgr_AddRef(ITfDisplayAttributeMgr* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfDisplayAttributeMgr_Release(ITfDisplayAttributeMgr* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfDisplayAttributeMgr methods ***/
+static FORCEINLINE HRESULT ITfDisplayAttributeMgr_OnUpdateInfo(ITfDisplayAttributeMgr* This) {
+    return This->lpVtbl->OnUpdateInfo(This);
+}
+static FORCEINLINE HRESULT ITfDisplayAttributeMgr_EnumDisplayAttributeInfo(ITfDisplayAttributeMgr* This,IEnumTfDisplayAttributeInfo **ppEnum) {
+    return This->lpVtbl->EnumDisplayAttributeInfo(This,ppEnum);
+}
+static FORCEINLINE HRESULT ITfDisplayAttributeMgr_GetDisplayAttributeInfo(ITfDisplayAttributeMgr* This,REFGUID guid,ITfDisplayAttributeInfo **ppInfo,CLSID *pclsidOwner) {
+    return This->lpVtbl->GetDisplayAttributeInfo(This,guid,ppInfo,pclsidOwner);
+}
+#endif
 #endif
 
 #endif
@@ -2354,6 +2678,7 @@ interface ITfCategoryMgr {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfCategoryMgr_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfCategoryMgr_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2373,6 +2698,61 @@ interface ITfCategoryMgr {
 #define ITfCategoryMgr_RegisterGUID(This,rguid,pguidatom) (This)->lpVtbl->RegisterGUID(This,rguid,pguidatom)
 #define ITfCategoryMgr_GetGUID(This,guidatom,pguid) (This)->lpVtbl->GetGUID(This,guidatom,pguid)
 #define ITfCategoryMgr_IsEqualTfGuidAtom(This,guidatom,rguid,pfEqual) (This)->lpVtbl->IsEqualTfGuidAtom(This,guidatom,rguid,pfEqual)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfCategoryMgr_QueryInterface(ITfCategoryMgr* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfCategoryMgr_AddRef(ITfCategoryMgr* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfCategoryMgr_Release(ITfCategoryMgr* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfCategoryMgr methods ***/
+static FORCEINLINE HRESULT ITfCategoryMgr_RegisterCategory(ITfCategoryMgr* This,REFCLSID rclsid,REFGUID rcatid,REFGUID rguid) {
+    return This->lpVtbl->RegisterCategory(This,rclsid,rcatid,rguid);
+}
+static FORCEINLINE HRESULT ITfCategoryMgr_UnregisterCategory(ITfCategoryMgr* This,REFCLSID rclsid,REFGUID rcatid,REFGUID rguid) {
+    return This->lpVtbl->UnregisterCategory(This,rclsid,rcatid,rguid);
+}
+static FORCEINLINE HRESULT ITfCategoryMgr_EnumCategoriesInItem(ITfCategoryMgr* This,REFGUID rguid,IEnumGUID **ppEnum) {
+    return This->lpVtbl->EnumCategoriesInItem(This,rguid,ppEnum);
+}
+static FORCEINLINE HRESULT ITfCategoryMgr_EnumItemsInCategory(ITfCategoryMgr* This,REFGUID rcatid,IEnumGUID **ppEnum) {
+    return This->lpVtbl->EnumItemsInCategory(This,rcatid,ppEnum);
+}
+static FORCEINLINE HRESULT ITfCategoryMgr_FindClosestCategory(ITfCategoryMgr* This,REFGUID rguid,GUID *pcatid,const GUID **ppcatidList,ULONG ulCount) {
+    return This->lpVtbl->FindClosestCategory(This,rguid,pcatid,ppcatidList,ulCount);
+}
+static FORCEINLINE HRESULT ITfCategoryMgr_RegisterGUIDDescription(ITfCategoryMgr* This,REFCLSID rclsid,REFGUID rguid,const WCHAR *pchDesc,ULONG cch) {
+    return This->lpVtbl->RegisterGUIDDescription(This,rclsid,rguid,pchDesc,cch);
+}
+static FORCEINLINE HRESULT ITfCategoryMgr_UnregisterGUIDDescription(ITfCategoryMgr* This,REFCLSID rclsid,REFGUID rguid) {
+    return This->lpVtbl->UnregisterGUIDDescription(This,rclsid,rguid);
+}
+static FORCEINLINE HRESULT ITfCategoryMgr_GetGUIDDescription(ITfCategoryMgr* This,REFGUID rguid,BSTR *pbstrDesc) {
+    return This->lpVtbl->GetGUIDDescription(This,rguid,pbstrDesc);
+}
+static FORCEINLINE HRESULT ITfCategoryMgr_RegisterGUIDDWORD(ITfCategoryMgr* This,REFCLSID rclsid,REFGUID rguid,DWORD dw) {
+    return This->lpVtbl->RegisterGUIDDWORD(This,rclsid,rguid,dw);
+}
+static FORCEINLINE HRESULT ITfCategoryMgr_UnregisterGUIDDWORD(ITfCategoryMgr* This,REFCLSID rclsid,REFGUID rguid) {
+    return This->lpVtbl->UnregisterGUIDDWORD(This,rclsid,rguid);
+}
+static FORCEINLINE HRESULT ITfCategoryMgr_GetGUIDDWORD(ITfCategoryMgr* This,REFGUID rguid,DWORD *pdw) {
+    return This->lpVtbl->GetGUIDDWORD(This,rguid,pdw);
+}
+static FORCEINLINE HRESULT ITfCategoryMgr_RegisterGUID(ITfCategoryMgr* This,REFGUID rguid,TfGuidAtom *pguidatom) {
+    return This->lpVtbl->RegisterGUID(This,rguid,pguidatom);
+}
+static FORCEINLINE HRESULT ITfCategoryMgr_GetGUID(ITfCategoryMgr* This,TfGuidAtom guidatom,GUID *pguid) {
+    return This->lpVtbl->GetGUID(This,guidatom,pguid);
+}
+static FORCEINLINE HRESULT ITfCategoryMgr_IsEqualTfGuidAtom(ITfCategoryMgr* This,TfGuidAtom guidatom,REFGUID rguid,WINBOOL *pfEqual) {
+    return This->lpVtbl->IsEqualTfGuidAtom(This,guidatom,rguid,pfEqual);
+}
+#endif
 #endif
 
 #endif
@@ -2564,12 +2944,29 @@ interface ITfTextEditSink {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfTextEditSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfTextEditSink_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define ITfTextEditSink_Release(This) (This)->lpVtbl->Release(This)
 /*** ITfTextEditSink methods ***/
 #define ITfTextEditSink_OnEndEdit(This,pic,ecReadOnly,pEditRecord) (This)->lpVtbl->OnEndEdit(This,pic,ecReadOnly,pEditRecord)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfTextEditSink_QueryInterface(ITfTextEditSink* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfTextEditSink_AddRef(ITfTextEditSink* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfTextEditSink_Release(ITfTextEditSink* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfTextEditSink methods ***/
+static FORCEINLINE HRESULT ITfTextEditSink_OnEndEdit(ITfTextEditSink* This,ITfContext *pic,TfEditCookie ecReadOnly,ITfEditRecord *pEditRecord) {
+    return This->lpVtbl->OnEndEdit(This,pic,ecReadOnly,pEditRecord);
+}
+#endif
 #endif
 
 #endif
@@ -2651,6 +3048,7 @@ interface ITfContextOwnerCompositionSink {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfContextOwnerCompositionSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfContextOwnerCompositionSink_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2659,6 +3057,28 @@ interface ITfContextOwnerCompositionSink {
 #define ITfContextOwnerCompositionSink_OnStartComposition(This,pComposition,pfOk) (This)->lpVtbl->OnStartComposition(This,pComposition,pfOk)
 #define ITfContextOwnerCompositionSink_OnUpdateComposition(This,pComposition,pRangeNew) (This)->lpVtbl->OnUpdateComposition(This,pComposition,pRangeNew)
 #define ITfContextOwnerCompositionSink_OnEndComposition(This,pComposition) (This)->lpVtbl->OnEndComposition(This,pComposition)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfContextOwnerCompositionSink_QueryInterface(ITfContextOwnerCompositionSink* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfContextOwnerCompositionSink_AddRef(ITfContextOwnerCompositionSink* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfContextOwnerCompositionSink_Release(ITfContextOwnerCompositionSink* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfContextOwnerCompositionSink methods ***/
+static FORCEINLINE HRESULT ITfContextOwnerCompositionSink_OnStartComposition(ITfContextOwnerCompositionSink* This,ITfCompositionView *pComposition,WINBOOL *pfOk) {
+    return This->lpVtbl->OnStartComposition(This,pComposition,pfOk);
+}
+static FORCEINLINE HRESULT ITfContextOwnerCompositionSink_OnUpdateComposition(ITfContextOwnerCompositionSink* This,ITfCompositionView *pComposition,ITfRange *pRangeNew) {
+    return This->lpVtbl->OnUpdateComposition(This,pComposition,pRangeNew);
+}
+static FORCEINLINE HRESULT ITfContextOwnerCompositionSink_OnEndComposition(ITfContextOwnerCompositionSink* This,ITfCompositionView *pComposition) {
+    return This->lpVtbl->OnEndComposition(This,pComposition);
+}
+#endif
 #endif
 
 #endif
@@ -2762,6 +3182,7 @@ interface IEnumTfLanguageProfiles {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IEnumTfLanguageProfiles_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumTfLanguageProfiles_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2771,6 +3192,31 @@ interface IEnumTfLanguageProfiles {
 #define IEnumTfLanguageProfiles_Next(This,ulCount,pProfile,pcFetch) (This)->lpVtbl->Next(This,ulCount,pProfile,pcFetch)
 #define IEnumTfLanguageProfiles_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumTfLanguageProfiles_Skip(This,ulCount) (This)->lpVtbl->Skip(This,ulCount)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IEnumTfLanguageProfiles_QueryInterface(IEnumTfLanguageProfiles* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IEnumTfLanguageProfiles_AddRef(IEnumTfLanguageProfiles* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IEnumTfLanguageProfiles_Release(IEnumTfLanguageProfiles* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IEnumTfLanguageProfiles methods ***/
+static FORCEINLINE HRESULT IEnumTfLanguageProfiles_Clone(IEnumTfLanguageProfiles* This,IEnumTfLanguageProfiles **ppEnum) {
+    return This->lpVtbl->Clone(This,ppEnum);
+}
+static FORCEINLINE HRESULT IEnumTfLanguageProfiles_Next(IEnumTfLanguageProfiles* This,ULONG ulCount,TF_LANGUAGEPROFILE *pProfile,ULONG *pcFetch) {
+    return This->lpVtbl->Next(This,ulCount,pProfile,pcFetch);
+}
+static FORCEINLINE HRESULT IEnumTfLanguageProfiles_Reset(IEnumTfLanguageProfiles* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IEnumTfLanguageProfiles_Skip(IEnumTfLanguageProfiles* This,ULONG ulCount) {
+    return This->lpVtbl->Skip(This,ulCount);
+}
+#endif
 #endif
 
 #endif
@@ -2865,6 +3311,7 @@ interface ITfTextInputProcessor {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfTextInputProcessor_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfTextInputProcessor_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2872,6 +3319,25 @@ interface ITfTextInputProcessor {
 /*** ITfTextInputProcessor methods ***/
 #define ITfTextInputProcessor_Activate(This,ptim,tid) (This)->lpVtbl->Activate(This,ptim,tid)
 #define ITfTextInputProcessor_Deactivate(This) (This)->lpVtbl->Deactivate(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfTextInputProcessor_QueryInterface(ITfTextInputProcessor* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfTextInputProcessor_AddRef(ITfTextInputProcessor* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfTextInputProcessor_Release(ITfTextInputProcessor* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfTextInputProcessor methods ***/
+static FORCEINLINE HRESULT ITfTextInputProcessor_Activate(ITfTextInputProcessor* This,ITfThreadMgr *ptim,TfClientId tid) {
+    return This->lpVtbl->Activate(This,ptim,tid);
+}
+static FORCEINLINE HRESULT ITfTextInputProcessor_Deactivate(ITfTextInputProcessor* This) {
+    return This->lpVtbl->Deactivate(This);
+}
+#endif
 #endif
 
 #endif
@@ -2971,6 +3437,7 @@ interface ITfThreadMgrEventSink {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfThreadMgrEventSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfThreadMgrEventSink_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2981,6 +3448,34 @@ interface ITfThreadMgrEventSink {
 #define ITfThreadMgrEventSink_OnSetFocus(This,pdimFocus,pdimPrevFocus) (This)->lpVtbl->OnSetFocus(This,pdimFocus,pdimPrevFocus)
 #define ITfThreadMgrEventSink_OnPushContext(This,pic) (This)->lpVtbl->OnPushContext(This,pic)
 #define ITfThreadMgrEventSink_OnPopContext(This,pic) (This)->lpVtbl->OnPopContext(This,pic)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfThreadMgrEventSink_QueryInterface(ITfThreadMgrEventSink* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfThreadMgrEventSink_AddRef(ITfThreadMgrEventSink* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfThreadMgrEventSink_Release(ITfThreadMgrEventSink* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfThreadMgrEventSink methods ***/
+static FORCEINLINE HRESULT ITfThreadMgrEventSink_OnInitDocumentMgr(ITfThreadMgrEventSink* This,ITfDocumentMgr *pdim) {
+    return This->lpVtbl->OnInitDocumentMgr(This,pdim);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEventSink_OnUninitDocumentMgr(ITfThreadMgrEventSink* This,ITfDocumentMgr *pdim) {
+    return This->lpVtbl->OnUninitDocumentMgr(This,pdim);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEventSink_OnSetFocus(ITfThreadMgrEventSink* This,ITfDocumentMgr *pdimFocus,ITfDocumentMgr *pdimPrevFocus) {
+    return This->lpVtbl->OnSetFocus(This,pdimFocus,pdimPrevFocus);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEventSink_OnPushContext(ITfThreadMgrEventSink* This,ITfContext *pic) {
+    return This->lpVtbl->OnPushContext(This,pic);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEventSink_OnPopContext(ITfThreadMgrEventSink* This,ITfContext *pic) {
+    return This->lpVtbl->OnPopContext(This,pic);
+}
+#endif
 #endif
 
 #endif
@@ -3214,6 +3709,7 @@ interface ITfKeystrokeMgr {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfKeystrokeMgr_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfKeystrokeMgr_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -3233,6 +3729,61 @@ interface ITfKeystrokeMgr {
 #define ITfKeystrokeMgr_SetPreservedKeyDescription(This,rguid,pchDesc,cchDesc) (This)->lpVtbl->SetPreservedKeyDescription(This,rguid,pchDesc,cchDesc)
 #define ITfKeystrokeMgr_GetPreservedKeyDescription(This,rguid,pbstrDesc) (This)->lpVtbl->GetPreservedKeyDescription(This,rguid,pbstrDesc)
 #define ITfKeystrokeMgr_SimulatePreservedKey(This,pic,rguid,pfEaten) (This)->lpVtbl->SimulatePreservedKey(This,pic,rguid,pfEaten)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfKeystrokeMgr_QueryInterface(ITfKeystrokeMgr* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfKeystrokeMgr_AddRef(ITfKeystrokeMgr* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfKeystrokeMgr_Release(ITfKeystrokeMgr* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfKeystrokeMgr methods ***/
+static FORCEINLINE HRESULT ITfKeystrokeMgr_AdviseKeyEventSink(ITfKeystrokeMgr* This,TfClientId tid,ITfKeyEventSink *pSink,WINBOOL fForeground) {
+    return This->lpVtbl->AdviseKeyEventSink(This,tid,pSink,fForeground);
+}
+static FORCEINLINE HRESULT ITfKeystrokeMgr_UnadviseKeyEventSink(ITfKeystrokeMgr* This,TfClientId tid) {
+    return This->lpVtbl->UnadviseKeyEventSink(This,tid);
+}
+static FORCEINLINE HRESULT ITfKeystrokeMgr_GetForeground(ITfKeystrokeMgr* This,CLSID *pclsid) {
+    return This->lpVtbl->GetForeground(This,pclsid);
+}
+static FORCEINLINE HRESULT ITfKeystrokeMgr_TestKeyDown(ITfKeystrokeMgr* This,WPARAM wParam,LPARAM lParam,WINBOOL *pfEaten) {
+    return This->lpVtbl->TestKeyDown(This,wParam,lParam,pfEaten);
+}
+static FORCEINLINE HRESULT ITfKeystrokeMgr_TestKeyUp(ITfKeystrokeMgr* This,WPARAM wParam,LPARAM lParam,WINBOOL *pfEaten) {
+    return This->lpVtbl->TestKeyUp(This,wParam,lParam,pfEaten);
+}
+static FORCEINLINE HRESULT ITfKeystrokeMgr_KeyDown(ITfKeystrokeMgr* This,WPARAM wParam,LPARAM lParam,WINBOOL *pfEaten) {
+    return This->lpVtbl->KeyDown(This,wParam,lParam,pfEaten);
+}
+static FORCEINLINE HRESULT ITfKeystrokeMgr_KeyUp(ITfKeystrokeMgr* This,WPARAM wParam,LPARAM lParam,WINBOOL *pfEaten) {
+    return This->lpVtbl->KeyUp(This,wParam,lParam,pfEaten);
+}
+static FORCEINLINE HRESULT ITfKeystrokeMgr_GetPreservedKey(ITfKeystrokeMgr* This,ITfContext *pic,const TF_PRESERVEDKEY *pprekey,GUID *pguid) {
+    return This->lpVtbl->GetPreservedKey(This,pic,pprekey,pguid);
+}
+static FORCEINLINE HRESULT ITfKeystrokeMgr_IsPreservedKey(ITfKeystrokeMgr* This,REFGUID rguid,const TF_PRESERVEDKEY *pprekey,WINBOOL *pfRegistered) {
+    return This->lpVtbl->IsPreservedKey(This,rguid,pprekey,pfRegistered);
+}
+static FORCEINLINE HRESULT ITfKeystrokeMgr_PreserveKey(ITfKeystrokeMgr* This,TfClientId tid,REFGUID rguid,const TF_PRESERVEDKEY *prekey,const WCHAR *pchDesc,ULONG cchDesc) {
+    return This->lpVtbl->PreserveKey(This,tid,rguid,prekey,pchDesc,cchDesc);
+}
+static FORCEINLINE HRESULT ITfKeystrokeMgr_UnpreserveKey(ITfKeystrokeMgr* This,REFGUID rguid,const TF_PRESERVEDKEY *pprekey) {
+    return This->lpVtbl->UnpreserveKey(This,rguid,pprekey);
+}
+static FORCEINLINE HRESULT ITfKeystrokeMgr_SetPreservedKeyDescription(ITfKeystrokeMgr* This,REFGUID rguid,const WCHAR *pchDesc,ULONG cchDesc) {
+    return This->lpVtbl->SetPreservedKeyDescription(This,rguid,pchDesc,cchDesc);
+}
+static FORCEINLINE HRESULT ITfKeystrokeMgr_GetPreservedKeyDescription(ITfKeystrokeMgr* This,REFGUID rguid,BSTR *pbstrDesc) {
+    return This->lpVtbl->GetPreservedKeyDescription(This,rguid,pbstrDesc);
+}
+static FORCEINLINE HRESULT ITfKeystrokeMgr_SimulatePreservedKey(ITfKeystrokeMgr* This,ITfContext *pic,REFGUID rguid,WINBOOL *pfEaten) {
+    return This->lpVtbl->SimulatePreservedKey(This,pic,rguid,pfEaten);
+}
+#endif
 #endif
 
 #endif
@@ -3485,6 +4036,7 @@ interface ITfKeyEventSink {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfKeyEventSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfKeyEventSink_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -3496,6 +4048,37 @@ interface ITfKeyEventSink {
 #define ITfKeyEventSink_OnKeyDown(This,pic,wParam,lParam,pfEaten) (This)->lpVtbl->OnKeyDown(This,pic,wParam,lParam,pfEaten)
 #define ITfKeyEventSink_OnKeyUp(This,pic,wParam,lParam,pfEaten) (This)->lpVtbl->OnKeyUp(This,pic,wParam,lParam,pfEaten)
 #define ITfKeyEventSink_OnPreservedKey(This,pic,rguid,pfEaten) (This)->lpVtbl->OnPreservedKey(This,pic,rguid,pfEaten)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfKeyEventSink_QueryInterface(ITfKeyEventSink* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfKeyEventSink_AddRef(ITfKeyEventSink* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfKeyEventSink_Release(ITfKeyEventSink* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfKeyEventSink methods ***/
+static FORCEINLINE HRESULT ITfKeyEventSink_OnSetFocus(ITfKeyEventSink* This,WINBOOL fForeground) {
+    return This->lpVtbl->OnSetFocus(This,fForeground);
+}
+static FORCEINLINE HRESULT ITfKeyEventSink_OnTestKeyDown(ITfKeyEventSink* This,ITfContext *pic,WPARAM wParam,LPARAM lParam,WINBOOL *pfEaten) {
+    return This->lpVtbl->OnTestKeyDown(This,pic,wParam,lParam,pfEaten);
+}
+static FORCEINLINE HRESULT ITfKeyEventSink_OnTestKeyUp(ITfKeyEventSink* This,ITfContext *pic,WPARAM wParam,LPARAM lParam,WINBOOL *pfEaten) {
+    return This->lpVtbl->OnTestKeyUp(This,pic,wParam,lParam,pfEaten);
+}
+static FORCEINLINE HRESULT ITfKeyEventSink_OnKeyDown(ITfKeyEventSink* This,ITfContext *pic,WPARAM wParam,LPARAM lParam,WINBOOL *pfEaten) {
+    return This->lpVtbl->OnKeyDown(This,pic,wParam,lParam,pfEaten);
+}
+static FORCEINLINE HRESULT ITfKeyEventSink_OnKeyUp(ITfKeyEventSink* This,ITfContext *pic,WPARAM wParam,LPARAM lParam,WINBOOL *pfEaten) {
+    return This->lpVtbl->OnKeyUp(This,pic,wParam,lParam,pfEaten);
+}
+static FORCEINLINE HRESULT ITfKeyEventSink_OnPreservedKey(ITfKeyEventSink* This,ITfContext *pic,REFGUID rguid,WINBOOL *pfEaten) {
+    return This->lpVtbl->OnPreservedKey(This,pic,rguid,pfEaten);
+}
+#endif
 #endif
 
 #endif
@@ -3668,6 +4251,7 @@ interface ITfMessagePump {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfMessagePump_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfMessagePump_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -3677,6 +4261,31 @@ interface ITfMessagePump {
 #define ITfMessagePump_GetMessageA(This,pMsg,hwnd,wMsgFilterMin,wMsgFilterMax,pfResult) (This)->lpVtbl->GetMessageA(This,pMsg,hwnd,wMsgFilterMin,wMsgFilterMax,pfResult)
 #define ITfMessagePump_PeekMessageW(This,pMsg,hwnd,wMsgFilterMin,wMsgFilterMax,wRemoveMsg,pfResult) (This)->lpVtbl->PeekMessageW(This,pMsg,hwnd,wMsgFilterMin,wMsgFilterMax,wRemoveMsg,pfResult)
 #define ITfMessagePump_GetMessageW(This,pMsg,hwnd,wMsgFilterMin,wMsgFilterMax,pfResult) (This)->lpVtbl->GetMessageW(This,pMsg,hwnd,wMsgFilterMin,wMsgFilterMax,pfResult)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfMessagePump_QueryInterface(ITfMessagePump* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfMessagePump_AddRef(ITfMessagePump* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfMessagePump_Release(ITfMessagePump* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfMessagePump methods ***/
+static FORCEINLINE HRESULT ITfMessagePump_PeekMessageA(ITfMessagePump* This,LPMSG pMsg,HWND hwnd,UINT wMsgFilterMin,UINT wMsgFilterMax,UINT wRemoveMsg,WINBOOL *pfResult) {
+    return This->lpVtbl->PeekMessageA(This,pMsg,hwnd,wMsgFilterMin,wMsgFilterMax,wRemoveMsg,pfResult);
+}
+static FORCEINLINE HRESULT ITfMessagePump_GetMessageA(ITfMessagePump* This,LPMSG pMsg,HWND hwnd,UINT wMsgFilterMin,UINT wMsgFilterMax,WINBOOL *pfResult) {
+    return This->lpVtbl->GetMessageA(This,pMsg,hwnd,wMsgFilterMin,wMsgFilterMax,pfResult);
+}
+static FORCEINLINE HRESULT ITfMessagePump_PeekMessageW(ITfMessagePump* This,LPMSG pMsg,HWND hwnd,UINT wMsgFilterMin,UINT wMsgFilterMax,UINT wRemoveMsg,WINBOOL *pfResult) {
+    return This->lpVtbl->PeekMessageW(This,pMsg,hwnd,wMsgFilterMin,wMsgFilterMax,wRemoveMsg,pfResult);
+}
+static FORCEINLINE HRESULT ITfMessagePump_GetMessageW(ITfMessagePump* This,LPMSG pMsg,HWND hwnd,UINT wMsgFilterMin,UINT wMsgFilterMax,WINBOOL *pfResult) {
+    return This->lpVtbl->GetMessageW(This,pMsg,hwnd,wMsgFilterMin,wMsgFilterMax,pfResult);
+}
+#endif
 #endif
 
 #endif
@@ -3782,12 +4391,29 @@ interface ITfClientId {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfClientId_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfClientId_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define ITfClientId_Release(This) (This)->lpVtbl->Release(This)
 /*** ITfClientId methods ***/
 #define ITfClientId_GetClientId(This,rclsid,ptid) (This)->lpVtbl->GetClientId(This,rclsid,ptid)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfClientId_QueryInterface(ITfClientId* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfClientId_AddRef(ITfClientId* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfClientId_Release(ITfClientId* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfClientId methods ***/
+static FORCEINLINE HRESULT ITfClientId_GetClientId(ITfClientId* This,REFCLSID rclsid,TfClientId *ptid) {
+    return This->lpVtbl->GetClientId(This,rclsid,ptid);
+}
+#endif
 #endif
 
 #endif
@@ -3858,6 +4484,7 @@ interface ITfLanguageProfileNotifySink {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfLanguageProfileNotifySink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfLanguageProfileNotifySink_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -3865,6 +4492,25 @@ interface ITfLanguageProfileNotifySink {
 /*** ITfLanguageProfileNotifySink methods ***/
 #define ITfLanguageProfileNotifySink_OnLanguageChange(This,langid,pfAccept) (This)->lpVtbl->OnLanguageChange(This,langid,pfAccept)
 #define ITfLanguageProfileNotifySink_OnLanguageChanged(This) (This)->lpVtbl->OnLanguageChanged(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfLanguageProfileNotifySink_QueryInterface(ITfLanguageProfileNotifySink* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfLanguageProfileNotifySink_AddRef(ITfLanguageProfileNotifySink* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfLanguageProfileNotifySink_Release(ITfLanguageProfileNotifySink* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfLanguageProfileNotifySink methods ***/
+static FORCEINLINE HRESULT ITfLanguageProfileNotifySink_OnLanguageChange(ITfLanguageProfileNotifySink* This,LANGID langid,WINBOOL *pfAccept) {
+    return This->lpVtbl->OnLanguageChange(This,langid,pfAccept);
+}
+static FORCEINLINE HRESULT ITfLanguageProfileNotifySink_OnLanguageChanged(ITfLanguageProfileNotifySink* This) {
+    return This->lpVtbl->OnLanguageChanged(This);
+}
+#endif
 #endif
 
 #endif
@@ -3934,12 +4580,29 @@ interface ITfEditSession {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfEditSession_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfEditSession_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define ITfEditSession_Release(This) (This)->lpVtbl->Release(This)
 /*** ITfEditSession methods ***/
 #define ITfEditSession_DoEditSession(This,ec) (This)->lpVtbl->DoEditSession(This,ec)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfEditSession_QueryInterface(ITfEditSession* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfEditSession_AddRef(ITfEditSession* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfEditSession_Release(ITfEditSession* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfEditSession methods ***/
+static FORCEINLINE HRESULT ITfEditSession_DoEditSession(ITfEditSession* This,TfEditCookie ec) {
+    return This->lpVtbl->DoEditSession(This,ec);
+}
+#endif
 #endif
 
 #endif
@@ -4265,6 +4928,7 @@ interface ITfRange {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfRange_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfRange_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -4292,6 +4956,85 @@ interface ITfRange {
 #define ITfRange_SetGravity(This,ec,gStart,gEnd) (This)->lpVtbl->SetGravity(This,ec,gStart,gEnd)
 #define ITfRange_Clone(This,ppClone) (This)->lpVtbl->Clone(This,ppClone)
 #define ITfRange_GetContext(This,ppContext) (This)->lpVtbl->GetContext(This,ppContext)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfRange_QueryInterface(ITfRange* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfRange_AddRef(ITfRange* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfRange_Release(ITfRange* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfRange methods ***/
+static FORCEINLINE HRESULT ITfRange_GetText(ITfRange* This,TfEditCookie ec,DWORD dwFlags,WCHAR *pchText,ULONG cchMax,ULONG *pcch) {
+    return This->lpVtbl->GetText(This,ec,dwFlags,pchText,cchMax,pcch);
+}
+static FORCEINLINE HRESULT ITfRange_SetText(ITfRange* This,TfEditCookie ec,DWORD dwFlags,const WCHAR *pchText,LONG cch) {
+    return This->lpVtbl->SetText(This,ec,dwFlags,pchText,cch);
+}
+static FORCEINLINE HRESULT ITfRange_GetFormattedText(ITfRange* This,TfEditCookie ec,IDataObject **ppDataObject) {
+    return This->lpVtbl->GetFormattedText(This,ec,ppDataObject);
+}
+static FORCEINLINE HRESULT ITfRange_GetEmbedded(ITfRange* This,TfEditCookie ec,REFGUID rguidService,REFIID riid,IUnknown **ppunk) {
+    return This->lpVtbl->GetEmbedded(This,ec,rguidService,riid,ppunk);
+}
+static FORCEINLINE HRESULT ITfRange_InsertEmbedded(ITfRange* This,TfEditCookie ec,DWORD dwFlags,IDataObject *pDataObject) {
+    return This->lpVtbl->InsertEmbedded(This,ec,dwFlags,pDataObject);
+}
+static FORCEINLINE HRESULT ITfRange_ShiftStart(ITfRange* This,TfEditCookie ec,LONG cchReq,LONG *pcch,const TF_HALTCOND *pHalt) {
+    return This->lpVtbl->ShiftStart(This,ec,cchReq,pcch,pHalt);
+}
+static FORCEINLINE HRESULT ITfRange_ShiftEnd(ITfRange* This,TfEditCookie ec,LONG cchReq,LONG *pcch,const TF_HALTCOND *pHalt) {
+    return This->lpVtbl->ShiftEnd(This,ec,cchReq,pcch,pHalt);
+}
+static FORCEINLINE HRESULT ITfRange_ShiftStartToRange(ITfRange* This,TfEditCookie ec,ITfRange *pRange,TfAnchor aPos) {
+    return This->lpVtbl->ShiftStartToRange(This,ec,pRange,aPos);
+}
+static FORCEINLINE HRESULT ITfRange_ShiftEndToRange(ITfRange* This,TfEditCookie ec,ITfRange *pRange,TfAnchor aPos) {
+    return This->lpVtbl->ShiftEndToRange(This,ec,pRange,aPos);
+}
+static FORCEINLINE HRESULT ITfRange_ShiftStartRegion(ITfRange* This,TfEditCookie ec,TfShiftDir dir,WINBOOL *pfNoRegion) {
+    return This->lpVtbl->ShiftStartRegion(This,ec,dir,pfNoRegion);
+}
+static FORCEINLINE HRESULT ITfRange_ShiftEndRegion(ITfRange* This,TfEditCookie ec,TfShiftDir dir,WINBOOL *pfNoRegion) {
+    return This->lpVtbl->ShiftEndRegion(This,ec,dir,pfNoRegion);
+}
+static FORCEINLINE HRESULT ITfRange_IsEmpty(ITfRange* This,TfEditCookie ec,WINBOOL *pfEmpty) {
+    return This->lpVtbl->IsEmpty(This,ec,pfEmpty);
+}
+static FORCEINLINE HRESULT ITfRange_Collapse(ITfRange* This,TfEditCookie ec,TfAnchor aPos) {
+    return This->lpVtbl->Collapse(This,ec,aPos);
+}
+static FORCEINLINE HRESULT ITfRange_IsEqualStart(ITfRange* This,TfEditCookie ec,ITfRange *pWith,TfAnchor aPos,WINBOOL *pfEqual) {
+    return This->lpVtbl->IsEqualStart(This,ec,pWith,aPos,pfEqual);
+}
+static FORCEINLINE HRESULT ITfRange_IsEqualEnd(ITfRange* This,TfEditCookie ec,ITfRange *pWith,TfAnchor aPos,WINBOOL *pfEqual) {
+    return This->lpVtbl->IsEqualEnd(This,ec,pWith,aPos,pfEqual);
+}
+static FORCEINLINE HRESULT ITfRange_CompareStart(ITfRange* This,TfEditCookie ec,ITfRange *pWith,TfAnchor aPos,LONG *plResult) {
+    return This->lpVtbl->CompareStart(This,ec,pWith,aPos,plResult);
+}
+static FORCEINLINE HRESULT ITfRange_CompareEnd(ITfRange* This,TfEditCookie ec,ITfRange *pWith,TfAnchor aPos,LONG *plResult) {
+    return This->lpVtbl->CompareEnd(This,ec,pWith,aPos,plResult);
+}
+static FORCEINLINE HRESULT ITfRange_AdjustForInsert(ITfRange* This,TfEditCookie ec,ULONG cchInsert,WINBOOL *pfInsertOk) {
+    return This->lpVtbl->AdjustForInsert(This,ec,cchInsert,pfInsertOk);
+}
+static FORCEINLINE HRESULT ITfRange_GetGravity(ITfRange* This,TfGravity *pgStart,TfGravity *pgEnd) {
+    return This->lpVtbl->GetGravity(This,pgStart,pgEnd);
+}
+static FORCEINLINE HRESULT ITfRange_SetGravity(ITfRange* This,TfEditCookie ec,TfGravity gStart,TfGravity gEnd) {
+    return This->lpVtbl->SetGravity(This,ec,gStart,gEnd);
+}
+static FORCEINLINE HRESULT ITfRange_Clone(ITfRange* This,ITfRange **ppClone) {
+    return This->lpVtbl->Clone(This,ppClone);
+}
+static FORCEINLINE HRESULT ITfRange_GetContext(ITfRange* This,ITfContext **ppContext) {
+    return This->lpVtbl->GetContext(This,ppContext);
+}
+#endif
 #endif
 
 #endif
@@ -4713,6 +5456,7 @@ interface ITfRangeACP {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfRangeACP_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfRangeACP_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -4743,6 +5487,92 @@ interface ITfRangeACP {
 /*** ITfRangeACP methods ***/
 #define ITfRangeACP_GetExtent(This,pacpAnchor,pcch) (This)->lpVtbl->GetExtent(This,pacpAnchor,pcch)
 #define ITfRangeACP_SetExtent(This,acpAnchor,cch) (This)->lpVtbl->SetExtent(This,acpAnchor,cch)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfRangeACP_QueryInterface(ITfRangeACP* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfRangeACP_AddRef(ITfRangeACP* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfRangeACP_Release(ITfRangeACP* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfRange methods ***/
+static FORCEINLINE HRESULT ITfRangeACP_GetText(ITfRangeACP* This,TfEditCookie ec,DWORD dwFlags,WCHAR *pchText,ULONG cchMax,ULONG *pcch) {
+    return This->lpVtbl->GetText(This,ec,dwFlags,pchText,cchMax,pcch);
+}
+static FORCEINLINE HRESULT ITfRangeACP_SetText(ITfRangeACP* This,TfEditCookie ec,DWORD dwFlags,const WCHAR *pchText,LONG cch) {
+    return This->lpVtbl->SetText(This,ec,dwFlags,pchText,cch);
+}
+static FORCEINLINE HRESULT ITfRangeACP_GetFormattedText(ITfRangeACP* This,TfEditCookie ec,IDataObject **ppDataObject) {
+    return This->lpVtbl->GetFormattedText(This,ec,ppDataObject);
+}
+static FORCEINLINE HRESULT ITfRangeACP_GetEmbedded(ITfRangeACP* This,TfEditCookie ec,REFGUID rguidService,REFIID riid,IUnknown **ppunk) {
+    return This->lpVtbl->GetEmbedded(This,ec,rguidService,riid,ppunk);
+}
+static FORCEINLINE HRESULT ITfRangeACP_InsertEmbedded(ITfRangeACP* This,TfEditCookie ec,DWORD dwFlags,IDataObject *pDataObject) {
+    return This->lpVtbl->InsertEmbedded(This,ec,dwFlags,pDataObject);
+}
+static FORCEINLINE HRESULT ITfRangeACP_ShiftStart(ITfRangeACP* This,TfEditCookie ec,LONG cchReq,LONG *pcch,const TF_HALTCOND *pHalt) {
+    return This->lpVtbl->ShiftStart(This,ec,cchReq,pcch,pHalt);
+}
+static FORCEINLINE HRESULT ITfRangeACP_ShiftEnd(ITfRangeACP* This,TfEditCookie ec,LONG cchReq,LONG *pcch,const TF_HALTCOND *pHalt) {
+    return This->lpVtbl->ShiftEnd(This,ec,cchReq,pcch,pHalt);
+}
+static FORCEINLINE HRESULT ITfRangeACP_ShiftStartToRange(ITfRangeACP* This,TfEditCookie ec,ITfRange *pRange,TfAnchor aPos) {
+    return This->lpVtbl->ShiftStartToRange(This,ec,pRange,aPos);
+}
+static FORCEINLINE HRESULT ITfRangeACP_ShiftEndToRange(ITfRangeACP* This,TfEditCookie ec,ITfRange *pRange,TfAnchor aPos) {
+    return This->lpVtbl->ShiftEndToRange(This,ec,pRange,aPos);
+}
+static FORCEINLINE HRESULT ITfRangeACP_ShiftStartRegion(ITfRangeACP* This,TfEditCookie ec,TfShiftDir dir,WINBOOL *pfNoRegion) {
+    return This->lpVtbl->ShiftStartRegion(This,ec,dir,pfNoRegion);
+}
+static FORCEINLINE HRESULT ITfRangeACP_ShiftEndRegion(ITfRangeACP* This,TfEditCookie ec,TfShiftDir dir,WINBOOL *pfNoRegion) {
+    return This->lpVtbl->ShiftEndRegion(This,ec,dir,pfNoRegion);
+}
+static FORCEINLINE HRESULT ITfRangeACP_IsEmpty(ITfRangeACP* This,TfEditCookie ec,WINBOOL *pfEmpty) {
+    return This->lpVtbl->IsEmpty(This,ec,pfEmpty);
+}
+static FORCEINLINE HRESULT ITfRangeACP_Collapse(ITfRangeACP* This,TfEditCookie ec,TfAnchor aPos) {
+    return This->lpVtbl->Collapse(This,ec,aPos);
+}
+static FORCEINLINE HRESULT ITfRangeACP_IsEqualStart(ITfRangeACP* This,TfEditCookie ec,ITfRange *pWith,TfAnchor aPos,WINBOOL *pfEqual) {
+    return This->lpVtbl->IsEqualStart(This,ec,pWith,aPos,pfEqual);
+}
+static FORCEINLINE HRESULT ITfRangeACP_IsEqualEnd(ITfRangeACP* This,TfEditCookie ec,ITfRange *pWith,TfAnchor aPos,WINBOOL *pfEqual) {
+    return This->lpVtbl->IsEqualEnd(This,ec,pWith,aPos,pfEqual);
+}
+static FORCEINLINE HRESULT ITfRangeACP_CompareStart(ITfRangeACP* This,TfEditCookie ec,ITfRange *pWith,TfAnchor aPos,LONG *plResult) {
+    return This->lpVtbl->CompareStart(This,ec,pWith,aPos,plResult);
+}
+static FORCEINLINE HRESULT ITfRangeACP_CompareEnd(ITfRangeACP* This,TfEditCookie ec,ITfRange *pWith,TfAnchor aPos,LONG *plResult) {
+    return This->lpVtbl->CompareEnd(This,ec,pWith,aPos,plResult);
+}
+static FORCEINLINE HRESULT ITfRangeACP_AdjustForInsert(ITfRangeACP* This,TfEditCookie ec,ULONG cchInsert,WINBOOL *pfInsertOk) {
+    return This->lpVtbl->AdjustForInsert(This,ec,cchInsert,pfInsertOk);
+}
+static FORCEINLINE HRESULT ITfRangeACP_GetGravity(ITfRangeACP* This,TfGravity *pgStart,TfGravity *pgEnd) {
+    return This->lpVtbl->GetGravity(This,pgStart,pgEnd);
+}
+static FORCEINLINE HRESULT ITfRangeACP_SetGravity(ITfRangeACP* This,TfEditCookie ec,TfGravity gStart,TfGravity gEnd) {
+    return This->lpVtbl->SetGravity(This,ec,gStart,gEnd);
+}
+static FORCEINLINE HRESULT ITfRangeACP_Clone(ITfRangeACP* This,ITfRange **ppClone) {
+    return This->lpVtbl->Clone(This,ppClone);
+}
+static FORCEINLINE HRESULT ITfRangeACP_GetContext(ITfRangeACP* This,ITfContext **ppContext) {
+    return This->lpVtbl->GetContext(This,ppContext);
+}
+/*** ITfRangeACP methods ***/
+static FORCEINLINE HRESULT ITfRangeACP_GetExtent(ITfRangeACP* This,LONG *pacpAnchor,LONG *pcch) {
+    return This->lpVtbl->GetExtent(This,pacpAnchor,pcch);
+}
+static FORCEINLINE HRESULT ITfRangeACP_SetExtent(ITfRangeACP* This,LONG acpAnchor,LONG cch) {
+    return This->lpVtbl->SetExtent(This,acpAnchor,cch);
+}
+#endif
 #endif
 
 #endif
@@ -4841,6 +5671,7 @@ interface ITfInsertAtSelection {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfInsertAtSelection_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfInsertAtSelection_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -4848,6 +5679,25 @@ interface ITfInsertAtSelection {
 /*** ITfInsertAtSelection methods ***/
 #define ITfInsertAtSelection_InsertTextAtSelection(This,ec,dwFlags,pchText,cch,ppRange) (This)->lpVtbl->InsertTextAtSelection(This,ec,dwFlags,pchText,cch,ppRange)
 #define ITfInsertAtSelection_InsertEmbeddedAtSelection(This,ec,dwFlags,pDataObject,ppRange) (This)->lpVtbl->InsertEmbeddedAtSelection(This,ec,dwFlags,pDataObject,ppRange)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfInsertAtSelection_QueryInterface(ITfInsertAtSelection* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfInsertAtSelection_AddRef(ITfInsertAtSelection* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfInsertAtSelection_Release(ITfInsertAtSelection* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfInsertAtSelection methods ***/
+static FORCEINLINE HRESULT ITfInsertAtSelection_InsertTextAtSelection(ITfInsertAtSelection* This,TfEditCookie ec,DWORD dwFlags,const WCHAR *pchText,LONG cch,ITfRange **ppRange) {
+    return This->lpVtbl->InsertTextAtSelection(This,ec,dwFlags,pchText,cch,ppRange);
+}
+static FORCEINLINE HRESULT ITfInsertAtSelection_InsertEmbeddedAtSelection(ITfInsertAtSelection* This,TfEditCookie ec,DWORD dwFlags,IDataObject *pDataObject,ITfRange **ppRange) {
+    return This->lpVtbl->InsertEmbeddedAtSelection(This,ec,dwFlags,pDataObject,ppRange);
+}
+#endif
 #endif
 
 #endif
@@ -4994,6 +5844,7 @@ interface ITfPropertyStore {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfPropertyStore_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfPropertyStore_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -5008,6 +5859,46 @@ interface ITfPropertyStore {
 #define ITfPropertyStore_Clone(This,pPropStore) (This)->lpVtbl->Clone(This,pPropStore)
 #define ITfPropertyStore_GetPropertyRangeCreator(This,pclsid) (This)->lpVtbl->GetPropertyRangeCreator(This,pclsid)
 #define ITfPropertyStore_Serialize(This,pStream,pcb) (This)->lpVtbl->Serialize(This,pStream,pcb)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfPropertyStore_QueryInterface(ITfPropertyStore* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfPropertyStore_AddRef(ITfPropertyStore* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfPropertyStore_Release(ITfPropertyStore* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfPropertyStore methods ***/
+static FORCEINLINE HRESULT ITfPropertyStore_GetType(ITfPropertyStore* This,GUID *pguid) {
+    return This->lpVtbl->GetType(This,pguid);
+}
+static FORCEINLINE HRESULT ITfPropertyStore_GetDataType(ITfPropertyStore* This,DWORD *pdwReserved) {
+    return This->lpVtbl->GetDataType(This,pdwReserved);
+}
+static FORCEINLINE HRESULT ITfPropertyStore_GetData(ITfPropertyStore* This,VARIANT *pvarValue) {
+    return This->lpVtbl->GetData(This,pvarValue);
+}
+static FORCEINLINE HRESULT ITfPropertyStore_OnTextUpdated(ITfPropertyStore* This,DWORD dwFlags,ITfRange *pRangeNew,WINBOOL *pfAccept) {
+    return This->lpVtbl->OnTextUpdated(This,dwFlags,pRangeNew,pfAccept);
+}
+static FORCEINLINE HRESULT ITfPropertyStore_Shrink(ITfPropertyStore* This,ITfRange *pRangeNew,WINBOOL *pfFree) {
+    return This->lpVtbl->Shrink(This,pRangeNew,pfFree);
+}
+static FORCEINLINE HRESULT ITfPropertyStore_Divide(ITfPropertyStore* This,ITfRange *pRangeThis,ITfRange *pRangeNew,ITfPropertyStore **ppPropStore) {
+    return This->lpVtbl->Divide(This,pRangeThis,pRangeNew,ppPropStore);
+}
+static FORCEINLINE HRESULT ITfPropertyStore_Clone(ITfPropertyStore* This,ITfPropertyStore **pPropStore) {
+    return This->lpVtbl->Clone(This,pPropStore);
+}
+static FORCEINLINE HRESULT ITfPropertyStore_GetPropertyRangeCreator(ITfPropertyStore* This,CLSID *pclsid) {
+    return This->lpVtbl->GetPropertyRangeCreator(This,pclsid);
+}
+static FORCEINLINE HRESULT ITfPropertyStore_Serialize(ITfPropertyStore* This,IStream *pStream,ULONG *pcb) {
+    return This->lpVtbl->Serialize(This,pStream,pcb);
+}
+#endif
 #endif
 
 #endif
@@ -5163,6 +6054,7 @@ interface IEnumTfRanges {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IEnumTfRanges_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumTfRanges_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -5172,6 +6064,31 @@ interface IEnumTfRanges {
 #define IEnumTfRanges_Next(This,ulCount,ppRange,pcFetched) (This)->lpVtbl->Next(This,ulCount,ppRange,pcFetched)
 #define IEnumTfRanges_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumTfRanges_Skip(This,ulCount) (This)->lpVtbl->Skip(This,ulCount)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IEnumTfRanges_QueryInterface(IEnumTfRanges* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IEnumTfRanges_AddRef(IEnumTfRanges* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IEnumTfRanges_Release(IEnumTfRanges* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IEnumTfRanges methods ***/
+static FORCEINLINE HRESULT IEnumTfRanges_Clone(IEnumTfRanges* This,IEnumTfRanges **ppEnum) {
+    return This->lpVtbl->Clone(This,ppEnum);
+}
+static FORCEINLINE HRESULT IEnumTfRanges_Next(IEnumTfRanges* This,ULONG ulCount,ITfRange **ppRange,ULONG *pcFetched) {
+    return This->lpVtbl->Next(This,ulCount,ppRange,pcFetched);
+}
+static FORCEINLINE HRESULT IEnumTfRanges_Reset(IEnumTfRanges* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IEnumTfRanges_Skip(IEnumTfRanges* This,ULONG ulCount) {
+    return This->lpVtbl->Skip(This,ulCount);
+}
+#endif
 #endif
 
 #endif
@@ -5282,6 +6199,7 @@ interface IEnumITfCompositionView {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IEnumITfCompositionView_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumITfCompositionView_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -5291,6 +6209,31 @@ interface IEnumITfCompositionView {
 #define IEnumITfCompositionView_Next(This,ulCount,rgCompositionView,pcFetched) (This)->lpVtbl->Next(This,ulCount,rgCompositionView,pcFetched)
 #define IEnumITfCompositionView_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumITfCompositionView_Skip(This,ulCount) (This)->lpVtbl->Skip(This,ulCount)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IEnumITfCompositionView_QueryInterface(IEnumITfCompositionView* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IEnumITfCompositionView_AddRef(IEnumITfCompositionView* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IEnumITfCompositionView_Release(IEnumITfCompositionView* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IEnumITfCompositionView methods ***/
+static FORCEINLINE HRESULT IEnumITfCompositionView_Clone(IEnumITfCompositionView* This,IEnumITfCompositionView **ppEnum) {
+    return This->lpVtbl->Clone(This,ppEnum);
+}
+static FORCEINLINE HRESULT IEnumITfCompositionView_Next(IEnumITfCompositionView* This,ULONG ulCount,ITfCompositionView **rgCompositionView,ULONG *pcFetched) {
+    return This->lpVtbl->Next(This,ulCount,rgCompositionView,pcFetched);
+}
+static FORCEINLINE HRESULT IEnumITfCompositionView_Reset(IEnumITfCompositionView* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IEnumITfCompositionView_Skip(IEnumITfCompositionView* This,ULONG ulCount) {
+    return This->lpVtbl->Skip(This,ulCount);
+}
+#endif
 #endif
 
 #endif
@@ -5402,6 +6345,7 @@ interface ITfComposition {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfComposition_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfComposition_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -5411,6 +6355,31 @@ interface ITfComposition {
 #define ITfComposition_ShiftStart(This,ecWrite,pNewStart) (This)->lpVtbl->ShiftStart(This,ecWrite,pNewStart)
 #define ITfComposition_ShiftEnd(This,ecWrite,pNewEnd) (This)->lpVtbl->ShiftEnd(This,ecWrite,pNewEnd)
 #define ITfComposition_EndComposition(This,ecWrite) (This)->lpVtbl->EndComposition(This,ecWrite)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfComposition_QueryInterface(ITfComposition* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfComposition_AddRef(ITfComposition* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfComposition_Release(ITfComposition* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfComposition methods ***/
+static FORCEINLINE HRESULT ITfComposition_GetRange(ITfComposition* This,ITfRange **ppRange) {
+    return This->lpVtbl->GetRange(This,ppRange);
+}
+static FORCEINLINE HRESULT ITfComposition_ShiftStart(ITfComposition* This,TfEditCookie ecWrite,ITfRange *pNewStart) {
+    return This->lpVtbl->ShiftStart(This,ecWrite,pNewStart);
+}
+static FORCEINLINE HRESULT ITfComposition_ShiftEnd(ITfComposition* This,TfEditCookie ecWrite,ITfRange *pNewEnd) {
+    return This->lpVtbl->ShiftEnd(This,ecWrite,pNewEnd);
+}
+static FORCEINLINE HRESULT ITfComposition_EndComposition(ITfComposition* This,TfEditCookie ecWrite) {
+    return This->lpVtbl->EndComposition(This,ecWrite);
+}
+#endif
 #endif
 
 #endif
@@ -5500,12 +6469,29 @@ interface ITfCompositionSink {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfCompositionSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfCompositionSink_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define ITfCompositionSink_Release(This) (This)->lpVtbl->Release(This)
 /*** ITfCompositionSink methods ***/
 #define ITfCompositionSink_OnCompositionTerminated(This,ecWrite,pComposition) (This)->lpVtbl->OnCompositionTerminated(This,ecWrite,pComposition)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfCompositionSink_QueryInterface(ITfCompositionSink* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfCompositionSink_AddRef(ITfCompositionSink* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfCompositionSink_Release(ITfCompositionSink* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfCompositionSink methods ***/
+static FORCEINLINE HRESULT ITfCompositionSink_OnCompositionTerminated(ITfCompositionSink* This,TfEditCookie ecWrite,ITfComposition *pComposition) {
+    return This->lpVtbl->OnCompositionTerminated(This,ecWrite,pComposition);
+}
+#endif
 #endif
 
 #endif
@@ -5605,6 +6591,7 @@ interface ITfContextComposition {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfContextComposition_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfContextComposition_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -5614,6 +6601,31 @@ interface ITfContextComposition {
 #define ITfContextComposition_EnumCompositions(This,ppEnum) (This)->lpVtbl->EnumCompositions(This,ppEnum)
 #define ITfContextComposition_FindComposition(This,ecRead,pTestRange,ppEnum) (This)->lpVtbl->FindComposition(This,ecRead,pTestRange,ppEnum)
 #define ITfContextComposition_TakeOwnership(This,ecWrite,pComposition,pSink,ppComposition) (This)->lpVtbl->TakeOwnership(This,ecWrite,pComposition,pSink,ppComposition)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfContextComposition_QueryInterface(ITfContextComposition* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfContextComposition_AddRef(ITfContextComposition* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfContextComposition_Release(ITfContextComposition* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfContextComposition methods ***/
+static FORCEINLINE HRESULT ITfContextComposition_StartComposition(ITfContextComposition* This,TfEditCookie ecWrite,ITfRange *pCompositionRange,ITfCompositionSink *pSink,ITfComposition **ppComposition) {
+    return This->lpVtbl->StartComposition(This,ecWrite,pCompositionRange,pSink,ppComposition);
+}
+static FORCEINLINE HRESULT ITfContextComposition_EnumCompositions(ITfContextComposition* This,IEnumITfCompositionView **ppEnum) {
+    return This->lpVtbl->EnumCompositions(This,ppEnum);
+}
+static FORCEINLINE HRESULT ITfContextComposition_FindComposition(ITfContextComposition* This,TfEditCookie ecRead,ITfRange *pTestRange,IEnumITfCompositionView **ppEnum) {
+    return This->lpVtbl->FindComposition(This,ecRead,pTestRange,ppEnum);
+}
+static FORCEINLINE HRESULT ITfContextComposition_TakeOwnership(ITfContextComposition* This,TfEditCookie ecWrite,ITfCompositionView *pComposition,ITfCompositionSink *pSink,ITfComposition **ppComposition) {
+    return This->lpVtbl->TakeOwnership(This,ecWrite,pComposition,pSink,ppComposition);
+}
+#endif
 #endif
 
 #endif
@@ -5732,6 +6744,7 @@ interface ITfContextOwnerCompositionServices {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfContextOwnerCompositionServices_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfContextOwnerCompositionServices_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -5743,6 +6756,35 @@ interface ITfContextOwnerCompositionServices {
 #define ITfContextOwnerCompositionServices_TakeOwnership(This,ecWrite,pComposition,pSink,ppComposition) (This)->lpVtbl->TakeOwnership(This,ecWrite,pComposition,pSink,ppComposition)
 /*** ITfContextOwnerCompositionServices methods ***/
 #define ITfContextOwnerCompositionServices_TerminateComposition(This,pComposition) (This)->lpVtbl->TerminateComposition(This,pComposition)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfContextOwnerCompositionServices_QueryInterface(ITfContextOwnerCompositionServices* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfContextOwnerCompositionServices_AddRef(ITfContextOwnerCompositionServices* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfContextOwnerCompositionServices_Release(ITfContextOwnerCompositionServices* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfContextComposition methods ***/
+static FORCEINLINE HRESULT ITfContextOwnerCompositionServices_StartComposition(ITfContextOwnerCompositionServices* This,TfEditCookie ecWrite,ITfRange *pCompositionRange,ITfCompositionSink *pSink,ITfComposition **ppComposition) {
+    return This->lpVtbl->StartComposition(This,ecWrite,pCompositionRange,pSink,ppComposition);
+}
+static FORCEINLINE HRESULT ITfContextOwnerCompositionServices_EnumCompositions(ITfContextOwnerCompositionServices* This,IEnumITfCompositionView **ppEnum) {
+    return This->lpVtbl->EnumCompositions(This,ppEnum);
+}
+static FORCEINLINE HRESULT ITfContextOwnerCompositionServices_FindComposition(ITfContextOwnerCompositionServices* This,TfEditCookie ecRead,ITfRange *pTestRange,IEnumITfCompositionView **ppEnum) {
+    return This->lpVtbl->FindComposition(This,ecRead,pTestRange,ppEnum);
+}
+static FORCEINLINE HRESULT ITfContextOwnerCompositionServices_TakeOwnership(ITfContextOwnerCompositionServices* This,TfEditCookie ecWrite,ITfCompositionView *pComposition,ITfCompositionSink *pSink,ITfComposition **ppComposition) {
+    return This->lpVtbl->TakeOwnership(This,ecWrite,pComposition,pSink,ppComposition);
+}
+/*** ITfContextOwnerCompositionServices methods ***/
+static FORCEINLINE HRESULT ITfContextOwnerCompositionServices_TerminateComposition(ITfContextOwnerCompositionServices* This,ITfCompositionView *pComposition) {
+    return This->lpVtbl->TerminateComposition(This,pComposition);
+}
+#endif
 #endif
 
 #endif
@@ -5833,6 +6875,7 @@ interface ITfReadOnlyProperty {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfReadOnlyProperty_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfReadOnlyProperty_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -5842,6 +6885,31 @@ interface ITfReadOnlyProperty {
 #define ITfReadOnlyProperty_EnumRanges(This,ec,ppEnum,pTargetRange) (This)->lpVtbl->EnumRanges(This,ec,ppEnum,pTargetRange)
 #define ITfReadOnlyProperty_GetValue(This,ec,pRange,pvarValue) (This)->lpVtbl->GetValue(This,ec,pRange,pvarValue)
 #define ITfReadOnlyProperty_GetContext(This,ppContext) (This)->lpVtbl->GetContext(This,ppContext)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfReadOnlyProperty_QueryInterface(ITfReadOnlyProperty* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfReadOnlyProperty_AddRef(ITfReadOnlyProperty* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfReadOnlyProperty_Release(ITfReadOnlyProperty* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfReadOnlyProperty methods ***/
+static FORCEINLINE HRESULT ITfReadOnlyProperty_GetType(ITfReadOnlyProperty* This,GUID *pguid) {
+    return This->lpVtbl->GetType(This,pguid);
+}
+static FORCEINLINE HRESULT ITfReadOnlyProperty_EnumRanges(ITfReadOnlyProperty* This,TfEditCookie ec,IEnumTfRanges **ppEnum,ITfRange *pTargetRange) {
+    return This->lpVtbl->EnumRanges(This,ec,ppEnum,pTargetRange);
+}
+static FORCEINLINE HRESULT ITfReadOnlyProperty_GetValue(ITfReadOnlyProperty* This,TfEditCookie ec,ITfRange *pRange,VARIANT *pvarValue) {
+    return This->lpVtbl->GetValue(This,ec,pRange,pvarValue);
+}
+static FORCEINLINE HRESULT ITfReadOnlyProperty_GetContext(ITfReadOnlyProperty* This,ITfContext **ppContext) {
+    return This->lpVtbl->GetContext(This,ppContext);
+}
+#endif
 #endif
 
 #endif
@@ -5989,6 +7057,7 @@ interface ITfProperty {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfProperty_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfProperty_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -6003,6 +7072,44 @@ interface ITfProperty {
 #define ITfProperty_SetValueStore(This,ec,pRange,pPropStore) (This)->lpVtbl->SetValueStore(This,ec,pRange,pPropStore)
 #define ITfProperty_SetValue(This,ec,pRange,pvarValue) (This)->lpVtbl->SetValue(This,ec,pRange,pvarValue)
 #define ITfProperty_Clear(This,ec,pRange) (This)->lpVtbl->Clear(This,ec,pRange)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfProperty_QueryInterface(ITfProperty* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfProperty_AddRef(ITfProperty* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfProperty_Release(ITfProperty* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfReadOnlyProperty methods ***/
+static FORCEINLINE HRESULT ITfProperty_GetType(ITfProperty* This,GUID *pguid) {
+    return This->lpVtbl->GetType(This,pguid);
+}
+static FORCEINLINE HRESULT ITfProperty_EnumRanges(ITfProperty* This,TfEditCookie ec,IEnumTfRanges **ppEnum,ITfRange *pTargetRange) {
+    return This->lpVtbl->EnumRanges(This,ec,ppEnum,pTargetRange);
+}
+static FORCEINLINE HRESULT ITfProperty_GetValue(ITfProperty* This,TfEditCookie ec,ITfRange *pRange,VARIANT *pvarValue) {
+    return This->lpVtbl->GetValue(This,ec,pRange,pvarValue);
+}
+static FORCEINLINE HRESULT ITfProperty_GetContext(ITfProperty* This,ITfContext **ppContext) {
+    return This->lpVtbl->GetContext(This,ppContext);
+}
+/*** ITfProperty methods ***/
+static FORCEINLINE HRESULT ITfProperty_FindRange(ITfProperty* This,TfEditCookie ec,ITfRange *pRange,ITfRange **ppRange,TfAnchor aPos) {
+    return This->lpVtbl->FindRange(This,ec,pRange,ppRange,aPos);
+}
+static FORCEINLINE HRESULT ITfProperty_SetValueStore(ITfProperty* This,TfEditCookie ec,ITfRange *pRange,ITfPropertyStore *pPropStore) {
+    return This->lpVtbl->SetValueStore(This,ec,pRange,pPropStore);
+}
+static FORCEINLINE HRESULT ITfProperty_SetValue(ITfProperty* This,TfEditCookie ec,ITfRange *pRange,const VARIANT *pvarValue) {
+    return This->lpVtbl->SetValue(This,ec,pRange,pvarValue);
+}
+static FORCEINLINE HRESULT ITfProperty_Clear(ITfProperty* This,TfEditCookie ec,ITfRange *pRange) {
+    return This->lpVtbl->Clear(This,ec,pRange);
+}
+#endif
 #endif
 
 #endif
@@ -6105,6 +7212,7 @@ interface ITfCompartment {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfCompartment_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfCompartment_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -6112,6 +7220,25 @@ interface ITfCompartment {
 /*** ITfCompartment methods ***/
 #define ITfCompartment_SetValue(This,tid,pvarValue) (This)->lpVtbl->SetValue(This,tid,pvarValue)
 #define ITfCompartment_GetValue(This,pvarValue) (This)->lpVtbl->GetValue(This,pvarValue)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfCompartment_QueryInterface(ITfCompartment* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfCompartment_AddRef(ITfCompartment* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfCompartment_Release(ITfCompartment* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfCompartment methods ***/
+static FORCEINLINE HRESULT ITfCompartment_SetValue(ITfCompartment* This,TfClientId tid,const VARIANT *pvarValue) {
+    return This->lpVtbl->SetValue(This,tid,pvarValue);
+}
+static FORCEINLINE HRESULT ITfCompartment_GetValue(ITfCompartment* This,VARIANT *pvarValue) {
+    return This->lpVtbl->GetValue(This,pvarValue);
+}
+#endif
 #endif
 
 #endif
@@ -6200,6 +7327,7 @@ interface ITfCompartmentMgr {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfCompartmentMgr_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfCompartmentMgr_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -6208,6 +7336,28 @@ interface ITfCompartmentMgr {
 #define ITfCompartmentMgr_GetCompartment(This,rguid,ppcomp) (This)->lpVtbl->GetCompartment(This,rguid,ppcomp)
 #define ITfCompartmentMgr_ClearCompartment(This,tid,rguid) (This)->lpVtbl->ClearCompartment(This,tid,rguid)
 #define ITfCompartmentMgr_EnumCompartments(This,ppEnum) (This)->lpVtbl->EnumCompartments(This,ppEnum)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfCompartmentMgr_QueryInterface(ITfCompartmentMgr* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfCompartmentMgr_AddRef(ITfCompartmentMgr* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfCompartmentMgr_Release(ITfCompartmentMgr* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfCompartmentMgr methods ***/
+static FORCEINLINE HRESULT ITfCompartmentMgr_GetCompartment(ITfCompartmentMgr* This,REFGUID rguid,ITfCompartment **ppcomp) {
+    return This->lpVtbl->GetCompartment(This,rguid,ppcomp);
+}
+static FORCEINLINE HRESULT ITfCompartmentMgr_ClearCompartment(ITfCompartmentMgr* This,TfClientId tid,REFGUID rguid) {
+    return This->lpVtbl->ClearCompartment(This,tid,rguid);
+}
+static FORCEINLINE HRESULT ITfCompartmentMgr_EnumCompartments(ITfCompartmentMgr* This,IEnumGUID **ppEnum) {
+    return This->lpVtbl->EnumCompartments(This,ppEnum);
+}
+#endif
 #endif
 
 #endif
@@ -6287,12 +7437,29 @@ interface ITfCompartmentEventSink {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfCompartmentEventSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfCompartmentEventSink_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define ITfCompartmentEventSink_Release(This) (This)->lpVtbl->Release(This)
 /*** ITfCompartmentEventSink methods ***/
 #define ITfCompartmentEventSink_OnChange(This,rguid) (This)->lpVtbl->OnChange(This,rguid)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfCompartmentEventSink_QueryInterface(ITfCompartmentEventSink* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfCompartmentEventSink_AddRef(ITfCompartmentEventSink* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfCompartmentEventSink_Release(ITfCompartmentEventSink* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfCompartmentEventSink methods ***/
+static FORCEINLINE HRESULT ITfCompartmentEventSink_OnChange(ITfCompartmentEventSink* This,REFGUID rguid) {
+    return This->lpVtbl->OnChange(This,rguid);
+}
+#endif
 #endif
 
 #endif
@@ -6378,6 +7545,7 @@ interface IEnumTfContexts {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IEnumTfContexts_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumTfContexts_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -6387,6 +7555,31 @@ interface IEnumTfContexts {
 #define IEnumTfContexts_Next(This,ulCount,rgContext,pcFetched) (This)->lpVtbl->Next(This,ulCount,rgContext,pcFetched)
 #define IEnumTfContexts_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumTfContexts_Skip(This,ulCount) (This)->lpVtbl->Skip(This,ulCount)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IEnumTfContexts_QueryInterface(IEnumTfContexts* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IEnumTfContexts_AddRef(IEnumTfContexts* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IEnumTfContexts_Release(IEnumTfContexts* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IEnumTfContexts methods ***/
+static FORCEINLINE HRESULT IEnumTfContexts_Clone(IEnumTfContexts* This,IEnumTfContexts **ppEnum) {
+    return This->lpVtbl->Clone(This,ppEnum);
+}
+static FORCEINLINE HRESULT IEnumTfContexts_Next(IEnumTfContexts* This,ULONG ulCount,ITfContext **rgContext,ULONG *pcFetched) {
+    return This->lpVtbl->Next(This,ulCount,rgContext,pcFetched);
+}
+static FORCEINLINE HRESULT IEnumTfContexts_Reset(IEnumTfContexts* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IEnumTfContexts_Skip(IEnumTfContexts* This,ULONG ulCount) {
+    return This->lpVtbl->Skip(This,ulCount);
+}
+#endif
 #endif
 
 #endif
@@ -6497,6 +7690,7 @@ interface IEnumTfDocumentMgrs {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IEnumTfDocumentMgrs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumTfDocumentMgrs_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -6506,6 +7700,31 @@ interface IEnumTfDocumentMgrs {
 #define IEnumTfDocumentMgrs_Next(This,ulCount,rgDocumentMgr,pcFetched) (This)->lpVtbl->Next(This,ulCount,rgDocumentMgr,pcFetched)
 #define IEnumTfDocumentMgrs_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumTfDocumentMgrs_Skip(This,ulCount) (This)->lpVtbl->Skip(This,ulCount)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IEnumTfDocumentMgrs_QueryInterface(IEnumTfDocumentMgrs* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IEnumTfDocumentMgrs_AddRef(IEnumTfDocumentMgrs* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IEnumTfDocumentMgrs_Release(IEnumTfDocumentMgrs* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IEnumTfDocumentMgrs methods ***/
+static FORCEINLINE HRESULT IEnumTfDocumentMgrs_Clone(IEnumTfDocumentMgrs* This,IEnumTfDocumentMgrs **ppEnum) {
+    return This->lpVtbl->Clone(This,ppEnum);
+}
+static FORCEINLINE HRESULT IEnumTfDocumentMgrs_Next(IEnumTfDocumentMgrs* This,ULONG ulCount,ITfDocumentMgr **rgDocumentMgr,ULONG *pcFetched) {
+    return This->lpVtbl->Next(This,ulCount,rgDocumentMgr,pcFetched);
+}
+static FORCEINLINE HRESULT IEnumTfDocumentMgrs_Reset(IEnumTfDocumentMgrs* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IEnumTfDocumentMgrs_Skip(IEnumTfDocumentMgrs* This,ULONG ulCount) {
+    return This->lpVtbl->Skip(This,ulCount);
+}
+#endif
 #endif
 
 #endif
@@ -6605,6 +7824,7 @@ interface ITfSourceSingle {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfSourceSingle_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfSourceSingle_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -6612,6 +7832,25 @@ interface ITfSourceSingle {
 /*** ITfSourceSingle methods ***/
 #define ITfSourceSingle_AdviseSingleSink(This,tid,riid,punk) (This)->lpVtbl->AdviseSingleSink(This,tid,riid,punk)
 #define ITfSourceSingle_UnadviseSingleSink(This,tid,riid) (This)->lpVtbl->UnadviseSingleSink(This,tid,riid)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfSourceSingle_QueryInterface(ITfSourceSingle* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfSourceSingle_AddRef(ITfSourceSingle* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfSourceSingle_Release(ITfSourceSingle* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfSourceSingle methods ***/
+static FORCEINLINE HRESULT ITfSourceSingle_AdviseSingleSink(ITfSourceSingle* This,TfClientId tid,REFIID riid,IUnknown *punk) {
+    return This->lpVtbl->AdviseSingleSink(This,tid,riid,punk);
+}
+static FORCEINLINE HRESULT ITfSourceSingle_UnadviseSingleSink(ITfSourceSingle* This,TfClientId tid,REFIID riid) {
+    return This->lpVtbl->UnadviseSingleSink(This,tid,riid);
+}
+#endif
 #endif
 
 #endif
@@ -6689,6 +7928,7 @@ interface ITfThreadFocusSink {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITfThreadFocusSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITfThreadFocusSink_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -6696,6 +7936,25 @@ interface ITfThreadFocusSink {
 /*** ITfThreadFocusSink methods ***/
 #define ITfThreadFocusSink_OnSetThreadFocus(This) (This)->lpVtbl->OnSetThreadFocus(This)
 #define ITfThreadFocusSink_OnKillThreadFocus(This) (This)->lpVtbl->OnKillThreadFocus(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfThreadFocusSink_QueryInterface(ITfThreadFocusSink* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfThreadFocusSink_AddRef(ITfThreadFocusSink* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfThreadFocusSink_Release(ITfThreadFocusSink* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfThreadFocusSink methods ***/
+static FORCEINLINE HRESULT ITfThreadFocusSink_OnSetThreadFocus(ITfThreadFocusSink* This) {
+    return This->lpVtbl->OnSetThreadFocus(This);
+}
+static FORCEINLINE HRESULT ITfThreadFocusSink_OnKillThreadFocus(ITfThreadFocusSink* This) {
+    return This->lpVtbl->OnKillThreadFocus(This);
+}
+#endif
 #endif
 
 #endif

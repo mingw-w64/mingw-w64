@@ -149,6 +149,7 @@ interface IEnumGUID {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IEnumGUID_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IEnumGUID_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -158,6 +159,31 @@ interface IEnumGUID {
 #define IEnumGUID_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)
 #define IEnumGUID_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumGUID_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IEnumGUID_QueryInterface(IEnumGUID* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IEnumGUID_AddRef(IEnumGUID* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IEnumGUID_Release(IEnumGUID* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IEnumGUID methods ***/
+static FORCEINLINE HRESULT IEnumGUID_Next(IEnumGUID* This,ULONG celt,GUID *rgelt,ULONG *pceltFetched) {
+    return This->lpVtbl->Next(This,celt,rgelt,pceltFetched);
+}
+static FORCEINLINE HRESULT IEnumGUID_Skip(IEnumGUID* This,ULONG celt) {
+    return This->lpVtbl->Skip(This,celt);
+}
+static FORCEINLINE HRESULT IEnumGUID_Reset(IEnumGUID* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IEnumGUID_Clone(IEnumGUID* This,IEnumGUID **ppenum) {
+    return This->lpVtbl->Clone(This,ppenum);
+}
+#endif
 #endif
 
 #endif

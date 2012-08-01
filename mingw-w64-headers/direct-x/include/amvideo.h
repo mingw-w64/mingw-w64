@@ -234,6 +234,7 @@ interface IDirectDrawVideo {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDirectDrawVideo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDirectDrawVideo_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -255,6 +256,67 @@ interface IDirectDrawVideo {
 #define IDirectDrawVideo_CanUseOverlayStretch(This,UseOverlayStretch) (This)->lpVtbl->CanUseOverlayStretch(This,UseOverlayStretch)
 #define IDirectDrawVideo_UseWhenFullScreen(This,UseWhenFullScreen) (This)->lpVtbl->UseWhenFullScreen(This,UseWhenFullScreen)
 #define IDirectDrawVideo_WillUseFullScreen(This,UseWhenFullScreen) (This)->lpVtbl->WillUseFullScreen(This,UseWhenFullScreen)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDirectDrawVideo_QueryInterface(IDirectDrawVideo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDirectDrawVideo_AddRef(IDirectDrawVideo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDirectDrawVideo_Release(IDirectDrawVideo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDirectDrawVideo methods ***/
+static FORCEINLINE HRESULT IDirectDrawVideo_GetSwitches(IDirectDrawVideo* This,DWORD *pSwitches) {
+    return This->lpVtbl->GetSwitches(This,pSwitches);
+}
+static FORCEINLINE HRESULT IDirectDrawVideo_SetSwitches(IDirectDrawVideo* This,DWORD Switches) {
+    return This->lpVtbl->SetSwitches(This,Switches);
+}
+static FORCEINLINE HRESULT IDirectDrawVideo_GetCaps(IDirectDrawVideo* This,DDCAPS *pCaps) {
+    return This->lpVtbl->GetCaps(This,pCaps);
+}
+static FORCEINLINE HRESULT IDirectDrawVideo_GetEmulatedCaps(IDirectDrawVideo* This,DDCAPS *pCaps) {
+    return This->lpVtbl->GetEmulatedCaps(This,pCaps);
+}
+static FORCEINLINE HRESULT IDirectDrawVideo_GetSurfaceDesc(IDirectDrawVideo* This,DDSURFACEDESC *pSurfaceDesc) {
+    return This->lpVtbl->GetSurfaceDesc(This,pSurfaceDesc);
+}
+static FORCEINLINE HRESULT IDirectDrawVideo_GetFourCCCodes(IDirectDrawVideo* This,DWORD *pCount,DWORD *pCodes) {
+    return This->lpVtbl->GetFourCCCodes(This,pCount,pCodes);
+}
+static FORCEINLINE HRESULT IDirectDrawVideo_SetDirectDraw(IDirectDrawVideo* This,LPDIRECTDRAW pDirectDraw) {
+    return This->lpVtbl->SetDirectDraw(This,pDirectDraw);
+}
+static FORCEINLINE HRESULT IDirectDrawVideo_GetDirectDraw(IDirectDrawVideo* This,LPDIRECTDRAW *ppDirectDraw) {
+    return This->lpVtbl->GetDirectDraw(This,ppDirectDraw);
+}
+static FORCEINLINE HRESULT IDirectDrawVideo_GetSurfaceType(IDirectDrawVideo* This,DWORD *pSurfaceType) {
+    return This->lpVtbl->GetSurfaceType(This,pSurfaceType);
+}
+static FORCEINLINE HRESULT IDirectDrawVideo_SetDefault(IDirectDrawVideo* This) {
+    return This->lpVtbl->SetDefault(This);
+}
+static FORCEINLINE HRESULT IDirectDrawVideo_UseScanLine(IDirectDrawVideo* This,LONG UseScanLine) {
+    return This->lpVtbl->UseScanLine(This,UseScanLine);
+}
+static FORCEINLINE HRESULT IDirectDrawVideo_CanUseScanLine(IDirectDrawVideo* This,LONG *UseScanLine) {
+    return This->lpVtbl->CanUseScanLine(This,UseScanLine);
+}
+static FORCEINLINE HRESULT IDirectDrawVideo_UseOverlayStretch(IDirectDrawVideo* This,LONG UseOverlayStretch) {
+    return This->lpVtbl->UseOverlayStretch(This,UseOverlayStretch);
+}
+static FORCEINLINE HRESULT IDirectDrawVideo_CanUseOverlayStretch(IDirectDrawVideo* This,LONG *UseOverlayStretch) {
+    return This->lpVtbl->CanUseOverlayStretch(This,UseOverlayStretch);
+}
+static FORCEINLINE HRESULT IDirectDrawVideo_UseWhenFullScreen(IDirectDrawVideo* This,LONG UseWhenFullScreen) {
+    return This->lpVtbl->UseWhenFullScreen(This,UseWhenFullScreen);
+}
+static FORCEINLINE HRESULT IDirectDrawVideo_WillUseFullScreen(IDirectDrawVideo* This,LONG *UseWhenFullScreen) {
+    return This->lpVtbl->WillUseFullScreen(This,UseWhenFullScreen);
+}
+#endif
 #endif
 
 #endif
@@ -466,6 +528,7 @@ interface IQualProp {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IQualProp_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IQualProp_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -477,6 +540,37 @@ interface IQualProp {
 #define IQualProp_get_Jitter(This,iJitter) (This)->lpVtbl->get_Jitter(This,iJitter)
 #define IQualProp_get_AvgSyncOffset(This,piAvg) (This)->lpVtbl->get_AvgSyncOffset(This,piAvg)
 #define IQualProp_get_DevSyncOffset(This,piDev) (This)->lpVtbl->get_DevSyncOffset(This,piDev)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IQualProp_QueryInterface(IQualProp* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IQualProp_AddRef(IQualProp* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IQualProp_Release(IQualProp* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IQualProp methods ***/
+static FORCEINLINE HRESULT IQualProp_get_FramesDroppedInRenderer(IQualProp* This,int *pcFrames) {
+    return This->lpVtbl->get_FramesDroppedInRenderer(This,pcFrames);
+}
+static FORCEINLINE HRESULT IQualProp_get_FramesDrawn(IQualProp* This,int *pcFramesDrawn) {
+    return This->lpVtbl->get_FramesDrawn(This,pcFramesDrawn);
+}
+static FORCEINLINE HRESULT IQualProp_get_AvgFrameRate(IQualProp* This,int *piAvgFrameRate) {
+    return This->lpVtbl->get_AvgFrameRate(This,piAvgFrameRate);
+}
+static FORCEINLINE HRESULT IQualProp_get_Jitter(IQualProp* This,int *iJitter) {
+    return This->lpVtbl->get_Jitter(This,iJitter);
+}
+static FORCEINLINE HRESULT IQualProp_get_AvgSyncOffset(IQualProp* This,int *piAvg) {
+    return This->lpVtbl->get_AvgSyncOffset(This,piAvg);
+}
+static FORCEINLINE HRESULT IQualProp_get_DevSyncOffset(IQualProp* This,int *piDev) {
+    return This->lpVtbl->get_DevSyncOffset(This,piDev);
+}
+#endif
 #endif
 
 #endif
@@ -691,6 +785,7 @@ interface IFullScreenVideo {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IFullScreenVideo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IFullScreenVideo_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -713,6 +808,70 @@ interface IFullScreenVideo {
 #define IFullScreenVideo_SetCaption(This,strCaption) (This)->lpVtbl->SetCaption(This,strCaption)
 #define IFullScreenVideo_GetCaption(This,pstrCaption) (This)->lpVtbl->GetCaption(This,pstrCaption)
 #define IFullScreenVideo_SetDefault(This) (This)->lpVtbl->SetDefault(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IFullScreenVideo_QueryInterface(IFullScreenVideo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IFullScreenVideo_AddRef(IFullScreenVideo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IFullScreenVideo_Release(IFullScreenVideo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IFullScreenVideo methods ***/
+static FORCEINLINE HRESULT IFullScreenVideo_CountModes(IFullScreenVideo* This,LONG *pModes) {
+    return This->lpVtbl->CountModes(This,pModes);
+}
+static FORCEINLINE HRESULT IFullScreenVideo_GetModeInfo(IFullScreenVideo* This,LONG Mode,LONG *pWidth,LONG *pHeight,LONG *pDepth) {
+    return This->lpVtbl->GetModeInfo(This,Mode,pWidth,pHeight,pDepth);
+}
+static FORCEINLINE HRESULT IFullScreenVideo_GetCurrentMode(IFullScreenVideo* This,LONG *pMode) {
+    return This->lpVtbl->GetCurrentMode(This,pMode);
+}
+static FORCEINLINE HRESULT IFullScreenVideo_IsModeAvailable(IFullScreenVideo* This,LONG Mode) {
+    return This->lpVtbl->IsModeAvailable(This,Mode);
+}
+static FORCEINLINE HRESULT IFullScreenVideo_IsModeEnabled(IFullScreenVideo* This,LONG Mode) {
+    return This->lpVtbl->IsModeEnabled(This,Mode);
+}
+static FORCEINLINE HRESULT IFullScreenVideo_SetEnabled(IFullScreenVideo* This,LONG Mode,LONG bEnabled) {
+    return This->lpVtbl->SetEnabled(This,Mode,bEnabled);
+}
+static FORCEINLINE HRESULT IFullScreenVideo_GetClipFactor(IFullScreenVideo* This,LONG *pClipFactor) {
+    return This->lpVtbl->GetClipFactor(This,pClipFactor);
+}
+static FORCEINLINE HRESULT IFullScreenVideo_SetClipFactor(IFullScreenVideo* This,LONG ClipFactor) {
+    return This->lpVtbl->SetClipFactor(This,ClipFactor);
+}
+static FORCEINLINE HRESULT IFullScreenVideo_SetMessageDrain(IFullScreenVideo* This,HWND hwnd) {
+    return This->lpVtbl->SetMessageDrain(This,hwnd);
+}
+static FORCEINLINE HRESULT IFullScreenVideo_GetMessageDrain(IFullScreenVideo* This,HWND *hwnd) {
+    return This->lpVtbl->GetMessageDrain(This,hwnd);
+}
+static FORCEINLINE HRESULT IFullScreenVideo_SetMonitor(IFullScreenVideo* This,LONG Monitor) {
+    return This->lpVtbl->SetMonitor(This,Monitor);
+}
+static FORCEINLINE HRESULT IFullScreenVideo_GetMonitor(IFullScreenVideo* This,LONG *Monitor) {
+    return This->lpVtbl->GetMonitor(This,Monitor);
+}
+static FORCEINLINE HRESULT IFullScreenVideo_HideOnDeactivate(IFullScreenVideo* This,LONG Hide) {
+    return This->lpVtbl->HideOnDeactivate(This,Hide);
+}
+static FORCEINLINE HRESULT IFullScreenVideo_IsHideOnDeactivate(IFullScreenVideo* This) {
+    return This->lpVtbl->IsHideOnDeactivate(This);
+}
+static FORCEINLINE HRESULT IFullScreenVideo_SetCaption(IFullScreenVideo* This,BSTR strCaption) {
+    return This->lpVtbl->SetCaption(This,strCaption);
+}
+static FORCEINLINE HRESULT IFullScreenVideo_GetCaption(IFullScreenVideo* This,BSTR *pstrCaption) {
+    return This->lpVtbl->GetCaption(This,pstrCaption);
+}
+static FORCEINLINE HRESULT IFullScreenVideo_SetDefault(IFullScreenVideo* This) {
+    return This->lpVtbl->SetDefault(This);
+}
+#endif
 #endif
 
 #endif
@@ -995,6 +1154,7 @@ interface IFullScreenVideoEx {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IFullScreenVideoEx_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IFullScreenVideoEx_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1022,6 +1182,83 @@ interface IFullScreenVideoEx {
 #define IFullScreenVideoEx_GetAcceleratorTable(This,phwnd,phAccel) (This)->lpVtbl->GetAcceleratorTable(This,phwnd,phAccel)
 #define IFullScreenVideoEx_KeepPixelAspectRatio(This,KeepAspect) (This)->lpVtbl->KeepPixelAspectRatio(This,KeepAspect)
 #define IFullScreenVideoEx_IsKeepPixelAspectRatio(This,pKeepAspect) (This)->lpVtbl->IsKeepPixelAspectRatio(This,pKeepAspect)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IFullScreenVideoEx_QueryInterface(IFullScreenVideoEx* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IFullScreenVideoEx_AddRef(IFullScreenVideoEx* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IFullScreenVideoEx_Release(IFullScreenVideoEx* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IFullScreenVideo methods ***/
+static FORCEINLINE HRESULT IFullScreenVideoEx_CountModes(IFullScreenVideoEx* This,LONG *pModes) {
+    return This->lpVtbl->CountModes(This,pModes);
+}
+static FORCEINLINE HRESULT IFullScreenVideoEx_GetModeInfo(IFullScreenVideoEx* This,LONG Mode,LONG *pWidth,LONG *pHeight,LONG *pDepth) {
+    return This->lpVtbl->GetModeInfo(This,Mode,pWidth,pHeight,pDepth);
+}
+static FORCEINLINE HRESULT IFullScreenVideoEx_GetCurrentMode(IFullScreenVideoEx* This,LONG *pMode) {
+    return This->lpVtbl->GetCurrentMode(This,pMode);
+}
+static FORCEINLINE HRESULT IFullScreenVideoEx_IsModeAvailable(IFullScreenVideoEx* This,LONG Mode) {
+    return This->lpVtbl->IsModeAvailable(This,Mode);
+}
+static FORCEINLINE HRESULT IFullScreenVideoEx_IsModeEnabled(IFullScreenVideoEx* This,LONG Mode) {
+    return This->lpVtbl->IsModeEnabled(This,Mode);
+}
+static FORCEINLINE HRESULT IFullScreenVideoEx_SetEnabled(IFullScreenVideoEx* This,LONG Mode,LONG bEnabled) {
+    return This->lpVtbl->SetEnabled(This,Mode,bEnabled);
+}
+static FORCEINLINE HRESULT IFullScreenVideoEx_GetClipFactor(IFullScreenVideoEx* This,LONG *pClipFactor) {
+    return This->lpVtbl->GetClipFactor(This,pClipFactor);
+}
+static FORCEINLINE HRESULT IFullScreenVideoEx_SetClipFactor(IFullScreenVideoEx* This,LONG ClipFactor) {
+    return This->lpVtbl->SetClipFactor(This,ClipFactor);
+}
+static FORCEINLINE HRESULT IFullScreenVideoEx_SetMessageDrain(IFullScreenVideoEx* This,HWND hwnd) {
+    return This->lpVtbl->SetMessageDrain(This,hwnd);
+}
+static FORCEINLINE HRESULT IFullScreenVideoEx_GetMessageDrain(IFullScreenVideoEx* This,HWND *hwnd) {
+    return This->lpVtbl->GetMessageDrain(This,hwnd);
+}
+static FORCEINLINE HRESULT IFullScreenVideoEx_SetMonitor(IFullScreenVideoEx* This,LONG Monitor) {
+    return This->lpVtbl->SetMonitor(This,Monitor);
+}
+static FORCEINLINE HRESULT IFullScreenVideoEx_GetMonitor(IFullScreenVideoEx* This,LONG *Monitor) {
+    return This->lpVtbl->GetMonitor(This,Monitor);
+}
+static FORCEINLINE HRESULT IFullScreenVideoEx_HideOnDeactivate(IFullScreenVideoEx* This,LONG Hide) {
+    return This->lpVtbl->HideOnDeactivate(This,Hide);
+}
+static FORCEINLINE HRESULT IFullScreenVideoEx_IsHideOnDeactivate(IFullScreenVideoEx* This) {
+    return This->lpVtbl->IsHideOnDeactivate(This);
+}
+static FORCEINLINE HRESULT IFullScreenVideoEx_SetCaption(IFullScreenVideoEx* This,BSTR strCaption) {
+    return This->lpVtbl->SetCaption(This,strCaption);
+}
+static FORCEINLINE HRESULT IFullScreenVideoEx_GetCaption(IFullScreenVideoEx* This,BSTR *pstrCaption) {
+    return This->lpVtbl->GetCaption(This,pstrCaption);
+}
+static FORCEINLINE HRESULT IFullScreenVideoEx_SetDefault(IFullScreenVideoEx* This) {
+    return This->lpVtbl->SetDefault(This);
+}
+/*** IFullScreenVideoEx methods ***/
+static FORCEINLINE HRESULT IFullScreenVideoEx_SetAcceleratorTable(IFullScreenVideoEx* This,HWND hwnd,HACCEL hAccel) {
+    return This->lpVtbl->SetAcceleratorTable(This,hwnd,hAccel);
+}
+static FORCEINLINE HRESULT IFullScreenVideoEx_GetAcceleratorTable(IFullScreenVideoEx* This,HWND *phwnd,HACCEL *phAccel) {
+    return This->lpVtbl->GetAcceleratorTable(This,phwnd,phAccel);
+}
+static FORCEINLINE HRESULT IFullScreenVideoEx_KeepPixelAspectRatio(IFullScreenVideoEx* This,LONG KeepAspect) {
+    return This->lpVtbl->KeepPixelAspectRatio(This,KeepAspect);
+}
+static FORCEINLINE HRESULT IFullScreenVideoEx_IsKeepPixelAspectRatio(IFullScreenVideoEx* This,LONG *pKeepAspect) {
+    return This->lpVtbl->IsKeepPixelAspectRatio(This,pKeepAspect);
+}
+#endif
 #endif
 
 #endif
@@ -1146,6 +1383,7 @@ interface IBaseVideoMixer {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IBaseVideoMixer_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IBaseVideoMixer_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1158,6 +1396,40 @@ interface IBaseVideoMixer {
 #define IBaseVideoMixer_SetUsingClock(This,bValue) (This)->lpVtbl->SetUsingClock(This,bValue)
 #define IBaseVideoMixer_GetClockPeriod(This,pbValue) (This)->lpVtbl->GetClockPeriod(This,pbValue)
 #define IBaseVideoMixer_SetClockPeriod(This,bValue) (This)->lpVtbl->SetClockPeriod(This,bValue)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IBaseVideoMixer_QueryInterface(IBaseVideoMixer* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IBaseVideoMixer_AddRef(IBaseVideoMixer* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IBaseVideoMixer_Release(IBaseVideoMixer* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IBaseVideoMixer methods ***/
+static FORCEINLINE HRESULT IBaseVideoMixer_SetLeadPin(IBaseVideoMixer* This,int iPin) {
+    return This->lpVtbl->SetLeadPin(This,iPin);
+}
+static FORCEINLINE HRESULT IBaseVideoMixer_GetLeadPin(IBaseVideoMixer* This,int *piPin) {
+    return This->lpVtbl->GetLeadPin(This,piPin);
+}
+static FORCEINLINE HRESULT IBaseVideoMixer_GetInputPinCount(IBaseVideoMixer* This,int *piPinCount) {
+    return This->lpVtbl->GetInputPinCount(This,piPinCount);
+}
+static FORCEINLINE HRESULT IBaseVideoMixer_IsUsingClock(IBaseVideoMixer* This,int *pbValue) {
+    return This->lpVtbl->IsUsingClock(This,pbValue);
+}
+static FORCEINLINE HRESULT IBaseVideoMixer_SetUsingClock(IBaseVideoMixer* This,int bValue) {
+    return This->lpVtbl->SetUsingClock(This,bValue);
+}
+static FORCEINLINE HRESULT IBaseVideoMixer_GetClockPeriod(IBaseVideoMixer* This,int *pbValue) {
+    return This->lpVtbl->GetClockPeriod(This,pbValue);
+}
+static FORCEINLINE HRESULT IBaseVideoMixer_SetClockPeriod(IBaseVideoMixer* This,int bValue) {
+    return This->lpVtbl->SetClockPeriod(This,bValue);
+}
+#endif
 #endif
 
 #endif

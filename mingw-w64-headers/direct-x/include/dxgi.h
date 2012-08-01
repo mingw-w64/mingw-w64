@@ -275,6 +275,7 @@ interface IDXGIObject {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDXGIObject_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDXGIObject_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -284,6 +285,31 @@ interface IDXGIObject {
 #define IDXGIObject_SetPrivateDataInterface(This,guid,object) (This)->lpVtbl->SetPrivateDataInterface(This,guid,object)
 #define IDXGIObject_GetPrivateData(This,guid,data_size,data) (This)->lpVtbl->GetPrivateData(This,guid,data_size,data)
 #define IDXGIObject_GetParent(This,riid,parent) (This)->lpVtbl->GetParent(This,riid,parent)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDXGIObject_QueryInterface(IDXGIObject* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDXGIObject_AddRef(IDXGIObject* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDXGIObject_Release(IDXGIObject* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDXGIObject methods ***/
+static FORCEINLINE HRESULT IDXGIObject_SetPrivateData(IDXGIObject* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIObject_SetPrivateDataInterface(IDXGIObject* This,REFGUID guid,const IUnknown *object) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,object);
+}
+static FORCEINLINE HRESULT IDXGIObject_GetPrivateData(IDXGIObject* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIObject_GetParent(IDXGIObject* This,REFIID riid,void **parent) {
+    return This->lpVtbl->GetParent(This,riid,parent);
+}
+#endif
 #endif
 
 #endif
@@ -400,6 +426,7 @@ interface IDXGIDeviceSubObject {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDXGIDeviceSubObject_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDXGIDeviceSubObject_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -411,6 +438,35 @@ interface IDXGIDeviceSubObject {
 #define IDXGIDeviceSubObject_GetParent(This,riid,parent) (This)->lpVtbl->GetParent(This,riid,parent)
 /*** IDXGIDeviceSubObject methods ***/
 #define IDXGIDeviceSubObject_GetDevice(This,riid,device) (This)->lpVtbl->GetDevice(This,riid,device)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDXGIDeviceSubObject_QueryInterface(IDXGIDeviceSubObject* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDXGIDeviceSubObject_AddRef(IDXGIDeviceSubObject* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDXGIDeviceSubObject_Release(IDXGIDeviceSubObject* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDXGIObject methods ***/
+static FORCEINLINE HRESULT IDXGIDeviceSubObject_SetPrivateData(IDXGIDeviceSubObject* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIDeviceSubObject_SetPrivateDataInterface(IDXGIDeviceSubObject* This,REFGUID guid,const IUnknown *object) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,object);
+}
+static FORCEINLINE HRESULT IDXGIDeviceSubObject_GetPrivateData(IDXGIDeviceSubObject* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIDeviceSubObject_GetParent(IDXGIDeviceSubObject* This,REFIID riid,void **parent) {
+    return This->lpVtbl->GetParent(This,riid,parent);
+}
+/*** IDXGIDeviceSubObject methods ***/
+static FORCEINLINE HRESULT IDXGIDeviceSubObject_GetDevice(IDXGIDeviceSubObject* This,REFIID riid,void **device) {
+    return This->lpVtbl->GetDevice(This,riid,device);
+}
+#endif
 #endif
 
 #endif
@@ -523,6 +579,7 @@ interface IDXGIResource {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDXGIResource_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDXGIResource_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -539,6 +596,48 @@ interface IDXGIResource {
 #define IDXGIResource_GetUsage(This,pUsage) (This)->lpVtbl->GetUsage(This,pUsage)
 #define IDXGIResource_SetEvictionPriority(This,EvictionPriority) (This)->lpVtbl->SetEvictionPriority(This,EvictionPriority)
 #define IDXGIResource_GetEvictionPriority(This,pEvictionPriority) (This)->lpVtbl->GetEvictionPriority(This,pEvictionPriority)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDXGIResource_QueryInterface(IDXGIResource* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDXGIResource_AddRef(IDXGIResource* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDXGIResource_Release(IDXGIResource* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDXGIObject methods ***/
+static FORCEINLINE HRESULT IDXGIResource_SetPrivateData(IDXGIResource* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIResource_SetPrivateDataInterface(IDXGIResource* This,REFGUID guid,const IUnknown *object) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,object);
+}
+static FORCEINLINE HRESULT IDXGIResource_GetPrivateData(IDXGIResource* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIResource_GetParent(IDXGIResource* This,REFIID riid,void **parent) {
+    return This->lpVtbl->GetParent(This,riid,parent);
+}
+/*** IDXGIDeviceSubObject methods ***/
+static FORCEINLINE HRESULT IDXGIResource_GetDevice(IDXGIResource* This,REFIID riid,void **device) {
+    return This->lpVtbl->GetDevice(This,riid,device);
+}
+/*** IDXGIResource methods ***/
+static FORCEINLINE HRESULT IDXGIResource_GetSharedHandle(IDXGIResource* This,HANDLE *pSharedHandle) {
+    return This->lpVtbl->GetSharedHandle(This,pSharedHandle);
+}
+static FORCEINLINE HRESULT IDXGIResource_GetUsage(IDXGIResource* This,DXGI_USAGE *pUsage) {
+    return This->lpVtbl->GetUsage(This,pUsage);
+}
+static FORCEINLINE HRESULT IDXGIResource_SetEvictionPriority(IDXGIResource* This,UINT EvictionPriority) {
+    return This->lpVtbl->SetEvictionPriority(This,EvictionPriority);
+}
+static FORCEINLINE HRESULT IDXGIResource_GetEvictionPriority(IDXGIResource* This,UINT *pEvictionPriority) {
+    return This->lpVtbl->GetEvictionPriority(This,pEvictionPriority);
+}
+#endif
 #endif
 
 #endif
@@ -662,6 +761,7 @@ interface IDXGIKeyedMutex {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDXGIKeyedMutex_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDXGIKeyedMutex_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -676,6 +776,42 @@ interface IDXGIKeyedMutex {
 /*** IDXGIKeyedMutex methods ***/
 #define IDXGIKeyedMutex_AcquireSync(This,Key,dwMilliseconds) (This)->lpVtbl->AcquireSync(This,Key,dwMilliseconds)
 #define IDXGIKeyedMutex_ReleaseSync(This,Key) (This)->lpVtbl->ReleaseSync(This,Key)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDXGIKeyedMutex_QueryInterface(IDXGIKeyedMutex* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDXGIKeyedMutex_AddRef(IDXGIKeyedMutex* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDXGIKeyedMutex_Release(IDXGIKeyedMutex* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDXGIObject methods ***/
+static FORCEINLINE HRESULT IDXGIKeyedMutex_SetPrivateData(IDXGIKeyedMutex* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIKeyedMutex_SetPrivateDataInterface(IDXGIKeyedMutex* This,REFGUID guid,const IUnknown *object) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,object);
+}
+static FORCEINLINE HRESULT IDXGIKeyedMutex_GetPrivateData(IDXGIKeyedMutex* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIKeyedMutex_GetParent(IDXGIKeyedMutex* This,REFIID riid,void **parent) {
+    return This->lpVtbl->GetParent(This,riid,parent);
+}
+/*** IDXGIDeviceSubObject methods ***/
+static FORCEINLINE HRESULT IDXGIKeyedMutex_GetDevice(IDXGIKeyedMutex* This,REFIID riid,void **device) {
+    return This->lpVtbl->GetDevice(This,riid,device);
+}
+/*** IDXGIKeyedMutex methods ***/
+static FORCEINLINE HRESULT IDXGIKeyedMutex_AcquireSync(IDXGIKeyedMutex* This,UINT64 Key,DWORD dwMilliseconds) {
+    return This->lpVtbl->AcquireSync(This,Key,dwMilliseconds);
+}
+static FORCEINLINE HRESULT IDXGIKeyedMutex_ReleaseSync(IDXGIKeyedMutex* This,UINT64 Key) {
+    return This->lpVtbl->ReleaseSync(This,Key);
+}
+#endif
 #endif
 
 #endif
@@ -790,6 +926,7 @@ interface IDXGISurface {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDXGISurface_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDXGISurface_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -805,6 +942,45 @@ interface IDXGISurface {
 #define IDXGISurface_GetDesc(This,desc) (This)->lpVtbl->GetDesc(This,desc)
 #define IDXGISurface_Map(This,mapped_rect,flags) (This)->lpVtbl->Map(This,mapped_rect,flags)
 #define IDXGISurface_Unmap(This) (This)->lpVtbl->Unmap(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDXGISurface_QueryInterface(IDXGISurface* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDXGISurface_AddRef(IDXGISurface* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDXGISurface_Release(IDXGISurface* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDXGIObject methods ***/
+static FORCEINLINE HRESULT IDXGISurface_SetPrivateData(IDXGISurface* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGISurface_SetPrivateDataInterface(IDXGISurface* This,REFGUID guid,const IUnknown *object) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,object);
+}
+static FORCEINLINE HRESULT IDXGISurface_GetPrivateData(IDXGISurface* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGISurface_GetParent(IDXGISurface* This,REFIID riid,void **parent) {
+    return This->lpVtbl->GetParent(This,riid,parent);
+}
+/*** IDXGIDeviceSubObject methods ***/
+static FORCEINLINE HRESULT IDXGISurface_GetDevice(IDXGISurface* This,REFIID riid,void **device) {
+    return This->lpVtbl->GetDevice(This,riid,device);
+}
+/*** IDXGISurface methods ***/
+static FORCEINLINE HRESULT IDXGISurface_GetDesc(IDXGISurface* This,DXGI_SURFACE_DESC *desc) {
+    return This->lpVtbl->GetDesc(This,desc);
+}
+static FORCEINLINE HRESULT IDXGISurface_Map(IDXGISurface* This,DXGI_MAPPED_RECT *mapped_rect,UINT flags) {
+    return This->lpVtbl->Map(This,mapped_rect,flags);
+}
+static FORCEINLINE HRESULT IDXGISurface_Unmap(IDXGISurface* This) {
+    return This->lpVtbl->Unmap(This);
+}
+#endif
 #endif
 
 #endif
@@ -992,6 +1168,7 @@ interface IDXGIOutput {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDXGIOutput_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDXGIOutput_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1014,6 +1191,68 @@ interface IDXGIOutput {
 #define IDXGIOutput_SetDisplaySurface(This,surface) (This)->lpVtbl->SetDisplaySurface(This,surface)
 #define IDXGIOutput_GetDisplaySurfaceData(This,surface) (This)->lpVtbl->GetDisplaySurfaceData(This,surface)
 #define IDXGIOutput_GetFrameStatistics(This,stats) (This)->lpVtbl->GetFrameStatistics(This,stats)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDXGIOutput_QueryInterface(IDXGIOutput* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDXGIOutput_AddRef(IDXGIOutput* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDXGIOutput_Release(IDXGIOutput* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDXGIObject methods ***/
+static FORCEINLINE HRESULT IDXGIOutput_SetPrivateData(IDXGIOutput* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIOutput_SetPrivateDataInterface(IDXGIOutput* This,REFGUID guid,const IUnknown *object) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,object);
+}
+static FORCEINLINE HRESULT IDXGIOutput_GetPrivateData(IDXGIOutput* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIOutput_GetParent(IDXGIOutput* This,REFIID riid,void **parent) {
+    return This->lpVtbl->GetParent(This,riid,parent);
+}
+/*** IDXGIOutput methods ***/
+static FORCEINLINE HRESULT IDXGIOutput_GetDesc(IDXGIOutput* This,DXGI_OUTPUT_DESC *desc) {
+    return This->lpVtbl->GetDesc(This,desc);
+}
+static FORCEINLINE HRESULT IDXGIOutput_GetDisplayModeList(IDXGIOutput* This,DXGI_FORMAT format,UINT flags,UINT *mode_count,DXGI_MODE_DESC *desc) {
+    return This->lpVtbl->GetDisplayModeList(This,format,flags,mode_count,desc);
+}
+static FORCEINLINE HRESULT IDXGIOutput_FindClosestMatchingMode(IDXGIOutput* This,const DXGI_MODE_DESC *mode,DXGI_MODE_DESC *closest_match,IUnknown *device) {
+    return This->lpVtbl->FindClosestMatchingMode(This,mode,closest_match,device);
+}
+static FORCEINLINE HRESULT IDXGIOutput_WaitForVBlank(IDXGIOutput* This) {
+    return This->lpVtbl->WaitForVBlank(This);
+}
+static FORCEINLINE HRESULT IDXGIOutput_TakeOwnership(IDXGIOutput* This,IUnknown *device,WINBOOL exclusive) {
+    return This->lpVtbl->TakeOwnership(This,device,exclusive);
+}
+static FORCEINLINE void IDXGIOutput_ReleaseOwnership(IDXGIOutput* This) {
+    This->lpVtbl->ReleaseOwnership(This);
+}
+static FORCEINLINE HRESULT IDXGIOutput_GetGammaControlCapabilities(IDXGIOutput* This,DXGI_GAMMA_CONTROL_CAPABILITIES *gamma_caps) {
+    return This->lpVtbl->GetGammaControlCapabilities(This,gamma_caps);
+}
+static FORCEINLINE HRESULT IDXGIOutput_SetGammaControl(IDXGIOutput* This,const DXGI_GAMMA_CONTROL *gamma_control) {
+    return This->lpVtbl->SetGammaControl(This,gamma_control);
+}
+static FORCEINLINE HRESULT IDXGIOutput_GetGammaControl(IDXGIOutput* This,DXGI_GAMMA_CONTROL *gamma_control) {
+    return This->lpVtbl->GetGammaControl(This,gamma_control);
+}
+static FORCEINLINE HRESULT IDXGIOutput_SetDisplaySurface(IDXGIOutput* This,IDXGISurface *surface) {
+    return This->lpVtbl->SetDisplaySurface(This,surface);
+}
+static FORCEINLINE HRESULT IDXGIOutput_GetDisplaySurfaceData(IDXGIOutput* This,IDXGISurface *surface) {
+    return This->lpVtbl->GetDisplaySurfaceData(This,surface);
+}
+static FORCEINLINE HRESULT IDXGIOutput_GetFrameStatistics(IDXGIOutput* This,DXGI_FRAME_STATISTICS *stats) {
+    return This->lpVtbl->GetFrameStatistics(This,stats);
+}
+#endif
 #endif
 
 #endif
@@ -1208,6 +1447,7 @@ interface IDXGIAdapter {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDXGIAdapter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDXGIAdapter_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1221,6 +1461,41 @@ interface IDXGIAdapter {
 #define IDXGIAdapter_EnumOutputs(This,output_idx,output) (This)->lpVtbl->EnumOutputs(This,output_idx,output)
 #define IDXGIAdapter_GetDesc(This,desc) (This)->lpVtbl->GetDesc(This,desc)
 #define IDXGIAdapter_CheckInterfaceSupport(This,guid,umd_version) (This)->lpVtbl->CheckInterfaceSupport(This,guid,umd_version)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDXGIAdapter_QueryInterface(IDXGIAdapter* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDXGIAdapter_AddRef(IDXGIAdapter* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDXGIAdapter_Release(IDXGIAdapter* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDXGIObject methods ***/
+static FORCEINLINE HRESULT IDXGIAdapter_SetPrivateData(IDXGIAdapter* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIAdapter_SetPrivateDataInterface(IDXGIAdapter* This,REFGUID guid,const IUnknown *object) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,object);
+}
+static FORCEINLINE HRESULT IDXGIAdapter_GetPrivateData(IDXGIAdapter* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIAdapter_GetParent(IDXGIAdapter* This,REFIID riid,void **parent) {
+    return This->lpVtbl->GetParent(This,riid,parent);
+}
+/*** IDXGIAdapter methods ***/
+static FORCEINLINE HRESULT IDXGIAdapter_EnumOutputs(IDXGIAdapter* This,UINT output_idx,IDXGIOutput **output) {
+    return This->lpVtbl->EnumOutputs(This,output_idx,output);
+}
+static FORCEINLINE HRESULT IDXGIAdapter_GetDesc(IDXGIAdapter* This,DXGI_ADAPTER_DESC *desc) {
+    return This->lpVtbl->GetDesc(This,desc);
+}
+static FORCEINLINE HRESULT IDXGIAdapter_CheckInterfaceSupport(IDXGIAdapter* This,REFGUID guid,LARGE_INTEGER *umd_version) {
+    return This->lpVtbl->CheckInterfaceSupport(This,guid,umd_version);
+}
+#endif
 #endif
 
 #endif
@@ -1410,6 +1685,7 @@ interface IDXGISwapChain {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDXGISwapChain_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDXGISwapChain_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1432,6 +1708,66 @@ interface IDXGISwapChain {
 #define IDXGISwapChain_GetContainingOutput(This,output) (This)->lpVtbl->GetContainingOutput(This,output)
 #define IDXGISwapChain_GetFrameStatistics(This,stats) (This)->lpVtbl->GetFrameStatistics(This,stats)
 #define IDXGISwapChain_GetLastPresentCount(This,last_present_count) (This)->lpVtbl->GetLastPresentCount(This,last_present_count)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDXGISwapChain_QueryInterface(IDXGISwapChain* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDXGISwapChain_AddRef(IDXGISwapChain* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDXGISwapChain_Release(IDXGISwapChain* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDXGIObject methods ***/
+static FORCEINLINE HRESULT IDXGISwapChain_SetPrivateData(IDXGISwapChain* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGISwapChain_SetPrivateDataInterface(IDXGISwapChain* This,REFGUID guid,const IUnknown *object) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,object);
+}
+static FORCEINLINE HRESULT IDXGISwapChain_GetPrivateData(IDXGISwapChain* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGISwapChain_GetParent(IDXGISwapChain* This,REFIID riid,void **parent) {
+    return This->lpVtbl->GetParent(This,riid,parent);
+}
+/*** IDXGIDeviceSubObject methods ***/
+static FORCEINLINE HRESULT IDXGISwapChain_GetDevice(IDXGISwapChain* This,REFIID riid,void **device) {
+    return This->lpVtbl->GetDevice(This,riid,device);
+}
+/*** IDXGISwapChain methods ***/
+static FORCEINLINE HRESULT IDXGISwapChain_Present(IDXGISwapChain* This,UINT sync_interval,UINT flags) {
+    return This->lpVtbl->Present(This,sync_interval,flags);
+}
+static FORCEINLINE HRESULT IDXGISwapChain_GetBuffer(IDXGISwapChain* This,UINT buffer_idx,REFIID riid,void **surface) {
+    return This->lpVtbl->GetBuffer(This,buffer_idx,riid,surface);
+}
+static FORCEINLINE HRESULT IDXGISwapChain_SetFullscreenState(IDXGISwapChain* This,WINBOOL fullscreen,IDXGIOutput *target) {
+    return This->lpVtbl->SetFullscreenState(This,fullscreen,target);
+}
+static FORCEINLINE HRESULT IDXGISwapChain_GetFullscreenState(IDXGISwapChain* This,WINBOOL *fullscreen,IDXGIOutput **target) {
+    return This->lpVtbl->GetFullscreenState(This,fullscreen,target);
+}
+static FORCEINLINE HRESULT IDXGISwapChain_GetDesc(IDXGISwapChain* This,DXGI_SWAP_CHAIN_DESC *desc) {
+    return This->lpVtbl->GetDesc(This,desc);
+}
+static FORCEINLINE HRESULT IDXGISwapChain_ResizeBuffers(IDXGISwapChain* This,UINT buffer_count,UINT width,UINT height,DXGI_FORMAT format,UINT flags) {
+    return This->lpVtbl->ResizeBuffers(This,buffer_count,width,height,format,flags);
+}
+static FORCEINLINE HRESULT IDXGISwapChain_ResizeTarget(IDXGISwapChain* This,const DXGI_MODE_DESC *target_mode_desc) {
+    return This->lpVtbl->ResizeTarget(This,target_mode_desc);
+}
+static FORCEINLINE HRESULT IDXGISwapChain_GetContainingOutput(IDXGISwapChain* This,IDXGIOutput **output) {
+    return This->lpVtbl->GetContainingOutput(This,output);
+}
+static FORCEINLINE HRESULT IDXGISwapChain_GetFrameStatistics(IDXGISwapChain* This,DXGI_FRAME_STATISTICS *stats) {
+    return This->lpVtbl->GetFrameStatistics(This,stats);
+}
+static FORCEINLINE HRESULT IDXGISwapChain_GetLastPresentCount(IDXGISwapChain* This,UINT *last_present_count) {
+    return This->lpVtbl->GetLastPresentCount(This,last_present_count);
+}
+#endif
 #endif
 
 #endif
@@ -1639,6 +1975,7 @@ interface IDXGIFactory {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDXGIFactory_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDXGIFactory_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1654,6 +1991,47 @@ interface IDXGIFactory {
 #define IDXGIFactory_GetWindowAssociation(This,window) (This)->lpVtbl->GetWindowAssociation(This,window)
 #define IDXGIFactory_CreateSwapChain(This,device,desc,swapchain) (This)->lpVtbl->CreateSwapChain(This,device,desc,swapchain)
 #define IDXGIFactory_CreateSoftwareAdapter(This,swrast,adapter) (This)->lpVtbl->CreateSoftwareAdapter(This,swrast,adapter)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDXGIFactory_QueryInterface(IDXGIFactory* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDXGIFactory_AddRef(IDXGIFactory* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDXGIFactory_Release(IDXGIFactory* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDXGIObject methods ***/
+static FORCEINLINE HRESULT IDXGIFactory_SetPrivateData(IDXGIFactory* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIFactory_SetPrivateDataInterface(IDXGIFactory* This,REFGUID guid,const IUnknown *object) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,object);
+}
+static FORCEINLINE HRESULT IDXGIFactory_GetPrivateData(IDXGIFactory* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIFactory_GetParent(IDXGIFactory* This,REFIID riid,void **parent) {
+    return This->lpVtbl->GetParent(This,riid,parent);
+}
+/*** IDXGIFactory methods ***/
+static FORCEINLINE HRESULT IDXGIFactory_EnumAdapters(IDXGIFactory* This,UINT adapter_idx,IDXGIAdapter **adapter) {
+    return This->lpVtbl->EnumAdapters(This,adapter_idx,adapter);
+}
+static FORCEINLINE HRESULT IDXGIFactory_MakeWindowAssociation(IDXGIFactory* This,HWND window,UINT flags) {
+    return This->lpVtbl->MakeWindowAssociation(This,window,flags);
+}
+static FORCEINLINE HRESULT IDXGIFactory_GetWindowAssociation(IDXGIFactory* This,HWND *window) {
+    return This->lpVtbl->GetWindowAssociation(This,window);
+}
+static FORCEINLINE HRESULT IDXGIFactory_CreateSwapChain(IDXGIFactory* This,IUnknown *device,DXGI_SWAP_CHAIN_DESC *desc,IDXGISwapChain **swapchain) {
+    return This->lpVtbl->CreateSwapChain(This,device,desc,swapchain);
+}
+static FORCEINLINE HRESULT IDXGIFactory_CreateSoftwareAdapter(IDXGIFactory* This,HMODULE swrast,IDXGIAdapter **adapter) {
+    return This->lpVtbl->CreateSoftwareAdapter(This,swrast,adapter);
+}
+#endif
 #endif
 
 #endif
@@ -1817,6 +2195,7 @@ interface IDXGIDevice {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDXGIDevice_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDXGIDevice_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -1832,6 +2211,47 @@ interface IDXGIDevice {
 #define IDXGIDevice_QueryResourceResidency(This,resources,residency,resource_count) (This)->lpVtbl->QueryResourceResidency(This,resources,residency,resource_count)
 #define IDXGIDevice_SetGPUThreadPriority(This,priority) (This)->lpVtbl->SetGPUThreadPriority(This,priority)
 #define IDXGIDevice_GetGPUThreadPriority(This,priority) (This)->lpVtbl->GetGPUThreadPriority(This,priority)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDXGIDevice_QueryInterface(IDXGIDevice* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDXGIDevice_AddRef(IDXGIDevice* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDXGIDevice_Release(IDXGIDevice* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDXGIObject methods ***/
+static FORCEINLINE HRESULT IDXGIDevice_SetPrivateData(IDXGIDevice* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIDevice_SetPrivateDataInterface(IDXGIDevice* This,REFGUID guid,const IUnknown *object) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,object);
+}
+static FORCEINLINE HRESULT IDXGIDevice_GetPrivateData(IDXGIDevice* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIDevice_GetParent(IDXGIDevice* This,REFIID riid,void **parent) {
+    return This->lpVtbl->GetParent(This,riid,parent);
+}
+/*** IDXGIDevice methods ***/
+static FORCEINLINE HRESULT IDXGIDevice_GetAdapter(IDXGIDevice* This,IDXGIAdapter **adapter) {
+    return This->lpVtbl->GetAdapter(This,adapter);
+}
+static FORCEINLINE HRESULT IDXGIDevice_CreateSurface(IDXGIDevice* This,const DXGI_SURFACE_DESC *desc,UINT surface_count,DXGI_USAGE usage,const DXGI_SHARED_RESOURCE *shared_resource,IDXGISurface **surface) {
+    return This->lpVtbl->CreateSurface(This,desc,surface_count,usage,shared_resource,surface);
+}
+static FORCEINLINE HRESULT IDXGIDevice_QueryResourceResidency(IDXGIDevice* This,IUnknown *const *resources,DXGI_RESIDENCY *residency,UINT resource_count) {
+    return This->lpVtbl->QueryResourceResidency(This,resources,residency,resource_count);
+}
+static FORCEINLINE HRESULT IDXGIDevice_SetGPUThreadPriority(IDXGIDevice* This,INT priority) {
+    return This->lpVtbl->SetGPUThreadPriority(This,priority);
+}
+static FORCEINLINE HRESULT IDXGIDevice_GetGPUThreadPriority(IDXGIDevice* This,INT *priority) {
+    return This->lpVtbl->GetGPUThreadPriority(This,priority);
+}
+#endif
 #endif
 
 #endif
@@ -1986,6 +2406,7 @@ interface IDXGIAdapter1 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDXGIAdapter1_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDXGIAdapter1_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2001,6 +2422,45 @@ interface IDXGIAdapter1 {
 #define IDXGIAdapter1_CheckInterfaceSupport(This,guid,umd_version) (This)->lpVtbl->CheckInterfaceSupport(This,guid,umd_version)
 /*** IDXGIAdapter1 methods ***/
 #define IDXGIAdapter1_GetDesc1(This,pDesc) (This)->lpVtbl->GetDesc1(This,pDesc)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDXGIAdapter1_QueryInterface(IDXGIAdapter1* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDXGIAdapter1_AddRef(IDXGIAdapter1* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDXGIAdapter1_Release(IDXGIAdapter1* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDXGIObject methods ***/
+static FORCEINLINE HRESULT IDXGIAdapter1_SetPrivateData(IDXGIAdapter1* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIAdapter1_SetPrivateDataInterface(IDXGIAdapter1* This,REFGUID guid,const IUnknown *object) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,object);
+}
+static FORCEINLINE HRESULT IDXGIAdapter1_GetPrivateData(IDXGIAdapter1* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIAdapter1_GetParent(IDXGIAdapter1* This,REFIID riid,void **parent) {
+    return This->lpVtbl->GetParent(This,riid,parent);
+}
+/*** IDXGIAdapter methods ***/
+static FORCEINLINE HRESULT IDXGIAdapter1_EnumOutputs(IDXGIAdapter1* This,UINT output_idx,IDXGIOutput **output) {
+    return This->lpVtbl->EnumOutputs(This,output_idx,output);
+}
+static FORCEINLINE HRESULT IDXGIAdapter1_GetDesc(IDXGIAdapter1* This,DXGI_ADAPTER_DESC *desc) {
+    return This->lpVtbl->GetDesc(This,desc);
+}
+static FORCEINLINE HRESULT IDXGIAdapter1_CheckInterfaceSupport(IDXGIAdapter1* This,REFGUID guid,LARGE_INTEGER *umd_version) {
+    return This->lpVtbl->CheckInterfaceSupport(This,guid,umd_version);
+}
+/*** IDXGIAdapter1 methods ***/
+static FORCEINLINE HRESULT IDXGIAdapter1_GetDesc1(IDXGIAdapter1* This,DXGI_ADAPTER_DESC1 *pDesc) {
+    return This->lpVtbl->GetDesc1(This,pDesc);
+}
+#endif
 #endif
 
 #endif
@@ -2119,6 +2579,7 @@ interface IDXGIFactory1 {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define IDXGIFactory1_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDXGIFactory1_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -2137,6 +2598,54 @@ interface IDXGIFactory1 {
 /*** IDXGIFactory1 methods ***/
 #define IDXGIFactory1_EnumAdapters1(This,Adapter,ppAdapter) (This)->lpVtbl->EnumAdapters1(This,Adapter,ppAdapter)
 #define IDXGIFactory1_IsCurrent(This) (This)->lpVtbl->IsCurrent(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDXGIFactory1_QueryInterface(IDXGIFactory1* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDXGIFactory1_AddRef(IDXGIFactory1* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDXGIFactory1_Release(IDXGIFactory1* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDXGIObject methods ***/
+static FORCEINLINE HRESULT IDXGIFactory1_SetPrivateData(IDXGIFactory1* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIFactory1_SetPrivateDataInterface(IDXGIFactory1* This,REFGUID guid,const IUnknown *object) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,object);
+}
+static FORCEINLINE HRESULT IDXGIFactory1_GetPrivateData(IDXGIFactory1* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIFactory1_GetParent(IDXGIFactory1* This,REFIID riid,void **parent) {
+    return This->lpVtbl->GetParent(This,riid,parent);
+}
+/*** IDXGIFactory methods ***/
+static FORCEINLINE HRESULT IDXGIFactory1_EnumAdapters(IDXGIFactory1* This,UINT adapter_idx,IDXGIAdapter **adapter) {
+    return This->lpVtbl->EnumAdapters(This,adapter_idx,adapter);
+}
+static FORCEINLINE HRESULT IDXGIFactory1_MakeWindowAssociation(IDXGIFactory1* This,HWND window,UINT flags) {
+    return This->lpVtbl->MakeWindowAssociation(This,window,flags);
+}
+static FORCEINLINE HRESULT IDXGIFactory1_GetWindowAssociation(IDXGIFactory1* This,HWND *window) {
+    return This->lpVtbl->GetWindowAssociation(This,window);
+}
+static FORCEINLINE HRESULT IDXGIFactory1_CreateSwapChain(IDXGIFactory1* This,IUnknown *device,DXGI_SWAP_CHAIN_DESC *desc,IDXGISwapChain **swapchain) {
+    return This->lpVtbl->CreateSwapChain(This,device,desc,swapchain);
+}
+static FORCEINLINE HRESULT IDXGIFactory1_CreateSoftwareAdapter(IDXGIFactory1* This,HMODULE swrast,IDXGIAdapter **adapter) {
+    return This->lpVtbl->CreateSoftwareAdapter(This,swrast,adapter);
+}
+/*** IDXGIFactory1 methods ***/
+static FORCEINLINE HRESULT IDXGIFactory1_EnumAdapters1(IDXGIFactory1* This,UINT Adapter,IDXGIAdapter1 **ppAdapter) {
+    return This->lpVtbl->EnumAdapters1(This,Adapter,ppAdapter);
+}
+static FORCEINLINE WINBOOL IDXGIFactory1_IsCurrent(IDXGIFactory1* This) {
+    return This->lpVtbl->IsCurrent(This);
+}
+#endif
 #endif
 
 #endif

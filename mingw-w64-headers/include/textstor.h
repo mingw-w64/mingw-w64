@@ -235,6 +235,7 @@ interface ITextStoreACPSink {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITextStoreACPSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITextStoreACPSink_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -248,6 +249,43 @@ interface ITextStoreACPSink {
 #define ITextStoreACPSink_OnLockGranted(This,dwLockFlags) (This)->lpVtbl->OnLockGranted(This,dwLockFlags)
 #define ITextStoreACPSink_OnStartEditTransaction(This) (This)->lpVtbl->OnStartEditTransaction(This)
 #define ITextStoreACPSink_OnEndEditTransaction(This) (This)->lpVtbl->OnEndEditTransaction(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITextStoreACPSink_QueryInterface(ITextStoreACPSink* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITextStoreACPSink_AddRef(ITextStoreACPSink* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITextStoreACPSink_Release(ITextStoreACPSink* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITextStoreACPSink methods ***/
+static FORCEINLINE HRESULT ITextStoreACPSink_OnTextChange(ITextStoreACPSink* This,DWORD dwFlags,const TS_TEXTCHANGE *pChange) {
+    return This->lpVtbl->OnTextChange(This,dwFlags,pChange);
+}
+static FORCEINLINE HRESULT ITextStoreACPSink_OnSelectionChange(ITextStoreACPSink* This) {
+    return This->lpVtbl->OnSelectionChange(This);
+}
+static FORCEINLINE HRESULT ITextStoreACPSink_OnLayoutChange(ITextStoreACPSink* This,TsLayoutCode lcode,TsViewCookie vcView) {
+    return This->lpVtbl->OnLayoutChange(This,lcode,vcView);
+}
+static FORCEINLINE HRESULT ITextStoreACPSink_OnStatusChange(ITextStoreACPSink* This,DWORD dwFlags) {
+    return This->lpVtbl->OnStatusChange(This,dwFlags);
+}
+static FORCEINLINE HRESULT ITextStoreACPSink_OnAttrsChange(ITextStoreACPSink* This,LONG acpStart,LONG acpEnd,ULONG cAttrs,const TS_ATTRID *paAttrs) {
+    return This->lpVtbl->OnAttrsChange(This,acpStart,acpEnd,cAttrs,paAttrs);
+}
+static FORCEINLINE HRESULT ITextStoreACPSink_OnLockGranted(ITextStoreACPSink* This,DWORD dwLockFlags) {
+    return This->lpVtbl->OnLockGranted(This,dwLockFlags);
+}
+static FORCEINLINE HRESULT ITextStoreACPSink_OnStartEditTransaction(ITextStoreACPSink* This) {
+    return This->lpVtbl->OnStartEditTransaction(This);
+}
+static FORCEINLINE HRESULT ITextStoreACPSink_OnEndEditTransaction(ITextStoreACPSink* This) {
+    return This->lpVtbl->OnEndEditTransaction(This);
+}
+#endif
 #endif
 
 #endif
@@ -682,6 +720,7 @@ interface ITextStoreACP {
 };
 
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
 /*** IUnknown methods ***/
 #define ITextStoreACP_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define ITextStoreACP_AddRef(This) (This)->lpVtbl->AddRef(This)
@@ -713,6 +752,97 @@ interface ITextStoreACP {
 #define ITextStoreACP_GetTextExt(This,vcView,acpStart,acpEnd,prc,pfClipped) (This)->lpVtbl->GetTextExt(This,vcView,acpStart,acpEnd,prc,pfClipped)
 #define ITextStoreACP_GetScreenExt(This,vcView,prc) (This)->lpVtbl->GetScreenExt(This,vcView,prc)
 #define ITextStoreACP_GetWnd(This,vcView,phwnd) (This)->lpVtbl->GetWnd(This,vcView,phwnd)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITextStoreACP_QueryInterface(ITextStoreACP* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITextStoreACP_AddRef(ITextStoreACP* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITextStoreACP_Release(ITextStoreACP* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITextStoreACP methods ***/
+static FORCEINLINE HRESULT ITextStoreACP_AdviseSink(ITextStoreACP* This,REFIID riid,IUnknown *punk,DWORD dwMask) {
+    return This->lpVtbl->AdviseSink(This,riid,punk,dwMask);
+}
+static FORCEINLINE HRESULT ITextStoreACP_UnadviseSink(ITextStoreACP* This,IUnknown *punk) {
+    return This->lpVtbl->UnadviseSink(This,punk);
+}
+static FORCEINLINE HRESULT ITextStoreACP_RequestLock(ITextStoreACP* This,DWORD dwLockFlags,HRESULT *phrSession) {
+    return This->lpVtbl->RequestLock(This,dwLockFlags,phrSession);
+}
+static FORCEINLINE HRESULT ITextStoreACP_GetStatus(ITextStoreACP* This,TS_STATUS *pdcs) {
+    return This->lpVtbl->GetStatus(This,pdcs);
+}
+static FORCEINLINE HRESULT ITextStoreACP_QueryInsert(ITextStoreACP* This,LONG acpTestStart,LONG acpTestEnd,ULONG cch,LONG *pacpResultStart,LONG *pacpResultEnd) {
+    return This->lpVtbl->QueryInsert(This,acpTestStart,acpTestEnd,cch,pacpResultStart,pacpResultEnd);
+}
+static FORCEINLINE HRESULT ITextStoreACP_GetSelection(ITextStoreACP* This,ULONG ulIndex,ULONG ulCount,TS_SELECTION_ACP *pSelection,ULONG *pcFetched) {
+    return This->lpVtbl->GetSelection(This,ulIndex,ulCount,pSelection,pcFetched);
+}
+static FORCEINLINE HRESULT ITextStoreACP_SetSelection(ITextStoreACP* This,ULONG ulCount,const TS_SELECTION_ACP *pSelection) {
+    return This->lpVtbl->SetSelection(This,ulCount,pSelection);
+}
+static FORCEINLINE HRESULT ITextStoreACP_GetText(ITextStoreACP* This,LONG acpStart,LONG acpEnd,WCHAR *pchPlain,ULONG cchPlainReq,ULONG *pcchPlainRet,TS_RUNINFO *prgRunInfo,ULONG cRunInfoReq,ULONG *pcRunInfoRet,LONG *pacpNext) {
+    return This->lpVtbl->GetText(This,acpStart,acpEnd,pchPlain,cchPlainReq,pcchPlainRet,prgRunInfo,cRunInfoReq,pcRunInfoRet,pacpNext);
+}
+static FORCEINLINE HRESULT ITextStoreACP_SetText(ITextStoreACP* This,DWORD dwFlags,LONG acpStart,LONG acpEnd,const WCHAR *pchText,ULONG cch,TS_TEXTCHANGE *pChange) {
+    return This->lpVtbl->SetText(This,dwFlags,acpStart,acpEnd,pchText,cch,pChange);
+}
+static FORCEINLINE HRESULT ITextStoreACP_GetFormattedText(ITextStoreACP* This,LONG acpStart,LONG acpEnd,IDataObject **ppDataObject) {
+    return This->lpVtbl->GetFormattedText(This,acpStart,acpEnd,ppDataObject);
+}
+static FORCEINLINE HRESULT ITextStoreACP_GetEmbedded(ITextStoreACP* This,LONG acpPos,REFGUID rguidService,REFIID riid,IUnknown **ppunk) {
+    return This->lpVtbl->GetEmbedded(This,acpPos,rguidService,riid,ppunk);
+}
+static FORCEINLINE HRESULT ITextStoreACP_QueryInsertEmbedded(ITextStoreACP* This,const GUID *pguidService,const FORMATETC *pFormatEtc,WINBOOL *pfInsertable) {
+    return This->lpVtbl->QueryInsertEmbedded(This,pguidService,pFormatEtc,pfInsertable);
+}
+static FORCEINLINE HRESULT ITextStoreACP_InsertEmbedded(ITextStoreACP* This,DWORD dwFlags,LONG acpStart,LONG acpEnd,IDataObject *pDataObject,TS_TEXTCHANGE *pChange) {
+    return This->lpVtbl->InsertEmbedded(This,dwFlags,acpStart,acpEnd,pDataObject,pChange);
+}
+static FORCEINLINE HRESULT ITextStoreACP_InsertTextAtSelection(ITextStoreACP* This,DWORD dwFlags,const WCHAR *pchText,ULONG cch,LONG *pacpStart,LONG *pacpEnd,TS_TEXTCHANGE *pChange) {
+    return This->lpVtbl->InsertTextAtSelection(This,dwFlags,pchText,cch,pacpStart,pacpEnd,pChange);
+}
+static FORCEINLINE HRESULT ITextStoreACP_InsertEmbeddedAtSelection(ITextStoreACP* This,DWORD dwFlags,IDataObject *pDataObject,LONG *pacpStart,LONG *pacpEnd,TS_TEXTCHANGE *pChange) {
+    return This->lpVtbl->InsertEmbeddedAtSelection(This,dwFlags,pDataObject,pacpStart,pacpEnd,pChange);
+}
+static FORCEINLINE HRESULT ITextStoreACP_RequestSupportedAttrs(ITextStoreACP* This,DWORD dwFlags,ULONG cFilterAttrs,const TS_ATTRID *paFilterAttrs) {
+    return This->lpVtbl->RequestSupportedAttrs(This,dwFlags,cFilterAttrs,paFilterAttrs);
+}
+static FORCEINLINE HRESULT ITextStoreACP_RequestAttrsAtPosition(ITextStoreACP* This,LONG acpPos,ULONG cFilterAttrs,const TS_ATTRID *paFilterAttrs,DWORD dwFlags) {
+    return This->lpVtbl->RequestAttrsAtPosition(This,acpPos,cFilterAttrs,paFilterAttrs,dwFlags);
+}
+static FORCEINLINE HRESULT ITextStoreACP_RequestAttrsTransitioningAtPosition(ITextStoreACP* This,LONG acpPos,ULONG cFilterAttrs,const TS_ATTRID *paFilterAttrs,DWORD dwFlags) {
+    return This->lpVtbl->RequestAttrsTransitioningAtPosition(This,acpPos,cFilterAttrs,paFilterAttrs,dwFlags);
+}
+static FORCEINLINE HRESULT ITextStoreACP_FindNextAttrTransition(ITextStoreACP* This,LONG acpStart,LONG acpHalt,ULONG cFilterAttrs,const TS_ATTRID *paFilterAttrs,DWORD dwFlags,LONG *pacpNext,WINBOOL *pfFound,LONG *plFoundOffset) {
+    return This->lpVtbl->FindNextAttrTransition(This,acpStart,acpHalt,cFilterAttrs,paFilterAttrs,dwFlags,pacpNext,pfFound,plFoundOffset);
+}
+static FORCEINLINE HRESULT ITextStoreACP_RetrieveRequestedAttrs(ITextStoreACP* This,ULONG ulCount,TS_ATTRVAL *paAttrVals,ULONG *pcFetched) {
+    return This->lpVtbl->RetrieveRequestedAttrs(This,ulCount,paAttrVals,pcFetched);
+}
+static FORCEINLINE HRESULT ITextStoreACP_GetEndACP(ITextStoreACP* This,LONG *pacp) {
+    return This->lpVtbl->GetEndACP(This,pacp);
+}
+static FORCEINLINE HRESULT ITextStoreACP_GetActiveView(ITextStoreACP* This,TsViewCookie *pvcView) {
+    return This->lpVtbl->GetActiveView(This,pvcView);
+}
+static FORCEINLINE HRESULT ITextStoreACP_GetACPFromPoint(ITextStoreACP* This,TsViewCookie vcView,const POINT *ptScreen,DWORD dwFlags,LONG *pacp) {
+    return This->lpVtbl->GetACPFromPoint(This,vcView,ptScreen,dwFlags,pacp);
+}
+static FORCEINLINE HRESULT ITextStoreACP_GetTextExt(ITextStoreACP* This,TsViewCookie vcView,LONG acpStart,LONG acpEnd,RECT *prc,WINBOOL *pfClipped) {
+    return This->lpVtbl->GetTextExt(This,vcView,acpStart,acpEnd,prc,pfClipped);
+}
+static FORCEINLINE HRESULT ITextStoreACP_GetScreenExt(ITextStoreACP* This,TsViewCookie vcView,RECT *prc) {
+    return This->lpVtbl->GetScreenExt(This,vcView,prc);
+}
+static FORCEINLINE HRESULT ITextStoreACP_GetWnd(ITextStoreACP* This,TsViewCookie vcView,HWND *phwnd) {
+    return This->lpVtbl->GetWnd(This,vcView,phwnd);
+}
+#endif
 #endif
 
 #endif
