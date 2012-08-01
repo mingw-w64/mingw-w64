@@ -6,7 +6,7 @@ HMODULE __mingw_get_msvcrt_handle(void);
 int __cdecl _cprintf_s (const char *,...);
 int __cdecl _vcprintf_s (const char *,va_list);
 
-errno_t __cdecl (*__MINGW_IMP_SYMBOL(_cprintf_s))(const char *,...) = 
+int __cdecl (*__MINGW_IMP_SYMBOL(_cprintf_s))(const char *,...) = 
  _cprintf_s;
 
 int __cdecl

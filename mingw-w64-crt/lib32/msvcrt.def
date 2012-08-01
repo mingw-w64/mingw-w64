@@ -827,8 +827,8 @@ _ctime64_s
 _cwprintf_l
 _cwprintf_p
 _cwprintf_p_l
-_cwprintf_s
-_cwprintf_s_l
+; _cwprintf_s Replaced by emu
+; _cwprintf_s_l Likewise.
 _cwscanf_l
 _cwscanf_s
 _cwscanf_s_l
@@ -1074,8 +1074,8 @@ _vcwprintf
 _vcwprintf_l
 _vcwprintf_p
 _vcwprintf_p_l
-_vcwprintf_s
-_vcwprintf_s_l
+; _vcwprintf_s Replaced by emu.
+; _vcwprintf_s_l  Likewise.
 _vfprintf_l
 _vfprintf_p
 _vfprintf_p_l

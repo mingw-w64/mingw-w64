@@ -1,5 +1,9 @@
 2012-08-01  Kai Tietz  <ktietz@redhat.com>
 
+	* secapi/_cwprintf_s.c: New file.
+	* secapi/_cwprintf_s_l.c: New file.
+	* secapi/_vcwprintf_s.c: New file.
+	* secapi/_vcwprintf_s_l.c: New file.
 	* secapi/_vcprintf_s.c: New file.
 	* secapi/_vcprintf_s_l.c: New file.
 	* secapi/_cprintf_s_l.c: New file.
