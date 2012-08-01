@@ -10,6 +10,9 @@
 #include "rpc.h"
 #include "rpcndr.h"
 
+#pragma push_macro("abort")
+#undef abort
+
 #ifndef __msxml_h__
 #define __msxml_h__
 
@@ -3377,4 +3380,7 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-#endif
+
+#endif /* __msxml_h__ */
+
+#pragma pop_macro("abort")
