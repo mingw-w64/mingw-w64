@@ -631,7 +631,7 @@ _mkgmtime DATA
 ;_mkgmtime32 = _mkgmtime
 _mkgmtime64
 _mktemp
-_mktemp_s
+; _mktemp_s replaced by emu
 _mktime64
 _msize
 _nextafter
@@ -950,7 +950,7 @@ _wmakepath
 _wmakepath_s
 _wmkdir
 _wmktemp
-_wmktemp_s
+; _wmktemp_s replaced by emu
 _wopen
 _woutput_s
 _wperror

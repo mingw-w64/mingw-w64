@@ -241,7 +241,7 @@ src_libmingwex=\
   secapi/_cwprintf_s.c secapi/_cwprintf_s_l.c \
   secapi/_vcwprintf_s.c secapi/_vcwprintf_s_l.c \
   secapi/_access_s.c secapi/_waccess_s.c \
-  secapi/_chsize_s.c
+  secapi/_chsize_s.c secapi/_mktemp_s.c secapi/_wmktemp_s.c
 
 # these only go into the 64 bit version:
 src_libmingwex64=\

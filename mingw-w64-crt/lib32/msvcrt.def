@@ -992,7 +992,7 @@ _mbsupr_s
 _mbsupr_s_l
 _mbtowc_l
 _memicmp_l
-_mktemp_s
+; _mktemp_s replaced by emu
 _printf_l
 _printf_p
 _printf_p_l
@@ -1148,7 +1148,7 @@ _wfreopen_s
 _wgetenv_s
 _winput_s
 _wmakepath_s
-_wmktemp_s
+; _wmktemp_s replaced by emu
 _woutput_s
 _wprintf_l
 _wprintf_p

@@ -1,5 +1,8 @@
 2012-08-01  Kai Tietz  <ktietz@redhat.com>
 
+	* secapi/_chsize_s.c: New file.
+	* secapi/_mktemp_s.c: New file.
+	* secapi/_wmktemp_s.c: New file.
 	* secapi/_wassert_s.c: New file.
 	* secapi/_assert_s.c: New file.
 	* secapi/_cwprintf_s.c: New file.
