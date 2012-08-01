@@ -813,8 +813,8 @@ _vcprintf
 _vcprintf_l
 _vcprintf_p
 _vcprintf_p_l
-_vcprintf_s
-_vcprintf_s_l
+; _vcprintf_s Replaced by emu
+; _vcprintf_s_l Likewise.
 _vcwprintf
 _vcwprintf_l
 _vcwprintf_p

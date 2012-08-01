@@ -1,5 +1,7 @@
 2012-08-01  Kai Tietz  <ktietz@redhat.com>
 
+	* secapi/_vcprintf_s.c: New file.
+	* secapi/_vcprintf_s_l.c: New file.
 	* secapi/_cprintf_s_l.c: New file.
 	* Makefile.am: Add new file.
 	* Makefile.in: Regenerated.
