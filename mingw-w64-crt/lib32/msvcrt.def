@@ -818,7 +818,7 @@ _cprintf_l
 _cprintf_p
 _cprintf_p_l
 ; _cprintf_s replaced by emu
-_cprintf_s_l
+; _cprintf_s_l likewise.
 _cscanf_l
 _cscanf_s
 _cscanf_s_l

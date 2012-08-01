@@ -233,7 +233,7 @@ _cprintf_l
 _cprintf_p
 _cprintf_p_l
 ; _cprintf_s Replaced by emu
-_cprintf_s_l
+; _cprintf_s_l likewise.
 _cputs
 _cputws
 _creat
