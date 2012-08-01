@@ -1949,114 +1949,64 @@ cpp_quote("  void __RPC_STUB ITypeMarshal_Unmarshal_Stub(IRpcStubBuffer *This,IR
 cpp_quote("  HRESULT WINAPI ITypeMarshal_Free_Proxy(ITypeMarshal *This,PVOID pvType);")
 cpp_quote("  void __RPC_STUB ITypeMarshal_Free_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
 cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IRecordInfo_INTERFACE_DEFINED__")
-cpp_quote("#define __IRecordInfo_INTERFACE_DEFINED__")
-cpp_quote("  typedef IRecordInfo *LPRECORDINFO;")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_IRecordInfo;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IRecordInfo : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI RecordInit(PVOID pvNew) = 0;")
-cpp_quote("    virtual HRESULT WINAPI RecordClear(PVOID pvExisting) = 0;")
-cpp_quote("    virtual HRESULT WINAPI RecordCopy(PVOID pvExisting,PVOID pvNew) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetGuid(GUID *pguid) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetName(BSTR *pbstrName) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetSize(ULONG *pcbSize) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetTypeInfo(ITypeInfo **ppTypeInfo) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetField(PVOID pvData,LPCOLESTR szFieldName,VARIANT *pvarField) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetFieldNoCopy(PVOID pvData,LPCOLESTR szFieldName,VARIANT *pvarField,PVOID *ppvDataCArray) = 0;")
-cpp_quote("    virtual HRESULT WINAPI PutField(ULONG wFlags,PVOID pvData,LPCOLESTR szFieldName,VARIANT *pvarField) = 0;")
-cpp_quote("    virtual HRESULT WINAPI PutFieldNoCopy(ULONG wFlags,PVOID pvData,LPCOLESTR szFieldName,VARIANT *pvarField) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetFieldNames(ULONG *pcNames,BSTR *rgBstrNames) = 0;")
-cpp_quote("    virtual WINBOOL WINAPI IsMatchingType(IRecordInfo *pRecordInfo) = 0;")
-cpp_quote("    virtual PVOID WINAPI RecordCreate(void) = 0;")
-cpp_quote("    virtual HRESULT WINAPI RecordCreateCopy(PVOID pvSource,PVOID *ppvDest) = 0;")
-cpp_quote("    virtual HRESULT WINAPI RecordDestroy(PVOID pvRecord) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IRecordInfoVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IRecordInfo *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IRecordInfo *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IRecordInfo *This);")
-cpp_quote("      HRESULT (WINAPI *RecordInit)(IRecordInfo *This,PVOID pvNew);")
-cpp_quote("      HRESULT (WINAPI *RecordClear)(IRecordInfo *This,PVOID pvExisting);")
-cpp_quote("      HRESULT (WINAPI *RecordCopy)(IRecordInfo *This,PVOID pvExisting,PVOID pvNew);")
-cpp_quote("      HRESULT (WINAPI *GetGuid)(IRecordInfo *This,GUID *pguid);")
-cpp_quote("      HRESULT (WINAPI *GetName)(IRecordInfo *This,BSTR *pbstrName);")
-cpp_quote("      HRESULT (WINAPI *GetSize)(IRecordInfo *This,ULONG *pcbSize);")
-cpp_quote("      HRESULT (WINAPI *GetTypeInfo)(IRecordInfo *This,ITypeInfo **ppTypeInfo);")
-cpp_quote("      HRESULT (WINAPI *GetField)(IRecordInfo *This,PVOID pvData,LPCOLESTR szFieldName,VARIANT *pvarField);")
-cpp_quote("      HRESULT (WINAPI *GetFieldNoCopy)(IRecordInfo *This,PVOID pvData,LPCOLESTR szFieldName,VARIANT *pvarField,PVOID *ppvDataCArray);")
-cpp_quote("      HRESULT (WINAPI *PutField)(IRecordInfo *This,ULONG wFlags,PVOID pvData,LPCOLESTR szFieldName,VARIANT *pvarField);")
-cpp_quote("      HRESULT (WINAPI *PutFieldNoCopy)(IRecordInfo *This,ULONG wFlags,PVOID pvData,LPCOLESTR szFieldName,VARIANT *pvarField);")
-cpp_quote("      HRESULT (WINAPI *GetFieldNames)(IRecordInfo *This,ULONG *pcNames,BSTR *rgBstrNames);")
-cpp_quote("      WINBOOL (WINAPI *IsMatchingType)(IRecordInfo *This,IRecordInfo *pRecordInfo);")
-cpp_quote("      PVOID (WINAPI *RecordCreate)(IRecordInfo *This);")
-cpp_quote("      HRESULT (WINAPI *RecordCreateCopy)(IRecordInfo *This,PVOID pvSource,PVOID *ppvDest);")
-cpp_quote("      HRESULT (WINAPI *RecordDestroy)(IRecordInfo *This,PVOID pvRecord);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IRecordInfoVtbl;")
-cpp_quote("  struct IRecordInfo {")
-cpp_quote("    CONST_VTBL struct IRecordInfoVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IRecordInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IRecordInfo_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IRecordInfo_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IRecordInfo_RecordInit(This,pvNew) (This)->lpVtbl->RecordInit(This,pvNew)")
-cpp_quote("#define IRecordInfo_RecordClear(This,pvExisting) (This)->lpVtbl->RecordClear(This,pvExisting)")
-cpp_quote("#define IRecordInfo_RecordCopy(This,pvExisting,pvNew) (This)->lpVtbl->RecordCopy(This,pvExisting,pvNew)")
-cpp_quote("#define IRecordInfo_GetGuid(This,pguid) (This)->lpVtbl->GetGuid(This,pguid)")
-cpp_quote("#define IRecordInfo_GetName(This,pbstrName) (This)->lpVtbl->GetName(This,pbstrName)")
-cpp_quote("#define IRecordInfo_GetSize(This,pcbSize) (This)->lpVtbl->GetSize(This,pcbSize)")
-cpp_quote("#define IRecordInfo_GetTypeInfo(This,ppTypeInfo) (This)->lpVtbl->GetTypeInfo(This,ppTypeInfo)")
-cpp_quote("#define IRecordInfo_GetField(This,pvData,szFieldName,pvarField) (This)->lpVtbl->GetField(This,pvData,szFieldName,pvarField)")
-cpp_quote("#define IRecordInfo_GetFieldNoCopy(This,pvData,szFieldName,pvarField,ppvDataCArray) (This)->lpVtbl->GetFieldNoCopy(This,pvData,szFieldName,pvarField,ppvDataCArray)")
-cpp_quote("#define IRecordInfo_PutField(This,wFlags,pvData,szFieldName,pvarField) (This)->lpVtbl->PutField(This,wFlags,pvData,szFieldName,pvarField)")
-cpp_quote("#define IRecordInfo_PutFieldNoCopy(This,wFlags,pvData,szFieldName,pvarField) (This)->lpVtbl->PutFieldNoCopy(This,wFlags,pvData,szFieldName,pvarField)")
-cpp_quote("#define IRecordInfo_GetFieldNames(This,pcNames,rgBstrNames) (This)->lpVtbl->GetFieldNames(This,pcNames,rgBstrNames)")
-cpp_quote("#define IRecordInfo_IsMatchingType(This,pRecordInfo) (This)->lpVtbl->IsMatchingType(This,pRecordInfo)")
-cpp_quote("#define IRecordInfo_RecordCreate(This) (This)->lpVtbl->RecordCreate(This)")
-cpp_quote("#define IRecordInfo_RecordCreateCopy(This,pvSource,ppvDest) (This)->lpVtbl->RecordCreateCopy(This,pvSource,ppvDest)")
-cpp_quote("#define IRecordInfo_RecordDestroy(This,pvRecord) (This)->lpVtbl->RecordDestroy(This,pvRecord)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IRecordInfo_RecordInit_Proxy(IRecordInfo *This,PVOID pvNew);")
-cpp_quote("  void __RPC_STUB IRecordInfo_RecordInit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IRecordInfo_RecordClear_Proxy(IRecordInfo *This,PVOID pvExisting);")
-cpp_quote("  void __RPC_STUB IRecordInfo_RecordClear_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IRecordInfo_RecordCopy_Proxy(IRecordInfo *This,PVOID pvExisting,PVOID pvNew);")
-cpp_quote("  void __RPC_STUB IRecordInfo_RecordCopy_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IRecordInfo_GetGuid_Proxy(IRecordInfo *This,GUID *pguid);")
-cpp_quote("  void __RPC_STUB IRecordInfo_GetGuid_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IRecordInfo_GetName_Proxy(IRecordInfo *This,BSTR *pbstrName);")
-cpp_quote("  void __RPC_STUB IRecordInfo_GetName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IRecordInfo_GetSize_Proxy(IRecordInfo *This,ULONG *pcbSize);")
-cpp_quote("  void __RPC_STUB IRecordInfo_GetSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IRecordInfo_GetTypeInfo_Proxy(IRecordInfo *This,ITypeInfo **ppTypeInfo);")
-cpp_quote("  void __RPC_STUB IRecordInfo_GetTypeInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IRecordInfo_GetField_Proxy(IRecordInfo *This,PVOID pvData,LPCOLESTR szFieldName,VARIANT *pvarField);")
-cpp_quote("  void __RPC_STUB IRecordInfo_GetField_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IRecordInfo_GetFieldNoCopy_Proxy(IRecordInfo *This,PVOID pvData,LPCOLESTR szFieldName,VARIANT *pvarField,PVOID *ppvDataCArray);")
-cpp_quote("  void __RPC_STUB IRecordInfo_GetFieldNoCopy_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IRecordInfo_PutField_Proxy(IRecordInfo *This,ULONG wFlags,PVOID pvData,LPCOLESTR szFieldName,VARIANT *pvarField);")
-cpp_quote("  void __RPC_STUB IRecordInfo_PutField_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IRecordInfo_PutFieldNoCopy_Proxy(IRecordInfo *This,ULONG wFlags,PVOID pvData,LPCOLESTR szFieldName,VARIANT *pvarField);")
-cpp_quote("  void __RPC_STUB IRecordInfo_PutFieldNoCopy_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IRecordInfo_GetFieldNames_Proxy(IRecordInfo *This,ULONG *pcNames,BSTR *rgBstrNames);")
-cpp_quote("  void __RPC_STUB IRecordInfo_GetFieldNames_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  WINBOOL WINAPI IRecordInfo_IsMatchingType_Proxy(IRecordInfo *This,IRecordInfo *pRecordInfo);")
-cpp_quote("  void __RPC_STUB IRecordInfo_IsMatchingType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  PVOID WINAPI IRecordInfo_RecordCreate_Proxy(IRecordInfo *This);")
-cpp_quote("  void __RPC_STUB IRecordInfo_RecordCreate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IRecordInfo_RecordCreateCopy_Proxy(IRecordInfo *This,PVOID pvSource,PVOID *ppvDest);")
-cpp_quote("  void __RPC_STUB IRecordInfo_RecordCreateCopy_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IRecordInfo_RecordDestroy_Proxy(IRecordInfo *This,PVOID pvRecord);")
-cpp_quote("  void __RPC_STUB IRecordInfo_RecordDestroy_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
+
+[
+    local,
+    object,
+    uuid(0000002f-0000-0000-c000-000000000046)
+]
+interface IRecordInfo : IUnknown
+{
+    typedef [unique] IRecordInfo *LPRECORDINFO;
+
+    HRESULT RecordInit([out] PVOID pvNew);
+    HRESULT RecordClear([in] PVOID pvExisting);
+
+    HRESULT RecordCopy(
+            [in] PVOID pvExisting,
+            [out] PVOID pvNew);
+
+    HRESULT GetGuid([out] GUID *pguid);
+    HRESULT GetName([out] BSTR *pbstrName);
+    HRESULT GetSize([out] ULONG *pcbSize);
+    HRESULT GetTypeInfo([out] ITypeInfo **ppTypeInfo);
+
+    HRESULT GetField(
+            [in] PVOID pvData,
+            [in] LPCOLESTR szFieldName,
+            [out] VARIANT *pvarField);
+
+    HRESULT GetFieldNoCopy(
+            [in] PVOID pvData,
+            [in] LPCOLESTR szFieldName,
+            [out] VARIANT *pvarField,
+            [out] PVOID *ppvDataCArray);
+
+    HRESULT PutField(
+            [in] ULONG wFlags,
+            [in, out] PVOID pvData,
+            [in] LPCOLESTR szFieldName,
+            [in] VARIANT *pvarField);
+
+    HRESULT PutFieldNoCopy(
+            [in] ULONG wFlags,
+            [in, out] PVOID pvData,
+            [in] LPCOLESTR szFieldName,
+            [in] VARIANT *pvarField);
+
+    HRESULT GetFieldNames(
+            [in,out] ULONG *pcNames,
+            [out, size_is(*pcNames), length_is(*pcNames)] BSTR *rgBstrNames);
+
+    BOOL IsMatchingType([in] IRecordInfo *pRecordInfo);
+    PVOID RecordCreate();
+
+    HRESULT RecordCreateCopy(
+            [in] PVOID pvSource,
+            [out] PVOID *ppvDest);
+
+    HRESULT RecordDestroy([in] PVOID pvRecord);
+}
 
 [
     object,
