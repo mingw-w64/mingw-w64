@@ -1,3 +1,13 @@
+2012-08-01  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merge from trunk rev. 5245:
+	Kai Tietz  <ktietz@redhat.com>
+	* msxml.h, msxml2.h: Make abort agnostic against user-defines.
+
+	Merge from trunk rev. 5236:
+	Corinna Vinschen  <vinschen@redhat.com>
+	* usb.h: Check for _WIN64 instead of WIN64.
+
 2012-07-11  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* tapi.h: Move the unicode A/W macros after the function prototypes.
