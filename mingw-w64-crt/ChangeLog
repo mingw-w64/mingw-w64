@@ -1,5 +1,7 @@
 2012-08-01  Kai Tietz  <ktietz@redhat.com>
 
+	* secapi/_wassert_s.c: New file.
+	* secapi/_assert_s.c: New file.
 	* secapi/_cwprintf_s.c: New file.
 	* secapi/_cwprintf_s_l.c: New file.
 	* secapi/_vcwprintf_s.c: New file.

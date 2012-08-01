@@ -181,7 +181,7 @@ __wgetmainargs
 __winitenv DATA
 _abs64
 _access
-_access_s
+; _access_s Replaced by emu
 _acmdln DATA
 _aexit_rtn DATA
 _aligned_free
@@ -864,7 +864,7 @@ _vwprintf_p
 _vwprintf_p_l
 _vwprintf_s_l
 _waccess
-_waccess_s
+; _waccess_s Replaced by emu
 _wasctime
 _wasctime_s
 _wchdir

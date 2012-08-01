@@ -1113,7 +1113,8 @@ _vwprintf_l
 _vwprintf_p
 _vwprintf_p_l
 _vwprintf_s_l
-_waccess_s
+; _waccess_s Replaced by emu
+; _access_s Likewise.
 _wasctime_s
 _wcscoll_l
 _wcserror_s

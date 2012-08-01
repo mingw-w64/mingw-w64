@@ -4,6 +4,7 @@
 
 HMODULE __mingw_get_msvcrt_handle(void);
 wchar_t * __cdecl _cgetws (wchar_t *);
+errno_t __cdecl _cgetws_s (wchar_t *, size_t, size_t *);
 static errno_t __cdecl _int_cgetws_s (wchar_t *, size_t, size_t *);
 static errno_t __cdecl _stub (wchar_t *, size_t, size_t *);
 

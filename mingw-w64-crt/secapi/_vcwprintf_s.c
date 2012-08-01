@@ -3,7 +3,8 @@
 #include <errno.h>
 
 HMODULE __mingw_get_msvcrt_handle(void);
-int __cdecl _vcwprintf (const wchar_t *f, va_list argp);
+int __cdecl _vcwprintf (const wchar_t *, va_list);
+int __cdecl _vcwprintf_s (const wchar_t *, va_list);
 static int __cdecl _int_vcwprintf_s (const wchar_t *, va_list);
 static int __cdecl _stub (const wchar_t *, va_list);
 

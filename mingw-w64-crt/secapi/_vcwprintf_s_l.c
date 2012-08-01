@@ -3,11 +3,12 @@
 #include <errno.h>
 
 HMODULE __mingw_get_msvcrt_handle(void);
-int __cdecl _vcwprintf_l (const wchar_t *f, _locale_t loc, va_list argp);
+int __cdecl _vcwprintf_l (const wchar_t *, _locale_t, va_list);
+int __cdecl _vcwprintf_s_l (const wchar_t *, _locale_t, va_list);
 static int __cdecl _int_vcwprintf_s_l (const wchar_t *, _locale_t, va_list);
 static int __cdecl _stub (const wchar_t *, _locale_t, va_list);
 
-int __cdecl (*__MINGW_IMP_SYMBOL(_vcwprintf_s_l))(const wchar_t *, va_list) = 
+int __cdecl (*__MINGW_IMP_SYMBOL(_vcwprintf_s_l))(const wchar_t *, _locale_t, va_list) = 
  _stub;
 
 static int __cdecl
@@ -27,7 +28,7 @@ _stub (const wchar_t *s, _locale_t loc, va_list argp)
 }
 
 int __cdecl
-_vcwprintf_s_l (const wchar_t *s, _local_t loc, va_list argp)
+_vcwprintf_s_l (const wchar_t *s, _locale_t loc, va_list argp)
 {
   return _stub (s, loc, argp);
 }
