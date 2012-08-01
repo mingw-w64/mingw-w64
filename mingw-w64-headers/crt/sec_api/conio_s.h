@@ -22,7 +22,7 @@ extern "C" {
   _CRTIMP int __cdecl _cscanf_s(const char *_Format,...);
   _CRTIMP int __cdecl _cscanf_s_l(const char *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _vcprintf_s(const char *_Format,va_list _ArgList);
-  _CRTIMP int __cdecl _cprintf_s_l(const char *_Format,_locale_t _Locale,...);
+  int __cdecl _cprintf_s_l (const char *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _vcprintf_s_l(const char *_Format,_locale_t _Locale,va_list _ArgList);
 
 #ifndef _WCONIO_DEFINED_S
