@@ -26,6 +26,12 @@ _stub (const wchar_t *s, va_list argp)
   return (*f)(s, argp);
 }
 
+int __cdecl
+_vcwprintf_s (const wchar_t *s, va_list argp)
+{
+  return _stub (s, argp);
+}
+
 static int __cdecl
 _int_vcwprintf_s (const wchar_t *s, va_list argp)
 {

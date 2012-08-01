@@ -26,6 +26,12 @@ _stub (char *s, size_t l, size_t *r_len)
   return (*f)(s, l, r_len);
 }
 
+errno_t __cdecl
+_cgets_s (char *s, size_t l, size_t *r_len)
+{
+  return _stub (s, l, r_len);
+}
+
 static errno_t __cdecl
 _int_cgets_s (char *s, size_t l, size_t *r_len)
 {
