@@ -3,7 +3,7 @@
 #include <errno.h>
 
 HMODULE __mingw_get_msvcrt_handle(void);
-int __cdecl _cprintf_s (char *,...);
+int __cdecl _cprintf_s (const char *,...);
 
 errno_t __cdecl (*__MINGW_IMP_SYMBOL(_cprintf_s))(const char *,...) = 
  _cprintf_s;
