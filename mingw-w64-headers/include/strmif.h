@@ -9668,17 +9668,17 @@ typedef struct IAMPluginControl IAMPluginControl;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAMVideoCompression : public IUnknown {
   public:
-    virtual HRESULT WINAPI put_KeyFrameRate(long KeyFrameRate) = 0;
-    virtual HRESULT WINAPI get_KeyFrameRate(long *pKeyFrameRate) = 0;
-    virtual HRESULT WINAPI put_PFramesPerKeyFrame(long PFramesPerKeyFrame) = 0;
-    virtual HRESULT WINAPI get_PFramesPerKeyFrame(long *pPFramesPerKeyFrame) = 0;
+    virtual HRESULT WINAPI put_KeyFrameRate(LONG KeyFrameRate) = 0;
+    virtual HRESULT WINAPI get_KeyFrameRate(LONG *pKeyFrameRate) = 0;
+    virtual HRESULT WINAPI put_PFramesPerKeyFrame(LONG PFramesPerKeyFrame) = 0;
+    virtual HRESULT WINAPI get_PFramesPerKeyFrame(LONG *pPFramesPerKeyFrame) = 0;
     virtual HRESULT WINAPI put_Quality(double Quality) = 0;
     virtual HRESULT WINAPI get_Quality(double *pQuality) = 0;
     virtual HRESULT WINAPI put_WindowSize(DWORDLONG WindowSize) = 0;
     virtual HRESULT WINAPI get_WindowSize(DWORDLONG *pWindowSize) = 0;
-    virtual HRESULT WINAPI GetInfo(WCHAR *pszVersion,int *pcbVersion,LPWSTR pszDescription,int *pcbDescription,long *pDefaultKeyFrameRate,long *pDefaultPFramesPerKey,double *pDefaultQuality,long *pCapabilities) = 0;
-    virtual HRESULT WINAPI OverrideKeyFrame(long FrameNumber) = 0;
-    virtual HRESULT WINAPI OverrideFrameSize(long FrameNumber,long Size) = 0;
+    virtual HRESULT WINAPI GetInfo(WCHAR *pszVersion,int *pcbVersion,LPWSTR pszDescription,int *pcbDescription,LONG *pDefaultKeyFrameRate,LONG *pDefaultPFramesPerKey,double *pDefaultQuality,LONG *pCapabilities) = 0;
+    virtual HRESULT WINAPI OverrideKeyFrame(LONG FrameNumber) = 0;
+    virtual HRESULT WINAPI OverrideFrameSize(LONG FrameNumber,LONG Size) = 0;
   };
 #else
   typedef struct IAMVideoCompressionVtbl {
@@ -9686,17 +9686,17 @@ typedef struct IAMPluginControl IAMPluginControl;
       HRESULT (WINAPI *QueryInterface)(IAMVideoCompression *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IAMVideoCompression *This);
       ULONG (WINAPI *Release)(IAMVideoCompression *This);
-      HRESULT (WINAPI *put_KeyFrameRate)(IAMVideoCompression *This,long KeyFrameRate);
-      HRESULT (WINAPI *get_KeyFrameRate)(IAMVideoCompression *This,long *pKeyFrameRate);
-      HRESULT (WINAPI *put_PFramesPerKeyFrame)(IAMVideoCompression *This,long PFramesPerKeyFrame);
-      HRESULT (WINAPI *get_PFramesPerKeyFrame)(IAMVideoCompression *This,long *pPFramesPerKeyFrame);
+      HRESULT (WINAPI *put_KeyFrameRate)(IAMVideoCompression *This,LONG KeyFrameRate);
+      HRESULT (WINAPI *get_KeyFrameRate)(IAMVideoCompression *This,LONG *pKeyFrameRate);
+      HRESULT (WINAPI *put_PFramesPerKeyFrame)(IAMVideoCompression *This,LONG PFramesPerKeyFrame);
+      HRESULT (WINAPI *get_PFramesPerKeyFrame)(IAMVideoCompression *This,LONG *pPFramesPerKeyFrame);
       HRESULT (WINAPI *put_Quality)(IAMVideoCompression *This,double Quality);
       HRESULT (WINAPI *get_Quality)(IAMVideoCompression *This,double *pQuality);
       HRESULT (WINAPI *put_WindowSize)(IAMVideoCompression *This,DWORDLONG WindowSize);
       HRESULT (WINAPI *get_WindowSize)(IAMVideoCompression *This,DWORDLONG *pWindowSize);
-      HRESULT (WINAPI *GetInfo)(IAMVideoCompression *This,WCHAR *pszVersion,int *pcbVersion,LPWSTR pszDescription,int *pcbDescription,long *pDefaultKeyFrameRate,long *pDefaultPFramesPerKey,double *pDefaultQuality,long *pCapabilities);
-      HRESULT (WINAPI *OverrideKeyFrame)(IAMVideoCompression *This,long FrameNumber);
-      HRESULT (WINAPI *OverrideFrameSize)(IAMVideoCompression *This,long FrameNumber,long Size);
+      HRESULT (WINAPI *GetInfo)(IAMVideoCompression *This,WCHAR *pszVersion,int *pcbVersion,LPWSTR pszDescription,int *pcbDescription,LONG *pDefaultKeyFrameRate,LONG *pDefaultPFramesPerKey,double *pDefaultQuality,LONG *pCapabilities);
+      HRESULT (WINAPI *OverrideKeyFrame)(IAMVideoCompression *This,LONG FrameNumber);
+      HRESULT (WINAPI *OverrideFrameSize)(IAMVideoCompression *This,LONG FrameNumber,LONG Size);
     END_INTERFACE
   } IAMVideoCompressionVtbl;
   struct IAMVideoCompression {
@@ -9719,13 +9719,13 @@ typedef struct IAMPluginControl IAMPluginControl;
 #define IAMVideoCompression_OverrideFrameSize(This,FrameNumber,Size) (This)->lpVtbl->OverrideFrameSize(This,FrameNumber,Size)
 #endif
 #endif
-  HRESULT WINAPI IAMVideoCompression_put_KeyFrameRate_Proxy(IAMVideoCompression *This,long KeyFrameRate);
+  HRESULT WINAPI IAMVideoCompression_put_KeyFrameRate_Proxy(IAMVideoCompression *This,LONG KeyFrameRate);
   void __RPC_STUB IAMVideoCompression_put_KeyFrameRate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMVideoCompression_get_KeyFrameRate_Proxy(IAMVideoCompression *This,long *pKeyFrameRate);
+  HRESULT WINAPI IAMVideoCompression_get_KeyFrameRate_Proxy(IAMVideoCompression *This,LONG *pKeyFrameRate);
   void __RPC_STUB IAMVideoCompression_get_KeyFrameRate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMVideoCompression_put_PFramesPerKeyFrame_Proxy(IAMVideoCompression *This,long PFramesPerKeyFrame);
+  HRESULT WINAPI IAMVideoCompression_put_PFramesPerKeyFrame_Proxy(IAMVideoCompression *This,LONG PFramesPerKeyFrame);
   void __RPC_STUB IAMVideoCompression_put_PFramesPerKeyFrame_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMVideoCompression_get_PFramesPerKeyFrame_Proxy(IAMVideoCompression *This,long *pPFramesPerKeyFrame);
+  HRESULT WINAPI IAMVideoCompression_get_PFramesPerKeyFrame_Proxy(IAMVideoCompression *This,LONG *pPFramesPerKeyFrame);
   void __RPC_STUB IAMVideoCompression_get_PFramesPerKeyFrame_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMVideoCompression_put_Quality_Proxy(IAMVideoCompression *This,double Quality);
   void __RPC_STUB IAMVideoCompression_put_Quality_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -9735,11 +9735,11 @@ typedef struct IAMPluginControl IAMPluginControl;
   void __RPC_STUB IAMVideoCompression_put_WindowSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMVideoCompression_get_WindowSize_Proxy(IAMVideoCompression *This,DWORDLONG *pWindowSize);
   void __RPC_STUB IAMVideoCompression_get_WindowSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMVideoCompression_GetInfo_Proxy(IAMVideoCompression *This,WCHAR *pszVersion,int *pcbVersion,LPWSTR pszDescription,int *pcbDescription,long *pDefaultKeyFrameRate,long *pDefaultPFramesPerKey,double *pDefaultQuality,long *pCapabilities);
+  HRESULT WINAPI IAMVideoCompression_GetInfo_Proxy(IAMVideoCompression *This,WCHAR *pszVersion,int *pcbVersion,LPWSTR pszDescription,int *pcbDescription,LONG *pDefaultKeyFrameRate,LONG *pDefaultPFramesPerKey,double *pDefaultQuality,LONG *pCapabilities);
   void __RPC_STUB IAMVideoCompression_GetInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMVideoCompression_OverrideKeyFrame_Proxy(IAMVideoCompression *This,long FrameNumber);
+  HRESULT WINAPI IAMVideoCompression_OverrideKeyFrame_Proxy(IAMVideoCompression *This,LONG FrameNumber);
   void __RPC_STUB IAMVideoCompression_OverrideKeyFrame_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMVideoCompression_OverrideFrameSize_Proxy(IAMVideoCompression *This,long FrameNumber,long Size);
+  HRESULT WINAPI IAMVideoCompression_OverrideFrameSize_Proxy(IAMVideoCompression *This,LONG FrameNumber,LONG Size);
   void __RPC_STUB IAMVideoCompression_OverrideFrameSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -9761,7 +9761,7 @@ typedef struct IAMPluginControl IAMPluginControl;
   public:
     virtual HRESULT WINAPI HasDialog(int iDialog) = 0;
     virtual HRESULT WINAPI ShowDialog(int iDialog,HWND hwnd) = 0;
-    virtual HRESULT WINAPI SendDriverMessage(int iDialog,int uMsg,long dw1,long dw2) = 0;
+    virtual HRESULT WINAPI SendDriverMessage(int iDialog,int uMsg,LONG dw1,LONG dw2) = 0;
   };
 #else
   typedef struct IAMVfwCaptureDialogsVtbl {
@@ -9771,7 +9771,7 @@ typedef struct IAMPluginControl IAMPluginControl;
       ULONG (WINAPI *Release)(IAMVfwCaptureDialogs *This);
       HRESULT (WINAPI *HasDialog)(IAMVfwCaptureDialogs *This,int iDialog);
       HRESULT (WINAPI *ShowDialog)(IAMVfwCaptureDialogs *This,int iDialog,HWND hwnd);
-      HRESULT (WINAPI *SendDriverMessage)(IAMVfwCaptureDialogs *This,int iDialog,int uMsg,long dw1,long dw2);
+      HRESULT (WINAPI *SendDriverMessage)(IAMVfwCaptureDialogs *This,int iDialog,int uMsg,LONG dw1,LONG dw2);
     END_INTERFACE
   } IAMVfwCaptureDialogsVtbl;
   struct IAMVfwCaptureDialogs {
@@ -9790,7 +9790,7 @@ typedef struct IAMPluginControl IAMPluginControl;
   void __RPC_STUB IAMVfwCaptureDialogs_HasDialog_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMVfwCaptureDialogs_ShowDialog_Proxy(IAMVfwCaptureDialogs *This,int iDialog,HWND hwnd);
   void __RPC_STUB IAMVfwCaptureDialogs_ShowDialog_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMVfwCaptureDialogs_SendDriverMessage_Proxy(IAMVfwCaptureDialogs *This,int iDialog,int uMsg,long dw1,long dw2);
+  HRESULT WINAPI IAMVfwCaptureDialogs_SendDriverMessage_Proxy(IAMVfwCaptureDialogs *This,int iDialog,int uMsg,LONG dw1,LONG dw2);
   void __RPC_STUB IAMVfwCaptureDialogs_SendDriverMessage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -9803,7 +9803,7 @@ typedef struct IAMPluginControl IAMPluginControl;
     virtual HRESULT WINAPI ShowDialog(int iDialog,HWND hwnd) = 0;
     virtual HRESULT WINAPI GetState(LPVOID pState,int *pcbState) = 0;
     virtual HRESULT WINAPI SetState(LPVOID pState,int cbState) = 0;
-    virtual HRESULT WINAPI SendDriverMessage(int uMsg,long dw1,long dw2) = 0;
+    virtual HRESULT WINAPI SendDriverMessage(int uMsg,LONG dw1,LONG dw2) = 0;
   };
 #else
   typedef struct IAMVfwCompressDialogsVtbl {
@@ -9814,7 +9814,7 @@ typedef struct IAMPluginControl IAMPluginControl;
       HRESULT (WINAPI *ShowDialog)(IAMVfwCompressDialogs *This,int iDialog,HWND hwnd);
       HRESULT (WINAPI *GetState)(IAMVfwCompressDialogs *This,LPVOID pState,int *pcbState);
       HRESULT (WINAPI *SetState)(IAMVfwCompressDialogs *This,LPVOID pState,int cbState);
-      HRESULT (WINAPI *SendDriverMessage)(IAMVfwCompressDialogs *This,int uMsg,long dw1,long dw2);
+      HRESULT (WINAPI *SendDriverMessage)(IAMVfwCompressDialogs *This,int uMsg,LONG dw1,LONG dw2);
     END_INTERFACE
   } IAMVfwCompressDialogsVtbl;
   struct IAMVfwCompressDialogs {
@@ -9836,7 +9836,7 @@ typedef struct IAMPluginControl IAMPluginControl;
   void __RPC_STUB IAMVfwCompressDialogs_GetState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMVfwCompressDialogs_SetState_Proxy(IAMVfwCompressDialogs *This,LPVOID pState,int cbState);
   void __RPC_STUB IAMVfwCompressDialogs_SetState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMVfwCompressDialogs_SendDriverMessage_Proxy(IAMVfwCompressDialogs *This,int uMsg,long dw1,long dw2);
+  HRESULT WINAPI IAMVfwCompressDialogs_SendDriverMessage_Proxy(IAMVfwCompressDialogs *This,int uMsg,LONG dw1,LONG dw2);
   void __RPC_STUB IAMVfwCompressDialogs_SendDriverMessage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -9846,10 +9846,10 @@ typedef struct IAMPluginControl IAMPluginControl;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAMDroppedFrames : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetNumDropped(long *plDropped) = 0;
-    virtual HRESULT WINAPI GetNumNotDropped(long *plNotDropped) = 0;
-    virtual HRESULT WINAPI GetDroppedInfo(long lSize,long *plArray,long *plNumCopied) = 0;
-    virtual HRESULT WINAPI GetAverageFrameSize(long *plAverageSize) = 0;
+    virtual HRESULT WINAPI GetNumDropped(LONG *plDropped) = 0;
+    virtual HRESULT WINAPI GetNumNotDropped(LONG *plNotDropped) = 0;
+    virtual HRESULT WINAPI GetDroppedInfo(LONG lSize,LONG *plArray,LONG *plNumCopied) = 0;
+    virtual HRESULT WINAPI GetAverageFrameSize(LONG *plAverageSize) = 0;
   };
 #else
   typedef struct IAMDroppedFramesVtbl {
@@ -9857,10 +9857,10 @@ typedef struct IAMPluginControl IAMPluginControl;
       HRESULT (WINAPI *QueryInterface)(IAMDroppedFrames *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IAMDroppedFrames *This);
       ULONG (WINAPI *Release)(IAMDroppedFrames *This);
-      HRESULT (WINAPI *GetNumDropped)(IAMDroppedFrames *This,long *plDropped);
-      HRESULT (WINAPI *GetNumNotDropped)(IAMDroppedFrames *This,long *plNotDropped);
-      HRESULT (WINAPI *GetDroppedInfo)(IAMDroppedFrames *This,long lSize,long *plArray,long *plNumCopied);
-      HRESULT (WINAPI *GetAverageFrameSize)(IAMDroppedFrames *This,long *plAverageSize);
+      HRESULT (WINAPI *GetNumDropped)(IAMDroppedFrames *This,LONG *plDropped);
+      HRESULT (WINAPI *GetNumNotDropped)(IAMDroppedFrames *This,LONG *plNotDropped);
+      HRESULT (WINAPI *GetDroppedInfo)(IAMDroppedFrames *This,LONG lSize,LONG *plArray,LONG *plNumCopied);
+      HRESULT (WINAPI *GetAverageFrameSize)(IAMDroppedFrames *This,LONG *plAverageSize);
     END_INTERFACE
   } IAMDroppedFramesVtbl;
   struct IAMDroppedFrames {
@@ -9876,13 +9876,13 @@ typedef struct IAMPluginControl IAMPluginControl;
 #define IAMDroppedFrames_GetAverageFrameSize(This,plAverageSize) (This)->lpVtbl->GetAverageFrameSize(This,plAverageSize)
 #endif
 #endif
-  HRESULT WINAPI IAMDroppedFrames_GetNumDropped_Proxy(IAMDroppedFrames *This,long *plDropped);
+  HRESULT WINAPI IAMDroppedFrames_GetNumDropped_Proxy(IAMDroppedFrames *This,LONG *plDropped);
   void __RPC_STUB IAMDroppedFrames_GetNumDropped_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMDroppedFrames_GetNumNotDropped_Proxy(IAMDroppedFrames *This,long *plNotDropped);
+  HRESULT WINAPI IAMDroppedFrames_GetNumNotDropped_Proxy(IAMDroppedFrames *This,LONG *plNotDropped);
   void __RPC_STUB IAMDroppedFrames_GetNumNotDropped_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMDroppedFrames_GetDroppedInfo_Proxy(IAMDroppedFrames *This,long lSize,long *plArray,long *plNumCopied);
+  HRESULT WINAPI IAMDroppedFrames_GetDroppedInfo_Proxy(IAMDroppedFrames *This,LONG lSize,LONG *plArray,LONG *plNumCopied);
   void __RPC_STUB IAMDroppedFrames_GetDroppedInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMDroppedFrames_GetAverageFrameSize_Proxy(IAMDroppedFrames *This,long *plAverageSize);
+  HRESULT WINAPI IAMDroppedFrames_GetAverageFrameSize_Proxy(IAMDroppedFrames *This,LONG *plAverageSize);
   void __RPC_STUB IAMDroppedFrames_GetAverageFrameSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -10072,15 +10072,15 @@ typedef struct IAMPluginControl IAMPluginControl;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAMAnalogVideoDecoder : public IUnknown {
   public:
-    virtual HRESULT WINAPI get_AvailableTVFormats(long *lAnalogVideoStandard) = 0;
-    virtual HRESULT WINAPI put_TVFormat(long lAnalogVideoStandard) = 0;
-    virtual HRESULT WINAPI get_TVFormat(long *plAnalogVideoStandard) = 0;
-    virtual HRESULT WINAPI get_HorizontalLocked(long *plLocked) = 0;
-    virtual HRESULT WINAPI put_VCRHorizontalLocking(long lVCRHorizontalLocking) = 0;
-    virtual HRESULT WINAPI get_VCRHorizontalLocking(long *plVCRHorizontalLocking) = 0;
-    virtual HRESULT WINAPI get_NumberOfLines(long *plNumberOfLines) = 0;
-    virtual HRESULT WINAPI put_OutputEnable(long lOutputEnable) = 0;
-    virtual HRESULT WINAPI get_OutputEnable(long *plOutputEnable) = 0;
+    virtual HRESULT WINAPI get_AvailableTVFormats(LONG *lAnalogVideoStandard) = 0;
+    virtual HRESULT WINAPI put_TVFormat(LONG lAnalogVideoStandard) = 0;
+    virtual HRESULT WINAPI get_TVFormat(LONG *plAnalogVideoStandard) = 0;
+    virtual HRESULT WINAPI get_HorizontalLocked(LONG *plLocked) = 0;
+    virtual HRESULT WINAPI put_VCRHorizontalLocking(LONG lVCRHorizontalLocking) = 0;
+    virtual HRESULT WINAPI get_VCRHorizontalLocking(LONG *plVCRHorizontalLocking) = 0;
+    virtual HRESULT WINAPI get_NumberOfLines(LONG *plNumberOfLines) = 0;
+    virtual HRESULT WINAPI put_OutputEnable(LONG lOutputEnable) = 0;
+    virtual HRESULT WINAPI get_OutputEnable(LONG *plOutputEnable) = 0;
   };
 #else
   typedef struct IAMAnalogVideoDecoderVtbl {
@@ -10088,15 +10088,15 @@ typedef struct IAMPluginControl IAMPluginControl;
       HRESULT (WINAPI *QueryInterface)(IAMAnalogVideoDecoder *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IAMAnalogVideoDecoder *This);
       ULONG (WINAPI *Release)(IAMAnalogVideoDecoder *This);
-      HRESULT (WINAPI *get_AvailableTVFormats)(IAMAnalogVideoDecoder *This,long *lAnalogVideoStandard);
-      HRESULT (WINAPI *put_TVFormat)(IAMAnalogVideoDecoder *This,long lAnalogVideoStandard);
-      HRESULT (WINAPI *get_TVFormat)(IAMAnalogVideoDecoder *This,long *plAnalogVideoStandard);
-      HRESULT (WINAPI *get_HorizontalLocked)(IAMAnalogVideoDecoder *This,long *plLocked);
-      HRESULT (WINAPI *put_VCRHorizontalLocking)(IAMAnalogVideoDecoder *This,long lVCRHorizontalLocking);
-      HRESULT (WINAPI *get_VCRHorizontalLocking)(IAMAnalogVideoDecoder *This,long *plVCRHorizontalLocking);
-      HRESULT (WINAPI *get_NumberOfLines)(IAMAnalogVideoDecoder *This,long *plNumberOfLines);
-      HRESULT (WINAPI *put_OutputEnable)(IAMAnalogVideoDecoder *This,long lOutputEnable);
-      HRESULT (WINAPI *get_OutputEnable)(IAMAnalogVideoDecoder *This,long *plOutputEnable);
+      HRESULT (WINAPI *get_AvailableTVFormats)(IAMAnalogVideoDecoder *This,LONG *lAnalogVideoStandard);
+      HRESULT (WINAPI *put_TVFormat)(IAMAnalogVideoDecoder *This,LONG lAnalogVideoStandard);
+      HRESULT (WINAPI *get_TVFormat)(IAMAnalogVideoDecoder *This,LONG *plAnalogVideoStandard);
+      HRESULT (WINAPI *get_HorizontalLocked)(IAMAnalogVideoDecoder *This,LONG *plLocked);
+      HRESULT (WINAPI *put_VCRHorizontalLocking)(IAMAnalogVideoDecoder *This,LONG lVCRHorizontalLocking);
+      HRESULT (WINAPI *get_VCRHorizontalLocking)(IAMAnalogVideoDecoder *This,LONG *plVCRHorizontalLocking);
+      HRESULT (WINAPI *get_NumberOfLines)(IAMAnalogVideoDecoder *This,LONG *plNumberOfLines);
+      HRESULT (WINAPI *put_OutputEnable)(IAMAnalogVideoDecoder *This,LONG lOutputEnable);
+      HRESULT (WINAPI *get_OutputEnable)(IAMAnalogVideoDecoder *This,LONG *plOutputEnable);
     END_INTERFACE
   } IAMAnalogVideoDecoderVtbl;
   struct IAMAnalogVideoDecoder {
@@ -10117,23 +10117,23 @@ typedef struct IAMPluginControl IAMPluginControl;
 #define IAMAnalogVideoDecoder_get_OutputEnable(This,plOutputEnable) (This)->lpVtbl->get_OutputEnable(This,plOutputEnable)
 #endif
 #endif
-  HRESULT WINAPI IAMAnalogVideoDecoder_get_AvailableTVFormats_Proxy(IAMAnalogVideoDecoder *This,long *lAnalogVideoStandard);
+  HRESULT WINAPI IAMAnalogVideoDecoder_get_AvailableTVFormats_Proxy(IAMAnalogVideoDecoder *This,LONG *lAnalogVideoStandard);
   void __RPC_STUB IAMAnalogVideoDecoder_get_AvailableTVFormats_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMAnalogVideoDecoder_put_TVFormat_Proxy(IAMAnalogVideoDecoder *This,long lAnalogVideoStandard);
+  HRESULT WINAPI IAMAnalogVideoDecoder_put_TVFormat_Proxy(IAMAnalogVideoDecoder *This,LONG lAnalogVideoStandard);
   void __RPC_STUB IAMAnalogVideoDecoder_put_TVFormat_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMAnalogVideoDecoder_get_TVFormat_Proxy(IAMAnalogVideoDecoder *This,long *plAnalogVideoStandard);
+  HRESULT WINAPI IAMAnalogVideoDecoder_get_TVFormat_Proxy(IAMAnalogVideoDecoder *This,LONG *plAnalogVideoStandard);
   void __RPC_STUB IAMAnalogVideoDecoder_get_TVFormat_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMAnalogVideoDecoder_get_HorizontalLocked_Proxy(IAMAnalogVideoDecoder *This,long *plLocked);
+  HRESULT WINAPI IAMAnalogVideoDecoder_get_HorizontalLocked_Proxy(IAMAnalogVideoDecoder *This,LONG *plLocked);
   void __RPC_STUB IAMAnalogVideoDecoder_get_HorizontalLocked_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMAnalogVideoDecoder_put_VCRHorizontalLocking_Proxy(IAMAnalogVideoDecoder *This,long lVCRHorizontalLocking);
+  HRESULT WINAPI IAMAnalogVideoDecoder_put_VCRHorizontalLocking_Proxy(IAMAnalogVideoDecoder *This,LONG lVCRHorizontalLocking);
   void __RPC_STUB IAMAnalogVideoDecoder_put_VCRHorizontalLocking_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMAnalogVideoDecoder_get_VCRHorizontalLocking_Proxy(IAMAnalogVideoDecoder *This,long *plVCRHorizontalLocking);
+  HRESULT WINAPI IAMAnalogVideoDecoder_get_VCRHorizontalLocking_Proxy(IAMAnalogVideoDecoder *This,LONG *plVCRHorizontalLocking);
   void __RPC_STUB IAMAnalogVideoDecoder_get_VCRHorizontalLocking_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMAnalogVideoDecoder_get_NumberOfLines_Proxy(IAMAnalogVideoDecoder *This,long *plNumberOfLines);
+  HRESULT WINAPI IAMAnalogVideoDecoder_get_NumberOfLines_Proxy(IAMAnalogVideoDecoder *This,LONG *plNumberOfLines);
   void __RPC_STUB IAMAnalogVideoDecoder_get_NumberOfLines_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMAnalogVideoDecoder_put_OutputEnable_Proxy(IAMAnalogVideoDecoder *This,long lOutputEnable);
+  HRESULT WINAPI IAMAnalogVideoDecoder_put_OutputEnable_Proxy(IAMAnalogVideoDecoder *This,LONG lOutputEnable);
   void __RPC_STUB IAMAnalogVideoDecoder_put_OutputEnable_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMAnalogVideoDecoder_get_OutputEnable_Proxy(IAMAnalogVideoDecoder *This,long *plOutputEnable);
+  HRESULT WINAPI IAMAnalogVideoDecoder_get_OutputEnable_Proxy(IAMAnalogVideoDecoder *This,LONG *plOutputEnable);
   void __RPC_STUB IAMAnalogVideoDecoder_get_OutputEnable_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -10155,9 +10155,9 @@ typedef struct IAMPluginControl IAMPluginControl;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAMCameraControl : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetRange(long Property,long *pMin,long *pMax,long *pSteppingDelta,long *pDefault,long *pCapsFlags) = 0;
-    virtual HRESULT WINAPI Set(long Property,long lValue,long Flags) = 0;
-    virtual HRESULT WINAPI Get(long Property,long *lValue,long *Flags) = 0;
+    virtual HRESULT WINAPI GetRange(LONG Property,LONG *pMin,LONG *pMax,LONG *pSteppingDelta,LONG *pDefault,LONG *pCapsFlags) = 0;
+    virtual HRESULT WINAPI Set(LONG Property,LONG lValue,LONG Flags) = 0;
+    virtual HRESULT WINAPI Get(LONG Property,LONG *lValue,LONG *Flags) = 0;
   };
 #else
   typedef struct IAMCameraControlVtbl {
@@ -10165,9 +10165,9 @@ typedef struct IAMPluginControl IAMPluginControl;
       HRESULT (WINAPI *QueryInterface)(IAMCameraControl *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IAMCameraControl *This);
       ULONG (WINAPI *Release)(IAMCameraControl *This);
-      HRESULT (WINAPI *GetRange)(IAMCameraControl *This,long Property,long *pMin,long *pMax,long *pSteppingDelta,long *pDefault,long *pCapsFlags);
-      HRESULT (WINAPI *Set)(IAMCameraControl *This,long Property,long lValue,long Flags);
-      HRESULT (WINAPI *Get)(IAMCameraControl *This,long Property,long *lValue,long *Flags);
+      HRESULT (WINAPI *GetRange)(IAMCameraControl *This,LONG Property,LONG *pMin,LONG *pMax,LONG *pSteppingDelta,LONG *pDefault,LONG *pCapsFlags);
+      HRESULT (WINAPI *Set)(IAMCameraControl *This,LONG Property,LONG lValue,LONG Flags);
+      HRESULT (WINAPI *Get)(IAMCameraControl *This,LONG Property,LONG *lValue,LONG *Flags);
     END_INTERFACE
   } IAMCameraControlVtbl;
   struct IAMCameraControl {
@@ -10182,11 +10182,11 @@ typedef struct IAMPluginControl IAMPluginControl;
 #define IAMCameraControl_Get(This,Property,lValue,Flags) (This)->lpVtbl->Get(This,Property,lValue,Flags)
 #endif
 #endif
-  HRESULT WINAPI IAMCameraControl_GetRange_Proxy(IAMCameraControl *This,long Property,long *pMin,long *pMax,long *pSteppingDelta,long *pDefault,long *pCapsFlags);
+  HRESULT WINAPI IAMCameraControl_GetRange_Proxy(IAMCameraControl *This,LONG Property,LONG *pMin,LONG *pMax,LONG *pSteppingDelta,LONG *pDefault,LONG *pCapsFlags);
   void __RPC_STUB IAMCameraControl_GetRange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMCameraControl_Set_Proxy(IAMCameraControl *This,long Property,long lValue,long Flags);
+  HRESULT WINAPI IAMCameraControl_Set_Proxy(IAMCameraControl *This,LONG Property,LONG lValue,LONG Flags);
   void __RPC_STUB IAMCameraControl_Set_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMCameraControl_Get_Proxy(IAMCameraControl *This,long Property,long *lValue,long *Flags);
+  HRESULT WINAPI IAMCameraControl_Get_Proxy(IAMCameraControl *This,LONG Property,LONG *lValue,LONG *Flags);
   void __RPC_STUB IAMCameraControl_Get_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -10202,12 +10202,12 @@ typedef struct IAMPluginControl IAMPluginControl;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAMVideoControl : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetCaps(IPin *pPin,long *pCapsFlags) = 0;
-    virtual HRESULT WINAPI SetMode(IPin *pPin,long Mode) = 0;
-    virtual HRESULT WINAPI GetMode(IPin *pPin,long *Mode) = 0;
+    virtual HRESULT WINAPI GetCaps(IPin *pPin,LONG *pCapsFlags) = 0;
+    virtual HRESULT WINAPI SetMode(IPin *pPin,LONG Mode) = 0;
+    virtual HRESULT WINAPI GetMode(IPin *pPin,LONG *Mode) = 0;
     virtual HRESULT WINAPI GetCurrentActualFrameRate(IPin *pPin,LONGLONG *ActualFrameRate) = 0;
-    virtual HRESULT WINAPI GetMaxAvailableFrameRate(IPin *pPin,long iIndex,SIZE Dimensions,LONGLONG *MaxAvailableFrameRate) = 0;
-    virtual HRESULT WINAPI GetFrameRateList(IPin *pPin,long iIndex,SIZE Dimensions,long *ListSize,LONGLONG **FrameRates) = 0;
+    virtual HRESULT WINAPI GetMaxAvailableFrameRate(IPin *pPin,LONG iIndex,SIZE Dimensions,LONGLONG *MaxAvailableFrameRate) = 0;
+    virtual HRESULT WINAPI GetFrameRateList(IPin *pPin,LONG iIndex,SIZE Dimensions,LONG *ListSize,LONGLONG **FrameRates) = 0;
   };
 #else
   typedef struct IAMVideoControlVtbl {
@@ -10215,12 +10215,12 @@ typedef struct IAMPluginControl IAMPluginControl;
       HRESULT (WINAPI *QueryInterface)(IAMVideoControl *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IAMVideoControl *This);
       ULONG (WINAPI *Release)(IAMVideoControl *This);
-      HRESULT (WINAPI *GetCaps)(IAMVideoControl *This,IPin *pPin,long *pCapsFlags);
-      HRESULT (WINAPI *SetMode)(IAMVideoControl *This,IPin *pPin,long Mode);
-      HRESULT (WINAPI *GetMode)(IAMVideoControl *This,IPin *pPin,long *Mode);
+      HRESULT (WINAPI *GetCaps)(IAMVideoControl *This,IPin *pPin,LONG *pCapsFlags);
+      HRESULT (WINAPI *SetMode)(IAMVideoControl *This,IPin *pPin,LONG Mode);
+      HRESULT (WINAPI *GetMode)(IAMVideoControl *This,IPin *pPin,LONG *Mode);
       HRESULT (WINAPI *GetCurrentActualFrameRate)(IAMVideoControl *This,IPin *pPin,LONGLONG *ActualFrameRate);
-      HRESULT (WINAPI *GetMaxAvailableFrameRate)(IAMVideoControl *This,IPin *pPin,long iIndex,SIZE Dimensions,LONGLONG *MaxAvailableFrameRate);
-      HRESULT (WINAPI *GetFrameRateList)(IAMVideoControl *This,IPin *pPin,long iIndex,SIZE Dimensions,long *ListSize,LONGLONG **FrameRates);
+      HRESULT (WINAPI *GetMaxAvailableFrameRate)(IAMVideoControl *This,IPin *pPin,LONG iIndex,SIZE Dimensions,LONGLONG *MaxAvailableFrameRate);
+      HRESULT (WINAPI *GetFrameRateList)(IAMVideoControl *This,IPin *pPin,LONG iIndex,SIZE Dimensions,LONG *ListSize,LONGLONG **FrameRates);
     END_INTERFACE
   } IAMVideoControlVtbl;
   struct IAMVideoControl {
@@ -10238,17 +10238,17 @@ typedef struct IAMPluginControl IAMPluginControl;
 #define IAMVideoControl_GetFrameRateList(This,pPin,iIndex,Dimensions,ListSize,FrameRates) (This)->lpVtbl->GetFrameRateList(This,pPin,iIndex,Dimensions,ListSize,FrameRates)
 #endif
 #endif
-  HRESULT WINAPI IAMVideoControl_GetCaps_Proxy(IAMVideoControl *This,IPin *pPin,long *pCapsFlags);
+  HRESULT WINAPI IAMVideoControl_GetCaps_Proxy(IAMVideoControl *This,IPin *pPin,LONG *pCapsFlags);
   void __RPC_STUB IAMVideoControl_GetCaps_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMVideoControl_SetMode_Proxy(IAMVideoControl *This,IPin *pPin,long Mode);
+  HRESULT WINAPI IAMVideoControl_SetMode_Proxy(IAMVideoControl *This,IPin *pPin,LONG Mode);
   void __RPC_STUB IAMVideoControl_SetMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMVideoControl_GetMode_Proxy(IAMVideoControl *This,IPin *pPin,long *Mode);
+  HRESULT WINAPI IAMVideoControl_GetMode_Proxy(IAMVideoControl *This,IPin *pPin,LONG *Mode);
   void __RPC_STUB IAMVideoControl_GetMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMVideoControl_GetCurrentActualFrameRate_Proxy(IAMVideoControl *This,IPin *pPin,LONGLONG *ActualFrameRate);
   void __RPC_STUB IAMVideoControl_GetCurrentActualFrameRate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMVideoControl_GetMaxAvailableFrameRate_Proxy(IAMVideoControl *This,IPin *pPin,long iIndex,SIZE Dimensions,LONGLONG *MaxAvailableFrameRate);
+  HRESULT WINAPI IAMVideoControl_GetMaxAvailableFrameRate_Proxy(IAMVideoControl *This,IPin *pPin,LONG iIndex,SIZE Dimensions,LONGLONG *MaxAvailableFrameRate);
   void __RPC_STUB IAMVideoControl_GetMaxAvailableFrameRate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMVideoControl_GetFrameRateList_Proxy(IAMVideoControl *This,IPin *pPin,long iIndex,SIZE Dimensions,long *ListSize,LONGLONG **FrameRates);
+  HRESULT WINAPI IAMVideoControl_GetFrameRateList_Proxy(IAMVideoControl *This,IPin *pPin,LONG iIndex,SIZE Dimensions,LONG *ListSize,LONGLONG **FrameRates);
   void __RPC_STUB IAMVideoControl_GetFrameRateList_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -10258,11 +10258,11 @@ typedef struct IAMPluginControl IAMPluginControl;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAMCrossbar : public IUnknown {
   public:
-    virtual HRESULT WINAPI get_PinCounts(long *OutputPinCount,long *InputPinCount) = 0;
-    virtual HRESULT WINAPI CanRoute(long OutputPinIndex,long InputPinIndex) = 0;
-    virtual HRESULT WINAPI Route(long OutputPinIndex,long InputPinIndex) = 0;
-    virtual HRESULT WINAPI get_IsRoutedTo(long OutputPinIndex,long *InputPinIndex) = 0;
-    virtual HRESULT WINAPI get_CrossbarPinInfo(WINBOOL IsInputPin,long PinIndex,long *PinIndexRelated,long *PhysicalType) = 0;
+    virtual HRESULT WINAPI get_PinCounts(LONG *OutputPinCount,LONG *InputPinCount) = 0;
+    virtual HRESULT WINAPI CanRoute(LONG OutputPinIndex,LONG InputPinIndex) = 0;
+    virtual HRESULT WINAPI Route(LONG OutputPinIndex,LONG InputPinIndex) = 0;
+    virtual HRESULT WINAPI get_IsRoutedTo(LONG OutputPinIndex,LONG *InputPinIndex) = 0;
+    virtual HRESULT WINAPI get_CrossbarPinInfo(WINBOOL IsInputPin,LONG PinIndex,LONG *PinIndexRelated,LONG *PhysicalType) = 0;
   };
 #else
   typedef struct IAMCrossbarVtbl {
@@ -10270,11 +10270,11 @@ typedef struct IAMPluginControl IAMPluginControl;
       HRESULT (WINAPI *QueryInterface)(IAMCrossbar *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IAMCrossbar *This);
       ULONG (WINAPI *Release)(IAMCrossbar *This);
-      HRESULT (WINAPI *get_PinCounts)(IAMCrossbar *This,long *OutputPinCount,long *InputPinCount);
-      HRESULT (WINAPI *CanRoute)(IAMCrossbar *This,long OutputPinIndex,long InputPinIndex);
-      HRESULT (WINAPI *Route)(IAMCrossbar *This,long OutputPinIndex,long InputPinIndex);
-      HRESULT (WINAPI *get_IsRoutedTo)(IAMCrossbar *This,long OutputPinIndex,long *InputPinIndex);
-      HRESULT (WINAPI *get_CrossbarPinInfo)(IAMCrossbar *This,WINBOOL IsInputPin,long PinIndex,long *PinIndexRelated,long *PhysicalType);
+      HRESULT (WINAPI *get_PinCounts)(IAMCrossbar *This,LONG *OutputPinCount,LONG *InputPinCount);
+      HRESULT (WINAPI *CanRoute)(IAMCrossbar *This,LONG OutputPinIndex,LONG InputPinIndex);
+      HRESULT (WINAPI *Route)(IAMCrossbar *This,LONG OutputPinIndex,LONG InputPinIndex);
+      HRESULT (WINAPI *get_IsRoutedTo)(IAMCrossbar *This,LONG OutputPinIndex,LONG *InputPinIndex);
+      HRESULT (WINAPI *get_CrossbarPinInfo)(IAMCrossbar *This,WINBOOL IsInputPin,LONG PinIndex,LONG *PinIndexRelated,LONG *PhysicalType);
     END_INTERFACE
   } IAMCrossbarVtbl;
   struct IAMCrossbar {
@@ -10291,15 +10291,15 @@ typedef struct IAMPluginControl IAMPluginControl;
 #define IAMCrossbar_get_CrossbarPinInfo(This,IsInputPin,PinIndex,PinIndexRelated,PhysicalType) (This)->lpVtbl->get_CrossbarPinInfo(This,IsInputPin,PinIndex,PinIndexRelated,PhysicalType)
 #endif
 #endif
-  HRESULT WINAPI IAMCrossbar_get_PinCounts_Proxy(IAMCrossbar *This,long *OutputPinCount,long *InputPinCount);
+  HRESULT WINAPI IAMCrossbar_get_PinCounts_Proxy(IAMCrossbar *This,LONG *OutputPinCount,LONG *InputPinCount);
   void __RPC_STUB IAMCrossbar_get_PinCounts_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMCrossbar_CanRoute_Proxy(IAMCrossbar *This,long OutputPinIndex,long InputPinIndex);
+  HRESULT WINAPI IAMCrossbar_CanRoute_Proxy(IAMCrossbar *This,LONG OutputPinIndex,LONG InputPinIndex);
   void __RPC_STUB IAMCrossbar_CanRoute_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMCrossbar_Route_Proxy(IAMCrossbar *This,long OutputPinIndex,long InputPinIndex);
+  HRESULT WINAPI IAMCrossbar_Route_Proxy(IAMCrossbar *This,LONG OutputPinIndex,LONG InputPinIndex);
   void __RPC_STUB IAMCrossbar_Route_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMCrossbar_get_IsRoutedTo_Proxy(IAMCrossbar *This,long OutputPinIndex,long *InputPinIndex);
+  HRESULT WINAPI IAMCrossbar_get_IsRoutedTo_Proxy(IAMCrossbar *This,LONG OutputPinIndex,LONG *InputPinIndex);
   void __RPC_STUB IAMCrossbar_get_IsRoutedTo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMCrossbar_get_CrossbarPinInfo_Proxy(IAMCrossbar *This,WINBOOL IsInputPin,long PinIndex,long *PinIndexRelated,long *PhysicalType);
+  HRESULT WINAPI IAMCrossbar_get_CrossbarPinInfo_Proxy(IAMCrossbar *This,WINBOOL IsInputPin,LONG PinIndex,LONG *PinIndexRelated,LONG *PhysicalType);
   void __RPC_STUB IAMCrossbar_get_CrossbarPinInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -10327,20 +10327,20 @@ typedef struct IAMPluginControl IAMPluginControl;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAMTuner : public IUnknown {
   public:
-    virtual HRESULT WINAPI put_Channel(long lChannel,long lVideoSubChannel,long lAudioSubChannel) = 0;
-    virtual HRESULT WINAPI get_Channel(long *plChannel,long *plVideoSubChannel,long *plAudioSubChannel) = 0;
-    virtual HRESULT WINAPI ChannelMinMax(long *lChannelMin,long *lChannelMax) = 0;
-    virtual HRESULT WINAPI put_CountryCode(long lCountryCode) = 0;
-    virtual HRESULT WINAPI get_CountryCode(long *plCountryCode) = 0;
-    virtual HRESULT WINAPI put_TuningSpace(long lTuningSpace) = 0;
-    virtual HRESULT WINAPI get_TuningSpace(long *plTuningSpace) = 0;
+    virtual HRESULT WINAPI put_Channel(LONG lChannel,LONG lVideoSubChannel,LONG lAudioSubChannel) = 0;
+    virtual HRESULT WINAPI get_Channel(LONG *plChannel,LONG *plVideoSubChannel,LONG *plAudioSubChannel) = 0;
+    virtual HRESULT WINAPI ChannelMinMax(LONG *lChannelMin,LONG *lChannelMax) = 0;
+    virtual HRESULT WINAPI put_CountryCode(LONG lCountryCode) = 0;
+    virtual HRESULT WINAPI get_CountryCode(LONG *plCountryCode) = 0;
+    virtual HRESULT WINAPI put_TuningSpace(LONG lTuningSpace) = 0;
+    virtual HRESULT WINAPI get_TuningSpace(LONG *plTuningSpace) = 0;
     virtual HRESULT WINAPI Logon(HANDLE hCurrentUser) = 0;
     virtual HRESULT WINAPI Logout(void) = 0;
-    virtual HRESULT WINAPI SignalPresent(long *plSignalStrength) = 0;
+    virtual HRESULT WINAPI SignalPresent(LONG *plSignalStrength) = 0;
     virtual HRESULT WINAPI put_Mode(AMTunerModeType lMode) = 0;
     virtual HRESULT WINAPI get_Mode(AMTunerModeType *plMode) = 0;
-    virtual HRESULT WINAPI GetAvailableModes(long *plModes) = 0;
-    virtual HRESULT WINAPI RegisterNotificationCallBack(IAMTunerNotification *pNotify,long lEvents) = 0;
+    virtual HRESULT WINAPI GetAvailableModes(LONG *plModes) = 0;
+    virtual HRESULT WINAPI RegisterNotificationCallBack(IAMTunerNotification *pNotify,LONG lEvents) = 0;
     virtual HRESULT WINAPI UnRegisterNotificationCallBack(IAMTunerNotification *pNotify) = 0;
   };
 #else
@@ -10349,20 +10349,20 @@ typedef struct IAMPluginControl IAMPluginControl;
       HRESULT (WINAPI *QueryInterface)(IAMTuner *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IAMTuner *This);
       ULONG (WINAPI *Release)(IAMTuner *This);
-      HRESULT (WINAPI *put_Channel)(IAMTuner *This,long lChannel,long lVideoSubChannel,long lAudioSubChannel);
-      HRESULT (WINAPI *get_Channel)(IAMTuner *This,long *plChannel,long *plVideoSubChannel,long *plAudioSubChannel);
-      HRESULT (WINAPI *ChannelMinMax)(IAMTuner *This,long *lChannelMin,long *lChannelMax);
-      HRESULT (WINAPI *put_CountryCode)(IAMTuner *This,long lCountryCode);
-      HRESULT (WINAPI *get_CountryCode)(IAMTuner *This,long *plCountryCode);
-      HRESULT (WINAPI *put_TuningSpace)(IAMTuner *This,long lTuningSpace);
-      HRESULT (WINAPI *get_TuningSpace)(IAMTuner *This,long *plTuningSpace);
+      HRESULT (WINAPI *put_Channel)(IAMTuner *This,LONG lChannel,LONG lVideoSubChannel,LONG lAudioSubChannel);
+      HRESULT (WINAPI *get_Channel)(IAMTuner *This,LONG *plChannel,LONG *plVideoSubChannel,LONG *plAudioSubChannel);
+      HRESULT (WINAPI *ChannelMinMax)(IAMTuner *This,LONG *lChannelMin,LONG *lChannelMax);
+      HRESULT (WINAPI *put_CountryCode)(IAMTuner *This,LONG lCountryCode);
+      HRESULT (WINAPI *get_CountryCode)(IAMTuner *This,LONG *plCountryCode);
+      HRESULT (WINAPI *put_TuningSpace)(IAMTuner *This,LONG lTuningSpace);
+      HRESULT (WINAPI *get_TuningSpace)(IAMTuner *This,LONG *plTuningSpace);
       HRESULT (WINAPI *Logon)(IAMTuner *This,HANDLE hCurrentUser);
       HRESULT (WINAPI *Logout)(IAMTuner *This);
-      HRESULT (WINAPI *SignalPresent)(IAMTuner *This,long *plSignalStrength);
+      HRESULT (WINAPI *SignalPresent)(IAMTuner *This,LONG *plSignalStrength);
       HRESULT (WINAPI *put_Mode)(IAMTuner *This,AMTunerModeType lMode);
       HRESULT (WINAPI *get_Mode)(IAMTuner *This,AMTunerModeType *plMode);
-      HRESULT (WINAPI *GetAvailableModes)(IAMTuner *This,long *plModes);
-      HRESULT (WINAPI *RegisterNotificationCallBack)(IAMTuner *This,IAMTunerNotification *pNotify,long lEvents);
+      HRESULT (WINAPI *GetAvailableModes)(IAMTuner *This,LONG *plModes);
+      HRESULT (WINAPI *RegisterNotificationCallBack)(IAMTuner *This,IAMTunerNotification *pNotify,LONG lEvents);
       HRESULT (WINAPI *UnRegisterNotificationCallBack)(IAMTuner *This,IAMTunerNotification *pNotify);
     END_INTERFACE
   } IAMTunerVtbl;
@@ -10390,33 +10390,33 @@ typedef struct IAMPluginControl IAMPluginControl;
 #define IAMTuner_UnRegisterNotificationCallBack(This,pNotify) (This)->lpVtbl->UnRegisterNotificationCallBack(This,pNotify)
 #endif
 #endif
-  HRESULT WINAPI IAMTuner_put_Channel_Proxy(IAMTuner *This,long lChannel,long lVideoSubChannel,long lAudioSubChannel);
+  HRESULT WINAPI IAMTuner_put_Channel_Proxy(IAMTuner *This,LONG lChannel,LONG lVideoSubChannel,LONG lAudioSubChannel);
   void __RPC_STUB IAMTuner_put_Channel_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTuner_get_Channel_Proxy(IAMTuner *This,long *plChannel,long *plVideoSubChannel,long *plAudioSubChannel);
+  HRESULT WINAPI IAMTuner_get_Channel_Proxy(IAMTuner *This,LONG *plChannel,LONG *plVideoSubChannel,LONG *plAudioSubChannel);
   void __RPC_STUB IAMTuner_get_Channel_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTuner_ChannelMinMax_Proxy(IAMTuner *This,long *lChannelMin,long *lChannelMax);
+  HRESULT WINAPI IAMTuner_ChannelMinMax_Proxy(IAMTuner *This,LONG *lChannelMin,LONG *lChannelMax);
   void __RPC_STUB IAMTuner_ChannelMinMax_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTuner_put_CountryCode_Proxy(IAMTuner *This,long lCountryCode);
+  HRESULT WINAPI IAMTuner_put_CountryCode_Proxy(IAMTuner *This,LONG lCountryCode);
   void __RPC_STUB IAMTuner_put_CountryCode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTuner_get_CountryCode_Proxy(IAMTuner *This,long *plCountryCode);
+  HRESULT WINAPI IAMTuner_get_CountryCode_Proxy(IAMTuner *This,LONG *plCountryCode);
   void __RPC_STUB IAMTuner_get_CountryCode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTuner_put_TuningSpace_Proxy(IAMTuner *This,long lTuningSpace);
+  HRESULT WINAPI IAMTuner_put_TuningSpace_Proxy(IAMTuner *This,LONG lTuningSpace);
   void __RPC_STUB IAMTuner_put_TuningSpace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTuner_get_TuningSpace_Proxy(IAMTuner *This,long *plTuningSpace);
+  HRESULT WINAPI IAMTuner_get_TuningSpace_Proxy(IAMTuner *This,LONG *plTuningSpace);
   void __RPC_STUB IAMTuner_get_TuningSpace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMTuner_Logon_Proxy(IAMTuner *This,HANDLE hCurrentUser);
   void __RPC_STUB IAMTuner_Logon_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMTuner_Logout_Proxy(IAMTuner *This);
   void __RPC_STUB IAMTuner_Logout_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTuner_SignalPresent_Proxy(IAMTuner *This,long *plSignalStrength);
+  HRESULT WINAPI IAMTuner_SignalPresent_Proxy(IAMTuner *This,LONG *plSignalStrength);
   void __RPC_STUB IAMTuner_SignalPresent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMTuner_put_Mode_Proxy(IAMTuner *This,AMTunerModeType lMode);
   void __RPC_STUB IAMTuner_put_Mode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMTuner_get_Mode_Proxy(IAMTuner *This,AMTunerModeType *plMode);
   void __RPC_STUB IAMTuner_get_Mode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTuner_GetAvailableModes_Proxy(IAMTuner *This,long *plModes);
+  HRESULT WINAPI IAMTuner_GetAvailableModes_Proxy(IAMTuner *This,LONG *plModes);
   void __RPC_STUB IAMTuner_GetAvailableModes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTuner_RegisterNotificationCallBack_Proxy(IAMTuner *This,IAMTunerNotification *pNotify,long lEvents);
+  HRESULT WINAPI IAMTuner_RegisterNotificationCallBack_Proxy(IAMTuner *This,IAMTunerNotification *pNotify,LONG lEvents);
   void __RPC_STUB IAMTuner_RegisterNotificationCallBack_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMTuner_UnRegisterNotificationCallBack_Proxy(IAMTuner *This,IAMTunerNotification *pNotify);
   void __RPC_STUB IAMTuner_UnRegisterNotificationCallBack_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -10459,17 +10459,17 @@ typedef struct IAMPluginControl IAMPluginControl;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAMTVTuner : public IAMTuner {
   public:
-    virtual HRESULT WINAPI get_AvailableTVFormats(long *lAnalogVideoStandard) = 0;
-    virtual HRESULT WINAPI get_TVFormat(long *plAnalogVideoStandard) = 0;
-    virtual HRESULT WINAPI AutoTune(long lChannel,long *plFoundSignal) = 0;
+    virtual HRESULT WINAPI get_AvailableTVFormats(LONG *lAnalogVideoStandard) = 0;
+    virtual HRESULT WINAPI get_TVFormat(LONG *plAnalogVideoStandard) = 0;
+    virtual HRESULT WINAPI AutoTune(LONG lChannel,LONG *plFoundSignal) = 0;
     virtual HRESULT WINAPI StoreAutoTune(void) = 0;
-    virtual HRESULT WINAPI get_NumInputConnections(long *plNumInputConnections) = 0;
-    virtual HRESULT WINAPI put_InputType(long lIndex,TunerInputType InputType) = 0;
-    virtual HRESULT WINAPI get_InputType(long lIndex,TunerInputType *pInputType) = 0;
-    virtual HRESULT WINAPI put_ConnectInput(long lIndex) = 0;
-    virtual HRESULT WINAPI get_ConnectInput(long *plIndex) = 0;
-    virtual HRESULT WINAPI get_VideoFrequency(long *lFreq) = 0;
-    virtual HRESULT WINAPI get_AudioFrequency(long *lFreq) = 0;
+    virtual HRESULT WINAPI get_NumInputConnections(LONG *plNumInputConnections) = 0;
+    virtual HRESULT WINAPI put_InputType(LONG lIndex,TunerInputType InputType) = 0;
+    virtual HRESULT WINAPI get_InputType(LONG lIndex,TunerInputType *pInputType) = 0;
+    virtual HRESULT WINAPI put_ConnectInput(LONG lIndex) = 0;
+    virtual HRESULT WINAPI get_ConnectInput(LONG *plIndex) = 0;
+    virtual HRESULT WINAPI get_VideoFrequency(LONG *lFreq) = 0;
+    virtual HRESULT WINAPI get_AudioFrequency(LONG *lFreq) = 0;
   };
 #else
   typedef struct IAMTVTunerVtbl {
@@ -10477,32 +10477,32 @@ typedef struct IAMPluginControl IAMPluginControl;
       HRESULT (WINAPI *QueryInterface)(IAMTVTuner *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IAMTVTuner *This);
       ULONG (WINAPI *Release)(IAMTVTuner *This);
-      HRESULT (WINAPI *put_Channel)(IAMTVTuner *This,long lChannel,long lVideoSubChannel,long lAudioSubChannel);
-      HRESULT (WINAPI *get_Channel)(IAMTVTuner *This,long *plChannel,long *plVideoSubChannel,long *plAudioSubChannel);
-      HRESULT (WINAPI *ChannelMinMax)(IAMTVTuner *This,long *lChannelMin,long *lChannelMax);
-      HRESULT (WINAPI *put_CountryCode)(IAMTVTuner *This,long lCountryCode);
-      HRESULT (WINAPI *get_CountryCode)(IAMTVTuner *This,long *plCountryCode);
-      HRESULT (WINAPI *put_TuningSpace)(IAMTVTuner *This,long lTuningSpace);
-      HRESULT (WINAPI *get_TuningSpace)(IAMTVTuner *This,long *plTuningSpace);
+      HRESULT (WINAPI *put_Channel)(IAMTVTuner *This,LONG lChannel,LONG lVideoSubChannel,LONG lAudioSubChannel);
+      HRESULT (WINAPI *get_Channel)(IAMTVTuner *This,LONG *plChannel,LONG *plVideoSubChannel,LONG *plAudioSubChannel);
+      HRESULT (WINAPI *ChannelMinMax)(IAMTVTuner *This,LONG *lChannelMin,LONG *lChannelMax);
+      HRESULT (WINAPI *put_CountryCode)(IAMTVTuner *This,LONG lCountryCode);
+      HRESULT (WINAPI *get_CountryCode)(IAMTVTuner *This,LONG *plCountryCode);
+      HRESULT (WINAPI *put_TuningSpace)(IAMTVTuner *This,LONG lTuningSpace);
+      HRESULT (WINAPI *get_TuningSpace)(IAMTVTuner *This,LONG *plTuningSpace);
       HRESULT (WINAPI *Logon)(IAMTVTuner *This,HANDLE hCurrentUser);
       HRESULT (WINAPI *Logout)(IAMTVTuner *This);
-      HRESULT (WINAPI *SignalPresent)(IAMTVTuner *This,long *plSignalStrength);
+      HRESULT (WINAPI *SignalPresent)(IAMTVTuner *This,LONG *plSignalStrength);
       HRESULT (WINAPI *put_Mode)(IAMTVTuner *This,AMTunerModeType lMode);
       HRESULT (WINAPI *get_Mode)(IAMTVTuner *This,AMTunerModeType *plMode);
-      HRESULT (WINAPI *GetAvailableModes)(IAMTVTuner *This,long *plModes);
-      HRESULT (WINAPI *RegisterNotificationCallBack)(IAMTVTuner *This,IAMTunerNotification *pNotify,long lEvents);
+      HRESULT (WINAPI *GetAvailableModes)(IAMTVTuner *This,LONG *plModes);
+      HRESULT (WINAPI *RegisterNotificationCallBack)(IAMTVTuner *This,IAMTunerNotification *pNotify,LONG lEvents);
       HRESULT (WINAPI *UnRegisterNotificationCallBack)(IAMTVTuner *This,IAMTunerNotification *pNotify);
-      HRESULT (WINAPI *get_AvailableTVFormats)(IAMTVTuner *This,long *lAnalogVideoStandard);
-      HRESULT (WINAPI *get_TVFormat)(IAMTVTuner *This,long *plAnalogVideoStandard);
-      HRESULT (WINAPI *AutoTune)(IAMTVTuner *This,long lChannel,long *plFoundSignal);
+      HRESULT (WINAPI *get_AvailableTVFormats)(IAMTVTuner *This,LONG *lAnalogVideoStandard);
+      HRESULT (WINAPI *get_TVFormat)(IAMTVTuner *This,LONG *plAnalogVideoStandard);
+      HRESULT (WINAPI *AutoTune)(IAMTVTuner *This,LONG lChannel,LONG *plFoundSignal);
       HRESULT (WINAPI *StoreAutoTune)(IAMTVTuner *This);
-      HRESULT (WINAPI *get_NumInputConnections)(IAMTVTuner *This,long *plNumInputConnections);
-      HRESULT (WINAPI *put_InputType)(IAMTVTuner *This,long lIndex,TunerInputType InputType);
-      HRESULT (WINAPI *get_InputType)(IAMTVTuner *This,long lIndex,TunerInputType *pInputType);
-      HRESULT (WINAPI *put_ConnectInput)(IAMTVTuner *This,long lIndex);
-      HRESULT (WINAPI *get_ConnectInput)(IAMTVTuner *This,long *plIndex);
-      HRESULT (WINAPI *get_VideoFrequency)(IAMTVTuner *This,long *lFreq);
-      HRESULT (WINAPI *get_AudioFrequency)(IAMTVTuner *This,long *lFreq);
+      HRESULT (WINAPI *get_NumInputConnections)(IAMTVTuner *This,LONG *plNumInputConnections);
+      HRESULT (WINAPI *put_InputType)(IAMTVTuner *This,LONG lIndex,TunerInputType InputType);
+      HRESULT (WINAPI *get_InputType)(IAMTVTuner *This,LONG lIndex,TunerInputType *pInputType);
+      HRESULT (WINAPI *put_ConnectInput)(IAMTVTuner *This,LONG lIndex);
+      HRESULT (WINAPI *get_ConnectInput)(IAMTVTuner *This,LONG *plIndex);
+      HRESULT (WINAPI *get_VideoFrequency)(IAMTVTuner *This,LONG *lFreq);
+      HRESULT (WINAPI *get_AudioFrequency)(IAMTVTuner *This,LONG *lFreq);
     END_INTERFACE
   } IAMTVTunerVtbl;
   struct IAMTVTuner {
@@ -10540,27 +10540,27 @@ typedef struct IAMPluginControl IAMPluginControl;
 #define IAMTVTuner_get_AudioFrequency(This,lFreq) (This)->lpVtbl->get_AudioFrequency(This,lFreq)
 #endif
 #endif
-  HRESULT WINAPI IAMTVTuner_get_AvailableTVFormats_Proxy(IAMTVTuner *This,long *lAnalogVideoStandard);
+  HRESULT WINAPI IAMTVTuner_get_AvailableTVFormats_Proxy(IAMTVTuner *This,LONG *lAnalogVideoStandard);
   void __RPC_STUB IAMTVTuner_get_AvailableTVFormats_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTVTuner_get_TVFormat_Proxy(IAMTVTuner *This,long *plAnalogVideoStandard);
+  HRESULT WINAPI IAMTVTuner_get_TVFormat_Proxy(IAMTVTuner *This,LONG *plAnalogVideoStandard);
   void __RPC_STUB IAMTVTuner_get_TVFormat_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTVTuner_AutoTune_Proxy(IAMTVTuner *This,long lChannel,long *plFoundSignal);
+  HRESULT WINAPI IAMTVTuner_AutoTune_Proxy(IAMTVTuner *This,LONG lChannel,LONG *plFoundSignal);
   void __RPC_STUB IAMTVTuner_AutoTune_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMTVTuner_StoreAutoTune_Proxy(IAMTVTuner *This);
   void __RPC_STUB IAMTVTuner_StoreAutoTune_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTVTuner_get_NumInputConnections_Proxy(IAMTVTuner *This,long *plNumInputConnections);
+  HRESULT WINAPI IAMTVTuner_get_NumInputConnections_Proxy(IAMTVTuner *This,LONG *plNumInputConnections);
   void __RPC_STUB IAMTVTuner_get_NumInputConnections_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTVTuner_put_InputType_Proxy(IAMTVTuner *This,long lIndex,TunerInputType InputType);
+  HRESULT WINAPI IAMTVTuner_put_InputType_Proxy(IAMTVTuner *This,LONG lIndex,TunerInputType InputType);
   void __RPC_STUB IAMTVTuner_put_InputType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTVTuner_get_InputType_Proxy(IAMTVTuner *This,long lIndex,TunerInputType *pInputType);
+  HRESULT WINAPI IAMTVTuner_get_InputType_Proxy(IAMTVTuner *This,LONG lIndex,TunerInputType *pInputType);
   void __RPC_STUB IAMTVTuner_get_InputType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTVTuner_put_ConnectInput_Proxy(IAMTVTuner *This,long lIndex);
+  HRESULT WINAPI IAMTVTuner_put_ConnectInput_Proxy(IAMTVTuner *This,LONG lIndex);
   void __RPC_STUB IAMTVTuner_put_ConnectInput_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTVTuner_get_ConnectInput_Proxy(IAMTVTuner *This,long *plIndex);
+  HRESULT WINAPI IAMTVTuner_get_ConnectInput_Proxy(IAMTVTuner *This,LONG *plIndex);
   void __RPC_STUB IAMTVTuner_get_ConnectInput_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTVTuner_get_VideoFrequency_Proxy(IAMTVTuner *This,long *lFreq);
+  HRESULT WINAPI IAMTVTuner_get_VideoFrequency_Proxy(IAMTVTuner *This,LONG *lFreq);
   void __RPC_STUB IAMTVTuner_get_VideoFrequency_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTVTuner_get_AudioFrequency_Proxy(IAMTVTuner *This,long *lFreq);
+  HRESULT WINAPI IAMTVTuner_get_AudioFrequency_Proxy(IAMTVTuner *This,LONG *lFreq);
   void __RPC_STUB IAMTVTuner_get_AudioFrequency_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -10570,8 +10570,8 @@ typedef struct IAMPluginControl IAMPluginControl;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IBPCSatelliteTuner : public IAMTuner {
   public:
-    virtual HRESULT WINAPI get_DefaultSubChannelTypes(long *plDefaultVideoType,long *plDefaultAudioType) = 0;
-    virtual HRESULT WINAPI put_DefaultSubChannelTypes(long lDefaultVideoType,long lDefaultAudioType) = 0;
+    virtual HRESULT WINAPI get_DefaultSubChannelTypes(LONG *plDefaultVideoType,LONG *plDefaultAudioType) = 0;
+    virtual HRESULT WINAPI put_DefaultSubChannelTypes(LONG lDefaultVideoType,LONG lDefaultAudioType) = 0;
     virtual HRESULT WINAPI IsTapingPermitted(void) = 0;
   };
 #else
@@ -10580,23 +10580,23 @@ typedef struct IAMPluginControl IAMPluginControl;
       HRESULT (WINAPI *QueryInterface)(IBPCSatelliteTuner *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IBPCSatelliteTuner *This);
       ULONG (WINAPI *Release)(IBPCSatelliteTuner *This);
-      HRESULT (WINAPI *put_Channel)(IBPCSatelliteTuner *This,long lChannel,long lVideoSubChannel,long lAudioSubChannel);
-      HRESULT (WINAPI *get_Channel)(IBPCSatelliteTuner *This,long *plChannel,long *plVideoSubChannel,long *plAudioSubChannel);
-      HRESULT (WINAPI *ChannelMinMax)(IBPCSatelliteTuner *This,long *lChannelMin,long *lChannelMax);
-      HRESULT (WINAPI *put_CountryCode)(IBPCSatelliteTuner *This,long lCountryCode);
-      HRESULT (WINAPI *get_CountryCode)(IBPCSatelliteTuner *This,long *plCountryCode);
-      HRESULT (WINAPI *put_TuningSpace)(IBPCSatelliteTuner *This,long lTuningSpace);
-      HRESULT (WINAPI *get_TuningSpace)(IBPCSatelliteTuner *This,long *plTuningSpace);
+      HRESULT (WINAPI *put_Channel)(IBPCSatelliteTuner *This,LONG lChannel,LONG lVideoSubChannel,LONG lAudioSubChannel);
+      HRESULT (WINAPI *get_Channel)(IBPCSatelliteTuner *This,LONG *plChannel,LONG *plVideoSubChannel,LONG *plAudioSubChannel);
+      HRESULT (WINAPI *ChannelMinMax)(IBPCSatelliteTuner *This,LONG *lChannelMin,LONG *lChannelMax);
+      HRESULT (WINAPI *put_CountryCode)(IBPCSatelliteTuner *This,LONG lCountryCode);
+      HRESULT (WINAPI *get_CountryCode)(IBPCSatelliteTuner *This,LONG *plCountryCode);
+      HRESULT (WINAPI *put_TuningSpace)(IBPCSatelliteTuner *This,LONG lTuningSpace);
+      HRESULT (WINAPI *get_TuningSpace)(IBPCSatelliteTuner *This,LONG *plTuningSpace);
       HRESULT (WINAPI *Logon)(IBPCSatelliteTuner *This,HANDLE hCurrentUser);
       HRESULT (WINAPI *Logout)(IBPCSatelliteTuner *This);
-      HRESULT (WINAPI *SignalPresent)(IBPCSatelliteTuner *This,long *plSignalStrength);
+      HRESULT (WINAPI *SignalPresent)(IBPCSatelliteTuner *This,LONG *plSignalStrength);
       HRESULT (WINAPI *put_Mode)(IBPCSatelliteTuner *This,AMTunerModeType lMode);
       HRESULT (WINAPI *get_Mode)(IBPCSatelliteTuner *This,AMTunerModeType *plMode);
-      HRESULT (WINAPI *GetAvailableModes)(IBPCSatelliteTuner *This,long *plModes);
-      HRESULT (WINAPI *RegisterNotificationCallBack)(IBPCSatelliteTuner *This,IAMTunerNotification *pNotify,long lEvents);
+      HRESULT (WINAPI *GetAvailableModes)(IBPCSatelliteTuner *This,LONG *plModes);
+      HRESULT (WINAPI *RegisterNotificationCallBack)(IBPCSatelliteTuner *This,IAMTunerNotification *pNotify,LONG lEvents);
       HRESULT (WINAPI *UnRegisterNotificationCallBack)(IBPCSatelliteTuner *This,IAMTunerNotification *pNotify);
-      HRESULT (WINAPI *get_DefaultSubChannelTypes)(IBPCSatelliteTuner *This,long *plDefaultVideoType,long *plDefaultAudioType);
-      HRESULT (WINAPI *put_DefaultSubChannelTypes)(IBPCSatelliteTuner *This,long lDefaultVideoType,long lDefaultAudioType);
+      HRESULT (WINAPI *get_DefaultSubChannelTypes)(IBPCSatelliteTuner *This,LONG *plDefaultVideoType,LONG *plDefaultAudioType);
+      HRESULT (WINAPI *put_DefaultSubChannelTypes)(IBPCSatelliteTuner *This,LONG lDefaultVideoType,LONG lDefaultAudioType);
       HRESULT (WINAPI *IsTapingPermitted)(IBPCSatelliteTuner *This);
     END_INTERFACE
   } IBPCSatelliteTunerVtbl;
@@ -10627,9 +10627,9 @@ typedef struct IAMPluginControl IAMPluginControl;
 #define IBPCSatelliteTuner_IsTapingPermitted(This) (This)->lpVtbl->IsTapingPermitted(This)
 #endif
 #endif
-  HRESULT WINAPI IBPCSatelliteTuner_get_DefaultSubChannelTypes_Proxy(IBPCSatelliteTuner *This,long *plDefaultVideoType,long *plDefaultAudioType);
+  HRESULT WINAPI IBPCSatelliteTuner_get_DefaultSubChannelTypes_Proxy(IBPCSatelliteTuner *This,LONG *plDefaultVideoType,LONG *plDefaultAudioType);
   void __RPC_STUB IBPCSatelliteTuner_get_DefaultSubChannelTypes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBPCSatelliteTuner_put_DefaultSubChannelTypes_Proxy(IBPCSatelliteTuner *This,long lDefaultVideoType,long lDefaultAudioType);
+  HRESULT WINAPI IBPCSatelliteTuner_put_DefaultSubChannelTypes_Proxy(IBPCSatelliteTuner *This,LONG lDefaultVideoType,LONG lDefaultAudioType);
   void __RPC_STUB IBPCSatelliteTuner_put_DefaultSubChannelTypes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IBPCSatelliteTuner_IsTapingPermitted_Proxy(IBPCSatelliteTuner *This);
   void __RPC_STUB IBPCSatelliteTuner_IsTapingPermitted_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -10651,11 +10651,11 @@ typedef struct IAMPluginControl IAMPluginControl;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAMTVAudio : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetHardwareSupportedTVAudioModes(long *plModes) = 0;
-    virtual HRESULT WINAPI GetAvailableTVAudioModes(long *plModes) = 0;
-    virtual HRESULT WINAPI get_TVAudioMode(long *plMode) = 0;
-    virtual HRESULT WINAPI put_TVAudioMode(long lMode) = 0;
-    virtual HRESULT WINAPI RegisterNotificationCallBack(IAMTunerNotification *pNotify,long lEvents) = 0;
+    virtual HRESULT WINAPI GetHardwareSupportedTVAudioModes(LONG *plModes) = 0;
+    virtual HRESULT WINAPI GetAvailableTVAudioModes(LONG *plModes) = 0;
+    virtual HRESULT WINAPI get_TVAudioMode(LONG *plMode) = 0;
+    virtual HRESULT WINAPI put_TVAudioMode(LONG lMode) = 0;
+    virtual HRESULT WINAPI RegisterNotificationCallBack(IAMTunerNotification *pNotify,LONG lEvents) = 0;
     virtual HRESULT WINAPI UnRegisterNotificationCallBack(IAMTunerNotification *pNotify) = 0;
   };
 #else
@@ -10664,11 +10664,11 @@ typedef struct IAMPluginControl IAMPluginControl;
       HRESULT (WINAPI *QueryInterface)(IAMTVAudio *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IAMTVAudio *This);
       ULONG (WINAPI *Release)(IAMTVAudio *This);
-      HRESULT (WINAPI *GetHardwareSupportedTVAudioModes)(IAMTVAudio *This,long *plModes);
-      HRESULT (WINAPI *GetAvailableTVAudioModes)(IAMTVAudio *This,long *plModes);
-      HRESULT (WINAPI *get_TVAudioMode)(IAMTVAudio *This,long *plMode);
-      HRESULT (WINAPI *put_TVAudioMode)(IAMTVAudio *This,long lMode);
-      HRESULT (WINAPI *RegisterNotificationCallBack)(IAMTVAudio *This,IAMTunerNotification *pNotify,long lEvents);
+      HRESULT (WINAPI *GetHardwareSupportedTVAudioModes)(IAMTVAudio *This,LONG *plModes);
+      HRESULT (WINAPI *GetAvailableTVAudioModes)(IAMTVAudio *This,LONG *plModes);
+      HRESULT (WINAPI *get_TVAudioMode)(IAMTVAudio *This,LONG *plMode);
+      HRESULT (WINAPI *put_TVAudioMode)(IAMTVAudio *This,LONG lMode);
+      HRESULT (WINAPI *RegisterNotificationCallBack)(IAMTVAudio *This,IAMTunerNotification *pNotify,LONG lEvents);
       HRESULT (WINAPI *UnRegisterNotificationCallBack)(IAMTVAudio *This,IAMTunerNotification *pNotify);
     END_INTERFACE
   } IAMTVAudioVtbl;
@@ -10687,15 +10687,15 @@ typedef struct IAMPluginControl IAMPluginControl;
 #define IAMTVAudio_UnRegisterNotificationCallBack(This,pNotify) (This)->lpVtbl->UnRegisterNotificationCallBack(This,pNotify)
 #endif
 #endif
-  HRESULT WINAPI IAMTVAudio_GetHardwareSupportedTVAudioModes_Proxy(IAMTVAudio *This,long *plModes);
+  HRESULT WINAPI IAMTVAudio_GetHardwareSupportedTVAudioModes_Proxy(IAMTVAudio *This,LONG *plModes);
   void __RPC_STUB IAMTVAudio_GetHardwareSupportedTVAudioModes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTVAudio_GetAvailableTVAudioModes_Proxy(IAMTVAudio *This,long *plModes);
+  HRESULT WINAPI IAMTVAudio_GetAvailableTVAudioModes_Proxy(IAMTVAudio *This,LONG *plModes);
   void __RPC_STUB IAMTVAudio_GetAvailableTVAudioModes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTVAudio_get_TVAudioMode_Proxy(IAMTVAudio *This,long *plMode);
+  HRESULT WINAPI IAMTVAudio_get_TVAudioMode_Proxy(IAMTVAudio *This,LONG *plMode);
   void __RPC_STUB IAMTVAudio_get_TVAudioMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTVAudio_put_TVAudioMode_Proxy(IAMTVAudio *This,long lMode);
+  HRESULT WINAPI IAMTVAudio_put_TVAudioMode_Proxy(IAMTVAudio *This,LONG lMode);
   void __RPC_STUB IAMTVAudio_put_TVAudioMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTVAudio_RegisterNotificationCallBack_Proxy(IAMTVAudio *This,IAMTunerNotification *pNotify,long lEvents);
+  HRESULT WINAPI IAMTVAudio_RegisterNotificationCallBack_Proxy(IAMTVAudio *This,IAMTunerNotification *pNotify,LONG lEvents);
   void __RPC_STUB IAMTVAudio_RegisterNotificationCallBack_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMTVAudio_UnRegisterNotificationCallBack_Proxy(IAMTVAudio *This,IAMTunerNotification *pNotify);
   void __RPC_STUB IAMTVAudio_UnRegisterNotificationCallBack_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -10738,13 +10738,13 @@ typedef struct IAMPluginControl IAMPluginControl;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAMAnalogVideoEncoder : public IUnknown {
   public:
-    virtual HRESULT WINAPI get_AvailableTVFormats(long *lAnalogVideoStandard) = 0;
-    virtual HRESULT WINAPI put_TVFormat(long lAnalogVideoStandard) = 0;
-    virtual HRESULT WINAPI get_TVFormat(long *plAnalogVideoStandard) = 0;
-    virtual HRESULT WINAPI put_CopyProtection(long lVideoCopyProtection) = 0;
-    virtual HRESULT WINAPI get_CopyProtection(long *lVideoCopyProtection) = 0;
-    virtual HRESULT WINAPI put_CCEnable(long lCCEnable) = 0;
-    virtual HRESULT WINAPI get_CCEnable(long *lCCEnable) = 0;
+    virtual HRESULT WINAPI get_AvailableTVFormats(LONG *lAnalogVideoStandard) = 0;
+    virtual HRESULT WINAPI put_TVFormat(LONG lAnalogVideoStandard) = 0;
+    virtual HRESULT WINAPI get_TVFormat(LONG *plAnalogVideoStandard) = 0;
+    virtual HRESULT WINAPI put_CopyProtection(LONG lVideoCopyProtection) = 0;
+    virtual HRESULT WINAPI get_CopyProtection(LONG *lVideoCopyProtection) = 0;
+    virtual HRESULT WINAPI put_CCEnable(LONG lCCEnable) = 0;
+    virtual HRESULT WINAPI get_CCEnable(LONG *lCCEnable) = 0;
   };
 #else
   typedef struct IAMAnalogVideoEncoderVtbl {
@@ -10752,13 +10752,13 @@ typedef struct IAMPluginControl IAMPluginControl;
       HRESULT (WINAPI *QueryInterface)(IAMAnalogVideoEncoder *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IAMAnalogVideoEncoder *This);
       ULONG (WINAPI *Release)(IAMAnalogVideoEncoder *This);
-      HRESULT (WINAPI *get_AvailableTVFormats)(IAMAnalogVideoEncoder *This,long *lAnalogVideoStandard);
-      HRESULT (WINAPI *put_TVFormat)(IAMAnalogVideoEncoder *This,long lAnalogVideoStandard);
-      HRESULT (WINAPI *get_TVFormat)(IAMAnalogVideoEncoder *This,long *plAnalogVideoStandard);
-      HRESULT (WINAPI *put_CopyProtection)(IAMAnalogVideoEncoder *This,long lVideoCopyProtection);
-      HRESULT (WINAPI *get_CopyProtection)(IAMAnalogVideoEncoder *This,long *lVideoCopyProtection);
-      HRESULT (WINAPI *put_CCEnable)(IAMAnalogVideoEncoder *This,long lCCEnable);
-      HRESULT (WINAPI *get_CCEnable)(IAMAnalogVideoEncoder *This,long *lCCEnable);
+      HRESULT (WINAPI *get_AvailableTVFormats)(IAMAnalogVideoEncoder *This,LONG *lAnalogVideoStandard);
+      HRESULT (WINAPI *put_TVFormat)(IAMAnalogVideoEncoder *This,LONG lAnalogVideoStandard);
+      HRESULT (WINAPI *get_TVFormat)(IAMAnalogVideoEncoder *This,LONG *plAnalogVideoStandard);
+      HRESULT (WINAPI *put_CopyProtection)(IAMAnalogVideoEncoder *This,LONG lVideoCopyProtection);
+      HRESULT (WINAPI *get_CopyProtection)(IAMAnalogVideoEncoder *This,LONG *lVideoCopyProtection);
+      HRESULT (WINAPI *put_CCEnable)(IAMAnalogVideoEncoder *This,LONG lCCEnable);
+      HRESULT (WINAPI *get_CCEnable)(IAMAnalogVideoEncoder *This,LONG *lCCEnable);
     END_INTERFACE
   } IAMAnalogVideoEncoderVtbl;
   struct IAMAnalogVideoEncoder {
@@ -10777,19 +10777,19 @@ typedef struct IAMPluginControl IAMPluginControl;
 #define IAMAnalogVideoEncoder_get_CCEnable(This,lCCEnable) (This)->lpVtbl->get_CCEnable(This,lCCEnable)
 #endif
 #endif
-  HRESULT WINAPI IAMAnalogVideoEncoder_get_AvailableTVFormats_Proxy(IAMAnalogVideoEncoder *This,long *lAnalogVideoStandard);
+  HRESULT WINAPI IAMAnalogVideoEncoder_get_AvailableTVFormats_Proxy(IAMAnalogVideoEncoder *This,LONG *lAnalogVideoStandard);
   void __RPC_STUB IAMAnalogVideoEncoder_get_AvailableTVFormats_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMAnalogVideoEncoder_put_TVFormat_Proxy(IAMAnalogVideoEncoder *This,long lAnalogVideoStandard);
+  HRESULT WINAPI IAMAnalogVideoEncoder_put_TVFormat_Proxy(IAMAnalogVideoEncoder *This,LONG lAnalogVideoStandard);
   void __RPC_STUB IAMAnalogVideoEncoder_put_TVFormat_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMAnalogVideoEncoder_get_TVFormat_Proxy(IAMAnalogVideoEncoder *This,long *plAnalogVideoStandard);
+  HRESULT WINAPI IAMAnalogVideoEncoder_get_TVFormat_Proxy(IAMAnalogVideoEncoder *This,LONG *plAnalogVideoStandard);
   void __RPC_STUB IAMAnalogVideoEncoder_get_TVFormat_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMAnalogVideoEncoder_put_CopyProtection_Proxy(IAMAnalogVideoEncoder *This,long lVideoCopyProtection);
+  HRESULT WINAPI IAMAnalogVideoEncoder_put_CopyProtection_Proxy(IAMAnalogVideoEncoder *This,LONG lVideoCopyProtection);
   void __RPC_STUB IAMAnalogVideoEncoder_put_CopyProtection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMAnalogVideoEncoder_get_CopyProtection_Proxy(IAMAnalogVideoEncoder *This,long *lVideoCopyProtection);
+  HRESULT WINAPI IAMAnalogVideoEncoder_get_CopyProtection_Proxy(IAMAnalogVideoEncoder *This,LONG *lVideoCopyProtection);
   void __RPC_STUB IAMAnalogVideoEncoder_get_CopyProtection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMAnalogVideoEncoder_put_CCEnable_Proxy(IAMAnalogVideoEncoder *This,long lCCEnable);
+  HRESULT WINAPI IAMAnalogVideoEncoder_put_CCEnable_Proxy(IAMAnalogVideoEncoder *This,LONG lCCEnable);
   void __RPC_STUB IAMAnalogVideoEncoder_put_CCEnable_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMAnalogVideoEncoder_get_CCEnable_Proxy(IAMAnalogVideoEncoder *This,long *lCCEnable);
+  HRESULT WINAPI IAMAnalogVideoEncoder_get_CCEnable_Proxy(IAMAnalogVideoEncoder *This,LONG *lCCEnable);
   void __RPC_STUB IAMAnalogVideoEncoder_get_CCEnable_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -10887,7 +10887,7 @@ typedef struct IAMPluginControl IAMPluginControl;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAMPhysicalPinInfo : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetPhysicalType(long *pType,LPOLESTR *ppszType) = 0;
+    virtual HRESULT WINAPI GetPhysicalType(LONG *pType,LPOLESTR *ppszType) = 0;
   };
 #else
   typedef struct IAMPhysicalPinInfoVtbl {
@@ -10895,7 +10895,7 @@ typedef struct IAMPluginControl IAMPluginControl;
       HRESULT (WINAPI *QueryInterface)(IAMPhysicalPinInfo *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IAMPhysicalPinInfo *This);
       ULONG (WINAPI *Release)(IAMPhysicalPinInfo *This);
-      HRESULT (WINAPI *GetPhysicalType)(IAMPhysicalPinInfo *This,long *pType,LPOLESTR *ppszType);
+      HRESULT (WINAPI *GetPhysicalType)(IAMPhysicalPinInfo *This,LONG *pType,LPOLESTR *ppszType);
     END_INTERFACE
   } IAMPhysicalPinInfoVtbl;
   struct IAMPhysicalPinInfo {
@@ -10908,7 +10908,7 @@ typedef struct IAMPluginControl IAMPluginControl;
 #define IAMPhysicalPinInfo_GetPhysicalType(This,pType,ppszType) (This)->lpVtbl->GetPhysicalType(This,pType,ppszType)
 #endif
 #endif
-  HRESULT WINAPI IAMPhysicalPinInfo_GetPhysicalType_Proxy(IAMPhysicalPinInfo *This,long *pType,LPOLESTR *ppszType);
+  HRESULT WINAPI IAMPhysicalPinInfo_GetPhysicalType_Proxy(IAMPhysicalPinInfo *This,LONG *pType,LPOLESTR *ppszType);
   void __RPC_STUB IAMPhysicalPinInfo_GetPhysicalType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -10922,14 +10922,14 @@ typedef struct IAMPluginControl IAMPluginControl;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAMExtDevice : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetCapability(long Capability,long *pValue,double *pdblValue) = 0;
+    virtual HRESULT WINAPI GetCapability(LONG Capability,LONG *pValue,double *pdblValue) = 0;
     virtual HRESULT WINAPI get_ExternalDeviceID(LPOLESTR *ppszData) = 0;
     virtual HRESULT WINAPI get_ExternalDeviceVersion(LPOLESTR *ppszData) = 0;
-    virtual HRESULT WINAPI put_DevicePower(long PowerMode) = 0;
-    virtual HRESULT WINAPI get_DevicePower(long *pPowerMode) = 0;
-    virtual HRESULT WINAPI Calibrate(HEVENT hEvent,long Mode,long *pStatus) = 0;
-    virtual HRESULT WINAPI put_DevicePort(long DevicePort) = 0;
-    virtual HRESULT WINAPI get_DevicePort(long *pDevicePort) = 0;
+    virtual HRESULT WINAPI put_DevicePower(LONG PowerMode) = 0;
+    virtual HRESULT WINAPI get_DevicePower(LONG *pPowerMode) = 0;
+    virtual HRESULT WINAPI Calibrate(HEVENT hEvent,LONG Mode,LONG *pStatus) = 0;
+    virtual HRESULT WINAPI put_DevicePort(LONG DevicePort) = 0;
+    virtual HRESULT WINAPI get_DevicePort(LONG *pDevicePort) = 0;
   };
 #else
   typedef struct IAMExtDeviceVtbl {
@@ -10937,14 +10937,14 @@ typedef struct IAMPluginControl IAMPluginControl;
       HRESULT (WINAPI *QueryInterface)(IAMExtDevice *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IAMExtDevice *This);
       ULONG (WINAPI *Release)(IAMExtDevice *This);
-      HRESULT (WINAPI *GetCapability)(IAMExtDevice *This,long Capability,long *pValue,double *pdblValue);
+      HRESULT (WINAPI *GetCapability)(IAMExtDevice *This,LONG Capability,LONG *pValue,double *pdblValue);
       HRESULT (WINAPI *get_ExternalDeviceID)(IAMExtDevice *This,LPOLESTR *ppszData);
       HRESULT (WINAPI *get_ExternalDeviceVersion)(IAMExtDevice *This,LPOLESTR *ppszData);
-      HRESULT (WINAPI *put_DevicePower)(IAMExtDevice *This,long PowerMode);
-      HRESULT (WINAPI *get_DevicePower)(IAMExtDevice *This,long *pPowerMode);
-      HRESULT (WINAPI *Calibrate)(IAMExtDevice *This,HEVENT hEvent,long Mode,long *pStatus);
-      HRESULT (WINAPI *put_DevicePort)(IAMExtDevice *This,long DevicePort);
-      HRESULT (WINAPI *get_DevicePort)(IAMExtDevice *This,long *pDevicePort);
+      HRESULT (WINAPI *put_DevicePower)(IAMExtDevice *This,LONG PowerMode);
+      HRESULT (WINAPI *get_DevicePower)(IAMExtDevice *This,LONG *pPowerMode);
+      HRESULT (WINAPI *Calibrate)(IAMExtDevice *This,HEVENT hEvent,LONG Mode,LONG *pStatus);
+      HRESULT (WINAPI *put_DevicePort)(IAMExtDevice *This,LONG DevicePort);
+      HRESULT (WINAPI *get_DevicePort)(IAMExtDevice *This,LONG *pDevicePort);
     END_INTERFACE
   } IAMExtDeviceVtbl;
   struct IAMExtDevice {
@@ -10964,21 +10964,21 @@ typedef struct IAMPluginControl IAMPluginControl;
 #define IAMExtDevice_get_DevicePort(This,pDevicePort) (This)->lpVtbl->get_DevicePort(This,pDevicePort)
 #endif
 #endif
-  HRESULT WINAPI IAMExtDevice_GetCapability_Proxy(IAMExtDevice *This,long Capability,long *pValue,double *pdblValue);
+  HRESULT WINAPI IAMExtDevice_GetCapability_Proxy(IAMExtDevice *This,LONG Capability,LONG *pValue,double *pdblValue);
   void __RPC_STUB IAMExtDevice_GetCapability_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMExtDevice_get_ExternalDeviceID_Proxy(IAMExtDevice *This,LPOLESTR *ppszData);
   void __RPC_STUB IAMExtDevice_get_ExternalDeviceID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMExtDevice_get_ExternalDeviceVersion_Proxy(IAMExtDevice *This,LPOLESTR *ppszData);
   void __RPC_STUB IAMExtDevice_get_ExternalDeviceVersion_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtDevice_put_DevicePower_Proxy(IAMExtDevice *This,long PowerMode);
+  HRESULT WINAPI IAMExtDevice_put_DevicePower_Proxy(IAMExtDevice *This,LONG PowerMode);
   void __RPC_STUB IAMExtDevice_put_DevicePower_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtDevice_get_DevicePower_Proxy(IAMExtDevice *This,long *pPowerMode);
+  HRESULT WINAPI IAMExtDevice_get_DevicePower_Proxy(IAMExtDevice *This,LONG *pPowerMode);
   void __RPC_STUB IAMExtDevice_get_DevicePower_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtDevice_Calibrate_Proxy(IAMExtDevice *This,HEVENT hEvent,long Mode,long *pStatus);
+  HRESULT WINAPI IAMExtDevice_Calibrate_Proxy(IAMExtDevice *This,HEVENT hEvent,LONG Mode,LONG *pStatus);
   void __RPC_STUB IAMExtDevice_Calibrate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtDevice_put_DevicePort_Proxy(IAMExtDevice *This,long DevicePort);
+  HRESULT WINAPI IAMExtDevice_put_DevicePort_Proxy(IAMExtDevice *This,LONG DevicePort);
   void __RPC_STUB IAMExtDevice_put_DevicePort_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtDevice_get_DevicePort_Proxy(IAMExtDevice *This,long *pDevicePort);
+  HRESULT WINAPI IAMExtDevice_get_DevicePort_Proxy(IAMExtDevice *This,LONG *pDevicePort);
   void __RPC_STUB IAMExtDevice_get_DevicePort_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -10992,34 +10992,34 @@ typedef struct IAMPluginControl IAMPluginControl;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAMExtTransport : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetCapability(long Capability,long *pValue,double *pdblValue) = 0;
-    virtual HRESULT WINAPI put_MediaState(long State) = 0;
-    virtual HRESULT WINAPI get_MediaState(long *pState) = 0;
-    virtual HRESULT WINAPI put_LocalControl(long State) = 0;
-    virtual HRESULT WINAPI get_LocalControl(long *pState) = 0;
-    virtual HRESULT WINAPI GetStatus(long StatusItem,long *pValue) = 0;
-    virtual HRESULT WINAPI GetTransportBasicParameters(long Param,long *pValue,LPOLESTR *ppszData) = 0;
-    virtual HRESULT WINAPI SetTransportBasicParameters(long Param,long Value,LPCOLESTR pszData) = 0;
-    virtual HRESULT WINAPI GetTransportVideoParameters(long Param,long *pValue) = 0;
-    virtual HRESULT WINAPI SetTransportVideoParameters(long Param,long Value) = 0;
-    virtual HRESULT WINAPI GetTransportAudioParameters(long Param,long *pValue) = 0;
-    virtual HRESULT WINAPI SetTransportAudioParameters(long Param,long Value) = 0;
-    virtual HRESULT WINAPI put_Mode(long Mode) = 0;
-    virtual HRESULT WINAPI get_Mode(long *pMode) = 0;
+    virtual HRESULT WINAPI GetCapability(LONG Capability,LONG *pValue,double *pdblValue) = 0;
+    virtual HRESULT WINAPI put_MediaState(LONG State) = 0;
+    virtual HRESULT WINAPI get_MediaState(LONG *pState) = 0;
+    virtual HRESULT WINAPI put_LocalControl(LONG State) = 0;
+    virtual HRESULT WINAPI get_LocalControl(LONG *pState) = 0;
+    virtual HRESULT WINAPI GetStatus(LONG StatusItem,LONG *pValue) = 0;
+    virtual HRESULT WINAPI GetTransportBasicParameters(LONG Param,LONG *pValue,LPOLESTR *ppszData) = 0;
+    virtual HRESULT WINAPI SetTransportBasicParameters(LONG Param,LONG Value,LPCOLESTR pszData) = 0;
+    virtual HRESULT WINAPI GetTransportVideoParameters(LONG Param,LONG *pValue) = 0;
+    virtual HRESULT WINAPI SetTransportVideoParameters(LONG Param,LONG Value) = 0;
+    virtual HRESULT WINAPI GetTransportAudioParameters(LONG Param,LONG *pValue) = 0;
+    virtual HRESULT WINAPI SetTransportAudioParameters(LONG Param,LONG Value) = 0;
+    virtual HRESULT WINAPI put_Mode(LONG Mode) = 0;
+    virtual HRESULT WINAPI get_Mode(LONG *pMode) = 0;
     virtual HRESULT WINAPI put_Rate(double dblRate) = 0;
     virtual HRESULT WINAPI get_Rate(double *pdblRate) = 0;
-    virtual HRESULT WINAPI GetChase(long *pEnabled,long *pOffset,HEVENT *phEvent) = 0;
-    virtual HRESULT WINAPI SetChase(long Enable,long Offset,HEVENT hEvent) = 0;
-    virtual HRESULT WINAPI GetBump(long *pSpeed,long *pDuration) = 0;
-    virtual HRESULT WINAPI SetBump(long Speed,long Duration) = 0;
-    virtual HRESULT WINAPI get_AntiClogControl(long *pEnabled) = 0;
-    virtual HRESULT WINAPI put_AntiClogControl(long Enable) = 0;
-    virtual HRESULT WINAPI GetEditPropertySet(long EditID,long *pState) = 0;
-    virtual HRESULT WINAPI SetEditPropertySet(long *pEditID,long State) = 0;
-    virtual HRESULT WINAPI GetEditProperty(long EditID,long Param,long *pValue) = 0;
-    virtual HRESULT WINAPI SetEditProperty(long EditID,long Param,long Value) = 0;
-    virtual HRESULT WINAPI get_EditStart(long *pValue) = 0;
-    virtual HRESULT WINAPI put_EditStart(long Value) = 0;
+    virtual HRESULT WINAPI GetChase(LONG *pEnabled,LONG *pOffset,HEVENT *phEvent) = 0;
+    virtual HRESULT WINAPI SetChase(LONG Enable,LONG Offset,HEVENT hEvent) = 0;
+    virtual HRESULT WINAPI GetBump(LONG *pSpeed,LONG *pDuration) = 0;
+    virtual HRESULT WINAPI SetBump(LONG Speed,LONG Duration) = 0;
+    virtual HRESULT WINAPI get_AntiClogControl(LONG *pEnabled) = 0;
+    virtual HRESULT WINAPI put_AntiClogControl(LONG Enable) = 0;
+    virtual HRESULT WINAPI GetEditPropertySet(LONG EditID,LONG *pState) = 0;
+    virtual HRESULT WINAPI SetEditPropertySet(LONG *pEditID,LONG State) = 0;
+    virtual HRESULT WINAPI GetEditProperty(LONG EditID,LONG Param,LONG *pValue) = 0;
+    virtual HRESULT WINAPI SetEditProperty(LONG EditID,LONG Param,LONG Value) = 0;
+    virtual HRESULT WINAPI get_EditStart(LONG *pValue) = 0;
+    virtual HRESULT WINAPI put_EditStart(LONG Value) = 0;
   };
 #else
   typedef struct IAMExtTransportVtbl {
@@ -11027,34 +11027,34 @@ typedef struct IAMPluginControl IAMPluginControl;
       HRESULT (WINAPI *QueryInterface)(IAMExtTransport *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IAMExtTransport *This);
       ULONG (WINAPI *Release)(IAMExtTransport *This);
-      HRESULT (WINAPI *GetCapability)(IAMExtTransport *This,long Capability,long *pValue,double *pdblValue);
-      HRESULT (WINAPI *put_MediaState)(IAMExtTransport *This,long State);
-      HRESULT (WINAPI *get_MediaState)(IAMExtTransport *This,long *pState);
-      HRESULT (WINAPI *put_LocalControl)(IAMExtTransport *This,long State);
-      HRESULT (WINAPI *get_LocalControl)(IAMExtTransport *This,long *pState);
-      HRESULT (WINAPI *GetStatus)(IAMExtTransport *This,long StatusItem,long *pValue);
-      HRESULT (WINAPI *GetTransportBasicParameters)(IAMExtTransport *This,long Param,long *pValue,LPOLESTR *ppszData);
-      HRESULT (WINAPI *SetTransportBasicParameters)(IAMExtTransport *This,long Param,long Value,LPCOLESTR pszData);
-      HRESULT (WINAPI *GetTransportVideoParameters)(IAMExtTransport *This,long Param,long *pValue);
-      HRESULT (WINAPI *SetTransportVideoParameters)(IAMExtTransport *This,long Param,long Value);
-      HRESULT (WINAPI *GetTransportAudioParameters)(IAMExtTransport *This,long Param,long *pValue);
-      HRESULT (WINAPI *SetTransportAudioParameters)(IAMExtTransport *This,long Param,long Value);
-      HRESULT (WINAPI *put_Mode)(IAMExtTransport *This,long Mode);
-      HRESULT (WINAPI *get_Mode)(IAMExtTransport *This,long *pMode);
+      HRESULT (WINAPI *GetCapability)(IAMExtTransport *This,LONG Capability,LONG *pValue,double *pdblValue);
+      HRESULT (WINAPI *put_MediaState)(IAMExtTransport *This,LONG State);
+      HRESULT (WINAPI *get_MediaState)(IAMExtTransport *This,LONG *pState);
+      HRESULT (WINAPI *put_LocalControl)(IAMExtTransport *This,LONG State);
+      HRESULT (WINAPI *get_LocalControl)(IAMExtTransport *This,LONG *pState);
+      HRESULT (WINAPI *GetStatus)(IAMExtTransport *This,LONG StatusItem,LONG *pValue);
+      HRESULT (WINAPI *GetTransportBasicParameters)(IAMExtTransport *This,LONG Param,LONG *pValue,LPOLESTR *ppszData);
+      HRESULT (WINAPI *SetTransportBasicParameters)(IAMExtTransport *This,LONG Param,LONG Value,LPCOLESTR pszData);
+      HRESULT (WINAPI *GetTransportVideoParameters)(IAMExtTransport *This,LONG Param,LONG *pValue);
+      HRESULT (WINAPI *SetTransportVideoParameters)(IAMExtTransport *This,LONG Param,LONG Value);
+      HRESULT (WINAPI *GetTransportAudioParameters)(IAMExtTransport *This,LONG Param,LONG *pValue);
+      HRESULT (WINAPI *SetTransportAudioParameters)(IAMExtTransport *This,LONG Param,LONG Value);
+      HRESULT (WINAPI *put_Mode)(IAMExtTransport *This,LONG Mode);
+      HRESULT (WINAPI *get_Mode)(IAMExtTransport *This,LONG *pMode);
       HRESULT (WINAPI *put_Rate)(IAMExtTransport *This,double dblRate);
       HRESULT (WINAPI *get_Rate)(IAMExtTransport *This,double *pdblRate);
-      HRESULT (WINAPI *GetChase)(IAMExtTransport *This,long *pEnabled,long *pOffset,HEVENT *phEvent);
-      HRESULT (WINAPI *SetChase)(IAMExtTransport *This,long Enable,long Offset,HEVENT hEvent);
-      HRESULT (WINAPI *GetBump)(IAMExtTransport *This,long *pSpeed,long *pDuration);
-      HRESULT (WINAPI *SetBump)(IAMExtTransport *This,long Speed,long Duration);
-      HRESULT (WINAPI *get_AntiClogControl)(IAMExtTransport *This,long *pEnabled);
-      HRESULT (WINAPI *put_AntiClogControl)(IAMExtTransport *This,long Enable);
-      HRESULT (WINAPI *GetEditPropertySet)(IAMExtTransport *This,long EditID,long *pState);
-      HRESULT (WINAPI *SetEditPropertySet)(IAMExtTransport *This,long *pEditID,long State);
-      HRESULT (WINAPI *GetEditProperty)(IAMExtTransport *This,long EditID,long Param,long *pValue);
-      HRESULT (WINAPI *SetEditProperty)(IAMExtTransport *This,long EditID,long Param,long Value);
-      HRESULT (WINAPI *get_EditStart)(IAMExtTransport *This,long *pValue);
-      HRESULT (WINAPI *put_EditStart)(IAMExtTransport *This,long Value);
+      HRESULT (WINAPI *GetChase)(IAMExtTransport *This,LONG *pEnabled,LONG *pOffset,HEVENT *phEvent);
+      HRESULT (WINAPI *SetChase)(IAMExtTransport *This,LONG Enable,LONG Offset,HEVENT hEvent);
+      HRESULT (WINAPI *GetBump)(IAMExtTransport *This,LONG *pSpeed,LONG *pDuration);
+      HRESULT (WINAPI *SetBump)(IAMExtTransport *This,LONG Speed,LONG Duration);
+      HRESULT (WINAPI *get_AntiClogControl)(IAMExtTransport *This,LONG *pEnabled);
+      HRESULT (WINAPI *put_AntiClogControl)(IAMExtTransport *This,LONG Enable);
+      HRESULT (WINAPI *GetEditPropertySet)(IAMExtTransport *This,LONG EditID,LONG *pState);
+      HRESULT (WINAPI *SetEditPropertySet)(IAMExtTransport *This,LONG *pEditID,LONG State);
+      HRESULT (WINAPI *GetEditProperty)(IAMExtTransport *This,LONG EditID,LONG Param,LONG *pValue);
+      HRESULT (WINAPI *SetEditProperty)(IAMExtTransport *This,LONG EditID,LONG Param,LONG Value);
+      HRESULT (WINAPI *get_EditStart)(IAMExtTransport *This,LONG *pValue);
+      HRESULT (WINAPI *put_EditStart)(IAMExtTransport *This,LONG Value);
     END_INTERFACE
   } IAMExtTransportVtbl;
   struct IAMExtTransport {
@@ -11094,61 +11094,61 @@ typedef struct IAMPluginControl IAMPluginControl;
 #define IAMExtTransport_put_EditStart(This,Value) (This)->lpVtbl->put_EditStart(This,Value)
 #endif
 #endif
-  HRESULT WINAPI IAMExtTransport_GetCapability_Proxy(IAMExtTransport *This,long Capability,long *pValue,double *pdblValue);
+  HRESULT WINAPI IAMExtTransport_GetCapability_Proxy(IAMExtTransport *This,LONG Capability,LONG *pValue,double *pdblValue);
   void __RPC_STUB IAMExtTransport_GetCapability_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_put_MediaState_Proxy(IAMExtTransport *This,long State);
+  HRESULT WINAPI IAMExtTransport_put_MediaState_Proxy(IAMExtTransport *This,LONG State);
   void __RPC_STUB IAMExtTransport_put_MediaState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_get_MediaState_Proxy(IAMExtTransport *This,long *pState);
+  HRESULT WINAPI IAMExtTransport_get_MediaState_Proxy(IAMExtTransport *This,LONG *pState);
   void __RPC_STUB IAMExtTransport_get_MediaState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_put_LocalControl_Proxy(IAMExtTransport *This,long State);
+  HRESULT WINAPI IAMExtTransport_put_LocalControl_Proxy(IAMExtTransport *This,LONG State);
   void __RPC_STUB IAMExtTransport_put_LocalControl_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_get_LocalControl_Proxy(IAMExtTransport *This,long *pState);
+  HRESULT WINAPI IAMExtTransport_get_LocalControl_Proxy(IAMExtTransport *This,LONG *pState);
   void __RPC_STUB IAMExtTransport_get_LocalControl_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_GetStatus_Proxy(IAMExtTransport *This,long StatusItem,long *pValue);
+  HRESULT WINAPI IAMExtTransport_GetStatus_Proxy(IAMExtTransport *This,LONG StatusItem,LONG *pValue);
   void __RPC_STUB IAMExtTransport_GetStatus_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_GetTransportBasicParameters_Proxy(IAMExtTransport *This,long Param,long *pValue,LPOLESTR *ppszData);
+  HRESULT WINAPI IAMExtTransport_GetTransportBasicParameters_Proxy(IAMExtTransport *This,LONG Param,LONG *pValue,LPOLESTR *ppszData);
   void __RPC_STUB IAMExtTransport_GetTransportBasicParameters_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_SetTransportBasicParameters_Proxy(IAMExtTransport *This,long Param,long Value,LPCOLESTR pszData);
+  HRESULT WINAPI IAMExtTransport_SetTransportBasicParameters_Proxy(IAMExtTransport *This,LONG Param,LONG Value,LPCOLESTR pszData);
   void __RPC_STUB IAMExtTransport_SetTransportBasicParameters_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_GetTransportVideoParameters_Proxy(IAMExtTransport *This,long Param,long *pValue);
+  HRESULT WINAPI IAMExtTransport_GetTransportVideoParameters_Proxy(IAMExtTransport *This,LONG Param,LONG *pValue);
   void __RPC_STUB IAMExtTransport_GetTransportVideoParameters_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_SetTransportVideoParameters_Proxy(IAMExtTransport *This,long Param,long Value);
+  HRESULT WINAPI IAMExtTransport_SetTransportVideoParameters_Proxy(IAMExtTransport *This,LONG Param,LONG Value);
   void __RPC_STUB IAMExtTransport_SetTransportVideoParameters_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_GetTransportAudioParameters_Proxy(IAMExtTransport *This,long Param,long *pValue);
+  HRESULT WINAPI IAMExtTransport_GetTransportAudioParameters_Proxy(IAMExtTransport *This,LONG Param,LONG *pValue);
   void __RPC_STUB IAMExtTransport_GetTransportAudioParameters_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_SetTransportAudioParameters_Proxy(IAMExtTransport *This,long Param,long Value);
+  HRESULT WINAPI IAMExtTransport_SetTransportAudioParameters_Proxy(IAMExtTransport *This,LONG Param,LONG Value);
   void __RPC_STUB IAMExtTransport_SetTransportAudioParameters_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_put_Mode_Proxy(IAMExtTransport *This,long Mode);
+  HRESULT WINAPI IAMExtTransport_put_Mode_Proxy(IAMExtTransport *This,LONG Mode);
   void __RPC_STUB IAMExtTransport_put_Mode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_get_Mode_Proxy(IAMExtTransport *This,long *pMode);
+  HRESULT WINAPI IAMExtTransport_get_Mode_Proxy(IAMExtTransport *This,LONG *pMode);
   void __RPC_STUB IAMExtTransport_get_Mode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMExtTransport_put_Rate_Proxy(IAMExtTransport *This,double dblRate);
   void __RPC_STUB IAMExtTransport_put_Rate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMExtTransport_get_Rate_Proxy(IAMExtTransport *This,double *pdblRate);
   void __RPC_STUB IAMExtTransport_get_Rate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_GetChase_Proxy(IAMExtTransport *This,long *pEnabled,long *pOffset,HEVENT *phEvent);
+  HRESULT WINAPI IAMExtTransport_GetChase_Proxy(IAMExtTransport *This,LONG *pEnabled,LONG *pOffset,HEVENT *phEvent);
   void __RPC_STUB IAMExtTransport_GetChase_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_SetChase_Proxy(IAMExtTransport *This,long Enable,long Offset,HEVENT hEvent);
+  HRESULT WINAPI IAMExtTransport_SetChase_Proxy(IAMExtTransport *This,LONG Enable,LONG Offset,HEVENT hEvent);
   void __RPC_STUB IAMExtTransport_SetChase_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_GetBump_Proxy(IAMExtTransport *This,long *pSpeed,long *pDuration);
+  HRESULT WINAPI IAMExtTransport_GetBump_Proxy(IAMExtTransport *This,LONG *pSpeed,LONG *pDuration);
   void __RPC_STUB IAMExtTransport_GetBump_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_SetBump_Proxy(IAMExtTransport *This,long Speed,long Duration);
+  HRESULT WINAPI IAMExtTransport_SetBump_Proxy(IAMExtTransport *This,LONG Speed,LONG Duration);
   void __RPC_STUB IAMExtTransport_SetBump_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_get_AntiClogControl_Proxy(IAMExtTransport *This,long *pEnabled);
+  HRESULT WINAPI IAMExtTransport_get_AntiClogControl_Proxy(IAMExtTransport *This,LONG *pEnabled);
   void __RPC_STUB IAMExtTransport_get_AntiClogControl_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_put_AntiClogControl_Proxy(IAMExtTransport *This,long Enable);
+  HRESULT WINAPI IAMExtTransport_put_AntiClogControl_Proxy(IAMExtTransport *This,LONG Enable);
   void __RPC_STUB IAMExtTransport_put_AntiClogControl_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_GetEditPropertySet_Proxy(IAMExtTransport *This,long EditID,long *pState);
+  HRESULT WINAPI IAMExtTransport_GetEditPropertySet_Proxy(IAMExtTransport *This,LONG EditID,LONG *pState);
   void __RPC_STUB IAMExtTransport_GetEditPropertySet_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_SetEditPropertySet_Proxy(IAMExtTransport *This,long *pEditID,long State);
+  HRESULT WINAPI IAMExtTransport_SetEditPropertySet_Proxy(IAMExtTransport *This,LONG *pEditID,LONG State);
   void __RPC_STUB IAMExtTransport_SetEditPropertySet_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_GetEditProperty_Proxy(IAMExtTransport *This,long EditID,long Param,long *pValue);
+  HRESULT WINAPI IAMExtTransport_GetEditProperty_Proxy(IAMExtTransport *This,LONG EditID,LONG Param,LONG *pValue);
   void __RPC_STUB IAMExtTransport_GetEditProperty_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_SetEditProperty_Proxy(IAMExtTransport *This,long EditID,long Param,long Value);
+  HRESULT WINAPI IAMExtTransport_SetEditProperty_Proxy(IAMExtTransport *This,LONG EditID,LONG Param,LONG Value);
   void __RPC_STUB IAMExtTransport_SetEditProperty_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_get_EditStart_Proxy(IAMExtTransport *This,long *pValue);
+  HRESULT WINAPI IAMExtTransport_get_EditStart_Proxy(IAMExtTransport *This,LONG *pValue);
   void __RPC_STUB IAMExtTransport_get_EditStart_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMExtTransport_put_EditStart_Proxy(IAMExtTransport *This,long Value);
+  HRESULT WINAPI IAMExtTransport_put_EditStart_Proxy(IAMExtTransport *This,LONG Value);
   void __RPC_STUB IAMExtTransport_put_EditStart_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -11185,10 +11185,10 @@ typedef struct IAMPluginControl IAMPluginControl;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAMTimecodeReader : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetTCRMode(long Param,long *pValue) = 0;
-    virtual HRESULT WINAPI SetTCRMode(long Param,long Value) = 0;
-    virtual HRESULT WINAPI put_VITCLine(long Line) = 0;
-    virtual HRESULT WINAPI get_VITCLine(long *pLine) = 0;
+    virtual HRESULT WINAPI GetTCRMode(LONG Param,LONG *pValue) = 0;
+    virtual HRESULT WINAPI SetTCRMode(LONG Param,LONG Value) = 0;
+    virtual HRESULT WINAPI put_VITCLine(LONG Line) = 0;
+    virtual HRESULT WINAPI get_VITCLine(LONG *pLine) = 0;
     virtual HRESULT WINAPI GetTimecode(PTIMECODE_SAMPLE pTimecodeSample) = 0;
   };
 #else
@@ -11197,10 +11197,10 @@ typedef struct IAMPluginControl IAMPluginControl;
       HRESULT (WINAPI *QueryInterface)(IAMTimecodeReader *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IAMTimecodeReader *This);
       ULONG (WINAPI *Release)(IAMTimecodeReader *This);
-      HRESULT (WINAPI *GetTCRMode)(IAMTimecodeReader *This,long Param,long *pValue);
-      HRESULT (WINAPI *SetTCRMode)(IAMTimecodeReader *This,long Param,long Value);
-      HRESULT (WINAPI *put_VITCLine)(IAMTimecodeReader *This,long Line);
-      HRESULT (WINAPI *get_VITCLine)(IAMTimecodeReader *This,long *pLine);
+      HRESULT (WINAPI *GetTCRMode)(IAMTimecodeReader *This,LONG Param,LONG *pValue);
+      HRESULT (WINAPI *SetTCRMode)(IAMTimecodeReader *This,LONG Param,LONG Value);
+      HRESULT (WINAPI *put_VITCLine)(IAMTimecodeReader *This,LONG Line);
+      HRESULT (WINAPI *get_VITCLine)(IAMTimecodeReader *This,LONG *pLine);
       HRESULT (WINAPI *GetTimecode)(IAMTimecodeReader *This,PTIMECODE_SAMPLE pTimecodeSample);
     END_INTERFACE
   } IAMTimecodeReaderVtbl;
@@ -11218,13 +11218,13 @@ typedef struct IAMPluginControl IAMPluginControl;
 #define IAMTimecodeReader_GetTimecode(This,pTimecodeSample) (This)->lpVtbl->GetTimecode(This,pTimecodeSample)
 #endif
 #endif
-  HRESULT WINAPI IAMTimecodeReader_GetTCRMode_Proxy(IAMTimecodeReader *This,long Param,long *pValue);
+  HRESULT WINAPI IAMTimecodeReader_GetTCRMode_Proxy(IAMTimecodeReader *This,LONG Param,LONG *pValue);
   void __RPC_STUB IAMTimecodeReader_GetTCRMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTimecodeReader_SetTCRMode_Proxy(IAMTimecodeReader *This,long Param,long Value);
+  HRESULT WINAPI IAMTimecodeReader_SetTCRMode_Proxy(IAMTimecodeReader *This,LONG Param,LONG Value);
   void __RPC_STUB IAMTimecodeReader_SetTCRMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTimecodeReader_put_VITCLine_Proxy(IAMTimecodeReader *This,long Line);
+  HRESULT WINAPI IAMTimecodeReader_put_VITCLine_Proxy(IAMTimecodeReader *This,LONG Line);
   void __RPC_STUB IAMTimecodeReader_put_VITCLine_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTimecodeReader_get_VITCLine_Proxy(IAMTimecodeReader *This,long *pLine);
+  HRESULT WINAPI IAMTimecodeReader_get_VITCLine_Proxy(IAMTimecodeReader *This,LONG *pLine);
   void __RPC_STUB IAMTimecodeReader_get_VITCLine_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMTimecodeReader_GetTimecode_Proxy(IAMTimecodeReader *This,PTIMECODE_SAMPLE pTimecodeSample);
   void __RPC_STUB IAMTimecodeReader_GetTimecode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -11240,10 +11240,10 @@ typedef struct IAMPluginControl IAMPluginControl;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAMTimecodeGenerator : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetTCGMode(long Param,long *pValue) = 0;
-    virtual HRESULT WINAPI SetTCGMode(long Param,long Value) = 0;
-    virtual HRESULT WINAPI put_VITCLine(long Line) = 0;
-    virtual HRESULT WINAPI get_VITCLine(long *pLine) = 0;
+    virtual HRESULT WINAPI GetTCGMode(LONG Param,LONG *pValue) = 0;
+    virtual HRESULT WINAPI SetTCGMode(LONG Param,LONG Value) = 0;
+    virtual HRESULT WINAPI put_VITCLine(LONG Line) = 0;
+    virtual HRESULT WINAPI get_VITCLine(LONG *pLine) = 0;
     virtual HRESULT WINAPI SetTimecode(PTIMECODE_SAMPLE pTimecodeSample) = 0;
     virtual HRESULT WINAPI GetTimecode(PTIMECODE_SAMPLE pTimecodeSample) = 0;
   };
@@ -11253,10 +11253,10 @@ typedef struct IAMPluginControl IAMPluginControl;
       HRESULT (WINAPI *QueryInterface)(IAMTimecodeGenerator *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IAMTimecodeGenerator *This);
       ULONG (WINAPI *Release)(IAMTimecodeGenerator *This);
-      HRESULT (WINAPI *GetTCGMode)(IAMTimecodeGenerator *This,long Param,long *pValue);
-      HRESULT (WINAPI *SetTCGMode)(IAMTimecodeGenerator *This,long Param,long Value);
-      HRESULT (WINAPI *put_VITCLine)(IAMTimecodeGenerator *This,long Line);
-      HRESULT (WINAPI *get_VITCLine)(IAMTimecodeGenerator *This,long *pLine);
+      HRESULT (WINAPI *GetTCGMode)(IAMTimecodeGenerator *This,LONG Param,LONG *pValue);
+      HRESULT (WINAPI *SetTCGMode)(IAMTimecodeGenerator *This,LONG Param,LONG Value);
+      HRESULT (WINAPI *put_VITCLine)(IAMTimecodeGenerator *This,LONG Line);
+      HRESULT (WINAPI *get_VITCLine)(IAMTimecodeGenerator *This,LONG *pLine);
       HRESULT (WINAPI *SetTimecode)(IAMTimecodeGenerator *This,PTIMECODE_SAMPLE pTimecodeSample);
       HRESULT (WINAPI *GetTimecode)(IAMTimecodeGenerator *This,PTIMECODE_SAMPLE pTimecodeSample);
     END_INTERFACE
@@ -11276,13 +11276,13 @@ typedef struct IAMPluginControl IAMPluginControl;
 #define IAMTimecodeGenerator_GetTimecode(This,pTimecodeSample) (This)->lpVtbl->GetTimecode(This,pTimecodeSample)
 #endif
 #endif
-  HRESULT WINAPI IAMTimecodeGenerator_GetTCGMode_Proxy(IAMTimecodeGenerator *This,long Param,long *pValue);
+  HRESULT WINAPI IAMTimecodeGenerator_GetTCGMode_Proxy(IAMTimecodeGenerator *This,LONG Param,LONG *pValue);
   void __RPC_STUB IAMTimecodeGenerator_GetTCGMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTimecodeGenerator_SetTCGMode_Proxy(IAMTimecodeGenerator *This,long Param,long Value);
+  HRESULT WINAPI IAMTimecodeGenerator_SetTCGMode_Proxy(IAMTimecodeGenerator *This,LONG Param,LONG Value);
   void __RPC_STUB IAMTimecodeGenerator_SetTCGMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTimecodeGenerator_put_VITCLine_Proxy(IAMTimecodeGenerator *This,long Line);
+  HRESULT WINAPI IAMTimecodeGenerator_put_VITCLine_Proxy(IAMTimecodeGenerator *This,LONG Line);
   void __RPC_STUB IAMTimecodeGenerator_put_VITCLine_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTimecodeGenerator_get_VITCLine_Proxy(IAMTimecodeGenerator *This,long *pLine);
+  HRESULT WINAPI IAMTimecodeGenerator_get_VITCLine_Proxy(IAMTimecodeGenerator *This,LONG *pLine);
   void __RPC_STUB IAMTimecodeGenerator_get_VITCLine_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMTimecodeGenerator_SetTimecode_Proxy(IAMTimecodeGenerator *This,PTIMECODE_SAMPLE pTimecodeSample);
   void __RPC_STUB IAMTimecodeGenerator_SetTimecode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -11300,10 +11300,10 @@ typedef struct IAMPluginControl IAMPluginControl;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAMTimecodeDisplay : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetTCDisplayEnable(long *pState) = 0;
-    virtual HRESULT WINAPI SetTCDisplayEnable(long State) = 0;
-    virtual HRESULT WINAPI GetTCDisplay(long Param,long *pValue) = 0;
-    virtual HRESULT WINAPI SetTCDisplay(long Param,long Value) = 0;
+    virtual HRESULT WINAPI GetTCDisplayEnable(LONG *pState) = 0;
+    virtual HRESULT WINAPI SetTCDisplayEnable(LONG State) = 0;
+    virtual HRESULT WINAPI GetTCDisplay(LONG Param,LONG *pValue) = 0;
+    virtual HRESULT WINAPI SetTCDisplay(LONG Param,LONG Value) = 0;
   };
 #else
   typedef struct IAMTimecodeDisplayVtbl {
@@ -11311,10 +11311,10 @@ typedef struct IAMPluginControl IAMPluginControl;
       HRESULT (WINAPI *QueryInterface)(IAMTimecodeDisplay *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IAMTimecodeDisplay *This);
       ULONG (WINAPI *Release)(IAMTimecodeDisplay *This);
-      HRESULT (WINAPI *GetTCDisplayEnable)(IAMTimecodeDisplay *This,long *pState);
-      HRESULT (WINAPI *SetTCDisplayEnable)(IAMTimecodeDisplay *This,long State);
-      HRESULT (WINAPI *GetTCDisplay)(IAMTimecodeDisplay *This,long Param,long *pValue);
-      HRESULT (WINAPI *SetTCDisplay)(IAMTimecodeDisplay *This,long Param,long Value);
+      HRESULT (WINAPI *GetTCDisplayEnable)(IAMTimecodeDisplay *This,LONG *pState);
+      HRESULT (WINAPI *SetTCDisplayEnable)(IAMTimecodeDisplay *This,LONG State);
+      HRESULT (WINAPI *GetTCDisplay)(IAMTimecodeDisplay *This,LONG Param,LONG *pValue);
+      HRESULT (WINAPI *SetTCDisplay)(IAMTimecodeDisplay *This,LONG Param,LONG Value);
     END_INTERFACE
   } IAMTimecodeDisplayVtbl;
   struct IAMTimecodeDisplay {
@@ -11330,13 +11330,13 @@ typedef struct IAMPluginControl IAMPluginControl;
 #define IAMTimecodeDisplay_SetTCDisplay(This,Param,Value) (This)->lpVtbl->SetTCDisplay(This,Param,Value)
 #endif
 #endif
-  HRESULT WINAPI IAMTimecodeDisplay_GetTCDisplayEnable_Proxy(IAMTimecodeDisplay *This,long *pState);
+  HRESULT WINAPI IAMTimecodeDisplay_GetTCDisplayEnable_Proxy(IAMTimecodeDisplay *This,LONG *pState);
   void __RPC_STUB IAMTimecodeDisplay_GetTCDisplayEnable_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTimecodeDisplay_SetTCDisplayEnable_Proxy(IAMTimecodeDisplay *This,long State);
+  HRESULT WINAPI IAMTimecodeDisplay_SetTCDisplayEnable_Proxy(IAMTimecodeDisplay *This,LONG State);
   void __RPC_STUB IAMTimecodeDisplay_SetTCDisplayEnable_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTimecodeDisplay_GetTCDisplay_Proxy(IAMTimecodeDisplay *This,long Param,long *pValue);
+  HRESULT WINAPI IAMTimecodeDisplay_GetTCDisplay_Proxy(IAMTimecodeDisplay *This,LONG Param,LONG *pValue);
   void __RPC_STUB IAMTimecodeDisplay_GetTCDisplay_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMTimecodeDisplay_SetTCDisplay_Proxy(IAMTimecodeDisplay *This,long Param,long Value);
+  HRESULT WINAPI IAMTimecodeDisplay_SetTCDisplay_Proxy(IAMTimecodeDisplay *This,LONG Param,LONG Value);
   void __RPC_STUB IAMTimecodeDisplay_SetTCDisplay_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -11459,8 +11459,8 @@ typedef struct IAMPluginControl IAMPluginControl;
   struct IAMStreamSelect : public IUnknown {
   public:
     virtual HRESULT WINAPI Count(DWORD *pcStreams) = 0;
-    virtual HRESULT WINAPI Info(long lIndex,AM_MEDIA_TYPE **ppmt,DWORD *pdwFlags,LCID *plcid,DWORD *pdwGroup,WCHAR **ppszName,IUnknown **ppObject,IUnknown **ppUnk) = 0;
-    virtual HRESULT WINAPI Enable(long lIndex,DWORD dwFlags) = 0;
+    virtual HRESULT WINAPI Info(LONG lIndex,AM_MEDIA_TYPE **ppmt,DWORD *pdwFlags,LCID *plcid,DWORD *pdwGroup,WCHAR **ppszName,IUnknown **ppObject,IUnknown **ppUnk) = 0;
+    virtual HRESULT WINAPI Enable(LONG lIndex,DWORD dwFlags) = 0;
   };
 #else
   typedef struct IAMStreamSelectVtbl {
@@ -11469,8 +11469,8 @@ typedef struct IAMPluginControl IAMPluginControl;
       ULONG (WINAPI *AddRef)(IAMStreamSelect *This);
       ULONG (WINAPI *Release)(IAMStreamSelect *This);
       HRESULT (WINAPI *Count)(IAMStreamSelect *This,DWORD *pcStreams);
-      HRESULT (WINAPI *Info)(IAMStreamSelect *This,long lIndex,AM_MEDIA_TYPE **ppmt,DWORD *pdwFlags,LCID *plcid,DWORD *pdwGroup,WCHAR **ppszName,IUnknown **ppObject,IUnknown **ppUnk);
-      HRESULT (WINAPI *Enable)(IAMStreamSelect *This,long lIndex,DWORD dwFlags);
+      HRESULT (WINAPI *Info)(IAMStreamSelect *This,LONG lIndex,AM_MEDIA_TYPE **ppmt,DWORD *pdwFlags,LCID *plcid,DWORD *pdwGroup,WCHAR **ppszName,IUnknown **ppObject,IUnknown **ppUnk);
+      HRESULT (WINAPI *Enable)(IAMStreamSelect *This,LONG lIndex,DWORD dwFlags);
     END_INTERFACE
   } IAMStreamSelectVtbl;
   struct IAMStreamSelect {
@@ -11487,9 +11487,9 @@ typedef struct IAMPluginControl IAMPluginControl;
 #endif
   HRESULT WINAPI IAMStreamSelect_Count_Proxy(IAMStreamSelect *This,DWORD *pcStreams);
   void __RPC_STUB IAMStreamSelect_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMStreamSelect_Info_Proxy(IAMStreamSelect *This,long lIndex,AM_MEDIA_TYPE **ppmt,DWORD *pdwFlags,LCID *plcid,DWORD *pdwGroup,WCHAR **ppszName,IUnknown **ppObject,IUnknown **ppUnk);
+  HRESULT WINAPI IAMStreamSelect_Info_Proxy(IAMStreamSelect *This,LONG lIndex,AM_MEDIA_TYPE **ppmt,DWORD *pdwFlags,LCID *plcid,DWORD *pdwGroup,WCHAR **ppszName,IUnknown **ppObject,IUnknown **ppUnk);
   void __RPC_STUB IAMStreamSelect_Info_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMStreamSelect_Enable_Proxy(IAMStreamSelect *This,long lIndex,DWORD dwFlags);
+  HRESULT WINAPI IAMStreamSelect_Enable_Proxy(IAMStreamSelect *This,LONG lIndex,DWORD dwFlags);
   void __RPC_STUB IAMStreamSelect_Enable_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -11610,7 +11610,7 @@ typedef struct IAMPluginControl IAMPluginControl;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IDecimateVideoImage : public IUnknown {
   public:
-    virtual HRESULT WINAPI SetDecimationImageSize(long lWidth,long lHeight) = 0;
+    virtual HRESULT WINAPI SetDecimationImageSize(LONG lWidth,LONG lHeight) = 0;
     virtual HRESULT WINAPI ResetDecimationImageSize(void) = 0;
   };
 #else
@@ -11619,7 +11619,7 @@ typedef struct IAMPluginControl IAMPluginControl;
       HRESULT (WINAPI *QueryInterface)(IDecimateVideoImage *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IDecimateVideoImage *This);
       ULONG (WINAPI *Release)(IDecimateVideoImage *This);
-      HRESULT (WINAPI *SetDecimationImageSize)(IDecimateVideoImage *This,long lWidth,long lHeight);
+      HRESULT (WINAPI *SetDecimationImageSize)(IDecimateVideoImage *This,LONG lWidth,LONG lHeight);
       HRESULT (WINAPI *ResetDecimationImageSize)(IDecimateVideoImage *This);
     END_INTERFACE
   } IDecimateVideoImageVtbl;
@@ -11634,7 +11634,7 @@ typedef struct IAMPluginControl IAMPluginControl;
 #define IDecimateVideoImage_ResetDecimationImageSize(This) (This)->lpVtbl->ResetDecimationImageSize(This)
 #endif
 #endif
-  HRESULT WINAPI IDecimateVideoImage_SetDecimationImageSize_Proxy(IDecimateVideoImage *This,long lWidth,long lHeight);
+  HRESULT WINAPI IDecimateVideoImage_SetDecimationImageSize_Proxy(IDecimateVideoImage *This,LONG lWidth,LONG lHeight);
   void __RPC_STUB IDecimateVideoImage_SetDecimationImageSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IDecimateVideoImage_ResetDecimationImageSize_Proxy(IDecimateVideoImage *This);
   void __RPC_STUB IDecimateVideoImage_ResetDecimationImageSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -11691,7 +11691,7 @@ typedef struct IAMPluginControl IAMPluginControl;
   struct IVideoFrameStep : public IUnknown {
   public:
     virtual HRESULT WINAPI Step(DWORD dwFrames,IUnknown *pStepObject) = 0;
-    virtual HRESULT WINAPI CanStep(long bMultiple,IUnknown *pStepObject) = 0;
+    virtual HRESULT WINAPI CanStep(LONG bMultiple,IUnknown *pStepObject) = 0;
     virtual HRESULT WINAPI CancelStep(void) = 0;
   };
 #else
@@ -11701,7 +11701,7 @@ typedef struct IAMPluginControl IAMPluginControl;
       ULONG (WINAPI *AddRef)(IVideoFrameStep *This);
       ULONG (WINAPI *Release)(IVideoFrameStep *This);
       HRESULT (WINAPI *Step)(IVideoFrameStep *This,DWORD dwFrames,IUnknown *pStepObject);
-      HRESULT (WINAPI *CanStep)(IVideoFrameStep *This,long bMultiple,IUnknown *pStepObject);
+      HRESULT (WINAPI *CanStep)(IVideoFrameStep *This,LONG bMultiple,IUnknown *pStepObject);
       HRESULT (WINAPI *CancelStep)(IVideoFrameStep *This);
     END_INTERFACE
   } IVideoFrameStepVtbl;
@@ -11719,7 +11719,7 @@ typedef struct IAMPluginControl IAMPluginControl;
 #endif
   HRESULT WINAPI IVideoFrameStep_Step_Proxy(IVideoFrameStep *This,DWORD dwFrames,IUnknown *pStepObject);
   void __RPC_STUB IVideoFrameStep_Step_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoFrameStep_CanStep_Proxy(IVideoFrameStep *This,long bMultiple,IUnknown *pStepObject);
+  HRESULT WINAPI IVideoFrameStep_CanStep_Proxy(IVideoFrameStep *This,LONG bMultiple,IUnknown *pStepObject);
   void __RPC_STUB IVideoFrameStep_CanStep_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IVideoFrameStep_CancelStep_Proxy(IVideoFrameStep *This);
   void __RPC_STUB IVideoFrameStep_CancelStep_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);

@@ -624,14 +624,14 @@ typedef const PROPVARIANT *REFPROPVARIANT;
   extern RPC_IF_HANDLE __MIDL_itf_propidl_0120_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_propidl_0120_v0_0_s_ifspec;
 
-  unsigned long __RPC_API BSTR_UserSize(unsigned long *,unsigned long,BSTR *);
-  unsigned char *__RPC_API BSTR_UserMarshal(unsigned long *,unsigned char *,BSTR *);
-  unsigned char *__RPC_API BSTR_UserUnmarshal(unsigned long *,unsigned char *,BSTR *);
-  void __RPC_API BSTR_UserFree(unsigned long *,BSTR *);
-  unsigned long __RPC_API LPSAFEARRAY_UserSize(unsigned long *,unsigned long,LPSAFEARRAY *);
-  unsigned char *__RPC_API LPSAFEARRAY_UserMarshal(unsigned long *,unsigned char *,LPSAFEARRAY *);
-  unsigned char *__RPC_API LPSAFEARRAY_UserUnmarshal(unsigned long *,unsigned char *,LPSAFEARRAY *);
-  void __RPC_API LPSAFEARRAY_UserFree(unsigned long *,LPSAFEARRAY *);
+  ULONG __RPC_API BSTR_UserSize(ULONG *,ULONG,BSTR *);
+  unsigned char *__RPC_API BSTR_UserMarshal(ULONG *,unsigned char *,BSTR *);
+  unsigned char *__RPC_API BSTR_UserUnmarshal(ULONG *,unsigned char *,BSTR *);
+  void __RPC_API BSTR_UserFree(ULONG *,BSTR *);
+  ULONG __RPC_API LPSAFEARRAY_UserSize(ULONG *,ULONG,LPSAFEARRAY *);
+  unsigned char *__RPC_API LPSAFEARRAY_UserMarshal(ULONG *,unsigned char *,LPSAFEARRAY *);
+  unsigned char *__RPC_API LPSAFEARRAY_UserUnmarshal(ULONG *,unsigned char *,LPSAFEARRAY *);
+  void __RPC_API LPSAFEARRAY_UserFree(ULONG *,LPSAFEARRAY *);
 
   HRESULT WINAPI IEnumSTATPROPSTG_Next_Proxy(IEnumSTATPROPSTG *This,ULONG celt,STATPROPSTG *rgelt,ULONG *pceltFetched);
   HRESULT WINAPI IEnumSTATPROPSTG_Next_Stub(IEnumSTATPROPSTG *This,ULONG celt,STATPROPSTG *rgelt,ULONG *pceltFetched);

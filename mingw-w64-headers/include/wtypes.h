@@ -626,8 +626,8 @@ typedef struct tagCY {
 #else
   typedef union tagCY {
     __C89_NAMELESS struct {
-      unsigned long Lo;
-      long Hi;
+      ULONG Lo;
+      LONG Hi;
     } DUMMYSTRUCTNAME;
     LONGLONG int64;
   } CY;

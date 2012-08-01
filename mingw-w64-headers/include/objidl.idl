@@ -1391,8 +1391,8 @@ interface IStorage : IUnknown
     typedef [unique] IStorage *LPSTORAGE;
 
     typedef struct tagRemSNB {
-        unsigned long ulCntStr;
-        unsigned long ulCntChar;
+        ULONG ulCntStr;
+        ULONG ulCntChar;
         [size_is(ulCntChar)] OLECHAR rgString[];
     } RemSNB;
 
@@ -1416,7 +1416,7 @@ interface IStorage : IUnknown
     [call_as(OpenStream)]
     HRESULT RemoteOpenStream(
             [in] LPCOLESTR pwcsName,
-            [in] unsigned long cbReserved1,
+            [in] ULONG cbReserved1,
             [in, unique, size_is(cbReserved1)] byte *reserved1,
             [in] DWORD grfMode,
             [in] DWORD reserved2,
@@ -1461,7 +1461,7 @@ interface IStorage : IUnknown
     [call_as(EnumElements)]
     HRESULT RemoteEnumElements(
             [in] DWORD reserved1,
-            [in] unsigned long cbReserved2,
+            [in] ULONG cbReserved2,
             [in, unique, size_is(cbReserved2)] byte *reserved2,
             [in] DWORD reserved3,
             [out] IEnumSTATSTG **ppenum);
@@ -1816,9 +1816,9 @@ interface IAdviseSink : IUnknown
     typedef struct tagRemSTGMEDIUM {
         DWORD tymed;
         DWORD dwHandleType;
-        unsigned long pData;
-        unsigned long pUnkForRelease;
-        unsigned long cbData;
+        ULONG pData;
+        ULONG pUnkForRelease;
+        ULONG cbData;
         [size_is(cbData)] byte data[];
     } RemSTGMEDIUM;
 
@@ -1884,16 +1884,16 @@ cpp_quote("#endif")
     typedef STGMEDIUM *LPSTGMEDIUM;
 
     typedef struct _userFLAG_STGMEDIUM {
-        long ContextFlags;
-        long fPassOwnership;
+        LONG ContextFlags;
+        LONG fPassOwnership;
         userSTGMEDIUM Stgmed;
     } userFLAG_STGMEDIUM;
 
     typedef [unique] userFLAG_STGMEDIUM  *wireFLAG_STGMEDIUM;
 
     typedef [wire_marshal(wireFLAG_STGMEDIUM)] struct _FLAG_STGMEDIUM {
-        long ContextFlags;
-        long fPassOwnership;
+        LONG ContextFlags;
+        LONG fPassOwnership;
         STGMEDIUM Stgmed;
     } FLAG_STGMEDIUM;
 
@@ -2281,7 +2281,7 @@ cpp_quote("#endif")
 cpp_quote("")
 cpp_quote("#ifndef __IRpcChannelBuffer_INTERFACE_DEFINED__")
 cpp_quote("#define __IRpcChannelBuffer_INTERFACE_DEFINED__")
-cpp_quote("  typedef unsigned long RPCOLEDATAREP;")
+cpp_quote("  typedef ULONG RPCOLEDATAREP;")
 cpp_quote("")
 cpp_quote("  typedef struct tagRPCOLEMESSAGE {")
 cpp_quote("    void *reserved1;")
@@ -4583,22 +4583,22 @@ cpp_quote("")
 cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_objidl_0092_v0_0_c_ifspec;")
 cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_objidl_0092_v0_0_s_ifspec;")
 cpp_quote("")
-cpp_quote("  unsigned long __RPC_API CLIPFORMAT_UserSize(unsigned long *,unsigned long,CLIPFORMAT *);")
-cpp_quote("  unsigned char *__RPC_API CLIPFORMAT_UserMarshal(unsigned long *,unsigned char *,CLIPFORMAT *);")
-cpp_quote("  unsigned char *__RPC_API CLIPFORMAT_UserUnmarshal(unsigned long *,unsigned char *,CLIPFORMAT *);")
-cpp_quote("  void __RPC_API CLIPFORMAT_UserFree(unsigned long *,CLIPFORMAT *);")
-cpp_quote("  unsigned long __RPC_API HBITMAP_UserSize(unsigned long *,unsigned long,HBITMAP *);")
-cpp_quote("  unsigned char *__RPC_API HBITMAP_UserMarshal(unsigned long *,unsigned char *,HBITMAP *);")
-cpp_quote("  unsigned char *__RPC_API HBITMAP_UserUnmarshal(unsigned long *,unsigned char *,HBITMAP *);")
-cpp_quote("  void __RPC_API HBITMAP_UserFree(unsigned long *,HBITMAP *);")
-cpp_quote("  unsigned long __RPC_API HDC_UserSize(unsigned long *,unsigned long,HDC *);")
-cpp_quote("  unsigned char *__RPC_API HDC_UserMarshal(unsigned long *,unsigned char *,HDC *);")
-cpp_quote("  unsigned char *__RPC_API HDC_UserUnmarshal(unsigned long *,unsigned char *,HDC *);")
-cpp_quote("  void __RPC_API HDC_UserFree(unsigned long *,HDC *);")
-cpp_quote("  unsigned long __RPC_API HICON_UserSize(unsigned long *,unsigned long,HICON *);")
-cpp_quote("  unsigned char *__RPC_API HICON_UserMarshal(unsigned long *,unsigned char *,HICON *);")
-cpp_quote("  unsigned char *__RPC_API HICON_UserUnmarshal(unsigned long *,unsigned char *,HICON *);")
-cpp_quote("  void __RPC_API HICON_UserFree(unsigned long *,HICON *);")
+cpp_quote("  ULONG __RPC_API CLIPFORMAT_UserSize(ULONG *,ULONG,CLIPFORMAT *);")
+cpp_quote("  unsigned char *__RPC_API CLIPFORMAT_UserMarshal(ULONG *,unsigned char *,CLIPFORMAT *);")
+cpp_quote("  unsigned char *__RPC_API CLIPFORMAT_UserUnmarshal(ULONG *,unsigned char *,CLIPFORMAT *);")
+cpp_quote("  void __RPC_API CLIPFORMAT_UserFree(ULONG *,CLIPFORMAT *);")
+cpp_quote("  ULONG __RPC_API HBITMAP_UserSize(ULONG *,ULONG,HBITMAP *);")
+cpp_quote("  unsigned char *__RPC_API HBITMAP_UserMarshal(ULONG *,unsigned char *,HBITMAP *);")
+cpp_quote("  unsigned char *__RPC_API HBITMAP_UserUnmarshal(ULONG *,unsigned char *,HBITMAP *);")
+cpp_quote("  void __RPC_API HBITMAP_UserFree(ULONG *,HBITMAP *);")
+cpp_quote("  ULONG __RPC_API HDC_UserSize(ULONG *,ULONG,HDC *);")
+cpp_quote("  unsigned char *__RPC_API HDC_UserMarshal(ULONG *,unsigned char *,HDC *);")
+cpp_quote("  unsigned char *__RPC_API HDC_UserUnmarshal(ULONG *,unsigned char *,HDC *);")
+cpp_quote("  void __RPC_API HDC_UserFree(ULONG *,HDC *);")
+cpp_quote("  ULONG __RPC_API HICON_UserSize(ULONG *,ULONG,HICON *);")
+cpp_quote("  unsigned char *__RPC_API HICON_UserMarshal(ULONG *,unsigned char *,HICON *);")
+cpp_quote("  unsigned char *__RPC_API HICON_UserUnmarshal(ULONG *,unsigned char *,HICON *);")
+cpp_quote("  void __RPC_API HICON_UserFree(ULONG *,HICON *);")
 cpp_quote("")
 cpp_quote("  HRESULT WINAPI IEnumUnknown_Next_Proxy(IEnumUnknown *This,ULONG celt,IUnknown **rgelt,ULONG *pceltFetched);")
 cpp_quote("  HRESULT WINAPI IEnumUnknown_Next_Stub(IEnumUnknown *This,ULONG celt,IUnknown **rgelt,ULONG *pceltFetched);")

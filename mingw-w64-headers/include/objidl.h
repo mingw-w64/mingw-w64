@@ -5303,7 +5303,7 @@ HRESULT __RPC_STUB IDataObject_SetData_Stub(
 
 #ifndef __IRpcChannelBuffer_INTERFACE_DEFINED__
 #define __IRpcChannelBuffer_INTERFACE_DEFINED__
-  typedef unsigned long RPCOLEDATAREP;
+  typedef ULONG RPCOLEDATAREP;
 
   typedef struct tagRPCOLEMESSAGE {
     void *reserved1;
@@ -7605,22 +7605,22 @@ HRESULT __RPC_STUB IDataObject_SetData_Stub(
   extern RPC_IF_HANDLE __MIDL_itf_objidl_0092_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_objidl_0092_v0_0_s_ifspec;
 
-  unsigned long __RPC_API CLIPFORMAT_UserSize(unsigned long *,unsigned long,CLIPFORMAT *);
-  unsigned char *__RPC_API CLIPFORMAT_UserMarshal(unsigned long *,unsigned char *,CLIPFORMAT *);
-  unsigned char *__RPC_API CLIPFORMAT_UserUnmarshal(unsigned long *,unsigned char *,CLIPFORMAT *);
-  void __RPC_API CLIPFORMAT_UserFree(unsigned long *,CLIPFORMAT *);
-  unsigned long __RPC_API HBITMAP_UserSize(unsigned long *,unsigned long,HBITMAP *);
-  unsigned char *__RPC_API HBITMAP_UserMarshal(unsigned long *,unsigned char *,HBITMAP *);
-  unsigned char *__RPC_API HBITMAP_UserUnmarshal(unsigned long *,unsigned char *,HBITMAP *);
-  void __RPC_API HBITMAP_UserFree(unsigned long *,HBITMAP *);
-  unsigned long __RPC_API HDC_UserSize(unsigned long *,unsigned long,HDC *);
-  unsigned char *__RPC_API HDC_UserMarshal(unsigned long *,unsigned char *,HDC *);
-  unsigned char *__RPC_API HDC_UserUnmarshal(unsigned long *,unsigned char *,HDC *);
-  void __RPC_API HDC_UserFree(unsigned long *,HDC *);
-  unsigned long __RPC_API HICON_UserSize(unsigned long *,unsigned long,HICON *);
-  unsigned char *__RPC_API HICON_UserMarshal(unsigned long *,unsigned char *,HICON *);
-  unsigned char *__RPC_API HICON_UserUnmarshal(unsigned long *,unsigned char *,HICON *);
-  void __RPC_API HICON_UserFree(unsigned long *,HICON *);
+  ULONG __RPC_API CLIPFORMAT_UserSize(ULONG *,ULONG,CLIPFORMAT *);
+  unsigned char *__RPC_API CLIPFORMAT_UserMarshal(ULONG *,unsigned char *,CLIPFORMAT *);
+  unsigned char *__RPC_API CLIPFORMAT_UserUnmarshal(ULONG *,unsigned char *,CLIPFORMAT *);
+  void __RPC_API CLIPFORMAT_UserFree(ULONG *,CLIPFORMAT *);
+  ULONG __RPC_API HBITMAP_UserSize(ULONG *,ULONG,HBITMAP *);
+  unsigned char *__RPC_API HBITMAP_UserMarshal(ULONG *,unsigned char *,HBITMAP *);
+  unsigned char *__RPC_API HBITMAP_UserUnmarshal(ULONG *,unsigned char *,HBITMAP *);
+  void __RPC_API HBITMAP_UserFree(ULONG *,HBITMAP *);
+  ULONG __RPC_API HDC_UserSize(ULONG *,ULONG,HDC *);
+  unsigned char *__RPC_API HDC_UserMarshal(ULONG *,unsigned char *,HDC *);
+  unsigned char *__RPC_API HDC_UserUnmarshal(ULONG *,unsigned char *,HDC *);
+  void __RPC_API HDC_UserFree(ULONG *,HDC *);
+  ULONG __RPC_API HICON_UserSize(ULONG *,ULONG,HICON *);
+  unsigned char *__RPC_API HICON_UserMarshal(ULONG *,unsigned char *,HICON *);
+  unsigned char *__RPC_API HICON_UserUnmarshal(ULONG *,unsigned char *,HICON *);
+  void __RPC_API HICON_UserFree(ULONG *,HICON *);
 
   HRESULT WINAPI IEnumUnknown_Next_Proxy(IEnumUnknown *This,ULONG celt,IUnknown **rgelt,ULONG *pceltFetched);
   HRESULT WINAPI IEnumUnknown_Next_Stub(IEnumUnknown *This,ULONG celt,IUnknown **rgelt,ULONG *pceltFetched);

@@ -3250,10 +3250,10 @@ HRESULT __RPC_STUB IBindStatusCallback_OnDataAvailable_Stub(
   extern RPC_IF_HANDLE __MIDL_itf_urlmon_0215_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_urlmon_0215_v0_0_s_ifspec;
 
-  unsigned long __RPC_API HWND_UserSize(unsigned long *,unsigned long,HWND *);
-  unsigned char *__RPC_API HWND_UserMarshal(unsigned long *,unsigned char *,HWND *);
-  unsigned char *__RPC_API HWND_UserUnmarshal(unsigned long *,unsigned char *,HWND *);
-  void __RPC_API HWND_UserFree(unsigned long *,HWND *);
+  ULONG __RPC_API HWND_UserSize(ULONG *,ULONG,HWND *);
+  unsigned char *__RPC_API HWND_UserMarshal(ULONG *,unsigned char *,HWND *);
+  unsigned char *__RPC_API HWND_UserUnmarshal(ULONG *,unsigned char *,HWND *);
+  void __RPC_API HWND_UserFree(ULONG *,HWND *);
 
   HRESULT WINAPI IWinInetInfo_QueryOption_Proxy(IWinInetInfo *This,DWORD dwOption,LPVOID pBuffer,DWORD *pcbBuf);
   HRESULT WINAPI IWinInetInfo_QueryOption_Stub(IWinInetInfo *This,DWORD dwOption,BYTE *pBuffer,DWORD *pcbBuf);
