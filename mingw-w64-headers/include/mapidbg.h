@@ -23,7 +23,7 @@
 
 #ifndef BASETYPES
 #define BASETYPES
-  typedef unsigned long ULONG;
+  typedef unsigned __LONG32 ULONG;
   typedef ULONG *PULONG;
   typedef unsigned short USHORT;
   typedef USHORT *PUSHORT;
@@ -32,8 +32,8 @@
   typedef char *PSZ;
 #endif
 
-typedef long SCODE;
-typedef unsigned long DWORD;
+typedef __LONG32 SCODE;
+typedef unsigned __LONG32 DWORD;
 
 #ifdef ASSERTS_ENABLED
 #define IFTRAP(x) x
@@ -134,9 +134,9 @@ int EXPORTDBG __cdecl DebugTrapFn(int fFatal,char *pszFile,int iLine,char *pszFo
 int EXPORTDBG __cdecl DebugTraceFn(char *pszFormat,...);
 void EXPORTDBG __cdecl DebugTraceProblemsFn(char *sz,void *rgprob);
 char *EXPORTDBG __cdecl SzDecodeScodeFn(SCODE sc);
-char *EXPORTDBG __cdecl SzDecodeUlPropTypeFn(unsigned long ulPropType);
-char *EXPORTDBG __cdecl SzDecodeUlPropTagFn(unsigned long ulPropTag);
-unsigned long EXPORTDBG __cdecl UlPropTagFromSzFn(char *psz);
+char *EXPORTDBG __cdecl SzDecodeUlPropTypeFn(unsigned __LONG32 ulPropType);
+char *EXPORTDBG __cdecl SzDecodeUlPropTagFn(unsigned __LONG32 ulPropTag);
+unsigned __LONG32 EXPORTDBG __cdecl UlPropTagFromSzFn(char *psz);
 SCODE EXPORTDBG __cdecl ScodeFromSzFn(char *psz);
 void *EXPORTDBG __cdecl DBGMEM_EncapsulateFn(void *pmalloc,char *pszSubsys,int fCheckOften);
 void EXPORTDBG __cdecl DBGMEM_ShutdownFn(void *pmalloc);

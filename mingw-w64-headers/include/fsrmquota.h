@@ -307,8 +307,8 @@ DECLARE_INTERFACE_(IFsrmQuotaBase,IFsrmObject)
     /* IFsrmQuotaBase methods */
     STDMETHOD_(HRESULT,get_QuotaLimit)(THIS_ VARIANT *quotaLimit) PURE;
     STDMETHOD_(HRESULT,put_QuotaLimit)(THIS_ VARIANT quotaLimit) PURE;
-    STDMETHOD_(HRESULT,get_QuotaFlags)(THIS_ long *quotaFlags) PURE;
-    STDMETHOD_(HRESULT,put_QuotaFlags)(THIS_ long quotaFlags) PURE;
+    STDMETHOD_(HRESULT,get_QuotaFlags)(THIS_ __LONG32 *quotaFlags) PURE;
+    STDMETHOD_(HRESULT,put_QuotaFlags)(THIS_ __LONG32 quotaFlags) PURE;
     STDMETHOD_(HRESULT,get_Thresholds)(THIS_ SAFEARRAY *thresholds) PURE;
     STDMETHOD_(HRESULT,AddThreshold)(THIS_ FSRM_QUOTA_THRESHOLD threshold) PURE;
     STDMETHOD_(HRESULT,DeleteThreshold)(THIS_ FSRM_QUOTA_THRESHOLD threshold) PURE;
@@ -375,8 +375,8 @@ DECLARE_INTERFACE_(IFsrmQuotaObject,IFsrmQuotaBase)
     /* IFsrmQuotaBase methods */
     STDMETHOD_(HRESULT,get_QuotaLimit)(THIS_ VARIANT *quotaLimit) PURE;
     STDMETHOD_(HRESULT,put_QuotaLimit)(THIS_ VARIANT quotaLimit) PURE;
-    STDMETHOD_(HRESULT,get_QuotaFlags)(THIS_ long *quotaFlags) PURE;
-    STDMETHOD_(HRESULT,put_QuotaFlags)(THIS_ long quotaFlags) PURE;
+    STDMETHOD_(HRESULT,get_QuotaFlags)(THIS_ __LONG32 *quotaFlags) PURE;
+    STDMETHOD_(HRESULT,put_QuotaFlags)(THIS_ __LONG32 quotaFlags) PURE;
     STDMETHOD_(HRESULT,get_Thresholds)(THIS_ SAFEARRAY *thresholds) PURE;
     STDMETHOD_(HRESULT,AddThreshold)(THIS_ FSRM_QUOTA_THRESHOLD threshold) PURE;
     STDMETHOD_(HRESULT,DeleteThreshold)(THIS_ FSRM_QUOTA_THRESHOLD threshold) PURE;
@@ -457,8 +457,8 @@ DECLARE_INTERFACE_(IFsrmAutoApplyQuota,IFsrmQuotaObject)
     /* IFsrmQuotaBase methods */
     STDMETHOD_(HRESULT,get_QuotaLimit)(THIS_ VARIANT *quotaLimit) PURE;
     STDMETHOD_(HRESULT,put_QuotaLimit)(THIS_ VARIANT quotaLimit) PURE;
-    STDMETHOD_(HRESULT,get_QuotaFlags)(THIS_ long *quotaFlags) PURE;
-    STDMETHOD_(HRESULT,put_QuotaFlags)(THIS_ long quotaFlags) PURE;
+    STDMETHOD_(HRESULT,get_QuotaFlags)(THIS_ __LONG32 *quotaFlags) PURE;
+    STDMETHOD_(HRESULT,put_QuotaFlags)(THIS_ __LONG32 quotaFlags) PURE;
     STDMETHOD_(HRESULT,get_Thresholds)(THIS_ SAFEARRAY *thresholds) PURE;
     STDMETHOD_(HRESULT,AddThreshold)(THIS_ FSRM_QUOTA_THRESHOLD threshold) PURE;
     STDMETHOD_(HRESULT,DeleteThreshold)(THIS_ FSRM_QUOTA_THRESHOLD threshold) PURE;
@@ -547,8 +547,8 @@ DECLARE_INTERFACE_(IFsrmQuota,IFsrmQuotaObject)
     /* IFsrmQuotaBase methods */
     STDMETHOD_(HRESULT,get_QuotaLimit)(THIS_ VARIANT *quotaLimit) PURE;
     STDMETHOD_(HRESULT,put_QuotaLimit)(THIS_ VARIANT quotaLimit) PURE;
-    STDMETHOD_(HRESULT,get_QuotaFlags)(THIS_ long *quotaFlags) PURE;
-    STDMETHOD_(HRESULT,put_QuotaFlags)(THIS_ long quotaFlags) PURE;
+    STDMETHOD_(HRESULT,get_QuotaFlags)(THIS_ __LONG32 *quotaFlags) PURE;
+    STDMETHOD_(HRESULT,put_QuotaFlags)(THIS_ __LONG32 quotaFlags) PURE;
     STDMETHOD_(HRESULT,get_Thresholds)(THIS_ SAFEARRAY *thresholds) PURE;
     STDMETHOD_(HRESULT,AddThreshold)(THIS_ FSRM_QUOTA_THRESHOLD threshold) PURE;
     STDMETHOD_(HRESULT,DeleteThreshold)(THIS_ FSRM_QUOTA_THRESHOLD threshold) PURE;
@@ -634,8 +634,8 @@ DECLARE_INTERFACE_(IFsrmQuotaTemplate,IFsrmQuotaBase)
     /* IFsrmQuotaBase methods */
     STDMETHOD_(HRESULT,get_QuotaLimit)(THIS_ VARIANT *quotaLimit) PURE;
     STDMETHOD_(HRESULT,put_QuotaLimit)(THIS_ VARIANT quotaLimit) PURE;
-    STDMETHOD_(HRESULT,get_QuotaFlags)(THIS_ long *quotaFlags) PURE;
-    STDMETHOD_(HRESULT,put_QuotaFlags)(THIS_ long quotaFlags) PURE;
+    STDMETHOD_(HRESULT,get_QuotaFlags)(THIS_ __LONG32 *quotaFlags) PURE;
+    STDMETHOD_(HRESULT,put_QuotaFlags)(THIS_ __LONG32 quotaFlags) PURE;
     STDMETHOD_(HRESULT,get_Thresholds)(THIS_ SAFEARRAY *thresholds) PURE;
     STDMETHOD_(HRESULT,AddThreshold)(THIS_ FSRM_QUOTA_THRESHOLD threshold) PURE;
     STDMETHOD_(HRESULT,DeleteThreshold)(THIS_ FSRM_QUOTA_THRESHOLD threshold) PURE;
@@ -712,8 +712,8 @@ DECLARE_INTERFACE_(IFsrmQuotaTemplateImported,IFsrmQuotaTemplate)
     /* IFsrmQuotaBase methods */
     STDMETHOD_(HRESULT,get_QuotaLimit)(THIS_ VARIANT *quotaLimit) PURE;
     STDMETHOD_(HRESULT,put_QuotaLimit)(THIS_ VARIANT quotaLimit) PURE;
-    STDMETHOD_(HRESULT,get_QuotaFlags)(THIS_ long *quotaFlags) PURE;
-    STDMETHOD_(HRESULT,put_QuotaFlags)(THIS_ long quotaFlags) PURE;
+    STDMETHOD_(HRESULT,get_QuotaFlags)(THIS_ __LONG32 *quotaFlags) PURE;
+    STDMETHOD_(HRESULT,put_QuotaFlags)(THIS_ __LONG32 quotaFlags) PURE;
     STDMETHOD_(HRESULT,get_Thresholds)(THIS_ SAFEARRAY *thresholds) PURE;
     STDMETHOD_(HRESULT,AddThreshold)(THIS_ FSRM_QUOTA_THRESHOLD threshold) PURE;
     STDMETHOD_(HRESULT,DeleteThreshold)(THIS_ FSRM_QUOTA_THRESHOLD threshold) PURE;

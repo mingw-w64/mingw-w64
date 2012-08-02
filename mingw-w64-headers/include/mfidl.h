@@ -1675,8 +1675,8 @@ DECLARE_INTERFACE_(IMFQualityManager,IUnknown)
 
     /* IMFQualityManager methods */
     STDMETHOD_(HRESULT,NotifyPresentationClock)(THIS_ IMFPresentationClock *pClock) PURE;
-    STDMETHOD_(HRESULT,NotifyProcessInput)(THIS_ IMFTopologyNode *pNode,long lInputIndex,IMFSample *pSample) PURE;
-    STDMETHOD_(HRESULT,NotifyProcessOutput)(THIS_ IMFTopologyNode *pNode,long lOutputIndex,IMFSample *pSample) PURE;
+    STDMETHOD_(HRESULT,NotifyProcessInput)(THIS_ IMFTopologyNode *pNode,__LONG32 lInputIndex,IMFSample *pSample) PURE;
+    STDMETHOD_(HRESULT,NotifyProcessOutput)(THIS_ IMFTopologyNode *pNode,__LONG32 lOutputIndex,IMFSample *pSample) PURE;
     STDMETHOD_(HRESULT,NotifyQualityEvent)(THIS_ IUnknown *pObject,IMFMediaEvent *pEvent) PURE;
     STDMETHOD_(HRESULT,NotifyTopology)(THIS_ IMFTopology *pTopology) PURE;
     STDMETHOD_(HRESULT,Shutdown)(THIS) PURE;

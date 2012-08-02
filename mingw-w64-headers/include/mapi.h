@@ -14,8 +14,8 @@ extern "C" {
 #define EXPORT
 #endif
 
-  typedef unsigned long *LPULONG;
-  typedef unsigned long FLAGS;
+  typedef unsigned __LONG32 *LPULONG;
+  typedef unsigned __LONG32 FLAGS;
 
 #ifndef __LHANDLE
 #define __LHANDLE

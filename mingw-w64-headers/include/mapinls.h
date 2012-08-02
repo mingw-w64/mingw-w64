@@ -24,7 +24,7 @@ extern "C" {
 
   typedef unsigned char BYTE;
   typedef unsigned short WORD;
-  typedef unsigned long DWORD;
+  typedef unsigned __LONG32 DWORD;
   typedef unsigned int UINT;
   typedef int WINBOOL;
 

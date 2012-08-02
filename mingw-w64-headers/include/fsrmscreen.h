@@ -481,8 +481,8 @@ DECLARE_INTERFACE_(IFsrmFileScreenBase,IFsrmObject)
     /* IFsrmFileScreenBase methods */
     STDMETHOD_(HRESULT,get_BlockedFileGroups)(THIS_ IFsrmMutableCollection **blockList) PURE;
     STDMETHOD_(HRESULT,put_BlockedFileGroups)(THIS_ IFsrmMutableCollection *blockList) PURE;
-    STDMETHOD_(HRESULT,get_FileScreenFlags)(THIS_ long *fileScreenFlags) PURE;
-    STDMETHOD_(HRESULT,put_FileScreenFlags)(THIS_ long fileScreenFlags) PURE;
+    STDMETHOD_(HRESULT,get_FileScreenFlags)(THIS_ __LONG32 *fileScreenFlags) PURE;
+    STDMETHOD_(HRESULT,put_FileScreenFlags)(THIS_ __LONG32 fileScreenFlags) PURE;
     STDMETHOD_(HRESULT,get_UserSid)(THIS_ BSTR *userSid) PURE;
     STDMETHOD_(HRESULT,get_UserAccount)(THIS_ BSTR *userAccount) PURE;
     STDMETHOD_(HRESULT,CreateAction)(THIS_ FsrmActionType actionType,IFsrmAction **action) PURE;
@@ -653,8 +653,8 @@ DECLARE_INTERFACE_(IFsrmFileScreenTemplate,IFsrmFileScreenBase)
     /* IFsrmFileScreenBase methods */
     STDMETHOD_(HRESULT,get_BlockedFileGroups)(THIS_ IFsrmMutableCollection **blockList) PURE;
     STDMETHOD_(HRESULT,put_BlockedFileGroups)(THIS_ IFsrmMutableCollection *blockList) PURE;
-    STDMETHOD_(HRESULT,get_FileScreenFlags)(THIS_ long *fileScreenFlags) PURE;
-    STDMETHOD_(HRESULT,put_FileScreenFlags)(THIS_ long fileScreenFlags) PURE;
+    STDMETHOD_(HRESULT,get_FileScreenFlags)(THIS_ __LONG32 *fileScreenFlags) PURE;
+    STDMETHOD_(HRESULT,put_FileScreenFlags)(THIS_ __LONG32 fileScreenFlags) PURE;
     STDMETHOD_(HRESULT,get_UserSid)(THIS_ BSTR *userSid) PURE;
     STDMETHOD_(HRESULT,get_UserAccount)(THIS_ BSTR *userAccount) PURE;
     STDMETHOD_(HRESULT,CreateAction)(THIS_ FsrmActionType actionType,IFsrmAction **action) PURE;
@@ -727,8 +727,8 @@ DECLARE_INTERFACE_(IFsrmFileScreenTemplateImported,IFsrmFileScreenTemplate)
     /* IFsrmFileScreenBase methods */
     STDMETHOD_(HRESULT,get_BlockedFileGroups)(THIS_ IFsrmMutableCollection **blockList) PURE;
     STDMETHOD_(HRESULT,put_BlockedFileGroups)(THIS_ IFsrmMutableCollection *blockList) PURE;
-    STDMETHOD_(HRESULT,get_FileScreenFlags)(THIS_ long *fileScreenFlags) PURE;
-    STDMETHOD_(HRESULT,put_FileScreenFlags)(THIS_ long fileScreenFlags) PURE;
+    STDMETHOD_(HRESULT,get_FileScreenFlags)(THIS_ __LONG32 *fileScreenFlags) PURE;
+    STDMETHOD_(HRESULT,put_FileScreenFlags)(THIS_ __LONG32 fileScreenFlags) PURE;
     STDMETHOD_(HRESULT,get_UserSid)(THIS_ BSTR *userSid) PURE;
     STDMETHOD_(HRESULT,get_UserAccount)(THIS_ BSTR *userAccount) PURE;
     STDMETHOD_(HRESULT,CreateAction)(THIS_ FsrmActionType actionType,IFsrmAction **action) PURE;
@@ -853,8 +853,8 @@ DECLARE_INTERFACE_(IFsrmFileScreen,IFsrmFileScreenBase)
     /* IFsrmFileScreenBase methods */
     STDMETHOD_(HRESULT,get_BlockedFileGroups)(THIS_ IFsrmMutableCollection **blockList) PURE;
     STDMETHOD_(HRESULT,put_BlockedFileGroups)(THIS_ IFsrmMutableCollection *blockList) PURE;
-    STDMETHOD_(HRESULT,get_FileScreenFlags)(THIS_ long *fileScreenFlags) PURE;
-    STDMETHOD_(HRESULT,put_FileScreenFlags)(THIS_ long fileScreenFlags) PURE;
+    STDMETHOD_(HRESULT,get_FileScreenFlags)(THIS_ __LONG32 *fileScreenFlags) PURE;
+    STDMETHOD_(HRESULT,put_FileScreenFlags)(THIS_ __LONG32 fileScreenFlags) PURE;
     STDMETHOD_(HRESULT,get_UserSid)(THIS_ BSTR *userSid) PURE;
     STDMETHOD_(HRESULT,get_UserAccount)(THIS_ BSTR *userAccount) PURE;
     STDMETHOD_(HRESULT,CreateAction)(THIS_ FsrmActionType actionType,IFsrmAction **action) PURE;

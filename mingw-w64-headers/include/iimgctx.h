@@ -59,7 +59,7 @@ DECLARE_INTERFACE_(IImgCtx,IUnknown) {
   STDMETHOD(SelectChanges)(THIS_ ULONG ulChgOn,ULONG ulChgOff,WINBOOL fSignal) PURE;
   STDMETHOD(SetCallback)(THIS_ PFNIMGCTXCALLBACK pfn,void *pvPrivateData) PURE;
   STDMETHOD(Disconnect)(THIS) PURE;
-  STDMETHOD(GetUpdateRects)(THIS_ struct tagRECT *prc,struct tagRECT *prcImg,long *pcrc) PURE;
+  STDMETHOD(GetUpdateRects)(THIS_ struct tagRECT *prc,struct tagRECT *prcImg,__LONG32 *pcrc) PURE;
   STDMETHOD(GetStateInfo)(THIS_ ULONG *pulState,struct tagSIZE *psize,WINBOOL fClearChanges) PURE;
   STDMETHOD(GetPalette)(THIS_ HPALETTE *phpal) PURE;
   STDMETHOD(Draw)(THIS_ HDC hdc,struct tagRECT *prcBounds) PURE;

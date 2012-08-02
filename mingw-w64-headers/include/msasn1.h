@@ -16,8 +16,8 @@ extern "C" {
   typedef signed char ASN1int8_t;
   typedef unsigned short ASN1uint16_t;
   typedef signed short ASN1int16_t;
-  typedef unsigned long ASN1uint32_t;
-  typedef signed long ASN1int32_t;
+  typedef unsigned __LONG32 ASN1uint32_t;
+  typedef signed __LONG32 ASN1int32_t;
 
 #ifndef WINAPI
 #define WINAPI __stdcall

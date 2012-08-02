@@ -312,9 +312,9 @@ typedef struct tagSEQUENCE_INFO {
 #define MQ_AUTHENTICATE_NONE (unsigned char)0
 #define MQ_AUTHENTICATE (unsigned char)1
 
-#define MQ_PRIV_LEVEL_NONE (unsigned long)0
-#define MQ_PRIV_LEVEL_OPTIONAL (unsigned long)1
-#define MQ_PRIV_LEVEL_BODY (unsigned long)2
+#define MQ_PRIV_LEVEL_NONE (unsigned __LONG32)0
+#define MQ_PRIV_LEVEL_OPTIONAL (unsigned __LONG32)1
+#define MQ_PRIV_LEVEL_BODY (unsigned __LONG32)2
 
 #define PROPID_QM_BASE 200
 

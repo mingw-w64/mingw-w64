@@ -190,10 +190,10 @@ typedef struct _PIPE_TERMINATION {
 
 typedef struct _ALLOCATOR_PROPERTIES_EX
 {
-  long cBuffers;
-  long cbBuffer;
-  long cbAlign;
-  long cbPrefix;
+  __LONG32 cBuffers;
+  __LONG32 cbBuffer;
+  __LONG32 cbAlign;
+  __LONG32 cbPrefix;
 
   GUID MemoryType;
   GUID BusType;

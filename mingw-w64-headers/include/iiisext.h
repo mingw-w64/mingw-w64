@@ -153,12 +153,12 @@ extern "C"{
   typedef struct IISApplicationPoolVtbl {
     BEGIN_INTERFACE
       HRESULT (WINAPI *QueryInterface)(IISApplicationPool *This,struct GUID *riid,void **ppvObj,void *retval);
-      HRESULT (WINAPI *AddRef)(IISApplicationPool *This,unsigned long *retval);
-      HRESULT (WINAPI *Release)(IISApplicationPool *This,unsigned long *retval);
+      HRESULT (WINAPI *AddRef)(IISApplicationPool *This,unsigned __LONG32 *retval);
+      HRESULT (WINAPI *Release)(IISApplicationPool *This,unsigned __LONG32 *retval);
       HRESULT (WINAPI *GetTypeInfoCount)(IISApplicationPool *This,unsigned UINT *pctinfo,void *retval);
-      HRESULT (WINAPI *GetTypeInfo)(IISApplicationPool *This,unsigned UINT itinfo,unsigned long lcid,void **pptinfo,void *retval);
-      HRESULT (WINAPI *GetIDsOfNames)(IISApplicationPool *This,struct GUID *riid,signed char **rgszNames,unsigned UINT cNames,unsigned long lcid,signed long *rgdispid,void *retval);
-      HRESULT (WINAPI *Invoke)(IISApplicationPool *This,signed long dispidMember,struct GUID *riid,unsigned long lcid,unsigned short wFlags,struct DISPPARAMS *pdispparams,VARIANT *pvarResult,struct EXCEPINFO *pexcepinfo,unsigned UINT *puArgErr,void *retval);
+      HRESULT (WINAPI *GetTypeInfo)(IISApplicationPool *This,unsigned UINT itinfo,unsigned __LONG32 lcid,void **pptinfo,void *retval);
+      HRESULT (WINAPI *GetIDsOfNames)(IISApplicationPool *This,struct GUID *riid,signed char **rgszNames,unsigned UINT cNames,unsigned __LONG32 lcid,signed __LONG32 *rgdispid,void *retval);
+      HRESULT (WINAPI *Invoke)(IISApplicationPool *This,signed __LONG32 dispidMember,struct GUID *riid,unsigned __LONG32 lcid,unsigned short wFlags,struct DISPPARAMS *pdispparams,VARIANT *pvarResult,struct EXCEPINFO *pexcepinfo,unsigned UINT *puArgErr,void *retval);
       HRESULT (WINAPI *get_Name)(IISApplicationPool *This,BSTR *retval);
       HRESULT (WINAPI *get_Class)(IISApplicationPool *This,BSTR *retval);
       HRESULT (WINAPI *get_GUID)(IISApplicationPool *This,BSTR *retval);
@@ -170,8 +170,8 @@ extern "C"{
       HRESULT (WINAPI *Get)(IISApplicationPool *This,BSTR bstrName,VARIANT *retval);
       HRESULT (WINAPI *Put)(IISApplicationPool *This,BSTR bstrName,VARIANT vProp,void *retval);
       HRESULT (WINAPI *GetEx)(IISApplicationPool *This,BSTR bstrName,VARIANT *retval);
-      HRESULT (WINAPI *PutEx)(IISApplicationPool *This,signed long lnControlCode,BSTR bstrName,VARIANT vProp,void *retval);
-      HRESULT (WINAPI *GetInfoEx)(IISApplicationPool *This,VARIANT vProperties,signed long lnReserved,void *retval);
+      HRESULT (WINAPI *PutEx)(IISApplicationPool *This,signed __LONG32 lnControlCode,BSTR bstrName,VARIANT vProp,void *retval);
+      HRESULT (WINAPI *GetInfoEx)(IISApplicationPool *This,VARIANT vProperties,signed __LONG32 lnReserved,void *retval);
       HRESULT (WINAPI *Recycle)(IISApplicationPool *This);
       HRESULT (WINAPI *EnumAppsInPool)(IISApplicationPool *This,VARIANT *bstrBuffer);
       HRESULT (WINAPI *Start)(IISApplicationPool *This);
@@ -228,12 +228,12 @@ extern "C"{
   typedef struct IISApplicationPoolsVtbl {
     BEGIN_INTERFACE
       HRESULT (WINAPI *QueryInterface)(IISApplicationPools *This,struct GUID *riid,void **ppvObj,void *retval);
-      HRESULT (WINAPI *AddRef)(IISApplicationPools *This,unsigned long *retval);
-      HRESULT (WINAPI *Release)(IISApplicationPools *This,unsigned long *retval);
+      HRESULT (WINAPI *AddRef)(IISApplicationPools *This,unsigned __LONG32 *retval);
+      HRESULT (WINAPI *Release)(IISApplicationPools *This,unsigned __LONG32 *retval);
       HRESULT (WINAPI *GetTypeInfoCount)(IISApplicationPools *This,unsigned UINT *pctinfo,void *retval);
-      HRESULT (WINAPI *GetTypeInfo)(IISApplicationPools *This,unsigned UINT itinfo,unsigned long lcid,void **pptinfo,void *retval);
-      HRESULT (WINAPI *GetIDsOfNames)(IISApplicationPools *This,struct GUID *riid,signed char **rgszNames,unsigned UINT cNames,unsigned long lcid,signed long *rgdispid,void *retval);
-      HRESULT (WINAPI *Invoke)(IISApplicationPools *This,signed long dispidMember,struct GUID *riid,unsigned long lcid,unsigned short wFlags,struct DISPPARAMS *pdispparams,VARIANT *pvarResult,struct EXCEPINFO *pexcepinfo,unsigned UINT *puArgErr,void *retval);
+      HRESULT (WINAPI *GetTypeInfo)(IISApplicationPools *This,unsigned UINT itinfo,unsigned __LONG32 lcid,void **pptinfo,void *retval);
+      HRESULT (WINAPI *GetIDsOfNames)(IISApplicationPools *This,struct GUID *riid,signed char **rgszNames,unsigned UINT cNames,unsigned __LONG32 lcid,signed __LONG32 *rgdispid,void *retval);
+      HRESULT (WINAPI *Invoke)(IISApplicationPools *This,signed __LONG32 dispidMember,struct GUID *riid,unsigned __LONG32 lcid,unsigned short wFlags,struct DISPPARAMS *pdispparams,VARIANT *pvarResult,struct EXCEPINFO *pexcepinfo,unsigned UINT *puArgErr,void *retval);
       HRESULT (WINAPI *get_Name)(IISApplicationPools *This,BSTR *retval);
       HRESULT (WINAPI *get_Class)(IISApplicationPools *This,BSTR *retval);
       HRESULT (WINAPI *get_GUID)(IISApplicationPools *This,BSTR *retval);
@@ -245,8 +245,8 @@ extern "C"{
       HRESULT (WINAPI *Get)(IISApplicationPools *This,BSTR bstrName,VARIANT *retval);
       HRESULT (WINAPI *Put)(IISApplicationPools *This,BSTR bstrName,VARIANT vProp,void *retval);
       HRESULT (WINAPI *GetEx)(IISApplicationPools *This,BSTR bstrName,VARIANT *retval);
-      HRESULT (WINAPI *PutEx)(IISApplicationPools *This,signed long lnControlCode,BSTR bstrName,VARIANT vProp,void *retval);
-      HRESULT (WINAPI *GetInfoEx)(IISApplicationPools *This,VARIANT vProperties,signed long lnReserved,void *retval);
+      HRESULT (WINAPI *PutEx)(IISApplicationPools *This,signed __LONG32 lnControlCode,BSTR bstrName,VARIANT vProp,void *retval);
+      HRESULT (WINAPI *GetInfoEx)(IISApplicationPools *This,VARIANT vProperties,signed __LONG32 lnReserved,void *retval);
     END_INTERFACE
   } IISApplicationPoolsVtbl;
   struct IISApplicationPools {
@@ -304,12 +304,12 @@ extern "C"{
   typedef struct IISWebServiceVtbl {
     BEGIN_INTERFACE
       HRESULT (WINAPI *QueryInterface)(IISWebService *This,struct GUID *riid,void **ppvObj,void *retval);
-      HRESULT (WINAPI *AddRef)(IISWebService *This,unsigned long *retval);
-      HRESULT (WINAPI *Release)(IISWebService *This,unsigned long *retval);
+      HRESULT (WINAPI *AddRef)(IISWebService *This,unsigned __LONG32 *retval);
+      HRESULT (WINAPI *Release)(IISWebService *This,unsigned __LONG32 *retval);
       HRESULT (WINAPI *GetTypeInfoCount)(IISWebService *This,unsigned UINT *pctinfo,void *retval);
-      HRESULT (WINAPI *GetTypeInfo)(IISWebService *This,unsigned UINT itinfo,unsigned long lcid,void **pptinfo,void *retval);
-      HRESULT (WINAPI *GetIDsOfNames)(IISWebService *This,struct GUID *riid,signed char **rgszNames,unsigned UINT cNames,unsigned long lcid,signed long *rgdispid,void *retval);
-      HRESULT (WINAPI *Invoke)(IISWebService *This,signed long dispidMember,struct GUID *riid,unsigned long lcid,unsigned short wFlags,struct DISPPARAMS *pdispparams,VARIANT *pvarResult,struct EXCEPINFO *pexcepinfo,unsigned UINT *puArgErr,void *retval);
+      HRESULT (WINAPI *GetTypeInfo)(IISWebService *This,unsigned UINT itinfo,unsigned __LONG32 lcid,void **pptinfo,void *retval);
+      HRESULT (WINAPI *GetIDsOfNames)(IISWebService *This,struct GUID *riid,signed char **rgszNames,unsigned UINT cNames,unsigned __LONG32 lcid,signed __LONG32 *rgdispid,void *retval);
+      HRESULT (WINAPI *Invoke)(IISWebService *This,signed __LONG32 dispidMember,struct GUID *riid,unsigned __LONG32 lcid,unsigned short wFlags,struct DISPPARAMS *pdispparams,VARIANT *pvarResult,struct EXCEPINFO *pexcepinfo,unsigned UINT *puArgErr,void *retval);
       HRESULT (WINAPI *get_Name)(IISWebService *This,BSTR *retval);
       HRESULT (WINAPI *get_Class)(IISWebService *This,BSTR *retval);
       HRESULT (WINAPI *get_GUID)(IISWebService *This,BSTR *retval);
@@ -321,8 +321,8 @@ extern "C"{
       HRESULT (WINAPI *Get)(IISWebService *This,BSTR bstrName,VARIANT *retval);
       HRESULT (WINAPI *Put)(IISWebService *This,BSTR bstrName,VARIANT vProp,void *retval);
       HRESULT (WINAPI *GetEx)(IISWebService *This,BSTR bstrName,VARIANT *retval);
-      HRESULT (WINAPI *PutEx)(IISWebService *This,signed long lnControlCode,BSTR bstrName,VARIANT vProp,void *retval);
-      HRESULT (WINAPI *GetInfoEx)(IISWebService *This,VARIANT vProperties,signed long lnReserved,void *retval);
+      HRESULT (WINAPI *PutEx)(IISWebService *This,signed __LONG32 lnControlCode,BSTR bstrName,VARIANT vProp,void *retval);
+      HRESULT (WINAPI *GetInfoEx)(IISWebService *This,VARIANT vProperties,signed __LONG32 lnReserved,void *retval);
       HRESULT (WINAPI *GetCurrentMode)(IISWebService *This,VARIANT *pvServerMode);
       HRESULT (WINAPI *CreateNewSite)(IISWebService *This,BSTR bstrServerComment,VARIANT *pvServerBindings,BSTR bstrRootVDirPath,VARIANT vServerID,VARIANT *pvActualID);
       HRESULT (WINAPI *EnableApplication)(IISWebService *This,BSTR bstrAppName);
@@ -435,12 +435,12 @@ extern "C"{
   typedef struct IISDsCrMapVtbl {
     BEGIN_INTERFACE
       HRESULT (WINAPI *QueryInterface)(IISDsCrMap *This,struct GUID *riid,void **ppvObj,void *retval);
-      HRESULT (WINAPI *AddRef)(IISDsCrMap *This,unsigned long *retval);
-      HRESULT (WINAPI *Release)(IISDsCrMap *This,unsigned long *retval);
+      HRESULT (WINAPI *AddRef)(IISDsCrMap *This,unsigned __LONG32 *retval);
+      HRESULT (WINAPI *Release)(IISDsCrMap *This,unsigned __LONG32 *retval);
       HRESULT (WINAPI *GetTypeInfoCount)(IISDsCrMap *This,unsigned UINT *pctinfo,void *retval);
-      HRESULT (WINAPI *GetTypeInfo)(IISDsCrMap *This,unsigned UINT itinfo,unsigned long lcid,void **pptinfo,void *retval);
-      HRESULT (WINAPI *GetIDsOfNames)(IISDsCrMap *This,struct GUID *riid,signed char **rgszNames,unsigned UINT cNames,unsigned long lcid,signed long *rgdispid,void *retval);
-      HRESULT (WINAPI *Invoke)(IISDsCrMap *This,signed long dispidMember,struct GUID *riid,unsigned long lcid,unsigned short wFlags,struct DISPPARAMS *pdispparams,VARIANT *pvarResult,struct EXCEPINFO *pexcepinfo,unsigned UINT *puArgErr,void *retval);
+      HRESULT (WINAPI *GetTypeInfo)(IISDsCrMap *This,unsigned UINT itinfo,unsigned __LONG32 lcid,void **pptinfo,void *retval);
+      HRESULT (WINAPI *GetIDsOfNames)(IISDsCrMap *This,struct GUID *riid,signed char **rgszNames,unsigned UINT cNames,unsigned __LONG32 lcid,signed __LONG32 *rgdispid,void *retval);
+      HRESULT (WINAPI *Invoke)(IISDsCrMap *This,signed __LONG32 dispidMember,struct GUID *riid,unsigned __LONG32 lcid,unsigned short wFlags,struct DISPPARAMS *pdispparams,VARIANT *pvarResult,struct EXCEPINFO *pexcepinfo,unsigned UINT *puArgErr,void *retval);
       HRESULT (WINAPI *get_Name)(IISDsCrMap *This,BSTR *retval);
       HRESULT (WINAPI *get_Class)(IISDsCrMap *This,BSTR *retval);
       HRESULT (WINAPI *get_GUID)(IISDsCrMap *This,BSTR *retval);
@@ -452,8 +452,8 @@ extern "C"{
       HRESULT (WINAPI *Get)(IISDsCrMap *This,BSTR bstrName,VARIANT *retval);
       HRESULT (WINAPI *Put)(IISDsCrMap *This,BSTR bstrName,VARIANT vProp,void *retval);
       HRESULT (WINAPI *GetEx)(IISDsCrMap *This,BSTR bstrName,VARIANT *retval);
-      HRESULT (WINAPI *PutEx)(IISDsCrMap *This,signed long lnControlCode,BSTR bstrName,VARIANT vProp,void *retval);
-      HRESULT (WINAPI *GetInfoEx)(IISDsCrMap *This,VARIANT vProperties,signed long lnReserved,void *retval);
+      HRESULT (WINAPI *PutEx)(IISDsCrMap *This,signed __LONG32 lnControlCode,BSTR bstrName,VARIANT vProp,void *retval);
+      HRESULT (WINAPI *GetInfoEx)(IISDsCrMap *This,VARIANT vProperties,signed __LONG32 lnReserved,void *retval);
       HRESULT (WINAPI *CreateMapping)(IISDsCrMap *This,VARIANT vCert,BSTR bstrNtAcct,BSTR bstrNtPwd,BSTR bstrName,LONG lEnabled);
       HRESULT (WINAPI *GetMapping)(IISDsCrMap *This,LONG lMethod,VARIANT vKey,VARIANT *pvCert,VARIANT *pbstrNtAcct,VARIANT *pbstrNtPwd,VARIANT *pbstrName,VARIANT *plEnabled);
       HRESULT (WINAPI *DeleteMapping)(IISDsCrMap *This,LONG lMethod,VARIANT vKey);
@@ -534,12 +534,12 @@ extern "C"{
   typedef struct IISAppVtbl {
     BEGIN_INTERFACE
       HRESULT (WINAPI *QueryInterface)(IISApp *This,struct GUID *riid,void **ppvObj,void *retval);
-      HRESULT (WINAPI *AddRef)(IISApp *This,unsigned long *retval);
-      HRESULT (WINAPI *Release)(IISApp *This,unsigned long *retval);
+      HRESULT (WINAPI *AddRef)(IISApp *This,unsigned __LONG32 *retval);
+      HRESULT (WINAPI *Release)(IISApp *This,unsigned __LONG32 *retval);
       HRESULT (WINAPI *GetTypeInfoCount)(IISApp *This,unsigned UINT *pctinfo,void *retval);
-      HRESULT (WINAPI *GetTypeInfo)(IISApp *This,unsigned UINT itinfo,unsigned long lcid,void **pptinfo,void *retval);
-      HRESULT (WINAPI *GetIDsOfNames)(IISApp *This,struct GUID *riid,signed char **rgszNames,unsigned UINT cNames,unsigned long lcid,signed long *rgdispid,void *retval);
-      HRESULT (WINAPI *Invoke)(IISApp *This,signed long dispidMember,struct GUID *riid,unsigned long lcid,unsigned short wFlags,struct DISPPARAMS *pdispparams,VARIANT *pvarResult,struct EXCEPINFO *pexcepinfo,unsigned UINT *puArgErr,void *retval);
+      HRESULT (WINAPI *GetTypeInfo)(IISApp *This,unsigned UINT itinfo,unsigned __LONG32 lcid,void **pptinfo,void *retval);
+      HRESULT (WINAPI *GetIDsOfNames)(IISApp *This,struct GUID *riid,signed char **rgszNames,unsigned UINT cNames,unsigned __LONG32 lcid,signed __LONG32 *rgdispid,void *retval);
+      HRESULT (WINAPI *Invoke)(IISApp *This,signed __LONG32 dispidMember,struct GUID *riid,unsigned __LONG32 lcid,unsigned short wFlags,struct DISPPARAMS *pdispparams,VARIANT *pvarResult,struct EXCEPINFO *pexcepinfo,unsigned UINT *puArgErr,void *retval);
       HRESULT (WINAPI *get_Name)(IISApp *This,BSTR *retval);
       HRESULT (WINAPI *get_Class)(IISApp *This,BSTR *retval);
       HRESULT (WINAPI *get_GUID)(IISApp *This,BSTR *retval);
@@ -551,8 +551,8 @@ extern "C"{
       HRESULT (WINAPI *Get)(IISApp *This,BSTR bstrName,VARIANT *retval);
       HRESULT (WINAPI *Put)(IISApp *This,BSTR bstrName,VARIANT vProp,void *retval);
       HRESULT (WINAPI *GetEx)(IISApp *This,BSTR bstrName,VARIANT *retval);
-      HRESULT (WINAPI *PutEx)(IISApp *This,signed long lnControlCode,BSTR bstrName,VARIANT vProp,void *retval);
-      HRESULT (WINAPI *GetInfoEx)(IISApp *This,VARIANT vProperties,signed long lnReserved,void *retval);
+      HRESULT (WINAPI *PutEx)(IISApp *This,signed __LONG32 lnControlCode,BSTR bstrName,VARIANT vProp,void *retval);
+      HRESULT (WINAPI *GetInfoEx)(IISApp *This,VARIANT vProperties,signed __LONG32 lnReserved,void *retval);
       HRESULT (WINAPI *AppCreate)(IISApp *This,VARIANT_BOOL bSetInProcFlag);
       HRESULT (WINAPI *AppDelete)(IISApp *This);
       HRESULT (WINAPI *AppDeleteRecursive)(IISApp *This);
@@ -640,12 +640,12 @@ extern "C"{
   typedef struct IISApp2Vtbl {
     BEGIN_INTERFACE
       HRESULT (WINAPI *QueryInterface)(IISApp2 *This,struct GUID *riid,void **ppvObj,void *retval);
-      HRESULT (WINAPI *AddRef)(IISApp2 *This,unsigned long *retval);
-      HRESULT (WINAPI *Release)(IISApp2 *This,unsigned long *retval);
+      HRESULT (WINAPI *AddRef)(IISApp2 *This,unsigned __LONG32 *retval);
+      HRESULT (WINAPI *Release)(IISApp2 *This,unsigned __LONG32 *retval);
       HRESULT (WINAPI *GetTypeInfoCount)(IISApp2 *This,unsigned UINT *pctinfo,void *retval);
-      HRESULT (WINAPI *GetTypeInfo)(IISApp2 *This,unsigned UINT itinfo,unsigned long lcid,void **pptinfo,void *retval);
-      HRESULT (WINAPI *GetIDsOfNames)(IISApp2 *This,struct GUID *riid,signed char **rgszNames,unsigned UINT cNames,unsigned long lcid,signed long *rgdispid,void *retval);
-      HRESULT (WINAPI *Invoke)(IISApp2 *This,signed long dispidMember,struct GUID *riid,unsigned long lcid,unsigned short wFlags,struct DISPPARAMS *pdispparams,VARIANT *pvarResult,struct EXCEPINFO *pexcepinfo,unsigned UINT *puArgErr,void *retval);
+      HRESULT (WINAPI *GetTypeInfo)(IISApp2 *This,unsigned UINT itinfo,unsigned __LONG32 lcid,void **pptinfo,void *retval);
+      HRESULT (WINAPI *GetIDsOfNames)(IISApp2 *This,struct GUID *riid,signed char **rgszNames,unsigned UINT cNames,unsigned __LONG32 lcid,signed __LONG32 *rgdispid,void *retval);
+      HRESULT (WINAPI *Invoke)(IISApp2 *This,signed __LONG32 dispidMember,struct GUID *riid,unsigned __LONG32 lcid,unsigned short wFlags,struct DISPPARAMS *pdispparams,VARIANT *pvarResult,struct EXCEPINFO *pexcepinfo,unsigned UINT *puArgErr,void *retval);
       HRESULT (WINAPI *get_Name)(IISApp2 *This,BSTR *retval);
       HRESULT (WINAPI *get_Class)(IISApp2 *This,BSTR *retval);
       HRESULT (WINAPI *get_GUID)(IISApp2 *This,BSTR *retval);
@@ -657,8 +657,8 @@ extern "C"{
       HRESULT (WINAPI *Get)(IISApp2 *This,BSTR bstrName,VARIANT *retval);
       HRESULT (WINAPI *Put)(IISApp2 *This,BSTR bstrName,VARIANT vProp,void *retval);
       HRESULT (WINAPI *GetEx)(IISApp2 *This,BSTR bstrName,VARIANT *retval);
-      HRESULT (WINAPI *PutEx)(IISApp2 *This,signed long lnControlCode,BSTR bstrName,VARIANT vProp,void *retval);
-      HRESULT (WINAPI *GetInfoEx)(IISApp2 *This,VARIANT vProperties,signed long lnReserved,void *retval);
+      HRESULT (WINAPI *PutEx)(IISApp2 *This,signed __LONG32 lnControlCode,BSTR bstrName,VARIANT vProp,void *retval);
+      HRESULT (WINAPI *GetInfoEx)(IISApp2 *This,VARIANT vProperties,signed __LONG32 lnReserved,void *retval);
       HRESULT (WINAPI *AppCreate)(IISApp2 *This,VARIANT_BOOL bSetInProcFlag);
       HRESULT (WINAPI *AppDelete)(IISApp2 *This);
       HRESULT (WINAPI *AppDeleteRecursive)(IISApp2 *This);
@@ -731,12 +731,12 @@ extern "C"{
   typedef struct IISApp3Vtbl {
     BEGIN_INTERFACE
       HRESULT (WINAPI *QueryInterface)(IISApp3 *This,struct GUID *riid,void **ppvObj,void *retval);
-      HRESULT (WINAPI *AddRef)(IISApp3 *This,unsigned long *retval);
-      HRESULT (WINAPI *Release)(IISApp3 *This,unsigned long *retval);
+      HRESULT (WINAPI *AddRef)(IISApp3 *This,unsigned __LONG32 *retval);
+      HRESULT (WINAPI *Release)(IISApp3 *This,unsigned __LONG32 *retval);
       HRESULT (WINAPI *GetTypeInfoCount)(IISApp3 *This,unsigned UINT *pctinfo,void *retval);
-      HRESULT (WINAPI *GetTypeInfo)(IISApp3 *This,unsigned UINT itinfo,unsigned long lcid,void **pptinfo,void *retval);
-      HRESULT (WINAPI *GetIDsOfNames)(IISApp3 *This,struct GUID *riid,signed char **rgszNames,unsigned UINT cNames,unsigned long lcid,signed long *rgdispid,void *retval);
-      HRESULT (WINAPI *Invoke)(IISApp3 *This,signed long dispidMember,struct GUID *riid,unsigned long lcid,unsigned short wFlags,struct DISPPARAMS *pdispparams,VARIANT *pvarResult,struct EXCEPINFO *pexcepinfo,unsigned UINT *puArgErr,void *retval);
+      HRESULT (WINAPI *GetTypeInfo)(IISApp3 *This,unsigned UINT itinfo,unsigned __LONG32 lcid,void **pptinfo,void *retval);
+      HRESULT (WINAPI *GetIDsOfNames)(IISApp3 *This,struct GUID *riid,signed char **rgszNames,unsigned UINT cNames,unsigned __LONG32 lcid,signed __LONG32 *rgdispid,void *retval);
+      HRESULT (WINAPI *Invoke)(IISApp3 *This,signed __LONG32 dispidMember,struct GUID *riid,unsigned __LONG32 lcid,unsigned short wFlags,struct DISPPARAMS *pdispparams,VARIANT *pvarResult,struct EXCEPINFO *pexcepinfo,unsigned UINT *puArgErr,void *retval);
       HRESULT (WINAPI *get_Name)(IISApp3 *This,BSTR *retval);
       HRESULT (WINAPI *get_Class)(IISApp3 *This,BSTR *retval);
       HRESULT (WINAPI *get_GUID)(IISApp3 *This,BSTR *retval);
@@ -748,8 +748,8 @@ extern "C"{
       HRESULT (WINAPI *Get)(IISApp3 *This,BSTR bstrName,VARIANT *retval);
       HRESULT (WINAPI *Put)(IISApp3 *This,BSTR bstrName,VARIANT vProp,void *retval);
       HRESULT (WINAPI *GetEx)(IISApp3 *This,BSTR bstrName,VARIANT *retval);
-      HRESULT (WINAPI *PutEx)(IISApp3 *This,signed long lnControlCode,BSTR bstrName,VARIANT vProp,void *retval);
-      HRESULT (WINAPI *GetInfoEx)(IISApp3 *This,VARIANT vProperties,signed long lnReserved,void *retval);
+      HRESULT (WINAPI *PutEx)(IISApp3 *This,signed __LONG32 lnControlCode,BSTR bstrName,VARIANT vProp,void *retval);
+      HRESULT (WINAPI *GetInfoEx)(IISApp3 *This,VARIANT vProperties,signed __LONG32 lnReserved,void *retval);
       HRESULT (WINAPI *AppCreate)(IISApp3 *This,VARIANT_BOOL bSetInProcFlag);
       HRESULT (WINAPI *AppDelete)(IISApp3 *This);
       HRESULT (WINAPI *AppDeleteRecursive)(IISApp3 *This);
@@ -825,12 +825,12 @@ extern "C"{
   typedef struct IISComputerVtbl {
     BEGIN_INTERFACE
       HRESULT (WINAPI *QueryInterface)(IISComputer *This,struct GUID *riid,void **ppvObj,void *retval);
-      HRESULT (WINAPI *AddRef)(IISComputer *This,unsigned long *retval);
-      HRESULT (WINAPI *Release)(IISComputer *This,unsigned long *retval);
+      HRESULT (WINAPI *AddRef)(IISComputer *This,unsigned __LONG32 *retval);
+      HRESULT (WINAPI *Release)(IISComputer *This,unsigned __LONG32 *retval);
       HRESULT (WINAPI *GetTypeInfoCount)(IISComputer *This,unsigned UINT *pctinfo,void *retval);
-      HRESULT (WINAPI *GetTypeInfo)(IISComputer *This,unsigned UINT itinfo,unsigned long lcid,void **pptinfo,void *retval);
-      HRESULT (WINAPI *GetIDsOfNames)(IISComputer *This,struct GUID *riid,signed char **rgszNames,unsigned UINT cNames,unsigned long lcid,signed long *rgdispid,void *retval);
-      HRESULT (WINAPI *Invoke)(IISComputer *This,signed long dispidMember,struct GUID *riid,unsigned long lcid,unsigned short wFlags,struct DISPPARAMS *pdispparams,VARIANT *pvarResult,struct EXCEPINFO *pexcepinfo,unsigned UINT *puArgErr,void *retval);
+      HRESULT (WINAPI *GetTypeInfo)(IISComputer *This,unsigned UINT itinfo,unsigned __LONG32 lcid,void **pptinfo,void *retval);
+      HRESULT (WINAPI *GetIDsOfNames)(IISComputer *This,struct GUID *riid,signed char **rgszNames,unsigned UINT cNames,unsigned __LONG32 lcid,signed __LONG32 *rgdispid,void *retval);
+      HRESULT (WINAPI *Invoke)(IISComputer *This,signed __LONG32 dispidMember,struct GUID *riid,unsigned __LONG32 lcid,unsigned short wFlags,struct DISPPARAMS *pdispparams,VARIANT *pvarResult,struct EXCEPINFO *pexcepinfo,unsigned UINT *puArgErr,void *retval);
       HRESULT (WINAPI *get_Name)(IISComputer *This,BSTR *retval);
       HRESULT (WINAPI *get_Class)(IISComputer *This,BSTR *retval);
       HRESULT (WINAPI *get_GUID)(IISComputer *This,BSTR *retval);
@@ -842,8 +842,8 @@ extern "C"{
       HRESULT (WINAPI *Get)(IISComputer *This,BSTR bstrName,VARIANT *retval);
       HRESULT (WINAPI *Put)(IISComputer *This,BSTR bstrName,VARIANT vProp,void *retval);
       HRESULT (WINAPI *GetEx)(IISComputer *This,BSTR bstrName,VARIANT *retval);
-      HRESULT (WINAPI *PutEx)(IISComputer *This,signed long lnControlCode,BSTR bstrName,VARIANT vProp,void *retval);
-      HRESULT (WINAPI *GetInfoEx)(IISComputer *This,VARIANT vProperties,signed long lnReserved,void *retval);
+      HRESULT (WINAPI *PutEx)(IISComputer *This,signed __LONG32 lnControlCode,BSTR bstrName,VARIANT vProp,void *retval);
+      HRESULT (WINAPI *GetInfoEx)(IISComputer *This,VARIANT vProperties,signed __LONG32 lnReserved,void *retval);
       HRESULT (WINAPI *Backup)(IISComputer *This,BSTR bstrLocation,LONG lVersion,LONG lFlags);
       HRESULT (WINAPI *Restore)(IISComputer *This,BSTR bstrLocation,LONG lVersion,LONG lFlags);
       HRESULT (WINAPI *EnumBackups)(IISComputer *This,BSTR bstrLocation,LONG lIndex,VARIANT *pvVersion,VARIANT *pvLocations,VARIANT *pvDate);
@@ -906,12 +906,12 @@ extern "C"{
   typedef struct IISComputer2Vtbl {
     BEGIN_INTERFACE
       HRESULT (WINAPI *QueryInterface)(IISComputer2 *This,struct GUID *riid,void **ppvObj,void *retval);
-      HRESULT (WINAPI *AddRef)(IISComputer2 *This,unsigned long *retval);
-      HRESULT (WINAPI *Release)(IISComputer2 *This,unsigned long *retval);
+      HRESULT (WINAPI *AddRef)(IISComputer2 *This,unsigned __LONG32 *retval);
+      HRESULT (WINAPI *Release)(IISComputer2 *This,unsigned __LONG32 *retval);
       HRESULT (WINAPI *GetTypeInfoCount)(IISComputer2 *This,unsigned UINT *pctinfo,void *retval);
-      HRESULT (WINAPI *GetTypeInfo)(IISComputer2 *This,unsigned UINT itinfo,unsigned long lcid,void **pptinfo,void *retval);
-      HRESULT (WINAPI *GetIDsOfNames)(IISComputer2 *This,struct GUID *riid,signed char **rgszNames,unsigned UINT cNames,unsigned long lcid,signed long *rgdispid,void *retval);
-      HRESULT (WINAPI *Invoke)(IISComputer2 *This,signed long dispidMember,struct GUID *riid,unsigned long lcid,unsigned short wFlags,struct DISPPARAMS *pdispparams,VARIANT *pvarResult,struct EXCEPINFO *pexcepinfo,unsigned UINT *puArgErr,void *retval);
+      HRESULT (WINAPI *GetTypeInfo)(IISComputer2 *This,unsigned UINT itinfo,unsigned __LONG32 lcid,void **pptinfo,void *retval);
+      HRESULT (WINAPI *GetIDsOfNames)(IISComputer2 *This,struct GUID *riid,signed char **rgszNames,unsigned UINT cNames,unsigned __LONG32 lcid,signed __LONG32 *rgdispid,void *retval);
+      HRESULT (WINAPI *Invoke)(IISComputer2 *This,signed __LONG32 dispidMember,struct GUID *riid,unsigned __LONG32 lcid,unsigned short wFlags,struct DISPPARAMS *pdispparams,VARIANT *pvarResult,struct EXCEPINFO *pexcepinfo,unsigned UINT *puArgErr,void *retval);
       HRESULT (WINAPI *get_Name)(IISComputer2 *This,BSTR *retval);
       HRESULT (WINAPI *get_Class)(IISComputer2 *This,BSTR *retval);
       HRESULT (WINAPI *get_GUID)(IISComputer2 *This,BSTR *retval);
@@ -923,8 +923,8 @@ extern "C"{
       HRESULT (WINAPI *Get)(IISComputer2 *This,BSTR bstrName,VARIANT *retval);
       HRESULT (WINAPI *Put)(IISComputer2 *This,BSTR bstrName,VARIANT vProp,void *retval);
       HRESULT (WINAPI *GetEx)(IISComputer2 *This,BSTR bstrName,VARIANT *retval);
-      HRESULT (WINAPI *PutEx)(IISComputer2 *This,signed long lnControlCode,BSTR bstrName,VARIANT vProp,void *retval);
-      HRESULT (WINAPI *GetInfoEx)(IISComputer2 *This,VARIANT vProperties,signed long lnReserved,void *retval);
+      HRESULT (WINAPI *PutEx)(IISComputer2 *This,signed __LONG32 lnControlCode,BSTR bstrName,VARIANT vProp,void *retval);
+      HRESULT (WINAPI *GetInfoEx)(IISComputer2 *This,VARIANT vProperties,signed __LONG32 lnReserved,void *retval);
       HRESULT (WINAPI *Backup)(IISComputer2 *This,BSTR bstrLocation,LONG lVersion,LONG lFlags);
       HRESULT (WINAPI *Restore)(IISComputer2 *This,BSTR bstrLocation,LONG lVersion,LONG lFlags);
       HRESULT (WINAPI *EnumBackups)(IISComputer2 *This,BSTR bstrLocation,LONG lIndex,VARIANT *pvVersion,VARIANT *pvLocations,VARIANT *pvDate);

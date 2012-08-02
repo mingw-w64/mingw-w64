@@ -374,7 +374,7 @@ DECLARE_INTERFACE_(IFsrmReportJob,IFsrmObject)
     STDMETHOD_(HRESULT,EnumReports)(THIS_ IFsrmCollection **reports) PURE;
     STDMETHOD_(HRESULT,CreateReport)(THIS_ FsrmReportType reportType,IFsrmReport **report) PURE;
     STDMETHOD_(HRESULT,Run)(THIS_ FsrmReportGenerationContext context) PURE;
-    STDMETHOD_(HRESULT,WaitForCompletion)(THIS_ long waitSeconds,VARIANT_BOOL *completed) PURE;
+    STDMETHOD_(HRESULT,WaitForCompletion)(THIS_ __LONG32 waitSeconds,VARIANT_BOOL *completed) PURE;
     STDMETHOD_(HRESULT,Cancel)(THIS) PURE;
 
     END_INTERFACE

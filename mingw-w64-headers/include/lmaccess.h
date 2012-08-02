@@ -449,9 +449,9 @@ extern "C" {
 
 #define NULL_USERSETINFO_PASSWD "              "
 
-#define TIMEQ_FOREVER ((unsigned long) -1)
-#define USER_MAXSTORAGE_UNLIMITED ((unsigned long) -1)
-#define USER_NO_LOGOFF ((unsigned long) -1)
+#define TIMEQ_FOREVER ((unsigned __LONG32) -1)
+#define USER_MAXSTORAGE_UNLIMITED ((unsigned __LONG32) -1)
+#define USER_NO_LOGOFF ((unsigned __LONG32) -1)
 #define UNITS_PER_DAY 24
 #define UNITS_PER_WEEK UNITS_PER_DAY *7
 
@@ -466,10 +466,10 @@ extern "C" {
 #define DEF_MAX_PWHIST 8
 
 #define DEF_MAX_PWAGE TIMEQ_FOREVER
-#define DEF_MIN_PWAGE (unsigned long) 0
-#define DEF_FORCE_LOGOFF (unsigned long) 0xffffffff
+#define DEF_MIN_PWAGE (unsigned __LONG32) 0
+#define DEF_FORCE_LOGOFF (unsigned __LONG32) 0xffffffff
 #define DEF_MAX_BADPW 0
-#define ONE_DAY (unsigned long) 01*24*3600
+#define ONE_DAY (unsigned __LONG32) 01*24*3600
 
 #define VALIDATED_LOGON 0
 #define PASSWORD_EXPIRED 2
