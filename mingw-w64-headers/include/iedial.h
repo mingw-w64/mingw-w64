@@ -198,10 +198,10 @@ extern "C"{
   extern RPC_IF_HANDLE __MIDL_itf_iedial_0266_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_iedial_0266_v0_0_s_ifspec;
 
-  unsigned long __RPC_API HBITMAP_UserSize(unsigned long *,unsigned long,HBITMAP *);
-  unsigned char *__RPC_API HBITMAP_UserMarshal(unsigned long *,unsigned char *,HBITMAP *);
-  unsigned char *__RPC_API HBITMAP_UserUnmarshal(unsigned long *,unsigned char *,HBITMAP *);
-  void __RPC_API HBITMAP_UserFree(unsigned long *,HBITMAP *);
+  ULONG __RPC_API HBITMAP_UserSize(ULONG *,ULONG,HBITMAP *);
+  unsigned char *__RPC_API HBITMAP_UserMarshal(ULONG *,unsigned char *,HBITMAP *);
+  unsigned char *__RPC_API HBITMAP_UserUnmarshal(ULONG *,unsigned char *,HBITMAP *);
+  void __RPC_API HBITMAP_UserFree(ULONG *,HBITMAP *);
 
 #ifdef __cplusplus
 }

@@ -1056,18 +1056,18 @@ extern "C" {
 #endif
 #endif
 
-  unsigned long __RPC_API BSTR_UserSize(unsigned long *,unsigned long,BSTR *);
-  unsigned char *__RPC_API BSTR_UserMarshal(unsigned long *,unsigned char *,BSTR *);
-  unsigned char *__RPC_API BSTR_UserUnmarshal(unsigned long *,unsigned char *,BSTR *);
-  void __RPC_API BSTR_UserFree(unsigned long *,BSTR *);
-  unsigned long __RPC_API HGLOBAL_UserSize(unsigned long *,unsigned long,HGLOBAL *);
-  unsigned char *__RPC_API HGLOBAL_UserMarshal(unsigned long *,unsigned char *,HGLOBAL *);
-  unsigned char *__RPC_API HGLOBAL_UserUnmarshal(unsigned long *,unsigned char *,HGLOBAL *);
-  void __RPC_API HGLOBAL_UserFree(unsigned long *,HGLOBAL *);
-  unsigned long __RPC_API LPSAFEARRAY_UserSize(unsigned long *,unsigned long,LPSAFEARRAY *);
-  unsigned char *__RPC_API LPSAFEARRAY_UserMarshal(unsigned long *,unsigned char *,LPSAFEARRAY *);
-  unsigned char *__RPC_API LPSAFEARRAY_UserUnmarshal(unsigned long *,unsigned char *,LPSAFEARRAY *);
-  void __RPC_API LPSAFEARRAY_UserFree(unsigned long *,LPSAFEARRAY *);
+  ULONG __RPC_API BSTR_UserSize(ULONG *,ULONG,BSTR *);
+  unsigned char *__RPC_API BSTR_UserMarshal(ULONG *,unsigned char *,BSTR *);
+  unsigned char *__RPC_API BSTR_UserUnmarshal(ULONG *,unsigned char *,BSTR *);
+  void __RPC_API BSTR_UserFree(ULONG *,BSTR *);
+  ULONG __RPC_API HGLOBAL_UserSize(ULONG *,ULONG,HGLOBAL *);
+  unsigned char *__RPC_API HGLOBAL_UserMarshal(ULONG *,unsigned char *,HGLOBAL *);
+  unsigned char *__RPC_API HGLOBAL_UserUnmarshal(ULONG *,unsigned char *,HGLOBAL *);
+  void __RPC_API HGLOBAL_UserFree(ULONG *,HGLOBAL *);
+  ULONG __RPC_API LPSAFEARRAY_UserSize(ULONG *,ULONG,LPSAFEARRAY *);
+  unsigned char *__RPC_API LPSAFEARRAY_UserMarshal(ULONG *,unsigned char *,LPSAFEARRAY *);
+  unsigned char *__RPC_API LPSAFEARRAY_UserUnmarshal(ULONG *,unsigned char *,LPSAFEARRAY *);
+  void __RPC_API LPSAFEARRAY_UserFree(ULONG *,LPSAFEARRAY *);
 
 #ifdef __cplusplus
 }

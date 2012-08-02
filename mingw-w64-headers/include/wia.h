@@ -977,22 +977,22 @@ extern "C" {
 #endif
 #endif
 
-  unsigned long __RPC_API BSTR_UserSize(unsigned long *,unsigned long,BSTR *);
-  unsigned char *__RPC_API BSTR_UserMarshal(unsigned long *,unsigned char *,BSTR *);
-  unsigned char *__RPC_API BSTR_UserUnmarshal(unsigned long *,unsigned char *,BSTR *);
-  void __RPC_API BSTR_UserFree(unsigned long *,BSTR *);
-  unsigned long __RPC_API HWND_UserSize(unsigned long *,unsigned long,HWND *);
-  unsigned char *__RPC_API HWND_UserMarshal(unsigned long *,unsigned char *,HWND *);
-  unsigned char *__RPC_API HWND_UserUnmarshal(unsigned long *,unsigned char *,HWND *);
-  void __RPC_API HWND_UserFree(unsigned long *,HWND *);
-  unsigned long __RPC_API LPSAFEARRAY_UserSize(unsigned long *,unsigned long,LPSAFEARRAY *);
-  unsigned char *__RPC_API LPSAFEARRAY_UserMarshal(unsigned long *,unsigned char *,LPSAFEARRAY *);
-  unsigned char *__RPC_API LPSAFEARRAY_UserUnmarshal(unsigned long *,unsigned char *,LPSAFEARRAY *);
-  void __RPC_API LPSAFEARRAY_UserFree(unsigned long *,LPSAFEARRAY *);
-  unsigned long __RPC_API STGMEDIUM_UserSize(unsigned long *,unsigned long,STGMEDIUM *);
-  unsigned char *__RPC_API STGMEDIUM_UserMarshal(unsigned long *,unsigned char *,STGMEDIUM *);
-  unsigned char *__RPC_API STGMEDIUM_UserUnmarshal(unsigned long *,unsigned char *,STGMEDIUM *);
-  void __RPC_API STGMEDIUM_UserFree(unsigned long *,STGMEDIUM *);
+  ULONG __RPC_API BSTR_UserSize(ULONG *,ULONG,BSTR *);
+  unsigned char *__RPC_API BSTR_UserMarshal(ULONG *,unsigned char *,BSTR *);
+  unsigned char *__RPC_API BSTR_UserUnmarshal(ULONG *,unsigned char *,BSTR *);
+  void __RPC_API BSTR_UserFree(ULONG *,BSTR *);
+  ULONG __RPC_API HWND_UserSize(ULONG *,ULONG,HWND *);
+  unsigned char *__RPC_API HWND_UserMarshal(ULONG *,unsigned char *,HWND *);
+  unsigned char *__RPC_API HWND_UserUnmarshal(ULONG *,unsigned char *,HWND *);
+  void __RPC_API HWND_UserFree(ULONG *,HWND *);
+  ULONG __RPC_API LPSAFEARRAY_UserSize(ULONG *,ULONG,LPSAFEARRAY *);
+  unsigned char *__RPC_API LPSAFEARRAY_UserMarshal(ULONG *,unsigned char *,LPSAFEARRAY *);
+  unsigned char *__RPC_API LPSAFEARRAY_UserUnmarshal(ULONG *,unsigned char *,LPSAFEARRAY *);
+  void __RPC_API LPSAFEARRAY_UserFree(ULONG *,LPSAFEARRAY *);
+  ULONG __RPC_API STGMEDIUM_UserSize(ULONG *,ULONG,STGMEDIUM *);
+  unsigned char *__RPC_API STGMEDIUM_UserMarshal(ULONG *,unsigned char *,STGMEDIUM *);
+  unsigned char *__RPC_API STGMEDIUM_UserUnmarshal(ULONG *,unsigned char *,STGMEDIUM *);
+  void __RPC_API STGMEDIUM_UserFree(ULONG *,STGMEDIUM *);
 
   HRESULT WINAPI IWiaDevMgr_CreateDevice_Proxy(IWiaDevMgr *This,BSTR bstrDeviceID,IWiaItem **ppWiaItemRoot);
   HRESULT WINAPI IWiaDevMgr_CreateDevice_Stub(IWiaDevMgr *This,BSTR bstrDeviceID,IWiaItem **ppWiaItemRoot);

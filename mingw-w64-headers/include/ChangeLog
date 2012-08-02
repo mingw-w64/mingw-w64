@@ -1,3 +1,25 @@
+2012-08-02  Corinna Vinschen  <vinschen@redhat.com>
+
+	* Throughout, change prototypes of XXX_UserSize, XXX_UserMarshal,
+	XXX_UserUnmarshal, and XXX_UserFree functions to use ULONG rather
+	than unsigned long.
+	* rpcndr.h (NDR_CHAR_REP_MASK): Use __MSABI_LONG rather than
+	explicit cast to unsigned long.
+	(NDR_INT_REP_MASK): Ditto.
+	(NDR_FLOAT_REP_MASK): Ditto.
+	(NDR_LITTLE_ENDIAN): Ditto.
+	(NDR_BIG_ENDIAN): Ditto.
+	(NDR_IEEE_FLOAT): Ditto.
+	(NDR_VAX_FLOAT): Ditto.
+	(NDR_IBM_FLOAT): Ditto.
+	(NDR_ASCII_CHAR): Ditto.
+	(NDR_EBCDIC_CHAR): Ditto.
+	(NDR_LOCAL_DATA_REPRESENTATION): Ditto.
+	(USER_MARSHAL_SIZING_ROUTINE): Use ULONG rather than unsigned long.
+	(USER_MARSHAL_MARSHALLING_ROUTINE): Ditto.
+	(USER_MARSHAL_UNMARSHALLING_ROUTINE): Ditto.
+	(USER_MARSHAL_FREEING_ROUTINE): Ditto.
+
 2012-08-01  Corinna Vinschen  <vinschen@redhat.com>
 
 	* msxml.idl: Throughout, replace long and unsigned long with LONG and

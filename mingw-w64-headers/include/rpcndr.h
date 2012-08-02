@@ -24,21 +24,21 @@
 extern "C" {
 #endif
 
-#define NDR_CHAR_REP_MASK (unsigned long)0X0000000FL
-#define NDR_INT_REP_MASK (unsigned long)0X000000F0L
-#define NDR_FLOAT_REP_MASK (unsigned long)0X0000FF00L
+#define NDR_CHAR_REP_MASK __MSABI_LONG(0X0000000FU)
+#define NDR_INT_REP_MASK __MSABI_LONG(0X000000F0U)
+#define NDR_FLOAT_REP_MASK __MSABI_LONG(0X0000FF00U)
 
-#define NDR_LITTLE_ENDIAN (unsigned long)0X00000010L
-#define NDR_BIG_ENDIAN (unsigned long)0X00000000L
+#define NDR_LITTLE_ENDIAN __MSABI_LONG(0X00000010U)
+#define NDR_BIG_ENDIAN __MSABI_LONG(0X00000000U)
 
-#define NDR_IEEE_FLOAT (unsigned long)0X00000000L
-#define NDR_VAX_FLOAT (unsigned long)0X00000100L
-#define NDR_IBM_FLOAT (unsigned long)0X00000300L
+#define NDR_IEEE_FLOAT __MSABI_LONG(0X00000000U)
+#define NDR_VAX_FLOAT __MSABI_LONG(0X00000100U)
+#define NDR_IBM_FLOAT __MSABI_LONG(0X00000300U)
 
-#define NDR_ASCII_CHAR (unsigned long)0X00000000L
-#define NDR_EBCDIC_CHAR (unsigned long)0X00000001L
+#define NDR_ASCII_CHAR __MSABI_LONG(0X00000000U)
+#define NDR_EBCDIC_CHAR __MSABI_LONG(0X00000001U)
 
-#define NDR_LOCAL_DATA_REPRESENTATION (unsigned long)0X00000010L
+#define NDR_LOCAL_DATA_REPRESENTATION __MSABI_LONG(0X00000010U)
 #define NDR_LOCAL_ENDIAN NDR_LITTLE_ENDIAN
 
 #define TARGET_IS_NT51_OR_LATER 1
@@ -328,10 +328,10 @@ typedef unsigned long error_status_t;
     XMIT_HELPER_ROUTINE pfnFreeInst;
   } XMIT_ROUTINE_QUINTUPLE,*PXMIT_ROUTINE_QUINTUPLE;
 
-  typedef unsigned long (__RPC_API *USER_MARSHAL_SIZING_ROUTINE)(unsigned long *,unsigned long,void *);
-  typedef unsigned char *(__RPC_API *USER_MARSHAL_MARSHALLING_ROUTINE)(unsigned long *,unsigned char *,void *);
-  typedef unsigned char *(__RPC_API *USER_MARSHAL_UNMARSHALLING_ROUTINE)(unsigned long *,unsigned char *,void *);
-  typedef void (__RPC_API *USER_MARSHAL_FREEING_ROUTINE)(unsigned long *,void *);
+  typedef ULONG (__RPC_API *USER_MARSHAL_SIZING_ROUTINE)(ULONG *,ULONG,void *);
+  typedef unsigned char *(__RPC_API *USER_MARSHAL_MARSHALLING_ROUTINE)(ULONG *,unsigned char *,void *);
+  typedef unsigned char *(__RPC_API *USER_MARSHAL_UNMARSHALLING_ROUTINE)(ULONG *,unsigned char *,void *);
+  typedef void (__RPC_API *USER_MARSHAL_FREEING_ROUTINE)(ULONG *,void *);
 
   typedef struct _USER_MARSHAL_ROUTINE_QUADRUPLE {
     USER_MARSHAL_SIZING_ROUTINE pfnBufferSize;
