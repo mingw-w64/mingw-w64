@@ -65,20 +65,20 @@ extern "C" {
   typedef int HALF_PTR,*PHALF_PTR;
 
 #ifndef __WIDL__
-  static __inline unsigned long HandleToULong(const void *h) { return((unsigned long) (ULONG_PTR) h); }
-  static __inline long HandleToLong(const void *h) { return((long) (LONG_PTR) h); }
-  static __inline void *ULongToHandle(const unsigned long h) { return((void *) (UINT_PTR) h); }
-  static __inline void *LongToHandle(const long h) { return((void *) (INT_PTR) h); }
-  static __inline unsigned long PtrToUlong(const void *p) { return((unsigned long) (ULONG_PTR) p); }
+  static __inline unsigned __LONG32 HandleToULong(const void *h) { return((unsigned __LONG32) (ULONG_PTR) h); }
+  static __inline __LONG32 HandleToLong(const void *h) { return((__LONG32) (LONG_PTR) h); }
+  static __inline void *ULongToHandle(const unsigned __LONG32 h) { return((void *) (UINT_PTR) h); }
+  static __inline void *LongToHandle(const __LONG32 h) { return((void *) (INT_PTR) h); }
+  static __inline unsigned __LONG32 PtrToUlong(const void *p) { return((unsigned __LONG32) (ULONG_PTR) p); }
   static __inline unsigned int PtrToUint(const void *p) { return((unsigned int) (UINT_PTR) p); }
-  static __inline unsigned short PtrToUshort(const void *p) { return((unsigned short) (unsigned long) (ULONG_PTR) p); }
-  static __inline long PtrToLong(const void *p) { return((long) (LONG_PTR) p); }
+  static __inline unsigned short PtrToUshort(const void *p) { return((unsigned short) (unsigned __LONG32) (ULONG_PTR) p); }
+  static __inline __LONG32 PtrToLong(const void *p) { return((__LONG32) (LONG_PTR) p); }
   static __inline int PtrToInt(const void *p) { return((int) (INT_PTR) p); }
-  static __inline short PtrToShort(const void *p) { return((short) (long) (LONG_PTR) p); }
+  static __inline short PtrToShort(const void *p) { return((short) (__LONG32) (LONG_PTR) p); }
   static __inline void *IntToPtr(const int i) { return((void *)(INT_PTR)i); }
   static __inline void *UIntToPtr(const unsigned int ui) { return((void *)(UINT_PTR)ui); }
-  static __inline void *LongToPtr(const long l) { return((void *)(LONG_PTR)l); }
-  static __inline void *ULongToPtr(const unsigned long ul) { return((void *)(ULONG_PTR)ul); }
+  static __inline void *LongToPtr(const __LONG32 l) { return((void *)(LONG_PTR)l); }
+  static __inline void *ULongToPtr(const unsigned __LONG32 ul) { return((void *)(ULONG_PTR)ul); }
 
 #define PtrToPtr64(p) ((void *) (ULONG_PTR) p)
 #define Ptr64ToPtr(p) ((void *) (ULONG_PTR) p)

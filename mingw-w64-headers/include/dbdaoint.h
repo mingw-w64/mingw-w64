@@ -239,17 +239,17 @@ DECLARE_INTERFACE_(_DAODBEngine,_DAO) {
   STDMETHOD(CreateDatabase) (BSTR Name,BSTR Locale,VARIANT Option,DAODatabase **ppdb) PURE;
   STDMETHOD(FreeLocks) (VOID) PURE;
   STDMETHOD(BeginTrans) (VOID) PURE;
-  STDMETHOD(CommitTrans) (long Option) PURE;
+  STDMETHOD(CommitTrans) (__LONG32 Option) PURE;
   STDMETHOD(Rollback) (VOID) PURE;
   STDMETHOD(SetDefaultWorkspace) (BSTR Name,BSTR Password) PURE;
   STDMETHOD(SetDataAccessOption) (short Option,VARIANT Value) PURE;
-  STDMETHOD(ISAMStats) (long StatNum,VARIANT Reset,long *pl) PURE;
+  STDMETHOD(ISAMStats) (__LONG32 StatNum,VARIANT Reset,__LONG32 *pl) PURE;
   STDMETHOD(get_SystemDB) (BSTR *pbstr) PURE;
   STDMETHOD(put_SystemDB) (BSTR SystemDBPath) PURE;
   STDMETHOD(CreateWorkspace) (BSTR Name,BSTR UserName,BSTR Password,VARIANT UseType,DAOWorkspace **ppwrk) PURE;
   STDMETHOD(OpenConnection) (BSTR Name,VARIANT Options,VARIANT ReadOnly,VARIANT Connect,DAOConnection **ppconn) PURE;
-  STDMETHOD(get_DefaultType) (long *Option) PURE;
-  STDMETHOD(put_DefaultType) (long Option) PURE;
+  STDMETHOD(get_DefaultType) (__LONG32 *Option) PURE;
+  STDMETHOD(put_DefaultType) (__LONG32 Option) PURE;
   STDMETHOD(SetOption) (LONG Option,VARIANT Value) PURE;
   STDMETHOD(DumpObjects) (BSTR *pbstr) PURE;
   STDMETHOD(DebugPrint) (BSTR bstr) PURE;
@@ -258,11 +258,11 @@ DECLARE_INTERFACE_(_DAODBEngine,_DAO) {
 #undef INTERFACE
 #define INTERFACE DAOError
 DECLARE_INTERFACE_(DAOError,IDispatch) {
-  STDMETHOD(get_Number) (long *pl) PURE;
+  STDMETHOD(get_Number) (__LONG32 *pl) PURE;
   STDMETHOD(get_Source) (BSTR *pbstr) PURE;
   STDMETHOD(get_Description) (BSTR *pbstr) PURE;
   STDMETHOD(get_HelpFile) (BSTR *pbstr) PURE;
-  STDMETHOD(get_HelpContext) (long *pl) PURE;
+  STDMETHOD(get_HelpContext) (__LONG32 *pl) PURE;
 };
 
 #undef INTERFACE
@@ -303,7 +303,7 @@ DECLARE_INTERFACE_(DAOWorkspace,_DAO) {
   STDMETHOD(get_Users) (DAOUsers **ppusrs) PURE;
   STDMETHOD(get_Groups) (DAOGroups **ppgrps) PURE;
   STDMETHOD(BeginTrans) (VOID) PURE;
-  STDMETHOD(CommitTrans) (long Options) PURE;
+  STDMETHOD(CommitTrans) (__LONG32 Options) PURE;
   STDMETHOD(Close) (VOID) PURE;
   STDMETHOD(Rollback) (VOID) PURE;
   STDMETHOD(OpenDatabase) (BSTR Name,VARIANT Options,VARIANT ReadOnly,VARIANT Connect,DAODatabase **ppdb) PURE;
@@ -311,10 +311,10 @@ DECLARE_INTERFACE_(DAOWorkspace,_DAO) {
   STDMETHOD(CreateUser) (VARIANT Name,VARIANT PID,VARIANT Password,DAOUser **ppusr) PURE;
   STDMETHOD(CreateGroup) (VARIANT Name,VARIANT PID,DAOGroup **ppgrp) PURE;
   STDMETHOD(OpenConnection) (BSTR Name,VARIANT Options,VARIANT ReadOnly,VARIANT Connect,DAOConnection **ppconn) PURE;
-  STDMETHOD(get_LoginTimeout) (long *pTimeout) PURE;
-  STDMETHOD(put_LoginTimeout) (long Timeout) PURE;
-  STDMETHOD(get_DefaultCursorDriver) (long *pCursorType) PURE;
-  STDMETHOD(put_DefaultCursorDriver) (long CursorType) PURE;
+  STDMETHOD(get_LoginTimeout) (__LONG32 *pTimeout) PURE;
+  STDMETHOD(put_LoginTimeout) (__LONG32 Timeout) PURE;
+  STDMETHOD(get_DefaultCursorDriver) (__LONG32 *pCursorType) PURE;
+  STDMETHOD(put_DefaultCursorDriver) (__LONG32 CursorType) PURE;
   STDMETHOD(get_hEnv) (LONG *phEnv) PURE;
   STDMETHOD(get_Type) (LONG *ptype) PURE;
   STDMETHOD(get_Connections) (DAOConnections **ppcns) PURE;
@@ -366,7 +366,7 @@ DECLARE_INTERFACE_(DAODatabase,_DAO) {
   STDMETHOD(get_Transactions) (VARIANT_BOOL *pb) PURE;
   STDMETHOD(get_Updatable) (VARIANT_BOOL *pb) PURE;
   STDMETHOD(get_Version) (BSTR *pbstr) PURE;
-  STDMETHOD(get_RecordsAffected) (long *pl) PURE;
+  STDMETHOD(get_RecordsAffected) (__LONG32 *pl) PURE;
   STDMETHOD(get_TableDefs) (DAOTableDefs **pptdfs) PURE;
   STDMETHOD(get_QueryDefs) (DAOQueryDefs **ppqdfs) PURE;
   STDMETHOD(get_Relations) (DAORelations **pprls) PURE;
@@ -379,13 +379,13 @@ DECLARE_INTERFACE_(DAODatabase,_DAO) {
   STDMETHOD(CreateRelation) (VARIANT Name,VARIANT Table,VARIANT ForeignTable,VARIANT Attributes,DAORelation **pprel) PURE;
   STDMETHOD(CreateTableDef) (VARIANT Name,VARIANT Attributes,VARIANT SourceTablename,VARIANT Connect,DAOTableDef **pptdf) PURE;
   STDMETHOD(BeginTrans) (VOID) PURE;
-  STDMETHOD(CommitTrans) (long Options) PURE;
+  STDMETHOD(CommitTrans) (__LONG32 Options) PURE;
   STDMETHOD(Rollback) (VOID) PURE;
   STDMETHOD(CreateDynaset) (BSTR Name,VARIANT Options,VARIANT Inconsistent,DAORecordset **pprst) PURE;
   STDMETHOD(CreateQueryDef) (VARIANT Name,VARIANT SQLText,DAOQueryDef **ppqdf) PURE;
   STDMETHOD(CreateSnapshot) (BSTR Source,VARIANT Options,DAORecordset **pprst) PURE;
   STDMETHOD(DeleteQueryDef) (BSTR Name) PURE;
-  STDMETHOD(ExecuteSQL) (BSTR SQL,long *pl) PURE;
+  STDMETHOD(ExecuteSQL) (BSTR SQL,__LONG32 *pl) PURE;
   STDMETHOD(ListFields) (BSTR Name,DAORecordset **pprst) PURE;
   STDMETHOD(ListTables) (DAORecordset **pprst) PURE;
   STDMETHOD(OpenQueryDef) (BSTR Name,DAOQueryDef **ppqdf) PURE;
@@ -411,8 +411,8 @@ DECLARE_INTERFACE_(DAODatabases,_DAOCollection) {
 #undef INTERFACE
 #define INTERFACE _DAOTableDef
 DECLARE_INTERFACE_(_DAOTableDef,_DAO) {
-  STDMETHOD(get_Attributes) (long *pl) PURE;
-  STDMETHOD(put_Attributes) (long Attributes) PURE;
+  STDMETHOD(get_Attributes) (__LONG32 *pl) PURE;
+  STDMETHOD(put_Attributes) (__LONG32 Attributes) PURE;
   STDMETHOD(get_Connect) (BSTR *pbstr) PURE;
   STDMETHOD(put_Connect) (BSTR Connection) PURE;
   STDMETHOD(get_DateCreated) (VARIANT *pvar) PURE;
@@ -426,7 +426,7 @@ DECLARE_INTERFACE_(_DAOTableDef,_DAO) {
   STDMETHOD(put_ValidationText) (BSTR bstr) PURE;
   STDMETHOD(get_ValidationRule) (BSTR *pbstr) PURE;
   STDMETHOD(put_ValidationRule) (BSTR bstr) PURE;
-  STDMETHOD(get_RecordCount) (long *pl) PURE;
+  STDMETHOD(get_RecordCount) (__LONG32 *pl) PURE;
   STDMETHOD(get_Fields) (DAOFields **ppflds) PURE;
   STDMETHOD(get_Indexes) (DAOIndexes **ppidxs) PURE;
   STDMETHOD(OpenRecordset) (VARIANT Type,VARIANT Options,DAORecordset **pprst) PURE;
@@ -462,7 +462,7 @@ DECLARE_INTERFACE_(_DAOQueryDef,_DAO) {
   STDMETHOD(put_Connect) (BSTR bstr) PURE;
   STDMETHOD(get_ReturnsRecords) (VARIANT_BOOL *pb) PURE;
   STDMETHOD(put_ReturnsRecords) (VARIANT_BOOL f) PURE;
-  STDMETHOD(get_RecordsAffected) (long *pl) PURE;
+  STDMETHOD(get_RecordsAffected) (__LONG32 *pl) PURE;
   STDMETHOD(get_Fields) (DAOFields **ppflds) PURE;
   STDMETHOD(get_Parameters) (DAOParameters **ppprms) PURE;
   STDMETHOD(Close) (VOID) PURE;
@@ -482,8 +482,8 @@ DECLARE_INTERFACE_(_DAOQueryDef,_DAO) {
   STDMETHOD(get_MaxRecords) (LONG *pMxRecs) PURE;
   STDMETHOD(put_MaxRecords) (LONG MxRecs) PURE;
   STDMETHOD(get_StillExecuting) (VARIANT_BOOL *pStillExec) PURE;
-  STDMETHOD(get_CacheSize) (long *lCacheSize) PURE;
-  STDMETHOD(put_CacheSize) (long lCacheSize) PURE;
+  STDMETHOD(get_CacheSize) (__LONG32 *lCacheSize) PURE;
+  STDMETHOD(put_CacheSize) (__LONG32 lCacheSize) PURE;
   STDMETHOD(get_Prepare) (VARIANT *pb) PURE;
   STDMETHOD(put_Prepare) (VARIANT f) PURE;
 };
@@ -519,22 +519,22 @@ DECLARE_INTERFACE_(DAORecordset,_DAO) {
   STDMETHOD(put_Sort) (BSTR Sort) PURE;
   STDMETHOD(get_Transactions) (VARIANT_BOOL *pb) PURE;
   STDMETHOD(get_Type) (short *ps) PURE;
-  STDMETHOD(get_RecordCount) (long *pl) PURE;
+  STDMETHOD(get_RecordCount) (__LONG32 *pl) PURE;
   STDMETHOD(get_Updatable) (VARIANT_BOOL *pb) PURE;
   STDMETHOD(get_Restartable) (VARIANT_BOOL *pb) PURE;
   STDMETHOD(get_ValidationText) (BSTR *pbstr) PURE;
   STDMETHOD(get_ValidationRule) (BSTR *pbstr) PURE;
   STDMETHOD(get_CacheStart) (SAFEARRAY **ppsa) PURE;
   STDMETHOD(put_CacheStart) (SAFEARRAY **psa) PURE;
-  STDMETHOD(get_CacheSize) (long *pl) PURE;
-  STDMETHOD(put_CacheSize) (long CacheSize) PURE;
+  STDMETHOD(get_CacheSize) (__LONG32 *pl) PURE;
+  STDMETHOD(put_CacheSize) (__LONG32 CacheSize) PURE;
   STDMETHOD(get_PercentPosition) (float *pd) PURE;
   STDMETHOD(put_PercentPosition) (float Position) PURE;
-  STDMETHOD(get_AbsolutePosition) (long *pl) PURE;
-  STDMETHOD(put_AbsolutePosition) (long Position) PURE;
+  STDMETHOD(get_AbsolutePosition) (__LONG32 *pl) PURE;
+  STDMETHOD(put_AbsolutePosition) (__LONG32 Position) PURE;
   STDMETHOD(get_EditMode) (short *pi) PURE;
-  STDMETHOD(get_ODBCFetchCount) (long *pl) PURE;
-  STDMETHOD(get_ODBCFetchDelay) (long *pl) PURE;
+  STDMETHOD(get_ODBCFetchCount) (__LONG32 *pl) PURE;
+  STDMETHOD(get_ODBCFetchDelay) (__LONG32 *pl) PURE;
   STDMETHOD(get_Parent) (DAODatabase **pdb) PURE;
   STDMETHOD(get_Fields) (DAOFields **ppflds) PURE;
   STDMETHOD(get_Indexes) (DAOIndexes **ppidxs) PURE;
@@ -556,7 +556,7 @@ DECLARE_INTERFACE_(DAORecordset,_DAO) {
   STDMETHOD(_30_Update) (VOID) PURE;
   STDMETHOD(Clone) (DAORecordset **pprst) PURE;
   STDMETHOD(Requery) (VARIANT NewQueryDef) PURE;
-  STDMETHOD(Move) (long Rows,VARIANT StartBookmark) PURE;
+  STDMETHOD(Move) (__LONG32 Rows,VARIANT StartBookmark) PURE;
   STDMETHOD(FillCache) (VARIANT Rows,VARIANT StartBookmark) PURE;
   STDMETHOD(CreateDynaset) (VARIANT Options,VARIANT Inconsistent,DAORecordset **pprst) PURE;
   STDMETHOD(CreateSnapshot) (VARIANT Options,DAORecordset **pprst) PURE;
@@ -570,18 +570,18 @@ DECLARE_INTERFACE_(DAORecordset,_DAO) {
   STDMETHOD(NextRecordset) (VARIANT_BOOL *pb) PURE;
   STDMETHOD(get_hStmt) (LONG *phStmt) PURE;
   STDMETHOD(get_StillExecuting) (VARIANT_BOOL *pStillExec) PURE;
-  STDMETHOD(get_BatchSize) (long *pl) PURE;
-  STDMETHOD(put_BatchSize) (long BatchSize) PURE;
-  STDMETHOD(get_BatchCollisionCount) (long *pl) PURE;
+  STDMETHOD(get_BatchSize) (__LONG32 *pl) PURE;
+  STDMETHOD(put_BatchSize) (__LONG32 BatchSize) PURE;
+  STDMETHOD(get_BatchCollisionCount) (__LONG32 *pl) PURE;
   STDMETHOD(get_BatchCollisions) (VARIANT *pvar) PURE;
   STDMETHOD(get_Connection) (DAOConnection **ppCn) PURE;
   STDMETHOD(putref_Connection) (DAOConnection *pNewCn) PURE;
   STDMETHOD(get_RecordStatus) (short *pi) PURE;
-  STDMETHOD(get_UpdateOptions) (long *pl) PURE;
-  STDMETHOD(put_UpdateOptions) (long l) PURE;
-  STDMETHOD(CancelUpdate) (long UpdateType) PURE;
-  STDMETHOD(Update) (long UpdateType,VARIANT_BOOL Force) PURE;
-  STDMETHOD(MoveLast) (long Options) PURE;
+  STDMETHOD(get_UpdateOptions) (__LONG32 *pl) PURE;
+  STDMETHOD(put_UpdateOptions) (__LONG32 l) PURE;
+  STDMETHOD(CancelUpdate) (__LONG32 UpdateType) PURE;
+  STDMETHOD(Update) (__LONG32 UpdateType,VARIANT_BOOL Force) PURE;
+  STDMETHOD(MoveLast) (__LONG32 Options) PURE;
 };
 
 #undef INTERFACE
@@ -593,19 +593,19 @@ DECLARE_INTERFACE_(DAORecordsets,_DAOCollection) {
 #undef INTERFACE
 #define INTERFACE _DAOField
 DECLARE_INTERFACE_(_DAOField,_DAO) {
-  STDMETHOD(get_CollatingOrder) (long *pl) PURE;
+  STDMETHOD(get_CollatingOrder) (__LONG32 *pl) PURE;
   STDMETHOD(get_Type) (short *ps) PURE;
   STDMETHOD(put_Type) (short Type) PURE;
   STDMETHOD(get_Name) (BSTR *pbstr) PURE;
   STDMETHOD(put_Name) (BSTR Name) PURE;
-  STDMETHOD(get_Size) (long *pl) PURE;
-  STDMETHOD(put_Size) (long Size) PURE;
+  STDMETHOD(get_Size) (__LONG32 *pl) PURE;
+  STDMETHOD(put_Size) (__LONG32 Size) PURE;
   STDMETHOD(get_SourceField) (BSTR *pbstr) PURE;
   STDMETHOD(get_SourceTable) (BSTR *pbstr) PURE;
   STDMETHOD(get_Value) (VARIANT *pvar) PURE;
   STDMETHOD(put_Value) (VARIANT Val) PURE;
-  STDMETHOD(get_Attributes) (long *pl) PURE;
-  STDMETHOD(put_Attributes) (long Attr) PURE;
+  STDMETHOD(get_Attributes) (__LONG32 *pl) PURE;
+  STDMETHOD(put_Attributes) (__LONG32 Attr) PURE;
   STDMETHOD(get_OrdinalPosition) (short *ps) PURE;
   STDMETHOD(put_OrdinalPosition) (short Pos) PURE;
   STDMETHOD(get_ValidationText) (BSTR *pbstr) PURE;
@@ -624,13 +624,13 @@ DECLARE_INTERFACE_(_DAOField,_DAO) {
   STDMETHOD(get_ForeignName) (BSTR *pbstr) PURE;
   STDMETHOD(put_ForeignName) (BSTR bstr) PURE;
   STDMETHOD(AppendChunk) (VARIANT Val) PURE;
-  STDMETHOD(GetChunk) (long Offset,long Bytes,VARIANT *pvar) PURE;
-  STDMETHOD(_30_FieldSize) (long *pl) PURE;
+  STDMETHOD(GetChunk) (__LONG32 Offset,__LONG32 Bytes,VARIANT *pvar) PURE;
+  STDMETHOD(_30_FieldSize) (__LONG32 *pl) PURE;
   STDMETHOD(CreateProperty) (VARIANT Name,VARIANT Type,VARIANT Value,VARIANT DDL,DAOProperty **pprp) PURE;
   STDMETHOD(get_CollectionIndex) (short *i) PURE;
   STDMETHOD(get_OriginalValue) (VARIANT *pvar) PURE;
   STDMETHOD(get_VisibleValue) (VARIANT *pvar) PURE;
-  STDMETHOD(get_FieldSize) (long *pl) PURE;
+  STDMETHOD(get_FieldSize) (__LONG32 *pl) PURE;
 };
 
 #undef INTERFACE
@@ -655,7 +655,7 @@ DECLARE_INTERFACE_(_DAOIndex,_DAO) {
   STDMETHOD(put_IgnoreNulls) (VARIANT_BOOL fIgnoreNulls) PURE;
   STDMETHOD(get_Primary) (VARIANT_BOOL *pb) PURE;
   STDMETHOD(put_Primary) (VARIANT_BOOL fPrimary) PURE;
-  STDMETHOD(get_DistinctCount) (long *pl) PURE;
+  STDMETHOD(get_DistinctCount) (__LONG32 *pl) PURE;
   STDMETHOD(get_Fields) (VARIANT *pv) PURE;
   STDMETHOD(put_Fields) (VARIANT v) PURE;
   STDMETHOD(CreateField) (VARIANT Name,VARIANT Type,VARIANT Size,DAOField **ppfld) PURE;
@@ -729,8 +729,8 @@ DECLARE_INTERFACE_(_DAORelation,_DAO) {
   STDMETHOD(put_Table) (BSTR bstr) PURE;
   STDMETHOD(get_ForeignTable) (BSTR *pbstr) PURE;
   STDMETHOD(put_ForeignTable) (BSTR bstr) PURE;
-  STDMETHOD(get_Attributes) (long *pl) PURE;
-  STDMETHOD(put_Attributes) (long attr) PURE;
+  STDMETHOD(get_Attributes) (__LONG32 *pl) PURE;
+  STDMETHOD(put_Attributes) (__LONG32 attr) PURE;
   STDMETHOD(get_Fields) (DAOFields **ppflds) PURE;
   STDMETHOD(CreateField) (VARIANT Name,VARIANT Type,VARIANT Size,DAOField **ppfld) PURE;
   STDMETHOD(get_PartialReplica) (VARIANT_BOOL *pfPartialReplica) PURE;
@@ -751,12 +751,12 @@ DECLARE_INTERFACE_(DAOContainer,_DAO) {
   STDMETHOD(put_Owner) (BSTR bstr) PURE;
   STDMETHOD(get_UserName) (BSTR *pbstr) PURE;
   STDMETHOD(put_UserName) (BSTR bstr) PURE;
-  STDMETHOD(get_Permissions) (long *pl) PURE;
-  STDMETHOD(put_Permissions) (long permissions) PURE;
+  STDMETHOD(get_Permissions) (__LONG32 *pl) PURE;
+  STDMETHOD(put_Permissions) (__LONG32 permissions) PURE;
   STDMETHOD(get_Inherit) (VARIANT_BOOL *pb) PURE;
   STDMETHOD(put_Inherit) (VARIANT_BOOL fInherit) PURE;
   STDMETHOD(get_Documents) (DAODocuments **ppdocs) PURE;
-  STDMETHOD(get_AllPermissions) (long *pl) PURE;
+  STDMETHOD(get_AllPermissions) (__LONG32 *pl) PURE;
 };
 
 #undef INTERFACE
@@ -774,11 +774,11 @@ DECLARE_INTERFACE_(DAODocument,_DAO) {
   STDMETHOD(get_Container) (BSTR *pbstr) PURE;
   STDMETHOD(get_UserName) (BSTR *pbstr) PURE;
   STDMETHOD(put_UserName) (BSTR bstr) PURE;
-  STDMETHOD(get_Permissions) (long *pl) PURE;
-  STDMETHOD(put_Permissions) (long permissions) PURE;
+  STDMETHOD(get_Permissions) (__LONG32 *pl) PURE;
+  STDMETHOD(put_Permissions) (__LONG32 permissions) PURE;
   STDMETHOD(get_DateCreated) (VARIANT *pvar) PURE;
   STDMETHOD(get_LastUpdated) (VARIANT *pvar) PURE;
-  STDMETHOD(get_AllPermissions) (long *pl) PURE;
+  STDMETHOD(get_AllPermissions) (__LONG32 *pl) PURE;
   STDMETHOD(CreateProperty) (VARIANT Name,VARIANT Type,VARIANT Value,VARIANT DDL,DAOProperty **pprp) PURE;
 };
 

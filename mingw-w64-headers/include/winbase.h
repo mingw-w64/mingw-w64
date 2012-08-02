@@ -1633,8 +1633,8 @@ extern "C" {
   WINBASEAPI HFILE WINAPI _lcreat(LPCSTR lpPathName,int iAttribute);
   WINBASEAPI UINT WINAPI _lread(HFILE hFile,LPVOID lpBuffer,UINT uBytes);
   WINBASEAPI UINT WINAPI _lwrite(HFILE hFile,LPCCH lpBuffer,UINT uBytes);
-  WINBASEAPI long WINAPI _hread(HFILE hFile,LPVOID lpBuffer,long lBytes);
-  WINBASEAPI long WINAPI _hwrite(HFILE hFile,LPCCH lpBuffer,long lBytes);
+  WINBASEAPI __LONG32 WINAPI _hread(HFILE hFile,LPVOID lpBuffer,__LONG32 lBytes);
+  WINBASEAPI __LONG32 WINAPI _hwrite(HFILE hFile,LPCCH lpBuffer,__LONG32 lBytes);
   WINBASEAPI HFILE WINAPI _lclose(HFILE hFile);
   WINBASEAPI LONG WINAPI _llseek(HFILE hFile,LONG lOffset,int iOrigin);
   WINADVAPI WINBOOL WINAPI IsTextUnicode(CONST VOID *lpv,int iSize,LPINT lpiResult);

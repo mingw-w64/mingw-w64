@@ -28,7 +28,7 @@ extern "C" {
 
 #ifndef BASETYPES
 #define BASETYPES
-  typedef unsigned long ULONG;
+  typedef unsigned __LONG32 ULONG;
   typedef ULONG *PULONG;
   typedef unsigned short USHORT;
   typedef USHORT *PUSHORT;
@@ -43,9 +43,9 @@ extern "C" {
   typedef unsigned int UINT;
 #endif
 
-  typedef unsigned long CHECKSUM;
-  typedef unsigned long UOFF;
-  typedef unsigned long COFF;
+  typedef unsigned __LONG32 CHECKSUM;
+  typedef unsigned __LONG32 UOFF;
+  typedef unsigned __LONG32 COFF;
 
 #ifndef TRUE
 #define TRUE 1
@@ -174,20 +174,20 @@ extern "C" {
   typedef UINT (DIAMONDAPI *PFNFCIREAD) (INT_PTR hf,void *memory,UINT cb,int *err,void *pv);
   typedef UINT (DIAMONDAPI *PFNFCIWRITE)(INT_PTR hf,void *memory,UINT cb,int *err,void *pv);
   typedef int (DIAMONDAPI *PFNFCICLOSE)(INT_PTR hf,int *err,void *pv);
-  typedef long (DIAMONDAPI *PFNFCISEEK) (INT_PTR hf,long dist,int seektype,int *err,void *pv);
+  typedef __LONG32 (DIAMONDAPI *PFNFCISEEK) (INT_PTR hf,__LONG32 dist,int seektype,int *err,void *pv);
   typedef int (DIAMONDAPI *PFNFCIDELETE) (char *pszFile,int *err,void *pv);
 
 #define FNFCIOPEN(fn) INT_PTR DIAMONDAPI fn(char *pszFile,int oflag,int pmode,int *err,void *pv)
 #define FNFCIREAD(fn) UINT DIAMONDAPI fn(INT_PTR hf,void *memory,UINT cb,int *err,void *pv)
 #define FNFCIWRITE(fn) UINT DIAMONDAPI fn(INT_PTR hf,void *memory,UINT cb,int *err,void *pv)
 #define FNFCICLOSE(fn) int DIAMONDAPI fn(INT_PTR hf,int *err,void *pv)
-#define FNFCISEEK(fn) long DIAMONDAPI fn(INT_PTR hf,long dist,int seektype,int *err,void *pv)
+#define FNFCISEEK(fn) __LONG32 DIAMONDAPI fn(INT_PTR hf,__LONG32 dist,int seektype,int *err,void *pv)
 #define FNFCIDELETE(fn) int DIAMONDAPI fn(char *pszFile,int *err,void *pv)
 
   typedef WINBOOL (DIAMONDAPI *PFNFCIGETNEXTCABINET)(PCCAB pccab,ULONG cbPrevCab,void *pv);
 #define FNFCIGETNEXTCABINET(fn) WINBOOL DIAMONDAPI fn(PCCAB pccab,ULONG cbPrevCab,void *pv)
-  typedef int (DIAMONDAPI *PFNFCIFILEPLACED)(PCCAB pccab,char *pszFile,long cbFile,WINBOOL fContinuation,void *pv);
-#define FNFCIFILEPLACED(fn) int DIAMONDAPI fn(PCCAB pccab,char *pszFile,long cbFile,WINBOOL fContinuation,void *pv)
+  typedef int (DIAMONDAPI *PFNFCIFILEPLACED)(PCCAB pccab,char *pszFile,__LONG32 cbFile,WINBOOL fContinuation,void *pv);
+#define FNFCIFILEPLACED(fn) int DIAMONDAPI fn(PCCAB pccab,char *pszFile,__LONG32 cbFile,WINBOOL fContinuation,void *pv)
   typedef INT_PTR (DIAMONDAPI *PFNFCIGETOPENINFO)(char *pszName,USHORT *pdate,USHORT *ptime,USHORT *pattribs,int *err,void *pv);
 #define FNFCIGETOPENINFO(fn) INT_PTR DIAMONDAPI fn(char *pszName,USHORT *pdate,USHORT *ptime,USHORT *pattribs,int *err,void *pv)
 
@@ -195,8 +195,8 @@ extern "C" {
 #define statusFolder 1
 #define statusCabinet 2
 
-  typedef long (DIAMONDAPI *PFNFCISTATUS)(UINT typeStatus,ULONG cb1,ULONG cb2,void *pv);
-#define FNFCISTATUS(fn) long DIAMONDAPI fn(UINT typeStatus,ULONG cb1,ULONG cb2,void *pv)
+  typedef __LONG32 (DIAMONDAPI *PFNFCISTATUS)(UINT typeStatus,ULONG cb1,ULONG cb2,void *pv);
+#define FNFCISTATUS(fn) __LONG32 DIAMONDAPI fn(UINT typeStatus,ULONG cb1,ULONG cb2,void *pv)
   typedef WINBOOL (DIAMONDAPI *PFNFCIGETTEMPFILE)(char *pszTempName,int cbTempName,void *pv);
 #define FNFCIGETTEMPFILE(fn) WINBOOL DIAMONDAPI fn(char *pszTempName,int cbTempName,void *pv)
 

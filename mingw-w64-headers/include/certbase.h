@@ -30,7 +30,7 @@ extern "C"{
 #endif
 
   typedef struct _CERTTRANSBLOB {
-    unsigned long cb;
+    unsigned __LONG32 cb;
     BYTE *pb;
   } CERTTRANSBLOB;
 

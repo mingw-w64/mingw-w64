@@ -28,7 +28,7 @@ extern "C" {
 
 #ifndef BASETYPES
 #define BASETYPES
-  typedef unsigned long ULONG;
+  typedef unsigned __LONG32 ULONG;
   typedef ULONG *PULONG;
   typedef unsigned short USHORT;
   typedef USHORT *PUSHORT;
@@ -43,10 +43,10 @@ extern "C" {
   typedef unsigned int UINT;
 #endif
 
-  typedef unsigned long CHECKSUM;
+  typedef unsigned __LONG32 CHECKSUM;
 
-  typedef unsigned long UOFF;
-  typedef unsigned long COFF;
+  typedef unsigned __LONG32 UOFF;
+  typedef unsigned __LONG32 COFF;
 
 #ifndef TRUE
 #define TRUE 1
@@ -147,7 +147,7 @@ extern "C" {
   typedef void *HFDI;
 
   typedef struct {
-    long cbCabinet;
+    __LONG32 cbCabinet;
     USHORT cFolders;
     USHORT cFiles;
     USHORT setID;
@@ -203,19 +203,19 @@ extern "C" {
   typedef UINT (DIAMONDAPI *PFNREAD) (INT_PTR hf,void *pv,UINT cb);
   typedef UINT (DIAMONDAPI *PFNWRITE)(INT_PTR hf,void *pv,UINT cb);
   typedef int (DIAMONDAPI *PFNCLOSE)(INT_PTR hf);
-  typedef long (DIAMONDAPI *PFNSEEK) (INT_PTR hf,long dist,int seektype);
+  typedef __LONG32 (DIAMONDAPI *PFNSEEK) (INT_PTR hf,__LONG32 dist,int seektype);
 
 #define FNOPEN(fn) INT_PTR DIAMONDAPI fn(char *pszFile,int oflag,int pmode)
 #define FNREAD(fn) UINT DIAMONDAPI fn(INT_PTR hf,void *pv,UINT cb)
 #define FNWRITE(fn) UINT DIAMONDAPI fn(INT_PTR hf,void *pv,UINT cb)
 #define FNCLOSE(fn) int DIAMONDAPI fn(INT_PTR hf)
-#define FNSEEK(fn) long DIAMONDAPI fn(INT_PTR hf,long dist,int seektype)
+#define FNSEEK(fn) __LONG32 DIAMONDAPI fn(INT_PTR hf,__LONG32 dist,int seektype)
 
   typedef int (DIAMONDAPI *PFNFDIDECRYPT)(PFDIDECRYPT pfdid);
 #define FNFDIDECRYPT(fn) int DIAMONDAPI fn(PFDIDECRYPT pfdid)
 
   typedef struct {
-    long cb;
+    __LONG32 cb;
     char *psz1;
     char *psz2;
     char *psz3;
@@ -244,7 +244,7 @@ extern "C" {
 
   typedef struct {
     char ach[2];
-    long cbFile;
+    __LONG32 cbFile;
   } FDISPILLFILE;
 
   typedef FDISPILLFILE *PFDISPILLFILE;

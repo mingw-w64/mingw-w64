@@ -89,7 +89,7 @@
 
 #ifndef _ERROR_STATUS_T_DEFINED
 #define _ERROR_STATUS_T_DEFINED
-typedef unsigned long error_status_t;
+typedef unsigned __LONG32 error_status_t;
 #endif
 
 #ifndef _WCHAR_T_DEFINED

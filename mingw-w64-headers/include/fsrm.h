@@ -281,7 +281,7 @@ extern "C" {
 #define FsrmAlwaysModified 0xFFFFFFFFFFFFFFFF
 
 typedef GUID FSRM_OBJECT_ID;
-typedef long FSRM_QUOTA_THRESHOLD;
+typedef __LONG32 FSRM_QUOTA_THRESHOLD;
 
 typedef enum _FsrmGetFilePropertyOptions {
   FsrmGetFilePropertyOptions_None               = 0x00000000,
@@ -317,8 +317,8 @@ DECLARE_INTERFACE_(IFsrmAction,IDispatch)
     /* IFsrmAction methods */
     STDMETHOD_(HRESULT,get_Id)(THIS_ FSRM_OBJECT_ID *id) PURE;
     STDMETHOD_(HRESULT,get_ActionType)(THIS_ FsrmActionType *actionType) PURE;
-    STDMETHOD_(HRESULT,put_RunLimitInterval)(THIS_ long minutes) PURE;
-    STDMETHOD_(HRESULT,get_RunLimitInterval)(THIS_ long *minutes) PURE;
+    STDMETHOD_(HRESULT,put_RunLimitInterval)(THIS_ __LONG32 minutes) PURE;
+    STDMETHOD_(HRESULT,get_RunLimitInterval)(THIS_ __LONG32 *minutes) PURE;
     STDMETHOD_(HRESULT,Delete)(THIS) PURE;
 
     END_INTERFACE
@@ -363,8 +363,8 @@ DECLARE_INTERFACE_(IFsrmActionCommand,IFsrmAction)
     /* IFsrmAction methods */
     STDMETHOD_(HRESULT,get_Id)(THIS_ FSRM_OBJECT_ID *id) PURE;
     STDMETHOD_(HRESULT,get_ActionType)(THIS_ FsrmActionType *actionType) PURE;
-    STDMETHOD_(HRESULT,put_RunLimitInterval)(THIS_ long minutes) PURE;
-    STDMETHOD_(HRESULT,get_RunLimitInterval)(THIS_ long *minutes) PURE;
+    STDMETHOD_(HRESULT,put_RunLimitInterval)(THIS_ __LONG32 minutes) PURE;
+    STDMETHOD_(HRESULT,get_RunLimitInterval)(THIS_ __LONG32 *minutes) PURE;
     STDMETHOD_(HRESULT,Delete)(THIS) PURE;
 
     /* IFsrmActionCommand methods */
@@ -378,8 +378,8 @@ DECLARE_INTERFACE_(IFsrmActionCommand,IFsrmAction)
     STDMETHOD_(HRESULT,put_WorkingDirectory)(THIS_ BSTR workingDirectory) PURE;
     STDMETHOD_(HRESULT,get_MonitorCommand)(THIS_ VARIANT_BOOL *monitorCommand) PURE;
     STDMETHOD_(HRESULT,put_MonitorCommand)(THIS_ VARIANT_BOOL monitorCommand) PURE;
-    STDMETHOD_(HRESULT,get_KillTimeOut)(THIS_ long *minutes) PURE;
-    STDMETHOD_(HRESULT,put_KillTimeOut)(THIS_ long minutes) PURE;
+    STDMETHOD_(HRESULT,get_KillTimeOut)(THIS_ __LONG32 *minutes) PURE;
+    STDMETHOD_(HRESULT,put_KillTimeOut)(THIS_ __LONG32 minutes) PURE;
     STDMETHOD_(HRESULT,get_LogResult)(THIS_ VARIANT_BOOL *logResults) PURE;
     STDMETHOD_(HRESULT,put_LogResult)(THIS_ VARIANT_BOOL logResults) PURE;
 
@@ -439,8 +439,8 @@ DECLARE_INTERFACE_(IFsrmActionEmail,IFsrmAction)
     /* IFsrmAction methods */
     STDMETHOD_(HRESULT,get_Id)(THIS_ FSRM_OBJECT_ID *id) PURE;
     STDMETHOD_(HRESULT,get_ActionType)(THIS_ FsrmActionType *actionType) PURE;
-    STDMETHOD_(HRESULT,put_RunLimitInterval)(THIS_ long minutes) PURE;
-    STDMETHOD_(HRESULT,get_RunLimitInterval)(THIS_ long *minutes) PURE;
+    STDMETHOD_(HRESULT,put_RunLimitInterval)(THIS_ __LONG32 minutes) PURE;
+    STDMETHOD_(HRESULT,get_RunLimitInterval)(THIS_ __LONG32 *minutes) PURE;
     STDMETHOD_(HRESULT,Delete)(THIS) PURE;
 
     /* IFsrmActionEmail methods */
@@ -515,8 +515,8 @@ DECLARE_INTERFACE_(IFsrmActionEmail2,IFsrmActionEmail)
     /* IFsrmAction methods */
     STDMETHOD_(HRESULT,get_Id)(THIS_ FSRM_OBJECT_ID *id) PURE;
     STDMETHOD_(HRESULT,get_ActionType)(THIS_ FsrmActionType *actionType) PURE;
-    STDMETHOD_(HRESULT,put_RunLimitInterval)(THIS_ long minutes) PURE;
-    STDMETHOD_(HRESULT,get_RunLimitInterval)(THIS_ long *minutes) PURE;
+    STDMETHOD_(HRESULT,put_RunLimitInterval)(THIS_ __LONG32 minutes) PURE;
+    STDMETHOD_(HRESULT,get_RunLimitInterval)(THIS_ __LONG32 *minutes) PURE;
     STDMETHOD_(HRESULT,Delete)(THIS) PURE;
 
     /* IFsrmActionEmail methods */
@@ -536,8 +536,8 @@ DECLARE_INTERFACE_(IFsrmActionEmail2,IFsrmActionEmail)
     STDMETHOD_(HRESULT,put_MessageText)(THIS_ BSTR messageText) PURE;
 
     /* IFsrmActionEmail2 methods */
-    STDMETHOD_(HRESULT,get_AttachmentFileListSize)(THIS_ long *pAttachmentFileListSize) PURE;
-    STDMETHOD_(HRESULT,put_AttachmentFileListSize)(THIS_ long attachmentFileListSize) PURE;
+    STDMETHOD_(HRESULT,get_AttachmentFileListSize)(THIS_ __LONG32 *pAttachmentFileListSize) PURE;
+    STDMETHOD_(HRESULT,put_AttachmentFileListSize)(THIS_ __LONG32 attachmentFileListSize) PURE;
 
     END_INTERFACE
 };
@@ -597,8 +597,8 @@ DECLARE_INTERFACE_(IFsrmActionEventLog,IFsrmAction)
     /* IFsrmAction methods */
     STDMETHOD_(HRESULT,get_Id)(THIS_ FSRM_OBJECT_ID *id) PURE;
     STDMETHOD_(HRESULT,get_ActionType)(THIS_ FsrmActionType *actionType) PURE;
-    STDMETHOD_(HRESULT,put_RunLimitInterval)(THIS_ long minutes) PURE;
-    STDMETHOD_(HRESULT,get_RunLimitInterval)(THIS_ long *minutes) PURE;
+    STDMETHOD_(HRESULT,put_RunLimitInterval)(THIS_ __LONG32 minutes) PURE;
+    STDMETHOD_(HRESULT,get_RunLimitInterval)(THIS_ __LONG32 *minutes) PURE;
     STDMETHOD_(HRESULT,Delete)(THIS) PURE;
 
     /* IFsrmActionEventLog methods */
@@ -653,8 +653,8 @@ DECLARE_INTERFACE_(IFsrmActionReport,IFsrmAction)
     /* IFsrmAction methods */
     STDMETHOD_(HRESULT,get_Id)(THIS_ FSRM_OBJECT_ID *id) PURE;
     STDMETHOD_(HRESULT,get_ActionType)(THIS_ FsrmActionType *actionType) PURE;
-    STDMETHOD_(HRESULT,put_RunLimitInterval)(THIS_ long minutes) PURE;
-    STDMETHOD_(HRESULT,get_RunLimitInterval)(THIS_ long *minutes) PURE;
+    STDMETHOD_(HRESULT,put_RunLimitInterval)(THIS_ __LONG32 minutes) PURE;
+    STDMETHOD_(HRESULT,get_RunLimitInterval)(THIS_ __LONG32 *minutes) PURE;
     STDMETHOD_(HRESULT,Delete)(THIS) PURE;
 
     /* IFsrmActionReport methods */
@@ -708,12 +708,12 @@ DECLARE_INTERFACE_(IFsrmCollection,IDispatch)
 
     /* IFsrmCollection methods */
     STDMETHOD_(HRESULT,get__NewEnum)(THIS_ IUnknown **unknown) PURE;
-    STDMETHOD_(HRESULT,get_Item)(THIS_ long index,VARIANT *item) PURE;
-    STDMETHOD_(HRESULT,get_Count)(THIS_ long *count) PURE;
+    STDMETHOD_(HRESULT,get_Item)(THIS_ __LONG32 index,VARIANT *item) PURE;
+    STDMETHOD_(HRESULT,get_Count)(THIS_ __LONG32 *count) PURE;
     STDMETHOD_(HRESULT,get_State)(THIS_ FsrmCollectionState *state) PURE;
     STDMETHOD_(HRESULT,Cancel)(THIS) PURE;
     STDMETHOD_(HRESULT,GetById)(THIS_ FSRM_OBJECT_ID id,VARIANT *entry) PURE;
-    STDMETHOD_(HRESULT,WaitForCompletion)(THIS_ long waitSeconds,VARIANT_BOOL *completed) PURE;
+    STDMETHOD_(HRESULT,WaitForCompletion)(THIS_ __LONG32 waitSeconds,VARIANT_BOOL *completed) PURE;
 
     END_INTERFACE
 };
@@ -844,16 +844,16 @@ DECLARE_INTERFACE_(IFsrmMutableCollection,IFsrmCollection)
 
     /* IFsrmCollection methods */
     STDMETHOD_(HRESULT,get__NewEnum)(THIS_ IUnknown **unknown) PURE;
-    STDMETHOD_(HRESULT,get_Item)(THIS_ long index,VARIANT *item) PURE;
-    STDMETHOD_(HRESULT,get_Count)(THIS_ long *count) PURE;
+    STDMETHOD_(HRESULT,get_Item)(THIS_ __LONG32 index,VARIANT *item) PURE;
+    STDMETHOD_(HRESULT,get_Count)(THIS_ __LONG32 *count) PURE;
     STDMETHOD_(HRESULT,get_State)(THIS_ FsrmCollectionState *state) PURE;
     STDMETHOD_(HRESULT,Cancel)(THIS) PURE;
     STDMETHOD_(HRESULT,GetById)(THIS_ FSRM_OBJECT_ID id,VARIANT *entry) PURE;
-    STDMETHOD_(HRESULT,WaitForCompletion)(THIS_ long waitSeconds,VARIANT_BOOL *completed) PURE;
+    STDMETHOD_(HRESULT,WaitForCompletion)(THIS_ __LONG32 waitSeconds,VARIANT_BOOL *completed) PURE;
 
     /* IFsrmMutableCollection methods */
     STDMETHOD_(HRESULT,Add)(THIS_ VARIANT item) PURE;
-    STDMETHOD_(HRESULT,Remove)(THIS_ long index) PURE;
+    STDMETHOD_(HRESULT,Remove)(THIS_ __LONG32 index) PURE;
     STDMETHOD_(HRESULT,RemoveById)(THIS_ FSRM_OBJECT_ID id) PURE;
     STDMETHOD_(HRESULT,Clone)(THIS_ IFsrmMutableCollection **collection) PURE;
 
@@ -904,16 +904,16 @@ DECLARE_INTERFACE_(IFsrmCommittableCollection,IFsrmMutableCollection)
 
     /* IFsrmCollection methods */
     STDMETHOD_(HRESULT,get__NewEnum)(THIS_ IUnknown **unknown) PURE;
-    STDMETHOD_(HRESULT,get_Item)(THIS_ long index,VARIANT *item) PURE;
-    STDMETHOD_(HRESULT,get_Count)(THIS_ long *count) PURE;
+    STDMETHOD_(HRESULT,get_Item)(THIS_ __LONG32 index,VARIANT *item) PURE;
+    STDMETHOD_(HRESULT,get_Count)(THIS_ __LONG32 *count) PURE;
     STDMETHOD_(HRESULT,get_State)(THIS_ FsrmCollectionState *state) PURE;
     STDMETHOD_(HRESULT,Cancel)(THIS) PURE;
     STDMETHOD_(HRESULT,GetById)(THIS_ FSRM_OBJECT_ID id,VARIANT *entry) PURE;
-    STDMETHOD_(HRESULT,WaitForCompletion)(THIS_ long waitSeconds,VARIANT_BOOL *completed) PURE;
+    STDMETHOD_(HRESULT,WaitForCompletion)(THIS_ __LONG32 waitSeconds,VARIANT_BOOL *completed) PURE;
 
     /* IFsrmMutableCollection methods */
     STDMETHOD_(HRESULT,Add)(THIS_ VARIANT item) PURE;
-    STDMETHOD_(HRESULT,Remove)(THIS_ long index) PURE;
+    STDMETHOD_(HRESULT,Remove)(THIS_ __LONG32 index) PURE;
     STDMETHOD_(HRESULT,RemoveById)(THIS_ FSRM_OBJECT_ID id) PURE;
     STDMETHOD_(HRESULT,Clone)(THIS_ IFsrmMutableCollection **collection) PURE;
 
@@ -1034,20 +1034,20 @@ DECLARE_INTERFACE_(IFsrmFileManagementJob,IFsrmObject)
     STDMETHOD_(HRESULT,put_ExpirationDirectory)(THIS_ BSTR expirationDirectory) PURE;
     STDMETHOD_(HRESULT,get_CustomAction)(THIS_ IFsrmActionCommand **pAction) PURE;
     STDMETHOD_(HRESULT,get_Notifications)(THIS_ SAFEARRAY *pNotifications) PURE;
-    STDMETHOD_(HRESULT,get_Logging)(THIS_ long *pLoggingFlags) PURE;
-    STDMETHOD_(HRESULT,put_Logging)(THIS_ long loggingFlags) PURE;
+    STDMETHOD_(HRESULT,get_Logging)(THIS_ __LONG32 *pLoggingFlags) PURE;
+    STDMETHOD_(HRESULT,put_Logging)(THIS_ __LONG32 loggingFlags) PURE;
     STDMETHOD_(HRESULT,get_ReportEnabled)(THIS_ VARIANT_BOOL *pReportEnabled) PURE;
     STDMETHOD_(HRESULT,put_ReportEnabled)(THIS_ VARIANT_BOOL reportEnabled) PURE;
     STDMETHOD_(HRESULT,get_Formats)(THIS_ SAFEARRAY *pFormats) PURE;
     STDMETHOD_(HRESULT,put_Formats)(THIS_ SAFEARRAY formats) PURE;
     STDMETHOD_(HRESULT,get_MailTo)(THIS_ BSTR *pMailTo) PURE;
     STDMETHOD_(HRESULT,put_MailTo)(THIS_ BSTR mailTo) PURE;
-    STDMETHOD_(HRESULT,get_DaysSinceFileCreated)(THIS_ long *pDaysSinceCreation) PURE;
-    STDMETHOD_(HRESULT,put_DaysSinceFileCreated)(THIS_ long daysSinceCreation) PURE;
-    STDMETHOD_(HRESULT,get_DaysSinceFileLastAccessed)(THIS_ long *pDaysSinceAccess) PURE;
-    STDMETHOD_(HRESULT,put_DaysSinceFileLastAccessed)(THIS_ long daysSinceAccess) PURE;
-    STDMETHOD_(HRESULT,get_DaysSinceFileLastModified)(THIS_ long *pDaysSinceModify) PURE;
-    STDMETHOD_(HRESULT,put_DaysSinceFileLastModified)(THIS_ long daysSinceModify) PURE;
+    STDMETHOD_(HRESULT,get_DaysSinceFileCreated)(THIS_ __LONG32 *pDaysSinceCreation) PURE;
+    STDMETHOD_(HRESULT,put_DaysSinceFileCreated)(THIS_ __LONG32 daysSinceCreation) PURE;
+    STDMETHOD_(HRESULT,get_DaysSinceFileLastAccessed)(THIS_ __LONG32 *pDaysSinceAccess) PURE;
+    STDMETHOD_(HRESULT,put_DaysSinceFileLastAccessed)(THIS_ __LONG32 daysSinceAccess) PURE;
+    STDMETHOD_(HRESULT,get_DaysSinceFileLastModified)(THIS_ __LONG32 *pDaysSinceModify) PURE;
+    STDMETHOD_(HRESULT,put_DaysSinceFileLastModified)(THIS_ __LONG32 daysSinceModify) PURE;
     STDMETHOD_(HRESULT,get_PropertyConditions)(THIS_ IFsrmCollection **pPropertyConditions) PURE;
     STDMETHOD_(HRESULT,get_FromDate)(THIS_ DATE *pFromDate) PURE;
     STDMETHOD_(HRESULT,put_FromDate)(THIS_ DATE fromDate) PURE;
@@ -1062,13 +1062,13 @@ DECLARE_INTERFACE_(IFsrmFileManagementJob,IFsrmObject)
     STDMETHOD_(HRESULT,get_FileNamePattern)(THIS_ BSTR *pFileNamePattern) PURE;
     STDMETHOD_(HRESULT,put_FileNamePattern)(THIS_ BSTR fileNamePattern) PURE;
     STDMETHOD_(HRESULT,Run)(THIS_ FsrmReportGenerationContext context) PURE;
-    STDMETHOD_(HRESULT,WaitForCompletion)(THIS_ long waitSeconds,VARIANT_BOOL *completed) PURE;
+    STDMETHOD_(HRESULT,WaitForCompletion)(THIS_ __LONG32 waitSeconds,VARIANT_BOOL *completed) PURE;
     STDMETHOD_(HRESULT,Cancel)(THIS) PURE;
-    STDMETHOD_(HRESULT,AddNotification)(THIS_ long days) PURE;
-    STDMETHOD_(HRESULT,DeleteNotification)(THIS_ long days) PURE;
-    STDMETHOD_(HRESULT,ModifyNotification)(THIS_ long days,long newDays) PURE;
-    STDMETHOD_(HRESULT,CreateNotificationAction)(THIS_ long days,FsrmActionType actionType,IFsrmAction **action) PURE;
-    STDMETHOD_(HRESULT,EnumNotificationActions)(THIS_ long days,IFsrmCollection **actions) PURE;
+    STDMETHOD_(HRESULT,AddNotification)(THIS_ __LONG32 days) PURE;
+    STDMETHOD_(HRESULT,DeleteNotification)(THIS_ __LONG32 days) PURE;
+    STDMETHOD_(HRESULT,ModifyNotification)(THIS_ __LONG32 days,__LONG32 newDays) PURE;
+    STDMETHOD_(HRESULT,CreateNotificationAction)(THIS_ __LONG32 days,FsrmActionType actionType,IFsrmAction **action) PURE;
+    STDMETHOD_(HRESULT,EnumNotificationActions)(THIS_ __LONG32 days,IFsrmCollection **actions) PURE;
     STDMETHOD_(HRESULT,CreatePropertyCondition)(THIS_ BSTR name,IFsrmPropertyCondition **pPropertyCondition) PURE;
     STDMETHOD_(HRESULT,CreateCustomAction)(THIS_ IFsrmActionCommand **customAction) PURE;
 
@@ -1205,8 +1205,8 @@ DECLARE_INTERFACE_(IFsrmSetting,IDispatch)
     STDMETHOD_(HRESULT,get_EnableScreeningAudit)(THIS_ VARIANT_BOOL *enableScreeningAudit) PURE;
     STDMETHOD_(HRESULT,put_EnableScreeningAudit)(THIS_ VARIANT_BOOL enableScreeningAudit) PURE;
     STDMETHOD_(HRESULT,EmailTest)(THIS_ BSTR mailTo) PURE;
-    STDMETHOD_(HRESULT,SetActionRunLimitInterval)(THIS_ FsrmActionType actionType,long delayTimeMinutes) PURE;
-    STDMETHOD_(HRESULT,GetActionRunLimitInterval)(THIS_ FsrmActionType actionType,long *delayTimeMinutes) PURE;
+    STDMETHOD_(HRESULT,SetActionRunLimitInterval)(THIS_ FsrmActionType actionType,__LONG32 delayTimeMinutes) PURE;
+    STDMETHOD_(HRESULT,GetActionRunLimitInterval)(THIS_ FsrmActionType actionType,__LONG32 *delayTimeMinutes) PURE;
 
     END_INTERFACE
 };
@@ -1278,8 +1278,8 @@ DECLARE_INTERFACE_(IFsrmRule,IFsrmObject)
     STDMETHOD_(HRESULT,put_ModuleDefinitionName)(THIS_ BSTR moduleDefinitionName) PURE;
     STDMETHOD_(HRESULT,get_NamespaceRoots)(THIS_ SAFEARRAY *namespaceRoots) PURE;
     STDMETHOD_(HRESULT,put_NamespaceRoots)(THIS_ SAFEARRAY namespaceRoots) PURE;
-    STDMETHOD_(HRESULT,get_RuleFlags)(THIS_ long *pRuleFlags) PURE;
-    STDMETHOD_(HRESULT,put_RuleFlags)(THIS_ long ruleFlags) PURE;
+    STDMETHOD_(HRESULT,get_RuleFlags)(THIS_ __LONG32 *pRuleFlags) PURE;
+    STDMETHOD_(HRESULT,put_RuleFlags)(THIS_ __LONG32 ruleFlags) PURE;
     STDMETHOD_(HRESULT,get_Parameters)(THIS_ SAFEARRAY *pParameters) PURE;
     STDMETHOD_(HRESULT,put_Parameters)(THIS_ SAFEARRAY parameters) PURE;
     STDMETHOD_(HRESULT,get_LastModified)(THIS_ VARIANT *pLastModified) PURE;
@@ -1338,8 +1338,8 @@ DECLARE_INTERFACE_(IFsrmClassificationManager,IDispatch)
     /* IFsrmClassificationManager methods */
     STDMETHOD_(HRESULT,get_ClassificationReportFormats)(THIS_ SAFEARRAY *pFormats) PURE;
     STDMETHOD_(HRESULT,put_ClassificationReportFormats)(THIS_ SAFEARRAY formats) PURE;
-    STDMETHOD_(HRESULT,get_Logging)(THIS_ long *pLogging) PURE;
-    STDMETHOD_(HRESULT,put_Logging)(THIS_ long logging) PURE;
+    STDMETHOD_(HRESULT,get_Logging)(THIS_ __LONG32 *pLogging) PURE;
+    STDMETHOD_(HRESULT,put_Logging)(THIS_ __LONG32 logging) PURE;
     STDMETHOD_(HRESULT,get_ClassificationReportMailTo)(THIS_ BSTR *pMailTo) PURE;
     STDMETHOD_(HRESULT,put_ClassificationReportMailTo)(THIS_ BSTR mailTo) PURE;
     STDMETHOD_(HRESULT,get_ClassificationReportEnabled)(THIS_ VARIANT_BOOL *pReportEnabled) PURE;
@@ -1357,7 +1357,7 @@ DECLARE_INTERFACE_(IFsrmClassificationManager,IDispatch)
     STDMETHOD_(HRESULT,CreateModuleDefinition)(THIS_ FsrmPipelineModuleType moduleType,IFsrmPipelineModuleDefinition **moduleDefinition) PURE;
     STDMETHOD_(HRESULT,GetModuleDefinition)(THIS_ BSTR moduleName,FsrmPipelineModuleType moduleType,IFsrmPipelineModuleDefinition **moduleDefinition) PURE;
     STDMETHOD_(HRESULT,RunClassification)(THIS_ FsrmReportGenerationContext context,BSTR reserved) PURE;
-    STDMETHOD_(HRESULT,WaitForClassificationCompletion)(THIS_ long waitSeconds,VARIANT_BOOL *completed) PURE;
+    STDMETHOD_(HRESULT,WaitForClassificationCompletion)(THIS_ __LONG32 waitSeconds,VARIANT_BOOL *completed) PURE;
     STDMETHOD_(HRESULT,CancelClassification)(THIS) PURE;
     STDMETHOD_(HRESULT,EnumFileProperties)(THIS_ BSTR filePath,FsrmGetFilePropertyOptions options,IFsrmCollection **fileProperties) PURE;
     STDMETHOD_(HRESULT,GetFileProperty)(THIS_ BSTR filePath,BSTR propertyName,FsrmGetFilePropertyOptions options,IFsrmProperty **property) PURE;
@@ -1435,8 +1435,8 @@ DECLARE_INTERFACE_(IFsrmClassificationRule,IFsrmRule)
     STDMETHOD_(HRESULT,put_ModuleDefinitionName)(THIS_ BSTR moduleDefinitionName) PURE;
     STDMETHOD_(HRESULT,get_NamespaceRoots)(THIS_ SAFEARRAY *namespaceRoots) PURE;
     STDMETHOD_(HRESULT,put_NamespaceRoots)(THIS_ SAFEARRAY namespaceRoots) PURE;
-    STDMETHOD_(HRESULT,get_RuleFlags)(THIS_ long *pRuleFlags) PURE;
-    STDMETHOD_(HRESULT,put_RuleFlags)(THIS_ long ruleFlags) PURE;
+    STDMETHOD_(HRESULT,get_RuleFlags)(THIS_ __LONG32 *pRuleFlags) PURE;
+    STDMETHOD_(HRESULT,put_RuleFlags)(THIS_ __LONG32 ruleFlags) PURE;
     STDMETHOD_(HRESULT,get_Parameters)(THIS_ SAFEARRAY *pParameters) PURE;
     STDMETHOD_(HRESULT,put_Parameters)(THIS_ SAFEARRAY parameters) PURE;
     STDMETHOD_(HRESULT,get_LastModified)(THIS_ VARIANT *pLastModified) PURE;
@@ -1790,7 +1790,7 @@ DECLARE_INTERFACE_(IFsrmPipelineModuleConnector,IDispatch)
     STDMETHOD_(HRESULT,get_ModuleImplementation)(THIS_ IFsrmPipelineModuleImplementation **pipelineModuleImplementation) PURE;
     STDMETHOD_(HRESULT,get_ModuleName)(THIS_ BSTR *name) PURE;
     STDMETHOD_(HRESULT,get_HostingUserAccount)(THIS_ BSTR *userAccount) PURE;
-    STDMETHOD_(HRESULT,get_HostingProcessPid)(THIS_ long *pid) PURE;
+    STDMETHOD_(HRESULT,get_HostingProcessPid)(THIS_ __LONG32 *pid) PURE;
     STDMETHOD_(HRESULT,Bind)(THIS_ IFsrmPipelineModuleDefinition *moduleDefinition,IFsrmCollection *rules,IFsrmPipelineModuleImplementation *moduleImplementation) PURE;
 
     END_INTERFACE
@@ -1836,7 +1836,7 @@ DECLARE_INTERFACE_(IFsrmProperty,IDispatch)
     STDMETHOD_(HRESULT,get_Name)(THIS_ BSTR *pName) PURE;
     STDMETHOD_(HRESULT,get_Value)(THIS_ BSTR *pValue) PURE;
     STDMETHOD_(HRESULT,get_Sources)(THIS_ SAFEARRAY *pSources) PURE;
-    STDMETHOD_(HRESULT,get_PropertyFlags)(THIS_ long *flags) PURE;
+    STDMETHOD_(HRESULT,get_PropertyFlags)(THIS_ __LONG32 *flags) PURE;
 
     END_INTERFACE
 };
@@ -1881,7 +1881,7 @@ DECLARE_INTERFACE_(IFsrmPropertyBag,IDispatch)
     STDMETHOD_(HRESULT,get_RelativePath)(THIS_ BSTR *path) PURE;
     STDMETHOD_(HRESULT,get_VolumeName)(THIS_ BSTR *volumeName) PURE;
     STDMETHOD_(HRESULT,get_RelativeNamespaceRoot)(THIS_ BSTR *relativeNamespaceRoot) PURE;
-    STDMETHOD_(HRESULT,get_VolumeIndex)(THIS_ unsigned long *volumeId) PURE;
+    STDMETHOD_(HRESULT,get_VolumeIndex)(THIS_ unsigned __LONG32 *volumeId) PURE;
     STDMETHOD_(HRESULT,get_FileId)(THIS_ VARIANT *fileId) PURE;
     STDMETHOD_(HRESULT,get_ParentDirectoryId)(THIS_ VARIANT *parentDirectoryId) PURE;
     STDMETHOD_(HRESULT,get_Size)(THIS_ VARIANT *size) PURE;
@@ -1889,11 +1889,11 @@ DECLARE_INTERFACE_(IFsrmPropertyBag,IDispatch)
     STDMETHOD_(HRESULT,get_CreationTime)(THIS_ VARIANT *creationTime) PURE;
     STDMETHOD_(HRESULT,get_LastAccessTime)(THIS_ VARIANT *creationTime) PURE;
     STDMETHOD_(HRESULT,get_LastModificationTime)(THIS_ VARIANT *creationTime) PURE;
-    STDMETHOD_(HRESULT,get_Attributes)(THIS_ unsigned long *attributes) PURE;
+    STDMETHOD_(HRESULT,get_Attributes)(THIS_ unsigned __LONG32 *attributes) PURE;
     STDMETHOD_(HRESULT,get_OwnerSid)(THIS_ BSTR *ownerSid) PURE;
     STDMETHOD_(HRESULT,get_FilePropertyNames)(THIS_ SAFEARRAY *filePropertyNames) PURE;
     STDMETHOD_(HRESULT,get_Messages)(THIS_ SAFEARRAY *messages) PURE;
-    STDMETHOD_(HRESULT,get_PropertyBagFlags)(THIS_ unsigned long flags) PURE;
+    STDMETHOD_(HRESULT,get_PropertyBagFlags)(THIS_ unsigned __LONG32 flags) PURE;
     STDMETHOD_(HRESULT,GetFileProperty)(THIS_ BSTR name,IFsrmProperty **fileProperty) PURE;
     STDMETHOD_(HRESULT,SetFileProperty)(THIS_ BSTR name,BSTR value) PURE;
     STDMETHOD_(HRESULT,AddMessage)(THIS_ BSTR message) PURE;
