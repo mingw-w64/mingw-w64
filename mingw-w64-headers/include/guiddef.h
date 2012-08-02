@@ -3,6 +3,10 @@
  * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
+
+/* Make sure __LONG32 is defined.  */
+#include <_mingw.h>
+
 #ifndef GUID_DEFINED
 #define GUID_DEFINED
 typedef struct _GUID {
