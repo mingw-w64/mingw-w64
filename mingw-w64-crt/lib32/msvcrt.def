@@ -822,7 +822,7 @@ _cprintf_p_l
 _cscanf_l
 _cscanf_s
 _cscanf_s_l
-_ctime32_s
+; _ctime32_s replaced by eum
 _ctime64_s
 _cwprintf_l
 _cwprintf_p
@@ -1139,7 +1139,7 @@ _wcsupr_l
 _wcsupr_s
 _wcsupr_s_l
 _wcsxfrm_l
-_wctime32_s
+; _wctime32_s replaced by emu
 _wctime64_s
 _wctomb_l
 _wctomb_s_l

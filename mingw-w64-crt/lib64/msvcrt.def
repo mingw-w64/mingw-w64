@@ -241,7 +241,7 @@ _cscanf
 _cscanf_l
 _cscanf_s
 _cscanf_s_l
-_ctime32_s
+; _ctime32_s replaced by emu
 _ctime64
 _ctime64_s
 _ctype
@@ -910,7 +910,7 @@ _wcsupr_s_l
 _wcsxfrm_l
 _wctime DATA
 ;_wctime32 = _wctime
-_wctime32_s
+; _wctime32_s replaced by emu
 _wctime64
 _wctime64_s
 _wctomb_l
