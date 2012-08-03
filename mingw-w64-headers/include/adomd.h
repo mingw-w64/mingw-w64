@@ -326,7 +326,7 @@ extern "C"{
     virtual HRESULT WINAPI get_Properties(Properties **ppvObject) = 0;
     virtual HRESULT WINAPI get_FormattedValue(BSTR *pbstr) = 0;
     virtual HRESULT WINAPI put_FormattedValue(BSTR bstr) = 0;
-    virtual HRESULT WINAPI get_Ordinal(long *pl) = 0;
+    virtual HRESULT WINAPI get_Ordinal(__LONG32 *pl) = 0;
   };
 #else
   typedef struct CellVtbl {
@@ -344,7 +344,7 @@ extern "C"{
       HRESULT (WINAPI *get_Properties)(Cell *This,Properties **ppvObject);
       HRESULT (WINAPI *get_FormattedValue)(Cell *This,BSTR *pbstr);
       HRESULT (WINAPI *put_FormattedValue)(Cell *This,BSTR bstr);
-      HRESULT (WINAPI *get_Ordinal)(Cell *This,long *pl);
+      HRESULT (WINAPI *get_Ordinal)(Cell *This,__LONG32 *pl);
     END_INTERFACE
   } CellVtbl;
   struct Cell {
@@ -379,7 +379,7 @@ extern "C"{
   void __RPC_STUB Cell_get_FormattedValue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Cell_put_FormattedValue_Proxy(Cell *This,BSTR bstr);
   void __RPC_STUB Cell_put_FormattedValue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Cell_get_Ordinal_Proxy(Cell *This,long *pl);
+  HRESULT WINAPI Cell_get_Ordinal_Proxy(Cell *This,__LONG32 *pl);
   void __RPC_STUB Cell_get_Ordinal_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -390,7 +390,7 @@ extern "C"{
   struct Axis : public IDispatch {
   public:
     virtual HRESULT WINAPI get_Name(BSTR *pbstr) = 0;
-    virtual HRESULT WINAPI get_DimensionCount(long *pl) = 0;
+    virtual HRESULT WINAPI get_DimensionCount(__LONG32 *pl) = 0;
     virtual HRESULT WINAPI get_Positions(Positions **ppvObject) = 0;
     virtual HRESULT WINAPI get_Properties(Properties **ppvObject) = 0;
   };
@@ -405,7 +405,7 @@ extern "C"{
       HRESULT (WINAPI *GetIDsOfNames)(Axis *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(Axis *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_Name)(Axis *This,BSTR *pbstr);
-      HRESULT (WINAPI *get_DimensionCount)(Axis *This,long *pl);
+      HRESULT (WINAPI *get_DimensionCount)(Axis *This,__LONG32 *pl);
       HRESULT (WINAPI *get_Positions)(Axis *This,Positions **ppvObject);
       HRESULT (WINAPI *get_Properties)(Axis *This,Properties **ppvObject);
     END_INTERFACE
@@ -429,7 +429,7 @@ extern "C"{
 #endif
   HRESULT WINAPI Axis_get_Name_Proxy(Axis *This,BSTR *pbstr);
   void __RPC_STUB Axis_get_Name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Axis_get_DimensionCount_Proxy(Axis *This,long *pl);
+  HRESULT WINAPI Axis_get_DimensionCount_Proxy(Axis *This,__LONG32 *pl);
   void __RPC_STUB Axis_get_DimensionCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Axis_get_Positions_Proxy(Axis *This,Positions **ppvObject);
   void __RPC_STUB Axis_get_Positions_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -443,7 +443,7 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct Position : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Ordinal(long *pl) = 0;
+    virtual HRESULT WINAPI get_Ordinal(__LONG32 *pl) = 0;
     virtual HRESULT WINAPI get_Members(Members **ppvObject) = 0;
   };
 #else
@@ -456,7 +456,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(Position *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(Position *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(Position *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Ordinal)(Position *This,long *pl);
+      HRESULT (WINAPI *get_Ordinal)(Position *This,__LONG32 *pl);
       HRESULT (WINAPI *get_Members)(Position *This,Members **ppvObject);
     END_INTERFACE
   } PositionVtbl;
@@ -475,7 +475,7 @@ extern "C"{
 #define Position_get_Members(This,ppvObject) (This)->lpVtbl->get_Members(This,ppvObject)
 #endif
 #endif
-  HRESULT WINAPI Position_get_Ordinal_Proxy(Position *This,long *pl);
+  HRESULT WINAPI Position_get_Ordinal_Proxy(Position *This,__LONG32 *pl);
   void __RPC_STUB Position_get_Ordinal_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Position_get_Members_Proxy(Position *This,Members **ppvObject);
   void __RPC_STUB Position_get_Members_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -492,11 +492,11 @@ extern "C"{
     virtual HRESULT WINAPI get_Caption(BSTR *pbstr) = 0;
     virtual HRESULT WINAPI get_Description(BSTR *pbstr) = 0;
     virtual HRESULT WINAPI get_Parent(Member **ppvObject) = 0;
-    virtual HRESULT WINAPI get_LevelDepth(long *pl) = 0;
+    virtual HRESULT WINAPI get_LevelDepth(__LONG32 *pl) = 0;
     virtual HRESULT WINAPI get_LevelName(BSTR *pbstr) = 0;
     virtual HRESULT WINAPI get_Properties(Properties **ppvObject) = 0;
     virtual HRESULT WINAPI get_Type(MemberTypeEnum *ptype) = 0;
-    virtual HRESULT WINAPI get_ChildCount(long *pl) = 0;
+    virtual HRESULT WINAPI get_ChildCount(__LONG32 *pl) = 0;
     virtual HRESULT WINAPI get_DrilledDown(VARIANT_BOOL *pf) = 0;
     virtual HRESULT WINAPI get_ParentSameAsPrev(VARIANT_BOOL *pf) = 0;
     virtual HRESULT WINAPI get_Children(Members **ppvObject) = 0;
@@ -516,11 +516,11 @@ extern "C"{
       HRESULT (WINAPI *get_Caption)(Member *This,BSTR *pbstr);
       HRESULT (WINAPI *get_Description)(Member *This,BSTR *pbstr);
       HRESULT (WINAPI *get_Parent)(Member *This,Member **ppvObject);
-      HRESULT (WINAPI *get_LevelDepth)(Member *This,long *pl);
+      HRESULT (WINAPI *get_LevelDepth)(Member *This,__LONG32 *pl);
       HRESULT (WINAPI *get_LevelName)(Member *This,BSTR *pbstr);
       HRESULT (WINAPI *get_Properties)(Member *This,Properties **ppvObject);
       HRESULT (WINAPI *get_Type)(Member *This,MemberTypeEnum *ptype);
-      HRESULT (WINAPI *get_ChildCount)(Member *This,long *pl);
+      HRESULT (WINAPI *get_ChildCount)(Member *This,__LONG32 *pl);
       HRESULT (WINAPI *get_DrilledDown)(Member *This,VARIANT_BOOL *pf);
       HRESULT (WINAPI *get_ParentSameAsPrev)(Member *This,VARIANT_BOOL *pf);
       HRESULT (WINAPI *get_Children)(Member *This,Members **ppvObject);
@@ -562,7 +562,7 @@ extern "C"{
   void __RPC_STUB Member_get_Description_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Member_get_Parent_Proxy(Member *This,Member **ppvObject);
   void __RPC_STUB Member_get_Parent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Member_get_LevelDepth_Proxy(Member *This,long *pl);
+  HRESULT WINAPI Member_get_LevelDepth_Proxy(Member *This,__LONG32 *pl);
   void __RPC_STUB Member_get_LevelDepth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Member_get_LevelName_Proxy(Member *This,BSTR *pbstr);
   void __RPC_STUB Member_get_LevelName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -570,7 +570,7 @@ extern "C"{
   void __RPC_STUB Member_get_Properties_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Member_get_Type_Proxy(Member *This,MemberTypeEnum *ptype);
   void __RPC_STUB Member_get_Type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Member_get_ChildCount_Proxy(Member *This,long *pl);
+  HRESULT WINAPI Member_get_ChildCount_Proxy(Member *This,__LONG32 *pl);
   void __RPC_STUB Member_get_ChildCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Member_get_DrilledDown_Proxy(Member *This,VARIANT_BOOL *pf);
   void __RPC_STUB Member_get_DrilledDown_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -877,7 +877,7 @@ extern "C"{
   public:
     virtual HRESULT WINAPI Refresh(void) = 0;
     virtual HRESULT WINAPI _NewEnum(IUnknown **ppvObject) = 0;
-    virtual HRESULT WINAPI get_Count(long *c) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *c) = 0;
   };
 #else
   typedef struct MD_CollectionVtbl {
@@ -891,7 +891,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(MD_Collection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *Refresh)(MD_Collection *This);
       HRESULT (WINAPI *_NewEnum)(MD_Collection *This,IUnknown **ppvObject);
-      HRESULT (WINAPI *get_Count)(MD_Collection *This,long *c);
+      HRESULT (WINAPI *get_Count)(MD_Collection *This,__LONG32 *c);
     END_INTERFACE
   } MD_CollectionVtbl;
   struct MD_Collection {
@@ -914,7 +914,7 @@ extern "C"{
   void __RPC_STUB MD_Collection_Refresh_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI MD_Collection__NewEnum_Proxy(MD_Collection *This,IUnknown **ppvObject);
   void __RPC_STUB MD_Collection__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI MD_Collection_get_Count_Proxy(MD_Collection *This,long *c);
+  HRESULT WINAPI MD_Collection_get_Count_Proxy(MD_Collection *This,__LONG32 *c);
   void __RPC_STUB MD_Collection_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -938,7 +938,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(Members *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *Refresh)(Members *This);
       HRESULT (WINAPI *_NewEnum)(Members *This,IUnknown **ppvObject);
-      HRESULT (WINAPI *get_Count)(Members *This,long *c);
+      HRESULT (WINAPI *get_Count)(Members *This,__LONG32 *c);
       HRESULT (WINAPI *get_Item)(Members *This,VARIANT Index,Member **ppvObject);
     END_INTERFACE
   } MembersVtbl;
@@ -983,7 +983,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(Levels *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *Refresh)(Levels *This);
       HRESULT (WINAPI *_NewEnum)(Levels *This,IUnknown **ppvObject);
-      HRESULT (WINAPI *get_Count)(Levels *This,long *c);
+      HRESULT (WINAPI *get_Count)(Levels *This,__LONG32 *c);
       HRESULT (WINAPI *get_Item)(Levels *This,VARIANT Index,Level **ppvObject);
     END_INTERFACE
   } LevelsVtbl;
@@ -1028,7 +1028,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(Axes *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *Refresh)(Axes *This);
       HRESULT (WINAPI *_NewEnum)(Axes *This,IUnknown **ppvObject);
-      HRESULT (WINAPI *get_Count)(Axes *This,long *c);
+      HRESULT (WINAPI *get_Count)(Axes *This,__LONG32 *c);
       HRESULT (WINAPI *get_Item)(Axes *This,VARIANT Index,Axis **ppvObject);
     END_INTERFACE
   } AxesVtbl;
@@ -1073,7 +1073,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(Positions *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *Refresh)(Positions *This);
       HRESULT (WINAPI *_NewEnum)(Positions *This,IUnknown **ppvObject);
-      HRESULT (WINAPI *get_Count)(Positions *This,long *c);
+      HRESULT (WINAPI *get_Count)(Positions *This,__LONG32 *c);
       HRESULT (WINAPI *get_Item)(Positions *This,VARIANT Index,Position **ppvObject);
     END_INTERFACE
   } PositionsVtbl;
@@ -1118,7 +1118,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(Hierarchies *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *Refresh)(Hierarchies *This);
       HRESULT (WINAPI *_NewEnum)(Hierarchies *This,IUnknown **ppvObject);
-      HRESULT (WINAPI *get_Count)(Hierarchies *This,long *c);
+      HRESULT (WINAPI *get_Count)(Hierarchies *This,__LONG32 *c);
       HRESULT (WINAPI *get_Item)(Hierarchies *This,VARIANT Index,Hierarchy **ppvObject);
     END_INTERFACE
   } HierarchiesVtbl;
@@ -1163,7 +1163,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(Dimensions *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *Refresh)(Dimensions *This);
       HRESULT (WINAPI *_NewEnum)(Dimensions *This,IUnknown **ppvObject);
-      HRESULT (WINAPI *get_Count)(Dimensions *This,long *c);
+      HRESULT (WINAPI *get_Count)(Dimensions *This,__LONG32 *c);
       HRESULT (WINAPI *get_Item)(Dimensions *This,VARIANT Index,Dimension **ppvObject);
     END_INTERFACE
   } DimensionsVtbl;
@@ -1208,7 +1208,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(CubeDefs *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *Refresh)(CubeDefs *This);
       HRESULT (WINAPI *_NewEnum)(CubeDefs *This,IUnknown **ppvObject);
-      HRESULT (WINAPI *get_Count)(CubeDefs *This,long *c);
+      HRESULT (WINAPI *get_Count)(CubeDefs *This,__LONG32 *c);
       HRESULT (WINAPI *get_Item)(CubeDefs *This,VARIANT Index,CubeDef **ppvObject);
     END_INTERFACE
   } CubeDefsVtbl;

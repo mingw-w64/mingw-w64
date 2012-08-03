@@ -250,10 +250,10 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAgentCtlRequest : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_ID(long *ID) = 0;
-    virtual HRESULT WINAPI get_Status(long *Status) = 0;
+    virtual HRESULT WINAPI get_ID(__LONG32 *ID) = 0;
+    virtual HRESULT WINAPI get_Status(__LONG32 *Status) = 0;
     virtual HRESULT WINAPI get_Description(BSTR *Description) = 0;
-    virtual HRESULT WINAPI get_Number(long *Number) = 0;
+    virtual HRESULT WINAPI get_Number(__LONG32 *Number) = 0;
   };
 #else
   typedef struct IAgentCtlRequestVtbl {
@@ -265,10 +265,10 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(IAgentCtlRequest *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IAgentCtlRequest *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IAgentCtlRequest *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_ID)(IAgentCtlRequest *This,long *ID);
-      HRESULT (WINAPI *get_Status)(IAgentCtlRequest *This,long *Status);
+      HRESULT (WINAPI *get_ID)(IAgentCtlRequest *This,__LONG32 *ID);
+      HRESULT (WINAPI *get_Status)(IAgentCtlRequest *This,__LONG32 *Status);
       HRESULT (WINAPI *get_Description)(IAgentCtlRequest *This,BSTR *Description);
-      HRESULT (WINAPI *get_Number)(IAgentCtlRequest *This,long *Number);
+      HRESULT (WINAPI *get_Number)(IAgentCtlRequest *This,__LONG32 *Number);
     END_INTERFACE
   } IAgentCtlRequestVtbl;
   struct IAgentCtlRequest {
@@ -288,13 +288,13 @@ extern "C" {
 #define IAgentCtlRequest_get_Number(This,Number) (This)->lpVtbl->get_Number(This,Number)
 #endif
 #endif
-  HRESULT WINAPI IAgentCtlRequest_get_ID_Proxy(IAgentCtlRequest *This,long *ID);
+  HRESULT WINAPI IAgentCtlRequest_get_ID_Proxy(IAgentCtlRequest *This,__LONG32 *ID);
   void __RPC_STUB IAgentCtlRequest_get_ID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlRequest_get_Status_Proxy(IAgentCtlRequest *This,long *Status);
+  HRESULT WINAPI IAgentCtlRequest_get_Status_Proxy(IAgentCtlRequest *This,__LONG32 *Status);
   void __RPC_STUB IAgentCtlRequest_get_Status_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlRequest_get_Description_Proxy(IAgentCtlRequest *This,BSTR *Description);
   void __RPC_STUB IAgentCtlRequest_get_Description_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlRequest_get_Number_Proxy(IAgentCtlRequest *This,long *Number);
+  HRESULT WINAPI IAgentCtlRequest_get_Number_Proxy(IAgentCtlRequest *This,__LONG32 *Number);
   void __RPC_STUB IAgentCtlRequest_get_Number_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -307,13 +307,13 @@ extern "C" {
     virtual HRESULT WINAPI get_Count(short *pCount) = 0;
     virtual HRESULT WINAPI get_Name(BSTR *pName) = 0;
     virtual HRESULT WINAPI get_CharacterID(BSTR *pCharacterID) = 0;
-    virtual HRESULT WINAPI get_Confidence(long *pConfidence) = 0;
+    virtual HRESULT WINAPI get_Confidence(__LONG32 *pConfidence) = 0;
     virtual HRESULT WINAPI get_Voice(BSTR *pVoice) = 0;
     virtual HRESULT WINAPI get_Alt1Name(BSTR *pAlt1Name) = 0;
-    virtual HRESULT WINAPI get_Alt1Confidence(long *pAlt1Confidence) = 0;
+    virtual HRESULT WINAPI get_Alt1Confidence(__LONG32 *pAlt1Confidence) = 0;
     virtual HRESULT WINAPI get_Alt1Voice(BSTR *pAlt1Voice) = 0;
     virtual HRESULT WINAPI get_Alt2Name(BSTR *pAlt2Name) = 0;
-    virtual HRESULT WINAPI get_Alt2Confidence(long *pAlt2Confidence) = 0;
+    virtual HRESULT WINAPI get_Alt2Confidence(__LONG32 *pAlt2Confidence) = 0;
     virtual HRESULT WINAPI get_Alt2Voice(BSTR *pAlt2Voice) = 0;
   };
 #else
@@ -329,13 +329,13 @@ extern "C" {
       HRESULT (WINAPI *get_Count)(IAgentCtlUserInput *This,short *pCount);
       HRESULT (WINAPI *get_Name)(IAgentCtlUserInput *This,BSTR *pName);
       HRESULT (WINAPI *get_CharacterID)(IAgentCtlUserInput *This,BSTR *pCharacterID);
-      HRESULT (WINAPI *get_Confidence)(IAgentCtlUserInput *This,long *pConfidence);
+      HRESULT (WINAPI *get_Confidence)(IAgentCtlUserInput *This,__LONG32 *pConfidence);
       HRESULT (WINAPI *get_Voice)(IAgentCtlUserInput *This,BSTR *pVoice);
       HRESULT (WINAPI *get_Alt1Name)(IAgentCtlUserInput *This,BSTR *pAlt1Name);
-      HRESULT (WINAPI *get_Alt1Confidence)(IAgentCtlUserInput *This,long *pAlt1Confidence);
+      HRESULT (WINAPI *get_Alt1Confidence)(IAgentCtlUserInput *This,__LONG32 *pAlt1Confidence);
       HRESULT (WINAPI *get_Alt1Voice)(IAgentCtlUserInput *This,BSTR *pAlt1Voice);
       HRESULT (WINAPI *get_Alt2Name)(IAgentCtlUserInput *This,BSTR *pAlt2Name);
-      HRESULT (WINAPI *get_Alt2Confidence)(IAgentCtlUserInput *This,long *pAlt2Confidence);
+      HRESULT (WINAPI *get_Alt2Confidence)(IAgentCtlUserInput *This,__LONG32 *pAlt2Confidence);
       HRESULT (WINAPI *get_Alt2Voice)(IAgentCtlUserInput *This,BSTR *pAlt2Voice);
     END_INTERFACE
   } IAgentCtlUserInputVtbl;
@@ -369,19 +369,19 @@ extern "C" {
   void __RPC_STUB IAgentCtlUserInput_get_Name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlUserInput_get_CharacterID_Proxy(IAgentCtlUserInput *This,BSTR *pCharacterID);
   void __RPC_STUB IAgentCtlUserInput_get_CharacterID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlUserInput_get_Confidence_Proxy(IAgentCtlUserInput *This,long *pConfidence);
+  HRESULT WINAPI IAgentCtlUserInput_get_Confidence_Proxy(IAgentCtlUserInput *This,__LONG32 *pConfidence);
   void __RPC_STUB IAgentCtlUserInput_get_Confidence_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlUserInput_get_Voice_Proxy(IAgentCtlUserInput *This,BSTR *pVoice);
   void __RPC_STUB IAgentCtlUserInput_get_Voice_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlUserInput_get_Alt1Name_Proxy(IAgentCtlUserInput *This,BSTR *pAlt1Name);
   void __RPC_STUB IAgentCtlUserInput_get_Alt1Name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlUserInput_get_Alt1Confidence_Proxy(IAgentCtlUserInput *This,long *pAlt1Confidence);
+  HRESULT WINAPI IAgentCtlUserInput_get_Alt1Confidence_Proxy(IAgentCtlUserInput *This,__LONG32 *pAlt1Confidence);
   void __RPC_STUB IAgentCtlUserInput_get_Alt1Confidence_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlUserInput_get_Alt1Voice_Proxy(IAgentCtlUserInput *This,BSTR *pAlt1Voice);
   void __RPC_STUB IAgentCtlUserInput_get_Alt1Voice_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlUserInput_get_Alt2Name_Proxy(IAgentCtlUserInput *This,BSTR *pAlt2Name);
   void __RPC_STUB IAgentCtlUserInput_get_Alt2Name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlUserInput_get_Alt2Confidence_Proxy(IAgentCtlUserInput *This,long *pAlt2Confidence);
+  HRESULT WINAPI IAgentCtlUserInput_get_Alt2Confidence_Proxy(IAgentCtlUserInput *This,__LONG32 *pAlt2Confidence);
   void __RPC_STUB IAgentCtlUserInput_get_Alt2Confidence_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlUserInput_get_Alt2Voice_Proxy(IAgentCtlUserInput *This,BSTR *pAlt2Voice);
   void __RPC_STUB IAgentCtlUserInput_get_Alt2Voice_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -394,21 +394,21 @@ extern "C" {
   struct IAgentCtlBalloon : public IDispatch {
   public:
     virtual HRESULT WINAPI get_Enabled(VARIANT_BOOL *Enabled) = 0;
-    virtual HRESULT WINAPI get_NumberOfLines(long *Lines) = 0;
-    virtual HRESULT WINAPI get_CharsPerLine(long *CharsPerLine) = 0;
+    virtual HRESULT WINAPI get_NumberOfLines(__LONG32 *Lines) = 0;
+    virtual HRESULT WINAPI get_CharsPerLine(__LONG32 *CharsPerLine) = 0;
     virtual HRESULT WINAPI get_FontName(BSTR *FontName) = 0;
-    virtual HRESULT WINAPI get_FontSize(long *FontSize) = 0;
+    virtual HRESULT WINAPI get_FontSize(__LONG32 *FontSize) = 0;
     virtual HRESULT WINAPI get_FontBold(VARIANT_BOOL *FontBold) = 0;
     virtual HRESULT WINAPI get_FontItalic(VARIANT_BOOL *FontItalic) = 0;
     virtual HRESULT WINAPI get_FontStrikethru(VARIANT_BOOL *FontStrikethru) = 0;
     virtual HRESULT WINAPI get_FontUnderline(VARIANT_BOOL *FontUnderline) = 0;
-    virtual HRESULT WINAPI get_ForeColor(long *ForeColor) = 0;
-    virtual HRESULT WINAPI get_BackColor(long *BackColor) = 0;
-    virtual HRESULT WINAPI get_BorderColor(long *BorderColor) = 0;
+    virtual HRESULT WINAPI get_ForeColor(__LONG32 *ForeColor) = 0;
+    virtual HRESULT WINAPI get_BackColor(__LONG32 *BackColor) = 0;
+    virtual HRESULT WINAPI get_BorderColor(__LONG32 *BorderColor) = 0;
     virtual HRESULT WINAPI put_Visible(VARIANT_BOOL Visible) = 0;
     virtual HRESULT WINAPI get_Visible(VARIANT_BOOL *Visible) = 0;
     virtual HRESULT WINAPI put_FontName(BSTR FontName) = 0;
-    virtual HRESULT WINAPI put_FontSize(long FontSize) = 0;
+    virtual HRESULT WINAPI put_FontSize(__LONG32 FontSize) = 0;
     virtual HRESULT WINAPI put_FontCharSet(short FontCharSet) = 0;
     virtual HRESULT WINAPI get_FontCharSet(short *FontCharSet) = 0;
   };
@@ -423,21 +423,21 @@ extern "C" {
       HRESULT (WINAPI *GetIDsOfNames)(IAgentCtlBalloon *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IAgentCtlBalloon *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_Enabled)(IAgentCtlBalloon *This,VARIANT_BOOL *Enabled);
-      HRESULT (WINAPI *get_NumberOfLines)(IAgentCtlBalloon *This,long *Lines);
-      HRESULT (WINAPI *get_CharsPerLine)(IAgentCtlBalloon *This,long *CharsPerLine);
+      HRESULT (WINAPI *get_NumberOfLines)(IAgentCtlBalloon *This,__LONG32 *Lines);
+      HRESULT (WINAPI *get_CharsPerLine)(IAgentCtlBalloon *This,__LONG32 *CharsPerLine);
       HRESULT (WINAPI *get_FontName)(IAgentCtlBalloon *This,BSTR *FontName);
-      HRESULT (WINAPI *get_FontSize)(IAgentCtlBalloon *This,long *FontSize);
+      HRESULT (WINAPI *get_FontSize)(IAgentCtlBalloon *This,__LONG32 *FontSize);
       HRESULT (WINAPI *get_FontBold)(IAgentCtlBalloon *This,VARIANT_BOOL *FontBold);
       HRESULT (WINAPI *get_FontItalic)(IAgentCtlBalloon *This,VARIANT_BOOL *FontItalic);
       HRESULT (WINAPI *get_FontStrikethru)(IAgentCtlBalloon *This,VARIANT_BOOL *FontStrikethru);
       HRESULT (WINAPI *get_FontUnderline)(IAgentCtlBalloon *This,VARIANT_BOOL *FontUnderline);
-      HRESULT (WINAPI *get_ForeColor)(IAgentCtlBalloon *This,long *ForeColor);
-      HRESULT (WINAPI *get_BackColor)(IAgentCtlBalloon *This,long *BackColor);
-      HRESULT (WINAPI *get_BorderColor)(IAgentCtlBalloon *This,long *BorderColor);
+      HRESULT (WINAPI *get_ForeColor)(IAgentCtlBalloon *This,__LONG32 *ForeColor);
+      HRESULT (WINAPI *get_BackColor)(IAgentCtlBalloon *This,__LONG32 *BackColor);
+      HRESULT (WINAPI *get_BorderColor)(IAgentCtlBalloon *This,__LONG32 *BorderColor);
       HRESULT (WINAPI *put_Visible)(IAgentCtlBalloon *This,VARIANT_BOOL Visible);
       HRESULT (WINAPI *get_Visible)(IAgentCtlBalloon *This,VARIANT_BOOL *Visible);
       HRESULT (WINAPI *put_FontName)(IAgentCtlBalloon *This,BSTR FontName);
-      HRESULT (WINAPI *put_FontSize)(IAgentCtlBalloon *This,long FontSize);
+      HRESULT (WINAPI *put_FontSize)(IAgentCtlBalloon *This,__LONG32 FontSize);
       HRESULT (WINAPI *put_FontCharSet)(IAgentCtlBalloon *This,short FontCharSet);
       HRESULT (WINAPI *get_FontCharSet)(IAgentCtlBalloon *This,short *FontCharSet);
     END_INTERFACE
@@ -475,13 +475,13 @@ extern "C" {
 #endif
   HRESULT WINAPI IAgentCtlBalloon_get_Enabled_Proxy(IAgentCtlBalloon *This,VARIANT_BOOL *Enabled);
   void __RPC_STUB IAgentCtlBalloon_get_Enabled_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlBalloon_get_NumberOfLines_Proxy(IAgentCtlBalloon *This,long *Lines);
+  HRESULT WINAPI IAgentCtlBalloon_get_NumberOfLines_Proxy(IAgentCtlBalloon *This,__LONG32 *Lines);
   void __RPC_STUB IAgentCtlBalloon_get_NumberOfLines_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlBalloon_get_CharsPerLine_Proxy(IAgentCtlBalloon *This,long *CharsPerLine);
+  HRESULT WINAPI IAgentCtlBalloon_get_CharsPerLine_Proxy(IAgentCtlBalloon *This,__LONG32 *CharsPerLine);
   void __RPC_STUB IAgentCtlBalloon_get_CharsPerLine_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlBalloon_get_FontName_Proxy(IAgentCtlBalloon *This,BSTR *FontName);
   void __RPC_STUB IAgentCtlBalloon_get_FontName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlBalloon_get_FontSize_Proxy(IAgentCtlBalloon *This,long *FontSize);
+  HRESULT WINAPI IAgentCtlBalloon_get_FontSize_Proxy(IAgentCtlBalloon *This,__LONG32 *FontSize);
   void __RPC_STUB IAgentCtlBalloon_get_FontSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlBalloon_get_FontBold_Proxy(IAgentCtlBalloon *This,VARIANT_BOOL *FontBold);
   void __RPC_STUB IAgentCtlBalloon_get_FontBold_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -491,11 +491,11 @@ extern "C" {
   void __RPC_STUB IAgentCtlBalloon_get_FontStrikethru_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlBalloon_get_FontUnderline_Proxy(IAgentCtlBalloon *This,VARIANT_BOOL *FontUnderline);
   void __RPC_STUB IAgentCtlBalloon_get_FontUnderline_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlBalloon_get_ForeColor_Proxy(IAgentCtlBalloon *This,long *ForeColor);
+  HRESULT WINAPI IAgentCtlBalloon_get_ForeColor_Proxy(IAgentCtlBalloon *This,__LONG32 *ForeColor);
   void __RPC_STUB IAgentCtlBalloon_get_ForeColor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlBalloon_get_BackColor_Proxy(IAgentCtlBalloon *This,long *BackColor);
+  HRESULT WINAPI IAgentCtlBalloon_get_BackColor_Proxy(IAgentCtlBalloon *This,__LONG32 *BackColor);
   void __RPC_STUB IAgentCtlBalloon_get_BackColor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlBalloon_get_BorderColor_Proxy(IAgentCtlBalloon *This,long *BorderColor);
+  HRESULT WINAPI IAgentCtlBalloon_get_BorderColor_Proxy(IAgentCtlBalloon *This,__LONG32 *BorderColor);
   void __RPC_STUB IAgentCtlBalloon_get_BorderColor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlBalloon_put_Visible_Proxy(IAgentCtlBalloon *This,VARIANT_BOOL Visible);
   void __RPC_STUB IAgentCtlBalloon_put_Visible_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -503,7 +503,7 @@ extern "C" {
   void __RPC_STUB IAgentCtlBalloon_get_Visible_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlBalloon_put_FontName_Proxy(IAgentCtlBalloon *This,BSTR FontName);
   void __RPC_STUB IAgentCtlBalloon_put_FontName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlBalloon_put_FontSize_Proxy(IAgentCtlBalloon *This,long FontSize);
+  HRESULT WINAPI IAgentCtlBalloon_put_FontSize_Proxy(IAgentCtlBalloon *This,__LONG32 FontSize);
   void __RPC_STUB IAgentCtlBalloon_put_FontSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlBalloon_put_FontCharSet_Proxy(IAgentCtlBalloon *This,short FontCharSet);
   void __RPC_STUB IAgentCtlBalloon_put_FontCharSet_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -517,8 +517,8 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAgentCtlBalloonEx : public IAgentCtlBalloon {
   public:
-    virtual HRESULT WINAPI put_Style(long Style) = 0;
-    virtual HRESULT WINAPI get_Style(long *Style) = 0;
+    virtual HRESULT WINAPI put_Style(__LONG32 Style) = 0;
+    virtual HRESULT WINAPI get_Style(__LONG32 *Style) = 0;
   };
 #else
   typedef struct IAgentCtlBalloonExVtbl {
@@ -531,25 +531,25 @@ extern "C" {
       HRESULT (WINAPI *GetIDsOfNames)(IAgentCtlBalloonEx *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IAgentCtlBalloonEx *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_Enabled)(IAgentCtlBalloonEx *This,VARIANT_BOOL *Enabled);
-      HRESULT (WINAPI *get_NumberOfLines)(IAgentCtlBalloonEx *This,long *Lines);
-      HRESULT (WINAPI *get_CharsPerLine)(IAgentCtlBalloonEx *This,long *CharsPerLine);
+      HRESULT (WINAPI *get_NumberOfLines)(IAgentCtlBalloonEx *This,__LONG32 *Lines);
+      HRESULT (WINAPI *get_CharsPerLine)(IAgentCtlBalloonEx *This,__LONG32 *CharsPerLine);
       HRESULT (WINAPI *get_FontName)(IAgentCtlBalloonEx *This,BSTR *FontName);
-      HRESULT (WINAPI *get_FontSize)(IAgentCtlBalloonEx *This,long *FontSize);
+      HRESULT (WINAPI *get_FontSize)(IAgentCtlBalloonEx *This,__LONG32 *FontSize);
       HRESULT (WINAPI *get_FontBold)(IAgentCtlBalloonEx *This,VARIANT_BOOL *FontBold);
       HRESULT (WINAPI *get_FontItalic)(IAgentCtlBalloonEx *This,VARIANT_BOOL *FontItalic);
       HRESULT (WINAPI *get_FontStrikethru)(IAgentCtlBalloonEx *This,VARIANT_BOOL *FontStrikethru);
       HRESULT (WINAPI *get_FontUnderline)(IAgentCtlBalloonEx *This,VARIANT_BOOL *FontUnderline);
-      HRESULT (WINAPI *get_ForeColor)(IAgentCtlBalloonEx *This,long *ForeColor);
-      HRESULT (WINAPI *get_BackColor)(IAgentCtlBalloonEx *This,long *BackColor);
-      HRESULT (WINAPI *get_BorderColor)(IAgentCtlBalloonEx *This,long *BorderColor);
+      HRESULT (WINAPI *get_ForeColor)(IAgentCtlBalloonEx *This,__LONG32 *ForeColor);
+      HRESULT (WINAPI *get_BackColor)(IAgentCtlBalloonEx *This,__LONG32 *BackColor);
+      HRESULT (WINAPI *get_BorderColor)(IAgentCtlBalloonEx *This,__LONG32 *BorderColor);
       HRESULT (WINAPI *put_Visible)(IAgentCtlBalloonEx *This,VARIANT_BOOL Visible);
       HRESULT (WINAPI *get_Visible)(IAgentCtlBalloonEx *This,VARIANT_BOOL *Visible);
       HRESULT (WINAPI *put_FontName)(IAgentCtlBalloonEx *This,BSTR FontName);
-      HRESULT (WINAPI *put_FontSize)(IAgentCtlBalloonEx *This,long FontSize);
+      HRESULT (WINAPI *put_FontSize)(IAgentCtlBalloonEx *This,__LONG32 FontSize);
       HRESULT (WINAPI *put_FontCharSet)(IAgentCtlBalloonEx *This,short FontCharSet);
       HRESULT (WINAPI *get_FontCharSet)(IAgentCtlBalloonEx *This,short *FontCharSet);
-      HRESULT (WINAPI *put_Style)(IAgentCtlBalloonEx *This,long Style);
-      HRESULT (WINAPI *get_Style)(IAgentCtlBalloonEx *This,long *Style);
+      HRESULT (WINAPI *put_Style)(IAgentCtlBalloonEx *This,__LONG32 Style);
+      HRESULT (WINAPI *get_Style)(IAgentCtlBalloonEx *This,__LONG32 *Style);
     END_INTERFACE
   } IAgentCtlBalloonExVtbl;
   struct IAgentCtlBalloonEx {
@@ -585,9 +585,9 @@ extern "C" {
 #define IAgentCtlBalloonEx_get_Style(This,Style) (This)->lpVtbl->get_Style(This,Style)
 #endif
 #endif
-  HRESULT WINAPI IAgentCtlBalloonEx_put_Style_Proxy(IAgentCtlBalloonEx *This,long Style);
+  HRESULT WINAPI IAgentCtlBalloonEx_put_Style_Proxy(IAgentCtlBalloonEx *This,__LONG32 Style);
   void __RPC_STUB IAgentCtlBalloonEx_put_Style_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlBalloonEx_get_Style_Proxy(IAgentCtlBalloonEx *This,long *Style);
+  HRESULT WINAPI IAgentCtlBalloonEx_get_Style_Proxy(IAgentCtlBalloonEx *This,__LONG32 *Style);
   void __RPC_STUB IAgentCtlBalloonEx_get_Style_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -605,8 +605,8 @@ extern "C" {
     virtual HRESULT WINAPI put_Enabled(VARIANT_BOOL Enabled) = 0;
     virtual HRESULT WINAPI get_Visible(VARIANT_BOOL *Visible) = 0;
     virtual HRESULT WINAPI put_Visible(VARIANT_BOOL Visible) = 0;
-    virtual HRESULT WINAPI get_Confidence(long *Confidence) = 0;
-    virtual HRESULT WINAPI put_Confidence(long Confidence) = 0;
+    virtual HRESULT WINAPI get_Confidence(__LONG32 *Confidence) = 0;
+    virtual HRESULT WINAPI put_Confidence(__LONG32 Confidence) = 0;
     virtual HRESULT WINAPI get_ConfidenceText(BSTR *Text) = 0;
     virtual HRESULT WINAPI put_ConfidenceText(BSTR Text) = 0;
   };
@@ -628,8 +628,8 @@ extern "C" {
       HRESULT (WINAPI *put_Enabled)(IAgentCtlCommand *This,VARIANT_BOOL Enabled);
       HRESULT (WINAPI *get_Visible)(IAgentCtlCommand *This,VARIANT_BOOL *Visible);
       HRESULT (WINAPI *put_Visible)(IAgentCtlCommand *This,VARIANT_BOOL Visible);
-      HRESULT (WINAPI *get_Confidence)(IAgentCtlCommand *This,long *Confidence);
-      HRESULT (WINAPI *put_Confidence)(IAgentCtlCommand *This,long Confidence);
+      HRESULT (WINAPI *get_Confidence)(IAgentCtlCommand *This,__LONG32 *Confidence);
+      HRESULT (WINAPI *put_Confidence)(IAgentCtlCommand *This,__LONG32 Confidence);
       HRESULT (WINAPI *get_ConfidenceText)(IAgentCtlCommand *This,BSTR *Text);
       HRESULT (WINAPI *put_ConfidenceText)(IAgentCtlCommand *This,BSTR Text);
     END_INTERFACE
@@ -675,9 +675,9 @@ extern "C" {
   void __RPC_STUB IAgentCtlCommand_get_Visible_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlCommand_put_Visible_Proxy(IAgentCtlCommand *This,VARIANT_BOOL Visible);
   void __RPC_STUB IAgentCtlCommand_put_Visible_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlCommand_get_Confidence_Proxy(IAgentCtlCommand *This,long *Confidence);
+  HRESULT WINAPI IAgentCtlCommand_get_Confidence_Proxy(IAgentCtlCommand *This,__LONG32 *Confidence);
   void __RPC_STUB IAgentCtlCommand_get_Confidence_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlCommand_put_Confidence_Proxy(IAgentCtlCommand *This,long Confidence);
+  HRESULT WINAPI IAgentCtlCommand_put_Confidence_Proxy(IAgentCtlCommand *This,__LONG32 Confidence);
   void __RPC_STUB IAgentCtlCommand_put_Confidence_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlCommand_get_ConfidenceText_Proxy(IAgentCtlCommand *This,BSTR *Text);
   void __RPC_STUB IAgentCtlCommand_get_ConfidenceText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -691,8 +691,8 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAgentCtlCommandEx : public IAgentCtlCommand {
   public:
-    virtual HRESULT WINAPI put_HelpContextID(long ID) = 0;
-    virtual HRESULT WINAPI get_HelpContextID(long *ID) = 0;
+    virtual HRESULT WINAPI put_HelpContextID(__LONG32 ID) = 0;
+    virtual HRESULT WINAPI get_HelpContextID(__LONG32 *ID) = 0;
     virtual HRESULT WINAPI put_VoiceCaption(BSTR VoiceCaption) = 0;
     virtual HRESULT WINAPI get_VoiceCaption(BSTR *VoiceCaption) = 0;
   };
@@ -714,12 +714,12 @@ extern "C" {
       HRESULT (WINAPI *put_Enabled)(IAgentCtlCommandEx *This,VARIANT_BOOL Enabled);
       HRESULT (WINAPI *get_Visible)(IAgentCtlCommandEx *This,VARIANT_BOOL *Visible);
       HRESULT (WINAPI *put_Visible)(IAgentCtlCommandEx *This,VARIANT_BOOL Visible);
-      HRESULT (WINAPI *get_Confidence)(IAgentCtlCommandEx *This,long *Confidence);
-      HRESULT (WINAPI *put_Confidence)(IAgentCtlCommandEx *This,long Confidence);
+      HRESULT (WINAPI *get_Confidence)(IAgentCtlCommandEx *This,__LONG32 *Confidence);
+      HRESULT (WINAPI *put_Confidence)(IAgentCtlCommandEx *This,__LONG32 Confidence);
       HRESULT (WINAPI *get_ConfidenceText)(IAgentCtlCommandEx *This,BSTR *Text);
       HRESULT (WINAPI *put_ConfidenceText)(IAgentCtlCommandEx *This,BSTR Text);
-      HRESULT (WINAPI *put_HelpContextID)(IAgentCtlCommandEx *This,long ID);
-      HRESULT (WINAPI *get_HelpContextID)(IAgentCtlCommandEx *This,long *ID);
+      HRESULT (WINAPI *put_HelpContextID)(IAgentCtlCommandEx *This,__LONG32 ID);
+      HRESULT (WINAPI *get_HelpContextID)(IAgentCtlCommandEx *This,__LONG32 *ID);
       HRESULT (WINAPI *put_VoiceCaption)(IAgentCtlCommandEx *This,BSTR VoiceCaption);
       HRESULT (WINAPI *get_VoiceCaption)(IAgentCtlCommandEx *This,BSTR *VoiceCaption);
     END_INTERFACE
@@ -753,9 +753,9 @@ extern "C" {
 #define IAgentCtlCommandEx_get_VoiceCaption(This,VoiceCaption) (This)->lpVtbl->get_VoiceCaption(This,VoiceCaption)
 #endif
 #endif
-  HRESULT WINAPI IAgentCtlCommandEx_put_HelpContextID_Proxy(IAgentCtlCommandEx *This,long ID);
+  HRESULT WINAPI IAgentCtlCommandEx_put_HelpContextID_Proxy(IAgentCtlCommandEx *This,__LONG32 ID);
   void __RPC_STUB IAgentCtlCommandEx_put_HelpContextID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlCommandEx_get_HelpContextID_Proxy(IAgentCtlCommandEx *This,long *ID);
+  HRESULT WINAPI IAgentCtlCommandEx_get_HelpContextID_Proxy(IAgentCtlCommandEx *This,__LONG32 *ID);
   void __RPC_STUB IAgentCtlCommandEx_get_HelpContextID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlCommandEx_put_VoiceCaption_Proxy(IAgentCtlCommandEx *This,BSTR VoiceCaption);
   void __RPC_STUB IAgentCtlCommandEx_put_VoiceCaption_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -771,7 +771,7 @@ extern "C" {
   public:
     virtual HRESULT WINAPI get_Item(BSTR Name,IAgentCtlCommandEx **Item) = 0;
     virtual HRESULT WINAPI Command(BSTR Name,IAgentCtlCommandEx **Item) = 0;
-    virtual HRESULT WINAPI get_Count(long *Count) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *Count) = 0;
     virtual HRESULT WINAPI get_Caption(BSTR *Caption) = 0;
     virtual HRESULT WINAPI put_Caption(BSTR Caption) = 0;
     virtual HRESULT WINAPI get_Voice(BSTR *Voice) = 0;
@@ -796,7 +796,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(IAgentCtlCommands *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_Item)(IAgentCtlCommands *This,BSTR Name,IAgentCtlCommandEx **Item);
       HRESULT (WINAPI *Command)(IAgentCtlCommands *This,BSTR Name,IAgentCtlCommandEx **Item);
-      HRESULT (WINAPI *get_Count)(IAgentCtlCommands *This,long *Count);
+      HRESULT (WINAPI *get_Count)(IAgentCtlCommands *This,__LONG32 *Count);
       HRESULT (WINAPI *get_Caption)(IAgentCtlCommands *This,BSTR *Caption);
       HRESULT (WINAPI *put_Caption)(IAgentCtlCommands *This,BSTR Caption);
       HRESULT (WINAPI *get_Voice)(IAgentCtlCommands *This,BSTR *Voice);
@@ -841,7 +841,7 @@ extern "C" {
   void __RPC_STUB IAgentCtlCommands_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlCommands_Command_Proxy(IAgentCtlCommands *This,BSTR Name,IAgentCtlCommandEx **Item);
   void __RPC_STUB IAgentCtlCommands_Command_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlCommands_get_Count_Proxy(IAgentCtlCommands *This,long *Count);
+  HRESULT WINAPI IAgentCtlCommands_get_Count_Proxy(IAgentCtlCommands *This,__LONG32 *Count);
   void __RPC_STUB IAgentCtlCommands_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlCommands_get_Caption_Proxy(IAgentCtlCommands *This,BSTR *Caption);
   void __RPC_STUB IAgentCtlCommands_get_Caption_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -875,12 +875,12 @@ extern "C" {
   public:
     virtual HRESULT WINAPI put_DefaultCommand(BSTR Name) = 0;
     virtual HRESULT WINAPI get_DefaultCommand(BSTR *Name) = 0;
-    virtual HRESULT WINAPI put_HelpContextID(long ID) = 0;
-    virtual HRESULT WINAPI get_HelpContextID(long *ID) = 0;
+    virtual HRESULT WINAPI put_HelpContextID(__LONG32 ID) = 0;
+    virtual HRESULT WINAPI get_HelpContextID(__LONG32 *ID) = 0;
     virtual HRESULT WINAPI put_FontName(BSTR FontName) = 0;
     virtual HRESULT WINAPI get_FontName(BSTR *FontName) = 0;
-    virtual HRESULT WINAPI get_FontSize(long *FontSize) = 0;
-    virtual HRESULT WINAPI put_FontSize(long FontSize) = 0;
+    virtual HRESULT WINAPI get_FontSize(__LONG32 *FontSize) = 0;
+    virtual HRESULT WINAPI put_FontSize(__LONG32 FontSize) = 0;
     virtual HRESULT WINAPI put_VoiceCaption(BSTR VoiceCaption) = 0;
     virtual HRESULT WINAPI get_VoiceCaption(BSTR *VoiceCaption) = 0;
     virtual HRESULT WINAPI put_GlobalVoiceCommandsEnabled(VARIANT_BOOL Enable) = 0;
@@ -898,7 +898,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(IAgentCtlCommandsEx *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_Item)(IAgentCtlCommandsEx *This,BSTR Name,IAgentCtlCommandEx **Item);
       HRESULT (WINAPI *Command)(IAgentCtlCommandsEx *This,BSTR Name,IAgentCtlCommandEx **Item);
-      HRESULT (WINAPI *get_Count)(IAgentCtlCommandsEx *This,long *Count);
+      HRESULT (WINAPI *get_Count)(IAgentCtlCommandsEx *This,__LONG32 *Count);
       HRESULT (WINAPI *get_Caption)(IAgentCtlCommandsEx *This,BSTR *Caption);
       HRESULT (WINAPI *put_Caption)(IAgentCtlCommandsEx *This,BSTR Caption);
       HRESULT (WINAPI *get_Voice)(IAgentCtlCommandsEx *This,BSTR *Voice);
@@ -912,12 +912,12 @@ extern "C" {
       HRESULT (WINAPI *RemoveAll)(IAgentCtlCommandsEx *This);
       HRESULT (WINAPI *put_DefaultCommand)(IAgentCtlCommandsEx *This,BSTR Name);
       HRESULT (WINAPI *get_DefaultCommand)(IAgentCtlCommandsEx *This,BSTR *Name);
-      HRESULT (WINAPI *put_HelpContextID)(IAgentCtlCommandsEx *This,long ID);
-      HRESULT (WINAPI *get_HelpContextID)(IAgentCtlCommandsEx *This,long *ID);
+      HRESULT (WINAPI *put_HelpContextID)(IAgentCtlCommandsEx *This,__LONG32 ID);
+      HRESULT (WINAPI *get_HelpContextID)(IAgentCtlCommandsEx *This,__LONG32 *ID);
       HRESULT (WINAPI *put_FontName)(IAgentCtlCommandsEx *This,BSTR FontName);
       HRESULT (WINAPI *get_FontName)(IAgentCtlCommandsEx *This,BSTR *FontName);
-      HRESULT (WINAPI *get_FontSize)(IAgentCtlCommandsEx *This,long *FontSize);
-      HRESULT (WINAPI *put_FontSize)(IAgentCtlCommandsEx *This,long FontSize);
+      HRESULT (WINAPI *get_FontSize)(IAgentCtlCommandsEx *This,__LONG32 *FontSize);
+      HRESULT (WINAPI *put_FontSize)(IAgentCtlCommandsEx *This,__LONG32 FontSize);
       HRESULT (WINAPI *put_VoiceCaption)(IAgentCtlCommandsEx *This,BSTR VoiceCaption);
       HRESULT (WINAPI *get_VoiceCaption)(IAgentCtlCommandsEx *This,BSTR *VoiceCaption);
       HRESULT (WINAPI *put_GlobalVoiceCommandsEnabled)(IAgentCtlCommandsEx *This,VARIANT_BOOL Enable);
@@ -967,17 +967,17 @@ extern "C" {
   void __RPC_STUB IAgentCtlCommandsEx_put_DefaultCommand_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlCommandsEx_get_DefaultCommand_Proxy(IAgentCtlCommandsEx *This,BSTR *Name);
   void __RPC_STUB IAgentCtlCommandsEx_get_DefaultCommand_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlCommandsEx_put_HelpContextID_Proxy(IAgentCtlCommandsEx *This,long ID);
+  HRESULT WINAPI IAgentCtlCommandsEx_put_HelpContextID_Proxy(IAgentCtlCommandsEx *This,__LONG32 ID);
   void __RPC_STUB IAgentCtlCommandsEx_put_HelpContextID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlCommandsEx_get_HelpContextID_Proxy(IAgentCtlCommandsEx *This,long *ID);
+  HRESULT WINAPI IAgentCtlCommandsEx_get_HelpContextID_Proxy(IAgentCtlCommandsEx *This,__LONG32 *ID);
   void __RPC_STUB IAgentCtlCommandsEx_get_HelpContextID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlCommandsEx_put_FontName_Proxy(IAgentCtlCommandsEx *This,BSTR FontName);
   void __RPC_STUB IAgentCtlCommandsEx_put_FontName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlCommandsEx_get_FontName_Proxy(IAgentCtlCommandsEx *This,BSTR *FontName);
   void __RPC_STUB IAgentCtlCommandsEx_get_FontName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlCommandsEx_get_FontSize_Proxy(IAgentCtlCommandsEx *This,long *FontSize);
+  HRESULT WINAPI IAgentCtlCommandsEx_get_FontSize_Proxy(IAgentCtlCommandsEx *This,__LONG32 *FontSize);
   void __RPC_STUB IAgentCtlCommandsEx_get_FontSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlCommandsEx_put_FontSize_Proxy(IAgentCtlCommandsEx *This,long FontSize);
+  HRESULT WINAPI IAgentCtlCommandsEx_put_FontSize_Proxy(IAgentCtlCommandsEx *This,__LONG32 FontSize);
   void __RPC_STUB IAgentCtlCommandsEx_put_FontSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlCommandsEx_put_VoiceCaption_Proxy(IAgentCtlCommandsEx *This,BSTR VoiceCaption);
   void __RPC_STUB IAgentCtlCommandsEx_put_VoiceCaption_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1008,8 +1008,8 @@ extern "C" {
     virtual HRESULT WINAPI get_Height(short *Height) = 0;
     virtual HRESULT WINAPI put_Width(short Width) = 0;
     virtual HRESULT WINAPI get_Width(short *Width) = 0;
-    virtual HRESULT WINAPI get_Speed(long *Speed) = 0;
-    virtual HRESULT WINAPI get_Pitch(long *Pitch) = 0;
+    virtual HRESULT WINAPI get_Speed(__LONG32 *Speed) = 0;
+    virtual HRESULT WINAPI get_Pitch(__LONG32 *Pitch) = 0;
     virtual HRESULT WINAPI put_IdleOn(VARIANT_BOOL On) = 0;
     virtual HRESULT WINAPI get_IdleOn(VARIANT_BOOL *On) = 0;
     virtual HRESULT WINAPI Activate(VARIANT State,VARIANT_BOOL *Success) = 0;
@@ -1056,8 +1056,8 @@ extern "C" {
       HRESULT (WINAPI *get_Height)(IAgentCtlCharacter *This,short *Height);
       HRESULT (WINAPI *put_Width)(IAgentCtlCharacter *This,short Width);
       HRESULT (WINAPI *get_Width)(IAgentCtlCharacter *This,short *Width);
-      HRESULT (WINAPI *get_Speed)(IAgentCtlCharacter *This,long *Speed);
-      HRESULT (WINAPI *get_Pitch)(IAgentCtlCharacter *This,long *Pitch);
+      HRESULT (WINAPI *get_Speed)(IAgentCtlCharacter *This,__LONG32 *Speed);
+      HRESULT (WINAPI *get_Pitch)(IAgentCtlCharacter *This,__LONG32 *Pitch);
       HRESULT (WINAPI *put_IdleOn)(IAgentCtlCharacter *This,VARIANT_BOOL On);
       HRESULT (WINAPI *get_IdleOn)(IAgentCtlCharacter *This,VARIANT_BOOL *On);
       HRESULT (WINAPI *Activate)(IAgentCtlCharacter *This,VARIANT State,VARIANT_BOOL *Success);
@@ -1158,9 +1158,9 @@ extern "C" {
   void __RPC_STUB IAgentCtlCharacter_put_Width_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlCharacter_get_Width_Proxy(IAgentCtlCharacter *This,short *Width);
   void __RPC_STUB IAgentCtlCharacter_get_Width_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlCharacter_get_Speed_Proxy(IAgentCtlCharacter *This,long *Speed);
+  HRESULT WINAPI IAgentCtlCharacter_get_Speed_Proxy(IAgentCtlCharacter *This,__LONG32 *Speed);
   void __RPC_STUB IAgentCtlCharacter_get_Speed_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlCharacter_get_Pitch_Proxy(IAgentCtlCharacter *This,long *Pitch);
+  HRESULT WINAPI IAgentCtlCharacter_get_Pitch_Proxy(IAgentCtlCharacter *This,__LONG32 *Pitch);
   void __RPC_STUB IAgentCtlCharacter_get_Pitch_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlCharacter_put_IdleOn_Proxy(IAgentCtlCharacter *This,VARIANT_BOOL On);
   void __RPC_STUB IAgentCtlCharacter_put_IdleOn_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1258,12 +1258,12 @@ extern "C" {
     virtual HRESULT WINAPI get_AutoPopupMenu(VARIANT_BOOL *On) = 0;
     virtual HRESULT WINAPI put_HelpModeOn(VARIANT_BOOL On) = 0;
     virtual HRESULT WINAPI get_HelpModeOn(VARIANT_BOOL *On) = 0;
-    virtual HRESULT WINAPI put_HelpContextID(long ID) = 0;
-    virtual HRESULT WINAPI get_HelpContextID(long *ID) = 0;
+    virtual HRESULT WINAPI put_HelpContextID(__LONG32 ID) = 0;
+    virtual HRESULT WINAPI get_HelpContextID(__LONG32 *ID) = 0;
     virtual HRESULT WINAPI get_Active(short *State) = 0;
     virtual HRESULT WINAPI Listen(VARIANT_BOOL Listen,VARIANT_BOOL *StartedListening) = 0;
-    virtual HRESULT WINAPI put_LanguageID(long LanguageID) = 0;
-    virtual HRESULT WINAPI get_LanguageID(long *LanguageID) = 0;
+    virtual HRESULT WINAPI put_LanguageID(__LONG32 LanguageID) = 0;
+    virtual HRESULT WINAPI get_LanguageID(__LONG32 *LanguageID) = 0;
     virtual HRESULT WINAPI get_SRModeID(BSTR *EngineModeId) = 0;
     virtual HRESULT WINAPI put_SRModeID(BSTR EngineModeId) = 0;
     virtual HRESULT WINAPI get_TTSModeID(BSTR *EngineModeId) = 0;
@@ -1276,7 +1276,7 @@ extern "C" {
     virtual HRESULT WINAPI Think(BSTR Text,IAgentCtlRequest **Request) = 0;
     virtual HRESULT WINAPI get_Version(BSTR *Version) = 0;
     virtual HRESULT WINAPI get_AnimationNames(IAgentCtlAnimationNames **Names) = 0;
-    virtual HRESULT WINAPI get_SRStatus(long *Status) = 0;
+    virtual HRESULT WINAPI get_SRStatus(__LONG32 *Status) = 0;
   };
 #else
   typedef struct IAgentCtlCharacterExVtbl {
@@ -1301,8 +1301,8 @@ extern "C" {
       HRESULT (WINAPI *get_Height)(IAgentCtlCharacterEx *This,short *Height);
       HRESULT (WINAPI *put_Width)(IAgentCtlCharacterEx *This,short Width);
       HRESULT (WINAPI *get_Width)(IAgentCtlCharacterEx *This,short *Width);
-      HRESULT (WINAPI *get_Speed)(IAgentCtlCharacterEx *This,long *Speed);
-      HRESULT (WINAPI *get_Pitch)(IAgentCtlCharacterEx *This,long *Pitch);
+      HRESULT (WINAPI *get_Speed)(IAgentCtlCharacterEx *This,__LONG32 *Speed);
+      HRESULT (WINAPI *get_Pitch)(IAgentCtlCharacterEx *This,__LONG32 *Pitch);
       HRESULT (WINAPI *put_IdleOn)(IAgentCtlCharacterEx *This,VARIANT_BOOL On);
       HRESULT (WINAPI *get_IdleOn)(IAgentCtlCharacterEx *This,VARIANT_BOOL *On);
       HRESULT (WINAPI *Activate)(IAgentCtlCharacterEx *This,VARIANT State,VARIANT_BOOL *Success);
@@ -1330,12 +1330,12 @@ extern "C" {
       HRESULT (WINAPI *get_AutoPopupMenu)(IAgentCtlCharacterEx *This,VARIANT_BOOL *On);
       HRESULT (WINAPI *put_HelpModeOn)(IAgentCtlCharacterEx *This,VARIANT_BOOL On);
       HRESULT (WINAPI *get_HelpModeOn)(IAgentCtlCharacterEx *This,VARIANT_BOOL *On);
-      HRESULT (WINAPI *put_HelpContextID)(IAgentCtlCharacterEx *This,long ID);
-      HRESULT (WINAPI *get_HelpContextID)(IAgentCtlCharacterEx *This,long *ID);
+      HRESULT (WINAPI *put_HelpContextID)(IAgentCtlCharacterEx *This,__LONG32 ID);
+      HRESULT (WINAPI *get_HelpContextID)(IAgentCtlCharacterEx *This,__LONG32 *ID);
       HRESULT (WINAPI *get_Active)(IAgentCtlCharacterEx *This,short *State);
       HRESULT (WINAPI *Listen)(IAgentCtlCharacterEx *This,VARIANT_BOOL Listen,VARIANT_BOOL *StartedListening);
-      HRESULT (WINAPI *put_LanguageID)(IAgentCtlCharacterEx *This,long LanguageID);
-      HRESULT (WINAPI *get_LanguageID)(IAgentCtlCharacterEx *This,long *LanguageID);
+      HRESULT (WINAPI *put_LanguageID)(IAgentCtlCharacterEx *This,__LONG32 LanguageID);
+      HRESULT (WINAPI *get_LanguageID)(IAgentCtlCharacterEx *This,__LONG32 *LanguageID);
       HRESULT (WINAPI *get_SRModeID)(IAgentCtlCharacterEx *This,BSTR *EngineModeId);
       HRESULT (WINAPI *put_SRModeID)(IAgentCtlCharacterEx *This,BSTR EngineModeId);
       HRESULT (WINAPI *get_TTSModeID)(IAgentCtlCharacterEx *This,BSTR *EngineModeId);
@@ -1348,7 +1348,7 @@ extern "C" {
       HRESULT (WINAPI *Think)(IAgentCtlCharacterEx *This,BSTR Text,IAgentCtlRequest **Request);
       HRESULT (WINAPI *get_Version)(IAgentCtlCharacterEx *This,BSTR *Version);
       HRESULT (WINAPI *get_AnimationNames)(IAgentCtlCharacterEx *This,IAgentCtlAnimationNames **Names);
-      HRESULT (WINAPI *get_SRStatus)(IAgentCtlCharacterEx *This,long *Status);
+      HRESULT (WINAPI *get_SRStatus)(IAgentCtlCharacterEx *This,__LONG32 *Status);
     END_INTERFACE
   } IAgentCtlCharacterExVtbl;
   struct IAgentCtlCharacterEx {
@@ -1435,17 +1435,17 @@ extern "C" {
   void __RPC_STUB IAgentCtlCharacterEx_put_HelpModeOn_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlCharacterEx_get_HelpModeOn_Proxy(IAgentCtlCharacterEx *This,VARIANT_BOOL *On);
   void __RPC_STUB IAgentCtlCharacterEx_get_HelpModeOn_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlCharacterEx_put_HelpContextID_Proxy(IAgentCtlCharacterEx *This,long ID);
+  HRESULT WINAPI IAgentCtlCharacterEx_put_HelpContextID_Proxy(IAgentCtlCharacterEx *This,__LONG32 ID);
   void __RPC_STUB IAgentCtlCharacterEx_put_HelpContextID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlCharacterEx_get_HelpContextID_Proxy(IAgentCtlCharacterEx *This,long *ID);
+  HRESULT WINAPI IAgentCtlCharacterEx_get_HelpContextID_Proxy(IAgentCtlCharacterEx *This,__LONG32 *ID);
   void __RPC_STUB IAgentCtlCharacterEx_get_HelpContextID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlCharacterEx_get_Active_Proxy(IAgentCtlCharacterEx *This,short *State);
   void __RPC_STUB IAgentCtlCharacterEx_get_Active_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlCharacterEx_Listen_Proxy(IAgentCtlCharacterEx *This,VARIANT_BOOL Listen,VARIANT_BOOL *StartedListening);
   void __RPC_STUB IAgentCtlCharacterEx_Listen_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlCharacterEx_put_LanguageID_Proxy(IAgentCtlCharacterEx *This,long LanguageID);
+  HRESULT WINAPI IAgentCtlCharacterEx_put_LanguageID_Proxy(IAgentCtlCharacterEx *This,__LONG32 LanguageID);
   void __RPC_STUB IAgentCtlCharacterEx_put_LanguageID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlCharacterEx_get_LanguageID_Proxy(IAgentCtlCharacterEx *This,long *LanguageID);
+  HRESULT WINAPI IAgentCtlCharacterEx_get_LanguageID_Proxy(IAgentCtlCharacterEx *This,__LONG32 *LanguageID);
   void __RPC_STUB IAgentCtlCharacterEx_get_LanguageID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlCharacterEx_get_SRModeID_Proxy(IAgentCtlCharacterEx *This,BSTR *EngineModeId);
   void __RPC_STUB IAgentCtlCharacterEx_get_SRModeID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1471,7 +1471,7 @@ extern "C" {
   void __RPC_STUB IAgentCtlCharacterEx_get_Version_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAgentCtlCharacterEx_get_AnimationNames_Proxy(IAgentCtlCharacterEx *This,IAgentCtlAnimationNames **Names);
   void __RPC_STUB IAgentCtlCharacterEx_get_AnimationNames_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAgentCtlCharacterEx_get_SRStatus_Proxy(IAgentCtlCharacterEx *This,long *Status);
+  HRESULT WINAPI IAgentCtlCharacterEx_get_SRStatus_Proxy(IAgentCtlCharacterEx *This,__LONG32 *Status);
   void __RPC_STUB IAgentCtlCharacterEx_get_SRStatus_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 

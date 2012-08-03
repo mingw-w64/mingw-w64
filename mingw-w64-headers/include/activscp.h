@@ -952,7 +952,7 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IActiveScriptHostEncode : public IUnknown {
   public:
-    virtual HRESULT WINAPI EncodeScriptHostFile(BSTR bstrInFile,BSTR *pbstrOutFile,unsigned long cFlags,BSTR bstrDefaultLang) = 0;
+    virtual HRESULT WINAPI EncodeScriptHostFile(BSTR bstrInFile,BSTR *pbstrOutFile,unsigned __LONG32 cFlags,BSTR bstrDefaultLang) = 0;
   };
 #else
   typedef struct IActiveScriptHostEncodeVtbl {
@@ -960,7 +960,7 @@ extern "C"{
       HRESULT (WINAPI *QueryInterface)(IActiveScriptHostEncode *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IActiveScriptHostEncode *This);
       ULONG (WINAPI *Release)(IActiveScriptHostEncode *This);
-      HRESULT (WINAPI *EncodeScriptHostFile)(IActiveScriptHostEncode *This,BSTR bstrInFile,BSTR *pbstrOutFile,unsigned long cFlags,BSTR bstrDefaultLang);
+      HRESULT (WINAPI *EncodeScriptHostFile)(IActiveScriptHostEncode *This,BSTR bstrInFile,BSTR *pbstrOutFile,unsigned __LONG32 cFlags,BSTR bstrDefaultLang);
     END_INTERFACE
   } IActiveScriptHostEncodeVtbl;
   struct IActiveScriptHostEncode {
@@ -974,7 +974,7 @@ extern "C"{
 #endif
 #endif
 
-  HRESULT WINAPI IActiveScriptHostEncode_EncodeScriptHostFile_Proxy(IActiveScriptHostEncode *This,BSTR bstrInFile,BSTR *pbstrOutFile,unsigned long cFlags,BSTR bstrDefaultLang);
+  HRESULT WINAPI IActiveScriptHostEncode_EncodeScriptHostFile_Proxy(IActiveScriptHostEncode *This,BSTR bstrInFile,BSTR *pbstrOutFile,unsigned __LONG32 cFlags,BSTR bstrDefaultLang);
   void __RPC_STUB IActiveScriptHostEncode_EncodeScriptHostFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 

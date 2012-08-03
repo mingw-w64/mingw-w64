@@ -1,5 +1,14 @@
 2012-08-02  Corinna Vinschen  <vinschen@redhat.com>
 
+	* activscp.h: Change long to __LONG32 where appropriate.
+	* adoctint.h: Ditto.
+	* adoint.h: Ditto.
+	* adojet.h: Ditto.
+	* adomd.h: Ditto.
+	* agtctl.h: Ditto.
+
+2012-08-02  Corinna Vinschen  <vinschen@redhat.com>
+
 	* fsrm.h: Change long to __LONG32 where appropriate.
 	* fsrmquota.h: Ditto.
 	* fsrmreports.h: Ditto.

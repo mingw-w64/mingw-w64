@@ -241,7 +241,7 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct _ADOADOCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *c) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *c) = 0;
     virtual HRESULT WINAPI _NewEnum(IUnknown **ppvObject) = 0;
     virtual HRESULT WINAPI Refresh(void) = 0;
   };
@@ -255,7 +255,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(_ADOADOCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(_ADOADOCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(_ADOADOCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(_ADOADOCollection *This,long *c);
+      HRESULT (WINAPI *get_Count)(_ADOADOCollection *This,__LONG32 *c);
       HRESULT (WINAPI *_NewEnum)(_ADOADOCollection *This,IUnknown **ppvObject);
       HRESULT (WINAPI *Refresh)(_ADOADOCollection *This);
     END_INTERFACE
@@ -276,7 +276,7 @@ extern "C"{
 #define _ADOCollection_Refresh(This) (This)->lpVtbl->Refresh(This)
 #endif
 #endif
-  HRESULT WINAPI _Collection_get_Count_Proxy(_ADOADOCollection *This,long *c);
+  HRESULT WINAPI _Collection_get_Count_Proxy(_ADOADOCollection *This,__LONG32 *c);
   void __RPC_STUB _Collection_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI _ADOCollection__NewEnum_Proxy(_ADOADOCollection *This,IUnknown **ppvObject);
   void __RPC_STUB _ADOCollection__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -303,7 +303,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(_ADODynaADOCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(_ADODynaADOCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(_ADODynaADOCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(_ADODynaADOCollection *This,long *c);
+      HRESULT (WINAPI *get_Count)(_ADODynaADOCollection *This,__LONG32 *c);
       HRESULT (WINAPI *_NewEnum)(_ADODynaADOCollection *This,IUnknown **ppvObject);
       HRESULT (WINAPI *Refresh)(_ADODynaADOCollection *This);
       HRESULT (WINAPI *Append)(_ADODynaADOCollection *This,IDispatch *Object);
@@ -781,12 +781,12 @@ extern "C"{
     virtual HRESULT WINAPI put_Name(BSTR newVal) = 0;
     virtual HRESULT WINAPI get_Attributes(ColumnAttributesEnum *pVal) = 0;
     virtual HRESULT WINAPI put_Attributes(ColumnAttributesEnum newVal) = 0;
-    virtual HRESULT WINAPI get_DefinedSize(long *pVal) = 0;
-    virtual HRESULT WINAPI put_DefinedSize(long DefinedSize) = 0;
+    virtual HRESULT WINAPI get_DefinedSize(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI put_DefinedSize(__LONG32 DefinedSize) = 0;
     virtual HRESULT WINAPI get_NumericScale(BYTE *pVal) = 0;
     virtual HRESULT WINAPI put_NumericScale(BYTE newVal) = 0;
-    virtual HRESULT WINAPI get_Precision(long *pVal) = 0;
-    virtual HRESULT WINAPI put_Precision(long newVal) = 0;
+    virtual HRESULT WINAPI get_Precision(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI put_Precision(__LONG32 newVal) = 0;
     virtual HRESULT WINAPI get_RelatedColumn(BSTR *pVal) = 0;
     virtual HRESULT WINAPI put_RelatedColumn(BSTR newVal) = 0;
     virtual HRESULT WINAPI get_SortOrder(SortOrderEnum *pVal) = 0;
@@ -812,12 +812,12 @@ extern "C"{
       HRESULT (WINAPI *put_Name)(_ADOColumn *This,BSTR newVal);
       HRESULT (WINAPI *get_Attributes)(_ADOColumn *This,ColumnAttributesEnum *pVal);
       HRESULT (WINAPI *put_Attributes)(_ADOColumn *This,ColumnAttributesEnum newVal);
-      HRESULT (WINAPI *get_DefinedSize)(_ADOColumn *This,long *pVal);
-      HRESULT (WINAPI *put_DefinedSize)(_ADOColumn *This,long DefinedSize);
+      HRESULT (WINAPI *get_DefinedSize)(_ADOColumn *This,__LONG32 *pVal);
+      HRESULT (WINAPI *put_DefinedSize)(_ADOColumn *This,__LONG32 DefinedSize);
       HRESULT (WINAPI *get_NumericScale)(_ADOColumn *This,BYTE *pVal);
       HRESULT (WINAPI *put_NumericScale)(_ADOColumn *This,BYTE newVal);
-      HRESULT (WINAPI *get_Precision)(_ADOColumn *This,long *pVal);
-      HRESULT (WINAPI *put_Precision)(_ADOColumn *This,long newVal);
+      HRESULT (WINAPI *get_Precision)(_ADOColumn *This,__LONG32 *pVal);
+      HRESULT (WINAPI *put_Precision)(_ADOColumn *This,__LONG32 newVal);
       HRESULT (WINAPI *get_RelatedColumn)(_ADOColumn *This,BSTR *pVal);
       HRESULT (WINAPI *put_RelatedColumn)(_ADOColumn *This,BSTR newVal);
       HRESULT (WINAPI *get_SortOrder)(_ADOColumn *This,SortOrderEnum *pVal);
@@ -871,17 +871,17 @@ extern "C"{
   void __RPC_STUB _Column_get_Attributes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI _Column_put_Attributes_Proxy(_ADOColumn *This,ColumnAttributesEnum newVal);
   void __RPC_STUB _Column_put_Attributes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI _Column_get_DefinedSize_Proxy(_ADOColumn *This,long *pVal);
+  HRESULT WINAPI _Column_get_DefinedSize_Proxy(_ADOColumn *This,__LONG32 *pVal);
   void __RPC_STUB _Column_get_DefinedSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI _Column_put_DefinedSize_Proxy(_ADOColumn *This,long DefinedSize);
+  HRESULT WINAPI _Column_put_DefinedSize_Proxy(_ADOColumn *This,__LONG32 DefinedSize);
   void __RPC_STUB _Column_put_DefinedSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI _Column_get_NumericScale_Proxy(_ADOColumn *This,BYTE *pVal);
   void __RPC_STUB _Column_get_NumericScale_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI _Column_put_NumericScale_Proxy(_ADOColumn *This,BYTE newVal);
   void __RPC_STUB _Column_put_NumericScale_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI _Column_get_Precision_Proxy(_ADOColumn *This,long *pVal);
+  HRESULT WINAPI _Column_get_Precision_Proxy(_ADOColumn *This,__LONG32 *pVal);
   void __RPC_STUB _Column_get_Precision_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI _Column_put_Precision_Proxy(_ADOColumn *This,long newVal);
+  HRESULT WINAPI _Column_put_Precision_Proxy(_ADOColumn *This,__LONG32 newVal);
   void __RPC_STUB _Column_put_Precision_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI _Column_get_RelatedColumn_Proxy(_ADOColumn *This,BSTR *pVal);
   void __RPC_STUB _Column_get_RelatedColumn_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1234,8 +1234,8 @@ extern "C"{
     virtual HRESULT WINAPI put_Value(VARIANT val) = 0;
     virtual HRESULT WINAPI get_Name(BSTR *pbstr) = 0;
     virtual HRESULT WINAPI get_Type(DataTypeEnum *ptype) = 0;
-    virtual HRESULT WINAPI get_Attributes(long *plAttributes) = 0;
-    virtual HRESULT WINAPI put_Attributes(long lAttributes) = 0;
+    virtual HRESULT WINAPI get_Attributes(__LONG32 *plAttributes) = 0;
+    virtual HRESULT WINAPI put_Attributes(__LONG32 lAttributes) = 0;
   };
 #else
   typedef struct PropertyVtbl {
@@ -1251,8 +1251,8 @@ extern "C"{
       HRESULT (WINAPI *put_Value)(ADOProperty *This,VARIANT val);
       HRESULT (WINAPI *get_Name)(ADOProperty *This,BSTR *pbstr);
       HRESULT (WINAPI *get_Type)(ADOProperty *This,DataTypeEnum *ptype);
-      HRESULT (WINAPI *get_Attributes)(ADOProperty *This,long *plAttributes);
-      HRESULT (WINAPI *put_Attributes)(ADOProperty *This,long lAttributes);
+      HRESULT (WINAPI *get_Attributes)(ADOProperty *This,__LONG32 *plAttributes);
+      HRESULT (WINAPI *put_Attributes)(ADOProperty *This,__LONG32 lAttributes);
     END_INTERFACE
   } PropertyVtbl;
   struct Property {
@@ -1282,9 +1282,9 @@ extern "C"{
   void __RPC_STUB Property_get_Name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Property_get_Type_Proxy(ADOProperty *This,DataTypeEnum *ptype);
   void __RPC_STUB Property_get_Type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Property_get_Attributes_Proxy(ADOProperty *This,long *plAttributes);
+  HRESULT WINAPI Property_get_Attributes_Proxy(ADOProperty *This,__LONG32 *plAttributes);
   void __RPC_STUB Property_get_Attributes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Property_put_Attributes_Proxy(ADOProperty *This,long lAttributes);
+  HRESULT WINAPI Property_put_Attributes_Proxy(ADOProperty *This,__LONG32 lAttributes);
   void __RPC_STUB Property_put_Attributes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
   EXTERN_C const CLSID CLSID_Group;
@@ -1328,7 +1328,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(ADOTables *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ADOTables *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ADOTables *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(ADOTables *This,long *c);
+      HRESULT (WINAPI *get_Count)(ADOTables *This,__LONG32 *c);
       HRESULT (WINAPI *_NewEnum)(ADOTables *This,IUnknown **ppvObject);
       HRESULT (WINAPI *Refresh)(ADOTables *This);
       HRESULT (WINAPI *get_Item)(ADOTables *This,VARIANT Item,Table **ppvObject);
@@ -1370,7 +1370,7 @@ extern "C"{
   struct ADOColumns : public _ADOCollection {
   public:
     virtual HRESULT WINAPI get_Item(VARIANT Item,Column **ppvObject) = 0;
-    virtual HRESULT WINAPI Append(VARIANT Item,DataTypeEnum Type = adVarWChar,long DefinedSize = 0) = 0;
+    virtual HRESULT WINAPI Append(VARIANT Item,DataTypeEnum Type = adVarWChar,__LONG32 DefinedSize = 0) = 0;
     virtual HRESULT WINAPI Delete(VARIANT Item) = 0;
   };
 #else
@@ -1383,11 +1383,11 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(ADOColumns *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ADOColumns *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ADOColumns *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(ADOColumns *This,long *c);
+      HRESULT (WINAPI *get_Count)(ADOColumns *This,__LONG32 *c);
       HRESULT (WINAPI *_NewEnum)(ADOColumns *This,IUnknown **ppvObject);
       HRESULT (WINAPI *Refresh)(ADOColumns *This);
       HRESULT (WINAPI *get_Item)(ADOColumns *This,VARIANT Item,Column **ppvObject);
-      HRESULT (WINAPI *Append)(ADOColumns *This,VARIANT Item,DataTypeEnum Type,long DefinedSize);
+      HRESULT (WINAPI *Append)(ADOColumns *This,VARIANT Item,DataTypeEnum Type,__LONG32 DefinedSize);
       HRESULT (WINAPI *Delete)(ADOColumns *This,VARIANT Item);
     END_INTERFACE
   } ColumnsVtbl;
@@ -1412,7 +1412,7 @@ extern "C"{
 #endif
   HRESULT WINAPI Columns_get_Item_Proxy(ADOColumns *This,VARIANT Item,Column **ppvObject);
   void __RPC_STUB Columns_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Columns_Append_Proxy(ADOColumns *This,VARIANT Item,DataTypeEnum Type,long DefinedSize);
+  HRESULT WINAPI Columns_Append_Proxy(ADOColumns *This,VARIANT Item,DataTypeEnum Type,__LONG32 DefinedSize);
   void __RPC_STUB Columns_Append_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Columns_Delete_Proxy(ADOColumns *This,VARIANT Item);
   void __RPC_STUB Columns_Delete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1438,7 +1438,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(ADOProcedures *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ADOProcedures *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ADOProcedures *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(ADOProcedures *This,long *c);
+      HRESULT (WINAPI *get_Count)(ADOProcedures *This,__LONG32 *c);
       HRESULT (WINAPI *_NewEnum)(ADOProcedures *This,IUnknown **ppvObject);
       HRESULT (WINAPI *Refresh)(ADOProcedures *This);
       HRESULT (WINAPI *get_Item)(ADOProcedures *This,VARIANT Item,ADOProcedure **ppvObject);
@@ -1493,7 +1493,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(ADOViews *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ADOViews *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ADOViews *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(ADOViews *This,long *c);
+      HRESULT (WINAPI *get_Count)(ADOViews *This,__LONG32 *c);
       HRESULT (WINAPI *_NewEnum)(ADOViews *This,IUnknown **ppvObject);
       HRESULT (WINAPI *Refresh)(ADOViews *This);
       HRESULT (WINAPI *get_Item)(ADOViews *This,VARIANT Item,ADOView **ppvObject);
@@ -1548,7 +1548,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(ADOIndexes *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ADOIndexes *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ADOIndexes *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(ADOIndexes *This,long *c);
+      HRESULT (WINAPI *get_Count)(ADOIndexes *This,__LONG32 *c);
       HRESULT (WINAPI *_NewEnum)(ADOIndexes *This,IUnknown **ppvObject);
       HRESULT (WINAPI *Refresh)(ADOIndexes *This);
       HRESULT (WINAPI *get_Item)(ADOIndexes *This,VARIANT Item,Index **ppvObject);
@@ -1603,7 +1603,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(ADOKeys *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ADOKeys *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ADOKeys *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(ADOKeys *This,long *c);
+      HRESULT (WINAPI *get_Count)(ADOKeys *This,__LONG32 *c);
       HRESULT (WINAPI *_NewEnum)(ADOKeys *This,IUnknown **ppvObject);
       HRESULT (WINAPI *Refresh)(ADOKeys *This);
       HRESULT (WINAPI *get_Item)(ADOKeys *This,VARIANT Item,Key **ppvObject);
@@ -1658,7 +1658,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(ADOUsers *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ADOUsers *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ADOUsers *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(ADOUsers *This,long *c);
+      HRESULT (WINAPI *get_Count)(ADOUsers *This,__LONG32 *c);
       HRESULT (WINAPI *_NewEnum)(ADOUsers *This,IUnknown **ppvObject);
       HRESULT (WINAPI *Refresh)(ADOUsers *This);
       HRESULT (WINAPI *get_Item)(ADOUsers *This,VARIANT Item,User **ppvObject);
@@ -1714,7 +1714,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(ADOGroups *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ADOGroups *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ADOGroups *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(ADOGroups *This,long *c);
+      HRESULT (WINAPI *get_Count)(ADOGroups *This,__LONG32 *c);
       HRESULT (WINAPI *_NewEnum)(ADOGroups *This,IUnknown **ppvObject);
       HRESULT (WINAPI *Refresh)(ADOGroups *This);
       HRESULT (WINAPI *get_Item)(ADOGroups *This,VARIANT Item,Group **ppvObject);
@@ -1767,7 +1767,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(ADOProperties *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ADOProperties *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ADOProperties *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(ADOProperties *This,long *c);
+      HRESULT (WINAPI *get_Count)(ADOProperties *This,__LONG32 *c);
       HRESULT (WINAPI *_NewEnum)(ADOProperties *This,IUnknown **ppvObject);
       HRESULT (WINAPI *Refresh)(ADOProperties *This);
       HRESULT (WINAPI *get_Item)(ADOProperties *This,VARIANT Item,ADOProperty **ppvObject);

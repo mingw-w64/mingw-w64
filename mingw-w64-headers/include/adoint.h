@@ -497,7 +497,7 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct _ADOCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *c) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *c) = 0;
     virtual HRESULT WINAPI _NewEnum(IUnknown **ppvObject) = 0;
     virtual HRESULT WINAPI Refresh(void) = 0;
   };
@@ -511,7 +511,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(_ADOCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(_ADOCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(_ADOCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(_ADOCollection *This,long *c);
+      HRESULT (WINAPI *get_Count)(_ADOCollection *This,__LONG32 *c);
       HRESULT (WINAPI *_NewEnum)(_ADOCollection *This,IUnknown **ppvObject);
       HRESULT (WINAPI *Refresh)(_ADOCollection *This);
     END_INTERFACE
@@ -532,7 +532,7 @@ extern "C"{
 #define _ADOCollection_Refresh(This) (This)->lpVtbl -> Refresh(This)
 #endif
 #endif
-  HRESULT WINAPI _Collection_get_Count_Proxy(_ADOCollection *This,long *c);
+  HRESULT WINAPI _Collection_get_Count_Proxy(_ADOCollection *This,__LONG32 *c);
   void __RPC_STUB _Collection_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI _ADOCollection__NewEnum_Proxy(_ADOCollection *This,IUnknown **ppvObject);
   void __RPC_STUB _ADOCollection__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -559,7 +559,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(_ADODynaCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(_ADODynaCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(_ADODynaCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(_ADODynaCollection *This,long *c);
+      HRESULT (WINAPI *get_Count)(_ADODynaCollection *This,__LONG32 *c);
       HRESULT (WINAPI *_NewEnum)(_ADODynaCollection *This,IUnknown **ppvObject);
       HRESULT (WINAPI *Refresh)(_ADODynaCollection *This);
       HRESULT (WINAPI *Append)(_ADODynaCollection *This,IDispatch *Object);
@@ -635,13 +635,13 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ADOError : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Number(long *pl) = 0;
+    virtual HRESULT WINAPI get_Number(__LONG32 *pl) = 0;
     virtual HRESULT WINAPI get_Source(BSTR *pbstr) = 0;
     virtual HRESULT WINAPI get_Description(BSTR *pbstr) = 0;
     virtual HRESULT WINAPI get_HelpFile(BSTR *pbstr) = 0;
-    virtual HRESULT WINAPI get_HelpContext(long *pl) = 0;
+    virtual HRESULT WINAPI get_HelpContext(__LONG32 *pl) = 0;
     virtual HRESULT WINAPI get_SQLState(BSTR *pbstr) = 0;
-    virtual HRESULT WINAPI get_NativeError(long *pl) = 0;
+    virtual HRESULT WINAPI get_NativeError(__LONG32 *pl) = 0;
   };
 #else
   typedef struct ErrorVtbl {
@@ -653,13 +653,13 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(ADOError *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ADOError *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ADOError *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Number)(ADOError *This,long *pl);
+      HRESULT (WINAPI *get_Number)(ADOError *This,__LONG32 *pl);
       HRESULT (WINAPI *get_Source)(ADOError *This,BSTR *pbstr);
       HRESULT (WINAPI *get_Description)(ADOError *This,BSTR *pbstr);
       HRESULT (WINAPI *get_HelpFile)(ADOError *This,BSTR *pbstr);
-      HRESULT (WINAPI *get_HelpContext)(ADOError *This,long *pl);
+      HRESULT (WINAPI *get_HelpContext)(ADOError *This,__LONG32 *pl);
       HRESULT (WINAPI *get_SQLState)(ADOError *This,BSTR *pbstr);
-      HRESULT (WINAPI *get_NativeError)(ADOError *This,long *pl);
+      HRESULT (WINAPI *get_NativeError)(ADOError *This,__LONG32 *pl);
     END_INTERFACE
   } ErrorVtbl;
   struct Error {
@@ -682,7 +682,7 @@ extern "C"{
 #define Error_get_NativeError(This,pl) (This)->lpVtbl -> get_NativeError(This,pl)
 #endif
 #endif
-  HRESULT WINAPI Error_get_Number_Proxy(ADOError *This,long *pl);
+  HRESULT WINAPI Error_get_Number_Proxy(ADOError *This,__LONG32 *pl);
   void __RPC_STUB Error_get_Number_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Error_get_Source_Proxy(ADOError *This,BSTR *pbstr);
   void __RPC_STUB Error_get_Source_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -690,11 +690,11 @@ extern "C"{
   void __RPC_STUB Error_get_Description_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Error_get_HelpFile_Proxy(ADOError *This,BSTR *pbstr);
   void __RPC_STUB Error_get_HelpFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Error_get_HelpContext_Proxy(ADOError *This,long *pl);
+  HRESULT WINAPI Error_get_HelpContext_Proxy(ADOError *This,__LONG32 *pl);
   void __RPC_STUB Error_get_HelpContext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Error_get_SQLState_Proxy(ADOError *This,BSTR *pbstr);
   void __RPC_STUB Error_get_SQLState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Error_get_NativeError_Proxy(ADOError *This,long *pl);
+  HRESULT WINAPI Error_get_NativeError_Proxy(ADOError *This,__LONG32 *pl);
   void __RPC_STUB Error_get_NativeError_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -717,7 +717,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(ADOErrors *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ADOErrors *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ADOErrors *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(ADOErrors *This,long *c);
+      HRESULT (WINAPI *get_Count)(ADOErrors *This,__LONG32 *c);
       HRESULT (WINAPI *_NewEnum)(ADOErrors *This,IUnknown **ppvObject);
       HRESULT (WINAPI *Refresh)(ADOErrors *This);
       HRESULT (WINAPI *get_Item)(ADOErrors *This,VARIANT Index,ADOError **ppvObject);
@@ -763,7 +763,7 @@ extern "C"{
     virtual HRESULT WINAPI put_CommandTimeout(LONG Timeout) = 0;
     virtual HRESULT WINAPI get_Prepared(VARIANT_BOOL *pfPrepared) = 0;
     virtual HRESULT WINAPI put_Prepared(VARIANT_BOOL fPrepared) = 0;
-    virtual HRESULT WINAPI Execute(VARIANT *RecordsAffected,VARIANT *Parameters,long Options,_ADORecordset **ppirs) = 0;
+    virtual HRESULT WINAPI Execute(VARIANT *RecordsAffected,VARIANT *Parameters,__LONG32 Options,_ADORecordset **ppirs) = 0;
     virtual HRESULT WINAPI CreateParameter(BSTR Name,DataTypeEnum Type,ParameterDirectionEnum Direction,ADO_LONGPTR Size,VARIANT Value,_ADOParameter **ppiprm) = 0;
     virtual HRESULT WINAPI get_Parameters(ADOParameters **ppvObject) = 0;
     virtual HRESULT WINAPI put_CommandType(CommandTypeEnum lCmdType) = 0;
@@ -791,7 +791,7 @@ extern "C"{
       HRESULT (WINAPI *put_CommandTimeout)(Command15 *This,LONG Timeout);
       HRESULT (WINAPI *get_Prepared)(Command15 *This,VARIANT_BOOL *pfPrepared);
       HRESULT (WINAPI *put_Prepared)(Command15 *This,VARIANT_BOOL fPrepared);
-      HRESULT (WINAPI *Execute)(Command15 *This,VARIANT *RecordsAffected,VARIANT *Parameters,long Options,_ADORecordset **ppirs);
+      HRESULT (WINAPI *Execute)(Command15 *This,VARIANT *RecordsAffected,VARIANT *Parameters,__LONG32 Options,_ADORecordset **ppirs);
       HRESULT (WINAPI *CreateParameter)(Command15 *This,BSTR Name,DataTypeEnum Type,ParameterDirectionEnum Direction,ADO_LONGPTR Size,VARIANT Value,_ADOParameter **ppiprm);
       HRESULT (WINAPI *get_Parameters)(Command15 *This,ADOParameters **ppvObject);
       HRESULT (WINAPI *put_CommandType)(Command15 *This,CommandTypeEnum lCmdType);
@@ -849,7 +849,7 @@ extern "C"{
   void __RPC_STUB Command15_get_Prepared_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Command15_put_Prepared_Proxy(Command15 *This,VARIANT_BOOL fPrepared);
   void __RPC_STUB Command15_put_Prepared_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Command15_Execute_Proxy(Command15 *This,VARIANT *RecordsAffected,VARIANT *Parameters,long Options,_ADORecordset **ppirs);
+  HRESULT WINAPI Command15_Execute_Proxy(Command15 *This,VARIANT *RecordsAffected,VARIANT *Parameters,__LONG32 Options,_ADORecordset **ppirs);
   void __RPC_STUB Command15_Execute_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Command15_CreateParameter_Proxy(Command15 *This,BSTR Name,DataTypeEnum Type,ParameterDirectionEnum Direction,ADO_LONGPTR Size,VARIANT Value,_ADOParameter **ppiprm);
   void __RPC_STUB Command15_CreateParameter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -894,7 +894,7 @@ extern "C"{
       HRESULT (WINAPI *put_CommandTimeout)(Command25 *This,LONG Timeout);
       HRESULT (WINAPI *get_Prepared)(Command25 *This,VARIANT_BOOL *pfPrepared);
       HRESULT (WINAPI *put_Prepared)(Command25 *This,VARIANT_BOOL fPrepared);
-      HRESULT (WINAPI *Execute)(Command25 *This,VARIANT *RecordsAffected,VARIANT *Parameters,long Options,_ADORecordset **ppirs);
+      HRESULT (WINAPI *Execute)(Command25 *This,VARIANT *RecordsAffected,VARIANT *Parameters,__LONG32 Options,_ADORecordset **ppirs);
       HRESULT (WINAPI *CreateParameter)(Command25 *This,BSTR Name,DataTypeEnum Type,ParameterDirectionEnum Direction,ADO_LONGPTR Size,VARIANT Value,_ADOParameter **ppiprm);
       HRESULT (WINAPI *get_Parameters)(Command25 *This,ADOParameters **ppvObject);
       HRESULT (WINAPI *put_CommandType)(Command25 *This,CommandTypeEnum lCmdType);
@@ -976,7 +976,7 @@ extern "C"{
       HRESULT (WINAPI *put_CommandTimeout)(_ADOCommand *This,LONG Timeout);
       HRESULT (WINAPI *get_Prepared)(_ADOCommand *This,VARIANT_BOOL *pfPrepared);
       HRESULT (WINAPI *put_Prepared)(_ADOCommand *This,VARIANT_BOOL fPrepared);
-      HRESULT (WINAPI *Execute)(_ADOCommand *This,VARIANT *RecordsAffected,VARIANT *Parameters,long Options,_ADORecordset **ppirs);
+      HRESULT (WINAPI *Execute)(_ADOCommand *This,VARIANT *RecordsAffected,VARIANT *Parameters,__LONG32 Options,_ADORecordset **ppirs);
       HRESULT (WINAPI *CreateParameter)(_ADOCommand *This,BSTR Name,DataTypeEnum Type,ParameterDirectionEnum Direction,ADO_LONGPTR Size,VARIANT Value,_ADOParameter **ppiprm);
       HRESULT (WINAPI *get_Parameters)(_ADOCommand *This,ADOParameters **ppvObject);
       HRESULT (WINAPI *put_CommandType)(_ADOCommand *This,CommandTypeEnum lCmdType);
@@ -1056,9 +1056,9 @@ extern "C"{
     virtual HRESULT WINAPI BeginTransComplete(LONG TransactionLevel,ADOError *pError,EventStatusEnum *adStatus,_ADOConnection *pConnection) = 0;
     virtual HRESULT WINAPI CommitTransComplete(ADOError *pError,EventStatusEnum *adStatus,_ADOConnection *pConnection) = 0;
     virtual HRESULT WINAPI RollbackTransComplete(ADOError *pError,EventStatusEnum *adStatus,_ADOConnection *pConnection) = 0;
-    virtual HRESULT WINAPI WillExecute(BSTR *Source,CursorTypeEnum *CursorType,LockTypeEnum *LockType,long *Options,EventStatusEnum *adStatus,_ADOCommand *pCommand,_ADORecordset *pRecordset,_ADOConnection *pConnection) = 0;
+    virtual HRESULT WINAPI WillExecute(BSTR *Source,CursorTypeEnum *CursorType,LockTypeEnum *LockType,__LONG32 *Options,EventStatusEnum *adStatus,_ADOCommand *pCommand,_ADORecordset *pRecordset,_ADOConnection *pConnection) = 0;
     virtual HRESULT WINAPI ExecuteComplete(LONG RecordsAffected,ADOError *pError,EventStatusEnum *adStatus,_ADOCommand *pCommand,_ADORecordset *pRecordset,_ADOConnection *pConnection) = 0;
-    virtual HRESULT WINAPI WillConnect(BSTR *ConnectionString,BSTR *UserID,BSTR *Password,long *Options,EventStatusEnum *adStatus,_ADOConnection *pConnection) = 0;
+    virtual HRESULT WINAPI WillConnect(BSTR *ConnectionString,BSTR *UserID,BSTR *Password,__LONG32 *Options,EventStatusEnum *adStatus,_ADOConnection *pConnection) = 0;
     virtual HRESULT WINAPI ConnectComplete(ADOError *pError,EventStatusEnum *adStatus,_ADOConnection *pConnection) = 0;
     virtual HRESULT WINAPI Disconnect(EventStatusEnum *adStatus,_ADOConnection *pConnection) = 0;
   };
@@ -1072,9 +1072,9 @@ extern "C"{
       HRESULT (WINAPI *BeginTransComplete)(ConnectionEventsVt *This,LONG TransactionLevel,ADOError *pError,EventStatusEnum *adStatus,_ADOConnection *pConnection);
       HRESULT (WINAPI *CommitTransComplete)(ConnectionEventsVt *This,ADOError *pError,EventStatusEnum *adStatus,_ADOConnection *pConnection);
       HRESULT (WINAPI *RollbackTransComplete)(ConnectionEventsVt *This,ADOError *pError,EventStatusEnum *adStatus,_ADOConnection *pConnection);
-      HRESULT (WINAPI *WillExecute)(ConnectionEventsVt *This,BSTR *Source,CursorTypeEnum *CursorType,LockTypeEnum *LockType,long *Options,EventStatusEnum *adStatus,_ADOCommand *pCommand,_ADORecordset *pRecordset,_ADOConnection *pConnection);
+      HRESULT (WINAPI *WillExecute)(ConnectionEventsVt *This,BSTR *Source,CursorTypeEnum *CursorType,LockTypeEnum *LockType,__LONG32 *Options,EventStatusEnum *adStatus,_ADOCommand *pCommand,_ADORecordset *pRecordset,_ADOConnection *pConnection);
       HRESULT (WINAPI *ExecuteComplete)(ConnectionEventsVt *This,LONG RecordsAffected,ADOError *pError,EventStatusEnum *adStatus,_ADOCommand *pCommand,_ADORecordset *pRecordset,_ADOConnection *pConnection);
-      HRESULT (WINAPI *WillConnect)(ConnectionEventsVt *This,BSTR *ConnectionString,BSTR *UserID,BSTR *Password,long *Options,EventStatusEnum *adStatus,_ADOConnection *pConnection);
+      HRESULT (WINAPI *WillConnect)(ConnectionEventsVt *This,BSTR *ConnectionString,BSTR *UserID,BSTR *Password,__LONG32 *Options,EventStatusEnum *adStatus,_ADOConnection *pConnection);
       HRESULT (WINAPI *ConnectComplete)(ConnectionEventsVt *This,ADOError *pError,EventStatusEnum *adStatus,_ADOConnection *pConnection);
       HRESULT (WINAPI *Disconnect)(ConnectionEventsVt *This,EventStatusEnum *adStatus,_ADOConnection *pConnection);
     END_INTERFACE
@@ -1105,11 +1105,11 @@ extern "C"{
   void __RPC_STUB ConnectionEventsVt_CommitTransComplete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ConnectionEventsVt_RollbackTransComplete_Proxy(ConnectionEventsVt *This,ADOError *pError,EventStatusEnum *adStatus,_ADOConnection *pConnection);
   void __RPC_STUB ConnectionEventsVt_RollbackTransComplete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ConnectionEventsVt_WillExecute_Proxy(ConnectionEventsVt *This,BSTR *Source,CursorTypeEnum *CursorType,LockTypeEnum *LockType,long *Options,EventStatusEnum *adStatus,_ADOCommand *pCommand,_ADORecordset *pRecordset,_ADOConnection *pConnection);
+  HRESULT WINAPI ConnectionEventsVt_WillExecute_Proxy(ConnectionEventsVt *This,BSTR *Source,CursorTypeEnum *CursorType,LockTypeEnum *LockType,__LONG32 *Options,EventStatusEnum *adStatus,_ADOCommand *pCommand,_ADORecordset *pRecordset,_ADOConnection *pConnection);
   void __RPC_STUB ConnectionEventsVt_WillExecute_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ConnectionEventsVt_ExecuteComplete_Proxy(ConnectionEventsVt *This,LONG RecordsAffected,ADOError *pError,EventStatusEnum *adStatus,_ADOCommand *pCommand,_ADORecordset *pRecordset,_ADOConnection *pConnection);
   void __RPC_STUB ConnectionEventsVt_ExecuteComplete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ConnectionEventsVt_WillConnect_Proxy(ConnectionEventsVt *This,BSTR *ConnectionString,BSTR *UserID,BSTR *Password,long *Options,EventStatusEnum *adStatus,_ADOConnection *pConnection);
+  HRESULT WINAPI ConnectionEventsVt_WillConnect_Proxy(ConnectionEventsVt *This,BSTR *ConnectionString,BSTR *UserID,BSTR *Password,__LONG32 *Options,EventStatusEnum *adStatus,_ADOConnection *pConnection);
   void __RPC_STUB ConnectionEventsVt_WillConnect_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ConnectionEventsVt_ConnectComplete_Proxy(ConnectionEventsVt *This,ADOError *pError,EventStatusEnum *adStatus,_ADOConnection *pConnection);
   void __RPC_STUB ConnectionEventsVt_ConnectComplete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1132,7 +1132,7 @@ extern "C"{
     virtual HRESULT WINAPI WillMove(EventReasonEnum adReason,EventStatusEnum *adStatus,_ADORecordset *pRecordset) = 0;
     virtual HRESULT WINAPI MoveComplete(EventReasonEnum adReason,ADOError *pError,EventStatusEnum *adStatus,_ADORecordset *pRecordset) = 0;
     virtual HRESULT WINAPI EndOfRecordset(VARIANT_BOOL *fMoreData,EventStatusEnum *adStatus,_ADORecordset *pRecordset) = 0;
-    virtual HRESULT WINAPI FetchProgress(long Progress,long MaxProgress,EventStatusEnum *adStatus,_ADORecordset *pRecordset) = 0;
+    virtual HRESULT WINAPI FetchProgress(__LONG32 Progress,__LONG32 MaxProgress,EventStatusEnum *adStatus,_ADORecordset *pRecordset) = 0;
     virtual HRESULT WINAPI FetchComplete(ADOError *pError,EventStatusEnum *adStatus,_ADORecordset *pRecordset) = 0;
   };
 #else
@@ -1150,7 +1150,7 @@ extern "C"{
       HRESULT (WINAPI *WillMove)(RecordsetEventsVt *This,EventReasonEnum adReason,EventStatusEnum *adStatus,_ADORecordset *pRecordset);
       HRESULT (WINAPI *MoveComplete)(RecordsetEventsVt *This,EventReasonEnum adReason,ADOError *pError,EventStatusEnum *adStatus,_ADORecordset *pRecordset);
       HRESULT (WINAPI *EndOfADORecordset)(RecordsetEventsVt *This,VARIANT_BOOL *fMoreData,EventStatusEnum *adStatus,_ADORecordset *pRecordset);
-      HRESULT (WINAPI *FetchProgress)(RecordsetEventsVt *This,long Progress,long MaxProgress,EventStatusEnum *adStatus,_ADORecordset *pRecordset);
+      HRESULT (WINAPI *FetchProgress)(RecordsetEventsVt *This,__LONG32 Progress,__LONG32 MaxProgress,EventStatusEnum *adStatus,_ADORecordset *pRecordset);
       HRESULT (WINAPI *FetchComplete)(RecordsetEventsVt *This,ADOError *pError,EventStatusEnum *adStatus,_ADORecordset *pRecordset);
     END_INTERFACE
   } RecordsetEventsVtVtbl;
@@ -1192,7 +1192,7 @@ extern "C"{
   void __RPC_STUB RecordsetEventsVt_MoveComplete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI RecordsetEventsVt_EndOfRecordset_Proxy(RecordsetEventsVt *This,VARIANT_BOOL *fMoreData,EventStatusEnum *adStatus,_ADORecordset *pRecordset);
   void __RPC_STUB RecordsetEventsVt_EndOfRecordset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI RecordsetEventsVt_FetchProgress_Proxy(RecordsetEventsVt *This,long Progress,long MaxProgress,EventStatusEnum *adStatus,_ADORecordset *pRecordset);
+  HRESULT WINAPI RecordsetEventsVt_FetchProgress_Proxy(RecordsetEventsVt *This,__LONG32 Progress,__LONG32 MaxProgress,EventStatusEnum *adStatus,_ADORecordset *pRecordset);
   void __RPC_STUB RecordsetEventsVt_FetchProgress_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI RecordsetEventsVt_FetchComplete_Proxy(RecordsetEventsVt *This,ADOError *pError,EventStatusEnum *adStatus,_ADORecordset *pRecordset);
   void __RPC_STUB RecordsetEventsVt_FetchComplete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1278,18 +1278,18 @@ extern "C"{
     virtual HRESULT WINAPI put_ConnectionTimeout(LONG lTimeout) = 0;
     virtual HRESULT WINAPI get_Version(BSTR *pbstr) = 0;
     virtual HRESULT WINAPI Close(void) = 0;
-    virtual HRESULT WINAPI Execute(BSTR CommandText,VARIANT *RecordsAffected,long Options,_ADORecordset **ppiRset) = 0;
-    virtual HRESULT WINAPI BeginTrans(long *TransactionLevel) = 0;
+    virtual HRESULT WINAPI Execute(BSTR CommandText,VARIANT *RecordsAffected,__LONG32 Options,_ADORecordset **ppiRset) = 0;
+    virtual HRESULT WINAPI BeginTrans(__LONG32 *TransactionLevel) = 0;
     virtual HRESULT WINAPI CommitTrans(void) = 0;
     virtual HRESULT WINAPI RollbackTrans(void) = 0;
-    virtual HRESULT WINAPI Open(BSTR ConnectionString = NULL,BSTR UserID = NULL,BSTR Password = NULL,long Options = adOptionUnspecified) = 0;
+    virtual HRESULT WINAPI Open(BSTR ConnectionString = NULL,BSTR UserID = NULL,BSTR Password = NULL,__LONG32 Options = adOptionUnspecified) = 0;
     virtual HRESULT WINAPI get_Errors(ADOErrors **ppvObject) = 0;
     virtual HRESULT WINAPI get_DefaultDatabase(BSTR *pbstr) = 0;
     virtual HRESULT WINAPI put_DefaultDatabase(BSTR bstr) = 0;
     virtual HRESULT WINAPI get_IsolationLevel(IsolationLevelEnum *Level) = 0;
     virtual HRESULT WINAPI put_IsolationLevel(IsolationLevelEnum Level) = 0;
-    virtual HRESULT WINAPI get_Attributes(long *plAttr) = 0;
-    virtual HRESULT WINAPI put_Attributes(long lAttr) = 0;
+    virtual HRESULT WINAPI get_Attributes(__LONG32 *plAttr) = 0;
+    virtual HRESULT WINAPI put_Attributes(__LONG32 lAttr) = 0;
     virtual HRESULT WINAPI get_CursorLocation(CursorLocationEnum *plCursorLoc) = 0;
     virtual HRESULT WINAPI put_CursorLocation(CursorLocationEnum lCursorLoc) = 0;
     virtual HRESULT WINAPI get_Mode(ConnectModeEnum *plMode) = 0;
@@ -1318,18 +1318,18 @@ extern "C"{
       HRESULT (WINAPI *put_ConnectionTimeout)(Connection15 *This,LONG lTimeout);
       HRESULT (WINAPI *get_Version)(Connection15 *This,BSTR *pbstr);
       HRESULT (WINAPI *Close)(Connection15 *This);
-      HRESULT (WINAPI *Execute)(Connection15 *This,BSTR CommandText,VARIANT *RecordsAffected,long Options,_ADORecordset **ppiRset);
-      HRESULT (WINAPI *BeginTrans)(Connection15 *This,long *TransactionLevel);
+      HRESULT (WINAPI *Execute)(Connection15 *This,BSTR CommandText,VARIANT *RecordsAffected,__LONG32 Options,_ADORecordset **ppiRset);
+      HRESULT (WINAPI *BeginTrans)(Connection15 *This,__LONG32 *TransactionLevel);
       HRESULT (WINAPI *CommitTrans)(Connection15 *This);
       HRESULT (WINAPI *RollbackTrans)(Connection15 *This);
-      HRESULT (WINAPI *Open)(Connection15 *This,BSTR ConnectionString,BSTR UserID,BSTR Password,long Options);
+      HRESULT (WINAPI *Open)(Connection15 *This,BSTR ConnectionString,BSTR UserID,BSTR Password,__LONG32 Options);
       HRESULT (WINAPI *get_Errors)(Connection15 *This,ADOErrors **ppvObject);
       HRESULT (WINAPI *get_DefaultDatabase)(Connection15 *This,BSTR *pbstr);
       HRESULT (WINAPI *put_DefaultDatabase)(Connection15 *This,BSTR bstr);
       HRESULT (WINAPI *get_IsolationLevel)(Connection15 *This,IsolationLevelEnum *Level);
       HRESULT (WINAPI *put_IsolationLevel)(Connection15 *This,IsolationLevelEnum Level);
-      HRESULT (WINAPI *get_Attributes)(Connection15 *This,long *plAttr);
-      HRESULT (WINAPI *put_Attributes)(Connection15 *This,long lAttr);
+      HRESULT (WINAPI *get_Attributes)(Connection15 *This,__LONG32 *plAttr);
+      HRESULT (WINAPI *put_Attributes)(Connection15 *This,__LONG32 lAttr);
       HRESULT (WINAPI *get_CursorLocation)(Connection15 *This,CursorLocationEnum *plCursorLoc);
       HRESULT (WINAPI *put_CursorLocation)(Connection15 *This,CursorLocationEnum lCursorLoc);
       HRESULT (WINAPI *get_Mode)(Connection15 *This,ConnectModeEnum *plMode);
@@ -1398,15 +1398,15 @@ extern "C"{
   void __RPC_STUB Connection15_get_Version_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Connection15_Close_Proxy(Connection15 *This);
   void __RPC_STUB Connection15_Close_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Connection15_Execute_Proxy(Connection15 *This,BSTR CommandText,VARIANT *RecordsAffected,long Options,_ADORecordset **ppiRset);
+  HRESULT WINAPI Connection15_Execute_Proxy(Connection15 *This,BSTR CommandText,VARIANT *RecordsAffected,__LONG32 Options,_ADORecordset **ppiRset);
   void __RPC_STUB Connection15_Execute_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Connection15_BeginTrans_Proxy(Connection15 *This,long *TransactionLevel);
+  HRESULT WINAPI Connection15_BeginTrans_Proxy(Connection15 *This,__LONG32 *TransactionLevel);
   void __RPC_STUB Connection15_BeginTrans_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Connection15_CommitTrans_Proxy(Connection15 *This);
   void __RPC_STUB Connection15_CommitTrans_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Connection15_RollbackTrans_Proxy(Connection15 *This);
   void __RPC_STUB Connection15_RollbackTrans_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Connection15_Open_Proxy(Connection15 *This,BSTR ConnectionString,BSTR UserID,BSTR Password,long Options);
+  HRESULT WINAPI Connection15_Open_Proxy(Connection15 *This,BSTR ConnectionString,BSTR UserID,BSTR Password,__LONG32 Options);
   void __RPC_STUB Connection15_Open_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Connection15_get_Errors_Proxy(Connection15 *This,ADOErrors **ppvObject);
   void __RPC_STUB Connection15_get_Errors_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1418,9 +1418,9 @@ extern "C"{
   void __RPC_STUB Connection15_get_IsolationLevel_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Connection15_put_IsolationLevel_Proxy(Connection15 *This,IsolationLevelEnum Level);
   void __RPC_STUB Connection15_put_IsolationLevel_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Connection15_get_Attributes_Proxy(Connection15 *This,long *plAttr);
+  HRESULT WINAPI Connection15_get_Attributes_Proxy(Connection15 *This,__LONG32 *plAttr);
   void __RPC_STUB Connection15_get_Attributes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Connection15_put_Attributes_Proxy(Connection15 *This,long lAttr);
+  HRESULT WINAPI Connection15_put_Attributes_Proxy(Connection15 *This,__LONG32 lAttr);
   void __RPC_STUB Connection15_put_Attributes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Connection15_get_CursorLocation_Proxy(Connection15 *This,CursorLocationEnum *plCursorLoc);
   void __RPC_STUB Connection15_get_CursorLocation_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1467,18 +1467,18 @@ extern "C"{
       HRESULT (WINAPI *put_ConnectionTimeout)(_ADOConnection *This,LONG lTimeout);
       HRESULT (WINAPI *get_Version)(_ADOConnection *This,BSTR *pbstr);
       HRESULT (WINAPI *Close)(_ADOConnection *This);
-      HRESULT (WINAPI *Execute)(_ADOConnection *This,BSTR CommandText,VARIANT *RecordsAffected,long Options,_ADORecordset **ppiRset);
-      HRESULT (WINAPI *BeginTrans)(_ADOConnection *This,long *TransactionLevel);
+      HRESULT (WINAPI *Execute)(_ADOConnection *This,BSTR CommandText,VARIANT *RecordsAffected,__LONG32 Options,_ADORecordset **ppiRset);
+      HRESULT (WINAPI *BeginTrans)(_ADOConnection *This,__LONG32 *TransactionLevel);
       HRESULT (WINAPI *CommitTrans)(_ADOConnection *This);
       HRESULT (WINAPI *RollbackTrans)(_ADOConnection *This);
-      HRESULT (WINAPI *Open)(_ADOConnection *This,BSTR ConnectionString,BSTR UserID,BSTR Password,long Options);
+      HRESULT (WINAPI *Open)(_ADOConnection *This,BSTR ConnectionString,BSTR UserID,BSTR Password,__LONG32 Options);
       HRESULT (WINAPI *get_Errors)(_ADOConnection *This,ADOErrors **ppvObject);
       HRESULT (WINAPI *get_DefaultDatabase)(_ADOConnection *This,BSTR *pbstr);
       HRESULT (WINAPI *put_DefaultDatabase)(_ADOConnection *This,BSTR bstr);
       HRESULT (WINAPI *get_IsolationLevel)(_ADOConnection *This,IsolationLevelEnum *Level);
       HRESULT (WINAPI *put_IsolationLevel)(_ADOConnection *This,IsolationLevelEnum Level);
-      HRESULT (WINAPI *get_Attributes)(_ADOConnection *This,long *plAttr);
-      HRESULT (WINAPI *put_Attributes)(_ADOConnection *This,long lAttr);
+      HRESULT (WINAPI *get_Attributes)(_ADOConnection *This,__LONG32 *plAttr);
+      HRESULT (WINAPI *put_Attributes)(_ADOConnection *This,__LONG32 lAttr);
       HRESULT (WINAPI *get_CursorLocation)(_ADOConnection *This,CursorLocationEnum *plCursorLoc);
       HRESULT (WINAPI *put_CursorLocation)(_ADOConnection *This,CursorLocationEnum lCursorLoc);
       HRESULT (WINAPI *get_Mode)(_ADOConnection *This,ConnectModeEnum *plMode);
@@ -1768,7 +1768,7 @@ extern "C"{
     virtual HRESULT WINAPI put_Mode(ConnectModeEnum Mode) = 0;
     virtual HRESULT WINAPI get_Charset(BSTR *pbstrCharset) = 0;
     virtual HRESULT WINAPI put_Charset(BSTR Charset) = 0;
-    virtual HRESULT WINAPI Read(long NumBytes,VARIANT *pVal) = 0;
+    virtual HRESULT WINAPI Read(__LONG32 NumBytes,VARIANT *pVal) = 0;
     virtual HRESULT WINAPI Open(VARIANT Source,ConnectModeEnum Mode = adModeUnknown,StreamOpenOptionsEnum Options = adOpenStreamUnspecified,BSTR UserName = NULL,BSTR Password = NULL) = 0;
     virtual HRESULT WINAPI Close(void) = 0;
     virtual HRESULT WINAPI SkipLine(void) = 0;
@@ -1778,7 +1778,7 @@ extern "C"{
     virtual HRESULT WINAPI Flush(void) = 0;
     virtual HRESULT WINAPI SaveToFile(BSTR FileName,SaveOptionsEnum Options = adSaveCreateNotExist) = 0;
     virtual HRESULT WINAPI LoadFromFile(BSTR FileName) = 0;
-    virtual HRESULT WINAPI ReadText(long NumChars,BSTR *pbstr) = 0;
+    virtual HRESULT WINAPI ReadText(__LONG32 NumChars,BSTR *pbstr) = 0;
     virtual HRESULT WINAPI WriteText(BSTR Data,StreamWriteEnum Options = adWriteChar) = 0;
     virtual HRESULT WINAPI Cancel(void) = 0;
   };
@@ -1805,7 +1805,7 @@ extern "C"{
       HRESULT (WINAPI *put_Mode)(_ADOStream *This,ConnectModeEnum Mode);
       HRESULT (WINAPI *get_Charset)(_ADOStream *This,BSTR *pbstrCharset);
       HRESULT (WINAPI *put_Charset)(_ADOStream *This,BSTR Charset);
-      HRESULT (WINAPI *Read)(_ADOStream *This,long NumBytes,VARIANT *pVal);
+      HRESULT (WINAPI *Read)(_ADOStream *This,__LONG32 NumBytes,VARIANT *pVal);
       HRESULT (WINAPI *Open)(_ADOStream *This,VARIANT Source,ConnectModeEnum Mode,StreamOpenOptionsEnum Options,BSTR UserName,BSTR Password);
       HRESULT (WINAPI *Close)(_ADOStream *This);
       HRESULT (WINAPI *SkipLine)(_ADOStream *This);
@@ -1815,7 +1815,7 @@ extern "C"{
       HRESULT (WINAPI *Flush)(_ADOStream *This);
       HRESULT (WINAPI *SaveToFile)(_ADOStream *This,BSTR FileName,SaveOptionsEnum Options);
       HRESULT (WINAPI *LoadFromFile)(_ADOStream *This,BSTR FileName);
-      HRESULT (WINAPI *ReadText)(_ADOStream *This,long NumChars,BSTR *pbstr);
+      HRESULT (WINAPI *ReadText)(_ADOStream *This,__LONG32 NumChars,BSTR *pbstr);
       HRESULT (WINAPI *WriteText)(_ADOStream *This,BSTR Data,StreamWriteEnum Options);
       HRESULT (WINAPI *Cancel)(_ADOStream *This);
     END_INTERFACE
@@ -1885,7 +1885,7 @@ extern "C"{
   void __RPC_STUB _Stream_get_Charset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI _Stream_put_Charset_Proxy(_ADOStream *This,BSTR Charset);
   void __RPC_STUB _Stream_put_Charset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI _Stream_Read_Proxy(_ADOStream *This,long NumBytes,VARIANT *pVal);
+  HRESULT WINAPI _Stream_Read_Proxy(_ADOStream *This,__LONG32 NumBytes,VARIANT *pVal);
   void __RPC_STUB _Stream_Read_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI _Stream_Open_Proxy(_ADOStream *This,VARIANT Source,ConnectModeEnum Mode,StreamOpenOptionsEnum Options,BSTR UserName,BSTR Password);
   void __RPC_STUB _Stream_Open_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1905,7 +1905,7 @@ extern "C"{
   void __RPC_STUB _Stream_SaveToFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI _Stream_LoadFromFile_Proxy(_ADOStream *This,BSTR FileName);
   void __RPC_STUB _Stream_LoadFromFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI _Stream_ReadText_Proxy(_ADOStream *This,long NumChars,BSTR *pbstr);
+  HRESULT WINAPI _Stream_ReadText_Proxy(_ADOStream *This,__LONG32 NumChars,BSTR *pbstr);
   void __RPC_STUB _Stream_ReadText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI _Stream_WriteText_Proxy(_ADOStream *This,BSTR Data,StreamWriteEnum Options);
   void __RPC_STUB _Stream_WriteText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2068,8 +2068,8 @@ extern "C"{
     virtual HRESULT WINAPI get_BOF(VARIANT_BOOL *pb) = 0;
     virtual HRESULT WINAPI get_Bookmark(VARIANT *pvBookmark) = 0;
     virtual HRESULT WINAPI put_Bookmark(VARIANT vBookmark) = 0;
-    virtual HRESULT WINAPI get_CacheSize(long *pl) = 0;
-    virtual HRESULT WINAPI put_CacheSize(long CacheSize) = 0;
+    virtual HRESULT WINAPI get_CacheSize(__LONG32 *pl) = 0;
+    virtual HRESULT WINAPI put_CacheSize(__LONG32 CacheSize) = 0;
     virtual HRESULT WINAPI get_CursorType(CursorTypeEnum *plCursorType) = 0;
     virtual HRESULT WINAPI put_CursorType(CursorTypeEnum lCursorType) = 0;
     virtual HRESULT WINAPI get_EOF(VARIANT_BOOL *pb) = 0;
@@ -2086,7 +2086,7 @@ extern "C"{
     virtual HRESULT WINAPI CancelUpdate(void) = 0;
     virtual HRESULT WINAPI Close(void) = 0;
     virtual HRESULT WINAPI Delete(AffectEnum AffectRecords = adAffectCurrent) = 0;
-    virtual HRESULT WINAPI GetRows(long Rows,VARIANT Start,VARIANT Fields,VARIANT *pvar) = 0;
+    virtual HRESULT WINAPI GetRows(__LONG32 Rows,VARIANT Start,VARIANT Fields,VARIANT *pvar) = 0;
     virtual HRESULT WINAPI Move(ADO_LONGPTR NumRecords,VARIANT Start) = 0;
     virtual HRESULT WINAPI MoveNext(void) = 0;
     virtual HRESULT WINAPI MovePrevious(void) = 0;
@@ -2102,11 +2102,11 @@ extern "C"{
     virtual HRESULT WINAPI get_Filter(VARIANT *Criteria) = 0;
     virtual HRESULT WINAPI put_Filter(VARIANT Criteria) = 0;
     virtual HRESULT WINAPI get_PageCount(ADO_LONGPTR *pl) = 0;
-    virtual HRESULT WINAPI get_PageSize(long *pl) = 0;
-    virtual HRESULT WINAPI put_PageSize(long PageSize) = 0;
+    virtual HRESULT WINAPI get_PageSize(__LONG32 *pl) = 0;
+    virtual HRESULT WINAPI put_PageSize(__LONG32 PageSize) = 0;
     virtual HRESULT WINAPI get_Sort(BSTR *Criteria) = 0;
     virtual HRESULT WINAPI put_Sort(BSTR Criteria) = 0;
-    virtual HRESULT WINAPI get_Status(long *pl) = 0;
+    virtual HRESULT WINAPI get_Status(__LONG32 *pl) = 0;
     virtual HRESULT WINAPI get_State(LONG *plObjState) = 0;
     virtual HRESULT WINAPI _xClone(_ADORecordset **ppvObject) = 0;
     virtual HRESULT WINAPI UpdateBatch(AffectEnum AffectRecords = adAffectAll) = 0;
@@ -2140,8 +2140,8 @@ extern "C"{
       HRESULT (WINAPI *get_BOF)(Recordset15 *This,VARIANT_BOOL *pb);
       HRESULT (WINAPI *get_Bookmark)(Recordset15 *This,VARIANT *pvBookmark);
       HRESULT (WINAPI *put_Bookmark)(Recordset15 *This,VARIANT vBookmark);
-      HRESULT (WINAPI *get_CacheSize)(Recordset15 *This,long *pl);
-      HRESULT (WINAPI *put_CacheSize)(Recordset15 *This,long CacheSize);
+      HRESULT (WINAPI *get_CacheSize)(Recordset15 *This,__LONG32 *pl);
+      HRESULT (WINAPI *put_CacheSize)(Recordset15 *This,__LONG32 CacheSize);
       HRESULT (WINAPI *get_CursorType)(Recordset15 *This,CursorTypeEnum *plCursorType);
       HRESULT (WINAPI *put_CursorType)(Recordset15 *This,CursorTypeEnum lCursorType);
       HRESULT (WINAPI *get_EOF)(Recordset15 *This,VARIANT_BOOL *pb);
@@ -2158,7 +2158,7 @@ extern "C"{
       HRESULT (WINAPI *CancelUpdate)(Recordset15 *This);
       HRESULT (WINAPI *Close)(Recordset15 *This);
       HRESULT (WINAPI *Delete)(Recordset15 *This,AffectEnum AffectRecords);
-      HRESULT (WINAPI *GetRows)(Recordset15 *This,long Rows,VARIANT Start,VARIANT Fields,VARIANT *pvar);
+      HRESULT (WINAPI *GetRows)(Recordset15 *This,__LONG32 Rows,VARIANT Start,VARIANT Fields,VARIANT *pvar);
       HRESULT (WINAPI *Move)(Recordset15 *This,ADO_LONGPTR NumRecords,VARIANT Start);
       HRESULT (WINAPI *MoveNext)(Recordset15 *This);
       HRESULT (WINAPI *MovePrevious)(Recordset15 *This);
@@ -2174,11 +2174,11 @@ extern "C"{
       HRESULT (WINAPI *get_Filter)(Recordset15 *This,VARIANT *Criteria);
       HRESULT (WINAPI *put_Filter)(Recordset15 *This,VARIANT Criteria);
       HRESULT (WINAPI *get_PageCount)(Recordset15 *This,ADO_LONGPTR *pl);
-      HRESULT (WINAPI *get_PageSize)(Recordset15 *This,long *pl);
-      HRESULT (WINAPI *put_PageSize)(Recordset15 *This,long PageSize);
+      HRESULT (WINAPI *get_PageSize)(Recordset15 *This,__LONG32 *pl);
+      HRESULT (WINAPI *put_PageSize)(Recordset15 *This,__LONG32 PageSize);
       HRESULT (WINAPI *get_Sort)(Recordset15 *This,BSTR *Criteria);
       HRESULT (WINAPI *put_Sort)(Recordset15 *This,BSTR Criteria);
-      HRESULT (WINAPI *get_Status)(Recordset15 *This,long *pl);
+      HRESULT (WINAPI *get_Status)(Recordset15 *This,__LONG32 *pl);
       HRESULT (WINAPI *get_State)(Recordset15 *This,LONG *plObjState);
       HRESULT (WINAPI *_xClone)(Recordset15 *This,_ADORecordset **ppvObject);
       HRESULT (WINAPI *UpdateBatch)(Recordset15 *This,AffectEnum AffectRecords);
@@ -2284,9 +2284,9 @@ extern "C"{
   void __RPC_STUB Recordset15_get_Bookmark_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Recordset15_put_Bookmark_Proxy(Recordset15 *This,VARIANT vBookmark);
   void __RPC_STUB Recordset15_put_Bookmark_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Recordset15_get_CacheSize_Proxy(Recordset15 *This,long *pl);
+  HRESULT WINAPI Recordset15_get_CacheSize_Proxy(Recordset15 *This,__LONG32 *pl);
   void __RPC_STUB Recordset15_get_CacheSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Recordset15_put_CacheSize_Proxy(Recordset15 *This,long CacheSize);
+  HRESULT WINAPI Recordset15_put_CacheSize_Proxy(Recordset15 *This,__LONG32 CacheSize);
   void __RPC_STUB Recordset15_put_CacheSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Recordset15_get_CursorType_Proxy(Recordset15 *This,CursorTypeEnum *plCursorType);
   void __RPC_STUB Recordset15_get_CursorType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2320,7 +2320,7 @@ extern "C"{
   void __RPC_STUB Recordset15_Close_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Recordset15_Delete_Proxy(Recordset15 *This,AffectEnum AffectRecords);
   void __RPC_STUB Recordset15_Delete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Recordset15_GetRows_Proxy(Recordset15 *This,long Rows,VARIANT Start,VARIANT Fields,VARIANT *pvar);
+  HRESULT WINAPI Recordset15_GetRows_Proxy(Recordset15 *This,__LONG32 Rows,VARIANT Start,VARIANT Fields,VARIANT *pvar);
   void __RPC_STUB Recordset15_GetRows_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Recordset15_Move_Proxy(Recordset15 *This,ADO_LONGPTR NumRecords,VARIANT Start);
   void __RPC_STUB Recordset15_Move_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2352,15 +2352,15 @@ extern "C"{
   void __RPC_STUB Recordset15_put_Filter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Recordset15_get_PageCount_Proxy(Recordset15 *This,ADO_LONGPTR *pl);
   void __RPC_STUB Recordset15_get_PageCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Recordset15_get_PageSize_Proxy(Recordset15 *This,long *pl);
+  HRESULT WINAPI Recordset15_get_PageSize_Proxy(Recordset15 *This,__LONG32 *pl);
   void __RPC_STUB Recordset15_get_PageSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Recordset15_put_PageSize_Proxy(Recordset15 *This,long PageSize);
+  HRESULT WINAPI Recordset15_put_PageSize_Proxy(Recordset15 *This,__LONG32 PageSize);
   void __RPC_STUB Recordset15_put_PageSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Recordset15_get_Sort_Proxy(Recordset15 *This,BSTR *Criteria);
   void __RPC_STUB Recordset15_get_Sort_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Recordset15_put_Sort_Proxy(Recordset15 *This,BSTR Criteria);
   void __RPC_STUB Recordset15_put_Sort_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Recordset15_get_Status_Proxy(Recordset15 *This,long *pl);
+  HRESULT WINAPI Recordset15_get_Status_Proxy(Recordset15 *This,__LONG32 *pl);
   void __RPC_STUB Recordset15_get_Status_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Recordset15_get_State_Proxy(Recordset15 *This,LONG *plObjState);
   void __RPC_STUB Recordset15_get_State_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2403,7 +2403,7 @@ extern "C"{
     virtual HRESULT WINAPI get_ActiveCommand(IDispatch **ppCmd) = 0;
     virtual HRESULT WINAPI put_StayInSync(VARIANT_BOOL bStayInSync) = 0;
     virtual HRESULT WINAPI get_StayInSync(VARIANT_BOOL *pbStayInSync) = 0;
-    virtual HRESULT WINAPI GetString(StringFormatEnum StringFormat,long NumRows,BSTR ColumnDelimeter,BSTR RowDelimeter,BSTR NullExpr,BSTR *pRetString) = 0;
+    virtual HRESULT WINAPI GetString(StringFormatEnum StringFormat,__LONG32 NumRows,BSTR ColumnDelimeter,BSTR RowDelimeter,BSTR NullExpr,BSTR *pRetString) = 0;
     virtual HRESULT WINAPI get_DataMember(BSTR *pbstrDataMember) = 0;
     virtual HRESULT WINAPI put_DataMember(BSTR bstrDataMember) = 0;
     virtual HRESULT WINAPI CompareBookmarks(VARIANT Bookmark1,VARIANT Bookmark2,CompareEnum *pCompare) = 0;
@@ -2429,8 +2429,8 @@ extern "C"{
       HRESULT (WINAPI *get_BOF)(Recordset20 *This,VARIANT_BOOL *pb);
       HRESULT (WINAPI *get_Bookmark)(Recordset20 *This,VARIANT *pvBookmark);
       HRESULT (WINAPI *put_Bookmark)(Recordset20 *This,VARIANT vBookmark);
-      HRESULT (WINAPI *get_CacheSize)(Recordset20 *This,long *pl);
-      HRESULT (WINAPI *put_CacheSize)(Recordset20 *This,long CacheSize);
+      HRESULT (WINAPI *get_CacheSize)(Recordset20 *This,__LONG32 *pl);
+      HRESULT (WINAPI *put_CacheSize)(Recordset20 *This,__LONG32 CacheSize);
       HRESULT (WINAPI *get_CursorType)(Recordset20 *This,CursorTypeEnum *plCursorType);
       HRESULT (WINAPI *put_CursorType)(Recordset20 *This,CursorTypeEnum lCursorType);
       HRESULT (WINAPI *get_EOF)(Recordset20 *This,VARIANT_BOOL *pb);
@@ -2447,7 +2447,7 @@ extern "C"{
       HRESULT (WINAPI *CancelUpdate)(Recordset20 *This);
       HRESULT (WINAPI *Close)(Recordset20 *This);
       HRESULT (WINAPI *Delete)(Recordset20 *This,AffectEnum AffectRecords);
-      HRESULT (WINAPI *GetRows)(Recordset20 *This,long Rows,VARIANT Start,VARIANT Fields,VARIANT *pvar);
+      HRESULT (WINAPI *GetRows)(Recordset20 *This,__LONG32 Rows,VARIANT Start,VARIANT Fields,VARIANT *pvar);
       HRESULT (WINAPI *Move)(Recordset20 *This,ADO_LONGPTR NumRecords,VARIANT Start);
       HRESULT (WINAPI *MoveNext)(Recordset20 *This);
       HRESULT (WINAPI *MovePrevious)(Recordset20 *This);
@@ -2463,11 +2463,11 @@ extern "C"{
       HRESULT (WINAPI *get_Filter)(Recordset20 *This,VARIANT *Criteria);
       HRESULT (WINAPI *put_Filter)(Recordset20 *This,VARIANT Criteria);
       HRESULT (WINAPI *get_PageCount)(Recordset20 *This,ADO_LONGPTR *pl);
-      HRESULT (WINAPI *get_PageSize)(Recordset20 *This,long *pl);
-      HRESULT (WINAPI *put_PageSize)(Recordset20 *This,long PageSize);
+      HRESULT (WINAPI *get_PageSize)(Recordset20 *This,__LONG32 *pl);
+      HRESULT (WINAPI *put_PageSize)(Recordset20 *This,__LONG32 PageSize);
       HRESULT (WINAPI *get_Sort)(Recordset20 *This,BSTR *Criteria);
       HRESULT (WINAPI *put_Sort)(Recordset20 *This,BSTR Criteria);
-      HRESULT (WINAPI *get_Status)(Recordset20 *This,long *pl);
+      HRESULT (WINAPI *get_Status)(Recordset20 *This,__LONG32 *pl);
       HRESULT (WINAPI *get_State)(Recordset20 *This,LONG *plObjState);
       HRESULT (WINAPI *_xClone)(Recordset20 *This,_ADORecordset **ppvObject);
       HRESULT (WINAPI *UpdateBatch)(Recordset20 *This,AffectEnum AffectRecords);
@@ -2488,7 +2488,7 @@ extern "C"{
       HRESULT (WINAPI *get_ActiveCommand)(Recordset20 *This,IDispatch **ppCmd);
       HRESULT (WINAPI *put_StayInSync)(Recordset20 *This,VARIANT_BOOL bStayInSync);
       HRESULT (WINAPI *get_StayInSync)(Recordset20 *This,VARIANT_BOOL *pbStayInSync);
-      HRESULT (WINAPI *GetString)(Recordset20 *This,StringFormatEnum StringFormat,long NumRows,BSTR ColumnDelimeter,BSTR RowDelimeter,BSTR NullExpr,BSTR *pRetString);
+      HRESULT (WINAPI *GetString)(Recordset20 *This,StringFormatEnum StringFormat,__LONG32 NumRows,BSTR ColumnDelimeter,BSTR RowDelimeter,BSTR NullExpr,BSTR *pRetString);
       HRESULT (WINAPI *get_DataMember)(Recordset20 *This,BSTR *pbstrDataMember);
       HRESULT (WINAPI *put_DataMember)(Recordset20 *This,BSTR bstrDataMember);
       HRESULT (WINAPI *CompareBookmarks)(Recordset20 *This,VARIANT Bookmark1,VARIANT Bookmark2,CompareEnum *pCompare);
@@ -2597,7 +2597,7 @@ extern "C"{
   void __RPC_STUB Recordset20_put_StayInSync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Recordset20_get_StayInSync_Proxy(Recordset20 *This,VARIANT_BOOL *pbStayInSync);
   void __RPC_STUB Recordset20_get_StayInSync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Recordset20_GetString_Proxy(Recordset20 *This,StringFormatEnum StringFormat,long NumRows,BSTR ColumnDelimeter,BSTR RowDelimeter,BSTR NullExpr,BSTR *pRetString);
+  HRESULT WINAPI Recordset20_GetString_Proxy(Recordset20 *This,StringFormatEnum StringFormat,__LONG32 NumRows,BSTR ColumnDelimeter,BSTR RowDelimeter,BSTR NullExpr,BSTR *pRetString);
   void __RPC_STUB Recordset20_GetString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Recordset20_get_DataMember_Proxy(Recordset20 *This,BSTR *pbstrDataMember);
   void __RPC_STUB Recordset20_get_DataMember_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2640,8 +2640,8 @@ extern "C"{
       HRESULT (WINAPI *get_BOF)(Recordset21 *This,VARIANT_BOOL *pb);
       HRESULT (WINAPI *get_Bookmark)(Recordset21 *This,VARIANT *pvBookmark);
       HRESULT (WINAPI *put_Bookmark)(Recordset21 *This,VARIANT vBookmark);
-      HRESULT (WINAPI *get_CacheSize)(Recordset21 *This,long *pl);
-      HRESULT (WINAPI *put_CacheSize)(Recordset21 *This,long CacheSize);
+      HRESULT (WINAPI *get_CacheSize)(Recordset21 *This,__LONG32 *pl);
+      HRESULT (WINAPI *put_CacheSize)(Recordset21 *This,__LONG32 CacheSize);
       HRESULT (WINAPI *get_CursorType)(Recordset21 *This,CursorTypeEnum *plCursorType);
       HRESULT (WINAPI *put_CursorType)(Recordset21 *This,CursorTypeEnum lCursorType);
       HRESULT (WINAPI *get_EOF)(Recordset21 *This,VARIANT_BOOL *pb);
@@ -2658,7 +2658,7 @@ extern "C"{
       HRESULT (WINAPI *CancelUpdate)(Recordset21 *This);
       HRESULT (WINAPI *Close)(Recordset21 *This);
       HRESULT (WINAPI *Delete)(Recordset21 *This,AffectEnum AffectRecords);
-      HRESULT (WINAPI *GetRows)(Recordset21 *This,long Rows,VARIANT Start,VARIANT Fields,VARIANT *pvar);
+      HRESULT (WINAPI *GetRows)(Recordset21 *This,__LONG32 Rows,VARIANT Start,VARIANT Fields,VARIANT *pvar);
       HRESULT (WINAPI *Move)(Recordset21 *This,ADO_LONGPTR NumRecords,VARIANT Start);
       HRESULT (WINAPI *MoveNext)(Recordset21 *This);
       HRESULT (WINAPI *MovePrevious)(Recordset21 *This);
@@ -2674,11 +2674,11 @@ extern "C"{
       HRESULT (WINAPI *get_Filter)(Recordset21 *This,VARIANT *Criteria);
       HRESULT (WINAPI *put_Filter)(Recordset21 *This,VARIANT Criteria);
       HRESULT (WINAPI *get_PageCount)(Recordset21 *This,ADO_LONGPTR *pl);
-      HRESULT (WINAPI *get_PageSize)(Recordset21 *This,long *pl);
-      HRESULT (WINAPI *put_PageSize)(Recordset21 *This,long PageSize);
+      HRESULT (WINAPI *get_PageSize)(Recordset21 *This,__LONG32 *pl);
+      HRESULT (WINAPI *put_PageSize)(Recordset21 *This,__LONG32 PageSize);
       HRESULT (WINAPI *get_Sort)(Recordset21 *This,BSTR *Criteria);
       HRESULT (WINAPI *put_Sort)(Recordset21 *This,BSTR Criteria);
-      HRESULT (WINAPI *get_Status)(Recordset21 *This,long *pl);
+      HRESULT (WINAPI *get_Status)(Recordset21 *This,__LONG32 *pl);
       HRESULT (WINAPI *get_State)(Recordset21 *This,LONG *plObjState);
       HRESULT (WINAPI *_xClone)(Recordset21 *This,_ADORecordset **ppvObject);
       HRESULT (WINAPI *UpdateBatch)(Recordset21 *This,AffectEnum AffectRecords);
@@ -2699,7 +2699,7 @@ extern "C"{
       HRESULT (WINAPI *get_ActiveCommand)(Recordset21 *This,IDispatch **ppCmd);
       HRESULT (WINAPI *put_StayInSync)(Recordset21 *This,VARIANT_BOOL bStayInSync);
       HRESULT (WINAPI *get_StayInSync)(Recordset21 *This,VARIANT_BOOL *pbStayInSync);
-      HRESULT (WINAPI *GetString)(Recordset21 *This,StringFormatEnum StringFormat,long NumRows,BSTR ColumnDelimeter,BSTR RowDelimeter,BSTR NullExpr,BSTR *pRetString);
+      HRESULT (WINAPI *GetString)(Recordset21 *This,StringFormatEnum StringFormat,__LONG32 NumRows,BSTR ColumnDelimeter,BSTR RowDelimeter,BSTR NullExpr,BSTR *pRetString);
       HRESULT (WINAPI *get_DataMember)(Recordset21 *This,BSTR *pbstrDataMember);
       HRESULT (WINAPI *put_DataMember)(Recordset21 *This,BSTR bstrDataMember);
       HRESULT (WINAPI *CompareBookmarks)(Recordset21 *This,VARIANT Bookmark1,VARIANT Bookmark2,CompareEnum *pCompare);
@@ -2835,8 +2835,8 @@ extern "C"{
       HRESULT (WINAPI *get_BOF)(_ADORecordset *This,VARIANT_BOOL *pb);
       HRESULT (WINAPI *get_Bookmark)(_ADORecordset *This,VARIANT *pvBookmark);
       HRESULT (WINAPI *put_Bookmark)(_ADORecordset *This,VARIANT vBookmark);
-      HRESULT (WINAPI *get_CacheSize)(_ADORecordset *This,long *pl);
-      HRESULT (WINAPI *put_CacheSize)(_ADORecordset *This,long CacheSize);
+      HRESULT (WINAPI *get_CacheSize)(_ADORecordset *This,__LONG32 *pl);
+      HRESULT (WINAPI *put_CacheSize)(_ADORecordset *This,__LONG32 CacheSize);
       HRESULT (WINAPI *get_CursorType)(_ADORecordset *This,CursorTypeEnum *plCursorType);
       HRESULT (WINAPI *put_CursorType)(_ADORecordset *This,CursorTypeEnum lCursorType);
       HRESULT (WINAPI *get_EOF)(_ADORecordset *This,VARIANT_BOOL *pb);
@@ -2853,7 +2853,7 @@ extern "C"{
       HRESULT (WINAPI *CancelUpdate)(_ADORecordset *This);
       HRESULT (WINAPI *Close)(_ADORecordset *This);
       HRESULT (WINAPI *Delete)(_ADORecordset *This,AffectEnum AffectRecords);
-      HRESULT (WINAPI *GetRows)(_ADORecordset *This,long Rows,VARIANT Start,VARIANT Fields,VARIANT *pvar);
+      HRESULT (WINAPI *GetRows)(_ADORecordset *This,__LONG32 Rows,VARIANT Start,VARIANT Fields,VARIANT *pvar);
       HRESULT (WINAPI *Move)(_ADORecordset *This,ADO_LONGPTR NumRecords,VARIANT Start);
       HRESULT (WINAPI *MoveNext)(_ADORecordset *This);
       HRESULT (WINAPI *MovePrevious)(_ADORecordset *This);
@@ -2869,11 +2869,11 @@ extern "C"{
       HRESULT (WINAPI *get_Filter)(_ADORecordset *This,VARIANT *Criteria);
       HRESULT (WINAPI *put_Filter)(_ADORecordset *This,VARIANT Criteria);
       HRESULT (WINAPI *get_PageCount)(_ADORecordset *This,ADO_LONGPTR *pl);
-      HRESULT (WINAPI *get_PageSize)(_ADORecordset *This,long *pl);
-      HRESULT (WINAPI *put_PageSize)(_ADORecordset *This,long PageSize);
+      HRESULT (WINAPI *get_PageSize)(_ADORecordset *This,__LONG32 *pl);
+      HRESULT (WINAPI *put_PageSize)(_ADORecordset *This,__LONG32 PageSize);
       HRESULT (WINAPI *get_Sort)(_ADORecordset *This,BSTR *Criteria);
       HRESULT (WINAPI *put_Sort)(_ADORecordset *This,BSTR Criteria);
-      HRESULT (WINAPI *get_Status)(_ADORecordset *This,long *pl);
+      HRESULT (WINAPI *get_Status)(_ADORecordset *This,__LONG32 *pl);
       HRESULT (WINAPI *get_State)(_ADORecordset *This,LONG *plObjState);
       HRESULT (WINAPI *_xClone)(_ADORecordset *This,_ADORecordset **ppvObject);
       HRESULT (WINAPI *UpdateBatch)(_ADORecordset *This,AffectEnum AffectRecords);
@@ -2894,7 +2894,7 @@ extern "C"{
       HRESULT (WINAPI *get_ActiveCommand)(_ADORecordset *This,IDispatch **ppCmd);
       HRESULT (WINAPI *put_StayInSync)(_ADORecordset *This,VARIANT_BOOL bStayInSync);
       HRESULT (WINAPI *get_StayInSync)(_ADORecordset *This,VARIANT_BOOL *pbStayInSync);
-      HRESULT (WINAPI *GetString)(_ADORecordset *This,StringFormatEnum StringFormat,long NumRows,BSTR ColumnDelimeter,BSTR RowDelimeter,BSTR NullExpr,BSTR *pRetString);
+      HRESULT (WINAPI *GetString)(_ADORecordset *This,StringFormatEnum StringFormat,__LONG32 NumRows,BSTR ColumnDelimeter,BSTR RowDelimeter,BSTR NullExpr,BSTR *pRetString);
       HRESULT (WINAPI *get_DataMember)(_ADORecordset *This,BSTR *pbstrDataMember);
       HRESULT (WINAPI *put_DataMember)(_ADORecordset *This,BSTR bstrDataMember);
       HRESULT (WINAPI *CompareBookmarks)(_ADORecordset *This,VARIANT Bookmark1,VARIANT Bookmark2,CompareEnum *pCompare);
@@ -3072,7 +3072,7 @@ extern "C"{
   struct Field15 : public _ADO {
   public:
     virtual HRESULT WINAPI get_ActualSize(ADO_LONGPTR *pl) = 0;
-    virtual HRESULT WINAPI get_Attributes(long *pl) = 0;
+    virtual HRESULT WINAPI get_Attributes(__LONG32 *pl) = 0;
     virtual HRESULT WINAPI get_DefinedSize(ADO_LONGPTR *pl) = 0;
     virtual HRESULT WINAPI get_Name(BSTR *pbstr) = 0;
     virtual HRESULT WINAPI get_Type(DataTypeEnum *pDataType) = 0;
@@ -3081,7 +3081,7 @@ extern "C"{
     virtual HRESULT WINAPI get_Precision(BYTE *pbPrecision) = 0;
     virtual HRESULT WINAPI get_NumericScale(BYTE *pbNumericScale) = 0;
     virtual HRESULT WINAPI AppendChunk(VARIANT Data) = 0;
-    virtual HRESULT WINAPI GetChunk(long Length,VARIANT *pvar) = 0;
+    virtual HRESULT WINAPI GetChunk(__LONG32 Length,VARIANT *pvar) = 0;
     virtual HRESULT WINAPI get_OriginalValue(VARIANT *pvar) = 0;
     virtual HRESULT WINAPI get_UnderlyingValue(VARIANT *pvar) = 0;
   };
@@ -3097,7 +3097,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(Field15 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_Properties)(Field15 *This,ADOProperties **ppvObject);
       HRESULT (WINAPI *get_ActualSize)(Field15 *This,ADO_LONGPTR *pl);
-      HRESULT (WINAPI *get_Attributes)(Field15 *This,long *pl);
+      HRESULT (WINAPI *get_Attributes)(Field15 *This,__LONG32 *pl);
       HRESULT (WINAPI *get_DefinedSize)(Field15 *This,ADO_LONGPTR *pl);
       HRESULT (WINAPI *get_Name)(Field15 *This,BSTR *pbstr);
       HRESULT (WINAPI *get_Type)(Field15 *This,DataTypeEnum *pDataType);
@@ -3106,7 +3106,7 @@ extern "C"{
       HRESULT (WINAPI *get_Precision)(Field15 *This,BYTE *pbPrecision);
       HRESULT (WINAPI *get_NumericScale)(Field15 *This,BYTE *pbNumericScale);
       HRESULT (WINAPI *AppendChunk)(Field15 *This,VARIANT Data);
-      HRESULT (WINAPI *GetChunk)(Field15 *This,long Length,VARIANT *pvar);
+      HRESULT (WINAPI *GetChunk)(Field15 *This,__LONG32 Length,VARIANT *pvar);
       HRESULT (WINAPI *get_OriginalValue)(Field15 *This,VARIANT *pvar);
       HRESULT (WINAPI *get_UnderlyingValue)(Field15 *This,VARIANT *pvar);
     END_INTERFACE
@@ -3140,7 +3140,7 @@ extern "C"{
 #endif
   HRESULT WINAPI Field15_get_ActualSize_Proxy(Field15 *This,ADO_LONGPTR *pl);
   void __RPC_STUB Field15_get_ActualSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Field15_get_Attributes_Proxy(Field15 *This,long *pl);
+  HRESULT WINAPI Field15_get_Attributes_Proxy(Field15 *This,__LONG32 *pl);
   void __RPC_STUB Field15_get_Attributes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Field15_get_DefinedSize_Proxy(Field15 *This,ADO_LONGPTR *pl);
   void __RPC_STUB Field15_get_DefinedSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -3158,7 +3158,7 @@ extern "C"{
   void __RPC_STUB Field15_get_NumericScale_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Field15_AppendChunk_Proxy(Field15 *This,VARIANT Data);
   void __RPC_STUB Field15_AppendChunk_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Field15_GetChunk_Proxy(Field15 *This,long Length,VARIANT *pvar);
+  HRESULT WINAPI Field15_GetChunk_Proxy(Field15 *This,__LONG32 Length,VARIANT *pvar);
   void __RPC_STUB Field15_GetChunk_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Field15_get_OriginalValue_Proxy(Field15 *This,VARIANT *pvar);
   void __RPC_STUB Field15_get_OriginalValue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -3173,7 +3173,7 @@ extern "C"{
   struct Field20 : public _ADO {
   public:
     virtual HRESULT WINAPI get_ActualSize(ADO_LONGPTR *pl) = 0;
-    virtual HRESULT WINAPI get_Attributes(long *pl) = 0;
+    virtual HRESULT WINAPI get_Attributes(__LONG32 *pl) = 0;
     virtual HRESULT WINAPI get_DefinedSize(ADO_LONGPTR *pl) = 0;
     virtual HRESULT WINAPI get_Name(BSTR *pbstr) = 0;
     virtual HRESULT WINAPI get_Type(DataTypeEnum *pDataType) = 0;
@@ -3182,7 +3182,7 @@ extern "C"{
     virtual HRESULT WINAPI get_Precision(BYTE *pbPrecision) = 0;
     virtual HRESULT WINAPI get_NumericScale(BYTE *pbNumericScale) = 0;
     virtual HRESULT WINAPI AppendChunk(VARIANT Data) = 0;
-    virtual HRESULT WINAPI GetChunk(long Length,VARIANT *pvar) = 0;
+    virtual HRESULT WINAPI GetChunk(__LONG32 Length,VARIANT *pvar) = 0;
     virtual HRESULT WINAPI get_OriginalValue(VARIANT *pvar) = 0;
     virtual HRESULT WINAPI get_UnderlyingValue(VARIANT *pvar) = 0;
     virtual HRESULT WINAPI get_DataFormat(IUnknown **ppiDF) = 0;
@@ -3191,7 +3191,7 @@ extern "C"{
     virtual HRESULT WINAPI put_NumericScale(BYTE bScale) = 0;
     virtual HRESULT WINAPI put_Type(DataTypeEnum DataType) = 0;
     virtual HRESULT WINAPI put_DefinedSize(ADO_LONGPTR lSize) = 0;
-    virtual HRESULT WINAPI put_Attributes(long lAttributes) = 0;
+    virtual HRESULT WINAPI put_Attributes(__LONG32 lAttributes) = 0;
   };
 #else
   typedef struct Field20Vtbl {
@@ -3205,7 +3205,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(Field20 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_Properties)(Field20 *This,ADOProperties **ppvObject);
       HRESULT (WINAPI *get_ActualSize)(Field20 *This,ADO_LONGPTR *pl);
-      HRESULT (WINAPI *get_Attributes)(Field20 *This,long *pl);
+      HRESULT (WINAPI *get_Attributes)(Field20 *This,__LONG32 *pl);
       HRESULT (WINAPI *get_DefinedSize)(Field20 *This,ADO_LONGPTR *pl);
       HRESULT (WINAPI *get_Name)(Field20 *This,BSTR *pbstr);
       HRESULT (WINAPI *get_Type)(Field20 *This,DataTypeEnum *pDataType);
@@ -3214,7 +3214,7 @@ extern "C"{
       HRESULT (WINAPI *get_Precision)(Field20 *This,BYTE *pbPrecision);
       HRESULT (WINAPI *get_NumericScale)(Field20 *This,BYTE *pbNumericScale);
       HRESULT (WINAPI *AppendChunk)(Field20 *This,VARIANT Data);
-      HRESULT (WINAPI *GetChunk)(Field20 *This,long Length,VARIANT *pvar);
+      HRESULT (WINAPI *GetChunk)(Field20 *This,__LONG32 Length,VARIANT *pvar);
       HRESULT (WINAPI *get_OriginalValue)(Field20 *This,VARIANT *pvar);
       HRESULT (WINAPI *get_UnderlyingValue)(Field20 *This,VARIANT *pvar);
       HRESULT (WINAPI *get_DataFormat)(Field20 *This,IUnknown **ppiDF);
@@ -3223,7 +3223,7 @@ extern "C"{
       HRESULT (WINAPI *put_NumericScale)(Field20 *This,BYTE bScale);
       HRESULT (WINAPI *put_Type)(Field20 *This,DataTypeEnum DataType);
       HRESULT (WINAPI *put_DefinedSize)(Field20 *This,ADO_LONGPTR lSize);
-      HRESULT (WINAPI *put_Attributes)(Field20 *This,long lAttributes);
+      HRESULT (WINAPI *put_Attributes)(Field20 *This,__LONG32 lAttributes);
     END_INTERFACE
   } Field20Vtbl;
   struct Field20 {
@@ -3262,7 +3262,7 @@ extern "C"{
 #endif
   HRESULT WINAPI Field20_get_ActualSize_Proxy(Field20 *This,ADO_LONGPTR *pl);
   void __RPC_STUB Field20_get_ActualSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Field20_get_Attributes_Proxy(Field20 *This,long *pl);
+  HRESULT WINAPI Field20_get_Attributes_Proxy(Field20 *This,__LONG32 *pl);
   void __RPC_STUB Field20_get_Attributes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Field20_get_DefinedSize_Proxy(Field20 *This,ADO_LONGPTR *pl);
   void __RPC_STUB Field20_get_DefinedSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -3280,7 +3280,7 @@ extern "C"{
   void __RPC_STUB Field20_get_NumericScale_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Field20_AppendChunk_Proxy(Field20 *This,VARIANT Data);
   void __RPC_STUB Field20_AppendChunk_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Field20_GetChunk_Proxy(Field20 *This,long Length,VARIANT *pvar);
+  HRESULT WINAPI Field20_GetChunk_Proxy(Field20 *This,__LONG32 Length,VARIANT *pvar);
   void __RPC_STUB Field20_GetChunk_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Field20_get_OriginalValue_Proxy(Field20 *This,VARIANT *pvar);
   void __RPC_STUB Field20_get_OriginalValue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -3298,7 +3298,7 @@ extern "C"{
   void __RPC_STUB Field20_put_Type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Field20_put_DefinedSize_Proxy(Field20 *This,ADO_LONGPTR lSize);
   void __RPC_STUB Field20_put_DefinedSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Field20_put_Attributes_Proxy(Field20 *This,long lAttributes);
+  HRESULT WINAPI Field20_put_Attributes_Proxy(Field20 *This,__LONG32 lAttributes);
   void __RPC_STUB Field20_put_Attributes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -3308,7 +3308,7 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ADOField : public Field20 {
   public:
-    virtual HRESULT WINAPI get_Status(long *pFStatus) = 0;
+    virtual HRESULT WINAPI get_Status(__LONG32 *pFStatus) = 0;
   };
 #else
   typedef struct FieldVtbl {
@@ -3322,7 +3322,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(ADOField *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_Properties)(ADOField *This,ADOProperties **ppvObject);
       HRESULT (WINAPI *get_ActualSize)(ADOField *This,ADO_LONGPTR *pl);
-      HRESULT (WINAPI *get_Attributes)(ADOField *This,long *pl);
+      HRESULT (WINAPI *get_Attributes)(ADOField *This,__LONG32 *pl);
       HRESULT (WINAPI *get_DefinedSize)(ADOField *This,ADO_LONGPTR *pl);
       HRESULT (WINAPI *get_Name)(ADOField *This,BSTR *pbstr);
       HRESULT (WINAPI *get_Type)(ADOField *This,DataTypeEnum *pDataType);
@@ -3331,7 +3331,7 @@ extern "C"{
       HRESULT (WINAPI *get_Precision)(ADOField *This,BYTE *pbPrecision);
       HRESULT (WINAPI *get_NumericScale)(ADOField *This,BYTE *pbNumericScale);
       HRESULT (WINAPI *AppendChunk)(ADOField *This,VARIANT Data);
-      HRESULT (WINAPI *GetChunk)(ADOField *This,long Length,VARIANT *pvar);
+      HRESULT (WINAPI *GetChunk)(ADOField *This,__LONG32 Length,VARIANT *pvar);
       HRESULT (WINAPI *get_OriginalValue)(ADOField *This,VARIANT *pvar);
       HRESULT (WINAPI *get_UnderlyingValue)(ADOField *This,VARIANT *pvar);
       HRESULT (WINAPI *get_DataFormat)(ADOField *This,IUnknown **ppiDF);
@@ -3340,8 +3340,8 @@ extern "C"{
       HRESULT (WINAPI *put_NumericScale)(ADOField *This,BYTE bScale);
       HRESULT (WINAPI *put_Type)(ADOField *This,DataTypeEnum DataType);
       HRESULT (WINAPI *put_DefinedSize)(ADOField *This,ADO_LONGPTR lSize);
-      HRESULT (WINAPI *put_Attributes)(ADOField *This,long lAttributes);
-      HRESULT (WINAPI *get_Status)(ADOField *This,long *pFStatus);
+      HRESULT (WINAPI *put_Attributes)(ADOField *This,__LONG32 lAttributes);
+      HRESULT (WINAPI *get_Status)(ADOField *This,__LONG32 *pFStatus);
     END_INTERFACE
   } FieldVtbl;
   struct Field {
@@ -3379,7 +3379,7 @@ extern "C"{
 #define Field_get_Status(This,pFStatus) (This)->lpVtbl -> get_Status(This,pFStatus)
 #endif
 #endif
-  HRESULT WINAPI Field_get_Status_Proxy(ADOField *This,long *pFStatus);
+  HRESULT WINAPI Field_get_Status_Proxy(ADOField *This,__LONG32 *pFStatus);
   void __RPC_STUB Field_get_Status_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -3401,7 +3401,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(Fields15 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(Fields15 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(Fields15 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(Fields15 *This,long *c);
+      HRESULT (WINAPI *get_Count)(Fields15 *This,__LONG32 *c);
       HRESULT (WINAPI *_NewEnum)(Fields15 *This,IUnknown **ppvObject);
       HRESULT (WINAPI *Refresh)(Fields15 *This);
       HRESULT (WINAPI *get_Item)(Fields15 *This,VARIANT Index,ADOField **ppvObject);
@@ -3447,7 +3447,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(Fields20 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(Fields20 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(Fields20 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(Fields20 *This,long *c);
+      HRESULT (WINAPI *get_Count)(Fields20 *This,__LONG32 *c);
       HRESULT (WINAPI *_NewEnum)(Fields20 *This,IUnknown **ppvObject);
       HRESULT (WINAPI *Refresh)(Fields20 *This);
       HRESULT (WINAPI *get_Item)(Fields20 *This,VARIANT Index,ADOField **ppvObject);
@@ -3501,7 +3501,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(ADOFields *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ADOFields *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ADOFields *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(ADOFields *This,long *c);
+      HRESULT (WINAPI *get_Count)(ADOFields *This,__LONG32 *c);
       HRESULT (WINAPI *_NewEnum)(ADOFields *This,IUnknown **ppvObject);
       HRESULT (WINAPI *Refresh)(ADOFields *This);
       HRESULT (WINAPI *get_Item)(ADOFields *This,VARIANT Index,ADOField **ppvObject);
@@ -3690,7 +3690,7 @@ ADOParameters : public _ADODynaCollection {
       HRESULT (WINAPI *GetTypeInfo)(ADOParameters *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ADOParameters *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ADOParameters *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(ADOParameters *This,long *c);
+      HRESULT (WINAPI *get_Count)(ADOParameters *This,__LONG32 *c);
       HRESULT (WINAPI *_NewEnum)(ADOParameters *This,IUnknown **ppvObject);
       HRESULT (WINAPI *Refresh)(ADOParameters *This);
       HRESULT (WINAPI *Append)(ADOParameters *This,IDispatch *Object);
@@ -3731,8 +3731,8 @@ ADOParameters : public _ADODynaCollection {
     virtual HRESULT WINAPI put_Value(VARIANT val) = 0;
     virtual HRESULT WINAPI get_Name(BSTR *pbstr) = 0;
     virtual HRESULT WINAPI get_Type(DataTypeEnum *ptype) = 0;
-    virtual HRESULT WINAPI get_Attributes(long *plAttributes) = 0;
-    virtual HRESULT WINAPI put_Attributes(long lAttributes) = 0;
+    virtual HRESULT WINAPI get_Attributes(__LONG32 *plAttributes) = 0;
+    virtual HRESULT WINAPI put_Attributes(__LONG32 lAttributes) = 0;
   };
 #else
   typedef struct PropertyVtbl {
@@ -3748,8 +3748,8 @@ ADOParameters : public _ADODynaCollection {
       HRESULT (WINAPI *put_Value)(ADOProperty *This,VARIANT val);
       HRESULT (WINAPI *get_Name)(ADOProperty *This,BSTR *pbstr);
       HRESULT (WINAPI *get_Type)(ADOProperty *This,DataTypeEnum *ptype);
-      HRESULT (WINAPI *get_Attributes)(ADOProperty *This,long *plAttributes);
-      HRESULT (WINAPI *put_Attributes)(ADOProperty *This,long lAttributes);
+      HRESULT (WINAPI *get_Attributes)(ADOProperty *This,__LONG32 *plAttributes);
+      HRESULT (WINAPI *put_Attributes)(ADOProperty *This,__LONG32 lAttributes);
     END_INTERFACE
   } PropertyVtbl;
   struct Property {
@@ -3779,9 +3779,9 @@ ADOParameters : public _ADODynaCollection {
   void __RPC_STUB Property_get_Name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI Property_get_Type_Proxy(ADOProperty *This,DataTypeEnum *ptype);
   void __RPC_STUB Property_get_Type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Property_get_Attributes_Proxy(ADOProperty *This,long *plAttributes);
+  HRESULT WINAPI Property_get_Attributes_Proxy(ADOProperty *This,__LONG32 *plAttributes);
   void __RPC_STUB Property_get_Attributes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI Property_put_Attributes_Proxy(ADOProperty *This,long lAttributes);
+  HRESULT WINAPI Property_put_Attributes_Proxy(ADOProperty *This,__LONG32 lAttributes);
   void __RPC_STUB Property_put_Attributes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -3804,7 +3804,7 @@ ADOParameters : public _ADODynaCollection {
       HRESULT (WINAPI *GetTypeInfo)(ADOProperties *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ADOProperties *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ADOProperties *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(ADOProperties *This,long *c);
+      HRESULT (WINAPI *get_Count)(ADOProperties *This,__LONG32 *c);
       HRESULT (WINAPI *_NewEnum)(ADOProperties *This,IUnknown **ppvObject);
       HRESULT (WINAPI *Refresh)(ADOProperties *This);
       HRESULT (WINAPI *get_Item)(ADOProperties *This,VARIANT Index,ADOProperty **ppvObject);
