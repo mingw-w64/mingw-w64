@@ -1,5 +1,12 @@
 2012-08-03  Corinna Vinschen  <vinschen@redhat.com>
 
+	* comsvcs.h: Change long to __LONG32 where appropriate.
+	* control.h: Ditto.
+	* dhtmled.h: Ditto.
+	* emostore.h: Ditto.
+
+2012-08-03  Corinna Vinschen  <vinschen@redhat.com>
+
 	* cdoex.h: Change long to __LONG32 where appropriate.
 	* cdoexm.h: Ditto.
 	* cdonts.h: Ditto.

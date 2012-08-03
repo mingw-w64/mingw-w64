@@ -238,10 +238,10 @@ extern "C"{
     virtual HRESULT WINAPI put_SourceCodePreservation(VARIANT_BOOL newVal) = 0;
     virtual HRESULT WINAPI get_AbsoluteDropMode(VARIANT_BOOL *pVal) = 0;
     virtual HRESULT WINAPI put_AbsoluteDropMode(VARIANT_BOOL newVal) = 0;
-    virtual HRESULT WINAPI get_SnapToGridX(long *pVal) = 0;
-    virtual HRESULT WINAPI put_SnapToGridX(long newVal) = 0;
-    virtual HRESULT WINAPI get_SnapToGridY(long *pVal) = 0;
-    virtual HRESULT WINAPI put_SnapToGridY(long newVal) = 0;
+    virtual HRESULT WINAPI get_SnapToGridX(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI put_SnapToGridX(__LONG32 newVal) = 0;
+    virtual HRESULT WINAPI get_SnapToGridY(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI put_SnapToGridY(__LONG32 newVal) = 0;
     virtual HRESULT WINAPI get_SnapToGrid(VARIANT_BOOL *pVal) = 0;
     virtual HRESULT WINAPI put_SnapToGrid(VARIANT_BOOL newVal) = 0;
     virtual HRESULT WINAPI get_IsDirty(VARIANT_BOOL *pVal) = 0;
@@ -293,10 +293,10 @@ extern "C"{
       HRESULT (WINAPI *put_SourceCodePreservation)(IDHTMLSafe *This,VARIANT_BOOL newVal);
       HRESULT (WINAPI *get_AbsoluteDropMode)(IDHTMLSafe *This,VARIANT_BOOL *pVal);
       HRESULT (WINAPI *put_AbsoluteDropMode)(IDHTMLSafe *This,VARIANT_BOOL newVal);
-      HRESULT (WINAPI *get_SnapToGridX)(IDHTMLSafe *This,long *pVal);
-      HRESULT (WINAPI *put_SnapToGridX)(IDHTMLSafe *This,long newVal);
-      HRESULT (WINAPI *get_SnapToGridY)(IDHTMLSafe *This,long *pVal);
-      HRESULT (WINAPI *put_SnapToGridY)(IDHTMLSafe *This,long newVal);
+      HRESULT (WINAPI *get_SnapToGridX)(IDHTMLSafe *This,__LONG32 *pVal);
+      HRESULT (WINAPI *put_SnapToGridX)(IDHTMLSafe *This,__LONG32 newVal);
+      HRESULT (WINAPI *get_SnapToGridY)(IDHTMLSafe *This,__LONG32 *pVal);
+      HRESULT (WINAPI *put_SnapToGridY)(IDHTMLSafe *This,__LONG32 newVal);
       HRESULT (WINAPI *get_SnapToGrid)(IDHTMLSafe *This,VARIANT_BOOL *pVal);
       HRESULT (WINAPI *put_SnapToGrid)(IDHTMLSafe *This,VARIANT_BOOL newVal);
       HRESULT (WINAPI *get_IsDirty)(IDHTMLSafe *This,VARIANT_BOOL *pVal);
@@ -426,13 +426,13 @@ extern "C"{
   void __RPC_STUB IDHTMLSafe_get_AbsoluteDropMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IDHTMLSafe_put_AbsoluteDropMode_Proxy(IDHTMLSafe *This,VARIANT_BOOL newVal);
   void __RPC_STUB IDHTMLSafe_put_AbsoluteDropMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IDHTMLSafe_get_SnapToGridX_Proxy(IDHTMLSafe *This,long *pVal);
+  HRESULT WINAPI IDHTMLSafe_get_SnapToGridX_Proxy(IDHTMLSafe *This,__LONG32 *pVal);
   void __RPC_STUB IDHTMLSafe_get_SnapToGridX_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IDHTMLSafe_put_SnapToGridX_Proxy(IDHTMLSafe *This,long newVal);
+  HRESULT WINAPI IDHTMLSafe_put_SnapToGridX_Proxy(IDHTMLSafe *This,__LONG32 newVal);
   void __RPC_STUB IDHTMLSafe_put_SnapToGridX_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IDHTMLSafe_get_SnapToGridY_Proxy(IDHTMLSafe *This,long *pVal);
+  HRESULT WINAPI IDHTMLSafe_get_SnapToGridY_Proxy(IDHTMLSafe *This,__LONG32 *pVal);
   void __RPC_STUB IDHTMLSafe_get_SnapToGridY_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IDHTMLSafe_put_SnapToGridY_Proxy(IDHTMLSafe *This,long newVal);
+  HRESULT WINAPI IDHTMLSafe_put_SnapToGridY_Proxy(IDHTMLSafe *This,__LONG32 newVal);
   void __RPC_STUB IDHTMLSafe_put_SnapToGridY_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IDHTMLSafe_get_SnapToGrid_Proxy(IDHTMLSafe *This,VARIANT_BOOL *pVal);
   void __RPC_STUB IDHTMLSafe_get_SnapToGrid_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -508,10 +508,10 @@ extern "C"{
       HRESULT (WINAPI *put_SourceCodePreservation)(IDHTMLEdit *This,VARIANT_BOOL newVal);
       HRESULT (WINAPI *get_AbsoluteDropMode)(IDHTMLEdit *This,VARIANT_BOOL *pVal);
       HRESULT (WINAPI *put_AbsoluteDropMode)(IDHTMLEdit *This,VARIANT_BOOL newVal);
-      HRESULT (WINAPI *get_SnapToGridX)(IDHTMLEdit *This,long *pVal);
-      HRESULT (WINAPI *put_SnapToGridX)(IDHTMLEdit *This,long newVal);
-      HRESULT (WINAPI *get_SnapToGridY)(IDHTMLEdit *This,long *pVal);
-      HRESULT (WINAPI *put_SnapToGridY)(IDHTMLEdit *This,long newVal);
+      HRESULT (WINAPI *get_SnapToGridX)(IDHTMLEdit *This,__LONG32 *pVal);
+      HRESULT (WINAPI *put_SnapToGridX)(IDHTMLEdit *This,__LONG32 newVal);
+      HRESULT (WINAPI *get_SnapToGridY)(IDHTMLEdit *This,__LONG32 *pVal);
+      HRESULT (WINAPI *put_SnapToGridY)(IDHTMLEdit *This,__LONG32 newVal);
       HRESULT (WINAPI *get_SnapToGrid)(IDHTMLEdit *This,VARIANT_BOOL *pVal);
       HRESULT (WINAPI *put_SnapToGrid)(IDHTMLEdit *This,VARIANT_BOOL newVal);
       HRESULT (WINAPI *get_IsDirty)(IDHTMLEdit *This,VARIANT_BOOL *pVal);
@@ -609,10 +609,10 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IDEInsertTableParam : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_NumRows(long *pVal) = 0;
-    virtual HRESULT WINAPI put_NumRows(long newVal) = 0;
-    virtual HRESULT WINAPI get_NumCols(long *pVal) = 0;
-    virtual HRESULT WINAPI put_NumCols(long newVal) = 0;
+    virtual HRESULT WINAPI get_NumRows(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI put_NumRows(__LONG32 newVal) = 0;
+    virtual HRESULT WINAPI get_NumCols(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI put_NumCols(__LONG32 newVal) = 0;
     virtual HRESULT WINAPI get_TableAttrs(BSTR *pVal) = 0;
     virtual HRESULT WINAPI put_TableAttrs(BSTR newVal) = 0;
     virtual HRESULT WINAPI get_CellAttrs(BSTR *pVal) = 0;
@@ -630,10 +630,10 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IDEInsertTableParam *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IDEInsertTableParam *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IDEInsertTableParam *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_NumRows)(IDEInsertTableParam *This,long *pVal);
-      HRESULT (WINAPI *put_NumRows)(IDEInsertTableParam *This,long newVal);
-      HRESULT (WINAPI *get_NumCols)(IDEInsertTableParam *This,long *pVal);
-      HRESULT (WINAPI *put_NumCols)(IDEInsertTableParam *This,long newVal);
+      HRESULT (WINAPI *get_NumRows)(IDEInsertTableParam *This,__LONG32 *pVal);
+      HRESULT (WINAPI *put_NumRows)(IDEInsertTableParam *This,__LONG32 newVal);
+      HRESULT (WINAPI *get_NumCols)(IDEInsertTableParam *This,__LONG32 *pVal);
+      HRESULT (WINAPI *put_NumCols)(IDEInsertTableParam *This,__LONG32 newVal);
       HRESULT (WINAPI *get_TableAttrs)(IDEInsertTableParam *This,BSTR *pVal);
       HRESULT (WINAPI *put_TableAttrs)(IDEInsertTableParam *This,BSTR newVal);
       HRESULT (WINAPI *get_CellAttrs)(IDEInsertTableParam *This,BSTR *pVal);
@@ -665,13 +665,13 @@ extern "C"{
 #define IDEInsertTableParam_put_Caption(This,newVal) (This)->lpVtbl->put_Caption(This,newVal)
 #endif
 #endif
-  HRESULT WINAPI IDEInsertTableParam_get_NumRows_Proxy(IDEInsertTableParam *This,long *pVal);
+  HRESULT WINAPI IDEInsertTableParam_get_NumRows_Proxy(IDEInsertTableParam *This,__LONG32 *pVal);
   void __RPC_STUB IDEInsertTableParam_get_NumRows_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IDEInsertTableParam_put_NumRows_Proxy(IDEInsertTableParam *This,long newVal);
+  HRESULT WINAPI IDEInsertTableParam_put_NumRows_Proxy(IDEInsertTableParam *This,__LONG32 newVal);
   void __RPC_STUB IDEInsertTableParam_put_NumRows_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IDEInsertTableParam_get_NumCols_Proxy(IDEInsertTableParam *This,long *pVal);
+  HRESULT WINAPI IDEInsertTableParam_get_NumCols_Proxy(IDEInsertTableParam *This,__LONG32 *pVal);
   void __RPC_STUB IDEInsertTableParam_get_NumCols_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IDEInsertTableParam_put_NumCols_Proxy(IDEInsertTableParam *This,long newVal);
+  HRESULT WINAPI IDEInsertTableParam_put_NumCols_Proxy(IDEInsertTableParam *This,__LONG32 newVal);
   void __RPC_STUB IDEInsertTableParam_put_NumCols_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IDEInsertTableParam_get_TableAttrs_Proxy(IDEInsertTableParam *This,BSTR *pVal);
   void __RPC_STUB IDEInsertTableParam_get_TableAttrs_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);

@@ -122,7 +122,7 @@ extern "C"{
   typedef double REFTIME;
   typedef LONG_PTR OAEVENT;
   typedef LONG_PTR OAHWND;
-  typedef long OAFilterState;
+  typedef __LONG32 OAFilterState;
 
   DEFINE_GUID(LIBID_QuartzTypeLib,0x56a868b0,0x0ad4,0x11ce,0xb0,0x3a,0x00,0x20,0xaf,0x0b,0xa7,0x70);
 #ifndef __IAMCollection_INTERFACE_DEFINED__
@@ -132,7 +132,7 @@ extern "C"{
   struct IAMCollection : public IDispatch {
   public:
     virtual HRESULT WINAPI get_Count(LONG *plCount) = 0;
-    virtual HRESULT WINAPI Item(long lItem,IUnknown **ppUnk) = 0;
+    virtual HRESULT WINAPI Item(__LONG32 lItem,IUnknown **ppUnk) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **ppUnk) = 0;
   };
 #else
@@ -146,7 +146,7 @@ extern "C"{
       HRESULT (WINAPI *GetIDsOfNames)(IAMCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IAMCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_Count)(IAMCollection *This,LONG *plCount);
-      HRESULT (WINAPI *Item)(IAMCollection *This,long lItem,IUnknown **ppUnk);
+      HRESULT (WINAPI *Item)(IAMCollection *This,__LONG32 lItem,IUnknown **ppUnk);
       HRESULT (WINAPI *get__NewEnum)(IAMCollection *This,IUnknown **ppUnk);
     END_INTERFACE
   } IAMCollectionVtbl;
@@ -168,7 +168,7 @@ extern "C"{
 #endif
   HRESULT WINAPI IAMCollection_get_Count_Proxy(IAMCollection *This,LONG *plCount);
   void __RPC_STUB IAMCollection_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMCollection_Item_Proxy(IAMCollection *This,long lItem,IUnknown **ppUnk);
+  HRESULT WINAPI IAMCollection_Item_Proxy(IAMCollection *This,__LONG32 lItem,IUnknown **ppUnk);
   void __RPC_STUB IAMCollection_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMCollection_get__NewEnum_Proxy(IAMCollection *This,IUnknown **ppUnk);
   void __RPC_STUB IAMCollection_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -260,11 +260,11 @@ extern "C"{
   struct IMediaEvent : public IDispatch {
   public:
     virtual HRESULT WINAPI GetEventHandle(OAEVENT *hEvent) = 0;
-    virtual HRESULT WINAPI GetEvent(long *lEventCode,LONG_PTR *lParam1,LONG_PTR *lParam2,long msTimeout) = 0;
-    virtual HRESULT WINAPI WaitForCompletion(long msTimeout,long *pEvCode) = 0;
-    virtual HRESULT WINAPI CancelDefaultHandling(long lEvCode) = 0;
-    virtual HRESULT WINAPI RestoreDefaultHandling(long lEvCode) = 0;
-    virtual HRESULT WINAPI FreeEventParams(long lEvCode,LONG_PTR lParam1,LONG_PTR lParam2) = 0;
+    virtual HRESULT WINAPI GetEvent(__LONG32 *lEventCode,LONG_PTR *lParam1,LONG_PTR *lParam2,__LONG32 msTimeout) = 0;
+    virtual HRESULT WINAPI WaitForCompletion(__LONG32 msTimeout,__LONG32 *pEvCode) = 0;
+    virtual HRESULT WINAPI CancelDefaultHandling(__LONG32 lEvCode) = 0;
+    virtual HRESULT WINAPI RestoreDefaultHandling(__LONG32 lEvCode) = 0;
+    virtual HRESULT WINAPI FreeEventParams(__LONG32 lEvCode,LONG_PTR lParam1,LONG_PTR lParam2) = 0;
   };
 #else
   typedef struct IMediaEventVtbl {
@@ -277,11 +277,11 @@ extern "C"{
       HRESULT (WINAPI *GetIDsOfNames)(IMediaEvent *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IMediaEvent *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *GetEventHandle)(IMediaEvent *This,OAEVENT *hEvent);
-      HRESULT (WINAPI *GetEvent)(IMediaEvent *This,long *lEventCode,LONG_PTR *lParam1,LONG_PTR *lParam2,long msTimeout);
-      HRESULT (WINAPI *WaitForCompletion)(IMediaEvent *This,long msTimeout,long *pEvCode);
-      HRESULT (WINAPI *CancelDefaultHandling)(IMediaEvent *This,long lEvCode);
-      HRESULT (WINAPI *RestoreDefaultHandling)(IMediaEvent *This,long lEvCode);
-      HRESULT (WINAPI *FreeEventParams)(IMediaEvent *This,long lEvCode,LONG_PTR lParam1,LONG_PTR lParam2);
+      HRESULT (WINAPI *GetEvent)(IMediaEvent *This,__LONG32 *lEventCode,LONG_PTR *lParam1,LONG_PTR *lParam2,__LONG32 msTimeout);
+      HRESULT (WINAPI *WaitForCompletion)(IMediaEvent *This,__LONG32 msTimeout,__LONG32 *pEvCode);
+      HRESULT (WINAPI *CancelDefaultHandling)(IMediaEvent *This,__LONG32 lEvCode);
+      HRESULT (WINAPI *RestoreDefaultHandling)(IMediaEvent *This,__LONG32 lEvCode);
+      HRESULT (WINAPI *FreeEventParams)(IMediaEvent *This,__LONG32 lEvCode,LONG_PTR lParam1,LONG_PTR lParam2);
     END_INTERFACE
   } IMediaEventVtbl;
   struct IMediaEvent {
@@ -305,15 +305,15 @@ extern "C"{
 #endif
   HRESULT WINAPI IMediaEvent_GetEventHandle_Proxy(IMediaEvent *This,OAEVENT *hEvent);
   void __RPC_STUB IMediaEvent_GetEventHandle_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaEvent_GetEvent_Proxy(IMediaEvent *This,long *lEventCode,LONG_PTR *lParam1,LONG_PTR *lParam2,long msTimeout);
+  HRESULT WINAPI IMediaEvent_GetEvent_Proxy(IMediaEvent *This,__LONG32 *lEventCode,LONG_PTR *lParam1,LONG_PTR *lParam2,__LONG32 msTimeout);
   void __RPC_STUB IMediaEvent_GetEvent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaEvent_WaitForCompletion_Proxy(IMediaEvent *This,long msTimeout,long *pEvCode);
+  HRESULT WINAPI IMediaEvent_WaitForCompletion_Proxy(IMediaEvent *This,__LONG32 msTimeout,__LONG32 *pEvCode);
   void __RPC_STUB IMediaEvent_WaitForCompletion_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaEvent_CancelDefaultHandling_Proxy(IMediaEvent *This,long lEvCode);
+  HRESULT WINAPI IMediaEvent_CancelDefaultHandling_Proxy(IMediaEvent *This,__LONG32 lEvCode);
   void __RPC_STUB IMediaEvent_CancelDefaultHandling_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaEvent_RestoreDefaultHandling_Proxy(IMediaEvent *This,long lEvCode);
+  HRESULT WINAPI IMediaEvent_RestoreDefaultHandling_Proxy(IMediaEvent *This,__LONG32 lEvCode);
   void __RPC_STUB IMediaEvent_RestoreDefaultHandling_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaEvent_FreeEventParams_Proxy(IMediaEvent *This,long lEvCode,LONG_PTR lParam1,LONG_PTR lParam2);
+  HRESULT WINAPI IMediaEvent_FreeEventParams_Proxy(IMediaEvent *This,__LONG32 lEvCode,LONG_PTR lParam1,LONG_PTR lParam2);
   void __RPC_STUB IMediaEvent_FreeEventParams_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -323,9 +323,9 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IMediaEventEx : public IMediaEvent {
   public:
-    virtual HRESULT WINAPI SetNotifyWindow(OAHWND hwnd,long lMsg,LONG_PTR lInstanceData) = 0;
-    virtual HRESULT WINAPI SetNotifyFlags(long lNoNotifyFlags) = 0;
-    virtual HRESULT WINAPI GetNotifyFlags(long *lplNoNotifyFlags) = 0;
+    virtual HRESULT WINAPI SetNotifyWindow(OAHWND hwnd,__LONG32 lMsg,LONG_PTR lInstanceData) = 0;
+    virtual HRESULT WINAPI SetNotifyFlags(__LONG32 lNoNotifyFlags) = 0;
+    virtual HRESULT WINAPI GetNotifyFlags(__LONG32 *lplNoNotifyFlags) = 0;
   };
 #else
   typedef struct IMediaEventExVtbl {
@@ -338,14 +338,14 @@ extern "C"{
       HRESULT (WINAPI *GetIDsOfNames)(IMediaEventEx *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IMediaEventEx *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *GetEventHandle)(IMediaEventEx *This,OAEVENT *hEvent);
-      HRESULT (WINAPI *GetEvent)(IMediaEventEx *This,long *lEventCode,LONG_PTR *lParam1,LONG_PTR *lParam2,long msTimeout);
-      HRESULT (WINAPI *WaitForCompletion)(IMediaEventEx *This,long msTimeout,long *pEvCode);
-      HRESULT (WINAPI *CancelDefaultHandling)(IMediaEventEx *This,long lEvCode);
-      HRESULT (WINAPI *RestoreDefaultHandling)(IMediaEventEx *This,long lEvCode);
-      HRESULT (WINAPI *FreeEventParams)(IMediaEventEx *This,long lEvCode,LONG_PTR lParam1,LONG_PTR lParam2);
-      HRESULT (WINAPI *SetNotifyWindow)(IMediaEventEx *This,OAHWND hwnd,long lMsg,LONG_PTR lInstanceData);
-      HRESULT (WINAPI *SetNotifyFlags)(IMediaEventEx *This,long lNoNotifyFlags);
-      HRESULT (WINAPI *GetNotifyFlags)(IMediaEventEx *This,long *lplNoNotifyFlags);
+      HRESULT (WINAPI *GetEvent)(IMediaEventEx *This,__LONG32 *lEventCode,LONG_PTR *lParam1,LONG_PTR *lParam2,__LONG32 msTimeout);
+      HRESULT (WINAPI *WaitForCompletion)(IMediaEventEx *This,__LONG32 msTimeout,__LONG32 *pEvCode);
+      HRESULT (WINAPI *CancelDefaultHandling)(IMediaEventEx *This,__LONG32 lEvCode);
+      HRESULT (WINAPI *RestoreDefaultHandling)(IMediaEventEx *This,__LONG32 lEvCode);
+      HRESULT (WINAPI *FreeEventParams)(IMediaEventEx *This,__LONG32 lEvCode,LONG_PTR lParam1,LONG_PTR lParam2);
+      HRESULT (WINAPI *SetNotifyWindow)(IMediaEventEx *This,OAHWND hwnd,__LONG32 lMsg,LONG_PTR lInstanceData);
+      HRESULT (WINAPI *SetNotifyFlags)(IMediaEventEx *This,__LONG32 lNoNotifyFlags);
+      HRESULT (WINAPI *GetNotifyFlags)(IMediaEventEx *This,__LONG32 *lplNoNotifyFlags);
     END_INTERFACE
   } IMediaEventExVtbl;
   struct IMediaEventEx {
@@ -370,11 +370,11 @@ extern "C"{
 #define IMediaEventEx_GetNotifyFlags(This,lplNoNotifyFlags) (This)->lpVtbl->GetNotifyFlags(This,lplNoNotifyFlags)
 #endif
 #endif
-  HRESULT WINAPI IMediaEventEx_SetNotifyWindow_Proxy(IMediaEventEx *This,OAHWND hwnd,long lMsg,LONG_PTR lInstanceData);
+  HRESULT WINAPI IMediaEventEx_SetNotifyWindow_Proxy(IMediaEventEx *This,OAHWND hwnd,__LONG32 lMsg,LONG_PTR lInstanceData);
   void __RPC_STUB IMediaEventEx_SetNotifyWindow_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaEventEx_SetNotifyFlags_Proxy(IMediaEventEx *This,long lNoNotifyFlags);
+  HRESULT WINAPI IMediaEventEx_SetNotifyFlags_Proxy(IMediaEventEx *This,__LONG32 lNoNotifyFlags);
   void __RPC_STUB IMediaEventEx_SetNotifyFlags_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaEventEx_GetNotifyFlags_Proxy(IMediaEventEx *This,long *lplNoNotifyFlags);
+  HRESULT WINAPI IMediaEventEx_GetNotifyFlags_Proxy(IMediaEventEx *This,__LONG32 *lplNoNotifyFlags);
   void __RPC_STUB IMediaEventEx_GetNotifyFlags_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -473,10 +473,10 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IBasicAudio : public IDispatch {
   public:
-    virtual HRESULT WINAPI put_Volume(long lVolume) = 0;
-    virtual HRESULT WINAPI get_Volume(long *plVolume) = 0;
-    virtual HRESULT WINAPI put_Balance(long lBalance) = 0;
-    virtual HRESULT WINAPI get_Balance(long *plBalance) = 0;
+    virtual HRESULT WINAPI put_Volume(__LONG32 lVolume) = 0;
+    virtual HRESULT WINAPI get_Volume(__LONG32 *plVolume) = 0;
+    virtual HRESULT WINAPI put_Balance(__LONG32 lBalance) = 0;
+    virtual HRESULT WINAPI get_Balance(__LONG32 *plBalance) = 0;
   };
 #else
   typedef struct IBasicAudioVtbl {
@@ -488,10 +488,10 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IBasicAudio *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IBasicAudio *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IBasicAudio *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *put_Volume)(IBasicAudio *This,long lVolume);
-      HRESULT (WINAPI *get_Volume)(IBasicAudio *This,long *plVolume);
-      HRESULT (WINAPI *put_Balance)(IBasicAudio *This,long lBalance);
-      HRESULT (WINAPI *get_Balance)(IBasicAudio *This,long *plBalance);
+      HRESULT (WINAPI *put_Volume)(IBasicAudio *This,__LONG32 lVolume);
+      HRESULT (WINAPI *get_Volume)(IBasicAudio *This,__LONG32 *plVolume);
+      HRESULT (WINAPI *put_Balance)(IBasicAudio *This,__LONG32 lBalance);
+      HRESULT (WINAPI *get_Balance)(IBasicAudio *This,__LONG32 *plBalance);
     END_INTERFACE
   } IBasicAudioVtbl;
   struct IBasicAudio {
@@ -511,13 +511,13 @@ extern "C"{
 #define IBasicAudio_get_Balance(This,plBalance) (This)->lpVtbl->get_Balance(This,plBalance)
 #endif
 #endif
-  HRESULT WINAPI IBasicAudio_put_Volume_Proxy(IBasicAudio *This,long lVolume);
+  HRESULT WINAPI IBasicAudio_put_Volume_Proxy(IBasicAudio *This,__LONG32 lVolume);
   void __RPC_STUB IBasicAudio_put_Volume_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicAudio_get_Volume_Proxy(IBasicAudio *This,long *plVolume);
+  HRESULT WINAPI IBasicAudio_get_Volume_Proxy(IBasicAudio *This,__LONG32 *plVolume);
   void __RPC_STUB IBasicAudio_get_Volume_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicAudio_put_Balance_Proxy(IBasicAudio *This,long lBalance);
+  HRESULT WINAPI IBasicAudio_put_Balance_Proxy(IBasicAudio *This,__LONG32 lBalance);
   void __RPC_STUB IBasicAudio_put_Balance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicAudio_get_Balance_Proxy(IBasicAudio *This,long *plBalance);
+  HRESULT WINAPI IBasicAudio_get_Balance_Proxy(IBasicAudio *This,__LONG32 *plBalance);
   void __RPC_STUB IBasicAudio_get_Balance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -529,43 +529,43 @@ extern "C"{
   public:
     virtual HRESULT WINAPI put_Caption(BSTR strCaption) = 0;
     virtual HRESULT WINAPI get_Caption(BSTR *strCaption) = 0;
-    virtual HRESULT WINAPI put_WindowStyle(long WindowStyle) = 0;
-    virtual HRESULT WINAPI get_WindowStyle(long *WindowStyle) = 0;
-    virtual HRESULT WINAPI put_WindowStyleEx(long WindowStyleEx) = 0;
-    virtual HRESULT WINAPI get_WindowStyleEx(long *WindowStyleEx) = 0;
-    virtual HRESULT WINAPI put_AutoShow(long AutoShow) = 0;
-    virtual HRESULT WINAPI get_AutoShow(long *AutoShow) = 0;
-    virtual HRESULT WINAPI put_WindowState(long WindowState) = 0;
-    virtual HRESULT WINAPI get_WindowState(long *WindowState) = 0;
-    virtual HRESULT WINAPI put_BackgroundPalette(long BackgroundPalette) = 0;
-    virtual HRESULT WINAPI get_BackgroundPalette(long *pBackgroundPalette) = 0;
-    virtual HRESULT WINAPI put_Visible(long Visible) = 0;
-    virtual HRESULT WINAPI get_Visible(long *pVisible) = 0;
-    virtual HRESULT WINAPI put_Left(long Left) = 0;
-    virtual HRESULT WINAPI get_Left(long *pLeft) = 0;
-    virtual HRESULT WINAPI put_Width(long Width) = 0;
-    virtual HRESULT WINAPI get_Width(long *pWidth) = 0;
-    virtual HRESULT WINAPI put_Top(long Top) = 0;
-    virtual HRESULT WINAPI get_Top(long *pTop) = 0;
-    virtual HRESULT WINAPI put_Height(long Height) = 0;
-    virtual HRESULT WINAPI get_Height(long *pHeight) = 0;
+    virtual HRESULT WINAPI put_WindowStyle(__LONG32 WindowStyle) = 0;
+    virtual HRESULT WINAPI get_WindowStyle(__LONG32 *WindowStyle) = 0;
+    virtual HRESULT WINAPI put_WindowStyleEx(__LONG32 WindowStyleEx) = 0;
+    virtual HRESULT WINAPI get_WindowStyleEx(__LONG32 *WindowStyleEx) = 0;
+    virtual HRESULT WINAPI put_AutoShow(__LONG32 AutoShow) = 0;
+    virtual HRESULT WINAPI get_AutoShow(__LONG32 *AutoShow) = 0;
+    virtual HRESULT WINAPI put_WindowState(__LONG32 WindowState) = 0;
+    virtual HRESULT WINAPI get_WindowState(__LONG32 *WindowState) = 0;
+    virtual HRESULT WINAPI put_BackgroundPalette(__LONG32 BackgroundPalette) = 0;
+    virtual HRESULT WINAPI get_BackgroundPalette(__LONG32 *pBackgroundPalette) = 0;
+    virtual HRESULT WINAPI put_Visible(__LONG32 Visible) = 0;
+    virtual HRESULT WINAPI get_Visible(__LONG32 *pVisible) = 0;
+    virtual HRESULT WINAPI put_Left(__LONG32 Left) = 0;
+    virtual HRESULT WINAPI get_Left(__LONG32 *pLeft) = 0;
+    virtual HRESULT WINAPI put_Width(__LONG32 Width) = 0;
+    virtual HRESULT WINAPI get_Width(__LONG32 *pWidth) = 0;
+    virtual HRESULT WINAPI put_Top(__LONG32 Top) = 0;
+    virtual HRESULT WINAPI get_Top(__LONG32 *pTop) = 0;
+    virtual HRESULT WINAPI put_Height(__LONG32 Height) = 0;
+    virtual HRESULT WINAPI get_Height(__LONG32 *pHeight) = 0;
     virtual HRESULT WINAPI put_Owner(OAHWND Owner) = 0;
     virtual HRESULT WINAPI get_Owner(OAHWND *Owner) = 0;
     virtual HRESULT WINAPI put_MessageDrain(OAHWND Drain) = 0;
     virtual HRESULT WINAPI get_MessageDrain(OAHWND *Drain) = 0;
-    virtual HRESULT WINAPI get_BorderColor(long *Color) = 0;
-    virtual HRESULT WINAPI put_BorderColor(long Color) = 0;
-    virtual HRESULT WINAPI get_FullScreenMode(long *FullScreenMode) = 0;
-    virtual HRESULT WINAPI put_FullScreenMode(long FullScreenMode) = 0;
-    virtual HRESULT WINAPI SetWindowForeground(long Focus) = 0;
-    virtual HRESULT WINAPI NotifyOwnerMessage(OAHWND hwnd,long uMsg,LONG_PTR wParam,LONG_PTR lParam) = 0;
-    virtual HRESULT WINAPI SetWindowPosition(long Left,long Top,long Width,long Height) = 0;
-    virtual HRESULT WINAPI GetWindowPosition(long *pLeft,long *pTop,long *pWidth,long *pHeight) = 0;
-    virtual HRESULT WINAPI GetMinIdealImageSize(long *pWidth,long *pHeight) = 0;
-    virtual HRESULT WINAPI GetMaxIdealImageSize(long *pWidth,long *pHeight) = 0;
-    virtual HRESULT WINAPI GetRestorePosition(long *pLeft,long *pTop,long *pWidth,long *pHeight) = 0;
-    virtual HRESULT WINAPI HideCursor(long HideCursor) = 0;
-    virtual HRESULT WINAPI IsCursorHidden(long *CursorHidden) = 0;
+    virtual HRESULT WINAPI get_BorderColor(__LONG32 *Color) = 0;
+    virtual HRESULT WINAPI put_BorderColor(__LONG32 Color) = 0;
+    virtual HRESULT WINAPI get_FullScreenMode(__LONG32 *FullScreenMode) = 0;
+    virtual HRESULT WINAPI put_FullScreenMode(__LONG32 FullScreenMode) = 0;
+    virtual HRESULT WINAPI SetWindowForeground(__LONG32 Focus) = 0;
+    virtual HRESULT WINAPI NotifyOwnerMessage(OAHWND hwnd,__LONG32 uMsg,LONG_PTR wParam,LONG_PTR lParam) = 0;
+    virtual HRESULT WINAPI SetWindowPosition(__LONG32 Left,__LONG32 Top,__LONG32 Width,__LONG32 Height) = 0;
+    virtual HRESULT WINAPI GetWindowPosition(__LONG32 *pLeft,__LONG32 *pTop,__LONG32 *pWidth,__LONG32 *pHeight) = 0;
+    virtual HRESULT WINAPI GetMinIdealImageSize(__LONG32 *pWidth,__LONG32 *pHeight) = 0;
+    virtual HRESULT WINAPI GetMaxIdealImageSize(__LONG32 *pWidth,__LONG32 *pHeight) = 0;
+    virtual HRESULT WINAPI GetRestorePosition(__LONG32 *pLeft,__LONG32 *pTop,__LONG32 *pWidth,__LONG32 *pHeight) = 0;
+    virtual HRESULT WINAPI HideCursor(__LONG32 HideCursor) = 0;
+    virtual HRESULT WINAPI IsCursorHidden(__LONG32 *CursorHidden) = 0;
   };
 #else
   typedef struct IVideoWindowVtbl {
@@ -579,43 +579,43 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(IVideoWindow *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *put_Caption)(IVideoWindow *This,BSTR strCaption);
       HRESULT (WINAPI *get_Caption)(IVideoWindow *This,BSTR *strCaption);
-      HRESULT (WINAPI *put_WindowStyle)(IVideoWindow *This,long WindowStyle);
-      HRESULT (WINAPI *get_WindowStyle)(IVideoWindow *This,long *WindowStyle);
-      HRESULT (WINAPI *put_WindowStyleEx)(IVideoWindow *This,long WindowStyleEx);
-      HRESULT (WINAPI *get_WindowStyleEx)(IVideoWindow *This,long *WindowStyleEx);
-      HRESULT (WINAPI *put_AutoShow)(IVideoWindow *This,long AutoShow);
-      HRESULT (WINAPI *get_AutoShow)(IVideoWindow *This,long *AutoShow);
-      HRESULT (WINAPI *put_WindowState)(IVideoWindow *This,long WindowState);
-      HRESULT (WINAPI *get_WindowState)(IVideoWindow *This,long *WindowState);
-      HRESULT (WINAPI *put_BackgroundPalette)(IVideoWindow *This,long BackgroundPalette);
-      HRESULT (WINAPI *get_BackgroundPalette)(IVideoWindow *This,long *pBackgroundPalette);
-      HRESULT (WINAPI *put_Visible)(IVideoWindow *This,long Visible);
-      HRESULT (WINAPI *get_Visible)(IVideoWindow *This,long *pVisible);
-      HRESULT (WINAPI *put_Left)(IVideoWindow *This,long Left);
-      HRESULT (WINAPI *get_Left)(IVideoWindow *This,long *pLeft);
-      HRESULT (WINAPI *put_Width)(IVideoWindow *This,long Width);
-      HRESULT (WINAPI *get_Width)(IVideoWindow *This,long *pWidth);
-      HRESULT (WINAPI *put_Top)(IVideoWindow *This,long Top);
-      HRESULT (WINAPI *get_Top)(IVideoWindow *This,long *pTop);
-      HRESULT (WINAPI *put_Height)(IVideoWindow *This,long Height);
-      HRESULT (WINAPI *get_Height)(IVideoWindow *This,long *pHeight);
+      HRESULT (WINAPI *put_WindowStyle)(IVideoWindow *This,__LONG32 WindowStyle);
+      HRESULT (WINAPI *get_WindowStyle)(IVideoWindow *This,__LONG32 *WindowStyle);
+      HRESULT (WINAPI *put_WindowStyleEx)(IVideoWindow *This,__LONG32 WindowStyleEx);
+      HRESULT (WINAPI *get_WindowStyleEx)(IVideoWindow *This,__LONG32 *WindowStyleEx);
+      HRESULT (WINAPI *put_AutoShow)(IVideoWindow *This,__LONG32 AutoShow);
+      HRESULT (WINAPI *get_AutoShow)(IVideoWindow *This,__LONG32 *AutoShow);
+      HRESULT (WINAPI *put_WindowState)(IVideoWindow *This,__LONG32 WindowState);
+      HRESULT (WINAPI *get_WindowState)(IVideoWindow *This,__LONG32 *WindowState);
+      HRESULT (WINAPI *put_BackgroundPalette)(IVideoWindow *This,__LONG32 BackgroundPalette);
+      HRESULT (WINAPI *get_BackgroundPalette)(IVideoWindow *This,__LONG32 *pBackgroundPalette);
+      HRESULT (WINAPI *put_Visible)(IVideoWindow *This,__LONG32 Visible);
+      HRESULT (WINAPI *get_Visible)(IVideoWindow *This,__LONG32 *pVisible);
+      HRESULT (WINAPI *put_Left)(IVideoWindow *This,__LONG32 Left);
+      HRESULT (WINAPI *get_Left)(IVideoWindow *This,__LONG32 *pLeft);
+      HRESULT (WINAPI *put_Width)(IVideoWindow *This,__LONG32 Width);
+      HRESULT (WINAPI *get_Width)(IVideoWindow *This,__LONG32 *pWidth);
+      HRESULT (WINAPI *put_Top)(IVideoWindow *This,__LONG32 Top);
+      HRESULT (WINAPI *get_Top)(IVideoWindow *This,__LONG32 *pTop);
+      HRESULT (WINAPI *put_Height)(IVideoWindow *This,__LONG32 Height);
+      HRESULT (WINAPI *get_Height)(IVideoWindow *This,__LONG32 *pHeight);
       HRESULT (WINAPI *put_Owner)(IVideoWindow *This,OAHWND Owner);
       HRESULT (WINAPI *get_Owner)(IVideoWindow *This,OAHWND *Owner);
       HRESULT (WINAPI *put_MessageDrain)(IVideoWindow *This,OAHWND Drain);
       HRESULT (WINAPI *get_MessageDrain)(IVideoWindow *This,OAHWND *Drain);
-      HRESULT (WINAPI *get_BorderColor)(IVideoWindow *This,long *Color);
-      HRESULT (WINAPI *put_BorderColor)(IVideoWindow *This,long Color);
-      HRESULT (WINAPI *get_FullScreenMode)(IVideoWindow *This,long *FullScreenMode);
-      HRESULT (WINAPI *put_FullScreenMode)(IVideoWindow *This,long FullScreenMode);
-      HRESULT (WINAPI *SetWindowForeground)(IVideoWindow *This,long Focus);
-      HRESULT (WINAPI *NotifyOwnerMessage)(IVideoWindow *This,OAHWND hwnd,long uMsg,LONG_PTR wParam,LONG_PTR lParam);
-      HRESULT (WINAPI *SetWindowPosition)(IVideoWindow *This,long Left,long Top,long Width,long Height);
-      HRESULT (WINAPI *GetWindowPosition)(IVideoWindow *This,long *pLeft,long *pTop,long *pWidth,long *pHeight);
-      HRESULT (WINAPI *GetMinIdealImageSize)(IVideoWindow *This,long *pWidth,long *pHeight);
-      HRESULT (WINAPI *GetMaxIdealImageSize)(IVideoWindow *This,long *pWidth,long *pHeight);
-      HRESULT (WINAPI *GetRestorePosition)(IVideoWindow *This,long *pLeft,long *pTop,long *pWidth,long *pHeight);
-      HRESULT (WINAPI *HideCursor)(IVideoWindow *This,long HideCursor);
-      HRESULT (WINAPI *IsCursorHidden)(IVideoWindow *This,long *CursorHidden);
+      HRESULT (WINAPI *get_BorderColor)(IVideoWindow *This,__LONG32 *Color);
+      HRESULT (WINAPI *put_BorderColor)(IVideoWindow *This,__LONG32 Color);
+      HRESULT (WINAPI *get_FullScreenMode)(IVideoWindow *This,__LONG32 *FullScreenMode);
+      HRESULT (WINAPI *put_FullScreenMode)(IVideoWindow *This,__LONG32 FullScreenMode);
+      HRESULT (WINAPI *SetWindowForeground)(IVideoWindow *This,__LONG32 Focus);
+      HRESULT (WINAPI *NotifyOwnerMessage)(IVideoWindow *This,OAHWND hwnd,__LONG32 uMsg,LONG_PTR wParam,LONG_PTR lParam);
+      HRESULT (WINAPI *SetWindowPosition)(IVideoWindow *This,__LONG32 Left,__LONG32 Top,__LONG32 Width,__LONG32 Height);
+      HRESULT (WINAPI *GetWindowPosition)(IVideoWindow *This,__LONG32 *pLeft,__LONG32 *pTop,__LONG32 *pWidth,__LONG32 *pHeight);
+      HRESULT (WINAPI *GetMinIdealImageSize)(IVideoWindow *This,__LONG32 *pWidth,__LONG32 *pHeight);
+      HRESULT (WINAPI *GetMaxIdealImageSize)(IVideoWindow *This,__LONG32 *pWidth,__LONG32 *pHeight);
+      HRESULT (WINAPI *GetRestorePosition)(IVideoWindow *This,__LONG32 *pLeft,__LONG32 *pTop,__LONG32 *pWidth,__LONG32 *pHeight);
+      HRESULT (WINAPI *HideCursor)(IVideoWindow *This,__LONG32 HideCursor);
+      HRESULT (WINAPI *IsCursorHidden)(IVideoWindow *This,__LONG32 *CursorHidden);
     END_INTERFACE
   } IVideoWindowVtbl;
   struct IVideoWindow {
@@ -674,45 +674,45 @@ extern "C"{
   void __RPC_STUB IVideoWindow_put_Caption_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IVideoWindow_get_Caption_Proxy(IVideoWindow *This,BSTR *strCaption);
   void __RPC_STUB IVideoWindow_get_Caption_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_put_WindowStyle_Proxy(IVideoWindow *This,long WindowStyle);
+  HRESULT WINAPI IVideoWindow_put_WindowStyle_Proxy(IVideoWindow *This,__LONG32 WindowStyle);
   void __RPC_STUB IVideoWindow_put_WindowStyle_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_get_WindowStyle_Proxy(IVideoWindow *This,long *WindowStyle);
+  HRESULT WINAPI IVideoWindow_get_WindowStyle_Proxy(IVideoWindow *This,__LONG32 *WindowStyle);
   void __RPC_STUB IVideoWindow_get_WindowStyle_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_put_WindowStyleEx_Proxy(IVideoWindow *This,long WindowStyleEx);
+  HRESULT WINAPI IVideoWindow_put_WindowStyleEx_Proxy(IVideoWindow *This,__LONG32 WindowStyleEx);
   void __RPC_STUB IVideoWindow_put_WindowStyleEx_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_get_WindowStyleEx_Proxy(IVideoWindow *This,long *WindowStyleEx);
+  HRESULT WINAPI IVideoWindow_get_WindowStyleEx_Proxy(IVideoWindow *This,__LONG32 *WindowStyleEx);
   void __RPC_STUB IVideoWindow_get_WindowStyleEx_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_put_AutoShow_Proxy(IVideoWindow *This,long AutoShow);
+  HRESULT WINAPI IVideoWindow_put_AutoShow_Proxy(IVideoWindow *This,__LONG32 AutoShow);
   void __RPC_STUB IVideoWindow_put_AutoShow_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_get_AutoShow_Proxy(IVideoWindow *This,long *AutoShow);
+  HRESULT WINAPI IVideoWindow_get_AutoShow_Proxy(IVideoWindow *This,__LONG32 *AutoShow);
   void __RPC_STUB IVideoWindow_get_AutoShow_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_put_WindowState_Proxy(IVideoWindow *This,long WindowState);
+  HRESULT WINAPI IVideoWindow_put_WindowState_Proxy(IVideoWindow *This,__LONG32 WindowState);
   void __RPC_STUB IVideoWindow_put_WindowState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_get_WindowState_Proxy(IVideoWindow *This,long *WindowState);
+  HRESULT WINAPI IVideoWindow_get_WindowState_Proxy(IVideoWindow *This,__LONG32 *WindowState);
   void __RPC_STUB IVideoWindow_get_WindowState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_put_BackgroundPalette_Proxy(IVideoWindow *This,long BackgroundPalette);
+  HRESULT WINAPI IVideoWindow_put_BackgroundPalette_Proxy(IVideoWindow *This,__LONG32 BackgroundPalette);
   void __RPC_STUB IVideoWindow_put_BackgroundPalette_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_get_BackgroundPalette_Proxy(IVideoWindow *This,long *pBackgroundPalette);
+  HRESULT WINAPI IVideoWindow_get_BackgroundPalette_Proxy(IVideoWindow *This,__LONG32 *pBackgroundPalette);
   void __RPC_STUB IVideoWindow_get_BackgroundPalette_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_put_Visible_Proxy(IVideoWindow *This,long Visible);
+  HRESULT WINAPI IVideoWindow_put_Visible_Proxy(IVideoWindow *This,__LONG32 Visible);
   void __RPC_STUB IVideoWindow_put_Visible_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_get_Visible_Proxy(IVideoWindow *This,long *pVisible);
+  HRESULT WINAPI IVideoWindow_get_Visible_Proxy(IVideoWindow *This,__LONG32 *pVisible);
   void __RPC_STUB IVideoWindow_get_Visible_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_put_Left_Proxy(IVideoWindow *This,long Left);
+  HRESULT WINAPI IVideoWindow_put_Left_Proxy(IVideoWindow *This,__LONG32 Left);
   void __RPC_STUB IVideoWindow_put_Left_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_get_Left_Proxy(IVideoWindow *This,long *pLeft);
+  HRESULT WINAPI IVideoWindow_get_Left_Proxy(IVideoWindow *This,__LONG32 *pLeft);
   void __RPC_STUB IVideoWindow_get_Left_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_put_Width_Proxy(IVideoWindow *This,long Width);
+  HRESULT WINAPI IVideoWindow_put_Width_Proxy(IVideoWindow *This,__LONG32 Width);
   void __RPC_STUB IVideoWindow_put_Width_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_get_Width_Proxy(IVideoWindow *This,long *pWidth);
+  HRESULT WINAPI IVideoWindow_get_Width_Proxy(IVideoWindow *This,__LONG32 *pWidth);
   void __RPC_STUB IVideoWindow_get_Width_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_put_Top_Proxy(IVideoWindow *This,long Top);
+  HRESULT WINAPI IVideoWindow_put_Top_Proxy(IVideoWindow *This,__LONG32 Top);
   void __RPC_STUB IVideoWindow_put_Top_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_get_Top_Proxy(IVideoWindow *This,long *pTop);
+  HRESULT WINAPI IVideoWindow_get_Top_Proxy(IVideoWindow *This,__LONG32 *pTop);
   void __RPC_STUB IVideoWindow_get_Top_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_put_Height_Proxy(IVideoWindow *This,long Height);
+  HRESULT WINAPI IVideoWindow_put_Height_Proxy(IVideoWindow *This,__LONG32 Height);
   void __RPC_STUB IVideoWindow_put_Height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_get_Height_Proxy(IVideoWindow *This,long *pHeight);
+  HRESULT WINAPI IVideoWindow_get_Height_Proxy(IVideoWindow *This,__LONG32 *pHeight);
   void __RPC_STUB IVideoWindow_get_Height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IVideoWindow_put_Owner_Proxy(IVideoWindow *This,OAHWND Owner);
   void __RPC_STUB IVideoWindow_put_Owner_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -722,31 +722,31 @@ extern "C"{
   void __RPC_STUB IVideoWindow_put_MessageDrain_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IVideoWindow_get_MessageDrain_Proxy(IVideoWindow *This,OAHWND *Drain);
   void __RPC_STUB IVideoWindow_get_MessageDrain_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_get_BorderColor_Proxy(IVideoWindow *This,long *Color);
+  HRESULT WINAPI IVideoWindow_get_BorderColor_Proxy(IVideoWindow *This,__LONG32 *Color);
   void __RPC_STUB IVideoWindow_get_BorderColor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_put_BorderColor_Proxy(IVideoWindow *This,long Color);
+  HRESULT WINAPI IVideoWindow_put_BorderColor_Proxy(IVideoWindow *This,__LONG32 Color);
   void __RPC_STUB IVideoWindow_put_BorderColor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_get_FullScreenMode_Proxy(IVideoWindow *This,long *FullScreenMode);
+  HRESULT WINAPI IVideoWindow_get_FullScreenMode_Proxy(IVideoWindow *This,__LONG32 *FullScreenMode);
   void __RPC_STUB IVideoWindow_get_FullScreenMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_put_FullScreenMode_Proxy(IVideoWindow *This,long FullScreenMode);
+  HRESULT WINAPI IVideoWindow_put_FullScreenMode_Proxy(IVideoWindow *This,__LONG32 FullScreenMode);
   void __RPC_STUB IVideoWindow_put_FullScreenMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_SetWindowForeground_Proxy(IVideoWindow *This,long Focus);
+  HRESULT WINAPI IVideoWindow_SetWindowForeground_Proxy(IVideoWindow *This,__LONG32 Focus);
   void __RPC_STUB IVideoWindow_SetWindowForeground_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_NotifyOwnerMessage_Proxy(IVideoWindow *This,OAHWND hwnd,long uMsg,LONG_PTR wParam,LONG_PTR lParam);
+  HRESULT WINAPI IVideoWindow_NotifyOwnerMessage_Proxy(IVideoWindow *This,OAHWND hwnd,__LONG32 uMsg,LONG_PTR wParam,LONG_PTR lParam);
   void __RPC_STUB IVideoWindow_NotifyOwnerMessage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_SetWindowPosition_Proxy(IVideoWindow *This,long Left,long Top,long Width,long Height);
+  HRESULT WINAPI IVideoWindow_SetWindowPosition_Proxy(IVideoWindow *This,__LONG32 Left,__LONG32 Top,__LONG32 Width,__LONG32 Height);
   void __RPC_STUB IVideoWindow_SetWindowPosition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_GetWindowPosition_Proxy(IVideoWindow *This,long *pLeft,long *pTop,long *pWidth,long *pHeight);
+  HRESULT WINAPI IVideoWindow_GetWindowPosition_Proxy(IVideoWindow *This,__LONG32 *pLeft,__LONG32 *pTop,__LONG32 *pWidth,__LONG32 *pHeight);
   void __RPC_STUB IVideoWindow_GetWindowPosition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_GetMinIdealImageSize_Proxy(IVideoWindow *This,long *pWidth,long *pHeight);
+  HRESULT WINAPI IVideoWindow_GetMinIdealImageSize_Proxy(IVideoWindow *This,__LONG32 *pWidth,__LONG32 *pHeight);
   void __RPC_STUB IVideoWindow_GetMinIdealImageSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_GetMaxIdealImageSize_Proxy(IVideoWindow *This,long *pWidth,long *pHeight);
+  HRESULT WINAPI IVideoWindow_GetMaxIdealImageSize_Proxy(IVideoWindow *This,__LONG32 *pWidth,__LONG32 *pHeight);
   void __RPC_STUB IVideoWindow_GetMaxIdealImageSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_GetRestorePosition_Proxy(IVideoWindow *This,long *pLeft,long *pTop,long *pWidth,long *pHeight);
+  HRESULT WINAPI IVideoWindow_GetRestorePosition_Proxy(IVideoWindow *This,__LONG32 *pLeft,__LONG32 *pTop,__LONG32 *pWidth,__LONG32 *pHeight);
   void __RPC_STUB IVideoWindow_GetRestorePosition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_HideCursor_Proxy(IVideoWindow *This,long HideCursor);
+  HRESULT WINAPI IVideoWindow_HideCursor_Proxy(IVideoWindow *This,__LONG32 HideCursor);
   void __RPC_STUB IVideoWindow_HideCursor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVideoWindow_IsCursorHidden_Proxy(IVideoWindow *This,long *CursorHidden);
+  HRESULT WINAPI IVideoWindow_IsCursorHidden_Proxy(IVideoWindow *This,__LONG32 *CursorHidden);
   void __RPC_STUB IVideoWindow_IsCursorHidden_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -757,35 +757,35 @@ extern "C"{
   struct IBasicVideo : public IDispatch {
   public:
     virtual HRESULT WINAPI get_AvgTimePerFrame(REFTIME *pAvgTimePerFrame) = 0;
-    virtual HRESULT WINAPI get_BitRate(long *pBitRate) = 0;
-    virtual HRESULT WINAPI get_BitErrorRate(long *pBitErrorRate) = 0;
-    virtual HRESULT WINAPI get_VideoWidth(long *pVideoWidth) = 0;
-    virtual HRESULT WINAPI get_VideoHeight(long *pVideoHeight) = 0;
-    virtual HRESULT WINAPI put_SourceLeft(long SourceLeft) = 0;
-    virtual HRESULT WINAPI get_SourceLeft(long *pSourceLeft) = 0;
-    virtual HRESULT WINAPI put_SourceWidth(long SourceWidth) = 0;
-    virtual HRESULT WINAPI get_SourceWidth(long *pSourceWidth) = 0;
-    virtual HRESULT WINAPI put_SourceTop(long SourceTop) = 0;
-    virtual HRESULT WINAPI get_SourceTop(long *pSourceTop) = 0;
-    virtual HRESULT WINAPI put_SourceHeight(long SourceHeight) = 0;
-    virtual HRESULT WINAPI get_SourceHeight(long *pSourceHeight) = 0;
-    virtual HRESULT WINAPI put_DestinationLeft(long DestinationLeft) = 0;
-    virtual HRESULT WINAPI get_DestinationLeft(long *pDestinationLeft) = 0;
-    virtual HRESULT WINAPI put_DestinationWidth(long DestinationWidth) = 0;
-    virtual HRESULT WINAPI get_DestinationWidth(long *pDestinationWidth) = 0;
-    virtual HRESULT WINAPI put_DestinationTop(long DestinationTop) = 0;
-    virtual HRESULT WINAPI get_DestinationTop(long *pDestinationTop) = 0;
-    virtual HRESULT WINAPI put_DestinationHeight(long DestinationHeight) = 0;
-    virtual HRESULT WINAPI get_DestinationHeight(long *pDestinationHeight) = 0;
-    virtual HRESULT WINAPI SetSourcePosition(long Left,long Top,long Width,long Height) = 0;
-    virtual HRESULT WINAPI GetSourcePosition(long *pLeft,long *pTop,long *pWidth,long *pHeight) = 0;
+    virtual HRESULT WINAPI get_BitRate(__LONG32 *pBitRate) = 0;
+    virtual HRESULT WINAPI get_BitErrorRate(__LONG32 *pBitErrorRate) = 0;
+    virtual HRESULT WINAPI get_VideoWidth(__LONG32 *pVideoWidth) = 0;
+    virtual HRESULT WINAPI get_VideoHeight(__LONG32 *pVideoHeight) = 0;
+    virtual HRESULT WINAPI put_SourceLeft(__LONG32 SourceLeft) = 0;
+    virtual HRESULT WINAPI get_SourceLeft(__LONG32 *pSourceLeft) = 0;
+    virtual HRESULT WINAPI put_SourceWidth(__LONG32 SourceWidth) = 0;
+    virtual HRESULT WINAPI get_SourceWidth(__LONG32 *pSourceWidth) = 0;
+    virtual HRESULT WINAPI put_SourceTop(__LONG32 SourceTop) = 0;
+    virtual HRESULT WINAPI get_SourceTop(__LONG32 *pSourceTop) = 0;
+    virtual HRESULT WINAPI put_SourceHeight(__LONG32 SourceHeight) = 0;
+    virtual HRESULT WINAPI get_SourceHeight(__LONG32 *pSourceHeight) = 0;
+    virtual HRESULT WINAPI put_DestinationLeft(__LONG32 DestinationLeft) = 0;
+    virtual HRESULT WINAPI get_DestinationLeft(__LONG32 *pDestinationLeft) = 0;
+    virtual HRESULT WINAPI put_DestinationWidth(__LONG32 DestinationWidth) = 0;
+    virtual HRESULT WINAPI get_DestinationWidth(__LONG32 *pDestinationWidth) = 0;
+    virtual HRESULT WINAPI put_DestinationTop(__LONG32 DestinationTop) = 0;
+    virtual HRESULT WINAPI get_DestinationTop(__LONG32 *pDestinationTop) = 0;
+    virtual HRESULT WINAPI put_DestinationHeight(__LONG32 DestinationHeight) = 0;
+    virtual HRESULT WINAPI get_DestinationHeight(__LONG32 *pDestinationHeight) = 0;
+    virtual HRESULT WINAPI SetSourcePosition(__LONG32 Left,__LONG32 Top,__LONG32 Width,__LONG32 Height) = 0;
+    virtual HRESULT WINAPI GetSourcePosition(__LONG32 *pLeft,__LONG32 *pTop,__LONG32 *pWidth,__LONG32 *pHeight) = 0;
     virtual HRESULT WINAPI SetDefaultSourcePosition(void) = 0;
-    virtual HRESULT WINAPI SetDestinationPosition(long Left,long Top,long Width,long Height) = 0;
-    virtual HRESULT WINAPI GetDestinationPosition(long *pLeft,long *pTop,long *pWidth,long *pHeight) = 0;
+    virtual HRESULT WINAPI SetDestinationPosition(__LONG32 Left,__LONG32 Top,__LONG32 Width,__LONG32 Height) = 0;
+    virtual HRESULT WINAPI GetDestinationPosition(__LONG32 *pLeft,__LONG32 *pTop,__LONG32 *pWidth,__LONG32 *pHeight) = 0;
     virtual HRESULT WINAPI SetDefaultDestinationPosition(void) = 0;
-    virtual HRESULT WINAPI GetVideoSize(long *pWidth,long *pHeight) = 0;
-    virtual HRESULT WINAPI GetVideoPaletteEntries(long StartIndex,long Entries,long *pRetrieved,long *pPalette) = 0;
-    virtual HRESULT WINAPI GetCurrentImage(long *pBufferSize,long *pDIBImage) = 0;
+    virtual HRESULT WINAPI GetVideoSize(__LONG32 *pWidth,__LONG32 *pHeight) = 0;
+    virtual HRESULT WINAPI GetVideoPaletteEntries(__LONG32 StartIndex,__LONG32 Entries,__LONG32 *pRetrieved,__LONG32 *pPalette) = 0;
+    virtual HRESULT WINAPI GetCurrentImage(__LONG32 *pBufferSize,__LONG32 *pDIBImage) = 0;
     virtual HRESULT WINAPI IsUsingDefaultSource(void) = 0;
     virtual HRESULT WINAPI IsUsingDefaultDestination(void) = 0;
   };
@@ -800,35 +800,35 @@ extern "C"{
       HRESULT (WINAPI *GetIDsOfNames)(IBasicVideo *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IBasicVideo *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_AvgTimePerFrame)(IBasicVideo *This,REFTIME *pAvgTimePerFrame);
-      HRESULT (WINAPI *get_BitRate)(IBasicVideo *This,long *pBitRate);
-      HRESULT (WINAPI *get_BitErrorRate)(IBasicVideo *This,long *pBitErrorRate);
-      HRESULT (WINAPI *get_VideoWidth)(IBasicVideo *This,long *pVideoWidth);
-      HRESULT (WINAPI *get_VideoHeight)(IBasicVideo *This,long *pVideoHeight);
-      HRESULT (WINAPI *put_SourceLeft)(IBasicVideo *This,long SourceLeft);
-      HRESULT (WINAPI *get_SourceLeft)(IBasicVideo *This,long *pSourceLeft);
-      HRESULT (WINAPI *put_SourceWidth)(IBasicVideo *This,long SourceWidth);
-      HRESULT (WINAPI *get_SourceWidth)(IBasicVideo *This,long *pSourceWidth);
-      HRESULT (WINAPI *put_SourceTop)(IBasicVideo *This,long SourceTop);
-      HRESULT (WINAPI *get_SourceTop)(IBasicVideo *This,long *pSourceTop);
-      HRESULT (WINAPI *put_SourceHeight)(IBasicVideo *This,long SourceHeight);
-      HRESULT (WINAPI *get_SourceHeight)(IBasicVideo *This,long *pSourceHeight);
-      HRESULT (WINAPI *put_DestinationLeft)(IBasicVideo *This,long DestinationLeft);
-      HRESULT (WINAPI *get_DestinationLeft)(IBasicVideo *This,long *pDestinationLeft);
-      HRESULT (WINAPI *put_DestinationWidth)(IBasicVideo *This,long DestinationWidth);
-      HRESULT (WINAPI *get_DestinationWidth)(IBasicVideo *This,long *pDestinationWidth);
-      HRESULT (WINAPI *put_DestinationTop)(IBasicVideo *This,long DestinationTop);
-      HRESULT (WINAPI *get_DestinationTop)(IBasicVideo *This,long *pDestinationTop);
-      HRESULT (WINAPI *put_DestinationHeight)(IBasicVideo *This,long DestinationHeight);
-      HRESULT (WINAPI *get_DestinationHeight)(IBasicVideo *This,long *pDestinationHeight);
-      HRESULT (WINAPI *SetSourcePosition)(IBasicVideo *This,long Left,long Top,long Width,long Height);
-      HRESULT (WINAPI *GetSourcePosition)(IBasicVideo *This,long *pLeft,long *pTop,long *pWidth,long *pHeight);
+      HRESULT (WINAPI *get_BitRate)(IBasicVideo *This,__LONG32 *pBitRate);
+      HRESULT (WINAPI *get_BitErrorRate)(IBasicVideo *This,__LONG32 *pBitErrorRate);
+      HRESULT (WINAPI *get_VideoWidth)(IBasicVideo *This,__LONG32 *pVideoWidth);
+      HRESULT (WINAPI *get_VideoHeight)(IBasicVideo *This,__LONG32 *pVideoHeight);
+      HRESULT (WINAPI *put_SourceLeft)(IBasicVideo *This,__LONG32 SourceLeft);
+      HRESULT (WINAPI *get_SourceLeft)(IBasicVideo *This,__LONG32 *pSourceLeft);
+      HRESULT (WINAPI *put_SourceWidth)(IBasicVideo *This,__LONG32 SourceWidth);
+      HRESULT (WINAPI *get_SourceWidth)(IBasicVideo *This,__LONG32 *pSourceWidth);
+      HRESULT (WINAPI *put_SourceTop)(IBasicVideo *This,__LONG32 SourceTop);
+      HRESULT (WINAPI *get_SourceTop)(IBasicVideo *This,__LONG32 *pSourceTop);
+      HRESULT (WINAPI *put_SourceHeight)(IBasicVideo *This,__LONG32 SourceHeight);
+      HRESULT (WINAPI *get_SourceHeight)(IBasicVideo *This,__LONG32 *pSourceHeight);
+      HRESULT (WINAPI *put_DestinationLeft)(IBasicVideo *This,__LONG32 DestinationLeft);
+      HRESULT (WINAPI *get_DestinationLeft)(IBasicVideo *This,__LONG32 *pDestinationLeft);
+      HRESULT (WINAPI *put_DestinationWidth)(IBasicVideo *This,__LONG32 DestinationWidth);
+      HRESULT (WINAPI *get_DestinationWidth)(IBasicVideo *This,__LONG32 *pDestinationWidth);
+      HRESULT (WINAPI *put_DestinationTop)(IBasicVideo *This,__LONG32 DestinationTop);
+      HRESULT (WINAPI *get_DestinationTop)(IBasicVideo *This,__LONG32 *pDestinationTop);
+      HRESULT (WINAPI *put_DestinationHeight)(IBasicVideo *This,__LONG32 DestinationHeight);
+      HRESULT (WINAPI *get_DestinationHeight)(IBasicVideo *This,__LONG32 *pDestinationHeight);
+      HRESULT (WINAPI *SetSourcePosition)(IBasicVideo *This,__LONG32 Left,__LONG32 Top,__LONG32 Width,__LONG32 Height);
+      HRESULT (WINAPI *GetSourcePosition)(IBasicVideo *This,__LONG32 *pLeft,__LONG32 *pTop,__LONG32 *pWidth,__LONG32 *pHeight);
       HRESULT (WINAPI *SetDefaultSourcePosition)(IBasicVideo *This);
-      HRESULT (WINAPI *SetDestinationPosition)(IBasicVideo *This,long Left,long Top,long Width,long Height);
-      HRESULT (WINAPI *GetDestinationPosition)(IBasicVideo *This,long *pLeft,long *pTop,long *pWidth,long *pHeight);
+      HRESULT (WINAPI *SetDestinationPosition)(IBasicVideo *This,__LONG32 Left,__LONG32 Top,__LONG32 Width,__LONG32 Height);
+      HRESULT (WINAPI *GetDestinationPosition)(IBasicVideo *This,__LONG32 *pLeft,__LONG32 *pTop,__LONG32 *pWidth,__LONG32 *pHeight);
       HRESULT (WINAPI *SetDefaultDestinationPosition)(IBasicVideo *This);
-      HRESULT (WINAPI *GetVideoSize)(IBasicVideo *This,long *pWidth,long *pHeight);
-      HRESULT (WINAPI *GetVideoPaletteEntries)(IBasicVideo *This,long StartIndex,long Entries,long *pRetrieved,long *pPalette);
-      HRESULT (WINAPI *GetCurrentImage)(IBasicVideo *This,long *pBufferSize,long *pDIBImage);
+      HRESULT (WINAPI *GetVideoSize)(IBasicVideo *This,__LONG32 *pWidth,__LONG32 *pHeight);
+      HRESULT (WINAPI *GetVideoPaletteEntries)(IBasicVideo *This,__LONG32 StartIndex,__LONG32 Entries,__LONG32 *pRetrieved,__LONG32 *pPalette);
+      HRESULT (WINAPI *GetCurrentImage)(IBasicVideo *This,__LONG32 *pBufferSize,__LONG32 *pDIBImage);
       HRESULT (WINAPI *IsUsingDefaultSource)(IBasicVideo *This);
       HRESULT (WINAPI *IsUsingDefaultDestination)(IBasicVideo *This);
     END_INTERFACE
@@ -880,63 +880,63 @@ extern "C"{
 #endif
   HRESULT WINAPI IBasicVideo_get_AvgTimePerFrame_Proxy(IBasicVideo *This,REFTIME *pAvgTimePerFrame);
   void __RPC_STUB IBasicVideo_get_AvgTimePerFrame_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_get_BitRate_Proxy(IBasicVideo *This,long *pBitRate);
+  HRESULT WINAPI IBasicVideo_get_BitRate_Proxy(IBasicVideo *This,__LONG32 *pBitRate);
   void __RPC_STUB IBasicVideo_get_BitRate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_get_BitErrorRate_Proxy(IBasicVideo *This,long *pBitErrorRate);
+  HRESULT WINAPI IBasicVideo_get_BitErrorRate_Proxy(IBasicVideo *This,__LONG32 *pBitErrorRate);
   void __RPC_STUB IBasicVideo_get_BitErrorRate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_get_VideoWidth_Proxy(IBasicVideo *This,long *pVideoWidth);
+  HRESULT WINAPI IBasicVideo_get_VideoWidth_Proxy(IBasicVideo *This,__LONG32 *pVideoWidth);
   void __RPC_STUB IBasicVideo_get_VideoWidth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_get_VideoHeight_Proxy(IBasicVideo *This,long *pVideoHeight);
+  HRESULT WINAPI IBasicVideo_get_VideoHeight_Proxy(IBasicVideo *This,__LONG32 *pVideoHeight);
   void __RPC_STUB IBasicVideo_get_VideoHeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_put_SourceLeft_Proxy(IBasicVideo *This,long SourceLeft);
+  HRESULT WINAPI IBasicVideo_put_SourceLeft_Proxy(IBasicVideo *This,__LONG32 SourceLeft);
   void __RPC_STUB IBasicVideo_put_SourceLeft_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_get_SourceLeft_Proxy(IBasicVideo *This,long *pSourceLeft);
+  HRESULT WINAPI IBasicVideo_get_SourceLeft_Proxy(IBasicVideo *This,__LONG32 *pSourceLeft);
   void __RPC_STUB IBasicVideo_get_SourceLeft_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_put_SourceWidth_Proxy(IBasicVideo *This,long SourceWidth);
+  HRESULT WINAPI IBasicVideo_put_SourceWidth_Proxy(IBasicVideo *This,__LONG32 SourceWidth);
   void __RPC_STUB IBasicVideo_put_SourceWidth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_get_SourceWidth_Proxy(IBasicVideo *This,long *pSourceWidth);
+  HRESULT WINAPI IBasicVideo_get_SourceWidth_Proxy(IBasicVideo *This,__LONG32 *pSourceWidth);
   void __RPC_STUB IBasicVideo_get_SourceWidth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_put_SourceTop_Proxy(IBasicVideo *This,long SourceTop);
+  HRESULT WINAPI IBasicVideo_put_SourceTop_Proxy(IBasicVideo *This,__LONG32 SourceTop);
   void __RPC_STUB IBasicVideo_put_SourceTop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_get_SourceTop_Proxy(IBasicVideo *This,long *pSourceTop);
+  HRESULT WINAPI IBasicVideo_get_SourceTop_Proxy(IBasicVideo *This,__LONG32 *pSourceTop);
   void __RPC_STUB IBasicVideo_get_SourceTop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_put_SourceHeight_Proxy(IBasicVideo *This,long SourceHeight);
+  HRESULT WINAPI IBasicVideo_put_SourceHeight_Proxy(IBasicVideo *This,__LONG32 SourceHeight);
   void __RPC_STUB IBasicVideo_put_SourceHeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_get_SourceHeight_Proxy(IBasicVideo *This,long *pSourceHeight);
+  HRESULT WINAPI IBasicVideo_get_SourceHeight_Proxy(IBasicVideo *This,__LONG32 *pSourceHeight);
   void __RPC_STUB IBasicVideo_get_SourceHeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_put_DestinationLeft_Proxy(IBasicVideo *This,long DestinationLeft);
+  HRESULT WINAPI IBasicVideo_put_DestinationLeft_Proxy(IBasicVideo *This,__LONG32 DestinationLeft);
   void __RPC_STUB IBasicVideo_put_DestinationLeft_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_get_DestinationLeft_Proxy(IBasicVideo *This,long *pDestinationLeft);
+  HRESULT WINAPI IBasicVideo_get_DestinationLeft_Proxy(IBasicVideo *This,__LONG32 *pDestinationLeft);
   void __RPC_STUB IBasicVideo_get_DestinationLeft_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_put_DestinationWidth_Proxy(IBasicVideo *This,long DestinationWidth);
+  HRESULT WINAPI IBasicVideo_put_DestinationWidth_Proxy(IBasicVideo *This,__LONG32 DestinationWidth);
   void __RPC_STUB IBasicVideo_put_DestinationWidth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_get_DestinationWidth_Proxy(IBasicVideo *This,long *pDestinationWidth);
+  HRESULT WINAPI IBasicVideo_get_DestinationWidth_Proxy(IBasicVideo *This,__LONG32 *pDestinationWidth);
   void __RPC_STUB IBasicVideo_get_DestinationWidth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_put_DestinationTop_Proxy(IBasicVideo *This,long DestinationTop);
+  HRESULT WINAPI IBasicVideo_put_DestinationTop_Proxy(IBasicVideo *This,__LONG32 DestinationTop);
   void __RPC_STUB IBasicVideo_put_DestinationTop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_get_DestinationTop_Proxy(IBasicVideo *This,long *pDestinationTop);
+  HRESULT WINAPI IBasicVideo_get_DestinationTop_Proxy(IBasicVideo *This,__LONG32 *pDestinationTop);
   void __RPC_STUB IBasicVideo_get_DestinationTop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_put_DestinationHeight_Proxy(IBasicVideo *This,long DestinationHeight);
+  HRESULT WINAPI IBasicVideo_put_DestinationHeight_Proxy(IBasicVideo *This,__LONG32 DestinationHeight);
   void __RPC_STUB IBasicVideo_put_DestinationHeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_get_DestinationHeight_Proxy(IBasicVideo *This,long *pDestinationHeight);
+  HRESULT WINAPI IBasicVideo_get_DestinationHeight_Proxy(IBasicVideo *This,__LONG32 *pDestinationHeight);
   void __RPC_STUB IBasicVideo_get_DestinationHeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_SetSourcePosition_Proxy(IBasicVideo *This,long Left,long Top,long Width,long Height);
+  HRESULT WINAPI IBasicVideo_SetSourcePosition_Proxy(IBasicVideo *This,__LONG32 Left,__LONG32 Top,__LONG32 Width,__LONG32 Height);
   void __RPC_STUB IBasicVideo_SetSourcePosition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_GetSourcePosition_Proxy(IBasicVideo *This,long *pLeft,long *pTop,long *pWidth,long *pHeight);
+  HRESULT WINAPI IBasicVideo_GetSourcePosition_Proxy(IBasicVideo *This,__LONG32 *pLeft,__LONG32 *pTop,__LONG32 *pWidth,__LONG32 *pHeight);
   void __RPC_STUB IBasicVideo_GetSourcePosition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IBasicVideo_SetDefaultSourcePosition_Proxy(IBasicVideo *This);
   void __RPC_STUB IBasicVideo_SetDefaultSourcePosition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_SetDestinationPosition_Proxy(IBasicVideo *This,long Left,long Top,long Width,long Height);
+  HRESULT WINAPI IBasicVideo_SetDestinationPosition_Proxy(IBasicVideo *This,__LONG32 Left,__LONG32 Top,__LONG32 Width,__LONG32 Height);
   void __RPC_STUB IBasicVideo_SetDestinationPosition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_GetDestinationPosition_Proxy(IBasicVideo *This,long *pLeft,long *pTop,long *pWidth,long *pHeight);
+  HRESULT WINAPI IBasicVideo_GetDestinationPosition_Proxy(IBasicVideo *This,__LONG32 *pLeft,__LONG32 *pTop,__LONG32 *pWidth,__LONG32 *pHeight);
   void __RPC_STUB IBasicVideo_GetDestinationPosition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IBasicVideo_SetDefaultDestinationPosition_Proxy(IBasicVideo *This);
   void __RPC_STUB IBasicVideo_SetDefaultDestinationPosition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_GetVideoSize_Proxy(IBasicVideo *This,long *pWidth,long *pHeight);
+  HRESULT WINAPI IBasicVideo_GetVideoSize_Proxy(IBasicVideo *This,__LONG32 *pWidth,__LONG32 *pHeight);
   void __RPC_STUB IBasicVideo_GetVideoSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_GetVideoPaletteEntries_Proxy(IBasicVideo *This,long StartIndex,long Entries,long *pRetrieved,long *pPalette);
+  HRESULT WINAPI IBasicVideo_GetVideoPaletteEntries_Proxy(IBasicVideo *This,__LONG32 StartIndex,__LONG32 Entries,__LONG32 *pRetrieved,__LONG32 *pPalette);
   void __RPC_STUB IBasicVideo_GetVideoPaletteEntries_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBasicVideo_GetCurrentImage_Proxy(IBasicVideo *This,long *pBufferSize,long *pDIBImage);
+  HRESULT WINAPI IBasicVideo_GetCurrentImage_Proxy(IBasicVideo *This,__LONG32 *pBufferSize,__LONG32 *pDIBImage);
   void __RPC_STUB IBasicVideo_GetCurrentImage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IBasicVideo_IsUsingDefaultSource_Proxy(IBasicVideo *This);
   void __RPC_STUB IBasicVideo_IsUsingDefaultSource_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -950,7 +950,7 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IBasicVideo2 : public IBasicVideo {
   public:
-    virtual HRESULT WINAPI GetPreferredAspectRatio(long *plAspectX,long *plAspectY) = 0;
+    virtual HRESULT WINAPI GetPreferredAspectRatio(__LONG32 *plAspectX,__LONG32 *plAspectY) = 0;
   };
 #else
   typedef struct IBasicVideo2Vtbl {
@@ -963,38 +963,38 @@ extern "C"{
       HRESULT (WINAPI *GetIDsOfNames)(IBasicVideo2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IBasicVideo2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_AvgTimePerFrame)(IBasicVideo2 *This,REFTIME *pAvgTimePerFrame);
-      HRESULT (WINAPI *get_BitRate)(IBasicVideo2 *This,long *pBitRate);
-      HRESULT (WINAPI *get_BitErrorRate)(IBasicVideo2 *This,long *pBitErrorRate);
-      HRESULT (WINAPI *get_VideoWidth)(IBasicVideo2 *This,long *pVideoWidth);
-      HRESULT (WINAPI *get_VideoHeight)(IBasicVideo2 *This,long *pVideoHeight);
-      HRESULT (WINAPI *put_SourceLeft)(IBasicVideo2 *This,long SourceLeft);
-      HRESULT (WINAPI *get_SourceLeft)(IBasicVideo2 *This,long *pSourceLeft);
-      HRESULT (WINAPI *put_SourceWidth)(IBasicVideo2 *This,long SourceWidth);
-      HRESULT (WINAPI *get_SourceWidth)(IBasicVideo2 *This,long *pSourceWidth);
-      HRESULT (WINAPI *put_SourceTop)(IBasicVideo2 *This,long SourceTop);
-      HRESULT (WINAPI *get_SourceTop)(IBasicVideo2 *This,long *pSourceTop);
-      HRESULT (WINAPI *put_SourceHeight)(IBasicVideo2 *This,long SourceHeight);
-      HRESULT (WINAPI *get_SourceHeight)(IBasicVideo2 *This,long *pSourceHeight);
-      HRESULT (WINAPI *put_DestinationLeft)(IBasicVideo2 *This,long DestinationLeft);
-      HRESULT (WINAPI *get_DestinationLeft)(IBasicVideo2 *This,long *pDestinationLeft);
-      HRESULT (WINAPI *put_DestinationWidth)(IBasicVideo2 *This,long DestinationWidth);
-      HRESULT (WINAPI *get_DestinationWidth)(IBasicVideo2 *This,long *pDestinationWidth);
-      HRESULT (WINAPI *put_DestinationTop)(IBasicVideo2 *This,long DestinationTop);
-      HRESULT (WINAPI *get_DestinationTop)(IBasicVideo2 *This,long *pDestinationTop);
-      HRESULT (WINAPI *put_DestinationHeight)(IBasicVideo2 *This,long DestinationHeight);
-      HRESULT (WINAPI *get_DestinationHeight)(IBasicVideo2 *This,long *pDestinationHeight);
-      HRESULT (WINAPI *SetSourcePosition)(IBasicVideo2 *This,long Left,long Top,long Width,long Height);
-      HRESULT (WINAPI *GetSourcePosition)(IBasicVideo2 *This,long *pLeft,long *pTop,long *pWidth,long *pHeight);
+      HRESULT (WINAPI *get_BitRate)(IBasicVideo2 *This,__LONG32 *pBitRate);
+      HRESULT (WINAPI *get_BitErrorRate)(IBasicVideo2 *This,__LONG32 *pBitErrorRate);
+      HRESULT (WINAPI *get_VideoWidth)(IBasicVideo2 *This,__LONG32 *pVideoWidth);
+      HRESULT (WINAPI *get_VideoHeight)(IBasicVideo2 *This,__LONG32 *pVideoHeight);
+      HRESULT (WINAPI *put_SourceLeft)(IBasicVideo2 *This,__LONG32 SourceLeft);
+      HRESULT (WINAPI *get_SourceLeft)(IBasicVideo2 *This,__LONG32 *pSourceLeft);
+      HRESULT (WINAPI *put_SourceWidth)(IBasicVideo2 *This,__LONG32 SourceWidth);
+      HRESULT (WINAPI *get_SourceWidth)(IBasicVideo2 *This,__LONG32 *pSourceWidth);
+      HRESULT (WINAPI *put_SourceTop)(IBasicVideo2 *This,__LONG32 SourceTop);
+      HRESULT (WINAPI *get_SourceTop)(IBasicVideo2 *This,__LONG32 *pSourceTop);
+      HRESULT (WINAPI *put_SourceHeight)(IBasicVideo2 *This,__LONG32 SourceHeight);
+      HRESULT (WINAPI *get_SourceHeight)(IBasicVideo2 *This,__LONG32 *pSourceHeight);
+      HRESULT (WINAPI *put_DestinationLeft)(IBasicVideo2 *This,__LONG32 DestinationLeft);
+      HRESULT (WINAPI *get_DestinationLeft)(IBasicVideo2 *This,__LONG32 *pDestinationLeft);
+      HRESULT (WINAPI *put_DestinationWidth)(IBasicVideo2 *This,__LONG32 DestinationWidth);
+      HRESULT (WINAPI *get_DestinationWidth)(IBasicVideo2 *This,__LONG32 *pDestinationWidth);
+      HRESULT (WINAPI *put_DestinationTop)(IBasicVideo2 *This,__LONG32 DestinationTop);
+      HRESULT (WINAPI *get_DestinationTop)(IBasicVideo2 *This,__LONG32 *pDestinationTop);
+      HRESULT (WINAPI *put_DestinationHeight)(IBasicVideo2 *This,__LONG32 DestinationHeight);
+      HRESULT (WINAPI *get_DestinationHeight)(IBasicVideo2 *This,__LONG32 *pDestinationHeight);
+      HRESULT (WINAPI *SetSourcePosition)(IBasicVideo2 *This,__LONG32 Left,__LONG32 Top,__LONG32 Width,__LONG32 Height);
+      HRESULT (WINAPI *GetSourcePosition)(IBasicVideo2 *This,__LONG32 *pLeft,__LONG32 *pTop,__LONG32 *pWidth,__LONG32 *pHeight);
       HRESULT (WINAPI *SetDefaultSourcePosition)(IBasicVideo2 *This);
-      HRESULT (WINAPI *SetDestinationPosition)(IBasicVideo2 *This,long Left,long Top,long Width,long Height);
-      HRESULT (WINAPI *GetDestinationPosition)(IBasicVideo2 *This,long *pLeft,long *pTop,long *pWidth,long *pHeight);
+      HRESULT (WINAPI *SetDestinationPosition)(IBasicVideo2 *This,__LONG32 Left,__LONG32 Top,__LONG32 Width,__LONG32 Height);
+      HRESULT (WINAPI *GetDestinationPosition)(IBasicVideo2 *This,__LONG32 *pLeft,__LONG32 *pTop,__LONG32 *pWidth,__LONG32 *pHeight);
       HRESULT (WINAPI *SetDefaultDestinationPosition)(IBasicVideo2 *This);
-      HRESULT (WINAPI *GetVideoSize)(IBasicVideo2 *This,long *pWidth,long *pHeight);
-      HRESULT (WINAPI *GetVideoPaletteEntries)(IBasicVideo2 *This,long StartIndex,long Entries,long *pRetrieved,long *pPalette);
-      HRESULT (WINAPI *GetCurrentImage)(IBasicVideo2 *This,long *pBufferSize,long *pDIBImage);
+      HRESULT (WINAPI *GetVideoSize)(IBasicVideo2 *This,__LONG32 *pWidth,__LONG32 *pHeight);
+      HRESULT (WINAPI *GetVideoPaletteEntries)(IBasicVideo2 *This,__LONG32 StartIndex,__LONG32 Entries,__LONG32 *pRetrieved,__LONG32 *pPalette);
+      HRESULT (WINAPI *GetCurrentImage)(IBasicVideo2 *This,__LONG32 *pBufferSize,__LONG32 *pDIBImage);
       HRESULT (WINAPI *IsUsingDefaultSource)(IBasicVideo2 *This);
       HRESULT (WINAPI *IsUsingDefaultDestination)(IBasicVideo2 *This);
-      HRESULT (WINAPI *GetPreferredAspectRatio)(IBasicVideo2 *This,long *plAspectX,long *plAspectY);
+      HRESULT (WINAPI *GetPreferredAspectRatio)(IBasicVideo2 *This,__LONG32 *plAspectX,__LONG32 *plAspectY);
     END_INTERFACE
   } IBasicVideo2Vtbl;
   struct IBasicVideo2 {
@@ -1043,7 +1043,7 @@ extern "C"{
 #define IBasicVideo2_GetPreferredAspectRatio(This,plAspectX,plAspectY) (This)->lpVtbl->GetPreferredAspectRatio(This,plAspectX,plAspectY)
 #endif
 #endif
-  HRESULT WINAPI IBasicVideo2_GetPreferredAspectRatio_Proxy(IBasicVideo2 *This,long *plAspectX,long *plAspectY);
+  HRESULT WINAPI IBasicVideo2_GetPreferredAspectRatio_Proxy(IBasicVideo2 *This,__LONG32 *plAspectX,__LONG32 *plAspectY);
   void __RPC_STUB IBasicVideo2_GetPreferredAspectRatio_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1099,8 +1099,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IQueueCommand : public IUnknown {
   public:
-    virtual HRESULT WINAPI InvokeAtStreamTime(IDeferredCommand **pCmd,REFTIME time,GUID *iid,long dispidMethod,short wFlags,long cArgs,VARIANT *pDispParams,VARIANT *pvarResult,short *puArgErr) = 0;
-    virtual HRESULT WINAPI InvokeAtPresentationTime(IDeferredCommand **pCmd,REFTIME time,GUID *iid,long dispidMethod,short wFlags,long cArgs,VARIANT *pDispParams,VARIANT *pvarResult,short *puArgErr) = 0;
+    virtual HRESULT WINAPI InvokeAtStreamTime(IDeferredCommand **pCmd,REFTIME time,GUID *iid,__LONG32 dispidMethod,short wFlags,__LONG32 cArgs,VARIANT *pDispParams,VARIANT *pvarResult,short *puArgErr) = 0;
+    virtual HRESULT WINAPI InvokeAtPresentationTime(IDeferredCommand **pCmd,REFTIME time,GUID *iid,__LONG32 dispidMethod,short wFlags,__LONG32 cArgs,VARIANT *pDispParams,VARIANT *pvarResult,short *puArgErr) = 0;
   };
 #else
   typedef struct IQueueCommandVtbl {
@@ -1108,8 +1108,8 @@ extern "C"{
       HRESULT (WINAPI *QueryInterface)(IQueueCommand *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IQueueCommand *This);
       ULONG (WINAPI *Release)(IQueueCommand *This);
-      HRESULT (WINAPI *InvokeAtStreamTime)(IQueueCommand *This,IDeferredCommand **pCmd,REFTIME time,GUID *iid,long dispidMethod,short wFlags,long cArgs,VARIANT *pDispParams,VARIANT *pvarResult,short *puArgErr);
-      HRESULT (WINAPI *InvokeAtPresentationTime)(IQueueCommand *This,IDeferredCommand **pCmd,REFTIME time,GUID *iid,long dispidMethod,short wFlags,long cArgs,VARIANT *pDispParams,VARIANT *pvarResult,short *puArgErr);
+      HRESULT (WINAPI *InvokeAtStreamTime)(IQueueCommand *This,IDeferredCommand **pCmd,REFTIME time,GUID *iid,__LONG32 dispidMethod,short wFlags,__LONG32 cArgs,VARIANT *pDispParams,VARIANT *pvarResult,short *puArgErr);
+      HRESULT (WINAPI *InvokeAtPresentationTime)(IQueueCommand *This,IDeferredCommand **pCmd,REFTIME time,GUID *iid,__LONG32 dispidMethod,short wFlags,__LONG32 cArgs,VARIANT *pDispParams,VARIANT *pvarResult,short *puArgErr);
     END_INTERFACE
   } IQueueCommandVtbl;
   struct IQueueCommand {
@@ -1123,9 +1123,9 @@ extern "C"{
 #define IQueueCommand_InvokeAtPresentationTime(This,pCmd,time,iid,dispidMethod,wFlags,cArgs,pDispParams,pvarResult,puArgErr) (This)->lpVtbl->InvokeAtPresentationTime(This,pCmd,time,iid,dispidMethod,wFlags,cArgs,pDispParams,pvarResult,puArgErr)
 #endif
 #endif
-  HRESULT WINAPI IQueueCommand_InvokeAtStreamTime_Proxy(IQueueCommand *This,IDeferredCommand **pCmd,REFTIME time,GUID *iid,long dispidMethod,short wFlags,long cArgs,VARIANT *pDispParams,VARIANT *pvarResult,short *puArgErr);
+  HRESULT WINAPI IQueueCommand_InvokeAtStreamTime_Proxy(IQueueCommand *This,IDeferredCommand **pCmd,REFTIME time,GUID *iid,__LONG32 dispidMethod,short wFlags,__LONG32 cArgs,VARIANT *pDispParams,VARIANT *pvarResult,short *puArgErr);
   void __RPC_STUB IQueueCommand_InvokeAtStreamTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IQueueCommand_InvokeAtPresentationTime_Proxy(IQueueCommand *This,IDeferredCommand **pCmd,REFTIME time,GUID *iid,long dispidMethod,short wFlags,long cArgs,VARIANT *pDispParams,VARIANT *pvarResult,short *puArgErr);
+  HRESULT WINAPI IQueueCommand_InvokeAtPresentationTime_Proxy(IQueueCommand *This,IDeferredCommand **pCmd,REFTIME time,GUID *iid,__LONG32 dispidMethod,short wFlags,__LONG32 cArgs,VARIANT *pDispParams,VARIANT *pvarResult,short *puArgErr);
   void __RPC_STUB IQueueCommand_InvokeAtPresentationTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1403,10 +1403,10 @@ extern "C"{
   public:
     virtual HRESULT WINAPI Reset(void) = 0;
     virtual HRESULT WINAPI get_Count(LONG *plCount) = 0;
-    virtual HRESULT WINAPI GetValueByIndex(long lIndex,BSTR *szName,long *lCount,double *dLast,double *dAverage,double *dStdDev,double *dMin,double *dMax) = 0;
-    virtual HRESULT WINAPI GetValueByName(BSTR szName,long *lIndex,long *lCount,double *dLast,double *dAverage,double *dStdDev,double *dMin,double *dMax) = 0;
-    virtual HRESULT WINAPI GetIndex(BSTR szName,long lCreate,long *plIndex) = 0;
-    virtual HRESULT WINAPI AddValue(long lIndex,double dValue) = 0;
+    virtual HRESULT WINAPI GetValueByIndex(__LONG32 lIndex,BSTR *szName,__LONG32 *lCount,double *dLast,double *dAverage,double *dStdDev,double *dMin,double *dMax) = 0;
+    virtual HRESULT WINAPI GetValueByName(BSTR szName,__LONG32 *lIndex,__LONG32 *lCount,double *dLast,double *dAverage,double *dStdDev,double *dMin,double *dMax) = 0;
+    virtual HRESULT WINAPI GetIndex(BSTR szName,__LONG32 lCreate,__LONG32 *plIndex) = 0;
+    virtual HRESULT WINAPI AddValue(__LONG32 lIndex,double dValue) = 0;
   };
 #else
   typedef struct IAMStatsVtbl {
@@ -1420,10 +1420,10 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(IAMStats *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *Reset)(IAMStats *This);
       HRESULT (WINAPI *get_Count)(IAMStats *This,LONG *plCount);
-      HRESULT (WINAPI *GetValueByIndex)(IAMStats *This,long lIndex,BSTR *szName,long *lCount,double *dLast,double *dAverage,double *dStdDev,double *dMin,double *dMax);
-      HRESULT (WINAPI *GetValueByName)(IAMStats *This,BSTR szName,long *lIndex,long *lCount,double *dLast,double *dAverage,double *dStdDev,double *dMin,double *dMax);
-      HRESULT (WINAPI *GetIndex)(IAMStats *This,BSTR szName,long lCreate,long *plIndex);
-      HRESULT (WINAPI *AddValue)(IAMStats *This,long lIndex,double dValue);
+      HRESULT (WINAPI *GetValueByIndex)(IAMStats *This,__LONG32 lIndex,BSTR *szName,__LONG32 *lCount,double *dLast,double *dAverage,double *dStdDev,double *dMin,double *dMax);
+      HRESULT (WINAPI *GetValueByName)(IAMStats *This,BSTR szName,__LONG32 *lIndex,__LONG32 *lCount,double *dLast,double *dAverage,double *dStdDev,double *dMin,double *dMax);
+      HRESULT (WINAPI *GetIndex)(IAMStats *This,BSTR szName,__LONG32 lCreate,__LONG32 *plIndex);
+      HRESULT (WINAPI *AddValue)(IAMStats *This,__LONG32 lIndex,double dValue);
     END_INTERFACE
   } IAMStatsVtbl;
   struct IAMStats {
@@ -1450,13 +1450,13 @@ extern "C"{
   void __RPC_STUB IAMStats_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMStats_get_Count_Proxy(IAMStats *This,LONG *plCount);
   void __RPC_STUB IAMStats_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMStats_GetValueByIndex_Proxy(IAMStats *This,long lIndex,BSTR *szName,long *lCount,double *dLast,double *dAverage,double *dStdDev,double *dMin,double *dMax);
+  HRESULT WINAPI IAMStats_GetValueByIndex_Proxy(IAMStats *This,__LONG32 lIndex,BSTR *szName,__LONG32 *lCount,double *dLast,double *dAverage,double *dStdDev,double *dMin,double *dMax);
   void __RPC_STUB IAMStats_GetValueByIndex_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMStats_GetValueByName_Proxy(IAMStats *This,BSTR szName,long *lIndex,long *lCount,double *dLast,double *dAverage,double *dStdDev,double *dMin,double *dMax);
+  HRESULT WINAPI IAMStats_GetValueByName_Proxy(IAMStats *This,BSTR szName,__LONG32 *lIndex,__LONG32 *lCount,double *dLast,double *dAverage,double *dStdDev,double *dMin,double *dMax);
   void __RPC_STUB IAMStats_GetValueByName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMStats_GetIndex_Proxy(IAMStats *This,BSTR szName,long lCreate,long *plIndex);
+  HRESULT WINAPI IAMStats_GetIndex_Proxy(IAMStats *This,BSTR szName,__LONG32 lCreate,__LONG32 *plIndex);
   void __RPC_STUB IAMStats_GetIndex_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMStats_AddValue_Proxy(IAMStats *This,long lIndex,double dValue);
+  HRESULT WINAPI IAMStats_AddValue_Proxy(IAMStats *This,__LONG32 lIndex,double dValue);
   void __RPC_STUB IAMStats_AddValue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 #endif

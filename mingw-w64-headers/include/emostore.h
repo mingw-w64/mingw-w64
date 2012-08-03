@@ -97,8 +97,8 @@ extern "C"{
     virtual HRESULT WINAPI put_SubjectLoggingEnabled(VARIANT_BOOL varSubjectLoggingEnabled) = 0;
     virtual HRESULT WINAPI get_MessageTrackingEnabled(VARIANT_BOOL *pMessageTrackingEnabled) = 0;
     virtual HRESULT WINAPI put_MessageTrackingEnabled(VARIANT_BOOL varMessageTrackingEnabled) = 0;
-    virtual HRESULT WINAPI get_DaysBeforeLogFileRemoval(long *pDaysBeforeLogFileRemoval) = 0;
-    virtual HRESULT WINAPI put_DaysBeforeLogFileRemoval(long varDaysBeforeLogFileRemoval) = 0;
+    virtual HRESULT WINAPI get_DaysBeforeLogFileRemoval(__LONG32 *pDaysBeforeLogFileRemoval) = 0;
+    virtual HRESULT WINAPI put_DaysBeforeLogFileRemoval(__LONG32 varDaysBeforeLogFileRemoval) = 0;
     virtual HRESULT WINAPI get_ServerType(CDOEXMServerType *pServerType) = 0;
     virtual HRESULT WINAPI put_ServerType(CDOEXMServerType varServerType) = 0;
     virtual HRESULT WINAPI get_DirectoryServer(BSTR *varDirectoryServer) = 0;
@@ -123,8 +123,8 @@ extern "C"{
       HRESULT (WINAPI *put_SubjectLoggingEnabled)(IExchangeServer *This,VARIANT_BOOL varSubjectLoggingEnabled);
       HRESULT (WINAPI *get_MessageTrackingEnabled)(IExchangeServer *This,VARIANT_BOOL *pMessageTrackingEnabled);
       HRESULT (WINAPI *put_MessageTrackingEnabled)(IExchangeServer *This,VARIANT_BOOL varMessageTrackingEnabled);
-      HRESULT (WINAPI *get_DaysBeforeLogFileRemoval)(IExchangeServer *This,long *pDaysBeforeLogFileRemoval);
-      HRESULT (WINAPI *put_DaysBeforeLogFileRemoval)(IExchangeServer *This,long varDaysBeforeLogFileRemoval);
+      HRESULT (WINAPI *get_DaysBeforeLogFileRemoval)(IExchangeServer *This,__LONG32 *pDaysBeforeLogFileRemoval);
+      HRESULT (WINAPI *put_DaysBeforeLogFileRemoval)(IExchangeServer *This,__LONG32 varDaysBeforeLogFileRemoval);
       HRESULT (WINAPI *get_ServerType)(IExchangeServer *This,CDOEXMServerType *pServerType);
       HRESULT (WINAPI *put_ServerType)(IExchangeServer *This,CDOEXMServerType varServerType);
       HRESULT (WINAPI *get_DirectoryServer)(IExchangeServer *This,BSTR *varDirectoryServer);
@@ -177,9 +177,9 @@ extern "C"{
   void __RPC_STUB IExchangeServer_get_MessageTrackingEnabled_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IExchangeServer_put_MessageTrackingEnabled_Proxy(IExchangeServer *This,VARIANT_BOOL varMessageTrackingEnabled);
   void __RPC_STUB IExchangeServer_put_MessageTrackingEnabled_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IExchangeServer_get_DaysBeforeLogFileRemoval_Proxy(IExchangeServer *This,long *pDaysBeforeLogFileRemoval);
+  HRESULT WINAPI IExchangeServer_get_DaysBeforeLogFileRemoval_Proxy(IExchangeServer *This,__LONG32 *pDaysBeforeLogFileRemoval);
   void __RPC_STUB IExchangeServer_get_DaysBeforeLogFileRemoval_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IExchangeServer_put_DaysBeforeLogFileRemoval_Proxy(IExchangeServer *This,long varDaysBeforeLogFileRemoval);
+  HRESULT WINAPI IExchangeServer_put_DaysBeforeLogFileRemoval_Proxy(IExchangeServer *This,__LONG32 varDaysBeforeLogFileRemoval);
   void __RPC_STUB IExchangeServer_put_DaysBeforeLogFileRemoval_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IExchangeServer_get_ServerType_Proxy(IExchangeServer *This,CDOEXMServerType *pServerType);
   void __RPC_STUB IExchangeServer_get_ServerType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -210,8 +210,8 @@ extern "C"{
     virtual HRESULT WINAPI get_ZeroDatabase(VARIANT_BOOL *pZeroDatabase) = 0;
     virtual HRESULT WINAPI put_ZeroDatabase(VARIANT_BOOL varZeroDatabase) = 0;
     virtual HRESULT WINAPI GetInterface(BSTR Interface,IDispatch **ppUnknown) = 0;
-    virtual HRESULT WINAPI MoveLogFiles(BSTR LogFilePath,long Flags) = 0;
-    virtual HRESULT WINAPI MoveSystemFiles(BSTR SystemFilePath,long Flags) = 0;
+    virtual HRESULT WINAPI MoveLogFiles(BSTR LogFilePath,__LONG32 Flags) = 0;
+    virtual HRESULT WINAPI MoveSystemFiles(BSTR SystemFilePath,__LONG32 Flags) = 0;
   };
 #else
   typedef struct IStorageGroupVtbl {
@@ -236,8 +236,8 @@ extern "C"{
       HRESULT (WINAPI *get_ZeroDatabase)(IStorageGroup *This,VARIANT_BOOL *pZeroDatabase);
       HRESULT (WINAPI *put_ZeroDatabase)(IStorageGroup *This,VARIANT_BOOL varZeroDatabase);
       HRESULT (WINAPI *GetInterface)(IStorageGroup *This,BSTR Interface,IDispatch **ppUnknown);
-      HRESULT (WINAPI *MoveLogFiles)(IStorageGroup *This,BSTR LogFilePath,long Flags);
-      HRESULT (WINAPI *MoveSystemFiles)(IStorageGroup *This,BSTR SystemFilePath,long Flags);
+      HRESULT (WINAPI *MoveLogFiles)(IStorageGroup *This,BSTR LogFilePath,__LONG32 Flags);
+      HRESULT (WINAPI *MoveSystemFiles)(IStorageGroup *This,BSTR SystemFilePath,__LONG32 Flags);
     END_INTERFACE
   } IStorageGroupVtbl;
   struct IStorageGroup {
@@ -294,9 +294,9 @@ extern "C"{
   void __RPC_STUB IStorageGroup_put_ZeroDatabase_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IStorageGroup_GetInterface_Proxy(IStorageGroup *This,BSTR Interface,IDispatch **ppUnknown);
   void __RPC_STUB IStorageGroup_GetInterface_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStorageGroup_MoveLogFiles_Proxy(IStorageGroup *This,BSTR LogFilePath,long Flags);
+  HRESULT WINAPI IStorageGroup_MoveLogFiles_Proxy(IStorageGroup *This,BSTR LogFilePath,__LONG32 Flags);
   void __RPC_STUB IStorageGroup_MoveLogFiles_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IStorageGroup_MoveSystemFiles_Proxy(IStorageGroup *This,BSTR SystemFilePath,long Flags);
+  HRESULT WINAPI IStorageGroup_MoveSystemFiles_Proxy(IStorageGroup *This,BSTR SystemFilePath,__LONG32 Flags);
   void __RPC_STUB IStorageGroup_MoveSystemFiles_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -317,22 +317,22 @@ extern "C"{
     virtual HRESULT WINAPI get_Status(CDOEXMStoreDBStatus *varStatus) = 0;
     virtual HRESULT WINAPI get_Enabled(VARIANT_BOOL *pEnabled) = 0;
     virtual HRESULT WINAPI put_Enabled(VARIANT_BOOL varEnabled) = 0;
-    virtual HRESULT WINAPI get_StoreQuota(long *pStoreQuota) = 0;
-    virtual HRESULT WINAPI put_StoreQuota(long varStoreQuota) = 0;
-    virtual HRESULT WINAPI get_HardLimit(long *pHardLimit) = 0;
-    virtual HRESULT WINAPI put_HardLimit(long varHardLimit) = 0;
-    virtual HRESULT WINAPI get_ItemSizeLimit(long *pItemSizeLimit) = 0;
-    virtual HRESULT WINAPI put_ItemSizeLimit(long varItemSizeLimit) = 0;
-    virtual HRESULT WINAPI get_DaysBeforeItemExpiration(long *pDaysBeforeItemExpiration) = 0;
-    virtual HRESULT WINAPI put_DaysBeforeItemExpiration(long varDaysBeforeItemExpiration) = 0;
-    virtual HRESULT WINAPI get_DaysBeforeGarbageCollection(long *pDaysBeforeGarbageCollection) = 0;
-    virtual HRESULT WINAPI put_DaysBeforeGarbageCollection(long varDaysBeforeGarbageCollection) = 0;
+    virtual HRESULT WINAPI get_StoreQuota(__LONG32 *pStoreQuota) = 0;
+    virtual HRESULT WINAPI put_StoreQuota(__LONG32 varStoreQuota) = 0;
+    virtual HRESULT WINAPI get_HardLimit(__LONG32 *pHardLimit) = 0;
+    virtual HRESULT WINAPI put_HardLimit(__LONG32 varHardLimit) = 0;
+    virtual HRESULT WINAPI get_ItemSizeLimit(__LONG32 *pItemSizeLimit) = 0;
+    virtual HRESULT WINAPI put_ItemSizeLimit(__LONG32 varItemSizeLimit) = 0;
+    virtual HRESULT WINAPI get_DaysBeforeItemExpiration(__LONG32 *pDaysBeforeItemExpiration) = 0;
+    virtual HRESULT WINAPI put_DaysBeforeItemExpiration(__LONG32 varDaysBeforeItemExpiration) = 0;
+    virtual HRESULT WINAPI get_DaysBeforeGarbageCollection(__LONG32 *pDaysBeforeGarbageCollection) = 0;
+    virtual HRESULT WINAPI put_DaysBeforeGarbageCollection(__LONG32 varDaysBeforeGarbageCollection) = 0;
     virtual HRESULT WINAPI get_GarbageCollectOnlyAfterBackup(VARIANT_BOOL *pGarbageCollectOnlyAfterBackup) = 0;
     virtual HRESULT WINAPI put_GarbageCollectOnlyAfterBackup(VARIANT_BOOL varGarbageCollectOnlyAfterBackup) = 0;
     virtual HRESULT WINAPI GetInterface(BSTR Interface,IDispatch **ppUnknown) = 0;
-    virtual HRESULT WINAPI MoveDataFiles(BSTR DBPath,BSTR SLVPath,long Flags) = 0;
-    virtual HRESULT WINAPI Mount(long Timeout) = 0;
-    virtual HRESULT WINAPI Dismount(long Timeout) = 0;
+    virtual HRESULT WINAPI MoveDataFiles(BSTR DBPath,BSTR SLVPath,__LONG32 Flags) = 0;
+    virtual HRESULT WINAPI Mount(__LONG32 Timeout) = 0;
+    virtual HRESULT WINAPI Dismount(__LONG32 Timeout) = 0;
   };
 #else
   typedef struct IPublicStoreDBVtbl {
@@ -355,22 +355,22 @@ extern "C"{
       HRESULT (WINAPI *get_Status)(IPublicStoreDB *This,CDOEXMStoreDBStatus *varStatus);
       HRESULT (WINAPI *get_Enabled)(IPublicStoreDB *This,VARIANT_BOOL *pEnabled);
       HRESULT (WINAPI *put_Enabled)(IPublicStoreDB *This,VARIANT_BOOL varEnabled);
-      HRESULT (WINAPI *get_StoreQuota)(IPublicStoreDB *This,long *pStoreQuota);
-      HRESULT (WINAPI *put_StoreQuota)(IPublicStoreDB *This,long varStoreQuota);
-      HRESULT (WINAPI *get_HardLimit)(IPublicStoreDB *This,long *pHardLimit);
-      HRESULT (WINAPI *put_HardLimit)(IPublicStoreDB *This,long varHardLimit);
-      HRESULT (WINAPI *get_ItemSizeLimit)(IPublicStoreDB *This,long *pItemSizeLimit);
-      HRESULT (WINAPI *put_ItemSizeLimit)(IPublicStoreDB *This,long varItemSizeLimit);
-      HRESULT (WINAPI *get_DaysBeforeItemExpiration)(IPublicStoreDB *This,long *pDaysBeforeItemExpiration);
-      HRESULT (WINAPI *put_DaysBeforeItemExpiration)(IPublicStoreDB *This,long varDaysBeforeItemExpiration);
-      HRESULT (WINAPI *get_DaysBeforeGarbageCollection)(IPublicStoreDB *This,long *pDaysBeforeGarbageCollection);
-      HRESULT (WINAPI *put_DaysBeforeGarbageCollection)(IPublicStoreDB *This,long varDaysBeforeGarbageCollection);
+      HRESULT (WINAPI *get_StoreQuota)(IPublicStoreDB *This,__LONG32 *pStoreQuota);
+      HRESULT (WINAPI *put_StoreQuota)(IPublicStoreDB *This,__LONG32 varStoreQuota);
+      HRESULT (WINAPI *get_HardLimit)(IPublicStoreDB *This,__LONG32 *pHardLimit);
+      HRESULT (WINAPI *put_HardLimit)(IPublicStoreDB *This,__LONG32 varHardLimit);
+      HRESULT (WINAPI *get_ItemSizeLimit)(IPublicStoreDB *This,__LONG32 *pItemSizeLimit);
+      HRESULT (WINAPI *put_ItemSizeLimit)(IPublicStoreDB *This,__LONG32 varItemSizeLimit);
+      HRESULT (WINAPI *get_DaysBeforeItemExpiration)(IPublicStoreDB *This,__LONG32 *pDaysBeforeItemExpiration);
+      HRESULT (WINAPI *put_DaysBeforeItemExpiration)(IPublicStoreDB *This,__LONG32 varDaysBeforeItemExpiration);
+      HRESULT (WINAPI *get_DaysBeforeGarbageCollection)(IPublicStoreDB *This,__LONG32 *pDaysBeforeGarbageCollection);
+      HRESULT (WINAPI *put_DaysBeforeGarbageCollection)(IPublicStoreDB *This,__LONG32 varDaysBeforeGarbageCollection);
       HRESULT (WINAPI *get_GarbageCollectOnlyAfterBackup)(IPublicStoreDB *This,VARIANT_BOOL *pGarbageCollectOnlyAfterBackup);
       HRESULT (WINAPI *put_GarbageCollectOnlyAfterBackup)(IPublicStoreDB *This,VARIANT_BOOL varGarbageCollectOnlyAfterBackup);
       HRESULT (WINAPI *GetInterface)(IPublicStoreDB *This,BSTR Interface,IDispatch **ppUnknown);
-      HRESULT (WINAPI *MoveDataFiles)(IPublicStoreDB *This,BSTR DBPath,BSTR SLVPath,long Flags);
-      HRESULT (WINAPI *Mount)(IPublicStoreDB *This,long Timeout);
-      HRESULT (WINAPI *Dismount)(IPublicStoreDB *This,long Timeout);
+      HRESULT (WINAPI *MoveDataFiles)(IPublicStoreDB *This,BSTR DBPath,BSTR SLVPath,__LONG32 Flags);
+      HRESULT (WINAPI *Mount)(IPublicStoreDB *This,__LONG32 Timeout);
+      HRESULT (WINAPI *Dismount)(IPublicStoreDB *This,__LONG32 Timeout);
     END_INTERFACE
   } IPublicStoreDBVtbl;
   struct IPublicStoreDB {
@@ -435,25 +435,25 @@ extern "C"{
   void __RPC_STUB IPublicStoreDB_get_Enabled_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IPublicStoreDB_put_Enabled_Proxy(IPublicStoreDB *This,VARIANT_BOOL varEnabled);
   void __RPC_STUB IPublicStoreDB_put_Enabled_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPublicStoreDB_get_StoreQuota_Proxy(IPublicStoreDB *This,long *pStoreQuota);
+  HRESULT WINAPI IPublicStoreDB_get_StoreQuota_Proxy(IPublicStoreDB *This,__LONG32 *pStoreQuota);
   void __RPC_STUB IPublicStoreDB_get_StoreQuota_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPublicStoreDB_put_StoreQuota_Proxy(IPublicStoreDB *This,long varStoreQuota);
+  HRESULT WINAPI IPublicStoreDB_put_StoreQuota_Proxy(IPublicStoreDB *This,__LONG32 varStoreQuota);
   void __RPC_STUB IPublicStoreDB_put_StoreQuota_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPublicStoreDB_get_HardLimit_Proxy(IPublicStoreDB *This,long *pHardLimit);
+  HRESULT WINAPI IPublicStoreDB_get_HardLimit_Proxy(IPublicStoreDB *This,__LONG32 *pHardLimit);
   void __RPC_STUB IPublicStoreDB_get_HardLimit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPublicStoreDB_put_HardLimit_Proxy(IPublicStoreDB *This,long varHardLimit);
+  HRESULT WINAPI IPublicStoreDB_put_HardLimit_Proxy(IPublicStoreDB *This,__LONG32 varHardLimit);
   void __RPC_STUB IPublicStoreDB_put_HardLimit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPublicStoreDB_get_ItemSizeLimit_Proxy(IPublicStoreDB *This,long *pItemSizeLimit);
+  HRESULT WINAPI IPublicStoreDB_get_ItemSizeLimit_Proxy(IPublicStoreDB *This,__LONG32 *pItemSizeLimit);
   void __RPC_STUB IPublicStoreDB_get_ItemSizeLimit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPublicStoreDB_put_ItemSizeLimit_Proxy(IPublicStoreDB *This,long varItemSizeLimit);
+  HRESULT WINAPI IPublicStoreDB_put_ItemSizeLimit_Proxy(IPublicStoreDB *This,__LONG32 varItemSizeLimit);
   void __RPC_STUB IPublicStoreDB_put_ItemSizeLimit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPublicStoreDB_get_DaysBeforeItemExpiration_Proxy(IPublicStoreDB *This,long *pDaysBeforeItemExpiration);
+  HRESULT WINAPI IPublicStoreDB_get_DaysBeforeItemExpiration_Proxy(IPublicStoreDB *This,__LONG32 *pDaysBeforeItemExpiration);
   void __RPC_STUB IPublicStoreDB_get_DaysBeforeItemExpiration_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPublicStoreDB_put_DaysBeforeItemExpiration_Proxy(IPublicStoreDB *This,long varDaysBeforeItemExpiration);
+  HRESULT WINAPI IPublicStoreDB_put_DaysBeforeItemExpiration_Proxy(IPublicStoreDB *This,__LONG32 varDaysBeforeItemExpiration);
   void __RPC_STUB IPublicStoreDB_put_DaysBeforeItemExpiration_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPublicStoreDB_get_DaysBeforeGarbageCollection_Proxy(IPublicStoreDB *This,long *pDaysBeforeGarbageCollection);
+  HRESULT WINAPI IPublicStoreDB_get_DaysBeforeGarbageCollection_Proxy(IPublicStoreDB *This,__LONG32 *pDaysBeforeGarbageCollection);
   void __RPC_STUB IPublicStoreDB_get_DaysBeforeGarbageCollection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPublicStoreDB_put_DaysBeforeGarbageCollection_Proxy(IPublicStoreDB *This,long varDaysBeforeGarbageCollection);
+  HRESULT WINAPI IPublicStoreDB_put_DaysBeforeGarbageCollection_Proxy(IPublicStoreDB *This,__LONG32 varDaysBeforeGarbageCollection);
   void __RPC_STUB IPublicStoreDB_put_DaysBeforeGarbageCollection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IPublicStoreDB_get_GarbageCollectOnlyAfterBackup_Proxy(IPublicStoreDB *This,VARIANT_BOOL *pGarbageCollectOnlyAfterBackup);
   void __RPC_STUB IPublicStoreDB_get_GarbageCollectOnlyAfterBackup_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -461,11 +461,11 @@ extern "C"{
   void __RPC_STUB IPublicStoreDB_put_GarbageCollectOnlyAfterBackup_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IPublicStoreDB_GetInterface_Proxy(IPublicStoreDB *This,BSTR Interface,IDispatch **ppUnknown);
   void __RPC_STUB IPublicStoreDB_GetInterface_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPublicStoreDB_MoveDataFiles_Proxy(IPublicStoreDB *This,BSTR DBPath,BSTR SLVPath,long Flags);
+  HRESULT WINAPI IPublicStoreDB_MoveDataFiles_Proxy(IPublicStoreDB *This,BSTR DBPath,BSTR SLVPath,__LONG32 Flags);
   void __RPC_STUB IPublicStoreDB_MoveDataFiles_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPublicStoreDB_Mount_Proxy(IPublicStoreDB *This,long Timeout);
+  HRESULT WINAPI IPublicStoreDB_Mount_Proxy(IPublicStoreDB *This,__LONG32 Timeout);
   void __RPC_STUB IPublicStoreDB_Mount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPublicStoreDB_Dismount_Proxy(IPublicStoreDB *This,long Timeout);
+  HRESULT WINAPI IPublicStoreDB_Dismount_Proxy(IPublicStoreDB *This,__LONG32 Timeout);
   void __RPC_STUB IPublicStoreDB_Dismount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -488,22 +488,22 @@ extern "C"{
     virtual HRESULT WINAPI get_Status(CDOEXMStoreDBStatus *varStatus) = 0;
     virtual HRESULT WINAPI get_Enabled(VARIANT_BOOL *pEnabled) = 0;
     virtual HRESULT WINAPI put_Enabled(VARIANT_BOOL varEnabled) = 0;
-    virtual HRESULT WINAPI get_StoreQuota(long *pStoreQuota) = 0;
-    virtual HRESULT WINAPI put_StoreQuota(long varStoreQuota) = 0;
-    virtual HRESULT WINAPI get_OverQuotaLimit(long *pOverQuotaLimit) = 0;
-    virtual HRESULT WINAPI put_OverQuotaLimit(long varOverQuotaLimit) = 0;
-    virtual HRESULT WINAPI get_HardLimit(long *pHardLimit) = 0;
-    virtual HRESULT WINAPI put_HardLimit(long varHardLimit) = 0;
-    virtual HRESULT WINAPI get_DaysBeforeGarbageCollection(long *pDaysBeforeGarbageCollection) = 0;
-    virtual HRESULT WINAPI put_DaysBeforeGarbageCollection(long varDaysBeforeGarbageCollection) = 0;
-    virtual HRESULT WINAPI get_DaysBeforeDeletedMailboxCleanup(long *pDaysBeforeDeletedMailboxCleanup) = 0;
-    virtual HRESULT WINAPI put_DaysBeforeDeletedMailboxCleanup(long varDaysBeforeDeletedMailboxCleanup) = 0;
+    virtual HRESULT WINAPI get_StoreQuota(__LONG32 *pStoreQuota) = 0;
+    virtual HRESULT WINAPI put_StoreQuota(__LONG32 varStoreQuota) = 0;
+    virtual HRESULT WINAPI get_OverQuotaLimit(__LONG32 *pOverQuotaLimit) = 0;
+    virtual HRESULT WINAPI put_OverQuotaLimit(__LONG32 varOverQuotaLimit) = 0;
+    virtual HRESULT WINAPI get_HardLimit(__LONG32 *pHardLimit) = 0;
+    virtual HRESULT WINAPI put_HardLimit(__LONG32 varHardLimit) = 0;
+    virtual HRESULT WINAPI get_DaysBeforeGarbageCollection(__LONG32 *pDaysBeforeGarbageCollection) = 0;
+    virtual HRESULT WINAPI put_DaysBeforeGarbageCollection(__LONG32 varDaysBeforeGarbageCollection) = 0;
+    virtual HRESULT WINAPI get_DaysBeforeDeletedMailboxCleanup(__LONG32 *pDaysBeforeDeletedMailboxCleanup) = 0;
+    virtual HRESULT WINAPI put_DaysBeforeDeletedMailboxCleanup(__LONG32 varDaysBeforeDeletedMailboxCleanup) = 0;
     virtual HRESULT WINAPI get_GarbageCollectOnlyAfterBackup(VARIANT_BOOL *pGarbageCollectOnlyAfterBackup) = 0;
     virtual HRESULT WINAPI put_GarbageCollectOnlyAfterBackup(VARIANT_BOOL varGarbageCollectOnlyAfterBackup) = 0;
     virtual HRESULT WINAPI GetInterface(BSTR Interface,IDispatch **ppUnknown) = 0;
-    virtual HRESULT WINAPI MoveDataFiles(BSTR DBPath,BSTR SLVPath,long Flags) = 0;
-    virtual HRESULT WINAPI Mount(long Timeout) = 0;
-    virtual HRESULT WINAPI Dismount(long Timeout) = 0;
+    virtual HRESULT WINAPI MoveDataFiles(BSTR DBPath,BSTR SLVPath,__LONG32 Flags) = 0;
+    virtual HRESULT WINAPI Mount(__LONG32 Timeout) = 0;
+    virtual HRESULT WINAPI Dismount(__LONG32 Timeout) = 0;
   };
 #else
   typedef struct IMailboxStoreDBVtbl {
@@ -528,22 +528,22 @@ extern "C"{
       HRESULT (WINAPI *get_Status)(IMailboxStoreDB *This,CDOEXMStoreDBStatus *varStatus);
       HRESULT (WINAPI *get_Enabled)(IMailboxStoreDB *This,VARIANT_BOOL *pEnabled);
       HRESULT (WINAPI *put_Enabled)(IMailboxStoreDB *This,VARIANT_BOOL varEnabled);
-      HRESULT (WINAPI *get_StoreQuota)(IMailboxStoreDB *This,long *pStoreQuota);
-      HRESULT (WINAPI *put_StoreQuota)(IMailboxStoreDB *This,long varStoreQuota);
-      HRESULT (WINAPI *get_OverQuotaLimit)(IMailboxStoreDB *This,long *pOverQuotaLimit);
-      HRESULT (WINAPI *put_OverQuotaLimit)(IMailboxStoreDB *This,long varOverQuotaLimit);
-      HRESULT (WINAPI *get_HardLimit)(IMailboxStoreDB *This,long *pHardLimit);
-      HRESULT (WINAPI *put_HardLimit)(IMailboxStoreDB *This,long varHardLimit);
-      HRESULT (WINAPI *get_DaysBeforeGarbageCollection)(IMailboxStoreDB *This,long *pDaysBeforeGarbageCollection);
-      HRESULT (WINAPI *put_DaysBeforeGarbageCollection)(IMailboxStoreDB *This,long varDaysBeforeGarbageCollection);
-      HRESULT (WINAPI *get_DaysBeforeDeletedMailboxCleanup)(IMailboxStoreDB *This,long *pDaysBeforeDeletedMailboxCleanup);
-      HRESULT (WINAPI *put_DaysBeforeDeletedMailboxCleanup)(IMailboxStoreDB *This,long varDaysBeforeDeletedMailboxCleanup);
+      HRESULT (WINAPI *get_StoreQuota)(IMailboxStoreDB *This,__LONG32 *pStoreQuota);
+      HRESULT (WINAPI *put_StoreQuota)(IMailboxStoreDB *This,__LONG32 varStoreQuota);
+      HRESULT (WINAPI *get_OverQuotaLimit)(IMailboxStoreDB *This,__LONG32 *pOverQuotaLimit);
+      HRESULT (WINAPI *put_OverQuotaLimit)(IMailboxStoreDB *This,__LONG32 varOverQuotaLimit);
+      HRESULT (WINAPI *get_HardLimit)(IMailboxStoreDB *This,__LONG32 *pHardLimit);
+      HRESULT (WINAPI *put_HardLimit)(IMailboxStoreDB *This,__LONG32 varHardLimit);
+      HRESULT (WINAPI *get_DaysBeforeGarbageCollection)(IMailboxStoreDB *This,__LONG32 *pDaysBeforeGarbageCollection);
+      HRESULT (WINAPI *put_DaysBeforeGarbageCollection)(IMailboxStoreDB *This,__LONG32 varDaysBeforeGarbageCollection);
+      HRESULT (WINAPI *get_DaysBeforeDeletedMailboxCleanup)(IMailboxStoreDB *This,__LONG32 *pDaysBeforeDeletedMailboxCleanup);
+      HRESULT (WINAPI *put_DaysBeforeDeletedMailboxCleanup)(IMailboxStoreDB *This,__LONG32 varDaysBeforeDeletedMailboxCleanup);
       HRESULT (WINAPI *get_GarbageCollectOnlyAfterBackup)(IMailboxStoreDB *This,VARIANT_BOOL *pGarbageCollectOnlyAfterBackup);
       HRESULT (WINAPI *put_GarbageCollectOnlyAfterBackup)(IMailboxStoreDB *This,VARIANT_BOOL varGarbageCollectOnlyAfterBackup);
       HRESULT (WINAPI *GetInterface)(IMailboxStoreDB *This,BSTR Interface,IDispatch **ppUnknown);
-      HRESULT (WINAPI *MoveDataFiles)(IMailboxStoreDB *This,BSTR DBPath,BSTR SLVPath,long Flags);
-      HRESULT (WINAPI *Mount)(IMailboxStoreDB *This,long Timeout);
-      HRESULT (WINAPI *Dismount)(IMailboxStoreDB *This,long Timeout);
+      HRESULT (WINAPI *MoveDataFiles)(IMailboxStoreDB *This,BSTR DBPath,BSTR SLVPath,__LONG32 Flags);
+      HRESULT (WINAPI *Mount)(IMailboxStoreDB *This,__LONG32 Timeout);
+      HRESULT (WINAPI *Dismount)(IMailboxStoreDB *This,__LONG32 Timeout);
     END_INTERFACE
   } IMailboxStoreDBVtbl;
   struct IMailboxStoreDB {
@@ -614,25 +614,25 @@ extern "C"{
   void __RPC_STUB IMailboxStoreDB_get_Enabled_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMailboxStoreDB_put_Enabled_Proxy(IMailboxStoreDB *This,VARIANT_BOOL varEnabled);
   void __RPC_STUB IMailboxStoreDB_put_Enabled_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMailboxStoreDB_get_StoreQuota_Proxy(IMailboxStoreDB *This,long *pStoreQuota);
+  HRESULT WINAPI IMailboxStoreDB_get_StoreQuota_Proxy(IMailboxStoreDB *This,__LONG32 *pStoreQuota);
   void __RPC_STUB IMailboxStoreDB_get_StoreQuota_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMailboxStoreDB_put_StoreQuota_Proxy(IMailboxStoreDB *This,long varStoreQuota);
+  HRESULT WINAPI IMailboxStoreDB_put_StoreQuota_Proxy(IMailboxStoreDB *This,__LONG32 varStoreQuota);
   void __RPC_STUB IMailboxStoreDB_put_StoreQuota_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMailboxStoreDB_get_OverQuotaLimit_Proxy(IMailboxStoreDB *This,long *pOverQuotaLimit);
+  HRESULT WINAPI IMailboxStoreDB_get_OverQuotaLimit_Proxy(IMailboxStoreDB *This,__LONG32 *pOverQuotaLimit);
   void __RPC_STUB IMailboxStoreDB_get_OverQuotaLimit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMailboxStoreDB_put_OverQuotaLimit_Proxy(IMailboxStoreDB *This,long varOverQuotaLimit);
+  HRESULT WINAPI IMailboxStoreDB_put_OverQuotaLimit_Proxy(IMailboxStoreDB *This,__LONG32 varOverQuotaLimit);
   void __RPC_STUB IMailboxStoreDB_put_OverQuotaLimit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMailboxStoreDB_get_HardLimit_Proxy(IMailboxStoreDB *This,long *pHardLimit);
+  HRESULT WINAPI IMailboxStoreDB_get_HardLimit_Proxy(IMailboxStoreDB *This,__LONG32 *pHardLimit);
   void __RPC_STUB IMailboxStoreDB_get_HardLimit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMailboxStoreDB_put_HardLimit_Proxy(IMailboxStoreDB *This,long varHardLimit);
+  HRESULT WINAPI IMailboxStoreDB_put_HardLimit_Proxy(IMailboxStoreDB *This,__LONG32 varHardLimit);
   void __RPC_STUB IMailboxStoreDB_put_HardLimit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMailboxStoreDB_get_DaysBeforeGarbageCollection_Proxy(IMailboxStoreDB *This,long *pDaysBeforeGarbageCollection);
+  HRESULT WINAPI IMailboxStoreDB_get_DaysBeforeGarbageCollection_Proxy(IMailboxStoreDB *This,__LONG32 *pDaysBeforeGarbageCollection);
   void __RPC_STUB IMailboxStoreDB_get_DaysBeforeGarbageCollection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMailboxStoreDB_put_DaysBeforeGarbageCollection_Proxy(IMailboxStoreDB *This,long varDaysBeforeGarbageCollection);
+  HRESULT WINAPI IMailboxStoreDB_put_DaysBeforeGarbageCollection_Proxy(IMailboxStoreDB *This,__LONG32 varDaysBeforeGarbageCollection);
   void __RPC_STUB IMailboxStoreDB_put_DaysBeforeGarbageCollection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMailboxStoreDB_get_DaysBeforeDeletedMailboxCleanup_Proxy(IMailboxStoreDB *This,long *pDaysBeforeDeletedMailboxCleanup);
+  HRESULT WINAPI IMailboxStoreDB_get_DaysBeforeDeletedMailboxCleanup_Proxy(IMailboxStoreDB *This,__LONG32 *pDaysBeforeDeletedMailboxCleanup);
   void __RPC_STUB IMailboxStoreDB_get_DaysBeforeDeletedMailboxCleanup_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMailboxStoreDB_put_DaysBeforeDeletedMailboxCleanup_Proxy(IMailboxStoreDB *This,long varDaysBeforeDeletedMailboxCleanup);
+  HRESULT WINAPI IMailboxStoreDB_put_DaysBeforeDeletedMailboxCleanup_Proxy(IMailboxStoreDB *This,__LONG32 varDaysBeforeDeletedMailboxCleanup);
   void __RPC_STUB IMailboxStoreDB_put_DaysBeforeDeletedMailboxCleanup_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMailboxStoreDB_get_GarbageCollectOnlyAfterBackup_Proxy(IMailboxStoreDB *This,VARIANT_BOOL *pGarbageCollectOnlyAfterBackup);
   void __RPC_STUB IMailboxStoreDB_get_GarbageCollectOnlyAfterBackup_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -640,11 +640,11 @@ extern "C"{
   void __RPC_STUB IMailboxStoreDB_put_GarbageCollectOnlyAfterBackup_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMailboxStoreDB_GetInterface_Proxy(IMailboxStoreDB *This,BSTR Interface,IDispatch **ppUnknown);
   void __RPC_STUB IMailboxStoreDB_GetInterface_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMailboxStoreDB_MoveDataFiles_Proxy(IMailboxStoreDB *This,BSTR DBPath,BSTR SLVPath,long Flags);
+  HRESULT WINAPI IMailboxStoreDB_MoveDataFiles_Proxy(IMailboxStoreDB *This,BSTR DBPath,BSTR SLVPath,__LONG32 Flags);
   void __RPC_STUB IMailboxStoreDB_MoveDataFiles_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMailboxStoreDB_Mount_Proxy(IMailboxStoreDB *This,long Timeout);
+  HRESULT WINAPI IMailboxStoreDB_Mount_Proxy(IMailboxStoreDB *This,__LONG32 Timeout);
   void __RPC_STUB IMailboxStoreDB_Mount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMailboxStoreDB_Dismount_Proxy(IMailboxStoreDB *This,long Timeout);
+  HRESULT WINAPI IMailboxStoreDB_Dismount_Proxy(IMailboxStoreDB *This,__LONG32 Timeout);
   void __RPC_STUB IMailboxStoreDB_Dismount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
