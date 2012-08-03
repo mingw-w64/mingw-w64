@@ -83,7 +83,7 @@ extern "C"{
     virtual HRESULT WINAPI get_FirstNodeInCluster(BSTR *pbstrFirstNodeInClusterOut) = 0;
     virtual HRESULT WINAPI put_MinimumConfiguration(VARIANT_BOOL fMinConfigIn) = 0;
     virtual HRESULT WINAPI get_MinimumConfiguration(VARIANT_BOOL *pfMinConfigOut) = 0;
-    virtual HRESULT WINAPI ShowWizard(long lParentWindowHandleIn,VARIANT_BOOL *pfCompletedOut) = 0;
+    virtual HRESULT WINAPI ShowWizard(__LONG32 lParentWindowHandleIn,VARIANT_BOOL *pfCompletedOut) = 0;
   };
 #else
   typedef struct IClusCfgCreateClusterWizardVtbl {
@@ -110,7 +110,7 @@ extern "C"{
       HRESULT (WINAPI *get_FirstNodeInCluster)(IClusCfgCreateClusterWizard *This,BSTR *pbstrFirstNodeInClusterOut);
       HRESULT (WINAPI *put_MinimumConfiguration)(IClusCfgCreateClusterWizard *This,VARIANT_BOOL fMinConfigIn);
       HRESULT (WINAPI *get_MinimumConfiguration)(IClusCfgCreateClusterWizard *This,VARIANT_BOOL *pfMinConfigOut);
-      HRESULT (WINAPI *ShowWizard)(IClusCfgCreateClusterWizard *This,long lParentWindowHandleIn,VARIANT_BOOL *pfCompletedOut);
+      HRESULT (WINAPI *ShowWizard)(IClusCfgCreateClusterWizard *This,__LONG32 lParentWindowHandleIn,VARIANT_BOOL *pfCompletedOut);
     END_INTERFACE
   } IClusCfgCreateClusterWizardVtbl;
   struct IClusCfgCreateClusterWizard {
@@ -172,7 +172,7 @@ extern "C"{
   void __RPC_STUB IClusCfgCreateClusterWizard_put_MinimumConfiguration_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IClusCfgCreateClusterWizard_get_MinimumConfiguration_Proxy(IClusCfgCreateClusterWizard *This,VARIANT_BOOL *pfMinConfigOut);
   void __RPC_STUB IClusCfgCreateClusterWizard_get_MinimumConfiguration_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IClusCfgCreateClusterWizard_ShowWizard_Proxy(IClusCfgCreateClusterWizard *This,long lParentWindowHandleIn,VARIANT_BOOL *pfCompletedOut);
+  HRESULT WINAPI IClusCfgCreateClusterWizard_ShowWizard_Proxy(IClusCfgCreateClusterWizard *This,__LONG32 lParentWindowHandleIn,VARIANT_BOOL *pfCompletedOut);
   void __RPC_STUB IClusCfgCreateClusterWizard_ShowWizard_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -190,7 +190,7 @@ extern "C"{
     virtual HRESULT WINAPI AddNodeToList(BSTR bstrNodeNameIn) = 0;
     virtual HRESULT WINAPI RemoveNodeFromList(BSTR bstrNodeNameIn) = 0;
     virtual HRESULT WINAPI ClearNodeList(void) = 0;
-    virtual HRESULT WINAPI ShowWizard(long lParentWindowHandleIn,VARIANT_BOOL *pfCompletedOut) = 0;
+    virtual HRESULT WINAPI ShowWizard(__LONG32 lParentWindowHandleIn,VARIANT_BOOL *pfCompletedOut) = 0;
   };
 #else
   typedef struct IClusCfgAddNodesWizardVtbl {
@@ -210,7 +210,7 @@ extern "C"{
       HRESULT (WINAPI *AddNodeToList)(IClusCfgAddNodesWizard *This,BSTR bstrNodeNameIn);
       HRESULT (WINAPI *RemoveNodeFromList)(IClusCfgAddNodesWizard *This,BSTR bstrNodeNameIn);
       HRESULT (WINAPI *ClearNodeList)(IClusCfgAddNodesWizard *This);
-      HRESULT (WINAPI *ShowWizard)(IClusCfgAddNodesWizard *This,long lParentWindowHandleIn,VARIANT_BOOL *pfCompletedOut);
+      HRESULT (WINAPI *ShowWizard)(IClusCfgAddNodesWizard *This,__LONG32 lParentWindowHandleIn,VARIANT_BOOL *pfCompletedOut);
     END_INTERFACE
   } IClusCfgAddNodesWizardVtbl;
   struct IClusCfgAddNodesWizard {
@@ -251,7 +251,7 @@ extern "C"{
   void __RPC_STUB IClusCfgAddNodesWizard_RemoveNodeFromList_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IClusCfgAddNodesWizard_ClearNodeList_Proxy(IClusCfgAddNodesWizard *This);
   void __RPC_STUB IClusCfgAddNodesWizard_ClearNodeList_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IClusCfgAddNodesWizard_ShowWizard_Proxy(IClusCfgAddNodesWizard *This,long lParentWindowHandleIn,VARIANT_BOOL *pfCompletedOut);
+  HRESULT WINAPI IClusCfgAddNodesWizard_ShowWizard_Proxy(IClusCfgAddNodesWizard *This,__LONG32 lParentWindowHandleIn,VARIANT_BOOL *pfCompletedOut);
   void __RPC_STUB IClusCfgAddNodesWizard_ShowWizard_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 

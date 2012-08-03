@@ -726,7 +726,7 @@ extern "C" {
     virtual HRESULT WINAPI get_ContentClassName(BSTR *pContentClassName) = 0;
     virtual HRESULT WINAPI put_ContentClassName(BSTR varContentClassName) = 0;
     virtual HRESULT WINAPI get_Parent(IBodyPart **varParent) = 0;
-    virtual HRESULT WINAPI AddBodyPart(long Index,IBodyPart **ppPart) = 0;
+    virtual HRESULT WINAPI AddBodyPart(__LONG32 Index,IBodyPart **ppPart) = 0;
     virtual HRESULT WINAPI SaveToFile(BSTR FileName) = 0;
     virtual HRESULT WINAPI GetEncodedContentStream(_Stream **ppStream) = 0;
     virtual HRESULT WINAPI GetDecodedContentStream(_Stream **ppStream) = 0;
@@ -759,7 +759,7 @@ extern "C" {
       HRESULT (WINAPI *get_ContentClassName)(IBodyPart *This,BSTR *pContentClassName);
       HRESULT (WINAPI *put_ContentClassName)(IBodyPart *This,BSTR varContentClassName);
       HRESULT (WINAPI *get_Parent)(IBodyPart *This,IBodyPart **varParent);
-      HRESULT (WINAPI *AddBodyPart)(IBodyPart *This,long Index,IBodyPart **ppPart);
+      HRESULT (WINAPI *AddBodyPart)(IBodyPart *This,__LONG32 Index,IBodyPart **ppPart);
       HRESULT (WINAPI *SaveToFile)(IBodyPart *This,BSTR FileName);
       HRESULT (WINAPI *GetEncodedContentStream)(IBodyPart *This,_Stream **ppStream);
       HRESULT (WINAPI *GetDecodedContentStream)(IBodyPart *This,_Stream **ppStream);
@@ -833,7 +833,7 @@ extern "C" {
   void __RPC_STUB IBodyPart_put_ContentClassName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IBodyPart_get_Parent_Proxy(IBodyPart *This,IBodyPart **varParent);
   void __RPC_STUB IBodyPart_get_Parent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBodyPart_AddBodyPart_Proxy(IBodyPart *This,long Index,IBodyPart **ppPart);
+  HRESULT WINAPI IBodyPart_AddBodyPart_Proxy(IBodyPart *This,__LONG32 Index,IBodyPart **ppPart);
   void __RPC_STUB IBodyPart_AddBodyPart_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IBodyPart_SaveToFile_Proxy(IBodyPart *This,BSTR FileName);
   void __RPC_STUB IBodyPart_SaveToFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -904,9 +904,9 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IMessages : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Item(long Index,IMessage **ppMessage) = 0;
-    virtual HRESULT WINAPI get_Count(long *varCount) = 0;
-    virtual HRESULT WINAPI Delete(long Index) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 Index,IMessage **ppMessage) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *varCount) = 0;
+    virtual HRESULT WINAPI Delete(__LONG32 Index) = 0;
     virtual HRESULT WINAPI DeleteAll(void) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **retval) = 0;
     virtual HRESULT WINAPI get_Filename(VARIANT var,BSTR *Filename) = 0;
@@ -921,9 +921,9 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(IMessages *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IMessages *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IMessages *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Item)(IMessages *This,long Index,IMessage **ppMessage);
-      HRESULT (WINAPI *get_Count)(IMessages *This,long *varCount);
-      HRESULT (WINAPI *Delete)(IMessages *This,long Index);
+      HRESULT (WINAPI *get_Item)(IMessages *This,__LONG32 Index,IMessage **ppMessage);
+      HRESULT (WINAPI *get_Count)(IMessages *This,__LONG32 *varCount);
+      HRESULT (WINAPI *Delete)(IMessages *This,__LONG32 Index);
       HRESULT (WINAPI *DeleteAll)(IMessages *This);
       HRESULT (WINAPI *get__NewEnum)(IMessages *This,IUnknown **retval);
       HRESULT (WINAPI *get_Filename)(IMessages *This,VARIANT var,BSTR *Filename);
@@ -948,11 +948,11 @@ extern "C" {
 #define IMessages_get_Filename(This,var,Filename) (This)->lpVtbl->get_Filename(This,var,Filename)
 #endif
 #endif
-  HRESULT WINAPI IMessages_get_Item_Proxy(IMessages *This,long Index,IMessage **ppMessage);
+  HRESULT WINAPI IMessages_get_Item_Proxy(IMessages *This,__LONG32 Index,IMessage **ppMessage);
   void __RPC_STUB IMessages_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMessages_get_Count_Proxy(IMessages *This,long *varCount);
+  HRESULT WINAPI IMessages_get_Count_Proxy(IMessages *This,__LONG32 *varCount);
   void __RPC_STUB IMessages_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMessages_Delete_Proxy(IMessages *This,long Index);
+  HRESULT WINAPI IMessages_Delete_Proxy(IMessages *This,__LONG32 Index);
   void __RPC_STUB IMessages_Delete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMessages_DeleteAll_Proxy(IMessages *This);
   void __RPC_STUB IMessages_DeleteAll_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1007,12 +1007,12 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IBodyParts : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *varCount) = 0;
-    virtual HRESULT WINAPI get_Item(long Index,IBodyPart **ppBody) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *varCount) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 Index,IBodyPart **ppBody) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **retval) = 0;
     virtual HRESULT WINAPI Delete(VARIANT varBP) = 0;
     virtual HRESULT WINAPI DeleteAll(void) = 0;
-    virtual HRESULT WINAPI Add(long Index,IBodyPart **ppPart) = 0;
+    virtual HRESULT WINAPI Add(__LONG32 Index,IBodyPart **ppPart) = 0;
   };
 #else
   typedef struct IBodyPartsVtbl {
@@ -1024,12 +1024,12 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(IBodyParts *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IBodyParts *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IBodyParts *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(IBodyParts *This,long *varCount);
-      HRESULT (WINAPI *get_Item)(IBodyParts *This,long Index,IBodyPart **ppBody);
+      HRESULT (WINAPI *get_Count)(IBodyParts *This,__LONG32 *varCount);
+      HRESULT (WINAPI *get_Item)(IBodyParts *This,__LONG32 Index,IBodyPart **ppBody);
       HRESULT (WINAPI *get__NewEnum)(IBodyParts *This,IUnknown **retval);
       HRESULT (WINAPI *Delete)(IBodyParts *This,VARIANT varBP);
       HRESULT (WINAPI *DeleteAll)(IBodyParts *This);
-      HRESULT (WINAPI *Add)(IBodyParts *This,long Index,IBodyPart **ppPart);
+      HRESULT (WINAPI *Add)(IBodyParts *This,__LONG32 Index,IBodyPart **ppPart);
     END_INTERFACE
   } IBodyPartsVtbl;
   struct IBodyParts {
@@ -1051,9 +1051,9 @@ extern "C" {
 #define IBodyParts_Add(This,Index,ppPart) (This)->lpVtbl->Add(This,Index,ppPart)
 #endif
 #endif
-  HRESULT WINAPI IBodyParts_get_Count_Proxy(IBodyParts *This,long *varCount);
+  HRESULT WINAPI IBodyParts_get_Count_Proxy(IBodyParts *This,__LONG32 *varCount);
   void __RPC_STUB IBodyParts_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBodyParts_get_Item_Proxy(IBodyParts *This,long Index,IBodyPart **ppBody);
+  HRESULT WINAPI IBodyParts_get_Item_Proxy(IBodyParts *This,__LONG32 Index,IBodyPart **ppBody);
   void __RPC_STUB IBodyParts_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IBodyParts_get__NewEnum_Proxy(IBodyParts *This,IUnknown **retval);
   void __RPC_STUB IBodyParts_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1061,7 +1061,7 @@ extern "C" {
   void __RPC_STUB IBodyParts_Delete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IBodyParts_DeleteAll_Proxy(IBodyParts *This);
   void __RPC_STUB IBodyParts_DeleteAll_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBodyParts_Add_Proxy(IBodyParts *This,long Index,IBodyPart **ppPart);
+  HRESULT WINAPI IBodyParts_Add_Proxy(IBodyParts *This,__LONG32 Index,IBodyPart **ppPart);
   void __RPC_STUB IBodyParts_Add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 

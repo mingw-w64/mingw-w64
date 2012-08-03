@@ -932,7 +932,7 @@ extern "C"{
     virtual HRESULT WINAPI get_ContentClassName(BSTR *pContentClassName) = 0;
     virtual HRESULT WINAPI put_ContentClassName(BSTR varContentClassName) = 0;
     virtual HRESULT WINAPI get_Parent(IBodyPart **varParent) = 0;
-    virtual HRESULT WINAPI AddBodyPart(long Index,IBodyPart **ppPart) = 0;
+    virtual HRESULT WINAPI AddBodyPart(__LONG32 Index,IBodyPart **ppPart) = 0;
     virtual HRESULT WINAPI SaveToFile(BSTR FileName) = 0;
     virtual HRESULT WINAPI GetEncodedContentStream(_Stream **ppStream) = 0;
     virtual HRESULT WINAPI GetDecodedContentStream(_Stream **ppStream) = 0;
@@ -965,7 +965,7 @@ extern "C"{
       HRESULT (WINAPI *get_ContentClassName)(IBodyPart *This,BSTR *pContentClassName);
       HRESULT (WINAPI *put_ContentClassName)(IBodyPart *This,BSTR varContentClassName);
       HRESULT (WINAPI *get_Parent)(IBodyPart *This,IBodyPart **varParent);
-      HRESULT (WINAPI *AddBodyPart)(IBodyPart *This,long Index,IBodyPart **ppPart);
+      HRESULT (WINAPI *AddBodyPart)(IBodyPart *This,__LONG32 Index,IBodyPart **ppPart);
       HRESULT (WINAPI *SaveToFile)(IBodyPart *This,BSTR FileName);
       HRESULT (WINAPI *GetEncodedContentStream)(IBodyPart *This,_Stream **ppStream);
       HRESULT (WINAPI *GetDecodedContentStream)(IBodyPart *This,_Stream **ppStream);
@@ -1039,7 +1039,7 @@ extern "C"{
   void __RPC_STUB IBodyPart_put_ContentClassName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IBodyPart_get_Parent_Proxy(IBodyPart *This,IBodyPart **varParent);
   void __RPC_STUB IBodyPart_get_Parent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBodyPart_AddBodyPart_Proxy(IBodyPart *This,long Index,IBodyPart **ppPart);
+  HRESULT WINAPI IBodyPart_AddBodyPart_Proxy(IBodyPart *This,__LONG32 Index,IBodyPart **ppPart);
   void __RPC_STUB IBodyPart_AddBodyPart_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IBodyPart_SaveToFile_Proxy(IBodyPart *This,BSTR FileName);
   void __RPC_STUB IBodyPart_SaveToFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1110,9 +1110,9 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IMessages : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Item(long Index,IMessage **ppMessage) = 0;
-    virtual HRESULT WINAPI get_Count(long *varCount) = 0;
-    virtual HRESULT WINAPI Delete(long Index) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 Index,IMessage **ppMessage) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *varCount) = 0;
+    virtual HRESULT WINAPI Delete(__LONG32 Index) = 0;
     virtual HRESULT WINAPI DeleteAll(void) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **retval) = 0;
     virtual HRESULT WINAPI get_Filename(VARIANT var,BSTR *Filename) = 0;
@@ -1127,9 +1127,9 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IMessages *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IMessages *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IMessages *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Item)(IMessages *This,long Index,IMessage **ppMessage);
-      HRESULT (WINAPI *get_Count)(IMessages *This,long *varCount);
-      HRESULT (WINAPI *Delete)(IMessages *This,long Index);
+      HRESULT (WINAPI *get_Item)(IMessages *This,__LONG32 Index,IMessage **ppMessage);
+      HRESULT (WINAPI *get_Count)(IMessages *This,__LONG32 *varCount);
+      HRESULT (WINAPI *Delete)(IMessages *This,__LONG32 Index);
       HRESULT (WINAPI *DeleteAll)(IMessages *This);
       HRESULT (WINAPI *get__NewEnum)(IMessages *This,IUnknown **retval);
       HRESULT (WINAPI *get_Filename)(IMessages *This,VARIANT var,BSTR *Filename);
@@ -1154,11 +1154,11 @@ extern "C"{
 #define IMessages_get_Filename(This,var,Filename) (This)->lpVtbl->get_Filename(This,var,Filename)
 #endif
 #endif
-  HRESULT WINAPI IMessages_get_Item_Proxy(IMessages *This,long Index,IMessage **ppMessage);
+  HRESULT WINAPI IMessages_get_Item_Proxy(IMessages *This,__LONG32 Index,IMessage **ppMessage);
   void __RPC_STUB IMessages_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMessages_get_Count_Proxy(IMessages *This,long *varCount);
+  HRESULT WINAPI IMessages_get_Count_Proxy(IMessages *This,__LONG32 *varCount);
   void __RPC_STUB IMessages_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMessages_Delete_Proxy(IMessages *This,long Index);
+  HRESULT WINAPI IMessages_Delete_Proxy(IMessages *This,__LONG32 Index);
   void __RPC_STUB IMessages_Delete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMessages_DeleteAll_Proxy(IMessages *This);
   void __RPC_STUB IMessages_DeleteAll_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1213,12 +1213,12 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IBodyParts : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *varCount) = 0;
-    virtual HRESULT WINAPI get_Item(long Index,IBodyPart **ppBody) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *varCount) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 Index,IBodyPart **ppBody) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **retval) = 0;
     virtual HRESULT WINAPI Delete(VARIANT varBP) = 0;
     virtual HRESULT WINAPI DeleteAll(void) = 0;
-    virtual HRESULT WINAPI Add(long Index,IBodyPart **ppPart) = 0;
+    virtual HRESULT WINAPI Add(__LONG32 Index,IBodyPart **ppPart) = 0;
   };
 #else
   typedef struct IBodyPartsVtbl {
@@ -1230,12 +1230,12 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IBodyParts *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IBodyParts *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IBodyParts *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(IBodyParts *This,long *varCount);
-      HRESULT (WINAPI *get_Item)(IBodyParts *This,long Index,IBodyPart **ppBody);
+      HRESULT (WINAPI *get_Count)(IBodyParts *This,__LONG32 *varCount);
+      HRESULT (WINAPI *get_Item)(IBodyParts *This,__LONG32 Index,IBodyPart **ppBody);
       HRESULT (WINAPI *get__NewEnum)(IBodyParts *This,IUnknown **retval);
       HRESULT (WINAPI *Delete)(IBodyParts *This,VARIANT varBP);
       HRESULT (WINAPI *DeleteAll)(IBodyParts *This);
-      HRESULT (WINAPI *Add)(IBodyParts *This,long Index,IBodyPart **ppPart);
+      HRESULT (WINAPI *Add)(IBodyParts *This,__LONG32 Index,IBodyPart **ppPart);
     END_INTERFACE
   } IBodyPartsVtbl;
   struct IBodyParts {
@@ -1257,9 +1257,9 @@ extern "C"{
 #define IBodyParts_Add(This,Index,ppPart) (This)->lpVtbl->Add(This,Index,ppPart)
 #endif
 #endif
-  HRESULT WINAPI IBodyParts_get_Count_Proxy(IBodyParts *This,long *varCount);
+  HRESULT WINAPI IBodyParts_get_Count_Proxy(IBodyParts *This,__LONG32 *varCount);
   void __RPC_STUB IBodyParts_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBodyParts_get_Item_Proxy(IBodyParts *This,long Index,IBodyPart **ppBody);
+  HRESULT WINAPI IBodyParts_get_Item_Proxy(IBodyParts *This,__LONG32 Index,IBodyPart **ppBody);
   void __RPC_STUB IBodyParts_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IBodyParts_get__NewEnum_Proxy(IBodyParts *This,IUnknown **retval);
   void __RPC_STUB IBodyParts_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1267,7 +1267,7 @@ extern "C"{
   void __RPC_STUB IBodyParts_Delete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IBodyParts_DeleteAll_Proxy(IBodyParts *This);
   void __RPC_STUB IBodyParts_DeleteAll_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBodyParts_Add_Proxy(IBodyParts *This,long Index,IBodyPart **ppPart);
+  HRESULT WINAPI IBodyParts_Add_Proxy(IBodyParts *This,__LONG32 Index,IBodyPart **ppPart);
   void __RPC_STUB IBodyParts_Add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1604,7 +1604,7 @@ extern "C"{
   public:
     virtual HRESULT WINAPI GetInterface(BSTR Interface,IDispatch **ppUnknown) = 0;
     virtual HRESULT WINAPI GetStream(_Stream **ppStream) = 0;
-    virtual HRESULT WINAPI get_ChildCount(long *varChildCount) = 0;
+    virtual HRESULT WINAPI get_ChildCount(__LONG32 *varChildCount) = 0;
     virtual HRESULT WINAPI get_Configuration(IConfiguration **pConfiguration) = 0;
     virtual HRESULT WINAPI put_Configuration(IConfiguration *varConfiguration) = 0;
     virtual HRESULT WINAPI putref_Configuration(IConfiguration *varConfiguration) = 0;
@@ -1619,9 +1619,9 @@ extern "C"{
     virtual HRESULT WINAPI put_IsHidden(VARIANT_BOOL varIsHidden) = 0;
     virtual HRESULT WINAPI get_IsStructuredDocument(VARIANT_BOOL *varIsStructuredDocument) = 0;
     virtual HRESULT WINAPI get_LastModified(DATE *varLastModified) = 0;
-    virtual HRESULT WINAPI get_ObjectCount(long *varObjectCount) = 0;
+    virtual HRESULT WINAPI get_ObjectCount(__LONG32 *varObjectCount) = 0;
     virtual HRESULT WINAPI get_ParentURL(BSTR *varParentURL) = 0;
-    virtual HRESULT WINAPI get_VisibleCount(long *varVisibleCount) = 0;
+    virtual HRESULT WINAPI get_VisibleCount(__LONG32 *varVisibleCount) = 0;
   };
 #else
   typedef struct IItemVtbl {
@@ -1635,7 +1635,7 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(IItem *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *GetInterface)(IItem *This,BSTR Interface,IDispatch **ppUnknown);
       HRESULT (WINAPI *GetStream)(IItem *This,_Stream **ppStream);
-      HRESULT (WINAPI *get_ChildCount)(IItem *This,long *varChildCount);
+      HRESULT (WINAPI *get_ChildCount)(IItem *This,__LONG32 *varChildCount);
       HRESULT (WINAPI *get_Configuration)(IItem *This,IConfiguration **pConfiguration);
       HRESULT (WINAPI *put_Configuration)(IItem *This,IConfiguration *varConfiguration);
       HRESULT (WINAPI *putref_Configuration)(IItem *This,IConfiguration *varConfiguration);
@@ -1650,9 +1650,9 @@ extern "C"{
       HRESULT (WINAPI *put_IsHidden)(IItem *This,VARIANT_BOOL varIsHidden);
       HRESULT (WINAPI *get_IsStructuredDocument)(IItem *This,VARIANT_BOOL *varIsStructuredDocument);
       HRESULT (WINAPI *get_LastModified)(IItem *This,DATE *varLastModified);
-      HRESULT (WINAPI *get_ObjectCount)(IItem *This,long *varObjectCount);
+      HRESULT (WINAPI *get_ObjectCount)(IItem *This,__LONG32 *varObjectCount);
       HRESULT (WINAPI *get_ParentURL)(IItem *This,BSTR *varParentURL);
-      HRESULT (WINAPI *get_VisibleCount)(IItem *This,long *varVisibleCount);
+      HRESULT (WINAPI *get_VisibleCount)(IItem *This,__LONG32 *varVisibleCount);
     END_INTERFACE
   } IItemVtbl;
   struct IItem {
@@ -1692,7 +1692,7 @@ extern "C"{
   void __RPC_STUB IItem_GetInterface_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IItem_GetStream_Proxy(IItem *This,_Stream **ppStream);
   void __RPC_STUB IItem_GetStream_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IItem_get_ChildCount_Proxy(IItem *This,long *varChildCount);
+  HRESULT WINAPI IItem_get_ChildCount_Proxy(IItem *This,__LONG32 *varChildCount);
   void __RPC_STUB IItem_get_ChildCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IItem_get_Configuration_Proxy(IItem *This,IConfiguration **pConfiguration);
   void __RPC_STUB IItem_get_Configuration_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1722,11 +1722,11 @@ extern "C"{
   void __RPC_STUB IItem_get_IsStructuredDocument_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IItem_get_LastModified_Proxy(IItem *This,DATE *varLastModified);
   void __RPC_STUB IItem_get_LastModified_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IItem_get_ObjectCount_Proxy(IItem *This,long *varObjectCount);
+  HRESULT WINAPI IItem_get_ObjectCount_Proxy(IItem *This,__LONG32 *varObjectCount);
   void __RPC_STUB IItem_get_ObjectCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IItem_get_ParentURL_Proxy(IItem *This,BSTR *varParentURL);
   void __RPC_STUB IItem_get_ParentURL_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IItem_get_VisibleCount_Proxy(IItem *This,long *varVisibleCount);
+  HRESULT WINAPI IItem_get_VisibleCount_Proxy(IItem *This,__LONG32 *varVisibleCount);
   void __RPC_STUB IItem_get_VisibleCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1753,23 +1753,23 @@ extern "C"{
     virtual HRESULT WINAPI get_EndTime(DATE *pEndTime) = 0;
     virtual HRESULT WINAPI put_EndTime(DATE varEndTime) = 0;
     virtual HRESULT WINAPI get_Exceptions(IExceptions **varExceptions) = 0;
-    virtual HRESULT WINAPI get_Duration(long *pDuration) = 0;
-    virtual HRESULT WINAPI put_Duration(long varDuration) = 0;
+    virtual HRESULT WINAPI get_Duration(__LONG32 *pDuration) = 0;
+    virtual HRESULT WINAPI put_Duration(__LONG32 varDuration) = 0;
     virtual HRESULT WINAPI get_Fields(Fields **varFields) = 0;
     virtual HRESULT WINAPI get_Location(BSTR *pLocation) = 0;
     virtual HRESULT WINAPI put_Location(BSTR varLocation) = 0;
     virtual HRESULT WINAPI get_LocationURL(BSTR *pLocationURL) = 0;
     virtual HRESULT WINAPI put_LocationURL(BSTR varLocationURL) = 0;
-    virtual HRESULT WINAPI get_Priority(long *pPriority) = 0;
-    virtual HRESULT WINAPI put_Priority(long varPriority) = 0;
+    virtual HRESULT WINAPI get_Priority(__LONG32 *pPriority) = 0;
+    virtual HRESULT WINAPI put_Priority(__LONG32 varPriority) = 0;
     virtual HRESULT WINAPI get_ReplyTime(DATE *varReplyTime) = 0;
     virtual HRESULT WINAPI get_Resources(BSTR *pResources) = 0;
     virtual HRESULT WINAPI put_Resources(BSTR varResources) = 0;
     virtual HRESULT WINAPI get_ResponseRequested(VARIANT_BOOL *pResponseRequested) = 0;
     virtual HRESULT WINAPI put_ResponseRequested(VARIANT_BOOL varResponseRequested) = 0;
     virtual HRESULT WINAPI get_RecurrencePatterns(IRecurrencePatterns **varRecurrencePatterns) = 0;
-    virtual HRESULT WINAPI get_Sensitivity(long *pSensitivity) = 0;
-    virtual HRESULT WINAPI put_Sensitivity(long varSensitivity) = 0;
+    virtual HRESULT WINAPI get_Sensitivity(__LONG32 *pSensitivity) = 0;
+    virtual HRESULT WINAPI put_Sensitivity(__LONG32 varSensitivity) = 0;
     virtual HRESULT WINAPI get_StartTime(DATE *pStartTime) = 0;
     virtual HRESULT WINAPI put_StartTime(DATE varStartTime) = 0;
     virtual HRESULT WINAPI get_MeetingStatus(BSTR *pMeetingStatus) = 0;
@@ -1828,23 +1828,23 @@ extern "C"{
       HRESULT (WINAPI *get_EndTime)(IAppointment *This,DATE *pEndTime);
       HRESULT (WINAPI *put_EndTime)(IAppointment *This,DATE varEndTime);
       HRESULT (WINAPI *get_Exceptions)(IAppointment *This,IExceptions **varExceptions);
-      HRESULT (WINAPI *get_Duration)(IAppointment *This,long *pDuration);
-      HRESULT (WINAPI *put_Duration)(IAppointment *This,long varDuration);
+      HRESULT (WINAPI *get_Duration)(IAppointment *This,__LONG32 *pDuration);
+      HRESULT (WINAPI *put_Duration)(IAppointment *This,__LONG32 varDuration);
       HRESULT (WINAPI *get_Fields)(IAppointment *This,Fields **varFields);
       HRESULT (WINAPI *get_Location)(IAppointment *This,BSTR *pLocation);
       HRESULT (WINAPI *put_Location)(IAppointment *This,BSTR varLocation);
       HRESULT (WINAPI *get_LocationURL)(IAppointment *This,BSTR *pLocationURL);
       HRESULT (WINAPI *put_LocationURL)(IAppointment *This,BSTR varLocationURL);
-      HRESULT (WINAPI *get_Priority)(IAppointment *This,long *pPriority);
-      HRESULT (WINAPI *put_Priority)(IAppointment *This,long varPriority);
+      HRESULT (WINAPI *get_Priority)(IAppointment *This,__LONG32 *pPriority);
+      HRESULT (WINAPI *put_Priority)(IAppointment *This,__LONG32 varPriority);
       HRESULT (WINAPI *get_ReplyTime)(IAppointment *This,DATE *varReplyTime);
       HRESULT (WINAPI *get_Resources)(IAppointment *This,BSTR *pResources);
       HRESULT (WINAPI *put_Resources)(IAppointment *This,BSTR varResources);
       HRESULT (WINAPI *get_ResponseRequested)(IAppointment *This,VARIANT_BOOL *pResponseRequested);
       HRESULT (WINAPI *put_ResponseRequested)(IAppointment *This,VARIANT_BOOL varResponseRequested);
       HRESULT (WINAPI *get_RecurrencePatterns)(IAppointment *This,IRecurrencePatterns **varRecurrencePatterns);
-      HRESULT (WINAPI *get_Sensitivity)(IAppointment *This,long *pSensitivity);
-      HRESULT (WINAPI *put_Sensitivity)(IAppointment *This,long varSensitivity);
+      HRESULT (WINAPI *get_Sensitivity)(IAppointment *This,__LONG32 *pSensitivity);
+      HRESULT (WINAPI *put_Sensitivity)(IAppointment *This,__LONG32 varSensitivity);
       HRESULT (WINAPI *get_StartTime)(IAppointment *This,DATE *pStartTime);
       HRESULT (WINAPI *put_StartTime)(IAppointment *This,DATE varStartTime);
       HRESULT (WINAPI *get_MeetingStatus)(IAppointment *This,BSTR *pMeetingStatus);
@@ -1988,9 +1988,9 @@ extern "C"{
   void __RPC_STUB IAppointment_put_EndTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAppointment_get_Exceptions_Proxy(IAppointment *This,IExceptions **varExceptions);
   void __RPC_STUB IAppointment_get_Exceptions_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAppointment_get_Duration_Proxy(IAppointment *This,long *pDuration);
+  HRESULT WINAPI IAppointment_get_Duration_Proxy(IAppointment *This,__LONG32 *pDuration);
   void __RPC_STUB IAppointment_get_Duration_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAppointment_put_Duration_Proxy(IAppointment *This,long varDuration);
+  HRESULT WINAPI IAppointment_put_Duration_Proxy(IAppointment *This,__LONG32 varDuration);
   void __RPC_STUB IAppointment_put_Duration_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAppointment_get_Fields_Proxy(IAppointment *This,Fields **varFields);
   void __RPC_STUB IAppointment_get_Fields_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2002,9 +2002,9 @@ extern "C"{
   void __RPC_STUB IAppointment_get_LocationURL_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAppointment_put_LocationURL_Proxy(IAppointment *This,BSTR varLocationURL);
   void __RPC_STUB IAppointment_put_LocationURL_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAppointment_get_Priority_Proxy(IAppointment *This,long *pPriority);
+  HRESULT WINAPI IAppointment_get_Priority_Proxy(IAppointment *This,__LONG32 *pPriority);
   void __RPC_STUB IAppointment_get_Priority_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAppointment_put_Priority_Proxy(IAppointment *This,long varPriority);
+  HRESULT WINAPI IAppointment_put_Priority_Proxy(IAppointment *This,__LONG32 varPriority);
   void __RPC_STUB IAppointment_put_Priority_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAppointment_get_ReplyTime_Proxy(IAppointment *This,DATE *varReplyTime);
   void __RPC_STUB IAppointment_get_ReplyTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2018,9 +2018,9 @@ extern "C"{
   void __RPC_STUB IAppointment_put_ResponseRequested_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAppointment_get_RecurrencePatterns_Proxy(IAppointment *This,IRecurrencePatterns **varRecurrencePatterns);
   void __RPC_STUB IAppointment_get_RecurrencePatterns_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAppointment_get_Sensitivity_Proxy(IAppointment *This,long *pSensitivity);
+  HRESULT WINAPI IAppointment_get_Sensitivity_Proxy(IAppointment *This,__LONG32 *pSensitivity);
   void __RPC_STUB IAppointment_get_Sensitivity_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAppointment_put_Sensitivity_Proxy(IAppointment *This,long varSensitivity);
+  HRESULT WINAPI IAppointment_put_Sensitivity_Proxy(IAppointment *This,__LONG32 varSensitivity);
   void __RPC_STUB IAppointment_put_Sensitivity_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAppointment_get_StartTime_Proxy(IAppointment *This,DATE *pStartTime);
   void __RPC_STUB IAppointment_get_StartTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2159,10 +2159,10 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IIntegers : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Item(long Index,long *Value) = 0;
-    virtual HRESULT WINAPI get_Count(long *Count) = 0;
-    virtual HRESULT WINAPI Delete(long *Value) = 0;
-    virtual HRESULT WINAPI Add(long NewValue) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 Index,__LONG32 *Value) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *Count) = 0;
+    virtual HRESULT WINAPI Delete(__LONG32 *Value) = 0;
+    virtual HRESULT WINAPI Add(__LONG32 NewValue) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **Unknown) = 0;
   };
 #else
@@ -2175,10 +2175,10 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IIntegers *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IIntegers *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IIntegers *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Item)(IIntegers *This,long Index,long *Value);
-      HRESULT (WINAPI *get_Count)(IIntegers *This,long *Count);
-      HRESULT (WINAPI *Delete)(IIntegers *This,long *Value);
-      HRESULT (WINAPI *Add)(IIntegers *This,long NewValue);
+      HRESULT (WINAPI *get_Item)(IIntegers *This,__LONG32 Index,__LONG32 *Value);
+      HRESULT (WINAPI *get_Count)(IIntegers *This,__LONG32 *Count);
+      HRESULT (WINAPI *Delete)(IIntegers *This,__LONG32 *Value);
+      HRESULT (WINAPI *Add)(IIntegers *This,__LONG32 NewValue);
       HRESULT (WINAPI *get__NewEnum)(IIntegers *This,IUnknown **Unknown);
     END_INTERFACE
   } IIntegersVtbl;
@@ -2200,13 +2200,13 @@ extern "C"{
 #define IIntegers_get__NewEnum(This,Unknown) (This)->lpVtbl->get__NewEnum(This,Unknown)
 #endif
 #endif
-  HRESULT WINAPI IIntegers_get_Item_Proxy(IIntegers *This,long Index,long *Value);
+  HRESULT WINAPI IIntegers_get_Item_Proxy(IIntegers *This,__LONG32 Index,__LONG32 *Value);
   void __RPC_STUB IIntegers_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IIntegers_get_Count_Proxy(IIntegers *This,long *Count);
+  HRESULT WINAPI IIntegers_get_Count_Proxy(IIntegers *This,__LONG32 *Count);
   void __RPC_STUB IIntegers_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IIntegers_Delete_Proxy(IIntegers *This,long *Value);
+  HRESULT WINAPI IIntegers_Delete_Proxy(IIntegers *This,__LONG32 *Value);
   void __RPC_STUB IIntegers_Delete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IIntegers_Add_Proxy(IIntegers *This,long NewValue);
+  HRESULT WINAPI IIntegers_Add_Proxy(IIntegers *This,__LONG32 NewValue);
   void __RPC_STUB IIntegers_Add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IIntegers_get__NewEnum_Proxy(IIntegers *This,IUnknown **Unknown);
   void __RPC_STUB IIntegers_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2218,8 +2218,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IVariants : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Item(long Index,VARIANT *Value) = 0;
-    virtual HRESULT WINAPI get_Count(long *Count) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 Index,VARIANT *Value) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *Count) = 0;
     virtual HRESULT WINAPI Delete(VARIANT *Value) = 0;
     virtual HRESULT WINAPI Add(VARIANT NewValue) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **Unknown) = 0;
@@ -2234,8 +2234,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IVariants *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IVariants *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IVariants *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Item)(IVariants *This,long Index,VARIANT *Value);
-      HRESULT (WINAPI *get_Count)(IVariants *This,long *Count);
+      HRESULT (WINAPI *get_Item)(IVariants *This,__LONG32 Index,VARIANT *Value);
+      HRESULT (WINAPI *get_Count)(IVariants *This,__LONG32 *Count);
       HRESULT (WINAPI *Delete)(IVariants *This,VARIANT *Value);
       HRESULT (WINAPI *Add)(IVariants *This,VARIANT NewValue);
       HRESULT (WINAPI *get__NewEnum)(IVariants *This,IUnknown **Unknown);
@@ -2259,9 +2259,9 @@ extern "C"{
 #define IVariants_get__NewEnum(This,Unknown) (This)->lpVtbl->get__NewEnum(This,Unknown)
 #endif
 #endif
-  HRESULT WINAPI IVariants_get_Item_Proxy(IVariants *This,long Index,VARIANT *Value);
+  HRESULT WINAPI IVariants_get_Item_Proxy(IVariants *This,__LONG32 Index,VARIANT *Value);
   void __RPC_STUB IVariants_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IVariants_get_Count_Proxy(IVariants *This,long *Count);
+  HRESULT WINAPI IVariants_get_Count_Proxy(IVariants *This,__LONG32 *Count);
   void __RPC_STUB IVariants_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IVariants_Delete_Proxy(IVariants *This,VARIANT *Value);
   void __RPC_STUB IVariants_Delete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2277,10 +2277,10 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IRecurrencePattern : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Interval(long *pInterval) = 0;
-    virtual HRESULT WINAPI put_Interval(long varInterval) = 0;
-    virtual HRESULT WINAPI get_Instances(long *pInstances) = 0;
-    virtual HRESULT WINAPI put_Instances(long varInstances) = 0;
+    virtual HRESULT WINAPI get_Interval(__LONG32 *pInterval) = 0;
+    virtual HRESULT WINAPI put_Interval(__LONG32 varInterval) = 0;
+    virtual HRESULT WINAPI get_Instances(__LONG32 *pInstances) = 0;
+    virtual HRESULT WINAPI put_Instances(__LONG32 varInstances) = 0;
     virtual HRESULT WINAPI get_Frequency(CdoFrequency *pFrequency) = 0;
     virtual HRESULT WINAPI put_Frequency(CdoFrequency varFrequency) = 0;
     virtual HRESULT WINAPI get_PatternEndDate(DATE *pPatternEndDate) = 0;
@@ -2311,10 +2311,10 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IRecurrencePattern *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IRecurrencePattern *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IRecurrencePattern *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Interval)(IRecurrencePattern *This,long *pInterval);
-      HRESULT (WINAPI *put_Interval)(IRecurrencePattern *This,long varInterval);
-      HRESULT (WINAPI *get_Instances)(IRecurrencePattern *This,long *pInstances);
-      HRESULT (WINAPI *put_Instances)(IRecurrencePattern *This,long varInstances);
+      HRESULT (WINAPI *get_Interval)(IRecurrencePattern *This,__LONG32 *pInterval);
+      HRESULT (WINAPI *put_Interval)(IRecurrencePattern *This,__LONG32 varInterval);
+      HRESULT (WINAPI *get_Instances)(IRecurrencePattern *This,__LONG32 *pInstances);
+      HRESULT (WINAPI *put_Instances)(IRecurrencePattern *This,__LONG32 varInstances);
       HRESULT (WINAPI *get_Frequency)(IRecurrencePattern *This,CdoFrequency *pFrequency);
       HRESULT (WINAPI *put_Frequency)(IRecurrencePattern *This,CdoFrequency varFrequency);
       HRESULT (WINAPI *get_PatternEndDate)(IRecurrencePattern *This,DATE *pPatternEndDate);
@@ -2372,13 +2372,13 @@ extern "C"{
 #define IRecurrencePattern_get_ByPosition(This,varByPosition) (This)->lpVtbl->get_ByPosition(This,varByPosition)
 #endif
 #endif
-  HRESULT WINAPI IRecurrencePattern_get_Interval_Proxy(IRecurrencePattern *This,long *pInterval);
+  HRESULT WINAPI IRecurrencePattern_get_Interval_Proxy(IRecurrencePattern *This,__LONG32 *pInterval);
   void __RPC_STUB IRecurrencePattern_get_Interval_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IRecurrencePattern_put_Interval_Proxy(IRecurrencePattern *This,long varInterval);
+  HRESULT WINAPI IRecurrencePattern_put_Interval_Proxy(IRecurrencePattern *This,__LONG32 varInterval);
   void __RPC_STUB IRecurrencePattern_put_Interval_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IRecurrencePattern_get_Instances_Proxy(IRecurrencePattern *This,long *pInstances);
+  HRESULT WINAPI IRecurrencePattern_get_Instances_Proxy(IRecurrencePattern *This,__LONG32 *pInstances);
   void __RPC_STUB IRecurrencePattern_get_Instances_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IRecurrencePattern_put_Instances_Proxy(IRecurrencePattern *This,long varInstances);
+  HRESULT WINAPI IRecurrencePattern_put_Instances_Proxy(IRecurrencePattern *This,__LONG32 varInstances);
   void __RPC_STUB IRecurrencePattern_put_Instances_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IRecurrencePattern_get_Frequency_Proxy(IRecurrencePattern *This,CdoFrequency *pFrequency);
   void __RPC_STUB IRecurrencePattern_get_Frequency_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2510,9 +2510,9 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IRecurrencePatterns : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Item(long Index,IRecurrencePattern **RecurrencePattern) = 0;
-    virtual HRESULT WINAPI get_Count(long *Count) = 0;
-    virtual HRESULT WINAPI Delete(long Index) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 Index,IRecurrencePattern **RecurrencePattern) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *Count) = 0;
+    virtual HRESULT WINAPI Delete(__LONG32 Index) = 0;
     virtual HRESULT WINAPI Add(BSTR Type,IRecurrencePattern **RecurrencePattern) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **Unknown) = 0;
   };
@@ -2526,9 +2526,9 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IRecurrencePatterns *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IRecurrencePatterns *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IRecurrencePatterns *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Item)(IRecurrencePatterns *This,long Index,IRecurrencePattern **RecurrencePattern);
-      HRESULT (WINAPI *get_Count)(IRecurrencePatterns *This,long *Count);
-      HRESULT (WINAPI *Delete)(IRecurrencePatterns *This,long Index);
+      HRESULT (WINAPI *get_Item)(IRecurrencePatterns *This,__LONG32 Index,IRecurrencePattern **RecurrencePattern);
+      HRESULT (WINAPI *get_Count)(IRecurrencePatterns *This,__LONG32 *Count);
+      HRESULT (WINAPI *Delete)(IRecurrencePatterns *This,__LONG32 Index);
       HRESULT (WINAPI *Add)(IRecurrencePatterns *This,BSTR Type,IRecurrencePattern **RecurrencePattern);
       HRESULT (WINAPI *get__NewEnum)(IRecurrencePatterns *This,IUnknown **Unknown);
     END_INTERFACE
@@ -2551,11 +2551,11 @@ extern "C"{
 #define IRecurrencePatterns_get__NewEnum(This,Unknown) (This)->lpVtbl->get__NewEnum(This,Unknown)
 #endif
 #endif
-  HRESULT WINAPI IRecurrencePatterns_get_Item_Proxy(IRecurrencePatterns *This,long Index,IRecurrencePattern **RecurrencePattern);
+  HRESULT WINAPI IRecurrencePatterns_get_Item_Proxy(IRecurrencePatterns *This,__LONG32 Index,IRecurrencePattern **RecurrencePattern);
   void __RPC_STUB IRecurrencePatterns_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IRecurrencePatterns_get_Count_Proxy(IRecurrencePatterns *This,long *Count);
+  HRESULT WINAPI IRecurrencePatterns_get_Count_Proxy(IRecurrencePatterns *This,__LONG32 *Count);
   void __RPC_STUB IRecurrencePatterns_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IRecurrencePatterns_Delete_Proxy(IRecurrencePatterns *This,long Index);
+  HRESULT WINAPI IRecurrencePatterns_Delete_Proxy(IRecurrencePatterns *This,__LONG32 Index);
   void __RPC_STUB IRecurrencePatterns_Delete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IRecurrencePatterns_Add_Proxy(IRecurrencePatterns *This,BSTR Type,IRecurrencePattern **RecurrencePattern);
   void __RPC_STUB IRecurrencePatterns_Add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2569,9 +2569,9 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IExceptions : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Item(long Index,IException **Exception) = 0;
-    virtual HRESULT WINAPI get_Count(long *Count) = 0;
-    virtual HRESULT WINAPI Delete(long Index) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 Index,IException **Exception) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *Count) = 0;
+    virtual HRESULT WINAPI Delete(__LONG32 Index) = 0;
     virtual HRESULT WINAPI Add(BSTR Type,IException **Exception) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **Unknown) = 0;
   };
@@ -2585,9 +2585,9 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IExceptions *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IExceptions *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IExceptions *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Item)(IExceptions *This,long Index,IException **Exception);
-      HRESULT (WINAPI *get_Count)(IExceptions *This,long *Count);
-      HRESULT (WINAPI *Delete)(IExceptions *This,long Index);
+      HRESULT (WINAPI *get_Item)(IExceptions *This,__LONG32 Index,IException **Exception);
+      HRESULT (WINAPI *get_Count)(IExceptions *This,__LONG32 *Count);
+      HRESULT (WINAPI *Delete)(IExceptions *This,__LONG32 Index);
       HRESULT (WINAPI *Add)(IExceptions *This,BSTR Type,IException **Exception);
       HRESULT (WINAPI *get__NewEnum)(IExceptions *This,IUnknown **Unknown);
     END_INTERFACE
@@ -2610,11 +2610,11 @@ extern "C"{
 #define IExceptions_get__NewEnum(This,Unknown) (This)->lpVtbl->get__NewEnum(This,Unknown)
 #endif
 #endif
-  HRESULT WINAPI IExceptions_get_Item_Proxy(IExceptions *This,long Index,IException **Exception);
+  HRESULT WINAPI IExceptions_get_Item_Proxy(IExceptions *This,__LONG32 Index,IException **Exception);
   void __RPC_STUB IExceptions_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IExceptions_get_Count_Proxy(IExceptions *This,long *Count);
+  HRESULT WINAPI IExceptions_get_Count_Proxy(IExceptions *This,__LONG32 *Count);
   void __RPC_STUB IExceptions_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IExceptions_Delete_Proxy(IExceptions *This,long Index);
+  HRESULT WINAPI IExceptions_Delete_Proxy(IExceptions *This,__LONG32 Index);
   void __RPC_STUB IExceptions_Delete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IExceptions_Add_Proxy(IExceptions *This,BSTR Type,IException **Exception);
   void __RPC_STUB IExceptions_Add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2697,9 +2697,9 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ICalendarParts : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Item(long Index,ICalendarPart **CalendarPart) = 0;
-    virtual HRESULT WINAPI get_Count(long *Count) = 0;
-    virtual HRESULT WINAPI Delete(long Index) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 Index,ICalendarPart **CalendarPart) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *Count) = 0;
+    virtual HRESULT WINAPI Delete(__LONG32 Index) = 0;
     virtual HRESULT WINAPI Add(IUnknown *CalendarPart,CdoComponentType ComponentType) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **Unknown) = 0;
 
@@ -2714,9 +2714,9 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(ICalendarParts *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ICalendarParts *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ICalendarParts *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Item)(ICalendarParts *This,long Index,ICalendarPart **CalendarPart);
-      HRESULT (WINAPI *get_Count)(ICalendarParts *This,long *Count);
-      HRESULT (WINAPI *Delete)(ICalendarParts *This,long Index);
+      HRESULT (WINAPI *get_Item)(ICalendarParts *This,__LONG32 Index,ICalendarPart **CalendarPart);
+      HRESULT (WINAPI *get_Count)(ICalendarParts *This,__LONG32 *Count);
+      HRESULT (WINAPI *Delete)(ICalendarParts *This,__LONG32 Index);
       HRESULT (WINAPI *Add)(ICalendarParts *This,IUnknown *CalendarPart,CdoComponentType ComponentType);
       HRESULT (WINAPI *get__NewEnum)(ICalendarParts *This,IUnknown **Unknown);
     END_INTERFACE
@@ -2739,11 +2739,11 @@ extern "C"{
 #define ICalendarParts_get__NewEnum(This,Unknown) (This)->lpVtbl->get__NewEnum(This,Unknown)
 #endif
 #endif
-  HRESULT WINAPI ICalendarParts_get_Item_Proxy(ICalendarParts *This,long Index,ICalendarPart **CalendarPart);
+  HRESULT WINAPI ICalendarParts_get_Item_Proxy(ICalendarParts *This,__LONG32 Index,ICalendarPart **CalendarPart);
   void __RPC_STUB ICalendarParts_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICalendarParts_get_Count_Proxy(ICalendarParts *This,long *Count);
+  HRESULT WINAPI ICalendarParts_get_Count_Proxy(ICalendarParts *This,__LONG32 *Count);
   void __RPC_STUB ICalendarParts_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICalendarParts_Delete_Proxy(ICalendarParts *This,long Index);
+  HRESULT WINAPI ICalendarParts_Delete_Proxy(ICalendarParts *This,__LONG32 Index);
   void __RPC_STUB ICalendarParts_Delete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ICalendarParts_Add_Proxy(ICalendarParts *This,IUnknown *CalendarPart,CdoComponentType ComponentType);
   void __RPC_STUB ICalendarParts_Add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2852,9 +2852,9 @@ IAttendee : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAttendees : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Item(long Index,IAttendee **Attendee) = 0;
-    virtual HRESULT WINAPI get_Count(long *Count) = 0;
-    virtual HRESULT WINAPI Delete(long Index) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 Index,IAttendee **Attendee) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *Count) = 0;
+    virtual HRESULT WINAPI Delete(__LONG32 Index) = 0;
     virtual HRESULT WINAPI Add(BSTR Address,IAttendee **Attendee) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **Unknown) = 0;
   };
@@ -2868,9 +2868,9 @@ IAttendee : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IAttendees *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IAttendees *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IAttendees *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Item)(IAttendees *This,long Index,IAttendee **Attendee);
-      HRESULT (WINAPI *get_Count)(IAttendees *This,long *Count);
-      HRESULT (WINAPI *Delete)(IAttendees *This,long Index);
+      HRESULT (WINAPI *get_Item)(IAttendees *This,__LONG32 Index,IAttendee **Attendee);
+      HRESULT (WINAPI *get_Count)(IAttendees *This,__LONG32 *Count);
+      HRESULT (WINAPI *Delete)(IAttendees *This,__LONG32 Index);
       HRESULT (WINAPI *Add)(IAttendees *This,BSTR Address,IAttendee **Attendee);
       HRESULT (WINAPI *get__NewEnum)(IAttendees *This,IUnknown **Unknown);
     END_INTERFACE
@@ -2893,11 +2893,11 @@ IAttendee : public IDispatch {
 #define IAttendees_get__NewEnum(This,Unknown) (This)->lpVtbl->get__NewEnum(This,Unknown)
 #endif
 #endif
-  HRESULT WINAPI IAttendees_get_Item_Proxy(IAttendees *This,long Index,IAttendee **Attendee);
+  HRESULT WINAPI IAttendees_get_Item_Proxy(IAttendees *This,__LONG32 Index,IAttendee **Attendee);
   void __RPC_STUB IAttendees_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAttendees_get_Count_Proxy(IAttendees *This,long *Count);
+  HRESULT WINAPI IAttendees_get_Count_Proxy(IAttendees *This,__LONG32 *Count);
   void __RPC_STUB IAttendees_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAttendees_Delete_Proxy(IAttendees *This,long Index);
+  HRESULT WINAPI IAttendees_Delete_Proxy(IAttendees *This,__LONG32 Index);
   void __RPC_STUB IAttendees_Delete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAttendees_Add_Proxy(IAttendees *This,BSTR Address,IAttendee **Attendee);
   void __RPC_STUB IAttendees_Add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -3119,8 +3119,8 @@ IAttendee : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IContactGroupMembers : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Item(long Index,BSTR *pVal) = 0;
-    virtual HRESULT WINAPI get_Count(long *Count) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 Index,BSTR *pVal) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *Count) = 0;
     virtual HRESULT WINAPI Delete(BSTR *Member) = 0;
     virtual HRESULT WINAPI Add(BSTR val) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **Unknown) = 0;
@@ -3135,8 +3135,8 @@ IAttendee : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IContactGroupMembers *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IContactGroupMembers *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IContactGroupMembers *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Item)(IContactGroupMembers *This,long Index,BSTR *pVal);
-      HRESULT (WINAPI *get_Count)(IContactGroupMembers *This,long *Count);
+      HRESULT (WINAPI *get_Item)(IContactGroupMembers *This,__LONG32 Index,BSTR *pVal);
+      HRESULT (WINAPI *get_Count)(IContactGroupMembers *This,__LONG32 *Count);
       HRESULT (WINAPI *Delete)(IContactGroupMembers *This,BSTR *Member);
       HRESULT (WINAPI *Add)(IContactGroupMembers *This,BSTR val);
       HRESULT (WINAPI *get__NewEnum)(IContactGroupMembers *This,IUnknown **Unknown);
@@ -3160,9 +3160,9 @@ IAttendee : public IDispatch {
 #define IContactGroupMembers_get__NewEnum(This,Unknown) (This)->lpVtbl->get__NewEnum(This,Unknown)
 #endif
 #endif
-  HRESULT WINAPI IContactGroupMembers_get_Item_Proxy(IContactGroupMembers *This,long Index,BSTR *pVal);
+  HRESULT WINAPI IContactGroupMembers_get_Item_Proxy(IContactGroupMembers *This,__LONG32 Index,BSTR *pVal);
   void __RPC_STUB IContactGroupMembers_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IContactGroupMembers_get_Count_Proxy(IContactGroupMembers *This,long *Count);
+  HRESULT WINAPI IContactGroupMembers_get_Count_Proxy(IContactGroupMembers *This,__LONG32 *Count);
   void __RPC_STUB IContactGroupMembers_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IContactGroupMembers_Delete_Proxy(IContactGroupMembers *This,BSTR *Member);
   void __RPC_STUB IContactGroupMembers_Delete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -3607,7 +3607,7 @@ IAttendee : public IDispatch {
     virtual HRESULT WINAPI get_ContentClass(BSTR *varContentClass) = 0;
     virtual HRESULT WINAPI get_AmbiguousNames(IAddressees **varAmbiguousNames) = 0;
     virtual HRESULT WINAPI GetInterface(BSTR Interface,IDispatch **ppUnknown) = 0;
-    virtual HRESULT WINAPI GetFreeBusy(DATE StartTime,DATE EndTime,long Interval,BSTR HTTPHost,BSTR VRoot,BSTR UserName,BSTR Password,BSTR *pbstrRet) = 0;
+    virtual HRESULT WINAPI GetFreeBusy(DATE StartTime,DATE EndTime,__LONG32 Interval,BSTR HTTPHost,BSTR VRoot,BSTR UserName,BSTR Password,BSTR *pbstrRet) = 0;
     virtual HRESULT WINAPI CheckName(BSTR Directory,BSTR UserName,BSTR Password,VARIANT_BOOL *pBRet) = 0;
   };
 #else
@@ -3635,7 +3635,7 @@ IAttendee : public IDispatch {
       HRESULT (WINAPI *get_ContentClass)(IAddressee *This,BSTR *varContentClass);
       HRESULT (WINAPI *get_AmbiguousNames)(IAddressee *This,IAddressees **varAmbiguousNames);
       HRESULT (WINAPI *GetInterface)(IAddressee *This,BSTR Interface,IDispatch **ppUnknown);
-      HRESULT (WINAPI *GetFreeBusy)(IAddressee *This,DATE StartTime,DATE EndTime,long Interval,BSTR HTTPHost,BSTR VRoot,BSTR UserName,BSTR Password,BSTR *pbstrRet);
+      HRESULT (WINAPI *GetFreeBusy)(IAddressee *This,DATE StartTime,DATE EndTime,__LONG32 Interval,BSTR HTTPHost,BSTR VRoot,BSTR UserName,BSTR Password,BSTR *pbstrRet);
       HRESULT (WINAPI *CheckName)(IAddressee *This,BSTR Directory,BSTR UserName,BSTR Password,VARIANT_BOOL *pBRet);
     END_INTERFACE
   } IAddresseeVtbl;
@@ -3699,7 +3699,7 @@ IAttendee : public IDispatch {
   void __RPC_STUB IAddressee_get_AmbiguousNames_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAddressee_GetInterface_Proxy(IAddressee *This,BSTR Interface,IDispatch **ppUnknown);
   void __RPC_STUB IAddressee_GetInterface_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAddressee_GetFreeBusy_Proxy(IAddressee *This,DATE StartTime,DATE EndTime,long Interval,BSTR HTTPHost,BSTR VRoot,BSTR UserName,BSTR Password,BSTR *pbstrRet);
+  HRESULT WINAPI IAddressee_GetFreeBusy_Proxy(IAddressee *This,DATE StartTime,DATE EndTime,__LONG32 Interval,BSTR HTTPHost,BSTR VRoot,BSTR UserName,BSTR Password,BSTR *pbstrRet);
   void __RPC_STUB IAddressee_GetFreeBusy_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAddressee_CheckName_Proxy(IAddressee *This,BSTR Directory,BSTR UserName,BSTR Password,VARIANT_BOOL *pBRet);
   void __RPC_STUB IAddressee_CheckName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -3711,8 +3711,8 @@ IAttendee : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAddressees : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Item(long Index,IAddressee **Value) = 0;
-    virtual HRESULT WINAPI get_Count(long *Count) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 Index,IAddressee **Value) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *Count) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **Unknown) = 0;
   };
 #else
@@ -3725,8 +3725,8 @@ IAttendee : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IAddressees *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IAddressees *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IAddressees *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Item)(IAddressees *This,long Index,IAddressee **Value);
-      HRESULT (WINAPI *get_Count)(IAddressees *This,long *Count);
+      HRESULT (WINAPI *get_Item)(IAddressees *This,__LONG32 Index,IAddressee **Value);
+      HRESULT (WINAPI *get_Count)(IAddressees *This,__LONG32 *Count);
       HRESULT (WINAPI *get__NewEnum)(IAddressees *This,IUnknown **Unknown);
     END_INTERFACE
   } IAddresseesVtbl;
@@ -3746,9 +3746,9 @@ IAttendee : public IDispatch {
 #define IAddressees_get__NewEnum(This,Unknown) (This)->lpVtbl->get__NewEnum(This,Unknown)
 #endif
 #endif
-  HRESULT WINAPI IAddressees_get_Item_Proxy(IAddressees *This,long Index,IAddressee **Value);
+  HRESULT WINAPI IAddressees_get_Item_Proxy(IAddressees *This,__LONG32 Index,IAddressee **Value);
   void __RPC_STUB IAddressees_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAddressees_get_Count_Proxy(IAddressees *This,long *Count);
+  HRESULT WINAPI IAddressees_get_Count_Proxy(IAddressees *This,__LONG32 *Count);
   void __RPC_STUB IAddressees_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAddressees_get__NewEnum_Proxy(IAddressees *This,IUnknown **Unknown);
   void __RPC_STUB IAddressees_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);

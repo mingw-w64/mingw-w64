@@ -95,14 +95,14 @@ extern "C"{
   public:
     virtual HRESULT WINAPI GetCollection(BSTR bstrCollName,IDispatch **ppCatalogCollection) = 0;
     virtual HRESULT WINAPI Connect(BSTR bstrCatalogServerName,IDispatch **ppCatalogCollection) = 0;
-    virtual HRESULT WINAPI get_MajorVersion(long *plMajorVersion) = 0;
-    virtual HRESULT WINAPI get_MinorVersion(long *plMinorVersion) = 0;
+    virtual HRESULT WINAPI get_MajorVersion(__LONG32 *plMajorVersion) = 0;
+    virtual HRESULT WINAPI get_MinorVersion(__LONG32 *plMinorVersion) = 0;
     virtual HRESULT WINAPI GetCollectionByQuery(BSTR bstrCollName,SAFEARRAY **ppsaVarQuery,IDispatch **ppCatalogCollection) = 0;
     virtual HRESULT WINAPI ImportComponent(BSTR bstrApplIDOrName,BSTR bstrCLSIDOrProgID) = 0;
     virtual HRESULT WINAPI InstallComponent(BSTR bstrApplIDOrName,BSTR bstrDLL,BSTR bstrTLB,BSTR bstrPSDLL) = 0;
     virtual HRESULT WINAPI ShutdownApplication(BSTR bstrApplIDOrName) = 0;
-    virtual HRESULT WINAPI ExportApplication(BSTR bstrApplIDOrName,BSTR bstrApplicationFile,long lOptions) = 0;
-    virtual HRESULT WINAPI InstallApplication(BSTR bstrApplicationFile,BSTR bstrDestinationDirectory,long lOptions,BSTR bstrUserId,BSTR bstrPassword,BSTR bstrRSN) = 0;
+    virtual HRESULT WINAPI ExportApplication(BSTR bstrApplIDOrName,BSTR bstrApplicationFile,__LONG32 lOptions) = 0;
+    virtual HRESULT WINAPI InstallApplication(BSTR bstrApplicationFile,BSTR bstrDestinationDirectory,__LONG32 lOptions,BSTR bstrUserId,BSTR bstrPassword,BSTR bstrRSN) = 0;
     virtual HRESULT WINAPI StopRouter(void) = 0;
     virtual HRESULT WINAPI RefreshRouter(void) = 0;
     virtual HRESULT WINAPI StartRouter(void) = 0;
@@ -115,7 +115,7 @@ extern "C"{
     virtual HRESULT WINAPI RestoreREGDB(BSTR bstrBackupFilePath) = 0;
     virtual HRESULT WINAPI QueryApplicationFile(BSTR bstrApplicationFile,BSTR *pbstrApplicationName,BSTR *pbstrApplicationDescription,VARIANT_BOOL *pbHasUsers,VARIANT_BOOL *pbIsProxy,SAFEARRAY **ppsaVarFileNames) = 0;
     virtual HRESULT WINAPI StartApplication(BSTR bstrApplIdOrName) = 0;
-    virtual HRESULT WINAPI ServiceCheck(long lService,long *plStatus) = 0;
+    virtual HRESULT WINAPI ServiceCheck(__LONG32 lService,__LONG32 *plStatus) = 0;
     virtual HRESULT WINAPI InstallMultipleEventClasses(BSTR bstrApplIdOrName,SAFEARRAY **ppsaVarFileNames,SAFEARRAY **ppsaVarCLSIDS) = 0;
     virtual HRESULT WINAPI InstallEventClass(BSTR bstrApplIdOrName,BSTR bstrDLL,BSTR bstrTLB,BSTR bstrPSDLL) = 0;
     virtual HRESULT WINAPI GetEventClassesForIID(BSTR bstrIID,SAFEARRAY **ppsaVarCLSIDs,SAFEARRAY **ppsaVarProgIDs,SAFEARRAY **ppsaVarDescriptions) = 0;
@@ -132,14 +132,14 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(ICOMAdminCatalog *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *GetCollection)(ICOMAdminCatalog *This,BSTR bstrCollName,IDispatch **ppCatalogCollection);
       HRESULT (WINAPI *Connect)(ICOMAdminCatalog *This,BSTR bstrCatalogServerName,IDispatch **ppCatalogCollection);
-      HRESULT (WINAPI *get_MajorVersion)(ICOMAdminCatalog *This,long *plMajorVersion);
-      HRESULT (WINAPI *get_MinorVersion)(ICOMAdminCatalog *This,long *plMinorVersion);
+      HRESULT (WINAPI *get_MajorVersion)(ICOMAdminCatalog *This,__LONG32 *plMajorVersion);
+      HRESULT (WINAPI *get_MinorVersion)(ICOMAdminCatalog *This,__LONG32 *plMinorVersion);
       HRESULT (WINAPI *GetCollectionByQuery)(ICOMAdminCatalog *This,BSTR bstrCollName,SAFEARRAY **ppsaVarQuery,IDispatch **ppCatalogCollection);
       HRESULT (WINAPI *ImportComponent)(ICOMAdminCatalog *This,BSTR bstrApplIDOrName,BSTR bstrCLSIDOrProgID);
       HRESULT (WINAPI *InstallComponent)(ICOMAdminCatalog *This,BSTR bstrApplIDOrName,BSTR bstrDLL,BSTR bstrTLB,BSTR bstrPSDLL);
       HRESULT (WINAPI *ShutdownApplication)(ICOMAdminCatalog *This,BSTR bstrApplIDOrName);
-      HRESULT (WINAPI *ExportApplication)(ICOMAdminCatalog *This,BSTR bstrApplIDOrName,BSTR bstrApplicationFile,long lOptions);
-      HRESULT (WINAPI *InstallApplication)(ICOMAdminCatalog *This,BSTR bstrApplicationFile,BSTR bstrDestinationDirectory,long lOptions,BSTR bstrUserId,BSTR bstrPassword,BSTR bstrRSN);
+      HRESULT (WINAPI *ExportApplication)(ICOMAdminCatalog *This,BSTR bstrApplIDOrName,BSTR bstrApplicationFile,__LONG32 lOptions);
+      HRESULT (WINAPI *InstallApplication)(ICOMAdminCatalog *This,BSTR bstrApplicationFile,BSTR bstrDestinationDirectory,__LONG32 lOptions,BSTR bstrUserId,BSTR bstrPassword,BSTR bstrRSN);
       HRESULT (WINAPI *StopRouter)(ICOMAdminCatalog *This);
       HRESULT (WINAPI *RefreshRouter)(ICOMAdminCatalog *This);
       HRESULT (WINAPI *StartRouter)(ICOMAdminCatalog *This);
@@ -152,7 +152,7 @@ extern "C"{
       HRESULT (WINAPI *RestoreREGDB)(ICOMAdminCatalog *This,BSTR bstrBackupFilePath);
       HRESULT (WINAPI *QueryApplicationFile)(ICOMAdminCatalog *This,BSTR bstrApplicationFile,BSTR *pbstrApplicationName,BSTR *pbstrApplicationDescription,VARIANT_BOOL *pbHasUsers,VARIANT_BOOL *pbIsProxy,SAFEARRAY **ppsaVarFileNames);
       HRESULT (WINAPI *StartApplication)(ICOMAdminCatalog *This,BSTR bstrApplIdOrName);
-      HRESULT (WINAPI *ServiceCheck)(ICOMAdminCatalog *This,long lService,long *plStatus);
+      HRESULT (WINAPI *ServiceCheck)(ICOMAdminCatalog *This,__LONG32 lService,__LONG32 *plStatus);
       HRESULT (WINAPI *InstallMultipleEventClasses)(ICOMAdminCatalog *This,BSTR bstrApplIdOrName,SAFEARRAY **ppsaVarFileNames,SAFEARRAY **ppsaVarCLSIDS);
       HRESULT (WINAPI *InstallEventClass)(ICOMAdminCatalog *This,BSTR bstrApplIdOrName,BSTR bstrDLL,BSTR bstrTLB,BSTR bstrPSDLL);
       HRESULT (WINAPI *GetEventClassesForIID)(ICOMAdminCatalog *This,BSTR bstrIID,SAFEARRAY **ppsaVarCLSIDs,SAFEARRAY **ppsaVarProgIDs,SAFEARRAY **ppsaVarDescriptions);
@@ -201,9 +201,9 @@ extern "C"{
   void __RPC_STUB ICOMAdminCatalog_GetCollection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ICOMAdminCatalog_Connect_Proxy(ICOMAdminCatalog *This,BSTR bstrCatalogServerName,IDispatch **ppCatalogCollection);
   void __RPC_STUB ICOMAdminCatalog_Connect_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICOMAdminCatalog_get_MajorVersion_Proxy(ICOMAdminCatalog *This,long *plMajorVersion);
+  HRESULT WINAPI ICOMAdminCatalog_get_MajorVersion_Proxy(ICOMAdminCatalog *This,__LONG32 *plMajorVersion);
   void __RPC_STUB ICOMAdminCatalog_get_MajorVersion_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICOMAdminCatalog_get_MinorVersion_Proxy(ICOMAdminCatalog *This,long *plMinorVersion);
+  HRESULT WINAPI ICOMAdminCatalog_get_MinorVersion_Proxy(ICOMAdminCatalog *This,__LONG32 *plMinorVersion);
   void __RPC_STUB ICOMAdminCatalog_get_MinorVersion_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ICOMAdminCatalog_GetCollectionByQuery_Proxy(ICOMAdminCatalog *This,BSTR bstrCollName,SAFEARRAY **ppsaVarQuery,IDispatch **ppCatalogCollection);
   void __RPC_STUB ICOMAdminCatalog_GetCollectionByQuery_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -213,9 +213,9 @@ extern "C"{
   void __RPC_STUB ICOMAdminCatalog_InstallComponent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ICOMAdminCatalog_ShutdownApplication_Proxy(ICOMAdminCatalog *This,BSTR bstrApplIDOrName);
   void __RPC_STUB ICOMAdminCatalog_ShutdownApplication_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICOMAdminCatalog_ExportApplication_Proxy(ICOMAdminCatalog *This,BSTR bstrApplIDOrName,BSTR bstrApplicationFile,long lOptions);
+  HRESULT WINAPI ICOMAdminCatalog_ExportApplication_Proxy(ICOMAdminCatalog *This,BSTR bstrApplIDOrName,BSTR bstrApplicationFile,__LONG32 lOptions);
   void __RPC_STUB ICOMAdminCatalog_ExportApplication_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICOMAdminCatalog_InstallApplication_Proxy(ICOMAdminCatalog *This,BSTR bstrApplicationFile,BSTR bstrDestinationDirectory,long lOptions,BSTR bstrUserId,BSTR bstrPassword,BSTR bstrRSN);
+  HRESULT WINAPI ICOMAdminCatalog_InstallApplication_Proxy(ICOMAdminCatalog *This,BSTR bstrApplicationFile,BSTR bstrDestinationDirectory,__LONG32 lOptions,BSTR bstrUserId,BSTR bstrPassword,BSTR bstrRSN);
   void __RPC_STUB ICOMAdminCatalog_InstallApplication_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ICOMAdminCatalog_StopRouter_Proxy(ICOMAdminCatalog *This);
   void __RPC_STUB ICOMAdminCatalog_StopRouter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -241,7 +241,7 @@ extern "C"{
   void __RPC_STUB ICOMAdminCatalog_QueryApplicationFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ICOMAdminCatalog_StartApplication_Proxy(ICOMAdminCatalog *This,BSTR bstrApplIdOrName);
   void __RPC_STUB ICOMAdminCatalog_StartApplication_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICOMAdminCatalog_ServiceCheck_Proxy(ICOMAdminCatalog *This,long lService,long *plStatus);
+  HRESULT WINAPI ICOMAdminCatalog_ServiceCheck_Proxy(ICOMAdminCatalog *This,__LONG32 lService,__LONG32 *plStatus);
   void __RPC_STUB ICOMAdminCatalog_ServiceCheck_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ICOMAdminCatalog_InstallMultipleEventClasses_Proxy(ICOMAdminCatalog *This,BSTR bstrApplIdOrName,SAFEARRAY **ppsaVarFileNames,SAFEARRAY **ppsaVarCLSIDS);
   void __RPC_STUB ICOMAdminCatalog_InstallMultipleEventClasses_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -266,13 +266,13 @@ extern "C"{
   struct ICOMAdminCatalog2 : public ICOMAdminCatalog {
   public:
     virtual HRESULT WINAPI GetCollectionByQuery2(BSTR bstrCollectionName,VARIANT *pVarQueryStrings,IDispatch **ppCatalogCollection) = 0;
-    virtual HRESULT WINAPI GetApplicationInstanceIDFromProcessID(long lProcessID,BSTR *pbstrApplicationInstanceID) = 0;
+    virtual HRESULT WINAPI GetApplicationInstanceIDFromProcessID(__LONG32 lProcessID,BSTR *pbstrApplicationInstanceID) = 0;
     virtual HRESULT WINAPI ShutdownApplicationInstances(VARIANT *pVarApplicationInstanceID) = 0;
     virtual HRESULT WINAPI PauseApplicationInstances(VARIANT *pVarApplicationInstanceID) = 0;
     virtual HRESULT WINAPI ResumeApplicationInstances(VARIANT *pVarApplicationInstanceID) = 0;
-    virtual HRESULT WINAPI RecycleApplicationInstances(VARIANT *pVarApplicationInstanceID,long lReasonCode) = 0;
+    virtual HRESULT WINAPI RecycleApplicationInstances(VARIANT *pVarApplicationInstanceID,__LONG32 lReasonCode) = 0;
     virtual HRESULT WINAPI AreApplicationInstancesPaused(VARIANT *pVarApplicationInstanceID,VARIANT_BOOL *pVarBoolPaused) = 0;
-    virtual HRESULT WINAPI DumpApplicationInstance(BSTR bstrApplicationInstanceID,BSTR bstrDirectory,long lMaxImages,BSTR *pbstrDumpFile) = 0;
+    virtual HRESULT WINAPI DumpApplicationInstance(BSTR bstrApplicationInstanceID,BSTR bstrDirectory,__LONG32 lMaxImages,BSTR *pbstrDumpFile) = 0;
     virtual HRESULT WINAPI get_IsApplicationInstanceDumpSupported(VARIANT_BOOL *pVarBoolDumpSupported) = 0;
     virtual HRESULT WINAPI CreateServiceForApplication(BSTR bstrApplicationIDOrName,BSTR bstrServiceName,BSTR bstrStartType,BSTR bstrErrorControl,BSTR bstrDependencies,BSTR bstrRunAs,BSTR bstrPassword,VARIANT_BOOL bDesktopOk) = 0;
     virtual HRESULT WINAPI DeleteServiceForApplication(BSTR bstrApplicationIDOrName) = 0;
@@ -292,10 +292,10 @@ extern "C"{
     virtual HRESULT WINAPI PromoteUnconfiguredComponents(BSTR bstrApplicationIDOrName,VARIANT *pVarCLSIDOrProgID,VARIANT *pVarComponentType) = 0;
     virtual HRESULT WINAPI ImportComponents(BSTR bstrApplicationIDOrName,VARIANT *pVarCLSIDOrProgID,VARIANT *pVarComponentType) = 0;
     virtual HRESULT WINAPI get_Is64BitCatalogServer(VARIANT_BOOL *pbIs64Bit) = 0;
-    virtual HRESULT WINAPI ExportPartition(BSTR bstrPartitionIDOrName,BSTR bstrPartitionFileName,long lOptions) = 0;
-    virtual HRESULT WINAPI InstallPartition(BSTR bstrFileName,BSTR bstrDestDirectory,long lOptions,BSTR bstrUserID,BSTR bstrPassword,BSTR bstrRSN) = 0;
+    virtual HRESULT WINAPI ExportPartition(BSTR bstrPartitionIDOrName,BSTR bstrPartitionFileName,__LONG32 lOptions) = 0;
+    virtual HRESULT WINAPI InstallPartition(BSTR bstrFileName,BSTR bstrDestDirectory,__LONG32 lOptions,BSTR bstrUserID,BSTR bstrPassword,BSTR bstrRSN) = 0;
     virtual HRESULT WINAPI QueryApplicationFile2(BSTR bstrApplicationFile,IDispatch **ppFilesForImport) = 0;
-    virtual HRESULT WINAPI GetComponentVersionCount(BSTR bstrCLSIDOrProgID,long *plVersionCount) = 0;
+    virtual HRESULT WINAPI GetComponentVersionCount(BSTR bstrCLSIDOrProgID,__LONG32 *plVersionCount) = 0;
   };
 #else
   typedef struct ICOMAdminCatalog2Vtbl {
@@ -309,14 +309,14 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(ICOMAdminCatalog2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *GetCollection)(ICOMAdminCatalog2 *This,BSTR bstrCollName,IDispatch **ppCatalogCollection);
       HRESULT (WINAPI *Connect)(ICOMAdminCatalog2 *This,BSTR bstrCatalogServerName,IDispatch **ppCatalogCollection);
-      HRESULT (WINAPI *get_MajorVersion)(ICOMAdminCatalog2 *This,long *plMajorVersion);
-      HRESULT (WINAPI *get_MinorVersion)(ICOMAdminCatalog2 *This,long *plMinorVersion);
+      HRESULT (WINAPI *get_MajorVersion)(ICOMAdminCatalog2 *This,__LONG32 *plMajorVersion);
+      HRESULT (WINAPI *get_MinorVersion)(ICOMAdminCatalog2 *This,__LONG32 *plMinorVersion);
       HRESULT (WINAPI *GetCollectionByQuery)(ICOMAdminCatalog2 *This,BSTR bstrCollName,SAFEARRAY **ppsaVarQuery,IDispatch **ppCatalogCollection);
       HRESULT (WINAPI *ImportComponent)(ICOMAdminCatalog2 *This,BSTR bstrApplIDOrName,BSTR bstrCLSIDOrProgID);
       HRESULT (WINAPI *InstallComponent)(ICOMAdminCatalog2 *This,BSTR bstrApplIDOrName,BSTR bstrDLL,BSTR bstrTLB,BSTR bstrPSDLL);
       HRESULT (WINAPI *ShutdownApplication)(ICOMAdminCatalog2 *This,BSTR bstrApplIDOrName);
-      HRESULT (WINAPI *ExportApplication)(ICOMAdminCatalog2 *This,BSTR bstrApplIDOrName,BSTR bstrApplicationFile,long lOptions);
-      HRESULT (WINAPI *InstallApplication)(ICOMAdminCatalog2 *This,BSTR bstrApplicationFile,BSTR bstrDestinationDirectory,long lOptions,BSTR bstrUserId,BSTR bstrPassword,BSTR bstrRSN);
+      HRESULT (WINAPI *ExportApplication)(ICOMAdminCatalog2 *This,BSTR bstrApplIDOrName,BSTR bstrApplicationFile,__LONG32 lOptions);
+      HRESULT (WINAPI *InstallApplication)(ICOMAdminCatalog2 *This,BSTR bstrApplicationFile,BSTR bstrDestinationDirectory,__LONG32 lOptions,BSTR bstrUserId,BSTR bstrPassword,BSTR bstrRSN);
       HRESULT (WINAPI *StopRouter)(ICOMAdminCatalog2 *This);
       HRESULT (WINAPI *RefreshRouter)(ICOMAdminCatalog2 *This);
       HRESULT (WINAPI *StartRouter)(ICOMAdminCatalog2 *This);
@@ -329,18 +329,18 @@ extern "C"{
       HRESULT (WINAPI *RestoreREGDB)(ICOMAdminCatalog2 *This,BSTR bstrBackupFilePath);
       HRESULT (WINAPI *QueryApplicationFile)(ICOMAdminCatalog2 *This,BSTR bstrApplicationFile,BSTR *pbstrApplicationName,BSTR *pbstrApplicationDescription,VARIANT_BOOL *pbHasUsers,VARIANT_BOOL *pbIsProxy,SAFEARRAY **ppsaVarFileNames);
       HRESULT (WINAPI *StartApplication)(ICOMAdminCatalog2 *This,BSTR bstrApplIdOrName);
-      HRESULT (WINAPI *ServiceCheck)(ICOMAdminCatalog2 *This,long lService,long *plStatus);
+      HRESULT (WINAPI *ServiceCheck)(ICOMAdminCatalog2 *This,__LONG32 lService,__LONG32 *plStatus);
       HRESULT (WINAPI *InstallMultipleEventClasses)(ICOMAdminCatalog2 *This,BSTR bstrApplIdOrName,SAFEARRAY **ppsaVarFileNames,SAFEARRAY **ppsaVarCLSIDS);
       HRESULT (WINAPI *InstallEventClass)(ICOMAdminCatalog2 *This,BSTR bstrApplIdOrName,BSTR bstrDLL,BSTR bstrTLB,BSTR bstrPSDLL);
       HRESULT (WINAPI *GetEventClassesForIID)(ICOMAdminCatalog2 *This,BSTR bstrIID,SAFEARRAY **ppsaVarCLSIDs,SAFEARRAY **ppsaVarProgIDs,SAFEARRAY **ppsaVarDescriptions);
       HRESULT (WINAPI *GetCollectionByQuery2)(ICOMAdminCatalog2 *This,BSTR bstrCollectionName,VARIANT *pVarQueryStrings,IDispatch **ppCatalogCollection);
-      HRESULT (WINAPI *GetApplicationInstanceIDFromProcessID)(ICOMAdminCatalog2 *This,long lProcessID,BSTR *pbstrApplicationInstanceID);
+      HRESULT (WINAPI *GetApplicationInstanceIDFromProcessID)(ICOMAdminCatalog2 *This,__LONG32 lProcessID,BSTR *pbstrApplicationInstanceID);
       HRESULT (WINAPI *ShutdownApplicationInstances)(ICOMAdminCatalog2 *This,VARIANT *pVarApplicationInstanceID);
       HRESULT (WINAPI *PauseApplicationInstances)(ICOMAdminCatalog2 *This,VARIANT *pVarApplicationInstanceID);
       HRESULT (WINAPI *ResumeApplicationInstances)(ICOMAdminCatalog2 *This,VARIANT *pVarApplicationInstanceID);
-      HRESULT (WINAPI *RecycleApplicationInstances)(ICOMAdminCatalog2 *This,VARIANT *pVarApplicationInstanceID,long lReasonCode);
+      HRESULT (WINAPI *RecycleApplicationInstances)(ICOMAdminCatalog2 *This,VARIANT *pVarApplicationInstanceID,__LONG32 lReasonCode);
       HRESULT (WINAPI *AreApplicationInstancesPaused)(ICOMAdminCatalog2 *This,VARIANT *pVarApplicationInstanceID,VARIANT_BOOL *pVarBoolPaused);
-      HRESULT (WINAPI *DumpApplicationInstance)(ICOMAdminCatalog2 *This,BSTR bstrApplicationInstanceID,BSTR bstrDirectory,long lMaxImages,BSTR *pbstrDumpFile);
+      HRESULT (WINAPI *DumpApplicationInstance)(ICOMAdminCatalog2 *This,BSTR bstrApplicationInstanceID,BSTR bstrDirectory,__LONG32 lMaxImages,BSTR *pbstrDumpFile);
       HRESULT (WINAPI *get_IsApplicationInstanceDumpSupported)(ICOMAdminCatalog2 *This,VARIANT_BOOL *pVarBoolDumpSupported);
       HRESULT (WINAPI *CreateServiceForApplication)(ICOMAdminCatalog2 *This,BSTR bstrApplicationIDOrName,BSTR bstrServiceName,BSTR bstrStartType,BSTR bstrErrorControl,BSTR bstrDependencies,BSTR bstrRunAs,BSTR bstrPassword,VARIANT_BOOL bDesktopOk);
       HRESULT (WINAPI *DeleteServiceForApplication)(ICOMAdminCatalog2 *This,BSTR bstrApplicationIDOrName);
@@ -360,10 +360,10 @@ extern "C"{
       HRESULT (WINAPI *PromoteUnconfiguredComponents)(ICOMAdminCatalog2 *This,BSTR bstrApplicationIDOrName,VARIANT *pVarCLSIDOrProgID,VARIANT *pVarComponentType);
       HRESULT (WINAPI *ImportComponents)(ICOMAdminCatalog2 *This,BSTR bstrApplicationIDOrName,VARIANT *pVarCLSIDOrProgID,VARIANT *pVarComponentType);
       HRESULT (WINAPI *get_Is64BitCatalogServer)(ICOMAdminCatalog2 *This,VARIANT_BOOL *pbIs64Bit);
-      HRESULT (WINAPI *ExportPartition)(ICOMAdminCatalog2 *This,BSTR bstrPartitionIDOrName,BSTR bstrPartitionFileName,long lOptions);
-      HRESULT (WINAPI *InstallPartition)(ICOMAdminCatalog2 *This,BSTR bstrFileName,BSTR bstrDestDirectory,long lOptions,BSTR bstrUserID,BSTR bstrPassword,BSTR bstrRSN);
+      HRESULT (WINAPI *ExportPartition)(ICOMAdminCatalog2 *This,BSTR bstrPartitionIDOrName,BSTR bstrPartitionFileName,__LONG32 lOptions);
+      HRESULT (WINAPI *InstallPartition)(ICOMAdminCatalog2 *This,BSTR bstrFileName,BSTR bstrDestDirectory,__LONG32 lOptions,BSTR bstrUserID,BSTR bstrPassword,BSTR bstrRSN);
       HRESULT (WINAPI *QueryApplicationFile2)(ICOMAdminCatalog2 *This,BSTR bstrApplicationFile,IDispatch **ppFilesForImport);
-      HRESULT (WINAPI *GetComponentVersionCount)(ICOMAdminCatalog2 *This,BSTR bstrCLSIDOrProgID,long *plVersionCount);
+      HRESULT (WINAPI *GetComponentVersionCount)(ICOMAdminCatalog2 *This,BSTR bstrCLSIDOrProgID,__LONG32 *plVersionCount);
     END_INTERFACE
   } ICOMAdminCatalog2Vtbl;
   struct ICOMAdminCatalog2 {
@@ -438,7 +438,7 @@ extern "C"{
 #endif
   HRESULT WINAPI ICOMAdminCatalog2_GetCollectionByQuery2_Proxy(ICOMAdminCatalog2 *This,BSTR bstrCollectionName,VARIANT *pVarQueryStrings,IDispatch **ppCatalogCollection);
   void __RPC_STUB ICOMAdminCatalog2_GetCollectionByQuery2_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICOMAdminCatalog2_GetApplicationInstanceIDFromProcessID_Proxy(ICOMAdminCatalog2 *This,long lProcessID,BSTR *pbstrApplicationInstanceID);
+  HRESULT WINAPI ICOMAdminCatalog2_GetApplicationInstanceIDFromProcessID_Proxy(ICOMAdminCatalog2 *This,__LONG32 lProcessID,BSTR *pbstrApplicationInstanceID);
   void __RPC_STUB ICOMAdminCatalog2_GetApplicationInstanceIDFromProcessID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ICOMAdminCatalog2_ShutdownApplicationInstances_Proxy(ICOMAdminCatalog2 *This,VARIANT *pVarApplicationInstanceID);
   void __RPC_STUB ICOMAdminCatalog2_ShutdownApplicationInstances_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -446,11 +446,11 @@ extern "C"{
   void __RPC_STUB ICOMAdminCatalog2_PauseApplicationInstances_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ICOMAdminCatalog2_ResumeApplicationInstances_Proxy(ICOMAdminCatalog2 *This,VARIANT *pVarApplicationInstanceID);
   void __RPC_STUB ICOMAdminCatalog2_ResumeApplicationInstances_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICOMAdminCatalog2_RecycleApplicationInstances_Proxy(ICOMAdminCatalog2 *This,VARIANT *pVarApplicationInstanceID,long lReasonCode);
+  HRESULT WINAPI ICOMAdminCatalog2_RecycleApplicationInstances_Proxy(ICOMAdminCatalog2 *This,VARIANT *pVarApplicationInstanceID,__LONG32 lReasonCode);
   void __RPC_STUB ICOMAdminCatalog2_RecycleApplicationInstances_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ICOMAdminCatalog2_AreApplicationInstancesPaused_Proxy(ICOMAdminCatalog2 *This,VARIANT *pVarApplicationInstanceID,VARIANT_BOOL *pVarBoolPaused);
   void __RPC_STUB ICOMAdminCatalog2_AreApplicationInstancesPaused_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICOMAdminCatalog2_DumpApplicationInstance_Proxy(ICOMAdminCatalog2 *This,BSTR bstrApplicationInstanceID,BSTR bstrDirectory,long lMaxImages,BSTR *pbstrDumpFile);
+  HRESULT WINAPI ICOMAdminCatalog2_DumpApplicationInstance_Proxy(ICOMAdminCatalog2 *This,BSTR bstrApplicationInstanceID,BSTR bstrDirectory,__LONG32 lMaxImages,BSTR *pbstrDumpFile);
   void __RPC_STUB ICOMAdminCatalog2_DumpApplicationInstance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ICOMAdminCatalog2_get_IsApplicationInstanceDumpSupported_Proxy(ICOMAdminCatalog2 *This,VARIANT_BOOL *pVarBoolDumpSupported);
   void __RPC_STUB ICOMAdminCatalog2_get_IsApplicationInstanceDumpSupported_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -490,13 +490,13 @@ extern "C"{
   void __RPC_STUB ICOMAdminCatalog2_ImportComponents_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ICOMAdminCatalog2_get_Is64BitCatalogServer_Proxy(ICOMAdminCatalog2 *This,VARIANT_BOOL *pbIs64Bit);
   void __RPC_STUB ICOMAdminCatalog2_get_Is64BitCatalogServer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICOMAdminCatalog2_ExportPartition_Proxy(ICOMAdminCatalog2 *This,BSTR bstrPartitionIDOrName,BSTR bstrPartitionFileName,long lOptions);
+  HRESULT WINAPI ICOMAdminCatalog2_ExportPartition_Proxy(ICOMAdminCatalog2 *This,BSTR bstrPartitionIDOrName,BSTR bstrPartitionFileName,__LONG32 lOptions);
   void __RPC_STUB ICOMAdminCatalog2_ExportPartition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICOMAdminCatalog2_InstallPartition_Proxy(ICOMAdminCatalog2 *This,BSTR bstrFileName,BSTR bstrDestDirectory,long lOptions,BSTR bstrUserID,BSTR bstrPassword,BSTR bstrRSN);
+  HRESULT WINAPI ICOMAdminCatalog2_InstallPartition_Proxy(ICOMAdminCatalog2 *This,BSTR bstrFileName,BSTR bstrDestDirectory,__LONG32 lOptions,BSTR bstrUserID,BSTR bstrPassword,BSTR bstrRSN);
   void __RPC_STUB ICOMAdminCatalog2_InstallPartition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ICOMAdminCatalog2_QueryApplicationFile2_Proxy(ICOMAdminCatalog2 *This,BSTR bstrApplicationFile,IDispatch **ppFilesForImport);
   void __RPC_STUB ICOMAdminCatalog2_QueryApplicationFile2_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICOMAdminCatalog2_GetComponentVersionCount_Proxy(ICOMAdminCatalog2 *This,BSTR bstrCLSIDOrProgID,long *plVersionCount);
+  HRESULT WINAPI ICOMAdminCatalog2_GetComponentVersionCount_Proxy(ICOMAdminCatalog2 *This,BSTR bstrCLSIDOrProgID,__LONG32 *plVersionCount);
   void __RPC_STUB ICOMAdminCatalog2_GetComponentVersionCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -576,21 +576,21 @@ extern "C"{
   struct ICatalogCollection : public IDispatch {
   public:
     virtual HRESULT WINAPI get__NewEnum(IUnknown **ppEnumVariant) = 0;
-    virtual HRESULT WINAPI get_Item(long lIndex,IDispatch **ppCatalogObject) = 0;
-    virtual HRESULT WINAPI get_Count(long *plObjectCount) = 0;
-    virtual HRESULT WINAPI Remove(long lIndex) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 lIndex,IDispatch **ppCatalogObject) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *plObjectCount) = 0;
+    virtual HRESULT WINAPI Remove(__LONG32 lIndex) = 0;
     virtual HRESULT WINAPI Add(IDispatch **ppCatalogObject) = 0;
     virtual HRESULT WINAPI Populate(void) = 0;
-    virtual HRESULT WINAPI SaveChanges(long *pcChanges) = 0;
+    virtual HRESULT WINAPI SaveChanges(__LONG32 *pcChanges) = 0;
     virtual HRESULT WINAPI GetCollection(BSTR bstrCollName,VARIANT varObjectKey,IDispatch **ppCatalogCollection) = 0;
     virtual HRESULT WINAPI get_Name(VARIANT *pVarNamel) = 0;
     virtual HRESULT WINAPI get_AddEnabled(VARIANT_BOOL *pVarBool) = 0;
     virtual HRESULT WINAPI get_RemoveEnabled(VARIANT_BOOL *pVarBool) = 0;
     virtual HRESULT WINAPI GetUtilInterface(IDispatch **ppIDispatch) = 0;
-    virtual HRESULT WINAPI get_DataStoreMajorVersion(long *plMajorVersion) = 0;
-    virtual HRESULT WINAPI get_DataStoreMinorVersion(long *plMinorVersionl) = 0;
+    virtual HRESULT WINAPI get_DataStoreMajorVersion(__LONG32 *plMajorVersion) = 0;
+    virtual HRESULT WINAPI get_DataStoreMinorVersion(__LONG32 *plMinorVersionl) = 0;
     virtual HRESULT WINAPI PopulateByKey(SAFEARRAY *psaKeys) = 0;
-    virtual HRESULT WINAPI PopulateByQuery(BSTR bstrQueryString,long lQueryType) = 0;
+    virtual HRESULT WINAPI PopulateByQuery(BSTR bstrQueryString,__LONG32 lQueryType) = 0;
   };
 #else
   typedef struct ICatalogCollectionVtbl {
@@ -603,21 +603,21 @@ extern "C"{
       HRESULT (WINAPI *GetIDsOfNames)(ICatalogCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ICatalogCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get__NewEnum)(ICatalogCollection *This,IUnknown **ppEnumVariant);
-      HRESULT (WINAPI *get_Item)(ICatalogCollection *This,long lIndex,IDispatch **ppCatalogObject);
-      HRESULT (WINAPI *get_Count)(ICatalogCollection *This,long *plObjectCount);
-      HRESULT (WINAPI *Remove)(ICatalogCollection *This,long lIndex);
+      HRESULT (WINAPI *get_Item)(ICatalogCollection *This,__LONG32 lIndex,IDispatch **ppCatalogObject);
+      HRESULT (WINAPI *get_Count)(ICatalogCollection *This,__LONG32 *plObjectCount);
+      HRESULT (WINAPI *Remove)(ICatalogCollection *This,__LONG32 lIndex);
       HRESULT (WINAPI *Add)(ICatalogCollection *This,IDispatch **ppCatalogObject);
       HRESULT (WINAPI *Populate)(ICatalogCollection *This);
-      HRESULT (WINAPI *SaveChanges)(ICatalogCollection *This,long *pcChanges);
+      HRESULT (WINAPI *SaveChanges)(ICatalogCollection *This,__LONG32 *pcChanges);
       HRESULT (WINAPI *GetCollection)(ICatalogCollection *This,BSTR bstrCollName,VARIANT varObjectKey,IDispatch **ppCatalogCollection);
       HRESULT (WINAPI *get_Name)(ICatalogCollection *This,VARIANT *pVarNamel);
       HRESULT (WINAPI *get_AddEnabled)(ICatalogCollection *This,VARIANT_BOOL *pVarBool);
       HRESULT (WINAPI *get_RemoveEnabled)(ICatalogCollection *This,VARIANT_BOOL *pVarBool);
       HRESULT (WINAPI *GetUtilInterface)(ICatalogCollection *This,IDispatch **ppIDispatch);
-      HRESULT (WINAPI *get_DataStoreMajorVersion)(ICatalogCollection *This,long *plMajorVersion);
-      HRESULT (WINAPI *get_DataStoreMinorVersion)(ICatalogCollection *This,long *plMinorVersionl);
+      HRESULT (WINAPI *get_DataStoreMajorVersion)(ICatalogCollection *This,__LONG32 *plMajorVersion);
+      HRESULT (WINAPI *get_DataStoreMinorVersion)(ICatalogCollection *This,__LONG32 *plMinorVersionl);
       HRESULT (WINAPI *PopulateByKey)(ICatalogCollection *This,SAFEARRAY *psaKeys);
-      HRESULT (WINAPI *PopulateByQuery)(ICatalogCollection *This,BSTR bstrQueryString,long lQueryType);
+      HRESULT (WINAPI *PopulateByQuery)(ICatalogCollection *This,BSTR bstrQueryString,__LONG32 lQueryType);
     END_INTERFACE
   } ICatalogCollectionVtbl;
   struct ICatalogCollection {
@@ -651,17 +651,17 @@ extern "C"{
 #endif
   HRESULT WINAPI ICatalogCollection_get__NewEnum_Proxy(ICatalogCollection *This,IUnknown **ppEnumVariant);
   void __RPC_STUB ICatalogCollection_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICatalogCollection_get_Item_Proxy(ICatalogCollection *This,long lIndex,IDispatch **ppCatalogObject);
+  HRESULT WINAPI ICatalogCollection_get_Item_Proxy(ICatalogCollection *This,__LONG32 lIndex,IDispatch **ppCatalogObject);
   void __RPC_STUB ICatalogCollection_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICatalogCollection_get_Count_Proxy(ICatalogCollection *This,long *plObjectCount);
+  HRESULT WINAPI ICatalogCollection_get_Count_Proxy(ICatalogCollection *This,__LONG32 *plObjectCount);
   void __RPC_STUB ICatalogCollection_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICatalogCollection_Remove_Proxy(ICatalogCollection *This,long lIndex);
+  HRESULT WINAPI ICatalogCollection_Remove_Proxy(ICatalogCollection *This,__LONG32 lIndex);
   void __RPC_STUB ICatalogCollection_Remove_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ICatalogCollection_Add_Proxy(ICatalogCollection *This,IDispatch **ppCatalogObject);
   void __RPC_STUB ICatalogCollection_Add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ICatalogCollection_Populate_Proxy(ICatalogCollection *This);
   void __RPC_STUB ICatalogCollection_Populate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICatalogCollection_SaveChanges_Proxy(ICatalogCollection *This,long *pcChanges);
+  HRESULT WINAPI ICatalogCollection_SaveChanges_Proxy(ICatalogCollection *This,__LONG32 *pcChanges);
   void __RPC_STUB ICatalogCollection_SaveChanges_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ICatalogCollection_GetCollection_Proxy(ICatalogCollection *This,BSTR bstrCollName,VARIANT varObjectKey,IDispatch **ppCatalogCollection);
   void __RPC_STUB ICatalogCollection_GetCollection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -673,13 +673,13 @@ extern "C"{
   void __RPC_STUB ICatalogCollection_get_RemoveEnabled_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ICatalogCollection_GetUtilInterface_Proxy(ICatalogCollection *This,IDispatch **ppIDispatch);
   void __RPC_STUB ICatalogCollection_GetUtilInterface_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICatalogCollection_get_DataStoreMajorVersion_Proxy(ICatalogCollection *This,long *plMajorVersion);
+  HRESULT WINAPI ICatalogCollection_get_DataStoreMajorVersion_Proxy(ICatalogCollection *This,__LONG32 *plMajorVersion);
   void __RPC_STUB ICatalogCollection_get_DataStoreMajorVersion_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICatalogCollection_get_DataStoreMinorVersion_Proxy(ICatalogCollection *This,long *plMinorVersionl);
+  HRESULT WINAPI ICatalogCollection_get_DataStoreMinorVersion_Proxy(ICatalogCollection *This,__LONG32 *plMinorVersionl);
   void __RPC_STUB ICatalogCollection_get_DataStoreMinorVersion_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ICatalogCollection_PopulateByKey_Proxy(ICatalogCollection *This,SAFEARRAY *psaKeys);
   void __RPC_STUB ICatalogCollection_PopulateByKey_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICatalogCollection_PopulateByQuery_Proxy(ICatalogCollection *This,BSTR bstrQueryString,long lQueryType);
+  HRESULT WINAPI ICatalogCollection_PopulateByQuery_Proxy(ICatalogCollection *This,BSTR bstrQueryString,__LONG32 lQueryType);
   void __RPC_STUB ICatalogCollection_PopulateByQuery_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
