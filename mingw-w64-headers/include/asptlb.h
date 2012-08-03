@@ -257,7 +257,7 @@ extern "C"{
     virtual HRESULT WINAPI get_ServerVariables(IRequestDictionary **ppDictReturn) = 0;
     virtual HRESULT WINAPI get_ClientCertificate(IRequestDictionary **ppDictReturn) = 0;
     virtual HRESULT WINAPI get_Cookies(IRequestDictionary **ppDictReturn) = 0;
-    virtual HRESULT WINAPI get_TotalBytes(long *pcbTotal) = 0;
+    virtual HRESULT WINAPI get_TotalBytes(__LONG32 *pcbTotal) = 0;
     virtual HRESULT WINAPI BinaryRead(VARIANT *pvarCountToRead,VARIANT *pvarReturn) = 0;
   };
 #else
@@ -277,7 +277,7 @@ extern "C"{
       HRESULT (WINAPI *get_ServerVariables)(IRequest *This,IRequestDictionary **ppDictReturn);
       HRESULT (WINAPI *get_ClientCertificate)(IRequest *This,IRequestDictionary **ppDictReturn);
       HRESULT (WINAPI *get_Cookies)(IRequest *This,IRequestDictionary **ppDictReturn);
-      HRESULT (WINAPI *get_TotalBytes)(IRequest *This,long *pcbTotal);
+      HRESULT (WINAPI *get_TotalBytes)(IRequest *This,__LONG32 *pcbTotal);
       HRESULT (WINAPI *BinaryRead)(IRequest *This,VARIANT *pvarCountToRead,VARIANT *pvarReturn);
     END_INTERFACE
   } IRequestVtbl;
@@ -317,7 +317,7 @@ extern "C"{
   void __RPC_STUB IRequest_get_ClientCertificate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IRequest_get_Cookies_Proxy(IRequest *This,IRequestDictionary **ppDictReturn);
   void __RPC_STUB IRequest_get_Cookies_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IRequest_get_TotalBytes_Proxy(IRequest *This,long *pcbTotal);
+  HRESULT WINAPI IRequest_get_TotalBytes_Proxy(IRequest *This,__LONG32 *pcbTotal);
   void __RPC_STUB IRequest_get_TotalBytes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IRequest_BinaryRead_Proxy(IRequest *This,VARIANT *pvarCountToRead,VARIANT *pvarReturn);
   void __RPC_STUB IRequest_BinaryRead_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -467,7 +467,7 @@ extern "C"{
     virtual HRESULT WINAPI get_ContentType(BSTR *pbstrContentTypeRet) = 0;
     virtual HRESULT WINAPI put_ContentType(BSTR bstrContentType) = 0;
     virtual HRESULT WINAPI get_Expires(VARIANT *pvarExpiresMinutesRet) = 0;
-    virtual HRESULT WINAPI put_Expires(long lExpiresMinutes) = 0;
+    virtual HRESULT WINAPI put_Expires(__LONG32 lExpiresMinutes) = 0;
     virtual HRESULT WINAPI get_ExpiresAbsolute(VARIANT *pvarExpiresRet) = 0;
     virtual HRESULT WINAPI put_ExpiresAbsolute(DATE dtExpires) = 0;
     virtual HRESULT WINAPI get_Cookies(IRequestDictionary **ppCookies) = 0;
@@ -505,7 +505,7 @@ extern "C"{
       HRESULT (WINAPI *get_ContentType)(IResponse *This,BSTR *pbstrContentTypeRet);
       HRESULT (WINAPI *put_ContentType)(IResponse *This,BSTR bstrContentType);
       HRESULT (WINAPI *get_Expires)(IResponse *This,VARIANT *pvarExpiresMinutesRet);
-      HRESULT (WINAPI *put_Expires)(IResponse *This,long lExpiresMinutes);
+      HRESULT (WINAPI *put_Expires)(IResponse *This,__LONG32 lExpiresMinutes);
       HRESULT (WINAPI *get_ExpiresAbsolute)(IResponse *This,VARIANT *pvarExpiresRet);
       HRESULT (WINAPI *put_ExpiresAbsolute)(IResponse *This,DATE dtExpires);
       HRESULT (WINAPI *get_Cookies)(IResponse *This,IRequestDictionary **ppCookies);
@@ -579,7 +579,7 @@ extern "C"{
   void __RPC_STUB IResponse_put_ContentType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IResponse_get_Expires_Proxy(IResponse *This,VARIANT *pvarExpiresMinutesRet);
   void __RPC_STUB IResponse_get_Expires_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IResponse_put_Expires_Proxy(IResponse *This,long lExpiresMinutes);
+  HRESULT WINAPI IResponse_put_Expires_Proxy(IResponse *This,__LONG32 lExpiresMinutes);
   void __RPC_STUB IResponse_put_Expires_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IResponse_get_ExpiresAbsolute_Proxy(IResponse *This,VARIANT *pvarExpiresRet);
   void __RPC_STUB IResponse_get_ExpiresAbsolute_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -714,13 +714,13 @@ extern "C"{
     virtual HRESULT WINAPI get_Value(BSTR bstrValue,VARIANT *pvar) = 0;
     virtual HRESULT WINAPI put_Value(BSTR bstrValue,VARIANT var) = 0;
     virtual HRESULT WINAPI putref_Value(BSTR bstrValue,VARIANT var) = 0;
-    virtual HRESULT WINAPI get_Timeout(long *plvar) = 0;
-    virtual HRESULT WINAPI put_Timeout(long lvar) = 0;
+    virtual HRESULT WINAPI get_Timeout(__LONG32 *plvar) = 0;
+    virtual HRESULT WINAPI put_Timeout(__LONG32 lvar) = 0;
     virtual HRESULT WINAPI Abandon(void) = 0;
-    virtual HRESULT WINAPI get_CodePage(long *plvar) = 0;
-    virtual HRESULT WINAPI put_CodePage(long lvar) = 0;
-    virtual HRESULT WINAPI get_LCID(long *plvar) = 0;
-    virtual HRESULT WINAPI put_LCID(long lvar) = 0;
+    virtual HRESULT WINAPI get_CodePage(__LONG32 *plvar) = 0;
+    virtual HRESULT WINAPI put_CodePage(__LONG32 lvar) = 0;
+    virtual HRESULT WINAPI get_LCID(__LONG32 *plvar) = 0;
+    virtual HRESULT WINAPI put_LCID(__LONG32 lvar) = 0;
     virtual HRESULT WINAPI get_StaticObjects(IVariantDictionary **ppTaggedObjects) = 0;
     virtual HRESULT WINAPI get_Contents(IVariantDictionary **ppProperties) = 0;
   };
@@ -738,13 +738,13 @@ extern "C"{
       HRESULT (WINAPI *get_Value)(ISessionObject *This,BSTR bstrValue,VARIANT *pvar);
       HRESULT (WINAPI *put_Value)(ISessionObject *This,BSTR bstrValue,VARIANT var);
       HRESULT (WINAPI *putref_Value)(ISessionObject *This,BSTR bstrValue,VARIANT var);
-      HRESULT (WINAPI *get_Timeout)(ISessionObject *This,long *plvar);
-      HRESULT (WINAPI *put_Timeout)(ISessionObject *This,long lvar);
+      HRESULT (WINAPI *get_Timeout)(ISessionObject *This,__LONG32 *plvar);
+      HRESULT (WINAPI *put_Timeout)(ISessionObject *This,__LONG32 lvar);
       HRESULT (WINAPI *Abandon)(ISessionObject *This);
-      HRESULT (WINAPI *get_CodePage)(ISessionObject *This,long *plvar);
-      HRESULT (WINAPI *put_CodePage)(ISessionObject *This,long lvar);
-      HRESULT (WINAPI *get_LCID)(ISessionObject *This,long *plvar);
-      HRESULT (WINAPI *put_LCID)(ISessionObject *This,long lvar);
+      HRESULT (WINAPI *get_CodePage)(ISessionObject *This,__LONG32 *plvar);
+      HRESULT (WINAPI *put_CodePage)(ISessionObject *This,__LONG32 lvar);
+      HRESULT (WINAPI *get_LCID)(ISessionObject *This,__LONG32 *plvar);
+      HRESULT (WINAPI *put_LCID)(ISessionObject *This,__LONG32 lvar);
       HRESULT (WINAPI *get_StaticObjects)(ISessionObject *This,IVariantDictionary **ppTaggedObjects);
       HRESULT (WINAPI *get_Contents)(ISessionObject *This,IVariantDictionary **ppProperties);
     END_INTERFACE
@@ -783,19 +783,19 @@ extern "C"{
   void __RPC_STUB ISessionObject_put_Value_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISessionObject_putref_Value_Proxy(ISessionObject *This,BSTR bstrValue,VARIANT var);
   void __RPC_STUB ISessionObject_putref_Value_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISessionObject_get_Timeout_Proxy(ISessionObject *This,long *plvar);
+  HRESULT WINAPI ISessionObject_get_Timeout_Proxy(ISessionObject *This,__LONG32 *plvar);
   void __RPC_STUB ISessionObject_get_Timeout_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISessionObject_put_Timeout_Proxy(ISessionObject *This,long lvar);
+  HRESULT WINAPI ISessionObject_put_Timeout_Proxy(ISessionObject *This,__LONG32 lvar);
   void __RPC_STUB ISessionObject_put_Timeout_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISessionObject_Abandon_Proxy(ISessionObject *This);
   void __RPC_STUB ISessionObject_Abandon_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISessionObject_get_CodePage_Proxy(ISessionObject *This,long *plvar);
+  HRESULT WINAPI ISessionObject_get_CodePage_Proxy(ISessionObject *This,__LONG32 *plvar);
   void __RPC_STUB ISessionObject_get_CodePage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISessionObject_put_CodePage_Proxy(ISessionObject *This,long lvar);
+  HRESULT WINAPI ISessionObject_put_CodePage_Proxy(ISessionObject *This,__LONG32 lvar);
   void __RPC_STUB ISessionObject_put_CodePage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISessionObject_get_LCID_Proxy(ISessionObject *This,long *plvar);
+  HRESULT WINAPI ISessionObject_get_LCID_Proxy(ISessionObject *This,__LONG32 *plvar);
   void __RPC_STUB ISessionObject_get_LCID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISessionObject_put_LCID_Proxy(ISessionObject *This,long lvar);
+  HRESULT WINAPI ISessionObject_put_LCID_Proxy(ISessionObject *This,__LONG32 lvar);
   void __RPC_STUB ISessionObject_put_LCID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISessionObject_get_StaticObjects_Proxy(ISessionObject *This,IVariantDictionary **ppTaggedObjects);
   void __RPC_STUB ISessionObject_get_StaticObjects_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -889,13 +889,13 @@ extern "C"{
   struct IASPError : public IDispatch {
   public:
     virtual HRESULT WINAPI get_ASPCode(BSTR *pbstrASPCode) = 0;
-    virtual HRESULT WINAPI get_Number(long *plNumber) = 0;
+    virtual HRESULT WINAPI get_Number(__LONG32 *plNumber) = 0;
     virtual HRESULT WINAPI get_Category(BSTR *pbstrSource) = 0;
     virtual HRESULT WINAPI get_File(BSTR *pbstrFileName) = 0;
-    virtual HRESULT WINAPI get_Line(long *plLineNumber) = 0;
+    virtual HRESULT WINAPI get_Line(__LONG32 *plLineNumber) = 0;
     virtual HRESULT WINAPI get_Description(BSTR *pbstrDescription) = 0;
     virtual HRESULT WINAPI get_ASPDescription(BSTR *pbstrDescription) = 0;
-    virtual HRESULT WINAPI get_Column(long *plColumn) = 0;
+    virtual HRESULT WINAPI get_Column(__LONG32 *plColumn) = 0;
     virtual HRESULT WINAPI get_Source(BSTR *pbstrLineText) = 0;
   };
 #else
@@ -909,13 +909,13 @@ extern "C"{
       HRESULT (WINAPI *GetIDsOfNames)(IASPError *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IASPError *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_ASPCode)(IASPError *This,BSTR *pbstrASPCode);
-      HRESULT (WINAPI *get_Number)(IASPError *This,long *plNumber);
+      HRESULT (WINAPI *get_Number)(IASPError *This,__LONG32 *plNumber);
       HRESULT (WINAPI *get_Category)(IASPError *This,BSTR *pbstrSource);
       HRESULT (WINAPI *get_File)(IASPError *This,BSTR *pbstrFileName);
-      HRESULT (WINAPI *get_Line)(IASPError *This,long *plLineNumber);
+      HRESULT (WINAPI *get_Line)(IASPError *This,__LONG32 *plLineNumber);
       HRESULT (WINAPI *get_Description)(IASPError *This,BSTR *pbstrDescription);
       HRESULT (WINAPI *get_ASPDescription)(IASPError *This,BSTR *pbstrDescription);
-      HRESULT (WINAPI *get_Column)(IASPError *This,long *plColumn);
+      HRESULT (WINAPI *get_Column)(IASPError *This,__LONG32 *plColumn);
       HRESULT (WINAPI *get_Source)(IASPError *This,BSTR *pbstrLineText);
     END_INTERFACE
   } IASPErrorVtbl;
@@ -943,19 +943,19 @@ extern "C"{
 #endif
   HRESULT WINAPI IASPError_get_ASPCode_Proxy(IASPError *This,BSTR *pbstrASPCode);
   void __RPC_STUB IASPError_get_ASPCode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IASPError_get_Number_Proxy(IASPError *This,long *plNumber);
+  HRESULT WINAPI IASPError_get_Number_Proxy(IASPError *This,__LONG32 *plNumber);
   void __RPC_STUB IASPError_get_Number_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IASPError_get_Category_Proxy(IASPError *This,BSTR *pbstrSource);
   void __RPC_STUB IASPError_get_Category_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IASPError_get_File_Proxy(IASPError *This,BSTR *pbstrFileName);
   void __RPC_STUB IASPError_get_File_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IASPError_get_Line_Proxy(IASPError *This,long *plLineNumber);
+  HRESULT WINAPI IASPError_get_Line_Proxy(IASPError *This,__LONG32 *plLineNumber);
   void __RPC_STUB IASPError_get_Line_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IASPError_get_Description_Proxy(IASPError *This,BSTR *pbstrDescription);
   void __RPC_STUB IASPError_get_Description_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IASPError_get_ASPDescription_Proxy(IASPError *This,BSTR *pbstrDescription);
   void __RPC_STUB IASPError_get_ASPDescription_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IASPError_get_Column_Proxy(IASPError *This,long *plColumn);
+  HRESULT WINAPI IASPError_get_Column_Proxy(IASPError *This,__LONG32 *plColumn);
   void __RPC_STUB IASPError_get_Column_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IASPError_get_Source_Proxy(IASPError *This,BSTR *pbstrLineText);
   void __RPC_STUB IASPError_get_Source_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -967,8 +967,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IServer : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_ScriptTimeout(long *plTimeoutSeconds) = 0;
-    virtual HRESULT WINAPI put_ScriptTimeout(long lTimeoutSeconds) = 0;
+    virtual HRESULT WINAPI get_ScriptTimeout(__LONG32 *plTimeoutSeconds) = 0;
+    virtual HRESULT WINAPI put_ScriptTimeout(__LONG32 lTimeoutSeconds) = 0;
     virtual HRESULT WINAPI CreateObject(BSTR bstrProgID,IDispatch **ppDispObject) = 0;
     virtual HRESULT WINAPI HTMLEncode(BSTR bstrIn,BSTR *pbstrEncoded) = 0;
     virtual HRESULT WINAPI MapPath(BSTR bstrLogicalPath,BSTR *pbstrPhysicalPath) = 0;
@@ -988,8 +988,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IServer *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IServer *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IServer *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_ScriptTimeout)(IServer *This,long *plTimeoutSeconds);
-      HRESULT (WINAPI *put_ScriptTimeout)(IServer *This,long lTimeoutSeconds);
+      HRESULT (WINAPI *get_ScriptTimeout)(IServer *This,__LONG32 *plTimeoutSeconds);
+      HRESULT (WINAPI *put_ScriptTimeout)(IServer *This,__LONG32 lTimeoutSeconds);
       HRESULT (WINAPI *CreateObject)(IServer *This,BSTR bstrProgID,IDispatch **ppDispObject);
       HRESULT (WINAPI *HTMLEncode)(IServer *This,BSTR bstrIn,BSTR *pbstrEncoded);
       HRESULT (WINAPI *MapPath)(IServer *This,BSTR bstrLogicalPath,BSTR *pbstrPhysicalPath);
@@ -1023,9 +1023,9 @@ extern "C"{
 #define IServer_GetLastError(This,ppASPErrorObject) (This)->lpVtbl->GetLastError(This,ppASPErrorObject)
 #endif
 #endif
-  HRESULT WINAPI IServer_get_ScriptTimeout_Proxy(IServer *This,long *plTimeoutSeconds);
+  HRESULT WINAPI IServer_get_ScriptTimeout_Proxy(IServer *This,__LONG32 *plTimeoutSeconds);
   void __RPC_STUB IServer_get_ScriptTimeout_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IServer_put_ScriptTimeout_Proxy(IServer *This,long lTimeoutSeconds);
+  HRESULT WINAPI IServer_put_ScriptTimeout_Proxy(IServer *This,__LONG32 lTimeoutSeconds);
   void __RPC_STUB IServer_put_ScriptTimeout_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IServer_CreateObject_Proxy(IServer *This,BSTR bstrProgID,IDispatch **ppDispObject);
   void __RPC_STUB IServer_CreateObject_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);

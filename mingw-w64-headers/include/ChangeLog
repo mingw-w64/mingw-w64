@@ -1,3 +1,9 @@
+2012-08-03  Corinna Vinschen  <vinschen@redhat.com>
+
+	* agtsvr.h: Change long to __LONG32 where appropriate.
+	* asptlb.h: Ditto.
+	* azroles.h: Ditto.
+
 2012-08-02  Corinna Vinschen  <vinschen@redhat.com>
 
 	* activscp.h: Change long to __LONG32 where appropriate.

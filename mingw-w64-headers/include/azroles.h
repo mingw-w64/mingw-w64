@@ -1098,8 +1098,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IAzApplications : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Item(long Index,VARIANT *pvarObtPtr) = 0;
-    virtual HRESULT WINAPI get_Count(long *plCount) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 Index,VARIANT *pvarObtPtr) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *plCount) = 0;
     virtual HRESULT WINAPI get__NewEnum(LPUNKNOWN *ppEnumPtr) = 0;
   };
 #else
@@ -1112,8 +1112,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IAzApplications *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IAzApplications *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IAzApplications *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Item)(IAzApplications *This,long Index,VARIANT *pvarObtPtr);
-      HRESULT (WINAPI *get_Count)(IAzApplications *This,long *plCount);
+      HRESULT (WINAPI *get_Item)(IAzApplications *This,__LONG32 Index,VARIANT *pvarObtPtr);
+      HRESULT (WINAPI *get_Count)(IAzApplications *This,__LONG32 *plCount);
       HRESULT (WINAPI *get__NewEnum)(IAzApplications *This,LPUNKNOWN *ppEnumPtr);
     END_INTERFACE
   } IAzApplicationsVtbl;
@@ -1133,9 +1133,9 @@ extern "C"{
 #define IAzApplications_get__NewEnum(This,ppEnumPtr) (This)->lpVtbl->get__NewEnum(This,ppEnumPtr)
 #endif
 #endif
-  HRESULT WINAPI IAzApplications_get_Item_Proxy(IAzApplications *This,long Index,VARIANT *pvarObtPtr);
+  HRESULT WINAPI IAzApplications_get_Item_Proxy(IAzApplications *This,__LONG32 Index,VARIANT *pvarObtPtr);
   void __RPC_STUB IAzApplications_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAzApplications_get_Count_Proxy(IAzApplications *This,long *plCount);
+  HRESULT WINAPI IAzApplications_get_Count_Proxy(IAzApplications *This,__LONG32 *plCount);
   void __RPC_STUB IAzApplications_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAzApplications_get__NewEnum_Proxy(IAzApplications *This,LPUNKNOWN *ppEnumPtr);
   void __RPC_STUB IAzApplications_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
