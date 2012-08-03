@@ -526,10 +526,10 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IGPM : public IDispatch {
   public:
-    virtual HRESULT WINAPI GetDomain(BSTR bstrDomain,BSTR bstrDomainController,long lDCFlags,IGPMDomain **pIGPMDomain) = 0;
+    virtual HRESULT WINAPI GetDomain(BSTR bstrDomain,BSTR bstrDomainController,__LONG32 lDCFlags,IGPMDomain **pIGPMDomain) = 0;
     virtual HRESULT WINAPI GetBackupDir(BSTR bstrBackupDir,IGPMBackupDir **pIGPMBackupDir) = 0;
-    virtual HRESULT WINAPI GetSitesContainer(BSTR bstrForest,BSTR bstrDomain,BSTR bstrDomainController,long lDCFlags,IGPMSitesContainer **ppIGPMSitesContainer) = 0;
-    virtual HRESULT WINAPI GetRSOP(GPMRSOPMode gpmRSoPMode,BSTR bstrNamespace,long lFlags,IGPMRSOP **ppIGPMRSOP) = 0;
+    virtual HRESULT WINAPI GetSitesContainer(BSTR bstrForest,BSTR bstrDomain,BSTR bstrDomainController,__LONG32 lDCFlags,IGPMSitesContainer **ppIGPMSitesContainer) = 0;
+    virtual HRESULT WINAPI GetRSOP(GPMRSOPMode gpmRSoPMode,BSTR bstrNamespace,__LONG32 lFlags,IGPMRSOP **ppIGPMRSOP) = 0;
     virtual HRESULT WINAPI CreatePermission(BSTR bstrTrustee,GPMPermissionType perm,VARIANT_BOOL bInheritable,IGPMPermission **ppPerm) = 0;
     virtual HRESULT WINAPI CreateSearchCriteria(IGPMSearchCriteria **ppIGPMSearchCriteria) = 0;
     virtual HRESULT WINAPI CreateTrustee(BSTR bstrTrustee,IGPMTrustee **ppIGPMTrustee) = 0;
@@ -549,10 +549,10 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IGPM *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IGPM *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IGPM *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *GetDomain)(IGPM *This,BSTR bstrDomain,BSTR bstrDomainController,long lDCFlags,IGPMDomain **pIGPMDomain);
+      HRESULT (WINAPI *GetDomain)(IGPM *This,BSTR bstrDomain,BSTR bstrDomainController,__LONG32 lDCFlags,IGPMDomain **pIGPMDomain);
       HRESULT (WINAPI *GetBackupDir)(IGPM *This,BSTR bstrBackupDir,IGPMBackupDir **pIGPMBackupDir);
-      HRESULT (WINAPI *GetSitesContainer)(IGPM *This,BSTR bstrForest,BSTR bstrDomain,BSTR bstrDomainController,long lDCFlags,IGPMSitesContainer **ppIGPMSitesContainer);
-      HRESULT (WINAPI *GetRSOP)(IGPM *This,GPMRSOPMode gpmRSoPMode,BSTR bstrNamespace,long lFlags,IGPMRSOP **ppIGPMRSOP);
+      HRESULT (WINAPI *GetSitesContainer)(IGPM *This,BSTR bstrForest,BSTR bstrDomain,BSTR bstrDomainController,__LONG32 lDCFlags,IGPMSitesContainer **ppIGPMSitesContainer);
+      HRESULT (WINAPI *GetRSOP)(IGPM *This,GPMRSOPMode gpmRSoPMode,BSTR bstrNamespace,__LONG32 lFlags,IGPMRSOP **ppIGPMRSOP);
       HRESULT (WINAPI *CreatePermission)(IGPM *This,BSTR bstrTrustee,GPMPermissionType perm,VARIANT_BOOL bInheritable,IGPMPermission **ppPerm);
       HRESULT (WINAPI *CreateSearchCriteria)(IGPM *This,IGPMSearchCriteria **ppIGPMSearchCriteria);
       HRESULT (WINAPI *CreateTrustee)(IGPM *This,BSTR bstrTrustee,IGPMTrustee **ppIGPMTrustee);
@@ -588,13 +588,13 @@ extern "C"{
 #define IGPM_InitializeReporting(This,bstrAdmPath) (This)->lpVtbl->InitializeReporting(This,bstrAdmPath)
 #endif
 #endif
-  HRESULT WINAPI IGPM_GetDomain_Proxy(IGPM *This,BSTR bstrDomain,BSTR bstrDomainController,long lDCFlags,IGPMDomain **pIGPMDomain);
+  HRESULT WINAPI IGPM_GetDomain_Proxy(IGPM *This,BSTR bstrDomain,BSTR bstrDomainController,__LONG32 lDCFlags,IGPMDomain **pIGPMDomain);
   void __RPC_STUB IGPM_GetDomain_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPM_GetBackupDir_Proxy(IGPM *This,BSTR bstrBackupDir,IGPMBackupDir **pIGPMBackupDir);
   void __RPC_STUB IGPM_GetBackupDir_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPM_GetSitesContainer_Proxy(IGPM *This,BSTR bstrForest,BSTR bstrDomain,BSTR bstrDomainController,long lDCFlags,IGPMSitesContainer **ppIGPMSitesContainer);
+  HRESULT WINAPI IGPM_GetSitesContainer_Proxy(IGPM *This,BSTR bstrForest,BSTR bstrDomain,BSTR bstrDomainController,__LONG32 lDCFlags,IGPMSitesContainer **ppIGPMSitesContainer);
   void __RPC_STUB IGPM_GetSitesContainer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPM_GetRSOP_Proxy(IGPM *This,GPMRSOPMode gpmRSoPMode,BSTR bstrNamespace,long lFlags,IGPMRSOP **ppIGPMRSOP);
+  HRESULT WINAPI IGPM_GetRSOP_Proxy(IGPM *This,GPMRSOPMode gpmRSoPMode,BSTR bstrNamespace,__LONG32 lFlags,IGPMRSOP **ppIGPMRSOP);
   void __RPC_STUB IGPM_GetRSOP_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPM_CreatePermission_Proxy(IGPM *This,BSTR bstrTrustee,GPMPermissionType perm,VARIANT_BOOL bInheritable,IGPMPermission **ppPerm);
   void __RPC_STUB IGPM_CreatePermission_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -625,7 +625,7 @@ extern "C"{
     virtual HRESULT WINAPI CreateGPO(IGPMGPO **ppNewGPO) = 0;
     virtual HRESULT WINAPI GetGPO(BSTR bstrGuid,IGPMGPO **ppGPO) = 0;
     virtual HRESULT WINAPI SearchGPOs(IGPMSearchCriteria *pIGPMSearchCriteria,IGPMGPOCollection **ppIGPMGPOCollection) = 0;
-    virtual HRESULT WINAPI RestoreGPO(IGPMBackup *pIGPMBackup,long lDCFlags,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult) = 0;
+    virtual HRESULT WINAPI RestoreGPO(IGPMBackup *pIGPMBackup,__LONG32 lDCFlags,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult) = 0;
     virtual HRESULT WINAPI GetSOM(BSTR bstrPath,IGPMSOM **ppSOM) = 0;
     virtual HRESULT WINAPI SearchSOMs(IGPMSearchCriteria *pIGPMSearchCriteria,IGPMSOMCollection **ppIGPMSOMCollection) = 0;
     virtual HRESULT WINAPI GetWMIFilter(BSTR bstrPath,IGPMWMIFilter **ppWMIFilter) = 0;
@@ -646,7 +646,7 @@ extern "C"{
       HRESULT (WINAPI *CreateGPO)(IGPMDomain *This,IGPMGPO **ppNewGPO);
       HRESULT (WINAPI *GetGPO)(IGPMDomain *This,BSTR bstrGuid,IGPMGPO **ppGPO);
       HRESULT (WINAPI *SearchGPOs)(IGPMDomain *This,IGPMSearchCriteria *pIGPMSearchCriteria,IGPMGPOCollection **ppIGPMGPOCollection);
-      HRESULT (WINAPI *RestoreGPO)(IGPMDomain *This,IGPMBackup *pIGPMBackup,long lDCFlags,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult);
+      HRESULT (WINAPI *RestoreGPO)(IGPMDomain *This,IGPMBackup *pIGPMBackup,__LONG32 lDCFlags,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult);
       HRESULT (WINAPI *GetSOM)(IGPMDomain *This,BSTR bstrPath,IGPMSOM **ppSOM);
       HRESULT (WINAPI *SearchSOMs)(IGPMDomain *This,IGPMSearchCriteria *pIGPMSearchCriteria,IGPMSOMCollection **ppIGPMSOMCollection);
       HRESULT (WINAPI *GetWMIFilter)(IGPMDomain *This,BSTR bstrPath,IGPMWMIFilter **ppWMIFilter);
@@ -686,7 +686,7 @@ extern "C"{
   void __RPC_STUB IGPMDomain_GetGPO_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMDomain_SearchGPOs_Proxy(IGPMDomain *This,IGPMSearchCriteria *pIGPMSearchCriteria,IGPMGPOCollection **ppIGPMGPOCollection);
   void __RPC_STUB IGPMDomain_SearchGPOs_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMDomain_RestoreGPO_Proxy(IGPMDomain *This,IGPMBackup *pIGPMBackup,long lDCFlags,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult);
+  HRESULT WINAPI IGPMDomain_RestoreGPO_Proxy(IGPMDomain *This,IGPMBackup *pIGPMBackup,__LONG32 lDCFlags,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult);
   void __RPC_STUB IGPMDomain_RestoreGPO_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMDomain_GetSOM_Proxy(IGPMDomain *This,BSTR bstrPath,IGPMSOM **ppSOM);
   void __RPC_STUB IGPMDomain_GetSOM_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -855,7 +855,7 @@ extern "C"{
     virtual HRESULT WINAPI get_TrusteeName(BSTR *bstrVal) = 0;
     virtual HRESULT WINAPI get_TrusteeDomain(BSTR *bstrVal) = 0;
     virtual HRESULT WINAPI get_TrusteeDSPath(BSTR *pVal) = 0;
-    virtual HRESULT WINAPI get_TrusteeType(long *lVal) = 0;
+    virtual HRESULT WINAPI get_TrusteeType(__LONG32 *lVal) = 0;
   };
 #else
   typedef struct IGPMTrusteeVtbl {
@@ -871,7 +871,7 @@ extern "C"{
       HRESULT (WINAPI *get_TrusteeName)(IGPMTrustee *This,BSTR *bstrVal);
       HRESULT (WINAPI *get_TrusteeDomain)(IGPMTrustee *This,BSTR *bstrVal);
       HRESULT (WINAPI *get_TrusteeDSPath)(IGPMTrustee *This,BSTR *pVal);
-      HRESULT (WINAPI *get_TrusteeType)(IGPMTrustee *This,long *lVal);
+      HRESULT (WINAPI *get_TrusteeType)(IGPMTrustee *This,__LONG32 *lVal);
     END_INTERFACE
   } IGPMTrusteeVtbl;
   struct IGPMTrustee {
@@ -900,7 +900,7 @@ extern "C"{
   void __RPC_STUB IGPMTrustee_get_TrusteeDomain_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMTrustee_get_TrusteeDSPath_Proxy(IGPMTrustee *This,BSTR *pVal);
   void __RPC_STUB IGPMTrustee_get_TrusteeDSPath_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMTrustee_get_TrusteeType_Proxy(IGPMTrustee *This,long *lVal);
+  HRESULT WINAPI IGPMTrustee_get_TrusteeType_Proxy(IGPMTrustee *This,__LONG32 *lVal);
   void __RPC_STUB IGPMTrustee_get_TrusteeType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -969,8 +969,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IGPMSecurityInfo : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *pVal) = 0;
-    virtual HRESULT WINAPI get_Item(long lIndex,VARIANT *pVal) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 lIndex,VARIANT *pVal) = 0;
     virtual HRESULT WINAPI get__NewEnum(IEnumVARIANT **ppEnum) = 0;
     virtual HRESULT WINAPI Add(IGPMPermission *pPerm) = 0;
     virtual HRESULT WINAPI Remove(IGPMPermission *pPerm) = 0;
@@ -986,8 +986,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IGPMSecurityInfo *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IGPMSecurityInfo *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IGPMSecurityInfo *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(IGPMSecurityInfo *This,long *pVal);
-      HRESULT (WINAPI *get_Item)(IGPMSecurityInfo *This,long lIndex,VARIANT *pVal);
+      HRESULT (WINAPI *get_Count)(IGPMSecurityInfo *This,__LONG32 *pVal);
+      HRESULT (WINAPI *get_Item)(IGPMSecurityInfo *This,__LONG32 lIndex,VARIANT *pVal);
       HRESULT (WINAPI *get__NewEnum)(IGPMSecurityInfo *This,IEnumVARIANT **ppEnum);
       HRESULT (WINAPI *Add)(IGPMSecurityInfo *This,IGPMPermission *pPerm);
       HRESULT (WINAPI *Remove)(IGPMSecurityInfo *This,IGPMPermission *pPerm);
@@ -1013,9 +1013,9 @@ extern "C"{
 #define IGPMSecurityInfo_RemoveTrustee(This,bstrTrustee) (This)->lpVtbl->RemoveTrustee(This,bstrTrustee)
 #endif
 #endif
-  HRESULT WINAPI IGPMSecurityInfo_get_Count_Proxy(IGPMSecurityInfo *This,long *pVal);
+  HRESULT WINAPI IGPMSecurityInfo_get_Count_Proxy(IGPMSecurityInfo *This,__LONG32 *pVal);
   void __RPC_STUB IGPMSecurityInfo_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMSecurityInfo_get_Item_Proxy(IGPMSecurityInfo *This,long lIndex,VARIANT *pVal);
+  HRESULT WINAPI IGPMSecurityInfo_get_Item_Proxy(IGPMSecurityInfo *This,__LONG32 lIndex,VARIANT *pVal);
   void __RPC_STUB IGPMSecurityInfo_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMSecurityInfo_get__NewEnum_Proxy(IGPMSecurityInfo *This,IEnumVARIANT **ppEnum);
   void __RPC_STUB IGPMSecurityInfo_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1117,8 +1117,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IGPMBackupCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *pVal) = 0;
-    virtual HRESULT WINAPI get_Item(long lIndex,VARIANT *pVal) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 lIndex,VARIANT *pVal) = 0;
     virtual HRESULT WINAPI get__NewEnum(IEnumVARIANT **ppIGPMBackup) = 0;
   };
 #else
@@ -1131,8 +1131,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IGPMBackupCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IGPMBackupCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IGPMBackupCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(IGPMBackupCollection *This,long *pVal);
-      HRESULT (WINAPI *get_Item)(IGPMBackupCollection *This,long lIndex,VARIANT *pVal);
+      HRESULT (WINAPI *get_Count)(IGPMBackupCollection *This,__LONG32 *pVal);
+      HRESULT (WINAPI *get_Item)(IGPMBackupCollection *This,__LONG32 lIndex,VARIANT *pVal);
       HRESULT (WINAPI *get__NewEnum)(IGPMBackupCollection *This,IEnumVARIANT **ppIGPMBackup);
     END_INTERFACE
   } IGPMBackupCollectionVtbl;
@@ -1152,9 +1152,9 @@ extern "C"{
 #define IGPMBackupCollection_get__NewEnum(This,ppIGPMBackup) (This)->lpVtbl->get__NewEnum(This,ppIGPMBackup)
 #endif
 #endif
-  HRESULT WINAPI IGPMBackupCollection_get_Count_Proxy(IGPMBackupCollection *This,long *pVal);
+  HRESULT WINAPI IGPMBackupCollection_get_Count_Proxy(IGPMBackupCollection *This,__LONG32 *pVal);
   void __RPC_STUB IGPMBackupCollection_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMBackupCollection_get_Item_Proxy(IGPMBackupCollection *This,long lIndex,VARIANT *pVal);
+  HRESULT WINAPI IGPMBackupCollection_get_Item_Proxy(IGPMBackupCollection *This,__LONG32 lIndex,VARIANT *pVal);
   void __RPC_STUB IGPMBackupCollection_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMBackupCollection_get__NewEnum_Proxy(IGPMBackupCollection *This,IEnumVARIANT **ppIGPMBackup);
   void __RPC_STUB IGPMBackupCollection_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1174,7 +1174,7 @@ extern "C"{
     virtual HRESULT WINAPI put_GPOInheritanceBlocked(VARIANT_BOOL newVal) = 0;
     virtual HRESULT WINAPI get_Name(BSTR *pVal) = 0;
     virtual HRESULT WINAPI get_Path(BSTR *pVal) = 0;
-    virtual HRESULT WINAPI CreateGPOLink(long lLinkPos,IGPMGPO *pGPO,IGPMGPOLink **ppNewGPOLink) = 0;
+    virtual HRESULT WINAPI CreateGPOLink(__LONG32 lLinkPos,IGPMGPO *pGPO,IGPMGPOLink **ppNewGPOLink) = 0;
     virtual HRESULT WINAPI get_Type(GPMSOMType *pVal) = 0;
     virtual HRESULT WINAPI GetGPOLinks(IGPMGPOLinksCollection **ppGPOLinks) = 0;
     virtual HRESULT WINAPI GetInheritedGPOLinks(IGPMGPOLinksCollection **ppGPOLinks) = 0;
@@ -1195,7 +1195,7 @@ extern "C"{
       HRESULT (WINAPI *put_GPOInheritanceBlocked)(IGPMSOM *This,VARIANT_BOOL newVal);
       HRESULT (WINAPI *get_Name)(IGPMSOM *This,BSTR *pVal);
       HRESULT (WINAPI *get_Path)(IGPMSOM *This,BSTR *pVal);
-      HRESULT (WINAPI *CreateGPOLink)(IGPMSOM *This,long lLinkPos,IGPMGPO *pGPO,IGPMGPOLink **ppNewGPOLink);
+      HRESULT (WINAPI *CreateGPOLink)(IGPMSOM *This,__LONG32 lLinkPos,IGPMGPO *pGPO,IGPMGPOLink **ppNewGPOLink);
       HRESULT (WINAPI *get_Type)(IGPMSOM *This,GPMSOMType *pVal);
       HRESULT (WINAPI *GetGPOLinks)(IGPMSOM *This,IGPMGPOLinksCollection **ppGPOLinks);
       HRESULT (WINAPI *GetInheritedGPOLinks)(IGPMSOM *This,IGPMGPOLinksCollection **ppGPOLinks);
@@ -1234,7 +1234,7 @@ extern "C"{
   void __RPC_STUB IGPMSOM_get_Name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMSOM_get_Path_Proxy(IGPMSOM *This,BSTR *pVal);
   void __RPC_STUB IGPMSOM_get_Path_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMSOM_CreateGPOLink_Proxy(IGPMSOM *This,long lLinkPos,IGPMGPO *pGPO,IGPMGPOLink **ppNewGPOLink);
+  HRESULT WINAPI IGPMSOM_CreateGPOLink_Proxy(IGPMSOM *This,__LONG32 lLinkPos,IGPMGPO *pGPO,IGPMGPOLink **ppNewGPOLink);
   void __RPC_STUB IGPMSOM_CreateGPOLink_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMSOM_get_Type_Proxy(IGPMSOM *This,GPMSOMType *pVal);
   void __RPC_STUB IGPMSOM_get_Type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1254,8 +1254,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IGPMSOMCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *pVal) = 0;
-    virtual HRESULT WINAPI get_Item(long lIndex,VARIANT *pVal) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 lIndex,VARIANT *pVal) = 0;
     virtual HRESULT WINAPI get__NewEnum(IEnumVARIANT **ppIGPMSOM) = 0;
   };
 #else
@@ -1268,8 +1268,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IGPMSOMCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IGPMSOMCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IGPMSOMCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(IGPMSOMCollection *This,long *pVal);
-      HRESULT (WINAPI *get_Item)(IGPMSOMCollection *This,long lIndex,VARIANT *pVal);
+      HRESULT (WINAPI *get_Count)(IGPMSOMCollection *This,__LONG32 *pVal);
+      HRESULT (WINAPI *get_Item)(IGPMSOMCollection *This,__LONG32 lIndex,VARIANT *pVal);
       HRESULT (WINAPI *get__NewEnum)(IGPMSOMCollection *This,IEnumVARIANT **ppIGPMSOM);
     END_INTERFACE
   } IGPMSOMCollectionVtbl;
@@ -1289,9 +1289,9 @@ extern "C"{
 #define IGPMSOMCollection_get__NewEnum(This,ppIGPMSOM) (This)->lpVtbl->get__NewEnum(This,ppIGPMSOM)
 #endif
 #endif
-  HRESULT WINAPI IGPMSOMCollection_get_Count_Proxy(IGPMSOMCollection *This,long *pVal);
+  HRESULT WINAPI IGPMSOMCollection_get_Count_Proxy(IGPMSOMCollection *This,__LONG32 *pVal);
   void __RPC_STUB IGPMSOMCollection_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMSOMCollection_get_Item_Proxy(IGPMSOMCollection *This,long lIndex,VARIANT *pVal);
+  HRESULT WINAPI IGPMSOMCollection_get_Item_Proxy(IGPMSOMCollection *This,__LONG32 lIndex,VARIANT *pVal);
   void __RPC_STUB IGPMSOMCollection_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMSOMCollection_get__NewEnum_Proxy(IGPMSOMCollection *This,IEnumVARIANT **ppIGPMSOM);
   void __RPC_STUB IGPMSOMCollection_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1377,8 +1377,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IGPMWMIFilterCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *pVal) = 0;
-    virtual HRESULT WINAPI get_Item(long lIndex,VARIANT *pVal) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 lIndex,VARIANT *pVal) = 0;
     virtual HRESULT WINAPI get__NewEnum(IEnumVARIANT **pVal) = 0;
   };
 #else
@@ -1391,8 +1391,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IGPMWMIFilterCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IGPMWMIFilterCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IGPMWMIFilterCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(IGPMWMIFilterCollection *This,long *pVal);
-      HRESULT (WINAPI *get_Item)(IGPMWMIFilterCollection *This,long lIndex,VARIANT *pVal);
+      HRESULT (WINAPI *get_Count)(IGPMWMIFilterCollection *This,__LONG32 *pVal);
+      HRESULT (WINAPI *get_Item)(IGPMWMIFilterCollection *This,__LONG32 lIndex,VARIANT *pVal);
       HRESULT (WINAPI *get__NewEnum)(IGPMWMIFilterCollection *This,IEnumVARIANT **pVal);
     END_INTERFACE
   } IGPMWMIFilterCollectionVtbl;
@@ -1412,9 +1412,9 @@ extern "C"{
 #define IGPMWMIFilterCollection_get__NewEnum(This,pVal) (This)->lpVtbl->get__NewEnum(This,pVal)
 #endif
 #endif
-  HRESULT WINAPI IGPMWMIFilterCollection_get_Count_Proxy(IGPMWMIFilterCollection *This,long *pVal);
+  HRESULT WINAPI IGPMWMIFilterCollection_get_Count_Proxy(IGPMWMIFilterCollection *This,__LONG32 *pVal);
   void __RPC_STUB IGPMWMIFilterCollection_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMWMIFilterCollection_get_Item_Proxy(IGPMWMIFilterCollection *This,long lIndex,VARIANT *pVal);
+  HRESULT WINAPI IGPMWMIFilterCollection_get_Item_Proxy(IGPMWMIFilterCollection *This,__LONG32 lIndex,VARIANT *pVal);
   void __RPC_STUB IGPMWMIFilterCollection_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMWMIFilterCollection_get__NewEnum_Proxy(IGPMWMIFilterCollection *This,IEnumVARIANT **pVal);
   void __RPC_STUB IGPMWMIFilterCollection_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1432,10 +1432,10 @@ extern "C"{
     virtual HRESULT WINAPI get_LoggingComputer(BSTR *bstrVal) = 0;
     virtual HRESULT WINAPI put_LoggingUser(BSTR bstrVal) = 0;
     virtual HRESULT WINAPI get_LoggingUser(BSTR *bstrVal) = 0;
-    virtual HRESULT WINAPI put_LoggingFlags(long lVal) = 0;
-    virtual HRESULT WINAPI get_LoggingFlags(long *lVal) = 0;
-    virtual HRESULT WINAPI put_PlanningFlags(long lVal) = 0;
-    virtual HRESULT WINAPI get_PlanningFlags(long *lVal) = 0;
+    virtual HRESULT WINAPI put_LoggingFlags(__LONG32 lVal) = 0;
+    virtual HRESULT WINAPI get_LoggingFlags(__LONG32 *lVal) = 0;
+    virtual HRESULT WINAPI put_PlanningFlags(__LONG32 lVal) = 0;
+    virtual HRESULT WINAPI get_PlanningFlags(__LONG32 *lVal) = 0;
     virtual HRESULT WINAPI put_PlanningDomainController(BSTR bstrVal) = 0;
     virtual HRESULT WINAPI get_PlanningDomainController(BSTR *bstrVal) = 0;
     virtual HRESULT WINAPI put_PlanningSiteName(BSTR bstrVal) = 0;
@@ -1478,10 +1478,10 @@ extern "C"{
       HRESULT (WINAPI *get_LoggingComputer)(IGPMRSOP *This,BSTR *bstrVal);
       HRESULT (WINAPI *put_LoggingUser)(IGPMRSOP *This,BSTR bstrVal);
       HRESULT (WINAPI *get_LoggingUser)(IGPMRSOP *This,BSTR *bstrVal);
-      HRESULT (WINAPI *put_LoggingFlags)(IGPMRSOP *This,long lVal);
-      HRESULT (WINAPI *get_LoggingFlags)(IGPMRSOP *This,long *lVal);
-      HRESULT (WINAPI *put_PlanningFlags)(IGPMRSOP *This,long lVal);
-      HRESULT (WINAPI *get_PlanningFlags)(IGPMRSOP *This,long *lVal);
+      HRESULT (WINAPI *put_LoggingFlags)(IGPMRSOP *This,__LONG32 lVal);
+      HRESULT (WINAPI *get_LoggingFlags)(IGPMRSOP *This,__LONG32 *lVal);
+      HRESULT (WINAPI *put_PlanningFlags)(IGPMRSOP *This,__LONG32 lVal);
+      HRESULT (WINAPI *get_PlanningFlags)(IGPMRSOP *This,__LONG32 *lVal);
       HRESULT (WINAPI *put_PlanningDomainController)(IGPMRSOP *This,BSTR bstrVal);
       HRESULT (WINAPI *get_PlanningDomainController)(IGPMRSOP *This,BSTR *bstrVal);
       HRESULT (WINAPI *put_PlanningSiteName)(IGPMRSOP *This,BSTR bstrVal);
@@ -1569,13 +1569,13 @@ extern "C"{
   void __RPC_STUB IGPMRSOP_put_LoggingUser_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMRSOP_get_LoggingUser_Proxy(IGPMRSOP *This,BSTR *bstrVal);
   void __RPC_STUB IGPMRSOP_get_LoggingUser_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMRSOP_put_LoggingFlags_Proxy(IGPMRSOP *This,long lVal);
+  HRESULT WINAPI IGPMRSOP_put_LoggingFlags_Proxy(IGPMRSOP *This,__LONG32 lVal);
   void __RPC_STUB IGPMRSOP_put_LoggingFlags_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMRSOP_get_LoggingFlags_Proxy(IGPMRSOP *This,long *lVal);
+  HRESULT WINAPI IGPMRSOP_get_LoggingFlags_Proxy(IGPMRSOP *This,__LONG32 *lVal);
   void __RPC_STUB IGPMRSOP_get_LoggingFlags_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMRSOP_put_PlanningFlags_Proxy(IGPMRSOP *This,long lVal);
+  HRESULT WINAPI IGPMRSOP_put_PlanningFlags_Proxy(IGPMRSOP *This,__LONG32 lVal);
   void __RPC_STUB IGPMRSOP_put_PlanningFlags_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMRSOP_get_PlanningFlags_Proxy(IGPMRSOP *This,long *lVal);
+  HRESULT WINAPI IGPMRSOP_get_PlanningFlags_Proxy(IGPMRSOP *This,__LONG32 *lVal);
   void __RPC_STUB IGPMRSOP_get_PlanningFlags_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMRSOP_put_PlanningDomainController_Proxy(IGPMRSOP *This,BSTR bstrVal);
   void __RPC_STUB IGPMRSOP_put_PlanningDomainController_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1642,10 +1642,10 @@ extern "C"{
     virtual HRESULT WINAPI get_DomainName(BSTR *pVal) = 0;
     virtual HRESULT WINAPI get_CreationTime(DATE *pDate) = 0;
     virtual HRESULT WINAPI get_ModificationTime(DATE *pDate) = 0;
-    virtual HRESULT WINAPI get_UserDSVersionNumber(long *pVal) = 0;
-    virtual HRESULT WINAPI get_ComputerDSVersionNumber(long *pVal) = 0;
-    virtual HRESULT WINAPI get_UserSysvolVersionNumber(long *pVal) = 0;
-    virtual HRESULT WINAPI get_ComputerSysvolVersionNumber(long *pVal) = 0;
+    virtual HRESULT WINAPI get_UserDSVersionNumber(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_ComputerDSVersionNumber(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_UserSysvolVersionNumber(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_ComputerSysvolVersionNumber(__LONG32 *pVal) = 0;
     virtual HRESULT WINAPI GetWMIFilter(IGPMWMIFilter **ppIGPMWMIFilter) = 0;
     virtual HRESULT WINAPI SetWMIFilter(IGPMWMIFilter *pIGPMWMIFilter) = 0;
     virtual HRESULT WINAPI SetUserEnabled(VARIANT_BOOL vbEnabled) = 0;
@@ -1656,12 +1656,12 @@ extern "C"{
     virtual HRESULT WINAPI SetSecurityInfo(IGPMSecurityInfo *pSecurityInfo) = 0;
     virtual HRESULT WINAPI Delete(void) = 0;
     virtual HRESULT WINAPI Backup(BSTR bstrBackupDir,BSTR bstrComment,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult) = 0;
-    virtual HRESULT WINAPI Import(long lFlags,IGPMBackup *pIGPMBackup,VARIANT *pvarMigrationTable,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult) = 0;
+    virtual HRESULT WINAPI Import(__LONG32 lFlags,IGPMBackup *pIGPMBackup,VARIANT *pvarMigrationTable,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult) = 0;
     virtual HRESULT WINAPI GenerateReport(GPMReportType gpmReportType,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult) = 0;
     virtual HRESULT WINAPI GenerateReportToFile(GPMReportType gpmReportType,BSTR bstrTargetFilePath,IGPMResult **ppIGPMResult) = 0;
-    virtual HRESULT WINAPI CopyTo(long lFlags,IGPMDomain *pIGPMDomain,VARIANT *pvarNewDisplayName,VARIANT *pvarMigrationTable,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult) = 0;
-    virtual HRESULT WINAPI SetSecurityDescriptor(long lFlags,IDispatch *pSD) = 0;
-    virtual HRESULT WINAPI GetSecurityDescriptor(long lFlags,IDispatch **ppSD) = 0;
+    virtual HRESULT WINAPI CopyTo(__LONG32 lFlags,IGPMDomain *pIGPMDomain,VARIANT *pvarNewDisplayName,VARIANT *pvarMigrationTable,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult) = 0;
+    virtual HRESULT WINAPI SetSecurityDescriptor(__LONG32 lFlags,IDispatch *pSD) = 0;
+    virtual HRESULT WINAPI GetSecurityDescriptor(__LONG32 lFlags,IDispatch **ppSD) = 0;
     virtual HRESULT WINAPI IsACLConsistent(VARIANT_BOOL *pvbConsistent) = 0;
     virtual HRESULT WINAPI MakeACLConsistent(void) = 0;
   };
@@ -1682,10 +1682,10 @@ extern "C"{
       HRESULT (WINAPI *get_DomainName)(IGPMGPO *This,BSTR *pVal);
       HRESULT (WINAPI *get_CreationTime)(IGPMGPO *This,DATE *pDate);
       HRESULT (WINAPI *get_ModificationTime)(IGPMGPO *This,DATE *pDate);
-      HRESULT (WINAPI *get_UserDSVersionNumber)(IGPMGPO *This,long *pVal);
-      HRESULT (WINAPI *get_ComputerDSVersionNumber)(IGPMGPO *This,long *pVal);
-      HRESULT (WINAPI *get_UserSysvolVersionNumber)(IGPMGPO *This,long *pVal);
-      HRESULT (WINAPI *get_ComputerSysvolVersionNumber)(IGPMGPO *This,long *pVal);
+      HRESULT (WINAPI *get_UserDSVersionNumber)(IGPMGPO *This,__LONG32 *pVal);
+      HRESULT (WINAPI *get_ComputerDSVersionNumber)(IGPMGPO *This,__LONG32 *pVal);
+      HRESULT (WINAPI *get_UserSysvolVersionNumber)(IGPMGPO *This,__LONG32 *pVal);
+      HRESULT (WINAPI *get_ComputerSysvolVersionNumber)(IGPMGPO *This,__LONG32 *pVal);
       HRESULT (WINAPI *GetWMIFilter)(IGPMGPO *This,IGPMWMIFilter **ppIGPMWMIFilter);
       HRESULT (WINAPI *SetWMIFilter)(IGPMGPO *This,IGPMWMIFilter *pIGPMWMIFilter);
       HRESULT (WINAPI *SetUserEnabled)(IGPMGPO *This,VARIANT_BOOL vbEnabled);
@@ -1696,12 +1696,12 @@ extern "C"{
       HRESULT (WINAPI *SetSecurityInfo)(IGPMGPO *This,IGPMSecurityInfo *pSecurityInfo);
       HRESULT (WINAPI *Delete)(IGPMGPO *This);
       HRESULT (WINAPI *Backup)(IGPMGPO *This,BSTR bstrBackupDir,BSTR bstrComment,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult);
-      HRESULT (WINAPI *Import)(IGPMGPO *This,long lFlags,IGPMBackup *pIGPMBackup,VARIANT *pvarMigrationTable,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult);
+      HRESULT (WINAPI *Import)(IGPMGPO *This,__LONG32 lFlags,IGPMBackup *pIGPMBackup,VARIANT *pvarMigrationTable,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult);
       HRESULT (WINAPI *GenerateReport)(IGPMGPO *This,GPMReportType gpmReportType,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult);
       HRESULT (WINAPI *GenerateReportToFile)(IGPMGPO *This,GPMReportType gpmReportType,BSTR bstrTargetFilePath,IGPMResult **ppIGPMResult);
-      HRESULT (WINAPI *CopyTo)(IGPMGPO *This,long lFlags,IGPMDomain *pIGPMDomain,VARIANT *pvarNewDisplayName,VARIANT *pvarMigrationTable,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult);
-      HRESULT (WINAPI *SetSecurityDescriptor)(IGPMGPO *This,long lFlags,IDispatch *pSD);
-      HRESULT (WINAPI *GetSecurityDescriptor)(IGPMGPO *This,long lFlags,IDispatch **ppSD);
+      HRESULT (WINAPI *CopyTo)(IGPMGPO *This,__LONG32 lFlags,IGPMDomain *pIGPMDomain,VARIANT *pvarNewDisplayName,VARIANT *pvarMigrationTable,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult);
+      HRESULT (WINAPI *SetSecurityDescriptor)(IGPMGPO *This,__LONG32 lFlags,IDispatch *pSD);
+      HRESULT (WINAPI *GetSecurityDescriptor)(IGPMGPO *This,__LONG32 lFlags,IDispatch **ppSD);
       HRESULT (WINAPI *IsACLConsistent)(IGPMGPO *This,VARIANT_BOOL *pvbConsistent);
       HRESULT (WINAPI *MakeACLConsistent)(IGPMGPO *This);
     END_INTERFACE
@@ -1762,13 +1762,13 @@ extern "C"{
   void __RPC_STUB IGPMGPO_get_CreationTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMGPO_get_ModificationTime_Proxy(IGPMGPO *This,DATE *pDate);
   void __RPC_STUB IGPMGPO_get_ModificationTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMGPO_get_UserDSVersionNumber_Proxy(IGPMGPO *This,long *pVal);
+  HRESULT WINAPI IGPMGPO_get_UserDSVersionNumber_Proxy(IGPMGPO *This,__LONG32 *pVal);
   void __RPC_STUB IGPMGPO_get_UserDSVersionNumber_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMGPO_get_ComputerDSVersionNumber_Proxy(IGPMGPO *This,long *pVal);
+  HRESULT WINAPI IGPMGPO_get_ComputerDSVersionNumber_Proxy(IGPMGPO *This,__LONG32 *pVal);
   void __RPC_STUB IGPMGPO_get_ComputerDSVersionNumber_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMGPO_get_UserSysvolVersionNumber_Proxy(IGPMGPO *This,long *pVal);
+  HRESULT WINAPI IGPMGPO_get_UserSysvolVersionNumber_Proxy(IGPMGPO *This,__LONG32 *pVal);
   void __RPC_STUB IGPMGPO_get_UserSysvolVersionNumber_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMGPO_get_ComputerSysvolVersionNumber_Proxy(IGPMGPO *This,long *pVal);
+  HRESULT WINAPI IGPMGPO_get_ComputerSysvolVersionNumber_Proxy(IGPMGPO *This,__LONG32 *pVal);
   void __RPC_STUB IGPMGPO_get_ComputerSysvolVersionNumber_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMGPO_GetWMIFilter_Proxy(IGPMGPO *This,IGPMWMIFilter **ppIGPMWMIFilter);
   void __RPC_STUB IGPMGPO_GetWMIFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1790,17 +1790,17 @@ extern "C"{
   void __RPC_STUB IGPMGPO_Delete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMGPO_Backup_Proxy(IGPMGPO *This,BSTR bstrBackupDir,BSTR bstrComment,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult);
   void __RPC_STUB IGPMGPO_Backup_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMGPO_Import_Proxy(IGPMGPO *This,long lFlags,IGPMBackup *pIGPMBackup,VARIANT *pvarMigrationTable,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult);
+  HRESULT WINAPI IGPMGPO_Import_Proxy(IGPMGPO *This,__LONG32 lFlags,IGPMBackup *pIGPMBackup,VARIANT *pvarMigrationTable,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult);
   void __RPC_STUB IGPMGPO_Import_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMGPO_GenerateReport_Proxy(IGPMGPO *This,GPMReportType gpmReportType,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult);
   void __RPC_STUB IGPMGPO_GenerateReport_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMGPO_GenerateReportToFile_Proxy(IGPMGPO *This,GPMReportType gpmReportType,BSTR bstrTargetFilePath,IGPMResult **ppIGPMResult);
   void __RPC_STUB IGPMGPO_GenerateReportToFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMGPO_CopyTo_Proxy(IGPMGPO *This,long lFlags,IGPMDomain *pIGPMDomain,VARIANT *pvarNewDisplayName,VARIANT *pvarMigrationTable,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult);
+  HRESULT WINAPI IGPMGPO_CopyTo_Proxy(IGPMGPO *This,__LONG32 lFlags,IGPMDomain *pIGPMDomain,VARIANT *pvarNewDisplayName,VARIANT *pvarMigrationTable,VARIANT *pvarGPMProgress,VARIANT *pvarGPMCancel,IGPMResult **ppIGPMResult);
   void __RPC_STUB IGPMGPO_CopyTo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMGPO_SetSecurityDescriptor_Proxy(IGPMGPO *This,long lFlags,IDispatch *pSD);
+  HRESULT WINAPI IGPMGPO_SetSecurityDescriptor_Proxy(IGPMGPO *This,__LONG32 lFlags,IDispatch *pSD);
   void __RPC_STUB IGPMGPO_SetSecurityDescriptor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMGPO_GetSecurityDescriptor_Proxy(IGPMGPO *This,long lFlags,IDispatch **ppSD);
+  HRESULT WINAPI IGPMGPO_GetSecurityDescriptor_Proxy(IGPMGPO *This,__LONG32 lFlags,IDispatch **ppSD);
   void __RPC_STUB IGPMGPO_GetSecurityDescriptor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMGPO_IsACLConsistent_Proxy(IGPMGPO *This,VARIANT_BOOL *pvbConsistent);
   void __RPC_STUB IGPMGPO_IsACLConsistent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1814,8 +1814,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IGPMGPOCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *pVal) = 0;
-    virtual HRESULT WINAPI get_Item(long lIndex,VARIANT *pVal) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 lIndex,VARIANT *pVal) = 0;
     virtual HRESULT WINAPI get__NewEnum(IEnumVARIANT **ppIGPMGPOs) = 0;
   };
 #else
@@ -1828,8 +1828,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IGPMGPOCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IGPMGPOCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IGPMGPOCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(IGPMGPOCollection *This,long *pVal);
-      HRESULT (WINAPI *get_Item)(IGPMGPOCollection *This,long lIndex,VARIANT *pVal);
+      HRESULT (WINAPI *get_Count)(IGPMGPOCollection *This,__LONG32 *pVal);
+      HRESULT (WINAPI *get_Item)(IGPMGPOCollection *This,__LONG32 lIndex,VARIANT *pVal);
       HRESULT (WINAPI *get__NewEnum)(IGPMGPOCollection *This,IEnumVARIANT **ppIGPMGPOs);
     END_INTERFACE
   } IGPMGPOCollectionVtbl;
@@ -1849,9 +1849,9 @@ extern "C"{
 #define IGPMGPOCollection_get__NewEnum(This,ppIGPMGPOs) (This)->lpVtbl->get__NewEnum(This,ppIGPMGPOs)
 #endif
 #endif
-  HRESULT WINAPI IGPMGPOCollection_get_Count_Proxy(IGPMGPOCollection *This,long *pVal);
+  HRESULT WINAPI IGPMGPOCollection_get_Count_Proxy(IGPMGPOCollection *This,__LONG32 *pVal);
   void __RPC_STUB IGPMGPOCollection_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMGPOCollection_get_Item_Proxy(IGPMGPOCollection *This,long lIndex,VARIANT *pVal);
+  HRESULT WINAPI IGPMGPOCollection_get_Item_Proxy(IGPMGPOCollection *This,__LONG32 lIndex,VARIANT *pVal);
   void __RPC_STUB IGPMGPOCollection_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMGPOCollection_get__NewEnum_Proxy(IGPMGPOCollection *This,IEnumVARIANT **ppIGPMGPOs);
   void __RPC_STUB IGPMGPOCollection_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1869,7 +1869,7 @@ extern "C"{
     virtual HRESULT WINAPI put_Enabled(VARIANT_BOOL newVal) = 0;
     virtual HRESULT WINAPI get_Enforced(VARIANT_BOOL *pVal) = 0;
     virtual HRESULT WINAPI put_Enforced(VARIANT_BOOL newVal) = 0;
-    virtual HRESULT WINAPI get_SOMLinkOrder(long *lVal) = 0;
+    virtual HRESULT WINAPI get_SOMLinkOrder(__LONG32 *lVal) = 0;
     virtual HRESULT WINAPI get_SOM(IGPMSOM **ppIGPMSOM) = 0;
     virtual HRESULT WINAPI Delete(void) = 0;
   };
@@ -1889,7 +1889,7 @@ extern "C"{
       HRESULT (WINAPI *put_Enabled)(IGPMGPOLink *This,VARIANT_BOOL newVal);
       HRESULT (WINAPI *get_Enforced)(IGPMGPOLink *This,VARIANT_BOOL *pVal);
       HRESULT (WINAPI *put_Enforced)(IGPMGPOLink *This,VARIANT_BOOL newVal);
-      HRESULT (WINAPI *get_SOMLinkOrder)(IGPMGPOLink *This,long *lVal);
+      HRESULT (WINAPI *get_SOMLinkOrder)(IGPMGPOLink *This,__LONG32 *lVal);
       HRESULT (WINAPI *get_SOM)(IGPMGPOLink *This,IGPMSOM **ppIGPMSOM);
       HRESULT (WINAPI *Delete)(IGPMGPOLink *This);
     END_INTERFACE
@@ -1928,7 +1928,7 @@ extern "C"{
   void __RPC_STUB IGPMGPOLink_get_Enforced_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMGPOLink_put_Enforced_Proxy(IGPMGPOLink *This,VARIANT_BOOL newVal);
   void __RPC_STUB IGPMGPOLink_put_Enforced_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMGPOLink_get_SOMLinkOrder_Proxy(IGPMGPOLink *This,long *lVal);
+  HRESULT WINAPI IGPMGPOLink_get_SOMLinkOrder_Proxy(IGPMGPOLink *This,__LONG32 *lVal);
   void __RPC_STUB IGPMGPOLink_get_SOMLinkOrder_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMGPOLink_get_SOM_Proxy(IGPMGPOLink *This,IGPMSOM **ppIGPMSOM);
   void __RPC_STUB IGPMGPOLink_get_SOM_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1942,8 +1942,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IGPMGPOLinksCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *pVal) = 0;
-    virtual HRESULT WINAPI get_Item(long lIndex,VARIANT *pVal) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 lIndex,VARIANT *pVal) = 0;
     virtual HRESULT WINAPI get__NewEnum(IEnumVARIANT **ppIGPMLinks) = 0;
   };
 #else
@@ -1956,8 +1956,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IGPMGPOLinksCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IGPMGPOLinksCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IGPMGPOLinksCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(IGPMGPOLinksCollection *This,long *pVal);
-      HRESULT (WINAPI *get_Item)(IGPMGPOLinksCollection *This,long lIndex,VARIANT *pVal);
+      HRESULT (WINAPI *get_Count)(IGPMGPOLinksCollection *This,__LONG32 *pVal);
+      HRESULT (WINAPI *get_Item)(IGPMGPOLinksCollection *This,__LONG32 lIndex,VARIANT *pVal);
       HRESULT (WINAPI *get__NewEnum)(IGPMGPOLinksCollection *This,IEnumVARIANT **ppIGPMLinks);
     END_INTERFACE
   } IGPMGPOLinksCollectionVtbl;
@@ -1977,9 +1977,9 @@ extern "C"{
 #define IGPMGPOLinksCollection_get__NewEnum(This,ppIGPMLinks) (This)->lpVtbl->get__NewEnum(This,ppIGPMLinks)
 #endif
 #endif
-  HRESULT WINAPI IGPMGPOLinksCollection_get_Count_Proxy(IGPMGPOLinksCollection *This,long *pVal);
+  HRESULT WINAPI IGPMGPOLinksCollection_get_Count_Proxy(IGPMGPOLinksCollection *This,__LONG32 *pVal);
   void __RPC_STUB IGPMGPOLinksCollection_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMGPOLinksCollection_get_Item_Proxy(IGPMGPOLinksCollection *This,long lIndex,VARIANT *pVal);
+  HRESULT WINAPI IGPMGPOLinksCollection_get_Item_Proxy(IGPMGPOLinksCollection *This,__LONG32 lIndex,VARIANT *pVal);
   void __RPC_STUB IGPMGPOLinksCollection_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMGPOLinksCollection_get__NewEnum_Proxy(IGPMGPOLinksCollection *This,IEnumVARIANT **ppIGPMLinks);
   void __RPC_STUB IGPMGPOLinksCollection_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1991,8 +1991,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IGPMCSECollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *pVal) = 0;
-    virtual HRESULT WINAPI get_Item(long lIndex,VARIANT *pVal) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 lIndex,VARIANT *pVal) = 0;
     virtual HRESULT WINAPI get__NewEnum(IEnumVARIANT **ppIGPMCSEs) = 0;
   };
 #else
@@ -2005,8 +2005,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IGPMCSECollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IGPMCSECollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IGPMCSECollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(IGPMCSECollection *This,long *pVal);
-      HRESULT (WINAPI *get_Item)(IGPMCSECollection *This,long lIndex,VARIANT *pVal);
+      HRESULT (WINAPI *get_Count)(IGPMCSECollection *This,__LONG32 *pVal);
+      HRESULT (WINAPI *get_Item)(IGPMCSECollection *This,__LONG32 lIndex,VARIANT *pVal);
       HRESULT (WINAPI *get__NewEnum)(IGPMCSECollection *This,IEnumVARIANT **ppIGPMCSEs);
     END_INTERFACE
   } IGPMCSECollectionVtbl;
@@ -2026,9 +2026,9 @@ extern "C"{
 #define IGPMCSECollection_get__NewEnum(This,ppIGPMCSEs) (This)->lpVtbl->get__NewEnum(This,ppIGPMCSEs)
 #endif
 #endif
-  HRESULT WINAPI IGPMCSECollection_get_Count_Proxy(IGPMCSECollection *This,long *pVal);
+  HRESULT WINAPI IGPMCSECollection_get_Count_Proxy(IGPMCSECollection *This,__LONG32 *pVal);
   void __RPC_STUB IGPMCSECollection_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMCSECollection_get_Item_Proxy(IGPMCSECollection *This,long lIndex,VARIANT *pVal);
+  HRESULT WINAPI IGPMCSECollection_get_Item_Proxy(IGPMCSECollection *This,__LONG32 lIndex,VARIANT *pVal);
   void __RPC_STUB IGPMCSECollection_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMCSECollection_get__NewEnum_Proxy(IGPMCSECollection *This,IEnumVARIANT **ppIGPMCSEs);
   void __RPC_STUB IGPMCSECollection_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2133,7 +2133,7 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IGPMAsyncProgress : public IDispatch {
   public:
-    virtual HRESULT WINAPI Status(long lProgressNumerator,long lProgressDenominator,HRESULT hrStatus,VARIANT *pResult,IGPMStatusMsgCollection *ppIGPMStatusMsgCollection) = 0;
+    virtual HRESULT WINAPI Status(__LONG32 lProgressNumerator,__LONG32 lProgressDenominator,HRESULT hrStatus,VARIANT *pResult,IGPMStatusMsgCollection *ppIGPMStatusMsgCollection) = 0;
   };
 #else
   typedef struct IGPMAsyncProgressVtbl {
@@ -2145,7 +2145,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IGPMAsyncProgress *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IGPMAsyncProgress *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IGPMAsyncProgress *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *Status)(IGPMAsyncProgress *This,long lProgressNumerator,long lProgressDenominator,HRESULT hrStatus,VARIANT *pResult,IGPMStatusMsgCollection *ppIGPMStatusMsgCollection);
+      HRESULT (WINAPI *Status)(IGPMAsyncProgress *This,__LONG32 lProgressNumerator,__LONG32 lProgressDenominator,HRESULT hrStatus,VARIANT *pResult,IGPMStatusMsgCollection *ppIGPMStatusMsgCollection);
     END_INTERFACE
   } IGPMAsyncProgressVtbl;
   struct IGPMAsyncProgress {
@@ -2162,7 +2162,7 @@ extern "C"{
 #define IGPMAsyncProgress_Status(This,lProgressNumerator,lProgressDenominator,hrStatus,pResult,ppIGPMStatusMsgCollection) (This)->lpVtbl->Status(This,lProgressNumerator,lProgressDenominator,hrStatus,pResult,ppIGPMStatusMsgCollection)
 #endif
 #endif
-  HRESULT WINAPI IGPMAsyncProgress_Status_Proxy(IGPMAsyncProgress *This,long lProgressNumerator,long lProgressDenominator,HRESULT hrStatus,VARIANT *pResult,IGPMStatusMsgCollection *ppIGPMStatusMsgCollection);
+  HRESULT WINAPI IGPMAsyncProgress_Status_Proxy(IGPMAsyncProgress *This,__LONG32 lProgressNumerator,__LONG32 lProgressDenominator,HRESULT hrStatus,VARIANT *pResult,IGPMStatusMsgCollection *ppIGPMStatusMsgCollection);
   void __RPC_STUB IGPMAsyncProgress_Status_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -2172,8 +2172,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IGPMStatusMsgCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *pVal) = 0;
-    virtual HRESULT WINAPI get_Item(long lIndex,VARIANT *pVal) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 lIndex,VARIANT *pVal) = 0;
     virtual HRESULT WINAPI get__NewEnum(IEnumVARIANT **pVal) = 0;
   };
 #else
@@ -2186,8 +2186,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IGPMStatusMsgCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IGPMStatusMsgCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IGPMStatusMsgCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(IGPMStatusMsgCollection *This,long *pVal);
-      HRESULT (WINAPI *get_Item)(IGPMStatusMsgCollection *This,long lIndex,VARIANT *pVal);
+      HRESULT (WINAPI *get_Count)(IGPMStatusMsgCollection *This,__LONG32 *pVal);
+      HRESULT (WINAPI *get_Item)(IGPMStatusMsgCollection *This,__LONG32 lIndex,VARIANT *pVal);
       HRESULT (WINAPI *get__NewEnum)(IGPMStatusMsgCollection *This,IEnumVARIANT **pVal);
     END_INTERFACE
   } IGPMStatusMsgCollectionVtbl;
@@ -2207,9 +2207,9 @@ extern "C"{
 #define IGPMStatusMsgCollection_get__NewEnum(This,pVal) (This)->lpVtbl->get__NewEnum(This,pVal)
 #endif
 #endif
-  HRESULT WINAPI IGPMStatusMsgCollection_get_Count_Proxy(IGPMStatusMsgCollection *This,long *pVal);
+  HRESULT WINAPI IGPMStatusMsgCollection_get_Count_Proxy(IGPMStatusMsgCollection *This,__LONG32 *pVal);
   void __RPC_STUB IGPMStatusMsgCollection_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMStatusMsgCollection_get_Item_Proxy(IGPMStatusMsgCollection *This,long lIndex,VARIANT *pVal);
+  HRESULT WINAPI IGPMStatusMsgCollection_get_Item_Proxy(IGPMStatusMsgCollection *This,__LONG32 lIndex,VARIANT *pVal);
   void __RPC_STUB IGPMStatusMsgCollection_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMStatusMsgCollection_get__NewEnum_Proxy(IGPMStatusMsgCollection *This,IEnumVARIANT **pVal);
   void __RPC_STUB IGPMStatusMsgCollection_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2313,14 +2313,14 @@ extern "C"{
     virtual HRESULT WINAPI get_SearchOpContains(GPMSearchOperation *pVal) = 0;
     virtual HRESULT WINAPI get_SearchOpNotContains(GPMSearchOperation *pVal) = 0;
     virtual HRESULT WINAPI get_SearchOpNotEquals(GPMSearchOperation *pVal) = 0;
-    virtual HRESULT WINAPI get_UsePDC(long *pVal) = 0;
-    virtual HRESULT WINAPI get_UseAnyDC(long *pVal) = 0;
-    virtual HRESULT WINAPI get_DoNotUseW2KDC(long *pVal) = 0;
+    virtual HRESULT WINAPI get_UsePDC(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_UseAnyDC(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_DoNotUseW2KDC(__LONG32 *pVal) = 0;
     virtual HRESULT WINAPI get_SOMSite(GPMSOMType *pVal) = 0;
     virtual HRESULT WINAPI get_SOMDomain(GPMSOMType *pVal) = 0;
     virtual HRESULT WINAPI get_SOMOU(GPMSOMType *pVal) = 0;
-    virtual HRESULT WINAPI get_SecurityFlags(VARIANT_BOOL vbOwner,VARIANT_BOOL vbGroup,VARIANT_BOOL vbDACL,VARIANT_BOOL vbSACL,long *pVal) = 0;
-    virtual HRESULT WINAPI get_DoNotValidateDC(long *pVal) = 0;
+    virtual HRESULT WINAPI get_SecurityFlags(VARIANT_BOOL vbOwner,VARIANT_BOOL vbGroup,VARIANT_BOOL vbDACL,VARIANT_BOOL vbSACL,__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_DoNotValidateDC(__LONG32 *pVal) = 0;
     virtual HRESULT WINAPI get_ReportHTML(GPMReportType *pVal) = 0;
     virtual HRESULT WINAPI get_ReportXML(GPMReportType *pVal) = 0;
     virtual HRESULT WINAPI get_RSOPModeUnknown(GPMRSOPMode *pVal) = 0;
@@ -2337,14 +2337,14 @@ extern "C"{
     virtual HRESULT WINAPI get_DestinationOptionNone(GPMDestinationOption *pVal) = 0;
     virtual HRESULT WINAPI get_DestinationOptionByRelativeName(GPMDestinationOption *pVal) = 0;
     virtual HRESULT WINAPI get_DestinationOptionSet(GPMDestinationOption *pVal) = 0;
-    virtual HRESULT WINAPI get_MigrationTableOnly(long *pVal) = 0;
-    virtual HRESULT WINAPI get_ProcessSecurity(long *pVal) = 0;
-    virtual HRESULT WINAPI get_RsopLoggingNoComputer(long *pVal) = 0;
-    virtual HRESULT WINAPI get_RsopLoggingNoUser(long *pVal) = 0;
-    virtual HRESULT WINAPI get_RsopPlanningAssumeSlowLink(long *pVal) = 0;
-    virtual HRESULT WINAPI get_RsopPlanningLoopbackOption(VARIANT_BOOL vbMerge,long *pVal) = 0;
-    virtual HRESULT WINAPI get_RsopPlanningAssumeUserWQLFilterTrue(long *pVal) = 0;
-    virtual HRESULT WINAPI get_RsopPlanningAssumeCompWQLFilterTrue(long *pVal) = 0;
+    virtual HRESULT WINAPI get_MigrationTableOnly(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_ProcessSecurity(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_RsopLoggingNoComputer(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_RsopLoggingNoUser(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_RsopPlanningAssumeSlowLink(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_RsopPlanningLoopbackOption(VARIANT_BOOL vbMerge,__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_RsopPlanningAssumeUserWQLFilterTrue(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_RsopPlanningAssumeCompWQLFilterTrue(__LONG32 *pVal) = 0;
   };
 #else
   typedef struct IGPMConstantsVtbl {
@@ -2384,14 +2384,14 @@ extern "C"{
       HRESULT (WINAPI *get_SearchOpContains)(IGPMConstants *This,GPMSearchOperation *pVal);
       HRESULT (WINAPI *get_SearchOpNotContains)(IGPMConstants *This,GPMSearchOperation *pVal);
       HRESULT (WINAPI *get_SearchOpNotEquals)(IGPMConstants *This,GPMSearchOperation *pVal);
-      HRESULT (WINAPI *get_UsePDC)(IGPMConstants *This,long *pVal);
-      HRESULT (WINAPI *get_UseAnyDC)(IGPMConstants *This,long *pVal);
-      HRESULT (WINAPI *get_DoNotUseW2KDC)(IGPMConstants *This,long *pVal);
+      HRESULT (WINAPI *get_UsePDC)(IGPMConstants *This,__LONG32 *pVal);
+      HRESULT (WINAPI *get_UseAnyDC)(IGPMConstants *This,__LONG32 *pVal);
+      HRESULT (WINAPI *get_DoNotUseW2KDC)(IGPMConstants *This,__LONG32 *pVal);
       HRESULT (WINAPI *get_SOMSite)(IGPMConstants *This,GPMSOMType *pVal);
       HRESULT (WINAPI *get_SOMDomain)(IGPMConstants *This,GPMSOMType *pVal);
       HRESULT (WINAPI *get_SOMOU)(IGPMConstants *This,GPMSOMType *pVal);
-      HRESULT (WINAPI *get_SecurityFlags)(IGPMConstants *This,VARIANT_BOOL vbOwner,VARIANT_BOOL vbGroup,VARIANT_BOOL vbDACL,VARIANT_BOOL vbSACL,long *pVal);
-      HRESULT (WINAPI *get_DoNotValidateDC)(IGPMConstants *This,long *pVal);
+      HRESULT (WINAPI *get_SecurityFlags)(IGPMConstants *This,VARIANT_BOOL vbOwner,VARIANT_BOOL vbGroup,VARIANT_BOOL vbDACL,VARIANT_BOOL vbSACL,__LONG32 *pVal);
+      HRESULT (WINAPI *get_DoNotValidateDC)(IGPMConstants *This,__LONG32 *pVal);
       HRESULT (WINAPI *get_ReportHTML)(IGPMConstants *This,GPMReportType *pVal);
       HRESULT (WINAPI *get_ReportXML)(IGPMConstants *This,GPMReportType *pVal);
       HRESULT (WINAPI *get_RSOPModeUnknown)(IGPMConstants *This,GPMRSOPMode *pVal);
@@ -2408,14 +2408,14 @@ extern "C"{
       HRESULT (WINAPI *get_DestinationOptionNone)(IGPMConstants *This,GPMDestinationOption *pVal);
       HRESULT (WINAPI *get_DestinationOptionByRelativeName)(IGPMConstants *This,GPMDestinationOption *pVal);
       HRESULT (WINAPI *get_DestinationOptionSet)(IGPMConstants *This,GPMDestinationOption *pVal);
-      HRESULT (WINAPI *get_MigrationTableOnly)(IGPMConstants *This,long *pVal);
-      HRESULT (WINAPI *get_ProcessSecurity)(IGPMConstants *This,long *pVal);
-      HRESULT (WINAPI *get_RsopLoggingNoComputer)(IGPMConstants *This,long *pVal);
-      HRESULT (WINAPI *get_RsopLoggingNoUser)(IGPMConstants *This,long *pVal);
-      HRESULT (WINAPI *get_RsopPlanningAssumeSlowLink)(IGPMConstants *This,long *pVal);
-      HRESULT (WINAPI *get_RsopPlanningLoopbackOption)(IGPMConstants *This,VARIANT_BOOL vbMerge,long *pVal);
-      HRESULT (WINAPI *get_RsopPlanningAssumeUserWQLFilterTrue)(IGPMConstants *This,long *pVal);
-      HRESULT (WINAPI *get_RsopPlanningAssumeCompWQLFilterTrue)(IGPMConstants *This,long *pVal);
+      HRESULT (WINAPI *get_MigrationTableOnly)(IGPMConstants *This,__LONG32 *pVal);
+      HRESULT (WINAPI *get_ProcessSecurity)(IGPMConstants *This,__LONG32 *pVal);
+      HRESULT (WINAPI *get_RsopLoggingNoComputer)(IGPMConstants *This,__LONG32 *pVal);
+      HRESULT (WINAPI *get_RsopLoggingNoUser)(IGPMConstants *This,__LONG32 *pVal);
+      HRESULT (WINAPI *get_RsopPlanningAssumeSlowLink)(IGPMConstants *This,__LONG32 *pVal);
+      HRESULT (WINAPI *get_RsopPlanningLoopbackOption)(IGPMConstants *This,VARIANT_BOOL vbMerge,__LONG32 *pVal);
+      HRESULT (WINAPI *get_RsopPlanningAssumeUserWQLFilterTrue)(IGPMConstants *This,__LONG32 *pVal);
+      HRESULT (WINAPI *get_RsopPlanningAssumeCompWQLFilterTrue)(IGPMConstants *This,__LONG32 *pVal);
     END_INTERFACE
   } IGPMConstantsVtbl;
   struct IGPMConstants {
@@ -2547,11 +2547,11 @@ extern "C"{
   void __RPC_STUB IGPMConstants_get_SearchOpNotContains_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMConstants_get_SearchOpNotEquals_Proxy(IGPMConstants *This,GPMSearchOperation *pVal);
   void __RPC_STUB IGPMConstants_get_SearchOpNotEquals_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMConstants_get_UsePDC_Proxy(IGPMConstants *This,long *pVal);
+  HRESULT WINAPI IGPMConstants_get_UsePDC_Proxy(IGPMConstants *This,__LONG32 *pVal);
   void __RPC_STUB IGPMConstants_get_UsePDC_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMConstants_get_UseAnyDC_Proxy(IGPMConstants *This,long *pVal);
+  HRESULT WINAPI IGPMConstants_get_UseAnyDC_Proxy(IGPMConstants *This,__LONG32 *pVal);
   void __RPC_STUB IGPMConstants_get_UseAnyDC_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMConstants_get_DoNotUseW2KDC_Proxy(IGPMConstants *This,long *pVal);
+  HRESULT WINAPI IGPMConstants_get_DoNotUseW2KDC_Proxy(IGPMConstants *This,__LONG32 *pVal);
   void __RPC_STUB IGPMConstants_get_DoNotUseW2KDC_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMConstants_get_SOMSite_Proxy(IGPMConstants *This,GPMSOMType *pVal);
   void __RPC_STUB IGPMConstants_get_SOMSite_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2559,9 +2559,9 @@ extern "C"{
   void __RPC_STUB IGPMConstants_get_SOMDomain_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMConstants_get_SOMOU_Proxy(IGPMConstants *This,GPMSOMType *pVal);
   void __RPC_STUB IGPMConstants_get_SOMOU_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMConstants_get_SecurityFlags_Proxy(IGPMConstants *This,VARIANT_BOOL vbOwner,VARIANT_BOOL vbGroup,VARIANT_BOOL vbDACL,VARIANT_BOOL vbSACL,long *pVal);
+  HRESULT WINAPI IGPMConstants_get_SecurityFlags_Proxy(IGPMConstants *This,VARIANT_BOOL vbOwner,VARIANT_BOOL vbGroup,VARIANT_BOOL vbDACL,VARIANT_BOOL vbSACL,__LONG32 *pVal);
   void __RPC_STUB IGPMConstants_get_SecurityFlags_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMConstants_get_DoNotValidateDC_Proxy(IGPMConstants *This,long *pVal);
+  HRESULT WINAPI IGPMConstants_get_DoNotValidateDC_Proxy(IGPMConstants *This,__LONG32 *pVal);
   void __RPC_STUB IGPMConstants_get_DoNotValidateDC_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMConstants_get_ReportHTML_Proxy(IGPMConstants *This,GPMReportType *pVal);
   void __RPC_STUB IGPMConstants_get_ReportHTML_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2595,21 +2595,21 @@ extern "C"{
   void __RPC_STUB IGPMConstants_get_DestinationOptionByRelativeName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMConstants_get_DestinationOptionSet_Proxy(IGPMConstants *This,GPMDestinationOption *pVal);
   void __RPC_STUB IGPMConstants_get_DestinationOptionSet_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMConstants_get_MigrationTableOnly_Proxy(IGPMConstants *This,long *pVal);
+  HRESULT WINAPI IGPMConstants_get_MigrationTableOnly_Proxy(IGPMConstants *This,__LONG32 *pVal);
   void __RPC_STUB IGPMConstants_get_MigrationTableOnly_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMConstants_get_ProcessSecurity_Proxy(IGPMConstants *This,long *pVal);
+  HRESULT WINAPI IGPMConstants_get_ProcessSecurity_Proxy(IGPMConstants *This,__LONG32 *pVal);
   void __RPC_STUB IGPMConstants_get_ProcessSecurity_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMConstants_get_RsopLoggingNoComputer_Proxy(IGPMConstants *This,long *pVal);
+  HRESULT WINAPI IGPMConstants_get_RsopLoggingNoComputer_Proxy(IGPMConstants *This,__LONG32 *pVal);
   void __RPC_STUB IGPMConstants_get_RsopLoggingNoComputer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMConstants_get_RsopLoggingNoUser_Proxy(IGPMConstants *This,long *pVal);
+  HRESULT WINAPI IGPMConstants_get_RsopLoggingNoUser_Proxy(IGPMConstants *This,__LONG32 *pVal);
   void __RPC_STUB IGPMConstants_get_RsopLoggingNoUser_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMConstants_get_RsopPlanningAssumeSlowLink_Proxy(IGPMConstants *This,long *pVal);
+  HRESULT WINAPI IGPMConstants_get_RsopPlanningAssumeSlowLink_Proxy(IGPMConstants *This,__LONG32 *pVal);
   void __RPC_STUB IGPMConstants_get_RsopPlanningAssumeSlowLink_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMConstants_get_RsopPlanningLoopbackOption_Proxy(IGPMConstants *This,VARIANT_BOOL vbMerge,long *pVal);
+  HRESULT WINAPI IGPMConstants_get_RsopPlanningLoopbackOption_Proxy(IGPMConstants *This,VARIANT_BOOL vbMerge,__LONG32 *pVal);
   void __RPC_STUB IGPMConstants_get_RsopPlanningLoopbackOption_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMConstants_get_RsopPlanningAssumeUserWQLFilterTrue_Proxy(IGPMConstants *This,long *pVal);
+  HRESULT WINAPI IGPMConstants_get_RsopPlanningAssumeUserWQLFilterTrue_Proxy(IGPMConstants *This,__LONG32 *pVal);
   void __RPC_STUB IGPMConstants_get_RsopPlanningAssumeUserWQLFilterTrue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMConstants_get_RsopPlanningAssumeCompWQLFilterTrue_Proxy(IGPMConstants *This,long *pVal);
+  HRESULT WINAPI IGPMConstants_get_RsopPlanningAssumeCompWQLFilterTrue_Proxy(IGPMConstants *This,__LONG32 *pVal);
   void __RPC_STUB IGPMConstants_get_RsopPlanningAssumeCompWQLFilterTrue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -2668,8 +2668,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IGPMMapEntryCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *pVal) = 0;
-    virtual HRESULT WINAPI get_Item(long lIndex,VARIANT *pVal) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 lIndex,VARIANT *pVal) = 0;
     virtual HRESULT WINAPI get__NewEnum(IEnumVARIANT **pVal) = 0;
   };
 #else
@@ -2682,8 +2682,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IGPMMapEntryCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IGPMMapEntryCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IGPMMapEntryCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(IGPMMapEntryCollection *This,long *pVal);
-      HRESULT (WINAPI *get_Item)(IGPMMapEntryCollection *This,long lIndex,VARIANT *pVal);
+      HRESULT (WINAPI *get_Count)(IGPMMapEntryCollection *This,__LONG32 *pVal);
+      HRESULT (WINAPI *get_Item)(IGPMMapEntryCollection *This,__LONG32 lIndex,VARIANT *pVal);
       HRESULT (WINAPI *get__NewEnum)(IGPMMapEntryCollection *This,IEnumVARIANT **pVal);
     END_INTERFACE
   } IGPMMapEntryCollectionVtbl;
@@ -2703,9 +2703,9 @@ extern "C"{
 #define IGPMMapEntryCollection_get__NewEnum(This,pVal) (This)->lpVtbl->get__NewEnum(This,pVal)
 #endif
 #endif
-  HRESULT WINAPI IGPMMapEntryCollection_get_Count_Proxy(IGPMMapEntryCollection *This,long *pVal);
+  HRESULT WINAPI IGPMMapEntryCollection_get_Count_Proxy(IGPMMapEntryCollection *This,__LONG32 *pVal);
   void __RPC_STUB IGPMMapEntryCollection_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMMapEntryCollection_get_Item_Proxy(IGPMMapEntryCollection *This,long lIndex,VARIANT *pVal);
+  HRESULT WINAPI IGPMMapEntryCollection_get_Item_Proxy(IGPMMapEntryCollection *This,__LONG32 lIndex,VARIANT *pVal);
   void __RPC_STUB IGPMMapEntryCollection_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMMapEntryCollection_get__NewEnum_Proxy(IGPMMapEntryCollection *This,IEnumVARIANT **pVal);
   void __RPC_STUB IGPMMapEntryCollection_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2773,7 +2773,7 @@ extern "C"{
   struct IGPMMigrationTable : public IDispatch {
   public:
     virtual HRESULT WINAPI Save(BSTR bstrMigrationTablePath) = 0;
-    virtual HRESULT WINAPI Add(long lFlags,VARIANT var) = 0;
+    virtual HRESULT WINAPI Add(__LONG32 lFlags,VARIANT var) = 0;
     virtual HRESULT WINAPI AddEntry(BSTR bstrSource,GPMEntryType gpmEntryType,VARIANT *pvarDestination,IGPMMapEntry **ppEntry) = 0;
     virtual HRESULT WINAPI GetEntry(BSTR bstrSource,IGPMMapEntry **ppEntry) = 0;
     virtual HRESULT WINAPI DeleteEntry(BSTR bstrSource) = 0;
@@ -2792,7 +2792,7 @@ extern "C"{
       HRESULT (WINAPI *GetIDsOfNames)(IGPMMigrationTable *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IGPMMigrationTable *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *Save)(IGPMMigrationTable *This,BSTR bstrMigrationTablePath);
-      HRESULT (WINAPI *Add)(IGPMMigrationTable *This,long lFlags,VARIANT var);
+      HRESULT (WINAPI *Add)(IGPMMigrationTable *This,__LONG32 lFlags,VARIANT var);
       HRESULT (WINAPI *AddEntry)(IGPMMigrationTable *This,BSTR bstrSource,GPMEntryType gpmEntryType,VARIANT *pvarDestination,IGPMMapEntry **ppEntry);
       HRESULT (WINAPI *GetEntry)(IGPMMigrationTable *This,BSTR bstrSource,IGPMMapEntry **ppEntry);
       HRESULT (WINAPI *DeleteEntry)(IGPMMigrationTable *This,BSTR bstrSource);
@@ -2824,7 +2824,7 @@ extern "C"{
 #endif
   HRESULT WINAPI IGPMMigrationTable_Save_Proxy(IGPMMigrationTable *This,BSTR bstrMigrationTablePath);
   void __RPC_STUB IGPMMigrationTable_Save_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IGPMMigrationTable_Add_Proxy(IGPMMigrationTable *This,long lFlags,VARIANT var);
+  HRESULT WINAPI IGPMMigrationTable_Add_Proxy(IGPMMigrationTable *This,__LONG32 lFlags,VARIANT var);
   void __RPC_STUB IGPMMigrationTable_Add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IGPMMigrationTable_AddEntry_Proxy(IGPMMigrationTable *This,BSTR bstrSource,GPMEntryType gpmEntryType,VARIANT *pvarDestination,IGPMMapEntry **ppEntry);
   void __RPC_STUB IGPMMigrationTable_AddEntry_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);

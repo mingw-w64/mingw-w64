@@ -96,7 +96,7 @@ extern "C"{
   struct ITParticipant : public IDispatch {
   public:
     virtual HRESULT WINAPI get_ParticipantTypedInfo(PARTICIPANT_TYPED_INFO InfoType,BSTR *ppInfo) = 0;
-    virtual HRESULT WINAPI get_MediaTypes(long *plMediaType) = 0;
+    virtual HRESULT WINAPI get_MediaTypes(__LONG32 *plMediaType) = 0;
     virtual HRESULT WINAPI put_Status(ITStream *pITStream,VARIANT_BOOL fEnable) = 0;
     virtual HRESULT WINAPI get_Status(ITStream *pITStream,VARIANT_BOOL *pStatus) = 0;
     virtual HRESULT WINAPI get_Streams(VARIANT *pVariant) = 0;
@@ -113,7 +113,7 @@ extern "C"{
       HRESULT (WINAPI *GetIDsOfNames)(ITParticipant *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITParticipant *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_ParticipantTypedInfo)(ITParticipant *This,PARTICIPANT_TYPED_INFO InfoType,BSTR *ppInfo);
-      HRESULT (WINAPI *get_MediaTypes)(ITParticipant *This,long *plMediaType);
+      HRESULT (WINAPI *get_MediaTypes)(ITParticipant *This,__LONG32 *plMediaType);
       HRESULT (WINAPI *put_Status)(ITParticipant *This,ITStream *pITStream,VARIANT_BOOL fEnable);
       HRESULT (WINAPI *get_Status)(ITParticipant *This,ITStream *pITStream,VARIANT_BOOL *pStatus);
       HRESULT (WINAPI *get_Streams)(ITParticipant *This,VARIANT *pVariant);
@@ -141,7 +141,7 @@ extern "C"{
 #endif
   HRESULT WINAPI ITParticipant_get_ParticipantTypedInfo_Proxy(ITParticipant *This,PARTICIPANT_TYPED_INFO InfoType,BSTR *ppInfo);
   void __RPC_STUB ITParticipant_get_ParticipantTypedInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITParticipant_get_MediaTypes_Proxy(ITParticipant *This,long *plMediaType);
+  HRESULT WINAPI ITParticipant_get_MediaTypes_Proxy(ITParticipant *This,__LONG32 *plMediaType);
   void __RPC_STUB ITParticipant_get_MediaTypes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITParticipant_put_Status_Proxy(ITParticipant *This,ITStream *pITStream,VARIANT_BOOL fEnable);
   void __RPC_STUB ITParticipant_put_Status_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -286,9 +286,9 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITStreamQualityControl : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetRange(StreamQualityProperty Property,long *plMin,long *plMax,long *plSteppingDelta,long *plDefault,TAPIControlFlags *plFlags) = 0;
-    virtual HRESULT WINAPI Get(StreamQualityProperty Property,long *plValue,TAPIControlFlags *plFlags) = 0;
-    virtual HRESULT WINAPI Set(StreamQualityProperty Property,long lValue,TAPIControlFlags lFlags) = 0;
+    virtual HRESULT WINAPI GetRange(StreamQualityProperty Property,__LONG32 *plMin,__LONG32 *plMax,__LONG32 *plSteppingDelta,__LONG32 *plDefault,TAPIControlFlags *plFlags) = 0;
+    virtual HRESULT WINAPI Get(StreamQualityProperty Property,__LONG32 *plValue,TAPIControlFlags *plFlags) = 0;
+    virtual HRESULT WINAPI Set(StreamQualityProperty Property,__LONG32 lValue,TAPIControlFlags lFlags) = 0;
   };
 #else
   typedef struct ITStreamQualityControlVtbl {
@@ -296,9 +296,9 @@ extern "C"{
       HRESULT (WINAPI *QueryInterface)(ITStreamQualityControl *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(ITStreamQualityControl *This);
       ULONG (WINAPI *Release)(ITStreamQualityControl *This);
-      HRESULT (WINAPI *GetRange)(ITStreamQualityControl *This,StreamQualityProperty Property,long *plMin,long *plMax,long *plSteppingDelta,long *plDefault,TAPIControlFlags *plFlags);
-      HRESULT (WINAPI *Get)(ITStreamQualityControl *This,StreamQualityProperty Property,long *plValue,TAPIControlFlags *plFlags);
-      HRESULT (WINAPI *Set)(ITStreamQualityControl *This,StreamQualityProperty Property,long lValue,TAPIControlFlags lFlags);
+      HRESULT (WINAPI *GetRange)(ITStreamQualityControl *This,StreamQualityProperty Property,__LONG32 *plMin,__LONG32 *plMax,__LONG32 *plSteppingDelta,__LONG32 *plDefault,TAPIControlFlags *plFlags);
+      HRESULT (WINAPI *Get)(ITStreamQualityControl *This,StreamQualityProperty Property,__LONG32 *plValue,TAPIControlFlags *plFlags);
+      HRESULT (WINAPI *Set)(ITStreamQualityControl *This,StreamQualityProperty Property,__LONG32 lValue,TAPIControlFlags lFlags);
     END_INTERFACE
   } ITStreamQualityControlVtbl;
   struct ITStreamQualityControl {
@@ -313,11 +313,11 @@ extern "C"{
 #define ITStreamQualityControl_Set(This,Property,lValue,lFlags) (This)->lpVtbl->Set(This,Property,lValue,lFlags)
 #endif
 #endif
-  HRESULT WINAPI ITStreamQualityControl_GetRange_Proxy(ITStreamQualityControl *This,StreamQualityProperty Property,long *plMin,long *plMax,long *plSteppingDelta,long *plDefault,TAPIControlFlags *plFlags);
+  HRESULT WINAPI ITStreamQualityControl_GetRange_Proxy(ITStreamQualityControl *This,StreamQualityProperty Property,__LONG32 *plMin,__LONG32 *plMax,__LONG32 *plSteppingDelta,__LONG32 *plDefault,TAPIControlFlags *plFlags);
   void __RPC_STUB ITStreamQualityControl_GetRange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITStreamQualityControl_Get_Proxy(ITStreamQualityControl *This,StreamQualityProperty Property,long *plValue,TAPIControlFlags *plFlags);
+  HRESULT WINAPI ITStreamQualityControl_Get_Proxy(ITStreamQualityControl *This,StreamQualityProperty Property,__LONG32 *plValue,TAPIControlFlags *plFlags);
   void __RPC_STUB ITStreamQualityControl_Get_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITStreamQualityControl_Set_Proxy(ITStreamQualityControl *This,StreamQualityProperty Property,long lValue,TAPIControlFlags lFlags);
+  HRESULT WINAPI ITStreamQualityControl_Set_Proxy(ITStreamQualityControl *This,StreamQualityProperty Property,__LONG32 lValue,TAPIControlFlags lFlags);
   void __RPC_STUB ITStreamQualityControl_Set_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -336,9 +336,9 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITCallQualityControl : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetRange(CallQualityProperty Property,long *plMin,long *plMax,long *plSteppingDelta,long *plDefault,TAPIControlFlags *plFlags) = 0;
-    virtual HRESULT WINAPI Get(CallQualityProperty Property,long *plValue,TAPIControlFlags *plFlags) = 0;
-    virtual HRESULT WINAPI Set(CallQualityProperty Property,long lValue,TAPIControlFlags lFlags) = 0;
+    virtual HRESULT WINAPI GetRange(CallQualityProperty Property,__LONG32 *plMin,__LONG32 *plMax,__LONG32 *plSteppingDelta,__LONG32 *plDefault,TAPIControlFlags *plFlags) = 0;
+    virtual HRESULT WINAPI Get(CallQualityProperty Property,__LONG32 *plValue,TAPIControlFlags *plFlags) = 0;
+    virtual HRESULT WINAPI Set(CallQualityProperty Property,__LONG32 lValue,TAPIControlFlags lFlags) = 0;
   };
 #else
   typedef struct ITCallQualityControlVtbl {
@@ -346,9 +346,9 @@ extern "C"{
       HRESULT (WINAPI *QueryInterface)(ITCallQualityControl *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(ITCallQualityControl *This);
       ULONG (WINAPI *Release)(ITCallQualityControl *This);
-      HRESULT (WINAPI *GetRange)(ITCallQualityControl *This,CallQualityProperty Property,long *plMin,long *plMax,long *plSteppingDelta,long *plDefault,TAPIControlFlags *plFlags);
-      HRESULT (WINAPI *Get)(ITCallQualityControl *This,CallQualityProperty Property,long *plValue,TAPIControlFlags *plFlags);
-      HRESULT (WINAPI *Set)(ITCallQualityControl *This,CallQualityProperty Property,long lValue,TAPIControlFlags lFlags);
+      HRESULT (WINAPI *GetRange)(ITCallQualityControl *This,CallQualityProperty Property,__LONG32 *plMin,__LONG32 *plMax,__LONG32 *plSteppingDelta,__LONG32 *plDefault,TAPIControlFlags *plFlags);
+      HRESULT (WINAPI *Get)(ITCallQualityControl *This,CallQualityProperty Property,__LONG32 *plValue,TAPIControlFlags *plFlags);
+      HRESULT (WINAPI *Set)(ITCallQualityControl *This,CallQualityProperty Property,__LONG32 lValue,TAPIControlFlags lFlags);
     END_INTERFACE
   } ITCallQualityControlVtbl;
   struct ITCallQualityControl {
@@ -363,11 +363,11 @@ extern "C"{
 #define ITCallQualityControl_Set(This,Property,lValue,lFlags) (This)->lpVtbl->Set(This,Property,lValue,lFlags)
 #endif
 #endif
-  HRESULT WINAPI ITCallQualityControl_GetRange_Proxy(ITCallQualityControl *This,CallQualityProperty Property,long *plMin,long *plMax,long *plSteppingDelta,long *plDefault,TAPIControlFlags *plFlags);
+  HRESULT WINAPI ITCallQualityControl_GetRange_Proxy(ITCallQualityControl *This,CallQualityProperty Property,__LONG32 *plMin,__LONG32 *plMax,__LONG32 *plSteppingDelta,__LONG32 *plDefault,TAPIControlFlags *plFlags);
   void __RPC_STUB ITCallQualityControl_GetRange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITCallQualityControl_Get_Proxy(ITCallQualityControl *This,CallQualityProperty Property,long *plValue,TAPIControlFlags *plFlags);
+  HRESULT WINAPI ITCallQualityControl_Get_Proxy(ITCallQualityControl *This,CallQualityProperty Property,__LONG32 *plValue,TAPIControlFlags *plFlags);
   void __RPC_STUB ITCallQualityControl_Get_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITCallQualityControl_Set_Proxy(ITCallQualityControl *This,CallQualityProperty Property,long lValue,TAPIControlFlags lFlags);
+  HRESULT WINAPI ITCallQualityControl_Set_Proxy(ITCallQualityControl *This,CallQualityProperty Property,__LONG32 lValue,TAPIControlFlags lFlags);
   void __RPC_STUB ITCallQualityControl_Set_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -385,9 +385,9 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITAudioDeviceControl : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetRange(AudioDeviceProperty Property,long *plMin,long *plMax,long *plSteppingDelta,long *plDefault,TAPIControlFlags *plFlags) = 0;
-    virtual HRESULT WINAPI Get(AudioDeviceProperty Property,long *plValue,TAPIControlFlags *plFlags) = 0;
-    virtual HRESULT WINAPI Set(AudioDeviceProperty Property,long lValue,TAPIControlFlags lFlags) = 0;
+    virtual HRESULT WINAPI GetRange(AudioDeviceProperty Property,__LONG32 *plMin,__LONG32 *plMax,__LONG32 *plSteppingDelta,__LONG32 *plDefault,TAPIControlFlags *plFlags) = 0;
+    virtual HRESULT WINAPI Get(AudioDeviceProperty Property,__LONG32 *plValue,TAPIControlFlags *plFlags) = 0;
+    virtual HRESULT WINAPI Set(AudioDeviceProperty Property,__LONG32 lValue,TAPIControlFlags lFlags) = 0;
   };
 #else
   typedef struct ITAudioDeviceControlVtbl {
@@ -395,9 +395,9 @@ extern "C"{
       HRESULT (WINAPI *QueryInterface)(ITAudioDeviceControl *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(ITAudioDeviceControl *This);
       ULONG (WINAPI *Release)(ITAudioDeviceControl *This);
-      HRESULT (WINAPI *GetRange)(ITAudioDeviceControl *This,AudioDeviceProperty Property,long *plMin,long *plMax,long *plSteppingDelta,long *plDefault,TAPIControlFlags *plFlags);
-      HRESULT (WINAPI *Get)(ITAudioDeviceControl *This,AudioDeviceProperty Property,long *plValue,TAPIControlFlags *plFlags);
-      HRESULT (WINAPI *Set)(ITAudioDeviceControl *This,AudioDeviceProperty Property,long lValue,TAPIControlFlags lFlags);
+      HRESULT (WINAPI *GetRange)(ITAudioDeviceControl *This,AudioDeviceProperty Property,__LONG32 *plMin,__LONG32 *plMax,__LONG32 *plSteppingDelta,__LONG32 *plDefault,TAPIControlFlags *plFlags);
+      HRESULT (WINAPI *Get)(ITAudioDeviceControl *This,AudioDeviceProperty Property,__LONG32 *plValue,TAPIControlFlags *plFlags);
+      HRESULT (WINAPI *Set)(ITAudioDeviceControl *This,AudioDeviceProperty Property,__LONG32 lValue,TAPIControlFlags lFlags);
     END_INTERFACE
   } ITAudioDeviceControlVtbl;
   struct ITAudioDeviceControl {
@@ -412,11 +412,11 @@ extern "C"{
 #define ITAudioDeviceControl_Set(This,Property,lValue,lFlags) (This)->lpVtbl->Set(This,Property,lValue,lFlags)
 #endif
 #endif
-  HRESULT WINAPI ITAudioDeviceControl_GetRange_Proxy(ITAudioDeviceControl *This,AudioDeviceProperty Property,long *plMin,long *plMax,long *plSteppingDelta,long *plDefault,TAPIControlFlags *plFlags);
+  HRESULT WINAPI ITAudioDeviceControl_GetRange_Proxy(ITAudioDeviceControl *This,AudioDeviceProperty Property,__LONG32 *plMin,__LONG32 *plMax,__LONG32 *plSteppingDelta,__LONG32 *plDefault,TAPIControlFlags *plFlags);
   void __RPC_STUB ITAudioDeviceControl_GetRange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAudioDeviceControl_Get_Proxy(ITAudioDeviceControl *This,AudioDeviceProperty Property,long *plValue,TAPIControlFlags *plFlags);
+  HRESULT WINAPI ITAudioDeviceControl_Get_Proxy(ITAudioDeviceControl *This,AudioDeviceProperty Property,__LONG32 *plValue,TAPIControlFlags *plFlags);
   void __RPC_STUB ITAudioDeviceControl_Get_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAudioDeviceControl_Set_Proxy(ITAudioDeviceControl *This,AudioDeviceProperty Property,long lValue,TAPIControlFlags lFlags);
+  HRESULT WINAPI ITAudioDeviceControl_Set_Proxy(ITAudioDeviceControl *This,AudioDeviceProperty Property,__LONG32 lValue,TAPIControlFlags lFlags);
   void __RPC_STUB ITAudioDeviceControl_Set_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -435,9 +435,9 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITAudioSettings : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetRange(AudioSettingsProperty Property,long *plMin,long *plMax,long *plSteppingDelta,long *plDefault,TAPIControlFlags *plFlags) = 0;
-    virtual HRESULT WINAPI Get(AudioSettingsProperty Property,long *plValue,TAPIControlFlags *plFlags) = 0;
-    virtual HRESULT WINAPI Set(AudioSettingsProperty Property,long lValue,TAPIControlFlags lFlags) = 0;
+    virtual HRESULT WINAPI GetRange(AudioSettingsProperty Property,__LONG32 *plMin,__LONG32 *plMax,__LONG32 *plSteppingDelta,__LONG32 *plDefault,TAPIControlFlags *plFlags) = 0;
+    virtual HRESULT WINAPI Get(AudioSettingsProperty Property,__LONG32 *plValue,TAPIControlFlags *plFlags) = 0;
+    virtual HRESULT WINAPI Set(AudioSettingsProperty Property,__LONG32 lValue,TAPIControlFlags lFlags) = 0;
   };
 #else
   typedef struct ITAudioSettingsVtbl {
@@ -445,9 +445,9 @@ extern "C"{
       HRESULT (WINAPI *QueryInterface)(ITAudioSettings *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(ITAudioSettings *This);
       ULONG (WINAPI *Release)(ITAudioSettings *This);
-      HRESULT (WINAPI *GetRange)(ITAudioSettings *This,AudioSettingsProperty Property,long *plMin,long *plMax,long *plSteppingDelta,long *plDefault,TAPIControlFlags *plFlags);
-      HRESULT (WINAPI *Get)(ITAudioSettings *This,AudioSettingsProperty Property,long *plValue,TAPIControlFlags *plFlags);
-      HRESULT (WINAPI *Set)(ITAudioSettings *This,AudioSettingsProperty Property,long lValue,TAPIControlFlags lFlags);
+      HRESULT (WINAPI *GetRange)(ITAudioSettings *This,AudioSettingsProperty Property,__LONG32 *plMin,__LONG32 *plMax,__LONG32 *plSteppingDelta,__LONG32 *plDefault,TAPIControlFlags *plFlags);
+      HRESULT (WINAPI *Get)(ITAudioSettings *This,AudioSettingsProperty Property,__LONG32 *plValue,TAPIControlFlags *plFlags);
+      HRESULT (WINAPI *Set)(ITAudioSettings *This,AudioSettingsProperty Property,__LONG32 lValue,TAPIControlFlags lFlags);
     END_INTERFACE
   } ITAudioSettingsVtbl;
   struct ITAudioSettings {
@@ -462,11 +462,11 @@ extern "C"{
 #define ITAudioSettings_Set(This,Property,lValue,lFlags) (This)->lpVtbl->Set(This,Property,lValue,lFlags)
 #endif
 #endif
-  HRESULT WINAPI ITAudioSettings_GetRange_Proxy(ITAudioSettings *This,AudioSettingsProperty Property,long *plMin,long *plMax,long *plSteppingDelta,long *plDefault,TAPIControlFlags *plFlags);
+  HRESULT WINAPI ITAudioSettings_GetRange_Proxy(ITAudioSettings *This,AudioSettingsProperty Property,__LONG32 *plMin,__LONG32 *plMax,__LONG32 *plSteppingDelta,__LONG32 *plDefault,TAPIControlFlags *plFlags);
   void __RPC_STUB ITAudioSettings_GetRange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAudioSettings_Get_Proxy(ITAudioSettings *This,AudioSettingsProperty Property,long *plValue,TAPIControlFlags *plFlags);
+  HRESULT WINAPI ITAudioSettings_Get_Proxy(ITAudioSettings *This,AudioSettingsProperty Property,__LONG32 *plValue,TAPIControlFlags *plFlags);
   void __RPC_STUB ITAudioSettings_Get_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAudioSettings_Set_Proxy(ITAudioSettings *This,AudioSettingsProperty Property,long lValue,TAPIControlFlags lFlags);
+  HRESULT WINAPI ITAudioSettings_Set_Proxy(ITAudioSettings *This,AudioSettingsProperty Property,__LONG32 lValue,TAPIControlFlags lFlags);
   void __RPC_STUB ITAudioSettings_Set_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 

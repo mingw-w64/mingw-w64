@@ -1016,7 +1016,7 @@ extern "C"{
     virtual HRESULT WINAPI get__NewEnum(IUnknown **ppUnkEnum) = 0;
     virtual HRESULT WINAPI get_Item(BSTR objectID,VARIANT *pItem) = 0;
     virtual HRESULT WINAPI get_NewEnum(IEnumEventObject **ppEnum) = 0;
-    virtual HRESULT WINAPI get_Count(long *pCount) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *pCount) = 0;
     virtual HRESULT WINAPI Add(VARIANT *item,BSTR objectID) = 0;
     virtual HRESULT WINAPI Remove(BSTR objectID) = 0;
   };
@@ -1033,7 +1033,7 @@ extern "C"{
       HRESULT (WINAPI *get__NewEnum)(IEventObjectCollection *This,IUnknown **ppUnkEnum);
       HRESULT (WINAPI *get_Item)(IEventObjectCollection *This,BSTR objectID,VARIANT *pItem);
       HRESULT (WINAPI *get_NewEnum)(IEventObjectCollection *This,IEnumEventObject **ppEnum);
-      HRESULT (WINAPI *get_Count)(IEventObjectCollection *This,long *pCount);
+      HRESULT (WINAPI *get_Count)(IEventObjectCollection *This,__LONG32 *pCount);
       HRESULT (WINAPI *Add)(IEventObjectCollection *This,VARIANT *item,BSTR objectID);
       HRESULT (WINAPI *Remove)(IEventObjectCollection *This,BSTR objectID);
     END_INTERFACE
@@ -1063,7 +1063,7 @@ extern "C"{
   void __RPC_STUB IEventObjectCollection_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IEventObjectCollection_get_NewEnum_Proxy(IEventObjectCollection *This,IEnumEventObject **ppEnum);
   void __RPC_STUB IEventObjectCollection_get_NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEventObjectCollection_get_Count_Proxy(IEventObjectCollection *This,long *pCount);
+  HRESULT WINAPI IEventObjectCollection_get_Count_Proxy(IEventObjectCollection *This,__LONG32 *pCount);
   void __RPC_STUB IEventObjectCollection_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IEventObjectCollection_Add_Proxy(IEventObjectCollection *This,VARIANT *item,BSTR objectID);
   void __RPC_STUB IEventObjectCollection_Add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);

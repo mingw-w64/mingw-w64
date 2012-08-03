@@ -253,14 +253,14 @@ extern "C"{
     virtual HRESULT WINAPI get_Document(IDispatch **ppDisp) = 0;
     virtual HRESULT WINAPI get_TopLevelContainer(VARIANT_BOOL *pBool) = 0;
     virtual HRESULT WINAPI get_Type(BSTR *Type) = 0;
-    virtual HRESULT WINAPI get_Left(long *pl) = 0;
-    virtual HRESULT WINAPI put_Left(long Left) = 0;
-    virtual HRESULT WINAPI get_Top(long *pl) = 0;
-    virtual HRESULT WINAPI put_Top(long Top) = 0;
-    virtual HRESULT WINAPI get_Width(long *pl) = 0;
-    virtual HRESULT WINAPI put_Width(long Width) = 0;
-    virtual HRESULT WINAPI get_Height(long *pl) = 0;
-    virtual HRESULT WINAPI put_Height(long Height) = 0;
+    virtual HRESULT WINAPI get_Left(__LONG32 *pl) = 0;
+    virtual HRESULT WINAPI put_Left(__LONG32 Left) = 0;
+    virtual HRESULT WINAPI get_Top(__LONG32 *pl) = 0;
+    virtual HRESULT WINAPI put_Top(__LONG32 Top) = 0;
+    virtual HRESULT WINAPI get_Width(__LONG32 *pl) = 0;
+    virtual HRESULT WINAPI put_Width(__LONG32 Width) = 0;
+    virtual HRESULT WINAPI get_Height(__LONG32 *pl) = 0;
+    virtual HRESULT WINAPI put_Height(__LONG32 Height) = 0;
     virtual HRESULT WINAPI get_LocationName(BSTR *LocationName) = 0;
     virtual HRESULT WINAPI get_LocationURL(BSTR *LocationURL) = 0;
     virtual HRESULT WINAPI get_Busy(VARIANT_BOOL *pBool) = 0;
@@ -289,14 +289,14 @@ extern "C"{
       HRESULT (WINAPI *get_Document)(IWebBrowser *This,IDispatch **ppDisp);
       HRESULT (WINAPI *get_TopLevelContainer)(IWebBrowser *This,VARIANT_BOOL *pBool);
       HRESULT (WINAPI *get_Type)(IWebBrowser *This,BSTR *Type);
-      HRESULT (WINAPI *get_Left)(IWebBrowser *This,long *pl);
-      HRESULT (WINAPI *put_Left)(IWebBrowser *This,long Left);
-      HRESULT (WINAPI *get_Top)(IWebBrowser *This,long *pl);
-      HRESULT (WINAPI *put_Top)(IWebBrowser *This,long Top);
-      HRESULT (WINAPI *get_Width)(IWebBrowser *This,long *pl);
-      HRESULT (WINAPI *put_Width)(IWebBrowser *This,long Width);
-      HRESULT (WINAPI *get_Height)(IWebBrowser *This,long *pl);
-      HRESULT (WINAPI *put_Height)(IWebBrowser *This,long Height);
+      HRESULT (WINAPI *get_Left)(IWebBrowser *This,__LONG32 *pl);
+      HRESULT (WINAPI *put_Left)(IWebBrowser *This,__LONG32 Left);
+      HRESULT (WINAPI *get_Top)(IWebBrowser *This,__LONG32 *pl);
+      HRESULT (WINAPI *put_Top)(IWebBrowser *This,__LONG32 Top);
+      HRESULT (WINAPI *get_Width)(IWebBrowser *This,__LONG32 *pl);
+      HRESULT (WINAPI *put_Width)(IWebBrowser *This,__LONG32 Width);
+      HRESULT (WINAPI *get_Height)(IWebBrowser *This,__LONG32 *pl);
+      HRESULT (WINAPI *put_Height)(IWebBrowser *This,__LONG32 Height);
       HRESULT (WINAPI *get_LocationName)(IWebBrowser *This,BSTR *LocationName);
       HRESULT (WINAPI *get_LocationURL)(IWebBrowser *This,BSTR *LocationURL);
       HRESULT (WINAPI *get_Busy)(IWebBrowser *This,VARIANT_BOOL *pBool);
@@ -368,21 +368,21 @@ extern "C"{
   void __RPC_STUB IWebBrowser_get_TopLevelContainer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IWebBrowser_get_Type_Proxy(IWebBrowser *This,BSTR *Type);
   void __RPC_STUB IWebBrowser_get_Type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWebBrowser_get_Left_Proxy(IWebBrowser *This,long *pl);
+  HRESULT WINAPI IWebBrowser_get_Left_Proxy(IWebBrowser *This,__LONG32 *pl);
   void __RPC_STUB IWebBrowser_get_Left_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWebBrowser_put_Left_Proxy(IWebBrowser *This,long Left);
+  HRESULT WINAPI IWebBrowser_put_Left_Proxy(IWebBrowser *This,__LONG32 Left);
   void __RPC_STUB IWebBrowser_put_Left_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWebBrowser_get_Top_Proxy(IWebBrowser *This,long *pl);
+  HRESULT WINAPI IWebBrowser_get_Top_Proxy(IWebBrowser *This,__LONG32 *pl);
   void __RPC_STUB IWebBrowser_get_Top_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWebBrowser_put_Top_Proxy(IWebBrowser *This,long Top);
+  HRESULT WINAPI IWebBrowser_put_Top_Proxy(IWebBrowser *This,__LONG32 Top);
   void __RPC_STUB IWebBrowser_put_Top_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWebBrowser_get_Width_Proxy(IWebBrowser *This,long *pl);
+  HRESULT WINAPI IWebBrowser_get_Width_Proxy(IWebBrowser *This,__LONG32 *pl);
   void __RPC_STUB IWebBrowser_get_Width_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWebBrowser_put_Width_Proxy(IWebBrowser *This,long Width);
+  HRESULT WINAPI IWebBrowser_put_Width_Proxy(IWebBrowser *This,__LONG32 Width);
   void __RPC_STUB IWebBrowser_put_Width_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWebBrowser_get_Height_Proxy(IWebBrowser *This,long *pl);
+  HRESULT WINAPI IWebBrowser_get_Height_Proxy(IWebBrowser *This,__LONG32 *pl);
   void __RPC_STUB IWebBrowser_get_Height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWebBrowser_put_Height_Proxy(IWebBrowser *This,long Height);
+  HRESULT WINAPI IWebBrowser_put_Height_Proxy(IWebBrowser *This,__LONG32 Height);
   void __RPC_STUB IWebBrowser_put_Height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IWebBrowser_get_LocationName_Proxy(IWebBrowser *This,BSTR *LocationName);
   void __RPC_STUB IWebBrowser_get_LocationName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -476,14 +476,14 @@ extern "C"{
       HRESULT (WINAPI *get_Document)(IWebBrowserApp *This,IDispatch **ppDisp);
       HRESULT (WINAPI *get_TopLevelContainer)(IWebBrowserApp *This,VARIANT_BOOL *pBool);
       HRESULT (WINAPI *get_Type)(IWebBrowserApp *This,BSTR *Type);
-      HRESULT (WINAPI *get_Left)(IWebBrowserApp *This,long *pl);
-      HRESULT (WINAPI *put_Left)(IWebBrowserApp *This,long Left);
-      HRESULT (WINAPI *get_Top)(IWebBrowserApp *This,long *pl);
-      HRESULT (WINAPI *put_Top)(IWebBrowserApp *This,long Top);
-      HRESULT (WINAPI *get_Width)(IWebBrowserApp *This,long *pl);
-      HRESULT (WINAPI *put_Width)(IWebBrowserApp *This,long Width);
-      HRESULT (WINAPI *get_Height)(IWebBrowserApp *This,long *pl);
-      HRESULT (WINAPI *put_Height)(IWebBrowserApp *This,long Height);
+      HRESULT (WINAPI *get_Left)(IWebBrowserApp *This,__LONG32 *pl);
+      HRESULT (WINAPI *put_Left)(IWebBrowserApp *This,__LONG32 Left);
+      HRESULT (WINAPI *get_Top)(IWebBrowserApp *This,__LONG32 *pl);
+      HRESULT (WINAPI *put_Top)(IWebBrowserApp *This,__LONG32 Top);
+      HRESULT (WINAPI *get_Width)(IWebBrowserApp *This,__LONG32 *pl);
+      HRESULT (WINAPI *put_Width)(IWebBrowserApp *This,__LONG32 Width);
+      HRESULT (WINAPI *get_Height)(IWebBrowserApp *This,__LONG32 *pl);
+      HRESULT (WINAPI *put_Height)(IWebBrowserApp *This,__LONG32 Height);
       HRESULT (WINAPI *get_LocationName)(IWebBrowserApp *This,BSTR *LocationName);
       HRESULT (WINAPI *get_LocationURL)(IWebBrowserApp *This,BSTR *LocationURL);
       HRESULT (WINAPI *get_Busy)(IWebBrowserApp *This,VARIANT_BOOL *pBool);
@@ -659,14 +659,14 @@ extern "C"{
       HRESULT (WINAPI *get_Document)(IWebBrowser2 *This,IDispatch **ppDisp);
       HRESULT (WINAPI *get_TopLevelContainer)(IWebBrowser2 *This,VARIANT_BOOL *pBool);
       HRESULT (WINAPI *get_Type)(IWebBrowser2 *This,BSTR *Type);
-      HRESULT (WINAPI *get_Left)(IWebBrowser2 *This,long *pl);
-      HRESULT (WINAPI *put_Left)(IWebBrowser2 *This,long Left);
-      HRESULT (WINAPI *get_Top)(IWebBrowser2 *This,long *pl);
-      HRESULT (WINAPI *put_Top)(IWebBrowser2 *This,long Top);
-      HRESULT (WINAPI *get_Width)(IWebBrowser2 *This,long *pl);
-      HRESULT (WINAPI *put_Width)(IWebBrowser2 *This,long Width);
-      HRESULT (WINAPI *get_Height)(IWebBrowser2 *This,long *pl);
-      HRESULT (WINAPI *put_Height)(IWebBrowser2 *This,long Height);
+      HRESULT (WINAPI *get_Left)(IWebBrowser2 *This,__LONG32 *pl);
+      HRESULT (WINAPI *put_Left)(IWebBrowser2 *This,__LONG32 Left);
+      HRESULT (WINAPI *get_Top)(IWebBrowser2 *This,__LONG32 *pl);
+      HRESULT (WINAPI *put_Top)(IWebBrowser2 *This,__LONG32 Top);
+      HRESULT (WINAPI *get_Width)(IWebBrowser2 *This,__LONG32 *pl);
+      HRESULT (WINAPI *put_Width)(IWebBrowser2 *This,__LONG32 Width);
+      HRESULT (WINAPI *get_Height)(IWebBrowser2 *This,__LONG32 *pl);
+      HRESULT (WINAPI *put_Height)(IWebBrowser2 *This,__LONG32 Height);
       HRESULT (WINAPI *get_LocationName)(IWebBrowser2 *This,BSTR *LocationName);
       HRESULT (WINAPI *get_LocationURL)(IWebBrowser2 *This,BSTR *LocationURL);
       HRESULT (WINAPI *get_Busy)(IWebBrowser2 *This,VARIANT_BOOL *pBool);
@@ -917,16 +917,16 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IShellWindows : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *Count) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *Count) = 0;
     virtual HRESULT WINAPI Item(VARIANT index,IDispatch **Folder) = 0;
     virtual HRESULT WINAPI _NewEnum(IUnknown **ppunk) = 0;
-    virtual HRESULT WINAPI Register(IDispatch *pid,long hwnd,int swClass,long *plCookie) = 0;
-    virtual HRESULT WINAPI RegisterPending(long lThreadId,VARIANT *pvarloc,VARIANT *pvarlocRoot,int swClass,long *plCookie) = 0;
-    virtual HRESULT WINAPI Revoke(long lCookie) = 0;
-    virtual HRESULT WINAPI OnNavigate(long lCookie,VARIANT *pvarLoc) = 0;
-    virtual HRESULT WINAPI OnActivated(long lCookie,VARIANT_BOOL fActive) = 0;
-    virtual HRESULT WINAPI FindWindowSW(VARIANT *pvarLoc,VARIANT *pvarLocRoot,int swClass,long *phwnd,int swfwOptions,IDispatch **ppdispOut) = 0;
-    virtual HRESULT WINAPI OnCreated(long lCookie,IUnknown *punk) = 0;
+    virtual HRESULT WINAPI Register(IDispatch *pid,__LONG32 hwnd,int swClass,__LONG32 *plCookie) = 0;
+    virtual HRESULT WINAPI RegisterPending(__LONG32 lThreadId,VARIANT *pvarloc,VARIANT *pvarlocRoot,int swClass,__LONG32 *plCookie) = 0;
+    virtual HRESULT WINAPI Revoke(__LONG32 lCookie) = 0;
+    virtual HRESULT WINAPI OnNavigate(__LONG32 lCookie,VARIANT *pvarLoc) = 0;
+    virtual HRESULT WINAPI OnActivated(__LONG32 lCookie,VARIANT_BOOL fActive) = 0;
+    virtual HRESULT WINAPI FindWindowSW(VARIANT *pvarLoc,VARIANT *pvarLocRoot,int swClass,__LONG32 *phwnd,int swfwOptions,IDispatch **ppdispOut) = 0;
+    virtual HRESULT WINAPI OnCreated(__LONG32 lCookie,IUnknown *punk) = 0;
     virtual HRESULT WINAPI ProcessAttachDetach(VARIANT_BOOL fAttach) = 0;
   };
 #else
@@ -939,16 +939,16 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IShellWindows *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IShellWindows *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IShellWindows *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(IShellWindows *This,long *Count);
+      HRESULT (WINAPI *get_Count)(IShellWindows *This,__LONG32 *Count);
       HRESULT (WINAPI *Item)(IShellWindows *This,VARIANT index,IDispatch **Folder);
       HRESULT (WINAPI *_NewEnum)(IShellWindows *This,IUnknown **ppunk);
-      HRESULT (WINAPI *Register)(IShellWindows *This,IDispatch *pid,long hwnd,int swClass,long *plCookie);
-      HRESULT (WINAPI *RegisterPending)(IShellWindows *This,long lThreadId,VARIANT *pvarloc,VARIANT *pvarlocRoot,int swClass,long *plCookie);
-      HRESULT (WINAPI *Revoke)(IShellWindows *This,long lCookie);
-      HRESULT (WINAPI *OnNavigate)(IShellWindows *This,long lCookie,VARIANT *pvarLoc);
-      HRESULT (WINAPI *OnActivated)(IShellWindows *This,long lCookie,VARIANT_BOOL fActive);
-      HRESULT (WINAPI *FindWindowSW)(IShellWindows *This,VARIANT *pvarLoc,VARIANT *pvarLocRoot,int swClass,long *phwnd,int swfwOptions,IDispatch **ppdispOut);
-      HRESULT (WINAPI *OnCreated)(IShellWindows *This,long lCookie,IUnknown *punk);
+      HRESULT (WINAPI *Register)(IShellWindows *This,IDispatch *pid,__LONG32 hwnd,int swClass,__LONG32 *plCookie);
+      HRESULT (WINAPI *RegisterPending)(IShellWindows *This,__LONG32 lThreadId,VARIANT *pvarloc,VARIANT *pvarlocRoot,int swClass,__LONG32 *plCookie);
+      HRESULT (WINAPI *Revoke)(IShellWindows *This,__LONG32 lCookie);
+      HRESULT (WINAPI *OnNavigate)(IShellWindows *This,__LONG32 lCookie,VARIANT *pvarLoc);
+      HRESULT (WINAPI *OnActivated)(IShellWindows *This,__LONG32 lCookie,VARIANT_BOOL fActive);
+      HRESULT (WINAPI *FindWindowSW)(IShellWindows *This,VARIANT *pvarLoc,VARIANT *pvarLocRoot,int swClass,__LONG32 *phwnd,int swfwOptions,IDispatch **ppdispOut);
+      HRESULT (WINAPI *OnCreated)(IShellWindows *This,__LONG32 lCookie,IUnknown *punk);
       HRESULT (WINAPI *ProcessAttachDetach)(IShellWindows *This,VARIANT_BOOL fAttach);
     END_INTERFACE
   } IShellWindowsVtbl;
@@ -976,25 +976,25 @@ extern "C"{
 #define IShellWindows_ProcessAttachDetach(This,fAttach) (This)->lpVtbl->ProcessAttachDetach(This,fAttach)
 #endif
 #endif
-  HRESULT WINAPI IShellWindows_get_Count_Proxy(IShellWindows *This,long *Count);
+  HRESULT WINAPI IShellWindows_get_Count_Proxy(IShellWindows *This,__LONG32 *Count);
   void __RPC_STUB IShellWindows_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IShellWindows_Item_Proxy(IShellWindows *This,VARIANT index,IDispatch **Folder);
   void __RPC_STUB IShellWindows_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IShellWindows__NewEnum_Proxy(IShellWindows *This,IUnknown **ppunk);
   void __RPC_STUB IShellWindows__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IShellWindows_Register_Proxy(IShellWindows *This,IDispatch *pid,long hwnd,int swClass,long *plCookie);
+  HRESULT WINAPI IShellWindows_Register_Proxy(IShellWindows *This,IDispatch *pid,__LONG32 hwnd,int swClass,__LONG32 *plCookie);
   void __RPC_STUB IShellWindows_Register_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IShellWindows_RegisterPending_Proxy(IShellWindows *This,long lThreadId,VARIANT *pvarloc,VARIANT *pvarlocRoot,int swClass,long *plCookie);
+  HRESULT WINAPI IShellWindows_RegisterPending_Proxy(IShellWindows *This,__LONG32 lThreadId,VARIANT *pvarloc,VARIANT *pvarlocRoot,int swClass,__LONG32 *plCookie);
   void __RPC_STUB IShellWindows_RegisterPending_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IShellWindows_Revoke_Proxy(IShellWindows *This,long lCookie);
+  HRESULT WINAPI IShellWindows_Revoke_Proxy(IShellWindows *This,__LONG32 lCookie);
   void __RPC_STUB IShellWindows_Revoke_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IShellWindows_OnNavigate_Proxy(IShellWindows *This,long lCookie,VARIANT *pvarLoc);
+  HRESULT WINAPI IShellWindows_OnNavigate_Proxy(IShellWindows *This,__LONG32 lCookie,VARIANT *pvarLoc);
   void __RPC_STUB IShellWindows_OnNavigate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IShellWindows_OnActivated_Proxy(IShellWindows *This,long lCookie,VARIANT_BOOL fActive);
+  HRESULT WINAPI IShellWindows_OnActivated_Proxy(IShellWindows *This,__LONG32 lCookie,VARIANT_BOOL fActive);
   void __RPC_STUB IShellWindows_OnActivated_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IShellWindows_FindWindowSW_Proxy(IShellWindows *This,VARIANT *pvarLoc,VARIANT *pvarLocRoot,int swClass,long *phwnd,int swfwOptions,IDispatch **ppdispOut);
+  HRESULT WINAPI IShellWindows_FindWindowSW_Proxy(IShellWindows *This,VARIANT *pvarLoc,VARIANT *pvarLocRoot,int swClass,__LONG32 *phwnd,int swfwOptions,IDispatch **ppdispOut);
   void __RPC_STUB IShellWindows_FindWindowSW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IShellWindows_OnCreated_Proxy(IShellWindows *This,long lCookie,IUnknown *punk);
+  HRESULT WINAPI IShellWindows_OnCreated_Proxy(IShellWindows *This,__LONG32 lCookie,IUnknown *punk);
   void __RPC_STUB IShellWindows_OnCreated_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IShellWindows_ProcessAttachDetach_Proxy(IShellWindows *This,VARIANT_BOOL fAttach);
   void __RPC_STUB IShellWindows_ProcessAttachDetach_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1575,7 +1575,7 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ISearches : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *plCount) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *plCount) = 0;
     virtual HRESULT WINAPI get_Default(BSTR *pbstrDefault) = 0;
     virtual HRESULT WINAPI Item(VARIANT index,ISearch **ppid) = 0;
     virtual HRESULT WINAPI _NewEnum(IUnknown **ppunk) = 0;
@@ -1590,7 +1590,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(ISearches *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ISearches *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ISearches *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(ISearches *This,long *plCount);
+      HRESULT (WINAPI *get_Count)(ISearches *This,__LONG32 *plCount);
       HRESULT (WINAPI *get_Default)(ISearches *This,BSTR *pbstrDefault);
       HRESULT (WINAPI *Item)(ISearches *This,VARIANT index,ISearch **ppid);
       HRESULT (WINAPI *_NewEnum)(ISearches *This,IUnknown **ppunk);
@@ -1613,7 +1613,7 @@ extern "C"{
 #define ISearches__NewEnum(This,ppunk) (This)->lpVtbl->_NewEnum(This,ppunk)
 #endif
 #endif
-  HRESULT WINAPI ISearches_get_Count_Proxy(ISearches *This,long *plCount);
+  HRESULT WINAPI ISearches_get_Count_Proxy(ISearches *This,__LONG32 *plCount);
   void __RPC_STUB ISearches_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISearches_get_Default_Proxy(ISearches *This,BSTR *pbstrDefault);
   void __RPC_STUB ISearches_get_Default_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1629,7 +1629,7 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ISearchAssistantOC : public IDispatch {
   public:
-    virtual HRESULT WINAPI AddNextMenuItem(BSTR bstrText,long idItem) = 0;
+    virtual HRESULT WINAPI AddNextMenuItem(BSTR bstrText,__LONG32 idItem) = 0;
     virtual HRESULT WINAPI SetDefaultSearchUrl(BSTR bstrUrl) = 0;
     virtual HRESULT WINAPI NavigateToDefaultSearch(void) = 0;
     virtual HRESULT WINAPI IsRestricted(BSTR bstrGuid,VARIANT_BOOL *pVal) = 0;
@@ -1667,7 +1667,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(ISearchAssistantOC *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ISearchAssistantOC *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ISearchAssistantOC *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *AddNextMenuItem)(ISearchAssistantOC *This,BSTR bstrText,long idItem);
+      HRESULT (WINAPI *AddNextMenuItem)(ISearchAssistantOC *This,BSTR bstrText,__LONG32 idItem);
       HRESULT (WINAPI *SetDefaultSearchUrl)(ISearchAssistantOC *This,BSTR bstrUrl);
       HRESULT (WINAPI *NavigateToDefaultSearch)(ISearchAssistantOC *This);
       HRESULT (WINAPI *IsRestricted)(ISearchAssistantOC *This,BSTR bstrGuid,VARIANT_BOOL *pVal);
@@ -1736,7 +1736,7 @@ extern "C"{
 #define ISearchAssistantOC_EncodeString(This,bstrValue,bstrCharSet,bUseUTF8,pbstrResult) (This)->lpVtbl->EncodeString(This,bstrValue,bstrCharSet,bUseUTF8,pbstrResult)
 #endif
 #endif
-  HRESULT WINAPI ISearchAssistantOC_AddNextMenuItem_Proxy(ISearchAssistantOC *This,BSTR bstrText,long idItem);
+  HRESULT WINAPI ISearchAssistantOC_AddNextMenuItem_Proxy(ISearchAssistantOC *This,BSTR bstrText,__LONG32 idItem);
   void __RPC_STUB ISearchAssistantOC_AddNextMenuItem_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISearchAssistantOC_SetDefaultSearchUrl_Proxy(ISearchAssistantOC *This,BSTR bstrUrl);
   void __RPC_STUB ISearchAssistantOC_SetDefaultSearchUrl_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1810,7 +1810,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(ISearchAssistantOC2 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ISearchAssistantOC2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ISearchAssistantOC2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *AddNextMenuItem)(ISearchAssistantOC2 *This,BSTR bstrText,long idItem);
+      HRESULT (WINAPI *AddNextMenuItem)(ISearchAssistantOC2 *This,BSTR bstrText,__LONG32 idItem);
       HRESULT (WINAPI *SetDefaultSearchUrl)(ISearchAssistantOC2 *This,BSTR bstrUrl);
       HRESULT (WINAPI *NavigateToDefaultSearch)(ISearchAssistantOC2 *This);
       HRESULT (WINAPI *IsRestricted)(ISearchAssistantOC2 *This,BSTR bstrGuid,VARIANT_BOOL *pVal);
@@ -1905,7 +1905,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(ISearchAssistantOC3 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ISearchAssistantOC3 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ISearchAssistantOC3 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *AddNextMenuItem)(ISearchAssistantOC3 *This,BSTR bstrText,long idItem);
+      HRESULT (WINAPI *AddNextMenuItem)(ISearchAssistantOC3 *This,BSTR bstrText,__LONG32 idItem);
       HRESULT (WINAPI *SetDefaultSearchUrl)(ISearchAssistantOC3 *This,BSTR bstrUrl);
       HRESULT (WINAPI *NavigateToDefaultSearch)(ISearchAssistantOC3 *This);
       HRESULT (WINAPI *IsRestricted)(ISearchAssistantOC3 *This,BSTR bstrGuid,VARIANT_BOOL *pVal);
