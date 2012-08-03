@@ -5,7 +5,7 @@
 
 HMODULE __mingw_get_msvcrt_handle (void);
 errno_t __cdecl _localtime32_s (struct tm *, const __time32_t *);
-errno_t __cdecl asctime_s (wchar_t *, size_t, const struct tm *);
+errno_t __cdecl _wasctime_s (wchar_t *, size_t, const struct tm *);
 errno_t __cdecl _wctime32_s (wchar_t *, size_t, const __time32_t *);
 static errno_t __cdecl _int_wctime32_s (wchar_t *, size_t, const __time32_t *);
 static errno_t __cdecl _stub (wchar_t *, size_t, const __time32_t *);
@@ -53,7 +53,7 @@ _int_wctime32_s (wchar_t *d, size_t dn, const __time32_t *pt)
 	return EINVAL;
      }
 
-  if ((e = _localtim32_s (&ltm, pt)) != 0)
+  if ((e = _localtime32_s (&ltm, pt)) != 0)
     return e;  
   return _wasctime_s (d, dn, &ltm);
 }

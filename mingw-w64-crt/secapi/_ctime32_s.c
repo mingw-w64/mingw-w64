@@ -53,7 +53,7 @@ _int_ctime32_s (char *d, size_t dn, const __time32_t *pt)
 	return EINVAL;
      }
 
-  if ((e = _localtim32_s (&ltm, pt)) != 0)
+  if ((e = _localtime32_s (&ltm, pt)) != 0)
     return e;  
   return asctime_s (d, dn, &ltm);
 }

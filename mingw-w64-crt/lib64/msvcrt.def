@@ -866,7 +866,7 @@ _vwprintf_s_l
 _waccess
 ; _waccess_s Replaced by emu
 _wasctime
-_wasctime_s
+; _wasctime_s Replaced by emu
 _wchdir
 _wchmod
 _wcmdln DATA
@@ -1013,7 +1013,7 @@ abs
 acos
 ;acosf
 asctime
-asctime_s
+; asctime_s replaced by emu
 asin
 ;asinf
 atan

@@ -1,5 +1,7 @@
 2012-08-03  Kai Tietz  <ktietz@redhat.com>
 
+	* secapi/asctime_s.c: New file.
+	* secapi/_wasctime_s.c: New file.
 	* secapi/_wctime32_s.c: New file.
 	* secapi/_ctime32_s.c: New file.
 	* Makefile.am: Add new files.

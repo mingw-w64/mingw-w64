@@ -1115,7 +1115,7 @@ _vwprintf_p_l
 _vwprintf_s_l
 ; _waccess_s Replaced by emu
 ; _access_s Likewise.
-_wasctime_s
+; _wasctime_s Likewise.
 _wcscoll_l
 _wcserror_s
 _wcsftime_l
@@ -1167,7 +1167,7 @@ _wtof_l
 _wtoi64_l
 _wtoi_l
 _wtol_l
-asctime_s
+; asctime_s replaced by emu
 bsearch_s
 clearerr_s
 fopen_s
