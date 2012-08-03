@@ -1061,8 +1061,8 @@ extern "C"{
     virtual HRESULT WINAPI Get(BSTR bstrName,VARIANT *pvProp) = 0;
     virtual HRESULT WINAPI Put(BSTR bstrName,VARIANT vProp) = 0;
     virtual HRESULT WINAPI GetEx(BSTR bstrName,VARIANT *pvProp) = 0;
-    virtual HRESULT WINAPI PutEx(long lnControlCode,BSTR bstrName,VARIANT vProp) = 0;
-    virtual HRESULT WINAPI GetInfoEx(VARIANT vProperties,long lnReserved) = 0;
+    virtual HRESULT WINAPI PutEx(__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp) = 0;
+    virtual HRESULT WINAPI GetInfoEx(VARIANT vProperties,__LONG32 lnReserved) = 0;
   };
 #else
   typedef struct IADsVtbl {
@@ -1085,8 +1085,8 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADs *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADs *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADs *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADs *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADs *This,VARIANT vProperties,long lnReserved);
+      HRESULT (WINAPI *PutEx)(IADs *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADs *This,VARIANT vProperties,__LONG32 lnReserved);
     END_INTERFACE
   } IADsVtbl;
   struct IADs {
@@ -1137,9 +1137,9 @@ extern "C"{
   void __RPC_STUB IADs_Put_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADs_GetEx_Proxy(IADs *This,BSTR bstrName,VARIANT *pvProp);
   void __RPC_STUB IADs_GetEx_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADs_PutEx_Proxy(IADs *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
+  HRESULT WINAPI IADs_PutEx_Proxy(IADs *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
   void __RPC_STUB IADs_PutEx_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADs_GetInfoEx_Proxy(IADs *This,VARIANT vProperties,long lnReserved);
+  HRESULT WINAPI IADs_GetInfoEx_Proxy(IADs *This,VARIANT vProperties,__LONG32 lnReserved);
   void __RPC_STUB IADs_GetInfoEx_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1149,7 +1149,7 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsContainer : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *retval) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *retval) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **retval) = 0;
     virtual HRESULT WINAPI get_Filter(VARIANT *pVar) = 0;
     virtual HRESULT WINAPI put_Filter(VARIANT Var) = 0;
@@ -1171,7 +1171,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IADsContainer *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IADsContainer *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IADsContainer *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(IADsContainer *This,long *retval);
+      HRESULT (WINAPI *get_Count)(IADsContainer *This,__LONG32 *retval);
       HRESULT (WINAPI *get__NewEnum)(IADsContainer *This,IUnknown **retval);
       HRESULT (WINAPI *get_Filter)(IADsContainer *This,VARIANT *pVar);
       HRESULT (WINAPI *put_Filter)(IADsContainer *This,VARIANT Var);
@@ -1208,7 +1208,7 @@ extern "C"{
 #define IADsContainer_MoveHere(This,SourceName,NewName,ppObject) (This)->lpVtbl->MoveHere(This,SourceName,NewName,ppObject)
 #endif
 #endif
-  HRESULT WINAPI IADsContainer_get_Count_Proxy(IADsContainer *This,long *retval);
+  HRESULT WINAPI IADsContainer_get_Count_Proxy(IADsContainer *This,__LONG32 *retval);
   void __RPC_STUB IADsContainer_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsContainer_get__NewEnum_Proxy(IADsContainer *This,IUnknown **retval);
   void __RPC_STUB IADsContainer_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1292,7 +1292,7 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsMembers : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *plCount) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *plCount) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **ppEnumerator) = 0;
     virtual HRESULT WINAPI get_Filter(VARIANT *pvFilter) = 0;
     virtual HRESULT WINAPI put_Filter(VARIANT pvFilter) = 0;
@@ -1307,7 +1307,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IADsMembers *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IADsMembers *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IADsMembers *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(IADsMembers *This,long *plCount);
+      HRESULT (WINAPI *get_Count)(IADsMembers *This,__LONG32 *plCount);
       HRESULT (WINAPI *get__NewEnum)(IADsMembers *This,IUnknown **ppEnumerator);
       HRESULT (WINAPI *get_Filter)(IADsMembers *This,VARIANT *pvFilter);
       HRESULT (WINAPI *put_Filter)(IADsMembers *This,VARIANT pvFilter);
@@ -1330,7 +1330,7 @@ extern "C"{
 #define IADsMembers_put_Filter(This,pvFilter) (This)->lpVtbl->put_Filter(This,pvFilter)
 #endif
 #endif
-  HRESULT WINAPI IADsMembers_get_Count_Proxy(IADsMembers *This,long *plCount);
+  HRESULT WINAPI IADsMembers_get_Count_Proxy(IADsMembers *This,__LONG32 *plCount);
   void __RPC_STUB IADsMembers_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsMembers_get__NewEnum_Proxy(IADsMembers *This,IUnknown **ppEnumerator);
   void __RPC_STUB IADsMembers_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1346,9 +1346,9 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsPropertyList : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_PropertyCount(long *plCount) = 0;
+    virtual HRESULT WINAPI get_PropertyCount(__LONG32 *plCount) = 0;
     virtual HRESULT WINAPI Next(VARIANT *pVariant) = 0;
-    virtual HRESULT WINAPI Skip(long cElements) = 0;
+    virtual HRESULT WINAPI Skip(__LONG32 cElements) = 0;
     virtual HRESULT WINAPI Reset(void) = 0;
     virtual HRESULT WINAPI Item(VARIANT varIndex,VARIANT *pVariant) = 0;
     virtual HRESULT WINAPI GetPropertyItem(BSTR bstrName,LONG lnADsType,VARIANT *pVariant) = 0;
@@ -1366,9 +1366,9 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IADsPropertyList *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IADsPropertyList *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IADsPropertyList *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_PropertyCount)(IADsPropertyList *This,long *plCount);
+      HRESULT (WINAPI *get_PropertyCount)(IADsPropertyList *This,__LONG32 *plCount);
       HRESULT (WINAPI *Next)(IADsPropertyList *This,VARIANT *pVariant);
-      HRESULT (WINAPI *Skip)(IADsPropertyList *This,long cElements);
+      HRESULT (WINAPI *Skip)(IADsPropertyList *This,__LONG32 cElements);
       HRESULT (WINAPI *Reset)(IADsPropertyList *This);
       HRESULT (WINAPI *Item)(IADsPropertyList *This,VARIANT varIndex,VARIANT *pVariant);
       HRESULT (WINAPI *GetPropertyItem)(IADsPropertyList *This,BSTR bstrName,LONG lnADsType,VARIANT *pVariant);
@@ -1399,11 +1399,11 @@ extern "C"{
 #define IADsPropertyList_PurgePropertyList(This) (This)->lpVtbl->PurgePropertyList(This)
 #endif
 #endif
-  HRESULT WINAPI IADsPropertyList_get_PropertyCount_Proxy(IADsPropertyList *This,long *plCount);
+  HRESULT WINAPI IADsPropertyList_get_PropertyCount_Proxy(IADsPropertyList *This,__LONG32 *plCount);
   void __RPC_STUB IADsPropertyList_get_PropertyCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsPropertyList_Next_Proxy(IADsPropertyList *This,VARIANT *pVariant);
   void __RPC_STUB IADsPropertyList_Next_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPropertyList_Skip_Proxy(IADsPropertyList *This,long cElements);
+  HRESULT WINAPI IADsPropertyList_Skip_Proxy(IADsPropertyList *This,__LONG32 cElements);
   void __RPC_STUB IADsPropertyList_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsPropertyList_Reset_Proxy(IADsPropertyList *This);
   void __RPC_STUB IADsPropertyList_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1428,10 +1428,10 @@ extern "C"{
     virtual HRESULT WINAPI Clear(void) = 0;
     virtual HRESULT WINAPI get_Name(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_Name(BSTR bstrName) = 0;
-    virtual HRESULT WINAPI get_ADsType(long *retval) = 0;
-    virtual HRESULT WINAPI put_ADsType(long lnADsType) = 0;
-    virtual HRESULT WINAPI get_ControlCode(long *retval) = 0;
-    virtual HRESULT WINAPI put_ControlCode(long lnControlCode) = 0;
+    virtual HRESULT WINAPI get_ADsType(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_ADsType(__LONG32 lnADsType) = 0;
+    virtual HRESULT WINAPI get_ControlCode(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_ControlCode(__LONG32 lnControlCode) = 0;
     virtual HRESULT WINAPI get_Values(VARIANT *retval) = 0;
     virtual HRESULT WINAPI put_Values(VARIANT vValues) = 0;
   };
@@ -1448,10 +1448,10 @@ extern "C"{
       HRESULT (WINAPI *Clear)(IADsPropertyEntry *This);
       HRESULT (WINAPI *get_Name)(IADsPropertyEntry *This,BSTR *retval);
       HRESULT (WINAPI *put_Name)(IADsPropertyEntry *This,BSTR bstrName);
-      HRESULT (WINAPI *get_ADsType)(IADsPropertyEntry *This,long *retval);
-      HRESULT (WINAPI *put_ADsType)(IADsPropertyEntry *This,long lnADsType);
-      HRESULT (WINAPI *get_ControlCode)(IADsPropertyEntry *This,long *retval);
-      HRESULT (WINAPI *put_ControlCode)(IADsPropertyEntry *This,long lnControlCode);
+      HRESULT (WINAPI *get_ADsType)(IADsPropertyEntry *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_ADsType)(IADsPropertyEntry *This,__LONG32 lnADsType);
+      HRESULT (WINAPI *get_ControlCode)(IADsPropertyEntry *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_ControlCode)(IADsPropertyEntry *This,__LONG32 lnControlCode);
       HRESULT (WINAPI *get_Values)(IADsPropertyEntry *This,VARIANT *retval);
       HRESULT (WINAPI *put_Values)(IADsPropertyEntry *This,VARIANT vValues);
     END_INTERFACE
@@ -1484,13 +1484,13 @@ extern "C"{
   void __RPC_STUB IADsPropertyEntry_get_Name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsPropertyEntry_put_Name_Proxy(IADsPropertyEntry *This,BSTR bstrName);
   void __RPC_STUB IADsPropertyEntry_put_Name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPropertyEntry_get_ADsType_Proxy(IADsPropertyEntry *This,long *retval);
+  HRESULT WINAPI IADsPropertyEntry_get_ADsType_Proxy(IADsPropertyEntry *This,__LONG32 *retval);
   void __RPC_STUB IADsPropertyEntry_get_ADsType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPropertyEntry_put_ADsType_Proxy(IADsPropertyEntry *This,long lnADsType);
+  HRESULT WINAPI IADsPropertyEntry_put_ADsType_Proxy(IADsPropertyEntry *This,__LONG32 lnADsType);
   void __RPC_STUB IADsPropertyEntry_put_ADsType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPropertyEntry_get_ControlCode_Proxy(IADsPropertyEntry *This,long *retval);
+  HRESULT WINAPI IADsPropertyEntry_get_ControlCode_Proxy(IADsPropertyEntry *This,__LONG32 *retval);
   void __RPC_STUB IADsPropertyEntry_get_ControlCode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPropertyEntry_put_ControlCode_Proxy(IADsPropertyEntry *This,long lnControlCode);
+  HRESULT WINAPI IADsPropertyEntry_put_ControlCode_Proxy(IADsPropertyEntry *This,__LONG32 lnControlCode);
   void __RPC_STUB IADsPropertyEntry_put_ControlCode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsPropertyEntry_get_Values_Proxy(IADsPropertyEntry *This,VARIANT *retval);
   void __RPC_STUB IADsPropertyEntry_get_Values_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1510,8 +1510,8 @@ extern "C"{
   struct IADsPropertyValue : public IDispatch {
   public:
     virtual HRESULT WINAPI Clear(void) = 0;
-    virtual HRESULT WINAPI get_ADsType(long *retval) = 0;
-    virtual HRESULT WINAPI put_ADsType(long lnADsType) = 0;
+    virtual HRESULT WINAPI get_ADsType(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_ADsType(__LONG32 lnADsType) = 0;
     virtual HRESULT WINAPI get_DNString(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_DNString(BSTR bstrDNString) = 0;
     virtual HRESULT WINAPI get_CaseExactString(BSTR *retval) = 0;
@@ -1522,10 +1522,10 @@ extern "C"{
     virtual HRESULT WINAPI put_PrintableString(BSTR bstrPrintableString) = 0;
     virtual HRESULT WINAPI get_NumericString(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_NumericString(BSTR bstrNumericString) = 0;
-    virtual HRESULT WINAPI get_Boolean(long *retval) = 0;
-    virtual HRESULT WINAPI put_Boolean(long lnBoolean) = 0;
-    virtual HRESULT WINAPI get_Integer(long *retval) = 0;
-    virtual HRESULT WINAPI put_Integer(long lnInteger) = 0;
+    virtual HRESULT WINAPI get_Boolean(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_Boolean(__LONG32 lnBoolean) = 0;
+    virtual HRESULT WINAPI get_Integer(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_Integer(__LONG32 lnInteger) = 0;
     virtual HRESULT WINAPI get_OctetString(VARIANT *retval) = 0;
     virtual HRESULT WINAPI put_OctetString(VARIANT vOctetString) = 0;
     virtual HRESULT WINAPI get_SecurityDescriptor(IDispatch **retval) = 0;
@@ -1546,8 +1546,8 @@ extern "C"{
       HRESULT (WINAPI *GetIDsOfNames)(IADsPropertyValue *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IADsPropertyValue *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *Clear)(IADsPropertyValue *This);
-      HRESULT (WINAPI *get_ADsType)(IADsPropertyValue *This,long *retval);
-      HRESULT (WINAPI *put_ADsType)(IADsPropertyValue *This,long lnADsType);
+      HRESULT (WINAPI *get_ADsType)(IADsPropertyValue *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_ADsType)(IADsPropertyValue *This,__LONG32 lnADsType);
       HRESULT (WINAPI *get_DNString)(IADsPropertyValue *This,BSTR *retval);
       HRESULT (WINAPI *put_DNString)(IADsPropertyValue *This,BSTR bstrDNString);
       HRESULT (WINAPI *get_CaseExactString)(IADsPropertyValue *This,BSTR *retval);
@@ -1558,10 +1558,10 @@ extern "C"{
       HRESULT (WINAPI *put_PrintableString)(IADsPropertyValue *This,BSTR bstrPrintableString);
       HRESULT (WINAPI *get_NumericString)(IADsPropertyValue *This,BSTR *retval);
       HRESULT (WINAPI *put_NumericString)(IADsPropertyValue *This,BSTR bstrNumericString);
-      HRESULT (WINAPI *get_Boolean)(IADsPropertyValue *This,long *retval);
-      HRESULT (WINAPI *put_Boolean)(IADsPropertyValue *This,long lnBoolean);
-      HRESULT (WINAPI *get_Integer)(IADsPropertyValue *This,long *retval);
-      HRESULT (WINAPI *put_Integer)(IADsPropertyValue *This,long lnInteger);
+      HRESULT (WINAPI *get_Boolean)(IADsPropertyValue *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_Boolean)(IADsPropertyValue *This,__LONG32 lnBoolean);
+      HRESULT (WINAPI *get_Integer)(IADsPropertyValue *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_Integer)(IADsPropertyValue *This,__LONG32 lnInteger);
       HRESULT (WINAPI *get_OctetString)(IADsPropertyValue *This,VARIANT *retval);
       HRESULT (WINAPI *put_OctetString)(IADsPropertyValue *This,VARIANT vOctetString);
       HRESULT (WINAPI *get_SecurityDescriptor)(IADsPropertyValue *This,IDispatch **retval);
@@ -1612,9 +1612,9 @@ extern "C"{
 #endif
   HRESULT WINAPI IADsPropertyValue_Clear_Proxy(IADsPropertyValue *This);
   void __RPC_STUB IADsPropertyValue_Clear_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPropertyValue_get_ADsType_Proxy(IADsPropertyValue *This,long *retval);
+  HRESULT WINAPI IADsPropertyValue_get_ADsType_Proxy(IADsPropertyValue *This,__LONG32 *retval);
   void __RPC_STUB IADsPropertyValue_get_ADsType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPropertyValue_put_ADsType_Proxy(IADsPropertyValue *This,long lnADsType);
+  HRESULT WINAPI IADsPropertyValue_put_ADsType_Proxy(IADsPropertyValue *This,__LONG32 lnADsType);
   void __RPC_STUB IADsPropertyValue_put_ADsType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsPropertyValue_get_DNString_Proxy(IADsPropertyValue *This,BSTR *retval);
   void __RPC_STUB IADsPropertyValue_get_DNString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1636,13 +1636,13 @@ extern "C"{
   void __RPC_STUB IADsPropertyValue_get_NumericString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsPropertyValue_put_NumericString_Proxy(IADsPropertyValue *This,BSTR bstrNumericString);
   void __RPC_STUB IADsPropertyValue_put_NumericString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPropertyValue_get_Boolean_Proxy(IADsPropertyValue *This,long *retval);
+  HRESULT WINAPI IADsPropertyValue_get_Boolean_Proxy(IADsPropertyValue *This,__LONG32 *retval);
   void __RPC_STUB IADsPropertyValue_get_Boolean_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPropertyValue_put_Boolean_Proxy(IADsPropertyValue *This,long lnBoolean);
+  HRESULT WINAPI IADsPropertyValue_put_Boolean_Proxy(IADsPropertyValue *This,__LONG32 lnBoolean);
   void __RPC_STUB IADsPropertyValue_put_Boolean_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPropertyValue_get_Integer_Proxy(IADsPropertyValue *This,long *retval);
+  HRESULT WINAPI IADsPropertyValue_get_Integer_Proxy(IADsPropertyValue *This,__LONG32 *retval);
   void __RPC_STUB IADsPropertyValue_get_Integer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPropertyValue_put_Integer_Proxy(IADsPropertyValue *This,long lnInteger);
+  HRESULT WINAPI IADsPropertyValue_put_Integer_Proxy(IADsPropertyValue *This,__LONG32 lnInteger);
   void __RPC_STUB IADsPropertyValue_put_Integer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsPropertyValue_get_OctetString_Proxy(IADsPropertyValue *This,VARIANT *retval);
   void __RPC_STUB IADsPropertyValue_get_OctetString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1668,8 +1668,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsPropertyValue2 : public IDispatch {
   public:
-    virtual HRESULT WINAPI GetObjectProperty(long *lnADsType,VARIANT *pvProp) = 0;
-    virtual HRESULT WINAPI PutObjectProperty(long lnADsType,VARIANT vProp) = 0;
+    virtual HRESULT WINAPI GetObjectProperty(__LONG32 *lnADsType,VARIANT *pvProp) = 0;
+    virtual HRESULT WINAPI PutObjectProperty(__LONG32 lnADsType,VARIANT vProp) = 0;
   };
 #else
   typedef struct IADsPropertyValue2Vtbl {
@@ -1681,8 +1681,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IADsPropertyValue2 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IADsPropertyValue2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IADsPropertyValue2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *GetObjectProperty)(IADsPropertyValue2 *This,long *lnADsType,VARIANT *pvProp);
-      HRESULT (WINAPI *PutObjectProperty)(IADsPropertyValue2 *This,long lnADsType,VARIANT vProp);
+      HRESULT (WINAPI *GetObjectProperty)(IADsPropertyValue2 *This,__LONG32 *lnADsType,VARIANT *pvProp);
+      HRESULT (WINAPI *PutObjectProperty)(IADsPropertyValue2 *This,__LONG32 lnADsType,VARIANT vProp);
     END_INTERFACE
   } IADsPropertyValue2Vtbl;
   struct IADsPropertyValue2 {
@@ -1700,9 +1700,9 @@ extern "C"{
 #define IADsPropertyValue2_PutObjectProperty(This,lnADsType,vProp) (This)->lpVtbl->PutObjectProperty(This,lnADsType,vProp)
 #endif
 #endif
-  HRESULT WINAPI IADsPropertyValue2_GetObjectProperty_Proxy(IADsPropertyValue2 *This,long *lnADsType,VARIANT *pvProp);
+  HRESULT WINAPI IADsPropertyValue2_GetObjectProperty_Proxy(IADsPropertyValue2 *This,__LONG32 *lnADsType,VARIANT *pvProp);
   void __RPC_STUB IADsPropertyValue2_GetObjectProperty_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPropertyValue2_PutObjectProperty_Proxy(IADsPropertyValue2 *This,long lnADsType,VARIANT vProp);
+  HRESULT WINAPI IADsPropertyValue2_PutObjectProperty_Proxy(IADsPropertyValue2 *This,__LONG32 lnADsType,VARIANT vProp);
   void __RPC_STUB IADsPropertyValue2_PutObjectProperty_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1717,7 +1717,7 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IPrivateDispatch : public IUnknown {
   public:
-    virtual HRESULT WINAPI ADSIInitializeDispatchManager(long dwExtensionId) = 0;
+    virtual HRESULT WINAPI ADSIInitializeDispatchManager(__LONG32 dwExtensionId) = 0;
     virtual HRESULT WINAPI ADSIGetTypeInfoCount(UINT *pctinfo) = 0;
     virtual HRESULT WINAPI ADSIGetTypeInfo(UINT itinfo,LCID lcid,ITypeInfo **pptinfo) = 0;
     virtual HRESULT WINAPI ADSIGetIDsOfNames(REFIID riid,OLECHAR **rgszNames,UINT cNames,LCID lcid,DISPID *rgdispid) = 0;
@@ -1729,7 +1729,7 @@ extern "C"{
       HRESULT (WINAPI *QueryInterface)(IPrivateDispatch *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IPrivateDispatch *This);
       ULONG (WINAPI *Release)(IPrivateDispatch *This);
-      HRESULT (WINAPI *ADSIInitializeDispatchManager)(IPrivateDispatch *This,long dwExtensionId);
+      HRESULT (WINAPI *ADSIInitializeDispatchManager)(IPrivateDispatch *This,__LONG32 dwExtensionId);
       HRESULT (WINAPI *ADSIGetTypeInfoCount)(IPrivateDispatch *This,UINT *pctinfo);
       HRESULT (WINAPI *ADSIGetTypeInfo)(IPrivateDispatch *This,UINT itinfo,LCID lcid,ITypeInfo **pptinfo);
       HRESULT (WINAPI *ADSIGetIDsOfNames)(IPrivateDispatch *This,REFIID riid,OLECHAR **rgszNames,UINT cNames,LCID lcid,DISPID *rgdispid);
@@ -1750,7 +1750,7 @@ extern "C"{
 #define IPrivateDispatch_ADSIInvoke(This,dispidMember,riid,lcid,wFlags,pdispparams,pvarResult,pexcepinfo,puArgErr) (This)->lpVtbl->ADSIInvoke(This,dispidMember,riid,lcid,wFlags,pdispparams,pvarResult,pexcepinfo,puArgErr)
 #endif
 #endif
-  HRESULT WINAPI IPrivateDispatch_ADSIInitializeDispatchManager_Proxy(IPrivateDispatch *This,long dwExtensionId);
+  HRESULT WINAPI IPrivateDispatch_ADSIInitializeDispatchManager_Proxy(IPrivateDispatch *This,__LONG32 dwExtensionId);
   void __RPC_STUB IPrivateDispatch_ADSIInitializeDispatchManager_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IPrivateDispatch_ADSIGetTypeInfoCount_Proxy(IPrivateDispatch *This,UINT *pctinfo);
   void __RPC_STUB IPrivateDispatch_ADSIGetTypeInfoCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1768,7 +1768,7 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IPrivateUnknown : public IUnknown {
   public:
-    virtual HRESULT WINAPI ADSIInitializeObject(BSTR lpszUserName,BSTR lpszPassword,long lnReserved) = 0;
+    virtual HRESULT WINAPI ADSIInitializeObject(BSTR lpszUserName,BSTR lpszPassword,__LONG32 lnReserved) = 0;
     virtual HRESULT WINAPI ADSIReleaseObject(void) = 0;
   };
 #else
@@ -1777,7 +1777,7 @@ extern "C"{
       HRESULT (WINAPI *QueryInterface)(IPrivateUnknown *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IPrivateUnknown *This);
       ULONG (WINAPI *Release)(IPrivateUnknown *This);
-      HRESULT (WINAPI *ADSIInitializeObject)(IPrivateUnknown *This,BSTR lpszUserName,BSTR lpszPassword,long lnReserved);
+      HRESULT (WINAPI *ADSIInitializeObject)(IPrivateUnknown *This,BSTR lpszUserName,BSTR lpszPassword,__LONG32 lnReserved);
       HRESULT (WINAPI *ADSIReleaseObject)(IPrivateUnknown *This);
     END_INTERFACE
   } IPrivateUnknownVtbl;
@@ -1792,7 +1792,7 @@ extern "C"{
 #define IPrivateUnknown_ADSIReleaseObject(This) (This)->lpVtbl->ADSIReleaseObject(This)
 #endif
 #endif
-  HRESULT WINAPI IPrivateUnknown_ADSIInitializeObject_Proxy(IPrivateUnknown *This,BSTR lpszUserName,BSTR lpszPassword,long lnReserved);
+  HRESULT WINAPI IPrivateUnknown_ADSIInitializeObject_Proxy(IPrivateUnknown *This,BSTR lpszUserName,BSTR lpszPassword,__LONG32 lnReserved);
   void __RPC_STUB IPrivateUnknown_ADSIInitializeObject_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IPrivateUnknown_ADSIReleaseObject_Proxy(IPrivateUnknown *This);
   void __RPC_STUB IPrivateUnknown_ADSIReleaseObject_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1845,7 +1845,7 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsDeleteOps : public IDispatch {
   public:
-    virtual HRESULT WINAPI DeleteObject(long lnFlags) = 0;
+    virtual HRESULT WINAPI DeleteObject(__LONG32 lnFlags) = 0;
   };
 #else
   typedef struct IADsDeleteOpsVtbl {
@@ -1857,7 +1857,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IADsDeleteOps *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IADsDeleteOps *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IADsDeleteOps *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *DeleteObject)(IADsDeleteOps *This,long lnFlags);
+      HRESULT (WINAPI *DeleteObject)(IADsDeleteOps *This,__LONG32 lnFlags);
     END_INTERFACE
   } IADsDeleteOpsVtbl;
   struct IADsDeleteOps {
@@ -1874,7 +1874,7 @@ extern "C"{
 #define IADsDeleteOps_DeleteObject(This,lnFlags) (This)->lpVtbl->DeleteObject(This,lnFlags)
 #endif
 #endif
-  HRESULT WINAPI IADsDeleteOps_DeleteObject_Proxy(IADsDeleteOps *This,long lnFlags);
+  HRESULT WINAPI IADsDeleteOps_DeleteObject_Proxy(IADsDeleteOps *This,__LONG32 lnFlags);
   void __RPC_STUB IADsDeleteOps_DeleteObject_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1908,8 +1908,8 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsNamespaces *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsNamespaces *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsNamespaces *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsNamespaces *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsNamespaces *This,VARIANT vProperties,long lnReserved);
+      HRESULT (WINAPI *PutEx)(IADsNamespaces *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsNamespaces *This,VARIANT vProperties,__LONG32 lnReserved);
       HRESULT (WINAPI *get_DefaultContainer)(IADsNamespaces *This,BSTR *retval);
       HRESULT (WINAPI *put_DefaultContainer)(IADsNamespaces *This,BSTR bstrDefaultContainer);
     END_INTERFACE
@@ -1981,8 +1981,8 @@ extern "C"{
     virtual HRESULT WINAPI put_Container(VARIANT_BOOL fContainer) = 0;
     virtual HRESULT WINAPI get_HelpFileName(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_HelpFileName(BSTR bstrHelpFileName) = 0;
-    virtual HRESULT WINAPI get_HelpFileContext(long *retval) = 0;
-    virtual HRESULT WINAPI put_HelpFileContext(long lnHelpFileContext) = 0;
+    virtual HRESULT WINAPI get_HelpFileContext(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_HelpFileContext(__LONG32 lnHelpFileContext) = 0;
     virtual HRESULT WINAPI Qualifiers(IADsCollection **ppQualifiers) = 0;
   };
 #else
@@ -2006,8 +2006,8 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsClass *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsClass *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsClass *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsClass *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsClass *This,VARIANT vProperties,long lnReserved);
+      HRESULT (WINAPI *PutEx)(IADsClass *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsClass *This,VARIANT vProperties,__LONG32 lnReserved);
       HRESULT (WINAPI *get_PrimaryInterface)(IADsClass *This,BSTR *retval);
       HRESULT (WINAPI *get_CLSID)(IADsClass *This,BSTR *retval);
       HRESULT (WINAPI *put_CLSID)(IADsClass *This,BSTR bstrCLSID);
@@ -2035,8 +2035,8 @@ extern "C"{
       HRESULT (WINAPI *put_Container)(IADsClass *This,VARIANT_BOOL fContainer);
       HRESULT (WINAPI *get_HelpFileName)(IADsClass *This,BSTR *retval);
       HRESULT (WINAPI *put_HelpFileName)(IADsClass *This,BSTR bstrHelpFileName);
-      HRESULT (WINAPI *get_HelpFileContext)(IADsClass *This,long *retval);
-      HRESULT (WINAPI *put_HelpFileContext)(IADsClass *This,long lnHelpFileContext);
+      HRESULT (WINAPI *get_HelpFileContext)(IADsClass *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_HelpFileContext)(IADsClass *This,__LONG32 lnHelpFileContext);
       HRESULT (WINAPI *Qualifiers)(IADsClass *This,IADsCollection **ppQualifiers);
     END_INTERFACE
   } IADsClassVtbl;
@@ -2150,9 +2150,9 @@ extern "C"{
   void __RPC_STUB IADsClass_get_HelpFileName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsClass_put_HelpFileName_Proxy(IADsClass *This,BSTR bstrHelpFileName);
   void __RPC_STUB IADsClass_put_HelpFileName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsClass_get_HelpFileContext_Proxy(IADsClass *This,long *retval);
+  HRESULT WINAPI IADsClass_get_HelpFileContext_Proxy(IADsClass *This,__LONG32 *retval);
   void __RPC_STUB IADsClass_get_HelpFileContext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsClass_put_HelpFileContext_Proxy(IADsClass *This,long lnHelpFileContext);
+  HRESULT WINAPI IADsClass_put_HelpFileContext_Proxy(IADsClass *This,__LONG32 lnHelpFileContext);
   void __RPC_STUB IADsClass_put_HelpFileContext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsClass_Qualifiers_Proxy(IADsClass *This,IADsCollection **ppQualifiers);
   void __RPC_STUB IADsClass_Qualifiers_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2168,10 +2168,10 @@ extern "C"{
     virtual HRESULT WINAPI put_OID(BSTR bstrOID) = 0;
     virtual HRESULT WINAPI get_Syntax(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_Syntax(BSTR bstrSyntax) = 0;
-    virtual HRESULT WINAPI get_MaxRange(long *retval) = 0;
-    virtual HRESULT WINAPI put_MaxRange(long lnMaxRange) = 0;
-    virtual HRESULT WINAPI get_MinRange(long *retval) = 0;
-    virtual HRESULT WINAPI put_MinRange(long lnMinRange) = 0;
+    virtual HRESULT WINAPI get_MaxRange(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_MaxRange(__LONG32 lnMaxRange) = 0;
+    virtual HRESULT WINAPI get_MinRange(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_MinRange(__LONG32 lnMinRange) = 0;
     virtual HRESULT WINAPI get_MultiValued(VARIANT_BOOL *retval) = 0;
     virtual HRESULT WINAPI put_MultiValued(VARIANT_BOOL fMultiValued) = 0;
     virtual HRESULT WINAPI Qualifiers(IADsCollection **ppQualifiers) = 0;
@@ -2197,16 +2197,16 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsProperty *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsProperty *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsProperty *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsProperty *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsProperty *This,VARIANT vProperties,long lnReserved);
+      HRESULT (WINAPI *PutEx)(IADsProperty *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsProperty *This,VARIANT vProperties,__LONG32 lnReserved);
       HRESULT (WINAPI *get_OID)(IADsProperty *This,BSTR *retval);
       HRESULT (WINAPI *put_OID)(IADsProperty *This,BSTR bstrOID);
       HRESULT (WINAPI *get_Syntax)(IADsProperty *This,BSTR *retval);
       HRESULT (WINAPI *put_Syntax)(IADsProperty *This,BSTR bstrSyntax);
-      HRESULT (WINAPI *get_MaxRange)(IADsProperty *This,long *retval);
-      HRESULT (WINAPI *put_MaxRange)(IADsProperty *This,long lnMaxRange);
-      HRESULT (WINAPI *get_MinRange)(IADsProperty *This,long *retval);
-      HRESULT (WINAPI *put_MinRange)(IADsProperty *This,long lnMinRange);
+      HRESULT (WINAPI *get_MaxRange)(IADsProperty *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_MaxRange)(IADsProperty *This,__LONG32 lnMaxRange);
+      HRESULT (WINAPI *get_MinRange)(IADsProperty *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_MinRange)(IADsProperty *This,__LONG32 lnMinRange);
       HRESULT (WINAPI *get_MultiValued)(IADsProperty *This,VARIANT_BOOL *retval);
       HRESULT (WINAPI *put_MultiValued)(IADsProperty *This,VARIANT_BOOL fMultiValued);
       HRESULT (WINAPI *Qualifiers)(IADsProperty *This,IADsCollection **ppQualifiers);
@@ -2257,13 +2257,13 @@ extern "C"{
   void __RPC_STUB IADsProperty_get_Syntax_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsProperty_put_Syntax_Proxy(IADsProperty *This,BSTR bstrSyntax);
   void __RPC_STUB IADsProperty_put_Syntax_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsProperty_get_MaxRange_Proxy(IADsProperty *This,long *retval);
+  HRESULT WINAPI IADsProperty_get_MaxRange_Proxy(IADsProperty *This,__LONG32 *retval);
   void __RPC_STUB IADsProperty_get_MaxRange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsProperty_put_MaxRange_Proxy(IADsProperty *This,long lnMaxRange);
+  HRESULT WINAPI IADsProperty_put_MaxRange_Proxy(IADsProperty *This,__LONG32 lnMaxRange);
   void __RPC_STUB IADsProperty_put_MaxRange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsProperty_get_MinRange_Proxy(IADsProperty *This,long *retval);
+  HRESULT WINAPI IADsProperty_get_MinRange_Proxy(IADsProperty *This,__LONG32 *retval);
   void __RPC_STUB IADsProperty_get_MinRange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsProperty_put_MinRange_Proxy(IADsProperty *This,long lnMinRange);
+  HRESULT WINAPI IADsProperty_put_MinRange_Proxy(IADsProperty *This,__LONG32 lnMinRange);
   void __RPC_STUB IADsProperty_put_MinRange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsProperty_get_MultiValued_Proxy(IADsProperty *This,VARIANT_BOOL *retval);
   void __RPC_STUB IADsProperty_get_MultiValued_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2279,8 +2279,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsSyntax : public IADs {
   public:
-    virtual HRESULT WINAPI get_OleAutoDataType(long *retval) = 0;
-    virtual HRESULT WINAPI put_OleAutoDataType(long lnOleAutoDataType) = 0;
+    virtual HRESULT WINAPI get_OleAutoDataType(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_OleAutoDataType(__LONG32 lnOleAutoDataType) = 0;
   };
 #else
   typedef struct IADsSyntaxVtbl {
@@ -2303,10 +2303,10 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsSyntax *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsSyntax *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsSyntax *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsSyntax *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsSyntax *This,VARIANT vProperties,long lnReserved);
-      HRESULT (WINAPI *get_OleAutoDataType)(IADsSyntax *This,long *retval);
-      HRESULT (WINAPI *put_OleAutoDataType)(IADsSyntax *This,long lnOleAutoDataType);
+      HRESULT (WINAPI *PutEx)(IADsSyntax *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsSyntax *This,VARIANT vProperties,__LONG32 lnReserved);
+      HRESULT (WINAPI *get_OleAutoDataType)(IADsSyntax *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_OleAutoDataType)(IADsSyntax *This,__LONG32 lnOleAutoDataType);
     END_INTERFACE
   } IADsSyntaxVtbl;
   struct IADsSyntax {
@@ -2337,9 +2337,9 @@ extern "C"{
 #define IADsSyntax_put_OleAutoDataType(This,lnOleAutoDataType) (This)->lpVtbl->put_OleAutoDataType(This,lnOleAutoDataType)
 #endif
 #endif
-  HRESULT WINAPI IADsSyntax_get_OleAutoDataType_Proxy(IADsSyntax *This,long *retval);
+  HRESULT WINAPI IADsSyntax_get_OleAutoDataType_Proxy(IADsSyntax *This,__LONG32 *retval);
   void __RPC_STUB IADsSyntax_get_OleAutoDataType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsSyntax_put_OleAutoDataType_Proxy(IADsSyntax *This,long lnOleAutoDataType);
+  HRESULT WINAPI IADsSyntax_put_OleAutoDataType_Proxy(IADsSyntax *This,__LONG32 lnOleAutoDataType);
   void __RPC_STUB IADsSyntax_put_OleAutoDataType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -2379,8 +2379,8 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsLocality *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsLocality *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsLocality *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsLocality *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsLocality *This,VARIANT vProperties,long lnReserved);
+      HRESULT (WINAPI *PutEx)(IADsLocality *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsLocality *This,VARIANT vProperties,__LONG32 lnReserved);
       HRESULT (WINAPI *get_Description)(IADsLocality *This,BSTR *retval);
       HRESULT (WINAPI *put_Description)(IADsLocality *This,BSTR bstrDescription);
       HRESULT (WINAPI *get_LocalityName)(IADsLocality *This,BSTR *retval);
@@ -2483,8 +2483,8 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsO *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsO *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsO *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsO *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsO *This,VARIANT vProperties,long lnReserved);
+      HRESULT (WINAPI *PutEx)(IADsO *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsO *This,VARIANT vProperties,__LONG32 lnReserved);
       HRESULT (WINAPI *get_Description)(IADsO *This,BSTR *retval);
       HRESULT (WINAPI *put_Description)(IADsO *This,BSTR bstrDescription);
       HRESULT (WINAPI *get_LocalityName)(IADsO *This,BSTR *retval);
@@ -2605,8 +2605,8 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsOU *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsOU *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsOU *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsOU *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsOU *This,VARIANT vProperties,long lnReserved);
+      HRESULT (WINAPI *PutEx)(IADsOU *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsOU *This,VARIANT vProperties,__LONG32 lnReserved);
       HRESULT (WINAPI *get_Description)(IADsOU *This,BSTR *retval);
       HRESULT (WINAPI *put_Description)(IADsOU *This,BSTR bstrDescription);
       HRESULT (WINAPI *get_LocalityName)(IADsOU *This,BSTR *retval);
@@ -2700,22 +2700,22 @@ extern "C"{
   struct IADsDomain : public IADs {
   public:
     virtual HRESULT WINAPI get_IsWorkgroup(VARIANT_BOOL *retval) = 0;
-    virtual HRESULT WINAPI get_MinPasswordLength(long *retval) = 0;
-    virtual HRESULT WINAPI put_MinPasswordLength(long lnMinPasswordLength) = 0;
-    virtual HRESULT WINAPI get_MinPasswordAge(long *retval) = 0;
-    virtual HRESULT WINAPI put_MinPasswordAge(long lnMinPasswordAge) = 0;
-    virtual HRESULT WINAPI get_MaxPasswordAge(long *retval) = 0;
-    virtual HRESULT WINAPI put_MaxPasswordAge(long lnMaxPasswordAge) = 0;
-    virtual HRESULT WINAPI get_MaxBadPasswordsAllowed(long *retval) = 0;
-    virtual HRESULT WINAPI put_MaxBadPasswordsAllowed(long lnMaxBadPasswordsAllowed) = 0;
-    virtual HRESULT WINAPI get_PasswordHistoryLength(long *retval) = 0;
-    virtual HRESULT WINAPI put_PasswordHistoryLength(long lnPasswordHistoryLength) = 0;
-    virtual HRESULT WINAPI get_PasswordAttributes(long *retval) = 0;
-    virtual HRESULT WINAPI put_PasswordAttributes(long lnPasswordAttributes) = 0;
-    virtual HRESULT WINAPI get_AutoUnlockInterval(long *retval) = 0;
-    virtual HRESULT WINAPI put_AutoUnlockInterval(long lnAutoUnlockInterval) = 0;
-    virtual HRESULT WINAPI get_LockoutObservationInterval(long *retval) = 0;
-    virtual HRESULT WINAPI put_LockoutObservationInterval(long lnLockoutObservationInterval) = 0;
+    virtual HRESULT WINAPI get_MinPasswordLength(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_MinPasswordLength(__LONG32 lnMinPasswordLength) = 0;
+    virtual HRESULT WINAPI get_MinPasswordAge(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_MinPasswordAge(__LONG32 lnMinPasswordAge) = 0;
+    virtual HRESULT WINAPI get_MaxPasswordAge(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_MaxPasswordAge(__LONG32 lnMaxPasswordAge) = 0;
+    virtual HRESULT WINAPI get_MaxBadPasswordsAllowed(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_MaxBadPasswordsAllowed(__LONG32 lnMaxBadPasswordsAllowed) = 0;
+    virtual HRESULT WINAPI get_PasswordHistoryLength(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_PasswordHistoryLength(__LONG32 lnPasswordHistoryLength) = 0;
+    virtual HRESULT WINAPI get_PasswordAttributes(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_PasswordAttributes(__LONG32 lnPasswordAttributes) = 0;
+    virtual HRESULT WINAPI get_AutoUnlockInterval(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_AutoUnlockInterval(__LONG32 lnAutoUnlockInterval) = 0;
+    virtual HRESULT WINAPI get_LockoutObservationInterval(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_LockoutObservationInterval(__LONG32 lnLockoutObservationInterval) = 0;
   };
 #else
   typedef struct IADsDomainVtbl {
@@ -2738,25 +2738,25 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsDomain *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsDomain *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsDomain *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsDomain *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsDomain *This,VARIANT vProperties,long lnReserved);
+      HRESULT (WINAPI *PutEx)(IADsDomain *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsDomain *This,VARIANT vProperties,__LONG32 lnReserved);
       HRESULT (WINAPI *get_IsWorkgroup)(IADsDomain *This,VARIANT_BOOL *retval);
-      HRESULT (WINAPI *get_MinPasswordLength)(IADsDomain *This,long *retval);
-      HRESULT (WINAPI *put_MinPasswordLength)(IADsDomain *This,long lnMinPasswordLength);
-      HRESULT (WINAPI *get_MinPasswordAge)(IADsDomain *This,long *retval);
-      HRESULT (WINAPI *put_MinPasswordAge)(IADsDomain *This,long lnMinPasswordAge);
-      HRESULT (WINAPI *get_MaxPasswordAge)(IADsDomain *This,long *retval);
-      HRESULT (WINAPI *put_MaxPasswordAge)(IADsDomain *This,long lnMaxPasswordAge);
-      HRESULT (WINAPI *get_MaxBadPasswordsAllowed)(IADsDomain *This,long *retval);
-      HRESULT (WINAPI *put_MaxBadPasswordsAllowed)(IADsDomain *This,long lnMaxBadPasswordsAllowed);
-      HRESULT (WINAPI *get_PasswordHistoryLength)(IADsDomain *This,long *retval);
-      HRESULT (WINAPI *put_PasswordHistoryLength)(IADsDomain *This,long lnPasswordHistoryLength);
-      HRESULT (WINAPI *get_PasswordAttributes)(IADsDomain *This,long *retval);
-      HRESULT (WINAPI *put_PasswordAttributes)(IADsDomain *This,long lnPasswordAttributes);
-      HRESULT (WINAPI *get_AutoUnlockInterval)(IADsDomain *This,long *retval);
-      HRESULT (WINAPI *put_AutoUnlockInterval)(IADsDomain *This,long lnAutoUnlockInterval);
-      HRESULT (WINAPI *get_LockoutObservationInterval)(IADsDomain *This,long *retval);
-      HRESULT (WINAPI *put_LockoutObservationInterval)(IADsDomain *This,long lnLockoutObservationInterval);
+      HRESULT (WINAPI *get_MinPasswordLength)(IADsDomain *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_MinPasswordLength)(IADsDomain *This,__LONG32 lnMinPasswordLength);
+      HRESULT (WINAPI *get_MinPasswordAge)(IADsDomain *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_MinPasswordAge)(IADsDomain *This,__LONG32 lnMinPasswordAge);
+      HRESULT (WINAPI *get_MaxPasswordAge)(IADsDomain *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_MaxPasswordAge)(IADsDomain *This,__LONG32 lnMaxPasswordAge);
+      HRESULT (WINAPI *get_MaxBadPasswordsAllowed)(IADsDomain *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_MaxBadPasswordsAllowed)(IADsDomain *This,__LONG32 lnMaxBadPasswordsAllowed);
+      HRESULT (WINAPI *get_PasswordHistoryLength)(IADsDomain *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_PasswordHistoryLength)(IADsDomain *This,__LONG32 lnPasswordHistoryLength);
+      HRESULT (WINAPI *get_PasswordAttributes)(IADsDomain *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_PasswordAttributes)(IADsDomain *This,__LONG32 lnPasswordAttributes);
+      HRESULT (WINAPI *get_AutoUnlockInterval)(IADsDomain *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_AutoUnlockInterval)(IADsDomain *This,__LONG32 lnAutoUnlockInterval);
+      HRESULT (WINAPI *get_LockoutObservationInterval)(IADsDomain *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_LockoutObservationInterval)(IADsDomain *This,__LONG32 lnLockoutObservationInterval);
     END_INTERFACE
   } IADsDomainVtbl;
   struct IADsDomain {
@@ -2804,37 +2804,37 @@ extern "C"{
 #endif
   HRESULT WINAPI IADsDomain_get_IsWorkgroup_Proxy(IADsDomain *This,VARIANT_BOOL *retval);
   void __RPC_STUB IADsDomain_get_IsWorkgroup_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsDomain_get_MinPasswordLength_Proxy(IADsDomain *This,long *retval);
+  HRESULT WINAPI IADsDomain_get_MinPasswordLength_Proxy(IADsDomain *This,__LONG32 *retval);
   void __RPC_STUB IADsDomain_get_MinPasswordLength_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsDomain_put_MinPasswordLength_Proxy(IADsDomain *This,long lnMinPasswordLength);
+  HRESULT WINAPI IADsDomain_put_MinPasswordLength_Proxy(IADsDomain *This,__LONG32 lnMinPasswordLength);
   void __RPC_STUB IADsDomain_put_MinPasswordLength_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsDomain_get_MinPasswordAge_Proxy(IADsDomain *This,long *retval);
+  HRESULT WINAPI IADsDomain_get_MinPasswordAge_Proxy(IADsDomain *This,__LONG32 *retval);
   void __RPC_STUB IADsDomain_get_MinPasswordAge_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsDomain_put_MinPasswordAge_Proxy(IADsDomain *This,long lnMinPasswordAge);
+  HRESULT WINAPI IADsDomain_put_MinPasswordAge_Proxy(IADsDomain *This,__LONG32 lnMinPasswordAge);
   void __RPC_STUB IADsDomain_put_MinPasswordAge_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsDomain_get_MaxPasswordAge_Proxy(IADsDomain *This,long *retval);
+  HRESULT WINAPI IADsDomain_get_MaxPasswordAge_Proxy(IADsDomain *This,__LONG32 *retval);
   void __RPC_STUB IADsDomain_get_MaxPasswordAge_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsDomain_put_MaxPasswordAge_Proxy(IADsDomain *This,long lnMaxPasswordAge);
+  HRESULT WINAPI IADsDomain_put_MaxPasswordAge_Proxy(IADsDomain *This,__LONG32 lnMaxPasswordAge);
   void __RPC_STUB IADsDomain_put_MaxPasswordAge_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsDomain_get_MaxBadPasswordsAllowed_Proxy(IADsDomain *This,long *retval);
+  HRESULT WINAPI IADsDomain_get_MaxBadPasswordsAllowed_Proxy(IADsDomain *This,__LONG32 *retval);
   void __RPC_STUB IADsDomain_get_MaxBadPasswordsAllowed_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsDomain_put_MaxBadPasswordsAllowed_Proxy(IADsDomain *This,long lnMaxBadPasswordsAllowed);
+  HRESULT WINAPI IADsDomain_put_MaxBadPasswordsAllowed_Proxy(IADsDomain *This,__LONG32 lnMaxBadPasswordsAllowed);
   void __RPC_STUB IADsDomain_put_MaxBadPasswordsAllowed_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsDomain_get_PasswordHistoryLength_Proxy(IADsDomain *This,long *retval);
+  HRESULT WINAPI IADsDomain_get_PasswordHistoryLength_Proxy(IADsDomain *This,__LONG32 *retval);
   void __RPC_STUB IADsDomain_get_PasswordHistoryLength_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsDomain_put_PasswordHistoryLength_Proxy(IADsDomain *This,long lnPasswordHistoryLength);
+  HRESULT WINAPI IADsDomain_put_PasswordHistoryLength_Proxy(IADsDomain *This,__LONG32 lnPasswordHistoryLength);
   void __RPC_STUB IADsDomain_put_PasswordHistoryLength_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsDomain_get_PasswordAttributes_Proxy(IADsDomain *This,long *retval);
+  HRESULT WINAPI IADsDomain_get_PasswordAttributes_Proxy(IADsDomain *This,__LONG32 *retval);
   void __RPC_STUB IADsDomain_get_PasswordAttributes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsDomain_put_PasswordAttributes_Proxy(IADsDomain *This,long lnPasswordAttributes);
+  HRESULT WINAPI IADsDomain_put_PasswordAttributes_Proxy(IADsDomain *This,__LONG32 lnPasswordAttributes);
   void __RPC_STUB IADsDomain_put_PasswordAttributes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsDomain_get_AutoUnlockInterval_Proxy(IADsDomain *This,long *retval);
+  HRESULT WINAPI IADsDomain_get_AutoUnlockInterval_Proxy(IADsDomain *This,__LONG32 *retval);
   void __RPC_STUB IADsDomain_get_AutoUnlockInterval_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsDomain_put_AutoUnlockInterval_Proxy(IADsDomain *This,long lnAutoUnlockInterval);
+  HRESULT WINAPI IADsDomain_put_AutoUnlockInterval_Proxy(IADsDomain *This,__LONG32 lnAutoUnlockInterval);
   void __RPC_STUB IADsDomain_put_AutoUnlockInterval_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsDomain_get_LockoutObservationInterval_Proxy(IADsDomain *This,long *retval);
+  HRESULT WINAPI IADsDomain_get_LockoutObservationInterval_Proxy(IADsDomain *This,__LONG32 *retval);
   void __RPC_STUB IADsDomain_get_LockoutObservationInterval_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsDomain_put_LockoutObservationInterval_Proxy(IADsDomain *This,long lnLockoutObservationInterval);
+  HRESULT WINAPI IADsDomain_put_LockoutObservationInterval_Proxy(IADsDomain *This,__LONG32 lnLockoutObservationInterval);
   void __RPC_STUB IADsDomain_put_LockoutObservationInterval_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -2898,8 +2898,8 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsComputer *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsComputer *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsComputer *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsComputer *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsComputer *This,VARIANT vProperties,long lnReserved);
+      HRESULT (WINAPI *PutEx)(IADsComputer *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsComputer *This,VARIANT vProperties,__LONG32 lnReserved);
       HRESULT (WINAPI *get_ComputerID)(IADsComputer *This,BSTR *retval);
       HRESULT (WINAPI *get_Site)(IADsComputer *This,BSTR *retval);
       HRESULT (WINAPI *get_Description)(IADsComputer *This,BSTR *retval);
@@ -3088,8 +3088,8 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsComputerOperations *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsComputerOperations *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsComputerOperations *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsComputerOperations *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsComputerOperations *This,VARIANT vProperties,long lnReserved);
+      HRESULT (WINAPI *PutEx)(IADsComputerOperations *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsComputerOperations *This,VARIANT vProperties,__LONG32 lnReserved);
       HRESULT (WINAPI *Status)(IADsComputerOperations *This,IDispatch **ppObject);
       HRESULT (WINAPI *Shutdown)(IADsComputerOperations *This,VARIANT_BOOL bReboot);
     END_INTERFACE
@@ -3162,8 +3162,8 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsGroup *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsGroup *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsGroup *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsGroup *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsGroup *This,VARIANT vProperties,long lnReserved);
+      HRESULT (WINAPI *PutEx)(IADsGroup *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsGroup *This,VARIANT vProperties,__LONG32 lnReserved);
       HRESULT (WINAPI *get_Description)(IADsGroup *This,BSTR *retval);
       HRESULT (WINAPI *put_Description)(IADsGroup *This,BSTR bstrDescription);
       HRESULT (WINAPI *Members)(IADsGroup *This,IADsMembers **ppMembers);
@@ -3225,7 +3225,7 @@ extern "C"{
   struct IADsUser : public IADs {
   public:
     virtual HRESULT WINAPI get_BadLoginAddress(BSTR *retval) = 0;
-    virtual HRESULT WINAPI get_BadLoginCount(long *retval) = 0;
+    virtual HRESULT WINAPI get_BadLoginCount(__LONG32 *retval) = 0;
     virtual HRESULT WINAPI get_LastLogin(DATE *retval) = 0;
     virtual HRESULT WINAPI get_LastLogoff(DATE *retval) = 0;
     virtual HRESULT WINAPI get_LastFailedLogin(DATE *retval) = 0;
@@ -3276,24 +3276,24 @@ extern "C"{
     virtual HRESULT WINAPI put_AccountDisabled(VARIANT_BOOL fAccountDisabled) = 0;
     virtual HRESULT WINAPI get_AccountExpirationDate(DATE *retval) = 0;
     virtual HRESULT WINAPI put_AccountExpirationDate(DATE daAccountExpirationDate) = 0;
-    virtual HRESULT WINAPI get_GraceLoginsAllowed(long *retval) = 0;
-    virtual HRESULT WINAPI put_GraceLoginsAllowed(long lnGraceLoginsAllowed) = 0;
-    virtual HRESULT WINAPI get_GraceLoginsRemaining(long *retval) = 0;
-    virtual HRESULT WINAPI put_GraceLoginsRemaining(long lnGraceLoginsRemaining) = 0;
+    virtual HRESULT WINAPI get_GraceLoginsAllowed(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_GraceLoginsAllowed(__LONG32 lnGraceLoginsAllowed) = 0;
+    virtual HRESULT WINAPI get_GraceLoginsRemaining(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_GraceLoginsRemaining(__LONG32 lnGraceLoginsRemaining) = 0;
     virtual HRESULT WINAPI get_IsAccountLocked(VARIANT_BOOL *retval) = 0;
     virtual HRESULT WINAPI put_IsAccountLocked(VARIANT_BOOL fIsAccountLocked) = 0;
     virtual HRESULT WINAPI get_LoginHours(VARIANT *retval) = 0;
     virtual HRESULT WINAPI put_LoginHours(VARIANT vLoginHours) = 0;
     virtual HRESULT WINAPI get_LoginWorkstations(VARIANT *retval) = 0;
     virtual HRESULT WINAPI put_LoginWorkstations(VARIANT vLoginWorkstations) = 0;
-    virtual HRESULT WINAPI get_MaxLogins(long *retval) = 0;
-    virtual HRESULT WINAPI put_MaxLogins(long lnMaxLogins) = 0;
-    virtual HRESULT WINAPI get_MaxStorage(long *retval) = 0;
-    virtual HRESULT WINAPI put_MaxStorage(long lnMaxStorage) = 0;
+    virtual HRESULT WINAPI get_MaxLogins(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_MaxLogins(__LONG32 lnMaxLogins) = 0;
+    virtual HRESULT WINAPI get_MaxStorage(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_MaxStorage(__LONG32 lnMaxStorage) = 0;
     virtual HRESULT WINAPI get_PasswordExpirationDate(DATE *retval) = 0;
     virtual HRESULT WINAPI put_PasswordExpirationDate(DATE daPasswordExpirationDate) = 0;
-    virtual HRESULT WINAPI get_PasswordMinimumLength(long *retval) = 0;
-    virtual HRESULT WINAPI put_PasswordMinimumLength(long lnPasswordMinimumLength) = 0;
+    virtual HRESULT WINAPI get_PasswordMinimumLength(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_PasswordMinimumLength(__LONG32 lnPasswordMinimumLength) = 0;
     virtual HRESULT WINAPI get_PasswordRequired(VARIANT_BOOL *retval) = 0;
     virtual HRESULT WINAPI put_PasswordRequired(VARIANT_BOOL fPasswordRequired) = 0;
     virtual HRESULT WINAPI get_RequireUniquePassword(VARIANT_BOOL *retval) = 0;
@@ -3337,10 +3337,10 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsUser *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsUser *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsUser *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsUser *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsUser *This,VARIANT vProperties,long lnReserved);
+      HRESULT (WINAPI *PutEx)(IADsUser *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsUser *This,VARIANT vProperties,__LONG32 lnReserved);
       HRESULT (WINAPI *get_BadLoginAddress)(IADsUser *This,BSTR *retval);
-      HRESULT (WINAPI *get_BadLoginCount)(IADsUser *This,long *retval);
+      HRESULT (WINAPI *get_BadLoginCount)(IADsUser *This,__LONG32 *retval);
       HRESULT (WINAPI *get_LastLogin)(IADsUser *This,DATE *retval);
       HRESULT (WINAPI *get_LastLogoff)(IADsUser *This,DATE *retval);
       HRESULT (WINAPI *get_LastFailedLogin)(IADsUser *This,DATE *retval);
@@ -3391,24 +3391,24 @@ extern "C"{
       HRESULT (WINAPI *put_AccountDisabled)(IADsUser *This,VARIANT_BOOL fAccountDisabled);
       HRESULT (WINAPI *get_AccountExpirationDate)(IADsUser *This,DATE *retval);
       HRESULT (WINAPI *put_AccountExpirationDate)(IADsUser *This,DATE daAccountExpirationDate);
-      HRESULT (WINAPI *get_GraceLoginsAllowed)(IADsUser *This,long *retval);
-      HRESULT (WINAPI *put_GraceLoginsAllowed)(IADsUser *This,long lnGraceLoginsAllowed);
-      HRESULT (WINAPI *get_GraceLoginsRemaining)(IADsUser *This,long *retval);
-      HRESULT (WINAPI *put_GraceLoginsRemaining)(IADsUser *This,long lnGraceLoginsRemaining);
+      HRESULT (WINAPI *get_GraceLoginsAllowed)(IADsUser *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_GraceLoginsAllowed)(IADsUser *This,__LONG32 lnGraceLoginsAllowed);
+      HRESULT (WINAPI *get_GraceLoginsRemaining)(IADsUser *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_GraceLoginsRemaining)(IADsUser *This,__LONG32 lnGraceLoginsRemaining);
       HRESULT (WINAPI *get_IsAccountLocked)(IADsUser *This,VARIANT_BOOL *retval);
       HRESULT (WINAPI *put_IsAccountLocked)(IADsUser *This,VARIANT_BOOL fIsAccountLocked);
       HRESULT (WINAPI *get_LoginHours)(IADsUser *This,VARIANT *retval);
       HRESULT (WINAPI *put_LoginHours)(IADsUser *This,VARIANT vLoginHours);
       HRESULT (WINAPI *get_LoginWorkstations)(IADsUser *This,VARIANT *retval);
       HRESULT (WINAPI *put_LoginWorkstations)(IADsUser *This,VARIANT vLoginWorkstations);
-      HRESULT (WINAPI *get_MaxLogins)(IADsUser *This,long *retval);
-      HRESULT (WINAPI *put_MaxLogins)(IADsUser *This,long lnMaxLogins);
-      HRESULT (WINAPI *get_MaxStorage)(IADsUser *This,long *retval);
-      HRESULT (WINAPI *put_MaxStorage)(IADsUser *This,long lnMaxStorage);
+      HRESULT (WINAPI *get_MaxLogins)(IADsUser *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_MaxLogins)(IADsUser *This,__LONG32 lnMaxLogins);
+      HRESULT (WINAPI *get_MaxStorage)(IADsUser *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_MaxStorage)(IADsUser *This,__LONG32 lnMaxStorage);
       HRESULT (WINAPI *get_PasswordExpirationDate)(IADsUser *This,DATE *retval);
       HRESULT (WINAPI *put_PasswordExpirationDate)(IADsUser *This,DATE daPasswordExpirationDate);
-      HRESULT (WINAPI *get_PasswordMinimumLength)(IADsUser *This,long *retval);
-      HRESULT (WINAPI *put_PasswordMinimumLength)(IADsUser *This,long lnPasswordMinimumLength);
+      HRESULT (WINAPI *get_PasswordMinimumLength)(IADsUser *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_PasswordMinimumLength)(IADsUser *This,__LONG32 lnPasswordMinimumLength);
       HRESULT (WINAPI *get_PasswordRequired)(IADsUser *This,VARIANT_BOOL *retval);
       HRESULT (WINAPI *put_PasswordRequired)(IADsUser *This,VARIANT_BOOL fPasswordRequired);
       HRESULT (WINAPI *get_RequireUniquePassword)(IADsUser *This,VARIANT_BOOL *retval);
@@ -3551,7 +3551,7 @@ extern "C"{
 #endif
   HRESULT WINAPI IADsUser_get_BadLoginAddress_Proxy(IADsUser *This,BSTR *retval);
   void __RPC_STUB IADsUser_get_BadLoginAddress_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsUser_get_BadLoginCount_Proxy(IADsUser *This,long *retval);
+  HRESULT WINAPI IADsUser_get_BadLoginCount_Proxy(IADsUser *This,__LONG32 *retval);
   void __RPC_STUB IADsUser_get_BadLoginCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsUser_get_LastLogin_Proxy(IADsUser *This,DATE *retval);
   void __RPC_STUB IADsUser_get_LastLogin_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -3653,13 +3653,13 @@ extern "C"{
   void __RPC_STUB IADsUser_get_AccountExpirationDate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsUser_put_AccountExpirationDate_Proxy(IADsUser *This,DATE daAccountExpirationDate);
   void __RPC_STUB IADsUser_put_AccountExpirationDate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsUser_get_GraceLoginsAllowed_Proxy(IADsUser *This,long *retval);
+  HRESULT WINAPI IADsUser_get_GraceLoginsAllowed_Proxy(IADsUser *This,__LONG32 *retval);
   void __RPC_STUB IADsUser_get_GraceLoginsAllowed_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsUser_put_GraceLoginsAllowed_Proxy(IADsUser *This,long lnGraceLoginsAllowed);
+  HRESULT WINAPI IADsUser_put_GraceLoginsAllowed_Proxy(IADsUser *This,__LONG32 lnGraceLoginsAllowed);
   void __RPC_STUB IADsUser_put_GraceLoginsAllowed_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsUser_get_GraceLoginsRemaining_Proxy(IADsUser *This,long *retval);
+  HRESULT WINAPI IADsUser_get_GraceLoginsRemaining_Proxy(IADsUser *This,__LONG32 *retval);
   void __RPC_STUB IADsUser_get_GraceLoginsRemaining_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsUser_put_GraceLoginsRemaining_Proxy(IADsUser *This,long lnGraceLoginsRemaining);
+  HRESULT WINAPI IADsUser_put_GraceLoginsRemaining_Proxy(IADsUser *This,__LONG32 lnGraceLoginsRemaining);
   void __RPC_STUB IADsUser_put_GraceLoginsRemaining_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsUser_get_IsAccountLocked_Proxy(IADsUser *This,VARIANT_BOOL *retval);
   void __RPC_STUB IADsUser_get_IsAccountLocked_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -3673,21 +3673,21 @@ extern "C"{
   void __RPC_STUB IADsUser_get_LoginWorkstations_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsUser_put_LoginWorkstations_Proxy(IADsUser *This,VARIANT vLoginWorkstations);
   void __RPC_STUB IADsUser_put_LoginWorkstations_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsUser_get_MaxLogins_Proxy(IADsUser *This,long *retval);
+  HRESULT WINAPI IADsUser_get_MaxLogins_Proxy(IADsUser *This,__LONG32 *retval);
   void __RPC_STUB IADsUser_get_MaxLogins_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsUser_put_MaxLogins_Proxy(IADsUser *This,long lnMaxLogins);
+  HRESULT WINAPI IADsUser_put_MaxLogins_Proxy(IADsUser *This,__LONG32 lnMaxLogins);
   void __RPC_STUB IADsUser_put_MaxLogins_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsUser_get_MaxStorage_Proxy(IADsUser *This,long *retval);
+  HRESULT WINAPI IADsUser_get_MaxStorage_Proxy(IADsUser *This,__LONG32 *retval);
   void __RPC_STUB IADsUser_get_MaxStorage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsUser_put_MaxStorage_Proxy(IADsUser *This,long lnMaxStorage);
+  HRESULT WINAPI IADsUser_put_MaxStorage_Proxy(IADsUser *This,__LONG32 lnMaxStorage);
   void __RPC_STUB IADsUser_put_MaxStorage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsUser_get_PasswordExpirationDate_Proxy(IADsUser *This,DATE *retval);
   void __RPC_STUB IADsUser_get_PasswordExpirationDate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsUser_put_PasswordExpirationDate_Proxy(IADsUser *This,DATE daPasswordExpirationDate);
   void __RPC_STUB IADsUser_put_PasswordExpirationDate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsUser_get_PasswordMinimumLength_Proxy(IADsUser *This,long *retval);
+  HRESULT WINAPI IADsUser_get_PasswordMinimumLength_Proxy(IADsUser *This,__LONG32 *retval);
   void __RPC_STUB IADsUser_get_PasswordMinimumLength_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsUser_put_PasswordMinimumLength_Proxy(IADsUser *This,long lnPasswordMinimumLength);
+  HRESULT WINAPI IADsUser_put_PasswordMinimumLength_Proxy(IADsUser *This,__LONG32 lnPasswordMinimumLength);
   void __RPC_STUB IADsUser_put_PasswordMinimumLength_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsUser_get_PasswordRequired_Proxy(IADsUser *This,VARIANT_BOOL *retval);
   void __RPC_STUB IADsUser_get_PasswordRequired_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -3755,10 +3755,10 @@ extern "C"{
     virtual HRESULT WINAPI put_StartTime(DATE daStartTime) = 0;
     virtual HRESULT WINAPI get_UntilTime(DATE *retval) = 0;
     virtual HRESULT WINAPI put_UntilTime(DATE daUntilTime) = 0;
-    virtual HRESULT WINAPI get_DefaultJobPriority(long *retval) = 0;
-    virtual HRESULT WINAPI put_DefaultJobPriority(long lnDefaultJobPriority) = 0;
-    virtual HRESULT WINAPI get_Priority(long *retval) = 0;
-    virtual HRESULT WINAPI put_Priority(long lnPriority) = 0;
+    virtual HRESULT WINAPI get_DefaultJobPriority(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_DefaultJobPriority(__LONG32 lnDefaultJobPriority) = 0;
+    virtual HRESULT WINAPI get_Priority(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_Priority(__LONG32 lnPriority) = 0;
     virtual HRESULT WINAPI get_BannerPage(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_BannerPage(BSTR bstrBannerPage) = 0;
     virtual HRESULT WINAPI get_PrintDevices(VARIANT *retval) = 0;
@@ -3787,8 +3787,8 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsPrintQueue *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsPrintQueue *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsPrintQueue *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsPrintQueue *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsPrintQueue *This,VARIANT vProperties,long lnReserved);
+      HRESULT (WINAPI *PutEx)(IADsPrintQueue *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsPrintQueue *This,VARIANT vProperties,__LONG32 lnReserved);
       HRESULT (WINAPI *get_PrinterPath)(IADsPrintQueue *This,BSTR *retval);
       HRESULT (WINAPI *put_PrinterPath)(IADsPrintQueue *This,BSTR bstrPrinterPath);
       HRESULT (WINAPI *get_Model)(IADsPrintQueue *This,BSTR *retval);
@@ -3805,10 +3805,10 @@ extern "C"{
       HRESULT (WINAPI *put_StartTime)(IADsPrintQueue *This,DATE daStartTime);
       HRESULT (WINAPI *get_UntilTime)(IADsPrintQueue *This,DATE *retval);
       HRESULT (WINAPI *put_UntilTime)(IADsPrintQueue *This,DATE daUntilTime);
-      HRESULT (WINAPI *get_DefaultJobPriority)(IADsPrintQueue *This,long *retval);
-      HRESULT (WINAPI *put_DefaultJobPriority)(IADsPrintQueue *This,long lnDefaultJobPriority);
-      HRESULT (WINAPI *get_Priority)(IADsPrintQueue *This,long *retval);
-      HRESULT (WINAPI *put_Priority)(IADsPrintQueue *This,long lnPriority);
+      HRESULT (WINAPI *get_DefaultJobPriority)(IADsPrintQueue *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_DefaultJobPriority)(IADsPrintQueue *This,__LONG32 lnDefaultJobPriority);
+      HRESULT (WINAPI *get_Priority)(IADsPrintQueue *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_Priority)(IADsPrintQueue *This,__LONG32 lnPriority);
       HRESULT (WINAPI *get_BannerPage)(IADsPrintQueue *This,BSTR *retval);
       HRESULT (WINAPI *put_BannerPage)(IADsPrintQueue *This,BSTR bstrBannerPage);
       HRESULT (WINAPI *get_PrintDevices)(IADsPrintQueue *This,VARIANT *retval);
@@ -3901,13 +3901,13 @@ extern "C"{
   void __RPC_STUB IADsPrintQueue_get_UntilTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsPrintQueue_put_UntilTime_Proxy(IADsPrintQueue *This,DATE daUntilTime);
   void __RPC_STUB IADsPrintQueue_put_UntilTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPrintQueue_get_DefaultJobPriority_Proxy(IADsPrintQueue *This,long *retval);
+  HRESULT WINAPI IADsPrintQueue_get_DefaultJobPriority_Proxy(IADsPrintQueue *This,__LONG32 *retval);
   void __RPC_STUB IADsPrintQueue_get_DefaultJobPriority_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPrintQueue_put_DefaultJobPriority_Proxy(IADsPrintQueue *This,long lnDefaultJobPriority);
+  HRESULT WINAPI IADsPrintQueue_put_DefaultJobPriority_Proxy(IADsPrintQueue *This,__LONG32 lnDefaultJobPriority);
   void __RPC_STUB IADsPrintQueue_put_DefaultJobPriority_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPrintQueue_get_Priority_Proxy(IADsPrintQueue *This,long *retval);
+  HRESULT WINAPI IADsPrintQueue_get_Priority_Proxy(IADsPrintQueue *This,__LONG32 *retval);
   void __RPC_STUB IADsPrintQueue_get_Priority_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPrintQueue_put_Priority_Proxy(IADsPrintQueue *This,long lnPriority);
+  HRESULT WINAPI IADsPrintQueue_put_Priority_Proxy(IADsPrintQueue *This,__LONG32 lnPriority);
   void __RPC_STUB IADsPrintQueue_put_Priority_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsPrintQueue_get_BannerPage_Proxy(IADsPrintQueue *This,BSTR *retval);
   void __RPC_STUB IADsPrintQueue_get_BannerPage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -3929,7 +3929,7 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsPrintQueueOperations : public IADs {
   public:
-    virtual HRESULT WINAPI get_Status(long *retval) = 0;
+    virtual HRESULT WINAPI get_Status(__LONG32 *retval) = 0;
     virtual HRESULT WINAPI PrintJobs(IADsCollection **pObject) = 0;
     virtual HRESULT WINAPI Pause(void) = 0;
     virtual HRESULT WINAPI Resume(void) = 0;
@@ -3956,9 +3956,9 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsPrintQueueOperations *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsPrintQueueOperations *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsPrintQueueOperations *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsPrintQueueOperations *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsPrintQueueOperations *This,VARIANT vProperties,long lnReserved);
-      HRESULT (WINAPI *get_Status)(IADsPrintQueueOperations *This,long *retval);
+      HRESULT (WINAPI *PutEx)(IADsPrintQueueOperations *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsPrintQueueOperations *This,VARIANT vProperties,__LONG32 lnReserved);
+      HRESULT (WINAPI *get_Status)(IADsPrintQueueOperations *This,__LONG32 *retval);
       HRESULT (WINAPI *PrintJobs)(IADsPrintQueueOperations *This,IADsCollection **pObject);
       HRESULT (WINAPI *Pause)(IADsPrintQueueOperations *This);
       HRESULT (WINAPI *Resume)(IADsPrintQueueOperations *This);
@@ -3996,7 +3996,7 @@ extern "C"{
 #define IADsPrintQueueOperations_Purge(This) (This)->lpVtbl->Purge(This)
 #endif
 #endif
-  HRESULT WINAPI IADsPrintQueueOperations_get_Status_Proxy(IADsPrintQueueOperations *This,long *retval);
+  HRESULT WINAPI IADsPrintQueueOperations_get_Status_Proxy(IADsPrintQueueOperations *This,__LONG32 *retval);
   void __RPC_STUB IADsPrintQueueOperations_get_Status_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsPrintQueueOperations_PrintJobs_Proxy(IADsPrintQueueOperations *This,IADsCollection **pObject);
   void __RPC_STUB IADsPrintQueueOperations_PrintJobs_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -4018,12 +4018,12 @@ extern "C"{
     virtual HRESULT WINAPI get_User(BSTR *retval) = 0;
     virtual HRESULT WINAPI get_UserPath(BSTR *retval) = 0;
     virtual HRESULT WINAPI get_TimeSubmitted(DATE *retval) = 0;
-    virtual HRESULT WINAPI get_TotalPages(long *retval) = 0;
-    virtual HRESULT WINAPI get_Size(long *retval) = 0;
+    virtual HRESULT WINAPI get_TotalPages(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI get_Size(__LONG32 *retval) = 0;
     virtual HRESULT WINAPI get_Description(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_Description(BSTR bstrDescription) = 0;
-    virtual HRESULT WINAPI get_Priority(long *retval) = 0;
-    virtual HRESULT WINAPI put_Priority(long lnPriority) = 0;
+    virtual HRESULT WINAPI get_Priority(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_Priority(__LONG32 lnPriority) = 0;
     virtual HRESULT WINAPI get_StartTime(DATE *retval) = 0;
     virtual HRESULT WINAPI put_StartTime(DATE daStartTime) = 0;
     virtual HRESULT WINAPI get_UntilTime(DATE *retval) = 0;
@@ -4054,18 +4054,18 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsPrintJob *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsPrintJob *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsPrintJob *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsPrintJob *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsPrintJob *This,VARIANT vProperties,long lnReserved);
+      HRESULT (WINAPI *PutEx)(IADsPrintJob *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsPrintJob *This,VARIANT vProperties,__LONG32 lnReserved);
       HRESULT (WINAPI *get_HostPrintQueue)(IADsPrintJob *This,BSTR *retval);
       HRESULT (WINAPI *get_User)(IADsPrintJob *This,BSTR *retval);
       HRESULT (WINAPI *get_UserPath)(IADsPrintJob *This,BSTR *retval);
       HRESULT (WINAPI *get_TimeSubmitted)(IADsPrintJob *This,DATE *retval);
-      HRESULT (WINAPI *get_TotalPages)(IADsPrintJob *This,long *retval);
-      HRESULT (WINAPI *get_Size)(IADsPrintJob *This,long *retval);
+      HRESULT (WINAPI *get_TotalPages)(IADsPrintJob *This,__LONG32 *retval);
+      HRESULT (WINAPI *get_Size)(IADsPrintJob *This,__LONG32 *retval);
       HRESULT (WINAPI *get_Description)(IADsPrintJob *This,BSTR *retval);
       HRESULT (WINAPI *put_Description)(IADsPrintJob *This,BSTR bstrDescription);
-      HRESULT (WINAPI *get_Priority)(IADsPrintJob *This,long *retval);
-      HRESULT (WINAPI *put_Priority)(IADsPrintJob *This,long lnPriority);
+      HRESULT (WINAPI *get_Priority)(IADsPrintJob *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_Priority)(IADsPrintJob *This,__LONG32 lnPriority);
       HRESULT (WINAPI *get_StartTime)(IADsPrintJob *This,DATE *retval);
       HRESULT (WINAPI *put_StartTime)(IADsPrintJob *This,DATE daStartTime);
       HRESULT (WINAPI *get_UntilTime)(IADsPrintJob *This,DATE *retval);
@@ -4128,17 +4128,17 @@ extern "C"{
   void __RPC_STUB IADsPrintJob_get_UserPath_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsPrintJob_get_TimeSubmitted_Proxy(IADsPrintJob *This,DATE *retval);
   void __RPC_STUB IADsPrintJob_get_TimeSubmitted_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPrintJob_get_TotalPages_Proxy(IADsPrintJob *This,long *retval);
+  HRESULT WINAPI IADsPrintJob_get_TotalPages_Proxy(IADsPrintJob *This,__LONG32 *retval);
   void __RPC_STUB IADsPrintJob_get_TotalPages_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPrintJob_get_Size_Proxy(IADsPrintJob *This,long *retval);
+  HRESULT WINAPI IADsPrintJob_get_Size_Proxy(IADsPrintJob *This,__LONG32 *retval);
   void __RPC_STUB IADsPrintJob_get_Size_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsPrintJob_get_Description_Proxy(IADsPrintJob *This,BSTR *retval);
   void __RPC_STUB IADsPrintJob_get_Description_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsPrintJob_put_Description_Proxy(IADsPrintJob *This,BSTR bstrDescription);
   void __RPC_STUB IADsPrintJob_put_Description_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPrintJob_get_Priority_Proxy(IADsPrintJob *This,long *retval);
+  HRESULT WINAPI IADsPrintJob_get_Priority_Proxy(IADsPrintJob *This,__LONG32 *retval);
   void __RPC_STUB IADsPrintJob_get_Priority_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPrintJob_put_Priority_Proxy(IADsPrintJob *This,long lnPriority);
+  HRESULT WINAPI IADsPrintJob_put_Priority_Proxy(IADsPrintJob *This,__LONG32 lnPriority);
   void __RPC_STUB IADsPrintJob_put_Priority_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsPrintJob_get_StartTime_Proxy(IADsPrintJob *This,DATE *retval);
   void __RPC_STUB IADsPrintJob_get_StartTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -4164,11 +4164,11 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsPrintJobOperations : public IADs {
   public:
-    virtual HRESULT WINAPI get_Status(long *retval) = 0;
-    virtual HRESULT WINAPI get_TimeElapsed(long *retval) = 0;
-    virtual HRESULT WINAPI get_PagesPrinted(long *retval) = 0;
-    virtual HRESULT WINAPI get_Position(long *retval) = 0;
-    virtual HRESULT WINAPI put_Position(long lnPosition) = 0;
+    virtual HRESULT WINAPI get_Status(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI get_TimeElapsed(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI get_PagesPrinted(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI get_Position(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_Position(__LONG32 lnPosition) = 0;
     virtual HRESULT WINAPI Pause(void) = 0;
     virtual HRESULT WINAPI Resume(void) = 0;
   };
@@ -4193,13 +4193,13 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsPrintJobOperations *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsPrintJobOperations *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsPrintJobOperations *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsPrintJobOperations *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsPrintJobOperations *This,VARIANT vProperties,long lnReserved);
-      HRESULT (WINAPI *get_Status)(IADsPrintJobOperations *This,long *retval);
-      HRESULT (WINAPI *get_TimeElapsed)(IADsPrintJobOperations *This,long *retval);
-      HRESULT (WINAPI *get_PagesPrinted)(IADsPrintJobOperations *This,long *retval);
-      HRESULT (WINAPI *get_Position)(IADsPrintJobOperations *This,long *retval);
-      HRESULT (WINAPI *put_Position)(IADsPrintJobOperations *This,long lnPosition);
+      HRESULT (WINAPI *PutEx)(IADsPrintJobOperations *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsPrintJobOperations *This,VARIANT vProperties,__LONG32 lnReserved);
+      HRESULT (WINAPI *get_Status)(IADsPrintJobOperations *This,__LONG32 *retval);
+      HRESULT (WINAPI *get_TimeElapsed)(IADsPrintJobOperations *This,__LONG32 *retval);
+      HRESULT (WINAPI *get_PagesPrinted)(IADsPrintJobOperations *This,__LONG32 *retval);
+      HRESULT (WINAPI *get_Position)(IADsPrintJobOperations *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_Position)(IADsPrintJobOperations *This,__LONG32 lnPosition);
       HRESULT (WINAPI *Pause)(IADsPrintJobOperations *This);
       HRESULT (WINAPI *Resume)(IADsPrintJobOperations *This);
     END_INTERFACE
@@ -4237,15 +4237,15 @@ extern "C"{
 #define IADsPrintJobOperations_Resume(This) (This)->lpVtbl->Resume(This)
 #endif
 #endif
-  HRESULT WINAPI IADsPrintJobOperations_get_Status_Proxy(IADsPrintJobOperations *This,long *retval);
+  HRESULT WINAPI IADsPrintJobOperations_get_Status_Proxy(IADsPrintJobOperations *This,__LONG32 *retval);
   void __RPC_STUB IADsPrintJobOperations_get_Status_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPrintJobOperations_get_TimeElapsed_Proxy(IADsPrintJobOperations *This,long *retval);
+  HRESULT WINAPI IADsPrintJobOperations_get_TimeElapsed_Proxy(IADsPrintJobOperations *This,__LONG32 *retval);
   void __RPC_STUB IADsPrintJobOperations_get_TimeElapsed_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPrintJobOperations_get_PagesPrinted_Proxy(IADsPrintJobOperations *This,long *retval);
+  HRESULT WINAPI IADsPrintJobOperations_get_PagesPrinted_Proxy(IADsPrintJobOperations *This,__LONG32 *retval);
   void __RPC_STUB IADsPrintJobOperations_get_PagesPrinted_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPrintJobOperations_get_Position_Proxy(IADsPrintJobOperations *This,long *retval);
+  HRESULT WINAPI IADsPrintJobOperations_get_Position_Proxy(IADsPrintJobOperations *This,__LONG32 *retval);
   void __RPC_STUB IADsPrintJobOperations_get_Position_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPrintJobOperations_put_Position_Proxy(IADsPrintJobOperations *This,long lnPosition);
+  HRESULT WINAPI IADsPrintJobOperations_put_Position_Proxy(IADsPrintJobOperations *This,__LONG32 lnPosition);
   void __RPC_STUB IADsPrintJobOperations_put_Position_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsPrintJobOperations_Pause_Proxy(IADsPrintJobOperations *This);
   void __RPC_STUB IADsPrintJobOperations_Pause_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -4265,16 +4265,16 @@ extern "C"{
     virtual HRESULT WINAPI put_DisplayName(BSTR bstrDisplayName) = 0;
     virtual HRESULT WINAPI get_Version(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_Version(BSTR bstrVersion) = 0;
-    virtual HRESULT WINAPI get_ServiceType(long *retval) = 0;
-    virtual HRESULT WINAPI put_ServiceType(long lnServiceType) = 0;
-    virtual HRESULT WINAPI get_StartType(long *retval) = 0;
-    virtual HRESULT WINAPI put_StartType(long lnStartType) = 0;
+    virtual HRESULT WINAPI get_ServiceType(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_ServiceType(__LONG32 lnServiceType) = 0;
+    virtual HRESULT WINAPI get_StartType(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_StartType(__LONG32 lnStartType) = 0;
     virtual HRESULT WINAPI get_Path(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_Path(BSTR bstrPath) = 0;
     virtual HRESULT WINAPI get_StartupParameters(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_StartupParameters(BSTR bstrStartupParameters) = 0;
-    virtual HRESULT WINAPI get_ErrorControl(long *retval) = 0;
-    virtual HRESULT WINAPI put_ErrorControl(long lnErrorControl) = 0;
+    virtual HRESULT WINAPI get_ErrorControl(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_ErrorControl(__LONG32 lnErrorControl) = 0;
     virtual HRESULT WINAPI get_LoadOrderGroup(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_LoadOrderGroup(BSTR bstrLoadOrderGroup) = 0;
     virtual HRESULT WINAPI get_ServiceAccountName(BSTR *retval) = 0;
@@ -4305,24 +4305,24 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsService *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsService *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsService *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsService *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsService *This,VARIANT vProperties,long lnReserved);
+      HRESULT (WINAPI *PutEx)(IADsService *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsService *This,VARIANT vProperties,__LONG32 lnReserved);
       HRESULT (WINAPI *get_HostComputer)(IADsService *This,BSTR *retval);
       HRESULT (WINAPI *put_HostComputer)(IADsService *This,BSTR bstrHostComputer);
       HRESULT (WINAPI *get_DisplayName)(IADsService *This,BSTR *retval);
       HRESULT (WINAPI *put_DisplayName)(IADsService *This,BSTR bstrDisplayName);
       HRESULT (WINAPI *get_Version)(IADsService *This,BSTR *retval);
       HRESULT (WINAPI *put_Version)(IADsService *This,BSTR bstrVersion);
-      HRESULT (WINAPI *get_ServiceType)(IADsService *This,long *retval);
-      HRESULT (WINAPI *put_ServiceType)(IADsService *This,long lnServiceType);
-      HRESULT (WINAPI *get_StartType)(IADsService *This,long *retval);
-      HRESULT (WINAPI *put_StartType)(IADsService *This,long lnStartType);
+      HRESULT (WINAPI *get_ServiceType)(IADsService *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_ServiceType)(IADsService *This,__LONG32 lnServiceType);
+      HRESULT (WINAPI *get_StartType)(IADsService *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_StartType)(IADsService *This,__LONG32 lnStartType);
       HRESULT (WINAPI *get_Path)(IADsService *This,BSTR *retval);
       HRESULT (WINAPI *put_Path)(IADsService *This,BSTR bstrPath);
       HRESULT (WINAPI *get_StartupParameters)(IADsService *This,BSTR *retval);
       HRESULT (WINAPI *put_StartupParameters)(IADsService *This,BSTR bstrStartupParameters);
-      HRESULT (WINAPI *get_ErrorControl)(IADsService *This,long *retval);
-      HRESULT (WINAPI *put_ErrorControl)(IADsService *This,long lnErrorControl);
+      HRESULT (WINAPI *get_ErrorControl)(IADsService *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_ErrorControl)(IADsService *This,__LONG32 lnErrorControl);
       HRESULT (WINAPI *get_LoadOrderGroup)(IADsService *This,BSTR *retval);
       HRESULT (WINAPI *put_LoadOrderGroup)(IADsService *This,BSTR bstrLoadOrderGroup);
       HRESULT (WINAPI *get_ServiceAccountName)(IADsService *This,BSTR *retval);
@@ -4395,13 +4395,13 @@ extern "C"{
   void __RPC_STUB IADsService_get_Version_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsService_put_Version_Proxy(IADsService *This,BSTR bstrVersion);
   void __RPC_STUB IADsService_put_Version_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsService_get_ServiceType_Proxy(IADsService *This,long *retval);
+  HRESULT WINAPI IADsService_get_ServiceType_Proxy(IADsService *This,__LONG32 *retval);
   void __RPC_STUB IADsService_get_ServiceType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsService_put_ServiceType_Proxy(IADsService *This,long lnServiceType);
+  HRESULT WINAPI IADsService_put_ServiceType_Proxy(IADsService *This,__LONG32 lnServiceType);
   void __RPC_STUB IADsService_put_ServiceType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsService_get_StartType_Proxy(IADsService *This,long *retval);
+  HRESULT WINAPI IADsService_get_StartType_Proxy(IADsService *This,__LONG32 *retval);
   void __RPC_STUB IADsService_get_StartType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsService_put_StartType_Proxy(IADsService *This,long lnStartType);
+  HRESULT WINAPI IADsService_put_StartType_Proxy(IADsService *This,__LONG32 lnStartType);
   void __RPC_STUB IADsService_put_StartType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsService_get_Path_Proxy(IADsService *This,BSTR *retval);
   void __RPC_STUB IADsService_get_Path_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -4411,9 +4411,9 @@ extern "C"{
   void __RPC_STUB IADsService_get_StartupParameters_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsService_put_StartupParameters_Proxy(IADsService *This,BSTR bstrStartupParameters);
   void __RPC_STUB IADsService_put_StartupParameters_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsService_get_ErrorControl_Proxy(IADsService *This,long *retval);
+  HRESULT WINAPI IADsService_get_ErrorControl_Proxy(IADsService *This,__LONG32 *retval);
   void __RPC_STUB IADsService_get_ErrorControl_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsService_put_ErrorControl_Proxy(IADsService *This,long lnErrorControl);
+  HRESULT WINAPI IADsService_put_ErrorControl_Proxy(IADsService *This,__LONG32 lnErrorControl);
   void __RPC_STUB IADsService_put_ErrorControl_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsService_get_LoadOrderGroup_Proxy(IADsService *This,BSTR *retval);
   void __RPC_STUB IADsService_get_LoadOrderGroup_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -4439,7 +4439,7 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsServiceOperations : public IADs {
   public:
-    virtual HRESULT WINAPI get_Status(long *retval) = 0;
+    virtual HRESULT WINAPI get_Status(__LONG32 *retval) = 0;
     virtual HRESULT WINAPI Start(void) = 0;
     virtual HRESULT WINAPI Stop(void) = 0;
     virtual HRESULT WINAPI Pause(void) = 0;
@@ -4467,9 +4467,9 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsServiceOperations *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsServiceOperations *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsServiceOperations *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsServiceOperations *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsServiceOperations *This,VARIANT vProperties,long lnReserved);
-      HRESULT (WINAPI *get_Status)(IADsServiceOperations *This,long *retval);
+      HRESULT (WINAPI *PutEx)(IADsServiceOperations *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsServiceOperations *This,VARIANT vProperties,__LONG32 lnReserved);
+      HRESULT (WINAPI *get_Status)(IADsServiceOperations *This,__LONG32 *retval);
       HRESULT (WINAPI *Start)(IADsServiceOperations *This);
       HRESULT (WINAPI *Stop)(IADsServiceOperations *This);
       HRESULT (WINAPI *Pause)(IADsServiceOperations *This);
@@ -4509,7 +4509,7 @@ extern "C"{
 #define IADsServiceOperations_SetPassword(This,bstrNewPassword) (This)->lpVtbl->SetPassword(This,bstrNewPassword)
 #endif
 #endif
-  HRESULT WINAPI IADsServiceOperations_get_Status_Proxy(IADsServiceOperations *This,long *retval);
+  HRESULT WINAPI IADsServiceOperations_get_Status_Proxy(IADsServiceOperations *This,__LONG32 *retval);
   void __RPC_STUB IADsServiceOperations_get_Status_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsServiceOperations_Start_Proxy(IADsServiceOperations *This);
   void __RPC_STUB IADsServiceOperations_Start_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -4531,8 +4531,8 @@ extern "C"{
   public:
     virtual HRESULT WINAPI get_Description(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_Description(BSTR bstrDescription) = 0;
-    virtual HRESULT WINAPI get_MaxUserCount(long *retval) = 0;
-    virtual HRESULT WINAPI put_MaxUserCount(long lnMaxUserCount) = 0;
+    virtual HRESULT WINAPI get_MaxUserCount(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_MaxUserCount(__LONG32 lnMaxUserCount) = 0;
   };
 #else
   typedef struct IADsFileServiceVtbl {
@@ -4555,24 +4555,24 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsFileService *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsFileService *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsFileService *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsFileService *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsFileService *This,VARIANT vProperties,long lnReserved);
+      HRESULT (WINAPI *PutEx)(IADsFileService *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsFileService *This,VARIANT vProperties,__LONG32 lnReserved);
       HRESULT (WINAPI *get_HostComputer)(IADsFileService *This,BSTR *retval);
       HRESULT (WINAPI *put_HostComputer)(IADsFileService *This,BSTR bstrHostComputer);
       HRESULT (WINAPI *get_DisplayName)(IADsFileService *This,BSTR *retval);
       HRESULT (WINAPI *put_DisplayName)(IADsFileService *This,BSTR bstrDisplayName);
       HRESULT (WINAPI *get_Version)(IADsFileService *This,BSTR *retval);
       HRESULT (WINAPI *put_Version)(IADsFileService *This,BSTR bstrVersion);
-      HRESULT (WINAPI *get_ServiceType)(IADsFileService *This,long *retval);
-      HRESULT (WINAPI *put_ServiceType)(IADsFileService *This,long lnServiceType);
-      HRESULT (WINAPI *get_StartType)(IADsFileService *This,long *retval);
-      HRESULT (WINAPI *put_StartType)(IADsFileService *This,long lnStartType);
+      HRESULT (WINAPI *get_ServiceType)(IADsFileService *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_ServiceType)(IADsFileService *This,__LONG32 lnServiceType);
+      HRESULT (WINAPI *get_StartType)(IADsFileService *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_StartType)(IADsFileService *This,__LONG32 lnStartType);
       HRESULT (WINAPI *get_Path)(IADsFileService *This,BSTR *retval);
       HRESULT (WINAPI *put_Path)(IADsFileService *This,BSTR bstrPath);
       HRESULT (WINAPI *get_StartupParameters)(IADsFileService *This,BSTR *retval);
       HRESULT (WINAPI *put_StartupParameters)(IADsFileService *This,BSTR bstrStartupParameters);
-      HRESULT (WINAPI *get_ErrorControl)(IADsFileService *This,long *retval);
-      HRESULT (WINAPI *put_ErrorControl)(IADsFileService *This,long lnErrorControl);
+      HRESULT (WINAPI *get_ErrorControl)(IADsFileService *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_ErrorControl)(IADsFileService *This,__LONG32 lnErrorControl);
       HRESULT (WINAPI *get_LoadOrderGroup)(IADsFileService *This,BSTR *retval);
       HRESULT (WINAPI *put_LoadOrderGroup)(IADsFileService *This,BSTR bstrLoadOrderGroup);
       HRESULT (WINAPI *get_ServiceAccountName)(IADsFileService *This,BSTR *retval);
@@ -4583,8 +4583,8 @@ extern "C"{
       HRESULT (WINAPI *put_Dependencies)(IADsFileService *This,VARIANT vDependencies);
       HRESULT (WINAPI *get_Description)(IADsFileService *This,BSTR *retval);
       HRESULT (WINAPI *put_Description)(IADsFileService *This,BSTR bstrDescription);
-      HRESULT (WINAPI *get_MaxUserCount)(IADsFileService *This,long *retval);
-      HRESULT (WINAPI *put_MaxUserCount)(IADsFileService *This,long lnMaxUserCount);
+      HRESULT (WINAPI *get_MaxUserCount)(IADsFileService *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_MaxUserCount)(IADsFileService *This,__LONG32 lnMaxUserCount);
     END_INTERFACE
   } IADsFileServiceVtbl;
   struct IADsFileService {
@@ -4645,9 +4645,9 @@ extern "C"{
   void __RPC_STUB IADsFileService_get_Description_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsFileService_put_Description_Proxy(IADsFileService *This,BSTR bstrDescription);
   void __RPC_STUB IADsFileService_put_Description_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsFileService_get_MaxUserCount_Proxy(IADsFileService *This,long *retval);
+  HRESULT WINAPI IADsFileService_get_MaxUserCount_Proxy(IADsFileService *This,__LONG32 *retval);
   void __RPC_STUB IADsFileService_get_MaxUserCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsFileService_put_MaxUserCount_Proxy(IADsFileService *This,long lnMaxUserCount);
+  HRESULT WINAPI IADsFileService_put_MaxUserCount_Proxy(IADsFileService *This,__LONG32 lnMaxUserCount);
   void __RPC_STUB IADsFileService_put_MaxUserCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -4681,9 +4681,9 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsFileServiceOperations *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsFileServiceOperations *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsFileServiceOperations *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsFileServiceOperations *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsFileServiceOperations *This,VARIANT vProperties,long lnReserved);
-      HRESULT (WINAPI *get_Status)(IADsFileServiceOperations *This,long *retval);
+      HRESULT (WINAPI *PutEx)(IADsFileServiceOperations *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsFileServiceOperations *This,VARIANT vProperties,__LONG32 lnReserved);
+      HRESULT (WINAPI *get_Status)(IADsFileServiceOperations *This,__LONG32 *retval);
       HRESULT (WINAPI *Start)(IADsFileServiceOperations *This);
       HRESULT (WINAPI *Stop)(IADsFileServiceOperations *This);
       HRESULT (WINAPI *Pause)(IADsFileServiceOperations *This);
@@ -4739,15 +4739,15 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsFileShare : public IADs {
   public:
-    virtual HRESULT WINAPI get_CurrentUserCount(long *retval) = 0;
+    virtual HRESULT WINAPI get_CurrentUserCount(__LONG32 *retval) = 0;
     virtual HRESULT WINAPI get_Description(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_Description(BSTR bstrDescription) = 0;
     virtual HRESULT WINAPI get_HostComputer(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_HostComputer(BSTR bstrHostComputer) = 0;
     virtual HRESULT WINAPI get_Path(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_Path(BSTR bstrPath) = 0;
-    virtual HRESULT WINAPI get_MaxUserCount(long *retval) = 0;
-    virtual HRESULT WINAPI put_MaxUserCount(long lnMaxUserCount) = 0;
+    virtual HRESULT WINAPI get_MaxUserCount(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_MaxUserCount(__LONG32 lnMaxUserCount) = 0;
   };
 #else
   typedef struct IADsFileShareVtbl {
@@ -4770,17 +4770,17 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsFileShare *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsFileShare *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsFileShare *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsFileShare *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsFileShare *This,VARIANT vProperties,long lnReserved);
-      HRESULT (WINAPI *get_CurrentUserCount)(IADsFileShare *This,long *retval);
+      HRESULT (WINAPI *PutEx)(IADsFileShare *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsFileShare *This,VARIANT vProperties,__LONG32 lnReserved);
+      HRESULT (WINAPI *get_CurrentUserCount)(IADsFileShare *This,__LONG32 *retval);
       HRESULT (WINAPI *get_Description)(IADsFileShare *This,BSTR *retval);
       HRESULT (WINAPI *put_Description)(IADsFileShare *This,BSTR bstrDescription);
       HRESULT (WINAPI *get_HostComputer)(IADsFileShare *This,BSTR *retval);
       HRESULT (WINAPI *put_HostComputer)(IADsFileShare *This,BSTR bstrHostComputer);
       HRESULT (WINAPI *get_Path)(IADsFileShare *This,BSTR *retval);
       HRESULT (WINAPI *put_Path)(IADsFileShare *This,BSTR bstrPath);
-      HRESULT (WINAPI *get_MaxUserCount)(IADsFileShare *This,long *retval);
-      HRESULT (WINAPI *put_MaxUserCount)(IADsFileShare *This,long lnMaxUserCount);
+      HRESULT (WINAPI *get_MaxUserCount)(IADsFileShare *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_MaxUserCount)(IADsFileShare *This,__LONG32 lnMaxUserCount);
     END_INTERFACE
   } IADsFileShareVtbl;
   struct IADsFileShare {
@@ -4818,7 +4818,7 @@ extern "C"{
 #define IADsFileShare_put_MaxUserCount(This,lnMaxUserCount) (This)->lpVtbl->put_MaxUserCount(This,lnMaxUserCount)
 #endif
 #endif
-  HRESULT WINAPI IADsFileShare_get_CurrentUserCount_Proxy(IADsFileShare *This,long *retval);
+  HRESULT WINAPI IADsFileShare_get_CurrentUserCount_Proxy(IADsFileShare *This,__LONG32 *retval);
   void __RPC_STUB IADsFileShare_get_CurrentUserCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsFileShare_get_Description_Proxy(IADsFileShare *This,BSTR *retval);
   void __RPC_STUB IADsFileShare_get_Description_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -4832,9 +4832,9 @@ extern "C"{
   void __RPC_STUB IADsFileShare_get_Path_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsFileShare_put_Path_Proxy(IADsFileShare *This,BSTR bstrPath);
   void __RPC_STUB IADsFileShare_put_Path_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsFileShare_get_MaxUserCount_Proxy(IADsFileShare *This,long *retval);
+  HRESULT WINAPI IADsFileShare_get_MaxUserCount_Proxy(IADsFileShare *This,__LONG32 *retval);
   void __RPC_STUB IADsFileShare_get_MaxUserCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsFileShare_put_MaxUserCount_Proxy(IADsFileShare *This,long lnMaxUserCount);
+  HRESULT WINAPI IADsFileShare_put_MaxUserCount_Proxy(IADsFileShare *This,__LONG32 lnMaxUserCount);
   void __RPC_STUB IADsFileShare_put_MaxUserCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -4848,8 +4848,8 @@ extern "C"{
     virtual HRESULT WINAPI get_UserPath(BSTR *retval) = 0;
     virtual HRESULT WINAPI get_Computer(BSTR *retval) = 0;
     virtual HRESULT WINAPI get_ComputerPath(BSTR *retval) = 0;
-    virtual HRESULT WINAPI get_ConnectTime(long *retval) = 0;
-    virtual HRESULT WINAPI get_IdleTime(long *retval) = 0;
+    virtual HRESULT WINAPI get_ConnectTime(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI get_IdleTime(__LONG32 *retval) = 0;
   };
 #else
   typedef struct IADsSessionVtbl {
@@ -4872,14 +4872,14 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsSession *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsSession *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsSession *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsSession *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsSession *This,VARIANT vProperties,long lnReserved);
+      HRESULT (WINAPI *PutEx)(IADsSession *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsSession *This,VARIANT vProperties,__LONG32 lnReserved);
       HRESULT (WINAPI *get_User)(IADsSession *This,BSTR *retval);
       HRESULT (WINAPI *get_UserPath)(IADsSession *This,BSTR *retval);
       HRESULT (WINAPI *get_Computer)(IADsSession *This,BSTR *retval);
       HRESULT (WINAPI *get_ComputerPath)(IADsSession *This,BSTR *retval);
-      HRESULT (WINAPI *get_ConnectTime)(IADsSession *This,long *retval);
-      HRESULT (WINAPI *get_IdleTime)(IADsSession *This,long *retval);
+      HRESULT (WINAPI *get_ConnectTime)(IADsSession *This,__LONG32 *retval);
+      HRESULT (WINAPI *get_IdleTime)(IADsSession *This,__LONG32 *retval);
     END_INTERFACE
   } IADsSessionVtbl;
   struct IADsSession {
@@ -4922,9 +4922,9 @@ extern "C"{
   void __RPC_STUB IADsSession_get_Computer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsSession_get_ComputerPath_Proxy(IADsSession *This,BSTR *retval);
   void __RPC_STUB IADsSession_get_ComputerPath_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsSession_get_ConnectTime_Proxy(IADsSession *This,long *retval);
+  HRESULT WINAPI IADsSession_get_ConnectTime_Proxy(IADsSession *This,__LONG32 *retval);
   void __RPC_STUB IADsSession_get_ConnectTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsSession_get_IdleTime_Proxy(IADsSession *This,long *retval);
+  HRESULT WINAPI IADsSession_get_IdleTime_Proxy(IADsSession *This,__LONG32 *retval);
   void __RPC_STUB IADsSession_get_IdleTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -4937,7 +4937,7 @@ extern "C"{
     virtual HRESULT WINAPI get_User(BSTR *retval) = 0;
     virtual HRESULT WINAPI get_UserPath(BSTR *retval) = 0;
     virtual HRESULT WINAPI get_Path(BSTR *retval) = 0;
-    virtual HRESULT WINAPI get_LockCount(long *retval) = 0;
+    virtual HRESULT WINAPI get_LockCount(__LONG32 *retval) = 0;
   };
 #else
   typedef struct IADsResourceVtbl {
@@ -4960,12 +4960,12 @@ extern "C"{
       HRESULT (WINAPI *Get)(IADsResource *This,BSTR bstrName,VARIANT *pvProp);
       HRESULT (WINAPI *Put)(IADsResource *This,BSTR bstrName,VARIANT vProp);
       HRESULT (WINAPI *GetEx)(IADsResource *This,BSTR bstrName,VARIANT *pvProp);
-      HRESULT (WINAPI *PutEx)(IADsResource *This,long lnControlCode,BSTR bstrName,VARIANT vProp);
-      HRESULT (WINAPI *GetInfoEx)(IADsResource *This,VARIANT vProperties,long lnReserved);
+      HRESULT (WINAPI *PutEx)(IADsResource *This,__LONG32 lnControlCode,BSTR bstrName,VARIANT vProp);
+      HRESULT (WINAPI *GetInfoEx)(IADsResource *This,VARIANT vProperties,__LONG32 lnReserved);
       HRESULT (WINAPI *get_User)(IADsResource *This,BSTR *retval);
       HRESULT (WINAPI *get_UserPath)(IADsResource *This,BSTR *retval);
       HRESULT (WINAPI *get_Path)(IADsResource *This,BSTR *retval);
-      HRESULT (WINAPI *get_LockCount)(IADsResource *This,long *retval);
+      HRESULT (WINAPI *get_LockCount)(IADsResource *This,__LONG32 *retval);
     END_INTERFACE
   } IADsResourceVtbl;
   struct IADsResource {
@@ -5004,7 +5004,7 @@ extern "C"{
   void __RPC_STUB IADsResource_get_UserPath_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsResource_get_Path_Proxy(IADsResource *This,BSTR *retval);
   void __RPC_STUB IADsResource_get_Path_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsResource_get_LockCount_Proxy(IADsResource *This,long *retval);
+  HRESULT WINAPI IADsResource_get_LockCount_Proxy(IADsResource *This,__LONG32 *retval);
   void __RPC_STUB IADsResource_get_LockCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -5014,7 +5014,7 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsOpenDSObject : public IDispatch {
   public:
-    virtual HRESULT WINAPI OpenDSObject(BSTR lpszDNName,BSTR lpszUserName,BSTR lpszPassword,long lnReserved,IDispatch **ppOleDsObj) = 0;
+    virtual HRESULT WINAPI OpenDSObject(BSTR lpszDNName,BSTR lpszUserName,BSTR lpszPassword,__LONG32 lnReserved,IDispatch **ppOleDsObj) = 0;
   };
 #else
   typedef struct IADsOpenDSObjectVtbl {
@@ -5026,7 +5026,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IADsOpenDSObject *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IADsOpenDSObject *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IADsOpenDSObject *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *OpenDSObject)(IADsOpenDSObject *This,BSTR lpszDNName,BSTR lpszUserName,BSTR lpszPassword,long lnReserved,IDispatch **ppOleDsObj);
+      HRESULT (WINAPI *OpenDSObject)(IADsOpenDSObject *This,BSTR lpszDNName,BSTR lpszUserName,BSTR lpszPassword,__LONG32 lnReserved,IDispatch **ppOleDsObj);
     END_INTERFACE
   } IADsOpenDSObjectVtbl;
   struct IADsOpenDSObject {
@@ -5043,7 +5043,7 @@ extern "C"{
 #define IADsOpenDSObject_OpenDSObject(This,lpszDNName,lpszUserName,lpszPassword,lnReserved,ppOleDsObj) (This)->lpVtbl->OpenDSObject(This,lpszDNName,lpszUserName,lpszPassword,lnReserved,ppOleDsObj)
 #endif
 #endif
-  HRESULT WINAPI IADsOpenDSObject_OpenDSObject_Proxy(IADsOpenDSObject *This,BSTR lpszDNName,BSTR lpszUserName,BSTR lpszPassword,long lnReserved,IDispatch **ppOleDsObj);
+  HRESULT WINAPI IADsOpenDSObject_OpenDSObject_Proxy(IADsOpenDSObject *This,BSTR lpszDNName,BSTR lpszUserName,BSTR lpszPassword,__LONG32 lnReserved,IDispatch **ppOleDsObj);
   void __RPC_STUB IADsOpenDSObject_OpenDSObject_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -5329,14 +5329,14 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsAccessControlEntry : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_AccessMask(long *retval) = 0;
-    virtual HRESULT WINAPI put_AccessMask(long lnAccessMask) = 0;
-    virtual HRESULT WINAPI get_AceType(long *retval) = 0;
-    virtual HRESULT WINAPI put_AceType(long lnAceType) = 0;
-    virtual HRESULT WINAPI get_AceFlags(long *retval) = 0;
-    virtual HRESULT WINAPI put_AceFlags(long lnAceFlags) = 0;
-    virtual HRESULT WINAPI get_Flags(long *retval) = 0;
-    virtual HRESULT WINAPI put_Flags(long lnFlags) = 0;
+    virtual HRESULT WINAPI get_AccessMask(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_AccessMask(__LONG32 lnAccessMask) = 0;
+    virtual HRESULT WINAPI get_AceType(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_AceType(__LONG32 lnAceType) = 0;
+    virtual HRESULT WINAPI get_AceFlags(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_AceFlags(__LONG32 lnAceFlags) = 0;
+    virtual HRESULT WINAPI get_Flags(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_Flags(__LONG32 lnFlags) = 0;
     virtual HRESULT WINAPI get_ObjectType(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_ObjectType(BSTR bstrObjectType) = 0;
     virtual HRESULT WINAPI get_InheritedObjectType(BSTR *retval) = 0;
@@ -5354,14 +5354,14 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IADsAccessControlEntry *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IADsAccessControlEntry *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IADsAccessControlEntry *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_AccessMask)(IADsAccessControlEntry *This,long *retval);
-      HRESULT (WINAPI *put_AccessMask)(IADsAccessControlEntry *This,long lnAccessMask);
-      HRESULT (WINAPI *get_AceType)(IADsAccessControlEntry *This,long *retval);
-      HRESULT (WINAPI *put_AceType)(IADsAccessControlEntry *This,long lnAceType);
-      HRESULT (WINAPI *get_AceFlags)(IADsAccessControlEntry *This,long *retval);
-      HRESULT (WINAPI *put_AceFlags)(IADsAccessControlEntry *This,long lnAceFlags);
-      HRESULT (WINAPI *get_Flags)(IADsAccessControlEntry *This,long *retval);
-      HRESULT (WINAPI *put_Flags)(IADsAccessControlEntry *This,long lnFlags);
+      HRESULT (WINAPI *get_AccessMask)(IADsAccessControlEntry *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_AccessMask)(IADsAccessControlEntry *This,__LONG32 lnAccessMask);
+      HRESULT (WINAPI *get_AceType)(IADsAccessControlEntry *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_AceType)(IADsAccessControlEntry *This,__LONG32 lnAceType);
+      HRESULT (WINAPI *get_AceFlags)(IADsAccessControlEntry *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_AceFlags)(IADsAccessControlEntry *This,__LONG32 lnAceFlags);
+      HRESULT (WINAPI *get_Flags)(IADsAccessControlEntry *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_Flags)(IADsAccessControlEntry *This,__LONG32 lnFlags);
       HRESULT (WINAPI *get_ObjectType)(IADsAccessControlEntry *This,BSTR *retval);
       HRESULT (WINAPI *put_ObjectType)(IADsAccessControlEntry *This,BSTR bstrObjectType);
       HRESULT (WINAPI *get_InheritedObjectType)(IADsAccessControlEntry *This,BSTR *retval);
@@ -5397,21 +5397,21 @@ extern "C"{
 #define IADsAccessControlEntry_put_Trustee(This,bstrTrustee) (This)->lpVtbl->put_Trustee(This,bstrTrustee)
 #endif
 #endif
-  HRESULT WINAPI IADsAccessControlEntry_get_AccessMask_Proxy(IADsAccessControlEntry *This,long *retval);
+  HRESULT WINAPI IADsAccessControlEntry_get_AccessMask_Proxy(IADsAccessControlEntry *This,__LONG32 *retval);
   void __RPC_STUB IADsAccessControlEntry_get_AccessMask_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsAccessControlEntry_put_AccessMask_Proxy(IADsAccessControlEntry *This,long lnAccessMask);
+  HRESULT WINAPI IADsAccessControlEntry_put_AccessMask_Proxy(IADsAccessControlEntry *This,__LONG32 lnAccessMask);
   void __RPC_STUB IADsAccessControlEntry_put_AccessMask_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsAccessControlEntry_get_AceType_Proxy(IADsAccessControlEntry *This,long *retval);
+  HRESULT WINAPI IADsAccessControlEntry_get_AceType_Proxy(IADsAccessControlEntry *This,__LONG32 *retval);
   void __RPC_STUB IADsAccessControlEntry_get_AceType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsAccessControlEntry_put_AceType_Proxy(IADsAccessControlEntry *This,long lnAceType);
+  HRESULT WINAPI IADsAccessControlEntry_put_AceType_Proxy(IADsAccessControlEntry *This,__LONG32 lnAceType);
   void __RPC_STUB IADsAccessControlEntry_put_AceType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsAccessControlEntry_get_AceFlags_Proxy(IADsAccessControlEntry *This,long *retval);
+  HRESULT WINAPI IADsAccessControlEntry_get_AceFlags_Proxy(IADsAccessControlEntry *This,__LONG32 *retval);
   void __RPC_STUB IADsAccessControlEntry_get_AceFlags_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsAccessControlEntry_put_AceFlags_Proxy(IADsAccessControlEntry *This,long lnAceFlags);
+  HRESULT WINAPI IADsAccessControlEntry_put_AceFlags_Proxy(IADsAccessControlEntry *This,__LONG32 lnAceFlags);
   void __RPC_STUB IADsAccessControlEntry_put_AceFlags_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsAccessControlEntry_get_Flags_Proxy(IADsAccessControlEntry *This,long *retval);
+  HRESULT WINAPI IADsAccessControlEntry_get_Flags_Proxy(IADsAccessControlEntry *This,__LONG32 *retval);
   void __RPC_STUB IADsAccessControlEntry_get_Flags_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsAccessControlEntry_put_Flags_Proxy(IADsAccessControlEntry *This,long lnFlags);
+  HRESULT WINAPI IADsAccessControlEntry_put_Flags_Proxy(IADsAccessControlEntry *This,__LONG32 lnFlags);
   void __RPC_STUB IADsAccessControlEntry_put_Flags_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsAccessControlEntry_get_ObjectType_Proxy(IADsAccessControlEntry *This,BSTR *retval);
   void __RPC_STUB IADsAccessControlEntry_get_ObjectType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -5438,10 +5438,10 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsAccessControlList : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_AclRevision(long *retval) = 0;
-    virtual HRESULT WINAPI put_AclRevision(long lnAclRevision) = 0;
-    virtual HRESULT WINAPI get_AceCount(long *retval) = 0;
-    virtual HRESULT WINAPI put_AceCount(long lnAceCount) = 0;
+    virtual HRESULT WINAPI get_AclRevision(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_AclRevision(__LONG32 lnAclRevision) = 0;
+    virtual HRESULT WINAPI get_AceCount(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_AceCount(__LONG32 lnAceCount) = 0;
     virtual HRESULT WINAPI AddAce(IDispatch *pAccessControlEntry) = 0;
     virtual HRESULT WINAPI RemoveAce(IDispatch *pAccessControlEntry) = 0;
     virtual HRESULT WINAPI CopyAccessList(IDispatch **ppAccessControlList) = 0;
@@ -5457,10 +5457,10 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IADsAccessControlList *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IADsAccessControlList *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IADsAccessControlList *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_AclRevision)(IADsAccessControlList *This,long *retval);
-      HRESULT (WINAPI *put_AclRevision)(IADsAccessControlList *This,long lnAclRevision);
-      HRESULT (WINAPI *get_AceCount)(IADsAccessControlList *This,long *retval);
-      HRESULT (WINAPI *put_AceCount)(IADsAccessControlList *This,long lnAceCount);
+      HRESULT (WINAPI *get_AclRevision)(IADsAccessControlList *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_AclRevision)(IADsAccessControlList *This,__LONG32 lnAclRevision);
+      HRESULT (WINAPI *get_AceCount)(IADsAccessControlList *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_AceCount)(IADsAccessControlList *This,__LONG32 lnAceCount);
       HRESULT (WINAPI *AddAce)(IADsAccessControlList *This,IDispatch *pAccessControlEntry);
       HRESULT (WINAPI *RemoveAce)(IADsAccessControlList *This,IDispatch *pAccessControlEntry);
       HRESULT (WINAPI *CopyAccessList)(IADsAccessControlList *This,IDispatch **ppAccessControlList);
@@ -5488,13 +5488,13 @@ extern "C"{
 #define IADsAccessControlList_get__NewEnum(This,retval) (This)->lpVtbl->get__NewEnum(This,retval)
 #endif
 #endif
-  HRESULT WINAPI IADsAccessControlList_get_AclRevision_Proxy(IADsAccessControlList *This,long *retval);
+  HRESULT WINAPI IADsAccessControlList_get_AclRevision_Proxy(IADsAccessControlList *This,__LONG32 *retval);
   void __RPC_STUB IADsAccessControlList_get_AclRevision_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsAccessControlList_put_AclRevision_Proxy(IADsAccessControlList *This,long lnAclRevision);
+  HRESULT WINAPI IADsAccessControlList_put_AclRevision_Proxy(IADsAccessControlList *This,__LONG32 lnAclRevision);
   void __RPC_STUB IADsAccessControlList_put_AclRevision_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsAccessControlList_get_AceCount_Proxy(IADsAccessControlList *This,long *retval);
+  HRESULT WINAPI IADsAccessControlList_get_AceCount_Proxy(IADsAccessControlList *This,__LONG32 *retval);
   void __RPC_STUB IADsAccessControlList_get_AceCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsAccessControlList_put_AceCount_Proxy(IADsAccessControlList *This,long lnAceCount);
+  HRESULT WINAPI IADsAccessControlList_put_AceCount_Proxy(IADsAccessControlList *This,__LONG32 lnAceCount);
   void __RPC_STUB IADsAccessControlList_put_AceCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsAccessControlList_AddAce_Proxy(IADsAccessControlList *This,IDispatch *pAccessControlEntry);
   void __RPC_STUB IADsAccessControlList_AddAce_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -5517,10 +5517,10 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsSecurityDescriptor : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Revision(long *retval) = 0;
-    virtual HRESULT WINAPI put_Revision(long lnRevision) = 0;
-    virtual HRESULT WINAPI get_Control(long *retval) = 0;
-    virtual HRESULT WINAPI put_Control(long lnControl) = 0;
+    virtual HRESULT WINAPI get_Revision(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_Revision(__LONG32 lnRevision) = 0;
+    virtual HRESULT WINAPI get_Control(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_Control(__LONG32 lnControl) = 0;
     virtual HRESULT WINAPI get_Owner(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_Owner(BSTR bstrOwner) = 0;
     virtual HRESULT WINAPI get_OwnerDefaulted(VARIANT_BOOL *retval) = 0;
@@ -5549,10 +5549,10 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IADsSecurityDescriptor *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IADsSecurityDescriptor *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IADsSecurityDescriptor *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Revision)(IADsSecurityDescriptor *This,long *retval);
-      HRESULT (WINAPI *put_Revision)(IADsSecurityDescriptor *This,long lnRevision);
-      HRESULT (WINAPI *get_Control)(IADsSecurityDescriptor *This,long *retval);
-      HRESULT (WINAPI *put_Control)(IADsSecurityDescriptor *This,long lnControl);
+      HRESULT (WINAPI *get_Revision)(IADsSecurityDescriptor *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_Revision)(IADsSecurityDescriptor *This,__LONG32 lnRevision);
+      HRESULT (WINAPI *get_Control)(IADsSecurityDescriptor *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_Control)(IADsSecurityDescriptor *This,__LONG32 lnControl);
       HRESULT (WINAPI *get_Owner)(IADsSecurityDescriptor *This,BSTR *retval);
       HRESULT (WINAPI *put_Owner)(IADsSecurityDescriptor *This,BSTR bstrOwner);
       HRESULT (WINAPI *get_OwnerDefaulted)(IADsSecurityDescriptor *This,VARIANT_BOOL *retval);
@@ -5606,13 +5606,13 @@ extern "C"{
 #define IADsSecurityDescriptor_CopySecurityDescriptor(This,ppSecurityDescriptor) (This)->lpVtbl->CopySecurityDescriptor(This,ppSecurityDescriptor)
 #endif
 #endif
-  HRESULT WINAPI IADsSecurityDescriptor_get_Revision_Proxy(IADsSecurityDescriptor *This,long *retval);
+  HRESULT WINAPI IADsSecurityDescriptor_get_Revision_Proxy(IADsSecurityDescriptor *This,__LONG32 *retval);
   void __RPC_STUB IADsSecurityDescriptor_get_Revision_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsSecurityDescriptor_put_Revision_Proxy(IADsSecurityDescriptor *This,long lnRevision);
+  HRESULT WINAPI IADsSecurityDescriptor_put_Revision_Proxy(IADsSecurityDescriptor *This,__LONG32 lnRevision);
   void __RPC_STUB IADsSecurityDescriptor_put_Revision_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsSecurityDescriptor_get_Control_Proxy(IADsSecurityDescriptor *This,long *retval);
+  HRESULT WINAPI IADsSecurityDescriptor_get_Control_Proxy(IADsSecurityDescriptor *This,__LONG32 *retval);
   void __RPC_STUB IADsSecurityDescriptor_get_Control_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsSecurityDescriptor_put_Control_Proxy(IADsSecurityDescriptor *This,long lnControl);
+  HRESULT WINAPI IADsSecurityDescriptor_put_Control_Proxy(IADsSecurityDescriptor *This,__LONG32 lnControl);
   void __RPC_STUB IADsSecurityDescriptor_put_Control_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsSecurityDescriptor_get_Owner_Proxy(IADsSecurityDescriptor *This,BSTR *retval);
   void __RPC_STUB IADsSecurityDescriptor_get_Owner_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -5661,10 +5661,10 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsLargeInteger : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_HighPart(long *retval) = 0;
-    virtual HRESULT WINAPI put_HighPart(long lnHighPart) = 0;
-    virtual HRESULT WINAPI get_LowPart(long *retval) = 0;
-    virtual HRESULT WINAPI put_LowPart(long lnLowPart) = 0;
+    virtual HRESULT WINAPI get_HighPart(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_HighPart(__LONG32 lnHighPart) = 0;
+    virtual HRESULT WINAPI get_LowPart(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_LowPart(__LONG32 lnLowPart) = 0;
   };
 #else
   typedef struct IADsLargeIntegerVtbl {
@@ -5676,10 +5676,10 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IADsLargeInteger *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IADsLargeInteger *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IADsLargeInteger *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_HighPart)(IADsLargeInteger *This,long *retval);
-      HRESULT (WINAPI *put_HighPart)(IADsLargeInteger *This,long lnHighPart);
-      HRESULT (WINAPI *get_LowPart)(IADsLargeInteger *This,long *retval);
-      HRESULT (WINAPI *put_LowPart)(IADsLargeInteger *This,long lnLowPart);
+      HRESULT (WINAPI *get_HighPart)(IADsLargeInteger *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_HighPart)(IADsLargeInteger *This,__LONG32 lnHighPart);
+      HRESULT (WINAPI *get_LowPart)(IADsLargeInteger *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_LowPart)(IADsLargeInteger *This,__LONG32 lnLowPart);
     END_INTERFACE
   } IADsLargeIntegerVtbl;
   struct IADsLargeInteger {
@@ -5699,13 +5699,13 @@ extern "C"{
 #define IADsLargeInteger_put_LowPart(This,lnLowPart) (This)->lpVtbl->put_LowPart(This,lnLowPart)
 #endif
 #endif
-  HRESULT WINAPI IADsLargeInteger_get_HighPart_Proxy(IADsLargeInteger *This,long *retval);
+  HRESULT WINAPI IADsLargeInteger_get_HighPart_Proxy(IADsLargeInteger *This,__LONG32 *retval);
   void __RPC_STUB IADsLargeInteger_get_HighPart_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsLargeInteger_put_HighPart_Proxy(IADsLargeInteger *This,long lnHighPart);
+  HRESULT WINAPI IADsLargeInteger_put_HighPart_Proxy(IADsLargeInteger *This,__LONG32 lnHighPart);
   void __RPC_STUB IADsLargeInteger_put_HighPart_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsLargeInteger_get_LowPart_Proxy(IADsLargeInteger *This,long *retval);
+  HRESULT WINAPI IADsLargeInteger_get_LowPart_Proxy(IADsLargeInteger *This,__LONG32 *retval);
   void __RPC_STUB IADsLargeInteger_get_LowPart_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsLargeInteger_put_LowPart_Proxy(IADsLargeInteger *This,long lnLowPart);
+  HRESULT WINAPI IADsLargeInteger_put_LowPart_Proxy(IADsLargeInteger *This,__LONG32 lnLowPart);
   void __RPC_STUB IADsLargeInteger_put_LowPart_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -5720,13 +5720,13 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsNameTranslate : public IDispatch {
   public:
-    virtual HRESULT WINAPI put_ChaseReferral(long lnChaseReferral) = 0;
-    virtual HRESULT WINAPI Init(long lnSetType,BSTR bstrADsPath) = 0;
-    virtual HRESULT WINAPI InitEx(long lnSetType,BSTR bstrADsPath,BSTR bstrUserID,BSTR bstrDomain,BSTR bstrPassword) = 0;
-    virtual HRESULT WINAPI Set(long lnSetType,BSTR bstrADsPath) = 0;
-    virtual HRESULT WINAPI Get(long lnFormatType,BSTR *pbstrADsPath) = 0;
-    virtual HRESULT WINAPI SetEx(long lnFormatType,VARIANT pvar) = 0;
-    virtual HRESULT WINAPI GetEx(long lnFormatType,VARIANT *pvar) = 0;
+    virtual HRESULT WINAPI put_ChaseReferral(__LONG32 lnChaseReferral) = 0;
+    virtual HRESULT WINAPI Init(__LONG32 lnSetType,BSTR bstrADsPath) = 0;
+    virtual HRESULT WINAPI InitEx(__LONG32 lnSetType,BSTR bstrADsPath,BSTR bstrUserID,BSTR bstrDomain,BSTR bstrPassword) = 0;
+    virtual HRESULT WINAPI Set(__LONG32 lnSetType,BSTR bstrADsPath) = 0;
+    virtual HRESULT WINAPI Get(__LONG32 lnFormatType,BSTR *pbstrADsPath) = 0;
+    virtual HRESULT WINAPI SetEx(__LONG32 lnFormatType,VARIANT pvar) = 0;
+    virtual HRESULT WINAPI GetEx(__LONG32 lnFormatType,VARIANT *pvar) = 0;
   };
 #else
   typedef struct IADsNameTranslateVtbl {
@@ -5738,13 +5738,13 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IADsNameTranslate *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IADsNameTranslate *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IADsNameTranslate *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *put_ChaseReferral)(IADsNameTranslate *This,long lnChaseReferral);
-      HRESULT (WINAPI *Init)(IADsNameTranslate *This,long lnSetType,BSTR bstrADsPath);
-      HRESULT (WINAPI *InitEx)(IADsNameTranslate *This,long lnSetType,BSTR bstrADsPath,BSTR bstrUserID,BSTR bstrDomain,BSTR bstrPassword);
-      HRESULT (WINAPI *Set)(IADsNameTranslate *This,long lnSetType,BSTR bstrADsPath);
-      HRESULT (WINAPI *Get)(IADsNameTranslate *This,long lnFormatType,BSTR *pbstrADsPath);
-      HRESULT (WINAPI *SetEx)(IADsNameTranslate *This,long lnFormatType,VARIANT pvar);
-      HRESULT (WINAPI *GetEx)(IADsNameTranslate *This,long lnFormatType,VARIANT *pvar);
+      HRESULT (WINAPI *put_ChaseReferral)(IADsNameTranslate *This,__LONG32 lnChaseReferral);
+      HRESULT (WINAPI *Init)(IADsNameTranslate *This,__LONG32 lnSetType,BSTR bstrADsPath);
+      HRESULT (WINAPI *InitEx)(IADsNameTranslate *This,__LONG32 lnSetType,BSTR bstrADsPath,BSTR bstrUserID,BSTR bstrDomain,BSTR bstrPassword);
+      HRESULT (WINAPI *Set)(IADsNameTranslate *This,__LONG32 lnSetType,BSTR bstrADsPath);
+      HRESULT (WINAPI *Get)(IADsNameTranslate *This,__LONG32 lnFormatType,BSTR *pbstrADsPath);
+      HRESULT (WINAPI *SetEx)(IADsNameTranslate *This,__LONG32 lnFormatType,VARIANT pvar);
+      HRESULT (WINAPI *GetEx)(IADsNameTranslate *This,__LONG32 lnFormatType,VARIANT *pvar);
     END_INTERFACE
   } IADsNameTranslateVtbl;
   struct IADsNameTranslate {
@@ -5767,19 +5767,19 @@ extern "C"{
 #define IADsNameTranslate_GetEx(This,lnFormatType,pvar) (This)->lpVtbl->GetEx(This,lnFormatType,pvar)
 #endif
 #endif
-  HRESULT WINAPI IADsNameTranslate_put_ChaseReferral_Proxy(IADsNameTranslate *This,long lnChaseReferral);
+  HRESULT WINAPI IADsNameTranslate_put_ChaseReferral_Proxy(IADsNameTranslate *This,__LONG32 lnChaseReferral);
   void __RPC_STUB IADsNameTranslate_put_ChaseReferral_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsNameTranslate_Init_Proxy(IADsNameTranslate *This,long lnSetType,BSTR bstrADsPath);
+  HRESULT WINAPI IADsNameTranslate_Init_Proxy(IADsNameTranslate *This,__LONG32 lnSetType,BSTR bstrADsPath);
   void __RPC_STUB IADsNameTranslate_Init_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsNameTranslate_InitEx_Proxy(IADsNameTranslate *This,long lnSetType,BSTR bstrADsPath,BSTR bstrUserID,BSTR bstrDomain,BSTR bstrPassword);
+  HRESULT WINAPI IADsNameTranslate_InitEx_Proxy(IADsNameTranslate *This,__LONG32 lnSetType,BSTR bstrADsPath,BSTR bstrUserID,BSTR bstrDomain,BSTR bstrPassword);
   void __RPC_STUB IADsNameTranslate_InitEx_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsNameTranslate_Set_Proxy(IADsNameTranslate *This,long lnSetType,BSTR bstrADsPath);
+  HRESULT WINAPI IADsNameTranslate_Set_Proxy(IADsNameTranslate *This,__LONG32 lnSetType,BSTR bstrADsPath);
   void __RPC_STUB IADsNameTranslate_Set_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsNameTranslate_Get_Proxy(IADsNameTranslate *This,long lnFormatType,BSTR *pbstrADsPath);
+  HRESULT WINAPI IADsNameTranslate_Get_Proxy(IADsNameTranslate *This,__LONG32 lnFormatType,BSTR *pbstrADsPath);
   void __RPC_STUB IADsNameTranslate_Get_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsNameTranslate_SetEx_Proxy(IADsNameTranslate *This,long lnFormatType,VARIANT pvar);
+  HRESULT WINAPI IADsNameTranslate_SetEx_Proxy(IADsNameTranslate *This,__LONG32 lnFormatType,VARIANT pvar);
   void __RPC_STUB IADsNameTranslate_SetEx_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsNameTranslate_GetEx_Proxy(IADsNameTranslate *This,long lnFormatType,VARIANT *pvar);
+  HRESULT WINAPI IADsNameTranslate_GetEx_Proxy(IADsNameTranslate *This,__LONG32 lnFormatType,VARIANT *pvar);
   void __RPC_STUB IADsNameTranslate_GetEx_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -5902,8 +5902,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsNetAddress : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_AddressType(long *retval) = 0;
-    virtual HRESULT WINAPI put_AddressType(long lnAddressType) = 0;
+    virtual HRESULT WINAPI get_AddressType(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_AddressType(__LONG32 lnAddressType) = 0;
     virtual HRESULT WINAPI get_Address(VARIANT *retval) = 0;
     virtual HRESULT WINAPI put_Address(VARIANT vAddress) = 0;
   };
@@ -5917,8 +5917,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IADsNetAddress *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IADsNetAddress *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IADsNetAddress *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_AddressType)(IADsNetAddress *This,long *retval);
-      HRESULT (WINAPI *put_AddressType)(IADsNetAddress *This,long lnAddressType);
+      HRESULT (WINAPI *get_AddressType)(IADsNetAddress *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_AddressType)(IADsNetAddress *This,__LONG32 lnAddressType);
       HRESULT (WINAPI *get_Address)(IADsNetAddress *This,VARIANT *retval);
       HRESULT (WINAPI *put_Address)(IADsNetAddress *This,VARIANT vAddress);
     END_INTERFACE
@@ -5940,9 +5940,9 @@ extern "C"{
 #define IADsNetAddress_put_Address(This,vAddress) (This)->lpVtbl->put_Address(This,vAddress)
 #endif
 #endif
-  HRESULT WINAPI IADsNetAddress_get_AddressType_Proxy(IADsNetAddress *This,long *retval);
+  HRESULT WINAPI IADsNetAddress_get_AddressType_Proxy(IADsNetAddress *This,__LONG32 *retval);
   void __RPC_STUB IADsNetAddress_get_AddressType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsNetAddress_put_AddressType_Proxy(IADsNetAddress *This,long lnAddressType);
+  HRESULT WINAPI IADsNetAddress_put_AddressType_Proxy(IADsNetAddress *This,__LONG32 lnAddressType);
   void __RPC_STUB IADsNetAddress_put_AddressType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsNetAddress_get_Address_Proxy(IADsNetAddress *This,VARIANT *retval);
   void __RPC_STUB IADsNetAddress_get_Address_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -6010,8 +6010,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsEmail : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Type(long *retval) = 0;
-    virtual HRESULT WINAPI put_Type(long lnType) = 0;
+    virtual HRESULT WINAPI get_Type(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_Type(__LONG32 lnType) = 0;
     virtual HRESULT WINAPI get_Address(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_Address(BSTR bstrAddress) = 0;
   };
@@ -6025,8 +6025,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IADsEmail *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IADsEmail *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IADsEmail *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Type)(IADsEmail *This,long *retval);
-      HRESULT (WINAPI *put_Type)(IADsEmail *This,long lnType);
+      HRESULT (WINAPI *get_Type)(IADsEmail *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_Type)(IADsEmail *This,__LONG32 lnType);
       HRESULT (WINAPI *get_Address)(IADsEmail *This,BSTR *retval);
       HRESULT (WINAPI *put_Address)(IADsEmail *This,BSTR bstrAddress);
     END_INTERFACE
@@ -6048,9 +6048,9 @@ extern "C"{
 #define IADsEmail_put_Address(This,bstrAddress) (This)->lpVtbl->put_Address(This,bstrAddress)
 #endif
 #endif
-  HRESULT WINAPI IADsEmail_get_Type_Proxy(IADsEmail *This,long *retval);
+  HRESULT WINAPI IADsEmail_get_Type_Proxy(IADsEmail *This,__LONG32 *retval);
   void __RPC_STUB IADsEmail_get_Type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsEmail_put_Type_Proxy(IADsEmail *This,long lnType);
+  HRESULT WINAPI IADsEmail_put_Type_Proxy(IADsEmail *This,__LONG32 lnType);
   void __RPC_STUB IADsEmail_put_Type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsEmail_get_Address_Proxy(IADsEmail *This,BSTR *retval);
   void __RPC_STUB IADsEmail_get_Address_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -6069,8 +6069,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsPath : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Type(long *retval) = 0;
-    virtual HRESULT WINAPI put_Type(long lnType) = 0;
+    virtual HRESULT WINAPI get_Type(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_Type(__LONG32 lnType) = 0;
     virtual HRESULT WINAPI get_VolumeName(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_VolumeName(BSTR bstrVolumeName) = 0;
     virtual HRESULT WINAPI get_Path(BSTR *retval) = 0;
@@ -6086,8 +6086,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IADsPath *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IADsPath *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IADsPath *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Type)(IADsPath *This,long *retval);
-      HRESULT (WINAPI *put_Type)(IADsPath *This,long lnType);
+      HRESULT (WINAPI *get_Type)(IADsPath *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_Type)(IADsPath *This,__LONG32 lnType);
       HRESULT (WINAPI *get_VolumeName)(IADsPath *This,BSTR *retval);
       HRESULT (WINAPI *put_VolumeName)(IADsPath *This,BSTR bstrVolumeName);
       HRESULT (WINAPI *get_Path)(IADsPath *This,BSTR *retval);
@@ -6113,9 +6113,9 @@ extern "C"{
 #define IADsPath_put_Path(This,bstrPath) (This)->lpVtbl->put_Path(This,bstrPath)
 #endif
 #endif
-  HRESULT WINAPI IADsPath_get_Type_Proxy(IADsPath *This,long *retval);
+  HRESULT WINAPI IADsPath_get_Type_Proxy(IADsPath *This,__LONG32 *retval);
   void __RPC_STUB IADsPath_get_Type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPath_put_Type_Proxy(IADsPath *This,long lnType);
+  HRESULT WINAPI IADsPath_put_Type_Proxy(IADsPath *This,__LONG32 lnType);
   void __RPC_STUB IADsPath_put_Type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsPath_get_VolumeName_Proxy(IADsPath *This,BSTR *retval);
   void __RPC_STUB IADsPath_get_VolumeName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -6140,12 +6140,12 @@ extern "C"{
   public:
     virtual HRESULT WINAPI get_ServerName(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_ServerName(BSTR bstrServerName) = 0;
-    virtual HRESULT WINAPI get_ReplicaType(long *retval) = 0;
-    virtual HRESULT WINAPI put_ReplicaType(long lnReplicaType) = 0;
-    virtual HRESULT WINAPI get_ReplicaNumber(long *retval) = 0;
-    virtual HRESULT WINAPI put_ReplicaNumber(long lnReplicaNumber) = 0;
-    virtual HRESULT WINAPI get_Count(long *retval) = 0;
-    virtual HRESULT WINAPI put_Count(long lnCount) = 0;
+    virtual HRESULT WINAPI get_ReplicaType(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_ReplicaType(__LONG32 lnReplicaType) = 0;
+    virtual HRESULT WINAPI get_ReplicaNumber(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_ReplicaNumber(__LONG32 lnReplicaNumber) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_Count(__LONG32 lnCount) = 0;
     virtual HRESULT WINAPI get_ReplicaAddressHints(VARIANT *retval) = 0;
     virtual HRESULT WINAPI put_ReplicaAddressHints(VARIANT vReplicaAddressHints) = 0;
   };
@@ -6161,12 +6161,12 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(IADsReplicaPointer *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_ServerName)(IADsReplicaPointer *This,BSTR *retval);
       HRESULT (WINAPI *put_ServerName)(IADsReplicaPointer *This,BSTR bstrServerName);
-      HRESULT (WINAPI *get_ReplicaType)(IADsReplicaPointer *This,long *retval);
-      HRESULT (WINAPI *put_ReplicaType)(IADsReplicaPointer *This,long lnReplicaType);
-      HRESULT (WINAPI *get_ReplicaNumber)(IADsReplicaPointer *This,long *retval);
-      HRESULT (WINAPI *put_ReplicaNumber)(IADsReplicaPointer *This,long lnReplicaNumber);
-      HRESULT (WINAPI *get_Count)(IADsReplicaPointer *This,long *retval);
-      HRESULT (WINAPI *put_Count)(IADsReplicaPointer *This,long lnCount);
+      HRESULT (WINAPI *get_ReplicaType)(IADsReplicaPointer *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_ReplicaType)(IADsReplicaPointer *This,__LONG32 lnReplicaType);
+      HRESULT (WINAPI *get_ReplicaNumber)(IADsReplicaPointer *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_ReplicaNumber)(IADsReplicaPointer *This,__LONG32 lnReplicaNumber);
+      HRESULT (WINAPI *get_Count)(IADsReplicaPointer *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_Count)(IADsReplicaPointer *This,__LONG32 lnCount);
       HRESULT (WINAPI *get_ReplicaAddressHints)(IADsReplicaPointer *This,VARIANT *retval);
       HRESULT (WINAPI *put_ReplicaAddressHints)(IADsReplicaPointer *This,VARIANT vReplicaAddressHints);
     END_INTERFACE
@@ -6198,17 +6198,17 @@ extern "C"{
   void __RPC_STUB IADsReplicaPointer_get_ServerName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsReplicaPointer_put_ServerName_Proxy(IADsReplicaPointer *This,BSTR bstrServerName);
   void __RPC_STUB IADsReplicaPointer_put_ServerName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsReplicaPointer_get_ReplicaType_Proxy(IADsReplicaPointer *This,long *retval);
+  HRESULT WINAPI IADsReplicaPointer_get_ReplicaType_Proxy(IADsReplicaPointer *This,__LONG32 *retval);
   void __RPC_STUB IADsReplicaPointer_get_ReplicaType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsReplicaPointer_put_ReplicaType_Proxy(IADsReplicaPointer *This,long lnReplicaType);
+  HRESULT WINAPI IADsReplicaPointer_put_ReplicaType_Proxy(IADsReplicaPointer *This,__LONG32 lnReplicaType);
   void __RPC_STUB IADsReplicaPointer_put_ReplicaType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsReplicaPointer_get_ReplicaNumber_Proxy(IADsReplicaPointer *This,long *retval);
+  HRESULT WINAPI IADsReplicaPointer_get_ReplicaNumber_Proxy(IADsReplicaPointer *This,__LONG32 *retval);
   void __RPC_STUB IADsReplicaPointer_get_ReplicaNumber_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsReplicaPointer_put_ReplicaNumber_Proxy(IADsReplicaPointer *This,long lnReplicaNumber);
+  HRESULT WINAPI IADsReplicaPointer_put_ReplicaNumber_Proxy(IADsReplicaPointer *This,__LONG32 lnReplicaNumber);
   void __RPC_STUB IADsReplicaPointer_put_ReplicaNumber_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsReplicaPointer_get_Count_Proxy(IADsReplicaPointer *This,long *retval);
+  HRESULT WINAPI IADsReplicaPointer_get_Count_Proxy(IADsReplicaPointer *This,__LONG32 *retval);
   void __RPC_STUB IADsReplicaPointer_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsReplicaPointer_put_Count_Proxy(IADsReplicaPointer *This,long lnCount);
+  HRESULT WINAPI IADsReplicaPointer_put_Count_Proxy(IADsReplicaPointer *This,__LONG32 lnCount);
   void __RPC_STUB IADsReplicaPointer_put_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsReplicaPointer_get_ReplicaAddressHints_Proxy(IADsReplicaPointer *This,VARIANT *retval);
   void __RPC_STUB IADsReplicaPointer_get_ReplicaAddressHints_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -6231,8 +6231,8 @@ extern "C"{
     virtual HRESULT WINAPI put_ProtectedAttrName(BSTR bstrProtectedAttrName) = 0;
     virtual HRESULT WINAPI get_SubjectName(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_SubjectName(BSTR bstrSubjectName) = 0;
-    virtual HRESULT WINAPI get_Privileges(long *retval) = 0;
-    virtual HRESULT WINAPI put_Privileges(long lnPrivileges) = 0;
+    virtual HRESULT WINAPI get_Privileges(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_Privileges(__LONG32 lnPrivileges) = 0;
     virtual HRESULT WINAPI CopyAcl(IDispatch **ppAcl) = 0;
   };
 #else
@@ -6249,8 +6249,8 @@ extern "C"{
       HRESULT (WINAPI *put_ProtectedAttrName)(IADsAcl *This,BSTR bstrProtectedAttrName);
       HRESULT (WINAPI *get_SubjectName)(IADsAcl *This,BSTR *retval);
       HRESULT (WINAPI *put_SubjectName)(IADsAcl *This,BSTR bstrSubjectName);
-      HRESULT (WINAPI *get_Privileges)(IADsAcl *This,long *retval);
-      HRESULT (WINAPI *put_Privileges)(IADsAcl *This,long lnPrivileges);
+      HRESULT (WINAPI *get_Privileges)(IADsAcl *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_Privileges)(IADsAcl *This,__LONG32 lnPrivileges);
       HRESULT (WINAPI *CopyAcl)(IADsAcl *This,IDispatch **ppAcl);
     END_INTERFACE
   } IADsAclVtbl;
@@ -6282,9 +6282,9 @@ extern "C"{
   void __RPC_STUB IADsAcl_get_SubjectName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsAcl_put_SubjectName_Proxy(IADsAcl *This,BSTR bstrSubjectName);
   void __RPC_STUB IADsAcl_put_SubjectName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsAcl_get_Privileges_Proxy(IADsAcl *This,long *retval);
+  HRESULT WINAPI IADsAcl_get_Privileges_Proxy(IADsAcl *This,__LONG32 *retval);
   void __RPC_STUB IADsAcl_get_Privileges_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsAcl_put_Privileges_Proxy(IADsAcl *This,long lnPrivileges);
+  HRESULT WINAPI IADsAcl_put_Privileges_Proxy(IADsAcl *This,__LONG32 lnPrivileges);
   void __RPC_STUB IADsAcl_put_Privileges_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsAcl_CopyAcl_Proxy(IADsAcl *This,IDispatch **ppAcl);
   void __RPC_STUB IADsAcl_CopyAcl_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -6296,10 +6296,10 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsTimestamp : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_WholeSeconds(long *retval) = 0;
-    virtual HRESULT WINAPI put_WholeSeconds(long lnWholeSeconds) = 0;
-    virtual HRESULT WINAPI get_EventID(long *retval) = 0;
-    virtual HRESULT WINAPI put_EventID(long lnEventID) = 0;
+    virtual HRESULT WINAPI get_WholeSeconds(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_WholeSeconds(__LONG32 lnWholeSeconds) = 0;
+    virtual HRESULT WINAPI get_EventID(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_EventID(__LONG32 lnEventID) = 0;
   };
 #else
   typedef struct IADsTimestampVtbl {
@@ -6311,10 +6311,10 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IADsTimestamp *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IADsTimestamp *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IADsTimestamp *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_WholeSeconds)(IADsTimestamp *This,long *retval);
-      HRESULT (WINAPI *put_WholeSeconds)(IADsTimestamp *This,long lnWholeSeconds);
-      HRESULT (WINAPI *get_EventID)(IADsTimestamp *This,long *retval);
-      HRESULT (WINAPI *put_EventID)(IADsTimestamp *This,long lnEventID);
+      HRESULT (WINAPI *get_WholeSeconds)(IADsTimestamp *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_WholeSeconds)(IADsTimestamp *This,__LONG32 lnWholeSeconds);
+      HRESULT (WINAPI *get_EventID)(IADsTimestamp *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_EventID)(IADsTimestamp *This,__LONG32 lnEventID);
     END_INTERFACE
   } IADsTimestampVtbl;
   struct IADsTimestamp {
@@ -6334,13 +6334,13 @@ extern "C"{
 #define IADsTimestamp_put_EventID(This,lnEventID) (This)->lpVtbl->put_EventID(This,lnEventID)
 #endif
 #endif
-  HRESULT WINAPI IADsTimestamp_get_WholeSeconds_Proxy(IADsTimestamp *This,long *retval);
+  HRESULT WINAPI IADsTimestamp_get_WholeSeconds_Proxy(IADsTimestamp *This,__LONG32 *retval);
   void __RPC_STUB IADsTimestamp_get_WholeSeconds_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsTimestamp_put_WholeSeconds_Proxy(IADsTimestamp *This,long lnWholeSeconds);
+  HRESULT WINAPI IADsTimestamp_put_WholeSeconds_Proxy(IADsTimestamp *This,__LONG32 lnWholeSeconds);
   void __RPC_STUB IADsTimestamp_put_WholeSeconds_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsTimestamp_get_EventID_Proxy(IADsTimestamp *This,long *retval);
+  HRESULT WINAPI IADsTimestamp_get_EventID_Proxy(IADsTimestamp *This,__LONG32 *retval);
   void __RPC_STUB IADsTimestamp_get_EventID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsTimestamp_put_EventID_Proxy(IADsTimestamp *This,long lnEventID);
+  HRESULT WINAPI IADsTimestamp_put_EventID_Proxy(IADsTimestamp *This,__LONG32 lnEventID);
   void __RPC_STUB IADsTimestamp_put_EventID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -6404,8 +6404,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsBackLink : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_RemoteID(long *retval) = 0;
-    virtual HRESULT WINAPI put_RemoteID(long lnRemoteID) = 0;
+    virtual HRESULT WINAPI get_RemoteID(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_RemoteID(__LONG32 lnRemoteID) = 0;
     virtual HRESULT WINAPI get_ObjectName(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_ObjectName(BSTR bstrObjectName) = 0;
   };
@@ -6419,8 +6419,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IADsBackLink *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IADsBackLink *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IADsBackLink *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_RemoteID)(IADsBackLink *This,long *retval);
-      HRESULT (WINAPI *put_RemoteID)(IADsBackLink *This,long lnRemoteID);
+      HRESULT (WINAPI *get_RemoteID)(IADsBackLink *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_RemoteID)(IADsBackLink *This,__LONG32 lnRemoteID);
       HRESULT (WINAPI *get_ObjectName)(IADsBackLink *This,BSTR *retval);
       HRESULT (WINAPI *put_ObjectName)(IADsBackLink *This,BSTR bstrObjectName);
     END_INTERFACE
@@ -6442,9 +6442,9 @@ extern "C"{
 #define IADsBackLink_put_ObjectName(This,bstrObjectName) (This)->lpVtbl->put_ObjectName(This,bstrObjectName)
 #endif
 #endif
-  HRESULT WINAPI IADsBackLink_get_RemoteID_Proxy(IADsBackLink *This,long *retval);
+  HRESULT WINAPI IADsBackLink_get_RemoteID_Proxy(IADsBackLink *This,__LONG32 *retval);
   void __RPC_STUB IADsBackLink_get_RemoteID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsBackLink_put_RemoteID_Proxy(IADsBackLink *This,long lnRemoteID);
+  HRESULT WINAPI IADsBackLink_put_RemoteID_Proxy(IADsBackLink *This,__LONG32 lnRemoteID);
   void __RPC_STUB IADsBackLink_put_RemoteID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsBackLink_get_ObjectName_Proxy(IADsBackLink *This,BSTR *retval);
   void __RPC_STUB IADsBackLink_get_ObjectName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -6465,10 +6465,10 @@ extern "C"{
   public:
     virtual HRESULT WINAPI get_ObjectName(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_ObjectName(BSTR bstrObjectName) = 0;
-    virtual HRESULT WINAPI get_Level(long *retval) = 0;
-    virtual HRESULT WINAPI put_Level(long lnLevel) = 0;
-    virtual HRESULT WINAPI get_Interval(long *retval) = 0;
-    virtual HRESULT WINAPI put_Interval(long lnInterval) = 0;
+    virtual HRESULT WINAPI get_Level(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_Level(__LONG32 lnLevel) = 0;
+    virtual HRESULT WINAPI get_Interval(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_Interval(__LONG32 lnInterval) = 0;
   };
 #else
   typedef struct IADsTypedNameVtbl {
@@ -6482,10 +6482,10 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(IADsTypedName *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_ObjectName)(IADsTypedName *This,BSTR *retval);
       HRESULT (WINAPI *put_ObjectName)(IADsTypedName *This,BSTR bstrObjectName);
-      HRESULT (WINAPI *get_Level)(IADsTypedName *This,long *retval);
-      HRESULT (WINAPI *put_Level)(IADsTypedName *This,long lnLevel);
-      HRESULT (WINAPI *get_Interval)(IADsTypedName *This,long *retval);
-      HRESULT (WINAPI *put_Interval)(IADsTypedName *This,long lnInterval);
+      HRESULT (WINAPI *get_Level)(IADsTypedName *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_Level)(IADsTypedName *This,__LONG32 lnLevel);
+      HRESULT (WINAPI *get_Interval)(IADsTypedName *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_Interval)(IADsTypedName *This,__LONG32 lnInterval);
     END_INTERFACE
   } IADsTypedNameVtbl;
   struct IADsTypedName {
@@ -6511,13 +6511,13 @@ extern "C"{
   void __RPC_STUB IADsTypedName_get_ObjectName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsTypedName_put_ObjectName_Proxy(IADsTypedName *This,BSTR bstrObjectName);
   void __RPC_STUB IADsTypedName_put_ObjectName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsTypedName_get_Level_Proxy(IADsTypedName *This,long *retval);
+  HRESULT WINAPI IADsTypedName_get_Level_Proxy(IADsTypedName *This,__LONG32 *retval);
   void __RPC_STUB IADsTypedName_get_Level_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsTypedName_put_Level_Proxy(IADsTypedName *This,long lnLevel);
+  HRESULT WINAPI IADsTypedName_put_Level_Proxy(IADsTypedName *This,__LONG32 lnLevel);
   void __RPC_STUB IADsTypedName_put_Level_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsTypedName_get_Interval_Proxy(IADsTypedName *This,long *retval);
+  HRESULT WINAPI IADsTypedName_get_Interval_Proxy(IADsTypedName *This,__LONG32 *retval);
   void __RPC_STUB IADsTypedName_get_Interval_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsTypedName_put_Interval_Proxy(IADsTypedName *This,long lnInterval);
+  HRESULT WINAPI IADsTypedName_put_Interval_Proxy(IADsTypedName *This,__LONG32 lnInterval);
   void __RPC_STUB IADsTypedName_put_Interval_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -6534,8 +6534,8 @@ extern "C"{
   public:
     virtual HRESULT WINAPI get_ObjectName(BSTR *retval) = 0;
     virtual HRESULT WINAPI put_ObjectName(BSTR bstrObjectName) = 0;
-    virtual HRESULT WINAPI get_Amount(long *retval) = 0;
-    virtual HRESULT WINAPI put_Amount(long lnAmount) = 0;
+    virtual HRESULT WINAPI get_Amount(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_Amount(__LONG32 lnAmount) = 0;
   };
 #else
   typedef struct IADsHoldVtbl {
@@ -6549,8 +6549,8 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(IADsHold *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_ObjectName)(IADsHold *This,BSTR *retval);
       HRESULT (WINAPI *put_ObjectName)(IADsHold *This,BSTR bstrObjectName);
-      HRESULT (WINAPI *get_Amount)(IADsHold *This,long *retval);
-      HRESULT (WINAPI *put_Amount)(IADsHold *This,long lnAmount);
+      HRESULT (WINAPI *get_Amount)(IADsHold *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_Amount)(IADsHold *This,__LONG32 lnAmount);
     END_INTERFACE
   } IADsHoldVtbl;
   struct IADsHold {
@@ -6574,9 +6574,9 @@ extern "C"{
   void __RPC_STUB IADsHold_get_ObjectName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsHold_put_ObjectName_Proxy(IADsHold *This,BSTR bstrObjectName);
   void __RPC_STUB IADsHold_put_ObjectName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsHold_get_Amount_Proxy(IADsHold *This,long *retval);
+  HRESULT WINAPI IADsHold_get_Amount_Proxy(IADsHold *This,__LONG32 *retval);
   void __RPC_STUB IADsHold_get_Amount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsHold_put_Amount_Proxy(IADsHold *This,long lnAmount);
+  HRESULT WINAPI IADsHold_put_Amount_Proxy(IADsHold *This,__LONG32 lnAmount);
   void __RPC_STUB IADsHold_put_Amount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -6591,8 +6591,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsObjectOptions : public IDispatch {
   public:
-    virtual HRESULT WINAPI GetOption(long lnOption,VARIANT *pvValue) = 0;
-    virtual HRESULT WINAPI SetOption(long lnOption,VARIANT vValue) = 0;
+    virtual HRESULT WINAPI GetOption(__LONG32 lnOption,VARIANT *pvValue) = 0;
+    virtual HRESULT WINAPI SetOption(__LONG32 lnOption,VARIANT vValue) = 0;
   };
 #else
   typedef struct IADsObjectOptionsVtbl {
@@ -6604,8 +6604,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IADsObjectOptions *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IADsObjectOptions *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IADsObjectOptions *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *GetOption)(IADsObjectOptions *This,long lnOption,VARIANT *pvValue);
-      HRESULT (WINAPI *SetOption)(IADsObjectOptions *This,long lnOption,VARIANT vValue);
+      HRESULT (WINAPI *GetOption)(IADsObjectOptions *This,__LONG32 lnOption,VARIANT *pvValue);
+      HRESULT (WINAPI *SetOption)(IADsObjectOptions *This,__LONG32 lnOption,VARIANT vValue);
     END_INTERFACE
   } IADsObjectOptionsVtbl;
   struct IADsObjectOptions {
@@ -6623,9 +6623,9 @@ extern "C"{
 #define IADsObjectOptions_SetOption(This,lnOption,vValue) (This)->lpVtbl->SetOption(This,lnOption,vValue)
 #endif
 #endif
-  HRESULT WINAPI IADsObjectOptions_GetOption_Proxy(IADsObjectOptions *This,long lnOption,VARIANT *pvValue);
+  HRESULT WINAPI IADsObjectOptions_GetOption_Proxy(IADsObjectOptions *This,__LONG32 lnOption,VARIANT *pvValue);
   void __RPC_STUB IADsObjectOptions_GetOption_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsObjectOptions_SetOption_Proxy(IADsObjectOptions *This,long lnOption,VARIANT vValue);
+  HRESULT WINAPI IADsObjectOptions_SetOption_Proxy(IADsObjectOptions *This,__LONG32 lnOption,VARIANT vValue);
   void __RPC_STUB IADsObjectOptions_SetOption_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -6635,17 +6635,17 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsPathname : public IDispatch {
   public:
-    virtual HRESULT WINAPI Set(BSTR bstrADsPath,long lnSetType) = 0;
-    virtual HRESULT WINAPI SetDisplayType(long lnDisplayType) = 0;
-    virtual HRESULT WINAPI Retrieve(long lnFormatType,BSTR *pbstrADsPath) = 0;
-    virtual HRESULT WINAPI GetNumElements(long *plnNumPathElements) = 0;
-    virtual HRESULT WINAPI GetElement(long lnElementIndex,BSTR *pbstrElement) = 0;
+    virtual HRESULT WINAPI Set(BSTR bstrADsPath,__LONG32 lnSetType) = 0;
+    virtual HRESULT WINAPI SetDisplayType(__LONG32 lnDisplayType) = 0;
+    virtual HRESULT WINAPI Retrieve(__LONG32 lnFormatType,BSTR *pbstrADsPath) = 0;
+    virtual HRESULT WINAPI GetNumElements(__LONG32 *plnNumPathElements) = 0;
+    virtual HRESULT WINAPI GetElement(__LONG32 lnElementIndex,BSTR *pbstrElement) = 0;
     virtual HRESULT WINAPI AddLeafElement(BSTR bstrLeafElement) = 0;
     virtual HRESULT WINAPI RemoveLeafElement(void) = 0;
     virtual HRESULT WINAPI CopyPath(IDispatch **ppAdsPath) = 0;
-    virtual HRESULT WINAPI GetEscapedElement(long lnReserved,BSTR bstrInStr,BSTR *pbstrOutStr) = 0;
-    virtual HRESULT WINAPI get_EscapedMode(long *retval) = 0;
-    virtual HRESULT WINAPI put_EscapedMode(long lnEscapedMode) = 0;
+    virtual HRESULT WINAPI GetEscapedElement(__LONG32 lnReserved,BSTR bstrInStr,BSTR *pbstrOutStr) = 0;
+    virtual HRESULT WINAPI get_EscapedMode(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_EscapedMode(__LONG32 lnEscapedMode) = 0;
   };
 #else
   typedef struct IADsPathnameVtbl {
@@ -6657,17 +6657,17 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IADsPathname *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IADsPathname *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IADsPathname *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *Set)(IADsPathname *This,BSTR bstrADsPath,long lnSetType);
-      HRESULT (WINAPI *SetDisplayType)(IADsPathname *This,long lnDisplayType);
-      HRESULT (WINAPI *Retrieve)(IADsPathname *This,long lnFormatType,BSTR *pbstrADsPath);
-      HRESULT (WINAPI *GetNumElements)(IADsPathname *This,long *plnNumPathElements);
-      HRESULT (WINAPI *GetElement)(IADsPathname *This,long lnElementIndex,BSTR *pbstrElement);
+      HRESULT (WINAPI *Set)(IADsPathname *This,BSTR bstrADsPath,__LONG32 lnSetType);
+      HRESULT (WINAPI *SetDisplayType)(IADsPathname *This,__LONG32 lnDisplayType);
+      HRESULT (WINAPI *Retrieve)(IADsPathname *This,__LONG32 lnFormatType,BSTR *pbstrADsPath);
+      HRESULT (WINAPI *GetNumElements)(IADsPathname *This,__LONG32 *plnNumPathElements);
+      HRESULT (WINAPI *GetElement)(IADsPathname *This,__LONG32 lnElementIndex,BSTR *pbstrElement);
       HRESULT (WINAPI *AddLeafElement)(IADsPathname *This,BSTR bstrLeafElement);
       HRESULT (WINAPI *RemoveLeafElement)(IADsPathname *This);
       HRESULT (WINAPI *CopyPath)(IADsPathname *This,IDispatch **ppAdsPath);
-      HRESULT (WINAPI *GetEscapedElement)(IADsPathname *This,long lnReserved,BSTR bstrInStr,BSTR *pbstrOutStr);
-      HRESULT (WINAPI *get_EscapedMode)(IADsPathname *This,long *retval);
-      HRESULT (WINAPI *put_EscapedMode)(IADsPathname *This,long lnEscapedMode);
+      HRESULT (WINAPI *GetEscapedElement)(IADsPathname *This,__LONG32 lnReserved,BSTR bstrInStr,BSTR *pbstrOutStr);
+      HRESULT (WINAPI *get_EscapedMode)(IADsPathname *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_EscapedMode)(IADsPathname *This,__LONG32 lnEscapedMode);
     END_INTERFACE
   } IADsPathnameVtbl;
   struct IADsPathname {
@@ -6694,15 +6694,15 @@ extern "C"{
 #define IADsPathname_put_EscapedMode(This,lnEscapedMode) (This)->lpVtbl->put_EscapedMode(This,lnEscapedMode)
 #endif
 #endif
-  HRESULT WINAPI IADsPathname_Set_Proxy(IADsPathname *This,BSTR bstrADsPath,long lnSetType);
+  HRESULT WINAPI IADsPathname_Set_Proxy(IADsPathname *This,BSTR bstrADsPath,__LONG32 lnSetType);
   void __RPC_STUB IADsPathname_Set_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPathname_SetDisplayType_Proxy(IADsPathname *This,long lnDisplayType);
+  HRESULT WINAPI IADsPathname_SetDisplayType_Proxy(IADsPathname *This,__LONG32 lnDisplayType);
   void __RPC_STUB IADsPathname_SetDisplayType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPathname_Retrieve_Proxy(IADsPathname *This,long lnFormatType,BSTR *pbstrADsPath);
+  HRESULT WINAPI IADsPathname_Retrieve_Proxy(IADsPathname *This,__LONG32 lnFormatType,BSTR *pbstrADsPath);
   void __RPC_STUB IADsPathname_Retrieve_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPathname_GetNumElements_Proxy(IADsPathname *This,long *plnNumPathElements);
+  HRESULT WINAPI IADsPathname_GetNumElements_Proxy(IADsPathname *This,__LONG32 *plnNumPathElements);
   void __RPC_STUB IADsPathname_GetNumElements_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPathname_GetElement_Proxy(IADsPathname *This,long lnElementIndex,BSTR *pbstrElement);
+  HRESULT WINAPI IADsPathname_GetElement_Proxy(IADsPathname *This,__LONG32 lnElementIndex,BSTR *pbstrElement);
   void __RPC_STUB IADsPathname_GetElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsPathname_AddLeafElement_Proxy(IADsPathname *This,BSTR bstrLeafElement);
   void __RPC_STUB IADsPathname_AddLeafElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -6710,11 +6710,11 @@ extern "C"{
   void __RPC_STUB IADsPathname_RemoveLeafElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IADsPathname_CopyPath_Proxy(IADsPathname *This,IDispatch **ppAdsPath);
   void __RPC_STUB IADsPathname_CopyPath_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPathname_GetEscapedElement_Proxy(IADsPathname *This,long lnReserved,BSTR bstrInStr,BSTR *pbstrOutStr);
+  HRESULT WINAPI IADsPathname_GetEscapedElement_Proxy(IADsPathname *This,__LONG32 lnReserved,BSTR bstrInStr,BSTR *pbstrOutStr);
   void __RPC_STUB IADsPathname_GetEscapedElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPathname_get_EscapedMode_Proxy(IADsPathname *This,long *retval);
+  HRESULT WINAPI IADsPathname_get_EscapedMode_Proxy(IADsPathname *This,__LONG32 *retval);
   void __RPC_STUB IADsPathname_get_EscapedMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsPathname_put_EscapedMode_Proxy(IADsPathname *This,long lnEscapedMode);
+  HRESULT WINAPI IADsPathname_put_EscapedMode_Proxy(IADsPathname *This,__LONG32 lnEscapedMode);
   void __RPC_STUB IADsPathname_put_EscapedMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -7010,11 +7010,11 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IADsSecurityUtility : public IDispatch {
   public:
-    virtual HRESULT WINAPI GetSecurityDescriptor(VARIANT varPath,long lPathFormat,long lFormat,VARIANT *pVariant) = 0;
-    virtual HRESULT WINAPI SetSecurityDescriptor(VARIANT varPath,long lPathFormat,VARIANT varData,long lDataFormat) = 0;
-    virtual HRESULT WINAPI ConvertSecurityDescriptor(VARIANT varSD,long lDataFormat,long lOutFormat,VARIANT *pResult) = 0;
-    virtual HRESULT WINAPI get_SecurityMask(long *retval) = 0;
-    virtual HRESULT WINAPI put_SecurityMask(long lnSecurityMask) = 0;
+    virtual HRESULT WINAPI GetSecurityDescriptor(VARIANT varPath,__LONG32 lPathFormat,__LONG32 lFormat,VARIANT *pVariant) = 0;
+    virtual HRESULT WINAPI SetSecurityDescriptor(VARIANT varPath,__LONG32 lPathFormat,VARIANT varData,__LONG32 lDataFormat) = 0;
+    virtual HRESULT WINAPI ConvertSecurityDescriptor(VARIANT varSD,__LONG32 lDataFormat,__LONG32 lOutFormat,VARIANT *pResult) = 0;
+    virtual HRESULT WINAPI get_SecurityMask(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI put_SecurityMask(__LONG32 lnSecurityMask) = 0;
   };
 #else
   typedef struct IADsSecurityUtilityVtbl {
@@ -7026,11 +7026,11 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IADsSecurityUtility *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IADsSecurityUtility *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IADsSecurityUtility *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *GetSecurityDescriptor)(IADsSecurityUtility *This,VARIANT varPath,long lPathFormat,long lFormat,VARIANT *pVariant);
-      HRESULT (WINAPI *SetSecurityDescriptor)(IADsSecurityUtility *This,VARIANT varPath,long lPathFormat,VARIANT varData,long lDataFormat);
-      HRESULT (WINAPI *ConvertSecurityDescriptor)(IADsSecurityUtility *This,VARIANT varSD,long lDataFormat,long lOutFormat,VARIANT *pResult);
-      HRESULT (WINAPI *get_SecurityMask)(IADsSecurityUtility *This,long *retval);
-      HRESULT (WINAPI *put_SecurityMask)(IADsSecurityUtility *This,long lnSecurityMask);
+      HRESULT (WINAPI *GetSecurityDescriptor)(IADsSecurityUtility *This,VARIANT varPath,__LONG32 lPathFormat,__LONG32 lFormat,VARIANT *pVariant);
+      HRESULT (WINAPI *SetSecurityDescriptor)(IADsSecurityUtility *This,VARIANT varPath,__LONG32 lPathFormat,VARIANT varData,__LONG32 lDataFormat);
+      HRESULT (WINAPI *ConvertSecurityDescriptor)(IADsSecurityUtility *This,VARIANT varSD,__LONG32 lDataFormat,__LONG32 lOutFormat,VARIANT *pResult);
+      HRESULT (WINAPI *get_SecurityMask)(IADsSecurityUtility *This,__LONG32 *retval);
+      HRESULT (WINAPI *put_SecurityMask)(IADsSecurityUtility *This,__LONG32 lnSecurityMask);
     END_INTERFACE
   } IADsSecurityUtilityVtbl;
   struct IADsSecurityUtility {
@@ -7051,15 +7051,15 @@ extern "C"{
 #define IADsSecurityUtility_put_SecurityMask(This,lnSecurityMask) (This)->lpVtbl->put_SecurityMask(This,lnSecurityMask)
 #endif
 #endif
-  HRESULT WINAPI IADsSecurityUtility_GetSecurityDescriptor_Proxy(IADsSecurityUtility *This,VARIANT varPath,long lPathFormat,long lFormat,VARIANT *pVariant);
+  HRESULT WINAPI IADsSecurityUtility_GetSecurityDescriptor_Proxy(IADsSecurityUtility *This,VARIANT varPath,__LONG32 lPathFormat,__LONG32 lFormat,VARIANT *pVariant);
   void __RPC_STUB IADsSecurityUtility_GetSecurityDescriptor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsSecurityUtility_SetSecurityDescriptor_Proxy(IADsSecurityUtility *This,VARIANT varPath,long lPathFormat,VARIANT varData,long lDataFormat);
+  HRESULT WINAPI IADsSecurityUtility_SetSecurityDescriptor_Proxy(IADsSecurityUtility *This,VARIANT varPath,__LONG32 lPathFormat,VARIANT varData,__LONG32 lDataFormat);
   void __RPC_STUB IADsSecurityUtility_SetSecurityDescriptor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsSecurityUtility_ConvertSecurityDescriptor_Proxy(IADsSecurityUtility *This,VARIANT varSD,long lDataFormat,long lOutFormat,VARIANT *pResult);
+  HRESULT WINAPI IADsSecurityUtility_ConvertSecurityDescriptor_Proxy(IADsSecurityUtility *This,VARIANT varSD,__LONG32 lDataFormat,__LONG32 lOutFormat,VARIANT *pResult);
   void __RPC_STUB IADsSecurityUtility_ConvertSecurityDescriptor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsSecurityUtility_get_SecurityMask_Proxy(IADsSecurityUtility *This,long *retval);
+  HRESULT WINAPI IADsSecurityUtility_get_SecurityMask_Proxy(IADsSecurityUtility *This,__LONG32 *retval);
   void __RPC_STUB IADsSecurityUtility_get_SecurityMask_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IADsSecurityUtility_put_SecurityMask_Proxy(IADsSecurityUtility *This,long lnSecurityMask);
+  HRESULT WINAPI IADsSecurityUtility_put_SecurityMask_Proxy(IADsSecurityUtility *This,__LONG32 lnSecurityMask);
   void __RPC_STUB IADsSecurityUtility_put_SecurityMask_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 

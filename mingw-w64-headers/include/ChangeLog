@@ -1,5 +1,9 @@
 2012-08-03  Corinna Vinschen  <vinschen@redhat.com>
 
+	* iads.h: Change long to __LONG32 where appropriate.
+
+2012-08-03  Corinna Vinschen  <vinschen@redhat.com>
+
 	* eventsys.h: Change long to __LONG32 where appropriate.
 	* exdisp.h: Ditto.
 	* gpmgmt.h: Ditto.
