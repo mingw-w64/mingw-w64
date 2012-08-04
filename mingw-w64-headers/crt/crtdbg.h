@@ -204,13 +204,14 @@ extern "C" {
 
 #ifdef __cplusplus
 }
-
+/*
   void *__cdecl operator new[](size_t _Size);
   inline void *__cdecl operator new(size_t _Size,int,const char *,int) { return ::operator new(_Size); }
   inline void *__cdecl operator new[](size_t _Size,int,const char *,int) { return ::operator new[](_Size); }
   void __cdecl operator delete[](void *);
   inline void __cdecl operator delete(void *_P,int,const char *,int) { ::operator delete(_P); }
   inline void __cdecl operator delete[](void *_P,int,const char *,int) { ::operator delete[](_P); }
+ */
 #endif
 
 #pragma pack(pop)

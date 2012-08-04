@@ -1,3 +1,7 @@
+2012-08-04  Kai Tietz  <ktietz@redhat.com>
+
+	* crtdbg.h: disable prototyping of C++ new/delete operators.
+
 2012-07-30  Kai Tietz  <ktietz@redhat.com>
 
 	* _bsd_types.h (u_long): Make u_long type dependent to
