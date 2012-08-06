@@ -1911,7 +1911,7 @@ extern "C" {
   SHSTDAPI_(void) SHUpdateImageA(LPCSTR pszHashItem,int iIndex,UINT uFlags,int iImageIndex);
   SHSTDAPI_(void) SHUpdateImageW(LPCWSTR pszHashItem,int iIndex,UINT uFlags,int iImageIndex);
   SHSTDAPI_(ULONG) SHChangeNotifyRegister(HWND hwnd,int fSources,LONG fEvents,UINT wMsg,int cEntries,SHChangeNotifyEntry *pshcne);
-  SHSTDAPI_(WINBOOL) SHChangeNotifyDeregister(unsigned long ulID);
+  SHSTDAPI_(WINBOOL) SHChangeNotifyDeregister(unsigned __LONG32 ulID);
   SHSTDAPI_(HANDLE) SHChangeNotification_Lock(HANDLE hChangeNotification,DWORD dwProcessId,LPITEMIDLIST **pppidl,LONG *plEvent);
   SHSTDAPI_(WINBOOL) SHChangeNotification_Unlock(HANDLE hLock);
   SHSTDAPI SHGetRealIDL(IShellFolder *psf,LPCITEMIDLIST pidlSimple,LPITEMIDLIST *ppidlReal);

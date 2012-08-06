@@ -29,24 +29,24 @@ extern "C" {
   typedef unsigned char DBTINYINT;
   typedef short DBSMALLINT;
   typedef unsigned short DBUSMALLINT;
-  typedef long DBINT;
+  typedef __LONG32 DBINT;
   typedef char DBCHAR;
   typedef unsigned char DBBINARY;
   typedef unsigned char DBBIT;
   typedef double DBFLT8;
 
   typedef struct srv_datetime {
-    long dtdays;
-    unsigned long dttime;
+    __LONG32 dtdays;
+    unsigned __LONG32 dttime;
   } DBDATETIME;
 
   typedef struct srv_money {
-    long mnyhigh;
-    unsigned long mnylow;
+    __LONG32 mnyhigh;
+    unsigned __LONG32 mnylow;
   } DBMONEY;
 
   typedef float DBFLT4;
-  typedef long DBMONEY4;
+  typedef __LONG32 DBMONEY4;
 
   typedef struct dbdatetime4 {
     unsigned short numdays;
@@ -256,12 +256,12 @@ extern "C" {
   struct CXPData;
   typedef struct CXPData SRV_PROC;
 
-  int __cdecl srv_describe(SRV_PROC *,int,char*,int,long int,long int,long int,long int,void *);
-  int __cdecl srv_setutype(SRV_PROC *srvproc,int column,long int usertype);
+  int __cdecl srv_describe(SRV_PROC *,int,char*,int,__LONG32,__LONG32,__LONG32,__LONG32,void *);
+  int __cdecl srv_setutype(SRV_PROC *srvproc,int column,__LONG32 usertype);
   int __cdecl srv_setcoldata(SRV_PROC *srvproc,int column,void *data);
   int __cdecl srv_setcollen(SRV_PROC *srvproc,int column,int len);
   int __cdecl srv_sendrow(SRV_PROC *srvproc);
-  int __cdecl srv_senddone(SRV_PROC *srvproc,USHORT status,USHORT curcmd,long int count);
+  int __cdecl srv_senddone(SRV_PROC *srvproc,USHORT status,USHORT curcmd,__LONG32 count);
   int __cdecl srv_rpcparams(SRV_PROC *);
   int __cdecl srv_paraminfo(SRV_PROC *,int,BYTE *,ULONG *,ULONG *,BYTE *,WINBOOL *);
   int __cdecl srv_paramsetoutput(SRV_PROC *,int,BYTE *,ULONG,WINBOOL);
@@ -280,11 +280,11 @@ extern "C" {
   SRV_SERVER *__cdecl srv_getserver(SRV_PROC *srvproc);
   WINBOOL __cdecl srv_got_attention(SRV_PROC *srvproc);
 
-  void *__cdecl srv_alloc(long int ulSize);
-  int __cdecl srv_bmove(void *from,void *to,long int count);
-  int __cdecl srv_bzero(void *location,long int count);
+  void *__cdecl srv_alloc(__LONG32 ulSize);
+  int __cdecl srv_bmove(void *from,void *to,__LONG32 count);
+  int __cdecl srv_bzero(void *location,__LONG32 count);
   int __cdecl srv_free(void *ptr);
-  int __cdecl srv_convert(SRV_PROC *,int,void *,long int,int,void *,long int);
+  int __cdecl srv_convert(SRV_PROC *,int,void *,__LONG32,int,void *,__LONG32);
   void *__cdecl srv_getuserdata(SRV_PROC *srvproc);
   int __cdecl srv_getbindtoken(SRV_PROC *srvproc,char *token_buf);
   int __cdecl srv_getdtcxact(SRV_PROC *srvproc,void **ppv);
@@ -292,24 +292,24 @@ extern "C" {
   typedef int (*EventHandler)(void *);
 
   int __cdecl srv_impersonate_client(SRV_PROC *srvproc);
-  long __cdecl srv_langcpy(SRV_PROC *srvproc,long start,long nbytes,char *buffer);
-  long __cdecl srv_langlen(SRV_PROC *srvproc);
+  __LONG32 __cdecl srv_langcpy(SRV_PROC *srvproc,__LONG32 start,__LONG32 nbytes,char *buffer);
+  __LONG32 __cdecl srv_langlen(SRV_PROC *srvproc);
   void *__cdecl srv_langptr(SRV_PROC *srvproc);
 
   int __cdecl srv_log(SRV_SERVER *server,WINBOOL datestamp,char *msg,int msglen);
   int __cdecl srv_paramstatus(SRV_PROC *,int);
   void *__cdecl srv_pfieldex(SRV_PROC *srvproc,int field,int *len);
   char *__cdecl srv_pfield(SRV_PROC *srvproc,int field,int *len);
-  int __cdecl srv_returnval(SRV_PROC *srvproc,char *valuename,int len,BYTE status,long int type,long int maxlen,long int datalen,void *value);
+  int __cdecl srv_returnval(SRV_PROC *srvproc,char *valuename,int len,BYTE status,__LONG32 type,__LONG32 maxlen,__LONG32 datalen,void *value);
   int __cdecl srv_revert_to_self(SRV_PROC *srvproc);
   char *__cdecl srv_rpcdb(SRV_PROC *srvproc,int *len);
   char *__cdecl srv_rpcname(SRV_PROC *srvproc,int *len);
   int __cdecl srv_rpcnumber(SRV_PROC *srvproc);
   USHORT __cdecl srv_rpcoptions(SRV_PROC *srvproc);
   char *__cdecl srv_rpcowner(SRV_PROC *srvproc,int *len);
-  int __cdecl srv_wsendmsg(SRV_PROC *srvproc,long int msgnum,BYTE msgclass,WCHAR *message,int msglen);
-  int __cdecl srv_sendmsg(SRV_PROC *srvproc,int msgtype,long int msgnum,BYTE msgclass,BYTE state,char *rpcname,int rpcnamelen,USHORT linenum,char *message,int msglen);
-  int __cdecl srv_sendstatus(SRV_PROC *srvproc,long int status);
+  int __cdecl srv_wsendmsg(SRV_PROC *srvproc,__LONG32 msgnum,BYTE msgclass,WCHAR *message,int msglen);
+  int __cdecl srv_sendmsg(SRV_PROC *srvproc,int msgtype,__LONG32 msgnum,BYTE msgclass,BYTE state,char *rpcname,int rpcnamelen,USHORT linenum,char *message,int msglen);
+  int __cdecl srv_sendstatus(SRV_PROC *srvproc,__LONG32 status);
   int __cdecl srv_setuserdata(SRV_PROC *srvproc,void *ptr);
   char *__cdecl srv_sfield(SRV_SERVER *server,int field,int *len);
   char *__cdecl srv_symbol(int type,int symbol,int *len);
@@ -319,8 +319,8 @@ extern "C" {
   int __cdecl srv_sendstatistics(SRV_PROC *srvproc);
   int __cdecl srv_clearstatistics(SRV_PROC *srvproc);
   int __cdecl srv_message_handler(SRV_PROC *srvproc,int errornum,BYTE severity,BYTE state,int oserrnum,char *errtext,int errtextlen,char *oserrtext,int oserrtextlen);
-  int __cdecl srv_pre_handle(SRV_SERVER *server,SRV_PROC *srvproc,long int event,EventHandler handler,WINBOOL remove);
-  int __cdecl srv_post_handle(SRV_SERVER *server,SRV_PROC *srvproc,long int event,EventHandler handler,WINBOOL remove);
+  int __cdecl srv_pre_handle(SRV_SERVER *server,SRV_PROC *srvproc,__LONG32 event,EventHandler handler,WINBOOL remove);
+  int __cdecl srv_post_handle(SRV_SERVER *server,SRV_PROC *srvproc,__LONG32 event,EventHandler handler,WINBOOL remove);
   int __cdecl srv_IgnoreAnsiToOem(SRV_PROC *srvproc,WINBOOL bTF);
 #endif
 

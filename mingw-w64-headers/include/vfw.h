@@ -1265,7 +1265,7 @@ extern "C" {
 #define MCIWndGetLength(hwnd) (LONG)MCIWndSM(hwnd,MCIWNDM_GETLENGTH,(WPARAM)0,(LPARAM)0)
 #define MCIWndGetEnd(hwnd) (LONG)MCIWndSM(hwnd,MCIWNDM_GETEND,(WPARAM)0,(LPARAM)0)
 
-#define MCIWndStep(hwnd,n) (LONG)MCIWndSM(hwnd,MCI_STEP,(WPARAM)0,(LPARAM)(long)(n))
+#define MCIWndStep(hwnd,n) (LONG)MCIWndSM(hwnd,MCI_STEP,(WPARAM)0,(LPARAM)(__LONG32)(n))
 
 #define MCIWndDestroy(hwnd) (VOID)MCIWndSM(hwnd,WM_CLOSE,(WPARAM)0,(LPARAM)0)
 #define MCIWndSetZoom(hwnd,iZoom) (VOID)MCIWndSM(hwnd,MCIWNDM_SETZOOM,(WPARAM)0,(LPARAM)(UINT)(iZoom))

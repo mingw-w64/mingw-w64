@@ -451,11 +451,11 @@ extern "C" {
 #endif
 
 #ifdef _X86_
-  typedef long TAPIHWND;
+  typedef __LONG32 TAPIHWND;
 #else
   typedef LONGLONG TAPIHWND;
 #endif
-  typedef long TAPI_DIGITMODE;
+  typedef __LONG32 TAPI_DIGITMODE;
 
   typedef enum TAPI_TONEMODE {
     TTM_RINGBACK = 0x2,TTM_BUSY = 0x4,TTM_BEEP = 0x8,TTM_BILLING = 0x10
@@ -771,18 +771,18 @@ extern "C" {
     virtual HRESULT WINAPI Shutdown(void) = 0;
     virtual HRESULT WINAPI get_Addresses(VARIANT *pVariant) = 0;
     virtual HRESULT WINAPI EnumerateAddresses(IEnumAddress **ppEnumAddress) = 0;
-    virtual HRESULT WINAPI RegisterCallNotifications(ITAddress *pAddress,VARIANT_BOOL fMonitor,VARIANT_BOOL fOwner,long lMediaTypes,long lCallbackInstance,long *plRegister) = 0;
-    virtual HRESULT WINAPI UnregisterNotifications(long lRegister) = 0;
+    virtual HRESULT WINAPI RegisterCallNotifications(ITAddress *pAddress,VARIANT_BOOL fMonitor,VARIANT_BOOL fOwner,__LONG32 lMediaTypes,__LONG32 lCallbackInstance,__LONG32 *plRegister) = 0;
+    virtual HRESULT WINAPI UnregisterNotifications(__LONG32 lRegister) = 0;
     virtual HRESULT WINAPI get_CallHubs(VARIANT *pVariant) = 0;
     virtual HRESULT WINAPI EnumerateCallHubs(IEnumCallHub **ppEnumCallHub) = 0;
     virtual HRESULT WINAPI SetCallHubTracking(VARIANT pAddresses,VARIANT_BOOL bTracking) = 0;
     virtual HRESULT WINAPI EnumeratePrivateTAPIObjects(IEnumUnknown **ppEnumUnknown) = 0;
     virtual HRESULT WINAPI get_PrivateTAPIObjects(VARIANT *pVariant) = 0;
-    virtual HRESULT WINAPI RegisterRequestRecipient(long lRegistrationInstance,long lRequestMode,VARIANT_BOOL fEnable) = 0;
+    virtual HRESULT WINAPI RegisterRequestRecipient(__LONG32 lRegistrationInstance,__LONG32 lRequestMode,VARIANT_BOOL fEnable) = 0;
     virtual HRESULT WINAPI SetAssistedTelephonyPriority(BSTR pAppFilename,VARIANT_BOOL fPriority) = 0;
-    virtual HRESULT WINAPI SetApplicationPriority(BSTR pAppFilename,long lMediaType,VARIANT_BOOL fPriority) = 0;
-    virtual HRESULT WINAPI put_EventFilter(long lFilterMask) = 0;
-    virtual HRESULT WINAPI get_EventFilter(long *plFilterMask) = 0;
+    virtual HRESULT WINAPI SetApplicationPriority(BSTR pAppFilename,__LONG32 lMediaType,VARIANT_BOOL fPriority) = 0;
+    virtual HRESULT WINAPI put_EventFilter(__LONG32 lFilterMask) = 0;
+    virtual HRESULT WINAPI get_EventFilter(__LONG32 *plFilterMask) = 0;
   };
 #else
   typedef struct ITTAPIVtbl {
@@ -798,18 +798,18 @@ extern "C" {
       HRESULT (WINAPI *Shutdown)(ITTAPI *This);
       HRESULT (WINAPI *get_Addresses)(ITTAPI *This,VARIANT *pVariant);
       HRESULT (WINAPI *EnumerateAddresses)(ITTAPI *This,IEnumAddress **ppEnumAddress);
-      HRESULT (WINAPI *RegisterCallNotifications)(ITTAPI *This,ITAddress *pAddress,VARIANT_BOOL fMonitor,VARIANT_BOOL fOwner,long lMediaTypes,long lCallbackInstance,long *plRegister);
-      HRESULT (WINAPI *UnregisterNotifications)(ITTAPI *This,long lRegister);
+      HRESULT (WINAPI *RegisterCallNotifications)(ITTAPI *This,ITAddress *pAddress,VARIANT_BOOL fMonitor,VARIANT_BOOL fOwner,__LONG32 lMediaTypes,__LONG32 lCallbackInstance,__LONG32 *plRegister);
+      HRESULT (WINAPI *UnregisterNotifications)(ITTAPI *This,__LONG32 lRegister);
       HRESULT (WINAPI *get_CallHubs)(ITTAPI *This,VARIANT *pVariant);
       HRESULT (WINAPI *EnumerateCallHubs)(ITTAPI *This,IEnumCallHub **ppEnumCallHub);
       HRESULT (WINAPI *SetCallHubTracking)(ITTAPI *This,VARIANT pAddresses,VARIANT_BOOL bTracking);
       HRESULT (WINAPI *EnumeratePrivateTAPIObjects)(ITTAPI *This,IEnumUnknown **ppEnumUnknown);
       HRESULT (WINAPI *get_PrivateTAPIObjects)(ITTAPI *This,VARIANT *pVariant);
-      HRESULT (WINAPI *RegisterRequestRecipient)(ITTAPI *This,long lRegistrationInstance,long lRequestMode,VARIANT_BOOL fEnable);
+      HRESULT (WINAPI *RegisterRequestRecipient)(ITTAPI *This,__LONG32 lRegistrationInstance,__LONG32 lRequestMode,VARIANT_BOOL fEnable);
       HRESULT (WINAPI *SetAssistedTelephonyPriority)(ITTAPI *This,BSTR pAppFilename,VARIANT_BOOL fPriority);
-      HRESULT (WINAPI *SetApplicationPriority)(ITTAPI *This,BSTR pAppFilename,long lMediaType,VARIANT_BOOL fPriority);
-      HRESULT (WINAPI *put_EventFilter)(ITTAPI *This,long lFilterMask);
-      HRESULT (WINAPI *get_EventFilter)(ITTAPI *This,long *plFilterMask);
+      HRESULT (WINAPI *SetApplicationPriority)(ITTAPI *This,BSTR pAppFilename,__LONG32 lMediaType,VARIANT_BOOL fPriority);
+      HRESULT (WINAPI *put_EventFilter)(ITTAPI *This,__LONG32 lFilterMask);
+      HRESULT (WINAPI *get_EventFilter)(ITTAPI *This,__LONG32 *plFilterMask);
     END_INTERFACE
   } ITTAPIVtbl;
   struct ITTAPI {
@@ -849,9 +849,9 @@ extern "C" {
   void __RPC_STUB ITTAPI_get_Addresses_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITTAPI_EnumerateAddresses_Proxy(ITTAPI *This,IEnumAddress **ppEnumAddress);
   void __RPC_STUB ITTAPI_EnumerateAddresses_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITTAPI_RegisterCallNotifications_Proxy(ITTAPI *This,ITAddress *pAddress,VARIANT_BOOL fMonitor,VARIANT_BOOL fOwner,long lMediaTypes,long lCallbackInstance,long *plRegister);
+  HRESULT WINAPI ITTAPI_RegisterCallNotifications_Proxy(ITTAPI *This,ITAddress *pAddress,VARIANT_BOOL fMonitor,VARIANT_BOOL fOwner,__LONG32 lMediaTypes,__LONG32 lCallbackInstance,__LONG32 *plRegister);
   void __RPC_STUB ITTAPI_RegisterCallNotifications_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITTAPI_UnregisterNotifications_Proxy(ITTAPI *This,long lRegister);
+  HRESULT WINAPI ITTAPI_UnregisterNotifications_Proxy(ITTAPI *This,__LONG32 lRegister);
   void __RPC_STUB ITTAPI_UnregisterNotifications_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITTAPI_get_CallHubs_Proxy(ITTAPI *This,VARIANT *pVariant);
   void __RPC_STUB ITTAPI_get_CallHubs_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -863,15 +863,15 @@ extern "C" {
   void __RPC_STUB ITTAPI_EnumeratePrivateTAPIObjects_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITTAPI_get_PrivateTAPIObjects_Proxy(ITTAPI *This,VARIANT *pVariant);
   void __RPC_STUB ITTAPI_get_PrivateTAPIObjects_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITTAPI_RegisterRequestRecipient_Proxy(ITTAPI *This,long lRegistrationInstance,long lRequestMode,VARIANT_BOOL fEnable);
+  HRESULT WINAPI ITTAPI_RegisterRequestRecipient_Proxy(ITTAPI *This,__LONG32 lRegistrationInstance,__LONG32 lRequestMode,VARIANT_BOOL fEnable);
   void __RPC_STUB ITTAPI_RegisterRequestRecipient_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITTAPI_SetAssistedTelephonyPriority_Proxy(ITTAPI *This,BSTR pAppFilename,VARIANT_BOOL fPriority);
   void __RPC_STUB ITTAPI_SetAssistedTelephonyPriority_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITTAPI_SetApplicationPriority_Proxy(ITTAPI *This,BSTR pAppFilename,long lMediaType,VARIANT_BOOL fPriority);
+  HRESULT WINAPI ITTAPI_SetApplicationPriority_Proxy(ITTAPI *This,BSTR pAppFilename,__LONG32 lMediaType,VARIANT_BOOL fPriority);
   void __RPC_STUB ITTAPI_SetApplicationPriority_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITTAPI_put_EventFilter_Proxy(ITTAPI *This,long lFilterMask);
+  HRESULT WINAPI ITTAPI_put_EventFilter_Proxy(ITTAPI *This,__LONG32 lFilterMask);
   void __RPC_STUB ITTAPI_put_EventFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITTAPI_get_EventFilter_Proxy(ITTAPI *This,long *plFilterMask);
+  HRESULT WINAPI ITTAPI_get_EventFilter_Proxy(ITTAPI *This,__LONG32 *plFilterMask);
   void __RPC_STUB ITTAPI_get_EventFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -899,18 +899,18 @@ extern "C" {
       HRESULT (WINAPI *Shutdown)(ITTAPI2 *This);
       HRESULT (WINAPI *get_Addresses)(ITTAPI2 *This,VARIANT *pVariant);
       HRESULT (WINAPI *EnumerateAddresses)(ITTAPI2 *This,IEnumAddress **ppEnumAddress);
-      HRESULT (WINAPI *RegisterCallNotifications)(ITTAPI2 *This,ITAddress *pAddress,VARIANT_BOOL fMonitor,VARIANT_BOOL fOwner,long lMediaTypes,long lCallbackInstance,long *plRegister);
-      HRESULT (WINAPI *UnregisterNotifications)(ITTAPI2 *This,long lRegister);
+      HRESULT (WINAPI *RegisterCallNotifications)(ITTAPI2 *This,ITAddress *pAddress,VARIANT_BOOL fMonitor,VARIANT_BOOL fOwner,__LONG32 lMediaTypes,__LONG32 lCallbackInstance,__LONG32 *plRegister);
+      HRESULT (WINAPI *UnregisterNotifications)(ITTAPI2 *This,__LONG32 lRegister);
       HRESULT (WINAPI *get_CallHubs)(ITTAPI2 *This,VARIANT *pVariant);
       HRESULT (WINAPI *EnumerateCallHubs)(ITTAPI2 *This,IEnumCallHub **ppEnumCallHub);
       HRESULT (WINAPI *SetCallHubTracking)(ITTAPI2 *This,VARIANT pAddresses,VARIANT_BOOL bTracking);
       HRESULT (WINAPI *EnumeratePrivateTAPIObjects)(ITTAPI2 *This,IEnumUnknown **ppEnumUnknown);
       HRESULT (WINAPI *get_PrivateTAPIObjects)(ITTAPI2 *This,VARIANT *pVariant);
-      HRESULT (WINAPI *RegisterRequestRecipient)(ITTAPI2 *This,long lRegistrationInstance,long lRequestMode,VARIANT_BOOL fEnable);
+      HRESULT (WINAPI *RegisterRequestRecipient)(ITTAPI2 *This,__LONG32 lRegistrationInstance,__LONG32 lRequestMode,VARIANT_BOOL fEnable);
       HRESULT (WINAPI *SetAssistedTelephonyPriority)(ITTAPI2 *This,BSTR pAppFilename,VARIANT_BOOL fPriority);
-      HRESULT (WINAPI *SetApplicationPriority)(ITTAPI2 *This,BSTR pAppFilename,long lMediaType,VARIANT_BOOL fPriority);
-      HRESULT (WINAPI *put_EventFilter)(ITTAPI2 *This,long lFilterMask);
-      HRESULT (WINAPI *get_EventFilter)(ITTAPI2 *This,long *plFilterMask);
+      HRESULT (WINAPI *SetApplicationPriority)(ITTAPI2 *This,BSTR pAppFilename,__LONG32 lMediaType,VARIANT_BOOL fPriority);
+      HRESULT (WINAPI *put_EventFilter)(ITTAPI2 *This,__LONG32 lFilterMask);
+      HRESULT (WINAPI *get_EventFilter)(ITTAPI2 *This,__LONG32 *plFilterMask);
       HRESULT (WINAPI *get_Phones)(ITTAPI2 *This,VARIANT *pPhones);
       HRESULT (WINAPI *EnumeratePhones)(ITTAPI2 *This,IEnumPhone **ppEnumPhone);
       HRESULT (WINAPI *CreateEmptyCollectionObject)(ITTAPI2 *This,ITCollection2 **ppCollection);
@@ -962,8 +962,8 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITMediaSupport : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_MediaTypes(long *plMediaTypes) = 0;
-    virtual HRESULT WINAPI QueryMediaType(long lMediaType,VARIANT_BOOL *pfSupport) = 0;
+    virtual HRESULT WINAPI get_MediaTypes(__LONG32 *plMediaTypes) = 0;
+    virtual HRESULT WINAPI QueryMediaType(__LONG32 lMediaType,VARIANT_BOOL *pfSupport) = 0;
   };
 #else
   typedef struct ITMediaSupportVtbl {
@@ -975,8 +975,8 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ITMediaSupport *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ITMediaSupport *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITMediaSupport *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_MediaTypes)(ITMediaSupport *This,long *plMediaTypes);
-      HRESULT (WINAPI *QueryMediaType)(ITMediaSupport *This,long lMediaType,VARIANT_BOOL *pfSupport);
+      HRESULT (WINAPI *get_MediaTypes)(ITMediaSupport *This,__LONG32 *plMediaTypes);
+      HRESULT (WINAPI *QueryMediaType)(ITMediaSupport *This,__LONG32 lMediaType,VARIANT_BOOL *pfSupport);
     END_INTERFACE
   } ITMediaSupportVtbl;
   struct ITMediaSupport {
@@ -994,9 +994,9 @@ extern "C" {
 #define ITMediaSupport_QueryMediaType(This,lMediaType,pfSupport) (This)->lpVtbl->QueryMediaType(This,lMediaType,pfSupport)
 #endif
 #endif
-  HRESULT WINAPI ITMediaSupport_get_MediaTypes_Proxy(ITMediaSupport *This,long *plMediaTypes);
+  HRESULT WINAPI ITMediaSupport_get_MediaTypes_Proxy(ITMediaSupport *This,__LONG32 *plMediaTypes);
   void __RPC_STUB ITMediaSupport_get_MediaTypes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITMediaSupport_QueryMediaType_Proxy(ITMediaSupport *This,long lMediaType,VARIANT_BOOL *pfSupport);
+  HRESULT WINAPI ITMediaSupport_QueryMediaType_Proxy(ITMediaSupport *This,__LONG32 lMediaType,VARIANT_BOOL *pfSupport);
   void __RPC_STUB ITMediaSupport_QueryMediaType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1012,7 +1012,7 @@ extern "C" {
     virtual HRESULT WINAPI get_TerminalClass(BSTR *pTerminalClass) = 0;
     virtual HRESULT WINAPI get_CLSID(BSTR *pCLSID) = 0;
     virtual HRESULT WINAPI get_Direction(TERMINAL_DIRECTION *pDirection) = 0;
-    virtual HRESULT WINAPI get_MediaTypes(long *pMediaTypes) = 0;
+    virtual HRESULT WINAPI get_MediaTypes(__LONG32 *pMediaTypes) = 0;
   };
 #else
   typedef struct ITPluggableTerminalClassInfoVtbl {
@@ -1030,7 +1030,7 @@ extern "C" {
       HRESULT (WINAPI *get_TerminalClass)(ITPluggableTerminalClassInfo *This,BSTR *pTerminalClass);
       HRESULT (WINAPI *get_CLSID)(ITPluggableTerminalClassInfo *This,BSTR *pCLSID);
       HRESULT (WINAPI *get_Direction)(ITPluggableTerminalClassInfo *This,TERMINAL_DIRECTION *pDirection);
-      HRESULT (WINAPI *get_MediaTypes)(ITPluggableTerminalClassInfo *This,long *pMediaTypes);
+      HRESULT (WINAPI *get_MediaTypes)(ITPluggableTerminalClassInfo *This,__LONG32 *pMediaTypes);
     END_INTERFACE
   } ITPluggableTerminalClassInfoVtbl;
   struct ITPluggableTerminalClassInfo {
@@ -1065,7 +1065,7 @@ extern "C" {
   void __RPC_STUB ITPluggableTerminalClassInfo_get_CLSID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITPluggableTerminalClassInfo_get_Direction_Proxy(ITPluggableTerminalClassInfo *This,TERMINAL_DIRECTION *pDirection);
   void __RPC_STUB ITPluggableTerminalClassInfo_get_Direction_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPluggableTerminalClassInfo_get_MediaTypes_Proxy(ITPluggableTerminalClassInfo *This,long *pMediaTypes);
+  HRESULT WINAPI ITPluggableTerminalClassInfo_get_MediaTypes_Proxy(ITPluggableTerminalClassInfo *This,__LONG32 *pMediaTypes);
   void __RPC_STUB ITPluggableTerminalClassInfo_get_MediaTypes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1123,8 +1123,8 @@ extern "C" {
     virtual HRESULT WINAPI EnumerateStaticTerminals(IEnumTerminal **ppTerminalEnumerator) = 0;
     virtual HRESULT WINAPI get_DynamicTerminalClasses(VARIANT *pVariant) = 0;
     virtual HRESULT WINAPI EnumerateDynamicTerminalClasses(IEnumTerminalClass **ppTerminalClassEnumerator) = 0;
-    virtual HRESULT WINAPI CreateTerminal(BSTR pTerminalClass,long lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal) = 0;
-    virtual HRESULT WINAPI GetDefaultStaticTerminal(long lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal) = 0;
+    virtual HRESULT WINAPI CreateTerminal(BSTR pTerminalClass,__LONG32 lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal) = 0;
+    virtual HRESULT WINAPI GetDefaultStaticTerminal(__LONG32 lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal) = 0;
   };
 #else
   typedef struct ITTerminalSupportVtbl {
@@ -1140,8 +1140,8 @@ extern "C" {
       HRESULT (WINAPI *EnumerateStaticTerminals)(ITTerminalSupport *This,IEnumTerminal **ppTerminalEnumerator);
       HRESULT (WINAPI *get_DynamicTerminalClasses)(ITTerminalSupport *This,VARIANT *pVariant);
       HRESULT (WINAPI *EnumerateDynamicTerminalClasses)(ITTerminalSupport *This,IEnumTerminalClass **ppTerminalClassEnumerator);
-      HRESULT (WINAPI *CreateTerminal)(ITTerminalSupport *This,BSTR pTerminalClass,long lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal);
-      HRESULT (WINAPI *GetDefaultStaticTerminal)(ITTerminalSupport *This,long lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal);
+      HRESULT (WINAPI *CreateTerminal)(ITTerminalSupport *This,BSTR pTerminalClass,__LONG32 lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal);
+      HRESULT (WINAPI *GetDefaultStaticTerminal)(ITTerminalSupport *This,__LONG32 lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal);
     END_INTERFACE
   } ITTerminalSupportVtbl;
   struct ITTerminalSupport {
@@ -1171,9 +1171,9 @@ extern "C" {
   void __RPC_STUB ITTerminalSupport_get_DynamicTerminalClasses_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITTerminalSupport_EnumerateDynamicTerminalClasses_Proxy(ITTerminalSupport *This,IEnumTerminalClass **ppTerminalClassEnumerator);
   void __RPC_STUB ITTerminalSupport_EnumerateDynamicTerminalClasses_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITTerminalSupport_CreateTerminal_Proxy(ITTerminalSupport *This,BSTR pTerminalClass,long lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal);
+  HRESULT WINAPI ITTerminalSupport_CreateTerminal_Proxy(ITTerminalSupport *This,BSTR pTerminalClass,__LONG32 lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal);
   void __RPC_STUB ITTerminalSupport_CreateTerminal_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITTerminalSupport_GetDefaultStaticTerminal_Proxy(ITTerminalSupport *This,long lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal);
+  HRESULT WINAPI ITTerminalSupport_GetDefaultStaticTerminal_Proxy(ITTerminalSupport *This,__LONG32 lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal);
   void __RPC_STUB ITTerminalSupport_GetDefaultStaticTerminal_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1185,8 +1185,8 @@ extern "C" {
   public:
     virtual HRESULT WINAPI get_PluggableSuperclasses(VARIANT *pVariant) = 0;
     virtual HRESULT WINAPI EnumeratePluggableSuperclasses(IEnumPluggableSuperclassInfo **ppSuperclassEnumerator) = 0;
-    virtual HRESULT WINAPI get_PluggableTerminalClasses(BSTR bstrTerminalSuperclass,long lMediaType,VARIANT *pVariant) = 0;
-    virtual HRESULT WINAPI EnumeratePluggableTerminalClasses(CLSID iidTerminalSuperclass,long lMediaType,IEnumPluggableTerminalClassInfo **ppClassEnumerator) = 0;
+    virtual HRESULT WINAPI get_PluggableTerminalClasses(BSTR bstrTerminalSuperclass,__LONG32 lMediaType,VARIANT *pVariant) = 0;
+    virtual HRESULT WINAPI EnumeratePluggableTerminalClasses(CLSID iidTerminalSuperclass,__LONG32 lMediaType,IEnumPluggableTerminalClassInfo **ppClassEnumerator) = 0;
   };
 #else
   typedef struct ITTerminalSupport2Vtbl {
@@ -1202,12 +1202,12 @@ extern "C" {
       HRESULT (WINAPI *EnumerateStaticTerminals)(ITTerminalSupport2 *This,IEnumTerminal **ppTerminalEnumerator);
       HRESULT (WINAPI *get_DynamicTerminalClasses)(ITTerminalSupport2 *This,VARIANT *pVariant);
       HRESULT (WINAPI *EnumerateDynamicTerminalClasses)(ITTerminalSupport2 *This,IEnumTerminalClass **ppTerminalClassEnumerator);
-      HRESULT (WINAPI *CreateTerminal)(ITTerminalSupport2 *This,BSTR pTerminalClass,long lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal);
-      HRESULT (WINAPI *GetDefaultStaticTerminal)(ITTerminalSupport2 *This,long lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal);
+      HRESULT (WINAPI *CreateTerminal)(ITTerminalSupport2 *This,BSTR pTerminalClass,__LONG32 lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal);
+      HRESULT (WINAPI *GetDefaultStaticTerminal)(ITTerminalSupport2 *This,__LONG32 lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal);
       HRESULT (WINAPI *get_PluggableSuperclasses)(ITTerminalSupport2 *This,VARIANT *pVariant);
       HRESULT (WINAPI *EnumeratePluggableSuperclasses)(ITTerminalSupport2 *This,IEnumPluggableSuperclassInfo **ppSuperclassEnumerator);
-      HRESULT (WINAPI *get_PluggableTerminalClasses)(ITTerminalSupport2 *This,BSTR bstrTerminalSuperclass,long lMediaType,VARIANT *pVariant);
-      HRESULT (WINAPI *EnumeratePluggableTerminalClasses)(ITTerminalSupport2 *This,CLSID iidTerminalSuperclass,long lMediaType,IEnumPluggableTerminalClassInfo **ppClassEnumerator);
+      HRESULT (WINAPI *get_PluggableTerminalClasses)(ITTerminalSupport2 *This,BSTR bstrTerminalSuperclass,__LONG32 lMediaType,VARIANT *pVariant);
+      HRESULT (WINAPI *EnumeratePluggableTerminalClasses)(ITTerminalSupport2 *This,CLSID iidTerminalSuperclass,__LONG32 lMediaType,IEnumPluggableTerminalClassInfo **ppClassEnumerator);
     END_INTERFACE
   } ITTerminalSupport2Vtbl;
   struct ITTerminalSupport2 {
@@ -1237,9 +1237,9 @@ extern "C" {
   void __RPC_STUB ITTerminalSupport2_get_PluggableSuperclasses_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITTerminalSupport2_EnumeratePluggableSuperclasses_Proxy(ITTerminalSupport2 *This,IEnumPluggableSuperclassInfo **ppSuperclassEnumerator);
   void __RPC_STUB ITTerminalSupport2_EnumeratePluggableSuperclasses_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITTerminalSupport2_get_PluggableTerminalClasses_Proxy(ITTerminalSupport2 *This,BSTR bstrTerminalSuperclass,long lMediaType,VARIANT *pVariant);
+  HRESULT WINAPI ITTerminalSupport2_get_PluggableTerminalClasses_Proxy(ITTerminalSupport2 *This,BSTR bstrTerminalSuperclass,__LONG32 lMediaType,VARIANT *pVariant);
   void __RPC_STUB ITTerminalSupport2_get_PluggableTerminalClasses_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITTerminalSupport2_EnumeratePluggableTerminalClasses_Proxy(ITTerminalSupport2 *This,CLSID iidTerminalSuperclass,long lMediaType,IEnumPluggableTerminalClassInfo **ppClassEnumerator);
+  HRESULT WINAPI ITTerminalSupport2_EnumeratePluggableTerminalClasses_Proxy(ITTerminalSupport2 *This,CLSID iidTerminalSuperclass,__LONG32 lMediaType,IEnumPluggableTerminalClassInfo **ppClassEnumerator);
   void __RPC_STUB ITTerminalSupport2_EnumeratePluggableTerminalClasses_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1253,7 +1253,7 @@ extern "C" {
     virtual HRESULT WINAPI get_AddressName(BSTR *ppName) = 0;
     virtual HRESULT WINAPI get_ServiceProviderName(BSTR *ppName) = 0;
     virtual HRESULT WINAPI get_TAPIObject(ITTAPI **ppTapiObject) = 0;
-    virtual HRESULT WINAPI CreateCall(BSTR pDestAddress,long lAddressType,long lMediaTypes,ITBasicCallControl **ppCall) = 0;
+    virtual HRESULT WINAPI CreateCall(BSTR pDestAddress,__LONG32 lAddressType,__LONG32 lMediaTypes,ITBasicCallControl **ppCall) = 0;
     virtual HRESULT WINAPI get_Calls(VARIANT *pVariant) = 0;
     virtual HRESULT WINAPI EnumerateCalls(IEnumCall **ppCallEnum) = 0;
     virtual HRESULT WINAPI get_DialableAddress(BSTR *pDialableAddress) = 0;
@@ -1279,7 +1279,7 @@ extern "C" {
       HRESULT (WINAPI *get_AddressName)(ITAddress *This,BSTR *ppName);
       HRESULT (WINAPI *get_ServiceProviderName)(ITAddress *This,BSTR *ppName);
       HRESULT (WINAPI *get_TAPIObject)(ITAddress *This,ITTAPI **ppTapiObject);
-      HRESULT (WINAPI *CreateCall)(ITAddress *This,BSTR pDestAddress,long lAddressType,long lMediaTypes,ITBasicCallControl **ppCall);
+      HRESULT (WINAPI *CreateCall)(ITAddress *This,BSTR pDestAddress,__LONG32 lAddressType,__LONG32 lMediaTypes,ITBasicCallControl **ppCall);
       HRESULT (WINAPI *get_Calls)(ITAddress *This,VARIANT *pVariant);
       HRESULT (WINAPI *EnumerateCalls)(ITAddress *This,IEnumCall **ppCallEnum);
       HRESULT (WINAPI *get_DialableAddress)(ITAddress *This,BSTR *pDialableAddress);
@@ -1328,7 +1328,7 @@ extern "C" {
   void __RPC_STUB ITAddress_get_ServiceProviderName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAddress_get_TAPIObject_Proxy(ITAddress *This,ITTAPI **ppTapiObject);
   void __RPC_STUB ITAddress_get_TAPIObject_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAddress_CreateCall_Proxy(ITAddress *This,BSTR pDestAddress,long lAddressType,long lMediaTypes,ITBasicCallControl **ppCall);
+  HRESULT WINAPI ITAddress_CreateCall_Proxy(ITAddress *This,BSTR pDestAddress,__LONG32 lAddressType,__LONG32 lMediaTypes,ITBasicCallControl **ppCall);
   void __RPC_STUB ITAddress_CreateCall_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAddress_get_Calls_Proxy(ITAddress *This,VARIANT *pVariant);
   void __RPC_STUB ITAddress_get_Calls_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1363,11 +1363,11 @@ extern "C" {
     virtual HRESULT WINAPI GetPhoneFromTerminal(ITTerminal *pTerminal,ITPhone **ppPhone) = 0;
     virtual HRESULT WINAPI get_PreferredPhones(VARIANT *pPhones) = 0;
     virtual HRESULT WINAPI EnumeratePreferredPhones(IEnumPhone **ppEnumPhone) = 0;
-    virtual HRESULT WINAPI get_EventFilter(TAPI_EVENT TapiEvent,long lSubEvent,VARIANT_BOOL *pEnable) = 0;
-    virtual HRESULT WINAPI put_EventFilter(TAPI_EVENT TapiEvent,long lSubEvent,VARIANT_BOOL bEnable) = 0;
+    virtual HRESULT WINAPI get_EventFilter(TAPI_EVENT TapiEvent,__LONG32 lSubEvent,VARIANT_BOOL *pEnable) = 0;
+    virtual HRESULT WINAPI put_EventFilter(TAPI_EVENT TapiEvent,__LONG32 lSubEvent,VARIANT_BOOL bEnable) = 0;
     virtual HRESULT WINAPI DeviceSpecific(ITCallInfo *pCall,BYTE *pParams,DWORD dwSize) = 0;
     virtual HRESULT WINAPI DeviceSpecificVariant(ITCallInfo *pCall,VARIANT varDevSpecificByteArray) = 0;
-    virtual HRESULT WINAPI NegotiateExtVersion(long lLowVersion,long lHighVersion,long *plExtVersion) = 0;
+    virtual HRESULT WINAPI NegotiateExtVersion(__LONG32 lLowVersion,__LONG32 lHighVersion,__LONG32 *plExtVersion) = 0;
   };
 #else
   typedef struct ITAddress2Vtbl {
@@ -1383,7 +1383,7 @@ extern "C" {
       HRESULT (WINAPI *get_AddressName)(ITAddress2 *This,BSTR *ppName);
       HRESULT (WINAPI *get_ServiceProviderName)(ITAddress2 *This,BSTR *ppName);
       HRESULT (WINAPI *get_TAPIObject)(ITAddress2 *This,ITTAPI **ppTapiObject);
-      HRESULT (WINAPI *CreateCall)(ITAddress2 *This,BSTR pDestAddress,long lAddressType,long lMediaTypes,ITBasicCallControl **ppCall);
+      HRESULT (WINAPI *CreateCall)(ITAddress2 *This,BSTR pDestAddress,__LONG32 lAddressType,__LONG32 lMediaTypes,ITBasicCallControl **ppCall);
       HRESULT (WINAPI *get_Calls)(ITAddress2 *This,VARIANT *pVariant);
       HRESULT (WINAPI *EnumerateCalls)(ITAddress2 *This,IEnumCall **ppCallEnum);
       HRESULT (WINAPI *get_DialableAddress)(ITAddress2 *This,BSTR *pDialableAddress);
@@ -1399,11 +1399,11 @@ extern "C" {
       HRESULT (WINAPI *GetPhoneFromTerminal)(ITAddress2 *This,ITTerminal *pTerminal,ITPhone **ppPhone);
       HRESULT (WINAPI *get_PreferredPhones)(ITAddress2 *This,VARIANT *pPhones);
       HRESULT (WINAPI *EnumeratePreferredPhones)(ITAddress2 *This,IEnumPhone **ppEnumPhone);
-      HRESULT (WINAPI *get_EventFilter)(ITAddress2 *This,TAPI_EVENT TapiEvent,long lSubEvent,VARIANT_BOOL *pEnable);
-      HRESULT (WINAPI *put_EventFilter)(ITAddress2 *This,TAPI_EVENT TapiEvent,long lSubEvent,VARIANT_BOOL bEnable);
+      HRESULT (WINAPI *get_EventFilter)(ITAddress2 *This,TAPI_EVENT TapiEvent,__LONG32 lSubEvent,VARIANT_BOOL *pEnable);
+      HRESULT (WINAPI *put_EventFilter)(ITAddress2 *This,TAPI_EVENT TapiEvent,__LONG32 lSubEvent,VARIANT_BOOL bEnable);
       HRESULT (WINAPI *DeviceSpecific)(ITAddress2 *This,ITCallInfo *pCall,BYTE *pParams,DWORD dwSize);
       HRESULT (WINAPI *DeviceSpecificVariant)(ITAddress2 *This,ITCallInfo *pCall,VARIANT varDevSpecificByteArray);
-      HRESULT (WINAPI *NegotiateExtVersion)(ITAddress2 *This,long lLowVersion,long lHighVersion,long *plExtVersion);
+      HRESULT (WINAPI *NegotiateExtVersion)(ITAddress2 *This,__LONG32 lLowVersion,__LONG32 lHighVersion,__LONG32 *plExtVersion);
     END_INTERFACE
   } ITAddress2Vtbl;
   struct ITAddress2 {
@@ -1454,15 +1454,15 @@ extern "C" {
   void __RPC_STUB ITAddress2_get_PreferredPhones_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAddress2_EnumeratePreferredPhones_Proxy(ITAddress2 *This,IEnumPhone **ppEnumPhone);
   void __RPC_STUB ITAddress2_EnumeratePreferredPhones_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAddress2_get_EventFilter_Proxy(ITAddress2 *This,TAPI_EVENT TapiEvent,long lSubEvent,VARIANT_BOOL *pEnable);
+  HRESULT WINAPI ITAddress2_get_EventFilter_Proxy(ITAddress2 *This,TAPI_EVENT TapiEvent,__LONG32 lSubEvent,VARIANT_BOOL *pEnable);
   void __RPC_STUB ITAddress2_get_EventFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAddress2_put_EventFilter_Proxy(ITAddress2 *This,TAPI_EVENT TapiEvent,long lSubEvent,VARIANT_BOOL bEnable);
+  HRESULT WINAPI ITAddress2_put_EventFilter_Proxy(ITAddress2 *This,TAPI_EVENT TapiEvent,__LONG32 lSubEvent,VARIANT_BOOL bEnable);
   void __RPC_STUB ITAddress2_put_EventFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAddress2_DeviceSpecific_Proxy(ITAddress2 *This,ITCallInfo *pCall,BYTE *pParams,DWORD dwSize);
   void __RPC_STUB ITAddress2_DeviceSpecific_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAddress2_DeviceSpecificVariant_Proxy(ITAddress2 *This,ITCallInfo *pCall,VARIANT varDevSpecificByteArray);
   void __RPC_STUB ITAddress2_DeviceSpecificVariant_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAddress2_NegotiateExtVersion_Proxy(ITAddress2 *This,long lLowVersion,long lHighVersion,long *plExtVersion);
+  HRESULT WINAPI ITAddress2_NegotiateExtVersion_Proxy(ITAddress2 *This,__LONG32 lLowVersion,__LONG32 lHighVersion,__LONG32 *plExtVersion);
   void __RPC_STUB ITAddress2_NegotiateExtVersion_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1472,7 +1472,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITAddressCapabilities : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_AddressCapability(ADDRESS_CAPABILITY AddressCap,long *plCapability) = 0;
+    virtual HRESULT WINAPI get_AddressCapability(ADDRESS_CAPABILITY AddressCap,__LONG32 *plCapability) = 0;
     virtual HRESULT WINAPI get_AddressCapabilityString(ADDRESS_CAPABILITY_STRING AddressCapString,BSTR *ppCapabilityString) = 0;
     virtual HRESULT WINAPI get_CallTreatments(VARIANT *pVariant) = 0;
     virtual HRESULT WINAPI EnumerateCallTreatments(IEnumBstr **ppEnumCallTreatment) = 0;
@@ -1491,7 +1491,7 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ITAddressCapabilities *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ITAddressCapabilities *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITAddressCapabilities *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_AddressCapability)(ITAddressCapabilities *This,ADDRESS_CAPABILITY AddressCap,long *plCapability);
+      HRESULT (WINAPI *get_AddressCapability)(ITAddressCapabilities *This,ADDRESS_CAPABILITY AddressCap,__LONG32 *plCapability);
       HRESULT (WINAPI *get_AddressCapabilityString)(ITAddressCapabilities *This,ADDRESS_CAPABILITY_STRING AddressCapString,BSTR *ppCapabilityString);
       HRESULT (WINAPI *get_CallTreatments)(ITAddressCapabilities *This,VARIANT *pVariant);
       HRESULT (WINAPI *EnumerateCallTreatments)(ITAddressCapabilities *This,IEnumBstr **ppEnumCallTreatment);
@@ -1522,7 +1522,7 @@ extern "C" {
 #define ITAddressCapabilities_EnumerateDeviceClasses(This,ppEnumDeviceClass) (This)->lpVtbl->EnumerateDeviceClasses(This,ppEnumDeviceClass)
 #endif
 #endif
-  HRESULT WINAPI ITAddressCapabilities_get_AddressCapability_Proxy(ITAddressCapabilities *This,ADDRESS_CAPABILITY AddressCap,long *plCapability);
+  HRESULT WINAPI ITAddressCapabilities_get_AddressCapability_Proxy(ITAddressCapabilities *This,ADDRESS_CAPABILITY AddressCap,__LONG32 *plCapability);
   void __RPC_STUB ITAddressCapabilities_get_AddressCapability_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAddressCapabilities_get_AddressCapabilityString_Proxy(ITAddressCapabilities *This,ADDRESS_CAPABILITY_STRING AddressCapString,BSTR *ppCapabilityString);
   void __RPC_STUB ITAddressCapabilities_get_AddressCapabilityString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1550,35 +1550,35 @@ extern "C" {
     virtual HRESULT WINAPI Close(void) = 0;
     virtual HRESULT WINAPI get_Addresses(VARIANT *pAddresses) = 0;
     virtual HRESULT WINAPI EnumerateAddresses(IEnumAddress **ppEnumAddress) = 0;
-    virtual HRESULT WINAPI get_PhoneCapsLong(PHONECAPS_LONG pclCap,long *plCapability) = 0;
+    virtual HRESULT WINAPI get_PhoneCapsLong(PHONECAPS_LONG pclCap,__LONG32 *plCapability) = 0;
     virtual HRESULT WINAPI get_PhoneCapsString(PHONECAPS_STRING pcsCap,BSTR *ppCapability) = 0;
     virtual HRESULT WINAPI get_Terminals(ITAddress *pAddress,VARIANT *pTerminals) = 0;
     virtual HRESULT WINAPI EnumerateTerminals(ITAddress *pAddress,IEnumTerminal **ppEnumTerminal) = 0;
-    virtual HRESULT WINAPI get_ButtonMode(long lButtonID,PHONE_BUTTON_MODE *pButtonMode) = 0;
-    virtual HRESULT WINAPI put_ButtonMode(long lButtonID,PHONE_BUTTON_MODE ButtonMode) = 0;
-    virtual HRESULT WINAPI get_ButtonFunction(long lButtonID,PHONE_BUTTON_FUNCTION *pButtonFunction) = 0;
-    virtual HRESULT WINAPI put_ButtonFunction(long lButtonID,PHONE_BUTTON_FUNCTION ButtonFunction) = 0;
-    virtual HRESULT WINAPI get_ButtonText(long lButtonID,BSTR *ppButtonText) = 0;
-    virtual HRESULT WINAPI put_ButtonText(long lButtonID,BSTR bstrButtonText) = 0;
-    virtual HRESULT WINAPI get_ButtonState(long lButtonID,PHONE_BUTTON_STATE *pButtonState) = 0;
+    virtual HRESULT WINAPI get_ButtonMode(__LONG32 lButtonID,PHONE_BUTTON_MODE *pButtonMode) = 0;
+    virtual HRESULT WINAPI put_ButtonMode(__LONG32 lButtonID,PHONE_BUTTON_MODE ButtonMode) = 0;
+    virtual HRESULT WINAPI get_ButtonFunction(__LONG32 lButtonID,PHONE_BUTTON_FUNCTION *pButtonFunction) = 0;
+    virtual HRESULT WINAPI put_ButtonFunction(__LONG32 lButtonID,PHONE_BUTTON_FUNCTION ButtonFunction) = 0;
+    virtual HRESULT WINAPI get_ButtonText(__LONG32 lButtonID,BSTR *ppButtonText) = 0;
+    virtual HRESULT WINAPI put_ButtonText(__LONG32 lButtonID,BSTR bstrButtonText) = 0;
+    virtual HRESULT WINAPI get_ButtonState(__LONG32 lButtonID,PHONE_BUTTON_STATE *pButtonState) = 0;
     virtual HRESULT WINAPI get_HookSwitchState(PHONE_HOOK_SWITCH_DEVICE HookSwitchDevice,PHONE_HOOK_SWITCH_STATE *pHookSwitchState) = 0;
     virtual HRESULT WINAPI put_HookSwitchState(PHONE_HOOK_SWITCH_DEVICE HookSwitchDevice,PHONE_HOOK_SWITCH_STATE HookSwitchState) = 0;
-    virtual HRESULT WINAPI put_RingMode(long lRingMode) = 0;
-    virtual HRESULT WINAPI get_RingMode(long *plRingMode) = 0;
-    virtual HRESULT WINAPI put_RingVolume(long lRingVolume) = 0;
-    virtual HRESULT WINAPI get_RingVolume(long *plRingVolume) = 0;
+    virtual HRESULT WINAPI put_RingMode(__LONG32 lRingMode) = 0;
+    virtual HRESULT WINAPI get_RingMode(__LONG32 *plRingMode) = 0;
+    virtual HRESULT WINAPI put_RingVolume(__LONG32 lRingVolume) = 0;
+    virtual HRESULT WINAPI get_RingVolume(__LONG32 *plRingVolume) = 0;
     virtual HRESULT WINAPI get_Privilege(PHONE_PRIVILEGE *pPrivilege) = 0;
     virtual HRESULT WINAPI GetPhoneCapsBuffer(PHONECAPS_BUFFER pcbCaps,DWORD *pdwSize,BYTE **ppPhoneCapsBuffer) = 0;
     virtual HRESULT WINAPI get_PhoneCapsBuffer(PHONECAPS_BUFFER pcbCaps,VARIANT *pVarBuffer) = 0;
-    virtual HRESULT WINAPI get_LampMode(long lLampID,PHONE_LAMP_MODE *pLampMode) = 0;
-    virtual HRESULT WINAPI put_LampMode(long lLampID,PHONE_LAMP_MODE LampMode) = 0;
+    virtual HRESULT WINAPI get_LampMode(__LONG32 lLampID,PHONE_LAMP_MODE *pLampMode) = 0;
+    virtual HRESULT WINAPI put_LampMode(__LONG32 lLampID,PHONE_LAMP_MODE LampMode) = 0;
     virtual HRESULT WINAPI get_Display(BSTR *pbstrDisplay) = 0;
-    virtual HRESULT WINAPI SetDisplay(long lRow,long lColumn,BSTR bstrDisplay) = 0;
+    virtual HRESULT WINAPI SetDisplay(__LONG32 lRow,__LONG32 lColumn,BSTR bstrDisplay) = 0;
     virtual HRESULT WINAPI get_PreferredAddresses(VARIANT *pAddresses) = 0;
     virtual HRESULT WINAPI EnumeratePreferredAddresses(IEnumAddress **ppEnumAddress) = 0;
     virtual HRESULT WINAPI DeviceSpecific(BYTE *pParams,DWORD dwSize) = 0;
     virtual HRESULT WINAPI DeviceSpecificVariant(VARIANT varDevSpecificByteArray) = 0;
-    virtual HRESULT WINAPI NegotiateExtVersion(long lLowVersion,long lHighVersion,long *plExtVersion) = 0;
+    virtual HRESULT WINAPI NegotiateExtVersion(__LONG32 lLowVersion,__LONG32 lHighVersion,__LONG32 *plExtVersion) = 0;
   };
 #else
   typedef struct ITPhoneVtbl {
@@ -1594,35 +1594,35 @@ extern "C" {
       HRESULT (WINAPI *Close)(ITPhone *This);
       HRESULT (WINAPI *get_Addresses)(ITPhone *This,VARIANT *pAddresses);
       HRESULT (WINAPI *EnumerateAddresses)(ITPhone *This,IEnumAddress **ppEnumAddress);
-      HRESULT (WINAPI *get_PhoneCapsLong)(ITPhone *This,PHONECAPS_LONG pclCap,long *plCapability);
+      HRESULT (WINAPI *get_PhoneCapsLong)(ITPhone *This,PHONECAPS_LONG pclCap,__LONG32 *plCapability);
       HRESULT (WINAPI *get_PhoneCapsString)(ITPhone *This,PHONECAPS_STRING pcsCap,BSTR *ppCapability);
       HRESULT (WINAPI *get_Terminals)(ITPhone *This,ITAddress *pAddress,VARIANT *pTerminals);
       HRESULT (WINAPI *EnumerateTerminals)(ITPhone *This,ITAddress *pAddress,IEnumTerminal **ppEnumTerminal);
-      HRESULT (WINAPI *get_ButtonMode)(ITPhone *This,long lButtonID,PHONE_BUTTON_MODE *pButtonMode);
-      HRESULT (WINAPI *put_ButtonMode)(ITPhone *This,long lButtonID,PHONE_BUTTON_MODE ButtonMode);
-      HRESULT (WINAPI *get_ButtonFunction)(ITPhone *This,long lButtonID,PHONE_BUTTON_FUNCTION *pButtonFunction);
-      HRESULT (WINAPI *put_ButtonFunction)(ITPhone *This,long lButtonID,PHONE_BUTTON_FUNCTION ButtonFunction);
-      HRESULT (WINAPI *get_ButtonText)(ITPhone *This,long lButtonID,BSTR *ppButtonText);
-      HRESULT (WINAPI *put_ButtonText)(ITPhone *This,long lButtonID,BSTR bstrButtonText);
-      HRESULT (WINAPI *get_ButtonState)(ITPhone *This,long lButtonID,PHONE_BUTTON_STATE *pButtonState);
+      HRESULT (WINAPI *get_ButtonMode)(ITPhone *This,__LONG32 lButtonID,PHONE_BUTTON_MODE *pButtonMode);
+      HRESULT (WINAPI *put_ButtonMode)(ITPhone *This,__LONG32 lButtonID,PHONE_BUTTON_MODE ButtonMode);
+      HRESULT (WINAPI *get_ButtonFunction)(ITPhone *This,__LONG32 lButtonID,PHONE_BUTTON_FUNCTION *pButtonFunction);
+      HRESULT (WINAPI *put_ButtonFunction)(ITPhone *This,__LONG32 lButtonID,PHONE_BUTTON_FUNCTION ButtonFunction);
+      HRESULT (WINAPI *get_ButtonText)(ITPhone *This,__LONG32 lButtonID,BSTR *ppButtonText);
+      HRESULT (WINAPI *put_ButtonText)(ITPhone *This,__LONG32 lButtonID,BSTR bstrButtonText);
+      HRESULT (WINAPI *get_ButtonState)(ITPhone *This,__LONG32 lButtonID,PHONE_BUTTON_STATE *pButtonState);
       HRESULT (WINAPI *get_HookSwitchState)(ITPhone *This,PHONE_HOOK_SWITCH_DEVICE HookSwitchDevice,PHONE_HOOK_SWITCH_STATE *pHookSwitchState);
       HRESULT (WINAPI *put_HookSwitchState)(ITPhone *This,PHONE_HOOK_SWITCH_DEVICE HookSwitchDevice,PHONE_HOOK_SWITCH_STATE HookSwitchState);
-      HRESULT (WINAPI *put_RingMode)(ITPhone *This,long lRingMode);
-      HRESULT (WINAPI *get_RingMode)(ITPhone *This,long *plRingMode);
-      HRESULT (WINAPI *put_RingVolume)(ITPhone *This,long lRingVolume);
-      HRESULT (WINAPI *get_RingVolume)(ITPhone *This,long *plRingVolume);
+      HRESULT (WINAPI *put_RingMode)(ITPhone *This,__LONG32 lRingMode);
+      HRESULT (WINAPI *get_RingMode)(ITPhone *This,__LONG32 *plRingMode);
+      HRESULT (WINAPI *put_RingVolume)(ITPhone *This,__LONG32 lRingVolume);
+      HRESULT (WINAPI *get_RingVolume)(ITPhone *This,__LONG32 *plRingVolume);
       HRESULT (WINAPI *get_Privilege)(ITPhone *This,PHONE_PRIVILEGE *pPrivilege);
       HRESULT (WINAPI *GetPhoneCapsBuffer)(ITPhone *This,PHONECAPS_BUFFER pcbCaps,DWORD *pdwSize,BYTE **ppPhoneCapsBuffer);
       HRESULT (WINAPI *get_PhoneCapsBuffer)(ITPhone *This,PHONECAPS_BUFFER pcbCaps,VARIANT *pVarBuffer);
-      HRESULT (WINAPI *get_LampMode)(ITPhone *This,long lLampID,PHONE_LAMP_MODE *pLampMode);
-      HRESULT (WINAPI *put_LampMode)(ITPhone *This,long lLampID,PHONE_LAMP_MODE LampMode);
+      HRESULT (WINAPI *get_LampMode)(ITPhone *This,__LONG32 lLampID,PHONE_LAMP_MODE *pLampMode);
+      HRESULT (WINAPI *put_LampMode)(ITPhone *This,__LONG32 lLampID,PHONE_LAMP_MODE LampMode);
       HRESULT (WINAPI *get_Display)(ITPhone *This,BSTR *pbstrDisplay);
-      HRESULT (WINAPI *SetDisplay)(ITPhone *This,long lRow,long lColumn,BSTR bstrDisplay);
+      HRESULT (WINAPI *SetDisplay)(ITPhone *This,__LONG32 lRow,__LONG32 lColumn,BSTR bstrDisplay);
       HRESULT (WINAPI *get_PreferredAddresses)(ITPhone *This,VARIANT *pAddresses);
       HRESULT (WINAPI *EnumeratePreferredAddresses)(ITPhone *This,IEnumAddress **ppEnumAddress);
       HRESULT (WINAPI *DeviceSpecific)(ITPhone *This,BYTE *pParams,DWORD dwSize);
       HRESULT (WINAPI *DeviceSpecificVariant)(ITPhone *This,VARIANT varDevSpecificByteArray);
-      HRESULT (WINAPI *NegotiateExtVersion)(ITPhone *This,long lLowVersion,long lHighVersion,long *plExtVersion);
+      HRESULT (WINAPI *NegotiateExtVersion)(ITPhone *This,__LONG32 lLowVersion,__LONG32 lHighVersion,__LONG32 *plExtVersion);
     END_INTERFACE
   } ITPhoneVtbl;
   struct ITPhone {
@@ -1679,7 +1679,7 @@ extern "C" {
   void __RPC_STUB ITPhone_get_Addresses_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITPhone_EnumerateAddresses_Proxy(ITPhone *This,IEnumAddress **ppEnumAddress);
   void __RPC_STUB ITPhone_EnumerateAddresses_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPhone_get_PhoneCapsLong_Proxy(ITPhone *This,PHONECAPS_LONG pclCap,long *plCapability);
+  HRESULT WINAPI ITPhone_get_PhoneCapsLong_Proxy(ITPhone *This,PHONECAPS_LONG pclCap,__LONG32 *plCapability);
   void __RPC_STUB ITPhone_get_PhoneCapsLong_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITPhone_get_PhoneCapsString_Proxy(ITPhone *This,PHONECAPS_STRING pcsCap,BSTR *ppCapability);
   void __RPC_STUB ITPhone_get_PhoneCapsString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1687,31 +1687,31 @@ extern "C" {
   void __RPC_STUB ITPhone_get_Terminals_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITPhone_EnumerateTerminals_Proxy(ITPhone *This,ITAddress *pAddress,IEnumTerminal **ppEnumTerminal);
   void __RPC_STUB ITPhone_EnumerateTerminals_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPhone_get_ButtonMode_Proxy(ITPhone *This,long lButtonID,PHONE_BUTTON_MODE *pButtonMode);
+  HRESULT WINAPI ITPhone_get_ButtonMode_Proxy(ITPhone *This,__LONG32 lButtonID,PHONE_BUTTON_MODE *pButtonMode);
   void __RPC_STUB ITPhone_get_ButtonMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPhone_put_ButtonMode_Proxy(ITPhone *This,long lButtonID,PHONE_BUTTON_MODE ButtonMode);
+  HRESULT WINAPI ITPhone_put_ButtonMode_Proxy(ITPhone *This,__LONG32 lButtonID,PHONE_BUTTON_MODE ButtonMode);
   void __RPC_STUB ITPhone_put_ButtonMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPhone_get_ButtonFunction_Proxy(ITPhone *This,long lButtonID,PHONE_BUTTON_FUNCTION *pButtonFunction);
+  HRESULT WINAPI ITPhone_get_ButtonFunction_Proxy(ITPhone *This,__LONG32 lButtonID,PHONE_BUTTON_FUNCTION *pButtonFunction);
   void __RPC_STUB ITPhone_get_ButtonFunction_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPhone_put_ButtonFunction_Proxy(ITPhone *This,long lButtonID,PHONE_BUTTON_FUNCTION ButtonFunction);
+  HRESULT WINAPI ITPhone_put_ButtonFunction_Proxy(ITPhone *This,__LONG32 lButtonID,PHONE_BUTTON_FUNCTION ButtonFunction);
   void __RPC_STUB ITPhone_put_ButtonFunction_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPhone_get_ButtonText_Proxy(ITPhone *This,long lButtonID,BSTR *ppButtonText);
+  HRESULT WINAPI ITPhone_get_ButtonText_Proxy(ITPhone *This,__LONG32 lButtonID,BSTR *ppButtonText);
   void __RPC_STUB ITPhone_get_ButtonText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPhone_put_ButtonText_Proxy(ITPhone *This,long lButtonID,BSTR bstrButtonText);
+  HRESULT WINAPI ITPhone_put_ButtonText_Proxy(ITPhone *This,__LONG32 lButtonID,BSTR bstrButtonText);
   void __RPC_STUB ITPhone_put_ButtonText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPhone_get_ButtonState_Proxy(ITPhone *This,long lButtonID,PHONE_BUTTON_STATE *pButtonState);
+  HRESULT WINAPI ITPhone_get_ButtonState_Proxy(ITPhone *This,__LONG32 lButtonID,PHONE_BUTTON_STATE *pButtonState);
   void __RPC_STUB ITPhone_get_ButtonState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITPhone_get_HookSwitchState_Proxy(ITPhone *This,PHONE_HOOK_SWITCH_DEVICE HookSwitchDevice,PHONE_HOOK_SWITCH_STATE *pHookSwitchState);
   void __RPC_STUB ITPhone_get_HookSwitchState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITPhone_put_HookSwitchState_Proxy(ITPhone *This,PHONE_HOOK_SWITCH_DEVICE HookSwitchDevice,PHONE_HOOK_SWITCH_STATE HookSwitchState);
   void __RPC_STUB ITPhone_put_HookSwitchState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPhone_put_RingMode_Proxy(ITPhone *This,long lRingMode);
+  HRESULT WINAPI ITPhone_put_RingMode_Proxy(ITPhone *This,__LONG32 lRingMode);
   void __RPC_STUB ITPhone_put_RingMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPhone_get_RingMode_Proxy(ITPhone *This,long *plRingMode);
+  HRESULT WINAPI ITPhone_get_RingMode_Proxy(ITPhone *This,__LONG32 *plRingMode);
   void __RPC_STUB ITPhone_get_RingMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPhone_put_RingVolume_Proxy(ITPhone *This,long lRingVolume);
+  HRESULT WINAPI ITPhone_put_RingVolume_Proxy(ITPhone *This,__LONG32 lRingVolume);
   void __RPC_STUB ITPhone_put_RingVolume_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPhone_get_RingVolume_Proxy(ITPhone *This,long *plRingVolume);
+  HRESULT WINAPI ITPhone_get_RingVolume_Proxy(ITPhone *This,__LONG32 *plRingVolume);
   void __RPC_STUB ITPhone_get_RingVolume_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITPhone_get_Privilege_Proxy(ITPhone *This,PHONE_PRIVILEGE *pPrivilege);
   void __RPC_STUB ITPhone_get_Privilege_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1719,13 +1719,13 @@ extern "C" {
   void __RPC_STUB ITPhone_GetPhoneCapsBuffer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITPhone_get_PhoneCapsBuffer_Proxy(ITPhone *This,PHONECAPS_BUFFER pcbCaps,VARIANT *pVarBuffer);
   void __RPC_STUB ITPhone_get_PhoneCapsBuffer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPhone_get_LampMode_Proxy(ITPhone *This,long lLampID,PHONE_LAMP_MODE *pLampMode);
+  HRESULT WINAPI ITPhone_get_LampMode_Proxy(ITPhone *This,__LONG32 lLampID,PHONE_LAMP_MODE *pLampMode);
   void __RPC_STUB ITPhone_get_LampMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPhone_put_LampMode_Proxy(ITPhone *This,long lLampID,PHONE_LAMP_MODE LampMode);
+  HRESULT WINAPI ITPhone_put_LampMode_Proxy(ITPhone *This,__LONG32 lLampID,PHONE_LAMP_MODE LampMode);
   void __RPC_STUB ITPhone_put_LampMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITPhone_get_Display_Proxy(ITPhone *This,BSTR *pbstrDisplay);
   void __RPC_STUB ITPhone_get_Display_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPhone_SetDisplay_Proxy(ITPhone *This,long lRow,long lColumn,BSTR bstrDisplay);
+  HRESULT WINAPI ITPhone_SetDisplay_Proxy(ITPhone *This,__LONG32 lRow,__LONG32 lColumn,BSTR bstrDisplay);
   void __RPC_STUB ITPhone_SetDisplay_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITPhone_get_PreferredAddresses_Proxy(ITPhone *This,VARIANT *pAddresses);
   void __RPC_STUB ITPhone_get_PreferredAddresses_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1735,7 +1735,7 @@ extern "C" {
   void __RPC_STUB ITPhone_DeviceSpecific_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITPhone_DeviceSpecificVariant_Proxy(ITPhone *This,VARIANT varDevSpecificByteArray);
   void __RPC_STUB ITPhone_DeviceSpecificVariant_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPhone_NegotiateExtVersion_Proxy(ITPhone *This,long lLowVersion,long lHighVersion,long *plExtVersion);
+  HRESULT WINAPI ITPhone_NegotiateExtVersion_Proxy(ITPhone *This,__LONG32 lLowVersion,__LONG32 lHighVersion,__LONG32 *plExtVersion);
   void __RPC_STUB ITPhone_NegotiateExtVersion_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1745,16 +1745,16 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITAutomatedPhoneControl : public IDispatch {
   public:
-    virtual HRESULT WINAPI StartTone(PHONE_TONE Tone,long lDuration) = 0;
+    virtual HRESULT WINAPI StartTone(PHONE_TONE Tone,__LONG32 lDuration) = 0;
     virtual HRESULT WINAPI StopTone(void) = 0;
     virtual HRESULT WINAPI get_Tone(PHONE_TONE *pTone) = 0;
-    virtual HRESULT WINAPI StartRinger(long lRingMode,long lDuration) = 0;
+    virtual HRESULT WINAPI StartRinger(__LONG32 lRingMode,__LONG32 lDuration) = 0;
     virtual HRESULT WINAPI StopRinger(void) = 0;
     virtual HRESULT WINAPI get_Ringer(VARIANT_BOOL *pfRinging) = 0;
     virtual HRESULT WINAPI put_PhoneHandlingEnabled(VARIANT_BOOL fEnabled) = 0;
     virtual HRESULT WINAPI get_PhoneHandlingEnabled(VARIANT_BOOL *pfEnabled) = 0;
-    virtual HRESULT WINAPI put_AutoEndOfNumberTimeout(long lTimeout) = 0;
-    virtual HRESULT WINAPI get_AutoEndOfNumberTimeout(long *plTimeout) = 0;
+    virtual HRESULT WINAPI put_AutoEndOfNumberTimeout(__LONG32 lTimeout) = 0;
+    virtual HRESULT WINAPI get_AutoEndOfNumberTimeout(__LONG32 *plTimeout) = 0;
     virtual HRESULT WINAPI put_AutoDialtone(VARIANT_BOOL fEnabled) = 0;
     virtual HRESULT WINAPI get_AutoDialtone(VARIANT_BOOL *pfEnabled) = 0;
     virtual HRESULT WINAPI put_AutoStopTonesOnOnHook(VARIANT_BOOL fEnabled) = 0;
@@ -1763,16 +1763,16 @@ extern "C" {
     virtual HRESULT WINAPI get_AutoStopRingOnOffHook(VARIANT_BOOL *pfEnabled) = 0;
     virtual HRESULT WINAPI put_AutoKeypadTones(VARIANT_BOOL fEnabled) = 0;
     virtual HRESULT WINAPI get_AutoKeypadTones(VARIANT_BOOL *pfEnabled) = 0;
-    virtual HRESULT WINAPI put_AutoKeypadTonesMinimumDuration(long lDuration) = 0;
-    virtual HRESULT WINAPI get_AutoKeypadTonesMinimumDuration(long *plDuration) = 0;
+    virtual HRESULT WINAPI put_AutoKeypadTonesMinimumDuration(__LONG32 lDuration) = 0;
+    virtual HRESULT WINAPI get_AutoKeypadTonesMinimumDuration(__LONG32 *plDuration) = 0;
     virtual HRESULT WINAPI put_AutoVolumeControl(VARIANT_BOOL fEnabled) = 0;
     virtual HRESULT WINAPI get_AutoVolumeControl(VARIANT_BOOL *fEnabled) = 0;
-    virtual HRESULT WINAPI put_AutoVolumeControlStep(long lStepSize) = 0;
-    virtual HRESULT WINAPI get_AutoVolumeControlStep(long *plStepSize) = 0;
-    virtual HRESULT WINAPI put_AutoVolumeControlRepeatDelay(long lDelay) = 0;
-    virtual HRESULT WINAPI get_AutoVolumeControlRepeatDelay(long *plDelay) = 0;
-    virtual HRESULT WINAPI put_AutoVolumeControlRepeatPeriod(long lPeriod) = 0;
-    virtual HRESULT WINAPI get_AutoVolumeControlRepeatPeriod(long *plPeriod) = 0;
+    virtual HRESULT WINAPI put_AutoVolumeControlStep(__LONG32 lStepSize) = 0;
+    virtual HRESULT WINAPI get_AutoVolumeControlStep(__LONG32 *plStepSize) = 0;
+    virtual HRESULT WINAPI put_AutoVolumeControlRepeatDelay(__LONG32 lDelay) = 0;
+    virtual HRESULT WINAPI get_AutoVolumeControlRepeatDelay(__LONG32 *plDelay) = 0;
+    virtual HRESULT WINAPI put_AutoVolumeControlRepeatPeriod(__LONG32 lPeriod) = 0;
+    virtual HRESULT WINAPI get_AutoVolumeControlRepeatPeriod(__LONG32 *plPeriod) = 0;
     virtual HRESULT WINAPI SelectCall(ITCallInfo *pCall,VARIANT_BOOL fSelectDefaultTerminals) = 0;
     virtual HRESULT WINAPI UnselectCall(ITCallInfo *pCall) = 0;
     virtual HRESULT WINAPI EnumerateSelectedCalls(IEnumCall **ppCallEnum) = 0;
@@ -1788,16 +1788,16 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ITAutomatedPhoneControl *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ITAutomatedPhoneControl *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITAutomatedPhoneControl *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *StartTone)(ITAutomatedPhoneControl *This,PHONE_TONE Tone,long lDuration);
+      HRESULT (WINAPI *StartTone)(ITAutomatedPhoneControl *This,PHONE_TONE Tone,__LONG32 lDuration);
       HRESULT (WINAPI *StopTone)(ITAutomatedPhoneControl *This);
       HRESULT (WINAPI *get_Tone)(ITAutomatedPhoneControl *This,PHONE_TONE *pTone);
-      HRESULT (WINAPI *StartRinger)(ITAutomatedPhoneControl *This,long lRingMode,long lDuration);
+      HRESULT (WINAPI *StartRinger)(ITAutomatedPhoneControl *This,__LONG32 lRingMode,__LONG32 lDuration);
       HRESULT (WINAPI *StopRinger)(ITAutomatedPhoneControl *This);
       HRESULT (WINAPI *get_Ringer)(ITAutomatedPhoneControl *This,VARIANT_BOOL *pfRinging);
       HRESULT (WINAPI *put_PhoneHandlingEnabled)(ITAutomatedPhoneControl *This,VARIANT_BOOL fEnabled);
       HRESULT (WINAPI *get_PhoneHandlingEnabled)(ITAutomatedPhoneControl *This,VARIANT_BOOL *pfEnabled);
-      HRESULT (WINAPI *put_AutoEndOfNumberTimeout)(ITAutomatedPhoneControl *This,long lTimeout);
-      HRESULT (WINAPI *get_AutoEndOfNumberTimeout)(ITAutomatedPhoneControl *This,long *plTimeout);
+      HRESULT (WINAPI *put_AutoEndOfNumberTimeout)(ITAutomatedPhoneControl *This,__LONG32 lTimeout);
+      HRESULT (WINAPI *get_AutoEndOfNumberTimeout)(ITAutomatedPhoneControl *This,__LONG32 *plTimeout);
       HRESULT (WINAPI *put_AutoDialtone)(ITAutomatedPhoneControl *This,VARIANT_BOOL fEnabled);
       HRESULT (WINAPI *get_AutoDialtone)(ITAutomatedPhoneControl *This,VARIANT_BOOL *pfEnabled);
       HRESULT (WINAPI *put_AutoStopTonesOnOnHook)(ITAutomatedPhoneControl *This,VARIANT_BOOL fEnabled);
@@ -1806,16 +1806,16 @@ extern "C" {
       HRESULT (WINAPI *get_AutoStopRingOnOffHook)(ITAutomatedPhoneControl *This,VARIANT_BOOL *pfEnabled);
       HRESULT (WINAPI *put_AutoKeypadTones)(ITAutomatedPhoneControl *This,VARIANT_BOOL fEnabled);
       HRESULT (WINAPI *get_AutoKeypadTones)(ITAutomatedPhoneControl *This,VARIANT_BOOL *pfEnabled);
-      HRESULT (WINAPI *put_AutoKeypadTonesMinimumDuration)(ITAutomatedPhoneControl *This,long lDuration);
-      HRESULT (WINAPI *get_AutoKeypadTonesMinimumDuration)(ITAutomatedPhoneControl *This,long *plDuration);
+      HRESULT (WINAPI *put_AutoKeypadTonesMinimumDuration)(ITAutomatedPhoneControl *This,__LONG32 lDuration);
+      HRESULT (WINAPI *get_AutoKeypadTonesMinimumDuration)(ITAutomatedPhoneControl *This,__LONG32 *plDuration);
       HRESULT (WINAPI *put_AutoVolumeControl)(ITAutomatedPhoneControl *This,VARIANT_BOOL fEnabled);
       HRESULT (WINAPI *get_AutoVolumeControl)(ITAutomatedPhoneControl *This,VARIANT_BOOL *fEnabled);
-      HRESULT (WINAPI *put_AutoVolumeControlStep)(ITAutomatedPhoneControl *This,long lStepSize);
-      HRESULT (WINAPI *get_AutoVolumeControlStep)(ITAutomatedPhoneControl *This,long *plStepSize);
-      HRESULT (WINAPI *put_AutoVolumeControlRepeatDelay)(ITAutomatedPhoneControl *This,long lDelay);
-      HRESULT (WINAPI *get_AutoVolumeControlRepeatDelay)(ITAutomatedPhoneControl *This,long *plDelay);
-      HRESULT (WINAPI *put_AutoVolumeControlRepeatPeriod)(ITAutomatedPhoneControl *This,long lPeriod);
-      HRESULT (WINAPI *get_AutoVolumeControlRepeatPeriod)(ITAutomatedPhoneControl *This,long *plPeriod);
+      HRESULT (WINAPI *put_AutoVolumeControlStep)(ITAutomatedPhoneControl *This,__LONG32 lStepSize);
+      HRESULT (WINAPI *get_AutoVolumeControlStep)(ITAutomatedPhoneControl *This,__LONG32 *plStepSize);
+      HRESULT (WINAPI *put_AutoVolumeControlRepeatDelay)(ITAutomatedPhoneControl *This,__LONG32 lDelay);
+      HRESULT (WINAPI *get_AutoVolumeControlRepeatDelay)(ITAutomatedPhoneControl *This,__LONG32 *plDelay);
+      HRESULT (WINAPI *put_AutoVolumeControlRepeatPeriod)(ITAutomatedPhoneControl *This,__LONG32 lPeriod);
+      HRESULT (WINAPI *get_AutoVolumeControlRepeatPeriod)(ITAutomatedPhoneControl *This,__LONG32 *plPeriod);
       HRESULT (WINAPI *SelectCall)(ITAutomatedPhoneControl *This,ITCallInfo *pCall,VARIANT_BOOL fSelectDefaultTerminals);
       HRESULT (WINAPI *UnselectCall)(ITAutomatedPhoneControl *This,ITCallInfo *pCall);
       HRESULT (WINAPI *EnumerateSelectedCalls)(ITAutomatedPhoneControl *This,IEnumCall **ppCallEnum);
@@ -1867,13 +1867,13 @@ extern "C" {
 #define ITAutomatedPhoneControl_get_SelectedCalls(This,pVariant) (This)->lpVtbl->get_SelectedCalls(This,pVariant)
 #endif
 #endif
-  HRESULT WINAPI ITAutomatedPhoneControl_StartTone_Proxy(ITAutomatedPhoneControl *This,PHONE_TONE Tone,long lDuration);
+  HRESULT WINAPI ITAutomatedPhoneControl_StartTone_Proxy(ITAutomatedPhoneControl *This,PHONE_TONE Tone,__LONG32 lDuration);
   void __RPC_STUB ITAutomatedPhoneControl_StartTone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAutomatedPhoneControl_StopTone_Proxy(ITAutomatedPhoneControl *This);
   void __RPC_STUB ITAutomatedPhoneControl_StopTone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAutomatedPhoneControl_get_Tone_Proxy(ITAutomatedPhoneControl *This,PHONE_TONE *pTone);
   void __RPC_STUB ITAutomatedPhoneControl_get_Tone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAutomatedPhoneControl_StartRinger_Proxy(ITAutomatedPhoneControl *This,long lRingMode,long lDuration);
+  HRESULT WINAPI ITAutomatedPhoneControl_StartRinger_Proxy(ITAutomatedPhoneControl *This,__LONG32 lRingMode,__LONG32 lDuration);
   void __RPC_STUB ITAutomatedPhoneControl_StartRinger_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAutomatedPhoneControl_StopRinger_Proxy(ITAutomatedPhoneControl *This);
   void __RPC_STUB ITAutomatedPhoneControl_StopRinger_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1883,9 +1883,9 @@ extern "C" {
   void __RPC_STUB ITAutomatedPhoneControl_put_PhoneHandlingEnabled_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAutomatedPhoneControl_get_PhoneHandlingEnabled_Proxy(ITAutomatedPhoneControl *This,VARIANT_BOOL *pfEnabled);
   void __RPC_STUB ITAutomatedPhoneControl_get_PhoneHandlingEnabled_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAutomatedPhoneControl_put_AutoEndOfNumberTimeout_Proxy(ITAutomatedPhoneControl *This,long lTimeout);
+  HRESULT WINAPI ITAutomatedPhoneControl_put_AutoEndOfNumberTimeout_Proxy(ITAutomatedPhoneControl *This,__LONG32 lTimeout);
   void __RPC_STUB ITAutomatedPhoneControl_put_AutoEndOfNumberTimeout_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAutomatedPhoneControl_get_AutoEndOfNumberTimeout_Proxy(ITAutomatedPhoneControl *This,long *plTimeout);
+  HRESULT WINAPI ITAutomatedPhoneControl_get_AutoEndOfNumberTimeout_Proxy(ITAutomatedPhoneControl *This,__LONG32 *plTimeout);
   void __RPC_STUB ITAutomatedPhoneControl_get_AutoEndOfNumberTimeout_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAutomatedPhoneControl_put_AutoDialtone_Proxy(ITAutomatedPhoneControl *This,VARIANT_BOOL fEnabled);
   void __RPC_STUB ITAutomatedPhoneControl_put_AutoDialtone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1903,25 +1903,25 @@ extern "C" {
   void __RPC_STUB ITAutomatedPhoneControl_put_AutoKeypadTones_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAutomatedPhoneControl_get_AutoKeypadTones_Proxy(ITAutomatedPhoneControl *This,VARIANT_BOOL *pfEnabled);
   void __RPC_STUB ITAutomatedPhoneControl_get_AutoKeypadTones_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAutomatedPhoneControl_put_AutoKeypadTonesMinimumDuration_Proxy(ITAutomatedPhoneControl *This,long lDuration);
+  HRESULT WINAPI ITAutomatedPhoneControl_put_AutoKeypadTonesMinimumDuration_Proxy(ITAutomatedPhoneControl *This,__LONG32 lDuration);
   void __RPC_STUB ITAutomatedPhoneControl_put_AutoKeypadTonesMinimumDuration_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAutomatedPhoneControl_get_AutoKeypadTonesMinimumDuration_Proxy(ITAutomatedPhoneControl *This,long *plDuration);
+  HRESULT WINAPI ITAutomatedPhoneControl_get_AutoKeypadTonesMinimumDuration_Proxy(ITAutomatedPhoneControl *This,__LONG32 *plDuration);
   void __RPC_STUB ITAutomatedPhoneControl_get_AutoKeypadTonesMinimumDuration_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAutomatedPhoneControl_put_AutoVolumeControl_Proxy(ITAutomatedPhoneControl *This,VARIANT_BOOL fEnabled);
   void __RPC_STUB ITAutomatedPhoneControl_put_AutoVolumeControl_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAutomatedPhoneControl_get_AutoVolumeControl_Proxy(ITAutomatedPhoneControl *This,VARIANT_BOOL *fEnabled);
   void __RPC_STUB ITAutomatedPhoneControl_get_AutoVolumeControl_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAutomatedPhoneControl_put_AutoVolumeControlStep_Proxy(ITAutomatedPhoneControl *This,long lStepSize);
+  HRESULT WINAPI ITAutomatedPhoneControl_put_AutoVolumeControlStep_Proxy(ITAutomatedPhoneControl *This,__LONG32 lStepSize);
   void __RPC_STUB ITAutomatedPhoneControl_put_AutoVolumeControlStep_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAutomatedPhoneControl_get_AutoVolumeControlStep_Proxy(ITAutomatedPhoneControl *This,long *plStepSize);
+  HRESULT WINAPI ITAutomatedPhoneControl_get_AutoVolumeControlStep_Proxy(ITAutomatedPhoneControl *This,__LONG32 *plStepSize);
   void __RPC_STUB ITAutomatedPhoneControl_get_AutoVolumeControlStep_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAutomatedPhoneControl_put_AutoVolumeControlRepeatDelay_Proxy(ITAutomatedPhoneControl *This,long lDelay);
+  HRESULT WINAPI ITAutomatedPhoneControl_put_AutoVolumeControlRepeatDelay_Proxy(ITAutomatedPhoneControl *This,__LONG32 lDelay);
   void __RPC_STUB ITAutomatedPhoneControl_put_AutoVolumeControlRepeatDelay_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAutomatedPhoneControl_get_AutoVolumeControlRepeatDelay_Proxy(ITAutomatedPhoneControl *This,long *plDelay);
+  HRESULT WINAPI ITAutomatedPhoneControl_get_AutoVolumeControlRepeatDelay_Proxy(ITAutomatedPhoneControl *This,__LONG32 *plDelay);
   void __RPC_STUB ITAutomatedPhoneControl_get_AutoVolumeControlRepeatDelay_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAutomatedPhoneControl_put_AutoVolumeControlRepeatPeriod_Proxy(ITAutomatedPhoneControl *This,long lPeriod);
+  HRESULT WINAPI ITAutomatedPhoneControl_put_AutoVolumeControlRepeatPeriod_Proxy(ITAutomatedPhoneControl *This,__LONG32 lPeriod);
   void __RPC_STUB ITAutomatedPhoneControl_put_AutoVolumeControlRepeatPeriod_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAutomatedPhoneControl_get_AutoVolumeControlRepeatPeriod_Proxy(ITAutomatedPhoneControl *This,long *plPeriod);
+  HRESULT WINAPI ITAutomatedPhoneControl_get_AutoVolumeControlRepeatPeriod_Proxy(ITAutomatedPhoneControl *This,__LONG32 *plPeriod);
   void __RPC_STUB ITAutomatedPhoneControl_get_AutoVolumeControlRepeatPeriod_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAutomatedPhoneControl_SelectCall_Proxy(ITAutomatedPhoneControl *This,ITCallInfo *pCall,VARIANT_BOOL fSelectDefaultTerminals);
   void __RPC_STUB ITAutomatedPhoneControl_SelectCall_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1944,7 +1944,7 @@ extern "C" {
     virtual HRESULT WINAPI Disconnect(DISCONNECT_CODE code) = 0;
     virtual HRESULT WINAPI Hold(VARIANT_BOOL fHold) = 0;
     virtual HRESULT WINAPI HandoffDirect(BSTR pApplicationName) = 0;
-    virtual HRESULT WINAPI HandoffIndirect(long lMediaType) = 0;
+    virtual HRESULT WINAPI HandoffIndirect(__LONG32 lMediaType) = 0;
     virtual HRESULT WINAPI Conference(ITBasicCallControl *pCall,VARIANT_BOOL fSync) = 0;
     virtual HRESULT WINAPI Transfer(ITBasicCallControl *pCall,VARIANT_BOOL fSync) = 0;
     virtual HRESULT WINAPI BlindTransfer(BSTR pDestAddress) = 0;
@@ -1952,7 +1952,7 @@ extern "C" {
     virtual HRESULT WINAPI ParkDirect(BSTR pParkAddress) = 0;
     virtual HRESULT WINAPI ParkIndirect(BSTR *ppNonDirAddress) = 0;
     virtual HRESULT WINAPI Unpark(void) = 0;
-    virtual HRESULT WINAPI SetQOS(long lMediaType,QOS_SERVICE_LEVEL ServiceLevel) = 0;
+    virtual HRESULT WINAPI SetQOS(__LONG32 lMediaType,QOS_SERVICE_LEVEL ServiceLevel) = 0;
     virtual HRESULT WINAPI Pickup(BSTR pGroupID) = 0;
     virtual HRESULT WINAPI Dial(BSTR pDestAddress) = 0;
     virtual HRESULT WINAPI Finish(FINISH_MODE finishMode) = 0;
@@ -1973,7 +1973,7 @@ extern "C" {
       HRESULT (WINAPI *Disconnect)(ITBasicCallControl *This,DISCONNECT_CODE code);
       HRESULT (WINAPI *Hold)(ITBasicCallControl *This,VARIANT_BOOL fHold);
       HRESULT (WINAPI *HandoffDirect)(ITBasicCallControl *This,BSTR pApplicationName);
-      HRESULT (WINAPI *HandoffIndirect)(ITBasicCallControl *This,long lMediaType);
+      HRESULT (WINAPI *HandoffIndirect)(ITBasicCallControl *This,__LONG32 lMediaType);
       HRESULT (WINAPI *Conference)(ITBasicCallControl *This,ITBasicCallControl *pCall,VARIANT_BOOL fSync);
       HRESULT (WINAPI *Transfer)(ITBasicCallControl *This,ITBasicCallControl *pCall,VARIANT_BOOL fSync);
       HRESULT (WINAPI *BlindTransfer)(ITBasicCallControl *This,BSTR pDestAddress);
@@ -1981,7 +1981,7 @@ extern "C" {
       HRESULT (WINAPI *ParkDirect)(ITBasicCallControl *This,BSTR pParkAddress);
       HRESULT (WINAPI *ParkIndirect)(ITBasicCallControl *This,BSTR *ppNonDirAddress);
       HRESULT (WINAPI *Unpark)(ITBasicCallControl *This);
-      HRESULT (WINAPI *SetQOS)(ITBasicCallControl *This,long lMediaType,QOS_SERVICE_LEVEL ServiceLevel);
+      HRESULT (WINAPI *SetQOS)(ITBasicCallControl *This,__LONG32 lMediaType,QOS_SERVICE_LEVEL ServiceLevel);
       HRESULT (WINAPI *Pickup)(ITBasicCallControl *This,BSTR pGroupID);
       HRESULT (WINAPI *Dial)(ITBasicCallControl *This,BSTR pDestAddress);
       HRESULT (WINAPI *Finish)(ITBasicCallControl *This,FINISH_MODE finishMode);
@@ -2029,7 +2029,7 @@ extern "C" {
   void __RPC_STUB ITBasicCallControl_Hold_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITBasicCallControl_HandoffDirect_Proxy(ITBasicCallControl *This,BSTR pApplicationName);
   void __RPC_STUB ITBasicCallControl_HandoffDirect_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITBasicCallControl_HandoffIndirect_Proxy(ITBasicCallControl *This,long lMediaType);
+  HRESULT WINAPI ITBasicCallControl_HandoffIndirect_Proxy(ITBasicCallControl *This,__LONG32 lMediaType);
   void __RPC_STUB ITBasicCallControl_HandoffIndirect_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITBasicCallControl_Conference_Proxy(ITBasicCallControl *This,ITBasicCallControl *pCall,VARIANT_BOOL fSync);
   void __RPC_STUB ITBasicCallControl_Conference_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2045,7 +2045,7 @@ extern "C" {
   void __RPC_STUB ITBasicCallControl_ParkIndirect_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITBasicCallControl_Unpark_Proxy(ITBasicCallControl *This);
   void __RPC_STUB ITBasicCallControl_Unpark_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITBasicCallControl_SetQOS_Proxy(ITBasicCallControl *This,long lMediaType,QOS_SERVICE_LEVEL ServiceLevel);
+  HRESULT WINAPI ITBasicCallControl_SetQOS_Proxy(ITBasicCallControl *This,__LONG32 lMediaType,QOS_SERVICE_LEVEL ServiceLevel);
   void __RPC_STUB ITBasicCallControl_SetQOS_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITBasicCallControl_Pickup_Proxy(ITBasicCallControl *This,BSTR pGroupID);
   void __RPC_STUB ITBasicCallControl_Pickup_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2067,8 +2067,8 @@ extern "C" {
     virtual HRESULT WINAPI get_CallState(CALL_STATE *pCallState) = 0;
     virtual HRESULT WINAPI get_Privilege(CALL_PRIVILEGE *pPrivilege) = 0;
     virtual HRESULT WINAPI get_CallHub(ITCallHub **ppCallHub) = 0;
-    virtual HRESULT WINAPI get_CallInfoLong(CALLINFO_LONG CallInfoLong,long *plCallInfoLongVal) = 0;
-    virtual HRESULT WINAPI put_CallInfoLong(CALLINFO_LONG CallInfoLong,long lCallInfoLongVal) = 0;
+    virtual HRESULT WINAPI get_CallInfoLong(CALLINFO_LONG CallInfoLong,__LONG32 *plCallInfoLongVal) = 0;
+    virtual HRESULT WINAPI put_CallInfoLong(CALLINFO_LONG CallInfoLong,__LONG32 lCallInfoLongVal) = 0;
     virtual HRESULT WINAPI get_CallInfoString(CALLINFO_STRING CallInfoString,BSTR *ppCallInfoString) = 0;
     virtual HRESULT WINAPI put_CallInfoString(CALLINFO_STRING CallInfoString,BSTR pCallInfoString) = 0;
     virtual HRESULT WINAPI get_CallInfoBuffer(CALLINFO_BUFFER CallInfoBuffer,VARIANT *ppCallInfoBuffer) = 0;
@@ -2091,8 +2091,8 @@ extern "C" {
       HRESULT (WINAPI *get_CallState)(ITCallInfo *This,CALL_STATE *pCallState);
       HRESULT (WINAPI *get_Privilege)(ITCallInfo *This,CALL_PRIVILEGE *pPrivilege);
       HRESULT (WINAPI *get_CallHub)(ITCallInfo *This,ITCallHub **ppCallHub);
-      HRESULT (WINAPI *get_CallInfoLong)(ITCallInfo *This,CALLINFO_LONG CallInfoLong,long *plCallInfoLongVal);
-      HRESULT (WINAPI *put_CallInfoLong)(ITCallInfo *This,CALLINFO_LONG CallInfoLong,long lCallInfoLongVal);
+      HRESULT (WINAPI *get_CallInfoLong)(ITCallInfo *This,CALLINFO_LONG CallInfoLong,__LONG32 *plCallInfoLongVal);
+      HRESULT (WINAPI *put_CallInfoLong)(ITCallInfo *This,CALLINFO_LONG CallInfoLong,__LONG32 lCallInfoLongVal);
       HRESULT (WINAPI *get_CallInfoString)(ITCallInfo *This,CALLINFO_STRING CallInfoString,BSTR *ppCallInfoString);
       HRESULT (WINAPI *put_CallInfoString)(ITCallInfo *This,CALLINFO_STRING CallInfoString,BSTR pCallInfoString);
       HRESULT (WINAPI *get_CallInfoBuffer)(ITCallInfo *This,CALLINFO_BUFFER CallInfoBuffer,VARIANT *ppCallInfoBuffer);
@@ -2136,9 +2136,9 @@ extern "C" {
   void __RPC_STUB ITCallInfo_get_Privilege_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITCallInfo_get_CallHub_Proxy(ITCallInfo *This,ITCallHub **ppCallHub);
   void __RPC_STUB ITCallInfo_get_CallHub_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITCallInfo_get_CallInfoLong_Proxy(ITCallInfo *This,CALLINFO_LONG CallInfoLong,long *plCallInfoLongVal);
+  HRESULT WINAPI ITCallInfo_get_CallInfoLong_Proxy(ITCallInfo *This,CALLINFO_LONG CallInfoLong,__LONG32 *plCallInfoLongVal);
   void __RPC_STUB ITCallInfo_get_CallInfoLong_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITCallInfo_put_CallInfoLong_Proxy(ITCallInfo *This,CALLINFO_LONG CallInfoLong,long lCallInfoLongVal);
+  HRESULT WINAPI ITCallInfo_put_CallInfoLong_Proxy(ITCallInfo *This,CALLINFO_LONG CallInfoLong,__LONG32 lCallInfoLongVal);
   void __RPC_STUB ITCallInfo_put_CallInfoLong_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITCallInfo_get_CallInfoString_Proxy(ITCallInfo *This,CALLINFO_STRING CallInfoString,BSTR *ppCallInfoString);
   void __RPC_STUB ITCallInfo_get_CallInfoString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2162,8 +2162,8 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITCallInfo2 : public ITCallInfo {
   public:
-    virtual HRESULT WINAPI get_EventFilter(TAPI_EVENT TapiEvent,long lSubEvent,VARIANT_BOOL *pEnable) = 0;
-    virtual HRESULT WINAPI put_EventFilter(TAPI_EVENT TapiEvent,long lSubEvent,VARIANT_BOOL bEnable) = 0;
+    virtual HRESULT WINAPI get_EventFilter(TAPI_EVENT TapiEvent,__LONG32 lSubEvent,VARIANT_BOOL *pEnable) = 0;
+    virtual HRESULT WINAPI put_EventFilter(TAPI_EVENT TapiEvent,__LONG32 lSubEvent,VARIANT_BOOL bEnable) = 0;
   };
 #else
   typedef struct ITCallInfo2Vtbl {
@@ -2179,8 +2179,8 @@ extern "C" {
       HRESULT (WINAPI *get_CallState)(ITCallInfo2 *This,CALL_STATE *pCallState);
       HRESULT (WINAPI *get_Privilege)(ITCallInfo2 *This,CALL_PRIVILEGE *pPrivilege);
       HRESULT (WINAPI *get_CallHub)(ITCallInfo2 *This,ITCallHub **ppCallHub);
-      HRESULT (WINAPI *get_CallInfoLong)(ITCallInfo2 *This,CALLINFO_LONG CallInfoLong,long *plCallInfoLongVal);
-      HRESULT (WINAPI *put_CallInfoLong)(ITCallInfo2 *This,CALLINFO_LONG CallInfoLong,long lCallInfoLongVal);
+      HRESULT (WINAPI *get_CallInfoLong)(ITCallInfo2 *This,CALLINFO_LONG CallInfoLong,__LONG32 *plCallInfoLongVal);
+      HRESULT (WINAPI *put_CallInfoLong)(ITCallInfo2 *This,CALLINFO_LONG CallInfoLong,__LONG32 lCallInfoLongVal);
       HRESULT (WINAPI *get_CallInfoString)(ITCallInfo2 *This,CALLINFO_STRING CallInfoString,BSTR *ppCallInfoString);
       HRESULT (WINAPI *put_CallInfoString)(ITCallInfo2 *This,CALLINFO_STRING CallInfoString,BSTR pCallInfoString);
       HRESULT (WINAPI *get_CallInfoBuffer)(ITCallInfo2 *This,CALLINFO_BUFFER CallInfoBuffer,VARIANT *ppCallInfoBuffer);
@@ -2188,8 +2188,8 @@ extern "C" {
       HRESULT (WINAPI *GetCallInfoBuffer)(ITCallInfo2 *This,CALLINFO_BUFFER CallInfoBuffer,DWORD *pdwSize,BYTE **ppCallInfoBuffer);
       HRESULT (WINAPI *SetCallInfoBuffer)(ITCallInfo2 *This,CALLINFO_BUFFER CallInfoBuffer,DWORD dwSize,BYTE *pCallInfoBuffer);
       HRESULT (WINAPI *ReleaseUserUserInfo)(ITCallInfo2 *This);
-      HRESULT (WINAPI *get_EventFilter)(ITCallInfo2 *This,TAPI_EVENT TapiEvent,long lSubEvent,VARIANT_BOOL *pEnable);
-      HRESULT (WINAPI *put_EventFilter)(ITCallInfo2 *This,TAPI_EVENT TapiEvent,long lSubEvent,VARIANT_BOOL bEnable);
+      HRESULT (WINAPI *get_EventFilter)(ITCallInfo2 *This,TAPI_EVENT TapiEvent,__LONG32 lSubEvent,VARIANT_BOOL *pEnable);
+      HRESULT (WINAPI *put_EventFilter)(ITCallInfo2 *This,TAPI_EVENT TapiEvent,__LONG32 lSubEvent,VARIANT_BOOL bEnable);
     END_INTERFACE
   } ITCallInfo2Vtbl;
   struct ITCallInfo2 {
@@ -2220,9 +2220,9 @@ extern "C" {
 #define ITCallInfo2_put_EventFilter(This,TapiEvent,lSubEvent,bEnable) (This)->lpVtbl->put_EventFilter(This,TapiEvent,lSubEvent,bEnable)
 #endif
 #endif
-  HRESULT WINAPI ITCallInfo2_get_EventFilter_Proxy(ITCallInfo2 *This,TAPI_EVENT TapiEvent,long lSubEvent,VARIANT_BOOL *pEnable);
+  HRESULT WINAPI ITCallInfo2_get_EventFilter_Proxy(ITCallInfo2 *This,TAPI_EVENT TapiEvent,__LONG32 lSubEvent,VARIANT_BOOL *pEnable);
   void __RPC_STUB ITCallInfo2_get_EventFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITCallInfo2_put_EventFilter_Proxy(ITCallInfo2 *This,TAPI_EVENT TapiEvent,long lSubEvent,VARIANT_BOOL bEnable);
+  HRESULT WINAPI ITCallInfo2_put_EventFilter_Proxy(ITCallInfo2 *This,TAPI_EVENT TapiEvent,__LONG32 lSubEvent,VARIANT_BOOL bEnable);
   void __RPC_STUB ITCallInfo2_put_EventFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -2236,7 +2236,7 @@ extern "C" {
     virtual HRESULT WINAPI get_State(TERMINAL_STATE *pTerminalState) = 0;
     virtual HRESULT WINAPI get_TerminalType(TERMINAL_TYPE *pType) = 0;
     virtual HRESULT WINAPI get_TerminalClass(BSTR *ppTerminalClass) = 0;
-    virtual HRESULT WINAPI get_MediaType(long *plMediaType) = 0;
+    virtual HRESULT WINAPI get_MediaType(__LONG32 *plMediaType) = 0;
     virtual HRESULT WINAPI get_Direction(TERMINAL_DIRECTION *pDirection) = 0;
   };
 #else
@@ -2253,7 +2253,7 @@ extern "C" {
       HRESULT (WINAPI *get_State)(ITTerminal *This,TERMINAL_STATE *pTerminalState);
       HRESULT (WINAPI *get_TerminalType)(ITTerminal *This,TERMINAL_TYPE *pType);
       HRESULT (WINAPI *get_TerminalClass)(ITTerminal *This,BSTR *ppTerminalClass);
-      HRESULT (WINAPI *get_MediaType)(ITTerminal *This,long *plMediaType);
+      HRESULT (WINAPI *get_MediaType)(ITTerminal *This,__LONG32 *plMediaType);
       HRESULT (WINAPI *get_Direction)(ITTerminal *This,TERMINAL_DIRECTION *pDirection);
     END_INTERFACE
   } ITTerminalVtbl;
@@ -2284,7 +2284,7 @@ extern "C" {
   void __RPC_STUB ITTerminal_get_TerminalType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITTerminal_get_TerminalClass_Proxy(ITTerminal *This,BSTR *ppTerminalClass);
   void __RPC_STUB ITTerminal_get_TerminalClass_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITTerminal_get_MediaType_Proxy(ITTerminal *This,long *plMediaType);
+  HRESULT WINAPI ITTerminal_get_MediaType_Proxy(ITTerminal *This,__LONG32 *plMediaType);
   void __RPC_STUB ITTerminal_get_MediaType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITTerminal_get_Direction_Proxy(ITTerminal *This,TERMINAL_DIRECTION *pDirection);
   void __RPC_STUB ITTerminal_get_Direction_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2298,8 +2298,8 @@ extern "C" {
   public:
     virtual HRESULT WINAPI get_TrackTerminals(VARIANT *pVariant) = 0;
     virtual HRESULT WINAPI EnumerateTrackTerminals(IEnumTerminal **ppEnumTerminal) = 0;
-    virtual HRESULT WINAPI CreateTrackTerminal(long MediaType,TERMINAL_DIRECTION TerminalDirection,ITTerminal **ppTerminal) = 0;
-    virtual HRESULT WINAPI get_MediaTypesInUse(long *plMediaTypesInUse) = 0;
+    virtual HRESULT WINAPI CreateTrackTerminal(__LONG32 MediaType,TERMINAL_DIRECTION TerminalDirection,ITTerminal **ppTerminal) = 0;
+    virtual HRESULT WINAPI get_MediaTypesInUse(__LONG32 *plMediaTypesInUse) = 0;
     virtual HRESULT WINAPI get_DirectionsInUse(TERMINAL_DIRECTION *plDirectionsInUsed) = 0;
     virtual HRESULT WINAPI RemoveTrackTerminal(ITTerminal *pTrackTerminalToRemove) = 0;
   };
@@ -2315,8 +2315,8 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(ITMultiTrackTerminal *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_TrackTerminals)(ITMultiTrackTerminal *This,VARIANT *pVariant);
       HRESULT (WINAPI *EnumerateTrackTerminals)(ITMultiTrackTerminal *This,IEnumTerminal **ppEnumTerminal);
-      HRESULT (WINAPI *CreateTrackTerminal)(ITMultiTrackTerminal *This,long MediaType,TERMINAL_DIRECTION TerminalDirection,ITTerminal **ppTerminal);
-      HRESULT (WINAPI *get_MediaTypesInUse)(ITMultiTrackTerminal *This,long *plMediaTypesInUse);
+      HRESULT (WINAPI *CreateTrackTerminal)(ITMultiTrackTerminal *This,__LONG32 MediaType,TERMINAL_DIRECTION TerminalDirection,ITTerminal **ppTerminal);
+      HRESULT (WINAPI *get_MediaTypesInUse)(ITMultiTrackTerminal *This,__LONG32 *plMediaTypesInUse);
       HRESULT (WINAPI *get_DirectionsInUse)(ITMultiTrackTerminal *This,TERMINAL_DIRECTION *plDirectionsInUsed);
       HRESULT (WINAPI *RemoveTrackTerminal)(ITMultiTrackTerminal *This,ITTerminal *pTrackTerminalToRemove);
     END_INTERFACE
@@ -2344,9 +2344,9 @@ extern "C" {
   void __RPC_STUB ITMultiTrackTerminal_get_TrackTerminals_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITMultiTrackTerminal_EnumerateTrackTerminals_Proxy(ITMultiTrackTerminal *This,IEnumTerminal **ppEnumTerminal);
   void __RPC_STUB ITMultiTrackTerminal_EnumerateTrackTerminals_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITMultiTrackTerminal_CreateTrackTerminal_Proxy(ITMultiTrackTerminal *This,long MediaType,TERMINAL_DIRECTION TerminalDirection,ITTerminal **ppTerminal);
+  HRESULT WINAPI ITMultiTrackTerminal_CreateTrackTerminal_Proxy(ITMultiTrackTerminal *This,__LONG32 MediaType,TERMINAL_DIRECTION TerminalDirection,ITTerminal **ppTerminal);
   void __RPC_STUB ITMultiTrackTerminal_CreateTrackTerminal_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITMultiTrackTerminal_get_MediaTypesInUse_Proxy(ITMultiTrackTerminal *This,long *plMediaTypesInUse);
+  HRESULT WINAPI ITMultiTrackTerminal_get_MediaTypesInUse_Proxy(ITMultiTrackTerminal *This,__LONG32 *plMediaTypesInUse);
   void __RPC_STUB ITMultiTrackTerminal_get_MediaTypesInUse_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITMultiTrackTerminal_get_DirectionsInUse_Proxy(ITMultiTrackTerminal *This,TERMINAL_DIRECTION *plDirectionsInUsed);
   void __RPC_STUB ITMultiTrackTerminal_get_DirectionsInUse_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2579,10 +2579,10 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITBasicAudioTerminal : public IDispatch {
   public:
-    virtual HRESULT WINAPI put_Volume(long lVolume) = 0;
-    virtual HRESULT WINAPI get_Volume(long *plVolume) = 0;
-    virtual HRESULT WINAPI put_Balance(long lBalance) = 0;
-    virtual HRESULT WINAPI get_Balance(long *plBalance) = 0;
+    virtual HRESULT WINAPI put_Volume(__LONG32 lVolume) = 0;
+    virtual HRESULT WINAPI get_Volume(__LONG32 *plVolume) = 0;
+    virtual HRESULT WINAPI put_Balance(__LONG32 lBalance) = 0;
+    virtual HRESULT WINAPI get_Balance(__LONG32 *plBalance) = 0;
   };
 #else
   typedef struct ITBasicAudioTerminalVtbl {
@@ -2594,10 +2594,10 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ITBasicAudioTerminal *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ITBasicAudioTerminal *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITBasicAudioTerminal *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *put_Volume)(ITBasicAudioTerminal *This,long lVolume);
-      HRESULT (WINAPI *get_Volume)(ITBasicAudioTerminal *This,long *plVolume);
-      HRESULT (WINAPI *put_Balance)(ITBasicAudioTerminal *This,long lBalance);
-      HRESULT (WINAPI *get_Balance)(ITBasicAudioTerminal *This,long *plBalance);
+      HRESULT (WINAPI *put_Volume)(ITBasicAudioTerminal *This,__LONG32 lVolume);
+      HRESULT (WINAPI *get_Volume)(ITBasicAudioTerminal *This,__LONG32 *plVolume);
+      HRESULT (WINAPI *put_Balance)(ITBasicAudioTerminal *This,__LONG32 lBalance);
+      HRESULT (WINAPI *get_Balance)(ITBasicAudioTerminal *This,__LONG32 *plBalance);
     END_INTERFACE
   } ITBasicAudioTerminalVtbl;
   struct ITBasicAudioTerminal {
@@ -2617,13 +2617,13 @@ extern "C" {
 #define ITBasicAudioTerminal_get_Balance(This,plBalance) (This)->lpVtbl->get_Balance(This,plBalance)
 #endif
 #endif
-  HRESULT WINAPI ITBasicAudioTerminal_put_Volume_Proxy(ITBasicAudioTerminal *This,long lVolume);
+  HRESULT WINAPI ITBasicAudioTerminal_put_Volume_Proxy(ITBasicAudioTerminal *This,__LONG32 lVolume);
   void __RPC_STUB ITBasicAudioTerminal_put_Volume_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITBasicAudioTerminal_get_Volume_Proxy(ITBasicAudioTerminal *This,long *plVolume);
+  HRESULT WINAPI ITBasicAudioTerminal_get_Volume_Proxy(ITBasicAudioTerminal *This,__LONG32 *plVolume);
   void __RPC_STUB ITBasicAudioTerminal_get_Volume_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITBasicAudioTerminal_put_Balance_Proxy(ITBasicAudioTerminal *This,long lBalance);
+  HRESULT WINAPI ITBasicAudioTerminal_put_Balance_Proxy(ITBasicAudioTerminal *This,__LONG32 lBalance);
   void __RPC_STUB ITBasicAudioTerminal_put_Balance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITBasicAudioTerminal_get_Balance_Proxy(ITBasicAudioTerminal *This,long *plBalance);
+  HRESULT WINAPI ITBasicAudioTerminal_get_Balance_Proxy(ITBasicAudioTerminal *This,__LONG32 *plBalance);
   void __RPC_STUB ITBasicAudioTerminal_get_Balance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -2633,7 +2633,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITStaticAudioTerminal : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_WaveId(long *plWaveId) = 0;
+    virtual HRESULT WINAPI get_WaveId(__LONG32 *plWaveId) = 0;
   };
 #else
   typedef struct ITStaticAudioTerminalVtbl {
@@ -2645,7 +2645,7 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ITStaticAudioTerminal *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ITStaticAudioTerminal *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITStaticAudioTerminal *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_WaveId)(ITStaticAudioTerminal *This,long *plWaveId);
+      HRESULT (WINAPI *get_WaveId)(ITStaticAudioTerminal *This,__LONG32 *plWaveId);
     END_INTERFACE
   } ITStaticAudioTerminalVtbl;
   struct ITStaticAudioTerminal {
@@ -2662,7 +2662,7 @@ extern "C" {
 #define ITStaticAudioTerminal_get_WaveId(This,plWaveId) (This)->lpVtbl->get_WaveId(This,plWaveId)
 #endif
 #endif
-  HRESULT WINAPI ITStaticAudioTerminal_get_WaveId_Proxy(ITStaticAudioTerminal *This,long *plWaveId);
+  HRESULT WINAPI ITStaticAudioTerminal_get_WaveId_Proxy(ITStaticAudioTerminal *This,__LONG32 *plWaveId);
   void __RPC_STUB ITStaticAudioTerminal_get_WaveId_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -2675,7 +2675,7 @@ extern "C" {
     virtual HRESULT WINAPI Clear(void) = 0;
     virtual HRESULT WINAPI EnumerateCalls(IEnumCall **ppEnumCall) = 0;
     virtual HRESULT WINAPI get_Calls(VARIANT *pCalls) = 0;
-    virtual HRESULT WINAPI get_NumCalls(long *plCalls) = 0;
+    virtual HRESULT WINAPI get_NumCalls(__LONG32 *plCalls) = 0;
     virtual HRESULT WINAPI get_State(CALLHUB_STATE *pState) = 0;
   };
 #else
@@ -2691,7 +2691,7 @@ extern "C" {
       HRESULT (WINAPI *Clear)(ITCallHub *This);
       HRESULT (WINAPI *EnumerateCalls)(ITCallHub *This,IEnumCall **ppEnumCall);
       HRESULT (WINAPI *get_Calls)(ITCallHub *This,VARIANT *pCalls);
-      HRESULT (WINAPI *get_NumCalls)(ITCallHub *This,long *plCalls);
+      HRESULT (WINAPI *get_NumCalls)(ITCallHub *This,__LONG32 *plCalls);
       HRESULT (WINAPI *get_State)(ITCallHub *This,CALLHUB_STATE *pState);
     END_INTERFACE
   } ITCallHubVtbl;
@@ -2719,7 +2719,7 @@ extern "C" {
   void __RPC_STUB ITCallHub_EnumerateCalls_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITCallHub_get_Calls_Proxy(ITCallHub *This,VARIANT *pCalls);
   void __RPC_STUB ITCallHub_get_Calls_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITCallHub_get_NumCalls_Proxy(ITCallHub *This,long *plCalls);
+  HRESULT WINAPI ITCallHub_get_NumCalls_Proxy(ITCallHub *This,__LONG32 *plCalls);
   void __RPC_STUB ITCallHub_get_NumCalls_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITCallHub_get_State_Proxy(ITCallHub *This,CALLHUB_STATE *pState);
   void __RPC_STUB ITCallHub_get_State_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2775,7 +2775,7 @@ extern "C" {
     virtual HRESULT WINAPI get_Address(ITAddress **ppAddress) = 0;
     virtual HRESULT WINAPI get_Call(ITCallInfo **ppCallInfo) = 0;
     virtual HRESULT WINAPI get_CallHub(ITCallHub **ppCallHub) = 0;
-    virtual HRESULT WINAPI get_EventCode(long *plEventCode) = 0;
+    virtual HRESULT WINAPI get_EventCode(__LONG32 *plEventCode) = 0;
     virtual HRESULT WINAPI get_EventInterface(IDispatch **pEventInterface) = 0;
   };
 #else
@@ -2791,7 +2791,7 @@ extern "C" {
       HRESULT (WINAPI *get_Address)(ITPrivateEvent *This,ITAddress **ppAddress);
       HRESULT (WINAPI *get_Call)(ITPrivateEvent *This,ITCallInfo **ppCallInfo);
       HRESULT (WINAPI *get_CallHub)(ITPrivateEvent *This,ITCallHub **ppCallHub);
-      HRESULT (WINAPI *get_EventCode)(ITPrivateEvent *This,long *plEventCode);
+      HRESULT (WINAPI *get_EventCode)(ITPrivateEvent *This,__LONG32 *plEventCode);
       HRESULT (WINAPI *get_EventInterface)(ITPrivateEvent *This,IDispatch **pEventInterface);
     END_INTERFACE
   } ITPrivateEventVtbl;
@@ -2819,7 +2819,7 @@ extern "C" {
   void __RPC_STUB ITPrivateEvent_get_Call_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITPrivateEvent_get_CallHub_Proxy(ITPrivateEvent *This,ITCallHub **ppCallHub);
   void __RPC_STUB ITPrivateEvent_get_CallHub_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPrivateEvent_get_EventCode_Proxy(ITPrivateEvent *This,long *plEventCode);
+  HRESULT WINAPI ITPrivateEvent_get_EventCode_Proxy(ITPrivateEvent *This,__LONG32 *plEventCode);
   void __RPC_STUB ITPrivateEvent_get_EventCode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITPrivateEvent_get_EventInterface_Proxy(ITPrivateEvent *This,IDispatch **pEventInterface);
   void __RPC_STUB ITPrivateEvent_get_EventInterface_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2876,8 +2876,8 @@ extern "C" {
     virtual HRESULT WINAPI DetectDigits(TAPI_DIGITMODE DigitMode) = 0;
     virtual HRESULT WINAPI GenerateDigits(BSTR pDigits,TAPI_DIGITMODE DigitMode) = 0;
     virtual HRESULT WINAPI GetID(BSTR pDeviceClass,DWORD *pdwSize,BYTE **ppDeviceID) = 0;
-    virtual HRESULT WINAPI SetMediaType(long lMediaType) = 0;
-    virtual HRESULT WINAPI MonitorMedia(long lMediaType) = 0;
+    virtual HRESULT WINAPI SetMediaType(__LONG32 lMediaType) = 0;
+    virtual HRESULT WINAPI MonitorMedia(__LONG32 lMediaType) = 0;
   };
 #else
   typedef struct ITLegacyCallMediaControlVtbl {
@@ -2892,8 +2892,8 @@ extern "C" {
       HRESULT (WINAPI *DetectDigits)(ITLegacyCallMediaControl *This,TAPI_DIGITMODE DigitMode);
       HRESULT (WINAPI *GenerateDigits)(ITLegacyCallMediaControl *This,BSTR pDigits,TAPI_DIGITMODE DigitMode);
       HRESULT (WINAPI *GetID)(ITLegacyCallMediaControl *This,BSTR pDeviceClass,DWORD *pdwSize,BYTE **ppDeviceID);
-      HRESULT (WINAPI *SetMediaType)(ITLegacyCallMediaControl *This,long lMediaType);
-      HRESULT (WINAPI *MonitorMedia)(ITLegacyCallMediaControl *This,long lMediaType);
+      HRESULT (WINAPI *SetMediaType)(ITLegacyCallMediaControl *This,__LONG32 lMediaType);
+      HRESULT (WINAPI *MonitorMedia)(ITLegacyCallMediaControl *This,__LONG32 lMediaType);
     END_INTERFACE
   } ITLegacyCallMediaControlVtbl;
   struct ITLegacyCallMediaControl {
@@ -2920,9 +2920,9 @@ extern "C" {
   void __RPC_STUB ITLegacyCallMediaControl_GenerateDigits_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITLegacyCallMediaControl_GetID_Proxy(ITLegacyCallMediaControl *This,BSTR pDeviceClass,DWORD *pdwSize,BYTE **ppDeviceID);
   void __RPC_STUB ITLegacyCallMediaControl_GetID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITLegacyCallMediaControl_SetMediaType_Proxy(ITLegacyCallMediaControl *This,long lMediaType);
+  HRESULT WINAPI ITLegacyCallMediaControl_SetMediaType_Proxy(ITLegacyCallMediaControl *This,__LONG32 lMediaType);
   void __RPC_STUB ITLegacyCallMediaControl_SetMediaType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITLegacyCallMediaControl_MonitorMedia_Proxy(ITLegacyCallMediaControl *This,long lMediaType);
+  HRESULT WINAPI ITLegacyCallMediaControl_MonitorMedia_Proxy(ITLegacyCallMediaControl *This,__LONG32 lMediaType);
   void __RPC_STUB ITLegacyCallMediaControl_MonitorMedia_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -2932,13 +2932,13 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITLegacyCallMediaControl2 : public ITLegacyCallMediaControl {
   public:
-    virtual HRESULT WINAPI GenerateDigits2(BSTR pDigits,TAPI_DIGITMODE DigitMode,long lDuration) = 0;
-    virtual HRESULT WINAPI GatherDigits(TAPI_DIGITMODE DigitMode,long lNumDigits,BSTR pTerminationDigits,long lFirstDigitTimeout,long lInterDigitTimeout) = 0;
-    virtual HRESULT WINAPI DetectTones(TAPI_DETECTTONE *pToneList,long lNumTones) = 0;
+    virtual HRESULT WINAPI GenerateDigits2(BSTR pDigits,TAPI_DIGITMODE DigitMode,__LONG32 lDuration) = 0;
+    virtual HRESULT WINAPI GatherDigits(TAPI_DIGITMODE DigitMode,__LONG32 lNumDigits,BSTR pTerminationDigits,__LONG32 lFirstDigitTimeout,__LONG32 lInterDigitTimeout) = 0;
+    virtual HRESULT WINAPI DetectTones(TAPI_DETECTTONE *pToneList,__LONG32 lNumTones) = 0;
     virtual HRESULT WINAPI DetectTonesByCollection(ITCollection2 *pDetectToneCollection) = 0;
-    virtual HRESULT WINAPI GenerateTone(TAPI_TONEMODE ToneMode,long lDuration) = 0;
-    virtual HRESULT WINAPI GenerateCustomTones(TAPI_CUSTOMTONE *pToneList,long lNumTones,long lDuration) = 0;
-    virtual HRESULT WINAPI GenerateCustomTonesByCollection(ITCollection2 *pCustomToneCollection,long lDuration) = 0;
+    virtual HRESULT WINAPI GenerateTone(TAPI_TONEMODE ToneMode,__LONG32 lDuration) = 0;
+    virtual HRESULT WINAPI GenerateCustomTones(TAPI_CUSTOMTONE *pToneList,__LONG32 lNumTones,__LONG32 lDuration) = 0;
+    virtual HRESULT WINAPI GenerateCustomTonesByCollection(ITCollection2 *pCustomToneCollection,__LONG32 lDuration) = 0;
     virtual HRESULT WINAPI CreateDetectToneObject(ITDetectTone **ppDetectTone) = 0;
     virtual HRESULT WINAPI CreateCustomToneObject(ITCustomTone **ppCustomTone) = 0;
     virtual HRESULT WINAPI GetIDAsVariant(BSTR bstrDeviceClass,VARIANT *pVarDeviceID) = 0;
@@ -2956,15 +2956,15 @@ extern "C" {
       HRESULT (WINAPI *DetectDigits)(ITLegacyCallMediaControl2 *This,TAPI_DIGITMODE DigitMode);
       HRESULT (WINAPI *GenerateDigits)(ITLegacyCallMediaControl2 *This,BSTR pDigits,TAPI_DIGITMODE DigitMode);
       HRESULT (WINAPI *GetID)(ITLegacyCallMediaControl2 *This,BSTR pDeviceClass,DWORD *pdwSize,BYTE **ppDeviceID);
-      HRESULT (WINAPI *SetMediaType)(ITLegacyCallMediaControl2 *This,long lMediaType);
-      HRESULT (WINAPI *MonitorMedia)(ITLegacyCallMediaControl2 *This,long lMediaType);
-      HRESULT (WINAPI *GenerateDigits2)(ITLegacyCallMediaControl2 *This,BSTR pDigits,TAPI_DIGITMODE DigitMode,long lDuration);
-      HRESULT (WINAPI *GatherDigits)(ITLegacyCallMediaControl2 *This,TAPI_DIGITMODE DigitMode,long lNumDigits,BSTR pTerminationDigits,long lFirstDigitTimeout,long lInterDigitTimeout);
-      HRESULT (WINAPI *DetectTones)(ITLegacyCallMediaControl2 *This,TAPI_DETECTTONE *pToneList,long lNumTones);
+      HRESULT (WINAPI *SetMediaType)(ITLegacyCallMediaControl2 *This,__LONG32 lMediaType);
+      HRESULT (WINAPI *MonitorMedia)(ITLegacyCallMediaControl2 *This,__LONG32 lMediaType);
+      HRESULT (WINAPI *GenerateDigits2)(ITLegacyCallMediaControl2 *This,BSTR pDigits,TAPI_DIGITMODE DigitMode,__LONG32 lDuration);
+      HRESULT (WINAPI *GatherDigits)(ITLegacyCallMediaControl2 *This,TAPI_DIGITMODE DigitMode,__LONG32 lNumDigits,BSTR pTerminationDigits,__LONG32 lFirstDigitTimeout,__LONG32 lInterDigitTimeout);
+      HRESULT (WINAPI *DetectTones)(ITLegacyCallMediaControl2 *This,TAPI_DETECTTONE *pToneList,__LONG32 lNumTones);
       HRESULT (WINAPI *DetectTonesByCollection)(ITLegacyCallMediaControl2 *This,ITCollection2 *pDetectToneCollection);
-      HRESULT (WINAPI *GenerateTone)(ITLegacyCallMediaControl2 *This,TAPI_TONEMODE ToneMode,long lDuration);
-      HRESULT (WINAPI *GenerateCustomTones)(ITLegacyCallMediaControl2 *This,TAPI_CUSTOMTONE *pToneList,long lNumTones,long lDuration);
-      HRESULT (WINAPI *GenerateCustomTonesByCollection)(ITLegacyCallMediaControl2 *This,ITCollection2 *pCustomToneCollection,long lDuration);
+      HRESULT (WINAPI *GenerateTone)(ITLegacyCallMediaControl2 *This,TAPI_TONEMODE ToneMode,__LONG32 lDuration);
+      HRESULT (WINAPI *GenerateCustomTones)(ITLegacyCallMediaControl2 *This,TAPI_CUSTOMTONE *pToneList,__LONG32 lNumTones,__LONG32 lDuration);
+      HRESULT (WINAPI *GenerateCustomTonesByCollection)(ITLegacyCallMediaControl2 *This,ITCollection2 *pCustomToneCollection,__LONG32 lDuration);
       HRESULT (WINAPI *CreateDetectToneObject)(ITLegacyCallMediaControl2 *This,ITDetectTone **ppDetectTone);
       HRESULT (WINAPI *CreateCustomToneObject)(ITLegacyCallMediaControl2 *This,ITCustomTone **ppCustomTone);
       HRESULT (WINAPI *GetIDAsVariant)(ITLegacyCallMediaControl2 *This,BSTR bstrDeviceClass,VARIANT *pVarDeviceID);
@@ -2998,19 +2998,19 @@ extern "C" {
 #define ITLegacyCallMediaControl2_GetIDAsVariant(This,bstrDeviceClass,pVarDeviceID) (This)->lpVtbl->GetIDAsVariant(This,bstrDeviceClass,pVarDeviceID)
 #endif
 #endif
-  HRESULT WINAPI ITLegacyCallMediaControl2_GenerateDigits2_Proxy(ITLegacyCallMediaControl2 *This,BSTR pDigits,TAPI_DIGITMODE DigitMode,long lDuration);
+  HRESULT WINAPI ITLegacyCallMediaControl2_GenerateDigits2_Proxy(ITLegacyCallMediaControl2 *This,BSTR pDigits,TAPI_DIGITMODE DigitMode,__LONG32 lDuration);
   void __RPC_STUB ITLegacyCallMediaControl2_GenerateDigits2_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITLegacyCallMediaControl2_GatherDigits_Proxy(ITLegacyCallMediaControl2 *This,TAPI_DIGITMODE DigitMode,long lNumDigits,BSTR pTerminationDigits,long lFirstDigitTimeout,long lInterDigitTimeout);
+  HRESULT WINAPI ITLegacyCallMediaControl2_GatherDigits_Proxy(ITLegacyCallMediaControl2 *This,TAPI_DIGITMODE DigitMode,__LONG32 lNumDigits,BSTR pTerminationDigits,__LONG32 lFirstDigitTimeout,__LONG32 lInterDigitTimeout);
   void __RPC_STUB ITLegacyCallMediaControl2_GatherDigits_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITLegacyCallMediaControl2_DetectTones_Proxy(ITLegacyCallMediaControl2 *This,TAPI_DETECTTONE *pToneList,long lNumTones);
+  HRESULT WINAPI ITLegacyCallMediaControl2_DetectTones_Proxy(ITLegacyCallMediaControl2 *This,TAPI_DETECTTONE *pToneList,__LONG32 lNumTones);
   void __RPC_STUB ITLegacyCallMediaControl2_DetectTones_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITLegacyCallMediaControl2_DetectTonesByCollection_Proxy(ITLegacyCallMediaControl2 *This,ITCollection2 *pDetectToneCollection);
   void __RPC_STUB ITLegacyCallMediaControl2_DetectTonesByCollection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITLegacyCallMediaControl2_GenerateTone_Proxy(ITLegacyCallMediaControl2 *This,TAPI_TONEMODE ToneMode,long lDuration);
+  HRESULT WINAPI ITLegacyCallMediaControl2_GenerateTone_Proxy(ITLegacyCallMediaControl2 *This,TAPI_TONEMODE ToneMode,__LONG32 lDuration);
   void __RPC_STUB ITLegacyCallMediaControl2_GenerateTone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITLegacyCallMediaControl2_GenerateCustomTones_Proxy(ITLegacyCallMediaControl2 *This,TAPI_CUSTOMTONE *pToneList,long lNumTones,long lDuration);
+  HRESULT WINAPI ITLegacyCallMediaControl2_GenerateCustomTones_Proxy(ITLegacyCallMediaControl2 *This,TAPI_CUSTOMTONE *pToneList,__LONG32 lNumTones,__LONG32 lDuration);
   void __RPC_STUB ITLegacyCallMediaControl2_GenerateCustomTones_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITLegacyCallMediaControl2_GenerateCustomTonesByCollection_Proxy(ITLegacyCallMediaControl2 *This,ITCollection2 *pCustomToneCollection,long lDuration);
+  HRESULT WINAPI ITLegacyCallMediaControl2_GenerateCustomTonesByCollection_Proxy(ITLegacyCallMediaControl2 *This,ITCollection2 *pCustomToneCollection,__LONG32 lDuration);
   void __RPC_STUB ITLegacyCallMediaControl2_GenerateCustomTonesByCollection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITLegacyCallMediaControl2_CreateDetectToneObject_Proxy(ITLegacyCallMediaControl2 *This,ITDetectTone **ppDetectTone);
   void __RPC_STUB ITLegacyCallMediaControl2_CreateDetectToneObject_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -3026,12 +3026,12 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITDetectTone : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_AppSpecific(long *plAppSpecific) = 0;
-    virtual HRESULT WINAPI put_AppSpecific(long lAppSpecific) = 0;
-    virtual HRESULT WINAPI get_Duration(long *plDuration) = 0;
-    virtual HRESULT WINAPI put_Duration(long lDuration) = 0;
-    virtual HRESULT WINAPI get_Frequency(long Index,long *plFrequency) = 0;
-    virtual HRESULT WINAPI put_Frequency(long Index,long lFrequency) = 0;
+    virtual HRESULT WINAPI get_AppSpecific(__LONG32 *plAppSpecific) = 0;
+    virtual HRESULT WINAPI put_AppSpecific(__LONG32 lAppSpecific) = 0;
+    virtual HRESULT WINAPI get_Duration(__LONG32 *plDuration) = 0;
+    virtual HRESULT WINAPI put_Duration(__LONG32 lDuration) = 0;
+    virtual HRESULT WINAPI get_Frequency(__LONG32 Index,__LONG32 *plFrequency) = 0;
+    virtual HRESULT WINAPI put_Frequency(__LONG32 Index,__LONG32 lFrequency) = 0;
   };
 #else
   typedef struct ITDetectToneVtbl {
@@ -3043,12 +3043,12 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ITDetectTone *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ITDetectTone *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITDetectTone *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_AppSpecific)(ITDetectTone *This,long *plAppSpecific);
-      HRESULT (WINAPI *put_AppSpecific)(ITDetectTone *This,long lAppSpecific);
-      HRESULT (WINAPI *get_Duration)(ITDetectTone *This,long *plDuration);
-      HRESULT (WINAPI *put_Duration)(ITDetectTone *This,long lDuration);
-      HRESULT (WINAPI *get_Frequency)(ITDetectTone *This,long Index,long *plFrequency);
-      HRESULT (WINAPI *put_Frequency)(ITDetectTone *This,long Index,long lFrequency);
+      HRESULT (WINAPI *get_AppSpecific)(ITDetectTone *This,__LONG32 *plAppSpecific);
+      HRESULT (WINAPI *put_AppSpecific)(ITDetectTone *This,__LONG32 lAppSpecific);
+      HRESULT (WINAPI *get_Duration)(ITDetectTone *This,__LONG32 *plDuration);
+      HRESULT (WINAPI *put_Duration)(ITDetectTone *This,__LONG32 lDuration);
+      HRESULT (WINAPI *get_Frequency)(ITDetectTone *This,__LONG32 Index,__LONG32 *plFrequency);
+      HRESULT (WINAPI *put_Frequency)(ITDetectTone *This,__LONG32 Index,__LONG32 lFrequency);
     END_INTERFACE
   } ITDetectToneVtbl;
   struct ITDetectTone {
@@ -3070,17 +3070,17 @@ extern "C" {
 #define ITDetectTone_put_Frequency(This,Index,lFrequency) (This)->lpVtbl->put_Frequency(This,Index,lFrequency)
 #endif
 #endif
-  HRESULT WINAPI ITDetectTone_get_AppSpecific_Proxy(ITDetectTone *This,long *plAppSpecific);
+  HRESULT WINAPI ITDetectTone_get_AppSpecific_Proxy(ITDetectTone *This,__LONG32 *plAppSpecific);
   void __RPC_STUB ITDetectTone_get_AppSpecific_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITDetectTone_put_AppSpecific_Proxy(ITDetectTone *This,long lAppSpecific);
+  HRESULT WINAPI ITDetectTone_put_AppSpecific_Proxy(ITDetectTone *This,__LONG32 lAppSpecific);
   void __RPC_STUB ITDetectTone_put_AppSpecific_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITDetectTone_get_Duration_Proxy(ITDetectTone *This,long *plDuration);
+  HRESULT WINAPI ITDetectTone_get_Duration_Proxy(ITDetectTone *This,__LONG32 *plDuration);
   void __RPC_STUB ITDetectTone_get_Duration_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITDetectTone_put_Duration_Proxy(ITDetectTone *This,long lDuration);
+  HRESULT WINAPI ITDetectTone_put_Duration_Proxy(ITDetectTone *This,__LONG32 lDuration);
   void __RPC_STUB ITDetectTone_put_Duration_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITDetectTone_get_Frequency_Proxy(ITDetectTone *This,long Index,long *plFrequency);
+  HRESULT WINAPI ITDetectTone_get_Frequency_Proxy(ITDetectTone *This,__LONG32 Index,__LONG32 *plFrequency);
   void __RPC_STUB ITDetectTone_get_Frequency_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITDetectTone_put_Frequency_Proxy(ITDetectTone *This,long Index,long lFrequency);
+  HRESULT WINAPI ITDetectTone_put_Frequency_Proxy(ITDetectTone *This,__LONG32 Index,__LONG32 lFrequency);
   void __RPC_STUB ITDetectTone_put_Frequency_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -3090,14 +3090,14 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITCustomTone : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Frequency(long *plFrequency) = 0;
-    virtual HRESULT WINAPI put_Frequency(long lFrequency) = 0;
-    virtual HRESULT WINAPI get_CadenceOn(long *plCadenceOn) = 0;
-    virtual HRESULT WINAPI put_CadenceOn(long CadenceOn) = 0;
-    virtual HRESULT WINAPI get_CadenceOff(long *plCadenceOff) = 0;
-    virtual HRESULT WINAPI put_CadenceOff(long lCadenceOff) = 0;
-    virtual HRESULT WINAPI get_Volume(long *plVolume) = 0;
-    virtual HRESULT WINAPI put_Volume(long lVolume) = 0;
+    virtual HRESULT WINAPI get_Frequency(__LONG32 *plFrequency) = 0;
+    virtual HRESULT WINAPI put_Frequency(__LONG32 lFrequency) = 0;
+    virtual HRESULT WINAPI get_CadenceOn(__LONG32 *plCadenceOn) = 0;
+    virtual HRESULT WINAPI put_CadenceOn(__LONG32 CadenceOn) = 0;
+    virtual HRESULT WINAPI get_CadenceOff(__LONG32 *plCadenceOff) = 0;
+    virtual HRESULT WINAPI put_CadenceOff(__LONG32 lCadenceOff) = 0;
+    virtual HRESULT WINAPI get_Volume(__LONG32 *plVolume) = 0;
+    virtual HRESULT WINAPI put_Volume(__LONG32 lVolume) = 0;
   };
 #else
   typedef struct ITCustomToneVtbl {
@@ -3109,14 +3109,14 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ITCustomTone *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ITCustomTone *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITCustomTone *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Frequency)(ITCustomTone *This,long *plFrequency);
-      HRESULT (WINAPI *put_Frequency)(ITCustomTone *This,long lFrequency);
-      HRESULT (WINAPI *get_CadenceOn)(ITCustomTone *This,long *plCadenceOn);
-      HRESULT (WINAPI *put_CadenceOn)(ITCustomTone *This,long CadenceOn);
-      HRESULT (WINAPI *get_CadenceOff)(ITCustomTone *This,long *plCadenceOff);
-      HRESULT (WINAPI *put_CadenceOff)(ITCustomTone *This,long lCadenceOff);
-      HRESULT (WINAPI *get_Volume)(ITCustomTone *This,long *plVolume);
-      HRESULT (WINAPI *put_Volume)(ITCustomTone *This,long lVolume);
+      HRESULT (WINAPI *get_Frequency)(ITCustomTone *This,__LONG32 *plFrequency);
+      HRESULT (WINAPI *put_Frequency)(ITCustomTone *This,__LONG32 lFrequency);
+      HRESULT (WINAPI *get_CadenceOn)(ITCustomTone *This,__LONG32 *plCadenceOn);
+      HRESULT (WINAPI *put_CadenceOn)(ITCustomTone *This,__LONG32 CadenceOn);
+      HRESULT (WINAPI *get_CadenceOff)(ITCustomTone *This,__LONG32 *plCadenceOff);
+      HRESULT (WINAPI *put_CadenceOff)(ITCustomTone *This,__LONG32 lCadenceOff);
+      HRESULT (WINAPI *get_Volume)(ITCustomTone *This,__LONG32 *plVolume);
+      HRESULT (WINAPI *put_Volume)(ITCustomTone *This,__LONG32 lVolume);
     END_INTERFACE
   } ITCustomToneVtbl;
   struct ITCustomTone {
@@ -3140,21 +3140,21 @@ extern "C" {
 #define ITCustomTone_put_Volume(This,lVolume) (This)->lpVtbl->put_Volume(This,lVolume)
 #endif
 #endif
-  HRESULT WINAPI ITCustomTone_get_Frequency_Proxy(ITCustomTone *This,long *plFrequency);
+  HRESULT WINAPI ITCustomTone_get_Frequency_Proxy(ITCustomTone *This,__LONG32 *plFrequency);
   void __RPC_STUB ITCustomTone_get_Frequency_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITCustomTone_put_Frequency_Proxy(ITCustomTone *This,long lFrequency);
+  HRESULT WINAPI ITCustomTone_put_Frequency_Proxy(ITCustomTone *This,__LONG32 lFrequency);
   void __RPC_STUB ITCustomTone_put_Frequency_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITCustomTone_get_CadenceOn_Proxy(ITCustomTone *This,long *plCadenceOn);
+  HRESULT WINAPI ITCustomTone_get_CadenceOn_Proxy(ITCustomTone *This,__LONG32 *plCadenceOn);
   void __RPC_STUB ITCustomTone_get_CadenceOn_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITCustomTone_put_CadenceOn_Proxy(ITCustomTone *This,long CadenceOn);
+  HRESULT WINAPI ITCustomTone_put_CadenceOn_Proxy(ITCustomTone *This,__LONG32 CadenceOn);
   void __RPC_STUB ITCustomTone_put_CadenceOn_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITCustomTone_get_CadenceOff_Proxy(ITCustomTone *This,long *plCadenceOff);
+  HRESULT WINAPI ITCustomTone_get_CadenceOff_Proxy(ITCustomTone *This,__LONG32 *plCadenceOff);
   void __RPC_STUB ITCustomTone_get_CadenceOff_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITCustomTone_put_CadenceOff_Proxy(ITCustomTone *This,long lCadenceOff);
+  HRESULT WINAPI ITCustomTone_put_CadenceOff_Proxy(ITCustomTone *This,__LONG32 lCadenceOff);
   void __RPC_STUB ITCustomTone_put_CadenceOff_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITCustomTone_get_Volume_Proxy(ITCustomTone *This,long *plVolume);
+  HRESULT WINAPI ITCustomTone_get_Volume_Proxy(ITCustomTone *This,__LONG32 *plVolume);
   void __RPC_STUB ITCustomTone_get_Volume_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITCustomTone_put_Volume_Proxy(ITCustomTone *This,long lVolume);
+  HRESULT WINAPI ITCustomTone_put_Volume_Proxy(ITCustomTone *This,__LONG32 lVolume);
   void __RPC_STUB ITCustomTone_put_Volume_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -3583,8 +3583,8 @@ extern "C" {
     virtual HRESULT WINAPI get_ButtonState(PHONE_BUTTON_STATE *pState) = 0;
     virtual HRESULT WINAPI get_HookSwitchState(PHONE_HOOK_SWITCH_STATE *pState) = 0;
     virtual HRESULT WINAPI get_HookSwitchDevice(PHONE_HOOK_SWITCH_DEVICE *pDevice) = 0;
-    virtual HRESULT WINAPI get_RingMode(long *plRingMode) = 0;
-    virtual HRESULT WINAPI get_ButtonLampId(long *plButtonLampId) = 0;
+    virtual HRESULT WINAPI get_RingMode(__LONG32 *plRingMode) = 0;
+    virtual HRESULT WINAPI get_ButtonLampId(__LONG32 *plButtonLampId) = 0;
     virtual HRESULT WINAPI get_NumberGathered(BSTR *ppNumber) = 0;
     virtual HRESULT WINAPI get_Call(ITCallInfo **ppCallInfo) = 0;
   };
@@ -3603,8 +3603,8 @@ extern "C" {
       HRESULT (WINAPI *get_ButtonState)(ITPhoneEvent *This,PHONE_BUTTON_STATE *pState);
       HRESULT (WINAPI *get_HookSwitchState)(ITPhoneEvent *This,PHONE_HOOK_SWITCH_STATE *pState);
       HRESULT (WINAPI *get_HookSwitchDevice)(ITPhoneEvent *This,PHONE_HOOK_SWITCH_DEVICE *pDevice);
-      HRESULT (WINAPI *get_RingMode)(ITPhoneEvent *This,long *plRingMode);
-      HRESULT (WINAPI *get_ButtonLampId)(ITPhoneEvent *This,long *plButtonLampId);
+      HRESULT (WINAPI *get_RingMode)(ITPhoneEvent *This,__LONG32 *plRingMode);
+      HRESULT (WINAPI *get_ButtonLampId)(ITPhoneEvent *This,__LONG32 *plButtonLampId);
       HRESULT (WINAPI *get_NumberGathered)(ITPhoneEvent *This,BSTR *ppNumber);
       HRESULT (WINAPI *get_Call)(ITPhoneEvent *This,ITCallInfo **ppCallInfo);
     END_INTERFACE
@@ -3641,9 +3641,9 @@ extern "C" {
   void __RPC_STUB ITPhoneEvent_get_HookSwitchState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITPhoneEvent_get_HookSwitchDevice_Proxy(ITPhoneEvent *This,PHONE_HOOK_SWITCH_DEVICE *pDevice);
   void __RPC_STUB ITPhoneEvent_get_HookSwitchDevice_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPhoneEvent_get_RingMode_Proxy(ITPhoneEvent *This,long *plRingMode);
+  HRESULT WINAPI ITPhoneEvent_get_RingMode_Proxy(ITPhoneEvent *This,__LONG32 *plRingMode);
   void __RPC_STUB ITPhoneEvent_get_RingMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPhoneEvent_get_ButtonLampId_Proxy(ITPhoneEvent *This,long *plButtonLampId);
+  HRESULT WINAPI ITPhoneEvent_get_ButtonLampId_Proxy(ITPhoneEvent *This,__LONG32 *plButtonLampId);
   void __RPC_STUB ITPhoneEvent_get_ButtonLampId_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITPhoneEvent_get_NumberGathered_Proxy(ITPhoneEvent *This,BSTR *ppNumber);
   void __RPC_STUB ITPhoneEvent_get_NumberGathered_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -3660,7 +3660,7 @@ extern "C" {
     virtual HRESULT WINAPI get_Call(ITCallInfo **ppCallInfo) = 0;
     virtual HRESULT WINAPI get_State(CALL_STATE *pCallState) = 0;
     virtual HRESULT WINAPI get_Cause(CALL_STATE_EVENT_CAUSE *pCEC) = 0;
-    virtual HRESULT WINAPI get_CallbackInstance(long *plCallbackInstance) = 0;
+    virtual HRESULT WINAPI get_CallbackInstance(__LONG32 *plCallbackInstance) = 0;
   };
 #else
   typedef struct ITCallStateEventVtbl {
@@ -3675,7 +3675,7 @@ extern "C" {
       HRESULT (WINAPI *get_Call)(ITCallStateEvent *This,ITCallInfo **ppCallInfo);
       HRESULT (WINAPI *get_State)(ITCallStateEvent *This,CALL_STATE *pCallState);
       HRESULT (WINAPI *get_Cause)(ITCallStateEvent *This,CALL_STATE_EVENT_CAUSE *pCEC);
-      HRESULT (WINAPI *get_CallbackInstance)(ITCallStateEvent *This,long *plCallbackInstance);
+      HRESULT (WINAPI *get_CallbackInstance)(ITCallStateEvent *This,__LONG32 *plCallbackInstance);
     END_INTERFACE
   } ITCallStateEventVtbl;
   struct ITCallStateEvent {
@@ -3701,7 +3701,7 @@ extern "C" {
   void __RPC_STUB ITCallStateEvent_get_State_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITCallStateEvent_get_Cause_Proxy(ITCallStateEvent *This,CALL_STATE_EVENT_CAUSE *pCEC);
   void __RPC_STUB ITCallStateEvent_get_Cause_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITCallStateEvent_get_CallbackInstance_Proxy(ITCallStateEvent *This,long *plCallbackInstance);
+  HRESULT WINAPI ITCallStateEvent_get_CallbackInstance_Proxy(ITCallStateEvent *This,__LONG32 *plCallbackInstance);
   void __RPC_STUB ITCallStateEvent_get_CallbackInstance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -3712,9 +3712,9 @@ extern "C" {
   struct ITPhoneDeviceSpecificEvent : public IDispatch {
   public:
     virtual HRESULT WINAPI get_Phone(ITPhone **ppPhone) = 0;
-    virtual HRESULT WINAPI get_lParam1(long *pParam1) = 0;
-    virtual HRESULT WINAPI get_lParam2(long *pParam2) = 0;
-    virtual HRESULT WINAPI get_lParam3(long *pParam3) = 0;
+    virtual HRESULT WINAPI get_lParam1(__LONG32 *pParam1) = 0;
+    virtual HRESULT WINAPI get_lParam2(__LONG32 *pParam2) = 0;
+    virtual HRESULT WINAPI get_lParam3(__LONG32 *pParam3) = 0;
   };
 #else
   typedef struct ITPhoneDeviceSpecificEventVtbl {
@@ -3727,9 +3727,9 @@ extern "C" {
       HRESULT (WINAPI *GetIDsOfNames)(ITPhoneDeviceSpecificEvent *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITPhoneDeviceSpecificEvent *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_Phone)(ITPhoneDeviceSpecificEvent *This,ITPhone **ppPhone);
-      HRESULT (WINAPI *get_lParam1)(ITPhoneDeviceSpecificEvent *This,long *pParam1);
-      HRESULT (WINAPI *get_lParam2)(ITPhoneDeviceSpecificEvent *This,long *pParam2);
-      HRESULT (WINAPI *get_lParam3)(ITPhoneDeviceSpecificEvent *This,long *pParam3);
+      HRESULT (WINAPI *get_lParam1)(ITPhoneDeviceSpecificEvent *This,__LONG32 *pParam1);
+      HRESULT (WINAPI *get_lParam2)(ITPhoneDeviceSpecificEvent *This,__LONG32 *pParam2);
+      HRESULT (WINAPI *get_lParam3)(ITPhoneDeviceSpecificEvent *This,__LONG32 *pParam3);
     END_INTERFACE
   } ITPhoneDeviceSpecificEventVtbl;
   struct ITPhoneDeviceSpecificEvent {
@@ -3751,11 +3751,11 @@ extern "C" {
 #endif
   HRESULT WINAPI ITPhoneDeviceSpecificEvent_get_Phone_Proxy(ITPhoneDeviceSpecificEvent *This,ITPhone **ppPhone);
   void __RPC_STUB ITPhoneDeviceSpecificEvent_get_Phone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPhoneDeviceSpecificEvent_get_lParam1_Proxy(ITPhoneDeviceSpecificEvent *This,long *pParam1);
+  HRESULT WINAPI ITPhoneDeviceSpecificEvent_get_lParam1_Proxy(ITPhoneDeviceSpecificEvent *This,__LONG32 *pParam1);
   void __RPC_STUB ITPhoneDeviceSpecificEvent_get_lParam1_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPhoneDeviceSpecificEvent_get_lParam2_Proxy(ITPhoneDeviceSpecificEvent *This,long *pParam2);
+  HRESULT WINAPI ITPhoneDeviceSpecificEvent_get_lParam2_Proxy(ITPhoneDeviceSpecificEvent *This,__LONG32 *pParam2);
   void __RPC_STUB ITPhoneDeviceSpecificEvent_get_lParam2_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPhoneDeviceSpecificEvent_get_lParam3_Proxy(ITPhoneDeviceSpecificEvent *This,long *pParam3);
+  HRESULT WINAPI ITPhoneDeviceSpecificEvent_get_lParam3_Proxy(ITPhoneDeviceSpecificEvent *This,__LONG32 *pParam3);
   void __RPC_STUB ITPhoneDeviceSpecificEvent_get_lParam3_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -3832,8 +3832,8 @@ extern "C" {
     virtual HRESULT WINAPI get_Call(ITCallInfo **ppCallInfo) = 0;
     virtual HRESULT WINAPI get_Digit(unsigned char *pucDigit) = 0;
     virtual HRESULT WINAPI get_DigitMode(TAPI_DIGITMODE *pDigitMode) = 0;
-    virtual HRESULT WINAPI get_TickCount(long *plTickCount) = 0;
-    virtual HRESULT WINAPI get_CallbackInstance(long *plCallbackInstance) = 0;
+    virtual HRESULT WINAPI get_TickCount(__LONG32 *plTickCount) = 0;
+    virtual HRESULT WINAPI get_CallbackInstance(__LONG32 *plCallbackInstance) = 0;
   };
 #else
   typedef struct ITDigitDetectionEventVtbl {
@@ -3848,8 +3848,8 @@ extern "C" {
       HRESULT (WINAPI *get_Call)(ITDigitDetectionEvent *This,ITCallInfo **ppCallInfo);
       HRESULT (WINAPI *get_Digit)(ITDigitDetectionEvent *This,unsigned char *pucDigit);
       HRESULT (WINAPI *get_DigitMode)(ITDigitDetectionEvent *This,TAPI_DIGITMODE *pDigitMode);
-      HRESULT (WINAPI *get_TickCount)(ITDigitDetectionEvent *This,long *plTickCount);
-      HRESULT (WINAPI *get_CallbackInstance)(ITDigitDetectionEvent *This,long *plCallbackInstance);
+      HRESULT (WINAPI *get_TickCount)(ITDigitDetectionEvent *This,__LONG32 *plTickCount);
+      HRESULT (WINAPI *get_CallbackInstance)(ITDigitDetectionEvent *This,__LONG32 *plCallbackInstance);
     END_INTERFACE
   } ITDigitDetectionEventVtbl;
   struct ITDigitDetectionEvent {
@@ -3876,9 +3876,9 @@ extern "C" {
   void __RPC_STUB ITDigitDetectionEvent_get_Digit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITDigitDetectionEvent_get_DigitMode_Proxy(ITDigitDetectionEvent *This,TAPI_DIGITMODE *pDigitMode);
   void __RPC_STUB ITDigitDetectionEvent_get_DigitMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITDigitDetectionEvent_get_TickCount_Proxy(ITDigitDetectionEvent *This,long *plTickCount);
+  HRESULT WINAPI ITDigitDetectionEvent_get_TickCount_Proxy(ITDigitDetectionEvent *This,__LONG32 *plTickCount);
   void __RPC_STUB ITDigitDetectionEvent_get_TickCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITDigitDetectionEvent_get_CallbackInstance_Proxy(ITDigitDetectionEvent *This,long *plCallbackInstance);
+  HRESULT WINAPI ITDigitDetectionEvent_get_CallbackInstance_Proxy(ITDigitDetectionEvent *This,__LONG32 *plCallbackInstance);
   void __RPC_STUB ITDigitDetectionEvent_get_CallbackInstance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -3889,9 +3889,9 @@ extern "C" {
   struct ITDigitGenerationEvent : public IDispatch {
   public:
     virtual HRESULT WINAPI get_Call(ITCallInfo **ppCallInfo) = 0;
-    virtual HRESULT WINAPI get_GenerationTermination(long *plGenerationTermination) = 0;
-    virtual HRESULT WINAPI get_TickCount(long *plTickCount) = 0;
-    virtual HRESULT WINAPI get_CallbackInstance(long *plCallbackInstance) = 0;
+    virtual HRESULT WINAPI get_GenerationTermination(__LONG32 *plGenerationTermination) = 0;
+    virtual HRESULT WINAPI get_TickCount(__LONG32 *plTickCount) = 0;
+    virtual HRESULT WINAPI get_CallbackInstance(__LONG32 *plCallbackInstance) = 0;
   };
 #else
   typedef struct ITDigitGenerationEventVtbl {
@@ -3904,9 +3904,9 @@ extern "C" {
       HRESULT (WINAPI *GetIDsOfNames)(ITDigitGenerationEvent *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITDigitGenerationEvent *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_Call)(ITDigitGenerationEvent *This,ITCallInfo **ppCallInfo);
-      HRESULT (WINAPI *get_GenerationTermination)(ITDigitGenerationEvent *This,long *plGenerationTermination);
-      HRESULT (WINAPI *get_TickCount)(ITDigitGenerationEvent *This,long *plTickCount);
-      HRESULT (WINAPI *get_CallbackInstance)(ITDigitGenerationEvent *This,long *plCallbackInstance);
+      HRESULT (WINAPI *get_GenerationTermination)(ITDigitGenerationEvent *This,__LONG32 *plGenerationTermination);
+      HRESULT (WINAPI *get_TickCount)(ITDigitGenerationEvent *This,__LONG32 *plTickCount);
+      HRESULT (WINAPI *get_CallbackInstance)(ITDigitGenerationEvent *This,__LONG32 *plCallbackInstance);
     END_INTERFACE
   } ITDigitGenerationEventVtbl;
   struct ITDigitGenerationEvent {
@@ -3928,11 +3928,11 @@ extern "C" {
 #endif
   HRESULT WINAPI ITDigitGenerationEvent_get_Call_Proxy(ITDigitGenerationEvent *This,ITCallInfo **ppCallInfo);
   void __RPC_STUB ITDigitGenerationEvent_get_Call_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITDigitGenerationEvent_get_GenerationTermination_Proxy(ITDigitGenerationEvent *This,long *plGenerationTermination);
+  HRESULT WINAPI ITDigitGenerationEvent_get_GenerationTermination_Proxy(ITDigitGenerationEvent *This,__LONG32 *plGenerationTermination);
   void __RPC_STUB ITDigitGenerationEvent_get_GenerationTermination_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITDigitGenerationEvent_get_TickCount_Proxy(ITDigitGenerationEvent *This,long *plTickCount);
+  HRESULT WINAPI ITDigitGenerationEvent_get_TickCount_Proxy(ITDigitGenerationEvent *This,__LONG32 *plTickCount);
   void __RPC_STUB ITDigitGenerationEvent_get_TickCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITDigitGenerationEvent_get_CallbackInstance_Proxy(ITDigitGenerationEvent *This,long *plCallbackInstance);
+  HRESULT WINAPI ITDigitGenerationEvent_get_CallbackInstance_Proxy(ITDigitGenerationEvent *This,__LONG32 *plCallbackInstance);
   void __RPC_STUB ITDigitGenerationEvent_get_CallbackInstance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -3945,8 +3945,8 @@ extern "C" {
     virtual HRESULT WINAPI get_Call(ITCallInfo **ppCallInfo) = 0;
     virtual HRESULT WINAPI get_Digits(BSTR *ppDigits) = 0;
     virtual HRESULT WINAPI get_GatherTermination(TAPI_GATHERTERM *pGatherTermination) = 0;
-    virtual HRESULT WINAPI get_TickCount(long *plTickCount) = 0;
-    virtual HRESULT WINAPI get_CallbackInstance(long *plCallbackInstance) = 0;
+    virtual HRESULT WINAPI get_TickCount(__LONG32 *plTickCount) = 0;
+    virtual HRESULT WINAPI get_CallbackInstance(__LONG32 *plCallbackInstance) = 0;
   };
 #else
   typedef struct ITDigitsGatheredEventVtbl {
@@ -3961,8 +3961,8 @@ extern "C" {
       HRESULT (WINAPI *get_Call)(ITDigitsGatheredEvent *This,ITCallInfo **ppCallInfo);
       HRESULT (WINAPI *get_Digits)(ITDigitsGatheredEvent *This,BSTR *ppDigits);
       HRESULT (WINAPI *get_GatherTermination)(ITDigitsGatheredEvent *This,TAPI_GATHERTERM *pGatherTermination);
-      HRESULT (WINAPI *get_TickCount)(ITDigitsGatheredEvent *This,long *plTickCount);
-      HRESULT (WINAPI *get_CallbackInstance)(ITDigitsGatheredEvent *This,long *plCallbackInstance);
+      HRESULT (WINAPI *get_TickCount)(ITDigitsGatheredEvent *This,__LONG32 *plTickCount);
+      HRESULT (WINAPI *get_CallbackInstance)(ITDigitsGatheredEvent *This,__LONG32 *plCallbackInstance);
     END_INTERFACE
   } ITDigitsGatheredEventVtbl;
   struct ITDigitsGatheredEvent {
@@ -3989,9 +3989,9 @@ extern "C" {
   void __RPC_STUB ITDigitsGatheredEvent_get_Digits_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITDigitsGatheredEvent_get_GatherTermination_Proxy(ITDigitsGatheredEvent *This,TAPI_GATHERTERM *pGatherTermination);
   void __RPC_STUB ITDigitsGatheredEvent_get_GatherTermination_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITDigitsGatheredEvent_get_TickCount_Proxy(ITDigitsGatheredEvent *This,long *plTickCount);
+  HRESULT WINAPI ITDigitsGatheredEvent_get_TickCount_Proxy(ITDigitsGatheredEvent *This,__LONG32 *plTickCount);
   void __RPC_STUB ITDigitsGatheredEvent_get_TickCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITDigitsGatheredEvent_get_CallbackInstance_Proxy(ITDigitsGatheredEvent *This,long *plCallbackInstance);
+  HRESULT WINAPI ITDigitsGatheredEvent_get_CallbackInstance_Proxy(ITDigitsGatheredEvent *This,__LONG32 *plCallbackInstance);
   void __RPC_STUB ITDigitsGatheredEvent_get_CallbackInstance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -4002,9 +4002,9 @@ extern "C" {
   struct ITToneDetectionEvent : public IDispatch {
   public:
     virtual HRESULT WINAPI get_Call(ITCallInfo **ppCallInfo) = 0;
-    virtual HRESULT WINAPI get_AppSpecific(long *plAppSpecific) = 0;
-    virtual HRESULT WINAPI get_TickCount(long *plTickCount) = 0;
-    virtual HRESULT WINAPI get_CallbackInstance(long *plCallbackInstance) = 0;
+    virtual HRESULT WINAPI get_AppSpecific(__LONG32 *plAppSpecific) = 0;
+    virtual HRESULT WINAPI get_TickCount(__LONG32 *plTickCount) = 0;
+    virtual HRESULT WINAPI get_CallbackInstance(__LONG32 *plCallbackInstance) = 0;
   };
 #else
   typedef struct ITToneDetectionEventVtbl {
@@ -4017,9 +4017,9 @@ extern "C" {
       HRESULT (WINAPI *GetIDsOfNames)(ITToneDetectionEvent *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITToneDetectionEvent *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_Call)(ITToneDetectionEvent *This,ITCallInfo **ppCallInfo);
-      HRESULT (WINAPI *get_AppSpecific)(ITToneDetectionEvent *This,long *plAppSpecific);
-      HRESULT (WINAPI *get_TickCount)(ITToneDetectionEvent *This,long *plTickCount);
-      HRESULT (WINAPI *get_CallbackInstance)(ITToneDetectionEvent *This,long *plCallbackInstance);
+      HRESULT (WINAPI *get_AppSpecific)(ITToneDetectionEvent *This,__LONG32 *plAppSpecific);
+      HRESULT (WINAPI *get_TickCount)(ITToneDetectionEvent *This,__LONG32 *plTickCount);
+      HRESULT (WINAPI *get_CallbackInstance)(ITToneDetectionEvent *This,__LONG32 *plCallbackInstance);
     END_INTERFACE
   } ITToneDetectionEventVtbl;
   struct ITToneDetectionEvent {
@@ -4041,11 +4041,11 @@ extern "C" {
 #endif
   HRESULT WINAPI ITToneDetectionEvent_get_Call_Proxy(ITToneDetectionEvent *This,ITCallInfo **ppCallInfo);
   void __RPC_STUB ITToneDetectionEvent_get_Call_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITToneDetectionEvent_get_AppSpecific_Proxy(ITToneDetectionEvent *This,long *plAppSpecific);
+  HRESULT WINAPI ITToneDetectionEvent_get_AppSpecific_Proxy(ITToneDetectionEvent *This,__LONG32 *plAppSpecific);
   void __RPC_STUB ITToneDetectionEvent_get_AppSpecific_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITToneDetectionEvent_get_TickCount_Proxy(ITToneDetectionEvent *This,long *plTickCount);
+  HRESULT WINAPI ITToneDetectionEvent_get_TickCount_Proxy(ITToneDetectionEvent *This,__LONG32 *plTickCount);
   void __RPC_STUB ITToneDetectionEvent_get_TickCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITToneDetectionEvent_get_CallbackInstance_Proxy(ITToneDetectionEvent *This,long *plCallbackInstance);
+  HRESULT WINAPI ITToneDetectionEvent_get_CallbackInstance_Proxy(ITToneDetectionEvent *This,__LONG32 *plCallbackInstance);
   void __RPC_STUB ITToneDetectionEvent_get_CallbackInstance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -4058,7 +4058,7 @@ extern "C" {
     virtual HRESULT WINAPI get_TAPIObject(ITTAPI **ppTAPIObject) = 0;
     virtual HRESULT WINAPI get_Event(TAPIOBJECT_EVENT *pEvent) = 0;
     virtual HRESULT WINAPI get_Address(ITAddress **ppAddress) = 0;
-    virtual HRESULT WINAPI get_CallbackInstance(long *plCallbackInstance) = 0;
+    virtual HRESULT WINAPI get_CallbackInstance(__LONG32 *plCallbackInstance) = 0;
   };
 #else
   typedef struct ITTAPIObjectEventVtbl {
@@ -4073,7 +4073,7 @@ extern "C" {
       HRESULT (WINAPI *get_TAPIObject)(ITTAPIObjectEvent *This,ITTAPI **ppTAPIObject);
       HRESULT (WINAPI *get_Event)(ITTAPIObjectEvent *This,TAPIOBJECT_EVENT *pEvent);
       HRESULT (WINAPI *get_Address)(ITTAPIObjectEvent *This,ITAddress **ppAddress);
-      HRESULT (WINAPI *get_CallbackInstance)(ITTAPIObjectEvent *This,long *plCallbackInstance);
+      HRESULT (WINAPI *get_CallbackInstance)(ITTAPIObjectEvent *This,__LONG32 *plCallbackInstance);
     END_INTERFACE
   } ITTAPIObjectEventVtbl;
   struct ITTAPIObjectEvent {
@@ -4099,7 +4099,7 @@ extern "C" {
   void __RPC_STUB ITTAPIObjectEvent_get_Event_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITTAPIObjectEvent_get_Address_Proxy(ITTAPIObjectEvent *This,ITAddress **ppAddress);
   void __RPC_STUB ITTAPIObjectEvent_get_Address_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITTAPIObjectEvent_get_CallbackInstance_Proxy(ITTAPIObjectEvent *This,long *plCallbackInstance);
+  HRESULT WINAPI ITTAPIObjectEvent_get_CallbackInstance_Proxy(ITTAPIObjectEvent *This,__LONG32 *plCallbackInstance);
   void __RPC_STUB ITTAPIObjectEvent_get_CallbackInstance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -4124,7 +4124,7 @@ extern "C" {
       HRESULT (WINAPI *get_TAPIObject)(ITTAPIObjectEvent2 *This,ITTAPI **ppTAPIObject);
       HRESULT (WINAPI *get_Event)(ITTAPIObjectEvent2 *This,TAPIOBJECT_EVENT *pEvent);
       HRESULT (WINAPI *get_Address)(ITTAPIObjectEvent2 *This,ITAddress **ppAddress);
-      HRESULT (WINAPI *get_CallbackInstance)(ITTAPIObjectEvent2 *This,long *plCallbackInstance);
+      HRESULT (WINAPI *get_CallbackInstance)(ITTAPIObjectEvent2 *This,__LONG32 *plCallbackInstance);
       HRESULT (WINAPI *get_Phone)(ITTAPIObjectEvent2 *This,ITPhone **ppPhone);
     END_INTERFACE
   } ITTAPIObjectEvent2Vtbl;
@@ -4287,9 +4287,9 @@ extern "C" {
   public:
     virtual HRESULT WINAPI get_Address(ITAddress **ppAddress) = 0;
     virtual HRESULT WINAPI get_Call(ITCallInfo **ppCall) = 0;
-    virtual HRESULT WINAPI get_lParam1(long *pParam1) = 0;
-    virtual HRESULT WINAPI get_lParam2(long *pParam2) = 0;
-    virtual HRESULT WINAPI get_lParam3(long *pParam3) = 0;
+    virtual HRESULT WINAPI get_lParam1(__LONG32 *pParam1) = 0;
+    virtual HRESULT WINAPI get_lParam2(__LONG32 *pParam2) = 0;
+    virtual HRESULT WINAPI get_lParam3(__LONG32 *pParam3) = 0;
   };
 #else
   typedef struct ITAddressDeviceSpecificEventVtbl {
@@ -4303,9 +4303,9 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(ITAddressDeviceSpecificEvent *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_Address)(ITAddressDeviceSpecificEvent *This,ITAddress **ppAddress);
       HRESULT (WINAPI *get_Call)(ITAddressDeviceSpecificEvent *This,ITCallInfo **ppCall);
-      HRESULT (WINAPI *get_lParam1)(ITAddressDeviceSpecificEvent *This,long *pParam1);
-      HRESULT (WINAPI *get_lParam2)(ITAddressDeviceSpecificEvent *This,long *pParam2);
-      HRESULT (WINAPI *get_lParam3)(ITAddressDeviceSpecificEvent *This,long *pParam3);
+      HRESULT (WINAPI *get_lParam1)(ITAddressDeviceSpecificEvent *This,__LONG32 *pParam1);
+      HRESULT (WINAPI *get_lParam2)(ITAddressDeviceSpecificEvent *This,__LONG32 *pParam2);
+      HRESULT (WINAPI *get_lParam3)(ITAddressDeviceSpecificEvent *This,__LONG32 *pParam3);
     END_INTERFACE
   } ITAddressDeviceSpecificEventVtbl;
   struct ITAddressDeviceSpecificEvent {
@@ -4330,11 +4330,11 @@ extern "C" {
   void __RPC_STUB ITAddressDeviceSpecificEvent_get_Address_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAddressDeviceSpecificEvent_get_Call_Proxy(ITAddressDeviceSpecificEvent *This,ITCallInfo **ppCall);
   void __RPC_STUB ITAddressDeviceSpecificEvent_get_Call_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAddressDeviceSpecificEvent_get_lParam1_Proxy(ITAddressDeviceSpecificEvent *This,long *pParam1);
+  HRESULT WINAPI ITAddressDeviceSpecificEvent_get_lParam1_Proxy(ITAddressDeviceSpecificEvent *This,__LONG32 *pParam1);
   void __RPC_STUB ITAddressDeviceSpecificEvent_get_lParam1_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAddressDeviceSpecificEvent_get_lParam2_Proxy(ITAddressDeviceSpecificEvent *This,long *pParam2);
+  HRESULT WINAPI ITAddressDeviceSpecificEvent_get_lParam2_Proxy(ITAddressDeviceSpecificEvent *This,__LONG32 *pParam2);
   void __RPC_STUB ITAddressDeviceSpecificEvent_get_lParam2_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAddressDeviceSpecificEvent_get_lParam3_Proxy(ITAddressDeviceSpecificEvent *This,long *pParam3);
+  HRESULT WINAPI ITAddressDeviceSpecificEvent_get_lParam3_Proxy(ITAddressDeviceSpecificEvent *This,__LONG32 *pParam3);
   void __RPC_STUB ITAddressDeviceSpecificEvent_get_lParam3_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -4557,7 +4557,7 @@ extern "C" {
   public:
     virtual HRESULT WINAPI get_Call(ITCallInfo **ppCall) = 0;
     virtual HRESULT WINAPI get_Event(QOS_EVENT *pQosEvent) = 0;
-    virtual HRESULT WINAPI get_MediaType(long *plMediaType) = 0;
+    virtual HRESULT WINAPI get_MediaType(__LONG32 *plMediaType) = 0;
   };
 #else
   typedef struct ITQOSEventVtbl {
@@ -4571,7 +4571,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(ITQOSEvent *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_Call)(ITQOSEvent *This,ITCallInfo **ppCall);
       HRESULT (WINAPI *get_Event)(ITQOSEvent *This,QOS_EVENT *pQosEvent);
-      HRESULT (WINAPI *get_MediaType)(ITQOSEvent *This,long *plMediaType);
+      HRESULT (WINAPI *get_MediaType)(ITQOSEvent *This,__LONG32 *plMediaType);
     END_INTERFACE
   } ITQOSEventVtbl;
   struct ITQOSEvent {
@@ -4594,7 +4594,7 @@ extern "C" {
   void __RPC_STUB ITQOSEvent_get_Call_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITQOSEvent_get_Event_Proxy(ITQOSEvent *This,QOS_EVENT *pQosEvent);
   void __RPC_STUB ITQOSEvent_get_Event_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITQOSEvent_get_MediaType_Proxy(ITQOSEvent *This,long *plMediaType);
+  HRESULT WINAPI ITQOSEvent_get_MediaType_Proxy(ITQOSEvent *This,__LONG32 *plMediaType);
   void __RPC_STUB ITQOSEvent_get_MediaType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -4606,7 +4606,7 @@ extern "C" {
   public:
     virtual HRESULT WINAPI get_Call(ITCallInfo **ppCall) = 0;
     virtual HRESULT WINAPI get_Cause(CALLINFOCHANGE_CAUSE *pCIC) = 0;
-    virtual HRESULT WINAPI get_CallbackInstance(long *plCallbackInstance) = 0;
+    virtual HRESULT WINAPI get_CallbackInstance(__LONG32 *plCallbackInstance) = 0;
   };
 #else
   typedef struct ITCallInfoChangeEventVtbl {
@@ -4620,7 +4620,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(ITCallInfoChangeEvent *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_Call)(ITCallInfoChangeEvent *This,ITCallInfo **ppCall);
       HRESULT (WINAPI *get_Cause)(ITCallInfoChangeEvent *This,CALLINFOCHANGE_CAUSE *pCIC);
-      HRESULT (WINAPI *get_CallbackInstance)(ITCallInfoChangeEvent *This,long *plCallbackInstance);
+      HRESULT (WINAPI *get_CallbackInstance)(ITCallInfoChangeEvent *This,__LONG32 *plCallbackInstance);
     END_INTERFACE
   } ITCallInfoChangeEventVtbl;
   struct ITCallInfoChangeEvent {
@@ -4643,7 +4643,7 @@ extern "C" {
   void __RPC_STUB ITCallInfoChangeEvent_get_Call_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITCallInfoChangeEvent_get_Cause_Proxy(ITCallInfoChangeEvent *This,CALLINFOCHANGE_CAUSE *pCIC);
   void __RPC_STUB ITCallInfoChangeEvent_get_Cause_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITCallInfoChangeEvent_get_CallbackInstance_Proxy(ITCallInfoChangeEvent *This,long *plCallbackInstance);
+  HRESULT WINAPI ITCallInfoChangeEvent_get_CallbackInstance_Proxy(ITCallInfoChangeEvent *This,__LONG32 *plCallbackInstance);
   void __RPC_STUB ITCallInfoChangeEvent_get_CallbackInstance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -4692,8 +4692,8 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITRequestEvent : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_RegistrationInstance(long *plRegistrationInstance) = 0;
-    virtual HRESULT WINAPI get_RequestMode(long *plRequestMode) = 0;
+    virtual HRESULT WINAPI get_RegistrationInstance(__LONG32 *plRegistrationInstance) = 0;
+    virtual HRESULT WINAPI get_RequestMode(__LONG32 *plRequestMode) = 0;
     virtual HRESULT WINAPI get_DestAddress(BSTR *ppDestAddress) = 0;
     virtual HRESULT WINAPI get_AppName(BSTR *ppAppName) = 0;
     virtual HRESULT WINAPI get_CalledParty(BSTR *ppCalledParty) = 0;
@@ -4709,8 +4709,8 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ITRequestEvent *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ITRequestEvent *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITRequestEvent *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_RegistrationInstance)(ITRequestEvent *This,long *plRegistrationInstance);
-      HRESULT (WINAPI *get_RequestMode)(ITRequestEvent *This,long *plRequestMode);
+      HRESULT (WINAPI *get_RegistrationInstance)(ITRequestEvent *This,__LONG32 *plRegistrationInstance);
+      HRESULT (WINAPI *get_RequestMode)(ITRequestEvent *This,__LONG32 *plRequestMode);
       HRESULT (WINAPI *get_DestAddress)(ITRequestEvent *This,BSTR *ppDestAddress);
       HRESULT (WINAPI *get_AppName)(ITRequestEvent *This,BSTR *ppAppName);
       HRESULT (WINAPI *get_CalledParty)(ITRequestEvent *This,BSTR *ppCalledParty);
@@ -4736,9 +4736,9 @@ extern "C" {
 #define ITRequestEvent_get_Comment(This,ppComment) (This)->lpVtbl->get_Comment(This,ppComment)
 #endif
 #endif
-  HRESULT WINAPI ITRequestEvent_get_RegistrationInstance_Proxy(ITRequestEvent *This,long *plRegistrationInstance);
+  HRESULT WINAPI ITRequestEvent_get_RegistrationInstance_Proxy(ITRequestEvent *This,__LONG32 *plRegistrationInstance);
   void __RPC_STUB ITRequestEvent_get_RegistrationInstance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITRequestEvent_get_RequestMode_Proxy(ITRequestEvent *This,long *plRequestMode);
+  HRESULT WINAPI ITRequestEvent_get_RequestMode_Proxy(ITRequestEvent *This,__LONG32 *plRequestMode);
   void __RPC_STUB ITRequestEvent_get_RequestMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITRequestEvent_get_DestAddress_Proxy(ITRequestEvent *This,BSTR *ppDestAddress);
   void __RPC_STUB ITRequestEvent_get_DestAddress_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -4756,8 +4756,8 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *lCount) = 0;
-    virtual HRESULT WINAPI get_Item(long Index,VARIANT *pVariant) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *lCount) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 Index,VARIANT *pVariant) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **ppNewEnum) = 0;
   };
 #else
@@ -4770,8 +4770,8 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ITCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ITCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(ITCollection *This,long *lCount);
-      HRESULT (WINAPI *get_Item)(ITCollection *This,long Index,VARIANT *pVariant);
+      HRESULT (WINAPI *get_Count)(ITCollection *This,__LONG32 *lCount);
+      HRESULT (WINAPI *get_Item)(ITCollection *This,__LONG32 Index,VARIANT *pVariant);
       HRESULT (WINAPI *get__NewEnum)(ITCollection *This,IUnknown **ppNewEnum);
     END_INTERFACE
   } ITCollectionVtbl;
@@ -4791,9 +4791,9 @@ extern "C" {
 #define ITCollection_get__NewEnum(This,ppNewEnum) (This)->lpVtbl->get__NewEnum(This,ppNewEnum)
 #endif
 #endif
-  HRESULT WINAPI ITCollection_get_Count_Proxy(ITCollection *This,long *lCount);
+  HRESULT WINAPI ITCollection_get_Count_Proxy(ITCollection *This,__LONG32 *lCount);
   void __RPC_STUB ITCollection_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITCollection_get_Item_Proxy(ITCollection *This,long Index,VARIANT *pVariant);
+  HRESULT WINAPI ITCollection_get_Item_Proxy(ITCollection *This,__LONG32 Index,VARIANT *pVariant);
   void __RPC_STUB ITCollection_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITCollection_get__NewEnum_Proxy(ITCollection *This,IUnknown **ppNewEnum);
   void __RPC_STUB ITCollection_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -4805,8 +4805,8 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITCollection2 : public ITCollection {
   public:
-    virtual HRESULT WINAPI Add(long Index,VARIANT *pVariant) = 0;
-    virtual HRESULT WINAPI Remove(long Index) = 0;
+    virtual HRESULT WINAPI Add(__LONG32 Index,VARIANT *pVariant) = 0;
+    virtual HRESULT WINAPI Remove(__LONG32 Index) = 0;
   };
 #else
   typedef struct ITCollection2Vtbl {
@@ -4818,11 +4818,11 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ITCollection2 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ITCollection2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITCollection2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(ITCollection2 *This,long *lCount);
-      HRESULT (WINAPI *get_Item)(ITCollection2 *This,long Index,VARIANT *pVariant);
+      HRESULT (WINAPI *get_Count)(ITCollection2 *This,__LONG32 *lCount);
+      HRESULT (WINAPI *get_Item)(ITCollection2 *This,__LONG32 Index,VARIANT *pVariant);
       HRESULT (WINAPI *get__NewEnum)(ITCollection2 *This,IUnknown **ppNewEnum);
-      HRESULT (WINAPI *Add)(ITCollection2 *This,long Index,VARIANT *pVariant);
-      HRESULT (WINAPI *Remove)(ITCollection2 *This,long Index);
+      HRESULT (WINAPI *Add)(ITCollection2 *This,__LONG32 Index,VARIANT *pVariant);
+      HRESULT (WINAPI *Remove)(ITCollection2 *This,__LONG32 Index);
     END_INTERFACE
   } ITCollection2Vtbl;
   struct ITCollection2 {
@@ -4843,9 +4843,9 @@ extern "C" {
 #define ITCollection2_Remove(This,Index) (This)->lpVtbl->Remove(This,Index)
 #endif
 #endif
-  HRESULT WINAPI ITCollection2_Add_Proxy(ITCollection2 *This,long Index,VARIANT *pVariant);
+  HRESULT WINAPI ITCollection2_Add_Proxy(ITCollection2 *This,__LONG32 Index,VARIANT *pVariant);
   void __RPC_STUB ITCollection2_Add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITCollection2_Remove_Proxy(ITCollection2 *This,long Index);
+  HRESULT WINAPI ITCollection2_Remove_Proxy(ITCollection2 *This,__LONG32 Index);
   void __RPC_STUB ITCollection2_Remove_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -4855,12 +4855,12 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITForwardInformation : public IDispatch {
   public:
-    virtual HRESULT WINAPI put_NumRingsNoAnswer(long lNumRings) = 0;
-    virtual HRESULT WINAPI get_NumRingsNoAnswer(long *plNumRings) = 0;
-    virtual HRESULT WINAPI SetForwardType(long ForwardType,BSTR pDestAddress,BSTR pCallerAddress) = 0;
-    virtual HRESULT WINAPI get_ForwardTypeDestination(long ForwardType,BSTR *ppDestAddress) = 0;
-    virtual HRESULT WINAPI get_ForwardTypeCaller(long Forwardtype,BSTR *ppCallerAddress) = 0;
-    virtual HRESULT WINAPI GetForwardType(long ForwardType,BSTR *ppDestinationAddress,BSTR *ppCallerAddress) = 0;
+    virtual HRESULT WINAPI put_NumRingsNoAnswer(__LONG32 lNumRings) = 0;
+    virtual HRESULT WINAPI get_NumRingsNoAnswer(__LONG32 *plNumRings) = 0;
+    virtual HRESULT WINAPI SetForwardType(__LONG32 ForwardType,BSTR pDestAddress,BSTR pCallerAddress) = 0;
+    virtual HRESULT WINAPI get_ForwardTypeDestination(__LONG32 ForwardType,BSTR *ppDestAddress) = 0;
+    virtual HRESULT WINAPI get_ForwardTypeCaller(__LONG32 Forwardtype,BSTR *ppCallerAddress) = 0;
+    virtual HRESULT WINAPI GetForwardType(__LONG32 ForwardType,BSTR *ppDestinationAddress,BSTR *ppCallerAddress) = 0;
     virtual HRESULT WINAPI Clear(void) = 0;
   };
 #else
@@ -4873,12 +4873,12 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ITForwardInformation *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ITForwardInformation *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITForwardInformation *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *put_NumRingsNoAnswer)(ITForwardInformation *This,long lNumRings);
-      HRESULT (WINAPI *get_NumRingsNoAnswer)(ITForwardInformation *This,long *plNumRings);
-      HRESULT (WINAPI *SetForwardType)(ITForwardInformation *This,long ForwardType,BSTR pDestAddress,BSTR pCallerAddress);
-      HRESULT (WINAPI *get_ForwardTypeDestination)(ITForwardInformation *This,long ForwardType,BSTR *ppDestAddress);
-      HRESULT (WINAPI *get_ForwardTypeCaller)(ITForwardInformation *This,long Forwardtype,BSTR *ppCallerAddress);
-      HRESULT (WINAPI *GetForwardType)(ITForwardInformation *This,long ForwardType,BSTR *ppDestinationAddress,BSTR *ppCallerAddress);
+      HRESULT (WINAPI *put_NumRingsNoAnswer)(ITForwardInformation *This,__LONG32 lNumRings);
+      HRESULT (WINAPI *get_NumRingsNoAnswer)(ITForwardInformation *This,__LONG32 *plNumRings);
+      HRESULT (WINAPI *SetForwardType)(ITForwardInformation *This,__LONG32 ForwardType,BSTR pDestAddress,BSTR pCallerAddress);
+      HRESULT (WINAPI *get_ForwardTypeDestination)(ITForwardInformation *This,__LONG32 ForwardType,BSTR *ppDestAddress);
+      HRESULT (WINAPI *get_ForwardTypeCaller)(ITForwardInformation *This,__LONG32 Forwardtype,BSTR *ppCallerAddress);
+      HRESULT (WINAPI *GetForwardType)(ITForwardInformation *This,__LONG32 ForwardType,BSTR *ppDestinationAddress,BSTR *ppCallerAddress);
       HRESULT (WINAPI *Clear)(ITForwardInformation *This);
     END_INTERFACE
   } ITForwardInformationVtbl;
@@ -4902,17 +4902,17 @@ extern "C" {
 #define ITForwardInformation_Clear(This) (This)->lpVtbl->Clear(This)
 #endif
 #endif
-  HRESULT WINAPI ITForwardInformation_put_NumRingsNoAnswer_Proxy(ITForwardInformation *This,long lNumRings);
+  HRESULT WINAPI ITForwardInformation_put_NumRingsNoAnswer_Proxy(ITForwardInformation *This,__LONG32 lNumRings);
   void __RPC_STUB ITForwardInformation_put_NumRingsNoAnswer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITForwardInformation_get_NumRingsNoAnswer_Proxy(ITForwardInformation *This,long *plNumRings);
+  HRESULT WINAPI ITForwardInformation_get_NumRingsNoAnswer_Proxy(ITForwardInformation *This,__LONG32 *plNumRings);
   void __RPC_STUB ITForwardInformation_get_NumRingsNoAnswer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITForwardInformation_SetForwardType_Proxy(ITForwardInformation *This,long ForwardType,BSTR pDestAddress,BSTR pCallerAddress);
+  HRESULT WINAPI ITForwardInformation_SetForwardType_Proxy(ITForwardInformation *This,__LONG32 ForwardType,BSTR pDestAddress,BSTR pCallerAddress);
   void __RPC_STUB ITForwardInformation_SetForwardType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITForwardInformation_get_ForwardTypeDestination_Proxy(ITForwardInformation *This,long ForwardType,BSTR *ppDestAddress);
+  HRESULT WINAPI ITForwardInformation_get_ForwardTypeDestination_Proxy(ITForwardInformation *This,__LONG32 ForwardType,BSTR *ppDestAddress);
   void __RPC_STUB ITForwardInformation_get_ForwardTypeDestination_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITForwardInformation_get_ForwardTypeCaller_Proxy(ITForwardInformation *This,long Forwardtype,BSTR *ppCallerAddress);
+  HRESULT WINAPI ITForwardInformation_get_ForwardTypeCaller_Proxy(ITForwardInformation *This,__LONG32 Forwardtype,BSTR *ppCallerAddress);
   void __RPC_STUB ITForwardInformation_get_ForwardTypeCaller_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITForwardInformation_GetForwardType_Proxy(ITForwardInformation *This,long ForwardType,BSTR *ppDestinationAddress,BSTR *ppCallerAddress);
+  HRESULT WINAPI ITForwardInformation_GetForwardType_Proxy(ITForwardInformation *This,__LONG32 ForwardType,BSTR *ppDestinationAddress,BSTR *ppCallerAddress);
   void __RPC_STUB ITForwardInformation_GetForwardType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITForwardInformation_Clear_Proxy(ITForwardInformation *This);
   void __RPC_STUB ITForwardInformation_Clear_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -4924,10 +4924,10 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITForwardInformation2 : public ITForwardInformation {
   public:
-    virtual HRESULT WINAPI SetForwardType2(long ForwardType,BSTR pDestAddress,long DestAddressType,BSTR pCallerAddress,long CallerAddressType) = 0;
-    virtual HRESULT WINAPI GetForwardType2(long ForwardType,BSTR *ppDestinationAddress,long *pDestAddressType,BSTR *ppCallerAddress,long *pCallerAddressType) = 0;
-    virtual HRESULT WINAPI get_ForwardTypeDestinationAddressType(long ForwardType,long *pDestAddressType) = 0;
-    virtual HRESULT WINAPI get_ForwardTypeCallerAddressType(long Forwardtype,long *pCallerAddressType) = 0;
+    virtual HRESULT WINAPI SetForwardType2(__LONG32 ForwardType,BSTR pDestAddress,__LONG32 DestAddressType,BSTR pCallerAddress,__LONG32 CallerAddressType) = 0;
+    virtual HRESULT WINAPI GetForwardType2(__LONG32 ForwardType,BSTR *ppDestinationAddress,__LONG32 *pDestAddressType,BSTR *ppCallerAddress,__LONG32 *pCallerAddressType) = 0;
+    virtual HRESULT WINAPI get_ForwardTypeDestinationAddressType(__LONG32 ForwardType,__LONG32 *pDestAddressType) = 0;
+    virtual HRESULT WINAPI get_ForwardTypeCallerAddressType(__LONG32 Forwardtype,__LONG32 *pCallerAddressType) = 0;
   };
 #else
   typedef struct ITForwardInformation2Vtbl {
@@ -4939,17 +4939,17 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ITForwardInformation2 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ITForwardInformation2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITForwardInformation2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *put_NumRingsNoAnswer)(ITForwardInformation2 *This,long lNumRings);
-      HRESULT (WINAPI *get_NumRingsNoAnswer)(ITForwardInformation2 *This,long *plNumRings);
-      HRESULT (WINAPI *SetForwardType)(ITForwardInformation2 *This,long ForwardType,BSTR pDestAddress,BSTR pCallerAddress);
-      HRESULT (WINAPI *get_ForwardTypeDestination)(ITForwardInformation2 *This,long ForwardType,BSTR *ppDestAddress);
-      HRESULT (WINAPI *get_ForwardTypeCaller)(ITForwardInformation2 *This,long Forwardtype,BSTR *ppCallerAddress);
-      HRESULT (WINAPI *GetForwardType)(ITForwardInformation2 *This,long ForwardType,BSTR *ppDestinationAddress,BSTR *ppCallerAddress);
+      HRESULT (WINAPI *put_NumRingsNoAnswer)(ITForwardInformation2 *This,__LONG32 lNumRings);
+      HRESULT (WINAPI *get_NumRingsNoAnswer)(ITForwardInformation2 *This,__LONG32 *plNumRings);
+      HRESULT (WINAPI *SetForwardType)(ITForwardInformation2 *This,__LONG32 ForwardType,BSTR pDestAddress,BSTR pCallerAddress);
+      HRESULT (WINAPI *get_ForwardTypeDestination)(ITForwardInformation2 *This,__LONG32 ForwardType,BSTR *ppDestAddress);
+      HRESULT (WINAPI *get_ForwardTypeCaller)(ITForwardInformation2 *This,__LONG32 Forwardtype,BSTR *ppCallerAddress);
+      HRESULT (WINAPI *GetForwardType)(ITForwardInformation2 *This,__LONG32 ForwardType,BSTR *ppDestinationAddress,BSTR *ppCallerAddress);
       HRESULT (WINAPI *Clear)(ITForwardInformation2 *This);
-      HRESULT (WINAPI *SetForwardType2)(ITForwardInformation2 *This,long ForwardType,BSTR pDestAddress,long DestAddressType,BSTR pCallerAddress,long CallerAddressType);
-      HRESULT (WINAPI *GetForwardType2)(ITForwardInformation2 *This,long ForwardType,BSTR *ppDestinationAddress,long *pDestAddressType,BSTR *ppCallerAddress,long *pCallerAddressType);
-      HRESULT (WINAPI *get_ForwardTypeDestinationAddressType)(ITForwardInformation2 *This,long ForwardType,long *pDestAddressType);
-      HRESULT (WINAPI *get_ForwardTypeCallerAddressType)(ITForwardInformation2 *This,long Forwardtype,long *pCallerAddressType);
+      HRESULT (WINAPI *SetForwardType2)(ITForwardInformation2 *This,__LONG32 ForwardType,BSTR pDestAddress,__LONG32 DestAddressType,BSTR pCallerAddress,__LONG32 CallerAddressType);
+      HRESULT (WINAPI *GetForwardType2)(ITForwardInformation2 *This,__LONG32 ForwardType,BSTR *ppDestinationAddress,__LONG32 *pDestAddressType,BSTR *ppCallerAddress,__LONG32 *pCallerAddressType);
+      HRESULT (WINAPI *get_ForwardTypeDestinationAddressType)(ITForwardInformation2 *This,__LONG32 ForwardType,__LONG32 *pDestAddressType);
+      HRESULT (WINAPI *get_ForwardTypeCallerAddressType)(ITForwardInformation2 *This,__LONG32 Forwardtype,__LONG32 *pCallerAddressType);
     END_INTERFACE
   } ITForwardInformation2Vtbl;
   struct ITForwardInformation2 {
@@ -4976,13 +4976,13 @@ extern "C" {
 #define ITForwardInformation2_get_ForwardTypeCallerAddressType(This,Forwardtype,pCallerAddressType) (This)->lpVtbl->get_ForwardTypeCallerAddressType(This,Forwardtype,pCallerAddressType)
 #endif
 #endif
-  HRESULT WINAPI ITForwardInformation2_SetForwardType2_Proxy(ITForwardInformation2 *This,long ForwardType,BSTR pDestAddress,long DestAddressType,BSTR pCallerAddress,long CallerAddressType);
+  HRESULT WINAPI ITForwardInformation2_SetForwardType2_Proxy(ITForwardInformation2 *This,__LONG32 ForwardType,BSTR pDestAddress,__LONG32 DestAddressType,BSTR pCallerAddress,__LONG32 CallerAddressType);
   void __RPC_STUB ITForwardInformation2_SetForwardType2_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITForwardInformation2_GetForwardType2_Proxy(ITForwardInformation2 *This,long ForwardType,BSTR *ppDestinationAddress,long *pDestAddressType,BSTR *ppCallerAddress,long *pCallerAddressType);
+  HRESULT WINAPI ITForwardInformation2_GetForwardType2_Proxy(ITForwardInformation2 *This,__LONG32 ForwardType,BSTR *ppDestinationAddress,__LONG32 *pDestAddressType,BSTR *ppCallerAddress,__LONG32 *pCallerAddressType);
   void __RPC_STUB ITForwardInformation2_GetForwardType2_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITForwardInformation2_get_ForwardTypeDestinationAddressType_Proxy(ITForwardInformation2 *This,long ForwardType,long *pDestAddressType);
+  HRESULT WINAPI ITForwardInformation2_get_ForwardTypeDestinationAddressType_Proxy(ITForwardInformation2 *This,__LONG32 ForwardType,__LONG32 *pDestAddressType);
   void __RPC_STUB ITForwardInformation2_get_ForwardTypeDestinationAddressType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITForwardInformation2_get_ForwardTypeCallerAddressType_Proxy(ITForwardInformation2 *This,long Forwardtype,long *pCallerAddressType);
+  HRESULT WINAPI ITForwardInformation2_get_ForwardTypeCallerAddressType_Proxy(ITForwardInformation2 *This,__LONG32 Forwardtype,__LONG32 *pCallerAddressType);
   void __RPC_STUB ITForwardInformation2_get_ForwardTypeCallerAddressType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -4992,7 +4992,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITAddressTranslation : public IDispatch {
   public:
-    virtual HRESULT WINAPI TranslateAddress(BSTR pAddressToTranslate,long lCard,long lTranslateOptions,ITAddressTranslationInfo **ppTranslated) = 0;
+    virtual HRESULT WINAPI TranslateAddress(BSTR pAddressToTranslate,__LONG32 lCard,__LONG32 lTranslateOptions,ITAddressTranslationInfo **ppTranslated) = 0;
     virtual HRESULT WINAPI TranslateDialog(TAPIHWND hwndOwner,BSTR pAddressIn) = 0;
     virtual HRESULT WINAPI EnumerateLocations(IEnumLocation **ppEnumLocation) = 0;
     virtual HRESULT WINAPI get_Locations(VARIANT *pVariant) = 0;
@@ -5009,7 +5009,7 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ITAddressTranslation *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ITAddressTranslation *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITAddressTranslation *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *TranslateAddress)(ITAddressTranslation *This,BSTR pAddressToTranslate,long lCard,long lTranslateOptions,ITAddressTranslationInfo **ppTranslated);
+      HRESULT (WINAPI *TranslateAddress)(ITAddressTranslation *This,BSTR pAddressToTranslate,__LONG32 lCard,__LONG32 lTranslateOptions,ITAddressTranslationInfo **ppTranslated);
       HRESULT (WINAPI *TranslateDialog)(ITAddressTranslation *This,TAPIHWND hwndOwner,BSTR pAddressIn);
       HRESULT (WINAPI *EnumerateLocations)(ITAddressTranslation *This,IEnumLocation **ppEnumLocation);
       HRESULT (WINAPI *get_Locations)(ITAddressTranslation *This,VARIANT *pVariant);
@@ -5036,7 +5036,7 @@ extern "C" {
 #define ITAddressTranslation_get_CallingCards(This,pVariant) (This)->lpVtbl->get_CallingCards(This,pVariant)
 #endif
 #endif
-  HRESULT WINAPI ITAddressTranslation_TranslateAddress_Proxy(ITAddressTranslation *This,BSTR pAddressToTranslate,long lCard,long lTranslateOptions,ITAddressTranslationInfo **ppTranslated);
+  HRESULT WINAPI ITAddressTranslation_TranslateAddress_Proxy(ITAddressTranslation *This,BSTR pAddressToTranslate,__LONG32 lCard,__LONG32 lTranslateOptions,ITAddressTranslationInfo **ppTranslated);
   void __RPC_STUB ITAddressTranslation_TranslateAddress_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAddressTranslation_TranslateDialog_Proxy(ITAddressTranslation *This,TAPIHWND hwndOwner,BSTR pAddressIn);
   void __RPC_STUB ITAddressTranslation_TranslateDialog_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -5058,9 +5058,9 @@ extern "C" {
   public:
     virtual HRESULT WINAPI get_DialableString(BSTR *ppDialableString) = 0;
     virtual HRESULT WINAPI get_DisplayableString(BSTR *ppDisplayableString) = 0;
-    virtual HRESULT WINAPI get_CurrentCountryCode(long *CountryCode) = 0;
-    virtual HRESULT WINAPI get_DestinationCountryCode(long *CountryCode) = 0;
-    virtual HRESULT WINAPI get_TranslationResults(long *plResults) = 0;
+    virtual HRESULT WINAPI get_CurrentCountryCode(__LONG32 *CountryCode) = 0;
+    virtual HRESULT WINAPI get_DestinationCountryCode(__LONG32 *CountryCode) = 0;
+    virtual HRESULT WINAPI get_TranslationResults(__LONG32 *plResults) = 0;
   };
 #else
   typedef struct ITAddressTranslationInfoVtbl {
@@ -5074,9 +5074,9 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(ITAddressTranslationInfo *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_DialableString)(ITAddressTranslationInfo *This,BSTR *ppDialableString);
       HRESULT (WINAPI *get_DisplayableString)(ITAddressTranslationInfo *This,BSTR *ppDisplayableString);
-      HRESULT (WINAPI *get_CurrentCountryCode)(ITAddressTranslationInfo *This,long *CountryCode);
-      HRESULT (WINAPI *get_DestinationCountryCode)(ITAddressTranslationInfo *This,long *CountryCode);
-      HRESULT (WINAPI *get_TranslationResults)(ITAddressTranslationInfo *This,long *plResults);
+      HRESULT (WINAPI *get_CurrentCountryCode)(ITAddressTranslationInfo *This,__LONG32 *CountryCode);
+      HRESULT (WINAPI *get_DestinationCountryCode)(ITAddressTranslationInfo *This,__LONG32 *CountryCode);
+      HRESULT (WINAPI *get_TranslationResults)(ITAddressTranslationInfo *This,__LONG32 *plResults);
     END_INTERFACE
   } ITAddressTranslationInfoVtbl;
   struct ITAddressTranslationInfo {
@@ -5101,11 +5101,11 @@ extern "C" {
   void __RPC_STUB ITAddressTranslationInfo_get_DialableString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAddressTranslationInfo_get_DisplayableString_Proxy(ITAddressTranslationInfo *This,BSTR *ppDisplayableString);
   void __RPC_STUB ITAddressTranslationInfo_get_DisplayableString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAddressTranslationInfo_get_CurrentCountryCode_Proxy(ITAddressTranslationInfo *This,long *CountryCode);
+  HRESULT WINAPI ITAddressTranslationInfo_get_CurrentCountryCode_Proxy(ITAddressTranslationInfo *This,__LONG32 *CountryCode);
   void __RPC_STUB ITAddressTranslationInfo_get_CurrentCountryCode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAddressTranslationInfo_get_DestinationCountryCode_Proxy(ITAddressTranslationInfo *This,long *CountryCode);
+  HRESULT WINAPI ITAddressTranslationInfo_get_DestinationCountryCode_Proxy(ITAddressTranslationInfo *This,__LONG32 *CountryCode);
   void __RPC_STUB ITAddressTranslationInfo_get_DestinationCountryCode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAddressTranslationInfo_get_TranslationResults_Proxy(ITAddressTranslationInfo *This,long *plResults);
+  HRESULT WINAPI ITAddressTranslationInfo_get_TranslationResults_Proxy(ITAddressTranslationInfo *This,__LONG32 *plResults);
   void __RPC_STUB ITAddressTranslationInfo_get_TranslationResults_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -5115,11 +5115,11 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITLocationInfo : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_PermanentLocationID(long *plLocationID) = 0;
-    virtual HRESULT WINAPI get_CountryCode(long *plCountryCode) = 0;
-    virtual HRESULT WINAPI get_CountryID(long *plCountryID) = 0;
-    virtual HRESULT WINAPI get_Options(long *plOptions) = 0;
-    virtual HRESULT WINAPI get_PreferredCardID(long *plCardID) = 0;
+    virtual HRESULT WINAPI get_PermanentLocationID(__LONG32 *plLocationID) = 0;
+    virtual HRESULT WINAPI get_CountryCode(__LONG32 *plCountryCode) = 0;
+    virtual HRESULT WINAPI get_CountryID(__LONG32 *plCountryID) = 0;
+    virtual HRESULT WINAPI get_Options(__LONG32 *plOptions) = 0;
+    virtual HRESULT WINAPI get_PreferredCardID(__LONG32 *plCardID) = 0;
     virtual HRESULT WINAPI get_LocationName(BSTR *ppLocationName) = 0;
     virtual HRESULT WINAPI get_CityCode(BSTR *ppCode) = 0;
     virtual HRESULT WINAPI get_LocalAccessCode(BSTR *ppCode) = 0;
@@ -5137,11 +5137,11 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ITLocationInfo *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ITLocationInfo *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITLocationInfo *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_PermanentLocationID)(ITLocationInfo *This,long *plLocationID);
-      HRESULT (WINAPI *get_CountryCode)(ITLocationInfo *This,long *plCountryCode);
-      HRESULT (WINAPI *get_CountryID)(ITLocationInfo *This,long *plCountryID);
-      HRESULT (WINAPI *get_Options)(ITLocationInfo *This,long *plOptions);
-      HRESULT (WINAPI *get_PreferredCardID)(ITLocationInfo *This,long *plCardID);
+      HRESULT (WINAPI *get_PermanentLocationID)(ITLocationInfo *This,__LONG32 *plLocationID);
+      HRESULT (WINAPI *get_CountryCode)(ITLocationInfo *This,__LONG32 *plCountryCode);
+      HRESULT (WINAPI *get_CountryID)(ITLocationInfo *This,__LONG32 *plCountryID);
+      HRESULT (WINAPI *get_Options)(ITLocationInfo *This,__LONG32 *plOptions);
+      HRESULT (WINAPI *get_PreferredCardID)(ITLocationInfo *This,__LONG32 *plCardID);
       HRESULT (WINAPI *get_LocationName)(ITLocationInfo *This,BSTR *ppLocationName);
       HRESULT (WINAPI *get_CityCode)(ITLocationInfo *This,BSTR *ppCode);
       HRESULT (WINAPI *get_LocalAccessCode)(ITLocationInfo *This,BSTR *ppCode);
@@ -5174,15 +5174,15 @@ extern "C" {
 #define ITLocationInfo_get_CancelCallWaitingCode(This,ppCode) (This)->lpVtbl->get_CancelCallWaitingCode(This,ppCode)
 #endif
 #endif
-  HRESULT WINAPI ITLocationInfo_get_PermanentLocationID_Proxy(ITLocationInfo *This,long *plLocationID);
+  HRESULT WINAPI ITLocationInfo_get_PermanentLocationID_Proxy(ITLocationInfo *This,__LONG32 *plLocationID);
   void __RPC_STUB ITLocationInfo_get_PermanentLocationID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITLocationInfo_get_CountryCode_Proxy(ITLocationInfo *This,long *plCountryCode);
+  HRESULT WINAPI ITLocationInfo_get_CountryCode_Proxy(ITLocationInfo *This,__LONG32 *plCountryCode);
   void __RPC_STUB ITLocationInfo_get_CountryCode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITLocationInfo_get_CountryID_Proxy(ITLocationInfo *This,long *plCountryID);
+  HRESULT WINAPI ITLocationInfo_get_CountryID_Proxy(ITLocationInfo *This,__LONG32 *plCountryID);
   void __RPC_STUB ITLocationInfo_get_CountryID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITLocationInfo_get_Options_Proxy(ITLocationInfo *This,long *plOptions);
+  HRESULT WINAPI ITLocationInfo_get_Options_Proxy(ITLocationInfo *This,__LONG32 *plOptions);
   void __RPC_STUB ITLocationInfo_get_Options_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITLocationInfo_get_PreferredCardID_Proxy(ITLocationInfo *This,long *plCardID);
+  HRESULT WINAPI ITLocationInfo_get_PreferredCardID_Proxy(ITLocationInfo *This,__LONG32 *plCardID);
   void __RPC_STUB ITLocationInfo_get_PreferredCardID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITLocationInfo_get_LocationName_Proxy(ITLocationInfo *This,BSTR *ppLocationName);
   void __RPC_STUB ITLocationInfo_get_LocationName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -5250,9 +5250,9 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITCallingCard : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_PermanentCardID(long *plCardID) = 0;
-    virtual HRESULT WINAPI get_NumberOfDigits(long *plDigits) = 0;
-    virtual HRESULT WINAPI get_Options(long *plOptions) = 0;
+    virtual HRESULT WINAPI get_PermanentCardID(__LONG32 *plCardID) = 0;
+    virtual HRESULT WINAPI get_NumberOfDigits(__LONG32 *plDigits) = 0;
+    virtual HRESULT WINAPI get_Options(__LONG32 *plOptions) = 0;
     virtual HRESULT WINAPI get_CardName(BSTR *ppCardName) = 0;
     virtual HRESULT WINAPI get_SameAreaDialingRule(BSTR *ppRule) = 0;
     virtual HRESULT WINAPI get_LongDistanceDialingRule(BSTR *ppRule) = 0;
@@ -5268,9 +5268,9 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ITCallingCard *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ITCallingCard *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITCallingCard *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_PermanentCardID)(ITCallingCard *This,long *plCardID);
-      HRESULT (WINAPI *get_NumberOfDigits)(ITCallingCard *This,long *plDigits);
-      HRESULT (WINAPI *get_Options)(ITCallingCard *This,long *plOptions);
+      HRESULT (WINAPI *get_PermanentCardID)(ITCallingCard *This,__LONG32 *plCardID);
+      HRESULT (WINAPI *get_NumberOfDigits)(ITCallingCard *This,__LONG32 *plDigits);
+      HRESULT (WINAPI *get_Options)(ITCallingCard *This,__LONG32 *plOptions);
       HRESULT (WINAPI *get_CardName)(ITCallingCard *This,BSTR *ppCardName);
       HRESULT (WINAPI *get_SameAreaDialingRule)(ITCallingCard *This,BSTR *ppRule);
       HRESULT (WINAPI *get_LongDistanceDialingRule)(ITCallingCard *This,BSTR *ppRule);
@@ -5297,11 +5297,11 @@ extern "C" {
 #define ITCallingCard_get_InternationalDialingRule(This,ppRule) (This)->lpVtbl->get_InternationalDialingRule(This,ppRule)
 #endif
 #endif
-  HRESULT WINAPI ITCallingCard_get_PermanentCardID_Proxy(ITCallingCard *This,long *plCardID);
+  HRESULT WINAPI ITCallingCard_get_PermanentCardID_Proxy(ITCallingCard *This,__LONG32 *plCardID);
   void __RPC_STUB ITCallingCard_get_PermanentCardID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITCallingCard_get_NumberOfDigits_Proxy(ITCallingCard *This,long *plDigits);
+  HRESULT WINAPI ITCallingCard_get_NumberOfDigits_Proxy(ITCallingCard *This,__LONG32 *plDigits);
   void __RPC_STUB ITCallingCard_get_NumberOfDigits_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITCallingCard_get_Options_Proxy(ITCallingCard *This,long *plOptions);
+  HRESULT WINAPI ITCallingCard_get_Options_Proxy(ITCallingCard *This,__LONG32 *plOptions);
   void __RPC_STUB ITCallingCard_get_Options_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITCallingCard_get_CardName_Proxy(ITCallingCard *This,BSTR *ppCardName);
   void __RPC_STUB ITCallingCard_get_CardName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -5367,7 +5367,7 @@ extern "C" {
   public:
     virtual HRESULT WINAPI get_Call(ITCallInfo **ppCall) = 0;
     virtual HRESULT WINAPI get_Event(CALL_NOTIFICATION_EVENT *pCallNotificationEvent) = 0;
-    virtual HRESULT WINAPI get_CallbackInstance(long *plCallbackInstance) = 0;
+    virtual HRESULT WINAPI get_CallbackInstance(__LONG32 *plCallbackInstance) = 0;
   };
 #else
   typedef struct ITCallNotificationEventVtbl {
@@ -5381,7 +5381,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(ITCallNotificationEvent *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_Call)(ITCallNotificationEvent *This,ITCallInfo **ppCall);
       HRESULT (WINAPI *get_Event)(ITCallNotificationEvent *This,CALL_NOTIFICATION_EVENT *pCallNotificationEvent);
-      HRESULT (WINAPI *get_CallbackInstance)(ITCallNotificationEvent *This,long *plCallbackInstance);
+      HRESULT (WINAPI *get_CallbackInstance)(ITCallNotificationEvent *This,__LONG32 *plCallbackInstance);
     END_INTERFACE
   } ITCallNotificationEventVtbl;
   struct ITCallNotificationEvent {
@@ -5404,7 +5404,7 @@ extern "C" {
   void __RPC_STUB ITCallNotificationEvent_get_Call_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITCallNotificationEvent_get_Event_Proxy(ITCallNotificationEvent *This,CALL_NOTIFICATION_EVENT *pCallNotificationEvent);
   void __RPC_STUB ITCallNotificationEvent_get_Event_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITCallNotificationEvent_get_CallbackInstance_Proxy(ITCallNotificationEvent *This,long *plCallbackInstance);
+  HRESULT WINAPI ITCallNotificationEvent_get_CallbackInstance_Proxy(ITCallNotificationEvent *This,__LONG32 *plCallbackInstance);
   void __RPC_STUB ITCallNotificationEvent_get_CallbackInstance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -5453,7 +5453,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITStreamControl : public IDispatch {
   public:
-    virtual HRESULT WINAPI CreateStream(long lMediaType,TERMINAL_DIRECTION td,ITStream **ppStream) = 0;
+    virtual HRESULT WINAPI CreateStream(__LONG32 lMediaType,TERMINAL_DIRECTION td,ITStream **ppStream) = 0;
     virtual HRESULT WINAPI RemoveStream(ITStream *pStream) = 0;
     virtual HRESULT WINAPI EnumerateStreams(IEnumStream **ppEnumStream) = 0;
     virtual HRESULT WINAPI get_Streams(VARIANT *pVariant) = 0;
@@ -5468,7 +5468,7 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ITStreamControl *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ITStreamControl *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITStreamControl *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *CreateStream)(ITStreamControl *This,long lMediaType,TERMINAL_DIRECTION td,ITStream **ppStream);
+      HRESULT (WINAPI *CreateStream)(ITStreamControl *This,__LONG32 lMediaType,TERMINAL_DIRECTION td,ITStream **ppStream);
       HRESULT (WINAPI *RemoveStream)(ITStreamControl *This,ITStream *pStream);
       HRESULT (WINAPI *EnumerateStreams)(ITStreamControl *This,IEnumStream **ppEnumStream);
       HRESULT (WINAPI *get_Streams)(ITStreamControl *This,VARIANT *pVariant);
@@ -5491,7 +5491,7 @@ extern "C" {
 #define ITStreamControl_get_Streams(This,pVariant) (This)->lpVtbl->get_Streams(This,pVariant)
 #endif
 #endif
-  HRESULT WINAPI ITStreamControl_CreateStream_Proxy(ITStreamControl *This,long lMediaType,TERMINAL_DIRECTION td,ITStream **ppStream);
+  HRESULT WINAPI ITStreamControl_CreateStream_Proxy(ITStreamControl *This,__LONG32 lMediaType,TERMINAL_DIRECTION td,ITStream **ppStream);
   void __RPC_STUB ITStreamControl_CreateStream_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITStreamControl_RemoveStream_Proxy(ITStreamControl *This,ITStream *pStream);
   void __RPC_STUB ITStreamControl_RemoveStream_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -5507,7 +5507,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITStream : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_MediaType(long *plMediaType) = 0;
+    virtual HRESULT WINAPI get_MediaType(__LONG32 *plMediaType) = 0;
     virtual HRESULT WINAPI get_Direction(TERMINAL_DIRECTION *pTD) = 0;
     virtual HRESULT WINAPI get_Name(BSTR *ppName) = 0;
     virtual HRESULT WINAPI StartStream(void) = 0;
@@ -5528,7 +5528,7 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ITStream *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ITStream *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITStream *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_MediaType)(ITStream *This,long *plMediaType);
+      HRESULT (WINAPI *get_MediaType)(ITStream *This,__LONG32 *plMediaType);
       HRESULT (WINAPI *get_Direction)(ITStream *This,TERMINAL_DIRECTION *pTD);
       HRESULT (WINAPI *get_Name)(ITStream *This,BSTR *ppName);
       HRESULT (WINAPI *StartStream)(ITStream *This);
@@ -5563,7 +5563,7 @@ extern "C" {
 #define ITStream_get_Terminals(This,pTerminals) (This)->lpVtbl->get_Terminals(This,pTerminals)
 #endif
 #endif
-  HRESULT WINAPI ITStream_get_MediaType_Proxy(ITStream *This,long *plMediaType);
+  HRESULT WINAPI ITStream_get_MediaType_Proxy(ITStream *This,__LONG32 *plMediaType);
   void __RPC_STUB ITStream_get_MediaType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITStream_get_Direction_Proxy(ITStream *This,TERMINAL_DIRECTION *pTD);
   void __RPC_STUB ITStream_get_Direction_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -5850,7 +5850,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITBasicCallControl2 : public ITBasicCallControl {
   public:
-    virtual HRESULT WINAPI RequestTerminal(BSTR bstrTerminalClassGUID,long lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal) = 0;
+    virtual HRESULT WINAPI RequestTerminal(BSTR bstrTerminalClassGUID,__LONG32 lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal) = 0;
     virtual HRESULT WINAPI SelectTerminalOnCall(ITTerminal *pTerminal) = 0;
     virtual HRESULT WINAPI UnselectTerminalOnCall(ITTerminal *pTerminal) = 0;
   };
@@ -5869,7 +5869,7 @@ extern "C" {
       HRESULT (WINAPI *Disconnect)(ITBasicCallControl2 *This,DISCONNECT_CODE code);
       HRESULT (WINAPI *Hold)(ITBasicCallControl2 *This,VARIANT_BOOL fHold);
       HRESULT (WINAPI *HandoffDirect)(ITBasicCallControl2 *This,BSTR pApplicationName);
-      HRESULT (WINAPI *HandoffIndirect)(ITBasicCallControl2 *This,long lMediaType);
+      HRESULT (WINAPI *HandoffIndirect)(ITBasicCallControl2 *This,__LONG32 lMediaType);
       HRESULT (WINAPI *Conference)(ITBasicCallControl2 *This,ITBasicCallControl *pCall,VARIANT_BOOL fSync);
       HRESULT (WINAPI *Transfer)(ITBasicCallControl2 *This,ITBasicCallControl *pCall,VARIANT_BOOL fSync);
       HRESULT (WINAPI *BlindTransfer)(ITBasicCallControl2 *This,BSTR pDestAddress);
@@ -5877,12 +5877,12 @@ extern "C" {
       HRESULT (WINAPI *ParkDirect)(ITBasicCallControl2 *This,BSTR pParkAddress);
       HRESULT (WINAPI *ParkIndirect)(ITBasicCallControl2 *This,BSTR *ppNonDirAddress);
       HRESULT (WINAPI *Unpark)(ITBasicCallControl2 *This);
-      HRESULT (WINAPI *SetQOS)(ITBasicCallControl2 *This,long lMediaType,QOS_SERVICE_LEVEL ServiceLevel);
+      HRESULT (WINAPI *SetQOS)(ITBasicCallControl2 *This,__LONG32 lMediaType,QOS_SERVICE_LEVEL ServiceLevel);
       HRESULT (WINAPI *Pickup)(ITBasicCallControl2 *This,BSTR pGroupID);
       HRESULT (WINAPI *Dial)(ITBasicCallControl2 *This,BSTR pDestAddress);
       HRESULT (WINAPI *Finish)(ITBasicCallControl2 *This,FINISH_MODE finishMode);
       HRESULT (WINAPI *RemoveFromConference)(ITBasicCallControl2 *This);
-      HRESULT (WINAPI *RequestTerminal)(ITBasicCallControl2 *This,BSTR bstrTerminalClassGUID,long lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal);
+      HRESULT (WINAPI *RequestTerminal)(ITBasicCallControl2 *This,BSTR bstrTerminalClassGUID,__LONG32 lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal);
       HRESULT (WINAPI *SelectTerminalOnCall)(ITBasicCallControl2 *This,ITTerminal *pTerminal);
       HRESULT (WINAPI *UnselectTerminalOnCall)(ITBasicCallControl2 *This,ITTerminal *pTerminal);
     END_INTERFACE
@@ -5921,7 +5921,7 @@ extern "C" {
 #define ITBasicCallControl2_UnselectTerminalOnCall(This,pTerminal) (This)->lpVtbl->UnselectTerminalOnCall(This,pTerminal)
 #endif
 #endif
-  HRESULT WINAPI ITBasicCallControl2_RequestTerminal_Proxy(ITBasicCallControl2 *This,BSTR bstrTerminalClassGUID,long lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal);
+  HRESULT WINAPI ITBasicCallControl2_RequestTerminal_Proxy(ITBasicCallControl2 *This,BSTR bstrTerminalClassGUID,__LONG32 lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal);
   void __RPC_STUB ITBasicCallControl2_RequestTerminal_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITBasicCallControl2_SelectTerminalOnCall_Proxy(ITBasicCallControl2 *This,ITTerminal *pTerminal);
   void __RPC_STUB ITBasicCallControl2_SelectTerminalOnCall_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -5935,18 +5935,18 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITScriptableAudioFormat : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Channels(long *pVal) = 0;
-    virtual HRESULT WINAPI put_Channels(const long nNewVal) = 0;
-    virtual HRESULT WINAPI get_SamplesPerSec(long *pVal) = 0;
-    virtual HRESULT WINAPI put_SamplesPerSec(const long nNewVal) = 0;
-    virtual HRESULT WINAPI get_AvgBytesPerSec(long *pVal) = 0;
-    virtual HRESULT WINAPI put_AvgBytesPerSec(const long nNewVal) = 0;
-    virtual HRESULT WINAPI get_BlockAlign(long *pVal) = 0;
-    virtual HRESULT WINAPI put_BlockAlign(const long nNewVal) = 0;
-    virtual HRESULT WINAPI get_BitsPerSample(long *pVal) = 0;
-    virtual HRESULT WINAPI put_BitsPerSample(const long nNewVal) = 0;
-    virtual HRESULT WINAPI get_FormatTag(long *pVal) = 0;
-    virtual HRESULT WINAPI put_FormatTag(const long nNewVal) = 0;
+    virtual HRESULT WINAPI get_Channels(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI put_Channels(const __LONG32 nNewVal) = 0;
+    virtual HRESULT WINAPI get_SamplesPerSec(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI put_SamplesPerSec(const __LONG32 nNewVal) = 0;
+    virtual HRESULT WINAPI get_AvgBytesPerSec(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI put_AvgBytesPerSec(const __LONG32 nNewVal) = 0;
+    virtual HRESULT WINAPI get_BlockAlign(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI put_BlockAlign(const __LONG32 nNewVal) = 0;
+    virtual HRESULT WINAPI get_BitsPerSample(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI put_BitsPerSample(const __LONG32 nNewVal) = 0;
+    virtual HRESULT WINAPI get_FormatTag(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI put_FormatTag(const __LONG32 nNewVal) = 0;
   };
 #else
   typedef struct ITScriptableAudioFormatVtbl {
@@ -5958,18 +5958,18 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ITScriptableAudioFormat *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ITScriptableAudioFormat *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITScriptableAudioFormat *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Channels)(ITScriptableAudioFormat *This,long *pVal);
-      HRESULT (WINAPI *put_Channels)(ITScriptableAudioFormat *This,const long nNewVal);
-      HRESULT (WINAPI *get_SamplesPerSec)(ITScriptableAudioFormat *This,long *pVal);
-      HRESULT (WINAPI *put_SamplesPerSec)(ITScriptableAudioFormat *This,const long nNewVal);
-      HRESULT (WINAPI *get_AvgBytesPerSec)(ITScriptableAudioFormat *This,long *pVal);
-      HRESULT (WINAPI *put_AvgBytesPerSec)(ITScriptableAudioFormat *This,const long nNewVal);
-      HRESULT (WINAPI *get_BlockAlign)(ITScriptableAudioFormat *This,long *pVal);
-      HRESULT (WINAPI *put_BlockAlign)(ITScriptableAudioFormat *This,const long nNewVal);
-      HRESULT (WINAPI *get_BitsPerSample)(ITScriptableAudioFormat *This,long *pVal);
-      HRESULT (WINAPI *put_BitsPerSample)(ITScriptableAudioFormat *This,const long nNewVal);
-      HRESULT (WINAPI *get_FormatTag)(ITScriptableAudioFormat *This,long *pVal);
-      HRESULT (WINAPI *put_FormatTag)(ITScriptableAudioFormat *This,const long nNewVal);
+      HRESULT (WINAPI *get_Channels)(ITScriptableAudioFormat *This,__LONG32 *pVal);
+      HRESULT (WINAPI *put_Channels)(ITScriptableAudioFormat *This,const __LONG32 nNewVal);
+      HRESULT (WINAPI *get_SamplesPerSec)(ITScriptableAudioFormat *This,__LONG32 *pVal);
+      HRESULT (WINAPI *put_SamplesPerSec)(ITScriptableAudioFormat *This,const __LONG32 nNewVal);
+      HRESULT (WINAPI *get_AvgBytesPerSec)(ITScriptableAudioFormat *This,__LONG32 *pVal);
+      HRESULT (WINAPI *put_AvgBytesPerSec)(ITScriptableAudioFormat *This,const __LONG32 nNewVal);
+      HRESULT (WINAPI *get_BlockAlign)(ITScriptableAudioFormat *This,__LONG32 *pVal);
+      HRESULT (WINAPI *put_BlockAlign)(ITScriptableAudioFormat *This,const __LONG32 nNewVal);
+      HRESULT (WINAPI *get_BitsPerSample)(ITScriptableAudioFormat *This,__LONG32 *pVal);
+      HRESULT (WINAPI *put_BitsPerSample)(ITScriptableAudioFormat *This,const __LONG32 nNewVal);
+      HRESULT (WINAPI *get_FormatTag)(ITScriptableAudioFormat *This,__LONG32 *pVal);
+      HRESULT (WINAPI *put_FormatTag)(ITScriptableAudioFormat *This,const __LONG32 nNewVal);
     END_INTERFACE
   } ITScriptableAudioFormatVtbl;
   struct ITScriptableAudioFormat {
@@ -5997,29 +5997,29 @@ extern "C" {
 #define ITScriptableAudioFormat_put_FormatTag(This,nNewVal) (This)->lpVtbl->put_FormatTag(This,nNewVal)
 #endif
 #endif
-  HRESULT WINAPI ITScriptableAudioFormat_get_Channels_Proxy(ITScriptableAudioFormat *This,long *pVal);
+  HRESULT WINAPI ITScriptableAudioFormat_get_Channels_Proxy(ITScriptableAudioFormat *This,__LONG32 *pVal);
   void __RPC_STUB ITScriptableAudioFormat_get_Channels_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITScriptableAudioFormat_put_Channels_Proxy(ITScriptableAudioFormat *This,const long nNewVal);
+  HRESULT WINAPI ITScriptableAudioFormat_put_Channels_Proxy(ITScriptableAudioFormat *This,const __LONG32 nNewVal);
   void __RPC_STUB ITScriptableAudioFormat_put_Channels_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITScriptableAudioFormat_get_SamplesPerSec_Proxy(ITScriptableAudioFormat *This,long *pVal);
+  HRESULT WINAPI ITScriptableAudioFormat_get_SamplesPerSec_Proxy(ITScriptableAudioFormat *This,__LONG32 *pVal);
   void __RPC_STUB ITScriptableAudioFormat_get_SamplesPerSec_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITScriptableAudioFormat_put_SamplesPerSec_Proxy(ITScriptableAudioFormat *This,const long nNewVal);
+  HRESULT WINAPI ITScriptableAudioFormat_put_SamplesPerSec_Proxy(ITScriptableAudioFormat *This,const __LONG32 nNewVal);
   void __RPC_STUB ITScriptableAudioFormat_put_SamplesPerSec_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITScriptableAudioFormat_get_AvgBytesPerSec_Proxy(ITScriptableAudioFormat *This,long *pVal);
+  HRESULT WINAPI ITScriptableAudioFormat_get_AvgBytesPerSec_Proxy(ITScriptableAudioFormat *This,__LONG32 *pVal);
   void __RPC_STUB ITScriptableAudioFormat_get_AvgBytesPerSec_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITScriptableAudioFormat_put_AvgBytesPerSec_Proxy(ITScriptableAudioFormat *This,const long nNewVal);
+  HRESULT WINAPI ITScriptableAudioFormat_put_AvgBytesPerSec_Proxy(ITScriptableAudioFormat *This,const __LONG32 nNewVal);
   void __RPC_STUB ITScriptableAudioFormat_put_AvgBytesPerSec_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITScriptableAudioFormat_get_BlockAlign_Proxy(ITScriptableAudioFormat *This,long *pVal);
+  HRESULT WINAPI ITScriptableAudioFormat_get_BlockAlign_Proxy(ITScriptableAudioFormat *This,__LONG32 *pVal);
   void __RPC_STUB ITScriptableAudioFormat_get_BlockAlign_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITScriptableAudioFormat_put_BlockAlign_Proxy(ITScriptableAudioFormat *This,const long nNewVal);
+  HRESULT WINAPI ITScriptableAudioFormat_put_BlockAlign_Proxy(ITScriptableAudioFormat *This,const __LONG32 nNewVal);
   void __RPC_STUB ITScriptableAudioFormat_put_BlockAlign_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITScriptableAudioFormat_get_BitsPerSample_Proxy(ITScriptableAudioFormat *This,long *pVal);
+  HRESULT WINAPI ITScriptableAudioFormat_get_BitsPerSample_Proxy(ITScriptableAudioFormat *This,__LONG32 *pVal);
   void __RPC_STUB ITScriptableAudioFormat_get_BitsPerSample_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITScriptableAudioFormat_put_BitsPerSample_Proxy(ITScriptableAudioFormat *This,const long nNewVal);
+  HRESULT WINAPI ITScriptableAudioFormat_put_BitsPerSample_Proxy(ITScriptableAudioFormat *This,const __LONG32 nNewVal);
   void __RPC_STUB ITScriptableAudioFormat_put_BitsPerSample_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITScriptableAudioFormat_get_FormatTag_Proxy(ITScriptableAudioFormat *This,long *pVal);
+  HRESULT WINAPI ITScriptableAudioFormat_get_FormatTag_Proxy(ITScriptableAudioFormat *This,__LONG32 *pVal);
   void __RPC_STUB ITScriptableAudioFormat_get_FormatTag_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITScriptableAudioFormat_put_FormatTag_Proxy(ITScriptableAudioFormat *This,const long nNewVal);
+  HRESULT WINAPI ITScriptableAudioFormat_put_FormatTag_Proxy(ITScriptableAudioFormat *This,const __LONG32 nNewVal);
   void __RPC_STUB ITScriptableAudioFormat_put_FormatTag_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 

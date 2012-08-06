@@ -57,7 +57,7 @@ extern "C" {
 
 #ifndef __LHANDLE
 #define __LHANDLE
-  typedef unsigned long LHANDLE,*LPLHANDLE;
+  typedef unsigned __LONG32 LHANDLE,*LPLHANDLE;
 #endif
 
 #if !defined(_WINBASE_) && !defined(_FILETIME_)
@@ -228,8 +228,8 @@ extern "C" {
 #define _CY_DEFINED
   typedef union tagCY {
     struct {
-      unsigned long Lo;
-      long Hi;
+      unsigned __LONG32 Lo;
+      __LONG32 Hi;
     };
     LONGLONG int64;
   } CY;
@@ -573,7 +573,7 @@ extern "C" {
       MAPI_IMAPIADVISESINK_METHODS(PURE)
   };
 
-  typedef long (WINAPI NOTIFCALLBACK) (LPVOID lpvContext,ULONG cNotification,LPNOTIFICATION lpNotifications);
+  typedef __LONG32 (WINAPI NOTIFCALLBACK) (LPVOID lpvContext,ULONG cNotification,LPNOTIFICATION lpNotifications);
   typedef NOTIFCALLBACK *LPNOTIFCALLBACK;
 
 #define szMAPINotificationMsg "MAPI Notify window message"
@@ -1165,18 +1165,18 @@ extern "C" {
 #define SECURITY_SIGNED ((ULONG) 0x00000001)
 #define SECURITY_ENCRYPTED ((ULONG) 0x00000002)
 
-#define PRIO_URGENT ((long) 1)
-#define PRIO_NORMAL ((long) 0)
-#define PRIO_NONURGENT ((long) -1)
+#define PRIO_URGENT ((__LONG32) 1)
+#define PRIO_NORMAL ((__LONG32) 0)
+#define PRIO_NONURGENT ((__LONG32) -1)
 
 #define SENSITIVITY_NONE ((ULONG) 0x00000000)
 #define SENSITIVITY_PERSONAL ((ULONG) 0x00000001)
 #define SENSITIVITY_PRIVATE ((ULONG) 0x00000002)
 #define SENSITIVITY_COMPANY_CONFIDENTIAL ((ULONG) 0x00000003)
 
-#define IMPORTANCE_LOW ((long) 0)
-#define IMPORTANCE_NORMAL ((long) 1)
-#define IMPORTANCE_HIGH ((long) 2)
+#define IMPORTANCE_LOW ((__LONG32) 0)
+#define IMPORTANCE_NORMAL ((__LONG32) 1)
+#define IMPORTANCE_HIGH ((__LONG32) 2)
 
 #define MAPI_IMESSAGE_METHODS(IPURE) MAPIMETHOD(GetAttachmentTable) (THIS_ ULONG ulFlags,LPMAPITABLE *lppTable) IPURE; MAPIMETHOD(OpenAttach) (THIS_ ULONG ulAttachmentNum,LPCIID lpInterface,ULONG ulFlags,LPATTACH *lppAttach) IPURE; MAPIMETHOD(CreateAttach) (THIS_ LPCIID lpInterface,ULONG ulFlags,ULONG *lpulAttachmentNum,LPATTACH *lppAttach) IPURE; MAPIMETHOD(DeleteAttach) (THIS_ ULONG ulAttachmentNum,ULONG ulUIParam,LPMAPIPROGRESS lpProgress,ULONG ulFlags) IPURE; MAPIMETHOD(GetRecipientTable) (THIS_ ULONG ulFlags,LPMAPITABLE *lppTable) IPURE; MAPIMETHOD(ModifyRecipients) (THIS_ ULONG ulFlags,LPADRLIST lpMods) IPURE; MAPIMETHOD(SubmitMessage) (THIS_ ULONG ulFlags) IPURE; MAPIMETHOD(SetReadFlag) (THIS_ ULONG ulFlags) IPURE;
 #undef INTERFACE
@@ -1382,7 +1382,7 @@ extern "C" {
     ULONG ulFlags;
     ULONG ulcButtons;
     ULONG ulPropTag;
-    long lReturnValue;
+    __LONG32 lReturnValue;
   } DTBLRADIOBUTTON,*LPDTBLRADIOBUTTON;
 #define SizedDtblRadioButton(n,u) struct _DTBLRADIOBUTTON_ ## u { DTBLRADIOBUTTON dtblradiobutton; TCHAR lpszLabel[n]; } u
 

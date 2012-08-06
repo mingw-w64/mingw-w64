@@ -8,7 +8,7 @@
 
 #include <objerror.h>
 
-#define MAKE_MAPI_SCODE(sev,fac,code) ((SCODE) (((unsigned long)(sev)<<31) | ((unsigned long)(fac)<<16) | ((unsigned long)(code))))
+#define MAKE_MAPI_SCODE(sev,fac,code) ((SCODE) (((unsigned __LONG32)(sev)<<31) | ((unsigned __LONG32)(fac)<<16) | ((unsigned __LONG32)(code))))
 
 #define MAKE_MAPI_E(err) (MAKE_MAPI_SCODE(1,FACILITY_ITF,err))
 #define MAKE_MAPI_S(warn) (MAKE_MAPI_SCODE(0,FACILITY_ITF,warn))

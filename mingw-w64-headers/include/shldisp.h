@@ -451,7 +451,7 @@ extern "C" {
     virtual HRESULT WINAPI SearchFor(int iFor) = 0;
     virtual HRESULT WINAPI GetScopeInfo(BSTR bsScope,int *pdwScopeInfo) = 0;
     virtual HRESULT WINAPI RestoreSavedSearch(VARIANT *pvarFile) = 0;
-    virtual HRESULT WINAPI Execute(VARIANT *RecordsAffected,VARIANT *Parameters,long Options) = 0;
+    virtual HRESULT WINAPI Execute(VARIANT *RecordsAffected,VARIANT *Parameters,__LONG32 Options) = 0;
     virtual HRESULT WINAPI AddConstraint(BSTR Name,VARIANT Value) = 0;
     virtual HRESULT WINAPI GetNextConstraint(VARIANT_BOOL fReset,DFConstraint **ppdfc) = 0;
   };
@@ -473,7 +473,7 @@ extern "C" {
       HRESULT (WINAPI *SearchFor)(ISearchCommandExt *This,int iFor);
       HRESULT (WINAPI *GetScopeInfo)(ISearchCommandExt *This,BSTR bsScope,int *pdwScopeInfo);
       HRESULT (WINAPI *RestoreSavedSearch)(ISearchCommandExt *This,VARIANT *pvarFile);
-      HRESULT (WINAPI *Execute)(ISearchCommandExt *This,VARIANT *RecordsAffected,VARIANT *Parameters,long Options);
+      HRESULT (WINAPI *Execute)(ISearchCommandExt *This,VARIANT *RecordsAffected,VARIANT *Parameters,__LONG32 Options);
       HRESULT (WINAPI *AddConstraint)(ISearchCommandExt *This,BSTR Name,VARIANT Value);
       HRESULT (WINAPI *GetNextConstraint)(ISearchCommandExt *This,VARIANT_BOOL fReset,DFConstraint **ppdfc);
     END_INTERFACE
@@ -518,7 +518,7 @@ extern "C" {
   void __RPC_STUB ISearchCommandExt_GetScopeInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISearchCommandExt_RestoreSavedSearch_Proxy(ISearchCommandExt *This,VARIANT *pvarFile);
   void __RPC_STUB ISearchCommandExt_RestoreSavedSearch_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISearchCommandExt_Execute_Proxy(ISearchCommandExt *This,VARIANT *RecordsAffected,VARIANT *Parameters,long Options);
+  HRESULT WINAPI ISearchCommandExt_Execute_Proxy(ISearchCommandExt *This,VARIANT *RecordsAffected,VARIANT *Parameters,__LONG32 Options);
   void __RPC_STUB ISearchCommandExt_Execute_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISearchCommandExt_AddConstraint_Proxy(ISearchCommandExt *This,BSTR Name,VARIANT Value);
   void __RPC_STUB ISearchCommandExt_AddConstraint_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -653,7 +653,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct FolderItems : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *plCount) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *plCount) = 0;
     virtual HRESULT WINAPI get_Application(IDispatch **ppid) = 0;
     virtual HRESULT WINAPI get_Parent(IDispatch **ppid) = 0;
     virtual HRESULT WINAPI Item(VARIANT index,FolderItem **ppid) = 0;
@@ -669,7 +669,7 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(FolderItems *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(FolderItems *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(FolderItems *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(FolderItems *This,long *plCount);
+      HRESULT (WINAPI *get_Count)(FolderItems *This,__LONG32 *plCount);
       HRESULT (WINAPI *get_Application)(FolderItems *This,IDispatch **ppid);
       HRESULT (WINAPI *get_Parent)(FolderItems *This,IDispatch **ppid);
       HRESULT (WINAPI *Item)(FolderItems *This,VARIANT index,FolderItem **ppid);
@@ -694,7 +694,7 @@ extern "C" {
 #define FolderItems__NewEnum(This,ppunk) (This)->lpVtbl->_NewEnum(This,ppunk)
 #endif
 #endif
-  HRESULT WINAPI FolderItems_get_Count_Proxy(FolderItems *This,long *plCount);
+  HRESULT WINAPI FolderItems_get_Count_Proxy(FolderItems *This,__LONG32 *plCount);
   void __RPC_STUB FolderItems_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI FolderItems_get_Application_Proxy(FolderItems *This,IDispatch **ppid);
   void __RPC_STUB FolderItems_get_Application_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -766,7 +766,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct FolderItemVerbs : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *plCount) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *plCount) = 0;
     virtual HRESULT WINAPI get_Application(IDispatch **ppid) = 0;
     virtual HRESULT WINAPI get_Parent(IDispatch **ppid) = 0;
     virtual HRESULT WINAPI Item(VARIANT index,FolderItemVerb **ppid) = 0;
@@ -782,7 +782,7 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(FolderItemVerbs *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(FolderItemVerbs *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(FolderItemVerbs *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(FolderItemVerbs *This,long *plCount);
+      HRESULT (WINAPI *get_Count)(FolderItemVerbs *This,__LONG32 *plCount);
       HRESULT (WINAPI *get_Application)(FolderItemVerbs *This,IDispatch **ppid);
       HRESULT (WINAPI *get_Parent)(FolderItemVerbs *This,IDispatch **ppid);
       HRESULT (WINAPI *Item)(FolderItemVerbs *This,VARIANT index,FolderItemVerb **ppid);
@@ -807,7 +807,7 @@ extern "C" {
 #define FolderItemVerbs__NewEnum(This,ppunk) (This)->lpVtbl->_NewEnum(This,ppunk)
 #endif
 #endif
-  HRESULT WINAPI FolderItemVerbs_get_Count_Proxy(FolderItemVerbs *This,long *plCount);
+  HRESULT WINAPI FolderItemVerbs_get_Count_Proxy(FolderItemVerbs *This,__LONG32 *plCount);
   void __RPC_STUB FolderItemVerbs_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI FolderItemVerbs_get_Application_Proxy(FolderItemVerbs *This,IDispatch **ppid);
   void __RPC_STUB FolderItemVerbs_get_Application_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1157,7 +1157,7 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(FolderItems2 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(FolderItems2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(FolderItems2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(FolderItems2 *This,long *plCount);
+      HRESULT (WINAPI *get_Count)(FolderItems2 *This,__LONG32 *plCount);
       HRESULT (WINAPI *get_Application)(FolderItems2 *This,IDispatch **ppid);
       HRESULT (WINAPI *get_Parent)(FolderItems2 *This,IDispatch **ppid);
       HRESULT (WINAPI *Item)(FolderItems2 *This,VARIANT index,FolderItem **ppid);
@@ -1194,7 +1194,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct FolderItems3 : public FolderItems2 {
   public:
-    virtual HRESULT WINAPI Filter(long grfFlags,BSTR bstrFileSpec) = 0;
+    virtual HRESULT WINAPI Filter(__LONG32 grfFlags,BSTR bstrFileSpec) = 0;
     virtual HRESULT WINAPI get_Verbs(FolderItemVerbs **ppfic) = 0;
   };
 #else
@@ -1207,13 +1207,13 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(FolderItems3 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(FolderItems3 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(FolderItems3 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(FolderItems3 *This,long *plCount);
+      HRESULT (WINAPI *get_Count)(FolderItems3 *This,__LONG32 *plCount);
       HRESULT (WINAPI *get_Application)(FolderItems3 *This,IDispatch **ppid);
       HRESULT (WINAPI *get_Parent)(FolderItems3 *This,IDispatch **ppid);
       HRESULT (WINAPI *Item)(FolderItems3 *This,VARIANT index,FolderItem **ppid);
       HRESULT (WINAPI *_NewEnum)(FolderItems3 *This,IUnknown **ppunk);
       HRESULT (WINAPI *InvokeVerbEx)(FolderItems3 *This,VARIANT vVerb,VARIANT vArgs);
-      HRESULT (WINAPI *Filter)(FolderItems3 *This,long grfFlags,BSTR bstrFileSpec);
+      HRESULT (WINAPI *Filter)(FolderItems3 *This,__LONG32 grfFlags,BSTR bstrFileSpec);
       HRESULT (WINAPI *get_Verbs)(FolderItems3 *This,FolderItemVerbs **ppfic);
     END_INTERFACE
   } FolderItems3Vtbl;
@@ -1238,7 +1238,7 @@ extern "C" {
 #define FolderItems3_get_Verbs(This,ppfic) (This)->lpVtbl->get_Verbs(This,ppfic)
 #endif
 #endif
-  HRESULT WINAPI FolderItems3_Filter_Proxy(FolderItems3 *This,long grfFlags,BSTR bstrFileSpec);
+  HRESULT WINAPI FolderItems3_Filter_Proxy(FolderItems3 *This,__LONG32 grfFlags,BSTR bstrFileSpec);
   void __RPC_STUB FolderItems3_Filter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI FolderItems3_get_Verbs_Proxy(FolderItems3 *This,FolderItemVerbs **ppfic);
   void __RPC_STUB FolderItems3_get_Verbs_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1448,7 +1448,7 @@ extern "C" {
     virtual HRESULT WINAPI SelectItem(VARIANT *pvfi,int dwFlags) = 0;
     virtual HRESULT WINAPI PopupItemMenu(FolderItem *pfi,VARIANT vx,VARIANT vy,BSTR *pbs) = 0;
     virtual HRESULT WINAPI get_Script(IDispatch **ppDisp) = 0;
-    virtual HRESULT WINAPI get_ViewOptions(long *plViewOptions) = 0;
+    virtual HRESULT WINAPI get_ViewOptions(__LONG32 *plViewOptions) = 0;
   };
 #else
   typedef struct IShellFolderViewDualVtbl {
@@ -1468,7 +1468,7 @@ extern "C" {
       HRESULT (WINAPI *SelectItem)(IShellFolderViewDual *This,VARIANT *pvfi,int dwFlags);
       HRESULT (WINAPI *PopupItemMenu)(IShellFolderViewDual *This,FolderItem *pfi,VARIANT vx,VARIANT vy,BSTR *pbs);
       HRESULT (WINAPI *get_Script)(IShellFolderViewDual *This,IDispatch **ppDisp);
-      HRESULT (WINAPI *get_ViewOptions)(IShellFolderViewDual *This,long *plViewOptions);
+      HRESULT (WINAPI *get_ViewOptions)(IShellFolderViewDual *This,__LONG32 *plViewOptions);
     END_INTERFACE
   } IShellFolderViewDualVtbl;
   struct IShellFolderViewDual {
@@ -1509,7 +1509,7 @@ extern "C" {
   void __RPC_STUB IShellFolderViewDual_PopupItemMenu_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IShellFolderViewDual_get_Script_Proxy(IShellFolderViewDual *This,IDispatch **ppDisp);
   void __RPC_STUB IShellFolderViewDual_get_Script_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IShellFolderViewDual_get_ViewOptions_Proxy(IShellFolderViewDual *This,long *plViewOptions);
+  HRESULT WINAPI IShellFolderViewDual_get_ViewOptions_Proxy(IShellFolderViewDual *This,__LONG32 *plViewOptions);
   void __RPC_STUB IShellFolderViewDual_get_ViewOptions_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1541,7 +1541,7 @@ extern "C" {
       HRESULT (WINAPI *SelectItem)(IShellFolderViewDual2 *This,VARIANT *pvfi,int dwFlags);
       HRESULT (WINAPI *PopupItemMenu)(IShellFolderViewDual2 *This,FolderItem *pfi,VARIANT vx,VARIANT vy,BSTR *pbs);
       HRESULT (WINAPI *get_Script)(IShellFolderViewDual2 *This,IDispatch **ppDisp);
-      HRESULT (WINAPI *get_ViewOptions)(IShellFolderViewDual2 *This,long *plViewOptions);
+      HRESULT (WINAPI *get_ViewOptions)(IShellFolderViewDual2 *This,__LONG32 *plViewOptions);
       HRESULT (WINAPI *get_CurrentViewMode)(IShellFolderViewDual2 *This,UINT *pViewMode);
       HRESULT (WINAPI *put_CurrentViewMode)(IShellFolderViewDual2 *This,UINT ViewMode);
       HRESULT (WINAPI *SelectItemRelative)(IShellFolderViewDual2 *This,int iRelative);
@@ -1594,7 +1594,7 @@ extern "C" {
     virtual HRESULT WINAPI get_Application(IDispatch **ppid) = 0;
     virtual HRESULT WINAPI get_Parent(IDispatch **ppid) = 0;
     virtual HRESULT WINAPI NameSpace(VARIANT vDir,Folder **ppsdf) = 0;
-    virtual HRESULT WINAPI BrowseForFolder(long Hwnd,BSTR Title,long Options,VARIANT RootFolder,Folder **ppsdf) = 0;
+    virtual HRESULT WINAPI BrowseForFolder(__LONG32 Hwnd,BSTR Title,__LONG32 Options,VARIANT RootFolder,Folder **ppsdf) = 0;
     virtual HRESULT WINAPI Windows(IDispatch **ppid) = 0;
     virtual HRESULT WINAPI Open(VARIANT vDir) = 0;
     virtual HRESULT WINAPI Explore(VARIANT vDir) = 0;
@@ -1628,7 +1628,7 @@ extern "C" {
       HRESULT (WINAPI *get_Application)(IShellDispatch *This,IDispatch **ppid);
       HRESULT (WINAPI *get_Parent)(IShellDispatch *This,IDispatch **ppid);
       HRESULT (WINAPI *NameSpace)(IShellDispatch *This,VARIANT vDir,Folder **ppsdf);
-      HRESULT (WINAPI *BrowseForFolder)(IShellDispatch *This,long Hwnd,BSTR Title,long Options,VARIANT RootFolder,Folder **ppsdf);
+      HRESULT (WINAPI *BrowseForFolder)(IShellDispatch *This,__LONG32 Hwnd,BSTR Title,__LONG32 Options,VARIANT RootFolder,Folder **ppsdf);
       HRESULT (WINAPI *Windows)(IShellDispatch *This,IDispatch **ppid);
       HRESULT (WINAPI *Open)(IShellDispatch *This,VARIANT vDir);
       HRESULT (WINAPI *Explore)(IShellDispatch *This,VARIANT vDir);
@@ -1692,7 +1692,7 @@ extern "C" {
   void __RPC_STUB IShellDispatch_get_Parent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IShellDispatch_NameSpace_Proxy(IShellDispatch *This,VARIANT vDir,Folder **ppsdf);
   void __RPC_STUB IShellDispatch_NameSpace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IShellDispatch_BrowseForFolder_Proxy(IShellDispatch *This,long Hwnd,BSTR Title,long Options,VARIANT RootFolder,Folder **ppsdf);
+  HRESULT WINAPI IShellDispatch_BrowseForFolder_Proxy(IShellDispatch *This,__LONG32 Hwnd,BSTR Title,__LONG32 Options,VARIANT RootFolder,Folder **ppsdf);
   void __RPC_STUB IShellDispatch_BrowseForFolder_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IShellDispatch_Windows_Proxy(IShellDispatch *This,IDispatch **ppid);
   void __RPC_STUB IShellDispatch_Windows_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1740,7 +1740,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IShellDispatch2 : public IShellDispatch {
   public:
-    virtual HRESULT WINAPI IsRestricted(BSTR Group,BSTR Restriction,long *plRestrictValue) = 0;
+    virtual HRESULT WINAPI IsRestricted(BSTR Group,BSTR Restriction,__LONG32 *plRestrictValue) = 0;
     virtual HRESULT WINAPI ShellExecute(BSTR File,VARIANT vArgs,VARIANT vDir,VARIANT vOperation,VARIANT vShow) = 0;
     virtual HRESULT WINAPI FindPrinter(BSTR name,BSTR location,BSTR model) = 0;
     virtual HRESULT WINAPI GetSystemInformation(BSTR name,VARIANT *pv) = 0;
@@ -1763,7 +1763,7 @@ extern "C" {
       HRESULT (WINAPI *get_Application)(IShellDispatch2 *This,IDispatch **ppid);
       HRESULT (WINAPI *get_Parent)(IShellDispatch2 *This,IDispatch **ppid);
       HRESULT (WINAPI *NameSpace)(IShellDispatch2 *This,VARIANT vDir,Folder **ppsdf);
-      HRESULT (WINAPI *BrowseForFolder)(IShellDispatch2 *This,long Hwnd,BSTR Title,long Options,VARIANT RootFolder,Folder **ppsdf);
+      HRESULT (WINAPI *BrowseForFolder)(IShellDispatch2 *This,__LONG32 Hwnd,BSTR Title,__LONG32 Options,VARIANT RootFolder,Folder **ppsdf);
       HRESULT (WINAPI *Windows)(IShellDispatch2 *This,IDispatch **ppid);
       HRESULT (WINAPI *Open)(IShellDispatch2 *This,VARIANT vDir);
       HRESULT (WINAPI *Explore)(IShellDispatch2 *This,VARIANT vDir);
@@ -1783,7 +1783,7 @@ extern "C" {
       HRESULT (WINAPI *FindComputer)(IShellDispatch2 *This);
       HRESULT (WINAPI *RefreshMenu)(IShellDispatch2 *This);
       HRESULT (WINAPI *ControlPanelItem)(IShellDispatch2 *This,BSTR szDir);
-      HRESULT (WINAPI *IsRestricted)(IShellDispatch2 *This,BSTR Group,BSTR Restriction,long *plRestrictValue);
+      HRESULT (WINAPI *IsRestricted)(IShellDispatch2 *This,BSTR Group,BSTR Restriction,__LONG32 *plRestrictValue);
       HRESULT (WINAPI *ShellExecute)(IShellDispatch2 *This,BSTR File,VARIANT vArgs,VARIANT vDir,VARIANT vOperation,VARIANT vShow);
       HRESULT (WINAPI *FindPrinter)(IShellDispatch2 *This,BSTR name,BSTR location,BSTR model);
       HRESULT (WINAPI *GetSystemInformation)(IShellDispatch2 *This,BSTR name,VARIANT *pv);
@@ -1839,7 +1839,7 @@ extern "C" {
 #define IShellDispatch2_ShowBrowserBar(This,bstrClsid,bShow,pSuccess) (This)->lpVtbl->ShowBrowserBar(This,bstrClsid,bShow,pSuccess)
 #endif
 #endif
-  HRESULT WINAPI IShellDispatch2_IsRestricted_Proxy(IShellDispatch2 *This,BSTR Group,BSTR Restriction,long *plRestrictValue);
+  HRESULT WINAPI IShellDispatch2_IsRestricted_Proxy(IShellDispatch2 *This,BSTR Group,BSTR Restriction,__LONG32 *plRestrictValue);
   void __RPC_STUB IShellDispatch2_IsRestricted_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IShellDispatch2_ShellExecute_Proxy(IShellDispatch2 *This,BSTR File,VARIANT vArgs,VARIANT vDir,VARIANT vOperation,VARIANT vShow);
   void __RPC_STUB IShellDispatch2_ShellExecute_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1880,7 +1880,7 @@ extern "C" {
       HRESULT (WINAPI *get_Application)(IShellDispatch3 *This,IDispatch **ppid);
       HRESULT (WINAPI *get_Parent)(IShellDispatch3 *This,IDispatch **ppid);
       HRESULT (WINAPI *NameSpace)(IShellDispatch3 *This,VARIANT vDir,Folder **ppsdf);
-      HRESULT (WINAPI *BrowseForFolder)(IShellDispatch3 *This,long Hwnd,BSTR Title,long Options,VARIANT RootFolder,Folder **ppsdf);
+      HRESULT (WINAPI *BrowseForFolder)(IShellDispatch3 *This,__LONG32 Hwnd,BSTR Title,__LONG32 Options,VARIANT RootFolder,Folder **ppsdf);
       HRESULT (WINAPI *Windows)(IShellDispatch3 *This,IDispatch **ppid);
       HRESULT (WINAPI *Open)(IShellDispatch3 *This,VARIANT vDir);
       HRESULT (WINAPI *Explore)(IShellDispatch3 *This,VARIANT vDir);
@@ -1900,7 +1900,7 @@ extern "C" {
       HRESULT (WINAPI *FindComputer)(IShellDispatch3 *This);
       HRESULT (WINAPI *RefreshMenu)(IShellDispatch3 *This);
       HRESULT (WINAPI *ControlPanelItem)(IShellDispatch3 *This,BSTR szDir);
-      HRESULT (WINAPI *IsRestricted)(IShellDispatch3 *This,BSTR Group,BSTR Restriction,long *plRestrictValue);
+      HRESULT (WINAPI *IsRestricted)(IShellDispatch3 *This,BSTR Group,BSTR Restriction,__LONG32 *plRestrictValue);
       HRESULT (WINAPI *ShellExecute)(IShellDispatch3 *This,BSTR File,VARIANT vArgs,VARIANT vDir,VARIANT vOperation,VARIANT vShow);
       HRESULT (WINAPI *FindPrinter)(IShellDispatch3 *This,BSTR name,BSTR location,BSTR model);
       HRESULT (WINAPI *GetSystemInformation)(IShellDispatch3 *This,BSTR name,VARIANT *pv);
@@ -1971,7 +1971,7 @@ extern "C" {
     virtual HRESULT WINAPI WindowsSecurity(void) = 0;
     virtual HRESULT WINAPI ToggleDesktop(void) = 0;
     virtual HRESULT WINAPI ExplorerPolicy(BSTR bstrPolicyName,VARIANT *pValue) = 0;
-    virtual HRESULT WINAPI GetSetting(long lSetting,VARIANT_BOOL *pResult) = 0;
+    virtual HRESULT WINAPI GetSetting(__LONG32 lSetting,VARIANT_BOOL *pResult) = 0;
   };
 #else
   typedef struct IShellDispatch4Vtbl {
@@ -1986,7 +1986,7 @@ extern "C" {
       HRESULT (WINAPI *get_Application)(IShellDispatch4 *This,IDispatch **ppid);
       HRESULT (WINAPI *get_Parent)(IShellDispatch4 *This,IDispatch **ppid);
       HRESULT (WINAPI *NameSpace)(IShellDispatch4 *This,VARIANT vDir,Folder **ppsdf);
-      HRESULT (WINAPI *BrowseForFolder)(IShellDispatch4 *This,long Hwnd,BSTR Title,long Options,VARIANT RootFolder,Folder **ppsdf);
+      HRESULT (WINAPI *BrowseForFolder)(IShellDispatch4 *This,__LONG32 Hwnd,BSTR Title,__LONG32 Options,VARIANT RootFolder,Folder **ppsdf);
       HRESULT (WINAPI *Windows)(IShellDispatch4 *This,IDispatch **ppid);
       HRESULT (WINAPI *Open)(IShellDispatch4 *This,VARIANT vDir);
       HRESULT (WINAPI *Explore)(IShellDispatch4 *This,VARIANT vDir);
@@ -2006,7 +2006,7 @@ extern "C" {
       HRESULT (WINAPI *FindComputer)(IShellDispatch4 *This);
       HRESULT (WINAPI *RefreshMenu)(IShellDispatch4 *This);
       HRESULT (WINAPI *ControlPanelItem)(IShellDispatch4 *This,BSTR szDir);
-      HRESULT (WINAPI *IsRestricted)(IShellDispatch4 *This,BSTR Group,BSTR Restriction,long *plRestrictValue);
+      HRESULT (WINAPI *IsRestricted)(IShellDispatch4 *This,BSTR Group,BSTR Restriction,__LONG32 *plRestrictValue);
       HRESULT (WINAPI *ShellExecute)(IShellDispatch4 *This,BSTR File,VARIANT vArgs,VARIANT vDir,VARIANT vOperation,VARIANT vShow);
       HRESULT (WINAPI *FindPrinter)(IShellDispatch4 *This,BSTR name,BSTR location,BSTR model);
       HRESULT (WINAPI *GetSystemInformation)(IShellDispatch4 *This,BSTR name,VARIANT *pv);
@@ -2019,7 +2019,7 @@ extern "C" {
       HRESULT (WINAPI *WindowsSecurity)(IShellDispatch4 *This);
       HRESULT (WINAPI *ToggleDesktop)(IShellDispatch4 *This);
       HRESULT (WINAPI *ExplorerPolicy)(IShellDispatch4 *This,BSTR bstrPolicyName,VARIANT *pValue);
-      HRESULT (WINAPI *GetSetting)(IShellDispatch4 *This,long lSetting,VARIANT_BOOL *pResult);
+      HRESULT (WINAPI *GetSetting)(IShellDispatch4 *This,__LONG32 lSetting,VARIANT_BOOL *pResult);
     END_INTERFACE
   } IShellDispatch4Vtbl;
   struct IShellDispatch4 {
@@ -2078,7 +2078,7 @@ extern "C" {
   void __RPC_STUB IShellDispatch4_ToggleDesktop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IShellDispatch4_ExplorerPolicy_Proxy(IShellDispatch4 *This,BSTR bstrPolicyName,VARIANT *pValue);
   void __RPC_STUB IShellDispatch4_ExplorerPolicy_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IShellDispatch4_GetSetting_Proxy(IShellDispatch4 *This,long lSetting,VARIANT_BOOL *pResult);
+  HRESULT WINAPI IShellDispatch4_GetSetting_Proxy(IShellDispatch4 *This,__LONG32 lSetting,VARIANT_BOOL *pResult);
   void __RPC_STUB IShellDispatch4_GetSetting_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 

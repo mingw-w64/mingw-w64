@@ -97,8 +97,8 @@ extern "C" {
   typedef LARGE_INTEGER _SECURITY_INTEGER,SECURITY_INTEGER,*PSECURITY_INTEGER;
 #else
   typedef struct _SECURITY_INTEGER {
-    unsigned long LowPart;
-    long HighPart;
+    unsigned __LONG32 LowPart;
+    __LONG32 HighPart;
   } SECURITY_INTEGER,*PSECURITY_INTEGER;
 #endif
 
@@ -106,8 +106,8 @@ extern "C" {
   typedef SECURITY_INTEGER TimeStamp;
   typedef SECURITY_INTEGER *PTimeStamp;
 #else
-  typedef unsigned long TimeStamp;
-  typedef unsigned long *PTimeStamp;
+  typedef unsigned __LONG32 TimeStamp;
+  typedef unsigned __LONG32 *PTimeStamp;
 #endif
 
 #ifndef _NTDEF_
@@ -121,19 +121,19 @@ extern "C" {
 #endif
 
   typedef struct _SecPkgInfoW {
-    unsigned long fCapabilities;
+    unsigned __LONG32 fCapabilities;
     unsigned short wVersion;
     unsigned short wRPCID;
-    unsigned long cbMaxToken;
+    unsigned __LONG32 cbMaxToken;
     SEC_WCHAR *Name;
     SEC_WCHAR *Comment;
   } SecPkgInfoW,*PSecPkgInfoW;
 
   typedef struct _SecPkgInfoA {
-    unsigned long fCapabilities;
+    unsigned __LONG32 fCapabilities;
     unsigned short wVersion;
     unsigned short wRPCID;
-    unsigned long cbMaxToken;
+    unsigned __LONG32 cbMaxToken;
     SEC_CHAR *Name;
     SEC_CHAR *Comment;
   } SecPkgInfoA,*PSecPkgInfoA;
@@ -164,14 +164,14 @@ extern "C" {
 #define SECPKG_ID_NONE 0xFFFF
 
   typedef struct _SecBuffer {
-    unsigned long cbBuffer;
-    unsigned long BufferType;
+    unsigned __LONG32 cbBuffer;
+    unsigned __LONG32 BufferType;
     void *pvBuffer;
   } SecBuffer,*PSecBuffer;
 
   typedef struct _SecBufferDesc {
-    unsigned long ulVersion;
-    unsigned long cBuffers;
+    unsigned __LONG32 ulVersion;
+    unsigned __LONG32 cBuffers;
     PSecBuffer pBuffers;
   } SecBufferDesc,*PSecBufferDesc;
 
@@ -199,21 +199,21 @@ extern "C" {
 #define SECBUFFER_RESERVED 0x60000000
 
   typedef struct _SEC_NEGOTIATION_INFO {
-    unsigned long Size;
-    unsigned long NameLength;
+    unsigned __LONG32 Size;
+    unsigned __LONG32 NameLength;
     SEC_WCHAR *Name;
     void *Reserved;
   } SEC_NEGOTIATION_INFO,*PSEC_NEGOTIATION_INFO;
 
   typedef struct _SEC_CHANNEL_BINDINGS {
-    unsigned long dwInitiatorAddrType;
-    unsigned long cbInitiatorLength;
-    unsigned long dwInitiatorOffset;
-    unsigned long dwAcceptorAddrType;
-    unsigned long cbAcceptorLength;
-    unsigned long dwAcceptorOffset;
-    unsigned long cbApplicationDataLength;
-    unsigned long dwApplicationDataOffset;
+    unsigned __LONG32 dwInitiatorAddrType;
+    unsigned __LONG32 cbInitiatorLength;
+    unsigned __LONG32 dwInitiatorOffset;
+    unsigned __LONG32 dwAcceptorAddrType;
+    unsigned __LONG32 cbAcceptorLength;
+    unsigned __LONG32 dwAcceptorOffset;
+    unsigned __LONG32 cbApplicationDataLength;
+    unsigned __LONG32 dwApplicationDataOffset;
   } SEC_CHANNEL_BINDINGS,*PSEC_CHANNEL_BINDINGS;
 
 #define SECURITY_NATIVE_DREP 0x00000010
@@ -335,13 +335,13 @@ extern "C" {
 
   typedef struct _SecPkgCredentials_SSIProviderW {
     SEC_WCHAR *sProviderName;
-    unsigned long ProviderInfoLength;
+    unsigned __LONG32 ProviderInfoLength;
     char *ProviderInfo;
   } SecPkgCredentials_SSIProviderW,*PSecPkgCredentials_SSIProviderW;
 
   typedef struct _SecPkgCredentials_SSIProviderA {
     SEC_CHAR *sProviderName;
-    unsigned long ProviderInfoLength;
+    unsigned __LONG32 ProviderInfoLength;
     char *ProviderInfo;
   } SecPkgCredentials_SSIProviderA,*PSecPkgCredentials_SSIProviderA;
 
@@ -372,18 +372,18 @@ extern "C" {
 #define SECPKG_ATTR_LOGOFF_TIME 21
 
   typedef struct _SecPkgContext_Sizes {
-    unsigned long cbMaxToken;
-    unsigned long cbMaxSignature;
-    unsigned long cbBlockSize;
-    unsigned long cbSecurityTrailer;
+    unsigned __LONG32 cbMaxToken;
+    unsigned __LONG32 cbMaxSignature;
+    unsigned __LONG32 cbBlockSize;
+    unsigned __LONG32 cbSecurityTrailer;
   } SecPkgContext_Sizes,*PSecPkgContext_Sizes;
 
   typedef struct _SecPkgContext_StreamSizes {
-    unsigned long cbHeader;
-    unsigned long cbTrailer;
-    unsigned long cbMaximumMessage;
-    unsigned long cBuffers;
-    unsigned long cbBlockSize;
+    unsigned __LONG32 cbHeader;
+    unsigned __LONG32 cbTrailer;
+    unsigned __LONG32 cbMaximumMessage;
+    unsigned __LONG32 cBuffers;
+    unsigned __LONG32 cbBlockSize;
   } SecPkgContext_StreamSizes,*PSecPkgContext_StreamSizes;
 
   typedef struct _SecPkgContext_NamesW {
@@ -403,24 +403,24 @@ extern "C" {
   } SecPkgContext_Lifespan,*PSecPkgContext_Lifespan;
 
   typedef struct _SecPkgContext_DceInfo {
-    unsigned long AuthzSvc;
+    unsigned __LONG32 AuthzSvc;
     void *pPac;
   } SecPkgContext_DceInfo,*PSecPkgContext_DceInfo;
 
   typedef struct _SecPkgContext_KeyInfoA {
     SEC_CHAR *sSignatureAlgorithmName;
     SEC_CHAR *sEncryptAlgorithmName;
-    unsigned long KeySize;
-    unsigned long SignatureAlgorithm;
-    unsigned long EncryptAlgorithm;
+    unsigned __LONG32 KeySize;
+    unsigned __LONG32 SignatureAlgorithm;
+    unsigned __LONG32 EncryptAlgorithm;
   } SecPkgContext_KeyInfoA,*PSecPkgContext_KeyInfoA;
 
   typedef struct _SecPkgContext_KeyInfoW {
     SEC_WCHAR *sSignatureAlgorithmName;
     SEC_WCHAR *sEncryptAlgorithmName;
-    unsigned long KeySize;
-    unsigned long SignatureAlgorithm;
-    unsigned long EncryptAlgorithm;
+    unsigned __LONG32 KeySize;
+    unsigned __LONG32 SignatureAlgorithm;
+    unsigned __LONG32 EncryptAlgorithm;
   } SecPkgContext_KeyInfoW,*PSecPkgContext_KeyInfoW;
 
 #define SecPkgContext_KeyInfo __MINGW_NAME_AW(SecPkgContext_KeyInfo)
@@ -439,14 +439,14 @@ extern "C" {
 
   typedef struct _SecPkgContext_ProtoInfoA {
     SEC_CHAR *sProtocolName;
-    unsigned long majorVersion;
-    unsigned long minorVersion;
+    unsigned __LONG32 majorVersion;
+    unsigned __LONG32 minorVersion;
   } SecPkgContext_ProtoInfoA,*PSecPkgContext_ProtoInfoA;
 
   typedef struct _SecPkgContext_ProtoInfoW {
     SEC_WCHAR *sProtocolName;
-    unsigned long majorVersion;
-    unsigned long minorVersion;
+    unsigned __LONG32 majorVersion;
+    unsigned __LONG32 minorVersion;
   } SecPkgContext_ProtoInfoW,*PSecPkgContext_ProtoInfoW;
 
 #define SecPkgContext_ProtoInfo __MINGW_NAME_AW(SecPkgContext_ProtoInfo)
@@ -461,7 +461,7 @@ extern "C" {
   } SecPkgContext_LogoffTime,*PSecPkgContext_LogoffTime;
 
   typedef struct _SecPkgContext_SessionKey {
-    unsigned long SessionKeyLength;
+    unsigned __LONG32 SessionKeyLength;
     unsigned char *SessionKey;
   } SecPkgContext_SessionKey,*PSecPkgContext_SessionKey;
 
@@ -474,11 +474,11 @@ extern "C" {
   } SecPkgContext_PackageInfoA,*PSecPkgContext_PackageInfoA;
 
   typedef struct _SecPkgContext_UserFlags {
-    unsigned long UserFlags;
+    unsigned __LONG32 UserFlags;
   } SecPkgContext_UserFlags,*PSecPkgContext_UserFlags;
 
   typedef struct _SecPkgContext_Flags {
-    unsigned long Flags;
+    unsigned __LONG32 Flags;
   } SecPkgContext_Flags,*PSecPkgContext_Flags;
 
 #define SecPkgContext_PackageInfo __MINGW_NAME_AW(SecPkgContext_PackageInfo)
@@ -486,12 +486,12 @@ extern "C" {
 
   typedef struct _SecPkgContext_NegotiationInfoA {
     PSecPkgInfoA PackageInfo;
-    unsigned long NegotiationState;
+    unsigned __LONG32 NegotiationState;
   } SecPkgContext_NegotiationInfoA,*PSecPkgContext_NegotiationInfoA;
 
   typedef struct _SecPkgContext_NegotiationInfoW {
     PSecPkgInfoW PackageInfo;
-    unsigned long NegotiationState;
+    unsigned __LONG32 NegotiationState;
   } SecPkgContext_NegotiationInfoW,*PSecPkgContext_NegotiationInfoW;
 
 #define SecPkgContext_NegotiationInfo __MINGW_NAME_AW(SecPkgContext_NegotiationInfo)
@@ -517,12 +517,12 @@ extern "C" {
 #define PSecPkgContext_NativeNames __MINGW_NAME_AW(PSecPkgContext_NativeNames)
 
   typedef struct _SecPkgContext_CredentialNameW {
-    unsigned long CredentialType;
+    unsigned __LONG32 CredentialType;
     SEC_WCHAR *sCredentialName;
   } SecPkgContext_CredentialNameW,*PSecPkgContext_CredentialNameW;
 
   typedef struct _SecPkgContext_CredentialNameA {
-    unsigned long CredentialType;
+    unsigned __LONG32 CredentialType;
     SEC_CHAR *sCredentialName;
   } SecPkgContext_CredentialNameA,*PSecPkgContext_CredentialNameA;
 
@@ -534,21 +534,21 @@ extern "C" {
   } SecPkgContext_AccessToken,*PSecPkgContext_AccessToken;
 
   typedef struct _SecPkgContext_TargetInformation {
-    unsigned long MarshalledTargetInfoLength;
+    unsigned __LONG32 MarshalledTargetInfoLength;
     unsigned char *MarshalledTargetInfo;
   } SecPkgContext_TargetInformation,*PSecPkgContext_TargetInformation;
 
   typedef struct _SecPkgContext_AuthzID {
-    unsigned long AuthzIDLength;
+    unsigned __LONG32 AuthzIDLength;
     char *AuthzID;
   } SecPkgContext_AuthzID,*PSecPkgContext_AuthzID;
 
   typedef struct _SecPkgContext_Target {
-    unsigned long TargetLength;
+    unsigned __LONG32 TargetLength;
     char *Target;
   } SecPkgContext_Target,*PSecPkgContext_Target;
 
-  typedef void (WINAPI *SEC_GET_KEY_FN) (void *Arg,void *Principal,unsigned long KeyVer,void **Key,SECURITY_STATUS *Status);
+  typedef void (WINAPI *SEC_GET_KEY_FN) (void *Arg,void *Principal,unsigned __LONG32 KeyVer,void **Key,SECURITY_STATUS *Status);
 
 #define SECPKG_CONTEXT_EXPORT_RESET_NEW 0x00000001
 #define SECPKG_CONTEXT_EXPORT_DELETE_OLD 0x00000002
@@ -560,7 +560,7 @@ extern "C" {
 #else
     SEC_WCHAR *pszPrincipal,SEC_WCHAR *pszPackage,
 #endif
-    unsigned long fCredentialUse,void *pvLogonId,void *pAuthData,SEC_GET_KEY_FN pGetKeyFn,void *pvGetKeyArgument,PCredHandle phCredential,PTimeStamp ptsExpiry);
+    unsigned __LONG32 fCredentialUse,void *pvLogonId,void *pAuthData,SEC_GET_KEY_FN pGetKeyFn,void *pvGetKeyArgument,PCredHandle phCredential,PTimeStamp ptsExpiry);
 
   typedef SECURITY_STATUS (WINAPI *ACQUIRE_CREDENTIALS_HANDLE_FN_W)(
 #if ISSP_MODE==0
@@ -568,11 +568,11 @@ extern "C" {
 #else
     SEC_WCHAR *,SEC_WCHAR *,
 #endif
-    unsigned long,void *,void *,SEC_GET_KEY_FN,void *,PCredHandle,PTimeStamp);
+    unsigned __LONG32,void *,void *,SEC_GET_KEY_FN,void *,PCredHandle,PTimeStamp);
 
-  SECURITY_STATUS WINAPI AcquireCredentialsHandleA(SEC_CHAR *pszPrincipal,SEC_CHAR *pszPackage,unsigned long fCredentialUse,void *pvLogonId,void *pAuthData,SEC_GET_KEY_FN pGetKeyFn,void *pvGetKeyArgument,PCredHandle phCredential,PTimeStamp ptsExpiry);
+  SECURITY_STATUS WINAPI AcquireCredentialsHandleA(SEC_CHAR *pszPrincipal,SEC_CHAR *pszPackage,unsigned __LONG32 fCredentialUse,void *pvLogonId,void *pAuthData,SEC_GET_KEY_FN pGetKeyFn,void *pvGetKeyArgument,PCredHandle phCredential,PTimeStamp ptsExpiry);
 
-  typedef SECURITY_STATUS (WINAPI *ACQUIRE_CREDENTIALS_HANDLE_FN_A)(SEC_CHAR *,SEC_CHAR *,unsigned long,void *,void *,SEC_GET_KEY_FN,void *,PCredHandle,PTimeStamp);
+  typedef SECURITY_STATUS (WINAPI *ACQUIRE_CREDENTIALS_HANDLE_FN_A)(SEC_CHAR *,SEC_CHAR *,unsigned __LONG32,void *,void *,SEC_GET_KEY_FN,void *,PCredHandle,PTimeStamp);
 
 #define AcquireCredentialsHandle __MINGW_NAME_AW(AcquireCredentialsHandle)
 #define ACQUIRE_CREDENTIALS_HANDLE_FN __MINGW_NAME_UAW(ACQUIRE_CREDENTIALS_HANDLE_FN)
@@ -587,7 +587,7 @@ extern "C" {
 #else
     SEC_WCHAR *pszPrincipal,SEC_WCHAR *pszPackage,
 #endif
-    unsigned long fCredentialUse,void *pAuthData,SEC_GET_KEY_FN pGetKeyFn,void *pvGetKeyArgument,PTimeStamp ptsExpiry);
+    unsigned __LONG32 fCredentialUse,void *pAuthData,SEC_GET_KEY_FN pGetKeyFn,void *pvGetKeyArgument,PTimeStamp ptsExpiry);
 
   typedef SECURITY_STATUS (WINAPI *ADD_CREDENTIALS_FN_W)(PCredHandle,
 #if ISSP_MODE==0
@@ -595,11 +595,11 @@ extern "C" {
 #else
     SEC_WCHAR *,SEC_WCHAR *,
 #endif
-    unsigned long,void *,SEC_GET_KEY_FN,void *,PTimeStamp);
+    unsigned __LONG32,void *,SEC_GET_KEY_FN,void *,PTimeStamp);
 
-  SECURITY_STATUS WINAPI AddCredentialsA(PCredHandle hCredentials,SEC_CHAR *pszPrincipal,SEC_CHAR *pszPackage,unsigned long fCredentialUse,void *pAuthData,SEC_GET_KEY_FN pGetKeyFn,void *pvGetKeyArgument,PTimeStamp ptsExpiry);
+  SECURITY_STATUS WINAPI AddCredentialsA(PCredHandle hCredentials,SEC_CHAR *pszPrincipal,SEC_CHAR *pszPackage,unsigned __LONG32 fCredentialUse,void *pAuthData,SEC_GET_KEY_FN pGetKeyFn,void *pvGetKeyArgument,PTimeStamp ptsExpiry);
 
-  typedef SECURITY_STATUS (WINAPI *ADD_CREDENTIALS_FN_A)(PCredHandle,SEC_CHAR *,SEC_CHAR *,unsigned long,void *,SEC_GET_KEY_FN,void *,PTimeStamp);
+  typedef SECURITY_STATUS (WINAPI *ADD_CREDENTIALS_FN_A)(PCredHandle,SEC_CHAR *,SEC_CHAR *,unsigned __LONG32,void *,SEC_GET_KEY_FN,void *,PTimeStamp);
 
 #define AddCredentials __MINGW_NAME_AW(AddCredentials)
 #define ADD_CREDENTIALS_FN __MINGW_NAME_UAW(ADD_CREDENTIALS_FN)
@@ -610,7 +610,7 @@ extern "C" {
 #else
     SEC_WCHAR *pszTargetName,
 #endif
-    unsigned long fContextReq,unsigned long Reserved1,unsigned long TargetDataRep,PSecBufferDesc pInput,unsigned long Reserved2,PCtxtHandle phNewContext,PSecBufferDesc pOutput,unsigned long *pfContextAttr,PTimeStamp ptsExpiry);
+    unsigned __LONG32 fContextReq,unsigned __LONG32 Reserved1,unsigned __LONG32 TargetDataRep,PSecBufferDesc pInput,unsigned __LONG32 Reserved2,PCtxtHandle phNewContext,PSecBufferDesc pOutput,unsigned __LONG32 *pfContextAttr,PTimeStamp ptsExpiry);
 
   typedef SECURITY_STATUS (WINAPI *INITIALIZE_SECURITY_CONTEXT_FN_W)(PCredHandle,PCtxtHandle,
 #if ISSP_MODE==0
@@ -618,18 +618,18 @@ extern "C" {
 #else
     SEC_WCHAR *,
 #endif
-    unsigned long,unsigned long,unsigned long,PSecBufferDesc,unsigned long,PCtxtHandle,PSecBufferDesc,unsigned long *,PTimeStamp);
+    unsigned __LONG32,unsigned __LONG32,unsigned __LONG32,PSecBufferDesc,unsigned __LONG32,PCtxtHandle,PSecBufferDesc,unsigned __LONG32 *,PTimeStamp);
 
-  SECURITY_STATUS WINAPI InitializeSecurityContextA(PCredHandle phCredential,PCtxtHandle phContext,SEC_CHAR *pszTargetName,unsigned long fContextReq,unsigned long Reserved1,unsigned long TargetDataRep,PSecBufferDesc pInput,unsigned long Reserved2,PCtxtHandle phNewContext,PSecBufferDesc pOutput,unsigned long *pfContextAttr,PTimeStamp ptsExpiry);
+  SECURITY_STATUS WINAPI InitializeSecurityContextA(PCredHandle phCredential,PCtxtHandle phContext,SEC_CHAR *pszTargetName,unsigned __LONG32 fContextReq,unsigned __LONG32 Reserved1,unsigned __LONG32 TargetDataRep,PSecBufferDesc pInput,unsigned __LONG32 Reserved2,PCtxtHandle phNewContext,PSecBufferDesc pOutput,unsigned __LONG32 *pfContextAttr,PTimeStamp ptsExpiry);
 
-  typedef SECURITY_STATUS (WINAPI *INITIALIZE_SECURITY_CONTEXT_FN_A)(PCredHandle,PCtxtHandle,SEC_CHAR *,unsigned long,unsigned long,unsigned long,PSecBufferDesc,unsigned long,PCtxtHandle,PSecBufferDesc,unsigned long *,PTimeStamp);
+  typedef SECURITY_STATUS (WINAPI *INITIALIZE_SECURITY_CONTEXT_FN_A)(PCredHandle,PCtxtHandle,SEC_CHAR *,unsigned __LONG32,unsigned __LONG32,unsigned __LONG32,PSecBufferDesc,unsigned __LONG32,PCtxtHandle,PSecBufferDesc,unsigned __LONG32 *,PTimeStamp);
 
 #define InitializeSecurityContext __MINGW_NAME_AW(InitializeSecurityContext)
 #define INITIALIZE_SECURITY_CONTEXT_FN __MINGW_NAME_UAW(INITIALIZE_SECURITY_CONTEXT_FN)
 
-  KSECDDDECLSPEC SECURITY_STATUS WINAPI AcceptSecurityContext(PCredHandle phCredential,PCtxtHandle phContext,PSecBufferDesc pInput,unsigned long fContextReq,unsigned long TargetDataRep,PCtxtHandle phNewContext,PSecBufferDesc pOutput,unsigned long *pfContextAttr,PTimeStamp ptsExpiry);
+  KSECDDDECLSPEC SECURITY_STATUS WINAPI AcceptSecurityContext(PCredHandle phCredential,PCtxtHandle phContext,PSecBufferDesc pInput,unsigned __LONG32 fContextReq,unsigned __LONG32 TargetDataRep,PCtxtHandle phNewContext,PSecBufferDesc pOutput,unsigned __LONG32 *pfContextAttr,PTimeStamp ptsExpiry);
 
-  typedef SECURITY_STATUS (WINAPI *ACCEPT_SECURITY_CONTEXT_FN)(PCredHandle,PCtxtHandle,PSecBufferDesc,unsigned long,unsigned long,PCtxtHandle,PSecBufferDesc,unsigned long *,PTimeStamp);
+  typedef SECURITY_STATUS (WINAPI *ACCEPT_SECURITY_CONTEXT_FN)(PCredHandle,PCtxtHandle,PSecBufferDesc,unsigned __LONG32,unsigned __LONG32,PCtxtHandle,PSecBufferDesc,unsigned __LONG32 *,PTimeStamp);
 
   SECURITY_STATUS WINAPI CompleteAuthToken(PCtxtHandle phContext,PSecBufferDesc pToken);
 
@@ -655,46 +655,46 @@ extern "C" {
 
   typedef SECURITY_STATUS (WINAPI *APPLY_CONTROL_TOKEN_FN)(PCtxtHandle,PSecBufferDesc);
 
-  KSECDDDECLSPEC SECURITY_STATUS WINAPI QueryContextAttributesW(PCtxtHandle phContext,unsigned long ulAttribute,void *pBuffer);
+  KSECDDDECLSPEC SECURITY_STATUS WINAPI QueryContextAttributesW(PCtxtHandle phContext,unsigned __LONG32 ulAttribute,void *pBuffer);
 
-  typedef SECURITY_STATUS (WINAPI *QUERY_CONTEXT_ATTRIBUTES_FN_W)(PCtxtHandle,unsigned long,void *);
+  typedef SECURITY_STATUS (WINAPI *QUERY_CONTEXT_ATTRIBUTES_FN_W)(PCtxtHandle,unsigned __LONG32,void *);
 
-  SECURITY_STATUS WINAPI QueryContextAttributesA(PCtxtHandle phContext,unsigned long ulAttribute,void *pBuffer);
+  SECURITY_STATUS WINAPI QueryContextAttributesA(PCtxtHandle phContext,unsigned __LONG32 ulAttribute,void *pBuffer);
 
-  typedef SECURITY_STATUS (WINAPI *QUERY_CONTEXT_ATTRIBUTES_FN_A)(PCtxtHandle,unsigned long,void *);
+  typedef SECURITY_STATUS (WINAPI *QUERY_CONTEXT_ATTRIBUTES_FN_A)(PCtxtHandle,unsigned __LONG32,void *);
 
 #define QueryContextAttributes __MINGW_NAME_AW(QueryContextAttributes)
 #define QUERY_CONTEXT_ATTRIBUTES_FN __MINGW_NAME_UAW(QUERY_CONTEXT_ATTRIBUTES_FN)
 
-  SECURITY_STATUS WINAPI SetContextAttributesW(PCtxtHandle phContext,unsigned long ulAttribute,void *pBuffer,unsigned long cbBuffer);
+  SECURITY_STATUS WINAPI SetContextAttributesW(PCtxtHandle phContext,unsigned __LONG32 ulAttribute,void *pBuffer,unsigned __LONG32 cbBuffer);
 
-  typedef SECURITY_STATUS (WINAPI *SET_CONTEXT_ATTRIBUTES_FN_W)(PCtxtHandle,unsigned long,void *,unsigned long);
+  typedef SECURITY_STATUS (WINAPI *SET_CONTEXT_ATTRIBUTES_FN_W)(PCtxtHandle,unsigned __LONG32,void *,unsigned __LONG32);
 
-  SECURITY_STATUS WINAPI SetContextAttributesA(PCtxtHandle phContext,unsigned long ulAttribute,void *pBuffer,unsigned long cbBuffer);
+  SECURITY_STATUS WINAPI SetContextAttributesA(PCtxtHandle phContext,unsigned __LONG32 ulAttribute,void *pBuffer,unsigned __LONG32 cbBuffer);
 
-  typedef SECURITY_STATUS (WINAPI *SET_CONTEXT_ATTRIBUTES_FN_A)(PCtxtHandle,unsigned long,void *,unsigned long);
+  typedef SECURITY_STATUS (WINAPI *SET_CONTEXT_ATTRIBUTES_FN_A)(PCtxtHandle,unsigned __LONG32,void *,unsigned __LONG32);
 
 #define SetContextAttributes __MINGW_NAME_AW(SetContextAttributes)
 #define SET_CONTEXT_ATTRIBUTES_FN __MINGW_NAME_UAW(SET_CONTEXT_ATTRIBUTES_FN)
 
-  KSECDDDECLSPEC SECURITY_STATUS WINAPI QueryCredentialsAttributesW(PCredHandle phCredential,unsigned long ulAttribute,void *pBuffer);
+  KSECDDDECLSPEC SECURITY_STATUS WINAPI QueryCredentialsAttributesW(PCredHandle phCredential,unsigned __LONG32 ulAttribute,void *pBuffer);
 
-  typedef SECURITY_STATUS (WINAPI *QUERY_CREDENTIALS_ATTRIBUTES_FN_W)(PCredHandle,unsigned long,void *);
+  typedef SECURITY_STATUS (WINAPI *QUERY_CREDENTIALS_ATTRIBUTES_FN_W)(PCredHandle,unsigned __LONG32,void *);
 
-  SECURITY_STATUS WINAPI QueryCredentialsAttributesA(PCredHandle phCredential,unsigned long ulAttribute,void *pBuffer);
+  SECURITY_STATUS WINAPI QueryCredentialsAttributesA(PCredHandle phCredential,unsigned __LONG32 ulAttribute,void *pBuffer);
 
-  typedef SECURITY_STATUS (WINAPI *QUERY_CREDENTIALS_ATTRIBUTES_FN_A)(PCredHandle,unsigned long,void *);
+  typedef SECURITY_STATUS (WINAPI *QUERY_CREDENTIALS_ATTRIBUTES_FN_A)(PCredHandle,unsigned __LONG32,void *);
 
 #define QueryCredentialsAttributes __MINGW_NAME_AW(QueryCredentialsAttributes)
 #define QUERY_CREDENTIALS_ATTRIBUTES_FN __MINGW_NAME_UAW(QUERY_CREDENTIALS_ATTRIBUTES_FN)
 
-  KSECDDDECLSPEC SECURITY_STATUS WINAPI SetCredentialsAttributesW(PCredHandle phCredential,unsigned long ulAttribute,void *pBuffer,unsigned long cbBuffer);
+  KSECDDDECLSPEC SECURITY_STATUS WINAPI SetCredentialsAttributesW(PCredHandle phCredential,unsigned __LONG32 ulAttribute,void *pBuffer,unsigned __LONG32 cbBuffer);
 
-  typedef SECURITY_STATUS (WINAPI *SET_CREDENTIALS_ATTRIBUTES_FN_W)(PCredHandle,unsigned long,void *,unsigned long);
+  typedef SECURITY_STATUS (WINAPI *SET_CREDENTIALS_ATTRIBUTES_FN_W)(PCredHandle,unsigned __LONG32,void *,unsigned __LONG32);
 
-  SECURITY_STATUS WINAPI SetCredentialsAttributesA(PCredHandle phCredential,unsigned long ulAttribute,void *pBuffer,unsigned long cbBuffer);
+  SECURITY_STATUS WINAPI SetCredentialsAttributesA(PCredHandle phCredential,unsigned __LONG32 ulAttribute,void *pBuffer,unsigned __LONG32 cbBuffer);
 
-  typedef SECURITY_STATUS (WINAPI *SET_CREDENTIALS_ATTRIBUTES_FN_A)(PCredHandle,unsigned long,void *,unsigned long);
+  typedef SECURITY_STATUS (WINAPI *SET_CREDENTIALS_ATTRIBUTES_FN_A)(PCredHandle,unsigned __LONG32,void *,unsigned __LONG32);
 
 #define SetCredentialsAttributes __MINGW_NAME_AW(SetCredentialsAttributes)
 #define SET_CREDENTIALS_ATTRIBUTES_FN __MINGW_NAME_UAW(SET_CREDENTIALS_ATTRIBUTES_FN)
@@ -703,32 +703,32 @@ extern "C" {
 
   typedef SECURITY_STATUS (WINAPI *FREE_CONTEXT_BUFFER_FN)(void *);
 
-  KSECDDDECLSPEC SECURITY_STATUS WINAPI MakeSignature(PCtxtHandle phContext,unsigned long fQOP,PSecBufferDesc pMessage,unsigned long MessageSeqNo);
+  KSECDDDECLSPEC SECURITY_STATUS WINAPI MakeSignature(PCtxtHandle phContext,unsigned __LONG32 fQOP,PSecBufferDesc pMessage,unsigned __LONG32 MessageSeqNo);
 
-  typedef SECURITY_STATUS (WINAPI *MAKE_SIGNATURE_FN)(PCtxtHandle,unsigned long,PSecBufferDesc,unsigned long);
+  typedef SECURITY_STATUS (WINAPI *MAKE_SIGNATURE_FN)(PCtxtHandle,unsigned __LONG32,PSecBufferDesc,unsigned __LONG32);
 
-  KSECDDDECLSPEC SECURITY_STATUS WINAPI VerifySignature(PCtxtHandle phContext,PSecBufferDesc pMessage,unsigned long MessageSeqNo,unsigned long *pfQOP);
+  KSECDDDECLSPEC SECURITY_STATUS WINAPI VerifySignature(PCtxtHandle phContext,PSecBufferDesc pMessage,unsigned __LONG32 MessageSeqNo,unsigned __LONG32 *pfQOP);
 
-  typedef SECURITY_STATUS (WINAPI *VERIFY_SIGNATURE_FN)(PCtxtHandle,PSecBufferDesc,unsigned long,unsigned long *);
+  typedef SECURITY_STATUS (WINAPI *VERIFY_SIGNATURE_FN)(PCtxtHandle,PSecBufferDesc,unsigned __LONG32,unsigned __LONG32 *);
 
 #define SECQOP_WRAP_NO_ENCRYPT 0x80000001
 #define SECQOP_WRAP_OOB_DATA 0x40000000
 
-  SECURITY_STATUS WINAPI EncryptMessage(PCtxtHandle phContext,unsigned long fQOP,PSecBufferDesc pMessage,unsigned long MessageSeqNo);
+  SECURITY_STATUS WINAPI EncryptMessage(PCtxtHandle phContext,unsigned __LONG32 fQOP,PSecBufferDesc pMessage,unsigned __LONG32 MessageSeqNo);
 
-  typedef SECURITY_STATUS (WINAPI *ENCRYPT_MESSAGE_FN)(PCtxtHandle,unsigned long,PSecBufferDesc,unsigned long);
+  typedef SECURITY_STATUS (WINAPI *ENCRYPT_MESSAGE_FN)(PCtxtHandle,unsigned __LONG32,PSecBufferDesc,unsigned __LONG32);
 
-  SECURITY_STATUS WINAPI DecryptMessage(PCtxtHandle phContext,PSecBufferDesc pMessage,unsigned long MessageSeqNo,unsigned long *pfQOP);
+  SECURITY_STATUS WINAPI DecryptMessage(PCtxtHandle phContext,PSecBufferDesc pMessage,unsigned __LONG32 MessageSeqNo,unsigned __LONG32 *pfQOP);
 
-  typedef SECURITY_STATUS (WINAPI *DECRYPT_MESSAGE_FN)(PCtxtHandle,PSecBufferDesc,unsigned long,unsigned long *);
+  typedef SECURITY_STATUS (WINAPI *DECRYPT_MESSAGE_FN)(PCtxtHandle,PSecBufferDesc,unsigned __LONG32,unsigned __LONG32 *);
 
-  KSECDDDECLSPEC SECURITY_STATUS WINAPI EnumerateSecurityPackagesW(unsigned long *pcPackages,PSecPkgInfoW *ppPackageInfo);
+  KSECDDDECLSPEC SECURITY_STATUS WINAPI EnumerateSecurityPackagesW(unsigned __LONG32 *pcPackages,PSecPkgInfoW *ppPackageInfo);
 
-  typedef SECURITY_STATUS (WINAPI *ENUMERATE_SECURITY_PACKAGES_FN_W)(unsigned long *,PSecPkgInfoW *);
+  typedef SECURITY_STATUS (WINAPI *ENUMERATE_SECURITY_PACKAGES_FN_W)(unsigned __LONG32 *,PSecPkgInfoW *);
 
-  SECURITY_STATUS WINAPI EnumerateSecurityPackagesA(unsigned long *pcPackages,PSecPkgInfoA *ppPackageInfo);
+  SECURITY_STATUS WINAPI EnumerateSecurityPackagesA(unsigned __LONG32 *pcPackages,PSecPkgInfoA *ppPackageInfo);
 
-  typedef SECURITY_STATUS (WINAPI *ENUMERATE_SECURITY_PACKAGES_FN_A)(unsigned long *,PSecPkgInfoA *);
+  typedef SECURITY_STATUS (WINAPI *ENUMERATE_SECURITY_PACKAGES_FN_A)(unsigned __LONG32 *,PSecPkgInfoA *);
 
 #define EnumerateSecurityPackages __MINGW_NAME_AW(EnumerateSecurityPackages)
 #define ENUMERATE_SECURITY_PACKAGES_FN __MINGW_NAME_UAW(ENUMERATE_SECURITY_PACKAGES_FN)
@@ -820,7 +820,7 @@ extern "C" {
 #define FreeCredentialHandle FreeCredentialsHandle
 
   typedef struct _SECURITY_FUNCTION_TABLE_W {
-    unsigned long dwVersion;
+    unsigned __LONG32 dwVersion;
     ENUMERATE_SECURITY_PACKAGES_FN_W EnumerateSecurityPackagesW;
     QUERY_CREDENTIALS_ATTRIBUTES_FN_W QueryCredentialsAttributesW;
     ACQUIRE_CREDENTIALS_HANDLE_FN_W AcquireCredentialsHandleW;
@@ -852,7 +852,7 @@ extern "C" {
   } SecurityFunctionTableW,*PSecurityFunctionTableW;
 
   typedef struct _SECURITY_FUNCTION_TABLE_A {
-    unsigned long dwVersion;
+    unsigned __LONG32 dwVersion;
     ENUMERATE_SECURITY_PACKAGES_FN_A EnumerateSecurityPackagesA;
     QUERY_CREDENTIALS_ATTRIBUTES_FN_A QueryCredentialsAttributesA;
     ACQUIRE_CREDENTIALS_HANDLE_FN_A AcquireCredentialsHandleA;
@@ -920,12 +920,12 @@ extern "C" {
 
 #define SaslIdentifyPackage __MINGW_NAME_AW(SaslIdentifyPackage)
 
-  SECURITY_STATUS WINAPI SaslInitializeSecurityContextW(PCredHandle phCredential,PCtxtHandle phContext,LPWSTR pszTargetName,unsigned long fContextReq,unsigned long Reserved1,unsigned long TargetDataRep,PSecBufferDesc pInput,unsigned long Reserved2,PCtxtHandle phNewContext,PSecBufferDesc pOutput,unsigned long *pfContextAttr,PTimeStamp ptsExpiry);
-  SECURITY_STATUS WINAPI SaslInitializeSecurityContextA(PCredHandle phCredential,PCtxtHandle phContext,LPSTR pszTargetName,unsigned long fContextReq,unsigned long Reserved1,unsigned long TargetDataRep,PSecBufferDesc pInput,unsigned long Reserved2,PCtxtHandle phNewContext,PSecBufferDesc pOutput,unsigned long *pfContextAttr,PTimeStamp ptsExpiry);
+  SECURITY_STATUS WINAPI SaslInitializeSecurityContextW(PCredHandle phCredential,PCtxtHandle phContext,LPWSTR pszTargetName,unsigned __LONG32 fContextReq,unsigned __LONG32 Reserved1,unsigned __LONG32 TargetDataRep,PSecBufferDesc pInput,unsigned __LONG32 Reserved2,PCtxtHandle phNewContext,PSecBufferDesc pOutput,unsigned __LONG32 *pfContextAttr,PTimeStamp ptsExpiry);
+  SECURITY_STATUS WINAPI SaslInitializeSecurityContextA(PCredHandle phCredential,PCtxtHandle phContext,LPSTR pszTargetName,unsigned __LONG32 fContextReq,unsigned __LONG32 Reserved1,unsigned __LONG32 TargetDataRep,PSecBufferDesc pInput,unsigned __LONG32 Reserved2,PCtxtHandle phNewContext,PSecBufferDesc pOutput,unsigned __LONG32 *pfContextAttr,PTimeStamp ptsExpiry);
 
 #define SaslInitializeSecurityContext __MINGW_NAME_AW(SaslInitializeSecurityContext)
 
-  SECURITY_STATUS WINAPI SaslAcceptSecurityContext(PCredHandle phCredential,PCtxtHandle phContext,PSecBufferDesc pInput,unsigned long fContextReq,unsigned long TargetDataRep,PCtxtHandle phNewContext,PSecBufferDesc pOutput,unsigned long *pfContextAttr,PTimeStamp ptsExpiry);
+  SECURITY_STATUS WINAPI SaslAcceptSecurityContext(PCredHandle phCredential,PCtxtHandle phContext,PSecBufferDesc pInput,unsigned __LONG32 fContextReq,unsigned __LONG32 TargetDataRep,PCtxtHandle phNewContext,PSecBufferDesc pOutput,unsigned __LONG32 *pfContextAttr,PTimeStamp ptsExpiry);
 
 #define SASL_OPTION_SEND_SIZE 1
 #define SASL_OPTION_RECV_SIZE 2
@@ -948,22 +948,22 @@ extern "C" {
 
   typedef struct _SEC_WINNT_AUTH_IDENTITY_W {
     unsigned short *User;
-    unsigned long UserLength;
+    unsigned __LONG32 UserLength;
     unsigned short *Domain;
-    unsigned long DomainLength;
+    unsigned __LONG32 DomainLength;
     unsigned short *Password;
-    unsigned long PasswordLength;
-    unsigned long Flags;
+    unsigned __LONG32 PasswordLength;
+    unsigned __LONG32 Flags;
   } SEC_WINNT_AUTH_IDENTITY_W,*PSEC_WINNT_AUTH_IDENTITY_W;
 
   typedef struct _SEC_WINNT_AUTH_IDENTITY_A {
     unsigned char *User;
-    unsigned long UserLength;
+    unsigned __LONG32 UserLength;
     unsigned char *Domain;
-    unsigned long DomainLength;
+    unsigned __LONG32 DomainLength;
     unsigned char *Password;
-    unsigned long PasswordLength;
-    unsigned long Flags;
+    unsigned __LONG32 PasswordLength;
+    unsigned __LONG32 Flags;
   } SEC_WINNT_AUTH_IDENTITY_A,*PSEC_WINNT_AUTH_IDENTITY_A;
 
 #define SEC_WINNT_AUTH_IDENTITY __MINGW_NAME_UAW(SEC_WINNT_AUTH_IDENTITY)
@@ -975,31 +975,31 @@ extern "C" {
 #define SEC_WINNT_AUTH_IDENTITY_VERSION 0x200
 
   typedef struct _SEC_WINNT_AUTH_IDENTITY_EXW {
-    unsigned long Version;
-    unsigned long Length;
+    unsigned __LONG32 Version;
+    unsigned __LONG32 Length;
     unsigned short *User;
-    unsigned long UserLength;
+    unsigned __LONG32 UserLength;
     unsigned short *Domain;
-    unsigned long DomainLength;
+    unsigned __LONG32 DomainLength;
     unsigned short *Password;
-    unsigned long PasswordLength;
-    unsigned long Flags;
+    unsigned __LONG32 PasswordLength;
+    unsigned __LONG32 Flags;
     unsigned short *PackageList;
-    unsigned long PackageListLength;
+    unsigned __LONG32 PackageListLength;
   } SEC_WINNT_AUTH_IDENTITY_EXW,*PSEC_WINNT_AUTH_IDENTITY_EXW;
 
   typedef struct _SEC_WINNT_AUTH_IDENTITY_EXA {
-    unsigned long Version;
-    unsigned long Length;
+    unsigned __LONG32 Version;
+    unsigned __LONG32 Length;
     unsigned char *User;
-    unsigned long UserLength;
+    unsigned __LONG32 UserLength;
     unsigned char *Domain;
-    unsigned long DomainLength;
+    unsigned __LONG32 DomainLength;
     unsigned char *Password;
-    unsigned long PasswordLength;
-    unsigned long Flags;
+    unsigned __LONG32 PasswordLength;
+    unsigned __LONG32 Flags;
     unsigned char *PackageList;
-    unsigned long PackageListLength;
+    unsigned __LONG32 PackageListLength;
   } SEC_WINNT_AUTH_IDENTITY_EXA,*PSEC_WINNT_AUTH_IDENTITY_EXA;
 
 #define SEC_WINNT_AUTH_IDENTITY_EX __MINGW_NAME_AW(SEC_WINNT_AUTH_IDENTITY_EX)
@@ -1010,10 +1010,10 @@ extern "C" {
 #define SEC_WINNT_AUTH_IDENTITY_ONLY 0x8
 
 typedef struct _SECURITY_PACKAGE_OPTIONS {
-  unsigned long Size;
-  unsigned long Type;
-  unsigned long Flags;
-  unsigned long SignatureSize;
+  unsigned __LONG32 Size;
+  unsigned __LONG32 Type;
+  unsigned __LONG32 Flags;
+  unsigned __LONG32 SignatureSize;
   void *Signature;
 } SECURITY_PACKAGE_OPTIONS,*PSECURITY_PACKAGE_OPTIONS;
 
@@ -1040,7 +1040,7 @@ SECURITY_STATUS WINAPI AddSecurityPackageW(LPWSTR pszPackageName,PSECURITY_PACKA
     SEC_WCHAR *pszOldPassword,
     SEC_WCHAR *pszNewPassword,
     BOOLEAN bImpersonating,
-    unsigned long dwReserved,
+    unsigned __LONG32 dwReserved,
     PSecBufferDesc pOutput
   );
 #endif /*(_WIN32_WINNT >= 0x0600)*/

@@ -190,8 +190,8 @@ extern "C" {
   public:
     virtual HRESULT WINAPI EstablishPosition(LPWSTR wszClientMachineName,DWORD dwProcessId,DWORD *phAuthEventHandle) = 0;
     virtual HRESULT WINAPI RequestChallenge(LPWSTR wszNetworkResource,LPWSTR wszUser,WBEM_128BITS Nonce) = 0;
-    virtual HRESULT WINAPI WBEMLogin(LPWSTR wszPreferredLocale,WBEM_128BITS AccessToken,long lFlags,IWbemContext *pCtx,IWbemServices **ppNamespace) = 0;
-    virtual HRESULT WINAPI NTLMLogin(LPWSTR wszNetworkResource,LPWSTR wszPreferredLocale,long lFlags,IWbemContext *pCtx,IWbemServices **ppNamespace) = 0;
+    virtual HRESULT WINAPI WBEMLogin(LPWSTR wszPreferredLocale,WBEM_128BITS AccessToken,__LONG32 lFlags,IWbemContext *pCtx,IWbemServices **ppNamespace) = 0;
+    virtual HRESULT WINAPI NTLMLogin(LPWSTR wszNetworkResource,LPWSTR wszPreferredLocale,__LONG32 lFlags,IWbemContext *pCtx,IWbemServices **ppNamespace) = 0;
   };
 #else
   typedef struct IWbemLevel1LoginVtbl {
@@ -201,8 +201,8 @@ extern "C" {
       ULONG (WINAPI *Release)(IWbemLevel1Login *This);
       HRESULT (WINAPI *EstablishPosition)(IWbemLevel1Login *This,LPWSTR wszClientMachineName,DWORD dwProcessId,DWORD *phAuthEventHandle);
       HRESULT (WINAPI *RequestChallenge)(IWbemLevel1Login *This,LPWSTR wszNetworkResource,LPWSTR wszUser,WBEM_128BITS Nonce);
-      HRESULT (WINAPI *WBEMLogin)(IWbemLevel1Login *This,LPWSTR wszPreferredLocale,WBEM_128BITS AccessToken,long lFlags,IWbemContext *pCtx,IWbemServices **ppNamespace);
-      HRESULT (WINAPI *NTLMLogin)(IWbemLevel1Login *This,LPWSTR wszNetworkResource,LPWSTR wszPreferredLocale,long lFlags,IWbemContext *pCtx,IWbemServices **ppNamespace);
+      HRESULT (WINAPI *WBEMLogin)(IWbemLevel1Login *This,LPWSTR wszPreferredLocale,WBEM_128BITS AccessToken,__LONG32 lFlags,IWbemContext *pCtx,IWbemServices **ppNamespace);
+      HRESULT (WINAPI *NTLMLogin)(IWbemLevel1Login *This,LPWSTR wszNetworkResource,LPWSTR wszPreferredLocale,__LONG32 lFlags,IWbemContext *pCtx,IWbemServices **ppNamespace);
     END_INTERFACE
   } IWbemLevel1LoginVtbl;
   struct IWbemLevel1Login {
@@ -222,9 +222,9 @@ extern "C" {
   void __RPC_STUB IWbemLevel1Login_EstablishPosition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IWbemLevel1Login_RequestChallenge_Proxy(IWbemLevel1Login *This,LPWSTR wszNetworkResource,LPWSTR wszUser,WBEM_128BITS Nonce);
   void __RPC_STUB IWbemLevel1Login_RequestChallenge_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWbemLevel1Login_WBEMLogin_Proxy(IWbemLevel1Login *This,LPWSTR wszPreferredLocale,WBEM_128BITS AccessToken,long lFlags,IWbemContext *pCtx,IWbemServices **ppNamespace);
+  HRESULT WINAPI IWbemLevel1Login_WBEMLogin_Proxy(IWbemLevel1Login *This,LPWSTR wszPreferredLocale,WBEM_128BITS AccessToken,__LONG32 lFlags,IWbemContext *pCtx,IWbemServices **ppNamespace);
   void __RPC_STUB IWbemLevel1Login_WBEMLogin_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWbemLevel1Login_NTLMLogin_Proxy(IWbemLevel1Login *This,LPWSTR wszNetworkResource,LPWSTR wszPreferredLocale,long lFlags,IWbemContext *pCtx,IWbemServices **ppNamespace);
+  HRESULT WINAPI IWbemLevel1Login_NTLMLogin_Proxy(IWbemLevel1Login *This,LPWSTR wszNetworkResource,LPWSTR wszPreferredLocale,__LONG32 lFlags,IWbemContext *pCtx,IWbemServices **ppNamespace);
   void __RPC_STUB IWbemLevel1Login_NTLMLogin_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -234,7 +234,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IWbemConnectorLogin : public IUnknown {
   public:
-    virtual HRESULT WINAPI ConnectorLogin(LPWSTR wszNetworkResource,LPWSTR wszPreferredLocale,long lFlags,IWbemContext *pCtx,REFIID riid,void **pInterface) = 0;
+    virtual HRESULT WINAPI ConnectorLogin(LPWSTR wszNetworkResource,LPWSTR wszPreferredLocale,__LONG32 lFlags,IWbemContext *pCtx,REFIID riid,void **pInterface) = 0;
   };
 #else
   typedef struct IWbemConnectorLoginVtbl {
@@ -242,7 +242,7 @@ extern "C" {
       HRESULT (WINAPI *QueryInterface)(IWbemConnectorLogin *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IWbemConnectorLogin *This);
       ULONG (WINAPI *Release)(IWbemConnectorLogin *This);
-      HRESULT (WINAPI *ConnectorLogin)(IWbemConnectorLogin *This,LPWSTR wszNetworkResource,LPWSTR wszPreferredLocale,long lFlags,IWbemContext *pCtx,REFIID riid,void **pInterface);
+      HRESULT (WINAPI *ConnectorLogin)(IWbemConnectorLogin *This,LPWSTR wszNetworkResource,LPWSTR wszPreferredLocale,__LONG32 lFlags,IWbemContext *pCtx,REFIID riid,void **pInterface);
     END_INTERFACE
   } IWbemConnectorLoginVtbl;
   struct IWbemConnectorLogin {
@@ -255,7 +255,7 @@ extern "C" {
 #define IWbemConnectorLogin_ConnectorLogin(This,wszNetworkResource,wszPreferredLocale,lFlags,pCtx,riid,pInterface) (This)->lpVtbl->ConnectorLogin(This,wszNetworkResource,wszPreferredLocale,lFlags,pCtx,riid,pInterface)
 #endif
 #endif
-  HRESULT WINAPI IWbemConnectorLogin_ConnectorLogin_Proxy(IWbemConnectorLogin *This,LPWSTR wszNetworkResource,LPWSTR wszPreferredLocale,long lFlags,IWbemContext *pCtx,REFIID riid,void **pInterface);
+  HRESULT WINAPI IWbemConnectorLogin_ConnectorLogin_Proxy(IWbemConnectorLogin *This,LPWSTR wszNetworkResource,LPWSTR wszPreferredLocale,__LONG32 lFlags,IWbemContext *pCtx,REFIID riid,void **pInterface);
   void __RPC_STUB IWbemConnectorLogin_ConnectorLogin_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -309,7 +309,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IWbemClientTransport : public IUnknown {
   public:
-    virtual HRESULT WINAPI ConnectServer(BSTR strAddressType,DWORD dwBinaryAddressLength,BYTE *abBinaryAddress,BSTR strNetworkResource,BSTR strUser,BSTR strPassword,BSTR strLocale,long lSecurityFlags,BSTR strAuthority,IWbemContext *pCtx,IWbemServices **ppNamespace) = 0;
+    virtual HRESULT WINAPI ConnectServer(BSTR strAddressType,DWORD dwBinaryAddressLength,BYTE *abBinaryAddress,BSTR strNetworkResource,BSTR strUser,BSTR strPassword,BSTR strLocale,__LONG32 lSecurityFlags,BSTR strAuthority,IWbemContext *pCtx,IWbemServices **ppNamespace) = 0;
   };
 #else
   typedef struct IWbemClientTransportVtbl {
@@ -317,7 +317,7 @@ extern "C" {
       HRESULT (WINAPI *QueryInterface)(IWbemClientTransport *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IWbemClientTransport *This);
       ULONG (WINAPI *Release)(IWbemClientTransport *This);
-      HRESULT (WINAPI *ConnectServer)(IWbemClientTransport *This,BSTR strAddressType,DWORD dwBinaryAddressLength,BYTE *abBinaryAddress,BSTR strNetworkResource,BSTR strUser,BSTR strPassword,BSTR strLocale,long lSecurityFlags,BSTR strAuthority,IWbemContext *pCtx,IWbemServices **ppNamespace);
+      HRESULT (WINAPI *ConnectServer)(IWbemClientTransport *This,BSTR strAddressType,DWORD dwBinaryAddressLength,BYTE *abBinaryAddress,BSTR strNetworkResource,BSTR strUser,BSTR strPassword,BSTR strLocale,__LONG32 lSecurityFlags,BSTR strAuthority,IWbemContext *pCtx,IWbemServices **ppNamespace);
     END_INTERFACE
   } IWbemClientTransportVtbl;
   struct IWbemClientTransport {
@@ -330,7 +330,7 @@ extern "C" {
 #define IWbemClientTransport_ConnectServer(This,strAddressType,dwBinaryAddressLength,abBinaryAddress,strNetworkResource,strUser,strPassword,strLocale,lSecurityFlags,strAuthority,pCtx,ppNamespace) (This)->lpVtbl->ConnectServer(This,strAddressType,dwBinaryAddressLength,abBinaryAddress,strNetworkResource,strUser,strPassword,strLocale,lSecurityFlags,strAuthority,pCtx,ppNamespace)
 #endif
 #endif
-  HRESULT WINAPI IWbemClientTransport_ConnectServer_Proxy(IWbemClientTransport *This,BSTR strAddressType,DWORD dwBinaryAddressLength,BYTE *abBinaryAddress,BSTR strNetworkResource,BSTR strUser,BSTR strPassword,BSTR strLocale,long lSecurityFlags,BSTR strAuthority,IWbemContext *pCtx,IWbemServices **ppNamespace);
+  HRESULT WINAPI IWbemClientTransport_ConnectServer_Proxy(IWbemClientTransport *This,BSTR strAddressType,DWORD dwBinaryAddressLength,BYTE *abBinaryAddress,BSTR strNetworkResource,BSTR strUser,BSTR strPassword,BSTR strLocale,__LONG32 lSecurityFlags,BSTR strAuthority,IWbemContext *pCtx,IWbemServices **ppNamespace);
   void __RPC_STUB IWbemClientTransport_ConnectServer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -340,9 +340,9 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IWbemClientConnectionTransport : public IUnknown {
   public:
-    virtual HRESULT WINAPI Open(BSTR strAddressType,DWORD dwBinaryAddressLength,BYTE *abBinaryAddress,const BSTR strObject,const BSTR strUser,const BSTR strPassword,const BSTR strLocale,long lFlags,IWbemContext *pCtx,REFIID riid,void **pInterface,IWbemCallResult **pCallRes) = 0;
-    virtual HRESULT WINAPI OpenAsync(BSTR strAddressType,DWORD dwBinaryAddressLength,BYTE *abBinaryAddress,const BSTR strObject,const BSTR strUser,const BSTR strPassword,const BSTR strLocale,long lFlags,IWbemContext *pCtx,REFIID riid,IWbemObjectSink *pResponseHandler) = 0;
-    virtual HRESULT WINAPI Cancel(long lFlags,IWbemObjectSink *pHandler) = 0;
+    virtual HRESULT WINAPI Open(BSTR strAddressType,DWORD dwBinaryAddressLength,BYTE *abBinaryAddress,const BSTR strObject,const BSTR strUser,const BSTR strPassword,const BSTR strLocale,__LONG32 lFlags,IWbemContext *pCtx,REFIID riid,void **pInterface,IWbemCallResult **pCallRes) = 0;
+    virtual HRESULT WINAPI OpenAsync(BSTR strAddressType,DWORD dwBinaryAddressLength,BYTE *abBinaryAddress,const BSTR strObject,const BSTR strUser,const BSTR strPassword,const BSTR strLocale,__LONG32 lFlags,IWbemContext *pCtx,REFIID riid,IWbemObjectSink *pResponseHandler) = 0;
+    virtual HRESULT WINAPI Cancel(__LONG32 lFlags,IWbemObjectSink *pHandler) = 0;
   };
 #else
   typedef struct IWbemClientConnectionTransportVtbl {
@@ -350,9 +350,9 @@ extern "C" {
       HRESULT (WINAPI *QueryInterface)(IWbemClientConnectionTransport *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IWbemClientConnectionTransport *This);
       ULONG (WINAPI *Release)(IWbemClientConnectionTransport *This);
-      HRESULT (WINAPI *Open)(IWbemClientConnectionTransport *This,BSTR strAddressType,DWORD dwBinaryAddressLength,BYTE *abBinaryAddress,const BSTR strObject,const BSTR strUser,const BSTR strPassword,const BSTR strLocale,long lFlags,IWbemContext *pCtx,REFIID riid,void **pInterface,IWbemCallResult **pCallRes);
-      HRESULT (WINAPI *OpenAsync)(IWbemClientConnectionTransport *This,BSTR strAddressType,DWORD dwBinaryAddressLength,BYTE *abBinaryAddress,const BSTR strObject,const BSTR strUser,const BSTR strPassword,const BSTR strLocale,long lFlags,IWbemContext *pCtx,REFIID riid,IWbemObjectSink *pResponseHandler);
-      HRESULT (WINAPI *Cancel)(IWbemClientConnectionTransport *This,long lFlags,IWbemObjectSink *pHandler);
+      HRESULT (WINAPI *Open)(IWbemClientConnectionTransport *This,BSTR strAddressType,DWORD dwBinaryAddressLength,BYTE *abBinaryAddress,const BSTR strObject,const BSTR strUser,const BSTR strPassword,const BSTR strLocale,__LONG32 lFlags,IWbemContext *pCtx,REFIID riid,void **pInterface,IWbemCallResult **pCallRes);
+      HRESULT (WINAPI *OpenAsync)(IWbemClientConnectionTransport *This,BSTR strAddressType,DWORD dwBinaryAddressLength,BYTE *abBinaryAddress,const BSTR strObject,const BSTR strUser,const BSTR strPassword,const BSTR strLocale,__LONG32 lFlags,IWbemContext *pCtx,REFIID riid,IWbemObjectSink *pResponseHandler);
+      HRESULT (WINAPI *Cancel)(IWbemClientConnectionTransport *This,__LONG32 lFlags,IWbemObjectSink *pHandler);
     END_INTERFACE
   } IWbemClientConnectionTransportVtbl;
   struct IWbemClientConnectionTransport {
@@ -367,11 +367,11 @@ extern "C" {
 #define IWbemClientConnectionTransport_Cancel(This,lFlags,pHandler) (This)->lpVtbl->Cancel(This,lFlags,pHandler)
 #endif
 #endif
-  HRESULT WINAPI IWbemClientConnectionTransport_Open_Proxy(IWbemClientConnectionTransport *This,BSTR strAddressType,DWORD dwBinaryAddressLength,BYTE *abBinaryAddress,const BSTR strObject,const BSTR strUser,const BSTR strPassword,const BSTR strLocale,long lFlags,IWbemContext *pCtx,REFIID riid,void **pInterface,IWbemCallResult **pCallRes);
+  HRESULT WINAPI IWbemClientConnectionTransport_Open_Proxy(IWbemClientConnectionTransport *This,BSTR strAddressType,DWORD dwBinaryAddressLength,BYTE *abBinaryAddress,const BSTR strObject,const BSTR strUser,const BSTR strPassword,const BSTR strLocale,__LONG32 lFlags,IWbemContext *pCtx,REFIID riid,void **pInterface,IWbemCallResult **pCallRes);
   void __RPC_STUB IWbemClientConnectionTransport_Open_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWbemClientConnectionTransport_OpenAsync_Proxy(IWbemClientConnectionTransport *This,BSTR strAddressType,DWORD dwBinaryAddressLength,BYTE *abBinaryAddress,const BSTR strObject,const BSTR strUser,const BSTR strPassword,const BSTR strLocale,long lFlags,IWbemContext *pCtx,REFIID riid,IWbemObjectSink *pResponseHandler);
+  HRESULT WINAPI IWbemClientConnectionTransport_OpenAsync_Proxy(IWbemClientConnectionTransport *This,BSTR strAddressType,DWORD dwBinaryAddressLength,BYTE *abBinaryAddress,const BSTR strObject,const BSTR strUser,const BSTR strPassword,const BSTR strLocale,__LONG32 lFlags,IWbemContext *pCtx,REFIID riid,IWbemObjectSink *pResponseHandler);
   void __RPC_STUB IWbemClientConnectionTransport_OpenAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWbemClientConnectionTransport_Cancel_Proxy(IWbemClientConnectionTransport *This,long lFlags,IWbemObjectSink *pHandler);
+  HRESULT WINAPI IWbemClientConnectionTransport_Cancel_Proxy(IWbemClientConnectionTransport *This,__LONG32 lFlags,IWbemObjectSink *pHandler);
   void __RPC_STUB IWbemClientConnectionTransport_Cancel_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -387,9 +387,9 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IWbemConstructClassObject : public IUnknown {
   public:
-    virtual HRESULT WINAPI SetInheritanceChain(long lNumAntecedents,LPWSTR *awszAntecedents) = 0;
-    virtual HRESULT WINAPI SetPropertyOrigin(LPCWSTR wszPropertyName,long lOriginIndex) = 0;
-    virtual HRESULT WINAPI SetMethodOrigin(LPCWSTR wszMethodName,long lOriginIndex) = 0;
+    virtual HRESULT WINAPI SetInheritanceChain(__LONG32 lNumAntecedents,LPWSTR *awszAntecedents) = 0;
+    virtual HRESULT WINAPI SetPropertyOrigin(LPCWSTR wszPropertyName,__LONG32 lOriginIndex) = 0;
+    virtual HRESULT WINAPI SetMethodOrigin(LPCWSTR wszMethodName,__LONG32 lOriginIndex) = 0;
     virtual HRESULT WINAPI SetServerNamespace(LPCWSTR wszServer,LPCWSTR wszNamespace) = 0;
   };
 #else
@@ -398,9 +398,9 @@ extern "C" {
       HRESULT (WINAPI *QueryInterface)(IWbemConstructClassObject *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IWbemConstructClassObject *This);
       ULONG (WINAPI *Release)(IWbemConstructClassObject *This);
-      HRESULT (WINAPI *SetInheritanceChain)(IWbemConstructClassObject *This,long lNumAntecedents,LPWSTR *awszAntecedents);
-      HRESULT (WINAPI *SetPropertyOrigin)(IWbemConstructClassObject *This,LPCWSTR wszPropertyName,long lOriginIndex);
-      HRESULT (WINAPI *SetMethodOrigin)(IWbemConstructClassObject *This,LPCWSTR wszMethodName,long lOriginIndex);
+      HRESULT (WINAPI *SetInheritanceChain)(IWbemConstructClassObject *This,__LONG32 lNumAntecedents,LPWSTR *awszAntecedents);
+      HRESULT (WINAPI *SetPropertyOrigin)(IWbemConstructClassObject *This,LPCWSTR wszPropertyName,__LONG32 lOriginIndex);
+      HRESULT (WINAPI *SetMethodOrigin)(IWbemConstructClassObject *This,LPCWSTR wszMethodName,__LONG32 lOriginIndex);
       HRESULT (WINAPI *SetServerNamespace)(IWbemConstructClassObject *This,LPCWSTR wszServer,LPCWSTR wszNamespace);
     END_INTERFACE
   } IWbemConstructClassObjectVtbl;
@@ -417,11 +417,11 @@ extern "C" {
 #define IWbemConstructClassObject_SetServerNamespace(This,wszServer,wszNamespace) (This)->lpVtbl->SetServerNamespace(This,wszServer,wszNamespace)
 #endif
 #endif
-  HRESULT WINAPI IWbemConstructClassObject_SetInheritanceChain_Proxy(IWbemConstructClassObject *This,long lNumAntecedents,LPWSTR *awszAntecedents);
+  HRESULT WINAPI IWbemConstructClassObject_SetInheritanceChain_Proxy(IWbemConstructClassObject *This,__LONG32 lNumAntecedents,LPWSTR *awszAntecedents);
   void __RPC_STUB IWbemConstructClassObject_SetInheritanceChain_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWbemConstructClassObject_SetPropertyOrigin_Proxy(IWbemConstructClassObject *This,LPCWSTR wszPropertyName,long lOriginIndex);
+  HRESULT WINAPI IWbemConstructClassObject_SetPropertyOrigin_Proxy(IWbemConstructClassObject *This,LPCWSTR wszPropertyName,__LONG32 lOriginIndex);
   void __RPC_STUB IWbemConstructClassObject_SetPropertyOrigin_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWbemConstructClassObject_SetMethodOrigin_Proxy(IWbemConstructClassObject *This,LPCWSTR wszMethodName,long lOriginIndex);
+  HRESULT WINAPI IWbemConstructClassObject_SetMethodOrigin_Proxy(IWbemConstructClassObject *This,LPCWSTR wszMethodName,__LONG32 lOriginIndex);
   void __RPC_STUB IWbemConstructClassObject_SetMethodOrigin_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IWbemConstructClassObject_SetServerNamespace_Proxy(IWbemConstructClassObject *This,LPCWSTR wszServer,LPCWSTR wszNamespace);
   void __RPC_STUB IWbemConstructClassObject_SetServerNamespace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);

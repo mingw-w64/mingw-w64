@@ -160,11 +160,11 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IMLangStringBufW : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetStatus(long *plFlags,long *pcchBuf) = 0;
-    virtual HRESULT WINAPI LockBuf(long cchOffset,long cchMaxLock,WCHAR **ppszBuf,long *pcchBuf) = 0;
-    virtual HRESULT WINAPI UnlockBuf(const WCHAR *pszBuf,long cchOffset,long cchWrite) = 0;
-    virtual HRESULT WINAPI Insert(long cchOffset,long cchMaxInsert,long *pcchActual) = 0;
-    virtual HRESULT WINAPI Delete(long cchOffset,long cchDelete) = 0;
+    virtual HRESULT WINAPI GetStatus(__LONG32 *plFlags,__LONG32 *pcchBuf) = 0;
+    virtual HRESULT WINAPI LockBuf(__LONG32 cchOffset,__LONG32 cchMaxLock,WCHAR **ppszBuf,__LONG32 *pcchBuf) = 0;
+    virtual HRESULT WINAPI UnlockBuf(const WCHAR *pszBuf,__LONG32 cchOffset,__LONG32 cchWrite) = 0;
+    virtual HRESULT WINAPI Insert(__LONG32 cchOffset,__LONG32 cchMaxInsert,__LONG32 *pcchActual) = 0;
+    virtual HRESULT WINAPI Delete(__LONG32 cchOffset,__LONG32 cchDelete) = 0;
   };
 #else
   typedef struct IMLangStringBufWVtbl {
@@ -172,11 +172,11 @@ extern "C"{
       HRESULT (WINAPI *QueryInterface)(IMLangStringBufW *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IMLangStringBufW *This);
       ULONG (WINAPI *Release)(IMLangStringBufW *This);
-      HRESULT (WINAPI *GetStatus)(IMLangStringBufW *This,long *plFlags,long *pcchBuf);
-      HRESULT (WINAPI *LockBuf)(IMLangStringBufW *This,long cchOffset,long cchMaxLock,WCHAR **ppszBuf,long *pcchBuf);
-      HRESULT (WINAPI *UnlockBuf)(IMLangStringBufW *This,const WCHAR *pszBuf,long cchOffset,long cchWrite);
-      HRESULT (WINAPI *Insert)(IMLangStringBufW *This,long cchOffset,long cchMaxInsert,long *pcchActual);
-      HRESULT (WINAPI *Delete)(IMLangStringBufW *This,long cchOffset,long cchDelete);
+      HRESULT (WINAPI *GetStatus)(IMLangStringBufW *This,__LONG32 *plFlags,__LONG32 *pcchBuf);
+      HRESULT (WINAPI *LockBuf)(IMLangStringBufW *This,__LONG32 cchOffset,__LONG32 cchMaxLock,WCHAR **ppszBuf,__LONG32 *pcchBuf);
+      HRESULT (WINAPI *UnlockBuf)(IMLangStringBufW *This,const WCHAR *pszBuf,__LONG32 cchOffset,__LONG32 cchWrite);
+      HRESULT (WINAPI *Insert)(IMLangStringBufW *This,__LONG32 cchOffset,__LONG32 cchMaxInsert,__LONG32 *pcchActual);
+      HRESULT (WINAPI *Delete)(IMLangStringBufW *This,__LONG32 cchOffset,__LONG32 cchDelete);
     END_INTERFACE
   } IMLangStringBufWVtbl;
   struct IMLangStringBufW {
@@ -193,15 +193,15 @@ extern "C"{
 #define IMLangStringBufW_Delete(This,cchOffset,cchDelete) (This)->lpVtbl->Delete(This,cchOffset,cchDelete)
 #endif
 #endif
-  HRESULT WINAPI IMLangStringBufW_GetStatus_Proxy(IMLangStringBufW *This,long *plFlags,long *pcchBuf);
+  HRESULT WINAPI IMLangStringBufW_GetStatus_Proxy(IMLangStringBufW *This,__LONG32 *plFlags,__LONG32 *pcchBuf);
   void __RPC_STUB IMLangStringBufW_GetStatus_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringBufW_LockBuf_Proxy(IMLangStringBufW *This,long cchOffset,long cchMaxLock,WCHAR **ppszBuf,long *pcchBuf);
+  HRESULT WINAPI IMLangStringBufW_LockBuf_Proxy(IMLangStringBufW *This,__LONG32 cchOffset,__LONG32 cchMaxLock,WCHAR **ppszBuf,__LONG32 *pcchBuf);
   void __RPC_STUB IMLangStringBufW_LockBuf_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringBufW_UnlockBuf_Proxy(IMLangStringBufW *This,const WCHAR *pszBuf,long cchOffset,long cchWrite);
+  HRESULT WINAPI IMLangStringBufW_UnlockBuf_Proxy(IMLangStringBufW *This,const WCHAR *pszBuf,__LONG32 cchOffset,__LONG32 cchWrite);
   void __RPC_STUB IMLangStringBufW_UnlockBuf_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringBufW_Insert_Proxy(IMLangStringBufW *This,long cchOffset,long cchMaxInsert,long *pcchActual);
+  HRESULT WINAPI IMLangStringBufW_Insert_Proxy(IMLangStringBufW *This,__LONG32 cchOffset,__LONG32 cchMaxInsert,__LONG32 *pcchActual);
   void __RPC_STUB IMLangStringBufW_Insert_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringBufW_Delete_Proxy(IMLangStringBufW *This,long cchOffset,long cchDelete);
+  HRESULT WINAPI IMLangStringBufW_Delete_Proxy(IMLangStringBufW *This,__LONG32 cchOffset,__LONG32 cchDelete);
   void __RPC_STUB IMLangStringBufW_Delete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -211,11 +211,11 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IMLangStringBufA : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetStatus(long *plFlags,long *pcchBuf) = 0;
-    virtual HRESULT WINAPI LockBuf(long cchOffset,long cchMaxLock,CHAR **ppszBuf,long *pcchBuf) = 0;
-    virtual HRESULT WINAPI UnlockBuf(const CHAR *pszBuf,long cchOffset,long cchWrite) = 0;
-    virtual HRESULT WINAPI Insert(long cchOffset,long cchMaxInsert,long *pcchActual) = 0;
-    virtual HRESULT WINAPI Delete(long cchOffset,long cchDelete) = 0;
+    virtual HRESULT WINAPI GetStatus(__LONG32 *plFlags,__LONG32 *pcchBuf) = 0;
+    virtual HRESULT WINAPI LockBuf(__LONG32 cchOffset,__LONG32 cchMaxLock,CHAR **ppszBuf,__LONG32 *pcchBuf) = 0;
+    virtual HRESULT WINAPI UnlockBuf(const CHAR *pszBuf,__LONG32 cchOffset,__LONG32 cchWrite) = 0;
+    virtual HRESULT WINAPI Insert(__LONG32 cchOffset,__LONG32 cchMaxInsert,__LONG32 *pcchActual) = 0;
+    virtual HRESULT WINAPI Delete(__LONG32 cchOffset,__LONG32 cchDelete) = 0;
   };
 #else
   typedef struct IMLangStringBufAVtbl {
@@ -223,11 +223,11 @@ extern "C"{
       HRESULT (WINAPI *QueryInterface)(IMLangStringBufA *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IMLangStringBufA *This);
       ULONG (WINAPI *Release)(IMLangStringBufA *This);
-      HRESULT (WINAPI *GetStatus)(IMLangStringBufA *This,long *plFlags,long *pcchBuf);
-      HRESULT (WINAPI *LockBuf)(IMLangStringBufA *This,long cchOffset,long cchMaxLock,CHAR **ppszBuf,long *pcchBuf);
-      HRESULT (WINAPI *UnlockBuf)(IMLangStringBufA *This,const CHAR *pszBuf,long cchOffset,long cchWrite);
-      HRESULT (WINAPI *Insert)(IMLangStringBufA *This,long cchOffset,long cchMaxInsert,long *pcchActual);
-      HRESULT (WINAPI *Delete)(IMLangStringBufA *This,long cchOffset,long cchDelete);
+      HRESULT (WINAPI *GetStatus)(IMLangStringBufA *This,__LONG32 *plFlags,__LONG32 *pcchBuf);
+      HRESULT (WINAPI *LockBuf)(IMLangStringBufA *This,__LONG32 cchOffset,__LONG32 cchMaxLock,CHAR **ppszBuf,__LONG32 *pcchBuf);
+      HRESULT (WINAPI *UnlockBuf)(IMLangStringBufA *This,const CHAR *pszBuf,__LONG32 cchOffset,__LONG32 cchWrite);
+      HRESULT (WINAPI *Insert)(IMLangStringBufA *This,__LONG32 cchOffset,__LONG32 cchMaxInsert,__LONG32 *pcchActual);
+      HRESULT (WINAPI *Delete)(IMLangStringBufA *This,__LONG32 cchOffset,__LONG32 cchDelete);
     END_INTERFACE
   } IMLangStringBufAVtbl;
   struct IMLangStringBufA {
@@ -244,15 +244,15 @@ extern "C"{
 #define IMLangStringBufA_Delete(This,cchOffset,cchDelete) (This)->lpVtbl->Delete(This,cchOffset,cchDelete)
 #endif
 #endif
-  HRESULT WINAPI IMLangStringBufA_GetStatus_Proxy(IMLangStringBufA *This,long *plFlags,long *pcchBuf);
+  HRESULT WINAPI IMLangStringBufA_GetStatus_Proxy(IMLangStringBufA *This,__LONG32 *plFlags,__LONG32 *pcchBuf);
   void __RPC_STUB IMLangStringBufA_GetStatus_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringBufA_LockBuf_Proxy(IMLangStringBufA *This,long cchOffset,long cchMaxLock,CHAR **ppszBuf,long *pcchBuf);
+  HRESULT WINAPI IMLangStringBufA_LockBuf_Proxy(IMLangStringBufA *This,__LONG32 cchOffset,__LONG32 cchMaxLock,CHAR **ppszBuf,__LONG32 *pcchBuf);
   void __RPC_STUB IMLangStringBufA_LockBuf_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringBufA_UnlockBuf_Proxy(IMLangStringBufA *This,const CHAR *pszBuf,long cchOffset,long cchWrite);
+  HRESULT WINAPI IMLangStringBufA_UnlockBuf_Proxy(IMLangStringBufA *This,const CHAR *pszBuf,__LONG32 cchOffset,__LONG32 cchWrite);
   void __RPC_STUB IMLangStringBufA_UnlockBuf_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringBufA_Insert_Proxy(IMLangStringBufA *This,long cchOffset,long cchMaxInsert,long *pcchActual);
+  HRESULT WINAPI IMLangStringBufA_Insert_Proxy(IMLangStringBufA *This,__LONG32 cchOffset,__LONG32 cchMaxInsert,__LONG32 *pcchActual);
   void __RPC_STUB IMLangStringBufA_Insert_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringBufA_Delete_Proxy(IMLangStringBufA *This,long cchOffset,long cchDelete);
+  HRESULT WINAPI IMLangStringBufA_Delete_Proxy(IMLangStringBufA *This,__LONG32 cchOffset,__LONG32 cchDelete);
   void __RPC_STUB IMLangStringBufA_Delete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -263,9 +263,9 @@ extern "C"{
   struct IMLangString : public IUnknown {
   public:
     virtual HRESULT WINAPI Sync(WINBOOL fNoAccess) = 0;
-    virtual HRESULT WINAPI GetLength(long *plLen) = 0;
-    virtual HRESULT WINAPI SetMLStr(long lDestPos,long lDestLen,IUnknown *pSrcMLStr,long lSrcPos,long lSrcLen) = 0;
-    virtual HRESULT WINAPI GetMLStr(long lSrcPos,long lSrcLen,IUnknown *pUnkOuter,DWORD dwClsContext,const IID *piid,IUnknown **ppDestMLStr,long *plDestPos,long *plDestLen) = 0;
+    virtual HRESULT WINAPI GetLength(__LONG32 *plLen) = 0;
+    virtual HRESULT WINAPI SetMLStr(__LONG32 lDestPos,__LONG32 lDestLen,IUnknown *pSrcMLStr,__LONG32 lSrcPos,__LONG32 lSrcLen) = 0;
+    virtual HRESULT WINAPI GetMLStr(__LONG32 lSrcPos,__LONG32 lSrcLen,IUnknown *pUnkOuter,DWORD dwClsContext,const IID *piid,IUnknown **ppDestMLStr,__LONG32 *plDestPos,__LONG32 *plDestLen) = 0;
   };
 #else
   typedef struct IMLangStringVtbl {
@@ -274,9 +274,9 @@ extern "C"{
       ULONG (WINAPI *AddRef)(IMLangString *This);
       ULONG (WINAPI *Release)(IMLangString *This);
       HRESULT (WINAPI *Sync)(IMLangString *This,WINBOOL fNoAccess);
-      HRESULT (WINAPI *GetLength)(IMLangString *This,long *plLen);
-      HRESULT (WINAPI *SetMLStr)(IMLangString *This,long lDestPos,long lDestLen,IUnknown *pSrcMLStr,long lSrcPos,long lSrcLen);
-      HRESULT (WINAPI *GetMLStr)(IMLangString *This,long lSrcPos,long lSrcLen,IUnknown *pUnkOuter,DWORD dwClsContext,const IID *piid,IUnknown **ppDestMLStr,long *plDestPos,long *plDestLen);
+      HRESULT (WINAPI *GetLength)(IMLangString *This,__LONG32 *plLen);
+      HRESULT (WINAPI *SetMLStr)(IMLangString *This,__LONG32 lDestPos,__LONG32 lDestLen,IUnknown *pSrcMLStr,__LONG32 lSrcPos,__LONG32 lSrcLen);
+      HRESULT (WINAPI *GetMLStr)(IMLangString *This,__LONG32 lSrcPos,__LONG32 lSrcLen,IUnknown *pUnkOuter,DWORD dwClsContext,const IID *piid,IUnknown **ppDestMLStr,__LONG32 *plDestPos,__LONG32 *plDestLen);
     END_INTERFACE
   } IMLangStringVtbl;
   struct IMLangString {
@@ -294,11 +294,11 @@ extern "C"{
 #endif
   HRESULT WINAPI IMLangString_Sync_Proxy(IMLangString *This,WINBOOL fNoAccess);
   void __RPC_STUB IMLangString_Sync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangString_GetLength_Proxy(IMLangString *This,long *plLen);
+  HRESULT WINAPI IMLangString_GetLength_Proxy(IMLangString *This,__LONG32 *plLen);
   void __RPC_STUB IMLangString_GetLength_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangString_SetMLStr_Proxy(IMLangString *This,long lDestPos,long lDestLen,IUnknown *pSrcMLStr,long lSrcPos,long lSrcLen);
+  HRESULT WINAPI IMLangString_SetMLStr_Proxy(IMLangString *This,__LONG32 lDestPos,__LONG32 lDestLen,IUnknown *pSrcMLStr,__LONG32 lSrcPos,__LONG32 lSrcLen);
   void __RPC_STUB IMLangString_SetMLStr_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangString_GetMLStr_Proxy(IMLangString *This,long lSrcPos,long lSrcLen,IUnknown *pUnkOuter,DWORD dwClsContext,const IID *piid,IUnknown **ppDestMLStr,long *plDestPos,long *plDestLen);
+  HRESULT WINAPI IMLangString_GetMLStr_Proxy(IMLangString *This,__LONG32 lSrcPos,__LONG32 lSrcLen,IUnknown *pUnkOuter,DWORD dwClsContext,const IID *piid,IUnknown **ppDestMLStr,__LONG32 *plDestPos,__LONG32 *plDestLen);
   void __RPC_STUB IMLangString_GetMLStr_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -308,14 +308,14 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IMLangStringWStr : public IMLangString {
   public:
-    virtual HRESULT WINAPI SetWStr(long lDestPos,long lDestLen,const WCHAR *pszSrc,long cchSrc,long *pcchActual,long *plActualLen) = 0;
-    virtual HRESULT WINAPI SetStrBufW(long lDestPos,long lDestLen,IMLangStringBufW *pSrcBuf,long *pcchActual,long *plActualLen) = 0;
-    virtual HRESULT WINAPI GetWStr(long lSrcPos,long lSrcLen,WCHAR *pszDest,long cchDest,long *pcchActual,long *plActualLen) = 0;
-    virtual HRESULT WINAPI GetStrBufW(long lSrcPos,long lSrcMaxLen,IMLangStringBufW **ppDestBuf,long *plDestLen) = 0;
-    virtual HRESULT WINAPI LockWStr(long lSrcPos,long lSrcLen,long lFlags,long cchRequest,WCHAR **ppszDest,long *pcchDest,long *plDestLen) = 0;
-    virtual HRESULT WINAPI UnlockWStr(const WCHAR *pszSrc,long cchSrc,long *pcchActual,long *plActualLen) = 0;
-    virtual HRESULT WINAPI SetLocale(long lDestPos,long lDestLen,LCID locale) = 0;
-    virtual HRESULT WINAPI GetLocale(long lSrcPos,long lSrcMaxLen,LCID *plocale,long *plLocalePos,long *plLocaleLen) = 0;
+    virtual HRESULT WINAPI SetWStr(__LONG32 lDestPos,__LONG32 lDestLen,const WCHAR *pszSrc,__LONG32 cchSrc,__LONG32 *pcchActual,__LONG32 *plActualLen) = 0;
+    virtual HRESULT WINAPI SetStrBufW(__LONG32 lDestPos,__LONG32 lDestLen,IMLangStringBufW *pSrcBuf,__LONG32 *pcchActual,__LONG32 *plActualLen) = 0;
+    virtual HRESULT WINAPI GetWStr(__LONG32 lSrcPos,__LONG32 lSrcLen,WCHAR *pszDest,__LONG32 cchDest,__LONG32 *pcchActual,__LONG32 *plActualLen) = 0;
+    virtual HRESULT WINAPI GetStrBufW(__LONG32 lSrcPos,__LONG32 lSrcMaxLen,IMLangStringBufW **ppDestBuf,__LONG32 *plDestLen) = 0;
+    virtual HRESULT WINAPI LockWStr(__LONG32 lSrcPos,__LONG32 lSrcLen,__LONG32 lFlags,__LONG32 cchRequest,WCHAR **ppszDest,__LONG32 *pcchDest,__LONG32 *plDestLen) = 0;
+    virtual HRESULT WINAPI UnlockWStr(const WCHAR *pszSrc,__LONG32 cchSrc,__LONG32 *pcchActual,__LONG32 *plActualLen) = 0;
+    virtual HRESULT WINAPI SetLocale(__LONG32 lDestPos,__LONG32 lDestLen,LCID locale) = 0;
+    virtual HRESULT WINAPI GetLocale(__LONG32 lSrcPos,__LONG32 lSrcMaxLen,LCID *plocale,__LONG32 *plLocalePos,__LONG32 *plLocaleLen) = 0;
   };
 #else
   typedef struct IMLangStringWStrVtbl {
@@ -324,17 +324,17 @@ extern "C"{
       ULONG (WINAPI *AddRef)(IMLangStringWStr *This);
       ULONG (WINAPI *Release)(IMLangStringWStr *This);
       HRESULT (WINAPI *Sync)(IMLangStringWStr *This,WINBOOL fNoAccess);
-      HRESULT (WINAPI *GetLength)(IMLangStringWStr *This,long *plLen);
-      HRESULT (WINAPI *SetMLStr)(IMLangStringWStr *This,long lDestPos,long lDestLen,IUnknown *pSrcMLStr,long lSrcPos,long lSrcLen);
-      HRESULT (WINAPI *GetMLStr)(IMLangStringWStr *This,long lSrcPos,long lSrcLen,IUnknown *pUnkOuter,DWORD dwClsContext,const IID *piid,IUnknown **ppDestMLStr,long *plDestPos,long *plDestLen);
-      HRESULT (WINAPI *SetWStr)(IMLangStringWStr *This,long lDestPos,long lDestLen,const WCHAR *pszSrc,long cchSrc,long *pcchActual,long *plActualLen);
-      HRESULT (WINAPI *SetStrBufW)(IMLangStringWStr *This,long lDestPos,long lDestLen,IMLangStringBufW *pSrcBuf,long *pcchActual,long *plActualLen);
-      HRESULT (WINAPI *GetWStr)(IMLangStringWStr *This,long lSrcPos,long lSrcLen,WCHAR *pszDest,long cchDest,long *pcchActual,long *plActualLen);
-      HRESULT (WINAPI *GetStrBufW)(IMLangStringWStr *This,long lSrcPos,long lSrcMaxLen,IMLangStringBufW **ppDestBuf,long *plDestLen);
-      HRESULT (WINAPI *LockWStr)(IMLangStringWStr *This,long lSrcPos,long lSrcLen,long lFlags,long cchRequest,WCHAR **ppszDest,long *pcchDest,long *plDestLen);
-      HRESULT (WINAPI *UnlockWStr)(IMLangStringWStr *This,const WCHAR *pszSrc,long cchSrc,long *pcchActual,long *plActualLen);
-      HRESULT (WINAPI *SetLocale)(IMLangStringWStr *This,long lDestPos,long lDestLen,LCID locale);
-      HRESULT (WINAPI *GetLocale)(IMLangStringWStr *This,long lSrcPos,long lSrcMaxLen,LCID *plocale,long *plLocalePos,long *plLocaleLen);
+      HRESULT (WINAPI *GetLength)(IMLangStringWStr *This,__LONG32 *plLen);
+      HRESULT (WINAPI *SetMLStr)(IMLangStringWStr *This,__LONG32 lDestPos,__LONG32 lDestLen,IUnknown *pSrcMLStr,__LONG32 lSrcPos,__LONG32 lSrcLen);
+      HRESULT (WINAPI *GetMLStr)(IMLangStringWStr *This,__LONG32 lSrcPos,__LONG32 lSrcLen,IUnknown *pUnkOuter,DWORD dwClsContext,const IID *piid,IUnknown **ppDestMLStr,__LONG32 *plDestPos,__LONG32 *plDestLen);
+      HRESULT (WINAPI *SetWStr)(IMLangStringWStr *This,__LONG32 lDestPos,__LONG32 lDestLen,const WCHAR *pszSrc,__LONG32 cchSrc,__LONG32 *pcchActual,__LONG32 *plActualLen);
+      HRESULT (WINAPI *SetStrBufW)(IMLangStringWStr *This,__LONG32 lDestPos,__LONG32 lDestLen,IMLangStringBufW *pSrcBuf,__LONG32 *pcchActual,__LONG32 *plActualLen);
+      HRESULT (WINAPI *GetWStr)(IMLangStringWStr *This,__LONG32 lSrcPos,__LONG32 lSrcLen,WCHAR *pszDest,__LONG32 cchDest,__LONG32 *pcchActual,__LONG32 *plActualLen);
+      HRESULT (WINAPI *GetStrBufW)(IMLangStringWStr *This,__LONG32 lSrcPos,__LONG32 lSrcMaxLen,IMLangStringBufW **ppDestBuf,__LONG32 *plDestLen);
+      HRESULT (WINAPI *LockWStr)(IMLangStringWStr *This,__LONG32 lSrcPos,__LONG32 lSrcLen,__LONG32 lFlags,__LONG32 cchRequest,WCHAR **ppszDest,__LONG32 *pcchDest,__LONG32 *plDestLen);
+      HRESULT (WINAPI *UnlockWStr)(IMLangStringWStr *This,const WCHAR *pszSrc,__LONG32 cchSrc,__LONG32 *pcchActual,__LONG32 *plActualLen);
+      HRESULT (WINAPI *SetLocale)(IMLangStringWStr *This,__LONG32 lDestPos,__LONG32 lDestLen,LCID locale);
+      HRESULT (WINAPI *GetLocale)(IMLangStringWStr *This,__LONG32 lSrcPos,__LONG32 lSrcMaxLen,LCID *plocale,__LONG32 *plLocalePos,__LONG32 *plLocaleLen);
     END_INTERFACE
   } IMLangStringWStrVtbl;
   struct IMLangStringWStr {
@@ -358,21 +358,21 @@ extern "C"{
 #define IMLangStringWStr_GetLocale(This,lSrcPos,lSrcMaxLen,plocale,plLocalePos,plLocaleLen) (This)->lpVtbl->GetLocale(This,lSrcPos,lSrcMaxLen,plocale,plLocalePos,plLocaleLen)
 #endif
 #endif
-  HRESULT WINAPI IMLangStringWStr_SetWStr_Proxy(IMLangStringWStr *This,long lDestPos,long lDestLen,const WCHAR *pszSrc,long cchSrc,long *pcchActual,long *plActualLen);
+  HRESULT WINAPI IMLangStringWStr_SetWStr_Proxy(IMLangStringWStr *This,__LONG32 lDestPos,__LONG32 lDestLen,const WCHAR *pszSrc,__LONG32 cchSrc,__LONG32 *pcchActual,__LONG32 *plActualLen);
   void __RPC_STUB IMLangStringWStr_SetWStr_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringWStr_SetStrBufW_Proxy(IMLangStringWStr *This,long lDestPos,long lDestLen,IMLangStringBufW *pSrcBuf,long *pcchActual,long *plActualLen);
+  HRESULT WINAPI IMLangStringWStr_SetStrBufW_Proxy(IMLangStringWStr *This,__LONG32 lDestPos,__LONG32 lDestLen,IMLangStringBufW *pSrcBuf,__LONG32 *pcchActual,__LONG32 *plActualLen);
   void __RPC_STUB IMLangStringWStr_SetStrBufW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringWStr_GetWStr_Proxy(IMLangStringWStr *This,long lSrcPos,long lSrcLen,WCHAR *pszDest,long cchDest,long *pcchActual,long *plActualLen);
+  HRESULT WINAPI IMLangStringWStr_GetWStr_Proxy(IMLangStringWStr *This,__LONG32 lSrcPos,__LONG32 lSrcLen,WCHAR *pszDest,__LONG32 cchDest,__LONG32 *pcchActual,__LONG32 *plActualLen);
   void __RPC_STUB IMLangStringWStr_GetWStr_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringWStr_GetStrBufW_Proxy(IMLangStringWStr *This,long lSrcPos,long lSrcMaxLen,IMLangStringBufW **ppDestBuf,long *plDestLen);
+  HRESULT WINAPI IMLangStringWStr_GetStrBufW_Proxy(IMLangStringWStr *This,__LONG32 lSrcPos,__LONG32 lSrcMaxLen,IMLangStringBufW **ppDestBuf,__LONG32 *plDestLen);
   void __RPC_STUB IMLangStringWStr_GetStrBufW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringWStr_LockWStr_Proxy(IMLangStringWStr *This,long lSrcPos,long lSrcLen,long lFlags,long cchRequest,WCHAR **ppszDest,long *pcchDest,long *plDestLen);
+  HRESULT WINAPI IMLangStringWStr_LockWStr_Proxy(IMLangStringWStr *This,__LONG32 lSrcPos,__LONG32 lSrcLen,__LONG32 lFlags,__LONG32 cchRequest,WCHAR **ppszDest,__LONG32 *pcchDest,__LONG32 *plDestLen);
   void __RPC_STUB IMLangStringWStr_LockWStr_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringWStr_UnlockWStr_Proxy(IMLangStringWStr *This,const WCHAR *pszSrc,long cchSrc,long *pcchActual,long *plActualLen);
+  HRESULT WINAPI IMLangStringWStr_UnlockWStr_Proxy(IMLangStringWStr *This,const WCHAR *pszSrc,__LONG32 cchSrc,__LONG32 *pcchActual,__LONG32 *plActualLen);
   void __RPC_STUB IMLangStringWStr_UnlockWStr_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringWStr_SetLocale_Proxy(IMLangStringWStr *This,long lDestPos,long lDestLen,LCID locale);
+  HRESULT WINAPI IMLangStringWStr_SetLocale_Proxy(IMLangStringWStr *This,__LONG32 lDestPos,__LONG32 lDestLen,LCID locale);
   void __RPC_STUB IMLangStringWStr_SetLocale_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringWStr_GetLocale_Proxy(IMLangStringWStr *This,long lSrcPos,long lSrcMaxLen,LCID *plocale,long *plLocalePos,long *plLocaleLen);
+  HRESULT WINAPI IMLangStringWStr_GetLocale_Proxy(IMLangStringWStr *This,__LONG32 lSrcPos,__LONG32 lSrcMaxLen,LCID *plocale,__LONG32 *plLocalePos,__LONG32 *plLocaleLen);
   void __RPC_STUB IMLangStringWStr_GetLocale_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -382,14 +382,14 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IMLangStringAStr : public IMLangString {
   public:
-    virtual HRESULT WINAPI SetAStr(long lDestPos,long lDestLen,UINT uCodePage,const CHAR *pszSrc,long cchSrc,long *pcchActual,long *plActualLen) = 0;
-    virtual HRESULT WINAPI SetStrBufA(long lDestPos,long lDestLen,UINT uCodePage,IMLangStringBufA *pSrcBuf,long *pcchActual,long *plActualLen) = 0;
-    virtual HRESULT WINAPI GetAStr(long lSrcPos,long lSrcLen,UINT uCodePageIn,UINT *puCodePageOut,CHAR *pszDest,long cchDest,long *pcchActual,long *plActualLen) = 0;
-    virtual HRESULT WINAPI GetStrBufA(long lSrcPos,long lSrcMaxLen,UINT *puDestCodePage,IMLangStringBufA **ppDestBuf,long *plDestLen) = 0;
-    virtual HRESULT WINAPI LockAStr(long lSrcPos,long lSrcLen,long lFlags,UINT uCodePageIn,long cchRequest,UINT *puCodePageOut,CHAR **ppszDest,long *pcchDest,long *plDestLen) = 0;
-    virtual HRESULT WINAPI UnlockAStr(const CHAR *pszSrc,long cchSrc,long *pcchActual,long *plActualLen) = 0;
-    virtual HRESULT WINAPI SetLocale(long lDestPos,long lDestLen,LCID locale) = 0;
-    virtual HRESULT WINAPI GetLocale(long lSrcPos,long lSrcMaxLen,LCID *plocale,long *plLocalePos,long *plLocaleLen) = 0;
+    virtual HRESULT WINAPI SetAStr(__LONG32 lDestPos,__LONG32 lDestLen,UINT uCodePage,const CHAR *pszSrc,__LONG32 cchSrc,__LONG32 *pcchActual,__LONG32 *plActualLen) = 0;
+    virtual HRESULT WINAPI SetStrBufA(__LONG32 lDestPos,__LONG32 lDestLen,UINT uCodePage,IMLangStringBufA *pSrcBuf,__LONG32 *pcchActual,__LONG32 *plActualLen) = 0;
+    virtual HRESULT WINAPI GetAStr(__LONG32 lSrcPos,__LONG32 lSrcLen,UINT uCodePageIn,UINT *puCodePageOut,CHAR *pszDest,__LONG32 cchDest,__LONG32 *pcchActual,__LONG32 *plActualLen) = 0;
+    virtual HRESULT WINAPI GetStrBufA(__LONG32 lSrcPos,__LONG32 lSrcMaxLen,UINT *puDestCodePage,IMLangStringBufA **ppDestBuf,__LONG32 *plDestLen) = 0;
+    virtual HRESULT WINAPI LockAStr(__LONG32 lSrcPos,__LONG32 lSrcLen,__LONG32 lFlags,UINT uCodePageIn,__LONG32 cchRequest,UINT *puCodePageOut,CHAR **ppszDest,__LONG32 *pcchDest,__LONG32 *plDestLen) = 0;
+    virtual HRESULT WINAPI UnlockAStr(const CHAR *pszSrc,__LONG32 cchSrc,__LONG32 *pcchActual,__LONG32 *plActualLen) = 0;
+    virtual HRESULT WINAPI SetLocale(__LONG32 lDestPos,__LONG32 lDestLen,LCID locale) = 0;
+    virtual HRESULT WINAPI GetLocale(__LONG32 lSrcPos,__LONG32 lSrcMaxLen,LCID *plocale,__LONG32 *plLocalePos,__LONG32 *plLocaleLen) = 0;
   };
 #else
   typedef struct IMLangStringAStrVtbl {
@@ -398,17 +398,17 @@ extern "C"{
       ULONG (WINAPI *AddRef)(IMLangStringAStr *This);
       ULONG (WINAPI *Release)(IMLangStringAStr *This);
       HRESULT (WINAPI *Sync)(IMLangStringAStr *This,WINBOOL fNoAccess);
-      HRESULT (WINAPI *GetLength)(IMLangStringAStr *This,long *plLen);
-      HRESULT (WINAPI *SetMLStr)(IMLangStringAStr *This,long lDestPos,long lDestLen,IUnknown *pSrcMLStr,long lSrcPos,long lSrcLen);
-      HRESULT (WINAPI *GetMLStr)(IMLangStringAStr *This,long lSrcPos,long lSrcLen,IUnknown *pUnkOuter,DWORD dwClsContext,const IID *piid,IUnknown **ppDestMLStr,long *plDestPos,long *plDestLen);
-      HRESULT (WINAPI *SetAStr)(IMLangStringAStr *This,long lDestPos,long lDestLen,UINT uCodePage,const CHAR *pszSrc,long cchSrc,long *pcchActual,long *plActualLen);
-      HRESULT (WINAPI *SetStrBufA)(IMLangStringAStr *This,long lDestPos,long lDestLen,UINT uCodePage,IMLangStringBufA *pSrcBuf,long *pcchActual,long *plActualLen);
-      HRESULT (WINAPI *GetAStr)(IMLangStringAStr *This,long lSrcPos,long lSrcLen,UINT uCodePageIn,UINT *puCodePageOut,CHAR *pszDest,long cchDest,long *pcchActual,long *plActualLen);
-      HRESULT (WINAPI *GetStrBufA)(IMLangStringAStr *This,long lSrcPos,long lSrcMaxLen,UINT *puDestCodePage,IMLangStringBufA **ppDestBuf,long *plDestLen);
-      HRESULT (WINAPI *LockAStr)(IMLangStringAStr *This,long lSrcPos,long lSrcLen,long lFlags,UINT uCodePageIn,long cchRequest,UINT *puCodePageOut,CHAR **ppszDest,long *pcchDest,long *plDestLen);
-      HRESULT (WINAPI *UnlockAStr)(IMLangStringAStr *This,const CHAR *pszSrc,long cchSrc,long *pcchActual,long *plActualLen);
-      HRESULT (WINAPI *SetLocale)(IMLangStringAStr *This,long lDestPos,long lDestLen,LCID locale);
-      HRESULT (WINAPI *GetLocale)(IMLangStringAStr *This,long lSrcPos,long lSrcMaxLen,LCID *plocale,long *plLocalePos,long *plLocaleLen);
+      HRESULT (WINAPI *GetLength)(IMLangStringAStr *This,__LONG32 *plLen);
+      HRESULT (WINAPI *SetMLStr)(IMLangStringAStr *This,__LONG32 lDestPos,__LONG32 lDestLen,IUnknown *pSrcMLStr,__LONG32 lSrcPos,__LONG32 lSrcLen);
+      HRESULT (WINAPI *GetMLStr)(IMLangStringAStr *This,__LONG32 lSrcPos,__LONG32 lSrcLen,IUnknown *pUnkOuter,DWORD dwClsContext,const IID *piid,IUnknown **ppDestMLStr,__LONG32 *plDestPos,__LONG32 *plDestLen);
+      HRESULT (WINAPI *SetAStr)(IMLangStringAStr *This,__LONG32 lDestPos,__LONG32 lDestLen,UINT uCodePage,const CHAR *pszSrc,__LONG32 cchSrc,__LONG32 *pcchActual,__LONG32 *plActualLen);
+      HRESULT (WINAPI *SetStrBufA)(IMLangStringAStr *This,__LONG32 lDestPos,__LONG32 lDestLen,UINT uCodePage,IMLangStringBufA *pSrcBuf,__LONG32 *pcchActual,__LONG32 *plActualLen);
+      HRESULT (WINAPI *GetAStr)(IMLangStringAStr *This,__LONG32 lSrcPos,__LONG32 lSrcLen,UINT uCodePageIn,UINT *puCodePageOut,CHAR *pszDest,__LONG32 cchDest,__LONG32 *pcchActual,__LONG32 *plActualLen);
+      HRESULT (WINAPI *GetStrBufA)(IMLangStringAStr *This,__LONG32 lSrcPos,__LONG32 lSrcMaxLen,UINT *puDestCodePage,IMLangStringBufA **ppDestBuf,__LONG32 *plDestLen);
+      HRESULT (WINAPI *LockAStr)(IMLangStringAStr *This,__LONG32 lSrcPos,__LONG32 lSrcLen,__LONG32 lFlags,UINT uCodePageIn,__LONG32 cchRequest,UINT *puCodePageOut,CHAR **ppszDest,__LONG32 *pcchDest,__LONG32 *plDestLen);
+      HRESULT (WINAPI *UnlockAStr)(IMLangStringAStr *This,const CHAR *pszSrc,__LONG32 cchSrc,__LONG32 *pcchActual,__LONG32 *plActualLen);
+      HRESULT (WINAPI *SetLocale)(IMLangStringAStr *This,__LONG32 lDestPos,__LONG32 lDestLen,LCID locale);
+      HRESULT (WINAPI *GetLocale)(IMLangStringAStr *This,__LONG32 lSrcPos,__LONG32 lSrcMaxLen,LCID *plocale,__LONG32 *plLocalePos,__LONG32 *plLocaleLen);
     END_INTERFACE
   } IMLangStringAStrVtbl;
   struct IMLangStringAStr {
@@ -432,21 +432,21 @@ extern "C"{
 #define IMLangStringAStr_GetLocale(This,lSrcPos,lSrcMaxLen,plocale,plLocalePos,plLocaleLen) (This)->lpVtbl->GetLocale(This,lSrcPos,lSrcMaxLen,plocale,plLocalePos,plLocaleLen)
 #endif
 #endif
-  HRESULT WINAPI IMLangStringAStr_SetAStr_Proxy(IMLangStringAStr *This,long lDestPos,long lDestLen,UINT uCodePage,const CHAR *pszSrc,long cchSrc,long *pcchActual,long *plActualLen);
+  HRESULT WINAPI IMLangStringAStr_SetAStr_Proxy(IMLangStringAStr *This,__LONG32 lDestPos,__LONG32 lDestLen,UINT uCodePage,const CHAR *pszSrc,__LONG32 cchSrc,__LONG32 *pcchActual,__LONG32 *plActualLen);
   void __RPC_STUB IMLangStringAStr_SetAStr_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringAStr_SetStrBufA_Proxy(IMLangStringAStr *This,long lDestPos,long lDestLen,UINT uCodePage,IMLangStringBufA *pSrcBuf,long *pcchActual,long *plActualLen);
+  HRESULT WINAPI IMLangStringAStr_SetStrBufA_Proxy(IMLangStringAStr *This,__LONG32 lDestPos,__LONG32 lDestLen,UINT uCodePage,IMLangStringBufA *pSrcBuf,__LONG32 *pcchActual,__LONG32 *plActualLen);
   void __RPC_STUB IMLangStringAStr_SetStrBufA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringAStr_GetAStr_Proxy(IMLangStringAStr *This,long lSrcPos,long lSrcLen,UINT uCodePageIn,UINT *puCodePageOut,CHAR *pszDest,long cchDest,long *pcchActual,long *plActualLen);
+  HRESULT WINAPI IMLangStringAStr_GetAStr_Proxy(IMLangStringAStr *This,__LONG32 lSrcPos,__LONG32 lSrcLen,UINT uCodePageIn,UINT *puCodePageOut,CHAR *pszDest,__LONG32 cchDest,__LONG32 *pcchActual,__LONG32 *plActualLen);
   void __RPC_STUB IMLangStringAStr_GetAStr_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringAStr_GetStrBufA_Proxy(IMLangStringAStr *This,long lSrcPos,long lSrcMaxLen,UINT *puDestCodePage,IMLangStringBufA **ppDestBuf,long *plDestLen);
+  HRESULT WINAPI IMLangStringAStr_GetStrBufA_Proxy(IMLangStringAStr *This,__LONG32 lSrcPos,__LONG32 lSrcMaxLen,UINT *puDestCodePage,IMLangStringBufA **ppDestBuf,__LONG32 *plDestLen);
   void __RPC_STUB IMLangStringAStr_GetStrBufA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringAStr_LockAStr_Proxy(IMLangStringAStr *This,long lSrcPos,long lSrcLen,long lFlags,UINT uCodePageIn,long cchRequest,UINT *puCodePageOut,CHAR **ppszDest,long *pcchDest,long *plDestLen);
+  HRESULT WINAPI IMLangStringAStr_LockAStr_Proxy(IMLangStringAStr *This,__LONG32 lSrcPos,__LONG32 lSrcLen,__LONG32 lFlags,UINT uCodePageIn,__LONG32 cchRequest,UINT *puCodePageOut,CHAR **ppszDest,__LONG32 *pcchDest,__LONG32 *plDestLen);
   void __RPC_STUB IMLangStringAStr_LockAStr_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringAStr_UnlockAStr_Proxy(IMLangStringAStr *This,const CHAR *pszSrc,long cchSrc,long *pcchActual,long *plActualLen);
+  HRESULT WINAPI IMLangStringAStr_UnlockAStr_Proxy(IMLangStringAStr *This,const CHAR *pszSrc,__LONG32 cchSrc,__LONG32 *pcchActual,__LONG32 *plActualLen);
   void __RPC_STUB IMLangStringAStr_UnlockAStr_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringAStr_SetLocale_Proxy(IMLangStringAStr *This,long lDestPos,long lDestLen,LCID locale);
+  HRESULT WINAPI IMLangStringAStr_SetLocale_Proxy(IMLangStringAStr *This,__LONG32 lDestPos,__LONG32 lDestLen,LCID locale);
   void __RPC_STUB IMLangStringAStr_SetLocale_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangStringAStr_GetLocale_Proxy(IMLangStringAStr *This,long lSrcPos,long lSrcMaxLen,LCID *plocale,long *plLocalePos,long *plLocaleLen);
+  HRESULT WINAPI IMLangStringAStr_GetLocale_Proxy(IMLangStringAStr *This,__LONG32 lSrcPos,__LONG32 lSrcMaxLen,LCID *plocale,__LONG32 *plLocalePos,__LONG32 *plLocaleLen);
   void __RPC_STUB IMLangStringAStr_GetLocale_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -461,9 +461,9 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IMLangLineBreakConsole : public IUnknown {
   public:
-    virtual HRESULT WINAPI BreakLineML(IMLangString *pSrcMLStr,long lSrcPos,long lSrcLen,long cMinColumns,long cMaxColumns,long *plLineLen,long *plSkipLen) = 0;
-    virtual HRESULT WINAPI BreakLineW(LCID locale,const WCHAR *pszSrc,long cchSrc,long cMaxColumns,long *pcchLine,long *pcchSkip) = 0;
-    virtual HRESULT WINAPI BreakLineA(LCID locale,UINT uCodePage,const CHAR *pszSrc,long cchSrc,long cMaxColumns,long *pcchLine,long *pcchSkip) = 0;
+    virtual HRESULT WINAPI BreakLineML(IMLangString *pSrcMLStr,__LONG32 lSrcPos,__LONG32 lSrcLen,__LONG32 cMinColumns,__LONG32 cMaxColumns,__LONG32 *plLineLen,__LONG32 *plSkipLen) = 0;
+    virtual HRESULT WINAPI BreakLineW(LCID locale,const WCHAR *pszSrc,__LONG32 cchSrc,__LONG32 cMaxColumns,__LONG32 *pcchLine,__LONG32 *pcchSkip) = 0;
+    virtual HRESULT WINAPI BreakLineA(LCID locale,UINT uCodePage,const CHAR *pszSrc,__LONG32 cchSrc,__LONG32 cMaxColumns,__LONG32 *pcchLine,__LONG32 *pcchSkip) = 0;
   };
 #else
   typedef struct IMLangLineBreakConsoleVtbl {
@@ -471,9 +471,9 @@ extern "C"{
       HRESULT (WINAPI *QueryInterface)(IMLangLineBreakConsole *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IMLangLineBreakConsole *This);
       ULONG (WINAPI *Release)(IMLangLineBreakConsole *This);
-      HRESULT (WINAPI *BreakLineML)(IMLangLineBreakConsole *This,IMLangString *pSrcMLStr,long lSrcPos,long lSrcLen,long cMinColumns,long cMaxColumns,long *plLineLen,long *plSkipLen);
-      HRESULT (WINAPI *BreakLineW)(IMLangLineBreakConsole *This,LCID locale,const WCHAR *pszSrc,long cchSrc,long cMaxColumns,long *pcchLine,long *pcchSkip);
-      HRESULT (WINAPI *BreakLineA)(IMLangLineBreakConsole *This,LCID locale,UINT uCodePage,const CHAR *pszSrc,long cchSrc,long cMaxColumns,long *pcchLine,long *pcchSkip);
+      HRESULT (WINAPI *BreakLineML)(IMLangLineBreakConsole *This,IMLangString *pSrcMLStr,__LONG32 lSrcPos,__LONG32 lSrcLen,__LONG32 cMinColumns,__LONG32 cMaxColumns,__LONG32 *plLineLen,__LONG32 *plSkipLen);
+      HRESULT (WINAPI *BreakLineW)(IMLangLineBreakConsole *This,LCID locale,const WCHAR *pszSrc,__LONG32 cchSrc,__LONG32 cMaxColumns,__LONG32 *pcchLine,__LONG32 *pcchSkip);
+      HRESULT (WINAPI *BreakLineA)(IMLangLineBreakConsole *This,LCID locale,UINT uCodePage,const CHAR *pszSrc,__LONG32 cchSrc,__LONG32 cMaxColumns,__LONG32 *pcchLine,__LONG32 *pcchSkip);
     END_INTERFACE
   } IMLangLineBreakConsoleVtbl;
   struct IMLangLineBreakConsole {
@@ -488,11 +488,11 @@ extern "C"{
 #define IMLangLineBreakConsole_BreakLineA(This,locale,uCodePage,pszSrc,cchSrc,cMaxColumns,pcchLine,pcchSkip) (This)->lpVtbl->BreakLineA(This,locale,uCodePage,pszSrc,cchSrc,cMaxColumns,pcchLine,pcchSkip)
 #endif
 #endif
-  HRESULT WINAPI IMLangLineBreakConsole_BreakLineML_Proxy(IMLangLineBreakConsole *This,IMLangString *pSrcMLStr,long lSrcPos,long lSrcLen,long cMinColumns,long cMaxColumns,long *plLineLen,long *plSkipLen);
+  HRESULT WINAPI IMLangLineBreakConsole_BreakLineML_Proxy(IMLangLineBreakConsole *This,IMLangString *pSrcMLStr,__LONG32 lSrcPos,__LONG32 lSrcLen,__LONG32 cMinColumns,__LONG32 cMaxColumns,__LONG32 *plLineLen,__LONG32 *plSkipLen);
   void __RPC_STUB IMLangLineBreakConsole_BreakLineML_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangLineBreakConsole_BreakLineW_Proxy(IMLangLineBreakConsole *This,LCID locale,const WCHAR *pszSrc,long cchSrc,long cMaxColumns,long *pcchLine,long *pcchSkip);
+  HRESULT WINAPI IMLangLineBreakConsole_BreakLineW_Proxy(IMLangLineBreakConsole *This,LCID locale,const WCHAR *pszSrc,__LONG32 cchSrc,__LONG32 cMaxColumns,__LONG32 *pcchLine,__LONG32 *pcchSkip);
   void __RPC_STUB IMLangLineBreakConsole_BreakLineW_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangLineBreakConsole_BreakLineA_Proxy(IMLangLineBreakConsole *This,LCID locale,UINT uCodePage,const CHAR *pszSrc,long cchSrc,long cMaxColumns,long *pcchLine,long *pcchSkip);
+  HRESULT WINAPI IMLangLineBreakConsole_BreakLineA_Proxy(IMLangLineBreakConsole *This,LCID locale,UINT uCodePage,const CHAR *pszSrc,__LONG32 cchSrc,__LONG32 cMaxColumns,__LONG32 *pcchLine,__LONG32 *pcchSkip);
   void __RPC_STUB IMLangLineBreakConsole_BreakLineA_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1088,7 +1088,7 @@ extern "C"{
   struct IMLangCodePages : public IUnknown {
   public:
     virtual HRESULT WINAPI GetCharCodePages(WCHAR chSrc,DWORD *pdwCodePages) = 0;
-    virtual HRESULT WINAPI GetStrCodePages(const WCHAR *pszSrc,long cchSrc,DWORD dwPriorityCodePages,DWORD *pdwCodePages,long *pcchCodePages) = 0;
+    virtual HRESULT WINAPI GetStrCodePages(const WCHAR *pszSrc,__LONG32 cchSrc,DWORD dwPriorityCodePages,DWORD *pdwCodePages,__LONG32 *pcchCodePages) = 0;
     virtual HRESULT WINAPI CodePageToCodePages(UINT uCodePage,DWORD *pdwCodePages) = 0;
     virtual HRESULT WINAPI CodePagesToCodePage(DWORD dwCodePages,UINT uDefaultCodePage,UINT *puCodePage) = 0;
   };
@@ -1099,7 +1099,7 @@ extern "C"{
       ULONG (WINAPI *AddRef)(IMLangCodePages *This);
       ULONG (WINAPI *Release)(IMLangCodePages *This);
       HRESULT (WINAPI *GetCharCodePages)(IMLangCodePages *This,WCHAR chSrc,DWORD *pdwCodePages);
-      HRESULT (WINAPI *GetStrCodePages)(IMLangCodePages *This,const WCHAR *pszSrc,long cchSrc,DWORD dwPriorityCodePages,DWORD *pdwCodePages,long *pcchCodePages);
+      HRESULT (WINAPI *GetStrCodePages)(IMLangCodePages *This,const WCHAR *pszSrc,__LONG32 cchSrc,DWORD dwPriorityCodePages,DWORD *pdwCodePages,__LONG32 *pcchCodePages);
       HRESULT (WINAPI *CodePageToCodePages)(IMLangCodePages *This,UINT uCodePage,DWORD *pdwCodePages);
       HRESULT (WINAPI *CodePagesToCodePage)(IMLangCodePages *This,DWORD dwCodePages,UINT uDefaultCodePage,UINT *puCodePage);
     END_INTERFACE
@@ -1119,7 +1119,7 @@ extern "C"{
 #endif
   HRESULT WINAPI IMLangCodePages_GetCharCodePages_Proxy(IMLangCodePages *This,WCHAR chSrc,DWORD *pdwCodePages);
   void __RPC_STUB IMLangCodePages_GetCharCodePages_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMLangCodePages_GetStrCodePages_Proxy(IMLangCodePages *This,const WCHAR *pszSrc,long cchSrc,DWORD dwPriorityCodePages,DWORD *pdwCodePages,long *pcchCodePages);
+  HRESULT WINAPI IMLangCodePages_GetStrCodePages_Proxy(IMLangCodePages *This,const WCHAR *pszSrc,__LONG32 cchSrc,DWORD dwPriorityCodePages,DWORD *pdwCodePages,__LONG32 *pcchCodePages);
   void __RPC_STUB IMLangCodePages_GetStrCodePages_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMLangCodePages_CodePageToCodePages_Proxy(IMLangCodePages *This,UINT uCodePage,DWORD *pdwCodePages);
   void __RPC_STUB IMLangCodePages_CodePageToCodePages_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1147,7 +1147,7 @@ extern "C"{
       ULONG (WINAPI *AddRef)(IMLangFontLink *This);
       ULONG (WINAPI *Release)(IMLangFontLink *This);
       HRESULT (WINAPI *GetCharCodePages)(IMLangFontLink *This,WCHAR chSrc,DWORD *pdwCodePages);
-      HRESULT (WINAPI *GetStrCodePages)(IMLangFontLink *This,const WCHAR *pszSrc,long cchSrc,DWORD dwPriorityCodePages,DWORD *pdwCodePages,long *pcchCodePages);
+      HRESULT (WINAPI *GetStrCodePages)(IMLangFontLink *This,const WCHAR *pszSrc,__LONG32 cchSrc,DWORD dwPriorityCodePages,DWORD *pdwCodePages,__LONG32 *pcchCodePages);
       HRESULT (WINAPI *CodePageToCodePages)(IMLangFontLink *This,UINT uCodePage,DWORD *pdwCodePages);
       HRESULT (WINAPI *CodePagesToCodePage)(IMLangFontLink *This,DWORD dwCodePages,UINT uDefaultCodePage,UINT *puCodePage);
       HRESULT (WINAPI *GetFontCodePages)(IMLangFontLink *This,HDC hDC,HFONT hFont,DWORD *pdwCodePages);
@@ -1211,7 +1211,7 @@ extern "C"{
       ULONG (WINAPI *AddRef)(IMLangFontLink2 *This);
       ULONG (WINAPI *Release)(IMLangFontLink2 *This);
       HRESULT (WINAPI *GetCharCodePages)(IMLangFontLink2 *This,WCHAR chSrc,DWORD *pdwCodePages);
-      HRESULT (WINAPI *GetStrCodePages)(IMLangFontLink2 *This,const WCHAR *pszSrc,long cchSrc,DWORD dwPriorityCodePages,DWORD *pdwCodePages,long *pcchCodePages);
+      HRESULT (WINAPI *GetStrCodePages)(IMLangFontLink2 *This,const WCHAR *pszSrc,__LONG32 cchSrc,DWORD dwPriorityCodePages,DWORD *pdwCodePages,__LONG32 *pcchCodePages);
       HRESULT (WINAPI *CodePageToCodePages)(IMLangFontLink2 *This,UINT uCodePage,DWORD *pdwCodePages);
       HRESULT (WINAPI *CodePagesToCodePage)(IMLangFontLink2 *This,DWORD dwCodePages,UINT uDefaultCodePage,UINT *puCodePage);
       HRESULT (WINAPI *GetFontCodePages)(IMLangFontLink2 *This,HDC hDC,HFONT hFont,DWORD *pdwCodePages);

@@ -216,8 +216,8 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IWbemPropertyProvider : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetProperty(long lFlags,const BSTR strLocale,const BSTR strClassMapping,const BSTR strInstMapping,const BSTR strPropMapping,VARIANT *pvValue) = 0;
-    virtual HRESULT WINAPI PutProperty(long lFlags,const BSTR strLocale,const BSTR strClassMapping,const BSTR strInstMapping,const BSTR strPropMapping,const VARIANT *pvValue) = 0;
+    virtual HRESULT WINAPI GetProperty(__LONG32 lFlags,const BSTR strLocale,const BSTR strClassMapping,const BSTR strInstMapping,const BSTR strPropMapping,VARIANT *pvValue) = 0;
+    virtual HRESULT WINAPI PutProperty(__LONG32 lFlags,const BSTR strLocale,const BSTR strClassMapping,const BSTR strInstMapping,const BSTR strPropMapping,const VARIANT *pvValue) = 0;
   };
 #else
   typedef struct IWbemPropertyProviderVtbl {
@@ -225,8 +225,8 @@ extern "C" {
       HRESULT (WINAPI *QueryInterface)(IWbemPropertyProvider *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IWbemPropertyProvider *This);
       ULONG (WINAPI *Release)(IWbemPropertyProvider *This);
-      HRESULT (WINAPI *GetProperty)(IWbemPropertyProvider *This,long lFlags,const BSTR strLocale,const BSTR strClassMapping,const BSTR strInstMapping,const BSTR strPropMapping,VARIANT *pvValue);
-      HRESULT (WINAPI *PutProperty)(IWbemPropertyProvider *This,long lFlags,const BSTR strLocale,const BSTR strClassMapping,const BSTR strInstMapping,const BSTR strPropMapping,const VARIANT *pvValue);
+      HRESULT (WINAPI *GetProperty)(IWbemPropertyProvider *This,__LONG32 lFlags,const BSTR strLocale,const BSTR strClassMapping,const BSTR strInstMapping,const BSTR strPropMapping,VARIANT *pvValue);
+      HRESULT (WINAPI *PutProperty)(IWbemPropertyProvider *This,__LONG32 lFlags,const BSTR strLocale,const BSTR strClassMapping,const BSTR strInstMapping,const BSTR strPropMapping,const VARIANT *pvValue);
     END_INTERFACE
   } IWbemPropertyProviderVtbl;
   struct IWbemPropertyProvider {
@@ -240,9 +240,9 @@ extern "C" {
 #define IWbemPropertyProvider_PutProperty(This,lFlags,strLocale,strClassMapping,strInstMapping,strPropMapping,pvValue) (This)->lpVtbl->PutProperty(This,lFlags,strLocale,strClassMapping,strInstMapping,strPropMapping,pvValue)
 #endif
 #endif
-  HRESULT WINAPI IWbemPropertyProvider_GetProperty_Proxy(IWbemPropertyProvider *This,long lFlags,const BSTR strLocale,const BSTR strClassMapping,const BSTR strInstMapping,const BSTR strPropMapping,VARIANT *pvValue);
+  HRESULT WINAPI IWbemPropertyProvider_GetProperty_Proxy(IWbemPropertyProvider *This,__LONG32 lFlags,const BSTR strLocale,const BSTR strClassMapping,const BSTR strInstMapping,const BSTR strPropMapping,VARIANT *pvValue);
   void __RPC_STUB IWbemPropertyProvider_GetProperty_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWbemPropertyProvider_PutProperty_Proxy(IWbemPropertyProvider *This,long lFlags,const BSTR strLocale,const BSTR strClassMapping,const BSTR strInstMapping,const BSTR strPropMapping,const VARIANT *pvValue);
+  HRESULT WINAPI IWbemPropertyProvider_PutProperty_Proxy(IWbemPropertyProvider *This,__LONG32 lFlags,const BSTR strLocale,const BSTR strClassMapping,const BSTR strInstMapping,const BSTR strPropMapping,const VARIANT *pvValue);
   void __RPC_STUB IWbemPropertyProvider_PutProperty_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -252,7 +252,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IWbemUnboundObjectSink : public IUnknown {
   public:
-    virtual HRESULT WINAPI IndicateToConsumer(IWbemClassObject *pLogicalConsumer,long lNumObjects,IWbemClassObject **apObjects) = 0;
+    virtual HRESULT WINAPI IndicateToConsumer(IWbemClassObject *pLogicalConsumer,__LONG32 lNumObjects,IWbemClassObject **apObjects) = 0;
   };
 #else
   typedef struct IWbemUnboundObjectSinkVtbl {
@@ -260,7 +260,7 @@ extern "C" {
       HRESULT (WINAPI *QueryInterface)(IWbemUnboundObjectSink *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IWbemUnboundObjectSink *This);
       ULONG (WINAPI *Release)(IWbemUnboundObjectSink *This);
-      HRESULT (WINAPI *IndicateToConsumer)(IWbemUnboundObjectSink *This,IWbemClassObject *pLogicalConsumer,long lNumObjects,IWbemClassObject **apObjects);
+      HRESULT (WINAPI *IndicateToConsumer)(IWbemUnboundObjectSink *This,IWbemClassObject *pLogicalConsumer,__LONG32 lNumObjects,IWbemClassObject **apObjects);
     END_INTERFACE
   } IWbemUnboundObjectSinkVtbl;
   struct IWbemUnboundObjectSink {
@@ -273,7 +273,7 @@ extern "C" {
 #define IWbemUnboundObjectSink_IndicateToConsumer(This,pLogicalConsumer,lNumObjects,apObjects) (This)->lpVtbl->IndicateToConsumer(This,pLogicalConsumer,lNumObjects,apObjects)
 #endif
 #endif
-  HRESULT WINAPI IWbemUnboundObjectSink_IndicateToConsumer_Proxy(IWbemUnboundObjectSink *This,IWbemClassObject *pLogicalConsumer,long lNumObjects,IWbemClassObject **apObjects);
+  HRESULT WINAPI IWbemUnboundObjectSink_IndicateToConsumer_Proxy(IWbemUnboundObjectSink *This,IWbemClassObject *pLogicalConsumer,__LONG32 lNumObjects,IWbemClassObject **apObjects);
   void __RPC_STUB IWbemUnboundObjectSink_IndicateToConsumer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -283,7 +283,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IWbemEventProvider : public IUnknown {
   public:
-    virtual HRESULT WINAPI ProvideEvents(IWbemObjectSink *pSink,long lFlags) = 0;
+    virtual HRESULT WINAPI ProvideEvents(IWbemObjectSink *pSink,__LONG32 lFlags) = 0;
   };
 #else
   typedef struct IWbemEventProviderVtbl {
@@ -291,7 +291,7 @@ extern "C" {
       HRESULT (WINAPI *QueryInterface)(IWbemEventProvider *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IWbemEventProvider *This);
       ULONG (WINAPI *Release)(IWbemEventProvider *This);
-      HRESULT (WINAPI *ProvideEvents)(IWbemEventProvider *This,IWbemObjectSink *pSink,long lFlags);
+      HRESULT (WINAPI *ProvideEvents)(IWbemEventProvider *This,IWbemObjectSink *pSink,__LONG32 lFlags);
     END_INTERFACE
   } IWbemEventProviderVtbl;
   struct IWbemEventProvider {
@@ -304,7 +304,7 @@ extern "C" {
 #define IWbemEventProvider_ProvideEvents(This,pSink,lFlags) (This)->lpVtbl->ProvideEvents(This,pSink,lFlags)
 #endif
 #endif
-  HRESULT WINAPI IWbemEventProvider_ProvideEvents_Proxy(IWbemEventProvider *This,IWbemObjectSink *pSink,long lFlags);
+  HRESULT WINAPI IWbemEventProvider_ProvideEvents_Proxy(IWbemEventProvider *This,IWbemObjectSink *pSink,__LONG32 lFlags);
   void __RPC_STUB IWbemEventProvider_ProvideEvents_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -314,8 +314,8 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IWbemEventProviderQuerySink : public IUnknown {
   public:
-    virtual HRESULT WINAPI NewQuery(unsigned long dwId,WBEM_WSTR wszQueryLanguage,WBEM_WSTR wszQuery) = 0;
-    virtual HRESULT WINAPI CancelQuery(unsigned long dwId) = 0;
+    virtual HRESULT WINAPI NewQuery(unsigned __LONG32 dwId,WBEM_WSTR wszQueryLanguage,WBEM_WSTR wszQuery) = 0;
+    virtual HRESULT WINAPI CancelQuery(unsigned __LONG32 dwId) = 0;
   };
 #else
   typedef struct IWbemEventProviderQuerySinkVtbl {
@@ -323,8 +323,8 @@ extern "C" {
       HRESULT (WINAPI *QueryInterface)(IWbemEventProviderQuerySink *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IWbemEventProviderQuerySink *This);
       ULONG (WINAPI *Release)(IWbemEventProviderQuerySink *This);
-      HRESULT (WINAPI *NewQuery)(IWbemEventProviderQuerySink *This,unsigned long dwId,WBEM_WSTR wszQueryLanguage,WBEM_WSTR wszQuery);
-      HRESULT (WINAPI *CancelQuery)(IWbemEventProviderQuerySink *This,unsigned long dwId);
+      HRESULT (WINAPI *NewQuery)(IWbemEventProviderQuerySink *This,unsigned __LONG32 dwId,WBEM_WSTR wszQueryLanguage,WBEM_WSTR wszQuery);
+      HRESULT (WINAPI *CancelQuery)(IWbemEventProviderQuerySink *This,unsigned __LONG32 dwId);
     END_INTERFACE
   } IWbemEventProviderQuerySinkVtbl;
   struct IWbemEventProviderQuerySink {
@@ -338,9 +338,9 @@ extern "C" {
 #define IWbemEventProviderQuerySink_CancelQuery(This,dwId) (This)->lpVtbl->CancelQuery(This,dwId)
 #endif
 #endif
-  HRESULT WINAPI IWbemEventProviderQuerySink_NewQuery_Proxy(IWbemEventProviderQuerySink *This,unsigned long dwId,WBEM_WSTR wszQueryLanguage,WBEM_WSTR wszQuery);
+  HRESULT WINAPI IWbemEventProviderQuerySink_NewQuery_Proxy(IWbemEventProviderQuerySink *This,unsigned __LONG32 dwId,WBEM_WSTR wszQueryLanguage,WBEM_WSTR wszQuery);
   void __RPC_STUB IWbemEventProviderQuerySink_NewQuery_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWbemEventProviderQuerySink_CancelQuery_Proxy(IWbemEventProviderQuerySink *This,unsigned long dwId);
+  HRESULT WINAPI IWbemEventProviderQuerySink_CancelQuery_Proxy(IWbemEventProviderQuerySink *This,unsigned __LONG32 dwId);
   void __RPC_STUB IWbemEventProviderQuerySink_CancelQuery_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -350,7 +350,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IWbemEventProviderSecurity : public IUnknown {
   public:
-    virtual HRESULT WINAPI AccessCheck(WBEM_CWSTR wszQueryLanguage,WBEM_CWSTR wszQuery,long lSidLength,const BYTE *pSid) = 0;
+    virtual HRESULT WINAPI AccessCheck(WBEM_CWSTR wszQueryLanguage,WBEM_CWSTR wszQuery,__LONG32 lSidLength,const BYTE *pSid) = 0;
   };
 #else
   typedef struct IWbemEventProviderSecurityVtbl {
@@ -358,7 +358,7 @@ extern "C" {
       HRESULT (WINAPI *QueryInterface)(IWbemEventProviderSecurity *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IWbemEventProviderSecurity *This);
       ULONG (WINAPI *Release)(IWbemEventProviderSecurity *This);
-      HRESULT (WINAPI *AccessCheck)(IWbemEventProviderSecurity *This,WBEM_CWSTR wszQueryLanguage,WBEM_CWSTR wszQuery,long lSidLength,const BYTE *pSid);
+      HRESULT (WINAPI *AccessCheck)(IWbemEventProviderSecurity *This,WBEM_CWSTR wszQueryLanguage,WBEM_CWSTR wszQuery,__LONG32 lSidLength,const BYTE *pSid);
     END_INTERFACE
   } IWbemEventProviderSecurityVtbl;
   struct IWbemEventProviderSecurity {
@@ -371,7 +371,7 @@ extern "C" {
 #define IWbemEventProviderSecurity_AccessCheck(This,wszQueryLanguage,wszQuery,lSidLength,pSid) (This)->lpVtbl->AccessCheck(This,wszQueryLanguage,wszQuery,lSidLength,pSid)
 #endif
 #endif
-  HRESULT WINAPI IWbemEventProviderSecurity_AccessCheck_Proxy(IWbemEventProviderSecurity *This,WBEM_CWSTR wszQueryLanguage,WBEM_CWSTR wszQuery,long lSidLength,const BYTE *pSid);
+  HRESULT WINAPI IWbemEventProviderSecurity_AccessCheck_Proxy(IWbemEventProviderSecurity *This,WBEM_CWSTR wszQueryLanguage,WBEM_CWSTR wszQuery,__LONG32 lSidLength,const BYTE *pSid);
   void __RPC_STUB IWbemEventProviderSecurity_AccessCheck_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -474,12 +474,12 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IWbemHiPerfProvider : public IUnknown {
   public:
-    virtual HRESULT WINAPI QueryInstances(IWbemServices *pNamespace,WCHAR *wszClass,long lFlags,IWbemContext *pCtx,IWbemObjectSink *pSink) = 0;
-    virtual HRESULT WINAPI CreateRefresher(IWbemServices *pNamespace,long lFlags,IWbemRefresher **ppRefresher) = 0;
-    virtual HRESULT WINAPI CreateRefreshableObject(IWbemServices *pNamespace,IWbemObjectAccess *pTemplate,IWbemRefresher *pRefresher,long lFlags,IWbemContext *pContext,IWbemObjectAccess **ppRefreshable,long *plId) = 0;
-    virtual HRESULT WINAPI StopRefreshing(IWbemRefresher *pRefresher,long lId,long lFlags) = 0;
-    virtual HRESULT WINAPI CreateRefreshableEnum(IWbemServices *pNamespace,LPCWSTR wszClass,IWbemRefresher *pRefresher,long lFlags,IWbemContext *pContext,IWbemHiPerfEnum *pHiPerfEnum,long *plId) = 0;
-    virtual HRESULT WINAPI GetObjects(IWbemServices *pNamespace,long lNumObjects,IWbemObjectAccess **apObj,long lFlags,IWbemContext *pContext) = 0;
+    virtual HRESULT WINAPI QueryInstances(IWbemServices *pNamespace,WCHAR *wszClass,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pSink) = 0;
+    virtual HRESULT WINAPI CreateRefresher(IWbemServices *pNamespace,__LONG32 lFlags,IWbemRefresher **ppRefresher) = 0;
+    virtual HRESULT WINAPI CreateRefreshableObject(IWbemServices *pNamespace,IWbemObjectAccess *pTemplate,IWbemRefresher *pRefresher,__LONG32 lFlags,IWbemContext *pContext,IWbemObjectAccess **ppRefreshable,__LONG32 *plId) = 0;
+    virtual HRESULT WINAPI StopRefreshing(IWbemRefresher *pRefresher,__LONG32 lId,__LONG32 lFlags) = 0;
+    virtual HRESULT WINAPI CreateRefreshableEnum(IWbemServices *pNamespace,LPCWSTR wszClass,IWbemRefresher *pRefresher,__LONG32 lFlags,IWbemContext *pContext,IWbemHiPerfEnum *pHiPerfEnum,__LONG32 *plId) = 0;
+    virtual HRESULT WINAPI GetObjects(IWbemServices *pNamespace,__LONG32 lNumObjects,IWbemObjectAccess **apObj,__LONG32 lFlags,IWbemContext *pContext) = 0;
   };
 #else
   typedef struct IWbemHiPerfProviderVtbl {
@@ -487,12 +487,12 @@ extern "C" {
       HRESULT (WINAPI *QueryInterface)(IWbemHiPerfProvider *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IWbemHiPerfProvider *This);
       ULONG (WINAPI *Release)(IWbemHiPerfProvider *This);
-      HRESULT (WINAPI *QueryInstances)(IWbemHiPerfProvider *This,IWbemServices *pNamespace,WCHAR *wszClass,long lFlags,IWbemContext *pCtx,IWbemObjectSink *pSink);
-      HRESULT (WINAPI *CreateRefresher)(IWbemHiPerfProvider *This,IWbemServices *pNamespace,long lFlags,IWbemRefresher **ppRefresher);
-      HRESULT (WINAPI *CreateRefreshableObject)(IWbemHiPerfProvider *This,IWbemServices *pNamespace,IWbemObjectAccess *pTemplate,IWbemRefresher *pRefresher,long lFlags,IWbemContext *pContext,IWbemObjectAccess **ppRefreshable,long *plId);
-      HRESULT (WINAPI *StopRefreshing)(IWbemHiPerfProvider *This,IWbemRefresher *pRefresher,long lId,long lFlags);
-      HRESULT (WINAPI *CreateRefreshableEnum)(IWbemHiPerfProvider *This,IWbemServices *pNamespace,LPCWSTR wszClass,IWbemRefresher *pRefresher,long lFlags,IWbemContext *pContext,IWbemHiPerfEnum *pHiPerfEnum,long *plId);
-      HRESULT (WINAPI *GetObjects)(IWbemHiPerfProvider *This,IWbemServices *pNamespace,long lNumObjects,IWbemObjectAccess **apObj,long lFlags,IWbemContext *pContext);
+      HRESULT (WINAPI *QueryInstances)(IWbemHiPerfProvider *This,IWbemServices *pNamespace,WCHAR *wszClass,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pSink);
+      HRESULT (WINAPI *CreateRefresher)(IWbemHiPerfProvider *This,IWbemServices *pNamespace,__LONG32 lFlags,IWbemRefresher **ppRefresher);
+      HRESULT (WINAPI *CreateRefreshableObject)(IWbemHiPerfProvider *This,IWbemServices *pNamespace,IWbemObjectAccess *pTemplate,IWbemRefresher *pRefresher,__LONG32 lFlags,IWbemContext *pContext,IWbemObjectAccess **ppRefreshable,__LONG32 *plId);
+      HRESULT (WINAPI *StopRefreshing)(IWbemHiPerfProvider *This,IWbemRefresher *pRefresher,__LONG32 lId,__LONG32 lFlags);
+      HRESULT (WINAPI *CreateRefreshableEnum)(IWbemHiPerfProvider *This,IWbemServices *pNamespace,LPCWSTR wszClass,IWbemRefresher *pRefresher,__LONG32 lFlags,IWbemContext *pContext,IWbemHiPerfEnum *pHiPerfEnum,__LONG32 *plId);
+      HRESULT (WINAPI *GetObjects)(IWbemHiPerfProvider *This,IWbemServices *pNamespace,__LONG32 lNumObjects,IWbemObjectAccess **apObj,__LONG32 lFlags,IWbemContext *pContext);
     END_INTERFACE
   } IWbemHiPerfProviderVtbl;
   struct IWbemHiPerfProvider {
@@ -510,17 +510,17 @@ extern "C" {
 #define IWbemHiPerfProvider_GetObjects(This,pNamespace,lNumObjects,apObj,lFlags,pContext) (This)->lpVtbl->GetObjects(This,pNamespace,lNumObjects,apObj,lFlags,pContext)
 #endif
 #endif
-  HRESULT WINAPI IWbemHiPerfProvider_QueryInstances_Proxy(IWbemHiPerfProvider *This,IWbemServices *pNamespace,WCHAR *wszClass,long lFlags,IWbemContext *pCtx,IWbemObjectSink *pSink);
+  HRESULT WINAPI IWbemHiPerfProvider_QueryInstances_Proxy(IWbemHiPerfProvider *This,IWbemServices *pNamespace,WCHAR *wszClass,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pSink);
   void __RPC_STUB IWbemHiPerfProvider_QueryInstances_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWbemHiPerfProvider_CreateRefresher_Proxy(IWbemHiPerfProvider *This,IWbemServices *pNamespace,long lFlags,IWbemRefresher **ppRefresher);
+  HRESULT WINAPI IWbemHiPerfProvider_CreateRefresher_Proxy(IWbemHiPerfProvider *This,IWbemServices *pNamespace,__LONG32 lFlags,IWbemRefresher **ppRefresher);
   void __RPC_STUB IWbemHiPerfProvider_CreateRefresher_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWbemHiPerfProvider_CreateRefreshableObject_Proxy(IWbemHiPerfProvider *This,IWbemServices *pNamespace,IWbemObjectAccess *pTemplate,IWbemRefresher *pRefresher,long lFlags,IWbemContext *pContext,IWbemObjectAccess **ppRefreshable,long *plId);
+  HRESULT WINAPI IWbemHiPerfProvider_CreateRefreshableObject_Proxy(IWbemHiPerfProvider *This,IWbemServices *pNamespace,IWbemObjectAccess *pTemplate,IWbemRefresher *pRefresher,__LONG32 lFlags,IWbemContext *pContext,IWbemObjectAccess **ppRefreshable,__LONG32 *plId);
   void __RPC_STUB IWbemHiPerfProvider_CreateRefreshableObject_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWbemHiPerfProvider_StopRefreshing_Proxy(IWbemHiPerfProvider *This,IWbemRefresher *pRefresher,long lId,long lFlags);
+  HRESULT WINAPI IWbemHiPerfProvider_StopRefreshing_Proxy(IWbemHiPerfProvider *This,IWbemRefresher *pRefresher,__LONG32 lId,__LONG32 lFlags);
   void __RPC_STUB IWbemHiPerfProvider_StopRefreshing_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWbemHiPerfProvider_CreateRefreshableEnum_Proxy(IWbemHiPerfProvider *This,IWbemServices *pNamespace,LPCWSTR wszClass,IWbemRefresher *pRefresher,long lFlags,IWbemContext *pContext,IWbemHiPerfEnum *pHiPerfEnum,long *plId);
+  HRESULT WINAPI IWbemHiPerfProvider_CreateRefreshableEnum_Proxy(IWbemHiPerfProvider *This,IWbemServices *pNamespace,LPCWSTR wszClass,IWbemRefresher *pRefresher,__LONG32 lFlags,IWbemContext *pContext,IWbemHiPerfEnum *pHiPerfEnum,__LONG32 *plId);
   void __RPC_STUB IWbemHiPerfProvider_CreateRefreshableEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWbemHiPerfProvider_GetObjects_Proxy(IWbemHiPerfProvider *This,IWbemServices *pNamespace,long lNumObjects,IWbemObjectAccess **apObj,long lFlags,IWbemContext *pContext);
+  HRESULT WINAPI IWbemHiPerfProvider_GetObjects_Proxy(IWbemHiPerfProvider *This,IWbemServices *pNamespace,__LONG32 lNumObjects,IWbemObjectAccess **apObj,__LONG32 lFlags,IWbemContext *pContext);
   void __RPC_STUB IWbemHiPerfProvider_GetObjects_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -530,7 +530,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IWbemDecoupledRegistrar : public IUnknown {
   public:
-    virtual HRESULT WINAPI Register(long a_Flags,IWbemContext *a_Context,LPCWSTR a_User,LPCWSTR a_Locale,LPCWSTR a_Scope,LPCWSTR a_Registration,IUnknown *a_Unknown) = 0;
+    virtual HRESULT WINAPI Register(__LONG32 a_Flags,IWbemContext *a_Context,LPCWSTR a_User,LPCWSTR a_Locale,LPCWSTR a_Scope,LPCWSTR a_Registration,IUnknown *a_Unknown) = 0;
     virtual HRESULT WINAPI UnRegister(void) = 0;
   };
 #else
@@ -539,7 +539,7 @@ extern "C" {
       HRESULT (WINAPI *QueryInterface)(IWbemDecoupledRegistrar *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IWbemDecoupledRegistrar *This);
       ULONG (WINAPI *Release)(IWbemDecoupledRegistrar *This);
-      HRESULT (WINAPI *Register)(IWbemDecoupledRegistrar *This,long a_Flags,IWbemContext *a_Context,LPCWSTR a_User,LPCWSTR a_Locale,LPCWSTR a_Scope,LPCWSTR a_Registration,IUnknown *a_Unknown);
+      HRESULT (WINAPI *Register)(IWbemDecoupledRegistrar *This,__LONG32 a_Flags,IWbemContext *a_Context,LPCWSTR a_User,LPCWSTR a_Locale,LPCWSTR a_Scope,LPCWSTR a_Registration,IUnknown *a_Unknown);
       HRESULT (WINAPI *UnRegister)(IWbemDecoupledRegistrar *This);
     END_INTERFACE
   } IWbemDecoupledRegistrarVtbl;
@@ -554,7 +554,7 @@ extern "C" {
 #define IWbemDecoupledRegistrar_UnRegister(This) (This)->lpVtbl->UnRegister(This)
 #endif
 #endif
-  HRESULT WINAPI IWbemDecoupledRegistrar_Register_Proxy(IWbemDecoupledRegistrar *This,long a_Flags,IWbemContext *a_Context,LPCWSTR a_User,LPCWSTR a_Locale,LPCWSTR a_Scope,LPCWSTR a_Registration,IUnknown *a_Unknown);
+  HRESULT WINAPI IWbemDecoupledRegistrar_Register_Proxy(IWbemDecoupledRegistrar *This,__LONG32 a_Flags,IWbemContext *a_Context,LPCWSTR a_User,LPCWSTR a_Locale,LPCWSTR a_Scope,LPCWSTR a_Registration,IUnknown *a_Unknown);
   void __RPC_STUB IWbemDecoupledRegistrar_Register_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IWbemDecoupledRegistrar_UnRegister_Proxy(IWbemDecoupledRegistrar *This);
   void __RPC_STUB IWbemDecoupledRegistrar_UnRegister_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -588,7 +588,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IWbemProviderIdentity : public IUnknown {
   public:
-    virtual HRESULT WINAPI SetRegistrationObject(long lFlags,IWbemClassObject *pProvReg) = 0;
+    virtual HRESULT WINAPI SetRegistrationObject(__LONG32 lFlags,IWbemClassObject *pProvReg) = 0;
   };
 #else
   typedef struct IWbemProviderIdentityVtbl {
@@ -596,7 +596,7 @@ extern "C" {
       HRESULT (WINAPI *QueryInterface)(IWbemProviderIdentity *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IWbemProviderIdentity *This);
       ULONG (WINAPI *Release)(IWbemProviderIdentity *This);
-      HRESULT (WINAPI *SetRegistrationObject)(IWbemProviderIdentity *This,long lFlags,IWbemClassObject *pProvReg);
+      HRESULT (WINAPI *SetRegistrationObject)(IWbemProviderIdentity *This,__LONG32 lFlags,IWbemClassObject *pProvReg);
     END_INTERFACE
   } IWbemProviderIdentityVtbl;
   struct IWbemProviderIdentity {
@@ -609,7 +609,7 @@ extern "C" {
 #define IWbemProviderIdentity_SetRegistrationObject(This,lFlags,pProvReg) (This)->lpVtbl->SetRegistrationObject(This,lFlags,pProvReg)
 #endif
 #endif
-  HRESULT WINAPI IWbemProviderIdentity_SetRegistrationObject_Proxy(IWbemProviderIdentity *This,long lFlags,IWbemClassObject *pProvReg);
+  HRESULT WINAPI IWbemProviderIdentity_SetRegistrationObject_Proxy(IWbemProviderIdentity *This,__LONG32 lFlags,IWbemClassObject *pProvReg);
   void __RPC_STUB IWbemProviderIdentity_SetRegistrationObject_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -634,8 +634,8 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IWbemDecoupledBasicEventProvider : public IWbemDecoupledRegistrar {
   public:
-    virtual HRESULT WINAPI GetSink(long a_Flags,IWbemContext *a_Context,IWbemObjectSink **a_Sink) = 0;
-    virtual HRESULT WINAPI GetService(long a_Flags,IWbemContext *a_Context,IWbemServices **a_Service) = 0;
+    virtual HRESULT WINAPI GetSink(__LONG32 a_Flags,IWbemContext *a_Context,IWbemObjectSink **a_Sink) = 0;
+    virtual HRESULT WINAPI GetService(__LONG32 a_Flags,IWbemContext *a_Context,IWbemServices **a_Service) = 0;
   };
 #else
   typedef struct IWbemDecoupledBasicEventProviderVtbl {
@@ -643,10 +643,10 @@ extern "C" {
       HRESULT (WINAPI *QueryInterface)(IWbemDecoupledBasicEventProvider *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IWbemDecoupledBasicEventProvider *This);
       ULONG (WINAPI *Release)(IWbemDecoupledBasicEventProvider *This);
-      HRESULT (WINAPI *Register)(IWbemDecoupledBasicEventProvider *This,long a_Flags,IWbemContext *a_Context,LPCWSTR a_User,LPCWSTR a_Locale,LPCWSTR a_Scope,LPCWSTR a_Registration,IUnknown *a_Unknown);
+      HRESULT (WINAPI *Register)(IWbemDecoupledBasicEventProvider *This,__LONG32 a_Flags,IWbemContext *a_Context,LPCWSTR a_User,LPCWSTR a_Locale,LPCWSTR a_Scope,LPCWSTR a_Registration,IUnknown *a_Unknown);
       HRESULT (WINAPI *UnRegister)(IWbemDecoupledBasicEventProvider *This);
-      HRESULT (WINAPI *GetSink)(IWbemDecoupledBasicEventProvider *This,long a_Flags,IWbemContext *a_Context,IWbemObjectSink **a_Sink);
-      HRESULT (WINAPI *GetService)(IWbemDecoupledBasicEventProvider *This,long a_Flags,IWbemContext *a_Context,IWbemServices **a_Service);
+      HRESULT (WINAPI *GetSink)(IWbemDecoupledBasicEventProvider *This,__LONG32 a_Flags,IWbemContext *a_Context,IWbemObjectSink **a_Sink);
+      HRESULT (WINAPI *GetService)(IWbemDecoupledBasicEventProvider *This,__LONG32 a_Flags,IWbemContext *a_Context,IWbemServices **a_Service);
     END_INTERFACE
   } IWbemDecoupledBasicEventProviderVtbl;
   struct IWbemDecoupledBasicEventProvider {
@@ -662,9 +662,9 @@ extern "C" {
 #define IWbemDecoupledBasicEventProvider_GetService(This,a_Flags,a_Context,a_Service) (This)->lpVtbl->GetService(This,a_Flags,a_Context,a_Service)
 #endif
 #endif
-  HRESULT WINAPI IWbemDecoupledBasicEventProvider_GetSink_Proxy(IWbemDecoupledBasicEventProvider *This,long a_Flags,IWbemContext *a_Context,IWbemObjectSink **a_Sink);
+  HRESULT WINAPI IWbemDecoupledBasicEventProvider_GetSink_Proxy(IWbemDecoupledBasicEventProvider *This,__LONG32 a_Flags,IWbemContext *a_Context,IWbemObjectSink **a_Sink);
   void __RPC_STUB IWbemDecoupledBasicEventProvider_GetSink_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWbemDecoupledBasicEventProvider_GetService_Proxy(IWbemDecoupledBasicEventProvider *This,long a_Flags,IWbemContext *a_Context,IWbemServices **a_Service);
+  HRESULT WINAPI IWbemDecoupledBasicEventProvider_GetService_Proxy(IWbemDecoupledBasicEventProvider *This,__LONG32 a_Flags,IWbemContext *a_Context,IWbemServices **a_Service);
   void __RPC_STUB IWbemDecoupledBasicEventProvider_GetService_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -680,9 +680,9 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IWbemEventSink : public IWbemObjectSink {
   public:
-    virtual HRESULT WINAPI SetSinkSecurity(long lSDLength,BYTE *pSD) = 0;
+    virtual HRESULT WINAPI SetSinkSecurity(__LONG32 lSDLength,BYTE *pSD) = 0;
     virtual HRESULT WINAPI IsActive(void) = 0;
-    virtual HRESULT WINAPI GetRestrictedSink(long lNumQueries,const LPCWSTR *awszQueries,IUnknown *pCallback,IWbemEventSink **ppSink) = 0;
+    virtual HRESULT WINAPI GetRestrictedSink(__LONG32 lNumQueries,const LPCWSTR *awszQueries,IUnknown *pCallback,IWbemEventSink **ppSink) = 0;
     virtual HRESULT WINAPI SetBatchingParameters(LONG lFlags,DWORD dwMaxBufferSize,DWORD dwMaxSendLatency) = 0;
   };
 #else
@@ -691,11 +691,11 @@ extern "C" {
       HRESULT (WINAPI *QueryInterface)(IWbemEventSink *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IWbemEventSink *This);
       ULONG (WINAPI *Release)(IWbemEventSink *This);
-      HRESULT (WINAPI *Indicate)(IWbemEventSink *This,long lObjectCount,IWbemClassObject **apObjArray);
-      HRESULT (WINAPI *SetStatus)(IWbemEventSink *This,long lFlags,HRESULT hResult,BSTR strParam,IWbemClassObject *pObjParam);
-      HRESULT (WINAPI *SetSinkSecurity)(IWbemEventSink *This,long lSDLength,BYTE *pSD);
+      HRESULT (WINAPI *Indicate)(IWbemEventSink *This,__LONG32 lObjectCount,IWbemClassObject **apObjArray);
+      HRESULT (WINAPI *SetStatus)(IWbemEventSink *This,__LONG32 lFlags,HRESULT hResult,BSTR strParam,IWbemClassObject *pObjParam);
+      HRESULT (WINAPI *SetSinkSecurity)(IWbemEventSink *This,__LONG32 lSDLength,BYTE *pSD);
       HRESULT (WINAPI *IsActive)(IWbemEventSink *This);
-      HRESULT (WINAPI *GetRestrictedSink)(IWbemEventSink *This,long lNumQueries,const LPCWSTR *awszQueries,IUnknown *pCallback,IWbemEventSink **ppSink);
+      HRESULT (WINAPI *GetRestrictedSink)(IWbemEventSink *This,__LONG32 lNumQueries,const LPCWSTR *awszQueries,IUnknown *pCallback,IWbemEventSink **ppSink);
       HRESULT (WINAPI *SetBatchingParameters)(IWbemEventSink *This,LONG lFlags,DWORD dwMaxBufferSize,DWORD dwMaxSendLatency);
     END_INTERFACE
   } IWbemEventSinkVtbl;
@@ -714,11 +714,11 @@ extern "C" {
 #define IWbemEventSink_SetBatchingParameters(This,lFlags,dwMaxBufferSize,dwMaxSendLatency) (This)->lpVtbl->SetBatchingParameters(This,lFlags,dwMaxBufferSize,dwMaxSendLatency)
 #endif
 #endif
-  HRESULT WINAPI IWbemEventSink_SetSinkSecurity_Proxy(IWbemEventSink *This,long lSDLength,BYTE *pSD);
+  HRESULT WINAPI IWbemEventSink_SetSinkSecurity_Proxy(IWbemEventSink *This,__LONG32 lSDLength,BYTE *pSD);
   void __RPC_STUB IWbemEventSink_SetSinkSecurity_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IWbemEventSink_IsActive_Proxy(IWbemEventSink *This);
   void __RPC_STUB IWbemEventSink_IsActive_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWbemEventSink_GetRestrictedSink_Proxy(IWbemEventSink *This,long lNumQueries,const LPCWSTR *awszQueries,IUnknown *pCallback,IWbemEventSink **ppSink);
+  HRESULT WINAPI IWbemEventSink_GetRestrictedSink_Proxy(IWbemEventSink *This,__LONG32 lNumQueries,const LPCWSTR *awszQueries,IUnknown *pCallback,IWbemEventSink **ppSink);
   void __RPC_STUB IWbemEventSink_GetRestrictedSink_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IWbemEventSink_SetBatchingParameters_Proxy(IWbemEventSink *This,LONG lFlags,DWORD dwMaxBufferSize,DWORD dwMaxSendLatency);
   void __RPC_STUB IWbemEventSink_SetBatchingParameters_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);

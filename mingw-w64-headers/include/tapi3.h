@@ -284,15 +284,15 @@ extern "C" {
     virtual HRESULT WINAPI get_User(BSTR *ppUser) = 0;
     virtual HRESULT WINAPI put_State(AGENT_STATE AgentState) = 0;
     virtual HRESULT WINAPI get_State(AGENT_STATE *pAgentState) = 0;
-    virtual HRESULT WINAPI put_MeasurementPeriod(long lPeriod) = 0;
-    virtual HRESULT WINAPI get_MeasurementPeriod(long *plPeriod) = 0;
+    virtual HRESULT WINAPI put_MeasurementPeriod(__LONG32 lPeriod) = 0;
+    virtual HRESULT WINAPI get_MeasurementPeriod(__LONG32 *plPeriod) = 0;
     virtual HRESULT WINAPI get_OverallCallRate(CURRENCY *pcyCallrate) = 0;
-    virtual HRESULT WINAPI get_NumberOfACDCalls(long *plCalls) = 0;
-    virtual HRESULT WINAPI get_NumberOfIncomingCalls(long *plCalls) = 0;
-    virtual HRESULT WINAPI get_NumberOfOutgoingCalls(long *plCalls) = 0;
-    virtual HRESULT WINAPI get_TotalACDTalkTime(long *plTalkTime) = 0;
-    virtual HRESULT WINAPI get_TotalACDCallTime(long *plCallTime) = 0;
-    virtual HRESULT WINAPI get_TotalWrapUpTime(long *plWrapUpTime) = 0;
+    virtual HRESULT WINAPI get_NumberOfACDCalls(__LONG32 *plCalls) = 0;
+    virtual HRESULT WINAPI get_NumberOfIncomingCalls(__LONG32 *plCalls) = 0;
+    virtual HRESULT WINAPI get_NumberOfOutgoingCalls(__LONG32 *plCalls) = 0;
+    virtual HRESULT WINAPI get_TotalACDTalkTime(__LONG32 *plTalkTime) = 0;
+    virtual HRESULT WINAPI get_TotalACDCallTime(__LONG32 *plCallTime) = 0;
+    virtual HRESULT WINAPI get_TotalWrapUpTime(__LONG32 *plWrapUpTime) = 0;
     virtual HRESULT WINAPI get_AgentSessions(VARIANT *pVariant) = 0;
   };
 #else
@@ -312,15 +312,15 @@ extern "C" {
       HRESULT (WINAPI *get_User)(ITAgent *This,BSTR *ppUser);
       HRESULT (WINAPI *put_State)(ITAgent *This,AGENT_STATE AgentState);
       HRESULT (WINAPI *get_State)(ITAgent *This,AGENT_STATE *pAgentState);
-      HRESULT (WINAPI *put_MeasurementPeriod)(ITAgent *This,long lPeriod);
-      HRESULT (WINAPI *get_MeasurementPeriod)(ITAgent *This,long *plPeriod);
+      HRESULT (WINAPI *put_MeasurementPeriod)(ITAgent *This,__LONG32 lPeriod);
+      HRESULT (WINAPI *get_MeasurementPeriod)(ITAgent *This,__LONG32 *plPeriod);
       HRESULT (WINAPI *get_OverallCallRate)(ITAgent *This,CURRENCY *pcyCallrate);
-      HRESULT (WINAPI *get_NumberOfACDCalls)(ITAgent *This,long *plCalls);
-      HRESULT (WINAPI *get_NumberOfIncomingCalls)(ITAgent *This,long *plCalls);
-      HRESULT (WINAPI *get_NumberOfOutgoingCalls)(ITAgent *This,long *plCalls);
-      HRESULT (WINAPI *get_TotalACDTalkTime)(ITAgent *This,long *plTalkTime);
-      HRESULT (WINAPI *get_TotalACDCallTime)(ITAgent *This,long *plCallTime);
-      HRESULT (WINAPI *get_TotalWrapUpTime)(ITAgent *This,long *plWrapUpTime);
+      HRESULT (WINAPI *get_NumberOfACDCalls)(ITAgent *This,__LONG32 *plCalls);
+      HRESULT (WINAPI *get_NumberOfIncomingCalls)(ITAgent *This,__LONG32 *plCalls);
+      HRESULT (WINAPI *get_NumberOfOutgoingCalls)(ITAgent *This,__LONG32 *plCalls);
+      HRESULT (WINAPI *get_TotalACDTalkTime)(ITAgent *This,__LONG32 *plTalkTime);
+      HRESULT (WINAPI *get_TotalACDCallTime)(ITAgent *This,__LONG32 *plCallTime);
+      HRESULT (WINAPI *get_TotalWrapUpTime)(ITAgent *This,__LONG32 *plWrapUpTime);
       HRESULT (WINAPI *get_AgentSessions)(ITAgent *This,VARIANT *pVariant);
     END_INTERFACE
   } ITAgentVtbl;
@@ -368,23 +368,23 @@ extern "C" {
   void __RPC_STUB ITAgent_put_State_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAgent_get_State_Proxy(ITAgent *This,AGENT_STATE *pAgentState);
   void __RPC_STUB ITAgent_get_State_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAgent_put_MeasurementPeriod_Proxy(ITAgent *This,long lPeriod);
+  HRESULT WINAPI ITAgent_put_MeasurementPeriod_Proxy(ITAgent *This,__LONG32 lPeriod);
   void __RPC_STUB ITAgent_put_MeasurementPeriod_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAgent_get_MeasurementPeriod_Proxy(ITAgent *This,long *plPeriod);
+  HRESULT WINAPI ITAgent_get_MeasurementPeriod_Proxy(ITAgent *This,__LONG32 *plPeriod);
   void __RPC_STUB ITAgent_get_MeasurementPeriod_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAgent_get_OverallCallRate_Proxy(ITAgent *This,CURRENCY *pcyCallrate);
   void __RPC_STUB ITAgent_get_OverallCallRate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAgent_get_NumberOfACDCalls_Proxy(ITAgent *This,long *plCalls);
+  HRESULT WINAPI ITAgent_get_NumberOfACDCalls_Proxy(ITAgent *This,__LONG32 *plCalls);
   void __RPC_STUB ITAgent_get_NumberOfACDCalls_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAgent_get_NumberOfIncomingCalls_Proxy(ITAgent *This,long *plCalls);
+  HRESULT WINAPI ITAgent_get_NumberOfIncomingCalls_Proxy(ITAgent *This,__LONG32 *plCalls);
   void __RPC_STUB ITAgent_get_NumberOfIncomingCalls_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAgent_get_NumberOfOutgoingCalls_Proxy(ITAgent *This,long *plCalls);
+  HRESULT WINAPI ITAgent_get_NumberOfOutgoingCalls_Proxy(ITAgent *This,__LONG32 *plCalls);
   void __RPC_STUB ITAgent_get_NumberOfOutgoingCalls_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAgent_get_TotalACDTalkTime_Proxy(ITAgent *This,long *plTalkTime);
+  HRESULT WINAPI ITAgent_get_TotalACDTalkTime_Proxy(ITAgent *This,__LONG32 *plTalkTime);
   void __RPC_STUB ITAgent_get_TotalACDTalkTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAgent_get_TotalACDCallTime_Proxy(ITAgent *This,long *plCallTime);
+  HRESULT WINAPI ITAgent_get_TotalACDCallTime_Proxy(ITAgent *This,__LONG32 *plCallTime);
   void __RPC_STUB ITAgent_get_TotalACDCallTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAgent_get_TotalWrapUpTime_Proxy(ITAgent *This,long *plWrapUpTime);
+  HRESULT WINAPI ITAgent_get_TotalWrapUpTime_Proxy(ITAgent *This,__LONG32 *plWrapUpTime);
   void __RPC_STUB ITAgent_get_TotalWrapUpTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAgent_get_AgentSessions_Proxy(ITAgent *This,VARIANT *pVariant);
   void __RPC_STUB ITAgent_get_AgentSessions_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -402,17 +402,17 @@ extern "C" {
     virtual HRESULT WINAPI put_State(AGENT_SESSION_STATE SessionState) = 0;
     virtual HRESULT WINAPI get_State(AGENT_SESSION_STATE *pSessionState) = 0;
     virtual HRESULT WINAPI get_SessionStartTime(DATE *pdateSessionStart) = 0;
-    virtual HRESULT WINAPI get_SessionDuration(long *plDuration) = 0;
-    virtual HRESULT WINAPI get_NumberOfCalls(long *plCalls) = 0;
-    virtual HRESULT WINAPI get_TotalTalkTime(long *plTalkTime) = 0;
-    virtual HRESULT WINAPI get_AverageTalkTime(long *plTalkTime) = 0;
-    virtual HRESULT WINAPI get_TotalCallTime(long *plCallTime) = 0;
-    virtual HRESULT WINAPI get_AverageCallTime(long *plCallTime) = 0;
-    virtual HRESULT WINAPI get_TotalWrapUpTime(long *plWrapUpTime) = 0;
-    virtual HRESULT WINAPI get_AverageWrapUpTime(long *plWrapUpTime) = 0;
+    virtual HRESULT WINAPI get_SessionDuration(__LONG32 *plDuration) = 0;
+    virtual HRESULT WINAPI get_NumberOfCalls(__LONG32 *plCalls) = 0;
+    virtual HRESULT WINAPI get_TotalTalkTime(__LONG32 *plTalkTime) = 0;
+    virtual HRESULT WINAPI get_AverageTalkTime(__LONG32 *plTalkTime) = 0;
+    virtual HRESULT WINAPI get_TotalCallTime(__LONG32 *plCallTime) = 0;
+    virtual HRESULT WINAPI get_AverageCallTime(__LONG32 *plCallTime) = 0;
+    virtual HRESULT WINAPI get_TotalWrapUpTime(__LONG32 *plWrapUpTime) = 0;
+    virtual HRESULT WINAPI get_AverageWrapUpTime(__LONG32 *plWrapUpTime) = 0;
     virtual HRESULT WINAPI get_ACDCallRate(CURRENCY *pcyCallrate) = 0;
-    virtual HRESULT WINAPI get_LongestTimeToAnswer(long *plAnswerTime) = 0;
-    virtual HRESULT WINAPI get_AverageTimeToAnswer(long *plAnswerTime) = 0;
+    virtual HRESULT WINAPI get_LongestTimeToAnswer(__LONG32 *plAnswerTime) = 0;
+    virtual HRESULT WINAPI get_AverageTimeToAnswer(__LONG32 *plAnswerTime) = 0;
   };
 #else
   typedef struct ITAgentSessionVtbl {
@@ -430,17 +430,17 @@ extern "C" {
       HRESULT (WINAPI *put_State)(ITAgentSession *This,AGENT_SESSION_STATE SessionState);
       HRESULT (WINAPI *get_State)(ITAgentSession *This,AGENT_SESSION_STATE *pSessionState);
       HRESULT (WINAPI *get_SessionStartTime)(ITAgentSession *This,DATE *pdateSessionStart);
-      HRESULT (WINAPI *get_SessionDuration)(ITAgentSession *This,long *plDuration);
-      HRESULT (WINAPI *get_NumberOfCalls)(ITAgentSession *This,long *plCalls);
-      HRESULT (WINAPI *get_TotalTalkTime)(ITAgentSession *This,long *plTalkTime);
-      HRESULT (WINAPI *get_AverageTalkTime)(ITAgentSession *This,long *plTalkTime);
-      HRESULT (WINAPI *get_TotalCallTime)(ITAgentSession *This,long *plCallTime);
-      HRESULT (WINAPI *get_AverageCallTime)(ITAgentSession *This,long *plCallTime);
-      HRESULT (WINAPI *get_TotalWrapUpTime)(ITAgentSession *This,long *plWrapUpTime);
-      HRESULT (WINAPI *get_AverageWrapUpTime)(ITAgentSession *This,long *plWrapUpTime);
+      HRESULT (WINAPI *get_SessionDuration)(ITAgentSession *This,__LONG32 *plDuration);
+      HRESULT (WINAPI *get_NumberOfCalls)(ITAgentSession *This,__LONG32 *plCalls);
+      HRESULT (WINAPI *get_TotalTalkTime)(ITAgentSession *This,__LONG32 *plTalkTime);
+      HRESULT (WINAPI *get_AverageTalkTime)(ITAgentSession *This,__LONG32 *plTalkTime);
+      HRESULT (WINAPI *get_TotalCallTime)(ITAgentSession *This,__LONG32 *plCallTime);
+      HRESULT (WINAPI *get_AverageCallTime)(ITAgentSession *This,__LONG32 *plCallTime);
+      HRESULT (WINAPI *get_TotalWrapUpTime)(ITAgentSession *This,__LONG32 *plWrapUpTime);
+      HRESULT (WINAPI *get_AverageWrapUpTime)(ITAgentSession *This,__LONG32 *plWrapUpTime);
       HRESULT (WINAPI *get_ACDCallRate)(ITAgentSession *This,CURRENCY *pcyCallrate);
-      HRESULT (WINAPI *get_LongestTimeToAnswer)(ITAgentSession *This,long *plAnswerTime);
-      HRESULT (WINAPI *get_AverageTimeToAnswer)(ITAgentSession *This,long *plAnswerTime);
+      HRESULT (WINAPI *get_LongestTimeToAnswer)(ITAgentSession *This,__LONG32 *plAnswerTime);
+      HRESULT (WINAPI *get_AverageTimeToAnswer)(ITAgentSession *This,__LONG32 *plAnswerTime);
     END_INTERFACE
   } ITAgentSessionVtbl;
   struct ITAgentSession {
@@ -485,27 +485,27 @@ extern "C" {
   void __RPC_STUB ITAgentSession_get_State_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAgentSession_get_SessionStartTime_Proxy(ITAgentSession *This,DATE *pdateSessionStart);
   void __RPC_STUB ITAgentSession_get_SessionStartTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAgentSession_get_SessionDuration_Proxy(ITAgentSession *This,long *plDuration);
+  HRESULT WINAPI ITAgentSession_get_SessionDuration_Proxy(ITAgentSession *This,__LONG32 *plDuration);
   void __RPC_STUB ITAgentSession_get_SessionDuration_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAgentSession_get_NumberOfCalls_Proxy(ITAgentSession *This,long *plCalls);
+  HRESULT WINAPI ITAgentSession_get_NumberOfCalls_Proxy(ITAgentSession *This,__LONG32 *plCalls);
   void __RPC_STUB ITAgentSession_get_NumberOfCalls_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAgentSession_get_TotalTalkTime_Proxy(ITAgentSession *This,long *plTalkTime);
+  HRESULT WINAPI ITAgentSession_get_TotalTalkTime_Proxy(ITAgentSession *This,__LONG32 *plTalkTime);
   void __RPC_STUB ITAgentSession_get_TotalTalkTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAgentSession_get_AverageTalkTime_Proxy(ITAgentSession *This,long *plTalkTime);
+  HRESULT WINAPI ITAgentSession_get_AverageTalkTime_Proxy(ITAgentSession *This,__LONG32 *plTalkTime);
   void __RPC_STUB ITAgentSession_get_AverageTalkTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAgentSession_get_TotalCallTime_Proxy(ITAgentSession *This,long *plCallTime);
+  HRESULT WINAPI ITAgentSession_get_TotalCallTime_Proxy(ITAgentSession *This,__LONG32 *plCallTime);
   void __RPC_STUB ITAgentSession_get_TotalCallTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAgentSession_get_AverageCallTime_Proxy(ITAgentSession *This,long *plCallTime);
+  HRESULT WINAPI ITAgentSession_get_AverageCallTime_Proxy(ITAgentSession *This,__LONG32 *plCallTime);
   void __RPC_STUB ITAgentSession_get_AverageCallTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAgentSession_get_TotalWrapUpTime_Proxy(ITAgentSession *This,long *plWrapUpTime);
+  HRESULT WINAPI ITAgentSession_get_TotalWrapUpTime_Proxy(ITAgentSession *This,__LONG32 *plWrapUpTime);
   void __RPC_STUB ITAgentSession_get_TotalWrapUpTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAgentSession_get_AverageWrapUpTime_Proxy(ITAgentSession *This,long *plWrapUpTime);
+  HRESULT WINAPI ITAgentSession_get_AverageWrapUpTime_Proxy(ITAgentSession *This,__LONG32 *plWrapUpTime);
   void __RPC_STUB ITAgentSession_get_AverageWrapUpTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITAgentSession_get_ACDCallRate_Proxy(ITAgentSession *This,CURRENCY *pcyCallrate);
   void __RPC_STUB ITAgentSession_get_ACDCallRate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAgentSession_get_LongestTimeToAnswer_Proxy(ITAgentSession *This,long *plAnswerTime);
+  HRESULT WINAPI ITAgentSession_get_LongestTimeToAnswer_Proxy(ITAgentSession *This,__LONG32 *plAnswerTime);
   void __RPC_STUB ITAgentSession_get_LongestTimeToAnswer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITAgentSession_get_AverageTimeToAnswer_Proxy(ITAgentSession *This,long *plAnswerTime);
+  HRESULT WINAPI ITAgentSession_get_AverageTimeToAnswer_Proxy(ITAgentSession *This,__LONG32 *plAnswerTime);
   void __RPC_STUB ITAgentSession_get_AverageTimeToAnswer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -564,17 +564,17 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITQueue : public IDispatch {
   public:
-    virtual HRESULT WINAPI put_MeasurementPeriod(long lPeriod) = 0;
-    virtual HRESULT WINAPI get_MeasurementPeriod(long *plPeriod) = 0;
-    virtual HRESULT WINAPI get_TotalCallsQueued(long *plCalls) = 0;
-    virtual HRESULT WINAPI get_CurrentCallsQueued(long *plCalls) = 0;
-    virtual HRESULT WINAPI get_TotalCallsAbandoned(long *plCalls) = 0;
-    virtual HRESULT WINAPI get_TotalCallsFlowedIn(long *plCalls) = 0;
-    virtual HRESULT WINAPI get_TotalCallsFlowedOut(long *plCalls) = 0;
-    virtual HRESULT WINAPI get_LongestEverWaitTime(long *plWaitTime) = 0;
-    virtual HRESULT WINAPI get_CurrentLongestWaitTime(long *plWaitTime) = 0;
-    virtual HRESULT WINAPI get_AverageWaitTime(long *plWaitTime) = 0;
-    virtual HRESULT WINAPI get_FinalDisposition(long *plCalls) = 0;
+    virtual HRESULT WINAPI put_MeasurementPeriod(__LONG32 lPeriod) = 0;
+    virtual HRESULT WINAPI get_MeasurementPeriod(__LONG32 *plPeriod) = 0;
+    virtual HRESULT WINAPI get_TotalCallsQueued(__LONG32 *plCalls) = 0;
+    virtual HRESULT WINAPI get_CurrentCallsQueued(__LONG32 *plCalls) = 0;
+    virtual HRESULT WINAPI get_TotalCallsAbandoned(__LONG32 *plCalls) = 0;
+    virtual HRESULT WINAPI get_TotalCallsFlowedIn(__LONG32 *plCalls) = 0;
+    virtual HRESULT WINAPI get_TotalCallsFlowedOut(__LONG32 *plCalls) = 0;
+    virtual HRESULT WINAPI get_LongestEverWaitTime(__LONG32 *plWaitTime) = 0;
+    virtual HRESULT WINAPI get_CurrentLongestWaitTime(__LONG32 *plWaitTime) = 0;
+    virtual HRESULT WINAPI get_AverageWaitTime(__LONG32 *plWaitTime) = 0;
+    virtual HRESULT WINAPI get_FinalDisposition(__LONG32 *plCalls) = 0;
     virtual HRESULT WINAPI get_Name(BSTR *ppName) = 0;
   };
 #else
@@ -587,17 +587,17 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ITQueue *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ITQueue *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITQueue *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *put_MeasurementPeriod)(ITQueue *This,long lPeriod);
-      HRESULT (WINAPI *get_MeasurementPeriod)(ITQueue *This,long *plPeriod);
-      HRESULT (WINAPI *get_TotalCallsQueued)(ITQueue *This,long *plCalls);
-      HRESULT (WINAPI *get_CurrentCallsQueued)(ITQueue *This,long *plCalls);
-      HRESULT (WINAPI *get_TotalCallsAbandoned)(ITQueue *This,long *plCalls);
-      HRESULT (WINAPI *get_TotalCallsFlowedIn)(ITQueue *This,long *plCalls);
-      HRESULT (WINAPI *get_TotalCallsFlowedOut)(ITQueue *This,long *plCalls);
-      HRESULT (WINAPI *get_LongestEverWaitTime)(ITQueue *This,long *plWaitTime);
-      HRESULT (WINAPI *get_CurrentLongestWaitTime)(ITQueue *This,long *plWaitTime);
-      HRESULT (WINAPI *get_AverageWaitTime)(ITQueue *This,long *plWaitTime);
-      HRESULT (WINAPI *get_FinalDisposition)(ITQueue *This,long *plCalls);
+      HRESULT (WINAPI *put_MeasurementPeriod)(ITQueue *This,__LONG32 lPeriod);
+      HRESULT (WINAPI *get_MeasurementPeriod)(ITQueue *This,__LONG32 *plPeriod);
+      HRESULT (WINAPI *get_TotalCallsQueued)(ITQueue *This,__LONG32 *plCalls);
+      HRESULT (WINAPI *get_CurrentCallsQueued)(ITQueue *This,__LONG32 *plCalls);
+      HRESULT (WINAPI *get_TotalCallsAbandoned)(ITQueue *This,__LONG32 *plCalls);
+      HRESULT (WINAPI *get_TotalCallsFlowedIn)(ITQueue *This,__LONG32 *plCalls);
+      HRESULT (WINAPI *get_TotalCallsFlowedOut)(ITQueue *This,__LONG32 *plCalls);
+      HRESULT (WINAPI *get_LongestEverWaitTime)(ITQueue *This,__LONG32 *plWaitTime);
+      HRESULT (WINAPI *get_CurrentLongestWaitTime)(ITQueue *This,__LONG32 *plWaitTime);
+      HRESULT (WINAPI *get_AverageWaitTime)(ITQueue *This,__LONG32 *plWaitTime);
+      HRESULT (WINAPI *get_FinalDisposition)(ITQueue *This,__LONG32 *plCalls);
       HRESULT (WINAPI *get_Name)(ITQueue *This,BSTR *ppName);
     END_INTERFACE
   } ITQueueVtbl;
@@ -626,27 +626,27 @@ extern "C" {
 #define ITQueue_get_Name(This,ppName) (This)->lpVtbl->get_Name(This,ppName)
 #endif
 #endif
-  HRESULT WINAPI ITQueue_put_MeasurementPeriod_Proxy(ITQueue *This,long lPeriod);
+  HRESULT WINAPI ITQueue_put_MeasurementPeriod_Proxy(ITQueue *This,__LONG32 lPeriod);
   void __RPC_STUB ITQueue_put_MeasurementPeriod_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITQueue_get_MeasurementPeriod_Proxy(ITQueue *This,long *plPeriod);
+  HRESULT WINAPI ITQueue_get_MeasurementPeriod_Proxy(ITQueue *This,__LONG32 *plPeriod);
   void __RPC_STUB ITQueue_get_MeasurementPeriod_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITQueue_get_TotalCallsQueued_Proxy(ITQueue *This,long *plCalls);
+  HRESULT WINAPI ITQueue_get_TotalCallsQueued_Proxy(ITQueue *This,__LONG32 *plCalls);
   void __RPC_STUB ITQueue_get_TotalCallsQueued_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITQueue_get_CurrentCallsQueued_Proxy(ITQueue *This,long *plCalls);
+  HRESULT WINAPI ITQueue_get_CurrentCallsQueued_Proxy(ITQueue *This,__LONG32 *plCalls);
   void __RPC_STUB ITQueue_get_CurrentCallsQueued_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITQueue_get_TotalCallsAbandoned_Proxy(ITQueue *This,long *plCalls);
+  HRESULT WINAPI ITQueue_get_TotalCallsAbandoned_Proxy(ITQueue *This,__LONG32 *plCalls);
   void __RPC_STUB ITQueue_get_TotalCallsAbandoned_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITQueue_get_TotalCallsFlowedIn_Proxy(ITQueue *This,long *plCalls);
+  HRESULT WINAPI ITQueue_get_TotalCallsFlowedIn_Proxy(ITQueue *This,__LONG32 *plCalls);
   void __RPC_STUB ITQueue_get_TotalCallsFlowedIn_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITQueue_get_TotalCallsFlowedOut_Proxy(ITQueue *This,long *plCalls);
+  HRESULT WINAPI ITQueue_get_TotalCallsFlowedOut_Proxy(ITQueue *This,__LONG32 *plCalls);
   void __RPC_STUB ITQueue_get_TotalCallsFlowedOut_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITQueue_get_LongestEverWaitTime_Proxy(ITQueue *This,long *plWaitTime);
+  HRESULT WINAPI ITQueue_get_LongestEverWaitTime_Proxy(ITQueue *This,__LONG32 *plWaitTime);
   void __RPC_STUB ITQueue_get_LongestEverWaitTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITQueue_get_CurrentLongestWaitTime_Proxy(ITQueue *This,long *plWaitTime);
+  HRESULT WINAPI ITQueue_get_CurrentLongestWaitTime_Proxy(ITQueue *This,__LONG32 *plWaitTime);
   void __RPC_STUB ITQueue_get_CurrentLongestWaitTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITQueue_get_AverageWaitTime_Proxy(ITQueue *This,long *plWaitTime);
+  HRESULT WINAPI ITQueue_get_AverageWaitTime_Proxy(ITQueue *This,__LONG32 *plWaitTime);
   void __RPC_STUB ITQueue_get_AverageWaitTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITQueue_get_FinalDisposition_Proxy(ITQueue *This,long *plCalls);
+  HRESULT WINAPI ITQueue_get_FinalDisposition_Proxy(ITQueue *This,__LONG32 *plCalls);
   void __RPC_STUB ITQueue_get_FinalDisposition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITQueue_get_Name_Proxy(ITQueue *This,BSTR *ppName);
   void __RPC_STUB ITQueue_get_Name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1309,7 +1309,7 @@ extern "C" {
   void __RPC_STUB ITAllocatorProperties_GetBufferSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
-  typedef long *MSP_HANDLE;
+  typedef __LONG32 *MSP_HANDLE;
 
   typedef enum __MIDL___MIDL_itf_tapi3_0524_0001 {
     ADDRESS_TERMINAL_AVAILABLE = 0,
@@ -1356,7 +1356,7 @@ extern "C" {
       } MSP_TSP_DATA;
       struct {
 	IDispatch *pEvent;
-	long lEventCode;
+	__LONG32 lEventCode;
       } MSP_PRIVATE_EVENT_INFO;
       struct {
 	ITTerminal *pParentFileTerminal;
@@ -1568,19 +1568,19 @@ extern "C" {
   const BSTR TAPIPROTOCOL_String_PSTN = L"{831CE2D6-83B5-11D1-BB5C-00C04FB6809F}";
   const BSTR TAPIPROTOCOL_String_H323 = L"{831CE2D7-83B5-11D1-BB5C-00C04FB6809F}";
   const BSTR TAPIPROTOCOL_String_Multicast = L"{831CE2D8-83B5-11D1-BB5C-00C04FB6809F}";
-  const long LINEADDRESSTYPE_PHONENUMBER = 0x1;
-  const long LINEADDRESSTYPE_SDP = 0x2;
-  const long LINEADDRESSTYPE_EMAILNAME = 0x4;
-  const long LINEADDRESSTYPE_DOMAINNAME = 0x8;
-  const long LINEADDRESSTYPE_IPADDRESS = 0x10;
-  const long LINEDIGITMODE_PULSE = 0x1;
-  const long LINEDIGITMODE_DTMF = 0x2;
-  const long LINEDIGITMODE_DTMFEND = 0x4;
-  const long TAPIMEDIATYPE_AUDIO = 0x8;
-  const long TAPIMEDIATYPE_VIDEO = 0x8000;
-  const long TAPIMEDIATYPE_DATAMODEM = 0x10;
-  const long TAPIMEDIATYPE_G3FAX = 0x20;
-  const long TAPIMEDIATYPE_MULTITRACK = 0x10000;
+  const __LONG32 LINEADDRESSTYPE_PHONENUMBER = 0x1;
+  const __LONG32 LINEADDRESSTYPE_SDP = 0x2;
+  const __LONG32 LINEADDRESSTYPE_EMAILNAME = 0x4;
+  const __LONG32 LINEADDRESSTYPE_DOMAINNAME = 0x8;
+  const __LONG32 LINEADDRESSTYPE_IPADDRESS = 0x10;
+  const __LONG32 LINEDIGITMODE_PULSE = 0x1;
+  const __LONG32 LINEDIGITMODE_DTMF = 0x2;
+  const __LONG32 LINEDIGITMODE_DTMFEND = 0x4;
+  const __LONG32 TAPIMEDIATYPE_AUDIO = 0x8;
+  const __LONG32 TAPIMEDIATYPE_VIDEO = 0x8000;
+  const __LONG32 TAPIMEDIATYPE_DATAMODEM = 0x10;
+  const __LONG32 TAPIMEDIATYPE_G3FAX = 0x20;
+  const __LONG32 TAPIMEDIATYPE_MULTITRACK = 0x10000;
 #endif
 #endif
 

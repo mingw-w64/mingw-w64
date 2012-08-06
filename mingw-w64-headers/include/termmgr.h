@@ -287,8 +287,8 @@ extern "C" {
     virtual HRESULT WINAPI put_CLSID(BSTR bstrCLSID) = 0;
     virtual HRESULT WINAPI get_Direction(TMGR_DIRECTION *pDirection) = 0;
     virtual HRESULT WINAPI put_Direction(TMGR_DIRECTION nDirection) = 0;
-    virtual HRESULT WINAPI get_MediaTypes(long *pMediaTypes) = 0;
-    virtual HRESULT WINAPI put_MediaTypes(long nMediaTypes) = 0;
+    virtual HRESULT WINAPI get_MediaTypes(__LONG32 *pMediaTypes) = 0;
+    virtual HRESULT WINAPI put_MediaTypes(__LONG32 nMediaTypes) = 0;
     virtual HRESULT WINAPI Add(BSTR bstrSuperclass) = 0;
     virtual HRESULT WINAPI Delete(BSTR bstrSuperclass) = 0;
     virtual HRESULT WINAPI GetTerminalClassInfo(BSTR bstrSuperclass) = 0;
@@ -315,8 +315,8 @@ extern "C" {
       HRESULT (WINAPI *put_CLSID)(ITPluggableTerminalClassRegistration *This,BSTR bstrCLSID);
       HRESULT (WINAPI *get_Direction)(ITPluggableTerminalClassRegistration *This,TMGR_DIRECTION *pDirection);
       HRESULT (WINAPI *put_Direction)(ITPluggableTerminalClassRegistration *This,TMGR_DIRECTION nDirection);
-      HRESULT (WINAPI *get_MediaTypes)(ITPluggableTerminalClassRegistration *This,long *pMediaTypes);
-      HRESULT (WINAPI *put_MediaTypes)(ITPluggableTerminalClassRegistration *This,long nMediaTypes);
+      HRESULT (WINAPI *get_MediaTypes)(ITPluggableTerminalClassRegistration *This,__LONG32 *pMediaTypes);
+      HRESULT (WINAPI *put_MediaTypes)(ITPluggableTerminalClassRegistration *This,__LONG32 nMediaTypes);
       HRESULT (WINAPI *Add)(ITPluggableTerminalClassRegistration *This,BSTR bstrSuperclass);
       HRESULT (WINAPI *Delete)(ITPluggableTerminalClassRegistration *This,BSTR bstrSuperclass);
       HRESULT (WINAPI *GetTerminalClassInfo)(ITPluggableTerminalClassRegistration *This,BSTR bstrSuperclass);
@@ -376,9 +376,9 @@ extern "C" {
   void __RPC_STUB ITPluggableTerminalClassRegistration_get_Direction_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITPluggableTerminalClassRegistration_put_Direction_Proxy(ITPluggableTerminalClassRegistration *This,TMGR_DIRECTION nDirection);
   void __RPC_STUB ITPluggableTerminalClassRegistration_put_Direction_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPluggableTerminalClassRegistration_get_MediaTypes_Proxy(ITPluggableTerminalClassRegistration *This,long *pMediaTypes);
+  HRESULT WINAPI ITPluggableTerminalClassRegistration_get_MediaTypes_Proxy(ITPluggableTerminalClassRegistration *This,__LONG32 *pMediaTypes);
   void __RPC_STUB ITPluggableTerminalClassRegistration_get_MediaTypes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITPluggableTerminalClassRegistration_put_MediaTypes_Proxy(ITPluggableTerminalClassRegistration *This,long nMediaTypes);
+  HRESULT WINAPI ITPluggableTerminalClassRegistration_put_MediaTypes_Proxy(ITPluggableTerminalClassRegistration *This,__LONG32 nMediaTypes);
   void __RPC_STUB ITPluggableTerminalClassRegistration_put_MediaTypes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITPluggableTerminalClassRegistration_Add_Proxy(ITPluggableTerminalClassRegistration *This,BSTR bstrSuperclass);
   void __RPC_STUB ITPluggableTerminalClassRegistration_Add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);

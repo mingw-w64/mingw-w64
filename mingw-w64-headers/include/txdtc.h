@@ -238,9 +238,9 @@ extern "C" {
 #ifndef _XID_T_DEFINED
 #define _XID_T_DEFINED
   typedef struct xid_t {
-    long formatID;
-    long gtrid_length;
-    long bqual_length;
+    __LONG32 formatID;
+    __LONG32 gtrid_length;
+    __LONG32 bqual_length;
     char data[128 ];
   } XID;
 #endif
@@ -248,18 +248,18 @@ extern "C" {
 #define _XA_SWITCH_T_DEFINED
   typedef struct xa_switch_t {
     char name[32 ];
-    long flags;
-    long version;
-    int (__cdecl *xa_open_entry)(char *__MIDL_0004,int __MIDL_0005,long __MIDL_0006);
-    int (__cdecl *xa_close_entry)(char *__MIDL_0008,int __MIDL_0009,long __MIDL_0010);
-    int (__cdecl *xa_start_entry)(XID *__MIDL_0012,int __MIDL_0013,long __MIDL_0014);
-    int (__cdecl *xa_end_entry)(XID *__MIDL_0016,int __MIDL_0017,long __MIDL_0018);
-    int (__cdecl *xa_rollback_entry)(XID *__MIDL_0020,int __MIDL_0021,long __MIDL_0022);
-    int (__cdecl *xa_prepare_entry)(XID *__MIDL_0024,int __MIDL_0025,long __MIDL_0026);
-    int (__cdecl *xa_commit_entry)(XID *__MIDL_0028,int __MIDL_0029,long __MIDL_0030);
-    int (__cdecl *xa_recover_entry)(XID *__MIDL_0032,long __MIDL_0033,int __MIDL_0034,long __MIDL_0035);
-    int (__cdecl *xa_forget_entry)(XID *__MIDL_0037,int __MIDL_0038,long __MIDL_0039);
-    int (__cdecl *xa_complete_entry)(int *__MIDL_0041,int *__MIDL_0042,int __MIDL_0043,long __MIDL_0044);
+    __LONG32 flags;
+    __LONG32 version;
+    int (__cdecl *xa_open_entry)(char *__MIDL_0004,int __MIDL_0005,__LONG32 __MIDL_0006);
+    int (__cdecl *xa_close_entry)(char *__MIDL_0008,int __MIDL_0009,__LONG32 __MIDL_0010);
+    int (__cdecl *xa_start_entry)(XID *__MIDL_0012,int __MIDL_0013,__LONG32 __MIDL_0014);
+    int (__cdecl *xa_end_entry)(XID *__MIDL_0016,int __MIDL_0017,__LONG32 __MIDL_0018);
+    int (__cdecl *xa_rollback_entry)(XID *__MIDL_0020,int __MIDL_0021,__LONG32 __MIDL_0022);
+    int (__cdecl *xa_prepare_entry)(XID *__MIDL_0024,int __MIDL_0025,__LONG32 __MIDL_0026);
+    int (__cdecl *xa_commit_entry)(XID *__MIDL_0028,int __MIDL_0029,__LONG32 __MIDL_0030);
+    int (__cdecl *xa_recover_entry)(XID *__MIDL_0032,__LONG32 __MIDL_0033,int __MIDL_0034,__LONG32 __MIDL_0035);
+    int (__cdecl *xa_forget_entry)(XID *__MIDL_0037,int __MIDL_0038,__LONG32 __MIDL_0039);
+    int (__cdecl *xa_complete_entry)(int *__MIDL_0041,int *__MIDL_0042,int __MIDL_0043,__LONG32 __MIDL_0044);
   } xa_switch_t;
 #endif
 

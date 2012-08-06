@@ -173,9 +173,9 @@ extern "C" {
     unsigned short sesi1_num_conns;
     unsigned short sesi1_num_opens;
     unsigned short sesi1_num_users;
-    unsigned long sesi1_time;
-    unsigned long sesi1_idle_time;
-    unsigned long sesi1_user_flags;
+    unsigned __LONG32 sesi1_time;
+    unsigned __LONG32 sesi1_idle_time;
+    unsigned __LONG32 sesi1_user_flags;
   };
 
   struct session_info_2 {
@@ -184,27 +184,27 @@ extern "C" {
     unsigned short sesi2_num_conns;
     unsigned short sesi2_num_opens;
     unsigned short sesi2_num_users;
-    unsigned long sesi2_time;
-    unsigned long sesi2_idle_time;
-    unsigned long sesi2_user_flags;
+    unsigned __LONG32 sesi2_time;
+    unsigned __LONG32 sesi2_idle_time;
+    unsigned __LONG32 sesi2_user_flags;
     char *sesi2_cltype_name;
   };
 
   struct session_info_10 {
     char *sesi10_cname;
     char *sesi10_username;
-    unsigned long sesi10_time;
-    unsigned long sesi10_idle_time;
+    unsigned __LONG32 sesi10_time;
+    unsigned __LONG32 sesi10_idle_time;
   };
 
   struct session_info_50 {
     char *sesi50_cname;
     char *sesi50_username;
-    unsigned long sesi50_key;
+    unsigned __LONG32 sesi50_key;
     unsigned short sesi50_num_conns;
     unsigned short sesi50_num_opens;
-    unsigned long sesi50_time;
-    unsigned long sesi50_idle_time;
+    unsigned __LONG32 sesi50_time;
+    unsigned __LONG32 sesi50_idle_time;
     unsigned char sesi50_protocol;
     unsigned char pad1;
   };
@@ -226,7 +226,7 @@ extern "C" {
     unsigned short coni1_type;
     unsigned short coni1_num_opens;
     unsigned short coni1_num_users;
-    unsigned long coni1_time;
+    unsigned __LONG32 coni1_time;
     char *coni1_username;
     char *coni1_netname;
   };
@@ -234,12 +234,12 @@ extern "C" {
   struct connection_info_50 {
     unsigned short coni50_type;
     unsigned short coni50_num_opens;
-    unsigned long coni50_time;
+    unsigned __LONG32 coni50_time;
     char *coni50_netname;
     char *coni50_username;
   };
 
-  extern API_FUNCTION NetFileClose2(const char *pszServer,unsigned long ulFileId);
+  extern API_FUNCTION NetFileClose2(const char *pszServer,unsigned __LONG32 ulFileId);
   extern API_FUNCTION NetFileEnum(const char *pszServer,const char *pszBasePath,short sLevel,char *pbBuffer,unsigned short cbBuffer,unsigned short *pcEntriesRead,unsigned short *pcTotalAvail);
 
   struct file_info_0 {
@@ -255,11 +255,11 @@ extern "C" {
   };
 
   struct file_info_2 {
-    unsigned long fi2_id;
+    unsigned __LONG32 fi2_id;
   };
 
   struct file_info_3 {
-    unsigned long fi3_id;
+    unsigned __LONG32 fi3_id;
     unsigned short fi3_permissions;
     unsigned short fi3_num_locks;
     char *fi3_pathname;
@@ -267,7 +267,7 @@ extern "C" {
   };
 
   struct file_info_50 {
-    unsigned long fi50_id;
+    unsigned __LONG32 fi50_id;
     unsigned short fi50_permissions;
     unsigned short fi50_num_locks;
     char *fi50_pathname;
@@ -278,7 +278,7 @@ extern "C" {
   struct res_file_enum_2 {
     unsigned short res_pad;
     unsigned short res_fs;
-    unsigned long res_pro;
+    unsigned __LONG32 res_pro;
   };
 
 #define PERM_FILE_READ 0x1
@@ -299,7 +299,7 @@ extern "C" {
     char sv1_name[CNLEN + 1];
     unsigned char sv1_version_major;
     unsigned char sv1_version_minor;
-    unsigned long sv1_type;
+    unsigned __LONG32 sv1_type;
     char *sv1_comment;
   };
 
@@ -307,7 +307,7 @@ extern "C" {
     char sv50_name[CNLEN + 1];
     unsigned char sv50_version_major;
     unsigned char sv50_version_minor;
-    unsigned long sv50_type;
+    unsigned __LONG32 sv50_type;
     char *sv50_comment;
     unsigned short sv50_security;
     unsigned short sv50_auditing;
@@ -320,11 +320,11 @@ extern "C" {
     char sv2_name[CNLEN + 1];
     unsigned char sv2_version_major;
     unsigned char sv2_version_minor;
-    unsigned long sv2_type;
+    unsigned __LONG32 sv2_type;
     char *sv2_comment;
-    unsigned long sv2_ulist_mtime;
-    unsigned long sv2_glist_mtime;
-    unsigned long sv2_alist_mtime;
+    unsigned __LONG32 sv2_ulist_mtime;
+    unsigned __LONG32 sv2_glist_mtime;
+    unsigned __LONG32 sv2_alist_mtime;
     unsigned short sv2_users;
     unsigned short sv2_disc;
     char *sv2_alerts;
@@ -367,11 +367,11 @@ extern "C" {
     char sv3_name[CNLEN + 1];
     unsigned char sv3_version_major;
     unsigned char sv3_version_minor;
-    unsigned long sv3_type;
+    unsigned __LONG32 sv3_type;
     char *sv3_comment;
-    unsigned long sv3_ulist_mtime;
-    unsigned long sv3_glist_mtime;
-    unsigned long sv3_alist_mtime;
+    unsigned __LONG32 sv3_ulist_mtime;
+    unsigned __LONG32 sv3_glist_mtime;
+    unsigned __LONG32 sv3_alist_mtime;
     unsigned short sv3_users;
     unsigned short sv3_disc;
     char *sv3_alerts;
@@ -408,7 +408,7 @@ extern "C" {
     unsigned short sv3_netioalert;
     unsigned short sv3_maxauditsz;
     char *sv3_srvheuristics;
-    unsigned long sv3_auditedevents;
+    unsigned __LONG32 sv3_auditedevents;
     unsigned short sv3_autoprofile;
     char *sv3_autopath;
   };
@@ -451,7 +451,7 @@ extern "C" {
   extern API_FUNCTION NetSecurityGetInfo(const char *pszServer,short sLevel,char *pbBuffer,unsigned short cbBuffer,unsigned short *pcbTotalAvail);
 
   struct security_info_1 {
-    unsigned long sec1_security;
+    unsigned __LONG32 sec1_security;
     char *sec1_container;
     char *sec1_ab_server;
     char *sec1_ab_dll;

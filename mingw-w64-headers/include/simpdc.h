@@ -37,8 +37,8 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ISimpleDataConverter : public IUnknown {
   public:
-    virtual HRESULT WINAPI ConvertData(VARIANT varSrc,long vtDest,IUnknown *pUnknownElement,VARIANT *pvarDest) = 0;
-    virtual HRESULT WINAPI CanConvertData(long vt1,long vt2) = 0;
+    virtual HRESULT WINAPI ConvertData(VARIANT varSrc,__LONG32 vtDest,IUnknown *pUnknownElement,VARIANT *pvarDest) = 0;
+    virtual HRESULT WINAPI CanConvertData(__LONG32 vt1,__LONG32 vt2) = 0;
   };
 #else
   typedef struct ISimpleDataConverterVtbl {
@@ -46,8 +46,8 @@ extern "C" {
       HRESULT (WINAPI *QueryInterface)(ISimpleDataConverter *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(ISimpleDataConverter *This);
       ULONG (WINAPI *Release)(ISimpleDataConverter *This);
-      HRESULT (WINAPI *ConvertData)(ISimpleDataConverter *This,VARIANT varSrc,long vtDest,IUnknown *pUnknownElement,VARIANT *pvarDest);
-      HRESULT (WINAPI *CanConvertData)(ISimpleDataConverter *This,long vt1,long vt2);
+      HRESULT (WINAPI *ConvertData)(ISimpleDataConverter *This,VARIANT varSrc,__LONG32 vtDest,IUnknown *pUnknownElement,VARIANT *pvarDest);
+      HRESULT (WINAPI *CanConvertData)(ISimpleDataConverter *This,__LONG32 vt1,__LONG32 vt2);
     END_INTERFACE
   } ISimpleDataConverterVtbl;
   struct ISimpleDataConverter {
@@ -61,9 +61,9 @@ extern "C" {
 #define ISimpleDataConverter_CanConvertData(This,vt1,vt2) (This)->lpVtbl->CanConvertData(This,vt1,vt2)
 #endif
 #endif
-  HRESULT WINAPI ISimpleDataConverter_ConvertData_Proxy(ISimpleDataConverter *This,VARIANT varSrc,long vtDest,IUnknown *pUnknownElement,VARIANT *pvarDest);
+  HRESULT WINAPI ISimpleDataConverter_ConvertData_Proxy(ISimpleDataConverter *This,VARIANT varSrc,__LONG32 vtDest,IUnknown *pUnknownElement,VARIANT *pvarDest);
   void __RPC_STUB ISimpleDataConverter_ConvertData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISimpleDataConverter_CanConvertData_Proxy(ISimpleDataConverter *This,long vt1,long vt2);
+  HRESULT WINAPI ISimpleDataConverter_CanConvertData_Proxy(ISimpleDataConverter *This,__LONG32 vt1,__LONG32 vt2);
   void __RPC_STUB ISimpleDataConverter_CanConvertData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 

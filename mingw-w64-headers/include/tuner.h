@@ -219,20 +219,20 @@ DECLARE_INTERFACE_(ILocator,IDispatch)
 
     /* ILocator methods */
     STDMETHOD_(HRESULT,Clone)(THIS_ ILocator **ppNewLocator) PURE;
-    STDMETHOD_(HRESULT,get_CarrierFrequency)(THIS_ long *pFrequency) PURE;
+    STDMETHOD_(HRESULT,get_CarrierFrequency)(THIS_ __LONG32 *pFrequency) PURE;
     STDMETHOD_(HRESULT,get_InnerFEC)(THIS_ FECMethod *FEC) PURE;
     STDMETHOD_(HRESULT,get_InnerFECRate)(THIS_ BinaryConvolutionCodeRate *FEC) PURE;
     STDMETHOD_(HRESULT,get_Modulation)(THIS_ ModulationType *pModulation) PURE;
     STDMETHOD_(HRESULT,get_OuterFEC)(THIS_ FECMethod *FEC) PURE;
     STDMETHOD_(HRESULT,get_OuterFECRate)(THIS_ BinaryConvolutionCodeRate *FEC) PURE;
-    STDMETHOD_(HRESULT,get_SymbolRate)(THIS_ long *Rate) PURE;
-    STDMETHOD_(HRESULT,put_CarrierFrequency)(THIS_ long Frequency) PURE;
+    STDMETHOD_(HRESULT,get_SymbolRate)(THIS_ __LONG32 *Rate) PURE;
+    STDMETHOD_(HRESULT,put_CarrierFrequency)(THIS_ __LONG32 Frequency) PURE;
     STDMETHOD_(HRESULT,put_InnerFEC)(THIS_ FECMethod FEC) PURE;
     STDMETHOD_(HRESULT,put_InnerFECRate)(THIS_ BinaryConvolutionCodeRate FEC) PURE;
     STDMETHOD_(HRESULT,put_Modulation)(THIS_ ModulationType Modulation) PURE;
     STDMETHOD_(HRESULT,put_OuterFEC)(THIS_ FECMethod FEC) PURE;
     STDMETHOD_(HRESULT,put_OuterFECRate)(THIS_ BinaryConvolutionCodeRate FEC) PURE;
-    STDMETHOD_(HRESULT,put_SymbolRate)(THIS_ long Rate) PURE;
+    STDMETHOD_(HRESULT,put_SymbolRate)(THIS_ __LONG32 Rate) PURE;
 
     END_INTERFACE
 };
@@ -285,20 +285,20 @@ DECLARE_INTERFACE_(IDigitalLocator,ILocator)
 
     /* ILocator methods */
     STDMETHOD_(HRESULT,Clone)(THIS_ ILocator **ppNewLocator) PURE;
-    STDMETHOD_(HRESULT,get_CarrierFrequency)(THIS_ long *pFrequency) PURE;
+    STDMETHOD_(HRESULT,get_CarrierFrequency)(THIS_ __LONG32 *pFrequency) PURE;
     STDMETHOD_(HRESULT,get_InnerFEC)(THIS_ FECMethod *FEC) PURE;
     STDMETHOD_(HRESULT,get_InnerFECRate)(THIS_ BinaryConvolutionCodeRate *FEC) PURE;
     STDMETHOD_(HRESULT,get_Modulation)(THIS_ ModulationType *pModulation) PURE;
     STDMETHOD_(HRESULT,get_OuterFEC)(THIS_ FECMethod *FEC) PURE;
     STDMETHOD_(HRESULT,get_OuterFECRate)(THIS_ BinaryConvolutionCodeRate *FEC) PURE;
-    STDMETHOD_(HRESULT,get_SymbolRate)(THIS_ long *Rate) PURE;
-    STDMETHOD_(HRESULT,put_CarrierFrequency)(THIS_ long Frequency) PURE;
+    STDMETHOD_(HRESULT,get_SymbolRate)(THIS_ __LONG32 *Rate) PURE;
+    STDMETHOD_(HRESULT,put_CarrierFrequency)(THIS_ __LONG32 Frequency) PURE;
     STDMETHOD_(HRESULT,put_InnerFEC)(THIS_ FECMethod FEC) PURE;
     STDMETHOD_(HRESULT,put_InnerFECRate)(THIS_ BinaryConvolutionCodeRate FEC) PURE;
     STDMETHOD_(HRESULT,put_Modulation)(THIS_ ModulationType Modulation) PURE;
     STDMETHOD_(HRESULT,put_OuterFEC)(THIS_ FECMethod FEC) PURE;
     STDMETHOD_(HRESULT,put_OuterFECRate)(THIS_ BinaryConvolutionCodeRate FEC) PURE;
-    STDMETHOD_(HRESULT,put_SymbolRate)(THIS_ long Rate) PURE;
+    STDMETHOD_(HRESULT,put_SymbolRate)(THIS_ __LONG32 Rate) PURE;
 
     /* IDigitalLocator methods */
 
@@ -353,32 +353,32 @@ DECLARE_INTERFACE_(IDVBSLocator,IDigitalLocator)
 
     /* ILocator methods */
     STDMETHOD_(HRESULT,Clone)(THIS_ ILocator **ppNewLocator) PURE;
-    STDMETHOD_(HRESULT,get_CarrierFrequency)(THIS_ long *pFrequency) PURE;
+    STDMETHOD_(HRESULT,get_CarrierFrequency)(THIS_ __LONG32 *pFrequency) PURE;
     STDMETHOD_(HRESULT,get_InnerFEC)(THIS_ FECMethod *FEC) PURE;
     STDMETHOD_(HRESULT,get_InnerFECRate)(THIS_ BinaryConvolutionCodeRate *FEC) PURE;
     STDMETHOD_(HRESULT,get_Modulation)(THIS_ ModulationType *pModulation) PURE;
     STDMETHOD_(HRESULT,get_OuterFEC)(THIS_ FECMethod *FEC) PURE;
     STDMETHOD_(HRESULT,get_OuterFECRate)(THIS_ BinaryConvolutionCodeRate *FEC) PURE;
-    STDMETHOD_(HRESULT,get_SymbolRate)(THIS_ long *Rate) PURE;
-    STDMETHOD_(HRESULT,put_CarrierFrequency)(THIS_ long Frequency) PURE;
+    STDMETHOD_(HRESULT,get_SymbolRate)(THIS_ __LONG32 *Rate) PURE;
+    STDMETHOD_(HRESULT,put_CarrierFrequency)(THIS_ __LONG32 Frequency) PURE;
     STDMETHOD_(HRESULT,put_InnerFEC)(THIS_ FECMethod FEC) PURE;
     STDMETHOD_(HRESULT,put_InnerFECRate)(THIS_ BinaryConvolutionCodeRate FEC) PURE;
     STDMETHOD_(HRESULT,put_Modulation)(THIS_ ModulationType Modulation) PURE;
     STDMETHOD_(HRESULT,put_OuterFEC)(THIS_ FECMethod FEC) PURE;
     STDMETHOD_(HRESULT,put_OuterFECRate)(THIS_ BinaryConvolutionCodeRate FEC) PURE;
-    STDMETHOD_(HRESULT,put_SymbolRate)(THIS_ long Rate) PURE;
+    STDMETHOD_(HRESULT,put_SymbolRate)(THIS_ __LONG32 Rate) PURE;
 
     /* IDigitalLocator methods */
 
     /* IDVBSLocator methods */
-    STDMETHOD_(HRESULT,get_Azimuth)(THIS_ long *pAzimuth) PURE;
-    STDMETHOD_(HRESULT,get_Elevation)(THIS_ long *pElevation) PURE;
-    STDMETHOD_(HRESULT,get_OrbitalPosition)(THIS_ long *plongitude) PURE;
+    STDMETHOD_(HRESULT,get_Azimuth)(THIS_ __LONG32 *pAzimuth) PURE;
+    STDMETHOD_(HRESULT,get_Elevation)(THIS_ __LONG32 *pElevation) PURE;
+    STDMETHOD_(HRESULT,get_OrbitalPosition)(THIS_ __LONG32 *plongitude) PURE;
     STDMETHOD_(HRESULT,get_SignalPolarisation)(THIS_ Polarisation *pPolarisationVal) PURE;
     STDMETHOD_(HRESULT,get_WestPosition)(THIS_ VARIANT_BOOL *pWestLongitude) PURE;
-    STDMETHOD_(HRESULT,put_Azimuth)(THIS_ long Azimuth) PURE;
-    STDMETHOD_(HRESULT,put_Elevation)(THIS_ long Elevation) PURE;
-    STDMETHOD_(HRESULT,put_OrbitalPosition)(THIS_ long longitude) PURE;
+    STDMETHOD_(HRESULT,put_Azimuth)(THIS_ __LONG32 Azimuth) PURE;
+    STDMETHOD_(HRESULT,put_Elevation)(THIS_ __LONG32 Elevation) PURE;
+    STDMETHOD_(HRESULT,put_OrbitalPosition)(THIS_ __LONG32 longitude) PURE;
     STDMETHOD_(HRESULT,put_SignalPolarisation)(THIS_ Polarisation PolarisationVal) PURE;
     STDMETHOD_(HRESULT,put_WestPosition)(THIS_ VARIANT_BOOL WestLongitude) PURE;
 
@@ -445,44 +445,44 @@ DECLARE_INTERFACE_(IDVBSLocator2,IDVBSLocator)
 
     /* ILocator methods */
     STDMETHOD_(HRESULT,Clone)(THIS_ ILocator **ppNewLocator) PURE;
-    STDMETHOD_(HRESULT,get_CarrierFrequency)(THIS_ long *pFrequency) PURE;
+    STDMETHOD_(HRESULT,get_CarrierFrequency)(THIS_ __LONG32 *pFrequency) PURE;
     STDMETHOD_(HRESULT,get_InnerFEC)(THIS_ FECMethod *FEC) PURE;
     STDMETHOD_(HRESULT,get_InnerFECRate)(THIS_ BinaryConvolutionCodeRate *FEC) PURE;
     STDMETHOD_(HRESULT,get_Modulation)(THIS_ ModulationType *pModulation) PURE;
     STDMETHOD_(HRESULT,get_OuterFEC)(THIS_ FECMethod *FEC) PURE;
     STDMETHOD_(HRESULT,get_OuterFECRate)(THIS_ BinaryConvolutionCodeRate *FEC) PURE;
-    STDMETHOD_(HRESULT,get_SymbolRate)(THIS_ long *Rate) PURE;
-    STDMETHOD_(HRESULT,put_CarrierFrequency)(THIS_ long Frequency) PURE;
+    STDMETHOD_(HRESULT,get_SymbolRate)(THIS_ __LONG32 *Rate) PURE;
+    STDMETHOD_(HRESULT,put_CarrierFrequency)(THIS_ __LONG32 Frequency) PURE;
     STDMETHOD_(HRESULT,put_InnerFEC)(THIS_ FECMethod FEC) PURE;
     STDMETHOD_(HRESULT,put_InnerFECRate)(THIS_ BinaryConvolutionCodeRate FEC) PURE;
     STDMETHOD_(HRESULT,put_Modulation)(THIS_ ModulationType Modulation) PURE;
     STDMETHOD_(HRESULT,put_OuterFEC)(THIS_ FECMethod FEC) PURE;
     STDMETHOD_(HRESULT,put_OuterFECRate)(THIS_ BinaryConvolutionCodeRate FEC) PURE;
-    STDMETHOD_(HRESULT,put_SymbolRate)(THIS_ long Rate) PURE;
+    STDMETHOD_(HRESULT,put_SymbolRate)(THIS_ __LONG32 Rate) PURE;
 
     /* IDigitalLocator methods */
 
     /* IDVBSLocator methods */
-    STDMETHOD_(HRESULT,get_Azimuth)(THIS_ long *pAzimuth) PURE;
-    STDMETHOD_(HRESULT,get_Elevation)(THIS_ long *pElevation) PURE;
-    STDMETHOD_(HRESULT,get_OrbitalPosition)(THIS_ long *plongitude) PURE;
+    STDMETHOD_(HRESULT,get_Azimuth)(THIS_ __LONG32 *pAzimuth) PURE;
+    STDMETHOD_(HRESULT,get_Elevation)(THIS_ __LONG32 *pElevation) PURE;
+    STDMETHOD_(HRESULT,get_OrbitalPosition)(THIS_ __LONG32 *plongitude) PURE;
     STDMETHOD_(HRESULT,get_SignalPolarisation)(THIS_ Polarisation *pPolarisationVal) PURE;
     STDMETHOD_(HRESULT,get_WestPosition)(THIS_ VARIANT_BOOL *pWestLongitude) PURE;
-    STDMETHOD_(HRESULT,put_Azimuth)(THIS_ long Azimuth) PURE;
-    STDMETHOD_(HRESULT,put_Elevation)(THIS_ long Elevation) PURE;
-    STDMETHOD_(HRESULT,put_OrbitalPosition)(THIS_ long longitude) PURE;
+    STDMETHOD_(HRESULT,put_Azimuth)(THIS_ __LONG32 Azimuth) PURE;
+    STDMETHOD_(HRESULT,put_Elevation)(THIS_ __LONG32 Elevation) PURE;
+    STDMETHOD_(HRESULT,put_OrbitalPosition)(THIS_ __LONG32 longitude) PURE;
     STDMETHOD_(HRESULT,put_SignalPolarisation)(THIS_ Polarisation PolarisationVal) PURE;
     STDMETHOD_(HRESULT,put_WestPosition)(THIS_ VARIANT_BOOL WestLongitude) PURE;
 
     /* IDVBSLocator2 methods */
     STDMETHOD_(HRESULT,put_DiseqLNBSource)(THIS_ LNB_Source DiseqLNBSourceVal) PURE;
     STDMETHOD_(HRESULT,get_DiseqLNBSource)(THIS_ LNB_Source *DiseqLNBSourceVal) PURE;
-    STDMETHOD_(HRESULT,put_LocalLNBSwitchOverride)(THIS_ long LocalLNBSwitchOverrideVal) PURE;
-    STDMETHOD_(HRESULT,get_LocalLNBSwitchOverride)(THIS_ long *LocalLNBSwitchOverrideVal) PURE;
-    STDMETHOD_(HRESULT,put_LocalOscillatorOverrideHigh)(THIS_ long LocalOscillatorOverrideHighVal) PURE;
-    STDMETHOD_(HRESULT,get_LocalOscillatorOverrideHigh)(THIS_ long *LocalOscillatorOverrideHighVal) PURE;
-    STDMETHOD_(HRESULT,put_LocalOscillatorOverrideLow)(THIS_ long LocalOscillatorOverrideLowVal) PURE;
-    STDMETHOD_(HRESULT,get_LocalOscillatorOverrideLow)(THIS_ long *LocalOscillatorOverrideLowVal) PURE;
+    STDMETHOD_(HRESULT,put_LocalLNBSwitchOverride)(THIS_ __LONG32 LocalLNBSwitchOverrideVal) PURE;
+    STDMETHOD_(HRESULT,get_LocalLNBSwitchOverride)(THIS_ __LONG32 *LocalLNBSwitchOverrideVal) PURE;
+    STDMETHOD_(HRESULT,put_LocalOscillatorOverrideHigh)(THIS_ __LONG32 LocalOscillatorOverrideHighVal) PURE;
+    STDMETHOD_(HRESULT,get_LocalOscillatorOverrideHigh)(THIS_ __LONG32 *LocalOscillatorOverrideHighVal) PURE;
+    STDMETHOD_(HRESULT,put_LocalOscillatorOverrideLow)(THIS_ __LONG32 LocalOscillatorOverrideLowVal) PURE;
+    STDMETHOD_(HRESULT,get_LocalOscillatorOverrideLow)(THIS_ __LONG32 *LocalOscillatorOverrideLowVal) PURE;
     STDMETHOD_(HRESULT,put_LocalSpectralInversionOverride)(THIS_ SpectralInversion LocalSpectralInversionOverrideVal) PURE;
     STDMETHOD_(HRESULT,get_LocalSpectralInversionOverride)(THIS_ SpectralInversion *LocalSpectralInversionOverrideVal) PURE;
     STDMETHOD_(HRESULT,put_SignalPilot)(THIS_ Pilot PilotVal) PURE;
@@ -567,32 +567,32 @@ DECLARE_INTERFACE_(IDVBTLocator,IDigitalLocator)
 
     /* ILocator methods */
     STDMETHOD_(HRESULT,Clone)(THIS_ ILocator **ppNewLocator) PURE;
-    STDMETHOD_(HRESULT,get_CarrierFrequency)(THIS_ long *pFrequency) PURE;
+    STDMETHOD_(HRESULT,get_CarrierFrequency)(THIS_ __LONG32 *pFrequency) PURE;
     STDMETHOD_(HRESULT,get_InnerFEC)(THIS_ FECMethod *FEC) PURE;
     STDMETHOD_(HRESULT,get_InnerFECRate)(THIS_ BinaryConvolutionCodeRate *FEC) PURE;
     STDMETHOD_(HRESULT,get_Modulation)(THIS_ ModulationType *pModulation) PURE;
     STDMETHOD_(HRESULT,get_OuterFEC)(THIS_ FECMethod *FEC) PURE;
     STDMETHOD_(HRESULT,get_OuterFECRate)(THIS_ BinaryConvolutionCodeRate *FEC) PURE;
-    STDMETHOD_(HRESULT,get_SymbolRate)(THIS_ long *Rate) PURE;
-    STDMETHOD_(HRESULT,put_CarrierFrequency)(THIS_ long Frequency) PURE;
+    STDMETHOD_(HRESULT,get_SymbolRate)(THIS_ __LONG32 *Rate) PURE;
+    STDMETHOD_(HRESULT,put_CarrierFrequency)(THIS_ __LONG32 Frequency) PURE;
     STDMETHOD_(HRESULT,put_InnerFEC)(THIS_ FECMethod FEC) PURE;
     STDMETHOD_(HRESULT,put_InnerFECRate)(THIS_ BinaryConvolutionCodeRate FEC) PURE;
     STDMETHOD_(HRESULT,put_Modulation)(THIS_ ModulationType Modulation) PURE;
     STDMETHOD_(HRESULT,put_OuterFEC)(THIS_ FECMethod FEC) PURE;
     STDMETHOD_(HRESULT,put_OuterFECRate)(THIS_ BinaryConvolutionCodeRate FEC) PURE;
-    STDMETHOD_(HRESULT,put_SymbolRate)(THIS_ long Rate) PURE;
+    STDMETHOD_(HRESULT,put_SymbolRate)(THIS_ __LONG32 Rate) PURE;
 
     /* IDigitalLocator methods */
 
     /* IDVBTLocator methods */
-    STDMETHOD_(HRESULT,get_Bandwidth)(THIS_ long *pBandWidthVal) PURE;
+    STDMETHOD_(HRESULT,get_Bandwidth)(THIS_ __LONG32 *pBandWidthVal) PURE;
     STDMETHOD_(HRESULT,get_Guard)(THIS_ GuardInterval *pGI) PURE;
     STDMETHOD_(HRESULT,get_HAlpha)(THIS_ HierarchyAlpha *pAlpha) PURE;
     STDMETHOD_(HRESULT,get_LPInnerFEC)(THIS_ FECMethod *pFEC) PURE;
     STDMETHOD_(HRESULT,get_LPInnerFECRate)(THIS_ BinaryConvolutionCodeRate *pFEC) PURE;
     STDMETHOD_(HRESULT,get_Mode)(THIS_ TransmissionMode *pmode) PURE;
     STDMETHOD_(HRESULT,get_OtherFrequencyInUse)(THIS_ VARIANT_BOOL *pOtherFrequencyInUseVal) PURE;
-    STDMETHOD_(HRESULT,put_Bandwidth)(THIS_ long BandwidthVal) PURE;
+    STDMETHOD_(HRESULT,put_Bandwidth)(THIS_ __LONG32 BandwidthVal) PURE;
     STDMETHOD_(HRESULT,put_Guard)(THIS_ GuardInterval GI) PURE;
     STDMETHOD_(HRESULT,put_HAlpha)(THIS_ HierarchyAlpha Alpha) PURE;
     STDMETHOD_(HRESULT,put_LPInnerFEC)(THIS_ FECMethod FEC) PURE;
@@ -665,32 +665,32 @@ DECLARE_INTERFACE_(IDVBTLocator2,IDVBTLocator)
 
     /* ILocator methods */
     STDMETHOD_(HRESULT,Clone)(THIS_ ILocator **ppNewLocator) PURE;
-    STDMETHOD_(HRESULT,get_CarrierFrequency)(THIS_ long *pFrequency) PURE;
+    STDMETHOD_(HRESULT,get_CarrierFrequency)(THIS_ __LONG32 *pFrequency) PURE;
     STDMETHOD_(HRESULT,get_InnerFEC)(THIS_ FECMethod *FEC) PURE;
     STDMETHOD_(HRESULT,get_InnerFECRate)(THIS_ BinaryConvolutionCodeRate *FEC) PURE;
     STDMETHOD_(HRESULT,get_Modulation)(THIS_ ModulationType *pModulation) PURE;
     STDMETHOD_(HRESULT,get_OuterFEC)(THIS_ FECMethod *FEC) PURE;
     STDMETHOD_(HRESULT,get_OuterFECRate)(THIS_ BinaryConvolutionCodeRate *FEC) PURE;
-    STDMETHOD_(HRESULT,get_SymbolRate)(THIS_ long *Rate) PURE;
-    STDMETHOD_(HRESULT,put_CarrierFrequency)(THIS_ long Frequency) PURE;
+    STDMETHOD_(HRESULT,get_SymbolRate)(THIS_ __LONG32 *Rate) PURE;
+    STDMETHOD_(HRESULT,put_CarrierFrequency)(THIS_ __LONG32 Frequency) PURE;
     STDMETHOD_(HRESULT,put_InnerFEC)(THIS_ FECMethod FEC) PURE;
     STDMETHOD_(HRESULT,put_InnerFECRate)(THIS_ BinaryConvolutionCodeRate FEC) PURE;
     STDMETHOD_(HRESULT,put_Modulation)(THIS_ ModulationType Modulation) PURE;
     STDMETHOD_(HRESULT,put_OuterFEC)(THIS_ FECMethod FEC) PURE;
     STDMETHOD_(HRESULT,put_OuterFECRate)(THIS_ BinaryConvolutionCodeRate FEC) PURE;
-    STDMETHOD_(HRESULT,put_SymbolRate)(THIS_ long Rate) PURE;
+    STDMETHOD_(HRESULT,put_SymbolRate)(THIS_ __LONG32 Rate) PURE;
 
     /* IDigitalLocator methods */
 
     /* IDVBTLocator methods */
-    STDMETHOD_(HRESULT,get_Bandwidth)(THIS_ long *pBandWidthVal) PURE;
+    STDMETHOD_(HRESULT,get_Bandwidth)(THIS_ __LONG32 *pBandWidthVal) PURE;
     STDMETHOD_(HRESULT,get_Guard)(THIS_ GuardInterval *pGI) PURE;
     STDMETHOD_(HRESULT,get_HAlpha)(THIS_ HierarchyAlpha *pAlpha) PURE;
     STDMETHOD_(HRESULT,get_LPInnerFEC)(THIS_ FECMethod *pFEC) PURE;
     STDMETHOD_(HRESULT,get_LPInnerFECRate)(THIS_ BinaryConvolutionCodeRate *pFEC) PURE;
     STDMETHOD_(HRESULT,get_Mode)(THIS_ TransmissionMode *pmode) PURE;
     STDMETHOD_(HRESULT,get_OtherFrequencyInUse)(THIS_ VARIANT_BOOL *pOtherFrequencyInUseVal) PURE;
-    STDMETHOD_(HRESULT,put_Bandwidth)(THIS_ long BandwidthVal) PURE;
+    STDMETHOD_(HRESULT,put_Bandwidth)(THIS_ __LONG32 BandwidthVal) PURE;
     STDMETHOD_(HRESULT,put_Guard)(THIS_ GuardInterval GI) PURE;
     STDMETHOD_(HRESULT,put_HAlpha)(THIS_ HierarchyAlpha Alpha) PURE;
     STDMETHOD_(HRESULT,put_LPInnerFEC)(THIS_ FECMethod FEC) PURE;
@@ -699,8 +699,8 @@ DECLARE_INTERFACE_(IDVBTLocator2,IDVBTLocator)
     STDMETHOD_(HRESULT,put_OtherFrequencyInUse)(THIS_ VARIANT_BOOL OtherFrequencyInUseVal) PURE;
 
     /* IDVBTLocator2 methods */
-    STDMETHOD_(HRESULT,put_PhysicalLayerPipeId)(THIS_ long PhysicalLayerPipeIdVal) PURE;
-    STDMETHOD_(HRESULT,get_PhysicalLayerPipeId)(THIS_ long *PhysicalLayerPipeIdVal) PURE;
+    STDMETHOD_(HRESULT,put_PhysicalLayerPipeId)(THIS_ __LONG32 PhysicalLayerPipeIdVal) PURE;
+    STDMETHOD_(HRESULT,get_PhysicalLayerPipeId)(THIS_ __LONG32 *PhysicalLayerPipeIdVal) PURE;
 
     END_INTERFACE
 };
@@ -772,7 +772,7 @@ DECLARE_INTERFACE_(IComponents,IDispatch)
     STDMETHOD_(HRESULT,Clone)(THIS_ IComponents **ppNewList) PURE;
     STDMETHOD_(HRESULT,EnumComponents)(THIS_ IEnumComponents **ppNewEnum) PURE;
     STDMETHOD_(HRESULT,get__NewEnum)(THIS_ IEnumVARIANT **ppNewEnum) PURE;
-    STDMETHOD_(HRESULT,get_Count)(THIS_ long *pCount) PURE;
+    STDMETHOD_(HRESULT,get_Count)(THIS_ __LONG32 *pCount) PURE;
     STDMETHOD_(HRESULT,get_Item)(THIS_ VARIANT Index,IComponent **ppComponent) PURE;
     STDMETHOD_(HRESULT,put_Item)(THIS_ VARIANT Index,IComponentType *pComponentType) PURE;
     STDMETHOD_(HRESULT,Remove)(THIS_ VARIANT Index) PURE;
@@ -854,11 +854,11 @@ DECLARE_INTERFACE_(IComponent,IDispatch)
 
     /* IComponent methods */
     STDMETHOD_(HRESULT,Clone)(THIS_ IComponent **ppNewComponent) PURE;
-    STDMETHOD_(HRESULT,get_DescLangID)(THIS_ long *pLangID) PURE;
+    STDMETHOD_(HRESULT,get_DescLangID)(THIS_ __LONG32 *pLangID) PURE;
     STDMETHOD_(HRESULT,get_Description)(THIS_ BSTR *pDescription) PURE;
     STDMETHOD_(HRESULT,get_Status)(THIS_ ComponentStatus *pStatus) PURE;
     STDMETHOD_(HRESULT,get_Type)(THIS_ IComponentType **ppCT) PURE;
-    STDMETHOD_(HRESULT,put_DescLangID)(THIS_ long LangID) PURE;
+    STDMETHOD_(HRESULT,put_DescLangID)(THIS_ __LONG32 LangID) PURE;
     STDMETHOD_(HRESULT,put_Description)(THIS_ BSTR Description) PURE;
     STDMETHOD_(HRESULT,put_Status)(THIS_ ComponentStatus Status) PURE;
     STDMETHOD_(HRESULT,put_Type)(THIS_ IComponentType *pCT) PURE;
@@ -908,22 +908,22 @@ DECLARE_INTERFACE_(IMPEG2Component,IComponent)
 
     /* IComponent methods */
     STDMETHOD_(HRESULT,Clone)(THIS_ IComponent **ppNewComponent) PURE;
-    STDMETHOD_(HRESULT,get_DescLangID)(THIS_ long *pLangID) PURE;
+    STDMETHOD_(HRESULT,get_DescLangID)(THIS_ __LONG32 *pLangID) PURE;
     STDMETHOD_(HRESULT,get_Description)(THIS_ BSTR *pDescription) PURE;
     STDMETHOD_(HRESULT,get_Status)(THIS_ ComponentStatus *pStatus) PURE;
     STDMETHOD_(HRESULT,get_Type)(THIS_ IComponentType **ppCT) PURE;
-    STDMETHOD_(HRESULT,put_DescLangID)(THIS_ long LangID) PURE;
+    STDMETHOD_(HRESULT,put_DescLangID)(THIS_ __LONG32 LangID) PURE;
     STDMETHOD_(HRESULT,put_Description)(THIS_ BSTR Description) PURE;
     STDMETHOD_(HRESULT,put_Status)(THIS_ ComponentStatus Status) PURE;
     STDMETHOD_(HRESULT,put_Type)(THIS_ IComponentType *pCT) PURE;
 
     /* IMPEG2Component methods */
-    STDMETHOD_(HRESULT,get_PID)(THIS_ long *pPID) PURE;
-    STDMETHOD_(HRESULT,get_ProgramNumber)(THIS_ long *pProgramNumber) PURE;
-    STDMETHOD_(HRESULT,put_PCRPID)(THIS_ long PCRPID) PURE;
-    STDMETHOD_(HRESULT,put_PID)(THIS_ long PID) PURE;
-    STDMETHOD_(HRESULT,put_ProgramNumber)(THIS_ long ProgramNumber) PURE;
-    STDMETHOD_(HRESULT,get_PCRPID)(THIS_ long *pPCRPID) PURE;
+    STDMETHOD_(HRESULT,get_PID)(THIS_ __LONG32 *pPID) PURE;
+    STDMETHOD_(HRESULT,get_ProgramNumber)(THIS_ __LONG32 *pProgramNumber) PURE;
+    STDMETHOD_(HRESULT,put_PCRPID)(THIS_ __LONG32 PCRPID) PURE;
+    STDMETHOD_(HRESULT,put_PID)(THIS_ __LONG32 PID) PURE;
+    STDMETHOD_(HRESULT,put_ProgramNumber)(THIS_ __LONG32 ProgramNumber) PURE;
+    STDMETHOD_(HRESULT,get_PCRPID)(THIS_ __LONG32 *pPCRPID) PURE;
 
     END_INTERFACE
 };
@@ -1053,7 +1053,7 @@ DECLARE_INTERFACE_(IComponentTypes,IDispatch)
     STDMETHOD_(HRESULT,Clone)(THIS_ IComponentTypes **ppNewList) PURE;
     STDMETHOD_(HRESULT,EnumComponentTypes)(THIS_ IEnumComponentTypes **ppNewEnum) PURE;
     STDMETHOD_(HRESULT,get__NewEnum)(THIS_ IEnumVARIANT **ppNewEnum) PURE;
-    STDMETHOD_(HRESULT,get_Count)(THIS_ long *pCount) PURE;
+    STDMETHOD_(HRESULT,get_Count)(THIS_ __LONG32 *pCount) PURE;
     STDMETHOD_(HRESULT,get_Item)(THIS_ VARIANT Index,IComponentType **ppComponentType) PURE;
     STDMETHOD_(HRESULT,Remove)(THIS_ VARIANT Index) PURE;
 

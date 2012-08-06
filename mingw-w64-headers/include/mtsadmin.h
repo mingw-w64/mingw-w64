@@ -136,8 +136,8 @@ extern "C"{
   public:
     virtual HRESULT WINAPI GetCollection(BSTR bstrCollName,IDispatch **ppCatalogCollection) = 0;
     virtual HRESULT WINAPI Connect(BSTR bstrConnectString,IDispatch **ppCatalogCollection) = 0;
-    virtual HRESULT WINAPI get_MajorVersion(long *retval) = 0;
-    virtual HRESULT WINAPI get_MinorVersion(long *retval) = 0;
+    virtual HRESULT WINAPI get_MajorVersion(__LONG32 *retval) = 0;
+    virtual HRESULT WINAPI get_MinorVersion(__LONG32 *retval) = 0;
   };
 #else
   typedef struct ICatalogVtbl {
@@ -151,8 +151,8 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(ICatalog *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *GetCollection)(ICatalog *This,BSTR bstrCollName,IDispatch **ppCatalogCollection);
       HRESULT (WINAPI *Connect)(ICatalog *This,BSTR bstrConnectString,IDispatch **ppCatalogCollection);
-      HRESULT (WINAPI *get_MajorVersion)(ICatalog *This,long *retval);
-      HRESULT (WINAPI *get_MinorVersion)(ICatalog *This,long *retval);
+      HRESULT (WINAPI *get_MajorVersion)(ICatalog *This,__LONG32 *retval);
+      HRESULT (WINAPI *get_MinorVersion)(ICatalog *This,__LONG32 *retval);
     END_INTERFACE
   } ICatalogVtbl;
   struct ICatalog {
@@ -176,9 +176,9 @@ extern "C"{
   void __RPC_STUB ICatalog_GetCollection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ICatalog_Connect_Proxy(ICatalog *This,BSTR bstrConnectString,IDispatch **ppCatalogCollection);
   void __RPC_STUB ICatalog_Connect_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICatalog_get_MajorVersion_Proxy(ICatalog *This,long *retval);
+  HRESULT WINAPI ICatalog_get_MajorVersion_Proxy(ICatalog *This,__LONG32 *retval);
   void __RPC_STUB ICatalog_get_MajorVersion_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ICatalog_get_MinorVersion_Proxy(ICatalog *This,long *retval);
+  HRESULT WINAPI ICatalog_get_MinorVersion_Proxy(ICatalog *This,__LONG32 *retval);
   void __RPC_STUB ICatalog_get_MinorVersion_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -242,8 +242,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IPackageUtil : public IDispatch {
   public:
-    virtual HRESULT WINAPI InstallPackage(BSTR bstrPackageFile,BSTR bstrInstallPath,long lOptions) = 0;
-    virtual HRESULT WINAPI ExportPackage(BSTR bstrPackageID,BSTR bstrPackageFile,long lOptions) = 0;
+    virtual HRESULT WINAPI InstallPackage(BSTR bstrPackageFile,BSTR bstrInstallPath,__LONG32 lOptions) = 0;
+    virtual HRESULT WINAPI ExportPackage(BSTR bstrPackageID,BSTR bstrPackageFile,__LONG32 lOptions) = 0;
     virtual HRESULT WINAPI ShutdownPackage(BSTR bstrPackageID) = 0;
   };
 #else
@@ -256,8 +256,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IPackageUtil *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IPackageUtil *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IPackageUtil *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *InstallPackage)(IPackageUtil *This,BSTR bstrPackageFile,BSTR bstrInstallPath,long lOptions);
-      HRESULT (WINAPI *ExportPackage)(IPackageUtil *This,BSTR bstrPackageID,BSTR bstrPackageFile,long lOptions);
+      HRESULT (WINAPI *InstallPackage)(IPackageUtil *This,BSTR bstrPackageFile,BSTR bstrInstallPath,__LONG32 lOptions);
+      HRESULT (WINAPI *ExportPackage)(IPackageUtil *This,BSTR bstrPackageID,BSTR bstrPackageFile,__LONG32 lOptions);
       HRESULT (WINAPI *ShutdownPackage)(IPackageUtil *This,BSTR bstrPackageID);
     END_INTERFACE
   } IPackageUtilVtbl;
@@ -277,9 +277,9 @@ extern "C"{
 #define IPackageUtil_ShutdownPackage(This,bstrPackageID) (This)->lpVtbl->ShutdownPackage(This,bstrPackageID)
 #endif
 #endif
-  HRESULT WINAPI IPackageUtil_InstallPackage_Proxy(IPackageUtil *This,BSTR bstrPackageFile,BSTR bstrInstallPath,long lOptions);
+  HRESULT WINAPI IPackageUtil_InstallPackage_Proxy(IPackageUtil *This,BSTR bstrPackageFile,BSTR bstrInstallPath,__LONG32 lOptions);
   void __RPC_STUB IPackageUtil_InstallPackage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IPackageUtil_ExportPackage_Proxy(IPackageUtil *This,BSTR bstrPackageID,BSTR bstrPackageFile,long lOptions);
+  HRESULT WINAPI IPackageUtil_ExportPackage_Proxy(IPackageUtil *This,BSTR bstrPackageID,BSTR bstrPackageFile,__LONG32 lOptions);
   void __RPC_STUB IPackageUtil_ExportPackage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IPackageUtil_ShutdownPackage_Proxy(IPackageUtil *This,BSTR bstrPackageID);
   void __RPC_STUB IPackageUtil_ShutdownPackage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);

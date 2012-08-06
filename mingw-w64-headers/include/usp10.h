@@ -148,7 +148,7 @@ extern "C" {
   } SCRIPT_FONTPROPERTIES;
 
   HRESULT WINAPI ScriptGetFontProperties(HDC hdc,SCRIPT_CACHE *psc,SCRIPT_FONTPROPERTIES *sfp);
-  HRESULT WINAPI ScriptCacheGetHeight(HDC hdc,SCRIPT_CACHE *psc,long *tmHeight);
+  HRESULT WINAPI ScriptCacheGetHeight(HDC hdc,SCRIPT_CACHE *psc,__LONG32 *tmHeight);
 
 #define SSA_PASSWORD 0x00000001
 #define SSA_TAB 0x00000002
