@@ -1,5 +1,25 @@
 2012-08-06  Corinna Vinschen  <vinschen@redhat.com>
 
+	* wbemdisp.h: Change long to __LONG32 where appropriate.
+	* windef.h: Ditto.
+	* winerror.h: Ditto.
+	* wingdi.h: Ditto.
+	* wininet.h: Ditto.
+	* winnt.h: Ditto.
+	* winsmcrd.h: Ditto.
+	* winsnmp.h: Ditto.
+	* winsock.h: Ditto.
+	* winsock2.h: Ditto.
+	* winuser.h: Ditto.
+	* wmiatlprov.h: Ditto.
+	* wmiutils.h: Ditto.
+	* ws2spi.h: Ditto.
+	* xa.h: Ditto.
+	* xcmc.h: Ditto.
+	* xmltrnsf.h: Ditto.
+
+2012-08-06  Corinna Vinschen  <vinschen@redhat.com>
+
 	* mlang.h: Change long to __LONG32 where appropriate.
 	* mtsadmin.h: Ditto.
 	* mtxadmin.h: Ditto.

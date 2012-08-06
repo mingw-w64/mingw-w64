@@ -187,7 +187,7 @@ extern "C" {
 #define VOID void
   typedef char CHAR;
   typedef short SHORT;
-  typedef long LONG;
+  typedef __LONG32 LONG;
 #endif
 #ifndef __WCHAR_DEFINED
 #define __WCHAR_DEFINED
@@ -1130,14 +1130,14 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
     __CRT_INLINE BOOLEAN _bittest(LONG const *Base,LONG Offset) {
       int old = 0;
       __asm__ __volatile__("btl %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile long *) Base))
+	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
 	:"Ir" (Offset));
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _bittestandcomplement(LONG *Base,LONG Offset) {
       int old = 0;
       __asm__ __volatile__("btcl %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile long *) Base))
+	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
 	:"Ir" (Offset));
       return (BOOLEAN) (old!=0);
     }
@@ -1158,35 +1158,35 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
     __CRT_INLINE BOOLEAN InterlockedBitTestAndComplement(LONG *Base,LONG Bit) {
       int old = 0;
       __asm__ __volatile__("lock ; btcl %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile long *) Base))
+	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
 	:"Ir" (Bit));
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _bittestandset(LONG *Base,LONG Offset) {
       int old = 0;
       __asm__ __volatile__("btsl %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile long *) Base))
+	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
 	:"Ir" (Offset));
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _bittestandreset(LONG *Base,LONG Offset) {
       int old = 0;
       __asm__ __volatile__("btrl %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile long *) Base))
+	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
 	:"Ir" (Offset));
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _interlockedbittestandset(LONG *Base,LONG Offset) {
       int old = 0;
       __asm__ __volatile__("lock ; btsl %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile long *) Base))
+	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
 	:"Ir" (Offset));
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _interlockedbittestandreset(LONG *Base,LONG Offset) {
       int old = 0;
       __asm__ __volatile__("lock ; btrl %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile long *) Base))
+	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
 	:"Ir" (Offset));
       return (BOOLEAN) (old!=0);
     }
@@ -1246,11 +1246,11 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 
 #ifndef __CRT__NO_INLINE
     __CRT_INLINE BOOLEAN _BitScanForward(DWORD *Index,DWORD Mask) {
-      __asm__ __volatile__("bsfl %1,%0" : "=r" (Mask),"=m" ((*(volatile long *)Index)));
+      __asm__ __volatile__("bsfl %1,%0" : "=r" (Mask),"=m" ((*(volatile __LONG32 *)Index)));
       return Mask!=0;
     }
     __CRT_INLINE BOOLEAN _BitScanReverse(DWORD *Index,DWORD Mask) {
-      __asm__ __volatile__("bsrl %1,%0" : "=r" (Mask),"=m" ((*(volatile long *)Index)));
+      __asm__ __volatile__("bsrl %1,%0" : "=r" (Mask),"=m" ((*(volatile __LONG32 *)Index)));
       return Mask!=0;
     }
     __CRT_INLINE BOOLEAN _BitScanForward64(DWORD *Index,DWORD64 Mask) {
@@ -1602,42 +1602,42 @@ extern "C" {
     __CRT_INLINE BYTE __readgsbyte(DWORD Offset) {
       BYTE ret;
       __asm__ volatile ("movb	%%gs:%1,%0"
-	: "=r" (ret) ,"=m" ((*(volatile long *) (DWORD64) Offset)));
+	: "=r" (ret) ,"=m" ((*(volatile __LONG32 *) (DWORD64) Offset)));
       return ret;
     }
     __CRT_INLINE WORD __readgsword(DWORD Offset) {
       WORD ret;
       __asm__ volatile ("movw	%%gs:%1,%0"
-	: "=r" (ret) ,"=m" ((*(volatile long *) (DWORD64) Offset)));
+	: "=r" (ret) ,"=m" ((*(volatile __LONG32 *) (DWORD64) Offset)));
       return ret;
     }
     __CRT_INLINE DWORD __readgsdword(DWORD Offset) {
       DWORD ret;
       __asm__ volatile ("movl	%%gs:%1,%0"
-	: "=r" (ret) ,"=m" ((*(volatile long *) (DWORD64) Offset)));
+	: "=r" (ret) ,"=m" ((*(volatile __LONG32 *) (DWORD64) Offset)));
       return ret;
     }
     __CRT_INLINE DWORD64 __readgsqword(DWORD Offset) {
       void *ret;
       __asm__ volatile ("movq	%%gs:%1,%0"
-	: "=r" (ret) ,"=m" ((*(volatile long *) (DWORD64) Offset)));
+	: "=r" (ret) ,"=m" ((*(volatile __LONG32 *) (DWORD64) Offset)));
       return (DWORD64) ret;
     }
     __CRT_INLINE VOID __writegsbyte(DWORD Offset,BYTE Data) {
       __asm__ volatile ("movb	%0,%%gs:%1"
-	: "=r" (Data) ,"=m" ((*(volatile long *) (DWORD64) Offset)));
+	: "=r" (Data) ,"=m" ((*(volatile __LONG32 *) (DWORD64) Offset)));
     }
     __CRT_INLINE VOID __writegsword(DWORD Offset,WORD Data) {
       __asm__ volatile ("movw	%0,%%gs:%1"
-	: "=r" (Data) ,"=m" ((*(volatile long *) (DWORD64) Offset)));
+	: "=r" (Data) ,"=m" ((*(volatile __LONG32 *) (DWORD64) Offset)));
     }
     __CRT_INLINE VOID __writegsdword(DWORD Offset,DWORD Data) {
       __asm__ volatile ("movl	%0,%%gs:%1"
-	: "=r" (Data) ,"=m" ((*(volatile long *) (DWORD64) Offset)));
+	: "=r" (Data) ,"=m" ((*(volatile __LONG32 *) (DWORD64) Offset)));
     }
     __CRT_INLINE VOID __writegsqword(DWORD Offset,DWORD64 Data) {
       __asm__ volatile ("movq	%0,%%gs:%1"
-	: "=r" (Data) ,"=m" ((*(volatile long *) (DWORD64) Offset)));
+	: "=r" (Data) ,"=m" ((*(volatile __LONG32 *) (DWORD64) Offset)));
     }
 #endif /* !__CRT__NO_INLINE */
 
@@ -1821,7 +1821,7 @@ extern "C" {
     __CRT_INLINE BOOLEAN InterlockedBitTestAndSet(LONG *Base,LONG Bit) {
       int old = 0;
       __asm__ __volatile__("lock ; btsl %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile long *) Base))
+	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
 	:"Ir" (Bit));
       return (BOOLEAN) (old!=0);
     }
@@ -1829,7 +1829,7 @@ extern "C" {
     __CRT_INLINE BOOLEAN InterlockedBitTestAndReset(LONG *Base,LONG Bit) {
       int old = 0;
       __asm__ __volatile__("lock ; btrl %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile long *) Base))
+	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
 	:"Ir" (Bit));
       return (BOOLEAN) (old!=0);
     }
@@ -1840,7 +1840,7 @@ extern "C" {
     __CRT_INLINE BOOLEAN InterlockedBitTestAndComplement(LONG *Base,LONG Bit) {
       int old = 0;
       __asm__ __volatile__("lock ; btcl %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile long *) Base))
+	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
 	:"Ir" (Bit));
       return (BOOLEAN) (old!=0);
     }

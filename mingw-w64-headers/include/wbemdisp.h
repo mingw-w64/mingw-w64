@@ -614,24 +614,24 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ISWbemServices : public IDispatch {
   public:
-    virtual HRESULT WINAPI Get(BSTR strObjectPath,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemObject) = 0;
-    virtual HRESULT WINAPI GetAsync(IDispatch *objWbemSink,BSTR strObjectPath = L"",long iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
-    virtual HRESULT WINAPI Delete(BSTR strObjectPath,long iFlags = 0,IDispatch *objWbemNamedValueSet = 0) = 0;
-    virtual HRESULT WINAPI DeleteAsync(IDispatch *objWbemSink,BSTR strObjectPath,long iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
-    virtual HRESULT WINAPI InstancesOf(BSTR strClass,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet) = 0;
-    virtual HRESULT WINAPI InstancesOfAsync(IDispatch *objWbemSink,BSTR strClass,long iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
-    virtual HRESULT WINAPI SubclassesOf(BSTR strSuperclass,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet) = 0;
-    virtual HRESULT WINAPI SubclassesOfAsync(IDispatch *objWbemSink,BSTR strSuperclass = L"",long iFlags = wbemQueryFlagDeep,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
-    virtual HRESULT WINAPI ExecQuery(BSTR strQuery,BSTR strQueryLanguage,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet) = 0;
-    virtual HRESULT WINAPI ExecQueryAsync(IDispatch *objWbemSink,BSTR strQuery,BSTR strQueryLanguage = L"WQL",long lFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
-    virtual HRESULT WINAPI AssociatorsOf(BSTR strObjectPath,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet) = 0;
-    virtual HRESULT WINAPI AssociatorsOfAsync(IDispatch *objWbemSink,BSTR strObjectPath,BSTR strAssocClass = L"",BSTR strResultClass = L"",BSTR strResultRole = L"",BSTR strRole = L"",VARIANT_BOOL bClassesOnly = FALSE,VARIANT_BOOL bSchemaOnly = FALSE,BSTR strRequiredAssocQualifier = L"",BSTR strRequiredQualifier = L"",long iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
-    virtual HRESULT WINAPI ReferencesTo(BSTR strObjectPath,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet) = 0;
-    virtual HRESULT WINAPI ReferencesToAsync(IDispatch *objWbemSink,BSTR strObjectPath,BSTR strResultClass = L"",BSTR strRole = L"",VARIANT_BOOL bClassesOnly = FALSE,VARIANT_BOOL bSchemaOnly = FALSE,BSTR strRequiredQualifier = L"",long iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
-    virtual HRESULT WINAPI ExecNotificationQuery(BSTR strQuery,BSTR strQueryLanguage,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemEventSource **objWbemEventSource) = 0;
-    virtual HRESULT WINAPI ExecNotificationQueryAsync(IDispatch *objWbemSink,BSTR strQuery,BSTR strQueryLanguage = L"WQL",long iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
-    virtual HRESULT WINAPI ExecMethod(BSTR strObjectPath,BSTR strMethodName,IDispatch *objWbemInParameters,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemOutParameters) = 0;
-    virtual HRESULT WINAPI ExecMethodAsync(IDispatch *objWbemSink,BSTR strObjectPath,BSTR strMethodName,IDispatch *objWbemInParameters = 0,long iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
+    virtual HRESULT WINAPI Get(BSTR strObjectPath,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemObject) = 0;
+    virtual HRESULT WINAPI GetAsync(IDispatch *objWbemSink,BSTR strObjectPath = L"",__LONG32 iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
+    virtual HRESULT WINAPI Delete(BSTR strObjectPath,__LONG32 iFlags = 0,IDispatch *objWbemNamedValueSet = 0) = 0;
+    virtual HRESULT WINAPI DeleteAsync(IDispatch *objWbemSink,BSTR strObjectPath,__LONG32 iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
+    virtual HRESULT WINAPI InstancesOf(BSTR strClass,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet) = 0;
+    virtual HRESULT WINAPI InstancesOfAsync(IDispatch *objWbemSink,BSTR strClass,__LONG32 iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
+    virtual HRESULT WINAPI SubclassesOf(BSTR strSuperclass,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet) = 0;
+    virtual HRESULT WINAPI SubclassesOfAsync(IDispatch *objWbemSink,BSTR strSuperclass = L"",__LONG32 iFlags = wbemQueryFlagDeep,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
+    virtual HRESULT WINAPI ExecQuery(BSTR strQuery,BSTR strQueryLanguage,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet) = 0;
+    virtual HRESULT WINAPI ExecQueryAsync(IDispatch *objWbemSink,BSTR strQuery,BSTR strQueryLanguage = L"WQL",__LONG32 lFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
+    virtual HRESULT WINAPI AssociatorsOf(BSTR strObjectPath,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet) = 0;
+    virtual HRESULT WINAPI AssociatorsOfAsync(IDispatch *objWbemSink,BSTR strObjectPath,BSTR strAssocClass = L"",BSTR strResultClass = L"",BSTR strResultRole = L"",BSTR strRole = L"",VARIANT_BOOL bClassesOnly = FALSE,VARIANT_BOOL bSchemaOnly = FALSE,BSTR strRequiredAssocQualifier = L"",BSTR strRequiredQualifier = L"",__LONG32 iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
+    virtual HRESULT WINAPI ReferencesTo(BSTR strObjectPath,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet) = 0;
+    virtual HRESULT WINAPI ReferencesToAsync(IDispatch *objWbemSink,BSTR strObjectPath,BSTR strResultClass = L"",BSTR strRole = L"",VARIANT_BOOL bClassesOnly = FALSE,VARIANT_BOOL bSchemaOnly = FALSE,BSTR strRequiredQualifier = L"",__LONG32 iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
+    virtual HRESULT WINAPI ExecNotificationQuery(BSTR strQuery,BSTR strQueryLanguage,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemEventSource **objWbemEventSource) = 0;
+    virtual HRESULT WINAPI ExecNotificationQueryAsync(IDispatch *objWbemSink,BSTR strQuery,BSTR strQueryLanguage = L"WQL",__LONG32 iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
+    virtual HRESULT WINAPI ExecMethod(BSTR strObjectPath,BSTR strMethodName,IDispatch *objWbemInParameters,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemOutParameters) = 0;
+    virtual HRESULT WINAPI ExecMethodAsync(IDispatch *objWbemSink,BSTR strObjectPath,BSTR strMethodName,IDispatch *objWbemInParameters = 0,__LONG32 iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
     virtual HRESULT WINAPI get_Security_(ISWbemSecurity **objWbemSecurity) = 0;
   };
 #else
@@ -644,24 +644,24 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ISWbemServices *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ISWbemServices *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ISWbemServices *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *Get)(ISWbemServices *This,BSTR strObjectPath,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemObject);
-      HRESULT (WINAPI *GetAsync)(ISWbemServices *This,IDispatch *objWbemSink,BSTR strObjectPath,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *Delete)(ISWbemServices *This,BSTR strObjectPath,long iFlags,IDispatch *objWbemNamedValueSet);
-      HRESULT (WINAPI *DeleteAsync)(ISWbemServices *This,IDispatch *objWbemSink,BSTR strObjectPath,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *InstancesOf)(ISWbemServices *This,BSTR strClass,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *InstancesOfAsync)(ISWbemServices *This,IDispatch *objWbemSink,BSTR strClass,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *SubclassesOf)(ISWbemServices *This,BSTR strSuperclass,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *SubclassesOfAsync)(ISWbemServices *This,IDispatch *objWbemSink,BSTR strSuperclass,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *ExecQuery)(ISWbemServices *This,BSTR strQuery,BSTR strQueryLanguage,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *ExecQueryAsync)(ISWbemServices *This,IDispatch *objWbemSink,BSTR strQuery,BSTR strQueryLanguage,long lFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *AssociatorsOf)(ISWbemServices *This,BSTR strObjectPath,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *AssociatorsOfAsync)(ISWbemServices *This,IDispatch *objWbemSink,BSTR strObjectPath,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *ReferencesTo)(ISWbemServices *This,BSTR strObjectPath,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *ReferencesToAsync)(ISWbemServices *This,IDispatch *objWbemSink,BSTR strObjectPath,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *ExecNotificationQuery)(ISWbemServices *This,BSTR strQuery,BSTR strQueryLanguage,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemEventSource **objWbemEventSource);
-      HRESULT (WINAPI *ExecNotificationQueryAsync)(ISWbemServices *This,IDispatch *objWbemSink,BSTR strQuery,BSTR strQueryLanguage,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *ExecMethod)(ISWbemServices *This,BSTR strObjectPath,BSTR strMethodName,IDispatch *objWbemInParameters,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemOutParameters);
-      HRESULT (WINAPI *ExecMethodAsync)(ISWbemServices *This,IDispatch *objWbemSink,BSTR strObjectPath,BSTR strMethodName,IDispatch *objWbemInParameters,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *Get)(ISWbemServices *This,BSTR strObjectPath,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemObject);
+      HRESULT (WINAPI *GetAsync)(ISWbemServices *This,IDispatch *objWbemSink,BSTR strObjectPath,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *Delete)(ISWbemServices *This,BSTR strObjectPath,__LONG32 iFlags,IDispatch *objWbemNamedValueSet);
+      HRESULT (WINAPI *DeleteAsync)(ISWbemServices *This,IDispatch *objWbemSink,BSTR strObjectPath,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *InstancesOf)(ISWbemServices *This,BSTR strClass,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *InstancesOfAsync)(ISWbemServices *This,IDispatch *objWbemSink,BSTR strClass,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *SubclassesOf)(ISWbemServices *This,BSTR strSuperclass,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *SubclassesOfAsync)(ISWbemServices *This,IDispatch *objWbemSink,BSTR strSuperclass,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *ExecQuery)(ISWbemServices *This,BSTR strQuery,BSTR strQueryLanguage,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *ExecQueryAsync)(ISWbemServices *This,IDispatch *objWbemSink,BSTR strQuery,BSTR strQueryLanguage,__LONG32 lFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *AssociatorsOf)(ISWbemServices *This,BSTR strObjectPath,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *AssociatorsOfAsync)(ISWbemServices *This,IDispatch *objWbemSink,BSTR strObjectPath,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *ReferencesTo)(ISWbemServices *This,BSTR strObjectPath,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *ReferencesToAsync)(ISWbemServices *This,IDispatch *objWbemSink,BSTR strObjectPath,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *ExecNotificationQuery)(ISWbemServices *This,BSTR strQuery,BSTR strQueryLanguage,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemEventSource **objWbemEventSource);
+      HRESULT (WINAPI *ExecNotificationQueryAsync)(ISWbemServices *This,IDispatch *objWbemSink,BSTR strQuery,BSTR strQueryLanguage,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *ExecMethod)(ISWbemServices *This,BSTR strObjectPath,BSTR strMethodName,IDispatch *objWbemInParameters,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemOutParameters);
+      HRESULT (WINAPI *ExecMethodAsync)(ISWbemServices *This,IDispatch *objWbemSink,BSTR strObjectPath,BSTR strMethodName,IDispatch *objWbemInParameters,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
       HRESULT (WINAPI *get_Security_)(ISWbemServices *This,ISWbemSecurity **objWbemSecurity);
     END_INTERFACE
   } ISWbemServicesVtbl;
@@ -697,41 +697,41 @@ extern "C" {
 #define ISWbemServices_get_Security_(This,objWbemSecurity) (This)->lpVtbl->get_Security_(This,objWbemSecurity)
 #endif
 #endif
-  HRESULT WINAPI ISWbemServices_Get_Proxy(ISWbemServices *This,BSTR strObjectPath,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemObject);
+  HRESULT WINAPI ISWbemServices_Get_Proxy(ISWbemServices *This,BSTR strObjectPath,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemObject);
   void __RPC_STUB ISWbemServices_Get_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemServices_GetAsync_Proxy(ISWbemServices *This,IDispatch *objWbemSink,BSTR strObjectPath,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+  HRESULT WINAPI ISWbemServices_GetAsync_Proxy(ISWbemServices *This,IDispatch *objWbemSink,BSTR strObjectPath,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
   void __RPC_STUB ISWbemServices_GetAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemServices_Delete_Proxy(ISWbemServices *This,BSTR strObjectPath,long iFlags,IDispatch *objWbemNamedValueSet);
+  HRESULT WINAPI ISWbemServices_Delete_Proxy(ISWbemServices *This,BSTR strObjectPath,__LONG32 iFlags,IDispatch *objWbemNamedValueSet);
   void __RPC_STUB ISWbemServices_Delete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemServices_DeleteAsync_Proxy(ISWbemServices *This,IDispatch *objWbemSink,BSTR strObjectPath,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+  HRESULT WINAPI ISWbemServices_DeleteAsync_Proxy(ISWbemServices *This,IDispatch *objWbemSink,BSTR strObjectPath,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
   void __RPC_STUB ISWbemServices_DeleteAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemServices_InstancesOf_Proxy(ISWbemServices *This,BSTR strClass,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+  HRESULT WINAPI ISWbemServices_InstancesOf_Proxy(ISWbemServices *This,BSTR strClass,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
   void __RPC_STUB ISWbemServices_InstancesOf_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemServices_InstancesOfAsync_Proxy(ISWbemServices *This,IDispatch *objWbemSink,BSTR strClass,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+  HRESULT WINAPI ISWbemServices_InstancesOfAsync_Proxy(ISWbemServices *This,IDispatch *objWbemSink,BSTR strClass,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
   void __RPC_STUB ISWbemServices_InstancesOfAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemServices_SubclassesOf_Proxy(ISWbemServices *This,BSTR strSuperclass,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+  HRESULT WINAPI ISWbemServices_SubclassesOf_Proxy(ISWbemServices *This,BSTR strSuperclass,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
   void __RPC_STUB ISWbemServices_SubclassesOf_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemServices_SubclassesOfAsync_Proxy(ISWbemServices *This,IDispatch *objWbemSink,BSTR strSuperclass,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+  HRESULT WINAPI ISWbemServices_SubclassesOfAsync_Proxy(ISWbemServices *This,IDispatch *objWbemSink,BSTR strSuperclass,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
   void __RPC_STUB ISWbemServices_SubclassesOfAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemServices_ExecQuery_Proxy(ISWbemServices *This,BSTR strQuery,BSTR strQueryLanguage,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+  HRESULT WINAPI ISWbemServices_ExecQuery_Proxy(ISWbemServices *This,BSTR strQuery,BSTR strQueryLanguage,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
   void __RPC_STUB ISWbemServices_ExecQuery_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemServices_ExecQueryAsync_Proxy(ISWbemServices *This,IDispatch *objWbemSink,BSTR strQuery,BSTR strQueryLanguage,long lFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+  HRESULT WINAPI ISWbemServices_ExecQueryAsync_Proxy(ISWbemServices *This,IDispatch *objWbemSink,BSTR strQuery,BSTR strQueryLanguage,__LONG32 lFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
   void __RPC_STUB ISWbemServices_ExecQueryAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemServices_AssociatorsOf_Proxy(ISWbemServices *This,BSTR strObjectPath,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+  HRESULT WINAPI ISWbemServices_AssociatorsOf_Proxy(ISWbemServices *This,BSTR strObjectPath,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
   void __RPC_STUB ISWbemServices_AssociatorsOf_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemServices_AssociatorsOfAsync_Proxy(ISWbemServices *This,IDispatch *objWbemSink,BSTR strObjectPath,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+  HRESULT WINAPI ISWbemServices_AssociatorsOfAsync_Proxy(ISWbemServices *This,IDispatch *objWbemSink,BSTR strObjectPath,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
   void __RPC_STUB ISWbemServices_AssociatorsOfAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemServices_ReferencesTo_Proxy(ISWbemServices *This,BSTR strObjectPath,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+  HRESULT WINAPI ISWbemServices_ReferencesTo_Proxy(ISWbemServices *This,BSTR strObjectPath,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
   void __RPC_STUB ISWbemServices_ReferencesTo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemServices_ReferencesToAsync_Proxy(ISWbemServices *This,IDispatch *objWbemSink,BSTR strObjectPath,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+  HRESULT WINAPI ISWbemServices_ReferencesToAsync_Proxy(ISWbemServices *This,IDispatch *objWbemSink,BSTR strObjectPath,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
   void __RPC_STUB ISWbemServices_ReferencesToAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemServices_ExecNotificationQuery_Proxy(ISWbemServices *This,BSTR strQuery,BSTR strQueryLanguage,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemEventSource **objWbemEventSource);
+  HRESULT WINAPI ISWbemServices_ExecNotificationQuery_Proxy(ISWbemServices *This,BSTR strQuery,BSTR strQueryLanguage,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemEventSource **objWbemEventSource);
   void __RPC_STUB ISWbemServices_ExecNotificationQuery_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemServices_ExecNotificationQueryAsync_Proxy(ISWbemServices *This,IDispatch *objWbemSink,BSTR strQuery,BSTR strQueryLanguage,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+  HRESULT WINAPI ISWbemServices_ExecNotificationQueryAsync_Proxy(ISWbemServices *This,IDispatch *objWbemSink,BSTR strQuery,BSTR strQueryLanguage,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
   void __RPC_STUB ISWbemServices_ExecNotificationQueryAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemServices_ExecMethod_Proxy(ISWbemServices *This,BSTR strObjectPath,BSTR strMethodName,IDispatch *objWbemInParameters,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemOutParameters);
+  HRESULT WINAPI ISWbemServices_ExecMethod_Proxy(ISWbemServices *This,BSTR strObjectPath,BSTR strMethodName,IDispatch *objWbemInParameters,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemOutParameters);
   void __RPC_STUB ISWbemServices_ExecMethod_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemServices_ExecMethodAsync_Proxy(ISWbemServices *This,IDispatch *objWbemSink,BSTR strObjectPath,BSTR strMethodName,IDispatch *objWbemInParameters,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+  HRESULT WINAPI ISWbemServices_ExecMethodAsync_Proxy(ISWbemServices *This,IDispatch *objWbemSink,BSTR strObjectPath,BSTR strMethodName,IDispatch *objWbemInParameters,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
   void __RPC_STUB ISWbemServices_ExecMethodAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemServices_get_Security__Proxy(ISWbemServices *This,ISWbemSecurity **objWbemSecurity);
   void __RPC_STUB ISWbemServices_get_Security__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -743,7 +743,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ISWbemLocator : public IDispatch {
   public:
-    virtual HRESULT WINAPI ConnectServer(BSTR strServer,BSTR strNamespace,BSTR strUser,BSTR strPassword,BSTR strLocale,BSTR strAuthority,long iSecurityFlags,IDispatch *objWbemNamedValueSet,ISWbemServices **objWbemServices) = 0;
+    virtual HRESULT WINAPI ConnectServer(BSTR strServer,BSTR strNamespace,BSTR strUser,BSTR strPassword,BSTR strLocale,BSTR strAuthority,__LONG32 iSecurityFlags,IDispatch *objWbemNamedValueSet,ISWbemServices **objWbemServices) = 0;
     virtual HRESULT WINAPI get_Security_(ISWbemSecurity **objWbemSecurity) = 0;
   };
 #else
@@ -756,7 +756,7 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ISWbemLocator *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ISWbemLocator *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ISWbemLocator *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *ConnectServer)(ISWbemLocator *This,BSTR strServer,BSTR strNamespace,BSTR strUser,BSTR strPassword,BSTR strLocale,BSTR strAuthority,long iSecurityFlags,IDispatch *objWbemNamedValueSet,ISWbemServices **objWbemServices);
+      HRESULT (WINAPI *ConnectServer)(ISWbemLocator *This,BSTR strServer,BSTR strNamespace,BSTR strUser,BSTR strPassword,BSTR strLocale,BSTR strAuthority,__LONG32 iSecurityFlags,IDispatch *objWbemNamedValueSet,ISWbemServices **objWbemServices);
       HRESULT (WINAPI *get_Security_)(ISWbemLocator *This,ISWbemSecurity **objWbemSecurity);
     END_INTERFACE
   } ISWbemLocatorVtbl;
@@ -775,7 +775,7 @@ extern "C" {
 #define ISWbemLocator_get_Security_(This,objWbemSecurity) (This)->lpVtbl->get_Security_(This,objWbemSecurity)
 #endif
 #endif
-  HRESULT WINAPI ISWbemLocator_ConnectServer_Proxy(ISWbemLocator *This,BSTR strServer,BSTR strNamespace,BSTR strUser,BSTR strPassword,BSTR strLocale,BSTR strAuthority,long iSecurityFlags,IDispatch *objWbemNamedValueSet,ISWbemServices **objWbemServices);
+  HRESULT WINAPI ISWbemLocator_ConnectServer_Proxy(ISWbemLocator *This,BSTR strServer,BSTR strNamespace,BSTR strUser,BSTR strPassword,BSTR strLocale,BSTR strAuthority,__LONG32 iSecurityFlags,IDispatch *objWbemNamedValueSet,ISWbemServices **objWbemServices);
   void __RPC_STUB ISWbemLocator_ConnectServer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemLocator_get_Security__Proxy(ISWbemLocator *This,ISWbemSecurity **objWbemSecurity);
   void __RPC_STUB ISWbemLocator_get_Security__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -789,25 +789,25 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ISWbemObject : public IDispatch {
   public:
-    virtual HRESULT WINAPI Put_(long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectPath **objWbemObjectPath) = 0;
-    virtual HRESULT WINAPI PutAsync_(IDispatch *objWbemSink,long iFlags = wbemChangeFlagCreateOrUpdate,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
-    virtual HRESULT WINAPI Delete_(long iFlags = 0,IDispatch *objWbemNamedValueSet = 0) = 0;
-    virtual HRESULT WINAPI DeleteAsync_(IDispatch *objWbemSink,long iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
-    virtual HRESULT WINAPI Instances_(long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet) = 0;
-    virtual HRESULT WINAPI InstancesAsync_(IDispatch *objWbemSink,long iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
-    virtual HRESULT WINAPI Subclasses_(long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet) = 0;
-    virtual HRESULT WINAPI SubclassesAsync_(IDispatch *objWbemSink,long iFlags = wbemQueryFlagDeep,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
-    virtual HRESULT WINAPI Associators_(BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet) = 0;
-    virtual HRESULT WINAPI AssociatorsAsync_(IDispatch *objWbemSink,BSTR strAssocClass = L"",BSTR strResultClass = L"",BSTR strResultRole = L"",BSTR strRole = L"",VARIANT_BOOL bClassesOnly = FALSE,VARIANT_BOOL bSchemaOnly = FALSE,BSTR strRequiredAssocQualifier = L"",BSTR strRequiredQualifier = L"",long iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
-    virtual HRESULT WINAPI References_(BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet) = 0;
-    virtual HRESULT WINAPI ReferencesAsync_(IDispatch *objWbemSink,BSTR strResultClass = L"",BSTR strRole = L"",VARIANT_BOOL bClassesOnly = FALSE,VARIANT_BOOL bSchemaOnly = FALSE,BSTR strRequiredQualifier = L"",long iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
-    virtual HRESULT WINAPI ExecMethod_(BSTR strMethodName,IDispatch *objWbemInParameters,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemOutParameters) = 0;
-    virtual HRESULT WINAPI ExecMethodAsync_(IDispatch *objWbemSink,BSTR strMethodName,IDispatch *objWbemInParameters = 0,long iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
+    virtual HRESULT WINAPI Put_(__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectPath **objWbemObjectPath) = 0;
+    virtual HRESULT WINAPI PutAsync_(IDispatch *objWbemSink,__LONG32 iFlags = wbemChangeFlagCreateOrUpdate,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
+    virtual HRESULT WINAPI Delete_(__LONG32 iFlags = 0,IDispatch *objWbemNamedValueSet = 0) = 0;
+    virtual HRESULT WINAPI DeleteAsync_(IDispatch *objWbemSink,__LONG32 iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
+    virtual HRESULT WINAPI Instances_(__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet) = 0;
+    virtual HRESULT WINAPI InstancesAsync_(IDispatch *objWbemSink,__LONG32 iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
+    virtual HRESULT WINAPI Subclasses_(__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet) = 0;
+    virtual HRESULT WINAPI SubclassesAsync_(IDispatch *objWbemSink,__LONG32 iFlags = wbemQueryFlagDeep,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
+    virtual HRESULT WINAPI Associators_(BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet) = 0;
+    virtual HRESULT WINAPI AssociatorsAsync_(IDispatch *objWbemSink,BSTR strAssocClass = L"",BSTR strResultClass = L"",BSTR strResultRole = L"",BSTR strRole = L"",VARIANT_BOOL bClassesOnly = FALSE,VARIANT_BOOL bSchemaOnly = FALSE,BSTR strRequiredAssocQualifier = L"",BSTR strRequiredQualifier = L"",__LONG32 iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
+    virtual HRESULT WINAPI References_(BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet) = 0;
+    virtual HRESULT WINAPI ReferencesAsync_(IDispatch *objWbemSink,BSTR strResultClass = L"",BSTR strRole = L"",VARIANT_BOOL bClassesOnly = FALSE,VARIANT_BOOL bSchemaOnly = FALSE,BSTR strRequiredQualifier = L"",__LONG32 iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
+    virtual HRESULT WINAPI ExecMethod_(BSTR strMethodName,IDispatch *objWbemInParameters,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemOutParameters) = 0;
+    virtual HRESULT WINAPI ExecMethodAsync_(IDispatch *objWbemSink,BSTR strMethodName,IDispatch *objWbemInParameters = 0,__LONG32 iFlags = 0,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
     virtual HRESULT WINAPI Clone_(ISWbemObject **objWbemObject) = 0;
-    virtual HRESULT WINAPI GetObjectText_(long iFlags,BSTR *strObjectText) = 0;
-    virtual HRESULT WINAPI SpawnDerivedClass_(long iFlags,ISWbemObject **objWbemObject) = 0;
-    virtual HRESULT WINAPI SpawnInstance_(long iFlags,ISWbemObject **objWbemObject) = 0;
-    virtual HRESULT WINAPI CompareTo_(IDispatch *objWbemObject,long iFlags,VARIANT_BOOL *bResult) = 0;
+    virtual HRESULT WINAPI GetObjectText_(__LONG32 iFlags,BSTR *strObjectText) = 0;
+    virtual HRESULT WINAPI SpawnDerivedClass_(__LONG32 iFlags,ISWbemObject **objWbemObject) = 0;
+    virtual HRESULT WINAPI SpawnInstance_(__LONG32 iFlags,ISWbemObject **objWbemObject) = 0;
+    virtual HRESULT WINAPI CompareTo_(IDispatch *objWbemObject,__LONG32 iFlags,VARIANT_BOOL *bResult) = 0;
     virtual HRESULT WINAPI get_Qualifiers_(ISWbemQualifierSet **objWbemQualifierSet) = 0;
     virtual HRESULT WINAPI get_Properties_(ISWbemPropertySet **objWbemPropertySet) = 0;
     virtual HRESULT WINAPI get_Methods_(ISWbemMethodSet **objWbemMethodSet) = 0;
@@ -825,25 +825,25 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ISWbemObject *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ISWbemObject *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ISWbemObject *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *Put_)(ISWbemObject *This,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectPath **objWbemObjectPath);
-      HRESULT (WINAPI *PutAsync_)(ISWbemObject *This,IDispatch *objWbemSink,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *Delete_)(ISWbemObject *This,long iFlags,IDispatch *objWbemNamedValueSet);
-      HRESULT (WINAPI *DeleteAsync_)(ISWbemObject *This,IDispatch *objWbemSink,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *Instances_)(ISWbemObject *This,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *InstancesAsync_)(ISWbemObject *This,IDispatch *objWbemSink,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *Subclasses_)(ISWbemObject *This,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *SubclassesAsync_)(ISWbemObject *This,IDispatch *objWbemSink,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *Associators_)(ISWbemObject *This,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *AssociatorsAsync_)(ISWbemObject *This,IDispatch *objWbemSink,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *References_)(ISWbemObject *This,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *ReferencesAsync_)(ISWbemObject *This,IDispatch *objWbemSink,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *ExecMethod_)(ISWbemObject *This,BSTR strMethodName,IDispatch *objWbemInParameters,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemOutParameters);
-      HRESULT (WINAPI *ExecMethodAsync_)(ISWbemObject *This,IDispatch *objWbemSink,BSTR strMethodName,IDispatch *objWbemInParameters,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *Put_)(ISWbemObject *This,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectPath **objWbemObjectPath);
+      HRESULT (WINAPI *PutAsync_)(ISWbemObject *This,IDispatch *objWbemSink,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *Delete_)(ISWbemObject *This,__LONG32 iFlags,IDispatch *objWbemNamedValueSet);
+      HRESULT (WINAPI *DeleteAsync_)(ISWbemObject *This,IDispatch *objWbemSink,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *Instances_)(ISWbemObject *This,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *InstancesAsync_)(ISWbemObject *This,IDispatch *objWbemSink,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *Subclasses_)(ISWbemObject *This,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *SubclassesAsync_)(ISWbemObject *This,IDispatch *objWbemSink,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *Associators_)(ISWbemObject *This,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *AssociatorsAsync_)(ISWbemObject *This,IDispatch *objWbemSink,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *References_)(ISWbemObject *This,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *ReferencesAsync_)(ISWbemObject *This,IDispatch *objWbemSink,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *ExecMethod_)(ISWbemObject *This,BSTR strMethodName,IDispatch *objWbemInParameters,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemOutParameters);
+      HRESULT (WINAPI *ExecMethodAsync_)(ISWbemObject *This,IDispatch *objWbemSink,BSTR strMethodName,IDispatch *objWbemInParameters,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
       HRESULT (WINAPI *Clone_)(ISWbemObject *This,ISWbemObject **objWbemObject);
-      HRESULT (WINAPI *GetObjectText_)(ISWbemObject *This,long iFlags,BSTR *strObjectText);
-      HRESULT (WINAPI *SpawnDerivedClass_)(ISWbemObject *This,long iFlags,ISWbemObject **objWbemObject);
-      HRESULT (WINAPI *SpawnInstance_)(ISWbemObject *This,long iFlags,ISWbemObject **objWbemObject);
-      HRESULT (WINAPI *CompareTo_)(ISWbemObject *This,IDispatch *objWbemObject,long iFlags,VARIANT_BOOL *bResult);
+      HRESULT (WINAPI *GetObjectText_)(ISWbemObject *This,__LONG32 iFlags,BSTR *strObjectText);
+      HRESULT (WINAPI *SpawnDerivedClass_)(ISWbemObject *This,__LONG32 iFlags,ISWbemObject **objWbemObject);
+      HRESULT (WINAPI *SpawnInstance_)(ISWbemObject *This,__LONG32 iFlags,ISWbemObject **objWbemObject);
+      HRESULT (WINAPI *CompareTo_)(ISWbemObject *This,IDispatch *objWbemObject,__LONG32 iFlags,VARIANT_BOOL *bResult);
       HRESULT (WINAPI *get_Qualifiers_)(ISWbemObject *This,ISWbemQualifierSet **objWbemQualifierSet);
       HRESULT (WINAPI *get_Properties_)(ISWbemObject *This,ISWbemPropertySet **objWbemPropertySet);
       HRESULT (WINAPI *get_Methods_)(ISWbemObject *This,ISWbemMethodSet **objWbemMethodSet);
@@ -890,43 +890,43 @@ extern "C" {
 #define ISWbemObject_get_Security_(This,objWbemSecurity) (This)->lpVtbl->get_Security_(This,objWbemSecurity)
 #endif
 #endif
-  HRESULT WINAPI ISWbemObject_Put__Proxy(ISWbemObject *This,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectPath **objWbemObjectPath);
+  HRESULT WINAPI ISWbemObject_Put__Proxy(ISWbemObject *This,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectPath **objWbemObjectPath);
   void __RPC_STUB ISWbemObject_Put__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemObject_PutAsync__Proxy(ISWbemObject *This,IDispatch *objWbemSink,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+  HRESULT WINAPI ISWbemObject_PutAsync__Proxy(ISWbemObject *This,IDispatch *objWbemSink,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
   void __RPC_STUB ISWbemObject_PutAsync__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemObject_Delete__Proxy(ISWbemObject *This,long iFlags,IDispatch *objWbemNamedValueSet);
+  HRESULT WINAPI ISWbemObject_Delete__Proxy(ISWbemObject *This,__LONG32 iFlags,IDispatch *objWbemNamedValueSet);
   void __RPC_STUB ISWbemObject_Delete__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemObject_DeleteAsync__Proxy(ISWbemObject *This,IDispatch *objWbemSink,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+  HRESULT WINAPI ISWbemObject_DeleteAsync__Proxy(ISWbemObject *This,IDispatch *objWbemSink,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
   void __RPC_STUB ISWbemObject_DeleteAsync__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemObject_Instances__Proxy(ISWbemObject *This,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+  HRESULT WINAPI ISWbemObject_Instances__Proxy(ISWbemObject *This,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
   void __RPC_STUB ISWbemObject_Instances__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemObject_InstancesAsync__Proxy(ISWbemObject *This,IDispatch *objWbemSink,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+  HRESULT WINAPI ISWbemObject_InstancesAsync__Proxy(ISWbemObject *This,IDispatch *objWbemSink,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
   void __RPC_STUB ISWbemObject_InstancesAsync__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemObject_Subclasses__Proxy(ISWbemObject *This,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+  HRESULT WINAPI ISWbemObject_Subclasses__Proxy(ISWbemObject *This,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
   void __RPC_STUB ISWbemObject_Subclasses__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemObject_SubclassesAsync__Proxy(ISWbemObject *This,IDispatch *objWbemSink,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+  HRESULT WINAPI ISWbemObject_SubclassesAsync__Proxy(ISWbemObject *This,IDispatch *objWbemSink,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
   void __RPC_STUB ISWbemObject_SubclassesAsync__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemObject_Associators__Proxy(ISWbemObject *This,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+  HRESULT WINAPI ISWbemObject_Associators__Proxy(ISWbemObject *This,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
   void __RPC_STUB ISWbemObject_Associators__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemObject_AssociatorsAsync__Proxy(ISWbemObject *This,IDispatch *objWbemSink,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+  HRESULT WINAPI ISWbemObject_AssociatorsAsync__Proxy(ISWbemObject *This,IDispatch *objWbemSink,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
   void __RPC_STUB ISWbemObject_AssociatorsAsync__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemObject_References__Proxy(ISWbemObject *This,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+  HRESULT WINAPI ISWbemObject_References__Proxy(ISWbemObject *This,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
   void __RPC_STUB ISWbemObject_References__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemObject_ReferencesAsync__Proxy(ISWbemObject *This,IDispatch *objWbemSink,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+  HRESULT WINAPI ISWbemObject_ReferencesAsync__Proxy(ISWbemObject *This,IDispatch *objWbemSink,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
   void __RPC_STUB ISWbemObject_ReferencesAsync__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemObject_ExecMethod__Proxy(ISWbemObject *This,BSTR strMethodName,IDispatch *objWbemInParameters,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemOutParameters);
+  HRESULT WINAPI ISWbemObject_ExecMethod__Proxy(ISWbemObject *This,BSTR strMethodName,IDispatch *objWbemInParameters,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemOutParameters);
   void __RPC_STUB ISWbemObject_ExecMethod__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemObject_ExecMethodAsync__Proxy(ISWbemObject *This,IDispatch *objWbemSink,BSTR strMethodName,IDispatch *objWbemInParameters,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+  HRESULT WINAPI ISWbemObject_ExecMethodAsync__Proxy(ISWbemObject *This,IDispatch *objWbemSink,BSTR strMethodName,IDispatch *objWbemInParameters,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
   void __RPC_STUB ISWbemObject_ExecMethodAsync__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemObject_Clone__Proxy(ISWbemObject *This,ISWbemObject **objWbemObject);
   void __RPC_STUB ISWbemObject_Clone__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemObject_GetObjectText__Proxy(ISWbemObject *This,long iFlags,BSTR *strObjectText);
+  HRESULT WINAPI ISWbemObject_GetObjectText__Proxy(ISWbemObject *This,__LONG32 iFlags,BSTR *strObjectText);
   void __RPC_STUB ISWbemObject_GetObjectText__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemObject_SpawnDerivedClass__Proxy(ISWbemObject *This,long iFlags,ISWbemObject **objWbemObject);
+  HRESULT WINAPI ISWbemObject_SpawnDerivedClass__Proxy(ISWbemObject *This,__LONG32 iFlags,ISWbemObject **objWbemObject);
   void __RPC_STUB ISWbemObject_SpawnDerivedClass__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemObject_SpawnInstance__Proxy(ISWbemObject *This,long iFlags,ISWbemObject **objWbemObject);
+  HRESULT WINAPI ISWbemObject_SpawnInstance__Proxy(ISWbemObject *This,__LONG32 iFlags,ISWbemObject **objWbemObject);
   void __RPC_STUB ISWbemObject_SpawnInstance__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemObject_CompareTo__Proxy(ISWbemObject *This,IDispatch *objWbemObject,long iFlags,VARIANT_BOOL *bResult);
+  HRESULT WINAPI ISWbemObject_CompareTo__Proxy(ISWbemObject *This,IDispatch *objWbemObject,__LONG32 iFlags,VARIANT_BOOL *bResult);
   void __RPC_STUB ISWbemObject_CompareTo__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemObject_get_Qualifiers__Proxy(ISWbemObject *This,ISWbemQualifierSet **objWbemQualifierSet);
   void __RPC_STUB ISWbemObject_get_Qualifiers__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -949,8 +949,8 @@ extern "C" {
   struct ISWbemObjectSet : public IDispatch {
   public:
     virtual HRESULT WINAPI get__NewEnum(IUnknown **pUnk) = 0;
-    virtual HRESULT WINAPI Item(BSTR strObjectPath,long iFlags,ISWbemObject **objWbemObject) = 0;
-    virtual HRESULT WINAPI get_Count(long *iCount) = 0;
+    virtual HRESULT WINAPI Item(BSTR strObjectPath,__LONG32 iFlags,ISWbemObject **objWbemObject) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *iCount) = 0;
     virtual HRESULT WINAPI get_Security_(ISWbemSecurity **objWbemSecurity) = 0;
   };
 #else
@@ -964,8 +964,8 @@ extern "C" {
       HRESULT (WINAPI *GetIDsOfNames)(ISWbemObjectSet *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ISWbemObjectSet *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get__NewEnum)(ISWbemObjectSet *This,IUnknown **pUnk);
-      HRESULT (WINAPI *Item)(ISWbemObjectSet *This,BSTR strObjectPath,long iFlags,ISWbemObject **objWbemObject);
-      HRESULT (WINAPI *get_Count)(ISWbemObjectSet *This,long *iCount);
+      HRESULT (WINAPI *Item)(ISWbemObjectSet *This,BSTR strObjectPath,__LONG32 iFlags,ISWbemObject **objWbemObject);
+      HRESULT (WINAPI *get_Count)(ISWbemObjectSet *This,__LONG32 *iCount);
       HRESULT (WINAPI *get_Security_)(ISWbemObjectSet *This,ISWbemSecurity **objWbemSecurity);
     END_INTERFACE
   } ISWbemObjectSetVtbl;
@@ -988,9 +988,9 @@ extern "C" {
 #endif
   HRESULT WINAPI ISWbemObjectSet_get__NewEnum_Proxy(ISWbemObjectSet *This,IUnknown **pUnk);
   void __RPC_STUB ISWbemObjectSet_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemObjectSet_Item_Proxy(ISWbemObjectSet *This,BSTR strObjectPath,long iFlags,ISWbemObject **objWbemObject);
+  HRESULT WINAPI ISWbemObjectSet_Item_Proxy(ISWbemObjectSet *This,BSTR strObjectPath,__LONG32 iFlags,ISWbemObject **objWbemObject);
   void __RPC_STUB ISWbemObjectSet_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemObjectSet_get_Count_Proxy(ISWbemObjectSet *This,long *iCount);
+  HRESULT WINAPI ISWbemObjectSet_get_Count_Proxy(ISWbemObjectSet *This,__LONG32 *iCount);
   void __RPC_STUB ISWbemObjectSet_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemObjectSet_get_Security__Proxy(ISWbemObjectSet *This,ISWbemSecurity **objWbemSecurity);
   void __RPC_STUB ISWbemObjectSet_get_Security__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1052,10 +1052,10 @@ extern "C" {
   struct ISWbemNamedValueSet : public IDispatch {
   public:
     virtual HRESULT WINAPI get__NewEnum(IUnknown **pUnk) = 0;
-    virtual HRESULT WINAPI Item(BSTR strName,long iFlags,ISWbemNamedValue **objWbemNamedValue) = 0;
-    virtual HRESULT WINAPI get_Count(long *iCount) = 0;
-    virtual HRESULT WINAPI Add(BSTR strName,VARIANT *varValue,long iFlags,ISWbemNamedValue **objWbemNamedValue) = 0;
-    virtual HRESULT WINAPI Remove(BSTR strName,long iFlags = 0) = 0;
+    virtual HRESULT WINAPI Item(BSTR strName,__LONG32 iFlags,ISWbemNamedValue **objWbemNamedValue) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *iCount) = 0;
+    virtual HRESULT WINAPI Add(BSTR strName,VARIANT *varValue,__LONG32 iFlags,ISWbemNamedValue **objWbemNamedValue) = 0;
+    virtual HRESULT WINAPI Remove(BSTR strName,__LONG32 iFlags = 0) = 0;
     virtual HRESULT WINAPI Clone(ISWbemNamedValueSet **objWbemNamedValueSet) = 0;
     virtual HRESULT WINAPI DeleteAll(void) = 0;
   };
@@ -1070,10 +1070,10 @@ extern "C" {
       HRESULT (WINAPI *GetIDsOfNames)(ISWbemNamedValueSet *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ISWbemNamedValueSet *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get__NewEnum)(ISWbemNamedValueSet *This,IUnknown **pUnk);
-      HRESULT (WINAPI *Item)(ISWbemNamedValueSet *This,BSTR strName,long iFlags,ISWbemNamedValue **objWbemNamedValue);
-      HRESULT (WINAPI *get_Count)(ISWbemNamedValueSet *This,long *iCount);
-      HRESULT (WINAPI *Add)(ISWbemNamedValueSet *This,BSTR strName,VARIANT *varValue,long iFlags,ISWbemNamedValue **objWbemNamedValue);
-      HRESULT (WINAPI *Remove)(ISWbemNamedValueSet *This,BSTR strName,long iFlags);
+      HRESULT (WINAPI *Item)(ISWbemNamedValueSet *This,BSTR strName,__LONG32 iFlags,ISWbemNamedValue **objWbemNamedValue);
+      HRESULT (WINAPI *get_Count)(ISWbemNamedValueSet *This,__LONG32 *iCount);
+      HRESULT (WINAPI *Add)(ISWbemNamedValueSet *This,BSTR strName,VARIANT *varValue,__LONG32 iFlags,ISWbemNamedValue **objWbemNamedValue);
+      HRESULT (WINAPI *Remove)(ISWbemNamedValueSet *This,BSTR strName,__LONG32 iFlags);
       HRESULT (WINAPI *Clone)(ISWbemNamedValueSet *This,ISWbemNamedValueSet **objWbemNamedValueSet);
       HRESULT (WINAPI *DeleteAll)(ISWbemNamedValueSet *This);
     END_INTERFACE
@@ -1100,13 +1100,13 @@ extern "C" {
 #endif
   HRESULT WINAPI ISWbemNamedValueSet_get__NewEnum_Proxy(ISWbemNamedValueSet *This,IUnknown **pUnk);
   void __RPC_STUB ISWbemNamedValueSet_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemNamedValueSet_Item_Proxy(ISWbemNamedValueSet *This,BSTR strName,long iFlags,ISWbemNamedValue **objWbemNamedValue);
+  HRESULT WINAPI ISWbemNamedValueSet_Item_Proxy(ISWbemNamedValueSet *This,BSTR strName,__LONG32 iFlags,ISWbemNamedValue **objWbemNamedValue);
   void __RPC_STUB ISWbemNamedValueSet_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemNamedValueSet_get_Count_Proxy(ISWbemNamedValueSet *This,long *iCount);
+  HRESULT WINAPI ISWbemNamedValueSet_get_Count_Proxy(ISWbemNamedValueSet *This,__LONG32 *iCount);
   void __RPC_STUB ISWbemNamedValueSet_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemNamedValueSet_Add_Proxy(ISWbemNamedValueSet *This,BSTR strName,VARIANT *varValue,long iFlags,ISWbemNamedValue **objWbemNamedValue);
+  HRESULT WINAPI ISWbemNamedValueSet_Add_Proxy(ISWbemNamedValueSet *This,BSTR strName,VARIANT *varValue,__LONG32 iFlags,ISWbemNamedValue **objWbemNamedValue);
   void __RPC_STUB ISWbemNamedValueSet_Add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemNamedValueSet_Remove_Proxy(ISWbemNamedValueSet *This,BSTR strName,long iFlags);
+  HRESULT WINAPI ISWbemNamedValueSet_Remove_Proxy(ISWbemNamedValueSet *This,BSTR strName,__LONG32 iFlags);
   void __RPC_STUB ISWbemNamedValueSet_Remove_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemNamedValueSet_Clone_Proxy(ISWbemNamedValueSet *This,ISWbemNamedValueSet **objWbemNamedValueSet);
   void __RPC_STUB ISWbemNamedValueSet_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1210,10 +1210,10 @@ extern "C" {
   struct ISWbemQualifierSet : public IDispatch {
   public:
     virtual HRESULT WINAPI get__NewEnum(IUnknown **pUnk) = 0;
-    virtual HRESULT WINAPI Item(BSTR name,long iFlags,ISWbemQualifier **objWbemQualifier) = 0;
-    virtual HRESULT WINAPI get_Count(long *iCount) = 0;
-    virtual HRESULT WINAPI Add(BSTR strName,VARIANT *varVal,VARIANT_BOOL bPropagatesToSubclass,VARIANT_BOOL bPropagatesToInstance,VARIANT_BOOL bIsOverridable,long iFlags,ISWbemQualifier **objWbemQualifier) = 0;
-    virtual HRESULT WINAPI Remove(BSTR strName,long iFlags = 0) = 0;
+    virtual HRESULT WINAPI Item(BSTR name,__LONG32 iFlags,ISWbemQualifier **objWbemQualifier) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *iCount) = 0;
+    virtual HRESULT WINAPI Add(BSTR strName,VARIANT *varVal,VARIANT_BOOL bPropagatesToSubclass,VARIANT_BOOL bPropagatesToInstance,VARIANT_BOOL bIsOverridable,__LONG32 iFlags,ISWbemQualifier **objWbemQualifier) = 0;
+    virtual HRESULT WINAPI Remove(BSTR strName,__LONG32 iFlags = 0) = 0;
   };
 #else
   typedef struct ISWbemQualifierSetVtbl {
@@ -1226,10 +1226,10 @@ extern "C" {
       HRESULT (WINAPI *GetIDsOfNames)(ISWbemQualifierSet *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ISWbemQualifierSet *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get__NewEnum)(ISWbemQualifierSet *This,IUnknown **pUnk);
-      HRESULT (WINAPI *Item)(ISWbemQualifierSet *This,BSTR name,long iFlags,ISWbemQualifier **objWbemQualifier);
-      HRESULT (WINAPI *get_Count)(ISWbemQualifierSet *This,long *iCount);
-      HRESULT (WINAPI *Add)(ISWbemQualifierSet *This,BSTR strName,VARIANT *varVal,VARIANT_BOOL bPropagatesToSubclass,VARIANT_BOOL bPropagatesToInstance,VARIANT_BOOL bIsOverridable,long iFlags,ISWbemQualifier **objWbemQualifier);
-      HRESULT (WINAPI *Remove)(ISWbemQualifierSet *This,BSTR strName,long iFlags);
+      HRESULT (WINAPI *Item)(ISWbemQualifierSet *This,BSTR name,__LONG32 iFlags,ISWbemQualifier **objWbemQualifier);
+      HRESULT (WINAPI *get_Count)(ISWbemQualifierSet *This,__LONG32 *iCount);
+      HRESULT (WINAPI *Add)(ISWbemQualifierSet *This,BSTR strName,VARIANT *varVal,VARIANT_BOOL bPropagatesToSubclass,VARIANT_BOOL bPropagatesToInstance,VARIANT_BOOL bIsOverridable,__LONG32 iFlags,ISWbemQualifier **objWbemQualifier);
+      HRESULT (WINAPI *Remove)(ISWbemQualifierSet *This,BSTR strName,__LONG32 iFlags);
     END_INTERFACE
   } ISWbemQualifierSetVtbl;
   struct ISWbemQualifierSet {
@@ -1252,13 +1252,13 @@ extern "C" {
 #endif
   HRESULT WINAPI ISWbemQualifierSet_get__NewEnum_Proxy(ISWbemQualifierSet *This,IUnknown **pUnk);
   void __RPC_STUB ISWbemQualifierSet_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemQualifierSet_Item_Proxy(ISWbemQualifierSet *This,BSTR name,long iFlags,ISWbemQualifier **objWbemQualifier);
+  HRESULT WINAPI ISWbemQualifierSet_Item_Proxy(ISWbemQualifierSet *This,BSTR name,__LONG32 iFlags,ISWbemQualifier **objWbemQualifier);
   void __RPC_STUB ISWbemQualifierSet_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemQualifierSet_get_Count_Proxy(ISWbemQualifierSet *This,long *iCount);
+  HRESULT WINAPI ISWbemQualifierSet_get_Count_Proxy(ISWbemQualifierSet *This,__LONG32 *iCount);
   void __RPC_STUB ISWbemQualifierSet_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemQualifierSet_Add_Proxy(ISWbemQualifierSet *This,BSTR strName,VARIANT *varVal,VARIANT_BOOL bPropagatesToSubclass,VARIANT_BOOL bPropagatesToInstance,VARIANT_BOOL bIsOverridable,long iFlags,ISWbemQualifier **objWbemQualifier);
+  HRESULT WINAPI ISWbemQualifierSet_Add_Proxy(ISWbemQualifierSet *This,BSTR strName,VARIANT *varVal,VARIANT_BOOL bPropagatesToSubclass,VARIANT_BOOL bPropagatesToInstance,VARIANT_BOOL bIsOverridable,__LONG32 iFlags,ISWbemQualifier **objWbemQualifier);
   void __RPC_STUB ISWbemQualifierSet_Add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemQualifierSet_Remove_Proxy(ISWbemQualifierSet *This,BSTR strName,long iFlags);
+  HRESULT WINAPI ISWbemQualifierSet_Remove_Proxy(ISWbemQualifierSet *This,BSTR strName,__LONG32 iFlags);
   void __RPC_STUB ISWbemQualifierSet_Remove_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1343,10 +1343,10 @@ extern "C" {
   struct ISWbemPropertySet : public IDispatch {
   public:
     virtual HRESULT WINAPI get__NewEnum(IUnknown **pUnk) = 0;
-    virtual HRESULT WINAPI Item(BSTR strName,long iFlags,ISWbemProperty **objWbemProperty) = 0;
-    virtual HRESULT WINAPI get_Count(long *iCount) = 0;
-    virtual HRESULT WINAPI Add(BSTR strName,WbemCimtypeEnum iCIMType,VARIANT_BOOL bIsArray,long iFlags,ISWbemProperty **objWbemProperty) = 0;
-    virtual HRESULT WINAPI Remove(BSTR strName,long iFlags = 0) = 0;
+    virtual HRESULT WINAPI Item(BSTR strName,__LONG32 iFlags,ISWbemProperty **objWbemProperty) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *iCount) = 0;
+    virtual HRESULT WINAPI Add(BSTR strName,WbemCimtypeEnum iCIMType,VARIANT_BOOL bIsArray,__LONG32 iFlags,ISWbemProperty **objWbemProperty) = 0;
+    virtual HRESULT WINAPI Remove(BSTR strName,__LONG32 iFlags = 0) = 0;
   };
 #else
   typedef struct ISWbemPropertySetVtbl {
@@ -1359,10 +1359,10 @@ extern "C" {
       HRESULT (WINAPI *GetIDsOfNames)(ISWbemPropertySet *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ISWbemPropertySet *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get__NewEnum)(ISWbemPropertySet *This,IUnknown **pUnk);
-      HRESULT (WINAPI *Item)(ISWbemPropertySet *This,BSTR strName,long iFlags,ISWbemProperty **objWbemProperty);
-      HRESULT (WINAPI *get_Count)(ISWbemPropertySet *This,long *iCount);
-      HRESULT (WINAPI *Add)(ISWbemPropertySet *This,BSTR strName,WbemCimtypeEnum iCIMType,VARIANT_BOOL bIsArray,long iFlags,ISWbemProperty **objWbemProperty);
-      HRESULT (WINAPI *Remove)(ISWbemPropertySet *This,BSTR strName,long iFlags);
+      HRESULT (WINAPI *Item)(ISWbemPropertySet *This,BSTR strName,__LONG32 iFlags,ISWbemProperty **objWbemProperty);
+      HRESULT (WINAPI *get_Count)(ISWbemPropertySet *This,__LONG32 *iCount);
+      HRESULT (WINAPI *Add)(ISWbemPropertySet *This,BSTR strName,WbemCimtypeEnum iCIMType,VARIANT_BOOL bIsArray,__LONG32 iFlags,ISWbemProperty **objWbemProperty);
+      HRESULT (WINAPI *Remove)(ISWbemPropertySet *This,BSTR strName,__LONG32 iFlags);
     END_INTERFACE
   } ISWbemPropertySetVtbl;
   struct ISWbemPropertySet {
@@ -1385,13 +1385,13 @@ extern "C" {
 #endif
   HRESULT WINAPI ISWbemPropertySet_get__NewEnum_Proxy(ISWbemPropertySet *This,IUnknown **pUnk);
   void __RPC_STUB ISWbemPropertySet_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemPropertySet_Item_Proxy(ISWbemPropertySet *This,BSTR strName,long iFlags,ISWbemProperty **objWbemProperty);
+  HRESULT WINAPI ISWbemPropertySet_Item_Proxy(ISWbemPropertySet *This,BSTR strName,__LONG32 iFlags,ISWbemProperty **objWbemProperty);
   void __RPC_STUB ISWbemPropertySet_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemPropertySet_get_Count_Proxy(ISWbemPropertySet *This,long *iCount);
+  HRESULT WINAPI ISWbemPropertySet_get_Count_Proxy(ISWbemPropertySet *This,__LONG32 *iCount);
   void __RPC_STUB ISWbemPropertySet_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemPropertySet_Add_Proxy(ISWbemPropertySet *This,BSTR strName,WbemCimtypeEnum iCIMType,VARIANT_BOOL bIsArray,long iFlags,ISWbemProperty **objWbemProperty);
+  HRESULT WINAPI ISWbemPropertySet_Add_Proxy(ISWbemPropertySet *This,BSTR strName,WbemCimtypeEnum iCIMType,VARIANT_BOOL bIsArray,__LONG32 iFlags,ISWbemProperty **objWbemProperty);
   void __RPC_STUB ISWbemPropertySet_Add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemPropertySet_Remove_Proxy(ISWbemPropertySet *This,BSTR strName,long iFlags);
+  HRESULT WINAPI ISWbemPropertySet_Remove_Proxy(ISWbemPropertySet *This,BSTR strName,__LONG32 iFlags);
   void __RPC_STUB ISWbemPropertySet_Remove_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1461,8 +1461,8 @@ extern "C" {
   struct ISWbemMethodSet : public IDispatch {
   public:
     virtual HRESULT WINAPI get__NewEnum(IUnknown **pUnk) = 0;
-    virtual HRESULT WINAPI Item(BSTR strName,long iFlags,ISWbemMethod **objWbemMethod) = 0;
-    virtual HRESULT WINAPI get_Count(long *iCount) = 0;
+    virtual HRESULT WINAPI Item(BSTR strName,__LONG32 iFlags,ISWbemMethod **objWbemMethod) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *iCount) = 0;
   };
 #else
   typedef struct ISWbemMethodSetVtbl {
@@ -1475,8 +1475,8 @@ extern "C" {
       HRESULT (WINAPI *GetIDsOfNames)(ISWbemMethodSet *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ISWbemMethodSet *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get__NewEnum)(ISWbemMethodSet *This,IUnknown **pUnk);
-      HRESULT (WINAPI *Item)(ISWbemMethodSet *This,BSTR strName,long iFlags,ISWbemMethod **objWbemMethod);
-      HRESULT (WINAPI *get_Count)(ISWbemMethodSet *This,long *iCount);
+      HRESULT (WINAPI *Item)(ISWbemMethodSet *This,BSTR strName,__LONG32 iFlags,ISWbemMethod **objWbemMethod);
+      HRESULT (WINAPI *get_Count)(ISWbemMethodSet *This,__LONG32 *iCount);
     END_INTERFACE
   } ISWbemMethodSetVtbl;
   struct ISWbemMethodSet {
@@ -1497,9 +1497,9 @@ extern "C" {
 #endif
   HRESULT WINAPI ISWbemMethodSet_get__NewEnum_Proxy(ISWbemMethodSet *This,IUnknown **pUnk);
   void __RPC_STUB ISWbemMethodSet_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemMethodSet_Item_Proxy(ISWbemMethodSet *This,BSTR strName,long iFlags,ISWbemMethod **objWbemMethod);
+  HRESULT WINAPI ISWbemMethodSet_Item_Proxy(ISWbemMethodSet *This,BSTR strName,__LONG32 iFlags,ISWbemMethod **objWbemMethod);
   void __RPC_STUB ISWbemMethodSet_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemMethodSet_get_Count_Proxy(ISWbemMethodSet *This,long *iCount);
+  HRESULT WINAPI ISWbemMethodSet_get_Count_Proxy(ISWbemMethodSet *This,__LONG32 *iCount);
   void __RPC_STUB ISWbemMethodSet_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1509,7 +1509,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ISWbemEventSource : public IDispatch {
   public:
-    virtual HRESULT WINAPI NextEvent(long iTimeoutMs,ISWbemObject **objWbemObject) = 0;
+    virtual HRESULT WINAPI NextEvent(__LONG32 iTimeoutMs,ISWbemObject **objWbemObject) = 0;
     virtual HRESULT WINAPI get_Security_(ISWbemSecurity **objWbemSecurity) = 0;
   };
 #else
@@ -1522,7 +1522,7 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ISWbemEventSource *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ISWbemEventSource *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ISWbemEventSource *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *NextEvent)(ISWbemEventSource *This,long iTimeoutMs,ISWbemObject **objWbemObject);
+      HRESULT (WINAPI *NextEvent)(ISWbemEventSource *This,__LONG32 iTimeoutMs,ISWbemObject **objWbemObject);
       HRESULT (WINAPI *get_Security_)(ISWbemEventSource *This,ISWbemSecurity **objWbemSecurity);
     END_INTERFACE
   } ISWbemEventSourceVtbl;
@@ -1541,7 +1541,7 @@ extern "C" {
 #define ISWbemEventSource_get_Security_(This,objWbemSecurity) (This)->lpVtbl->get_Security_(This,objWbemSecurity)
 #endif
 #endif
-  HRESULT WINAPI ISWbemEventSource_NextEvent_Proxy(ISWbemEventSource *This,long iTimeoutMs,ISWbemObject **objWbemObject);
+  HRESULT WINAPI ISWbemEventSource_NextEvent_Proxy(ISWbemEventSource *This,__LONG32 iTimeoutMs,ISWbemObject **objWbemObject);
   void __RPC_STUB ISWbemEventSource_NextEvent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemEventSource_get_Security__Proxy(ISWbemEventSource *This,ISWbemSecurity **objWbemSecurity);
   void __RPC_STUB ISWbemEventSource_get_Security__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1712,25 +1712,25 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ISWbemLastError *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ISWbemLastError *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ISWbemLastError *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *Put_)(ISWbemLastError *This,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectPath **objWbemObjectPath);
-      HRESULT (WINAPI *PutAsync_)(ISWbemLastError *This,IDispatch *objWbemSink,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *Delete_)(ISWbemLastError *This,long iFlags,IDispatch *objWbemNamedValueSet);
-      HRESULT (WINAPI *DeleteAsync_)(ISWbemLastError *This,IDispatch *objWbemSink,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *Instances_)(ISWbemLastError *This,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *InstancesAsync_)(ISWbemLastError *This,IDispatch *objWbemSink,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *Subclasses_)(ISWbemLastError *This,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *SubclassesAsync_)(ISWbemLastError *This,IDispatch *objWbemSink,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *Associators_)(ISWbemLastError *This,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *AssociatorsAsync_)(ISWbemLastError *This,IDispatch *objWbemSink,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *References_)(ISWbemLastError *This,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *ReferencesAsync_)(ISWbemLastError *This,IDispatch *objWbemSink,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *ExecMethod_)(ISWbemLastError *This,BSTR strMethodName,IDispatch *objWbemInParameters,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemOutParameters);
-      HRESULT (WINAPI *ExecMethodAsync_)(ISWbemLastError *This,IDispatch *objWbemSink,BSTR strMethodName,IDispatch *objWbemInParameters,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *Put_)(ISWbemLastError *This,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectPath **objWbemObjectPath);
+      HRESULT (WINAPI *PutAsync_)(ISWbemLastError *This,IDispatch *objWbemSink,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *Delete_)(ISWbemLastError *This,__LONG32 iFlags,IDispatch *objWbemNamedValueSet);
+      HRESULT (WINAPI *DeleteAsync_)(ISWbemLastError *This,IDispatch *objWbemSink,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *Instances_)(ISWbemLastError *This,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *InstancesAsync_)(ISWbemLastError *This,IDispatch *objWbemSink,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *Subclasses_)(ISWbemLastError *This,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *SubclassesAsync_)(ISWbemLastError *This,IDispatch *objWbemSink,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *Associators_)(ISWbemLastError *This,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *AssociatorsAsync_)(ISWbemLastError *This,IDispatch *objWbemSink,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *References_)(ISWbemLastError *This,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *ReferencesAsync_)(ISWbemLastError *This,IDispatch *objWbemSink,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *ExecMethod_)(ISWbemLastError *This,BSTR strMethodName,IDispatch *objWbemInParameters,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemOutParameters);
+      HRESULT (WINAPI *ExecMethodAsync_)(ISWbemLastError *This,IDispatch *objWbemSink,BSTR strMethodName,IDispatch *objWbemInParameters,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
       HRESULT (WINAPI *Clone_)(ISWbemLastError *This,ISWbemObject **objWbemObject);
-      HRESULT (WINAPI *GetObjectText_)(ISWbemLastError *This,long iFlags,BSTR *strObjectText);
-      HRESULT (WINAPI *SpawnDerivedClass_)(ISWbemLastError *This,long iFlags,ISWbemObject **objWbemObject);
-      HRESULT (WINAPI *SpawnInstance_)(ISWbemLastError *This,long iFlags,ISWbemObject **objWbemObject);
-      HRESULT (WINAPI *CompareTo_)(ISWbemLastError *This,IDispatch *objWbemObject,long iFlags,VARIANT_BOOL *bResult);
+      HRESULT (WINAPI *GetObjectText_)(ISWbemLastError *This,__LONG32 iFlags,BSTR *strObjectText);
+      HRESULT (WINAPI *SpawnDerivedClass_)(ISWbemLastError *This,__LONG32 iFlags,ISWbemObject **objWbemObject);
+      HRESULT (WINAPI *SpawnInstance_)(ISWbemLastError *This,__LONG32 iFlags,ISWbemObject **objWbemObject);
+      HRESULT (WINAPI *CompareTo_)(ISWbemLastError *This,IDispatch *objWbemObject,__LONG32 iFlags,VARIANT_BOOL *bResult);
       HRESULT (WINAPI *get_Qualifiers_)(ISWbemLastError *This,ISWbemQualifierSet **objWbemQualifierSet);
       HRESULT (WINAPI *get_Properties_)(ISWbemLastError *This,ISWbemPropertySet **objWbemPropertySet);
       HRESULT (WINAPI *get_Methods_)(ISWbemLastError *This,ISWbemMethodSet **objWbemMethodSet);
@@ -1977,7 +1977,7 @@ extern "C" {
   public:
     virtual HRESULT WINAPI get__NewEnum(IUnknown **pUnk) = 0;
     virtual HRESULT WINAPI Item(WbemPrivilegeEnum iPrivilege,ISWbemPrivilege **objWbemPrivilege) = 0;
-    virtual HRESULT WINAPI get_Count(long *iCount) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *iCount) = 0;
     virtual HRESULT WINAPI Add(WbemPrivilegeEnum iPrivilege,VARIANT_BOOL bIsEnabled,ISWbemPrivilege **objWbemPrivilege) = 0;
     virtual HRESULT WINAPI Remove(WbemPrivilegeEnum iPrivilege) = 0;
     virtual HRESULT WINAPI DeleteAll(void) = 0;
@@ -1995,7 +1995,7 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(ISWbemPrivilegeSet *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get__NewEnum)(ISWbemPrivilegeSet *This,IUnknown **pUnk);
       HRESULT (WINAPI *Item)(ISWbemPrivilegeSet *This,WbemPrivilegeEnum iPrivilege,ISWbemPrivilege **objWbemPrivilege);
-      HRESULT (WINAPI *get_Count)(ISWbemPrivilegeSet *This,long *iCount);
+      HRESULT (WINAPI *get_Count)(ISWbemPrivilegeSet *This,__LONG32 *iCount);
       HRESULT (WINAPI *Add)(ISWbemPrivilegeSet *This,WbemPrivilegeEnum iPrivilege,VARIANT_BOOL bIsEnabled,ISWbemPrivilege **objWbemPrivilege);
       HRESULT (WINAPI *Remove)(ISWbemPrivilegeSet *This,WbemPrivilegeEnum iPrivilege);
       HRESULT (WINAPI *DeleteAll)(ISWbemPrivilegeSet *This);
@@ -2026,7 +2026,7 @@ extern "C" {
   void __RPC_STUB ISWbemPrivilegeSet_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemPrivilegeSet_Item_Proxy(ISWbemPrivilegeSet *This,WbemPrivilegeEnum iPrivilege,ISWbemPrivilege **objWbemPrivilege);
   void __RPC_STUB ISWbemPrivilegeSet_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemPrivilegeSet_get_Count_Proxy(ISWbemPrivilegeSet *This,long *iCount);
+  HRESULT WINAPI ISWbemPrivilegeSet_get_Count_Proxy(ISWbemPrivilegeSet *This,__LONG32 *iCount);
   void __RPC_STUB ISWbemPrivilegeSet_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemPrivilegeSet_Add_Proxy(ISWbemPrivilegeSet *This,WbemPrivilegeEnum iPrivilege,VARIANT_BOOL bIsEnabled,ISWbemPrivilege **objWbemPrivilege);
   void __RPC_STUB ISWbemPrivilegeSet_Add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2044,8 +2044,8 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ISWbemServicesEx : public ISWbemServices {
   public:
-    virtual HRESULT WINAPI Put(ISWbemObjectEx *objWbemObject,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectPath **objWbemObjectPath) = 0;
-    virtual HRESULT WINAPI PutAsync(ISWbemSink *objWbemSink,ISWbemObjectEx *objWbemObject,long iFlags = wbemChangeFlagCreateOrUpdate,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
+    virtual HRESULT WINAPI Put(ISWbemObjectEx *objWbemObject,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectPath **objWbemObjectPath) = 0;
+    virtual HRESULT WINAPI PutAsync(ISWbemSink *objWbemSink,ISWbemObjectEx *objWbemObject,__LONG32 iFlags = wbemChangeFlagCreateOrUpdate,IDispatch *objWbemNamedValueSet = 0,IDispatch *objWbemAsyncContext = 0) = 0;
   };
 #else
   typedef struct ISWbemServicesExVtbl {
@@ -2057,27 +2057,27 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ISWbemServicesEx *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ISWbemServicesEx *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ISWbemServicesEx *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *Get)(ISWbemServicesEx *This,BSTR strObjectPath,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemObject);
-      HRESULT (WINAPI *GetAsync)(ISWbemServicesEx *This,IDispatch *objWbemSink,BSTR strObjectPath,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *Delete)(ISWbemServicesEx *This,BSTR strObjectPath,long iFlags,IDispatch *objWbemNamedValueSet);
-      HRESULT (WINAPI *DeleteAsync)(ISWbemServicesEx *This,IDispatch *objWbemSink,BSTR strObjectPath,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *InstancesOf)(ISWbemServicesEx *This,BSTR strClass,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *InstancesOfAsync)(ISWbemServicesEx *This,IDispatch *objWbemSink,BSTR strClass,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *SubclassesOf)(ISWbemServicesEx *This,BSTR strSuperclass,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *SubclassesOfAsync)(ISWbemServicesEx *This,IDispatch *objWbemSink,BSTR strSuperclass,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *ExecQuery)(ISWbemServicesEx *This,BSTR strQuery,BSTR strQueryLanguage,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *ExecQueryAsync)(ISWbemServicesEx *This,IDispatch *objWbemSink,BSTR strQuery,BSTR strQueryLanguage,long lFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *AssociatorsOf)(ISWbemServicesEx *This,BSTR strObjectPath,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *AssociatorsOfAsync)(ISWbemServicesEx *This,IDispatch *objWbemSink,BSTR strObjectPath,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *ReferencesTo)(ISWbemServicesEx *This,BSTR strObjectPath,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *ReferencesToAsync)(ISWbemServicesEx *This,IDispatch *objWbemSink,BSTR strObjectPath,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *ExecNotificationQuery)(ISWbemServicesEx *This,BSTR strQuery,BSTR strQueryLanguage,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemEventSource **objWbemEventSource);
-      HRESULT (WINAPI *ExecNotificationQueryAsync)(ISWbemServicesEx *This,IDispatch *objWbemSink,BSTR strQuery,BSTR strQueryLanguage,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *ExecMethod)(ISWbemServicesEx *This,BSTR strObjectPath,BSTR strMethodName,IDispatch *objWbemInParameters,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemOutParameters);
-      HRESULT (WINAPI *ExecMethodAsync)(ISWbemServicesEx *This,IDispatch *objWbemSink,BSTR strObjectPath,BSTR strMethodName,IDispatch *objWbemInParameters,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *Get)(ISWbemServicesEx *This,BSTR strObjectPath,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemObject);
+      HRESULT (WINAPI *GetAsync)(ISWbemServicesEx *This,IDispatch *objWbemSink,BSTR strObjectPath,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *Delete)(ISWbemServicesEx *This,BSTR strObjectPath,__LONG32 iFlags,IDispatch *objWbemNamedValueSet);
+      HRESULT (WINAPI *DeleteAsync)(ISWbemServicesEx *This,IDispatch *objWbemSink,BSTR strObjectPath,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *InstancesOf)(ISWbemServicesEx *This,BSTR strClass,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *InstancesOfAsync)(ISWbemServicesEx *This,IDispatch *objWbemSink,BSTR strClass,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *SubclassesOf)(ISWbemServicesEx *This,BSTR strSuperclass,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *SubclassesOfAsync)(ISWbemServicesEx *This,IDispatch *objWbemSink,BSTR strSuperclass,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *ExecQuery)(ISWbemServicesEx *This,BSTR strQuery,BSTR strQueryLanguage,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *ExecQueryAsync)(ISWbemServicesEx *This,IDispatch *objWbemSink,BSTR strQuery,BSTR strQueryLanguage,__LONG32 lFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *AssociatorsOf)(ISWbemServicesEx *This,BSTR strObjectPath,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *AssociatorsOfAsync)(ISWbemServicesEx *This,IDispatch *objWbemSink,BSTR strObjectPath,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *ReferencesTo)(ISWbemServicesEx *This,BSTR strObjectPath,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *ReferencesToAsync)(ISWbemServicesEx *This,IDispatch *objWbemSink,BSTR strObjectPath,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *ExecNotificationQuery)(ISWbemServicesEx *This,BSTR strQuery,BSTR strQueryLanguage,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemEventSource **objWbemEventSource);
+      HRESULT (WINAPI *ExecNotificationQueryAsync)(ISWbemServicesEx *This,IDispatch *objWbemSink,BSTR strQuery,BSTR strQueryLanguage,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *ExecMethod)(ISWbemServicesEx *This,BSTR strObjectPath,BSTR strMethodName,IDispatch *objWbemInParameters,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemOutParameters);
+      HRESULT (WINAPI *ExecMethodAsync)(ISWbemServicesEx *This,IDispatch *objWbemSink,BSTR strObjectPath,BSTR strMethodName,IDispatch *objWbemInParameters,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
       HRESULT (WINAPI *get_Security_)(ISWbemServicesEx *This,ISWbemSecurity **objWbemSecurity);
-      HRESULT (WINAPI *Put)(ISWbemServicesEx *This,ISWbemObjectEx *objWbemObject,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectPath **objWbemObjectPath);
-      HRESULT (WINAPI *PutAsync)(ISWbemServicesEx *This,ISWbemSink *objWbemSink,ISWbemObjectEx *objWbemObject,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *Put)(ISWbemServicesEx *This,ISWbemObjectEx *objWbemObject,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectPath **objWbemObjectPath);
+      HRESULT (WINAPI *PutAsync)(ISWbemServicesEx *This,ISWbemSink *objWbemSink,ISWbemObjectEx *objWbemObject,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
     END_INTERFACE
   } ISWbemServicesExVtbl;
   struct ISWbemServicesEx {
@@ -2114,9 +2114,9 @@ extern "C" {
 #define ISWbemServicesEx_PutAsync(This,objWbemSink,objWbemObject,iFlags,objWbemNamedValueSet,objWbemAsyncContext) (This)->lpVtbl->PutAsync(This,objWbemSink,objWbemObject,iFlags,objWbemNamedValueSet,objWbemAsyncContext)
 #endif
 #endif
-  HRESULT WINAPI ISWbemServicesEx_Put_Proxy(ISWbemServicesEx *This,ISWbemObjectEx *objWbemObject,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectPath **objWbemObjectPath);
+  HRESULT WINAPI ISWbemServicesEx_Put_Proxy(ISWbemServicesEx *This,ISWbemObjectEx *objWbemObject,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectPath **objWbemObjectPath);
   void __RPC_STUB ISWbemServicesEx_Put_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemServicesEx_PutAsync_Proxy(ISWbemServicesEx *This,ISWbemSink *objWbemSink,ISWbemObjectEx *objWbemObject,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+  HRESULT WINAPI ISWbemServicesEx_PutAsync_Proxy(ISWbemServicesEx *This,ISWbemSink *objWbemSink,ISWbemObjectEx *objWbemObject,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
   void __RPC_STUB ISWbemServicesEx_PutAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -2126,10 +2126,10 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ISWbemObjectEx : public ISWbemObject {
   public:
-    virtual HRESULT WINAPI Refresh_(long iFlags = 0,IDispatch *objWbemNamedValueSet = 0) = 0;
+    virtual HRESULT WINAPI Refresh_(__LONG32 iFlags = 0,IDispatch *objWbemNamedValueSet = 0) = 0;
     virtual HRESULT WINAPI get_SystemProperties_(ISWbemPropertySet **objWbemPropertySet) = 0;
-    virtual HRESULT WINAPI GetText_(WbemObjectTextFormatEnum iObjectTextFormat,long iFlags,IDispatch *objWbemNamedValueSet,BSTR *bsText) = 0;
-    virtual HRESULT WINAPI SetFromText_(BSTR bsText,WbemObjectTextFormatEnum iObjectTextFormat,long iFlags = 0,IDispatch *objWbemNamedValueSet = 0) = 0;
+    virtual HRESULT WINAPI GetText_(WbemObjectTextFormatEnum iObjectTextFormat,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,BSTR *bsText) = 0;
+    virtual HRESULT WINAPI SetFromText_(BSTR bsText,WbemObjectTextFormatEnum iObjectTextFormat,__LONG32 iFlags = 0,IDispatch *objWbemNamedValueSet = 0) = 0;
   };
 #else
   typedef struct ISWbemObjectExVtbl {
@@ -2141,35 +2141,35 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ISWbemObjectEx *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ISWbemObjectEx *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ISWbemObjectEx *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *Put_)(ISWbemObjectEx *This,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectPath **objWbemObjectPath);
-      HRESULT (WINAPI *PutAsync_)(ISWbemObjectEx *This,IDispatch *objWbemSink,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *Delete_)(ISWbemObjectEx *This,long iFlags,IDispatch *objWbemNamedValueSet);
-      HRESULT (WINAPI *DeleteAsync_)(ISWbemObjectEx *This,IDispatch *objWbemSink,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *Instances_)(ISWbemObjectEx *This,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *InstancesAsync_)(ISWbemObjectEx *This,IDispatch *objWbemSink,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *Subclasses_)(ISWbemObjectEx *This,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *SubclassesAsync_)(ISWbemObjectEx *This,IDispatch *objWbemSink,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *Associators_)(ISWbemObjectEx *This,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *AssociatorsAsync_)(ISWbemObjectEx *This,IDispatch *objWbemSink,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *References_)(ISWbemObjectEx *This,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *ReferencesAsync_)(ISWbemObjectEx *This,IDispatch *objWbemSink,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
-      HRESULT (WINAPI *ExecMethod_)(ISWbemObjectEx *This,BSTR strMethodName,IDispatch *objWbemInParameters,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemOutParameters);
-      HRESULT (WINAPI *ExecMethodAsync_)(ISWbemObjectEx *This,IDispatch *objWbemSink,BSTR strMethodName,IDispatch *objWbemInParameters,long iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *Put_)(ISWbemObjectEx *This,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectPath **objWbemObjectPath);
+      HRESULT (WINAPI *PutAsync_)(ISWbemObjectEx *This,IDispatch *objWbemSink,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *Delete_)(ISWbemObjectEx *This,__LONG32 iFlags,IDispatch *objWbemNamedValueSet);
+      HRESULT (WINAPI *DeleteAsync_)(ISWbemObjectEx *This,IDispatch *objWbemSink,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *Instances_)(ISWbemObjectEx *This,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *InstancesAsync_)(ISWbemObjectEx *This,IDispatch *objWbemSink,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *Subclasses_)(ISWbemObjectEx *This,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *SubclassesAsync_)(ISWbemObjectEx *This,IDispatch *objWbemSink,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *Associators_)(ISWbemObjectEx *This,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *AssociatorsAsync_)(ISWbemObjectEx *This,IDispatch *objWbemSink,BSTR strAssocClass,BSTR strResultClass,BSTR strResultRole,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredAssocQualifier,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *References_)(ISWbemObjectEx *This,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObjectSet **objWbemObjectSet);
+      HRESULT (WINAPI *ReferencesAsync_)(ISWbemObjectEx *This,IDispatch *objWbemSink,BSTR strResultClass,BSTR strRole,VARIANT_BOOL bClassesOnly,VARIANT_BOOL bSchemaOnly,BSTR strRequiredQualifier,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
+      HRESULT (WINAPI *ExecMethod_)(ISWbemObjectEx *This,BSTR strMethodName,IDispatch *objWbemInParameters,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemObject **objWbemOutParameters);
+      HRESULT (WINAPI *ExecMethodAsync_)(ISWbemObjectEx *This,IDispatch *objWbemSink,BSTR strMethodName,IDispatch *objWbemInParameters,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,IDispatch *objWbemAsyncContext);
       HRESULT (WINAPI *Clone_)(ISWbemObjectEx *This,ISWbemObject **objWbemObject);
-      HRESULT (WINAPI *GetObjectText_)(ISWbemObjectEx *This,long iFlags,BSTR *strObjectText);
-      HRESULT (WINAPI *SpawnDerivedClass_)(ISWbemObjectEx *This,long iFlags,ISWbemObject **objWbemObject);
-      HRESULT (WINAPI *SpawnInstance_)(ISWbemObjectEx *This,long iFlags,ISWbemObject **objWbemObject);
-      HRESULT (WINAPI *CompareTo_)(ISWbemObjectEx *This,IDispatch *objWbemObject,long iFlags,VARIANT_BOOL *bResult);
+      HRESULT (WINAPI *GetObjectText_)(ISWbemObjectEx *This,__LONG32 iFlags,BSTR *strObjectText);
+      HRESULT (WINAPI *SpawnDerivedClass_)(ISWbemObjectEx *This,__LONG32 iFlags,ISWbemObject **objWbemObject);
+      HRESULT (WINAPI *SpawnInstance_)(ISWbemObjectEx *This,__LONG32 iFlags,ISWbemObject **objWbemObject);
+      HRESULT (WINAPI *CompareTo_)(ISWbemObjectEx *This,IDispatch *objWbemObject,__LONG32 iFlags,VARIANT_BOOL *bResult);
       HRESULT (WINAPI *get_Qualifiers_)(ISWbemObjectEx *This,ISWbemQualifierSet **objWbemQualifierSet);
       HRESULT (WINAPI *get_Properties_)(ISWbemObjectEx *This,ISWbemPropertySet **objWbemPropertySet);
       HRESULT (WINAPI *get_Methods_)(ISWbemObjectEx *This,ISWbemMethodSet **objWbemMethodSet);
       HRESULT (WINAPI *get_Derivation_)(ISWbemObjectEx *This,VARIANT *strClassNameArray);
       HRESULT (WINAPI *get_Path_)(ISWbemObjectEx *This,ISWbemObjectPath **objWbemObjectPath);
       HRESULT (WINAPI *get_Security_)(ISWbemObjectEx *This,ISWbemSecurity **objWbemSecurity);
-      HRESULT (WINAPI *Refresh_)(ISWbemObjectEx *This,long iFlags,IDispatch *objWbemNamedValueSet);
+      HRESULT (WINAPI *Refresh_)(ISWbemObjectEx *This,__LONG32 iFlags,IDispatch *objWbemNamedValueSet);
       HRESULT (WINAPI *get_SystemProperties_)(ISWbemObjectEx *This,ISWbemPropertySet **objWbemPropertySet);
-      HRESULT (WINAPI *GetText_)(ISWbemObjectEx *This,WbemObjectTextFormatEnum iObjectTextFormat,long iFlags,IDispatch *objWbemNamedValueSet,BSTR *bsText);
-      HRESULT (WINAPI *SetFromText_)(ISWbemObjectEx *This,BSTR bsText,WbemObjectTextFormatEnum iObjectTextFormat,long iFlags,IDispatch *objWbemNamedValueSet);
+      HRESULT (WINAPI *GetText_)(ISWbemObjectEx *This,WbemObjectTextFormatEnum iObjectTextFormat,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,BSTR *bsText);
+      HRESULT (WINAPI *SetFromText_)(ISWbemObjectEx *This,BSTR bsText,WbemObjectTextFormatEnum iObjectTextFormat,__LONG32 iFlags,IDispatch *objWbemNamedValueSet);
     END_INTERFACE
   } ISWbemObjectExVtbl;
   struct ISWbemObjectEx {
@@ -2214,13 +2214,13 @@ extern "C" {
 #define ISWbemObjectEx_SetFromText_(This,bsText,iObjectTextFormat,iFlags,objWbemNamedValueSet) (This)->lpVtbl->SetFromText_(This,bsText,iObjectTextFormat,iFlags,objWbemNamedValueSet)
 #endif
 #endif
-  HRESULT WINAPI ISWbemObjectEx_Refresh__Proxy(ISWbemObjectEx *This,long iFlags,IDispatch *objWbemNamedValueSet);
+  HRESULT WINAPI ISWbemObjectEx_Refresh__Proxy(ISWbemObjectEx *This,__LONG32 iFlags,IDispatch *objWbemNamedValueSet);
   void __RPC_STUB ISWbemObjectEx_Refresh__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemObjectEx_get_SystemProperties__Proxy(ISWbemObjectEx *This,ISWbemPropertySet **objWbemPropertySet);
   void __RPC_STUB ISWbemObjectEx_get_SystemProperties__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemObjectEx_GetText__Proxy(ISWbemObjectEx *This,WbemObjectTextFormatEnum iObjectTextFormat,long iFlags,IDispatch *objWbemNamedValueSet,BSTR *bsText);
+  HRESULT WINAPI ISWbemObjectEx_GetText__Proxy(ISWbemObjectEx *This,WbemObjectTextFormatEnum iObjectTextFormat,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,BSTR *bsText);
   void __RPC_STUB ISWbemObjectEx_GetText__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemObjectEx_SetFromText__Proxy(ISWbemObjectEx *This,BSTR bsText,WbemObjectTextFormatEnum iObjectTextFormat,long iFlags,IDispatch *objWbemNamedValueSet);
+  HRESULT WINAPI ISWbemObjectEx_SetFromText__Proxy(ISWbemObjectEx *This,BSTR bsText,WbemObjectTextFormatEnum iObjectTextFormat,__LONG32 iFlags,IDispatch *objWbemNamedValueSet);
   void __RPC_STUB ISWbemObjectEx_SetFromText__Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -2232,36 +2232,36 @@ extern "C" {
   public:
     virtual HRESULT WINAPI get_Value(BSTR *strValue) = 0;
     virtual HRESULT WINAPI put_Value(BSTR strValue) = 0;
-    virtual HRESULT WINAPI get_Year(long *iYear) = 0;
-    virtual HRESULT WINAPI put_Year(long iYear) = 0;
+    virtual HRESULT WINAPI get_Year(__LONG32 *iYear) = 0;
+    virtual HRESULT WINAPI put_Year(__LONG32 iYear) = 0;
     virtual HRESULT WINAPI get_YearSpecified(VARIANT_BOOL *bYearSpecified) = 0;
     virtual HRESULT WINAPI put_YearSpecified(VARIANT_BOOL bYearSpecified) = 0;
-    virtual HRESULT WINAPI get_Month(long *iMonth) = 0;
-    virtual HRESULT WINAPI put_Month(long iMonth) = 0;
+    virtual HRESULT WINAPI get_Month(__LONG32 *iMonth) = 0;
+    virtual HRESULT WINAPI put_Month(__LONG32 iMonth) = 0;
     virtual HRESULT WINAPI get_MonthSpecified(VARIANT_BOOL *bMonthSpecified) = 0;
     virtual HRESULT WINAPI put_MonthSpecified(VARIANT_BOOL bMonthSpecified) = 0;
-    virtual HRESULT WINAPI get_Day(long *iDay) = 0;
-    virtual HRESULT WINAPI put_Day(long iDay) = 0;
+    virtual HRESULT WINAPI get_Day(__LONG32 *iDay) = 0;
+    virtual HRESULT WINAPI put_Day(__LONG32 iDay) = 0;
     virtual HRESULT WINAPI get_DaySpecified(VARIANT_BOOL *bDaySpecified) = 0;
     virtual HRESULT WINAPI put_DaySpecified(VARIANT_BOOL bDaySpecified) = 0;
-    virtual HRESULT WINAPI get_Hours(long *iHours) = 0;
-    virtual HRESULT WINAPI put_Hours(long iHours) = 0;
+    virtual HRESULT WINAPI get_Hours(__LONG32 *iHours) = 0;
+    virtual HRESULT WINAPI put_Hours(__LONG32 iHours) = 0;
     virtual HRESULT WINAPI get_HoursSpecified(VARIANT_BOOL *bHoursSpecified) = 0;
     virtual HRESULT WINAPI put_HoursSpecified(VARIANT_BOOL bHoursSpecified) = 0;
-    virtual HRESULT WINAPI get_Minutes(long *iMinutes) = 0;
-    virtual HRESULT WINAPI put_Minutes(long iMinutes) = 0;
+    virtual HRESULT WINAPI get_Minutes(__LONG32 *iMinutes) = 0;
+    virtual HRESULT WINAPI put_Minutes(__LONG32 iMinutes) = 0;
     virtual HRESULT WINAPI get_MinutesSpecified(VARIANT_BOOL *bMinutesSpecified) = 0;
     virtual HRESULT WINAPI put_MinutesSpecified(VARIANT_BOOL bMinutesSpecified) = 0;
-    virtual HRESULT WINAPI get_Seconds(long *iSeconds) = 0;
-    virtual HRESULT WINAPI put_Seconds(long iSeconds) = 0;
+    virtual HRESULT WINAPI get_Seconds(__LONG32 *iSeconds) = 0;
+    virtual HRESULT WINAPI put_Seconds(__LONG32 iSeconds) = 0;
     virtual HRESULT WINAPI get_SecondsSpecified(VARIANT_BOOL *bSecondsSpecified) = 0;
     virtual HRESULT WINAPI put_SecondsSpecified(VARIANT_BOOL bSecondsSpecified) = 0;
-    virtual HRESULT WINAPI get_Microseconds(long *iMicroseconds) = 0;
-    virtual HRESULT WINAPI put_Microseconds(long iMicroseconds) = 0;
+    virtual HRESULT WINAPI get_Microseconds(__LONG32 *iMicroseconds) = 0;
+    virtual HRESULT WINAPI put_Microseconds(__LONG32 iMicroseconds) = 0;
     virtual HRESULT WINAPI get_MicrosecondsSpecified(VARIANT_BOOL *bMicrosecondsSpecified) = 0;
     virtual HRESULT WINAPI put_MicrosecondsSpecified(VARIANT_BOOL bMicrosecondsSpecified) = 0;
-    virtual HRESULT WINAPI get_UTC(long *iUTC) = 0;
-    virtual HRESULT WINAPI put_UTC(long iUTC) = 0;
+    virtual HRESULT WINAPI get_UTC(__LONG32 *iUTC) = 0;
+    virtual HRESULT WINAPI put_UTC(__LONG32 iUTC) = 0;
     virtual HRESULT WINAPI get_UTCSpecified(VARIANT_BOOL *bUTCSpecified) = 0;
     virtual HRESULT WINAPI put_UTCSpecified(VARIANT_BOOL bUTCSpecified) = 0;
     virtual HRESULT WINAPI get_IsInterval(VARIANT_BOOL *bIsInterval) = 0;
@@ -2283,36 +2283,36 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(ISWbemDateTime *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_Value)(ISWbemDateTime *This,BSTR *strValue);
       HRESULT (WINAPI *put_Value)(ISWbemDateTime *This,BSTR strValue);
-      HRESULT (WINAPI *get_Year)(ISWbemDateTime *This,long *iYear);
-      HRESULT (WINAPI *put_Year)(ISWbemDateTime *This,long iYear);
+      HRESULT (WINAPI *get_Year)(ISWbemDateTime *This,__LONG32 *iYear);
+      HRESULT (WINAPI *put_Year)(ISWbemDateTime *This,__LONG32 iYear);
       HRESULT (WINAPI *get_YearSpecified)(ISWbemDateTime *This,VARIANT_BOOL *bYearSpecified);
       HRESULT (WINAPI *put_YearSpecified)(ISWbemDateTime *This,VARIANT_BOOL bYearSpecified);
-      HRESULT (WINAPI *get_Month)(ISWbemDateTime *This,long *iMonth);
-      HRESULT (WINAPI *put_Month)(ISWbemDateTime *This,long iMonth);
+      HRESULT (WINAPI *get_Month)(ISWbemDateTime *This,__LONG32 *iMonth);
+      HRESULT (WINAPI *put_Month)(ISWbemDateTime *This,__LONG32 iMonth);
       HRESULT (WINAPI *get_MonthSpecified)(ISWbemDateTime *This,VARIANT_BOOL *bMonthSpecified);
       HRESULT (WINAPI *put_MonthSpecified)(ISWbemDateTime *This,VARIANT_BOOL bMonthSpecified);
-      HRESULT (WINAPI *get_Day)(ISWbemDateTime *This,long *iDay);
-      HRESULT (WINAPI *put_Day)(ISWbemDateTime *This,long iDay);
+      HRESULT (WINAPI *get_Day)(ISWbemDateTime *This,__LONG32 *iDay);
+      HRESULT (WINAPI *put_Day)(ISWbemDateTime *This,__LONG32 iDay);
       HRESULT (WINAPI *get_DaySpecified)(ISWbemDateTime *This,VARIANT_BOOL *bDaySpecified);
       HRESULT (WINAPI *put_DaySpecified)(ISWbemDateTime *This,VARIANT_BOOL bDaySpecified);
-      HRESULT (WINAPI *get_Hours)(ISWbemDateTime *This,long *iHours);
-      HRESULT (WINAPI *put_Hours)(ISWbemDateTime *This,long iHours);
+      HRESULT (WINAPI *get_Hours)(ISWbemDateTime *This,__LONG32 *iHours);
+      HRESULT (WINAPI *put_Hours)(ISWbemDateTime *This,__LONG32 iHours);
       HRESULT (WINAPI *get_HoursSpecified)(ISWbemDateTime *This,VARIANT_BOOL *bHoursSpecified);
       HRESULT (WINAPI *put_HoursSpecified)(ISWbemDateTime *This,VARIANT_BOOL bHoursSpecified);
-      HRESULT (WINAPI *get_Minutes)(ISWbemDateTime *This,long *iMinutes);
-      HRESULT (WINAPI *put_Minutes)(ISWbemDateTime *This,long iMinutes);
+      HRESULT (WINAPI *get_Minutes)(ISWbemDateTime *This,__LONG32 *iMinutes);
+      HRESULT (WINAPI *put_Minutes)(ISWbemDateTime *This,__LONG32 iMinutes);
       HRESULT (WINAPI *get_MinutesSpecified)(ISWbemDateTime *This,VARIANT_BOOL *bMinutesSpecified);
       HRESULT (WINAPI *put_MinutesSpecified)(ISWbemDateTime *This,VARIANT_BOOL bMinutesSpecified);
-      HRESULT (WINAPI *get_Seconds)(ISWbemDateTime *This,long *iSeconds);
-      HRESULT (WINAPI *put_Seconds)(ISWbemDateTime *This,long iSeconds);
+      HRESULT (WINAPI *get_Seconds)(ISWbemDateTime *This,__LONG32 *iSeconds);
+      HRESULT (WINAPI *put_Seconds)(ISWbemDateTime *This,__LONG32 iSeconds);
       HRESULT (WINAPI *get_SecondsSpecified)(ISWbemDateTime *This,VARIANT_BOOL *bSecondsSpecified);
       HRESULT (WINAPI *put_SecondsSpecified)(ISWbemDateTime *This,VARIANT_BOOL bSecondsSpecified);
-      HRESULT (WINAPI *get_Microseconds)(ISWbemDateTime *This,long *iMicroseconds);
-      HRESULT (WINAPI *put_Microseconds)(ISWbemDateTime *This,long iMicroseconds);
+      HRESULT (WINAPI *get_Microseconds)(ISWbemDateTime *This,__LONG32 *iMicroseconds);
+      HRESULT (WINAPI *put_Microseconds)(ISWbemDateTime *This,__LONG32 iMicroseconds);
       HRESULT (WINAPI *get_MicrosecondsSpecified)(ISWbemDateTime *This,VARIANT_BOOL *bMicrosecondsSpecified);
       HRESULT (WINAPI *put_MicrosecondsSpecified)(ISWbemDateTime *This,VARIANT_BOOL bMicrosecondsSpecified);
-      HRESULT (WINAPI *get_UTC)(ISWbemDateTime *This,long *iUTC);
-      HRESULT (WINAPI *put_UTC)(ISWbemDateTime *This,long iUTC);
+      HRESULT (WINAPI *get_UTC)(ISWbemDateTime *This,__LONG32 *iUTC);
+      HRESULT (WINAPI *put_UTC)(ISWbemDateTime *This,__LONG32 iUTC);
       HRESULT (WINAPI *get_UTCSpecified)(ISWbemDateTime *This,VARIANT_BOOL *bUTCSpecified);
       HRESULT (WINAPI *put_UTCSpecified)(ISWbemDateTime *This,VARIANT_BOOL bUTCSpecified);
       HRESULT (WINAPI *get_IsInterval)(ISWbemDateTime *This,VARIANT_BOOL *bIsInterval);
@@ -2380,65 +2380,65 @@ extern "C" {
   void __RPC_STUB ISWbemDateTime_get_Value_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemDateTime_put_Value_Proxy(ISWbemDateTime *This,BSTR strValue);
   void __RPC_STUB ISWbemDateTime_put_Value_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemDateTime_get_Year_Proxy(ISWbemDateTime *This,long *iYear);
+  HRESULT WINAPI ISWbemDateTime_get_Year_Proxy(ISWbemDateTime *This,__LONG32 *iYear);
   void __RPC_STUB ISWbemDateTime_get_Year_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemDateTime_put_Year_Proxy(ISWbemDateTime *This,long iYear);
+  HRESULT WINAPI ISWbemDateTime_put_Year_Proxy(ISWbemDateTime *This,__LONG32 iYear);
   void __RPC_STUB ISWbemDateTime_put_Year_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemDateTime_get_YearSpecified_Proxy(ISWbemDateTime *This,VARIANT_BOOL *bYearSpecified);
   void __RPC_STUB ISWbemDateTime_get_YearSpecified_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemDateTime_put_YearSpecified_Proxy(ISWbemDateTime *This,VARIANT_BOOL bYearSpecified);
   void __RPC_STUB ISWbemDateTime_put_YearSpecified_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemDateTime_get_Month_Proxy(ISWbemDateTime *This,long *iMonth);
+  HRESULT WINAPI ISWbemDateTime_get_Month_Proxy(ISWbemDateTime *This,__LONG32 *iMonth);
   void __RPC_STUB ISWbemDateTime_get_Month_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemDateTime_put_Month_Proxy(ISWbemDateTime *This,long iMonth);
+  HRESULT WINAPI ISWbemDateTime_put_Month_Proxy(ISWbemDateTime *This,__LONG32 iMonth);
   void __RPC_STUB ISWbemDateTime_put_Month_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemDateTime_get_MonthSpecified_Proxy(ISWbemDateTime *This,VARIANT_BOOL *bMonthSpecified);
   void __RPC_STUB ISWbemDateTime_get_MonthSpecified_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemDateTime_put_MonthSpecified_Proxy(ISWbemDateTime *This,VARIANT_BOOL bMonthSpecified);
   void __RPC_STUB ISWbemDateTime_put_MonthSpecified_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemDateTime_get_Day_Proxy(ISWbemDateTime *This,long *iDay);
+  HRESULT WINAPI ISWbemDateTime_get_Day_Proxy(ISWbemDateTime *This,__LONG32 *iDay);
   void __RPC_STUB ISWbemDateTime_get_Day_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemDateTime_put_Day_Proxy(ISWbemDateTime *This,long iDay);
+  HRESULT WINAPI ISWbemDateTime_put_Day_Proxy(ISWbemDateTime *This,__LONG32 iDay);
   void __RPC_STUB ISWbemDateTime_put_Day_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemDateTime_get_DaySpecified_Proxy(ISWbemDateTime *This,VARIANT_BOOL *bDaySpecified);
   void __RPC_STUB ISWbemDateTime_get_DaySpecified_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemDateTime_put_DaySpecified_Proxy(ISWbemDateTime *This,VARIANT_BOOL bDaySpecified);
   void __RPC_STUB ISWbemDateTime_put_DaySpecified_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemDateTime_get_Hours_Proxy(ISWbemDateTime *This,long *iHours);
+  HRESULT WINAPI ISWbemDateTime_get_Hours_Proxy(ISWbemDateTime *This,__LONG32 *iHours);
   void __RPC_STUB ISWbemDateTime_get_Hours_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemDateTime_put_Hours_Proxy(ISWbemDateTime *This,long iHours);
+  HRESULT WINAPI ISWbemDateTime_put_Hours_Proxy(ISWbemDateTime *This,__LONG32 iHours);
   void __RPC_STUB ISWbemDateTime_put_Hours_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemDateTime_get_HoursSpecified_Proxy(ISWbemDateTime *This,VARIANT_BOOL *bHoursSpecified);
   void __RPC_STUB ISWbemDateTime_get_HoursSpecified_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemDateTime_put_HoursSpecified_Proxy(ISWbemDateTime *This,VARIANT_BOOL bHoursSpecified);
   void __RPC_STUB ISWbemDateTime_put_HoursSpecified_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemDateTime_get_Minutes_Proxy(ISWbemDateTime *This,long *iMinutes);
+  HRESULT WINAPI ISWbemDateTime_get_Minutes_Proxy(ISWbemDateTime *This,__LONG32 *iMinutes);
   void __RPC_STUB ISWbemDateTime_get_Minutes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemDateTime_put_Minutes_Proxy(ISWbemDateTime *This,long iMinutes);
+  HRESULT WINAPI ISWbemDateTime_put_Minutes_Proxy(ISWbemDateTime *This,__LONG32 iMinutes);
   void __RPC_STUB ISWbemDateTime_put_Minutes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemDateTime_get_MinutesSpecified_Proxy(ISWbemDateTime *This,VARIANT_BOOL *bMinutesSpecified);
   void __RPC_STUB ISWbemDateTime_get_MinutesSpecified_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemDateTime_put_MinutesSpecified_Proxy(ISWbemDateTime *This,VARIANT_BOOL bMinutesSpecified);
   void __RPC_STUB ISWbemDateTime_put_MinutesSpecified_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemDateTime_get_Seconds_Proxy(ISWbemDateTime *This,long *iSeconds);
+  HRESULT WINAPI ISWbemDateTime_get_Seconds_Proxy(ISWbemDateTime *This,__LONG32 *iSeconds);
   void __RPC_STUB ISWbemDateTime_get_Seconds_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemDateTime_put_Seconds_Proxy(ISWbemDateTime *This,long iSeconds);
+  HRESULT WINAPI ISWbemDateTime_put_Seconds_Proxy(ISWbemDateTime *This,__LONG32 iSeconds);
   void __RPC_STUB ISWbemDateTime_put_Seconds_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemDateTime_get_SecondsSpecified_Proxy(ISWbemDateTime *This,VARIANT_BOOL *bSecondsSpecified);
   void __RPC_STUB ISWbemDateTime_get_SecondsSpecified_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemDateTime_put_SecondsSpecified_Proxy(ISWbemDateTime *This,VARIANT_BOOL bSecondsSpecified);
   void __RPC_STUB ISWbemDateTime_put_SecondsSpecified_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemDateTime_get_Microseconds_Proxy(ISWbemDateTime *This,long *iMicroseconds);
+  HRESULT WINAPI ISWbemDateTime_get_Microseconds_Proxy(ISWbemDateTime *This,__LONG32 *iMicroseconds);
   void __RPC_STUB ISWbemDateTime_get_Microseconds_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemDateTime_put_Microseconds_Proxy(ISWbemDateTime *This,long iMicroseconds);
+  HRESULT WINAPI ISWbemDateTime_put_Microseconds_Proxy(ISWbemDateTime *This,__LONG32 iMicroseconds);
   void __RPC_STUB ISWbemDateTime_put_Microseconds_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemDateTime_get_MicrosecondsSpecified_Proxy(ISWbemDateTime *This,VARIANT_BOOL *bMicrosecondsSpecified);
   void __RPC_STUB ISWbemDateTime_get_MicrosecondsSpecified_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemDateTime_put_MicrosecondsSpecified_Proxy(ISWbemDateTime *This,VARIANT_BOOL bMicrosecondsSpecified);
   void __RPC_STUB ISWbemDateTime_put_MicrosecondsSpecified_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemDateTime_get_UTC_Proxy(ISWbemDateTime *This,long *iUTC);
+  HRESULT WINAPI ISWbemDateTime_get_UTC_Proxy(ISWbemDateTime *This,__LONG32 *iUTC);
   void __RPC_STUB ISWbemDateTime_get_UTC_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemDateTime_put_UTC_Proxy(ISWbemDateTime *This,long iUTC);
+  HRESULT WINAPI ISWbemDateTime_put_UTC_Proxy(ISWbemDateTime *This,__LONG32 iUTC);
   void __RPC_STUB ISWbemDateTime_put_UTC_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemDateTime_get_UTCSpecified_Proxy(ISWbemDateTime *This,VARIANT_BOOL *bUTCSpecified);
   void __RPC_STUB ISWbemDateTime_get_UTCSpecified_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2465,12 +2465,12 @@ extern "C" {
   struct ISWbemRefresher : public IDispatch {
   public:
     virtual HRESULT WINAPI get__NewEnum(IUnknown **pUnk) = 0;
-    virtual HRESULT WINAPI Item(long iIndex,ISWbemRefreshableItem **objWbemRefreshableItem) = 0;
-    virtual HRESULT WINAPI get_Count(long *iCount) = 0;
-    virtual HRESULT WINAPI Add(ISWbemServicesEx *objWbemServices,BSTR bsInstancePath,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemRefreshableItem **objWbemRefreshableItem) = 0;
-    virtual HRESULT WINAPI AddEnum(ISWbemServicesEx *objWbemServices,BSTR bsClassName,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemRefreshableItem **objWbemRefreshableItem) = 0;
-    virtual HRESULT WINAPI Remove(long iIndex,long iFlags = 0) = 0;
-    virtual HRESULT WINAPI Refresh(long iFlags = 0) = 0;
+    virtual HRESULT WINAPI Item(__LONG32 iIndex,ISWbemRefreshableItem **objWbemRefreshableItem) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *iCount) = 0;
+    virtual HRESULT WINAPI Add(ISWbemServicesEx *objWbemServices,BSTR bsInstancePath,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemRefreshableItem **objWbemRefreshableItem) = 0;
+    virtual HRESULT WINAPI AddEnum(ISWbemServicesEx *objWbemServices,BSTR bsClassName,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemRefreshableItem **objWbemRefreshableItem) = 0;
+    virtual HRESULT WINAPI Remove(__LONG32 iIndex,__LONG32 iFlags = 0) = 0;
+    virtual HRESULT WINAPI Refresh(__LONG32 iFlags = 0) = 0;
     virtual HRESULT WINAPI get_AutoReconnect(VARIANT_BOOL *bCount) = 0;
     virtual HRESULT WINAPI put_AutoReconnect(VARIANT_BOOL bCount) = 0;
     virtual HRESULT WINAPI DeleteAll(void) = 0;
@@ -2486,12 +2486,12 @@ extern "C" {
       HRESULT (WINAPI *GetIDsOfNames)(ISWbemRefresher *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ISWbemRefresher *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get__NewEnum)(ISWbemRefresher *This,IUnknown **pUnk);
-      HRESULT (WINAPI *Item)(ISWbemRefresher *This,long iIndex,ISWbemRefreshableItem **objWbemRefreshableItem);
-      HRESULT (WINAPI *get_Count)(ISWbemRefresher *This,long *iCount);
-      HRESULT (WINAPI *Add)(ISWbemRefresher *This,ISWbemServicesEx *objWbemServices,BSTR bsInstancePath,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemRefreshableItem **objWbemRefreshableItem);
-      HRESULT (WINAPI *AddEnum)(ISWbemRefresher *This,ISWbemServicesEx *objWbemServices,BSTR bsClassName,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemRefreshableItem **objWbemRefreshableItem);
-      HRESULT (WINAPI *Remove)(ISWbemRefresher *This,long iIndex,long iFlags);
-      HRESULT (WINAPI *Refresh)(ISWbemRefresher *This,long iFlags);
+      HRESULT (WINAPI *Item)(ISWbemRefresher *This,__LONG32 iIndex,ISWbemRefreshableItem **objWbemRefreshableItem);
+      HRESULT (WINAPI *get_Count)(ISWbemRefresher *This,__LONG32 *iCount);
+      HRESULT (WINAPI *Add)(ISWbemRefresher *This,ISWbemServicesEx *objWbemServices,BSTR bsInstancePath,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemRefreshableItem **objWbemRefreshableItem);
+      HRESULT (WINAPI *AddEnum)(ISWbemRefresher *This,ISWbemServicesEx *objWbemServices,BSTR bsClassName,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemRefreshableItem **objWbemRefreshableItem);
+      HRESULT (WINAPI *Remove)(ISWbemRefresher *This,__LONG32 iIndex,__LONG32 iFlags);
+      HRESULT (WINAPI *Refresh)(ISWbemRefresher *This,__LONG32 iFlags);
       HRESULT (WINAPI *get_AutoReconnect)(ISWbemRefresher *This,VARIANT_BOOL *bCount);
       HRESULT (WINAPI *put_AutoReconnect)(ISWbemRefresher *This,VARIANT_BOOL bCount);
       HRESULT (WINAPI *DeleteAll)(ISWbemRefresher *This);
@@ -2522,17 +2522,17 @@ extern "C" {
 #endif
   HRESULT WINAPI ISWbemRefresher_get__NewEnum_Proxy(ISWbemRefresher *This,IUnknown **pUnk);
   void __RPC_STUB ISWbemRefresher_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemRefresher_Item_Proxy(ISWbemRefresher *This,long iIndex,ISWbemRefreshableItem **objWbemRefreshableItem);
+  HRESULT WINAPI ISWbemRefresher_Item_Proxy(ISWbemRefresher *This,__LONG32 iIndex,ISWbemRefreshableItem **objWbemRefreshableItem);
   void __RPC_STUB ISWbemRefresher_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemRefresher_get_Count_Proxy(ISWbemRefresher *This,long *iCount);
+  HRESULT WINAPI ISWbemRefresher_get_Count_Proxy(ISWbemRefresher *This,__LONG32 *iCount);
   void __RPC_STUB ISWbemRefresher_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemRefresher_Add_Proxy(ISWbemRefresher *This,ISWbemServicesEx *objWbemServices,BSTR bsInstancePath,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemRefreshableItem **objWbemRefreshableItem);
+  HRESULT WINAPI ISWbemRefresher_Add_Proxy(ISWbemRefresher *This,ISWbemServicesEx *objWbemServices,BSTR bsInstancePath,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemRefreshableItem **objWbemRefreshableItem);
   void __RPC_STUB ISWbemRefresher_Add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemRefresher_AddEnum_Proxy(ISWbemRefresher *This,ISWbemServicesEx *objWbemServices,BSTR bsClassName,long iFlags,IDispatch *objWbemNamedValueSet,ISWbemRefreshableItem **objWbemRefreshableItem);
+  HRESULT WINAPI ISWbemRefresher_AddEnum_Proxy(ISWbemRefresher *This,ISWbemServicesEx *objWbemServices,BSTR bsClassName,__LONG32 iFlags,IDispatch *objWbemNamedValueSet,ISWbemRefreshableItem **objWbemRefreshableItem);
   void __RPC_STUB ISWbemRefresher_AddEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemRefresher_Remove_Proxy(ISWbemRefresher *This,long iIndex,long iFlags);
+  HRESULT WINAPI ISWbemRefresher_Remove_Proxy(ISWbemRefresher *This,__LONG32 iIndex,__LONG32 iFlags);
   void __RPC_STUB ISWbemRefresher_Remove_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemRefresher_Refresh_Proxy(ISWbemRefresher *This,long iFlags);
+  HRESULT WINAPI ISWbemRefresher_Refresh_Proxy(ISWbemRefresher *This,__LONG32 iFlags);
   void __RPC_STUB ISWbemRefresher_Refresh_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemRefresher_get_AutoReconnect_Proxy(ISWbemRefresher *This,VARIANT_BOOL *bCount);
   void __RPC_STUB ISWbemRefresher_get_AutoReconnect_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2548,12 +2548,12 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ISWbemRefreshableItem : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Index(long *iIndex) = 0;
+    virtual HRESULT WINAPI get_Index(__LONG32 *iIndex) = 0;
     virtual HRESULT WINAPI get_Refresher(ISWbemRefresher **objWbemRefresher) = 0;
     virtual HRESULT WINAPI get_IsSet(VARIANT_BOOL *bIsSet) = 0;
     virtual HRESULT WINAPI get_Object(ISWbemObjectEx **objWbemObject) = 0;
     virtual HRESULT WINAPI get_ObjectSet(ISWbemObjectSet **objWbemObjectSet) = 0;
-    virtual HRESULT WINAPI Remove(long iFlags = 0) = 0;
+    virtual HRESULT WINAPI Remove(__LONG32 iFlags = 0) = 0;
   };
 #else
   typedef struct ISWbemRefreshableItemVtbl {
@@ -2565,12 +2565,12 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ISWbemRefreshableItem *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ISWbemRefreshableItem *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ISWbemRefreshableItem *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Index)(ISWbemRefreshableItem *This,long *iIndex);
+      HRESULT (WINAPI *get_Index)(ISWbemRefreshableItem *This,__LONG32 *iIndex);
       HRESULT (WINAPI *get_Refresher)(ISWbemRefreshableItem *This,ISWbemRefresher **objWbemRefresher);
       HRESULT (WINAPI *get_IsSet)(ISWbemRefreshableItem *This,VARIANT_BOOL *bIsSet);
       HRESULT (WINAPI *get_Object)(ISWbemRefreshableItem *This,ISWbemObjectEx **objWbemObject);
       HRESULT (WINAPI *get_ObjectSet)(ISWbemRefreshableItem *This,ISWbemObjectSet **objWbemObjectSet);
-      HRESULT (WINAPI *Remove)(ISWbemRefreshableItem *This,long iFlags);
+      HRESULT (WINAPI *Remove)(ISWbemRefreshableItem *This,__LONG32 iFlags);
     END_INTERFACE
   } ISWbemRefreshableItemVtbl;
   struct ISWbemRefreshableItem {
@@ -2592,7 +2592,7 @@ extern "C" {
 #define ISWbemRefreshableItem_Remove(This,iFlags) (This)->lpVtbl->Remove(This,iFlags)
 #endif
 #endif
-  HRESULT WINAPI ISWbemRefreshableItem_get_Index_Proxy(ISWbemRefreshableItem *This,long *iIndex);
+  HRESULT WINAPI ISWbemRefreshableItem_get_Index_Proxy(ISWbemRefreshableItem *This,__LONG32 *iIndex);
   void __RPC_STUB ISWbemRefreshableItem_get_Index_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemRefreshableItem_get_Refresher_Proxy(ISWbemRefreshableItem *This,ISWbemRefresher **objWbemRefresher);
   void __RPC_STUB ISWbemRefreshableItem_get_Refresher_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2602,7 +2602,7 @@ extern "C" {
   void __RPC_STUB ISWbemRefreshableItem_get_Object_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemRefreshableItem_get_ObjectSet_Proxy(ISWbemRefreshableItem *This,ISWbemObjectSet **objWbemObjectSet);
   void __RPC_STUB ISWbemRefreshableItem_get_ObjectSet_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemRefreshableItem_Remove_Proxy(ISWbemRefreshableItem *This,long iFlags);
+  HRESULT WINAPI ISWbemRefreshableItem_Remove_Proxy(ISWbemRefreshableItem *This,__LONG32 iFlags);
   void __RPC_STUB ISWbemRefreshableItem_Remove_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 

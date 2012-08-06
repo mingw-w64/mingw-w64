@@ -14,7 +14,7 @@ extern "C" {
 
 #ifndef BASETYPES
 #define BASETYPES
-  typedef unsigned long ULONG;
+  typedef unsigned __LONG32 ULONG;
   typedef ULONG *PULONG;
   typedef unsigned short USHORT;
   typedef USHORT *PUSHORT;

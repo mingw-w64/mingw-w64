@@ -114,7 +114,7 @@ extern "C" {
     virtual HRESULT WINAPI RemoveAllKeys(ULONG uFlags) = 0;
     virtual HRESULT WINAPI MakeSingleton(boolean bSet) = 0;
     virtual HRESULT WINAPI GetInfo(ULONG uRequestedInfo,ULONGLONG *puResponse) = 0;
-    virtual HRESULT WINAPI GetText(long lFlags,ULONG *puBuffLength,LPWSTR pszText) = 0;
+    virtual HRESULT WINAPI GetText(__LONG32 lFlags,ULONG *puBuffLength,LPWSTR pszText) = 0;
   };
 #else
   typedef struct IWbemPathKeyListVtbl {
@@ -131,7 +131,7 @@ extern "C" {
       HRESULT (WINAPI *RemoveAllKeys)(IWbemPathKeyList *This,ULONG uFlags);
       HRESULT (WINAPI *MakeSingleton)(IWbemPathKeyList *This,boolean bSet);
       HRESULT (WINAPI *GetInfo)(IWbemPathKeyList *This,ULONG uRequestedInfo,ULONGLONG *puResponse);
-      HRESULT (WINAPI *GetText)(IWbemPathKeyList *This,long lFlags,ULONG *puBuffLength,LPWSTR pszText);
+      HRESULT (WINAPI *GetText)(IWbemPathKeyList *This,__LONG32 lFlags,ULONG *puBuffLength,LPWSTR pszText);
     END_INTERFACE
   } IWbemPathKeyListVtbl;
   struct IWbemPathKeyList {
@@ -171,7 +171,7 @@ extern "C" {
   void __RPC_STUB IWbemPathKeyList_MakeSingleton_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IWbemPathKeyList_GetInfo_Proxy(IWbemPathKeyList *This,ULONG uRequestedInfo,ULONGLONG *puResponse);
   void __RPC_STUB IWbemPathKeyList_GetInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWbemPathKeyList_GetText_Proxy(IWbemPathKeyList *This,long lFlags,ULONG *puBuffLength,LPWSTR pszText);
+  HRESULT WINAPI IWbemPathKeyList_GetText_Proxy(IWbemPathKeyList *This,__LONG32 lFlags,ULONG *puBuffLength,LPWSTR pszText);
   void __RPC_STUB IWbemPathKeyList_GetText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -182,7 +182,7 @@ extern "C" {
   struct IWbemPath : public IUnknown {
   public:
     virtual HRESULT WINAPI SetText(ULONG uMode,LPCWSTR pszPath) = 0;
-    virtual HRESULT WINAPI GetText(long lFlags,ULONG *puBuffLength,LPWSTR pszText) = 0;
+    virtual HRESULT WINAPI GetText(__LONG32 lFlags,ULONG *puBuffLength,LPWSTR pszText) = 0;
     virtual HRESULT WINAPI GetInfo(ULONG uRequestedInfo,ULONGLONG *puResponse) = 0;
     virtual HRESULT WINAPI SetServer(LPCWSTR Name) = 0;
     virtual HRESULT WINAPI GetServer(ULONG *puNameBufLength,LPWSTR pName) = 0;
@@ -201,10 +201,10 @@ extern "C" {
     virtual HRESULT WINAPI SetClassName(LPCWSTR Name) = 0;
     virtual HRESULT WINAPI GetClassName(ULONG *puBuffLength,LPWSTR pszName) = 0;
     virtual HRESULT WINAPI GetKeyList(IWbemPathKeyList **pOut) = 0;
-    virtual HRESULT WINAPI CreateClassPart(long lFlags,LPCWSTR Name) = 0;
-    virtual HRESULT WINAPI DeleteClassPart(long lFlags) = 0;
+    virtual HRESULT WINAPI CreateClassPart(__LONG32 lFlags,LPCWSTR Name) = 0;
+    virtual HRESULT WINAPI DeleteClassPart(__LONG32 lFlags) = 0;
     virtual WINBOOL WINAPI IsRelative(LPWSTR wszMachine,LPWSTR wszNamespace) = 0;
-    virtual WINBOOL WINAPI IsRelativeOrChild(LPWSTR wszMachine,LPWSTR wszNamespace,long lFlags) = 0;
+    virtual WINBOOL WINAPI IsRelativeOrChild(LPWSTR wszMachine,LPWSTR wszNamespace,__LONG32 lFlags) = 0;
     virtual WINBOOL WINAPI IsLocal(LPCWSTR wszMachine) = 0;
     virtual WINBOOL WINAPI IsSameClassName(LPCWSTR wszClass) = 0;
   };
@@ -215,7 +215,7 @@ extern "C" {
       ULONG (WINAPI *AddRef)(IWbemPath *This);
       ULONG (WINAPI *Release)(IWbemPath *This);
       HRESULT (WINAPI *SetText)(IWbemPath *This,ULONG uMode,LPCWSTR pszPath);
-      HRESULT (WINAPI *GetText)(IWbemPath *This,long lFlags,ULONG *puBuffLength,LPWSTR pszText);
+      HRESULT (WINAPI *GetText)(IWbemPath *This,__LONG32 lFlags,ULONG *puBuffLength,LPWSTR pszText);
       HRESULT (WINAPI *GetInfo)(IWbemPath *This,ULONG uRequestedInfo,ULONGLONG *puResponse);
       HRESULT (WINAPI *SetServer)(IWbemPath *This,LPCWSTR Name);
       HRESULT (WINAPI *GetServer)(IWbemPath *This,ULONG *puNameBufLength,LPWSTR pName);
@@ -234,10 +234,10 @@ extern "C" {
       HRESULT (WINAPI *SetClassName)(IWbemPath *This,LPCWSTR Name);
       HRESULT (WINAPI *GetClassName)(IWbemPath *This,ULONG *puBuffLength,LPWSTR pszName);
       HRESULT (WINAPI *GetKeyList)(IWbemPath *This,IWbemPathKeyList **pOut);
-      HRESULT (WINAPI *CreateClassPart)(IWbemPath *This,long lFlags,LPCWSTR Name);
-      HRESULT (WINAPI *DeleteClassPart)(IWbemPath *This,long lFlags);
+      HRESULT (WINAPI *CreateClassPart)(IWbemPath *This,__LONG32 lFlags,LPCWSTR Name);
+      HRESULT (WINAPI *DeleteClassPart)(IWbemPath *This,__LONG32 lFlags);
       WINBOOL (WINAPI *IsRelative)(IWbemPath *This,LPWSTR wszMachine,LPWSTR wszNamespace);
-      WINBOOL (WINAPI *IsRelativeOrChild)(IWbemPath *This,LPWSTR wszMachine,LPWSTR wszNamespace,long lFlags);
+      WINBOOL (WINAPI *IsRelativeOrChild)(IWbemPath *This,LPWSTR wszMachine,LPWSTR wszNamespace,__LONG32 lFlags);
       WINBOOL (WINAPI *IsLocal)(IWbemPath *This,LPCWSTR wszMachine);
       WINBOOL (WINAPI *IsSameClassName)(IWbemPath *This,LPCWSTR wszClass);
     END_INTERFACE
@@ -279,7 +279,7 @@ extern "C" {
 #endif
   HRESULT WINAPI IWbemPath_SetText_Proxy(IWbemPath *This,ULONG uMode,LPCWSTR pszPath);
   void __RPC_STUB IWbemPath_SetText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWbemPath_GetText_Proxy(IWbemPath *This,long lFlags,ULONG *puBuffLength,LPWSTR pszText);
+  HRESULT WINAPI IWbemPath_GetText_Proxy(IWbemPath *This,__LONG32 lFlags,ULONG *puBuffLength,LPWSTR pszText);
   void __RPC_STUB IWbemPath_GetText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IWbemPath_GetInfo_Proxy(IWbemPath *This,ULONG uRequestedInfo,ULONGLONG *puResponse);
   void __RPC_STUB IWbemPath_GetInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -317,13 +317,13 @@ extern "C" {
   void __RPC_STUB IWbemPath_GetClassName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IWbemPath_GetKeyList_Proxy(IWbemPath *This,IWbemPathKeyList **pOut);
   void __RPC_STUB IWbemPath_GetKeyList_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWbemPath_CreateClassPart_Proxy(IWbemPath *This,long lFlags,LPCWSTR Name);
+  HRESULT WINAPI IWbemPath_CreateClassPart_Proxy(IWbemPath *This,__LONG32 lFlags,LPCWSTR Name);
   void __RPC_STUB IWbemPath_CreateClassPart_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWbemPath_DeleteClassPart_Proxy(IWbemPath *This,long lFlags);
+  HRESULT WINAPI IWbemPath_DeleteClassPart_Proxy(IWbemPath *This,__LONG32 lFlags);
   void __RPC_STUB IWbemPath_DeleteClassPart_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   WINBOOL WINAPI IWbemPath_IsRelative_Proxy(IWbemPath *This,LPWSTR wszMachine,LPWSTR wszNamespace);
   void __RPC_STUB IWbemPath_IsRelative_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  WINBOOL WINAPI IWbemPath_IsRelativeOrChild_Proxy(IWbemPath *This,LPWSTR wszMachine,LPWSTR wszNamespace,long lFlags);
+  WINBOOL WINAPI IWbemPath_IsRelativeOrChild_Proxy(IWbemPath *This,LPWSTR wszMachine,LPWSTR wszNamespace,__LONG32 lFlags);
   void __RPC_STUB IWbemPath_IsRelativeOrChild_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   WINBOOL WINAPI IWbemPath_IsLocal_Proxy(IWbemPath *This,LPCWSTR wszMachine);
   void __RPC_STUB IWbemPath_IsLocal_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);

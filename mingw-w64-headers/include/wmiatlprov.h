@@ -16,24 +16,24 @@
 namespace ATL {
   class ATL_NO_VTABLE IWbemInstProviderImpl : public IWbemServices,public IWbemProviderInit {
   public:
-    HRESULT WINAPI OpenNamespace(const BSTR Namespace,long lFlags,IWbemContext *pCtx,IWbemServices **ppWorkingNamespace,IWbemCallResult **ppResult) {return WBEM_E_NOT_SUPPORTED;};
+    HRESULT WINAPI OpenNamespace(const BSTR Namespace,__LONG32 lFlags,IWbemContext *pCtx,IWbemServices **ppWorkingNamespace,IWbemCallResult **ppResult) {return WBEM_E_NOT_SUPPORTED;};
     HRESULT WINAPI CancelAsyncCall(IWbemObjectSink *pSink) {return WBEM_E_NOT_SUPPORTED;};
-    HRESULT WINAPI QueryObjectSink(long lFlags,IWbemObjectSink **ppResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
-    HRESULT WINAPI GetObject(const BSTR ObjectPath,long lFlags,IWbemContext *pCtx,IWbemClassObject **ppObject,IWbemCallResult **ppCallResult) {return WBEM_E_NOT_SUPPORTED;};
-    HRESULT WINAPI PutClass(IWbemClassObject *pObject,long lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult) {return WBEM_E_NOT_SUPPORTED;};
-    HRESULT WINAPI PutClassAsync(IWbemClassObject *pObject,long lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
-    HRESULT WINAPI DeleteClass(const BSTR Class,long lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult) {return WBEM_E_NOT_SUPPORTED;};
-    HRESULT WINAPI DeleteClassAsync(const BSTR Class,long lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
-    HRESULT WINAPI CreateClassEnum(const BSTR Superclass,long lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum) {return WBEM_E_NOT_SUPPORTED;};
-    HRESULT WINAPI CreateClassEnumAsync(const BSTR Superclass,long lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
-    HRESULT WINAPI PutInstance(IWbemClassObject *pInst,long lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult) {return WBEM_E_NOT_SUPPORTED;};
-    HRESULT WINAPI DeleteInstance(const BSTR ObjectPath,long lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult) {return WBEM_E_NOT_SUPPORTED;};
-    HRESULT WINAPI CreateInstanceEnum(const BSTR Class,long lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum) {return WBEM_E_NOT_SUPPORTED;};
-    HRESULT WINAPI ExecQuery(const BSTR QueryLanguage,const BSTR Query,long lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum) {return WBEM_E_NOT_SUPPORTED;};
-    HRESULT WINAPI ExecNotificationQuery(const BSTR QueryLanguage,const BSTR Query,long lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum) {return WBEM_E_NOT_SUPPORTED;};
-    HRESULT WINAPI ExecNotificationQueryAsync(const BSTR QueryLanguage,const BSTR Query,long lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
-    HRESULT WINAPI ExecMethod(const BSTR strObjectPath,const BSTR strMethodName,long lFlags,IWbemContext *pCtx,IWbemClassObject *pInParams,IWbemClassObject **ppOutParams,IWbemCallResult **ppCallResult) {return WBEM_E_NOT_SUPPORTED;};
-    HRESULT WINAPI ExecMethodAsync(const BSTR strObjectPath,const BSTR strMethodName,long lFlags,IWbemContext *pCtx,IWbemClassObject *pInParams,IWbemObjectSink *pResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
+    HRESULT WINAPI QueryObjectSink(__LONG32 lFlags,IWbemObjectSink **ppResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
+    HRESULT WINAPI GetObject(const BSTR ObjectPath,__LONG32 lFlags,IWbemContext *pCtx,IWbemClassObject **ppObject,IWbemCallResult **ppCallResult) {return WBEM_E_NOT_SUPPORTED;};
+    HRESULT WINAPI PutClass(IWbemClassObject *pObject,__LONG32 lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult) {return WBEM_E_NOT_SUPPORTED;};
+    HRESULT WINAPI PutClassAsync(IWbemClassObject *pObject,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
+    HRESULT WINAPI DeleteClass(const BSTR Class,__LONG32 lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult) {return WBEM_E_NOT_SUPPORTED;};
+    HRESULT WINAPI DeleteClassAsync(const BSTR Class,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
+    HRESULT WINAPI CreateClassEnum(const BSTR Superclass,__LONG32 lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum) {return WBEM_E_NOT_SUPPORTED;};
+    HRESULT WINAPI CreateClassEnumAsync(const BSTR Superclass,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
+    HRESULT WINAPI PutInstance(IWbemClassObject *pInst,__LONG32 lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult) {return WBEM_E_NOT_SUPPORTED;};
+    HRESULT WINAPI DeleteInstance(const BSTR ObjectPath,__LONG32 lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult) {return WBEM_E_NOT_SUPPORTED;};
+    HRESULT WINAPI CreateInstanceEnum(const BSTR Class,__LONG32 lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum) {return WBEM_E_NOT_SUPPORTED;};
+    HRESULT WINAPI ExecQuery(const BSTR QueryLanguage,const BSTR Query,__LONG32 lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum) {return WBEM_E_NOT_SUPPORTED;};
+    HRESULT WINAPI ExecNotificationQuery(const BSTR QueryLanguage,const BSTR Query,__LONG32 lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum) {return WBEM_E_NOT_SUPPORTED;};
+    HRESULT WINAPI ExecNotificationQueryAsync(const BSTR QueryLanguage,const BSTR Query,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
+    HRESULT WINAPI ExecMethod(const BSTR strObjectPath,const BSTR strMethodName,__LONG32 lFlags,IWbemContext *pCtx,IWbemClassObject *pInParams,IWbemClassObject **ppOutParams,IWbemCallResult **ppCallResult) {return WBEM_E_NOT_SUPPORTED;};
+    HRESULT WINAPI ExecMethodAsync(const BSTR strObjectPath,const BSTR strMethodName,__LONG32 lFlags,IWbemContext *pCtx,IWbemClassObject *pInParams,IWbemObjectSink *pResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
   };
 
   class CProviderHelper {
@@ -241,8 +241,8 @@ namespace ATL {
       hr = pPath->SetText(WBEMPATH_CREATE_ACCEPT_ALL,ObjectPath);
       if(FAILED(hr)) return hr;
       unsigned int nPathLen = SysStringLen(ObjectPath);
-      if(nPathLen >= (unsigned long)(-1)) return HRESULT_FROM_WIN32(ERROR_ARITHMETIC_OVERFLOW);
-      unsigned long ulBufLen = (unsigned long)(nPathLen + 1);
+      if(nPathLen >= (unsigned __LONG32)(-1)) return HRESULT_FROM_WIN32(ERROR_ARITHMETIC_OVERFLOW);
+      unsigned __LONG32 ulBufLen = (unsigned __LONG32)(nPathLen + 1);
       WCHAR *wClass = new WCHAR[ulBufLen];
       if(!wClass) return WBEM_E_OUT_OF_MEMORY;
       hr = pPath->GetClassName(&ulBufLen,wClass);
@@ -266,24 +266,24 @@ namespace ATL {
 
   template <class T> class ATL_NO_VTABLE IWbemPullClassProviderImpl : public IWbemServices,public IWbemProviderInit {
   public:
-    virtual HRESULT WINAPI OpenNamespace(const BSTR strNamespace,long lFlags,IWbemContext *pCtx,IWbemServices **ppWorkingNamespace,IWbemCallResult **ppResult){return WBEM_E_NOT_SUPPORTED;};
+    virtual HRESULT WINAPI OpenNamespace(const BSTR strNamespace,__LONG32 lFlags,IWbemContext *pCtx,IWbemServices **ppWorkingNamespace,IWbemCallResult **ppResult){return WBEM_E_NOT_SUPPORTED;};
     virtual HRESULT WINAPI CancelAsyncCall(IWbemObjectSink *pSink){return WBEM_E_NOT_SUPPORTED;};
-    virtual HRESULT WINAPI QueryObjectSink(long lFlags,IWbemObjectSink **ppResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
-    virtual HRESULT WINAPI GetObject(const BSTR strObjectPath,long lFlags,IWbemContext *pCtx,IWbemClassObject **ppObject,IWbemCallResult **ppCallResult) {return WBEM_E_NOT_SUPPORTED;};
-    virtual HRESULT WINAPI PutClass(IWbemClassObject *pObject,long lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult){return WBEM_E_NOT_SUPPORTED;};
-    virtual HRESULT WINAPI DeleteClass(const BSTR strClass,long lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult){return WBEM_E_NOT_SUPPORTED;};
-    virtual HRESULT WINAPI CreateClassEnum(const BSTR strSuperclass,long lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum) {return WBEM_E_NOT_SUPPORTED;};
-    virtual HRESULT WINAPI PutInstance(IWbemClassObject *pInst,long lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult){return WBEM_E_NOT_SUPPORTED;};
-    virtual HRESULT WINAPI PutInstanceAsync(IWbemClassObject *pInst,long lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
-    virtual HRESULT WINAPI DeleteInstance(const BSTR strObjectPath,long lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult){return WBEM_E_NOT_SUPPORTED;};
-    virtual HRESULT WINAPI DeleteInstanceAsync(const BSTR strObjectPath,long lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler){return WBEM_E_NOT_SUPPORTED;};
-    virtual HRESULT WINAPI CreateInstanceEnum(const BSTR strClass,long lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum) {return WBEM_E_NOT_SUPPORTED;};
-    virtual HRESULT WINAPI CreateInstanceEnumAsync(const BSTR strClass,long lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
-    virtual HRESULT WINAPI ExecQuery(const BSTR strQueryLanguage,const BSTR strQuery,long lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum) {return WBEM_E_NOT_SUPPORTED;};
-    virtual HRESULT WINAPI ExecNotificationQuery(const BSTR strQueryLanguage,const BSTR strQuery,long lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum) {return WBEM_E_NOT_SUPPORTED;};
-    virtual HRESULT WINAPI ExecNotificationQueryAsync(const BSTR strQueryLanguage,const BSTR strQuery,long lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
-    virtual HRESULT WINAPI ExecMethod(const BSTR strObjectPath,const BSTR strMethodName,long lFlags,IWbemContext *pCtx,IWbemClassObject *pInParams,IWbemClassObject **ppOutParams,IWbemCallResult **ppCallResult) {return WBEM_E_NOT_SUPPORTED;};
-    virtual HRESULT WINAPI ExecMethodAsync(const BSTR strObjectPath,const BSTR strMethodName,long lFlags,IWbemContext *pCtx,IWbemClassObject *pInParams,IWbemObjectSink *pResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
+    virtual HRESULT WINAPI QueryObjectSink(__LONG32 lFlags,IWbemObjectSink **ppResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
+    virtual HRESULT WINAPI GetObject(const BSTR strObjectPath,__LONG32 lFlags,IWbemContext *pCtx,IWbemClassObject **ppObject,IWbemCallResult **ppCallResult) {return WBEM_E_NOT_SUPPORTED;};
+    virtual HRESULT WINAPI PutClass(IWbemClassObject *pObject,__LONG32 lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult){return WBEM_E_NOT_SUPPORTED;};
+    virtual HRESULT WINAPI DeleteClass(const BSTR strClass,__LONG32 lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult){return WBEM_E_NOT_SUPPORTED;};
+    virtual HRESULT WINAPI CreateClassEnum(const BSTR strSuperclass,__LONG32 lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum) {return WBEM_E_NOT_SUPPORTED;};
+    virtual HRESULT WINAPI PutInstance(IWbemClassObject *pInst,__LONG32 lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult){return WBEM_E_NOT_SUPPORTED;};
+    virtual HRESULT WINAPI PutInstanceAsync(IWbemClassObject *pInst,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
+    virtual HRESULT WINAPI DeleteInstance(const BSTR strObjectPath,__LONG32 lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult){return WBEM_E_NOT_SUPPORTED;};
+    virtual HRESULT WINAPI DeleteInstanceAsync(const BSTR strObjectPath,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler){return WBEM_E_NOT_SUPPORTED;};
+    virtual HRESULT WINAPI CreateInstanceEnum(const BSTR strClass,__LONG32 lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum) {return WBEM_E_NOT_SUPPORTED;};
+    virtual HRESULT WINAPI CreateInstanceEnumAsync(const BSTR strClass,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
+    virtual HRESULT WINAPI ExecQuery(const BSTR strQueryLanguage,const BSTR strQuery,__LONG32 lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum) {return WBEM_E_NOT_SUPPORTED;};
+    virtual HRESULT WINAPI ExecNotificationQuery(const BSTR strQueryLanguage,const BSTR strQuery,__LONG32 lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum) {return WBEM_E_NOT_SUPPORTED;};
+    virtual HRESULT WINAPI ExecNotificationQueryAsync(const BSTR strQueryLanguage,const BSTR strQuery,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
+    virtual HRESULT WINAPI ExecMethod(const BSTR strObjectPath,const BSTR strMethodName,__LONG32 lFlags,IWbemContext *pCtx,IWbemClassObject *pInParams,IWbemClassObject **ppOutParams,IWbemCallResult **ppCallResult) {return WBEM_E_NOT_SUPPORTED;};
+    virtual HRESULT WINAPI ExecMethodAsync(const BSTR strObjectPath,const BSTR strMethodName,__LONG32 lFlags,IWbemContext *pCtx,IWbemClassObject *pInParams,IWbemObjectSink *pResponseHandler) {return WBEM_E_NOT_SUPPORTED;};
   };
 
   class CImpersonateClientHelper {

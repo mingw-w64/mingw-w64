@@ -497,8 +497,8 @@ extern "C" {
 
 #define CMYK(c,m,y,k) ((COLORREF)((((BYTE)(k)|((WORD)((BYTE)(y))<<8))|(((DWORD)(BYTE)(m))<<16))|(((DWORD)(BYTE)(c))<<24)))
 
-  typedef long FXPT16DOT16,*LPFXPT16DOT16;
-  typedef long FXPT2DOT30,*LPFXPT2DOT30;
+  typedef __LONG32 FXPT16DOT16,*LPFXPT16DOT16;
+  typedef __LONG32 FXPT2DOT30,*LPFXPT2DOT30;
 
   typedef struct tagCIEXYZ {
     FXPT2DOT30 ciexyzX;

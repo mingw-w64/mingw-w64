@@ -37,7 +37,7 @@ extern "C" {
   typedef VOID (CALLBACK *LPWSAUSERAPC)(DWORD_PTR dwContext);
   typedef SOCKET (WSPAPI *LPWSPACCEPT)(SOCKET s,struct sockaddr *addr,LPINT addrlen,LPCONDITIONPROC lpfnCondition,DWORD_PTR dwCallbackData,LPINT lpErrno);
   typedef INT (WSPAPI *LPWSPADDRESSTOSTRING)(LPSOCKADDR lpsaAddress,DWORD dwAddressLength,LPWSAPROTOCOL_INFOW lpProtocolInfo,LPWSTR lpszAddressString,LPDWORD lpdwAddressStringLength,LPINT lpErrno);
-  typedef int (WSPAPI *LPWSPASYNCSELECT)(SOCKET s,HWND hWnd,unsigned int wMsg,long lEvent,LPINT lpErrno);
+  typedef int (WSPAPI *LPWSPASYNCSELECT)(SOCKET s,HWND hWnd,unsigned int wMsg,__LONG32 lEvent,LPINT lpErrno);
   typedef int (WSPAPI *LPWSPBIND)(SOCKET s,const struct sockaddr *name,int namelen,LPINT lpErrno);
   typedef int (WSPAPI *LPWSPCANCELBLOCKINGCALL)(LPINT lpErrno);
   typedef int (WSPAPI *LPWSPCLEANUP)(LPINT lpErrno);
@@ -45,7 +45,7 @@ extern "C" {
   typedef int (WSPAPI *LPWSPCONNECT)(SOCKET s,const struct sockaddr *name,int namelen,LPWSABUF lpCallerData,LPWSABUF lpCalleeData,LPQOS lpSQOS,LPQOS lpGQOS,LPINT lpErrno);
   typedef int (WSPAPI *LPWSPDUPLICATESOCKET)(SOCKET s,DWORD dwProcessId,LPWSAPROTOCOL_INFOW lpProtocolInfo,LPINT lpErrno);
   typedef int (WSPAPI *LPWSPENUMNETWORKEVENTS)(SOCKET s,WSAEVENT hEventObject,LPWSANETWORKEVENTS lpNetworkEvents,LPINT lpErrno);
-  typedef int (WSPAPI *LPWSPEVENTSELECT)(SOCKET s,WSAEVENT hEventObject,long lNetworkEvents,LPINT lpErrno);
+  typedef int (WSPAPI *LPWSPEVENTSELECT)(SOCKET s,WSAEVENT hEventObject,__LONG32 lNetworkEvents,LPINT lpErrno);
   typedef WINBOOL (WSPAPI *LPWSPGETOVERLAPPEDRESULT)(SOCKET s,LPWSAOVERLAPPED lpOverlapped,LPDWORD lpcbTransfer,WINBOOL fWait,LPDWORD lpdwFlags,LPINT lpErrno);
   typedef int (WSPAPI *LPWSPGETPEERNAME)(SOCKET s,struct sockaddr *name,LPINT namelen,LPINT lpErrno);
   typedef int (WSPAPI *LPWSPGETSOCKNAME)(SOCKET s,struct sockaddr *name,LPINT namelen,LPINT lpErrno);

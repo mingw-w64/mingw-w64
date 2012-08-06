@@ -263,8 +263,8 @@ extern "C" {
   struct ISWbemXMLDocumentSet : public IDispatch {
   public:
     virtual HRESULT WINAPI get__NewEnum(IUnknown **pUnk) = 0;
-    virtual HRESULT WINAPI Item(BSTR strObjectPath,long iFlags,IXMLDOMDocument **ppXMLDocument) = 0;
-    virtual HRESULT WINAPI get_Count(long *iCount) = 0;
+    virtual HRESULT WINAPI Item(BSTR strObjectPath,__LONG32 iFlags,IXMLDOMDocument **ppXMLDocument) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *iCount) = 0;
     virtual HRESULT WINAPI NextDocument(IXMLDOMDocument **ppDoc) = 0;
     virtual HRESULT WINAPI SkipNextDocument(void) = 0;
   };
@@ -279,8 +279,8 @@ extern "C" {
       HRESULT (WINAPI *GetIDsOfNames)(ISWbemXMLDocumentSet *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ISWbemXMLDocumentSet *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get__NewEnum)(ISWbemXMLDocumentSet *This,IUnknown **pUnk);
-      HRESULT (WINAPI *Item)(ISWbemXMLDocumentSet *This,BSTR strObjectPath,long iFlags,IXMLDOMDocument **ppXMLDocument);
-      HRESULT (WINAPI *get_Count)(ISWbemXMLDocumentSet *This,long *iCount);
+      HRESULT (WINAPI *Item)(ISWbemXMLDocumentSet *This,BSTR strObjectPath,__LONG32 iFlags,IXMLDOMDocument **ppXMLDocument);
+      HRESULT (WINAPI *get_Count)(ISWbemXMLDocumentSet *This,__LONG32 *iCount);
       HRESULT (WINAPI *NextDocument)(ISWbemXMLDocumentSet *This,IXMLDOMDocument **ppDoc);
       HRESULT (WINAPI *SkipNextDocument)(ISWbemXMLDocumentSet *This);
     END_INTERFACE
@@ -305,9 +305,9 @@ extern "C" {
 #endif
   HRESULT WINAPI ISWbemXMLDocumentSet_get__NewEnum_Proxy(ISWbemXMLDocumentSet *This,IUnknown **pUnk);
   void __RPC_STUB ISWbemXMLDocumentSet_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemXMLDocumentSet_Item_Proxy(ISWbemXMLDocumentSet *This,BSTR strObjectPath,long iFlags,IXMLDOMDocument **ppXMLDocument);
+  HRESULT WINAPI ISWbemXMLDocumentSet_Item_Proxy(ISWbemXMLDocumentSet *This,BSTR strObjectPath,__LONG32 iFlags,IXMLDOMDocument **ppXMLDocument);
   void __RPC_STUB ISWbemXMLDocumentSet_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISWbemXMLDocumentSet_get_Count_Proxy(ISWbemXMLDocumentSet *This,long *iCount);
+  HRESULT WINAPI ISWbemXMLDocumentSet_get_Count_Proxy(ISWbemXMLDocumentSet *This,__LONG32 *iCount);
   void __RPC_STUB ISWbemXMLDocumentSet_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISWbemXMLDocumentSet_NextDocument_Proxy(ISWbemXMLDocumentSet *This,IXMLDOMDocument **ppDoc);
   void __RPC_STUB ISWbemXMLDocumentSet_NextDocument_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);

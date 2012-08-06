@@ -1590,11 +1590,11 @@ extern "C" {
 
   INTERNETAPI_(WINBOOL) InternetSetPerSiteCookieDecisionA(LPCSTR pchHostName,DWORD dwDecision);
   INTERNETAPI_(WINBOOL) InternetSetPerSiteCookieDecisionW(LPCWSTR pchHostName,DWORD dwDecision);
-  INTERNETAPI_(WINBOOL) InternetGetPerSiteCookieDecisionA(LPCSTR pchHostName,unsigned long *pResult);
-  INTERNETAPI_(WINBOOL) InternetGetPerSiteCookieDecisionW(LPCWSTR pchHostName,unsigned long *pResult);
+  INTERNETAPI_(WINBOOL) InternetGetPerSiteCookieDecisionA(LPCSTR pchHostName,unsigned __LONG32 *pResult);
+  INTERNETAPI_(WINBOOL) InternetGetPerSiteCookieDecisionW(LPCWSTR pchHostName,unsigned __LONG32 *pResult);
   INTERNETAPI_(WINBOOL) InternetClearAllPerSiteCookieDecisions();
-  INTERNETAPI_(WINBOOL) InternetEnumPerSiteCookieDecisionA(LPSTR pszSiteName,unsigned long *pcSiteNameSize,unsigned long *pdwDecision,unsigned long dwIndex);
-  INTERNETAPI_(WINBOOL) InternetEnumPerSiteCookieDecisionW(LPWSTR pszSiteName,unsigned long *pcSiteNameSize,unsigned long *pdwDecision,unsigned long dwIndex);
+  INTERNETAPI_(WINBOOL) InternetEnumPerSiteCookieDecisionA(LPSTR pszSiteName,unsigned __LONG32 *pcSiteNameSize,unsigned __LONG32 *pdwDecision,unsigned __LONG32 dwIndex);
+  INTERNETAPI_(WINBOOL) InternetEnumPerSiteCookieDecisionW(LPWSTR pszSiteName,unsigned __LONG32 *pcSiteNameSize,unsigned __LONG32 *pdwDecision,unsigned __LONG32 dwIndex);
 
 #define INTERNET_IDENTITY_FLAG_PRIVATE_CACHE 0x01
 #define INTERNET_IDENTITY_FLAG_SHARED_CACHE 0x02
