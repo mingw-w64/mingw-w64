@@ -557,7 +557,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ISdoCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *pCount) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *pCount) = 0;
     virtual HRESULT WINAPI Add(BSTR bstrName,IDispatch **ppItem) = 0;
     virtual HRESULT WINAPI Remove(IDispatch *pItem) = 0;
     virtual HRESULT WINAPI RemoveAll(void) = 0;
@@ -576,7 +576,7 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ISdoCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ISdoCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ISdoCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(ISdoCollection *This,long *pCount);
+      HRESULT (WINAPI *get_Count)(ISdoCollection *This,__LONG32 *pCount);
       HRESULT (WINAPI *Add)(ISdoCollection *This,BSTR bstrName,IDispatch **ppItem);
       HRESULT (WINAPI *Remove)(ISdoCollection *This,IDispatch *pItem);
       HRESULT (WINAPI *RemoveAll)(ISdoCollection *This);
@@ -607,7 +607,7 @@ extern "C" {
 #define ISdoCollection_get__NewEnum(This,ppEnumVARIANT) (This)->lpVtbl->get__NewEnum(This,ppEnumVARIANT)
 #endif
 #endif
-  HRESULT WINAPI ISdoCollection_get_Count_Proxy(ISdoCollection *This,long *pCount);
+  HRESULT WINAPI ISdoCollection_get_Count_Proxy(ISdoCollection *This,__LONG32 *pCount);
   void __RPC_STUB ISdoCollection_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISdoCollection_Add_Proxy(ISdoCollection *This,BSTR bstrName,IDispatch **ppItem);
   void __RPC_STUB ISdoCollection_Add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);

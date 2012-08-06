@@ -1,5 +1,11 @@
 2012-08-06  Corinna Vinschen  <vinschen@redhat.com>
 
+	* rtccore.h: Change long to __LONG32 where appropriate.
+	* scardssp.h: Ditto.
+	* sdoias.h: Ditto.
+
+2012-08-06  Corinna Vinschen  <vinschen@redhat.com>
+
 	* mdhcp.h: Change long to __LONG32 where appropriate.
 	* mergemod.h: Ditto.
 	* mmc.h: Ditto.

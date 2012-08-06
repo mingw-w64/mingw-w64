@@ -912,9 +912,9 @@ extern "C" {
   public:
     virtual HRESULT WINAPI GetProviderCardId(BSTR bstrCardName,LPGUID *ppguidProviderId) = 0;
     virtual HRESULT WINAPI ListCardInterfaces(BSTR bstrCardName,LPSAFEARRAY *ppInterfaceGuids) = 0;
-    virtual HRESULT WINAPI ListCards(LPBYTEBUFFER pAtr,LPSAFEARRAY pInterfaceGuids,long localeId,LPSAFEARRAY *ppCardNames) = 0;
-    virtual HRESULT WINAPI ListReaderGroups(long localeId,LPSAFEARRAY *ppReaderGroups) = 0;
-    virtual HRESULT WINAPI ListReaders(long localeId,LPSAFEARRAY *ppReaders) = 0;
+    virtual HRESULT WINAPI ListCards(LPBYTEBUFFER pAtr,LPSAFEARRAY pInterfaceGuids,__LONG32 localeId,LPSAFEARRAY *ppCardNames) = 0;
+    virtual HRESULT WINAPI ListReaderGroups(__LONG32 localeId,LPSAFEARRAY *ppReaderGroups) = 0;
+    virtual HRESULT WINAPI ListReaders(__LONG32 localeId,LPSAFEARRAY *ppReaders) = 0;
   };
 #else
   typedef struct ISCardDatabaseVtbl {
@@ -928,9 +928,9 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(ISCardDatabase *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *GetProviderCardId)(ISCardDatabase *This,BSTR bstrCardName,LPGUID *ppguidProviderId);
       HRESULT (WINAPI *ListCardInterfaces)(ISCardDatabase *This,BSTR bstrCardName,LPSAFEARRAY *ppInterfaceGuids);
-      HRESULT (WINAPI *ListCards)(ISCardDatabase *This,LPBYTEBUFFER pAtr,LPSAFEARRAY pInterfaceGuids,long localeId,LPSAFEARRAY *ppCardNames);
-      HRESULT (WINAPI *ListReaderGroups)(ISCardDatabase *This,long localeId,LPSAFEARRAY *ppReaderGroups);
-      HRESULT (WINAPI *ListReaders)(ISCardDatabase *This,long localeId,LPSAFEARRAY *ppReaders);
+      HRESULT (WINAPI *ListCards)(ISCardDatabase *This,LPBYTEBUFFER pAtr,LPSAFEARRAY pInterfaceGuids,__LONG32 localeId,LPSAFEARRAY *ppCardNames);
+      HRESULT (WINAPI *ListReaderGroups)(ISCardDatabase *This,__LONG32 localeId,LPSAFEARRAY *ppReaderGroups);
+      HRESULT (WINAPI *ListReaders)(ISCardDatabase *This,__LONG32 localeId,LPSAFEARRAY *ppReaders);
     END_INTERFACE
   } ISCardDatabaseVtbl;
   struct ISCardDatabase {
@@ -955,11 +955,11 @@ extern "C" {
   void __RPC_STUB ISCardDatabase_GetProviderCardId_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ISCardDatabase_ListCardInterfaces_Proxy(ISCardDatabase *This,BSTR bstrCardName,LPSAFEARRAY *ppInterfaceGuids);
   void __RPC_STUB ISCardDatabase_ListCardInterfaces_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISCardDatabase_ListCards_Proxy(ISCardDatabase *This,LPBYTEBUFFER pAtr,LPSAFEARRAY pInterfaceGuids,long localeId,LPSAFEARRAY *ppCardNames);
+  HRESULT WINAPI ISCardDatabase_ListCards_Proxy(ISCardDatabase *This,LPBYTEBUFFER pAtr,LPSAFEARRAY pInterfaceGuids,__LONG32 localeId,LPSAFEARRAY *ppCardNames);
   void __RPC_STUB ISCardDatabase_ListCards_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISCardDatabase_ListReaderGroups_Proxy(ISCardDatabase *This,long localeId,LPSAFEARRAY *ppReaderGroups);
+  HRESULT WINAPI ISCardDatabase_ListReaderGroups_Proxy(ISCardDatabase *This,__LONG32 localeId,LPSAFEARRAY *ppReaderGroups);
   void __RPC_STUB ISCardDatabase_ListReaderGroups_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ISCardDatabase_ListReaders_Proxy(ISCardDatabase *This,long localeId,LPSAFEARRAY *ppReaders);
+  HRESULT WINAPI ISCardDatabase_ListReaders_Proxy(ISCardDatabase *This,__LONG32 localeId,LPSAFEARRAY *ppReaders);
   void __RPC_STUB ISCardDatabase_ListReaders_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 #endif
