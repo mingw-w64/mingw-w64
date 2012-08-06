@@ -17,19 +17,12 @@ AC_ARG_PROGRAM
 # Checks for programs.
 AC_PROG_CC
 
-case $target in
-  *-mingw32)
-    ;;
-  *)
-    AC_MSG_ERROR([Unsupported target: $target. Only *-mingw32 targets are supported])
-    ;;
-esac
+AS_CASE([$target],
+  [*-mingw*],[],
+  [AC_MSG_ERROR([Unsupported target: $target. Only *-mingw32 targets are supported])])
 
-case $host in
-  *-mingw32)
-    CFLAGS="$CFLAGS -Wno-pedantic-ms-format"
-    ;;
-esac
+AS_CASE([$host],
+  [*-mingw*],[CFLAGS="$CFLAGS -Wno-pedantic-ms-format"])
 
 # Checks for libraries.
 

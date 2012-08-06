@@ -3987,18 +3987,18 @@ fi
 
 
 
-case $target in
-  *-mingw32)
-    ;;
-  *)
-    as_fn_error $? "Unsupported target: $target. Only *-mingw32 targets are supported" "$LINENO" 5
-    ;;
+case $target in #(
+  *-mingw*) :
+     ;; #(
+  *) :
+    as_fn_error $? "Unsupported target: $target. Only *-mingw32 targets are supported" "$LINENO" 5 ;;
 esac
 
-case $host in
-  *-mingw32)
-    CFLAGS="$CFLAGS -Wno-pedantic-ms-format"
-    ;;
+case $host in #(
+  *-mingw*) :
+    CFLAGS="$CFLAGS -Wno-pedantic-ms-format" ;; #(
+  *) :
+     ;;
 esac
 
 # Checks for libraries.
