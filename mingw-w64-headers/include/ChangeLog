@@ -1,3 +1,48 @@
+2012-08-06  Corinna Vinschen  <vinschen@redhat.com>
+
+	* mdhcp.h: Change long to __LONG32 where appropriate.
+	* mergemod.h: Ditto.
+	* mmc.h: Ditto.
+	* mmcobj.h: Ditto.
+	* msclus.h: Ditto.
+	* mshtml.h: Ditto.
+	* mshtmlc.h: Ditto.
+	* msdatsrc.h: Ditto.
+	* msi.h: Ditto.
+	* msimcntl.h: Ditto.
+	* msimcsdk.h: Ditto.
+	* msp.h: Ditto.
+	* mspaddr.h: Ditto.
+	* mspcall.h: Ditto.
+	* mspcoll.h: Ditto.
+	* mspstrm.h: Ditto.
+	* mspterm.h: Ditto.
+	* msptrmac.h: Ditto.
+	* msptrmar.h: Ditto.
+	* msxml.h: Ditto.
+	* msxml2.h: Ditto.
+	* ndattrib.h: Ditto.
+	* ndhelper.h: Ditto.
+	* ndrtypes.h: Ditto.
+	* netcon.h: Ditto.
+	* netmon.h: Ditto.
+	* nspapi.h: Ditto.
+	* ntdef.h: Ditto.
+	* odbcss.h: Ditto.
+	* oleauto.h: Ditto.
+	* olectl.h: Ditto.
+	* oledbguid.h: Ditto.
+	* rdpencomapi.h: Ditto.
+	* rend.h: Ditto.
+	* richedit.h: Ditto.
+	* rpc.h: Ditto.
+	* rpcasync.h: Ditto.
+	* rpcdce.h: Ditto.
+	* rpcdcep.h: Ditto.
+	* rpcndr.h: Ditto.
+	* rpcnsi.h: Ditto.
+	* rpcproxy.h: Ditto.
+
 2012-08-03  Corinna Vinschen  <vinschen@redhat.com>
 
 	* iads.h: Change long to __LONG32 where appropriate.

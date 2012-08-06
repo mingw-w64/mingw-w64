@@ -26,11 +26,11 @@ public:
   DECLARE_VQI()
   DECLARE_LOG_ADDREF_RELEASE(CAudioRenderTerminal)
 public:
-  STDMETHOD(get_Balance)(long *pVal);
-  STDMETHOD(put_Balance)(long newVal);
-  STDMETHOD(get_Volume)(long *pVal);
-  STDMETHOD(put_Volume)(long newVal);
-  STDMETHOD(get_WaveId) (long *plWaveId);
+  STDMETHOD(get_Balance)(__LONG32 *pVal);
+  STDMETHOD(put_Balance)(__LONG32 newVal);
+  STDMETHOD(get_Volume)(__LONG32 *pVal);
+  STDMETHOD(put_Volume)(__LONG32 newVal);
+  STDMETHOD(get_WaveId) (__LONG32 *plWaveId);
 public:
   STDMETHODIMP CompleteConnectTerminal(void);
   STDMETHODIMP DisconnectTerminal(IGraphBuilder *pGraph,DWORD dwReserved);

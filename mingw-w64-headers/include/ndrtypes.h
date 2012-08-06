@@ -140,15 +140,15 @@ extern "C" {
   } NDR_CONTEXT_HANDLE_FLAGS,*PNDR_CONTEXT_HANDLE_FLAGS;
 
   typedef struct _MIDL_TYPE_PICKLING_FLAGS {
-    unsigned long Oicf : 1;
-    unsigned long HasNewCorrDesc : 1;
-    unsigned long Unused : 30;
+    unsigned __LONG32 Oicf : 1;
+    unsigned __LONG32 HasNewCorrDesc : 1;
+    unsigned __LONG32 Unused : 30;
   } MIDL_TYPE_PICKLING_FLAGS,*PMIDL_TYPE_PICKLING_FLAGS;
 
 #define MAX_INTERPRETER_OUT_SIZE 128
 #define MAX_INTERPRETER_PARAM_OUT_SIZE 7*8
 
-#define INTERPRETER_THUNK_PARAM_SIZE_THRESHOLD (sizeof(long)*32)
+#define INTERPRETER_THUNK_PARAM_SIZE_THRESHOLD (sizeof(__LONG32)*32)
 
 #define INTERPRETER_PROC_STACK_FRAME_SIZE_THRESHOLD ((64*1024) - 1)
 

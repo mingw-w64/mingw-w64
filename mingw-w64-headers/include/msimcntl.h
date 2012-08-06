@@ -170,7 +170,7 @@ extern "C" {
     virtual HRESULT WINAPI Logon(BSTR bstrAddress = L"",BSTR bstrName = L"",BSTR bstrPassword = L"",BSTR bstrDomain = L"") = 0;
     virtual HRESULT WINAPI Logoff(void) = 0;
     virtual HRESULT WINAPI GetLocalState(VARIANT *pvarState,VARIANT *pvarDescription,VARIANT *pvarData) = 0;
-    virtual HRESULT WINAPI SetLocalState(long lState,VARIANT varDescription,VARIANT varData) = 0;
+    virtual HRESULT WINAPI SetLocalState(__LONG32 lState,VARIANT varDescription,VARIANT varData) = 0;
   };
 #else
   typedef struct _IUseIMBaseVtbl {
@@ -192,7 +192,7 @@ extern "C" {
       HRESULT (WINAPI *Logon)(_IUseIMBase *This,BSTR bstrAddress,BSTR bstrName,BSTR bstrPassword,BSTR bstrDomain);
       HRESULT (WINAPI *Logoff)(_IUseIMBase *This);
       HRESULT (WINAPI *GetLocalState)(_IUseIMBase *This,VARIANT *pvarState,VARIANT *pvarDescription,VARIANT *pvarData);
-      HRESULT (WINAPI *SetLocalState)(_IUseIMBase *This,long lState,VARIANT varDescription,VARIANT varData);
+      HRESULT (WINAPI *SetLocalState)(_IUseIMBase *This,__LONG32 lState,VARIANT varDescription,VARIANT varData);
     END_INTERFACE
   } _IUseIMBaseVtbl;
   struct _IUseIMBase {
@@ -239,7 +239,7 @@ extern "C" {
   void __RPC_STUB _IUseIMBase_Logoff_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI _IUseIMBase_GetLocalState_Proxy(_IUseIMBase *This,VARIANT *pvarState,VARIANT *pvarDescription,VARIANT *pvarData);
   void __RPC_STUB _IUseIMBase_GetLocalState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI _IUseIMBase_SetLocalState_Proxy(_IUseIMBase *This,long lState,VARIANT varDescription,VARIANT varData);
+  HRESULT WINAPI _IUseIMBase_SetLocalState_Proxy(_IUseIMBase *This,__LONG32 lState,VARIANT varDescription,VARIANT varData);
   void __RPC_STUB _IUseIMBase_SetLocalState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -253,15 +253,15 @@ extern "C" {
     virtual HRESULT WINAPI Remove(VARIANT vUser) = 0;
     virtual HRESULT WINAPI get_List(VARIANT *pvarList) = 0;
     virtual HRESULT WINAPI put_List(VARIANT varList) = 0;
-    virtual HRESULT WINAPI AddMenuItem(BSTR bstrItem,long lPosition,long *plCommand) = 0;
-    virtual HRESULT WINAPI get_SelectedMenuOptions(long *pVal) = 0;
+    virtual HRESULT WINAPI AddMenuItem(BSTR bstrItem,__LONG32 lPosition,__LONG32 *plCommand) = 0;
+    virtual HRESULT WINAPI get_SelectedMenuOptions(__LONG32 *pVal) = 0;
     virtual HRESULT WINAPI IMSelected(void) = 0;
     virtual HRESULT WINAPI EMailSelected(void) = 0;
     virtual HRESULT WINAPI InviteSelected(void) = 0;
     virtual HRESULT WINAPI BlockSelected(void) = 0;
     virtual HRESULT WINAPI UnblockSelected(void) = 0;
-    virtual HRESULT WINAPI get_ExtentWidth(long *pX) = 0;
-    virtual HRESULT WINAPI get_ExtentHeight(long *pY) = 0;
+    virtual HRESULT WINAPI get_ExtentWidth(__LONG32 *pX) = 0;
+    virtual HRESULT WINAPI get_ExtentHeight(__LONG32 *pY) = 0;
     virtual HRESULT WINAPI get_HotTracking(VARIANT_BOOL *pVal) = 0;
     virtual HRESULT WINAPI put_HotTracking(VARIANT_BOOL newVal) = 0;
     virtual HRESULT WINAPI get_AllowCollapse(VARIANT_BOOL *pVal) = 0;
@@ -272,7 +272,7 @@ extern "C" {
     virtual HRESULT WINAPI put_OnlineRootLabel(BSTR bstrLabel) = 0;
     virtual HRESULT WINAPI get_OfflineRootLabel(BSTR *pbstrLabel) = 0;
     virtual HRESULT WINAPI put_OfflineRootLabel(BSTR bstrLabel) = 0;
-    virtual HRESULT WINAPI get_Window(long *pVal) = 0;
+    virtual HRESULT WINAPI get_Window(__LONG32 *pVal) = 0;
     virtual HRESULT WINAPI get_ShowLogonButton(VARIANT_BOOL *pVal) = 0;
     virtual HRESULT WINAPI put_ShowLogonButton(VARIANT_BOOL newVal) = 0;
     virtual HRESULT WINAPI get_OnlineCollapsed(VARIANT_BOOL *pVal) = 0;
@@ -308,20 +308,20 @@ extern "C" {
       HRESULT (WINAPI *Logon)(IMSIMContactView *This,BSTR bstrAddress,BSTR bstrName,BSTR bstrPassword,BSTR bstrDomain);
       HRESULT (WINAPI *Logoff)(IMSIMContactView *This);
       HRESULT (WINAPI *GetLocalState)(IMSIMContactView *This,VARIANT *pvarState,VARIANT *pvarDescription,VARIANT *pvarData);
-      HRESULT (WINAPI *SetLocalState)(IMSIMContactView *This,long lState,VARIANT varDescription,VARIANT varData);
+      HRESULT (WINAPI *SetLocalState)(IMSIMContactView *This,__LONG32 lState,VARIANT varDescription,VARIANT varData);
       HRESULT (WINAPI *Add)(IMSIMContactView *This,VARIANT vUser);
       HRESULT (WINAPI *Remove)(IMSIMContactView *This,VARIANT vUser);
       HRESULT (WINAPI *get_List)(IMSIMContactView *This,VARIANT *pvarList);
       HRESULT (WINAPI *put_List)(IMSIMContactView *This,VARIANT varList);
-      HRESULT (WINAPI *AddMenuItem)(IMSIMContactView *This,BSTR bstrItem,long lPosition,long *plCommand);
-      HRESULT (WINAPI *get_SelectedMenuOptions)(IMSIMContactView *This,long *pVal);
+      HRESULT (WINAPI *AddMenuItem)(IMSIMContactView *This,BSTR bstrItem,__LONG32 lPosition,__LONG32 *plCommand);
+      HRESULT (WINAPI *get_SelectedMenuOptions)(IMSIMContactView *This,__LONG32 *pVal);
       HRESULT (WINAPI *IMSelected)(IMSIMContactView *This);
       HRESULT (WINAPI *EMailSelected)(IMSIMContactView *This);
       HRESULT (WINAPI *InviteSelected)(IMSIMContactView *This);
       HRESULT (WINAPI *BlockSelected)(IMSIMContactView *This);
       HRESULT (WINAPI *UnblockSelected)(IMSIMContactView *This);
-      HRESULT (WINAPI *get_ExtentWidth)(IMSIMContactView *This,long *pX);
-      HRESULT (WINAPI *get_ExtentHeight)(IMSIMContactView *This,long *pY);
+      HRESULT (WINAPI *get_ExtentWidth)(IMSIMContactView *This,__LONG32 *pX);
+      HRESULT (WINAPI *get_ExtentHeight)(IMSIMContactView *This,__LONG32 *pY);
       HRESULT (WINAPI *get_HotTracking)(IMSIMContactView *This,VARIANT_BOOL *pVal);
       HRESULT (WINAPI *put_HotTracking)(IMSIMContactView *This,VARIANT_BOOL newVal);
       HRESULT (WINAPI *get_AllowCollapse)(IMSIMContactView *This,VARIANT_BOOL *pVal);
@@ -332,7 +332,7 @@ extern "C" {
       HRESULT (WINAPI *put_OnlineRootLabel)(IMSIMContactView *This,BSTR bstrLabel);
       HRESULT (WINAPI *get_OfflineRootLabel)(IMSIMContactView *This,BSTR *pbstrLabel);
       HRESULT (WINAPI *put_OfflineRootLabel)(IMSIMContactView *This,BSTR bstrLabel);
-      HRESULT (WINAPI *get_Window)(IMSIMContactView *This,long *pVal);
+      HRESULT (WINAPI *get_Window)(IMSIMContactView *This,__LONG32 *pVal);
       HRESULT (WINAPI *get_ShowLogonButton)(IMSIMContactView *This,VARIANT_BOOL *pVal);
       HRESULT (WINAPI *put_ShowLogonButton)(IMSIMContactView *This,VARIANT_BOOL newVal);
       HRESULT (WINAPI *get_OnlineCollapsed)(IMSIMContactView *This,VARIANT_BOOL *pVal);
@@ -419,9 +419,9 @@ extern "C" {
   void __RPC_STUB IMSIMContactView_get_List_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMSIMContactView_put_List_Proxy(IMSIMContactView *This,VARIANT varList);
   void __RPC_STUB IMSIMContactView_put_List_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMSIMContactView_AddMenuItem_Proxy(IMSIMContactView *This,BSTR bstrItem,long lPosition,long *plCommand);
+  HRESULT WINAPI IMSIMContactView_AddMenuItem_Proxy(IMSIMContactView *This,BSTR bstrItem,__LONG32 lPosition,__LONG32 *plCommand);
   void __RPC_STUB IMSIMContactView_AddMenuItem_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMSIMContactView_get_SelectedMenuOptions_Proxy(IMSIMContactView *This,long *pVal);
+  HRESULT WINAPI IMSIMContactView_get_SelectedMenuOptions_Proxy(IMSIMContactView *This,__LONG32 *pVal);
   void __RPC_STUB IMSIMContactView_get_SelectedMenuOptions_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMSIMContactView_IMSelected_Proxy(IMSIMContactView *This);
   void __RPC_STUB IMSIMContactView_IMSelected_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -433,9 +433,9 @@ extern "C" {
   void __RPC_STUB IMSIMContactView_BlockSelected_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMSIMContactView_UnblockSelected_Proxy(IMSIMContactView *This);
   void __RPC_STUB IMSIMContactView_UnblockSelected_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMSIMContactView_get_ExtentWidth_Proxy(IMSIMContactView *This,long *pX);
+  HRESULT WINAPI IMSIMContactView_get_ExtentWidth_Proxy(IMSIMContactView *This,__LONG32 *pX);
   void __RPC_STUB IMSIMContactView_get_ExtentWidth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMSIMContactView_get_ExtentHeight_Proxy(IMSIMContactView *This,long *pY);
+  HRESULT WINAPI IMSIMContactView_get_ExtentHeight_Proxy(IMSIMContactView *This,__LONG32 *pY);
   void __RPC_STUB IMSIMContactView_get_ExtentHeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMSIMContactView_get_HotTracking_Proxy(IMSIMContactView *This,VARIANT_BOOL *pVal);
   void __RPC_STUB IMSIMContactView_get_HotTracking_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -457,7 +457,7 @@ extern "C" {
   void __RPC_STUB IMSIMContactView_get_OfflineRootLabel_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMSIMContactView_put_OfflineRootLabel_Proxy(IMSIMContactView *This,BSTR bstrLabel);
   void __RPC_STUB IMSIMContactView_put_OfflineRootLabel_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMSIMContactView_get_Window_Proxy(IMSIMContactView *This,long *pVal);
+  HRESULT WINAPI IMSIMContactView_get_Window_Proxy(IMSIMContactView *This,__LONG32 *pVal);
   void __RPC_STUB IMSIMContactView_get_Window_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMSIMContactView_get_ShowLogonButton_Proxy(IMSIMContactView *This,VARIANT_BOOL *pVal);
   void __RPC_STUB IMSIMContactView_get_ShowLogonButton_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -528,7 +528,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IMSIMMessageView : public _IUseIMBase {
   public:
-    virtual HRESULT WINAPI get_Window(long *phwnd) = 0;
+    virtual HRESULT WINAPI get_Window(__LONG32 *phwnd) = 0;
     virtual HRESULT WINAPI put_Appearance(short appearance) = 0;
     virtual HRESULT WINAPI get_Appearance(short *pappearance) = 0;
     virtual HRESULT WINAPI get_ShowParticipants(VARIANT_BOOL *pVal) = 0;
@@ -555,7 +555,7 @@ extern "C" {
     virtual HRESULT WINAPI AddToAvailable(VARIANT varContact) = 0;
     virtual HRESULT WINAPI RemoveFromAvailable(VARIANT varContact) = 0;
     virtual HRESULT WINAPI InviteNetMeeting(void) = 0;
-    virtual HRESULT WINAPI NetMeetingInvite(IDispatch *pIMSession,IDispatch *pContact,long lInviteCookie) = 0;
+    virtual HRESULT WINAPI NetMeetingInvite(IDispatch *pIMSession,IDispatch *pContact,__LONG32 lInviteCookie) = 0;
     virtual HRESULT WINAPI get_SourceURL(BSTR *pVal) = 0;
     virtual HRESULT WINAPI put_SourceURL(BSTR newVal) = 0;
     virtual HRESULT WINAPI get_InSession(VARIANT_BOOL *pVal) = 0;
@@ -580,8 +580,8 @@ extern "C" {
       HRESULT (WINAPI *Logon)(IMSIMMessageView *This,BSTR bstrAddress,BSTR bstrName,BSTR bstrPassword,BSTR bstrDomain);
       HRESULT (WINAPI *Logoff)(IMSIMMessageView *This);
       HRESULT (WINAPI *GetLocalState)(IMSIMMessageView *This,VARIANT *pvarState,VARIANT *pvarDescription,VARIANT *pvarData);
-      HRESULT (WINAPI *SetLocalState)(IMSIMMessageView *This,long lState,VARIANT varDescription,VARIANT varData);
-      HRESULT (WINAPI *get_Window)(IMSIMMessageView *This,long *phwnd);
+      HRESULT (WINAPI *SetLocalState)(IMSIMMessageView *This,__LONG32 lState,VARIANT varDescription,VARIANT varData);
+      HRESULT (WINAPI *get_Window)(IMSIMMessageView *This,__LONG32 *phwnd);
       HRESULT (WINAPI *put_Appearance)(IMSIMMessageView *This,short appearance);
       HRESULT (WINAPI *get_Appearance)(IMSIMMessageView *This,short *pappearance);
       HRESULT (WINAPI *get_ShowParticipants)(IMSIMMessageView *This,VARIANT_BOOL *pVal);
@@ -608,7 +608,7 @@ extern "C" {
       HRESULT (WINAPI *AddToAvailable)(IMSIMMessageView *This,VARIANT varContact);
       HRESULT (WINAPI *RemoveFromAvailable)(IMSIMMessageView *This,VARIANT varContact);
       HRESULT (WINAPI *InviteNetMeeting)(IMSIMMessageView *This);
-      HRESULT (WINAPI *NetMeetingInvite)(IMSIMMessageView *This,IDispatch *pIMSession,IDispatch *pContact,long lInviteCookie);
+      HRESULT (WINAPI *NetMeetingInvite)(IMSIMMessageView *This,IDispatch *pIMSession,IDispatch *pContact,__LONG32 lInviteCookie);
       HRESULT (WINAPI *get_SourceURL)(IMSIMMessageView *This,BSTR *pVal);
       HRESULT (WINAPI *put_SourceURL)(IMSIMMessageView *This,BSTR newVal);
       HRESULT (WINAPI *get_InSession)(IMSIMMessageView *This,VARIANT_BOOL *pVal);
@@ -669,7 +669,7 @@ extern "C" {
 #define IMSIMMessageView_get_InSession(This,pVal) (This)->lpVtbl->get_InSession(This,pVal)
 #endif
 #endif
-  HRESULT WINAPI IMSIMMessageView_get_Window_Proxy(IMSIMMessageView *This,long *phwnd);
+  HRESULT WINAPI IMSIMMessageView_get_Window_Proxy(IMSIMMessageView *This,__LONG32 *phwnd);
   void __RPC_STUB IMSIMMessageView_get_Window_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMSIMMessageView_put_Appearance_Proxy(IMSIMMessageView *This,short appearance);
   void __RPC_STUB IMSIMMessageView_put_Appearance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -723,7 +723,7 @@ extern "C" {
   void __RPC_STUB IMSIMMessageView_RemoveFromAvailable_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMSIMMessageView_InviteNetMeeting_Proxy(IMSIMMessageView *This);
   void __RPC_STUB IMSIMMessageView_InviteNetMeeting_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMSIMMessageView_NetMeetingInvite_Proxy(IMSIMMessageView *This,IDispatch *pIMSession,IDispatch *pContact,long lInviteCookie);
+  HRESULT WINAPI IMSIMMessageView_NetMeetingInvite_Proxy(IMSIMMessageView *This,IDispatch *pIMSession,IDispatch *pContact,__LONG32 lInviteCookie);
   void __RPC_STUB IMSIMMessageView_NetMeetingInvite_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMSIMMessageView_get_SourceURL_Proxy(IMSIMMessageView *This,BSTR *pVal);
   void __RPC_STUB IMSIMMessageView_get_SourceURL_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -784,7 +784,7 @@ extern "C" {
     virtual HRESULT WINAPI get_LogonName(BSTR *pbstrLogonName) = 0;
     virtual HRESULT WINAPI get_FriendlyName(BSTR *pbstrFriendlyName) = 0;
     virtual HRESULT WINAPI get_EmailAddress(BSTR *pbstrEmailAddress) = 0;
-    virtual HRESULT WINAPI get_State(long *plState) = 0;
+    virtual HRESULT WINAPI get_State(__LONG32 *plState) = 0;
     virtual HRESULT WINAPI _SetBaseContact(IDispatch *pUnk) = 0;
     virtual HRESULT WINAPI LaunchInstantMessage(void) = 0;
     virtual HRESULT WINAPI LaunchEmail(void) = 0;
@@ -803,7 +803,7 @@ extern "C" {
       HRESULT (WINAPI *get_LogonName)(IIMSafeContact *This,BSTR *pbstrLogonName);
       HRESULT (WINAPI *get_FriendlyName)(IIMSafeContact *This,BSTR *pbstrFriendlyName);
       HRESULT (WINAPI *get_EmailAddress)(IIMSafeContact *This,BSTR *pbstrEmailAddress);
-      HRESULT (WINAPI *get_State)(IIMSafeContact *This,long *plState);
+      HRESULT (WINAPI *get_State)(IIMSafeContact *This,__LONG32 *plState);
       HRESULT (WINAPI *_SetBaseContact)(IIMSafeContact *This,IDispatch *pUnk);
       HRESULT (WINAPI *LaunchInstantMessage)(IIMSafeContact *This);
       HRESULT (WINAPI *LaunchEmail)(IIMSafeContact *This);
@@ -837,7 +837,7 @@ extern "C" {
   void __RPC_STUB IIMSafeContact_get_FriendlyName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IIMSafeContact_get_EmailAddress_Proxy(IIMSafeContact *This,BSTR *pbstrEmailAddress);
   void __RPC_STUB IIMSafeContact_get_EmailAddress_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IIMSafeContact_get_State_Proxy(IIMSafeContact *This,long *plState);
+  HRESULT WINAPI IIMSafeContact_get_State_Proxy(IIMSafeContact *This,__LONG32 *plState);
   void __RPC_STUB IIMSafeContact_get_State_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IIMSafeContact__SetBaseContact_Proxy(IIMSafeContact *This,IDispatch *pUnk);
   void __RPC_STUB IIMSafeContact__SetBaseContact_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -859,17 +859,17 @@ extern "C" {
     virtual HRESULT WINAPI put_List(VARIANT varList) = 0;
     virtual HRESULT WINAPI Add(VARIANT vUser) = 0;
     virtual HRESULT WINAPI Remove(VARIANT vUser) = 0;
-    virtual HRESULT WINAPI get_SelectedMenuOptions(long lRow,long *pVal) = 0;
-    virtual HRESULT WINAPI InstantMessage(long lRow) = 0;
-    virtual HRESULT WINAPI EMail(long lRow) = 0;
-    virtual HRESULT WINAPI Invite(long lRow) = 0;
-    virtual HRESULT WINAPI Block(long lRow) = 0;
-    virtual HRESULT WINAPI Unblock(long lRow) = 0;
-    virtual HRESULT WINAPI get_Count(long *pnCount) = 0;
+    virtual HRESULT WINAPI get_SelectedMenuOptions(__LONG32 lRow,__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI InstantMessage(__LONG32 lRow) = 0;
+    virtual HRESULT WINAPI EMail(__LONG32 lRow) = 0;
+    virtual HRESULT WINAPI Invite(__LONG32 lRow) = 0;
+    virtual HRESULT WINAPI Block(__LONG32 lRow) = 0;
+    virtual HRESULT WINAPI Unblock(__LONG32 lRow) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *pnCount) = 0;
     virtual HRESULT WINAPI get_Item(VARIANT Var,VARIANT *pSafeContact) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **ppunkEnum) = 0;
-    virtual HRESULT WINAPI get_LocalState(long *pnState) = 0;
-    virtual HRESULT WINAPI put_LocalState(long nState) = 0;
+    virtual HRESULT WINAPI get_LocalState(__LONG32 *pnState) = 0;
+    virtual HRESULT WINAPI put_LocalState(__LONG32 nState) = 0;
     virtual HRESULT WINAPI get_LocalLogonName(BSTR *pval) = 0;
   };
 #else
@@ -892,22 +892,22 @@ extern "C" {
       HRESULT (WINAPI *Logon)(IMSIMContactList *This,BSTR bstrAddress,BSTR bstrName,BSTR bstrPassword,BSTR bstrDomain);
       HRESULT (WINAPI *Logoff)(IMSIMContactList *This);
       HRESULT (WINAPI *GetLocalState)(IMSIMContactList *This,VARIANT *pvarState,VARIANT *pvarDescription,VARIANT *pvarData);
-      HRESULT (WINAPI *SetLocalState)(IMSIMContactList *This,long lState,VARIANT varDescription,VARIANT varData);
+      HRESULT (WINAPI *SetLocalState)(IMSIMContactList *This,__LONG32 lState,VARIANT varDescription,VARIANT varData);
       HRESULT (WINAPI *get_List)(IMSIMContactList *This,VARIANT *pvarList);
       HRESULT (WINAPI *put_List)(IMSIMContactList *This,VARIANT varList);
       HRESULT (WINAPI *Add)(IMSIMContactList *This,VARIANT vUser);
       HRESULT (WINAPI *Remove)(IMSIMContactList *This,VARIANT vUser);
-      HRESULT (WINAPI *get_SelectedMenuOptions)(IMSIMContactList *This,long lRow,long *pVal);
-      HRESULT (WINAPI *InstantMessage)(IMSIMContactList *This,long lRow);
-      HRESULT (WINAPI *EMail)(IMSIMContactList *This,long lRow);
-      HRESULT (WINAPI *Invite)(IMSIMContactList *This,long lRow);
-      HRESULT (WINAPI *Block)(IMSIMContactList *This,long lRow);
-      HRESULT (WINAPI *Unblock)(IMSIMContactList *This,long lRow);
-      HRESULT (WINAPI *get_Count)(IMSIMContactList *This,long *pnCount);
+      HRESULT (WINAPI *get_SelectedMenuOptions)(IMSIMContactList *This,__LONG32 lRow,__LONG32 *pVal);
+      HRESULT (WINAPI *InstantMessage)(IMSIMContactList *This,__LONG32 lRow);
+      HRESULT (WINAPI *EMail)(IMSIMContactList *This,__LONG32 lRow);
+      HRESULT (WINAPI *Invite)(IMSIMContactList *This,__LONG32 lRow);
+      HRESULT (WINAPI *Block)(IMSIMContactList *This,__LONG32 lRow);
+      HRESULT (WINAPI *Unblock)(IMSIMContactList *This,__LONG32 lRow);
+      HRESULT (WINAPI *get_Count)(IMSIMContactList *This,__LONG32 *pnCount);
       HRESULT (WINAPI *get_Item)(IMSIMContactList *This,VARIANT Var,VARIANT *pSafeContact);
       HRESULT (WINAPI *get__NewEnum)(IMSIMContactList *This,IUnknown **ppunkEnum);
-      HRESULT (WINAPI *get_LocalState)(IMSIMContactList *This,long *pnState);
-      HRESULT (WINAPI *put_LocalState)(IMSIMContactList *This,long nState);
+      HRESULT (WINAPI *get_LocalState)(IMSIMContactList *This,__LONG32 *pnState);
+      HRESULT (WINAPI *put_LocalState)(IMSIMContactList *This,__LONG32 nState);
       HRESULT (WINAPI *get_LocalLogonName)(IMSIMContactList *This,BSTR *pval);
     END_INTERFACE
   } IMSIMContactListVtbl;
@@ -959,27 +959,27 @@ extern "C" {
   void __RPC_STUB IMSIMContactList_Add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMSIMContactList_Remove_Proxy(IMSIMContactList *This,VARIANT vUser);
   void __RPC_STUB IMSIMContactList_Remove_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMSIMContactList_get_SelectedMenuOptions_Proxy(IMSIMContactList *This,long lRow,long *pVal);
+  HRESULT WINAPI IMSIMContactList_get_SelectedMenuOptions_Proxy(IMSIMContactList *This,__LONG32 lRow,__LONG32 *pVal);
   void __RPC_STUB IMSIMContactList_get_SelectedMenuOptions_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMSIMContactList_InstantMessage_Proxy(IMSIMContactList *This,long lRow);
+  HRESULT WINAPI IMSIMContactList_InstantMessage_Proxy(IMSIMContactList *This,__LONG32 lRow);
   void __RPC_STUB IMSIMContactList_InstantMessage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMSIMContactList_EMail_Proxy(IMSIMContactList *This,long lRow);
+  HRESULT WINAPI IMSIMContactList_EMail_Proxy(IMSIMContactList *This,__LONG32 lRow);
   void __RPC_STUB IMSIMContactList_EMail_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMSIMContactList_Invite_Proxy(IMSIMContactList *This,long lRow);
+  HRESULT WINAPI IMSIMContactList_Invite_Proxy(IMSIMContactList *This,__LONG32 lRow);
   void __RPC_STUB IMSIMContactList_Invite_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMSIMContactList_Block_Proxy(IMSIMContactList *This,long lRow);
+  HRESULT WINAPI IMSIMContactList_Block_Proxy(IMSIMContactList *This,__LONG32 lRow);
   void __RPC_STUB IMSIMContactList_Block_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMSIMContactList_Unblock_Proxy(IMSIMContactList *This,long lRow);
+  HRESULT WINAPI IMSIMContactList_Unblock_Proxy(IMSIMContactList *This,__LONG32 lRow);
   void __RPC_STUB IMSIMContactList_Unblock_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMSIMContactList_get_Count_Proxy(IMSIMContactList *This,long *pnCount);
+  HRESULT WINAPI IMSIMContactList_get_Count_Proxy(IMSIMContactList *This,__LONG32 *pnCount);
   void __RPC_STUB IMSIMContactList_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMSIMContactList_get_Item_Proxy(IMSIMContactList *This,VARIANT Var,VARIANT *pSafeContact);
   void __RPC_STUB IMSIMContactList_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMSIMContactList_get__NewEnum_Proxy(IMSIMContactList *This,IUnknown **ppunkEnum);
   void __RPC_STUB IMSIMContactList_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMSIMContactList_get_LocalState_Proxy(IMSIMContactList *This,long *pnState);
+  HRESULT WINAPI IMSIMContactList_get_LocalState_Proxy(IMSIMContactList *This,__LONG32 *pnState);
   void __RPC_STUB IMSIMContactList_get_LocalState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMSIMContactList_put_LocalState_Proxy(IMSIMContactList *This,long nState);
+  HRESULT WINAPI IMSIMContactList_put_LocalState_Proxy(IMSIMContactList *This,__LONG32 nState);
   void __RPC_STUB IMSIMContactList_put_LocalState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMSIMContactList_get_LocalLogonName_Proxy(IMSIMContactList *This,BSTR *pval);
   void __RPC_STUB IMSIMContactList_get_LocalLogonName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);

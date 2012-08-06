@@ -14,7 +14,7 @@
 
 #undef OLEDBDECLSPEC
 #define OLEDBDECLSPEC __declspec(selectany)
-typedef unsigned long DBKIND;
+typedef unsigned __LONG32 DBKIND;
 
 enum DBKINDENUM {
   DBKIND_GUID_NAME = 0,DBKIND_GUID_PROPID,DBKIND_NAME,DBKIND_PGUID_NAME,
@@ -29,7 +29,7 @@ typedef struct tagDBID {
   DBKIND eKind;
   union {
     wchar_t *pwszName;
-    unsigned long ulPropid;
+    unsigned __LONG32 ulPropid;
   } uName;
 } DBID;
 

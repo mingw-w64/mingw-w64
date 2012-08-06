@@ -19,7 +19,7 @@ public:
   virtual ~CMSPCallBase();
   virtual ULONG MSPCallAddRef (void) = 0;
   virtual ULONG MSPCallRelease (void) = 0;
-  STDMETHOD (CreateStream) (long lMediaType,TERMINAL_DIRECTION Direction,ITStream **ppStream);
+  STDMETHOD (CreateStream) (__LONG32 lMediaType,TERMINAL_DIRECTION Direction,ITStream **ppStream);
   STDMETHOD (EnumerateStreams) (IEnumStream **ppEnumStream);
   STDMETHOD (RemoveStream) (ITStream *pStream) = 0;
   STDMETHOD (get_Streams) (VARIANT *pStreams);
@@ -58,7 +58,7 @@ public:
   HRESULT ShutDown();
   static VOID NTAPI DispatchGraphEvent(VOID *pContext,BOOLEAN bFlag);
   virtual VOID HandleGraphEvent(MSPSTREAMCONTEXT *pContext);
-  virtual HRESULT ProcessGraphEvent(ITStream *pITStream,long lEventCode,LONG_PTR lParam1,LONG_PTR lParam2);
+  virtual HRESULT ProcessGraphEvent(ITStream *pITStream,__LONG32 lEventCode,LONG_PTR lParam1,LONG_PTR lParam2);
 protected:
   HRESULT RegisterWaitEvent(IMediaEvent *pIMediaEvent,ITStream *pITStream);
   HRESULT UnregisterWaitEvent(int index);
@@ -70,7 +70,7 @@ protected:
 struct MULTI_GRAPH_EVENT_DATA {
   CMSPCallMultiGraph *pCall;
   ITStream *pITStream;
-  long lEventCode;
+  __LONG32 lEventCode;
   LONG_PTR lParam1;
   LONG_PTR lParam2;
   IMediaEvent *pIMediaEvent;

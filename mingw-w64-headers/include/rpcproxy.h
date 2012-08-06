@@ -82,7 +82,7 @@ extern "C" {
   typedef struct tagCInterfaceStubHeader {
     const IID *piid;
     const MIDL_SERVER_INFO *pServerInfo;
-    unsigned long DispatchTableCount;
+    unsigned __LONG32 DispatchTableCount;
     const PRPC_STUB_FUNCTION *pDispatchTable;
   } CInterfaceStubHeader;
 
@@ -93,7 +93,7 @@ extern "C" {
 
   typedef struct tagCStdStubBuffer {
     const struct IRpcStubBufferVtbl *lpVtbl;
-    long RefCount;
+    __LONG32 RefCount;
     struct IUnknown *pvServerObject;
     const struct ICallFactoryVtbl *pCallFactoryVtbl;
     const IID *pAsyncIID;
@@ -103,9 +103,9 @@ extern "C" {
 
   typedef struct tagCStdPSFactoryBuffer {
     const IPSFactoryBufferVtbl *lpVtbl;
-    long RefCount;
+    __LONG32 RefCount;
     const ProxyFileInfo **pProxyFileList;
-    long Filler1;
+    __LONG32 Filler1;
   } CStdPSFactoryBuffer;
 
   RPCRTAPI void RPC_ENTRY NdrProxyInitialize(void *This,PRPC_MESSAGE pRpcMsg,PMIDL_STUB_MESSAGE pStubMsg,PMIDL_STUB_DESC pStubDescriptor,unsigned int ProcNum);
@@ -114,7 +114,7 @@ extern "C" {
   RPCRTAPI void RPC_ENTRY NdrProxyFreeBuffer(void *This,MIDL_STUB_MESSAGE *pStubMsg);
   RPCRTAPI HRESULT RPC_ENTRY NdrProxyErrorHandler(DWORD dwExceptionCode);
   RPCRTAPI void RPC_ENTRY NdrStubInitialize(PRPC_MESSAGE pRpcMsg,PMIDL_STUB_MESSAGE pStubMsg,PMIDL_STUB_DESC pStubDescriptor,IRpcChannelBuffer *pRpcChannelBuffer);
-  RPCRTAPI void RPC_ENTRY NdrStubInitializePartial(PRPC_MESSAGE pRpcMsg,PMIDL_STUB_MESSAGE pStubMsg,PMIDL_STUB_DESC pStubDescriptor,IRpcChannelBuffer *pRpcChannelBuffer,unsigned long RequestedBufferSize);
+  RPCRTAPI void RPC_ENTRY NdrStubInitializePartial(PRPC_MESSAGE pRpcMsg,PMIDL_STUB_MESSAGE pStubMsg,PMIDL_STUB_DESC pStubDescriptor,IRpcChannelBuffer *pRpcChannelBuffer,unsigned __LONG32 RequestedBufferSize);
   void __RPC_STUB NdrStubForwardingFunction(IRpcStubBuffer *This,IRpcChannelBuffer *pChannel,PRPC_MESSAGE pmsg,DWORD *pdwStubPhase);
   RPCRTAPI void RPC_ENTRY NdrStubGetBuffer(IRpcStubBuffer *This,IRpcChannelBuffer *pRpcChannelBuffer,PMIDL_STUB_MESSAGE pStubMsg);
   RPCRTAPI HRESULT RPC_ENTRY NdrStubErrorHandler(DWORD dwExceptionCode);

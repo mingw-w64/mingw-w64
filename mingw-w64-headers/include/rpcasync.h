@@ -33,9 +33,9 @@ extern "C" {
 
   typedef struct _RPC_ASYNC_STATE {
     unsigned int Size;
-    unsigned long Signature;
-    long Lock;
-    unsigned long Flags;
+    unsigned __LONG32 Signature;
+    __LONG32 Lock;
+    unsigned __LONG32 Flags;
     void *StubInfo;
     void *UserInfo;
     void *RuntimeInfo;
@@ -71,7 +71,7 @@ extern "C" {
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcAsyncRegisterInfo(PRPC_ASYNC_STATE pAsync);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcAsyncGetCallStatus(PRPC_ASYNC_STATE pAsync);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcAsyncCompleteCall(PRPC_ASYNC_STATE pAsync,void *Reply);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcAsyncAbortCall(PRPC_ASYNC_STATE pAsync,unsigned long ExceptionCode);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcAsyncAbortCall(PRPC_ASYNC_STATE pAsync,unsigned __LONG32 ExceptionCode);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcAsyncCancelCall(PRPC_ASYNC_STATE pAsync,WINBOOL fAbort);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcAsyncCleanupThread(DWORD dwTimeout);
 
@@ -92,7 +92,7 @@ extern "C" {
     union {
       LPSTR AnsiString;
       LPWSTR UnicodeString;
-      long LVal;
+      __LONG32 LVal;
       short SVal;
       ULONGLONG PVal;
       BinaryParam BVal;
@@ -148,25 +148,25 @@ extern "C" {
 
   typedef struct tagRPC_CALL_ATTRIBUTES_V1_W {
     unsigned int Version;
-    unsigned long Flags;
-    unsigned long ServerPrincipalNameBufferLength;
+    unsigned __LONG32 Flags;
+    unsigned __LONG32 ServerPrincipalNameBufferLength;
     unsigned short *ServerPrincipalName;
-    unsigned long ClientPrincipalNameBufferLength;
+    unsigned __LONG32 ClientPrincipalNameBufferLength;
     unsigned short *ClientPrincipalName;
-    unsigned long AuthenticationLevel;
-    unsigned long AuthenticationService;
+    unsigned __LONG32 AuthenticationLevel;
+    unsigned __LONG32 AuthenticationService;
     WINBOOL NullSession;
   } RPC_CALL_ATTRIBUTES_V1_W;
 
   typedef struct tagRPC_CALL_ATTRIBUTES_V1_A {
     unsigned int Version;
-    unsigned long Flags;
-    unsigned long ServerPrincipalNameBufferLength;
+    unsigned __LONG32 Flags;
+    unsigned __LONG32 ServerPrincipalNameBufferLength;
     unsigned char *ServerPrincipalName;
-    unsigned long ClientPrincipalNameBufferLength;
+    unsigned __LONG32 ClientPrincipalNameBufferLength;
     unsigned char *ClientPrincipalName;
-    unsigned long AuthenticationLevel;
-    unsigned long AuthenticationService;
+    unsigned __LONG32 AuthenticationLevel;
+    unsigned __LONG32 AuthenticationService;
     WINBOOL NullSession;
   } RPC_CALL_ATTRIBUTES_V1_A;
 
@@ -179,8 +179,8 @@ extern "C" {
   typedef RPC_CALL_ATTRIBUTES_V1 RPC_CALL_ATTRIBUTES;
 
   RPC_STATUS RPC_ENTRY I_RpcAsyncSetHandle(PRPC_MESSAGE Message,PRPC_ASYNC_STATE pAsync);
-  RPC_STATUS RPC_ENTRY I_RpcAsyncAbortCall(PRPC_ASYNC_STATE pAsync,unsigned long ExceptionCode);
-  int RPC_ENTRY I_RpcExceptionFilter(unsigned long ExceptionCode);
+  RPC_STATUS RPC_ENTRY I_RpcAsyncAbortCall(PRPC_ASYNC_STATE pAsync,unsigned __LONG32 ExceptionCode);
+  int RPC_ENTRY I_RpcExceptionFilter(unsigned __LONG32 ExceptionCode);
 
 typedef union _RPC_ASYNC_NOTIFICATION_INFO {
   struct {
@@ -247,7 +247,7 @@ RPC_STATUS RPC_ENTRY RpcServerSubscribeForNotification(
 RPC_STATUS RPC_ENTRY RpcServerUnsubscribeForNotification(
   RPC_BINDING_HANDLE Binding,
   RPC_NOTIFICATIONS Notification,
-  unsigned long *NotificationsQueued
+  unsigned __LONG32 *NotificationsQueued
 );
 
 #if (_WIN32_WINNT >= 0x0600)
@@ -255,14 +255,14 @@ RPC_STATUS RPC_ENTRY RpcServerUnsubscribeForNotification(
 typedef struct tagRPC_CALL_LOCAL_ADDRESS_V1_A {
   unsigned int          Version;
   void                  *Buffer;
-  unsigned long         BufferSize;
+  unsigned __LONG32     BufferSize;
   RpcLocalAddressFormat AddressFormat;
 } RPC_CALL_LOCAL_ADDRESS_V1_A, RPC_CALL_LOCAL_ADDRESS_A;
 
 typedef struct tagRPC_CALL_LOCAL_ADDRESS_V1_W {
   unsigned int          Version;
   void                  *Buffer;
-  unsigned long         BufferSize;
+  unsigned __LONG32     BufferSize;
   RpcLocalAddressFormat AddressFormat;
 } RPC_CALL_LOCAL_ADDRESS_V1_W, RPC_CALL_LOCAL_ADDRESS_W;
 
@@ -271,19 +271,19 @@ typedef struct tagRPC_CALL_LOCAL_ADDRESS_V1_W {
 
 typedef struct tagRPC_CALL_ATTRIBUTES_V2A {
   unsigned int           Version;
-  unsigned long          Flags;
-  unsigned long          ServerPrincipalNameBufferLength;
+  unsigned __LONG32      Flags;
+  unsigned __LONG32      ServerPrincipalNameBufferLength;
   unsigned short         *ServerPrincipalName;
-  unsigned long          ClientPrincipalNameBufferLength;
+  unsigned __LONG32      ClientPrincipalNameBufferLength;
   unsigned short         *ClientPrincipalName;
-  unsigned long          AuthenticationLevel;
-  unsigned long          AuthenticationService;
+  unsigned __LONG32      AuthenticationLevel;
+  unsigned __LONG32      AuthenticationService;
   WINBOOL                NullSession;
   WINBOOL                KernelMode;
-  unsigned long          ProtocolSequence;
+  unsigned __LONG32      ProtocolSequence;
   RpcCallClientLocality  IsClientLocal;
   HANDLE                 ClientPID;
-  unsigned long          CallStatus;
+  unsigned __LONG32      CallStatus;
   RpcCallType            CallType;
   RPC_CALL_LOCAL_ADDRESS_A *CallLocalAddress;
   unsigned short         OpNum;
@@ -292,19 +292,19 @@ typedef struct tagRPC_CALL_ATTRIBUTES_V2A {
 
 typedef struct tagRPC_CALL_ATTRIBUTES_V2W {
   unsigned int           Version;
-  unsigned long          Flags;
-  unsigned long          ServerPrincipalNameBufferLength;
+  unsigned __LONG32      Flags;
+  unsigned __LONG32      ServerPrincipalNameBufferLength;
   unsigned short         *ServerPrincipalName;
-  unsigned long          ClientPrincipalNameBufferLength;
+  unsigned __LONG32      ClientPrincipalNameBufferLength;
   unsigned short         *ClientPrincipalName;
-  unsigned long          AuthenticationLevel;
-  unsigned long          AuthenticationService;
+  unsigned __LONG32      AuthenticationLevel;
+  unsigned __LONG32      AuthenticationService;
   WINBOOL                NullSession;
   WINBOOL                KernelMode;
-  unsigned long          ProtocolSequence;
+  unsigned __LONG32      ProtocolSequence;
   RpcCallClientLocality  IsClientLocal;
   HANDLE                 ClientPID;
-  unsigned long          CallStatus;
+  unsigned __LONG32      CallStatus;
   RpcCallType            CallType;
   RPC_CALL_LOCAL_ADDRESS_W *CallLocalAddress;
   unsigned short         OpNum;

@@ -366,7 +366,7 @@ extern "C" {
 #endif
 
   typedef LONG_PTR HSCOPEITEM;
-  typedef long COMPONENTID;
+  typedef __LONG32 COMPONENTID;
   typedef LONG_PTR HRESULTITEM;
 
 #define RDI_STR (0x2)
@@ -539,7 +539,7 @@ extern "C" {
     DWORD dwSize;
     MMC_COOKIE cookie;
     LPOLESTR pViewType;
-    long lViewOptions;
+    __LONG32 lViewOptions;
   } MMC_RESTORE_VIEW;
 
   typedef struct _MMC_EXPANDSYNC_STRUCT {
@@ -736,7 +736,7 @@ extern "C" {
     virtual HRESULT WINAPI Notify(LPDATAOBJECT lpDataObject,MMC_NOTIFY_TYPE event,LPARAM arg,LPARAM param) = 0;
     virtual HRESULT WINAPI Destroy(MMC_COOKIE cookie) = 0;
     virtual HRESULT WINAPI QueryDataObject(MMC_COOKIE cookie,DATA_OBJECT_TYPES type,LPDATAOBJECT *ppDataObject) = 0;
-    virtual HRESULT WINAPI GetResultViewType(MMC_COOKIE cookie,LPOLESTR *ppViewType,long *pViewOptions) = 0;
+    virtual HRESULT WINAPI GetResultViewType(MMC_COOKIE cookie,LPOLESTR *ppViewType,__LONG32 *pViewOptions) = 0;
     virtual HRESULT WINAPI GetDisplayInfo(RESULTDATAITEM *pResultDataItem) = 0;
     virtual HRESULT WINAPI CompareObjects(LPDATAOBJECT lpDataObjectA,LPDATAOBJECT lpDataObjectB) = 0;
   };
@@ -750,7 +750,7 @@ extern "C" {
       HRESULT (WINAPI *Notify)(IComponent *This,LPDATAOBJECT lpDataObject,MMC_NOTIFY_TYPE event,LPARAM arg,LPARAM param);
       HRESULT (WINAPI *Destroy)(IComponent *This,MMC_COOKIE cookie);
       HRESULT (WINAPI *QueryDataObject)(IComponent *This,MMC_COOKIE cookie,DATA_OBJECT_TYPES type,LPDATAOBJECT *ppDataObject);
-      HRESULT (WINAPI *GetResultViewType)(IComponent *This,MMC_COOKIE cookie,LPOLESTR *ppViewType,long *pViewOptions);
+      HRESULT (WINAPI *GetResultViewType)(IComponent *This,MMC_COOKIE cookie,LPOLESTR *ppViewType,__LONG32 *pViewOptions);
       HRESULT (WINAPI *GetDisplayInfo)(IComponent *This,RESULTDATAITEM *pResultDataItem);
       HRESULT (WINAPI *CompareObjects)(IComponent *This,LPDATAOBJECT lpDataObjectA,LPDATAOBJECT lpDataObjectB);
     END_INTERFACE
@@ -779,7 +779,7 @@ extern "C" {
   void __RPC_STUB IComponent_Destroy_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IComponent_QueryDataObject_Proxy(IComponent *This,MMC_COOKIE cookie,DATA_OBJECT_TYPES type,LPDATAOBJECT *ppDataObject);
   void __RPC_STUB IComponent_QueryDataObject_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IComponent_GetResultViewType_Proxy(IComponent *This,MMC_COOKIE cookie,LPOLESTR *ppViewType,long *pViewOptions);
+  HRESULT WINAPI IComponent_GetResultViewType_Proxy(IComponent *This,MMC_COOKIE cookie,LPOLESTR *ppViewType,__LONG32 *pViewOptions);
   void __RPC_STUB IComponent_GetResultViewType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IComponent_GetDisplayInfo_Proxy(IComponent *This,RESULTDATAITEM *pResultDataItem);
   void __RPC_STUB IComponent_GetDisplayInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -875,7 +875,7 @@ extern "C" {
     virtual HRESULT WINAPI QueryConsoleVerb(LPCONSOLEVERB *ppConsoleVerb) = 0;
     virtual HRESULT WINAPI SelectScopeItem(HSCOPEITEM hScopeItem) = 0;
     virtual HRESULT WINAPI GetMainWindow(HWND *phwnd) = 0;
-    virtual HRESULT WINAPI NewWindow(HSCOPEITEM hScopeItem,unsigned long lOptions) = 0;
+    virtual HRESULT WINAPI NewWindow(HSCOPEITEM hScopeItem,unsigned __LONG32 lOptions) = 0;
   };
 #else
   typedef struct IConsoleVtbl {
@@ -893,7 +893,7 @@ extern "C" {
       HRESULT (WINAPI *QueryConsoleVerb)(IConsole *This,LPCONSOLEVERB *ppConsoleVerb);
       HRESULT (WINAPI *SelectScopeItem)(IConsole *This,HSCOPEITEM hScopeItem);
       HRESULT (WINAPI *GetMainWindow)(IConsole *This,HWND *phwnd);
-      HRESULT (WINAPI *NewWindow)(IConsole *This,HSCOPEITEM hScopeItem,unsigned long lOptions);
+      HRESULT (WINAPI *NewWindow)(IConsole *This,HSCOPEITEM hScopeItem,unsigned __LONG32 lOptions);
     END_INTERFACE
   } IConsoleVtbl;
   struct IConsole {
@@ -936,7 +936,7 @@ extern "C" {
   void __RPC_STUB IConsole_SelectScopeItem_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IConsole_GetMainWindow_Proxy(IConsole *This,HWND *phwnd);
   void __RPC_STUB IConsole_GetMainWindow_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IConsole_NewWindow_Proxy(IConsole *This,HSCOPEITEM hScopeItem,unsigned long lOptions);
+  HRESULT WINAPI IConsole_NewWindow_Proxy(IConsole *This,HSCOPEITEM hScopeItem,unsigned __LONG32 lOptions);
   void __RPC_STUB IConsole_NewWindow_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1067,7 +1067,7 @@ extern "C" {
     virtual HRESULT WINAPI EmptyMenuList(void) = 0;
     virtual HRESULT WINAPI AddPrimaryExtensionItems(LPUNKNOWN piExtension,LPDATAOBJECT piDataObject) = 0;
     virtual HRESULT WINAPI AddThirdPartyExtensionItems(LPDATAOBJECT piDataObject) = 0;
-    virtual HRESULT WINAPI ShowContextMenu(HWND hwndParent,long xPos,long yPos,long *plSelected) = 0;
+    virtual HRESULT WINAPI ShowContextMenu(HWND hwndParent,__LONG32 xPos,__LONG32 yPos,__LONG32 *plSelected) = 0;
   };
 #else
   typedef struct IContextMenuProviderVtbl {
@@ -1079,7 +1079,7 @@ extern "C" {
       HRESULT (WINAPI *EmptyMenuList)(IContextMenuProvider *This);
       HRESULT (WINAPI *AddPrimaryExtensionItems)(IContextMenuProvider *This,LPUNKNOWN piExtension,LPDATAOBJECT piDataObject);
       HRESULT (WINAPI *AddThirdPartyExtensionItems)(IContextMenuProvider *This,LPDATAOBJECT piDataObject);
-      HRESULT (WINAPI *ShowContextMenu)(IContextMenuProvider *This,HWND hwndParent,long xPos,long yPos,long *plSelected);
+      HRESULT (WINAPI *ShowContextMenu)(IContextMenuProvider *This,HWND hwndParent,__LONG32 xPos,__LONG32 yPos,__LONG32 *plSelected);
     END_INTERFACE
   } IContextMenuProviderVtbl;
   struct IContextMenuProvider {
@@ -1102,7 +1102,7 @@ extern "C" {
   void __RPC_STUB IContextMenuProvider_AddPrimaryExtensionItems_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IContextMenuProvider_AddThirdPartyExtensionItems_Proxy(IContextMenuProvider *This,LPDATAOBJECT piDataObject);
   void __RPC_STUB IContextMenuProvider_AddThirdPartyExtensionItems_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IContextMenuProvider_ShowContextMenu_Proxy(IContextMenuProvider *This,HWND hwndParent,long xPos,long yPos,long *plSelected);
+  HRESULT WINAPI IContextMenuProvider_ShowContextMenu_Proxy(IContextMenuProvider *This,HWND hwndParent,__LONG32 xPos,__LONG32 yPos,__LONG32 *plSelected);
   void __RPC_STUB IContextMenuProvider_ShowContextMenu_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1112,8 +1112,8 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IExtendContextMenu : public IUnknown {
   public:
-    virtual HRESULT WINAPI AddMenuItems(LPDATAOBJECT piDataObject,LPCONTEXTMENUCALLBACK piCallback,long *pInsertionAllowed) = 0;
-    virtual HRESULT WINAPI Command(long lCommandID,LPDATAOBJECT piDataObject) = 0;
+    virtual HRESULT WINAPI AddMenuItems(LPDATAOBJECT piDataObject,LPCONTEXTMENUCALLBACK piCallback,__LONG32 *pInsertionAllowed) = 0;
+    virtual HRESULT WINAPI Command(__LONG32 lCommandID,LPDATAOBJECT piDataObject) = 0;
   };
 #else
   typedef struct IExtendContextMenuVtbl {
@@ -1121,8 +1121,8 @@ extern "C" {
       HRESULT (WINAPI *QueryInterface)(IExtendContextMenu *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IExtendContextMenu *This);
       ULONG (WINAPI *Release)(IExtendContextMenu *This);
-      HRESULT (WINAPI *AddMenuItems)(IExtendContextMenu *This,LPDATAOBJECT piDataObject,LPCONTEXTMENUCALLBACK piCallback,long *pInsertionAllowed);
-      HRESULT (WINAPI *Command)(IExtendContextMenu *This,long lCommandID,LPDATAOBJECT piDataObject);
+      HRESULT (WINAPI *AddMenuItems)(IExtendContextMenu *This,LPDATAOBJECT piDataObject,LPCONTEXTMENUCALLBACK piCallback,__LONG32 *pInsertionAllowed);
+      HRESULT (WINAPI *Command)(IExtendContextMenu *This,__LONG32 lCommandID,LPDATAOBJECT piDataObject);
     END_INTERFACE
   } IExtendContextMenuVtbl;
   struct IExtendContextMenu {
@@ -1136,9 +1136,9 @@ extern "C" {
 #define IExtendContextMenu_Command(This,lCommandID,piDataObject) (This)->lpVtbl->Command(This,lCommandID,piDataObject)
 #endif
 #endif
-  HRESULT WINAPI IExtendContextMenu_AddMenuItems_Proxy(IExtendContextMenu *This,LPDATAOBJECT piDataObject,LPCONTEXTMENUCALLBACK piCallback,long *pInsertionAllowed);
+  HRESULT WINAPI IExtendContextMenu_AddMenuItems_Proxy(IExtendContextMenu *This,LPDATAOBJECT piDataObject,LPCONTEXTMENUCALLBACK piCallback,__LONG32 *pInsertionAllowed);
   void __RPC_STUB IExtendContextMenu_AddMenuItems_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IExtendContextMenu_Command_Proxy(IExtendContextMenu *This,long lCommandID,LPDATAOBJECT piDataObject);
+  HRESULT WINAPI IExtendContextMenu_Command_Proxy(IExtendContextMenu *This,__LONG32 lCommandID,LPDATAOBJECT piDataObject);
   void __RPC_STUB IExtendContextMenu_Command_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1158,8 +1158,8 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IImageList : public IUnknown {
   public:
-    virtual HRESULT WINAPI ImageListSetIcon(LONG_PTR *pIcon,long nLoc) = 0;
-    virtual HRESULT WINAPI ImageListSetStrip(LONG_PTR *pBMapSm,LONG_PTR *pBMapLg,long nStartLoc,COLORREF cMask) = 0;
+    virtual HRESULT WINAPI ImageListSetIcon(LONG_PTR *pIcon,__LONG32 nLoc) = 0;
+    virtual HRESULT WINAPI ImageListSetStrip(LONG_PTR *pBMapSm,LONG_PTR *pBMapLg,__LONG32 nStartLoc,COLORREF cMask) = 0;
   };
 #else
   typedef struct IImageListVtbl {
@@ -1167,8 +1167,8 @@ extern "C" {
       HRESULT (WINAPI *QueryInterface)(IImageList *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IImageList *This);
       ULONG (WINAPI *Release)(IImageList *This);
-      HRESULT (WINAPI *ImageListSetIcon)(IImageList *This,LONG_PTR *pIcon,long nLoc);
-      HRESULT (WINAPI *ImageListSetStrip)(IImageList *This,LONG_PTR *pBMapSm,LONG_PTR *pBMapLg,long nStartLoc,COLORREF cMask);
+      HRESULT (WINAPI *ImageListSetIcon)(IImageList *This,LONG_PTR *pIcon,__LONG32 nLoc);
+      HRESULT (WINAPI *ImageListSetStrip)(IImageList *This,LONG_PTR *pBMapSm,LONG_PTR *pBMapLg,__LONG32 nStartLoc,COLORREF cMask);
     END_INTERFACE
   } IImageListVtbl;
   struct IImageList {
@@ -1182,9 +1182,9 @@ extern "C" {
 #define IImageList_ImageListSetStrip(This,pBMapSm,pBMapLg,nStartLoc,cMask) (This)->lpVtbl->ImageListSetStrip(This,pBMapSm,pBMapLg,nStartLoc,cMask)
 #endif
 #endif
-  HRESULT WINAPI IImageList_ImageListSetIcon_Proxy(IImageList *This,LONG_PTR *pIcon,long nLoc);
+  HRESULT WINAPI IImageList_ImageListSetIcon_Proxy(IImageList *This,LONG_PTR *pIcon,__LONG32 nLoc);
   void __RPC_STUB IImageList_ImageListSetIcon_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IImageList_ImageListSetStrip_Proxy(IImageList *This,LONG_PTR *pBMapSm,LONG_PTR *pBMapLg,long nStartLoc,COLORREF cMask);
+  HRESULT WINAPI IImageList_ImageListSetStrip_Proxy(IImageList *This,LONG_PTR *pBMapSm,LONG_PTR *pBMapLg,__LONG32 nStartLoc,COLORREF cMask);
   void __RPC_STUB IImageList_ImageListSetStrip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1203,8 +1203,8 @@ extern "C" {
     virtual HRESULT WINAPI GetNextItem(LPRESULTDATAITEM item) = 0;
     virtual HRESULT WINAPI ModifyItemState(int nIndex,HRESULTITEM itemID,UINT uAdd,UINT uRemove) = 0;
     virtual HRESULT WINAPI ModifyViewStyle(MMC_RESULT_VIEW_STYLE add,MMC_RESULT_VIEW_STYLE remove) = 0;
-    virtual HRESULT WINAPI SetViewMode(long lViewMode) = 0;
-    virtual HRESULT WINAPI GetViewMode(long *lViewMode) = 0;
+    virtual HRESULT WINAPI SetViewMode(__LONG32 lViewMode) = 0;
+    virtual HRESULT WINAPI GetViewMode(__LONG32 *lViewMode) = 0;
     virtual HRESULT WINAPI UpdateItem(HRESULTITEM itemID) = 0;
     virtual HRESULT WINAPI Sort(int nColumn,DWORD dwSortOptions,LPARAM lUserParam) = 0;
     virtual HRESULT WINAPI SetDescBarText(LPOLESTR DescText) = 0;
@@ -1225,8 +1225,8 @@ extern "C" {
       HRESULT (WINAPI *GetNextItem)(IResultData *This,LPRESULTDATAITEM item);
       HRESULT (WINAPI *ModifyItemState)(IResultData *This,int nIndex,HRESULTITEM itemID,UINT uAdd,UINT uRemove);
       HRESULT (WINAPI *ModifyViewStyle)(IResultData *This,MMC_RESULT_VIEW_STYLE add,MMC_RESULT_VIEW_STYLE remove);
-      HRESULT (WINAPI *SetViewMode)(IResultData *This,long lViewMode);
-      HRESULT (WINAPI *GetViewMode)(IResultData *This,long *lViewMode);
+      HRESULT (WINAPI *SetViewMode)(IResultData *This,__LONG32 lViewMode);
+      HRESULT (WINAPI *GetViewMode)(IResultData *This,__LONG32 *lViewMode);
       HRESULT (WINAPI *UpdateItem)(IResultData *This,HRESULTITEM itemID);
       HRESULT (WINAPI *Sort)(IResultData *This,int nColumn,DWORD dwSortOptions,LPARAM lUserParam);
       HRESULT (WINAPI *SetDescBarText)(IResultData *This,LPOLESTR DescText);
@@ -1275,9 +1275,9 @@ extern "C" {
   void __RPC_STUB IResultData_ModifyItemState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IResultData_ModifyViewStyle_Proxy(IResultData *This,MMC_RESULT_VIEW_STYLE add,MMC_RESULT_VIEW_STYLE remove);
   void __RPC_STUB IResultData_ModifyViewStyle_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IResultData_SetViewMode_Proxy(IResultData *This,long lViewMode);
+  HRESULT WINAPI IResultData_SetViewMode_Proxy(IResultData *This,__LONG32 lViewMode);
   void __RPC_STUB IResultData_SetViewMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IResultData_GetViewMode_Proxy(IResultData *This,long *lViewMode);
+  HRESULT WINAPI IResultData_GetViewMode_Proxy(IResultData *This,__LONG32 *lViewMode);
   void __RPC_STUB IResultData_GetViewMode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IResultData_UpdateItem_Proxy(IResultData *This,HRESULTITEM itemID);
   void __RPC_STUB IResultData_UpdateItem_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1296,7 +1296,7 @@ extern "C" {
   struct IConsoleNameSpace : public IUnknown {
   public:
     virtual HRESULT WINAPI InsertItem(LPSCOPEDATAITEM item) = 0;
-    virtual HRESULT WINAPI DeleteItem(HSCOPEITEM hItem,long fDeleteThis) = 0;
+    virtual HRESULT WINAPI DeleteItem(HSCOPEITEM hItem,__LONG32 fDeleteThis) = 0;
     virtual HRESULT WINAPI SetItem(LPSCOPEDATAITEM item) = 0;
     virtual HRESULT WINAPI GetItem(LPSCOPEDATAITEM item) = 0;
     virtual HRESULT WINAPI GetChildItem(HSCOPEITEM item,HSCOPEITEM *pItemChild,MMC_COOKIE *pCookie) = 0;
@@ -1310,7 +1310,7 @@ extern "C" {
       ULONG (WINAPI *AddRef)(IConsoleNameSpace *This);
       ULONG (WINAPI *Release)(IConsoleNameSpace *This);
       HRESULT (WINAPI *InsertItem)(IConsoleNameSpace *This,LPSCOPEDATAITEM item);
-      HRESULT (WINAPI *DeleteItem)(IConsoleNameSpace *This,HSCOPEITEM hItem,long fDeleteThis);
+      HRESULT (WINAPI *DeleteItem)(IConsoleNameSpace *This,HSCOPEITEM hItem,__LONG32 fDeleteThis);
       HRESULT (WINAPI *SetItem)(IConsoleNameSpace *This,LPSCOPEDATAITEM item);
       HRESULT (WINAPI *GetItem)(IConsoleNameSpace *This,LPSCOPEDATAITEM item);
       HRESULT (WINAPI *GetChildItem)(IConsoleNameSpace *This,HSCOPEITEM item,HSCOPEITEM *pItemChild,MMC_COOKIE *pCookie);
@@ -1336,7 +1336,7 @@ extern "C" {
 #endif
   HRESULT WINAPI IConsoleNameSpace_InsertItem_Proxy(IConsoleNameSpace *This,LPSCOPEDATAITEM item);
   void __RPC_STUB IConsoleNameSpace_InsertItem_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IConsoleNameSpace_DeleteItem_Proxy(IConsoleNameSpace *This,HSCOPEITEM hItem,long fDeleteThis);
+  HRESULT WINAPI IConsoleNameSpace_DeleteItem_Proxy(IConsoleNameSpace *This,HSCOPEITEM hItem,__LONG32 fDeleteThis);
   void __RPC_STUB IConsoleNameSpace_DeleteItem_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IConsoleNameSpace_SetItem_Proxy(IConsoleNameSpace *This,LPSCOPEDATAITEM item);
   void __RPC_STUB IConsoleNameSpace_SetItem_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1366,7 +1366,7 @@ extern "C" {
       ULONG (WINAPI *AddRef)(IConsoleNameSpace2 *This);
       ULONG (WINAPI *Release)(IConsoleNameSpace2 *This);
       HRESULT (WINAPI *InsertItem)(IConsoleNameSpace2 *This,LPSCOPEDATAITEM item);
-      HRESULT (WINAPI *DeleteItem)(IConsoleNameSpace2 *This,HSCOPEITEM hItem,long fDeleteThis);
+      HRESULT (WINAPI *DeleteItem)(IConsoleNameSpace2 *This,HSCOPEITEM hItem,__LONG32 fDeleteThis);
       HRESULT (WINAPI *SetItem)(IConsoleNameSpace2 *This,LPSCOPEDATAITEM item);
       HRESULT (WINAPI *GetItem)(IConsoleNameSpace2 *This,LPSCOPEDATAITEM item);
       HRESULT (WINAPI *GetChildItem)(IConsoleNameSpace2 *This,HSCOPEITEM item,HSCOPEITEM *pItemChild,MMC_COOKIE *pCookie);
@@ -1873,7 +1873,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHeaderCtrl2 : public IHeaderCtrl {
   public:
-    virtual HRESULT WINAPI SetChangeTimeOut(unsigned long uTimeout) = 0;
+    virtual HRESULT WINAPI SetChangeTimeOut(unsigned __LONG32 uTimeout) = 0;
     virtual HRESULT WINAPI SetColumnFilter(UINT nColumn,DWORD dwType,MMC_FILTERDATA *pFilterData) = 0;
     virtual HRESULT WINAPI GetColumnFilter(UINT nColumn,LPDWORD pdwType,MMC_FILTERDATA *pFilterData) = 0;
   };
@@ -1889,7 +1889,7 @@ extern "C" {
       HRESULT (WINAPI *GetColumnText)(IHeaderCtrl2 *This,int nCol,LPOLESTR *pText);
       HRESULT (WINAPI *SetColumnWidth)(IHeaderCtrl2 *This,int nCol,int nWidth);
       HRESULT (WINAPI *GetColumnWidth)(IHeaderCtrl2 *This,int nCol,int *pWidth);
-      HRESULT (WINAPI *SetChangeTimeOut)(IHeaderCtrl2 *This,unsigned long uTimeout);
+      HRESULT (WINAPI *SetChangeTimeOut)(IHeaderCtrl2 *This,unsigned __LONG32 uTimeout);
       HRESULT (WINAPI *SetColumnFilter)(IHeaderCtrl2 *This,UINT nColumn,DWORD dwType,MMC_FILTERDATA *pFilterData);
       HRESULT (WINAPI *GetColumnFilter)(IHeaderCtrl2 *This,UINT nColumn,LPDWORD pdwType,MMC_FILTERDATA *pFilterData);
     END_INTERFACE
@@ -1912,7 +1912,7 @@ extern "C" {
 #define IHeaderCtrl2_GetColumnFilter(This,nColumn,pdwType,pFilterData) (This)->lpVtbl->GetColumnFilter(This,nColumn,pdwType,pFilterData)
 #endif
 #endif
-  HRESULT WINAPI IHeaderCtrl2_SetChangeTimeOut_Proxy(IHeaderCtrl2 *This,unsigned long uTimeout);
+  HRESULT WINAPI IHeaderCtrl2_SetChangeTimeOut_Proxy(IHeaderCtrl2 *This,unsigned __LONG32 uTimeout);
   void __RPC_STUB IHeaderCtrl2_SetChangeTimeOut_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHeaderCtrl2_SetColumnFilter_Proxy(IHeaderCtrl2 *This,UINT nColumn,DWORD dwType,MMC_FILTERDATA *pFilterData);
   void __RPC_STUB IHeaderCtrl2_SetColumnFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2132,7 +2132,7 @@ extern "C" {
       HRESULT (WINAPI *QueryConsoleVerb)(IConsole2 *This,LPCONSOLEVERB *ppConsoleVerb);
       HRESULT (WINAPI *SelectScopeItem)(IConsole2 *This,HSCOPEITEM hScopeItem);
       HRESULT (WINAPI *GetMainWindow)(IConsole2 *This,HWND *phwnd);
-      HRESULT (WINAPI *NewWindow)(IConsole2 *This,HSCOPEITEM hScopeItem,unsigned long lOptions);
+      HRESULT (WINAPI *NewWindow)(IConsole2 *This,HSCOPEITEM hScopeItem,unsigned __LONG32 lOptions);
       HRESULT (WINAPI *Expand)(IConsole2 *This,HSCOPEITEM hItem,WINBOOL bExpand);
       HRESULT (WINAPI *IsTaskpadViewPreferred)(IConsole2 *This);
       HRESULT (WINAPI *SetStatusText)(IConsole2 *This,LPOLESTR pszStatusText);
@@ -2616,7 +2616,7 @@ extern "C" {
       HRESULT (WINAPI *Notify)(IComponent2 *This,LPDATAOBJECT lpDataObject,MMC_NOTIFY_TYPE event,LPARAM arg,LPARAM param);
       HRESULT (WINAPI *Destroy)(IComponent2 *This,MMC_COOKIE cookie);
       HRESULT (WINAPI *QueryDataObject)(IComponent2 *This,MMC_COOKIE cookie,DATA_OBJECT_TYPES type,LPDATAOBJECT *ppDataObject);
-      HRESULT (WINAPI *GetResultViewType)(IComponent2 *This,MMC_COOKIE cookie,LPOLESTR *ppViewType,long *pViewOptions);
+      HRESULT (WINAPI *GetResultViewType)(IComponent2 *This,MMC_COOKIE cookie,LPOLESTR *ppViewType,__LONG32 *pViewOptions);
       HRESULT (WINAPI *GetDisplayInfo)(IComponent2 *This,RESULTDATAITEM *pResultDataItem);
       HRESULT (WINAPI *CompareObjects)(IComponent2 *This,LPDATAOBJECT lpDataObjectA,LPDATAOBJECT lpDataObjectB);
       HRESULT (WINAPI *QueryDispatch)(IComponent2 *This,MMC_COOKIE cookie,DATA_OBJECT_TYPES type,LPDISPATCH *ppDispatch);
@@ -2688,7 +2688,7 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IMMCVersionInfo : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetMMCVersion(long *pVersionMajor,long *pVersionMinor) = 0;
+    virtual HRESULT WINAPI GetMMCVersion(__LONG32 *pVersionMajor,__LONG32 *pVersionMinor) = 0;
   };
 #else
   typedef struct IMMCVersionInfoVtbl {
@@ -2696,7 +2696,7 @@ extern "C" {
       HRESULT (WINAPI *QueryInterface)(IMMCVersionInfo *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IMMCVersionInfo *This);
       ULONG (WINAPI *Release)(IMMCVersionInfo *This);
-      HRESULT (WINAPI *GetMMCVersion)(IMMCVersionInfo *This,long *pVersionMajor,long *pVersionMinor);
+      HRESULT (WINAPI *GetMMCVersion)(IMMCVersionInfo *This,__LONG32 *pVersionMajor,__LONG32 *pVersionMinor);
     END_INTERFACE
   } IMMCVersionInfoVtbl;
   struct IMMCVersionInfo {
@@ -2709,7 +2709,7 @@ extern "C" {
 #define IMMCVersionInfo_GetMMCVersion(This,pVersionMajor,pVersionMinor) (This)->lpVtbl->GetMMCVersion(This,pVersionMajor,pVersionMinor)
 #endif
 #endif
-  HRESULT WINAPI IMMCVersionInfo_GetMMCVersion_Proxy(IMMCVersionInfo *This,long *pVersionMajor,long *pVersionMinor);
+  HRESULT WINAPI IMMCVersionInfo_GetMMCVersion_Proxy(IMMCVersionInfo *This,__LONG32 *pVersionMajor,__LONG32 *pVersionMinor);
   void __RPC_STUB IMMCVersionInfo_GetMMCVersion_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -2910,7 +2910,7 @@ extern "C" {
       HRESULT (WINAPI *QueryConsoleVerb)(IConsole3 *This,LPCONSOLEVERB *ppConsoleVerb);
       HRESULT (WINAPI *SelectScopeItem)(IConsole3 *This,HSCOPEITEM hScopeItem);
       HRESULT (WINAPI *GetMainWindow)(IConsole3 *This,HWND *phwnd);
-      HRESULT (WINAPI *NewWindow)(IConsole3 *This,HSCOPEITEM hScopeItem,unsigned long lOptions);
+      HRESULT (WINAPI *NewWindow)(IConsole3 *This,HSCOPEITEM hScopeItem,unsigned __LONG32 lOptions);
       HRESULT (WINAPI *Expand)(IConsole3 *This,HSCOPEITEM hItem,WINBOOL bExpand);
       HRESULT (WINAPI *IsTaskpadViewPreferred)(IConsole3 *This);
       HRESULT (WINAPI *SetStatusText)(IConsole3 *This,LPOLESTR pszStatusText);
@@ -2968,8 +2968,8 @@ extern "C" {
       HRESULT (WINAPI *GetNextItem)(IResultData2 *This,LPRESULTDATAITEM item);
       HRESULT (WINAPI *ModifyItemState)(IResultData2 *This,int nIndex,HRESULTITEM itemID,UINT uAdd,UINT uRemove);
       HRESULT (WINAPI *ModifyViewStyle)(IResultData2 *This,MMC_RESULT_VIEW_STYLE add,MMC_RESULT_VIEW_STYLE remove);
-      HRESULT (WINAPI *SetViewMode)(IResultData2 *This,long lViewMode);
-      HRESULT (WINAPI *GetViewMode)(IResultData2 *This,long *lViewMode);
+      HRESULT (WINAPI *SetViewMode)(IResultData2 *This,__LONG32 lViewMode);
+      HRESULT (WINAPI *GetViewMode)(IResultData2 *This,__LONG32 *lViewMode);
       HRESULT (WINAPI *UpdateItem)(IResultData2 *This,HRESULTITEM itemID);
       HRESULT (WINAPI *Sort)(IResultData2 *This,int nColumn,DWORD dwSortOptions,LPARAM lUserParam);
       HRESULT (WINAPI *SetDescBarText)(IResultData2 *This,LPOLESTR DescText);

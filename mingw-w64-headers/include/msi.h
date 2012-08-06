@@ -37,7 +37,7 @@
 #endif
 #endif
 
-typedef unsigned long MSIHANDLE;
+typedef unsigned __LONG32 MSIHANDLE;
 
 #ifdef __cplusplus
 extern "C" {

@@ -93,10 +93,10 @@ DECLARE_INTERFACE_(IRDPSRAPITcpConnectionInfo,IDispatch)
     STDMETHOD_(HRESULT,Invoke)(THIS_ DISPID  dispIdMember,REFIID  riid,LCID  lcid,WORD  wFlags,DISPPARAMS FAR*  pDispParams,VARIANT FAR*  pVarResult,EXCEPINFO FAR*  pExcepInfo,unsigned int FAR*  puArgErr) PURE;
 
     /* IRDPSRAPITcpConnectionInfo methods */
-    STDMETHOD_(HRESULT,get_Protocol)(THIS_ long *plProtocol) PURE;
-    STDMETHOD_(HRESULT,get_LocalPort)(THIS_ long *plPort) PURE;
+    STDMETHOD_(HRESULT,get_Protocol)(THIS_ __LONG32 *plProtocol) PURE;
+    STDMETHOD_(HRESULT,get_LocalPort)(THIS_ __LONG32 *plPort) PURE;
     STDMETHOD_(HRESULT,get_LocalIP)(THIS_ BSTR *pbstrLocalIP) PURE;
-    STDMETHOD_(HRESULT,get_PeerPort)(THIS_ long *plPort) PURE;
+    STDMETHOD_(HRESULT,get_PeerPort)(THIS_ __LONG32 *plPort) PURE;
     STDMETHOD_(HRESULT,get_PeerIP)(THIS_ BSTR *pbstrIP) PURE;
 
     END_INTERFACE
@@ -139,13 +139,13 @@ DECLARE_INTERFACE_(IRDPSRAPIAttendee,IDispatch)
     STDMETHOD_(HRESULT,Invoke)(THIS_ DISPID  dispIdMember,REFIID  riid,LCID  lcid,WORD  wFlags,DISPPARAMS FAR*  pDispParams,VARIANT FAR*  pVarResult,EXCEPINFO FAR*  pExcepInfo,unsigned int FAR*  puArgErr) PURE;
 
     /* IRDPSRAPIAttendee methods */
-    STDMETHOD_(HRESULT,get_Id)(THIS_ long *pId) PURE;
+    STDMETHOD_(HRESULT,get_Id)(THIS_ __LONG32 *pId) PURE;
     STDMETHOD_(HRESULT,get_RemoteName)(THIS_ BSTR *pVal) PURE;
     STDMETHOD_(HRESULT,get_ControlLevel)(THIS_ CTRL_LEVEL *pVal) PURE;
     STDMETHOD_(HRESULT,put_ControlLevel)(THIS_ CTRL_LEVEL pNewVal) PURE;
     STDMETHOD_(HRESULT,get_Invitation)(THIS_ IRDPSRAPIInvitation **ppVal) PURE;
     STDMETHOD_(HRESULT,TerminateConnection)(THIS) PURE;
-    STDMETHOD_(HRESULT,get_Flags)(THIS_ long *plFlags) PURE;
+    STDMETHOD_(HRESULT,get_Flags)(THIS_ __LONG32 *plFlags) PURE;
     STDMETHOD_(HRESULT,get_ConnectivityInfo)(THIS_ IUnknown **ppVal) PURE;
 
     END_INTERFACE

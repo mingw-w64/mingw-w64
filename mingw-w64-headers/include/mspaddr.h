@@ -59,7 +59,7 @@ public:
   STDMETHOD(get_TerminalClass)(BSTR *pTerminalClass);
   STDMETHOD(get_CLSID)(BSTR *pCLSID);
   STDMETHOD(get_Direction)(TERMINAL_DIRECTION *pDirection);
-  STDMETHOD(get_MediaTypes)(long *pMediaTypes);
+  STDMETHOD(get_MediaTypes)(__LONG32 *pMediaTypes);
 private:
   CMSPCritSection m_CritSect;
   BSTR m_bstrName;
@@ -67,7 +67,7 @@ private:
   BSTR m_bstrVersion;
   BSTR m_bstrTerminalClass;
   BSTR m_bstrCLSID;
-  long m_lMediaType;
+  __LONG32 m_lMediaType;
   TERMINAL_DIRECTION m_Direction;
   IUnknown *m_pFTM;
 private:
@@ -77,7 +77,7 @@ private:
   STDMETHOD(put_TerminalClass)(BSTR bstrTerminalClass);
   STDMETHOD(put_CLSID)(BSTR bstrCLSID);
   STDMETHOD(put_Direction)(TERMINAL_DIRECTION nDirection);
-  STDMETHOD(put_MediaTypes)(long nMediaTypes);
+  STDMETHOD(put_MediaTypes)(__LONG32 nMediaTypes);
   friend class CMSPAddress;
 };
 
@@ -145,12 +145,12 @@ public:
   STDMETHOD (EnumerateStaticTerminals) (IEnumTerminal **ppTerminalEnumerator);
   STDMETHOD (get_DynamicTerminalClasses) (VARIANT *pVariant);
   STDMETHOD (EnumerateDynamicTerminalClasses) (IEnumTerminalClass **ppTerminalClassEnumerator);
-  STDMETHOD (CreateTerminal) (BSTR pTerminalClass,long lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal);
-  STDMETHOD (GetDefaultStaticTerminal) (long lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal);
+  STDMETHOD (CreateTerminal) (BSTR pTerminalClass,__LONG32 lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal);
+  STDMETHOD (GetDefaultStaticTerminal) (__LONG32 lMediaType,TERMINAL_DIRECTION Direction,ITTerminal **ppTerminal);
   STDMETHOD (get_PluggableSuperclasses)(VARIANT *pVariant);
   STDMETHOD (EnumeratePluggableSuperclasses)(IEnumPluggableSuperclassInfo **ppSuperclassEnumerator);
-  STDMETHOD (get_PluggableTerminalClasses)(BSTR bstrTerminalSuperclass,long lMediaType,VARIANT *pVariant);
-  STDMETHOD (EnumeratePluggableTerminalClasses)(CLSID iidTerminalSuperclass,long lMediaType,IEnumPluggableTerminalClassInfo **ppClassEnumerator);
+  STDMETHOD (get_PluggableTerminalClasses)(BSTR bstrTerminalSuperclass,__LONG32 lMediaType,VARIANT *pVariant);
+  STDMETHOD (EnumeratePluggableTerminalClasses)(CLSID iidTerminalSuperclass,__LONG32 lMediaType,IEnumPluggableTerminalClassInfo **ppClassEnumerator);
 protected:
   virtual HRESULT GetStaticTerminals (DWORD *pdwNumTerminals,ITTerminal **ppTerminals);
   virtual HRESULT GetDynamicTerminalClasses (DWORD *pdwNumClasses,IID *pTerminalClasses);

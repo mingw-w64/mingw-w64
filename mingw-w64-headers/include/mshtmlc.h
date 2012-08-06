@@ -3314,7 +3314,7 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLFiltersCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_length(long *p) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get__newEnum(IUnknown **p) = 0;
     virtual HRESULT WINAPI item(VARIANT *pvarIndex,VARIANT *pvarResult) = 0;
   };
@@ -3328,7 +3328,7 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IHTMLFiltersCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLFiltersCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLFiltersCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_length)(IHTMLFiltersCollection *This,long *p);
+      HRESULT (WINAPI *get_length)(IHTMLFiltersCollection *This,__LONG32 *p);
       HRESULT (WINAPI *get__newEnum)(IHTMLFiltersCollection *This,IUnknown **p);
       HRESULT (WINAPI *item)(IHTMLFiltersCollection *This,VARIANT *pvarIndex,VARIANT *pvarResult);
     END_INTERFACE
@@ -3349,7 +3349,7 @@ extern "C"{
 #define IHTMLFiltersCollection_item(This,pvarIndex,pvarResult) (This)->lpVtbl->item(This,pvarIndex,pvarResult)
 #endif
 #endif
-  HRESULT WINAPI IHTMLFiltersCollection_get_length_Proxy(IHTMLFiltersCollection *This,long *p);
+  HRESULT WINAPI IHTMLFiltersCollection_get_length_Proxy(IHTMLFiltersCollection *This,__LONG32 *p);
   void __RPC_STUB IHTMLFiltersCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLFiltersCollection_get__newEnum_Proxy(IHTMLFiltersCollection *This,IUnknown **p);
   void __RPC_STUB IHTMLFiltersCollection_get__newEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -4091,20 +4091,20 @@ extern "C"{
     virtual HRESULT WINAPI get_cancelBubble(VARIANT_BOOL *p) = 0;
     virtual HRESULT WINAPI get_fromElement(IHTMLElement **p) = 0;
     virtual HRESULT WINAPI get_toElement(IHTMLElement **p) = 0;
-    virtual HRESULT WINAPI put_keyCode(long v) = 0;
-    virtual HRESULT WINAPI get_keyCode(long *p) = 0;
-    virtual HRESULT WINAPI get_button(long *p) = 0;
+    virtual HRESULT WINAPI put_keyCode(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_keyCode(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_button(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get_type(BSTR *p) = 0;
     virtual HRESULT WINAPI get_qualifier(BSTR *p) = 0;
-    virtual HRESULT WINAPI get_reason(long *p) = 0;
-    virtual HRESULT WINAPI get_x(long *p) = 0;
-    virtual HRESULT WINAPI get_y(long *p) = 0;
-    virtual HRESULT WINAPI get_clientX(long *p) = 0;
-    virtual HRESULT WINAPI get_clientY(long *p) = 0;
-    virtual HRESULT WINAPI get_offsetX(long *p) = 0;
-    virtual HRESULT WINAPI get_offsetY(long *p) = 0;
-    virtual HRESULT WINAPI get_screenX(long *p) = 0;
-    virtual HRESULT WINAPI get_screenY(long *p) = 0;
+    virtual HRESULT WINAPI get_reason(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_x(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_y(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_clientX(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_clientY(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_offsetX(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_offsetY(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_screenX(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_screenY(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get_srcFilter(IDispatch **p) = 0;
   };
 #else
@@ -4127,20 +4127,20 @@ extern "C"{
       HRESULT (WINAPI *get_cancelBubble)(IHTMLEventObj *This,VARIANT_BOOL *p);
       HRESULT (WINAPI *get_fromElement)(IHTMLEventObj *This,IHTMLElement **p);
       HRESULT (WINAPI *get_toElement)(IHTMLEventObj *This,IHTMLElement **p);
-      HRESULT (WINAPI *put_keyCode)(IHTMLEventObj *This,long v);
-      HRESULT (WINAPI *get_keyCode)(IHTMLEventObj *This,long *p);
-      HRESULT (WINAPI *get_button)(IHTMLEventObj *This,long *p);
+      HRESULT (WINAPI *put_keyCode)(IHTMLEventObj *This,__LONG32 v);
+      HRESULT (WINAPI *get_keyCode)(IHTMLEventObj *This,__LONG32 *p);
+      HRESULT (WINAPI *get_button)(IHTMLEventObj *This,__LONG32 *p);
       HRESULT (WINAPI *get_type)(IHTMLEventObj *This,BSTR *p);
       HRESULT (WINAPI *get_qualifier)(IHTMLEventObj *This,BSTR *p);
-      HRESULT (WINAPI *get_reason)(IHTMLEventObj *This,long *p);
-      HRESULT (WINAPI *get_x)(IHTMLEventObj *This,long *p);
-      HRESULT (WINAPI *get_y)(IHTMLEventObj *This,long *p);
-      HRESULT (WINAPI *get_clientX)(IHTMLEventObj *This,long *p);
-      HRESULT (WINAPI *get_clientY)(IHTMLEventObj *This,long *p);
-      HRESULT (WINAPI *get_offsetX)(IHTMLEventObj *This,long *p);
-      HRESULT (WINAPI *get_offsetY)(IHTMLEventObj *This,long *p);
-      HRESULT (WINAPI *get_screenX)(IHTMLEventObj *This,long *p);
-      HRESULT (WINAPI *get_screenY)(IHTMLEventObj *This,long *p);
+      HRESULT (WINAPI *get_reason)(IHTMLEventObj *This,__LONG32 *p);
+      HRESULT (WINAPI *get_x)(IHTMLEventObj *This,__LONG32 *p);
+      HRESULT (WINAPI *get_y)(IHTMLEventObj *This,__LONG32 *p);
+      HRESULT (WINAPI *get_clientX)(IHTMLEventObj *This,__LONG32 *p);
+      HRESULT (WINAPI *get_clientY)(IHTMLEventObj *This,__LONG32 *p);
+      HRESULT (WINAPI *get_offsetX)(IHTMLEventObj *This,__LONG32 *p);
+      HRESULT (WINAPI *get_offsetY)(IHTMLEventObj *This,__LONG32 *p);
+      HRESULT (WINAPI *get_screenX)(IHTMLEventObj *This,__LONG32 *p);
+      HRESULT (WINAPI *get_screenY)(IHTMLEventObj *This,__LONG32 *p);
       HRESULT (WINAPI *get_srcFilter)(IHTMLEventObj *This,IDispatch **p);
     END_INTERFACE
   } IHTMLEventObjVtbl;
@@ -4202,33 +4202,33 @@ extern "C"{
   void __RPC_STUB IHTMLEventObj_get_fromElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLEventObj_get_toElement_Proxy(IHTMLEventObj *This,IHTMLElement **p);
   void __RPC_STUB IHTMLEventObj_get_toElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj_put_keyCode_Proxy(IHTMLEventObj *This,long v);
+  HRESULT WINAPI IHTMLEventObj_put_keyCode_Proxy(IHTMLEventObj *This,__LONG32 v);
   void __RPC_STUB IHTMLEventObj_put_keyCode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj_get_keyCode_Proxy(IHTMLEventObj *This,long *p);
+  HRESULT WINAPI IHTMLEventObj_get_keyCode_Proxy(IHTMLEventObj *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj_get_keyCode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj_get_button_Proxy(IHTMLEventObj *This,long *p);
+  HRESULT WINAPI IHTMLEventObj_get_button_Proxy(IHTMLEventObj *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj_get_button_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLEventObj_get_type_Proxy(IHTMLEventObj *This,BSTR *p);
   void __RPC_STUB IHTMLEventObj_get_type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLEventObj_get_qualifier_Proxy(IHTMLEventObj *This,BSTR *p);
   void __RPC_STUB IHTMLEventObj_get_qualifier_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj_get_reason_Proxy(IHTMLEventObj *This,long *p);
+  HRESULT WINAPI IHTMLEventObj_get_reason_Proxy(IHTMLEventObj *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj_get_reason_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj_get_x_Proxy(IHTMLEventObj *This,long *p);
+  HRESULT WINAPI IHTMLEventObj_get_x_Proxy(IHTMLEventObj *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj_get_x_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj_get_y_Proxy(IHTMLEventObj *This,long *p);
+  HRESULT WINAPI IHTMLEventObj_get_y_Proxy(IHTMLEventObj *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj_get_y_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj_get_clientX_Proxy(IHTMLEventObj *This,long *p);
+  HRESULT WINAPI IHTMLEventObj_get_clientX_Proxy(IHTMLEventObj *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj_get_clientX_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj_get_clientY_Proxy(IHTMLEventObj *This,long *p);
+  HRESULT WINAPI IHTMLEventObj_get_clientY_Proxy(IHTMLEventObj *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj_get_clientY_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj_get_offsetX_Proxy(IHTMLEventObj *This,long *p);
+  HRESULT WINAPI IHTMLEventObj_get_offsetX_Proxy(IHTMLEventObj *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj_get_offsetX_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj_get_offsetY_Proxy(IHTMLEventObj *This,long *p);
+  HRESULT WINAPI IHTMLEventObj_get_offsetY_Proxy(IHTMLEventObj *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj_get_offsetY_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj_get_screenX_Proxy(IHTMLEventObj *This,long *p);
+  HRESULT WINAPI IHTMLEventObj_get_screenX_Proxy(IHTMLEventObj *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj_get_screenX_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj_get_screenY_Proxy(IHTMLEventObj *This,long *p);
+  HRESULT WINAPI IHTMLEventObj_get_screenY_Proxy(IHTMLEventObj *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj_get_screenY_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLEventObj_get_srcFilter_Proxy(IHTMLEventObj *This,IDispatch **p);
   void __RPC_STUB IHTMLEventObj_get_srcFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -4640,14 +4640,14 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_pageBreakAfter(BSTR *p) = 0;
     virtual HRESULT WINAPI put_cssText(BSTR v) = 0;
     virtual HRESULT WINAPI get_cssText(BSTR *p) = 0;
-    virtual HRESULT WINAPI put_pixelTop(long v) = 0;
-    virtual HRESULT WINAPI get_pixelTop(long *p) = 0;
-    virtual HRESULT WINAPI put_pixelLeft(long v) = 0;
-    virtual HRESULT WINAPI get_pixelLeft(long *p) = 0;
-    virtual HRESULT WINAPI put_pixelWidth(long v) = 0;
-    virtual HRESULT WINAPI get_pixelWidth(long *p) = 0;
-    virtual HRESULT WINAPI put_pixelHeight(long v) = 0;
-    virtual HRESULT WINAPI get_pixelHeight(long *p) = 0;
+    virtual HRESULT WINAPI put_pixelTop(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_pixelTop(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_pixelLeft(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_pixelLeft(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_pixelWidth(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_pixelWidth(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_pixelHeight(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_pixelHeight(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_posTop(float v) = 0;
     virtual HRESULT WINAPI get_posTop(float *p) = 0;
     virtual HRESULT WINAPI put_posLeft(float v) = 0;
@@ -4830,14 +4830,14 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_pageBreakAfter)(IHTMLStyle *This,BSTR *p);
       HRESULT (WINAPI *put_cssText)(IHTMLStyle *This,BSTR v);
       HRESULT (WINAPI *get_cssText)(IHTMLStyle *This,BSTR *p);
-      HRESULT (WINAPI *put_pixelTop)(IHTMLStyle *This,long v);
-      HRESULT (WINAPI *get_pixelTop)(IHTMLStyle *This,long *p);
-      HRESULT (WINAPI *put_pixelLeft)(IHTMLStyle *This,long v);
-      HRESULT (WINAPI *get_pixelLeft)(IHTMLStyle *This,long *p);
-      HRESULT (WINAPI *put_pixelWidth)(IHTMLStyle *This,long v);
-      HRESULT (WINAPI *get_pixelWidth)(IHTMLStyle *This,long *p);
-      HRESULT (WINAPI *put_pixelHeight)(IHTMLStyle *This,long v);
-      HRESULT (WINAPI *get_pixelHeight)(IHTMLStyle *This,long *p);
+      HRESULT (WINAPI *put_pixelTop)(IHTMLStyle *This,__LONG32 v);
+      HRESULT (WINAPI *get_pixelTop)(IHTMLStyle *This,__LONG32 *p);
+      HRESULT (WINAPI *put_pixelLeft)(IHTMLStyle *This,__LONG32 v);
+      HRESULT (WINAPI *get_pixelLeft)(IHTMLStyle *This,__LONG32 *p);
+      HRESULT (WINAPI *put_pixelWidth)(IHTMLStyle *This,__LONG32 v);
+      HRESULT (WINAPI *get_pixelWidth)(IHTMLStyle *This,__LONG32 *p);
+      HRESULT (WINAPI *put_pixelHeight)(IHTMLStyle *This,__LONG32 v);
+      HRESULT (WINAPI *get_pixelHeight)(IHTMLStyle *This,__LONG32 *p);
       HRESULT (WINAPI *put_posTop)(IHTMLStyle *This,float v);
       HRESULT (WINAPI *get_posTop)(IHTMLStyle *This,float *p);
       HRESULT (WINAPI *put_posLeft)(IHTMLStyle *This,float v);
@@ -5356,21 +5356,21 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLStyle_put_cssText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLStyle_get_cssText_Proxy(IHTMLStyle *This,BSTR *p);
   void __RPC_STUB IHTMLStyle_get_cssText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLStyle_put_pixelTop_Proxy(IHTMLStyle *This,long v);
+  HRESULT WINAPI IHTMLStyle_put_pixelTop_Proxy(IHTMLStyle *This,__LONG32 v);
   void __RPC_STUB IHTMLStyle_put_pixelTop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLStyle_get_pixelTop_Proxy(IHTMLStyle *This,long *p);
+  HRESULT WINAPI IHTMLStyle_get_pixelTop_Proxy(IHTMLStyle *This,__LONG32 *p);
   void __RPC_STUB IHTMLStyle_get_pixelTop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLStyle_put_pixelLeft_Proxy(IHTMLStyle *This,long v);
+  HRESULT WINAPI IHTMLStyle_put_pixelLeft_Proxy(IHTMLStyle *This,__LONG32 v);
   void __RPC_STUB IHTMLStyle_put_pixelLeft_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLStyle_get_pixelLeft_Proxy(IHTMLStyle *This,long *p);
+  HRESULT WINAPI IHTMLStyle_get_pixelLeft_Proxy(IHTMLStyle *This,__LONG32 *p);
   void __RPC_STUB IHTMLStyle_get_pixelLeft_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLStyle_put_pixelWidth_Proxy(IHTMLStyle *This,long v);
+  HRESULT WINAPI IHTMLStyle_put_pixelWidth_Proxy(IHTMLStyle *This,__LONG32 v);
   void __RPC_STUB IHTMLStyle_put_pixelWidth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLStyle_get_pixelWidth_Proxy(IHTMLStyle *This,long *p);
+  HRESULT WINAPI IHTMLStyle_get_pixelWidth_Proxy(IHTMLStyle *This,__LONG32 *p);
   void __RPC_STUB IHTMLStyle_get_pixelWidth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLStyle_put_pixelHeight_Proxy(IHTMLStyle *This,long v);
+  HRESULT WINAPI IHTMLStyle_put_pixelHeight_Proxy(IHTMLStyle *This,__LONG32 v);
   void __RPC_STUB IHTMLStyle_put_pixelHeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLStyle_get_pixelHeight_Proxy(IHTMLStyle *This,long *p);
+  HRESULT WINAPI IHTMLStyle_get_pixelHeight_Proxy(IHTMLStyle *This,__LONG32 *p);
   void __RPC_STUB IHTMLStyle_get_pixelHeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLStyle_put_posTop_Proxy(IHTMLStyle *This,float v);
   void __RPC_STUB IHTMLStyle_put_posTop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -5435,10 +5435,10 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_bottom(VARIANT *p) = 0;
     virtual HRESULT WINAPI put_right(VARIANT v) = 0;
     virtual HRESULT WINAPI get_right(VARIANT *p) = 0;
-    virtual HRESULT WINAPI put_pixelBottom(long v) = 0;
-    virtual HRESULT WINAPI get_pixelBottom(long *p) = 0;
-    virtual HRESULT WINAPI put_pixelRight(long v) = 0;
-    virtual HRESULT WINAPI get_pixelRight(long *p) = 0;
+    virtual HRESULT WINAPI put_pixelBottom(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_pixelBottom(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_pixelRight(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_pixelRight(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_posBottom(float v) = 0;
     virtual HRESULT WINAPI get_posBottom(float *p) = 0;
     virtual HRESULT WINAPI put_posRight(float v) = 0;
@@ -5509,10 +5509,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_bottom)(IHTMLStyle2 *This,VARIANT *p);
       HRESULT (WINAPI *put_right)(IHTMLStyle2 *This,VARIANT v);
       HRESULT (WINAPI *get_right)(IHTMLStyle2 *This,VARIANT *p);
-      HRESULT (WINAPI *put_pixelBottom)(IHTMLStyle2 *This,long v);
-      HRESULT (WINAPI *get_pixelBottom)(IHTMLStyle2 *This,long *p);
-      HRESULT (WINAPI *put_pixelRight)(IHTMLStyle2 *This,long v);
-      HRESULT (WINAPI *get_pixelRight)(IHTMLStyle2 *This,long *p);
+      HRESULT (WINAPI *put_pixelBottom)(IHTMLStyle2 *This,__LONG32 v);
+      HRESULT (WINAPI *get_pixelBottom)(IHTMLStyle2 *This,__LONG32 *p);
+      HRESULT (WINAPI *put_pixelRight)(IHTMLStyle2 *This,__LONG32 v);
+      HRESULT (WINAPI *get_pixelRight)(IHTMLStyle2 *This,__LONG32 *p);
       HRESULT (WINAPI *put_posBottom)(IHTMLStyle2 *This,float v);
       HRESULT (WINAPI *get_posBottom)(IHTMLStyle2 *This,float *p);
       HRESULT (WINAPI *put_posRight)(IHTMLStyle2 *This,float v);
@@ -5669,13 +5669,13 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLStyle2_put_right_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLStyle2_get_right_Proxy(IHTMLStyle2 *This,VARIANT *p);
   void __RPC_STUB IHTMLStyle2_get_right_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLStyle2_put_pixelBottom_Proxy(IHTMLStyle2 *This,long v);
+  HRESULT WINAPI IHTMLStyle2_put_pixelBottom_Proxy(IHTMLStyle2 *This,__LONG32 v);
   void __RPC_STUB IHTMLStyle2_put_pixelBottom_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLStyle2_get_pixelBottom_Proxy(IHTMLStyle2 *This,long *p);
+  HRESULT WINAPI IHTMLStyle2_get_pixelBottom_Proxy(IHTMLStyle2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLStyle2_get_pixelBottom_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLStyle2_put_pixelRight_Proxy(IHTMLStyle2 *This,long v);
+  HRESULT WINAPI IHTMLStyle2_put_pixelRight_Proxy(IHTMLStyle2 *This,__LONG32 v);
   void __RPC_STUB IHTMLStyle2_put_pixelRight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLStyle2_get_pixelRight_Proxy(IHTMLStyle2 *This,long *p);
+  HRESULT WINAPI IHTMLStyle2_get_pixelRight_Proxy(IHTMLStyle2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLStyle2_get_pixelRight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLStyle2_put_posBottom_Proxy(IHTMLStyle2 *This,float v);
   void __RPC_STUB IHTMLStyle2_put_posBottom_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -6863,10 +6863,10 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_bottom(VARIANT *p) = 0;
     virtual HRESULT WINAPI put_right(VARIANT v) = 0;
     virtual HRESULT WINAPI get_right(VARIANT *p) = 0;
-    virtual HRESULT WINAPI put_pixelBottom(long v) = 0;
-    virtual HRESULT WINAPI get_pixelBottom(long *p) = 0;
-    virtual HRESULT WINAPI put_pixelRight(long v) = 0;
-    virtual HRESULT WINAPI get_pixelRight(long *p) = 0;
+    virtual HRESULT WINAPI put_pixelBottom(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_pixelBottom(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_pixelRight(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_pixelRight(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_posBottom(float v) = 0;
     virtual HRESULT WINAPI get_posBottom(float *p) = 0;
     virtual HRESULT WINAPI put_posRight(float v) = 0;
@@ -6934,10 +6934,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_bottom)(IHTMLRuleStyle2 *This,VARIANT *p);
       HRESULT (WINAPI *put_right)(IHTMLRuleStyle2 *This,VARIANT v);
       HRESULT (WINAPI *get_right)(IHTMLRuleStyle2 *This,VARIANT *p);
-      HRESULT (WINAPI *put_pixelBottom)(IHTMLRuleStyle2 *This,long v);
-      HRESULT (WINAPI *get_pixelBottom)(IHTMLRuleStyle2 *This,long *p);
-      HRESULT (WINAPI *put_pixelRight)(IHTMLRuleStyle2 *This,long v);
-      HRESULT (WINAPI *get_pixelRight)(IHTMLRuleStyle2 *This,long *p);
+      HRESULT (WINAPI *put_pixelBottom)(IHTMLRuleStyle2 *This,__LONG32 v);
+      HRESULT (WINAPI *get_pixelBottom)(IHTMLRuleStyle2 *This,__LONG32 *p);
+      HRESULT (WINAPI *put_pixelRight)(IHTMLRuleStyle2 *This,__LONG32 v);
+      HRESULT (WINAPI *get_pixelRight)(IHTMLRuleStyle2 *This,__LONG32 *p);
       HRESULT (WINAPI *put_posBottom)(IHTMLRuleStyle2 *This,float v);
       HRESULT (WINAPI *get_posBottom)(IHTMLRuleStyle2 *This,float *p);
       HRESULT (WINAPI *put_posRight)(IHTMLRuleStyle2 *This,float v);
@@ -7085,13 +7085,13 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLRuleStyle2_put_right_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLRuleStyle2_get_right_Proxy(IHTMLRuleStyle2 *This,VARIANT *p);
   void __RPC_STUB IHTMLRuleStyle2_get_right_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLRuleStyle2_put_pixelBottom_Proxy(IHTMLRuleStyle2 *This,long v);
+  HRESULT WINAPI IHTMLRuleStyle2_put_pixelBottom_Proxy(IHTMLRuleStyle2 *This,__LONG32 v);
   void __RPC_STUB IHTMLRuleStyle2_put_pixelBottom_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLRuleStyle2_get_pixelBottom_Proxy(IHTMLRuleStyle2 *This,long *p);
+  HRESULT WINAPI IHTMLRuleStyle2_get_pixelBottom_Proxy(IHTMLRuleStyle2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLRuleStyle2_get_pixelBottom_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLRuleStyle2_put_pixelRight_Proxy(IHTMLRuleStyle2 *This,long v);
+  HRESULT WINAPI IHTMLRuleStyle2_put_pixelRight_Proxy(IHTMLRuleStyle2 *This,__LONG32 v);
   void __RPC_STUB IHTMLRuleStyle2_put_pixelRight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLRuleStyle2_get_pixelRight_Proxy(IHTMLRuleStyle2 *This,long *p);
+  HRESULT WINAPI IHTMLRuleStyle2_get_pixelRight_Proxy(IHTMLRuleStyle2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLRuleStyle2_get_pixelRight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLRuleStyle2_put_posBottom_Proxy(IHTMLRuleStyle2 *This,float v);
   void __RPC_STUB IHTMLRuleStyle2_put_posBottom_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -7505,8 +7505,8 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_textBackgroundColor(VARIANT *p) = 0;
     virtual HRESULT WINAPI put_textDecorationColor(VARIANT v) = 0;
     virtual HRESULT WINAPI get_textDecorationColor(VARIANT *p) = 0;
-    virtual HRESULT WINAPI put_renderingPriority(long v) = 0;
-    virtual HRESULT WINAPI get_renderingPriority(long *p) = 0;
+    virtual HRESULT WINAPI put_renderingPriority(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_renderingPriority(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_defaultTextSelection(BSTR v) = 0;
     virtual HRESULT WINAPI get_defaultTextSelection(BSTR *p) = 0;
     virtual HRESULT WINAPI put_textDecoration(BSTR v) = 0;
@@ -7534,8 +7534,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_textBackgroundColor)(IHTMLRenderStyle *This,VARIANT *p);
       HRESULT (WINAPI *put_textDecorationColor)(IHTMLRenderStyle *This,VARIANT v);
       HRESULT (WINAPI *get_textDecorationColor)(IHTMLRenderStyle *This,VARIANT *p);
-      HRESULT (WINAPI *put_renderingPriority)(IHTMLRenderStyle *This,long v);
-      HRESULT (WINAPI *get_renderingPriority)(IHTMLRenderStyle *This,long *p);
+      HRESULT (WINAPI *put_renderingPriority)(IHTMLRenderStyle *This,__LONG32 v);
+      HRESULT (WINAPI *get_renderingPriority)(IHTMLRenderStyle *This,__LONG32 *p);
       HRESULT (WINAPI *put_defaultTextSelection)(IHTMLRenderStyle *This,BSTR v);
       HRESULT (WINAPI *get_defaultTextSelection)(IHTMLRenderStyle *This,BSTR *p);
       HRESULT (WINAPI *put_textDecoration)(IHTMLRenderStyle *This,BSTR v);
@@ -7597,9 +7597,9 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLRenderStyle_put_textDecorationColor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLRenderStyle_get_textDecorationColor_Proxy(IHTMLRenderStyle *This,VARIANT *p);
   void __RPC_STUB IHTMLRenderStyle_get_textDecorationColor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLRenderStyle_put_renderingPriority_Proxy(IHTMLRenderStyle *This,long v);
+  HRESULT WINAPI IHTMLRenderStyle_put_renderingPriority_Proxy(IHTMLRenderStyle *This,__LONG32 v);
   void __RPC_STUB IHTMLRenderStyle_put_renderingPriority_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLRenderStyle_get_renderingPriority_Proxy(IHTMLRenderStyle *This,long *p);
+  HRESULT WINAPI IHTMLRenderStyle_get_renderingPriority_Proxy(IHTMLRenderStyle *This,__LONG32 *p);
   void __RPC_STUB IHTMLRenderStyle_get_renderingPriority_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLRenderStyle_put_defaultTextSelection_Proxy(IHTMLRenderStyle *This,BSTR v);
   void __RPC_STUB IHTMLRenderStyle_put_defaultTextSelection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -8399,14 +8399,14 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_onselectstart(VARIANT *p) = 0;
     virtual HRESULT WINAPI scrollIntoView(VARIANT varargStart) = 0;
     virtual HRESULT WINAPI contains(IHTMLElement *pChild,VARIANT_BOOL *pfResult) = 0;
-    virtual HRESULT WINAPI get_sourceIndex(long *p) = 0;
+    virtual HRESULT WINAPI get_sourceIndex(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get_recordNumber(VARIANT *p) = 0;
     virtual HRESULT WINAPI put_lang(BSTR v) = 0;
     virtual HRESULT WINAPI get_lang(BSTR *p) = 0;
-    virtual HRESULT WINAPI get_offsetLeft(long *p) = 0;
-    virtual HRESULT WINAPI get_offsetTop(long *p) = 0;
-    virtual HRESULT WINAPI get_offsetWidth(long *p) = 0;
-    virtual HRESULT WINAPI get_offsetHeight(long *p) = 0;
+    virtual HRESULT WINAPI get_offsetLeft(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_offsetTop(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_offsetWidth(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_offsetHeight(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get_offsetParent(IHTMLElement **p) = 0;
     virtual HRESULT WINAPI put_innerHTML(BSTR v) = 0;
     virtual HRESULT WINAPI get_innerHTML(BSTR *p) = 0;
@@ -8497,14 +8497,14 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_onselectstart)(IHTMLElement *This,VARIANT *p);
       HRESULT (WINAPI *scrollIntoView)(IHTMLElement *This,VARIANT varargStart);
       HRESULT (WINAPI *contains)(IHTMLElement *This,IHTMLElement *pChild,VARIANT_BOOL *pfResult);
-      HRESULT (WINAPI *get_sourceIndex)(IHTMLElement *This,long *p);
+      HRESULT (WINAPI *get_sourceIndex)(IHTMLElement *This,__LONG32 *p);
       HRESULT (WINAPI *get_recordNumber)(IHTMLElement *This,VARIANT *p);
       HRESULT (WINAPI *put_lang)(IHTMLElement *This,BSTR v);
       HRESULT (WINAPI *get_lang)(IHTMLElement *This,BSTR *p);
-      HRESULT (WINAPI *get_offsetLeft)(IHTMLElement *This,long *p);
-      HRESULT (WINAPI *get_offsetTop)(IHTMLElement *This,long *p);
-      HRESULT (WINAPI *get_offsetWidth)(IHTMLElement *This,long *p);
-      HRESULT (WINAPI *get_offsetHeight)(IHTMLElement *This,long *p);
+      HRESULT (WINAPI *get_offsetLeft)(IHTMLElement *This,__LONG32 *p);
+      HRESULT (WINAPI *get_offsetTop)(IHTMLElement *This,__LONG32 *p);
+      HRESULT (WINAPI *get_offsetWidth)(IHTMLElement *This,__LONG32 *p);
+      HRESULT (WINAPI *get_offsetHeight)(IHTMLElement *This,__LONG32 *p);
       HRESULT (WINAPI *get_offsetParent)(IHTMLElement *This,IHTMLElement **p);
       HRESULT (WINAPI *put_innerHTML)(IHTMLElement *This,BSTR v);
       HRESULT (WINAPI *get_innerHTML)(IHTMLElement *This,BSTR *p);
@@ -8727,7 +8727,7 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLElement_scrollIntoView_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLElement_contains_Proxy(IHTMLElement *This,IHTMLElement *pChild,VARIANT_BOOL *pfResult);
   void __RPC_STUB IHTMLElement_contains_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElement_get_sourceIndex_Proxy(IHTMLElement *This,long *p);
+  HRESULT WINAPI IHTMLElement_get_sourceIndex_Proxy(IHTMLElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLElement_get_sourceIndex_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLElement_get_recordNumber_Proxy(IHTMLElement *This,VARIANT *p);
   void __RPC_STUB IHTMLElement_get_recordNumber_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -8735,13 +8735,13 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLElement_put_lang_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLElement_get_lang_Proxy(IHTMLElement *This,BSTR *p);
   void __RPC_STUB IHTMLElement_get_lang_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElement_get_offsetLeft_Proxy(IHTMLElement *This,long *p);
+  HRESULT WINAPI IHTMLElement_get_offsetLeft_Proxy(IHTMLElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLElement_get_offsetLeft_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElement_get_offsetTop_Proxy(IHTMLElement *This,long *p);
+  HRESULT WINAPI IHTMLElement_get_offsetTop_Proxy(IHTMLElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLElement_get_offsetTop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElement_get_offsetWidth_Proxy(IHTMLElement *This,long *p);
+  HRESULT WINAPI IHTMLElement_get_offsetWidth_Proxy(IHTMLElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLElement_get_offsetWidth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElement_get_offsetHeight_Proxy(IHTMLElement *This,long *p);
+  HRESULT WINAPI IHTMLElement_get_offsetHeight_Proxy(IHTMLElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLElement_get_offsetHeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLElement_get_offsetParent_Proxy(IHTMLElement *This,IHTMLElement **p);
   void __RPC_STUB IHTMLElement_get_offsetParent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -8827,14 +8827,14 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLRect : public IDispatch {
   public:
-    virtual HRESULT WINAPI put_left(long v) = 0;
-    virtual HRESULT WINAPI get_left(long *p) = 0;
-    virtual HRESULT WINAPI put_top(long v) = 0;
-    virtual HRESULT WINAPI get_top(long *p) = 0;
-    virtual HRESULT WINAPI put_right(long v) = 0;
-    virtual HRESULT WINAPI get_right(long *p) = 0;
-    virtual HRESULT WINAPI put_bottom(long v) = 0;
-    virtual HRESULT WINAPI get_bottom(long *p) = 0;
+    virtual HRESULT WINAPI put_left(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_left(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_top(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_top(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_right(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_right(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_bottom(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_bottom(__LONG32 *p) = 0;
   };
 #else
   typedef struct IHTMLRectVtbl {
@@ -8846,14 +8846,14 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLRect *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLRect *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLRect *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *put_left)(IHTMLRect *This,long v);
-      HRESULT (WINAPI *get_left)(IHTMLRect *This,long *p);
-      HRESULT (WINAPI *put_top)(IHTMLRect *This,long v);
-      HRESULT (WINAPI *get_top)(IHTMLRect *This,long *p);
-      HRESULT (WINAPI *put_right)(IHTMLRect *This,long v);
-      HRESULT (WINAPI *get_right)(IHTMLRect *This,long *p);
-      HRESULT (WINAPI *put_bottom)(IHTMLRect *This,long v);
-      HRESULT (WINAPI *get_bottom)(IHTMLRect *This,long *p);
+      HRESULT (WINAPI *put_left)(IHTMLRect *This,__LONG32 v);
+      HRESULT (WINAPI *get_left)(IHTMLRect *This,__LONG32 *p);
+      HRESULT (WINAPI *put_top)(IHTMLRect *This,__LONG32 v);
+      HRESULT (WINAPI *get_top)(IHTMLRect *This,__LONG32 *p);
+      HRESULT (WINAPI *put_right)(IHTMLRect *This,__LONG32 v);
+      HRESULT (WINAPI *get_right)(IHTMLRect *This,__LONG32 *p);
+      HRESULT (WINAPI *put_bottom)(IHTMLRect *This,__LONG32 v);
+      HRESULT (WINAPI *get_bottom)(IHTMLRect *This,__LONG32 *p);
     END_INTERFACE
   } IHTMLRectVtbl;
   struct IHTMLRect {
@@ -8877,21 +8877,21 @@ IHTMLStyle : public IDispatch {
 #define IHTMLRect_get_bottom(This,p) (This)->lpVtbl->get_bottom(This,p)
 #endif
 #endif
-  HRESULT WINAPI IHTMLRect_put_left_Proxy(IHTMLRect *This,long v);
+  HRESULT WINAPI IHTMLRect_put_left_Proxy(IHTMLRect *This,__LONG32 v);
   void __RPC_STUB IHTMLRect_put_left_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLRect_get_left_Proxy(IHTMLRect *This,long *p);
+  HRESULT WINAPI IHTMLRect_get_left_Proxy(IHTMLRect *This,__LONG32 *p);
   void __RPC_STUB IHTMLRect_get_left_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLRect_put_top_Proxy(IHTMLRect *This,long v);
+  HRESULT WINAPI IHTMLRect_put_top_Proxy(IHTMLRect *This,__LONG32 v);
   void __RPC_STUB IHTMLRect_put_top_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLRect_get_top_Proxy(IHTMLRect *This,long *p);
+  HRESULT WINAPI IHTMLRect_get_top_Proxy(IHTMLRect *This,__LONG32 *p);
   void __RPC_STUB IHTMLRect_get_top_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLRect_put_right_Proxy(IHTMLRect *This,long v);
+  HRESULT WINAPI IHTMLRect_put_right_Proxy(IHTMLRect *This,__LONG32 v);
   void __RPC_STUB IHTMLRect_put_right_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLRect_get_right_Proxy(IHTMLRect *This,long *p);
+  HRESULT WINAPI IHTMLRect_get_right_Proxy(IHTMLRect *This,__LONG32 *p);
   void __RPC_STUB IHTMLRect_get_right_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLRect_put_bottom_Proxy(IHTMLRect *This,long v);
+  HRESULT WINAPI IHTMLRect_put_bottom_Proxy(IHTMLRect *This,__LONG32 v);
   void __RPC_STUB IHTMLRect_put_bottom_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLRect_get_bottom_Proxy(IHTMLRect *This,long *p);
+  HRESULT WINAPI IHTMLRect_get_bottom_Proxy(IHTMLRect *This,__LONG32 *p);
   void __RPC_STUB IHTMLRect_get_bottom_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -8901,7 +8901,7 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLRectCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_length(long *p) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get__newEnum(IUnknown **p) = 0;
     virtual HRESULT WINAPI item(VARIANT *pvarIndex,VARIANT *pvarResult) = 0;
   };
@@ -8915,7 +8915,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLRectCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLRectCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLRectCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_length)(IHTMLRectCollection *This,long *p);
+      HRESULT (WINAPI *get_length)(IHTMLRectCollection *This,__LONG32 *p);
       HRESULT (WINAPI *get__newEnum)(IHTMLRectCollection *This,IUnknown **p);
       HRESULT (WINAPI *item)(IHTMLRectCollection *This,VARIANT *pvarIndex,VARIANT *pvarResult);
     END_INTERFACE
@@ -8936,7 +8936,7 @@ IHTMLStyle : public IDispatch {
 #define IHTMLRectCollection_item(This,pvarIndex,pvarResult) (This)->lpVtbl->item(This,pvarIndex,pvarResult)
 #endif
 #endif
-  HRESULT WINAPI IHTMLRectCollection_get_length_Proxy(IHTMLRectCollection *This,long *p);
+  HRESULT WINAPI IHTMLRectCollection_get_length_Proxy(IHTMLRectCollection *This,__LONG32 *p);
   void __RPC_STUB IHTMLRectCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLRectCollection_get__newEnum_Proxy(IHTMLRectCollection *This,IUnknown **p);
   void __RPC_STUB IHTMLRectCollection_get__newEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -8950,7 +8950,7 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLDOMNode : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_nodeType(long *p) = 0;
+    virtual HRESULT WINAPI get_nodeType(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get_parentNode(IHTMLDOMNode **p) = 0;
     virtual HRESULT WINAPI hasChildNodes(VARIANT_BOOL *fChildren) = 0;
     virtual HRESULT WINAPI get_childNodes(IDispatch **p) = 0;
@@ -8981,7 +8981,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLDOMNode *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLDOMNode *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLDOMNode *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_nodeType)(IHTMLDOMNode *This,long *p);
+      HRESULT (WINAPI *get_nodeType)(IHTMLDOMNode *This,__LONG32 *p);
       HRESULT (WINAPI *get_parentNode)(IHTMLDOMNode *This,IHTMLDOMNode **p);
       HRESULT (WINAPI *hasChildNodes)(IHTMLDOMNode *This,VARIANT_BOOL *fChildren);
       HRESULT (WINAPI *get_childNodes)(IHTMLDOMNode *This,IDispatch **p);
@@ -9036,7 +9036,7 @@ IHTMLStyle : public IDispatch {
 #define IHTMLDOMNode_get_nextSibling(This,p) (This)->lpVtbl->get_nextSibling(This,p)
 #endif
 #endif
-  HRESULT WINAPI IHTMLDOMNode_get_nodeType_Proxy(IHTMLDOMNode *This,long *p);
+  HRESULT WINAPI IHTMLDOMNode_get_nodeType_Proxy(IHTMLDOMNode *This,__LONG32 *p);
   void __RPC_STUB IHTMLDOMNode_get_nodeType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLDOMNode_get_parentNode_Proxy(IHTMLDOMNode *This,IHTMLDOMNode **p);
   void __RPC_STUB IHTMLDOMNode_get_parentNode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -9181,7 +9181,7 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI put_value(BSTR v) = 0;
     virtual HRESULT WINAPI get_value(BSTR *p) = 0;
     virtual HRESULT WINAPI get_expando(VARIANT_BOOL *p) = 0;
-    virtual HRESULT WINAPI get_nodeType(long *p) = 0;
+    virtual HRESULT WINAPI get_nodeType(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get_parentNode(IHTMLDOMNode **p) = 0;
     virtual HRESULT WINAPI get_childNodes(IDispatch **p) = 0;
     virtual HRESULT WINAPI get_firstChild(IHTMLDOMNode **p) = 0;
@@ -9211,7 +9211,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *put_value)(IHTMLDOMAttribute2 *This,BSTR v);
       HRESULT (WINAPI *get_value)(IHTMLDOMAttribute2 *This,BSTR *p);
       HRESULT (WINAPI *get_expando)(IHTMLDOMAttribute2 *This,VARIANT_BOOL *p);
-      HRESULT (WINAPI *get_nodeType)(IHTMLDOMAttribute2 *This,long *p);
+      HRESULT (WINAPI *get_nodeType)(IHTMLDOMAttribute2 *This,__LONG32 *p);
       HRESULT (WINAPI *get_parentNode)(IHTMLDOMAttribute2 *This,IHTMLDOMNode **p);
       HRESULT (WINAPI *get_childNodes)(IHTMLDOMAttribute2 *This,IDispatch **p);
       HRESULT (WINAPI *get_firstChild)(IHTMLDOMAttribute2 *This,IHTMLDOMNode **p);
@@ -9268,7 +9268,7 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLDOMAttribute2_get_value_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLDOMAttribute2_get_expando_Proxy(IHTMLDOMAttribute2 *This,VARIANT_BOOL *p);
   void __RPC_STUB IHTMLDOMAttribute2_get_expando_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLDOMAttribute2_get_nodeType_Proxy(IHTMLDOMAttribute2 *This,long *p);
+  HRESULT WINAPI IHTMLDOMAttribute2_get_nodeType_Proxy(IHTMLDOMAttribute2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLDOMAttribute2_get_nodeType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLDOMAttribute2_get_parentNode_Proxy(IHTMLDOMAttribute2 *This,IHTMLDOMNode **p);
   void __RPC_STUB IHTMLDOMAttribute2_get_parentNode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -9309,8 +9309,8 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI put_data(BSTR v) = 0;
     virtual HRESULT WINAPI get_data(BSTR *p) = 0;
     virtual HRESULT WINAPI toString(BSTR *String) = 0;
-    virtual HRESULT WINAPI get_length(long *p) = 0;
-    virtual HRESULT WINAPI splitText(long offset,IHTMLDOMNode **pRetNode) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI splitText(__LONG32 offset,IHTMLDOMNode **pRetNode) = 0;
   };
 #else
   typedef struct IHTMLDOMTextNodeVtbl {
@@ -9325,8 +9325,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *put_data)(IHTMLDOMTextNode *This,BSTR v);
       HRESULT (WINAPI *get_data)(IHTMLDOMTextNode *This,BSTR *p);
       HRESULT (WINAPI *toString)(IHTMLDOMTextNode *This,BSTR *String);
-      HRESULT (WINAPI *get_length)(IHTMLDOMTextNode *This,long *p);
-      HRESULT (WINAPI *splitText)(IHTMLDOMTextNode *This,long offset,IHTMLDOMNode **pRetNode);
+      HRESULT (WINAPI *get_length)(IHTMLDOMTextNode *This,__LONG32 *p);
+      HRESULT (WINAPI *splitText)(IHTMLDOMTextNode *This,__LONG32 offset,IHTMLDOMNode **pRetNode);
     END_INTERFACE
   } IHTMLDOMTextNodeVtbl;
   struct IHTMLDOMTextNode {
@@ -9353,9 +9353,9 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLDOMTextNode_get_data_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLDOMTextNode_toString_Proxy(IHTMLDOMTextNode *This,BSTR *String);
   void __RPC_STUB IHTMLDOMTextNode_toString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLDOMTextNode_get_length_Proxy(IHTMLDOMTextNode *This,long *p);
+  HRESULT WINAPI IHTMLDOMTextNode_get_length_Proxy(IHTMLDOMTextNode *This,__LONG32 *p);
   void __RPC_STUB IHTMLDOMTextNode_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLDOMTextNode_splitText_Proxy(IHTMLDOMTextNode *This,long offset,IHTMLDOMNode **pRetNode);
+  HRESULT WINAPI IHTMLDOMTextNode_splitText_Proxy(IHTMLDOMTextNode *This,__LONG32 offset,IHTMLDOMNode **pRetNode);
   void __RPC_STUB IHTMLDOMTextNode_splitText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -9365,11 +9365,11 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLDOMTextNode2 : public IDispatch {
   public:
-    virtual HRESULT WINAPI substringData(long offset,long Count,BSTR *pbstrsubString) = 0;
+    virtual HRESULT WINAPI substringData(__LONG32 offset,__LONG32 Count,BSTR *pbstrsubString) = 0;
     virtual HRESULT WINAPI appendData(BSTR bstrstring) = 0;
-    virtual HRESULT WINAPI insertData(long offset,BSTR bstrstring) = 0;
-    virtual HRESULT WINAPI deleteData(long offset,long Count) = 0;
-    virtual HRESULT WINAPI replaceData(long offset,long Count,BSTR bstrstring) = 0;
+    virtual HRESULT WINAPI insertData(__LONG32 offset,BSTR bstrstring) = 0;
+    virtual HRESULT WINAPI deleteData(__LONG32 offset,__LONG32 Count) = 0;
+    virtual HRESULT WINAPI replaceData(__LONG32 offset,__LONG32 Count,BSTR bstrstring) = 0;
   };
 #else
   typedef struct IHTMLDOMTextNode2Vtbl {
@@ -9381,11 +9381,11 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLDOMTextNode2 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLDOMTextNode2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLDOMTextNode2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *substringData)(IHTMLDOMTextNode2 *This,long offset,long Count,BSTR *pbstrsubString);
+      HRESULT (WINAPI *substringData)(IHTMLDOMTextNode2 *This,__LONG32 offset,__LONG32 Count,BSTR *pbstrsubString);
       HRESULT (WINAPI *appendData)(IHTMLDOMTextNode2 *This,BSTR bstrstring);
-      HRESULT (WINAPI *insertData)(IHTMLDOMTextNode2 *This,long offset,BSTR bstrstring);
-      HRESULT (WINAPI *deleteData)(IHTMLDOMTextNode2 *This,long offset,long Count);
-      HRESULT (WINAPI *replaceData)(IHTMLDOMTextNode2 *This,long offset,long Count,BSTR bstrstring);
+      HRESULT (WINAPI *insertData)(IHTMLDOMTextNode2 *This,__LONG32 offset,BSTR bstrstring);
+      HRESULT (WINAPI *deleteData)(IHTMLDOMTextNode2 *This,__LONG32 offset,__LONG32 Count);
+      HRESULT (WINAPI *replaceData)(IHTMLDOMTextNode2 *This,__LONG32 offset,__LONG32 Count,BSTR bstrstring);
     END_INTERFACE
   } IHTMLDOMTextNode2Vtbl;
   struct IHTMLDOMTextNode2 {
@@ -9406,15 +9406,15 @@ IHTMLStyle : public IDispatch {
 #define IHTMLDOMTextNode2_replaceData(This,offset,Count,bstrstring) (This)->lpVtbl->replaceData(This,offset,Count,bstrstring)
 #endif
 #endif
-  HRESULT WINAPI IHTMLDOMTextNode2_substringData_Proxy(IHTMLDOMTextNode2 *This,long offset,long Count,BSTR *pbstrsubString);
+  HRESULT WINAPI IHTMLDOMTextNode2_substringData_Proxy(IHTMLDOMTextNode2 *This,__LONG32 offset,__LONG32 Count,BSTR *pbstrsubString);
   void __RPC_STUB IHTMLDOMTextNode2_substringData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLDOMTextNode2_appendData_Proxy(IHTMLDOMTextNode2 *This,BSTR bstrstring);
   void __RPC_STUB IHTMLDOMTextNode2_appendData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLDOMTextNode2_insertData_Proxy(IHTMLDOMTextNode2 *This,long offset,BSTR bstrstring);
+  HRESULT WINAPI IHTMLDOMTextNode2_insertData_Proxy(IHTMLDOMTextNode2 *This,__LONG32 offset,BSTR bstrstring);
   void __RPC_STUB IHTMLDOMTextNode2_insertData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLDOMTextNode2_deleteData_Proxy(IHTMLDOMTextNode2 *This,long offset,long Count);
+  HRESULT WINAPI IHTMLDOMTextNode2_deleteData_Proxy(IHTMLDOMTextNode2 *This,__LONG32 offset,__LONG32 Count);
   void __RPC_STUB IHTMLDOMTextNode2_deleteData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLDOMTextNode2_replaceData_Proxy(IHTMLDOMTextNode2 *This,long offset,long Count,BSTR bstrstring);
+  HRESULT WINAPI IHTMLDOMTextNode2_replaceData_Proxy(IHTMLDOMTextNode2 *This,__LONG32 offset,__LONG32 Count,BSTR bstrstring);
   void __RPC_STUB IHTMLDOMTextNode2_replaceData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -9574,7 +9574,7 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLAttributeCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_length(long *p) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get__newEnum(IUnknown **p) = 0;
     virtual HRESULT WINAPI item(VARIANT *name,IDispatch **pdisp) = 0;
   };
@@ -9588,7 +9588,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLAttributeCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLAttributeCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLAttributeCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_length)(IHTMLAttributeCollection *This,long *p);
+      HRESULT (WINAPI *get_length)(IHTMLAttributeCollection *This,__LONG32 *p);
       HRESULT (WINAPI *get__newEnum)(IHTMLAttributeCollection *This,IUnknown **p);
       HRESULT (WINAPI *item)(IHTMLAttributeCollection *This,VARIANT *name,IDispatch **pdisp);
     END_INTERFACE
@@ -9609,7 +9609,7 @@ IHTMLStyle : public IDispatch {
 #define IHTMLAttributeCollection_item(This,name,pdisp) (This)->lpVtbl->item(This,name,pdisp)
 #endif
 #endif
-  HRESULT WINAPI IHTMLAttributeCollection_get_length_Proxy(IHTMLAttributeCollection *This,long *p);
+  HRESULT WINAPI IHTMLAttributeCollection_get_length_Proxy(IHTMLAttributeCollection *This,__LONG32 *p);
   void __RPC_STUB IHTMLAttributeCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLAttributeCollection_get__newEnum_Proxy(IHTMLAttributeCollection *This,IUnknown **p);
   void __RPC_STUB IHTMLAttributeCollection_get__newEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -9672,9 +9672,9 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLDOMChildrenCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_length(long *p) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get__newEnum(IUnknown **p) = 0;
-    virtual HRESULT WINAPI item(long index,IDispatch **ppItem) = 0;
+    virtual HRESULT WINAPI item(__LONG32 index,IDispatch **ppItem) = 0;
   };
 #else
   typedef struct IHTMLDOMChildrenCollectionVtbl {
@@ -9686,9 +9686,9 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLDOMChildrenCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLDOMChildrenCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLDOMChildrenCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_length)(IHTMLDOMChildrenCollection *This,long *p);
+      HRESULT (WINAPI *get_length)(IHTMLDOMChildrenCollection *This,__LONG32 *p);
       HRESULT (WINAPI *get__newEnum)(IHTMLDOMChildrenCollection *This,IUnknown **p);
-      HRESULT (WINAPI *item)(IHTMLDOMChildrenCollection *This,long index,IDispatch **ppItem);
+      HRESULT (WINAPI *item)(IHTMLDOMChildrenCollection *This,__LONG32 index,IDispatch **ppItem);
     END_INTERFACE
   } IHTMLDOMChildrenCollectionVtbl;
   struct IHTMLDOMChildrenCollection {
@@ -9707,11 +9707,11 @@ IHTMLStyle : public IDispatch {
 #define IHTMLDOMChildrenCollection_item(This,index,ppItem) (This)->lpVtbl->item(This,index,ppItem)
 #endif
 #endif
-  HRESULT WINAPI IHTMLDOMChildrenCollection_get_length_Proxy(IHTMLDOMChildrenCollection *This,long *p);
+  HRESULT WINAPI IHTMLDOMChildrenCollection_get_length_Proxy(IHTMLDOMChildrenCollection *This,__LONG32 *p);
   void __RPC_STUB IHTMLDOMChildrenCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLDOMChildrenCollection_get__newEnum_Proxy(IHTMLDOMChildrenCollection *This,IUnknown **p);
   void __RPC_STUB IHTMLDOMChildrenCollection_get__newEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLDOMChildrenCollection_item_Proxy(IHTMLDOMChildrenCollection *This,long index,IDispatch **ppItem);
+  HRESULT WINAPI IHTMLDOMChildrenCollection_item_Proxy(IHTMLDOMChildrenCollection *This,__LONG32 index,IDispatch **ppItem);
   void __RPC_STUB IHTMLDOMChildrenCollection_item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -9862,8 +9862,8 @@ IHTMLStyle : public IDispatch {
   struct IHTMLElementCollection : public IDispatch {
   public:
     virtual HRESULT WINAPI toString(BSTR *String) = 0;
-    virtual HRESULT WINAPI put_length(long v) = 0;
-    virtual HRESULT WINAPI get_length(long *p) = 0;
+    virtual HRESULT WINAPI put_length(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get__newEnum(IUnknown **p) = 0;
     virtual HRESULT WINAPI item(VARIANT name,VARIANT index,IDispatch **pdisp) = 0;
     virtual HRESULT WINAPI tags(VARIANT tagName,IDispatch **pdisp) = 0;
@@ -9879,8 +9879,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLElementCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLElementCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *toString)(IHTMLElementCollection *This,BSTR *String);
-      HRESULT (WINAPI *put_length)(IHTMLElementCollection *This,long v);
-      HRESULT (WINAPI *get_length)(IHTMLElementCollection *This,long *p);
+      HRESULT (WINAPI *put_length)(IHTMLElementCollection *This,__LONG32 v);
+      HRESULT (WINAPI *get_length)(IHTMLElementCollection *This,__LONG32 *p);
       HRESULT (WINAPI *get__newEnum)(IHTMLElementCollection *This,IUnknown **p);
       HRESULT (WINAPI *item)(IHTMLElementCollection *This,VARIANT name,VARIANT index,IDispatch **pdisp);
       HRESULT (WINAPI *tags)(IHTMLElementCollection *This,VARIANT tagName,IDispatch **pdisp);
@@ -9907,9 +9907,9 @@ IHTMLStyle : public IDispatch {
 #endif
   HRESULT WINAPI IHTMLElementCollection_toString_Proxy(IHTMLElementCollection *This,BSTR *String);
   void __RPC_STUB IHTMLElementCollection_toString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElementCollection_put_length_Proxy(IHTMLElementCollection *This,long v);
+  HRESULT WINAPI IHTMLElementCollection_put_length_Proxy(IHTMLElementCollection *This,__LONG32 v);
   void __RPC_STUB IHTMLElementCollection_put_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElementCollection_get_length_Proxy(IHTMLElementCollection *This,long *p);
+  HRESULT WINAPI IHTMLElementCollection_get_length_Proxy(IHTMLElementCollection *This,__LONG32 *p);
   void __RPC_STUB IHTMLElementCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLElementCollection_get__newEnum_Proxy(IHTMLElementCollection *This,IUnknown **p);
   void __RPC_STUB IHTMLElementCollection_get__newEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -9930,7 +9930,7 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI releaseCapture(void) = 0;
     virtual HRESULT WINAPI put_onlosecapture(VARIANT v) = 0;
     virtual HRESULT WINAPI get_onlosecapture(VARIANT *p) = 0;
-    virtual HRESULT WINAPI componentFromPoint(long x,long y,BSTR *component) = 0;
+    virtual HRESULT WINAPI componentFromPoint(__LONG32 x,__LONG32 y,BSTR *component) = 0;
     virtual HRESULT WINAPI doScroll(VARIANT component) = 0;
     virtual HRESULT WINAPI put_onscroll(VARIANT v) = 0;
     virtual HRESULT WINAPI get_onscroll(VARIANT *p) = 0;
@@ -9980,10 +9980,10 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI blur(void) = 0;
     virtual HRESULT WINAPI addFilter(IUnknown *pUnk) = 0;
     virtual HRESULT WINAPI removeFilter(IUnknown *pUnk) = 0;
-    virtual HRESULT WINAPI get_clientHeight(long *p) = 0;
-    virtual HRESULT WINAPI get_clientWidth(long *p) = 0;
-    virtual HRESULT WINAPI get_clientTop(long *p) = 0;
-    virtual HRESULT WINAPI get_clientLeft(long *p) = 0;
+    virtual HRESULT WINAPI get_clientHeight(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_clientWidth(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_clientTop(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_clientLeft(__LONG32 *p) = 0;
     virtual HRESULT WINAPI attachEvent(BSTR event,IDispatch *pDisp,VARIANT_BOOL *pfResult) = 0;
     virtual HRESULT WINAPI detachEvent(BSTR event,IDispatch *pDisp) = 0;
     virtual HRESULT WINAPI get_readyState(VARIANT *p) = 0;
@@ -9998,12 +9998,12 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI put_dir(BSTR v) = 0;
     virtual HRESULT WINAPI get_dir(BSTR *p) = 0;
     virtual HRESULT WINAPI createControlRange(IDispatch **range) = 0;
-    virtual HRESULT WINAPI get_scrollHeight(long *p) = 0;
-    virtual HRESULT WINAPI get_scrollWidth(long *p) = 0;
-    virtual HRESULT WINAPI put_scrollTop(long v) = 0;
-    virtual HRESULT WINAPI get_scrollTop(long *p) = 0;
-    virtual HRESULT WINAPI put_scrollLeft(long v) = 0;
-    virtual HRESULT WINAPI get_scrollLeft(long *p) = 0;
+    virtual HRESULT WINAPI get_scrollHeight(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_scrollWidth(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_scrollTop(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_scrollTop(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_scrollLeft(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_scrollLeft(__LONG32 *p) = 0;
     virtual HRESULT WINAPI clearAttributes(void) = 0;
     virtual HRESULT WINAPI mergeAttributes(IHTMLElement *mergeThis) = 0;
     virtual HRESULT WINAPI put_oncontextmenu(VARIANT v) = 0;
@@ -10013,15 +10013,15 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI getAdjacentText(BSTR where,BSTR *text) = 0;
     virtual HRESULT WINAPI replaceAdjacentText(BSTR where,BSTR newText,BSTR *oldText) = 0;
     virtual HRESULT WINAPI get_canHaveChildren(VARIANT_BOOL *p) = 0;
-    virtual HRESULT WINAPI addBehavior(BSTR bstrUrl,VARIANT *pvarFactory,long *pCookie) = 0;
-    virtual HRESULT WINAPI removeBehavior(long cookie,VARIANT_BOOL *pfResult) = 0;
+    virtual HRESULT WINAPI addBehavior(BSTR bstrUrl,VARIANT *pvarFactory,__LONG32 *pCookie) = 0;
+    virtual HRESULT WINAPI removeBehavior(__LONG32 cookie,VARIANT_BOOL *pfResult) = 0;
     virtual HRESULT WINAPI get_runtimeStyle(IHTMLStyle **p) = 0;
     virtual HRESULT WINAPI get_behaviorUrns(IDispatch **p) = 0;
     virtual HRESULT WINAPI put_tagUrn(BSTR v) = 0;
     virtual HRESULT WINAPI get_tagUrn(BSTR *p) = 0;
     virtual HRESULT WINAPI put_onbeforeeditfocus(VARIANT v) = 0;
     virtual HRESULT WINAPI get_onbeforeeditfocus(VARIANT *p) = 0;
-    virtual HRESULT WINAPI get_readyStateValue(long *p) = 0;
+    virtual HRESULT WINAPI get_readyStateValue(__LONG32 *p) = 0;
     virtual HRESULT WINAPI getElementsByTagName(BSTR v,IHTMLElementCollection **pelColl) = 0;
   };
 #else
@@ -10039,7 +10039,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *releaseCapture)(IHTMLElement2 *This);
       HRESULT (WINAPI *put_onlosecapture)(IHTMLElement2 *This,VARIANT v);
       HRESULT (WINAPI *get_onlosecapture)(IHTMLElement2 *This,VARIANT *p);
-      HRESULT (WINAPI *componentFromPoint)(IHTMLElement2 *This,long x,long y,BSTR *component);
+      HRESULT (WINAPI *componentFromPoint)(IHTMLElement2 *This,__LONG32 x,__LONG32 y,BSTR *component);
       HRESULT (WINAPI *doScroll)(IHTMLElement2 *This,VARIANT component);
       HRESULT (WINAPI *put_onscroll)(IHTMLElement2 *This,VARIANT v);
       HRESULT (WINAPI *get_onscroll)(IHTMLElement2 *This,VARIANT *p);
@@ -10089,10 +10089,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *blur)(IHTMLElement2 *This);
       HRESULT (WINAPI *addFilter)(IHTMLElement2 *This,IUnknown *pUnk);
       HRESULT (WINAPI *removeFilter)(IHTMLElement2 *This,IUnknown *pUnk);
-      HRESULT (WINAPI *get_clientHeight)(IHTMLElement2 *This,long *p);
-      HRESULT (WINAPI *get_clientWidth)(IHTMLElement2 *This,long *p);
-      HRESULT (WINAPI *get_clientTop)(IHTMLElement2 *This,long *p);
-      HRESULT (WINAPI *get_clientLeft)(IHTMLElement2 *This,long *p);
+      HRESULT (WINAPI *get_clientHeight)(IHTMLElement2 *This,__LONG32 *p);
+      HRESULT (WINAPI *get_clientWidth)(IHTMLElement2 *This,__LONG32 *p);
+      HRESULT (WINAPI *get_clientTop)(IHTMLElement2 *This,__LONG32 *p);
+      HRESULT (WINAPI *get_clientLeft)(IHTMLElement2 *This,__LONG32 *p);
       HRESULT (WINAPI *attachEvent)(IHTMLElement2 *This,BSTR event,IDispatch *pDisp,VARIANT_BOOL *pfResult);
       HRESULT (WINAPI *detachEvent)(IHTMLElement2 *This,BSTR event,IDispatch *pDisp);
       HRESULT (WINAPI *get_readyState)(IHTMLElement2 *This,VARIANT *p);
@@ -10107,12 +10107,12 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *put_dir)(IHTMLElement2 *This,BSTR v);
       HRESULT (WINAPI *get_dir)(IHTMLElement2 *This,BSTR *p);
       HRESULT (WINAPI *createControlRange)(IHTMLElement2 *This,IDispatch **range);
-      HRESULT (WINAPI *get_scrollHeight)(IHTMLElement2 *This,long *p);
-      HRESULT (WINAPI *get_scrollWidth)(IHTMLElement2 *This,long *p);
-      HRESULT (WINAPI *put_scrollTop)(IHTMLElement2 *This,long v);
-      HRESULT (WINAPI *get_scrollTop)(IHTMLElement2 *This,long *p);
-      HRESULT (WINAPI *put_scrollLeft)(IHTMLElement2 *This,long v);
-      HRESULT (WINAPI *get_scrollLeft)(IHTMLElement2 *This,long *p);
+      HRESULT (WINAPI *get_scrollHeight)(IHTMLElement2 *This,__LONG32 *p);
+      HRESULT (WINAPI *get_scrollWidth)(IHTMLElement2 *This,__LONG32 *p);
+      HRESULT (WINAPI *put_scrollTop)(IHTMLElement2 *This,__LONG32 v);
+      HRESULT (WINAPI *get_scrollTop)(IHTMLElement2 *This,__LONG32 *p);
+      HRESULT (WINAPI *put_scrollLeft)(IHTMLElement2 *This,__LONG32 v);
+      HRESULT (WINAPI *get_scrollLeft)(IHTMLElement2 *This,__LONG32 *p);
       HRESULT (WINAPI *clearAttributes)(IHTMLElement2 *This);
       HRESULT (WINAPI *mergeAttributes)(IHTMLElement2 *This,IHTMLElement *mergeThis);
       HRESULT (WINAPI *put_oncontextmenu)(IHTMLElement2 *This,VARIANT v);
@@ -10122,15 +10122,15 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *getAdjacentText)(IHTMLElement2 *This,BSTR where,BSTR *text);
       HRESULT (WINAPI *replaceAdjacentText)(IHTMLElement2 *This,BSTR where,BSTR newText,BSTR *oldText);
       HRESULT (WINAPI *get_canHaveChildren)(IHTMLElement2 *This,VARIANT_BOOL *p);
-      HRESULT (WINAPI *addBehavior)(IHTMLElement2 *This,BSTR bstrUrl,VARIANT *pvarFactory,long *pCookie);
-      HRESULT (WINAPI *removeBehavior)(IHTMLElement2 *This,long cookie,VARIANT_BOOL *pfResult);
+      HRESULT (WINAPI *addBehavior)(IHTMLElement2 *This,BSTR bstrUrl,VARIANT *pvarFactory,__LONG32 *pCookie);
+      HRESULT (WINAPI *removeBehavior)(IHTMLElement2 *This,__LONG32 cookie,VARIANT_BOOL *pfResult);
       HRESULT (WINAPI *get_runtimeStyle)(IHTMLElement2 *This,IHTMLStyle **p);
       HRESULT (WINAPI *get_behaviorUrns)(IHTMLElement2 *This,IDispatch **p);
       HRESULT (WINAPI *put_tagUrn)(IHTMLElement2 *This,BSTR v);
       HRESULT (WINAPI *get_tagUrn)(IHTMLElement2 *This,BSTR *p);
       HRESULT (WINAPI *put_onbeforeeditfocus)(IHTMLElement2 *This,VARIANT v);
       HRESULT (WINAPI *get_onbeforeeditfocus)(IHTMLElement2 *This,VARIANT *p);
-      HRESULT (WINAPI *get_readyStateValue)(IHTMLElement2 *This,long *p);
+      HRESULT (WINAPI *get_readyStateValue)(IHTMLElement2 *This,__LONG32 *p);
       HRESULT (WINAPI *getElementsByTagName)(IHTMLElement2 *This,BSTR v,IHTMLElementCollection **pelColl);
     END_INTERFACE
   } IHTMLElement2Vtbl;
@@ -10255,7 +10255,7 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLElement2_put_onlosecapture_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLElement2_get_onlosecapture_Proxy(IHTMLElement2 *This,VARIANT *p);
   void __RPC_STUB IHTMLElement2_get_onlosecapture_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElement2_componentFromPoint_Proxy(IHTMLElement2 *This,long x,long y,BSTR *component);
+  HRESULT WINAPI IHTMLElement2_componentFromPoint_Proxy(IHTMLElement2 *This,__LONG32 x,__LONG32 y,BSTR *component);
   void __RPC_STUB IHTMLElement2_componentFromPoint_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLElement2_doScroll_Proxy(IHTMLElement2 *This,VARIANT component);
   void __RPC_STUB IHTMLElement2_doScroll_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -10355,13 +10355,13 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLElement2_addFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLElement2_removeFilter_Proxy(IHTMLElement2 *This,IUnknown *pUnk);
   void __RPC_STUB IHTMLElement2_removeFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElement2_get_clientHeight_Proxy(IHTMLElement2 *This,long *p);
+  HRESULT WINAPI IHTMLElement2_get_clientHeight_Proxy(IHTMLElement2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLElement2_get_clientHeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElement2_get_clientWidth_Proxy(IHTMLElement2 *This,long *p);
+  HRESULT WINAPI IHTMLElement2_get_clientWidth_Proxy(IHTMLElement2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLElement2_get_clientWidth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElement2_get_clientTop_Proxy(IHTMLElement2 *This,long *p);
+  HRESULT WINAPI IHTMLElement2_get_clientTop_Proxy(IHTMLElement2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLElement2_get_clientTop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElement2_get_clientLeft_Proxy(IHTMLElement2 *This,long *p);
+  HRESULT WINAPI IHTMLElement2_get_clientLeft_Proxy(IHTMLElement2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLElement2_get_clientLeft_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLElement2_attachEvent_Proxy(IHTMLElement2 *This,BSTR event,IDispatch *pDisp,VARIANT_BOOL *pfResult);
   void __RPC_STUB IHTMLElement2_attachEvent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -10391,17 +10391,17 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLElement2_get_dir_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLElement2_createControlRange_Proxy(IHTMLElement2 *This,IDispatch **range);
   void __RPC_STUB IHTMLElement2_createControlRange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElement2_get_scrollHeight_Proxy(IHTMLElement2 *This,long *p);
+  HRESULT WINAPI IHTMLElement2_get_scrollHeight_Proxy(IHTMLElement2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLElement2_get_scrollHeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElement2_get_scrollWidth_Proxy(IHTMLElement2 *This,long *p);
+  HRESULT WINAPI IHTMLElement2_get_scrollWidth_Proxy(IHTMLElement2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLElement2_get_scrollWidth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElement2_put_scrollTop_Proxy(IHTMLElement2 *This,long v);
+  HRESULT WINAPI IHTMLElement2_put_scrollTop_Proxy(IHTMLElement2 *This,__LONG32 v);
   void __RPC_STUB IHTMLElement2_put_scrollTop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElement2_get_scrollTop_Proxy(IHTMLElement2 *This,long *p);
+  HRESULT WINAPI IHTMLElement2_get_scrollTop_Proxy(IHTMLElement2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLElement2_get_scrollTop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElement2_put_scrollLeft_Proxy(IHTMLElement2 *This,long v);
+  HRESULT WINAPI IHTMLElement2_put_scrollLeft_Proxy(IHTMLElement2 *This,__LONG32 v);
   void __RPC_STUB IHTMLElement2_put_scrollLeft_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElement2_get_scrollLeft_Proxy(IHTMLElement2 *This,long *p);
+  HRESULT WINAPI IHTMLElement2_get_scrollLeft_Proxy(IHTMLElement2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLElement2_get_scrollLeft_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLElement2_clearAttributes_Proxy(IHTMLElement2 *This);
   void __RPC_STUB IHTMLElement2_clearAttributes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -10421,9 +10421,9 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLElement2_replaceAdjacentText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLElement2_get_canHaveChildren_Proxy(IHTMLElement2 *This,VARIANT_BOOL *p);
   void __RPC_STUB IHTMLElement2_get_canHaveChildren_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElement2_addBehavior_Proxy(IHTMLElement2 *This,BSTR bstrUrl,VARIANT *pvarFactory,long *pCookie);
+  HRESULT WINAPI IHTMLElement2_addBehavior_Proxy(IHTMLElement2 *This,BSTR bstrUrl,VARIANT *pvarFactory,__LONG32 *pCookie);
   void __RPC_STUB IHTMLElement2_addBehavior_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElement2_removeBehavior_Proxy(IHTMLElement2 *This,long cookie,VARIANT_BOOL *pfResult);
+  HRESULT WINAPI IHTMLElement2_removeBehavior_Proxy(IHTMLElement2 *This,__LONG32 cookie,VARIANT_BOOL *pfResult);
   void __RPC_STUB IHTMLElement2_removeBehavior_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLElement2_get_runtimeStyle_Proxy(IHTMLElement2 *This,IHTMLStyle **p);
   void __RPC_STUB IHTMLElement2_get_runtimeStyle_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -10437,7 +10437,7 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLElement2_put_onbeforeeditfocus_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLElement2_get_onbeforeeditfocus_Proxy(IHTMLElement2 *This,VARIANT *p);
   void __RPC_STUB IHTMLElement2_get_onbeforeeditfocus_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElement2_get_readyStateValue_Proxy(IHTMLElement2 *This,long *p);
+  HRESULT WINAPI IHTMLElement2_get_readyStateValue_Proxy(IHTMLElement2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLElement2_get_readyStateValue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLElement2_getElementsByTagName_Proxy(IHTMLElement2 *This,BSTR v,IHTMLElementCollection **pelColl);
   void __RPC_STUB IHTMLElement2_getElementsByTagName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -10828,7 +10828,7 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLUniqueName : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_uniqueNumber(long *p) = 0;
+    virtual HRESULT WINAPI get_uniqueNumber(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get_uniqueID(BSTR *p) = 0;
   };
 #else
@@ -10841,7 +10841,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLUniqueName *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLUniqueName *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLUniqueName *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_uniqueNumber)(IHTMLUniqueName *This,long *p);
+      HRESULT (WINAPI *get_uniqueNumber)(IHTMLUniqueName *This,__LONG32 *p);
       HRESULT (WINAPI *get_uniqueID)(IHTMLUniqueName *This,BSTR *p);
     END_INTERFACE
   } IHTMLUniqueNameVtbl;
@@ -10860,7 +10860,7 @@ IHTMLStyle : public IDispatch {
 #define IHTMLUniqueName_get_uniqueID(This,p) (This)->lpVtbl->get_uniqueID(This,p)
 #endif
 #endif
-  HRESULT WINAPI IHTMLUniqueName_get_uniqueNumber_Proxy(IHTMLUniqueName *This,long *p);
+  HRESULT WINAPI IHTMLUniqueName_get_uniqueNumber_Proxy(IHTMLUniqueName *This,__LONG32 *p);
   void __RPC_STUB IHTMLUniqueName_get_uniqueNumber_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLUniqueName_get_uniqueID_Proxy(IHTMLUniqueName *This,BSTR *p);
   void __RPC_STUB IHTMLUniqueName_get_uniqueID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -10982,10 +10982,10 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_viewInheritStyle(VARIANT_BOOL *p) = 0;
     virtual HRESULT WINAPI put_viewMasterTab(VARIANT_BOOL v) = 0;
     virtual HRESULT WINAPI get_viewMasterTab(VARIANT_BOOL *p) = 0;
-    virtual HRESULT WINAPI put_scrollSegmentX(long v) = 0;
-    virtual HRESULT WINAPI get_scrollSegmentX(long *p) = 0;
-    virtual HRESULT WINAPI put_scrollSegmentY(long v) = 0;
-    virtual HRESULT WINAPI get_scrollSegmentY(long *p) = 0;
+    virtual HRESULT WINAPI put_scrollSegmentX(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_scrollSegmentX(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_scrollSegmentY(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_scrollSegmentY(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_isMultiLine(VARIANT_BOOL v) = 0;
     virtual HRESULT WINAPI get_isMultiLine(VARIANT_BOOL *p) = 0;
     virtual HRESULT WINAPI put_contentEditable(BSTR v) = 0;
@@ -11014,10 +11014,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_viewInheritStyle)(IHTMLElementDefaults *This,VARIANT_BOOL *p);
       HRESULT (WINAPI *put_viewMasterTab)(IHTMLElementDefaults *This,VARIANT_BOOL v);
       HRESULT (WINAPI *get_viewMasterTab)(IHTMLElementDefaults *This,VARIANT_BOOL *p);
-      HRESULT (WINAPI *put_scrollSegmentX)(IHTMLElementDefaults *This,long v);
-      HRESULT (WINAPI *get_scrollSegmentX)(IHTMLElementDefaults *This,long *p);
-      HRESULT (WINAPI *put_scrollSegmentY)(IHTMLElementDefaults *This,long v);
-      HRESULT (WINAPI *get_scrollSegmentY)(IHTMLElementDefaults *This,long *p);
+      HRESULT (WINAPI *put_scrollSegmentX)(IHTMLElementDefaults *This,__LONG32 v);
+      HRESULT (WINAPI *get_scrollSegmentX)(IHTMLElementDefaults *This,__LONG32 *p);
+      HRESULT (WINAPI *put_scrollSegmentY)(IHTMLElementDefaults *This,__LONG32 v);
+      HRESULT (WINAPI *get_scrollSegmentY)(IHTMLElementDefaults *This,__LONG32 *p);
       HRESULT (WINAPI *put_isMultiLine)(IHTMLElementDefaults *This,VARIANT_BOOL v);
       HRESULT (WINAPI *get_isMultiLine)(IHTMLElementDefaults *This,VARIANT_BOOL *p);
       HRESULT (WINAPI *put_contentEditable)(IHTMLElementDefaults *This,BSTR v);
@@ -11078,13 +11078,13 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLElementDefaults_put_viewMasterTab_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLElementDefaults_get_viewMasterTab_Proxy(IHTMLElementDefaults *This,VARIANT_BOOL *p);
   void __RPC_STUB IHTMLElementDefaults_get_viewMasterTab_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElementDefaults_put_scrollSegmentX_Proxy(IHTMLElementDefaults *This,long v);
+  HRESULT WINAPI IHTMLElementDefaults_put_scrollSegmentX_Proxy(IHTMLElementDefaults *This,__LONG32 v);
   void __RPC_STUB IHTMLElementDefaults_put_scrollSegmentX_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElementDefaults_get_scrollSegmentX_Proxy(IHTMLElementDefaults *This,long *p);
+  HRESULT WINAPI IHTMLElementDefaults_get_scrollSegmentX_Proxy(IHTMLElementDefaults *This,__LONG32 *p);
   void __RPC_STUB IHTMLElementDefaults_get_scrollSegmentX_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElementDefaults_put_scrollSegmentY_Proxy(IHTMLElementDefaults *This,long v);
+  HRESULT WINAPI IHTMLElementDefaults_put_scrollSegmentY_Proxy(IHTMLElementDefaults *This,__LONG32 v);
   void __RPC_STUB IHTMLElementDefaults_put_scrollSegmentY_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLElementDefaults_get_scrollSegmentY_Proxy(IHTMLElementDefaults *This,long *p);
+  HRESULT WINAPI IHTMLElementDefaults_get_scrollSegmentY_Proxy(IHTMLElementDefaults *This,__LONG32 *p);
   void __RPC_STUB IHTMLElementDefaults_get_scrollSegmentY_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLElementDefaults_put_isMultiLine_Proxy(IHTMLElementDefaults *This,VARIANT_BOOL v);
   void __RPC_STUB IHTMLElementDefaults_put_isMultiLine_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -11675,8 +11675,8 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLUrnCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_length(long *p) = 0;
-    virtual HRESULT WINAPI item(long index,BSTR *ppUrn) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI item(__LONG32 index,BSTR *ppUrn) = 0;
   };
 #else
   typedef struct IHTMLUrnCollectionVtbl {
@@ -11688,8 +11688,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLUrnCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLUrnCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLUrnCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_length)(IHTMLUrnCollection *This,long *p);
-      HRESULT (WINAPI *item)(IHTMLUrnCollection *This,long index,BSTR *ppUrn);
+      HRESULT (WINAPI *get_length)(IHTMLUrnCollection *This,__LONG32 *p);
+      HRESULT (WINAPI *item)(IHTMLUrnCollection *This,__LONG32 index,BSTR *ppUrn);
     END_INTERFACE
   } IHTMLUrnCollectionVtbl;
   struct IHTMLUrnCollection {
@@ -11707,9 +11707,9 @@ IHTMLStyle : public IDispatch {
 #define IHTMLUrnCollection_item(This,index,ppUrn) (This)->lpVtbl->item(This,index,ppUrn)
 #endif
 #endif
-  HRESULT WINAPI IHTMLUrnCollection_get_length_Proxy(IHTMLUrnCollection *This,long *p);
+  HRESULT WINAPI IHTMLUrnCollection_get_length_Proxy(IHTMLUrnCollection *This,__LONG32 *p);
   void __RPC_STUB IHTMLUrnCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLUrnCollection_item_Proxy(IHTMLUrnCollection *This,long index,BSTR *ppUrn);
+  HRESULT WINAPI IHTMLUrnCollection_item_Proxy(IHTMLUrnCollection *This,__LONG32 index,BSTR *ppUrn);
   void __RPC_STUB IHTMLUrnCollection_item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
   EXTERN_C const CLSID CLSID_HTMLUrnCollection;
@@ -11858,8 +11858,8 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLStyleSheetRulesCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_length(long *p) = 0;
-    virtual HRESULT WINAPI item(long index,IHTMLStyleSheetRule **ppHTMLStyleSheetRule) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI item(__LONG32 index,IHTMLStyleSheetRule **ppHTMLStyleSheetRule) = 0;
   };
 #else
   typedef struct IHTMLStyleSheetRulesCollectionVtbl {
@@ -11871,8 +11871,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLStyleSheetRulesCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLStyleSheetRulesCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLStyleSheetRulesCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_length)(IHTMLStyleSheetRulesCollection *This,long *p);
-      HRESULT (WINAPI *item)(IHTMLStyleSheetRulesCollection *This,long index,IHTMLStyleSheetRule **ppHTMLStyleSheetRule);
+      HRESULT (WINAPI *get_length)(IHTMLStyleSheetRulesCollection *This,__LONG32 *p);
+      HRESULT (WINAPI *item)(IHTMLStyleSheetRulesCollection *This,__LONG32 index,IHTMLStyleSheetRule **ppHTMLStyleSheetRule);
     END_INTERFACE
   } IHTMLStyleSheetRulesCollectionVtbl;
   struct IHTMLStyleSheetRulesCollection {
@@ -11890,9 +11890,9 @@ IHTMLStyle : public IDispatch {
 #define IHTMLStyleSheetRulesCollection_item(This,index,ppHTMLStyleSheetRule) (This)->lpVtbl->item(This,index,ppHTMLStyleSheetRule)
 #endif
 #endif
-  HRESULT WINAPI IHTMLStyleSheetRulesCollection_get_length_Proxy(IHTMLStyleSheetRulesCollection *This,long *p);
+  HRESULT WINAPI IHTMLStyleSheetRulesCollection_get_length_Proxy(IHTMLStyleSheetRulesCollection *This,__LONG32 *p);
   void __RPC_STUB IHTMLStyleSheetRulesCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLStyleSheetRulesCollection_item_Proxy(IHTMLStyleSheetRulesCollection *This,long index,IHTMLStyleSheetRule **ppHTMLStyleSheetRule);
+  HRESULT WINAPI IHTMLStyleSheetRulesCollection_item_Proxy(IHTMLStyleSheetRulesCollection *This,__LONG32 index,IHTMLStyleSheetRule **ppHTMLStyleSheetRule);
   void __RPC_STUB IHTMLStyleSheetRulesCollection_item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
   EXTERN_C const CLSID CLSID_HTMLStyleSheetRule;
@@ -11954,8 +11954,8 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLStyleSheetPagesCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_length(long *p) = 0;
-    virtual HRESULT WINAPI item(long index,IHTMLStyleSheetPage **ppHTMLStyleSheetPage) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI item(__LONG32 index,IHTMLStyleSheetPage **ppHTMLStyleSheetPage) = 0;
   };
 #else
   typedef struct IHTMLStyleSheetPagesCollectionVtbl {
@@ -11967,8 +11967,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLStyleSheetPagesCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLStyleSheetPagesCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLStyleSheetPagesCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_length)(IHTMLStyleSheetPagesCollection *This,long *p);
-      HRESULT (WINAPI *item)(IHTMLStyleSheetPagesCollection *This,long index,IHTMLStyleSheetPage **ppHTMLStyleSheetPage);
+      HRESULT (WINAPI *get_length)(IHTMLStyleSheetPagesCollection *This,__LONG32 *p);
+      HRESULT (WINAPI *item)(IHTMLStyleSheetPagesCollection *This,__LONG32 index,IHTMLStyleSheetPage **ppHTMLStyleSheetPage);
     END_INTERFACE
   } IHTMLStyleSheetPagesCollectionVtbl;
   struct IHTMLStyleSheetPagesCollection {
@@ -11986,9 +11986,9 @@ IHTMLStyle : public IDispatch {
 #define IHTMLStyleSheetPagesCollection_item(This,index,ppHTMLStyleSheetPage) (This)->lpVtbl->item(This,index,ppHTMLStyleSheetPage)
 #endif
 #endif
-  HRESULT WINAPI IHTMLStyleSheetPagesCollection_get_length_Proxy(IHTMLStyleSheetPagesCollection *This,long *p);
+  HRESULT WINAPI IHTMLStyleSheetPagesCollection_get_length_Proxy(IHTMLStyleSheetPagesCollection *This,__LONG32 *p);
   void __RPC_STUB IHTMLStyleSheetPagesCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLStyleSheetPagesCollection_item_Proxy(IHTMLStyleSheetPagesCollection *This,long index,IHTMLStyleSheetPage **ppHTMLStyleSheetPage);
+  HRESULT WINAPI IHTMLStyleSheetPagesCollection_item_Proxy(IHTMLStyleSheetPagesCollection *This,__LONG32 index,IHTMLStyleSheetPage **ppHTMLStyleSheetPage);
   void __RPC_STUB IHTMLStyleSheetPagesCollection_item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
   EXTERN_C const CLSID CLSID_HTMLStyleSheetPage;
@@ -12006,7 +12006,7 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLStyleSheetsCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_length(long *p) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get__newEnum(IUnknown **p) = 0;
     virtual HRESULT WINAPI item(VARIANT *pvarIndex,VARIANT *pvarResult) = 0;
   };
@@ -12020,7 +12020,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLStyleSheetsCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLStyleSheetsCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLStyleSheetsCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_length)(IHTMLStyleSheetsCollection *This,long *p);
+      HRESULT (WINAPI *get_length)(IHTMLStyleSheetsCollection *This,__LONG32 *p);
       HRESULT (WINAPI *get__newEnum)(IHTMLStyleSheetsCollection *This,IUnknown **p);
       HRESULT (WINAPI *item)(IHTMLStyleSheetsCollection *This,VARIANT *pvarIndex,VARIANT *pvarResult);
     END_INTERFACE
@@ -12041,7 +12041,7 @@ IHTMLStyle : public IDispatch {
 #define IHTMLStyleSheetsCollection_item(This,pvarIndex,pvarResult) (This)->lpVtbl->item(This,pvarIndex,pvarResult)
 #endif
 #endif
-  HRESULT WINAPI IHTMLStyleSheetsCollection_get_length_Proxy(IHTMLStyleSheetsCollection *This,long *p);
+  HRESULT WINAPI IHTMLStyleSheetsCollection_get_length_Proxy(IHTMLStyleSheetsCollection *This,__LONG32 *p);
   void __RPC_STUB IHTMLStyleSheetsCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLStyleSheetsCollection_get__newEnum_Proxy(IHTMLStyleSheetsCollection *This,IUnknown **p);
   void __RPC_STUB IHTMLStyleSheetsCollection_get__newEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -12067,10 +12067,10 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_href(BSTR *p) = 0;
     virtual HRESULT WINAPI get_type(BSTR *p) = 0;
     virtual HRESULT WINAPI get_id(BSTR *p) = 0;
-    virtual HRESULT WINAPI addImport(BSTR bstrURL,long lIndex,long *plIndex) = 0;
-    virtual HRESULT WINAPI addRule(BSTR bstrSelector,BSTR bstrStyle,long lIndex,long *plNewIndex) = 0;
-    virtual HRESULT WINAPI removeImport(long lIndex) = 0;
-    virtual HRESULT WINAPI removeRule(long lIndex) = 0;
+    virtual HRESULT WINAPI addImport(BSTR bstrURL,__LONG32 lIndex,__LONG32 *plIndex) = 0;
+    virtual HRESULT WINAPI addRule(BSTR bstrSelector,BSTR bstrStyle,__LONG32 lIndex,__LONG32 *plNewIndex) = 0;
+    virtual HRESULT WINAPI removeImport(__LONG32 lIndex) = 0;
+    virtual HRESULT WINAPI removeRule(__LONG32 lIndex) = 0;
     virtual HRESULT WINAPI put_media(BSTR v) = 0;
     virtual HRESULT WINAPI get_media(BSTR *p) = 0;
     virtual HRESULT WINAPI put_cssText(BSTR v) = 0;
@@ -12099,10 +12099,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_href)(IHTMLStyleSheet *This,BSTR *p);
       HRESULT (WINAPI *get_type)(IHTMLStyleSheet *This,BSTR *p);
       HRESULT (WINAPI *get_id)(IHTMLStyleSheet *This,BSTR *p);
-      HRESULT (WINAPI *addImport)(IHTMLStyleSheet *This,BSTR bstrURL,long lIndex,long *plIndex);
-      HRESULT (WINAPI *addRule)(IHTMLStyleSheet *This,BSTR bstrSelector,BSTR bstrStyle,long lIndex,long *plNewIndex);
-      HRESULT (WINAPI *removeImport)(IHTMLStyleSheet *This,long lIndex);
-      HRESULT (WINAPI *removeRule)(IHTMLStyleSheet *This,long lIndex);
+      HRESULT (WINAPI *addImport)(IHTMLStyleSheet *This,BSTR bstrURL,__LONG32 lIndex,__LONG32 *plIndex);
+      HRESULT (WINAPI *addRule)(IHTMLStyleSheet *This,BSTR bstrSelector,BSTR bstrStyle,__LONG32 lIndex,__LONG32 *plNewIndex);
+      HRESULT (WINAPI *removeImport)(IHTMLStyleSheet *This,__LONG32 lIndex);
+      HRESULT (WINAPI *removeRule)(IHTMLStyleSheet *This,__LONG32 lIndex);
       HRESULT (WINAPI *put_media)(IHTMLStyleSheet *This,BSTR v);
       HRESULT (WINAPI *get_media)(IHTMLStyleSheet *This,BSTR *p);
       HRESULT (WINAPI *put_cssText)(IHTMLStyleSheet *This,BSTR v);
@@ -12168,13 +12168,13 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLStyleSheet_get_type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLStyleSheet_get_id_Proxy(IHTMLStyleSheet *This,BSTR *p);
   void __RPC_STUB IHTMLStyleSheet_get_id_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLStyleSheet_addImport_Proxy(IHTMLStyleSheet *This,BSTR bstrURL,long lIndex,long *plIndex);
+  HRESULT WINAPI IHTMLStyleSheet_addImport_Proxy(IHTMLStyleSheet *This,BSTR bstrURL,__LONG32 lIndex,__LONG32 *plIndex);
   void __RPC_STUB IHTMLStyleSheet_addImport_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLStyleSheet_addRule_Proxy(IHTMLStyleSheet *This,BSTR bstrSelector,BSTR bstrStyle,long lIndex,long *plNewIndex);
+  HRESULT WINAPI IHTMLStyleSheet_addRule_Proxy(IHTMLStyleSheet *This,BSTR bstrSelector,BSTR bstrStyle,__LONG32 lIndex,__LONG32 *plNewIndex);
   void __RPC_STUB IHTMLStyleSheet_addRule_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLStyleSheet_removeImport_Proxy(IHTMLStyleSheet *This,long lIndex);
+  HRESULT WINAPI IHTMLStyleSheet_removeImport_Proxy(IHTMLStyleSheet *This,__LONG32 lIndex);
   void __RPC_STUB IHTMLStyleSheet_removeImport_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLStyleSheet_removeRule_Proxy(IHTMLStyleSheet *This,long lIndex);
+  HRESULT WINAPI IHTMLStyleSheet_removeRule_Proxy(IHTMLStyleSheet *This,__LONG32 lIndex);
   void __RPC_STUB IHTMLStyleSheet_removeRule_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLStyleSheet_put_media_Proxy(IHTMLStyleSheet *This,BSTR v);
   void __RPC_STUB IHTMLStyleSheet_put_media_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -12195,7 +12195,7 @@ IHTMLStyle : public IDispatch {
   struct IHTMLStyleSheet2 : public IDispatch {
   public:
     virtual HRESULT WINAPI get_pages(IHTMLStyleSheetPagesCollection **p) = 0;
-    virtual HRESULT WINAPI addPageRule(BSTR bstrSelector,BSTR bstrStyle,long lIndex,long *plNewIndex) = 0;
+    virtual HRESULT WINAPI addPageRule(BSTR bstrSelector,BSTR bstrStyle,__LONG32 lIndex,__LONG32 *plNewIndex) = 0;
   };
 #else
   typedef struct IHTMLStyleSheet2Vtbl {
@@ -12208,7 +12208,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLStyleSheet2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLStyleSheet2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_pages)(IHTMLStyleSheet2 *This,IHTMLStyleSheetPagesCollection **p);
-      HRESULT (WINAPI *addPageRule)(IHTMLStyleSheet2 *This,BSTR bstrSelector,BSTR bstrStyle,long lIndex,long *plNewIndex);
+      HRESULT (WINAPI *addPageRule)(IHTMLStyleSheet2 *This,BSTR bstrSelector,BSTR bstrStyle,__LONG32 lIndex,__LONG32 *plNewIndex);
     END_INTERFACE
   } IHTMLStyleSheet2Vtbl;
   struct IHTMLStyleSheet2 {
@@ -12228,7 +12228,7 @@ IHTMLStyle : public IDispatch {
 #endif
   HRESULT WINAPI IHTMLStyleSheet2_get_pages_Proxy(IHTMLStyleSheet2 *This,IHTMLStyleSheetPagesCollection **p);
   void __RPC_STUB IHTMLStyleSheet2_get_pages_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLStyleSheet2_addPageRule_Proxy(IHTMLStyleSheet2 *This,BSTR bstrSelector,BSTR bstrStyle,long lIndex,long *plNewIndex);
+  HRESULT WINAPI IHTMLStyleSheet2_addPageRule_Proxy(IHTMLStyleSheet2 *This,BSTR bstrSelector,BSTR bstrStyle,__LONG32 lIndex,__LONG32 *plNewIndex);
   void __RPC_STUB IHTMLStyleSheet2_addPageRule_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -12624,16 +12624,16 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI scrollIntoView(VARIANT_BOOL fStart = -1) = 0;
     virtual HRESULT WINAPI collapse(VARIANT_BOOL Start = -1) = 0;
     virtual HRESULT WINAPI expand(BSTR Unit,VARIANT_BOOL *Success) = 0;
-    virtual HRESULT WINAPI move(BSTR Unit,long Count,long *ActualCount) = 0;
-    virtual HRESULT WINAPI moveStart(BSTR Unit,long Count,long *ActualCount) = 0;
-    virtual HRESULT WINAPI moveEnd(BSTR Unit,long Count,long *ActualCount) = 0;
+    virtual HRESULT WINAPI move(BSTR Unit,__LONG32 Count,__LONG32 *ActualCount) = 0;
+    virtual HRESULT WINAPI moveStart(BSTR Unit,__LONG32 Count,__LONG32 *ActualCount) = 0;
+    virtual HRESULT WINAPI moveEnd(BSTR Unit,__LONG32 Count,__LONG32 *ActualCount) = 0;
     virtual HRESULT WINAPI select(void) = 0;
     virtual HRESULT WINAPI pasteHTML(BSTR html) = 0;
     virtual HRESULT WINAPI moveToElementText(IHTMLElement *element) = 0;
     virtual HRESULT WINAPI setEndPoint(BSTR how,IHTMLTxtRange *SourceRange) = 0;
-    virtual HRESULT WINAPI compareEndPoints(BSTR how,IHTMLTxtRange *SourceRange,long *ret) = 0;
-    virtual HRESULT WINAPI findText(BSTR String,long count,long Flags,VARIANT_BOOL *Success) = 0;
-    virtual HRESULT WINAPI moveToPoint(long x,long y) = 0;
+    virtual HRESULT WINAPI compareEndPoints(BSTR how,IHTMLTxtRange *SourceRange,__LONG32 *ret) = 0;
+    virtual HRESULT WINAPI findText(BSTR String,__LONG32 count,__LONG32 Flags,VARIANT_BOOL *Success) = 0;
+    virtual HRESULT WINAPI moveToPoint(__LONG32 x,__LONG32 y) = 0;
     virtual HRESULT WINAPI getBookmark(BSTR *Boolmark) = 0;
     virtual HRESULT WINAPI moveToBookmark(BSTR Bookmark,VARIANT_BOOL *Success) = 0;
     virtual HRESULT WINAPI queryCommandSupported(BSTR cmdID,VARIANT_BOOL *pfRet) = 0;
@@ -12665,16 +12665,16 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *scrollIntoView)(IHTMLTxtRange *This,VARIANT_BOOL fStart);
       HRESULT (WINAPI *collapse)(IHTMLTxtRange *This,VARIANT_BOOL Start);
       HRESULT (WINAPI *expand)(IHTMLTxtRange *This,BSTR Unit,VARIANT_BOOL *Success);
-      HRESULT (WINAPI *move)(IHTMLTxtRange *This,BSTR Unit,long Count,long *ActualCount);
-      HRESULT (WINAPI *moveStart)(IHTMLTxtRange *This,BSTR Unit,long Count,long *ActualCount);
-      HRESULT (WINAPI *moveEnd)(IHTMLTxtRange *This,BSTR Unit,long Count,long *ActualCount);
+      HRESULT (WINAPI *move)(IHTMLTxtRange *This,BSTR Unit,__LONG32 Count,__LONG32 *ActualCount);
+      HRESULT (WINAPI *moveStart)(IHTMLTxtRange *This,BSTR Unit,__LONG32 Count,__LONG32 *ActualCount);
+      HRESULT (WINAPI *moveEnd)(IHTMLTxtRange *This,BSTR Unit,__LONG32 Count,__LONG32 *ActualCount);
       HRESULT (WINAPI *select)(IHTMLTxtRange *This);
       HRESULT (WINAPI *pasteHTML)(IHTMLTxtRange *This,BSTR html);
       HRESULT (WINAPI *moveToElementText)(IHTMLTxtRange *This,IHTMLElement *element);
       HRESULT (WINAPI *setEndPoint)(IHTMLTxtRange *This,BSTR how,IHTMLTxtRange *SourceRange);
-      HRESULT (WINAPI *compareEndPoints)(IHTMLTxtRange *This,BSTR how,IHTMLTxtRange *SourceRange,long *ret);
-      HRESULT (WINAPI *findText)(IHTMLTxtRange *This,BSTR String,long count,long Flags,VARIANT_BOOL *Success);
-      HRESULT (WINAPI *moveToPoint)(IHTMLTxtRange *This,long x,long y);
+      HRESULT (WINAPI *compareEndPoints)(IHTMLTxtRange *This,BSTR how,IHTMLTxtRange *SourceRange,__LONG32 *ret);
+      HRESULT (WINAPI *findText)(IHTMLTxtRange *This,BSTR String,__LONG32 count,__LONG32 Flags,VARIANT_BOOL *Success);
+      HRESULT (WINAPI *moveToPoint)(IHTMLTxtRange *This,__LONG32 x,__LONG32 y);
       HRESULT (WINAPI *getBookmark)(IHTMLTxtRange *This,BSTR *Boolmark);
       HRESULT (WINAPI *moveToBookmark)(IHTMLTxtRange *This,BSTR Bookmark,VARIANT_BOOL *Success);
       HRESULT (WINAPI *queryCommandSupported)(IHTMLTxtRange *This,BSTR cmdID,VARIANT_BOOL *pfRet);
@@ -12750,11 +12750,11 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLTxtRange_collapse_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLTxtRange_expand_Proxy(IHTMLTxtRange *This,BSTR Unit,VARIANT_BOOL *Success);
   void __RPC_STUB IHTMLTxtRange_expand_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTxtRange_move_Proxy(IHTMLTxtRange *This,BSTR Unit,long Count,long *ActualCount);
+  HRESULT WINAPI IHTMLTxtRange_move_Proxy(IHTMLTxtRange *This,BSTR Unit,__LONG32 Count,__LONG32 *ActualCount);
   void __RPC_STUB IHTMLTxtRange_move_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTxtRange_moveStart_Proxy(IHTMLTxtRange *This,BSTR Unit,long Count,long *ActualCount);
+  HRESULT WINAPI IHTMLTxtRange_moveStart_Proxy(IHTMLTxtRange *This,BSTR Unit,__LONG32 Count,__LONG32 *ActualCount);
   void __RPC_STUB IHTMLTxtRange_moveStart_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTxtRange_moveEnd_Proxy(IHTMLTxtRange *This,BSTR Unit,long Count,long *ActualCount);
+  HRESULT WINAPI IHTMLTxtRange_moveEnd_Proxy(IHTMLTxtRange *This,BSTR Unit,__LONG32 Count,__LONG32 *ActualCount);
   void __RPC_STUB IHTMLTxtRange_moveEnd_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLTxtRange_select_Proxy(IHTMLTxtRange *This);
   void __RPC_STUB IHTMLTxtRange_select_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -12764,11 +12764,11 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLTxtRange_moveToElementText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLTxtRange_setEndPoint_Proxy(IHTMLTxtRange *This,BSTR how,IHTMLTxtRange *SourceRange);
   void __RPC_STUB IHTMLTxtRange_setEndPoint_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTxtRange_compareEndPoints_Proxy(IHTMLTxtRange *This,BSTR how,IHTMLTxtRange *SourceRange,long *ret);
+  HRESULT WINAPI IHTMLTxtRange_compareEndPoints_Proxy(IHTMLTxtRange *This,BSTR how,IHTMLTxtRange *SourceRange,__LONG32 *ret);
   void __RPC_STUB IHTMLTxtRange_compareEndPoints_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTxtRange_findText_Proxy(IHTMLTxtRange *This,BSTR String,long count,long Flags,VARIANT_BOOL *Success);
+  HRESULT WINAPI IHTMLTxtRange_findText_Proxy(IHTMLTxtRange *This,BSTR String,__LONG32 count,__LONG32 Flags,VARIANT_BOOL *Success);
   void __RPC_STUB IHTMLTxtRange_findText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTxtRange_moveToPoint_Proxy(IHTMLTxtRange *This,long x,long y);
+  HRESULT WINAPI IHTMLTxtRange_moveToPoint_Proxy(IHTMLTxtRange *This,__LONG32 x,__LONG32 y);
   void __RPC_STUB IHTMLTxtRange_moveToPoint_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLTxtRange_getBookmark_Proxy(IHTMLTxtRange *This,BSTR *Boolmark);
   void __RPC_STUB IHTMLTxtRange_getBookmark_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -12798,12 +12798,12 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLTextRangeMetrics : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_offsetTop(long *p) = 0;
-    virtual HRESULT WINAPI get_offsetLeft(long *p) = 0;
-    virtual HRESULT WINAPI get_boundingTop(long *p) = 0;
-    virtual HRESULT WINAPI get_boundingLeft(long *p) = 0;
-    virtual HRESULT WINAPI get_boundingWidth(long *p) = 0;
-    virtual HRESULT WINAPI get_boundingHeight(long *p) = 0;
+    virtual HRESULT WINAPI get_offsetTop(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_offsetLeft(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_boundingTop(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_boundingLeft(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_boundingWidth(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_boundingHeight(__LONG32 *p) = 0;
   };
 #else
   typedef struct IHTMLTextRangeMetricsVtbl {
@@ -12815,12 +12815,12 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLTextRangeMetrics *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLTextRangeMetrics *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLTextRangeMetrics *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_offsetTop)(IHTMLTextRangeMetrics *This,long *p);
-      HRESULT (WINAPI *get_offsetLeft)(IHTMLTextRangeMetrics *This,long *p);
-      HRESULT (WINAPI *get_boundingTop)(IHTMLTextRangeMetrics *This,long *p);
-      HRESULT (WINAPI *get_boundingLeft)(IHTMLTextRangeMetrics *This,long *p);
-      HRESULT (WINAPI *get_boundingWidth)(IHTMLTextRangeMetrics *This,long *p);
-      HRESULT (WINAPI *get_boundingHeight)(IHTMLTextRangeMetrics *This,long *p);
+      HRESULT (WINAPI *get_offsetTop)(IHTMLTextRangeMetrics *This,__LONG32 *p);
+      HRESULT (WINAPI *get_offsetLeft)(IHTMLTextRangeMetrics *This,__LONG32 *p);
+      HRESULT (WINAPI *get_boundingTop)(IHTMLTextRangeMetrics *This,__LONG32 *p);
+      HRESULT (WINAPI *get_boundingLeft)(IHTMLTextRangeMetrics *This,__LONG32 *p);
+      HRESULT (WINAPI *get_boundingWidth)(IHTMLTextRangeMetrics *This,__LONG32 *p);
+      HRESULT (WINAPI *get_boundingHeight)(IHTMLTextRangeMetrics *This,__LONG32 *p);
     END_INTERFACE
   } IHTMLTextRangeMetricsVtbl;
   struct IHTMLTextRangeMetrics {
@@ -12842,17 +12842,17 @@ IHTMLStyle : public IDispatch {
 #define IHTMLTextRangeMetrics_get_boundingHeight(This,p) (This)->lpVtbl->get_boundingHeight(This,p)
 #endif
 #endif
-  HRESULT WINAPI IHTMLTextRangeMetrics_get_offsetTop_Proxy(IHTMLTextRangeMetrics *This,long *p);
+  HRESULT WINAPI IHTMLTextRangeMetrics_get_offsetTop_Proxy(IHTMLTextRangeMetrics *This,__LONG32 *p);
   void __RPC_STUB IHTMLTextRangeMetrics_get_offsetTop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTextRangeMetrics_get_offsetLeft_Proxy(IHTMLTextRangeMetrics *This,long *p);
+  HRESULT WINAPI IHTMLTextRangeMetrics_get_offsetLeft_Proxy(IHTMLTextRangeMetrics *This,__LONG32 *p);
   void __RPC_STUB IHTMLTextRangeMetrics_get_offsetLeft_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTextRangeMetrics_get_boundingTop_Proxy(IHTMLTextRangeMetrics *This,long *p);
+  HRESULT WINAPI IHTMLTextRangeMetrics_get_boundingTop_Proxy(IHTMLTextRangeMetrics *This,__LONG32 *p);
   void __RPC_STUB IHTMLTextRangeMetrics_get_boundingTop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTextRangeMetrics_get_boundingLeft_Proxy(IHTMLTextRangeMetrics *This,long *p);
+  HRESULT WINAPI IHTMLTextRangeMetrics_get_boundingLeft_Proxy(IHTMLTextRangeMetrics *This,__LONG32 *p);
   void __RPC_STUB IHTMLTextRangeMetrics_get_boundingLeft_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTextRangeMetrics_get_boundingWidth_Proxy(IHTMLTextRangeMetrics *This,long *p);
+  HRESULT WINAPI IHTMLTextRangeMetrics_get_boundingWidth_Proxy(IHTMLTextRangeMetrics *This,__LONG32 *p);
   void __RPC_STUB IHTMLTextRangeMetrics_get_boundingWidth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTextRangeMetrics_get_boundingHeight_Proxy(IHTMLTextRangeMetrics *This,long *p);
+  HRESULT WINAPI IHTMLTextRangeMetrics_get_boundingHeight_Proxy(IHTMLTextRangeMetrics *This,__LONG32 *p);
   void __RPC_STUB IHTMLTextRangeMetrics_get_boundingHeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -12906,7 +12906,7 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLTxtRangeCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_length(long *p) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get__newEnum(IUnknown **p) = 0;
     virtual HRESULT WINAPI item(VARIANT *pvarIndex,VARIANT *pvarResult) = 0;
   };
@@ -12920,7 +12920,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLTxtRangeCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLTxtRangeCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLTxtRangeCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_length)(IHTMLTxtRangeCollection *This,long *p);
+      HRESULT (WINAPI *get_length)(IHTMLTxtRangeCollection *This,__LONG32 *p);
       HRESULT (WINAPI *get__newEnum)(IHTMLTxtRangeCollection *This,IUnknown **p);
       HRESULT (WINAPI *item)(IHTMLTxtRangeCollection *This,VARIANT *pvarIndex,VARIANT *pvarResult);
     END_INTERFACE
@@ -12941,7 +12941,7 @@ IHTMLStyle : public IDispatch {
 #define IHTMLTxtRangeCollection_item(This,pvarIndex,pvarResult) (This)->lpVtbl->item(This,pvarIndex,pvarResult)
 #endif
 #endif
-  HRESULT WINAPI IHTMLTxtRangeCollection_get_length_Proxy(IHTMLTxtRangeCollection *This,long *p);
+  HRESULT WINAPI IHTMLTxtRangeCollection_get_length_Proxy(IHTMLTxtRangeCollection *This,__LONG32 *p);
   void __RPC_STUB IHTMLTxtRangeCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLTxtRangeCollection_get__newEnum_Proxy(IHTMLTxtRangeCollection *This,IUnknown **p);
   void __RPC_STUB IHTMLTxtRangeCollection_get__newEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -13040,8 +13040,8 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_onreset(VARIANT *p) = 0;
     virtual HRESULT WINAPI submit(void) = 0;
     virtual HRESULT WINAPI reset(void) = 0;
-    virtual HRESULT WINAPI put_length(long v) = 0;
-    virtual HRESULT WINAPI get_length(long *p) = 0;
+    virtual HRESULT WINAPI put_length(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get__newEnum(IUnknown **p) = 0;
     virtual HRESULT WINAPI item(VARIANT name,VARIANT index,IDispatch **pdisp) = 0;
     virtual HRESULT WINAPI tags(VARIANT tagName,IDispatch **pdisp) = 0;
@@ -13075,8 +13075,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_onreset)(IHTMLFormElement *This,VARIANT *p);
       HRESULT (WINAPI *submit)(IHTMLFormElement *This);
       HRESULT (WINAPI *reset)(IHTMLFormElement *This);
-      HRESULT (WINAPI *put_length)(IHTMLFormElement *This,long v);
-      HRESULT (WINAPI *get_length)(IHTMLFormElement *This,long *p);
+      HRESULT (WINAPI *put_length)(IHTMLFormElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_length)(IHTMLFormElement *This,__LONG32 *p);
       HRESULT (WINAPI *get__newEnum)(IHTMLFormElement *This,IUnknown **p);
       HRESULT (WINAPI *item)(IHTMLFormElement *This,VARIANT name,VARIANT index,IDispatch **pdisp);
       HRESULT (WINAPI *tags)(IHTMLFormElement *This,VARIANT tagName,IDispatch **pdisp);
@@ -13157,9 +13157,9 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLFormElement_submit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLFormElement_reset_Proxy(IHTMLFormElement *This);
   void __RPC_STUB IHTMLFormElement_reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLFormElement_put_length_Proxy(IHTMLFormElement *This,long v);
+  HRESULT WINAPI IHTMLFormElement_put_length_Proxy(IHTMLFormElement *This,__LONG32 v);
   void __RPC_STUB IHTMLFormElement_put_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLFormElement_get_length_Proxy(IHTMLFormElement *This,long *p);
+  HRESULT WINAPI IHTMLFormElement_get_length_Proxy(IHTMLFormElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLFormElement_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLFormElement_get__newEnum_Proxy(IHTMLFormElement *This,IUnknown **p);
   void __RPC_STUB IHTMLFormElement_get__newEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -13429,10 +13429,10 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI blur(void) = 0;
     virtual HRESULT WINAPI addFilter(IUnknown *pUnk) = 0;
     virtual HRESULT WINAPI removeFilter(IUnknown *pUnk) = 0;
-    virtual HRESULT WINAPI get_clientHeight(long *p) = 0;
-    virtual HRESULT WINAPI get_clientWidth(long *p) = 0;
-    virtual HRESULT WINAPI get_clientTop(long *p) = 0;
-    virtual HRESULT WINAPI get_clientLeft(long *p) = 0;
+    virtual HRESULT WINAPI get_clientHeight(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_clientWidth(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_clientTop(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_clientLeft(__LONG32 *p) = 0;
   };
 #else
   typedef struct IHTMLControlElementVtbl {
@@ -13458,10 +13458,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *blur)(IHTMLControlElement *This);
       HRESULT (WINAPI *addFilter)(IHTMLControlElement *This,IUnknown *pUnk);
       HRESULT (WINAPI *removeFilter)(IHTMLControlElement *This,IUnknown *pUnk);
-      HRESULT (WINAPI *get_clientHeight)(IHTMLControlElement *This,long *p);
-      HRESULT (WINAPI *get_clientWidth)(IHTMLControlElement *This,long *p);
-      HRESULT (WINAPI *get_clientTop)(IHTMLControlElement *This,long *p);
-      HRESULT (WINAPI *get_clientLeft)(IHTMLControlElement *This,long *p);
+      HRESULT (WINAPI *get_clientHeight)(IHTMLControlElement *This,__LONG32 *p);
+      HRESULT (WINAPI *get_clientWidth)(IHTMLControlElement *This,__LONG32 *p);
+      HRESULT (WINAPI *get_clientTop)(IHTMLControlElement *This,__LONG32 *p);
+      HRESULT (WINAPI *get_clientLeft)(IHTMLControlElement *This,__LONG32 *p);
     END_INTERFACE
   } IHTMLControlElementVtbl;
   struct IHTMLControlElement {
@@ -13523,13 +13523,13 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLControlElement_addFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLControlElement_removeFilter_Proxy(IHTMLControlElement *This,IUnknown *pUnk);
   void __RPC_STUB IHTMLControlElement_removeFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLControlElement_get_clientHeight_Proxy(IHTMLControlElement *This,long *p);
+  HRESULT WINAPI IHTMLControlElement_get_clientHeight_Proxy(IHTMLControlElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLControlElement_get_clientHeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLControlElement_get_clientWidth_Proxy(IHTMLControlElement *This,long *p);
+  HRESULT WINAPI IHTMLControlElement_get_clientWidth_Proxy(IHTMLControlElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLControlElement_get_clientWidth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLControlElement_get_clientTop_Proxy(IHTMLControlElement *This,long *p);
+  HRESULT WINAPI IHTMLControlElement_get_clientTop_Proxy(IHTMLControlElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLControlElement_get_clientTop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLControlElement_get_clientLeft_Proxy(IHTMLControlElement *This,long *p);
+  HRESULT WINAPI IHTMLControlElement_get_clientLeft_Proxy(IHTMLControlElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLControlElement_get_clientLeft_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -13676,12 +13676,12 @@ IHTMLStyle : public IDispatch {
   struct IHTMLTextContainer : public IDispatch {
   public:
     virtual HRESULT WINAPI createControlRange(IDispatch **range) = 0;
-    virtual HRESULT WINAPI get_scrollHeight(long *p) = 0;
-    virtual HRESULT WINAPI get_scrollWidth(long *p) = 0;
-    virtual HRESULT WINAPI put_scrollTop(long v) = 0;
-    virtual HRESULT WINAPI get_scrollTop(long *p) = 0;
-    virtual HRESULT WINAPI put_scrollLeft(long v) = 0;
-    virtual HRESULT WINAPI get_scrollLeft(long *p) = 0;
+    virtual HRESULT WINAPI get_scrollHeight(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_scrollWidth(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_scrollTop(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_scrollTop(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_scrollLeft(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_scrollLeft(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_onscroll(VARIANT v) = 0;
     virtual HRESULT WINAPI get_onscroll(VARIANT *p) = 0;
   };
@@ -13696,12 +13696,12 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLTextContainer *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLTextContainer *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *createControlRange)(IHTMLTextContainer *This,IDispatch **range);
-      HRESULT (WINAPI *get_scrollHeight)(IHTMLTextContainer *This,long *p);
-      HRESULT (WINAPI *get_scrollWidth)(IHTMLTextContainer *This,long *p);
-      HRESULT (WINAPI *put_scrollTop)(IHTMLTextContainer *This,long v);
-      HRESULT (WINAPI *get_scrollTop)(IHTMLTextContainer *This,long *p);
-      HRESULT (WINAPI *put_scrollLeft)(IHTMLTextContainer *This,long v);
-      HRESULT (WINAPI *get_scrollLeft)(IHTMLTextContainer *This,long *p);
+      HRESULT (WINAPI *get_scrollHeight)(IHTMLTextContainer *This,__LONG32 *p);
+      HRESULT (WINAPI *get_scrollWidth)(IHTMLTextContainer *This,__LONG32 *p);
+      HRESULT (WINAPI *put_scrollTop)(IHTMLTextContainer *This,__LONG32 v);
+      HRESULT (WINAPI *get_scrollTop)(IHTMLTextContainer *This,__LONG32 *p);
+      HRESULT (WINAPI *put_scrollLeft)(IHTMLTextContainer *This,__LONG32 v);
+      HRESULT (WINAPI *get_scrollLeft)(IHTMLTextContainer *This,__LONG32 *p);
       HRESULT (WINAPI *put_onscroll)(IHTMLTextContainer *This,VARIANT v);
       HRESULT (WINAPI *get_onscroll)(IHTMLTextContainer *This,VARIANT *p);
     END_INTERFACE
@@ -13730,17 +13730,17 @@ IHTMLStyle : public IDispatch {
 #endif
   HRESULT WINAPI IHTMLTextContainer_createControlRange_Proxy(IHTMLTextContainer *This,IDispatch **range);
   void __RPC_STUB IHTMLTextContainer_createControlRange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTextContainer_get_scrollHeight_Proxy(IHTMLTextContainer *This,long *p);
+  HRESULT WINAPI IHTMLTextContainer_get_scrollHeight_Proxy(IHTMLTextContainer *This,__LONG32 *p);
   void __RPC_STUB IHTMLTextContainer_get_scrollHeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTextContainer_get_scrollWidth_Proxy(IHTMLTextContainer *This,long *p);
+  HRESULT WINAPI IHTMLTextContainer_get_scrollWidth_Proxy(IHTMLTextContainer *This,__LONG32 *p);
   void __RPC_STUB IHTMLTextContainer_get_scrollWidth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTextContainer_put_scrollTop_Proxy(IHTMLTextContainer *This,long v);
+  HRESULT WINAPI IHTMLTextContainer_put_scrollTop_Proxy(IHTMLTextContainer *This,__LONG32 v);
   void __RPC_STUB IHTMLTextContainer_put_scrollTop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTextContainer_get_scrollTop_Proxy(IHTMLTextContainer *This,long *p);
+  HRESULT WINAPI IHTMLTextContainer_get_scrollTop_Proxy(IHTMLTextContainer *This,__LONG32 *p);
   void __RPC_STUB IHTMLTextContainer_get_scrollTop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTextContainer_put_scrollLeft_Proxy(IHTMLTextContainer *This,long v);
+  HRESULT WINAPI IHTMLTextContainer_put_scrollLeft_Proxy(IHTMLTextContainer *This,__LONG32 v);
   void __RPC_STUB IHTMLTextContainer_put_scrollLeft_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTextContainer_get_scrollLeft_Proxy(IHTMLTextContainer *This,long *p);
+  HRESULT WINAPI IHTMLTextContainer_get_scrollLeft_Proxy(IHTMLTextContainer *This,__LONG32 *p);
   void __RPC_STUB IHTMLTextContainer_get_scrollLeft_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLTextContainer_put_onscroll_Proxy(IHTMLTextContainer *This,VARIANT v);
   void __RPC_STUB IHTMLTextContainer_put_onscroll_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -13756,8 +13756,8 @@ IHTMLStyle : public IDispatch {
   public:
     virtual HRESULT WINAPI select(void) = 0;
     virtual HRESULT WINAPI add(IHTMLControlElement *item) = 0;
-    virtual HRESULT WINAPI remove(long index) = 0;
-    virtual HRESULT WINAPI item(long index,IHTMLElement **pdisp) = 0;
+    virtual HRESULT WINAPI remove(__LONG32 index) = 0;
+    virtual HRESULT WINAPI item(__LONG32 index,IHTMLElement **pdisp) = 0;
     virtual HRESULT WINAPI scrollIntoView(VARIANT varargStart) = 0;
     virtual HRESULT WINAPI queryCommandSupported(BSTR cmdID,VARIANT_BOOL *pfRet) = 0;
     virtual HRESULT WINAPI queryCommandEnabled(BSTR cmdID,VARIANT_BOOL *pfRet) = 0;
@@ -13768,7 +13768,7 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI execCommand(BSTR cmdID,VARIANT_BOOL showUI,VARIANT value,VARIANT_BOOL *pfRet) = 0;
     virtual HRESULT WINAPI execCommandShowHelp(BSTR cmdID,VARIANT_BOOL *pfRet) = 0;
     virtual HRESULT WINAPI commonParentElement(IHTMLElement **parent) = 0;
-    virtual HRESULT WINAPI get_length(long *p) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
   };
 #else
   typedef struct IHTMLControlRangeVtbl {
@@ -13782,8 +13782,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(IHTMLControlRange *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *select)(IHTMLControlRange *This);
       HRESULT (WINAPI *add)(IHTMLControlRange *This,IHTMLControlElement *item);
-      HRESULT (WINAPI *remove)(IHTMLControlRange *This,long index);
-      HRESULT (WINAPI *item)(IHTMLControlRange *This,long index,IHTMLElement **pdisp);
+      HRESULT (WINAPI *remove)(IHTMLControlRange *This,__LONG32 index);
+      HRESULT (WINAPI *item)(IHTMLControlRange *This,__LONG32 index,IHTMLElement **pdisp);
       HRESULT (WINAPI *scrollIntoView)(IHTMLControlRange *This,VARIANT varargStart);
       HRESULT (WINAPI *queryCommandSupported)(IHTMLControlRange *This,BSTR cmdID,VARIANT_BOOL *pfRet);
       HRESULT (WINAPI *queryCommandEnabled)(IHTMLControlRange *This,BSTR cmdID,VARIANT_BOOL *pfRet);
@@ -13794,7 +13794,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *execCommand)(IHTMLControlRange *This,BSTR cmdID,VARIANT_BOOL showUI,VARIANT value,VARIANT_BOOL *pfRet);
       HRESULT (WINAPI *execCommandShowHelp)(IHTMLControlRange *This,BSTR cmdID,VARIANT_BOOL *pfRet);
       HRESULT (WINAPI *commonParentElement)(IHTMLControlRange *This,IHTMLElement **parent);
-      HRESULT (WINAPI *get_length)(IHTMLControlRange *This,long *p);
+      HRESULT (WINAPI *get_length)(IHTMLControlRange *This,__LONG32 *p);
     END_INTERFACE
   } IHTMLControlRangeVtbl;
   struct IHTMLControlRange {
@@ -13829,9 +13829,9 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLControlRange_select_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLControlRange_add_Proxy(IHTMLControlRange *This,IHTMLControlElement *item);
   void __RPC_STUB IHTMLControlRange_add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLControlRange_remove_Proxy(IHTMLControlRange *This,long index);
+  HRESULT WINAPI IHTMLControlRange_remove_Proxy(IHTMLControlRange *This,__LONG32 index);
   void __RPC_STUB IHTMLControlRange_remove_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLControlRange_item_Proxy(IHTMLControlRange *This,long index,IHTMLElement **pdisp);
+  HRESULT WINAPI IHTMLControlRange_item_Proxy(IHTMLControlRange *This,__LONG32 index,IHTMLElement **pdisp);
   void __RPC_STUB IHTMLControlRange_item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLControlRange_scrollIntoView_Proxy(IHTMLControlRange *This,VARIANT varargStart);
   void __RPC_STUB IHTMLControlRange_scrollIntoView_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -13853,7 +13853,7 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLControlRange_execCommandShowHelp_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLControlRange_commonParentElement_Proxy(IHTMLControlRange *This,IHTMLElement **parent);
   void __RPC_STUB IHTMLControlRange_commonParentElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLControlRange_get_length_Proxy(IHTMLControlRange *This,long *p);
+  HRESULT WINAPI IHTMLControlRange_get_length_Proxy(IHTMLControlRange *This,__LONG32 *p);
   void __RPC_STUB IHTMLControlRange_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -13982,10 +13982,10 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_nameProp(BSTR *p) = 0;
     virtual HRESULT WINAPI put_border(VARIANT v) = 0;
     virtual HRESULT WINAPI get_border(VARIANT *p) = 0;
-    virtual HRESULT WINAPI put_vspace(long v) = 0;
-    virtual HRESULT WINAPI get_vspace(long *p) = 0;
-    virtual HRESULT WINAPI put_hspace(long v) = 0;
-    virtual HRESULT WINAPI get_hspace(long *p) = 0;
+    virtual HRESULT WINAPI put_vspace(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_vspace(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_hspace(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_hspace(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_alt(BSTR v) = 0;
     virtual HRESULT WINAPI get_alt(BSTR *p) = 0;
     virtual HRESULT WINAPI put_src(BSTR v) = 0;
@@ -14010,10 +14010,10 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_onabort(VARIANT *p) = 0;
     virtual HRESULT WINAPI put_name(BSTR v) = 0;
     virtual HRESULT WINAPI get_name(BSTR *p) = 0;
-    virtual HRESULT WINAPI put_width(long v) = 0;
-    virtual HRESULT WINAPI get_width(long *p) = 0;
-    virtual HRESULT WINAPI put_height(long v) = 0;
-    virtual HRESULT WINAPI get_height(long *p) = 0;
+    virtual HRESULT WINAPI put_width(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_width(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_height(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_height(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_start(BSTR v) = 0;
     virtual HRESULT WINAPI get_start(BSTR *p) = 0;
   };
@@ -14041,10 +14041,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_nameProp)(IHTMLImgElement *This,BSTR *p);
       HRESULT (WINAPI *put_border)(IHTMLImgElement *This,VARIANT v);
       HRESULT (WINAPI *get_border)(IHTMLImgElement *This,VARIANT *p);
-      HRESULT (WINAPI *put_vspace)(IHTMLImgElement *This,long v);
-      HRESULT (WINAPI *get_vspace)(IHTMLImgElement *This,long *p);
-      HRESULT (WINAPI *put_hspace)(IHTMLImgElement *This,long v);
-      HRESULT (WINAPI *get_hspace)(IHTMLImgElement *This,long *p);
+      HRESULT (WINAPI *put_vspace)(IHTMLImgElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_vspace)(IHTMLImgElement *This,__LONG32 *p);
+      HRESULT (WINAPI *put_hspace)(IHTMLImgElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_hspace)(IHTMLImgElement *This,__LONG32 *p);
       HRESULT (WINAPI *put_alt)(IHTMLImgElement *This,BSTR v);
       HRESULT (WINAPI *get_alt)(IHTMLImgElement *This,BSTR *p);
       HRESULT (WINAPI *put_src)(IHTMLImgElement *This,BSTR v);
@@ -14069,10 +14069,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_onabort)(IHTMLImgElement *This,VARIANT *p);
       HRESULT (WINAPI *put_name)(IHTMLImgElement *This,BSTR v);
       HRESULT (WINAPI *get_name)(IHTMLImgElement *This,BSTR *p);
-      HRESULT (WINAPI *put_width)(IHTMLImgElement *This,long v);
-      HRESULT (WINAPI *get_width)(IHTMLImgElement *This,long *p);
-      HRESULT (WINAPI *put_height)(IHTMLImgElement *This,long v);
-      HRESULT (WINAPI *get_height)(IHTMLImgElement *This,long *p);
+      HRESULT (WINAPI *put_width)(IHTMLImgElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_width)(IHTMLImgElement *This,__LONG32 *p);
+      HRESULT (WINAPI *put_height)(IHTMLImgElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_height)(IHTMLImgElement *This,__LONG32 *p);
       HRESULT (WINAPI *put_start)(IHTMLImgElement *This,BSTR v);
       HRESULT (WINAPI *get_start)(IHTMLImgElement *This,BSTR *p);
     END_INTERFACE
@@ -14166,13 +14166,13 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLImgElement_put_border_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLImgElement_get_border_Proxy(IHTMLImgElement *This,VARIANT *p);
   void __RPC_STUB IHTMLImgElement_get_border_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLImgElement_put_vspace_Proxy(IHTMLImgElement *This,long v);
+  HRESULT WINAPI IHTMLImgElement_put_vspace_Proxy(IHTMLImgElement *This,__LONG32 v);
   void __RPC_STUB IHTMLImgElement_put_vspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLImgElement_get_vspace_Proxy(IHTMLImgElement *This,long *p);
+  HRESULT WINAPI IHTMLImgElement_get_vspace_Proxy(IHTMLImgElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLImgElement_get_vspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLImgElement_put_hspace_Proxy(IHTMLImgElement *This,long v);
+  HRESULT WINAPI IHTMLImgElement_put_hspace_Proxy(IHTMLImgElement *This,__LONG32 v);
   void __RPC_STUB IHTMLImgElement_put_hspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLImgElement_get_hspace_Proxy(IHTMLImgElement *This,long *p);
+  HRESULT WINAPI IHTMLImgElement_get_hspace_Proxy(IHTMLImgElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLImgElement_get_hspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLImgElement_put_alt_Proxy(IHTMLImgElement *This,BSTR v);
   void __RPC_STUB IHTMLImgElement_put_alt_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -14222,13 +14222,13 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLImgElement_put_name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLImgElement_get_name_Proxy(IHTMLImgElement *This,BSTR *p);
   void __RPC_STUB IHTMLImgElement_get_name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLImgElement_put_width_Proxy(IHTMLImgElement *This,long v);
+  HRESULT WINAPI IHTMLImgElement_put_width_Proxy(IHTMLImgElement *This,__LONG32 v);
   void __RPC_STUB IHTMLImgElement_put_width_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLImgElement_get_width_Proxy(IHTMLImgElement *This,long *p);
+  HRESULT WINAPI IHTMLImgElement_get_width_Proxy(IHTMLImgElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLImgElement_get_width_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLImgElement_put_height_Proxy(IHTMLImgElement *This,long v);
+  HRESULT WINAPI IHTMLImgElement_put_height_Proxy(IHTMLImgElement *This,__LONG32 v);
   void __RPC_STUB IHTMLImgElement_put_height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLImgElement_get_height_Proxy(IHTMLImgElement *This,long *p);
+  HRESULT WINAPI IHTMLImgElement_get_height_Proxy(IHTMLImgElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLImgElement_get_height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLImgElement_put_start_Proxy(IHTMLImgElement *This,BSTR v);
   void __RPC_STUB IHTMLImgElement_put_start_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -15596,8 +15596,8 @@ IHTMLStyle : public IDispatch {
   public:
     virtual HRESULT WINAPI put_compact(VARIANT_BOOL v) = 0;
     virtual HRESULT WINAPI get_compact(VARIANT_BOOL *p) = 0;
-    virtual HRESULT WINAPI put_start(long v) = 0;
-    virtual HRESULT WINAPI get_start(long *p) = 0;
+    virtual HRESULT WINAPI put_start(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_start(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_type(BSTR v) = 0;
     virtual HRESULT WINAPI get_type(BSTR *p) = 0;
   };
@@ -15613,8 +15613,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(IHTMLOListElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *put_compact)(IHTMLOListElement *This,VARIANT_BOOL v);
       HRESULT (WINAPI *get_compact)(IHTMLOListElement *This,VARIANT_BOOL *p);
-      HRESULT (WINAPI *put_start)(IHTMLOListElement *This,long v);
-      HRESULT (WINAPI *get_start)(IHTMLOListElement *This,long *p);
+      HRESULT (WINAPI *put_start)(IHTMLOListElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_start)(IHTMLOListElement *This,__LONG32 *p);
       HRESULT (WINAPI *put_type)(IHTMLOListElement *This,BSTR v);
       HRESULT (WINAPI *get_type)(IHTMLOListElement *This,BSTR *p);
     END_INTERFACE
@@ -15642,9 +15642,9 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLOListElement_put_compact_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLOListElement_get_compact_Proxy(IHTMLOListElement *This,VARIANT_BOOL *p);
   void __RPC_STUB IHTMLOListElement_get_compact_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLOListElement_put_start_Proxy(IHTMLOListElement *This,long v);
+  HRESULT WINAPI IHTMLOListElement_put_start_Proxy(IHTMLOListElement *This,__LONG32 v);
   void __RPC_STUB IHTMLOListElement_put_start_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLOListElement_get_start_Proxy(IHTMLOListElement *This,long *p);
+  HRESULT WINAPI IHTMLOListElement_get_start_Proxy(IHTMLOListElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLOListElement_get_start_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLOListElement_put_type_Proxy(IHTMLOListElement *This,BSTR v);
   void __RPC_STUB IHTMLOListElement_put_type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -15697,8 +15697,8 @@ IHTMLStyle : public IDispatch {
   public:
     virtual HRESULT WINAPI put_type(BSTR v) = 0;
     virtual HRESULT WINAPI get_type(BSTR *p) = 0;
-    virtual HRESULT WINAPI put_value(long v) = 0;
-    virtual HRESULT WINAPI get_value(long *p) = 0;
+    virtual HRESULT WINAPI put_value(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_value(__LONG32 *p) = 0;
   };
 #else
   typedef struct IHTMLLIElementVtbl {
@@ -15712,8 +15712,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(IHTMLLIElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *put_type)(IHTMLLIElement *This,BSTR v);
       HRESULT (WINAPI *get_type)(IHTMLLIElement *This,BSTR *p);
-      HRESULT (WINAPI *put_value)(IHTMLLIElement *This,long v);
-      HRESULT (WINAPI *get_value)(IHTMLLIElement *This,long *p);
+      HRESULT (WINAPI *put_value)(IHTMLLIElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_value)(IHTMLLIElement *This,__LONG32 *p);
     END_INTERFACE
   } IHTMLLIElementVtbl;
   struct IHTMLLIElement {
@@ -15737,9 +15737,9 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLLIElement_put_type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLLIElement_get_type_Proxy(IHTMLLIElement *This,BSTR *p);
   void __RPC_STUB IHTMLLIElement_get_type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLLIElement_put_value_Proxy(IHTMLLIElement *This,long v);
+  HRESULT WINAPI IHTMLLIElement_put_value_Proxy(IHTMLLIElement *This,__LONG32 v);
   void __RPC_STUB IHTMLLIElement_put_value_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLLIElement_get_value_Proxy(IHTMLLIElement *This,long *p);
+  HRESULT WINAPI IHTMLLIElement_get_value_Proxy(IHTMLLIElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLLIElement_get_value_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -16800,8 +16800,8 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLSelectElement : public IDispatch {
   public:
-    virtual HRESULT WINAPI put_size(long v) = 0;
-    virtual HRESULT WINAPI get_size(long *p) = 0;
+    virtual HRESULT WINAPI put_size(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_size(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_multiple(VARIANT_BOOL v) = 0;
     virtual HRESULT WINAPI get_multiple(VARIANT_BOOL *p) = 0;
     virtual HRESULT WINAPI put_name(BSTR v) = 0;
@@ -16809,8 +16809,8 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_options(IDispatch **p) = 0;
     virtual HRESULT WINAPI put_onchange(VARIANT v) = 0;
     virtual HRESULT WINAPI get_onchange(VARIANT *p) = 0;
-    virtual HRESULT WINAPI put_selectedIndex(long v) = 0;
-    virtual HRESULT WINAPI get_selectedIndex(long *p) = 0;
+    virtual HRESULT WINAPI put_selectedIndex(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_selectedIndex(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get_type(BSTR *p) = 0;
     virtual HRESULT WINAPI put_value(BSTR v) = 0;
     virtual HRESULT WINAPI get_value(BSTR *p) = 0;
@@ -16818,9 +16818,9 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_disabled(VARIANT_BOOL *p) = 0;
     virtual HRESULT WINAPI get_form(IHTMLFormElement **p) = 0;
     virtual HRESULT WINAPI add(IHTMLElement *element,VARIANT before) = 0;
-    virtual HRESULT WINAPI remove(long index = -1) = 0;
-    virtual HRESULT WINAPI put_length(long v) = 0;
-    virtual HRESULT WINAPI get_length(long *p) = 0;
+    virtual HRESULT WINAPI remove(__LONG32 index = -1) = 0;
+    virtual HRESULT WINAPI put_length(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get__newEnum(IUnknown **p) = 0;
     virtual HRESULT WINAPI item(VARIANT name,VARIANT index,IDispatch **pdisp) = 0;
     virtual HRESULT WINAPI tags(VARIANT tagName,IDispatch **pdisp) = 0;
@@ -16835,8 +16835,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLSelectElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLSelectElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLSelectElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *put_size)(IHTMLSelectElement *This,long v);
-      HRESULT (WINAPI *get_size)(IHTMLSelectElement *This,long *p);
+      HRESULT (WINAPI *put_size)(IHTMLSelectElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_size)(IHTMLSelectElement *This,__LONG32 *p);
       HRESULT (WINAPI *put_multiple)(IHTMLSelectElement *This,VARIANT_BOOL v);
       HRESULT (WINAPI *get_multiple)(IHTMLSelectElement *This,VARIANT_BOOL *p);
       HRESULT (WINAPI *put_name)(IHTMLSelectElement *This,BSTR v);
@@ -16844,8 +16844,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_options)(IHTMLSelectElement *This,IDispatch **p);
       HRESULT (WINAPI *put_onchange)(IHTMLSelectElement *This,VARIANT v);
       HRESULT (WINAPI *get_onchange)(IHTMLSelectElement *This,VARIANT *p);
-      HRESULT (WINAPI *put_selectedIndex)(IHTMLSelectElement *This,long v);
-      HRESULT (WINAPI *get_selectedIndex)(IHTMLSelectElement *This,long *p);
+      HRESULT (WINAPI *put_selectedIndex)(IHTMLSelectElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_selectedIndex)(IHTMLSelectElement *This,__LONG32 *p);
       HRESULT (WINAPI *get_type)(IHTMLSelectElement *This,BSTR *p);
       HRESULT (WINAPI *put_value)(IHTMLSelectElement *This,BSTR v);
       HRESULT (WINAPI *get_value)(IHTMLSelectElement *This,BSTR *p);
@@ -16853,9 +16853,9 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_disabled)(IHTMLSelectElement *This,VARIANT_BOOL *p);
       HRESULT (WINAPI *get_form)(IHTMLSelectElement *This,IHTMLFormElement **p);
       HRESULT (WINAPI *add)(IHTMLSelectElement *This,IHTMLElement *element,VARIANT before);
-      HRESULT (WINAPI *remove)(IHTMLSelectElement *This,long index);
-      HRESULT (WINAPI *put_length)(IHTMLSelectElement *This,long v);
-      HRESULT (WINAPI *get_length)(IHTMLSelectElement *This,long *p);
+      HRESULT (WINAPI *remove)(IHTMLSelectElement *This,__LONG32 index);
+      HRESULT (WINAPI *put_length)(IHTMLSelectElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_length)(IHTMLSelectElement *This,__LONG32 *p);
       HRESULT (WINAPI *get__newEnum)(IHTMLSelectElement *This,IUnknown **p);
       HRESULT (WINAPI *item)(IHTMLSelectElement *This,VARIANT name,VARIANT index,IDispatch **pdisp);
       HRESULT (WINAPI *tags)(IHTMLSelectElement *This,VARIANT tagName,IDispatch **pdisp);
@@ -16898,9 +16898,9 @@ IHTMLStyle : public IDispatch {
 #define IHTMLSelectElement_tags(This,tagName,pdisp) (This)->lpVtbl->tags(This,tagName,pdisp)
 #endif
 #endif
-  HRESULT WINAPI IHTMLSelectElement_put_size_Proxy(IHTMLSelectElement *This,long v);
+  HRESULT WINAPI IHTMLSelectElement_put_size_Proxy(IHTMLSelectElement *This,__LONG32 v);
   void __RPC_STUB IHTMLSelectElement_put_size_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLSelectElement_get_size_Proxy(IHTMLSelectElement *This,long *p);
+  HRESULT WINAPI IHTMLSelectElement_get_size_Proxy(IHTMLSelectElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLSelectElement_get_size_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLSelectElement_put_multiple_Proxy(IHTMLSelectElement *This,VARIANT_BOOL v);
   void __RPC_STUB IHTMLSelectElement_put_multiple_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -16916,9 +16916,9 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLSelectElement_put_onchange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLSelectElement_get_onchange_Proxy(IHTMLSelectElement *This,VARIANT *p);
   void __RPC_STUB IHTMLSelectElement_get_onchange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLSelectElement_put_selectedIndex_Proxy(IHTMLSelectElement *This,long v);
+  HRESULT WINAPI IHTMLSelectElement_put_selectedIndex_Proxy(IHTMLSelectElement *This,__LONG32 v);
   void __RPC_STUB IHTMLSelectElement_put_selectedIndex_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLSelectElement_get_selectedIndex_Proxy(IHTMLSelectElement *This,long *p);
+  HRESULT WINAPI IHTMLSelectElement_get_selectedIndex_Proxy(IHTMLSelectElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLSelectElement_get_selectedIndex_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLSelectElement_get_type_Proxy(IHTMLSelectElement *This,BSTR *p);
   void __RPC_STUB IHTMLSelectElement_get_type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -16934,11 +16934,11 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLSelectElement_get_form_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLSelectElement_add_Proxy(IHTMLSelectElement *This,IHTMLElement *element,VARIANT before);
   void __RPC_STUB IHTMLSelectElement_add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLSelectElement_remove_Proxy(IHTMLSelectElement *This,long index);
+  HRESULT WINAPI IHTMLSelectElement_remove_Proxy(IHTMLSelectElement *This,__LONG32 index);
   void __RPC_STUB IHTMLSelectElement_remove_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLSelectElement_put_length_Proxy(IHTMLSelectElement *This,long v);
+  HRESULT WINAPI IHTMLSelectElement_put_length_Proxy(IHTMLSelectElement *This,__LONG32 v);
   void __RPC_STUB IHTMLSelectElement_put_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLSelectElement_get_length_Proxy(IHTMLSelectElement *This,long *p);
+  HRESULT WINAPI IHTMLSelectElement_get_length_Proxy(IHTMLSelectElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLSelectElement_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLSelectElement_get__newEnum_Proxy(IHTMLSelectElement *This,IUnknown **p);
   void __RPC_STUB IHTMLSelectElement_get__newEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -17721,10 +17721,10 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI put_disabled(VARIANT_BOOL v) = 0;
     virtual HRESULT WINAPI get_disabled(VARIANT_BOOL *p) = 0;
     virtual HRESULT WINAPI get_form(IHTMLFormElement **p) = 0;
-    virtual HRESULT WINAPI put_size(long v) = 0;
-    virtual HRESULT WINAPI get_size(long *p) = 0;
-    virtual HRESULT WINAPI put_maxLength(long v) = 0;
-    virtual HRESULT WINAPI get_maxLength(long *p) = 0;
+    virtual HRESULT WINAPI put_size(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_size(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_maxLength(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_maxLength(__LONG32 *p) = 0;
     virtual HRESULT WINAPI select(void) = 0;
     virtual HRESULT WINAPI put_onchange(VARIANT v) = 0;
     virtual HRESULT WINAPI get_onchange(VARIANT *p) = 0;
@@ -17743,10 +17743,10 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_checked(VARIANT_BOOL *p) = 0;
     virtual HRESULT WINAPI put_border(VARIANT v) = 0;
     virtual HRESULT WINAPI get_border(VARIANT *p) = 0;
-    virtual HRESULT WINAPI put_vspace(long v) = 0;
-    virtual HRESULT WINAPI get_vspace(long *p) = 0;
-    virtual HRESULT WINAPI put_hspace(long v) = 0;
-    virtual HRESULT WINAPI get_hspace(long *p) = 0;
+    virtual HRESULT WINAPI put_vspace(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_vspace(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_hspace(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_hspace(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_alt(BSTR v) = 0;
     virtual HRESULT WINAPI get_alt(BSTR *p) = 0;
     virtual HRESULT WINAPI put_src(BSTR v) = 0;
@@ -17769,10 +17769,10 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_onerror(VARIANT *p) = 0;
     virtual HRESULT WINAPI put_onabort(VARIANT v) = 0;
     virtual HRESULT WINAPI get_onabort(VARIANT *p) = 0;
-    virtual HRESULT WINAPI put_width(long v) = 0;
-    virtual HRESULT WINAPI get_width(long *p) = 0;
-    virtual HRESULT WINAPI put_height(long v) = 0;
-    virtual HRESULT WINAPI get_height(long *p) = 0;
+    virtual HRESULT WINAPI put_width(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_width(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_height(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_height(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_start(BSTR v) = 0;
     virtual HRESULT WINAPI get_start(BSTR *p) = 0;
   };
@@ -17797,10 +17797,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *put_disabled)(IHTMLInputElement *This,VARIANT_BOOL v);
       HRESULT (WINAPI *get_disabled)(IHTMLInputElement *This,VARIANT_BOOL *p);
       HRESULT (WINAPI *get_form)(IHTMLInputElement *This,IHTMLFormElement **p);
-      HRESULT (WINAPI *put_size)(IHTMLInputElement *This,long v);
-      HRESULT (WINAPI *get_size)(IHTMLInputElement *This,long *p);
-      HRESULT (WINAPI *put_maxLength)(IHTMLInputElement *This,long v);
-      HRESULT (WINAPI *get_maxLength)(IHTMLInputElement *This,long *p);
+      HRESULT (WINAPI *put_size)(IHTMLInputElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_size)(IHTMLInputElement *This,__LONG32 *p);
+      HRESULT (WINAPI *put_maxLength)(IHTMLInputElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_maxLength)(IHTMLInputElement *This,__LONG32 *p);
       HRESULT (WINAPI *select)(IHTMLInputElement *This);
       HRESULT (WINAPI *put_onchange)(IHTMLInputElement *This,VARIANT v);
       HRESULT (WINAPI *get_onchange)(IHTMLInputElement *This,VARIANT *p);
@@ -17819,10 +17819,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_checked)(IHTMLInputElement *This,VARIANT_BOOL *p);
       HRESULT (WINAPI *put_border)(IHTMLInputElement *This,VARIANT v);
       HRESULT (WINAPI *get_border)(IHTMLInputElement *This,VARIANT *p);
-      HRESULT (WINAPI *put_vspace)(IHTMLInputElement *This,long v);
-      HRESULT (WINAPI *get_vspace)(IHTMLInputElement *This,long *p);
-      HRESULT (WINAPI *put_hspace)(IHTMLInputElement *This,long v);
-      HRESULT (WINAPI *get_hspace)(IHTMLInputElement *This,long *p);
+      HRESULT (WINAPI *put_vspace)(IHTMLInputElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_vspace)(IHTMLInputElement *This,__LONG32 *p);
+      HRESULT (WINAPI *put_hspace)(IHTMLInputElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_hspace)(IHTMLInputElement *This,__LONG32 *p);
       HRESULT (WINAPI *put_alt)(IHTMLInputElement *This,BSTR v);
       HRESULT (WINAPI *get_alt)(IHTMLInputElement *This,BSTR *p);
       HRESULT (WINAPI *put_src)(IHTMLInputElement *This,BSTR v);
@@ -17845,10 +17845,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_onerror)(IHTMLInputElement *This,VARIANT *p);
       HRESULT (WINAPI *put_onabort)(IHTMLInputElement *This,VARIANT v);
       HRESULT (WINAPI *get_onabort)(IHTMLInputElement *This,VARIANT *p);
-      HRESULT (WINAPI *put_width)(IHTMLInputElement *This,long v);
-      HRESULT (WINAPI *get_width)(IHTMLInputElement *This,long *p);
-      HRESULT (WINAPI *put_height)(IHTMLInputElement *This,long v);
-      HRESULT (WINAPI *get_height)(IHTMLInputElement *This,long *p);
+      HRESULT (WINAPI *put_width)(IHTMLInputElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_width)(IHTMLInputElement *This,__LONG32 *p);
+      HRESULT (WINAPI *put_height)(IHTMLInputElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_height)(IHTMLInputElement *This,__LONG32 *p);
       HRESULT (WINAPI *put_start)(IHTMLInputElement *This,BSTR v);
       HRESULT (WINAPI *get_start)(IHTMLInputElement *This,BSTR *p);
     END_INTERFACE
@@ -17953,13 +17953,13 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLInputElement_get_disabled_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLInputElement_get_form_Proxy(IHTMLInputElement *This,IHTMLFormElement **p);
   void __RPC_STUB IHTMLInputElement_get_form_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputElement_put_size_Proxy(IHTMLInputElement *This,long v);
+  HRESULT WINAPI IHTMLInputElement_put_size_Proxy(IHTMLInputElement *This,__LONG32 v);
   void __RPC_STUB IHTMLInputElement_put_size_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputElement_get_size_Proxy(IHTMLInputElement *This,long *p);
+  HRESULT WINAPI IHTMLInputElement_get_size_Proxy(IHTMLInputElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLInputElement_get_size_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputElement_put_maxLength_Proxy(IHTMLInputElement *This,long v);
+  HRESULT WINAPI IHTMLInputElement_put_maxLength_Proxy(IHTMLInputElement *This,__LONG32 v);
   void __RPC_STUB IHTMLInputElement_put_maxLength_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputElement_get_maxLength_Proxy(IHTMLInputElement *This,long *p);
+  HRESULT WINAPI IHTMLInputElement_get_maxLength_Proxy(IHTMLInputElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLInputElement_get_maxLength_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLInputElement_select_Proxy(IHTMLInputElement *This);
   void __RPC_STUB IHTMLInputElement_select_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -17997,13 +17997,13 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLInputElement_put_border_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLInputElement_get_border_Proxy(IHTMLInputElement *This,VARIANT *p);
   void __RPC_STUB IHTMLInputElement_get_border_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputElement_put_vspace_Proxy(IHTMLInputElement *This,long v);
+  HRESULT WINAPI IHTMLInputElement_put_vspace_Proxy(IHTMLInputElement *This,__LONG32 v);
   void __RPC_STUB IHTMLInputElement_put_vspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputElement_get_vspace_Proxy(IHTMLInputElement *This,long *p);
+  HRESULT WINAPI IHTMLInputElement_get_vspace_Proxy(IHTMLInputElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLInputElement_get_vspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputElement_put_hspace_Proxy(IHTMLInputElement *This,long v);
+  HRESULT WINAPI IHTMLInputElement_put_hspace_Proxy(IHTMLInputElement *This,__LONG32 v);
   void __RPC_STUB IHTMLInputElement_put_hspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputElement_get_hspace_Proxy(IHTMLInputElement *This,long *p);
+  HRESULT WINAPI IHTMLInputElement_get_hspace_Proxy(IHTMLInputElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLInputElement_get_hspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLInputElement_put_alt_Proxy(IHTMLInputElement *This,BSTR v);
   void __RPC_STUB IHTMLInputElement_put_alt_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -18049,13 +18049,13 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLInputElement_put_onabort_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLInputElement_get_onabort_Proxy(IHTMLInputElement *This,VARIANT *p);
   void __RPC_STUB IHTMLInputElement_get_onabort_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputElement_put_width_Proxy(IHTMLInputElement *This,long v);
+  HRESULT WINAPI IHTMLInputElement_put_width_Proxy(IHTMLInputElement *This,__LONG32 v);
   void __RPC_STUB IHTMLInputElement_put_width_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputElement_get_width_Proxy(IHTMLInputElement *This,long *p);
+  HRESULT WINAPI IHTMLInputElement_get_width_Proxy(IHTMLInputElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLInputElement_get_width_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputElement_put_height_Proxy(IHTMLInputElement *This,long v);
+  HRESULT WINAPI IHTMLInputElement_put_height_Proxy(IHTMLInputElement *This,__LONG32 v);
   void __RPC_STUB IHTMLInputElement_put_height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputElement_get_height_Proxy(IHTMLInputElement *This,long *p);
+  HRESULT WINAPI IHTMLInputElement_get_height_Proxy(IHTMLInputElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLInputElement_get_height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLInputElement_put_start_Proxy(IHTMLInputElement *This,BSTR v);
   void __RPC_STUB IHTMLInputElement_put_start_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -18313,10 +18313,10 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_form(IHTMLFormElement **p) = 0;
     virtual HRESULT WINAPI put_defaultValue(BSTR v) = 0;
     virtual HRESULT WINAPI get_defaultValue(BSTR *p) = 0;
-    virtual HRESULT WINAPI put_size(long v) = 0;
-    virtual HRESULT WINAPI get_size(long *p) = 0;
-    virtual HRESULT WINAPI put_maxLength(long v) = 0;
-    virtual HRESULT WINAPI get_maxLength(long *p) = 0;
+    virtual HRESULT WINAPI put_size(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_size(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_maxLength(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_maxLength(__LONG32 *p) = 0;
     virtual HRESULT WINAPI select(void) = 0;
     virtual HRESULT WINAPI put_onchange(VARIANT v) = 0;
     virtual HRESULT WINAPI get_onchange(VARIANT *p) = 0;
@@ -18348,10 +18348,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_form)(IHTMLInputTextElement *This,IHTMLFormElement **p);
       HRESULT (WINAPI *put_defaultValue)(IHTMLInputTextElement *This,BSTR v);
       HRESULT (WINAPI *get_defaultValue)(IHTMLInputTextElement *This,BSTR *p);
-      HRESULT (WINAPI *put_size)(IHTMLInputTextElement *This,long v);
-      HRESULT (WINAPI *get_size)(IHTMLInputTextElement *This,long *p);
-      HRESULT (WINAPI *put_maxLength)(IHTMLInputTextElement *This,long v);
-      HRESULT (WINAPI *get_maxLength)(IHTMLInputTextElement *This,long *p);
+      HRESULT (WINAPI *put_size)(IHTMLInputTextElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_size)(IHTMLInputTextElement *This,__LONG32 *p);
+      HRESULT (WINAPI *put_maxLength)(IHTMLInputTextElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_maxLength)(IHTMLInputTextElement *This,__LONG32 *p);
       HRESULT (WINAPI *select)(IHTMLInputTextElement *This);
       HRESULT (WINAPI *put_onchange)(IHTMLInputTextElement *This,VARIANT v);
       HRESULT (WINAPI *get_onchange)(IHTMLInputTextElement *This,VARIANT *p);
@@ -18423,13 +18423,13 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLInputTextElement_put_defaultValue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLInputTextElement_get_defaultValue_Proxy(IHTMLInputTextElement *This,BSTR *p);
   void __RPC_STUB IHTMLInputTextElement_get_defaultValue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputTextElement_put_size_Proxy(IHTMLInputTextElement *This,long v);
+  HRESULT WINAPI IHTMLInputTextElement_put_size_Proxy(IHTMLInputTextElement *This,__LONG32 v);
   void __RPC_STUB IHTMLInputTextElement_put_size_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputTextElement_get_size_Proxy(IHTMLInputTextElement *This,long *p);
+  HRESULT WINAPI IHTMLInputTextElement_get_size_Proxy(IHTMLInputTextElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLInputTextElement_get_size_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputTextElement_put_maxLength_Proxy(IHTMLInputTextElement *This,long v);
+  HRESULT WINAPI IHTMLInputTextElement_put_maxLength_Proxy(IHTMLInputTextElement *This,__LONG32 v);
   void __RPC_STUB IHTMLInputTextElement_put_maxLength_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputTextElement_get_maxLength_Proxy(IHTMLInputTextElement *This,long *p);
+  HRESULT WINAPI IHTMLInputTextElement_get_maxLength_Proxy(IHTMLInputTextElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLInputTextElement_get_maxLength_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLInputTextElement_select_Proxy(IHTMLInputTextElement *This);
   void __RPC_STUB IHTMLInputTextElement_select_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -18463,10 +18463,10 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI put_disabled(VARIANT_BOOL v) = 0;
     virtual HRESULT WINAPI get_disabled(VARIANT_BOOL *p) = 0;
     virtual HRESULT WINAPI get_form(IHTMLFormElement **p) = 0;
-    virtual HRESULT WINAPI put_size(long v) = 0;
-    virtual HRESULT WINAPI get_size(long *p) = 0;
-    virtual HRESULT WINAPI put_maxLength(long v) = 0;
-    virtual HRESULT WINAPI get_maxLength(long *p) = 0;
+    virtual HRESULT WINAPI put_size(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_size(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_maxLength(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_maxLength(__LONG32 *p) = 0;
     virtual HRESULT WINAPI select(void) = 0;
     virtual HRESULT WINAPI put_onchange(VARIANT v) = 0;
     virtual HRESULT WINAPI get_onchange(VARIANT *p) = 0;
@@ -18493,10 +18493,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *put_disabled)(IHTMLInputFileElement *This,VARIANT_BOOL v);
       HRESULT (WINAPI *get_disabled)(IHTMLInputFileElement *This,VARIANT_BOOL *p);
       HRESULT (WINAPI *get_form)(IHTMLInputFileElement *This,IHTMLFormElement **p);
-      HRESULT (WINAPI *put_size)(IHTMLInputFileElement *This,long v);
-      HRESULT (WINAPI *get_size)(IHTMLInputFileElement *This,long *p);
-      HRESULT (WINAPI *put_maxLength)(IHTMLInputFileElement *This,long v);
-      HRESULT (WINAPI *get_maxLength)(IHTMLInputFileElement *This,long *p);
+      HRESULT (WINAPI *put_size)(IHTMLInputFileElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_size)(IHTMLInputFileElement *This,__LONG32 *p);
+      HRESULT (WINAPI *put_maxLength)(IHTMLInputFileElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_maxLength)(IHTMLInputFileElement *This,__LONG32 *p);
       HRESULT (WINAPI *select)(IHTMLInputFileElement *This);
       HRESULT (WINAPI *put_onchange)(IHTMLInputFileElement *This,VARIANT v);
       HRESULT (WINAPI *get_onchange)(IHTMLInputFileElement *This,VARIANT *p);
@@ -18554,13 +18554,13 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLInputFileElement_get_disabled_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLInputFileElement_get_form_Proxy(IHTMLInputFileElement *This,IHTMLFormElement **p);
   void __RPC_STUB IHTMLInputFileElement_get_form_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputFileElement_put_size_Proxy(IHTMLInputFileElement *This,long v);
+  HRESULT WINAPI IHTMLInputFileElement_put_size_Proxy(IHTMLInputFileElement *This,__LONG32 v);
   void __RPC_STUB IHTMLInputFileElement_put_size_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputFileElement_get_size_Proxy(IHTMLInputFileElement *This,long *p);
+  HRESULT WINAPI IHTMLInputFileElement_get_size_Proxy(IHTMLInputFileElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLInputFileElement_get_size_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputFileElement_put_maxLength_Proxy(IHTMLInputFileElement *This,long v);
+  HRESULT WINAPI IHTMLInputFileElement_put_maxLength_Proxy(IHTMLInputFileElement *This,__LONG32 v);
   void __RPC_STUB IHTMLInputFileElement_put_maxLength_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputFileElement_get_maxLength_Proxy(IHTMLInputFileElement *This,long *p);
+  HRESULT WINAPI IHTMLInputFileElement_get_maxLength_Proxy(IHTMLInputFileElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLInputFileElement_get_maxLength_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLInputFileElement_select_Proxy(IHTMLInputFileElement *This);
   void __RPC_STUB IHTMLInputFileElement_select_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -18713,10 +18713,10 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_disabled(VARIANT_BOOL *p) = 0;
     virtual HRESULT WINAPI put_border(VARIANT v) = 0;
     virtual HRESULT WINAPI get_border(VARIANT *p) = 0;
-    virtual HRESULT WINAPI put_vspace(long v) = 0;
-    virtual HRESULT WINAPI get_vspace(long *p) = 0;
-    virtual HRESULT WINAPI put_hspace(long v) = 0;
-    virtual HRESULT WINAPI get_hspace(long *p) = 0;
+    virtual HRESULT WINAPI put_vspace(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_vspace(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_hspace(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_hspace(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_alt(BSTR v) = 0;
     virtual HRESULT WINAPI get_alt(BSTR *p) = 0;
     virtual HRESULT WINAPI put_src(BSTR v) = 0;
@@ -18741,10 +18741,10 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_onabort(VARIANT *p) = 0;
     virtual HRESULT WINAPI put_name(BSTR v) = 0;
     virtual HRESULT WINAPI get_name(BSTR *p) = 0;
-    virtual HRESULT WINAPI put_width(long v) = 0;
-    virtual HRESULT WINAPI get_width(long *p) = 0;
-    virtual HRESULT WINAPI put_height(long v) = 0;
-    virtual HRESULT WINAPI get_height(long *p) = 0;
+    virtual HRESULT WINAPI put_width(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_width(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_height(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_height(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_start(BSTR v) = 0;
     virtual HRESULT WINAPI get_start(BSTR *p) = 0;
   };
@@ -18763,10 +18763,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_disabled)(IHTMLInputImage *This,VARIANT_BOOL *p);
       HRESULT (WINAPI *put_border)(IHTMLInputImage *This,VARIANT v);
       HRESULT (WINAPI *get_border)(IHTMLInputImage *This,VARIANT *p);
-      HRESULT (WINAPI *put_vspace)(IHTMLInputImage *This,long v);
-      HRESULT (WINAPI *get_vspace)(IHTMLInputImage *This,long *p);
-      HRESULT (WINAPI *put_hspace)(IHTMLInputImage *This,long v);
-      HRESULT (WINAPI *get_hspace)(IHTMLInputImage *This,long *p);
+      HRESULT (WINAPI *put_vspace)(IHTMLInputImage *This,__LONG32 v);
+      HRESULT (WINAPI *get_vspace)(IHTMLInputImage *This,__LONG32 *p);
+      HRESULT (WINAPI *put_hspace)(IHTMLInputImage *This,__LONG32 v);
+      HRESULT (WINAPI *get_hspace)(IHTMLInputImage *This,__LONG32 *p);
       HRESULT (WINAPI *put_alt)(IHTMLInputImage *This,BSTR v);
       HRESULT (WINAPI *get_alt)(IHTMLInputImage *This,BSTR *p);
       HRESULT (WINAPI *put_src)(IHTMLInputImage *This,BSTR v);
@@ -18791,10 +18791,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_onabort)(IHTMLInputImage *This,VARIANT *p);
       HRESULT (WINAPI *put_name)(IHTMLInputImage *This,BSTR v);
       HRESULT (WINAPI *get_name)(IHTMLInputImage *This,BSTR *p);
-      HRESULT (WINAPI *put_width)(IHTMLInputImage *This,long v);
-      HRESULT (WINAPI *get_width)(IHTMLInputImage *This,long *p);
-      HRESULT (WINAPI *put_height)(IHTMLInputImage *This,long v);
-      HRESULT (WINAPI *get_height)(IHTMLInputImage *This,long *p);
+      HRESULT (WINAPI *put_width)(IHTMLInputImage *This,__LONG32 v);
+      HRESULT (WINAPI *get_width)(IHTMLInputImage *This,__LONG32 *p);
+      HRESULT (WINAPI *put_height)(IHTMLInputImage *This,__LONG32 v);
+      HRESULT (WINAPI *get_height)(IHTMLInputImage *This,__LONG32 *p);
       HRESULT (WINAPI *put_start)(IHTMLInputImage *This,BSTR v);
       HRESULT (WINAPI *get_start)(IHTMLInputImage *This,BSTR *p);
     END_INTERFACE
@@ -18861,13 +18861,13 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLInputImage_put_border_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLInputImage_get_border_Proxy(IHTMLInputImage *This,VARIANT *p);
   void __RPC_STUB IHTMLInputImage_get_border_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputImage_put_vspace_Proxy(IHTMLInputImage *This,long v);
+  HRESULT WINAPI IHTMLInputImage_put_vspace_Proxy(IHTMLInputImage *This,__LONG32 v);
   void __RPC_STUB IHTMLInputImage_put_vspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputImage_get_vspace_Proxy(IHTMLInputImage *This,long *p);
+  HRESULT WINAPI IHTMLInputImage_get_vspace_Proxy(IHTMLInputImage *This,__LONG32 *p);
   void __RPC_STUB IHTMLInputImage_get_vspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputImage_put_hspace_Proxy(IHTMLInputImage *This,long v);
+  HRESULT WINAPI IHTMLInputImage_put_hspace_Proxy(IHTMLInputImage *This,__LONG32 v);
   void __RPC_STUB IHTMLInputImage_put_hspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputImage_get_hspace_Proxy(IHTMLInputImage *This,long *p);
+  HRESULT WINAPI IHTMLInputImage_get_hspace_Proxy(IHTMLInputImage *This,__LONG32 *p);
   void __RPC_STUB IHTMLInputImage_get_hspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLInputImage_put_alt_Proxy(IHTMLInputImage *This,BSTR v);
   void __RPC_STUB IHTMLInputImage_put_alt_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -18917,13 +18917,13 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLInputImage_put_name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLInputImage_get_name_Proxy(IHTMLInputImage *This,BSTR *p);
   void __RPC_STUB IHTMLInputImage_get_name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputImage_put_width_Proxy(IHTMLInputImage *This,long v);
+  HRESULT WINAPI IHTMLInputImage_put_width_Proxy(IHTMLInputImage *This,__LONG32 v);
   void __RPC_STUB IHTMLInputImage_put_width_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputImage_get_width_Proxy(IHTMLInputImage *This,long *p);
+  HRESULT WINAPI IHTMLInputImage_get_width_Proxy(IHTMLInputImage *This,__LONG32 *p);
   void __RPC_STUB IHTMLInputImage_get_width_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputImage_put_height_Proxy(IHTMLInputImage *This,long v);
+  HRESULT WINAPI IHTMLInputImage_put_height_Proxy(IHTMLInputImage *This,__LONG32 v);
   void __RPC_STUB IHTMLInputImage_put_height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLInputImage_get_height_Proxy(IHTMLInputImage *This,long *p);
+  HRESULT WINAPI IHTMLInputImage_get_height_Proxy(IHTMLInputImage *This,__LONG32 *p);
   void __RPC_STUB IHTMLInputImage_get_height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLInputImage_put_start_Proxy(IHTMLInputImage *This,BSTR v);
   void __RPC_STUB IHTMLInputImage_put_start_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -18993,10 +18993,10 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_onselect(VARIANT *p) = 0;
     virtual HRESULT WINAPI put_readOnly(VARIANT_BOOL v) = 0;
     virtual HRESULT WINAPI get_readOnly(VARIANT_BOOL *p) = 0;
-    virtual HRESULT WINAPI put_rows(long v) = 0;
-    virtual HRESULT WINAPI get_rows(long *p) = 0;
-    virtual HRESULT WINAPI put_cols(long v) = 0;
-    virtual HRESULT WINAPI get_cols(long *p) = 0;
+    virtual HRESULT WINAPI put_rows(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_rows(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_cols(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_cols(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_wrap(BSTR v) = 0;
     virtual HRESULT WINAPI get_wrap(BSTR *p) = 0;
     virtual HRESULT WINAPI createTextRange(IHTMLTxtRange **range) = 0;
@@ -19030,10 +19030,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_onselect)(IHTMLTextAreaElement *This,VARIANT *p);
       HRESULT (WINAPI *put_readOnly)(IHTMLTextAreaElement *This,VARIANT_BOOL v);
       HRESULT (WINAPI *get_readOnly)(IHTMLTextAreaElement *This,VARIANT_BOOL *p);
-      HRESULT (WINAPI *put_rows)(IHTMLTextAreaElement *This,long v);
-      HRESULT (WINAPI *get_rows)(IHTMLTextAreaElement *This,long *p);
-      HRESULT (WINAPI *put_cols)(IHTMLTextAreaElement *This,long v);
-      HRESULT (WINAPI *get_cols)(IHTMLTextAreaElement *This,long *p);
+      HRESULT (WINAPI *put_rows)(IHTMLTextAreaElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_rows)(IHTMLTextAreaElement *This,__LONG32 *p);
+      HRESULT (WINAPI *put_cols)(IHTMLTextAreaElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_cols)(IHTMLTextAreaElement *This,__LONG32 *p);
       HRESULT (WINAPI *put_wrap)(IHTMLTextAreaElement *This,BSTR v);
       HRESULT (WINAPI *get_wrap)(IHTMLTextAreaElement *This,BSTR *p);
       HRESULT (WINAPI *createTextRange)(IHTMLTextAreaElement *This,IHTMLTxtRange **range);
@@ -19116,13 +19116,13 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLTextAreaElement_put_readOnly_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLTextAreaElement_get_readOnly_Proxy(IHTMLTextAreaElement *This,VARIANT_BOOL *p);
   void __RPC_STUB IHTMLTextAreaElement_get_readOnly_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTextAreaElement_put_rows_Proxy(IHTMLTextAreaElement *This,long v);
+  HRESULT WINAPI IHTMLTextAreaElement_put_rows_Proxy(IHTMLTextAreaElement *This,__LONG32 v);
   void __RPC_STUB IHTMLTextAreaElement_put_rows_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTextAreaElement_get_rows_Proxy(IHTMLTextAreaElement *This,long *p);
+  HRESULT WINAPI IHTMLTextAreaElement_get_rows_Proxy(IHTMLTextAreaElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLTextAreaElement_get_rows_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTextAreaElement_put_cols_Proxy(IHTMLTextAreaElement *This,long v);
+  HRESULT WINAPI IHTMLTextAreaElement_put_cols_Proxy(IHTMLTextAreaElement *This,__LONG32 v);
   void __RPC_STUB IHTMLTextAreaElement_put_cols_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTextAreaElement_get_cols_Proxy(IHTMLTextAreaElement *This,long *p);
+  HRESULT WINAPI IHTMLTextAreaElement_get_cols_Proxy(IHTMLTextAreaElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLTextAreaElement_get_cols_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLTextAreaElement_put_wrap_Proxy(IHTMLTextAreaElement *This,BSTR v);
   void __RPC_STUB IHTMLTextAreaElement_put_wrap_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -19408,20 +19408,20 @@ IHTMLStyle : public IDispatch {
   public:
     virtual HRESULT WINAPI put_bgColor(VARIANT v) = 0;
     virtual HRESULT WINAPI get_bgColor(VARIANT *p) = 0;
-    virtual HRESULT WINAPI put_scrollDelay(long v) = 0;
-    virtual HRESULT WINAPI get_scrollDelay(long *p) = 0;
+    virtual HRESULT WINAPI put_scrollDelay(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_scrollDelay(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_direction(BSTR v) = 0;
     virtual HRESULT WINAPI get_direction(BSTR *p) = 0;
     virtual HRESULT WINAPI put_behavior(BSTR v) = 0;
     virtual HRESULT WINAPI get_behavior(BSTR *p) = 0;
-    virtual HRESULT WINAPI put_scrollAmount(long v) = 0;
-    virtual HRESULT WINAPI get_scrollAmount(long *p) = 0;
-    virtual HRESULT WINAPI put_loop(long v) = 0;
-    virtual HRESULT WINAPI get_loop(long *p) = 0;
-    virtual HRESULT WINAPI put_vspace(long v) = 0;
-    virtual HRESULT WINAPI get_vspace(long *p) = 0;
-    virtual HRESULT WINAPI put_hspace(long v) = 0;
-    virtual HRESULT WINAPI get_hspace(long *p) = 0;
+    virtual HRESULT WINAPI put_scrollAmount(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_scrollAmount(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_loop(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_loop(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_vspace(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_vspace(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_hspace(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_hspace(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_onfinish(VARIANT v) = 0;
     virtual HRESULT WINAPI get_onfinish(VARIANT *p) = 0;
     virtual HRESULT WINAPI put_onstart(VARIANT v) = 0;
@@ -19449,20 +19449,20 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(IHTMLMarqueeElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *put_bgColor)(IHTMLMarqueeElement *This,VARIANT v);
       HRESULT (WINAPI *get_bgColor)(IHTMLMarqueeElement *This,VARIANT *p);
-      HRESULT (WINAPI *put_scrollDelay)(IHTMLMarqueeElement *This,long v);
-      HRESULT (WINAPI *get_scrollDelay)(IHTMLMarqueeElement *This,long *p);
+      HRESULT (WINAPI *put_scrollDelay)(IHTMLMarqueeElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_scrollDelay)(IHTMLMarqueeElement *This,__LONG32 *p);
       HRESULT (WINAPI *put_direction)(IHTMLMarqueeElement *This,BSTR v);
       HRESULT (WINAPI *get_direction)(IHTMLMarqueeElement *This,BSTR *p);
       HRESULT (WINAPI *put_behavior)(IHTMLMarqueeElement *This,BSTR v);
       HRESULT (WINAPI *get_behavior)(IHTMLMarqueeElement *This,BSTR *p);
-      HRESULT (WINAPI *put_scrollAmount)(IHTMLMarqueeElement *This,long v);
-      HRESULT (WINAPI *get_scrollAmount)(IHTMLMarqueeElement *This,long *p);
-      HRESULT (WINAPI *put_loop)(IHTMLMarqueeElement *This,long v);
-      HRESULT (WINAPI *get_loop)(IHTMLMarqueeElement *This,long *p);
-      HRESULT (WINAPI *put_vspace)(IHTMLMarqueeElement *This,long v);
-      HRESULT (WINAPI *get_vspace)(IHTMLMarqueeElement *This,long *p);
-      HRESULT (WINAPI *put_hspace)(IHTMLMarqueeElement *This,long v);
-      HRESULT (WINAPI *get_hspace)(IHTMLMarqueeElement *This,long *p);
+      HRESULT (WINAPI *put_scrollAmount)(IHTMLMarqueeElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_scrollAmount)(IHTMLMarqueeElement *This,__LONG32 *p);
+      HRESULT (WINAPI *put_loop)(IHTMLMarqueeElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_loop)(IHTMLMarqueeElement *This,__LONG32 *p);
+      HRESULT (WINAPI *put_vspace)(IHTMLMarqueeElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_vspace)(IHTMLMarqueeElement *This,__LONG32 *p);
+      HRESULT (WINAPI *put_hspace)(IHTMLMarqueeElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_hspace)(IHTMLMarqueeElement *This,__LONG32 *p);
       HRESULT (WINAPI *put_onfinish)(IHTMLMarqueeElement *This,VARIANT v);
       HRESULT (WINAPI *get_onfinish)(IHTMLMarqueeElement *This,VARIANT *p);
       HRESULT (WINAPI *put_onstart)(IHTMLMarqueeElement *This,VARIANT v);
@@ -19526,9 +19526,9 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLMarqueeElement_put_bgColor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLMarqueeElement_get_bgColor_Proxy(IHTMLMarqueeElement *This,VARIANT *p);
   void __RPC_STUB IHTMLMarqueeElement_get_bgColor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLMarqueeElement_put_scrollDelay_Proxy(IHTMLMarqueeElement *This,long v);
+  HRESULT WINAPI IHTMLMarqueeElement_put_scrollDelay_Proxy(IHTMLMarqueeElement *This,__LONG32 v);
   void __RPC_STUB IHTMLMarqueeElement_put_scrollDelay_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLMarqueeElement_get_scrollDelay_Proxy(IHTMLMarqueeElement *This,long *p);
+  HRESULT WINAPI IHTMLMarqueeElement_get_scrollDelay_Proxy(IHTMLMarqueeElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLMarqueeElement_get_scrollDelay_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLMarqueeElement_put_direction_Proxy(IHTMLMarqueeElement *This,BSTR v);
   void __RPC_STUB IHTMLMarqueeElement_put_direction_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -19538,21 +19538,21 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLMarqueeElement_put_behavior_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLMarqueeElement_get_behavior_Proxy(IHTMLMarqueeElement *This,BSTR *p);
   void __RPC_STUB IHTMLMarqueeElement_get_behavior_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLMarqueeElement_put_scrollAmount_Proxy(IHTMLMarqueeElement *This,long v);
+  HRESULT WINAPI IHTMLMarqueeElement_put_scrollAmount_Proxy(IHTMLMarqueeElement *This,__LONG32 v);
   void __RPC_STUB IHTMLMarqueeElement_put_scrollAmount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLMarqueeElement_get_scrollAmount_Proxy(IHTMLMarqueeElement *This,long *p);
+  HRESULT WINAPI IHTMLMarqueeElement_get_scrollAmount_Proxy(IHTMLMarqueeElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLMarqueeElement_get_scrollAmount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLMarqueeElement_put_loop_Proxy(IHTMLMarqueeElement *This,long v);
+  HRESULT WINAPI IHTMLMarqueeElement_put_loop_Proxy(IHTMLMarqueeElement *This,__LONG32 v);
   void __RPC_STUB IHTMLMarqueeElement_put_loop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLMarqueeElement_get_loop_Proxy(IHTMLMarqueeElement *This,long *p);
+  HRESULT WINAPI IHTMLMarqueeElement_get_loop_Proxy(IHTMLMarqueeElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLMarqueeElement_get_loop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLMarqueeElement_put_vspace_Proxy(IHTMLMarqueeElement *This,long v);
+  HRESULT WINAPI IHTMLMarqueeElement_put_vspace_Proxy(IHTMLMarqueeElement *This,__LONG32 v);
   void __RPC_STUB IHTMLMarqueeElement_put_vspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLMarqueeElement_get_vspace_Proxy(IHTMLMarqueeElement *This,long *p);
+  HRESULT WINAPI IHTMLMarqueeElement_get_vspace_Proxy(IHTMLMarqueeElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLMarqueeElement_get_vspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLMarqueeElement_put_hspace_Proxy(IHTMLMarqueeElement *This,long v);
+  HRESULT WINAPI IHTMLMarqueeElement_put_hspace_Proxy(IHTMLMarqueeElement *This,__LONG32 v);
   void __RPC_STUB IHTMLMarqueeElement_put_hspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLMarqueeElement_get_hspace_Proxy(IHTMLMarqueeElement *This,long *p);
+  HRESULT WINAPI IHTMLMarqueeElement_get_hspace_Proxy(IHTMLMarqueeElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLMarqueeElement_get_hspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLMarqueeElement_put_onfinish_Proxy(IHTMLMarqueeElement *This,VARIANT v);
   void __RPC_STUB IHTMLMarqueeElement_put_onfinish_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -20341,8 +20341,8 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_color(VARIANT *p) = 0;
     virtual HRESULT WINAPI put_face(BSTR v) = 0;
     virtual HRESULT WINAPI get_face(BSTR *p) = 0;
-    virtual HRESULT WINAPI put_size(long v) = 0;
-    virtual HRESULT WINAPI get_size(long *p) = 0;
+    virtual HRESULT WINAPI put_size(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_size(__LONG32 *p) = 0;
   };
 #else
   typedef struct IHTMLBaseFontElementVtbl {
@@ -20358,8 +20358,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_color)(IHTMLBaseFontElement *This,VARIANT *p);
       HRESULT (WINAPI *put_face)(IHTMLBaseFontElement *This,BSTR v);
       HRESULT (WINAPI *get_face)(IHTMLBaseFontElement *This,BSTR *p);
-      HRESULT (WINAPI *put_size)(IHTMLBaseFontElement *This,long v);
-      HRESULT (WINAPI *get_size)(IHTMLBaseFontElement *This,long *p);
+      HRESULT (WINAPI *put_size)(IHTMLBaseFontElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_size)(IHTMLBaseFontElement *This,__LONG32 *p);
     END_INTERFACE
   } IHTMLBaseFontElementVtbl;
   struct IHTMLBaseFontElement {
@@ -20389,9 +20389,9 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLBaseFontElement_put_face_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLBaseFontElement_get_face_Proxy(IHTMLBaseFontElement *This,BSTR *p);
   void __RPC_STUB IHTMLBaseFontElement_get_face_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLBaseFontElement_put_size_Proxy(IHTMLBaseFontElement *This,long v);
+  HRESULT WINAPI IHTMLBaseFontElement_put_size_Proxy(IHTMLBaseFontElement *This,__LONG32 v);
   void __RPC_STUB IHTMLBaseFontElement_put_size_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLBaseFontElement_get_size_Proxy(IHTMLBaseFontElement *This,long *p);
+  HRESULT WINAPI IHTMLBaseFontElement_get_size_Proxy(IHTMLBaseFontElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLBaseFontElement_get_size_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -20562,7 +20562,7 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLMimeTypesCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_length(long *p) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
   };
 #else
   typedef struct IHTMLMimeTypesCollectionVtbl {
@@ -20574,7 +20574,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLMimeTypesCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLMimeTypesCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLMimeTypesCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_length)(IHTMLMimeTypesCollection *This,long *p);
+      HRESULT (WINAPI *get_length)(IHTMLMimeTypesCollection *This,__LONG32 *p);
     END_INTERFACE
   } IHTMLMimeTypesCollectionVtbl;
   struct IHTMLMimeTypesCollection {
@@ -20591,7 +20591,7 @@ IHTMLStyle : public IDispatch {
 #define IHTMLMimeTypesCollection_get_length(This,p) (This)->lpVtbl->get_length(This,p)
 #endif
 #endif
-  HRESULT WINAPI IHTMLMimeTypesCollection_get_length_Proxy(IHTMLMimeTypesCollection *This,long *p);
+  HRESULT WINAPI IHTMLMimeTypesCollection_get_length_Proxy(IHTMLMimeTypesCollection *This,__LONG32 *p);
   void __RPC_STUB IHTMLMimeTypesCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -20601,7 +20601,7 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLPluginsCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_length(long *p) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
     virtual HRESULT WINAPI refresh(VARIANT_BOOL reload = 0) = 0;
   };
 #else
@@ -20614,7 +20614,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLPluginsCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLPluginsCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLPluginsCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_length)(IHTMLPluginsCollection *This,long *p);
+      HRESULT (WINAPI *get_length)(IHTMLPluginsCollection *This,__LONG32 *p);
       HRESULT (WINAPI *refresh)(IHTMLPluginsCollection *This,VARIANT_BOOL reload);
     END_INTERFACE
   } IHTMLPluginsCollectionVtbl;
@@ -20633,7 +20633,7 @@ IHTMLStyle : public IDispatch {
 #define IHTMLPluginsCollection_refresh(This,reload) (This)->lpVtbl->refresh(This,reload)
 #endif
 #endif
-  HRESULT WINAPI IHTMLPluginsCollection_get_length_Proxy(IHTMLPluginsCollection *This,long *p);
+  HRESULT WINAPI IHTMLPluginsCollection_get_length_Proxy(IHTMLPluginsCollection *This,__LONG32 *p);
   void __RPC_STUB IHTMLPluginsCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLPluginsCollection_refresh_Proxy(IHTMLPluginsCollection *This,VARIANT_BOOL reload);
   void __RPC_STUB IHTMLPluginsCollection_refresh_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -20741,7 +20741,7 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_userLanguage(BSTR *p) = 0;
     virtual HRESULT WINAPI get_platform(BSTR *p) = 0;
     virtual HRESULT WINAPI get_appMinorVersion(BSTR *p) = 0;
-    virtual HRESULT WINAPI get_connectionSpeed(long *p) = 0;
+    virtual HRESULT WINAPI get_connectionSpeed(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get_onLine(VARIANT_BOOL *p) = 0;
     virtual HRESULT WINAPI get_userProfile(IHTMLOpsProfile **p) = 0;
   };
@@ -20772,7 +20772,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_userLanguage)(IOmNavigator *This,BSTR *p);
       HRESULT (WINAPI *get_platform)(IOmNavigator *This,BSTR *p);
       HRESULT (WINAPI *get_appMinorVersion)(IOmNavigator *This,BSTR *p);
-      HRESULT (WINAPI *get_connectionSpeed)(IOmNavigator *This,long *p);
+      HRESULT (WINAPI *get_connectionSpeed)(IOmNavigator *This,__LONG32 *p);
       HRESULT (WINAPI *get_onLine)(IOmNavigator *This,VARIANT_BOOL *p);
       HRESULT (WINAPI *get_userProfile)(IOmNavigator *This,IHTMLOpsProfile **p);
     END_INTERFACE
@@ -20844,7 +20844,7 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IOmNavigator_get_platform_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IOmNavigator_get_appMinorVersion_Proxy(IOmNavigator *This,BSTR *p);
   void __RPC_STUB IOmNavigator_get_appMinorVersion_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IOmNavigator_get_connectionSpeed_Proxy(IOmNavigator *This,long *p);
+  HRESULT WINAPI IOmNavigator_get_connectionSpeed_Proxy(IOmNavigator *This,__LONG32 *p);
   void __RPC_STUB IOmNavigator_get_connectionSpeed_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IOmNavigator_get_onLine_Proxy(IOmNavigator *This,VARIANT_BOOL *p);
   void __RPC_STUB IOmNavigator_get_onLine_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -21016,9 +21016,9 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLBookmarkCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_length(long *p) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get__newEnum(IUnknown **p) = 0;
-    virtual HRESULT WINAPI item(long index,VARIANT *pVarBookmark) = 0;
+    virtual HRESULT WINAPI item(__LONG32 index,VARIANT *pVarBookmark) = 0;
   };
 #else
   typedef struct IHTMLBookmarkCollectionVtbl {
@@ -21030,9 +21030,9 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLBookmarkCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLBookmarkCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLBookmarkCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_length)(IHTMLBookmarkCollection *This,long *p);
+      HRESULT (WINAPI *get_length)(IHTMLBookmarkCollection *This,__LONG32 *p);
       HRESULT (WINAPI *get__newEnum)(IHTMLBookmarkCollection *This,IUnknown **p);
-      HRESULT (WINAPI *item)(IHTMLBookmarkCollection *This,long index,VARIANT *pVarBookmark);
+      HRESULT (WINAPI *item)(IHTMLBookmarkCollection *This,__LONG32 index,VARIANT *pVarBookmark);
     END_INTERFACE
   } IHTMLBookmarkCollectionVtbl;
   struct IHTMLBookmarkCollection {
@@ -21051,11 +21051,11 @@ IHTMLStyle : public IDispatch {
 #define IHTMLBookmarkCollection_item(This,index,pVarBookmark) (This)->lpVtbl->item(This,index,pVarBookmark)
 #endif
 #endif
-  HRESULT WINAPI IHTMLBookmarkCollection_get_length_Proxy(IHTMLBookmarkCollection *This,long *p);
+  HRESULT WINAPI IHTMLBookmarkCollection_get_length_Proxy(IHTMLBookmarkCollection *This,__LONG32 *p);
   void __RPC_STUB IHTMLBookmarkCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLBookmarkCollection_get__newEnum_Proxy(IHTMLBookmarkCollection *This,IUnknown **p);
   void __RPC_STUB IHTMLBookmarkCollection_get__newEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLBookmarkCollection_item_Proxy(IHTMLBookmarkCollection *This,long index,VARIANT *pVarBookmark);
+  HRESULT WINAPI IHTMLBookmarkCollection_item_Proxy(IHTMLBookmarkCollection *This,__LONG32 index,VARIANT *pVarBookmark);
   void __RPC_STUB IHTMLBookmarkCollection_item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -21163,30 +21163,30 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_fromElement(IHTMLElement **p) = 0;
     virtual HRESULT WINAPI putref_toElement(IHTMLElement *v) = 0;
     virtual HRESULT WINAPI get_toElement(IHTMLElement **p) = 0;
-    virtual HRESULT WINAPI put_button(long v) = 0;
-    virtual HRESULT WINAPI get_button(long *p) = 0;
+    virtual HRESULT WINAPI put_button(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_button(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_type(BSTR v) = 0;
     virtual HRESULT WINAPI get_type(BSTR *p) = 0;
     virtual HRESULT WINAPI put_qualifier(BSTR v) = 0;
     virtual HRESULT WINAPI get_qualifier(BSTR *p) = 0;
-    virtual HRESULT WINAPI put_reason(long v) = 0;
-    virtual HRESULT WINAPI get_reason(long *p) = 0;
-    virtual HRESULT WINAPI put_x(long v) = 0;
-    virtual HRESULT WINAPI get_x(long *p) = 0;
-    virtual HRESULT WINAPI put_y(long v) = 0;
-    virtual HRESULT WINAPI get_y(long *p) = 0;
-    virtual HRESULT WINAPI put_clientX(long v) = 0;
-    virtual HRESULT WINAPI get_clientX(long *p) = 0;
-    virtual HRESULT WINAPI put_clientY(long v) = 0;
-    virtual HRESULT WINAPI get_clientY(long *p) = 0;
-    virtual HRESULT WINAPI put_offsetX(long v) = 0;
-    virtual HRESULT WINAPI get_offsetX(long *p) = 0;
-    virtual HRESULT WINAPI put_offsetY(long v) = 0;
-    virtual HRESULT WINAPI get_offsetY(long *p) = 0;
-    virtual HRESULT WINAPI put_screenX(long v) = 0;
-    virtual HRESULT WINAPI get_screenX(long *p) = 0;
-    virtual HRESULT WINAPI put_screenY(long v) = 0;
-    virtual HRESULT WINAPI get_screenY(long *p) = 0;
+    virtual HRESULT WINAPI put_reason(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_reason(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_x(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_x(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_y(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_y(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_clientX(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_clientX(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_clientY(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_clientY(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_offsetX(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_offsetX(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_offsetY(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_offsetY(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_screenX(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_screenX(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_screenY(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_screenY(__LONG32 *p) = 0;
     virtual HRESULT WINAPI putref_srcFilter(IDispatch *v) = 0;
     virtual HRESULT WINAPI get_srcFilter(IDispatch **p) = 0;
     virtual HRESULT WINAPI get_dataTransfer(IHTMLDataTransfer **p) = 0;
@@ -21230,30 +21230,30 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_fromElement)(IHTMLEventObj2 *This,IHTMLElement **p);
       HRESULT (WINAPI *putref_toElement)(IHTMLEventObj2 *This,IHTMLElement *v);
       HRESULT (WINAPI *get_toElement)(IHTMLEventObj2 *This,IHTMLElement **p);
-      HRESULT (WINAPI *put_button)(IHTMLEventObj2 *This,long v);
-      HRESULT (WINAPI *get_button)(IHTMLEventObj2 *This,long *p);
+      HRESULT (WINAPI *put_button)(IHTMLEventObj2 *This,__LONG32 v);
+      HRESULT (WINAPI *get_button)(IHTMLEventObj2 *This,__LONG32 *p);
       HRESULT (WINAPI *put_type)(IHTMLEventObj2 *This,BSTR v);
       HRESULT (WINAPI *get_type)(IHTMLEventObj2 *This,BSTR *p);
       HRESULT (WINAPI *put_qualifier)(IHTMLEventObj2 *This,BSTR v);
       HRESULT (WINAPI *get_qualifier)(IHTMLEventObj2 *This,BSTR *p);
-      HRESULT (WINAPI *put_reason)(IHTMLEventObj2 *This,long v);
-      HRESULT (WINAPI *get_reason)(IHTMLEventObj2 *This,long *p);
-      HRESULT (WINAPI *put_x)(IHTMLEventObj2 *This,long v);
-      HRESULT (WINAPI *get_x)(IHTMLEventObj2 *This,long *p);
-      HRESULT (WINAPI *put_y)(IHTMLEventObj2 *This,long v);
-      HRESULT (WINAPI *get_y)(IHTMLEventObj2 *This,long *p);
-      HRESULT (WINAPI *put_clientX)(IHTMLEventObj2 *This,long v);
-      HRESULT (WINAPI *get_clientX)(IHTMLEventObj2 *This,long *p);
-      HRESULT (WINAPI *put_clientY)(IHTMLEventObj2 *This,long v);
-      HRESULT (WINAPI *get_clientY)(IHTMLEventObj2 *This,long *p);
-      HRESULT (WINAPI *put_offsetX)(IHTMLEventObj2 *This,long v);
-      HRESULT (WINAPI *get_offsetX)(IHTMLEventObj2 *This,long *p);
-      HRESULT (WINAPI *put_offsetY)(IHTMLEventObj2 *This,long v);
-      HRESULT (WINAPI *get_offsetY)(IHTMLEventObj2 *This,long *p);
-      HRESULT (WINAPI *put_screenX)(IHTMLEventObj2 *This,long v);
-      HRESULT (WINAPI *get_screenX)(IHTMLEventObj2 *This,long *p);
-      HRESULT (WINAPI *put_screenY)(IHTMLEventObj2 *This,long v);
-      HRESULT (WINAPI *get_screenY)(IHTMLEventObj2 *This,long *p);
+      HRESULT (WINAPI *put_reason)(IHTMLEventObj2 *This,__LONG32 v);
+      HRESULT (WINAPI *get_reason)(IHTMLEventObj2 *This,__LONG32 *p);
+      HRESULT (WINAPI *put_x)(IHTMLEventObj2 *This,__LONG32 v);
+      HRESULT (WINAPI *get_x)(IHTMLEventObj2 *This,__LONG32 *p);
+      HRESULT (WINAPI *put_y)(IHTMLEventObj2 *This,__LONG32 v);
+      HRESULT (WINAPI *get_y)(IHTMLEventObj2 *This,__LONG32 *p);
+      HRESULT (WINAPI *put_clientX)(IHTMLEventObj2 *This,__LONG32 v);
+      HRESULT (WINAPI *get_clientX)(IHTMLEventObj2 *This,__LONG32 *p);
+      HRESULT (WINAPI *put_clientY)(IHTMLEventObj2 *This,__LONG32 v);
+      HRESULT (WINAPI *get_clientY)(IHTMLEventObj2 *This,__LONG32 *p);
+      HRESULT (WINAPI *put_offsetX)(IHTMLEventObj2 *This,__LONG32 v);
+      HRESULT (WINAPI *get_offsetX)(IHTMLEventObj2 *This,__LONG32 *p);
+      HRESULT (WINAPI *put_offsetY)(IHTMLEventObj2 *This,__LONG32 v);
+      HRESULT (WINAPI *get_offsetY)(IHTMLEventObj2 *This,__LONG32 *p);
+      HRESULT (WINAPI *put_screenX)(IHTMLEventObj2 *This,__LONG32 v);
+      HRESULT (WINAPI *get_screenX)(IHTMLEventObj2 *This,__LONG32 *p);
+      HRESULT (WINAPI *put_screenY)(IHTMLEventObj2 *This,__LONG32 v);
+      HRESULT (WINAPI *get_screenY)(IHTMLEventObj2 *This,__LONG32 *p);
       HRESULT (WINAPI *putref_srcFilter)(IHTMLEventObj2 *This,IDispatch *v);
       HRESULT (WINAPI *get_srcFilter)(IHTMLEventObj2 *This,IDispatch **p);
       HRESULT (WINAPI *get_dataTransfer)(IHTMLEventObj2 *This,IHTMLDataTransfer **p);
@@ -21386,9 +21386,9 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLEventObj2_putref_toElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLEventObj2_get_toElement_Proxy(IHTMLEventObj2 *This,IHTMLElement **p);
   void __RPC_STUB IHTMLEventObj2_get_toElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj2_put_button_Proxy(IHTMLEventObj2 *This,long v);
+  HRESULT WINAPI IHTMLEventObj2_put_button_Proxy(IHTMLEventObj2 *This,__LONG32 v);
   void __RPC_STUB IHTMLEventObj2_put_button_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj2_get_button_Proxy(IHTMLEventObj2 *This,long *p);
+  HRESULT WINAPI IHTMLEventObj2_get_button_Proxy(IHTMLEventObj2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj2_get_button_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLEventObj2_put_type_Proxy(IHTMLEventObj2 *This,BSTR v);
   void __RPC_STUB IHTMLEventObj2_put_type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -21398,41 +21398,41 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLEventObj2_put_qualifier_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLEventObj2_get_qualifier_Proxy(IHTMLEventObj2 *This,BSTR *p);
   void __RPC_STUB IHTMLEventObj2_get_qualifier_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj2_put_reason_Proxy(IHTMLEventObj2 *This,long v);
+  HRESULT WINAPI IHTMLEventObj2_put_reason_Proxy(IHTMLEventObj2 *This,__LONG32 v);
   void __RPC_STUB IHTMLEventObj2_put_reason_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj2_get_reason_Proxy(IHTMLEventObj2 *This,long *p);
+  HRESULT WINAPI IHTMLEventObj2_get_reason_Proxy(IHTMLEventObj2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj2_get_reason_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj2_put_x_Proxy(IHTMLEventObj2 *This,long v);
+  HRESULT WINAPI IHTMLEventObj2_put_x_Proxy(IHTMLEventObj2 *This,__LONG32 v);
   void __RPC_STUB IHTMLEventObj2_put_x_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj2_get_x_Proxy(IHTMLEventObj2 *This,long *p);
+  HRESULT WINAPI IHTMLEventObj2_get_x_Proxy(IHTMLEventObj2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj2_get_x_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj2_put_y_Proxy(IHTMLEventObj2 *This,long v);
+  HRESULT WINAPI IHTMLEventObj2_put_y_Proxy(IHTMLEventObj2 *This,__LONG32 v);
   void __RPC_STUB IHTMLEventObj2_put_y_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj2_get_y_Proxy(IHTMLEventObj2 *This,long *p);
+  HRESULT WINAPI IHTMLEventObj2_get_y_Proxy(IHTMLEventObj2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj2_get_y_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj2_put_clientX_Proxy(IHTMLEventObj2 *This,long v);
+  HRESULT WINAPI IHTMLEventObj2_put_clientX_Proxy(IHTMLEventObj2 *This,__LONG32 v);
   void __RPC_STUB IHTMLEventObj2_put_clientX_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj2_get_clientX_Proxy(IHTMLEventObj2 *This,long *p);
+  HRESULT WINAPI IHTMLEventObj2_get_clientX_Proxy(IHTMLEventObj2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj2_get_clientX_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj2_put_clientY_Proxy(IHTMLEventObj2 *This,long v);
+  HRESULT WINAPI IHTMLEventObj2_put_clientY_Proxy(IHTMLEventObj2 *This,__LONG32 v);
   void __RPC_STUB IHTMLEventObj2_put_clientY_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj2_get_clientY_Proxy(IHTMLEventObj2 *This,long *p);
+  HRESULT WINAPI IHTMLEventObj2_get_clientY_Proxy(IHTMLEventObj2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj2_get_clientY_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj2_put_offsetX_Proxy(IHTMLEventObj2 *This,long v);
+  HRESULT WINAPI IHTMLEventObj2_put_offsetX_Proxy(IHTMLEventObj2 *This,__LONG32 v);
   void __RPC_STUB IHTMLEventObj2_put_offsetX_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj2_get_offsetX_Proxy(IHTMLEventObj2 *This,long *p);
+  HRESULT WINAPI IHTMLEventObj2_get_offsetX_Proxy(IHTMLEventObj2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj2_get_offsetX_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj2_put_offsetY_Proxy(IHTMLEventObj2 *This,long v);
+  HRESULT WINAPI IHTMLEventObj2_put_offsetY_Proxy(IHTMLEventObj2 *This,__LONG32 v);
   void __RPC_STUB IHTMLEventObj2_put_offsetY_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj2_get_offsetY_Proxy(IHTMLEventObj2 *This,long *p);
+  HRESULT WINAPI IHTMLEventObj2_get_offsetY_Proxy(IHTMLEventObj2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj2_get_offsetY_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj2_put_screenX_Proxy(IHTMLEventObj2 *This,long v);
+  HRESULT WINAPI IHTMLEventObj2_put_screenX_Proxy(IHTMLEventObj2 *This,__LONG32 v);
   void __RPC_STUB IHTMLEventObj2_put_screenX_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj2_get_screenX_Proxy(IHTMLEventObj2 *This,long *p);
+  HRESULT WINAPI IHTMLEventObj2_get_screenX_Proxy(IHTMLEventObj2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj2_get_screenX_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj2_put_screenY_Proxy(IHTMLEventObj2 *This,long v);
+  HRESULT WINAPI IHTMLEventObj2_put_screenY_Proxy(IHTMLEventObj2 *This,__LONG32 v);
   void __RPC_STUB IHTMLEventObj2_put_screenY_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj2_get_screenY_Proxy(IHTMLEventObj2 *This,long *p);
+  HRESULT WINAPI IHTMLEventObj2_get_screenY_Proxy(IHTMLEventObj2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj2_get_screenY_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLEventObj2_putref_srcFilter_Proxy(IHTMLEventObj2 *This,IDispatch *v);
   void __RPC_STUB IHTMLEventObj2_putref_srcFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -21461,8 +21461,8 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_imeRequest(LONG_PTR *p) = 0;
     virtual HRESULT WINAPI get_imeRequestData(LONG_PTR *p) = 0;
     virtual HRESULT WINAPI get_keyboardLayout(LONG_PTR *p) = 0;
-    virtual HRESULT WINAPI get_behaviorCookie(long *p) = 0;
-    virtual HRESULT WINAPI get_behaviorPart(long *p) = 0;
+    virtual HRESULT WINAPI get_behaviorCookie(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_behaviorPart(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get_nextPage(BSTR *p) = 0;
   };
 #else
@@ -21488,8 +21488,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_imeRequest)(IHTMLEventObj3 *This,LONG_PTR *p);
       HRESULT (WINAPI *get_imeRequestData)(IHTMLEventObj3 *This,LONG_PTR *p);
       HRESULT (WINAPI *get_keyboardLayout)(IHTMLEventObj3 *This,LONG_PTR *p);
-      HRESULT (WINAPI *get_behaviorCookie)(IHTMLEventObj3 *This,long *p);
-      HRESULT (WINAPI *get_behaviorPart)(IHTMLEventObj3 *This,long *p);
+      HRESULT (WINAPI *get_behaviorCookie)(IHTMLEventObj3 *This,__LONG32 *p);
+      HRESULT (WINAPI *get_behaviorPart)(IHTMLEventObj3 *This,__LONG32 *p);
       HRESULT (WINAPI *get_nextPage)(IHTMLEventObj3 *This,BSTR *p);
     END_INTERFACE
   } IHTMLEventObj3Vtbl;
@@ -21548,9 +21548,9 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLEventObj3_get_imeRequestData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLEventObj3_get_keyboardLayout_Proxy(IHTMLEventObj3 *This,LONG_PTR *p);
   void __RPC_STUB IHTMLEventObj3_get_keyboardLayout_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj3_get_behaviorCookie_Proxy(IHTMLEventObj3 *This,long *p);
+  HRESULT WINAPI IHTMLEventObj3_get_behaviorCookie_Proxy(IHTMLEventObj3 *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj3_get_behaviorCookie_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLEventObj3_get_behaviorPart_Proxy(IHTMLEventObj3 *This,long *p);
+  HRESULT WINAPI IHTMLEventObj3_get_behaviorPart_Proxy(IHTMLEventObj3 *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj3_get_behaviorPart_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLEventObj3_get_nextPage_Proxy(IHTMLEventObj3 *This,BSTR *p);
   void __RPC_STUB IHTMLEventObj3_get_nextPage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -21562,7 +21562,7 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLEventObj4 : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_wheelDelta(long *p) = 0;
+    virtual HRESULT WINAPI get_wheelDelta(__LONG32 *p) = 0;
   };
 #else
   typedef struct IHTMLEventObj4Vtbl {
@@ -21574,7 +21574,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLEventObj4 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLEventObj4 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLEventObj4 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_wheelDelta)(IHTMLEventObj4 *This,long *p);
+      HRESULT (WINAPI *get_wheelDelta)(IHTMLEventObj4 *This,__LONG32 *p);
     END_INTERFACE
   } IHTMLEventObj4Vtbl;
   struct IHTMLEventObj4 {
@@ -21591,7 +21591,7 @@ IHTMLStyle : public IDispatch {
 #define IHTMLEventObj4_get_wheelDelta(This,p) (This)->lpVtbl->get_wheelDelta(This,p)
 #endif
 #endif
-  HRESULT WINAPI IHTMLEventObj4_get_wheelDelta_Proxy(IHTMLEventObj4 *This,long *p);
+  HRESULT WINAPI IHTMLEventObj4_get_wheelDelta_Proxy(IHTMLEventObj4 *This,__LONG32 *p);
   void __RPC_STUB IHTMLEventObj4_get_wheelDelta_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -21803,7 +21803,7 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_ondragstart(VARIANT *p) = 0;
     virtual HRESULT WINAPI put_onselectstart(VARIANT v) = 0;
     virtual HRESULT WINAPI get_onselectstart(VARIANT *p) = 0;
-    virtual HRESULT WINAPI elementFromPoint(long x,long y,IHTMLElement **elementHit) = 0;
+    virtual HRESULT WINAPI elementFromPoint(__LONG32 x,__LONG32 y,IHTMLElement **elementHit) = 0;
     virtual HRESULT WINAPI get_parentWindow(IHTMLWindow2 **p) = 0;
     virtual HRESULT WINAPI get_styleSheets(IHTMLStyleSheetsCollection **p) = 0;
     virtual HRESULT WINAPI put_onbeforeupdate(VARIANT v) = 0;
@@ -21811,7 +21811,7 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI put_onerrorupdate(VARIANT v) = 0;
     virtual HRESULT WINAPI get_onerrorupdate(VARIANT *p) = 0;
     virtual HRESULT WINAPI toString(BSTR *String) = 0;
-    virtual HRESULT WINAPI createStyleSheet(BSTR bstrHref,long lIndex,IHTMLStyleSheet **ppnewStyleSheet) = 0;
+    virtual HRESULT WINAPI createStyleSheet(BSTR bstrHref,__LONG32 lIndex,IHTMLStyleSheet **ppnewStyleSheet) = 0;
   };
 #else
   typedef struct IHTMLDocument2Vtbl {
@@ -21923,7 +21923,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_ondragstart)(IHTMLDocument2 *This,VARIANT *p);
       HRESULT (WINAPI *put_onselectstart)(IHTMLDocument2 *This,VARIANT v);
       HRESULT (WINAPI *get_onselectstart)(IHTMLDocument2 *This,VARIANT *p);
-      HRESULT (WINAPI *elementFromPoint)(IHTMLDocument2 *This,long x,long y,IHTMLElement **elementHit);
+      HRESULT (WINAPI *elementFromPoint)(IHTMLDocument2 *This,__LONG32 x,__LONG32 y,IHTMLElement **elementHit);
       HRESULT (WINAPI *get_parentWindow)(IHTMLDocument2 *This,IHTMLWindow2 **p);
       HRESULT (WINAPI *get_styleSheets)(IHTMLDocument2 *This,IHTMLStyleSheetsCollection **p);
       HRESULT (WINAPI *put_onbeforeupdate)(IHTMLDocument2 *This,VARIANT v);
@@ -21931,7 +21931,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *put_onerrorupdate)(IHTMLDocument2 *This,VARIANT v);
       HRESULT (WINAPI *get_onerrorupdate)(IHTMLDocument2 *This,VARIANT *p);
       HRESULT (WINAPI *toString)(IHTMLDocument2 *This,BSTR *String);
-      HRESULT (WINAPI *createStyleSheet)(IHTMLDocument2 *This,BSTR bstrHref,long lIndex,IHTMLStyleSheet **ppnewStyleSheet);
+      HRESULT (WINAPI *createStyleSheet)(IHTMLDocument2 *This,BSTR bstrHref,__LONG32 lIndex,IHTMLStyleSheet **ppnewStyleSheet);
     END_INTERFACE
   } IHTMLDocument2Vtbl;
   struct IHTMLDocument2 {
@@ -22254,7 +22254,7 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLDocument2_put_onselectstart_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLDocument2_get_onselectstart_Proxy(IHTMLDocument2 *This,VARIANT *p);
   void __RPC_STUB IHTMLDocument2_get_onselectstart_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLDocument2_elementFromPoint_Proxy(IHTMLDocument2 *This,long x,long y,IHTMLElement **elementHit);
+  HRESULT WINAPI IHTMLDocument2_elementFromPoint_Proxy(IHTMLDocument2 *This,__LONG32 x,__LONG32 y,IHTMLElement **elementHit);
   void __RPC_STUB IHTMLDocument2_elementFromPoint_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLDocument2_get_parentWindow_Proxy(IHTMLDocument2 *This,IHTMLWindow2 **p);
   void __RPC_STUB IHTMLDocument2_get_parentWindow_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -22270,7 +22270,7 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLDocument2_get_onerrorupdate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLDocument2_toString_Proxy(IHTMLDocument2 *This,BSTR *String);
   void __RPC_STUB IHTMLDocument2_toString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLDocument2_createStyleSheet_Proxy(IHTMLDocument2 *This,BSTR bstrHref,long lIndex,IHTMLStyleSheet **ppnewStyleSheet);
+  HRESULT WINAPI IHTMLDocument2_createStyleSheet_Proxy(IHTMLDocument2 *This,BSTR bstrHref,__LONG32 lIndex,IHTMLStyleSheet **ppnewStyleSheet);
   void __RPC_STUB IHTMLDocument2_createStyleSheet_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -22281,7 +22281,7 @@ IHTMLStyle : public IDispatch {
   struct IHTMLFramesCollection2 : public IDispatch {
   public:
     virtual HRESULT WINAPI item(VARIANT *pvarIndex,VARIANT *pvarResult) = 0;
-    virtual HRESULT WINAPI get_length(long *p) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
   };
 #else
   typedef struct IHTMLFramesCollection2Vtbl {
@@ -22294,7 +22294,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLFramesCollection2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLFramesCollection2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *item)(IHTMLFramesCollection2 *This,VARIANT *pvarIndex,VARIANT *pvarResult);
-      HRESULT (WINAPI *get_length)(IHTMLFramesCollection2 *This,long *p);
+      HRESULT (WINAPI *get_length)(IHTMLFramesCollection2 *This,__LONG32 *p);
     END_INTERFACE
   } IHTMLFramesCollection2Vtbl;
   struct IHTMLFramesCollection2 {
@@ -22314,7 +22314,7 @@ IHTMLStyle : public IDispatch {
 #endif
   HRESULT WINAPI IHTMLFramesCollection2_item_Proxy(IHTMLFramesCollection2 *This,VARIANT *pvarIndex,VARIANT *pvarResult);
   void __RPC_STUB IHTMLFramesCollection2_item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLFramesCollection2_get_length_Proxy(IHTMLFramesCollection2 *This,long *p);
+  HRESULT WINAPI IHTMLFramesCollection2_get_length_Proxy(IHTMLFramesCollection2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLFramesCollection2_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -22329,8 +22329,8 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_defaultStatus(BSTR *p) = 0;
     virtual HRESULT WINAPI put_status(BSTR v) = 0;
     virtual HRESULT WINAPI get_status(BSTR *p) = 0;
-    virtual HRESULT WINAPI setTimeout(BSTR expression,long msec,VARIANT *language,long *timerID) = 0;
-    virtual HRESULT WINAPI clearTimeout(long timerID) = 0;
+    virtual HRESULT WINAPI setTimeout(BSTR expression,__LONG32 msec,VARIANT *language,__LONG32 *timerID) = 0;
+    virtual HRESULT WINAPI clearTimeout(__LONG32 timerID) = 0;
     virtual HRESULT WINAPI alert(BSTR message = L"") = 0;
     virtual HRESULT WINAPI confirm(BSTR message,VARIANT_BOOL *confirmed) = 0;
     virtual HRESULT WINAPI prompt(BSTR message,BSTR defstr,VARIANT *textdata) = 0;
@@ -22377,20 +22377,20 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI focus(void) = 0;
     virtual HRESULT WINAPI get_closed(VARIANT_BOOL *p) = 0;
     virtual HRESULT WINAPI blur(void) = 0;
-    virtual HRESULT WINAPI scroll(long x,long y) = 0;
+    virtual HRESULT WINAPI scroll(__LONG32 x,__LONG32 y) = 0;
     virtual HRESULT WINAPI get_clientInformation(IOmNavigator **p) = 0;
-    virtual HRESULT WINAPI setInterval(BSTR expression,long msec,VARIANT *language,long *timerID) = 0;
-    virtual HRESULT WINAPI clearInterval(long timerID) = 0;
+    virtual HRESULT WINAPI setInterval(BSTR expression,__LONG32 msec,VARIANT *language,__LONG32 *timerID) = 0;
+    virtual HRESULT WINAPI clearInterval(__LONG32 timerID) = 0;
     virtual HRESULT WINAPI put_offscreenBuffering(VARIANT v) = 0;
     virtual HRESULT WINAPI get_offscreenBuffering(VARIANT *p) = 0;
     virtual HRESULT WINAPI execScript(BSTR code,BSTR language,VARIANT *pvarRet) = 0;
     virtual HRESULT WINAPI toString(BSTR *String) = 0;
-    virtual HRESULT WINAPI scrollBy(long x,long y) = 0;
-    virtual HRESULT WINAPI scrollTo(long x,long y) = 0;
-    virtual HRESULT WINAPI moveTo(long x,long y) = 0;
-    virtual HRESULT WINAPI moveBy(long x,long y) = 0;
-    virtual HRESULT WINAPI resizeTo(long x,long y) = 0;
-    virtual HRESULT WINAPI resizeBy(long x,long y) = 0;
+    virtual HRESULT WINAPI scrollBy(__LONG32 x,__LONG32 y) = 0;
+    virtual HRESULT WINAPI scrollTo(__LONG32 x,__LONG32 y) = 0;
+    virtual HRESULT WINAPI moveTo(__LONG32 x,__LONG32 y) = 0;
+    virtual HRESULT WINAPI moveBy(__LONG32 x,__LONG32 y) = 0;
+    virtual HRESULT WINAPI resizeTo(__LONG32 x,__LONG32 y) = 0;
+    virtual HRESULT WINAPI resizeBy(__LONG32 x,__LONG32 y) = 0;
     virtual HRESULT WINAPI get_external(IDispatch **p) = 0;
   };
 #else
@@ -22404,14 +22404,14 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLWindow2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLWindow2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *item)(IHTMLWindow2 *This,VARIANT *pvarIndex,VARIANT *pvarResult);
-      HRESULT (WINAPI *get_length)(IHTMLWindow2 *This,long *p);
+      HRESULT (WINAPI *get_length)(IHTMLWindow2 *This,__LONG32 *p);
       HRESULT (WINAPI *get_frames)(IHTMLWindow2 *This,IHTMLFramesCollection2 **p);
       HRESULT (WINAPI *put_defaultStatus)(IHTMLWindow2 *This,BSTR v);
       HRESULT (WINAPI *get_defaultStatus)(IHTMLWindow2 *This,BSTR *p);
       HRESULT (WINAPI *put_status)(IHTMLWindow2 *This,BSTR v);
       HRESULT (WINAPI *get_status)(IHTMLWindow2 *This,BSTR *p);
-      HRESULT (WINAPI *setTimeout)(IHTMLWindow2 *This,BSTR expression,long msec,VARIANT *language,long *timerID);
-      HRESULT (WINAPI *clearTimeout)(IHTMLWindow2 *This,long timerID);
+      HRESULT (WINAPI *setTimeout)(IHTMLWindow2 *This,BSTR expression,__LONG32 msec,VARIANT *language,__LONG32 *timerID);
+      HRESULT (WINAPI *clearTimeout)(IHTMLWindow2 *This,__LONG32 timerID);
       HRESULT (WINAPI *alert)(IHTMLWindow2 *This,BSTR message);
       HRESULT (WINAPI *confirm)(IHTMLWindow2 *This,BSTR message,VARIANT_BOOL *confirmed);
       HRESULT (WINAPI *prompt)(IHTMLWindow2 *This,BSTR message,BSTR defstr,VARIANT *textdata);
@@ -22458,20 +22458,20 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *focus)(IHTMLWindow2 *This);
       HRESULT (WINAPI *get_closed)(IHTMLWindow2 *This,VARIANT_BOOL *p);
       HRESULT (WINAPI *blur)(IHTMLWindow2 *This);
-      HRESULT (WINAPI *scroll)(IHTMLWindow2 *This,long x,long y);
+      HRESULT (WINAPI *scroll)(IHTMLWindow2 *This,__LONG32 x,__LONG32 y);
       HRESULT (WINAPI *get_clientInformation)(IHTMLWindow2 *This,IOmNavigator **p);
-      HRESULT (WINAPI *setInterval)(IHTMLWindow2 *This,BSTR expression,long msec,VARIANT *language,long *timerID);
-      HRESULT (WINAPI *clearInterval)(IHTMLWindow2 *This,long timerID);
+      HRESULT (WINAPI *setInterval)(IHTMLWindow2 *This,BSTR expression,__LONG32 msec,VARIANT *language,__LONG32 *timerID);
+      HRESULT (WINAPI *clearInterval)(IHTMLWindow2 *This,__LONG32 timerID);
       HRESULT (WINAPI *put_offscreenBuffering)(IHTMLWindow2 *This,VARIANT v);
       HRESULT (WINAPI *get_offscreenBuffering)(IHTMLWindow2 *This,VARIANT *p);
       HRESULT (WINAPI *execScript)(IHTMLWindow2 *This,BSTR code,BSTR language,VARIANT *pvarRet);
       HRESULT (WINAPI *toString)(IHTMLWindow2 *This,BSTR *String);
-      HRESULT (WINAPI *scrollBy)(IHTMLWindow2 *This,long x,long y);
-      HRESULT (WINAPI *scrollTo)(IHTMLWindow2 *This,long x,long y);
-      HRESULT (WINAPI *moveTo)(IHTMLWindow2 *This,long x,long y);
-      HRESULT (WINAPI *moveBy)(IHTMLWindow2 *This,long x,long y);
-      HRESULT (WINAPI *resizeTo)(IHTMLWindow2 *This,long x,long y);
-      HRESULT (WINAPI *resizeBy)(IHTMLWindow2 *This,long x,long y);
+      HRESULT (WINAPI *scrollBy)(IHTMLWindow2 *This,__LONG32 x,__LONG32 y);
+      HRESULT (WINAPI *scrollTo)(IHTMLWindow2 *This,__LONG32 x,__LONG32 y);
+      HRESULT (WINAPI *moveTo)(IHTMLWindow2 *This,__LONG32 x,__LONG32 y);
+      HRESULT (WINAPI *moveBy)(IHTMLWindow2 *This,__LONG32 x,__LONG32 y);
+      HRESULT (WINAPI *resizeTo)(IHTMLWindow2 *This,__LONG32 x,__LONG32 y);
+      HRESULT (WINAPI *resizeBy)(IHTMLWindow2 *This,__LONG32 x,__LONG32 y);
       HRESULT (WINAPI *get_external)(IHTMLWindow2 *This,IDispatch **p);
     END_INTERFACE
   } IHTMLWindow2Vtbl;
@@ -22568,9 +22568,9 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLWindow2_put_status_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLWindow2_get_status_Proxy(IHTMLWindow2 *This,BSTR *p);
   void __RPC_STUB IHTMLWindow2_get_status_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLWindow2_setTimeout_Proxy(IHTMLWindow2 *This,BSTR expression,long msec,VARIANT *language,long *timerID);
+  HRESULT WINAPI IHTMLWindow2_setTimeout_Proxy(IHTMLWindow2 *This,BSTR expression,__LONG32 msec,VARIANT *language,__LONG32 *timerID);
   void __RPC_STUB IHTMLWindow2_setTimeout_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLWindow2_clearTimeout_Proxy(IHTMLWindow2 *This,long timerID);
+  HRESULT WINAPI IHTMLWindow2_clearTimeout_Proxy(IHTMLWindow2 *This,__LONG32 timerID);
   void __RPC_STUB IHTMLWindow2_clearTimeout_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLWindow2_alert_Proxy(IHTMLWindow2 *This,BSTR message);
   void __RPC_STUB IHTMLWindow2_alert_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -22664,13 +22664,13 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLWindow2_get_closed_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLWindow2_blur_Proxy(IHTMLWindow2 *This);
   void __RPC_STUB IHTMLWindow2_blur_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLWindow2_scroll_Proxy(IHTMLWindow2 *This,long x,long y);
+  HRESULT WINAPI IHTMLWindow2_scroll_Proxy(IHTMLWindow2 *This,__LONG32 x,__LONG32 y);
   void __RPC_STUB IHTMLWindow2_scroll_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLWindow2_get_clientInformation_Proxy(IHTMLWindow2 *This,IOmNavigator **p);
   void __RPC_STUB IHTMLWindow2_get_clientInformation_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLWindow2_setInterval_Proxy(IHTMLWindow2 *This,BSTR expression,long msec,VARIANT *language,long *timerID);
+  HRESULT WINAPI IHTMLWindow2_setInterval_Proxy(IHTMLWindow2 *This,BSTR expression,__LONG32 msec,VARIANT *language,__LONG32 *timerID);
   void __RPC_STUB IHTMLWindow2_setInterval_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLWindow2_clearInterval_Proxy(IHTMLWindow2 *This,long timerID);
+  HRESULT WINAPI IHTMLWindow2_clearInterval_Proxy(IHTMLWindow2 *This,__LONG32 timerID);
   void __RPC_STUB IHTMLWindow2_clearInterval_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLWindow2_put_offscreenBuffering_Proxy(IHTMLWindow2 *This,VARIANT v);
   void __RPC_STUB IHTMLWindow2_put_offscreenBuffering_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -22680,17 +22680,17 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLWindow2_execScript_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLWindow2_toString_Proxy(IHTMLWindow2 *This,BSTR *String);
   void __RPC_STUB IHTMLWindow2_toString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLWindow2_scrollBy_Proxy(IHTMLWindow2 *This,long x,long y);
+  HRESULT WINAPI IHTMLWindow2_scrollBy_Proxy(IHTMLWindow2 *This,__LONG32 x,__LONG32 y);
   void __RPC_STUB IHTMLWindow2_scrollBy_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLWindow2_scrollTo_Proxy(IHTMLWindow2 *This,long x,long y);
+  HRESULT WINAPI IHTMLWindow2_scrollTo_Proxy(IHTMLWindow2 *This,__LONG32 x,__LONG32 y);
   void __RPC_STUB IHTMLWindow2_scrollTo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLWindow2_moveTo_Proxy(IHTMLWindow2 *This,long x,long y);
+  HRESULT WINAPI IHTMLWindow2_moveTo_Proxy(IHTMLWindow2 *This,__LONG32 x,__LONG32 y);
   void __RPC_STUB IHTMLWindow2_moveTo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLWindow2_moveBy_Proxy(IHTMLWindow2 *This,long x,long y);
+  HRESULT WINAPI IHTMLWindow2_moveBy_Proxy(IHTMLWindow2 *This,__LONG32 x,__LONG32 y);
   void __RPC_STUB IHTMLWindow2_moveBy_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLWindow2_resizeTo_Proxy(IHTMLWindow2 *This,long x,long y);
+  HRESULT WINAPI IHTMLWindow2_resizeTo_Proxy(IHTMLWindow2 *This,__LONG32 x,__LONG32 y);
   void __RPC_STUB IHTMLWindow2_resizeTo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLWindow2_resizeBy_Proxy(IHTMLWindow2 *This,long x,long y);
+  HRESULT WINAPI IHTMLWindow2_resizeBy_Proxy(IHTMLWindow2 *This,__LONG32 x,__LONG32 y);
   void __RPC_STUB IHTMLWindow2_resizeBy_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLWindow2_get_external_Proxy(IHTMLWindow2 *This,IDispatch **p);
   void __RPC_STUB IHTMLWindow2_get_external_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -22702,12 +22702,12 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLWindow3 : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_screenLeft(long *p) = 0;
-    virtual HRESULT WINAPI get_screenTop(long *p) = 0;
+    virtual HRESULT WINAPI get_screenLeft(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_screenTop(__LONG32 *p) = 0;
     virtual HRESULT WINAPI attachEvent(BSTR event,IDispatch *pDisp,VARIANT_BOOL *pfResult) = 0;
     virtual HRESULT WINAPI detachEvent(BSTR event,IDispatch *pDisp) = 0;
-    virtual HRESULT WINAPI setTimeout(VARIANT *expression,long msec,VARIANT *language,long *timerID) = 0;
-    virtual HRESULT WINAPI setInterval(VARIANT *expression,long msec,VARIANT *language,long *timerID) = 0;
+    virtual HRESULT WINAPI setTimeout(VARIANT *expression,__LONG32 msec,VARIANT *language,__LONG32 *timerID) = 0;
+    virtual HRESULT WINAPI setInterval(VARIANT *expression,__LONG32 msec,VARIANT *language,__LONG32 *timerID) = 0;
     virtual HRESULT WINAPI print(void) = 0;
     virtual HRESULT WINAPI put_onbeforeprint(VARIANT v) = 0;
     virtual HRESULT WINAPI get_onbeforeprint(VARIANT *p) = 0;
@@ -22726,12 +22726,12 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLWindow3 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLWindow3 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLWindow3 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_screenLeft)(IHTMLWindow3 *This,long *p);
-      HRESULT (WINAPI *get_screenTop)(IHTMLWindow3 *This,long *p);
+      HRESULT (WINAPI *get_screenLeft)(IHTMLWindow3 *This,__LONG32 *p);
+      HRESULT (WINAPI *get_screenTop)(IHTMLWindow3 *This,__LONG32 *p);
       HRESULT (WINAPI *attachEvent)(IHTMLWindow3 *This,BSTR event,IDispatch *pDisp,VARIANT_BOOL *pfResult);
       HRESULT (WINAPI *detachEvent)(IHTMLWindow3 *This,BSTR event,IDispatch *pDisp);
-      HRESULT (WINAPI *setTimeout)(IHTMLWindow3 *This,VARIANT *expression,long msec,VARIANT *language,long *timerID);
-      HRESULT (WINAPI *setInterval)(IHTMLWindow3 *This,VARIANT *expression,long msec,VARIANT *language,long *timerID);
+      HRESULT (WINAPI *setTimeout)(IHTMLWindow3 *This,VARIANT *expression,__LONG32 msec,VARIANT *language,__LONG32 *timerID);
+      HRESULT (WINAPI *setInterval)(IHTMLWindow3 *This,VARIANT *expression,__LONG32 msec,VARIANT *language,__LONG32 *timerID);
       HRESULT (WINAPI *print)(IHTMLWindow3 *This);
       HRESULT (WINAPI *put_onbeforeprint)(IHTMLWindow3 *This,VARIANT v);
       HRESULT (WINAPI *get_onbeforeprint)(IHTMLWindow3 *This,VARIANT *p);
@@ -22767,17 +22767,17 @@ IHTMLStyle : public IDispatch {
 #define IHTMLWindow3_showModelessDialog(This,url,varArgIn,options,pDialog) (This)->lpVtbl->showModelessDialog(This,url,varArgIn,options,pDialog)
 #endif
 #endif
-  HRESULT WINAPI IHTMLWindow3_get_screenLeft_Proxy(IHTMLWindow3 *This,long *p);
+  HRESULT WINAPI IHTMLWindow3_get_screenLeft_Proxy(IHTMLWindow3 *This,__LONG32 *p);
   void __RPC_STUB IHTMLWindow3_get_screenLeft_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLWindow3_get_screenTop_Proxy(IHTMLWindow3 *This,long *p);
+  HRESULT WINAPI IHTMLWindow3_get_screenTop_Proxy(IHTMLWindow3 *This,__LONG32 *p);
   void __RPC_STUB IHTMLWindow3_get_screenTop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLWindow3_attachEvent_Proxy(IHTMLWindow3 *This,BSTR event,IDispatch *pDisp,VARIANT_BOOL *pfResult);
   void __RPC_STUB IHTMLWindow3_attachEvent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLWindow3_detachEvent_Proxy(IHTMLWindow3 *This,BSTR event,IDispatch *pDisp);
   void __RPC_STUB IHTMLWindow3_detachEvent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLWindow3_setTimeout_Proxy(IHTMLWindow3 *This,VARIANT *expression,long msec,VARIANT *language,long *timerID);
+  HRESULT WINAPI IHTMLWindow3_setTimeout_Proxy(IHTMLWindow3 *This,VARIANT *expression,__LONG32 msec,VARIANT *language,__LONG32 *timerID);
   void __RPC_STUB IHTMLWindow3_setTimeout_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLWindow3_setInterval_Proxy(IHTMLWindow3 *This,VARIANT *expression,long msec,VARIANT *language,long *timerID);
+  HRESULT WINAPI IHTMLWindow3_setInterval_Proxy(IHTMLWindow3 *This,VARIANT *expression,__LONG32 msec,VARIANT *language,__LONG32 *timerID);
   void __RPC_STUB IHTMLWindow3_setInterval_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLWindow3_print_Proxy(IHTMLWindow3 *This);
   void __RPC_STUB IHTMLWindow3_print_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -22925,15 +22925,15 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLScreen : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_colorDepth(long *p) = 0;
-    virtual HRESULT WINAPI put_bufferDepth(long v) = 0;
-    virtual HRESULT WINAPI get_bufferDepth(long *p) = 0;
-    virtual HRESULT WINAPI get_width(long *p) = 0;
-    virtual HRESULT WINAPI get_height(long *p) = 0;
-    virtual HRESULT WINAPI put_updateInterval(long v) = 0;
-    virtual HRESULT WINAPI get_updateInterval(long *p) = 0;
-    virtual HRESULT WINAPI get_availHeight(long *p) = 0;
-    virtual HRESULT WINAPI get_availWidth(long *p) = 0;
+    virtual HRESULT WINAPI get_colorDepth(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_bufferDepth(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_bufferDepth(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_width(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_height(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_updateInterval(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_updateInterval(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_availHeight(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_availWidth(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get_fontSmoothingEnabled(VARIANT_BOOL *p) = 0;
   };
 #else
@@ -22946,15 +22946,15 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLScreen *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLScreen *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLScreen *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_colorDepth)(IHTMLScreen *This,long *p);
-      HRESULT (WINAPI *put_bufferDepth)(IHTMLScreen *This,long v);
-      HRESULT (WINAPI *get_bufferDepth)(IHTMLScreen *This,long *p);
-      HRESULT (WINAPI *get_width)(IHTMLScreen *This,long *p);
-      HRESULT (WINAPI *get_height)(IHTMLScreen *This,long *p);
-      HRESULT (WINAPI *put_updateInterval)(IHTMLScreen *This,long v);
-      HRESULT (WINAPI *get_updateInterval)(IHTMLScreen *This,long *p);
-      HRESULT (WINAPI *get_availHeight)(IHTMLScreen *This,long *p);
-      HRESULT (WINAPI *get_availWidth)(IHTMLScreen *This,long *p);
+      HRESULT (WINAPI *get_colorDepth)(IHTMLScreen *This,__LONG32 *p);
+      HRESULT (WINAPI *put_bufferDepth)(IHTMLScreen *This,__LONG32 v);
+      HRESULT (WINAPI *get_bufferDepth)(IHTMLScreen *This,__LONG32 *p);
+      HRESULT (WINAPI *get_width)(IHTMLScreen *This,__LONG32 *p);
+      HRESULT (WINAPI *get_height)(IHTMLScreen *This,__LONG32 *p);
+      HRESULT (WINAPI *put_updateInterval)(IHTMLScreen *This,__LONG32 v);
+      HRESULT (WINAPI *get_updateInterval)(IHTMLScreen *This,__LONG32 *p);
+      HRESULT (WINAPI *get_availHeight)(IHTMLScreen *This,__LONG32 *p);
+      HRESULT (WINAPI *get_availWidth)(IHTMLScreen *This,__LONG32 *p);
       HRESULT (WINAPI *get_fontSmoothingEnabled)(IHTMLScreen *This,VARIANT_BOOL *p);
     END_INTERFACE
   } IHTMLScreenVtbl;
@@ -22981,23 +22981,23 @@ IHTMLStyle : public IDispatch {
 #define IHTMLScreen_get_fontSmoothingEnabled(This,p) (This)->lpVtbl->get_fontSmoothingEnabled(This,p)
 #endif
 #endif
-  HRESULT WINAPI IHTMLScreen_get_colorDepth_Proxy(IHTMLScreen *This,long *p);
+  HRESULT WINAPI IHTMLScreen_get_colorDepth_Proxy(IHTMLScreen *This,__LONG32 *p);
   void __RPC_STUB IHTMLScreen_get_colorDepth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLScreen_put_bufferDepth_Proxy(IHTMLScreen *This,long v);
+  HRESULT WINAPI IHTMLScreen_put_bufferDepth_Proxy(IHTMLScreen *This,__LONG32 v);
   void __RPC_STUB IHTMLScreen_put_bufferDepth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLScreen_get_bufferDepth_Proxy(IHTMLScreen *This,long *p);
+  HRESULT WINAPI IHTMLScreen_get_bufferDepth_Proxy(IHTMLScreen *This,__LONG32 *p);
   void __RPC_STUB IHTMLScreen_get_bufferDepth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLScreen_get_width_Proxy(IHTMLScreen *This,long *p);
+  HRESULT WINAPI IHTMLScreen_get_width_Proxy(IHTMLScreen *This,__LONG32 *p);
   void __RPC_STUB IHTMLScreen_get_width_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLScreen_get_height_Proxy(IHTMLScreen *This,long *p);
+  HRESULT WINAPI IHTMLScreen_get_height_Proxy(IHTMLScreen *This,__LONG32 *p);
   void __RPC_STUB IHTMLScreen_get_height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLScreen_put_updateInterval_Proxy(IHTMLScreen *This,long v);
+  HRESULT WINAPI IHTMLScreen_put_updateInterval_Proxy(IHTMLScreen *This,__LONG32 v);
   void __RPC_STUB IHTMLScreen_put_updateInterval_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLScreen_get_updateInterval_Proxy(IHTMLScreen *This,long *p);
+  HRESULT WINAPI IHTMLScreen_get_updateInterval_Proxy(IHTMLScreen *This,__LONG32 *p);
   void __RPC_STUB IHTMLScreen_get_updateInterval_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLScreen_get_availHeight_Proxy(IHTMLScreen *This,long *p);
+  HRESULT WINAPI IHTMLScreen_get_availHeight_Proxy(IHTMLScreen *This,__LONG32 *p);
   void __RPC_STUB IHTMLScreen_get_availHeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLScreen_get_availWidth_Proxy(IHTMLScreen *This,long *p);
+  HRESULT WINAPI IHTMLScreen_get_availWidth_Proxy(IHTMLScreen *This,__LONG32 *p);
   void __RPC_STUB IHTMLScreen_get_availWidth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLScreen_get_fontSmoothingEnabled_Proxy(IHTMLScreen *This,VARIANT_BOOL *p);
   void __RPC_STUB IHTMLScreen_get_fontSmoothingEnabled_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -23009,10 +23009,10 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLScreen2 : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_logicalXDPI(long *p) = 0;
-    virtual HRESULT WINAPI get_logicalYDPI(long *p) = 0;
-    virtual HRESULT WINAPI get_deviceXDPI(long *p) = 0;
-    virtual HRESULT WINAPI get_deviceYDPI(long *p) = 0;
+    virtual HRESULT WINAPI get_logicalXDPI(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_logicalYDPI(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_deviceXDPI(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_deviceYDPI(__LONG32 *p) = 0;
   };
 #else
   typedef struct IHTMLScreen2Vtbl {
@@ -23024,10 +23024,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLScreen2 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLScreen2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLScreen2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_logicalXDPI)(IHTMLScreen2 *This,long *p);
-      HRESULT (WINAPI *get_logicalYDPI)(IHTMLScreen2 *This,long *p);
-      HRESULT (WINAPI *get_deviceXDPI)(IHTMLScreen2 *This,long *p);
-      HRESULT (WINAPI *get_deviceYDPI)(IHTMLScreen2 *This,long *p);
+      HRESULT (WINAPI *get_logicalXDPI)(IHTMLScreen2 *This,__LONG32 *p);
+      HRESULT (WINAPI *get_logicalYDPI)(IHTMLScreen2 *This,__LONG32 *p);
+      HRESULT (WINAPI *get_deviceXDPI)(IHTMLScreen2 *This,__LONG32 *p);
+      HRESULT (WINAPI *get_deviceYDPI)(IHTMLScreen2 *This,__LONG32 *p);
     END_INTERFACE
   } IHTMLScreen2Vtbl;
   struct IHTMLScreen2 {
@@ -23049,13 +23049,13 @@ IHTMLStyle : public IDispatch {
 #endif
 #endif
 
-  HRESULT WINAPI IHTMLScreen2_get_logicalXDPI_Proxy(IHTMLScreen2 *This,long *p);
+  HRESULT WINAPI IHTMLScreen2_get_logicalXDPI_Proxy(IHTMLScreen2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLScreen2_get_logicalXDPI_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLScreen2_get_logicalYDPI_Proxy(IHTMLScreen2 *This,long *p);
+  HRESULT WINAPI IHTMLScreen2_get_logicalYDPI_Proxy(IHTMLScreen2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLScreen2_get_logicalYDPI_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLScreen2_get_deviceXDPI_Proxy(IHTMLScreen2 *This,long *p);
+  HRESULT WINAPI IHTMLScreen2_get_deviceXDPI_Proxy(IHTMLScreen2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLScreen2_get_deviceXDPI_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLScreen2_get_deviceYDPI_Proxy(IHTMLScreen2 *This,long *p);
+  HRESULT WINAPI IHTMLScreen2_get_deviceYDPI_Proxy(IHTMLScreen2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLScreen2_get_deviceYDPI_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -23849,7 +23849,7 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI put_embed(VARIANT_BOOL v) = 0;
     virtual HRESULT WINAPI get_embed(VARIANT_BOOL *p) = 0;
     virtual HRESULT WINAPI get_event(IDispatch **p) = 0;
-    virtual HRESULT WINAPI get_readyState(long *p) = 0;
+    virtual HRESULT WINAPI get_readyState(__LONG32 *p) = 0;
     virtual HRESULT WINAPI AboutBox(void) = 0;
   };
 #else
@@ -23869,7 +23869,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *put_embed)(IWebBridge *This,VARIANT_BOOL v);
       HRESULT (WINAPI *get_embed)(IWebBridge *This,VARIANT_BOOL *p);
       HRESULT (WINAPI *get_event)(IWebBridge *This,IDispatch **p);
-      HRESULT (WINAPI *get_readyState)(IWebBridge *This,long *p);
+      HRESULT (WINAPI *get_readyState)(IWebBridge *This,__LONG32 *p);
       HRESULT (WINAPI *AboutBox)(IWebBridge *This);
     END_INTERFACE
   } IWebBridgeVtbl;
@@ -23909,7 +23909,7 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IWebBridge_get_embed_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IWebBridge_get_event_Proxy(IWebBridge *This,IDispatch **p);
   void __RPC_STUB IWebBridge_get_event_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IWebBridge_get_readyState_Proxy(IWebBridge *This,long *p);
+  HRESULT WINAPI IWebBridge_get_readyState_Proxy(IWebBridge *This,__LONG32 *p);
   void __RPC_STUB IWebBridge_get_readyState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IWebBridge_AboutBox_Proxy(IWebBridge *This);
   void __RPC_STUB IWebBridge_AboutBox_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -24230,13 +24230,13 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLAreasCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI put_length(long v) = 0;
-    virtual HRESULT WINAPI get_length(long *p) = 0;
+    virtual HRESULT WINAPI put_length(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get__newEnum(IUnknown **p) = 0;
     virtual HRESULT WINAPI item(VARIANT name,VARIANT index,IDispatch **pdisp) = 0;
     virtual HRESULT WINAPI tags(VARIANT tagName,IDispatch **pdisp) = 0;
     virtual HRESULT WINAPI add(IHTMLElement *element,VARIANT before) = 0;
-    virtual HRESULT WINAPI remove(long index = -1) = 0;
+    virtual HRESULT WINAPI remove(__LONG32 index = -1) = 0;
   };
 #else
   typedef struct IHTMLAreasCollectionVtbl {
@@ -24248,13 +24248,13 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLAreasCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLAreasCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLAreasCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *put_length)(IHTMLAreasCollection *This,long v);
-      HRESULT (WINAPI *get_length)(IHTMLAreasCollection *This,long *p);
+      HRESULT (WINAPI *put_length)(IHTMLAreasCollection *This,__LONG32 v);
+      HRESULT (WINAPI *get_length)(IHTMLAreasCollection *This,__LONG32 *p);
       HRESULT (WINAPI *get__newEnum)(IHTMLAreasCollection *This,IUnknown **p);
       HRESULT (WINAPI *item)(IHTMLAreasCollection *This,VARIANT name,VARIANT index,IDispatch **pdisp);
       HRESULT (WINAPI *tags)(IHTMLAreasCollection *This,VARIANT tagName,IDispatch **pdisp);
       HRESULT (WINAPI *add)(IHTMLAreasCollection *This,IHTMLElement *element,VARIANT before);
-      HRESULT (WINAPI *remove)(IHTMLAreasCollection *This,long index);
+      HRESULT (WINAPI *remove)(IHTMLAreasCollection *This,__LONG32 index);
     END_INTERFACE
   } IHTMLAreasCollectionVtbl;
   struct IHTMLAreasCollection {
@@ -24278,9 +24278,9 @@ IHTMLStyle : public IDispatch {
 #endif
 #endif
 
-  HRESULT WINAPI IHTMLAreasCollection_put_length_Proxy(IHTMLAreasCollection *This,long v);
+  HRESULT WINAPI IHTMLAreasCollection_put_length_Proxy(IHTMLAreasCollection *This,__LONG32 v);
   void __RPC_STUB IHTMLAreasCollection_put_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLAreasCollection_get_length_Proxy(IHTMLAreasCollection *This,long *p);
+  HRESULT WINAPI IHTMLAreasCollection_get_length_Proxy(IHTMLAreasCollection *This,__LONG32 *p);
   void __RPC_STUB IHTMLAreasCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLAreasCollection_get__newEnum_Proxy(IHTMLAreasCollection *This,IUnknown **p);
   void __RPC_STUB IHTMLAreasCollection_get__newEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -24290,7 +24290,7 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLAreasCollection_tags_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLAreasCollection_add_Proxy(IHTMLAreasCollection *This,IHTMLElement *element,VARIANT before);
   void __RPC_STUB IHTMLAreasCollection_add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLAreasCollection_remove_Proxy(IHTMLAreasCollection *This,long index);
+  HRESULT WINAPI IHTMLAreasCollection_remove_Proxy(IHTMLAreasCollection *This,__LONG32 index);
   void __RPC_STUB IHTMLAreasCollection_remove_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -24910,8 +24910,8 @@ IHTMLStyle : public IDispatch {
   public:
     virtual HRESULT WINAPI put_text(BSTR v) = 0;
     virtual HRESULT WINAPI get_text(BSTR *p) = 0;
-    virtual HRESULT WINAPI put_atomic(long v) = 0;
-    virtual HRESULT WINAPI get_atomic(long *p) = 0;
+    virtual HRESULT WINAPI put_atomic(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_atomic(__LONG32 *p) = 0;
   };
 #else
   typedef struct IHTMLCommentElementVtbl {
@@ -24925,8 +24925,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(IHTMLCommentElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *put_text)(IHTMLCommentElement *This,BSTR v);
       HRESULT (WINAPI *get_text)(IHTMLCommentElement *This,BSTR *p);
-      HRESULT (WINAPI *put_atomic)(IHTMLCommentElement *This,long v);
-      HRESULT (WINAPI *get_atomic)(IHTMLCommentElement *This,long *p);
+      HRESULT (WINAPI *put_atomic)(IHTMLCommentElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_atomic)(IHTMLCommentElement *This,__LONG32 *p);
     END_INTERFACE
   } IHTMLCommentElementVtbl;
   struct IHTMLCommentElement {
@@ -24951,9 +24951,9 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLCommentElement_put_text_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLCommentElement_get_text_Proxy(IHTMLCommentElement *This,BSTR *p);
   void __RPC_STUB IHTMLCommentElement_get_text_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLCommentElement_put_atomic_Proxy(IHTMLCommentElement *This,long v);
+  HRESULT WINAPI IHTMLCommentElement_put_atomic_Proxy(IHTMLCommentElement *This,__LONG32 v);
   void __RPC_STUB IHTMLCommentElement_put_atomic_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLCommentElement_get_atomic_Proxy(IHTMLCommentElement *This,long *p);
+  HRESULT WINAPI IHTMLCommentElement_get_atomic_Proxy(IHTMLCommentElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLCommentElement_get_atomic_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -24965,12 +24965,12 @@ IHTMLStyle : public IDispatch {
   public:
     virtual HRESULT WINAPI put_data(BSTR v) = 0;
     virtual HRESULT WINAPI get_data(BSTR *p) = 0;
-    virtual HRESULT WINAPI get_length(long *p) = 0;
-    virtual HRESULT WINAPI substringData(long offset,long Count,BSTR *pbstrsubString) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI substringData(__LONG32 offset,__LONG32 Count,BSTR *pbstrsubString) = 0;
     virtual HRESULT WINAPI appendData(BSTR bstrstring) = 0;
-    virtual HRESULT WINAPI insertData(long offset,BSTR bstrstring) = 0;
-    virtual HRESULT WINAPI deleteData(long offset,long Count) = 0;
-    virtual HRESULT WINAPI replaceData(long offset,long Count,BSTR bstrstring) = 0;
+    virtual HRESULT WINAPI insertData(__LONG32 offset,BSTR bstrstring) = 0;
+    virtual HRESULT WINAPI deleteData(__LONG32 offset,__LONG32 Count) = 0;
+    virtual HRESULT WINAPI replaceData(__LONG32 offset,__LONG32 Count,BSTR bstrstring) = 0;
   };
 #else
   typedef struct IHTMLCommentElement2Vtbl {
@@ -24984,12 +24984,12 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Invoke)(IHTMLCommentElement2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *put_data)(IHTMLCommentElement2 *This,BSTR v);
       HRESULT (WINAPI *get_data)(IHTMLCommentElement2 *This,BSTR *p);
-      HRESULT (WINAPI *get_length)(IHTMLCommentElement2 *This,long *p);
-      HRESULT (WINAPI *substringData)(IHTMLCommentElement2 *This,long offset,long Count,BSTR *pbstrsubString);
+      HRESULT (WINAPI *get_length)(IHTMLCommentElement2 *This,__LONG32 *p);
+      HRESULT (WINAPI *substringData)(IHTMLCommentElement2 *This,__LONG32 offset,__LONG32 Count,BSTR *pbstrsubString);
       HRESULT (WINAPI *appendData)(IHTMLCommentElement2 *This,BSTR bstrstring);
-      HRESULT (WINAPI *insertData)(IHTMLCommentElement2 *This,long offset,BSTR bstrstring);
-      HRESULT (WINAPI *deleteData)(IHTMLCommentElement2 *This,long offset,long Count);
-      HRESULT (WINAPI *replaceData)(IHTMLCommentElement2 *This,long offset,long Count,BSTR bstrstring);
+      HRESULT (WINAPI *insertData)(IHTMLCommentElement2 *This,__LONG32 offset,BSTR bstrstring);
+      HRESULT (WINAPI *deleteData)(IHTMLCommentElement2 *This,__LONG32 offset,__LONG32 Count);
+      HRESULT (WINAPI *replaceData)(IHTMLCommentElement2 *This,__LONG32 offset,__LONG32 Count,BSTR bstrstring);
     END_INTERFACE
   } IHTMLCommentElement2Vtbl;
   struct IHTMLCommentElement2 {
@@ -25018,17 +25018,17 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLCommentElement2_put_data_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLCommentElement2_get_data_Proxy(IHTMLCommentElement2 *This,BSTR *p);
   void __RPC_STUB IHTMLCommentElement2_get_data_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLCommentElement2_get_length_Proxy(IHTMLCommentElement2 *This,long *p);
+  HRESULT WINAPI IHTMLCommentElement2_get_length_Proxy(IHTMLCommentElement2 *This,__LONG32 *p);
   void __RPC_STUB IHTMLCommentElement2_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLCommentElement2_substringData_Proxy(IHTMLCommentElement2 *This,long offset,long Count,BSTR *pbstrsubString);
+  HRESULT WINAPI IHTMLCommentElement2_substringData_Proxy(IHTMLCommentElement2 *This,__LONG32 offset,__LONG32 Count,BSTR *pbstrsubString);
   void __RPC_STUB IHTMLCommentElement2_substringData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLCommentElement2_appendData_Proxy(IHTMLCommentElement2 *This,BSTR bstrstring);
   void __RPC_STUB IHTMLCommentElement2_appendData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLCommentElement2_insertData_Proxy(IHTMLCommentElement2 *This,long offset,BSTR bstrstring);
+  HRESULT WINAPI IHTMLCommentElement2_insertData_Proxy(IHTMLCommentElement2 *This,__LONG32 offset,BSTR bstrstring);
   void __RPC_STUB IHTMLCommentElement2_insertData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLCommentElement2_deleteData_Proxy(IHTMLCommentElement2 *This,long offset,long Count);
+  HRESULT WINAPI IHTMLCommentElement2_deleteData_Proxy(IHTMLCommentElement2 *This,__LONG32 offset,__LONG32 Count);
   void __RPC_STUB IHTMLCommentElement2_deleteData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLCommentElement2_replaceData_Proxy(IHTMLCommentElement2 *This,long offset,long Count,BSTR bstrstring);
+  HRESULT WINAPI IHTMLCommentElement2_replaceData_Proxy(IHTMLCommentElement2 *This,__LONG32 offset,__LONG32 Count,BSTR bstrstring);
   void __RPC_STUB IHTMLCommentElement2_replaceData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -25346,8 +25346,8 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI put_bgColor(VARIANT v) = 0;
     virtual HRESULT WINAPI get_bgColor(VARIANT *p) = 0;
     virtual HRESULT WINAPI get_rows(IHTMLElementCollection **p) = 0;
-    virtual HRESULT WINAPI insertRow(long index,IDispatch **row) = 0;
-    virtual HRESULT WINAPI deleteRow(long index = -1) = 0;
+    virtual HRESULT WINAPI insertRow(__LONG32 index,IDispatch **row) = 0;
+    virtual HRESULT WINAPI deleteRow(__LONG32 index = -1) = 0;
   };
 #else
   typedef struct IHTMLTableSectionVtbl {
@@ -25366,8 +25366,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *put_bgColor)(IHTMLTableSection *This,VARIANT v);
       HRESULT (WINAPI *get_bgColor)(IHTMLTableSection *This,VARIANT *p);
       HRESULT (WINAPI *get_rows)(IHTMLTableSection *This,IHTMLElementCollection **p);
-      HRESULT (WINAPI *insertRow)(IHTMLTableSection *This,long index,IDispatch **row);
-      HRESULT (WINAPI *deleteRow)(IHTMLTableSection *This,long index);
+      HRESULT (WINAPI *insertRow)(IHTMLTableSection *This,__LONG32 index,IDispatch **row);
+      HRESULT (WINAPI *deleteRow)(IHTMLTableSection *This,__LONG32 index);
     END_INTERFACE
   } IHTMLTableSectionVtbl;
   struct IHTMLTableSection {
@@ -25407,9 +25407,9 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLTableSection_get_bgColor_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLTableSection_get_rows_Proxy(IHTMLTableSection *This,IHTMLElementCollection **p);
   void __RPC_STUB IHTMLTableSection_get_rows_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTableSection_insertRow_Proxy(IHTMLTableSection *This,long index,IDispatch **row);
+  HRESULT WINAPI IHTMLTableSection_insertRow_Proxy(IHTMLTableSection *This,__LONG32 index,IDispatch **row);
   void __RPC_STUB IHTMLTableSection_insertRow_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTableSection_deleteRow_Proxy(IHTMLTableSection *This,long index);
+  HRESULT WINAPI IHTMLTableSection_deleteRow_Proxy(IHTMLTableSection *This,__LONG32 index);
   void __RPC_STUB IHTMLTableSection_deleteRow_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -25419,8 +25419,8 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLTable : public IDispatch {
   public:
-    virtual HRESULT WINAPI put_cols(long v) = 0;
-    virtual HRESULT WINAPI get_cols(long *p) = 0;
+    virtual HRESULT WINAPI put_cols(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_cols(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_border(VARIANT v) = 0;
     virtual HRESULT WINAPI get_border(VARIANT *p) = 0;
     virtual HRESULT WINAPI put_frame(BSTR v) = 0;
@@ -25449,8 +25449,8 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_width(VARIANT *p) = 0;
     virtual HRESULT WINAPI put_height(VARIANT v) = 0;
     virtual HRESULT WINAPI get_height(VARIANT *p) = 0;
-    virtual HRESULT WINAPI put_dataPageSize(long v) = 0;
-    virtual HRESULT WINAPI get_dataPageSize(long *p) = 0;
+    virtual HRESULT WINAPI put_dataPageSize(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_dataPageSize(__LONG32 *p) = 0;
     virtual HRESULT WINAPI nextPage(void) = 0;
     virtual HRESULT WINAPI previousPage(void) = 0;
     virtual HRESULT WINAPI get_tHead(IHTMLTableSection **p) = 0;
@@ -25463,8 +25463,8 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI deleteTFoot(void) = 0;
     virtual HRESULT WINAPI createCaption(IHTMLTableCaption **caption) = 0;
     virtual HRESULT WINAPI deleteCaption(void) = 0;
-    virtual HRESULT WINAPI insertRow(long index,IDispatch **row) = 0;
-    virtual HRESULT WINAPI deleteRow(long index = -1) = 0;
+    virtual HRESULT WINAPI insertRow(__LONG32 index,IDispatch **row) = 0;
+    virtual HRESULT WINAPI deleteRow(__LONG32 index = -1) = 0;
     virtual HRESULT WINAPI get_readyState(BSTR *p) = 0;
     virtual HRESULT WINAPI put_onreadystatechange(VARIANT v) = 0;
     virtual HRESULT WINAPI get_onreadystatechange(VARIANT *p) = 0;
@@ -25479,8 +25479,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLTable *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLTable *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLTable *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *put_cols)(IHTMLTable *This,long v);
-      HRESULT (WINAPI *get_cols)(IHTMLTable *This,long *p);
+      HRESULT (WINAPI *put_cols)(IHTMLTable *This,__LONG32 v);
+      HRESULT (WINAPI *get_cols)(IHTMLTable *This,__LONG32 *p);
       HRESULT (WINAPI *put_border)(IHTMLTable *This,VARIANT v);
       HRESULT (WINAPI *get_border)(IHTMLTable *This,VARIANT *p);
       HRESULT (WINAPI *put_frame)(IHTMLTable *This,BSTR v);
@@ -25509,8 +25509,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_width)(IHTMLTable *This,VARIANT *p);
       HRESULT (WINAPI *put_height)(IHTMLTable *This,VARIANT v);
       HRESULT (WINAPI *get_height)(IHTMLTable *This,VARIANT *p);
-      HRESULT (WINAPI *put_dataPageSize)(IHTMLTable *This,long v);
-      HRESULT (WINAPI *get_dataPageSize)(IHTMLTable *This,long *p);
+      HRESULT (WINAPI *put_dataPageSize)(IHTMLTable *This,__LONG32 v);
+      HRESULT (WINAPI *get_dataPageSize)(IHTMLTable *This,__LONG32 *p);
       HRESULT (WINAPI *nextPage)(IHTMLTable *This);
       HRESULT (WINAPI *previousPage)(IHTMLTable *This);
       HRESULT (WINAPI *get_tHead)(IHTMLTable *This,IHTMLTableSection **p);
@@ -25523,8 +25523,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *deleteTFoot)(IHTMLTable *This);
       HRESULT (WINAPI *createCaption)(IHTMLTable *This,IHTMLTableCaption **caption);
       HRESULT (WINAPI *deleteCaption)(IHTMLTable *This);
-      HRESULT (WINAPI *insertRow)(IHTMLTable *This,long index,IDispatch **row);
-      HRESULT (WINAPI *deleteRow)(IHTMLTable *This,long index);
+      HRESULT (WINAPI *insertRow)(IHTMLTable *This,__LONG32 index,IDispatch **row);
+      HRESULT (WINAPI *deleteRow)(IHTMLTable *This,__LONG32 index);
       HRESULT (WINAPI *get_readyState)(IHTMLTable *This,BSTR *p);
       HRESULT (WINAPI *put_onreadystatechange)(IHTMLTable *This,VARIANT v);
       HRESULT (WINAPI *get_onreadystatechange)(IHTMLTable *This,VARIANT *p);
@@ -25593,9 +25593,9 @@ IHTMLStyle : public IDispatch {
 #endif
 #endif
 
-  HRESULT WINAPI IHTMLTable_put_cols_Proxy(IHTMLTable *This,long v);
+  HRESULT WINAPI IHTMLTable_put_cols_Proxy(IHTMLTable *This,__LONG32 v);
   void __RPC_STUB IHTMLTable_put_cols_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTable_get_cols_Proxy(IHTMLTable *This,long *p);
+  HRESULT WINAPI IHTMLTable_get_cols_Proxy(IHTMLTable *This,__LONG32 *p);
   void __RPC_STUB IHTMLTable_get_cols_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLTable_put_border_Proxy(IHTMLTable *This,VARIANT v);
   void __RPC_STUB IHTMLTable_put_border_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -25653,9 +25653,9 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLTable_put_height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLTable_get_height_Proxy(IHTMLTable *This,VARIANT *p);
   void __RPC_STUB IHTMLTable_get_height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTable_put_dataPageSize_Proxy(IHTMLTable *This,long v);
+  HRESULT WINAPI IHTMLTable_put_dataPageSize_Proxy(IHTMLTable *This,__LONG32 v);
   void __RPC_STUB IHTMLTable_put_dataPageSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTable_get_dataPageSize_Proxy(IHTMLTable *This,long *p);
+  HRESULT WINAPI IHTMLTable_get_dataPageSize_Proxy(IHTMLTable *This,__LONG32 *p);
   void __RPC_STUB IHTMLTable_get_dataPageSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLTable_nextPage_Proxy(IHTMLTable *This);
   void __RPC_STUB IHTMLTable_nextPage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -25681,9 +25681,9 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLTable_createCaption_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLTable_deleteCaption_Proxy(IHTMLTable *This);
   void __RPC_STUB IHTMLTable_deleteCaption_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTable_insertRow_Proxy(IHTMLTable *This,long index,IDispatch **row);
+  HRESULT WINAPI IHTMLTable_insertRow_Proxy(IHTMLTable *This,__LONG32 index,IDispatch **row);
   void __RPC_STUB IHTMLTable_insertRow_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTable_deleteRow_Proxy(IHTMLTable *This,long index);
+  HRESULT WINAPI IHTMLTable_deleteRow_Proxy(IHTMLTable *This,__LONG32 index);
   void __RPC_STUB IHTMLTable_deleteRow_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLTable_get_readyState_Proxy(IHTMLTable *This,BSTR *p);
   void __RPC_STUB IHTMLTable_get_readyState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -25702,7 +25702,7 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI firstPage(void) = 0;
     virtual HRESULT WINAPI lastPage(void) = 0;
     virtual HRESULT WINAPI get_cells(IHTMLElementCollection **p) = 0;
-    virtual HRESULT WINAPI moveRow(long indexFrom,long indexTo,IDispatch **row) = 0;
+    virtual HRESULT WINAPI moveRow(__LONG32 indexFrom,__LONG32 indexTo,IDispatch **row) = 0;
   };
 #else
   typedef struct IHTMLTable2Vtbl {
@@ -25717,7 +25717,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *firstPage)(IHTMLTable2 *This);
       HRESULT (WINAPI *lastPage)(IHTMLTable2 *This);
       HRESULT (WINAPI *get_cells)(IHTMLTable2 *This,IHTMLElementCollection **p);
-      HRESULT (WINAPI *moveRow)(IHTMLTable2 *This,long indexFrom,long indexTo,IDispatch **row);
+      HRESULT (WINAPI *moveRow)(IHTMLTable2 *This,__LONG32 indexFrom,__LONG32 indexTo,IDispatch **row);
     END_INTERFACE
   } IHTMLTable2Vtbl;
   struct IHTMLTable2 {
@@ -25744,7 +25744,7 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLTable2_lastPage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLTable2_get_cells_Proxy(IHTMLTable2 *This,IHTMLElementCollection **p);
   void __RPC_STUB IHTMLTable2_get_cells_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTable2_moveRow_Proxy(IHTMLTable2 *This,long indexFrom,long indexTo,IDispatch **row);
+  HRESULT WINAPI IHTMLTable2_moveRow_Proxy(IHTMLTable2 *This,__LONG32 indexFrom,__LONG32 indexTo,IDispatch **row);
   void __RPC_STUB IHTMLTable2_moveRow_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -25799,8 +25799,8 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLTableCol : public IDispatch {
   public:
-    virtual HRESULT WINAPI put_span(long v) = 0;
-    virtual HRESULT WINAPI get_span(long *p) = 0;
+    virtual HRESULT WINAPI put_span(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_span(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_width(VARIANT v) = 0;
     virtual HRESULT WINAPI get_width(VARIANT *p) = 0;
     virtual HRESULT WINAPI put_align(BSTR v) = 0;
@@ -25818,8 +25818,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLTableCol *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLTableCol *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLTableCol *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *put_span)(IHTMLTableCol *This,long v);
-      HRESULT (WINAPI *get_span)(IHTMLTableCol *This,long *p);
+      HRESULT (WINAPI *put_span)(IHTMLTableCol *This,__LONG32 v);
+      HRESULT (WINAPI *get_span)(IHTMLTableCol *This,__LONG32 *p);
       HRESULT (WINAPI *put_width)(IHTMLTableCol *This,VARIANT v);
       HRESULT (WINAPI *get_width)(IHTMLTableCol *This,VARIANT *p);
       HRESULT (WINAPI *put_align)(IHTMLTableCol *This,BSTR v);
@@ -25849,9 +25849,9 @@ IHTMLStyle : public IDispatch {
 #define IHTMLTableCol_get_vAlign(This,p) (This)->lpVtbl->get_vAlign(This,p)
 #endif
 #endif
-  HRESULT WINAPI IHTMLTableCol_put_span_Proxy(IHTMLTableCol *This,long v);
+  HRESULT WINAPI IHTMLTableCol_put_span_Proxy(IHTMLTableCol *This,__LONG32 v);
   void __RPC_STUB IHTMLTableCol_put_span_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTableCol_get_span_Proxy(IHTMLTableCol *This,long *p);
+  HRESULT WINAPI IHTMLTableCol_get_span_Proxy(IHTMLTableCol *This,__LONG32 *p);
   void __RPC_STUB IHTMLTableCol_get_span_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLTableCol_put_width_Proxy(IHTMLTableCol *This,VARIANT v);
   void __RPC_STUB IHTMLTableCol_put_width_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -25928,7 +25928,7 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLTableSection2 : public IDispatch {
   public:
-    virtual HRESULT WINAPI moveRow(long indexFrom,long indexTo,IDispatch **row) = 0;
+    virtual HRESULT WINAPI moveRow(__LONG32 indexFrom,__LONG32 indexTo,IDispatch **row) = 0;
   };
 #else
   typedef struct IHTMLTableSection2Vtbl {
@@ -25940,7 +25940,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLTableSection2 *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLTableSection2 *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLTableSection2 *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *moveRow)(IHTMLTableSection2 *This,long indexFrom,long indexTo,IDispatch **row);
+      HRESULT (WINAPI *moveRow)(IHTMLTableSection2 *This,__LONG32 indexFrom,__LONG32 indexTo,IDispatch **row);
     END_INTERFACE
   } IHTMLTableSection2Vtbl;
   struct IHTMLTableSection2 {
@@ -25958,7 +25958,7 @@ IHTMLStyle : public IDispatch {
 #endif
 #endif
 
-  HRESULT WINAPI IHTMLTableSection2_moveRow_Proxy(IHTMLTableSection2 *This,long indexFrom,long indexTo,IDispatch **row);
+  HRESULT WINAPI IHTMLTableSection2_moveRow_Proxy(IHTMLTableSection2 *This,__LONG32 indexFrom,__LONG32 indexTo,IDispatch **row);
   void __RPC_STUB IHTMLTableSection2_moveRow_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -26035,11 +26035,11 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_borderColorLight(VARIANT *p) = 0;
     virtual HRESULT WINAPI put_borderColorDark(VARIANT v) = 0;
     virtual HRESULT WINAPI get_borderColorDark(VARIANT *p) = 0;
-    virtual HRESULT WINAPI get_rowIndex(long *p) = 0;
-    virtual HRESULT WINAPI get_sectionRowIndex(long *p) = 0;
+    virtual HRESULT WINAPI get_rowIndex(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_sectionRowIndex(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get_cells(IHTMLElementCollection **p) = 0;
-    virtual HRESULT WINAPI insertCell(long index,IDispatch **row) = 0;
-    virtual HRESULT WINAPI deleteCell(long index = -1) = 0;
+    virtual HRESULT WINAPI insertCell(__LONG32 index,IDispatch **row) = 0;
+    virtual HRESULT WINAPI deleteCell(__LONG32 index = -1) = 0;
   };
 #else
   typedef struct IHTMLTableRowVtbl {
@@ -26063,11 +26063,11 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_borderColorLight)(IHTMLTableRow *This,VARIANT *p);
       HRESULT (WINAPI *put_borderColorDark)(IHTMLTableRow *This,VARIANT v);
       HRESULT (WINAPI *get_borderColorDark)(IHTMLTableRow *This,VARIANT *p);
-      HRESULT (WINAPI *get_rowIndex)(IHTMLTableRow *This,long *p);
-      HRESULT (WINAPI *get_sectionRowIndex)(IHTMLTableRow *This,long *p);
+      HRESULT (WINAPI *get_rowIndex)(IHTMLTableRow *This,__LONG32 *p);
+      HRESULT (WINAPI *get_sectionRowIndex)(IHTMLTableRow *This,__LONG32 *p);
       HRESULT (WINAPI *get_cells)(IHTMLTableRow *This,IHTMLElementCollection **p);
-      HRESULT (WINAPI *insertCell)(IHTMLTableRow *This,long index,IDispatch **row);
-      HRESULT (WINAPI *deleteCell)(IHTMLTableRow *This,long index);
+      HRESULT (WINAPI *insertCell)(IHTMLTableRow *This,__LONG32 index,IDispatch **row);
+      HRESULT (WINAPI *deleteCell)(IHTMLTableRow *This,__LONG32 index);
     END_INTERFACE
   } IHTMLTableRowVtbl;
   struct IHTMLTableRow {
@@ -26125,15 +26125,15 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLTableRow_put_borderColorDark_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLTableRow_get_borderColorDark_Proxy(IHTMLTableRow *This,VARIANT *p);
   void __RPC_STUB IHTMLTableRow_get_borderColorDark_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTableRow_get_rowIndex_Proxy(IHTMLTableRow *This,long *p);
+  HRESULT WINAPI IHTMLTableRow_get_rowIndex_Proxy(IHTMLTableRow *This,__LONG32 *p);
   void __RPC_STUB IHTMLTableRow_get_rowIndex_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTableRow_get_sectionRowIndex_Proxy(IHTMLTableRow *This,long *p);
+  HRESULT WINAPI IHTMLTableRow_get_sectionRowIndex_Proxy(IHTMLTableRow *This,__LONG32 *p);
   void __RPC_STUB IHTMLTableRow_get_sectionRowIndex_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLTableRow_get_cells_Proxy(IHTMLTableRow *This,IHTMLElementCollection **p);
   void __RPC_STUB IHTMLTableRow_get_cells_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTableRow_insertCell_Proxy(IHTMLTableRow *This,long index,IDispatch **row);
+  HRESULT WINAPI IHTMLTableRow_insertCell_Proxy(IHTMLTableRow *This,__LONG32 index,IDispatch **row);
   void __RPC_STUB IHTMLTableRow_insertCell_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTableRow_deleteCell_Proxy(IHTMLTableRow *This,long index);
+  HRESULT WINAPI IHTMLTableRow_deleteCell_Proxy(IHTMLTableRow *This,__LONG32 index);
   void __RPC_STUB IHTMLTableRow_deleteCell_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -26243,10 +26243,10 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLTableRowMetrics : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_clientHeight(long *p) = 0;
-    virtual HRESULT WINAPI get_clientWidth(long *p) = 0;
-    virtual HRESULT WINAPI get_clientTop(long *p) = 0;
-    virtual HRESULT WINAPI get_clientLeft(long *p) = 0;
+    virtual HRESULT WINAPI get_clientHeight(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_clientWidth(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_clientTop(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_clientLeft(__LONG32 *p) = 0;
   };
 #else
   typedef struct IHTMLTableRowMetricsVtbl {
@@ -26258,10 +26258,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLTableRowMetrics *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLTableRowMetrics *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLTableRowMetrics *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_clientHeight)(IHTMLTableRowMetrics *This,long *p);
-      HRESULT (WINAPI *get_clientWidth)(IHTMLTableRowMetrics *This,long *p);
-      HRESULT (WINAPI *get_clientTop)(IHTMLTableRowMetrics *This,long *p);
-      HRESULT (WINAPI *get_clientLeft)(IHTMLTableRowMetrics *This,long *p);
+      HRESULT (WINAPI *get_clientHeight)(IHTMLTableRowMetrics *This,__LONG32 *p);
+      HRESULT (WINAPI *get_clientWidth)(IHTMLTableRowMetrics *This,__LONG32 *p);
+      HRESULT (WINAPI *get_clientTop)(IHTMLTableRowMetrics *This,__LONG32 *p);
+      HRESULT (WINAPI *get_clientLeft)(IHTMLTableRowMetrics *This,__LONG32 *p);
     END_INTERFACE
   } IHTMLTableRowMetricsVtbl;
   struct IHTMLTableRowMetrics {
@@ -26282,13 +26282,13 @@ IHTMLStyle : public IDispatch {
 #endif
 #endif
 
-  HRESULT WINAPI IHTMLTableRowMetrics_get_clientHeight_Proxy(IHTMLTableRowMetrics *This,long *p);
+  HRESULT WINAPI IHTMLTableRowMetrics_get_clientHeight_Proxy(IHTMLTableRowMetrics *This,__LONG32 *p);
   void __RPC_STUB IHTMLTableRowMetrics_get_clientHeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTableRowMetrics_get_clientWidth_Proxy(IHTMLTableRowMetrics *This,long *p);
+  HRESULT WINAPI IHTMLTableRowMetrics_get_clientWidth_Proxy(IHTMLTableRowMetrics *This,__LONG32 *p);
   void __RPC_STUB IHTMLTableRowMetrics_get_clientWidth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTableRowMetrics_get_clientTop_Proxy(IHTMLTableRowMetrics *This,long *p);
+  HRESULT WINAPI IHTMLTableRowMetrics_get_clientTop_Proxy(IHTMLTableRowMetrics *This,__LONG32 *p);
   void __RPC_STUB IHTMLTableRowMetrics_get_clientTop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTableRowMetrics_get_clientLeft_Proxy(IHTMLTableRowMetrics *This,long *p);
+  HRESULT WINAPI IHTMLTableRowMetrics_get_clientLeft_Proxy(IHTMLTableRowMetrics *This,__LONG32 *p);
   void __RPC_STUB IHTMLTableRowMetrics_get_clientLeft_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -26298,10 +26298,10 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLTableCell : public IDispatch {
   public:
-    virtual HRESULT WINAPI put_rowSpan(long v) = 0;
-    virtual HRESULT WINAPI get_rowSpan(long *p) = 0;
-    virtual HRESULT WINAPI put_colSpan(long v) = 0;
-    virtual HRESULT WINAPI get_colSpan(long *p) = 0;
+    virtual HRESULT WINAPI put_rowSpan(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_rowSpan(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_colSpan(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_colSpan(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_align(BSTR v) = 0;
     virtual HRESULT WINAPI get_align(BSTR *p) = 0;
     virtual HRESULT WINAPI put_vAlign(BSTR v) = 0;
@@ -26322,7 +26322,7 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_width(VARIANT *p) = 0;
     virtual HRESULT WINAPI put_height(VARIANT v) = 0;
     virtual HRESULT WINAPI get_height(VARIANT *p) = 0;
-    virtual HRESULT WINAPI get_cellIndex(long *p) = 0;
+    virtual HRESULT WINAPI get_cellIndex(__LONG32 *p) = 0;
   };
 #else
   typedef struct IHTMLTableCellVtbl {
@@ -26334,10 +26334,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLTableCell *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLTableCell *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLTableCell *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *put_rowSpan)(IHTMLTableCell *This,long v);
-      HRESULT (WINAPI *get_rowSpan)(IHTMLTableCell *This,long *p);
-      HRESULT (WINAPI *put_colSpan)(IHTMLTableCell *This,long v);
-      HRESULT (WINAPI *get_colSpan)(IHTMLTableCell *This,long *p);
+      HRESULT (WINAPI *put_rowSpan)(IHTMLTableCell *This,__LONG32 v);
+      HRESULT (WINAPI *get_rowSpan)(IHTMLTableCell *This,__LONG32 *p);
+      HRESULT (WINAPI *put_colSpan)(IHTMLTableCell *This,__LONG32 v);
+      HRESULT (WINAPI *get_colSpan)(IHTMLTableCell *This,__LONG32 *p);
       HRESULT (WINAPI *put_align)(IHTMLTableCell *This,BSTR v);
       HRESULT (WINAPI *get_align)(IHTMLTableCell *This,BSTR *p);
       HRESULT (WINAPI *put_vAlign)(IHTMLTableCell *This,BSTR v);
@@ -26358,7 +26358,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_width)(IHTMLTableCell *This,VARIANT *p);
       HRESULT (WINAPI *put_height)(IHTMLTableCell *This,VARIANT v);
       HRESULT (WINAPI *get_height)(IHTMLTableCell *This,VARIANT *p);
-      HRESULT (WINAPI *get_cellIndex)(IHTMLTableCell *This,long *p);
+      HRESULT (WINAPI *get_cellIndex)(IHTMLTableCell *This,__LONG32 *p);
     END_INTERFACE
   } IHTMLTableCellVtbl;
   struct IHTMLTableCell {
@@ -26400,13 +26400,13 @@ IHTMLStyle : public IDispatch {
 #endif
 #endif
 
-  HRESULT WINAPI IHTMLTableCell_put_rowSpan_Proxy(IHTMLTableCell *This,long v);
+  HRESULT WINAPI IHTMLTableCell_put_rowSpan_Proxy(IHTMLTableCell *This,__LONG32 v);
   void __RPC_STUB IHTMLTableCell_put_rowSpan_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTableCell_get_rowSpan_Proxy(IHTMLTableCell *This,long *p);
+  HRESULT WINAPI IHTMLTableCell_get_rowSpan_Proxy(IHTMLTableCell *This,__LONG32 *p);
   void __RPC_STUB IHTMLTableCell_get_rowSpan_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTableCell_put_colSpan_Proxy(IHTMLTableCell *This,long v);
+  HRESULT WINAPI IHTMLTableCell_put_colSpan_Proxy(IHTMLTableCell *This,__LONG32 v);
   void __RPC_STUB IHTMLTableCell_put_colSpan_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTableCell_get_colSpan_Proxy(IHTMLTableCell *This,long *p);
+  HRESULT WINAPI IHTMLTableCell_get_colSpan_Proxy(IHTMLTableCell *This,__LONG32 *p);
   void __RPC_STUB IHTMLTableCell_get_colSpan_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLTableCell_put_align_Proxy(IHTMLTableCell *This,BSTR v);
   void __RPC_STUB IHTMLTableCell_put_align_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -26448,7 +26448,7 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLTableCell_put_height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLTableCell_get_height_Proxy(IHTMLTableCell *This,VARIANT *p);
   void __RPC_STUB IHTMLTableCell_get_height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLTableCell_get_cellIndex_Proxy(IHTMLTableCell *This,long *p);
+  HRESULT WINAPI IHTMLTableCell_get_cellIndex_Proxy(IHTMLTableCell *This,__LONG32 *p);
   void __RPC_STUB IHTMLTableCell_get_cellIndex_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -27162,17 +27162,17 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_width(VARIANT *p) = 0;
     virtual HRESULT WINAPI put_height(VARIANT v) = 0;
     virtual HRESULT WINAPI get_height(VARIANT *p) = 0;
-    virtual HRESULT WINAPI get_readyState(long *p) = 0;
+    virtual HRESULT WINAPI get_readyState(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_onreadystatechange(VARIANT v) = 0;
     virtual HRESULT WINAPI get_onreadystatechange(VARIANT *p) = 0;
     virtual HRESULT WINAPI put_onerror(VARIANT v) = 0;
     virtual HRESULT WINAPI get_onerror(VARIANT *p) = 0;
     virtual HRESULT WINAPI put_altHtml(BSTR v) = 0;
     virtual HRESULT WINAPI get_altHtml(BSTR *p) = 0;
-    virtual HRESULT WINAPI put_vspace(long v) = 0;
-    virtual HRESULT WINAPI get_vspace(long *p) = 0;
-    virtual HRESULT WINAPI put_hspace(long v) = 0;
-    virtual HRESULT WINAPI get_hspace(long *p) = 0;
+    virtual HRESULT WINAPI put_vspace(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_vspace(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_hspace(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_hspace(__LONG32 *p) = 0;
   };
 #else
   typedef struct IHTMLObjectElementVtbl {
@@ -27207,17 +27207,17 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_width)(IHTMLObjectElement *This,VARIANT *p);
       HRESULT (WINAPI *put_height)(IHTMLObjectElement *This,VARIANT v);
       HRESULT (WINAPI *get_height)(IHTMLObjectElement *This,VARIANT *p);
-      HRESULT (WINAPI *get_readyState)(IHTMLObjectElement *This,long *p);
+      HRESULT (WINAPI *get_readyState)(IHTMLObjectElement *This,__LONG32 *p);
       HRESULT (WINAPI *put_onreadystatechange)(IHTMLObjectElement *This,VARIANT v);
       HRESULT (WINAPI *get_onreadystatechange)(IHTMLObjectElement *This,VARIANT *p);
       HRESULT (WINAPI *put_onerror)(IHTMLObjectElement *This,VARIANT v);
       HRESULT (WINAPI *get_onerror)(IHTMLObjectElement *This,VARIANT *p);
       HRESULT (WINAPI *put_altHtml)(IHTMLObjectElement *This,BSTR v);
       HRESULT (WINAPI *get_altHtml)(IHTMLObjectElement *This,BSTR *p);
-      HRESULT (WINAPI *put_vspace)(IHTMLObjectElement *This,long v);
-      HRESULT (WINAPI *get_vspace)(IHTMLObjectElement *This,long *p);
-      HRESULT (WINAPI *put_hspace)(IHTMLObjectElement *This,long v);
-      HRESULT (WINAPI *get_hspace)(IHTMLObjectElement *This,long *p);
+      HRESULT (WINAPI *put_vspace)(IHTMLObjectElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_vspace)(IHTMLObjectElement *This,__LONG32 *p);
+      HRESULT (WINAPI *put_hspace)(IHTMLObjectElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_hspace)(IHTMLObjectElement *This,__LONG32 *p);
     END_INTERFACE
   } IHTMLObjectElementVtbl;
   struct IHTMLObjectElement {
@@ -27314,7 +27314,7 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLObjectElement_put_height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLObjectElement_get_height_Proxy(IHTMLObjectElement *This,VARIANT *p);
   void __RPC_STUB IHTMLObjectElement_get_height_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLObjectElement_get_readyState_Proxy(IHTMLObjectElement *This,long *p);
+  HRESULT WINAPI IHTMLObjectElement_get_readyState_Proxy(IHTMLObjectElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLObjectElement_get_readyState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLObjectElement_put_onreadystatechange_Proxy(IHTMLObjectElement *This,VARIANT v);
   void __RPC_STUB IHTMLObjectElement_put_onreadystatechange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -27328,13 +27328,13 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLObjectElement_put_altHtml_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLObjectElement_get_altHtml_Proxy(IHTMLObjectElement *This,BSTR *p);
   void __RPC_STUB IHTMLObjectElement_get_altHtml_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLObjectElement_put_vspace_Proxy(IHTMLObjectElement *This,long v);
+  HRESULT WINAPI IHTMLObjectElement_put_vspace_Proxy(IHTMLObjectElement *This,__LONG32 v);
   void __RPC_STUB IHTMLObjectElement_put_vspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLObjectElement_get_vspace_Proxy(IHTMLObjectElement *This,long *p);
+  HRESULT WINAPI IHTMLObjectElement_get_vspace_Proxy(IHTMLObjectElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLObjectElement_get_vspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLObjectElement_put_hspace_Proxy(IHTMLObjectElement *This,long v);
+  HRESULT WINAPI IHTMLObjectElement_put_hspace_Proxy(IHTMLObjectElement *This,__LONG32 v);
   void __RPC_STUB IHTMLObjectElement_put_hspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLObjectElement_get_hspace_Proxy(IHTMLObjectElement *This,long *p);
+  HRESULT WINAPI IHTMLObjectElement_get_hspace_Proxy(IHTMLObjectElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLObjectElement_get_hspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -28013,10 +28013,10 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLIFrameElement : public IDispatch {
   public:
-    virtual HRESULT WINAPI put_vspace(long v) = 0;
-    virtual HRESULT WINAPI get_vspace(long *p) = 0;
-    virtual HRESULT WINAPI put_hspace(long v) = 0;
-    virtual HRESULT WINAPI get_hspace(long *p) = 0;
+    virtual HRESULT WINAPI put_vspace(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_vspace(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_hspace(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_hspace(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_align(BSTR v) = 0;
     virtual HRESULT WINAPI get_align(BSTR *p) = 0;
   };
@@ -28030,10 +28030,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLIFrameElement *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLIFrameElement *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLIFrameElement *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *put_vspace)(IHTMLIFrameElement *This,long v);
-      HRESULT (WINAPI *get_vspace)(IHTMLIFrameElement *This,long *p);
-      HRESULT (WINAPI *put_hspace)(IHTMLIFrameElement *This,long v);
-      HRESULT (WINAPI *get_hspace)(IHTMLIFrameElement *This,long *p);
+      HRESULT (WINAPI *put_vspace)(IHTMLIFrameElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_vspace)(IHTMLIFrameElement *This,__LONG32 *p);
+      HRESULT (WINAPI *put_hspace)(IHTMLIFrameElement *This,__LONG32 v);
+      HRESULT (WINAPI *get_hspace)(IHTMLIFrameElement *This,__LONG32 *p);
       HRESULT (WINAPI *put_align)(IHTMLIFrameElement *This,BSTR v);
       HRESULT (WINAPI *get_align)(IHTMLIFrameElement *This,BSTR *p);
     END_INTERFACE
@@ -28058,13 +28058,13 @@ IHTMLStyle : public IDispatch {
 #endif
 #endif
 
-  HRESULT WINAPI IHTMLIFrameElement_put_vspace_Proxy(IHTMLIFrameElement *This,long v);
+  HRESULT WINAPI IHTMLIFrameElement_put_vspace_Proxy(IHTMLIFrameElement *This,__LONG32 v);
   void __RPC_STUB IHTMLIFrameElement_put_vspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLIFrameElement_get_vspace_Proxy(IHTMLIFrameElement *This,long *p);
+  HRESULT WINAPI IHTMLIFrameElement_get_vspace_Proxy(IHTMLIFrameElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLIFrameElement_get_vspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLIFrameElement_put_hspace_Proxy(IHTMLIFrameElement *This,long v);
+  HRESULT WINAPI IHTMLIFrameElement_put_hspace_Proxy(IHTMLIFrameElement *This,__LONG32 v);
   void __RPC_STUB IHTMLIFrameElement_put_hspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLIFrameElement_get_hspace_Proxy(IHTMLIFrameElement *This,long *p);
+  HRESULT WINAPI IHTMLIFrameElement_get_hspace_Proxy(IHTMLIFrameElement *This,__LONG32 *p);
   void __RPC_STUB IHTMLIFrameElement_get_hspace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLIFrameElement_put_align_Proxy(IHTMLIFrameElement *This,BSTR v);
   void __RPC_STUB IHTMLIFrameElement_put_align_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -28924,9 +28924,9 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLFontNamesCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_length(long *p) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get__newEnum(IUnknown **p) = 0;
-    virtual HRESULT WINAPI item(long index,BSTR *pBstr) = 0;
+    virtual HRESULT WINAPI item(__LONG32 index,BSTR *pBstr) = 0;
   };
 #else
   typedef struct IHTMLFontNamesCollectionVtbl {
@@ -28938,9 +28938,9 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLFontNamesCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLFontNamesCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLFontNamesCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_length)(IHTMLFontNamesCollection *This,long *p);
+      HRESULT (WINAPI *get_length)(IHTMLFontNamesCollection *This,__LONG32 *p);
       HRESULT (WINAPI *get__newEnum)(IHTMLFontNamesCollection *This,IUnknown **p);
-      HRESULT (WINAPI *item)(IHTMLFontNamesCollection *This,long index,BSTR *pBstr);
+      HRESULT (WINAPI *item)(IHTMLFontNamesCollection *This,__LONG32 index,BSTR *pBstr);
     END_INTERFACE
   } IHTMLFontNamesCollectionVtbl;
   struct IHTMLFontNamesCollection {
@@ -28960,11 +28960,11 @@ IHTMLStyle : public IDispatch {
 #endif
 #endif
 
-  HRESULT WINAPI IHTMLFontNamesCollection_get_length_Proxy(IHTMLFontNamesCollection *This,long *p);
+  HRESULT WINAPI IHTMLFontNamesCollection_get_length_Proxy(IHTMLFontNamesCollection *This,__LONG32 *p);
   void __RPC_STUB IHTMLFontNamesCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLFontNamesCollection_get__newEnum_Proxy(IHTMLFontNamesCollection *This,IUnknown **p);
   void __RPC_STUB IHTMLFontNamesCollection_get__newEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLFontNamesCollection_item_Proxy(IHTMLFontNamesCollection *This,long index,BSTR *pBstr);
+  HRESULT WINAPI IHTMLFontNamesCollection_item_Proxy(IHTMLFontNamesCollection *This,__LONG32 index,BSTR *pBstr);
   void __RPC_STUB IHTMLFontNamesCollection_item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -28974,10 +28974,10 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLFontSizesCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_length(long *p) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get__newEnum(IUnknown **p) = 0;
     virtual HRESULT WINAPI get_forFont(BSTR *p) = 0;
-    virtual HRESULT WINAPI item(long index,long *plSize) = 0;
+    virtual HRESULT WINAPI item(__LONG32 index,__LONG32 *plSize) = 0;
   };
 #else
   typedef struct IHTMLFontSizesCollectionVtbl {
@@ -28989,10 +28989,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLFontSizesCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLFontSizesCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLFontSizesCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_length)(IHTMLFontSizesCollection *This,long *p);
+      HRESULT (WINAPI *get_length)(IHTMLFontSizesCollection *This,__LONG32 *p);
       HRESULT (WINAPI *get__newEnum)(IHTMLFontSizesCollection *This,IUnknown **p);
       HRESULT (WINAPI *get_forFont)(IHTMLFontSizesCollection *This,BSTR *p);
-      HRESULT (WINAPI *item)(IHTMLFontSizesCollection *This,long index,long *plSize);
+      HRESULT (WINAPI *item)(IHTMLFontSizesCollection *This,__LONG32 index,__LONG32 *plSize);
     END_INTERFACE
   } IHTMLFontSizesCollectionVtbl;
   struct IHTMLFontSizesCollection {
@@ -29013,13 +29013,13 @@ IHTMLStyle : public IDispatch {
 #endif
 #endif
 
-  HRESULT WINAPI IHTMLFontSizesCollection_get_length_Proxy(IHTMLFontSizesCollection *This,long *p);
+  HRESULT WINAPI IHTMLFontSizesCollection_get_length_Proxy(IHTMLFontSizesCollection *This,__LONG32 *p);
   void __RPC_STUB IHTMLFontSizesCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLFontSizesCollection_get__newEnum_Proxy(IHTMLFontSizesCollection *This,IUnknown **p);
   void __RPC_STUB IHTMLFontSizesCollection_get__newEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLFontSizesCollection_get_forFont_Proxy(IHTMLFontSizesCollection *This,BSTR *p);
   void __RPC_STUB IHTMLFontSizesCollection_get_forFont_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLFontSizesCollection_item_Proxy(IHTMLFontSizesCollection *This,long index,long *plSize);
+  HRESULT WINAPI IHTMLFontSizesCollection_item_Proxy(IHTMLFontSizesCollection *This,__LONG32 index,__LONG32 *plSize);
   void __RPC_STUB IHTMLFontSizesCollection_item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -29033,12 +29033,12 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_fonts(IHTMLFontNamesCollection **p) = 0;
     virtual HRESULT WINAPI put_execArg(VARIANT v) = 0;
     virtual HRESULT WINAPI get_execArg(VARIANT *p) = 0;
-    virtual HRESULT WINAPI put_errorLine(long v) = 0;
-    virtual HRESULT WINAPI get_errorLine(long *p) = 0;
-    virtual HRESULT WINAPI put_errorCharacter(long v) = 0;
-    virtual HRESULT WINAPI get_errorCharacter(long *p) = 0;
-    virtual HRESULT WINAPI put_errorCode(long v) = 0;
-    virtual HRESULT WINAPI get_errorCode(long *p) = 0;
+    virtual HRESULT WINAPI put_errorLine(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_errorLine(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_errorCharacter(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_errorCharacter(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI put_errorCode(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_errorCode(__LONG32 *p) = 0;
     virtual HRESULT WINAPI put_errorMessage(BSTR v) = 0;
     virtual HRESULT WINAPI get_errorMessage(BSTR *p) = 0;
     virtual HRESULT WINAPI put_errorDebug(VARIANT_BOOL v) = 0;
@@ -29051,10 +29051,10 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI sizes(BSTR fontName,IHTMLFontSizesCollection **pSizesCollection) = 0;
     virtual HRESULT WINAPI openfiledlg(VARIANT initFile,VARIANT initDir,VARIANT filter,VARIANT title,BSTR *pathName) = 0;
     virtual HRESULT WINAPI savefiledlg(VARIANT initFile,VARIANT initDir,VARIANT filter,VARIANT title,BSTR *pathName) = 0;
-    virtual HRESULT WINAPI choosecolordlg(VARIANT initColor,long *rgbColor) = 0;
+    virtual HRESULT WINAPI choosecolordlg(VARIANT initColor,__LONG32 *rgbColor) = 0;
     virtual HRESULT WINAPI showSecurityInfo(void) = 0;
     virtual HRESULT WINAPI isApartmentModel(IHTMLObjectElement *object,VARIANT_BOOL *fApartment) = 0;
-    virtual HRESULT WINAPI getCharset(BSTR fontName,long *charset) = 0;
+    virtual HRESULT WINAPI getCharset(BSTR fontName,__LONG32 *charset) = 0;
     virtual HRESULT WINAPI get_secureConnectionInfo(BSTR *p) = 0;
   };
 #else
@@ -29071,12 +29071,12 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_fonts)(IHTMLOptionsHolder *This,IHTMLFontNamesCollection **p);
       HRESULT (WINAPI *put_execArg)(IHTMLOptionsHolder *This,VARIANT v);
       HRESULT (WINAPI *get_execArg)(IHTMLOptionsHolder *This,VARIANT *p);
-      HRESULT (WINAPI *put_errorLine)(IHTMLOptionsHolder *This,long v);
-      HRESULT (WINAPI *get_errorLine)(IHTMLOptionsHolder *This,long *p);
-      HRESULT (WINAPI *put_errorCharacter)(IHTMLOptionsHolder *This,long v);
-      HRESULT (WINAPI *get_errorCharacter)(IHTMLOptionsHolder *This,long *p);
-      HRESULT (WINAPI *put_errorCode)(IHTMLOptionsHolder *This,long v);
-      HRESULT (WINAPI *get_errorCode)(IHTMLOptionsHolder *This,long *p);
+      HRESULT (WINAPI *put_errorLine)(IHTMLOptionsHolder *This,__LONG32 v);
+      HRESULT (WINAPI *get_errorLine)(IHTMLOptionsHolder *This,__LONG32 *p);
+      HRESULT (WINAPI *put_errorCharacter)(IHTMLOptionsHolder *This,__LONG32 v);
+      HRESULT (WINAPI *get_errorCharacter)(IHTMLOptionsHolder *This,__LONG32 *p);
+      HRESULT (WINAPI *put_errorCode)(IHTMLOptionsHolder *This,__LONG32 v);
+      HRESULT (WINAPI *get_errorCode)(IHTMLOptionsHolder *This,__LONG32 *p);
       HRESULT (WINAPI *put_errorMessage)(IHTMLOptionsHolder *This,BSTR v);
       HRESULT (WINAPI *get_errorMessage)(IHTMLOptionsHolder *This,BSTR *p);
       HRESULT (WINAPI *put_errorDebug)(IHTMLOptionsHolder *This,VARIANT_BOOL v);
@@ -29089,10 +29089,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *sizes)(IHTMLOptionsHolder *This,BSTR fontName,IHTMLFontSizesCollection **pSizesCollection);
       HRESULT (WINAPI *openfiledlg)(IHTMLOptionsHolder *This,VARIANT initFile,VARIANT initDir,VARIANT filter,VARIANT title,BSTR *pathName);
       HRESULT (WINAPI *savefiledlg)(IHTMLOptionsHolder *This,VARIANT initFile,VARIANT initDir,VARIANT filter,VARIANT title,BSTR *pathName);
-      HRESULT (WINAPI *choosecolordlg)(IHTMLOptionsHolder *This,VARIANT initColor,long *rgbColor);
+      HRESULT (WINAPI *choosecolordlg)(IHTMLOptionsHolder *This,VARIANT initColor,__LONG32 *rgbColor);
       HRESULT (WINAPI *showSecurityInfo)(IHTMLOptionsHolder *This);
       HRESULT (WINAPI *isApartmentModel)(IHTMLOptionsHolder *This,IHTMLObjectElement *object,VARIANT_BOOL *fApartment);
-      HRESULT (WINAPI *getCharset)(IHTMLOptionsHolder *This,BSTR fontName,long *charset);
+      HRESULT (WINAPI *getCharset)(IHTMLOptionsHolder *This,BSTR fontName,__LONG32 *charset);
       HRESULT (WINAPI *get_secureConnectionInfo)(IHTMLOptionsHolder *This,BSTR *p);
     END_INTERFACE
   } IHTMLOptionsHolderVtbl;
@@ -29145,17 +29145,17 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLOptionsHolder_put_execArg_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLOptionsHolder_get_execArg_Proxy(IHTMLOptionsHolder *This,VARIANT *p);
   void __RPC_STUB IHTMLOptionsHolder_get_execArg_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLOptionsHolder_put_errorLine_Proxy(IHTMLOptionsHolder *This,long v);
+  HRESULT WINAPI IHTMLOptionsHolder_put_errorLine_Proxy(IHTMLOptionsHolder *This,__LONG32 v);
   void __RPC_STUB IHTMLOptionsHolder_put_errorLine_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLOptionsHolder_get_errorLine_Proxy(IHTMLOptionsHolder *This,long *p);
+  HRESULT WINAPI IHTMLOptionsHolder_get_errorLine_Proxy(IHTMLOptionsHolder *This,__LONG32 *p);
   void __RPC_STUB IHTMLOptionsHolder_get_errorLine_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLOptionsHolder_put_errorCharacter_Proxy(IHTMLOptionsHolder *This,long v);
+  HRESULT WINAPI IHTMLOptionsHolder_put_errorCharacter_Proxy(IHTMLOptionsHolder *This,__LONG32 v);
   void __RPC_STUB IHTMLOptionsHolder_put_errorCharacter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLOptionsHolder_get_errorCharacter_Proxy(IHTMLOptionsHolder *This,long *p);
+  HRESULT WINAPI IHTMLOptionsHolder_get_errorCharacter_Proxy(IHTMLOptionsHolder *This,__LONG32 *p);
   void __RPC_STUB IHTMLOptionsHolder_get_errorCharacter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLOptionsHolder_put_errorCode_Proxy(IHTMLOptionsHolder *This,long v);
+  HRESULT WINAPI IHTMLOptionsHolder_put_errorCode_Proxy(IHTMLOptionsHolder *This,__LONG32 v);
   void __RPC_STUB IHTMLOptionsHolder_put_errorCode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLOptionsHolder_get_errorCode_Proxy(IHTMLOptionsHolder *This,long *p);
+  HRESULT WINAPI IHTMLOptionsHolder_get_errorCode_Proxy(IHTMLOptionsHolder *This,__LONG32 *p);
   void __RPC_STUB IHTMLOptionsHolder_get_errorCode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLOptionsHolder_put_errorMessage_Proxy(IHTMLOptionsHolder *This,BSTR v);
   void __RPC_STUB IHTMLOptionsHolder_put_errorMessage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -29181,13 +29181,13 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLOptionsHolder_openfiledlg_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLOptionsHolder_savefiledlg_Proxy(IHTMLOptionsHolder *This,VARIANT initFile,VARIANT initDir,VARIANT filter,VARIANT title,BSTR *pathName);
   void __RPC_STUB IHTMLOptionsHolder_savefiledlg_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLOptionsHolder_choosecolordlg_Proxy(IHTMLOptionsHolder *This,VARIANT initColor,long *rgbColor);
+  HRESULT WINAPI IHTMLOptionsHolder_choosecolordlg_Proxy(IHTMLOptionsHolder *This,VARIANT initColor,__LONG32 *rgbColor);
   void __RPC_STUB IHTMLOptionsHolder_choosecolordlg_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLOptionsHolder_showSecurityInfo_Proxy(IHTMLOptionsHolder *This);
   void __RPC_STUB IHTMLOptionsHolder_showSecurityInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLOptionsHolder_isApartmentModel_Proxy(IHTMLOptionsHolder *This,IHTMLObjectElement *object,VARIANT_BOOL *fApartment);
   void __RPC_STUB IHTMLOptionsHolder_isApartmentModel_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLOptionsHolder_getCharset_Proxy(IHTMLOptionsHolder *This,BSTR fontName,long *charset);
+  HRESULT WINAPI IHTMLOptionsHolder_getCharset_Proxy(IHTMLOptionsHolder *This,BSTR fontName,__LONG32 *charset);
   void __RPC_STUB IHTMLOptionsHolder_getCharset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLOptionsHolder_get_secureConnectionInfo_Proxy(IHTMLOptionsHolder *This,BSTR *p);
   void __RPC_STUB IHTMLOptionsHolder_get_secureConnectionInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -29505,8 +29505,8 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI MoveAdjacentToElement(IHTMLElement *pElement,ELEMENT_ADJACENCY eAdj) = 0;
     virtual HRESULT WINAPI MoveToPointer(IMarkupPointer *pPointer) = 0;
     virtual HRESULT WINAPI MoveToContainer(IMarkupContainer *pContainer,WINBOOL fAtStart) = 0;
-    virtual HRESULT WINAPI Left(WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,long *pcch,OLECHAR *pchText) = 0;
-    virtual HRESULT WINAPI Right(WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,long *pcch,OLECHAR *pchText) = 0;
+    virtual HRESULT WINAPI Left(WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,__LONG32 *pcch,OLECHAR *pchText) = 0;
+    virtual HRESULT WINAPI Right(WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,__LONG32 *pcch,OLECHAR *pchText) = 0;
     virtual HRESULT WINAPI CurrentScope(IHTMLElement **ppElemCurrent) = 0;
     virtual HRESULT WINAPI IsLeftOf(IMarkupPointer *pPointerThat,WINBOOL *pfResult) = 0;
     virtual HRESULT WINAPI IsLeftOfOrEqualTo(IMarkupPointer *pPointerThat,WINBOOL *pfResult) = 0;
@@ -29533,8 +29533,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *MoveAdjacentToElement)(IMarkupPointer *This,IHTMLElement *pElement,ELEMENT_ADJACENCY eAdj);
       HRESULT (WINAPI *MoveToPointer)(IMarkupPointer *This,IMarkupPointer *pPointer);
       HRESULT (WINAPI *MoveToContainer)(IMarkupPointer *This,IMarkupContainer *pContainer,WINBOOL fAtStart);
-      HRESULT (WINAPI *Left)(IMarkupPointer *This,WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,long *pcch,OLECHAR *pchText);
-      HRESULT (WINAPI *Right)(IMarkupPointer *This,WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,long *pcch,OLECHAR *pchText);
+      HRESULT (WINAPI *Left)(IMarkupPointer *This,WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,__LONG32 *pcch,OLECHAR *pchText);
+      HRESULT (WINAPI *Right)(IMarkupPointer *This,WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,__LONG32 *pcch,OLECHAR *pchText);
       HRESULT (WINAPI *CurrentScope)(IMarkupPointer *This,IHTMLElement **ppElemCurrent);
       HRESULT (WINAPI *IsLeftOf)(IMarkupPointer *This,IMarkupPointer *pPointerThat,WINBOOL *pfResult);
       HRESULT (WINAPI *IsLeftOfOrEqualTo)(IMarkupPointer *This,IMarkupPointer *pPointerThat,WINBOOL *pfResult);
@@ -29598,9 +29598,9 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IMarkupPointer_MoveToPointer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMarkupPointer_MoveToContainer_Proxy(IMarkupPointer *This,IMarkupContainer *pContainer,WINBOOL fAtStart);
   void __RPC_STUB IMarkupPointer_MoveToContainer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMarkupPointer_Left_Proxy(IMarkupPointer *This,WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,long *pcch,OLECHAR *pchText);
+  HRESULT WINAPI IMarkupPointer_Left_Proxy(IMarkupPointer *This,WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,__LONG32 *pcch,OLECHAR *pchText);
   void __RPC_STUB IMarkupPointer_Left_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMarkupPointer_Right_Proxy(IMarkupPointer *This,WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,long *pcch,OLECHAR *pchText);
+  HRESULT WINAPI IMarkupPointer_Right_Proxy(IMarkupPointer *This,WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,__LONG32 *pcch,OLECHAR *pchText);
   void __RPC_STUB IMarkupPointer_Right_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMarkupPointer_CurrentScope_Proxy(IMarkupPointer *This,IHTMLElement **ppElemCurrent);
   void __RPC_STUB IMarkupPointer_CurrentScope_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -29662,7 +29662,7 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI RegisterForDirtyRange(IHTMLChangeSink *pChangeSink,DWORD *pdwCookie) = 0;
     virtual HRESULT WINAPI UnRegisterForDirtyRange(DWORD dwCookie) = 0;
     virtual HRESULT WINAPI GetAndClearDirtyRange(DWORD dwCookie,IMarkupPointer *pIPointerBegin,IMarkupPointer *pIPointerEnd) = 0;
-    virtual long WINAPI GetVersionNumber(void) = 0;
+    virtual __LONG32 WINAPI GetVersionNumber(void) = 0;
     virtual HRESULT WINAPI GetMasterElement(IHTMLElement **ppElementMaster) = 0;
   };
 #else
@@ -29676,7 +29676,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *RegisterForDirtyRange)(IMarkupContainer2 *This,IHTMLChangeSink *pChangeSink,DWORD *pdwCookie);
       HRESULT (WINAPI *UnRegisterForDirtyRange)(IMarkupContainer2 *This,DWORD dwCookie);
       HRESULT (WINAPI *GetAndClearDirtyRange)(IMarkupContainer2 *This,DWORD dwCookie,IMarkupPointer *pIPointerBegin,IMarkupPointer *pIPointerEnd);
-      long (WINAPI *GetVersionNumber)(IMarkupContainer2 *This);
+      __LONG32 (WINAPI *GetVersionNumber)(IMarkupContainer2 *This);
       HRESULT (WINAPI *GetMasterElement)(IMarkupContainer2 *This,IHTMLElement **ppElementMaster);
     END_INTERFACE
   } IMarkupContainer2Vtbl;
@@ -29705,7 +29705,7 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IMarkupContainer2_UnRegisterForDirtyRange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMarkupContainer2_GetAndClearDirtyRange_Proxy(IMarkupContainer2 *This,DWORD dwCookie,IMarkupPointer *pIPointerBegin,IMarkupPointer *pIPointerEnd);
   void __RPC_STUB IMarkupContainer2_GetAndClearDirtyRange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  long WINAPI IMarkupContainer2_GetVersionNumber_Proxy(IMarkupContainer2 *This);
+  __LONG32 WINAPI IMarkupContainer2_GetVersionNumber_Proxy(IMarkupContainer2 *This);
   void __RPC_STUB IMarkupContainer2_GetVersionNumber_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMarkupContainer2_GetMasterElement_Proxy(IMarkupContainer2 *This,IHTMLElement **ppElementMaster);
   void __RPC_STUB IMarkupContainer2_GetMasterElement_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -29717,7 +29717,7 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLChangeLog : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetNextChange(BYTE *pbBuffer,long nBufferSize,long *pnRecordLength) = 0;
+    virtual HRESULT WINAPI GetNextChange(BYTE *pbBuffer,__LONG32 nBufferSize,__LONG32 *pnRecordLength) = 0;
   };
 #else
   typedef struct IHTMLChangeLogVtbl {
@@ -29725,7 +29725,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *QueryInterface)(IHTMLChangeLog *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IHTMLChangeLog *This);
       ULONG (WINAPI *Release)(IHTMLChangeLog *This);
-      HRESULT (WINAPI *GetNextChange)(IHTMLChangeLog *This,BYTE *pbBuffer,long nBufferSize,long *pnRecordLength);
+      HRESULT (WINAPI *GetNextChange)(IHTMLChangeLog *This,BYTE *pbBuffer,__LONG32 nBufferSize,__LONG32 *pnRecordLength);
     END_INTERFACE
   } IHTMLChangeLogVtbl;
   struct IHTMLChangeLog {
@@ -29739,7 +29739,7 @@ IHTMLStyle : public IDispatch {
 #endif
 #endif
 
-  HRESULT WINAPI IHTMLChangeLog_GetNextChange_Proxy(IHTMLChangeLog *This,BYTE *pbBuffer,long nBufferSize,long *pnRecordLength);
+  HRESULT WINAPI IHTMLChangeLog_GetNextChange_Proxy(IHTMLChangeLog *This,BYTE *pbBuffer,__LONG32 nBufferSize,__LONG32 *pnRecordLength);
   void __RPC_STUB IHTMLChangeLog_GetNextChange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -30469,10 +30469,10 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ILineInfo : public IUnknown {
   public:
-    virtual HRESULT WINAPI get_x(long *p) = 0;
-    virtual HRESULT WINAPI get_baseLine(long *p) = 0;
-    virtual HRESULT WINAPI get_textDescent(long *p) = 0;
-    virtual HRESULT WINAPI get_textHeight(long *p) = 0;
+    virtual HRESULT WINAPI get_x(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_baseLine(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_textDescent(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_textHeight(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get_lineDirection(LONG *p) = 0;
   };
 #else
@@ -30481,10 +30481,10 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *QueryInterface)(ILineInfo *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(ILineInfo *This);
       ULONG (WINAPI *Release)(ILineInfo *This);
-      HRESULT (WINAPI *get_x)(ILineInfo *This,long *p);
-      HRESULT (WINAPI *get_baseLine)(ILineInfo *This,long *p);
-      HRESULT (WINAPI *get_textDescent)(ILineInfo *This,long *p);
-      HRESULT (WINAPI *get_textHeight)(ILineInfo *This,long *p);
+      HRESULT (WINAPI *get_x)(ILineInfo *This,__LONG32 *p);
+      HRESULT (WINAPI *get_baseLine)(ILineInfo *This,__LONG32 *p);
+      HRESULT (WINAPI *get_textDescent)(ILineInfo *This,__LONG32 *p);
+      HRESULT (WINAPI *get_textHeight)(ILineInfo *This,__LONG32 *p);
       HRESULT (WINAPI *get_lineDirection)(ILineInfo *This,LONG *p);
     END_INTERFACE
   } ILineInfoVtbl;
@@ -30503,13 +30503,13 @@ IHTMLStyle : public IDispatch {
 #endif
 #endif
 
-  HRESULT WINAPI ILineInfo_get_x_Proxy(ILineInfo *This,long *p);
+  HRESULT WINAPI ILineInfo_get_x_Proxy(ILineInfo *This,__LONG32 *p);
   void __RPC_STUB ILineInfo_get_x_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ILineInfo_get_baseLine_Proxy(ILineInfo *This,long *p);
+  HRESULT WINAPI ILineInfo_get_baseLine_Proxy(ILineInfo *This,__LONG32 *p);
   void __RPC_STUB ILineInfo_get_baseLine_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ILineInfo_get_textDescent_Proxy(ILineInfo *This,long *p);
+  HRESULT WINAPI ILineInfo_get_textDescent_Proxy(ILineInfo *This,__LONG32 *p);
   void __RPC_STUB ILineInfo_get_textDescent_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ILineInfo_get_textHeight_Proxy(ILineInfo *This,long *p);
+  HRESULT WINAPI ILineInfo_get_textHeight_Proxy(ILineInfo *This,__LONG32 *p);
   void __RPC_STUB ILineInfo_get_textHeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ILineInfo_get_lineDirection_Proxy(ILineInfo *This,LONG *p);
   void __RPC_STUB ILineInfo_get_lineDirection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -30761,7 +30761,7 @@ IHTMLStyle : public IDispatch {
   struct IBlockFormats : public IDispatch {
   public:
     virtual HRESULT WINAPI get__NewEnum(IUnknown **p) = 0;
-    virtual HRESULT WINAPI get_Count(long *p) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *p) = 0;
     virtual HRESULT WINAPI Item(VARIANT *pvarIndex,BSTR *pbstrBlockFormat) = 0;
   };
 #else
@@ -30775,7 +30775,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetIDsOfNames)(IBlockFormats *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IBlockFormats *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get__NewEnum)(IBlockFormats *This,IUnknown **p);
-      HRESULT (WINAPI *get_Count)(IBlockFormats *This,long *p);
+      HRESULT (WINAPI *get_Count)(IBlockFormats *This,__LONG32 *p);
       HRESULT (WINAPI *Item)(IBlockFormats *This,VARIANT *pvarIndex,BSTR *pbstrBlockFormat);
     END_INTERFACE
   } IBlockFormatsVtbl;
@@ -30798,7 +30798,7 @@ IHTMLStyle : public IDispatch {
 
   HRESULT WINAPI IBlockFormats_get__NewEnum_Proxy(IBlockFormats *This,IUnknown **p);
   void __RPC_STUB IBlockFormats_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IBlockFormats_get_Count_Proxy(IBlockFormats *This,long *p);
+  HRESULT WINAPI IBlockFormats_get_Count_Proxy(IBlockFormats *This,__LONG32 *p);
   void __RPC_STUB IBlockFormats_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IBlockFormats_Item_Proxy(IBlockFormats *This,VARIANT *pvarIndex,BSTR *pbstrBlockFormat);
   void __RPC_STUB IBlockFormats_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -30811,7 +30811,7 @@ IHTMLStyle : public IDispatch {
   struct IFontNames : public IDispatch {
   public:
     virtual HRESULT WINAPI get__NewEnum(IUnknown **p) = 0;
-    virtual HRESULT WINAPI get_Count(long *p) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *p) = 0;
     virtual HRESULT WINAPI Item(VARIANT *pvarIndex,BSTR *pbstrFontName) = 0;
   };
 #else
@@ -30825,7 +30825,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetIDsOfNames)(IFontNames *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IFontNames *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get__NewEnum)(IFontNames *This,IUnknown **p);
-      HRESULT (WINAPI *get_Count)(IFontNames *This,long *p);
+      HRESULT (WINAPI *get_Count)(IFontNames *This,__LONG32 *p);
       HRESULT (WINAPI *Item)(IFontNames *This,VARIANT *pvarIndex,BSTR *pbstrFontName);
     END_INTERFACE
   } IFontNamesVtbl;
@@ -30848,7 +30848,7 @@ IHTMLStyle : public IDispatch {
 
   HRESULT WINAPI IFontNames_get__NewEnum_Proxy(IFontNames *This,IUnknown **p);
   void __RPC_STUB IFontNames_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IFontNames_get_Count_Proxy(IFontNames *This,long *p);
+  HRESULT WINAPI IFontNames_get_Count_Proxy(IFontNames *This,__LONG32 *p);
   void __RPC_STUB IFontNames_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IFontNames_Item_Proxy(IFontNames *This,VARIANT *pvarIndex,BSTR *pbstrFontName);
   void __RPC_STUB IFontNames_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -30938,7 +30938,7 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI Remove(IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish) = 0;
     virtual HRESULT WINAPI Copy(IMarkupPointer *pPointerSourceStart,IMarkupPointer *pPointerSourceFinish,IMarkupPointer *pPointerTarget) = 0;
     virtual HRESULT WINAPI Move(IMarkupPointer *pPointerSourceStart,IMarkupPointer *pPointerSourceFinish,IMarkupPointer *pPointerTarget) = 0;
-    virtual HRESULT WINAPI InsertText(OLECHAR *pchText,long cch,IMarkupPointer *pPointerTarget) = 0;
+    virtual HRESULT WINAPI InsertText(OLECHAR *pchText,__LONG32 cch,IMarkupPointer *pPointerTarget) = 0;
     virtual HRESULT WINAPI ParseString(OLECHAR *pchHTML,DWORD dwFlags,IMarkupContainer **ppContainerResult,IMarkupPointer *ppPointerStart,IMarkupPointer *ppPointerFinish) = 0;
     virtual HRESULT WINAPI ParseGlobal(HGLOBAL hglobalHTML,DWORD dwFlags,IMarkupContainer **ppContainerResult,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish) = 0;
     virtual HRESULT WINAPI IsScopedElement(IHTMLElement *pElement,WINBOOL *pfScoped) = 0;
@@ -30965,7 +30965,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Remove)(IMarkupServices *This,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish);
       HRESULT (WINAPI *Copy)(IMarkupServices *This,IMarkupPointer *pPointerSourceStart,IMarkupPointer *pPointerSourceFinish,IMarkupPointer *pPointerTarget);
       HRESULT (WINAPI *Move)(IMarkupServices *This,IMarkupPointer *pPointerSourceStart,IMarkupPointer *pPointerSourceFinish,IMarkupPointer *pPointerTarget);
-      HRESULT (WINAPI *InsertText)(IMarkupServices *This,OLECHAR *pchText,long cch,IMarkupPointer *pPointerTarget);
+      HRESULT (WINAPI *InsertText)(IMarkupServices *This,OLECHAR *pchText,__LONG32 cch,IMarkupPointer *pPointerTarget);
       HRESULT (WINAPI *ParseString)(IMarkupServices *This,OLECHAR *pchHTML,DWORD dwFlags,IMarkupContainer **ppContainerResult,IMarkupPointer *ppPointerStart,IMarkupPointer *ppPointerFinish);
       HRESULT (WINAPI *ParseGlobal)(IMarkupServices *This,HGLOBAL hglobalHTML,DWORD dwFlags,IMarkupContainer **ppContainerResult,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish);
       HRESULT (WINAPI *IsScopedElement)(IMarkupServices *This,IHTMLElement *pElement,WINBOOL *pfScoped);
@@ -31026,7 +31026,7 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IMarkupServices_Copy_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMarkupServices_Move_Proxy(IMarkupServices *This,IMarkupPointer *pPointerSourceStart,IMarkupPointer *pPointerSourceFinish,IMarkupPointer *pPointerTarget);
   void __RPC_STUB IMarkupServices_Move_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMarkupServices_InsertText_Proxy(IMarkupServices *This,OLECHAR *pchText,long cch,IMarkupPointer *pPointerTarget);
+  HRESULT WINAPI IMarkupServices_InsertText_Proxy(IMarkupServices *This,OLECHAR *pchText,__LONG32 cch,IMarkupPointer *pPointerTarget);
   void __RPC_STUB IMarkupServices_InsertText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMarkupServices_ParseString_Proxy(IMarkupServices *This,OLECHAR *pchHTML,DWORD dwFlags,IMarkupContainer **ppContainerResult,IMarkupPointer *ppPointerStart,IMarkupPointer *ppPointerFinish);
   void __RPC_STUB IMarkupServices_ParseString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -31075,7 +31075,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *Remove)(IMarkupServices2 *This,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish);
       HRESULT (WINAPI *Copy)(IMarkupServices2 *This,IMarkupPointer *pPointerSourceStart,IMarkupPointer *pPointerSourceFinish,IMarkupPointer *pPointerTarget);
       HRESULT (WINAPI *Move)(IMarkupServices2 *This,IMarkupPointer *pPointerSourceStart,IMarkupPointer *pPointerSourceFinish,IMarkupPointer *pPointerTarget);
-      HRESULT (WINAPI *InsertText)(IMarkupServices2 *This,OLECHAR *pchText,long cch,IMarkupPointer *pPointerTarget);
+      HRESULT (WINAPI *InsertText)(IMarkupServices2 *This,OLECHAR *pchText,__LONG32 cch,IMarkupPointer *pPointerTarget);
       HRESULT (WINAPI *ParseString)(IMarkupServices2 *This,OLECHAR *pchHTML,DWORD dwFlags,IMarkupContainer **ppContainerResult,IMarkupPointer *ppPointerStart,IMarkupPointer *ppPointerFinish);
       HRESULT (WINAPI *ParseGlobal)(IMarkupServices2 *This,HGLOBAL hglobalHTML,DWORD dwFlags,IMarkupContainer **ppContainerResult,IMarkupPointer *pPointerStart,IMarkupPointer *pPointerFinish);
       HRESULT (WINAPI *IsScopedElement)(IMarkupServices2 *This,IHTMLElement *pElement,WINBOOL *pfScoped);
@@ -31171,8 +31171,8 @@ IHTMLStyle : public IDispatch {
   struct IMarkupPointer2 : public IMarkupPointer {
   public:
     virtual HRESULT WINAPI IsAtWordBreak(WINBOOL *pfAtBreak) = 0;
-    virtual HRESULT WINAPI GetMarkupPosition(long *plMP) = 0;
-    virtual HRESULT WINAPI MoveToMarkupPosition(IMarkupContainer *pContainer,long lMP) = 0;
+    virtual HRESULT WINAPI GetMarkupPosition(__LONG32 *plMP) = 0;
+    virtual HRESULT WINAPI MoveToMarkupPosition(IMarkupContainer *pContainer,__LONG32 lMP) = 0;
     virtual HRESULT WINAPI MoveUnitBounded(MOVEUNIT_ACTION muAction,IMarkupPointer *pIBoundary) = 0;
     virtual HRESULT WINAPI IsInsideURL(IMarkupPointer *pRight,WINBOOL *pfResult) = 0;
     virtual HRESULT WINAPI MoveToContent(IHTMLElement *pIElement,WINBOOL fAtStart) = 0;
@@ -31194,8 +31194,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *MoveAdjacentToElement)(IMarkupPointer2 *This,IHTMLElement *pElement,ELEMENT_ADJACENCY eAdj);
       HRESULT (WINAPI *MoveToPointer)(IMarkupPointer2 *This,IMarkupPointer *pPointer);
       HRESULT (WINAPI *MoveToContainer)(IMarkupPointer2 *This,IMarkupContainer *pContainer,WINBOOL fAtStart);
-      HRESULT (WINAPI *Left)(IMarkupPointer2 *This,WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,long *pcch,OLECHAR *pchText);
-      HRESULT (WINAPI *Right)(IMarkupPointer2 *This,WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,long *pcch,OLECHAR *pchText);
+      HRESULT (WINAPI *Left)(IMarkupPointer2 *This,WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,__LONG32 *pcch,OLECHAR *pchText);
+      HRESULT (WINAPI *Right)(IMarkupPointer2 *This,WINBOOL fMove,MARKUP_CONTEXT_TYPE *pContext,IHTMLElement **ppElement,__LONG32 *pcch,OLECHAR *pchText);
       HRESULT (WINAPI *CurrentScope)(IMarkupPointer2 *This,IHTMLElement **ppElemCurrent);
       HRESULT (WINAPI *IsLeftOf)(IMarkupPointer2 *This,IMarkupPointer *pPointerThat,WINBOOL *pfResult);
       HRESULT (WINAPI *IsLeftOfOrEqualTo)(IMarkupPointer2 *This,IMarkupPointer *pPointerThat,WINBOOL *pfResult);
@@ -31205,8 +31205,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *MoveUnit)(IMarkupPointer2 *This,MOVEUNIT_ACTION muAction);
       HRESULT (WINAPI *FindText)(IMarkupPointer2 *This,OLECHAR *pchFindText,DWORD dwFlags,IMarkupPointer *pIEndMatch,IMarkupPointer *pIEndSearch);
       HRESULT (WINAPI *IsAtWordBreak)(IMarkupPointer2 *This,WINBOOL *pfAtBreak);
-      HRESULT (WINAPI *GetMarkupPosition)(IMarkupPointer2 *This,long *plMP);
-      HRESULT (WINAPI *MoveToMarkupPosition)(IMarkupPointer2 *This,IMarkupContainer *pContainer,long lMP);
+      HRESULT (WINAPI *GetMarkupPosition)(IMarkupPointer2 *This,__LONG32 *plMP);
+      HRESULT (WINAPI *MoveToMarkupPosition)(IMarkupPointer2 *This,IMarkupContainer *pContainer,__LONG32 lMP);
       HRESULT (WINAPI *MoveUnitBounded)(IMarkupPointer2 *This,MOVEUNIT_ACTION muAction,IMarkupPointer *pIBoundary);
       HRESULT (WINAPI *IsInsideURL)(IMarkupPointer2 *This,IMarkupPointer *pRight,WINBOOL *pfResult);
       HRESULT (WINAPI *MoveToContent)(IMarkupPointer2 *This,IHTMLElement *pIElement,WINBOOL fAtStart);
@@ -31251,9 +31251,9 @@ IHTMLStyle : public IDispatch {
 
   HRESULT WINAPI IMarkupPointer2_IsAtWordBreak_Proxy(IMarkupPointer2 *This,WINBOOL *pfAtBreak);
   void __RPC_STUB IMarkupPointer2_IsAtWordBreak_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMarkupPointer2_GetMarkupPosition_Proxy(IMarkupPointer2 *This,long *plMP);
+  HRESULT WINAPI IMarkupPointer2_GetMarkupPosition_Proxy(IMarkupPointer2 *This,__LONG32 *plMP);
   void __RPC_STUB IMarkupPointer2_GetMarkupPosition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMarkupPointer2_MoveToMarkupPosition_Proxy(IMarkupPointer2 *This,IMarkupContainer *pContainer,long lMP);
+  HRESULT WINAPI IMarkupPointer2_MoveToMarkupPosition_Proxy(IMarkupPointer2 *This,IMarkupContainer *pContainer,__LONG32 lMP);
   void __RPC_STUB IMarkupPointer2_MoveToMarkupPosition_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMarkupPointer2_MoveUnitBounded_Proxy(IMarkupPointer2 *This,MOVEUNIT_ACTION muAction,IMarkupPointer *pIBoundary);
   void __RPC_STUB IMarkupPointer2_MoveUnitBounded_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -31269,11 +31269,11 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IMarkupTextFrags : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetTextFragCount(long *pcFrags) = 0;
-    virtual HRESULT WINAPI GetTextFrag(long iFrag,BSTR *pbstrFrag,IMarkupPointer *pPointerFrag) = 0;
-    virtual HRESULT WINAPI RemoveTextFrag(long iFrag) = 0;
-    virtual HRESULT WINAPI InsertTextFrag(long iFrag,BSTR bstrInsert,IMarkupPointer *pPointerInsert) = 0;
-    virtual HRESULT WINAPI FindTextFragFromMarkupPointer(IMarkupPointer *pPointerFind,long *piFrag,WINBOOL *pfFragFound) = 0;
+    virtual HRESULT WINAPI GetTextFragCount(__LONG32 *pcFrags) = 0;
+    virtual HRESULT WINAPI GetTextFrag(__LONG32 iFrag,BSTR *pbstrFrag,IMarkupPointer *pPointerFrag) = 0;
+    virtual HRESULT WINAPI RemoveTextFrag(__LONG32 iFrag) = 0;
+    virtual HRESULT WINAPI InsertTextFrag(__LONG32 iFrag,BSTR bstrInsert,IMarkupPointer *pPointerInsert) = 0;
+    virtual HRESULT WINAPI FindTextFragFromMarkupPointer(IMarkupPointer *pPointerFind,__LONG32 *piFrag,WINBOOL *pfFragFound) = 0;
   };
 #else
   typedef struct IMarkupTextFragsVtbl {
@@ -31281,11 +31281,11 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *QueryInterface)(IMarkupTextFrags *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IMarkupTextFrags *This);
       ULONG (WINAPI *Release)(IMarkupTextFrags *This);
-      HRESULT (WINAPI *GetTextFragCount)(IMarkupTextFrags *This,long *pcFrags);
-      HRESULT (WINAPI *GetTextFrag)(IMarkupTextFrags *This,long iFrag,BSTR *pbstrFrag,IMarkupPointer *pPointerFrag);
-      HRESULT (WINAPI *RemoveTextFrag)(IMarkupTextFrags *This,long iFrag);
-      HRESULT (WINAPI *InsertTextFrag)(IMarkupTextFrags *This,long iFrag,BSTR bstrInsert,IMarkupPointer *pPointerInsert);
-      HRESULT (WINAPI *FindTextFragFromMarkupPointer)(IMarkupTextFrags *This,IMarkupPointer *pPointerFind,long *piFrag,WINBOOL *pfFragFound);
+      HRESULT (WINAPI *GetTextFragCount)(IMarkupTextFrags *This,__LONG32 *pcFrags);
+      HRESULT (WINAPI *GetTextFrag)(IMarkupTextFrags *This,__LONG32 iFrag,BSTR *pbstrFrag,IMarkupPointer *pPointerFrag);
+      HRESULT (WINAPI *RemoveTextFrag)(IMarkupTextFrags *This,__LONG32 iFrag);
+      HRESULT (WINAPI *InsertTextFrag)(IMarkupTextFrags *This,__LONG32 iFrag,BSTR bstrInsert,IMarkupPointer *pPointerInsert);
+      HRESULT (WINAPI *FindTextFragFromMarkupPointer)(IMarkupTextFrags *This,IMarkupPointer *pPointerFind,__LONG32 *piFrag,WINBOOL *pfFragFound);
     END_INTERFACE
   } IMarkupTextFragsVtbl;
   struct IMarkupTextFrags {
@@ -31303,15 +31303,15 @@ IHTMLStyle : public IDispatch {
 #endif
 #endif
 
-  HRESULT WINAPI IMarkupTextFrags_GetTextFragCount_Proxy(IMarkupTextFrags *This,long *pcFrags);
+  HRESULT WINAPI IMarkupTextFrags_GetTextFragCount_Proxy(IMarkupTextFrags *This,__LONG32 *pcFrags);
   void __RPC_STUB IMarkupTextFrags_GetTextFragCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMarkupTextFrags_GetTextFrag_Proxy(IMarkupTextFrags *This,long iFrag,BSTR *pbstrFrag,IMarkupPointer *pPointerFrag);
+  HRESULT WINAPI IMarkupTextFrags_GetTextFrag_Proxy(IMarkupTextFrags *This,__LONG32 iFrag,BSTR *pbstrFrag,IMarkupPointer *pPointerFrag);
   void __RPC_STUB IMarkupTextFrags_GetTextFrag_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMarkupTextFrags_RemoveTextFrag_Proxy(IMarkupTextFrags *This,long iFrag);
+  HRESULT WINAPI IMarkupTextFrags_RemoveTextFrag_Proxy(IMarkupTextFrags *This,__LONG32 iFrag);
   void __RPC_STUB IMarkupTextFrags_RemoveTextFrag_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMarkupTextFrags_InsertTextFrag_Proxy(IMarkupTextFrags *This,long iFrag,BSTR bstrInsert,IMarkupPointer *pPointerInsert);
+  HRESULT WINAPI IMarkupTextFrags_InsertTextFrag_Proxy(IMarkupTextFrags *This,__LONG32 iFrag,BSTR bstrInsert,IMarkupPointer *pPointerInsert);
   void __RPC_STUB IMarkupTextFrags_InsertTextFrag_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMarkupTextFrags_FindTextFragFromMarkupPointer_Proxy(IMarkupTextFrags *This,IMarkupPointer *pPointerFind,long *piFrag,WINBOOL *pfFragFound);
+  HRESULT WINAPI IMarkupTextFrags_FindTextFragFromMarkupPointer_Proxy(IMarkupTextFrags *This,IMarkupPointer *pPointerFind,__LONG32 *piFrag,WINBOOL *pfFragFound);
   void __RPC_STUB IMarkupTextFrags_FindTextFragFromMarkupPointer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -31419,7 +31419,7 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ISequenceNumber : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetSequenceNumber(long nCurrent,long *pnNew) = 0;
+    virtual HRESULT WINAPI GetSequenceNumber(__LONG32 nCurrent,__LONG32 *pnNew) = 0;
   };
 #else
   typedef struct ISequenceNumberVtbl {
@@ -31427,7 +31427,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *QueryInterface)(ISequenceNumber *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(ISequenceNumber *This);
       ULONG (WINAPI *Release)(ISequenceNumber *This);
-      HRESULT (WINAPI *GetSequenceNumber)(ISequenceNumber *This,long nCurrent,long *pnNew);
+      HRESULT (WINAPI *GetSequenceNumber)(ISequenceNumber *This,__LONG32 nCurrent,__LONG32 *pnNew);
     END_INTERFACE
   } ISequenceNumberVtbl;
   struct ISequenceNumber {
@@ -31441,7 +31441,7 @@ IHTMLStyle : public IDispatch {
 #endif
 #endif
 
-  HRESULT WINAPI ISequenceNumber_GetSequenceNumber_Proxy(ISequenceNumber *This,long nCurrent,long *pnNew);
+  HRESULT WINAPI ISequenceNumber_GetSequenceNumber_Proxy(ISequenceNumber *This,__LONG32 nCurrent,__LONG32 *pnNew);
   void __RPC_STUB ISequenceNumber_GetSequenceNumber_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -31763,8 +31763,8 @@ IHTMLStyle : public IDispatch {
     virtual HRESULT WINAPI get_subScript(VARIANT_BOOL *p) = 0;
     virtual HRESULT WINAPI get_superScript(VARIANT_BOOL *p) = 0;
     virtual HRESULT WINAPI get_explicitFace(VARIANT_BOOL *p) = 0;
-    virtual HRESULT WINAPI get_fontWeight(long *p) = 0;
-    virtual HRESULT WINAPI get_fontSize(long *p) = 0;
+    virtual HRESULT WINAPI get_fontWeight(__LONG32 *p) = 0;
+    virtual HRESULT WINAPI get_fontSize(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get_fontName(TCHAR *p) = 0;
     virtual HRESULT WINAPI get_hasBgColor(VARIANT_BOOL *p) = 0;
     virtual HRESULT WINAPI get_textColor(DWORD *p) = 0;
@@ -31789,8 +31789,8 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *get_subScript)(IHTMLComputedStyle *This,VARIANT_BOOL *p);
       HRESULT (WINAPI *get_superScript)(IHTMLComputedStyle *This,VARIANT_BOOL *p);
       HRESULT (WINAPI *get_explicitFace)(IHTMLComputedStyle *This,VARIANT_BOOL *p);
-      HRESULT (WINAPI *get_fontWeight)(IHTMLComputedStyle *This,long *p);
-      HRESULT (WINAPI *get_fontSize)(IHTMLComputedStyle *This,long *p);
+      HRESULT (WINAPI *get_fontWeight)(IHTMLComputedStyle *This,__LONG32 *p);
+      HRESULT (WINAPI *get_fontSize)(IHTMLComputedStyle *This,__LONG32 *p);
       HRESULT (WINAPI *get_fontName)(IHTMLComputedStyle *This,TCHAR *p);
       HRESULT (WINAPI *get_hasBgColor)(IHTMLComputedStyle *This,VARIANT_BOOL *p);
       HRESULT (WINAPI *get_textColor)(IHTMLComputedStyle *This,DWORD *p);
@@ -31847,9 +31847,9 @@ IHTMLStyle : public IDispatch {
   void __RPC_STUB IHTMLComputedStyle_get_superScript_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLComputedStyle_get_explicitFace_Proxy(IHTMLComputedStyle *This,VARIANT_BOOL *p);
   void __RPC_STUB IHTMLComputedStyle_get_explicitFace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLComputedStyle_get_fontWeight_Proxy(IHTMLComputedStyle *This,long *p);
+  HRESULT WINAPI IHTMLComputedStyle_get_fontWeight_Proxy(IHTMLComputedStyle *This,__LONG32 *p);
   void __RPC_STUB IHTMLComputedStyle_get_fontWeight_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLComputedStyle_get_fontSize_Proxy(IHTMLComputedStyle *This,long *p);
+  HRESULT WINAPI IHTMLComputedStyle_get_fontSize_Proxy(IHTMLComputedStyle *This,__LONG32 *p);
   void __RPC_STUB IHTMLComputedStyle_get_fontSize_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLComputedStyle_get_fontName_Proxy(IHTMLComputedStyle *This,TCHAR *p);
   void __RPC_STUB IHTMLComputedStyle_get_fontName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -32003,7 +32003,7 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLNamespaceCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_length(long *p) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
     virtual HRESULT WINAPI item(VARIANT index,IDispatch **ppNamespace) = 0;
     virtual HRESULT WINAPI add(BSTR bstrNamespace,BSTR bstrUrn,VARIANT implementationUrl,IDispatch **ppNamespace) = 0;
   };
@@ -32017,7 +32017,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLNamespaceCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLNamespaceCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLNamespaceCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_length)(IHTMLNamespaceCollection *This,long *p);
+      HRESULT (WINAPI *get_length)(IHTMLNamespaceCollection *This,__LONG32 *p);
       HRESULT (WINAPI *item)(IHTMLNamespaceCollection *This,VARIANT index,IDispatch **ppNamespace);
       HRESULT (WINAPI *add)(IHTMLNamespaceCollection *This,BSTR bstrNamespace,BSTR bstrUrn,VARIANT implementationUrl,IDispatch **ppNamespace);
     END_INTERFACE
@@ -32039,7 +32039,7 @@ IHTMLStyle : public IDispatch {
 #endif
 #endif
 
-  HRESULT WINAPI IHTMLNamespaceCollection_get_length_Proxy(IHTMLNamespaceCollection *This,long *p);
+  HRESULT WINAPI IHTMLNamespaceCollection_get_length_Proxy(IHTMLNamespaceCollection *This,__LONG32 *p);
   void __RPC_STUB IHTMLNamespaceCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLNamespaceCollection_item_Proxy(IHTMLNamespaceCollection *This,VARIANT index,IDispatch **ppNamespace);
   void __RPC_STUB IHTMLNamespaceCollection_item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -32171,7 +32171,7 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLPainterEventInfo : public IUnknown {
   public:
-    virtual HRESULT WINAPI GetEventInfoFlags(long *plEventInfoFlags) = 0;
+    virtual HRESULT WINAPI GetEventInfoFlags(__LONG32 *plEventInfoFlags) = 0;
     virtual HRESULT WINAPI GetEventTarget(IHTMLElement **ppElement) = 0;
     virtual HRESULT WINAPI SetCursor(LONG lPartID) = 0;
     virtual HRESULT WINAPI StringFromPartID(LONG lPartID,BSTR *pbstrPart) = 0;
@@ -32182,7 +32182,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *QueryInterface)(IHTMLPainterEventInfo *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IHTMLPainterEventInfo *This);
       ULONG (WINAPI *Release)(IHTMLPainterEventInfo *This);
-      HRESULT (WINAPI *GetEventInfoFlags)(IHTMLPainterEventInfo *This,long *plEventInfoFlags);
+      HRESULT (WINAPI *GetEventInfoFlags)(IHTMLPainterEventInfo *This,__LONG32 *plEventInfoFlags);
       HRESULT (WINAPI *GetEventTarget)(IHTMLPainterEventInfo *This,IHTMLElement **ppElement);
       HRESULT (WINAPI *SetCursor)(IHTMLPainterEventInfo *This,LONG lPartID);
       HRESULT (WINAPI *StringFromPartID)(IHTMLPainterEventInfo *This,LONG lPartID,BSTR *pbstrPart);
@@ -32202,7 +32202,7 @@ IHTMLStyle : public IDispatch {
 #endif
 #endif
 
-  HRESULT WINAPI IHTMLPainterEventInfo_GetEventInfoFlags_Proxy(IHTMLPainterEventInfo *This,long *plEventInfoFlags);
+  HRESULT WINAPI IHTMLPainterEventInfo_GetEventInfoFlags_Proxy(IHTMLPainterEventInfo *This,__LONG32 *plEventInfoFlags);
   void __RPC_STUB IHTMLPainterEventInfo_GetEventInfoFlags_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLPainterEventInfo_GetEventTarget_Proxy(IHTMLPainterEventInfo *This,IHTMLElement **ppElement);
   void __RPC_STUB IHTMLPainterEventInfo_GetEventTarget_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -32250,9 +32250,9 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLIPrintCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_length(long *p) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get__newEnum(IUnknown **p) = 0;
-    virtual HRESULT WINAPI item(long index,IUnknown **ppIPrint) = 0;
+    virtual HRESULT WINAPI item(__LONG32 index,IUnknown **ppIPrint) = 0;
   };
 #else
   typedef struct IHTMLIPrintCollectionVtbl {
@@ -32264,9 +32264,9 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLIPrintCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLIPrintCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLIPrintCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_length)(IHTMLIPrintCollection *This,long *p);
+      HRESULT (WINAPI *get_length)(IHTMLIPrintCollection *This,__LONG32 *p);
       HRESULT (WINAPI *get__newEnum)(IHTMLIPrintCollection *This,IUnknown **p);
-      HRESULT (WINAPI *item)(IHTMLIPrintCollection *This,long index,IUnknown **ppIPrint);
+      HRESULT (WINAPI *item)(IHTMLIPrintCollection *This,__LONG32 index,IUnknown **ppIPrint);
     END_INTERFACE
   } IHTMLIPrintCollectionVtbl;
   struct IHTMLIPrintCollection {
@@ -32286,11 +32286,11 @@ IHTMLStyle : public IDispatch {
 #endif
 #endif
 
-  HRESULT WINAPI IHTMLIPrintCollection_get_length_Proxy(IHTMLIPrintCollection *This,long *p);
+  HRESULT WINAPI IHTMLIPrintCollection_get_length_Proxy(IHTMLIPrintCollection *This,__LONG32 *p);
   void __RPC_STUB IHTMLIPrintCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLIPrintCollection_get__newEnum_Proxy(IHTMLIPrintCollection *This,IUnknown **p);
   void __RPC_STUB IHTMLIPrintCollection_get__newEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IHTMLIPrintCollection_item_Proxy(IHTMLIPrintCollection *This,long index,IUnknown **ppIPrint);
+  HRESULT WINAPI IHTMLIPrintCollection_item_Proxy(IHTMLIPrintCollection *This,__LONG32 index,IUnknown **ppIPrint);
   void __RPC_STUB IHTMLIPrintCollection_item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -32626,7 +32626,7 @@ IHTMLStyle : public IDispatch {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IHTMLPopup : public IDispatch {
   public:
-    virtual HRESULT WINAPI show(long x,long y,long w,long h,VARIANT *pElement) = 0;
+    virtual HRESULT WINAPI show(__LONG32 x,__LONG32 y,__LONG32 w,__LONG32 h,VARIANT *pElement) = 0;
     virtual HRESULT WINAPI hide(void) = 0;
     virtual HRESULT WINAPI get_document(IHTMLDocument **p) = 0;
     virtual HRESULT WINAPI get_isOpen(VARIANT_BOOL *p) = 0;
@@ -32641,7 +32641,7 @@ IHTMLStyle : public IDispatch {
       HRESULT (WINAPI *GetTypeInfo)(IHTMLPopup *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IHTMLPopup *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IHTMLPopup *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *show)(IHTMLPopup *This,long x,long y,long w,long h,VARIANT *pElement);
+      HRESULT (WINAPI *show)(IHTMLPopup *This,__LONG32 x,__LONG32 y,__LONG32 w,__LONG32 h,VARIANT *pElement);
       HRESULT (WINAPI *hide)(IHTMLPopup *This);
       HRESULT (WINAPI *get_document)(IHTMLPopup *This,IHTMLDocument **p);
       HRESULT (WINAPI *get_isOpen)(IHTMLPopup *This,VARIANT_BOOL *p);
@@ -32665,7 +32665,7 @@ IHTMLStyle : public IDispatch {
 #endif
 #endif
 
-  HRESULT WINAPI IHTMLPopup_show_Proxy(IHTMLPopup *This,long x,long y,long w,long h,VARIANT *pElement);
+  HRESULT WINAPI IHTMLPopup_show_Proxy(IHTMLPopup *This,__LONG32 x,__LONG32 y,__LONG32 w,__LONG32 h,VARIANT *pElement);
   void __RPC_STUB IHTMLPopup_show_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IHTMLPopup_hide_Proxy(IHTMLPopup *This);
   void __RPC_STUB IHTMLPopup_hide_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);

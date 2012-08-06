@@ -27,7 +27,7 @@ public:
   STDMETHOD(get_TerminalType)(TERMINAL_TYPE *pVal);
   STDMETHOD(get_State)(TERMINAL_STATE *pVal);
   STDMETHOD(get_Name)(BSTR *pVal);
-  STDMETHOD(get_MediaType)(long *plMediaType);
+  STDMETHOD(get_MediaType)(__LONG32 *plMediaType);
   STDMETHOD(get_Direction)(TERMINAL_DIRECTION *pDirection);
 public:
   virtual HRESULT Initialize(IID iidTerminalClass,DWORD dwMediaType,TERMINAL_DIRECTION Direction,MSP_HANDLE htAddress);
@@ -56,7 +56,7 @@ public:
   virtual HRESULT GetExposedPins(IPin **ppPins) = 0;
   virtual DWORD GetSupportedMediaTypes(void) = 0;
   virtual HRESULT RemoveFiltersFromGraph() = 0;
-  WINBOOL MediaTypeSupported(long lMediaType);
+  WINBOOL MediaTypeSupported(__LONG32 lMediaType);
 };
 
 class CSingleFilterTerminal : public CBaseTerminal {

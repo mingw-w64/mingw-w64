@@ -999,16 +999,16 @@ extern "C" {
 
   typedef struct hyphresult {
     KHYPH khyph;
-    long ichHyph;
+    __LONG32 ichHyph;
     WCHAR chHyph;
   } HYPHRESULT;
 
-  void WINAPI HyphenateProc(WCHAR *pszWord,LANGID langid,long ichExceed,HYPHRESULT *phyphresult);
+  void WINAPI HyphenateProc(WCHAR *pszWord,LANGID langid,__LONG32 ichExceed,HYPHRESULT *phyphresult);
 
   typedef struct tagHyphenateInfo {
     SHORT cbSize;
     SHORT dxHyphenateZone;
-    void (WINAPI *pfnHyphenate)(WCHAR*,LANGID,long,HYPHRESULT*);
+    void (WINAPI *pfnHyphenate)(WCHAR*,LANGID,__LONG32,HYPHRESULT*);
   } HYPHENATEINFO;
 
 #include <poppack.h>

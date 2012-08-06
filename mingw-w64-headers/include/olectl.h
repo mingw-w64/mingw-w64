@@ -113,10 +113,10 @@ typedef struct tagPICTDESC {
   } DUMMYUNIONNAME;
 } PICTDESC,*LPPICTDESC;
 
-typedef long OLE_XPOS_PIXELS;
-typedef long OLE_YPOS_PIXELS;
-typedef long OLE_XSIZE_PIXELS;
-typedef long OLE_YSIZE_PIXELS;
+typedef __LONG32 OLE_XPOS_PIXELS;
+typedef __LONG32 OLE_YPOS_PIXELS;
+typedef __LONG32 OLE_XSIZE_PIXELS;
+typedef __LONG32 OLE_YSIZE_PIXELS;
 typedef float OLE_XPOS_CONTAINER;
 typedef float OLE_YPOS_CONTAINER;
 typedef float OLE_XSIZE_CONTAINER;

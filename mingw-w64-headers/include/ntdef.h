@@ -282,7 +282,7 @@ typedef HANDLE *PHANDLE;
 #define VOID void
 typedef char CHAR;
 typedef short SHORT;
-typedef long LONG;
+typedef __LONG32 LONG;
 #if !defined(MIDL_PASS)
 typedef int INT;
 #endif
@@ -292,7 +292,7 @@ typedef double DOUBLE;
 /* Unsigned Types */
 typedef unsigned char UCHAR, *PUCHAR;
 typedef unsigned short USHORT, *PUSHORT;
-typedef unsigned long ULONG, *PULONG;
+typedef unsigned __LONG32 ULONG, *PULONG;
 typedef CONST UCHAR *PCUCHAR;
 typedef CONST USHORT *PCUSHORT;
 typedef CONST ULONG *PCULONG;

@@ -101,7 +101,7 @@ typedef struct tagRepairInfo {
   LPWSTR          pwszClassName;
   LPWSTR          pwszDescription;
   DWORD           sidType;
-  long            cost;
+  __LONG32            cost;
   ULONG           flags;
   REPAIR_SCOPE    scope;
   REPAIR_RISK     risk;

@@ -14,7 +14,7 @@ extern "C" {
 #endif
 
 typedef struct tagDiagnosticsInfo {
-  long  cost;
+  __LONG32  cost;
   ULONG flags;
 } DiagnosticsInfo, *PDiagnosticsInfo;
 

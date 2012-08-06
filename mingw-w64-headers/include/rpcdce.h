@@ -48,7 +48,7 @@ extern "C" {
 #endif
 
   typedef struct _RPC_BINDING_VECTOR {
-    unsigned long Count;
+    unsigned __LONG32 Count;
     RPC_BINDING_HANDLE BindingH[1];
   } RPC_BINDING_VECTOR;
 #ifndef rpc_binding_vector_t
@@ -56,7 +56,7 @@ extern "C" {
 #endif
 
   typedef struct _UUID_VECTOR {
-    unsigned long Count;
+    unsigned __LONG32 Count;
     UUID *Uuid[1];
   } UUID_VECTOR;
 #ifndef uuid_vector_t
@@ -135,8 +135,8 @@ extern "C" {
 
   typedef struct _RPC_POLICY {
     unsigned int Length;
-    unsigned long EndpointFlags;
-    unsigned long NICFlags;
+    unsigned __LONG32 EndpointFlags;
+    unsigned __LONG32 NICFlags;
   } RPC_POLICY,*PRPC_POLICY;
 
   typedef void __RPC_API RPC_OBJECT_INQ_FN(UUID *ObjectUuid,UUID *TypeUuid,RPC_STATUS *Status);
@@ -147,7 +147,7 @@ extern "C" {
 
   typedef struct {
     unsigned int Count;
-    unsigned long Stats[1];
+    unsigned __LONG32 Stats[1];
   } RPC_STATS_VECTOR;
 
 #define RPC_C_STATS_CALLS_IN 0
@@ -156,7 +156,7 @@ extern "C" {
 #define RPC_C_STATS_PKTS_OUT 3
 
   typedef struct {
-    unsigned long Count;
+    unsigned __LONG32 Count;
     RPC_IF_ID *IfId[1];
   } RPC_IF_ID_VECTOR;
 
@@ -180,15 +180,15 @@ extern "C" {
 
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingCopy(RPC_BINDING_HANDLE SourceBinding,RPC_BINDING_HANDLE *DestinationBinding);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingFree(RPC_BINDING_HANDLE *Binding);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingSetOption(RPC_BINDING_HANDLE hBinding,unsigned long option,ULONG_PTR optionValue);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingInqOption(RPC_BINDING_HANDLE hBinding,unsigned long option,ULONG_PTR *pOptionValue);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingSetOption(RPC_BINDING_HANDLE hBinding,unsigned __LONG32 option,ULONG_PTR optionValue);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingInqOption(RPC_BINDING_HANDLE hBinding,unsigned __LONG32 option,ULONG_PTR *pOptionValue);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingFromStringBindingA(RPC_CSTR StringBinding,RPC_BINDING_HANDLE *Binding);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingFromStringBindingW(RPC_WSTR StringBinding,RPC_BINDING_HANDLE *Binding);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcSsGetContextBinding(void *ContextHandle,RPC_BINDING_HANDLE *Binding);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingInqObject(RPC_BINDING_HANDLE Binding,UUID *ObjectUuid);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingReset(RPC_BINDING_HANDLE Binding);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingSetObject(RPC_BINDING_HANDLE Binding,UUID *ObjectUuid);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtInqDefaultProtectLevel(unsigned long AuthnSvc,unsigned long *AuthnLevel);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtInqDefaultProtectLevel(unsigned __LONG32 AuthnSvc,unsigned __LONG32 *AuthnLevel);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingToStringBindingA(RPC_BINDING_HANDLE Binding,RPC_CSTR *StringBinding);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingToStringBindingW(RPC_BINDING_HANDLE Binding,RPC_WSTR *StringBinding);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingVectorFree(RPC_BINDING_VECTOR **BindingVector);
@@ -203,7 +203,7 @@ extern "C" {
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcNetworkIsProtseqValidW(RPC_WSTR Protseq);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtInqComTimeout(RPC_BINDING_HANDLE Binding,unsigned int *Timeout);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtSetComTimeout(RPC_BINDING_HANDLE Binding,unsigned int Timeout);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtSetCancelTimeout(long Timeout);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtSetCancelTimeout(__LONG32 Timeout);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcNetworkInqProtseqsA (RPC_PROTSEQ_VECTORA **ProtseqVector);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcNetworkInqProtseqsW (RPC_PROTSEQ_VECTORW **ProtseqVector);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcObjectInqType(UUID *ObjUuid,UUID *TypeUuid);
@@ -241,18 +241,18 @@ extern "C" {
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtIsServerListening(RPC_BINDING_HANDLE Binding);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtStopServerListening(RPC_BINDING_HANDLE Binding);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtWaitServerListen(void);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtSetServerStackSize(unsigned long ThreadStackSize);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtSetServerStackSize(unsigned __LONG32 ThreadStackSize);
   RPCRTAPI void RPC_ENTRY RpcSsDontSerializeContext(void);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtEnableIdleCleanup(void);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtInqIfIds(RPC_BINDING_HANDLE Binding,RPC_IF_ID_VECTOR **IfIdVector);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcIfIdVectorFree(RPC_IF_ID_VECTOR **IfIdVector);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtInqServerPrincNameA(RPC_BINDING_HANDLE Binding,unsigned long AuthnSvc,RPC_CSTR *ServerPrincName);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtInqServerPrincNameW(RPC_BINDING_HANDLE Binding,unsigned long AuthnSvc,RPC_WSTR *ServerPrincName);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcServerInqDefaultPrincNameA(unsigned long AuthnSvc,RPC_CSTR *PrincName);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcServerInqDefaultPrincNameW(unsigned long AuthnSvc,RPC_WSTR *PrincName);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtInqServerPrincNameA(RPC_BINDING_HANDLE Binding,unsigned __LONG32 AuthnSvc,RPC_CSTR *ServerPrincName);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtInqServerPrincNameW(RPC_BINDING_HANDLE Binding,unsigned __LONG32 AuthnSvc,RPC_WSTR *ServerPrincName);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcServerInqDefaultPrincNameA(unsigned __LONG32 AuthnSvc,RPC_CSTR *PrincName);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcServerInqDefaultPrincNameW(unsigned __LONG32 AuthnSvc,RPC_WSTR *PrincName);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcEpResolveBinding(RPC_BINDING_HANDLE Binding,RPC_IF_HANDLE IfSpec);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcNsBindingInqEntryNameA(RPC_BINDING_HANDLE Binding,unsigned long EntryNameSyntax,RPC_CSTR *EntryName);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcNsBindingInqEntryNameW(RPC_BINDING_HANDLE Binding,unsigned long EntryNameSyntax,RPC_WSTR *EntryName);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcNsBindingInqEntryNameA(RPC_BINDING_HANDLE Binding,unsigned __LONG32 EntryNameSyntax,RPC_CSTR *EntryName);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcNsBindingInqEntryNameW(RPC_BINDING_HANDLE Binding,unsigned __LONG32 EntryNameSyntax,RPC_WSTR *EntryName);
 
   typedef void *RPC_AUTH_IDENTITY_HANDLE;
   typedef void *RPC_AUTHZ_HANDLE;
@@ -309,10 +309,10 @@ extern "C" {
 #define RPC_C_SECURITY_QOS_VERSION_1 __MSABI_LONG(1)
 
   typedef struct _RPC_SECURITY_QOS {
-    unsigned long Version;
-    unsigned long Capabilities;
-    unsigned long IdentityTracking;
-    unsigned long ImpersonationType;
+    unsigned __LONG32 Version;
+    unsigned __LONG32 Capabilities;
+    unsigned __LONG32 IdentityTracking;
+    unsigned __LONG32 ImpersonationType;
   } RPC_SECURITY_QOS,*PRPC_SECURITY_QOS;
 
 #ifndef _AUTH_IDENTITY_DEFINED
@@ -323,22 +323,22 @@ extern "C" {
 
   typedef struct _SEC_WINNT_AUTH_IDENTITY_W {
     unsigned short *User;
-    unsigned long UserLength;
+    unsigned __LONG32 UserLength;
     unsigned short *Domain;
-    unsigned long DomainLength;
+    unsigned __LONG32 DomainLength;
     unsigned short *Password;
-    unsigned long PasswordLength;
-    unsigned long Flags;
+    unsigned __LONG32 PasswordLength;
+    unsigned __LONG32 Flags;
   } SEC_WINNT_AUTH_IDENTITY_W,*PSEC_WINNT_AUTH_IDENTITY_W;
 
   typedef struct _SEC_WINNT_AUTH_IDENTITY_A {
     unsigned char *User;
-    unsigned long UserLength;
+    unsigned __LONG32 UserLength;
     unsigned char *Domain;
-    unsigned long DomainLength;
+    unsigned __LONG32 DomainLength;
     unsigned char *Password;
-    unsigned long PasswordLength;
-    unsigned long Flags;
+    unsigned __LONG32 PasswordLength;
+    unsigned __LONG32 Flags;
   } SEC_WINNT_AUTH_IDENTITY_A,*PSEC_WINNT_AUTH_IDENTITY_A;
 
 #define SEC_WINNT_AUTH_IDENTITY __MINGW_NAME_UAW(SEC_WINNT_AUTH_IDENTITY)
@@ -365,39 +365,39 @@ extern "C" {
 
   typedef struct _RPC_HTTP_TRANSPORT_CREDENTIALS_W {
     SEC_WINNT_AUTH_IDENTITY_W *TransportCredentials;
-    unsigned long Flags;
-    unsigned long AuthenticationTarget;
-    unsigned long NumberOfAuthnSchemes;
-    unsigned long *AuthnSchemes;
+    unsigned __LONG32 Flags;
+    unsigned __LONG32 AuthenticationTarget;
+    unsigned __LONG32 NumberOfAuthnSchemes;
+    unsigned __LONG32 *AuthnSchemes;
     unsigned short *ServerCertificateSubject;
   } RPC_HTTP_TRANSPORT_CREDENTIALS_W,*PRPC_HTTP_TRANSPORT_CREDENTIALS_W;
 
   typedef struct _RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     SEC_WINNT_AUTH_IDENTITY_A *TransportCredentials;
-    unsigned long Flags;
-    unsigned long AuthenticationTarget;
-    unsigned long NumberOfAuthnSchemes;
-    unsigned long *AuthnSchemes;
+    unsigned __LONG32 Flags;
+    unsigned __LONG32 AuthenticationTarget;
+    unsigned __LONG32 NumberOfAuthnSchemes;
+    unsigned __LONG32 *AuthnSchemes;
     unsigned char *ServerCertificateSubject;
   } RPC_HTTP_TRANSPORT_CREDENTIALS_A,*PRPC_HTTP_TRANSPORT_CREDENTIALS_A;
 
   typedef struct _RPC_SECURITY_QOS_V2_W {
-    unsigned long Version;
-    unsigned long Capabilities;
-    unsigned long IdentityTracking;
-    unsigned long ImpersonationType;
-    unsigned long AdditionalSecurityInfoType;
+    unsigned __LONG32 Version;
+    unsigned __LONG32 Capabilities;
+    unsigned __LONG32 IdentityTracking;
+    unsigned __LONG32 ImpersonationType;
+    unsigned __LONG32 AdditionalSecurityInfoType;
     union {
       RPC_HTTP_TRANSPORT_CREDENTIALS_W *HttpCredentials;
     } u;
   } RPC_SECURITY_QOS_V2_W,*PRPC_SECURITY_QOS_V2_W;
 
   typedef struct _RPC_SECURITY_QOS_V2_A {
-    unsigned long Version;
-    unsigned long Capabilities;
-    unsigned long IdentityTracking;
-    unsigned long ImpersonationType;
-    unsigned long AdditionalSecurityInfoType;
+    unsigned __LONG32 Version;
+    unsigned __LONG32 Capabilities;
+    unsigned __LONG32 IdentityTracking;
+    unsigned __LONG32 ImpersonationType;
+    unsigned __LONG32 AdditionalSecurityInfoType;
     union {
       RPC_HTTP_TRANSPORT_CREDENTIALS_A *HttpCredentials;
     } u;
@@ -406,11 +406,11 @@ extern "C" {
 #define RPC_C_SECURITY_QOS_VERSION_3 __MSABI_LONG(3)
 
   typedef struct _RPC_SECURITY_QOS_V3_W {
-    unsigned long Version;
-    unsigned long Capabilities;
-    unsigned long IdentityTracking;
-    unsigned long ImpersonationType;
-    unsigned long AdditionalSecurityInfoType;
+    unsigned __LONG32 Version;
+    unsigned __LONG32 Capabilities;
+    unsigned __LONG32 IdentityTracking;
+    unsigned __LONG32 ImpersonationType;
+    unsigned __LONG32 AdditionalSecurityInfoType;
     union {
       RPC_HTTP_TRANSPORT_CREDENTIALS_W *HttpCredentials;
     } u;
@@ -418,11 +418,11 @@ extern "C" {
   } RPC_SECURITY_QOS_V3_W,*PRPC_SECURITY_QOS_V3_W;
 
   typedef struct _RPC_SECURITY_QOS_V3_A {
-    unsigned long Version;
-    unsigned long Capabilities;
-    unsigned long IdentityTracking;
-    unsigned long ImpersonationType;
-    unsigned long AdditionalSecurityInfoType;
+    unsigned __LONG32 Version;
+    unsigned __LONG32 Capabilities;
+    unsigned __LONG32 IdentityTracking;
+    unsigned __LONG32 ImpersonationType;
+    unsigned __LONG32 AdditionalSecurityInfoType;
     union {
       RPC_HTTP_TRANSPORT_CREDENTIALS_A *HttpCredentials;
     } u;
@@ -444,7 +444,7 @@ extern "C" {
     RPCHTTP_RS_REDIRECT = 1,RPCHTTP_RS_ACCESS_1,RPCHTTP_RS_SESSION,RPCHTTP_RS_ACCESS_2,RPCHTTP_RS_INTERFACE
   } RPC_HTTP_REDIRECTOR_STAGE;
 
-  typedef RPC_STATUS (__RPC_API *RPC_NEW_HTTP_PROXY_CHANNEL)(RPC_HTTP_REDIRECTOR_STAGE RedirectorStage,unsigned short *ServerName,unsigned short *ServerPort,unsigned short *RemoteUser,unsigned short *AuthType,void *ResourceUuid,void *Metadata,void *SessionId,void *Interface,void *Reserved,unsigned long Flags,unsigned short **NewServerName,unsigned short **NewServerPort);
+  typedef RPC_STATUS (__RPC_API *RPC_NEW_HTTP_PROXY_CHANNEL)(RPC_HTTP_REDIRECTOR_STAGE RedirectorStage,unsigned short *ServerName,unsigned short *ServerPort,unsigned short *RemoteUser,unsigned short *AuthType,void *ResourceUuid,void *Metadata,void *SessionId,void *Interface,void *Reserved,unsigned __LONG32 Flags,unsigned short **NewServerName,unsigned short **NewServerPort);
   typedef void (__RPC_API *RPC_HTTP_PROXY_FREE_STRING)(unsigned short *String);
 
 #define RPC_C_AUTHZ_NONE 0
@@ -455,23 +455,23 @@ extern "C" {
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcImpersonateClient(RPC_BINDING_HANDLE BindingHandle);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcRevertToSelfEx(RPC_BINDING_HANDLE BindingHandle);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcRevertToSelf();
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingInqAuthClientA(RPC_BINDING_HANDLE ClientBinding,RPC_AUTHZ_HANDLE *Privs,RPC_CSTR *ServerPrincName,unsigned long *AuthnLevel,unsigned long *AuthnSvc,unsigned long *AuthzSvc);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingInqAuthClientW(RPC_BINDING_HANDLE ClientBinding,RPC_AUTHZ_HANDLE *Privs,RPC_WSTR *ServerPrincName,unsigned long *AuthnLevel,unsigned long *AuthnSvc,unsigned long *AuthzSvc);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingInqAuthClientExA(RPC_BINDING_HANDLE ClientBinding,RPC_AUTHZ_HANDLE *Privs,RPC_CSTR *ServerPrincName,unsigned long *AuthnLevel,unsigned long *AuthnSvc,unsigned long *AuthzSvc,unsigned long Flags);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingInqAuthClientExW(RPC_BINDING_HANDLE ClientBinding,RPC_AUTHZ_HANDLE *Privs,RPC_WSTR *ServerPrincName,unsigned long *AuthnLevel,unsigned long *AuthnSvc,unsigned long *AuthzSvc,unsigned long Flags);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingInqAuthInfoA(RPC_BINDING_HANDLE Binding,RPC_CSTR *ServerPrincName,unsigned long *AuthnLevel,unsigned long *AuthnSvc,RPC_AUTH_IDENTITY_HANDLE *AuthIdentity,unsigned long *AuthzSvc);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingInqAuthInfoW(RPC_BINDING_HANDLE Binding,RPC_WSTR *ServerPrincName,unsigned long *AuthnLevel,unsigned long *AuthnSvc,RPC_AUTH_IDENTITY_HANDLE *AuthIdentity,unsigned long *AuthzSvc);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingSetAuthInfoA(RPC_BINDING_HANDLE Binding,RPC_CSTR ServerPrincName,unsigned long AuthnLevel,unsigned long AuthnSvc,RPC_AUTH_IDENTITY_HANDLE AuthIdentity,unsigned long AuthzSvc);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingSetAuthInfoExA(RPC_BINDING_HANDLE Binding,RPC_CSTR ServerPrincName,unsigned long AuthnLevel,unsigned long AuthnSvc,RPC_AUTH_IDENTITY_HANDLE AuthIdentity,unsigned long AuthzSvc,RPC_SECURITY_QOS *SecurityQos);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingSetAuthInfoW(RPC_BINDING_HANDLE Binding,RPC_WSTR ServerPrincName,unsigned long AuthnLevel,unsigned long AuthnSvc,RPC_AUTH_IDENTITY_HANDLE AuthIdentity,unsigned long AuthzSvc);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingSetAuthInfoExW(RPC_BINDING_HANDLE Binding,RPC_WSTR ServerPrincName,unsigned long AuthnLevel,unsigned long AuthnSvc,RPC_AUTH_IDENTITY_HANDLE AuthIdentity,unsigned long AuthzSvc,RPC_SECURITY_QOS *SecurityQOS);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingInqAuthInfoExA(RPC_BINDING_HANDLE Binding,RPC_CSTR *ServerPrincName,unsigned long *AuthnLevel,unsigned long *AuthnSvc,RPC_AUTH_IDENTITY_HANDLE *AuthIdentity,unsigned long *AuthzSvc,unsigned long RpcQosVersion,RPC_SECURITY_QOS *SecurityQOS);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingInqAuthInfoExW(RPC_BINDING_HANDLE Binding,RPC_WSTR *ServerPrincName,unsigned long *AuthnLevel,unsigned long *AuthnSvc,RPC_AUTH_IDENTITY_HANDLE *AuthIdentity,unsigned long *AuthzSvc,unsigned long RpcQosVersion,RPC_SECURITY_QOS *SecurityQOS);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingInqAuthClientA(RPC_BINDING_HANDLE ClientBinding,RPC_AUTHZ_HANDLE *Privs,RPC_CSTR *ServerPrincName,unsigned __LONG32 *AuthnLevel,unsigned __LONG32 *AuthnSvc,unsigned __LONG32 *AuthzSvc);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingInqAuthClientW(RPC_BINDING_HANDLE ClientBinding,RPC_AUTHZ_HANDLE *Privs,RPC_WSTR *ServerPrincName,unsigned __LONG32 *AuthnLevel,unsigned __LONG32 *AuthnSvc,unsigned __LONG32 *AuthzSvc);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingInqAuthClientExA(RPC_BINDING_HANDLE ClientBinding,RPC_AUTHZ_HANDLE *Privs,RPC_CSTR *ServerPrincName,unsigned __LONG32 *AuthnLevel,unsigned __LONG32 *AuthnSvc,unsigned __LONG32 *AuthzSvc,unsigned __LONG32 Flags);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingInqAuthClientExW(RPC_BINDING_HANDLE ClientBinding,RPC_AUTHZ_HANDLE *Privs,RPC_WSTR *ServerPrincName,unsigned __LONG32 *AuthnLevel,unsigned __LONG32 *AuthnSvc,unsigned __LONG32 *AuthzSvc,unsigned __LONG32 Flags);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingInqAuthInfoA(RPC_BINDING_HANDLE Binding,RPC_CSTR *ServerPrincName,unsigned __LONG32 *AuthnLevel,unsigned __LONG32 *AuthnSvc,RPC_AUTH_IDENTITY_HANDLE *AuthIdentity,unsigned __LONG32 *AuthzSvc);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingInqAuthInfoW(RPC_BINDING_HANDLE Binding,RPC_WSTR *ServerPrincName,unsigned __LONG32 *AuthnLevel,unsigned __LONG32 *AuthnSvc,RPC_AUTH_IDENTITY_HANDLE *AuthIdentity,unsigned __LONG32 *AuthzSvc);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingSetAuthInfoA(RPC_BINDING_HANDLE Binding,RPC_CSTR ServerPrincName,unsigned __LONG32 AuthnLevel,unsigned __LONG32 AuthnSvc,RPC_AUTH_IDENTITY_HANDLE AuthIdentity,unsigned __LONG32 AuthzSvc);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingSetAuthInfoExA(RPC_BINDING_HANDLE Binding,RPC_CSTR ServerPrincName,unsigned __LONG32 AuthnLevel,unsigned __LONG32 AuthnSvc,RPC_AUTH_IDENTITY_HANDLE AuthIdentity,unsigned __LONG32 AuthzSvc,RPC_SECURITY_QOS *SecurityQos);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingSetAuthInfoW(RPC_BINDING_HANDLE Binding,RPC_WSTR ServerPrincName,unsigned __LONG32 AuthnLevel,unsigned __LONG32 AuthnSvc,RPC_AUTH_IDENTITY_HANDLE AuthIdentity,unsigned __LONG32 AuthzSvc);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingSetAuthInfoExW(RPC_BINDING_HANDLE Binding,RPC_WSTR ServerPrincName,unsigned __LONG32 AuthnLevel,unsigned __LONG32 AuthnSvc,RPC_AUTH_IDENTITY_HANDLE AuthIdentity,unsigned __LONG32 AuthzSvc,RPC_SECURITY_QOS *SecurityQOS);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingInqAuthInfoExA(RPC_BINDING_HANDLE Binding,RPC_CSTR *ServerPrincName,unsigned __LONG32 *AuthnLevel,unsigned __LONG32 *AuthnSvc,RPC_AUTH_IDENTITY_HANDLE *AuthIdentity,unsigned __LONG32 *AuthzSvc,unsigned __LONG32 RpcQosVersion,RPC_SECURITY_QOS *SecurityQOS);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcBindingInqAuthInfoExW(RPC_BINDING_HANDLE Binding,RPC_WSTR *ServerPrincName,unsigned __LONG32 *AuthnLevel,unsigned __LONG32 *AuthnSvc,RPC_AUTH_IDENTITY_HANDLE *AuthIdentity,unsigned __LONG32 *AuthzSvc,unsigned __LONG32 RpcQosVersion,RPC_SECURITY_QOS *SecurityQOS);
 
-  typedef void (__RPC_API *RPC_AUTH_KEY_RETRIEVAL_FN)(void *Arg,unsigned short *ServerPrincName,unsigned long KeyVer,void **Key,RPC_STATUS *Status);
+  typedef void (__RPC_API *RPC_AUTH_KEY_RETRIEVAL_FN)(void *Arg,unsigned short *ServerPrincName,unsigned __LONG32 KeyVer,void **Key,RPC_STATUS *Status);
 
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcServerRegisterAuthInfoA(RPC_CSTR ServerPrincName,unsigned long AuthnSvc,RPC_AUTH_KEY_RETRIEVAL_FN GetKeyFn,void *Arg);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcServerRegisterAuthInfoW(RPC_WSTR ServerPrincName,unsigned long AuthnSvc,RPC_AUTH_KEY_RETRIEVAL_FN GetKeyFn,void *Arg);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcServerRegisterAuthInfoA(RPC_CSTR ServerPrincName,unsigned __LONG32 AuthnSvc,RPC_AUTH_KEY_RETRIEVAL_FN GetKeyFn,void *Arg);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcServerRegisterAuthInfoW(RPC_WSTR ServerPrincName,unsigned __LONG32 AuthnSvc,RPC_AUTH_KEY_RETRIEVAL_FN GetKeyFn,void *Arg);
 
 #define RpcBindingInqAuthClient __MINGW_NAME_AW(RpcBindingInqAuthClient)
 #define RpcBindingInqAuthClientEx __MINGW_NAME_AW(RpcBindingInqAuthClientEx)
@@ -486,7 +486,7 @@ extern "C" {
     unsigned char *UserName;
     unsigned char *ComputerName;
     unsigned short Privilege;
-    unsigned long AuthFlags;
+    unsigned __LONG32 AuthFlags;
   } RPC_CLIENT_INFORMATION1,*PRPC_CLIENT_INFORMATION1;
 #endif
 
@@ -503,7 +503,7 @@ extern "C" {
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcTestCancel();
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcServerTestCancel(RPC_BINDING_HANDLE BindingHandle);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcCancelThread(void *Thread);
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcCancelThreadEx(void *Thread,long Timeout);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcCancelThreadEx(void *Thread,__LONG32 Timeout);
   RPCRTAPI RPC_STATUS RPC_ENTRY UuidCreate(UUID *Uuid);
   RPCRTAPI RPC_STATUS RPC_ENTRY UuidCreateSequential(UUID *Uuid);
   RPCRTAPI RPC_STATUS RPC_ENTRY UuidToStringA(UUID *Uuid,RPC_CSTR *StringUuid);
@@ -538,13 +538,13 @@ extern "C" {
 
 #define RpcMgmtEpEltInqNext __MINGW_NAME_AW(RpcMgmtEpEltInqNext)
 
-  RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtEpEltInqBegin(RPC_BINDING_HANDLE EpBinding,unsigned long InquiryType,RPC_IF_ID *IfId,unsigned long VersOption,UUID *ObjectUuid,RPC_EP_INQ_HANDLE *InquiryContext);
+  RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtEpEltInqBegin(RPC_BINDING_HANDLE EpBinding,unsigned __LONG32 InquiryType,RPC_IF_ID *IfId,unsigned __LONG32 VersOption,UUID *ObjectUuid,RPC_EP_INQ_HANDLE *InquiryContext);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtEpEltInqDone(RPC_EP_INQ_HANDLE *InquiryContext);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtEpEltInqNextA(RPC_EP_INQ_HANDLE InquiryContext,RPC_IF_ID *IfId,RPC_BINDING_HANDLE *Binding,UUID *ObjectUuid,RPC_CSTR *Annotation);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtEpEltInqNextW(RPC_EP_INQ_HANDLE InquiryContext,RPC_IF_ID *IfId,RPC_BINDING_HANDLE *Binding,UUID *ObjectUuid,RPC_WSTR *Annotation);
   RPCRTAPI RPC_STATUS RPC_ENTRY RpcMgmtEpUnregister(RPC_BINDING_HANDLE EpBinding,RPC_IF_ID *IfId,RPC_BINDING_HANDLE Binding,UUID *ObjectUuid);
 
-  typedef int (__RPC_API *RPC_MGMT_AUTHORIZATION_FN)(RPC_BINDING_HANDLE ClientBinding,unsigned long RequestedMgmtOperation,RPC_STATUS *Status);
+  typedef int (__RPC_API *RPC_MGMT_AUTHORIZATION_FN)(RPC_BINDING_HANDLE ClientBinding,unsigned __LONG32 RequestedMgmtOperation,RPC_STATUS *Status);
 
 #define RPC_C_MGMT_INQ_IF_IDS 0
 #define RPC_C_MGMT_INQ_PRINC_NAME 1
@@ -568,25 +568,25 @@ extern "C" {
 #if (_WIN32_WINNT >= 0x0600)
 
 typedef struct _RPC_BINDING_HANDLE_OPTIONS_V1 {
-  unsigned long Version;
-  unsigned long Flags;
-  unsigned long ComTimeout;
-  unsigned long CallTimeout;
+  unsigned __LONG32 Version;
+  unsigned __LONG32 Flags;
+  unsigned __LONG32 ComTimeout;
+  unsigned __LONG32 CallTimeout;
 } RPC_BINDING_HANDLE_OPTIONS_V1, RPC_BINDING_HANDLE_OPTIONS;
 
 typedef struct {
-  unsigned long           Version;
+  unsigned __LONG32       Version;
   unsigned short          *ServerPrincName;
-  unsigned long           AuthnLevel;
-  unsigned long           AuthnSvc;
+  unsigned __LONG32       AuthnLevel;
+  unsigned __LONG32       AuthnSvc;
   SEC_WINNT_AUTH_IDENTITY *AuthIdentity;
   RPC_SECURITY_QOS        *SecurityQos;
 } RPC_BINDING_HANDLE_SECURITY_V1, RPC_BINDING_HANDLE_SECURITY;
 
 typedef struct _RPC_BINDING_HANDLE_TEMPLATE {
-  unsigned long  Version;
-  unsigned long  Flags;
-  unsigned long  ProtocolSequence;
+  unsigned __LONG32  Version;
+  unsigned __LONG32  Flags;
+  unsigned __LONG32  ProtocolSequence;
   unsigned short *NetworkAddress;
   unsigned short *StringEndpoint;
   union {

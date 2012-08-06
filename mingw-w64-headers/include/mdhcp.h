@@ -94,11 +94,11 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IMcastScope : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_ScopeID(long *pID) = 0;
-    virtual HRESULT WINAPI get_ServerID(long *pID) = 0;
-    virtual HRESULT WINAPI get_InterfaceID(long *pID) = 0;
+    virtual HRESULT WINAPI get_ScopeID(__LONG32 *pID) = 0;
+    virtual HRESULT WINAPI get_ServerID(__LONG32 *pID) = 0;
+    virtual HRESULT WINAPI get_InterfaceID(__LONG32 *pID) = 0;
     virtual HRESULT WINAPI get_ScopeDescription(BSTR *ppDescription) = 0;
-    virtual HRESULT WINAPI get_TTL(long *pTTL) = 0;
+    virtual HRESULT WINAPI get_TTL(__LONG32 *pTTL) = 0;
   };
 #else
   typedef struct IMcastScopeVtbl {
@@ -110,11 +110,11 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IMcastScope *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IMcastScope *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IMcastScope *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_ScopeID)(IMcastScope *This,long *pID);
-      HRESULT (WINAPI *get_ServerID)(IMcastScope *This,long *pID);
-      HRESULT (WINAPI *get_InterfaceID)(IMcastScope *This,long *pID);
+      HRESULT (WINAPI *get_ScopeID)(IMcastScope *This,__LONG32 *pID);
+      HRESULT (WINAPI *get_ServerID)(IMcastScope *This,__LONG32 *pID);
+      HRESULT (WINAPI *get_InterfaceID)(IMcastScope *This,__LONG32 *pID);
       HRESULT (WINAPI *get_ScopeDescription)(IMcastScope *This,BSTR *ppDescription);
-      HRESULT (WINAPI *get_TTL)(IMcastScope *This,long *pTTL);
+      HRESULT (WINAPI *get_TTL)(IMcastScope *This,__LONG32 *pTTL);
     END_INTERFACE
   } IMcastScopeVtbl;
   struct IMcastScope {
@@ -135,15 +135,15 @@ extern "C"{
 #define IMcastScope_get_TTL(This,pTTL) (This)->lpVtbl->get_TTL(This,pTTL)
 #endif
 #endif
-  HRESULT WINAPI IMcastScope_get_ScopeID_Proxy(IMcastScope *This,long *pID);
+  HRESULT WINAPI IMcastScope_get_ScopeID_Proxy(IMcastScope *This,__LONG32 *pID);
   void __RPC_STUB IMcastScope_get_ScopeID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMcastScope_get_ServerID_Proxy(IMcastScope *This,long *pID);
+  HRESULT WINAPI IMcastScope_get_ServerID_Proxy(IMcastScope *This,__LONG32 *pID);
   void __RPC_STUB IMcastScope_get_ServerID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMcastScope_get_InterfaceID_Proxy(IMcastScope *This,long *pID);
+  HRESULT WINAPI IMcastScope_get_InterfaceID_Proxy(IMcastScope *This,__LONG32 *pID);
   void __RPC_STUB IMcastScope_get_InterfaceID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMcastScope_get_ScopeDescription_Proxy(IMcastScope *This,BSTR *ppDescription);
   void __RPC_STUB IMcastScope_get_ScopeDescription_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMcastScope_get_TTL_Proxy(IMcastScope *This,long *pTTL);
+  HRESULT WINAPI IMcastScope_get_TTL_Proxy(IMcastScope *This,__LONG32 *pTTL);
   void __RPC_STUB IMcastScope_get_TTL_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -158,9 +158,9 @@ extern "C"{
     virtual HRESULT WINAPI put_LeaseStartTime(DATE time) = 0;
     virtual HRESULT WINAPI get_LeaseStopTime(DATE *pTime) = 0;
     virtual HRESULT WINAPI put_LeaseStopTime(DATE time) = 0;
-    virtual HRESULT WINAPI get_AddressCount(long *pCount) = 0;
+    virtual HRESULT WINAPI get_AddressCount(__LONG32 *pCount) = 0;
     virtual HRESULT WINAPI get_ServerAddress(BSTR *ppAddress) = 0;
-    virtual HRESULT WINAPI get_TTL(long *pTTL) = 0;
+    virtual HRESULT WINAPI get_TTL(__LONG32 *pTTL) = 0;
     virtual HRESULT WINAPI get_Addresses(VARIANT *pVariant) = 0;
     virtual HRESULT WINAPI EnumerateAddresses(IEnumBstr **ppEnumAddresses) = 0;
   };
@@ -179,9 +179,9 @@ extern "C"{
       HRESULT (WINAPI *put_LeaseStartTime)(IMcastLeaseInfo *This,DATE time);
       HRESULT (WINAPI *get_LeaseStopTime)(IMcastLeaseInfo *This,DATE *pTime);
       HRESULT (WINAPI *put_LeaseStopTime)(IMcastLeaseInfo *This,DATE time);
-      HRESULT (WINAPI *get_AddressCount)(IMcastLeaseInfo *This,long *pCount);
+      HRESULT (WINAPI *get_AddressCount)(IMcastLeaseInfo *This,__LONG32 *pCount);
       HRESULT (WINAPI *get_ServerAddress)(IMcastLeaseInfo *This,BSTR *ppAddress);
-      HRESULT (WINAPI *get_TTL)(IMcastLeaseInfo *This,long *pTTL);
+      HRESULT (WINAPI *get_TTL)(IMcastLeaseInfo *This,__LONG32 *pTTL);
       HRESULT (WINAPI *get_Addresses)(IMcastLeaseInfo *This,VARIANT *pVariant);
       HRESULT (WINAPI *EnumerateAddresses)(IMcastLeaseInfo *This,IEnumBstr **ppEnumAddresses);
     END_INTERFACE
@@ -219,11 +219,11 @@ extern "C"{
   void __RPC_STUB IMcastLeaseInfo_get_LeaseStopTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMcastLeaseInfo_put_LeaseStopTime_Proxy(IMcastLeaseInfo *This,DATE time);
   void __RPC_STUB IMcastLeaseInfo_put_LeaseStopTime_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMcastLeaseInfo_get_AddressCount_Proxy(IMcastLeaseInfo *This,long *pCount);
+  HRESULT WINAPI IMcastLeaseInfo_get_AddressCount_Proxy(IMcastLeaseInfo *This,__LONG32 *pCount);
   void __RPC_STUB IMcastLeaseInfo_get_AddressCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMcastLeaseInfo_get_ServerAddress_Proxy(IMcastLeaseInfo *This,BSTR *ppAddress);
   void __RPC_STUB IMcastLeaseInfo_get_ServerAddress_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMcastLeaseInfo_get_TTL_Proxy(IMcastLeaseInfo *This,long *pTTL);
+  HRESULT WINAPI IMcastLeaseInfo_get_TTL_Proxy(IMcastLeaseInfo *This,__LONG32 *pTTL);
   void __RPC_STUB IMcastLeaseInfo_get_TTL_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMcastLeaseInfo_get_Addresses_Proxy(IMcastLeaseInfo *This,VARIANT *pVariant);
   void __RPC_STUB IMcastLeaseInfo_get_Addresses_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -285,8 +285,8 @@ extern "C"{
   public:
     virtual HRESULT WINAPI get_Scopes(VARIANT *pVariant) = 0;
     virtual HRESULT WINAPI EnumerateScopes(IEnumMcastScope **ppEnumMcastScope) = 0;
-    virtual HRESULT WINAPI RequestAddress(IMcastScope *pScope,DATE LeaseStartTime,DATE LeaseStopTime,long NumAddresses,IMcastLeaseInfo **ppLeaseResponse) = 0;
-    virtual HRESULT WINAPI RenewAddress(long lReserved,IMcastLeaseInfo *pRenewRequest,IMcastLeaseInfo **ppRenewResponse) = 0;
+    virtual HRESULT WINAPI RequestAddress(IMcastScope *pScope,DATE LeaseStartTime,DATE LeaseStopTime,__LONG32 NumAddresses,IMcastLeaseInfo **ppLeaseResponse) = 0;
+    virtual HRESULT WINAPI RenewAddress(__LONG32 lReserved,IMcastLeaseInfo *pRenewRequest,IMcastLeaseInfo **ppRenewResponse) = 0;
     virtual HRESULT WINAPI ReleaseAddress(IMcastLeaseInfo *pReleaseRequest) = 0;
     virtual HRESULT WINAPI CreateLeaseInfo(DATE LeaseStartTime,DATE LeaseStopTime,DWORD dwNumAddresses,LPWSTR *ppAddresses,LPWSTR pRequestID,LPWSTR pServerAddress,IMcastLeaseInfo **ppReleaseRequest) = 0;
     virtual HRESULT WINAPI CreateLeaseInfoFromVariant(DATE LeaseStartTime,DATE LeaseStopTime,VARIANT vAddresses,BSTR pRequestID,BSTR pServerAddress,IMcastLeaseInfo **ppReleaseRequest) = 0;
@@ -303,8 +303,8 @@ extern "C"{
       HRESULT (WINAPI *Invoke)(IMcastAddressAllocation *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_Scopes)(IMcastAddressAllocation *This,VARIANT *pVariant);
       HRESULT (WINAPI *EnumerateScopes)(IMcastAddressAllocation *This,IEnumMcastScope **ppEnumMcastScope);
-      HRESULT (WINAPI *RequestAddress)(IMcastAddressAllocation *This,IMcastScope *pScope,DATE LeaseStartTime,DATE LeaseStopTime,long NumAddresses,IMcastLeaseInfo **ppLeaseResponse);
-      HRESULT (WINAPI *RenewAddress)(IMcastAddressAllocation *This,long lReserved,IMcastLeaseInfo *pRenewRequest,IMcastLeaseInfo **ppRenewResponse);
+      HRESULT (WINAPI *RequestAddress)(IMcastAddressAllocation *This,IMcastScope *pScope,DATE LeaseStartTime,DATE LeaseStopTime,__LONG32 NumAddresses,IMcastLeaseInfo **ppLeaseResponse);
+      HRESULT (WINAPI *RenewAddress)(IMcastAddressAllocation *This,__LONG32 lReserved,IMcastLeaseInfo *pRenewRequest,IMcastLeaseInfo **ppRenewResponse);
       HRESULT (WINAPI *ReleaseAddress)(IMcastAddressAllocation *This,IMcastLeaseInfo *pReleaseRequest);
       HRESULT (WINAPI *CreateLeaseInfo)(IMcastAddressAllocation *This,DATE LeaseStartTime,DATE LeaseStopTime,DWORD dwNumAddresses,LPWSTR *ppAddresses,LPWSTR pRequestID,LPWSTR pServerAddress,IMcastLeaseInfo **ppReleaseRequest);
       HRESULT (WINAPI *CreateLeaseInfoFromVariant)(IMcastAddressAllocation *This,DATE LeaseStartTime,DATE LeaseStopTime,VARIANT vAddresses,BSTR pRequestID,BSTR pServerAddress,IMcastLeaseInfo **ppReleaseRequest);
@@ -334,9 +334,9 @@ extern "C"{
   void __RPC_STUB IMcastAddressAllocation_get_Scopes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMcastAddressAllocation_EnumerateScopes_Proxy(IMcastAddressAllocation *This,IEnumMcastScope **ppEnumMcastScope);
   void __RPC_STUB IMcastAddressAllocation_EnumerateScopes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMcastAddressAllocation_RequestAddress_Proxy(IMcastAddressAllocation *This,IMcastScope *pScope,DATE LeaseStartTime,DATE LeaseStopTime,long NumAddresses,IMcastLeaseInfo **ppLeaseResponse);
+  HRESULT WINAPI IMcastAddressAllocation_RequestAddress_Proxy(IMcastAddressAllocation *This,IMcastScope *pScope,DATE LeaseStartTime,DATE LeaseStopTime,__LONG32 NumAddresses,IMcastLeaseInfo **ppLeaseResponse);
   void __RPC_STUB IMcastAddressAllocation_RequestAddress_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMcastAddressAllocation_RenewAddress_Proxy(IMcastAddressAllocation *This,long lReserved,IMcastLeaseInfo *pRenewRequest,IMcastLeaseInfo **ppRenewResponse);
+  HRESULT WINAPI IMcastAddressAllocation_RenewAddress_Proxy(IMcastAddressAllocation *This,__LONG32 lReserved,IMcastLeaseInfo *pRenewRequest,IMcastLeaseInfo **ppRenewResponse);
   void __RPC_STUB IMcastAddressAllocation_RenewAddress_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMcastAddressAllocation_ReleaseAddress_Proxy(IMcastAddressAllocation *This,IMcastLeaseInfo *pReleaseRequest);
   void __RPC_STUB IMcastAddressAllocation_ReleaseAddress_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);

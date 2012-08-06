@@ -613,9 +613,9 @@ extern "C" {
   public:
     virtual HRESULT WINAPI get_Name(BSTR *pbstrName) = 0;
     virtual HRESULT WINAPI get_IPProtocol(UCHAR *pucIPProt) = 0;
-    virtual HRESULT WINAPI get_ExternalPort(long *pusPort) = 0;
-    virtual HRESULT WINAPI get_InternalPort(long *pusPort) = 0;
-    virtual HRESULT WINAPI get_Options(long *pdwOptions) = 0;
+    virtual HRESULT WINAPI get_ExternalPort(__LONG32 *pusPort) = 0;
+    virtual HRESULT WINAPI get_InternalPort(__LONG32 *pusPort) = 0;
+    virtual HRESULT WINAPI get_Options(__LONG32 *pdwOptions) = 0;
     virtual HRESULT WINAPI get_TargetName(BSTR *pbstrTargetName) = 0;
     virtual HRESULT WINAPI get_TargetIPAddress(BSTR *pbstrTargetIPAddress) = 0;
     virtual HRESULT WINAPI get_Enabled(VARIANT_BOOL *pbool) = 0;
@@ -632,9 +632,9 @@ extern "C" {
       HRESULT (WINAPI *Invoke)(INetSharingPortMappingProps *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_Name)(INetSharingPortMappingProps *This,BSTR *pbstrName);
       HRESULT (WINAPI *get_IPProtocol)(INetSharingPortMappingProps *This,UCHAR *pucIPProt);
-      HRESULT (WINAPI *get_ExternalPort)(INetSharingPortMappingProps *This,long *pusPort);
-      HRESULT (WINAPI *get_InternalPort)(INetSharingPortMappingProps *This,long *pusPort);
-      HRESULT (WINAPI *get_Options)(INetSharingPortMappingProps *This,long *pdwOptions);
+      HRESULT (WINAPI *get_ExternalPort)(INetSharingPortMappingProps *This,__LONG32 *pusPort);
+      HRESULT (WINAPI *get_InternalPort)(INetSharingPortMappingProps *This,__LONG32 *pusPort);
+      HRESULT (WINAPI *get_Options)(INetSharingPortMappingProps *This,__LONG32 *pdwOptions);
       HRESULT (WINAPI *get_TargetName)(INetSharingPortMappingProps *This,BSTR *pbstrTargetName);
       HRESULT (WINAPI *get_TargetIPAddress)(INetSharingPortMappingProps *This,BSTR *pbstrTargetIPAddress);
       HRESULT (WINAPI *get_Enabled)(INetSharingPortMappingProps *This,VARIANT_BOOL *pbool);
@@ -665,11 +665,11 @@ extern "C" {
   void __RPC_STUB INetSharingPortMappingProps_get_Name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI INetSharingPortMappingProps_get_IPProtocol_Proxy(INetSharingPortMappingProps *This,UCHAR *pucIPProt);
   void __RPC_STUB INetSharingPortMappingProps_get_IPProtocol_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI INetSharingPortMappingProps_get_ExternalPort_Proxy(INetSharingPortMappingProps *This,long *pusPort);
+  HRESULT WINAPI INetSharingPortMappingProps_get_ExternalPort_Proxy(INetSharingPortMappingProps *This,__LONG32 *pusPort);
   void __RPC_STUB INetSharingPortMappingProps_get_ExternalPort_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI INetSharingPortMappingProps_get_InternalPort_Proxy(INetSharingPortMappingProps *This,long *pusPort);
+  HRESULT WINAPI INetSharingPortMappingProps_get_InternalPort_Proxy(INetSharingPortMappingProps *This,__LONG32 *pusPort);
   void __RPC_STUB INetSharingPortMappingProps_get_InternalPort_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI INetSharingPortMappingProps_get_Options_Proxy(INetSharingPortMappingProps *This,long *pdwOptions);
+  HRESULT WINAPI INetSharingPortMappingProps_get_Options_Proxy(INetSharingPortMappingProps *This,__LONG32 *pdwOptions);
   void __RPC_STUB INetSharingPortMappingProps_get_Options_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI INetSharingPortMappingProps_get_TargetName_Proxy(INetSharingPortMappingProps *This,BSTR *pbstrTargetName);
   void __RPC_STUB INetSharingPortMappingProps_get_TargetName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -878,7 +878,7 @@ extern "C" {
   struct INetSharingPortMappingCollection : public IDispatch {
   public:
     virtual HRESULT WINAPI get__NewEnum(IUnknown **pVal) = 0;
-    virtual HRESULT WINAPI get_Count(long *pVal) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *pVal) = 0;
   };
 #else
   typedef struct INetSharingPortMappingCollectionVtbl {
@@ -891,7 +891,7 @@ extern "C" {
       HRESULT (WINAPI *GetIDsOfNames)(INetSharingPortMappingCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(INetSharingPortMappingCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get__NewEnum)(INetSharingPortMappingCollection *This,IUnknown **pVal);
-      HRESULT (WINAPI *get_Count)(INetSharingPortMappingCollection *This,long *pVal);
+      HRESULT (WINAPI *get_Count)(INetSharingPortMappingCollection *This,__LONG32 *pVal);
     END_INTERFACE
   } INetSharingPortMappingCollectionVtbl;
   struct INetSharingPortMappingCollection {
@@ -911,7 +911,7 @@ extern "C" {
 #endif
   HRESULT WINAPI INetSharingPortMappingCollection_get__NewEnum_Proxy(INetSharingPortMappingCollection *This,IUnknown **pVal);
   void __RPC_STUB INetSharingPortMappingCollection_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI INetSharingPortMappingCollection_get_Count_Proxy(INetSharingPortMappingCollection *This,long *pVal);
+  HRESULT WINAPI INetSharingPortMappingCollection_get_Count_Proxy(INetSharingPortMappingCollection *This,__LONG32 *pVal);
   void __RPC_STUB INetSharingPortMappingCollection_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1086,7 +1086,7 @@ extern "C" {
   struct INetSharingEveryConnectionCollection : public IDispatch {
   public:
     virtual HRESULT WINAPI get__NewEnum(IUnknown **pVal) = 0;
-    virtual HRESULT WINAPI get_Count(long *pVal) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *pVal) = 0;
   };
 #else
   typedef struct INetSharingEveryConnectionCollectionVtbl {
@@ -1099,7 +1099,7 @@ extern "C" {
       HRESULT (WINAPI *GetIDsOfNames)(INetSharingEveryConnectionCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(INetSharingEveryConnectionCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get__NewEnum)(INetSharingEveryConnectionCollection *This,IUnknown **pVal);
-      HRESULT (WINAPI *get_Count)(INetSharingEveryConnectionCollection *This,long *pVal);
+      HRESULT (WINAPI *get_Count)(INetSharingEveryConnectionCollection *This,__LONG32 *pVal);
     END_INTERFACE
   } INetSharingEveryConnectionCollectionVtbl;
   struct INetSharingEveryConnectionCollection {
@@ -1119,7 +1119,7 @@ extern "C" {
 #endif
   HRESULT WINAPI INetSharingEveryConnectionCollection_get__NewEnum_Proxy(INetSharingEveryConnectionCollection *This,IUnknown **pVal);
   void __RPC_STUB INetSharingEveryConnectionCollection_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI INetSharingEveryConnectionCollection_get_Count_Proxy(INetSharingEveryConnectionCollection *This,long *pVal);
+  HRESULT WINAPI INetSharingEveryConnectionCollection_get_Count_Proxy(INetSharingEveryConnectionCollection *This,__LONG32 *pVal);
   void __RPC_STUB INetSharingEveryConnectionCollection_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1130,7 +1130,7 @@ extern "C" {
   struct INetSharingPublicConnectionCollection : public IDispatch {
   public:
     virtual HRESULT WINAPI get__NewEnum(IUnknown **pVal) = 0;
-    virtual HRESULT WINAPI get_Count(long *pVal) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *pVal) = 0;
   };
 #else
   typedef struct INetSharingPublicConnectionCollectionVtbl {
@@ -1143,7 +1143,7 @@ extern "C" {
       HRESULT (WINAPI *GetIDsOfNames)(INetSharingPublicConnectionCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(INetSharingPublicConnectionCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get__NewEnum)(INetSharingPublicConnectionCollection *This,IUnknown **pVal);
-      HRESULT (WINAPI *get_Count)(INetSharingPublicConnectionCollection *This,long *pVal);
+      HRESULT (WINAPI *get_Count)(INetSharingPublicConnectionCollection *This,__LONG32 *pVal);
     END_INTERFACE
   } INetSharingPublicConnectionCollectionVtbl;
   struct INetSharingPublicConnectionCollection {
@@ -1163,7 +1163,7 @@ extern "C" {
 #endif
   HRESULT WINAPI INetSharingPublicConnectionCollection_get__NewEnum_Proxy(INetSharingPublicConnectionCollection *This,IUnknown **pVal);
   void __RPC_STUB INetSharingPublicConnectionCollection_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI INetSharingPublicConnectionCollection_get_Count_Proxy(INetSharingPublicConnectionCollection *This,long *pVal);
+  HRESULT WINAPI INetSharingPublicConnectionCollection_get_Count_Proxy(INetSharingPublicConnectionCollection *This,__LONG32 *pVal);
   void __RPC_STUB INetSharingPublicConnectionCollection_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1174,7 +1174,7 @@ extern "C" {
   struct INetSharingPrivateConnectionCollection : public IDispatch {
   public:
     virtual HRESULT WINAPI get__NewEnum(IUnknown **pVal) = 0;
-    virtual HRESULT WINAPI get_Count(long *pVal) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *pVal) = 0;
   };
 #else
   typedef struct INetSharingPrivateConnectionCollectionVtbl {
@@ -1187,7 +1187,7 @@ extern "C" {
       HRESULT (WINAPI *GetIDsOfNames)(INetSharingPrivateConnectionCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(INetSharingPrivateConnectionCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get__NewEnum)(INetSharingPrivateConnectionCollection *This,IUnknown **pVal);
-      HRESULT (WINAPI *get_Count)(INetSharingPrivateConnectionCollection *This,long *pVal);
+      HRESULT (WINAPI *get_Count)(INetSharingPrivateConnectionCollection *This,__LONG32 *pVal);
     END_INTERFACE
   } INetSharingPrivateConnectionCollectionVtbl;
   struct INetSharingPrivateConnectionCollection {
@@ -1207,7 +1207,7 @@ extern "C" {
 #endif
   HRESULT WINAPI INetSharingPrivateConnectionCollection_get__NewEnum_Proxy(INetSharingPrivateConnectionCollection *This,IUnknown **pVal);
   void __RPC_STUB INetSharingPrivateConnectionCollection_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI INetSharingPrivateConnectionCollection_get_Count_Proxy(INetSharingPrivateConnectionCollection *This,long *pVal);
+  HRESULT WINAPI INetSharingPrivateConnectionCollection_get_Count_Proxy(INetSharingPrivateConnectionCollection *This,__LONG32 *pVal);
   void __RPC_STUB INetSharingPrivateConnectionCollection_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 

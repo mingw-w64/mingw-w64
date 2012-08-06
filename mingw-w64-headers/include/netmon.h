@@ -891,7 +891,7 @@ extern "C"{
       WORD Uint16Val;
       short Sint16Val;
       DWORD Uint32Val;
-      long Sint32Val;
+      __LONG32 Sint32Val;
       DOUBLE Float64Val;
       DWORD FrameVal;
       WINBOOL YesNoVal;

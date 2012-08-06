@@ -95,8 +95,8 @@ extern "C" {
   struct DataSource : public IUnknown {
   public:
     virtual HRESULT WINAPI getDataMember(DataMember bstrDM,REFIID riid,IUnknown **ppunk) = 0;
-    virtual HRESULT WINAPI getDataMemberName(long lIndex,DataMember *pbstrDM) = 0;
-    virtual HRESULT WINAPI getDataMemberCount(long *plCount) = 0;
+    virtual HRESULT WINAPI getDataMemberName(__LONG32 lIndex,DataMember *pbstrDM) = 0;
+    virtual HRESULT WINAPI getDataMemberCount(__LONG32 *plCount) = 0;
     virtual HRESULT WINAPI addDataSourceListener(DataSourceListener *pDSL) = 0;
     virtual HRESULT WINAPI removeDataSourceListener(DataSourceListener *pDSL) = 0;
   };
@@ -107,8 +107,8 @@ extern "C" {
       ULONG (WINAPI *AddRef)(DataSource *This);
       ULONG (WINAPI *Release)(DataSource *This);
       HRESULT (WINAPI *getDataMember)(DataSource *This,DataMember bstrDM,REFIID riid,IUnknown **ppunk);
-      HRESULT (WINAPI *getDataMemberName)(DataSource *This,long lIndex,DataMember *pbstrDM);
-      HRESULT (WINAPI *getDataMemberCount)(DataSource *This,long *plCount);
+      HRESULT (WINAPI *getDataMemberName)(DataSource *This,__LONG32 lIndex,DataMember *pbstrDM);
+      HRESULT (WINAPI *getDataMemberCount)(DataSource *This,__LONG32 *plCount);
       HRESULT (WINAPI *addDataSourceListener)(DataSource *This,DataSourceListener *pDSL);
       HRESULT (WINAPI *removeDataSourceListener)(DataSource *This,DataSourceListener *pDSL);
     END_INTERFACE
@@ -129,9 +129,9 @@ extern "C" {
 #endif
   HRESULT WINAPI DataSource_getDataMember_Proxy(DataSource *This,DataMember bstrDM,REFIID riid,IUnknown **ppunk);
   void __RPC_STUB DataSource_getDataMember_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI DataSource_getDataMemberName_Proxy(DataSource *This,long lIndex,DataMember *pbstrDM);
+  HRESULT WINAPI DataSource_getDataMemberName_Proxy(DataSource *This,__LONG32 lIndex,DataMember *pbstrDM);
   void __RPC_STUB DataSource_getDataMemberName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI DataSource_getDataMemberCount_Proxy(DataSource *This,long *plCount);
+  HRESULT WINAPI DataSource_getDataMemberCount_Proxy(DataSource *This,__LONG32 *plCount);
   void __RPC_STUB DataSource_getDataMemberCount_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI DataSource_addDataSourceListener_Proxy(DataSource *This,DataSourceListener *pDSL);
   void __RPC_STUB DataSource_addDataSourceListener_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);

@@ -186,8 +186,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IEnumMsmString : public IUnknown {
   public:
-    virtual HRESULT WINAPI Next(unsigned long cFetch,BSTR *rgbstrStrings,unsigned long *pcFetched) = 0;
-    virtual HRESULT WINAPI Skip(unsigned long cSkip) = 0;
+    virtual HRESULT WINAPI Next(unsigned __LONG32 cFetch,BSTR *rgbstrStrings,unsigned __LONG32 *pcFetched) = 0;
+    virtual HRESULT WINAPI Skip(unsigned __LONG32 cSkip) = 0;
     virtual HRESULT WINAPI Reset(void) = 0;
     virtual HRESULT WINAPI Clone(IEnumMsmString **pemsmStrings) = 0;
   };
@@ -197,8 +197,8 @@ extern "C"{
       HRESULT (WINAPI *QueryInterface)(IEnumMsmString *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IEnumMsmString *This);
       ULONG (WINAPI *Release)(IEnumMsmString *This);
-      HRESULT (WINAPI *Next)(IEnumMsmString *This,unsigned long cFetch,BSTR *rgbstrStrings,unsigned long *pcFetched);
-      HRESULT (WINAPI *Skip)(IEnumMsmString *This,unsigned long cSkip);
+      HRESULT (WINAPI *Next)(IEnumMsmString *This,unsigned __LONG32 cFetch,BSTR *rgbstrStrings,unsigned __LONG32 *pcFetched);
+      HRESULT (WINAPI *Skip)(IEnumMsmString *This,unsigned __LONG32 cSkip);
       HRESULT (WINAPI *Reset)(IEnumMsmString *This);
       HRESULT (WINAPI *Clone)(IEnumMsmString *This,IEnumMsmString **pemsmStrings);
     END_INTERFACE
@@ -216,9 +216,9 @@ extern "C"{
 #define IEnumMsmString_Clone(This,pemsmStrings) (This)->lpVtbl->Clone(This,pemsmStrings)
 #endif
 #endif
-  HRESULT WINAPI IEnumMsmString_Next_Proxy(IEnumMsmString *This,unsigned long cFetch,BSTR *rgbstrStrings,unsigned long *pcFetched);
+  HRESULT WINAPI IEnumMsmString_Next_Proxy(IEnumMsmString *This,unsigned __LONG32 cFetch,BSTR *rgbstrStrings,unsigned __LONG32 *pcFetched);
   void __RPC_STUB IEnumMsmString_Next_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumMsmString_Skip_Proxy(IEnumMsmString *This,unsigned long cSkip);
+  HRESULT WINAPI IEnumMsmString_Skip_Proxy(IEnumMsmString *This,unsigned __LONG32 cSkip);
   void __RPC_STUB IEnumMsmString_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IEnumMsmString_Reset_Proxy(IEnumMsmString *This);
   void __RPC_STUB IEnumMsmString_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -231,8 +231,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IMsmStrings : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Item(long Item,BSTR *Return) = 0;
-    virtual HRESULT WINAPI get_Count(long *Count) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 Item,BSTR *Return) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *Count) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **NewEnum) = 0;
   };
 #else
@@ -245,8 +245,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IMsmStrings *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IMsmStrings *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IMsmStrings *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Item)(IMsmStrings *This,long Item,BSTR *Return);
-      HRESULT (WINAPI *get_Count)(IMsmStrings *This,long *Count);
+      HRESULT (WINAPI *get_Item)(IMsmStrings *This,__LONG32 Item,BSTR *Return);
+      HRESULT (WINAPI *get_Count)(IMsmStrings *This,__LONG32 *Count);
       HRESULT (WINAPI *get__NewEnum)(IMsmStrings *This,IUnknown **NewEnum);
     END_INTERFACE
   } IMsmStringsVtbl;
@@ -266,9 +266,9 @@ extern "C"{
 #define IMsmStrings_get__NewEnum(This,NewEnum) (This)->lpVtbl->get__NewEnum(This,NewEnum)
 #endif
 #endif
-  HRESULT WINAPI IMsmStrings_get_Item_Proxy(IMsmStrings *This,long Item,BSTR *Return);
+  HRESULT WINAPI IMsmStrings_get_Item_Proxy(IMsmStrings *This,__LONG32 Item,BSTR *Return);
   void __RPC_STUB IMsmStrings_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMsmStrings_get_Count_Proxy(IMsmStrings *This,long *Count);
+  HRESULT WINAPI IMsmStrings_get_Count_Proxy(IMsmStrings *This,__LONG32 *Count);
   void __RPC_STUB IMsmStrings_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMsmStrings_get__NewEnum_Proxy(IMsmStrings *This,IUnknown **NewEnum);
   void __RPC_STUB IMsmStrings_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -347,8 +347,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IEnumMsmError : public IUnknown {
   public:
-    virtual HRESULT WINAPI Next(unsigned long cFetch,IMsmError **rgmsmErrors,unsigned long *pcFetched) = 0;
-    virtual HRESULT WINAPI Skip(unsigned long cSkip) = 0;
+    virtual HRESULT WINAPI Next(unsigned __LONG32 cFetch,IMsmError **rgmsmErrors,unsigned __LONG32 *pcFetched) = 0;
+    virtual HRESULT WINAPI Skip(unsigned __LONG32 cSkip) = 0;
     virtual HRESULT WINAPI Reset(void) = 0;
     virtual HRESULT WINAPI Clone(IEnumMsmError **pemsmErrors) = 0;
   };
@@ -358,8 +358,8 @@ extern "C"{
       HRESULT (WINAPI *QueryInterface)(IEnumMsmError *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IEnumMsmError *This);
       ULONG (WINAPI *Release)(IEnumMsmError *This);
-      HRESULT (WINAPI *Next)(IEnumMsmError *This,unsigned long cFetch,IMsmError **rgmsmErrors,unsigned long *pcFetched);
-      HRESULT (WINAPI *Skip)(IEnumMsmError *This,unsigned long cSkip);
+      HRESULT (WINAPI *Next)(IEnumMsmError *This,unsigned __LONG32 cFetch,IMsmError **rgmsmErrors,unsigned __LONG32 *pcFetched);
+      HRESULT (WINAPI *Skip)(IEnumMsmError *This,unsigned __LONG32 cSkip);
       HRESULT (WINAPI *Reset)(IEnumMsmError *This);
       HRESULT (WINAPI *Clone)(IEnumMsmError *This,IEnumMsmError **pemsmErrors);
     END_INTERFACE
@@ -377,9 +377,9 @@ extern "C"{
 #define IEnumMsmError_Clone(This,pemsmErrors) (This)->lpVtbl->Clone(This,pemsmErrors)
 #endif
 #endif
-  HRESULT WINAPI IEnumMsmError_Next_Proxy(IEnumMsmError *This,unsigned long cFetch,IMsmError **rgmsmErrors,unsigned long *pcFetched);
+  HRESULT WINAPI IEnumMsmError_Next_Proxy(IEnumMsmError *This,unsigned __LONG32 cFetch,IMsmError **rgmsmErrors,unsigned __LONG32 *pcFetched);
   void __RPC_STUB IEnumMsmError_Next_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumMsmError_Skip_Proxy(IEnumMsmError *This,unsigned long cSkip);
+  HRESULT WINAPI IEnumMsmError_Skip_Proxy(IEnumMsmError *This,unsigned __LONG32 cSkip);
   void __RPC_STUB IEnumMsmError_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IEnumMsmError_Reset_Proxy(IEnumMsmError *This);
   void __RPC_STUB IEnumMsmError_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -393,8 +393,8 @@ extern "C"{
 
   struct IMsmErrors : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Item(long Item,IMsmError **Return) = 0;
-    virtual HRESULT WINAPI get_Count(long *Count) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 Item,IMsmError **Return) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *Count) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **NewEnum) = 0;
   };
 #else
@@ -407,8 +407,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IMsmErrors *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IMsmErrors *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IMsmErrors *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Item)(IMsmErrors *This,long Item,IMsmError **Return);
-      HRESULT (WINAPI *get_Count)(IMsmErrors *This,long *Count);
+      HRESULT (WINAPI *get_Item)(IMsmErrors *This,__LONG32 Item,IMsmError **Return);
+      HRESULT (WINAPI *get_Count)(IMsmErrors *This,__LONG32 *Count);
       HRESULT (WINAPI *get__NewEnum)(IMsmErrors *This,IUnknown **NewEnum);
     END_INTERFACE
   } IMsmErrorsVtbl;
@@ -428,9 +428,9 @@ extern "C"{
 #define IMsmErrors_get__NewEnum(This,NewEnum) (This)->lpVtbl->get__NewEnum(This,NewEnum)
 #endif
 #endif
-  HRESULT WINAPI IMsmErrors_get_Item_Proxy(IMsmErrors *This,long Item,IMsmError **Return);
+  HRESULT WINAPI IMsmErrors_get_Item_Proxy(IMsmErrors *This,__LONG32 Item,IMsmError **Return);
   void __RPC_STUB IMsmErrors_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMsmErrors_get_Count_Proxy(IMsmErrors *This,long *Count);
+  HRESULT WINAPI IMsmErrors_get_Count_Proxy(IMsmErrors *This,__LONG32 *Count);
   void __RPC_STUB IMsmErrors_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMsmErrors_get__NewEnum_Proxy(IMsmErrors *This,IUnknown **NewEnum);
   void __RPC_STUB IMsmErrors_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -489,8 +489,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IEnumMsmDependency : public IUnknown {
   public:
-    virtual HRESULT WINAPI Next(unsigned long cFetch,IMsmDependency **rgmsmDependencies,unsigned long *pcFetched) = 0;
-    virtual HRESULT WINAPI Skip(unsigned long cSkip) = 0;
+    virtual HRESULT WINAPI Next(unsigned __LONG32 cFetch,IMsmDependency **rgmsmDependencies,unsigned __LONG32 *pcFetched) = 0;
+    virtual HRESULT WINAPI Skip(unsigned __LONG32 cSkip) = 0;
     virtual HRESULT WINAPI Reset(void) = 0;
     virtual HRESULT WINAPI Clone(IEnumMsmDependency **pemsmDependencies) = 0;
   };
@@ -500,8 +500,8 @@ extern "C"{
       HRESULT (WINAPI *QueryInterface)(IEnumMsmDependency *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IEnumMsmDependency *This);
       ULONG (WINAPI *Release)(IEnumMsmDependency *This);
-      HRESULT (WINAPI *Next)(IEnumMsmDependency *This,unsigned long cFetch,IMsmDependency **rgmsmDependencies,unsigned long *pcFetched);
-      HRESULT (WINAPI *Skip)(IEnumMsmDependency *This,unsigned long cSkip);
+      HRESULT (WINAPI *Next)(IEnumMsmDependency *This,unsigned __LONG32 cFetch,IMsmDependency **rgmsmDependencies,unsigned __LONG32 *pcFetched);
+      HRESULT (WINAPI *Skip)(IEnumMsmDependency *This,unsigned __LONG32 cSkip);
       HRESULT (WINAPI *Reset)(IEnumMsmDependency *This);
       HRESULT (WINAPI *Clone)(IEnumMsmDependency *This,IEnumMsmDependency **pemsmDependencies);
     END_INTERFACE
@@ -519,9 +519,9 @@ extern "C"{
 #define IEnumMsmDependency_Clone(This,pemsmDependencies) (This)->lpVtbl->Clone(This,pemsmDependencies)
 #endif
 #endif
-  HRESULT WINAPI IEnumMsmDependency_Next_Proxy(IEnumMsmDependency *This,unsigned long cFetch,IMsmDependency **rgmsmDependencies,unsigned long *pcFetched);
+  HRESULT WINAPI IEnumMsmDependency_Next_Proxy(IEnumMsmDependency *This,unsigned __LONG32 cFetch,IMsmDependency **rgmsmDependencies,unsigned __LONG32 *pcFetched);
   void __RPC_STUB IEnumMsmDependency_Next_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumMsmDependency_Skip_Proxy(IEnumMsmDependency *This,unsigned long cSkip);
+  HRESULT WINAPI IEnumMsmDependency_Skip_Proxy(IEnumMsmDependency *This,unsigned __LONG32 cSkip);
   void __RPC_STUB IEnumMsmDependency_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IEnumMsmDependency_Reset_Proxy(IEnumMsmDependency *This);
   void __RPC_STUB IEnumMsmDependency_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -534,8 +534,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IMsmDependencies : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Item(long Item,IMsmDependency **Return) = 0;
-    virtual HRESULT WINAPI get_Count(long *Count) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 Item,IMsmDependency **Return) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *Count) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **NewEnum) = 0;
   };
 #else
@@ -548,8 +548,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IMsmDependencies *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IMsmDependencies *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IMsmDependencies *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Item)(IMsmDependencies *This,long Item,IMsmDependency **Return);
-      HRESULT (WINAPI *get_Count)(IMsmDependencies *This,long *Count);
+      HRESULT (WINAPI *get_Item)(IMsmDependencies *This,__LONG32 Item,IMsmDependency **Return);
+      HRESULT (WINAPI *get_Count)(IMsmDependencies *This,__LONG32 *Count);
       HRESULT (WINAPI *get__NewEnum)(IMsmDependencies *This,IUnknown **NewEnum);
     END_INTERFACE
   } IMsmDependenciesVtbl;
@@ -569,9 +569,9 @@ extern "C"{
 #define IMsmDependencies_get__NewEnum(This,NewEnum) (This)->lpVtbl->get__NewEnum(This,NewEnum)
 #endif
 #endif
-  HRESULT WINAPI IMsmDependencies_get_Item_Proxy(IMsmDependencies *This,long Item,IMsmDependency **Return);
+  HRESULT WINAPI IMsmDependencies_get_Item_Proxy(IMsmDependencies *This,__LONG32 Item,IMsmDependency **Return);
   void __RPC_STUB IMsmDependencies_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMsmDependencies_get_Count_Proxy(IMsmDependencies *This,long *Count);
+  HRESULT WINAPI IMsmDependencies_get_Count_Proxy(IMsmDependencies *This,__LONG32 *Count);
   void __RPC_STUB IMsmDependencies_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMsmDependencies_get__NewEnum_Proxy(IMsmDependencies *This,IUnknown **NewEnum);
   void __RPC_STUB IMsmDependencies_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -588,7 +588,7 @@ extern "C"{
     virtual HRESULT WINAPI get_Type(BSTR *Type) = 0;
     virtual HRESULT WINAPI get_Context(BSTR *Context) = 0;
     virtual HRESULT WINAPI get_DefaultValue(BSTR *DefaultValue) = 0;
-    virtual HRESULT WINAPI get_Attributes(long *Attributes) = 0;
+    virtual HRESULT WINAPI get_Attributes(__LONG32 *Attributes) = 0;
     virtual HRESULT WINAPI get_DisplayName(BSTR *DisplayName) = 0;
     virtual HRESULT WINAPI get_Description(BSTR *Description) = 0;
     virtual HRESULT WINAPI get_HelpLocation(BSTR *HelpLocation) = 0;
@@ -609,7 +609,7 @@ extern "C"{
       HRESULT (WINAPI *get_Type)(IMsmConfigurableItem *This,BSTR *Type);
       HRESULT (WINAPI *get_Context)(IMsmConfigurableItem *This,BSTR *Context);
       HRESULT (WINAPI *get_DefaultValue)(IMsmConfigurableItem *This,BSTR *DefaultValue);
-      HRESULT (WINAPI *get_Attributes)(IMsmConfigurableItem *This,long *Attributes);
+      HRESULT (WINAPI *get_Attributes)(IMsmConfigurableItem *This,__LONG32 *Attributes);
       HRESULT (WINAPI *get_DisplayName)(IMsmConfigurableItem *This,BSTR *DisplayName);
       HRESULT (WINAPI *get_Description)(IMsmConfigurableItem *This,BSTR *Description);
       HRESULT (WINAPI *get_HelpLocation)(IMsmConfigurableItem *This,BSTR *HelpLocation);
@@ -649,7 +649,7 @@ extern "C"{
   void __RPC_STUB IMsmConfigurableItem_get_Context_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMsmConfigurableItem_get_DefaultValue_Proxy(IMsmConfigurableItem *This,BSTR *DefaultValue);
   void __RPC_STUB IMsmConfigurableItem_get_DefaultValue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMsmConfigurableItem_get_Attributes_Proxy(IMsmConfigurableItem *This,long *Attributes);
+  HRESULT WINAPI IMsmConfigurableItem_get_Attributes_Proxy(IMsmConfigurableItem *This,__LONG32 *Attributes);
   void __RPC_STUB IMsmConfigurableItem_get_Attributes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMsmConfigurableItem_get_DisplayName_Proxy(IMsmConfigurableItem *This,BSTR *DisplayName);
   void __RPC_STUB IMsmConfigurableItem_get_DisplayName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -666,8 +666,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IEnumMsmConfigurableItem : public IUnknown {
   public:
-    virtual HRESULT WINAPI Next(unsigned long cFetch,IMsmConfigurableItem **rgmsmItems,unsigned long *pcFetched) = 0;
-    virtual HRESULT WINAPI Skip(unsigned long cSkip) = 0;
+    virtual HRESULT WINAPI Next(unsigned __LONG32 cFetch,IMsmConfigurableItem **rgmsmItems,unsigned __LONG32 *pcFetched) = 0;
+    virtual HRESULT WINAPI Skip(unsigned __LONG32 cSkip) = 0;
     virtual HRESULT WINAPI Reset(void) = 0;
     virtual HRESULT WINAPI Clone(IEnumMsmConfigurableItem **pemsmConfigurableItem) = 0;
   };
@@ -677,8 +677,8 @@ extern "C"{
       HRESULT (WINAPI *QueryInterface)(IEnumMsmConfigurableItem *This,REFIID riid,void **ppvObject);
       ULONG (WINAPI *AddRef)(IEnumMsmConfigurableItem *This);
       ULONG (WINAPI *Release)(IEnumMsmConfigurableItem *This);
-      HRESULT (WINAPI *Next)(IEnumMsmConfigurableItem *This,unsigned long cFetch,IMsmConfigurableItem **rgmsmItems,unsigned long *pcFetched);
-      HRESULT (WINAPI *Skip)(IEnumMsmConfigurableItem *This,unsigned long cSkip);
+      HRESULT (WINAPI *Next)(IEnumMsmConfigurableItem *This,unsigned __LONG32 cFetch,IMsmConfigurableItem **rgmsmItems,unsigned __LONG32 *pcFetched);
+      HRESULT (WINAPI *Skip)(IEnumMsmConfigurableItem *This,unsigned __LONG32 cSkip);
       HRESULT (WINAPI *Reset)(IEnumMsmConfigurableItem *This);
       HRESULT (WINAPI *Clone)(IEnumMsmConfigurableItem *This,IEnumMsmConfigurableItem **pemsmConfigurableItem);
     END_INTERFACE
@@ -696,9 +696,9 @@ extern "C"{
 #define IEnumMsmConfigurableItem_Clone(This,pemsmConfigurableItem) (This)->lpVtbl->Clone(This,pemsmConfigurableItem)
 #endif
 #endif
-  HRESULT WINAPI IEnumMsmConfigurableItem_Next_Proxy(IEnumMsmConfigurableItem *This,unsigned long cFetch,IMsmConfigurableItem **rgmsmItems,unsigned long *pcFetched);
+  HRESULT WINAPI IEnumMsmConfigurableItem_Next_Proxy(IEnumMsmConfigurableItem *This,unsigned __LONG32 cFetch,IMsmConfigurableItem **rgmsmItems,unsigned __LONG32 *pcFetched);
   void __RPC_STUB IEnumMsmConfigurableItem_Next_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IEnumMsmConfigurableItem_Skip_Proxy(IEnumMsmConfigurableItem *This,unsigned long cSkip);
+  HRESULT WINAPI IEnumMsmConfigurableItem_Skip_Proxy(IEnumMsmConfigurableItem *This,unsigned __LONG32 cSkip);
   void __RPC_STUB IEnumMsmConfigurableItem_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IEnumMsmConfigurableItem_Reset_Proxy(IEnumMsmConfigurableItem *This);
   void __RPC_STUB IEnumMsmConfigurableItem_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -711,8 +711,8 @@ extern "C"{
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IMsmConfigurableItems : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Item(long Item,IMsmConfigurableItem **Return) = 0;
-    virtual HRESULT WINAPI get_Count(long *Count) = 0;
+    virtual HRESULT WINAPI get_Item(__LONG32 Item,IMsmConfigurableItem **Return) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *Count) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **NewEnum) = 0;
   };
 #else
@@ -725,8 +725,8 @@ extern "C"{
       HRESULT (WINAPI *GetTypeInfo)(IMsmConfigurableItems *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IMsmConfigurableItems *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IMsmConfigurableItems *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Item)(IMsmConfigurableItems *This,long Item,IMsmConfigurableItem **Return);
-      HRESULT (WINAPI *get_Count)(IMsmConfigurableItems *This,long *Count);
+      HRESULT (WINAPI *get_Item)(IMsmConfigurableItems *This,__LONG32 Item,IMsmConfigurableItem **Return);
+      HRESULT (WINAPI *get_Count)(IMsmConfigurableItems *This,__LONG32 *Count);
       HRESULT (WINAPI *get__NewEnum)(IMsmConfigurableItems *This,IUnknown **NewEnum);
     END_INTERFACE
   } IMsmConfigurableItemsVtbl;
@@ -746,9 +746,9 @@ extern "C"{
 #define IMsmConfigurableItems_get__NewEnum(This,NewEnum) (This)->lpVtbl->get__NewEnum(This,NewEnum)
 #endif
 #endif
-  HRESULT WINAPI IMsmConfigurableItems_get_Item_Proxy(IMsmConfigurableItems *This,long Item,IMsmConfigurableItem **Return);
+  HRESULT WINAPI IMsmConfigurableItems_get_Item_Proxy(IMsmConfigurableItems *This,__LONG32 Item,IMsmConfigurableItem **Return);
   void __RPC_STUB IMsmConfigurableItems_get_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMsmConfigurableItems_get_Count_Proxy(IMsmConfigurableItems *This,long *Count);
+  HRESULT WINAPI IMsmConfigurableItems_get_Count_Proxy(IMsmConfigurableItems *This,__LONG32 *Count);
   void __RPC_STUB IMsmConfigurableItems_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMsmConfigurableItems_get__NewEnum_Proxy(IMsmConfigurableItems *This,IUnknown **NewEnum);
   void __RPC_STUB IMsmConfigurableItems_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -760,7 +760,7 @@ extern "C"{
   struct IMsmConfigureModule : public IDispatch {
   public:
     virtual HRESULT WINAPI ProvideTextData(const BSTR Name,BSTR *ConfigData) = 0;
-    virtual HRESULT WINAPI ProvideIntegerData(const BSTR Name,long *ConfigData) = 0;
+    virtual HRESULT WINAPI ProvideIntegerData(const BSTR Name,__LONG32 *ConfigData) = 0;
   };
 #else
   typedef struct IMsmConfigureModuleVtbl {
@@ -773,7 +773,7 @@ extern "C"{
       HRESULT (WINAPI *GetIDsOfNames)(IMsmConfigureModule *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IMsmConfigureModule *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *ProvideTextData)(IMsmConfigureModule *This,const BSTR Name,BSTR *ConfigData);
-      HRESULT (WINAPI *ProvideIntegerData)(IMsmConfigureModule *This,const BSTR Name,long *ConfigData);
+      HRESULT (WINAPI *ProvideIntegerData)(IMsmConfigureModule *This,const BSTR Name,__LONG32 *ConfigData);
     END_INTERFACE
   } IMsmConfigureModuleVtbl;
   struct IMsmConfigureModule {
@@ -793,7 +793,7 @@ extern "C"{
 #endif
   HRESULT WINAPI IMsmConfigureModule_ProvideTextData_Proxy(IMsmConfigureModule *This,const BSTR Name,BSTR *ConfigData);
   void __RPC_STUB IMsmConfigureModule_ProvideTextData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMsmConfigureModule_ProvideIntegerData_Proxy(IMsmConfigureModule *This,const BSTR Name,long *ConfigData);
+  HRESULT WINAPI IMsmConfigureModule_ProvideIntegerData_Proxy(IMsmConfigureModule *This,const BSTR Name,__LONG32 *ConfigData);
   void __RPC_STUB IMsmConfigureModule_ProvideIntegerData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 #endif

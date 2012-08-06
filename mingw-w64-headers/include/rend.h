@@ -348,7 +348,7 @@ extern "C" {
     virtual HRESULT WINAPI get_ObjectType(DIRECTORY_OBJECT_TYPE *pObjectType) = 0;
     virtual HRESULT WINAPI get_Name(BSTR *ppName) = 0;
     virtual HRESULT WINAPI put_Name(BSTR pName) = 0;
-    virtual HRESULT WINAPI get_DialableAddrs(long dwAddressType,VARIANT *pVariant) = 0;
+    virtual HRESULT WINAPI get_DialableAddrs(__LONG32 dwAddressType,VARIANT *pVariant) = 0;
     virtual HRESULT WINAPI EnumerateDialableAddrs(DWORD dwAddressType,IEnumDialableAddrs **ppEnumDialableAddrs) = 0;
     virtual HRESULT WINAPI get_SecurityDescriptor(IDispatch **ppSecDes) = 0;
     virtual HRESULT WINAPI put_SecurityDescriptor(IDispatch *pSecDes) = 0;
@@ -366,7 +366,7 @@ extern "C" {
       HRESULT (WINAPI *get_ObjectType)(ITDirectoryObject *This,DIRECTORY_OBJECT_TYPE *pObjectType);
       HRESULT (WINAPI *get_Name)(ITDirectoryObject *This,BSTR *ppName);
       HRESULT (WINAPI *put_Name)(ITDirectoryObject *This,BSTR pName);
-      HRESULT (WINAPI *get_DialableAddrs)(ITDirectoryObject *This,long dwAddressType,VARIANT *pVariant);
+      HRESULT (WINAPI *get_DialableAddrs)(ITDirectoryObject *This,__LONG32 dwAddressType,VARIANT *pVariant);
       HRESULT (WINAPI *EnumerateDialableAddrs)(ITDirectoryObject *This,DWORD dwAddressType,IEnumDialableAddrs **ppEnumDialableAddrs);
       HRESULT (WINAPI *get_SecurityDescriptor)(ITDirectoryObject *This,IDispatch **ppSecDes);
       HRESULT (WINAPI *put_SecurityDescriptor)(ITDirectoryObject *This,IDispatch *pSecDes);
@@ -398,7 +398,7 @@ extern "C" {
   void __RPC_STUB ITDirectoryObject_get_Name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITDirectoryObject_put_Name_Proxy(ITDirectoryObject *This,BSTR pName);
   void __RPC_STUB ITDirectoryObject_put_Name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITDirectoryObject_get_DialableAddrs_Proxy(ITDirectoryObject *This,long dwAddressType,VARIANT *pVariant);
+  HRESULT WINAPI ITDirectoryObject_get_DialableAddrs_Proxy(ITDirectoryObject *This,__LONG32 dwAddressType,VARIANT *pVariant);
   void __RPC_STUB ITDirectoryObject_get_DialableAddrs_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITDirectoryObject_EnumerateDialableAddrs_Proxy(ITDirectoryObject *This,DWORD dwAddressType,IEnumDialableAddrs **ppEnumDialableAddrs);
   void __RPC_STUB ITDirectoryObject_EnumerateDialableAddrs_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -460,8 +460,8 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct ITILSConfig : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Port(long *pPort) = 0;
-    virtual HRESULT WINAPI put_Port(long Port) = 0;
+    virtual HRESULT WINAPI get_Port(__LONG32 *pPort) = 0;
+    virtual HRESULT WINAPI put_Port(__LONG32 Port) = 0;
   };
 #else
   typedef struct ITILSConfigVtbl {
@@ -473,8 +473,8 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(ITILSConfig *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(ITILSConfig *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(ITILSConfig *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Port)(ITILSConfig *This,long *pPort);
-      HRESULT (WINAPI *put_Port)(ITILSConfig *This,long Port);
+      HRESULT (WINAPI *get_Port)(ITILSConfig *This,__LONG32 *pPort);
+      HRESULT (WINAPI *put_Port)(ITILSConfig *This,__LONG32 Port);
     END_INTERFACE
   } ITILSConfigVtbl;
   struct ITILSConfig {
@@ -492,9 +492,9 @@ extern "C" {
 #define ITILSConfig_put_Port(This,Port) (This)->lpVtbl->put_Port(This,Port)
 #endif
 #endif
-  HRESULT WINAPI ITILSConfig_get_Port_Proxy(ITILSConfig *This,long *pPort);
+  HRESULT WINAPI ITILSConfig_get_Port_Proxy(ITILSConfig *This,__LONG32 *pPort);
   void __RPC_STUB ITILSConfig_get_Port_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITILSConfig_put_Port_Proxy(ITILSConfig *This,long Port);
+  HRESULT WINAPI ITILSConfig_put_Port_Proxy(ITILSConfig *This,__LONG32 Port);
   void __RPC_STUB ITILSConfig_put_Port_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -507,11 +507,11 @@ extern "C" {
     virtual HRESULT WINAPI get_DirectoryType(DIRECTORY_TYPE *pDirectoryType) = 0;
     virtual HRESULT WINAPI get_DisplayName(BSTR *pName) = 0;
     virtual HRESULT WINAPI get_IsDynamic(VARIANT_BOOL *pfDynamic) = 0;
-    virtual HRESULT WINAPI get_DefaultObjectTTL(long *pTTL) = 0;
-    virtual HRESULT WINAPI put_DefaultObjectTTL(long TTL) = 0;
+    virtual HRESULT WINAPI get_DefaultObjectTTL(__LONG32 *pTTL) = 0;
+    virtual HRESULT WINAPI put_DefaultObjectTTL(__LONG32 TTL) = 0;
     virtual HRESULT WINAPI EnableAutoRefresh(VARIANT_BOOL fEnable) = 0;
     virtual HRESULT WINAPI Connect(VARIANT_BOOL fSecure) = 0;
-    virtual HRESULT WINAPI Bind(BSTR pDomainName,BSTR pUserName,BSTR pPassword,long lFlags) = 0;
+    virtual HRESULT WINAPI Bind(BSTR pDomainName,BSTR pUserName,BSTR pPassword,__LONG32 lFlags) = 0;
     virtual HRESULT WINAPI AddDirectoryObject(ITDirectoryObject *pDirectoryObject) = 0;
     virtual HRESULT WINAPI ModifyDirectoryObject(ITDirectoryObject *pDirectoryObject) = 0;
     virtual HRESULT WINAPI RefreshDirectoryObject(ITDirectoryObject *pDirectoryObject) = 0;
@@ -532,11 +532,11 @@ extern "C" {
       HRESULT (WINAPI *get_DirectoryType)(ITDirectory *This,DIRECTORY_TYPE *pDirectoryType);
       HRESULT (WINAPI *get_DisplayName)(ITDirectory *This,BSTR *pName);
       HRESULT (WINAPI *get_IsDynamic)(ITDirectory *This,VARIANT_BOOL *pfDynamic);
-      HRESULT (WINAPI *get_DefaultObjectTTL)(ITDirectory *This,long *pTTL);
-      HRESULT (WINAPI *put_DefaultObjectTTL)(ITDirectory *This,long TTL);
+      HRESULT (WINAPI *get_DefaultObjectTTL)(ITDirectory *This,__LONG32 *pTTL);
+      HRESULT (WINAPI *put_DefaultObjectTTL)(ITDirectory *This,__LONG32 TTL);
       HRESULT (WINAPI *EnableAutoRefresh)(ITDirectory *This,VARIANT_BOOL fEnable);
       HRESULT (WINAPI *Connect)(ITDirectory *This,VARIANT_BOOL fSecure);
-      HRESULT (WINAPI *Bind)(ITDirectory *This,BSTR pDomainName,BSTR pUserName,BSTR pPassword,long lFlags);
+      HRESULT (WINAPI *Bind)(ITDirectory *This,BSTR pDomainName,BSTR pUserName,BSTR pPassword,__LONG32 lFlags);
       HRESULT (WINAPI *AddDirectoryObject)(ITDirectory *This,ITDirectoryObject *pDirectoryObject);
       HRESULT (WINAPI *ModifyDirectoryObject)(ITDirectory *This,ITDirectoryObject *pDirectoryObject);
       HRESULT (WINAPI *RefreshDirectoryObject)(ITDirectory *This,ITDirectoryObject *pDirectoryObject);
@@ -578,15 +578,15 @@ extern "C" {
   void __RPC_STUB ITDirectory_get_DisplayName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITDirectory_get_IsDynamic_Proxy(ITDirectory *This,VARIANT_BOOL *pfDynamic);
   void __RPC_STUB ITDirectory_get_IsDynamic_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITDirectory_get_DefaultObjectTTL_Proxy(ITDirectory *This,long *pTTL);
+  HRESULT WINAPI ITDirectory_get_DefaultObjectTTL_Proxy(ITDirectory *This,__LONG32 *pTTL);
   void __RPC_STUB ITDirectory_get_DefaultObjectTTL_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITDirectory_put_DefaultObjectTTL_Proxy(ITDirectory *This,long TTL);
+  HRESULT WINAPI ITDirectory_put_DefaultObjectTTL_Proxy(ITDirectory *This,__LONG32 TTL);
   void __RPC_STUB ITDirectory_put_DefaultObjectTTL_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITDirectory_EnableAutoRefresh_Proxy(ITDirectory *This,VARIANT_BOOL fEnable);
   void __RPC_STUB ITDirectory_EnableAutoRefresh_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITDirectory_Connect_Proxy(ITDirectory *This,VARIANT_BOOL fSecure);
   void __RPC_STUB ITDirectory_Connect_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI ITDirectory_Bind_Proxy(ITDirectory *This,BSTR pDomainName,BSTR pUserName,BSTR pPassword,long lFlags);
+  HRESULT WINAPI ITDirectory_Bind_Proxy(ITDirectory *This,BSTR pDomainName,BSTR pUserName,BSTR pPassword,__LONG32 lFlags);
   void __RPC_STUB ITDirectory_Bind_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI ITDirectory_AddDirectoryObject_Proxy(ITDirectory *This,ITDirectoryObject *pDirectoryObject);
   void __RPC_STUB ITDirectory_AddDirectoryObject_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -722,11 +722,11 @@ extern "C" {
 
 #ifndef __RendConstants_MODULE_DEFINED__
 #define __RendConstants_MODULE_DEFINED__
-  const long RENDBIND_AUTHENTICATE = 0x1;
-  const long RENDBIND_DEFAULTDOMAINNAME = 0x2;
-  const long RENDBIND_DEFAULTUSERNAME = 0x4;
-  const long RENDBIND_DEFAULTPASSWORD = 0x8;
-  const long RENDBIND_DEFAULTCREDENTIALS = 0xe;
+  const __LONG32 RENDBIND_AUTHENTICATE = 0x1;
+  const __LONG32 RENDBIND_DEFAULTDOMAINNAME = 0x2;
+  const __LONG32 RENDBIND_DEFAULTUSERNAME = 0x4;
+  const __LONG32 RENDBIND_DEFAULTPASSWORD = 0x8;
+  const __LONG32 RENDBIND_DEFAULTCREDENTIALS = 0xe;
 #endif
 #endif
 

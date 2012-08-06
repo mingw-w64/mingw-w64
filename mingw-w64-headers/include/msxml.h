@@ -631,7 +631,7 @@ typedef struct XMLDocument XMLDocument;
     virtual HRESULT WINAPI createNode(VARIANT Type,BSTR name,BSTR namespaceURI,IXMLDOMNode **node) = 0;
     virtual HRESULT WINAPI nodeFromID(BSTR idString,IXMLDOMNode **node) = 0;
     virtual HRESULT WINAPI load(VARIANT xmlSource,VARIANT_BOOL *isSuccessful) = 0;
-    virtual HRESULT WINAPI get_readyState(long *value) = 0;
+    virtual HRESULT WINAPI get_readyState(__LONG32 *value) = 0;
     virtual HRESULT WINAPI get_parseError(IXMLDOMParseError **errorObj) = 0;
     virtual HRESULT WINAPI get_url(BSTR *urlString) = 0;
     virtual HRESULT WINAPI get_async(VARIANT_BOOL *isAsync) = 0;
@@ -711,7 +711,7 @@ typedef struct XMLDocument XMLDocument;
       HRESULT (WINAPI *createNode)(IXMLDOMDocument *This,VARIANT Type,BSTR name,BSTR namespaceURI,IXMLDOMNode **node);
       HRESULT (WINAPI *nodeFromID)(IXMLDOMDocument *This,BSTR idString,IXMLDOMNode **node);
       HRESULT (WINAPI *load)(IXMLDOMDocument *This,VARIANT xmlSource,VARIANT_BOOL *isSuccessful);
-      HRESULT (WINAPI *get_readyState)(IXMLDOMDocument *This,long *value);
+      HRESULT (WINAPI *get_readyState)(IXMLDOMDocument *This,__LONG32 *value);
       HRESULT (WINAPI *get_parseError)(IXMLDOMDocument *This,IXMLDOMParseError **errorObj);
       HRESULT (WINAPI *get_url)(IXMLDOMDocument *This,BSTR *urlString);
       HRESULT (WINAPI *get_async)(IXMLDOMDocument *This,VARIANT_BOOL *isAsync);
@@ -844,7 +844,7 @@ typedef struct XMLDocument XMLDocument;
   void __RPC_STUB IXMLDOMDocument_nodeFromID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLDOMDocument_load_Proxy(IXMLDOMDocument *This,VARIANT xmlSource,VARIANT_BOOL *isSuccessful);
   void __RPC_STUB IXMLDOMDocument_load_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLDOMDocument_get_readyState_Proxy(IXMLDOMDocument *This,long *value);
+  HRESULT WINAPI IXMLDOMDocument_get_readyState_Proxy(IXMLDOMDocument *This,__LONG32 *value);
   void __RPC_STUB IXMLDOMDocument_get_readyState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLDOMDocument_get_parseError_Proxy(IXMLDOMDocument *This,IXMLDOMParseError **errorObj);
   void __RPC_STUB IXMLDOMDocument_get_parseError_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -886,8 +886,8 @@ typedef struct XMLDocument XMLDocument;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IXMLDOMNodeList : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_item(long index,IXMLDOMNode **listItem) = 0;
-    virtual HRESULT WINAPI get_length(long *listLength) = 0;
+    virtual HRESULT WINAPI get_item(__LONG32 index,IXMLDOMNode **listItem) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *listLength) = 0;
     virtual HRESULT WINAPI nextNode(IXMLDOMNode **nextItem) = 0;
     virtual HRESULT WINAPI reset(void) = 0;
     virtual HRESULT WINAPI get__newEnum(IUnknown **ppUnk) = 0;
@@ -902,8 +902,8 @@ typedef struct XMLDocument XMLDocument;
       HRESULT (WINAPI *GetTypeInfo)(IXMLDOMNodeList *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IXMLDOMNodeList *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IXMLDOMNodeList *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_item)(IXMLDOMNodeList *This,long index,IXMLDOMNode **listItem);
-      HRESULT (WINAPI *get_length)(IXMLDOMNodeList *This,long *listLength);
+      HRESULT (WINAPI *get_item)(IXMLDOMNodeList *This,__LONG32 index,IXMLDOMNode **listItem);
+      HRESULT (WINAPI *get_length)(IXMLDOMNodeList *This,__LONG32 *listLength);
       HRESULT (WINAPI *nextNode)(IXMLDOMNodeList *This,IXMLDOMNode **nextItem);
       HRESULT (WINAPI *reset)(IXMLDOMNodeList *This);
       HRESULT (WINAPI *get__newEnum)(IXMLDOMNodeList *This,IUnknown **ppUnk);
@@ -927,9 +927,9 @@ typedef struct XMLDocument XMLDocument;
 #define IXMLDOMNodeList_get__newEnum(This,ppUnk) (This)->lpVtbl->get__newEnum(This,ppUnk)
 #endif
 #endif
-  HRESULT WINAPI IXMLDOMNodeList_get_item_Proxy(IXMLDOMNodeList *This,long index,IXMLDOMNode **listItem);
+  HRESULT WINAPI IXMLDOMNodeList_get_item_Proxy(IXMLDOMNodeList *This,__LONG32 index,IXMLDOMNode **listItem);
   void __RPC_STUB IXMLDOMNodeList_get_item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLDOMNodeList_get_length_Proxy(IXMLDOMNodeList *This,long *listLength);
+  HRESULT WINAPI IXMLDOMNodeList_get_length_Proxy(IXMLDOMNodeList *This,__LONG32 *listLength);
   void __RPC_STUB IXMLDOMNodeList_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLDOMNodeList_nextNode_Proxy(IXMLDOMNodeList *This,IXMLDOMNode **nextItem);
   void __RPC_STUB IXMLDOMNodeList_nextNode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -948,8 +948,8 @@ typedef struct XMLDocument XMLDocument;
     virtual HRESULT WINAPI getNamedItem(BSTR name,IXMLDOMNode **namedItem) = 0;
     virtual HRESULT WINAPI setNamedItem(IXMLDOMNode *newItem,IXMLDOMNode **nameItem) = 0;
     virtual HRESULT WINAPI removeNamedItem(BSTR name,IXMLDOMNode **namedItem) = 0;
-    virtual HRESULT WINAPI get_item(long index,IXMLDOMNode **listItem) = 0;
-    virtual HRESULT WINAPI get_length(long *listLength) = 0;
+    virtual HRESULT WINAPI get_item(__LONG32 index,IXMLDOMNode **listItem) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *listLength) = 0;
     virtual HRESULT WINAPI getQualifiedItem(BSTR baseName,BSTR namespaceURI,IXMLDOMNode **qualifiedItem) = 0;
     virtual HRESULT WINAPI removeQualifiedItem(BSTR baseName,BSTR namespaceURI,IXMLDOMNode **qualifiedItem) = 0;
     virtual HRESULT WINAPI nextNode(IXMLDOMNode **nextItem) = 0;
@@ -969,8 +969,8 @@ typedef struct XMLDocument XMLDocument;
       HRESULT (WINAPI *getNamedItem)(IXMLDOMNamedNodeMap *This,BSTR name,IXMLDOMNode **namedItem);
       HRESULT (WINAPI *setNamedItem)(IXMLDOMNamedNodeMap *This,IXMLDOMNode *newItem,IXMLDOMNode **nameItem);
       HRESULT (WINAPI *removeNamedItem)(IXMLDOMNamedNodeMap *This,BSTR name,IXMLDOMNode **namedItem);
-      HRESULT (WINAPI *get_item)(IXMLDOMNamedNodeMap *This,long index,IXMLDOMNode **listItem);
-      HRESULT (WINAPI *get_length)(IXMLDOMNamedNodeMap *This,long *listLength);
+      HRESULT (WINAPI *get_item)(IXMLDOMNamedNodeMap *This,__LONG32 index,IXMLDOMNode **listItem);
+      HRESULT (WINAPI *get_length)(IXMLDOMNamedNodeMap *This,__LONG32 *listLength);
       HRESULT (WINAPI *getQualifiedItem)(IXMLDOMNamedNodeMap *This,BSTR baseName,BSTR namespaceURI,IXMLDOMNode **qualifiedItem);
       HRESULT (WINAPI *removeQualifiedItem)(IXMLDOMNamedNodeMap *This,BSTR baseName,BSTR namespaceURI,IXMLDOMNode **qualifiedItem);
       HRESULT (WINAPI *nextNode)(IXMLDOMNamedNodeMap *This,IXMLDOMNode **nextItem);
@@ -1007,9 +1007,9 @@ typedef struct XMLDocument XMLDocument;
   void __RPC_STUB IXMLDOMNamedNodeMap_setNamedItem_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLDOMNamedNodeMap_removeNamedItem_Proxy(IXMLDOMNamedNodeMap *This,BSTR name,IXMLDOMNode **namedItem);
   void __RPC_STUB IXMLDOMNamedNodeMap_removeNamedItem_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLDOMNamedNodeMap_get_item_Proxy(IXMLDOMNamedNodeMap *This,long index,IXMLDOMNode **listItem);
+  HRESULT WINAPI IXMLDOMNamedNodeMap_get_item_Proxy(IXMLDOMNamedNodeMap *This,__LONG32 index,IXMLDOMNode **listItem);
   void __RPC_STUB IXMLDOMNamedNodeMap_get_item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLDOMNamedNodeMap_get_length_Proxy(IXMLDOMNamedNodeMap *This,long *listLength);
+  HRESULT WINAPI IXMLDOMNamedNodeMap_get_length_Proxy(IXMLDOMNamedNodeMap *This,__LONG32 *listLength);
   void __RPC_STUB IXMLDOMNamedNodeMap_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLDOMNamedNodeMap_getQualifiedItem_Proxy(IXMLDOMNamedNodeMap *This,BSTR baseName,BSTR namespaceURI,IXMLDOMNode **qualifiedItem);
   void __RPC_STUB IXMLDOMNamedNodeMap_getQualifiedItem_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -1031,12 +1031,12 @@ typedef struct XMLDocument XMLDocument;
   public:
     virtual HRESULT WINAPI get_data(BSTR *data) = 0;
     virtual HRESULT WINAPI put_data(BSTR data) = 0;
-    virtual HRESULT WINAPI get_length(long *dataLength) = 0;
-    virtual HRESULT WINAPI substringData(long offset,long count,BSTR *data) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *dataLength) = 0;
+    virtual HRESULT WINAPI substringData(__LONG32 offset,__LONG32 count,BSTR *data) = 0;
     virtual HRESULT WINAPI appendData(BSTR data) = 0;
-    virtual HRESULT WINAPI insertData(long offset,BSTR data) = 0;
-    virtual HRESULT WINAPI deleteData(long offset,long count) = 0;
-    virtual HRESULT WINAPI replaceData(long offset,long count,BSTR data) = 0;
+    virtual HRESULT WINAPI insertData(__LONG32 offset,BSTR data) = 0;
+    virtual HRESULT WINAPI deleteData(__LONG32 offset,__LONG32 count) = 0;
+    virtual HRESULT WINAPI replaceData(__LONG32 offset,__LONG32 count,BSTR data) = 0;
   };
 #else
   typedef struct IXMLDOMCharacterDataVtbl {
@@ -1086,12 +1086,12 @@ typedef struct XMLDocument XMLDocument;
       HRESULT (WINAPI *transformNodeToObject)(IXMLDOMCharacterData *This,IXMLDOMNode *stylesheet,VARIANT outputObject);
       HRESULT (WINAPI *get_data)(IXMLDOMCharacterData *This,BSTR *data);
       HRESULT (WINAPI *put_data)(IXMLDOMCharacterData *This,BSTR data);
-      HRESULT (WINAPI *get_length)(IXMLDOMCharacterData *This,long *dataLength);
-      HRESULT (WINAPI *substringData)(IXMLDOMCharacterData *This,long offset,long count,BSTR *data);
+      HRESULT (WINAPI *get_length)(IXMLDOMCharacterData *This,__LONG32 *dataLength);
+      HRESULT (WINAPI *substringData)(IXMLDOMCharacterData *This,__LONG32 offset,__LONG32 count,BSTR *data);
       HRESULT (WINAPI *appendData)(IXMLDOMCharacterData *This,BSTR data);
-      HRESULT (WINAPI *insertData)(IXMLDOMCharacterData *This,long offset,BSTR data);
-      HRESULT (WINAPI *deleteData)(IXMLDOMCharacterData *This,long offset,long count);
-      HRESULT (WINAPI *replaceData)(IXMLDOMCharacterData *This,long offset,long count,BSTR data);
+      HRESULT (WINAPI *insertData)(IXMLDOMCharacterData *This,__LONG32 offset,BSTR data);
+      HRESULT (WINAPI *deleteData)(IXMLDOMCharacterData *This,__LONG32 offset,__LONG32 count);
+      HRESULT (WINAPI *replaceData)(IXMLDOMCharacterData *This,__LONG32 offset,__LONG32 count,BSTR data);
     END_INTERFACE
   } IXMLDOMCharacterDataVtbl;
   struct IXMLDOMCharacterData {
@@ -1155,17 +1155,17 @@ typedef struct XMLDocument XMLDocument;
   void __RPC_STUB IXMLDOMCharacterData_get_data_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLDOMCharacterData_put_data_Proxy(IXMLDOMCharacterData *This,BSTR data);
   void __RPC_STUB IXMLDOMCharacterData_put_data_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLDOMCharacterData_get_length_Proxy(IXMLDOMCharacterData *This,long *dataLength);
+  HRESULT WINAPI IXMLDOMCharacterData_get_length_Proxy(IXMLDOMCharacterData *This,__LONG32 *dataLength);
   void __RPC_STUB IXMLDOMCharacterData_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLDOMCharacterData_substringData_Proxy(IXMLDOMCharacterData *This,long offset,long count,BSTR *data);
+  HRESULT WINAPI IXMLDOMCharacterData_substringData_Proxy(IXMLDOMCharacterData *This,__LONG32 offset,__LONG32 count,BSTR *data);
   void __RPC_STUB IXMLDOMCharacterData_substringData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLDOMCharacterData_appendData_Proxy(IXMLDOMCharacterData *This,BSTR data);
   void __RPC_STUB IXMLDOMCharacterData_appendData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLDOMCharacterData_insertData_Proxy(IXMLDOMCharacterData *This,long offset,BSTR data);
+  HRESULT WINAPI IXMLDOMCharacterData_insertData_Proxy(IXMLDOMCharacterData *This,__LONG32 offset,BSTR data);
   void __RPC_STUB IXMLDOMCharacterData_insertData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLDOMCharacterData_deleteData_Proxy(IXMLDOMCharacterData *This,long offset,long count);
+  HRESULT WINAPI IXMLDOMCharacterData_deleteData_Proxy(IXMLDOMCharacterData *This,__LONG32 offset,__LONG32 count);
   void __RPC_STUB IXMLDOMCharacterData_deleteData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLDOMCharacterData_replaceData_Proxy(IXMLDOMCharacterData *This,long offset,long count,BSTR data);
+  HRESULT WINAPI IXMLDOMCharacterData_replaceData_Proxy(IXMLDOMCharacterData *This,__LONG32 offset,__LONG32 count,BSTR data);
   void __RPC_STUB IXMLDOMCharacterData_replaceData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1447,7 +1447,7 @@ typedef struct XMLDocument XMLDocument;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IXMLDOMText : public IXMLDOMCharacterData {
   public:
-    virtual HRESULT WINAPI splitText(long offset,IXMLDOMText **rightHandTextNode) = 0;
+    virtual HRESULT WINAPI splitText(__LONG32 offset,IXMLDOMText **rightHandTextNode) = 0;
   };
 #else
   typedef struct IXMLDOMTextVtbl {
@@ -1497,13 +1497,13 @@ typedef struct XMLDocument XMLDocument;
       HRESULT (WINAPI *transformNodeToObject)(IXMLDOMText *This,IXMLDOMNode *stylesheet,VARIANT outputObject);
       HRESULT (WINAPI *get_data)(IXMLDOMText *This,BSTR *data);
       HRESULT (WINAPI *put_data)(IXMLDOMText *This,BSTR data);
-      HRESULT (WINAPI *get_length)(IXMLDOMText *This,long *dataLength);
-      HRESULT (WINAPI *substringData)(IXMLDOMText *This,long offset,long count,BSTR *data);
+      HRESULT (WINAPI *get_length)(IXMLDOMText *This,__LONG32 *dataLength);
+      HRESULT (WINAPI *substringData)(IXMLDOMText *This,__LONG32 offset,__LONG32 count,BSTR *data);
       HRESULT (WINAPI *appendData)(IXMLDOMText *This,BSTR data);
-      HRESULT (WINAPI *insertData)(IXMLDOMText *This,long offset,BSTR data);
-      HRESULT (WINAPI *deleteData)(IXMLDOMText *This,long offset,long count);
-      HRESULT (WINAPI *replaceData)(IXMLDOMText *This,long offset,long count,BSTR data);
-      HRESULT (WINAPI *splitText)(IXMLDOMText *This,long offset,IXMLDOMText **rightHandTextNode);
+      HRESULT (WINAPI *insertData)(IXMLDOMText *This,__LONG32 offset,BSTR data);
+      HRESULT (WINAPI *deleteData)(IXMLDOMText *This,__LONG32 offset,__LONG32 count);
+      HRESULT (WINAPI *replaceData)(IXMLDOMText *This,__LONG32 offset,__LONG32 count,BSTR data);
+      HRESULT (WINAPI *splitText)(IXMLDOMText *This,__LONG32 offset,IXMLDOMText **rightHandTextNode);
     END_INTERFACE
   } IXMLDOMTextVtbl;
   struct IXMLDOMText {
@@ -1564,7 +1564,7 @@ typedef struct XMLDocument XMLDocument;
 #define IXMLDOMText_splitText(This,offset,rightHandTextNode) (This)->lpVtbl->splitText(This,offset,rightHandTextNode)
 #endif
 #endif
-  HRESULT WINAPI IXMLDOMText_splitText_Proxy(IXMLDOMText *This,long offset,IXMLDOMText **rightHandTextNode);
+  HRESULT WINAPI IXMLDOMText_splitText_Proxy(IXMLDOMText *This,__LONG32 offset,IXMLDOMText **rightHandTextNode);
   void __RPC_STUB IXMLDOMText_splitText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -1622,12 +1622,12 @@ typedef struct XMLDocument XMLDocument;
       HRESULT (WINAPI *transformNodeToObject)(IXMLDOMComment *This,IXMLDOMNode *stylesheet,VARIANT outputObject);
       HRESULT (WINAPI *get_data)(IXMLDOMComment *This,BSTR *data);
       HRESULT (WINAPI *put_data)(IXMLDOMComment *This,BSTR data);
-      HRESULT (WINAPI *get_length)(IXMLDOMComment *This,long *dataLength);
-      HRESULT (WINAPI *substringData)(IXMLDOMComment *This,long offset,long count,BSTR *data);
+      HRESULT (WINAPI *get_length)(IXMLDOMComment *This,__LONG32 *dataLength);
+      HRESULT (WINAPI *substringData)(IXMLDOMComment *This,__LONG32 offset,__LONG32 count,BSTR *data);
       HRESULT (WINAPI *appendData)(IXMLDOMComment *This,BSTR data);
-      HRESULT (WINAPI *insertData)(IXMLDOMComment *This,long offset,BSTR data);
-      HRESULT (WINAPI *deleteData)(IXMLDOMComment *This,long offset,long count);
-      HRESULT (WINAPI *replaceData)(IXMLDOMComment *This,long offset,long count,BSTR data);
+      HRESULT (WINAPI *insertData)(IXMLDOMComment *This,__LONG32 offset,BSTR data);
+      HRESULT (WINAPI *deleteData)(IXMLDOMComment *This,__LONG32 offset,__LONG32 count);
+      HRESULT (WINAPI *replaceData)(IXMLDOMComment *This,__LONG32 offset,__LONG32 count,BSTR data);
     END_INTERFACE
   } IXMLDOMCommentVtbl;
   struct IXMLDOMComment {
@@ -1864,13 +1864,13 @@ typedef struct XMLDocument XMLDocument;
       HRESULT (WINAPI *transformNodeToObject)(IXMLDOMCDATASection *This,IXMLDOMNode *stylesheet,VARIANT outputObject);
       HRESULT (WINAPI *get_data)(IXMLDOMCDATASection *This,BSTR *data);
       HRESULT (WINAPI *put_data)(IXMLDOMCDATASection *This,BSTR data);
-      HRESULT (WINAPI *get_length)(IXMLDOMCDATASection *This,long *dataLength);
-      HRESULT (WINAPI *substringData)(IXMLDOMCDATASection *This,long offset,long count,BSTR *data);
+      HRESULT (WINAPI *get_length)(IXMLDOMCDATASection *This,__LONG32 *dataLength);
+      HRESULT (WINAPI *substringData)(IXMLDOMCDATASection *This,__LONG32 offset,__LONG32 count,BSTR *data);
       HRESULT (WINAPI *appendData)(IXMLDOMCDATASection *This,BSTR data);
-      HRESULT (WINAPI *insertData)(IXMLDOMCDATASection *This,long offset,BSTR data);
-      HRESULT (WINAPI *deleteData)(IXMLDOMCDATASection *This,long offset,long count);
-      HRESULT (WINAPI *replaceData)(IXMLDOMCDATASection *This,long offset,long count,BSTR data);
-      HRESULT (WINAPI *splitText)(IXMLDOMCDATASection *This,long offset,IXMLDOMText **rightHandTextNode);
+      HRESULT (WINAPI *insertData)(IXMLDOMCDATASection *This,__LONG32 offset,BSTR data);
+      HRESULT (WINAPI *deleteData)(IXMLDOMCDATASection *This,__LONG32 offset,__LONG32 count);
+      HRESULT (WINAPI *replaceData)(IXMLDOMCDATASection *This,__LONG32 offset,__LONG32 count,BSTR data);
+      HRESULT (WINAPI *splitText)(IXMLDOMCDATASection *This,__LONG32 offset,IXMLDOMText **rightHandTextNode);
     END_INTERFACE
   } IXMLDOMCDATASectionVtbl;
   struct IXMLDOMCDATASection {
@@ -2402,13 +2402,13 @@ typedef struct XMLDocument XMLDocument;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IXMLDOMParseError : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_errorCode(long *errorCode) = 0;
+    virtual HRESULT WINAPI get_errorCode(__LONG32 *errorCode) = 0;
     virtual HRESULT WINAPI get_url(BSTR *urlString) = 0;
     virtual HRESULT WINAPI get_reason(BSTR *reasonString) = 0;
     virtual HRESULT WINAPI get_srcText(BSTR *sourceString) = 0;
-    virtual HRESULT WINAPI get_line(long *lineNumber) = 0;
-    virtual HRESULT WINAPI get_linepos(long *linePosition) = 0;
-    virtual HRESULT WINAPI get_filepos(long *filePosition) = 0;
+    virtual HRESULT WINAPI get_line(__LONG32 *lineNumber) = 0;
+    virtual HRESULT WINAPI get_linepos(__LONG32 *linePosition) = 0;
+    virtual HRESULT WINAPI get_filepos(__LONG32 *filePosition) = 0;
   };
 #else
   typedef struct IXMLDOMParseErrorVtbl {
@@ -2420,13 +2420,13 @@ typedef struct XMLDocument XMLDocument;
       HRESULT (WINAPI *GetTypeInfo)(IXMLDOMParseError *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IXMLDOMParseError *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IXMLDOMParseError *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_errorCode)(IXMLDOMParseError *This,long *errorCode);
+      HRESULT (WINAPI *get_errorCode)(IXMLDOMParseError *This,__LONG32 *errorCode);
       HRESULT (WINAPI *get_url)(IXMLDOMParseError *This,BSTR *urlString);
       HRESULT (WINAPI *get_reason)(IXMLDOMParseError *This,BSTR *reasonString);
       HRESULT (WINAPI *get_srcText)(IXMLDOMParseError *This,BSTR *sourceString);
-      HRESULT (WINAPI *get_line)(IXMLDOMParseError *This,long *lineNumber);
-      HRESULT (WINAPI *get_linepos)(IXMLDOMParseError *This,long *linePosition);
-      HRESULT (WINAPI *get_filepos)(IXMLDOMParseError *This,long *filePosition);
+      HRESULT (WINAPI *get_line)(IXMLDOMParseError *This,__LONG32 *lineNumber);
+      HRESULT (WINAPI *get_linepos)(IXMLDOMParseError *This,__LONG32 *linePosition);
+      HRESULT (WINAPI *get_filepos)(IXMLDOMParseError *This,__LONG32 *filePosition);
     END_INTERFACE
   } IXMLDOMParseErrorVtbl;
   struct IXMLDOMParseError {
@@ -2449,7 +2449,7 @@ typedef struct XMLDocument XMLDocument;
 #define IXMLDOMParseError_get_filepos(This,filePosition) (This)->lpVtbl->get_filepos(This,filePosition)
 #endif
 #endif
-  HRESULT WINAPI IXMLDOMParseError_get_errorCode_Proxy(IXMLDOMParseError *This,long *errorCode);
+  HRESULT WINAPI IXMLDOMParseError_get_errorCode_Proxy(IXMLDOMParseError *This,__LONG32 *errorCode);
   void __RPC_STUB IXMLDOMParseError_get_errorCode_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLDOMParseError_get_url_Proxy(IXMLDOMParseError *This,BSTR *urlString);
   void __RPC_STUB IXMLDOMParseError_get_url_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2457,11 +2457,11 @@ typedef struct XMLDocument XMLDocument;
   void __RPC_STUB IXMLDOMParseError_get_reason_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLDOMParseError_get_srcText_Proxy(IXMLDOMParseError *This,BSTR *sourceString);
   void __RPC_STUB IXMLDOMParseError_get_srcText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLDOMParseError_get_line_Proxy(IXMLDOMParseError *This,long *lineNumber);
+  HRESULT WINAPI IXMLDOMParseError_get_line_Proxy(IXMLDOMParseError *This,__LONG32 *lineNumber);
   void __RPC_STUB IXMLDOMParseError_get_line_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLDOMParseError_get_linepos_Proxy(IXMLDOMParseError *This,long *linePosition);
+  HRESULT WINAPI IXMLDOMParseError_get_linepos_Proxy(IXMLDOMParseError *This,__LONG32 *linePosition);
   void __RPC_STUB IXMLDOMParseError_get_linepos_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLDOMParseError_get_filepos_Proxy(IXMLDOMParseError *This,long *filePosition);
+  HRESULT WINAPI IXMLDOMParseError_get_filepos_Proxy(IXMLDOMParseError *This,__LONG32 *filePosition);
   void __RPC_STUB IXMLDOMParseError_get_filepos_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -2471,12 +2471,12 @@ typedef struct XMLDocument XMLDocument;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IXTLRuntime : public IXMLDOMNode {
   public:
-    virtual HRESULT WINAPI uniqueID(IXMLDOMNode *pNode,long *pID) = 0;
-    virtual HRESULT WINAPI depth(IXMLDOMNode *pNode,long *pDepth) = 0;
-    virtual HRESULT WINAPI childNumber(IXMLDOMNode *pNode,long *pNumber) = 0;
-    virtual HRESULT WINAPI ancestorChildNumber(BSTR bstrNodeName,IXMLDOMNode *pNode,long *pNumber) = 0;
-    virtual HRESULT WINAPI absoluteChildNumber(IXMLDOMNode *pNode,long *pNumber) = 0;
-    virtual HRESULT WINAPI formatIndex(long lIndex,BSTR bstrFormat,BSTR *pbstrFormattedString) = 0;
+    virtual HRESULT WINAPI uniqueID(IXMLDOMNode *pNode,__LONG32 *pID) = 0;
+    virtual HRESULT WINAPI depth(IXMLDOMNode *pNode,__LONG32 *pDepth) = 0;
+    virtual HRESULT WINAPI childNumber(IXMLDOMNode *pNode,__LONG32 *pNumber) = 0;
+    virtual HRESULT WINAPI ancestorChildNumber(BSTR bstrNodeName,IXMLDOMNode *pNode,__LONG32 *pNumber) = 0;
+    virtual HRESULT WINAPI absoluteChildNumber(IXMLDOMNode *pNode,__LONG32 *pNumber) = 0;
+    virtual HRESULT WINAPI formatIndex(__LONG32 lIndex,BSTR bstrFormat,BSTR *pbstrFormattedString) = 0;
     virtual HRESULT WINAPI formatNumber(double dblNumber,BSTR bstrFormat,BSTR *pbstrFormattedString) = 0;
     virtual HRESULT WINAPI formatDate(VARIANT varDate,BSTR bstrFormat,VARIANT varDestLocale,BSTR *pbstrFormattedString) = 0;
     virtual HRESULT WINAPI formatTime(VARIANT varTime,BSTR bstrFormat,VARIANT varDestLocale,BSTR *pbstrFormattedString) = 0;
@@ -2527,12 +2527,12 @@ typedef struct XMLDocument XMLDocument;
       HRESULT (WINAPI *get_prefix)(IXTLRuntime *This,BSTR *prefixString);
       HRESULT (WINAPI *get_baseName)(IXTLRuntime *This,BSTR *nameString);
       HRESULT (WINAPI *transformNodeToObject)(IXTLRuntime *This,IXMLDOMNode *stylesheet,VARIANT outputObject);
-      HRESULT (WINAPI *uniqueID)(IXTLRuntime *This,IXMLDOMNode *pNode,long *pID);
-      HRESULT (WINAPI *depth)(IXTLRuntime *This,IXMLDOMNode *pNode,long *pDepth);
-      HRESULT (WINAPI *childNumber)(IXTLRuntime *This,IXMLDOMNode *pNode,long *pNumber);
-      HRESULT (WINAPI *ancestorChildNumber)(IXTLRuntime *This,BSTR bstrNodeName,IXMLDOMNode *pNode,long *pNumber);
-      HRESULT (WINAPI *absoluteChildNumber)(IXTLRuntime *This,IXMLDOMNode *pNode,long *pNumber);
-      HRESULT (WINAPI *formatIndex)(IXTLRuntime *This,long lIndex,BSTR bstrFormat,BSTR *pbstrFormattedString);
+      HRESULT (WINAPI *uniqueID)(IXTLRuntime *This,IXMLDOMNode *pNode,__LONG32 *pID);
+      HRESULT (WINAPI *depth)(IXTLRuntime *This,IXMLDOMNode *pNode,__LONG32 *pDepth);
+      HRESULT (WINAPI *childNumber)(IXTLRuntime *This,IXMLDOMNode *pNode,__LONG32 *pNumber);
+      HRESULT (WINAPI *ancestorChildNumber)(IXTLRuntime *This,BSTR bstrNodeName,IXMLDOMNode *pNode,__LONG32 *pNumber);
+      HRESULT (WINAPI *absoluteChildNumber)(IXTLRuntime *This,IXMLDOMNode *pNode,__LONG32 *pNumber);
+      HRESULT (WINAPI *formatIndex)(IXTLRuntime *This,__LONG32 lIndex,BSTR bstrFormat,BSTR *pbstrFormattedString);
       HRESULT (WINAPI *formatNumber)(IXTLRuntime *This,double dblNumber,BSTR bstrFormat,BSTR *pbstrFormattedString);
       HRESULT (WINAPI *formatDate)(IXTLRuntime *This,VARIANT varDate,BSTR bstrFormat,VARIANT varDestLocale,BSTR *pbstrFormattedString);
       HRESULT (WINAPI *formatTime)(IXTLRuntime *This,VARIANT varTime,BSTR bstrFormat,VARIANT varDestLocale,BSTR *pbstrFormattedString);
@@ -2596,17 +2596,17 @@ typedef struct XMLDocument XMLDocument;
 #define IXTLRuntime_formatTime(This,varTime,bstrFormat,varDestLocale,pbstrFormattedString) (This)->lpVtbl->formatTime(This,varTime,bstrFormat,varDestLocale,pbstrFormattedString)
 #endif
 #endif
-  HRESULT WINAPI IXTLRuntime_uniqueID_Proxy(IXTLRuntime *This,IXMLDOMNode *pNode,long *pID);
+  HRESULT WINAPI IXTLRuntime_uniqueID_Proxy(IXTLRuntime *This,IXMLDOMNode *pNode,__LONG32 *pID);
   void __RPC_STUB IXTLRuntime_uniqueID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXTLRuntime_depth_Proxy(IXTLRuntime *This,IXMLDOMNode *pNode,long *pDepth);
+  HRESULT WINAPI IXTLRuntime_depth_Proxy(IXTLRuntime *This,IXMLDOMNode *pNode,__LONG32 *pDepth);
   void __RPC_STUB IXTLRuntime_depth_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXTLRuntime_childNumber_Proxy(IXTLRuntime *This,IXMLDOMNode *pNode,long *pNumber);
+  HRESULT WINAPI IXTLRuntime_childNumber_Proxy(IXTLRuntime *This,IXMLDOMNode *pNode,__LONG32 *pNumber);
   void __RPC_STUB IXTLRuntime_childNumber_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXTLRuntime_ancestorChildNumber_Proxy(IXTLRuntime *This,BSTR bstrNodeName,IXMLDOMNode *pNode,long *pNumber);
+  HRESULT WINAPI IXTLRuntime_ancestorChildNumber_Proxy(IXTLRuntime *This,BSTR bstrNodeName,IXMLDOMNode *pNode,__LONG32 *pNumber);
   void __RPC_STUB IXTLRuntime_ancestorChildNumber_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXTLRuntime_absoluteChildNumber_Proxy(IXTLRuntime *This,IXMLDOMNode *pNode,long *pNumber);
+  HRESULT WINAPI IXTLRuntime_absoluteChildNumber_Proxy(IXTLRuntime *This,IXMLDOMNode *pNode,__LONG32 *pNumber);
   void __RPC_STUB IXTLRuntime_absoluteChildNumber_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXTLRuntime_formatIndex_Proxy(IXTLRuntime *This,long lIndex,BSTR bstrFormat,BSTR *pbstrFormattedString);
+  HRESULT WINAPI IXTLRuntime_formatIndex_Proxy(IXTLRuntime *This,__LONG32 lIndex,BSTR bstrFormat,BSTR *pbstrFormattedString);
   void __RPC_STUB IXTLRuntime_formatIndex_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXTLRuntime_formatNumber_Proxy(IXTLRuntime *This,double dblNumber,BSTR bstrFormat,BSTR *pbstrFormattedString);
   void __RPC_STUB IXTLRuntime_formatNumber_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2670,13 +2670,13 @@ typedef struct XMLDocument XMLDocument;
     virtual HRESULT WINAPI getAllResponseHeaders(BSTR *pbstrHeaders) = 0;
     virtual HRESULT WINAPI send(VARIANT varBody) = 0;
     virtual HRESULT WINAPI abort(void) = 0;
-    virtual HRESULT WINAPI get_status(long *plStatus) = 0;
+    virtual HRESULT WINAPI get_status(__LONG32 *plStatus) = 0;
     virtual HRESULT WINAPI get_statusText(BSTR *pbstrStatus) = 0;
     virtual HRESULT WINAPI get_responseXML(IDispatch **ppBody) = 0;
     virtual HRESULT WINAPI get_responseText(BSTR *pbstrBody) = 0;
     virtual HRESULT WINAPI get_responseBody(VARIANT *pvarBody) = 0;
     virtual HRESULT WINAPI get_responseStream(VARIANT *pvarBody) = 0;
-    virtual HRESULT WINAPI get_readyState(long *plState) = 0;
+    virtual HRESULT WINAPI get_readyState(__LONG32 *plState) = 0;
     virtual HRESULT WINAPI put_onreadystatechange(IDispatch *pReadyStateSink) = 0;
   };
 #else
@@ -2695,13 +2695,13 @@ typedef struct XMLDocument XMLDocument;
       HRESULT (WINAPI *getAllResponseHeaders)(IXMLHttpRequest *This,BSTR *pbstrHeaders);
       HRESULT (WINAPI *send)(IXMLHttpRequest *This,VARIANT varBody);
       HRESULT (WINAPI *abort)(IXMLHttpRequest *This);
-      HRESULT (WINAPI *get_status)(IXMLHttpRequest *This,long *plStatus);
+      HRESULT (WINAPI *get_status)(IXMLHttpRequest *This,__LONG32 *plStatus);
       HRESULT (WINAPI *get_statusText)(IXMLHttpRequest *This,BSTR *pbstrStatus);
       HRESULT (WINAPI *get_responseXML)(IXMLHttpRequest *This,IDispatch **ppBody);
       HRESULT (WINAPI *get_responseText)(IXMLHttpRequest *This,BSTR *pbstrBody);
       HRESULT (WINAPI *get_responseBody)(IXMLHttpRequest *This,VARIANT *pvarBody);
       HRESULT (WINAPI *get_responseStream)(IXMLHttpRequest *This,VARIANT *pvarBody);
-      HRESULT (WINAPI *get_readyState)(IXMLHttpRequest *This,long *plState);
+      HRESULT (WINAPI *get_readyState)(IXMLHttpRequest *This,__LONG32 *plState);
       HRESULT (WINAPI *put_onreadystatechange)(IXMLHttpRequest *This,IDispatch *pReadyStateSink);
     END_INTERFACE
   } IXMLHttpRequestVtbl;
@@ -2744,7 +2744,7 @@ typedef struct XMLDocument XMLDocument;
   void __RPC_STUB IXMLHttpRequest_send_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLHttpRequest_abort_Proxy(IXMLHttpRequest *This);
   void __RPC_STUB IXMLHttpRequest_abort_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLHttpRequest_get_status_Proxy(IXMLHttpRequest *This,long *plStatus);
+  HRESULT WINAPI IXMLHttpRequest_get_status_Proxy(IXMLHttpRequest *This,__LONG32 *plStatus);
   void __RPC_STUB IXMLHttpRequest_get_status_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLHttpRequest_get_statusText_Proxy(IXMLHttpRequest *This,BSTR *pbstrStatus);
   void __RPC_STUB IXMLHttpRequest_get_statusText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2756,7 +2756,7 @@ typedef struct XMLDocument XMLDocument;
   void __RPC_STUB IXMLHttpRequest_get_responseBody_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLHttpRequest_get_responseStream_Proxy(IXMLHttpRequest *This,VARIANT *pvarBody);
   void __RPC_STUB IXMLHttpRequest_get_responseStream_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLHttpRequest_get_readyState_Proxy(IXMLHttpRequest *This,long *plState);
+  HRESULT WINAPI IXMLHttpRequest_get_readyState_Proxy(IXMLHttpRequest *This,__LONG32 *plState);
   void __RPC_STUB IXMLHttpRequest_get_readyState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLHttpRequest_put_onreadystatechange_Proxy(IXMLHttpRequest *This,IDispatch *pReadyStateSink);
   void __RPC_STUB IXMLHttpRequest_put_onreadystatechange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2777,7 +2777,7 @@ typedef struct XMLDocument XMLDocument;
     virtual HRESULT WINAPI put_XMLDocument(IXMLDOMDocument *ppDoc) = 0;
     virtual HRESULT WINAPI get_JavaDSOCompatible(WINBOOL *fJavaDSOCompatible) = 0;
     virtual HRESULT WINAPI put_JavaDSOCompatible(WINBOOL fJavaDSOCompatible) = 0;
-    virtual HRESULT WINAPI get_readyState(long *state) = 0;
+    virtual HRESULT WINAPI get_readyState(__LONG32 *state) = 0;
   };
 #else
   typedef struct IXMLDSOControlVtbl {
@@ -2793,7 +2793,7 @@ typedef struct XMLDocument XMLDocument;
       HRESULT (WINAPI *put_XMLDocument)(IXMLDSOControl *This,IXMLDOMDocument *ppDoc);
       HRESULT (WINAPI *get_JavaDSOCompatible)(IXMLDSOControl *This,WINBOOL *fJavaDSOCompatible);
       HRESULT (WINAPI *put_JavaDSOCompatible)(IXMLDSOControl *This,WINBOOL fJavaDSOCompatible);
-      HRESULT (WINAPI *get_readyState)(IXMLDSOControl *This,long *state);
+      HRESULT (WINAPI *get_readyState)(IXMLDSOControl *This,__LONG32 *state);
     END_INTERFACE
   } IXMLDSOControlVtbl;
   struct IXMLDSOControl {
@@ -2822,7 +2822,7 @@ typedef struct XMLDocument XMLDocument;
   void __RPC_STUB IXMLDSOControl_get_JavaDSOCompatible_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLDSOControl_put_JavaDSOCompatible_Proxy(IXMLDSOControl *This,WINBOOL fJavaDSOCompatible);
   void __RPC_STUB IXMLDSOControl_put_JavaDSOCompatible_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLDSOControl_get_readyState_Proxy(IXMLDSOControl *This,long *state);
+  HRESULT WINAPI IXMLDSOControl_get_readyState_Proxy(IXMLDSOControl *This,__LONG32 *state);
   void __RPC_STUB IXMLDSOControl_get_readyState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -2837,8 +2837,8 @@ typedef struct XMLDocument XMLDocument;
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IXMLElementCollection : public IDispatch {
   public:
-    virtual HRESULT WINAPI put_length(long v) = 0;
-    virtual HRESULT WINAPI get_length(long *p) = 0;
+    virtual HRESULT WINAPI put_length(__LONG32 v) = 0;
+    virtual HRESULT WINAPI get_length(__LONG32 *p) = 0;
     virtual HRESULT WINAPI get__newEnum(IUnknown **ppUnk) = 0;
     virtual HRESULT WINAPI item(VARIANT var1,VARIANT var2,IDispatch **ppDisp) = 0;
   };
@@ -2852,8 +2852,8 @@ typedef struct XMLDocument XMLDocument;
       HRESULT (WINAPI *GetTypeInfo)(IXMLElementCollection *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IXMLElementCollection *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IXMLElementCollection *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *put_length)(IXMLElementCollection *This,long v);
-      HRESULT (WINAPI *get_length)(IXMLElementCollection *This,long *p);
+      HRESULT (WINAPI *put_length)(IXMLElementCollection *This,__LONG32 v);
+      HRESULT (WINAPI *get_length)(IXMLElementCollection *This,__LONG32 *p);
       HRESULT (WINAPI *get__newEnum)(IXMLElementCollection *This,IUnknown **ppUnk);
       HRESULT (WINAPI *item)(IXMLElementCollection *This,VARIANT var1,VARIANT var2,IDispatch **ppDisp);
     END_INTERFACE
@@ -2875,9 +2875,9 @@ typedef struct XMLDocument XMLDocument;
 #define IXMLElementCollection_item(This,var1,var2,ppDisp) (This)->lpVtbl->item(This,var1,var2,ppDisp)
 #endif
 #endif
-  HRESULT WINAPI IXMLElementCollection_put_length_Proxy(IXMLElementCollection *This,long v);
+  HRESULT WINAPI IXMLElementCollection_put_length_Proxy(IXMLElementCollection *This,__LONG32 v);
   void __RPC_STUB IXMLElementCollection_put_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLElementCollection_get_length_Proxy(IXMLElementCollection *This,long *p);
+  HRESULT WINAPI IXMLElementCollection_get_length_Proxy(IXMLElementCollection *This,__LONG32 *p);
   void __RPC_STUB IXMLElementCollection_get_length_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLElementCollection_get__newEnum_Proxy(IXMLElementCollection *This,IUnknown **ppUnk);
   void __RPC_STUB IXMLElementCollection_get__newEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -2898,7 +2898,7 @@ typedef struct XMLDocument XMLDocument;
     virtual HRESULT WINAPI get_URL(BSTR *p) = 0;
     virtual HRESULT WINAPI put_URL(BSTR p) = 0;
     virtual HRESULT WINAPI get_mimeType(BSTR *p) = 0;
-    virtual HRESULT WINAPI get_readyState(long *pl) = 0;
+    virtual HRESULT WINAPI get_readyState(__LONG32 *pl) = 0;
     virtual HRESULT WINAPI get_charset(BSTR *p) = 0;
     virtual HRESULT WINAPI put_charset(BSTR p) = 0;
     virtual HRESULT WINAPI get_version(BSTR *p) = 0;
@@ -2923,7 +2923,7 @@ typedef struct XMLDocument XMLDocument;
       HRESULT (WINAPI *get_URL)(IXMLDocument *This,BSTR *p);
       HRESULT (WINAPI *put_URL)(IXMLDocument *This,BSTR p);
       HRESULT (WINAPI *get_mimeType)(IXMLDocument *This,BSTR *p);
-      HRESULT (WINAPI *get_readyState)(IXMLDocument *This,long *pl);
+      HRESULT (WINAPI *get_readyState)(IXMLDocument *This,__LONG32 *pl);
       HRESULT (WINAPI *get_charset)(IXMLDocument *This,BSTR *p);
       HRESULT (WINAPI *put_charset)(IXMLDocument *This,BSTR p);
       HRESULT (WINAPI *get_version)(IXMLDocument *This,BSTR *p);
@@ -2973,7 +2973,7 @@ typedef struct XMLDocument XMLDocument;
   void __RPC_STUB IXMLDocument_put_URL_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLDocument_get_mimeType_Proxy(IXMLDocument *This,BSTR *p);
   void __RPC_STUB IXMLDocument_get_mimeType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLDocument_get_readyState_Proxy(IXMLDocument *This,long *pl);
+  HRESULT WINAPI IXMLDocument_get_readyState_Proxy(IXMLDocument *This,__LONG32 *pl);
   void __RPC_STUB IXMLDocument_get_readyState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLDocument_get_charset_Proxy(IXMLDocument *This,BSTR *p);
   void __RPC_STUB IXMLDocument_get_charset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -3002,7 +3002,7 @@ typedef struct XMLDocument XMLDocument;
     virtual HRESULT WINAPI get_URL(BSTR *p) = 0;
     virtual HRESULT WINAPI put_URL(BSTR p) = 0;
     virtual HRESULT WINAPI get_mimeType(BSTR *p) = 0;
-    virtual HRESULT WINAPI get_readyState(long *pl) = 0;
+    virtual HRESULT WINAPI get_readyState(__LONG32 *pl) = 0;
     virtual HRESULT WINAPI get_charset(BSTR *p) = 0;
     virtual HRESULT WINAPI put_charset(BSTR p) = 0;
     virtual HRESULT WINAPI get_version(BSTR *p) = 0;
@@ -3029,7 +3029,7 @@ typedef struct XMLDocument XMLDocument;
       HRESULT (WINAPI *get_URL)(IXMLDocument2 *This,BSTR *p);
       HRESULT (WINAPI *put_URL)(IXMLDocument2 *This,BSTR p);
       HRESULT (WINAPI *get_mimeType)(IXMLDocument2 *This,BSTR *p);
-      HRESULT (WINAPI *get_readyState)(IXMLDocument2 *This,long *pl);
+      HRESULT (WINAPI *get_readyState)(IXMLDocument2 *This,__LONG32 *pl);
       HRESULT (WINAPI *get_charset)(IXMLDocument2 *This,BSTR *p);
       HRESULT (WINAPI *put_charset)(IXMLDocument2 *This,BSTR p);
       HRESULT (WINAPI *get_version)(IXMLDocument2 *This,BSTR *p);
@@ -3083,7 +3083,7 @@ typedef struct XMLDocument XMLDocument;
   void __RPC_STUB IXMLDocument2_put_URL_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLDocument2_get_mimeType_Proxy(IXMLDocument2 *This,BSTR *p);
   void __RPC_STUB IXMLDocument2_get_mimeType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLDocument2_get_readyState_Proxy(IXMLDocument2 *This,long *pl);
+  HRESULT WINAPI IXMLDocument2_get_readyState_Proxy(IXMLDocument2 *This,__LONG32 *pl);
   void __RPC_STUB IXMLDocument2_get_readyState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLDocument2_get_charset_Proxy(IXMLDocument2 *This,BSTR *p);
   void __RPC_STUB IXMLDocument2_get_charset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -3116,10 +3116,10 @@ typedef struct XMLDocument XMLDocument;
     virtual HRESULT WINAPI getAttribute(BSTR strPropertyName,VARIANT *PropertyValue) = 0;
     virtual HRESULT WINAPI removeAttribute(BSTR strPropertyName) = 0;
     virtual HRESULT WINAPI get_children(IXMLElementCollection **pp) = 0;
-    virtual HRESULT WINAPI get_type(long *plType) = 0;
+    virtual HRESULT WINAPI get_type(__LONG32 *plType) = 0;
     virtual HRESULT WINAPI get_text(BSTR *p) = 0;
     virtual HRESULT WINAPI put_text(BSTR p) = 0;
-    virtual HRESULT WINAPI addChild(IXMLElement *pChildElem,long lIndex,long lReserved) = 0;
+    virtual HRESULT WINAPI addChild(IXMLElement *pChildElem,__LONG32 lIndex,__LONG32 lReserved) = 0;
     virtual HRESULT WINAPI removeChild(IXMLElement *pChildElem) = 0;
   };
 #else
@@ -3139,10 +3139,10 @@ typedef struct XMLDocument XMLDocument;
       HRESULT (WINAPI *getAttribute)(IXMLElement *This,BSTR strPropertyName,VARIANT *PropertyValue);
       HRESULT (WINAPI *removeAttribute)(IXMLElement *This,BSTR strPropertyName);
       HRESULT (WINAPI *get_children)(IXMLElement *This,IXMLElementCollection **pp);
-      HRESULT (WINAPI *get_type)(IXMLElement *This,long *plType);
+      HRESULT (WINAPI *get_type)(IXMLElement *This,__LONG32 *plType);
       HRESULT (WINAPI *get_text)(IXMLElement *This,BSTR *p);
       HRESULT (WINAPI *put_text)(IXMLElement *This,BSTR p);
-      HRESULT (WINAPI *addChild)(IXMLElement *This,IXMLElement *pChildElem,long lIndex,long lReserved);
+      HRESULT (WINAPI *addChild)(IXMLElement *This,IXMLElement *pChildElem,__LONG32 lIndex,__LONG32 lReserved);
       HRESULT (WINAPI *removeChild)(IXMLElement *This,IXMLElement *pChildElem);
     END_INTERFACE
   } IXMLElementVtbl;
@@ -3185,13 +3185,13 @@ typedef struct XMLDocument XMLDocument;
   void __RPC_STUB IXMLElement_removeAttribute_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLElement_get_children_Proxy(IXMLElement *This,IXMLElementCollection **pp);
   void __RPC_STUB IXMLElement_get_children_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLElement_get_type_Proxy(IXMLElement *This,long *plType);
+  HRESULT WINAPI IXMLElement_get_type_Proxy(IXMLElement *This,__LONG32 *plType);
   void __RPC_STUB IXMLElement_get_type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLElement_get_text_Proxy(IXMLElement *This,BSTR *p);
   void __RPC_STUB IXMLElement_get_text_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLElement_put_text_Proxy(IXMLElement *This,BSTR p);
   void __RPC_STUB IXMLElement_put_text_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLElement_addChild_Proxy(IXMLElement *This,IXMLElement *pChildElem,long lIndex,long lReserved);
+  HRESULT WINAPI IXMLElement_addChild_Proxy(IXMLElement *This,IXMLElement *pChildElem,__LONG32 lIndex,__LONG32 lReserved);
   void __RPC_STUB IXMLElement_addChild_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLElement_removeChild_Proxy(IXMLElement *This,IXMLElement *pChildElem);
   void __RPC_STUB IXMLElement_removeChild_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -3210,10 +3210,10 @@ typedef struct XMLDocument XMLDocument;
     virtual HRESULT WINAPI getAttribute(BSTR strPropertyName,VARIANT *PropertyValue) = 0;
     virtual HRESULT WINAPI removeAttribute(BSTR strPropertyName) = 0;
     virtual HRESULT WINAPI get_children(IXMLElementCollection **pp) = 0;
-    virtual HRESULT WINAPI get_type(long *plType) = 0;
+    virtual HRESULT WINAPI get_type(__LONG32 *plType) = 0;
     virtual HRESULT WINAPI get_text(BSTR *p) = 0;
     virtual HRESULT WINAPI put_text(BSTR p) = 0;
-    virtual HRESULT WINAPI addChild(IXMLElement2 *pChildElem,long lIndex,long lReserved) = 0;
+    virtual HRESULT WINAPI addChild(IXMLElement2 *pChildElem,__LONG32 lIndex,__LONG32 lReserved) = 0;
     virtual HRESULT WINAPI removeChild(IXMLElement2 *pChildElem) = 0;
     virtual HRESULT WINAPI get_attributes(IXMLElementCollection **pp) = 0;
   };
@@ -3234,10 +3234,10 @@ typedef struct XMLDocument XMLDocument;
       HRESULT (WINAPI *getAttribute)(IXMLElement2 *This,BSTR strPropertyName,VARIANT *PropertyValue);
       HRESULT (WINAPI *removeAttribute)(IXMLElement2 *This,BSTR strPropertyName);
       HRESULT (WINAPI *get_children)(IXMLElement2 *This,IXMLElementCollection **pp);
-      HRESULT (WINAPI *get_type)(IXMLElement2 *This,long *plType);
+      HRESULT (WINAPI *get_type)(IXMLElement2 *This,__LONG32 *plType);
       HRESULT (WINAPI *get_text)(IXMLElement2 *This,BSTR *p);
       HRESULT (WINAPI *put_text)(IXMLElement2 *This,BSTR p);
-      HRESULT (WINAPI *addChild)(IXMLElement2 *This,IXMLElement2 *pChildElem,long lIndex,long lReserved);
+      HRESULT (WINAPI *addChild)(IXMLElement2 *This,IXMLElement2 *pChildElem,__LONG32 lIndex,__LONG32 lReserved);
       HRESULT (WINAPI *removeChild)(IXMLElement2 *This,IXMLElement2 *pChildElem);
       HRESULT (WINAPI *get_attributes)(IXMLElement2 *This,IXMLElementCollection **pp);
     END_INTERFACE
@@ -3282,13 +3282,13 @@ typedef struct XMLDocument XMLDocument;
   void __RPC_STUB IXMLElement2_removeAttribute_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLElement2_get_children_Proxy(IXMLElement2 *This,IXMLElementCollection **pp);
   void __RPC_STUB IXMLElement2_get_children_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLElement2_get_type_Proxy(IXMLElement2 *This,long *plType);
+  HRESULT WINAPI IXMLElement2_get_type_Proxy(IXMLElement2 *This,__LONG32 *plType);
   void __RPC_STUB IXMLElement2_get_type_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLElement2_get_text_Proxy(IXMLElement2 *This,BSTR *p);
   void __RPC_STUB IXMLElement2_get_text_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLElement2_put_text_Proxy(IXMLElement2 *This,BSTR p);
   void __RPC_STUB IXMLElement2_put_text_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IXMLElement2_addChild_Proxy(IXMLElement2 *This,IXMLElement2 *pChildElem,long lIndex,long lReserved);
+  HRESULT WINAPI IXMLElement2_addChild_Proxy(IXMLElement2 *This,IXMLElement2 *pChildElem,__LONG32 lIndex,__LONG32 lReserved);
   void __RPC_STUB IXMLElement2_addChild_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IXMLElement2_removeChild_Proxy(IXMLElement2 *This,IXMLElement2 *pChildElem);
   void __RPC_STUB IXMLElement2_removeChild_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);

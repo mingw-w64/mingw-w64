@@ -226,10 +226,10 @@ extern "C" {
     virtual HRESULT WINAPI CreateContext(VARIANT Profile,VARIANT Flags,IDispatch **ppInterface) = 0;
     virtual HRESULT WINAPI ShowOptions(void) = 0;
     virtual HRESULT WINAPI get_Profiles(IDispatch **pProfile) = 0;
-    virtual HRESULT WINAPI HostWindow(BSTR bstrControl,long lStyle,VARIANT_BOOL fShowOnTaskbar,IDispatch **ppMSIMWnd) = 0;
+    virtual HRESULT WINAPI HostWindow(BSTR bstrControl,__LONG32 lStyle,VARIANT_BOOL fShowOnTaskbar,IDispatch **ppMSIMWnd) = 0;
     virtual HRESULT WINAPI CreateProfile(BSTR bstrProfile,IDispatch **ppProfile) = 0;
-    virtual HRESULT WINAPI PopupMessage(BSTR bstrMessage,long nTimeout,VARIANT_BOOL fClick,long *plCookie) = 0;
-    virtual HRESULT WINAPI HostWindowEx(BSTR bstrControl,long lStyle,long lExStyle,IStream *pStream,IMSIMWindow **ppMSIMWindow,IUnknown **ppUnk,REFIID iidAdvise,IUnknown *punkSink) = 0;
+    virtual HRESULT WINAPI PopupMessage(BSTR bstrMessage,__LONG32 nTimeout,VARIANT_BOOL fClick,__LONG32 *plCookie) = 0;
+    virtual HRESULT WINAPI HostWindowEx(BSTR bstrControl,__LONG32 lStyle,__LONG32 lExStyle,IStream *pStream,IMSIMWindow **ppMSIMWindow,IUnknown **ppUnk,REFIID iidAdvise,IUnknown *punkSink) = 0;
   };
 #else
   typedef struct IMSIMHostVtbl {
@@ -244,10 +244,10 @@ extern "C" {
       HRESULT (WINAPI *CreateContext)(IMSIMHost *This,VARIANT Profile,VARIANT Flags,IDispatch **ppInterface);
       HRESULT (WINAPI *ShowOptions)(IMSIMHost *This);
       HRESULT (WINAPI *get_Profiles)(IMSIMHost *This,IDispatch **pProfile);
-      HRESULT (WINAPI *HostWindow)(IMSIMHost *This,BSTR bstrControl,long lStyle,VARIANT_BOOL fShowOnTaskbar,IDispatch **ppMSIMWnd);
+      HRESULT (WINAPI *HostWindow)(IMSIMHost *This,BSTR bstrControl,__LONG32 lStyle,VARIANT_BOOL fShowOnTaskbar,IDispatch **ppMSIMWnd);
       HRESULT (WINAPI *CreateProfile)(IMSIMHost *This,BSTR bstrProfile,IDispatch **ppProfile);
-      HRESULT (WINAPI *PopupMessage)(IMSIMHost *This,BSTR bstrMessage,long nTimeout,VARIANT_BOOL fClick,long *plCookie);
-      HRESULT (WINAPI *HostWindowEx)(IMSIMHost *This,BSTR bstrControl,long lStyle,long lExStyle,IStream *pStream,IMSIMWindow **ppMSIMWindow,IUnknown **ppUnk,REFIID iidAdvise,IUnknown *punkSink);
+      HRESULT (WINAPI *PopupMessage)(IMSIMHost *This,BSTR bstrMessage,__LONG32 nTimeout,VARIANT_BOOL fClick,__LONG32 *plCookie);
+      HRESULT (WINAPI *HostWindowEx)(IMSIMHost *This,BSTR bstrControl,__LONG32 lStyle,__LONG32 lExStyle,IStream *pStream,IMSIMWindow **ppMSIMWindow,IUnknown **ppUnk,REFIID iidAdvise,IUnknown *punkSink);
     END_INTERFACE
   } IMSIMHostVtbl;
   struct IMSIMHost {
@@ -276,13 +276,13 @@ extern "C" {
   void __RPC_STUB IMSIMHost_ShowOptions_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMSIMHost_get_Profiles_Proxy(IMSIMHost *This,IDispatch **pProfile);
   void __RPC_STUB IMSIMHost_get_Profiles_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMSIMHost_HostWindow_Proxy(IMSIMHost *This,BSTR bstrControl,long lStyle,VARIANT_BOOL fShowOnTaskbar,IDispatch **ppMSIMWnd);
+  HRESULT WINAPI IMSIMHost_HostWindow_Proxy(IMSIMHost *This,BSTR bstrControl,__LONG32 lStyle,VARIANT_BOOL fShowOnTaskbar,IDispatch **ppMSIMWnd);
   void __RPC_STUB IMSIMHost_HostWindow_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMSIMHost_CreateProfile_Proxy(IMSIMHost *This,BSTR bstrProfile,IDispatch **ppProfile);
   void __RPC_STUB IMSIMHost_CreateProfile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMSIMHost_PopupMessage_Proxy(IMSIMHost *This,BSTR bstrMessage,long nTimeout,VARIANT_BOOL fClick,long *plCookie);
+  HRESULT WINAPI IMSIMHost_PopupMessage_Proxy(IMSIMHost *This,BSTR bstrMessage,__LONG32 nTimeout,VARIANT_BOOL fClick,__LONG32 *plCookie);
   void __RPC_STUB IMSIMHost_PopupMessage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMSIMHost_HostWindowEx_Proxy(IMSIMHost *This,BSTR bstrControl,long lStyle,long lExStyle,IStream *pStream,IMSIMWindow **ppMSIMWindow,IUnknown **ppUnk,REFIID iidAdvise,IUnknown *punkSink);
+  HRESULT WINAPI IMSIMHost_HostWindowEx_Proxy(IMSIMHost *This,BSTR bstrControl,__LONG32 lStyle,__LONG32 lExStyle,IStream *pStream,IMSIMWindow **ppMSIMWindow,IUnknown **ppUnk,REFIID iidAdvise,IUnknown *punkSink);
   void __RPC_STUB IMSIMHost_HostWindowEx_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -327,7 +327,7 @@ extern "C" {
   struct IMSIMWindow : public IDispatch {
   public:
     virtual HRESULT WINAPI get_Object(IDispatch **ppDisp) = 0;
-    virtual HRESULT WINAPI Move(long nX,long nY,long nWidth,long nHeight) = 0;
+    virtual HRESULT WINAPI Move(__LONG32 nX,__LONG32 nY,__LONG32 nWidth,__LONG32 nHeight) = 0;
     virtual HRESULT WINAPI Focus(void) = 0;
     virtual HRESULT WINAPI Show(void) = 0;
     virtual HRESULT WINAPI Hide(void) = 0;
@@ -339,7 +339,7 @@ extern "C" {
     virtual HRESULT WINAPI GetPosition(VARIANT *pvarX,VARIANT *pvarY,VARIANT *pvarWidth,VARIANT *pvarHeight) = 0;
     virtual HRESULT WINAPI get_TopMost(VARIANT_BOOL *pVal) = 0;
     virtual HRESULT WINAPI put_TopMost(VARIANT_BOOL newVal) = 0;
-    virtual HRESULT WINAPI get_Window(long *pVal) = 0;
+    virtual HRESULT WINAPI get_Window(__LONG32 *pVal) = 0;
   };
 #else
   typedef struct IMSIMWindowVtbl {
@@ -352,7 +352,7 @@ extern "C" {
       HRESULT (WINAPI *GetIDsOfNames)(IMSIMWindow *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IMSIMWindow *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *get_Object)(IMSIMWindow *This,IDispatch **ppDisp);
-      HRESULT (WINAPI *Move)(IMSIMWindow *This,long nX,long nY,long nWidth,long nHeight);
+      HRESULT (WINAPI *Move)(IMSIMWindow *This,__LONG32 nX,__LONG32 nY,__LONG32 nWidth,__LONG32 nHeight);
       HRESULT (WINAPI *Focus)(IMSIMWindow *This);
       HRESULT (WINAPI *Show)(IMSIMWindow *This);
       HRESULT (WINAPI *Hide)(IMSIMWindow *This);
@@ -364,7 +364,7 @@ extern "C" {
       HRESULT (WINAPI *GetPosition)(IMSIMWindow *This,VARIANT *pvarX,VARIANT *pvarY,VARIANT *pvarWidth,VARIANT *pvarHeight);
       HRESULT (WINAPI *get_TopMost)(IMSIMWindow *This,VARIANT_BOOL *pVal);
       HRESULT (WINAPI *put_TopMost)(IMSIMWindow *This,VARIANT_BOOL newVal);
-      HRESULT (WINAPI *get_Window)(IMSIMWindow *This,long *pVal);
+      HRESULT (WINAPI *get_Window)(IMSIMWindow *This,__LONG32 *pVal);
     END_INTERFACE
   } IMSIMWindowVtbl;
   struct IMSIMWindow {
@@ -396,7 +396,7 @@ extern "C" {
 #endif
   HRESULT WINAPI IMSIMWindow_get_Object_Proxy(IMSIMWindow *This,IDispatch **ppDisp);
   void __RPC_STUB IMSIMWindow_get_Object_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMSIMWindow_Move_Proxy(IMSIMWindow *This,long nX,long nY,long nWidth,long nHeight);
+  HRESULT WINAPI IMSIMWindow_Move_Proxy(IMSIMWindow *This,__LONG32 nX,__LONG32 nY,__LONG32 nWidth,__LONG32 nHeight);
   void __RPC_STUB IMSIMWindow_Move_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMSIMWindow_Focus_Proxy(IMSIMWindow *This);
   void __RPC_STUB IMSIMWindow_Focus_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -420,7 +420,7 @@ extern "C" {
   void __RPC_STUB IMSIMWindow_get_TopMost_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IMSIMWindow_put_TopMost_Proxy(IMSIMWindow *This,VARIANT_BOOL newVal);
   void __RPC_STUB IMSIMWindow_put_TopMost_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMSIMWindow_get_Window_Proxy(IMSIMWindow *This,long *pVal);
+  HRESULT WINAPI IMSIMWindow_get_Window_Proxy(IMSIMWindow *This,__LONG32 *pVal);
   void __RPC_STUB IMSIMWindow_get_Window_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
@@ -471,16 +471,16 @@ extern "C" {
     virtual HRESULT WINAPI FindContact(BSTR bstrFirstName,BSTR bstrLastName,BSTR bstrAlias,BSTR bstrCity,BSTR bstrState,BSTR bstrCountry,LONG *plCookie) = 0;
     virtual HRESULT WINAPI Logon(VARIANT varParameter) = 0;
     virtual HRESULT WINAPI CreateContact(BSTR bstrAlias,IDispatch **ppContact) = 0;
-    virtual HRESULT WINAPI SetLocalState(long lState,BSTR bstrDescription,VARIANT varData) = 0;
+    virtual HRESULT WINAPI SetLocalState(__LONG32 lState,BSTR bstrDescription,VARIANT varData) = 0;
     virtual HRESULT WINAPI GetLocalState(VARIANT *pvarState,VARIANT *pvarDescription,VARIANT *pvarData) = 0;
     virtual HRESULT WINAPI CreateIMSession(VARIANT varIMContact,IDispatch **ppIMSession) = 0;
     virtual HRESULT WINAPI get_IMSessions(IDispatch **ppIMSessions) = 0;
-    virtual HRESULT WINAPI NewList(BSTR bstrListName,long bfProperties,IDispatch **ppList) = 0;
+    virtual HRESULT WINAPI NewList(BSTR bstrListName,__LONG32 bfProperties,IDispatch **ppList) = 0;
     virtual HRESULT WINAPI List(BSTR bstrListName,IDispatch **ppList) = 0;
     virtual HRESULT WINAPI RemoveList(BSTR bstrListName) = 0;
-    virtual HRESULT WINAPI SendNetMeetingInvite(VARIANT varContact,long lInviteCookie,long *plSendCookie) = 0;
-    virtual HRESULT WINAPI SendNetMeetingAccept(VARIANT varContact,long lInviteCookie,long lInviteType,long *plSendCookie) = 0;
-    virtual HRESULT WINAPI SendNetMeetingCancel(VARIANT varContact,long lInviteCookie,long hrReason,long *plSendCookie) = 0;
+    virtual HRESULT WINAPI SendNetMeetingInvite(VARIANT varContact,__LONG32 lInviteCookie,__LONG32 *plSendCookie) = 0;
+    virtual HRESULT WINAPI SendNetMeetingAccept(VARIANT varContact,__LONG32 lInviteCookie,__LONG32 lInviteType,__LONG32 *plSendCookie) = 0;
+    virtual HRESULT WINAPI SendNetMeetingCancel(VARIANT varContact,__LONG32 lInviteCookie,__LONG32 hrReason,__LONG32 *plSendCookie) = 0;
     virtual HRESULT WINAPI get_BlockByDefault(VARIANT_BOOL *pVal) = 0;
     virtual HRESULT WINAPI put_BlockByDefault(VARIANT_BOOL newVal) = 0;
   };
@@ -502,16 +502,16 @@ extern "C" {
       HRESULT (WINAPI *FindContact)(IIMService *This,BSTR bstrFirstName,BSTR bstrLastName,BSTR bstrAlias,BSTR bstrCity,BSTR bstrState,BSTR bstrCountry,LONG *plCookie);
       HRESULT (WINAPI *Logon)(IIMService *This,VARIANT varParameter);
       HRESULT (WINAPI *CreateContact)(IIMService *This,BSTR bstrAlias,IDispatch **ppContact);
-      HRESULT (WINAPI *SetLocalState)(IIMService *This,long lState,BSTR bstrDescription,VARIANT varData);
+      HRESULT (WINAPI *SetLocalState)(IIMService *This,__LONG32 lState,BSTR bstrDescription,VARIANT varData);
       HRESULT (WINAPI *GetLocalState)(IIMService *This,VARIANT *pvarState,VARIANT *pvarDescription,VARIANT *pvarData);
       HRESULT (WINAPI *CreateIMSession)(IIMService *This,VARIANT varIMContact,IDispatch **ppIMSession);
       HRESULT (WINAPI *get_IMSessions)(IIMService *This,IDispatch **ppIMSessions);
-      HRESULT (WINAPI *NewList)(IIMService *This,BSTR bstrListName,long bfProperties,IDispatch **ppList);
+      HRESULT (WINAPI *NewList)(IIMService *This,BSTR bstrListName,__LONG32 bfProperties,IDispatch **ppList);
       HRESULT (WINAPI *List)(IIMService *This,BSTR bstrListName,IDispatch **ppList);
       HRESULT (WINAPI *RemoveList)(IIMService *This,BSTR bstrListName);
-      HRESULT (WINAPI *SendNetMeetingInvite)(IIMService *This,VARIANT varContact,long lInviteCookie,long *plSendCookie);
-      HRESULT (WINAPI *SendNetMeetingAccept)(IIMService *This,VARIANT varContact,long lInviteCookie,long lInviteType,long *plSendCookie);
-      HRESULT (WINAPI *SendNetMeetingCancel)(IIMService *This,VARIANT varContact,long lInviteCookie,long hrReason,long *plSendCookie);
+      HRESULT (WINAPI *SendNetMeetingInvite)(IIMService *This,VARIANT varContact,__LONG32 lInviteCookie,__LONG32 *plSendCookie);
+      HRESULT (WINAPI *SendNetMeetingAccept)(IIMService *This,VARIANT varContact,__LONG32 lInviteCookie,__LONG32 lInviteType,__LONG32 *plSendCookie);
+      HRESULT (WINAPI *SendNetMeetingCancel)(IIMService *This,VARIANT varContact,__LONG32 lInviteCookie,__LONG32 hrReason,__LONG32 *plSendCookie);
       HRESULT (WINAPI *get_BlockByDefault)(IIMService *This,VARIANT_BOOL *pVal);
       HRESULT (WINAPI *put_BlockByDefault)(IIMService *This,VARIANT_BOOL newVal);
     END_INTERFACE
@@ -565,7 +565,7 @@ extern "C" {
   void __RPC_STUB IIMService_Logon_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IIMService_CreateContact_Proxy(IIMService *This,BSTR bstrAlias,IDispatch **ppContact);
   void __RPC_STUB IIMService_CreateContact_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IIMService_SetLocalState_Proxy(IIMService *This,long lState,BSTR bstrDescription,VARIANT varData);
+  HRESULT WINAPI IIMService_SetLocalState_Proxy(IIMService *This,__LONG32 lState,BSTR bstrDescription,VARIANT varData);
   void __RPC_STUB IIMService_SetLocalState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IIMService_GetLocalState_Proxy(IIMService *This,VARIANT *pvarState,VARIANT *pvarDescription,VARIANT *pvarData);
   void __RPC_STUB IIMService_GetLocalState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -573,17 +573,17 @@ extern "C" {
   void __RPC_STUB IIMService_CreateIMSession_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IIMService_get_IMSessions_Proxy(IIMService *This,IDispatch **ppIMSessions);
   void __RPC_STUB IIMService_get_IMSessions_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IIMService_NewList_Proxy(IIMService *This,BSTR bstrListName,long bfProperties,IDispatch **ppList);
+  HRESULT WINAPI IIMService_NewList_Proxy(IIMService *This,BSTR bstrListName,__LONG32 bfProperties,IDispatch **ppList);
   void __RPC_STUB IIMService_NewList_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IIMService_List_Proxy(IIMService *This,BSTR bstrListName,IDispatch **ppList);
   void __RPC_STUB IIMService_List_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IIMService_RemoveList_Proxy(IIMService *This,BSTR bstrListName);
   void __RPC_STUB IIMService_RemoveList_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IIMService_SendNetMeetingInvite_Proxy(IIMService *This,VARIANT varContact,long lInviteCookie,long *plSendCookie);
+  HRESULT WINAPI IIMService_SendNetMeetingInvite_Proxy(IIMService *This,VARIANT varContact,__LONG32 lInviteCookie,__LONG32 *plSendCookie);
   void __RPC_STUB IIMService_SendNetMeetingInvite_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IIMService_SendNetMeetingAccept_Proxy(IIMService *This,VARIANT varContact,long lInviteCookie,long lInviteType,long *plSendCookie);
+  HRESULT WINAPI IIMService_SendNetMeetingAccept_Proxy(IIMService *This,VARIANT varContact,__LONG32 lInviteCookie,__LONG32 lInviteType,__LONG32 *plSendCookie);
   void __RPC_STUB IIMService_SendNetMeetingAccept_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IIMService_SendNetMeetingCancel_Proxy(IIMService *This,VARIANT varContact,long lInviteCookie,long hrReason,long *plSendCookie);
+  HRESULT WINAPI IIMService_SendNetMeetingCancel_Proxy(IIMService *This,VARIANT varContact,__LONG32 lInviteCookie,__LONG32 hrReason,__LONG32 *plSendCookie);
   void __RPC_STUB IIMService_SendNetMeetingCancel_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IIMService_get_BlockByDefault_Proxy(IIMService *This,VARIANT_BOOL *pVal);
   void __RPC_STUB IIMService_get_BlockByDefault_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -700,13 +700,13 @@ extern "C" {
   struct IIMContacts : public IDispatch {
   public:
     virtual HRESULT WINAPI Item(VARIANT varItem,IDispatch **ppContact) = 0;
-    virtual HRESULT WINAPI get_Count(long *pVal) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *pVal) = 0;
     virtual HRESULT WINAPI Add(IDispatch *pContact) = 0;
     virtual HRESULT WINAPI Remove(IDispatch *pContact) = 0;
     virtual HRESULT WINAPI get_Name(BSTR *pVal) = 0;
     virtual HRESULT WINAPI put_Name(BSTR newVal) = 0;
-    virtual HRESULT WINAPI get_Properties(long *pVal) = 0;
-    virtual HRESULT WINAPI get_Cookie(long *pVal) = 0;
+    virtual HRESULT WINAPI get_Properties(__LONG32 *pVal) = 0;
+    virtual HRESULT WINAPI get_Cookie(__LONG32 *pVal) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **ppVal) = 0;
   };
 #else
@@ -720,13 +720,13 @@ extern "C" {
       HRESULT (WINAPI *GetIDsOfNames)(IIMContacts *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IIMContacts *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
       HRESULT (WINAPI *Item)(IIMContacts *This,VARIANT varItem,IDispatch **ppContact);
-      HRESULT (WINAPI *get_Count)(IIMContacts *This,long *pVal);
+      HRESULT (WINAPI *get_Count)(IIMContacts *This,__LONG32 *pVal);
       HRESULT (WINAPI *Add)(IIMContacts *This,IDispatch *pContact);
       HRESULT (WINAPI *Remove)(IIMContacts *This,IDispatch *pContact);
       HRESULT (WINAPI *get_Name)(IIMContacts *This,BSTR *pVal);
       HRESULT (WINAPI *put_Name)(IIMContacts *This,BSTR newVal);
-      HRESULT (WINAPI *get_Properties)(IIMContacts *This,long *pVal);
-      HRESULT (WINAPI *get_Cookie)(IIMContacts *This,long *pVal);
+      HRESULT (WINAPI *get_Properties)(IIMContacts *This,__LONG32 *pVal);
+      HRESULT (WINAPI *get_Cookie)(IIMContacts *This,__LONG32 *pVal);
       HRESULT (WINAPI *get__NewEnum)(IIMContacts *This,IUnknown **ppVal);
     END_INTERFACE
   } IIMContactsVtbl;
@@ -754,7 +754,7 @@ extern "C" {
 #endif
   HRESULT WINAPI IIMContacts_Item_Proxy(IIMContacts *This,VARIANT varItem,IDispatch **ppContact);
   void __RPC_STUB IIMContacts_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IIMContacts_get_Count_Proxy(IIMContacts *This,long *pVal);
+  HRESULT WINAPI IIMContacts_get_Count_Proxy(IIMContacts *This,__LONG32 *pVal);
   void __RPC_STUB IIMContacts_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IIMContacts_Add_Proxy(IIMContacts *This,IDispatch *pContact);
   void __RPC_STUB IIMContacts_Add_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -764,9 +764,9 @@ extern "C" {
   void __RPC_STUB IIMContacts_get_Name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IIMContacts_put_Name_Proxy(IIMContacts *This,BSTR newVal);
   void __RPC_STUB IIMContacts_put_Name_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IIMContacts_get_Properties_Proxy(IIMContacts *This,long *pVal);
+  HRESULT WINAPI IIMContacts_get_Properties_Proxy(IIMContacts *This,__LONG32 *pVal);
   void __RPC_STUB IIMContacts_get_Properties_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IIMContacts_get_Cookie_Proxy(IIMContacts *This,long *pVal);
+  HRESULT WINAPI IIMContacts_get_Cookie_Proxy(IIMContacts *This,__LONG32 *pVal);
   void __RPC_STUB IIMContacts_get_Cookie_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IIMContacts_get__NewEnum_Proxy(IIMContacts *This,IUnknown **ppVal);
   void __RPC_STUB IIMContacts_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
@@ -847,8 +847,8 @@ extern "C" {
 #if defined(__cplusplus) && !defined(CINTERFACE)
   struct IIMSessions : public IDispatch {
   public:
-    virtual HRESULT WINAPI get_Count(long *pcSessions) = 0;
-    virtual HRESULT WINAPI Item(long Index,IDispatch **ppIMSession) = 0;
+    virtual HRESULT WINAPI get_Count(__LONG32 *pcSessions) = 0;
+    virtual HRESULT WINAPI Item(__LONG32 Index,IDispatch **ppIMSession) = 0;
     virtual HRESULT WINAPI get__NewEnum(IUnknown **ppUnknown) = 0;
   };
 #else
@@ -861,8 +861,8 @@ extern "C" {
       HRESULT (WINAPI *GetTypeInfo)(IIMSessions *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
       HRESULT (WINAPI *GetIDsOfNames)(IIMSessions *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
       HRESULT (WINAPI *Invoke)(IIMSessions *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *get_Count)(IIMSessions *This,long *pcSessions);
-      HRESULT (WINAPI *Item)(IIMSessions *This,long Index,IDispatch **ppIMSession);
+      HRESULT (WINAPI *get_Count)(IIMSessions *This,__LONG32 *pcSessions);
+      HRESULT (WINAPI *Item)(IIMSessions *This,__LONG32 Index,IDispatch **ppIMSession);
       HRESULT (WINAPI *get__NewEnum)(IIMSessions *This,IUnknown **ppUnknown);
     END_INTERFACE
   } IIMSessionsVtbl;
@@ -882,9 +882,9 @@ extern "C" {
 #define IIMSessions_get__NewEnum(This,ppUnknown) (This)->lpVtbl->get__NewEnum(This,ppUnknown)
 #endif
 #endif
-  HRESULT WINAPI IIMSessions_get_Count_Proxy(IIMSessions *This,long *pcSessions);
+  HRESULT WINAPI IIMSessions_get_Count_Proxy(IIMSessions *This,__LONG32 *pcSessions);
   void __RPC_STUB IIMSessions_get_Count_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IIMSessions_Item_Proxy(IIMSessions *This,long Index,IDispatch **ppIMSession);
+  HRESULT WINAPI IIMSessions_Item_Proxy(IIMSessions *This,__LONG32 Index,IDispatch **ppIMSession);
   void __RPC_STUB IIMSessions_Item_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IIMSessions_get__NewEnum_Proxy(IIMSessions *This,IUnknown **ppUnknown);
   void __RPC_STUB IIMSessions_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);

@@ -42,7 +42,7 @@ extern "C" {
 #endif
 
   typedef void *I_RPC_HANDLE;
-  typedef long RPC_STATUS;
+  typedef __LONG32 RPC_STATUS;
 
 #define RPC_UNICODE_SUPPORTED
 #define __RPC_FAR

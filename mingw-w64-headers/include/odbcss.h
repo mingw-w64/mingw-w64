@@ -415,7 +415,7 @@ extern "C" {
 
 #ifndef INT
   typedef int INT;
-  typedef long DBINT;
+  typedef __LONG32 DBINT;
 #ifndef _LPCBYTE_DEFINED
 #define _LPCBYTE_DEFINED
   typedef const LPBYTE LPCBYTE;
