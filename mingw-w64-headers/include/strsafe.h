@@ -43,7 +43,7 @@ typedef unsigned short wchar_t;
 
 #ifndef _HRESULT_DEFINED
 #define _HRESULT_DEFINED
-typedef long HRESULT;
+typedef __LONG32 HRESULT;
 #endif
 
 #ifndef SUCCEEDED
@@ -103,8 +103,8 @@ typedef long HRESULT;
 #define STRSAFE_VALID_FLAGS (0x000000FF | STRSAFE_IGNORE_NULLS | STRSAFE_FILL_BEHIND_NULL | STRSAFE_FILL_ON_FAILURE | STRSAFE_NULL_ON_FAILURE | STRSAFE_NO_TRUNCATION)
 #define STRSAFE_UNICODE_STRING_VALID_FLAGS (STRSAFE_VALID_FLAGS | STRSAFE_IGNORE_NULL_UNICODE_STRINGS | STRSAFE_UNICODE_STRING_DEST_NULL_TERMINATED)
 
-#define STRSAFE_FILL_BYTE(x) ((unsigned long)((x & 0x000000FF) | STRSAFE_FILL_BEHIND_NULL))
-#define STRSAFE_FAILURE_BYTE(x) ((unsigned long)((x & 0x000000FF) | STRSAFE_FILL_ON_FAILURE))
+#define STRSAFE_FILL_BYTE(x) ((unsigned __LONG32)((x & 0x000000FF) | STRSAFE_FILL_BEHIND_NULL))
+#define STRSAFE_FAILURE_BYTE(x) ((unsigned __LONG32)((x & 0x000000FF) | STRSAFE_FILL_ON_FAILURE))
 
 #define STRSAFE_GET_FILL_PATTERN(dwFlags) ((int)(dwFlags & 0x000000FF))
 #endif
@@ -120,28 +120,28 @@ typedef const wchar_t *STRSAFE_LPCWSTR;
 
 STRSAFEAPI StringCopyWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc);
 STRSAFEAPI StringCopyWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc);
-STRSAFEAPI StringCopyExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags);
-STRSAFEAPI StringCopyExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags);
+STRSAFEAPI StringCopyExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags);
+STRSAFEAPI StringCopyExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags);
 STRSAFEAPI StringCopyNWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,size_t cchToCopy);
 STRSAFEAPI StringCopyNWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,size_t cchToCopy);
-STRSAFEAPI StringCopyNExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,size_t cchToCopy,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags);
-STRSAFEAPI StringCopyNExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,size_t cchToCopy,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags);
+STRSAFEAPI StringCopyNExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,size_t cchToCopy,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags);
+STRSAFEAPI StringCopyNExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,size_t cchToCopy,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags);
 STRSAFEAPI StringCatWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc);
 STRSAFEAPI StringCatWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc);
-STRSAFEAPI StringCatExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags);
-STRSAFEAPI StringCatExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags);
+STRSAFEAPI StringCatExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags);
+STRSAFEAPI StringCatExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags);
 STRSAFEAPI StringCatNWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,size_t cchToAppend);
 STRSAFEAPI StringCatNWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,size_t cchToAppend);
-STRSAFEAPI StringCatNExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,size_t cchToAppend,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags);
-STRSAFEAPI StringCatNExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,size_t cchToAppend,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags);
+STRSAFEAPI StringCatNExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,size_t cchToAppend,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags);
+STRSAFEAPI StringCatNExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,size_t cchToAppend,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags);
 STRSAFEAPI StringVPrintfWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszFormat,va_list argList);
 STRSAFEAPI StringVPrintfWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszFormat,va_list argList);
-STRSAFEAPI StringVPrintfExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags,STRSAFE_LPCSTR pszFormat,va_list argList);
-STRSAFEAPI StringVPrintfExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags,STRSAFE_LPCWSTR pszFormat,va_list argList);
+STRSAFEAPI StringVPrintfExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCSTR pszFormat,va_list argList);
+STRSAFEAPI StringVPrintfExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCWSTR pszFormat,va_list argList);
 STRSAFEAPI StringLengthWorkerA(STRSAFE_LPCSTR psz,size_t cchMax,size_t *pcchLength);
 STRSAFEAPI StringLengthWorkerW(STRSAFE_LPCWSTR psz,size_t cchMax,size_t *pcchLength);
-STRSAFE_INLINE_API StringGetsExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags);
-STRSAFE_INLINE_API StringGetsExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags);
+STRSAFE_INLINE_API StringGetsExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags);
+STRSAFE_INLINE_API StringGetsExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags);
 
 #define StringCchCopy __MINGW_NAME_AW(StringCchCopy)
 
@@ -179,16 +179,16 @@ STRSAFEAPI StringCbCopyW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR ps
 
 #define StringCchCopyEx __MINGW_NAME_AW(StringCchCopyEx)
 
-STRSAFEAPI StringCchCopyExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags);
-STRSAFEAPI StringCchCopyExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags);
+STRSAFEAPI StringCchCopyExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags);
+STRSAFEAPI StringCchCopyExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags);
 
 #ifndef __STRSAFE__NO_INLINE
-STRSAFEAPI StringCchCopyExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCchCopyExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags) {
   if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
   return StringCopyExWorkerA(pszDest,cchDest,cchDest,pszSrc,ppszDestEnd,pcchRemaining,dwFlags);
 }
 
-STRSAFEAPI StringCchCopyExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCchCopyExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags) {
   size_t cbDest;
   if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
   cbDest = cchDest * sizeof(wchar_t);
@@ -198,11 +198,11 @@ STRSAFEAPI StringCchCopyExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWST
 
 #define StringCbCopyEx __MINGW_NAME_AW(StringCbCopyEx)
 
-STRSAFEAPI StringCbCopyExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags);
-STRSAFEAPI StringCbCopyExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags);
+STRSAFEAPI StringCbCopyExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags);
+STRSAFEAPI StringCbCopyExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags);
 
 #ifndef __STRSAFE__NO_INLINE
-STRSAFEAPI StringCbCopyExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCbCopyExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr;
   size_t cchRemaining = 0;
   if(cbDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
@@ -214,7 +214,7 @@ STRSAFEAPI StringCbCopyExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR ps
   return hr;
 }
 
-STRSAFEAPI StringCbCopyExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCbCopyExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr;
   size_t cchDest = cbDest / sizeof(wchar_t);
   size_t cchRemaining = 0;
@@ -268,30 +268,30 @@ STRSAFEAPI StringCbCopyNW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR p
 }
 #endif /* !__STRSAFE__NO_INLINE */
 
-STRSAFEAPI StringCchCopyNExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,size_t cchToCopy,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags);
-STRSAFEAPI StringCchCopyNExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,size_t cchToCopy,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags);
+STRSAFEAPI StringCchCopyNExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,size_t cchToCopy,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags);
+STRSAFEAPI StringCchCopyNExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,size_t cchToCopy,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags);
 
 #define StringCchCopyNEx __MINGW_NAME_AW(StringCchCopyNEx)
 
 #ifndef __STRSAFE__NO_INLINE
-STRSAFEAPI StringCchCopyNExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,size_t cchToCopy,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCchCopyNExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,size_t cchToCopy,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags) {
   if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
   return StringCopyNExWorkerA(pszDest,cchDest,cchDest,pszSrc,cchToCopy,ppszDestEnd,pcchRemaining,dwFlags);
 }
 
-STRSAFEAPI StringCchCopyNExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,size_t cchToCopy,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCchCopyNExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,size_t cchToCopy,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags) {
   if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
   return StringCopyNExWorkerW(pszDest,cchDest,cchDest * sizeof(wchar_t),pszSrc,cchToCopy,ppszDestEnd,pcchRemaining,dwFlags);
 }
 #endif /* !__STRSAFE__NO_INLINE */
 
-STRSAFEAPI StringCbCopyNExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,size_t cbToCopy,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags);
-STRSAFEAPI StringCbCopyNExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,size_t cbToCopy,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags);
+STRSAFEAPI StringCbCopyNExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,size_t cbToCopy,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags);
+STRSAFEAPI StringCbCopyNExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,size_t cbToCopy,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags);
 
 #define StringCbCopyNEx __MINGW_NAME_AW(StringCbCopyNEx)
 
 #ifndef __STRSAFE__NO_INLINE
-STRSAFEAPI StringCbCopyNExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,size_t cbToCopy,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCbCopyNExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,size_t cbToCopy,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr;
   size_t cchRemaining = 0;
   if(cbDest > STRSAFE_MAX_CCH)
@@ -303,7 +303,7 @@ STRSAFEAPI StringCbCopyNExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR p
   return hr;
 }
 
-STRSAFEAPI StringCbCopyNExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,size_t cbToCopy,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCbCopyNExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,size_t cbToCopy,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr;
   size_t cchDest;
   size_t cchToCopy;
@@ -353,31 +353,31 @@ STRSAFEAPI StringCbCatW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR psz
 }
 #endif /* !__STRSAFE__NO_INLINE */
 
-STRSAFEAPI StringCchCatExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags);
-STRSAFEAPI StringCchCatExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags);
+STRSAFEAPI StringCchCatExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags);
+STRSAFEAPI StringCchCatExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags);
 
 #define StringCchCatEx __MINGW_NAME_AW(StringCchCatEx)
 
 #ifndef __STRSAFE__NO_INLINE
-STRSAFEAPI StringCchCatExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCchCatExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags) {
   if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
   return StringCatExWorkerA(pszDest,cchDest,cchDest,pszSrc,ppszDestEnd,pcchRemaining,dwFlags);
 }
 
-STRSAFEAPI StringCchCatExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCchCatExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags) {
   size_t cbDest = cchDest*sizeof(wchar_t);
   if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
   return StringCatExWorkerW(pszDest,cchDest,cbDest,pszSrc,ppszDestEnd,pcchRemaining,dwFlags);
 }
 #endif /* !__STRSAFE__NO_INLINE */
 
-STRSAFEAPI StringCbCatExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags);
-STRSAFEAPI StringCbCatExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags);
+STRSAFEAPI StringCbCatExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags);
+STRSAFEAPI StringCbCatExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags);
 
 #define StringCbCatEx __MINGW_NAME_AW(StringCbCatEx)
 
 #ifndef __STRSAFE__NO_INLINE
-STRSAFEAPI StringCbCatExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCbCatExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr;
   size_t cchRemaining = 0;
   if(cbDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
@@ -387,7 +387,7 @@ STRSAFEAPI StringCbCatExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR psz
   return hr;
 }
 
-STRSAFEAPI StringCbCatExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCbCatExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr;
   size_t cchDest = cbDest / sizeof(wchar_t);
   size_t cchRemaining = 0;
@@ -437,30 +437,30 @@ STRSAFEAPI StringCbCatNW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR ps
 }
 #endif /* !__STRSAFE__NO_INLINE */
 
-STRSAFEAPI StringCchCatNExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,size_t cchToAppend,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags);
-STRSAFEAPI StringCchCatNExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,size_t cchToAppend,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags);
+STRSAFEAPI StringCchCatNExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,size_t cchToAppend,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags);
+STRSAFEAPI StringCchCatNExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,size_t cchToAppend,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags);
 
 #define StringCchCatNEx __MINGW_NAME_AW(StringCchCatNEx)
 
 #ifndef __STRSAFE__NO_INLINE
-STRSAFEAPI StringCchCatNExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,size_t cchToAppend,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCchCatNExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszSrc,size_t cchToAppend,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags) {
   if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
   return StringCatNExWorkerA(pszDest,cchDest,cchDest,pszSrc,cchToAppend,ppszDestEnd,pcchRemaining,dwFlags);
 }
 
-STRSAFEAPI StringCchCatNExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,size_t cchToAppend,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCchCatNExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszSrc,size_t cchToAppend,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags) {
   if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
   return StringCatNExWorkerW(pszDest,cchDest,(cchDest*sizeof(wchar_t)),pszSrc,cchToAppend,ppszDestEnd,pcchRemaining,dwFlags);
 }
 #endif
 
-STRSAFEAPI StringCbCatNExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,size_t cbToAppend,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags);
-STRSAFEAPI StringCbCatNExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,size_t cbToAppend,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags);
+STRSAFEAPI StringCbCatNExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,size_t cbToAppend,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags);
+STRSAFEAPI StringCbCatNExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,size_t cbToAppend,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags);
 
 #define StringCbCatNEx __MINGW_NAME_AW(StringCbCatNEx)
 
 #ifndef __STRSAFE__NO_INLINE
-STRSAFEAPI StringCbCatNExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,size_t cbToAppend,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCbCatNExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,size_t cbToAppend,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr;
   size_t cchRemaining = 0;
   if(cbDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
@@ -470,7 +470,7 @@ STRSAFEAPI StringCbCatNExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR ps
   return hr;
 }
 
-STRSAFEAPI StringCbCatNExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,size_t cbToAppend,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCbCatNExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,size_t cbToAppend,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr;
   size_t cchDest = cbDest / sizeof(wchar_t);
   size_t cchToAppend = cbToAppend / sizeof(wchar_t);
@@ -573,13 +573,13 @@ STRSAFEAPI StringCbPrintfW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR 
 }
 #endif /* !__STRSAFE__NO_INLINE */
 
-STRSAFEAPI StringCchPrintfExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags,STRSAFE_LPCSTR pszFormat,...);
-STRSAFEAPI StringCchPrintfExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags,STRSAFE_LPCWSTR pszFormat,...);
+STRSAFEAPI StringCchPrintfExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCSTR pszFormat,...);
+STRSAFEAPI StringCchPrintfExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCWSTR pszFormat,...);
 
 #define StringCchPrintfEx __MINGW_NAME_AW(StringCchPrintfEx)
 
 #ifndef __STRSAFE__NO_INLINE
-STRSAFEAPI StringCchPrintfExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags,STRSAFE_LPCSTR pszFormat,...) {
+STRSAFEAPI StringCchPrintfExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCSTR pszFormat,...) {
   HRESULT hr;
   va_list argList;
   if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
@@ -589,7 +589,7 @@ STRSAFEAPI StringCchPrintfExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPSTR
   return hr;
 }
 
-STRSAFEAPI StringCchPrintfExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags,STRSAFE_LPCWSTR pszFormat,...) {
+STRSAFEAPI StringCchPrintfExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCWSTR pszFormat,...) {
   HRESULT hr;
   size_t cbDest = cchDest * sizeof(wchar_t);
   va_list argList;
@@ -601,13 +601,13 @@ STRSAFEAPI StringCchPrintfExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPWS
 }
 #endif /* !__STRSAFE__NO_INLINE */
 
-STRSAFEAPI StringCbPrintfExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags,STRSAFE_LPCSTR pszFormat,...);
-STRSAFEAPI StringCbPrintfExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags,STRSAFE_LPCWSTR pszFormat,...);
+STRSAFEAPI StringCbPrintfExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCSTR pszFormat,...);
+STRSAFEAPI StringCbPrintfExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCWSTR pszFormat,...);
 
 #define StringCbPrintfEx __MINGW_NAME_AW(StringCbPrintfEx)
 
 #ifndef __STRSAFE__NO_INLINE
-STRSAFEAPI StringCbPrintfExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags,STRSAFE_LPCSTR pszFormat,...) {
+STRSAFEAPI StringCbPrintfExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCSTR pszFormat,...) {
   HRESULT hr;
   size_t cchDest;
   size_t cchRemaining = 0;
@@ -627,7 +627,7 @@ STRSAFEAPI StringCbPrintfExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPSTR *
   return hr;
 }
 
-STRSAFEAPI StringCbPrintfExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags,STRSAFE_LPCWSTR pszFormat,...) {
+STRSAFEAPI StringCbPrintfExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCWSTR pszFormat,...) {
   HRESULT hr;
   size_t cchDest;
   size_t cchRemaining = 0;
@@ -648,13 +648,13 @@ STRSAFEAPI StringCbPrintfExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPWSTR
 }
 #endif /* !__STRSAFE__NO_INLINE */
 
-STRSAFEAPI StringCchVPrintfExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags,STRSAFE_LPCSTR pszFormat,va_list argList);
-STRSAFEAPI StringCchVPrintfExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags,STRSAFE_LPCWSTR pszFormat,va_list argList);
+STRSAFEAPI StringCchVPrintfExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCSTR pszFormat,va_list argList);
+STRSAFEAPI StringCchVPrintfExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCWSTR pszFormat,va_list argList);
 
 #define StringCchVPrintfEx __MINGW_NAME_AW(StringCchVPrintfEx)
 
 #ifndef __STRSAFE__NO_INLINE
-STRSAFEAPI StringCchVPrintfExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags,STRSAFE_LPCSTR pszFormat,va_list argList) {
+STRSAFEAPI StringCchVPrintfExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCSTR pszFormat,va_list argList) {
   HRESULT hr;
   if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
   else {
@@ -665,7 +665,7 @@ STRSAFEAPI StringCchVPrintfExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPST
   return hr;
 }
 
-STRSAFEAPI StringCchVPrintfExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags,STRSAFE_LPCWSTR pszFormat,va_list argList) {
+STRSAFEAPI StringCchVPrintfExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCWSTR pszFormat,va_list argList) {
   HRESULT hr;
   if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
   else {
@@ -677,13 +677,13 @@ STRSAFEAPI StringCchVPrintfExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPW
 }
 #endif /* !__STRSAFE__NO_INLINE */
 
-STRSAFEAPI StringCbVPrintfExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags,STRSAFE_LPCSTR pszFormat,va_list argList);
-STRSAFEAPI StringCbVPrintfExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags,STRSAFE_LPCWSTR pszFormat,va_list argList);
+STRSAFEAPI StringCbVPrintfExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCSTR pszFormat,va_list argList);
+STRSAFEAPI StringCbVPrintfExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCWSTR pszFormat,va_list argList);
 
 #define StringCbVPrintfEx __MINGW_NAME_AW(StringCbVPrintfEx)
 
 #ifndef __STRSAFE__NO_INLINE
-STRSAFEAPI StringCbVPrintfExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags,STRSAFE_LPCSTR pszFormat,va_list argList) {
+STRSAFEAPI StringCbVPrintfExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCSTR pszFormat,va_list argList) {
   HRESULT hr;
   size_t cchDest;
   size_t cchRemaining = 0;
@@ -698,7 +698,7 @@ STRSAFEAPI StringCbVPrintfExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPSTR 
   return hr;
 }
 
-STRSAFEAPI StringCbVPrintfExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags,STRSAFE_LPCWSTR pszFormat,va_list argList) {
+STRSAFEAPI StringCbVPrintfExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCWSTR pszFormat,va_list argList) {
   HRESULT hr;
   size_t cchDest;
   size_t cchRemaining = 0;
@@ -768,13 +768,13 @@ STRSAFE_INLINE_API StringCbGetsW(STRSAFE_LPWSTR pszDest,size_t cbDest) {
 }
 #endif /* !__STRSAFE__NO_INLINE */
 
-STRSAFE_INLINE_API StringCchGetsExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags);
-STRSAFE_INLINE_API StringCchGetsExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags);
+STRSAFE_INLINE_API StringCchGetsExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags);
+STRSAFE_INLINE_API StringCchGetsExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags);
 
 #define StringCchGetsEx __MINGW_NAME_AW(StringCchGetsEx)
 
 #ifndef __STRSAFE__NO_INLINE
-STRSAFE_INLINE_API StringCchGetsExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
+STRSAFE_INLINE_API StringCchGetsExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr;
   if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
   else {
@@ -785,7 +785,7 @@ STRSAFE_INLINE_API StringCchGetsExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE
   return hr;
 }
 
-STRSAFE_INLINE_API StringCchGetsExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
+STRSAFE_INLINE_API StringCchGetsExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr;
   if(cchDest > STRSAFE_MAX_CCH) hr = STRSAFE_E_INVALID_PARAMETER;
   else {
@@ -797,13 +797,13 @@ STRSAFE_INLINE_API StringCchGetsExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAF
 }
 #endif /* !__STRSAFE__NO_INLINE */
 
-STRSAFE_INLINE_API StringCbGetsExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags);
-STRSAFE_INLINE_API StringCbGetsExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags);
+STRSAFE_INLINE_API StringCbGetsExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags);
+STRSAFE_INLINE_API StringCbGetsExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags);
 
 #define StringCbGetsEx __MINGW_NAME_AW(StringCbGetsEx)
 
 #ifndef __STRSAFE__NO_INLINE
-STRSAFE_INLINE_API StringCbGetsExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags) {
+STRSAFE_INLINE_API StringCbGetsExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr;
   size_t cchDest;
   size_t cchRemaining = 0;
@@ -816,7 +816,7 @@ STRSAFE_INLINE_API StringCbGetsExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_L
   return hr;
 }
 
-STRSAFE_INLINE_API StringCbGetsExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned long dwFlags) {
+STRSAFE_INLINE_API StringCbGetsExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr;
   size_t cchDest;
   size_t cchRemaining = 0;
@@ -931,7 +931,7 @@ STRSAFEAPI StringCopyWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWS
   return hr;
 }
 
-STRSAFEAPI StringCopyExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCopyExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr = S_OK;
   STRSAFE_LPSTR pszDestEnd = pszDest;
   size_t cchRemaining = 0;
@@ -1000,7 +1000,7 @@ STRSAFEAPI StringCopyExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDes
   return hr;
 }
 
-STRSAFEAPI StringCopyExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCopyExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr = S_OK;
   STRSAFE_LPWSTR pszDestEnd = pszDest;
   size_t cchRemaining = 0;
@@ -1105,7 +1105,7 @@ STRSAFEAPI StringCopyNWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCW
   return hr;
 }
 
-STRSAFEAPI StringCopyNExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,size_t cchToCopy,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCopyNExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,size_t cchToCopy,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr = S_OK;
   STRSAFE_LPSTR pszDestEnd = pszDest;
   size_t cchRemaining = 0;
@@ -1176,7 +1176,7 @@ STRSAFEAPI StringCopyNExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDe
   return hr;
 }
 
-STRSAFEAPI StringCopyNExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,size_t cchToCopy,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCopyNExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,size_t cchToCopy,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr = S_OK;
   STRSAFE_LPWSTR pszDestEnd = pszDest;
   size_t cchRemaining = 0;
@@ -1263,7 +1263,7 @@ STRSAFEAPI StringCatWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWST
   return hr;
 }
 
-STRSAFEAPI StringCatExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCatExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr = S_OK;
   STRSAFE_LPSTR pszDestEnd = pszDest;
   size_t cchRemaining = 0;
@@ -1327,7 +1327,7 @@ STRSAFEAPI StringCatExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest
   return hr;
 }
 
-STRSAFEAPI StringCatExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCatExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr = S_OK;
   STRSAFE_LPWSTR pszDestEnd = pszDest;
   size_t cchRemaining = 0;
@@ -1407,7 +1407,7 @@ STRSAFEAPI StringCatNWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWS
   return hr;
 }
 
-STRSAFEAPI StringCatNExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,size_t cchToAppend,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCatNExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCSTR pszSrc,size_t cchToAppend,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr = S_OK;
   STRSAFE_LPSTR pszDestEnd = pszDest;
   size_t cchRemaining = 0;
@@ -1472,7 +1472,7 @@ STRSAFEAPI StringCatNExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDes
   return hr;
 }
 
-STRSAFEAPI StringCatNExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,size_t cchToAppend,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
+STRSAFEAPI StringCatNExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPCWSTR pszSrc,size_t cchToAppend,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr = S_OK;
   STRSAFE_LPWSTR pszDestEnd = pszDest;
   size_t cchRemaining = 0;
@@ -1577,7 +1577,7 @@ STRSAFEAPI StringVPrintfWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LP
   return hr;
 }
 
-STRSAFEAPI StringVPrintfExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags,STRSAFE_LPCSTR pszFormat,va_list argList) {
+STRSAFEAPI StringVPrintfExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCSTR pszFormat,va_list argList) {
   HRESULT hr = S_OK;
   STRSAFE_LPSTR pszDestEnd = pszDest;
   size_t cchRemaining = 0;
@@ -1650,7 +1650,7 @@ STRSAFEAPI StringVPrintfExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cb
   return hr;
 }
 
-STRSAFEAPI StringVPrintfExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags,STRSAFE_LPCWSTR pszFormat,va_list argList) {
+STRSAFEAPI StringVPrintfExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCWSTR pszFormat,va_list argList) {
   HRESULT hr = S_OK;
   STRSAFE_LPWSTR pszDestEnd = pszDest;
   size_t cchRemaining = 0;
@@ -1753,7 +1753,7 @@ STRSAFEAPI StringLengthWorkerW(STRSAFE_LPCWSTR psz,size_t cchMax,size_t *pcchLen
   return hr;
 }
 
-STRSAFE_INLINE_API StringGetsExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
+STRSAFE_INLINE_API StringGetsExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr = S_OK;
   STRSAFE_LPSTR pszDestEnd = pszDest;
   size_t cchRemaining = 0;
@@ -1825,7 +1825,7 @@ STRSAFE_INLINE_API StringGetsExWorkerA(STRSAFE_LPSTR pszDest,size_t cchDest,size
   return hr;
 }
 
-STRSAFE_INLINE_API StringGetsExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned long dwFlags) {
+STRSAFE_INLINE_API StringGetsExWorkerW(STRSAFE_LPWSTR pszDest,size_t cchDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags) {
   HRESULT hr = S_OK;
   STRSAFE_LPWSTR pszDestEnd = pszDest;
   size_t cchRemaining = 0;

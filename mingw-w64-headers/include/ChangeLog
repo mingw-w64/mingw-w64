@@ -1,5 +1,9 @@
 2012-08-06  Corinna Vinschen  <vinschen@redhat.com>
 
+	* strsafe.h: Change long to __LONG32 where appropriate.
+
+2012-08-06  Corinna Vinschen  <vinschen@redhat.com>
+
 	* wbemdisp.h: Change long to __LONG32 where appropriate.
 	* windef.h: Ditto.
 	* winerror.h: Ditto.
