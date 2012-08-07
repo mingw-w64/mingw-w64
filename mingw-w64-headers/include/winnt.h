@@ -1988,6 +1988,10 @@ extern "C" {
 
 #endif /* end of _X86_ */
 
+  LONG WINAPI InterlockedIncrement(LONG volatile *);
+  LONG WINAPI InterlockedDecrement(LONG volatile *);
+  LONG WINAPI InterlockedExchange(LONG volatile *, LONG);
+
 #if defined(__MINGW_INTRIN_INLINE) && (defined(__i386__) || defined(__x86_64))
   __MINGW_INTRIN_INLINE LONG WINAPI InterlockedIncrement(LONG volatile *Addend) {
     LONG ret = 1;

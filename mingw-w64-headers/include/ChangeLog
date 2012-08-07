@@ -1,3 +1,10 @@
+2012-08-07  Kai Tietz  <ktietz@redhat.com>
+
+	* winnt.h (InterlockedIncrement): Add prototype before inline
+	declaration.
+	(InterlockedDecrement): Likewise.
+	(InterlockedExchange): Likewise.
+
 2012-08-06  Corinna Vinschen  <vinschen@redhat.com>
 
 	* strsafe.h: Change long to __LONG32 where appropriate.
