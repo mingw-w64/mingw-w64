@@ -66,7 +66,7 @@ ETAGS = etags
 CTAGS = ctags
 DIST_SUBDIRS = mingw-w64-headers mingw-w64-crt \
 	mingw-w64-libraries/libmangle mingw-w64-libraries/pseh \
-	mingw-w64-tools/gendef
+	mingw-w64-tools/gendef mingw-w64-tools/genidl
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -191,7 +191,7 @@ top_srcdir = @top_srcdir@
 @LIBRARIES_PSEH_TRUE@MAYBE_LIBRARIES_PSEH = mingw-w64-libraries/pseh
 @TOOLS_GENDEF_TRUE@MAYBE_TOOLS_GENDEF = mingw-w64-tools/gendef
 @TOOLS_GENIDL_TRUE@MAYBE_TOOLS_GENIDL = mingw-w64-tools/genidl
-SUBDIRS = $(MAYBE_HEADER) $(MAYBE_CRT) $(MAYBE_LIBRARIES_MANGLE) $(MAYBE_LIBRARIES_PSEH) $(MAYBE_TOOLS_GENDEF) $(MAYBE_GENIDL)
+SUBDIRS = $(MAYBE_HEADER) $(MAYBE_CRT) $(MAYBE_LIBRARIES_MANGLE) $(MAYBE_LIBRARIES_PSEH) $(MAYBE_TOOLS_GENDEF) $(MAYBE_TOOLS_GENIDL)
 DISTCHECK_CONFIGURE_FLAGS = --with-headers --with-crt --with-libraries=all --with-tools=all
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
