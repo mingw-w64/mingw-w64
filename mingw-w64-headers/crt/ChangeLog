@@ -1,3 +1,8 @@
+2012-08-07  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* getopt.h (optreset): Define as __mingw_optreset regardless of
+	_BSD_SOURCE being defined. (bug #3554856.)
+
 2012-08-04  Kai Tietz  <ktietz@redhat.com>
 
 	* crtdbg.h: disable prototyping of C++ new/delete operators.
