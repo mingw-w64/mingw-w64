@@ -649,8 +649,8 @@ LIB64_FALSE
 LIB64_TRUE
 LIB32_FALSE
 LIB32_TRUE
-STARTUP_FALSE
-STARTUP_TRUE
+W32API_FALSE
+W32API_TRUE
 AS
 am__fastdepCCAS_FALSE
 am__fastdepCCAS_TRUE
@@ -766,7 +766,7 @@ enable_option_checking
 enable_maintainer_mode
 with_sysroot
 enable_dependency_tracking
-enable_startup
+enable_w32api
 enable_lib32
 enable_lib64
 enable_libce
@@ -1417,8 +1417,7 @@ Optional Features:
                           do not reject slow dependency extractors
   --disable-dependency-tracking
                           speeds up one-time build
-  --disable-startup       Disable building the crt runtime startup code (*.o
-                          files)
+  --enable-w32api         Enable building a w32api package for Cygwin
   --enable-lib32          Build the Win32 libraries
   --enable-lib64          Build the Win64 libraries
   --enable-libce          Build the WinCE libraries
@@ -5031,31 +5030,32 @@ fi
 
 
 
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build the crt startup" >&5
-$as_echo_n "checking whether to build the crt startup... " >&6; }
-# Check whether --enable-startup was given.
-if test "${enable_startup+set}" = set; then :
-  enableval=$enable_startup;
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build a w32api package for Cygwin" >&5
+$as_echo_n "checking whether to build a w32api package for Cygwin... " >&6; }
+# Check whether --enable-w32api was given.
+if test "${enable_w32api+set}" = set; then :
+  enableval=$enable_w32api;
 else
-  enable_startup=yes
+  enable_w32api=yes
 fi
 
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_startup" >&5
-$as_echo "$enable_startup" >&6; }
-case $enable_startup in #(
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_w32api" >&5
+$as_echo "$enable_w32api" >&6; }
+case $enable_w32api in #(
   no) :
      ;; #(
   yes) :
-    STARTUP= ;; #(
+    W32API=
+	 includedir=${prefix}/include/w32api ;; #(
   *) :
     as_fn_error $? "invalid argument.  Must be either yes or no." "$LINENO" 5 ;;
 esac
- if ${STARTUP+:} false; then
-  STARTUP_TRUE=
-  STARTUP_FALSE='#'
+ if ${W32API+:} false; then
+  W32API_TRUE=
+  W32API_FALSE='#'
 else
-  STARTUP_TRUE='#'
-  STARTUP_FALSE=
+  W32API_TRUE='#'
+  W32API_FALSE=
 fi
 
 
@@ -5199,28 +5199,37 @@ $as_echo "$as_me: WARNING: Building the runtime to use libce with lib32 or lib64
 fi
 fi
 
-case $host_cpu in #(
+case $enable_w32api in #(
+  yes) :
+
+	    LIB64SUFFIXDIR=lib64/w32api
+
+	    LIB32SUFFIXDIR=lib/w32api
+
+	 ;; #(
+  *) :
+    case $host_cpu in #(
   x86_64) :
 
-    LIB64SUFFIXDIR=lib
+	    LIB64SUFFIXDIR=lib
 
-    LIB32SUFFIXDIR=lib32
+	    LIB32SUFFIXDIR=lib32
  ;; #(
   i*86) :
 
-    LIB64SUFFIXDIR=lib64
+	    LIB64SUFFIXDIR=lib64
 
-    LIB32SUFFIXDIR=lib
+	    LIB32SUFFIXDIR=lib
  ;; #(
   *) :
 
-    LIB64SUFFIXDIR=lib64
+	    LIB64SUFFIXDIR=lib64
 
-    LIB32SUFFIXDIR=lib32
+	    LIB32SUFFIXDIR=lib32
 
-   ;; #(
-  *) :
-     ;;
+	   ;;
+esac
+ ;;
 esac
 
 # Checks for features.
@@ -6003,8 +6012,8 @@ if test -z "${am__fastdepCCAS_TRUE}" && test -z "${am__fastdepCCAS_FALSE}"; then
   as_fn_error $? "conditional \"am__fastdepCCAS\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
-if test -z "${STARTUP_TRUE}" && test -z "${STARTUP_FALSE}"; then
-  as_fn_error $? "conditional \"STARTUP\" was never defined.
+if test -z "${W32API_TRUE}" && test -z "${W32API_FALSE}"; then
+  as_fn_error $? "conditional \"W32API\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${LIB32_TRUE}" && test -z "${LIB32_FALSE}"; then

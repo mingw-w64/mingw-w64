@@ -1,3 +1,13 @@
+2012-08-07  Corinna Vinschen  <vinschen@redhat.com>
+
+	* configure.ac: Replace --enable-startup with --enable-w32api option.
+	(LIB64SUFFIXDIR, LIB32SUFFIXDIR): Conditionalize on enable_w32api.
+	* Makefile.am: Replace STARTUP conditions with W32API conditions.
+	Drop libraries depending on W32API.
+	(libsrcdir): Set to includedir.
+	* configure: Regenerate.
+	* Makefile.in: Regenerate.
+
 2012-08-07  Kai Tietz  <ktietz@redhat.com>
 
 	* secapi/wmemcpy_s.c: New file.

@@ -275,7 +275,7 @@ if LIB32
 lib32dir=$(prefix)/@LIB32SUFFIXDIR@
 crt32dir=$(lib32dir)
 
-if STARTUP
+if ! W32API
 crt32_DATA = \
   lib32/crt1.o    lib32/crt2.o     lib32/crt1u.o   lib32/crt2u.o    lib32/dllcrt1.o    lib32/dllcrt2.o \
   lib32/CRT_fp8.o lib32/CRT_fp10.o lib32/txtmode.o lib32/binmode.o  lib32/crtbegin.o   lib32/crtend.o \
@@ -316,18 +316,7 @@ temp= \
 dxerr.c \
 test.c
 
-lib32_LIBRARIES = lib32/libm.a
-nodist_lib32_libm_a_SOURCES = $(src_libm)
-lib32_libm_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
-
-lib32_LIBRARIES += lib32/libgmon.a
-lib32_libgmon_a_SOURCES = profile/mcount.c \
-  profile/profil.h profile/profil.c        \
-  profile/gmon.h   profile/gmon.c \
-  profile/mcountFunc.S
-lib32_libgmon_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
-
-lib32_LIBRARIES += lib32/libshell32.a
+lib32_LIBRARIES = lib32/libshell32.a
 lib32_libshell32_a_SOURCES = $(src_libshell32)
 lib32_libshell32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 lib32_libshell32_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
@@ -379,23 +368,6 @@ lib32_LIBRARIES += lib32/libportabledeviceguids.a
 lib32_libportabledeviceguids_a_SOURCES = $(src_libportabledeviceguids)
 lib32_libportabledeviceguids_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 
-lib32_LIBRARIES += lib32/liblargeint.a
-lib32_liblargeint_a_SOURCES = $(src_liblargeint)
-lib32_liblargeint_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
-
-lib32_LIBRARIES += lib32/libmingw32.a
-lib32_libmingw32_a_CPPFLAGS=$(CPPFLAGS32) -D_SYSCRT=1 -DCRTDLL=1 $(extra_include) $(AM_CPPFLAGS)
-lib32_libmingw32_a_SOURCES = $(src_libmingw32)
-
-lib32_LIBRARIES += lib32/libmingwex.a
-lib32_libmingwex_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
-lib32_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex32)
-
-lib32_LIBRARIES += lib32/libmoldname.a
-lib32_libmoldname_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
-lib32_libmoldname_a_SOURCES = $(src_libmoldname)
-lib32_libmoldname_a_AR = $(DTDEF32) $(top_srcdir)/lib32/moldname-msvcrt.def -U --dllname msvcrt.dll && $(AR) $(ARFLAGS)
-
 lib32_LIBRARIES += lib32/libscrnsave.a
 lib32_libscrnsave_a_SOURCES = $(src_libscrnsave)
 lib32_libscrnsave_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
@@ -408,10 +380,6 @@ lib32_libscrnsavw_a_CFLAGS = -DUNICODE
 lib32_LIBRARIES += lib32/libstrmiids.a
 lib32_libstrmiids_a_SOURCES = $(src_libstrmiids)
 lib32_libstrmiids_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
-
-lib32_LIBRARIES += lib32/libmingwthrd.a
-lib32_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
-lib32_libmingwthrd_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 
 lib32_LIBRARIES += lib32/libuuid.a
 lib32_libuuid_a_SOURCES = $(src_libuuid)
@@ -429,6 +397,40 @@ lib32_libws2_32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 
 lib32_LIBRARIES += lib32/libdelayimp.a
 lib32_libdelayimp_a_SOURCES =
+
+if ! W32API
+lib32_LIBRARIES += lib32/libm.a
+nodist_lib32_libm_a_SOURCES = $(src_libm)
+lib32_libm_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
+
+lib32_LIBRARIES += lib32/libgmon.a
+lib32_libgmon_a_SOURCES = profile/mcount.c \
+  profile/profil.h profile/profil.c        \
+  profile/gmon.h   profile/gmon.c \
+  profile/mcountFunc.S
+lib32_libgmon_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
+
+lib32_LIBRARIES += lib32/liblargeint.a
+lib32_liblargeint_a_SOURCES = $(src_liblargeint)
+lib32_liblargeint_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
+
+lib32_LIBRARIES += lib32/libmingw32.a
+lib32_libmingw32_a_CPPFLAGS=$(CPPFLAGS32) -D_SYSCRT=1 -DCRTDLL=1 $(extra_include) $(AM_CPPFLAGS)
+lib32_libmingw32_a_SOURCES = $(src_libmingw32)
+
+lib32_LIBRARIES += lib32/libmingwex.a
+lib32_libmingwex_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
+lib32_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex32)
+
+lib32_LIBRARIES += lib32/libmoldname.a
+lib32_libmoldname_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
+lib32_libmoldname_a_SOURCES = $(src_libmoldname)
+lib32_libmoldname_a_AR = $(DTDEF32) $(top_srcdir)/lib32/moldname-msvcrt.def -U --dllname msvcrt.dll && $(AR) $(ARFLAGS)
+
+lib32_LIBRARIES += lib32/libmingwthrd.a
+lib32_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
+lib32_libmingwthrd_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
+endif
 
 #These defs have no accompanying sources.  Look into using the rule below to run the dlltool command
 #for all libraries, including those with sources.
@@ -576,7 +578,7 @@ if LIB64
 lib64dir=$(prefix)/@LIB64SUFFIXDIR@
 crt64dir=$(lib64dir)
 
-if STARTUP
+if ! W32API
 crt64_DATA = \
   lib64/crt1.o    lib64/crt2.o     lib64/crt1u.o   lib64/crt2u.o   lib64/dllcrt1.o lib64/dllcrt2.o \
   lib64/CRT_fp8.o lib64/CRT_fp10.o lib64/txtmode.o lib64/binmode.o lib64/crtbegin.o lib64/crtend.o \
@@ -609,11 +611,7 @@ lib64/gcrt2.o: profile/gcrt0.c
 lib64/%.o: crt/%.c
 	$(COMPILE) $(CPPFLAGS64) -c $< -o $@
 
-lib64_LIBRARIES = lib64/libm.a
-nodist_lib64_libm_a_SOURCES = $(src_libm)
-lib64_libm_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
-
-lib64_LIBRARIES += lib64/libshell32.a
+lib64_LIBRARIES = lib64/libshell32.a
 lib64_libshell32_a_SOURCES = $(src_libshell32)
 lib64_libshell32_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 lib64_libshell32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
@@ -656,13 +654,6 @@ lib64_LIBRARIES += lib64/libportabledeviceguids.a
 lib64_libportabledeviceguids_a_SOURCES = $(src_libportabledeviceguids)
 lib64_libportabledeviceguids_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 
-lib64_LIBRARIES += lib64/libgmon.a
-lib64_libgmon_a_SOURCES = profile/mcount.c \
-  profile/profil.h profile/profil.c        \
-  profile/gmon.h   profile/gmon.c \
-  profile/mcountFunc.S
-lib64_libgmon_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
-
 lib64_LIBRARIES += lib64/libksuser.a
 lib64_libksuser_a_SOURCES = $(src_libksuser)
 lib64_libksuser_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
@@ -671,10 +662,6 @@ lib64_libksuser_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 lib64_LIBRARIES += lib64/libksguid.a
 lib64_libksguid_a_SOURCES = $(src_libksguid)
 lib64_libksguid_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
-
-lib64_LIBRARIES += lib64/liblargeint.a
-lib64_liblargeint_a_SOURCES = $(src_liblargeint)
-lib64_liblargeint_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 
 lib64_LIBRARIES += lib64/libscrnsave.a
 lib64_libscrnsave_a_SOURCES = $(src_libscrnsave)
@@ -688,23 +675,6 @@ lib64_libscrnsavw_a_CFLAGS = -DUNICODE
 lib64_LIBRARIES += lib64/libstrmiids.a
 lib64_libstrmiids_a_SOURCES = $(src_libstrmiids)
 lib64_libstrmiids_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
-
-lib64_LIBRARIES += lib64/libmingw32.a
-lib64_libmingw32_a_CPPFLAGS=$(CPPFLAGS64) -D_SYSCRT=1 -DCRTDLL=1 $(extra_include) $(AM_CPPFLAGS)
-lib64_libmingw32_a_SOURCES = $(src_libmingw32)
-
-lib64_LIBRARIES += lib64/libmingwex.a
-lib64_libmingwex_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include) $(AM_CPPFLAGS)
-lib64_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex64)
-
-lib64_LIBRARIES += lib64/libmoldname.a
-lib64_libmoldname_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include) $(AM_CPPFLAGS)
-lib64_libmoldname_a_SOURCES = $(src_libmoldname)
-lib64_libmoldname_a_AR = $(DTDEF64) $(top_srcdir)/lib64/moldname-msvcrt.def -U --dllname msvcrt.dll && $(AR) $(ARFLAGS)
-
-lib64_LIBRARIES += lib64/libmingwthrd.a
-lib64_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
-lib64_libmingwthrd_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 
 lib64_LIBRARIES += lib64/libuuid.a
 lib64_libuuid_a_SOURCES = $(src_libuuid)
@@ -722,6 +692,40 @@ lib64_libws2_32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libdelayimp.a
 lib64_libdelayimp_a_SOURCES =
+
+if ! W32API
+lib64_LIBRARIES += lib64/libm.a
+nodist_lib64_libm_a_SOURCES = $(src_libm)
+lib64_libm_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
+
+lib64_LIBRARIES += lib64/libgmon.a
+lib64_libgmon_a_SOURCES = profile/mcount.c \
+  profile/profil.h profile/profil.c        \
+  profile/gmon.h   profile/gmon.c \
+  profile/mcountFunc.S
+lib64_libgmon_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
+
+lib64_LIBRARIES += lib64/liblargeint.a
+lib64_liblargeint_a_SOURCES = $(src_liblargeint)
+lib64_liblargeint_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
+
+lib64_LIBRARIES += lib64/libmingw32.a
+lib64_libmingw32_a_CPPFLAGS=$(CPPFLAGS64) -D_SYSCRT=1 -DCRTDLL=1 $(extra_include) $(AM_CPPFLAGS)
+lib64_libmingw32_a_SOURCES = $(src_libmingw32)
+
+lib64_LIBRARIES += lib64/libmingwex.a
+lib64_libmingwex_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include) $(AM_CPPFLAGS)
+lib64_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex64)
+
+lib64_LIBRARIES += lib64/libmoldname.a
+lib64_libmoldname_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include) $(AM_CPPFLAGS)
+lib64_libmoldname_a_SOURCES = $(src_libmoldname)
+lib64_libmoldname_a_AR = $(DTDEF64) $(top_srcdir)/lib64/moldname-msvcrt.def -U --dllname msvcrt.dll && $(AR) $(ARFLAGS)
+
+lib64_LIBRARIES += lib64/libmingwthrd.a
+lib64_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
+lib64_libmingwthrd_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
+endif
 
 lib64_DATA = \
   lib64/libwinusb.a \
@@ -1042,7 +1046,7 @@ endif
 
 # Don't compile these, but install as is:
 #
-libsrcdir=$(prefix)/libsrc
+libsrcdir=$(includedir)
 libsrc_DATA = \
   libsrc/agtctl_i.c   libsrc/agtsvr_i.c     libsrc/cdoex_i.c    libsrc/cdoexm_i.c     \
   libsrc/cdosys_i.c   libsrc/emostore_i.c   libsrc/iisext_i.c   libsrc/mtsadmin_i.c   \

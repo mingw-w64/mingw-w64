@@ -45,18 +45,19 @@ AC_CHECK_TOOL([AS], [as], [:])
 dnl ---
 AM_PROG_CC_C_O
 
-AC_MSG_CHECKING([whether to build the crt startup])
-AC_ARG_ENABLE([startup],
-  [AS_HELP_STRING([--disable-startup],
-    [Disable building the crt runtime startup code (*.o files)])],
+AC_MSG_CHECKING([whether to build a w32api package for Cygwin])
+AC_ARG_ENABLE([w32api],
+  [AS_HELP_STRING([--enable-w32api],
+    [Enable building a w32api package for Cygwin])],
   [],
-  [AS_VAR_SET([enable_startup],[yes])])
-AC_MSG_RESULT([$enable_startup])
-AS_CASE([$enable_startup],
+  [AS_VAR_SET([enable_w32api],[yes])])
+AC_MSG_RESULT([$enable_w32api])
+AS_CASE([$enable_w32api],
   [no],[],
-  [yes],[AS_VAR_SET([STARTUP])],
+  [yes],[AS_VAR_SET([W32API])
+	 AS_VAR_SET([includedir],[${prefix}/include/w32api])],
   [AC_MSG_ERROR([invalid argument.  Must be either yes or no.])])
-AM_CONDITIONAL([STARTUP], [AS_VAR_TEST_SET([STARTUP])])
+AM_CONDITIONAL([W32API], [AS_VAR_TEST_SET([W32API])])
 
 AC_MSG_CHECKING([whether to build the Win32 libraries])
 AC_ARG_ENABLE([lib32],
@@ -116,17 +117,23 @@ AS_VAR_IF([enable_libce],[yes],[
   AS_IF([AS_VAR_TEST_SET([LIB32]) || AS_VAR_TEST_SET([LIB64])],
     [AC_MSG_WARN([Building the runtime to use libce with lib32 or lib64 is unsupported.])])])
 
-AS_CASE([$host_cpu],
-  [x86_64],[
-    AC_SUBST([LIB64SUFFIXDIR],[lib])
-    AC_SUBST([LIB32SUFFIXDIR],[lib32])],
-  [i*86],[
-    AC_SUBST([LIB64SUFFIXDIR],[lib64])
-    AC_SUBST([LIB32SUFFIXDIR],[lib])],
-  [*],[
-    AC_SUBST([LIB64SUFFIXDIR],[lib64])
-    AC_SUBST([LIB32SUFFIXDIR],[lib32])]
-  )
+AS_CASE([$enable_w32api],
+  [yes],[
+	    AC_SUBST([LIB64SUFFIXDIR],[lib64/w32api])
+	    AC_SUBST([LIB32SUFFIXDIR],[lib/w32api])
+	],
+  [AS_CASE([$host_cpu],
+	  [x86_64],[
+	    AC_SUBST([LIB64SUFFIXDIR],[lib])
+	    AC_SUBST([LIB32SUFFIXDIR],[lib32])],
+	  [i*86],[
+	    AC_SUBST([LIB64SUFFIXDIR],[lib64])
+	    AC_SUBST([LIB32SUFFIXDIR],[lib])],
+	  [
+	    AC_SUBST([LIB64SUFFIXDIR],[lib64])
+	    AC_SUBST([LIB32SUFFIXDIR],[lib32])]
+	  )]
+)
 
 # Checks for features.
 
