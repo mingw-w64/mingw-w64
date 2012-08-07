@@ -1863,6 +1863,7 @@ cpp_quote("#endif")
         default:         wireHGLOBAL  hGeneric;
     } GDI_OBJECT;
 
+cpp_quote("#if 0")
     typedef struct _userSTGMEDIUM {
         union _STGMEDIUM_UNION switch(DWORD tymed) u {
             case TYMED_NULL:     ;
@@ -1876,6 +1877,23 @@ cpp_quote("#endif")
         } DUMMYUNIONNAME;
         IUnknown *              pUnkForRelease;
     } userSTGMEDIUM;
+cpp_quote("#else")
+cpp_quote("typedef struct _userSTGMEDIUM {")
+cpp_quote("    __C89_NAMELESS struct _STGMEDIUM_UNION {")
+cpp_quote("        DWORD tymed;")
+cpp_quote("        union {")
+cpp_quote("            wireHMETAFILEPICT hMetaFilePict;")
+cpp_quote("            wireHENHMETAFILE hHEnhMetaFile;")
+cpp_quote("            GDI_OBJECT *hGdiHandle;")
+cpp_quote("            wireHGLOBAL hGlobal;")
+cpp_quote("            LPOLESTR lpszFileName;")
+cpp_quote("            BYTE_BLOB *pstm;")
+cpp_quote("            BYTE_BLOB *pstg;")
+cpp_quote("        } u;")
+cpp_quote("    } DUMMYUNIONNAME;")
+cpp_quote("    IUnknown *pUnkForRelease;")
+cpp_quote("} userSTGMEDIUM;")
+cpp_quote("#endif")
 
     typedef [unique] userSTGMEDIUM *wireSTGMEDIUM;
     typedef [wire_marshal(wireSTGMEDIUM)] uSTGMEDIUM STGMEDIUM;

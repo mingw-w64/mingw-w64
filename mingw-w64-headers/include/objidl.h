@@ -4502,6 +4502,7 @@ typedef struct _GDI_OBJECT {
         wireHGLOBAL hGeneric;
     } u;
 } GDI_OBJECT;
+#if 0
 typedef struct _userSTGMEDIUM {
     struct _STGMEDIUM_UNION {
         DWORD tymed;
@@ -4517,6 +4518,23 @@ typedef struct _userSTGMEDIUM {
     } DUMMYUNIONNAME;
     IUnknown *pUnkForRelease;
 } userSTGMEDIUM;
+#else
+typedef struct _userSTGMEDIUM {
+    __C89_NAMELESS struct _STGMEDIUM_UNION {
+        DWORD tymed;
+        union {
+            wireHMETAFILEPICT hMetaFilePict;
+            wireHENHMETAFILE hHEnhMetaFile;
+            GDI_OBJECT *hGdiHandle;
+            wireHGLOBAL hGlobal;
+            LPOLESTR lpszFileName;
+            BYTE_BLOB *pstm;
+            BYTE_BLOB *pstg;
+        } u;
+    } DUMMYUNIONNAME;
+    IUnknown *pUnkForRelease;
+} userSTGMEDIUM;
+#endif
 typedef userSTGMEDIUM *wireSTGMEDIUM;
 typedef uSTGMEDIUM STGMEDIUM;
 typedef userSTGMEDIUM *wireASYNC_STGMEDIUM;
