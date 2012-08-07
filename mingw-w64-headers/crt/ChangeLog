@@ -8,6 +8,10 @@
 
 	* setjmp.h (setjmp): Use frame-address builtin.
 
+2012-04-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h (__int128, __SIZEOF_INT128__): Handle clang.
+
 2012-04-03  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Merge from trunk rev. 4927:
