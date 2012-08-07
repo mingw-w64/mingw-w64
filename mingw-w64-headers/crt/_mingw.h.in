@@ -362,6 +362,8 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #define _CRT_OBSOLETE(_NewItem)
 #endif
 
+#ifndef __WIDL__
+
 #ifndef _SIZE_T_DEFINED
 #define _SIZE_T_DEFINED
 #undef size_t
@@ -493,6 +495,8 @@ typedef __time64_t time_t;
 #define _CRT_ALIGN(x) __attribute__ ((__aligned__ (x)))
 #endif
 #endif /* _CRT_ALIGN */
+
+#endif /* __WIDL__ */
 
 #ifndef __CRTDECL
 #define __CRTDECL __cdecl
