@@ -1135,7 +1135,7 @@ mbtowc
 memchr
 memcmp
 memcpy
-memcpy_s
+; memcpy_s replaced by emu
 memmove
 memmove_s
 memset

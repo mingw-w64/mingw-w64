@@ -1179,7 +1179,7 @@ fwscanf_s
 getenv_s
 mbsrtowcs_s
 mbstowcs_s
-memcpy_s
+; memcpy_s replaced by emu
 memmove_s
 printf_s
 qsort_s
