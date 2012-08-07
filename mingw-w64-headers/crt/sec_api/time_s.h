@@ -16,13 +16,13 @@ extern "C" {
 
   errno_t __cdecl _ctime32_s (char *_Buf,size_t _SizeInBytes,const __time32_t *_Time);
   _CRTIMP errno_t __cdecl _gmtime32_s(struct tm *_Tm,const __time32_t *_Time);
-  _CRTIMP errno_t __cdecl _localtime32_s(struct tm *_Tm,const __time32_t *_Time);
+  errno_t __cdecl _localtime32_s (struct tm *_Tm,const __time32_t *_Time);
   errno_t __cdecl asctime_s (char *_Buf,size_t _SizeInWords,const struct tm *_Tm);
   _CRTIMP errno_t __cdecl _strdate_s(char *_Buf,size_t _SizeInBytes);
   _CRTIMP errno_t __cdecl _strtime_s(char *_Buf ,size_t _SizeInBytes);
   errno_t __cdecl _ctime64_s (char *_Buf,size_t _SizeInBytes,const __time64_t *_Time);
   _CRTIMP errno_t __cdecl _gmtime64_s(struct tm *_Tm,const __time64_t *_Time);
-  _CRTIMP errno_t __cdecl _localtime64_s(struct tm *_Tm,const __time64_t *_Time);
+  errno_t __cdecl _localtime64_s (struct tm *_Tm,const __time64_t *_Time);
 
 #ifndef _WTIME_S_DEFINED
 #define _WTIME_S_DEFINED

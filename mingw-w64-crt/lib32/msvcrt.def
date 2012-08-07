@@ -725,9 +725,9 @@ _fstat64
 _ftime64
 _futime64
 _gmtime64
-_localtime32_s
+; _localtime32_s replaced by emu
 _localtime64
-_localtime64_s
+; _localtime64_s replaced by emu
 _mkgmtime DATA
 ;_mkgmtime32 = _mkgmtime
 _mkgmtime64

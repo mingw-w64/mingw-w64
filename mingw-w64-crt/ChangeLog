@@ -1,5 +1,7 @@
 2012-08-07  Kai Tietz  <ktietz@redhat.com>
 
+	* secapi/_localtime32_s.c: New file.
+	* secapi/_localtime64_s.c: New file.
 	* secapi/_ctime64_s.c: New file.
 	* secapi/_wctime64_s.c: New file.
 	* Makefile.am: Add new files.
