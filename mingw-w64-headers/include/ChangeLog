@@ -34,6 +34,10 @@
 
 	* dwmapi.h: Fixed all function prototypes to be WINAPI.
 
+2012-04-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h (__int128, __SIZEOF_INT128__): Handle clang.
+
 2012-01-19  Kai Tietz  <ktietz@redhat.com>
 
 	PR 3474190
