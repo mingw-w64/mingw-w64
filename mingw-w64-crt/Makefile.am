@@ -244,6 +244,7 @@ src_libmingwex=\
   secapi/_chsize_s.c secapi/_mktemp_s.c secapi/_wmktemp_s.c \
   secapi/_umask_s.c \
   secapi/_wctime32_s.c secapi/_ctime32_s.c \
+  secapi/_wctime64_s.c secapi/_ctime64_s.c \
   secapi/asctime_s.c secapi/_wasctime_s.c
 
 # these only go into the 64 bit version:

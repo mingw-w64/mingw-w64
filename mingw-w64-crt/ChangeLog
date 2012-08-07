@@ -1,3 +1,12 @@
+2012-08-07  Kai Tietz  <ktietz@redhat.com>
+
+	* secapi/_ctime64_s.c: New file.
+	* secapi/_wctime64_s.c: New file.
+	* Makefile.am: Add new files.
+	* Makefile.in: Regenerated.
+	* lib32/msvcrt.def: Commented symbols.
+	* lib64/msvcrt.def: Likewise.
+
 2012-08-03  Kai Tietz  <ktietz@redhat.com>
 
 	* secapi/asctime_s.c: New file.
