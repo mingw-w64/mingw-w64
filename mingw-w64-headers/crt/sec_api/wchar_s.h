@@ -134,8 +134,8 @@ extern "C" {
 #define _WTIME_S_DEFINED
   errno_t __cdecl _wasctime_s (wchar_t *_Buf,size_t _SizeInWords,const struct tm *_Tm);
   errno_t __cdecl _wctime32_s (wchar_t *_Buf,size_t _SizeInWords,const __time32_t *_Time);
-  _CRTIMP errno_t __cdecl _wstrdate_s(wchar_t *_Buf,size_t _SizeInWords);
-  _CRTIMP errno_t __cdecl _wstrtime_s(wchar_t *_Buf,size_t _SizeInWords);
+  errno_t __cdecl _wstrdate_s (wchar_t *_Buf,size_t _SizeInWords);
+  errno_t __cdecl _wstrtime_s (wchar_t *_Buf,size_t _SizeInWords);
   errno_t __cdecl _wctime64_s (wchar_t *_Buf,size_t _SizeInWords,const __time64_t *_Time);
 
 #if !defined (RC_INVOKED) && !defined (_INC_WTIME_S_INL)

@@ -732,7 +732,7 @@ _statusfp
 _strcmpi
 _strcoll_l
 _strdate
-_strdate_s
+; _strdate_s replaced by emu
 _strdup
 _strerror
 _strerror_s
@@ -756,7 +756,7 @@ _strrev
 _strset
 _strset_s
 _strtime
-_strtime_s
+; _strtime_s replaced by emu
 _strtod_l
 _strtoi64
 _strtoi64_l
@@ -987,9 +987,9 @@ _wstat
 _wstat64
 _wstati64
 _wstrdate
-_wstrdate_s
+; _wstrdate_s replaced by emu
 _wstrtime
-_wstrtime_s
+; _wstrtime_s replaced by emu
 _wsystem
 _wtempnam
 _wtmpnam

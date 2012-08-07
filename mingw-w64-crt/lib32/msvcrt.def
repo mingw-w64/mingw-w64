@@ -1027,7 +1027,7 @@ _sprintf_s_l
 _sscanf_l
 _sscanf_s_l
 _strcoll_l
-_strdate_s
+; _strdate_s replaced by emu
 _strerror_s
 _stricmp_l
 _stricoll_l
@@ -1039,7 +1039,7 @@ _strnicmp_l
 _strnicoll_l
 _strnset_s
 _strset_s
-_strtime_s
+; _strtime_s replaced by emu
 _strtod_l
 _strtoi64_l
 _strtol_l
@@ -1160,8 +1160,8 @@ _wscanf_s_l
 _wsearchenv_s
 _wsopen_s
 _wsplitpath_s
-_wstrdate_s
-_wstrtime_s
+; _wstrdate_s replaced by emu
+; _wstrtime_s Likewise.
 _wtmpnam_s
 _wtof_l
 _wtoi64_l

@@ -1,5 +1,9 @@
 2012-08-07  Kai Tietz  <ktietz@redhat.com>
 
+	* secapi/_strdate_s.c: New file.
+	* secapi/_wstrdate_s.c: New file.
+	* secapi/_strtime_s.c: New file.
+	* secapi/_wstrtime_s.c: New file.
 	* secapi/_gmtime64_s.c: New file.
 	* secapi/_gmtime32_s.c: New file.
 	* secapi/_localtime32_s.c: New file.
