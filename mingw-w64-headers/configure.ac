@@ -45,6 +45,21 @@ for i in dlg h16 hxx rh ver; do
 done
 #FIXME: Add in base directx
 
+AC_MSG_CHECKING([whether to build a w32api package for Cygwin])
+AC_ARG_ENABLE([w32api],
+  [AS_HELP_STRING([--enable-w32api],
+    [Enable building a w32api package for Cygwin (shorthand for --includedir=PREFIX/include/w32api --disable-crt)])],
+  [],
+  [AS_VAR_SET([enable_w32api],[yes])])
+AC_MSG_RESULT([$enable_w32api])
+AS_CASE([$enable_w32api],
+  [no],[],
+  [yes],[AS_VAR_SET([W32API])
+  	 AS_VAR_SET([enable_crt],[no])
+	 AS_VAR_SET([includedir],[${prefix}/include/w32api])],
+  [AC_MSG_ERROR([invalid argument.  Must be either yes or no.])])
+AM_CONDITIONAL([W32API], [AS_VAR_TEST_SET([W32API])])
+
 AC_MSG_CHECKING([for c-runtime headers])
 AC_ARG_ENABLE([crt],
   [AS_HELP_STRING([--disable-crt],

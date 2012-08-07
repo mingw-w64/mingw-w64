@@ -1,3 +1,8 @@
+2012-08-07  Corinna Vinschen  <vinschen@redhat.com>
+
+	* configure.ac: Add --enable-w32api option.
+	* configure: Regenerate.
+
 2012-07-30  Corinna Vinschen  <vinschen@redhat.com>
 
 	Revert previous patch:

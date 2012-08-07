@@ -603,6 +603,8 @@ GDIPLUSHEAD_LIST
 BASEHEAD_LIST
 ENABLE_CRT_FALSE
 ENABLE_CRT_TRUE
+W32API_FALSE
+W32API_TRUE
 HAVE_WIDL_FALSE
 HAVE_WIDL_TRUE
 WIDL
@@ -684,6 +686,7 @@ ac_user_opts='
 enable_option_checking
 enable_maintainer_mode
 with_widl
+enable_w32api
 enable_crt
 enable_sdk
 enable_idl
@@ -1314,6 +1317,9 @@ Optional Features:
   --enable-maintainer-mode
                           enable make rules and dependencies not useful (and
                           sometimes confusing) to the casual installer
+  --enable-w32api         Enable building a w32api package for Cygwin
+                          (shorthand for --includedir=PREFIX/include/w32api
+                          --disable-crt)
   --disable-crt           Do not use the default crt headers
   --enable-sdk=ARG        Add the desired SDK, where ARG can be one of ddk,
                           directx, no or all. Default is all.
@@ -2541,6 +2547,36 @@ for i in dlg h16 hxx rh ver; do
 done
 #FIXME: Add in base directx
 
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build a w32api package for Cygwin" >&5
+$as_echo_n "checking whether to build a w32api package for Cygwin... " >&6; }
+# Check whether --enable-w32api was given.
+if test "${enable_w32api+set}" = set; then :
+  enableval=$enable_w32api;
+else
+  enable_w32api=yes
+fi
+
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_w32api" >&5
+$as_echo "$enable_w32api" >&6; }
+case $enable_w32api in #(
+  no) :
+     ;; #(
+  yes) :
+    W32API=
+  	 enable_crt=no
+	 includedir=${prefix}/include/w32api ;; #(
+  *) :
+    as_fn_error $? "invalid argument.  Must be either yes or no." "$LINENO" 5 ;;
+esac
+ if ${W32API+:} false; then
+  W32API_TRUE=
+  W32API_FALSE='#'
+else
+  W32API_TRUE='#'
+  W32API_FALSE=
+fi
+
+
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for c-runtime headers" >&5
 $as_echo_n "checking for c-runtime headers... " >&6; }
 # Check whether --enable-crt was given.
@@ -2797,6 +2833,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${HAVE_WIDL_TRUE}" && test -z "${HAVE_WIDL_FALSE}"; then
   as_fn_error $? "conditional \"HAVE_WIDL\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${W32API_TRUE}" && test -z "${W32API_FALSE}"; then
+  as_fn_error $? "conditional \"W32API\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ENABLE_CRT_TRUE}" && test -z "${ENABLE_CRT_FALSE}"; then
