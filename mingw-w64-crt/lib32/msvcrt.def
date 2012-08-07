@@ -848,8 +848,8 @@ _fwprintf_s_l
 _fwscanf_l
 _fwscanf_s_l
 _gcvt_s
-_gmtime32_s
-_gmtime64_s
+; _gmtime32_s replaced by emu
+; _gmtime64_s replaced by emu
 _i64toa_s
 _i64tow_s
 _isalnum_l

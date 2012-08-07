@@ -351,9 +351,9 @@ _getw
 _getwch
 _getwche
 _getws
-_gmtime32_s
+; _gmtime32_s replaced by emu
 _gmtime64
-_gmtime64_s
+; _gmtime64_s replaced by emu
 _heapadd
 _heapchk
 _heapmin
