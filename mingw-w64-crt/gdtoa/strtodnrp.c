@@ -45,7 +45,7 @@ double __strtod (const char *s, char **sp)
 	int k;
 	union { ULong L[2]; double d; } u;
 
-	k = __strtodg(s, sp, &fpi, &expo, bits);
+	k = __strtodg (s, sp, &fpi, &expo, bits);
 	switch(k & STRTOG_Retmask) {
 	  case STRTOG_NoNumber:
 	  case STRTOG_Zero:
@@ -68,8 +68,8 @@ double __strtod (const char *s, char **sp)
 		break;
 
 	  case STRTOG_NaN:
-		u.L[0] = d_QNAN0;
-		u.L[1] = d_QNAN1;
+		u.L[_1] = d_QNAN0;
+		u.L[_0] = d_QNAN1;
 		break;
 
 	  case STRTOG_NaNbits:
