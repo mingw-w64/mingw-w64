@@ -5036,7 +5036,7 @@ $as_echo_n "checking whether to build a w32api package for Cygwin... " >&6; }
 if test "${enable_w32api+set}" = set; then :
   enableval=$enable_w32api;
 else
-  enable_w32api=yes
+  enable_w32api=no
 fi
 
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_w32api" >&5

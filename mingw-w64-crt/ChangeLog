@@ -1,3 +1,8 @@
+2012-08-08  Corinna Vinschen  <vinschen@redhat.com>
+
+	* configure.ac: Fix default to --enable-w32api=no in previous patch.
+	* configure: Regenerate.
+
 2012-08-07  Corinna Vinschen  <vinschen@redhat.com>
 
 	* configure.ac: Replace --enable-startup with --enable-w32api option.

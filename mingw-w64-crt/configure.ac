@@ -50,7 +50,7 @@ AC_ARG_ENABLE([w32api],
   [AS_HELP_STRING([--enable-w32api],
     [Enable building a w32api package for Cygwin])],
   [],
-  [AS_VAR_SET([enable_w32api],[yes])])
+  [AS_VAR_SET([enable_w32api],[no])])
 AC_MSG_RESULT([$enable_w32api])
 AS_CASE([$enable_w32api],
   [no],[],
