@@ -27,7 +27,7 @@ _stub (wchar_t *d, size_t dn, const wchar_t *s, size_t n)
 }
 
 errno_t __cdecl
-wmemcpy_s (char_t *d, size_t dn, const wchar_t *s, size_t n)
+wmemcpy_s (wchar_t *d, size_t dn, const wchar_t *s, size_t n)
 {
   return _stub (d, dn, s, n);
 }
