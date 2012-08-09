@@ -1,5 +1,10 @@
 2012-08-09  Corinna Vinschen  <vinschen@redhat.com>
 
+	* Makefile.am (libglut.a): Add missing "lib32/".
+	* Makefile.in: Regenerate.
+
+2012-08-09  Corinna Vinschen  <vinschen@redhat.com>
+
 	* Makefile.am (libdelayimp.a): Only build and install if not creating
 	a w32api installation for Cygwin.
 	(libglut.a): Ditto.

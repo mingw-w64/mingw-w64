@@ -527,7 +527,7 @@ lib32_DATA = \
   lib32/libd3dcompiler.a    lib32/libwinhttp.a
 
 if ! W32API
-lib32_DATA += libglut.a
+lib32_DATA += lib32/libglut.a
 endif
 
 # combine these two rules with the ones for lib64

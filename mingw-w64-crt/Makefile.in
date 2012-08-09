@@ -123,7 +123,7 @@ host_triplet = @host@
 @LIB32_TRUE@@W32API_FALSE@	lib32/libmingwex.a \
 @LIB32_TRUE@@W32API_FALSE@	lib32/libmoldname.a \
 @LIB32_TRUE@@W32API_FALSE@	lib32/libmingwthrd.a
-@LIB32_TRUE@@W32API_FALSE@am__append_3 = libglut.a
+@LIB32_TRUE@@W32API_FALSE@am__append_3 = lib32/libglut.a
 @LIB64_TRUE@@W32API_FALSE@am__append_4 = lib64/libdelayimp.a \
 @LIB64_TRUE@@W32API_FALSE@	lib64/libm.a lib64/libgmon.a \
 @LIB64_TRUE@@W32API_FALSE@	lib64/liblargeint.a \
