@@ -395,10 +395,10 @@ lib32_libws2_32_a_SOURCES = $(src_libws2_32)
 lib32_libws2_32_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 lib32_libws2_32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 
+if ! W32API
 lib32_LIBRARIES += lib32/libdelayimp.a
 lib32_libdelayimp_a_SOURCES =
 
-if ! W32API
 lib32_LIBRARIES += lib32/libm.a
 nodist_lib32_libm_a_SOURCES = $(src_libm)
 lib32_libm_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
@@ -445,7 +445,7 @@ lib32_DATA = \
   lib32/libdhcpcsvc.a  lib32/libdlcapi.a    lib32/libdnsapi.a    lib32/libdplayx.a    lib32/libdpnaddr.a  \
   lib32/libdpnet.a     lib32/libdpnlobby.a  lib32/libdpvoice.a   lib32/libdsetup.a    lib32/libdsound.a   \
   lib32/libdxapi.a     lib32/libfaultrep.a  lib32/libgdi32.a     lib32/libglaux.a     lib32/libglu32.a    \
-  lib32/libglut32.a    lib32/libglut.a      lib32/libhal.a       lib32/libhid.a       lib32/libhidclass.a \
+  lib32/libglut32.a    lib32/libhal.a       lib32/libhid.a       lib32/libhidclass.a \
   lib32/libhidparse.a  lib32/libicmui.a     lib32/libigmpagnt.a  lib32/libimagehlp.a  lib32/libimm32.a    \
   lib32/libiphlpapi.a  lib32/libkernel32.a  lib32/libksproxy.a   lib32/libclfsw32.a   lib32/liblz32.a     \
   lib32/libmapi32.a    lib32/libmcd.a       lib32/libmfcuia32.a  lib32/libmgmtapi.a   lib32/libmprapi.a   \
@@ -525,6 +525,10 @@ lib32_DATA = \
   lib32/libxapofx.a         lib32/libx3daudio.a       lib32/libd3dx9.a     \
   lib32/libd3dx10.a         lib32/libd3dx11.a         lib32/libd3dcsxd.a   \
   lib32/libd3dcompiler.a    lib32/libwinhttp.a
+
+if ! W32API
+lib32_DATA += libglut.a
+endif
 
 # combine these two rules with the ones for lib64
 # Use two patterns, one for 32/64 in lib32/ and lib64/
@@ -690,10 +694,10 @@ lib64_libws2_32_a_SOURCES = $(src_libws2_32)
 lib64_libws2_32_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 lib64_libws2_32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 
+if ! W32API
 lib64_LIBRARIES += lib64/libdelayimp.a
 lib64_libdelayimp_a_SOURCES =
 
-if ! W32API
 lib64_LIBRARIES += lib64/libm.a
 nodist_lib64_libm_a_SOURCES = $(src_libm)
 lib64_libm_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
