@@ -1,3 +1,8 @@
+2012-08-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* getopt.h (optreset): Guard __mingw_optreset definition by
+	_BSD_SOURCE again (bug #3556105.)
+
 2012-08-07  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* getopt.h (optreset): Define as __mingw_optreset regardless of

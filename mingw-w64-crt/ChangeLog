@@ -1,3 +1,8 @@
+2012-08-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* misc/getopt.c (optreset): Define as __mingw_optreset (bugs
+	#3554856, 3556105.)
+
 2012-08-09  Corinna Vinschen  <vinschen@redhat.com>
 
 	* Makefile.am (libglut.a): Add missing "lib32/".
