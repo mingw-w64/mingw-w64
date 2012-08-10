@@ -63,6 +63,8 @@
 int	opterr = 1;		/* if error message should be printed */
 int	optind = 1;		/* index into parent argv vector */
 int	optopt = '?';		/* character checked for validity */
+#undef	optreset		/* see getopt.h */
+#define	optreset		__mingw_optreset
 int	optreset;		/* reset getopt */
 char    *optarg;		/* argument associated with option */
 #endif
