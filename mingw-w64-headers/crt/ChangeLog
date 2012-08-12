@@ -1,3 +1,7 @@
+2012-08-12  Kai Tietz  <ktietz@redhat.com>
+
+	* excpt.h (__try1, __except1): Correct macros for x64.
+
 2012-08-10  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* getopt.h (optreset): Guard __mingw_optreset definition by
