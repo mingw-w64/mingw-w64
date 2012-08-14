@@ -6,6 +6,8 @@
 #ifndef _WINDEF_
 #define _WINDEF_
 
+#include <_mingw.h>
+
 #if !defined (STRICT) && !defined (NO_STRICT)
 #define STRICT 1
 #endif

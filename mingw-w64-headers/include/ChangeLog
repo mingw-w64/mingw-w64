@@ -1,3 +1,7 @@
+2012-08-14  Kai Tietz  <ktietz@redhat.com>
+
+	* windef.h: Add include of _mingw.h for __LOMG32.
+
 2012-08-07  Kai Tietz  <ktietz@redhat.com>
 
 	* winnt.h (InterlockedIncrement): Add prototype before inline
