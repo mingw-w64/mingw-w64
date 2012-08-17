@@ -1,3 +1,9 @@
+2012-08-17  Corinna Vinschen  <vinschen@redhat.com>
+
+	* configure.ac (sysroot): Set sysroot to $prefix since include is
+	attached in Makefile.am anyway.
+	* configure: Regenerate.
+
 2012-08-10  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* misc/getopt.c (optreset): Define as __mingw_optreset (bugs

@@ -16,12 +16,12 @@ AC_CANONICAL_HOST
 AC_MSG_CHECKING([for sysroot])
 AC_ARG_WITH([sysroot],
   [AS_HELP_STRING([--with-sysroot=DIR],
-    [Search for headers within DIR/include (default: prefix/include)])],
+    [Search for headers within DIR/include (default: prefix)])],
   [],
   [AS_VAR_SET([with_sysroot],[yes])])
 AS_CASE([$with_sysroot],
   [no],[],
-  [yes],[AS_VAR_SET([with_sysroot],[$prefix/include])],
+  [yes],[AS_VAR_SET([with_sysroot],[$prefix])],
   [])
 AC_MSG_RESULT([$with_sysroot])
 AS_VAR_IF([with_sysroot],[no],[],[AS_VAR_SET([TARGET_SYSTEM_ROOT],[$with_sysroot])])
