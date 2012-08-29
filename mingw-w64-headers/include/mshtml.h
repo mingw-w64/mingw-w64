@@ -3440,7 +3440,7 @@ extern "C" {
 
   typedef enum _styleNormal {
     styleNormalNormal = 0,styleNormal_Max = 2147483647
-   styleNormal;
+  } styleNormal;
 
   typedef enum _styleBorderWidth {
     styleBorderWidthThin = 0,styleBorderWidthMedium = 1,styleBorderWidthThick = 2,styleBorderWidth_Max = 2147483647
@@ -4141,7 +4141,7 @@ extern "C" {
 
   typedef enum _ELEMENTNAMESPACE_FLAGS {
     ELEMENTNAMESPACEFLAGS_ALLOWANYTAG = 0x1,ELEMENTNAMESPACEFLAGS_QUERYFORUNKNOWNTAGS = 0x2,ELEMENTNAMESPACE_FLAGS_Max = 2147483647
-   ELEMENTNAMESPACE_FLAGS;
+  } ELEMENTNAMESPACE_FLAGS;
 
   EXTERN_C const IID LIBID_MSHTML;
 #ifndef __IHTMLEventObj_INTERFACE_DEFINED__
