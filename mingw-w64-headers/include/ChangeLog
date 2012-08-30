@@ -1,3 +1,8 @@
+2012-08-29  Yaakov Selkowitz  <yselkowitz@users.sourceforge.net>
+
+	* winternl.h (_FILE_RENAME_INFORMATION): Fix member names per MSDN.
+	(NtQueryInformationFile): Change type of len to ULONG per MSDN.
+
 2012-08-29  Ozkan Sezer  <sezeroz@gmail.com>
 
 	PR/3561800, patch by drangon zhou:

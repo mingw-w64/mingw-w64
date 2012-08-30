@@ -354,8 +354,8 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
   } FILE_NAME_INFORMATION, *PFILE_NAME_INFORMATION;
 
   typedef struct _FILE_RENAME_INFORMATION {
-    BOOLEAN Replace;
-    HANDLE RootDir;
+    BOOLEAN ReplaceIfExists;
+    HANDLE RootDirectory;
     ULONG FileNameLength;
     WCHAR FileName[1];
   } FILE_RENAME_INFORMATION, *PFILE_RENAME_INFORMATION;
@@ -840,7 +840,7 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
   ULONG WINAPI RtlNtStatusToDosError (NTSTATUS Status);
   NTSTATUS WINAPI NtQueryInformationProcess(HANDLE ProcessHandle,PROCESSINFOCLASS ProcessInformationClass,PVOID ProcessInformation,ULONG ProcessInformationLength,PULONG ReturnLength);
   NTSTATUS WINAPI NtQueryInformationThread(HANDLE ThreadHandle,THREADINFOCLASS ThreadInformationClass,PVOID ThreadInformation,ULONG ThreadInformationLength,PULONG ReturnLength);
-  NTSTATUS WINAPI NtQueryInformationFile(HANDLE hFile,PIO_STATUS_BLOCK io,PVOID ptr,LONG len,FILE_INFORMATION_CLASS FileInformationClass);
+  NTSTATUS WINAPI NtQueryInformationFile(HANDLE hFile,PIO_STATUS_BLOCK io,PVOID ptr,ULONG len,FILE_INFORMATION_CLASS FileInformationClass);
   NTSTATUS WINAPI NtQueryObject(HANDLE Handle,OBJECT_INFORMATION_CLASS ObjectInformationClass,PVOID ObjectInformation,ULONG ObjectInformationLength,PULONG ReturnLength);
   NTSTATUS WINAPI NtQuerySystemInformation(SYSTEM_INFORMATION_CLASS SystemInformationClass,PVOID SystemInformation,ULONG SystemInformationLength,PULONG ReturnLength);
   NTSTATUS WINAPI NtQuerySystemTime(PLARGE_INTEGER SystemTime);
