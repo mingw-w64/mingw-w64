@@ -582,6 +582,19 @@ typedef enum XmlReadState
     XmlReadState_EndOfFile   = 3,
     XmlReadState_Closed      = 4
 } XmlReadState;
+typedef enum XmlConformanceLevel
+{
+    XmlConformanceLevel_Auto     = 0,
+    XmlConformanceLevel_Fragment = 1,
+    XmlConformanceLevel_Document = 2,
+    _XmlConformanceLevel_Last    = 2
+} XmlConformanceLevel;
+typedef enum DtdProcessing
+{
+    DtdProcessing_Prohibit = 0,
+    DtdProcessing_Parse    = DtdProcessing_Prohibit + 1,
+    _DtdProcessing_Last    = DtdProcessing_Parse
+} DtdProcessing;
 typedef enum XmlReaderProperty
 {
     XmlReaderProperty_MultiLanguage      = 0,

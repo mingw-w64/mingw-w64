@@ -213,6 +213,11 @@ typedef enum WICBitmapInterpolationMode {
     WICBitmapInterpolationModeFant = 0x3,
     WICBITMAPINTERPOLATIONMODE_FORCE_DWORD = 0x7fffffff
 } WICBitmapInterpolationMode;
+typedef enum WICBitmapLockFlags {
+    WICBitmapLockRead = 0x1,
+    WICBitmapLockWrite = 0x2,
+    WICBITMAPLOCKFLAGS_FORCE_DWORD = 0x7fffffff
+} WICBitmapLockFlags;
 typedef enum WICBitmapPaletteType {
     WICBitmapPaletteTypeCustom = 0x0,
     WICBitmapPaletteTypeMedianCut = 0x1,
@@ -316,6 +321,7 @@ typedef UINT32 WICColor;
 #define WINCODEC_ERR_WRONGSTATE 0x88982f04
 #define WINCODEC_ERR_VALUEOUTOFRANGE 0x88982f05
 #define WINCODEC_ERR_NOTINITIALIZED 0x88982f0c
+#define WINCODEC_ERR_ALREADYLOCKED 0x88982f0d
 #define WINCODEC_ERR_PROPERTYNOTFOUND 0x88982f40
 #define WINCODEC_ERR_CODECNOTHUMBNAIL 0x88982f44
 #define WINCODEC_ERR_PALETTEUNAVAILABLE 0x88982f45
