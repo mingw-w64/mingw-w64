@@ -16,11 +16,14 @@
 extern "C" {
 #endif
 
+#ifndef __UNICODE_STRING_DEFINED
+#define __UNICODE_STRING_DEFINED
   typedef struct _UNICODE_STRING {
     USHORT Length;
     USHORT MaximumLength;
     PWSTR Buffer;
   } UNICODE_STRING;
+#endif
 
   typedef struct _PEB_LDR_DATA {
     BYTE Reserved1[8];
@@ -85,11 +88,14 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
   typedef LONG NTSTATUS;
   typedef CONST char *PCSZ;
 
+#ifndef __STRING_DEFINED
+#define __STRING_DEFINED
   typedef struct _STRING {
     USHORT Length;
     USHORT MaximumLength;
     PCHAR Buffer;
   } STRING;
+#endif
 
   typedef STRING *PSTRING;
   typedef STRING ANSI_STRING;
@@ -102,6 +108,8 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
   typedef UNICODE_STRING *PUNICODE_STRING;
   typedef const UNICODE_STRING *PCUNICODE_STRING;
 
+#ifndef __OBJECT_ATTRIBUTES_DEFINED
+#define __OBJECT_ATTRIBUTES_DEFINED
   typedef struct _OBJECT_ATTRIBUTES {
     ULONG Length;
 #ifdef _WIN64
@@ -116,6 +124,7 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
     PVOID SecurityDescriptor;
     PVOID SecurityQualityOfService;
   } OBJECT_ATTRIBUTES, *POBJECT_ATTRIBUTES;
+#endif
 
 /* Values for the Attributes member */
  #define OBJ_INHERIT             0x00000002
@@ -347,6 +356,13 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
   typedef struct _FILE_ACCESS_INFORMATION {
     ACCESS_MASK AccessFlags;
   } FILE_ACCESS_INFORMATION, *PFILE_ACCESS_INFORMATION;
+
+  typedef struct _FILE_LINK_INFORMATION {
+    BOOLEAN ReplaceIfExists;
+    HANDLE RootDirectory;
+    ULONG FileNameLength;
+    WCHAR FileName[1];
+  } FILE_LINK_INFORMATION, *PFILE_LINK_INFORMATION;
 
   typedef struct _FILE_NAME_INFORMATION {
     ULONG FileNameLength;

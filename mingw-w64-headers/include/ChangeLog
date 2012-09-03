@@ -1,5 +1,17 @@
 2012-08-29  Yaakov Selkowitz  <yselkowitz@users.sourceforge.net>
 
+	* ntdef.h (_OBJECT_ATTRIBUTES): Guard against duplicate declaration.
+	* winnt.h (DECLSPEC_IMPORT): Do not redefine.
+	(FILE_SUPERSEDE...FILE_MAXIMUM_DISPOSITION): Copy from ntdef.h.
+	(FILE_DIRECTORY_FILE...FILE_OPEN_FOR_FREE_SPACE_QUERY): Ditto.
+	(FILE_SHARE_VALID_FLAGS): Ditto.
+	* winternl.h (_UNICODE_STRING): Guard against duplicate declaration.
+	(_STRING): Ditto.
+	(_OBJECT_ATTRIBUTES): Ditto.
+	(_FILE_LINK_INFORMATION): Copy from ddk/ntifs.h.
+
+2012-08-29  Yaakov Selkowitz  <yselkowitz@users.sourceforge.net>
+
 	* winternl.h (_FILE_RENAME_INFORMATION): Fix member names per MSDN.
 	(NtQueryInformationFile): Change type of len to ULONG per MSDN.
 

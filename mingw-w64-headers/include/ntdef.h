@@ -509,6 +509,8 @@ typedef struct _STRING64 {
 
 
 /* Object Attributes */
+#ifndef __OBJECT_ATTRIBUTES_DEFINED
+#define __OBJECT_ATTRIBUTES_DEFINED
 typedef struct _OBJECT_ATTRIBUTES {
   ULONG Length;
   HANDLE RootDirectory;
@@ -517,6 +519,7 @@ typedef struct _OBJECT_ATTRIBUTES {
   PVOID SecurityDescriptor;
   PVOID SecurityQualityOfService;
 } OBJECT_ATTRIBUTES, *POBJECT_ATTRIBUTES;
+#endif
 typedef CONST OBJECT_ATTRIBUTES *PCOBJECT_ATTRIBUTES;
 
 /* Values for the Attributes member */
