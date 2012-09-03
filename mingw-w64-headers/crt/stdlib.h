@@ -327,6 +327,12 @@ extern "C" {
 #endif
 
   __MINGW_EXTENSION __int64 __cdecl _abs64(__int64);
+#ifdef __MINGW_INTRIN_INLINE
+  __MINGW_INTRIN_INLINE __int64 __cdecl _abs64(__int64 x) {
+    return __builtin_llabs(x);
+  }
+#endif
+
   int __cdecl atexit(void (__cdecl *)(void));
 #ifndef _CRT_ATOF_DEFINED
 #define _CRT_ATOF_DEFINED
