@@ -1,3 +1,8 @@
+2012-08-29  Yaakov Selkowitz  <yselkowitz@users.sourceforge.net>
+
+	* stdio.h (_mingw_ovr): Use GCC form for both C and C++.
+	* wchar.h (_mingw_ovr): Ditto.
+
 2012-08-12  Kai Tietz  <ktietz@redhat.com>
 
 	* excpt.h (__try1, __except1): Correct macros for x64.

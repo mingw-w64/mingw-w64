@@ -624,10 +624,10 @@ int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict_
   int __cdecl __mingw_vsnwprintf (wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ , va_list);
 
 #undef __mingw_ovr
-#ifdef __cplusplus
-#define __mingw_ovr  inline __cdecl
-#elif defined (__GNUC__)
+#if defined (__GNUC__)
 #define __mingw_ovr static __attribute__ ((__unused__)) __inline__ __cdecl
+#elif defined(__cplusplus)
+#define __mingw_ovr inline __cdecl
 #else
 #define __mingw_ovr static __cdecl
 #endif
