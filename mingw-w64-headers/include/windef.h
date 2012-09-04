@@ -103,7 +103,7 @@ typedef char *PSZ;
 typedef int WINBOOL;
 #pragma push_macro("BOOL")
 #undef BOOL
-#if !defined(__OBJC__) && !defined(__OBJC_BOOL) && !defined(__objc_INCLUDE_GNU) && !defined(_NOBOOLTYPEDEF)
+#if !defined(__OBJC__) && !defined(__OBJC_BOOL) && !defined(__objc_INCLUDE_GNU) && !defined(_NO_BOOL_TYPEDEF)
 typedef int BOOL;
 #endif
 #define BOOL WINBOOL
