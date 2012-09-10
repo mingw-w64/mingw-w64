@@ -4,3 +4,4 @@
 
 #include <initguid.h>
 #include <dxgi.h>
+#include <wincodec.h>
