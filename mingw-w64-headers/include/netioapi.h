@@ -9,6 +9,7 @@
 #include <ws2def.h>
 #include <iprtrmib.h>
 #include <ifdef.h>
+#include <ntddndis.h>
 
 #ifndef ANY_SIZE
 #define ANY_SIZE 1
