@@ -1,3 +1,8 @@
+2012-09-12  Dongsheng Song  <dongsheng@users.sourceforge.net>
+
+	* lib32/msvcr110.def: New.
+	* lib64/msvcr110.def: New.
+
 2012-08-10  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* misc/getopt.c (optreset): Define as __mingw_optreset (bugs

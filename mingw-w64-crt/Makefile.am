@@ -475,6 +475,7 @@ lib32_DATA = \
   lib32/libmsvcr90.a   lib32/libcryptsp.a   lib32/libbootvid.a   lib32/libwdscsl.a    \
   lib32/libwdsutil.a   lib32/libwdsclient.a lib32/libwdsimage.a  lib32/libwdsupgcompl.a \
   lib32/libmsvcr100.a  lib32/libwdsclientapi.a lib32/libpcwum.a  lib32/libdbgeng.a    \
+  lib32/libmsvcr110.a	\
   \
   lib32/libcabinet.a   lib32/libcryptxml.a  lib32/libsspicli.a   \
   \
@@ -930,6 +931,7 @@ lib64_DATA = \
   lib64/libwer.a        lib64/libndis.a       lib64/libd2d1.a        lib64/libwdscsl.a      lib64/libpcwum.a         \
   lib64/libwdscore.a    lib64/libcryptsp.a    lib64/libwdsclient.a   lib64/libwdsupgcompl.a lib64/libwdsclientapi.a  \
   lib64/libwdsutil.a    lib64/libmsvcr90.a    lib64/libmsvcr100.a    lib64/libmsvcr90d.a    lib64/libwdsimage.a      \
+  lib64/libmsvcr110.a	\
   \
   lib64/libcryptxml.a   lib64/libsspicli.a    \
   \
