@@ -13,11 +13,6 @@ interface IRecordInfo;
 interface ITypeInfo;
 interface ITypeLib;
 
-cpp_quote("#ifndef __ICreateTypeInfo_FWD_DEFINED__")
-cpp_quote("#define __ICreateTypeInfo_FWD_DEFINED__")
-cpp_quote("typedef struct ICreateTypeInfo ICreateTypeInfo;")
-cpp_quote("#endif")
-cpp_quote("")
 cpp_quote("#ifndef __ICreateTypeInfo2_FWD_DEFINED__")
 cpp_quote("#define __ICreateTypeInfo2_FWD_DEFINED__")
 cpp_quote("typedef struct ICreateTypeInfo2 ICreateTypeInfo2;")
@@ -31,11 +26,6 @@ cpp_quote("")
 cpp_quote("#ifndef __ICreateTypeLib2_FWD_DEFINED__")
 cpp_quote("#define __ICreateTypeLib2_FWD_DEFINED__")
 cpp_quote("typedef struct ICreateTypeLib2 ICreateTypeLib2;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IEnumVARIANT_FWD_DEFINED__")
-cpp_quote("#define __IEnumVARIANT_FWD_DEFINED__")
-cpp_quote("typedef struct IEnumVARIANT IEnumVARIANT;")
 cpp_quote("#endif")
 cpp_quote("")
 cpp_quote("#ifndef __ITypeInfo2_FWD_DEFINED__")
@@ -77,13 +67,6 @@ cpp_quote("#ifndef __ITypeMarshal_FWD_DEFINED__")
 cpp_quote("#define __ITypeMarshal_FWD_DEFINED__")
 cpp_quote("typedef struct ITypeMarshal ITypeMarshal;")
 cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IPropertyBag_FWD_DEFINED__")
-cpp_quote("#define __IPropertyBag_FWD_DEFINED__")
-cpp_quote("typedef struct IPropertyBag IPropertyBag;")
-cpp_quote("#endif")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_oaidl_0000_v0_0_c_ifspec;")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_oaidl_0000_v0_0_s_ifspec;")
 
 [
     version(1.0),
@@ -602,152 +585,51 @@ cpp_quote("  typedef struct tagCUSTDATA *LPCUSTDATA;")
 
 }
 
-cpp_quote("#ifndef __ICreateTypeInfo_INTERFACE_DEFINED__")
-cpp_quote("#define __ICreateTypeInfo_INTERFACE_DEFINED__")
-cpp_quote("#ifndef DEFINE_LPCREATETYPEINFO")
-cpp_quote("#define DEFINE_LPCREATETYPEINFO")
-cpp_quote("  typedef ICreateTypeInfo *LPCREATETYPEINFO;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_ICreateTypeInfo;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct ICreateTypeInfo : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI SetGuid(REFGUID guid) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetTypeFlags(UINT uTypeFlags) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetDocString(LPOLESTR pStrDoc) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetHelpContext(DWORD dwHelpContext) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetVersion(WORD wMajorVerNum,WORD wMinorVerNum) = 0;")
-cpp_quote("    virtual HRESULT WINAPI AddRefTypeInfo(ITypeInfo *pTInfo,HREFTYPE *phRefType) = 0;")
-cpp_quote("    virtual HRESULT WINAPI AddFuncDesc(UINT index,FUNCDESC *pFuncDesc) = 0;")
-cpp_quote("    virtual HRESULT WINAPI AddImplType(UINT index,HREFTYPE hRefType) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetImplTypeFlags(UINT index,INT implTypeFlags) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetAlignment(WORD cbAlignment) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetSchema(LPOLESTR pStrSchema) = 0;")
-cpp_quote("    virtual HRESULT WINAPI AddVarDesc(UINT index,VARDESC *pVarDesc) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetFuncAndParamNames(UINT index,LPOLESTR *rgszNames,UINT cNames) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetVarName(UINT index,LPOLESTR szName) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetTypeDescAlias(TYPEDESC *pTDescAlias) = 0;")
-cpp_quote("    virtual HRESULT WINAPI DefineFuncAsDllEntry(UINT index,LPOLESTR szDllName,LPOLESTR szProcName) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetFuncDocString(UINT index,LPOLESTR szDocString) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetVarDocString(UINT index,LPOLESTR szDocString) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetFuncHelpContext(UINT index,DWORD dwHelpContext) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetVarHelpContext(UINT index,DWORD dwHelpContext) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetMops(UINT index,BSTR bstrMops) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetTypeIdldesc(IDLDESC *pIdlDesc) = 0;")
-cpp_quote("    virtual HRESULT WINAPI LayOut(void) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct ICreateTypeInfoVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(ICreateTypeInfo *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(ICreateTypeInfo *This);")
-cpp_quote("      ULONG (WINAPI *Release)(ICreateTypeInfo *This);")
-cpp_quote("      HRESULT (WINAPI *SetGuid)(ICreateTypeInfo *This,REFGUID guid);")
-cpp_quote("      HRESULT (WINAPI *SetTypeFlags)(ICreateTypeInfo *This,UINT uTypeFlags);")
-cpp_quote("      HRESULT (WINAPI *SetDocString)(ICreateTypeInfo *This,LPOLESTR pStrDoc);")
-cpp_quote("      HRESULT (WINAPI *SetHelpContext)(ICreateTypeInfo *This,DWORD dwHelpContext);")
-cpp_quote("      HRESULT (WINAPI *SetVersion)(ICreateTypeInfo *This,WORD wMajorVerNum,WORD wMinorVerNum);")
-cpp_quote("      HRESULT (WINAPI *AddRefTypeInfo)(ICreateTypeInfo *This,ITypeInfo *pTInfo,HREFTYPE *phRefType);")
-cpp_quote("      HRESULT (WINAPI *AddFuncDesc)(ICreateTypeInfo *This,UINT index,FUNCDESC *pFuncDesc);")
-cpp_quote("      HRESULT (WINAPI *AddImplType)(ICreateTypeInfo *This,UINT index,HREFTYPE hRefType);")
-cpp_quote("      HRESULT (WINAPI *SetImplTypeFlags)(ICreateTypeInfo *This,UINT index,INT implTypeFlags);")
-cpp_quote("      HRESULT (WINAPI *SetAlignment)(ICreateTypeInfo *This,WORD cbAlignment);")
-cpp_quote("      HRESULT (WINAPI *SetSchema)(ICreateTypeInfo *This,LPOLESTR pStrSchema);")
-cpp_quote("      HRESULT (WINAPI *AddVarDesc)(ICreateTypeInfo *This,UINT index,VARDESC *pVarDesc);")
-cpp_quote("      HRESULT (WINAPI *SetFuncAndParamNames)(ICreateTypeInfo *This,UINT index,LPOLESTR *rgszNames,UINT cNames);")
-cpp_quote("      HRESULT (WINAPI *SetVarName)(ICreateTypeInfo *This,UINT index,LPOLESTR szName);")
-cpp_quote("      HRESULT (WINAPI *SetTypeDescAlias)(ICreateTypeInfo *This,TYPEDESC *pTDescAlias);")
-cpp_quote("      HRESULT (WINAPI *DefineFuncAsDllEntry)(ICreateTypeInfo *This,UINT index,LPOLESTR szDllName,LPOLESTR szProcName);")
-cpp_quote("      HRESULT (WINAPI *SetFuncDocString)(ICreateTypeInfo *This,UINT index,LPOLESTR szDocString);")
-cpp_quote("      HRESULT (WINAPI *SetVarDocString)(ICreateTypeInfo *This,UINT index,LPOLESTR szDocString);")
-cpp_quote("      HRESULT (WINAPI *SetFuncHelpContext)(ICreateTypeInfo *This,UINT index,DWORD dwHelpContext);")
-cpp_quote("      HRESULT (WINAPI *SetVarHelpContext)(ICreateTypeInfo *This,UINT index,DWORD dwHelpContext);")
-cpp_quote("      HRESULT (WINAPI *SetMops)(ICreateTypeInfo *This,UINT index,BSTR bstrMops);")
-cpp_quote("      HRESULT (WINAPI *SetTypeIdldesc)(ICreateTypeInfo *This,IDLDESC *pIdlDesc);")
-cpp_quote("      HRESULT (WINAPI *LayOut)(ICreateTypeInfo *This);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } ICreateTypeInfoVtbl;")
-cpp_quote("  struct ICreateTypeInfo {")
-cpp_quote("    CONST_VTBL struct ICreateTypeInfoVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define ICreateTypeInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define ICreateTypeInfo_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define ICreateTypeInfo_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define ICreateTypeInfo_SetGuid(This,guid) (This)->lpVtbl->SetGuid(This,guid)")
-cpp_quote("#define ICreateTypeInfo_SetTypeFlags(This,uTypeFlags) (This)->lpVtbl->SetTypeFlags(This,uTypeFlags)")
-cpp_quote("#define ICreateTypeInfo_SetDocString(This,pStrDoc) (This)->lpVtbl->SetDocString(This,pStrDoc)")
-cpp_quote("#define ICreateTypeInfo_SetHelpContext(This,dwHelpContext) (This)->lpVtbl->SetHelpContext(This,dwHelpContext)")
-cpp_quote("#define ICreateTypeInfo_SetVersion(This,wMajorVerNum,wMinorVerNum) (This)->lpVtbl->SetVersion(This,wMajorVerNum,wMinorVerNum)")
-cpp_quote("#define ICreateTypeInfo_AddRefTypeInfo(This,pTInfo,phRefType) (This)->lpVtbl->AddRefTypeInfo(This,pTInfo,phRefType)")
-cpp_quote("#define ICreateTypeInfo_AddFuncDesc(This,index,pFuncDesc) (This)->lpVtbl->AddFuncDesc(This,index,pFuncDesc)")
-cpp_quote("#define ICreateTypeInfo_AddImplType(This,index,hRefType) (This)->lpVtbl->AddImplType(This,index,hRefType)")
-cpp_quote("#define ICreateTypeInfo_SetImplTypeFlags(This,index,implTypeFlags) (This)->lpVtbl->SetImplTypeFlags(This,index,implTypeFlags)")
-cpp_quote("#define ICreateTypeInfo_SetAlignment(This,cbAlignment) (This)->lpVtbl->SetAlignment(This,cbAlignment)")
-cpp_quote("#define ICreateTypeInfo_SetSchema(This,pStrSchema) (This)->lpVtbl->SetSchema(This,pStrSchema)")
-cpp_quote("#define ICreateTypeInfo_AddVarDesc(This,index,pVarDesc) (This)->lpVtbl->AddVarDesc(This,index,pVarDesc)")
-cpp_quote("#define ICreateTypeInfo_SetFuncAndParamNames(This,index,rgszNames,cNames) (This)->lpVtbl->SetFuncAndParamNames(This,index,rgszNames,cNames)")
-cpp_quote("#define ICreateTypeInfo_SetVarName(This,index,szName) (This)->lpVtbl->SetVarName(This,index,szName)")
-cpp_quote("#define ICreateTypeInfo_SetTypeDescAlias(This,pTDescAlias) (This)->lpVtbl->SetTypeDescAlias(This,pTDescAlias)")
-cpp_quote("#define ICreateTypeInfo_DefineFuncAsDllEntry(This,index,szDllName,szProcName) (This)->lpVtbl->DefineFuncAsDllEntry(This,index,szDllName,szProcName)")
-cpp_quote("#define ICreateTypeInfo_SetFuncDocString(This,index,szDocString) (This)->lpVtbl->SetFuncDocString(This,index,szDocString)")
-cpp_quote("#define ICreateTypeInfo_SetVarDocString(This,index,szDocString) (This)->lpVtbl->SetVarDocString(This,index,szDocString)")
-cpp_quote("#define ICreateTypeInfo_SetFuncHelpContext(This,index,dwHelpContext) (This)->lpVtbl->SetFuncHelpContext(This,index,dwHelpContext)")
-cpp_quote("#define ICreateTypeInfo_SetVarHelpContext(This,index,dwHelpContext) (This)->lpVtbl->SetVarHelpContext(This,index,dwHelpContext)")
-cpp_quote("#define ICreateTypeInfo_SetMops(This,index,bstrMops) (This)->lpVtbl->SetMops(This,index,bstrMops)")
-cpp_quote("#define ICreateTypeInfo_SetTypeIdldesc(This,pIdlDesc) (This)->lpVtbl->SetTypeIdldesc(This,pIdlDesc)")
-cpp_quote("#define ICreateTypeInfo_LayOut(This) (This)->lpVtbl->LayOut(This)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_SetGuid_Proxy(ICreateTypeInfo *This,REFGUID guid);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_SetGuid_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_SetTypeFlags_Proxy(ICreateTypeInfo *This,UINT uTypeFlags);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_SetTypeFlags_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_SetDocString_Proxy(ICreateTypeInfo *This,LPOLESTR pStrDoc);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_SetDocString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_SetHelpContext_Proxy(ICreateTypeInfo *This,DWORD dwHelpContext);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_SetHelpContext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_SetVersion_Proxy(ICreateTypeInfo *This,WORD wMajorVerNum,WORD wMinorVerNum);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_SetVersion_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_AddRefTypeInfo_Proxy(ICreateTypeInfo *This,ITypeInfo *pTInfo,HREFTYPE *phRefType);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_AddRefTypeInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_AddFuncDesc_Proxy(ICreateTypeInfo *This,UINT index,FUNCDESC *pFuncDesc);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_AddFuncDesc_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_AddImplType_Proxy(ICreateTypeInfo *This,UINT index,HREFTYPE hRefType);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_AddImplType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_SetImplTypeFlags_Proxy(ICreateTypeInfo *This,UINT index,INT implTypeFlags);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_SetImplTypeFlags_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_SetAlignment_Proxy(ICreateTypeInfo *This,WORD cbAlignment);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_SetAlignment_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_SetSchema_Proxy(ICreateTypeInfo *This,LPOLESTR pStrSchema);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_SetSchema_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_AddVarDesc_Proxy(ICreateTypeInfo *This,UINT index,VARDESC *pVarDesc);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_AddVarDesc_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_SetFuncAndParamNames_Proxy(ICreateTypeInfo *This,UINT index,LPOLESTR *rgszNames,UINT cNames);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_SetFuncAndParamNames_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_SetVarName_Proxy(ICreateTypeInfo *This,UINT index,LPOLESTR szName);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_SetVarName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_SetTypeDescAlias_Proxy(ICreateTypeInfo *This,TYPEDESC *pTDescAlias);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_SetTypeDescAlias_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_DefineFuncAsDllEntry_Proxy(ICreateTypeInfo *This,UINT index,LPOLESTR szDllName,LPOLESTR szProcName);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_DefineFuncAsDllEntry_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_SetFuncDocString_Proxy(ICreateTypeInfo *This,UINT index,LPOLESTR szDocString);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_SetFuncDocString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_SetVarDocString_Proxy(ICreateTypeInfo *This,UINT index,LPOLESTR szDocString);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_SetVarDocString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_SetFuncHelpContext_Proxy(ICreateTypeInfo *This,UINT index,DWORD dwHelpContext);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_SetFuncHelpContext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_SetVarHelpContext_Proxy(ICreateTypeInfo *This,UINT index,DWORD dwHelpContext);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_SetVarHelpContext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_SetMops_Proxy(ICreateTypeInfo *This,UINT index,BSTR bstrMops);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_SetMops_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_SetTypeIdldesc_Proxy(ICreateTypeInfo *This,IDLDESC *pIdlDesc);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_SetTypeIdldesc_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo_LayOut_Proxy(ICreateTypeInfo *This);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo_LayOut_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
+[
+    local,
+    object,
+    uuid(00020405-0000-0000-c000-000000000046),
+    pointer_default(unique)
+]
+interface ICreateTypeInfo : IUnknown
+{
+    typedef [unique] ICreateTypeInfo *LPCREATETYPEINFO;
+
+    HRESULT SetGuid([in] REFGUID guid);
+    HRESULT SetTypeFlags([in] UINT uTypeFlags);
+    HRESULT SetDocString([in] LPOLESTR pStrDoc);
+    HRESULT SetHelpContext([in] DWORD dwHelpContext);
+    HRESULT SetVersion([in] WORD wMajorVerNum, [in] WORD wMinorVerNum);
+    HRESULT AddRefTypeInfo([in] ITypeInfo *pTInfo, [in] HREFTYPE *phRefType);
+    HRESULT AddFuncDesc([in] UINT index, [in] FUNCDESC *pFuncDesc);
+    HRESULT AddImplType([in] UINT index, [in] HREFTYPE hRefType);
+    HRESULT SetImplTypeFlags([in] UINT index, [in] INT implTypeFlags);
+    HRESULT SetAlignment([in] WORD cbAlignment);
+    HRESULT SetSchema([in] LPOLESTR pStrSchema);
+    HRESULT AddVarDesc([in] UINT index, [in] VARDESC *pVarDesc);
+
+    HRESULT SetFuncAndParamNames(
+            [in] UINT index,
+            [in, size_is(cNames)] LPOLESTR *rgszNames,
+            [in] UINT cNames);
+
+    HRESULT SetVarName([in] UINT index, [in] LPOLESTR szName);
+    HRESULT SetTypeDescAlias([in] TYPEDESC *pTDescAlias);
+
+    HRESULT DefineFuncAsDllEntry(
+            [in] UINT index,
+            [in] LPOLESTR szDllName,
+            [in] LPOLESTR szProcName);
+
+    HRESULT SetFuncDocString([in] UINT index, [in] LPOLESTR szDocString);
+    HRESULT SetVarDocString([in] UINT index, [in] LPOLESTR szDocString);
+    HRESULT SetFuncHelpContext([in] UINT index, [in] DWORD dwHelpContext);
+    HRESULT SetVarHelpContext([in] UINT index, [in] DWORD dwHelpContext);
+    HRESULT SetMops([in] UINT index, [in] BSTR bstrMops);
+    HRESULT SetTypeIdldesc([in] IDLDESC *pIdlDesc);
+    HRESULT LayOut();
+}
+
 cpp_quote("#ifndef __ICreateTypeInfo2_INTERFACE_DEFINED__")
 cpp_quote("#define __ICreateTypeInfo2_INTERFACE_DEFINED__")
 cpp_quote("  typedef ICreateTypeInfo2 *LPCREATETYPEINFO2;")
@@ -1102,53 +984,31 @@ interface IDispatch : IUnknown
     const DISPID DISPID_COLLECT = -8;
 }
 
-cpp_quote("#ifndef __IEnumVARIANT_INTERFACE_DEFINED__")
-cpp_quote("#define __IEnumVARIANT_INTERFACE_DEFINED__")
-cpp_quote("  typedef IEnumVARIANT *LPENUMVARIANT;")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_IEnumVARIANT;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IEnumVARIANT : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI Next(ULONG celt,VARIANT *rgVar,ULONG *pCeltFetched) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Skip(ULONG celt) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Reset(void) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Clone(IEnumVARIANT **ppEnum) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IEnumVARIANTVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IEnumVARIANT *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IEnumVARIANT *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IEnumVARIANT *This);")
-cpp_quote("      HRESULT (WINAPI *Next)(IEnumVARIANT *This,ULONG celt,VARIANT *rgVar,ULONG *pCeltFetched);")
-cpp_quote("      HRESULT (WINAPI *Skip)(IEnumVARIANT *This,ULONG celt);")
-cpp_quote("      HRESULT (WINAPI *Reset)(IEnumVARIANT *This);")
-cpp_quote("      HRESULT (WINAPI *Clone)(IEnumVARIANT *This,IEnumVARIANT **ppEnum);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IEnumVARIANTVtbl;")
-cpp_quote("  struct IEnumVARIANT {")
-cpp_quote("    CONST_VTBL struct IEnumVARIANTVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IEnumVARIANT_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IEnumVARIANT_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IEnumVARIANT_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IEnumVARIANT_Next(This,celt,rgVar,pCeltFetched) (This)->lpVtbl->Next(This,celt,rgVar,pCeltFetched)")
-cpp_quote("#define IEnumVARIANT_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)")
-cpp_quote("#define IEnumVARIANT_Reset(This) (This)->lpVtbl->Reset(This)")
-cpp_quote("#define IEnumVARIANT_Clone(This,ppEnum) (This)->lpVtbl->Clone(This,ppEnum)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IEnumVARIANT_RemoteNext_Proxy(IEnumVARIANT *This,ULONG celt,VARIANT *rgVar,ULONG *pCeltFetched);")
-cpp_quote("  void __RPC_STUB IEnumVARIANT_RemoteNext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumVARIANT_Skip_Proxy(IEnumVARIANT *This,ULONG celt);")
-cpp_quote("  void __RPC_STUB IEnumVARIANT_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumVARIANT_Reset_Proxy(IEnumVARIANT *This);")
-cpp_quote("  void __RPC_STUB IEnumVARIANT_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumVARIANT_Clone_Proxy(IEnumVARIANT *This,IEnumVARIANT **ppEnum);")
-cpp_quote("  void __RPC_STUB IEnumVARIANT_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
+[
+    object,
+    uuid(00020404-0000-0000-c000-000000000046),
+    pointer_default(unique)
+]
+interface IEnumVARIANT : IUnknown
+{
+    typedef [unique] IEnumVARIANT *LPENUMVARIANT;
+
+    [local]
+    HRESULT Next(
+            [in] ULONG celt,
+            [out] VARIANT *rgVar,
+            [out] ULONG *pCeltFetched);
+
+    [call_as(Next)]
+    HRESULT RemoteNext(
+            [in] ULONG celt,
+            [out, size_is(celt), length_is(*pCeltFetched)] VARIANT *rgVar,
+            [out] ULONG *pCeltFetched);
+
+    HRESULT Skip([in] ULONG celt);
+    HRESULT Reset();
+    HRESULT Clone([out] IEnumVARIANT **ppEnum);
+}
 
 [
     object,
@@ -2022,51 +1882,36 @@ interface IErrorLog : IUnknown
             [in] EXCEPINFO *pExcepInfo);
 }
 
-cpp_quote("#ifndef __IPropertyBag_INTERFACE_DEFINED__")
-cpp_quote("#define __IPropertyBag_INTERFACE_DEFINED__")
-cpp_quote("  typedef IPropertyBag *LPPROPERTYBAG;")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_IPropertyBag;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IPropertyBag : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI Read(LPCOLESTR pszPropName,VARIANT *pVar,IErrorLog *pErrorLog) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Write(LPCOLESTR pszPropName,VARIANT *pVar) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IPropertyBagVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IPropertyBag *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IPropertyBag *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IPropertyBag *This);")
-cpp_quote("      HRESULT (WINAPI *Read)(IPropertyBag *This,LPCOLESTR pszPropName,VARIANT *pVar,IErrorLog *pErrorLog);")
-cpp_quote("      HRESULT (WINAPI *Write)(IPropertyBag *This,LPCOLESTR pszPropName,VARIANT *pVar);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IPropertyBagVtbl;")
-cpp_quote("  struct IPropertyBag {")
-cpp_quote("    CONST_VTBL struct IPropertyBagVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IPropertyBag_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IPropertyBag_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IPropertyBag_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IPropertyBag_Read(This,pszPropName,pVar,pErrorLog) (This)->lpVtbl->Read(This,pszPropName,pVar,pErrorLog)")
-cpp_quote("#define IPropertyBag_Write(This,pszPropName,pVar) (This)->lpVtbl->Write(This,pszPropName,pVar)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IPropertyBag_RemoteRead_Proxy(IPropertyBag *This,LPCOLESTR pszPropName,VARIANT *pVar,IErrorLog *pErrorLog,DWORD varType,IUnknown *pUnkObj);")
-cpp_quote("  void __RPC_STUB IPropertyBag_RemoteRead_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IPropertyBag_Write_Proxy(IPropertyBag *This,LPCOLESTR pszPropName,VARIANT *pVar);")
-cpp_quote("  void __RPC_STUB IPropertyBag_Write_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("  HRESULT WINAPI IEnumVARIANT_Next_Proxy(IEnumVARIANT *This,ULONG celt,VARIANT *rgVar,ULONG *pCeltFetched);")
-cpp_quote("  HRESULT WINAPI IEnumVARIANT_Next_Stub(IEnumVARIANT *This,ULONG celt,VARIANT *rgVar,ULONG *pCeltFetched);")
+[
+    object,
+    uuid(55272a00-42cb-11ce-8135-00aa004bb851),
+    pointer_default(unique)
+ ]
+interface IPropertyBag : IUnknown {
+    typedef IPropertyBag *LPPROPERTYBAG;
+
+    [local]
+    HRESULT Read(
+            [in] LPCOLESTR pszPropName,
+            [in, out] VARIANT *pVar,
+            [in] IErrorLog *pErrorLog);
+
+    [call_as(Read)]
+    HRESULT RemoteRead(
+            [in] LPCOLESTR pszPropName,
+            [out] VARIANT *pVar,
+            [in] IErrorLog *pErrorLog,
+            [in] DWORD varType,
+            [in] IUnknown *pUnkObj);
+
+    HRESULT Write(
+            [in] LPCOLESTR pszPropName,
+            [in] VARIANT *pVar);
+}
+
 cpp_quote("  HRESULT WINAPI ITypeInfo2_GetDocumentation2_Proxy(ITypeInfo2 *This,MEMBERID memid,LCID lcid,BSTR *pbstrHelpString,DWORD *pdwHelpStringContext,BSTR *pbstrHelpStringDll);")
 cpp_quote("  HRESULT WINAPI ITypeInfo2_GetDocumentation2_Stub(ITypeInfo2 *This,MEMBERID memid,LCID lcid,DWORD refPtrFlags,BSTR *pbstrHelpString,DWORD *pdwHelpStringContext,BSTR *pbstrHelpStringDll);")
 cpp_quote("  HRESULT WINAPI ITypeLib2_GetLibStatistics_Proxy(ITypeLib2 *This,ULONG *pcUniqueNames,ULONG *pcchUniqueNames);")
 cpp_quote("  HRESULT WINAPI ITypeLib2_GetLibStatistics_Stub(ITypeLib2 *This,ULONG *pcUniqueNames,ULONG *pcchUniqueNames);")
 cpp_quote("  HRESULT WINAPI ITypeLib2_GetDocumentation2_Proxy(ITypeLib2 *This,INT index,LCID lcid,BSTR *pbstrHelpString,DWORD *pdwHelpStringContext,BSTR *pbstrHelpStringDll);")
 cpp_quote("  HRESULT WINAPI ITypeLib2_GetDocumentation2_Stub(ITypeLib2 *This,INT index,LCID lcid,DWORD refPtrFlags,BSTR *pbstrHelpString,DWORD *pdwHelpStringContext,BSTR *pbstrHelpStringDll);")
-cpp_quote("  HRESULT WINAPI IPropertyBag_Read_Proxy(IPropertyBag *This,LPCOLESTR pszPropName,VARIANT *pVar,IErrorLog *pErrorLog);")
-cpp_quote("  HRESULT WINAPI IPropertyBag_Read_Stub(IPropertyBag *This,LPCOLESTR pszPropName,VARIANT *pVar,IErrorLog *pErrorLog,DWORD varType,IUnknown *pUnkObj);")
