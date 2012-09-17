@@ -89,6 +89,8 @@ extern "C" {
 
 #define TS_IAS_QUERYONLY (0x2)
 
+#define TS_ST_CORRECTION (0x1)
+
 typedef enum __WIDL_textstor_generated_name_00000000 {
     TS_AE_NONE = 0,
     TS_AE_START = 1,
