@@ -57,7 +57,9 @@ IDL_SRCS = \
   include/audioclient.idl \
   include/audiopolicy.idl \
   include/docobj.idl \
+  include/devitetopology.idl \
   include/downloadmgr.idl \
+  include/endpointvolume.idl \
   include/fusion.idl \
   include/oaidl.idl \
   include/ocidl.idl \
