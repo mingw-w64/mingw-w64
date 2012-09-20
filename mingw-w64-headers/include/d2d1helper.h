@@ -12,6 +12,18 @@ namespace D2D1 {
 
 D2D1FORCEINLINE D2D1_MATRIX_3X2_F IdentityMatrix();
 
+template<typename T> struct TypeTraits {
+    typedef D2D1_POINT_2F  Point;
+    typedef D2D1_SIZE_F    Size;
+    typedef D2D1_RECT_F    Rect;
+};
+
+template<> struct TypeTraits<UINT32> {
+    typedef D2D1_POINT_2U  Point;
+    typedef D2D1_SIZE_U    Size;
+    typedef D2D1_RECT_U    Rect;
+};
+
 static inline FLOAT FloatMax() {
     return 3.402823466e+38f;
 }
@@ -36,14 +48,17 @@ D2D1FORCEINLINE D2D1_SIZE_U SizeU(UINT32 width = 0, UINT32 height = 0) {
     return r;
 }
 
-D2D1FORCEINLINE D2D1_RECT_F RectF(FLOAT left = 0.0f, FLOAT top = 0.0f, FLOAT right = 0.0f, FLOAT bottom = 0.0f) {
-    D2D1_RECT_F r = {left, top, right, bottom};
+template<typename T> D2D1FORCEINLINE typename TypeTraits<T>::Rect Rect(T left, T top, T right, T bottom) {
+    typename TypeTraits<T>::Rect r = {left, top, right, bottom};
     return r;
 }
 
+D2D1FORCEINLINE D2D1_RECT_F RectF(FLOAT left = 0.0f, FLOAT top = 0.0f, FLOAT right = 0.0f, FLOAT bottom = 0.0f) {
+    return Rect<FLOAT>(left, top, right, bottom);
+}
+
 D2D1FORCEINLINE D2D1_RECT_U RectU(UINT32 left = 0, UINT32 top = 0, UINT32 right = 0, UINT32 bottom = 0) {
-    D2D1_RECT_U r = {left, top, right, bottom};
-    return r;
+    return Rect<UINT32>(left, top, right, bottom);
 }
 
 D2D1FORCEINLINE D2D1_RECT_F InfiniteRect() {
