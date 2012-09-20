@@ -16,6 +16,7 @@ extern "C" {
 
   _CRTIMP errno_t __cdecl _strset_s(char *_Dst,size_t _DstSize,int _Value);
   _CRTIMP errno_t __cdecl _strerror_s(char *_Buf,size_t _SizeInBytes,const char *_ErrMsg);
+  _CRTIMP errno_t __cdecl strerror_s(char *_Buf,size_t _SizeInBytes,int _ErrNum);
   _CRTIMP errno_t __cdecl _strlwr_s(char *_Str,size_t _Size);
   _CRTIMP errno_t __cdecl _strlwr_s_l(char *_Str,size_t _Size,_locale_t _Locale);
   _CRTIMP errno_t __cdecl _strnset_s(char *_Str,size_t _Size,int _Val,size_t _MaxCount);
