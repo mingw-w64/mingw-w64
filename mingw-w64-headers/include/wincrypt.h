@@ -831,6 +831,10 @@ extern "C" {
 #define szOID_INFOSEC_mosaicKMandUpdSig "2.16.840.1.101.2.1.1.20"
 #define szOID_INFOSEC_mosaicUpdatedInteg "2.16.840.1.101.2.1.1.21"
 
+#define szOID_NIST_AES128_CBC "2.16.840.1.101.3.4.1.2"
+#define szOID_NIST_AES192_CBC "2.16.840.1.101.3.4.1.22"
+#define szOID_NIST_AES256_CBC "2.16.840.1.101.3.4.1.42"
+
   typedef struct _CRYPT_OBJID_TABLE {
     DWORD dwAlgId;
     LPCSTR pszObjId;
