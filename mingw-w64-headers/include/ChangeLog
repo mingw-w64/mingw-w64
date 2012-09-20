@@ -1,3 +1,10 @@
+2012-09-20  Kai Tietz  <ktietz@redhat.com>
+
+	PR 3561209
+	* wincrypt.h (szOID_NIST_AES128_CBC): New.
+	(szOID_NIST_AES192_CBC): Likewise.
+	(szOID_NIST_AES256_CBC): Likewise.
+
 2012-08-29  Yaakov Selkowitz  <yselkowitz@users.sourceforge.net>
 
 	* ntdef.h (_OBJECT_ATTRIBUTES): Guard against duplicate declaration.
