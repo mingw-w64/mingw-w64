@@ -622,6 +622,7 @@ UnregisterHotKey@8
 UnregisterPowerSettingNotification@4
 UnregisterTouchWindow@4
 UpdateLayeredWindow@36
+UpdateLayeredWindowIndirect@8
 UpdateWindow@4
 UserHandleGrantAccess@12
 ValidateRect@8
