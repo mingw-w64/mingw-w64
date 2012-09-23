@@ -57,7 +57,7 @@ IDL_SRCS = \
   include/audioclient.idl \
   include/audiopolicy.idl \
   include/docobj.idl \
-  include/devitetopology.idl \
+  include/devicetopology.idl \
   include/downloadmgr.idl \
   include/endpointvolume.idl \
   include/fusion.idl \
@@ -82,6 +82,7 @@ IDL_SRCS = \
   include/structuredquerycondition.idl \
   include/tpcshrd.idl \
   include/textstor.idl \
+  include/uiautomationcore.idl \
   include/unknwn.idl \
   include/urlmon.idl \
   include/wincodec.idl \

@@ -282,7 +282,7 @@ BUILT_SOURCES = _mingw_directx.h _mingw_ddk.h $(am__append_1)
 @HAVE_WIDL_TRUE@  include/audioclient.idl \
 @HAVE_WIDL_TRUE@  include/audiopolicy.idl \
 @HAVE_WIDL_TRUE@  include/docobj.idl \
-@HAVE_WIDL_TRUE@  include/devitetopology.idl \
+@HAVE_WIDL_TRUE@  include/devicetopology.idl \
 @HAVE_WIDL_TRUE@  include/downloadmgr.idl \
 @HAVE_WIDL_TRUE@  include/endpointvolume.idl \
 @HAVE_WIDL_TRUE@  include/fusion.idl \
@@ -307,6 +307,7 @@ BUILT_SOURCES = _mingw_directx.h _mingw_ddk.h $(am__append_1)
 @HAVE_WIDL_TRUE@  include/structuredquerycondition.idl \
 @HAVE_WIDL_TRUE@  include/tpcshrd.idl \
 @HAVE_WIDL_TRUE@  include/textstor.idl \
+@HAVE_WIDL_TRUE@  include/uiautomationcore.idl \
 @HAVE_WIDL_TRUE@  include/unknwn.idl \
 @HAVE_WIDL_TRUE@  include/urlmon.idl \
 @HAVE_WIDL_TRUE@  include/wincodec.idl \
