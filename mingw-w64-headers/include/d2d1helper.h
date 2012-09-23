@@ -38,14 +38,17 @@ D2D1FORCEINLINE D2D1_POINT_2U Point2U(UINT32 x = 0, UINT32 y = 0) {
     return r;
 }
 
-D2D1FORCEINLINE D2D1_SIZE_F SizeF(FLOAT width = 0.0f, FLOAT height = 0.0f) {
-    D2D1_SIZE_F r = {width, height};
+template<typename T> D2D1FORCEINLINE typename TypeTraits<T>::Size Size(T width, T height) {
+    typename TypeTraits<T>::Size r = {width, height};
     return r;
 }
 
+D2D1FORCEINLINE D2D1_SIZE_F SizeF(FLOAT width = 0.0f, FLOAT height = 0.0f) {
+    return Size<FLOAT>(width, height);
+}
+
 D2D1FORCEINLINE D2D1_SIZE_U SizeU(UINT32 width = 0, UINT32 height = 0) {
-    D2D1_SIZE_U r = {width, height};
-    return r;
+    return Size<UINT32>(width, height);
 }
 
 template<typename T> D2D1FORCEINLINE typename TypeTraits<T>::Rect Rect(T left, T top, T right, T bottom) {
@@ -141,6 +144,14 @@ D2D1FORCEINLINE D2D1_RENDER_TARGET_PROPERTIES RenderTargetProperties(
         D2D1_FEATURE_LEVEL  minLevel = D2D1_FEATURE_LEVEL_DEFAULT)
 {
     D2D1_RENDER_TARGET_PROPERTIES r = {type, pixelFormat, dpiX, dpiY, usage, minLevel};
+    return r;
+}
+
+D2D1FORCEINLINE D2D1_HWND_RENDER_TARGET_PROPERTIES HwndRenderTargetProperties(
+        HWND hwnd,
+        D2D1_SIZE_U pixelSize = D2D1::Size(static_cast<UINT>(0), static_cast<UINT>(0)),
+        D2D1_PRESENT_OPTIONS presentOptions = D2D1_PRESENT_OPTIONS_NONE) {
+    D2D1_HWND_RENDER_TARGET_PROPERTIES r = {hwnd, pixelSize, presentOptions};
     return r;
 }
 
