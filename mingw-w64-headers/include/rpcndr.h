@@ -19,6 +19,7 @@
 #include <pshpack8.h>
 #include <basetsd.h>
 #include <rpcnsip.h>
+#include <rpcsal.h>
 
 #ifdef __cplusplus
 extern "C" {
