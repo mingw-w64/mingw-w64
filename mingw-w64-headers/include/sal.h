@@ -8,6 +8,7 @@
 #define SAL_HXX
 
 #define _In_
+#define _In_opt_
 #define _Out_
 
 #endif
