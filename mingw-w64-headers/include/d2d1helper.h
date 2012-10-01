@@ -6,7 +6,7 @@
 #ifndef _INC_D2D1HELPER
 #define _INC_D2D1HELPER
 
-#ifdef __cplusplus
+#ifndef D2D_USE_C_DEFINITIONS
 
 namespace D2D1 {
 
@@ -28,14 +28,17 @@ static inline FLOAT FloatMax() {
     return 3.402823466e+38f;
 }
 
-D2D1FORCEINLINE D2D1_POINT_2F Point2F(FLOAT x = 0.f, FLOAT y = 0.f) {
-    D2D1_POINT_2F r = {x,y};
+template<typename T> D2D1FORCEINLINE typename TypeTraits<T>::Point Point2(T x, T y) {
+    typename TypeTraits<T>::Point r = {x,y};
     return r;
 }
 
+D2D1FORCEINLINE D2D1_POINT_2F Point2F(FLOAT x = 0.f, FLOAT y = 0.f) {
+    return Point2<FLOAT>(x, y);
+}
+
 D2D1FORCEINLINE D2D1_POINT_2U Point2U(UINT32 x = 0, UINT32 y = 0) {
-    D2D1_POINT_2U r = {x,y};
-    return r;
+    return Point2<UINT32>(x, y);
 }
 
 template<typename T> D2D1FORCEINLINE typename TypeTraits<T>::Size Size(T width, T height) {
@@ -79,10 +82,25 @@ D2D1FORCEINLINE D2D1_BEZIER_SEGMENT BezierSegment(const D2D1_POINT_2F &point1, c
     return r;
 }
 
+D2D1FORCEINLINE D2D1_ELLIPSE Ellipse(const D2D1_POINT_2F &center, FLOAT radiusX, FLOAT radiusY) {
+    D2D1_ELLIPSE r = {center, radiusX, radiusY};
+    return r;
+}
+
+D2D1FORCEINLINE D2D1_ROUNDED_RECT RoundedRect(const D2D1_RECT_F &rect, FLOAT radiusX, FLOAT radiusY) {
+    D2D1_ROUNDED_RECT r = {rect, radiusX, radiusY};
+    return r;
+}
+
 D2D1FORCEINLINE D2D1_BRUSH_PROPERTIES BrushProperties(
         FLOAT opacity = 1.0f,
         const D2D1_MATRIX_3X2_F &transform = D2D1::IdentityMatrix()) {
     D2D1_BRUSH_PROPERTIES r = {opacity, transform};
+    return r;
+}
+
+D2D1FORCEINLINE D2D1_GRADIENT_STOP GradientStop(FLOAT position, const D2D1_COLOR_F &color) {
+    D2D1_GRADIENT_STOP r = {position, color};
     return r;
 }
 
@@ -165,6 +183,16 @@ D2D1FORCEINLINE D2D1_LAYER_PARAMETERS LayerParameters(
         D2D1_LAYER_OPTIONS layerOptions = D2D1_LAYER_OPTIONS_NONE) {
     D2D1_LAYER_PARAMETERS r =
         {contentBounds, geometricMask, maskAntialiasMode, maskTransform, opacity, opacityBrush, layerOptions };
+    return r;
+}
+
+D2D1FORCEINLINE D2D1_DRAWING_STATE_DESCRIPTION DrawingStateDescription(
+        D2D1_ANTIALIAS_MODE antialiasMode = D2D1_ANTIALIAS_MODE_PER_PRIMITIVE,
+        D2D1_TEXT_ANTIALIAS_MODE textAntialiasMode = D2D1_TEXT_ANTIALIAS_MODE_DEFAULT,
+        D2D1_TAG tag1 = 0,
+        D2D1_TAG tag2 = 0,
+        const D2D1_MATRIX_3X2_F &transform = D2D1::IdentityMatrix()) {
+    D2D1_DRAWING_STATE_DESCRIPTION r = {antialiasMode, textAntialiasMode, tag1, tag2, transform};
     return r;
 }
 
@@ -349,6 +377,38 @@ public:
 
     D2D1FORCEINLINE Matrix3x2F() {}
 
+    static D2D1FORCEINLINE Matrix3x2F Identity() {
+        return Matrix3x2F(1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f);
+    }
+
+    static D2D1FORCEINLINE Matrix3x2F Translation(D2D1_SIZE_F size) {
+        return Translation(size.width, size.height);
+    }
+
+    static D2D1FORCEINLINE Matrix3x2F Translation(FLOAT x, FLOAT y) {
+        return Matrix3x2F(1.0f, 0.0f, 0.0f, 1.0f, x, y);
+    }
+
+    static D2D1FORCEINLINE Matrix3x2F Scale(D2D1_SIZE_F size, D2D1_POINT_2F center = D2D1::Point2F()) {
+        return Scale(size.width, size.height, center);
+    }
+
+    static D2D1FORCEINLINE Matrix3x2F Scale(FLOAT x, FLOAT y, D2D1_POINT_2F center = D2D1::Point2F()) {
+        return Matrix3x2F(x, 0.0f, 0.0f, y, center.x - x*center.x, center.y - y*center.y);
+    }
+
+    static D2D1FORCEINLINE Matrix3x2F Rotation(FLOAT angle, D2D1_POINT_2F center = D2D1::Point2F()) {
+        Matrix3x2F r;
+        D2D1MakeRotateMatrix(angle, center, &r);
+        return r;
+    }
+
+    static D2D1FORCEINLINE Matrix3x2F Skew(FLOAT angleX, FLOAT angleY, D2D1_POINT_2F center = D2D1::Point2F()) {
+        Matrix3x2F r;
+        D2D1MakeSkewMatrix(angleX, angleY, center, &r);
+        return r;
+    }
+
     static inline const Matrix3x2F *ReinterpretBaseType(const D2D1_MATRIX_3X2_F *pMatrix) {
         return static_cast<const Matrix3x2F *>(pMatrix);
     }
@@ -361,8 +421,16 @@ public:
         return _11*_22 - _12*_21;
     }
 
-    static D2D1FORCEINLINE Matrix3x2F Identity() {
-        return Matrix3x2F(1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f);
+    inline bool IsInvertible() const {
+        return !!D2D1IsMatrixInvertible(this);
+    }
+
+    inline bool Invert() {
+        return !!D2D1InvertMatrix(this);
+    }
+
+    inline bool IsIdentity() const {
+        return _11 == 1.0f && _12 == 0.0f && _21 == 0.0f && _22 == 1.0f && _31 == 0.0f && _32 == 0.0f;
     }
 
     inline void SetProduct(const Matrix3x2F &a, const Matrix3x2F &b) {
@@ -379,7 +447,15 @@ public:
         r.SetProduct(*this, matrix);
         return r;
     }
+
+    D2D1FORCEINLINE D2D1_POINT_2F TransformPoint(D2D1_POINT_2F point) const {
+        return Point2F(point.x*_11 + point.y*_21 + _31, point.x*_12 + point.y*_22 + _32);
+    }
 };
+
+D2D1FORCEINLINE D2D1_POINT_2F operator*(const D2D1_POINT_2F &point, const D2D1_MATRIX_3X2_F &matrix) {
+    return Matrix3x2F::ReinterpretBaseType(&matrix)->TransformPoint(point);
+}
 
 D2D1FORCEINLINE D2D1_MATRIX_3X2_F IdentityMatrix() {
     return Matrix3x2F::Identity();
@@ -393,6 +469,6 @@ D2D1FORCEINLINE D2D1_MATRIX_3X2_F operator*(const D2D1_MATRIX_3X2_F &matrix1, co
     return r;
 }
 
-#endif /* __cplusplus */
+#endif /* D2D_USE_C_DEFINITIONS */
 
 #endif /*_INC_D2D1HELPER*/
