@@ -82,6 +82,7 @@ IDL_SRCS = \
   include/structuredquerycondition.idl \
   include/tpcshrd.idl \
   include/textstor.idl \
+  include/uiautomationclient.idl \
   include/uiautomationcore.idl \
   include/unknwn.idl \
   include/urlmon.idl \
