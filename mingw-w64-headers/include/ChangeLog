@@ -1,3 +1,21 @@
+2012-10-11  Corinna Vinschen  <vinschen@redhat.com>
+
+	* winternl.h: Throughout, use NTAPI instead of WINAPI.
+	(enum _FSINFOCLASS): Define.
+	(struct _FILE_FS_VOLUME_INFORMATION): Define.
+	(struct _FILE_FS_LABEL_INFORMATION): Define.
+	(struct _FILE_FS_SIZE_INFORMATION): Define.
+	(struct _FILE_FS_DEVICE_INFORMATION): Define.
+	(struct _FILE_FS_ATTRIBUTE_INFORMATION): Define.
+	(struct _FILE_FS_FULL_SIZE_INFORMATION): Define.
+	(struct _FILE_FS_OBJECTID_INFORMATION): Define.
+	(NtFsControlFile): Declare.
+	(NtQueryVolumeInformationFile): Declare.
+	(NtSetInformationFile): Declare.
+	(NtSetVolumeInformationFile): Declare.
+	(RtlDosPathNameToNtPathName_U): Declare.
+
+
 2012-09-20  Kai Tietz  <ktietz@redhat.com>
 
 	PR 3561209
