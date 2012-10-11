@@ -1,5 +1,10 @@
 2012-10-11  Corinna Vinschen  <vinschen@redhat.com>
 
+	* winioctl.h (DEVICE_TYPE): Define only if not already defined.
+	* winternl.h (DEVICE_TYPE): Define as ULONG if not already defined.
+
+2012-10-11  Corinna Vinschen  <vinschen@redhat.com>
+
 	* winternl.h: Throughout, use NTAPI instead of WINAPI.
 	(enum _FSINFOCLASS): Define.
 	(struct _FILE_FS_VOLUME_INFORMATION): Define.

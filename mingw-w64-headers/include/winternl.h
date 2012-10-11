@@ -12,6 +12,10 @@
 #define NT_SUCCESS(status)	((NTSTATUS) (status) >= 0)
 #endif
 
+#ifndef DEVICE_TYPE
+#define DEVICE_TYPE ULONG
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
