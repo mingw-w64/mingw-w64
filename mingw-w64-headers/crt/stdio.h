@@ -742,12 +742,22 @@ int vwprintf (const wchar_t *__format, __builtin_va_list __local_argv)
   return __mingw_vwprintf( __format, __local_argv );
 }
 
+/* For libstdc++ */
+#if defined(__cplusplus) && (__cplusplus >= 201103L) && !defined(_GLIBCXX_HAVE_BROKEN_VSWPRINTF)
+__mingw_ovr
+/* __attribute__((__format__ (gnu_wprintf, 3, 0))) */ __MINGW_ATTRIB_NONNULL(3)
+int vswprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builtin_va_list __local_argv)
+{
+  return __mingw_vsnwprintf( __stream, __n, __format, __local_argv );
+}
+#else
 __mingw_ovr
 /* __attribute__((__format__ (gnu_printf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
 int vswprintf (wchar_t *__stream, const wchar_t *__format, __builtin_va_list __local_argv)
 {
   return __mingw_vswprintf( __stream, __format, __local_argv );
 }
+#endif /* defined(__cplusplus) && (__cplusplus >= 201103L) && !defined(_GLIBCXX_HAVE_BROKEN_VSWPRINTF) */
 
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
 __mingw_ovr
