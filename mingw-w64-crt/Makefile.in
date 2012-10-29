@@ -3832,7 +3832,7 @@ src_libmingwex32 = \
 @LIB32_TRUE@	lib32/libwdsclientapi.a lib32/libpcwum.a \
 @LIB32_TRUE@	lib32/libdbgeng.a lib32/libcabinet.a \
 @LIB32_TRUE@	lib32/libcryptxml.a lib32/libsspicli.a \
-@LIB32_TRUE@	lib32/libsapi.a lib32/libd3dcompiler_33.a \
+@LIB32_TRUE@	lib32/libd3dcompiler_33.a \
 @LIB32_TRUE@	lib32/libd3dcompiler_34.a \
 @LIB32_TRUE@	lib32/libd3dcompiler_35.a \
 @LIB32_TRUE@	lib32/libd3dcompiler_36.a \
