@@ -150,10 +150,10 @@ DECLARE_INTERFACE_(ID3DXBaseEffect, IUnknown)
     STDMETHOD(GetMatrixTransposePointerArray)(THIS_ D3DXHANDLE parameter, D3DXMATRIX** matrix, UINT count) PURE;
     STDMETHOD(SetString)(THIS_ D3DXHANDLE parameter, LPCSTR string) PURE;
     STDMETHOD(GetString)(THIS_ D3DXHANDLE parameter, LPCSTR* string) PURE;
-    STDMETHOD(SetTexture)(THIS_ D3DXHANDLE parameter, LPDIRECT3DBASETEXTURE9 texture) PURE;
-    STDMETHOD(GetTexture)(THIS_ D3DXHANDLE parameter, LPDIRECT3DBASETEXTURE9* texture) PURE;
-    STDMETHOD(GetPixelShader)(THIS_ D3DXHANDLE parameter, LPDIRECT3DPIXELSHADER9* pshader) PURE;
-    STDMETHOD(GetVertexShader)(THIS_ D3DXHANDLE parameter, LPDIRECT3DVERTEXSHADER9* vshader) PURE;
+    STDMETHOD(SetTexture)(THIS_ D3DXHANDLE parameter, struct IDirect3DBaseTexture9 *texture) PURE;
+    STDMETHOD(GetTexture)(THIS_ D3DXHANDLE parameter, struct IDirect3DBaseTexture9 **texture) PURE;
+    STDMETHOD(GetPixelShader)(THIS_ D3DXHANDLE parameter, struct IDirect3DPixelShader9 **shader) PURE;
+    STDMETHOD(GetVertexShader)(THIS_ D3DXHANDLE parameter, struct IDirect3DVertexShader9 **shader) PURE;
     STDMETHOD(SetArrayRange)(THIS_ D3DXHANDLE parameter, UINT start, UINT end) PURE;
 };
 #undef INTERFACE
@@ -176,16 +176,16 @@ DECLARE_INTERFACE_(ID3DXEffectStateManager, IUnknown)
     STDMETHOD(SetLight)(THIS_ DWORD index, CONST D3DLIGHT9* light) PURE;
     STDMETHOD(LightEnable)(THIS_ DWORD index, WINBOOL enable) PURE;
     STDMETHOD(SetRenderState)(THIS_ D3DRENDERSTATETYPE state, DWORD value) PURE;
-    STDMETHOD(SetTexture)(THIS_ DWORD stage, LPDIRECT3DBASETEXTURE9 texture) PURE;
+    STDMETHOD(SetTexture)(THIS_ DWORD stage, struct IDirect3DBaseTexture9 *texture) PURE;
     STDMETHOD(SetTextureStageState)(THIS_ DWORD stage, D3DTEXTURESTAGESTATETYPE type, DWORD value) PURE;
     STDMETHOD(SetSamplerState)(THIS_ DWORD sampler, D3DSAMPLERSTATETYPE type, DWORD value) PURE;
     STDMETHOD(SetNPatchMode)(THIS_ FLOAT num_segments) PURE;
     STDMETHOD(SetFVF)(THIS_ DWORD format) PURE;
-    STDMETHOD(SetVertexShader)(THIS_ LPDIRECT3DVERTEXSHADER9 shader) PURE;
+    STDMETHOD(SetVertexShader)(THIS_ struct IDirect3DVertexShader9 *shader) PURE;
     STDMETHOD(SetVertexShaderConstantF)(THIS_ UINT register_index, CONST FLOAT* constant_data, UINT register_count) PURE;
     STDMETHOD(SetVertexShaderConstantI)(THIS_ UINT register_index, CONST INT* constant_data, UINT register_count) PURE;
     STDMETHOD(SetVertexShaderConstantB)(THIS_ UINT register_index, CONST WINBOOL* constant_data, UINT register_count) PURE;
-    STDMETHOD(SetPixelShader)(THIS_ LPDIRECT3DPIXELSHADER9 shader) PURE;
+    STDMETHOD(SetPixelShader)(THIS_ struct IDirect3DPixelShader9 *shader) PURE;
     STDMETHOD(SetPixelShaderConstantF)(THIS_ UINT register_index, CONST FLOAT* constant_data, UINT register_count) PURE;
     STDMETHOD(SetPixelShaderConstantI)(THIS_ UINT register_index, CONST INT * constant_data, UINT register_count) PURE;
     STDMETHOD(SetPixelShaderConstantB)(THIS_ UINT register_index, CONST WINBOOL* constant_data, UINT register_count) PURE;
@@ -254,10 +254,10 @@ DECLARE_INTERFACE_(ID3DXEffect, ID3DXBaseEffect)
     STDMETHOD(GetMatrixTransposePointerArray)(THIS_ D3DXHANDLE parameter, D3DXMATRIX** matrix, UINT count) PURE;
     STDMETHOD(SetString)(THIS_ D3DXHANDLE parameter, LPCSTR string) PURE;
     STDMETHOD(GetString)(THIS_ D3DXHANDLE parameter, LPCSTR* string) PURE;
-    STDMETHOD(SetTexture)(THIS_ D3DXHANDLE parameter, LPDIRECT3DBASETEXTURE9 texture) PURE;
-    STDMETHOD(GetTexture)(THIS_ D3DXHANDLE parameter, LPDIRECT3DBASETEXTURE9* texture) PURE;
-    STDMETHOD(GetPixelShader)(THIS_ D3DXHANDLE parameter, LPDIRECT3DPIXELSHADER9* pshader) PURE;
-    STDMETHOD(GetVertexShader)(THIS_ D3DXHANDLE parameter, LPDIRECT3DVERTEXSHADER9* vshader) PURE;
+    STDMETHOD(SetTexture)(THIS_ D3DXHANDLE parameter, struct IDirect3DBaseTexture9 *texture) PURE;
+    STDMETHOD(GetTexture)(THIS_ D3DXHANDLE parameter, struct IDirect3DBaseTexture9 **texture) PURE;
+    STDMETHOD(GetPixelShader)(THIS_ D3DXHANDLE parameter, struct IDirect3DPixelShader9 **shader) PURE;
+    STDMETHOD(GetVertexShader)(THIS_ D3DXHANDLE parameter, struct IDirect3DVertexShader9 **shader) PURE;
     STDMETHOD(SetArrayRange)(THIS_ D3DXHANDLE parameter, UINT start, UINT end) PURE;
     /*** ID3DXEffect methods ***/
     STDMETHOD(GetPool)(THIS_ LPD3DXEFFECTPOOL* pool) PURE;
@@ -347,10 +347,10 @@ DECLARE_INTERFACE_(ID3DXEffectCompiler, ID3DXBaseEffect)
     STDMETHOD(GetMatrixTransposePointerArray)(THIS_ D3DXHANDLE parameter, D3DXMATRIX** matrix, UINT count) PURE;
     STDMETHOD(SetString)(THIS_ D3DXHANDLE parameter, LPCSTR string) PURE;
     STDMETHOD(GetString)(THIS_ D3DXHANDLE parameter, LPCSTR* string) PURE;
-    STDMETHOD(SetTexture)(THIS_ D3DXHANDLE parameter, LPDIRECT3DBASETEXTURE9 texture) PURE;
-    STDMETHOD(GetTexture)(THIS_ D3DXHANDLE parameter, LPDIRECT3DBASETEXTURE9* texture) PURE;
-    STDMETHOD(GetPixelShader)(THIS_ D3DXHANDLE parameter, LPDIRECT3DPIXELSHADER9* pshader) PURE;
-    STDMETHOD(GetVertexShader)(THIS_ D3DXHANDLE parameter, LPDIRECT3DVERTEXSHADER9* vshader) PURE;
+    STDMETHOD(SetTexture)(THIS_ D3DXHANDLE parameter, struct IDirect3DBaseTexture9 *texture) PURE;
+    STDMETHOD(GetTexture)(THIS_ D3DXHANDLE parameter, struct IDirect3DBaseTexture9 **texture) PURE;
+    STDMETHOD(GetPixelShader)(THIS_ D3DXHANDLE parameter, struct IDirect3DPixelShader9 **shader) PURE;
+    STDMETHOD(GetVertexShader)(THIS_ D3DXHANDLE parameter, struct IDirect3DVertexShader9 **shader) PURE;
     STDMETHOD(SetArrayRange)(THIS_ D3DXHANDLE parameter, UINT start, UINT end) PURE;
     /*** ID3DXEffectCompiler methods ***/
     STDMETHOD(SetLiteral)(THIS_ D3DXHANDLE parameter, WINBOOL literal) PURE;
