@@ -144,12 +144,20 @@ typedef interface ICreateObject ICreateObject;
 
 #ifndef __InMemoryPropertyStore_FWD_DEFINED__
 #define __InMemoryPropertyStore_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class InMemoryPropertyStore InMemoryPropertyStore;
+#else
 typedef struct InMemoryPropertyStore InMemoryPropertyStore;
+#endif /* defined __cplusplus */
 #endif /* defined __InMemoryPropertyStore_FWD_DEFINED__ */
 
 #ifndef __PropertySystem_FWD_DEFINED__
 #define __PropertySystem_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class PropertySystem PropertySystem;
+#else
 typedef struct PropertySystem PropertySystem;
+#endif /* defined __cplusplus */
 #endif /* defined __PropertySystem_FWD_DEFINED__ */
 
 /* Headers for imported files */

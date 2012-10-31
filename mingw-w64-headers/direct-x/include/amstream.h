@@ -59,7 +59,11 @@ typedef interface IAMMediaTypeSample IAMMediaTypeSample;
 
 #ifndef __AMMultiMediaStream_FWD_DEFINED__
 #define __AMMultiMediaStream_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class AMMultiMediaStream AMMultiMediaStream;
+#else
 typedef struct AMMultiMediaStream AMMultiMediaStream;
+#endif /* defined __cplusplus */
 #endif /* defined __AMMultiMediaStream_FWD_DEFINED__ */
 
 /* Headers for imported files */

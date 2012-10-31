@@ -34,7 +34,11 @@ typedef interface IMediaDet IMediaDet;
 
 #ifndef __MediaDet_FWD_DEFINED__
 #define __MediaDet_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class MediaDet MediaDet;
+#else
 typedef struct MediaDet MediaDet;
+#endif /* defined __cplusplus */
 #endif /* defined __MediaDet_FWD_DEFINED__ */
 
 /* Headers for imported files */

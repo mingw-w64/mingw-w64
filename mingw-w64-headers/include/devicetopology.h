@@ -144,7 +144,11 @@ typedef interface IDeviceTopology IDeviceTopology;
 
 #ifndef __DeviceTopology_FWD_DEFINED__
 #define __DeviceTopology_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class DeviceTopology DeviceTopology;
+#else
 typedef struct DeviceTopology DeviceTopology;
+#endif /* defined __cplusplus */
 #endif /* defined __DeviceTopology_FWD_DEFINED__ */
 
 /* Headers for imported files */

@@ -49,7 +49,11 @@ typedef interface IMMDeviceActivator IMMDeviceActivator;
 
 #ifndef __MMDeviceEnumerator_FWD_DEFINED__
 #define __MMDeviceEnumerator_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class MMDeviceEnumerator MMDeviceEnumerator;
+#else
 typedef struct MMDeviceEnumerator MMDeviceEnumerator;
+#endif /* defined __cplusplus */
 #endif /* defined __MMDeviceEnumerator_FWD_DEFINED__ */
 
 /* Headers for imported files */
