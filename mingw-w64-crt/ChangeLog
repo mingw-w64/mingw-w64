@@ -1,3 +1,9 @@
+2012-11-05  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merge from trunk rev. 5436:
+	Jonathan Yong  <jon_y@users.sourceforge.net>
+	* iphlpapi.def: Fix double @nn, add missing @0, regenerate from Win7.
+
 2012-09-12  Dongsheng Song  <dongsheng@users.sourceforge.net>
 
 	* lib32/msvcr110.def: New.
