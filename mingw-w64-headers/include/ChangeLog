@@ -1,3 +1,10 @@
+2012-11-05  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merge from trunk rev. 5445:
+	Jonathan Yong  <jon_y@users.sourceforge.net>
+	* icmpapi.h: IcmpParseReplies and Icmp6ParseReplies are actually
+	stdcall.
+
 2012-08-10  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* getopt.h (optreset): Guard __mingw_optreset definition by
