@@ -2207,11 +2207,19 @@ DECLARE_INTERFACE_(IDWriteTypography,IUnknown)
 #define IDWriteTypography_GetFontFeatureCount() (This)->lpVtbl->GetFontFeatureCount(This)
 #endif /*COBJMACROS*/
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 DWRITEAPI HRESULT WINAPI DWriteCreateFactory(
   DWRITE_FACTORY_TYPE factoryType,
   REFIID iid,
   IUnknown **factory
 );
+
+#ifdef __cplusplus
+}
+#endif
 
 __CRT_UUID_DECL(IDWriteBitmapRenderTarget, 0x5e5a32a3,0x8dff,0x4773,0x9f,0xf6,0x06,0x96,0xea,0xb7,0x72,0x67);
 __CRT_UUID_DECL(IDWriteFactory, 0xb859ee5a,0xd838,0x4b5b,0xa2,0xe8,0x1a,0xdc,0x7d,0x93,0xdb,0x48);
