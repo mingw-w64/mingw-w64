@@ -1,3 +1,11 @@
+2012-11-13  Corinna Vinschen  <vinschen@redhat.com>
+
+	* winternl.h (SYSTEM_BASIC_INFORMATION): Change type of address
+	members to match 64 bit systems.
+	(SYSTEM_PAGEFILE_INFORMATION): New type.
+	(SYSTEM_INFORMATION_CLASS): Reformat for readability.  Add
+	SystemPagefileInformation.
+
 2012-10-11  Corinna Vinschen  <vinschen@redhat.com>
 
 	* winioctl.h (DEVICE_TYPE): Define only if not already defined.

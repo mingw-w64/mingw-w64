@@ -688,9 +688,9 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
     ULONG LowestPhysicalPage;
     ULONG HighestPhysicalPage;
     ULONG AllocationGranularity;
-    ULONG LowestUserAddress;
-    ULONG HighestUserAddress;
-    ULONG ActiveProcessors;
+    ULONG_PTR LowestUserAddress;
+    ULONG_PTR HighestUserAddress;
+    ULONG_PTR ActiveProcessors;
     CCHAR NumberOfProcessors;
   } SYSTEM_BASIC_INFORMATION,*PSYSTEM_BASIC_INFORMATION;
 
@@ -813,6 +813,14 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
     SYSTEM_HANDLE_ENTRY Handle[1];
   } SYSTEM_HANDLE_INFORMATION, *PSYSTEM_HANDLE_INFORMATION;
 
+  typedef struct _SYSTEM_PAGEFILE_INFORMATION {
+    ULONG NextEntryOffset;
+    ULONG CurrentSize;
+    ULONG TotalUsed;
+    ULONG PeakUsed;
+    UNICODE_STRING FileName;
+  } SYSTEM_PAGEFILE_INFORMATION, *PSYSTEM_PAGEFILE_INFORMATION;
+
   typedef enum _PROCESSINFOCLASS {
     ProcessBasicInformation,
     ProcessQuotaLimits,
@@ -891,8 +899,17 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
   typedef THREADINFOCLASS THREAD_INFORMATION_CLASS, *PTHREAD_INFORMATION_CLASS;
 
   typedef enum _SYSTEM_INFORMATION_CLASS {
-    SystemBasicInformation = 0,SystemProcessorInformation = 1,SystemPerformanceInformation = 2,SystemTimeOfDayInformation = 3,SystemProcessInformation = 5,
-    SystemProcessorPerformanceInformation = 8,SystemHandleInformation = 16,SystemInterruptInformation = 23,SystemExceptionInformation = 33,SystemRegistryQuotaInformation = 37,
+    SystemBasicInformation = 0,
+    SystemProcessorInformation = 1,
+    SystemPerformanceInformation = 2,
+    SystemTimeOfDayInformation = 3,
+    SystemProcessInformation = 5,
+    SystemProcessorPerformanceInformation = 8,
+    SystemHandleInformation = 16,
+    SystemPagefileInformation = 18,
+    SystemInterruptInformation = 23,
+    SystemExceptionInformation = 33,
+    SystemRegistryQuotaInformation = 37,
     SystemLookasideInformation = 45
   } SYSTEM_INFORMATION_CLASS;
 
