@@ -1,3 +1,10 @@
+2012-11-13  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Merge from trunk rev. 5452:
+	Corinna Vinschen  <vinschen@redhat.com>
+	* winternl.h (SYSTEM_BASIC_INFORMATION): Change type of address
+	members to match 64 bit systems.
+
 2012-11-05  Ozkan Sezer  <sezeroz@gmail.com>
 
 	Merge from trunk rev. 5445:

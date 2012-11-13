@@ -584,9 +584,9 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
     ULONG LowestPhysicalPage;
     ULONG HighestPhysicalPage;
     ULONG AllocationGranularity;
-    ULONG LowestUserAddress;
-    ULONG HighestUserAddress;
-    ULONG ActiveProcessors;
+    ULONG_PTR LowestUserAddress;
+    ULONG_PTR HighestUserAddress;
+    ULONG_PTR ActiveProcessors;
     CCHAR NumberOfProcessors;
   } SYSTEM_BASIC_INFORMATION,*PSYSTEM_BASIC_INFORMATION;
 
