@@ -48,7 +48,7 @@ AC_FUNC_ERROR_AT_LINE
 AC_FUNC_MALLOC
 AC_FUNC_REALLOC
 AC_FUNC_STRTOD
-AC_CHECK_FUNCS([atexit gettimeofday memmove memset mkstemp strcasecmp strchr strdup strerror strncasecmp strrchr strtol strtoul strtoull])
+AC_CHECK_FUNCS([atexit gettimeofday getopt_long_only memmove memset mkstemp strcasecmp strchr strdup strerror strncasecmp strrchr strtol strtoul strtoull])
 
 AH_TOP([#define __WINE_CONFIG_H])
 

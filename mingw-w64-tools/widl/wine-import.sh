@@ -31,3 +31,7 @@ do
 	cp $WINE_DIR/include/wine/$f include/wine
 done
 
+for f in getopt.c getopt1.c
+do
+	cp $WINE_DIR/libs/port/$f src/port/
+done

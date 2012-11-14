@@ -18,6 +18,8 @@ widl_SOURCES = src/widl.h \
   src/header.c \
   src/parser.tab.c \
   src/parser.yy.c \
+  src/port/getopt.c \
+  src/port/getopt1.c \
   src/port/port.c \
   src/proxy.c \
   src/register.c \
