@@ -26,8 +26,12 @@ ddkhead_HEADERS = @DDKHEAD_LIST@
 dxhead_HEADERS = @DXHEAD_LIST@
 idlhead_HEADERS = @IDLHEAD_LIST@
 
-EXTRA_DIST = $(srcdir)/ChangeLog.*
-DISTCHECK_CONFIGURE_FLAGS = --enable-idl
+DISTCHECK_CONFIGURE_FLAGS = --enable-crt --enable-sdk=all --enable-idl
+
+EXTRA_DIST = $(srcdir)/ChangeLog.* include crt direct-x ddk
+
+dist-hook:
+	find $(distdir) -name ".svn" -type d -delete
 
 EXTRA_HEADERS = \
   include/*.dlg \
