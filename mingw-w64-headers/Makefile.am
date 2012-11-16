@@ -15,7 +15,8 @@ secsyshead_HEADERS = @SECSYSHEAD_LIST@
 glhead_HEADERS = @GLHEAD_LIST@
 gdiplushead_HEADERS = @GDIPLUSHEAD_LIST@
 mingwhelperhead_HEADERS = @MINGWHELPERHEAD_LIST@
-sdkshead_HEADERS = _mingw_directx.h _mingw_ddk.h
+nodist_sdkshead_HEADERS = _mingw_directx.h _mingw_ddk.h
+noinst_HEADERS = crt/sdks/_mingw_directx.h.in crt/sdks/_mingw_ddk.h.in
 
 ddkheaddir = $(baseheaddir)/ddk
 dxheaddir = $(baseheaddir)
