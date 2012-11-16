@@ -25,7 +25,7 @@ ddkhead_HEADERS = @DDKHEAD_LIST@
 dxhead_HEADERS = @DXHEAD_LIST@
 idlhead_HEADERS = @IDLHEAD_LIST@
 
-EXTRA_DIST = ChangeLog*
+EXTRA_DIST = $(srcdir)/ChangeLog.*
 DISTCHECK_CONFIGURE_FLAGS = --enable-idl
 
 EXTRA_HEADERS = \
