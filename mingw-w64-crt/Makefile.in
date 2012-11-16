@@ -135,8 +135,8 @@ check_PROGRAMS = $(am__EXEEXT_2) $(am__EXEEXT_4) $(am__EXEEXT_6)
 TESTS = $(am__EXEEXT_2) $(am__EXEEXT_4) $(am__EXEEXT_6)
 XFAIL_TESTS = testcases/t_nullptrexception$(EXEEXT) $(am__EXEEXT_7) \
 	$(am__EXEEXT_7)
-DIST_COMMON = $(am__configure_deps) $(noinst_HEADERS) \
-	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
+DIST_COMMON = $(am__configure_deps) $(dist_libsrc_DATA) \
+	$(noinst_HEADERS) $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(srcdir)/config.h.in $(srcdir)/testcases/complex/Makefile.am \
 	$(top_srcdir)/build-aux/ar-lib $(top_srcdir)/build-aux/compile \
 	$(top_srcdir)/build-aux/config.guess \
@@ -208,8 +208,8 @@ am__uninstall_files_from_dir = { \
   }
 am__installdirs = "$(DESTDIR)$(lib32dir)" "$(DESTDIR)$(lib64dir)" \
 	"$(DESTDIR)$(crt32dir)" "$(DESTDIR)$(crt64dir)" \
-	"$(DESTDIR)$(lib32dir)" "$(DESTDIR)$(lib64dir)" \
-	"$(DESTDIR)$(libsrcdir)"
+	"$(DESTDIR)$(libsrcdir)" "$(DESTDIR)$(lib32dir)" \
+	"$(DESTDIR)$(lib64dir)"
 LIBRARIES = $(lib32_LIBRARIES) $(lib64_LIBRARIES)
 ARFLAGS = cru
 lib32_libdelayimp_a_AR = $(AR) $(ARFLAGS)
@@ -3244,8 +3244,8 @@ am__can_run_installinfo = \
     n|no|NO) false;; \
     *) (install-info --version) >/dev/null 2>&1;; \
   esac
-DATA = $(crt32_DATA) $(crt64_DATA) $(lib32_DATA) $(lib64_DATA) \
-	$(libsrc_DATA)
+DATA = $(crt32_DATA) $(crt64_DATA) $(dist_libsrc_DATA) $(lib32_DATA) \
+	$(lib64_DATA)
 HEADERS = $(noinst_HEADERS)
 ETAGS = etags
 CTAGS = ctags
@@ -4252,7 +4252,7 @@ src_libmingwex32 = \
 # Don't compile these, but install as is:
 #
 libsrcdir = $(includedir)
-libsrc_DATA = \
+dist_libsrc_DATA = \
   libsrc/agtctl_i.c   libsrc/agtsvr_i.c     libsrc/cdoex_i.c    libsrc/cdoexm_i.c     \
   libsrc/cdosys_i.c   libsrc/emostore_i.c   libsrc/iisext_i.c   libsrc/mtsadmin_i.c   \
   libsrc/mtxadmin_i.c libsrc/scardssp_i.c   libsrc/scardssp_p.c libsrc/tsuserex_i.c
@@ -4270,13 +4270,13 @@ CLEANFILES = $(BUILT_SOURCES) $(crt64_DATA) $(lib64_DATA) $(crt32_DATA) $(lib32_
 
 # Distribution options
 #
-EXTRA_DIST = ChangeLog* revstamp.h $(top_srcdir)/lib64/*.def \
-	$(top_srcdir)/lib64/*.mri $(top_srcdir)/lib32/*.def \
-	$(top_srcdir)/lib32/*.mri crt/binmode.c crt/crtbegin.c \
-	crt/crtdll.c crt/crtend.c crt/crtexe.c crt/CRT_fp8.c \
-	crt/CRT_fp10.c crt/CRT_glob.c crt/CRT_noglob.c crt/txtmode.c \
-	crt/ucrtexe.c profile/gcrt0.c profile/COPYING \
-	profile/CYGWIN_LICENSE
+EXTRA_DIST = $(srcdir)/ChangeLog.* revstamp.h \
+	$(top_srcdir)/lib64/*.def $(top_srcdir)/lib64/*.mri \
+	$(top_srcdir)/lib32/*.def $(top_srcdir)/lib32/*.mri \
+	crt/binmode.c crt/crtbegin.c crt/crtdll.c crt/crtend.c \
+	crt/crtexe.c crt/CRT_fp8.c crt/CRT_fp10.c crt/CRT_glob.c \
+	crt/CRT_noglob.c crt/txtmode.c crt/ucrtexe.c profile/gcrt0.c \
+	profile/COPYING profile/CYGWIN_LICENSE
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet) $(withsys)
 
 # Testsuite options
@@ -32136,6 +32136,27 @@ uninstall-crt64DATA:
 	@list='$(crt64_DATA)'; test -n "$(crt64dir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	dir='$(DESTDIR)$(crt64dir)'; $(am__uninstall_files_from_dir)
+install-dist_libsrcDATA: $(dist_libsrc_DATA)
+	@$(NORMAL_INSTALL)
+	@list='$(dist_libsrc_DATA)'; test -n "$(libsrcdir)" || list=; \
+	if test -n "$$list"; then \
+	  echo " $(MKDIR_P) '$(DESTDIR)$(libsrcdir)'"; \
+	  $(MKDIR_P) "$(DESTDIR)$(libsrcdir)" || exit 1; \
+	fi; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(libsrcdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(libsrcdir)" || exit $$?; \
+	done
+
+uninstall-dist_libsrcDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(dist_libsrc_DATA)'; test -n "$(libsrcdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	dir='$(DESTDIR)$(libsrcdir)'; $(am__uninstall_files_from_dir)
 install-lib32DATA: $(lib32_DATA)
 	@$(NORMAL_INSTALL)
 	@list='$(lib32_DATA)'; test -n "$(lib32dir)" || list=; \
@@ -32178,27 +32199,6 @@ uninstall-lib64DATA:
 	@list='$(lib64_DATA)'; test -n "$(lib64dir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
 	dir='$(DESTDIR)$(lib64dir)'; $(am__uninstall_files_from_dir)
-install-libsrcDATA: $(libsrc_DATA)
-	@$(NORMAL_INSTALL)
-	@list='$(libsrc_DATA)'; test -n "$(libsrcdir)" || list=; \
-	if test -n "$$list"; then \
-	  echo " $(MKDIR_P) '$(DESTDIR)$(libsrcdir)'"; \
-	  $(MKDIR_P) "$(DESTDIR)$(libsrcdir)" || exit 1; \
-	fi; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(libsrcdir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(libsrcdir)" || exit $$?; \
-	done
-
-uninstall-libsrcDATA:
-	@$(NORMAL_UNINSTALL)
-	@list='$(libsrc_DATA)'; test -n "$(libsrcdir)" || list=; \
-	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
-	dir='$(DESTDIR)$(libsrcdir)'; $(am__uninstall_files_from_dir)
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -32535,7 +32535,7 @@ check: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) check-am
 all-am: Makefile $(LIBRARIES) $(DATA) $(HEADERS) config.h
 installdirs:
-	for dir in "$(DESTDIR)$(lib32dir)" "$(DESTDIR)$(lib64dir)" "$(DESTDIR)$(crt32dir)" "$(DESTDIR)$(crt64dir)" "$(DESTDIR)$(lib32dir)" "$(DESTDIR)$(lib64dir)" "$(DESTDIR)$(libsrcdir)"; do \
+	for dir in "$(DESTDIR)$(lib32dir)" "$(DESTDIR)$(lib64dir)" "$(DESTDIR)$(crt32dir)" "$(DESTDIR)$(crt64dir)" "$(DESTDIR)$(libsrcdir)" "$(DESTDIR)$(lib32dir)" "$(DESTDIR)$(lib64dir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: $(BUILT_SOURCES)
@@ -32627,9 +32627,10 @@ info: info-am
 
 info-am:
 
-install-data-am: install-crt32DATA install-crt64DATA install-lib32DATA \
+install-data-am: install-crt32DATA install-crt64DATA \
+	install-dist_libsrcDATA install-lib32DATA \
 	install-lib32LIBRARIES install-lib64DATA \
-	install-lib64LIBRARIES install-libsrcDATA
+	install-lib64LIBRARIES
 
 install-dvi: install-dvi-am
 
@@ -32677,9 +32678,9 @@ ps: ps-am
 ps-am:
 
 uninstall-am: uninstall-crt32DATA uninstall-crt64DATA \
-	uninstall-lib32DATA uninstall-lib32LIBRARIES \
-	uninstall-lib64DATA uninstall-lib64LIBRARIES \
-	uninstall-libsrcDATA
+	uninstall-dist_libsrcDATA uninstall-lib32DATA \
+	uninstall-lib32LIBRARIES uninstall-lib64DATA \
+	uninstall-lib64LIBRARIES
 
 .MAKE: all check check-am install install-am install-strip
 
@@ -32692,18 +32693,19 @@ uninstall-am: uninstall-crt32DATA uninstall-crt64DATA \
 	distclean-tags distcleancheck distdir distuninstallcheck dvi \
 	dvi-am html html-am info info-am install install-am \
 	install-crt32DATA install-crt64DATA install-data \
-	install-data-am install-dvi install-dvi-am install-exec \
-	install-exec-am install-html install-html-am install-info \
-	install-info-am install-lib32DATA install-lib32LIBRARIES \
-	install-lib64DATA install-lib64LIBRARIES install-libsrcDATA \
-	install-man install-pdf install-pdf-am install-ps \
-	install-ps-am install-strip installcheck installcheck-am \
-	installdirs maintainer-clean maintainer-clean-generic \
-	mostlyclean mostlyclean-compile mostlyclean-generic pdf pdf-am \
-	ps ps-am tags uninstall uninstall-am uninstall-crt32DATA \
-	uninstall-crt64DATA uninstall-lib32DATA \
+	install-data-am install-dist_libsrcDATA install-dvi \
+	install-dvi-am install-exec install-exec-am install-html \
+	install-html-am install-info install-info-am install-lib32DATA \
+	install-lib32LIBRARIES install-lib64DATA \
+	install-lib64LIBRARIES install-man install-pdf install-pdf-am \
+	install-ps install-ps-am install-strip installcheck \
+	installcheck-am installdirs maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-compile \
+	mostlyclean-generic pdf pdf-am ps ps-am tags uninstall \
+	uninstall-am uninstall-crt32DATA uninstall-crt64DATA \
+	uninstall-dist_libsrcDATA uninstall-lib32DATA \
 	uninstall-lib32LIBRARIES uninstall-lib64DATA \
-	uninstall-lib64LIBRARIES uninstall-libsrcDATA
+	uninstall-lib64LIBRARIES
 
 _libm_dummy.c:
 	echo "static int __attribute__((unused)) __mingw_libm_dummy;" > _libm_dummy.c
