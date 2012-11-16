@@ -50,7 +50,6 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-@HAVE_WIDL_TRUE@am__append_1 = $(IDL_SRCS:.idl=.h)
 subdir = .
 DIST_COMMON = $(am__configure_deps) $(basehead_HEADERS) \
 	$(ddkhead_HEADERS) $(dxhead_HEADERS) $(gdiplushead_HEADERS) \
@@ -259,8 +258,9 @@ idlheaddir = $(baseheaddir)
 ddkhead_HEADERS = @DDKHEAD_LIST@
 dxhead_HEADERS = @DXHEAD_LIST@
 idlhead_HEADERS = @IDLHEAD_LIST@
-EXTRA_DIST = $(srcdir)/ChangeLog.*
-DISTCHECK_CONFIGURE_FLAGS = --enable-idl
+CLEANFILES = $(nodist_sdkshead_HEADERS)
+DISTCHECK_CONFIGURE_FLAGS = --enable-crt --enable-sdk=all --enable-idl
+EXTRA_DIST = $(srcdir)/ChangeLog.* include crt direct-x ddk
 EXTRA_HEADERS = \
   include/*.dlg \
   include/*.h \
@@ -280,7 +280,10 @@ EXTRA_HEADERS = \
   direct-x/include/*.idl \
   ddk/include/ddk/*.h
 
-BUILT_SOURCES = _mingw_directx.h _mingw_ddk.h $(am__append_1)
+
+#BUILT_SOURCES = \
+#  _mingw_directx.h \
+#  _mingw_ddk.h
 @HAVE_WIDL_TRUE@IDL_SRCS = \
 @HAVE_WIDL_TRUE@  include/audioclient.idl \
 @HAVE_WIDL_TRUE@  include/audiopolicy.idl \
@@ -335,6 +338,7 @@ BUILT_SOURCES = _mingw_directx.h _mingw_ddk.h $(am__append_1)
 @HAVE_WIDL_TRUE@  direct-x/include/qnetwork.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/vmr9.idl
 
+@HAVE_WIDL_TRUE@BUILT_SOURCES = $(IDL_SRCS:.idl=.h)
 all: $(BUILT_SOURCES) config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -731,6 +735,9 @@ distdir: $(DISTFILES)
 	    || exit 1; \
 	  fi; \
 	done
+	$(MAKE) $(AM_MAKEFLAGS) \
+	  top_distdir="$(top_distdir)" distdir="$(distdir)" \
+	  dist-hook
 	-test -n "$(am__skip_mode_fix)" \
 	|| find "$(distdir)" -type d ! -perm -755 \
 		-exec chmod u+rwx,go+rx {} \; -o \
@@ -886,6 +893,7 @@ install-strip:
 mostlyclean-generic:
 
 clean-generic:
+	-test -z "$(CLEANFILES)" || rm -f $(CLEANFILES)
 
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
@@ -978,13 +986,13 @@ uninstall-am: uninstall-baseheadHEADERS uninstall-ddkheadHEADERS \
 
 .PHONY: CTAGS GTAGS all all-am am--refresh check check-am clean \
 	clean-cscope clean-generic cscope cscopelist ctags dist \
-	dist-all dist-bzip2 dist-gzip dist-lzip dist-shar dist-tarZ \
-	dist-xz dist-zip distcheck distclean distclean-generic \
-	distclean-hdr distclean-tags distcleancheck distdir \
-	distuninstallcheck dvi dvi-am html html-am info info-am \
-	install install-am install-baseheadHEADERS install-data \
-	install-data-am install-ddkheadHEADERS install-dvi \
-	install-dvi-am install-dxheadHEADERS install-exec \
+	dist-all dist-bzip2 dist-gzip dist-hook dist-lzip dist-shar \
+	dist-tarZ dist-xz dist-zip distcheck distclean \
+	distclean-generic distclean-hdr distclean-tags distcleancheck \
+	distdir distuninstallcheck dvi dvi-am html html-am info \
+	info-am install install-am install-baseheadHEADERS \
+	install-data install-data-am install-ddkheadHEADERS \
+	install-dvi install-dvi-am install-dxheadHEADERS install-exec \
 	install-exec-am install-gdiplusheadHEADERS \
 	install-glheadHEADERS install-html install-html-am \
 	install-idlheadHEADERS install-info install-info-am \
@@ -1002,6 +1010,9 @@ uninstall-am: uninstall-baseheadHEADERS uninstall-ddkheadHEADERS \
 	uninstall-nodist_sdksheadHEADERS uninstall-secheadHEADERS \
 	uninstall-secsysheadHEADERS uninstall-sysheadHEADERS
 
+
+dist-hook:
+	find $(distdir) -name ".svn" -type d -delete
 
 @HAVE_WIDL_TRUE@.idl.h: crt/_mingw.h
 @HAVE_WIDL_TRUE@	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -I$(srcdir)/direct-x/include -Icrt -I$(srcdir)/crt -h -o $(srcdir)/$@ $<
