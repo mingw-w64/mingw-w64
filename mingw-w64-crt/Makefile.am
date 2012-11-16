@@ -1073,7 +1073,7 @@ CLEANFILES = $(BUILT_SOURCES) $(crt64_DATA) $(lib64_DATA) $(crt32_DATA) $(lib32_
 #
 
 
-EXTRA_DIST = ChangeLog-2009
+EXTRA_DIST = ChangeLog*
 EXTRA_DIST += revstamp.h \
   $(top_srcdir)/lib64/*.def \
   $(top_srcdir)/lib64/*.mri \
