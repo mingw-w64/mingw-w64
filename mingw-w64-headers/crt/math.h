@@ -758,6 +758,8 @@ typedef long double double_t;
   extern float __cdecl lgammaf (float);
   extern long double __cdecl lgammal (long double);
 
+  extern int signgam;
+
 /* 7.12.8.4 The tgamma functions */
   extern double __cdecl tgamma (double);
   extern float __cdecl tgammaf (float);

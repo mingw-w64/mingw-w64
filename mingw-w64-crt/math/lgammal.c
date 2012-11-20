@@ -329,7 +329,7 @@ lsmall:
 /* This is the C99 version */
 long double lgammal(long double x)
 {
-	int local_sgngaml = 0;
-	return (__lgammal_r(x, &local_sgngaml));
+	int local_sgngaml = signgam;
+	return (__lgammal_r (x, &local_sgngaml));
 }
 

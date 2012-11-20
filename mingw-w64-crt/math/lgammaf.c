@@ -182,7 +182,7 @@ contz:
 /* This is the C99 version */
 float lgammaf(float x)
 {
-	int local_sgngamf = 0;
+	int local_sgngamf = signgam;
 	return (__lgammaf_r(x, &local_sgngamf));
 }
 
