@@ -458,6 +458,10 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #define __mingw_ovr static __cdecl
 #endif
 
+#if defined(_CRT_NON_CONFORMING_SWPRINTFS) && defined(__cplusplus) && (__cplusplus >= 201103L)
+#error "_CRT_NON_CONFORMING_SWPRINTFS cannot be used with C++11 or later."
+#endif /* defined(_CRT_NON_CONFORMING_SWPRINTFS) && defined(__cplusplus) && (__cplusplus >= 201103L) */
+
 #if __USE_MINGW_ANSI_STDIO
 
 /*
@@ -568,8 +572,7 @@ int vwprintf (const wchar_t *__format, __builtin_va_list __local_argv)
   return __mingw_vwprintf( __format, __local_argv );
 }
 
-/* For libstdc++ */
-#if defined(__cplusplus) && (__cplusplus >= 201103L) && !defined(_GLIBCXX_HAVE_BROKEN_VSWPRINTF)
+#if !defined(_CRT_NON_CONFORMING_SWPRINTFS)
 __mingw_ovr
 /* __attribute__((__format__ (gnu_wprintf, 3, 0))) */ __MINGW_ATTRIB_NONNULL(3)
 int vswprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builtin_va_list __local_argv)
@@ -583,7 +586,7 @@ int vswprintf (wchar_t *__stream, const wchar_t *__format, __builtin_va_list __l
 {
   return __mingw_vswprintf( __stream, __format, __local_argv );
 }
-#endif /* defined(__cplusplus) && (__cplusplus >= 201103L) && !defined(_GLIBCXX_HAVE_BROKEN_VSWPRINTF) */
+#endif /* !defined(_CRT_NON_CONFORMING_SWPRINTFS) */
 
 /*#ifndef __NO_ISOCEXT */  /* externs in libmingwex.a */
 __mingw_ovr
@@ -642,7 +645,9 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
   int __cdecl vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
   int __cdecl vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
   _CRTIMP int __cdecl swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+#if defined(_CRT_NON_CONFORMING_SWPRINTFS)
   _CRTIMP int __cdecl vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+#endif /*_CRT_NON_CONFORMING_SWPRINTFS*/
 #endif /* __USE_MINGW_ANSI_STDIO */
 
 
@@ -676,6 +681,11 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
   _CRTIMP int __cdecl _snwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _vsnwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 
+#if !defined(_CRT_NON_CONFORMING_SWPRINTFS) && !defined(__USE_MINGW_ANSI_STDIO)
+  __mingw_ovr int __cdecl vswprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN{
+    return _vsnwprintf(_Dest,_Count,_Format,_Args);
+  }
+#endif /* !defined(_CRT_NON_CONFORMING_SWPRINTFS) && !defined(__USE_MINGW_ANSI_STDIO) */
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
 
 #if !defined (__USE_MINGW_ANSI_STDIO) || __USE_MINGW_ANSI_STDIO == 0
@@ -740,7 +750,6 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
 #ifdef _CRT_NON_CONFORMING_SWPRINTFS
 #ifndef __cplusplus
 #define swprintf _swprintf
-#define vswprintf _vswprintf
 #define _swprintf_l __swprintf_l
 #define _vswprintf_l __vswprintf_l
 #endif
