@@ -271,7 +271,6 @@ lgsing:
 /* This is the C99 version */
 double lgamma(double x)
 {
-	int local_sgngam = signgam;
-	return (__lgamma_r(x, &local_sgngam));
+	return (__lgamma_r(x, &signgam));
 }
 
