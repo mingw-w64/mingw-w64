@@ -51,7 +51,11 @@ extern "C" {
 #endif
 
 #if 0
-typedef void *LPDIRECTDRAW;
+#ifndef __IDirectDraw_FWD_DEFINED__
+#define __IDirectDraw_FWD_DEFINED__
+typedef interface IDirectDraw IDirectDraw;
+#endif
+
 typedef void DDSURFACEDESC;
 typedef void DDCAPS;
 typedef DWORD RGBQUAD;
@@ -116,10 +120,10 @@ interface IDirectDrawVideo : public IUnknown
         DWORD *pCodes) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SetDirectDraw(
-        LPDIRECTDRAW pDirectDraw) = 0;
+        IDirectDraw *ddraw) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetDirectDraw(
-        LPDIRECTDRAW *ppDirectDraw) = 0;
+        IDirectDraw **ddraw) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetSurfaceType(
         DWORD *pSurfaceType) = 0;
@@ -190,11 +194,11 @@ typedef struct IDirectDrawVideoVtbl {
 
     HRESULT (STDMETHODCALLTYPE *SetDirectDraw)(
         IDirectDrawVideo* This,
-        LPDIRECTDRAW pDirectDraw);
+        IDirectDraw *ddraw);
 
     HRESULT (STDMETHODCALLTYPE *GetDirectDraw)(
         IDirectDrawVideo* This,
-        LPDIRECTDRAW *ppDirectDraw);
+        IDirectDraw **ddraw);
 
     HRESULT (STDMETHODCALLTYPE *GetSurfaceType)(
         IDirectDrawVideo* This,
@@ -246,8 +250,8 @@ interface IDirectDrawVideo {
 #define IDirectDrawVideo_GetEmulatedCaps(This,pCaps) (This)->lpVtbl->GetEmulatedCaps(This,pCaps)
 #define IDirectDrawVideo_GetSurfaceDesc(This,pSurfaceDesc) (This)->lpVtbl->GetSurfaceDesc(This,pSurfaceDesc)
 #define IDirectDrawVideo_GetFourCCCodes(This,pCount,pCodes) (This)->lpVtbl->GetFourCCCodes(This,pCount,pCodes)
-#define IDirectDrawVideo_SetDirectDraw(This,pDirectDraw) (This)->lpVtbl->SetDirectDraw(This,pDirectDraw)
-#define IDirectDrawVideo_GetDirectDraw(This,ppDirectDraw) (This)->lpVtbl->GetDirectDraw(This,ppDirectDraw)
+#define IDirectDrawVideo_SetDirectDraw(This,ddraw) (This)->lpVtbl->SetDirectDraw(This,ddraw)
+#define IDirectDrawVideo_GetDirectDraw(This,ddraw) (This)->lpVtbl->GetDirectDraw(This,ddraw)
 #define IDirectDrawVideo_GetSurfaceType(This,pSurfaceType) (This)->lpVtbl->GetSurfaceType(This,pSurfaceType)
 #define IDirectDrawVideo_SetDefault(This) (This)->lpVtbl->SetDefault(This)
 #define IDirectDrawVideo_UseScanLine(This,UseScanLine) (This)->lpVtbl->UseScanLine(This,UseScanLine)
@@ -286,11 +290,11 @@ static FORCEINLINE HRESULT IDirectDrawVideo_GetSurfaceDesc(IDirectDrawVideo* Thi
 static FORCEINLINE HRESULT IDirectDrawVideo_GetFourCCCodes(IDirectDrawVideo* This,DWORD *pCount,DWORD *pCodes) {
     return This->lpVtbl->GetFourCCCodes(This,pCount,pCodes);
 }
-static FORCEINLINE HRESULT IDirectDrawVideo_SetDirectDraw(IDirectDrawVideo* This,LPDIRECTDRAW pDirectDraw) {
-    return This->lpVtbl->SetDirectDraw(This,pDirectDraw);
+static FORCEINLINE HRESULT IDirectDrawVideo_SetDirectDraw(IDirectDrawVideo* This,IDirectDraw *ddraw) {
+    return This->lpVtbl->SetDirectDraw(This,ddraw);
 }
-static FORCEINLINE HRESULT IDirectDrawVideo_GetDirectDraw(IDirectDrawVideo* This,LPDIRECTDRAW *ppDirectDraw) {
-    return This->lpVtbl->GetDirectDraw(This,ppDirectDraw);
+static FORCEINLINE HRESULT IDirectDrawVideo_GetDirectDraw(IDirectDrawVideo* This,IDirectDraw **ddraw) {
+    return This->lpVtbl->GetDirectDraw(This,ddraw);
 }
 static FORCEINLINE HRESULT IDirectDrawVideo_GetSurfaceType(IDirectDrawVideo* This,DWORD *pSurfaceType) {
     return This->lpVtbl->GetSurfaceType(This,pSurfaceType);
@@ -372,7 +376,7 @@ void __RPC_STUB IDirectDrawVideo_GetFourCCCodes_Stub(
     DWORD* pdwStubPhase);
 HRESULT STDMETHODCALLTYPE IDirectDrawVideo_SetDirectDraw_Proxy(
     IDirectDrawVideo* This,
-    LPDIRECTDRAW pDirectDraw);
+    IDirectDraw *ddraw);
 void __RPC_STUB IDirectDrawVideo_SetDirectDraw_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
@@ -380,7 +384,7 @@ void __RPC_STUB IDirectDrawVideo_SetDirectDraw_Stub(
     DWORD* pdwStubPhase);
 HRESULT STDMETHODCALLTYPE IDirectDrawVideo_GetDirectDraw_Proxy(
     IDirectDrawVideo* This,
-    LPDIRECTDRAW *ppDirectDraw);
+    IDirectDraw **ddraw);
 void __RPC_STUB IDirectDrawVideo_GetDirectDraw_Stub(
     IRpcStubBuffer* This,
     IRpcChannelBuffer* pRpcChannelBuffer,
