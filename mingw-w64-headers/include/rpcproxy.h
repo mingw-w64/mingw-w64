@@ -202,7 +202,7 @@ extern "C" {
 #define PROXYFILE_LIST_START const ProxyFileInfo *aProxyFileList[] = {
 #define REFERENCE_PROXY_FILE(name) & name##_ProxyFileInfo
 #define PROXYFILE_LIST_END 0 };
-#define DLLDATA_GETPROXYDLLINFO(pPFList,pClsid) void RPC_ENTRY GetProxyDllInfo(const ProxyFileInfo***pInfo,const CLSID **pId) { *pInfo = pPFList; *pId = pClsid; };
+#define DLLDATA_GETPROXYDLLINFO(pPFList,pClsid) void RPC_ENTRY GetProxyDllInfo(const ProxyFileInfo***pInfo,const CLSID **pId) { *pInfo = pPFList; *pId = pClsid; }
 #define DLLGETCLASSOBJECTROUTINE(pPFlist,pClsid,pFactory) HRESULT WINAPI DLLGETCLASSOBJECT_ENTRY (REFCLSID rclsid,REFIID riid,void **ppv) { return NdrDllGetClassObject(rclsid,riid,ppv,pPFlist,pClsid,pFactory); }
 #define DLLCANUNLOADNOW(pFactory) HRESULT WINAPI DLLCANUNLOADNOW_ENTRY() { return NdrDllCanUnloadNow(pFactory); }
 #define DLLDUMMYPURECALL void __cdecl _purecall(void) { }
