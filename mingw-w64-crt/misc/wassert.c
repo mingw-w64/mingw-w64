@@ -6,24 +6,10 @@
 #include <windows.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <tchar.h>
-#include <string.h>
+#include <wchar.h>
 #include <signal.h>
 
 extern int mingw_app_type;
-
-static void cpy_wstr (char *buf, const wchar_t *src, size_t max)
-{
-  if (src)
-    {
-      while (max > 0 && *src != 0)
-       {
-         *buf++ = (char) src[0];
-         --max; src++;
-       }
-    }
-  *buf = 0;
-}
 
 void __cdecl _wassert (const wchar_t *, const wchar_t *,unsigned);
 void __cdecl _assert (const char *, const char *, unsigned);
@@ -49,28 +35,25 @@ _assert (const char *_Message, const char *_File, unsigned _Line)
 void __cdecl
 _wassert (const wchar_t *_Message, const wchar_t *_File, unsigned _Line)
 {
-  char *msgbuf = (char *) malloc (8192);
-  char fn[MAX_PATH + 1], msg[MAX_PATH + 1], iFile[MAX_PATH + 1];
+  wchar_t *msgbuf = (wchar_t *) malloc (8192*sizeof(wchar_t));
+  wchar_t fn[MAX_PATH + 1];
   DWORD nCode;
 
-  cpy_wstr (msg, _Message, MAX_PATH);
-  cpy_wstr (iFile, _File, MAX_PATH);
-  if (iFile[0] == 0)
-    strcpy (iFile, "<unknown>");
-  if (msg[0] == 0)
-    strcpy (msg, "?");
-  fn[MAX_PATH] = 0;
-  if (! GetModuleFileName (NULL, fn, MAX_PATH))
-    strcpy (fn, "<unknown>");
-  __mingw_sprintf (msgbuf, "Assertion failed!\n\nProgram: %s\n"
-		  "File: %s, Line %u\n\nExpression: %s",
-		  fn, iFile,_Line, msg);
+  if (!_File || _File[0] == 0)
+    _File = L"<unknown>";
+  if (!_Message || _Message[0] == 0)
+    _Message = L"?";
+  if (! GetModuleFileNameW (NULL, fn, MAX_PATH))
+    wcscpy (fn, L"<unknown>");
+  _snwprintf (msgbuf, 8191, L"Assertion failed!\n\nProgram: %ws\n"
+		  "File: %ws, Line %u\n\nExpression: %ws",
+		  fn, _File,_Line, _Message);
   if (mingw_app_type == 0)
     {
-      fprintf (stderr, "%s\n", msgbuf);
+      fwprintf (stderr, L"%ws\n", msgbuf);
       abort ();
     }
-  nCode = MessageBoxA (NULL, msgbuf, "MinGW Runtime Assertion", MB_ABORTRETRYIGNORE|
+  nCode = MessageBoxW (NULL, msgbuf, L"MinGW Runtime Assertion", MB_ABORTRETRYIGNORE|
     MB_ICONHAND|MB_SETFOREGROUND|MB_TASKMODAL);
   if (nCode == IDABORT)
     {
