@@ -440,10 +440,6 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   int __cdecl __mingw_vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
 /* __attribute__((__format__ (gnu_printf, 1, 0))) */ __MINGW_ATTRIB_NONNULL(1)
   int __cdecl __mingw_vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
-/* __attribute__((__format__ (gnu_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
-  int __cdecl __mingw_swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-/* __attribute__((__format__ (gnu_wprintf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
-  int __cdecl __mingw_vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 /* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
   int __cdecl __mingw_snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...);
 /* __attribute__((__format__ (gnu_wprintf, 3, 0))) */ __MINGW_ATTRIB_NONNULL(3)
@@ -461,6 +457,31 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #if defined(_CRT_NON_CONFORMING_SWPRINTFS) && defined(__cplusplus) && (__cplusplus >= 201103L)
 #error "_CRT_NON_CONFORMING_SWPRINTFS cannot be used with C++11 or later."
 #endif /* defined(_CRT_NON_CONFORMING_SWPRINTFS) && defined(__cplusplus) && (__cplusplus >= 201103L) */
+
+#if !defined(_CRT_NON_CONFORMING_SWPRINTFS)
+__mingw_ovr
+/* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
+int __cdecl __mingw_swprintf(wchar_t * __restrict__ __stream, size_t __n, const wchar_t * __restrict__ __format, ...)
+{
+  register int __retval;
+  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+  __retval = __mingw_vsnwprintf( __stream, __n, __format, __local_argv );
+  __builtin_va_end( __local_argv );
+  return __retval;
+}
+
+__mingw_ovr
+/* __attribute__((__format__ (gnu_wprintf, 3, 0))) */ __MINGW_ATTRIB_NONNULL(3)
+int __mingw_vswprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builtin_va_list __local_argv)
+{
+  return __mingw_vsnwprintf( __stream, __n, __format, __local_argv );
+}
+#else
+/* __attribute__((__format__ (gnu_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
+  int __cdecl __mingw_swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...);
+/* __attribute__((__format__ (gnu_wprintf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
+  int __cdecl __mingw_vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list);
+#endif
 
 #if __USE_MINGW_ANSI_STDIO
 
@@ -548,17 +569,6 @@ int wprintf (const wchar_t *__format, ...)
 }
 
 __mingw_ovr
-/* __attribute__((__format__ (gnu_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
-int swprintf (wchar_t *__stream, const wchar_t *__format, ...)
-{
-  register int __retval;
-  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-  __retval = __mingw_vswprintf( __stream, __format, __local_argv );
-  __builtin_va_end( __local_argv );
-  return __retval;
-}
-
-__mingw_ovr
 /* __attribute__((__format__ (gnu_wprintf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
 int vfwprintf (FILE *__stream, const wchar_t *__format, __builtin_va_list __local_argv)
 {
@@ -574,12 +584,33 @@ int vwprintf (const wchar_t *__format, __builtin_va_list __local_argv)
 
 #if !defined(_CRT_NON_CONFORMING_SWPRINTFS)
 __mingw_ovr
+/* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
+int __cdecl swprintf(wchar_t * __restrict__ __stream, size_t __n, const wchar_t * __restrict__ __format, ...)
+{
+  register int __retval;
+  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+  __retval = __mingw_vsnwprintf( __stream, __n, __format, __local_argv );
+  __builtin_va_end( __local_argv );
+  return __retval;
+}
+
+__mingw_ovr
 /* __attribute__((__format__ (gnu_wprintf, 3, 0))) */ __MINGW_ATTRIB_NONNULL(3)
 int vswprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builtin_va_list __local_argv)
 {
   return __mingw_vsnwprintf( __stream, __n, __format, __local_argv );
 }
 #else
+__mingw_ovr
+/* __attribute__((__format__ (gnu_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
+int swprintf (wchar_t *__stream, const wchar_t *__format, ...)
+{
+  register int __retval;
+  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+  __retval = __mingw_vswprintf( __stream, __format, __local_argv );
+  __builtin_va_end( __local_argv );
+  return __retval;
+}
 __mingw_ovr
 /* __attribute__((__format__ (gnu_printf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
 int vswprintf (wchar_t *__stream, const wchar_t *__format, __builtin_va_list __local_argv)
@@ -644,8 +675,8 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
   int __cdecl wprintf(const wchar_t * __restrict__ _Format,...);
   int __cdecl vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
   int __cdecl vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
-  _CRTIMP int __cdecl swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #if defined(_CRT_NON_CONFORMING_SWPRINTFS)
+  _CRTIMP int __cdecl swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #endif /*_CRT_NON_CONFORMING_SWPRINTFS*/
 #endif /* __USE_MINGW_ANSI_STDIO */
@@ -684,6 +715,13 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
 #if !defined(_CRT_NON_CONFORMING_SWPRINTFS) && !defined(__USE_MINGW_ANSI_STDIO)
   __mingw_ovr int __cdecl vswprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN{
     return _vsnwprintf(_Dest,_Count,_Format,_Args);
+  }
+  __mingw_ovr int __cdecl swprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN{
+  register int __retval;
+  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, _Format );
+  __retval = _vsnwprintf(_Dest,_Count,_Format,__local_argv);
+  __builtin_va_end( __local_argv );
+  return __retval;
   }
 #endif /* !defined(_CRT_NON_CONFORMING_SWPRINTFS) && !defined(__USE_MINGW_ANSI_STDIO) */
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
@@ -749,7 +787,6 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
 
 #ifdef _CRT_NON_CONFORMING_SWPRINTFS
 #ifndef __cplusplus
-#define swprintf _swprintf
 #define _swprintf_l __swprintf_l
 #define _vswprintf_l __vswprintf_l
 #endif
