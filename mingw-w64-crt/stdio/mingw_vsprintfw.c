@@ -4,6 +4,7 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 #define __BUILD_WIDEAPI 1
+#define _CRT_NON_CONFORMING_SWPRINTFS 1
 
 #include "mingw_vsprintf.c"
 
