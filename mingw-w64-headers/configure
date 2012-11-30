@@ -2598,7 +2598,7 @@ fi
 $as_echo "$enable_crt" >&6; }
 if test "x$enable_crt" = xyes; then :
 
-  BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/crt/*.h
+  BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/crt/*.h" "$srcdir/crt/*.inl
   SYSHEAD_LIST=$srcdir/crt/sys/*.h
   SECHEAD_LIST=$srcdir/crt/sec_api/*.h
   SECSYSHEAD_LIST=$srcdir/crt/sec_api/sys/*.h

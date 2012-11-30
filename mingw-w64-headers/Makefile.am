@@ -47,6 +47,7 @@ EXTRA_HEADERS = \
   include/psdk_inc/*.h \
   include/gdiplus/*.h \
   crt/*.h \
+  crt/*.inl \
   crt/sys/*.h \
   crt/sec_api/*.h \
   crt/sec_api/sys/*.h \

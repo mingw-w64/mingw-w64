@@ -69,7 +69,7 @@ AC_ARG_ENABLE([crt],
 AM_CONDITIONAL([ENABLE_CRT],[test x$enable_crt=xyes])
 AC_MSG_RESULT([$enable_crt])
 AS_VAR_IF([enable_crt],[yes],[
-  BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/crt/*.h
+  BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/crt/*.h" "$srcdir/crt/*.inl
   SYSHEAD_LIST=$srcdir/crt/sys/*.h
   SECHEAD_LIST=$srcdir/crt/sec_api/*.h
   SECSYSHEAD_LIST=$srcdir/crt/sec_api/sys/*.h
