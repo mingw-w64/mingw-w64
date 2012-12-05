@@ -260,7 +260,7 @@ DECLARE_INTERFACE_(ID3DXEffect, ID3DXBaseEffect)
     STDMETHOD(GetVertexShader)(THIS_ D3DXHANDLE parameter, struct IDirect3DVertexShader9 **shader) PURE;
     STDMETHOD(SetArrayRange)(THIS_ D3DXHANDLE parameter, UINT start, UINT end) PURE;
     /*** ID3DXEffect methods ***/
-    STDMETHOD(GetPool)(THIS_ LPD3DXEFFECTPOOL* pool) PURE;
+    STDMETHOD(GetPool)(THIS_ ID3DXEffectPool **pool) PURE;
     STDMETHOD(SetTechnique)(THIS_ D3DXHANDLE technique) PURE;
     STDMETHOD_(D3DXHANDLE, GetCurrentTechnique)(THIS) PURE;
     STDMETHOD(ValidateTechnique)(THIS_ D3DXHANDLE technique) PURE;
@@ -274,8 +274,8 @@ DECLARE_INTERFACE_(ID3DXEffect, ID3DXBaseEffect)
     STDMETHOD(GetDevice)(THIS_ struct IDirect3DDevice9 **device) PURE;
     STDMETHOD(OnLostDevice)(THIS) PURE;
     STDMETHOD(OnResetDevice)(THIS) PURE;
-    STDMETHOD(SetStateManager)(THIS_ LPD3DXEFFECTSTATEMANAGER manager) PURE;
-    STDMETHOD(GetStateManager)(THIS_ LPD3DXEFFECTSTATEMANAGER* manager) PURE;
+    STDMETHOD(SetStateManager)(THIS_ ID3DXEffectStateManager *manager) PURE;
+    STDMETHOD(GetStateManager)(THIS_ ID3DXEffectStateManager **manager) PURE;
     STDMETHOD(BeginParameterBlock)(THIS) PURE;
     STDMETHOD_(D3DXHANDLE, EndParameterBlock)(THIS) PURE;
     STDMETHOD(ApplyParameterBlock)(THIS_ D3DXHANDLE parameter_block) PURE;
@@ -355,7 +355,7 @@ DECLARE_INTERFACE_(ID3DXEffectCompiler, ID3DXBaseEffect)
     /*** ID3DXEffectCompiler methods ***/
     STDMETHOD(SetLiteral)(THIS_ D3DXHANDLE parameter, WINBOOL literal) PURE;
     STDMETHOD(GetLiteral)(THIS_ D3DXHANDLE parameter, WINBOOL* literal) PURE;
-    STDMETHOD(CompileEffect)(THIS_ DWORD flags, LPD3DXBUFFER* effect, LPD3DXBUFFER* error_msgs) PURE;
+    STDMETHOD(CompileEffect)(THIS_ DWORD flags, ID3DXBuffer **effect, ID3DXBuffer **error_msgs) PURE;
     STDMETHOD(CompileShader)(THIS_ D3DXHANDLE function, const char *target, DWORD flags,
             ID3DXBuffer **shader, ID3DXBuffer **error_msgs, ID3DXConstantTable **constant_table) PURE;
 };
@@ -365,7 +365,7 @@ DECLARE_INTERFACE_(ID3DXEffectCompiler, ID3DXBaseEffect)
 extern "C" {
 #endif
 
-HRESULT WINAPI D3DXCreateEffectPool(LPD3DXEFFECTPOOL* pool);
+HRESULT WINAPI D3DXCreateEffectPool(ID3DXEffectPool **pool);
 HRESULT WINAPI D3DXCreateEffect(struct IDirect3DDevice9 *device, const void *srcdata, UINT srcdatalen,
         const D3DXMACRO *defines, struct ID3DXInclude *include, DWORD flags,
         struct ID3DXEffectPool *pool, struct ID3DXEffect **effect, struct ID3DXBuffer **compilation_errors);
