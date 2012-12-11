@@ -38,7 +38,6 @@ static errno_t __cdecl
 _int_gmtime32_s (struct tm *ptm, const __time32_t *pt)
 {
   struct tm *ltm;
-  errno_t e;
 
   if (ptm)
     memset (ptm, 0xff, sizeof (*ptm));

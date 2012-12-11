@@ -38,7 +38,6 @@ static errno_t __cdecl
 _int_localtime64_s (struct tm *ptm, const __time64_t *pt)
 {
   struct tm *ltm;
-  errno_t e;
 
   if (ptm)
     memset (ptm, 0xff, sizeof (*ptm));
