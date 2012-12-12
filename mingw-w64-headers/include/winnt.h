@@ -1456,15 +1456,6 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 extern "C" {
 # endif
 # include <x86intrin.h>
-# ifdef __MMX__
-#  include <mmintrin.h>
-# endif
-# ifdef __SSE2__
-#  include <emmintrin.h>
-# endif
-# ifdef __SSE3__
-#  include <pmmintrin.h>
-# endif
 # if defined(__cplusplus)
 }
 # endif
