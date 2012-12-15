@@ -1,8 +1,10 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
+m4_define(WIDL_VERSION,regexp(m4_include(VERSION),[version \([-.0-9A-Za-z]+\)],[\1]))
+
 AC_PREREQ([2.69])
-AC_INIT([widl],[1.0],[mingw-w64-public@lists.sourceforge.net])
+AC_INIT([widl],[WIDL_VERSION],[mingw-w64-public@lists.sourceforge.net])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_SRCDIR([src/widl.c])
 AC_CONFIG_HEADERS([include/config.h])

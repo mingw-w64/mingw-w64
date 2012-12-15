@@ -35,3 +35,5 @@ for f in getopt.c getopt1.c
 do
 	cp $WINE_DIR/libs/port/$f src/port/
 done
+
+sed s/Wine/WIDL/ < $WINE_DIR/VERSION >VERSION
