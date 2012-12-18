@@ -619,7 +619,7 @@ DECLARE_INTERFACE_(IMFMediaType,IMFAttributes)
 #warning COM interfaces with incorrect layout may not work at all.
 __MINGW_BROKEN_INTERFACE(INTERFACE)
 #endif
-DECLARE_INTERFACE_(IMFAudioMediaType,IMFAudioMediaType)
+DECLARE_INTERFACE_(IMFAudioMediaType,IMFMediaType)
 {
     BEGIN_INTERFACE
 
