@@ -4504,7 +4504,7 @@ typedef struct _GDI_OBJECT {
 } GDI_OBJECT;
 #if 0
 typedef struct _userSTGMEDIUM {
-    struct _STGMEDIUM_UNION {
+    __C89_NAMELESS struct _STGMEDIUM_UNION {
         DWORD tymed;
         union {
             wireHMETAFILEPICT hMetaFilePict;
