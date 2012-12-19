@@ -70,6 +70,7 @@ IDL_SRCS = \
   include/comcat.idl \
   include/mfidl.idl \
   include/mfobjects.idl \
+  include/mfreadwrite.idl \
   include/mmdeviceapi.idl \
   include/mscoree.idl \
   include/msctf.idl \
