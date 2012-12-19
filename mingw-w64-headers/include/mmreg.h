@@ -3,6 +3,9 @@
  * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
+
+#ifndef __WIDL__
+
 #ifndef _INC_MMREG
 
 #define _INC_MMREG 158
@@ -2658,3 +2661,37 @@ typedef struct heaacwaveformat_tag {
 }
 #endif
 #endif
+
+#else /* __WIDL__ */
+
+cpp_quote("#if 0")
+// FIXME: #pragma pack(push, 1)
+
+typedef struct tWAVEFORMATEX {
+    WORD wFormatTag;
+    WORD nChannels;
+    DWORD nSamplesPerSec;
+    DWORD nAvgBytesPerSec;
+    WORD nBlockAlign;
+    WORD wBitsPerSample;
+    WORD cbSize;
+    [size_is(cbSize)] BYTE pExtraBytes[];
+} WAVEFORMATEX, *PWAVEFORMATEX, *NPWAVEFORMATEX, *LPWAVEFORMATEX;
+
+typedef struct {
+    WORD wFormatTag;
+    WORD nChannels;
+    DWORD nSamplesPerSec;
+    DWORD nAvgBytesPerSec;
+    WORD nBlockAlign;
+    WORD wBitsPerSample;
+    WORD cbSize;
+    WORD wValidBitsPerSample;
+    DWORD dwChannelMask;
+    GUID SubFormat;
+} WAVEFORMATEXTENSIBLE, *PWAVEFORMATEXTENSIBLE;
+
+// FIXME: #pragma pack(pop)
+cpp_quote("#endif")
+
+#endif /* __WIDL__ */
