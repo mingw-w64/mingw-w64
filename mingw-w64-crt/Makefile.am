@@ -71,6 +71,7 @@ src_libdinput8=libsrc/dinput_private.h libsrc/dinput_joy.c libsrc/dinput_joy2.c 
 src_libdmoguids=libsrc/dmoguids.c
 src_libdxerr8=libsrc/dxerr8.c libsrc/dxerr8w.c
 src_libdxerr9=libsrc/dxerr9.c libsrc/dxerr9w.c
+src_libmfuuid=libsrc/mfuuid.c
 src_libwindowscodecs=libsrc/windowscodecs.c
 src_libdxguid=libsrc/dxguid.c
 src_libksuser=libsrc/ksuser.c
@@ -343,6 +344,10 @@ lib32_libdxerr8_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 lib32_LIBRARIES += lib32/libdxerr9.a
 lib32_libdxerr9_a_SOURCES = $(src_libdxerr9)
 lib32_libdxerr9_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
+
+lib32_LIBRARIES += lib32/libmfuuid.a
+lib32_libmfuuid_a_SOURCES = $(src_libmfuuid)
+lib32_libmfuuid_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
 
 lib32_LIBRARIES += lib32/libwindowscodecs.a
 lib32_libwindowscodecs_a_SOURCES = $(src_libwindowscodecs)
@@ -642,6 +647,10 @@ lib64_libdxerr8_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 lib64_LIBRARIES += lib64/libdxerr9.a
 lib64_libdxerr9_a_SOURCES = $(src_libdxerr9)
 lib64_libdxerr9_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
+
+lib64_LIBRARIES += lib64/libmfuuid.a
+lib64_libmfuuid_a_SOURCES = $(src_libmfuuid)
+lib64_libmfuuid_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 
 lib64_LIBRARIES += lib64/libwindowscodecs.a
 lib64_libwindowscodecs_a_SOURCES = $(src_libwindowscodecs)
