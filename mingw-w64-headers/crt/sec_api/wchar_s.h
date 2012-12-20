@@ -16,8 +16,8 @@ extern "C" {
 
 #ifndef _WIO_S_DEFINED
 #define _WIO_S_DEFINED
-  errno_t __cdecl _waccess_s(const wchar_t *_Filename,int _AccessMode);
-  _CRTIMP errno_t __cdecl _wmktemp_s(wchar_t *_TemplateName,size_t _SizeInWords);
+  errno_t __cdecl _waccess_s (const wchar_t *_Filename,int _AccessMode);
+  errno_t __cdecl _wmktemp_s (wchar_t *_TemplateName,size_t _SizeInWords);
 #endif
 
 #ifndef _WCONIO_S_DEFINED
