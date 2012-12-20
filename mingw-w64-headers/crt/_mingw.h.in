@@ -512,6 +512,13 @@ typedef __time64_t time_t;
 #define _CRT_UNUSED(x) (void)x
 #endif
 
+/* MSVC defines _NATIVE_NULLPTR_SUPPORTED when nullptr is supported. We emulate it here for GCC. */
+#if __MINGW_GNUC_PREREQ(4, 6)
+#if defined(__GNUC__) && (defined(__GXX_EXPERIMENTAL_CXX0X__) || __cplusplus >= 201103L)
+#define _NATIVE_NULLPTR_SUPPORTED
+#endif
+#endif
+
 /* We are activating __USE_MINGW_ANSI_STDIO for various define indicators.
    Note that we enable it also for _GNU_SOURCE in C++, but not for C case. */
 #if (defined (_POSIX) || defined (_POSIX_SOURCE) || defined (_POSIX_C_SOURCE) \

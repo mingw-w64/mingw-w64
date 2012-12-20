@@ -64,6 +64,11 @@ public:
   _com_ptr_t(int null) : m_pInterface(NULL) {
     if(null!=0) { _com_issue_error(E_POINTER); }
   }
+
+#ifdef _NATIVE_NULLPTR_SUPPORTED
+  _com_ptr_t(decltype(nullptr)) : m_pInterface(NULL) {}
+#endif
+
   _com_ptr_t(const _com_ptr_t &cp) throw() : m_pInterface(cp.m_pInterface) { _AddRef(); }
   template<typename _X> _com_ptr_t(Interface *pInterface) throw() : m_pInterface(pInterface) { _AddRef(); }
   _com_ptr_t(Interface *pInterface,bool fAddRef) throw() : m_pInterface(pInterface) {
