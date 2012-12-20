@@ -318,8 +318,8 @@ extern const double __QNAN;
 
 /* Use the compiler's builtin define for FLT_EVAL_METHOD to
    set float_t and double_t.  */
-#if defined(__FLT_EVAL_METHOD__)  
-# if ( __FLT_EVAL_METHOD__== 0)
+#if defined (__x86_64__) || defined(__FLT_EVAL_METHOD__)  
+# if defined (__x86_64__) || ( __FLT_EVAL_METHOD__== 0)
 typedef float float_t;
 typedef double double_t;
 # elif (__FLT_EVAL_METHOD__ == 1)
