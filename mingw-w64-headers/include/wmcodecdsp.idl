@@ -1,0 +1,18 @@
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+
+import "mediaobj.idl";
+import "strmif.idl";
+
+[
+    object,
+    uuid(cee3def2-3808-414d-be66-fafd472210bc),
+    pointer_default(unique)
+]
+interface IWMValidate : IUnknown
+{
+    HRESULT SetIdentifier([in] GUID guidValidationID);
+}
