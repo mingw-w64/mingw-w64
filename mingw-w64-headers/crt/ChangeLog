@@ -1,3 +1,7 @@
+2012-12-20  Kai Tietz  <ktietz@redhat.com>
+
+	* unistd.h (sleep): Provide prototype.
+
 2012-11-20  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* stdio.h: vswprintf is now ISO C compliant, the API is not
