@@ -318,6 +318,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/unknwn.idl \
 @HAVE_WIDL_TRUE@  include/urlmon.idl \
 @HAVE_WIDL_TRUE@  include/wincodec.idl \
+@HAVE_WIDL_TRUE@  include/wmcodecdsp.idl \
 @HAVE_WIDL_TRUE@  include/wpcapi.idl \
 @HAVE_WIDL_TRUE@  include/wtypes.idl \
 @HAVE_WIDL_TRUE@  include/xmllite.idl \
