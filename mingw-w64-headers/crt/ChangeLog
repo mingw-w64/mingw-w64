@@ -1,3 +1,9 @@
+2012-12-20  Kai Tietz  <ktietz@redhat.com>
+
+	Backmerged from trunk
+	* math.h (__FLT_EVAL_METHOD): Handle word-size of 64-bit
+	special-casing.
+
 2012-08-10  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* getopt.h (optreset): Guard __mingw_optreset definition by
