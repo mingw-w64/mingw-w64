@@ -29,7 +29,7 @@
 extern "C" {
 #endif
 
-void __cdecl sleep (unsigned int _Duration);
+unsigned int __cdecl sleep (unsigned int _Duration);
 #if !defined __NO_ISOCEXT
 #include <sys/types.h> /* For useconds_t. */
 
