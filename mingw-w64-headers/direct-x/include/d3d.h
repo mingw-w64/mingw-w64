@@ -217,7 +217,7 @@ DECLARE_INTERFACE_(IDirect3D,IUnknown)
     STDMETHOD(CreateLight)(THIS_ struct IDirect3DLight **light, IUnknown *outer) PURE;
     STDMETHOD(CreateMaterial)(THIS_ struct IDirect3DMaterial **material, IUnknown *outer) PURE;
     STDMETHOD(CreateViewport)(THIS_ struct IDirect3DViewport **viewport, IUnknown *outer) PURE;
-    STDMETHOD(FindDevice)(THIS_ LPD3DFINDDEVICESEARCH lpD3DDFS, LPD3DFINDDEVICERESULT lplpD3DDevice) PURE;
+    STDMETHOD(FindDevice)(THIS_ D3DFINDDEVICESEARCH *search, D3DFINDDEVICERESULT *result) PURE;
 };
 #undef INTERFACE
 
@@ -263,7 +263,7 @@ DECLARE_INTERFACE_(IDirect3D2,IUnknown)
     STDMETHOD(CreateLight)(THIS_ struct IDirect3DLight **light, IUnknown *outer) PURE;
     STDMETHOD(CreateMaterial)(THIS_ struct IDirect3DMaterial2 **material, IUnknown *outer) PURE;
     STDMETHOD(CreateViewport)(THIS_ struct IDirect3DViewport2 **viewport, IUnknown *outer) PURE;
-    STDMETHOD(FindDevice)(THIS_ LPD3DFINDDEVICESEARCH lpD3DDFS, LPD3DFINDDEVICERESULT lpD3DFDR) PURE;
+    STDMETHOD(FindDevice)(THIS_ D3DFINDDEVICESEARCH *search, D3DFINDDEVICERESULT *result) PURE;
     STDMETHOD(CreateDevice)(THIS_ REFCLSID rclsid, IDirectDrawSurface *surface,
             struct IDirect3DDevice2 **device) PURE;
 };
@@ -311,7 +311,7 @@ DECLARE_INTERFACE_(IDirect3D3,IUnknown)
     STDMETHOD(CreateLight)(THIS_ struct IDirect3DLight **light, IUnknown *outer) PURE;
     STDMETHOD(CreateMaterial)(THIS_ struct IDirect3DMaterial3 **material, IUnknown *outer) PURE;
     STDMETHOD(CreateViewport)(THIS_ struct IDirect3DViewport3 **viewport, IUnknown *outer) PURE;
-    STDMETHOD(FindDevice)(THIS_ LPD3DFINDDEVICESEARCH lpD3DDFS, LPD3DFINDDEVICERESULT lpD3DFDR) PURE;
+    STDMETHOD(FindDevice)(THIS_ D3DFINDDEVICESEARCH *search, D3DFINDDEVICERESULT *result) PURE;
     STDMETHOD(CreateDevice)(THIS_ REFCLSID rclsid, IDirectDrawSurface4 *surface,
             struct IDirect3DDevice3 **device, IUnknown *outer) PURE;
     STDMETHOD(CreateVertexBuffer)(THIS_ D3DVERTEXBUFFERDESC *desc, struct IDirect3DVertexBuffer **buffer,
@@ -659,7 +659,7 @@ DECLARE_INTERFACE_(IDirect3DViewport,IUnknown)
     STDMETHOD(TransformVertices)(THIS_ DWORD dwVertexCount, LPD3DTRANSFORMDATA lpData, DWORD dwFlags, LPDWORD lpOffScreen) PURE;
     STDMETHOD(LightElements)(THIS_ DWORD dwElementCount, LPD3DLIGHTDATA lpData) PURE;
     STDMETHOD(SetBackground)(THIS_ D3DMATERIALHANDLE hMat) PURE;
-    STDMETHOD(GetBackground)(THIS_ LPD3DMATERIALHANDLE lphMat, LPBOOL lpValid) PURE;
+    STDMETHOD(GetBackground)(THIS_ D3DMATERIALHANDLE *material, WINBOOL *valid) PURE;
     STDMETHOD(SetBackgroundDepth)(THIS_ IDirectDrawSurface *surface) PURE;
     STDMETHOD(GetBackgroundDepth)(THIS_ IDirectDrawSurface **surface, WINBOOL *valid) PURE;
     STDMETHOD(Clear)(THIS_ DWORD dwCount, LPD3DRECT lpRects, DWORD dwFlags) PURE;
@@ -727,7 +727,7 @@ DECLARE_INTERFACE_(IDirect3DViewport2,IDirect3DViewport)
     STDMETHOD(TransformVertices)(THIS_ DWORD dwVertexCount, LPD3DTRANSFORMDATA lpData, DWORD dwFlags, LPDWORD lpOffScreen) PURE;
     STDMETHOD(LightElements)(THIS_ DWORD dwElementCount, LPD3DLIGHTDATA lpData) PURE;
     STDMETHOD(SetBackground)(THIS_ D3DMATERIALHANDLE hMat) PURE;
-    STDMETHOD(GetBackground)(THIS_ LPD3DMATERIALHANDLE lphMat, LPBOOL lpValid) PURE;
+    STDMETHOD(GetBackground)(THIS_ D3DMATERIALHANDLE *material, WINBOOL *valid) PURE;
     STDMETHOD(SetBackgroundDepth)(THIS_ IDirectDrawSurface *surface) PURE;
     STDMETHOD(GetBackgroundDepth)(THIS_ IDirectDrawSurface **surface, WINBOOL *valid) PURE;
     STDMETHOD(Clear)(THIS_ DWORD dwCount, LPD3DRECT lpRects, DWORD dwFlags) PURE;
@@ -803,7 +803,7 @@ DECLARE_INTERFACE_(IDirect3DViewport3,IDirect3DViewport2)
     STDMETHOD(TransformVertices)(THIS_ DWORD dwVertexCount, LPD3DTRANSFORMDATA lpData, DWORD dwFlags, LPDWORD lpOffScreen) PURE;
     STDMETHOD(LightElements)(THIS_ DWORD dwElementCount, LPD3DLIGHTDATA lpData) PURE;
     STDMETHOD(SetBackground)(THIS_ D3DMATERIALHANDLE hMat) PURE;
-    STDMETHOD(GetBackground)(THIS_ LPD3DMATERIALHANDLE lphMat, LPBOOL lpValid) PURE;
+    STDMETHOD(GetBackground)(THIS_ D3DMATERIALHANDLE *material, WINBOOL *valid) PURE;
     STDMETHOD(SetBackgroundDepth)(THIS_ IDirectDrawSurface *surface) PURE;
     STDMETHOD(GetBackgroundDepth)(THIS_ IDirectDrawSurface **surface, WINBOOL *valid) PURE;
     STDMETHOD(Clear)(THIS_ DWORD dwCount, LPD3DRECT lpRects, DWORD dwFlags) PURE;
@@ -888,7 +888,7 @@ DECLARE_INTERFACE_(IDirect3DExecuteBuffer,IUnknown)
     STDMETHOD_(ULONG,Release)(THIS) PURE;
     /*** IDirect3DExecuteBuffer methods ***/
     STDMETHOD(Initialize)(THIS_ struct IDirect3DDevice *device, D3DEXECUTEBUFFERDESC *desc) PURE;
-    STDMETHOD(Lock)(THIS_ LPD3DEXECUTEBUFFERDESC lpDesc) PURE;
+    STDMETHOD(Lock)(THIS_ D3DEXECUTEBUFFERDESC *desc) PURE;
     STDMETHOD(Unlock)(THIS) PURE;
     STDMETHOD(SetExecuteData)(THIS_ LPD3DEXECUTEDATA lpData) PURE;
     STDMETHOD(GetExecuteData)(THIS_ LPD3DEXECUTEDATA lpData) PURE;
@@ -938,7 +938,7 @@ DECLARE_INTERFACE_(IDirect3DDevice,IUnknown)
     STDMETHOD_(ULONG,Release)(THIS) PURE;
     /*** IDirect3DDevice methods ***/
     STDMETHOD(Initialize)(THIS_ IDirect3D *d3d, GUID *guid, D3DDEVICEDESC *desc) PURE;
-    STDMETHOD(GetCaps)(THIS_ LPD3DDEVICEDESC lpD3DHWDevDesc, LPD3DDEVICEDESC lpD3DHELDevDesc) PURE;
+    STDMETHOD(GetCaps)(THIS_ D3DDEVICEDESC *hal_desc, D3DDEVICEDESC *hel_desc) PURE;
     STDMETHOD(SwapTextureHandles)(THIS_ IDirect3DTexture *tex1, IDirect3DTexture *tex2) PURE;
     STDMETHOD(CreateExecuteBuffer)(THIS_ D3DEXECUTEBUFFERDESC *desc,
             IDirect3DExecuteBuffer **buffer, IUnknown *outer) PURE;
@@ -1027,7 +1027,7 @@ DECLARE_INTERFACE_(IDirect3DDevice2,IUnknown)
     STDMETHOD_(ULONG,AddRef)(THIS) PURE;
     STDMETHOD_(ULONG,Release)(THIS) PURE;
     /*** IDirect3DDevice2 methods ***/
-    STDMETHOD(GetCaps)(THIS_ LPD3DDEVICEDESC lpD3DHWDevDesc, LPD3DDEVICEDESC lpD3DHELDevDesc) PURE;
+    STDMETHOD(GetCaps)(THIS_ D3DDEVICEDESC *hal_desc, D3DDEVICEDESC *hel_desc) PURE;
     STDMETHOD(SwapTextureHandles)(THIS_ IDirect3DTexture2 *tex1, IDirect3DTexture2 *tex2) PURE;
     STDMETHOD(GetStats)(THIS_ LPD3DSTATS lpD3DStats) PURE;
     STDMETHOD(AddViewport)(THIS_ IDirect3DViewport2 *viewport) PURE;
@@ -1147,7 +1147,7 @@ DECLARE_INTERFACE_(IDirect3DDevice3,IUnknown)
     STDMETHOD_(ULONG,AddRef)(THIS) PURE;
     STDMETHOD_(ULONG,Release)(THIS) PURE;
     /*** IDirect3DDevice3 methods ***/
-    STDMETHOD(GetCaps)(THIS_ LPD3DDEVICEDESC lpD3DHWDevDesc, LPD3DDEVICEDESC lpD3DHELDevDesc) PURE;
+    STDMETHOD(GetCaps)(THIS_ D3DDEVICEDESC *hal_desc, D3DDEVICEDESC *hel_desc) PURE;
     STDMETHOD(GetStats)(THIS_ LPD3DSTATS lpD3DStats) PURE;
     STDMETHOD(AddViewport)(THIS_ IDirect3DViewport3 *viewport) PURE;
     STDMETHOD(DeleteViewport)(THIS_ IDirect3DViewport3 *viewport) PURE;
@@ -1184,7 +1184,8 @@ DECLARE_INTERFACE_(IDirect3DDevice3,IUnknown)
             DWORD start_vertex, DWORD vertex_count, DWORD flags) PURE;
     STDMETHOD(DrawIndexedPrimitiveVB)(THIS_ D3DPRIMITIVETYPE primitive_type, struct IDirect3DVertexBuffer *vb,
             WORD *indices, DWORD index_count, DWORD flags) PURE;
-    STDMETHOD(ComputeSphereVisibility)(THIS_ LPD3DVECTOR lpCenters,LPD3DVALUE lpRadii,DWORD dwNumSpheres,DWORD dwFlags,LPDWORD lpdwReturnValues) PURE;
+    STDMETHOD(ComputeSphereVisibility)(THIS_ D3DVECTOR *centers, D3DVALUE *radii, DWORD sphere_count,
+            DWORD flags, DWORD *ret) PURE;
     STDMETHOD(GetTexture)(THIS_ DWORD stage, IDirect3DTexture2 **texture) PURE;
     STDMETHOD(SetTexture)(THIS_ DWORD stage, IDirect3DTexture2 *texture) PURE;
     STDMETHOD(GetTextureStageState)(THIS_ DWORD dwStage,D3DTEXTURESTAGESTATETYPE d3dTexStageStateType,LPDWORD lpdwState) PURE;
@@ -1296,7 +1297,7 @@ DECLARE_INTERFACE_(IDirect3DDevice7,IUnknown)
     STDMETHOD_(ULONG,AddRef)(THIS) PURE;
     STDMETHOD_(ULONG,Release)(THIS) PURE;
     /*** IDirect3DDevice7 methods ***/
-    STDMETHOD(GetCaps)(THIS_ LPD3DDEVICEDESC7 lpD3DHELDevDesc) PURE;
+    STDMETHOD(GetCaps)(THIS_ D3DDEVICEDESC7 *desc) PURE;
     STDMETHOD(EnumTextureFormats)(THIS_ LPD3DENUMPIXELFORMATSCALLBACK lpD3DEnumPixelProc, LPVOID lpArg) PURE;
     STDMETHOD(BeginScene)(THIS) PURE;
     STDMETHOD(EndScene)(THIS) PURE;
@@ -1328,7 +1329,8 @@ DECLARE_INTERFACE_(IDirect3DDevice7,IUnknown)
             DWORD start_vertex, DWORD vertex_count, DWORD flags) PURE;
     STDMETHOD(DrawIndexedPrimitiveVB)(THIS_ D3DPRIMITIVETYPE primitive_type, struct IDirect3DVertexBuffer7 *vb,
             DWORD start_vertex, DWORD vertex_count, WORD *indices, DWORD index_count, DWORD flags) PURE;
-    STDMETHOD(ComputeSphereVisibility)(THIS_ LPD3DVECTOR lpCenters,LPD3DVALUE lpRadii,DWORD dwNumSpheres,DWORD dwFlags,LPDWORD lpdwReturnValues) PURE;
+    STDMETHOD(ComputeSphereVisibility)(THIS_ D3DVECTOR *centers, D3DVALUE *radii, DWORD sphere_count,
+            DWORD flags, DWORD *ret) PURE;
     STDMETHOD(GetTexture)(THIS_ DWORD stage, IDirectDrawSurface7 **surface) PURE;
     STDMETHOD(SetTexture)(THIS_ DWORD stage, IDirectDrawSurface7 *surface) PURE;
     STDMETHOD(GetTextureStageState)(THIS_ DWORD dwStage,D3DTEXTURESTAGESTATETYPE d3dTexStageStateType,LPDWORD lpdwState) PURE;
