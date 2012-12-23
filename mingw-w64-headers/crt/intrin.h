@@ -435,8 +435,8 @@ extern "C" {
 #pragma pop_macro ("_rotr")
 #undef _rotl64
 #undef _rotr64
-    __MACHINECE(__MINGW_EXTENSION unsigned __int64 __cdecl _rotl64(unsigned __int64,int))
-    __MACHINECE(__MINGW_EXTENSION unsigned __int64 __cdecl _rotr64(unsigned __int64,int))
+    __MACHINE(__MINGW_EXTENSION unsigned __int64 __cdecl _rotl64(unsigned __int64,int))
+    __MACHINE(__MINGW_EXTENSION unsigned __int64 __cdecl _rotr64(unsigned __int64,int))
 #define _rotl64 __rolq
 #define _rotr64 __rorq
     __MACHINEIA64(void __rsm(int))
@@ -975,7 +975,9 @@ extern "C" {
     __MACHINEI(void __invlpg(void*))
     __MACHINEI(__MINGW_EXTENSION unsigned __int64 __readmsr(unsigned long))
     __MACHINEI(__MINGW_EXTENSION void __writemsr(unsigned long,unsigned __int64))
+#ifndef __GNUC__
     __MACHINEI(__MINGW_EXTENSION unsigned __int64 __rdtsc(void))
+#endif
     __MACHINEI(void __movsb(unsigned char *,unsigned char const *,size_t))
     __MACHINEI(void __movsw(unsigned short *,unsigned short const *,size_t))
     __MACHINEI(void __movsd(unsigned long *,unsigned long const *,size_t))
@@ -1043,8 +1045,6 @@ extern "C" {
     __MACHINEIA32(void __writefsdword(unsigned long Offset,unsigned long Data))
     __MACHINEIA32(__MINGW_EXTENSION void __writefsqword(unsigned long Offset,unsigned __int64 Data))
 
-    __MACHINE(__MINGW_EXTENSION unsigned __int64 __cdecl _rotl64(unsigned __int64,int))
-    __MACHINE(__MINGW_EXTENSION unsigned __int64 __cdecl _rotr64(unsigned __int64,int))
     __MACHINE(__MINGW_EXTENSION __int64 __cdecl _abs64(__int64))
 
     __MACHINEIW64(unsigned char _BitScanForward(unsigned long *Index,unsigned long Mask))
