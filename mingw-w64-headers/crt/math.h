@@ -325,7 +325,7 @@ typedef double double_t;
 # elif (__FLT_EVAL_METHOD__ == 1)
 typedef double float_t;
 typedef double double_t;
-# elif (__FLT_EVAL_METHOD__ == 2)
+# else /* (__FLT_EVAL_METHOD__ == 2) default ix87 FPU */
 typedef long double float_t;
 typedef long double double_t;
 #endif
