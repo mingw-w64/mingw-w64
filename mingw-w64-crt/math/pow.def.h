@@ -132,8 +132,9 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
 
       if (signbit(x) && internal_modf (y, &d) != 0.0)
 	{
-	  __FLT_RPT_DOMAIN ("pow", x, y, -__FLT_NAN);
-	  return -__FLT_NAN;
+	  return signbit (y) ? (1.0 / -x) : __FLT_CST (0.0);
+	  /*__FLT_RPT_DOMAIN ("pow", x, y, -__FLT_NAN);
+	  return -__FLT_NAN; */
 	}
       odd_y = (internal_modf (__FLT_ABI (ldexp) (y, -1), &d) != 0.0) ? 1 : 0;
       if (!signbit(y))
@@ -165,8 +166,9 @@ __FLT_ABI(pow) (__FLT_TYPE x, __FLT_TYPE y)
       /* pow (x, y) signals the invalid operation exception for finite x < 0 and finite non-integer y.  */
       if (signbit(x) && internal_modf (y, &d) != 0.0)
 	{
-	  __FLT_RPT_DOMAIN ("pow", x, y, -__FLT_NAN);
-	  return -__FLT_NAN;
+	  return signbit(y) ? 1.0 / -x : -x;
+	  /*__FLT_RPT_DOMAIN ("pow", x, y, -__FLT_NAN);
+	  return -__FLT_NAN;*/
 	}
       odd_y = (internal_modf (__FLT_ABI (ldexp) (y, -1), &d) != 0.0) ? 1 : 0;
       /* pow( -inf, y) = +0 for y<0 and not an odd integer,  */
