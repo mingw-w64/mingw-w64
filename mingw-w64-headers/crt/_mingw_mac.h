@@ -12,6 +12,13 @@
 
 #define __MINGW64_VERSION_MAJOR	3
 #define __MINGW64_VERSION_MINOR	0
+
+/* This macro holds an monotonic increasing value, which indicates
+   a specific fix/patch is present on trunk.  This value isn't related to
+   minor/major version-macros.  It is increased on demand, if a big
+   fix was applied to trunk.  This macro gets just increased on trunk.  For
+   other branches its value won't be modified.  */
+
 #define __MINGW64_VERSION_RC    1
 
 #define __MINGW64_VERSION_STR	__MINGW64_STRINGIFY(__MINGW64_VERSION_MAJOR) "." __MINGW64_STRINGIFY(__MINGW64_VERSION_MINOR)
