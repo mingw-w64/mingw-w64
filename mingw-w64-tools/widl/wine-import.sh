@@ -37,3 +37,5 @@ do
 done
 
 sed s/Wine/WIDL/ < $WINE_DIR/VERSION >VERSION
+autoconf
+
