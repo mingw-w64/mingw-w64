@@ -29,11 +29,15 @@
 extern "C" {
 #endif
 
-unsigned int __cdecl sleep (unsigned int _Duration);
+#pragma push_macro("sleep")
+#undef sleep
+unsigned int __cdecl sleep (unsigned int);
+#pragma pop_macro("sleep")
+
 #if !defined __NO_ISOCEXT
 #include <sys/types.h> /* For useconds_t. */
 
-int __cdecl __MINGW_NOTHROW usleep(useconds_t useconds);
+int __cdecl __MINGW_NOTHROW usleep(useconds_t);
 #endif  /* Not __NO_ISOCEXT */
 
 #ifndef FTRUNCATE_DEFINED
