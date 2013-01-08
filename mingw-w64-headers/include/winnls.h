@@ -475,6 +475,9 @@ extern "C" {
 #define IS_LOW_SURROGATE(c) (((c) & 0xFC00) == 0xDC00)
 #define IS_SURROGATE_PAIR(hc,lc) (IS_HIGH_SURROGATE(hc) && IS_LOW_SURROGATE(lc))
 
+#define IDN_ALLOW_UNASSIGNED        0x1
+#define IDN_USE_STD3_ASCII_RULES    0x2
+
   typedef DWORD LGRPID;
   typedef DWORD LCTYPE;
   typedef DWORD CALTYPE;
@@ -581,12 +584,12 @@ extern "C" {
   };
   
   typedef enum  _NORM_FORM  {
-  NormalizationOther   = 0,
-  NormalizationC       = 0x1,
-  NormalizationD       = 0x2,
-  NormalizationKC      = 0x5,
-  NormalizationKD      = 0x6 
-} NORM_FORM;
+    NormalizationOther   = 0,
+    NormalizationC       = 0x1,
+    NormalizationD       = 0x2,
+    NormalizationKC      = 0x5,
+    NormalizationKD      = 0x6 
+  } NORM_FORM;
 
   typedef WINBOOL (CALLBACK *LANGUAGEGROUP_ENUMPROCA)(LGRPID,LPSTR,LPSTR,DWORD,LONG_PTR);
   typedef WINBOOL (CALLBACK *LANGGROUPLOCALE_ENUMPROCA)(LGRPID,LCID,LPSTR,LONG_PTR);
@@ -725,6 +728,8 @@ extern "C" {
   WINBASEAPI int WINAPI IdnToAscii(DWORD dwFlags,LPCWSTR lpUnicodeCharStr,int cchUnicodeChar,LPWSTR lpASCIICharStr,int cchASCIIChar);
   WINBASEAPI int WINAPI IdnToNameprepUnicode(DWORD dwFlags,LPCWSTR lpUnicodeCharStr,int cchUnicodeChar,LPWSTR lpNameprepCharStr,int cchNameprepChar);
   WINBASEAPI int WINAPI IdnToUnicode(DWORD dwFlags,LPCWSTR lpASCIICharStr,int cchASCIIChar,LPWSTR lpUnicodeCharStr,int cchUnicodeChar);
+
+  WINBASEAPI BOOL WINAPI IsNormalizedString(NORM_FORM,LPCWSTR,INT);
 
 WINBASEAPI LANGID WINAPI SetThreadUILanguage(
   LANGID LangId
@@ -1017,14 +1022,6 @@ WINBASEAPI int WINAPI LCMapStringEx(
 WINBASEAPI LCID WINAPI LocaleNameToLCID(
   LPCWSTR lpName,
   DWORD dwFlags
-);
-
-WINBASEAPI int WINAPI NormalizeString(
-  NORM_FORM NormForm,
-  LPCWSTR lpSrcString,
-  int cwSrcLength,
-  LPWSTR lpDstString,
-  int cwDstLength
 );
 
 WINBASEAPI WINBOOL WINAPI RtlIsValidLocaleName(

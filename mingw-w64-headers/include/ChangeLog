@@ -1,4 +1,13 @@
 2013-01-08  Jean-Baptiste Kempf  <jb@videolan.org>
+	Kai Tietz  <ktietz@redhat.com>
+
+	* winnls.h (IDN_ALLOW_UNASSIGNED): New macro.
+	(IDN_USE_STD3_ASCII_RULES): Likewise.
+	(NORM_FORM): Reformat.
+	(IsNormalizedString): Add prototype.
+	(NormalizeString): Remove duplicate.
+
+2013-01-08  Jean-Baptiste Kempf  <jb@videolan.org>
 
 	* winbase.h (CREATE_MUTEX_INITIAL_OWNER): New define.
 	(CRITICAL_SECTION_NO_DEBUG_INFO): New define.
