@@ -2776,6 +2776,7 @@ extern "C" {
 #define SYMBOLIC_LINK_FLAG_FILE		0x0
 #define SYMBOLIC_LINK_FLAG_DIRECTORY	0x1
 #define EXTENDED_STARTUPINFO_PRESENT	0x00080000
+#define CREATE_MUTEX_INITIAL_OWNER   0x00000001
 
 #define CreateSymbolicLink __MINGW_NAME_AW(CreateSymbolicLink)
 #define CreateBoundaryDescriptor __MINGW_NAME_AW(CreateBoundaryDescriptor)
