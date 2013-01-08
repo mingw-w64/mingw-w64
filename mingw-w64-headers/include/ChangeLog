@@ -1,6 +1,8 @@
 2013-01-08  Jean-Baptiste Kempf  <jb@videolan.org>
 
 	* winbase.h (CREATE_MUTEX_INITIAL_OWNER): New define.
+	(CRITICAL_SECTION_NO_DEBUG_INFO): New define.
+	(InitializeCriticalSectionEx): New prototype.
 
 2012-12-12  Corinna Vinschen  <vinschen@redhat.com>
 

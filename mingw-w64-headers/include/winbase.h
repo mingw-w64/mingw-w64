@@ -3613,6 +3613,14 @@ WINBASEAPI WINBOOL WINAPI GetVolumeInformationByHandleW(
   DWORD nFileSystemNameSize
 );
 
+#define CRITICAL_SECTION_NO_DEBUG_INFO 0x1
+
+WINBASEAPI WINBOOL WINAPI InitializeCriticalSectionEx(
+  LPCRITICAL_SECTION lpCriticalSection,
+  DWORD dwSpinCount,
+  DWORD Flags
+);
+
 WINBASEAPI VOID WINAPI LeaveCriticalSectionWhenCallbackReturns(
   PTP_CALLBACK_INSTANCE pci,
   PCRITICAL_SECTION pcs
