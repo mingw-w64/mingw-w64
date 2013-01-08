@@ -729,8 +729,6 @@ extern "C" {
   WINBASEAPI int WINAPI IdnToNameprepUnicode(DWORD dwFlags,LPCWSTR lpUnicodeCharStr,int cchUnicodeChar,LPWSTR lpNameprepCharStr,int cchNameprepChar);
   WINBASEAPI int WINAPI IdnToUnicode(DWORD dwFlags,LPCWSTR lpASCIICharStr,int cchASCIIChar,LPWSTR lpUnicodeCharStr,int cchUnicodeChar);
 
-  WINBASEAPI BOOL WINAPI IsNormalizedString(NORM_FORM,LPCWSTR,INT);
-
 WINBASEAPI LANGID WINAPI SetThreadUILanguage(
   LANGID LangId
 );
