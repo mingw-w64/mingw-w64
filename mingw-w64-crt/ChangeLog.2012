@@ -1,0 +1,288 @@
+2012-11-20  Kai Tietz  <ktietz@redhat.com>
+
+	* math/signgam.c: New.
+	* Makefile.am: Add math/signgam.c source for build.
+	* Makefile.in: Regenerated.
+	* lgammaf.c: Use signgam.
+	* lgamma.c: Likewise.
+	* lgammal.c: Likewise.
+
+2012-08-17  Corinna Vinschen  <vinschen@redhat.com>
+
+	* configure.ac (sysroot): Set sysroot to $prefix since include is
+	attached in Makefile.am anyway.
+	* configure: Regenerate.
+
+2012-08-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* misc/getopt.c (optreset): Define as __mingw_optreset (bugs
+	#3554856, 3556105.)
+
+2012-08-09  Corinna Vinschen  <vinschen@redhat.com>
+
+	* Makefile.am (libglut.a): Add missing "lib32/".
+	* Makefile.in: Regenerate.
+
+2012-08-09  Corinna Vinschen  <vinschen@redhat.com>
+
+	* Makefile.am (libdelayimp.a): Only build and install if not creating
+	a w32api installation for Cygwin.
+	(libglut.a): Ditto.
+	* Makefile.in: Regenerate.
+
+2012-08-08  Kai Tietz  <ktietz@redhat.com>
+
+	* gdtoa/dg_qnan.h: Make Nan constants positive valued.
+
+2012-08-08  Corinna Vinschen  <vinschen@redhat.com>
+
+	* configure.ac: Fix default to --enable-w32api=no in previous patch.
+	* configure: Regenerate.
+
+2012-08-07  Corinna Vinschen  <vinschen@redhat.com>
+
+	* configure.ac: Replace --enable-startup with --enable-w32api option.
+	(LIB64SUFFIXDIR, LIB32SUFFIXDIR): Conditionalize on enable_w32api.
+	* Makefile.am: Replace STARTUP conditions with W32API conditions.
+	Drop libraries depending on W32API.
+	(libsrcdir): Set to includedir.
+	* configure: Regenerate.
+	* Makefile.in: Regenerate.
+
+2012-08-07  Kai Tietz  <ktietz@redhat.com>
+
+	* secapi/wmemcpy_s.c: New file.
+	* secapi/memcpy_s.c: New file.
+	* secapi/_strdate_s.c: New file.
+	* secapi/_wstrdate_s.c: New file.
+	* secapi/_strtime_s.c: New file.
+	* secapi/_wstrtime_s.c: New file.
+	* secapi/_gmtime64_s.c: New file.
+	* secapi/_gmtime32_s.c: New file.
+	* secapi/_localtime32_s.c: New file.
+	* secapi/_localtime64_s.c: New file.
+	* secapi/_ctime64_s.c: New file.
+	* secapi/_wctime64_s.c: New file.
+	* Makefile.am: Add new files.
+	* Makefile.in: Regenerated.
+	* lib32/msvcrt.def: Commented symbols.
+	* lib64/msvcrt.def: Likewise.
+
+2012-08-03  Kai Tietz  <ktietz@redhat.com>
+
+	* secapi/asctime_s.c: New file.
+	* secapi/_wasctime_s.c: New file.
+	* secapi/_wctime32_s.c: New file.
+	* secapi/_ctime32_s.c: New file.
+	* Makefile.am: Add new files.
+        * Makefile.in: Regenerated.
+	* lib32/msvcrt.def: Commented symbols.
+	* lib64/msvcrt.def: Likewise.
+
+2012-08-01  Kai Tietz  <ktietz@redhat.com>
+
+	* secapi/_umask_s.c: New file.
+	* secapi/_chsize_s.c: New file.
+	* secapi/_mktemp_s.c: New file.
+	* secapi/_wmktemp_s.c: New file.
+	* secapi/_wassert_s.c: New file.
+	* secapi/_assert_s.c: New file.
+	* secapi/_cwprintf_s.c: New file.
+	* secapi/_cwprintf_s_l.c: New file.
+	* secapi/_vcwprintf_s.c: New file.
+	* secapi/_vcwprintf_s_l.c: New file.
+	* secapi/_vcprintf_s.c: New file.
+	* secapi/_vcprintf_s_l.c: New file.
+	* secapi/_cprintf_s_l.c: New file.
+	* Makefile.am: Add new file.
+	* Makefile.in: Regenerated.
+	* lib32/msvcrt.def: Commented symbol.
+	* lib64/msvcrt.def: Likewise.
+
+2012-07-31  Kai Tietz  <ktietz@redhat.com>
+
+	* secapi/: New folder.
+	* Makefile.am: Add _cgets_s.c _cgetwe_s.c and _cprintf_s.c files
+	to libmingwex.a library.
+	* Makefile.in: Regnerated.
+	* lib32/msvcrt.def: Comment replaced secured-API functions.
+	* lib64/msvcrt.def: Likewise.
+
+2012-07-17  Kai Tietz  <ktietz@redhat.com>
+
+	PR 3544372
+	* misc/mingw_pformat.h (PFORMAT_TO_FILE): Increased constant.
+	(PFORMAT_NOLIMIT): Likewise.
+
+2012-07-11  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/tapi32.def: Add missing exports.
+
+2012-07-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crt/tlsmthread.c: Removed leftovers of Win9X/Me mingwm10.dll
+	support.
+
+2012-07-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* crt/tlssup.c: Removed Windows 9X/Me mingwm10.dll support.
+
+2012-06-19  Kai Tietz  <ktietz@redhat.com>
+
+	* math/fdim.c: Adjust for being posix compatible.
+	* math/fdimf.c: Likewise.
+	* math/fdiml.c: Likewise.
+	* math/ilogb.S: Replace x64 variant by soft-float variant.
+	* math/ilogbf.S: Likewise.
+	* math/logb.c: Likewise.
+	* math/logbf.c: Likewise.
+	* math/isnan.c: Special-case for x64.
+	* math/isnanf.c: Likewise.
+	* math/signbit.c: Likewise.
+	* math/signbitf.c: Likewise.
+
+	* math/fpclassify.c: Special-case x64.
+	* math/fpclassifyf.c: Likewise.
+
+2012-06-06  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/winhttp.def (WinHttpCheckPlatform): Add missing @0
+	__stdcall suffix.
+
+2012-06-05  Kai Tietz  <ktietz@redhat.com>
+
+	* lib32/winhttp.def: New file.
+	* lib64/winhttp.def: New file.
+
+2012-05-26  Kai Tietz  <ktietz@redhat.com>
+
+	* math/floor*: Optimize for 64-bit without using fpu.
+	* Makefile.am: Adjust floor and floorf sources.
+	* Makefile.in: Regenerated.
+	* lib32/ and lib64/: Adjust msvcr*.def files for providing
+	floor and floorf only as DATA.
+
+	* math/ceilf.c: Replaced by new implementation in ...
+	* math/ceilf.S: here.
+
+	* math/trunc*: Optimize for 64-bit without using fpu.
+	* Makefile.am: Adjust trunc and truncf source.
+	* Makefile.in: Regenerate.
+
+2012-05-23  Kai Tietz  <ktietz@redhat.com>
+
+	* lib32/msvcr*.def: Define log/logf imports as DATA.
+	* lib64/msvcr*.def: Likewise.
+
+	* lib32/msvcr*.def: Make exp/expf functions defined as DATA.
+	* lib64/msvcr*.def: Likewise.
+
+	* lib32/msvcr*.def: Make sqrt/sqrtf functions defined as DATA.
+	* lib64/msvcr*.def: Likewise.
+
+	* math/ceilf.S: Removed.
+	* math/ceil.S: New code.
+	* Makefile.am: Added ceil.S to build.
+	* Makefile.in: Regenerated.
+	* lib32/msvcr*.def: Mark ceilf and ceil as DATA.
+	* lib64/msvcr*.def: Likewise.
+
+2012-05-23  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* lib32/cabinet.def: New def, based on a patch by Ray Donnelly.
+	* Makefile.am (lib32_DATA): Add lib32/cabinet.def to build.
+	* Makefile.in: Regenerate.
+
+2012-05-22  Kai Tietz  <ktietz@redhat.com>
+
+	* crt/crtexe.c (__mingw_winmain_hInstance): Initialize for
+	console-mode, too.
+
+2012-05-02  Kai Tietz  <ktietz@redhat.com>
+
+	PR 3521401
+	* gdtoa/strtodnrp.c (__strtod): Add Int_max initializer to fpi.
+	* gdtoa/strtof.c (__strtof): Add Int_max initializer to fpi0.
+	* gdtoa/strtopx.c (__strtopx): Add Int_max initializer to fpi0.
+
+	* Makefile.in: Regenerated.
+	* Makefile.am: Add RtlSecureZeroMemory.c file.
+	* intrincs/RtlSecureZeroMemory.c: New file.
+
+2012-04-19  Kai Tietz  <ktietz@redhat.com>
+	    Timo Kreuzer <timo.kreuzer@reactos.org>
+
+	* crt/cinitexe.c: Allow compilation with msvc.
+	* crt/crt_handler.c: Likewise.
+	* crt/crtexe.c: Likewise.
+	* crt/gs_support.c: Likewise.
+	* crt/merr.c: Likewise.
+	* crt/pseudo-reloc.c: Likewise.
+
+2012-02-26  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* lib32/msvcrt.def (_ftime_s): Add alias to _ftime32_s.
+	* lib64/msvcrt.def (_ftime_s): Add alias to _ftime64_s.
+
+2012-02-07  Rafaël Carré  <funman@videolan.org>
+
+	* libsrc/dxva-uuid.c (New file): Add DXVA UUIDs
+
+2012-02-03  Rafaël Carré  <funman@videolan.org>
+
+	* libsrc/shell32.c (ApplicationAssociationRegistrationUI): Add UUIDs
+
+2012-02-02  Rafaël Carré  <funman@videolan.org>
+
+	* libsrc/strmiids.c (MEDIASUBTYPE_I420): Add GUID.
+
+2012-02-01  Kai Tietz  <ktietz@redhat.com>
+
+	* lib32/user32.def, lib64/user32.def: Add imports for
+	SetGestureConfig, GetGestureConfig, GetGestureInfo, and
+	CloseGestureInfoHandle.
+
+2012-01-24  Kai Tietz  <ktietz@redhat.com>
+
+	* lib64/msvcrt.def: Add forwarders to wide-(v)snprintf
+	and provide snprintf.
+	* lib32/msvcrt.def: Likewise.
+	* stdio/vscanf2.S, stdio/vfwscanf2.S, stdio/vfscanf2.S,
+	stdio/vsscanf2.S, stdio/vwscanf2.S, stdio/vswscanf2.S: New.
+	* Makefile.am: Add new files for libmingex.a
+	* Makefile.in: Regenerated.
+	* configure: Regenerated.
+
+2012-01-19  Ozkan Sezer  <sezeroz@gmail.com>
+
+	Partially revert rev. 3656:
+	* libsrc/agtctl_i.c: Remove from libuuid.a build rule and install
+	as is under $(prefix)/$(host)/libsrc/
+	* libsrc/agtsvr_i.c: Likewise.
+	* libsrc/cdoex_i.c: Likewise.
+	* libsrc/cdoexm_i.c: Likewise.
+	* libsrc/cdosys_i.c: Likewise.
+	* libsrc/emostore_i.c: Likewise.
+	* libsrc/iisext_i.c: Likewise.
+	* libsrc/mtsadmin_i.c: Likewise.
+	* libsrc/mtxadmin_i.c: Likewise.
+	* libsrc/scardssp_i.c: Likewise.
+	* libsrc/scardssp_p.c: Likewise.
+	* libsrc/tsuserex_i.c: Likewise.
+
+2012-01-18  Kai Tietz  <ktietz@redhat.com>
+
+	PR 3463580
+	* testcases/t_exp_denormal.c: New test.
+	* testcases/t_powi.c: New test.
+	* complex/complex_internal.h (
+	* math/exp.def.h: Adjust error-report for range-min.
+	* math/powi.def.h: New file.
+	* math/powif.c: Rewrite to use powi.def.h.
+	* math/powi.c: Likewise.
+	* math/powil.c: Likewise.
+
+2012-01-17  Daniel Green  <venix1@gmail.com>
+
+	* stdio/mingw_pformat.c (__pformat): Correct 'l' length modifier
+	to follow C99 specification (7.19.6.1) with Windows.

@@ -1,0 +1,189 @@
+2012-12-20  Kai Tietz  <ktietz@redhat.com>
+
+	* unistd.h (sleep): Provide prototype.
+
+2012-11-20  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* stdio.h: vswprintf is now ISO C compliant, the API is not
+	compatible with the older version. AS with MSVC, define
+	_CRT_NON_CONFORMING_SWPRINTFS to get back the old behavior.
+	* wchar.h: Likewise.
+
+2012-08-29  Yaakov Selkowitz  <yselkowitz@users.sourceforge.net>
+
+	* stdio.h (_mingw_ovr): Use GCC form for both C and C++.
+	* wchar.h (_mingw_ovr): Ditto.
+
+2012-08-12  Kai Tietz  <ktietz@redhat.com>
+
+	* excpt.h (__try1, __except1): Correct macros for x64.
+
+2012-08-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* getopt.h (optreset): Guard __mingw_optreset definition by
+	_BSD_SOURCE again (bug #3556105.)
+
+2012-08-07  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* getopt.h (optreset): Define as __mingw_optreset regardless of
+	_BSD_SOURCE being defined. (bug #3554856.)
+
+2012-08-04  Kai Tietz  <ktietz@redhat.com>
+
+	* crtdbg.h: disable prototyping of C++ new/delete operators.
+
+2012-07-30  Kai Tietz  <ktietz@redhat.com>
+
+	* _bsd_types.h (u_long): Make u_long type dependent to
+	__LONG32 define.
+
+2012-07-19  Corinna Vinschen  <vinschen@redhat.com>
+
+	* _cygwin.h (_WIN64): Define if targeting x86_64.
+
+2012-07-17  Corinna Vinschen  <vinschen@redhat.com>
+
+	* _mingw_mac.h (__MSABI_LONG): Define for LP64 systems as well.
+
+2012-07-17  Corinna Vinschen  <vinschen@redhat.com>
+
+	* _mingw.h.in (__LONG32): Define.  Explain what it's good for.
+
+2012-07-05  Kai Tietz  <ktietz@redhat.com>
+
+	* stdio.h (asprintf, vasprintf): Disable definitions stubs.
+
+2012-07-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw_mac.h (__MINGW_GCC_VERSION): New macro.
+	* setjmp.h (setjmp): Use mingw_getsp() with gcc < 4.7.2.
+
+2012-07-04  Kai Tietz  <ktietz@redhat.com>
+	    Tristan Gingold <gingold@adacore.com>
+
+	* setjmp.h (setjmp): Use frame-address builtin.
+	Reformat #if/#else block.
+
+2012-06-27  Corinna Vinschen  <vinschen@redhat.com>
+
+	* _cygwin.h: Include stddef.h.
+
+2012-06-26  Corinna Vinschen  <vinschen@redhat.com>
+
+	* _cygwin.h: New file.
+	* _mingw.h.in: Include _cygwin.h when building a Cygwin application.
+	Allow building Cygwin applications even though _WIN32 isn't defined.
+	* vadefs.h: Drop test for _WIN32 since it's done in _mingw.h.
+
+2012-06-19  Kai Tietz  <ktietz@redhat.com>
+
+	* math.h (logb, logbf): Special-case x64 inline.
+
+	* math.h (__signbit, __signbitf): Special-case x64 inline.
+	(copysign, copysignf): Likewise.
+
+	* math.h (__isnan, __isnanf): Special-case x64 inline.
+
+	* math.h (__fpclassify, __fpclassifyf): Special case x64.
+	(__mingw_dbl_type_t): New type.
+	(__mingw_ldbl_type_t): New type.
+	(__mingw_flt_type_t): New type.
+
+2012-06-15  Kai Tietz  <ktietz@redhat.com>
+
+	* assert.h, process.h, stdlib.h (_exit,_cexit, _c_exit):
+	Remove _CRTIMP specifier from prototype.
+
+2012-06-15 niXman <i.nixman@gmail.com>
+
+	* wchar.h (wmemcmp): Add missing __cdecl to prototype.
+	* math.h (fabs, fabsf): Fix typo.
+
+2012-05-31  Kai Tietz  <ktietz@redhat.com>
+
+	* crtdefs.h (errcode): Don't define it by default.
+
+2012-05-10  Christian Franke <Christian.Franke@t-...>
+	    Kai Tietz  <ktietz@redhat.com>
+
+	PR 3523559
+	* stdio.h: Guard override-function for C++ to work-around
+	a g++ bug about builtins and static overrides.
+
+2012-04-10  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* _mingw.h (__int128, __SIZEOF_INT128__): Handle clang.
+
+2012-03-01  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* errno.h: Add EOVERFLOW for msvc 2010 compatibility.
+
+2012-02-24  Kai Tietz  <ktietz@redhat.com>
+
+	PR/3468894
+	* _mingw.h (__uuidof): Use __typeof instead of typeof.
+
+2012-01-17  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* time.h: Don't include pthread_time.h when we are compiling
+	winpthreads.
+
+2012-01-15  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* sec_api/string_s.h(strcat_s): Use CRT secure helper macro.
+	(wcscpy_s): Likewise.
+	(wcscat_s): Likewise.
+	* sec_api/wchar_s.h(wcscpy_s): Likewise.
+	(wcscat_s): Likewise.
+	* sec_api/mbstring_s.h(_mbscat_s): Likewise.
+	(_mbscpy_s): Likewise.
+
+2012-01-12  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	*_mingw_mac.h: Moved CRT secure macros to _mingw_secapi.h
+	*_mingw_secapi.h: New, fix fallback cases.
+
+2012-01-11  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* _mingw_mac.h(__CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_0_2_):
+	Fix arguments.
+	(__CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY_0_3_): Likewise.
+
+2012-01-11  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* _mingw_mac.h(__CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES1_):
+	rename to __CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_0_2_.
+	(__CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY1_): Rename to
+	__CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY_0_3_.
+	(__CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY1_): Rename to
+	__CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY_0_4_.
+	(__CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES1_): Rename to
+	__CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_0_2_.
+	(__CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT1_): Rename to
+	__CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT_0_3_.
+	(__CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT2_): Rename to
+	__CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT_1_4_.
+	(__CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_MEMORY1_): Rename to
+	__CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_MEMORY_0_3_.
+
+2012-01-09  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* _mingw.h.in: Move @MINGW_HAS_SECURE_API@ before mingw_mac.h.
+	(__MINGW_ATTRIB_DEPRECATED_SEC_WARN): Moved to _mingw_mac.h.
+	(__MINGW_ATTRIB_DEPRECATED_MSVC2005): Likewise.
+	* _mingw_mac.h: (__if_array): New template.
+	(__CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES1_): Define macro.
+	(__CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY1_): Likewise.
+	(__CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES1_): Likewise.
+	(__CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT1_): Likewise.
+	(__CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT2_): Likewise.
+	(__CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_MEMORY1_): Likewise.
+
+2012-01-07  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* sec_api/memory_s.h: New.
+	* sec_api/wchar_s.h(wmemcpy_s): Declare.
+	(wmemmove_s): Likewise.
+	* sec_api/string_s.h(memmove_s): Likewise.
+	(memcpy_s): Likewise.
+	* memory.h: Include sec_api/memory_s.h.

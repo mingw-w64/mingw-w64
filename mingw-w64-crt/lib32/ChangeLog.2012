@@ -1,0 +1,4 @@
+2012-01-10  Kai Tietz  <ktietz@redhat.com>
+
+        * msvcrt.def (vsnprintf): Forward to _vsnprintf.
+

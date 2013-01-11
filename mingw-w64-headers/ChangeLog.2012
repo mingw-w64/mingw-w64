@@ -1,0 +1,62 @@
+2012-08-08  Corinna Vinschen  <vinschen@redhat.com>
+
+	* configure.ac: Fix default to --enable-w32api=no in previous patch.
+	* configure: Regenerate.
+
+2012-08-07  Corinna Vinschen  <vinschen@redhat.com>
+
+	* configure.ac: Add --enable-w32api option.
+	* configure: Regenerate.
+
+2012-07-30  Corinna Vinschen  <vinschen@redhat.com>
+
+	Revert previous patch:
+	* configure.ac (BASEHEAD_LIST): Remove crt/intrin.h.
+	* configure: Regenerate.
+
+2012-07-27  Corinna Vinschen  <vinschen@redhat.com>
+
+	* configure.ac (BASEHEAD_LIST): Add crt/intrin.h
+	* configure: Regenerate.
+
+2012-07-17  Corinna Vinschen  <vinschen@redhat.com>
+
+	* ddk/include/ddrawint.h (MAKE_HRESULT): Define in terms of ULONG
+	instead of unsigned long.
+	* ddk/include/ddk/scsiwmi.h (struct _GUID): Define Data1 as ULONG.
+	* ddk/include/ddk/d4iface.h (CHANNEL_HANDLE, *PCHANNEL_HANDLE): Define
+	based on ULONG.
+	* ddk/include/ddk/ntstrsafe.h (DWORD): Ditto.
+
+2012-07-11  Corinna Vinschen  <vinschen@redhat.com>
+
+	* configure.ac (BASEHEAD_LIST): Add crt/crtdefs.h.
+	* configure: Regenerate.
+
+2012-06-27  Corinna Vinschen  <vinschen@redhat.com>
+
+	* configure.ac (BASEHEAD_LIST): Add crt/_bsd_types.h, crt/_timeval.h,
+	and crt/excpt.h.
+	(SECHEAD_LIST): Define to include crt/sec_api/stralign_s.h by default.
+	* configure: Regenerate.
+
+2012-06-26  Corinna Vinschen  <vinschen@redhat.com>
+
+	* configure.ac (BASEHEAD_LIST): Add _cygwin.h.
+	* configure: Regenerate.
+
+2012-06-25  Kai Tietz  <ktietz@redhat.com>
+
+	* configure.ac (BASEHEAD_LIST): Add additional required basic-
+	headers.
+
+2012-02-02  Rafaël Carré <funman@videolan.org>
+
+	* configure.ac: Give a warning if DDK headers are not present.
+	* configure.ac: Enable DDK by default only if the headers are present.
+	* configure: Regenerate.
+2012-02-01  Rafaël Carré <funman@videolan.org>
+
+	* configure.ac: Move IDL generation option from --enable-sdk=idl to --enable-idl.
+	* configure.ac: Enable DirectX / DDK headers by default.
+	* configure: Regenerate.
