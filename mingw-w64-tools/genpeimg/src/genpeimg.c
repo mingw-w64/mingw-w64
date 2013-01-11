@@ -29,13 +29,14 @@ show_usage (void)
     " -d  Takes as addition argument one or more of the following\n"
     "     options:\n"
     "  +<flags> and/or -<flags>\n"
-    "  flags are: d, f, n, i, s, b, w, t\n"
+    "  flags are: d, f, n, i, s, b, a, w, t\n"
     "    d: dynamic base\n"
     "    f: force integrity\n"
     "    n: nx compatible\n"
     "    i: no-isolation\n"
     "    s: no-SEH\n"
     "    b: no-bind\n"
+    "    a: app-container\n"
     "    w: WDM-driver\n"
     "    t: terminal-server-aware\n");
   fprintf (stderr,
@@ -155,6 +156,10 @@ pass_args (int argc, char **argv)
 		case 'b':
 		  if (is_pos) set_pe_opt_hdr_dll_chara |= 0x800;
 		  else mask_pe_opt_hdr_dll_chara &= ~0x800;
+		  break;
+		case 'a':
+		  if (is_pos) set_pe_opt_hdr_dll_chara |= 0x1000;
+		  else mask_pe_opt_hdr_dll_chara &= ~0x1000;
 		  break;
 		case 'w':
 		  if (is_pos) set_pe_opt_hdr_dll_chara |= 0x2000;

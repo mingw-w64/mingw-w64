@@ -284,6 +284,8 @@ peimg_show (pe_image *ppeimg, FILE *outfp)
         fprintf (outfp, " no-SEH");
       if ((hdr_cha & 0x800) != 0)
         fprintf (outfp, " no-BIND");
+      if ((hdr_cha & 0x1000) != 0)
+	fprintf (outfp, " app-container");
       if ((hdr_cha & 0x2000) != 0)
         fprintf (outfp, " wdm-Driver");
       if ((hdr_cha & 0x8000) != 0)
