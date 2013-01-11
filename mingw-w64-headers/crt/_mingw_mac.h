@@ -229,6 +229,11 @@
 # define __MINGW_ATTRIB_DEPRECATED_SEC_WARN
 #endif
 
+#define __MINGW_MS_PRINTF(__format,__args)  __attribute__((__format__(ms_printf, __format,__args)))
+#define __MINGW_MS_SCANF(__format,__args)   __attribute__((__format__(ms_scanf,  __format,__args)))
+#define __MINGW_GNU_PRINTF(__format,__args) __attribute__((__format__(gnu_printf,__format,__args)))
+#define __MINGW_GNU_SCANF(__format,__args)  __attribute__((__format__(gnu_scanf, __format,__args)))
+
 #undef __mingw_ovr
 #ifdef __cplusplus
 #define __mingw_ovr  inline __cdecl
