@@ -229,5 +229,14 @@
 # define __MINGW_ATTRIB_DEPRECATED_SEC_WARN
 #endif
 
+#undef __mingw_ovr
+#ifdef __cplusplus
+#define __mingw_ovr  inline __cdecl
+#elif defined (__GNUC__)
+#define __mingw_ovr static __attribute__ ((__unused__)) __inline__ __cdecl
+#else
+#define __mingw_ovr static __cdecl
+#endif
+
 #endif	/* _INC_CRTDEFS_MACRO */
 

@@ -187,15 +187,6 @@ extern
   __attribute__((__format__ (gnu_printf, 2, 0))) __attribute__((nonnull (1,2)))
   int __cdecl __mingw_vasprintf(char ** __restrict__ , const char * __restrict__ , va_list) __MINGW_NOTHROW;
 
-#undef __mingw_ovr
-#ifdef __cplusplus
-#define __mingw_ovr  inline __cdecl
-#elif defined (__GNUC__)
-#define __mingw_ovr static __attribute__ ((__unused__)) __inline__ __cdecl
-#else
-#define __mingw_ovr static __cdecl
-#endif
-
 #if __USE_MINGW_ANSI_STDIO
 /*
  * User has expressed a preference for C99 conformance...
@@ -622,15 +613,6 @@ int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict_
   int __cdecl __mingw_swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...);
 /* __attribute__((__format__ (gnu_wprintf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
   int __cdecl __mingw_vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list);
-
-#undef __mingw_ovr
-#if defined (__GNUC__)
-#define __mingw_ovr static __attribute__ ((__unused__)) __inline__ __cdecl
-#elif defined(__cplusplus)
-#define __mingw_ovr inline __cdecl
-#else
-#define __mingw_ovr static __cdecl
-#endif
 
 #if __USE_MINGW_ANSI_STDIO
 /*

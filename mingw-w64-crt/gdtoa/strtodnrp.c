@@ -80,3 +80,8 @@ double __strtod (const char *s, char **sp)
 		u.L[_0] |= 0x80000000L;
 	return u.d;
 }
+
+double __cdecl
+__mingw_strtod (const char * __restrict__ src, char ** __restrict__ endptr)
+  __attribute__((alias("__strtod")));
+

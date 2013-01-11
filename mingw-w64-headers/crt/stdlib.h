@@ -9,6 +9,10 @@
 #include <crtdefs.h>
 #include <limits.h>
 
+#if defined (__USE_MINGW_ANSI_STDIO) && !defined (__USE_MINGW_STRTOX)
+#define __USE_MINGW_STRTOX 1
+#endif
+
 #pragma pack(push,_CRT_PACKING)
 
 #ifdef __cplusplus
@@ -380,25 +384,37 @@ extern "C" {
 #ifdef _CRT_RAND_S
   _CRTIMP errno_t __cdecl rand_s(unsigned int *randomValue);
 #endif
+#if defined(__USE_MINGW_STRTOX)
+__mingw_ovr
+double __cdecl __MINGW_NOTHROW strtod(const char * __restrict__ _Str,char ** __restrict__ _EndPtr)
+{
+  double __cdecl __mingw_strtod (const char * __restrict__, char ** __restrict__);
+  return __mingw_strtod( _Str, _EndPtr);
+}
+
+__mingw_ovr
+float __cdecl __MINGW_NOTHROW strtof(const char * __restrict__ _Str,char ** __restrict__ _EndPtr)
+{
+  float __cdecl __mingw_strtof (const char * __restrict__, char ** __restrict__);
+  return __mingw_strtof( _Str, _EndPtr);
+}
+
+/* strtold is already an alias to __mingw_strtold */
+#else
   double __cdecl __MINGW_NOTHROW strtod(const char * __restrict__ _Str,char ** __restrict__ _EndPtr);
   float __cdecl __MINGW_NOTHROW strtof(const char * __restrict__ nptr, char ** __restrict__ endptr);
+#endif /* defined(__USE_MINGW_STRTOX) */
   long double __cdecl __MINGW_NOTHROW strtold(const char * __restrict__ , char ** __restrict__ );
 #if !defined __NO_ISOCEXT
   /* libmingwex.a provides a c99-compliant strtod() exported as __strtod() */
   extern double __cdecl __MINGW_NOTHROW
   __strtod (const char * __restrict__ , char ** __restrict__);
-#ifdef __cplusplus
-__inline__ double __cdecl __MINGW_NOTHROW
-strtod (const char * __restrict__ __nptr, char ** __restrict__  __endptr)
-{
-  return __strtod(__nptr, __endptr);
-}
-#endif
 #define strtod __strtod
 #endif /* __NO_ISOCEXT */
 
 #if !defined __NO_ISOCEXT  /* in libmingwex.a */
   float __cdecl __mingw_strtof (const char * __restrict__, char ** __restrict__);
+  double __cdecl __mingw_strtod (const char * __restrict__, char ** __restrict__);
   long double __cdecl __mingw_strtold(const char * __restrict__, char ** __restrict__);
 #endif /* __NO_ISOCEXT */
   _CRTIMP double __cdecl _strtod_l(const char * __restrict__ _Str,char ** __restrict__ _EndPtr,_locale_t _Locale);
@@ -447,15 +463,26 @@ strtod (const char * __restrict__ __nptr, char ** __restrict__  __endptr)
   _CRTIMP wchar_t *__cdecl _itow(int _Value,wchar_t *_Dest,int _Radix) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP wchar_t *__cdecl _ltow(long _Value,wchar_t *_Dest,int _Radix) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP wchar_t *__cdecl _ultow(unsigned long _Value,wchar_t *_Dest,int _Radix) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-  double __cdecl wcstod(const wchar_t * __restrict__ _Str,wchar_t ** __restrict__ _EndPtr);
-  float __cdecl wcstof(const wchar_t * __restrict__ nptr, wchar_t ** __restrict__ endptr);
 
   double __cdecl __mingw_wcstod(const wchar_t * __restrict__ _Str,wchar_t ** __restrict__ _EndPtr);
   float __cdecl __mingw_wcstof(const wchar_t * __restrict__ nptr, wchar_t ** __restrict__ endptr);
   long double __cdecl __mingw_wcstold(const wchar_t * __restrict__, wchar_t ** __restrict__);
 
+#if defined(__USE_MINGW_STRTOX)
+  __mingw_ovr
+  double __cdecl wcstod(const wchar_t * __restrict__ _Str,wchar_t ** __restrict__ _EndPtr){
+    return __mingw_wcstod(_Str,_EndPtr);
+  }
+  __mingw_ovr
+  float __cdecl wcstof(const wchar_t * __restrict__ _Str,wchar_t ** __restrict__ _EndPtr){
+    return __mingw_wcstof(_Str,_EndPtr);
+  }
+  /* wcstold is already a mingw implementation */
+#else
+  double __cdecl wcstod(const wchar_t * __restrict__ _Str,wchar_t ** __restrict__ _EndPtr);
+  float __cdecl wcstof(const wchar_t * __restrict__ nptr, wchar_t ** __restrict__ endptr);
+#endif /* defined(__USE_MINGW_STRTOX) */
 #if !defined __NO_ISOCEXT /* in libmingwex.a */
-  float __cdecl wcstof( const wchar_t * __restrict__, wchar_t ** __restrict__);
   long double __cdecl wcstold(const wchar_t * __restrict__, wchar_t ** __restrict__);
 #endif /* __NO_ISOCEXT */
   _CRTIMP double __cdecl _wcstod_l(const wchar_t * __restrict__ _Str,wchar_t ** __restrict__ _EndPtr,_locale_t _Locale);

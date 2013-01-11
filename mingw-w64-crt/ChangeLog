@@ -1,0 +1,3 @@
+2013-01-12  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* gdtoa/strtodnrp.c (__mingw_strtod): New, aliased to __strtod.

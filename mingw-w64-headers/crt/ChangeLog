@@ -1,0 +1,15 @@
+2013-01-12  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* stdlib.h: Define __USE_MINGW_STRTOX if __USE_MINGW_ANSI_STDIO in use.
+	(strtod): Alias to __mingw_strtod if __USE_MINGW_STRTOX.
+	(strtof): Likewise to __mingw_strtof.
+	(strtod): Remove C++ specific inline redirect to __strtod.
+	(__mingw_strtod): New.
+	(wcstod): Alias to __mingw_wcstod if __USE_MINGW_STRTOX.
+	(wcstof): Likewise to __mingw_wcstof.
+	* wchar.h:  Define __USE_MINGW_STRTOX if __USE_MINGW_ANSI_STDIO in use.
+	(wcstod): Alias to __mingw_wcstod if __USE_MINGW_STRTOX.
+	(wcstof): Likewise to __mingw_wcstof.
+	* stdio.h: Remove __mingw_ovr macro definition. Moved.
+	* _mingw_mac.h: New __mingw_ovr macro.
+
