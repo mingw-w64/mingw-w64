@@ -40,9 +40,12 @@ typedef struct TlsDtorNode {
 
 ULONG _tls_index = 0;
 
-/* TLS raw template data start and end. */
-_CRTALLOC(".tls$AAA") char _tls_start = 0;
-_CRTALLOC(".tls$ZZZ") char _tls_end = 0;
+/* TLS raw template data start and end. 
+   We use here pointer-types for start/end so that tls-data remains
+   aligned on pointer-size-width.  This seems to be required for
+   pe-loader. */
+_CRTALLOC(".tls$AAA") char *_tls_start = NULL;
+_CRTALLOC(".tls$ZZZ") char *_tls_end = NULL;
 
 _CRTALLOC(".CRT$XLA") PIMAGE_TLS_CALLBACK __xl_a = 0;
 _CRTALLOC(".CRT$XLZ") PIMAGE_TLS_CALLBACK __xl_z = 0;

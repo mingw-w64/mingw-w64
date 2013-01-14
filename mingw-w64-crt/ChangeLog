@@ -1,3 +1,9 @@
+2012-01-13  Kai Tietz  <ktietz@redhat.com>
+
+	* crt/tlssup.c (_tls_start,_tls_end): Make variables
+	pointer-typed, so that alignment for start-address is
+	on pointer-alignment.
+
 2013-01-12  Jonathan Yong  <jon_y@users.sourceforge.net>
 
 	* gdtoa/strtodnrp.c (__mingw_strtod): New, aliased to __strtod.
