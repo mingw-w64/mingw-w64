@@ -1360,7 +1360,7 @@ asctime_s
 asin
 atan
 atan2
-atexit
+atexit DATA
 atof
 atoi
 atol

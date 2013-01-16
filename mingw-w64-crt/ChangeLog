@@ -1,3 +1,10 @@
+2012-01-16  Rafaël Carré <funman@videolan.org>
+
+	* lib32/msvcr110.def: Mark atexit with DATA.
+	* lib64/msvcr110.def: Likewise.
+	* lib32/msvcr90d.def: Likewise.
+	* lib64/msvcr90d.def: Likewise.
+
 2012-01-13  Kai Tietz  <ktietz@redhat.com>
 
 	* crt/tlssup.c (_tls_start,_tls_end): Make variables
