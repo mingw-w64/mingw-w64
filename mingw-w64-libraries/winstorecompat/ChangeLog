@@ -1,0 +1,4 @@
+2013-01-16  Rafaël Carré  <funman@videolan.org>
+
+	* Initial import with CreateEventW() replacement
+
