@@ -1,5 +1,6 @@
 2013-01-21  Jean-Baptiste Kempf  <jbvideolan.org>
 
+	* CreateSemaphoreW() replacement
 	* CreateMutexW() replacement
 
 2013-01-16  Rafaël Carré  <funman@videolan.org>

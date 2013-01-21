@@ -6,4 +6,5 @@ lib_LIBRARIES = libwinstorecompat.a
 
 libwinstorecompat_a_SOURCES = \
   src/CreateEventW.c \
-  src/CreateMutexW.c
+  src/CreateMutexW.c \
+  src/CreateSemaphoreW.c
