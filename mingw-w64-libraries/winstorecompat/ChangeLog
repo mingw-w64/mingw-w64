@@ -1,5 +1,6 @@
 2013-01-21  Jean-Baptiste Kempf  <jbvideolan.org>
 
+	* InitializeCriticalSectionEx() replacement
 	* CreateSemaphoreW() replacement
 	* CreateMutexW() replacement
 
