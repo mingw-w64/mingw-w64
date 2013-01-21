@@ -525,7 +525,7 @@ lib32_DATA = \
   lib32/libxaudio2_2.a      lib32/libxaudio2_3.a      lib32/libxaudio2_4.a \
   lib32/libxaudio2_5.a      lib32/libxaudio2_6.a      lib32/libxaudio2_7.a \
   lib32/libxaudiod2_7.a     lib32/libxinput1_1.a      lib32/libxinput1_2.a \
-  lib32/libxinput1_3.a      \
+  lib32/libxinput1_3.a      lib32/libd3dcompiler_46.a lib32/libd3dcsx_46.a \
   \
   lib32/libxinput.a         lib32/libxaudio.a         lib32/libxaudiod.a   \
   lib32/libxapofx.a         lib32/libx3daudio.a       lib32/libd3dx9.a     \
@@ -1010,7 +1010,7 @@ lib64_DATA = \
   lib64/libxaudio2_2.a      lib64/libxaudio2_3.a      lib64/libxaudio2_4.a \
   lib64/libxaudio2_5.a      lib64/libxaudio2_6.a      lib64/libxaudio2_7.a \
   lib64/libxaudiod2_7.a     lib64/libxinput1_1.a      lib64/libxinput1_2.a \
-  lib64/libxinput1_3.a      \
+  lib64/libxinput1_3.a      lib64/libd3dcompiler_46.a lib64/libd3dcsx_46.a \
   \
   lib64/libxinput.a         lib64/libxaudio.a         lib64/libxaudiod.a   \
   lib64/libxapofx.a         lib64/libx3daudio.a       lib64/libd3dx9.a     \
