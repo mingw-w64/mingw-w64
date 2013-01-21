@@ -1,3 +1,7 @@
+2013-01-21  Jean-Baptiste Kempf  <jbvideolan.org>
+
+	* CreateMutexW() replacement
+
 2013-01-16  Rafaël Carré  <funman@videolan.org>
 
 	* Initial import with CreateEventW() replacement
