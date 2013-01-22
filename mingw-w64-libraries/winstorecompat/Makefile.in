@@ -96,7 +96,9 @@ ARFLAGS = cru
 libwinstorecompat_a_AR = $(AR) $(ARFLAGS)
 libwinstorecompat_a_LIBADD =
 am__dirstamp = $(am__leading_dot)dirstamp
-am_libwinstorecompat_a_OBJECTS = src/CreateEventW.$(OBJEXT)
+am_libwinstorecompat_a_OBJECTS = src/CreateEventW.$(OBJEXT) \
+	src/CreateMutexW.$(OBJEXT) src/CreateSemaphoreW.$(OBJEXT) \
+	src/InitializeCriticalSection.$(OBJEXT)
 libwinstorecompat_a_OBJECTS = $(am_libwinstorecompat_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
@@ -221,7 +223,10 @@ AUTOMAKE_OPTIONS = foreign subdir-objects
 AM_CFLAGS = -Wall -Wstrict-aliasing=2 -pedantic
 lib_LIBRARIES = libwinstorecompat.a
 libwinstorecompat_a_SOURCES = \
-  src/CreateEventW.c
+  src/CreateEventW.c \
+  src/CreateMutexW.c \
+  src/CreateSemaphoreW.c \
+  src/InitializeCriticalSection.c
 
 all: all-am
 
@@ -300,6 +305,12 @@ src/$(DEPDIR)/$(am__dirstamp):
 	@: > src/$(DEPDIR)/$(am__dirstamp)
 src/CreateEventW.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/CreateMutexW.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
+src/CreateSemaphoreW.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
+src/InitializeCriticalSection.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 libwinstorecompat.a: $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_DEPENDENCIES) $(EXTRA_libwinstorecompat_a_DEPENDENCIES) 
 	-rm -f libwinstorecompat.a
 	$(libwinstorecompat_a_AR) libwinstorecompat.a $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_LIBADD)
@@ -308,11 +319,17 @@ libwinstorecompat.a: $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_DEPEND
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 	-rm -f src/CreateEventW.$(OBJEXT)
+	-rm -f src/CreateMutexW.$(OBJEXT)
+	-rm -f src/CreateSemaphoreW.$(OBJEXT)
+	-rm -f src/InitializeCriticalSection.$(OBJEXT)
 
 distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/CreateEventW.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/CreateMutexW.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/CreateSemaphoreW.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/InitializeCriticalSection.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
