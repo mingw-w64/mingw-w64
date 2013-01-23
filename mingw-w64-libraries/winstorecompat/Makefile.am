@@ -8,4 +8,5 @@ libwinstorecompat_a_SOURCES = \
   src/CreateEventW.c \
   src/CreateMutexW.c \
   src/CreateSemaphoreW.c \
-  src/InitializeCriticalSection.c
+  src/InitializeCriticalSection.c \
+  src/GetFileAttributes.c
