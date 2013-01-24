@@ -11,4 +11,5 @@ libwinstorecompat_a_SOURCES = \
   src/InitializeCriticalSection.c \
   src/GetFileAttributes.c \
   src/WaitForSingleObject.c \
-  src/LoadLibraryW.c
+  src/LoadLibraryW.c \
+  src/CreateFileW.c

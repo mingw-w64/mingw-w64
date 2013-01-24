@@ -100,7 +100,8 @@ am_libwinstorecompat_a_OBJECTS = src/CreateEventW.$(OBJEXT) \
 	src/CreateMutexW.$(OBJEXT) src/CreateSemaphoreW.$(OBJEXT) \
 	src/InitializeCriticalSection.$(OBJEXT) \
 	src/GetFileAttributes.$(OBJEXT) \
-	src/WaitForSingleObject.$(OBJEXT) src/LoadLibraryW.$(OBJEXT)
+	src/WaitForSingleObject.$(OBJEXT) src/LoadLibraryW.$(OBJEXT) \
+	src/CreateFileW.$(OBJEXT)
 libwinstorecompat_a_OBJECTS = $(am_libwinstorecompat_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
@@ -231,7 +232,8 @@ libwinstorecompat_a_SOURCES = \
   src/InitializeCriticalSection.c \
   src/GetFileAttributes.c \
   src/WaitForSingleObject.c \
-  src/LoadLibraryW.c
+  src/LoadLibraryW.c \
+  src/CreateFileW.c
 
 all: all-am
 
@@ -322,6 +324,8 @@ src/WaitForSingleObject.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/LoadLibraryW.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/CreateFileW.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 libwinstorecompat.a: $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_DEPENDENCIES) $(EXTRA_libwinstorecompat_a_DEPENDENCIES) 
 	-rm -f libwinstorecompat.a
 	$(libwinstorecompat_a_AR) libwinstorecompat.a $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_LIBADD)
@@ -330,6 +334,7 @@ libwinstorecompat.a: $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_DEPEND
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 	-rm -f src/CreateEventW.$(OBJEXT)
+	-rm -f src/CreateFileW.$(OBJEXT)
 	-rm -f src/CreateMutexW.$(OBJEXT)
 	-rm -f src/CreateSemaphoreW.$(OBJEXT)
 	-rm -f src/GetFileAttributes.$(OBJEXT)
@@ -341,6 +346,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/CreateEventW.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/CreateFileW.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/CreateMutexW.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/CreateSemaphoreW.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetFileAttributes.Po@am__quote@
