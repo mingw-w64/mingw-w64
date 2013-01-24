@@ -12,4 +12,5 @@ libwinstorecompat_a_SOURCES = \
   src/GetFileAttributes.c \
   src/WaitForSingleObject.c \
   src/LoadLibraryW.c \
-  src/CreateFileW.c
+  src/CreateFileW.c \
+  src/GetTickCount.c

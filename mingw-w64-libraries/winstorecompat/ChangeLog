@@ -4,6 +4,7 @@
 	* WaitForSingleObject() replacement
 	* LoadLibraryW() replacement
 	* CreateFileW() replacement
+	* GetTickCount() replacement
 
 2013-01-21  Jean-Baptiste Kempf  <jbvideolan.org>
 
