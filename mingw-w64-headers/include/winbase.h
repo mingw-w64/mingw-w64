@@ -4078,6 +4078,9 @@ typedef struct _CREATEFILE2_EXTENDED_PARAMETERS {
 WINBASEAPI HANDLE WINAPI CreateFile2(LPCWSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode, DWORD dwCreationDisposition, LPCREATEFILE2_EXTENDED_PARAMETERS pCreateExParams);
 
 HMODULE WINAPI LoadPackagedLibrary(LPCWSTR lpwLibFileName, DWORD Reserved);
+
+WINBASEAPI VOID WINAPI GetSystemTimePreciseAsFileTime(LPFILETIME lpSystemTimeAsFileTime);
+
 #endif /*(_WIN32_WINNT >= 0x0602)*/
 
 #ifdef __cplusplus
