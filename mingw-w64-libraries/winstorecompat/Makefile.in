@@ -99,7 +99,8 @@ am__dirstamp = $(am__leading_dot)dirstamp
 am_libwinstorecompat_a_OBJECTS = src/CreateEventW.$(OBJEXT) \
 	src/CreateMutexW.$(OBJEXT) src/CreateSemaphoreW.$(OBJEXT) \
 	src/InitializeCriticalSection.$(OBJEXT) \
-	src/GetFileAttributes.$(OBJEXT)
+	src/GetFileAttributes.$(OBJEXT) \
+	src/WaitForSingleObject.$(OBJEXT)
 libwinstorecompat_a_OBJECTS = $(am_libwinstorecompat_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
@@ -228,7 +229,8 @@ libwinstorecompat_a_SOURCES = \
   src/CreateMutexW.c \
   src/CreateSemaphoreW.c \
   src/InitializeCriticalSection.c \
-  src/GetFileAttributes.c
+  src/GetFileAttributes.c \
+  src/WaitForSingleObject.c
 
 all: all-am
 
@@ -315,6 +317,8 @@ src/InitializeCriticalSection.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/GetFileAttributes.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/WaitForSingleObject.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 libwinstorecompat.a: $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_DEPENDENCIES) $(EXTRA_libwinstorecompat_a_DEPENDENCIES) 
 	-rm -f libwinstorecompat.a
 	$(libwinstorecompat_a_AR) libwinstorecompat.a $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_LIBADD)
@@ -327,6 +331,7 @@ mostlyclean-compile:
 	-rm -f src/CreateSemaphoreW.$(OBJEXT)
 	-rm -f src/GetFileAttributes.$(OBJEXT)
 	-rm -f src/InitializeCriticalSection.$(OBJEXT)
+	-rm -f src/WaitForSingleObject.$(OBJEXT)
 
 distclean-compile:
 	-rm -f *.tab.c
@@ -336,6 +341,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/CreateSemaphoreW.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetFileAttributes.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/InitializeCriticalSection.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/WaitForSingleObject.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\

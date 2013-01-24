@@ -9,4 +9,5 @@ libwinstorecompat_a_SOURCES = \
   src/CreateMutexW.c \
   src/CreateSemaphoreW.c \
   src/InitializeCriticalSection.c \
-  src/GetFileAttributes.c
+  src/GetFileAttributes.c \
+  src/WaitForSingleObject.c
