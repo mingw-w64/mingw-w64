@@ -29,11 +29,11 @@
 #include <winbase.h>
 #undef InitializeCriticalSection
 
-HANDLE WINAPI InitializeCriticalSection(LPCRITICAL_SECTION lpCriticalSection)
+void WINAPI InitializeCriticalSection(LPCRITICAL_SECTION lpCriticalSection)
 {
     int flags = 0;
     /* flags = CRITICAL_SECTION_NO_DEBUG_INFO */
-    return InitializeCriticalSectionEx(lpCriticalSection, 0, flags);
+    InitializeCriticalSectionEx(lpCriticalSection, 0, flags);
 }
 
-HANDLE WINAPI (*__MINGW_IMP_SYMBOL(InitializeCriticalSection))(LPCRITICAL_SECTION lpCriticalSection) asm("__imp__InitializeCriticalSection@4") = InitializeCriticalSection;
+void WINAPI (*__MINGW_IMP_SYMBOL(InitializeCriticalSection))(LPCRITICAL_SECTION lpCriticalSection) asm("__imp__InitializeCriticalSection@4") = InitializeCriticalSection;
