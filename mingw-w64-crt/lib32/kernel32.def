@@ -642,6 +642,7 @@ GetSystemRegistryQuota@8
 GetSystemTime@4
 GetSystemTimeAdjustment@12
 GetSystemTimeAsFileTime@4
+GetSystemTimePreciseAsFileTime@4
 GetSystemTimes@12
 GetSystemWindowsDirectoryA@8
 GetSystemWindowsDirectoryW@8
