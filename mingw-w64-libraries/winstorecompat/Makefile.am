@@ -10,4 +10,5 @@ libwinstorecompat_a_SOURCES = \
   src/CreateSemaphoreW.c \
   src/InitializeCriticalSection.c \
   src/GetFileAttributes.c \
-  src/WaitForSingleObject.c
+  src/WaitForSingleObject.c \
+  src/LoadLibraryW.c

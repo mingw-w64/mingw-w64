@@ -2,6 +2,7 @@
 
 	* GetFileAttributesA() and GetFileAttributesW() replacements
 	* WaitForSingleObject() replacement
+	* LoadLibraryW() replacement
 
 2013-01-21  Jean-Baptiste Kempf  <jbvideolan.org>
 
