@@ -4065,6 +4065,19 @@ WINBASEAPI PUMS_CONTEXT GetCurrentUmsThread(void);
 #endif /* _WIN64 */
 #endif /*(_WIN32_WINNT >= 0x0601)*/
 
+#if (_WIN32_WINNT >= 0x0602)
+typedef struct _CREATEFILE2_EXTENDED_PARAMETERS {
+  DWORD                 dwSize;
+  DWORD                 dwFileAttributes;
+  DWORD                 dwFileFlags;
+  DWORD                 dwSecurityQosFlags;
+  LPSECURITY_ATTRIBUTES lpSecurityAttributes;
+  HANDLE                hTemplateFile;
+} CREATEFILE2_EXTENDED_PARAMETERS, *PCREATEFILE2_EXTENDED_PARAMETERS, *LPCREATEFILE2_EXTENDED_PARAMETERS;
+
+WINBASEAPI HANDLE WINAPI CreateFile2(LPCWSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode, DWORD dwCreationDisposition, LPCREATEFILE2_EXTENDED_PARAMETERS pCreateExParams);
+#endif /*(_WIN32_WINNT >= 0x0602)*/
+
 #ifdef __cplusplus
 }
 #endif
