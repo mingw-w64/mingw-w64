@@ -36,6 +36,8 @@
 #define WindowsXP    0x0501
 #define Windows2003  0x0502
 #define WindowsVista 0x0600
+#define Windows7     0x0601
+#define Windows8     0x0602
 
 /* Use these values to set _WIN32_IE to your minimum support level */
 #define IE3	0x0300
@@ -53,5 +55,8 @@
 #define IE601	0x0601
 #define IE602	0x0603
 #define IE7	0x0700
+#define IE8	0x0800
+#define IE9	0x0900
+#define IE10	0x0A00
 
 #endif /* ndef _W32API_H */
