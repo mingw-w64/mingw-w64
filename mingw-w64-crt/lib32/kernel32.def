@@ -144,6 +144,7 @@ CreateEventExW@16
 CreateEventW@16
 CreateFiber@12
 CreateFiberEx@20
+CreateFile2@20
 CreateFileA@28
 CreateFileMappingA@24
 CreateFileMappingNumaA@28
@@ -818,6 +819,7 @@ LoadLibraryExA@12
 LoadLibraryExW@12
 LoadLibraryW@4
 LoadModule@8
+LoadPackagedLibrary@8
 LoadResource@8
 LoadStringBaseExW@20
 LoadStringBaseW@16
