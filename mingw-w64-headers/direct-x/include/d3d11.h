@@ -17,6 +17,161 @@
 
 /* Forward declarations */
 
+#ifndef __ID3D11DeviceChild_FWD_DEFINED__
+#define __ID3D11DeviceChild_FWD_DEFINED__
+typedef interface ID3D11DeviceChild ID3D11DeviceChild;
+#endif
+
+#ifndef __ID3D11Asynchronous_FWD_DEFINED__
+#define __ID3D11Asynchronous_FWD_DEFINED__
+typedef interface ID3D11Asynchronous ID3D11Asynchronous;
+#endif
+
+#ifndef __ID3D11Query_FWD_DEFINED__
+#define __ID3D11Query_FWD_DEFINED__
+typedef interface ID3D11Query ID3D11Query;
+#endif
+
+#ifndef __ID3D11Resource_FWD_DEFINED__
+#define __ID3D11Resource_FWD_DEFINED__
+typedef interface ID3D11Resource ID3D11Resource;
+#endif
+
+#ifndef __ID3D11View_FWD_DEFINED__
+#define __ID3D11View_FWD_DEFINED__
+typedef interface ID3D11View ID3D11View;
+#endif
+
+#ifndef __ID3D11BlendState_FWD_DEFINED__
+#define __ID3D11BlendState_FWD_DEFINED__
+typedef interface ID3D11BlendState ID3D11BlendState;
+#endif
+
+#ifndef __ID3D11Buffer_FWD_DEFINED__
+#define __ID3D11Buffer_FWD_DEFINED__
+typedef interface ID3D11Buffer ID3D11Buffer;
+#endif
+
+#ifndef __ID3D11ClassInstance_FWD_DEFINED__
+#define __ID3D11ClassInstance_FWD_DEFINED__
+typedef interface ID3D11ClassInstance ID3D11ClassInstance;
+#endif
+
+#ifndef __ID3D11ClassLinkage_FWD_DEFINED__
+#define __ID3D11ClassLinkage_FWD_DEFINED__
+typedef interface ID3D11ClassLinkage ID3D11ClassLinkage;
+#endif
+
+#ifndef __ID3D11CommandList_FWD_DEFINED__
+#define __ID3D11CommandList_FWD_DEFINED__
+typedef interface ID3D11CommandList ID3D11CommandList;
+#endif
+
+#ifndef __ID3D11ComputeShader_FWD_DEFINED__
+#define __ID3D11ComputeShader_FWD_DEFINED__
+typedef interface ID3D11ComputeShader ID3D11ComputeShader;
+#endif
+
+#ifndef __ID3D11Counter_FWD_DEFINED__
+#define __ID3D11Counter_FWD_DEFINED__
+typedef interface ID3D11Counter ID3D11Counter;
+#endif
+
+#ifndef __ID3D11DepthStencilState_FWD_DEFINED__
+#define __ID3D11DepthStencilState_FWD_DEFINED__
+typedef interface ID3D11DepthStencilState ID3D11DepthStencilState;
+#endif
+
+#ifndef __ID3D11DepthStencilView_FWD_DEFINED__
+#define __ID3D11DepthStencilView_FWD_DEFINED__
+typedef interface ID3D11DepthStencilView ID3D11DepthStencilView;
+#endif
+
+#ifndef __ID3D11DomainShader_FWD_DEFINED__
+#define __ID3D11DomainShader_FWD_DEFINED__
+typedef interface ID3D11DomainShader ID3D11DomainShader;
+#endif
+
+#ifndef __ID3D11GeometryShader_FWD_DEFINED__
+#define __ID3D11GeometryShader_FWD_DEFINED__
+typedef interface ID3D11GeometryShader ID3D11GeometryShader;
+#endif
+
+#ifndef __ID3D11HullShader_FWD_DEFINED__
+#define __ID3D11HullShader_FWD_DEFINED__
+typedef interface ID3D11HullShader ID3D11HullShader;
+#endif
+
+#ifndef __ID3D11InputLayout_FWD_DEFINED__
+#define __ID3D11InputLayout_FWD_DEFINED__
+typedef interface ID3D11InputLayout ID3D11InputLayout;
+#endif
+
+#ifndef __ID3D11PixelShader_FWD_DEFINED__
+#define __ID3D11PixelShader_FWD_DEFINED__
+typedef interface ID3D11PixelShader ID3D11PixelShader;
+#endif
+
+#ifndef __ID3D11Predicate_FWD_DEFINED__
+#define __ID3D11Predicate_FWD_DEFINED__
+typedef interface ID3D11Predicate ID3D11Predicate;
+#endif
+
+#ifndef __ID3D11RasterizerState_FWD_DEFINED__
+#define __ID3D11RasterizerState_FWD_DEFINED__
+typedef interface ID3D11RasterizerState ID3D11RasterizerState;
+#endif
+
+#ifndef __ID3D11RenderTargetView_FWD_DEFINED__
+#define __ID3D11RenderTargetView_FWD_DEFINED__
+typedef interface ID3D11RenderTargetView ID3D11RenderTargetView;
+#endif
+
+#ifndef __ID3D11SamplerState_FWD_DEFINED__
+#define __ID3D11SamplerState_FWD_DEFINED__
+typedef interface ID3D11SamplerState ID3D11SamplerState;
+#endif
+
+#ifndef __ID3D11ShaderResourceView_FWD_DEFINED__
+#define __ID3D11ShaderResourceView_FWD_DEFINED__
+typedef interface ID3D11ShaderResourceView ID3D11ShaderResourceView;
+#endif
+
+#ifndef __ID3D11Texture1D_FWD_DEFINED__
+#define __ID3D11Texture1D_FWD_DEFINED__
+typedef interface ID3D11Texture1D ID3D11Texture1D;
+#endif
+
+#ifndef __ID3D11Texture2D_FWD_DEFINED__
+#define __ID3D11Texture2D_FWD_DEFINED__
+typedef interface ID3D11Texture2D ID3D11Texture2D;
+#endif
+
+#ifndef __ID3D11Texture3D_FWD_DEFINED__
+#define __ID3D11Texture3D_FWD_DEFINED__
+typedef interface ID3D11Texture3D ID3D11Texture3D;
+#endif
+
+#ifndef __ID3D11UnorderedAccessView_FWD_DEFINED__
+#define __ID3D11UnorderedAccessView_FWD_DEFINED__
+typedef interface ID3D11UnorderedAccessView ID3D11UnorderedAccessView;
+#endif
+
+#ifndef __ID3D11VertexShader_FWD_DEFINED__
+#define __ID3D11VertexShader_FWD_DEFINED__
+typedef interface ID3D11VertexShader ID3D11VertexShader;
+#endif
+
+#ifndef __ID3D11DeviceContext_FWD_DEFINED__
+#define __ID3D11DeviceContext_FWD_DEFINED__
+typedef interface ID3D11DeviceContext ID3D11DeviceContext;
+#endif
+
+#ifndef __ID3D11Device_FWD_DEFINED__
+#define __ID3D11Device_FWD_DEFINED__
+typedef interface ID3D11Device ID3D11Device;
+#endif
+
 /* Headers for imported files */
 
 #include <oaidl.h>
@@ -28,6 +183,8108 @@
 extern "C" {
 #endif
 
+typedef D3D_PRIMITIVE D3D11_PRIMITIVE;
+typedef D3D_PRIMITIVE_TOPOLOGY D3D11_PRIMITIVE_TOPOLOGY;
+typedef D3D_SRV_DIMENSION D3D11_SRV_DIMENSION;
+typedef RECT D3D11_RECT;
+#define D3D11_SIMULTANEOUS_RENDER_TARGET_COUNT (8)
+
+typedef enum D3D11_BLEND {
+    D3D11_BLEND_ZERO = 1,
+    D3D11_BLEND_ONE = 2,
+    D3D11_BLEND_SRC_COLOR = 3,
+    D3D11_BLEND_INV_SRC_COLOR = 4,
+    D3D11_BLEND_SRC_ALPHA = 5,
+    D3D11_BLEND_INV_SRC_ALPHA = 6,
+    D3D11_BLEND_DEST_ALPHA = 7,
+    D3D11_BLEND_INV_DEST_ALPHA = 8,
+    D3D11_BLEND_DEST_COLOR = 9,
+    D3D11_BLEND_INV_DEST_COLOR = 10,
+    D3D11_BLEND_SRC_ALPHA_SAT = 11,
+    D3D11_BLEND_BLEND_FACTOR = 14,
+    D3D11_BLEND_INV_BLEND_FACTOR = 15,
+    D3D11_BLEND_SRC1_COLOR = 16,
+    D3D11_BLEND_INV_SRC1_COLOR = 17,
+    D3D11_BLEND_SRC1_ALPHA = 18,
+    D3D11_BLEND_INV_SRC1_ALPHA = 19
+} D3D11_BLEND;
+typedef enum D3D11_BLEND_OP {
+    D3D11_BLEND_OP_ADD = 1,
+    D3D11_BLEND_OP_SUBTRACT = 2,
+    D3D11_BLEND_OP_REV_SUBTRACT = 3,
+    D3D11_BLEND_OP_MIN = 4,
+    D3D11_BLEND_OP_MAX = 5
+} D3D11_BLEND_OP;
+typedef struct D3D11_BOX {
+    UINT left;
+    UINT top;
+    UINT front;
+    UINT right;
+    UINT bottom;
+    UINT back;
+} D3D11_BOX;
+typedef struct D3D11_BUFFER_RTV {
+    __C89_NAMELESS union {
+        UINT FirstElement;
+        UINT ElementOffset;
+    } __C89_NAMELESSUNIONNAME1;
+    __C89_NAMELESS union {
+        UINT NumElements;
+        UINT ElementWidth;
+    } __C89_NAMELESSUNIONNAME2;
+} D3D11_BUFFER_RTV;
+typedef struct D3D11_BUFFER_SRV {
+    __C89_NAMELESS union {
+        UINT FirstElement;
+        UINT ElementOffset;
+    } __C89_NAMELESSUNIONNAME1;
+    __C89_NAMELESS union {
+        UINT NumElements;
+        UINT ElementWidth;
+    } __C89_NAMELESSUNIONNAME2;
+} D3D11_BUFFER_SRV;
+typedef struct D3D11_BUFFER_UAV {
+    UINT FirstElement;
+    UINT NumElements;
+    UINT Flags;
+} D3D11_BUFFER_UAV;
+typedef struct D3D11_BUFFEREX_SRV {
+    UINT FirstElement;
+    UINT NumElements;
+    UINT Flags;
+} D3D11_BUFFEREX_SRV;
+typedef struct D3D11_CLASS_INSTANCE_DESC {
+    UINT InstanceId;
+    UINT InstanceIndex;
+    UINT TypeId;
+    UINT ConstantBuffer;
+    UINT BaseConstantBufferOffset;
+    UINT BaseTexture;
+    UINT BaseSampler;
+    WINBOOL Created;
+} D3D11_CLASS_INSTANCE_DESC;
+typedef enum D3D11_COMPARISON_FUNC {
+    D3D11_COMPARISON_NEVER = 1,
+    D3D11_COMPARISON_LESS = 2,
+    D3D11_COMPARISON_EQUAL = 3,
+    D3D11_COMPARISON_LESS_EQUAL = 4,
+    D3D11_COMPARISON_GREATER = 5,
+    D3D11_COMPARISON_NOT_EQUAL = 6,
+    D3D11_COMPARISON_GREATER_EQUAL = 7,
+    D3D11_COMPARISON_ALWAYS = 8
+} D3D11_COMPARISON_FUNC;
+typedef enum D3D11_COUNTER {
+    D3D11_COUNTER_DEVICE_DEPENDENT_0 = 0x40000000
+} D3D11_COUNTER;
+typedef struct D3D11_COUNTER_DESC {
+    D3D11_COUNTER Counter;
+    UINT MiscFlags;
+} D3D11_COUNTER_DESC;
+typedef struct D3D11_COUNTER_INFO {
+    D3D11_COUNTER LastDeviceDependentCounter;
+    UINT NumSimultaneousCounters;
+    UINT8 NumDetectableParallelUnits;
+} D3D11_COUNTER_INFO;
+typedef enum D3D11_COUNTER_TYPE {
+    D3D11_COUNTER_TYPE_FLOAT32 = 0,
+    D3D11_COUNTER_TYPE_UINT16 = 1,
+    D3D11_COUNTER_TYPE_UINT32 = 2,
+    D3D11_COUNTER_TYPE_UINT64 = 3
+} D3D11_COUNTER_TYPE;
+typedef enum D3D11_CULL_MODE {
+    D3D11_CULL_NONE = 1,
+    D3D11_CULL_FRONT = 2,
+    D3D11_CULL_BACK = 3
+} D3D11_CULL_MODE;
+typedef enum D3D11_DEPTH_WRITE_MASK {
+    D3D11_DEPTH_WRITE_MASK_ZERO = 0,
+    D3D11_DEPTH_WRITE_MASK_ALL = 1
+} D3D11_DEPTH_WRITE_MASK;
+typedef enum D3D11_DEVICE_CONTEXT_TYPE {
+    D3D11_DEVICE_CONTEXT_IMMEDIATE = 0,
+    D3D11_DEVICE_CONTEXT_DEFERRED = 1
+} D3D11_DEVICE_CONTEXT_TYPE;
+typedef enum D3D11_DSV_DIMENSION {
+    D3D11_DSV_DIMENSION_UNKNOWN = 0,
+    D3D11_DSV_DIMENSION_TEXTURE1D = 1,
+    D3D11_DSV_DIMENSION_TEXTURE1DARRAY = 2,
+    D3D11_DSV_DIMENSION_TEXTURE2D = 3,
+    D3D11_DSV_DIMENSION_TEXTURE2DARRAY = 4,
+    D3D11_DSV_DIMENSION_TEXTURE2DMS = 5,
+    D3D11_DSV_DIMENSION_TEXTURE2DMSARRAY = 6
+} D3D11_DSV_DIMENSION;
+typedef enum D3D11_FEATURE {
+    D3D11_FEATURE_THREADING = 0,
+    D3D11_FEATURE_DOUBLES = 1,
+    D3D11_FEATURE_FORMAT_SUPPORT = 2,
+    D3D11_FEATURE_FORMAT_SUPPORT2 = 3,
+    D3D11_FEATURE_D3D10_X_HARDWARE_OPTIONS = 4
+} D3D11_FEATURE;
+typedef enum D3D11_FILL_MODE {
+    D3D11_FILL_WIREFRAME = 2,
+    D3D11_FILL_SOLID = 3
+} D3D11_FILL_MODE;
+typedef enum D3D11_FILTER {
+    D3D11_FILTER_MIN_MAG_MIP_POINT = 0x0,
+    D3D11_FILTER_MIN_MAG_POINT_MIP_LINEAR = 0x1,
+    D3D11_FILTER_MIN_POINT_MAG_LINEAR_MIP_POINT = 0x4,
+    D3D11_FILTER_MIN_POINT_MAG_MIP_LINEAR = 0x5,
+    D3D11_FILTER_MIN_LINEAR_MAG_MIP_POINT = 0x10,
+    D3D11_FILTER_MIN_LINEAR_MAG_POINT_MIP_LINEAR = 0x11,
+    D3D11_FILTER_MIN_MAG_LINEAR_MIP_POINT = 0x14,
+    D3D11_FILTER_MIN_MAG_MIP_LINEAR = 0x15,
+    D3D11_FILTER_ANISOTROPIC = 0x55,
+    D3D11_FILTER_COMPARISON_MIN_MAG_MIP_POINT = 0x80,
+    D3D11_FILTER_COMPARISON_MIN_MAG_POINT_MIP_LINEAR = 0x81,
+    D3D11_FILTER_COMPARISON_MIN_POINT_MAG_LINEAR_MIP_POINT = 0x84,
+    D3D11_FILTER_COMPARISON_MIN_POINT_MAG_MIP_LINEAR = 0x85,
+    D3D11_FILTER_COMPARISON_MIN_LINEAR_MAG_MIP_POINT = 0x90,
+    D3D11_FILTER_COMPARISON_MIN_LINEAR_MAG_POINT_MIP_LINEAR = 0x91,
+    D3D11_FILTER_COMPARISON_MIN_MAG_LINEAR_MIP_POINT = 0x94,
+    D3D11_FILTER_COMPARISON_MIN_MAG_MIP_LINEAR = 0x95,
+    D3D11_FILTER_COMPARISON_ANISOTROPIC = 0xd5
+} D3D11_FILTER;
+typedef enum D3D11_DSV_FLAG {
+    D3D11_DSV_READ_ONLY_DEPTH = 0x1,
+    D3D11_DSV_READ_ONLY_STENCIL = 0x2
+} D3D11_DSV_FLAG;
+typedef enum D3D11_INPUT_CLASSIFICATION {
+    D3D11_INPUT_PER_VERTEX_DATA = 0,
+    D3D11_INPUT_PER_INSTANCE_DATA = 1
+} D3D11_INPUT_CLASSIFICATION;
+typedef struct D3D11_INPUT_ELEMENT_DESC {
+    LPCSTR SemanticName;
+    UINT SemanticIndex;
+    DXGI_FORMAT Format;
+    UINT InputSlot;
+    UINT AlignedByteOffset;
+    D3D11_INPUT_CLASSIFICATION InputSlotClass;
+    UINT InstanceDataStepRate;
+} D3D11_INPUT_ELEMENT_DESC;
+typedef enum D3D11_MAP {
+    D3D11_MAP_READ = 1,
+    D3D11_MAP_WRITE = 2,
+    D3D11_MAP_READ_WRITE = 3,
+    D3D11_MAP_WRITE_DISCARD = 4,
+    D3D11_MAP_WRITE_NO_OVERWRITE = 5
+} D3D11_MAP;
+typedef struct D3D11_MAPPED_SUBRESOURCE {
+    void *pData;
+    UINT RowPitch;
+    UINT DepthPitch;
+} D3D11_MAPPED_SUBRESOURCE;
+typedef enum D3D11_QUERY {
+    D3D11_QUERY_EVENT = 0,
+    D3D11_QUERY_OCCLUSION = 1,
+    D3D11_QUERY_TIMESTAMP = 2,
+    D3D11_QUERY_TIMESTAMP_DISJOINT = 3,
+    D3D11_QUERY_PIPELINE_STATISTICS = 4,
+    D3D11_QUERY_OCCLUSION_PREDICATE = 5,
+    D3D11_QUERY_SO_STATISTICS = 6,
+    D3D11_QUERY_SO_OVERFLOW_PREDICATE = 7,
+    D3D11_QUERY_SO_STATISTICS_STREAM0 = 8,
+    D3D11_QUERY_SO_OVERFLOW_PREDICATE_STREAM0 = 9,
+    D3D11_QUERY_SO_STATISTICS_STREAM1 = 10,
+    D3D11_QUERY_SO_OVERFLOW_PREDICATE_STREAM1 = 11,
+    D3D11_QUERY_SO_STATISTICS_STREAM2 = 12,
+    D3D11_QUERY_SO_OVERFLOW_PREDICATE_STREAM2 = 13,
+    D3D11_QUERY_SO_STATISTICS_STREAM3 = 14,
+    D3D11_QUERY_SO_OVERFLOW_PREDICATE_STREAM3 = 15
+} D3D11_QUERY;
+typedef struct D3D11_QUERY_DESC {
+    D3D11_QUERY Query;
+    UINT MiscFlags;
+} D3D11_QUERY_DESC;
+typedef struct D3D11_RASTERIZER_DESC {
+    D3D11_FILL_MODE FillMode;
+    D3D11_CULL_MODE CullMode;
+    WINBOOL FrontCounterClockwise;
+    INT DepthBias;
+    FLOAT DepthBiasClamp;
+    FLOAT SlopeScaledDepthBias;
+    WINBOOL DepthClipEnable;
+    WINBOOL ScissorEnable;
+    WINBOOL MultisampleEnable;
+    WINBOOL AntialiasedLineEnable;
+} D3D11_RASTERIZER_DESC;
+typedef enum D3D11_RESOURCE_DIMENSION {
+    D3D11_RESOURCE_DIMENSION_UNKNOWN = 0,
+    D3D11_RESOURCE_DIMENSION_BUFFER = 1,
+    D3D11_RESOURCE_DIMENSION_TEXTURE1D = 2,
+    D3D11_RESOURCE_DIMENSION_TEXTURE2D = 3,
+    D3D11_RESOURCE_DIMENSION_TEXTURE3D = 4
+} D3D11_RESOURCE_DIMENSION;
+typedef enum D3D11_RTV_DIMENSION {
+    D3D11_RTV_DIMENSION_UNKNOWN = 0,
+    D3D11_RTV_DIMENSION_BUFFER = 1,
+    D3D11_RTV_DIMENSION_TEXTURE1D = 2,
+    D3D11_RTV_DIMENSION_TEXTURE1DARRAY = 3,
+    D3D11_RTV_DIMENSION_TEXTURE2D = 4,
+    D3D11_RTV_DIMENSION_TEXTURE2DARRAY = 5,
+    D3D11_RTV_DIMENSION_TEXTURE2DMS = 6,
+    D3D11_RTV_DIMENSION_TEXTURE2DMSARRAY = 7,
+    D3D11_RTV_DIMENSION_TEXTURE3D = 8
+} D3D11_RTV_DIMENSION;
+typedef struct D3D11_SO_DECLARATION_ENTRY {
+    UINT Stream;
+    LPCSTR SemanticName;
+    UINT SemanticIndex;
+    BYTE StartComponent;
+    BYTE ComponentCount;
+    BYTE OutputSlot;
+} D3D11_SO_DECLARATION_ENTRY;
+typedef enum D3D11_STENCIL_OP {
+    D3D11_STENCIL_OP_KEEP = 1,
+    D3D11_STENCIL_OP_ZERO = 2,
+    D3D11_STENCIL_OP_REPLACE = 3,
+    D3D11_STENCIL_OP_INCR_SAT = 4,
+    D3D11_STENCIL_OP_DECR_SAT = 5,
+    D3D11_STENCIL_OP_INVERT = 6,
+    D3D11_STENCIL_OP_INCR = 7,
+    D3D11_STENCIL_OP_DECR = 8
+} D3D11_STENCIL_OP;
+typedef struct D3D11_SUBRESOURCE_DATA {
+    const void *pSysMem;
+    UINT SysMemPitch;
+    UINT SysMemSlicePitch;
+} D3D11_SUBRESOURCE_DATA;
+typedef struct D3D11_TEX1D_ARRAY_DSV {
+    UINT MipSlice;
+    UINT FirstArraySlice;
+    UINT ArraySize;
+} D3D11_TEX1D_ARRAY_DSV;
+typedef struct D3D11_TEX1D_ARRAY_RTV {
+    UINT MipSlice;
+    UINT FirstArraySlice;
+    UINT ArraySize;
+} D3D11_TEX1D_ARRAY_RTV;
+typedef struct D3D11_TEX1D_ARRAY_SRV {
+    UINT MostDetailedMip;
+    UINT MipLevels;
+    UINT FirstArraySlice;
+    UINT ArraySize;
+} D3D11_TEX1D_ARRAY_SRV;
+typedef struct D3D11_TEX1D_ARRAY_UAV {
+    UINT MipSlice;
+    UINT FirstArraySlice;
+    UINT ArraySize;
+} D3D11_TEX1D_ARRAY_UAV;
+typedef struct D3D11_TEX1D_DSV {
+    UINT MipSlice;
+} D3D11_TEX1D_DSV;
+typedef struct D3D11_TEX1D_RTV {
+    UINT MipSlice;
+} D3D11_TEX1D_RTV;
+typedef struct D3D11_TEX1D_SRV {
+    UINT MostDetailedMip;
+    UINT MipLevels;
+} D3D11_TEX1D_SRV;
+typedef struct D3D11_TEX1D_UAV {
+    UINT MipSlice;
+} D3D11_TEX1D_UAV;
+typedef struct D3D11_TEX2D_ARRAY_DSV {
+    UINT MipSlice;
+    UINT FirstArraySlice;
+    UINT ArraySize;
+} D3D11_TEX2D_ARRAY_DSV;
+typedef struct D3D11_TEX2D_ARRAY_RTV {
+    UINT MipSlice;
+    UINT FirstArraySlice;
+    UINT ArraySize;
+} D3D11_TEX2D_ARRAY_RTV;
+typedef struct D3D11_TEX2D_ARRAY_SRV {
+    UINT MostDetailedMip;
+    UINT MipLevels;
+    UINT FirstArraySlice;
+    UINT ArraySize;
+} D3D11_TEX2D_ARRAY_SRV;
+typedef struct D3D11_TEX2D_ARRAY_UAV {
+    UINT MipSlice;
+    UINT FirstArraySlice;
+    UINT ArraySize;
+} D3D11_TEX2D_ARRAY_UAV;
+typedef struct D3D11_TEX2D_DSV {
+    UINT MipSlice;
+} D3D11_TEX2D_DSV;
+typedef struct D3D11_TEX2D_RTV {
+    UINT MipSlice;
+} D3D11_TEX2D_RTV;
+typedef struct D3D11_TEX2D_SRV {
+    UINT MostDetailedMip;
+    UINT MipLevels;
+} D3D11_TEX2D_SRV;
+typedef struct D3D11_TEX2D_UAV {
+    UINT MipSlice;
+} D3D11_TEX2D_UAV;
+typedef struct D3D11_TEX2DMS_ARRAY_DSV {
+    UINT FirstArraySlice;
+    UINT ArraySize;
+} D3D11_TEX2DMS_ARRAY_DSV;
+typedef struct D3D11_TEX2DMS_ARRAY_RTV {
+    UINT FirstArraySlice;
+    UINT ArraySize;
+} D3D11_TEX2DMS_ARRAY_RTV;
+typedef struct D3D11_TEX2DMS_ARRAY_SRV {
+    UINT FirstArraySlice;
+    UINT ArraySize;
+} D3D11_TEX2DMS_ARRAY_SRV;
+typedef struct D3D11_TEX2DMS_DSV {
+    UINT UnusedField_NothingToDefine;
+} D3D11_TEX2DMS_DSV;
+typedef struct D3D11_TEX2DMS_RTV {
+    UINT UnusedField_NothingToDefine;
+} D3D11_TEX2DMS_RTV;
+typedef struct D3D11_TEX2DMS_SRV {
+    UINT UnusedField_NothingToDefine;
+} D3D11_TEX2DMS_SRV;
+typedef struct D3D11_TEX3D_RTV {
+    UINT MipSlice;
+    UINT FirstWSlice;
+    UINT WSize;
+} D3D11_TEX3D_RTV;
+typedef struct D3D11_TEX3D_SRV {
+    UINT MostDetailedMip;
+    UINT MipLevels;
+} D3D11_TEX3D_SRV;
+typedef struct D3D11_TEX3D_UAV {
+    UINT MipSlice;
+    UINT FirstWSlice;
+    UINT WSize;
+} D3D11_TEX3D_UAV;
+typedef struct D3D11_TEXCUBE_ARRAY_SRV {
+    UINT MostDetailedMip;
+    UINT MipLevels;
+    UINT First2DArrayFace;
+    UINT NumCubes;
+} D3D11_TEXCUBE_ARRAY_SRV;
+typedef struct D3D11_TEXCUBE_SRV {
+    UINT MostDetailedMip;
+    UINT MipLevels;
+} D3D11_TEXCUBE_SRV;
+typedef enum D3D11_TEXTURE_ADDRESS_MODE {
+    D3D11_TEXTURE_ADDRESS_WRAP = 1,
+    D3D11_TEXTURE_ADDRESS_MIRROR = 2,
+    D3D11_TEXTURE_ADDRESS_CLAMP = 3,
+    D3D11_TEXTURE_ADDRESS_BORDER = 4,
+    D3D11_TEXTURE_ADDRESS_MIRROR_ONCE = 5
+} D3D11_TEXTURE_ADDRESS_MODE;
+typedef enum D3D11_UAV_DIMENSION {
+    D3D11_UAV_DIMENSION_UNKNOWN = 0,
+    D3D11_UAV_DIMENSION_BUFFER = 1,
+    D3D11_UAV_DIMENSION_TEXTURE1D = 2,
+    D3D11_UAV_DIMENSION_TEXTURE1DARRAY = 3,
+    D3D11_UAV_DIMENSION_TEXTURE2D = 4,
+    D3D11_UAV_DIMENSION_TEXTURE2DARRAY = 5,
+    D3D11_UAV_DIMENSION_TEXTURE3D = 8
+} D3D11_UAV_DIMENSION;
+typedef struct D3D11_UNORDERED_ACCESS_VIEW_DESC {
+    DXGI_FORMAT Format;
+    D3D11_UAV_DIMENSION ViewDimension;
+    __C89_NAMELESS union {
+        D3D11_BUFFER_UAV Buffer;
+        D3D11_TEX1D_UAV Texture1D;
+        D3D11_TEX1D_ARRAY_UAV Texture1DArray;
+        D3D11_TEX2D_UAV Texture2D;
+        D3D11_TEX2D_ARRAY_UAV Texture2DArray;
+        D3D11_TEX3D_UAV Texture3D;
+    } __C89_NAMELESSUNIONNAME;
+} D3D11_UNORDERED_ACCESS_VIEW_DESC;
+typedef enum D3D11_USAGE {
+    D3D11_USAGE_DEFAULT = 0,
+    D3D11_USAGE_IMMUTABLE = 1,
+    D3D11_USAGE_DYNAMIC = 2,
+    D3D11_USAGE_STAGING = 3
+} D3D11_USAGE;
+typedef struct D3D11_VIEWPORT {
+    FLOAT TopLeftX;
+    FLOAT TopLeftY;
+    FLOAT Width;
+    FLOAT Height;
+    FLOAT MinDepth;
+    FLOAT MaxDepth;
+} D3D11_VIEWPORT;
+typedef struct D3D11_RENDER_TARGET_BLEND_DESC {
+    WINBOOL BlendEnable;
+    D3D11_BLEND SrcBlend;
+    D3D11_BLEND DestBlend;
+    D3D11_BLEND_OP BlendOp;
+    D3D11_BLEND SrcBlendAlpha;
+    D3D11_BLEND DestBlendAlpha;
+    D3D11_BLEND_OP BlendOpAlpha;
+    UINT8 RenderTargetWriteMask;
+} D3D11_RENDER_TARGET_BLEND_DESC;
+typedef struct D3D11_BLEND_DESC {
+    WINBOOL AlphaToCoverageEnable;
+    WINBOOL IndependentBlendEnable;
+    D3D11_RENDER_TARGET_BLEND_DESC RenderTarget[8];
+} D3D11_BLEND_DESC;
+typedef struct D3D11_BUFFER_DESC {
+    UINT ByteWidth;
+    D3D11_USAGE Usage;
+    UINT BindFlags;
+    UINT CPUAccessFlags;
+    UINT MiscFlags;
+    UINT StructureByteStride;
+} D3D11_BUFFER_DESC;
+typedef struct D3D11_DEPTH_STENCIL_VIEW_DESC {
+    DXGI_FORMAT Format;
+    D3D11_DSV_DIMENSION ViewDimension;
+    UINT Flags;
+    __C89_NAMELESS union {
+        D3D11_TEX1D_DSV Texture1D;
+        D3D11_TEX1D_ARRAY_DSV Texture1DArray;
+        D3D11_TEX2D_DSV Texture2D;
+        D3D11_TEX2D_ARRAY_DSV Texture2DArray;
+        D3D11_TEX2DMS_DSV Texture2DMS;
+        D3D11_TEX2DMS_ARRAY_DSV Texture2DMSArray;
+    } __C89_NAMELESSUNIONNAME;
+} D3D11_DEPTH_STENCIL_VIEW_DESC;
+typedef struct D3D11_DEPTH_STENCILOP_DESC {
+    D3D11_STENCIL_OP StencilFailOp;
+    D3D11_STENCIL_OP StencilDepthFailOp;
+    D3D11_STENCIL_OP StencilPassOp;
+    D3D11_COMPARISON_FUNC StencilFunc;
+} D3D11_DEPTH_STENCILOP_DESC;
+typedef struct D3D11_DEPTH_STENCIL_DESC {
+    WINBOOL DepthEnable;
+    D3D11_DEPTH_WRITE_MASK DepthWriteMask;
+    D3D11_COMPARISON_FUNC DepthFunc;
+    WINBOOL StencilEnable;
+    UINT8 StencilReadMask;
+    UINT8 StencilWriteMask;
+    D3D11_DEPTH_STENCILOP_DESC FrontFace;
+    D3D11_DEPTH_STENCILOP_DESC BackFace;
+} D3D11_DEPTH_STENCIL_DESC;
+typedef struct D3D11_RENDER_TARGET_VIEW_DESC {
+    DXGI_FORMAT Format;
+    D3D11_RTV_DIMENSION ViewDimension;
+    __C89_NAMELESS union {
+        D3D11_BUFFER_RTV Buffer;
+        D3D11_TEX1D_RTV Texture1D;
+        D3D11_TEX1D_ARRAY_RTV Texture1DArray;
+        D3D11_TEX2D_RTV Texture2D;
+        D3D11_TEX2D_ARRAY_RTV Texture2DArray;
+        D3D11_TEX2DMS_RTV Texture2DMS;
+        D3D11_TEX2DMS_ARRAY_RTV Texture2DMSArray;
+        D3D11_TEX3D_RTV Texture3D;
+    } __C89_NAMELESSUNIONNAME;
+} D3D11_RENDER_TARGET_VIEW_DESC;
+typedef struct D3D11_SAMPLER_DESC {
+    D3D11_FILTER Filter;
+    D3D11_TEXTURE_ADDRESS_MODE AddressU;
+    D3D11_TEXTURE_ADDRESS_MODE AddressV;
+    D3D11_TEXTURE_ADDRESS_MODE AddressW;
+    FLOAT MipLODBias;
+    UINT MaxAnisotropy;
+    D3D11_COMPARISON_FUNC ComparisonFunc;
+    FLOAT BorderColor[4];
+    FLOAT MinLOD;
+    FLOAT MaxLOD;
+} D3D11_SAMPLER_DESC;
+typedef struct D3D11_SHADER_RESOURCE_VIEW_DESC {
+    DXGI_FORMAT Format;
+    D3D11_SRV_DIMENSION ViewDimension;
+    __C89_NAMELESS union {
+        D3D11_BUFFER_SRV Buffer;
+        D3D11_TEX1D_SRV Texture1D;
+        D3D11_TEX1D_ARRAY_SRV Texture1DArray;
+        D3D11_TEX2D_SRV Texture2D;
+        D3D11_TEX2D_ARRAY_SRV Texture2DArray;
+        D3D11_TEX2DMS_SRV Texture2DMS;
+        D3D11_TEX2DMS_ARRAY_SRV Texture2DMSArray;
+        D3D11_TEX3D_SRV Texture3D;
+        D3D11_TEXCUBE_SRV TextureCube;
+        D3D11_TEXCUBE_ARRAY_SRV TextureCubeArray;
+        D3D11_BUFFEREX_SRV BufferEx;
+    } __C89_NAMELESSUNIONNAME;
+} D3D11_SHADER_RESOURCE_VIEW_DESC;
+typedef struct D3D11_TEXTURE1D_DESC {
+    UINT Width;
+    UINT MipLevels;
+    UINT ArraySize;
+    DXGI_FORMAT Format;
+    D3D11_USAGE Usage;
+    UINT BindFlags;
+    UINT CPUAccessFlags;
+    UINT MiscFlags;
+} D3D11_TEXTURE1D_DESC;
+typedef struct D3D11_TEXTURE2D_DESC {
+    UINT Width;
+    UINT Height;
+    UINT MipLevels;
+    UINT ArraySize;
+    DXGI_FORMAT Format;
+    DXGI_SAMPLE_DESC SampleDesc;
+    D3D11_USAGE Usage;
+    UINT BindFlags;
+    UINT CPUAccessFlags;
+    UINT MiscFlags;
+} D3D11_TEXTURE2D_DESC;
+typedef struct D3D11_TEXTURE3D_DESC {
+    UINT Width;
+    UINT Height;
+    UINT Depth;
+    UINT MipLevels;
+    DXGI_FORMAT Format;
+    D3D11_USAGE Usage;
+    UINT BindFlags;
+    UINT CPUAccessFlags;
+    UINT MiscFlags;
+} D3D11_TEXTURE3D_DESC;
+#ifndef __ID3D11Device_FWD_DEFINED__
+#define __ID3D11Device_FWD_DEFINED__
+typedef interface ID3D11Device ID3D11Device;
+#endif
+
+#ifndef __ID3D11ClassLinkage_FWD_DEFINED__
+#define __ID3D11ClassLinkage_FWD_DEFINED__
+typedef interface ID3D11ClassLinkage ID3D11ClassLinkage;
+#endif
+
+/*****************************************************************************
+ * ID3D11DeviceChild interface
+ */
+#ifndef __ID3D11DeviceChild_INTERFACE_DEFINED__
+#define __ID3D11DeviceChild_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11DeviceChild, 0x1841e5c8, 0x16b0, 0x489b, 0xbc,0xc8, 0x44,0xcf,0xb0,0xd5,0xde,0xae);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("1841e5c8-16b0-489b-bcc8-44cfb0d5deae")
+ID3D11DeviceChild : public IUnknown
+{
+    virtual void STDMETHODCALLTYPE GetDevice(
+        ID3D11Device **ppDevice) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPrivateData(
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetPrivateData(
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetPrivateDataInterface(
+        REFGUID guid,
+        const IUnknown *pData) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11DeviceChild, 0x1841e5c8, 0x16b0, 0x489b, 0xbc,0xc8, 0x44,0xcf,0xb0,0xd5,0xde,0xae)
+#endif
+#else
+typedef struct ID3D11DeviceChildVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11DeviceChild* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11DeviceChild* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11DeviceChild* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11DeviceChild* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11DeviceChild* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11DeviceChild* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11DeviceChild* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    END_INTERFACE
+} ID3D11DeviceChildVtbl;
+interface ID3D11DeviceChild {
+    CONST_VTBL ID3D11DeviceChildVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11DeviceChild_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11DeviceChild_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11DeviceChild_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11DeviceChild_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11DeviceChild_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11DeviceChild_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11DeviceChild_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11DeviceChild_QueryInterface(ID3D11DeviceChild* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11DeviceChild_AddRef(ID3D11DeviceChild* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11DeviceChild_Release(ID3D11DeviceChild* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11DeviceChild_GetDevice(ID3D11DeviceChild* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11DeviceChild_GetPrivateData(ID3D11DeviceChild* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11DeviceChild_SetPrivateData(ID3D11DeviceChild* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11DeviceChild_SetPrivateDataInterface(ID3D11DeviceChild* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+#endif
+#endif
+
+#endif
+
+void STDMETHODCALLTYPE ID3D11DeviceChild_GetDevice_Proxy(
+    ID3D11DeviceChild* This,
+    ID3D11Device **ppDevice);
+void __RPC_STUB ID3D11DeviceChild_GetDevice_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11DeviceChild_GetPrivateData_Proxy(
+    ID3D11DeviceChild* This,
+    REFGUID guid,
+    UINT *pDataSize,
+    void *pData);
+void __RPC_STUB ID3D11DeviceChild_GetPrivateData_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11DeviceChild_SetPrivateData_Proxy(
+    ID3D11DeviceChild* This,
+    REFGUID guid,
+    UINT DataSize,
+    const void *pData);
+void __RPC_STUB ID3D11DeviceChild_SetPrivateData_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11DeviceChild_SetPrivateDataInterface_Proxy(
+    ID3D11DeviceChild* This,
+    REFGUID guid,
+    const IUnknown *pData);
+void __RPC_STUB ID3D11DeviceChild_SetPrivateDataInterface_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11DeviceChild_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11Asynchronous interface
+ */
+#ifndef __ID3D11Asynchronous_INTERFACE_DEFINED__
+#define __ID3D11Asynchronous_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11Asynchronous, 0x4b35d0cd, 0x1e15, 0x4258, 0x9c,0x98, 0x1b,0x13,0x33,0xf6,0xdd,0x3b);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("4b35d0cd-1e15-4258-9c98-1b1333f6dd3b")
+ID3D11Asynchronous : public ID3D11DeviceChild
+{
+    virtual UINT STDMETHODCALLTYPE GetDataSize(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11Asynchronous, 0x4b35d0cd, 0x1e15, 0x4258, 0x9c,0x98, 0x1b,0x13,0x33,0xf6,0xdd,0x3b)
+#endif
+#else
+typedef struct ID3D11AsynchronousVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11Asynchronous* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11Asynchronous* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11Asynchronous* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11Asynchronous* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11Asynchronous* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11Asynchronous* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11Asynchronous* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11Asynchronous methods ***/
+    UINT (STDMETHODCALLTYPE *GetDataSize)(
+        ID3D11Asynchronous* This);
+
+    END_INTERFACE
+} ID3D11AsynchronousVtbl;
+interface ID3D11Asynchronous {
+    CONST_VTBL ID3D11AsynchronousVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11Asynchronous_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11Asynchronous_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11Asynchronous_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11Asynchronous_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11Asynchronous_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11Asynchronous_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11Asynchronous_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11Asynchronous methods ***/
+#define ID3D11Asynchronous_GetDataSize(This) (This)->lpVtbl->GetDataSize(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11Asynchronous_QueryInterface(ID3D11Asynchronous* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11Asynchronous_AddRef(ID3D11Asynchronous* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11Asynchronous_Release(ID3D11Asynchronous* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11Asynchronous_GetDevice(ID3D11Asynchronous* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11Asynchronous_GetPrivateData(ID3D11Asynchronous* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11Asynchronous_SetPrivateData(ID3D11Asynchronous* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11Asynchronous_SetPrivateDataInterface(ID3D11Asynchronous* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11Asynchronous methods ***/
+static FORCEINLINE UINT ID3D11Asynchronous_GetDataSize(ID3D11Asynchronous* This) {
+    return This->lpVtbl->GetDataSize(This);
+}
+#endif
+#endif
+
+#endif
+
+UINT STDMETHODCALLTYPE ID3D11Asynchronous_GetDataSize_Proxy(
+    ID3D11Asynchronous* This);
+void __RPC_STUB ID3D11Asynchronous_GetDataSize_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11Asynchronous_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11Query interface
+ */
+#ifndef __ID3D11Query_INTERFACE_DEFINED__
+#define __ID3D11Query_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11Query, 0xd6c00747, 0x87b7, 0x425e, 0xb8,0x4d, 0x44,0xd1,0x08,0x56,0x0a,0xfd);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("d6c00747-87b7-425e-b84d-44d108560afd")
+ID3D11Query : public ID3D11Asynchronous
+{
+    virtual void STDMETHODCALLTYPE GetDesc(
+        D3D11_QUERY_DESC *pDesc) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11Query, 0xd6c00747, 0x87b7, 0x425e, 0xb8,0x4d, 0x44,0xd1,0x08,0x56,0x0a,0xfd)
+#endif
+#else
+typedef struct ID3D11QueryVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11Query* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11Query* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11Query* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11Query* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11Query* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11Query* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11Query* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11Asynchronous methods ***/
+    UINT (STDMETHODCALLTYPE *GetDataSize)(
+        ID3D11Query* This);
+
+    /*** ID3D11Query methods ***/
+    void (STDMETHODCALLTYPE *GetDesc)(
+        ID3D11Query* This,
+        D3D11_QUERY_DESC *pDesc);
+
+    END_INTERFACE
+} ID3D11QueryVtbl;
+interface ID3D11Query {
+    CONST_VTBL ID3D11QueryVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11Query_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11Query_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11Query_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11Query_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11Query_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11Query_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11Query_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11Asynchronous methods ***/
+#define ID3D11Query_GetDataSize(This) (This)->lpVtbl->GetDataSize(This)
+/*** ID3D11Query methods ***/
+#define ID3D11Query_GetDesc(This,pDesc) (This)->lpVtbl->GetDesc(This,pDesc)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11Query_QueryInterface(ID3D11Query* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11Query_AddRef(ID3D11Query* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11Query_Release(ID3D11Query* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11Query_GetDevice(ID3D11Query* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11Query_GetPrivateData(ID3D11Query* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11Query_SetPrivateData(ID3D11Query* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11Query_SetPrivateDataInterface(ID3D11Query* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11Asynchronous methods ***/
+static FORCEINLINE UINT ID3D11Query_GetDataSize(ID3D11Query* This) {
+    return This->lpVtbl->GetDataSize(This);
+}
+/*** ID3D11Query methods ***/
+static FORCEINLINE void ID3D11Query_GetDesc(ID3D11Query* This,D3D11_QUERY_DESC *pDesc) {
+    This->lpVtbl->GetDesc(This,pDesc);
+}
+#endif
+#endif
+
+#endif
+
+void STDMETHODCALLTYPE ID3D11Query_GetDesc_Proxy(
+    ID3D11Query* This,
+    D3D11_QUERY_DESC *pDesc);
+void __RPC_STUB ID3D11Query_GetDesc_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11Query_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11Resource interface
+ */
+#ifndef __ID3D11Resource_INTERFACE_DEFINED__
+#define __ID3D11Resource_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11Resource, 0xdc8e63f3, 0xd12b, 0x4952, 0xb4,0x7b, 0x5e,0x45,0x02,0x6a,0x86,0x2d);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("dc8e63f3-d12b-4952-b47b-5e45026a862d")
+ID3D11Resource : public ID3D11DeviceChild
+{
+    virtual void STDMETHODCALLTYPE GetType(
+        D3D11_RESOURCE_DIMENSION *pResourceDimension) = 0;
+
+    virtual void STDMETHODCALLTYPE SetEvictionPriority(
+        UINT EvictionPriority) = 0;
+
+    virtual UINT STDMETHODCALLTYPE GetEvictionPriority(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11Resource, 0xdc8e63f3, 0xd12b, 0x4952, 0xb4,0x7b, 0x5e,0x45,0x02,0x6a,0x86,0x2d)
+#endif
+#else
+typedef struct ID3D11ResourceVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11Resource* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11Resource* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11Resource* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11Resource* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11Resource* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11Resource* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11Resource* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11Resource methods ***/
+    void (STDMETHODCALLTYPE *GetType)(
+        ID3D11Resource* This,
+        D3D11_RESOURCE_DIMENSION *pResourceDimension);
+
+    void (STDMETHODCALLTYPE *SetEvictionPriority)(
+        ID3D11Resource* This,
+        UINT EvictionPriority);
+
+    UINT (STDMETHODCALLTYPE *GetEvictionPriority)(
+        ID3D11Resource* This);
+
+    END_INTERFACE
+} ID3D11ResourceVtbl;
+interface ID3D11Resource {
+    CONST_VTBL ID3D11ResourceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11Resource_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11Resource_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11Resource_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11Resource_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11Resource_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11Resource_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11Resource_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11Resource methods ***/
+#define ID3D11Resource_GetType(This,pResourceDimension) (This)->lpVtbl->GetType(This,pResourceDimension)
+#define ID3D11Resource_SetEvictionPriority(This,EvictionPriority) (This)->lpVtbl->SetEvictionPriority(This,EvictionPriority)
+#define ID3D11Resource_GetEvictionPriority(This) (This)->lpVtbl->GetEvictionPriority(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11Resource_QueryInterface(ID3D11Resource* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11Resource_AddRef(ID3D11Resource* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11Resource_Release(ID3D11Resource* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11Resource_GetDevice(ID3D11Resource* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11Resource_GetPrivateData(ID3D11Resource* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11Resource_SetPrivateData(ID3D11Resource* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11Resource_SetPrivateDataInterface(ID3D11Resource* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11Resource methods ***/
+static FORCEINLINE void ID3D11Resource_GetType(ID3D11Resource* This,D3D11_RESOURCE_DIMENSION *pResourceDimension) {
+    This->lpVtbl->GetType(This,pResourceDimension);
+}
+static FORCEINLINE void ID3D11Resource_SetEvictionPriority(ID3D11Resource* This,UINT EvictionPriority) {
+    This->lpVtbl->SetEvictionPriority(This,EvictionPriority);
+}
+static FORCEINLINE UINT ID3D11Resource_GetEvictionPriority(ID3D11Resource* This) {
+    return This->lpVtbl->GetEvictionPriority(This);
+}
+#endif
+#endif
+
+#endif
+
+void STDMETHODCALLTYPE ID3D11Resource_GetType_Proxy(
+    ID3D11Resource* This,
+    D3D11_RESOURCE_DIMENSION *pResourceDimension);
+void __RPC_STUB ID3D11Resource_GetType_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11Resource_SetEvictionPriority_Proxy(
+    ID3D11Resource* This,
+    UINT EvictionPriority);
+void __RPC_STUB ID3D11Resource_SetEvictionPriority_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+UINT STDMETHODCALLTYPE ID3D11Resource_GetEvictionPriority_Proxy(
+    ID3D11Resource* This);
+void __RPC_STUB ID3D11Resource_GetEvictionPriority_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11Resource_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11View interface
+ */
+#ifndef __ID3D11View_INTERFACE_DEFINED__
+#define __ID3D11View_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11View, 0x839d1216, 0xbb2e, 0x412b, 0xb7,0xf4, 0xa9,0xdb,0xeb,0xe0,0x8e,0xd1);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("839d1216-bb2e-412b-b7f4-a9dbebe08ed1")
+ID3D11View : public ID3D11DeviceChild
+{
+    virtual void STDMETHODCALLTYPE GetResource(
+        ID3D11Resource **ppResource) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11View, 0x839d1216, 0xbb2e, 0x412b, 0xb7,0xf4, 0xa9,0xdb,0xeb,0xe0,0x8e,0xd1)
+#endif
+#else
+typedef struct ID3D11ViewVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11View* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11View* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11View* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11View* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11View* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11View* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11View* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11View methods ***/
+    void (STDMETHODCALLTYPE *GetResource)(
+        ID3D11View* This,
+        ID3D11Resource **ppResource);
+
+    END_INTERFACE
+} ID3D11ViewVtbl;
+interface ID3D11View {
+    CONST_VTBL ID3D11ViewVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11View_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11View_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11View_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11View_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11View_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11View_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11View_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11View methods ***/
+#define ID3D11View_GetResource(This,ppResource) (This)->lpVtbl->GetResource(This,ppResource)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11View_QueryInterface(ID3D11View* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11View_AddRef(ID3D11View* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11View_Release(ID3D11View* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11View_GetDevice(ID3D11View* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11View_GetPrivateData(ID3D11View* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11View_SetPrivateData(ID3D11View* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11View_SetPrivateDataInterface(ID3D11View* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11View methods ***/
+static FORCEINLINE void ID3D11View_GetResource(ID3D11View* This,ID3D11Resource **ppResource) {
+    This->lpVtbl->GetResource(This,ppResource);
+}
+#endif
+#endif
+
+#endif
+
+void STDMETHODCALLTYPE ID3D11View_GetResource_Proxy(
+    ID3D11View* This,
+    ID3D11Resource **ppResource);
+void __RPC_STUB ID3D11View_GetResource_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11View_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11BlendState interface
+ */
+#ifndef __ID3D11BlendState_INTERFACE_DEFINED__
+#define __ID3D11BlendState_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11BlendState, 0x75b68faa, 0x347d, 0x4159, 0x8f,0x45, 0xa0,0x64,0x0f,0x01,0xcd,0x9a);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("75b68faa-347d-4159-8f45-a0640f01cd9a")
+ID3D11BlendState : public ID3D11DeviceChild
+{
+    virtual void STDMETHODCALLTYPE GetDesc(
+        D3D11_BLEND_DESC *pDesc) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11BlendState, 0x75b68faa, 0x347d, 0x4159, 0x8f,0x45, 0xa0,0x64,0x0f,0x01,0xcd,0x9a)
+#endif
+#else
+typedef struct ID3D11BlendStateVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11BlendState* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11BlendState* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11BlendState* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11BlendState* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11BlendState* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11BlendState* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11BlendState* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11BlendState methods ***/
+    void (STDMETHODCALLTYPE *GetDesc)(
+        ID3D11BlendState* This,
+        D3D11_BLEND_DESC *pDesc);
+
+    END_INTERFACE
+} ID3D11BlendStateVtbl;
+interface ID3D11BlendState {
+    CONST_VTBL ID3D11BlendStateVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11BlendState_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11BlendState_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11BlendState_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11BlendState_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11BlendState_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11BlendState_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11BlendState_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11BlendState methods ***/
+#define ID3D11BlendState_GetDesc(This,pDesc) (This)->lpVtbl->GetDesc(This,pDesc)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11BlendState_QueryInterface(ID3D11BlendState* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11BlendState_AddRef(ID3D11BlendState* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11BlendState_Release(ID3D11BlendState* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11BlendState_GetDevice(ID3D11BlendState* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11BlendState_GetPrivateData(ID3D11BlendState* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11BlendState_SetPrivateData(ID3D11BlendState* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11BlendState_SetPrivateDataInterface(ID3D11BlendState* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11BlendState methods ***/
+static FORCEINLINE void ID3D11BlendState_GetDesc(ID3D11BlendState* This,D3D11_BLEND_DESC *pDesc) {
+    This->lpVtbl->GetDesc(This,pDesc);
+}
+#endif
+#endif
+
+#endif
+
+void STDMETHODCALLTYPE ID3D11BlendState_GetDesc_Proxy(
+    ID3D11BlendState* This,
+    D3D11_BLEND_DESC *pDesc);
+void __RPC_STUB ID3D11BlendState_GetDesc_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11BlendState_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11Buffer interface
+ */
+#ifndef __ID3D11Buffer_INTERFACE_DEFINED__
+#define __ID3D11Buffer_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11Buffer, 0x48570b85, 0xd1ee, 0x4fcd, 0xa2,0x50, 0xeb,0x35,0x07,0x22,0xb0,0x37);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("48570b85-d1ee-4fcd-a250-eb350722b037")
+ID3D11Buffer : public ID3D11Resource
+{
+    virtual void STDMETHODCALLTYPE GetDesc(
+        D3D11_BUFFER_DESC *pDesc) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11Buffer, 0x48570b85, 0xd1ee, 0x4fcd, 0xa2,0x50, 0xeb,0x35,0x07,0x22,0xb0,0x37)
+#endif
+#else
+typedef struct ID3D11BufferVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11Buffer* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11Buffer* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11Buffer* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11Buffer* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11Buffer* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11Buffer* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11Buffer* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11Resource methods ***/
+    void (STDMETHODCALLTYPE *GetType)(
+        ID3D11Buffer* This,
+        D3D11_RESOURCE_DIMENSION *pResourceDimension);
+
+    void (STDMETHODCALLTYPE *SetEvictionPriority)(
+        ID3D11Buffer* This,
+        UINT EvictionPriority);
+
+    UINT (STDMETHODCALLTYPE *GetEvictionPriority)(
+        ID3D11Buffer* This);
+
+    /*** ID3D11Buffer methods ***/
+    void (STDMETHODCALLTYPE *GetDesc)(
+        ID3D11Buffer* This,
+        D3D11_BUFFER_DESC *pDesc);
+
+    END_INTERFACE
+} ID3D11BufferVtbl;
+interface ID3D11Buffer {
+    CONST_VTBL ID3D11BufferVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11Buffer_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11Buffer_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11Buffer_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11Buffer_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11Buffer_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11Buffer_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11Buffer_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11Resource methods ***/
+#define ID3D11Buffer_GetType(This,pResourceDimension) (This)->lpVtbl->GetType(This,pResourceDimension)
+#define ID3D11Buffer_SetEvictionPriority(This,EvictionPriority) (This)->lpVtbl->SetEvictionPriority(This,EvictionPriority)
+#define ID3D11Buffer_GetEvictionPriority(This) (This)->lpVtbl->GetEvictionPriority(This)
+/*** ID3D11Buffer methods ***/
+#define ID3D11Buffer_GetDesc(This,pDesc) (This)->lpVtbl->GetDesc(This,pDesc)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11Buffer_QueryInterface(ID3D11Buffer* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11Buffer_AddRef(ID3D11Buffer* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11Buffer_Release(ID3D11Buffer* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11Buffer_GetDevice(ID3D11Buffer* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11Buffer_GetPrivateData(ID3D11Buffer* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11Buffer_SetPrivateData(ID3D11Buffer* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11Buffer_SetPrivateDataInterface(ID3D11Buffer* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11Resource methods ***/
+static FORCEINLINE void ID3D11Buffer_GetType(ID3D11Buffer* This,D3D11_RESOURCE_DIMENSION *pResourceDimension) {
+    This->lpVtbl->GetType(This,pResourceDimension);
+}
+static FORCEINLINE void ID3D11Buffer_SetEvictionPriority(ID3D11Buffer* This,UINT EvictionPriority) {
+    This->lpVtbl->SetEvictionPriority(This,EvictionPriority);
+}
+static FORCEINLINE UINT ID3D11Buffer_GetEvictionPriority(ID3D11Buffer* This) {
+    return This->lpVtbl->GetEvictionPriority(This);
+}
+/*** ID3D11Buffer methods ***/
+static FORCEINLINE void ID3D11Buffer_GetDesc(ID3D11Buffer* This,D3D11_BUFFER_DESC *pDesc) {
+    This->lpVtbl->GetDesc(This,pDesc);
+}
+#endif
+#endif
+
+#endif
+
+void STDMETHODCALLTYPE ID3D11Buffer_GetDesc_Proxy(
+    ID3D11Buffer* This,
+    D3D11_BUFFER_DESC *pDesc);
+void __RPC_STUB ID3D11Buffer_GetDesc_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11Buffer_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11ClassInstance interface
+ */
+#ifndef __ID3D11ClassInstance_INTERFACE_DEFINED__
+#define __ID3D11ClassInstance_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11ClassInstance, 0xa6cd7faa, 0xb0b7, 0x4a2f, 0x94,0x36, 0x86,0x62,0xa6,0x57,0x97,0xcb);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("a6cd7faa-b0b7-4a2f-9436-8662a65797cb")
+ID3D11ClassInstance : public ID3D11DeviceChild
+{
+    virtual void STDMETHODCALLTYPE GetClassLinkage(
+        ID3D11ClassLinkage **ppLinkage) = 0;
+
+    virtual void STDMETHODCALLTYPE GetDesc(
+        D3D11_CLASS_INSTANCE_DESC *pDesc) = 0;
+
+    virtual void STDMETHODCALLTYPE GetInstanceName(
+        LPSTR pInstanceName,
+        SIZE_T *pBufferLength) = 0;
+
+    virtual void STDMETHODCALLTYPE GetTypeName(
+        LPSTR pTypeName,
+        SIZE_T *pBufferLength) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11ClassInstance, 0xa6cd7faa, 0xb0b7, 0x4a2f, 0x94,0x36, 0x86,0x62,0xa6,0x57,0x97,0xcb)
+#endif
+#else
+typedef struct ID3D11ClassInstanceVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11ClassInstance* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11ClassInstance* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11ClassInstance* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11ClassInstance* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11ClassInstance* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11ClassInstance* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11ClassInstance* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11ClassInstance methods ***/
+    void (STDMETHODCALLTYPE *GetClassLinkage)(
+        ID3D11ClassInstance* This,
+        ID3D11ClassLinkage **ppLinkage);
+
+    void (STDMETHODCALLTYPE *GetDesc)(
+        ID3D11ClassInstance* This,
+        D3D11_CLASS_INSTANCE_DESC *pDesc);
+
+    void (STDMETHODCALLTYPE *GetInstanceName)(
+        ID3D11ClassInstance* This,
+        LPSTR pInstanceName,
+        SIZE_T *pBufferLength);
+
+    void (STDMETHODCALLTYPE *GetTypeName)(
+        ID3D11ClassInstance* This,
+        LPSTR pTypeName,
+        SIZE_T *pBufferLength);
+
+    END_INTERFACE
+} ID3D11ClassInstanceVtbl;
+interface ID3D11ClassInstance {
+    CONST_VTBL ID3D11ClassInstanceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11ClassInstance_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11ClassInstance_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11ClassInstance_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11ClassInstance_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11ClassInstance_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11ClassInstance_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11ClassInstance_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11ClassInstance methods ***/
+#define ID3D11ClassInstance_GetClassLinkage(This,ppLinkage) (This)->lpVtbl->GetClassLinkage(This,ppLinkage)
+#define ID3D11ClassInstance_GetDesc(This,pDesc) (This)->lpVtbl->GetDesc(This,pDesc)
+#define ID3D11ClassInstance_GetInstanceName(This,pInstanceName,pBufferLength) (This)->lpVtbl->GetInstanceName(This,pInstanceName,pBufferLength)
+#define ID3D11ClassInstance_GetTypeName(This,pTypeName,pBufferLength) (This)->lpVtbl->GetTypeName(This,pTypeName,pBufferLength)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11ClassInstance_QueryInterface(ID3D11ClassInstance* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11ClassInstance_AddRef(ID3D11ClassInstance* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11ClassInstance_Release(ID3D11ClassInstance* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11ClassInstance_GetDevice(ID3D11ClassInstance* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11ClassInstance_GetPrivateData(ID3D11ClassInstance* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11ClassInstance_SetPrivateData(ID3D11ClassInstance* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11ClassInstance_SetPrivateDataInterface(ID3D11ClassInstance* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11ClassInstance methods ***/
+static FORCEINLINE void ID3D11ClassInstance_GetClassLinkage(ID3D11ClassInstance* This,ID3D11ClassLinkage **ppLinkage) {
+    This->lpVtbl->GetClassLinkage(This,ppLinkage);
+}
+static FORCEINLINE void ID3D11ClassInstance_GetDesc(ID3D11ClassInstance* This,D3D11_CLASS_INSTANCE_DESC *pDesc) {
+    This->lpVtbl->GetDesc(This,pDesc);
+}
+static FORCEINLINE void ID3D11ClassInstance_GetInstanceName(ID3D11ClassInstance* This,LPSTR pInstanceName,SIZE_T *pBufferLength) {
+    This->lpVtbl->GetInstanceName(This,pInstanceName,pBufferLength);
+}
+static FORCEINLINE void ID3D11ClassInstance_GetTypeName(ID3D11ClassInstance* This,LPSTR pTypeName,SIZE_T *pBufferLength) {
+    This->lpVtbl->GetTypeName(This,pTypeName,pBufferLength);
+}
+#endif
+#endif
+
+#endif
+
+void STDMETHODCALLTYPE ID3D11ClassInstance_GetClassLinkage_Proxy(
+    ID3D11ClassInstance* This,
+    ID3D11ClassLinkage **ppLinkage);
+void __RPC_STUB ID3D11ClassInstance_GetClassLinkage_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11ClassInstance_GetDesc_Proxy(
+    ID3D11ClassInstance* This,
+    D3D11_CLASS_INSTANCE_DESC *pDesc);
+void __RPC_STUB ID3D11ClassInstance_GetDesc_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11ClassInstance_GetInstanceName_Proxy(
+    ID3D11ClassInstance* This,
+    LPSTR pInstanceName,
+    SIZE_T *pBufferLength);
+void __RPC_STUB ID3D11ClassInstance_GetInstanceName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11ClassInstance_GetTypeName_Proxy(
+    ID3D11ClassInstance* This,
+    LPSTR pTypeName,
+    SIZE_T *pBufferLength);
+void __RPC_STUB ID3D11ClassInstance_GetTypeName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11ClassInstance_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11ClassLinkage interface
+ */
+#ifndef __ID3D11ClassLinkage_INTERFACE_DEFINED__
+#define __ID3D11ClassLinkage_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11ClassLinkage, 0xddf57cba, 0x9543, 0x46e4, 0xa1,0x2b, 0xf2,0x07,0xa0,0xfe,0x7f,0xed);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("ddf57cba-9543-46e4-a12b-f207a0fe7fed")
+ID3D11ClassLinkage : public ID3D11DeviceChild
+{
+    virtual HRESULT STDMETHODCALLTYPE GetClassInstance(
+        LPCSTR pClassInstanceName,
+        UINT InstanceIndex,
+        ID3D11ClassInstance **ppInstance) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateClassInstance(
+        LPCSTR pClassTypeName,
+        UINT ConstantBufferOffset,
+        UINT ConstantVectorOffset,
+        UINT TextureOffset,
+        UINT SamplerOffset,
+        ID3D11ClassInstance **ppInstance) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11ClassLinkage, 0xddf57cba, 0x9543, 0x46e4, 0xa1,0x2b, 0xf2,0x07,0xa0,0xfe,0x7f,0xed)
+#endif
+#else
+typedef struct ID3D11ClassLinkageVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11ClassLinkage* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11ClassLinkage* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11ClassLinkage* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11ClassLinkage* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11ClassLinkage* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11ClassLinkage* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11ClassLinkage* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11ClassLinkage methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetClassInstance)(
+        ID3D11ClassLinkage* This,
+        LPCSTR pClassInstanceName,
+        UINT InstanceIndex,
+        ID3D11ClassInstance **ppInstance);
+
+    HRESULT (STDMETHODCALLTYPE *CreateClassInstance)(
+        ID3D11ClassLinkage* This,
+        LPCSTR pClassTypeName,
+        UINT ConstantBufferOffset,
+        UINT ConstantVectorOffset,
+        UINT TextureOffset,
+        UINT SamplerOffset,
+        ID3D11ClassInstance **ppInstance);
+
+    END_INTERFACE
+} ID3D11ClassLinkageVtbl;
+interface ID3D11ClassLinkage {
+    CONST_VTBL ID3D11ClassLinkageVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11ClassLinkage_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11ClassLinkage_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11ClassLinkage_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11ClassLinkage_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11ClassLinkage_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11ClassLinkage_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11ClassLinkage_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11ClassLinkage methods ***/
+#define ID3D11ClassLinkage_GetClassInstance(This,pClassInstanceName,InstanceIndex,ppInstance) (This)->lpVtbl->GetClassInstance(This,pClassInstanceName,InstanceIndex,ppInstance)
+#define ID3D11ClassLinkage_CreateClassInstance(This,pClassTypeName,ConstantBufferOffset,ConstantVectorOffset,TextureOffset,SamplerOffset,ppInstance) (This)->lpVtbl->CreateClassInstance(This,pClassTypeName,ConstantBufferOffset,ConstantVectorOffset,TextureOffset,SamplerOffset,ppInstance)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11ClassLinkage_QueryInterface(ID3D11ClassLinkage* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11ClassLinkage_AddRef(ID3D11ClassLinkage* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11ClassLinkage_Release(ID3D11ClassLinkage* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11ClassLinkage_GetDevice(ID3D11ClassLinkage* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11ClassLinkage_GetPrivateData(ID3D11ClassLinkage* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11ClassLinkage_SetPrivateData(ID3D11ClassLinkage* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11ClassLinkage_SetPrivateDataInterface(ID3D11ClassLinkage* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11ClassLinkage methods ***/
+static FORCEINLINE HRESULT ID3D11ClassLinkage_GetClassInstance(ID3D11ClassLinkage* This,LPCSTR pClassInstanceName,UINT InstanceIndex,ID3D11ClassInstance **ppInstance) {
+    return This->lpVtbl->GetClassInstance(This,pClassInstanceName,InstanceIndex,ppInstance);
+}
+static FORCEINLINE HRESULT ID3D11ClassLinkage_CreateClassInstance(ID3D11ClassLinkage* This,LPCSTR pClassTypeName,UINT ConstantBufferOffset,UINT ConstantVectorOffset,UINT TextureOffset,UINT SamplerOffset,ID3D11ClassInstance **ppInstance) {
+    return This->lpVtbl->CreateClassInstance(This,pClassTypeName,ConstantBufferOffset,ConstantVectorOffset,TextureOffset,SamplerOffset,ppInstance);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ID3D11ClassLinkage_GetClassInstance_Proxy(
+    ID3D11ClassLinkage* This,
+    LPCSTR pClassInstanceName,
+    UINT InstanceIndex,
+    ID3D11ClassInstance **ppInstance);
+void __RPC_STUB ID3D11ClassLinkage_GetClassInstance_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11ClassLinkage_CreateClassInstance_Proxy(
+    ID3D11ClassLinkage* This,
+    LPCSTR pClassTypeName,
+    UINT ConstantBufferOffset,
+    UINT ConstantVectorOffset,
+    UINT TextureOffset,
+    UINT SamplerOffset,
+    ID3D11ClassInstance **ppInstance);
+void __RPC_STUB ID3D11ClassLinkage_CreateClassInstance_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11ClassLinkage_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11CommandList interface
+ */
+#ifndef __ID3D11CommandList_INTERFACE_DEFINED__
+#define __ID3D11CommandList_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11CommandList, 0xa24bc4d1, 0x769e, 0x43f7, 0x80,0x13, 0x98,0xff,0x56,0x6c,0x18,0xe2);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("a24bc4d1-769e-43f7-8013-98ff566c18e2")
+ID3D11CommandList : public ID3D11DeviceChild
+{
+    virtual UINT STDMETHODCALLTYPE GetContextFlags(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11CommandList, 0xa24bc4d1, 0x769e, 0x43f7, 0x80,0x13, 0x98,0xff,0x56,0x6c,0x18,0xe2)
+#endif
+#else
+typedef struct ID3D11CommandListVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11CommandList* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11CommandList* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11CommandList* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11CommandList* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11CommandList* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11CommandList* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11CommandList* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11CommandList methods ***/
+    UINT (STDMETHODCALLTYPE *GetContextFlags)(
+        ID3D11CommandList* This);
+
+    END_INTERFACE
+} ID3D11CommandListVtbl;
+interface ID3D11CommandList {
+    CONST_VTBL ID3D11CommandListVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11CommandList_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11CommandList_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11CommandList_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11CommandList_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11CommandList_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11CommandList_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11CommandList_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11CommandList methods ***/
+#define ID3D11CommandList_GetContextFlags(This) (This)->lpVtbl->GetContextFlags(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11CommandList_QueryInterface(ID3D11CommandList* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11CommandList_AddRef(ID3D11CommandList* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11CommandList_Release(ID3D11CommandList* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11CommandList_GetDevice(ID3D11CommandList* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11CommandList_GetPrivateData(ID3D11CommandList* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11CommandList_SetPrivateData(ID3D11CommandList* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11CommandList_SetPrivateDataInterface(ID3D11CommandList* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11CommandList methods ***/
+static FORCEINLINE UINT ID3D11CommandList_GetContextFlags(ID3D11CommandList* This) {
+    return This->lpVtbl->GetContextFlags(This);
+}
+#endif
+#endif
+
+#endif
+
+UINT STDMETHODCALLTYPE ID3D11CommandList_GetContextFlags_Proxy(
+    ID3D11CommandList* This);
+void __RPC_STUB ID3D11CommandList_GetContextFlags_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11CommandList_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11ComputeShader interface
+ */
+#ifndef __ID3D11ComputeShader_INTERFACE_DEFINED__
+#define __ID3D11ComputeShader_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11ComputeShader, 0x4f5b196e, 0xc2bd, 0x495e, 0xbd,0x01, 0x1f,0xde,0xd3,0x8e,0x49,0x69);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("4f5b196e-c2bd-495e-bd01-1fded38e4969")
+ID3D11ComputeShader : public ID3D11DeviceChild
+{
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11ComputeShader, 0x4f5b196e, 0xc2bd, 0x495e, 0xbd,0x01, 0x1f,0xde,0xd3,0x8e,0x49,0x69)
+#endif
+#else
+typedef struct ID3D11ComputeShaderVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11ComputeShader* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11ComputeShader* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11ComputeShader* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11ComputeShader* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11ComputeShader* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11ComputeShader* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11ComputeShader* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    END_INTERFACE
+} ID3D11ComputeShaderVtbl;
+interface ID3D11ComputeShader {
+    CONST_VTBL ID3D11ComputeShaderVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11ComputeShader_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11ComputeShader_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11ComputeShader_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11ComputeShader_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11ComputeShader_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11ComputeShader_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11ComputeShader_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11ComputeShader_QueryInterface(ID3D11ComputeShader* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11ComputeShader_AddRef(ID3D11ComputeShader* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11ComputeShader_Release(ID3D11ComputeShader* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11ComputeShader_GetDevice(ID3D11ComputeShader* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11ComputeShader_GetPrivateData(ID3D11ComputeShader* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11ComputeShader_SetPrivateData(ID3D11ComputeShader* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11ComputeShader_SetPrivateDataInterface(ID3D11ComputeShader* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ID3D11ComputeShader_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11Counter interface
+ */
+#ifndef __ID3D11Counter_INTERFACE_DEFINED__
+#define __ID3D11Counter_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11Counter, 0x6e8c49fb, 0xa371, 0x4770, 0xb4,0x40, 0x29,0x08,0x60,0x22,0xb7,0x41);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("6e8c49fb-a371-4770-b440-29086022b741")
+ID3D11Counter : public ID3D11Asynchronous
+{
+    virtual void STDMETHODCALLTYPE GetDesc(
+        D3D11_COUNTER_DESC *pDesc) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11Counter, 0x6e8c49fb, 0xa371, 0x4770, 0xb4,0x40, 0x29,0x08,0x60,0x22,0xb7,0x41)
+#endif
+#else
+typedef struct ID3D11CounterVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11Counter* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11Counter* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11Counter* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11Counter* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11Counter* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11Counter* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11Counter* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11Asynchronous methods ***/
+    UINT (STDMETHODCALLTYPE *GetDataSize)(
+        ID3D11Counter* This);
+
+    /*** ID3D11Counter methods ***/
+    void (STDMETHODCALLTYPE *GetDesc)(
+        ID3D11Counter* This,
+        D3D11_COUNTER_DESC *pDesc);
+
+    END_INTERFACE
+} ID3D11CounterVtbl;
+interface ID3D11Counter {
+    CONST_VTBL ID3D11CounterVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11Counter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11Counter_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11Counter_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11Counter_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11Counter_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11Counter_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11Counter_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11Asynchronous methods ***/
+#define ID3D11Counter_GetDataSize(This) (This)->lpVtbl->GetDataSize(This)
+/*** ID3D11Counter methods ***/
+#define ID3D11Counter_GetDesc(This,pDesc) (This)->lpVtbl->GetDesc(This,pDesc)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11Counter_QueryInterface(ID3D11Counter* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11Counter_AddRef(ID3D11Counter* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11Counter_Release(ID3D11Counter* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11Counter_GetDevice(ID3D11Counter* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11Counter_GetPrivateData(ID3D11Counter* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11Counter_SetPrivateData(ID3D11Counter* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11Counter_SetPrivateDataInterface(ID3D11Counter* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11Asynchronous methods ***/
+static FORCEINLINE UINT ID3D11Counter_GetDataSize(ID3D11Counter* This) {
+    return This->lpVtbl->GetDataSize(This);
+}
+/*** ID3D11Counter methods ***/
+static FORCEINLINE void ID3D11Counter_GetDesc(ID3D11Counter* This,D3D11_COUNTER_DESC *pDesc) {
+    This->lpVtbl->GetDesc(This,pDesc);
+}
+#endif
+#endif
+
+#endif
+
+void STDMETHODCALLTYPE ID3D11Counter_GetDesc_Proxy(
+    ID3D11Counter* This,
+    D3D11_COUNTER_DESC *pDesc);
+void __RPC_STUB ID3D11Counter_GetDesc_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11Counter_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11DepthStencilState interface
+ */
+#ifndef __ID3D11DepthStencilState_INTERFACE_DEFINED__
+#define __ID3D11DepthStencilState_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11DepthStencilState, 0x03823efb, 0x8d8f, 0x4e1c, 0x9a,0xa2, 0xf6,0x4b,0xb2,0xcb,0xfd,0xf1);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("03823efb-8d8f-4e1c-9aa2-f64bb2cbfdf1")
+ID3D11DepthStencilState : public ID3D11DeviceChild
+{
+    virtual void STDMETHODCALLTYPE GetDesc(
+        D3D11_DEPTH_STENCIL_DESC *pDesc) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11DepthStencilState, 0x03823efb, 0x8d8f, 0x4e1c, 0x9a,0xa2, 0xf6,0x4b,0xb2,0xcb,0xfd,0xf1)
+#endif
+#else
+typedef struct ID3D11DepthStencilStateVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11DepthStencilState* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11DepthStencilState* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11DepthStencilState* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11DepthStencilState* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11DepthStencilState* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11DepthStencilState* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11DepthStencilState* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11DepthStencilState methods ***/
+    void (STDMETHODCALLTYPE *GetDesc)(
+        ID3D11DepthStencilState* This,
+        D3D11_DEPTH_STENCIL_DESC *pDesc);
+
+    END_INTERFACE
+} ID3D11DepthStencilStateVtbl;
+interface ID3D11DepthStencilState {
+    CONST_VTBL ID3D11DepthStencilStateVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11DepthStencilState_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11DepthStencilState_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11DepthStencilState_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11DepthStencilState_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11DepthStencilState_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11DepthStencilState_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11DepthStencilState_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11DepthStencilState methods ***/
+#define ID3D11DepthStencilState_GetDesc(This,pDesc) (This)->lpVtbl->GetDesc(This,pDesc)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11DepthStencilState_QueryInterface(ID3D11DepthStencilState* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11DepthStencilState_AddRef(ID3D11DepthStencilState* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11DepthStencilState_Release(ID3D11DepthStencilState* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11DepthStencilState_GetDevice(ID3D11DepthStencilState* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11DepthStencilState_GetPrivateData(ID3D11DepthStencilState* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11DepthStencilState_SetPrivateData(ID3D11DepthStencilState* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11DepthStencilState_SetPrivateDataInterface(ID3D11DepthStencilState* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11DepthStencilState methods ***/
+static FORCEINLINE void ID3D11DepthStencilState_GetDesc(ID3D11DepthStencilState* This,D3D11_DEPTH_STENCIL_DESC *pDesc) {
+    This->lpVtbl->GetDesc(This,pDesc);
+}
+#endif
+#endif
+
+#endif
+
+void STDMETHODCALLTYPE ID3D11DepthStencilState_GetDesc_Proxy(
+    ID3D11DepthStencilState* This,
+    D3D11_DEPTH_STENCIL_DESC *pDesc);
+void __RPC_STUB ID3D11DepthStencilState_GetDesc_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11DepthStencilState_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11DepthStencilView interface
+ */
+#ifndef __ID3D11DepthStencilView_INTERFACE_DEFINED__
+#define __ID3D11DepthStencilView_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11DepthStencilView, 0x9fdac92a, 0x1876, 0x48c3, 0xaf,0xad, 0x25,0xb9,0x4f,0x84,0xa9,0xb6);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("9fdac92a-1876-48c3-afad-25b94f84a9b6")
+ID3D11DepthStencilView : public ID3D11View
+{
+    virtual void STDMETHODCALLTYPE GetDesc(
+        D3D11_DEPTH_STENCIL_VIEW_DESC *pDesc) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11DepthStencilView, 0x9fdac92a, 0x1876, 0x48c3, 0xaf,0xad, 0x25,0xb9,0x4f,0x84,0xa9,0xb6)
+#endif
+#else
+typedef struct ID3D11DepthStencilViewVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11DepthStencilView* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11DepthStencilView* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11DepthStencilView* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11DepthStencilView* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11DepthStencilView* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11DepthStencilView* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11DepthStencilView* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11View methods ***/
+    void (STDMETHODCALLTYPE *GetResource)(
+        ID3D11DepthStencilView* This,
+        ID3D11Resource **ppResource);
+
+    /*** ID3D11DepthStencilView methods ***/
+    void (STDMETHODCALLTYPE *GetDesc)(
+        ID3D11DepthStencilView* This,
+        D3D11_DEPTH_STENCIL_VIEW_DESC *pDesc);
+
+    END_INTERFACE
+} ID3D11DepthStencilViewVtbl;
+interface ID3D11DepthStencilView {
+    CONST_VTBL ID3D11DepthStencilViewVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11DepthStencilView_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11DepthStencilView_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11DepthStencilView_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11DepthStencilView_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11DepthStencilView_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11DepthStencilView_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11DepthStencilView_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11View methods ***/
+#define ID3D11DepthStencilView_GetResource(This,ppResource) (This)->lpVtbl->GetResource(This,ppResource)
+/*** ID3D11DepthStencilView methods ***/
+#define ID3D11DepthStencilView_GetDesc(This,pDesc) (This)->lpVtbl->GetDesc(This,pDesc)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11DepthStencilView_QueryInterface(ID3D11DepthStencilView* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11DepthStencilView_AddRef(ID3D11DepthStencilView* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11DepthStencilView_Release(ID3D11DepthStencilView* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11DepthStencilView_GetDevice(ID3D11DepthStencilView* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11DepthStencilView_GetPrivateData(ID3D11DepthStencilView* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11DepthStencilView_SetPrivateData(ID3D11DepthStencilView* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11DepthStencilView_SetPrivateDataInterface(ID3D11DepthStencilView* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11View methods ***/
+static FORCEINLINE void ID3D11DepthStencilView_GetResource(ID3D11DepthStencilView* This,ID3D11Resource **ppResource) {
+    This->lpVtbl->GetResource(This,ppResource);
+}
+/*** ID3D11DepthStencilView methods ***/
+static FORCEINLINE void ID3D11DepthStencilView_GetDesc(ID3D11DepthStencilView* This,D3D11_DEPTH_STENCIL_VIEW_DESC *pDesc) {
+    This->lpVtbl->GetDesc(This,pDesc);
+}
+#endif
+#endif
+
+#endif
+
+void STDMETHODCALLTYPE ID3D11DepthStencilView_GetDesc_Proxy(
+    ID3D11DepthStencilView* This,
+    D3D11_DEPTH_STENCIL_VIEW_DESC *pDesc);
+void __RPC_STUB ID3D11DepthStencilView_GetDesc_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11DepthStencilView_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11DomainShader interface
+ */
+#ifndef __ID3D11DomainShader_INTERFACE_DEFINED__
+#define __ID3D11DomainShader_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11DomainShader, 0xf582c508, 0x0f36, 0x490c, 0x99,0x77, 0x31,0xee,0xce,0x26,0x8c,0xfa);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("f582c508-0f36-490c-9977-31eece268cfa")
+ID3D11DomainShader : public ID3D11DeviceChild
+{
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11DomainShader, 0xf582c508, 0x0f36, 0x490c, 0x99,0x77, 0x31,0xee,0xce,0x26,0x8c,0xfa)
+#endif
+#else
+typedef struct ID3D11DomainShaderVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11DomainShader* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11DomainShader* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11DomainShader* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11DomainShader* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11DomainShader* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11DomainShader* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11DomainShader* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    END_INTERFACE
+} ID3D11DomainShaderVtbl;
+interface ID3D11DomainShader {
+    CONST_VTBL ID3D11DomainShaderVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11DomainShader_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11DomainShader_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11DomainShader_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11DomainShader_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11DomainShader_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11DomainShader_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11DomainShader_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11DomainShader_QueryInterface(ID3D11DomainShader* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11DomainShader_AddRef(ID3D11DomainShader* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11DomainShader_Release(ID3D11DomainShader* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11DomainShader_GetDevice(ID3D11DomainShader* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11DomainShader_GetPrivateData(ID3D11DomainShader* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11DomainShader_SetPrivateData(ID3D11DomainShader* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11DomainShader_SetPrivateDataInterface(ID3D11DomainShader* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ID3D11DomainShader_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11GeometryShader interface
+ */
+#ifndef __ID3D11GeometryShader_INTERFACE_DEFINED__
+#define __ID3D11GeometryShader_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11GeometryShader, 0x38325b96, 0xeffb, 0x4022, 0xba,0x02, 0x2e,0x79,0x5b,0x70,0x27,0x5c);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("38325b96-effb-4022-ba02-2e795b70275c")
+ID3D11GeometryShader : public ID3D11DeviceChild
+{
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11GeometryShader, 0x38325b96, 0xeffb, 0x4022, 0xba,0x02, 0x2e,0x79,0x5b,0x70,0x27,0x5c)
+#endif
+#else
+typedef struct ID3D11GeometryShaderVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11GeometryShader* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11GeometryShader* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11GeometryShader* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11GeometryShader* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11GeometryShader* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11GeometryShader* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11GeometryShader* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    END_INTERFACE
+} ID3D11GeometryShaderVtbl;
+interface ID3D11GeometryShader {
+    CONST_VTBL ID3D11GeometryShaderVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11GeometryShader_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11GeometryShader_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11GeometryShader_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11GeometryShader_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11GeometryShader_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11GeometryShader_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11GeometryShader_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11GeometryShader_QueryInterface(ID3D11GeometryShader* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11GeometryShader_AddRef(ID3D11GeometryShader* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11GeometryShader_Release(ID3D11GeometryShader* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11GeometryShader_GetDevice(ID3D11GeometryShader* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11GeometryShader_GetPrivateData(ID3D11GeometryShader* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11GeometryShader_SetPrivateData(ID3D11GeometryShader* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11GeometryShader_SetPrivateDataInterface(ID3D11GeometryShader* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ID3D11GeometryShader_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11HullShader interface
+ */
+#ifndef __ID3D11HullShader_INTERFACE_DEFINED__
+#define __ID3D11HullShader_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11HullShader, 0x8e5c6061, 0x628a, 0x4c8e, 0x82,0x64, 0xbb,0xe4,0x5c,0xb3,0xd5,0xdd);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("8e5c6061-628a-4c8e-8264-bbe45cb3d5dd")
+ID3D11HullShader : public ID3D11DeviceChild
+{
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11HullShader, 0x8e5c6061, 0x628a, 0x4c8e, 0x82,0x64, 0xbb,0xe4,0x5c,0xb3,0xd5,0xdd)
+#endif
+#else
+typedef struct ID3D11HullShaderVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11HullShader* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11HullShader* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11HullShader* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11HullShader* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11HullShader* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11HullShader* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11HullShader* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    END_INTERFACE
+} ID3D11HullShaderVtbl;
+interface ID3D11HullShader {
+    CONST_VTBL ID3D11HullShaderVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11HullShader_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11HullShader_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11HullShader_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11HullShader_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11HullShader_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11HullShader_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11HullShader_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11HullShader_QueryInterface(ID3D11HullShader* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11HullShader_AddRef(ID3D11HullShader* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11HullShader_Release(ID3D11HullShader* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11HullShader_GetDevice(ID3D11HullShader* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11HullShader_GetPrivateData(ID3D11HullShader* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11HullShader_SetPrivateData(ID3D11HullShader* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11HullShader_SetPrivateDataInterface(ID3D11HullShader* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ID3D11HullShader_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11InputLayout interface
+ */
+#ifndef __ID3D11InputLayout_INTERFACE_DEFINED__
+#define __ID3D11InputLayout_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11InputLayout, 0xe4819ddc, 0x4cf0, 0x4025, 0xbd,0x26, 0x5d,0xe8,0x2a,0x3e,0x07,0xb7);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("e4819ddc-4cf0-4025-bd26-5de82a3e07b7")
+ID3D11InputLayout : public ID3D11DeviceChild
+{
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11InputLayout, 0xe4819ddc, 0x4cf0, 0x4025, 0xbd,0x26, 0x5d,0xe8,0x2a,0x3e,0x07,0xb7)
+#endif
+#else
+typedef struct ID3D11InputLayoutVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11InputLayout* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11InputLayout* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11InputLayout* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11InputLayout* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11InputLayout* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11InputLayout* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11InputLayout* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    END_INTERFACE
+} ID3D11InputLayoutVtbl;
+interface ID3D11InputLayout {
+    CONST_VTBL ID3D11InputLayoutVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11InputLayout_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11InputLayout_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11InputLayout_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11InputLayout_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11InputLayout_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11InputLayout_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11InputLayout_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11InputLayout_QueryInterface(ID3D11InputLayout* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11InputLayout_AddRef(ID3D11InputLayout* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11InputLayout_Release(ID3D11InputLayout* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11InputLayout_GetDevice(ID3D11InputLayout* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11InputLayout_GetPrivateData(ID3D11InputLayout* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11InputLayout_SetPrivateData(ID3D11InputLayout* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11InputLayout_SetPrivateDataInterface(ID3D11InputLayout* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ID3D11InputLayout_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11PixelShader interface
+ */
+#ifndef __ID3D11PixelShader_INTERFACE_DEFINED__
+#define __ID3D11PixelShader_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11PixelShader, 0xea82e40d, 0x51dc, 0x4f33, 0x93,0xd4, 0xdb,0x7c,0x91,0x25,0xae,0x8c);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("ea82e40d-51dc-4f33-93d4-db7c9125ae8c")
+ID3D11PixelShader : public ID3D11DeviceChild
+{
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11PixelShader, 0xea82e40d, 0x51dc, 0x4f33, 0x93,0xd4, 0xdb,0x7c,0x91,0x25,0xae,0x8c)
+#endif
+#else
+typedef struct ID3D11PixelShaderVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11PixelShader* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11PixelShader* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11PixelShader* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11PixelShader* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11PixelShader* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11PixelShader* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11PixelShader* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    END_INTERFACE
+} ID3D11PixelShaderVtbl;
+interface ID3D11PixelShader {
+    CONST_VTBL ID3D11PixelShaderVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11PixelShader_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11PixelShader_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11PixelShader_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11PixelShader_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11PixelShader_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11PixelShader_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11PixelShader_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11PixelShader_QueryInterface(ID3D11PixelShader* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11PixelShader_AddRef(ID3D11PixelShader* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11PixelShader_Release(ID3D11PixelShader* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11PixelShader_GetDevice(ID3D11PixelShader* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11PixelShader_GetPrivateData(ID3D11PixelShader* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11PixelShader_SetPrivateData(ID3D11PixelShader* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11PixelShader_SetPrivateDataInterface(ID3D11PixelShader* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ID3D11PixelShader_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11Predicate interface
+ */
+#ifndef __ID3D11Predicate_INTERFACE_DEFINED__
+#define __ID3D11Predicate_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11Predicate, 0x9eb576dd, 0x9f77, 0x4d86, 0x81,0xaa, 0x8b,0xab,0x5f,0xe4,0x90,0xe2);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("9eb576dd-9f77-4d86-81aa-8bab5fe490e2")
+ID3D11Predicate : public ID3D11Query
+{
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11Predicate, 0x9eb576dd, 0x9f77, 0x4d86, 0x81,0xaa, 0x8b,0xab,0x5f,0xe4,0x90,0xe2)
+#endif
+#else
+typedef struct ID3D11PredicateVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11Predicate* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11Predicate* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11Predicate* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11Predicate* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11Predicate* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11Predicate* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11Predicate* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11Asynchronous methods ***/
+    UINT (STDMETHODCALLTYPE *GetDataSize)(
+        ID3D11Predicate* This);
+
+    /*** ID3D11Query methods ***/
+    void (STDMETHODCALLTYPE *GetDesc)(
+        ID3D11Predicate* This,
+        D3D11_QUERY_DESC *pDesc);
+
+    END_INTERFACE
+} ID3D11PredicateVtbl;
+interface ID3D11Predicate {
+    CONST_VTBL ID3D11PredicateVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11Predicate_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11Predicate_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11Predicate_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11Predicate_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11Predicate_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11Predicate_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11Predicate_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11Asynchronous methods ***/
+#define ID3D11Predicate_GetDataSize(This) (This)->lpVtbl->GetDataSize(This)
+/*** ID3D11Query methods ***/
+#define ID3D11Predicate_GetDesc(This,pDesc) (This)->lpVtbl->GetDesc(This,pDesc)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11Predicate_QueryInterface(ID3D11Predicate* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11Predicate_AddRef(ID3D11Predicate* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11Predicate_Release(ID3D11Predicate* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11Predicate_GetDevice(ID3D11Predicate* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11Predicate_GetPrivateData(ID3D11Predicate* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11Predicate_SetPrivateData(ID3D11Predicate* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11Predicate_SetPrivateDataInterface(ID3D11Predicate* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11Asynchronous methods ***/
+static FORCEINLINE UINT ID3D11Predicate_GetDataSize(ID3D11Predicate* This) {
+    return This->lpVtbl->GetDataSize(This);
+}
+/*** ID3D11Query methods ***/
+static FORCEINLINE void ID3D11Predicate_GetDesc(ID3D11Predicate* This,D3D11_QUERY_DESC *pDesc) {
+    This->lpVtbl->GetDesc(This,pDesc);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ID3D11Predicate_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11RasterizerState interface
+ */
+#ifndef __ID3D11RasterizerState_INTERFACE_DEFINED__
+#define __ID3D11RasterizerState_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11RasterizerState, 0x9bb4ab81, 0xab1a, 0x4d8f, 0xb5,0x06, 0xfc,0x04,0x20,0x0b,0x6e,0xe7);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("9bb4ab81-ab1a-4d8f-b506-fc04200b6ee7")
+ID3D11RasterizerState : public ID3D11DeviceChild
+{
+    virtual void STDMETHODCALLTYPE GetDesc(
+        D3D11_RASTERIZER_DESC *pDesc) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11RasterizerState, 0x9bb4ab81, 0xab1a, 0x4d8f, 0xb5,0x06, 0xfc,0x04,0x20,0x0b,0x6e,0xe7)
+#endif
+#else
+typedef struct ID3D11RasterizerStateVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11RasterizerState* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11RasterizerState* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11RasterizerState* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11RasterizerState* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11RasterizerState* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11RasterizerState* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11RasterizerState* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11RasterizerState methods ***/
+    void (STDMETHODCALLTYPE *GetDesc)(
+        ID3D11RasterizerState* This,
+        D3D11_RASTERIZER_DESC *pDesc);
+
+    END_INTERFACE
+} ID3D11RasterizerStateVtbl;
+interface ID3D11RasterizerState {
+    CONST_VTBL ID3D11RasterizerStateVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11RasterizerState_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11RasterizerState_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11RasterizerState_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11RasterizerState_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11RasterizerState_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11RasterizerState_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11RasterizerState_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11RasterizerState methods ***/
+#define ID3D11RasterizerState_GetDesc(This,pDesc) (This)->lpVtbl->GetDesc(This,pDesc)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11RasterizerState_QueryInterface(ID3D11RasterizerState* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11RasterizerState_AddRef(ID3D11RasterizerState* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11RasterizerState_Release(ID3D11RasterizerState* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11RasterizerState_GetDevice(ID3D11RasterizerState* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11RasterizerState_GetPrivateData(ID3D11RasterizerState* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11RasterizerState_SetPrivateData(ID3D11RasterizerState* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11RasterizerState_SetPrivateDataInterface(ID3D11RasterizerState* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11RasterizerState methods ***/
+static FORCEINLINE void ID3D11RasterizerState_GetDesc(ID3D11RasterizerState* This,D3D11_RASTERIZER_DESC *pDesc) {
+    This->lpVtbl->GetDesc(This,pDesc);
+}
+#endif
+#endif
+
+#endif
+
+void STDMETHODCALLTYPE ID3D11RasterizerState_GetDesc_Proxy(
+    ID3D11RasterizerState* This,
+    D3D11_RASTERIZER_DESC *pDesc);
+void __RPC_STUB ID3D11RasterizerState_GetDesc_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11RasterizerState_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11RenderTargetView interface
+ */
+#ifndef __ID3D11RenderTargetView_INTERFACE_DEFINED__
+#define __ID3D11RenderTargetView_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11RenderTargetView, 0xdfdba067, 0x0b8d, 0x4865, 0x87,0x5b, 0xd7,0xb4,0x51,0x6c,0xc1,0x64);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("dfdba067-0b8d-4865-875b-d7b4516cc164")
+ID3D11RenderTargetView : public ID3D11View
+{
+    virtual void STDMETHODCALLTYPE GetDesc(
+        D3D11_RENDER_TARGET_VIEW_DESC *pDesc) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11RenderTargetView, 0xdfdba067, 0x0b8d, 0x4865, 0x87,0x5b, 0xd7,0xb4,0x51,0x6c,0xc1,0x64)
+#endif
+#else
+typedef struct ID3D11RenderTargetViewVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11RenderTargetView* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11RenderTargetView* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11RenderTargetView* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11RenderTargetView* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11RenderTargetView* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11RenderTargetView* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11RenderTargetView* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11View methods ***/
+    void (STDMETHODCALLTYPE *GetResource)(
+        ID3D11RenderTargetView* This,
+        ID3D11Resource **ppResource);
+
+    /*** ID3D11RenderTargetView methods ***/
+    void (STDMETHODCALLTYPE *GetDesc)(
+        ID3D11RenderTargetView* This,
+        D3D11_RENDER_TARGET_VIEW_DESC *pDesc);
+
+    END_INTERFACE
+} ID3D11RenderTargetViewVtbl;
+interface ID3D11RenderTargetView {
+    CONST_VTBL ID3D11RenderTargetViewVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11RenderTargetView_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11RenderTargetView_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11RenderTargetView_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11RenderTargetView_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11RenderTargetView_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11RenderTargetView_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11RenderTargetView_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11View methods ***/
+#define ID3D11RenderTargetView_GetResource(This,ppResource) (This)->lpVtbl->GetResource(This,ppResource)
+/*** ID3D11RenderTargetView methods ***/
+#define ID3D11RenderTargetView_GetDesc(This,pDesc) (This)->lpVtbl->GetDesc(This,pDesc)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11RenderTargetView_QueryInterface(ID3D11RenderTargetView* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11RenderTargetView_AddRef(ID3D11RenderTargetView* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11RenderTargetView_Release(ID3D11RenderTargetView* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11RenderTargetView_GetDevice(ID3D11RenderTargetView* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11RenderTargetView_GetPrivateData(ID3D11RenderTargetView* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11RenderTargetView_SetPrivateData(ID3D11RenderTargetView* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11RenderTargetView_SetPrivateDataInterface(ID3D11RenderTargetView* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11View methods ***/
+static FORCEINLINE void ID3D11RenderTargetView_GetResource(ID3D11RenderTargetView* This,ID3D11Resource **ppResource) {
+    This->lpVtbl->GetResource(This,ppResource);
+}
+/*** ID3D11RenderTargetView methods ***/
+static FORCEINLINE void ID3D11RenderTargetView_GetDesc(ID3D11RenderTargetView* This,D3D11_RENDER_TARGET_VIEW_DESC *pDesc) {
+    This->lpVtbl->GetDesc(This,pDesc);
+}
+#endif
+#endif
+
+#endif
+
+void STDMETHODCALLTYPE ID3D11RenderTargetView_GetDesc_Proxy(
+    ID3D11RenderTargetView* This,
+    D3D11_RENDER_TARGET_VIEW_DESC *pDesc);
+void __RPC_STUB ID3D11RenderTargetView_GetDesc_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11RenderTargetView_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11SamplerState interface
+ */
+#ifndef __ID3D11SamplerState_INTERFACE_DEFINED__
+#define __ID3D11SamplerState_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11SamplerState, 0xda6fea51, 0x564c, 0x4487, 0x98,0x10, 0xf0,0xd0,0xf9,0xb4,0xe3,0xa5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("da6fea51-564c-4487-9810-f0d0f9b4e3a5")
+ID3D11SamplerState : public ID3D11DeviceChild
+{
+    virtual void STDMETHODCALLTYPE GetDesc(
+        D3D11_SAMPLER_DESC *pDesc) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11SamplerState, 0xda6fea51, 0x564c, 0x4487, 0x98,0x10, 0xf0,0xd0,0xf9,0xb4,0xe3,0xa5)
+#endif
+#else
+typedef struct ID3D11SamplerStateVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11SamplerState* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11SamplerState* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11SamplerState* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11SamplerState* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11SamplerState* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11SamplerState* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11SamplerState* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11SamplerState methods ***/
+    void (STDMETHODCALLTYPE *GetDesc)(
+        ID3D11SamplerState* This,
+        D3D11_SAMPLER_DESC *pDesc);
+
+    END_INTERFACE
+} ID3D11SamplerStateVtbl;
+interface ID3D11SamplerState {
+    CONST_VTBL ID3D11SamplerStateVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11SamplerState_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11SamplerState_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11SamplerState_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11SamplerState_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11SamplerState_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11SamplerState_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11SamplerState_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11SamplerState methods ***/
+#define ID3D11SamplerState_GetDesc(This,pDesc) (This)->lpVtbl->GetDesc(This,pDesc)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11SamplerState_QueryInterface(ID3D11SamplerState* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11SamplerState_AddRef(ID3D11SamplerState* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11SamplerState_Release(ID3D11SamplerState* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11SamplerState_GetDevice(ID3D11SamplerState* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11SamplerState_GetPrivateData(ID3D11SamplerState* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11SamplerState_SetPrivateData(ID3D11SamplerState* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11SamplerState_SetPrivateDataInterface(ID3D11SamplerState* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11SamplerState methods ***/
+static FORCEINLINE void ID3D11SamplerState_GetDesc(ID3D11SamplerState* This,D3D11_SAMPLER_DESC *pDesc) {
+    This->lpVtbl->GetDesc(This,pDesc);
+}
+#endif
+#endif
+
+#endif
+
+void STDMETHODCALLTYPE ID3D11SamplerState_GetDesc_Proxy(
+    ID3D11SamplerState* This,
+    D3D11_SAMPLER_DESC *pDesc);
+void __RPC_STUB ID3D11SamplerState_GetDesc_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11SamplerState_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11ShaderResourceView interface
+ */
+#ifndef __ID3D11ShaderResourceView_INTERFACE_DEFINED__
+#define __ID3D11ShaderResourceView_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11ShaderResourceView, 0xb0e06fe0, 0x8192, 0x4e1a, 0xb1,0xca, 0x36,0xd7,0x41,0x47,0x10,0xb2);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("b0e06fe0-8192-4e1a-b1ca-36d7414710b2")
+ID3D11ShaderResourceView : public ID3D11View
+{
+    virtual void STDMETHODCALLTYPE GetDesc(
+        D3D11_SHADER_RESOURCE_VIEW_DESC *pDesc) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11ShaderResourceView, 0xb0e06fe0, 0x8192, 0x4e1a, 0xb1,0xca, 0x36,0xd7,0x41,0x47,0x10,0xb2)
+#endif
+#else
+typedef struct ID3D11ShaderResourceViewVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11ShaderResourceView* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11ShaderResourceView* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11ShaderResourceView* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11ShaderResourceView* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11ShaderResourceView* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11ShaderResourceView* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11ShaderResourceView* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11View methods ***/
+    void (STDMETHODCALLTYPE *GetResource)(
+        ID3D11ShaderResourceView* This,
+        ID3D11Resource **ppResource);
+
+    /*** ID3D11ShaderResourceView methods ***/
+    void (STDMETHODCALLTYPE *GetDesc)(
+        ID3D11ShaderResourceView* This,
+        D3D11_SHADER_RESOURCE_VIEW_DESC *pDesc);
+
+    END_INTERFACE
+} ID3D11ShaderResourceViewVtbl;
+interface ID3D11ShaderResourceView {
+    CONST_VTBL ID3D11ShaderResourceViewVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11ShaderResourceView_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11ShaderResourceView_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11ShaderResourceView_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11ShaderResourceView_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11ShaderResourceView_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11ShaderResourceView_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11ShaderResourceView_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11View methods ***/
+#define ID3D11ShaderResourceView_GetResource(This,ppResource) (This)->lpVtbl->GetResource(This,ppResource)
+/*** ID3D11ShaderResourceView methods ***/
+#define ID3D11ShaderResourceView_GetDesc(This,pDesc) (This)->lpVtbl->GetDesc(This,pDesc)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11ShaderResourceView_QueryInterface(ID3D11ShaderResourceView* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11ShaderResourceView_AddRef(ID3D11ShaderResourceView* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11ShaderResourceView_Release(ID3D11ShaderResourceView* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11ShaderResourceView_GetDevice(ID3D11ShaderResourceView* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11ShaderResourceView_GetPrivateData(ID3D11ShaderResourceView* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11ShaderResourceView_SetPrivateData(ID3D11ShaderResourceView* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11ShaderResourceView_SetPrivateDataInterface(ID3D11ShaderResourceView* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11View methods ***/
+static FORCEINLINE void ID3D11ShaderResourceView_GetResource(ID3D11ShaderResourceView* This,ID3D11Resource **ppResource) {
+    This->lpVtbl->GetResource(This,ppResource);
+}
+/*** ID3D11ShaderResourceView methods ***/
+static FORCEINLINE void ID3D11ShaderResourceView_GetDesc(ID3D11ShaderResourceView* This,D3D11_SHADER_RESOURCE_VIEW_DESC *pDesc) {
+    This->lpVtbl->GetDesc(This,pDesc);
+}
+#endif
+#endif
+
+#endif
+
+void STDMETHODCALLTYPE ID3D11ShaderResourceView_GetDesc_Proxy(
+    ID3D11ShaderResourceView* This,
+    D3D11_SHADER_RESOURCE_VIEW_DESC *pDesc);
+void __RPC_STUB ID3D11ShaderResourceView_GetDesc_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11ShaderResourceView_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11Texture1D interface
+ */
+#ifndef __ID3D11Texture1D_INTERFACE_DEFINED__
+#define __ID3D11Texture1D_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11Texture1D, 0xf8fb5c27, 0xc6b3, 0x4f75, 0xa4,0xc8, 0x43,0x9a,0xf2,0xef,0x56,0x4c);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("f8fb5c27-c6b3-4f75-a4c8-439af2ef564c")
+ID3D11Texture1D : public ID3D11Resource
+{
+    virtual void STDMETHODCALLTYPE GetDesc(
+        D3D11_TEXTURE1D_DESC *pDesc) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11Texture1D, 0xf8fb5c27, 0xc6b3, 0x4f75, 0xa4,0xc8, 0x43,0x9a,0xf2,0xef,0x56,0x4c)
+#endif
+#else
+typedef struct ID3D11Texture1DVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11Texture1D* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11Texture1D* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11Texture1D* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11Texture1D* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11Texture1D* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11Texture1D* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11Texture1D* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11Resource methods ***/
+    void (STDMETHODCALLTYPE *GetType)(
+        ID3D11Texture1D* This,
+        D3D11_RESOURCE_DIMENSION *pResourceDimension);
+
+    void (STDMETHODCALLTYPE *SetEvictionPriority)(
+        ID3D11Texture1D* This,
+        UINT EvictionPriority);
+
+    UINT (STDMETHODCALLTYPE *GetEvictionPriority)(
+        ID3D11Texture1D* This);
+
+    /*** ID3D11Texture1D methods ***/
+    void (STDMETHODCALLTYPE *GetDesc)(
+        ID3D11Texture1D* This,
+        D3D11_TEXTURE1D_DESC *pDesc);
+
+    END_INTERFACE
+} ID3D11Texture1DVtbl;
+interface ID3D11Texture1D {
+    CONST_VTBL ID3D11Texture1DVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11Texture1D_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11Texture1D_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11Texture1D_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11Texture1D_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11Texture1D_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11Texture1D_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11Texture1D_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11Resource methods ***/
+#define ID3D11Texture1D_GetType(This,pResourceDimension) (This)->lpVtbl->GetType(This,pResourceDimension)
+#define ID3D11Texture1D_SetEvictionPriority(This,EvictionPriority) (This)->lpVtbl->SetEvictionPriority(This,EvictionPriority)
+#define ID3D11Texture1D_GetEvictionPriority(This) (This)->lpVtbl->GetEvictionPriority(This)
+/*** ID3D11Texture1D methods ***/
+#define ID3D11Texture1D_GetDesc(This,pDesc) (This)->lpVtbl->GetDesc(This,pDesc)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11Texture1D_QueryInterface(ID3D11Texture1D* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11Texture1D_AddRef(ID3D11Texture1D* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11Texture1D_Release(ID3D11Texture1D* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11Texture1D_GetDevice(ID3D11Texture1D* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11Texture1D_GetPrivateData(ID3D11Texture1D* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11Texture1D_SetPrivateData(ID3D11Texture1D* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11Texture1D_SetPrivateDataInterface(ID3D11Texture1D* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11Resource methods ***/
+static FORCEINLINE void ID3D11Texture1D_GetType(ID3D11Texture1D* This,D3D11_RESOURCE_DIMENSION *pResourceDimension) {
+    This->lpVtbl->GetType(This,pResourceDimension);
+}
+static FORCEINLINE void ID3D11Texture1D_SetEvictionPriority(ID3D11Texture1D* This,UINT EvictionPriority) {
+    This->lpVtbl->SetEvictionPriority(This,EvictionPriority);
+}
+static FORCEINLINE UINT ID3D11Texture1D_GetEvictionPriority(ID3D11Texture1D* This) {
+    return This->lpVtbl->GetEvictionPriority(This);
+}
+/*** ID3D11Texture1D methods ***/
+static FORCEINLINE void ID3D11Texture1D_GetDesc(ID3D11Texture1D* This,D3D11_TEXTURE1D_DESC *pDesc) {
+    This->lpVtbl->GetDesc(This,pDesc);
+}
+#endif
+#endif
+
+#endif
+
+void STDMETHODCALLTYPE ID3D11Texture1D_GetDesc_Proxy(
+    ID3D11Texture1D* This,
+    D3D11_TEXTURE1D_DESC *pDesc);
+void __RPC_STUB ID3D11Texture1D_GetDesc_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11Texture1D_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11Texture2D interface
+ */
+#ifndef __ID3D11Texture2D_INTERFACE_DEFINED__
+#define __ID3D11Texture2D_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11Texture2D, 0x6f15aaf2, 0xd208, 0x4e89, 0x9a,0xb4, 0x48,0x95,0x35,0xd3,0x4f,0x9c);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("6f15aaf2-d208-4e89-9ab4-489535d34f9c")
+ID3D11Texture2D : public ID3D11Resource
+{
+    virtual void STDMETHODCALLTYPE GetDesc(
+        D3D11_TEXTURE2D_DESC *pDesc) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11Texture2D, 0x6f15aaf2, 0xd208, 0x4e89, 0x9a,0xb4, 0x48,0x95,0x35,0xd3,0x4f,0x9c)
+#endif
+#else
+typedef struct ID3D11Texture2DVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11Texture2D* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11Texture2D* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11Texture2D* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11Texture2D* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11Texture2D* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11Texture2D* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11Texture2D* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11Resource methods ***/
+    void (STDMETHODCALLTYPE *GetType)(
+        ID3D11Texture2D* This,
+        D3D11_RESOURCE_DIMENSION *pResourceDimension);
+
+    void (STDMETHODCALLTYPE *SetEvictionPriority)(
+        ID3D11Texture2D* This,
+        UINT EvictionPriority);
+
+    UINT (STDMETHODCALLTYPE *GetEvictionPriority)(
+        ID3D11Texture2D* This);
+
+    /*** ID3D11Texture2D methods ***/
+    void (STDMETHODCALLTYPE *GetDesc)(
+        ID3D11Texture2D* This,
+        D3D11_TEXTURE2D_DESC *pDesc);
+
+    END_INTERFACE
+} ID3D11Texture2DVtbl;
+interface ID3D11Texture2D {
+    CONST_VTBL ID3D11Texture2DVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11Texture2D_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11Texture2D_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11Texture2D_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11Texture2D_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11Texture2D_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11Texture2D_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11Texture2D_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11Resource methods ***/
+#define ID3D11Texture2D_GetType(This,pResourceDimension) (This)->lpVtbl->GetType(This,pResourceDimension)
+#define ID3D11Texture2D_SetEvictionPriority(This,EvictionPriority) (This)->lpVtbl->SetEvictionPriority(This,EvictionPriority)
+#define ID3D11Texture2D_GetEvictionPriority(This) (This)->lpVtbl->GetEvictionPriority(This)
+/*** ID3D11Texture2D methods ***/
+#define ID3D11Texture2D_GetDesc(This,pDesc) (This)->lpVtbl->GetDesc(This,pDesc)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11Texture2D_QueryInterface(ID3D11Texture2D* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11Texture2D_AddRef(ID3D11Texture2D* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11Texture2D_Release(ID3D11Texture2D* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11Texture2D_GetDevice(ID3D11Texture2D* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11Texture2D_GetPrivateData(ID3D11Texture2D* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11Texture2D_SetPrivateData(ID3D11Texture2D* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11Texture2D_SetPrivateDataInterface(ID3D11Texture2D* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11Resource methods ***/
+static FORCEINLINE void ID3D11Texture2D_GetType(ID3D11Texture2D* This,D3D11_RESOURCE_DIMENSION *pResourceDimension) {
+    This->lpVtbl->GetType(This,pResourceDimension);
+}
+static FORCEINLINE void ID3D11Texture2D_SetEvictionPriority(ID3D11Texture2D* This,UINT EvictionPriority) {
+    This->lpVtbl->SetEvictionPriority(This,EvictionPriority);
+}
+static FORCEINLINE UINT ID3D11Texture2D_GetEvictionPriority(ID3D11Texture2D* This) {
+    return This->lpVtbl->GetEvictionPriority(This);
+}
+/*** ID3D11Texture2D methods ***/
+static FORCEINLINE void ID3D11Texture2D_GetDesc(ID3D11Texture2D* This,D3D11_TEXTURE2D_DESC *pDesc) {
+    This->lpVtbl->GetDesc(This,pDesc);
+}
+#endif
+#endif
+
+#endif
+
+void STDMETHODCALLTYPE ID3D11Texture2D_GetDesc_Proxy(
+    ID3D11Texture2D* This,
+    D3D11_TEXTURE2D_DESC *pDesc);
+void __RPC_STUB ID3D11Texture2D_GetDesc_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11Texture2D_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11Texture3D interface
+ */
+#ifndef __ID3D11Texture3D_INTERFACE_DEFINED__
+#define __ID3D11Texture3D_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11Texture3D, 0x037e866e, 0xf56d, 0x4357, 0xa8,0xaf, 0x9d,0xab,0xbe,0x6e,0x25,0x0e);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("037e866e-f56d-4357-a8af-9dabbe6e250e")
+ID3D11Texture3D : public ID3D11Resource
+{
+    virtual void STDMETHODCALLTYPE GetDesc(
+        D3D11_TEXTURE3D_DESC *pDesc) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11Texture3D, 0x037e866e, 0xf56d, 0x4357, 0xa8,0xaf, 0x9d,0xab,0xbe,0x6e,0x25,0x0e)
+#endif
+#else
+typedef struct ID3D11Texture3DVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11Texture3D* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11Texture3D* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11Texture3D* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11Texture3D* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11Texture3D* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11Texture3D* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11Texture3D* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11Resource methods ***/
+    void (STDMETHODCALLTYPE *GetType)(
+        ID3D11Texture3D* This,
+        D3D11_RESOURCE_DIMENSION *pResourceDimension);
+
+    void (STDMETHODCALLTYPE *SetEvictionPriority)(
+        ID3D11Texture3D* This,
+        UINT EvictionPriority);
+
+    UINT (STDMETHODCALLTYPE *GetEvictionPriority)(
+        ID3D11Texture3D* This);
+
+    /*** ID3D11Texture3D methods ***/
+    void (STDMETHODCALLTYPE *GetDesc)(
+        ID3D11Texture3D* This,
+        D3D11_TEXTURE3D_DESC *pDesc);
+
+    END_INTERFACE
+} ID3D11Texture3DVtbl;
+interface ID3D11Texture3D {
+    CONST_VTBL ID3D11Texture3DVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11Texture3D_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11Texture3D_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11Texture3D_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11Texture3D_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11Texture3D_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11Texture3D_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11Texture3D_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11Resource methods ***/
+#define ID3D11Texture3D_GetType(This,pResourceDimension) (This)->lpVtbl->GetType(This,pResourceDimension)
+#define ID3D11Texture3D_SetEvictionPriority(This,EvictionPriority) (This)->lpVtbl->SetEvictionPriority(This,EvictionPriority)
+#define ID3D11Texture3D_GetEvictionPriority(This) (This)->lpVtbl->GetEvictionPriority(This)
+/*** ID3D11Texture3D methods ***/
+#define ID3D11Texture3D_GetDesc(This,pDesc) (This)->lpVtbl->GetDesc(This,pDesc)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11Texture3D_QueryInterface(ID3D11Texture3D* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11Texture3D_AddRef(ID3D11Texture3D* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11Texture3D_Release(ID3D11Texture3D* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11Texture3D_GetDevice(ID3D11Texture3D* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11Texture3D_GetPrivateData(ID3D11Texture3D* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11Texture3D_SetPrivateData(ID3D11Texture3D* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11Texture3D_SetPrivateDataInterface(ID3D11Texture3D* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11Resource methods ***/
+static FORCEINLINE void ID3D11Texture3D_GetType(ID3D11Texture3D* This,D3D11_RESOURCE_DIMENSION *pResourceDimension) {
+    This->lpVtbl->GetType(This,pResourceDimension);
+}
+static FORCEINLINE void ID3D11Texture3D_SetEvictionPriority(ID3D11Texture3D* This,UINT EvictionPriority) {
+    This->lpVtbl->SetEvictionPriority(This,EvictionPriority);
+}
+static FORCEINLINE UINT ID3D11Texture3D_GetEvictionPriority(ID3D11Texture3D* This) {
+    return This->lpVtbl->GetEvictionPriority(This);
+}
+/*** ID3D11Texture3D methods ***/
+static FORCEINLINE void ID3D11Texture3D_GetDesc(ID3D11Texture3D* This,D3D11_TEXTURE3D_DESC *pDesc) {
+    This->lpVtbl->GetDesc(This,pDesc);
+}
+#endif
+#endif
+
+#endif
+
+void STDMETHODCALLTYPE ID3D11Texture3D_GetDesc_Proxy(
+    ID3D11Texture3D* This,
+    D3D11_TEXTURE3D_DESC *pDesc);
+void __RPC_STUB ID3D11Texture3D_GetDesc_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11Texture3D_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11UnorderedAccessView interface
+ */
+#ifndef __ID3D11UnorderedAccessView_INTERFACE_DEFINED__
+#define __ID3D11UnorderedAccessView_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11UnorderedAccessView, 0x28acf509, 0x7f5c, 0x48f6, 0x86,0x11, 0xf3,0x16,0x01,0x0a,0x63,0x80);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("28acf509-7f5c-48f6-8611-f316010a6380")
+ID3D11UnorderedAccessView : public ID3D11View
+{
+    virtual void STDMETHODCALLTYPE GetDesc(
+        D3D11_UNORDERED_ACCESS_VIEW_DESC *pDesc) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11UnorderedAccessView, 0x28acf509, 0x7f5c, 0x48f6, 0x86,0x11, 0xf3,0x16,0x01,0x0a,0x63,0x80)
+#endif
+#else
+typedef struct ID3D11UnorderedAccessViewVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11UnorderedAccessView* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11UnorderedAccessView* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11UnorderedAccessView* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11UnorderedAccessView* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11UnorderedAccessView* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11UnorderedAccessView* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11UnorderedAccessView* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11View methods ***/
+    void (STDMETHODCALLTYPE *GetResource)(
+        ID3D11UnorderedAccessView* This,
+        ID3D11Resource **ppResource);
+
+    /*** ID3D11UnorderedAccessView methods ***/
+    void (STDMETHODCALLTYPE *GetDesc)(
+        ID3D11UnorderedAccessView* This,
+        D3D11_UNORDERED_ACCESS_VIEW_DESC *pDesc);
+
+    END_INTERFACE
+} ID3D11UnorderedAccessViewVtbl;
+interface ID3D11UnorderedAccessView {
+    CONST_VTBL ID3D11UnorderedAccessViewVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11UnorderedAccessView_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11UnorderedAccessView_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11UnorderedAccessView_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11UnorderedAccessView_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11UnorderedAccessView_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11UnorderedAccessView_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11UnorderedAccessView_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11View methods ***/
+#define ID3D11UnorderedAccessView_GetResource(This,ppResource) (This)->lpVtbl->GetResource(This,ppResource)
+/*** ID3D11UnorderedAccessView methods ***/
+#define ID3D11UnorderedAccessView_GetDesc(This,pDesc) (This)->lpVtbl->GetDesc(This,pDesc)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11UnorderedAccessView_QueryInterface(ID3D11UnorderedAccessView* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11UnorderedAccessView_AddRef(ID3D11UnorderedAccessView* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11UnorderedAccessView_Release(ID3D11UnorderedAccessView* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11UnorderedAccessView_GetDevice(ID3D11UnorderedAccessView* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11UnorderedAccessView_GetPrivateData(ID3D11UnorderedAccessView* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11UnorderedAccessView_SetPrivateData(ID3D11UnorderedAccessView* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11UnorderedAccessView_SetPrivateDataInterface(ID3D11UnorderedAccessView* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11View methods ***/
+static FORCEINLINE void ID3D11UnorderedAccessView_GetResource(ID3D11UnorderedAccessView* This,ID3D11Resource **ppResource) {
+    This->lpVtbl->GetResource(This,ppResource);
+}
+/*** ID3D11UnorderedAccessView methods ***/
+static FORCEINLINE void ID3D11UnorderedAccessView_GetDesc(ID3D11UnorderedAccessView* This,D3D11_UNORDERED_ACCESS_VIEW_DESC *pDesc) {
+    This->lpVtbl->GetDesc(This,pDesc);
+}
+#endif
+#endif
+
+#endif
+
+void STDMETHODCALLTYPE ID3D11UnorderedAccessView_GetDesc_Proxy(
+    ID3D11UnorderedAccessView* This,
+    D3D11_UNORDERED_ACCESS_VIEW_DESC *pDesc);
+void __RPC_STUB ID3D11UnorderedAccessView_GetDesc_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11UnorderedAccessView_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11VertexShader interface
+ */
+#ifndef __ID3D11VertexShader_INTERFACE_DEFINED__
+#define __ID3D11VertexShader_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11VertexShader, 0x3b301d64, 0xd678, 0x4289, 0x88,0x97, 0x22,0xf8,0x92,0x8b,0x72,0xf3);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("3b301d64-d678-4289-8897-22f8928b72f3")
+ID3D11VertexShader : public ID3D11DeviceChild
+{
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11VertexShader, 0x3b301d64, 0xd678, 0x4289, 0x88,0x97, 0x22,0xf8,0x92,0x8b,0x72,0xf3)
+#endif
+#else
+typedef struct ID3D11VertexShaderVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11VertexShader* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11VertexShader* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11VertexShader* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11VertexShader* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11VertexShader* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11VertexShader* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11VertexShader* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    END_INTERFACE
+} ID3D11VertexShaderVtbl;
+interface ID3D11VertexShader {
+    CONST_VTBL ID3D11VertexShaderVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11VertexShader_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11VertexShader_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11VertexShader_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11VertexShader_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11VertexShader_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11VertexShader_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11VertexShader_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11VertexShader_QueryInterface(ID3D11VertexShader* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11VertexShader_AddRef(ID3D11VertexShader* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11VertexShader_Release(ID3D11VertexShader* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11VertexShader_GetDevice(ID3D11VertexShader* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11VertexShader_GetPrivateData(ID3D11VertexShader* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11VertexShader_SetPrivateData(ID3D11VertexShader* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11VertexShader_SetPrivateDataInterface(ID3D11VertexShader* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ID3D11VertexShader_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11DeviceContext interface
+ */
+#ifndef __ID3D11DeviceContext_INTERFACE_DEFINED__
+#define __ID3D11DeviceContext_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11DeviceContext, 0xc0bfa96c, 0xe089, 0x44fb, 0x8e,0xaf, 0x26,0xf8,0x79,0x61,0x90,0xda);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("c0bfa96c-e089-44fb-8eaf-26f8796190da")
+ID3D11DeviceContext : public ID3D11DeviceChild
+{
+    virtual void STDMETHODCALLTYPE VSSetConstantBuffers(
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer *const *ppConstantBuffers) = 0;
+
+    virtual void STDMETHODCALLTYPE PSSetShaderResources(
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView *const *ppShaderResourceViews) = 0;
+
+    virtual void STDMETHODCALLTYPE PSSetShader(
+        ID3D11PixelShader *pPixelShader,
+        ID3D11ClassInstance *const *ppClassInstances,
+        UINT NumClassInstances) = 0;
+
+    virtual void STDMETHODCALLTYPE PSSetSamplers(
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState *const *ppSamplers) = 0;
+
+    virtual void STDMETHODCALLTYPE VSSetShader(
+        ID3D11VertexShader *pVertexShader,
+        ID3D11ClassInstance *const *ppClassInstances,
+        UINT NumClassInstances) = 0;
+
+    virtual void STDMETHODCALLTYPE DrawIndexed(
+        UINT IndexCount,
+        UINT StartIndexLocation,
+        INT BaseVertexLocation) = 0;
+
+    virtual void STDMETHODCALLTYPE Draw(
+        UINT VertexCount,
+        UINT StartVertexLocation) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Map(
+        ID3D11Resource *pResource,
+        UINT Subresource,
+        D3D11_MAP MapType,
+        UINT MapFlags,
+        D3D11_MAPPED_SUBRESOURCE *pMappedResource) = 0;
+
+    virtual void STDMETHODCALLTYPE Unmap(
+        ID3D11Resource *pResource,
+        UINT Subresource) = 0;
+
+    virtual void STDMETHODCALLTYPE PSSetConstantBuffers(
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer *const *ppConstantBuffers) = 0;
+
+    virtual void STDMETHODCALLTYPE IASetInputLayout(
+        ID3D11InputLayout *pInputLayout) = 0;
+
+    virtual void STDMETHODCALLTYPE IASetVertexBuffers(
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer *const *ppVertexBuffers,
+        const UINT *pStrides,
+        const UINT *pOffsets) = 0;
+
+    virtual void STDMETHODCALLTYPE IASetIndexBuffer(
+        ID3D11Buffer *pIndexBuffer,
+        DXGI_FORMAT Format,
+        UINT Offset) = 0;
+
+    virtual void STDMETHODCALLTYPE DrawIndexedInstanced(
+        UINT IndexCountPerInstance,
+        UINT InstanceCount,
+        UINT StartIndexLocation,
+        INT BaseVertexLocation,
+        UINT StartInstanceLocation) = 0;
+
+    virtual void STDMETHODCALLTYPE DrawInstanced(
+        UINT VertexCountPerInstance,
+        UINT InstanceCount,
+        UINT StartVertexLocation,
+        UINT StartInstanceLocation) = 0;
+
+    virtual void STDMETHODCALLTYPE GSSetConstantBuffers(
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer *const *ppConstantBuffers) = 0;
+
+    virtual void STDMETHODCALLTYPE GSSetShader(
+        ID3D11GeometryShader *pShader,
+        ID3D11ClassInstance *const *ppClassInstances,
+        UINT NumClassInstances) = 0;
+
+    virtual void STDMETHODCALLTYPE IASetPrimitiveTopology(
+        D3D11_PRIMITIVE_TOPOLOGY Topology) = 0;
+
+    virtual void STDMETHODCALLTYPE VSSetShaderResources(
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView *const *ppShaderResourceViews) = 0;
+
+    virtual void STDMETHODCALLTYPE VSSetSamplers(
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState *const *ppSamplers) = 0;
+
+    virtual void STDMETHODCALLTYPE Begin(
+        ID3D11Asynchronous *pAsync) = 0;
+
+    virtual void STDMETHODCALLTYPE End(
+        ID3D11Asynchronous *pAsync) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetData(
+        ID3D11Asynchronous *pAsync,
+        void *pData,
+        UINT DataSize,
+        UINT GetDataFlags) = 0;
+
+    virtual void STDMETHODCALLTYPE SetPredication(
+        ID3D11Predicate *pPredicate,
+        WINBOOL PredicateValue) = 0;
+
+    virtual void STDMETHODCALLTYPE GSSetShaderResources(
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView *const *ppShaderResourceViews) = 0;
+
+    virtual void STDMETHODCALLTYPE GSSetSamplers(
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState *const *ppSamplers) = 0;
+
+    virtual void STDMETHODCALLTYPE OMSetRenderTargets(
+        UINT NumViews,
+        ID3D11RenderTargetView *const *ppRenderTargetViews,
+        ID3D11DepthStencilView *pDepthStencilView) = 0;
+
+    virtual void STDMETHODCALLTYPE OMSetRenderTargetsAndUnorderedAccessViews(
+        UINT NumRTVs,
+        ID3D11RenderTargetView *const *ppRenderTargetViews,
+        ID3D11DepthStencilView *pDepthStencilView,
+        UINT UAVStartSlot,
+        UINT NumUAVs,
+        ID3D11UnorderedAccessView *const *ppUnorderedAccessViews,
+        const UINT *pUAVInitialCounts) = 0;
+
+    virtual void STDMETHODCALLTYPE OMSetBlendState(
+        ID3D11BlendState *pBlendState,
+        const FLOAT BlendFactor[4],
+        UINT SampleMask) = 0;
+
+    virtual void STDMETHODCALLTYPE OMSetDepthStencilState(
+        ID3D11DepthStencilState *pDepthStencilState,
+        UINT StencilRef) = 0;
+
+    virtual void STDMETHODCALLTYPE SOSetTargets(
+        UINT NumBuffers,
+        ID3D11Buffer *const *ppSOTargets,
+        const UINT *pOffsets) = 0;
+
+    virtual void STDMETHODCALLTYPE DrawAuto(
+        ) = 0;
+
+    virtual void STDMETHODCALLTYPE DrawIndexedInstancedIndirect(
+        ID3D11Buffer *pBufferForArgs,
+        UINT AlignedByteOffsetForArgs) = 0;
+
+    virtual void STDMETHODCALLTYPE DrawInstancedIndirect(
+        ID3D11Buffer *pBufferForArgs,
+        UINT AlignedByteOffsetForArgs) = 0;
+
+    virtual void STDMETHODCALLTYPE Dispatch(
+        UINT ThreadGroupCountX,
+        UINT ThreadGroupCountY,
+        UINT ThreadGroupCountZ) = 0;
+
+    virtual void STDMETHODCALLTYPE DispatchIndirect(
+        ID3D11Buffer *pBufferForArgs,
+        UINT AlignedByteOffsetForArgs) = 0;
+
+    virtual void STDMETHODCALLTYPE RSSetState(
+        ID3D11RasterizerState *pRasterizerState) = 0;
+
+    virtual void STDMETHODCALLTYPE RSSetViewports(
+        UINT NumViewports,
+        const D3D11_VIEWPORT *pViewports) = 0;
+
+    virtual void STDMETHODCALLTYPE RSSetScissorRects(
+        UINT NumRects,
+        const D3D11_RECT *pRects) = 0;
+
+    virtual void STDMETHODCALLTYPE CopySubresourceRegion(
+        ID3D11Resource *pDstResource,
+        UINT DstSubresource,
+        UINT DstX,
+        UINT DstY,
+        UINT DstZ,
+        ID3D11Resource *pSrcResource,
+        UINT SrcSubresource,
+        const D3D11_BOX *pSrcBox) = 0;
+
+    virtual void STDMETHODCALLTYPE CopyResource(
+        ID3D11Resource *pDstResource,
+        ID3D11Resource *pSrcResource) = 0;
+
+    virtual void STDMETHODCALLTYPE UpdateSubresource(
+        ID3D11Resource *pDstResource,
+        UINT DstSubresource,
+        const D3D11_BOX *pDstBox,
+        const void *pSrcData,
+        UINT SrcRowPitch,
+        UINT SrcDepthPitch) = 0;
+
+    virtual void STDMETHODCALLTYPE CopyStructureCount(
+        ID3D11Buffer *pDstBuffer,
+        UINT DstAlignedByteOffset,
+        ID3D11UnorderedAccessView *pSrcView) = 0;
+
+    virtual void STDMETHODCALLTYPE ClearRenderTargetView(
+        ID3D11RenderTargetView *pRenderTargetView,
+        const FLOAT ColorRGBA[4]) = 0;
+
+    virtual void STDMETHODCALLTYPE ClearUnorderedAccessViewUint(
+        ID3D11UnorderedAccessView *pUnorderedAccessView,
+        const UINT Values[4]) = 0;
+
+    virtual void STDMETHODCALLTYPE ClearUnorderedAccessViewFloat(
+        ID3D11UnorderedAccessView *pUnorderedAccessView,
+        const FLOAT Values[4]) = 0;
+
+    virtual void STDMETHODCALLTYPE ClearDepthStencilView(
+        ID3D11DepthStencilView *pDepthStencilView,
+        UINT ClearFlags,
+        FLOAT Depth,
+        UINT8 Stencil) = 0;
+
+    virtual void STDMETHODCALLTYPE GenerateMips(
+        ID3D11ShaderResourceView *pShaderResourceView) = 0;
+
+    virtual void STDMETHODCALLTYPE SetResourceMinLOD(
+        ID3D11Resource *pResource,
+        FLOAT MinLOD) = 0;
+
+    virtual FLOAT STDMETHODCALLTYPE GetResourceMinLOD(
+        ID3D11Resource *pResource) = 0;
+
+    virtual void STDMETHODCALLTYPE ResolveSubresource(
+        ID3D11Resource *pDstResource,
+        UINT DstSubresource,
+        ID3D11Resource *pSrcResource,
+        UINT SrcSubresource,
+        DXGI_FORMAT Format) = 0;
+
+    virtual void STDMETHODCALLTYPE ExecuteCommandList(
+        ID3D11CommandList *pCommandList,
+        WINBOOL RestoreContextState) = 0;
+
+    virtual void STDMETHODCALLTYPE HSSetShaderResources(
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView *const *ppShaderResourceViews) = 0;
+
+    virtual void STDMETHODCALLTYPE HSSetShader(
+        ID3D11HullShader *pHullShader,
+        ID3D11ClassInstance *const *ppClassInstances,
+        UINT NumClassInstances) = 0;
+
+    virtual void STDMETHODCALLTYPE HSSetSamplers(
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState *const *ppSamplers) = 0;
+
+    virtual void STDMETHODCALLTYPE HSSetConstantBuffers(
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer *const *ppConstantBuffers) = 0;
+
+    virtual void STDMETHODCALLTYPE DSSetShaderResources(
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView *const *ppShaderResourceViews) = 0;
+
+    virtual void STDMETHODCALLTYPE DSSetShader(
+        ID3D11DomainShader *pDomainShader,
+        ID3D11ClassInstance *const *ppClassInstances,
+        UINT NumClassInstances) = 0;
+
+    virtual void STDMETHODCALLTYPE DSSetSamplers(
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState *const *ppSamplers) = 0;
+
+    virtual void STDMETHODCALLTYPE DSSetConstantBuffers(
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer *const *ppConstantBuffers) = 0;
+
+    virtual void STDMETHODCALLTYPE CSSetShaderResources(
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView *const *ppShaderResourceViews) = 0;
+
+    virtual void STDMETHODCALLTYPE CSSetUnorderedAccessViews(
+        UINT StartSlot,
+        UINT NumUAVs,
+        ID3D11UnorderedAccessView *const *ppUnorderedAccessViews,
+        const UINT *pUAVInitialCounts) = 0;
+
+    virtual void STDMETHODCALLTYPE CSSetShader(
+        ID3D11ComputeShader *pComputeShader,
+        ID3D11ClassInstance *const *ppClassInstances,
+        UINT NumClassInstances) = 0;
+
+    virtual void STDMETHODCALLTYPE CSSetSamplers(
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState *const *ppSamplers) = 0;
+
+    virtual void STDMETHODCALLTYPE CSSetConstantBuffers(
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer *const *ppConstantBuffers) = 0;
+
+    virtual void STDMETHODCALLTYPE VSGetConstantBuffers(
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer **ppConstantBuffers) = 0;
+
+    virtual void STDMETHODCALLTYPE PSGetShaderResources(
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView **ppShaderResourceViews) = 0;
+
+    virtual void STDMETHODCALLTYPE PSGetShader(
+        ID3D11PixelShader **ppPixelShader,
+        ID3D11ClassInstance **ppClassInstances,
+        UINT *pNumClassInstances) = 0;
+
+    virtual void STDMETHODCALLTYPE PSGetSamplers(
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState **ppSamplers) = 0;
+
+    virtual void STDMETHODCALLTYPE VSGetShader(
+        ID3D11VertexShader **ppVertexShader,
+        ID3D11ClassInstance **ppClassInstances,
+        UINT *pNumClassInstances) = 0;
+
+    virtual void STDMETHODCALLTYPE PSGetConstantBuffers(
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer **ppConstantBuffers) = 0;
+
+    virtual void STDMETHODCALLTYPE IAGetInputLayout(
+        ID3D11InputLayout **ppInputLayout) = 0;
+
+    virtual void STDMETHODCALLTYPE IAGetVertexBuffers(
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer **ppVertexBuffers,
+        UINT *pStrides,
+        UINT *pOffsets) = 0;
+
+    virtual void STDMETHODCALLTYPE IAGetIndexBuffer(
+        ID3D11Buffer **pIndexBuffer,
+        DXGI_FORMAT *Format,
+        UINT *Offset) = 0;
+
+    virtual void STDMETHODCALLTYPE GSGetConstantBuffers(
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer **ppConstantBuffers) = 0;
+
+    virtual void STDMETHODCALLTYPE GSGetShader(
+        ID3D11GeometryShader **ppGeometryShader,
+        ID3D11ClassInstance **ppClassInstances,
+        UINT *pNumClassInstances) = 0;
+
+    virtual void STDMETHODCALLTYPE IAGetPrimitiveTopology(
+        D3D11_PRIMITIVE_TOPOLOGY *pTopology) = 0;
+
+    virtual void STDMETHODCALLTYPE VSGetShaderResources(
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView **ppShaderResourceViews) = 0;
+
+    virtual void STDMETHODCALLTYPE VSGetSamplers(
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState **ppSamplers) = 0;
+
+    virtual void STDMETHODCALLTYPE GetPredication(
+        ID3D11Predicate **ppPredicate,
+        WINBOOL *pPredicateValue) = 0;
+
+    virtual void STDMETHODCALLTYPE GSGetShaderResources(
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView **ppShaderResourceViews) = 0;
+
+    virtual void STDMETHODCALLTYPE GSGetSamplers(
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState **ppSamplers) = 0;
+
+    virtual void STDMETHODCALLTYPE OMGetRenderTargets(
+        UINT NumViews,
+        ID3D11RenderTargetView **ppRenderTargetViews,
+        ID3D11DepthStencilView **ppDepthStencilView) = 0;
+
+    virtual void STDMETHODCALLTYPE OMGetRenderTargetsAndUnorderedAccessViews(
+        UINT NumRTVs,
+        ID3D11RenderTargetView **ppRenderTargetViews,
+        ID3D11DepthStencilView **ppDepthStencilView,
+        UINT UAVStartSlot,
+        UINT NumUAVs,
+        ID3D11UnorderedAccessView **ppUnorderedAccessViews) = 0;
+
+    virtual void STDMETHODCALLTYPE OMGetBlendState(
+        ID3D11BlendState **ppBlendState,
+        FLOAT BlendFactor[4],
+        UINT *pSampleMask) = 0;
+
+    virtual void STDMETHODCALLTYPE OMGetDepthStencilState(
+        ID3D11DepthStencilState **ppDepthStencilState,
+        UINT *pStencilRef) = 0;
+
+    virtual void STDMETHODCALLTYPE SOGetTargets(
+        UINT NumBuffers,
+        ID3D11Buffer **ppSOTargets) = 0;
+
+    virtual void STDMETHODCALLTYPE RSGetState(
+        ID3D11RasterizerState **ppRasterizerState) = 0;
+
+    virtual void STDMETHODCALLTYPE RSGetViewports(
+        UINT *pNumViewports,
+        D3D11_VIEWPORT *pViewports) = 0;
+
+    virtual void STDMETHODCALLTYPE RSGetScissorRects(
+        UINT *pNumRects,
+        D3D11_RECT *pRects) = 0;
+
+    virtual void STDMETHODCALLTYPE HSGetShaderResources(
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView **ppShaderResourceViews) = 0;
+
+    virtual void STDMETHODCALLTYPE HSGetShader(
+        ID3D11HullShader **ppHullShader,
+        ID3D11ClassInstance **ppClassInstances,
+        UINT *pNumClassInstances) = 0;
+
+    virtual void STDMETHODCALLTYPE HSGetSamplers(
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState **ppSamplers) = 0;
+
+    virtual void STDMETHODCALLTYPE HSGetConstantBuffers(
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer **ppConstantBuffers) = 0;
+
+    virtual void STDMETHODCALLTYPE DSGetShaderResources(
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView **ppShaderResourceViews) = 0;
+
+    virtual void STDMETHODCALLTYPE DSGetShader(
+        ID3D11DomainShader **ppDomainShader,
+        ID3D11ClassInstance **ppClassInstances,
+        UINT *pNumClassInstances) = 0;
+
+    virtual void STDMETHODCALLTYPE DSGetSamplers(
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState **ppSamplers) = 0;
+
+    virtual void STDMETHODCALLTYPE DSGetConstantBuffers(
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer **ppConstantBuffers) = 0;
+
+    virtual void STDMETHODCALLTYPE CSGetShaderResources(
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView **ppShaderResourceViews) = 0;
+
+    virtual void STDMETHODCALLTYPE CSGetUnorderedAccessViews(
+        UINT StartSlot,
+        UINT NumUAVs,
+        ID3D11UnorderedAccessView **ppUnorderedAccessViews) = 0;
+
+    virtual void STDMETHODCALLTYPE CSGetShader(
+        ID3D11ComputeShader **ppComputeShader,
+        ID3D11ClassInstance **ppClassInstances,
+        UINT *pNumClassInstances) = 0;
+
+    virtual void STDMETHODCALLTYPE CSGetSamplers(
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState **ppSamplers) = 0;
+
+    virtual void STDMETHODCALLTYPE CSGetConstantBuffers(
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer **ppConstantBuffers) = 0;
+
+    virtual void STDMETHODCALLTYPE ClearState(
+        ) = 0;
+
+    virtual void STDMETHODCALLTYPE Flush(
+        ) = 0;
+
+    virtual D3D11_DEVICE_CONTEXT_TYPE STDMETHODCALLTYPE GetType(
+        ) = 0;
+
+    virtual UINT STDMETHODCALLTYPE GetContextFlags(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FinishCommandList(
+        WINBOOL RestoreDeferredContextState,
+        ID3D11CommandList **ppCommandList) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11DeviceContext, 0xc0bfa96c, 0xe089, 0x44fb, 0x8e,0xaf, 0x26,0xf8,0x79,0x61,0x90,0xda)
+#endif
+#else
+typedef struct ID3D11DeviceContextVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11DeviceContext* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11DeviceContext* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11DeviceContext* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11DeviceContext* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11DeviceContext* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11DeviceContext* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11DeviceContext* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11DeviceContext methods ***/
+    void (STDMETHODCALLTYPE *VSSetConstantBuffers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer *const *ppConstantBuffers);
+
+    void (STDMETHODCALLTYPE *PSSetShaderResources)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView *const *ppShaderResourceViews);
+
+    void (STDMETHODCALLTYPE *PSSetShader)(
+        ID3D11DeviceContext* This,
+        ID3D11PixelShader *pPixelShader,
+        ID3D11ClassInstance *const *ppClassInstances,
+        UINT NumClassInstances);
+
+    void (STDMETHODCALLTYPE *PSSetSamplers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState *const *ppSamplers);
+
+    void (STDMETHODCALLTYPE *VSSetShader)(
+        ID3D11DeviceContext* This,
+        ID3D11VertexShader *pVertexShader,
+        ID3D11ClassInstance *const *ppClassInstances,
+        UINT NumClassInstances);
+
+    void (STDMETHODCALLTYPE *DrawIndexed)(
+        ID3D11DeviceContext* This,
+        UINT IndexCount,
+        UINT StartIndexLocation,
+        INT BaseVertexLocation);
+
+    void (STDMETHODCALLTYPE *Draw)(
+        ID3D11DeviceContext* This,
+        UINT VertexCount,
+        UINT StartVertexLocation);
+
+    HRESULT (STDMETHODCALLTYPE *Map)(
+        ID3D11DeviceContext* This,
+        ID3D11Resource *pResource,
+        UINT Subresource,
+        D3D11_MAP MapType,
+        UINT MapFlags,
+        D3D11_MAPPED_SUBRESOURCE *pMappedResource);
+
+    void (STDMETHODCALLTYPE *Unmap)(
+        ID3D11DeviceContext* This,
+        ID3D11Resource *pResource,
+        UINT Subresource);
+
+    void (STDMETHODCALLTYPE *PSSetConstantBuffers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer *const *ppConstantBuffers);
+
+    void (STDMETHODCALLTYPE *IASetInputLayout)(
+        ID3D11DeviceContext* This,
+        ID3D11InputLayout *pInputLayout);
+
+    void (STDMETHODCALLTYPE *IASetVertexBuffers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer *const *ppVertexBuffers,
+        const UINT *pStrides,
+        const UINT *pOffsets);
+
+    void (STDMETHODCALLTYPE *IASetIndexBuffer)(
+        ID3D11DeviceContext* This,
+        ID3D11Buffer *pIndexBuffer,
+        DXGI_FORMAT Format,
+        UINT Offset);
+
+    void (STDMETHODCALLTYPE *DrawIndexedInstanced)(
+        ID3D11DeviceContext* This,
+        UINT IndexCountPerInstance,
+        UINT InstanceCount,
+        UINT StartIndexLocation,
+        INT BaseVertexLocation,
+        UINT StartInstanceLocation);
+
+    void (STDMETHODCALLTYPE *DrawInstanced)(
+        ID3D11DeviceContext* This,
+        UINT VertexCountPerInstance,
+        UINT InstanceCount,
+        UINT StartVertexLocation,
+        UINT StartInstanceLocation);
+
+    void (STDMETHODCALLTYPE *GSSetConstantBuffers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer *const *ppConstantBuffers);
+
+    void (STDMETHODCALLTYPE *GSSetShader)(
+        ID3D11DeviceContext* This,
+        ID3D11GeometryShader *pShader,
+        ID3D11ClassInstance *const *ppClassInstances,
+        UINT NumClassInstances);
+
+    void (STDMETHODCALLTYPE *IASetPrimitiveTopology)(
+        ID3D11DeviceContext* This,
+        D3D11_PRIMITIVE_TOPOLOGY Topology);
+
+    void (STDMETHODCALLTYPE *VSSetShaderResources)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView *const *ppShaderResourceViews);
+
+    void (STDMETHODCALLTYPE *VSSetSamplers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState *const *ppSamplers);
+
+    void (STDMETHODCALLTYPE *Begin)(
+        ID3D11DeviceContext* This,
+        ID3D11Asynchronous *pAsync);
+
+    void (STDMETHODCALLTYPE *End)(
+        ID3D11DeviceContext* This,
+        ID3D11Asynchronous *pAsync);
+
+    HRESULT (STDMETHODCALLTYPE *GetData)(
+        ID3D11DeviceContext* This,
+        ID3D11Asynchronous *pAsync,
+        void *pData,
+        UINT DataSize,
+        UINT GetDataFlags);
+
+    void (STDMETHODCALLTYPE *SetPredication)(
+        ID3D11DeviceContext* This,
+        ID3D11Predicate *pPredicate,
+        WINBOOL PredicateValue);
+
+    void (STDMETHODCALLTYPE *GSSetShaderResources)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView *const *ppShaderResourceViews);
+
+    void (STDMETHODCALLTYPE *GSSetSamplers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState *const *ppSamplers);
+
+    void (STDMETHODCALLTYPE *OMSetRenderTargets)(
+        ID3D11DeviceContext* This,
+        UINT NumViews,
+        ID3D11RenderTargetView *const *ppRenderTargetViews,
+        ID3D11DepthStencilView *pDepthStencilView);
+
+    void (STDMETHODCALLTYPE *OMSetRenderTargetsAndUnorderedAccessViews)(
+        ID3D11DeviceContext* This,
+        UINT NumRTVs,
+        ID3D11RenderTargetView *const *ppRenderTargetViews,
+        ID3D11DepthStencilView *pDepthStencilView,
+        UINT UAVStartSlot,
+        UINT NumUAVs,
+        ID3D11UnorderedAccessView *const *ppUnorderedAccessViews,
+        const UINT *pUAVInitialCounts);
+
+    void (STDMETHODCALLTYPE *OMSetBlendState)(
+        ID3D11DeviceContext* This,
+        ID3D11BlendState *pBlendState,
+        const FLOAT BlendFactor[4],
+        UINT SampleMask);
+
+    void (STDMETHODCALLTYPE *OMSetDepthStencilState)(
+        ID3D11DeviceContext* This,
+        ID3D11DepthStencilState *pDepthStencilState,
+        UINT StencilRef);
+
+    void (STDMETHODCALLTYPE *SOSetTargets)(
+        ID3D11DeviceContext* This,
+        UINT NumBuffers,
+        ID3D11Buffer *const *ppSOTargets,
+        const UINT *pOffsets);
+
+    void (STDMETHODCALLTYPE *DrawAuto)(
+        ID3D11DeviceContext* This);
+
+    void (STDMETHODCALLTYPE *DrawIndexedInstancedIndirect)(
+        ID3D11DeviceContext* This,
+        ID3D11Buffer *pBufferForArgs,
+        UINT AlignedByteOffsetForArgs);
+
+    void (STDMETHODCALLTYPE *DrawInstancedIndirect)(
+        ID3D11DeviceContext* This,
+        ID3D11Buffer *pBufferForArgs,
+        UINT AlignedByteOffsetForArgs);
+
+    void (STDMETHODCALLTYPE *Dispatch)(
+        ID3D11DeviceContext* This,
+        UINT ThreadGroupCountX,
+        UINT ThreadGroupCountY,
+        UINT ThreadGroupCountZ);
+
+    void (STDMETHODCALLTYPE *DispatchIndirect)(
+        ID3D11DeviceContext* This,
+        ID3D11Buffer *pBufferForArgs,
+        UINT AlignedByteOffsetForArgs);
+
+    void (STDMETHODCALLTYPE *RSSetState)(
+        ID3D11DeviceContext* This,
+        ID3D11RasterizerState *pRasterizerState);
+
+    void (STDMETHODCALLTYPE *RSSetViewports)(
+        ID3D11DeviceContext* This,
+        UINT NumViewports,
+        const D3D11_VIEWPORT *pViewports);
+
+    void (STDMETHODCALLTYPE *RSSetScissorRects)(
+        ID3D11DeviceContext* This,
+        UINT NumRects,
+        const D3D11_RECT *pRects);
+
+    void (STDMETHODCALLTYPE *CopySubresourceRegion)(
+        ID3D11DeviceContext* This,
+        ID3D11Resource *pDstResource,
+        UINT DstSubresource,
+        UINT DstX,
+        UINT DstY,
+        UINT DstZ,
+        ID3D11Resource *pSrcResource,
+        UINT SrcSubresource,
+        const D3D11_BOX *pSrcBox);
+
+    void (STDMETHODCALLTYPE *CopyResource)(
+        ID3D11DeviceContext* This,
+        ID3D11Resource *pDstResource,
+        ID3D11Resource *pSrcResource);
+
+    void (STDMETHODCALLTYPE *UpdateSubresource)(
+        ID3D11DeviceContext* This,
+        ID3D11Resource *pDstResource,
+        UINT DstSubresource,
+        const D3D11_BOX *pDstBox,
+        const void *pSrcData,
+        UINT SrcRowPitch,
+        UINT SrcDepthPitch);
+
+    void (STDMETHODCALLTYPE *CopyStructureCount)(
+        ID3D11DeviceContext* This,
+        ID3D11Buffer *pDstBuffer,
+        UINT DstAlignedByteOffset,
+        ID3D11UnorderedAccessView *pSrcView);
+
+    void (STDMETHODCALLTYPE *ClearRenderTargetView)(
+        ID3D11DeviceContext* This,
+        ID3D11RenderTargetView *pRenderTargetView,
+        const FLOAT ColorRGBA[4]);
+
+    void (STDMETHODCALLTYPE *ClearUnorderedAccessViewUint)(
+        ID3D11DeviceContext* This,
+        ID3D11UnorderedAccessView *pUnorderedAccessView,
+        const UINT Values[4]);
+
+    void (STDMETHODCALLTYPE *ClearUnorderedAccessViewFloat)(
+        ID3D11DeviceContext* This,
+        ID3D11UnorderedAccessView *pUnorderedAccessView,
+        const FLOAT Values[4]);
+
+    void (STDMETHODCALLTYPE *ClearDepthStencilView)(
+        ID3D11DeviceContext* This,
+        ID3D11DepthStencilView *pDepthStencilView,
+        UINT ClearFlags,
+        FLOAT Depth,
+        UINT8 Stencil);
+
+    void (STDMETHODCALLTYPE *GenerateMips)(
+        ID3D11DeviceContext* This,
+        ID3D11ShaderResourceView *pShaderResourceView);
+
+    void (STDMETHODCALLTYPE *SetResourceMinLOD)(
+        ID3D11DeviceContext* This,
+        ID3D11Resource *pResource,
+        FLOAT MinLOD);
+
+    FLOAT (STDMETHODCALLTYPE *GetResourceMinLOD)(
+        ID3D11DeviceContext* This,
+        ID3D11Resource *pResource);
+
+    void (STDMETHODCALLTYPE *ResolveSubresource)(
+        ID3D11DeviceContext* This,
+        ID3D11Resource *pDstResource,
+        UINT DstSubresource,
+        ID3D11Resource *pSrcResource,
+        UINT SrcSubresource,
+        DXGI_FORMAT Format);
+
+    void (STDMETHODCALLTYPE *ExecuteCommandList)(
+        ID3D11DeviceContext* This,
+        ID3D11CommandList *pCommandList,
+        WINBOOL RestoreContextState);
+
+    void (STDMETHODCALLTYPE *HSSetShaderResources)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView *const *ppShaderResourceViews);
+
+    void (STDMETHODCALLTYPE *HSSetShader)(
+        ID3D11DeviceContext* This,
+        ID3D11HullShader *pHullShader,
+        ID3D11ClassInstance *const *ppClassInstances,
+        UINT NumClassInstances);
+
+    void (STDMETHODCALLTYPE *HSSetSamplers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState *const *ppSamplers);
+
+    void (STDMETHODCALLTYPE *HSSetConstantBuffers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer *const *ppConstantBuffers);
+
+    void (STDMETHODCALLTYPE *DSSetShaderResources)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView *const *ppShaderResourceViews);
+
+    void (STDMETHODCALLTYPE *DSSetShader)(
+        ID3D11DeviceContext* This,
+        ID3D11DomainShader *pDomainShader,
+        ID3D11ClassInstance *const *ppClassInstances,
+        UINT NumClassInstances);
+
+    void (STDMETHODCALLTYPE *DSSetSamplers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState *const *ppSamplers);
+
+    void (STDMETHODCALLTYPE *DSSetConstantBuffers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer *const *ppConstantBuffers);
+
+    void (STDMETHODCALLTYPE *CSSetShaderResources)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView *const *ppShaderResourceViews);
+
+    void (STDMETHODCALLTYPE *CSSetUnorderedAccessViews)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumUAVs,
+        ID3D11UnorderedAccessView *const *ppUnorderedAccessViews,
+        const UINT *pUAVInitialCounts);
+
+    void (STDMETHODCALLTYPE *CSSetShader)(
+        ID3D11DeviceContext* This,
+        ID3D11ComputeShader *pComputeShader,
+        ID3D11ClassInstance *const *ppClassInstances,
+        UINT NumClassInstances);
+
+    void (STDMETHODCALLTYPE *CSSetSamplers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState *const *ppSamplers);
+
+    void (STDMETHODCALLTYPE *CSSetConstantBuffers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer *const *ppConstantBuffers);
+
+    void (STDMETHODCALLTYPE *VSGetConstantBuffers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer **ppConstantBuffers);
+
+    void (STDMETHODCALLTYPE *PSGetShaderResources)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView **ppShaderResourceViews);
+
+    void (STDMETHODCALLTYPE *PSGetShader)(
+        ID3D11DeviceContext* This,
+        ID3D11PixelShader **ppPixelShader,
+        ID3D11ClassInstance **ppClassInstances,
+        UINT *pNumClassInstances);
+
+    void (STDMETHODCALLTYPE *PSGetSamplers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState **ppSamplers);
+
+    void (STDMETHODCALLTYPE *VSGetShader)(
+        ID3D11DeviceContext* This,
+        ID3D11VertexShader **ppVertexShader,
+        ID3D11ClassInstance **ppClassInstances,
+        UINT *pNumClassInstances);
+
+    void (STDMETHODCALLTYPE *PSGetConstantBuffers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer **ppConstantBuffers);
+
+    void (STDMETHODCALLTYPE *IAGetInputLayout)(
+        ID3D11DeviceContext* This,
+        ID3D11InputLayout **ppInputLayout);
+
+    void (STDMETHODCALLTYPE *IAGetVertexBuffers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer **ppVertexBuffers,
+        UINT *pStrides,
+        UINT *pOffsets);
+
+    void (STDMETHODCALLTYPE *IAGetIndexBuffer)(
+        ID3D11DeviceContext* This,
+        ID3D11Buffer **pIndexBuffer,
+        DXGI_FORMAT *Format,
+        UINT *Offset);
+
+    void (STDMETHODCALLTYPE *GSGetConstantBuffers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer **ppConstantBuffers);
+
+    void (STDMETHODCALLTYPE *GSGetShader)(
+        ID3D11DeviceContext* This,
+        ID3D11GeometryShader **ppGeometryShader,
+        ID3D11ClassInstance **ppClassInstances,
+        UINT *pNumClassInstances);
+
+    void (STDMETHODCALLTYPE *IAGetPrimitiveTopology)(
+        ID3D11DeviceContext* This,
+        D3D11_PRIMITIVE_TOPOLOGY *pTopology);
+
+    void (STDMETHODCALLTYPE *VSGetShaderResources)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView **ppShaderResourceViews);
+
+    void (STDMETHODCALLTYPE *VSGetSamplers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState **ppSamplers);
+
+    void (STDMETHODCALLTYPE *GetPredication)(
+        ID3D11DeviceContext* This,
+        ID3D11Predicate **ppPredicate,
+        WINBOOL *pPredicateValue);
+
+    void (STDMETHODCALLTYPE *GSGetShaderResources)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView **ppShaderResourceViews);
+
+    void (STDMETHODCALLTYPE *GSGetSamplers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState **ppSamplers);
+
+    void (STDMETHODCALLTYPE *OMGetRenderTargets)(
+        ID3D11DeviceContext* This,
+        UINT NumViews,
+        ID3D11RenderTargetView **ppRenderTargetViews,
+        ID3D11DepthStencilView **ppDepthStencilView);
+
+    void (STDMETHODCALLTYPE *OMGetRenderTargetsAndUnorderedAccessViews)(
+        ID3D11DeviceContext* This,
+        UINT NumRTVs,
+        ID3D11RenderTargetView **ppRenderTargetViews,
+        ID3D11DepthStencilView **ppDepthStencilView,
+        UINT UAVStartSlot,
+        UINT NumUAVs,
+        ID3D11UnorderedAccessView **ppUnorderedAccessViews);
+
+    void (STDMETHODCALLTYPE *OMGetBlendState)(
+        ID3D11DeviceContext* This,
+        ID3D11BlendState **ppBlendState,
+        FLOAT BlendFactor[4],
+        UINT *pSampleMask);
+
+    void (STDMETHODCALLTYPE *OMGetDepthStencilState)(
+        ID3D11DeviceContext* This,
+        ID3D11DepthStencilState **ppDepthStencilState,
+        UINT *pStencilRef);
+
+    void (STDMETHODCALLTYPE *SOGetTargets)(
+        ID3D11DeviceContext* This,
+        UINT NumBuffers,
+        ID3D11Buffer **ppSOTargets);
+
+    void (STDMETHODCALLTYPE *RSGetState)(
+        ID3D11DeviceContext* This,
+        ID3D11RasterizerState **ppRasterizerState);
+
+    void (STDMETHODCALLTYPE *RSGetViewports)(
+        ID3D11DeviceContext* This,
+        UINT *pNumViewports,
+        D3D11_VIEWPORT *pViewports);
+
+    void (STDMETHODCALLTYPE *RSGetScissorRects)(
+        ID3D11DeviceContext* This,
+        UINT *pNumRects,
+        D3D11_RECT *pRects);
+
+    void (STDMETHODCALLTYPE *HSGetShaderResources)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView **ppShaderResourceViews);
+
+    void (STDMETHODCALLTYPE *HSGetShader)(
+        ID3D11DeviceContext* This,
+        ID3D11HullShader **ppHullShader,
+        ID3D11ClassInstance **ppClassInstances,
+        UINT *pNumClassInstances);
+
+    void (STDMETHODCALLTYPE *HSGetSamplers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState **ppSamplers);
+
+    void (STDMETHODCALLTYPE *HSGetConstantBuffers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer **ppConstantBuffers);
+
+    void (STDMETHODCALLTYPE *DSGetShaderResources)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView **ppShaderResourceViews);
+
+    void (STDMETHODCALLTYPE *DSGetShader)(
+        ID3D11DeviceContext* This,
+        ID3D11DomainShader **ppDomainShader,
+        ID3D11ClassInstance **ppClassInstances,
+        UINT *pNumClassInstances);
+
+    void (STDMETHODCALLTYPE *DSGetSamplers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState **ppSamplers);
+
+    void (STDMETHODCALLTYPE *DSGetConstantBuffers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer **ppConstantBuffers);
+
+    void (STDMETHODCALLTYPE *CSGetShaderResources)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumViews,
+        ID3D11ShaderResourceView **ppShaderResourceViews);
+
+    void (STDMETHODCALLTYPE *CSGetUnorderedAccessViews)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumUAVs,
+        ID3D11UnorderedAccessView **ppUnorderedAccessViews);
+
+    void (STDMETHODCALLTYPE *CSGetShader)(
+        ID3D11DeviceContext* This,
+        ID3D11ComputeShader **ppComputeShader,
+        ID3D11ClassInstance **ppClassInstances,
+        UINT *pNumClassInstances);
+
+    void (STDMETHODCALLTYPE *CSGetSamplers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumSamplers,
+        ID3D11SamplerState **ppSamplers);
+
+    void (STDMETHODCALLTYPE *CSGetConstantBuffers)(
+        ID3D11DeviceContext* This,
+        UINT StartSlot,
+        UINT NumBuffers,
+        ID3D11Buffer **ppConstantBuffers);
+
+    void (STDMETHODCALLTYPE *ClearState)(
+        ID3D11DeviceContext* This);
+
+    void (STDMETHODCALLTYPE *Flush)(
+        ID3D11DeviceContext* This);
+
+    D3D11_DEVICE_CONTEXT_TYPE (STDMETHODCALLTYPE *GetType)(
+        ID3D11DeviceContext* This);
+
+    UINT (STDMETHODCALLTYPE *GetContextFlags)(
+        ID3D11DeviceContext* This);
+
+    HRESULT (STDMETHODCALLTYPE *FinishCommandList)(
+        ID3D11DeviceContext* This,
+        WINBOOL RestoreDeferredContextState,
+        ID3D11CommandList **ppCommandList);
+
+    END_INTERFACE
+} ID3D11DeviceContextVtbl;
+interface ID3D11DeviceContext {
+    CONST_VTBL ID3D11DeviceContextVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11DeviceContext_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11DeviceContext_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11DeviceContext_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11DeviceContext_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11DeviceContext_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11DeviceContext_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11DeviceContext_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11DeviceContext methods ***/
+#define ID3D11DeviceContext_VSSetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers) (This)->lpVtbl->VSSetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers)
+#define ID3D11DeviceContext_PSSetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews) (This)->lpVtbl->PSSetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews)
+#define ID3D11DeviceContext_PSSetShader(This,pPixelShader,ppClassInstances,NumClassInstances) (This)->lpVtbl->PSSetShader(This,pPixelShader,ppClassInstances,NumClassInstances)
+#define ID3D11DeviceContext_PSSetSamplers(This,StartSlot,NumSamplers,ppSamplers) (This)->lpVtbl->PSSetSamplers(This,StartSlot,NumSamplers,ppSamplers)
+#define ID3D11DeviceContext_VSSetShader(This,pVertexShader,ppClassInstances,NumClassInstances) (This)->lpVtbl->VSSetShader(This,pVertexShader,ppClassInstances,NumClassInstances)
+#define ID3D11DeviceContext_DrawIndexed(This,IndexCount,StartIndexLocation,BaseVertexLocation) (This)->lpVtbl->DrawIndexed(This,IndexCount,StartIndexLocation,BaseVertexLocation)
+#define ID3D11DeviceContext_Draw(This,VertexCount,StartVertexLocation) (This)->lpVtbl->Draw(This,VertexCount,StartVertexLocation)
+#define ID3D11DeviceContext_Map(This,pResource,Subresource,MapType,MapFlags,pMappedResource) (This)->lpVtbl->Map(This,pResource,Subresource,MapType,MapFlags,pMappedResource)
+#define ID3D11DeviceContext_Unmap(This,pResource,Subresource) (This)->lpVtbl->Unmap(This,pResource,Subresource)
+#define ID3D11DeviceContext_PSSetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers) (This)->lpVtbl->PSSetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers)
+#define ID3D11DeviceContext_IASetInputLayout(This,pInputLayout) (This)->lpVtbl->IASetInputLayout(This,pInputLayout)
+#define ID3D11DeviceContext_IASetVertexBuffers(This,StartSlot,NumBuffers,ppVertexBuffers,pStrides,pOffsets) (This)->lpVtbl->IASetVertexBuffers(This,StartSlot,NumBuffers,ppVertexBuffers,pStrides,pOffsets)
+#define ID3D11DeviceContext_IASetIndexBuffer(This,pIndexBuffer,Format,Offset) (This)->lpVtbl->IASetIndexBuffer(This,pIndexBuffer,Format,Offset)
+#define ID3D11DeviceContext_DrawIndexedInstanced(This,IndexCountPerInstance,InstanceCount,StartIndexLocation,BaseVertexLocation,StartInstanceLocation) (This)->lpVtbl->DrawIndexedInstanced(This,IndexCountPerInstance,InstanceCount,StartIndexLocation,BaseVertexLocation,StartInstanceLocation)
+#define ID3D11DeviceContext_DrawInstanced(This,VertexCountPerInstance,InstanceCount,StartVertexLocation,StartInstanceLocation) (This)->lpVtbl->DrawInstanced(This,VertexCountPerInstance,InstanceCount,StartVertexLocation,StartInstanceLocation)
+#define ID3D11DeviceContext_GSSetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers) (This)->lpVtbl->GSSetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers)
+#define ID3D11DeviceContext_GSSetShader(This,pShader,ppClassInstances,NumClassInstances) (This)->lpVtbl->GSSetShader(This,pShader,ppClassInstances,NumClassInstances)
+#define ID3D11DeviceContext_IASetPrimitiveTopology(This,Topology) (This)->lpVtbl->IASetPrimitiveTopology(This,Topology)
+#define ID3D11DeviceContext_VSSetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews) (This)->lpVtbl->VSSetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews)
+#define ID3D11DeviceContext_VSSetSamplers(This,StartSlot,NumSamplers,ppSamplers) (This)->lpVtbl->VSSetSamplers(This,StartSlot,NumSamplers,ppSamplers)
+#define ID3D11DeviceContext_Begin(This,pAsync) (This)->lpVtbl->Begin(This,pAsync)
+#define ID3D11DeviceContext_End(This,pAsync) (This)->lpVtbl->End(This,pAsync)
+#define ID3D11DeviceContext_GetData(This,pAsync,pData,DataSize,GetDataFlags) (This)->lpVtbl->GetData(This,pAsync,pData,DataSize,GetDataFlags)
+#define ID3D11DeviceContext_SetPredication(This,pPredicate,PredicateValue) (This)->lpVtbl->SetPredication(This,pPredicate,PredicateValue)
+#define ID3D11DeviceContext_GSSetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews) (This)->lpVtbl->GSSetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews)
+#define ID3D11DeviceContext_GSSetSamplers(This,StartSlot,NumSamplers,ppSamplers) (This)->lpVtbl->GSSetSamplers(This,StartSlot,NumSamplers,ppSamplers)
+#define ID3D11DeviceContext_OMSetRenderTargets(This,NumViews,ppRenderTargetViews,pDepthStencilView) (This)->lpVtbl->OMSetRenderTargets(This,NumViews,ppRenderTargetViews,pDepthStencilView)
+#define ID3D11DeviceContext_OMSetRenderTargetsAndUnorderedAccessViews(This,NumRTVs,ppRenderTargetViews,pDepthStencilView,UAVStartSlot,NumUAVs,ppUnorderedAccessViews,pUAVInitialCounts) (This)->lpVtbl->OMSetRenderTargetsAndUnorderedAccessViews(This,NumRTVs,ppRenderTargetViews,pDepthStencilView,UAVStartSlot,NumUAVs,ppUnorderedAccessViews,pUAVInitialCounts)
+#define ID3D11DeviceContext_OMSetBlendState(This,pBlendState,BlendFactor,SampleMask) (This)->lpVtbl->OMSetBlendState(This,pBlendState,BlendFactor,SampleMask)
+#define ID3D11DeviceContext_OMSetDepthStencilState(This,pDepthStencilState,StencilRef) (This)->lpVtbl->OMSetDepthStencilState(This,pDepthStencilState,StencilRef)
+#define ID3D11DeviceContext_SOSetTargets(This,NumBuffers,ppSOTargets,pOffsets) (This)->lpVtbl->SOSetTargets(This,NumBuffers,ppSOTargets,pOffsets)
+#define ID3D11DeviceContext_DrawAuto(This) (This)->lpVtbl->DrawAuto(This)
+#define ID3D11DeviceContext_DrawIndexedInstancedIndirect(This,pBufferForArgs,AlignedByteOffsetForArgs) (This)->lpVtbl->DrawIndexedInstancedIndirect(This,pBufferForArgs,AlignedByteOffsetForArgs)
+#define ID3D11DeviceContext_DrawInstancedIndirect(This,pBufferForArgs,AlignedByteOffsetForArgs) (This)->lpVtbl->DrawInstancedIndirect(This,pBufferForArgs,AlignedByteOffsetForArgs)
+#define ID3D11DeviceContext_Dispatch(This,ThreadGroupCountX,ThreadGroupCountY,ThreadGroupCountZ) (This)->lpVtbl->Dispatch(This,ThreadGroupCountX,ThreadGroupCountY,ThreadGroupCountZ)
+#define ID3D11DeviceContext_DispatchIndirect(This,pBufferForArgs,AlignedByteOffsetForArgs) (This)->lpVtbl->DispatchIndirect(This,pBufferForArgs,AlignedByteOffsetForArgs)
+#define ID3D11DeviceContext_RSSetState(This,pRasterizerState) (This)->lpVtbl->RSSetState(This,pRasterizerState)
+#define ID3D11DeviceContext_RSSetViewports(This,NumViewports,pViewports) (This)->lpVtbl->RSSetViewports(This,NumViewports,pViewports)
+#define ID3D11DeviceContext_RSSetScissorRects(This,NumRects,pRects) (This)->lpVtbl->RSSetScissorRects(This,NumRects,pRects)
+#define ID3D11DeviceContext_CopySubresourceRegion(This,pDstResource,DstSubresource,DstX,DstY,DstZ,pSrcResource,SrcSubresource,pSrcBox) (This)->lpVtbl->CopySubresourceRegion(This,pDstResource,DstSubresource,DstX,DstY,DstZ,pSrcResource,SrcSubresource,pSrcBox)
+#define ID3D11DeviceContext_CopyResource(This,pDstResource,pSrcResource) (This)->lpVtbl->CopyResource(This,pDstResource,pSrcResource)
+#define ID3D11DeviceContext_UpdateSubresource(This,pDstResource,DstSubresource,pDstBox,pSrcData,SrcRowPitch,SrcDepthPitch) (This)->lpVtbl->UpdateSubresource(This,pDstResource,DstSubresource,pDstBox,pSrcData,SrcRowPitch,SrcDepthPitch)
+#define ID3D11DeviceContext_CopyStructureCount(This,pDstBuffer,DstAlignedByteOffset,pSrcView) (This)->lpVtbl->CopyStructureCount(This,pDstBuffer,DstAlignedByteOffset,pSrcView)
+#define ID3D11DeviceContext_ClearRenderTargetView(This,pRenderTargetView,ColorRGBA) (This)->lpVtbl->ClearRenderTargetView(This,pRenderTargetView,ColorRGBA)
+#define ID3D11DeviceContext_ClearUnorderedAccessViewUint(This,pUnorderedAccessView,Values) (This)->lpVtbl->ClearUnorderedAccessViewUint(This,pUnorderedAccessView,Values)
+#define ID3D11DeviceContext_ClearUnorderedAccessViewFloat(This,pUnorderedAccessView,Values) (This)->lpVtbl->ClearUnorderedAccessViewFloat(This,pUnorderedAccessView,Values)
+#define ID3D11DeviceContext_ClearDepthStencilView(This,pDepthStencilView,ClearFlags,Depth,Stencil) (This)->lpVtbl->ClearDepthStencilView(This,pDepthStencilView,ClearFlags,Depth,Stencil)
+#define ID3D11DeviceContext_GenerateMips(This,pShaderResourceView) (This)->lpVtbl->GenerateMips(This,pShaderResourceView)
+#define ID3D11DeviceContext_SetResourceMinLOD(This,pResource,MinLOD) (This)->lpVtbl->SetResourceMinLOD(This,pResource,MinLOD)
+#define ID3D11DeviceContext_GetResourceMinLOD(This,pResource) (This)->lpVtbl->GetResourceMinLOD(This,pResource)
+#define ID3D11DeviceContext_ResolveSubresource(This,pDstResource,DstSubresource,pSrcResource,SrcSubresource,Format) (This)->lpVtbl->ResolveSubresource(This,pDstResource,DstSubresource,pSrcResource,SrcSubresource,Format)
+#define ID3D11DeviceContext_ExecuteCommandList(This,pCommandList,RestoreContextState) (This)->lpVtbl->ExecuteCommandList(This,pCommandList,RestoreContextState)
+#define ID3D11DeviceContext_HSSetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews) (This)->lpVtbl->HSSetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews)
+#define ID3D11DeviceContext_HSSetShader(This,pHullShader,ppClassInstances,NumClassInstances) (This)->lpVtbl->HSSetShader(This,pHullShader,ppClassInstances,NumClassInstances)
+#define ID3D11DeviceContext_HSSetSamplers(This,StartSlot,NumSamplers,ppSamplers) (This)->lpVtbl->HSSetSamplers(This,StartSlot,NumSamplers,ppSamplers)
+#define ID3D11DeviceContext_HSSetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers) (This)->lpVtbl->HSSetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers)
+#define ID3D11DeviceContext_DSSetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews) (This)->lpVtbl->DSSetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews)
+#define ID3D11DeviceContext_DSSetShader(This,pDomainShader,ppClassInstances,NumClassInstances) (This)->lpVtbl->DSSetShader(This,pDomainShader,ppClassInstances,NumClassInstances)
+#define ID3D11DeviceContext_DSSetSamplers(This,StartSlot,NumSamplers,ppSamplers) (This)->lpVtbl->DSSetSamplers(This,StartSlot,NumSamplers,ppSamplers)
+#define ID3D11DeviceContext_DSSetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers) (This)->lpVtbl->DSSetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers)
+#define ID3D11DeviceContext_CSSetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews) (This)->lpVtbl->CSSetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews)
+#define ID3D11DeviceContext_CSSetUnorderedAccessViews(This,StartSlot,NumUAVs,ppUnorderedAccessViews,pUAVInitialCounts) (This)->lpVtbl->CSSetUnorderedAccessViews(This,StartSlot,NumUAVs,ppUnorderedAccessViews,pUAVInitialCounts)
+#define ID3D11DeviceContext_CSSetShader(This,pComputeShader,ppClassInstances,NumClassInstances) (This)->lpVtbl->CSSetShader(This,pComputeShader,ppClassInstances,NumClassInstances)
+#define ID3D11DeviceContext_CSSetSamplers(This,StartSlot,NumSamplers,ppSamplers) (This)->lpVtbl->CSSetSamplers(This,StartSlot,NumSamplers,ppSamplers)
+#define ID3D11DeviceContext_CSSetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers) (This)->lpVtbl->CSSetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers)
+#define ID3D11DeviceContext_VSGetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers) (This)->lpVtbl->VSGetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers)
+#define ID3D11DeviceContext_PSGetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews) (This)->lpVtbl->PSGetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews)
+#define ID3D11DeviceContext_PSGetShader(This,ppPixelShader,ppClassInstances,pNumClassInstances) (This)->lpVtbl->PSGetShader(This,ppPixelShader,ppClassInstances,pNumClassInstances)
+#define ID3D11DeviceContext_PSGetSamplers(This,StartSlot,NumSamplers,ppSamplers) (This)->lpVtbl->PSGetSamplers(This,StartSlot,NumSamplers,ppSamplers)
+#define ID3D11DeviceContext_VSGetShader(This,ppVertexShader,ppClassInstances,pNumClassInstances) (This)->lpVtbl->VSGetShader(This,ppVertexShader,ppClassInstances,pNumClassInstances)
+#define ID3D11DeviceContext_PSGetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers) (This)->lpVtbl->PSGetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers)
+#define ID3D11DeviceContext_IAGetInputLayout(This,ppInputLayout) (This)->lpVtbl->IAGetInputLayout(This,ppInputLayout)
+#define ID3D11DeviceContext_IAGetVertexBuffers(This,StartSlot,NumBuffers,ppVertexBuffers,pStrides,pOffsets) (This)->lpVtbl->IAGetVertexBuffers(This,StartSlot,NumBuffers,ppVertexBuffers,pStrides,pOffsets)
+#define ID3D11DeviceContext_IAGetIndexBuffer(This,pIndexBuffer,Format,Offset) (This)->lpVtbl->IAGetIndexBuffer(This,pIndexBuffer,Format,Offset)
+#define ID3D11DeviceContext_GSGetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers) (This)->lpVtbl->GSGetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers)
+#define ID3D11DeviceContext_GSGetShader(This,ppGeometryShader,ppClassInstances,pNumClassInstances) (This)->lpVtbl->GSGetShader(This,ppGeometryShader,ppClassInstances,pNumClassInstances)
+#define ID3D11DeviceContext_IAGetPrimitiveTopology(This,pTopology) (This)->lpVtbl->IAGetPrimitiveTopology(This,pTopology)
+#define ID3D11DeviceContext_VSGetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews) (This)->lpVtbl->VSGetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews)
+#define ID3D11DeviceContext_VSGetSamplers(This,StartSlot,NumSamplers,ppSamplers) (This)->lpVtbl->VSGetSamplers(This,StartSlot,NumSamplers,ppSamplers)
+#define ID3D11DeviceContext_GetPredication(This,ppPredicate,pPredicateValue) (This)->lpVtbl->GetPredication(This,ppPredicate,pPredicateValue)
+#define ID3D11DeviceContext_GSGetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews) (This)->lpVtbl->GSGetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews)
+#define ID3D11DeviceContext_GSGetSamplers(This,StartSlot,NumSamplers,ppSamplers) (This)->lpVtbl->GSGetSamplers(This,StartSlot,NumSamplers,ppSamplers)
+#define ID3D11DeviceContext_OMGetRenderTargets(This,NumViews,ppRenderTargetViews,ppDepthStencilView) (This)->lpVtbl->OMGetRenderTargets(This,NumViews,ppRenderTargetViews,ppDepthStencilView)
+#define ID3D11DeviceContext_OMGetRenderTargetsAndUnorderedAccessViews(This,NumRTVs,ppRenderTargetViews,ppDepthStencilView,UAVStartSlot,NumUAVs,ppUnorderedAccessViews) (This)->lpVtbl->OMGetRenderTargetsAndUnorderedAccessViews(This,NumRTVs,ppRenderTargetViews,ppDepthStencilView,UAVStartSlot,NumUAVs,ppUnorderedAccessViews)
+#define ID3D11DeviceContext_OMGetBlendState(This,ppBlendState,BlendFactor,pSampleMask) (This)->lpVtbl->OMGetBlendState(This,ppBlendState,BlendFactor,pSampleMask)
+#define ID3D11DeviceContext_OMGetDepthStencilState(This,ppDepthStencilState,pStencilRef) (This)->lpVtbl->OMGetDepthStencilState(This,ppDepthStencilState,pStencilRef)
+#define ID3D11DeviceContext_SOGetTargets(This,NumBuffers,ppSOTargets) (This)->lpVtbl->SOGetTargets(This,NumBuffers,ppSOTargets)
+#define ID3D11DeviceContext_RSGetState(This,ppRasterizerState) (This)->lpVtbl->RSGetState(This,ppRasterizerState)
+#define ID3D11DeviceContext_RSGetViewports(This,pNumViewports,pViewports) (This)->lpVtbl->RSGetViewports(This,pNumViewports,pViewports)
+#define ID3D11DeviceContext_RSGetScissorRects(This,pNumRects,pRects) (This)->lpVtbl->RSGetScissorRects(This,pNumRects,pRects)
+#define ID3D11DeviceContext_HSGetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews) (This)->lpVtbl->HSGetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews)
+#define ID3D11DeviceContext_HSGetShader(This,ppHullShader,ppClassInstances,pNumClassInstances) (This)->lpVtbl->HSGetShader(This,ppHullShader,ppClassInstances,pNumClassInstances)
+#define ID3D11DeviceContext_HSGetSamplers(This,StartSlot,NumSamplers,ppSamplers) (This)->lpVtbl->HSGetSamplers(This,StartSlot,NumSamplers,ppSamplers)
+#define ID3D11DeviceContext_HSGetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers) (This)->lpVtbl->HSGetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers)
+#define ID3D11DeviceContext_DSGetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews) (This)->lpVtbl->DSGetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews)
+#define ID3D11DeviceContext_DSGetShader(This,ppDomainShader,ppClassInstances,pNumClassInstances) (This)->lpVtbl->DSGetShader(This,ppDomainShader,ppClassInstances,pNumClassInstances)
+#define ID3D11DeviceContext_DSGetSamplers(This,StartSlot,NumSamplers,ppSamplers) (This)->lpVtbl->DSGetSamplers(This,StartSlot,NumSamplers,ppSamplers)
+#define ID3D11DeviceContext_DSGetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers) (This)->lpVtbl->DSGetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers)
+#define ID3D11DeviceContext_CSGetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews) (This)->lpVtbl->CSGetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews)
+#define ID3D11DeviceContext_CSGetUnorderedAccessViews(This,StartSlot,NumUAVs,ppUnorderedAccessViews) (This)->lpVtbl->CSGetUnorderedAccessViews(This,StartSlot,NumUAVs,ppUnorderedAccessViews)
+#define ID3D11DeviceContext_CSGetShader(This,ppComputeShader,ppClassInstances,pNumClassInstances) (This)->lpVtbl->CSGetShader(This,ppComputeShader,ppClassInstances,pNumClassInstances)
+#define ID3D11DeviceContext_CSGetSamplers(This,StartSlot,NumSamplers,ppSamplers) (This)->lpVtbl->CSGetSamplers(This,StartSlot,NumSamplers,ppSamplers)
+#define ID3D11DeviceContext_CSGetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers) (This)->lpVtbl->CSGetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers)
+#define ID3D11DeviceContext_ClearState(This) (This)->lpVtbl->ClearState(This)
+#define ID3D11DeviceContext_Flush(This) (This)->lpVtbl->Flush(This)
+#define ID3D11DeviceContext_GetType(This) (This)->lpVtbl->GetType(This)
+#define ID3D11DeviceContext_GetContextFlags(This) (This)->lpVtbl->GetContextFlags(This)
+#define ID3D11DeviceContext_FinishCommandList(This,RestoreDeferredContextState,ppCommandList) (This)->lpVtbl->FinishCommandList(This,RestoreDeferredContextState,ppCommandList)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11DeviceContext_QueryInterface(ID3D11DeviceContext* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11DeviceContext_AddRef(ID3D11DeviceContext* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11DeviceContext_Release(ID3D11DeviceContext* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11DeviceContext_GetDevice(ID3D11DeviceContext* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11DeviceContext_GetPrivateData(ID3D11DeviceContext* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11DeviceContext_SetPrivateData(ID3D11DeviceContext* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11DeviceContext_SetPrivateDataInterface(ID3D11DeviceContext* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11DeviceContext methods ***/
+static FORCEINLINE void ID3D11DeviceContext_VSSetConstantBuffers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumBuffers,ID3D11Buffer *const *ppConstantBuffers) {
+    This->lpVtbl->VSSetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers);
+}
+static FORCEINLINE void ID3D11DeviceContext_PSSetShaderResources(ID3D11DeviceContext* This,UINT StartSlot,UINT NumViews,ID3D11ShaderResourceView *const *ppShaderResourceViews) {
+    This->lpVtbl->PSSetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews);
+}
+static FORCEINLINE void ID3D11DeviceContext_PSSetShader(ID3D11DeviceContext* This,ID3D11PixelShader *pPixelShader,ID3D11ClassInstance *const *ppClassInstances,UINT NumClassInstances) {
+    This->lpVtbl->PSSetShader(This,pPixelShader,ppClassInstances,NumClassInstances);
+}
+static FORCEINLINE void ID3D11DeviceContext_PSSetSamplers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumSamplers,ID3D11SamplerState *const *ppSamplers) {
+    This->lpVtbl->PSSetSamplers(This,StartSlot,NumSamplers,ppSamplers);
+}
+static FORCEINLINE void ID3D11DeviceContext_VSSetShader(ID3D11DeviceContext* This,ID3D11VertexShader *pVertexShader,ID3D11ClassInstance *const *ppClassInstances,UINT NumClassInstances) {
+    This->lpVtbl->VSSetShader(This,pVertexShader,ppClassInstances,NumClassInstances);
+}
+static FORCEINLINE void ID3D11DeviceContext_DrawIndexed(ID3D11DeviceContext* This,UINT IndexCount,UINT StartIndexLocation,INT BaseVertexLocation) {
+    This->lpVtbl->DrawIndexed(This,IndexCount,StartIndexLocation,BaseVertexLocation);
+}
+static FORCEINLINE void ID3D11DeviceContext_Draw(ID3D11DeviceContext* This,UINT VertexCount,UINT StartVertexLocation) {
+    This->lpVtbl->Draw(This,VertexCount,StartVertexLocation);
+}
+static FORCEINLINE HRESULT ID3D11DeviceContext_Map(ID3D11DeviceContext* This,ID3D11Resource *pResource,UINT Subresource,D3D11_MAP MapType,UINT MapFlags,D3D11_MAPPED_SUBRESOURCE *pMappedResource) {
+    return This->lpVtbl->Map(This,pResource,Subresource,MapType,MapFlags,pMappedResource);
+}
+static FORCEINLINE void ID3D11DeviceContext_Unmap(ID3D11DeviceContext* This,ID3D11Resource *pResource,UINT Subresource) {
+    This->lpVtbl->Unmap(This,pResource,Subresource);
+}
+static FORCEINLINE void ID3D11DeviceContext_PSSetConstantBuffers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumBuffers,ID3D11Buffer *const *ppConstantBuffers) {
+    This->lpVtbl->PSSetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers);
+}
+static FORCEINLINE void ID3D11DeviceContext_IASetInputLayout(ID3D11DeviceContext* This,ID3D11InputLayout *pInputLayout) {
+    This->lpVtbl->IASetInputLayout(This,pInputLayout);
+}
+static FORCEINLINE void ID3D11DeviceContext_IASetVertexBuffers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumBuffers,ID3D11Buffer *const *ppVertexBuffers,const UINT *pStrides,const UINT *pOffsets) {
+    This->lpVtbl->IASetVertexBuffers(This,StartSlot,NumBuffers,ppVertexBuffers,pStrides,pOffsets);
+}
+static FORCEINLINE void ID3D11DeviceContext_IASetIndexBuffer(ID3D11DeviceContext* This,ID3D11Buffer *pIndexBuffer,DXGI_FORMAT Format,UINT Offset) {
+    This->lpVtbl->IASetIndexBuffer(This,pIndexBuffer,Format,Offset);
+}
+static FORCEINLINE void ID3D11DeviceContext_DrawIndexedInstanced(ID3D11DeviceContext* This,UINT IndexCountPerInstance,UINT InstanceCount,UINT StartIndexLocation,INT BaseVertexLocation,UINT StartInstanceLocation) {
+    This->lpVtbl->DrawIndexedInstanced(This,IndexCountPerInstance,InstanceCount,StartIndexLocation,BaseVertexLocation,StartInstanceLocation);
+}
+static FORCEINLINE void ID3D11DeviceContext_DrawInstanced(ID3D11DeviceContext* This,UINT VertexCountPerInstance,UINT InstanceCount,UINT StartVertexLocation,UINT StartInstanceLocation) {
+    This->lpVtbl->DrawInstanced(This,VertexCountPerInstance,InstanceCount,StartVertexLocation,StartInstanceLocation);
+}
+static FORCEINLINE void ID3D11DeviceContext_GSSetConstantBuffers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumBuffers,ID3D11Buffer *const *ppConstantBuffers) {
+    This->lpVtbl->GSSetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers);
+}
+static FORCEINLINE void ID3D11DeviceContext_GSSetShader(ID3D11DeviceContext* This,ID3D11GeometryShader *pShader,ID3D11ClassInstance *const *ppClassInstances,UINT NumClassInstances) {
+    This->lpVtbl->GSSetShader(This,pShader,ppClassInstances,NumClassInstances);
+}
+static FORCEINLINE void ID3D11DeviceContext_IASetPrimitiveTopology(ID3D11DeviceContext* This,D3D11_PRIMITIVE_TOPOLOGY Topology) {
+    This->lpVtbl->IASetPrimitiveTopology(This,Topology);
+}
+static FORCEINLINE void ID3D11DeviceContext_VSSetShaderResources(ID3D11DeviceContext* This,UINT StartSlot,UINT NumViews,ID3D11ShaderResourceView *const *ppShaderResourceViews) {
+    This->lpVtbl->VSSetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews);
+}
+static FORCEINLINE void ID3D11DeviceContext_VSSetSamplers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumSamplers,ID3D11SamplerState *const *ppSamplers) {
+    This->lpVtbl->VSSetSamplers(This,StartSlot,NumSamplers,ppSamplers);
+}
+static FORCEINLINE void ID3D11DeviceContext_Begin(ID3D11DeviceContext* This,ID3D11Asynchronous *pAsync) {
+    This->lpVtbl->Begin(This,pAsync);
+}
+static FORCEINLINE void ID3D11DeviceContext_End(ID3D11DeviceContext* This,ID3D11Asynchronous *pAsync) {
+    This->lpVtbl->End(This,pAsync);
+}
+static FORCEINLINE HRESULT ID3D11DeviceContext_GetData(ID3D11DeviceContext* This,ID3D11Asynchronous *pAsync,void *pData,UINT DataSize,UINT GetDataFlags) {
+    return This->lpVtbl->GetData(This,pAsync,pData,DataSize,GetDataFlags);
+}
+static FORCEINLINE void ID3D11DeviceContext_SetPredication(ID3D11DeviceContext* This,ID3D11Predicate *pPredicate,WINBOOL PredicateValue) {
+    This->lpVtbl->SetPredication(This,pPredicate,PredicateValue);
+}
+static FORCEINLINE void ID3D11DeviceContext_GSSetShaderResources(ID3D11DeviceContext* This,UINT StartSlot,UINT NumViews,ID3D11ShaderResourceView *const *ppShaderResourceViews) {
+    This->lpVtbl->GSSetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews);
+}
+static FORCEINLINE void ID3D11DeviceContext_GSSetSamplers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumSamplers,ID3D11SamplerState *const *ppSamplers) {
+    This->lpVtbl->GSSetSamplers(This,StartSlot,NumSamplers,ppSamplers);
+}
+static FORCEINLINE void ID3D11DeviceContext_OMSetRenderTargets(ID3D11DeviceContext* This,UINT NumViews,ID3D11RenderTargetView *const *ppRenderTargetViews,ID3D11DepthStencilView *pDepthStencilView) {
+    This->lpVtbl->OMSetRenderTargets(This,NumViews,ppRenderTargetViews,pDepthStencilView);
+}
+static FORCEINLINE void ID3D11DeviceContext_OMSetRenderTargetsAndUnorderedAccessViews(ID3D11DeviceContext* This,UINT NumRTVs,ID3D11RenderTargetView *const *ppRenderTargetViews,ID3D11DepthStencilView *pDepthStencilView,UINT UAVStartSlot,UINT NumUAVs,ID3D11UnorderedAccessView *const *ppUnorderedAccessViews,const UINT *pUAVInitialCounts) {
+    This->lpVtbl->OMSetRenderTargetsAndUnorderedAccessViews(This,NumRTVs,ppRenderTargetViews,pDepthStencilView,UAVStartSlot,NumUAVs,ppUnorderedAccessViews,pUAVInitialCounts);
+}
+static FORCEINLINE void ID3D11DeviceContext_OMSetBlendState(ID3D11DeviceContext* This,ID3D11BlendState *pBlendState,const FLOAT BlendFactor[4],UINT SampleMask) {
+    This->lpVtbl->OMSetBlendState(This,pBlendState,BlendFactor,SampleMask);
+}
+static FORCEINLINE void ID3D11DeviceContext_OMSetDepthStencilState(ID3D11DeviceContext* This,ID3D11DepthStencilState *pDepthStencilState,UINT StencilRef) {
+    This->lpVtbl->OMSetDepthStencilState(This,pDepthStencilState,StencilRef);
+}
+static FORCEINLINE void ID3D11DeviceContext_SOSetTargets(ID3D11DeviceContext* This,UINT NumBuffers,ID3D11Buffer *const *ppSOTargets,const UINT *pOffsets) {
+    This->lpVtbl->SOSetTargets(This,NumBuffers,ppSOTargets,pOffsets);
+}
+static FORCEINLINE void ID3D11DeviceContext_DrawAuto(ID3D11DeviceContext* This) {
+    This->lpVtbl->DrawAuto(This);
+}
+static FORCEINLINE void ID3D11DeviceContext_DrawIndexedInstancedIndirect(ID3D11DeviceContext* This,ID3D11Buffer *pBufferForArgs,UINT AlignedByteOffsetForArgs) {
+    This->lpVtbl->DrawIndexedInstancedIndirect(This,pBufferForArgs,AlignedByteOffsetForArgs);
+}
+static FORCEINLINE void ID3D11DeviceContext_DrawInstancedIndirect(ID3D11DeviceContext* This,ID3D11Buffer *pBufferForArgs,UINT AlignedByteOffsetForArgs) {
+    This->lpVtbl->DrawInstancedIndirect(This,pBufferForArgs,AlignedByteOffsetForArgs);
+}
+static FORCEINLINE void ID3D11DeviceContext_Dispatch(ID3D11DeviceContext* This,UINT ThreadGroupCountX,UINT ThreadGroupCountY,UINT ThreadGroupCountZ) {
+    This->lpVtbl->Dispatch(This,ThreadGroupCountX,ThreadGroupCountY,ThreadGroupCountZ);
+}
+static FORCEINLINE void ID3D11DeviceContext_DispatchIndirect(ID3D11DeviceContext* This,ID3D11Buffer *pBufferForArgs,UINT AlignedByteOffsetForArgs) {
+    This->lpVtbl->DispatchIndirect(This,pBufferForArgs,AlignedByteOffsetForArgs);
+}
+static FORCEINLINE void ID3D11DeviceContext_RSSetState(ID3D11DeviceContext* This,ID3D11RasterizerState *pRasterizerState) {
+    This->lpVtbl->RSSetState(This,pRasterizerState);
+}
+static FORCEINLINE void ID3D11DeviceContext_RSSetViewports(ID3D11DeviceContext* This,UINT NumViewports,const D3D11_VIEWPORT *pViewports) {
+    This->lpVtbl->RSSetViewports(This,NumViewports,pViewports);
+}
+static FORCEINLINE void ID3D11DeviceContext_RSSetScissorRects(ID3D11DeviceContext* This,UINT NumRects,const D3D11_RECT *pRects) {
+    This->lpVtbl->RSSetScissorRects(This,NumRects,pRects);
+}
+static FORCEINLINE void ID3D11DeviceContext_CopySubresourceRegion(ID3D11DeviceContext* This,ID3D11Resource *pDstResource,UINT DstSubresource,UINT DstX,UINT DstY,UINT DstZ,ID3D11Resource *pSrcResource,UINT SrcSubresource,const D3D11_BOX *pSrcBox) {
+    This->lpVtbl->CopySubresourceRegion(This,pDstResource,DstSubresource,DstX,DstY,DstZ,pSrcResource,SrcSubresource,pSrcBox);
+}
+static FORCEINLINE void ID3D11DeviceContext_CopyResource(ID3D11DeviceContext* This,ID3D11Resource *pDstResource,ID3D11Resource *pSrcResource) {
+    This->lpVtbl->CopyResource(This,pDstResource,pSrcResource);
+}
+static FORCEINLINE void ID3D11DeviceContext_UpdateSubresource(ID3D11DeviceContext* This,ID3D11Resource *pDstResource,UINT DstSubresource,const D3D11_BOX *pDstBox,const void *pSrcData,UINT SrcRowPitch,UINT SrcDepthPitch) {
+    This->lpVtbl->UpdateSubresource(This,pDstResource,DstSubresource,pDstBox,pSrcData,SrcRowPitch,SrcDepthPitch);
+}
+static FORCEINLINE void ID3D11DeviceContext_CopyStructureCount(ID3D11DeviceContext* This,ID3D11Buffer *pDstBuffer,UINT DstAlignedByteOffset,ID3D11UnorderedAccessView *pSrcView) {
+    This->lpVtbl->CopyStructureCount(This,pDstBuffer,DstAlignedByteOffset,pSrcView);
+}
+static FORCEINLINE void ID3D11DeviceContext_ClearRenderTargetView(ID3D11DeviceContext* This,ID3D11RenderTargetView *pRenderTargetView,const FLOAT ColorRGBA[4]) {
+    This->lpVtbl->ClearRenderTargetView(This,pRenderTargetView,ColorRGBA);
+}
+static FORCEINLINE void ID3D11DeviceContext_ClearUnorderedAccessViewUint(ID3D11DeviceContext* This,ID3D11UnorderedAccessView *pUnorderedAccessView,const UINT Values[4]) {
+    This->lpVtbl->ClearUnorderedAccessViewUint(This,pUnorderedAccessView,Values);
+}
+static FORCEINLINE void ID3D11DeviceContext_ClearUnorderedAccessViewFloat(ID3D11DeviceContext* This,ID3D11UnorderedAccessView *pUnorderedAccessView,const FLOAT Values[4]) {
+    This->lpVtbl->ClearUnorderedAccessViewFloat(This,pUnorderedAccessView,Values);
+}
+static FORCEINLINE void ID3D11DeviceContext_ClearDepthStencilView(ID3D11DeviceContext* This,ID3D11DepthStencilView *pDepthStencilView,UINT ClearFlags,FLOAT Depth,UINT8 Stencil) {
+    This->lpVtbl->ClearDepthStencilView(This,pDepthStencilView,ClearFlags,Depth,Stencil);
+}
+static FORCEINLINE void ID3D11DeviceContext_GenerateMips(ID3D11DeviceContext* This,ID3D11ShaderResourceView *pShaderResourceView) {
+    This->lpVtbl->GenerateMips(This,pShaderResourceView);
+}
+static FORCEINLINE void ID3D11DeviceContext_SetResourceMinLOD(ID3D11DeviceContext* This,ID3D11Resource *pResource,FLOAT MinLOD) {
+    This->lpVtbl->SetResourceMinLOD(This,pResource,MinLOD);
+}
+static FORCEINLINE FLOAT ID3D11DeviceContext_GetResourceMinLOD(ID3D11DeviceContext* This,ID3D11Resource *pResource) {
+    return This->lpVtbl->GetResourceMinLOD(This,pResource);
+}
+static FORCEINLINE void ID3D11DeviceContext_ResolveSubresource(ID3D11DeviceContext* This,ID3D11Resource *pDstResource,UINT DstSubresource,ID3D11Resource *pSrcResource,UINT SrcSubresource,DXGI_FORMAT Format) {
+    This->lpVtbl->ResolveSubresource(This,pDstResource,DstSubresource,pSrcResource,SrcSubresource,Format);
+}
+static FORCEINLINE void ID3D11DeviceContext_ExecuteCommandList(ID3D11DeviceContext* This,ID3D11CommandList *pCommandList,WINBOOL RestoreContextState) {
+    This->lpVtbl->ExecuteCommandList(This,pCommandList,RestoreContextState);
+}
+static FORCEINLINE void ID3D11DeviceContext_HSSetShaderResources(ID3D11DeviceContext* This,UINT StartSlot,UINT NumViews,ID3D11ShaderResourceView *const *ppShaderResourceViews) {
+    This->lpVtbl->HSSetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews);
+}
+static FORCEINLINE void ID3D11DeviceContext_HSSetShader(ID3D11DeviceContext* This,ID3D11HullShader *pHullShader,ID3D11ClassInstance *const *ppClassInstances,UINT NumClassInstances) {
+    This->lpVtbl->HSSetShader(This,pHullShader,ppClassInstances,NumClassInstances);
+}
+static FORCEINLINE void ID3D11DeviceContext_HSSetSamplers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumSamplers,ID3D11SamplerState *const *ppSamplers) {
+    This->lpVtbl->HSSetSamplers(This,StartSlot,NumSamplers,ppSamplers);
+}
+static FORCEINLINE void ID3D11DeviceContext_HSSetConstantBuffers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumBuffers,ID3D11Buffer *const *ppConstantBuffers) {
+    This->lpVtbl->HSSetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers);
+}
+static FORCEINLINE void ID3D11DeviceContext_DSSetShaderResources(ID3D11DeviceContext* This,UINT StartSlot,UINT NumViews,ID3D11ShaderResourceView *const *ppShaderResourceViews) {
+    This->lpVtbl->DSSetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews);
+}
+static FORCEINLINE void ID3D11DeviceContext_DSSetShader(ID3D11DeviceContext* This,ID3D11DomainShader *pDomainShader,ID3D11ClassInstance *const *ppClassInstances,UINT NumClassInstances) {
+    This->lpVtbl->DSSetShader(This,pDomainShader,ppClassInstances,NumClassInstances);
+}
+static FORCEINLINE void ID3D11DeviceContext_DSSetSamplers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumSamplers,ID3D11SamplerState *const *ppSamplers) {
+    This->lpVtbl->DSSetSamplers(This,StartSlot,NumSamplers,ppSamplers);
+}
+static FORCEINLINE void ID3D11DeviceContext_DSSetConstantBuffers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumBuffers,ID3D11Buffer *const *ppConstantBuffers) {
+    This->lpVtbl->DSSetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers);
+}
+static FORCEINLINE void ID3D11DeviceContext_CSSetShaderResources(ID3D11DeviceContext* This,UINT StartSlot,UINT NumViews,ID3D11ShaderResourceView *const *ppShaderResourceViews) {
+    This->lpVtbl->CSSetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews);
+}
+static FORCEINLINE void ID3D11DeviceContext_CSSetUnorderedAccessViews(ID3D11DeviceContext* This,UINT StartSlot,UINT NumUAVs,ID3D11UnorderedAccessView *const *ppUnorderedAccessViews,const UINT *pUAVInitialCounts) {
+    This->lpVtbl->CSSetUnorderedAccessViews(This,StartSlot,NumUAVs,ppUnorderedAccessViews,pUAVInitialCounts);
+}
+static FORCEINLINE void ID3D11DeviceContext_CSSetShader(ID3D11DeviceContext* This,ID3D11ComputeShader *pComputeShader,ID3D11ClassInstance *const *ppClassInstances,UINT NumClassInstances) {
+    This->lpVtbl->CSSetShader(This,pComputeShader,ppClassInstances,NumClassInstances);
+}
+static FORCEINLINE void ID3D11DeviceContext_CSSetSamplers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumSamplers,ID3D11SamplerState *const *ppSamplers) {
+    This->lpVtbl->CSSetSamplers(This,StartSlot,NumSamplers,ppSamplers);
+}
+static FORCEINLINE void ID3D11DeviceContext_CSSetConstantBuffers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumBuffers,ID3D11Buffer *const *ppConstantBuffers) {
+    This->lpVtbl->CSSetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers);
+}
+static FORCEINLINE void ID3D11DeviceContext_VSGetConstantBuffers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumBuffers,ID3D11Buffer **ppConstantBuffers) {
+    This->lpVtbl->VSGetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers);
+}
+static FORCEINLINE void ID3D11DeviceContext_PSGetShaderResources(ID3D11DeviceContext* This,UINT StartSlot,UINT NumViews,ID3D11ShaderResourceView **ppShaderResourceViews) {
+    This->lpVtbl->PSGetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews);
+}
+static FORCEINLINE void ID3D11DeviceContext_PSGetShader(ID3D11DeviceContext* This,ID3D11PixelShader **ppPixelShader,ID3D11ClassInstance **ppClassInstances,UINT *pNumClassInstances) {
+    This->lpVtbl->PSGetShader(This,ppPixelShader,ppClassInstances,pNumClassInstances);
+}
+static FORCEINLINE void ID3D11DeviceContext_PSGetSamplers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumSamplers,ID3D11SamplerState **ppSamplers) {
+    This->lpVtbl->PSGetSamplers(This,StartSlot,NumSamplers,ppSamplers);
+}
+static FORCEINLINE void ID3D11DeviceContext_VSGetShader(ID3D11DeviceContext* This,ID3D11VertexShader **ppVertexShader,ID3D11ClassInstance **ppClassInstances,UINT *pNumClassInstances) {
+    This->lpVtbl->VSGetShader(This,ppVertexShader,ppClassInstances,pNumClassInstances);
+}
+static FORCEINLINE void ID3D11DeviceContext_PSGetConstantBuffers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumBuffers,ID3D11Buffer **ppConstantBuffers) {
+    This->lpVtbl->PSGetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers);
+}
+static FORCEINLINE void ID3D11DeviceContext_IAGetInputLayout(ID3D11DeviceContext* This,ID3D11InputLayout **ppInputLayout) {
+    This->lpVtbl->IAGetInputLayout(This,ppInputLayout);
+}
+static FORCEINLINE void ID3D11DeviceContext_IAGetVertexBuffers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumBuffers,ID3D11Buffer **ppVertexBuffers,UINT *pStrides,UINT *pOffsets) {
+    This->lpVtbl->IAGetVertexBuffers(This,StartSlot,NumBuffers,ppVertexBuffers,pStrides,pOffsets);
+}
+static FORCEINLINE void ID3D11DeviceContext_IAGetIndexBuffer(ID3D11DeviceContext* This,ID3D11Buffer **pIndexBuffer,DXGI_FORMAT *Format,UINT *Offset) {
+    This->lpVtbl->IAGetIndexBuffer(This,pIndexBuffer,Format,Offset);
+}
+static FORCEINLINE void ID3D11DeviceContext_GSGetConstantBuffers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumBuffers,ID3D11Buffer **ppConstantBuffers) {
+    This->lpVtbl->GSGetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers);
+}
+static FORCEINLINE void ID3D11DeviceContext_GSGetShader(ID3D11DeviceContext* This,ID3D11GeometryShader **ppGeometryShader,ID3D11ClassInstance **ppClassInstances,UINT *pNumClassInstances) {
+    This->lpVtbl->GSGetShader(This,ppGeometryShader,ppClassInstances,pNumClassInstances);
+}
+static FORCEINLINE void ID3D11DeviceContext_IAGetPrimitiveTopology(ID3D11DeviceContext* This,D3D11_PRIMITIVE_TOPOLOGY *pTopology) {
+    This->lpVtbl->IAGetPrimitiveTopology(This,pTopology);
+}
+static FORCEINLINE void ID3D11DeviceContext_VSGetShaderResources(ID3D11DeviceContext* This,UINT StartSlot,UINT NumViews,ID3D11ShaderResourceView **ppShaderResourceViews) {
+    This->lpVtbl->VSGetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews);
+}
+static FORCEINLINE void ID3D11DeviceContext_VSGetSamplers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumSamplers,ID3D11SamplerState **ppSamplers) {
+    This->lpVtbl->VSGetSamplers(This,StartSlot,NumSamplers,ppSamplers);
+}
+static FORCEINLINE void ID3D11DeviceContext_GetPredication(ID3D11DeviceContext* This,ID3D11Predicate **ppPredicate,WINBOOL *pPredicateValue) {
+    This->lpVtbl->GetPredication(This,ppPredicate,pPredicateValue);
+}
+static FORCEINLINE void ID3D11DeviceContext_GSGetShaderResources(ID3D11DeviceContext* This,UINT StartSlot,UINT NumViews,ID3D11ShaderResourceView **ppShaderResourceViews) {
+    This->lpVtbl->GSGetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews);
+}
+static FORCEINLINE void ID3D11DeviceContext_GSGetSamplers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumSamplers,ID3D11SamplerState **ppSamplers) {
+    This->lpVtbl->GSGetSamplers(This,StartSlot,NumSamplers,ppSamplers);
+}
+static FORCEINLINE void ID3D11DeviceContext_OMGetRenderTargets(ID3D11DeviceContext* This,UINT NumViews,ID3D11RenderTargetView **ppRenderTargetViews,ID3D11DepthStencilView **ppDepthStencilView) {
+    This->lpVtbl->OMGetRenderTargets(This,NumViews,ppRenderTargetViews,ppDepthStencilView);
+}
+static FORCEINLINE void ID3D11DeviceContext_OMGetRenderTargetsAndUnorderedAccessViews(ID3D11DeviceContext* This,UINT NumRTVs,ID3D11RenderTargetView **ppRenderTargetViews,ID3D11DepthStencilView **ppDepthStencilView,UINT UAVStartSlot,UINT NumUAVs,ID3D11UnorderedAccessView **ppUnorderedAccessViews) {
+    This->lpVtbl->OMGetRenderTargetsAndUnorderedAccessViews(This,NumRTVs,ppRenderTargetViews,ppDepthStencilView,UAVStartSlot,NumUAVs,ppUnorderedAccessViews);
+}
+static FORCEINLINE void ID3D11DeviceContext_OMGetBlendState(ID3D11DeviceContext* This,ID3D11BlendState **ppBlendState,FLOAT BlendFactor[4],UINT *pSampleMask) {
+    This->lpVtbl->OMGetBlendState(This,ppBlendState,BlendFactor,pSampleMask);
+}
+static FORCEINLINE void ID3D11DeviceContext_OMGetDepthStencilState(ID3D11DeviceContext* This,ID3D11DepthStencilState **ppDepthStencilState,UINT *pStencilRef) {
+    This->lpVtbl->OMGetDepthStencilState(This,ppDepthStencilState,pStencilRef);
+}
+static FORCEINLINE void ID3D11DeviceContext_SOGetTargets(ID3D11DeviceContext* This,UINT NumBuffers,ID3D11Buffer **ppSOTargets) {
+    This->lpVtbl->SOGetTargets(This,NumBuffers,ppSOTargets);
+}
+static FORCEINLINE void ID3D11DeviceContext_RSGetState(ID3D11DeviceContext* This,ID3D11RasterizerState **ppRasterizerState) {
+    This->lpVtbl->RSGetState(This,ppRasterizerState);
+}
+static FORCEINLINE void ID3D11DeviceContext_RSGetViewports(ID3D11DeviceContext* This,UINT *pNumViewports,D3D11_VIEWPORT *pViewports) {
+    This->lpVtbl->RSGetViewports(This,pNumViewports,pViewports);
+}
+static FORCEINLINE void ID3D11DeviceContext_RSGetScissorRects(ID3D11DeviceContext* This,UINT *pNumRects,D3D11_RECT *pRects) {
+    This->lpVtbl->RSGetScissorRects(This,pNumRects,pRects);
+}
+static FORCEINLINE void ID3D11DeviceContext_HSGetShaderResources(ID3D11DeviceContext* This,UINT StartSlot,UINT NumViews,ID3D11ShaderResourceView **ppShaderResourceViews) {
+    This->lpVtbl->HSGetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews);
+}
+static FORCEINLINE void ID3D11DeviceContext_HSGetShader(ID3D11DeviceContext* This,ID3D11HullShader **ppHullShader,ID3D11ClassInstance **ppClassInstances,UINT *pNumClassInstances) {
+    This->lpVtbl->HSGetShader(This,ppHullShader,ppClassInstances,pNumClassInstances);
+}
+static FORCEINLINE void ID3D11DeviceContext_HSGetSamplers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumSamplers,ID3D11SamplerState **ppSamplers) {
+    This->lpVtbl->HSGetSamplers(This,StartSlot,NumSamplers,ppSamplers);
+}
+static FORCEINLINE void ID3D11DeviceContext_HSGetConstantBuffers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumBuffers,ID3D11Buffer **ppConstantBuffers) {
+    This->lpVtbl->HSGetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers);
+}
+static FORCEINLINE void ID3D11DeviceContext_DSGetShaderResources(ID3D11DeviceContext* This,UINT StartSlot,UINT NumViews,ID3D11ShaderResourceView **ppShaderResourceViews) {
+    This->lpVtbl->DSGetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews);
+}
+static FORCEINLINE void ID3D11DeviceContext_DSGetShader(ID3D11DeviceContext* This,ID3D11DomainShader **ppDomainShader,ID3D11ClassInstance **ppClassInstances,UINT *pNumClassInstances) {
+    This->lpVtbl->DSGetShader(This,ppDomainShader,ppClassInstances,pNumClassInstances);
+}
+static FORCEINLINE void ID3D11DeviceContext_DSGetSamplers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumSamplers,ID3D11SamplerState **ppSamplers) {
+    This->lpVtbl->DSGetSamplers(This,StartSlot,NumSamplers,ppSamplers);
+}
+static FORCEINLINE void ID3D11DeviceContext_DSGetConstantBuffers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumBuffers,ID3D11Buffer **ppConstantBuffers) {
+    This->lpVtbl->DSGetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers);
+}
+static FORCEINLINE void ID3D11DeviceContext_CSGetShaderResources(ID3D11DeviceContext* This,UINT StartSlot,UINT NumViews,ID3D11ShaderResourceView **ppShaderResourceViews) {
+    This->lpVtbl->CSGetShaderResources(This,StartSlot,NumViews,ppShaderResourceViews);
+}
+static FORCEINLINE void ID3D11DeviceContext_CSGetUnorderedAccessViews(ID3D11DeviceContext* This,UINT StartSlot,UINT NumUAVs,ID3D11UnorderedAccessView **ppUnorderedAccessViews) {
+    This->lpVtbl->CSGetUnorderedAccessViews(This,StartSlot,NumUAVs,ppUnorderedAccessViews);
+}
+static FORCEINLINE void ID3D11DeviceContext_CSGetShader(ID3D11DeviceContext* This,ID3D11ComputeShader **ppComputeShader,ID3D11ClassInstance **ppClassInstances,UINT *pNumClassInstances) {
+    This->lpVtbl->CSGetShader(This,ppComputeShader,ppClassInstances,pNumClassInstances);
+}
+static FORCEINLINE void ID3D11DeviceContext_CSGetSamplers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumSamplers,ID3D11SamplerState **ppSamplers) {
+    This->lpVtbl->CSGetSamplers(This,StartSlot,NumSamplers,ppSamplers);
+}
+static FORCEINLINE void ID3D11DeviceContext_CSGetConstantBuffers(ID3D11DeviceContext* This,UINT StartSlot,UINT NumBuffers,ID3D11Buffer **ppConstantBuffers) {
+    This->lpVtbl->CSGetConstantBuffers(This,StartSlot,NumBuffers,ppConstantBuffers);
+}
+static FORCEINLINE void ID3D11DeviceContext_ClearState(ID3D11DeviceContext* This) {
+    This->lpVtbl->ClearState(This);
+}
+static FORCEINLINE void ID3D11DeviceContext_Flush(ID3D11DeviceContext* This) {
+    This->lpVtbl->Flush(This);
+}
+static FORCEINLINE D3D11_DEVICE_CONTEXT_TYPE ID3D11DeviceContext_GetType(ID3D11DeviceContext* This) {
+    return This->lpVtbl->GetType(This);
+}
+static FORCEINLINE UINT ID3D11DeviceContext_GetContextFlags(ID3D11DeviceContext* This) {
+    return This->lpVtbl->GetContextFlags(This);
+}
+static FORCEINLINE HRESULT ID3D11DeviceContext_FinishCommandList(ID3D11DeviceContext* This,WINBOOL RestoreDeferredContextState,ID3D11CommandList **ppCommandList) {
+    return This->lpVtbl->FinishCommandList(This,RestoreDeferredContextState,ppCommandList);
+}
+#endif
+#endif
+
+#endif
+
+void STDMETHODCALLTYPE ID3D11DeviceContext_VSSetConstantBuffers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumBuffers,
+    ID3D11Buffer *const *ppConstantBuffers);
+void __RPC_STUB ID3D11DeviceContext_VSSetConstantBuffers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_PSSetShaderResources_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumViews,
+    ID3D11ShaderResourceView *const *ppShaderResourceViews);
+void __RPC_STUB ID3D11DeviceContext_PSSetShaderResources_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_PSSetShader_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11PixelShader *pPixelShader,
+    ID3D11ClassInstance *const *ppClassInstances,
+    UINT NumClassInstances);
+void __RPC_STUB ID3D11DeviceContext_PSSetShader_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_PSSetSamplers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumSamplers,
+    ID3D11SamplerState *const *ppSamplers);
+void __RPC_STUB ID3D11DeviceContext_PSSetSamplers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_VSSetShader_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11VertexShader *pVertexShader,
+    ID3D11ClassInstance *const *ppClassInstances,
+    UINT NumClassInstances);
+void __RPC_STUB ID3D11DeviceContext_VSSetShader_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_DrawIndexed_Proxy(
+    ID3D11DeviceContext* This,
+    UINT IndexCount,
+    UINT StartIndexLocation,
+    INT BaseVertexLocation);
+void __RPC_STUB ID3D11DeviceContext_DrawIndexed_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_Draw_Proxy(
+    ID3D11DeviceContext* This,
+    UINT VertexCount,
+    UINT StartVertexLocation);
+void __RPC_STUB ID3D11DeviceContext_Draw_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11DeviceContext_Map_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11Resource *pResource,
+    UINT Subresource,
+    D3D11_MAP MapType,
+    UINT MapFlags,
+    D3D11_MAPPED_SUBRESOURCE *pMappedResource);
+void __RPC_STUB ID3D11DeviceContext_Map_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_Unmap_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11Resource *pResource,
+    UINT Subresource);
+void __RPC_STUB ID3D11DeviceContext_Unmap_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_PSSetConstantBuffers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumBuffers,
+    ID3D11Buffer *const *ppConstantBuffers);
+void __RPC_STUB ID3D11DeviceContext_PSSetConstantBuffers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_IASetInputLayout_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11InputLayout *pInputLayout);
+void __RPC_STUB ID3D11DeviceContext_IASetInputLayout_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_IASetVertexBuffers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumBuffers,
+    ID3D11Buffer *const *ppVertexBuffers,
+    const UINT *pStrides,
+    const UINT *pOffsets);
+void __RPC_STUB ID3D11DeviceContext_IASetVertexBuffers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_IASetIndexBuffer_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11Buffer *pIndexBuffer,
+    DXGI_FORMAT Format,
+    UINT Offset);
+void __RPC_STUB ID3D11DeviceContext_IASetIndexBuffer_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_DrawIndexedInstanced_Proxy(
+    ID3D11DeviceContext* This,
+    UINT IndexCountPerInstance,
+    UINT InstanceCount,
+    UINT StartIndexLocation,
+    INT BaseVertexLocation,
+    UINT StartInstanceLocation);
+void __RPC_STUB ID3D11DeviceContext_DrawIndexedInstanced_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_DrawInstanced_Proxy(
+    ID3D11DeviceContext* This,
+    UINT VertexCountPerInstance,
+    UINT InstanceCount,
+    UINT StartVertexLocation,
+    UINT StartInstanceLocation);
+void __RPC_STUB ID3D11DeviceContext_DrawInstanced_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_GSSetConstantBuffers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumBuffers,
+    ID3D11Buffer *const *ppConstantBuffers);
+void __RPC_STUB ID3D11DeviceContext_GSSetConstantBuffers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_GSSetShader_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11GeometryShader *pShader,
+    ID3D11ClassInstance *const *ppClassInstances,
+    UINT NumClassInstances);
+void __RPC_STUB ID3D11DeviceContext_GSSetShader_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_IASetPrimitiveTopology_Proxy(
+    ID3D11DeviceContext* This,
+    D3D11_PRIMITIVE_TOPOLOGY Topology);
+void __RPC_STUB ID3D11DeviceContext_IASetPrimitiveTopology_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_VSSetShaderResources_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumViews,
+    ID3D11ShaderResourceView *const *ppShaderResourceViews);
+void __RPC_STUB ID3D11DeviceContext_VSSetShaderResources_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_VSSetSamplers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumSamplers,
+    ID3D11SamplerState *const *ppSamplers);
+void __RPC_STUB ID3D11DeviceContext_VSSetSamplers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_Begin_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11Asynchronous *pAsync);
+void __RPC_STUB ID3D11DeviceContext_Begin_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_End_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11Asynchronous *pAsync);
+void __RPC_STUB ID3D11DeviceContext_End_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11DeviceContext_GetData_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11Asynchronous *pAsync,
+    void *pData,
+    UINT DataSize,
+    UINT GetDataFlags);
+void __RPC_STUB ID3D11DeviceContext_GetData_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_SetPredication_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11Predicate *pPredicate,
+    WINBOOL PredicateValue);
+void __RPC_STUB ID3D11DeviceContext_SetPredication_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_GSSetShaderResources_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumViews,
+    ID3D11ShaderResourceView *const *ppShaderResourceViews);
+void __RPC_STUB ID3D11DeviceContext_GSSetShaderResources_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_GSSetSamplers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumSamplers,
+    ID3D11SamplerState *const *ppSamplers);
+void __RPC_STUB ID3D11DeviceContext_GSSetSamplers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_OMSetRenderTargets_Proxy(
+    ID3D11DeviceContext* This,
+    UINT NumViews,
+    ID3D11RenderTargetView *const *ppRenderTargetViews,
+    ID3D11DepthStencilView *pDepthStencilView);
+void __RPC_STUB ID3D11DeviceContext_OMSetRenderTargets_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_OMSetRenderTargetsAndUnorderedAccessViews_Proxy(
+    ID3D11DeviceContext* This,
+    UINT NumRTVs,
+    ID3D11RenderTargetView *const *ppRenderTargetViews,
+    ID3D11DepthStencilView *pDepthStencilView,
+    UINT UAVStartSlot,
+    UINT NumUAVs,
+    ID3D11UnorderedAccessView *const *ppUnorderedAccessViews,
+    const UINT *pUAVInitialCounts);
+void __RPC_STUB ID3D11DeviceContext_OMSetRenderTargetsAndUnorderedAccessViews_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_OMSetBlendState_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11BlendState *pBlendState,
+    const FLOAT BlendFactor[4],
+    UINT SampleMask);
+void __RPC_STUB ID3D11DeviceContext_OMSetBlendState_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_OMSetDepthStencilState_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11DepthStencilState *pDepthStencilState,
+    UINT StencilRef);
+void __RPC_STUB ID3D11DeviceContext_OMSetDepthStencilState_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_SOSetTargets_Proxy(
+    ID3D11DeviceContext* This,
+    UINT NumBuffers,
+    ID3D11Buffer *const *ppSOTargets,
+    const UINT *pOffsets);
+void __RPC_STUB ID3D11DeviceContext_SOSetTargets_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_DrawAuto_Proxy(
+    ID3D11DeviceContext* This);
+void __RPC_STUB ID3D11DeviceContext_DrawAuto_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_DrawIndexedInstancedIndirect_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11Buffer *pBufferForArgs,
+    UINT AlignedByteOffsetForArgs);
+void __RPC_STUB ID3D11DeviceContext_DrawIndexedInstancedIndirect_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_DrawInstancedIndirect_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11Buffer *pBufferForArgs,
+    UINT AlignedByteOffsetForArgs);
+void __RPC_STUB ID3D11DeviceContext_DrawInstancedIndirect_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_Dispatch_Proxy(
+    ID3D11DeviceContext* This,
+    UINT ThreadGroupCountX,
+    UINT ThreadGroupCountY,
+    UINT ThreadGroupCountZ);
+void __RPC_STUB ID3D11DeviceContext_Dispatch_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_DispatchIndirect_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11Buffer *pBufferForArgs,
+    UINT AlignedByteOffsetForArgs);
+void __RPC_STUB ID3D11DeviceContext_DispatchIndirect_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_RSSetState_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11RasterizerState *pRasterizerState);
+void __RPC_STUB ID3D11DeviceContext_RSSetState_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_RSSetViewports_Proxy(
+    ID3D11DeviceContext* This,
+    UINT NumViewports,
+    const D3D11_VIEWPORT *pViewports);
+void __RPC_STUB ID3D11DeviceContext_RSSetViewports_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_RSSetScissorRects_Proxy(
+    ID3D11DeviceContext* This,
+    UINT NumRects,
+    const D3D11_RECT *pRects);
+void __RPC_STUB ID3D11DeviceContext_RSSetScissorRects_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_CopySubresourceRegion_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11Resource *pDstResource,
+    UINT DstSubresource,
+    UINT DstX,
+    UINT DstY,
+    UINT DstZ,
+    ID3D11Resource *pSrcResource,
+    UINT SrcSubresource,
+    const D3D11_BOX *pSrcBox);
+void __RPC_STUB ID3D11DeviceContext_CopySubresourceRegion_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_CopyResource_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11Resource *pDstResource,
+    ID3D11Resource *pSrcResource);
+void __RPC_STUB ID3D11DeviceContext_CopyResource_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_UpdateSubresource_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11Resource *pDstResource,
+    UINT DstSubresource,
+    const D3D11_BOX *pDstBox,
+    const void *pSrcData,
+    UINT SrcRowPitch,
+    UINT SrcDepthPitch);
+void __RPC_STUB ID3D11DeviceContext_UpdateSubresource_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_CopyStructureCount_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11Buffer *pDstBuffer,
+    UINT DstAlignedByteOffset,
+    ID3D11UnorderedAccessView *pSrcView);
+void __RPC_STUB ID3D11DeviceContext_CopyStructureCount_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_ClearRenderTargetView_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11RenderTargetView *pRenderTargetView,
+    const FLOAT ColorRGBA[4]);
+void __RPC_STUB ID3D11DeviceContext_ClearRenderTargetView_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_ClearUnorderedAccessViewUint_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11UnorderedAccessView *pUnorderedAccessView,
+    const UINT Values[4]);
+void __RPC_STUB ID3D11DeviceContext_ClearUnorderedAccessViewUint_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_ClearUnorderedAccessViewFloat_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11UnorderedAccessView *pUnorderedAccessView,
+    const FLOAT Values[4]);
+void __RPC_STUB ID3D11DeviceContext_ClearUnorderedAccessViewFloat_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_ClearDepthStencilView_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11DepthStencilView *pDepthStencilView,
+    UINT ClearFlags,
+    FLOAT Depth,
+    UINT8 Stencil);
+void __RPC_STUB ID3D11DeviceContext_ClearDepthStencilView_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_GenerateMips_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11ShaderResourceView *pShaderResourceView);
+void __RPC_STUB ID3D11DeviceContext_GenerateMips_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_SetResourceMinLOD_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11Resource *pResource,
+    FLOAT MinLOD);
+void __RPC_STUB ID3D11DeviceContext_SetResourceMinLOD_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+FLOAT STDMETHODCALLTYPE ID3D11DeviceContext_GetResourceMinLOD_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11Resource *pResource);
+void __RPC_STUB ID3D11DeviceContext_GetResourceMinLOD_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_ResolveSubresource_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11Resource *pDstResource,
+    UINT DstSubresource,
+    ID3D11Resource *pSrcResource,
+    UINT SrcSubresource,
+    DXGI_FORMAT Format);
+void __RPC_STUB ID3D11DeviceContext_ResolveSubresource_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_ExecuteCommandList_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11CommandList *pCommandList,
+    WINBOOL RestoreContextState);
+void __RPC_STUB ID3D11DeviceContext_ExecuteCommandList_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_HSSetShaderResources_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumViews,
+    ID3D11ShaderResourceView *const *ppShaderResourceViews);
+void __RPC_STUB ID3D11DeviceContext_HSSetShaderResources_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_HSSetShader_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11HullShader *pHullShader,
+    ID3D11ClassInstance *const *ppClassInstances,
+    UINT NumClassInstances);
+void __RPC_STUB ID3D11DeviceContext_HSSetShader_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_HSSetSamplers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumSamplers,
+    ID3D11SamplerState *const *ppSamplers);
+void __RPC_STUB ID3D11DeviceContext_HSSetSamplers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_HSSetConstantBuffers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumBuffers,
+    ID3D11Buffer *const *ppConstantBuffers);
+void __RPC_STUB ID3D11DeviceContext_HSSetConstantBuffers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_DSSetShaderResources_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumViews,
+    ID3D11ShaderResourceView *const *ppShaderResourceViews);
+void __RPC_STUB ID3D11DeviceContext_DSSetShaderResources_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_DSSetShader_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11DomainShader *pDomainShader,
+    ID3D11ClassInstance *const *ppClassInstances,
+    UINT NumClassInstances);
+void __RPC_STUB ID3D11DeviceContext_DSSetShader_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_DSSetSamplers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumSamplers,
+    ID3D11SamplerState *const *ppSamplers);
+void __RPC_STUB ID3D11DeviceContext_DSSetSamplers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_DSSetConstantBuffers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumBuffers,
+    ID3D11Buffer *const *ppConstantBuffers);
+void __RPC_STUB ID3D11DeviceContext_DSSetConstantBuffers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_CSSetShaderResources_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumViews,
+    ID3D11ShaderResourceView *const *ppShaderResourceViews);
+void __RPC_STUB ID3D11DeviceContext_CSSetShaderResources_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_CSSetUnorderedAccessViews_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumUAVs,
+    ID3D11UnorderedAccessView *const *ppUnorderedAccessViews,
+    const UINT *pUAVInitialCounts);
+void __RPC_STUB ID3D11DeviceContext_CSSetUnorderedAccessViews_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_CSSetShader_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11ComputeShader *pComputeShader,
+    ID3D11ClassInstance *const *ppClassInstances,
+    UINT NumClassInstances);
+void __RPC_STUB ID3D11DeviceContext_CSSetShader_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_CSSetSamplers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumSamplers,
+    ID3D11SamplerState *const *ppSamplers);
+void __RPC_STUB ID3D11DeviceContext_CSSetSamplers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_CSSetConstantBuffers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumBuffers,
+    ID3D11Buffer *const *ppConstantBuffers);
+void __RPC_STUB ID3D11DeviceContext_CSSetConstantBuffers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_VSGetConstantBuffers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumBuffers,
+    ID3D11Buffer **ppConstantBuffers);
+void __RPC_STUB ID3D11DeviceContext_VSGetConstantBuffers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_PSGetShaderResources_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumViews,
+    ID3D11ShaderResourceView **ppShaderResourceViews);
+void __RPC_STUB ID3D11DeviceContext_PSGetShaderResources_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_PSGetShader_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11PixelShader **ppPixelShader,
+    ID3D11ClassInstance **ppClassInstances,
+    UINT *pNumClassInstances);
+void __RPC_STUB ID3D11DeviceContext_PSGetShader_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_PSGetSamplers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumSamplers,
+    ID3D11SamplerState **ppSamplers);
+void __RPC_STUB ID3D11DeviceContext_PSGetSamplers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_VSGetShader_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11VertexShader **ppVertexShader,
+    ID3D11ClassInstance **ppClassInstances,
+    UINT *pNumClassInstances);
+void __RPC_STUB ID3D11DeviceContext_VSGetShader_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_PSGetConstantBuffers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumBuffers,
+    ID3D11Buffer **ppConstantBuffers);
+void __RPC_STUB ID3D11DeviceContext_PSGetConstantBuffers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_IAGetInputLayout_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11InputLayout **ppInputLayout);
+void __RPC_STUB ID3D11DeviceContext_IAGetInputLayout_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_IAGetVertexBuffers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumBuffers,
+    ID3D11Buffer **ppVertexBuffers,
+    UINT *pStrides,
+    UINT *pOffsets);
+void __RPC_STUB ID3D11DeviceContext_IAGetVertexBuffers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_IAGetIndexBuffer_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11Buffer **pIndexBuffer,
+    DXGI_FORMAT *Format,
+    UINT *Offset);
+void __RPC_STUB ID3D11DeviceContext_IAGetIndexBuffer_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_GSGetConstantBuffers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumBuffers,
+    ID3D11Buffer **ppConstantBuffers);
+void __RPC_STUB ID3D11DeviceContext_GSGetConstantBuffers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_GSGetShader_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11GeometryShader **ppGeometryShader,
+    ID3D11ClassInstance **ppClassInstances,
+    UINT *pNumClassInstances);
+void __RPC_STUB ID3D11DeviceContext_GSGetShader_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_IAGetPrimitiveTopology_Proxy(
+    ID3D11DeviceContext* This,
+    D3D11_PRIMITIVE_TOPOLOGY *pTopology);
+void __RPC_STUB ID3D11DeviceContext_IAGetPrimitiveTopology_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_VSGetShaderResources_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumViews,
+    ID3D11ShaderResourceView **ppShaderResourceViews);
+void __RPC_STUB ID3D11DeviceContext_VSGetShaderResources_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_VSGetSamplers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumSamplers,
+    ID3D11SamplerState **ppSamplers);
+void __RPC_STUB ID3D11DeviceContext_VSGetSamplers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_GetPredication_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11Predicate **ppPredicate,
+    WINBOOL *pPredicateValue);
+void __RPC_STUB ID3D11DeviceContext_GetPredication_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_GSGetShaderResources_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumViews,
+    ID3D11ShaderResourceView **ppShaderResourceViews);
+void __RPC_STUB ID3D11DeviceContext_GSGetShaderResources_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_GSGetSamplers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumSamplers,
+    ID3D11SamplerState **ppSamplers);
+void __RPC_STUB ID3D11DeviceContext_GSGetSamplers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_OMGetRenderTargets_Proxy(
+    ID3D11DeviceContext* This,
+    UINT NumViews,
+    ID3D11RenderTargetView **ppRenderTargetViews,
+    ID3D11DepthStencilView **ppDepthStencilView);
+void __RPC_STUB ID3D11DeviceContext_OMGetRenderTargets_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_OMGetRenderTargetsAndUnorderedAccessViews_Proxy(
+    ID3D11DeviceContext* This,
+    UINT NumRTVs,
+    ID3D11RenderTargetView **ppRenderTargetViews,
+    ID3D11DepthStencilView **ppDepthStencilView,
+    UINT UAVStartSlot,
+    UINT NumUAVs,
+    ID3D11UnorderedAccessView **ppUnorderedAccessViews);
+void __RPC_STUB ID3D11DeviceContext_OMGetRenderTargetsAndUnorderedAccessViews_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_OMGetBlendState_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11BlendState **ppBlendState,
+    FLOAT BlendFactor[4],
+    UINT *pSampleMask);
+void __RPC_STUB ID3D11DeviceContext_OMGetBlendState_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_OMGetDepthStencilState_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11DepthStencilState **ppDepthStencilState,
+    UINT *pStencilRef);
+void __RPC_STUB ID3D11DeviceContext_OMGetDepthStencilState_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_SOGetTargets_Proxy(
+    ID3D11DeviceContext* This,
+    UINT NumBuffers,
+    ID3D11Buffer **ppSOTargets);
+void __RPC_STUB ID3D11DeviceContext_SOGetTargets_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_RSGetState_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11RasterizerState **ppRasterizerState);
+void __RPC_STUB ID3D11DeviceContext_RSGetState_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_RSGetViewports_Proxy(
+    ID3D11DeviceContext* This,
+    UINT *pNumViewports,
+    D3D11_VIEWPORT *pViewports);
+void __RPC_STUB ID3D11DeviceContext_RSGetViewports_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_RSGetScissorRects_Proxy(
+    ID3D11DeviceContext* This,
+    UINT *pNumRects,
+    D3D11_RECT *pRects);
+void __RPC_STUB ID3D11DeviceContext_RSGetScissorRects_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_HSGetShaderResources_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumViews,
+    ID3D11ShaderResourceView **ppShaderResourceViews);
+void __RPC_STUB ID3D11DeviceContext_HSGetShaderResources_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_HSGetShader_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11HullShader **ppHullShader,
+    ID3D11ClassInstance **ppClassInstances,
+    UINT *pNumClassInstances);
+void __RPC_STUB ID3D11DeviceContext_HSGetShader_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_HSGetSamplers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumSamplers,
+    ID3D11SamplerState **ppSamplers);
+void __RPC_STUB ID3D11DeviceContext_HSGetSamplers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_HSGetConstantBuffers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumBuffers,
+    ID3D11Buffer **ppConstantBuffers);
+void __RPC_STUB ID3D11DeviceContext_HSGetConstantBuffers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_DSGetShaderResources_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumViews,
+    ID3D11ShaderResourceView **ppShaderResourceViews);
+void __RPC_STUB ID3D11DeviceContext_DSGetShaderResources_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_DSGetShader_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11DomainShader **ppDomainShader,
+    ID3D11ClassInstance **ppClassInstances,
+    UINT *pNumClassInstances);
+void __RPC_STUB ID3D11DeviceContext_DSGetShader_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_DSGetSamplers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumSamplers,
+    ID3D11SamplerState **ppSamplers);
+void __RPC_STUB ID3D11DeviceContext_DSGetSamplers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_DSGetConstantBuffers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumBuffers,
+    ID3D11Buffer **ppConstantBuffers);
+void __RPC_STUB ID3D11DeviceContext_DSGetConstantBuffers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_CSGetShaderResources_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumViews,
+    ID3D11ShaderResourceView **ppShaderResourceViews);
+void __RPC_STUB ID3D11DeviceContext_CSGetShaderResources_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_CSGetUnorderedAccessViews_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumUAVs,
+    ID3D11UnorderedAccessView **ppUnorderedAccessViews);
+void __RPC_STUB ID3D11DeviceContext_CSGetUnorderedAccessViews_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_CSGetShader_Proxy(
+    ID3D11DeviceContext* This,
+    ID3D11ComputeShader **ppComputeShader,
+    ID3D11ClassInstance **ppClassInstances,
+    UINT *pNumClassInstances);
+void __RPC_STUB ID3D11DeviceContext_CSGetShader_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_CSGetSamplers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumSamplers,
+    ID3D11SamplerState **ppSamplers);
+void __RPC_STUB ID3D11DeviceContext_CSGetSamplers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_CSGetConstantBuffers_Proxy(
+    ID3D11DeviceContext* This,
+    UINT StartSlot,
+    UINT NumBuffers,
+    ID3D11Buffer **ppConstantBuffers);
+void __RPC_STUB ID3D11DeviceContext_CSGetConstantBuffers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_ClearState_Proxy(
+    ID3D11DeviceContext* This);
+void __RPC_STUB ID3D11DeviceContext_ClearState_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11DeviceContext_Flush_Proxy(
+    ID3D11DeviceContext* This);
+void __RPC_STUB ID3D11DeviceContext_Flush_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+D3D11_DEVICE_CONTEXT_TYPE STDMETHODCALLTYPE ID3D11DeviceContext_GetType_Proxy(
+    ID3D11DeviceContext* This);
+void __RPC_STUB ID3D11DeviceContext_GetType_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+UINT STDMETHODCALLTYPE ID3D11DeviceContext_GetContextFlags_Proxy(
+    ID3D11DeviceContext* This);
+void __RPC_STUB ID3D11DeviceContext_GetContextFlags_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11DeviceContext_FinishCommandList_Proxy(
+    ID3D11DeviceContext* This,
+    WINBOOL RestoreDeferredContextState,
+    ID3D11CommandList **ppCommandList);
+void __RPC_STUB ID3D11DeviceContext_FinishCommandList_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11DeviceContext_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11Device interface
+ */
+#ifndef __ID3D11Device_INTERFACE_DEFINED__
+#define __ID3D11Device_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11Device, 0xdb6f6ddb, 0xac77, 0x4e88, 0x82,0x53, 0x81,0x9d,0xf9,0xbb,0xf1,0x40);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("db6f6ddb-ac77-4e88-8253-819df9bbf140")
+ID3D11Device : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE CreateBuffer(
+        const D3D11_BUFFER_DESC *pDesc,
+        const D3D11_SUBRESOURCE_DATA *pInitialData,
+        ID3D11Buffer **ppBuffer) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateTexture1D(
+        const D3D11_TEXTURE1D_DESC *pDesc,
+        const D3D11_SUBRESOURCE_DATA *pInitialData,
+        ID3D11Texture1D **ppTexture1D) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateTexture2D(
+        const D3D11_TEXTURE2D_DESC *pDesc,
+        const D3D11_SUBRESOURCE_DATA *pInitialData,
+        ID3D11Texture2D **ppTexture2D) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateTexture3D(
+        const D3D11_TEXTURE3D_DESC *pDesc,
+        const D3D11_SUBRESOURCE_DATA *pInitialData,
+        ID3D11Texture3D **ppTexture3D) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateShaderResourceView(
+        ID3D11Resource *pResource,
+        const D3D11_SHADER_RESOURCE_VIEW_DESC *pDesc,
+        ID3D11ShaderResourceView **ppSRView) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateUnorderedAccessView(
+        ID3D11Resource *pResource,
+        const D3D11_UNORDERED_ACCESS_VIEW_DESC *pDesc,
+        ID3D11UnorderedAccessView **ppUAView) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateRenderTargetView(
+        ID3D11Resource *pResource,
+        const D3D11_RENDER_TARGET_VIEW_DESC *pDesc,
+        ID3D11RenderTargetView **ppRTView) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateDepthStencilView(
+        ID3D11Resource *pResource,
+        const D3D11_DEPTH_STENCIL_VIEW_DESC *pDesc,
+        ID3D11DepthStencilView **ppDepthStencilView) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateInputLayout(
+        const D3D11_INPUT_ELEMENT_DESC *pInputElementDescs,
+        UINT NumElements,
+        const void *pShaderBytecodeWithInputSignature,
+        SIZE_T BytecodeLength,
+        ID3D11InputLayout **ppInputLayout) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateVertexShader(
+        const void *pShaderBytecode,
+        SIZE_T BytecodeLength,
+        ID3D11ClassLinkage *pClassLinkage,
+        ID3D11VertexShader **ppVertexShader) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateGeometryShader(
+        const void *pShaderBytecode,
+        SIZE_T BytecodeLength,
+        ID3D11ClassLinkage *pClassLinkage,
+        ID3D11GeometryShader **ppGeometryShader) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateGeometryShaderWithStreamOutput(
+        const void *pShaderBytecode,
+        SIZE_T BytecodeLength,
+        const D3D11_SO_DECLARATION_ENTRY *pSODeclaration,
+        UINT NumEntries,
+        const UINT *pBufferStrides,
+        UINT NumStrides,
+        UINT RasterizedStream,
+        ID3D11ClassLinkage *pClassLinkage,
+        ID3D11GeometryShader **ppGeometryShader) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreatePixelShader(
+        const void *pShaderBytecode,
+        SIZE_T BytecodeLength,
+        ID3D11ClassLinkage *pClassLinkage,
+        ID3D11PixelShader **ppPixelShader) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateHullShader(
+        const void *pShaderBytecode,
+        SIZE_T BytecodeLength,
+        ID3D11ClassLinkage *pClassLinkage,
+        ID3D11HullShader **ppHullShader) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateDomainShader(
+        const void *pShaderBytecode,
+        SIZE_T BytecodeLength,
+        ID3D11ClassLinkage *pClassLinkage,
+        ID3D11DomainShader **ppDomainShader) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateComputeShader(
+        const void *pShaderBytecode,
+        SIZE_T BytecodeLength,
+        ID3D11ClassLinkage *pClassLinkage,
+        ID3D11ComputeShader **ppComputeShader) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateClassLinkage(
+        ID3D11ClassLinkage **ppLinkage) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateBlendState(
+        const D3D11_BLEND_DESC *pBlendStateDesc,
+        ID3D11BlendState **ppBlendState) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateDepthStencilState(
+        const D3D11_DEPTH_STENCIL_DESC *pDepthStencilDesc,
+        ID3D11DepthStencilState **ppDepthStencilState) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateRasterizerState(
+        const D3D11_RASTERIZER_DESC *pRasterizerDesc,
+        ID3D11RasterizerState **ppRasterizerState) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateSamplerState(
+        const D3D11_SAMPLER_DESC *pSamplerDesc,
+        ID3D11SamplerState **ppSamplerState) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateQuery(
+        const D3D11_QUERY_DESC *pQueryDesc,
+        ID3D11Query **ppQuery) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreatePredicate(
+        const D3D11_QUERY_DESC *pPredicateDesc,
+        ID3D11Predicate **ppPredicate) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateCounter(
+        const D3D11_COUNTER_DESC *pCounterDesc,
+        ID3D11Counter **ppCounter) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateDeferredContext(
+        UINT ContextFlags,
+        ID3D11DeviceContext **ppDeferredContext) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OpenSharedResource(
+        HANDLE hResource,
+        REFIID ReturnedInterface,
+        void **ppResource) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CheckFormatSupport(
+        DXGI_FORMAT Format,
+        UINT *pFormatSupport) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CheckMultisampleQualityLevels(
+        DXGI_FORMAT Format,
+        UINT SampleCount,
+        UINT *pNumQualityLevels) = 0;
+
+    virtual void STDMETHODCALLTYPE CheckCounterInfo(
+        D3D11_COUNTER_INFO *pCounterInfo) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CheckCounter(
+        const D3D11_COUNTER_DESC *pDesc,
+        D3D11_COUNTER_TYPE *pType,
+        UINT *pActiveCounters,
+        LPSTR szName,
+        UINT *pNameLength,
+        LPSTR szUnits,
+        UINT *pUnitsLength,
+        LPSTR szDescription,
+        UINT *pDescriptionLength) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CheckFeatureSupport(
+        D3D11_FEATURE Feature,
+        void *pFeatureSupportData,
+        UINT FeatureSupportDataSize) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPrivateData(
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetPrivateData(
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetPrivateDataInterface(
+        REFGUID guid,
+        const IUnknown *pData) = 0;
+
+    virtual D3D_FEATURE_LEVEL STDMETHODCALLTYPE GetFeatureLevel(
+        ) = 0;
+
+    virtual UINT STDMETHODCALLTYPE GetCreationFlags(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDeviceRemovedReason(
+        ) = 0;
+
+    virtual void STDMETHODCALLTYPE GetImmediateContext(
+        ID3D11DeviceContext **ppImmediateContext) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetExceptionMode(
+        UINT RaiseFlags) = 0;
+
+    virtual UINT STDMETHODCALLTYPE GetExceptionMode(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11Device, 0xdb6f6ddb, 0xac77, 0x4e88, 0x82,0x53, 0x81,0x9d,0xf9,0xbb,0xf1,0x40)
+#endif
+#else
+typedef struct ID3D11DeviceVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11Device* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11Device* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11Device* This);
+
+    /*** ID3D11Device methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateBuffer)(
+        ID3D11Device* This,
+        const D3D11_BUFFER_DESC *pDesc,
+        const D3D11_SUBRESOURCE_DATA *pInitialData,
+        ID3D11Buffer **ppBuffer);
+
+    HRESULT (STDMETHODCALLTYPE *CreateTexture1D)(
+        ID3D11Device* This,
+        const D3D11_TEXTURE1D_DESC *pDesc,
+        const D3D11_SUBRESOURCE_DATA *pInitialData,
+        ID3D11Texture1D **ppTexture1D);
+
+    HRESULT (STDMETHODCALLTYPE *CreateTexture2D)(
+        ID3D11Device* This,
+        const D3D11_TEXTURE2D_DESC *pDesc,
+        const D3D11_SUBRESOURCE_DATA *pInitialData,
+        ID3D11Texture2D **ppTexture2D);
+
+    HRESULT (STDMETHODCALLTYPE *CreateTexture3D)(
+        ID3D11Device* This,
+        const D3D11_TEXTURE3D_DESC *pDesc,
+        const D3D11_SUBRESOURCE_DATA *pInitialData,
+        ID3D11Texture3D **ppTexture3D);
+
+    HRESULT (STDMETHODCALLTYPE *CreateShaderResourceView)(
+        ID3D11Device* This,
+        ID3D11Resource *pResource,
+        const D3D11_SHADER_RESOURCE_VIEW_DESC *pDesc,
+        ID3D11ShaderResourceView **ppSRView);
+
+    HRESULT (STDMETHODCALLTYPE *CreateUnorderedAccessView)(
+        ID3D11Device* This,
+        ID3D11Resource *pResource,
+        const D3D11_UNORDERED_ACCESS_VIEW_DESC *pDesc,
+        ID3D11UnorderedAccessView **ppUAView);
+
+    HRESULT (STDMETHODCALLTYPE *CreateRenderTargetView)(
+        ID3D11Device* This,
+        ID3D11Resource *pResource,
+        const D3D11_RENDER_TARGET_VIEW_DESC *pDesc,
+        ID3D11RenderTargetView **ppRTView);
+
+    HRESULT (STDMETHODCALLTYPE *CreateDepthStencilView)(
+        ID3D11Device* This,
+        ID3D11Resource *pResource,
+        const D3D11_DEPTH_STENCIL_VIEW_DESC *pDesc,
+        ID3D11DepthStencilView **ppDepthStencilView);
+
+    HRESULT (STDMETHODCALLTYPE *CreateInputLayout)(
+        ID3D11Device* This,
+        const D3D11_INPUT_ELEMENT_DESC *pInputElementDescs,
+        UINT NumElements,
+        const void *pShaderBytecodeWithInputSignature,
+        SIZE_T BytecodeLength,
+        ID3D11InputLayout **ppInputLayout);
+
+    HRESULT (STDMETHODCALLTYPE *CreateVertexShader)(
+        ID3D11Device* This,
+        const void *pShaderBytecode,
+        SIZE_T BytecodeLength,
+        ID3D11ClassLinkage *pClassLinkage,
+        ID3D11VertexShader **ppVertexShader);
+
+    HRESULT (STDMETHODCALLTYPE *CreateGeometryShader)(
+        ID3D11Device* This,
+        const void *pShaderBytecode,
+        SIZE_T BytecodeLength,
+        ID3D11ClassLinkage *pClassLinkage,
+        ID3D11GeometryShader **ppGeometryShader);
+
+    HRESULT (STDMETHODCALLTYPE *CreateGeometryShaderWithStreamOutput)(
+        ID3D11Device* This,
+        const void *pShaderBytecode,
+        SIZE_T BytecodeLength,
+        const D3D11_SO_DECLARATION_ENTRY *pSODeclaration,
+        UINT NumEntries,
+        const UINT *pBufferStrides,
+        UINT NumStrides,
+        UINT RasterizedStream,
+        ID3D11ClassLinkage *pClassLinkage,
+        ID3D11GeometryShader **ppGeometryShader);
+
+    HRESULT (STDMETHODCALLTYPE *CreatePixelShader)(
+        ID3D11Device* This,
+        const void *pShaderBytecode,
+        SIZE_T BytecodeLength,
+        ID3D11ClassLinkage *pClassLinkage,
+        ID3D11PixelShader **ppPixelShader);
+
+    HRESULT (STDMETHODCALLTYPE *CreateHullShader)(
+        ID3D11Device* This,
+        const void *pShaderBytecode,
+        SIZE_T BytecodeLength,
+        ID3D11ClassLinkage *pClassLinkage,
+        ID3D11HullShader **ppHullShader);
+
+    HRESULT (STDMETHODCALLTYPE *CreateDomainShader)(
+        ID3D11Device* This,
+        const void *pShaderBytecode,
+        SIZE_T BytecodeLength,
+        ID3D11ClassLinkage *pClassLinkage,
+        ID3D11DomainShader **ppDomainShader);
+
+    HRESULT (STDMETHODCALLTYPE *CreateComputeShader)(
+        ID3D11Device* This,
+        const void *pShaderBytecode,
+        SIZE_T BytecodeLength,
+        ID3D11ClassLinkage *pClassLinkage,
+        ID3D11ComputeShader **ppComputeShader);
+
+    HRESULT (STDMETHODCALLTYPE *CreateClassLinkage)(
+        ID3D11Device* This,
+        ID3D11ClassLinkage **ppLinkage);
+
+    HRESULT (STDMETHODCALLTYPE *CreateBlendState)(
+        ID3D11Device* This,
+        const D3D11_BLEND_DESC *pBlendStateDesc,
+        ID3D11BlendState **ppBlendState);
+
+    HRESULT (STDMETHODCALLTYPE *CreateDepthStencilState)(
+        ID3D11Device* This,
+        const D3D11_DEPTH_STENCIL_DESC *pDepthStencilDesc,
+        ID3D11DepthStencilState **ppDepthStencilState);
+
+    HRESULT (STDMETHODCALLTYPE *CreateRasterizerState)(
+        ID3D11Device* This,
+        const D3D11_RASTERIZER_DESC *pRasterizerDesc,
+        ID3D11RasterizerState **ppRasterizerState);
+
+    HRESULT (STDMETHODCALLTYPE *CreateSamplerState)(
+        ID3D11Device* This,
+        const D3D11_SAMPLER_DESC *pSamplerDesc,
+        ID3D11SamplerState **ppSamplerState);
+
+    HRESULT (STDMETHODCALLTYPE *CreateQuery)(
+        ID3D11Device* This,
+        const D3D11_QUERY_DESC *pQueryDesc,
+        ID3D11Query **ppQuery);
+
+    HRESULT (STDMETHODCALLTYPE *CreatePredicate)(
+        ID3D11Device* This,
+        const D3D11_QUERY_DESC *pPredicateDesc,
+        ID3D11Predicate **ppPredicate);
+
+    HRESULT (STDMETHODCALLTYPE *CreateCounter)(
+        ID3D11Device* This,
+        const D3D11_COUNTER_DESC *pCounterDesc,
+        ID3D11Counter **ppCounter);
+
+    HRESULT (STDMETHODCALLTYPE *CreateDeferredContext)(
+        ID3D11Device* This,
+        UINT ContextFlags,
+        ID3D11DeviceContext **ppDeferredContext);
+
+    HRESULT (STDMETHODCALLTYPE *OpenSharedResource)(
+        ID3D11Device* This,
+        HANDLE hResource,
+        REFIID ReturnedInterface,
+        void **ppResource);
+
+    HRESULT (STDMETHODCALLTYPE *CheckFormatSupport)(
+        ID3D11Device* This,
+        DXGI_FORMAT Format,
+        UINT *pFormatSupport);
+
+    HRESULT (STDMETHODCALLTYPE *CheckMultisampleQualityLevels)(
+        ID3D11Device* This,
+        DXGI_FORMAT Format,
+        UINT SampleCount,
+        UINT *pNumQualityLevels);
+
+    void (STDMETHODCALLTYPE *CheckCounterInfo)(
+        ID3D11Device* This,
+        D3D11_COUNTER_INFO *pCounterInfo);
+
+    HRESULT (STDMETHODCALLTYPE *CheckCounter)(
+        ID3D11Device* This,
+        const D3D11_COUNTER_DESC *pDesc,
+        D3D11_COUNTER_TYPE *pType,
+        UINT *pActiveCounters,
+        LPSTR szName,
+        UINT *pNameLength,
+        LPSTR szUnits,
+        UINT *pUnitsLength,
+        LPSTR szDescription,
+        UINT *pDescriptionLength);
+
+    HRESULT (STDMETHODCALLTYPE *CheckFeatureSupport)(
+        ID3D11Device* This,
+        D3D11_FEATURE Feature,
+        void *pFeatureSupportData,
+        UINT FeatureSupportDataSize);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11Device* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11Device* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11Device* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    D3D_FEATURE_LEVEL (STDMETHODCALLTYPE *GetFeatureLevel)(
+        ID3D11Device* This);
+
+    UINT (STDMETHODCALLTYPE *GetCreationFlags)(
+        ID3D11Device* This);
+
+    HRESULT (STDMETHODCALLTYPE *GetDeviceRemovedReason)(
+        ID3D11Device* This);
+
+    void (STDMETHODCALLTYPE *GetImmediateContext)(
+        ID3D11Device* This,
+        ID3D11DeviceContext **ppImmediateContext);
+
+    HRESULT (STDMETHODCALLTYPE *SetExceptionMode)(
+        ID3D11Device* This,
+        UINT RaiseFlags);
+
+    UINT (STDMETHODCALLTYPE *GetExceptionMode)(
+        ID3D11Device* This);
+
+    END_INTERFACE
+} ID3D11DeviceVtbl;
+interface ID3D11Device {
+    CONST_VTBL ID3D11DeviceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11Device_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11Device_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11Device_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11Device methods ***/
+#define ID3D11Device_CreateBuffer(This,pDesc,pInitialData,ppBuffer) (This)->lpVtbl->CreateBuffer(This,pDesc,pInitialData,ppBuffer)
+#define ID3D11Device_CreateTexture1D(This,pDesc,pInitialData,ppTexture1D) (This)->lpVtbl->CreateTexture1D(This,pDesc,pInitialData,ppTexture1D)
+#define ID3D11Device_CreateTexture2D(This,pDesc,pInitialData,ppTexture2D) (This)->lpVtbl->CreateTexture2D(This,pDesc,pInitialData,ppTexture2D)
+#define ID3D11Device_CreateTexture3D(This,pDesc,pInitialData,ppTexture3D) (This)->lpVtbl->CreateTexture3D(This,pDesc,pInitialData,ppTexture3D)
+#define ID3D11Device_CreateShaderResourceView(This,pResource,pDesc,ppSRView) (This)->lpVtbl->CreateShaderResourceView(This,pResource,pDesc,ppSRView)
+#define ID3D11Device_CreateUnorderedAccessView(This,pResource,pDesc,ppUAView) (This)->lpVtbl->CreateUnorderedAccessView(This,pResource,pDesc,ppUAView)
+#define ID3D11Device_CreateRenderTargetView(This,pResource,pDesc,ppRTView) (This)->lpVtbl->CreateRenderTargetView(This,pResource,pDesc,ppRTView)
+#define ID3D11Device_CreateDepthStencilView(This,pResource,pDesc,ppDepthStencilView) (This)->lpVtbl->CreateDepthStencilView(This,pResource,pDesc,ppDepthStencilView)
+#define ID3D11Device_CreateInputLayout(This,pInputElementDescs,NumElements,pShaderBytecodeWithInputSignature,BytecodeLength,ppInputLayout) (This)->lpVtbl->CreateInputLayout(This,pInputElementDescs,NumElements,pShaderBytecodeWithInputSignature,BytecodeLength,ppInputLayout)
+#define ID3D11Device_CreateVertexShader(This,pShaderBytecode,BytecodeLength,pClassLinkage,ppVertexShader) (This)->lpVtbl->CreateVertexShader(This,pShaderBytecode,BytecodeLength,pClassLinkage,ppVertexShader)
+#define ID3D11Device_CreateGeometryShader(This,pShaderBytecode,BytecodeLength,pClassLinkage,ppGeometryShader) (This)->lpVtbl->CreateGeometryShader(This,pShaderBytecode,BytecodeLength,pClassLinkage,ppGeometryShader)
+#define ID3D11Device_CreateGeometryShaderWithStreamOutput(This,pShaderBytecode,BytecodeLength,pSODeclaration,NumEntries,pBufferStrides,NumStrides,RasterizedStream,pClassLinkage,ppGeometryShader) (This)->lpVtbl->CreateGeometryShaderWithStreamOutput(This,pShaderBytecode,BytecodeLength,pSODeclaration,NumEntries,pBufferStrides,NumStrides,RasterizedStream,pClassLinkage,ppGeometryShader)
+#define ID3D11Device_CreatePixelShader(This,pShaderBytecode,BytecodeLength,pClassLinkage,ppPixelShader) (This)->lpVtbl->CreatePixelShader(This,pShaderBytecode,BytecodeLength,pClassLinkage,ppPixelShader)
+#define ID3D11Device_CreateHullShader(This,pShaderBytecode,BytecodeLength,pClassLinkage,ppHullShader) (This)->lpVtbl->CreateHullShader(This,pShaderBytecode,BytecodeLength,pClassLinkage,ppHullShader)
+#define ID3D11Device_CreateDomainShader(This,pShaderBytecode,BytecodeLength,pClassLinkage,ppDomainShader) (This)->lpVtbl->CreateDomainShader(This,pShaderBytecode,BytecodeLength,pClassLinkage,ppDomainShader)
+#define ID3D11Device_CreateComputeShader(This,pShaderBytecode,BytecodeLength,pClassLinkage,ppComputeShader) (This)->lpVtbl->CreateComputeShader(This,pShaderBytecode,BytecodeLength,pClassLinkage,ppComputeShader)
+#define ID3D11Device_CreateClassLinkage(This,ppLinkage) (This)->lpVtbl->CreateClassLinkage(This,ppLinkage)
+#define ID3D11Device_CreateBlendState(This,pBlendStateDesc,ppBlendState) (This)->lpVtbl->CreateBlendState(This,pBlendStateDesc,ppBlendState)
+#define ID3D11Device_CreateDepthStencilState(This,pDepthStencilDesc,ppDepthStencilState) (This)->lpVtbl->CreateDepthStencilState(This,pDepthStencilDesc,ppDepthStencilState)
+#define ID3D11Device_CreateRasterizerState(This,pRasterizerDesc,ppRasterizerState) (This)->lpVtbl->CreateRasterizerState(This,pRasterizerDesc,ppRasterizerState)
+#define ID3D11Device_CreateSamplerState(This,pSamplerDesc,ppSamplerState) (This)->lpVtbl->CreateSamplerState(This,pSamplerDesc,ppSamplerState)
+#define ID3D11Device_CreateQuery(This,pQueryDesc,ppQuery) (This)->lpVtbl->CreateQuery(This,pQueryDesc,ppQuery)
+#define ID3D11Device_CreatePredicate(This,pPredicateDesc,ppPredicate) (This)->lpVtbl->CreatePredicate(This,pPredicateDesc,ppPredicate)
+#define ID3D11Device_CreateCounter(This,pCounterDesc,ppCounter) (This)->lpVtbl->CreateCounter(This,pCounterDesc,ppCounter)
+#define ID3D11Device_CreateDeferredContext(This,ContextFlags,ppDeferredContext) (This)->lpVtbl->CreateDeferredContext(This,ContextFlags,ppDeferredContext)
+#define ID3D11Device_OpenSharedResource(This,hResource,ReturnedInterface,ppResource) (This)->lpVtbl->OpenSharedResource(This,hResource,ReturnedInterface,ppResource)
+#define ID3D11Device_CheckFormatSupport(This,Format,pFormatSupport) (This)->lpVtbl->CheckFormatSupport(This,Format,pFormatSupport)
+#define ID3D11Device_CheckMultisampleQualityLevels(This,Format,SampleCount,pNumQualityLevels) (This)->lpVtbl->CheckMultisampleQualityLevels(This,Format,SampleCount,pNumQualityLevels)
+#define ID3D11Device_CheckCounterInfo(This,pCounterInfo) (This)->lpVtbl->CheckCounterInfo(This,pCounterInfo)
+#define ID3D11Device_CheckCounter(This,pDesc,pType,pActiveCounters,szName,pNameLength,szUnits,pUnitsLength,szDescription,pDescriptionLength) (This)->lpVtbl->CheckCounter(This,pDesc,pType,pActiveCounters,szName,pNameLength,szUnits,pUnitsLength,szDescription,pDescriptionLength)
+#define ID3D11Device_CheckFeatureSupport(This,Feature,pFeatureSupportData,FeatureSupportDataSize) (This)->lpVtbl->CheckFeatureSupport(This,Feature,pFeatureSupportData,FeatureSupportDataSize)
+#define ID3D11Device_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11Device_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11Device_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+#define ID3D11Device_GetFeatureLevel(This) (This)->lpVtbl->GetFeatureLevel(This)
+#define ID3D11Device_GetCreationFlags(This) (This)->lpVtbl->GetCreationFlags(This)
+#define ID3D11Device_GetDeviceRemovedReason(This) (This)->lpVtbl->GetDeviceRemovedReason(This)
+#define ID3D11Device_GetImmediateContext(This,ppImmediateContext) (This)->lpVtbl->GetImmediateContext(This,ppImmediateContext)
+#define ID3D11Device_SetExceptionMode(This,RaiseFlags) (This)->lpVtbl->SetExceptionMode(This,RaiseFlags)
+#define ID3D11Device_GetExceptionMode(This) (This)->lpVtbl->GetExceptionMode(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11Device_QueryInterface(ID3D11Device* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11Device_AddRef(ID3D11Device* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11Device_Release(ID3D11Device* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11Device methods ***/
+static FORCEINLINE HRESULT ID3D11Device_CreateBuffer(ID3D11Device* This,const D3D11_BUFFER_DESC *pDesc,const D3D11_SUBRESOURCE_DATA *pInitialData,ID3D11Buffer **ppBuffer) {
+    return This->lpVtbl->CreateBuffer(This,pDesc,pInitialData,ppBuffer);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateTexture1D(ID3D11Device* This,const D3D11_TEXTURE1D_DESC *pDesc,const D3D11_SUBRESOURCE_DATA *pInitialData,ID3D11Texture1D **ppTexture1D) {
+    return This->lpVtbl->CreateTexture1D(This,pDesc,pInitialData,ppTexture1D);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateTexture2D(ID3D11Device* This,const D3D11_TEXTURE2D_DESC *pDesc,const D3D11_SUBRESOURCE_DATA *pInitialData,ID3D11Texture2D **ppTexture2D) {
+    return This->lpVtbl->CreateTexture2D(This,pDesc,pInitialData,ppTexture2D);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateTexture3D(ID3D11Device* This,const D3D11_TEXTURE3D_DESC *pDesc,const D3D11_SUBRESOURCE_DATA *pInitialData,ID3D11Texture3D **ppTexture3D) {
+    return This->lpVtbl->CreateTexture3D(This,pDesc,pInitialData,ppTexture3D);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateShaderResourceView(ID3D11Device* This,ID3D11Resource *pResource,const D3D11_SHADER_RESOURCE_VIEW_DESC *pDesc,ID3D11ShaderResourceView **ppSRView) {
+    return This->lpVtbl->CreateShaderResourceView(This,pResource,pDesc,ppSRView);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateUnorderedAccessView(ID3D11Device* This,ID3D11Resource *pResource,const D3D11_UNORDERED_ACCESS_VIEW_DESC *pDesc,ID3D11UnorderedAccessView **ppUAView) {
+    return This->lpVtbl->CreateUnorderedAccessView(This,pResource,pDesc,ppUAView);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateRenderTargetView(ID3D11Device* This,ID3D11Resource *pResource,const D3D11_RENDER_TARGET_VIEW_DESC *pDesc,ID3D11RenderTargetView **ppRTView) {
+    return This->lpVtbl->CreateRenderTargetView(This,pResource,pDesc,ppRTView);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateDepthStencilView(ID3D11Device* This,ID3D11Resource *pResource,const D3D11_DEPTH_STENCIL_VIEW_DESC *pDesc,ID3D11DepthStencilView **ppDepthStencilView) {
+    return This->lpVtbl->CreateDepthStencilView(This,pResource,pDesc,ppDepthStencilView);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateInputLayout(ID3D11Device* This,const D3D11_INPUT_ELEMENT_DESC *pInputElementDescs,UINT NumElements,const void *pShaderBytecodeWithInputSignature,SIZE_T BytecodeLength,ID3D11InputLayout **ppInputLayout) {
+    return This->lpVtbl->CreateInputLayout(This,pInputElementDescs,NumElements,pShaderBytecodeWithInputSignature,BytecodeLength,ppInputLayout);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateVertexShader(ID3D11Device* This,const void *pShaderBytecode,SIZE_T BytecodeLength,ID3D11ClassLinkage *pClassLinkage,ID3D11VertexShader **ppVertexShader) {
+    return This->lpVtbl->CreateVertexShader(This,pShaderBytecode,BytecodeLength,pClassLinkage,ppVertexShader);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateGeometryShader(ID3D11Device* This,const void *pShaderBytecode,SIZE_T BytecodeLength,ID3D11ClassLinkage *pClassLinkage,ID3D11GeometryShader **ppGeometryShader) {
+    return This->lpVtbl->CreateGeometryShader(This,pShaderBytecode,BytecodeLength,pClassLinkage,ppGeometryShader);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateGeometryShaderWithStreamOutput(ID3D11Device* This,const void *pShaderBytecode,SIZE_T BytecodeLength,const D3D11_SO_DECLARATION_ENTRY *pSODeclaration,UINT NumEntries,const UINT *pBufferStrides,UINT NumStrides,UINT RasterizedStream,ID3D11ClassLinkage *pClassLinkage,ID3D11GeometryShader **ppGeometryShader) {
+    return This->lpVtbl->CreateGeometryShaderWithStreamOutput(This,pShaderBytecode,BytecodeLength,pSODeclaration,NumEntries,pBufferStrides,NumStrides,RasterizedStream,pClassLinkage,ppGeometryShader);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreatePixelShader(ID3D11Device* This,const void *pShaderBytecode,SIZE_T BytecodeLength,ID3D11ClassLinkage *pClassLinkage,ID3D11PixelShader **ppPixelShader) {
+    return This->lpVtbl->CreatePixelShader(This,pShaderBytecode,BytecodeLength,pClassLinkage,ppPixelShader);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateHullShader(ID3D11Device* This,const void *pShaderBytecode,SIZE_T BytecodeLength,ID3D11ClassLinkage *pClassLinkage,ID3D11HullShader **ppHullShader) {
+    return This->lpVtbl->CreateHullShader(This,pShaderBytecode,BytecodeLength,pClassLinkage,ppHullShader);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateDomainShader(ID3D11Device* This,const void *pShaderBytecode,SIZE_T BytecodeLength,ID3D11ClassLinkage *pClassLinkage,ID3D11DomainShader **ppDomainShader) {
+    return This->lpVtbl->CreateDomainShader(This,pShaderBytecode,BytecodeLength,pClassLinkage,ppDomainShader);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateComputeShader(ID3D11Device* This,const void *pShaderBytecode,SIZE_T BytecodeLength,ID3D11ClassLinkage *pClassLinkage,ID3D11ComputeShader **ppComputeShader) {
+    return This->lpVtbl->CreateComputeShader(This,pShaderBytecode,BytecodeLength,pClassLinkage,ppComputeShader);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateClassLinkage(ID3D11Device* This,ID3D11ClassLinkage **ppLinkage) {
+    return This->lpVtbl->CreateClassLinkage(This,ppLinkage);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateBlendState(ID3D11Device* This,const D3D11_BLEND_DESC *pBlendStateDesc,ID3D11BlendState **ppBlendState) {
+    return This->lpVtbl->CreateBlendState(This,pBlendStateDesc,ppBlendState);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateDepthStencilState(ID3D11Device* This,const D3D11_DEPTH_STENCIL_DESC *pDepthStencilDesc,ID3D11DepthStencilState **ppDepthStencilState) {
+    return This->lpVtbl->CreateDepthStencilState(This,pDepthStencilDesc,ppDepthStencilState);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateRasterizerState(ID3D11Device* This,const D3D11_RASTERIZER_DESC *pRasterizerDesc,ID3D11RasterizerState **ppRasterizerState) {
+    return This->lpVtbl->CreateRasterizerState(This,pRasterizerDesc,ppRasterizerState);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateSamplerState(ID3D11Device* This,const D3D11_SAMPLER_DESC *pSamplerDesc,ID3D11SamplerState **ppSamplerState) {
+    return This->lpVtbl->CreateSamplerState(This,pSamplerDesc,ppSamplerState);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateQuery(ID3D11Device* This,const D3D11_QUERY_DESC *pQueryDesc,ID3D11Query **ppQuery) {
+    return This->lpVtbl->CreateQuery(This,pQueryDesc,ppQuery);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreatePredicate(ID3D11Device* This,const D3D11_QUERY_DESC *pPredicateDesc,ID3D11Predicate **ppPredicate) {
+    return This->lpVtbl->CreatePredicate(This,pPredicateDesc,ppPredicate);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateCounter(ID3D11Device* This,const D3D11_COUNTER_DESC *pCounterDesc,ID3D11Counter **ppCounter) {
+    return This->lpVtbl->CreateCounter(This,pCounterDesc,ppCounter);
+}
+static FORCEINLINE HRESULT ID3D11Device_CreateDeferredContext(ID3D11Device* This,UINT ContextFlags,ID3D11DeviceContext **ppDeferredContext) {
+    return This->lpVtbl->CreateDeferredContext(This,ContextFlags,ppDeferredContext);
+}
+static FORCEINLINE HRESULT ID3D11Device_OpenSharedResource(ID3D11Device* This,HANDLE hResource,REFIID ReturnedInterface,void **ppResource) {
+    return This->lpVtbl->OpenSharedResource(This,hResource,ReturnedInterface,ppResource);
+}
+static FORCEINLINE HRESULT ID3D11Device_CheckFormatSupport(ID3D11Device* This,DXGI_FORMAT Format,UINT *pFormatSupport) {
+    return This->lpVtbl->CheckFormatSupport(This,Format,pFormatSupport);
+}
+static FORCEINLINE HRESULT ID3D11Device_CheckMultisampleQualityLevels(ID3D11Device* This,DXGI_FORMAT Format,UINT SampleCount,UINT *pNumQualityLevels) {
+    return This->lpVtbl->CheckMultisampleQualityLevels(This,Format,SampleCount,pNumQualityLevels);
+}
+static FORCEINLINE void ID3D11Device_CheckCounterInfo(ID3D11Device* This,D3D11_COUNTER_INFO *pCounterInfo) {
+    This->lpVtbl->CheckCounterInfo(This,pCounterInfo);
+}
+static FORCEINLINE HRESULT ID3D11Device_CheckCounter(ID3D11Device* This,const D3D11_COUNTER_DESC *pDesc,D3D11_COUNTER_TYPE *pType,UINT *pActiveCounters,LPSTR szName,UINT *pNameLength,LPSTR szUnits,UINT *pUnitsLength,LPSTR szDescription,UINT *pDescriptionLength) {
+    return This->lpVtbl->CheckCounter(This,pDesc,pType,pActiveCounters,szName,pNameLength,szUnits,pUnitsLength,szDescription,pDescriptionLength);
+}
+static FORCEINLINE HRESULT ID3D11Device_CheckFeatureSupport(ID3D11Device* This,D3D11_FEATURE Feature,void *pFeatureSupportData,UINT FeatureSupportDataSize) {
+    return This->lpVtbl->CheckFeatureSupport(This,Feature,pFeatureSupportData,FeatureSupportDataSize);
+}
+static FORCEINLINE HRESULT ID3D11Device_GetPrivateData(ID3D11Device* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11Device_SetPrivateData(ID3D11Device* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11Device_SetPrivateDataInterface(ID3D11Device* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+static FORCEINLINE D3D_FEATURE_LEVEL ID3D11Device_GetFeatureLevel(ID3D11Device* This) {
+    return This->lpVtbl->GetFeatureLevel(This);
+}
+static FORCEINLINE UINT ID3D11Device_GetCreationFlags(ID3D11Device* This) {
+    return This->lpVtbl->GetCreationFlags(This);
+}
+static FORCEINLINE HRESULT ID3D11Device_GetDeviceRemovedReason(ID3D11Device* This) {
+    return This->lpVtbl->GetDeviceRemovedReason(This);
+}
+static FORCEINLINE void ID3D11Device_GetImmediateContext(ID3D11Device* This,ID3D11DeviceContext **ppImmediateContext) {
+    This->lpVtbl->GetImmediateContext(This,ppImmediateContext);
+}
+static FORCEINLINE HRESULT ID3D11Device_SetExceptionMode(ID3D11Device* This,UINT RaiseFlags) {
+    return This->lpVtbl->SetExceptionMode(This,RaiseFlags);
+}
+static FORCEINLINE UINT ID3D11Device_GetExceptionMode(ID3D11Device* This) {
+    return This->lpVtbl->GetExceptionMode(This);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateBuffer_Proxy(
+    ID3D11Device* This,
+    const D3D11_BUFFER_DESC *pDesc,
+    const D3D11_SUBRESOURCE_DATA *pInitialData,
+    ID3D11Buffer **ppBuffer);
+void __RPC_STUB ID3D11Device_CreateBuffer_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateTexture1D_Proxy(
+    ID3D11Device* This,
+    const D3D11_TEXTURE1D_DESC *pDesc,
+    const D3D11_SUBRESOURCE_DATA *pInitialData,
+    ID3D11Texture1D **ppTexture1D);
+void __RPC_STUB ID3D11Device_CreateTexture1D_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateTexture2D_Proxy(
+    ID3D11Device* This,
+    const D3D11_TEXTURE2D_DESC *pDesc,
+    const D3D11_SUBRESOURCE_DATA *pInitialData,
+    ID3D11Texture2D **ppTexture2D);
+void __RPC_STUB ID3D11Device_CreateTexture2D_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateTexture3D_Proxy(
+    ID3D11Device* This,
+    const D3D11_TEXTURE3D_DESC *pDesc,
+    const D3D11_SUBRESOURCE_DATA *pInitialData,
+    ID3D11Texture3D **ppTexture3D);
+void __RPC_STUB ID3D11Device_CreateTexture3D_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateShaderResourceView_Proxy(
+    ID3D11Device* This,
+    ID3D11Resource *pResource,
+    const D3D11_SHADER_RESOURCE_VIEW_DESC *pDesc,
+    ID3D11ShaderResourceView **ppSRView);
+void __RPC_STUB ID3D11Device_CreateShaderResourceView_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateUnorderedAccessView_Proxy(
+    ID3D11Device* This,
+    ID3D11Resource *pResource,
+    const D3D11_UNORDERED_ACCESS_VIEW_DESC *pDesc,
+    ID3D11UnorderedAccessView **ppUAView);
+void __RPC_STUB ID3D11Device_CreateUnorderedAccessView_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateRenderTargetView_Proxy(
+    ID3D11Device* This,
+    ID3D11Resource *pResource,
+    const D3D11_RENDER_TARGET_VIEW_DESC *pDesc,
+    ID3D11RenderTargetView **ppRTView);
+void __RPC_STUB ID3D11Device_CreateRenderTargetView_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateDepthStencilView_Proxy(
+    ID3D11Device* This,
+    ID3D11Resource *pResource,
+    const D3D11_DEPTH_STENCIL_VIEW_DESC *pDesc,
+    ID3D11DepthStencilView **ppDepthStencilView);
+void __RPC_STUB ID3D11Device_CreateDepthStencilView_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateInputLayout_Proxy(
+    ID3D11Device* This,
+    const D3D11_INPUT_ELEMENT_DESC *pInputElementDescs,
+    UINT NumElements,
+    const void *pShaderBytecodeWithInputSignature,
+    SIZE_T BytecodeLength,
+    ID3D11InputLayout **ppInputLayout);
+void __RPC_STUB ID3D11Device_CreateInputLayout_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateVertexShader_Proxy(
+    ID3D11Device* This,
+    const void *pShaderBytecode,
+    SIZE_T BytecodeLength,
+    ID3D11ClassLinkage *pClassLinkage,
+    ID3D11VertexShader **ppVertexShader);
+void __RPC_STUB ID3D11Device_CreateVertexShader_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateGeometryShader_Proxy(
+    ID3D11Device* This,
+    const void *pShaderBytecode,
+    SIZE_T BytecodeLength,
+    ID3D11ClassLinkage *pClassLinkage,
+    ID3D11GeometryShader **ppGeometryShader);
+void __RPC_STUB ID3D11Device_CreateGeometryShader_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateGeometryShaderWithStreamOutput_Proxy(
+    ID3D11Device* This,
+    const void *pShaderBytecode,
+    SIZE_T BytecodeLength,
+    const D3D11_SO_DECLARATION_ENTRY *pSODeclaration,
+    UINT NumEntries,
+    const UINT *pBufferStrides,
+    UINT NumStrides,
+    UINT RasterizedStream,
+    ID3D11ClassLinkage *pClassLinkage,
+    ID3D11GeometryShader **ppGeometryShader);
+void __RPC_STUB ID3D11Device_CreateGeometryShaderWithStreamOutput_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreatePixelShader_Proxy(
+    ID3D11Device* This,
+    const void *pShaderBytecode,
+    SIZE_T BytecodeLength,
+    ID3D11ClassLinkage *pClassLinkage,
+    ID3D11PixelShader **ppPixelShader);
+void __RPC_STUB ID3D11Device_CreatePixelShader_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateHullShader_Proxy(
+    ID3D11Device* This,
+    const void *pShaderBytecode,
+    SIZE_T BytecodeLength,
+    ID3D11ClassLinkage *pClassLinkage,
+    ID3D11HullShader **ppHullShader);
+void __RPC_STUB ID3D11Device_CreateHullShader_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateDomainShader_Proxy(
+    ID3D11Device* This,
+    const void *pShaderBytecode,
+    SIZE_T BytecodeLength,
+    ID3D11ClassLinkage *pClassLinkage,
+    ID3D11DomainShader **ppDomainShader);
+void __RPC_STUB ID3D11Device_CreateDomainShader_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateComputeShader_Proxy(
+    ID3D11Device* This,
+    const void *pShaderBytecode,
+    SIZE_T BytecodeLength,
+    ID3D11ClassLinkage *pClassLinkage,
+    ID3D11ComputeShader **ppComputeShader);
+void __RPC_STUB ID3D11Device_CreateComputeShader_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateClassLinkage_Proxy(
+    ID3D11Device* This,
+    ID3D11ClassLinkage **ppLinkage);
+void __RPC_STUB ID3D11Device_CreateClassLinkage_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateBlendState_Proxy(
+    ID3D11Device* This,
+    const D3D11_BLEND_DESC *pBlendStateDesc,
+    ID3D11BlendState **ppBlendState);
+void __RPC_STUB ID3D11Device_CreateBlendState_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateDepthStencilState_Proxy(
+    ID3D11Device* This,
+    const D3D11_DEPTH_STENCIL_DESC *pDepthStencilDesc,
+    ID3D11DepthStencilState **ppDepthStencilState);
+void __RPC_STUB ID3D11Device_CreateDepthStencilState_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateRasterizerState_Proxy(
+    ID3D11Device* This,
+    const D3D11_RASTERIZER_DESC *pRasterizerDesc,
+    ID3D11RasterizerState **ppRasterizerState);
+void __RPC_STUB ID3D11Device_CreateRasterizerState_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateSamplerState_Proxy(
+    ID3D11Device* This,
+    const D3D11_SAMPLER_DESC *pSamplerDesc,
+    ID3D11SamplerState **ppSamplerState);
+void __RPC_STUB ID3D11Device_CreateSamplerState_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateQuery_Proxy(
+    ID3D11Device* This,
+    const D3D11_QUERY_DESC *pQueryDesc,
+    ID3D11Query **ppQuery);
+void __RPC_STUB ID3D11Device_CreateQuery_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreatePredicate_Proxy(
+    ID3D11Device* This,
+    const D3D11_QUERY_DESC *pPredicateDesc,
+    ID3D11Predicate **ppPredicate);
+void __RPC_STUB ID3D11Device_CreatePredicate_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateCounter_Proxy(
+    ID3D11Device* This,
+    const D3D11_COUNTER_DESC *pCounterDesc,
+    ID3D11Counter **ppCounter);
+void __RPC_STUB ID3D11Device_CreateCounter_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CreateDeferredContext_Proxy(
+    ID3D11Device* This,
+    UINT ContextFlags,
+    ID3D11DeviceContext **ppDeferredContext);
+void __RPC_STUB ID3D11Device_CreateDeferredContext_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_OpenSharedResource_Proxy(
+    ID3D11Device* This,
+    HANDLE hResource,
+    REFIID ReturnedInterface,
+    void **ppResource);
+void __RPC_STUB ID3D11Device_OpenSharedResource_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CheckFormatSupport_Proxy(
+    ID3D11Device* This,
+    DXGI_FORMAT Format,
+    UINT *pFormatSupport);
+void __RPC_STUB ID3D11Device_CheckFormatSupport_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CheckMultisampleQualityLevels_Proxy(
+    ID3D11Device* This,
+    DXGI_FORMAT Format,
+    UINT SampleCount,
+    UINT *pNumQualityLevels);
+void __RPC_STUB ID3D11Device_CheckMultisampleQualityLevels_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11Device_CheckCounterInfo_Proxy(
+    ID3D11Device* This,
+    D3D11_COUNTER_INFO *pCounterInfo);
+void __RPC_STUB ID3D11Device_CheckCounterInfo_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CheckCounter_Proxy(
+    ID3D11Device* This,
+    const D3D11_COUNTER_DESC *pDesc,
+    D3D11_COUNTER_TYPE *pType,
+    UINT *pActiveCounters,
+    LPSTR szName,
+    UINT *pNameLength,
+    LPSTR szUnits,
+    UINT *pUnitsLength,
+    LPSTR szDescription,
+    UINT *pDescriptionLength);
+void __RPC_STUB ID3D11Device_CheckCounter_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_CheckFeatureSupport_Proxy(
+    ID3D11Device* This,
+    D3D11_FEATURE Feature,
+    void *pFeatureSupportData,
+    UINT FeatureSupportDataSize);
+void __RPC_STUB ID3D11Device_CheckFeatureSupport_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_GetPrivateData_Proxy(
+    ID3D11Device* This,
+    REFGUID guid,
+    UINT *pDataSize,
+    void *pData);
+void __RPC_STUB ID3D11Device_GetPrivateData_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_SetPrivateData_Proxy(
+    ID3D11Device* This,
+    REFGUID guid,
+    UINT DataSize,
+    const void *pData);
+void __RPC_STUB ID3D11Device_SetPrivateData_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_SetPrivateDataInterface_Proxy(
+    ID3D11Device* This,
+    REFGUID guid,
+    const IUnknown *pData);
+void __RPC_STUB ID3D11Device_SetPrivateDataInterface_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+D3D_FEATURE_LEVEL STDMETHODCALLTYPE ID3D11Device_GetFeatureLevel_Proxy(
+    ID3D11Device* This);
+void __RPC_STUB ID3D11Device_GetFeatureLevel_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+UINT STDMETHODCALLTYPE ID3D11Device_GetCreationFlags_Proxy(
+    ID3D11Device* This);
+void __RPC_STUB ID3D11Device_GetCreationFlags_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_GetDeviceRemovedReason_Proxy(
+    ID3D11Device* This);
+void __RPC_STUB ID3D11Device_GetDeviceRemovedReason_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11Device_GetImmediateContext_Proxy(
+    ID3D11Device* This,
+    ID3D11DeviceContext **ppImmediateContext);
+void __RPC_STUB ID3D11Device_GetImmediateContext_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Device_SetExceptionMode_Proxy(
+    ID3D11Device* This,
+    UINT RaiseFlags);
+void __RPC_STUB ID3D11Device_SetExceptionMode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+UINT STDMETHODCALLTYPE ID3D11Device_GetExceptionMode_Proxy(
+    ID3D11Device* This);
+void __RPC_STUB ID3D11Device_GetExceptionMode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11Device_INTERFACE_DEFINED__ */
+
 #include <d3d10_1.h>
 #ifndef D3D11_IGNORE_SDK_LAYERS
 /* FIXME: # include <d3d11sdklayers.h> */
@@ -36,9 +8293,6 @@ extern "C" {
 #include <d3d10shader.h>
 #include <d3d10effect.h>
 #include <d3d10_1shader.h>
-typedef D3D_SRV_DIMENSION D3D11_SRV_DIMENSION;
-typedef D3D_PRIMITIVE D3D11_PRIMITIVE;
-typedef D3D_PRIMITIVE_TOPOLOGY D3D11_PRIMITIVE_TOPOLOGY;
 /* Begin additional prototypes for all interfaces */
 
 

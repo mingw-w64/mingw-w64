@@ -1178,8 +1178,11 @@ DECLARE_INTERFACE_(IDirect3DDevice3,IUnknown)
     STDMETHOD(DrawIndexedPrimitive)(THIS_ D3DPRIMITIVETYPE d3dptPrimitiveType, DWORD d3dvtVertexType, LPVOID lpvVertices, DWORD dwVertexCount, LPWORD dwIndices, DWORD dwIndexCount, DWORD dwFlags) PURE;
     STDMETHOD(SetClipStatus)(THIS_ D3DCLIPSTATUS *clip_status) PURE;
     STDMETHOD(GetClipStatus)(THIS_ D3DCLIPSTATUS *clip_status) PURE;
-    STDMETHOD(DrawPrimitiveStrided)(THIS_ D3DPRIMITIVETYPE d3dptPrimitiveType,DWORD dwVertexType,LPD3DDRAWPRIMITIVESTRIDEDDATA lpD3DDrawPrimStrideData,DWORD dwVertexCount,DWORD dwFlags) PURE;
-    STDMETHOD(DrawIndexedPrimitiveStrided)(THIS_ D3DPRIMITIVETYPE d3dptPrimitiveType,DWORD dwVertexType,LPD3DDRAWPRIMITIVESTRIDEDDATA lpD3DDrawPrimStrideData,DWORD dwVertexCount,LPWORD lpIndex,DWORD dwIndexCount,DWORD dwFlags) PURE;
+    STDMETHOD(DrawPrimitiveStrided)(THIS_ D3DPRIMITIVETYPE primitive_type, DWORD fvf,
+            D3DDRAWPRIMITIVESTRIDEDDATA *strided_data, DWORD vertex_count, DWORD flags) PURE;
+    STDMETHOD(DrawIndexedPrimitiveStrided)(THIS_ D3DPRIMITIVETYPE primitive_type, DWORD fvf,
+            D3DDRAWPRIMITIVESTRIDEDDATA *strided_data, DWORD vertex_count, WORD *indices, DWORD index_count,
+            DWORD flags) PURE;
     STDMETHOD(DrawPrimitiveVB)(THIS_ D3DPRIMITIVETYPE primitive_type, struct IDirect3DVertexBuffer *vb,
             DWORD start_vertex, DWORD vertex_count, DWORD flags) PURE;
     STDMETHOD(DrawIndexedPrimitiveVB)(THIS_ D3DPRIMITIVETYPE primitive_type, struct IDirect3DVertexBuffer *vb,
@@ -1323,8 +1326,11 @@ DECLARE_INTERFACE_(IDirect3DDevice7,IUnknown)
     STDMETHOD(DrawIndexedPrimitive)(THIS_ D3DPRIMITIVETYPE d3dptPrimitiveType, DWORD d3dvtVertexType, LPVOID lpvVertices, DWORD dwVertexCount, LPWORD dwIndices, DWORD dwIndexCount, DWORD dwFlags) PURE;
     STDMETHOD(SetClipStatus)(THIS_ D3DCLIPSTATUS *clip_status) PURE;
     STDMETHOD(GetClipStatus)(THIS_ D3DCLIPSTATUS *clip_status) PURE;
-    STDMETHOD(DrawPrimitiveStrided)(THIS_ D3DPRIMITIVETYPE d3dptPrimitiveType,DWORD dwVertexType,LPD3DDRAWPRIMITIVESTRIDEDDATA lpD3DDrawPrimStrideData,DWORD dwVertexCount,DWORD dwFlags) PURE;
-    STDMETHOD(DrawIndexedPrimitiveStrided)(THIS_ D3DPRIMITIVETYPE d3dptPrimitiveType,DWORD dwVertexType,LPD3DDRAWPRIMITIVESTRIDEDDATA lpD3DDrawPrimStrideData,DWORD dwVertexCount,LPWORD lpIndex,DWORD dwIndexCount,DWORD dwFlags) PURE;
+    STDMETHOD(DrawPrimitiveStrided)(THIS_ D3DPRIMITIVETYPE primitive_type, DWORD fvf,
+            D3DDRAWPRIMITIVESTRIDEDDATA *strided_data, DWORD vertex_count, DWORD flags) PURE;
+    STDMETHOD(DrawIndexedPrimitiveStrided)(THIS_ D3DPRIMITIVETYPE primitive_type, DWORD fvf,
+            D3DDRAWPRIMITIVESTRIDEDDATA *strided_data, DWORD vertex_count, WORD *indices, DWORD index_count,
+            DWORD flags) PURE;
     STDMETHOD(DrawPrimitiveVB)(THIS_ D3DPRIMITIVETYPE primitive_type, struct IDirect3DVertexBuffer7 *vb,
             DWORD start_vertex, DWORD vertex_count, DWORD flags) PURE;
     STDMETHOD(DrawIndexedPrimitiveVB)(THIS_ D3DPRIMITIVETYPE primitive_type, struct IDirect3DVertexBuffer7 *vb,
@@ -1474,7 +1480,7 @@ DECLARE_INTERFACE_(IDirect3DVertexBuffer,IUnknown)
     STDMETHOD(ProcessVertices)(THIS_ DWORD vertex_op, DWORD dst_idx, DWORD count,
             IDirect3DVertexBuffer *src_buffer, DWORD src_idx,
             IDirect3DDevice3 *device, DWORD flags) PURE;
-    STDMETHOD(GetVertexBufferDesc)(THIS_ LPD3DVERTEXBUFFERDESC lpD3DVertexBufferDesc) PURE;
+    STDMETHOD(GetVertexBufferDesc)(THIS_ D3DVERTEXBUFFERDESC *desc) PURE;
     STDMETHOD(Optimize)(THIS_ IDirect3DDevice3 *device, DWORD flags) PURE;
 };
 #undef INTERFACE
@@ -1519,7 +1525,7 @@ DECLARE_INTERFACE_(IDirect3DVertexBuffer7,IUnknown)
     STDMETHOD(ProcessVertices)(THIS_ DWORD vertex_op, DWORD dst_idx, DWORD count,
             IDirect3DVertexBuffer7 *src_buffer, DWORD src_idx,
             IDirect3DDevice7 *device, DWORD flags) PURE;
-    STDMETHOD(GetVertexBufferDesc)(THIS_ LPD3DVERTEXBUFFERDESC lpD3DVertexBufferDesc) PURE;
+    STDMETHOD(GetVertexBufferDesc)(THIS_ D3DVERTEXBUFFERDESC *desc) PURE;
     STDMETHOD(Optimize)(THIS_ IDirect3DDevice7 *device, DWORD flags) PURE;
     STDMETHOD(ProcessVerticesStrided)(THIS_ DWORD vertex_op, DWORD dst_idx, DWORD count,
             D3DDRAWPRIMITIVESTRIDEDDATA *data, DWORD fvf, IDirect3DDevice7 *device, DWORD flags) PURE;
