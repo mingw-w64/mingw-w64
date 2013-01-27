@@ -52,6 +52,7 @@ Date /          Version /  Author
 2010-02-28      1.10       Ozkan Sezer <sezeroz at gmail dot com>
 2010-08-31      1.11       Jonathan Yong <jon_y[a]users.sourceforge.com>
 2012-03-06      1.12       William <r.3[a]libertysurf.fr>
+2013-01-27      1.13       Jonathan Yong <jon_y[a]users.sourceforge.com>
 
 == Table of Contents ==
 
@@ -249,6 +250,9 @@ Step 2) Create another "build" directory, and enter it.
 		--host=x86_64-w64-mingw32 --prefix=/mypath
 	Then run "make install" to install the headers.
 
+NOTE: For v3 (trunk as of writing, you MUST append x86_64-w64-mingw32 to your prefix, such as --prefix=/mypath/x86_64-w64-mingw32
+NOTE: You MUST also do this for the CRT 
+
 Step 3) GCC requires the x86_64-w64-mingw32 directory be mirrored as a
 	directory 'mingw' in the same root.  So, if using configure default
 	/usr/local, type:
@@ -316,6 +320,9 @@ Step 2) Run configure.
 
 	If using sysroot/prefix, again add the the --prefix=/mypath and
 	--with-sysroot=/mypath flags.
+
+NOTE: For v3 (trunk as of writing, you MUST append x86_64-w64-mingw32 to your prefix, such as --prefix=/mypath/x86_64-w64-mingw32
+NOTE: You MUST also do this for the HEADERS
 
 Step 3) Type make.  This will take a while.
 

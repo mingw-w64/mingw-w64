@@ -31,6 +31,7 @@ Date /        Version /    Author
 2010-01-03    1.1          Jonathan Yong <jon_y[a]users.sourceforge.com>
 2010-05-18    1.11         Jonathan Yong <jon_y[a]users.sourceforge.com>
 2010-08-31    1.12         Jonathan Yong <jon_y[a]users.sourceforge.com>
+2013-01-27    1.13         Jonathan Yong <jon_y[a]users.sourceforge.com>
 
 == Table of Contents ==
 
@@ -272,7 +273,7 @@ An example configure line for Binutils is:
 
 When you checkout the svn trunk from the mingw-w64 developer repository, there
 should be a directory called mingw-w64-headers. Install it with:
-	../path/to/mingw-w64-headers/configure --prefix=<prefix> \
+	../path/to/mingw-w64-headers/configure --prefix=<prefix>/x86_64-w64-mingw32 \
 	--enable-sdk=none --build=<host triplet> --host=x86_64-w64-mingw32
 	make install
 
@@ -376,7 +377,7 @@ Do not delete the GCC build directory, we can continue later.
 When you checkout the svn trunk from the mingw-w64 developer repository, there
 should be a directory called mingw-w64-crt. 
 Example configure:
-	../path/to/crt/configure --prefix=<prefix> --enable-lib32 \
+	../path/to/crt/configure --prefix=<prefix>/x86_64-w64-mingw32 --enable-lib32 \
 	--enable-lib64 --build=<build triplet> --host=x86_64-w64-mingw32
 
 Explanation:
