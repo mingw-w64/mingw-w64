@@ -1590,6 +1590,7 @@ extern "C" {
       extractedProduct = ShiftRight128(lowProduct,highProduct,Shift);
       return extractedProduct;
     }
+#endif
 
     __CRT_INLINE BYTE __readgsbyte(DWORD Offset) {
       BYTE ret;
@@ -1631,7 +1632,6 @@ extern "C" {
       __asm__ volatile ("movq	%0,%%gs:%1"
 	: "=r" (Data) ,"=m" ((*(volatile __LONG32 *) (DWORD64) Offset)));
     }
-#endif /* !__CRT__NO_INLINE */
 
 #ifdef __cplusplus
   }
