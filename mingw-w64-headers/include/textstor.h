@@ -129,6 +129,18 @@ typedef struct TS_ATTRVAL {
     DWORD dwOverlapId;
     VARIANT varValue;
 } TS_ATTRVAL;
+#define TS_ATTR_FIND_BACKWARDS (0x1)
+
+#define TS_ATTR_FIND_WANT_OFFSET (0x2)
+
+#define TS_ATTR_FIND_UPDATESTART (0x4)
+
+#define TS_ATTR_FIND_WANT_VALUE (0x8)
+
+#define TS_ATTR_FIND_WANT_END (0x10)
+
+#define TS_ATTR_FIND_HIDDEN (0x20)
+
 typedef enum __WIDL_textstor_generated_name_00000002 {
     TS_LC_CREATE = 0,
     TS_LC_CHANGE = 1,
