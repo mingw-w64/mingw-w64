@@ -6472,13 +6472,11 @@ extern "C" {
     struct _TEB *NtCurrentTeb(VOID);
     PVOID GetCurrentFiber(VOID);
     PVOID GetFiberData(VOID);
-#ifndef __CRT__NO_INLINE
     __CRT_INLINE struct _TEB *NtCurrentTeb(VOID) { return (struct _TEB *)__readgsqword(FIELD_OFFSET(NT_TIB,Self)); }
     __CRT_INLINE PVOID GetCurrentFiber(VOID) { return(PVOID)__readgsqword(FIELD_OFFSET(NT_TIB,FiberData)); }
     __CRT_INLINE PVOID GetFiberData(VOID) {
       return *(PVOID *)GetCurrentFiber();
     }
-#endif /* !__CRT__NO_INLINE */
 #endif /* __x86_64 */
 
 #if (_WIN32_WINNT >= 0x0600)
