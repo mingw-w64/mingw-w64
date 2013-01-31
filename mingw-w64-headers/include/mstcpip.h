@@ -175,19 +175,8 @@ LONG NTAPI RtlIpv4StringToAddressExW(
 );
 
 #define RtlIpv6StringToAddressEx __MINGW_NAME_AW(RtlIpv6StringToAddressEx)
-LONG NTAPI RtlIpv6StringToAddressExA(
-  PCSTR AddressString,
-  IN6_ADDR *Address,
-  PULONG ScopeId,
-  PUSHORT Port
-);
-
-LONG NTAPI RtlIpv6StringToAddressExW(
-  PCSTR AddressString,
-  IN6_ADDR *Address,
-  PULONG ScopeId,
-  PUSHORT Port
-);
+LONG NTAPI RtlIpv6StringToAddressExA(PCSTR AddressString, IN6_ADDR *Address, PULONG ScopeId, PUSHORT Port);
+LONG NTAPI RtlIpv6StringToAddressExW(PCWSTR AddressString, IN6_ADDR *Address, PULONG ScopeId, PUSHORT Port);
 
 #endif /*(_WIN32_WINNT >= 0x0502)*/
 
