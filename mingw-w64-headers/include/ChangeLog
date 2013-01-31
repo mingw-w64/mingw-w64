@@ -3,6 +3,8 @@
 	Merge from trunk r5573-r5574:
 	* mstcpip.h: Correct RtlIpv6StringToAddressExW, RtlIpv6AddressToStringA
 	and RtlIpv6AddressToStringW prototypes.
+	Merge from trunk r5531:
+	* winnls.h (NormalizeString): Remove duplicate.
 
 2012-12-07  Jason Hood  <adoxa@users.sourceforge.net>
 

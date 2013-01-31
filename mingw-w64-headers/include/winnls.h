@@ -1019,14 +1019,6 @@ WINBASEAPI LCID WINAPI LocaleNameToLCID(
   DWORD dwFlags
 );
 
-WINBASEAPI int WINAPI NormalizeString(
-  NORM_FORM NormForm,
-  LPCWSTR lpSrcString,
-  int cwSrcLength,
-  LPWSTR lpDstString,
-  int cwDstLength
-);
-
 WINBASEAPI WINBOOL WINAPI RtlIsValidLocaleName(
   LPCWSTR LocaleName,
   ULONG Flags
