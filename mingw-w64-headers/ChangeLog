@@ -1,0 +1,8 @@
+2013-01-30  Christian Franke  <franke@computer.org>
+
+	* include/winsvc.h (SERVICE_CONFIG_DELAYED_AUTO_START_INFO): New define
+	for _WIN32_WINNT >= 0x0600.  The related struct is already present.
+	(SERVICE_CONFIG_FAILURE_ACTIONS_FLAG): Likewise.
+	(SERVICE_CONFIG_SERVICE_SID_INFO): Likewise.
+	(SERVICE_CONFIG_REQUIRED_PRIVILEGES_INFO): Likewise.
+	(SERVICE_CONFIG_PRESHUTDOWN_INFO): Likewise.
