@@ -973,7 +973,7 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
   ULONG NTAPI RtlUniform(PULONG Seed);
   VOID NTAPI RtlUnwind (PVOID TargetFrame,PVOID TargetIp,PEXCEPTION_RECORD ExceptionRecord,PVOID ReturnValue);
   BOOL NTAPI RtlDosPathNameToNtPathName_U(PCWSTR DosPathName, PUNICODE_STRING NtPathName, PCWSTR *NtFileNamePart, VOID *DirectoryInfo);
-
+  BOOLEAN NTAPI RtlPrefixUnicodeString(PCUNICODE_STRING String1, PCUNICODE_STRING String2, BOOLEAN CaseInSensitive);
 #ifdef __ia64__
   VOID RtlUnwind2(FRAME_POINTERS TargetFrame,PVOID TargetIp,PEXCEPTION_RECORD ExceptionRecord,PVOID ReturnValue,PCONTEXT ContextRecord);
   VOID RtlUnwindEx(FRAME_POINTERS TargetFrame,PVOID TargetIp,PEXCEPTION_RECORD ExceptionRecord,PVOID ReturnValue,PCONTEXT ContextRecord,PUNWIND_HISTORY_TABLE HistoryTable);
