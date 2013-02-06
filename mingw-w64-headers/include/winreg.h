@@ -332,25 +332,8 @@ WINADVAPI LONG WINAPI RegLoadAppKeyW(
 
 #define RegLoadAppKey __MINGW_NAME_AW(RegLoadAppKey)
 
-WINADVAPI LONG WINAPI RegLoadMUIStringA(
-  HKEY hKey,
-  LPCSTR pszValue,
-  LPSTR pszOutBuf,
-  DWORD cbOutBuf,
-  LPDWORD pcbData,
-  DWORD Flags,
-  LPCSTR pszDirectory
-);
-
-WINADVAPI LONG WINAPI RegLoadMUIStringW(
-  HKEY hKey,
-  LPCWSTR pszValue,
-  LPWSTR pszOutBuf,
-  DWORD cbOutBuf,
-  LPDWORD pcbData,
-  DWORD Flags,
-  LPCWSTR pszDirectory
-);
+WINADVAPI LONG WINAPI RegLoadMUIStringA(HKEY hKey, LPCSTR pszValue, LPSTR pszOutBuf, DWORD cbOutBuf, LPDWORD pcbData, DWORD Flags, LPCSTR pszDirectory);
+WINADVAPI LONG WINAPI RegLoadMUIStringW(HKEY hKey, LPCWSTR pszValue, LPWSTR pszOutBuf, DWORD cbOutBuf, LPDWORD pcbData, DWORD Flags, LPCWSTR pszDirectory);
 
 #define RegLoadMUIString __MINGW_NAME_AW(RegLoadMUIString)
 
