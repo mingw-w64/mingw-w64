@@ -280,6 +280,17 @@ typedef enum WICPixelFormatNumericRepresentation {
     WICPixelFormatNumericRepresentationFloat = 0x5,
     WICPIXELFORMATNUMERICREPRESENTATION_FORCE_DWORD = 0x7fffffff
 } WICPixelFormatNumericRepresentation;
+typedef enum WICTiffCompressionOption {
+    WICTiffCompressionDontCare = 0x0,
+    WICTiffCompressionNone = 0x1,
+    WICTiffCompressionCCITT3 = 0x2,
+    WICTiffCompressionCCITT4 = 0x3,
+    WICTiffCompressionLZW = 0x4,
+    WICTiffCompressionRLE = 0x5,
+    WICTiffCompressionZIP = 0x6,
+    WICTiffCompressionLZWHDifferencing = 0x7,
+    WICTIFFCOMPRESSIONOPTION_FORCE_DWORD = 0x7fffffff
+} WICTiffCompressionOption;
 typedef GUID WICPixelFormatGUID;
 typedef REFGUID REFWICPixelFormatGUID;
 DEFINE_GUID(GUID_WICPixelFormatDontCare, 0x6fddc324,0x4e03,0x4bfe,0xb1,0x85,0x3d,0x77,0x76,0x8d,0xc9,0x00);
@@ -333,6 +344,7 @@ typedef UINT32 WICColor;
 #define WINCODEC_ERR_UNSUPPORTEDPIXELFORMAT 0x88982f80
 #define WINCODEC_ERR_UNSUPPORTEDOPERATION 0x88982f81
 #define WINCODEC_ERR_INSUFFICIENTBUFFER 0x88982f8c
+#define WINCODEC_ERR_PROPERTYUNEXPECTEDTYPE 0x88982f8e
 #define WINCODEC_ERR_WIN32ERROR 0x88982f94
 #ifndef __IWICPalette_FWD_DEFINED__
 #define __IWICPalette_FWD_DEFINED__

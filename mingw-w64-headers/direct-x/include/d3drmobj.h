@@ -1692,8 +1692,8 @@ DECLARE_INTERFACE_(IDirect3DRMFrame3,IDirect3DRMVisual)
     STDMETHOD(GetTraversalOptions)(THIS_ LPDWORD pFlags) PURE;
     STDMETHOD(SetSceneFogMethod)(THIS_ DWORD flags) PURE;
     STDMETHOD(GetSceneFogMethod)(THIS_ LPDWORD pFlags) PURE;
-    STDMETHOD(SetMaterialOverride)(THIS_ LPD3DRMMATERIALOVERRIDE) PURE;
-    STDMETHOD(GetMaterialOverride)(THIS_ LPD3DRMMATERIALOVERRIDE) PURE;
+    STDMETHOD(SetMaterialOverride)(THIS_ D3DRMMATERIALOVERRIDE *override) PURE;
+    STDMETHOD(GetMaterialOverride)(THIS_ D3DRMMATERIALOVERRIDE *override) PURE;
 };
 #undef INTERFACE
 
@@ -3328,7 +3328,7 @@ DECLARE_INTERFACE_(IDirect3DRMTexture2, IDirect3DRMTexture)
     STDMETHOD_(WINBOOL, GetDecalTransparency)(THIS) PURE;
     STDMETHOD_(D3DCOLOR, GetDecalTransparentColor)(THIS) PURE;
     /*** IDirect3DRMTexture2 methods ***/
-    STDMETHOD(InitFromImage)(THIS_ LPD3DRMIMAGE) PURE;
+    STDMETHOD(InitFromImage)(THIS_ D3DRMIMAGE *image) PURE;
     STDMETHOD(InitFromResource2)(THIS_ HMODULE hModule, LPCSTR /* LPCTSTR */ strName, LPCSTR /* LPCTSTR */ strType) PURE;
     STDMETHOD(GenerateMIPMap)(THIS_ DWORD) PURE;
 };
@@ -3451,7 +3451,7 @@ DECLARE_INTERFACE_(IDirect3DRMTexture3, IDirect3DRMVisual)
     STDMETHOD_(DWORD, GetDecalScale)(THIS) PURE;
     STDMETHOD_(WINBOOL, GetDecalTransparency)(THIS) PURE;
     STDMETHOD_(D3DCOLOR, GetDecalTransparentColor)(THIS) PURE;
-    STDMETHOD(InitFromImage)(THIS_ LPD3DRMIMAGE) PURE;
+    STDMETHOD(InitFromImage)(THIS_ D3DRMIMAGE *image) PURE;
     STDMETHOD(InitFromResource2)(THIS_ HMODULE hModule, LPCSTR /* LPCTSTR */ strName, LPCSTR /* LPCTSTR */ strType) PURE;
     STDMETHOD(GenerateMIPMap)(THIS_ DWORD) PURE;
     STDMETHOD(GetSurface)(THIS_ DWORD flags, IDirectDrawSurface **surface) PURE;
