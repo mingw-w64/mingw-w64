@@ -413,6 +413,13 @@ WINSOCK_API_LINKAGE int WSAAPI WSASetSocketSecurity(
   LPWSAOVERLAPPED_COMPLETION_ROUTINE CompletionRoutine
 );
 
+#define InetNtopA inet_ntop
+
+WINSOCK_API_LINKAGE LPCWSTR InetNtopW(INT Family, PVOID pAddr, LPWSTR pStringBuf, size_t StringBufSIze);
+WINSOCK_API_LINKAGE LPCSTR InetNtopA(INT Family, PVOID pAddr, LPSTR pStringBuf, size_t StringBufSize);
+
+#define InetNtop __MINGW_NAME_AW(InetNtop)
+
 #endif /*(_WIN32_WINNT >= 0x0600)*/
 
 #ifdef __cplusplus

@@ -3066,85 +3066,26 @@ WINBASEAPI WINBOOL WINAPI DeleteFileTransactedW(
   HANDLE hTransaction
 );
 
-WINBASEAPI HANDLE WINAPI CreateMutexExA(
-  LPSECURITY_ATTRIBUTES lpMutexAttributes,
-  LPCTSTR lpName,
-  DWORD dwFlags,
-  DWORD dwDesiredAccess
-);
+WINBASEAPI HANDLE WINAPI CreateMutexExA(LPSECURITY_ATTRIBUTES lpMutexAttributes, LPCTSTR lpName, DWORD dwFlags, DWORD dwDesiredAccess);
+WINBASEAPI HANDLE WINAPI CreateMutexExW(LPSECURITY_ATTRIBUTES lpMutexAttributes, LPCWSTR lpName, DWORD dwFlags, DWORD dwDesiredAccess);
 
-WINBASEAPI HANDLE WINAPI CreateMutexExW(
-  LPSECURITY_ATTRIBUTES lpMutexAttributes,
-  LPCWSTR lpName,
-  DWORD dwFlags,
-  DWORD dwDesiredAccess
-);
+WINBASEAPI HANDLE WINAPI CreateSemaphoreExA(LPSECURITY_ATTRIBUTES lpSemaphoreAttributes, LONG lInitialCount, LONG lMaximumCount, LPCSTR lpName, DWORD dwFlags, DWORD dwDesiredAccess);
+WINBASEAPI HANDLE WINAPI CreateSemaphoreExW(LPSECURITY_ATTRIBUTES lpSemaphoreAttributes, LONG lInitialCount, LONG lMaximumCount, LPCWSTR lpName, DWORD dwFlags, DWORD dwDesiredAccess);
 
-WINBASEAPI HANDLE WINAPI CreateSemaphoreExA(
-  LPSECURITY_ATTRIBUTES lpSemaphoreAttributes,
-  LONG lInitialCount,
-  LONG lMaximumCount,
-  LPCSTR lpName,
-  DWORD dwFlags,
-  DWORD dwDesiredAccess
-);
+WINBASEAPI BOOLEAN WINAPI CreateSymbolicLinkTransactedW(LPWSTR lpSymlinkFileName, LPWSTR lpTargetFileName, DWORD dwFlags, HANDLE hTransaction);
+WINBASEAPI BOOLEAN WINAPI CreateSymbolicLinkTransactedA(LPSTR lpSymlinkFileName, LPSTR lpTargetFileName, DWORD dwFlags, HANDLE hTransaction);
 
-WINBASEAPI HANDLE WINAPI CreateSemaphoreExW(
-  LPSECURITY_ATTRIBUTES lpSemaphoreAttributes,
-  LONG lInitialCount,
-  LONG lMaximumCount,
-  LPCWSTR lpName,
-  DWORD dwFlags,
-  DWORD dwDesiredAccess
-);
-
-WINBASEAPI BOOLEAN WINAPI CreateSymbolicLinkTransactedW(
-  LPWSTR lpSymlinkFileName,
-  LPWSTR lpTargetFileName,
-  DWORD dwFlags,
-  HANDLE hTransaction
-);
-
-WINBASEAPI BOOLEAN WINAPI CreateSymbolicLinkTransactedA(
-  LPSTR lpSymlinkFileName,
-  LPSTR lpTargetFileName,
-  DWORD dwFlags,
-  HANDLE hTransaction
-);
-
-WINBASEAPI HANDLE WINAPI CreateWaitableTimerExA(
-  LPSECURITY_ATTRIBUTES lpTimerAttributes,
-  LPCSTR lpTimerName,
-  DWORD dwFlags,
-  DWORD dwDesiredAccess
-);
-
-WINBASEAPI HANDLE WINAPI CreateWaitableTimerExW(
-  LPSECURITY_ATTRIBUTES lpTimerAttributes,
-  LPCWSTR lpTimerName,
-  DWORD dwFlags,
-  DWORD dwDesiredAccess
-);
+WINBASEAPI HANDLE WINAPI CreateWaitableTimerExA(LPSECURITY_ATTRIBUTES lpTimerAttributes, LPCSTR lpTimerName, DWORD dwFlags, DWORD dwDesiredAccess);
+WINBASEAPI HANDLE WINAPI CreateWaitableTimerExW(LPSECURITY_ATTRIBUTES lpTimerAttributes, LPCWSTR lpTimerName, DWORD dwFlags, DWORD dwDesiredAccess);
 
 #define DeleteFileTransacted __MINGW_NAME_AW(DeleteFileTransacted)
 
-WINBASEAPI WINBOOL WINAPI DeleteFileTransactedW(
-  LPCWSTR lpFileName,
-  HANDLE hTransaction
-);
+WINBASEAPI WINBOOL WINAPI DeleteFileTransactedW(LPCWSTR lpFileName, HANDLE hTransaction);
+WINBASEAPI WINBOOL WINAPI DeleteFileTransactedA(LPCSTR lpFileName, HANDLE hTransaction);
 
-WINBASEAPI WINBOOL WINAPI DeleteFileTransactedA(
-  LPCSTR lpFileName,
-  HANDLE hTransaction
-);
+WINBASEAPI VOID WINAPI DestroyThreadpoolEnvironment(PTP_CALLBACK_ENVIRON pcbe);
 
-WINBASEAPI VOID WINAPI DestroyThreadpoolEnvironment(
-  PTP_CALLBACK_ENVIRON pcbe
-);
-
-WINBASEAPI VOID WINAPI DisassociateCurrentThreadFromCallback(
-  PTP_CALLBACK_INSTANCE pci
-);
+WINBASEAPI VOID WINAPI DisassociateCurrentThreadFromCallback(PTP_CALLBACK_INSTANCE pci);
 
 typedef enum _FILE_ID_TYPE {
   FileIdType,
