@@ -406,8 +406,30 @@ __mingw_swformat (_IFP *s, const wchar_t *format, va_list argp)
 		flags |= USE_GROUP;
 	    }
 	  else if (*f == 'I')
-	    /* we don't support locale's digits (i18N), but ignore it for now silently.  */
-	    ;
+	    {
+	      /* we don't support locale's digits (i18N), but ignore it for now silently.  */
+	      ;
+#ifdef _WIN32
+              if (f[1] == '6' && f[2] == '4')
+                {
+		  flags |= IS_LL | IS_L;
+		  f += 2;
+		}
+	      else if (f[1] == '3' && f[2] == '2')
+		{
+		  flags |= IS_L;
+		  f += 2;
+		}
+	      else
+	        {
+#ifdef _WIN64
+		  flags |= IS_LL | IS_L;
+#else
+		  flags |= IS_L;
+#endif
+		}
+#endif
+	    }
 	  else
 	    break;
 	  ++f;

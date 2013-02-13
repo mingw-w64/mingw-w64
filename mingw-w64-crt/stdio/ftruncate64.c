@@ -128,7 +128,9 @@ static LPWSTR xp_getfilepath(const HANDLE f, const LARGE_INTEGER fsize){
 }
 #endif /* _CHECK_SPACE_BY_PSAPI_METHOD_ */
 
-static int checkfreespace(const HANDLE f, const ULONGLONG requiredspace){
+static int
+checkfreespace (const HANDLE f, const ULONGLONG requiredspace)
+{
   LPWSTR dirpath, volumeid, volumepath;
   ULARGE_INTEGER freespace;
   LARGE_INTEGER currentsize;
@@ -137,8 +139,9 @@ static int checkfreespace(const HANDLE f, const ULONGLONG requiredspace){
   HANDLE vol;
 
   /* Get current size */
-  check = GetFileSizeEx(f,&currentsize);
-  if (!check) {
+  check = GetFileSizeEx (f, &currentsize);
+  if (!check)
+  {
     _set_errno(EBADF);
     return -1; /* Error checking file size */
   }
@@ -228,7 +231,8 @@ static int checkfreespace(const HANDLE f, const ULONGLONG requiredspace){
   }
  
   /* Check space requirements */
-  if (requiredspace - currentsize.QuadPart > freespace.QuadPart) {
+  if ((requiredspace - currentsize.QuadPart) > freespace.QuadPart)
+  {
     _set_errno(EFBIG); /* File too big for disk */
     return -1;
   } /* We have enough space to truncate/expand */
