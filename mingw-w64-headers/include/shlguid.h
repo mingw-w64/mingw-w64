@@ -12,6 +12,8 @@
 #define _WIN32_IE 0x0501
 #endif
 
+#include <knownfolders.h>
+
 #define DEFINE_SHLGUID(name,l,w1,w2) DEFINE_GUID(name,l,w1,w2,0xC0,0,0,0,0,0,0,0x46)
 
 DEFINE_SHLGUID(CLSID_ShellDesktop,0x00021400,0,0);
