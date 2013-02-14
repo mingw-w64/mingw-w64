@@ -118,7 +118,7 @@ IDL_SRCS = \
 BUILT_SOURCES = $(IDL_SRCS:.idl=.h)
 
 .idl.h: crt/_mingw.h
-	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -I$(srcdir)/direct-x/include -Icrt -I$(srcdir)/crt -h -o $(srcdir)/$@ $<
+	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -I$(srcdir)/direct-x/include -Icrt -I$(srcdir)/crt -h -o $@ $<
 
 endif
 

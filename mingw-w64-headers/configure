@@ -2536,6 +2536,11 @@ else
 fi
 
 
+if test ! "$with_widl" = "no" -a ! "$srcdir" = "."; then
+    { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: --with-widl used in out of the tree compilation. Existing generated files won't be modified." >&5
+$as_echo "$as_me: WARNING: --with-widl used in out of the tree compilation. Existing generated files won't be modified." >&2;}
+fi
+
 # Checks for libraries.
 
 # Checks for header files.

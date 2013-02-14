@@ -34,6 +34,10 @@ AS_VAR_IF([with_widl],[no],[],[
 
 AM_CONDITIONAL([HAVE_WIDL],[AS_VAR_TEST_SET([WIDL])])
 
+if test ! "$with_widl" = "no" -a ! "$srcdir" = "."; then
+    AC_MSG_WARN([--with-widl used in out of the tree compilation. Existing generated files won't be modified.])
+fi
+
 # Checks for libraries.
 
 # Checks for header files.

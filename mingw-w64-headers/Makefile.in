@@ -1016,7 +1016,7 @@ dist-hook:
 	find $(distdir) -name ".svn" -type d -delete
 
 @HAVE_WIDL_TRUE@.idl.h: crt/_mingw.h
-@HAVE_WIDL_TRUE@	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -I$(srcdir)/direct-x/include -Icrt -I$(srcdir)/crt -h -o $(srcdir)/$@ $<
+@HAVE_WIDL_TRUE@	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -I$(srcdir)/direct-x/include -Icrt -I$(srcdir)/crt -h -o $@ $<
 
 _mingw_directx.h: $(srcdir)/crt/sdks/_mingw_directx.h.in
 	$(SED) s/MINGW_HAS_DX$$/@MINGW_HAS_DX@/ $< > $@
