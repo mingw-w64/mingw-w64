@@ -1,0 +1,9 @@
+2013-02-16  Kai Tietz  <ktietz@redhat.com>
+
+	* cfgbkend.def: Update.
+	* cfgmgr32.def: Update.
+	* devenum.def: Update.
+	* devmgr.def: Update.
+	* devobj.def: Update.
+	* devrtl.def: Update.
+	* setupapi.def: Update
