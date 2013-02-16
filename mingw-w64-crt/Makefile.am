@@ -530,7 +530,8 @@ lib32_DATA = \
   lib32/libxinput.a         lib32/libxaudio.a         lib32/libxaudiod.a   \
   lib32/libxapofx.a         lib32/libx3daudio.a       lib32/libd3dx9.a     \
   lib32/libd3dx10.a         lib32/libd3dx11.a         lib32/libd3dcsxd.a   \
-  lib32/libd3dcompiler.a    lib32/libwinhttp.a        lib32/libmsvcr110.a
+  lib32/libd3dcompiler.a    lib32/libwinhttp.a        lib32/libmsvcr110.a  \
+  lib32/libdevmgr.a         lib32/libdevobj.a         lib32/libdevrtl.a
 
 if ! W32API
 lib32_DATA += lib32/libglut.a
@@ -775,7 +776,8 @@ lib64_DATA = \
   lib64/libdataclen.a   lib64/libdatime.a     lib64/libdavclnt.a      lib64/libdavcprox.a   lib64/libdbgeng.a        \
   lib64/libdbghelp.a    lib64/libdbnetlib.a   lib64/libdbnmpntw.a     lib64/libdciman32.a   lib64/libddraw.a         \
   lib64/libddrawex.a    lib64/libdeskadp.a    lib64/libdeskmon.a      lib64/libdeskperf.a   lib64/libdevenum.a       \
-  lib64/libdevmgr.a     lib64/libdfrgifps.a   lib64/libdfrgsnap.a     lib64/libdfrgui.a     lib64/libdfsshlex.a      \
+  lib64/libdevmgr.a     lib64/libdevobj.a     lib64/libdevrtl.a       \
+  lib64/libdfrgifps.a   lib64/libdfrgsnap.a     lib64/libdfrgui.a     lib64/libdfsshlex.a      \
   lib64/libdgnet.a      lib64/libdhcpcsvc.a   lib64/libdhcpmon.a      lib64/libdhcpsapi.a   lib64/libdiactfrm.a      \
   lib64/libdigest.a     lib64/libdimap.a      lib64/libdimsntfy.a     lib64/libdimsroam.a   lib64/libdirectdb.a      \
   lib64/libdiskcopy.a   lib64/libdispex.a     lib64/libdmconfig.a     lib64/libdmdlgs.a     lib64/libdmdskmgr.a      \
