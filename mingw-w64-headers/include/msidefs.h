@@ -18,11 +18,23 @@
 #ifndef NTDDI_WS03SP1
 #define NTDDI_WS03SP1 0x05020100
 #endif
+#ifndef NTDDI_VISTA
+#define NTDDI_VISTA 0x06000000
+#endif
+#ifndef NTDDI_VISTASP1
+#define NTDDI_VISTASP1 0x6000100
+#endif
 
 #ifndef _WIN32_MSI
-#if (defined(NTDDI_VERSION) && NTDDI_VERSION >= NTDDI_WS03SP1)
+#if _WIN32_WINNT >= 0x0600 || (defined(NTDDI_VERSION) && NTDDI_VERSION >= NTDDI_VISTA)
+#if defined(NTDDI_VERSION) && NTDDI_VERSION >= NTDDI_VISTASP1
+#define _WIN32_MSI 450
+#else
+#define _WIN32_MSI 400
+#endif 
+#elif (defined(NTDDI_VERSION) && NTDDI_VERSION >= NTDDI_WS03SP1)
 #define _WIN32_MSI 310
-#elif (defined(NTDDI_VERSION) && NTDDI_VERSION >= NTDDI_WINXPSP2)
+#elif defined(NTDDI_VERSION) && NTDDI_VERSION >= NTDDI_WINXPSP2
 #define _WIN32_MSI 300
 #else
 #define _WIN32_MSI 200
@@ -103,8 +115,21 @@
 #endif
 
 #if (_WIN32_MSI >= 300)
-
 #define IPROPNAME_MSIDISABLELUAPATCHING TEXT("MSIDISABLELUAPATCHING")
+#endif
+
+#if _WIN32_MSI >= 400
+#define IPROPNAME_MSILOGGINGMODE TEXT("MsiLogging")
+#define IPROPNAME_MSILOGFILELOCATION TEXT("MsiLogFileLocation")
+#define IPROPNAME_MSI_RM_CONTROL TEXT("MSIRESTARTMANAGERCONTROL")
+#define IPROPVALUE_MSI_RM_CONTROL_DISABLE TEXT("Disable")
+#define IPROPVALUE_MSI_RM_CONTROL_DISABLESHUTDOWN TEXT("DisableShutdown")
+#define IPROPNAME_MSI_RM_SESSION_KEY TEXT("MsiRestartManagerSessionKey")
+#define IPROPNAME_MSI_REBOOT_PENDING TEXT("MsiSystemRebootPending")
+#define IPROPNAME_MSI_RM_SHUTDOWN TEXT("MSIRMSHUTDOWN")
+#define IPROPNAME_MSI_RM_DISABLE_RESTART TEXT("MSIDISABLERMRESTART")
+#define IPROPNAME_MSI_UAC_DEPLOYMENT_COMPLIANT TEXT("MSIDEPLOYMENTCOMPLIANT")
+#define IPROPNAME_MSI_USE_REAL_ADMIN_DETECTION TEXT("MSIUSEREALADMINDETECTION")
 #endif
 
 #define IPROPNAME_ARPAUTHORIZEDCDFPREFIX TEXT("ARPAUTHORIZEDCDFPREFIX")
@@ -123,6 +148,9 @@
 #define IPROPNAME_ARPURLUPDATEINFO TEXT("ARPURLUPDATEINFO")
 #if (_WIN32_MSI >= 110)
 #define IPROPNAME_ARPPRODUCTICON TEXT("ARPPRODUCTICON")
+#if _WIN32_MSI >=  400
+#define IPROPNAME_ARPSETTINGSIDENTIFIER TEXT("MSIARPSETTINGSIDENTIFIER")
+#endif
 #endif
 
 #define IPROPNAME_INSTALLED TEXT("Installed")
@@ -174,6 +202,9 @@
 #define IPROPNAME_VIRTUALMEMORY TEXT("VirtualMemory")
 #if (_WIN32_MSI >= 150)
 #define IPROPNAME_TEXTHEIGHT_CORRECTION TEXT("TextHeightCorrection")
+#if _WIN32_MSI >= 400
+#define IPROPNAME_MSITABLETPC TEXT("MsiTabletPC")
+#endif
 #endif
 
 #define IPROPNAME_VERSIONNT TEXT("VersionNT")
@@ -215,6 +246,9 @@
 #define IPROPNAME_ADMINUSER TEXT("AdminUser")
 #define IPROPNAME_USERLANGUAGEID TEXT("UserLanguageID")
 #define IPROPNAME_PRIVILEGED TEXT("Privileged")
+#if _WIN32_MSI >= 400
+#define IPROPNAME_RUNNINGELEVATED TEXT("MsiRunningElevated")
+#endif
 
 #define IPROPNAME_WINDOWS_FOLDER TEXT("WindowsFolder")
 #define IPROPNAME_SYSTEM_FOLDER TEXT("SystemFolder")
@@ -327,12 +361,12 @@ enum msidbControlAttributes {
 
 typedef enum _msidbLocatorType {
   msidbLocatorTypeDirectory = 0x0,
-  msidbLocatorTypeFileName = 0x1,
+  msidbLocatorTypeFileName = 0x1
 #if (_WIN32_MSI >= 110)
-  msidbLocatorTypeRawValue = 0x2,
+  ,msidbLocatorTypeRawValue = 0x2
 #endif
 #if (_WIN32_MSI >= 150)
-  msidbLocatorType64bit = 0x10
+  ,msidbLocatorType64bit = 0x10
 #endif
 } msidbLocatorType;
 
@@ -340,9 +374,12 @@ enum msidbComponentAttributes {
   msidbComponentAttributesLocalOnly = 0x00000000,msidbComponentAttributesSourceOnly = 0x00000001,msidbComponentAttributesOptional = 0x00000002,
   msidbComponentAttributesRegistryKeyPath = 0x00000004,msidbComponentAttributesSharedDllRefCount = 0x00000008,
   msidbComponentAttributesPermanent = 0x00000010,msidbComponentAttributesODBCDataSource = 0x00000020,msidbComponentAttributesTransitive = 0x00000040,
-  msidbComponentAttributesNeverOverwrite = 0x00000080,
+  msidbComponentAttributesNeverOverwrite = 0x00000080
 #if (_WIN32_MSI >= 150)
-  msidbComponentAttributes64bit = 0x00000100
+  ,msidbComponentAttributes64bit = 0x00000100
+#if _WIN32_MSI >= 400
+  ,msidbComponentAttributesDisableRegistryReflection = 0x00000200
+#endif
 #endif
 };
 
@@ -359,12 +396,15 @@ enum msidbCustomActionType {
   msidbCustomActionTypeProperty = 0x00000030,msidbCustomActionTypeContinue = 0x00000040,msidbCustomActionTypeAsync = 0x00000080,
   msidbCustomActionTypeFirstSequence = 0x00000100,msidbCustomActionTypeOncePerProcess = 0x00000200,msidbCustomActionTypeClientRepeat = 0x00000300,
   msidbCustomActionTypeInScript = 0x00000400,msidbCustomActionTypeRollback = 0x00000100,msidbCustomActionTypeCommit = 0x00000200,
-  msidbCustomActionTypeNoImpersonate = 0x00000800,
+  msidbCustomActionTypeNoImpersonate = 0x00000800
 #if (_WIN32_MSI >= 150)
-  msidbCustomActionTypeTSAware = 0x00004000,
+  ,msidbCustomActionTypeTSAware = 0x00004000
 #endif
 #if (_WIN32_MSI >= 150)
-  msidbCustomActionType64BitScript = 0x00001000,msidbCustomActionTypeHideTarget = 0x00002000
+  ,msidbCustomActionType64BitScript = 0x00001000,msidbCustomActionTypeHideTarget = 0x00002000
+#if _WIN32_MSI >= 450
+  ,msidbCustomActionTypePatchUninstall = 0x00008000
+#endif
 #endif
 };
 
@@ -444,7 +484,29 @@ enum msidbUpgradeAttributes {
 };
 #endif
 
-enum msidbSumInfoSourceType {
-  msidbSumInfoSourceTypeSFN = 0x00000001,msidbSumInfoSourceTypeCompressed = 0x00000002,msidbSumInfoSourceTypeAdminImage = 0x00000004
+#if _WIN32_MSI >= 450
+enum msidbEmbeddedUIAttributes {
+  msidbEmbeddedUI = 0x1, msidbEmbeddedHandlesBasic = 0x02
 };
+#endif
+
+enum msidbSumInfoSourceType {
+  msidbSumInfoSourceTypeSFN = 0x00000001,msidbSumInfoSourceTypeCompressed = 0x00000002,
+  msidbSumInfoSourceTypeAdminImage = 0x00000004
+#if _WIN32_MSI >= 400
+  ,msidbSumInfoSourceTypeLUAPackage = 0x00000008
+#endif
+};
+
+#if _WIN32_MSI >= 400
+enum msirbRebootType {
+  msirbRebootImmediate = 1, msirbRebootDeferred = 2
+};
+
+enum msirbRebootReason {
+  msirbRebootUndeterminedReason = 0, msirbRebootInUseFilesReason = 1,
+  msirbRebootScheduleRebootReason = 2, msirbRebootForceRebootReason = 3,
+  msirbRebootCustomActionReason = 4
+};
+#endif
 #endif
