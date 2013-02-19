@@ -1,3 +1,7 @@
+2013-02-19  Kai Tietz  <ktietz@redhat.com>
+
+	* msi.h: Add features for _WIN32_MSI 400, and 450.
+
 2013-01-08  Jean-Baptiste Kempf  <jb@videolan.org>
         Kai Tietz  <ktietz@redhat.com>
 
