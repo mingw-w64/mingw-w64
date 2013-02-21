@@ -4169,7 +4169,7 @@ typedef struct _SHARE_ACCESS {
   UCHAR HeaderType;                             \
   UCHAR BIST;                                   \
   union {                                       \
-    struct _PCI_HEADER_TYPE_0 {                 \
+    struct /* _PCI_HEADER_TYPE_0 */ {                 \
       ULONG BaseAddresses[PCI_TYPE0_ADDRESSES]; \
       ULONG CIS;                                \
       USHORT SubVendorID;                       \
@@ -4183,7 +4183,7 @@ typedef struct _SHARE_ACCESS {
       UCHAR MinimumGrant;                       \
       UCHAR MaximumLatency;                     \
     } type0;                                    \
-    struct _PCI_HEADER_TYPE_1 {                 \
+    struct /* _PCI_HEADER_TYPE_1 */ {                 \
       ULONG BaseAddresses[PCI_TYPE1_ADDRESSES]; \
       UCHAR PrimaryBus;                         \
       UCHAR SecondaryBus;                       \
@@ -4207,7 +4207,7 @@ typedef struct _SHARE_ACCESS {
       UCHAR InterruptPin;                       \
       USHORT BridgeControl;                     \
     } type1;                                    \
-    struct _PCI_HEADER_TYPE_2 {                 \
+    struct /* _PCI_HEADER_TYPE_2 */ {                 \
       ULONG SocketRegistersBaseAddress;         \
       UCHAR CapabilitiesPtr;                    \
       UCHAR Reserved;                           \
@@ -6667,7 +6667,9 @@ typedef struct _PCI_COMMON_CONFIG {
 } PCI_COMMON_CONFIG, *PPCI_COMMON_CONFIG;
 #else
 typedef struct _PCI_COMMON_CONFIG {
-  PCI_COMMON_HEADER DUMMYSTRUCTNAME;
+  __extension__ struct {
+    PCI_COMMON_HEADER_LAYOUT
+  };
   UCHAR DeviceSpecific[192];
 } PCI_COMMON_CONFIG, *PPCI_COMMON_CONFIG;
 #endif
