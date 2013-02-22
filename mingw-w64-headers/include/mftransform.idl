@@ -63,124 +63,86 @@ cpp_quote("    VSS_ONLUNSTATECHANGE_NOTIFY_LUN_PRE_RECOVERY    = 0x00000200,")
 cpp_quote("    VSS_ONLUNSTATECHANGE_NOTIFY_LUN_POST_RECOVERY   = 0x00000400,")
 cpp_quote("    VSS_ONLUNSTATECHANGE_DO_MASK_LUNS               = 0x00000800 ")
 cpp_quote("  } VSS_HARDWARE_OPTIONS, *PVSS_HARDWARE_OPTIONS;")
-cpp_quote("")
-cpp_quote("  enum _MFT_SET_TYPE_FLAGS {")
-cpp_quote("    MFT_SET_TYPE_TEST_ONLY   = 0x00000001 ")
-cpp_quote("  };")
-cpp_quote("")
-cpp_quote("  enum _MFT_PROCESS_OUTPUT_STATUS {")
-cpp_quote("    MFT_PROCESS_OUTPUT_STATUS_NEW_STREAMS   = 0x00000100 ")
-cpp_quote("  };")
-cpp_quote("")
-cpp_quote("  enum _MFT_PROCESS_OUTPUT_FLAGS {")
-cpp_quote("    MFT_PROCESS_OUTPUT_DISCARD_WHEN_NO_BUFFER   = 0x00000001 ")
-cpp_quote("  };")
-cpp_quote("")
-cpp_quote("typedef enum _MFT_MESSAGE_TYPE {")
-cpp_quote("  MFT_MESSAGE_COMMAND_FLUSH            = 0x00000000,")
-cpp_quote("  MFT_MESSAGE_COMMAND_DRAIN            = 0x00000001,")
-cpp_quote("  MFT_MESSAGE_SET_D3D_MANAGER          = 0x00000002,")
-cpp_quote("  MFT_MESSAGE_NOTIFY_BEGIN_STREAMING   = 0x10000000,")
-cpp_quote("  MFT_MESSAGE_NOTIFY_END_STREAMING     = 0x10000001,")
-cpp_quote("  MFT_MESSAGE_NOTIFY_END_OF_STREAM     = 0x10000002,")
-cpp_quote("  MFT_MESSAGE_NOTIFY_START_OF_STREAM   = 0x10000003,")
-cpp_quote("  MFT_MESSAGE_COMMAND_MARKER           = 0x20000000 ")
-cpp_quote("} MFT_MESSAGE_TYPE;")
-cpp_quote("")
-cpp_quote("typedef struct _MFT_INPUT_STREAM_INFO {")
-cpp_quote("  LONGLONG hnsMaxLatency;")
-cpp_quote("  DWORD    dwFlags;")
-cpp_quote("  DWORD    cbSize;")
-cpp_quote("  DWORD    cbMaxLookahead;")
-cpp_quote("  DWORD    cbAlignment;")
-cpp_quote("} MFT_INPUT_STREAM_INFO;")
-cpp_quote("")
-cpp_quote("typedef struct _MFT_OUTPUT_STREAM_INFO {")
-cpp_quote("  DWORD dwFlags;")
-cpp_quote("  DWORD cbSize;")
-cpp_quote("  DWORD cbAlignment;")
-cpp_quote("} MFT_OUTPUT_STREAM_INFO;")
-cpp_quote("")
-cpp_quote("typedef struct _MFT_OUTPUT_DATA_BUFFER {")
-cpp_quote("  DWORD         dwStreamID;")
-cpp_quote("  IMFSample     *pSample;")
-cpp_quote("  DWORD         dwStatus;")
-cpp_quote("  IMFCollection *pEvents;")
-cpp_quote("} MFT_OUTPUT_DATA_BUFFER;")
-cpp_quote("")
-cpp_quote("#undef  INTERFACE")
-cpp_quote("#define INTERFACE IMFTransform")
-cpp_quote("#ifdef __GNUC__")
-cpp_quote("#warning COM interfaces layout in this header has not been verified.")
-cpp_quote("#warning COM interfaces with incorrect layout may not work at all.")
-cpp_quote("__MINGW_BROKEN_INTERFACE(INTERFACE)")
-cpp_quote("#endif")
-cpp_quote("DECLARE_INTERFACE_(IMFTransform,IUnknown)")
-cpp_quote("{")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("")
-cpp_quote("    /* IUnknown methods */")
-cpp_quote("    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;")
-cpp_quote("    STDMETHOD_(ULONG, AddRef)(THIS) PURE;")
-cpp_quote("    STDMETHOD_(ULONG, Release)(THIS) PURE;")
-cpp_quote("")
-cpp_quote("    /* IMFTransform methods */")
-cpp_quote("    STDMETHOD_(HRESULT,AddInputStreams)(THIS_ DWORD cStreams,DWORD *adwStreamIDs) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,DeleteInputStream)(THIS_ DWORD dwStreamID) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,GetAttributes)(THIS_ IMFAttributes **pAttributes) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,GetInputAvailableType)(THIS_ DWORD dwInputStreamID,DWORD dwTypeIndex,IMFMediaType **ppType) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,GetInputCurrentType)(THIS_ DWORD dwInputStreamID,IMFMediaType **ppType) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,GetInputStatus)(THIS_ DWORD dwInputStreamID,DWORD *pdwFlags) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,GetInputStreamAttributes)(THIS_ DWORD dwInputStreamID,IMFAttributes **ppAttributes) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,GetInputStreamInfo)(THIS_ DWORD dwInputStreamID,MFT_INPUT_STREAM_INFO *pStreamInfo) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,GetOutputAvailableType)(THIS_ DWORD dwOutputStreamID,DWORD dwTypeIndex,IMFMediaType **ppType) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,GetOutputCurrentType)(THIS_ DWORD dwOutputStreamID,IMFMediaType **ppType) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,GetOutputStatus)(THIS_ DWORD *pdwFlags) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,GetOutputStreamAttributes)(THIS_ DWORD dwOutputStreamID,IMFAttributes **ppAttributes) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,GetOutputStreamInfo)(THIS_ DWORD dwOutputStreamID,MFT_OUTPUT_STREAM_INFO *pStreamInfo) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,GetStreamCount)(THIS_ DWORD *pcInputStreams,DWORD *pcOutputStreams) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,GetStreamIDs)(THIS_ DWORD dwInputIDArraySize,DWORD *pdwInputIDs,DWORD dwOutputIDArraySize,DWORD *pdwOutputIDs) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,GetStreamLimits)(THIS_ DWORD *pdwInputMinimum,DWORD *pdwInputMaximum,DWORD *pdwOutputMinimum,DWORD *pdwOutputMaximum) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,ProcessEvent)(THIS_ DWORD dwInputStreamID,IMFMediaEvent *pEvent) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,ProcessInput)(THIS_ DWORD dwInputStreamID,IMFSample *pSample,DWORD dwFlags) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,ProcessMessage)(THIS_ MFT_MESSAGE_TYPE eMessage,ULONG_PTR ulParam) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,ProcessOutput)(THIS_ DWORD dwFlags,DWORD cOutputBufferCount,MFT_OUTPUT_DATA_BUFFER *pOutputSamples,DWORD *pdwStatus) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,SetInputType)(THIS_ DWORD dwInputStreamID,IMFMediaType *pType,DWORD dwFlags) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,SetOutputBounds)(THIS_ LONGLONG hnsLowerBound,LONGLONG hnsUpperBound) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,SetOutputType)(THIS_ DWORD dwOutputStreamID,IMFMediaType *pType,DWORD dwFlags) PURE;")
-cpp_quote("")
-cpp_quote("    END_INTERFACE")
-cpp_quote("};")
-cpp_quote("")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IMFTransform_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IMFTransform_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IMFTransform_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IMFTransform_AddInputStreams(This,cStreams,adwStreamIDs) (This)->lpVtbl->AddInputStreams(This,cStreams,adwStreamIDs)")
-cpp_quote("#define IMFTransform_DeleteInputStream(This,dwStreamID) (This)->lpVtbl->DeleteInputStream(This,dwStreamID)")
-cpp_quote("#define IMFTransform_GetAttributes(This,pAttributes) (This)->lpVtbl->GetAttributes(This,pAttributes)")
-cpp_quote("#define IMFTransform_GetInputAvailableType(This,dwInputStreamID,dwTypeIndex,ppType) (This)->lpVtbl->GetInputAvailableType(This,dwInputStreamID,dwTypeIndex,ppType)")
-cpp_quote("#define IMFTransform_GetInputCurrentType(This,dwInputStreamID,ppType) (This)->lpVtbl->GetInputCurrentType(This,dwInputStreamID,ppType)")
-cpp_quote("#define IMFTransform_GetInputStatus(This,dwInputStreamID,pdwFlags) (This)->lpVtbl->GetInputStatus(This,dwInputStreamID,pdwFlags)")
-cpp_quote("#define IMFTransform_GetInputStreamAttributes(This,dwInputStreamID,ppAttributes) (This)->lpVtbl->GetInputStreamAttributes(This,dwInputStreamID,ppAttributes)")
-cpp_quote("#define IMFTransform_GetInputStreamInfo(This,dwInputStreamID,pStreamInfo) (This)->lpVtbl->GetInputStreamInfo(This,dwInputStreamID,pStreamInfo)")
-cpp_quote("#define IMFTransform_GetOutputAvailableType(This,dwOutputStreamID,dwTypeIndex,ppType) (This)->lpVtbl->GetOutputAvailableType(This,dwOutputStreamID,dwTypeIndex,ppType)")
-cpp_quote("#define IMFTransform_GetOutputCurrentType(This,dwOutputStreamID,ppType) (This)->lpVtbl->GetOutputCurrentType(This,dwOutputStreamID,ppType)")
-cpp_quote("#define IMFTransform_GetOutputStatus(This,pdwFlags) (This)->lpVtbl->GetOutputStatus(This,pdwFlags)")
-cpp_quote("#define IMFTransform_GetOutputStreamAttributes(This,dwOutputStreamID,ppAttributes) (This)->lpVtbl->GetOutputStreamAttributes(This,dwOutputStreamID,ppAttributes)")
-cpp_quote("#define IMFTransform_GetOutputStreamInfo(This,dwOutputStreamID,pStreamInfo) (This)->lpVtbl->GetOutputStreamInfo(This,dwOutputStreamID,pStreamInfo)")
-cpp_quote("#define IMFTransform_GetStreamCount(This,pcInputStreams,pcOutputStreams) (This)->lpVtbl->GetStreamCount(This,pcInputStreams,pcOutputStreams)")
-cpp_quote("#define IMFTransform_GetStreamIDs(This,dwInputIDArraySize,pdwInputIDs,dwOutputIDArraySize,pdwOutputIDs) (This)->lpVtbl->GetStreamIDs(This,dwInputIDArraySize,pdwInputIDs,dwOutputIDArraySize,pdwOutputIDs)")
-cpp_quote("#define IMFTransform_GetStreamLimits(This,pdwInputMinimum,pdwInputMaximum,pdwOutputMinimum,pdwOutputMaximum) (This)->lpVtbl->GetStreamLimits(This,pdwInputMinimum,pdwInputMaximum,pdwOutputMinimum,pdwOutputMaximum)")
-cpp_quote("#define IMFTransform_ProcessEvent(This,dwInputStreamID,pEvent) (This)->lpVtbl->ProcessEvent(This,dwInputStreamID,pEvent)")
-cpp_quote("#define IMFTransform_ProcessInput(This,dwInputStreamID,pSample,dwFlags) (This)->lpVtbl->ProcessInput(This,dwInputStreamID,pSample,dwFlags)")
-cpp_quote("#define IMFTransform_ProcessMessage(This,eMessage,ulParam) (This)->lpVtbl->ProcessMessage(This,eMessage,ulParam)")
-cpp_quote("#define IMFTransform_ProcessOutput(This,dwFlags,cOutputBufferCount,pOutputSamples,pdwStatus) (This)->lpVtbl->ProcessOutput(This,dwFlags,cOutputBufferCount,pOutputSamples,pdwStatus)")
-cpp_quote("#define IMFTransform_SetInputType(This,dwInputStreamID,pType,dwFlags) (This)->lpVtbl->SetInputType(This,dwInputStreamID,pType,dwFlags)")
-cpp_quote("#define IMFTransform_SetOutputBounds(This,hnsLowerBound,hnsUpperBound) (This)->lpVtbl->SetOutputBounds(This,hnsLowerBound,hnsUpperBound)")
-cpp_quote("#define IMFTransform_SetOutputType(This,dwOutputStreamID,pType,dwFlags) (This)->lpVtbl->SetOutputType(This,dwOutputStreamID,pType,dwFlags)")
-cpp_quote("#endif /*COBJMACROS*/")
-cpp_quote("")
+
+enum _MFT_SET_TYPE_FLAGS {
+    MFT_SET_TYPE_TEST_ONLY   = 0x00000001
+};
+
+enum _MFT_PROCESS_OUTPUT_STATUS {
+    MFT_PROCESS_OUTPUT_STATUS_NEW_STREAMS   = 0x00000100
+};
+
+enum _MFT_PROCESS_OUTPUT_FLAGS {
+    MFT_PROCESS_OUTPUT_DISCARD_WHEN_NO_BUFFER   = 0x00000001
+};
+
+typedef enum _MFT_MESSAGE_TYPE {
+    MFT_MESSAGE_COMMAND_FLUSH            = 0x00000000,
+    MFT_MESSAGE_COMMAND_DRAIN            = 0x00000001,
+    MFT_MESSAGE_SET_D3D_MANAGER          = 0x00000002,
+    MFT_MESSAGE_NOTIFY_BEGIN_STREAMING   = 0x10000000,
+    MFT_MESSAGE_NOTIFY_END_STREAMING     = 0x10000001,
+    MFT_MESSAGE_NOTIFY_END_OF_STREAM     = 0x10000002,
+    MFT_MESSAGE_NOTIFY_START_OF_STREAM   = 0x10000003,
+    MFT_MESSAGE_COMMAND_MARKER           = 0x20000000
+} MFT_MESSAGE_TYPE;
+
+typedef struct _MFT_INPUT_STREAM_INFO {
+    LONGLONG hnsMaxLatency;
+    DWORD    dwFlags;
+    DWORD    cbSize;
+    DWORD    cbMaxLookahead;
+    DWORD    cbAlignment;
+} MFT_INPUT_STREAM_INFO;
+
+typedef struct _MFT_OUTPUT_STREAM_INFO {
+    DWORD dwFlags;
+    DWORD cbSize;
+    DWORD cbAlignment;
+} MFT_OUTPUT_STREAM_INFO;
+
+typedef struct _MFT_OUTPUT_DATA_BUFFER {
+    DWORD         dwStreamID;
+    IMFSample     *pSample;
+    DWORD         dwStatus;
+    IMFCollection *pEvents;
+} MFT_OUTPUT_DATA_BUFFER;
+
+[
+    object,
+    uuid(bf94c121-5b05-4e6f-8000-ba598961414d)
+]
+interface IMFTransform : IUnknown
+{
+    HRESULT GetStreamLimits([out] DWORD *pdwInputMinimum, [out] DWORD *pdwInputMaximum,
+            [out] DWORD *pdwOutputMinimum, [out] DWORD *pdwOutputMaximum);
+    HRESULT GetStreamCount([out] DWORD *pcInputStreams, [out] DWORD *pcOutputStreams);
+    HRESULT GetStreamIDs(DWORD dwInputIDArraySize, [out,size_is(dwInputIDArraySize)] DWORD *pdwInputIDs,
+            DWORD dwOutputIDArraySize, [out,size_is(dwOutputIDArraySize)] DWORD *pdwOutputIDs);
+    HRESULT GetInputStreamInfo(DWORD dwInputStreamID, [out] MFT_INPUT_STREAM_INFO *pStreamInfo);
+    HRESULT GetOutputStreamInfo(DWORD dwOutputStreamID, [out] MFT_OUTPUT_STREAM_INFO *pStreamInfo);
+    HRESULT GetAttributes([out] IMFAttributes **pAttributes);
+    HRESULT GetInputStreamAttributes(DWORD dwInputStreamID, [out] IMFAttributes **pAttributes);
+    HRESULT GetOutputStreamAttributes(DWORD dwOutputStreamID, [out] IMFAttributes **pAttributes);
+    HRESULT DeleteInputStream(DWORD dwStreamID);
+    HRESULT AddInputStreams(DWORD cStreams, [in] DWORD *adwStreamIDs);
+    HRESULT GetInputAvailableType(DWORD dwInputStreamID, DWORD dwTypeIndex, [out] IMFMediaType **ppType);
+    HRESULT GetOutputAvailableType(DWORD dwOutputStreamID, DWORD dwTypeIndex, [out] IMFMediaType **ppType);
+    HRESULT SetInputType(DWORD dwInputStreamID, [in]  IMFMediaType *pType, DWORD dwFlags);
+    HRESULT SetOutputType(DWORD dwOutputStreamID, [in] IMFMediaType *pType, DWORD dwFlags);
+    HRESULT GetInputCurrentType(DWORD dwInputStreamID, [out] IMFMediaType **ppType);
+    HRESULT GetOutputCurrentType(DWORD dwOutputStreamID, [out] IMFMediaType **ppType);
+    HRESULT GetInputStatus(DWORD dwInputStreamID, [out] DWORD *pdwFlags);
+    HRESULT GetOutputStatus([out] DWORD *pdwFlags);
+    HRESULT SetOutputBounds(LONGLONG hnsLowerBound, LONGLONG hnsUpperBound);
+    HRESULT ProcessEvent(DWORD dwInputStreamID, [in] IMFMediaEvent *pEvent);
+    HRESULT ProcessMessage(MFT_MESSAGE_TYPE eMessage, ULONG_PTR ulParam);
+    [local] HRESULT ProcessInput(DWORD dwInputStreamID, IMFSample *pSample, DWORD dwFlags);
+    [local] HRESULT ProcessOutput(DWORD dwFlags, DWORD cOutputBufferCount,
+                                  [in,out,size_is(cOutputBufferCount)] MFT_OUTPUT_DATA_BUFFER *pOutputSamples,
+                                  [out] DWORD *pdwStatus);
+}
+
 cpp_quote("#if (WINVER >= 0x0601)")
 cpp_quote("HRESULT WINAPI MFCreateTransformActivate(IMFActivate **ppActivate);")
 cpp_quote("#endif /*(WINVER >= 0x0601)*/")
