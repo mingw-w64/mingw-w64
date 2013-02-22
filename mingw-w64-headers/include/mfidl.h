@@ -3504,6 +3504,11 @@ typedef interface IMFPresentationTimeSource IMFPresentationTimeSource;
 typedef interface IMFTopoLoader IMFTopoLoader;
 #endif
 
+#ifndef __IMFTranscodeProfile_FWD_DEFINED__
+#define __IMFTranscodeProfile_FWD_DEFINED__
+typedef interface IMFTranscodeProfile IMFTranscodeProfile;
+#endif
+
 HRESULT MFCreate3GPMediaSink(IMFByteStream *pIByteStream,IMFMediaType *pVideoMediaType,IMFMediaType *pAudioMediaType,IMFMediaSink **ppIMediaSink);
 HRESULT MFCreateAggregateSource(IMFCollection *pSourceCollection,IMFMediaSource **ppAggSource);
 

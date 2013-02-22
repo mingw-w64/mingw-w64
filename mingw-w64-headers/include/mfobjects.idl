@@ -539,6 +539,18 @@ interface IMFCollection : IUnknown
     HRESULT RemoveAllElements();
 }
 
+[
+    object,
+    uuid(7fee9e9a-4a89-47a6-899c-b6a53a70fb67),
+    pointer_default(unique)
+]
+interface IMFActivate : IMFAttributes
+{
+    HRESULT ActivateObject([in] REFIID riid, [out, iid_is(riid), retval] void ** ppv);
+    HRESULT ShutdownObject();
+    HRESULT DetachObject();
+}
+
 typedef enum _MF_Plugin_Type {
     MF_Plugin_Type_MFT           = 0,
     MF_Plugin_Type_MediaSource   = 1

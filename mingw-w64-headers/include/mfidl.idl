@@ -592,6 +592,7 @@ interface IMFQualityManager;
 interface IMFSourceResolver;
 interface IMFPresentationTimeSource;
 interface IMFTopoLoader;
+interface IMFTranscodeProfile;
 
 cpp_quote("HRESULT MFCreate3GPMediaSink(IMFByteStream *pIByteStream,IMFMediaType *pVideoMediaType,IMFMediaType *pAudioMediaType,IMFMediaSink **ppIMediaSink);")
 cpp_quote("HRESULT MFCreateAggregateSource(IMFCollection *pSourceCollection,IMFMediaSource **ppAggSource);")
