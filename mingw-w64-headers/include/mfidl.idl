@@ -132,6 +132,15 @@ cpp_quote("} MFRR_COMPONENT_HASH_INFO, *PMFRR_COMPONENT_HASH_INFO;")
 
 cpp_quote("EXTERN_GUID(MF_PD_DURATION, 0x6c990d33,0xbb8e,0x477a,0x85,0x98,0xd,0x5d,0x96,0xfc,0xd8,0x8a);")
 
+typedef enum _MF_CONNECT_METHOD {
+    MF_CONNECT_DIRECT                            = 0x00000000,
+    MF_CONNECT_ALLOW_CONVERTER                   = 0x00000001,
+    MF_CONNECT_ALLOW_DECODER                     = 0x00000003,
+    MF_CONNECT_RESOLVE_INDEPENDENT_OUTPUTTYPES   = 0x00000004,
+    MF_CONNECT_AS_OPTIONAL                       = 0x00010000,
+    MF_CONNECT_AS_OPTIONAL_BRANCH                = 0x00020000
+} MF_CONNECT_METHOD;
+
 [
     object,
     uuid(90377834-21d0-4dee-8214-ba2e3e6c1127),

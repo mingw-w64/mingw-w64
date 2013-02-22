@@ -27,6 +27,11 @@ typedef interface IMFSourceReader IMFSourceReader;
 typedef interface IMFSinkWriter IMFSinkWriter;
 #endif
 
+#ifndef __IMFSourceReaderCallback_FWD_DEFINED__
+#define __IMFSourceReaderCallback_FWD_DEFINED__
+typedef interface IMFSourceReaderCallback IMFSourceReaderCallback;
+#endif
+
 /* Headers for imported files */
 
 #include <mfobjects.h>
@@ -35,6 +40,13 @@ typedef interface IMFSinkWriter IMFSinkWriter;
 extern "C" {
 #endif
 
+EXTERN_GUID(MF_SOURCE_READER_ASYNC_CALLBACK, 0x1e3dbeac,0xbb43,0x4c35,0xb5,0x07,0xcd,0x64,0x44,0x64,0xc9,0x65);
+EXTERN_GUID(MF_SOURCE_READER_D3D_MANAGER, 0xec822da2,0xe1e9,0x4b29,0xa0,0xd8,0x56,0x3c,0x71,0x9f,0x52,0x69);
+EXTERN_GUID(MF_SOURCE_READER_DISABLE_DXVA, 0xaa456cfd,0x3943,0x4a1e,0xa7,0x7d,0x18,0x38,0xc0,0xea,0x2e,0x35);
+EXTERN_GUID(MF_SOURCE_READER_MEDIASOURCE_CONFIG, 0x9085abeb,0x0354,0x48f9,0xab,0xb5,0x20,0x0d,0xf8,0x38,0xc6,0x8e);
+EXTERN_GUID(MF_SOURCE_READER_MEDIASOURCE_CHARACTERISTICS, 0x6d23f5c8,0xc5d7,0x4a9b,0x99,0x71,0x5d,0x11,0xf8,0xbc,0xa8,0x80);
+EXTERN_GUID(MF_SOURCE_READER_ENABLE_VIDEO_PROCESSING, 0xfb394f3d,0xccf1,0x42ee,0xbb,0xb3,0xf9,0xb8,0x45,0xd5,0x68,0x1d);
+EXTERN_GUID(MF_SOURCE_READER_DISCONNECT_MEDIASOURCE_ON_SHUTDOWN, 0x56b67165,0x219e,0x456d,0xa2,0x2e,0x2d,0x30,0x04,0xc7,0xfe,0x56);
 typedef enum MF_SOURCE_READER_FLAG {
     MF_SOURCE_READERF_ERROR = 0x1,
     MF_SOURCE_READERF_ENDOFSTREAM = 0x2,
@@ -679,7 +691,143 @@ void __RPC_STUB IMFSinkWriter_GetStatistics_Stub(
 
 #endif  /* __IMFSinkWriter_INTERFACE_DEFINED__ */
 
-EXTERN_GUID( MF_SOURCE_READER_MEDIASOURCE_CHARACTERISTICS, 0x6d23f5c8,0xc5d7,0x4a9b,0x99,0x71,0x5d,0x11,0xf8,0xbc,0xa8,0x80);
+/*****************************************************************************
+ * IMFSourceReaderCallback interface
+ */
+#ifndef __IMFSourceReaderCallback_INTERFACE_DEFINED__
+#define __IMFSourceReaderCallback_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMFSourceReaderCallback, 0xdeec8d99, 0xfa1d, 0x4d82, 0x84,0xc2, 0x2c,0x89,0x69,0x94,0x48,0x67);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("deec8d99-fa1d-4d82-84c2-2c8969944867")
+IMFSourceReaderCallback : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE OnReadSample(
+        HRESULT hrStatus,
+        DWORD dwStreamIndex,
+        DWORD dwStreamFlags,
+        LONGLONG llTimestamp,
+        IMFSample *pSample) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OnFlush(
+        DWORD dwStreamIndex) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OnEvent(
+        DWORD dwStreamIndex,
+        IMFMediaEvent *pEvent) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMFSourceReaderCallback, 0xdeec8d99, 0xfa1d, 0x4d82, 0x84,0xc2, 0x2c,0x89,0x69,0x94,0x48,0x67)
+#endif
+#else
+typedef struct IMFSourceReaderCallbackVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMFSourceReaderCallback* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMFSourceReaderCallback* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMFSourceReaderCallback* This);
+
+    /*** IMFSourceReaderCallback methods ***/
+    HRESULT (STDMETHODCALLTYPE *OnReadSample)(
+        IMFSourceReaderCallback* This,
+        HRESULT hrStatus,
+        DWORD dwStreamIndex,
+        DWORD dwStreamFlags,
+        LONGLONG llTimestamp,
+        IMFSample *pSample);
+
+    HRESULT (STDMETHODCALLTYPE *OnFlush)(
+        IMFSourceReaderCallback* This,
+        DWORD dwStreamIndex);
+
+    HRESULT (STDMETHODCALLTYPE *OnEvent)(
+        IMFSourceReaderCallback* This,
+        DWORD dwStreamIndex,
+        IMFMediaEvent *pEvent);
+
+    END_INTERFACE
+} IMFSourceReaderCallbackVtbl;
+interface IMFSourceReaderCallback {
+    CONST_VTBL IMFSourceReaderCallbackVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IMFSourceReaderCallback_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFSourceReaderCallback_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFSourceReaderCallback_Release(This) (This)->lpVtbl->Release(This)
+/*** IMFSourceReaderCallback methods ***/
+#define IMFSourceReaderCallback_OnReadSample(This,hrStatus,dwStreamIndex,dwStreamFlags,llTimestamp,pSample) (This)->lpVtbl->OnReadSample(This,hrStatus,dwStreamIndex,dwStreamFlags,llTimestamp,pSample)
+#define IMFSourceReaderCallback_OnFlush(This,dwStreamIndex) (This)->lpVtbl->OnFlush(This,dwStreamIndex)
+#define IMFSourceReaderCallback_OnEvent(This,dwStreamIndex,pEvent) (This)->lpVtbl->OnEvent(This,dwStreamIndex,pEvent)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMFSourceReaderCallback_QueryInterface(IMFSourceReaderCallback* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMFSourceReaderCallback_AddRef(IMFSourceReaderCallback* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMFSourceReaderCallback_Release(IMFSourceReaderCallback* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMFSourceReaderCallback methods ***/
+static FORCEINLINE HRESULT IMFSourceReaderCallback_OnReadSample(IMFSourceReaderCallback* This,HRESULT hrStatus,DWORD dwStreamIndex,DWORD dwStreamFlags,LONGLONG llTimestamp,IMFSample *pSample) {
+    return This->lpVtbl->OnReadSample(This,hrStatus,dwStreamIndex,dwStreamFlags,llTimestamp,pSample);
+}
+static FORCEINLINE HRESULT IMFSourceReaderCallback_OnFlush(IMFSourceReaderCallback* This,DWORD dwStreamIndex) {
+    return This->lpVtbl->OnFlush(This,dwStreamIndex);
+}
+static FORCEINLINE HRESULT IMFSourceReaderCallback_OnEvent(IMFSourceReaderCallback* This,DWORD dwStreamIndex,IMFMediaEvent *pEvent) {
+    return This->lpVtbl->OnEvent(This,dwStreamIndex,pEvent);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IMFSourceReaderCallback_OnReadSample_Proxy(
+    IMFSourceReaderCallback* This,
+    HRESULT hrStatus,
+    DWORD dwStreamIndex,
+    DWORD dwStreamFlags,
+    LONGLONG llTimestamp,
+    IMFSample *pSample);
+void __RPC_STUB IMFSourceReaderCallback_OnReadSample_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMFSourceReaderCallback_OnFlush_Proxy(
+    IMFSourceReaderCallback* This,
+    DWORD dwStreamIndex);
+void __RPC_STUB IMFSourceReaderCallback_OnFlush_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMFSourceReaderCallback_OnEvent_Proxy(
+    IMFSourceReaderCallback* This,
+    DWORD dwStreamIndex,
+    IMFMediaEvent *pEvent);
+void __RPC_STUB IMFSourceReaderCallback_OnEvent_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IMFSourceReaderCallback_INTERFACE_DEFINED__ */
+
 HRESULT WINAPI MFCreateSinkWriterFromMediaSink(IMFMediaSink *pMediaSink,IMFAttributes *pAttributes,IMFSinkWriter **ppSinkWriter);
 HRESULT WINAPI MFCreateSinkWriterFromURL(LPCWSTR pwszOutputURL,IMFByteStream *pByteStream,IMFAttributes *pAttributes,IMFSinkWriter **ppSinkWriter);
 HRESULT WINAPI MFCreateSourceReaderFromByteStream(IMFByteStream *pByteStream,IMFAttributes *pAttributes,IMFSourceReader **ppSourceReader);

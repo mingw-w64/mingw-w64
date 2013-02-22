@@ -143,6 +143,11 @@ interface IMFMediaType : IMFAttributes
     HRESULT FreeRepresentation([in] GUID guidRepresentation, [in] LPVOID pvRepresentation);
 }
 
+cpp_quote("#define MF_MEDIATYPE_EQUAL_MAJOR_TYPES          0x00000001")
+cpp_quote("#define MF_MEDIATYPE_EQUAL_FORMAT_TYPES         0x00000002")
+cpp_quote("#define MF_MEDIATYPE_EQUAL_FORMAT_DATA          0x00000004")
+cpp_quote("#define MF_MEDIATYPE_EQUAL_FORMAT_USER_DATA     0x00000008")
+
 [
     object,
     uuid(26a0adc3-ce26-4672-9304-69552edd3faf),
@@ -157,6 +162,29 @@ typedef struct {
     GUID guidMajorType;
     GUID guidSubtype;
 } MFT_REGISTER_TYPE_INFO;
+
+typedef enum _MFVideoFlags {
+    MFVideoFlag_PAD_TO_Mask             = 0x0001 | 0x0002,
+    MFVideoFlag_PAD_TO_None             = 0 * 0x0001,
+    MFVideoFlag_PAD_TO_4x3              = 1 * 0x0001,
+    MFVideoFlag_PAD_TO_16x9             = 2 * 0x0001,
+    MFVideoFlag_SrcContentHintMask      = 0x0004 | 0x0008 | 0x0010,
+    MFVideoFlag_SrcContentHintNone      = 0 * 0x0004,
+    MFVideoFlag_SrcContentHint16x9      = 1 * 0x0004,
+    MFVideoFlag_SrcContentHint235_1     = 2 * 0x0004,
+    MFVideoFlag_AnalogProtected         = 0x0020,
+    MFVideoFlag_DigitallyProtected      = 0x0040,
+    MFVideoFlag_ProgressiveContent      = 0x0080,
+    MFVideoFlag_FieldRepeatCountMask    = 0x0100 | 0x0200 | 0x0400,
+    MFVideoFlag_FieldRepeatCountShift   = 8,
+    MFVideoFlag_ProgressiveSeqReset     = 0x0800,
+    MFVideoFlag_PanScanEnabled          = 0x20000,
+    MFVideoFlag_LowerFieldFirst         = 0x40000,
+    MFVideoFlag_BottomUpLinearRep       = 0x80000,
+    MFVideoFlags_DXVASurface            = 0x100000,
+    MFVideoFlags_RenderTargetSurface    = 0x400000,
+    MFVideoFlags_ForceQWORD             = 0x7FFFFFFF
+} MFVideoFlags;
 
 typedef struct _MFRatio {
     DWORD Numerator;
@@ -325,6 +353,19 @@ typedef struct _MFVIDEOFORMAT {
     MFVideoSurfaceInfo    surfaceInfo;
 } MFVIDEOFORMAT;
 
+typedef enum _MFStandardVideoFormat {
+  MFStdVideoFormat_reserved       = 0,
+  MFStdVideoFormat_NTSC,
+  MFStdVideoFormat_PAL,
+  MFStdVideoFormat_DVD_NTSC,
+  MFStdVideoFormat_DVD_PAL,
+  MFStdVideoFormat_DV_PAL,
+  MFStdVideoFormat_DV_NTSC,
+  MFStdVideoFormat_ATSC_SD480i,
+  MFStdVideoFormat_ATSC_HD1080i,
+  MFStdVideoFormat_ATSC_HD720p
+} MFStandardVideoFormat;
+
 [
     object,
     uuid(b99f381f-a8f9-47a2-a5af-ca3a225a3890),
@@ -446,6 +487,44 @@ interface IMFByteStream : IUnknown
     HRESULT Close();
 }
 
+cpp_quote("#define MFBYTESTREAM_IS_READABLE                0x00000001")
+cpp_quote("#define MFBYTESTREAM_IS_WRITABLE                0x00000002")
+cpp_quote("#define MFBYTESTREAM_IS_SEEKABLE                0x00000004")
+cpp_quote("#define MFBYTESTREAM_IS_REMOTE                  0x00000008")
+cpp_quote("#define MFBYTESTREAM_IS_DIRECTORY               0x00000080")
+cpp_quote("#define MFBYTESTREAM_HAS_SLOW_SEEK              0x00000100")
+cpp_quote("#define MFBYTESTREAM_IS_PARTIALLY_DOWNLOADED    0x00000200")
+cpp_quote("#define MFBYTESTREAM_SHARE_WRITE                0x00000400")
+
+cpp_quote("#define MFBYTESTREAM_SEEK_FLAG_CANCEL_PENDING_IO  0x00000001")
+
+cpp_quote("EXTERN_GUID(MF_BYTESTREAM_ORIGIN_NAME,        0xfc358288,0x3cb6,0x460c,0xa4,0x24,0xb6,0x68,0x12,0x60,0x37,0x5a);")
+cpp_quote("EXTERN_GUID(MF_BYTESTREAM_CONTENT_TYPE,       0xfc358289,0x3cb6,0x460c,0xa4,0x24,0xb6,0x68,0x12,0x60,0x37,0x5a);")
+cpp_quote("EXTERN_GUID(MF_BYTESTREAM_DURATION,           0xfc35828a,0x3cb6,0x460c,0xa4,0x24,0xb6,0x68,0x12,0x60,0x37,0x5a);")
+cpp_quote("EXTERN_GUID(MF_BYTESTREAM_LAST_MODIFIED_TIME, 0xfc35828b,0x3cb6,0x460c,0xa4,0x24,0xb6,0x68,0x12,0x60,0x37,0x5a);")
+cpp_quote("EXTERN_GUID(MF_BYTESTREAM_IFO_FILE_URI,       0xfc35828c,0x3cb6,0x460c,0xa4,0x24,0xb6,0x68,0x12,0x60,0x37,0x5a);")
+cpp_quote("EXTERN_GUID(MF_BYTESTREAM_DLNA_PROFILE_ID,    0xfc35828d,0x3cb6,0x460c,0xa4,0x24,0xb6,0x68,0x12,0x60,0x37,0x5a);")
+
+typedef enum MF_FILE_ACCESSMODE {
+    MF_ACCESSMODE_READ      = 1,
+    MF_ACCESSMODE_WRITE     = 2,
+    MF_ACCESSMODE_READWRITE = 3 
+} MF_FILE_ACCESSMODE;
+
+typedef enum  {
+    MF_OPENMODE_FAIL_IF_NOT_EXIST   = 0,
+    MF_OPENMODE_FAIL_IF_EXIST       = 1,
+    MF_OPENMODE_RESET_IF_EXIST      = 2,
+    MF_OPENMODE_APPEND_IF_EXIST     = 3,
+    MF_OPENMODE_DELETE_IF_EXIST     = 4 
+} MF_FILE_OPENMODE;
+
+typedef enum  {
+    MF_FILEFLAGS_NONE                  = 0x00000000,
+    MF_FILEFLAGS_NOBUFFERING           = 0x00000001,
+    MF_FILEFLAGS_ALLOW_WRITE_SHARING   = 0x00000002 
+} MF_FILE_FLAGS;
+
 [
     object,
     uuid(5bc8a76b-869a-46a3-9b03-fa218a66aebe)
@@ -460,90 +539,23 @@ interface IMFCollection : IUnknown
     HRESULT RemoveAllElements();
 }
 
-cpp_quote("typedef enum _MF_CONNECT_METHOD {")
-cpp_quote("  MF_CONNECT_DIRECT                            = 0x00000000,")
-cpp_quote("  MF_CONNECT_ALLOW_CONVERTER                   = 0x00000001,")
-cpp_quote("  MF_CONNECT_ALLOW_DECODER                     = 0x00000003,")
-cpp_quote("  MF_CONNECT_RESOLVE_INDEPENDENT_OUTPUTTYPES   = 0x00000004,")
-cpp_quote("  MF_CONNECT_AS_OPTIONAL                       = 0x00010000,")
-cpp_quote("  MF_CONNECT_AS_OPTIONAL_BRANCH                = 0x00020000 ")
-cpp_quote("} MF_CONNECT_METHOD;")
-cpp_quote("")
-cpp_quote("typedef enum MF_FILE_ACCESSMODE {")
-cpp_quote("  MF_ACCESSMODE_READ        = 1,")
-cpp_quote("  MF_ACCESSMODE_WRITE       = 2,")
-cpp_quote("  MF_ACCESSMODE_READWRITE   = 3 ")
-cpp_quote("} MF_FILE_ACCESSMODE;")
-cpp_quote("")
-cpp_quote("typedef enum  {")
-cpp_quote("  MF_FILEFLAGS_NONE                  = 0x00000000,")
-cpp_quote("  MF_FILEFLAGS_NOBUFFERING           = 0x00000001,")
-cpp_quote("  MF_FILEFLAGS_ALLOW_WRITE_SHARING   = 0x00000002 ")
-cpp_quote("} MF_FILE_FLAGS;")
-cpp_quote("")
-cpp_quote("typedef enum  {")
-cpp_quote("  MF_OPENMODE_FAIL_IF_NOT_EXIST   = 0,")
-cpp_quote("  MF_OPENMODE_FAIL_IF_EXIST       = 1,")
-cpp_quote("  MF_OPENMODE_RESET_IF_EXIST      = 2,")
-cpp_quote("  MF_OPENMODE_APPEND_IF_EXIST     = 3,")
-cpp_quote("  MF_OPENMODE_DELETE_IF_EXIST     = 4 ")
-cpp_quote("} MF_FILE_OPENMODE;")
-cpp_quote("")
-cpp_quote("#if (_WIN32_WINNT >= 0x0601)")
-cpp_quote("")
-cpp_quote("typedef enum _MF_Plugin_Type {")
-cpp_quote("  MF_Plugin_Type_MFT           = 0,")
-cpp_quote("  MF_Plugin_Type_MediaSource   = 1 ")
-cpp_quote("} MF_Plugin_Type;")
-cpp_quote("")
-cpp_quote("#endif /*(_WIN32_WINNT >= 0x0601)*/")
-cpp_quote("")
-cpp_quote("typedef enum _MFStandardVideoFormat {")
-cpp_quote("  MFStdVideoFormat_reserved       = 0,")
-cpp_quote("  MFStdVideoFormat_NTSC,")
-cpp_quote("  MFStdVideoFormat_PAL,")
-cpp_quote("  MFStdVideoFormat_DVD_NTSC,")
-cpp_quote("  MFStdVideoFormat_DVD_PAL,")
-cpp_quote("  MFStdVideoFormat_DV_PAL,")
-cpp_quote("  MFStdVideoFormat_DV_NTSC,")
-cpp_quote("  MFStdVideoFormat_ATSC_SD480i,")
-cpp_quote("  MFStdVideoFormat_ATSC_HD1080i,")
-cpp_quote("  MFStdVideoFormat_ATSC_HD720p ")
-cpp_quote("} MFStandardVideoFormat;")
-cpp_quote("")
-cpp_quote("typedef enum _MFVideoFlags {")
-cpp_quote("  MFVideoFlag_PAD_TO_Mask             = 0x0001 | 0x0002,")
-cpp_quote("  MFVideoFlag_PAD_TO_None             = 0 * 0x0001,")
-cpp_quote("  MFVideoFlag_PAD_TO_4x3              = 1 * 0x0001,")
-cpp_quote("  MFVideoFlag_PAD_TO_16x9             = 2 * 0x0001,")
-cpp_quote("  MFVideoFlag_SrcContentHintMask      = 0x0004 | 0x0008 | 0x0010,")
-cpp_quote("  MFVideoFlag_SrcContentHintNone      = 0 * 0x0004,")
-cpp_quote("  MFVideoFlag_SrcContentHint16x9      = 1 * 0x0004,")
-cpp_quote("  MFVideoFlag_SrcContentHint235_1     = 2 * 0x0004,")
-cpp_quote("  MFVideoFlag_AnalogProtected         = 0x0020,")
-cpp_quote("  MFVideoFlag_DigitallyProtected      = 0x0040,")
-cpp_quote("  MFVideoFlag_ProgressiveContent      = 0x0080,")
-cpp_quote("  MFVideoFlag_FieldRepeatCountMask    = 0x0100 | 0x0200 | 0x0400,")
-cpp_quote("  MFVideoFlag_FieldRepeatCountShift   = 8,")
-cpp_quote("  MFVideoFlag_ProgressiveSeqReset     = 0x0800,")
-cpp_quote("  MFVideoFlag_PanScanEnabled          = 0x20000,")
-cpp_quote("  MFVideoFlag_LowerFieldFirst         = 0x40000,")
-cpp_quote("  MFVideoFlag_BottomUpLinearRep       = 0x80000,")
-cpp_quote("  MFVideoFlags_DXVASurface            = 0x100000,")
-cpp_quote("  MFVideoFlags_RenderTargetSurface    = 0x400000,")
-cpp_quote("  MFVideoFlags_ForceQWORD             = 0x7FFFFFFF ")
-cpp_quote("} MFVideoFlags;")
-cpp_quote("")
-cpp_quote("#define MF_MEDIATYPE_EQUAL_MAJOR_TYPES          0x00000001")
-cpp_quote("#define MF_MEDIATYPE_EQUAL_FORMAT_TYPES         0x00000002")
-cpp_quote("#define MF_MEDIATYPE_EQUAL_FORMAT_DATA          0x00000004")
-cpp_quote("#define MF_MEDIATYPE_EQUAL_FORMAT_USER_DATA     0x00000008")
-cpp_quote("")
-cpp_quote("#define MFBYTESTREAM_IS_READABLE                0x00000001")
-cpp_quote("#define MFBYTESTREAM_IS_WRITABLE                0x00000002")
-cpp_quote("#define MFBYTESTREAM_IS_SEEKABLE                0x00000004")
-cpp_quote("#define MFBYTESTREAM_IS_REMOTE                  0x00000008")
-cpp_quote("#define MFBYTESTREAM_IS_DIRECTORY               0x00000080")
-cpp_quote("#define MFBYTESTREAM_HAS_SLOW_SEEK              0x00000100")
-cpp_quote("#define MFBYTESTREAM_IS_PARTIALLY_DOWNLOADED    0x00000200")
-cpp_quote("#define MFBYTESTREAM_SHARE_WRITE                0x00000400")
+typedef enum _MF_Plugin_Type {
+    MF_Plugin_Type_MFT           = 0,
+    MF_Plugin_Type_MediaSource   = 1
+} MF_Plugin_Type;
+
+[
+    object,
+    local,
+    uuid(5c6c44bf-1db6-435b-9249-e8cd10fdec96),
+    pointer_default(unique)
+]
+interface IMFPluginControl : IUnknown
+{
+   HRESULT GetPreferredClsid(DWORD pluginType, LPCWSTR selector, CLSID *clsid);
+   HRESULT GetPreferredClsidByIndex(DWORD pluginType, DWORD index, LPWSTR *selector, CLSID *clsid);
+   HRESULT SetPreferredClsid(DWORD pluginType, LPCWSTR selector, const CLSID *clsid);
+   HRESULT IsDisabled(DWORD pluginType, REFCLSID clsid);
+   HRESULT GetDisabledByIndex(DWORD pluginType, DWORD index, CLSID *clsid);
+   HRESULT SetDisabled(DWORD pluginType, REFCLSID clsid, BOOL disabled);
+}

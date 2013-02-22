@@ -443,6 +443,17 @@ typedef struct _MT_ARBITRARY_HEADER {
   GUID  formattype;
 } MT_ARBITRARY_HEADER;
 
+enum _MFT_ENUM_FLAG {
+  MFT_ENUM_FLAG_SYNCMFT          = 0x00000001,
+  MFT_ENUM_FLAG_ASYNCMFT         = 0x00000002,
+  MFT_ENUM_FLAG_HARDWARE         = 0x00000004,
+  MFT_ENUM_FLAG_FIELDOFUSE       = 0x00000008,
+  MFT_ENUM_FLAG_LOCALMFT         = 0x00000010,
+  MFT_ENUM_FLAG_TRANSCODE_ONLY   = 0x00000020,
+  MFT_ENUM_FLAG_SORTANDFILTER    = 0x00000040,
+  MFT_ENUM_FLAG_ALL              = 0x0000003F
+};
+
 HRESULT WINAPI MFCreateMFByteStreamOnStream(IStream *pStream,IMFByteStream **ppByteStream);
 HRESULT WINAPI MFGetMFTMerit(IUnknown *pMFT,UINT32 cbVerifier,const BYTE *verifier,DWORD *merit);
 HRESULT WINAPI MFGetPluginControl(IMFPluginControl **ppPluginControl);

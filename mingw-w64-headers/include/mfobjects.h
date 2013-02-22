@@ -87,6 +87,11 @@ typedef interface IMFByteStream IMFByteStream;
 typedef interface IMFCollection IMFCollection;
 #endif
 
+#ifndef __IMFPluginControl_FWD_DEFINED__
+#define __IMFPluginControl_FWD_DEFINED__
+typedef interface IMFPluginControl IMFPluginControl;
+#endif
+
 /* Headers for imported files */
 
 #include <unknwn.h>
@@ -2304,6 +2309,10 @@ void __RPC_STUB IMFMediaType_FreeRepresentation_Stub(
 
 #endif  /* __IMFMediaType_INTERFACE_DEFINED__ */
 
+#define MF_MEDIATYPE_EQUAL_MAJOR_TYPES          0x00000001
+#define MF_MEDIATYPE_EQUAL_FORMAT_TYPES         0x00000002
+#define MF_MEDIATYPE_EQUAL_FORMAT_DATA          0x00000004
+#define MF_MEDIATYPE_EQUAL_FORMAT_USER_DATA     0x00000008
 /*****************************************************************************
  * IMFAudioMediaType interface
  */
@@ -2711,6 +2720,28 @@ typedef struct __WIDL_mmreg_h_generated_name_00000001 {
     GUID guidMajorType;
     GUID guidSubtype;
 } MFT_REGISTER_TYPE_INFO;
+typedef enum _MFVideoFlags {
+    MFVideoFlag_PAD_TO_Mask = 0x1 | 0x2,
+    MFVideoFlag_PAD_TO_None = 0 * 0x1,
+    MFVideoFlag_PAD_TO_4x3 = 1 * 0x1,
+    MFVideoFlag_PAD_TO_16x9 = 2 * 0x1,
+    MFVideoFlag_SrcContentHintMask = (0x4 | 0x8) | 0x10,
+    MFVideoFlag_SrcContentHintNone = 0 * 0x4,
+    MFVideoFlag_SrcContentHint16x9 = 1 * 0x4,
+    MFVideoFlag_SrcContentHint235_1 = 2 * 0x4,
+    MFVideoFlag_AnalogProtected = 0x20,
+    MFVideoFlag_DigitallyProtected = 0x40,
+    MFVideoFlag_ProgressiveContent = 0x80,
+    MFVideoFlag_FieldRepeatCountMask = (0x100 | 0x200) | 0x400,
+    MFVideoFlag_FieldRepeatCountShift = 8,
+    MFVideoFlag_ProgressiveSeqReset = 0x800,
+    MFVideoFlag_PanScanEnabled = 0x20000,
+    MFVideoFlag_LowerFieldFirst = 0x40000,
+    MFVideoFlag_BottomUpLinearRep = 0x80000,
+    MFVideoFlags_DXVASurface = 0x100000,
+    MFVideoFlags_RenderTargetSurface = 0x400000,
+    MFVideoFlags_ForceQWORD = 0x7fffffff
+} MFVideoFlags;
 typedef struct _MFRatio {
     DWORD Numerator;
     DWORD Denominator;
@@ -2853,6 +2884,18 @@ typedef struct _MFVIDEOFORMAT {
     MFVideoCompressedInfo compressedInfo;
     MFVideoSurfaceInfo surfaceInfo;
 } MFVIDEOFORMAT;
+typedef enum _MFStandardVideoFormat {
+    MFStdVideoFormat_reserved = 0,
+    MFStdVideoFormat_NTSC = 1,
+    MFStdVideoFormat_PAL = 2,
+    MFStdVideoFormat_DVD_NTSC = 3,
+    MFStdVideoFormat_DVD_PAL = 4,
+    MFStdVideoFormat_DV_PAL = 5,
+    MFStdVideoFormat_DV_NTSC = 6,
+    MFStdVideoFormat_ATSC_SD480i = 7,
+    MFStdVideoFormat_ATSC_HD1080i = 8,
+    MFStdVideoFormat_ATSC_HD720p = 9
+} MFStandardVideoFormat;
 /*****************************************************************************
  * IMFVideoMediaType interface
  */
@@ -4549,6 +4592,38 @@ void __RPC_STUB IMFByteStream_Close_Stub(
 
 #endif  /* __IMFByteStream_INTERFACE_DEFINED__ */
 
+#define MFBYTESTREAM_IS_READABLE                0x00000001
+#define MFBYTESTREAM_IS_WRITABLE                0x00000002
+#define MFBYTESTREAM_IS_SEEKABLE                0x00000004
+#define MFBYTESTREAM_IS_REMOTE                  0x00000008
+#define MFBYTESTREAM_IS_DIRECTORY               0x00000080
+#define MFBYTESTREAM_HAS_SLOW_SEEK              0x00000100
+#define MFBYTESTREAM_IS_PARTIALLY_DOWNLOADED    0x00000200
+#define MFBYTESTREAM_SHARE_WRITE                0x00000400
+#define MFBYTESTREAM_SEEK_FLAG_CANCEL_PENDING_IO  0x00000001
+EXTERN_GUID(MF_BYTESTREAM_ORIGIN_NAME,        0xfc358288,0x3cb6,0x460c,0xa4,0x24,0xb6,0x68,0x12,0x60,0x37,0x5a);
+EXTERN_GUID(MF_BYTESTREAM_CONTENT_TYPE,       0xfc358289,0x3cb6,0x460c,0xa4,0x24,0xb6,0x68,0x12,0x60,0x37,0x5a);
+EXTERN_GUID(MF_BYTESTREAM_DURATION,           0xfc35828a,0x3cb6,0x460c,0xa4,0x24,0xb6,0x68,0x12,0x60,0x37,0x5a);
+EXTERN_GUID(MF_BYTESTREAM_LAST_MODIFIED_TIME, 0xfc35828b,0x3cb6,0x460c,0xa4,0x24,0xb6,0x68,0x12,0x60,0x37,0x5a);
+EXTERN_GUID(MF_BYTESTREAM_IFO_FILE_URI,       0xfc35828c,0x3cb6,0x460c,0xa4,0x24,0xb6,0x68,0x12,0x60,0x37,0x5a);
+EXTERN_GUID(MF_BYTESTREAM_DLNA_PROFILE_ID,    0xfc35828d,0x3cb6,0x460c,0xa4,0x24,0xb6,0x68,0x12,0x60,0x37,0x5a);
+typedef enum MF_FILE_ACCESSMODE {
+    MF_ACCESSMODE_READ = 1,
+    MF_ACCESSMODE_WRITE = 2,
+    MF_ACCESSMODE_READWRITE = 3
+} MF_FILE_ACCESSMODE;
+typedef enum __WIDL_mmreg_h_generated_name_00000002 {
+    MF_OPENMODE_FAIL_IF_NOT_EXIST = 0,
+    MF_OPENMODE_FAIL_IF_EXIST = 1,
+    MF_OPENMODE_RESET_IF_EXIST = 2,
+    MF_OPENMODE_APPEND_IF_EXIST = 3,
+    MF_OPENMODE_DELETE_IF_EXIST = 4
+} MF_FILE_OPENMODE;
+typedef enum __WIDL_mmreg_h_generated_name_00000003 {
+    MF_FILEFLAGS_NONE = 0x0,
+    MF_FILEFLAGS_NOBUFFERING = 0x1,
+    MF_FILEFLAGS_ALLOW_WRITE_SHARING = 0x2
+} MF_FILE_FLAGS;
 /*****************************************************************************
  * IMFCollection interface
  */
@@ -4735,93 +4810,225 @@ void __RPC_STUB IMFCollection_RemoveAllElements_Stub(
 
 #endif  /* __IMFCollection_INTERFACE_DEFINED__ */
 
-typedef enum _MF_CONNECT_METHOD {
-  MF_CONNECT_DIRECT                            = 0x00000000,
-  MF_CONNECT_ALLOW_CONVERTER                   = 0x00000001,
-  MF_CONNECT_ALLOW_DECODER                     = 0x00000003,
-  MF_CONNECT_RESOLVE_INDEPENDENT_OUTPUTTYPES   = 0x00000004,
-  MF_CONNECT_AS_OPTIONAL                       = 0x00010000,
-  MF_CONNECT_AS_OPTIONAL_BRANCH                = 0x00020000 
-} MF_CONNECT_METHOD;
-
-typedef enum MF_FILE_ACCESSMODE {
-  MF_ACCESSMODE_READ        = 1,
-  MF_ACCESSMODE_WRITE       = 2,
-  MF_ACCESSMODE_READWRITE   = 3 
-} MF_FILE_ACCESSMODE;
-
-typedef enum  {
-  MF_FILEFLAGS_NONE                  = 0x00000000,
-  MF_FILEFLAGS_NOBUFFERING           = 0x00000001,
-  MF_FILEFLAGS_ALLOW_WRITE_SHARING   = 0x00000002 
-} MF_FILE_FLAGS;
-
-typedef enum  {
-  MF_OPENMODE_FAIL_IF_NOT_EXIST   = 0,
-  MF_OPENMODE_FAIL_IF_EXIST       = 1,
-  MF_OPENMODE_RESET_IF_EXIST      = 2,
-  MF_OPENMODE_APPEND_IF_EXIST     = 3,
-  MF_OPENMODE_DELETE_IF_EXIST     = 4 
-} MF_FILE_OPENMODE;
-
-#if (_WIN32_WINNT >= 0x0601)
-
 typedef enum _MF_Plugin_Type {
-  MF_Plugin_Type_MFT           = 0,
-  MF_Plugin_Type_MediaSource   = 1 
+    MF_Plugin_Type_MFT = 0,
+    MF_Plugin_Type_MediaSource = 1
 } MF_Plugin_Type;
+/*****************************************************************************
+ * IMFPluginControl interface
+ */
+#ifndef __IMFPluginControl_INTERFACE_DEFINED__
+#define __IMFPluginControl_INTERFACE_DEFINED__
 
-#endif /*(_WIN32_WINNT >= 0x0601)*/
+DEFINE_GUID(IID_IMFPluginControl, 0x5c6c44bf, 0x1db6, 0x435b, 0x92,0x49, 0xe8,0xcd,0x10,0xfd,0xec,0x96);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("5c6c44bf-1db6-435b-9249-e8cd10fdec96")
+IMFPluginControl : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetPreferredClsid(
+        DWORD pluginType,
+        LPCWSTR selector,
+        CLSID *clsid) = 0;
 
-typedef enum _MFStandardVideoFormat {
-  MFStdVideoFormat_reserved       = 0,
-  MFStdVideoFormat_NTSC,
-  MFStdVideoFormat_PAL,
-  MFStdVideoFormat_DVD_NTSC,
-  MFStdVideoFormat_DVD_PAL,
-  MFStdVideoFormat_DV_PAL,
-  MFStdVideoFormat_DV_NTSC,
-  MFStdVideoFormat_ATSC_SD480i,
-  MFStdVideoFormat_ATSC_HD1080i,
-  MFStdVideoFormat_ATSC_HD720p 
-} MFStandardVideoFormat;
+    virtual HRESULT STDMETHODCALLTYPE GetPreferredClsidByIndex(
+        DWORD pluginType,
+        DWORD index,
+        LPWSTR *selector,
+        CLSID *clsid) = 0;
 
-typedef enum _MFVideoFlags {
-  MFVideoFlag_PAD_TO_Mask             = 0x0001 | 0x0002,
-  MFVideoFlag_PAD_TO_None             = 0 * 0x0001,
-  MFVideoFlag_PAD_TO_4x3              = 1 * 0x0001,
-  MFVideoFlag_PAD_TO_16x9             = 2 * 0x0001,
-  MFVideoFlag_SrcContentHintMask      = 0x0004 | 0x0008 | 0x0010,
-  MFVideoFlag_SrcContentHintNone      = 0 * 0x0004,
-  MFVideoFlag_SrcContentHint16x9      = 1 * 0x0004,
-  MFVideoFlag_SrcContentHint235_1     = 2 * 0x0004,
-  MFVideoFlag_AnalogProtected         = 0x0020,
-  MFVideoFlag_DigitallyProtected      = 0x0040,
-  MFVideoFlag_ProgressiveContent      = 0x0080,
-  MFVideoFlag_FieldRepeatCountMask    = 0x0100 | 0x0200 | 0x0400,
-  MFVideoFlag_FieldRepeatCountShift   = 8,
-  MFVideoFlag_ProgressiveSeqReset     = 0x0800,
-  MFVideoFlag_PanScanEnabled          = 0x20000,
-  MFVideoFlag_LowerFieldFirst         = 0x40000,
-  MFVideoFlag_BottomUpLinearRep       = 0x80000,
-  MFVideoFlags_DXVASurface            = 0x100000,
-  MFVideoFlags_RenderTargetSurface    = 0x400000,
-  MFVideoFlags_ForceQWORD             = 0x7FFFFFFF 
-} MFVideoFlags;
+    virtual HRESULT STDMETHODCALLTYPE SetPreferredClsid(
+        DWORD pluginType,
+        LPCWSTR selector,
+        const CLSID *clsid) = 0;
 
-#define MF_MEDIATYPE_EQUAL_MAJOR_TYPES          0x00000001
-#define MF_MEDIATYPE_EQUAL_FORMAT_TYPES         0x00000002
-#define MF_MEDIATYPE_EQUAL_FORMAT_DATA          0x00000004
-#define MF_MEDIATYPE_EQUAL_FORMAT_USER_DATA     0x00000008
+    virtual HRESULT STDMETHODCALLTYPE IsDisabled(
+        DWORD pluginType,
+        REFCLSID clsid) = 0;
 
-#define MFBYTESTREAM_IS_READABLE                0x00000001
-#define MFBYTESTREAM_IS_WRITABLE                0x00000002
-#define MFBYTESTREAM_IS_SEEKABLE                0x00000004
-#define MFBYTESTREAM_IS_REMOTE                  0x00000008
-#define MFBYTESTREAM_IS_DIRECTORY               0x00000080
-#define MFBYTESTREAM_HAS_SLOW_SEEK              0x00000100
-#define MFBYTESTREAM_IS_PARTIALLY_DOWNLOADED    0x00000200
-#define MFBYTESTREAM_SHARE_WRITE                0x00000400
+    virtual HRESULT STDMETHODCALLTYPE GetDisabledByIndex(
+        DWORD pluginType,
+        DWORD index,
+        CLSID *clsid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetDisabled(
+        DWORD pluginType,
+        REFCLSID clsid,
+        WINBOOL disabled) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMFPluginControl, 0x5c6c44bf, 0x1db6, 0x435b, 0x92,0x49, 0xe8,0xcd,0x10,0xfd,0xec,0x96)
+#endif
+#else
+typedef struct IMFPluginControlVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMFPluginControl* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMFPluginControl* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMFPluginControl* This);
+
+    /*** IMFPluginControl methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetPreferredClsid)(
+        IMFPluginControl* This,
+        DWORD pluginType,
+        LPCWSTR selector,
+        CLSID *clsid);
+
+    HRESULT (STDMETHODCALLTYPE *GetPreferredClsidByIndex)(
+        IMFPluginControl* This,
+        DWORD pluginType,
+        DWORD index,
+        LPWSTR *selector,
+        CLSID *clsid);
+
+    HRESULT (STDMETHODCALLTYPE *SetPreferredClsid)(
+        IMFPluginControl* This,
+        DWORD pluginType,
+        LPCWSTR selector,
+        const CLSID *clsid);
+
+    HRESULT (STDMETHODCALLTYPE *IsDisabled)(
+        IMFPluginControl* This,
+        DWORD pluginType,
+        REFCLSID clsid);
+
+    HRESULT (STDMETHODCALLTYPE *GetDisabledByIndex)(
+        IMFPluginControl* This,
+        DWORD pluginType,
+        DWORD index,
+        CLSID *clsid);
+
+    HRESULT (STDMETHODCALLTYPE *SetDisabled)(
+        IMFPluginControl* This,
+        DWORD pluginType,
+        REFCLSID clsid,
+        WINBOOL disabled);
+
+    END_INTERFACE
+} IMFPluginControlVtbl;
+interface IMFPluginControl {
+    CONST_VTBL IMFPluginControlVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IMFPluginControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMFPluginControl_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMFPluginControl_Release(This) (This)->lpVtbl->Release(This)
+/*** IMFPluginControl methods ***/
+#define IMFPluginControl_GetPreferredClsid(This,pluginType,selector,clsid) (This)->lpVtbl->GetPreferredClsid(This,pluginType,selector,clsid)
+#define IMFPluginControl_GetPreferredClsidByIndex(This,pluginType,index,selector,clsid) (This)->lpVtbl->GetPreferredClsidByIndex(This,pluginType,index,selector,clsid)
+#define IMFPluginControl_SetPreferredClsid(This,pluginType,selector,clsid) (This)->lpVtbl->SetPreferredClsid(This,pluginType,selector,clsid)
+#define IMFPluginControl_IsDisabled(This,pluginType,clsid) (This)->lpVtbl->IsDisabled(This,pluginType,clsid)
+#define IMFPluginControl_GetDisabledByIndex(This,pluginType,index,clsid) (This)->lpVtbl->GetDisabledByIndex(This,pluginType,index,clsid)
+#define IMFPluginControl_SetDisabled(This,pluginType,clsid,disabled) (This)->lpVtbl->SetDisabled(This,pluginType,clsid,disabled)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMFPluginControl_QueryInterface(IMFPluginControl* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMFPluginControl_AddRef(IMFPluginControl* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMFPluginControl_Release(IMFPluginControl* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMFPluginControl methods ***/
+static FORCEINLINE HRESULT IMFPluginControl_GetPreferredClsid(IMFPluginControl* This,DWORD pluginType,LPCWSTR selector,CLSID *clsid) {
+    return This->lpVtbl->GetPreferredClsid(This,pluginType,selector,clsid);
+}
+static FORCEINLINE HRESULT IMFPluginControl_GetPreferredClsidByIndex(IMFPluginControl* This,DWORD pluginType,DWORD index,LPWSTR *selector,CLSID *clsid) {
+    return This->lpVtbl->GetPreferredClsidByIndex(This,pluginType,index,selector,clsid);
+}
+static FORCEINLINE HRESULT IMFPluginControl_SetPreferredClsid(IMFPluginControl* This,DWORD pluginType,LPCWSTR selector,const CLSID *clsid) {
+    return This->lpVtbl->SetPreferredClsid(This,pluginType,selector,clsid);
+}
+static FORCEINLINE HRESULT IMFPluginControl_IsDisabled(IMFPluginControl* This,DWORD pluginType,REFCLSID clsid) {
+    return This->lpVtbl->IsDisabled(This,pluginType,clsid);
+}
+static FORCEINLINE HRESULT IMFPluginControl_GetDisabledByIndex(IMFPluginControl* This,DWORD pluginType,DWORD index,CLSID *clsid) {
+    return This->lpVtbl->GetDisabledByIndex(This,pluginType,index,clsid);
+}
+static FORCEINLINE HRESULT IMFPluginControl_SetDisabled(IMFPluginControl* This,DWORD pluginType,REFCLSID clsid,WINBOOL disabled) {
+    return This->lpVtbl->SetDisabled(This,pluginType,clsid,disabled);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IMFPluginControl_GetPreferredClsid_Proxy(
+    IMFPluginControl* This,
+    DWORD pluginType,
+    LPCWSTR selector,
+    CLSID *clsid);
+void __RPC_STUB IMFPluginControl_GetPreferredClsid_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMFPluginControl_GetPreferredClsidByIndex_Proxy(
+    IMFPluginControl* This,
+    DWORD pluginType,
+    DWORD index,
+    LPWSTR *selector,
+    CLSID *clsid);
+void __RPC_STUB IMFPluginControl_GetPreferredClsidByIndex_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMFPluginControl_SetPreferredClsid_Proxy(
+    IMFPluginControl* This,
+    DWORD pluginType,
+    LPCWSTR selector,
+    const CLSID *clsid);
+void __RPC_STUB IMFPluginControl_SetPreferredClsid_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMFPluginControl_IsDisabled_Proxy(
+    IMFPluginControl* This,
+    DWORD pluginType,
+    REFCLSID clsid);
+void __RPC_STUB IMFPluginControl_IsDisabled_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMFPluginControl_GetDisabledByIndex_Proxy(
+    IMFPluginControl* This,
+    DWORD pluginType,
+    DWORD index,
+    CLSID *clsid);
+void __RPC_STUB IMFPluginControl_GetDisabledByIndex_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMFPluginControl_SetDisabled_Proxy(
+    IMFPluginControl* This,
+    DWORD pluginType,
+    REFCLSID clsid,
+    WINBOOL disabled);
+void __RPC_STUB IMFPluginControl_SetDisabled_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IMFPluginControl_INTERFACE_DEFINED__ */
+
 /* Begin additional prototypes for all interfaces */
 
 ULONG           __RPC_USER BSTR_UserSize     (ULONG *, ULONG, BSTR *);

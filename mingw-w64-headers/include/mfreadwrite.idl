@@ -6,6 +6,14 @@
 
 import "mfobjects.idl";
 
+cpp_quote("EXTERN_GUID(MF_SOURCE_READER_ASYNC_CALLBACK, 0x1e3dbeac,0xbb43,0x4c35,0xb5,0x07,0xcd,0x64,0x44,0x64,0xc9,0x65);")
+cpp_quote("EXTERN_GUID(MF_SOURCE_READER_D3D_MANAGER, 0xec822da2,0xe1e9,0x4b29,0xa0,0xd8,0x56,0x3c,0x71,0x9f,0x52,0x69);")
+cpp_quote("EXTERN_GUID(MF_SOURCE_READER_DISABLE_DXVA, 0xaa456cfd,0x3943,0x4a1e,0xa7,0x7d,0x18,0x38,0xc0,0xea,0x2e,0x35);")
+cpp_quote("EXTERN_GUID(MF_SOURCE_READER_MEDIASOURCE_CONFIG, 0x9085abeb,0x0354,0x48f9,0xab,0xb5,0x20,0x0d,0xf8,0x38,0xc6,0x8e);")
+cpp_quote("EXTERN_GUID(MF_SOURCE_READER_MEDIASOURCE_CHARACTERISTICS, 0x6d23f5c8,0xc5d7,0x4a9b,0x99,0x71,0x5d,0x11,0xf8,0xbc,0xa8,0x80);")
+cpp_quote("EXTERN_GUID(MF_SOURCE_READER_ENABLE_VIDEO_PROCESSING, 0xfb394f3d,0xccf1,0x42ee,0xbb,0xb3,0xf9,0xb8,0x45,0xd5,0x68,0x1d);" )
+cpp_quote("EXTERN_GUID(MF_SOURCE_READER_DISCONNECT_MEDIASOURCE_ON_SHUTDOWN, 0x56b67165,0x219e,0x456d,0xa2,0x2e,0x2d,0x30,0x04,0xc7,0xfe,0x56);" )
+
 typedef [v1_enum] enum MF_SOURCE_READER_FLAG {
     MF_SOURCE_READERF_ERROR                     = 0x00000001,
     MF_SOURCE_READERF_ENDOFSTREAM               = 0x00000002,
@@ -85,7 +93,18 @@ interface IMFSinkWriter : IUnknown
     HRESULT GetStatistics([in] DWORD dwStreamIndex, [out] MF_SINK_WRITER_STATISTICS *pStats);
 }
 
-cpp_quote("EXTERN_GUID( MF_SOURCE_READER_MEDIASOURCE_CHARACTERISTICS, 0x6d23f5c8,0xc5d7,0x4a9b,0x99,0x71,0x5d,0x11,0xf8,0xbc,0xa8,0x80);")
+[
+    object,
+    uuid(deec8d99-fa1d-4d82-84c2-2c8969944867),
+    local
+]
+interface IMFSourceReaderCallback : IUnknown
+{
+    HRESULT OnReadSample([in] HRESULT hrStatus, [in] DWORD dwStreamIndex, [in] DWORD dwStreamFlags,
+            [in] LONGLONG llTimestamp, [in] IMFSample *pSample);
+    HRESULT OnFlush([in] DWORD dwStreamIndex);
+    HRESULT OnEvent([in] DWORD dwStreamIndex, [in] IMFMediaEvent *pEvent);
+}
 
 cpp_quote("HRESULT WINAPI MFCreateSinkWriterFromMediaSink(IMFMediaSink *pMediaSink,IMFAttributes *pAttributes,IMFSinkWriter **ppSinkWriter);")
 cpp_quote("HRESULT WINAPI MFCreateSinkWriterFromURL(LPCWSTR pwszOutputURL,IMFByteStream *pByteStream,IMFAttributes *pAttributes,IMFSinkWriter **ppSinkWriter);")
