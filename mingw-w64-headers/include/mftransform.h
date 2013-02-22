@@ -8,7 +8,7 @@
 
 #include <mfidl.h>
 
-#if (_WIN32_WINNT >= 0x0600)
+#if (WINVER >= 0x0600)
 /*Not supported.*/
   enum _MFT_DRAIN_TYPE {
     MFT_DRAIN_PRODUCE_TAILS   = 0x00000000,
@@ -185,7 +185,7 @@ DECLARE_INTERFACE_(IMFTransform,IUnknown)
 #define IMFTransform_SetOutputType(This,dwOutputStreamID,pType,dwFlags) (This)->lpVtbl->SetOutputType(This,dwOutputStreamID,pType,dwFlags)
 #endif /*COBJMACROS*/
 
-#if (_WIN32_WINNT >= 0x0601)
+#if (WINVER >= 0x0601)
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -193,8 +193,8 @@ HRESULT WINAPI MFCreateTransformActivate(IMFActivate **ppActivate);
 #ifdef __cplusplus
 }
 #endif
-#endif /*(_WIN32_WINNT >= 0x0601)*/
+#endif /*(WINVER >= 0x0601)*/
 
-#endif /*(_WIN32_WINNT >= 0x0600)*/
+#endif /*(WINVER >= 0x0600)*/
 
 #endif /*_INC_MFTRANSFORM*/

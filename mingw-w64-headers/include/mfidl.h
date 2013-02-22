@@ -3112,13 +3112,13 @@ typedef enum MFCLOCK_CHARACTERISTICS_FLAGS {
   MFCLOCK_CHARACTERISTICS_FLAG_IS_SYSTEM_CLOCK   = 0x8
 } MFCLOCK_CHARACTERISTICS_FLAGS;
 
-#if (_WIN32_WINNT >= 0x0601)
+#if (WINVER >= 0x0601)
 
 typedef enum _MF_QUALITY_ADVISE_FLAGS {
   MF_QUALITY_CANNOT_KEEP_UP   = 0x1
 } MF_QUALITY_ADVISE_FLAGS;
 
-#endif /*(_WIN32_WINNT >= 0x0601)*/
+#endif /*(WINVER >= 0x0601)*/
 
 typedef enum _MF_QUALITY_DROP_MODE {
   MF_DROP_MODE_NONE   = 0x0,
@@ -3162,7 +3162,7 @@ typedef enum _MF_TOPONODE_FLUSH_MODE {
   MF_TOPONODE_FLUSH_NEVER
 } MF_TOPONODE_FLUSH_MODE;
 
-#if (_WIN32_WINNT >= 0x0601)
+#if (WINVER >= 0x0601)
 
 typedef enum _MF_TRANSCODE_TOPOLOGY_MODE_FLAGS {
   MF_TRANSCODE_TOPOLOGYMODE_SOFTWARE_ONLY      = 0,
@@ -3323,7 +3323,7 @@ typedef enum MFTIMER_FLAGS {
   MFTIMER_RELATIVE   = 0x00000001
 } MFTIMER_FLAGS;
 
-#if (_WIN32_WINNT >= 0x0601)
+#if (WINVER >= 0x0601)
 
 typedef enum MFTOPLOGY_DXVA_MODE {
   MFTOPOLOGY_DXVA_DEFAULT   = 0,
@@ -3347,7 +3347,7 @@ typedef struct _MFT_REGISTRATION_INFO {
   MFT_REGISTER_TYPE_INFO *pOutTypes;
 } MFT_REGISTRATION_INFO;
 
-#endif /*(_WIN32_WINNT >= 0x0601)*/
+#endif /*(WINVER >= 0x0601)*/
 
 typedef struct _ASFFlatPicture {
   BYTE  bPictureType;
@@ -3550,7 +3550,7 @@ MFTIME WINAPI MFGetSystemTime(void);
 HRESULT WINAPI MFShutdownObject(IUnknown *pUnk);
 HRESULT WINAPI CreateNamedPropertyStore(INamedPropertyStore **ppStore);
 HRESULT WINAPI CreatePropertyStore(IPropertyStore **ppStore);
-#if (_WIN32_WINNT >= 0x0601)
+#if (WINVER >= 0x0601)
 
 HRESULT WINAPI MFCreateTranscodeProfile(IMFTranscodeProfile **ppTranscodeProfile);
 HRESULT WINAPI MFCreateTranscodeSinkActivate(IMFActivate **ppActivate);

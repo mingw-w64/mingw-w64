@@ -46,7 +46,7 @@ typedef enum _MFVideoDRMFlags {
 } MFVideoDRMFlags;
 
 
-#if (_WIN32_WINNT >= 0x0601)
+#if (WINVER >= 0x0601)
 
 typedef enum  {
   MF_STANDARD_WORKQUEUE   = 0,
@@ -55,7 +55,7 @@ typedef enum  {
 
 HRESULT WINAPI MFAllocateWorkQueueEx(MFASYNC_WORKQUEUE_TYPE WorkQueueType,DWORD *pdwWorkQueue);
 
-#endif /*(_WIN32_WINNT >= 0x0601)*/
+#endif /*(WINVER >= 0x0601)*/
 
 typedef enum _MFVideoPadFlags {
   MFVideoPadFlag_PAD_TO_None   = 0,
@@ -74,7 +74,7 @@ typedef enum _MFWaveFormatExConvertFlags {
   MFWaveFormatExConvertFlag_ForceExtensible   = 1 
 } MFWaveFormatExConvertFlags;
 
-#if (_WIN32_WINNT >= 0x0601)
+#if (WINVER >= 0x0601)
 #undef  INTERFACE
 #define INTERFACE IMFLocalMFTRegistration
 DECLARE_INTERFACE_(IMFLocalMFTRegistration,IUnknown)
@@ -97,7 +97,7 @@ DECLARE_INTERFACE_(IMFLocalMFTRegistration,IUnknown)
 #define IMFLocalMFTRegistration_Release(This) (This)->lpVtbl->Release(This)
 #define IMFLocalMFTRegistration_RegisterMFTs(This,pMFTs,cMFTs) (This)->lpVtbl->RegisterMFTs(This,pMFTs,cMFTs)
 #endif /*COBJMACROS*/
-#endif /*(_WIN32_WINNT >= 0x0601)*/
+#endif /*(WINVER >= 0x0601)*/
 
 #ifdef __cplusplus
 typedef struct tagMFASYNCRESULT : public IMFAsyncResult {
@@ -429,7 +429,7 @@ UINT64 WINAPI Pack2UINT32AsUINT64(UINT32 unHigh,UINT32 unLow);
 }
 #endif
 
-#if (_WIN32_WINNT >= 0x0601)
+#if (WINVER >= 0x0601)
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -465,7 +465,7 @@ HRESULT WINAPI MFTUnregisterLocalByCLSID(CLSID clsidMFT);
 #ifdef __cplusplus
 }
 #endif
-#endif /*(_WIN32_WINNT >= 0x0601)*/
+#endif /*(WINVER >= 0x0601)*/
 
 #ifndef __cplusplus
 HRESULT WINAPI MFCreateWaveFormatExFromMFMediaType(IMFMediaType *pMFType,WAVEFORMATEX **ppWF,UINT32 *pcbSize,UINT32 Flags);

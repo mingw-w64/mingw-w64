@@ -6,7 +6,7 @@
 #ifndef _INC_MFMP2DLNA
 #define _INC_MFMP2DLNA
 
-#if (_WIN32_WINNT >= 0x0601)
+#if (WINVER >= 0x0601)
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -29,5 +29,5 @@ typedef struct _MFMPEG2DLNASINKSTATS {
 #ifdef __cplusplus
 }
 #endif
-#endif /*(_WIN32_WINNT >= 0x0601)*/
+#endif /*(WINVER >= 0x0601)*/
 #endif /*_INC_MFMP2DLNA*/

@@ -7,7 +7,7 @@
 #define _INC_MFPLAY
 #include <evr.h>
 
-#if (_WIN32_WINNT >= 0x0601)
+#if (WINVER >= 0x0601)
 
 typedef enum _MFP_CREATION_OPTIONS {
   MFP_OPTION_NONE                             = 0,
@@ -347,6 +347,6 @@ HRESULT WINAPI MFPCreateMediaPlayer(LPCWSTR pwszURL,WINBOOL fStartPlayback,MFP_C
 }
 #endif
 
-#endif /*(_WIN32_WINNT >= 0x0601)*/
+#endif /*(WINVER >= 0x0601)*/
 
 #endif /*_INC_MFPLAY*/
