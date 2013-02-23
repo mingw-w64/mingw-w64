@@ -1,3 +1,8 @@
+2013-02-23  David Nadlinger  <code@klickverbot.at>
+
+	* crt/tlssup.c (_tls_used): Remove +1 form _tls_start to avoid
+	section-relative offset displacement.
+
 2013-02-16  Kai Tietz  <ktietz@redhat.com>
 
 	* Makefile.am: Add new library files.
