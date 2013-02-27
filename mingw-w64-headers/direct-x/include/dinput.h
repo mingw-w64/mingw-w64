@@ -120,27 +120,35 @@ typedef struct SysKeyboardA *LPSYSKEYBOARDA;
 typedef struct SysMouseA *LPSYSMOUSEA;
 
 #define IID_IDirectInput WINELIB_NAME_AW(IID_IDirectInput)
+#define IDirectInput WINELIB_NAME_AW(IDirectInput)
 DECL_WINELIB_TYPE_AW(LPDIRECTINPUT)
 #define IID_IDirectInput2 WINELIB_NAME_AW(IID_IDirectInput2)
+#define IDirectInput2 WINELIB_NAME_AW(IDirectInput2)
 DECL_WINELIB_TYPE_AW(LPDIRECTINPUT2)
 #define IID_IDirectInput7 WINELIB_NAME_AW(IID_IDirectInput7)
+#define IDirectInput7 WINELIB_NAME_AW(IDirectInput7)
 DECL_WINELIB_TYPE_AW(LPDIRECTINPUT7)
 #if DIRECTINPUT_VERSION >= 0x0800
 #define IID_IDirectInput8 WINELIB_NAME_AW(IID_IDirectInput8)
+#define IDirectInput8 WINELIB_NAME_AW(IDirectInput8)
 DECL_WINELIB_TYPE_AW(LPDIRECTINPUT8)
 #endif /* DI8 */
 #define IID_IDirectInputDevice WINELIB_NAME_AW(IID_IDirectInputDevice)
+#define IDirectInputDevice WINELIB_NAME_AW(IDirectInputDevice)
 DECL_WINELIB_TYPE_AW(LPDIRECTINPUTDEVICE)
 #if DIRECTINPUT_VERSION >= 0x0500
 #define IID_IDirectInputDevice2 WINELIB_NAME_AW(IID_IDirectInputDevice2)
+#define IDirectInputDevice2 WINELIB_NAME_AW(IDirectInputDevice2)
 DECL_WINELIB_TYPE_AW(LPDIRECTINPUTDEVICE2)
 #endif /* DI5 */
 #if DIRECTINPUT_VERSION >= 0x0700
 #define IID_IDirectInputDevice7 WINELIB_NAME_AW(IID_IDirectInputDevice7)
+#define IDirectInputDevice7 WINELIB_NAME_AW(IDirectInputDevice7)
 DECL_WINELIB_TYPE_AW(LPDIRECTINPUTDEVICE7)
 #endif /* DI7 */
 #if DIRECTINPUT_VERSION >= 0x0800
 #define IID_IDirectInputDevice8 WINELIB_NAME_AW(IID_IDirectInputDevice8)
+#define IDirectInputDevice8 WINELIB_NAME_AW(IDirectInputDevice8)
 DECL_WINELIB_TYPE_AW(LPDIRECTINPUTDEVICE8)
 #endif /* DI8 */
 
