@@ -60,6 +60,7 @@ if HAVE_WIDL
 IDL_SRCS = \
   include/audioclient.idl \
   include/audiopolicy.idl \
+  include/ctfutb.idl \
   include/docobj.idl \
   include/devicetopology.idl \
   include/downloadmgr.idl \
