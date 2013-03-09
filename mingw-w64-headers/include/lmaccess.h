@@ -881,6 +881,13 @@ typedef struct _MSA_INFO_0 {
   MSA_INFO_STATE State;
 } MSA_INFO_0, *PMSA_INFO_0;
 
+#define SERVICE_ACCOUNT_FLAG_LINK_TO_HOST_ONLY 0x00000001
+
+  NTSTATUS WINAPI NetAddServiceAccount (LPWSTR ServerName,LPWSTR AccountName,LPWSTR Reserved,DWORD Flags);
+  NTSTATUS WINAPI NetRemoveServiceAccount (LPWSTR ServerName,LPWSTR AccountName,DWORD Flags);
+  NTSTATUS WINAPI NetIsServiceAccount (LPWSTR ServerName,LPWSTR AccountName,BOOL *IsService);
+  NTSTATUS WINAPI NetEnumerateServiceAccounts (LPWSTR ServerName,DWORD Flags,DWORD *AccountsCount, PZPWSTR *Accounts);
+
 #endif /*(_WIN32_WINNT >= 0x0601)*/
 
 #ifdef __cplusplus
