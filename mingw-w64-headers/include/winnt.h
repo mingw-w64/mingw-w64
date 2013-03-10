@@ -963,7 +963,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define SUBLANG_SAMI_SKOLT_FINLAND                0x08
 #define SUBLANG_SAMI_INARI_FINLAND                0x09
 #define SUBLANG_SANSKRIT_INDIA                    0x01
-define SUBLANG_SCOTTISH_GAELIC                    0x01
+#define SUBLANG_SCOTTISH_GAELIC                    0x01
 #define SUBLANG_SERBIAN_LATIN                     0x02
 #define SUBLANG_SERBIAN_CYRILLIC                  0x03
 #define SUBLANG_SERBIAN_BOSNIA_HERZEGOVINA_LATIN  0x06
