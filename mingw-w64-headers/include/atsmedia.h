@@ -16,6 +16,10 @@
  *
  */
 
+#include <winapifamily.h>
+
+#if WINAPI_FAMILY_PARTION(WINAPI_PARTITION_DESKTOP)
+
 #pragma once
 
 #ifndef _ATSCMEDIA_
@@ -30,3 +34,4 @@ DEFINE_GUIDSTRUCT("71985F51-1CA1-11D3-9CC8-00C04F7971E0", BDANETWORKTYPE_ATSC);
 
 #endif /* _ATSCMEDIA_ */
 
+#endif /* Desktop partition.  */
