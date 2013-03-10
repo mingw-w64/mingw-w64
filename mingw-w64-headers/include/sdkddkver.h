@@ -20,6 +20,7 @@
 #define _WIN32_WINNT_WS08		0x0600
 #define _WIN32_WINNT_LONGHORN		0x0600
 #define _WIN32_WINNT_WIN7		0x0601
+#define _WIN32_WINNT_WIN8		0x0602
 
 /* _WIN32_IE */
 #define _WIN32_IE_IE20			0x0200
@@ -119,6 +120,7 @@
 #define NTDDI_WS08SP4			NTDDI_WIN6SP4
 
 #define NTDDI_WIN7			0x06010000
+#define NTDDI_WIN8                      0x06020000
 
 /* Version Fields in NTDDI_VERSION */
 #define OSVERSION_MASK			0xFFFF0000
