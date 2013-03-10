@@ -28,7 +28,11 @@ extern "C" {
 #if defined(__ia64__) || defined(__x86_64)
 #define __RPC_WIN64__
 #else
+#if !defined (_ARM_)
 #define __RPC_WIN32__
+#else
+#define __RPC_ARM32__
+#endif
 #endif
 
 #ifdef __RPC_WIN64__
@@ -68,11 +72,16 @@ extern "C" {
 #endif
 
 #include <rpcdce.h>
+#ifndef _KRPCENV_
 #include <rpcnsi.h>
+#endif
 #include <rpcnterr.h>
 #include <excpt.h>
 #include <winerror.h>
 
+/* TODO:  This isn't actual working on gcc.  Either we need to implement
+   their __try/__except/__finally feature, or we need to do at least for x64
+   emulation-code via inline-assembler ...  */
 #define RpcTryExcept __try {
 #define RpcExcept(expr) } __except(expr) {
 #define RpcEndExcept }

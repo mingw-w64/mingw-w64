@@ -614,6 +614,29 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define PRODUCT_PROFESSIONAL_E                    0x45
 #define PRODUCT_ENTERPRISE_E                      0x46
 #define PRODUCT_ULTIMATE_E                        0x47
+#define PRODUCT_ENTERPRISE_EVALUATION             0x48
+#define PRODUCT_MULTIPOINT_STANDARD_SERVER        0x4C
+#define PRODUCT_MULTIPOINT_PREMIUM_SERVER         0x4D
+#define PRODUCT_STANDARD_EVALUATION_SERVER        0x4F
+#define PRODUCT_DATACENTER_EVALUATION_SERVER      0x50
+#define PRODUCT_ENTERPRISE_N_EVALUATION           0x54
+#define PRODUCT_EMBEDDED_AUTOMOTIVE               0x55
+#define PRODUCT_EMBEDDED_INDUSTRY_A               0x56
+#define PRODUCT_THINPC                            0x57
+#define PRODUCT_EMBEDDED_A                        0x58
+#define PRODUCT_EMBEDDED_INDUSTRY                 0x59
+#define PRODUCT_EMBEDDED_E                        0x5A
+#define PRODUCT_EMBEDDED_INDUSTRY_E               0x5B
+#define PRODUCT_EMBEDDED_INDUSTRY_A_E             0x5C
+#define PRODUCT_STORAGE_WORKGROUP_EVALUATION_SERVER 0x5F
+#define PRODUCT_STORAGE_STANDARD_EVALUATION_SERVER 0x60
+#define PRODUCT_CORE_ARM                          0x61
+#define PRODUCT_CORE_N                            0x62
+#define PRODUCT_CORE_COUNTRYSPECIFIC              0x63
+#define PRODUCT_CORE_SINGLELANGUAGE               0x64
+#define PRODUCT_CORE                              0x65
+#define PRODUCT_PROFESSIONAL_WMC                  0x67
+#define PRODUCT_MOBILE_CORE                       0x68
 
 #define PRODUCT_UNLICENSED                        0xabcdabcd
 
@@ -628,6 +651,8 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define LANG_ARMENIAN                             0x2b
 #define LANG_ASSAMESE                             0x4d
 #define LANG_AZERI                                0x2c
+#define LANG_AZERBAIJANI			  0x2c
+#define LANG_BANGLA				  0x45
 #define LANG_BASHKIR                              0x6d
 #define LANG_BASQUE                               0x2d
 #define LANG_BELARUSIAN                           0x23
@@ -637,6 +662,8 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define LANG_BOSNIAN_NEUTRAL                    0x781a
 #define LANG_BULGARIAN                            0x02
 #define LANG_CATALAN                              0x03
+#define LANG_CENTRAL_KURDISH			  0x92
+#define LANG_CHEROKEE				  0x5c
 #define LANG_CHINESE                              0x04
 #define LANG_CHINESE_SIMPLIFIED                   0x04
 #define LANG_CHINESE_TRADITIONAL                0x7c04
@@ -655,6 +682,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define LANG_FINNISH                              0x0b
 #define LANG_FRENCH                               0x0c
 #define LANG_FRISIAN                              0x62
+#define LANG_FULAH				  0x67
 #define LANG_GALICIAN                             0x56
 #define LANG_GEORGIAN                             0x37
 #define LANG_GERMAN                               0x07
@@ -699,18 +727,22 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define LANG_NEPALI                               0x61
 #define LANG_NORWEGIAN                            0x14
 #define LANG_OCCITAN                              0x82
+#define LANG_ODIA				  0x48
 #define LANG_ORIYA                                0x48
 #define LANG_PASHTO                               0x63
 #define LANG_PERSIAN                              0x29
 #define LANG_POLISH                               0x15
 #define LANG_PORTUGUESE                           0x16
+#define LANG_PULAR				  0x67
 #define LANG_PUNJABI                              0x46
 #define LANG_QUECHUA                              0x6b
 #define LANG_ROMANIAN                             0x18
 #define LANG_ROMANSH                              0x17
 #define LANG_RUSSIAN                              0x19
+#define LANG_SAKHA				  0x85
 #define LANG_SAMI                                 0x3b
 #define LANG_SANSKRIT                             0x4f
+#define LANG_SCOTTISH_GAELIC			  0x91
 #define LANG_SERBIAN                              0x1a
 #define LANG_SERBIAN_NEUTRAL                    0x7c1a
 #define LANG_SINDHI                               0x59
@@ -730,6 +762,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define LANG_THAI                                 0x1e
 #define LANG_TIBETAN                              0x51
 #define LANG_TIGRIGNA                             0x73
+#define LANG_TIGRINYA				  0x73
 #define LANG_TSWANA                               0x32
 #define LANG_TURKISH                              0x1f
 #define LANG_TURKMEN                              0x42
@@ -738,6 +771,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define LANG_UPPER_SORBIAN                        0x2e
 #define LANG_URDU                                 0x20
 #define LANG_UZBEK                                0x43
+#define LANG_VALENCIAN				  0x03
 #define LANG_VIETNAMESE                           0x2a
 #define LANG_WELSH                                0x52
 #define LANG_WOLOF                                0x88
@@ -778,6 +812,10 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define SUBLANG_ASSAMESE_INDIA                    0x01
 #define SUBLANG_AZERI_LATIN                       0x01
 #define SUBLANG_AZERI_CYRILLIC                    0x02
+#define SUBLANG_AZERBAIJANI_AZERBAIJAN_LATIN      0x01
+#define SUBLANG_AZERBAIJANI_AZERBAIJAN_CYRILLIC   0x02
+#define SUBLANG_BANGLA_INDIA                      0x01
+#define SUBLANG_BANGLA_BANGLADESH                 0x02
 #define SUBLANG_BASHKIR_RUSSIA                    0x01
 #define SUBLANG_BASQUE_BASQUE                     0x01
 #define SUBLANG_BELARUSIAN_BELARUS                0x01
@@ -788,6 +826,8 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define SUBLANG_BRETON_FRANCE                     0x01
 #define SUBLANG_BULGARIAN_BULGARIA                0x01
 #define SUBLANG_CATALAN_CATALAN                   0x01
+#define SUBLANG_CENTRAL_KURDISH_IRAQ              0x01
+#define SUBLANG_CHEROKEE_CHEROKEE                 0x01
 #define SUBLANG_CHINESE_TRADITIONAL               0x01
 #define SUBLANG_CHINESE_SIMPLIFIED                0x02
 #define SUBLANG_CHINESE_HONGKONG                  0x03
@@ -798,6 +838,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define SUBLANG_CROATIAN_CROATIA                  0x01
 #define SUBLANG_CROATIAN_BOSNIA_HERZEGOVINA_LATIN 0x04
 #define SUBLANG_DANISH_DENMARK                    0x01
+#define SUBLANG_DARI_AFGHANISTAN                  0x01
 #define SUBLANG_DIVEHI_MALDIVES                   0x01
 #define SUBLANG_DUTCH                             0x01
 #define SUBLANG_DUTCH_BELGIAN                     0x02
@@ -831,6 +872,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define SUBLANG_FRENCH_LUXEMBOURG                 0x05
 #define SUBLANG_FRENCH_MONACO                     0x06
 #define SUBLANG_FRISIAN_NETHERLANDS               0x01
+#define SUBLANG_FULAH_SENEGAL                     0x02
 #define SUBLANG_GALICIAN_GALICIAN                 0x01
 #define SUBLANG_GEORGIAN_GEORGIA                  0x01
 #define SUBLANG_GERMAN                            0x01
@@ -843,6 +885,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define SUBLANG_GUJARATI_INDIA                    0x01
 #define SUBLANG_HAUSA_NIGERIA_LATIN               0x01
 #define SUBLANG_HAUSA_NIGERIA    SUBLANG_HAUSA_NIGERIA_LATIN	/* SUBLANG_HAUSA_NIGERIA_LATIN is what MS defines */
+#define SUBLANG_HAWAIIAN_US                       0x01
 #define SUBLANG_HEBREW_ISRAEL                     0x01
 #define SUBLANG_HINDI_INDIA                       0x01
 #define SUBLANG_HUNGARIAN_HUNGARY                 0x01
@@ -855,6 +898,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define SUBLANG_ITALIAN                           0x01
 #define SUBLANG_ITALIAN_SWISS                     0x02
 #define SUBLANG_JAPANESE_JAPAN                    0x01
+#define SUBLANG_KANNADA_INDIA                     0x01
 #define SUBLANG_KASHMIRI_INDIA                    0x02
 #define SUBLANG_KASHMIRI_SASIA                    0x02
 #define SUBLANG_KAZAK_KAZAKHSTAN                  0x01
@@ -898,8 +942,9 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define SUBLANG_PORTUGUESE_PORTUGAL               0x02
 #endif /* WINVER >= 0x0600 */
 #define SUBLANG_PORTUGUESE                        0x02
+#define SUBLANG_PULAR_SENEGAL                     0x02
 #define SUBLANG_PUNJABI_INDIA                     0x01
-/* ??? #define SUBLANG_PUNJABI_PAKISTAN                  0x01 ??? */
+#define SUBLANG_PUNJABI_PAKISTAN                  0x02
 #define SUBLANG_QUECHUA_BOLIVIA                   0x01
 #define SUBLANG_QUECHUA_ECUADOR                   0x02
 #define SUBLANG_QUECHUA_PERU                      0x03
@@ -907,6 +952,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 /* ??? #define SUBLANG_ROMANIAN_MOLDOVA                  0x01 ??? */
 #define SUBLANG_ROMANSH_SWITZERLAND               0x01
 #define SUBLANG_RUSSIAN_RUSSIA                    0x01
+#define SUBLANG_SAKHA_RUSSIA                      0x01
 #define SUBLANG_SAMI_NORTHERN_NORWAY              0x01
 #define SUBLANG_SAMI_NORTHERN_SWEDEN              0x02
 #define SUBLANG_SAMI_NORTHERN_FINLAND             0x03
@@ -917,11 +963,18 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define SUBLANG_SAMI_SKOLT_FINLAND                0x08
 #define SUBLANG_SAMI_INARI_FINLAND                0x09
 #define SUBLANG_SANSKRIT_INDIA                    0x01
+define SUBLANG_SCOTTISH_GAELIC                    0x01
 #define SUBLANG_SERBIAN_LATIN                     0x02
 #define SUBLANG_SERBIAN_CYRILLIC                  0x03
 #define SUBLANG_SERBIAN_BOSNIA_HERZEGOVINA_LATIN  0x06
 #define SUBLANG_SERBIAN_BOSNIA_HERZEGOVINA_CYRILLIC 0x07
+#define SUBLANG_SERBIAN_MONTENEGRO_LATIN          0x0b
+#define SUBLANG_SERBIAN_MONTENEGRO_CYRILLIC       0x0c
+#define SUBLANG_SERBIAN_SERBIA_LATIN              0x09
+#define SUBLANG_SERBIAN_SERBIA_CYRILLIC           0x0a
+#define SUBLANG_SINDHI_INDIA                      0x01
 #define SUBLANG_SINDHI_AFGHANISTAN                0x02
+#define SUBLANG_SINDHI_PAKISTAN                   0x02
 #define SUBLANG_SINHALESE_SRI_LANKA               0x01
 #define SUBLANG_SOTHO_NORTHERN_SOUTH_AFRICA       0x01
 #define SUBLANG_SLOVAK_SLOVAKIA                   0x01
@@ -947,6 +1000,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define SUBLANG_SPANISH_NICARAGUA                 0x13
 #define SUBLANG_SPANISH_PUERTO_RICO               0x14
 #define SUBLANG_SPANISH_US                        0x15
+#define SUBLANG_SWAHILI_KENYA                     0x01
 #if (WINVER >= 0x0600)
 #define SUBLANG_SWEDISH_SWEDEN                    0x01
 #endif /* WINVER >= 0x0600 */
@@ -956,13 +1010,18 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define SUBLANG_SYRIAC_SYRIA            SUBLANG_SYRIAC		/* SUBLANG_SYRIAC_SYRIA is what MSDN mentions */
 #define SUBLANG_TAJIK_TAJIKISTAN                  0x01
 #define SUBLANG_TAMAZIGHT_ALGERIA_LATIN           0x02
+#define SUBLANG_TAMAZIGHT_MOROCCO_TIFINAGH        0x04
 #define SUBLANG_TAMIL_INDIA                       0x01
+#define SUBLANG_TAMIL_SRI_LANKA                   0x02
 #define SUBLANG_TATAR_RUSSIA                      0x01
 #define SUBLANG_TELUGU_INDIA                      0x01
 #define SUBLANG_THAI_THAILAND                     0x01
 #define SUBLANG_TIBETAN_PRC                       0x01
 #define SUBLANG_TIBETAN_BHUTAN                    0x02
 #define SUBLANG_TIGRIGNA_ERITREA                  0x02
+#define SUBLANG_TIGRINYA_ERITREA                  0x02
+#define SUBLANG_TIGRINYA_ETHIOPIA                 0x01
+#define SUBLANG_TSWANA_BOTSWANA                   0x02
 #define SUBLANG_TSWANA_SOUTH_AFRICA               0x01
 #define SUBLANG_TURKISH_TURKEY                    0x01
 #define SUBLANG_TURKMEN_TURKMENISTAN              0x01
@@ -973,6 +1032,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define SUBLANG_URDU_INDIA                        0x02
 #define SUBLANG_UZBEK_LATIN                       0x01
 #define SUBLANG_UZBEK_CYRILLIC                    0x02
+#define SUBLANG_VALENCIAN_VALENCIA                0x02
 #define SUBLANG_VIETNAMESE_VIETNAM                0x01
 #define SUBLANG_WELSH_UNITED_KINGDOM              0x01
 #define SUBLANG_WOLOF_SENEGAL                     0x01
@@ -994,6 +1054,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define SORT_CHINESE_UNICODE                      0x1
 #define SORT_CHINESE_PRC                          0x2
 #define SORT_CHINESE_BOPOMOFO                     0x3
+#define SORT_CHINESE_RADICALSTROKE		  0x4
 
 #define SORT_KOREAN_KSC                           0x0
 #define SORT_KOREAN_UNICODE                       0x1

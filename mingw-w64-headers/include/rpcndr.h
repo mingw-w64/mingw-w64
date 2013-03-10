@@ -42,6 +42,16 @@ extern "C" {
 #define NDR_LOCAL_DATA_REPRESENTATION __MSABI_LONG(0X00000010U)
 #define NDR_LOCAL_ENDIAN NDR_LITTLE_ENDIAN
 
+#if _WIN32_WINNT >= 0x601
+#define TARGET_IS_NT61_OR_LATER 1
+#else
+#define TARGET_IS_NT61_OR_LATER 0
+#endif
+#if _WIN32_WINNT >= 0x600
+#define TARGET_IS_NT60_OR_LATER 1
+#else
+#define TARGET_IS_NT60_OR_LATER 0
+#endif
 #define TARGET_IS_NT51_OR_LATER 1
 #define TARGET_IS_NT50_OR_LATER 1
 #define TARGET_IS_NT40_OR_LATER 1
@@ -648,6 +658,9 @@ typedef unsigned __LONG32 error_status_t;
   RPCRTAPI void RPC_ENTRY NdrFreeBuffer(PMIDL_STUB_MESSAGE pStubMsg);
   RPCRTAPI RPC_STATUS RPC_ENTRY NdrGetDcomProtocolVersion(PMIDL_STUB_MESSAGE pStubMsg,RPC_VERSION *pVersion);
   CLIENT_CALL_RETURN RPC_VAR_ENTRY NdrClientCall2(PMIDL_STUB_DESC pStubDescriptor,PFORMAT_STRING pFormat,...);
+#if defined (__arm__)
+  CLIENT_CALL_RETURN RPC_VAR_ENTRY NdrpClientCall2(PMIDL_STUB_DESC pStubDescriptor, PFORMAT_STRING pFormat, unsigned char *StartofStack);
+#endif
   CLIENT_CALL_RETURN RPC_VAR_ENTRY NdrClientCall(PMIDL_STUB_DESC pStubDescriptor,PFORMAT_STRING pFormat,...);
   CLIENT_CALL_RETURN RPC_VAR_ENTRY NdrAsyncClientCall(PMIDL_STUB_DESC pStubDescriptor,PFORMAT_STRING pFormat,...);
   CLIENT_CALL_RETURN RPC_VAR_ENTRY NdrDcomAsyncClientCall(PMIDL_STUB_DESC pStubDescriptor,PFORMAT_STRING pFormat,...);

@@ -117,7 +117,7 @@
 
 #undef  UNALIGNED	/* avoid redefinition warnings vs _mingw.h */
 #undef  UNALIGNED64
-#if defined(_M_MRX000) || defined(_M_ALPHA) || defined(_M_PPC) || defined(_M_IA64) || defined(_M_AMD64)
+#if defined(_M_MRX000) || defined(_M_ALPHA) || defined(_M_PPC) || defined(_M_IA64) || defined(_M_AMD64) || defined (_M_ARM)
 #define ALIGNMENT_MACHINE
 #define UNALIGNED __unaligned
 #if defined(_WIN64)
@@ -159,6 +159,12 @@
 #define TYPE_ALIGNMENT(t) __alignof(t)
 #else
 #define TYPE_ALIGNMENT(t) FIELD_OFFSET(struct { char x; t test; }, test)
+#endif
+
+#if defined (_X86_) || defined (_AMD64_)
+#define PROBE_ALIGNMENT(v) TYPE_ALIGNMENT(ULONG)
+#elif defined (_IA64_) || defined (_ARM_)
+#define PROBE_ALIGNMENT(v) (TYPE_ALIGNMENT(v) > TYPE_ALIGNMENT(ULONG) ? TYPE_ALIGNMENT(v) : TYPE_ALIGNMENT(ULONG))
 #endif
 
 /* Calling Conventions */
