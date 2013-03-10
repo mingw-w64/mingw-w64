@@ -18,6 +18,10 @@
  *
  */
 
+#include <winapifamily.h>
+
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+
 #ifndef _DEVPROPDEF_H_
 #define _DEVPROPDEF_H_
 
@@ -102,3 +106,4 @@ typedef struct _DEVPROPKEY {
 
 #endif /* !IsEqualDevPropKey */
 
+#endif /* WINAPI_PARTION_DESKTOP.  */
