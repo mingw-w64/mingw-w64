@@ -104,6 +104,13 @@
 #define _M_IA64 100
 #endif
 
+#if defined(__arm__) && !defined(_M_ARM)
+#define _M_ARM 100
+#ifndef _ARM_
+#define _ARM_ 1
+#endif
+#endif
+
 #ifndef __PTRDIFF_TYPE__
 #ifdef _WIN64
 #define __PTRDIFF_TYPE__ long long int
