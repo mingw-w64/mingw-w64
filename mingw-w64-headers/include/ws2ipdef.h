@@ -1,10 +1,13 @@
 /**
- * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 #ifndef _INC_WS2IPDEF
 #define _INC_WS2IPDEF
+
+#include <winapifamily.h>
+
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 
 #include <in6addr.h>
 
@@ -117,5 +120,7 @@ typedef struct group_source_req {
 #ifdef __cplusplus
 }
 #endif
+
+#endif /* WINAPI_PARTION_DESKTOP.  */
 
 #endif /*_INC_WS2IPDEF*/
