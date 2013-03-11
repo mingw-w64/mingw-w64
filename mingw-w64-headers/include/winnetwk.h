@@ -5,6 +5,9 @@
 #ifndef _WINNETWK_
 #define _WINNETWK_
 
+#include <winapifamily.h>
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+
 #include <_mingw_unicode.h>
 
 #ifdef __cplusplus
@@ -23,6 +26,7 @@ extern "C" {
 #define RESOURCETYPE_DISK 0x00000001
 #define RESOURCETYPE_PRINT 0x00000002
 #define RESOURCETYPE_RESERVED 0x00000008
+
 #define RESOURCETYPE_UNKNOWN 0xFFFFFFFF
 
 #define RESOURCEUSAGE_CONNECTABLE 0x00000001
@@ -43,8 +47,8 @@ extern "C" {
 #define RESOURCEDISPLAYTYPE_ROOT 0x00000007
 #define RESOURCEDISPLAYTYPE_SHAREADMIN 0x00000008
 #define RESOURCEDISPLAYTYPE_DIRECTORY 0x00000009
-#define RESOURCEDISPLAYTYPE_TREE 0x0000000A
-#define RESOURCEDISPLAYTYPE_NDSCONTAINER 0x0000000B
+#define RESOURCEDISPLAYTYPE_TREE 0x0000000a
+#define RESOURCEDISPLAYTYPE_NDSCONTAINER 0x0000000b
 
   typedef struct _NETRESOURCEA {
     DWORD dwScope;
@@ -86,6 +90,9 @@ extern "C" {
 #define CONNECT_RESERVED 0xFF000000
 #define CONNECT_COMMANDLINE 0x00000800
 #define CONNECT_CMD_SAVECRED 0x00001000
+#if WINVER >= 0x0600
+#define CONNECT_CRED_RESET 0x00002000
+#endif
 
 #define WNetAddConnection __MINGW_NAME_AW(WNetAddConnection)
 #define WNetAddConnection2 __MINGW_NAME_AW(WNetAddConnection2)
@@ -109,11 +116,15 @@ extern "C" {
   DWORD WINAPI WNetGetConnectionA(LPCSTR lpLocalName,LPSTR lpRemoteName,LPDWORD lpnLength);
   DWORD WINAPI WNetGetConnectionW(LPCWSTR lpLocalName,LPWSTR lpRemoteName,LPDWORD lpnLength);
   DWORD WINAPI WNetRestoreConnectionA(HWND hwndParent,LPCSTR lpDevice);
-  DWORD WINAPI WNetRestoreConnectionW(HWND hwndParent,LPCWSTR lpDevice);
   DWORD WINAPI WNetUseConnectionA(HWND hwndOwner,LPNETRESOURCEA lpNetResource,LPCSTR lpPassword,LPCSTR lpUserID,DWORD dwFlags,LPSTR lpAccessName,LPDWORD lpBufferSize,LPDWORD lpResult);
   DWORD WINAPI WNetUseConnectionW(HWND hwndOwner,LPNETRESOURCEW lpNetResource,LPCWSTR lpPassword,LPCWSTR lpUserID,DWORD dwFlags,LPWSTR lpAccessName,LPDWORD lpBufferSize,LPDWORD lpResult);
   DWORD WINAPI WNetConnectionDialog(HWND hwnd,DWORD dwType);
   DWORD WINAPI WNetDisconnectDialog(HWND hwnd,DWORD dwType);
+#if (_WIN32_WINNT >= _WIN32_WINNT_LONGHORN)
+  DWORD WINAPI WNetRestoreSingleConnectionW(HWND hwndParent, LPCWSTR lpDevice, BOOL fUseUI);
+#else
+  DWORD WINAPI WNetRestoreConnectionW(HWND hwndParent,LPCWSTR lpDevice);
+#endif
 
   typedef struct _CONNECTDLGSTRUCTA {
     DWORD cbStructure;
@@ -342,4 +353,7 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
+
+#endif /* WINAPI_PARTITION_DESKTOP.  */
+
 #endif
