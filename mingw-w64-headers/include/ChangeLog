@@ -8,6 +8,7 @@
 
 2013-02-19  Kai Tietz  <ktietz@redhat.com>
 
+	* patchapi.h: Update to 400, 450 MSI API.
 	* msidefs.h: Add enumerators additions for _WIN32_MSI 400, and 450.
 	* msi.h: Add features for _WIN32_MSI 400, and 450.
 
