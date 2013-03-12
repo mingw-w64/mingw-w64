@@ -1,3 +1,8 @@
+/**
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
+ */
+
 #ifndef __FLT_USER_STRUCTURES_H__
 #define __FLT_USER_STRUCTURES_H__
 

@@ -1,3 +1,8 @@
+/**
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
+ */
+
 #ifndef __FLTUSER_H__
 #define __FLTUSER_H__
 
