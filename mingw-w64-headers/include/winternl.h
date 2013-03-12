@@ -89,7 +89,10 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
   } TEB;
 
   typedef TEB *PTEB;
-  typedef LONG NTSTATUS;
+  #if !defined (_NTDEF_) && !defined (_NTSTATUS_PSDK)
+  #define _NTSTATUS_PSDK
+  typedef LONG NTSTATUS, *PNTSTATUS;
+  #endif
   typedef CONST char *PCSZ;
 
 #ifndef __STRING_DEFINED

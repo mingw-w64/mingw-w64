@@ -1,10 +1,13 @@
 /**
- * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 #ifndef _FLTDEFS_H
 #define _FLTDEFS_H
+
+#include <winapifamily.h>
+
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 
 typedef PVOID FILTER_HANDLE,*PFILTER_HANDLE;
 typedef PVOID INTERFACE_HANDLE,*PINTERFACE_HANDLE;
@@ -141,4 +144,7 @@ PFAPIENTRY PfSetLogBuffer(PBYTE pbBuffer,DWORD dwSize,DWORD dwThreshold,DWORD dw
 PFAPIENTRY PfDeleteLog(VOID);
 PFAPIENTRY PfGetInterfaceStatistics(INTERFACE_HANDLE pInterface,PPF_INTERFACE_STATS ppfStats,PDWORD pdwBufferSize,WINBOOL fResetCounters);
 PFAPIENTRY PfTestPacket(INTERFACE_HANDLE pInInterface,INTERFACE_HANDLE pOutInterface,DWORD cBytes,PBYTE pbPacket,PPFFORWARD_ACTION ppAction);
+
+#endif /* WINAPI_PARTION_DESKTOP.  */
+
 #endif

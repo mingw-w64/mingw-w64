@@ -6,6 +6,8 @@
 #ifndef _WINERROR_
 #define _WINERROR_
 
+#define __IN__WINERROR_ 1
+
 #define FACILITY_WINDOWSUPDATE 36
 #define FACILITY_WINDOWS_CE 24
 #define FACILITY_WINDOWS 8
@@ -3265,4 +3267,9 @@ __CRT_INLINE HRESULT HRESULT_FROM_WIN32(__LONG32 x) { return x <= 0 ? (HRESULT)x
 #define FWP_E_INVALID_CIPHER_TRANSFORM          _HRESULT_TYPEDEF_(0x80320039)
 
 #endif /*(_WIN32_WINNT >= 0x0600)*/
-#endif // _WINERROR_
+
+#include <fltwinerror.h>
+
+#undef __IN__WINERROR_
+
+#endif /* _WINERROR_.  */
