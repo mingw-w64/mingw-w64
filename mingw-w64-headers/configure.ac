@@ -23,20 +23,17 @@ AC_MSG_CHECKING([whether to rebuild headers with widl])
 AC_ARG_WITH([widl],
   AS_HELP_STRING([--with-widl=PATH],
     [use widl to update idl-based headers.  Optionally search for a compatible widl in PATH]),
-  [],
+  [AS_VAR_IF([with_widl],[yes],[AS_VAR_SET([with_widl],["$PATH"])])],
   [AS_VAR_SET([with_widl],[no])])
 AC_MSG_RESULT([$with_widl])
 
-AS_VAR_IF([with_widl],[yes],[AS_VAR_SET([with_widl],["$PATH"])])
 AS_VAR_IF([with_widl],[no],[],[
+  AS_VAR_IF([srcdir],[.],[],
+    [AC_MSG_WARN([--with-widl used in out of the tree compilation.  Existing generated files will not be modified.])])
   AC_PATH_PROGS([WIDL], [$host-widl widl], [], [$with_widl])
   AS_VAR_IF([WIDL],[],[AC_MSG_ERROR([--with-widl is specified, but widl installation could not be found.])])])
 
 AM_CONDITIONAL([HAVE_WIDL],[AS_VAR_TEST_SET([WIDL])])
-
-if test ! "$with_widl" = "no" -a ! "$srcdir" = "."; then
-    AC_MSG_WARN([--with-widl used in out of the tree compilation. Existing generated files won't be modified.])
-fi
 
 # Checks for libraries.
 

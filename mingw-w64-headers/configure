@@ -2462,7 +2462,9 @@ $as_echo_n "checking whether to rebuild headers with widl... " >&6; }
 
 # Check whether --with-widl was given.
 if test "${with_widl+set}" = set; then :
-  withval=$with_widl;
+  withval=$with_widl; if test "x$with_widl" = xyes; then :
+  with_widl="$PATH"
+fi
 else
   with_widl=no
 fi
@@ -2470,13 +2472,16 @@ fi
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $with_widl" >&5
 $as_echo "$with_widl" >&6; }
 
-if test "x$with_widl" = xyes; then :
-  with_widl="$PATH"
-fi
 if test "x$with_widl" = xno; then :
 
 else
 
+  if test "x$srcdir" = x.; then :
+
+else
+  { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: --with-widl used in out of the tree compilation.  Existing generated files will not be modified." >&5
+$as_echo "$as_me: WARNING: --with-widl used in out of the tree compilation.  Existing generated files will not be modified." >&2;}
+fi
   for ac_prog in $host-widl widl
 do
   # Extract the first word of "$ac_prog", so it can be a program name with args.
@@ -2535,11 +2540,6 @@ else
   HAVE_WIDL_FALSE=
 fi
 
-
-if test ! "$with_widl" = "no" -a ! "$srcdir" = "."; then
-    { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: --with-widl used in out of the tree compilation. Existing generated files won't be modified." >&5
-$as_echo "$as_me: WARNING: --with-widl used in out of the tree compilation. Existing generated files won't be modified." >&2;}
-fi
 
 # Checks for libraries.
 
