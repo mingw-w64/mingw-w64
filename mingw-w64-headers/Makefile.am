@@ -66,6 +66,8 @@ IDL_SRCS = \
   include/downloadmgr.idl \
   include/endpointvolume.idl \
   include/fusion.idl \
+  include/fwptypes.idl \
+  include/iketypes.idl \
   include/oaidl.idl \
   include/ocidl.idl \
   include/comcat.idl \
