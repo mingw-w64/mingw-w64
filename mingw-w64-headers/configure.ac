@@ -130,8 +130,9 @@ AC_SUBST([MINGW_HAS_DDK])
 AC_MSG_CHECKING([if installing idl files is enabled])
 AC_ARG_ENABLE([idl],
     [AS_HELP_STRING([--enable-idl],
-        [Enable installing idl files (default disabled)])],
-    [enable_idl=yes])
+        [Enable installing idl files])],
+    [],
+    [enable_idl=no])
 AC_MSG_RESULT([$enable_idl])
 AS_VAR_IF([enable_idl],[yes],
     [IDLHEAD_LIST=$srcdir/include/*.idl],

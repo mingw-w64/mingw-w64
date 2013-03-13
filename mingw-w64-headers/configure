@@ -1323,7 +1323,7 @@ Optional Features:
   --disable-crt           Do not use the default crt headers
   --enable-sdk=ARG        Add the desired SDK, where ARG can be one of ddk,
                           directx, no or all. Default is all.
-  --enable-idl            Enable installing idl files (default disabled)
+  --enable-idl            Enable installing idl files
   --enable-secure-api     Enable secure API by default
 
 Optional Packages:
@@ -2680,7 +2680,9 @@ fi
 $as_echo_n "checking if installing idl files is enabled... " >&6; }
 # Check whether --enable-idl was given.
 if test "${enable_idl+set}" = set; then :
-  enableval=$enable_idl; enable_idl=yes
+  enableval=$enable_idl;
+else
+  enable_idl=no
 fi
 
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_idl" >&5
