@@ -2698,7 +2698,9 @@ fi
 $as_echo_n "checking whether to enable the secure API... " >&6; }
 # Check whether --enable-secure-api was given.
 if test "${enable_secure_api+set}" = set; then :
-  enableval=$enable_secure_api; enable_secure_api=yes
+  enableval=$enable_secure_api;
+else
+  enable_secure_api=no
 fi
 
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_secure_api" >&5

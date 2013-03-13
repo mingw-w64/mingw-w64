@@ -143,7 +143,8 @@ AC_MSG_CHECKING([whether to enable the secure API])
 AC_ARG_ENABLE([secure-api],
   [AS_HELP_STRING([--enable-secure-api],
     [Enable secure API by default])],
-  [enable_secure_api=yes])
+  [],
+  [enable_secure_api=no])
 AC_MSG_RESULT([$enable_secure_api])
 AS_VAR_IF([enable_secure_api],[yes],
   [MINGW_HAS_SECURE_API="#define MINGW_HAS_SECURE_API 1"],
