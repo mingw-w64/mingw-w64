@@ -1,3 +1,9 @@
+2013-03-14  Corinna Vinschen  <vinschen@redhat.com>
+
+	* winbase.h (PIPE_ACCEPT_REMOTE_CLIENTS): Define when building for
+	Vista or later.
+	(PIPE_REJECT_REMOTE_CLIENTS): Ditto.
+
 2013-03-09  Corinna Vinschen  <vinschen@redhat.com>
 
 	* lmaccess.h (SERVICE_ACCOUNT_FLAG_LINK_TO_HOST_ONLY): Define.
