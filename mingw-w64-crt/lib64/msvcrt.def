@@ -314,7 +314,7 @@ _fscanf_s_l
 _fsopen
 _fstat
 _fstat64
-_fstati64
+; _fstati64 Replaced by libmingwex implementation.
 _ftime
 _ftime32_s
 _ftime64
@@ -727,7 +727,7 @@ _sscanf_l
 _sscanf_s_l
 _stat
 _stat64
-_stati64
+; _stati64  replaced by libmingwex implementation
 _statusfp
 _strcmpi
 _strcoll_l
@@ -986,7 +986,7 @@ _wsplitpath
 _wsplitpath_s
 _wstat
 _wstat64
-_wstati64
+; _wstati64 replaced by libmingwex implementation
 _wstrdate
 ; _wstrdate_s replaced by emu
 _wstrtime

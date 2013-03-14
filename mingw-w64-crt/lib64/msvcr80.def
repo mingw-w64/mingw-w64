@@ -276,7 +276,6 @@ _fputwchar
 _fsopen
 _fstat
 _fstat64
-_fstati64
 _ftime
 _ftime64
 _fullpath
@@ -492,7 +491,6 @@ _spawnvpe
 _splitpath
 _stat
 _stat64
-_stati64
 _statusfp
 _strcmpi
 _strdate
@@ -615,7 +613,6 @@ _wspawnvpe
 _wsplitpath
 _wstat
 _wstat64
-_wstati64
 _wstrdate
 _wstrtime
 _wsystem

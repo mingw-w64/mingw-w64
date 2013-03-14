@@ -1,3 +1,15 @@
+2013-03-14  Kai Tietz  <ktietz@redhat.com>
+
+	* Makefile.am: Add new files to build of libmingwex.a library.
+	* Makefile,in: Regenerated.
+	* lib32/msvcr80.def: Remove replaced exports.
+	* lib32/msvcrt.def: Likewise.
+	* lib64/msvcr80.def: Likewise.
+	* lib32/msvcrt.def: Likewise.
+	* stdio/_fstati64.c: New file.
+	* stdio/_stati64.c: New file.
+	* stdio/_wstati64.c: New file.
+
 2013-02-23  David Nadlinger  <code@klickverbot.at>
 
 	* crt/tlssup.c (_tls_used): Remove +1 form _tls_start to avoid
