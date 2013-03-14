@@ -1133,6 +1133,23 @@ typedef struct _SYMSRV_INDEX_INFOW {
     FunctionTableStream = 13,
     UnloadedModuleListStream = 14,
     MiscInfoStream = 15,
+    MemoryInfoListStream = 16,
+    ThreadInfoListStream = 17,
+    HandleOperationListStream = 18,
+    TokenStream = 19,
+    ceStreamNull = 0x8000,
+    ceStreamSystemInfo = 0x8001,
+    ceStreamException = 0x8002,
+    ceStreamModuleList = 0x8003,
+    ceStreamProcessList = 0x8004,
+    ceStreamThreadList = 0x8005,
+    ceStreamThreadContextList = 0x8006,
+    ceStreamThreadCallStackList = 0x8007,
+    ceStreamMemoryVirtualList = 0x8008,
+    ceStreamMemoryPhysicalList = 0x8009,
+    ceStreamBucketParameters = 0x800a,
+    ceStreamProcessModuleMap = 0x800b,
+    ceStreamDiagnosisList = 0x800c,
     LastReservedStream = 0xffff
   } MINIDUMP_STREAM_TYPE;
 
@@ -1542,6 +1559,13 @@ typedef struct _MINIDUMP_THREAD_INFO_LIST {
   ULONG   SizeOfEntry;
   ULONG   NumberOfEntries;
 } MINIDUMP_THREAD_INFO_LIST, *PMINIDUMP_THREAD_INFO_LIST;
+
+typedef struct _MINIDUMP_HANDLE_OPERATION_LIST {
+    ULONG32 SizeOfHeader;
+    ULONG32 SizeOfEntry;
+    ULONG32 NumberOfEntries;
+    ULONG32 Reserved;
+} MINIDUMP_HANDLE_OPERATION_LIST, *PMINIDUMP_HANDLE_OPERATION_LIST;
 
 #ifdef __cplusplus
 extern "C" {
