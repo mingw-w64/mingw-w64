@@ -1,0 +1,6 @@
+2013-03-14  Corinna Vinschen  <vinschen@redhat.com>
+
+	* include/ddk/ntifs.h ((FILE_PIPE_ACCEPT_REMOTE_CLIENTS): Remove
+	duplicate.
+	(FILE_PIPE_REJECT_REMOTE_CLIENTS): Ditto.
+
