@@ -24,11 +24,12 @@
 
 #define _WIN32_WINNT 0x502 /* GetFileAttributesEx is XP+ */
 
+/* GetFileAttributesA is not defined, as ANSI functions are not available
+ * in Windows Store applications */
+
 #define GetFileAttributesW __GetFileAttributesW
-#define GetFileAttributesA __GetFileAttributesA
 #include <windef.h>
 #include <winbase.h>
-#undef GetFileAttributesA
 #undef GetFileAttributesW
 
 DWORD WINAPI GetFileAttributesW(LPCWSTR lpFileName)
@@ -41,15 +42,3 @@ DWORD WINAPI GetFileAttributesW(LPCWSTR lpFileName)
 }
 
 DWORD WINAPI (*__MINGW_IMP_SYMBOL(GetFileAttributesW))(LPCWSTR lpFileName) asm("__imp__GetFileAttributesW@4") = GetFileAttributesW;
-
-DWORD WINAPI GetFileAttributesA(LPCSTR lpFileName)
-{
-    WIN32_FILE_ATTRIBUTE_DATA fileInformation;
-    if( GetFileAttributesExA(lpFileName, GetFileExInfoStandard, &fileInformation) != 0)
-        return fileInformation.dwFileAttributes;
-    else
-        return INVALID_FILE_ATTRIBUTES;
-}
-
-DWORD WINAPI (*__MINGW_IMP_SYMBOL(GetFileAttributesA))(LPCWSTR lpFileName) asm("__imp__GetFileAttributesA@4") = GetFileAttributesW;
-
