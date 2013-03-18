@@ -420,6 +420,13 @@ WINSOCK_API_LINKAGE LPCSTR InetNtopA(INT Family, PVOID pAddr, LPSTR pStringBuf, 
 
 #define InetNtop __MINGW_NAME_AW(InetNtop)
 
+#define InetPtonA inet_pton
+
+WINSOCK_API_LINKAGE INT InetPtonW(INT Family, LPCWSTR pStringBuf, PVOID pAddr);
+WINSOCK_API_LINKAGE INT InetPtonA(INT Family, LPCSTR pStringBuf, PVOID pAddr);
+
+#define InetPton __MINGW_NAME_AW(InetPton)
+
 #endif /*(_WIN32_WINNT >= 0x0600)*/
 
 #ifdef __cplusplus
