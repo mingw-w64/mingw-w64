@@ -103,7 +103,8 @@ am_libwinstorecompat_a_OBJECTS = src/CreateEventW.$(OBJEXT) \
 	src/WaitForSingleObject.$(OBJEXT) src/LoadLibraryW.$(OBJEXT) \
 	src/CreateFileW.$(OBJEXT) src/GetTickCount.$(OBJEXT) \
 	src/SetUnhandledExceptionFilter.$(OBJEXT) \
-	src/UnhandledExceptionFilter.$(OBJEXT)
+	src/UnhandledExceptionFilter.$(OBJEXT) \
+	src/TerminateProcess.$(OBJEXT)
 libwinstorecompat_a_OBJECTS = $(am_libwinstorecompat_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
@@ -238,7 +239,8 @@ libwinstorecompat_a_SOURCES = \
   src/CreateFileW.c \
   src/GetTickCount.c \
   src/SetUnhandledExceptionFilter.c \
-  src/UnhandledExceptionFilter.c
+  src/UnhandledExceptionFilter.c \
+  src/TerminateProcess.c
 
 all: all-am
 
@@ -337,6 +339,8 @@ src/SetUnhandledExceptionFilter.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/UnhandledExceptionFilter.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/TerminateProcess.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 libwinstorecompat.a: $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_DEPENDENCIES) $(EXTRA_libwinstorecompat_a_DEPENDENCIES) 
 	-rm -f libwinstorecompat.a
 	$(libwinstorecompat_a_AR) libwinstorecompat.a $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_LIBADD)
@@ -353,6 +357,7 @@ mostlyclean-compile:
 	-rm -f src/InitializeCriticalSection.$(OBJEXT)
 	-rm -f src/LoadLibraryW.$(OBJEXT)
 	-rm -f src/SetUnhandledExceptionFilter.$(OBJEXT)
+	-rm -f src/TerminateProcess.$(OBJEXT)
 	-rm -f src/UnhandledExceptionFilter.$(OBJEXT)
 	-rm -f src/WaitForSingleObject.$(OBJEXT)
 
@@ -368,6 +373,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/InitializeCriticalSection.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/LoadLibraryW.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/SetUnhandledExceptionFilter.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/TerminateProcess.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/UnhandledExceptionFilter.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/WaitForSingleObject.Po@am__quote@
 
