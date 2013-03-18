@@ -422,8 +422,8 @@ WINSOCK_API_LINKAGE LPCSTR InetNtopA(INT Family, PVOID pAddr, LPSTR pStringBuf, 
 
 #define InetPtonA inet_pton
 
-WINSOCK_API_LINKAGE INT InetPtonW(INT Family, LPCWSTR pStringBuf, PVOID pAddr);
-WINSOCK_API_LINKAGE INT InetPtonA(INT Family, LPCSTR pStringBuf, PVOID pAddr);
+WINSOCK_API_LINKAGE INT WSAAPI InetPtonW(INT Family, LPCWSTR pStringBuf, PVOID pAddr);
+WINSOCK_API_LINKAGE INT WSAAPI InetPtonA(INT Family, LPCSTR pStringBuf, PVOID pAddr);
 
 #define InetPton __MINGW_NAME_AW(InetPton)
 
