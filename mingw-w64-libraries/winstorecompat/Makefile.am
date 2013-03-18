@@ -13,4 +13,5 @@ libwinstorecompat_a_SOURCES = \
   src/WaitForSingleObject.c \
   src/LoadLibraryW.c \
   src/CreateFileW.c \
-  src/GetTickCount.c
+  src/GetTickCount.c \
+  src/SetUnhandledExceptionFilter.c

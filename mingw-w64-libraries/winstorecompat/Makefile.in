@@ -101,7 +101,8 @@ am_libwinstorecompat_a_OBJECTS = src/CreateEventW.$(OBJEXT) \
 	src/InitializeCriticalSection.$(OBJEXT) \
 	src/GetFileAttributes.$(OBJEXT) \
 	src/WaitForSingleObject.$(OBJEXT) src/LoadLibraryW.$(OBJEXT) \
-	src/CreateFileW.$(OBJEXT) src/GetTickCount.$(OBJEXT)
+	src/CreateFileW.$(OBJEXT) src/GetTickCount.$(OBJEXT) \
+	src/SetUnhandledExceptionFilter.$(OBJEXT)
 libwinstorecompat_a_OBJECTS = $(am_libwinstorecompat_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
@@ -234,7 +235,8 @@ libwinstorecompat_a_SOURCES = \
   src/WaitForSingleObject.c \
   src/LoadLibraryW.c \
   src/CreateFileW.c \
-  src/GetTickCount.c
+  src/GetTickCount.c \
+  src/SetUnhandledExceptionFilter.c
 
 all: all-am
 
@@ -329,6 +331,8 @@ src/CreateFileW.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/GetTickCount.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/SetUnhandledExceptionFilter.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 libwinstorecompat.a: $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_DEPENDENCIES) $(EXTRA_libwinstorecompat_a_DEPENDENCIES) 
 	-rm -f libwinstorecompat.a
 	$(libwinstorecompat_a_AR) libwinstorecompat.a $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_LIBADD)
@@ -344,6 +348,7 @@ mostlyclean-compile:
 	-rm -f src/GetTickCount.$(OBJEXT)
 	-rm -f src/InitializeCriticalSection.$(OBJEXT)
 	-rm -f src/LoadLibraryW.$(OBJEXT)
+	-rm -f src/SetUnhandledExceptionFilter.$(OBJEXT)
 	-rm -f src/WaitForSingleObject.$(OBJEXT)
 
 distclean-compile:
@@ -357,6 +362,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetTickCount.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/InitializeCriticalSection.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/LoadLibraryW.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/SetUnhandledExceptionFilter.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/WaitForSingleObject.Po@am__quote@
 
 .c.o:
