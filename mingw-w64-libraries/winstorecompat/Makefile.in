@@ -105,7 +105,7 @@ am_libwinstorecompat_a_OBJECTS = src/CreateEventW.$(OBJEXT) \
 	src/SetUnhandledExceptionFilter.$(OBJEXT) \
 	src/UnhandledExceptionFilter.$(OBJEXT) \
 	src/TerminateProcess.$(OBJEXT) src/IsDBCSLeadByteEx.$(OBJEXT) \
-	src/SetErrorMode.$(OBJEXT)
+	src/SetErrorMode.$(OBJEXT) src/GetACP.$(OBJEXT)
 libwinstorecompat_a_OBJECTS = $(am_libwinstorecompat_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
@@ -243,7 +243,8 @@ libwinstorecompat_a_SOURCES = \
   src/UnhandledExceptionFilter.c \
   src/TerminateProcess.c \
   src/IsDBCSLeadByteEx.c \
-  src/SetErrorMode.c
+  src/SetErrorMode.c \
+  src/GetACP.c
 
 all: all-am
 
@@ -348,6 +349,8 @@ src/IsDBCSLeadByteEx.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/SetErrorMode.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/GetACP.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 libwinstorecompat.a: $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_DEPENDENCIES) $(EXTRA_libwinstorecompat_a_DEPENDENCIES) 
 	-rm -f libwinstorecompat.a
 	$(libwinstorecompat_a_AR) libwinstorecompat.a $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_LIBADD)
@@ -359,6 +362,7 @@ mostlyclean-compile:
 	-rm -f src/CreateFileW.$(OBJEXT)
 	-rm -f src/CreateMutexW.$(OBJEXT)
 	-rm -f src/CreateSemaphoreW.$(OBJEXT)
+	-rm -f src/GetACP.$(OBJEXT)
 	-rm -f src/GetFileAttributes.$(OBJEXT)
 	-rm -f src/GetTickCount.$(OBJEXT)
 	-rm -f src/InitializeCriticalSection.$(OBJEXT)
@@ -377,6 +381,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/CreateFileW.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/CreateMutexW.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/CreateSemaphoreW.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetACP.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetFileAttributes.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetTickCount.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/InitializeCriticalSection.Po@am__quote@
