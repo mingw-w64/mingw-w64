@@ -16,4 +16,5 @@ libwinstorecompat_a_SOURCES = \
   src/GetTickCount.c \
   src/SetUnhandledExceptionFilter.c \
   src/UnhandledExceptionFilter.c \
-  src/TerminateProcess.c
+  src/TerminateProcess.c \
+  src/IsDBCSLeadByteEx.c
