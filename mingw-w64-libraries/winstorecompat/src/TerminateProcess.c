@@ -32,8 +32,13 @@
 
 BOOL WINAPI TerminateProcess(HANDLE hProcess, UINT uExitCode)
 {
-    _exit(uExitCode);
-    return uExitCode;
+    if (hProcess == GetCurrentProcess()) {
+        _exit(uExitCode);
+        return uExitCode;
+    } else {
+        SetLastError(ERROR_ACCESS_DENIED);
+        return 0;
+    }
 }
 
 BOOL WINAPI (*__MINGW_IMP_SYMBOL(TerminateProcess))(HANDLE, UINT) asm("__imp__TerminateProcess@8") = TerminateProcess;
