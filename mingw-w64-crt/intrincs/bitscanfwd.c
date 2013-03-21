@@ -2,7 +2,9 @@
 
 unsigned char _BitScanForward(unsigned long *Index, unsigned long Mask)
 {
-  __asm__ __volatile__("bsfl %1,%0" : "=r" (Mask),"=m" ((*(volatile long *)Index)));
+  unsigned long n;
+  __asm__ __volatile__("bsfl %0,%1" : "+r" (Mask),"=rm" (n) : : "memory");
+  *Index = n;
   return (Mask != 0);
 }
 

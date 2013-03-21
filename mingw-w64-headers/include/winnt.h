@@ -1309,19 +1309,27 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 
 #ifndef __CRT__NO_INLINE
     __CRT_INLINE BOOLEAN _BitScanForward(DWORD *Index,DWORD Mask) {
-      __asm__ __volatile__("bsfl %1,%0" : "=r" (Mask),"=m" ((*(volatile __LONG32 *)Index)));
+      DWORD n;
+      __asm__ __volatile__("bsfl %0,%1" : "+r" (Mask),"=rm" (n) : : "memory");
+      *Index = n;
       return Mask!=0;
     }
     __CRT_INLINE BOOLEAN _BitScanReverse(DWORD *Index,DWORD Mask) {
-      __asm__ __volatile__("bsrl %1,%0" : "=r" (Mask),"=m" ((*(volatile __LONG32 *)Index)));
+     DWORD n;
+      __asm__ __volatile__("bsrl %0,%1" : "+r" (Mask),"=rm" (n) : : "memory");
+      *Index = n;
       return Mask!=0;
     }
     __CRT_INLINE BOOLEAN _BitScanForward64(DWORD *Index,DWORD64 Mask) {
-      __asm__ __volatile__("bsfq %1,%0" : "=r" (Mask),"=m" ((*(volatile LONG64 *)Index)));
+      DWORD64 n;
+      __asm__ __volatile__("bsfq %0,%1" : "+r" (Mask),"=rm" (n) : : "memory");
+      *Index = (DWORD) n;
       return Mask!=0;
     }
     __CRT_INLINE BOOLEAN _BitScanReverse64(DWORD *Index,DWORD64 Mask) {
-      __asm__ __volatile__("bsrq %1,%0" : "=r" (Mask),"=m" ((*(volatile LONG64 *)Index)));
+      DWORD64 n;
+      __asm__ __volatile__("bsrq %0,%1" : "+r" (Mask),"=rm" (n) : : "memory");
+      *Index = (DWORD) n;
       return Mask!=0;
     }
 #endif /* !__CRT__NO_INLINE */

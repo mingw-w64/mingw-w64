@@ -2,7 +2,9 @@
 
 unsigned char _BitScanReverse(unsigned long *Index, unsigned long Mask)
 {
-  __asm__ __volatile__("bsrl %1,%0" : "=r" (Mask),"=m" ((*(volatile long *)Index)));
+  unsigned long n;
+  __asm__ __volatile__("bsrl %0,%1" : "+r" (Mask),"=rm" (n) : : "memory");
+  *Index = n;
   return (Mask != 0);
 }
 
