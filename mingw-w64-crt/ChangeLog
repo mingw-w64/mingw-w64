@@ -1,5 +1,12 @@
 2013-03-21  Ozkan Sezer  <sezeroz@gmail.com>
 
+	Partial merge from trunk r5541:
+	2012-01-16  Rafaël Carré <funman@videolan.org>
+	* lib32/msvcr90d.def: Mark atexit with DATA.
+	* lib64/msvcr90d.def: Likewise.
+
+2013-03-21  Ozkan Sezer  <sezeroz@gmail.com>
+
 	Merge from trunk revs.5540 & 5613:
 	2013-02-23  David Nadlinger  <code@klickverbot.at>
 	* crt/tlssup.c (_tls_used): Remove +1 form _tls_start to avoid
