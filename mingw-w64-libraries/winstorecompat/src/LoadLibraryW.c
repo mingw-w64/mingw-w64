@@ -24,10 +24,10 @@
 
 #define _WIN32_WINNT 0x602 /* LoadPackagedLibrary is Win8 APP Family */
 
-#define LoadLibrary __LoadLibrary
+#define LoadLibraryW __LoadLibraryW
 #include <windef.h>
 #include <winbase.h>
-#undef LoadLibrary
+#undef LoadLibraryW
 
 HMODULE WINAPI LoadLibraryW(LPCWSTR lpFileName)
 {
