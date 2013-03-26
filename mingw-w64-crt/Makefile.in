@@ -3448,15 +3448,10 @@ top_srcdir = @top_srcdir@
 @WITHSYSROOT_TRUE@sysincludes = -I@TARGET_SYSTEM_ROOT@/include
 @WITHSYSROOT_FALSE@withsys = 
 @WITHSYSROOT_TRUE@withsys = --with-sysroot=@TARGET_SYSTEM_ROOT@
-@UNDERSCORES_FALSE@cflags_underscores = -fno-leading-underscore
-@UNDERSCORES_TRUE@cflags_underscores = 
-@UNDERSCORES_FALSE@dlltool_underscores = --no-leading-underscore
-@UNDERSCORES_TRUE@dlltool_underscores = 
 AM_CPPFLAGS = -D_CRTBLD $(sysincludes)
-AM_CFLAGS = $(cflags_underscores) -pipe -std=gnu99 @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
+AM_CFLAGS = -pipe -std=gnu99 @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
 AM_CXXFLAGS = @ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@
-AM_DLLTOOLFLAGS = $(dlltool_underscores) -k --as=$(AS) --output-lib $@ \
-	$(am__append_1)
+AM_DLLTOOLFLAGS = -k --as=$(AS) --output-lib $@ $(am__append_1)
 CPPFLAGS32 = -m32
 CPPFLAGS64 = -m64
 DLLTOOLFLAGS32 = --as-flags=--32 -m i386

@@ -20,18 +20,10 @@ else
   withsys=
 endif
 
-if UNDERSCORES
-  cflags_underscores=
-  dlltool_underscores=
-else
-  cflags_underscores=-fno-leading-underscore
-  dlltool_underscores=--no-leading-underscore
-endif
-
 AM_CPPFLAGS=-D_CRTBLD $(sysincludes)
-AM_CFLAGS=$(cflags_underscores) -pipe -std=gnu99 @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
+AM_CFLAGS=-pipe -std=gnu99 @ADD_C_CXX_WARNING_FLAGS@ @ADD_C_ONLY_WARNING_FLAGS@
 AM_CXXFLAGS=@ADD_C_CXX_WARNING_FLAGS@ @ADD_CXX_ONLY_WARNING_FLAGS@
-AM_DLLTOOLFLAGS=$(dlltool_underscores) -k --as=$(AS) --output-lib $@
+AM_DLLTOOLFLAGS=-k --as=$(AS) --output-lib $@
 if DELAY_IMPORT_LIBS
   AM_DLLTOOLFLAGS += --output-delaylib $@.delayimp.a
 endif
