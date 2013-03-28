@@ -20,4 +20,5 @@ libwinstorecompat_a_SOURCES = \
   src/IsDBCSLeadByteEx.c \
   src/SetErrorMode.c \
   src/GetACP.c \
-  src/VirtualProtect.c
+  src/VirtualProtect.c \
+  src/getenv.c
