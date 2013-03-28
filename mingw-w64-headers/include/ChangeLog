@@ -1,3 +1,7 @@
+2013-03-28  Corinna Vinschen  <vinschen@redhat.com>
+
+	* ntstatus.h: Regenerate from MSDN information.
+
 2013-03-14  Corinna Vinschen  <vinschen@redhat.com>
 
 	* winbase.h (PIPE_ACCEPT_REMOTE_CLIENTS): Define when building for
