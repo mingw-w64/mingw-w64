@@ -195,7 +195,7 @@ src_libmingwex=\
   misc/wcsnlen.c         misc/wcstof.c                misc/wcstoimax.c            misc/wcstold.c             misc/wcstoumax.c      \
   misc/wctob.c           misc/wctrans.c               misc/wctype.c               misc/wdirent.c             misc/winbs_uint64.c   \
   misc/winbs_ulong.c     misc/winbs_ushort.c          misc/wmemchr.c              misc/wmemcmp.c             misc/wmemcpy.c        \
-  misc/wmemmove.c        misc/wmempcpy.c              misc/wmemset.c              \
+  misc/wmemmove.c        misc/wmempcpy.c              misc/wmemset.c              misc/purecall.c \
   \
   stdio/mingw_pformat.h    \
   stdio/vfscanf2.S         stdio/vfwscanf2.S         stdio/vscanf2.S          stdio/vsscanf2.S          stdio/vswscanf2.S \
