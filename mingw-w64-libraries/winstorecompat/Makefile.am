@@ -21,4 +21,6 @@ libwinstorecompat_a_SOURCES = \
   src/SetErrorMode.c \
   src/GetACP.c \
   src/VirtualProtect.c \
-  src/getenv.c
+  src/getenv.c \
+  src/getpid.c \
+  $(NULL)

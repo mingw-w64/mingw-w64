@@ -106,7 +106,8 @@ am_libwinstorecompat_a_OBJECTS = src/CreateEventW.$(OBJEXT) \
 	src/UnhandledExceptionFilter.$(OBJEXT) \
 	src/TerminateProcess.$(OBJEXT) src/IsDBCSLeadByteEx.$(OBJEXT) \
 	src/SetErrorMode.$(OBJEXT) src/GetACP.$(OBJEXT) \
-	src/VirtualProtect.$(OBJEXT) src/getenv.$(OBJEXT)
+	src/VirtualProtect.$(OBJEXT) src/getenv.$(OBJEXT) \
+	src/getpid.$(OBJEXT)
 libwinstorecompat_a_OBJECTS = $(am_libwinstorecompat_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
@@ -247,7 +248,9 @@ libwinstorecompat_a_SOURCES = \
   src/SetErrorMode.c \
   src/GetACP.c \
   src/VirtualProtect.c \
-  src/getenv.c
+  src/getenv.c \
+  src/getpid.c \
+  $(NULL)
 
 all: all-am
 
@@ -358,6 +361,8 @@ src/VirtualProtect.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/getenv.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/getpid.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 libwinstorecompat.a: $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_DEPENDENCIES) $(EXTRA_libwinstorecompat_a_DEPENDENCIES) 
 	-rm -f libwinstorecompat.a
 	$(libwinstorecompat_a_AR) libwinstorecompat.a $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_LIBADD)
@@ -382,6 +387,7 @@ mostlyclean-compile:
 	-rm -f src/VirtualProtect.$(OBJEXT)
 	-rm -f src/WaitForSingleObject.$(OBJEXT)
 	-rm -f src/getenv.$(OBJEXT)
+	-rm -f src/getpid.$(OBJEXT)
 
 distclean-compile:
 	-rm -f *.tab.c
@@ -403,6 +409,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/VirtualProtect.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/WaitForSingleObject.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/getenv.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/getpid.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
