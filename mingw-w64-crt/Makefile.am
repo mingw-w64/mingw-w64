@@ -217,21 +217,6 @@ src_libmingwex=\
   stdio/vscanf.c           stdio/vsnprintf.c         stdio/vsnprintf_s.c      stdio/vsnwprintf.c        stdio/vsscanf.c         \
   stdio/vswscanf.c         stdio/vwscanf.c           stdio/wtoll.c            \
   \
-  intrincs/__movsb.c        intrincs/__movsd.c        intrincs/__movsw.c         intrincs/__stosb.c       intrincs/__stosd.c        \
-  intrincs/__stosw.c        intrincs/_rotl64.c        intrincs/_rotr64.c         intrincs/bitscanfwd.c    intrincs/bitscanrev.c     \
-  intrincs/bittest.c        intrincs/bittestc.c       intrincs/bittestci.c       intrincs/bittestr.c      intrincs/bittestri.c      \
-  intrincs/bittests.c       intrincs/bittestsi.c      intrincs/cpuid.c           intrincs/currentfiber.c  intrincs/currentteb.c     \
-  intrincs/fiberdata.c      intrincs/ilockadd.c       intrincs/ilockand.c        intrincs/ilockand64.c    intrincs/ilockcxch.c      \
-  intrincs/ilockcxch16.c    intrincs/ilockcxch64.c    intrincs/ilockcxchptr.c    intrincs/ilockdec.c      intrincs/ilockdec16.c     \
-  intrincs/ilockdec64.c     intrincs/ilockexch.c      intrincs/ilockexch64.c     intrincs/ilockexchadd.c  intrincs/ilockexchadd64.c \
-  intrincs/ilockexchptr.c   intrincs/ilockinc.c       intrincs/ilockinc16.c      intrincs/ilockinc64.c    intrincs/ilockor.c        \
-  intrincs/ilockor64.c      intrincs/ilockxor.c       intrincs/ilockxor64.c      intrincs/inbyte.c        intrincs/inbytestring.c   \
-  intrincs/indword.c        intrincs/indwordstring.c  intrincs/inword.c          intrincs/inwordstring.c  intrincs/outbyte.c        \
-  intrincs/outbytestring.c  intrincs/outdword.c       intrincs/outdwordstring.c  intrincs/outword.c       intrincs/outwordstring.c  \
-  intrincs/rdtsc.c          intrincs/readcr0.c        intrincs/readcr2.c         intrincs/readcr3.c       intrincs/readcr4.c        \
-  intrincs/readcr8.c        intrincs/readmsr.c        intrincs/writecr0.c        intrincs/writecr2.c      intrincs/writecr3.c       \
-  intrincs/writecr4.c       intrincs/writecr8.c       intrincs/writemsr.c        intrincs/RtlSecureZeroMemory.c \
-  \
   secapi/_cgets_s.c secapi/_cgetws_s.c \
   secapi/_cprintf_s.c secapi/_cprintf_s_l.c \
   secapi/_vcprintf_s.c secapi/_vcprintf_s_l.c \
@@ -249,8 +234,25 @@ src_libmingwex=\
   secapi/_strtime_s.c secapi/_wstrtime_s.c \
   secapi/wmemcpy_s.c secapi/memcpy_s.c
 
+# These intrinsics are target independent:
+src_intrincs= \
+  intrincs/__movsb.c        intrincs/__movsd.c        intrincs/__movsw.c         intrincs/__stosb.c       intrincs/__stosd.c        \
+  intrincs/__stosw.c        intrincs/_rotl64.c        intrincs/_rotr64.c         intrincs/bitscanfwd.c    intrincs/bitscanrev.c     \
+  intrincs/bittest.c        intrincs/bittestc.c       intrincs/bittestci.c       intrincs/bittestr.c      intrincs/bittestri.c      \
+  intrincs/bittests.c       intrincs/bittestsi.c      intrincs/cpuid.c           intrincs/currentfiber.c  intrincs/currentteb.c     \
+  intrincs/fiberdata.c      intrincs/ilockadd.c       intrincs/ilockand.c        intrincs/ilockand64.c    intrincs/ilockcxch.c      \
+  intrincs/ilockcxch16.c    intrincs/ilockcxch64.c    intrincs/ilockcxchptr.c    intrincs/ilockdec.c      intrincs/ilockdec16.c     \
+  intrincs/ilockdec64.c     intrincs/ilockexch.c      intrincs/ilockexch64.c     intrincs/ilockexchadd.c  intrincs/ilockexchadd64.c \
+  intrincs/ilockexchptr.c   intrincs/ilockinc.c       intrincs/ilockinc16.c      intrincs/ilockinc64.c    intrincs/ilockor.c        \
+  intrincs/ilockor64.c      intrincs/ilockxor.c       intrincs/ilockxor64.c      intrincs/inbyte.c        intrincs/inbytestring.c   \
+  intrincs/indword.c        intrincs/indwordstring.c  intrincs/inword.c          intrincs/inwordstring.c  intrincs/outbyte.c        \
+  intrincs/outbytestring.c  intrincs/outdword.c       intrincs/outdwordstring.c  intrincs/outword.c       intrincs/outwordstring.c  \
+  intrincs/rdtsc.c          intrincs/readcr0.c        intrincs/readcr2.c         intrincs/readcr3.c       intrincs/readcr4.c        \
+  intrincs/readcr8.c        intrincs/readmsr.c        intrincs/writecr0.c        intrincs/writecr2.c      intrincs/writecr3.c       \
+  intrincs/writecr4.c       intrincs/writecr8.c       intrincs/writemsr.c        intrincs/RtlSecureZeroMemory.c
+
 # these only go into the 64 bit version:
-src_libmingwex64=\
+src_intrincs64=\
   intrincs/bittest64.c    intrincs/bittestc64.c   intrincs/bittestr64.c   intrincs/bittestri64.c     \
   intrincs/bittests64.c   intrincs/bittestsi64.c  intrincs/bitscanfwd64.c intrincs/bitscanrev64.c    \
   intrincs/ilockadd64.c   intrincs/readgsbyte.c   intrincs/readgsword.c   intrincs/readgsdword.c     \
@@ -260,7 +262,7 @@ src_libmingwex64=\
   intrincs/__shiftleft128.c
 
 # these only go into the 32 bit version:
-src_libmingwex32=\
+src_intrincs32=\
   intrincs/membarrier.c   intrincs/readfsbyte.c   intrincs/readfsword.c   intrincs/readfsdword.c  \
   intrincs/writefsbyte.c  intrincs/writefsword.c  intrincs/writefsdword.c
 
@@ -313,7 +315,12 @@ temp= \
 dxerr.c \
 test.c
 
-lib32_LIBRARIES = lib32/libshell32.a
+lib32_LIBRARIES = lib32/libkernel32.a
+lib32_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincs32)
+lib32_libkernel32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
+lib32_libkernel32_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
+
+lib32_LIBRARIES += lib32/libshell32.a
 lib32_libshell32_a_SOURCES = $(src_libshell32)
 lib32_libshell32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 lib32_libshell32_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
@@ -429,7 +436,7 @@ lib32_libmingw32_a_SOURCES = $(src_libmingw32)
 
 lib32_LIBRARIES += lib32/libmingwex.a
 lib32_libmingwex_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
-lib32_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex32)
+lib32_libmingwex_a_SOURCES = $(src_libmingwex)
 
 lib32_LIBRARIES += lib32/libmoldname.a
 lib32_libmoldname_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
@@ -456,7 +463,7 @@ lib32_DATA = \
   lib32/libdxapi.a     lib32/libfaultrep.a  lib32/libgdi32.a     lib32/libglaux.a     lib32/libglu32.a    \
   lib32/libglut32.a    lib32/libhal.a       lib32/libhid.a       lib32/libhidclass.a \
   lib32/libhidparse.a  lib32/libicmui.a     lib32/libigmpagnt.a  lib32/libimagehlp.a  lib32/libimm32.a    \
-  lib32/libiphlpapi.a  lib32/libkernel32.a  lib32/libksproxy.a   lib32/libclfsw32.a   lib32/liblz32.a     \
+  lib32/libiphlpapi.a  lib32/libksproxy.a   lib32/libclfsw32.a   lib32/liblz32.a     \
   lib32/libmapi32.a    lib32/libmcd.a       lib32/libmfcuia32.a  lib32/libmgmtapi.a   lib32/libmprapi.a   \
   lib32/libmpr.a       lib32/libmqrt.a      lib32/libmsacm32.a   lib32/libmscms.a     lib32/libmsdmo.a    \
   lib32/libmsi.a       \
@@ -625,7 +632,12 @@ lib64/gcrt2.o: profile/gcrt0.c
 lib64/%.o: crt/%.c
 	$(COMPILE) $(CPPFLAGS64) -c $< -o $@
 
-lib64_LIBRARIES = lib64/libshell32.a
+lib64_LIBRARIES = lib64/libkernel32.a
+lib64_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincs64)
+lib64_libkernel32_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include) $(AM_CPPFLAGS)
+lib64_libkernel32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
+
+lib64_LIBRARIES += lib64/libshell32.a
 lib64_libshell32_a_SOURCES = $(src_libshell32)
 lib64_libshell32_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 lib64_libshell32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
@@ -741,7 +753,7 @@ lib64_libmingw32_a_SOURCES = $(src_libmingw32)
 
 lib64_LIBRARIES += lib64/libmingwex.a
 lib64_libmingwex_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include) $(AM_CPPFLAGS)
-lib64_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex64)
+lib64_libmingwex_a_SOURCES = $(src_libmingwex)
 
 lib64_LIBRARIES += lib64/libmoldname.a
 lib64_libmoldname_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include) $(AM_CPPFLAGS)
@@ -978,7 +990,7 @@ lib64_DATA = \
   lib64/libwshcon.a     lib64/libwsock32.a    lib64/libzoneoc.a       lib64/libnormaliz.a   \
   \
   lib64/libclfsw32.a    \
-  lib64/libkernel32.a   lib64/libdwmapi.a     lib64/libntoskrnl.a     lib64/libuxtheme.a    \
+  lib64/libdwmapi.a     lib64/libntoskrnl.a     lib64/libuxtheme.a    \
   lib64/libwtsapi32.a   \
   \
   lib64/libcrtdll.a     lib64/libmsvcrt.a     lib64/libmsvcr80.a     \

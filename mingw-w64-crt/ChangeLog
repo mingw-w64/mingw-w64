@@ -1,3 +1,21 @@
+2013-04-02  Corinna Vinschen  <vinschen@redhat.com>
+
+	* Makefile.am (src_libmingwex): Split off intrinsic functions into...
+	(src_intrincs): ...this new variable.
+	(src_intrincs64): Rename from src_libmingwex64.
+	(src_intrincs32): Rename from src_libmingwex32.
+	(lib32_LIBRARIES): Add lib32/libkernel32.a.
+	(lib32_libkernel32_a_SOURCES): New variable.
+	(lib32_libkernel32_a_AR): New variable.
+	(lib32_libkernel32_a_CPPFLAGS): New variable.
+	(lib32_DATA): Remove lib32/libkernel32.a.
+	(lib64_LIBRARIES): Add lib64/libkernel32.a.
+	(lib64_libkernel32_a_SOURCES): New variable.
+	(lib64_libkernel32_a_CPPFLAGS): New variable.
+	(lib64_libkernel32_a_AR): New variable.
+	(lib64_DATA): Remove lib64/libkernel32.a.
+	* Makefile.in: Regenerate.
+
 2013-03-14  Kai Tietz  <ktietz@redhat.com>
 
 	* Makefile.am: Add new files to build of libmingwex.a library.
