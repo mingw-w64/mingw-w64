@@ -176,7 +176,7 @@ src_libmingwex=\
   math/cephes_emath.h  math/cephes_mconf.h  math/fastmath.h  math/fp_consts.h  math/abs64.c \
   \
   misc/_ctime32.c        misc/_gmtime32.c             misc/_localtime32.c         misc/_mkgmtime.c           misc/_mkgmtime32.c    \
-  misc/_mktime32.c       misc/_time32.c               misc/_wctime.c              misc/_wctime32.c           misc/alarm.c          \
+  misc/_mktime32.c       misc/_wctime.c               misc/_wctime32.c            misc/alarm.c          \
   misc/basename.c        misc/btowc.c                 misc/ctime.c                misc/delay-f.c             misc/delay-n.c        \
   misc/delayimp.c        misc/difftime.c              misc/difftime32.c           misc/difftime64.c          misc/dirent.c         \
   misc/dirname.c         misc/execv.c                 misc/execve.c               misc/execvp.c              misc/execvpe.c        \
@@ -190,7 +190,7 @@ src_libmingwex=\
   misc/mingw_wcstof.c    misc/mingw_wcstold.c         misc/mktime.c               misc/seterrno.c            misc/sleep.c          \
   misc/spawnv.c          misc/spawnve.c               misc/spawnvp.c              misc/spawnvpe.c            misc/strnlen.c        \
   misc/strsafe.c         misc/strtoimax.c             misc/strtold.c              misc/strtoumax.c           misc/tdelete.c        \
-  misc/tfind.c           misc/time.c                  misc/tsearch.c              misc/twalk.c               misc/uchar_c16rtomb.c \
+  misc/tfind.c           misc/tsearch.c               misc/twalk.c                misc/uchar_c16rtomb.c \
   misc/uchar_c32rtomb.c  misc/uchar_mbrtoc16.c        misc/uchar_mbrtoc32.c       misc/wassert.c             misc/wcrtomb.c        \
   misc/wcsnlen.c         misc/wcstof.c                misc/wcstoimax.c            misc/wcstold.c             misc/wcstoumax.c      \
   misc/wctob.c           misc/wctrans.c               misc/wctype.c               misc/wdirent.c             misc/winbs_uint64.c   \

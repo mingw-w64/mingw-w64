@@ -1545,6 +1545,7 @@ _telli64
 _tempnam
 _time32
 _time64
+time == _time32
 _timezone DATA
 _tolower
 _tolower_l

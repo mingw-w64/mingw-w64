@@ -673,8 +673,7 @@ swscanf
 system
 tan
 tanh
-time DATA
-;_time32 = time
+time
 tmpfile
 tmpnam
 tolower
@@ -735,6 +734,7 @@ _mbcasemap
 _mktime64
 _osplatform	DATA
 _stat64
+_time32 == time
 _time64
 _utime64
 _wctime64

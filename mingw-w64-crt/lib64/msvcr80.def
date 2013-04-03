@@ -516,6 +516,7 @@ _tell
 _telli64
 _tempnam
 _time64
+time == _time64
 _timezone DATA
 _tolower
 _toupper
@@ -808,8 +809,7 @@ system
 tan
 tanf
 tanh
-time DATA
-;_time32 = time
+_time32
 tmpfile
 tmpnam
 tolower

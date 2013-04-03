@@ -671,8 +671,8 @@ swscanf
 system
 tan
 tanh
-time DATA
-;_time32 = time
+_time32
+time == _time32
 tmpfile
 tmpnam
 tolower

@@ -1,3 +1,10 @@
+2013-04-03  Rafaël Carré  <funman@videolan.org>
+
+	* misc/time.c: Remove
+	* misc/_time32.c: Likewise.
+	* lib32/msvcr*.def: Alias time to _time32 when missing
+	* lib64/msvcr*.def: Alias time to _time64 when missing
+
 2013-04-02  Corinna Vinschen  <vinschen@redhat.com>
 
 	* Makefile.am (src_libmingwex): Split off intrinsic functions into...

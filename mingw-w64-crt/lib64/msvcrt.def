@@ -782,6 +782,7 @@ _sys_nerr DATA
 _tell
 _telli64
 _tempnam
+_time32
 _time64
 _timezone DATA
 _tolower
@@ -1217,8 +1218,7 @@ system
 tan
 ;tanf
 tanh
-time DATA
-;_time32 = time
+time == _time64
 tmpfile
 tmpfile_s
 tmpnam
