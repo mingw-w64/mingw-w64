@@ -911,6 +911,7 @@ _cscanf_l
 _cscanf_s
 _cscanf_s_l
 _ctime32
+ctime == _ctime32
 _ctime32_s
 _ctime64
 _ctime64_s

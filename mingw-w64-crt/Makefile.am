@@ -175,9 +175,9 @@ src_libmingwex=\
   math/powi.def.h       math/sin.def.h     math/sqrt.def.h       \
   math/cephes_emath.h  math/cephes_mconf.h  math/fastmath.h  math/fp_consts.h  math/abs64.c \
   \
-  misc/_ctime32.c        misc/_gmtime32.c             misc/_localtime32.c         misc/_mkgmtime.c           misc/_mkgmtime32.c    \
+                         misc/_gmtime32.c             misc/_localtime32.c         misc/_mkgmtime.c           misc/_mkgmtime32.c    \
   misc/_mktime32.c       misc/_wctime.c               misc/_wctime32.c            misc/alarm.c          \
-  misc/basename.c        misc/btowc.c                 misc/ctime.c                misc/delay-f.c             misc/delay-n.c        \
+  misc/basename.c        misc/btowc.c                                             misc/delay-f.c             misc/delay-n.c        \
   misc/delayimp.c        misc/difftime.c              misc/difftime32.c           misc/difftime64.c          misc/dirent.c         \
   misc/dirname.c         misc/execv.c                 misc/execve.c               misc/execvp.c              misc/execvpe.c        \
   misc/feclearexcept.c   misc/fegetenv.c              misc/fegetexceptflag.c      misc/fegetround.c          misc/feholdexcept.c   \

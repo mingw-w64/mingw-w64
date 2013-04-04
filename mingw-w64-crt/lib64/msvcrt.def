@@ -1038,8 +1038,7 @@ cos
 ;cosf
 cosh
 ;coshf
-ctime DATA
-;_ctime32 = ctime
+ctime
 difftime
 div
 exit

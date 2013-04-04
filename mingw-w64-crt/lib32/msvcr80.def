@@ -528,8 +528,8 @@ clearerr
 clock
 cos
 cosh
-ctime DATA
-;_ctime32 = ctime
+_ctime32
+ctime == _ctime32
 difftime
 div
 exit
