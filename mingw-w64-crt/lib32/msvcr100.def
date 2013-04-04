@@ -1075,7 +1075,8 @@ _lfind_s
 _loaddll
 _local_unwind2
 _local_unwind4
-_localtime32 DATA
+_localtime32
+localtime == _localtime32
 _localtime32_s
 _localtime64
 _localtime64_s

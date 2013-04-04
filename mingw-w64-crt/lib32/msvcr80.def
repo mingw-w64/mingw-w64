@@ -601,8 +601,8 @@ labs
 ldexp DATA
 ldiv
 localeconv
-localtime DATA
-;_localtime32 = localtime
+localtime == _localtime32
+_localtime32
 log DATA
 log10
 longjmp DATA

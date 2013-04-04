@@ -358,6 +358,7 @@ _lfind
 _loaddll
 _local_unwind
 _localtime64
+localtime == _localtime64
 _lock
 _locking
 _logb
@@ -731,8 +732,7 @@ labs
 ldexp DATA
 ldiv
 localeconv
-localtime DATA
-;_localtime32 = localtime
+_localtime32
 log DATA
 log10
 log10f

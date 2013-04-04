@@ -1118,8 +1118,7 @@ labs
 ldexp DATA
 ldiv
 localeconv
-localtime DATA
-;_localtime32 = localtime
+localtime
 log DATA
 log10
 log10f DATA

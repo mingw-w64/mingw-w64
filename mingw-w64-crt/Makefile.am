@@ -175,7 +175,7 @@ src_libmingwex=\
   math/powi.def.h       math/sin.def.h     math/sqrt.def.h       \
   math/cephes_emath.h  math/cephes_mconf.h  math/fastmath.h  math/fp_consts.h  math/abs64.c \
   \
-                                                      misc/_localtime32.c         misc/_mkgmtime.c           misc/_mkgmtime32.c    \
+                                                                                  misc/_mkgmtime.c           misc/_mkgmtime32.c    \
                                                                                   misc/alarm.c          \
   misc/basename.c        misc/btowc.c                                             misc/delay-f.c             misc/delay-n.c        \
   misc/delayimp.c        misc/difftime.c              misc/difftime32.c           misc/difftime64.c          misc/dirent.c         \
@@ -184,7 +184,7 @@ src_libmingwex=\
   misc/feraiseexcept.c   misc/fesetenv.c              misc/fesetexceptflag.c      misc/fesetround.c          misc/fetestexcept.c   \
   misc/feupdateenv.c     misc/ftruncate.c             misc/fwide.c                misc/getlogin.c            misc/getopt.c         \
   misc/gettimeofday.c                                 misc/imaxabs.c              misc/imaxdiv.c             misc/isblank.c        \
-  misc/iswblank.c        misc/localtime.c             misc/mb_wc_common.h         misc/mbrtowc.c             misc/mbsinit.c        \
+  misc/iswblank.c                                     misc/mb_wc_common.h         misc/mbrtowc.c             misc/mbsinit.c        \
   misc/mempcpy.c         misc/mingw-aligned-malloc.c  misc/mingw-fseek.c          misc/mingw_get_codepage.c  misc/mingw_getsp.S    \
   misc/mingw_matherr.c   misc/mingw_mbwc_convert.c    misc/mingw_output_format.c  misc/mingw_usleep.c        misc/mingw_wcstod.c   \
   misc/mingw_wcstof.c    misc/mingw_wcstold.c                                     misc/seterrno.c            misc/sleep.c          \

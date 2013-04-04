@@ -1154,6 +1154,7 @@ _local_unwind
 _localtime32
 _localtime32_s
 _localtime64
+localtime == _localtime64
 _localtime64_s
 _lock
 _lock_file
