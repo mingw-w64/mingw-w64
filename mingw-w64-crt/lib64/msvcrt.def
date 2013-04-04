@@ -627,8 +627,7 @@ _memccpy
 _memicmp
 _memicmp_l
 _mkdir
-_mkgmtime DATA
-;_mkgmtime32 = _mkgmtime
+_mkgmtime
 _mkgmtime64
 _mktemp
 ; _mktemp_s replaced by emu

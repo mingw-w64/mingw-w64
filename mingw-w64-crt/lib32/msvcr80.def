@@ -328,8 +328,8 @@ _mbsstr
 _mbstok
 _mbstrlen
 _mbsupr
-_mkgmtime DATA
-;_mkgmtime32 = _mkgmtime
+_mkgmtime32
+_mkgmtime == _mkgmtime32
 _mkgmtime64
 _memccpy
 _memicmp

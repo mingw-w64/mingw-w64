@@ -727,9 +727,6 @@ _gmtime64
 ; _localtime32_s replaced by emu
 _localtime64
 ; _localtime64_s replaced by emu
-_mkgmtime DATA
-;_mkgmtime32 = _mkgmtime
-_mkgmtime64
 _mbcasemap
 _mktime64
 _osplatform	DATA

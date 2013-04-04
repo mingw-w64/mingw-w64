@@ -930,6 +930,7 @@ _memicmp
 _memicmp_l
 _mkdir
 _mkgmtime32
+_mkgmtime == _mkgmtime32
 _mkgmtime64
 _mktemp
 _mktemp_s

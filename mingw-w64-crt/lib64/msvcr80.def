@@ -429,9 +429,9 @@ _mbsupr
 _memccpy
 _memicmp
 _mkdir
-_mkgmtime DATA
-;_mkgmtime32 = _mkgmtime
+_mkgmtime32
 _mkgmtime64
+_mkgmtime == _mkgmtime64
 _mktemp
 _mktime64
 mktime == _mktime64
