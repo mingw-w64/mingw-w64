@@ -617,8 +617,8 @@ memcmp
 memcpy
 memmove
 memset
-mktime DATA
-;_mktime32 = mktime
+mktime
+_mktime32 == mktime
 modf
 perror
 ;pow

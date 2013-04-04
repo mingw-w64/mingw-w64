@@ -933,6 +933,7 @@ _mkgmtime64
 _mktemp
 _mktemp_s
 _mktime32
+mktime == _mktime32
 _mktime64
 _msize
 _msize_dbg

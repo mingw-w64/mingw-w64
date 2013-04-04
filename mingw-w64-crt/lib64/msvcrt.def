@@ -1139,8 +1139,7 @@ memcpy
 memmove
 memmove_s
 memset
-mktime DATA
-;_mktime32 = mktime
+mktime
 modf
 ;modff
 perror

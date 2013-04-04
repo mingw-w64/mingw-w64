@@ -870,6 +870,7 @@ _mktemp
 _mktemp_s
 _mktime32
 _mktime64
+mktime == _mktime64
 _msize
 _msize_dbg
 _nextafter

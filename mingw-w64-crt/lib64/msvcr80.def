@@ -433,6 +433,7 @@ _mkgmtime DATA
 _mkgmtime64
 _mktemp
 _mktime64
+mktime == _mktime64
 _msize
 _nextafter
 _nextafterf
@@ -746,8 +747,7 @@ memcmp
 memcpy
 memmove
 memset
-mktime DATA
-;_mktime32 = mktime
+_mktime32
 modf
 modff
 perror

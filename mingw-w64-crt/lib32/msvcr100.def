@@ -1241,7 +1241,8 @@ _mkgmtime32 DATA
 _mkgmtime64
 _mktemp
 _mktemp_s
-_mktime32 DATA
+_mktime32
+mktime == _mktime32
 _mktime64
 _msize
 _nextafter
