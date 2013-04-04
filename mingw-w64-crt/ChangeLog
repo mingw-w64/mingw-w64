@@ -1,3 +1,18 @@
+2013-04-04  Rafaël Carré  <funman@videolan.org>
+
+	* misc/_ctime32.c: Remove
+	* misc/_gmtime32.c: Likewise.
+	* misc/_localtime.c: Likewise.
+	* misc/_mkgmtime.c: Likewise.
+	* misc/_mkgmtime32.c: Likewise.
+	* misc/_mktime32.c: Likewise.
+	* misc/_wctime.c: Likewise.
+	* misc/_wctime32.c: Likewise.
+	* misc/ctime.c: Likewise.
+	* misc/gmtime.c: Likewise.
+	* lib32/msvcr*.def: Alias *time to *time32 when missing
+	* lib64/msvcr*.def: Alias *time to *time64 when missing
+
 2013-04-03  Rafaël Carré  <funman@videolan.org>
 
 	* misc/time.c: Remove
