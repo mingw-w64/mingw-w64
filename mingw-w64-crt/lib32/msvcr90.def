@@ -1185,7 +1185,8 @@ _wcsupr_l
 _wcsupr_s
 _wcsupr_s_l
 _wcsxfrm_l
-_wctime32 DATA
+_wctime32
+_wctime == _wctime32
 _wctime32_s
 _wctime64
 _wctime64_s

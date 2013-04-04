@@ -560,9 +560,9 @@ _wcsset
 _wcstoi64
 _wcstoui64
 _wcsupr
-_wctime DATA
-;_wctime32 = _wctime
+_wctime32
 _wctime64
+_wctime == _wctime64
 _wctype
 _wenviron DATA
 _wexecl

@@ -447,8 +447,8 @@ _wcsnset
 _wcsrev
 _wcsset
 _wcsupr
-_wctime DATA
-;_wctime32 = _wctime
+_wctime
+_wctime32 == _wctime
 _wenviron DATA
 _wexecl
 _wexecle

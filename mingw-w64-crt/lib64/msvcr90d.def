@@ -1182,6 +1182,7 @@ _wcsxfrm_l
 _wctime32
 _wctime32_s
 _wctime64
+_wctime == _wctime64
 _wctime64_s
 _wctomb_l
 _wctomb_s_l
