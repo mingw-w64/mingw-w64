@@ -578,6 +578,7 @@ _getwche_nolock
 _getws
 _getws_s
 _gmtime32
+gmtime == _gmtime64
 _gmtime32_s
 _gmtime64
 _gmtime64_s

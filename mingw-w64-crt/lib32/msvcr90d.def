@@ -639,6 +639,7 @@ _getws
 _getws_s
 _global_unwind2
 _gmtime32
+gmtime == _gmtime32
 _gmtime32_s
 _gmtime64
 _gmtime64_s

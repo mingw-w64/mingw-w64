@@ -901,9 +901,10 @@ _getwche
 _getwche_nolock
 _getws
 _getws_s
-_gmtime32 DATA
+_gmtime32
 _gmtime32_s
 _gmtime64
+gmtime == _gmtime64
 _gmtime64_s
 _heapadd
 _heapchk

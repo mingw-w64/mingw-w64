@@ -569,8 +569,8 @@ getenv
 gets
 getwc
 getwchar
-gmtime DATA
-;_gmtime32 = gmtime
+_gmtime32
+gmtime == _gmtime32
 is_wctype
 isalnum
 isalpha
