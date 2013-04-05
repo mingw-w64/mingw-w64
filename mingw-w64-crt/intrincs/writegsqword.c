@@ -1,9 +1,9 @@
 #include <intrin.h>
 
 /* for __x86_64 only */
-void __writegsqword(unsigned long Offset, unsigned __int64 Data)
+void __writegsqword(unsigned __LONG32 Offset, unsigned __int64 Data)
 {
    __asm__ volatile ("movq	%0,%%gs:%1"
-     : "=r" (Data) ,"=m" ((*(volatile long *) (unsigned __int64) Offset)));
+     : "=r" (Data) ,"=m" ((*(volatile __LONG32 *) (unsigned __int64) Offset)));
 }
 

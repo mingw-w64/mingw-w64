@@ -6,9 +6,9 @@
 
 #include <intrin.h>
 
-unsigned long __indword(unsigned short Port)
+unsigned __LONG32 __indword(unsigned short Port)
 {
-    unsigned long value;
+    unsigned __LONG32 value;
     __asm__ __volatile__ ("inl %w1,%0"
         : "=a" (value)
         : "Nd" (Port));

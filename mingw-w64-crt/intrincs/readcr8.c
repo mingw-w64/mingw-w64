@@ -20,10 +20,10 @@
       return value;
   }
 #else
-  unsigned long __readcr8(void);		/* not in intrin.h for x86 */
-  unsigned long __readcr8(void)
+  unsigned __LONG32 __readcr8(void);		/* not in intrin.h for x86 */
+  unsigned __LONG32 __readcr8(void)
   {
-      unsigned long value;
+      unsigned __LONG32 value;
       __asm__ __volatile__ (
           "mov %%cr8, %[value]" 
           : [value] "=q" (value));

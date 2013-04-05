@@ -1,11 +1,11 @@
 #include <intrin.h>
 
 /* for x86 only */
-unsigned long __readfsdword(unsigned long Offset)
+unsigned __LONG32 __readfsdword(unsigned __LONG32 Offset)
 {
-   unsigned long ret;
+   unsigned __LONG32 ret;
    __asm__ volatile ("movl	%%fs:%1,%0"
-     : "=r" (ret) ,"=m" ((*(volatile long *) Offset)));
+     : "=r" (ret) ,"=m" ((*(volatile __LONG32 *) Offset)));
    return ret;
 }
 

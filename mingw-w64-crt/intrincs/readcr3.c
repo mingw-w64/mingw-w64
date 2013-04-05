@@ -20,9 +20,9 @@
       return value;
   }
 #else
-  unsigned long __readcr3(void)
+  unsigned __LONG32 __readcr3(void)
   {
-      unsigned long value;
+      unsigned __LONG32 value;
       __asm__ __volatile__ (
           "mov %%cr3, %[value]" 
           : [value] "=q" (value));

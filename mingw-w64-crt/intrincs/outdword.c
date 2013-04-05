@@ -6,7 +6,7 @@
 
 #include <intrin.h>
 
-void __outdword(unsigned short Port,unsigned long Data)
+void __outdword(unsigned short Port,unsigned __LONG32 Data)
 {
     __asm__ __volatile__ ("outl %0,%w1"
         :

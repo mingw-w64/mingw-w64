@@ -6,7 +6,7 @@
 
 #include <intrin.h>
 
-unsigned __int64 __readmsr(unsigned long msr)
+unsigned __int64 __readmsr(unsigned __LONG32 msr)
 {
 #ifdef _WIN64
       unsigned __int64 val1, val2;

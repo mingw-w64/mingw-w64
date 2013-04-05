@@ -1,6 +1,6 @@
 #include <intrin.h>
 
-long _InterlockedExchange(long volatile *Target, long Value)
+__LONG32 _InterlockedExchange(__LONG32 volatile *Target, __LONG32 Value)
 {
   __asm__ __volatile("lock ; xchgl %0,%1"
     : "=r"(Value)
@@ -10,10 +10,10 @@ long _InterlockedExchange(long volatile *Target, long Value)
 }
 
 #ifdef _WIN64
-long InterlockedExchange(long volatile *, long) __attribute__((alias("_InterlockedExchange")));
+__LONG32 InterlockedExchange(__LONG32 volatile *, __LONG32) __attribute__((alias("_InterlockedExchange")));
 #else
-long __stdcall InterlockedExchange(long volatile *Target, long Value);
-long __stdcall InterlockedExchange(long volatile *Target, long Value)
+__LONG32 __stdcall InterlockedExchange(__LONG32 volatile *Target, __LONG32 Value);
+__LONG32 __stdcall InterlockedExchange(__LONG32 volatile *Target, __LONG32 Value)
 {
   return _InterlockedExchange(Target,Value);
 }

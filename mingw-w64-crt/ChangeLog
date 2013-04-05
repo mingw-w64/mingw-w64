@@ -1,3 +1,8 @@
+2013-04-05  Corinna Vinschen  <vinschen@redhat.com>
+
+	* intrincs/*.c: Change `long' to `__LONG32' throughout to handle
+	LP64 systems.
+
 2013-04-04  Rafaël Carré  <funman@videolan.org>
 
 	* misc/_ctime32.c: Remove

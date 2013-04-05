@@ -1,6 +1,6 @@
 #include <intrin.h>
 
-void __stosd(unsigned long *Dest, unsigned long Data, size_t Count)
+void __stosd(unsigned __LONG32 *Dest, unsigned __LONG32 Data, size_t Count)
 {
   __asm__ __volatile__
   (

@@ -18,8 +18,8 @@ __int64 _InterlockedCompareExchange64(volatile __int64 *Destination, __int64 Exc
     "lock; cmpxchg8b %[Destination]" :
     [retval] "+A" (retval) :
     [Destination] "m" (*Destination),
-    "b" ((unsigned long)((Exchange >>  0) & 0xFFFFFFFF)),
-    "c" ((unsigned long)((Exchange >> 32) & 0xFFFFFFFF)) :
+    "b" ((unsigned __LONG32)((Exchange >>  0) & 0xFFFFFFFF)),
+    "c" ((unsigned __LONG32)((Exchange >> 32) & 0xFFFFFFFF)) :
     "memory"
   );
 

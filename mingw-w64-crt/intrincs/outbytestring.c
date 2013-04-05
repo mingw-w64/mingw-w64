@@ -6,7 +6,7 @@
 
 #include <intrin.h>
 
-void __outbytestring(unsigned short Port,unsigned char *Buffer,unsigned long Count)
+void __outbytestring(unsigned short Port,unsigned char *Buffer,unsigned __LONG32 Count)
 {
     __asm__ __volatile__ (
         "cld ; rep ; outsb " 

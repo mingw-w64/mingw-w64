@@ -6,7 +6,7 @@
 
 #include <intrin.h>
 
-void __indwordstring(unsigned short Port,unsigned long *Buffer,unsigned long Count)
+void __indwordstring(unsigned short Port,unsigned __LONG32 *Buffer,unsigned __LONG32 Count)
 {
     __asm__ __volatile__ (
         "cld ; rep ; insl " 

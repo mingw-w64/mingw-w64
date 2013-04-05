@@ -6,9 +6,9 @@
 
 #include <intrin.h>
 
-void __writemsr (unsigned long msr, unsigned __int64 Value)
+void __writemsr (unsigned __LONG32 msr, unsigned __int64 Value)
 {
-    unsigned long val1 = Value, val2 = Value >> 32;
+    unsigned __LONG32 val1 = Value, val2 = Value >> 32;
    __asm__ __volatile__ (
        "wrmsr"
        :

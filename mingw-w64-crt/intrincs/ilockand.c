@@ -1,6 +1,6 @@
 #include <intrin.h>
 
-long _InterlockedAnd(long volatile *Destination, long Value)
+__LONG32 _InterlockedAnd(__LONG32 volatile *Destination, __LONG32 Value)
 {
   __asm__ __volatile__("lock ; andl %0,%1"
     : :"r"(Value),"m"(*Destination)
@@ -8,5 +8,5 @@ long _InterlockedAnd(long volatile *Destination, long Value)
   return *Destination;
 }
 
-long InterlockedAnd(long volatile *, long) __attribute__((alias("_InterlockedAnd")));
+__LONG32 InterlockedAnd(__LONG32 volatile *, __LONG32) __attribute__((alias("_InterlockedAnd")));
 

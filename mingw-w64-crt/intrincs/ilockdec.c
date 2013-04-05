@@ -1,8 +1,8 @@
 #include <intrin.h>
 
-long _InterlockedDecrement(long volatile *Addend)
+__LONG32 _InterlockedDecrement(__LONG32 volatile *Addend)
 {
-  long ret = -1;
+  __LONG32 ret = -1;
   __asm__ __volatile__ ("lock\n\t"
 	       "xaddl %0,%1"
 	       : "+r" (ret), "+m" (*Addend)
@@ -11,10 +11,10 @@ long _InterlockedDecrement(long volatile *Addend)
 }
 
 #ifdef _WIN64
-long InterlockedDecrement(long volatile *) __attribute__((alias("_InterlockedDecrement")));
+__LONG32 InterlockedDecrement(__LONG32 volatile *) __attribute__((alias("_InterlockedDecrement")));
 #else
-long __stdcall InterlockedDecrement(long volatile *Addend);
-long __stdcall InterlockedDecrement(long volatile *Addend)
+__LONG32 __stdcall InterlockedDecrement(__LONG32 volatile *Addend);
+__LONG32 __stdcall InterlockedDecrement(__LONG32 volatile *Addend)
 {
   return _InterlockedDecrement(Addend);
 }
