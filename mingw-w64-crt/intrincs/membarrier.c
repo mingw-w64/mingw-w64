@@ -1,5 +1,6 @@
+#include <intrin.h>
 
-void MemoryBarrier (void);
+/* for x86 only */
 void MemoryBarrier (void)
 {
     __LONG32 Barrier = 0;

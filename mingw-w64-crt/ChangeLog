@@ -1,3 +1,8 @@
+2013-04-06  Corinna Vinschen  <vinschen@redhat.com>
+
+	* intrincs/membarrier.c: Include <intrin.h>.  Add "for x86 only"
+	comment, as in other x86-only files.  Drop gratuitous declaration.
+
 2013-04-05  Corinna Vinschen  <vinschen@redhat.com>
 
 	* intrincs/*.c: Change `long' to `__LONG32' throughout to handle
