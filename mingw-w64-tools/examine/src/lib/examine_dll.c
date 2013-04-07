@@ -89,82 +89,10 @@ exm_hook_instance_stack_frames_get(void)
     return exm_sw_frames_get(_exm_hook_instance.stacktrace);
 }
 
-static char *
-_exm_hook_crt_name_get(void)
-{
-    HANDLE                   hf;
-    HANDLE                   hmap;
-    BYTE                    *base;
-    IMAGE_DOS_HEADER        *dos_headers;
-    IMAGE_NT_HEADERS        *nt_headers;
-    IMAGE_IMPORT_DESCRIPTOR *import_desc;
-    char                    *res = NULL;
-
-    hf = CreateFile(_exm_hook_instance.filename, GENERIC_READ, FILE_SHARE_READ,
-                    NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
-    if (hf == INVALID_HANDLE_VALUE)
-        return NULL;
-
-    hmap = CreateFileMapping(hf, NULL, PAGE_READONLY | SEC_IMAGE, 0, 0, NULL);
-    if (!hmap)
-        goto close_file;
-
-    base = (BYTE *)MapViewOfFile(hmap, FILE_MAP_READ, 0, 0, 0);
-    if (!base)
-        goto unmap;
-
-    dos_headers = (IMAGE_DOS_HEADER *)base;
-    nt_headers = (IMAGE_NT_HEADERS *)((BYTE *)dos_headers + dos_headers->e_lfanew);
-    import_desc = (IMAGE_IMPORT_DESCRIPTOR *)((BYTE *)dos_headers + nt_headers->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].VirtualAddress);
-
-    while (import_desc->Characteristics)
-    {
-        if(IsBadReadPtr((BYTE *)dos_headers + import_desc->Name,1) == 0)
-        {
-            char *module_name;
-
-            module_name = (char *)((BYTE *)dos_headers + import_desc->Name);
-            EXM_LOG_DBG("Imports from %s\r",(BYTE *)dos_headers + import_desc->Name);
-            if (lstrcmpi("msvcrt.dll", module_name) == 0)
-            {
-                EXM_LOG_DBG("msvcrt.dll !!");
-                res = _strdup(module_name);
-                break;
-            }
-            if (lstrcmpi("msvcr90.dll", module_name) == 0)
-            {
-                EXM_LOG_DBG("msvcr90.dll !!");
-                res = _strdup(module_name);
-                break;
-            }
-            if (lstrcmpi("msvcr90d.dll", module_name) == 0)
-            {
-                EXM_LOG_DBG("msvcr90d.dll !!");
-                res = _strdup(module_name);
-                break;
-            }
-            import_desc = (IMAGE_IMPORT_DESCRIPTOR *)((BYTE *)import_desc + sizeof(IMAGE_IMPORT_DESCRIPTOR));
-        }
-        else
-            break;
-    }
-
-    UnmapViewOfFile(base);
-    CloseHandle(hf);
-
-    return res;
-
-  unmap:
-    UnmapViewOfFile(base);
-  close_file:
-    CloseHandle(hf);
-
-    return NULL;
-}
-
 static int
 _exm_hook_init(void)
 {
+    Exm_Pe_File *file;
     HANDLE handle;
     void  *base;
     Exm_List *iter;
@@ -210,10 +138,19 @@ _exm_hook_init(void)
 
     printf(" ** filename : %s\n", _exm_hook_instance.filename);
 
+    file = exm_pe_file_new(_exm_hook_instance.filename);
+    if (!file)
+        return 0;
+
+    _exm_hook_instance.crt_name = exm_pe_msvcrt_get(file);
+
     _exm_hook_instance.dll = exm_list_append(_exm_hook_instance.dll,
                                              strdup(_exm_hook_instance.filename));
     _exm_hook_instance.dll = exm_pe_modules_list_get(_exm_hook_instance.dll,
+                                                     file,
                                                      _exm_hook_instance.filename);
+    exm_pe_file_free(file);
+
     iter = _exm_hook_instance.dll;
     while (iter)
     {
@@ -226,8 +163,6 @@ _exm_hook_init(void)
     }
 
     memcpy(_exm_hook_instance.overloads, exm_overloads_instance, sizeof(_exm_hook_instance.overloads));
-
-    _exm_hook_instance.crt_name = _exm_hook_crt_name_get();
 
     _exm_hook_instance.stacktrace = exm_sw_init();
 

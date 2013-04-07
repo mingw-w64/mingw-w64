@@ -30,6 +30,7 @@
 #undef WIN32_LEAN_AND_MEAN
 
 #include "examine_list.h"
+#include "examine_log.h"
 #include "examine_pe.h"
 
 struct _Exm_Pe_File
@@ -38,6 +39,7 @@ struct _Exm_Pe_File
     HANDLE file_map;
     void *base;
     IMAGE_NT_HEADERS *nt_header;
+    IMAGE_IMPORT_DESCRIPTOR *import_desc;
 };
 
 static const char *_exm_pe_dll_supp[] =
@@ -142,33 +144,7 @@ _exm_pe_rva_to_ptr_get(Exm_Pe_File *file, DWORD rva)
 
     delta = (int)(sh->VirtualAddress - sh->PointerToRawData);
 
-return (void *)((unsigned char *)file->base + rva - delta);
-}
-
-static IMAGE_IMPORT_DESCRIPTOR *
-_exm_pe_iat_get(Exm_Pe_File *file)
-{
-    IMAGE_IMPORT_DESCRIPTOR *import_desc;
-    DWORD import_dir;
-
-    if (!file)
-        return NULL;
-
-    import_dir = file->nt_header->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].VirtualAddress;
-    if (!import_dir)
-    {
-        /* printf("not a valid import table\n"); */
-        return NULL;
-    }
-
-    import_desc = (IMAGE_IMPORT_DESCRIPTOR *)_exm_pe_rva_to_ptr_get(file, import_dir);
-    if (!import_desc)
-    {
-        printf("not a valid import table descriptor\n");
-        return NULL;
-    }
-
-    return import_desc;
+    return (void *)((unsigned char *)file->base + rva - delta);
 }
 
 Exm_Pe_File *
@@ -178,6 +154,7 @@ exm_pe_file_new(const char *filename)
     Exm_Pe_File *file;
     char *full_filename;
     char *iter;
+    DWORD import_dir;
 
     if (!filename)
         return NULL;
@@ -224,14 +201,28 @@ exm_pe_file_new(const char *filename)
     dos_header = (IMAGE_DOS_HEADER *)file->base;
     if (dos_header->e_magic != IMAGE_DOS_SIGNATURE)
     {
-        printf("not a valid DOS header\n");
+        EXM_LOG_ERR("not a valid DOS header");
         goto unmap_base;
     }
 
     file->nt_header = (IMAGE_NT_HEADERS *)((uintptr_t)dos_header + (uintptr_t)dos_header->e_lfanew);
     if (file->nt_header->Signature != IMAGE_NT_SIGNATURE)
     {
-        printf("not a valid NT header\n");
+        EXM_LOG_ERR("not a valid NT header");
+        goto unmap_base;
+    }
+
+    import_dir = file->nt_header->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].VirtualAddress;
+    if (!import_dir)
+    {
+        /* printf("not a valid import table\n"); */
+        goto unmap_base;
+    }
+
+    file->import_desc = (IMAGE_IMPORT_DESCRIPTOR *)_exm_pe_rva_to_ptr_get(file, import_dir);
+    if (!file->import_desc)
+    {
+        EXM_LOG_ERR("not a valid import table descriptor");
         goto unmap_base;
     }
 
@@ -265,33 +256,71 @@ exm_pe_file_free(Exm_Pe_File *file)
     free(file);
 }
 
-Exm_List *
-exm_pe_modules_list_get(Exm_List *l, const char *filename)
+char *
+exm_pe_msvcrt_get(Exm_Pe_File *file)
 {
-    Exm_Pe_File *file;
-    IMAGE_IMPORT_DESCRIPTOR *import_desc;
-    Exm_List *tmp;
+    IMAGE_IMPORT_DESCRIPTOR *iter;
 
-    file = exm_pe_file_new(filename);
-    import_desc = _exm_pe_iat_get(file);
-    if (!import_desc)
-        return l;
-
-    while (import_desc->Name != 0)
+    iter = file->import_desc;
+    while (iter->Name != 0)
     {
         char *dll_name;
 
-        dll_name = (char *)_exm_pe_rva_to_ptr_get(file, import_desc->Name);
+        dll_name = (char *)_exm_pe_rva_to_ptr_get(file, iter->Name);
+        if (_stricmp("msvcrt.dll", dll_name) == 0)
+        {
+            EXM_LOG_DBG("msvcrt.dll !!");
+            return _strdup(dll_name);
+        }
+        if (_stricmp("msvcr90.dll", dll_name) == 0)
+        {
+            EXM_LOG_DBG("msvcr90.dll !!");
+            return _strdup(dll_name);
+        }
+        if (_stricmp("msvcr90d.dll", dll_name) == 0)
+        {
+            EXM_LOG_DBG("msvcr90d.dll !!");
+            return _strdup(dll_name);
+        }
+
+        iter++;
+    }
+
+    return NULL;
+}
+
+Exm_List *
+exm_pe_modules_list_get(Exm_List *l, Exm_Pe_File *file, const char *filename)
+{
+    IMAGE_IMPORT_DESCRIPTOR *iter;
+    Exm_List *tmp;
+    int must_free = 0;
+
+    if (file == NULL)
+    {
+        file = exm_pe_file_new(filename);
+        if (!file)
+            return l;
+        must_free = 1;
+    }
+
+    iter = file->import_desc;
+    while (iter->Name != 0)
+    {
+        char *dll_name;
+
+        dll_name = (char *)_exm_pe_rva_to_ptr_get(file, iter->Name);
         dll_name = strdup(dll_name);
         if (dll_name)
             l = exm_list_append_if_new(l, dll_name, _exm_pe_module_name_cmp);
-        tmp = exm_pe_modules_list_get(l, dll_name);
+        tmp = exm_pe_modules_list_get(l, NULL, dll_name);
         if (tmp) l = tmp;
 
-        import_desc++;
+        iter++;
     }
 
-    exm_pe_file_free(file);
+    if (must_free == 1)
+        exm_pe_file_free(file);
 
     return l;
 }

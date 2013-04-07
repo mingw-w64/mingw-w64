@@ -35,10 +35,10 @@ _exm_log_print_level_color_get(int level)
             return FOREGROUND_INTENSITY | FOREGROUND_RED;
         case EXM_LOG_LEVEL_WARN:
             return FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN;
-        case EXM_LOG_LEVEL_INFO:
-            return FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE;
         case EXM_LOG_LEVEL_DBG:
           return FOREGROUND_INTENSITY | FOREGROUND_GREEN;
+        case EXM_LOG_LEVEL_INFO:
+            return FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE;
         default:
             return FOREGROUND_INTENSITY | FOREGROUND_BLUE;
     }
