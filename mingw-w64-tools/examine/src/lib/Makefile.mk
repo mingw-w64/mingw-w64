@@ -34,7 +34,6 @@ src_lib_examine_dll_la_CFLAGS = @EXM_CFLAGS@
 
 src_lib_examine_dll_la_LIBADD = \
 src/lib/libexamine.la \
--lpsapi \
 -limagehlp \
 @EXM_LIBS@
 
