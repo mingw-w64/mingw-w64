@@ -128,9 +128,6 @@ AC_SUBST([EXM_LIBS])
 
 AC_CONFIG_FILES([
 Makefile
-src/Makefile
-src/bin/Makefile
-src/lib/Makefile
 ])
 
 AC_OUTPUT
