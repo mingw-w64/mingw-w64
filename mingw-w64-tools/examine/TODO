@@ -1,0 +1,10 @@
+TODO:
+
+ * Split the code so that the overloaded functions are in a separate
+   file, and generally, clean the code.
+
+ * Add all the memory functions to overload (win32 and C Run Time, DGI, ...)
+
+ * Add checks for other CRT DLL than msvcrt.dll, msvcr90.dll and msvcr90d.dll
+
+ * Add a call stack with dgbhelp API

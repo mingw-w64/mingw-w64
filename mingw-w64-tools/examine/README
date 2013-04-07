@@ -1,0 +1,17 @@
+Examine, a memory leak detector for Windows
+
+Dependencies : binutils
+
+ * build binutils from CVS
+ * put libbfd.a, libiberty and libintl.a in a subdir lib of any directory,
+   say : /opt/binutils/lib
+
+Note: on Win64, pass --enable-targets=i686-w64-mingw32,x86_64-w64-mingw32 --enable-64-bit-bfd to binutils' configure script
+
+Build:
+
+ * ./autogen.sh --disable-static --with-libbfd-prefix=/opt/binutils
+
+Usage:
+
+ * examine /path/to/my_tool
