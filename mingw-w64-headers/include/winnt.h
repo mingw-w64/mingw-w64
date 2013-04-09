@@ -1083,14 +1083,14 @@ typedef DWORD LCID;
       int old = 0;
       __asm__ __volatile__("btl %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile long *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _bittestandcomplement(LONG *Base,LONG Offset) {
       int old = 0;
       __asm__ __volatile__("btcl %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile long *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
 #endif /* __CRT__NO_INLINE */
@@ -1111,77 +1111,77 @@ typedef DWORD LCID;
       int old = 0;
       __asm__ __volatile__("lock ; btcl %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile long *) Base))
-	:"Ir" (Bit));
+	:"Ir" (Bit) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _bittestandset(LONG *Base,LONG Offset) {
       int old = 0;
       __asm__ __volatile__("btsl %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile long *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _bittestandreset(LONG *Base,LONG Offset) {
       int old = 0;
       __asm__ __volatile__("btrl %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile long *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _interlockedbittestandset(LONG *Base,LONG Offset) {
       int old = 0;
       __asm__ __volatile__("lock ; btsl %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile long *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _interlockedbittestandreset(LONG *Base,LONG Offset) {
       int old = 0;
       __asm__ __volatile__("lock ; btrl %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile long *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _bittest64(LONG64 const *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("btq %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _bittestandcomplement64(LONG64 *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("btcq %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _bittestandset64(LONG64 *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("btsq %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _bittestandreset64(LONG64 *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("btrq %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _interlockedbittestandset64(LONG64 *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("lock ; btsq %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _interlockedbittestandreset64(LONG64 *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("lock ; btrq %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
 #endif /* !__CRT__NO_INLINE */
@@ -1785,7 +1785,7 @@ typedef DWORD LCID;
       int old = 0;
       __asm__ __volatile__("lock ; btsl %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile long *) Base))
-	:"Ir" (Bit));
+	:"Ir" (Bit) : "memory");
       return (BOOLEAN) (old!=0);
     }
 
@@ -1793,7 +1793,7 @@ typedef DWORD LCID;
       int old = 0;
       __asm__ __volatile__("lock ; btrl %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile long *) Base))
-	:"Ir" (Bit));
+	:"Ir" (Bit) : "memory");
       return (BOOLEAN) (old!=0);
     }
 #endif /* __CRT__NO_INLINE */
