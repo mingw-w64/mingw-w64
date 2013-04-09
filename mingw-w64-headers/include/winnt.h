@@ -1194,14 +1194,14 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
       int old = 0;
       __asm__ __volatile__("btl %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _bittestandcomplement(LONG *Base,LONG Offset) {
       int old = 0;
       __asm__ __volatile__("btcl %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
 #endif /* __CRT__NO_INLINE */
@@ -1229,70 +1229,70 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
       int old = 0;
       __asm__ __volatile__("btsl %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _bittestandreset(LONG *Base,LONG Offset) {
       int old = 0;
       __asm__ __volatile__("btrl %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _interlockedbittestandset(LONG *Base,LONG Offset) {
       int old = 0;
       __asm__ __volatile__("lock ; btsl %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _interlockedbittestandreset(LONG *Base,LONG Offset) {
       int old = 0;
       __asm__ __volatile__("lock ; btrl %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _bittest64(LONG64 const *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("btq %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _bittestandcomplement64(LONG64 *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("btcq %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _bittestandset64(LONG64 *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("btsq %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _bittestandreset64(LONG64 *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("btrq %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _interlockedbittestandset64(LONG64 *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("lock ; btsq %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _interlockedbittestandreset64(LONG64 *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("lock ; btrq %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
-	:"Ir" (Offset));
+	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
 #endif /* !__CRT__NO_INLINE */
@@ -2768,8 +2768,73 @@ extern "C" {
 #define MANDATORY_LEVEL_TO_MANDATORY_RID(IL) (IL * 0x1000)
 
     typedef enum {
-      WinNullSid = 0,WinWorldSid = 1,WinLocalSid = 2,WinCreatorOwnerSid = 3,WinCreatorGroupSid = 4,WinCreatorOwnerServerSid = 5,WinCreatorGroupServerSid = 6,WinNtAuthoritySid = 7,WinDialupSid = 8,WinNetworkSid = 9,WinBatchSid = 10,WinInteractiveSid = 11,WinServiceSid = 12,WinAnonymousSid = 13,WinProxySid = 14,WinEnterpriseControllersSid = 15,WinSelfSid = 16,WinAuthenticatedUserSid = 17,WinRestrictedCodeSid = 18,WinTerminalServerSid = 19,WinRemoteLogonIdSid = 20,WinLogonIdsSid = 21,WinLocalSystemSid = 22,WinLocalServiceSid = 23,WinNetworkServiceSid = 24,WinBuiltinDomainSid = 25,WinBuiltinAdministratorsSid = 26,WinBuiltinUsersSid = 27,WinBuiltinGuestsSid = 28,WinBuiltinPowerUsersSid = 29,WinBuiltinAccountOperatorsSid = 30,WinBuiltinSystemOperatorsSid = 31,WinBuiltinPrintOperatorsSid = 32,WinBuiltinBackupOperatorsSid = 33,WinBuiltinReplicatorSid = 34,WinBuiltinPreWindows2000CompatibleAccessSid = 35,WinBuiltinRemoteDesktopUsersSid = 36,WinBuiltinNetworkConfigurationOperatorsSid = 37,WinAccountAdministratorSid = 38,WinAccountGuestSid = 39,WinAccountKrbtgtSid = 40,WinAccountDomainAdminsSid = 41,WinAccountDomainUsersSid = 42,WinAccountDomainGuestsSid = 43,WinAccountComputersSid = 44,WinAccountControllersSid = 45,WinAccountCertAdminsSid = 46,WinAccountSchemaAdminsSid = 47,WinAccountEnterpriseAdminsSid = 48,WinAccountPolicyAdminsSid = 49,WinAccountRasAndIasServersSid = 50,WinNTLMAuthenticationSid = 51,WinDigestAuthenticationSid = 52,WinSChannelAuthenticationSid = 53,WinThisOrganizationSid = 54,WinOtherOrganizationSid = 55,WinBuiltinIncomingForestTrustBuildersSid = 56,WinBuiltinPerfMonitoringUsersSid = 57,WinBuiltinPerfLoggingUsersSid = 58,WinBuiltinAuthorizationAccessSid = 59,WinBuiltinTerminalServerLicenseServersSid = 60,WinBuiltinDCOMUsersSid = 61
-    } WELL_KNOWN_SID_TYPE;
+      WinNullSid = 0,WinWorldSid = 1,WinLocalSid = 2,WinCreatorOwnerSid = 3,
+      WinCreatorGroupSid = 4,WinCreatorOwnerServerSid = 5,
+      WinCreatorGroupServerSid = 6,WinNtAuthoritySid = 7,WinDialupSid = 8,
+      WinNetworkSid = 9,WinBatchSid = 10,WinInteractiveSid = 11,
+      WinServiceSid = 12,WinAnonymousSid = 13,WinProxySid = 14,
+      WinEnterpriseControllersSid = 15,WinSelfSid = 16,
+      WinAuthenticatedUserSid = 17,WinRestrictedCodeSid = 18,
+      WinTerminalServerSid = 19,WinRemoteLogonIdSid = 20,WinLogonIdsSid = 21,
+      WinLocalSystemSid = 22,WinLocalServiceSid = 23,WinNetworkServiceSid = 24,
+      WinBuiltinDomainSid = 25,WinBuiltinAdministratorsSid = 26,
+      WinBuiltinUsersSid = 27,WinBuiltinGuestsSid = 28,
+      WinBuiltinPowerUsersSid = 29,WinBuiltinAccountOperatorsSid = 30,
+      WinBuiltinSystemOperatorsSid = 31,WinBuiltinPrintOperatorsSid = 32,
+      WinBuiltinBackupOperatorsSid = 33,WinBuiltinReplicatorSid = 34,
+      WinBuiltinPreWindows2000CompatibleAccessSid = 35,
+      WinBuiltinRemoteDesktopUsersSid = 36,
+      WinBuiltinNetworkConfigurationOperatorsSid = 37,
+      WinAccountAdministratorSid = 38,WinAccountGuestSid = 39,
+      WinAccountKrbtgtSid = 40,WinAccountDomainAdminsSid = 41,
+      WinAccountDomainUsersSid = 42,WinAccountDomainGuestsSid = 43,
+      WinAccountComputersSid = 44,WinAccountControllersSid = 45,
+      WinAccountCertAdminsSid = 46,WinAccountSchemaAdminsSid = 47,
+      WinAccountEnterpriseAdminsSid = 48,WinAccountPolicyAdminsSid = 49,
+      WinAccountRasAndIasServersSid = 50,WinNTLMAuthenticationSid = 51,
+      WinDigestAuthenticationSid = 52,WinSChannelAuthenticationSid = 53,
+      WinThisOrganizationSid = 54,WinOtherOrganizationSid = 55,
+      WinBuiltinIncomingForestTrustBuildersSid = 56,
+      WinBuiltinPerfMonitoringUsersSid = 57,WinBuiltinPerfLoggingUsersSid = 58,
+      WinBuiltinAuthorizationAccessSid = 59,
+      WinBuiltinTerminalServerLicenseServersSid = 60,
+      WinBuiltinDCOMUsersSid = 61,WinBuiltinIUsersSid = 62,
+      WinIUserSid = 63, WinBuiltinCryptoOperatorsSid = 64,
+      WinUntrustedLabelSid = 65, WinLowLabelSid = 66, WinMediumLabelSid = 67,
+      WinHighLabelSid = 68, WinSystemLabelSid = 69, WinWriteRestrictedCodeSid = 70,
+      WinCreatorOwnerRightsSid = 71, WinCacheablePrincipalsGroupSid = 72,
+      WinNonCacheablePrincipalsGroupSid = 73, WinEnterpriseReadonlyControllersSid = 74,
+      WinAccountReadonlyControllersSid = 75, WinBuiltinEventLogReadersGroup = 76,
+      WinNewEnterpriseReadonlyControllersSid = 77, WinBuiltinCertSvcDComAccessGroup = 78,
+      WinMediumPlusLabelSid = 79, WinLocalLogonSid = 80, WinConsoleLogonSid = 81,
+      WinThisOrganizationCertificateSid = 82, WinApplicationPackageAuthoritySid = 83,
+      WinBuiltinAnyPackageSid = 84, WinCapabilityInternetClientSid = 85,
+      WinCapabilityInternetClientServerSid = 86,
+      WinCapabilityPrivateNetworkClientServerSid = 87,
+      WinCapabilityPicturesLibrarySid = 88, WinCapabilityVideosLibrarySid = 89,
+      WinCapabilityMusicLibrarySid = 90, WinCapabilityDocumentsLibrarySid = 91,
+      WinCapabilitySharedUserCertificatesSid = 92, WinCapabilityEnterpriseAuthenticationSid = 93,
+      WinCapabilityRemovableStorageSid = 94, WinBuiltinRDSRemoteAccessServersSid = 95,
+      WinBuiltinRDSEndpointServersSid = 96, WinBuiltinRDSManagementServersSid = 97,
+      WinUserModeDriversSid = 98, WinBuiltinHyperVAdminsSid = 99,
+      WinAccountCloneableControllersSid = 100,
+      WinBuiltinAccessControlAssistanceOperatorsSid = 101,
+      WinBuiltinRemoteManagementUsersSid = 102, WinAuthenticationAuthorityAssertedSid = 103,
+      WinAuthenticationServiceAssertedSid = 104
+} WELL_KNOWN_SID_TYPE;
+
+#define SECURITY_SCOPED_POLICY_ID_AUTHORITY { 0, 0, 0, 0, 0, 17 }
+#define SECURITY_AUTHENTICATION_AUTHORITY   { 0, 0, 0, 0, 0, 18 }
+
+#define SECURITY_AUTHENTICATION_AUTHORITY_RID_COUNT    (__MSABI_LONG(1))
+#define SECURITY_AUTHENTICATION_AUTHORITY_ASSERTED_RID (__MSABI_LONG(0x1))
+#define SECURITY_AUTHENTICATION_SERVICE_ASSERTED_RID   (__MSABI_LONG(0x2))
+
+#define SECURITY_TRUSTED_INSTALLER_RID1 956008885
+#define SECURITY_TRUSTED_INSTALLER_RID2 3418522649
+#define SECURITY_TRUSTED_INSTALLER_RID3 1831038044
+#define SECURITY_TRUSTED_INSTALLER_RID4 1853292631
+#define SECURITY_TRUSTED_INSTALLER_RID5 2271478464
 
 #define SYSTEM_LUID { 0x3E7,0x0 }
 #define ANONYMOUS_LOGON_LUID { 0x3e6,0x0 }

@@ -1,3 +1,9 @@
+2013-04-09  Kai Tietz  <ktietz@redhat.com>
+
+	* winnt.h (WELL_KNOWN_SID_TYPE): Add new elements.
+	(SECURITY_SCOPED...,SECURITY_AUTHNTICATION_....,
+	SECURITY_TRUSTED...): Add new defines.
+
 2013-03-28  Corinna Vinschen  <vinschen@redhat.com>
 
 	* ntstatus.h: Regenerate from MSDN information.
