@@ -6,7 +6,7 @@ unsigned char _InterlockedBitTestAndComplement(long *Base, long Bit)
   int old = 0;
   __asm__ __volatile__("lock ; btcl %2,%1\n\tsbbl %0,%0 "
     :"=r" (old),"=m" ((*(volatile long *) Base))
-    :"Ir" (Bit));
+    :"Ir" (Bit) : "memory");
   return (old != 0);
 }
 
