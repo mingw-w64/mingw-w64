@@ -1222,7 +1222,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
       int old = 0;
       __asm__ __volatile__("lock ; btcl %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
-	:"Ir" (Bit));
+	:"Ir" (Bit) : "memory");
       return (BOOLEAN) (old!=0);
     }
     __CRT_INLINE BOOLEAN _bittestandset(LONG *Base,LONG Offset) {
@@ -1883,7 +1883,7 @@ extern "C" {
       int old = 0;
       __asm__ __volatile__("lock ; btsl %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
-	:"Ir" (Bit));
+	:"Ir" (Bit) : "memory");
       return (BOOLEAN) (old!=0);
     }
 
@@ -1891,7 +1891,7 @@ extern "C" {
       int old = 0;
       __asm__ __volatile__("lock ; btrl %2,%1\n\tsbbl %0,%0 "
 	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
-	:"Ir" (Bit));
+	:"Ir" (Bit) : "memory");
       return (BOOLEAN) (old!=0);
     }
 #endif /* __CRT__NO_INLINE */
