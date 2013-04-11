@@ -805,7 +805,7 @@ TI2_typlib_dispinterface (FILE *fp, sTI2TypLib *tl, const char *prefix)
 }
 
 static void
-TI2_typlib_coclass_hdr (FILE *fp, sTI2TypLib *tl, const char *prefix, int tkind)
+TI2_typlib_coclass_hdr (FILE *fp, sTI2TypLib *tl, const char *prefix, uint32_t tkind)
 {
   size_t i;
   int befirst;
