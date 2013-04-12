@@ -27,8 +27,8 @@ extern "C" {
 #endif
 
 #if defined(__GNUC__)
-#define D3DCOMPILER_DLL_W (const WCHAR[]){'d','3','d','c','o','m','p','i','l','e','r','_','4','3','.','d','l','l',0};
-#elif defined(_MSV_VER)
+#define D3DCOMPILER_DLL_W (const WCHAR[]){'d','3','d','c','o','m','p','i','l','e','r','_','4','3','.','d','l','l',0}
+#elif defined(_MSC_VER)
 #define D3DCOMPILER_DLL_W L"d3dcompiler_43.dll"
 #else
 static const WCHAR D3DCOMPILER_DLL_W[] = {'d','3','d','c','o','m','p','i','l','e','r','_','4','3','.','d','l','l',0};
@@ -66,6 +66,9 @@ static const WCHAR D3DCOMPILER_DLL_W[] = {'d','3','d','c','o','m','p','i','l','e
 HRESULT WINAPI D3DCompile(const void *data, SIZE_T data_size, const char *filename,
         const D3D_SHADER_MACRO *defines, ID3DInclude *include, const char *entrypoint,
         const char *target, UINT sflags, UINT eflags, ID3DBlob **shader, ID3DBlob **error_messages);
+typedef HRESULT (WINAPI *pD3DCompile)(const void *data, SIZE_T data_size, const char *filename,
+        const D3D_SHADER_MACRO *defines, ID3DInclude *include, const char *entrypoint,
+        const char *target, UINT sflags, UINT eflags, ID3DBlob **shader, ID3DBlob **error_messages);
 
 typedef enum D3DCOMPILER_STRIP_FLAGS
 {
@@ -95,6 +98,8 @@ typedef enum D3D_BLOB_PART
 
 HRESULT WINAPI D3DDisassemble(const void *data, SIZE_T data_size,
         UINT flags, const char *comments, ID3DBlob **disassembly);
+typedef HRESULT (WINAPI *pD3DDisassemble)(const void *data, SIZE_T data_size,
+        UINT flags, const char *comments, ID3DBlob **disassembly);
 HRESULT WINAPI D3DGetBlobPart(const void *data, SIZE_T data_size, D3D_BLOB_PART part, UINT flags, ID3DBlob **blob);
 HRESULT WINAPI D3DGetInputSignatureBlob(const void *data, SIZE_T data_size, ID3DBlob **blob);
 HRESULT WINAPI D3DGetOutputSignatureBlob(const void *data, SIZE_T data_size, ID3DBlob **blob);
@@ -106,6 +111,9 @@ HRESULT WINAPI D3DReflect(const void *data, SIZE_T data_size, REFIID riid, void 
 HRESULT WINAPI D3DCreateBlob(SIZE_T data_size, ID3DBlob **blob);
 
 HRESULT WINAPI D3DPreprocess(const void *data, SIZE_T size, const char *filename,
+        const D3D_SHADER_MACRO *defines, ID3DInclude *include,
+        ID3DBlob **shader, ID3DBlob **error_messages);
+typedef HRESULT (WINAPI *pD3DPreprocess)(const void *data, SIZE_T size, const char *filename,
         const D3D_SHADER_MACRO *defines, ID3DInclude *include,
         ID3DBlob **shader, ID3DBlob **error_messages);
 
