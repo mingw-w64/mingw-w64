@@ -79,6 +79,10 @@ limitations in handling dllimport attribute.  */
 #define USE___UUIDOF	0
 #endif
 
+#if !defined(_MSC_VER) && !defined(_inline)
+#define _inline __inline
+#endif
+
 #ifdef __cplusplus
 # define __CRT_INLINE inline
 #elif defined(_MSC_VER)
