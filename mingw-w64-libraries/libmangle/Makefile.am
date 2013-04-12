@@ -6,4 +6,4 @@ libmangle_a_SOURCES = \
 
 include_HEADERS = include/libmangle.h
 
-EXTRA_DIST = ChangeLog-2009
+EXTRA_DIST = $(srcdir)/ChangeLog*
