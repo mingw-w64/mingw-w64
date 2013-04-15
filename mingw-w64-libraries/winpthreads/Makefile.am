@@ -43,3 +43,6 @@ endif
 
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet)
 
+check_PROGRAMS = tests/t_clock_getres  tests/t_clock_gettime  tests/t_clock_nanosleep  tests/t_clock_settime  tests/t_nanosleep  tests/test
+TESTS = $(check_PROGRAMS)
+
