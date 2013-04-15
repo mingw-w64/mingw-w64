@@ -129,10 +129,10 @@ libgcc_s_a_AR = $(AR) $(ARFLAGS)
 libgcc_s_a_LIBADD =
 am_libgcc_s_a_OBJECTS =
 libgcc_s_a_OBJECTS = $(am_libgcc_s_a_OBJECTS)
-libpthread_a_AR = $(AR) $(ARFLAGS)
+libpthread_a_LIBADD =
 am_libpthread_a_OBJECTS =
 libpthread_a_OBJECTS = $(am_libpthread_a_OBJECTS)
-libpthread_dll_a_AR = $(AR) $(ARFLAGS)
+libpthread_dll_a_LIBADD =
 am_libpthread_dll_a_OBJECTS =
 libpthread_dll_a_OBJECTS = $(am_libpthread_dll_a_OBJECTS)
 LTLIBRARIES = $(lib_LTLIBRARIES)
@@ -388,12 +388,16 @@ libgcc_a_SOURCES = src/libgcc/dll_dependency.S src/libgcc/dll_math.c
 libgcc_s_a_SOURCES = 
 libgcc_eh_a_SOURCES = 
 lib_LIBRARIES = $(am__append_1) $(am__append_2)
-@COPY_STATIC_TRUE@libpthread_a_LIBADD = $(LT_OBJDIR)/libwinpthread.a
-@COPY_STATIC_TRUE@libpthread_a_DEPENDENCIES = libwinpthread.la
 @COPY_STATIC_TRUE@libpthread_a_SOURCES = 
-@COPY_SHARED_TRUE@libpthread_dll_a_LIBADD = $(LT_OBJDIR)/libwinpthread.dll.a
-@COPY_SHARED_TRUE@libpthread_dll_a_DEPENDENCIES = libwinpthread.la
+@COPY_STATIC_TRUE@libpthread_a_DEPENDENCIES = libwinpthread.la
+#FIXME: Use cp kludge until a better method presents itself
+#libpthread_a_LIBADD = $(LT_OBJDIR)/libwinpthread.a
+@COPY_STATIC_TRUE@libpthread_a_AR = cp -f $(LT_OBJDIR)/libwinpthread.a
 @COPY_SHARED_TRUE@libpthread_dll_a_SOURCES = 
+@COPY_SHARED_TRUE@libpthread_dll_a_DEPENDENCIES = libwinpthread.la
+#FIXME: Use cp kludge until a better method presents itself
+#libpthread_dll_a_LIBADD = $(LT_OBJDIR)/libwinpthread.dll.a
+@COPY_SHARED_TRUE@libpthread_dll_a_AR = cp -f $(LT_OBJDIR)/libwinpthread.dll.a
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet)
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am

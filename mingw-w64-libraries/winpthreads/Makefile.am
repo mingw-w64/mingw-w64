@@ -21,16 +21,20 @@ lib_LIBRARIES =
 
 if COPY_STATIC
 lib_LIBRARIES += libpthread.a
-libpthread_a_LIBADD = $(LT_OBJDIR)/libwinpthread.a
-libpthread_a_DEPENDENCIES = libwinpthread.la
 libpthread_a_SOURCES =
+libpthread_a_DEPENDENCIES = libwinpthread.la
+#FIXME: Use cp kludge until a better method presents itself
+#libpthread_a_LIBADD = $(LT_OBJDIR)/libwinpthread.a
+libpthread_a_AR = cp -f $(LT_OBJDIR)/libwinpthread.a
 endif
 
 if COPY_SHARED
 lib_LIBRARIES += libpthread.dll.a
-libpthread_dll_a_LIBADD = $(LT_OBJDIR)/libwinpthread.dll.a
-libpthread_dll_a_DEPENDENCIES = libwinpthread.la
 libpthread_dll_a_SOURCES =
+libpthread_dll_a_DEPENDENCIES = libwinpthread.la
+#FIXME: Use cp kludge until a better method presents itself
+#libpthread_dll_a_LIBADD = $(LT_OBJDIR)/libwinpthread.dll.a
+libpthread_dll_a_AR = cp -f $(LT_OBJDIR)/libwinpthread.dll.a
 endif
 
 # Tell libtool how to use the resource compiler
