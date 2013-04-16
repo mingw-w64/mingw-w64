@@ -572,8 +572,7 @@ am__lib32_libmingwex_a_SOURCES_DIST = crt/dllentry.c crt/dllmain.c \
 	stdio/vfscanf2.S stdio/vfwscanf2.S stdio/vscanf2.S \
 	stdio/vsscanf2.S stdio/vswscanf2.S stdio/vwscanf2.S \
 	stdio/_Exit.c stdio/_findfirst64i32.c stdio/_findnext64i32.c \
-	stdio/_fstat.c stdio/_fstat64i32.c stdio/_fstati64.c \
-	stdio/_stati64.c stdio/_wstati64.c stdio/_ftime.c \
+	stdio/_fstat.c stdio/_fstat64i32.c stdio/_ftime.c \
 	stdio/_getc_nolock.c stdio/_getwc_nolock.c \
 	stdio/_putc_nolock.c stdio/_putwc_nolock.c stdio/_stat.c \
 	stdio/_stat64i32.c stdio/_wfindfirst64i32.c \
@@ -956,9 +955,6 @@ am__objects_16 = crt/lib32_libmingwex_a-dllentry.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-_findnext64i32.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-_fstat.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-_fstat64i32.$(OBJEXT) \
-	stdio/lib32_libmingwex_a-_fstati64.$(OBJEXT) \
-	stdio/lib32_libmingwex_a-_stati64.$(OBJEXT) \
-	stdio/lib32_libmingwex_a-_wstati64.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-_ftime.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-_getc_nolock.$(OBJEXT) \
 	stdio/lib32_libmingwex_a-_getwc_nolock.$(OBJEXT) \
@@ -1670,8 +1666,7 @@ am__lib64_libmingwex_a_SOURCES_DIST = crt/dllentry.c crt/dllmain.c \
 	stdio/vfscanf2.S stdio/vfwscanf2.S stdio/vscanf2.S \
 	stdio/vsscanf2.S stdio/vswscanf2.S stdio/vwscanf2.S \
 	stdio/_Exit.c stdio/_findfirst64i32.c stdio/_findnext64i32.c \
-	stdio/_fstat.c stdio/_fstat64i32.c stdio/_fstati64.c \
-	stdio/_stati64.c stdio/_wstati64.c stdio/_ftime.c \
+	stdio/_fstat.c stdio/_fstat64i32.c stdio/_ftime.c \
 	stdio/_getc_nolock.c stdio/_getwc_nolock.c \
 	stdio/_putc_nolock.c stdio/_putwc_nolock.c stdio/_stat.c \
 	stdio/_stat64i32.c stdio/_wfindfirst64i32.c \
@@ -2054,9 +2049,6 @@ am__objects_45 = crt/lib64_libmingwex_a-dllentry.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-_findnext64i32.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-_fstat.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-_fstat64i32.$(OBJEXT) \
-	stdio/lib64_libmingwex_a-_fstati64.$(OBJEXT) \
-	stdio/lib64_libmingwex_a-_stati64.$(OBJEXT) \
-	stdio/lib64_libmingwex_a-_wstati64.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-_ftime.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-_getc_nolock.$(OBJEXT) \
 	stdio/lib64_libmingwex_a-_getwc_nolock.$(OBJEXT) \
@@ -2632,9 +2624,10 @@ tests64_libnewcomplextestsld_a_OBJECTS =  \
 am__EXEEXT_2 = testcases/tstmainc$(EXEEXT) \
 	testcases/tstmaincpp$(EXEEXT) \
 	testcases/tstmain_sys_xxx$(EXEEXT) \
-	testcases/t_ansi_io$(EXEEXT) testcases/t_float$(EXEEXT) \
-	testcases/t_fstat$(EXEEXT) testcases/t_intrinc$(EXEEXT) \
-	testcases/t_imagebase$(EXEEXT) testcases/t_matherr$(EXEEXT) \
+	testcases/t_ansi_io$(EXEEXT) testcases/t_findfirst$(EXEEXT) \
+	testcases/t_float$(EXEEXT) testcases/t_fstat$(EXEEXT) \
+	testcases/t_intrinc$(EXEEXT) testcases/t_imagebase$(EXEEXT) \
+	testcases/t_matherr$(EXEEXT) \
 	testcases/t_nullptrexception$(EXEEXT) \
 	testcases/t_readdir$(EXEEXT) testcases/t_setjmp$(EXEEXT) \
 	testcases/t_sigv$(EXEEXT) testcases/t_speed_powl$(EXEEXT) \
@@ -2672,6 +2665,9 @@ am__EXEEXT_2 = testcases/tstmainc$(EXEEXT) \
 testcases_t_ansi_io_SOURCES = testcases/t_ansi_io.c
 testcases_t_ansi_io_OBJECTS = testcases/t_ansi_io.$(OBJEXT)
 testcases_t_ansi_io_LDADD = $(LDADD)
+testcases_t_findfirst_SOURCES = testcases/t_findfirst.c
+testcases_t_findfirst_OBJECTS = testcases/t_findfirst.$(OBJEXT)
+testcases_t_findfirst_LDADD = $(LDADD)
 testcases_t_float_SOURCES = testcases/t_float.c
 testcases_t_float_OBJECTS = testcases/t_float.$(OBJEXT)
 testcases_t_float_LDADD = $(LDADD)
@@ -3116,8 +3112,8 @@ SOURCES = $(lib32_libdelayimp_a_SOURCES) $(lib32_libdinput_a_SOURCES) \
 	$(tests64_libnewcomplextests_a_SOURCES) \
 	$(tests64_libnewcomplextestsf_a_SOURCES) \
 	$(tests64_libnewcomplextestsld_a_SOURCES) \
-	testcases/t_ansi_io.c testcases/t_float.c \
-	testcases/t_fseeko64.c testcases/t_fstat.c \
+	testcases/t_ansi_io.c testcases/t_findfirst.c \
+	testcases/t_float.c testcases/t_fseeko64.c testcases/t_fstat.c \
 	testcases/t_imagebase.c testcases/t_intrinc.c \
 	testcases/t_matherr.c testcases/t_municode.c \
 	testcases/t_nullptrexception.c testcases/t_readdir.c \
@@ -3214,8 +3210,8 @@ DIST_SOURCES = $(lib32_libdelayimp_a_SOURCES) \
 	$(am__tests64_libnewcomplextests_a_SOURCES_DIST) \
 	$(am__tests64_libnewcomplextestsf_a_SOURCES_DIST) \
 	$(am__tests64_libnewcomplextestsld_a_SOURCES_DIST) \
-	testcases/t_ansi_io.c testcases/t_float.c \
-	testcases/t_fseeko64.c testcases/t_fstat.c \
+	testcases/t_ansi_io.c testcases/t_findfirst.c \
+	testcases/t_float.c testcases/t_fseeko64.c testcases/t_fstat.c \
 	testcases/t_imagebase.c testcases/t_intrinc.c \
 	testcases/t_matherr.c testcases/t_municode.c \
 	testcases/t_nullptrexception.c testcases/t_readdir.c \
@@ -3587,7 +3583,7 @@ src_libmingwex = \
   stdio/vfscanf2.S         stdio/vfwscanf2.S         stdio/vscanf2.S          stdio/vsscanf2.S          stdio/vswscanf2.S \
   stdio/vwscanf2.S         \
   stdio/_Exit.c            stdio/_findfirst64i32.c   stdio/_findnext64i32.c   stdio/_fstat.c \
-  stdio/_fstat64i32.c stdio/_fstati64.c stdio/_stati64.c stdio/_wstati64.c \
+  stdio/_fstat64i32.c                                                      \
   stdio/_ftime.c            stdio/_getc_nolock.c     stdio/_getwc_nolock.c     stdio/_putc_nolock.c    \
   stdio/_putwc_nolock.c    stdio/_stat.c             stdio/_stat64i32.c       stdio/_wfindfirst64i32.c  stdio/_wfindnext64i32.c \
   stdio/_wstat.c           stdio/_wstat64i32.c       stdio/asprintf.c         stdio/atoll.c             stdio/fgetpos64.c       \
@@ -4341,8 +4337,8 @@ DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet) $(withsys)
 #  testcases_tstwinmain_LDADD = -lgdi32
 testcase_progs = testcases/tstmainc testcases/tstmaincpp \
 	testcases/tstmain_sys_xxx testcases/t_ansi_io \
-	testcases/t_float testcases/t_fstat testcases/t_intrinc \
-	testcases/t_imagebase testcases/t_matherr \
+	testcases/t_findfirst testcases/t_float testcases/t_fstat \
+	testcases/t_intrinc testcases/t_imagebase testcases/t_matherr \
 	testcases/t_nullptrexception testcases/t_readdir \
 	testcases/t_setjmp testcases/t_sigv testcases/t_speed_powl \
 	testcases/t_stat testcases/t_stdint testcases/t_time \
@@ -5839,12 +5835,6 @@ stdio/lib32_libmingwex_a-_findnext64i32.$(OBJEXT):  \
 stdio/lib32_libmingwex_a-_fstat.$(OBJEXT): stdio/$(am__dirstamp) \
 	stdio/$(DEPDIR)/$(am__dirstamp)
 stdio/lib32_libmingwex_a-_fstat64i32.$(OBJEXT): stdio/$(am__dirstamp) \
-	stdio/$(DEPDIR)/$(am__dirstamp)
-stdio/lib32_libmingwex_a-_fstati64.$(OBJEXT): stdio/$(am__dirstamp) \
-	stdio/$(DEPDIR)/$(am__dirstamp)
-stdio/lib32_libmingwex_a-_stati64.$(OBJEXT): stdio/$(am__dirstamp) \
-	stdio/$(DEPDIR)/$(am__dirstamp)
-stdio/lib32_libmingwex_a-_wstati64.$(OBJEXT): stdio/$(am__dirstamp) \
 	stdio/$(DEPDIR)/$(am__dirstamp)
 stdio/lib32_libmingwex_a-_ftime.$(OBJEXT): stdio/$(am__dirstamp) \
 	stdio/$(DEPDIR)/$(am__dirstamp)
@@ -7395,12 +7385,6 @@ stdio/lib64_libmingwex_a-_fstat.$(OBJEXT): stdio/$(am__dirstamp) \
 	stdio/$(DEPDIR)/$(am__dirstamp)
 stdio/lib64_libmingwex_a-_fstat64i32.$(OBJEXT): stdio/$(am__dirstamp) \
 	stdio/$(DEPDIR)/$(am__dirstamp)
-stdio/lib64_libmingwex_a-_fstati64.$(OBJEXT): stdio/$(am__dirstamp) \
-	stdio/$(DEPDIR)/$(am__dirstamp)
-stdio/lib64_libmingwex_a-_stati64.$(OBJEXT): stdio/$(am__dirstamp) \
-	stdio/$(DEPDIR)/$(am__dirstamp)
-stdio/lib64_libmingwex_a-_wstati64.$(OBJEXT): stdio/$(am__dirstamp) \
-	stdio/$(DEPDIR)/$(am__dirstamp)
 stdio/lib64_libmingwex_a-_ftime.$(OBJEXT): stdio/$(am__dirstamp) \
 	stdio/$(DEPDIR)/$(am__dirstamp)
 stdio/lib64_libmingwex_a-_getc_nolock.$(OBJEXT):  \
@@ -8327,6 +8311,11 @@ testcases/t_ansi_io.$(OBJEXT): testcases/$(am__dirstamp) \
 testcases/t_ansi_io$(EXEEXT): $(testcases_t_ansi_io_OBJECTS) $(testcases_t_ansi_io_DEPENDENCIES) $(EXTRA_testcases_t_ansi_io_DEPENDENCIES) testcases/$(am__dirstamp)
 	@rm -f testcases/t_ansi_io$(EXEEXT)
 	$(LINK) $(testcases_t_ansi_io_OBJECTS) $(testcases_t_ansi_io_LDADD) $(LIBS)
+testcases/t_findfirst.$(OBJEXT): testcases/$(am__dirstamp) \
+	testcases/$(DEPDIR)/$(am__dirstamp)
+testcases/t_findfirst$(EXEEXT): $(testcases_t_findfirst_OBJECTS) $(testcases_t_findfirst_DEPENDENCIES) $(EXTRA_testcases_t_findfirst_DEPENDENCIES) testcases/$(am__dirstamp)
+	@rm -f testcases/t_findfirst$(EXEEXT)
+	$(LINK) $(testcases_t_findfirst_OBJECTS) $(testcases_t_findfirst_LDADD) $(LIBS)
 testcases/t_float.$(OBJEXT): testcases/$(am__dirstamp) \
 	testcases/$(DEPDIR)/$(am__dirstamp)
 testcases/t_float$(EXEEXT): $(testcases_t_float_OBJECTS) $(testcases_t_float_DEPENDENCIES) $(EXTRA_testcases_t_float_DEPENDENCIES) testcases/$(am__dirstamp)
@@ -9914,7 +9903,6 @@ mostlyclean-compile:
 	-rm -f stdio/lib32_libmingwex_a-_findnext64i32.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-_fstat.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-_fstat64i32.$(OBJEXT)
-	-rm -f stdio/lib32_libmingwex_a-_fstati64.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-_ftime.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-_getc_nolock.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-_getwc_nolock.$(OBJEXT)
@@ -9922,12 +9910,10 @@ mostlyclean-compile:
 	-rm -f stdio/lib32_libmingwex_a-_putwc_nolock.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-_stat.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-_stat64i32.$(OBJEXT)
-	-rm -f stdio/lib32_libmingwex_a-_stati64.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-_wfindfirst64i32.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-_wfindnext64i32.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-_wstat.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-_wstat64i32.$(OBJEXT)
-	-rm -f stdio/lib32_libmingwex_a-_wstati64.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-asprintf.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-atoll.$(OBJEXT)
 	-rm -f stdio/lib32_libmingwex_a-fgetpos64.$(OBJEXT)
@@ -9995,7 +9981,6 @@ mostlyclean-compile:
 	-rm -f stdio/lib64_libmingwex_a-_findnext64i32.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-_fstat.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-_fstat64i32.$(OBJEXT)
-	-rm -f stdio/lib64_libmingwex_a-_fstati64.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-_ftime.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-_getc_nolock.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-_getwc_nolock.$(OBJEXT)
@@ -10003,12 +9988,10 @@ mostlyclean-compile:
 	-rm -f stdio/lib64_libmingwex_a-_putwc_nolock.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-_stat.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-_stat64i32.$(OBJEXT)
-	-rm -f stdio/lib64_libmingwex_a-_stati64.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-_wfindfirst64i32.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-_wfindnext64i32.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-_wstat.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-_wstat64i32.$(OBJEXT)
-	-rm -f stdio/lib64_libmingwex_a-_wstati64.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-asprintf.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-atoll.$(OBJEXT)
 	-rm -f stdio/lib64_libmingwex_a-fgetpos64.$(OBJEXT)
@@ -10248,6 +10231,7 @@ mostlyclean-compile:
 	-rm -f testcases/complex/tests64_libnewcomplextestsld_a-ctan.$(OBJEXT)
 	-rm -f testcases/complex/tests64_libnewcomplextestsld_a-ctanh.$(OBJEXT)
 	-rm -f testcases/t_ansi_io.$(OBJEXT)
+	-rm -f testcases/t_findfirst.$(OBJEXT)
 	-rm -f testcases/t_float.$(OBJEXT)
 	-rm -f testcases/t_fseeko64.$(OBJEXT)
 	-rm -f testcases/t_fstat.$(OBJEXT)
@@ -11482,7 +11466,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-_findnext64i32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-_fstat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-_fstat64i32.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-_fstati64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-_ftime.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-_getc_nolock.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-_getwc_nolock.Po@am__quote@
@@ -11490,12 +11473,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-_putwc_nolock.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-_stat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-_stat64i32.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-_stati64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-_wfindfirst64i32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-_wfindnext64i32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-_wstat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-_wstat64i32.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-_wstati64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-asprintf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-atoll.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-fgetpos64.Po@am__quote@
@@ -11563,7 +11544,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-_findnext64i32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-_fstat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-_fstat64i32.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-_fstati64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-_ftime.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-_getc_nolock.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-_getwc_nolock.Po@am__quote@
@@ -11571,12 +11551,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-_putwc_nolock.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-_stat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-_stat64i32.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-_stati64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-_wfindfirst64i32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-_wfindnext64i32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-_wstat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-_wstat64i32.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-_wstati64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-asprintf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-atoll.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-fgetpos64.Po@am__quote@
@@ -11640,6 +11618,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-vwscanf2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib64_libmingwex_a-wtoll.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_ansi_io.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_findfirst.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_float.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_fseeko64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@testcases/$(DEPDIR)/t_fstat.Po@am__quote@
@@ -19221,48 +19200,6 @@ stdio/lib32_libmingwex_a-_fstat64i32.obj: stdio/_fstat64i32.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/_fstat64i32.c' object='stdio/lib32_libmingwex_a-_fstat64i32.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-_fstat64i32.obj `if test -f 'stdio/_fstat64i32.c'; then $(CYGPATH_W) 'stdio/_fstat64i32.c'; else $(CYGPATH_W) '$(srcdir)/stdio/_fstat64i32.c'; fi`
-
-stdio/lib32_libmingwex_a-_fstati64.o: stdio/_fstati64.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-_fstati64.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-_fstati64.Tpo -c -o stdio/lib32_libmingwex_a-_fstati64.o `test -f 'stdio/_fstati64.c' || echo '$(srcdir)/'`stdio/_fstati64.c
-@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-_fstati64.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-_fstati64.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/_fstati64.c' object='stdio/lib32_libmingwex_a-_fstati64.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-_fstati64.o `test -f 'stdio/_fstati64.c' || echo '$(srcdir)/'`stdio/_fstati64.c
-
-stdio/lib32_libmingwex_a-_fstati64.obj: stdio/_fstati64.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-_fstati64.obj -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-_fstati64.Tpo -c -o stdio/lib32_libmingwex_a-_fstati64.obj `if test -f 'stdio/_fstati64.c'; then $(CYGPATH_W) 'stdio/_fstati64.c'; else $(CYGPATH_W) '$(srcdir)/stdio/_fstati64.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-_fstati64.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-_fstati64.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/_fstati64.c' object='stdio/lib32_libmingwex_a-_fstati64.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-_fstati64.obj `if test -f 'stdio/_fstati64.c'; then $(CYGPATH_W) 'stdio/_fstati64.c'; else $(CYGPATH_W) '$(srcdir)/stdio/_fstati64.c'; fi`
-
-stdio/lib32_libmingwex_a-_stati64.o: stdio/_stati64.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-_stati64.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-_stati64.Tpo -c -o stdio/lib32_libmingwex_a-_stati64.o `test -f 'stdio/_stati64.c' || echo '$(srcdir)/'`stdio/_stati64.c
-@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-_stati64.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-_stati64.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/_stati64.c' object='stdio/lib32_libmingwex_a-_stati64.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-_stati64.o `test -f 'stdio/_stati64.c' || echo '$(srcdir)/'`stdio/_stati64.c
-
-stdio/lib32_libmingwex_a-_stati64.obj: stdio/_stati64.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-_stati64.obj -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-_stati64.Tpo -c -o stdio/lib32_libmingwex_a-_stati64.obj `if test -f 'stdio/_stati64.c'; then $(CYGPATH_W) 'stdio/_stati64.c'; else $(CYGPATH_W) '$(srcdir)/stdio/_stati64.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-_stati64.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-_stati64.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/_stati64.c' object='stdio/lib32_libmingwex_a-_stati64.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-_stati64.obj `if test -f 'stdio/_stati64.c'; then $(CYGPATH_W) 'stdio/_stati64.c'; else $(CYGPATH_W) '$(srcdir)/stdio/_stati64.c'; fi`
-
-stdio/lib32_libmingwex_a-_wstati64.o: stdio/_wstati64.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-_wstati64.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-_wstati64.Tpo -c -o stdio/lib32_libmingwex_a-_wstati64.o `test -f 'stdio/_wstati64.c' || echo '$(srcdir)/'`stdio/_wstati64.c
-@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-_wstati64.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-_wstati64.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/_wstati64.c' object='stdio/lib32_libmingwex_a-_wstati64.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-_wstati64.o `test -f 'stdio/_wstati64.c' || echo '$(srcdir)/'`stdio/_wstati64.c
-
-stdio/lib32_libmingwex_a-_wstati64.obj: stdio/_wstati64.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-_wstati64.obj -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-_wstati64.Tpo -c -o stdio/lib32_libmingwex_a-_wstati64.obj `if test -f 'stdio/_wstati64.c'; then $(CYGPATH_W) 'stdio/_wstati64.c'; else $(CYGPATH_W) '$(srcdir)/stdio/_wstati64.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib32_libmingwex_a-_wstati64.Tpo stdio/$(DEPDIR)/lib32_libmingwex_a-_wstati64.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/_wstati64.c' object='stdio/lib32_libmingwex_a-_wstati64.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib32_libmingwex_a-_wstati64.obj `if test -f 'stdio/_wstati64.c'; then $(CYGPATH_W) 'stdio/_wstati64.c'; else $(CYGPATH_W) '$(srcdir)/stdio/_wstati64.c'; fi`
 
 stdio/lib32_libmingwex_a-_ftime.o: stdio/_ftime.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib32_libmingwex_a-_ftime.o -MD -MP -MF stdio/$(DEPDIR)/lib32_libmingwex_a-_ftime.Tpo -c -o stdio/lib32_libmingwex_a-_ftime.o `test -f 'stdio/_ftime.c' || echo '$(srcdir)/'`stdio/_ftime.c
@@ -28195,48 +28132,6 @@ stdio/lib64_libmingwex_a-_fstat64i32.obj: stdio/_fstat64i32.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/_fstat64i32.c' object='stdio/lib64_libmingwex_a-_fstat64i32.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-_fstat64i32.obj `if test -f 'stdio/_fstat64i32.c'; then $(CYGPATH_W) 'stdio/_fstat64i32.c'; else $(CYGPATH_W) '$(srcdir)/stdio/_fstat64i32.c'; fi`
-
-stdio/lib64_libmingwex_a-_fstati64.o: stdio/_fstati64.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-_fstati64.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-_fstati64.Tpo -c -o stdio/lib64_libmingwex_a-_fstati64.o `test -f 'stdio/_fstati64.c' || echo '$(srcdir)/'`stdio/_fstati64.c
-@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-_fstati64.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-_fstati64.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/_fstati64.c' object='stdio/lib64_libmingwex_a-_fstati64.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-_fstati64.o `test -f 'stdio/_fstati64.c' || echo '$(srcdir)/'`stdio/_fstati64.c
-
-stdio/lib64_libmingwex_a-_fstati64.obj: stdio/_fstati64.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-_fstati64.obj -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-_fstati64.Tpo -c -o stdio/lib64_libmingwex_a-_fstati64.obj `if test -f 'stdio/_fstati64.c'; then $(CYGPATH_W) 'stdio/_fstati64.c'; else $(CYGPATH_W) '$(srcdir)/stdio/_fstati64.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-_fstati64.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-_fstati64.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/_fstati64.c' object='stdio/lib64_libmingwex_a-_fstati64.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-_fstati64.obj `if test -f 'stdio/_fstati64.c'; then $(CYGPATH_W) 'stdio/_fstati64.c'; else $(CYGPATH_W) '$(srcdir)/stdio/_fstati64.c'; fi`
-
-stdio/lib64_libmingwex_a-_stati64.o: stdio/_stati64.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-_stati64.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-_stati64.Tpo -c -o stdio/lib64_libmingwex_a-_stati64.o `test -f 'stdio/_stati64.c' || echo '$(srcdir)/'`stdio/_stati64.c
-@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-_stati64.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-_stati64.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/_stati64.c' object='stdio/lib64_libmingwex_a-_stati64.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-_stati64.o `test -f 'stdio/_stati64.c' || echo '$(srcdir)/'`stdio/_stati64.c
-
-stdio/lib64_libmingwex_a-_stati64.obj: stdio/_stati64.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-_stati64.obj -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-_stati64.Tpo -c -o stdio/lib64_libmingwex_a-_stati64.obj `if test -f 'stdio/_stati64.c'; then $(CYGPATH_W) 'stdio/_stati64.c'; else $(CYGPATH_W) '$(srcdir)/stdio/_stati64.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-_stati64.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-_stati64.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/_stati64.c' object='stdio/lib64_libmingwex_a-_stati64.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-_stati64.obj `if test -f 'stdio/_stati64.c'; then $(CYGPATH_W) 'stdio/_stati64.c'; else $(CYGPATH_W) '$(srcdir)/stdio/_stati64.c'; fi`
-
-stdio/lib64_libmingwex_a-_wstati64.o: stdio/_wstati64.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-_wstati64.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-_wstati64.Tpo -c -o stdio/lib64_libmingwex_a-_wstati64.o `test -f 'stdio/_wstati64.c' || echo '$(srcdir)/'`stdio/_wstati64.c
-@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-_wstati64.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-_wstati64.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/_wstati64.c' object='stdio/lib64_libmingwex_a-_wstati64.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-_wstati64.o `test -f 'stdio/_wstati64.c' || echo '$(srcdir)/'`stdio/_wstati64.c
-
-stdio/lib64_libmingwex_a-_wstati64.obj: stdio/_wstati64.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-_wstati64.obj -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-_wstati64.Tpo -c -o stdio/lib64_libmingwex_a-_wstati64.obj `if test -f 'stdio/_wstati64.c'; then $(CYGPATH_W) 'stdio/_wstati64.c'; else $(CYGPATH_W) '$(srcdir)/stdio/_wstati64.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) stdio/$(DEPDIR)/lib64_libmingwex_a-_wstati64.Tpo stdio/$(DEPDIR)/lib64_libmingwex_a-_wstati64.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='stdio/_wstati64.c' object='stdio/lib64_libmingwex_a-_wstati64.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o stdio/lib64_libmingwex_a-_wstati64.obj `if test -f 'stdio/_wstati64.c'; then $(CYGPATH_W) 'stdio/_wstati64.c'; else $(CYGPATH_W) '$(srcdir)/stdio/_wstati64.c'; fi`
 
 stdio/lib64_libmingwex_a-_ftime.o: stdio/_ftime.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT stdio/lib64_libmingwex_a-_ftime.o -MD -MP -MF stdio/$(DEPDIR)/lib64_libmingwex_a-_ftime.Tpo -c -o stdio/lib64_libmingwex_a-_ftime.o `test -f 'stdio/_ftime.c' || echo '$(srcdir)/'`stdio/_ftime.c
