@@ -188,7 +188,12 @@ _fpreset DATA
 _fputchar
 _fputwchar
 _fsopen
-_fstat
+_fstat32
+_fstat == _fstat32
+_fstati64 == _fstat32i64
+_fstat32i64
+_fstat64
+_fstat64i32
 _ftime
 _ftol
 _fullpath
@@ -393,7 +398,12 @@ _spawnve
 _spawnvp
 _spawnvpe
 _splitpath
-_stat
+_stat32
+_stat == _stat32
+_stati64 == _stat32i64
+_stat32i64
+_stat64
+_stat64i32
 _statusfp
 _strcmpi
 _strdate
@@ -505,7 +515,12 @@ _wspawnve
 _wspawnvp
 _wspawnvpe
 _wsplitpath
-_wstat
+_wstat32
+_wstat == _wstat32
+_wstati64 == _wstat32i64
+_wstat32i64
+_wstat64
+_wstat64i32
 _wstrdate
 _wstrtime
 _wsystem
@@ -728,7 +743,6 @@ _chkesp
 _ctime64
 _findfirst64
 _findnext64
-_fstat64
 _ftime64
 _futime64
 _gmtime64
@@ -736,13 +750,11 @@ _localtime64
 _mbcasemap
 _mktime64
 _osplatform	DATA
-_stat64
 _time64
 _utime64
 _wctime64
 _wfindfirst64
 _wfindnext64
-_wstat64
 _wutime64
 ; msvcr70.dll amd later
 __buffer_overrun

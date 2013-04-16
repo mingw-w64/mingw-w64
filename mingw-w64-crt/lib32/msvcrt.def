@@ -191,7 +191,8 @@ _fputchar
 _fputwchar
 _fsopen
 _fstat
-; _fstati64 replaced by libmingwex implementation
+_fstat32 == _fstat
+_fstati64
 _ftime
 _ftol
 _fullpath
@@ -396,7 +397,9 @@ _spawnvp
 _spawnvpe
 _splitpath
 _stat
-; _stati64 replaced by libmingwex implementation
+_stat64
+_stati64
+_stat32 == _stat
 _statusfp
 _strcmpi
 _strdate
@@ -511,7 +514,8 @@ _wspawnvp
 _wspawnvpe
 _wsplitpath
 _wstat
-; _wstati64  replaced by libmingwex implementation
+_wstati64
+_wstat32 == _wstat
 _wstrdate
 _wstrtime
 _wsystem
@@ -743,7 +747,6 @@ _localtime64
 _mbcasemap
 _mktime64
 _osplatform	DATA
-_stat64
 _time32 == time
 _time64
 _utime64

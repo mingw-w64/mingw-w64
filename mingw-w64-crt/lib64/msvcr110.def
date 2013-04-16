@@ -964,6 +964,8 @@ _fseeki64
 _fseeki64_nolock
 _fsopen
 _fstat32
+_fstat == _fstat64i32
+_fstati64 == _fstat64
 _fstat32i64
 _fstat64
 _fstat64i32
@@ -1430,6 +1432,8 @@ _sprintf_s_l
 _sscanf_l
 _sscanf_s_l
 _stat32
+_stat == _stat64i32
+_stati64 == _stat64
 _stat32i64
 _stat64
 _stat64i32
@@ -1704,6 +1708,8 @@ _wspawnvpe
 _wsplitpath
 _wsplitpath_s
 _wstat32
+_wstat == _wstat64i32
+_wstati64 == _wstat64
 _wstat32i64
 _wstat64
 _wstat64i32
