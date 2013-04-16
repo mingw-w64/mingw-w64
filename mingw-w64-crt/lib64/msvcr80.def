@@ -258,12 +258,16 @@ _filelength
 _filelengthi64
 _fileno
 _findclose
-_findfirst
+_findfirst32
+_findfirst == _findfirst64i32
 _findfirst64
-_findfirsti64
-_findnext
+_findfirst32i64
+_findfirst64i32
+_findnext32
+_findnext == _findnext64i32
 _findnext64
-_findnexti64
+_findnext32i64
+_findnext64i32
 _finite
 _finitef
 _flsbuf
@@ -575,12 +579,16 @@ _wexecve
 _wexecvp
 _wexecvpe
 _wfdopen
-_wfindfirst
+_wfindfirst32
+_wfindfirst == _wfindfirst64i32
 _wfindfirst64
-_wfindfirsti64
-_wfindnext
+_wfindfirst32i64
+_wfindfirst64i32
+_wfindnext32
+_wfindnext == _wfindnext64i32
 _wfindnext64
-_wfindnexti64
+_wfindnext32i64
+_wfindnext64i32
 _wfopen
 _wfreopen
 _wfsopen

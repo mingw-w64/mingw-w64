@@ -292,9 +292,11 @@ _findclose
 _findfirst
 _findfirst64
 _findfirsti64
+_findfirst64i32 == _findfirst
 _findnext
 _findnext64
 _findnexti64
+_findnext64i32 == _findnext
 _finite
 _finitef
 _flsbuf
@@ -929,9 +931,11 @@ _wfdopen
 _wfindfirst
 _wfindfirst64
 _wfindfirsti64
+_wfindfirst64i32 == _wfindfirst
 _wfindnext
 _wfindnext64
 _wfindnexti64
+_wfindnext64i32 == _wfindnext
 _wfopen
 _wfopen_s
 _wfreopen

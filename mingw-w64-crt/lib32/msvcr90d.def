@@ -531,10 +531,12 @@ _filelengthi64
 _fileno
 _findclose
 _findfirst32
+_findfirst == _findfirst32
 _findfirst32i64
 _findfirst64
 _findfirst64i32
 _findnext32
+_findnext == _findnext32
 _findnext32i64
 _findnext64
 _findnext64i32
@@ -1275,10 +1277,12 @@ _wexecvp
 _wexecvpe
 _wfdopen
 _wfindfirst32
+_wfindfirst == _wfindfirst32
 _wfindfirst32i64
 _wfindfirst64
 _wfindfirst64i32
 _wfindnext32
+_wfindnext = _wfindnext32
 _wfindnext32i64
 _wfindnext64
 _wfindnext64i32

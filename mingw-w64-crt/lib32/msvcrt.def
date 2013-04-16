@@ -171,9 +171,15 @@ _filelengthi64
 _fileno
 _findclose
 _findfirst
+_findfirst32 == _findfirst
 _findfirsti64
+_findfirst32i64 == _findfirsti64
+;_findfirst64i32 DATA ; provided by libmingwex
 _findnext
+_findnext32 == _findnext
 _findnexti64
+_findnext32i64 == _findnexti64
+;_findnext64i32 DATA ; provided by libmingwex
 _finite
 _flsbuf
 _flushall
@@ -460,9 +466,15 @@ _wexecvp
 _wexecvpe
 _wfdopen
 _wfindfirst
+_wfindfirst32 == _wfindfirst
 _wfindfirsti64
+_wfindfirst32i64 == _wfindfirsti64
+;_wfindfirst64i32 DATA ; provided by libmingwex
 _wfindnext
+_wfindnext32 == _wfindnext
 _wfindnexti64
+_wfindnext32i64 == _wfindnexti64
+;_wfindnext64i32 DATA ; provided by libmingwex
 _wfopen
 _wfreopen
 _wfsopen

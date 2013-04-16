@@ -1146,6 +1146,7 @@ testcase_progs = \
   testcases/tstmaincpp \
   testcases/tstmain_sys_xxx \
   testcases/t_ansi_io \
+  testcases/t_findfirst \
   testcases/t_float  \
   testcases/t_fstat \
   testcases/t_intrinc \
