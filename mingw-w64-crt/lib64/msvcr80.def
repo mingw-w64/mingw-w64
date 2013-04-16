@@ -544,6 +544,7 @@ _utime64
 _vscprintf
 _vscwprintf
 _vsnprintf
+vsnprintf == _vsnprintf
 _vsnwprintf
 _waccess
 _wasctime
