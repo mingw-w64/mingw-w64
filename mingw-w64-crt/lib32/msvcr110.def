@@ -1893,7 +1893,7 @@ lldiv
 localeconv
 log
 log10
-longjmp ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+longjmp DATA
 malloc
 mblen
 mbrlen
