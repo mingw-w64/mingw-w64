@@ -363,9 +363,12 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	      if (t->h != NULL)
 		CloseHandle (t->h);
 	      t->h = NULL;
+	      pthread_mutex_destroy(&t->p_clock);
+	      t->spin_keys = new_spin_keys;
 	      push_pthread_mem (t);
 	      t = NULL;
 	      TlsSetValue (_pthread_tls, t);
+	      return TRUE;
 	    }
 	  pthread_mutex_destroy(&t->p_clock);
 	  t->spin_keys = new_spin_keys;
