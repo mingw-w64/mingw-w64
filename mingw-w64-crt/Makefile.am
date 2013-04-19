@@ -38,6 +38,7 @@ DTLIB64=$(DTDEF64) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
 LDFLAGS32=-m32 -L$(top_builddir)/lib32
 LDFLAGS64=-m64 -L$(top_builddir)/lib64
 extra_include=-I$(top_srcdir)/include
+processed_defs=
 
 # default directx import library names
 xinput=xinput1_3
@@ -445,6 +446,9 @@ lib32_libmoldname_a_AR = $(DTDEF32) $(top_srcdir)/lib32/moldname-msvcrt.def -U -
 lib32_LIBRARIES += lib32/libmingwthrd.a
 lib32_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
 lib32_libmingwthrd_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
+
+processed_defs += lib32/msvcrt.def
+
 endif
 
 #These defs have no accompanying sources.  Look into using the rule below to run the dlltool command
@@ -1081,6 +1085,8 @@ endif
 # End 64-bit runtime
 ##########
 
+%.def: %.def.in
+	$(CPP) -x c $< -Wp,-w -I$(top_srcdir)/def-include | $(SED) 's/^#/;/' >$@
 
 # Don't compile these, but install as is:
 #
@@ -1101,7 +1107,7 @@ noinst_HEADERS = libsrc/dxerr.c \
 # Cleaning options
 #
 
-CLEANFILES = $(BUILT_SOURCES) $(crt64_DATA) $(lib64_DATA) $(crt32_DATA) $(lib32_DATA)
+CLEANFILES = $(BUILT_SOURCES) $(crt64_DATA) $(lib64_DATA) $(crt32_DATA) $(lib32_DATA) $(processed_defs)
 
 # Distribution options
 #
@@ -1112,6 +1118,8 @@ EXTRA_DIST += revstamp.h \
   $(top_srcdir)/lib64/*.def \
   $(top_srcdir)/lib64/*.mri \
   $(top_srcdir)/lib32/*.def \
+  $(top_srcdir)/lib32/*.def.in \
+  $(top_srcdir)/def-include/*.def.in \
   $(top_srcdir)/lib32/*.mri \
   crt/binmode.c \
   crt/crtbegin.c \

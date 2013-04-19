@@ -1,4 +1,7 @@
 EXPORTS
+
+#include "msvcrt-common.def.in"
+
 _CIacos
 _CIasin
 _CIatan
@@ -631,7 +634,6 @@ mbstowcs
 mbtowc
 memchr
 memcmp
-memcpy
 memmove
 memset
 mktime
