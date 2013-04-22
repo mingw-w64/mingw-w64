@@ -4,11 +4,13 @@
 int main()
 {
   time_t t;
-  __time32_t t32;
+  __time32_t t32 = 0;
   __time64_t t64;
   struct tm *htm;
   time (&t);
+#ifndef WIN64
   _time32 (&t32);
+#endif
   _time64 (&t64);
   printf ("0x%I64xULL, 0x%I32x, 0x%I64xULL\n",
 	(unsigned long long) t, (unsigned int) t32, (unsigned long long) t64);
