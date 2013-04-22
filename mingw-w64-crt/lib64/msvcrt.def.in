@@ -5,6 +5,9 @@
 ; Written by Kai Tietz, 2007
 ;
 EXPORTS
+
+#include "msvcrt-common.def.in"
+
 $I10_OUTPUT
 ; public: __cdecl __non_rtti_object::__non_rtti_object(class __non_rtti_object const & __ptr64) __ptr64
 ; GCC = __ZN17__non_rtti_objectC2ERKS_

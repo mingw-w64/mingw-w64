@@ -758,12 +758,14 @@ lib64_libmingwex_a_SOURCES = $(src_libmingwex)
 
 lib64_LIBRARIES += lib64/libmoldname.a
 lib64_libmoldname_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include) $(AM_CPPFLAGS)
-lib64_libmoldname_a_SOURCES = crt/isascii.c crt/iscsym.c crt/iscsymf.c crt/toascii.c crt/strcasecmp.c crt/strncasecmp.c crt/wcscmpi.c
-lib64_libmoldname_a_AR = $(DTDEF64) $(top_srcdir)/lib64/moldname-msvcrt.def -U --dllname msvcrt.dll && $(AR) $(ARFLAGS)
+lib64_libmoldname_a_SOURCES = 
 
 lib64_LIBRARIES += lib64/libmingwthrd.a
 lib64_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
 lib64_libmingwthrd_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
+
+processed_defs += lib64/msvcrt.def
+
 endif
 
 lib64_DATA = \
@@ -1117,6 +1119,7 @@ EXTRA_DIST += revstamp.h \
   $(top_srcdir)/lib64/*.mri \
   $(top_srcdir)/lib32/*.def \
   $(top_srcdir)/lib32/*.def.in \
+  $(top_srcdir)/lib64/*.def.in \
   $(top_srcdir)/def-include/*.def.in \
   $(top_srcdir)/lib32/*.mri \
   crt/binmode.c \
