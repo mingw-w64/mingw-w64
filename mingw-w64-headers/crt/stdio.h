@@ -314,11 +314,6 @@ int vsprintf (char *__stream, const char *__format, __builtin_va_list __local_ar
   return __mingw_vsprintf( __stream, __format, __local_argv );
 }
 
-#if 0
-/* Disabled due issue of definition in POSIX way in libmingwex,
-   which could cause troubles on scenarios venure expects those
-   function in MS formatter style.
-   So simplest way for now, disable it.  */
 __mingw_ovr
 __attribute__ ((__format__ (gnu_printf, 2, 3))) __attribute__((nonnull (1,2)))
 int asprintf(char **__ret, const char *__format, ...)
@@ -336,7 +331,7 @@ int vasprintf(char **__ret, const char *__format, __builtin_va_list __local_argv
 {
   return __mingw_vasprintf( __ret, __format, __local_argv );
 }
-#endif
+
 /* #ifndef __NO_ISOCEXT */  /* externs in libmingwex.a */
 __mingw_ovr
 __attribute__((__format__ (gnu_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
