@@ -5,57 +5,59 @@
 ;
 LIBRARY "MSVCR90D.dll"
 EXPORTS
-$I10_OUTPUT
-; public: __cdecl std::__non_rtti_object::__non_rtti_object(class std::__non_rtti_object const &__ptr64 )__ptr64 
-??0__non_rtti_object@std@@QEAA@AEBV01@@Z
-; public: __cdecl std::__non_rtti_object::__non_rtti_object(char const *__ptr64)__ptr64 
-??0__non_rtti_object@std@@QEAA@PEBD@Z
-; private: __cdecl std::bad_cast::bad_cast(char const *__ptr64 const *__ptr64)__ptr64 
-??0bad_cast@std@@AEAA@PEBQEBD@Z
-; public: __cdecl std::bad_cast::bad_cast(class std::bad_cast const &__ptr64 )__ptr64 
-??0bad_cast@std@@QEAA@AEBV01@@Z
-; public: __cdecl std::bad_cast::bad_cast(char const *__ptr64)__ptr64 
-??0bad_cast@std@@QEAA@PEBD@Z
-; public: __cdecl std::bad_typeid::bad_typeid(class std::bad_typeid const &__ptr64 )__ptr64 
-??0bad_typeid@std@@QEAA@AEBV01@@Z
-; public: __cdecl std::bad_typeid::bad_typeid(char const *__ptr64)__ptr64 
-??0bad_typeid@std@@QEAA@PEBD@Z
-; public: __cdecl std::exception::exception(char const *__ptr64 const &__ptr64 )__ptr64 
-??0exception@std@@QEAA@AEBQEBD@Z
-; public: __cdecl std::exception::exception(char const *__ptr64 const &__ptr64 ,int)__ptr64 
-??0exception@std@@QEAA@AEBQEBDH@Z
-; public: __cdecl std::exception::exception(class std::exception const &__ptr64 )__ptr64 
-??0exception@std@@QEAA@AEBV01@@Z
-; public: __cdecl std::exception::exception(void)__ptr64 
-??0exception@std@@QEAA@XZ
-; public: virtual __cdecl std::__non_rtti_object::~__non_rtti_object(void)__ptr64 
-??1__non_rtti_object@std@@UEAA@XZ
-; public: virtual __cdecl std::bad_cast::~bad_cast(void)__ptr64 
-??1bad_cast@std@@UEAA@XZ
-; public: virtual __cdecl std::bad_typeid::~bad_typeid(void)__ptr64 
-??1bad_typeid@std@@UEAA@XZ
-; public: virtual __cdecl std::exception::~exception(void)__ptr64 
-??1exception@std@@UEAA@XZ
-; public: virtual __cdecl type_info::~type_info(void)__ptr64 
-??1type_info@@UEAA@XZ
-; void *__ptr64 __cdecl operator new(unsigned __int64)
-??2@YAPEAX_K@Z
-; void *__ptr64 __cdecl operator new(unsigned __int64,int,char const *__ptr64,int)
-??2@YAPEAX_KHPEBDH@Z
-; void __cdecl operator delete(void *__ptr64)
-??3@YAXPEAX@Z
-; public: class std::__non_rtti_object &__ptr64 __cdecl std::__non_rtti_object::operator =(class std::__non_rtti_object const &__ptr64 )__ptr64 
-??4__non_rtti_object@std@@QEAAAEAV01@AEBV01@@Z
-; public: class std::bad_cast &__ptr64 __cdecl std::bad_cast::operator =(class std::bad_cast const &__ptr64 )__ptr64 
-??4bad_cast@std@@QEAAAEAV01@AEBV01@@Z
-; public: class std::bad_typeid &__ptr64 __cdecl std::bad_typeid::operator =(class std::bad_typeid const &__ptr64 )__ptr64 
-??4bad_typeid@std@@QEAAAEAV01@AEBV01@@Z
-; public: class std::exception &__ptr64 __cdecl std::exception::operator =(class std::exception const &__ptr64 )__ptr64 
-??4exception@std@@QEAAAEAV01@AEBV01@@Z
-; public: bool __cdecl type_info::operator ==(class type_info const &__ptr64 )const __ptr64 
-??8type_info@@QEBA_NAEBV0@@Z
-; public: bool __cdecl type_info::operator !=(class type_info const &__ptr64 )const __ptr64 
-??9type_info@@QEBA_NAEBV0@@Z
+
+#include "msvcrt-common.def.in"
+
+; public: __thiscall std::__non_rtti_object::__non_rtti_object(class std::__non_rtti_object const &)
+??0__non_rtti_object@std@@QAE@ABV01@@Z ; has WINAPI (@4)
+; public: __thiscall std::__non_rtti_object::__non_rtti_object(char const *)
+??0__non_rtti_object@std@@QAE@PBD@Z ; has WINAPI (@4)
+; private: __thiscall std::bad_cast::bad_cast(char const *const *)
+??0bad_cast@std@@AAE@PBQBD@Z ; has WINAPI (@4)
+; public: __thiscall std::bad_cast::bad_cast(class std::bad_cast const &)
+??0bad_cast@std@@QAE@ABV01@@Z ; has WINAPI (@4)
+; public: __thiscall std::bad_cast::bad_cast(char const *)
+??0bad_cast@std@@QAE@PBD@Z ; has WINAPI (@4)
+; public: __thiscall std::bad_typeid::bad_typeid(class std::bad_typeid const &)
+??0bad_typeid@std@@QAE@ABV01@@Z ; has WINAPI (@4)
+; public: __thiscall std::bad_typeid::bad_typeid(char const *)
+??0bad_typeid@std@@QAE@PBD@Z ; has WINAPI (@4)
+; public: __thiscall std::exception::exception(char const *const &)
+??0exception@std@@QAE@ABQBD@Z ; has WINAPI (@4)
+; public: __thiscall std::exception::exception(char const *const &,int)
+??0exception@std@@QAE@ABQBDH@Z ; has WINAPI (@8)
+; public: __thiscall std::exception::exception(class std::exception const &)
+??0exception@std@@QAE@ABV01@@Z ; has WINAPI (@4)
+; public: __thiscall std::exception::exception(void)
+??0exception@std@@QAE@XZ
+; public: virtual __thiscall std::__non_rtti_object::~__non_rtti_object(void)
+??1__non_rtti_object@std@@UAE@XZ
+; public: virtual __thiscall std::bad_cast::~bad_cast(void)
+??1bad_cast@std@@UAE@XZ
+; public: virtual __thiscall std::bad_typeid::~bad_typeid(void)
+??1bad_typeid@std@@UAE@XZ
+; public: virtual __thiscall std::exception::~exception(void)
+??1exception@std@@UAE@XZ
+; public: virtual __thiscall type_info::~type_info(void)
+??1type_info@@UAE@XZ
+; void *__cdecl operator new(unsigned int)
+??2@YAPAXI@Z
+; void *__cdecl operator new(unsigned int,int,char const *,int)
+??2@YAPAXIHPBDH@Z
+; void __cdecl operator delete(void *)
+??3@YAXPAX@Z
+; public: class std::__non_rtti_object &__thiscall std::__non_rtti_object::operator =(class std::__non_rtti_object const &)
+??4__non_rtti_object@std@@QAEAAV01@ABV01@@Z ; has WINAPI (@4)
+; public: class std::bad_cast &__thiscall std::bad_cast::operator =(class std::bad_cast const &)
+??4bad_cast@std@@QAEAAV01@ABV01@@Z ; has WINAPI (@4)
+; public: class std::bad_typeid &__thiscall std::bad_typeid::operator =(class std::bad_typeid const &)
+??4bad_typeid@std@@QAEAAV01@ABV01@@Z ; has WINAPI (@4)
+; public: class std::exception &__thiscall std::exception::operator =(class std::exception const &)
+??4exception@std@@QAEAAV01@ABV01@@Z ; has WINAPI (@4)
+; public: bool __thiscall type_info::operator ==(class type_info const &)const 
+??8type_info@@QBE_NABV0@@Z ; has WINAPI (@4)
+; public: bool __thiscall type_info::operator !=(class type_info const &)const 
+??9type_info@@QBE_NABV0@@Z ; has WINAPI (@4)
 ; const std::__non_rtti_object::$vftable
 ??_7__non_rtti_object@std@@6B@ DATA
 ; const std::bad_cast::$vftable
@@ -66,71 +68,73 @@ $I10_OUTPUT
 ??_7exception@@6B@ DATA
 ; const std::exception::$vftable
 ??_7exception@std@@6B@ DATA
-; public: void __cdecl std::bad_cast::__dflt_ctor_closure(void)__ptr64 
-??_Fbad_cast@std@@QEAAXXZ
-; public: void __cdecl std::bad_typeid::__dflt_ctor_closure(void)__ptr64 
-??_Fbad_typeid@std@@QEAAXXZ
-; void *__ptr64 __cdecl operator new[](unsigned __int64)
-??_U@YAPEAX_K@Z
-; void *__ptr64 __cdecl operator new[](unsigned __int64,int,char const *__ptr64,int)
-??_U@YAPEAX_KHPEBDH@Z
-; void __cdecl operator delete[](void *__ptr64)
-??_V@YAXPEAX@Z
-; int __cdecl _CrtDbgReportW(int,unsigned short const *__ptr64,int,unsigned short const *__ptr64,unsigned short const *__ptr64,...)
-?_CrtDbgReportW@@YAHHPEBGH00ZZ
-; private: static char const *__ptr64 __cdecl type_info::_Name_base(class type_info const *__ptr64,struct __type_info_node *__ptr64)
-?_Name_base@type_info@@CAPEBDPEBV1@PEAU__type_info_node@@@Z
-; private: static char const *__ptr64 __cdecl type_info::_Name_base_internal(class type_info const *__ptr64,struct __type_info_node *__ptr64)
-?_Name_base_internal@type_info@@CAPEBDPEBV1@PEAU__type_info_node@@@Z
-; private: static void __cdecl type_info::_Type_info_dtor(class type_info *__ptr64)
-?_Type_info_dtor@type_info@@CAXPEAV1@@Z
-; private: static void __cdecl type_info::_Type_info_dtor_internal(class type_info *__ptr64)
-?_Type_info_dtor_internal@type_info@@CAXPEAV1@@Z
-; int __cdecl _ValidateExecute(__int64(__cdecl *)(void))
-?_ValidateExecute@@YAHP6A_JXZ@Z
-; int __cdecl _ValidateRead(void const *__ptr64,unsigned int)
-?_ValidateRead@@YAHPEBXI@Z
-; int __cdecl _ValidateWrite(void *__ptr64,unsigned int)
-?_ValidateWrite@@YAHPEAXI@Z
+; public: void __thiscall std::bad_cast::__dflt_ctor_closure(void)
+??_Fbad_cast@std@@QAEXXZ
+; public: void __thiscall std::bad_typeid::__dflt_ctor_closure(void)
+??_Fbad_typeid@std@@QAEXXZ
+; void *__cdecl operator new[](unsigned int)
+??_U@YAPAXI@Z
+; void *__cdecl operator new[](unsigned int,int,char const *,int)
+??_U@YAPAXIHPBDH@Z
+; void __cdecl operator delete[](void *)
+??_V@YAXPAX@Z
+; int __cdecl _CrtDbgReportW(int,unsigned short const *,int,unsigned short const *,unsigned short const *,...)
+?_CrtDbgReportW@@YAHHPBGH00ZZ
+; private: static char const *__cdecl type_info::_Name_base(class type_info const *,struct __type_info_node *)
+?_Name_base@type_info@@CAPBDPBV1@PAU__type_info_node@@@Z
+; private: static char const *__cdecl type_info::_Name_base_internal(class type_info const *,struct __type_info_node *)
+?_Name_base_internal@type_info@@CAPBDPBV1@PAU__type_info_node@@@Z
+; private: static void __cdecl type_info::_Type_info_dtor(class type_info *)
+?_Type_info_dtor@type_info@@CAXPAV1@@Z
+; private: static void __cdecl type_info::_Type_info_dtor_internal(class type_info *)
+?_Type_info_dtor_internal@type_info@@CAXPAV1@@Z
+; int __cdecl _ValidateExecute(int(__stdcall *)(void))
+?_ValidateExecute@@YAHP6GHXZ@Z
+; int __cdecl _ValidateRead(void const *,unsigned int)
+?_ValidateRead@@YAHPBXI@Z
+; int __cdecl _ValidateWrite(void *,unsigned int)
+?_ValidateWrite@@YAHPAXI@Z
 __uncaught_exception
 ; void __cdecl _inconsistency(void)
 ?_inconsistency@@YAXXZ
-; void __cdecl _invalid_parameter(unsigned short const *__ptr64,unsigned short const *__ptr64,unsigned short const *__ptr64,unsigned int,unsigned __int64)
-?_invalid_parameter@@YAXPEBG00I_K@Z
-; int __cdecl _is_exception_typeof(class type_info const &__ptr64 ,struct _EXCEPTION_POINTERS *__ptr64)
-?_is_exception_typeof@@YAHAEBVtype_info@@PEAU_EXCEPTION_POINTERS@@@Z
-; public: char const *__ptr64 __cdecl type_info::_name_internal_method(struct __type_info_node *__ptr64)const __ptr64 
-?_name_internal_method@type_info@@QEBAPEBDPEAU__type_info_node@@@Z
-; int __cdecl _open(char const *__ptr64,int,int)
-?_open@@YAHPEBDHH@Z
-; int(__cdecl *)(unsigned __int64)__cdecl _query_new_handler(void)
-?_query_new_handler@@YAP6AH_K@ZXZ
+; void __cdecl _invalid_parameter(unsigned short const *,unsigned short const *,unsigned short const *,unsigned int,unsigned int)
+?_invalid_parameter@@YAXPBG00II@Z
+; int __cdecl _is_exception_typeof(class type_info const &,struct _EXCEPTION_POINTERS *)
+?_is_exception_typeof@@YAHABVtype_info@@PAU_EXCEPTION_POINTERS@@@Z
+; public: char const *__thiscall type_info::_name_internal_method(struct __type_info_node *)const 
+?_name_internal_method@type_info@@QBEPBDPAU__type_info_node@@@Z ; has WINAPI (@4)
+; int __cdecl _open(char const *,int,int)
+?_open@@YAHPBDHH@Z
+; int(__cdecl *)(unsigned int)__cdecl _query_new_handler(void)
+?_query_new_handler@@YAP6AHI@ZXZ
 ; int __cdecl _query_new_mode(void)
 ?_query_new_mode@@YAHXZ
-; int(__cdecl *)(unsigned __int64)__cdecl _set_new_handler(int)
-?_set_new_handler@@YAP6AH_K@ZH@Z
-; int(__cdecl *)(unsigned __int64)__cdecl _set_new_handler(int(__cdecl *)(unsigned __int64))
-?_set_new_handler@@YAP6AH_K@ZP6AH0@Z@Z
+; int(__cdecl *)(unsigned int)__cdecl _set_new_handler(int)
+?_set_new_handler@@YAP6AHI@ZH@Z
+; int(__cdecl *)(unsigned int)__cdecl _set_new_handler(int(__cdecl *)(unsigned int))
+?_set_new_handler@@YAP6AHI@ZP6AHI@Z@Z
 ; int __cdecl _set_new_mode(int)
 ?_set_new_mode@@YAHH@Z
-; void(__cdecl *)(unsigned int,struct _EXCEPTION_POINTERS *__ptr64)__cdecl _set_se_translator(int)
-?_set_se_translator@@YAP6AXIPEAU_EXCEPTION_POINTERS@@@ZH@Z
-; void(__cdecl *)(unsigned int,struct _EXCEPTION_POINTERS *__ptr64)__cdecl _set_se_translator(void(__cdecl *)(unsigned int,struct _EXCEPTION_POINTERS *__ptr64))
-?_set_se_translator@@YAP6AXIPEAU_EXCEPTION_POINTERS@@@ZP6AXI0@Z@Z
-; int __cdecl _sopen(char const *__ptr64,int,int,int)
-?_sopen@@YAHPEBDHHH@Z
-; public: void __cdecl type_info::_type_info_dtor_internal_method(void)__ptr64 
-?_type_info_dtor_internal_method@type_info@@QEAAXXZ
-; int __cdecl _wopen(wchar_t const *__ptr64,int,int)
-?_wopen@@YAHPEB_WHH@Z
-; int __cdecl _wsopen(wchar_t const *__ptr64,int,int,int)
-?_wsopen@@YAHPEB_WHHH@Z
-; public: int __cdecl type_info::before(class type_info const &__ptr64 )const __ptr64 
-?before@type_info@@QEBAHAEBV1@@Z
-; public: char const *__ptr64 __cdecl type_info::name(struct __type_info_node *__ptr64)const __ptr64 
-?name@type_info@@QEBAPEBDPEAU__type_info_node@@@Z
-; public: char const *__ptr64 __cdecl type_info::raw_name(void)const __ptr64 
-?raw_name@type_info@@QEBAPEBDXZ
+; void(__cdecl *)(unsigned int,struct _EXCEPTION_POINTERS *)__cdecl _set_se_translator(int)
+?_set_se_translator@@YAP6AXIPAU_EXCEPTION_POINTERS@@@ZH@Z
+; void(__cdecl *)(unsigned int,struct _EXCEPTION_POINTERS *)__cdecl _set_se_translator(void(__cdecl *)(unsigned int,struct _EXCEPTION_POINTERS *))
+?_set_se_translator@@YAP6AXIPAU_EXCEPTION_POINTERS@@@ZP6AXI0@Z@Z
+; int __cdecl _sopen(char const *,int,int,int)
+?_sopen@@YAHPBDHHH@Z
+; public: void __thiscall type_info::_type_info_dtor_internal_method(void)
+?_type_info_dtor_internal_method@type_info@@QAEXXZ
+; int __cdecl _wopen(wchar_t const *,int,int)
+?_wopen@@YAHPB_WHH@Z
+; int __cdecl _wsopen(wchar_t const *,int,int,int)
+?_wsopen@@YAHPB_WHHH@Z
+; public: int __thiscall type_info::before(class type_info const &)const 
+?before@type_info@@QBEHABV1@@Z ; has WINAPI (@4)
+; /_control87/::'0x2ULL'::commonFlags
+?commonFlags@?1??_control87@@9@9
+; public: char const *__thiscall type_info::name(struct __type_info_node *)const 
+?name@type_info@@QBEPBDPAU__type_info_node@@@Z ; has WINAPI (@4)
+; public: char const *__thiscall type_info::raw_name(void)const 
+?raw_name@type_info@@QBEPBDXZ
 ; void(__cdecl *)(void)__cdecl set_new_handler(void(__cdecl *)(void))
 ?set_new_handler@@YAP6AXXZP6AXXZ@Z
 ; void(__cdecl *)(void)__cdecl set_terminate(int)
@@ -141,12 +145,35 @@ __uncaught_exception
 ?set_unexpected@@YAP6AXXZH@Z
 ; void(__cdecl *)(void)__cdecl set_unexpected(void(__cdecl *)(void))
 ?set_unexpected@@YAP6AXXZP6AXXZ@Z
+; int __cdecl swprintf(unsigned short *,unsigned int,unsigned short const *,...)
+?swprintf@@YAHPAGIPBGZZ
+; int __cdecl swprintf(wchar_t *,unsigned int,wchar_t const *,...)
+?swprintf@@YAHPA_WIPB_WZZ
 ; void __cdecl terminate(void)
 ?terminate@@YAXXZ
 ; void __cdecl unexpected(void)
 ?unexpected@@YAXXZ
-; public: virtual char const *__ptr64 __cdecl std::exception::what(void)const __ptr64 
-?what@exception@std@@UEBAPEBDXZ
+; int __cdecl vswprintf(wchar_t *,unsigned int,wchar_t const *,char *)
+?vswprintf@@YAHPA_WIPB_WPAD@Z
+; public: virtual char const *__thiscall std::exception::what(void)const 
+?what@exception@std@@UBEPBDXZ
+$I10_OUTPUT
+_CIacos
+_CIasin
+_CIatan
+_CIatan2
+_CIcos
+_CIcosh
+_CIexp
+_CIfmod
+_CIlog
+_CIlog10
+_CIpow
+_CIsin
+_CIsinh
+_CIsqrt
+_CItan
+_CItanh
 _CRT_RTC_INIT
 _CRT_RTC_INITW
 _CreateFrameInfo
@@ -180,17 +207,17 @@ _CrtSetReportHook
 _CrtSetReportHook2
 _CrtSetReportHookW2
 _CrtSetReportMode
-_CxxThrowException
+_CxxThrowException@8
+_EH_prolog
 _FindAndUnlinkFrame
-_GetImageBase
-_GetThrowImageBase
 _Getdays
 _Getmonths
 _Gettnames
 _HUGE DATA
 _IsExceptionObjectToBeDestroyed
-_SetImageBase
-_SetThrowImageBase
+_NLG_Dispatch2@4
+_NLG_Return@12
+_NLG_Return2
 _Strftime
 _VCrtDbgReportA
 _VCrtDbgReportW
@@ -198,7 +225,6 @@ _XcptFilter
 __AdjustPointer
 __BuildCatchObject
 __BuildCatchObjectHelper
-__C_specific_handler
 __CppXcptFilter
 __CxxCallUnwindDelDtor
 __CxxCallUnwindDtor
@@ -209,13 +235,12 @@ __CxxExceptionFilter
 __CxxFrameHandler
 __CxxFrameHandler2
 __CxxFrameHandler3
+__CxxLongjmpUnwind@4
 __CxxQueryExceptionSize
 __CxxRegisterExceptionObject
 __CxxUnregisterExceptionObject
 __DestructExceptionObject
 __FrameUnwindFilter
-__NLG_Dispatch2
-__NLG_Return2
 __RTCastToVoid
 __RTDynamicCast
 __RTtypeid
@@ -233,6 +258,7 @@ __argc DATA
 __argv DATA
 __badioinfo DATA
 __clean_type_info_names_internal
+__control87_2
 __create_locale
 __crtCompareStringA
 __crtCompareStringW
@@ -240,13 +266,12 @@ __crtGetLocaleInfoW
 __crtGetStringTypeW
 __crtLCMapStringA
 __crtLCMapStringW
-__crt_debugger_hook
 __daylight
 __dllonexit
 __doserrno
 __dstbias
-__fls_getvalue
-__fls_setvalue
+___fls_getvalue@4@4
+___fls_setvalue@8@8
 __fpecode
 __free_locale
 __get_app_type
@@ -267,6 +292,27 @@ __lc_collate_cp DATA
 __lc_handle DATA
 __lconv DATA
 __lconv_init
+__libm_sse2_acos
+__libm_sse2_acosf
+__libm_sse2_asin
+__libm_sse2_asinf
+__libm_sse2_atan
+__libm_sse2_atan2
+__libm_sse2_atanf
+__libm_sse2_cos
+__libm_sse2_cosf
+__libm_sse2_exp
+__libm_sse2_expf
+__libm_sse2_log
+__libm_sse2_log10
+__libm_sse2_log10f
+__libm_sse2_logf
+__libm_sse2_pow
+__libm_sse2_powf
+__libm_sse2_sin
+__libm_sse2_sinf
+__libm_sse2_tan
+__libm_sse2_tanf
 __mb_cur_max DATA
 __p___argc
 __p___argv
@@ -324,10 +370,25 @@ __wcserror_s
 __wcsncnt
 __wgetmainargs
 __winitenv DATA
+_abnormal_termination
 _abs64
 _access
 _access_s
 _acmdln DATA
+_adj_fdiv_m16i@4
+_adj_fdiv_m32@4
+_adj_fdiv_m32i@4
+_adj_fdiv_m64@8
+_adj_fdiv_r ; Check!!! Couldn't determine function argument count. Function doesn't return. 
+_adj_fdivr_m16i@4
+_adj_fdivr_m32@4
+_adj_fdivr_m32i@4
+_adj_fdivr_m64@8
+_adj_fpatan
+_adj_fprem
+_adj_fprem1
+_adj_fptan
+_adjust_fdiv DATA
 _aexit_rtn DATA
 _aligned_free
 _aligned_free_dbg
@@ -376,7 +437,7 @@ _cgetws_s
 _chdir
 _chdrive
 _chgsign
-_chgsignf
+_chkesp
 _chmod
 _chsize
 _chsize_s
@@ -391,7 +452,6 @@ _control87
 _controlfp
 _controlfp_s
 _copysign
-_copysignf
 _cprintf
 _cprintf_l
 _cprintf_p
@@ -405,6 +465,7 @@ _create_locale
 _crtAssertBusy DATA
 _crtBreakAlloc DATA
 _crtDbgFlag DATA
+_crt_debugger_hook
 _cscanf
 _cscanf_l
 _cscanf_s
@@ -444,6 +505,9 @@ _endthreadex
 _environ DATA
 _eof
 _errno
+_except_handler2
+_except_handler3
+_except_handler4_common
 _execl
 _execle
 _execlp
@@ -470,24 +534,22 @@ _filelengthi64
 _fileno
 _findclose
 _findfirst32
-_findfirst == _findfirst64i32
+_findfirst == _findfirst32
 _findfirst32i64
 _findfirst64
 _findfirst64i32
 _findnext32
-_findnext == _findnext64i32
+_findnext == _findnext32
 _findnext32i64
 _findnext64
 _findnext64i32
 _finite
-_finitef
 _flsbuf
 _flushall
 _fmode DATA
 _fpclass
-_fpclassf
 _fpieee_flt
-_fpreset DATA
+_fpreset
 _fprintf_l
 _fprintf_p
 _fprintf_p_l
@@ -502,7 +564,7 @@ _free_dbg
 _free_locale
 _freea
 _freea_s
-_freefls
+_freefls@4
 _fscanf_l
 _fscanf_s_l
 _fseek_nolock
@@ -510,8 +572,8 @@ _fseeki64
 _fseeki64_nolock
 _fsopen
 _fstat32
-_fstat == _fstat64i32
-_fstati64 == _fstat64
+_fstat == _fstat32
+_fstati64 == _fstat32i64
 _fstat32i64
 _fstat64
 _fstat64i32
@@ -522,6 +584,7 @@ _ftime32
 _ftime32_s
 _ftime64
 _ftime64_s
+_ftol
 _fullpath
 _fullpath_dbg
 _futime32
@@ -581,8 +644,9 @@ _getwche
 _getwche_nolock
 _getws
 _getws_s
+_global_unwind2
 _gmtime32
-gmtime == _gmtime64
+gmtime == _gmtime32
 _gmtime32_s
 _gmtime64
 _gmtime64_s
@@ -601,6 +665,9 @@ _i64tow_s
 _initptd
 _initterm
 _initterm_e
+_inp
+_inpd
+_inpw
 _invalid_parameter
 _invoke_watson
 _iob DATA
@@ -673,7 +740,6 @@ _ismbslead_l
 _ismbstrail
 _ismbstrail_l
 _isnan
-_isnanf
 _isprint_l
 _ispunct_l
 _isspace_l
@@ -704,17 +770,18 @@ _kbhit
 _lfind
 _lfind_s
 _loaddll
-_local_unwind
+_local_unwind2
+_local_unwind4
 _localtime32
+localtime == _localtime32
 _localtime32_s
 _localtime64
-localtime == _localtime64
 _localtime64_s
 _lock
 _lock_file
 _locking
 _logb
-_logbf
+_longjmpex 
 _lrotl
 _lrotr
 _lsearch
@@ -870,20 +937,22 @@ _memicmp
 _memicmp_l
 _mkdir
 _mkgmtime32
+_mkgmtime == _mkgmtime32
 _mkgmtime64
-_mkgmtime == _mkgmtime64
 _mktemp
 _mktemp_s
 _mktime32
+mktime == _mktime32
 _mktime64
-mktime == _mktime64
 _msize
 _msize_dbg
 _nextafter
-_nextafterf
 _onexit
 _open
 _open_osfhandle
+_outp
+_outpd
+_outpw
 _pclose
 _pctype DATA
 _pgmptr DATA
@@ -914,8 +983,11 @@ _rotl
 _rotl64
 _rotr
 _rotr64
+_safe_fdiv
+_safe_fdivr
+_safe_fprem
+_safe_fprem1
 _scalb
-_scalbf
 _scanf_l
 _scanf_s_l
 _scprintf
@@ -928,6 +1000,9 @@ _scwprintf_p
 _scwprintf_p_l
 _searchenv
 _searchenv_s
+_seh_longjmp_unwind4@4
+_seh_longjmp_unwind@4
+_set_SSE2_enable
 _set_abort_behavior
 _set_amblksiz
 _set_controlfp
@@ -943,7 +1018,7 @@ _set_purecall_handler
 _set_sbh_threshold
 _seterrormode
 _setjmp
-_setjmpex
+_setjmp3
 _setmaxstdio
 _setmbcp
 _setmode
@@ -986,12 +1061,13 @@ _sprintf_s_l
 _sscanf_l
 _sscanf_s_l
 _stat32
-_stat == _stat64i32
-_stati64 == _stat64
+_stat == _stat32
+_stati64 == _stat32i64
 _stat32i64
 _stat64
 _stat64i32
 _statusfp
+_statusfp2
 _strcoll_l
 _strdate
 _strdate_s
@@ -1049,8 +1125,8 @@ _telli64
 _tempnam
 _tempnam_dbg
 _time32
+time == _time32
 _time64
-time == _time64
 _timezone DATA
 _tolower
 _tolower_l
@@ -1189,13 +1265,13 @@ _wcsupr_s
 _wcsupr_s_l
 _wcsxfrm_l
 _wctime32
+_wctime == _wctime32
 _wctime32_s
 _wctime64
-_wctime == _wctime64
 _wctime64_s
 _wctomb_l
 _wctomb_s_l
-_wctype DATA
+_wctype@50371
 _wdupenv_s
 _wdupenv_s_dbg
 _wenviron DATA
@@ -1209,12 +1285,12 @@ _wexecvp
 _wexecvpe
 _wfdopen
 _wfindfirst32
-_wfindfirst == _wfindfirst64i32
+_wfindfirst == _wfindfirst32
 _wfindfirst32i64
 _wfindfirst64
 _wfindfirst64i32
 _wfindnext32
-_wfindnext == _wfindnext64i32
+_wfindnext = _wfindnext32
 _wfindnext32i64
 _wfindnext64
 _wfindnext64i32
@@ -1269,8 +1345,8 @@ _wspawnvpe
 _wsplitpath
 _wsplitpath_s
 _wstat32
-_wstat == _wstat64i32
-_wstati64 == _wstat64
+_wstat == _wstat32
+_wstati64 == _wstat32i64
 _wstat32i64
 _wstat64
 _wstat64i32
@@ -1300,15 +1376,11 @@ _yn
 abort
 abs
 acos
-acosf
 asctime
 asctime_s
 asin
-asinf
 atan
 atan2
-atan2f
-atanf
 atexit DATA
 atof
 atoi
@@ -1318,18 +1390,14 @@ bsearch_s
 btowc
 calloc
 ceil DATA
-ceilf DATA
 clearerr
 clearerr_s
 clock
 cos
-cosf
 cosh
-coshf
 div
 exit
 exp DATA
-expf DATA
 fabs
 fclose
 feof
@@ -1341,9 +1409,7 @@ fgets
 fgetwc
 fgetws
 floor DATA
-floorf DATA
-fmod
-fmodf
+fmod DATA
 fopen
 fopen_s
 fprintf
@@ -1408,8 +1474,6 @@ ldiv
 localeconv
 log DATA
 log10
-log10f
-logf DATA
 longjmp DATA
 malloc
 mblen
@@ -1428,10 +1492,8 @@ memmove
 memmove_s
 memset
 modf
-modff
 perror
 pow
-powf
 printf
 printf_s
 putc
@@ -1451,18 +1513,14 @@ rewind
 scanf
 scanf_s
 setbuf
-setjmp
 setlocale
 setvbuf
 signal
 sin
-sinf
 sinh
-sinhf
 sprintf
 sprintf_s
 sqrt DATA
-sqrtf DATA
 srand
 sscanf
 sscanf_s
@@ -1499,9 +1557,7 @@ swscanf
 swscanf_s
 system
 tan
-tanf
 tanh
-tanhf
 tmpfile
 tmpfile_s
 tmpnam

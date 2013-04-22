@@ -1,4 +1,7 @@
 EXPORTS
+
+#include "msvcrt-common.def.in"
+
 _CIacos
 _CIasin
 _CIatan

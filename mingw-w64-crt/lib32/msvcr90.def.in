@@ -5,6 +5,9 @@
 ;
 LIBRARY "msvcr90.dll"
 EXPORTS
+
+#include "msvcrt-common.def.in"
+
 ; public: __thiscall std::__non_rtti_object::__non_rtti_object(class std::__non_rtti_object const &)
 ??0__non_rtti_object@std@@QAE@ABV01@@Z ; has WINAPI (@4)
 ; public: __thiscall std::bad_cast::bad_cast(class std::bad_cast const &)
