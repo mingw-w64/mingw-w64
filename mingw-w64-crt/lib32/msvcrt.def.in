@@ -634,6 +634,7 @@ mbstowcs
 mbtowc
 memchr
 memcmp
+memcpy
 memmove
 memset
 mktime
