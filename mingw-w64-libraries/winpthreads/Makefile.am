@@ -1,3 +1,6 @@
+
+SUBDIRS = . tests
+
 AM_CFLAGS = -Wall -DWIN32_LEAN_AND_MEAN
 ACLOCAL_AMFLAGS = -I m4
 
@@ -42,7 +45,4 @@ endif
 	$(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --tag=RC --mode=compile $(RC) $(RCFLAGS) -i $< -o $@
 
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet)
-
-check_PROGRAMS = tests/t_clock_getres  tests/t_clock_gettime  tests/t_clock_nanosleep  tests/t_clock_settime  tests/t_nanosleep  tests/test
-TESTS = $(check_PROGRAMS)
 

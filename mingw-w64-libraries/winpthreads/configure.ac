@@ -53,5 +53,5 @@ AC_TYPE_SIZE_T
 
 AC_SUBST([RCFLAGS])
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([Makefile tests/Makefile])
 AC_OUTPUT
