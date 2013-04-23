@@ -7,7 +7,7 @@ ACLOCAL_AMFLAGS = -I m4
 lib_LTLIBRARIES = libwinpthread.la
 
 include_HEADERS = include/pthread.h include/sched.h include/semaphore.h include/pthread_unistd.h include/pthread_time.h include/pthread_compat.h
-libwinpthread_la_CPPFLAGS = -I$(srcdir)/include -DIN_WINPTHREAD
+libwinpthread_la_CPPFLAGS = -I$(srcdir)/include -DIN_WINPTHREAD -DWINPTHREAD_DBG=1
 libwinpthread_la_LDFLAGS = -no-undefined -version-info 1:0:0 -L$(builddir)
 EXTRA_libwinpthread_la_DEPENDENCIES = libgcc.a
 libwinpthread_la_SOURCES = \
