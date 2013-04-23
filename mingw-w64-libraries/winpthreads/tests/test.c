@@ -519,10 +519,10 @@ int mutex_main_raced(void)
     mutex_print(&mutex, "A Clean up");
     rc = pthread_mutex_destroy(&mutex);
     mutex_print(&mutex, "B Clean up");
-    printf("Main completed spincount = %d\n", _spin_lite_getsc(0));
-    printf("Main completed spinlocks = %d\n", _spin_lite_getbsc(0));
-    printf("Main completed Max spincount = %d\n", _spin_lite_getscMax(0));
-    printf("Main completed Avg spincount/thread = %f\n", (float)((float)_spin_lite_getsc(0)/(float)MUTEX_NTHREADS));
+    // Removed in r4392: printf("Main completed spincount = %d\n", _spin_lite_getsc(0));
+    // Removed in r4392: printf("Main completed spinlocks = %d\n", _spin_lite_getbsc(0));
+    // Removed in r4392: printf("Main completed Max spincount = %d\n", _spin_lite_getscMax(0));
+    // Removed in r4392: printf("Main completed Avg spincount/thread = %f\n", (float)((float)_spin_lite_getsc(0)/(float)MUTEX_NTHREADS));
     return 0;
 }
 
