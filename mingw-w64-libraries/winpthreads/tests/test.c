@@ -71,7 +71,7 @@ int                     SLsharedData2=0;
 void *spinlock_threadfunc(void *parm)
 {
    int   rc, d;
-   int tid = pthread_self()->tid;
+   int tid = pthread_self();
    printf("Thread %d: Entered\n", tid);
    rc = pthread_spin_lock(&spinlock);
    d= SLsharedData;
@@ -195,7 +195,7 @@ void *mutex_threadfunc_raced(void *parm)
    int   rc, rc1, i,j=0,x=0;
    int d;
    int rn;
-   int tid = pthread_self()->tid;
+   int tid = pthread_self();
    struct timespec   ts;
 
    //printf("Thread %d: Entered\n", tid);
@@ -299,7 +299,7 @@ void *mutex_threadfunc_timed(void *parm)
 {
    int   rc;
    int d,e;
-   int tid = pthread_self()->tid;
+   int tid = pthread_self();
    struct timespec   ts;
    printf("Thread %d: Entered\n", tid);
    mutex_print(&mutex,"Lock T");
@@ -350,7 +350,7 @@ void *mutex_threadfuncDL1(void *parm)
 {
    int   rc;
    int d;
-   int tid = pthread_self()->tid;
+   int tid = pthread_self();
    printf("Thread %d: Entered, locking n1\n", tid);
    rc = pthread_mutex_lock(&mutex);
    checkResults("pthread_mutex_lock() 1\n", rc);
@@ -378,7 +378,7 @@ int mutex_main_DL(void)
    int   rc;
    int d;
    pthread_t thread;
-   int tid = pthread_self()->tid;
+   int tid = pthread_self();
     rc = pthread_create(&thread, NULL, mutex_threadfuncDL1, NULL);
     checkResults("mutex_main_DL: pthread_create()\n", rc);
    printf("mutex_main_DL: wait for thread\n");
@@ -502,7 +502,7 @@ int mutex_main_raced(void)
                 rc = pthread_join(thread[i], NULL);
                 if (rc) {
                     f++;
-                    printf("_pthread_tryjoin failed: %d %d %d\n",i, rc,thread[i]->tid);
+                    printf("_pthread_tryjoin failed: %d %d %d\n",i, rc,thread[i]);
                 } else {
                     thread[i] = 0;
                     printf("_pthread_tryjoin OK: %d\n",i);
@@ -657,7 +657,7 @@ void *condTimed_threadfunc(void *parm)
 
   rc = pthread_mutex_lock(&mutex);
   checkResults("pthread_mutex_lock()\n", rc);
-  tid = pthread_self()->tid;
+  tid = pthread_self();
 
   /* Usually worker threads will loop on these operations */
   while (!workLeave) {
@@ -804,7 +804,7 @@ void *condTimed_threadfunc(void *parm)
 
   rc = pthread_mutex_lock(&mutex);
   checkResults("pthread_mutex_lock()\n", rc);
-  tid = pthread_self()->tid;
+  tid = pthread_self();
 
   /* Usually worker threads will loop on these operations */
   printf("condTimed_threadfunc, wait %d secs\n", COND_WAIT_TIME_SECONDS);
