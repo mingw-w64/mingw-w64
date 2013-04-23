@@ -504,7 +504,7 @@ int mutex_main_raced(void)
                     f++;
                     printf("_pthread_tryjoin failed: %d %d %d\n",i, rc,thread[i]->tid);
                 } else {
-                    thread[i] = NULL;
+                    thread[i] = 0;
                     printf("_pthread_tryjoin OK: %d\n",i);
                 }
             }
