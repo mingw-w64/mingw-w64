@@ -124,7 +124,3 @@ ADD_UNDERSCORE(fpclass)
 ADD_UNDERSCORE(hypot)
 ;logb
 ADD_UNDERSCORE(nextafter)
-
-daylight DATA
-timezone DATA
-tzname DATA
