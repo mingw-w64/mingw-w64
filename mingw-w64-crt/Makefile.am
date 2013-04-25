@@ -214,7 +214,7 @@ src_libmingwex=\
   stdio/mingw_wvfscanf.c   stdio/snprintf.c          stdio/snwprintf.c        stdio/strtof.c            stdio/truncate.c        \
   stdio/ulltoa.c           stdio/ulltow.c            stdio/vasprintf.c        stdio/vfscanf.c           stdio/vfwscanf.c        \
   stdio/vscanf.c           stdio/vsnprintf.c         stdio/vsnprintf_s.c      stdio/vsnwprintf.c        stdio/vsscanf.c         \
-  stdio/vswscanf.c         stdio/vwscanf.c           stdio/wtoll.c            \
+  stdio/vswscanf.c         stdio/vwscanf.c           stdio/wtoll.c            stdio/mingw_asprintf.c    stdio/mingw_vasprintf.c \
   \
   secapi/_cgets_s.c secapi/_cgetws_s.c \
   secapi/_cprintf_s.c secapi/_cprintf_s_l.c \
