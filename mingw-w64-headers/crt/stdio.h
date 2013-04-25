@@ -313,7 +313,7 @@ int vsprintf (char *__stream, const char *__format, __builtin_va_list __local_ar
 {
   return __mingw_vsprintf( __stream, __format, __local_argv );
 }
-
+#ifdef _GNU_SOURCE
 __mingw_ovr
 __attribute__ ((__format__ (gnu_printf, 2, 3))) __attribute__((nonnull (1,2)))
 int asprintf(char **__ret, const char *__format, ...)
@@ -331,7 +331,7 @@ int vasprintf(char **__ret, const char *__format, __builtin_va_list __local_argv
 {
   return __mingw_vasprintf( __ret, __format, __local_argv );
 }
-
+#endif /* _GNU_SOURCE */
 /* #ifndef __NO_ISOCEXT */  /* externs in libmingwex.a */
 __mingw_ovr
 __attribute__((__format__ (gnu_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
@@ -384,6 +384,10 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
   int __cdecl fscanf(FILE * __restrict__ _File,const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   int __cdecl scanf(const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   int __cdecl sscanf(const char * __restrict__ _Src,const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+#ifdef _GNU_SOURCE
+  int __cdecl vasprintf(char ** __restrict__ ret,const char * __restrict__ format,va_list ap)  __attribute__ ((format (__MINGW_PRINTF_FORMAT, 2, 0)));;
+  int __cdecl asprintf(char ** __restrict__ ret,const char * __restrict__ format,...) __attribute__ ((format (__MINGW_PRINTF_FORMAT, 2, 3)));
+#endif /*_GNU_SOURCE*/
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
   int __cdecl __ms_vscanf(const char * __restrict__ Format, va_list argp);
   int __cdecl __ms_vfscanf (FILE * __restrict__ fp, const char * __restrict__ Format,va_list argp);
