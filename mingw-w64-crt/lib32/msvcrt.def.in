@@ -140,7 +140,6 @@ _creat
 _cscanf
 _ctype DATA
 _cwait
-_daylight DATA
 _dstbias DATA
 _dup
 _dup2
@@ -425,10 +424,8 @@ _sys_nerr DATA
 _tell
 _telli64
 _tempnam
-_timezone DATA
 _tolower
 _toupper
-_tzname DATA
 _tzset
 _ui64toa
 _ui64tow

@@ -805,7 +805,6 @@ _cwscanf
 _cwscanf_l
 _cwscanf_s
 _cwscanf_s_l
-_daylight DATA
 _difftime32 DATA
 _difftime64 DATA
 _dosmaperr
@@ -1427,14 +1426,12 @@ _tempnam
 _time32
 _time64
 time == _time32
-_timezone DATA
 _tolower
 _tolower_l
 _toupper
 _toupper_l
 _towlower_l
 _towupper_l
-_tzname DATA
 _tzset
 _ui64toa
 _ui64toa_s
