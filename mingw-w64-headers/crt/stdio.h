@@ -196,6 +196,26 @@ extern
 #define __MINGW_PRINTF_FORMAT gnu_printf
 #define __MINGW_SCANF_FORMAT  gnu_scanf
 
+#ifdef _GNU_SOURCE
+__mingw_ovr
+__attribute__ ((__format__ (gnu_printf, 2, 3))) __attribute__((nonnull (1,2)))
+int asprintf(char **__ret, const char *__format, ...)
+{
+  register int __retval;
+  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+  __retval = __mingw_vasprintf( __ret, __format, __local_argv );
+  __builtin_va_end( __local_argv );
+  return __retval;
+}
+
+__mingw_ovr
+__attribute__ ((__format__ (gnu_printf, 2, 0))) __attribute__((nonnull (1,2)))
+int vasprintf(char **__ret, const char *__format, __builtin_va_list __local_argv)
+{
+  return __mingw_vasprintf( __ret, __format, __local_argv );
+}
+#endif /* _GNU_SOURCE */
+
 /* There seems to be a bug about builtins and static overrides of them
    in g++.  So we need to do here some trickery.  */
 #ifdef __cplusplus
@@ -313,25 +333,6 @@ int vsprintf (char *__stream, const char *__format, __builtin_va_list __local_ar
 {
   return __mingw_vsprintf( __stream, __format, __local_argv );
 }
-#ifdef _GNU_SOURCE
-__mingw_ovr
-__attribute__ ((__format__ (gnu_printf, 2, 3))) __attribute__((nonnull (1,2)))
-int asprintf(char **__ret, const char *__format, ...)
-{
-  register int __retval;
-  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-  __retval = __mingw_vasprintf( __ret, __format, __local_argv );
-  __builtin_va_end( __local_argv );
-  return __retval;
-}
-
-__mingw_ovr
-__attribute__ ((__format__ (gnu_printf, 2, 0))) __attribute__((nonnull (1,2)))
-int vasprintf(char **__ret, const char *__format, __builtin_va_list __local_argv)
-{
-  return __mingw_vasprintf( __ret, __format, __local_argv );
-}
-#endif /* _GNU_SOURCE */
 /* #ifndef __NO_ISOCEXT */  /* externs in libmingwex.a */
 __mingw_ovr
 __attribute__((__format__ (gnu_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
@@ -413,7 +414,7 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
     return __ms_vscanf (__format, __local_argv);
   }
 
-#endif
+#endif /* __NO_ISOCEXT */
 #endif /* __USE_MINGW_ANSI_STDIO */
 
   _CRTIMP int __cdecl _filbuf(FILE *_File);
