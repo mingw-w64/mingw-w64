@@ -115,20 +115,24 @@ AM_V_AR = $(am__v_AR_@AM_V@)
 am__v_AR_ = $(am__v_AR_@AM_DEFAULT_V@)
 am__v_AR_0 = @echo "  AR      " $@;
 am__v_AR_1 = 
-libgcc_a_AR = $(AR) $(ARFLAGS)
-libgcc_a_LIBADD =
+fakelib_libgcc_a_AR = $(AR) $(ARFLAGS)
+fakelib_libgcc_a_LIBADD =
 am__dirstamp = $(am__leading_dot)dirstamp
-am_libgcc_a_OBJECTS = src/libgcc/dll_dependency.$(OBJEXT) \
+am_fakelib_libgcc_a_OBJECTS = src/libgcc/dll_dependency.$(OBJEXT) \
 	src/libgcc/dll_math.$(OBJEXT)
-libgcc_a_OBJECTS = $(am_libgcc_a_OBJECTS)
-libgcc_eh_a_AR = $(AR) $(ARFLAGS)
-libgcc_eh_a_LIBADD =
-am_libgcc_eh_a_OBJECTS =
-libgcc_eh_a_OBJECTS = $(am_libgcc_eh_a_OBJECTS)
-libgcc_s_a_AR = $(AR) $(ARFLAGS)
-libgcc_s_a_LIBADD =
-am_libgcc_s_a_OBJECTS =
-libgcc_s_a_OBJECTS = $(am_libgcc_s_a_OBJECTS)
+fakelib_libgcc_a_OBJECTS = $(am_fakelib_libgcc_a_OBJECTS)
+fakelib_libgcc_eh_a_AR = $(AR) $(ARFLAGS)
+fakelib_libgcc_eh_a_LIBADD =
+am_fakelib_libgcc_eh_a_OBJECTS =
+fakelib_libgcc_eh_a_OBJECTS = $(am_fakelib_libgcc_eh_a_OBJECTS)
+fakelib_libgcc_s_a_AR = $(AR) $(ARFLAGS)
+fakelib_libgcc_s_a_LIBADD =
+am_fakelib_libgcc_s_a_OBJECTS =
+fakelib_libgcc_s_a_OBJECTS = $(am_fakelib_libgcc_s_a_OBJECTS)
+fakelib_libpthread_a_AR = $(AR) $(ARFLAGS)
+fakelib_libpthread_a_LIBADD =
+am_fakelib_libpthread_a_OBJECTS =
+fakelib_libpthread_a_OBJECTS = $(am_fakelib_libpthread_a_OBJECTS)
 libpthread_a_LIBADD =
 am_libpthread_a_OBJECTS =
 libpthread_a_OBJECTS = $(am_libpthread_a_OBJECTS)
@@ -198,11 +202,13 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(libgcc_a_SOURCES) $(libgcc_eh_a_SOURCES) \
-	$(libgcc_s_a_SOURCES) $(libpthread_a_SOURCES) \
-	$(libpthread_dll_a_SOURCES) $(libwinpthread_la_SOURCES)
-DIST_SOURCES = $(libgcc_a_SOURCES) $(libgcc_eh_a_SOURCES) \
-	$(libgcc_s_a_SOURCES) $(libpthread_a_SOURCES) \
+SOURCES = $(fakelib_libgcc_a_SOURCES) $(fakelib_libgcc_eh_a_SOURCES) \
+	$(fakelib_libgcc_s_a_SOURCES) $(fakelib_libpthread_a_SOURCES) \
+	$(libpthread_a_SOURCES) $(libpthread_dll_a_SOURCES) \
+	$(libwinpthread_la_SOURCES)
+DIST_SOURCES = $(fakelib_libgcc_a_SOURCES) \
+	$(fakelib_libgcc_eh_a_SOURCES) $(fakelib_libgcc_s_a_SOURCES) \
+	$(fakelib_libpthread_a_SOURCES) $(libpthread_a_SOURCES) \
 	$(libpthread_dll_a_SOURCES) $(libwinpthread_la_SOURCES)
 RECURSIVE_TARGETS = all-recursive check-recursive cscopelist-recursive \
 	ctags-recursive dvi-recursive html-recursive info-recursive \
@@ -418,17 +424,20 @@ ACLOCAL_AMFLAGS = -I m4
 lib_LTLIBRARIES = libwinpthread.la
 include_HEADERS = include/pthread.h include/sched.h include/semaphore.h include/pthread_unistd.h include/pthread_time.h include/pthread_compat.h
 libwinpthread_la_CPPFLAGS = -I$(srcdir)/include -DIN_WINPTHREAD -DWINPTHREAD_DBG=1
-libwinpthread_la_LDFLAGS = -no-undefined -version-info 1:0:0 -L$(builddir)
-EXTRA_libwinpthread_la_DEPENDENCIES = libgcc.a  libgcc_eh.a  libgcc_s.a
+libwinpthread_la_LDFLAGS = -no-undefined -version-info 1:0:0 -L$(builddir)/fakelib
+EXTRA_libwinpthread_la_DEPENDENCIES = fakelib/libgcc.a  fakelib/libgcc_eh.a  fakelib/libgcc_s.a  fakelib/libpthread.a
 libwinpthread_la_SOURCES = \
   src/barrier.h  src/cond.h  src/misc.h  src/mutex.h  src/rwlock.h  src/spinlock.h  src/thread.h  src/ref.h  src/sem.h  src/wpth_ver.h \
   src/barrier.c  src/cond.c  src/misc.c  src/mutex.c  src/rwlock.c  src/spinlock.c  src/thread.c  src/ref.c  src/sem.c  src/sched.c \
   src/winpthread_internal.h  src/clock.c src/nanosleep.c src/version.rc
 
-noinst_LIBRARIES = libgcc.a  libgcc_eh.a  libgcc_s.a
-libgcc_a_SOURCES = src/libgcc/dll_dependency.S src/libgcc/dll_math.c
-libgcc_s_a_SOURCES = 
-libgcc_eh_a_SOURCES = 
+
+# Break circular dep on bootstrap
+noinst_LIBRARIES = fakelib/libgcc.a  fakelib/libgcc_eh.a  fakelib/libgcc_s.a  fakelib/libpthread.a
+fakelib_libgcc_a_SOURCES = src/libgcc/dll_dependency.S src/libgcc/dll_math.c
+fakelib_libgcc_s_a_SOURCES = 
+fakelib_libgcc_eh_a_SOURCES = 
+fakelib_libpthread_a_SOURCES = 
 lib_LIBRARIES = $(am__append_1) $(am__append_2)
 @COPY_STATIC_TRUE@libpthread_a_SOURCES = 
 @COPY_STATIC_TRUE@libpthread_a_DEPENDENCIES = libwinpthread.la
@@ -539,18 +548,25 @@ src/libgcc/dll_dependency.$(OBJEXT): src/libgcc/$(am__dirstamp) \
 	src/libgcc/$(DEPDIR)/$(am__dirstamp)
 src/libgcc/dll_math.$(OBJEXT): src/libgcc/$(am__dirstamp) \
 	src/libgcc/$(DEPDIR)/$(am__dirstamp)
-libgcc.a: $(libgcc_a_OBJECTS) $(libgcc_a_DEPENDENCIES) $(EXTRA_libgcc_a_DEPENDENCIES) 
-	$(AM_V_at)-rm -f libgcc.a
-	$(AM_V_AR)$(libgcc_a_AR) libgcc.a $(libgcc_a_OBJECTS) $(libgcc_a_LIBADD)
-	$(AM_V_at)$(RANLIB) libgcc.a
-libgcc_eh.a: $(libgcc_eh_a_OBJECTS) $(libgcc_eh_a_DEPENDENCIES) $(EXTRA_libgcc_eh_a_DEPENDENCIES) 
-	$(AM_V_at)-rm -f libgcc_eh.a
-	$(AM_V_AR)$(libgcc_eh_a_AR) libgcc_eh.a $(libgcc_eh_a_OBJECTS) $(libgcc_eh_a_LIBADD)
-	$(AM_V_at)$(RANLIB) libgcc_eh.a
-libgcc_s.a: $(libgcc_s_a_OBJECTS) $(libgcc_s_a_DEPENDENCIES) $(EXTRA_libgcc_s_a_DEPENDENCIES) 
-	$(AM_V_at)-rm -f libgcc_s.a
-	$(AM_V_AR)$(libgcc_s_a_AR) libgcc_s.a $(libgcc_s_a_OBJECTS) $(libgcc_s_a_LIBADD)
-	$(AM_V_at)$(RANLIB) libgcc_s.a
+fakelib/$(am__dirstamp):
+	@$(MKDIR_P) fakelib
+	@: > fakelib/$(am__dirstamp)
+fakelib/libgcc.a: $(fakelib_libgcc_a_OBJECTS) $(fakelib_libgcc_a_DEPENDENCIES) $(EXTRA_fakelib_libgcc_a_DEPENDENCIES) fakelib/$(am__dirstamp)
+	$(AM_V_at)-rm -f fakelib/libgcc.a
+	$(AM_V_AR)$(fakelib_libgcc_a_AR) fakelib/libgcc.a $(fakelib_libgcc_a_OBJECTS) $(fakelib_libgcc_a_LIBADD)
+	$(AM_V_at)$(RANLIB) fakelib/libgcc.a
+fakelib/libgcc_eh.a: $(fakelib_libgcc_eh_a_OBJECTS) $(fakelib_libgcc_eh_a_DEPENDENCIES) $(EXTRA_fakelib_libgcc_eh_a_DEPENDENCIES) fakelib/$(am__dirstamp)
+	$(AM_V_at)-rm -f fakelib/libgcc_eh.a
+	$(AM_V_AR)$(fakelib_libgcc_eh_a_AR) fakelib/libgcc_eh.a $(fakelib_libgcc_eh_a_OBJECTS) $(fakelib_libgcc_eh_a_LIBADD)
+	$(AM_V_at)$(RANLIB) fakelib/libgcc_eh.a
+fakelib/libgcc_s.a: $(fakelib_libgcc_s_a_OBJECTS) $(fakelib_libgcc_s_a_DEPENDENCIES) $(EXTRA_fakelib_libgcc_s_a_DEPENDENCIES) fakelib/$(am__dirstamp)
+	$(AM_V_at)-rm -f fakelib/libgcc_s.a
+	$(AM_V_AR)$(fakelib_libgcc_s_a_AR) fakelib/libgcc_s.a $(fakelib_libgcc_s_a_OBJECTS) $(fakelib_libgcc_s_a_LIBADD)
+	$(AM_V_at)$(RANLIB) fakelib/libgcc_s.a
+fakelib/libpthread.a: $(fakelib_libpthread_a_OBJECTS) $(fakelib_libpthread_a_DEPENDENCIES) $(EXTRA_fakelib_libpthread_a_DEPENDENCIES) fakelib/$(am__dirstamp)
+	$(AM_V_at)-rm -f fakelib/libpthread.a
+	$(AM_V_AR)$(fakelib_libpthread_a_AR) fakelib/libpthread.a $(fakelib_libpthread_a_OBJECTS) $(fakelib_libpthread_a_LIBADD)
+	$(AM_V_at)$(RANLIB) fakelib/libpthread.a
 libpthread.a: $(libpthread_a_OBJECTS) $(libpthread_a_DEPENDENCIES) $(EXTRA_libpthread_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libpthread.a
 	$(AM_V_AR)$(libpthread_a_AR) libpthread.a $(libpthread_a_OBJECTS) $(libpthread_a_LIBADD)
@@ -1137,6 +1153,7 @@ clean-generic:
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
 	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
+	-rm -f fakelib/$(am__dirstamp)
 	-rm -f src/$(DEPDIR)/$(am__dirstamp)
 	-rm -f src/$(am__dirstamp)
 	-rm -f src/libgcc/$(DEPDIR)/$(am__dirstamp)
