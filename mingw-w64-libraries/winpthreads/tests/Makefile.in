@@ -51,7 +51,7 @@ build_triplet = @build@
 host_triplet = @host@
 check_PROGRAMS = t_clock_getres$(EXEEXT) t_clock_gettime$(EXEEXT) \
 	t_clock_nanosleep$(EXEEXT) t_clock_settime$(EXEEXT) \
-	t_nanosleep$(EXEEXT) test$(EXEEXT)
+	t_nanosleep$(EXEEXT)
 subdir = tests
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/build-aux/depcomp \
@@ -86,9 +86,6 @@ t_clock_settime_LDADD = $(LDADD)
 t_nanosleep_SOURCES = t_nanosleep.c
 t_nanosleep_OBJECTS = t_nanosleep.$(OBJEXT)
 t_nanosleep_LDADD = $(LDADD)
-test_SOURCES = test.c
-test_OBJECTS = test.$(OBJEXT)
-test_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -124,9 +121,9 @@ am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
 SOURCES = t_clock_getres.c t_clock_gettime.c t_clock_nanosleep.c \
-	t_clock_settime.c t_nanosleep.c test.c
+	t_clock_settime.c t_nanosleep.c
 DIST_SOURCES = t_clock_getres.c t_clock_gettime.c t_clock_nanosleep.c \
-	t_clock_settime.c t_nanosleep.c test.c
+	t_clock_settime.c t_nanosleep.c
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -539,9 +536,6 @@ t_clock_settime$(EXEEXT): $(t_clock_settime_OBJECTS) $(t_clock_settime_DEPENDENC
 t_nanosleep$(EXEEXT): $(t_nanosleep_OBJECTS) $(t_nanosleep_DEPENDENCIES) $(EXTRA_t_nanosleep_DEPENDENCIES) 
 	@rm -f t_nanosleep$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(t_nanosleep_OBJECTS) $(t_nanosleep_LDADD) $(LIBS)
-test$(EXEEXT): $(test_OBJECTS) $(test_DEPENDENCIES) $(EXTRA_test_DEPENDENCIES) 
-	@rm -f test$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(test_OBJECTS) $(test_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -554,7 +548,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_clock_nanosleep.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_clock_settime.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/t_nanosleep.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
@@ -810,13 +803,6 @@ t_clock_settime.log: t_clock_settime$(EXEEXT)
 t_nanosleep.log: t_nanosleep$(EXEEXT)
 	@p='t_nanosleep$(EXEEXT)'; \
 	b='t_nanosleep'; \
-	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
-	--log-file $$b.log --trs-file $$b.trs \
-	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
-	"$$tst" $(AM_TESTS_FD_REDIRECT)
-test.log: test$(EXEEXT)
-	@p='test$(EXEEXT)'; \
-	b='test'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
