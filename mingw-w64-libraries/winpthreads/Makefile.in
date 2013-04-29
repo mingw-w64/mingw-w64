@@ -129,10 +129,6 @@ fakelib_libgcc_s_a_AR = $(AR) $(ARFLAGS)
 fakelib_libgcc_s_a_LIBADD =
 am_fakelib_libgcc_s_a_OBJECTS =
 fakelib_libgcc_s_a_OBJECTS = $(am_fakelib_libgcc_s_a_OBJECTS)
-fakelib_libpthread_a_AR = $(AR) $(ARFLAGS)
-fakelib_libpthread_a_LIBADD =
-am_fakelib_libpthread_a_OBJECTS =
-fakelib_libpthread_a_OBJECTS = $(am_fakelib_libpthread_a_OBJECTS)
 libpthread_a_LIBADD =
 am_libpthread_a_OBJECTS =
 libpthread_a_OBJECTS = $(am_libpthread_a_OBJECTS)
@@ -203,13 +199,12 @@ am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
 SOURCES = $(fakelib_libgcc_a_SOURCES) $(fakelib_libgcc_eh_a_SOURCES) \
-	$(fakelib_libgcc_s_a_SOURCES) $(fakelib_libpthread_a_SOURCES) \
-	$(libpthread_a_SOURCES) $(libpthread_dll_a_SOURCES) \
-	$(libwinpthread_la_SOURCES)
+	$(fakelib_libgcc_s_a_SOURCES) $(libpthread_a_SOURCES) \
+	$(libpthread_dll_a_SOURCES) $(libwinpthread_la_SOURCES)
 DIST_SOURCES = $(fakelib_libgcc_a_SOURCES) \
 	$(fakelib_libgcc_eh_a_SOURCES) $(fakelib_libgcc_s_a_SOURCES) \
-	$(fakelib_libpthread_a_SOURCES) $(libpthread_a_SOURCES) \
-	$(libpthread_dll_a_SOURCES) $(libwinpthread_la_SOURCES)
+	$(libpthread_a_SOURCES) $(libpthread_dll_a_SOURCES) \
+	$(libwinpthread_la_SOURCES)
 RECURSIVE_TARGETS = all-recursive check-recursive cscopelist-recursive \
 	ctags-recursive dvi-recursive html-recursive info-recursive \
 	install-data-recursive install-dvi-recursive \
@@ -424,8 +419,8 @@ ACLOCAL_AMFLAGS = -I m4
 lib_LTLIBRARIES = libwinpthread.la
 include_HEADERS = include/pthread.h include/sched.h include/semaphore.h include/pthread_unistd.h include/pthread_time.h include/pthread_compat.h
 libwinpthread_la_CPPFLAGS = -I$(srcdir)/include -DIN_WINPTHREAD -DWINPTHREAD_DBG=1
-libwinpthread_la_LDFLAGS = -no-undefined -version-info 1:0:0 -L$(builddir)/fakelib
-EXTRA_libwinpthread_la_DEPENDENCIES = fakelib/libgcc.a  fakelib/libgcc_eh.a  fakelib/libgcc_s.a  fakelib/libpthread.a
+libwinpthread_la_LDFLAGS = -no-undefined -version-info 1:0:0 -L$(builddir)/fakelib -no-pthread
+EXTRA_libwinpthread_la_DEPENDENCIES = fakelib/libgcc.a  fakelib/libgcc_eh.a  fakelib/libgcc_s.a
 libwinpthread_la_SOURCES = \
   src/barrier.h  src/cond.h  src/misc.h  src/mutex.h  src/rwlock.h  src/spinlock.h  src/thread.h  src/ref.h  src/sem.h  src/wpth_ver.h \
   src/barrier.c  src/cond.c  src/misc.c  src/mutex.c  src/rwlock.c  src/spinlock.c  src/thread.c  src/ref.c  src/sem.c  src/sched.c \
@@ -433,11 +428,10 @@ libwinpthread_la_SOURCES = \
 
 
 # Break circular dep on bootstrap
-noinst_LIBRARIES = fakelib/libgcc.a  fakelib/libgcc_eh.a  fakelib/libgcc_s.a  fakelib/libpthread.a
+noinst_LIBRARIES = fakelib/libgcc.a  fakelib/libgcc_eh.a  fakelib/libgcc_s.a
 fakelib_libgcc_a_SOURCES = src/libgcc/dll_dependency.S src/libgcc/dll_math.c
 fakelib_libgcc_s_a_SOURCES = 
 fakelib_libgcc_eh_a_SOURCES = 
-fakelib_libpthread_a_SOURCES = 
 lib_LIBRARIES = $(am__append_1) $(am__append_2)
 @COPY_STATIC_TRUE@libpthread_a_SOURCES = 
 @COPY_STATIC_TRUE@libpthread_a_DEPENDENCIES = libwinpthread.la
@@ -563,10 +557,6 @@ fakelib/libgcc_s.a: $(fakelib_libgcc_s_a_OBJECTS) $(fakelib_libgcc_s_a_DEPENDENC
 	$(AM_V_at)-rm -f fakelib/libgcc_s.a
 	$(AM_V_AR)$(fakelib_libgcc_s_a_AR) fakelib/libgcc_s.a $(fakelib_libgcc_s_a_OBJECTS) $(fakelib_libgcc_s_a_LIBADD)
 	$(AM_V_at)$(RANLIB) fakelib/libgcc_s.a
-fakelib/libpthread.a: $(fakelib_libpthread_a_OBJECTS) $(fakelib_libpthread_a_DEPENDENCIES) $(EXTRA_fakelib_libpthread_a_DEPENDENCIES) fakelib/$(am__dirstamp)
-	$(AM_V_at)-rm -f fakelib/libpthread.a
-	$(AM_V_AR)$(fakelib_libpthread_a_AR) fakelib/libpthread.a $(fakelib_libpthread_a_OBJECTS) $(fakelib_libpthread_a_LIBADD)
-	$(AM_V_at)$(RANLIB) fakelib/libpthread.a
 libpthread.a: $(libpthread_a_OBJECTS) $(libpthread_a_DEPENDENCIES) $(EXTRA_libpthread_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libpthread.a
 	$(AM_V_AR)$(libpthread_a_AR) libpthread.a $(libpthread_a_OBJECTS) $(libpthread_a_LIBADD)
