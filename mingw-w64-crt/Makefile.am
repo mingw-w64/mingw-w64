@@ -1139,7 +1139,7 @@ EXTRA_DIST += revstamp.h \
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet) $(withsys)
 
 dist-hook:
-	rm -rf `find $(top_distdir) -name ".svn"`
+	find $(top_distdir) -name ".svn" -delete
 
 
 # Testsuite options

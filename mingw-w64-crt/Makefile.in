@@ -33173,7 +33173,7 @@ _libm_dummy.c:
 	$(CPP) -x c $< -Wp,-w -I$(top_srcdir)/def-include | $(SED) 's/^#/;/' >$@
 
 dist-hook:
-	rm -rf `find $(top_distdir) -name ".svn"`
+	find $(top_distdir) -name ".svn" -delete
 
 # Include the complex math testcase fragment.
 
