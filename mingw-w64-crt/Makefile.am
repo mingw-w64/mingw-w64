@@ -3,7 +3,6 @@
 # Done: Turn _libm_dummy.c into a BUILT_SOURCES thing
 # Done: 32-bit runtime compatibility
 # Done: fix make dist
-# TODO: Use $(RM) instead of rm?
 # TODO: Use $(TAR) instead of tar?
 # TODO: Find a better way to handle dxerr.c -- make it dxerr.h and add to sources list?
 #
