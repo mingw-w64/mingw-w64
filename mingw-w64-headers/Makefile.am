@@ -68,6 +68,7 @@ IDL_SRCS = \
   include/fusion.idl \
   include/fwptypes.idl \
   include/iketypes.idl \
+  include/inputscope.idl \
   include/oaidl.idl \
   include/ocidl.idl \
   include/comcat.idl \
