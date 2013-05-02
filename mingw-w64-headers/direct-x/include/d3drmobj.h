@@ -155,17 +155,17 @@ typedef struct IDirect3DRMClippedVisual   *LPDIRECT3DRMCLIPPEDVISUAL, **LPLPDIRE
    Types and structures
    ******************************************************************** */
 
-typedef void (__cdecl *D3DRMOBJECTCALLBACK)(LPDIRECT3DRMOBJECT obj, LPVOID arg);
-typedef void (__cdecl *D3DRMFRAMEMOVECALLBACK)(LPDIRECT3DRMFRAME obj, LPVOID arg, D3DVALUE delta);
-typedef void (__cdecl *D3DRMFRAME3MOVECALLBACK)(LPDIRECT3DRMFRAME3 obj, LPVOID arg, D3DVALUE delta);
+typedef void (__cdecl *D3DRMOBJECTCALLBACK)(struct IDirect3DRMObject *obj, void *arg);
+typedef void (__cdecl *D3DRMFRAMEMOVECALLBACK)(struct IDirect3DRMFrame *frame, void *ctx, D3DVALUE delta);
+typedef void (__cdecl *D3DRMFRAME3MOVECALLBACK)(struct IDirect3DRMFrame3 *frame, void *ctx, D3DVALUE delta);
 typedef void (__cdecl *D3DRMUPDATECALLBACK)(struct IDirect3DRMDevice *device, void *ctx, int count, D3DRECT *rects);
 typedef void (__cdecl *D3DRMDEVICE3UPDATECALLBACK)(struct IDirect3DRMDevice3 *device, void *ctx,
         int count, D3DRECT *rects);
-typedef int (__cdecl *D3DRMUSERVISUALCALLBACK)(LPDIRECT3DRMUSERVISUAL obj, LPVOID arg,
-    D3DRMUSERVISUALREASON reason, LPDIRECT3DRMDEVICE dev, LPDIRECT3DRMVIEWPORT view);
+typedef int (__cdecl *D3DRMUSERVISUALCALLBACK)(struct IDirect3DRMUserVisual *visual, void *ctx,
+        D3DRMUSERVISUALREASON reason, struct IDirect3DRMDevice *device, struct IDirect3DRMViewport *viewport);
 typedef HRESULT (__cdecl *D3DRMLOADTEXTURECALLBACK)(char *tex_name, void *arg, LPDIRECT3DRMTEXTURE *);
 typedef HRESULT (__cdecl *D3DRMLOADTEXTURE3CALLBACK)(char *tex_name, void *arg, LPDIRECT3DRMTEXTURE3 *);
-typedef void (__cdecl *D3DRMLOADCALLBACK)(LPDIRECT3DRMOBJECT object, REFIID objectguid, LPVOID arg);
+typedef void (__cdecl *D3DRMLOADCALLBACK)(struct IDirect3DRMObject *object, REFIID objectguid, void *arg);
 typedef HRESULT (__cdecl *D3DRMDOWNSAMPLECALLBACK)(struct IDirect3DRMTexture3 *texture, void *ctx,
         IDirectDrawSurface *src_surface, IDirectDrawSurface *dst_surface);
 typedef HRESULT (__cdecl *D3DRMVALIDATIONCALLBACK)(LPDIRECT3DRMTEXTURE3 lpDirect3DRMTexture, LPVOID pArg,
@@ -262,7 +262,7 @@ DECLARE_INTERFACE_(IDirect3DRMObject2,IUnknown)
     STDMETHOD(Clone)(THIS_ LPUNKNOWN pUnkOuter, REFIID riid, LPVOID *ppvObj) PURE;
     STDMETHOD(DeleteDestroyCallback)(THIS_ D3DRMOBJECTCALLBACK pFunc, LPVOID pArg) PURE;
     STDMETHOD(GetClientData)(THIS_ DWORD id, LPVOID* ppData) PURE;
-    STDMETHOD(GetDirect3DRM)(THIS_ LPDIRECT3DRM* ppDirect3DRM) PURE;
+    STDMETHOD(GetDirect3DRM)(THIS_ struct IDirect3DRM **d3drm) PURE;
     STDMETHOD(GetName)(THIS_ LPDWORD pSize, LPSTR pName) PURE;
     STDMETHOD(SetClientData)(THIS_ DWORD id, LPVOID pData, DWORD flags) PURE;
     STDMETHOD(SetName)(THIS_ LPCSTR pName) PURE;
@@ -809,23 +809,23 @@ DECLARE_INTERFACE_(IDirect3DRMViewport,IDirect3DRMObject)
     STDMETHOD(GetName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     STDMETHOD(GetClassName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     /*** IDirect3DRMViewport methods ***/
-    STDMETHOD(Init) (THIS_ LPDIRECT3DRMDEVICE dev, LPDIRECT3DRMFRAME camera, DWORD xpos, DWORD ypos,
-        DWORD width, DWORD height) PURE;
+    STDMETHOD(Init) (THIS_ IDirect3DRMDevice *device, struct IDirect3DRMFrame *camera,
+            DWORD x, DWORD y, DWORD width, DWORD height) PURE;
     STDMETHOD(Clear)(THIS) PURE;
-    STDMETHOD(Render)(THIS_ LPDIRECT3DRMFRAME) PURE;
+    STDMETHOD(Render)(THIS_ struct IDirect3DRMFrame *frame) PURE;
     STDMETHOD(SetFront)(THIS_ D3DVALUE) PURE;
     STDMETHOD(SetBack)(THIS_ D3DVALUE) PURE;
     STDMETHOD(SetField)(THIS_ D3DVALUE) PURE;
     STDMETHOD(SetUniformScaling)(THIS_ WINBOOL) PURE;
-    STDMETHOD(SetCamera)(THIS_ LPDIRECT3DRMFRAME) PURE;
+    STDMETHOD(SetCamera)(THIS_ struct IDirect3DRMFrame *camera) PURE;
     STDMETHOD(SetProjection)(THIS_ D3DRMPROJECTIONTYPE) PURE;
     STDMETHOD(Transform)(THIS_ D3DRMVECTOR4D *d, D3DVECTOR *s) PURE;
     STDMETHOD(InverseTransform)(THIS_ D3DVECTOR *d, D3DRMVECTOR4D *s) PURE;
     STDMETHOD(Configure)(THIS_ LONG x, LONG y, DWORD width, DWORD height) PURE;
     STDMETHOD(ForceUpdate)(THIS_ DWORD x1, DWORD y1, DWORD x2, DWORD y2) PURE;
     STDMETHOD(SetPlane)(THIS_ D3DVALUE left, D3DVALUE right, D3DVALUE bottom, D3DVALUE top) PURE;
-    STDMETHOD(GetCamera)(THIS_ LPDIRECT3DRMFRAME *) PURE;
-    STDMETHOD(GetDevice)(THIS_ LPDIRECT3DRMDEVICE *) PURE;
+    STDMETHOD(GetCamera)(THIS_ struct IDirect3DRMFrame **camera) PURE;
+    STDMETHOD(GetDevice)(THIS_ IDirect3DRMDevice **device) PURE;
     STDMETHOD(GetPlane)(THIS_ D3DVALUE *left, D3DVALUE *right, D3DVALUE *bottom, D3DVALUE *top) PURE;
     STDMETHOD(Pick)(THIS_ LONG x, LONG y, LPDIRECT3DRMPICKEDARRAY *return_visuals) PURE;
     STDMETHOD_(WINBOOL, GetUniformScaling)(THIS) PURE;
@@ -949,23 +949,23 @@ DECLARE_INTERFACE_(IDirect3DRMViewport2,IDirect3DRMObject)
     STDMETHOD(GetName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     STDMETHOD(GetClassName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     /*** IDirect3DRMViewport2 methods ***/
-    STDMETHOD(Init) (THIS_ LPDIRECT3DRMDEVICE3 dev, LPDIRECT3DRMFRAME3 camera, DWORD xpos, DWORD ypos,
-        DWORD width, DWORD height) PURE;
+    STDMETHOD(Init) (THIS_ IDirect3DRMDevice3 *device, struct IDirect3DRMFrame3 *camera,
+            DWORD x, DWORD y, DWORD width, DWORD height) PURE;
     STDMETHOD(Clear)(THIS_ DWORD flags) PURE;
-    STDMETHOD(Render)(THIS_ LPDIRECT3DRMFRAME3) PURE;
+    STDMETHOD(Render)(THIS_ struct IDirect3DRMFrame3 *frame) PURE;
     STDMETHOD(SetFront)(THIS_ D3DVALUE) PURE;
     STDMETHOD(SetBack)(THIS_ D3DVALUE) PURE;
     STDMETHOD(SetField)(THIS_ D3DVALUE) PURE;
     STDMETHOD(SetUniformScaling)(THIS_ WINBOOL) PURE;
-    STDMETHOD(SetCamera)(THIS_ LPDIRECT3DRMFRAME3) PURE;
+    STDMETHOD(SetCamera)(THIS_ struct IDirect3DRMFrame3 *camera) PURE;
     STDMETHOD(SetProjection)(THIS_ D3DRMPROJECTIONTYPE) PURE;
     STDMETHOD(Transform)(THIS_ D3DRMVECTOR4D *d, D3DVECTOR *s) PURE;
     STDMETHOD(InverseTransform)(THIS_ D3DVECTOR *d, D3DRMVECTOR4D *s) PURE;
     STDMETHOD(Configure)(THIS_ LONG x, LONG y, DWORD width, DWORD height) PURE;
     STDMETHOD(ForceUpdate)(THIS_ DWORD x1, DWORD y1, DWORD x2, DWORD y2) PURE;
     STDMETHOD(SetPlane)(THIS_ D3DVALUE left, D3DVALUE right, D3DVALUE bottom, D3DVALUE top) PURE;
-    STDMETHOD(GetCamera)(THIS_ LPDIRECT3DRMFRAME3 *) PURE;
-    STDMETHOD(GetDevice)(THIS_ LPDIRECT3DRMDEVICE3 *) PURE;
+    STDMETHOD(GetCamera)(THIS_ struct IDirect3DRMFrame3 **camera) PURE;
+    STDMETHOD(GetDevice)(THIS_ IDirect3DRMDevice3 **device) PURE;
     STDMETHOD(GetPlane)(THIS_ D3DVALUE *left, D3DVALUE *right, D3DVALUE *bottom, D3DVALUE *top) PURE;
     STDMETHOD(Pick)(THIS_ LONG x, LONG y, LPDIRECT3DRMPICKEDARRAY *return_visuals) PURE;
     STDMETHOD_(WINBOOL, GetUniformScaling)(THIS) PURE;
@@ -1097,22 +1097,22 @@ DECLARE_INTERFACE_(IDirect3DRMFrame,IDirect3DRMVisual)
     STDMETHOD(GetName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     STDMETHOD(GetClassName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     /*** IDirect3DRMFrame methods ***/
-    STDMETHOD(AddChild)(THIS_ LPDIRECT3DRMFRAME child) PURE;
-    STDMETHOD(AddLight)(THIS_ LPDIRECT3DRMLIGHT) PURE;
+    STDMETHOD(AddChild)(THIS_ IDirect3DRMFrame *child) PURE;
+    STDMETHOD(AddLight)(THIS_ struct IDirect3DRMLight *light) PURE;
     STDMETHOD(AddMoveCallback)(THIS_ D3DRMFRAMEMOVECALLBACK, VOID *arg) PURE;
     STDMETHOD(AddTransform)(THIS_ D3DRMCOMBINETYPE, D3DRMMATRIX4D) PURE;
     STDMETHOD(AddTranslation)(THIS_ D3DRMCOMBINETYPE, D3DVALUE x, D3DVALUE y, D3DVALUE z) PURE;
     STDMETHOD(AddScale)(THIS_ D3DRMCOMBINETYPE, D3DVALUE sx, D3DVALUE sy, D3DVALUE sz) PURE;
     STDMETHOD(AddRotation)(THIS_ D3DRMCOMBINETYPE, D3DVALUE x, D3DVALUE y, D3DVALUE z, D3DVALUE theta) PURE;
-    STDMETHOD(AddVisual)(THIS_ LPDIRECT3DRMVISUAL) PURE;
+    STDMETHOD(AddVisual)(THIS_ IDirect3DRMVisual *visual) PURE;
     STDMETHOD(GetChildren)(THIS_ LPDIRECT3DRMFRAMEARRAY *children) PURE;
     STDMETHOD_(D3DCOLOR, GetColor)(THIS) PURE;
     STDMETHOD(GetLights)(THIS_ LPDIRECT3DRMLIGHTARRAY *lights) PURE;
     STDMETHOD_(D3DRMMATERIALMODE, GetMaterialMode)(THIS) PURE;
-    STDMETHOD(GetParent)(THIS_ LPDIRECT3DRMFRAME *) PURE;
+    STDMETHOD(GetParent)(THIS_ IDirect3DRMFrame **parent) PURE;
     STDMETHOD(GetPosition)(THIS_ IDirect3DRMFrame *reference, D3DVECTOR *return_position) PURE;
     STDMETHOD(GetRotation)(THIS_ IDirect3DRMFrame *reference, D3DVECTOR *axis, D3DVALUE *return_theta) PURE;
-    STDMETHOD(GetScene)(THIS_ LPDIRECT3DRMFRAME *) PURE;
+    STDMETHOD(GetScene)(THIS_ IDirect3DRMFrame **scene) PURE;
     STDMETHOD_(D3DRMSORTMODE, GetSortMode)(THIS) PURE;
     STDMETHOD(GetTexture)(THIS_ LPDIRECT3DRMTEXTURE *) PURE;
     STDMETHOD(GetTransform)(THIS_ D3DRMMATRIX4D return_matrix) PURE;
@@ -1123,12 +1123,13 @@ DECLARE_INTERFACE_(IDirect3DRMFrame,IDirect3DRMVisual)
     STDMETHOD(InverseTransform)(THIS_ D3DVECTOR *d, D3DVECTOR *s) PURE;
     STDMETHOD(Load)(THIS_ LPVOID filename, LPVOID name, D3DRMLOADOPTIONS loadflags, D3DRMLOADTEXTURECALLBACK,
         LPVOID pArg)PURE;
-    STDMETHOD(LookAt)(THIS_ LPDIRECT3DRMFRAME target, LPDIRECT3DRMFRAME reference, D3DRMFRAMECONSTRAINT) PURE;
+    STDMETHOD(LookAt)(THIS_ IDirect3DRMFrame *target, IDirect3DRMFrame *reference,
+            D3DRMFRAMECONSTRAINT constraint) PURE;
     STDMETHOD(Move)(THIS_ D3DVALUE delta) PURE;
-    STDMETHOD(DeleteChild)(THIS_ LPDIRECT3DRMFRAME) PURE;
-    STDMETHOD(DeleteLight)(THIS_ LPDIRECT3DRMLIGHT) PURE;
+    STDMETHOD(DeleteChild)(THIS_ IDirect3DRMFrame *child) PURE;
+    STDMETHOD(DeleteLight)(THIS_ struct IDirect3DRMLight *light) PURE;
     STDMETHOD(DeleteMoveCallback)(THIS_ D3DRMFRAMEMOVECALLBACK, VOID *arg) PURE;
-    STDMETHOD(DeleteVisual)(THIS_ LPDIRECT3DRMVISUAL) PURE;
+    STDMETHOD(DeleteVisual)(THIS_ IDirect3DRMVisual *visual) PURE;
     STDMETHOD_(D3DCOLOR, GetSceneBackground)(THIS) PURE;
     STDMETHOD(GetSceneBackgroundDepth)(THIS_ IDirectDrawSurface **surface) PURE;
     STDMETHOD_(D3DCOLOR, GetSceneFogColor)(THIS) PURE;
@@ -1147,14 +1148,15 @@ DECLARE_INTERFACE_(IDirect3DRMFrame,IDirect3DRMVisual)
     STDMETHOD(SetColorRGB)(THIS_ D3DVALUE red, D3DVALUE green, D3DVALUE blue) PURE;
     STDMETHOD_(D3DRMZBUFFERMODE, GetZbufferMode)(THIS) PURE;
     STDMETHOD(SetMaterialMode)(THIS_ D3DRMMATERIALMODE) PURE;
-    STDMETHOD(SetOrientation)(THIS_ LPDIRECT3DRMFRAME reference, D3DVALUE dx, D3DVALUE dy, D3DVALUE dz,
-        D3DVALUE ux, D3DVALUE uy, D3DVALUE uz) PURE;
-    STDMETHOD(SetPosition)(THIS_ LPDIRECT3DRMFRAME reference, D3DVALUE x, D3DVALUE y, D3DVALUE z) PURE;
-    STDMETHOD(SetRotation)(THIS_ LPDIRECT3DRMFRAME reference, D3DVALUE x, D3DVALUE y, D3DVALUE z, D3DVALUE theta) PURE;
+    STDMETHOD(SetOrientation)(THIS_ IDirect3DRMFrame *reference, D3DVALUE dx, D3DVALUE dy, D3DVALUE dz,
+            D3DVALUE ux, D3DVALUE uy, D3DVALUE uz) PURE;
+    STDMETHOD(SetPosition)(THIS_ IDirect3DRMFrame *reference, D3DVALUE x, D3DVALUE y, D3DVALUE z) PURE;
+    STDMETHOD(SetRotation)(THIS_ IDirect3DRMFrame *reference, D3DVALUE x, D3DVALUE y, D3DVALUE z, D3DVALUE theta) PURE;
     STDMETHOD(SetSortMode)(THIS_ D3DRMSORTMODE) PURE;
     STDMETHOD(SetTexture)(THIS_ LPDIRECT3DRMTEXTURE) PURE;
     STDMETHOD(SetTextureTopology)(THIS_ WINBOOL wrap_u, WINBOOL wrap_v) PURE;
-    STDMETHOD(SetVelocity)(THIS_ LPDIRECT3DRMFRAME reference, D3DVALUE x, D3DVALUE y, D3DVALUE z, WINBOOL with_rotation) PURE;
+    STDMETHOD(SetVelocity)(THIS_ IDirect3DRMFrame *reference,
+            D3DVALUE x, D3DVALUE y, D3DVALUE z, WINBOOL with_rotation) PURE;
     STDMETHOD(SetZbufferMode)(THIS_ D3DRMZBUFFERMODE) PURE;
     STDMETHOD(Transform)(THIS_ D3DVECTOR *d, D3DVECTOR *s) PURE;
 };
@@ -1328,22 +1330,22 @@ DECLARE_INTERFACE_(IDirect3DRMFrame2,IDirect3DRMFrame)
     STDMETHOD(GetName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     STDMETHOD(GetClassName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     /*** IDirect3DRMFrame methods ***/
-    STDMETHOD(AddChild)(THIS_ LPDIRECT3DRMFRAME child) PURE;
-    STDMETHOD(AddLight)(THIS_ LPDIRECT3DRMLIGHT) PURE;
+    STDMETHOD(AddChild)(THIS_ IDirect3DRMFrame *child) PURE;
+    STDMETHOD(AddLight)(THIS_ struct IDirect3DRMLight *light) PURE;
     STDMETHOD(AddMoveCallback)(THIS_ D3DRMFRAMEMOVECALLBACK, VOID *arg) PURE;
     STDMETHOD(AddTransform)(THIS_ D3DRMCOMBINETYPE, D3DRMMATRIX4D) PURE;
     STDMETHOD(AddTranslation)(THIS_ D3DRMCOMBINETYPE, D3DVALUE x, D3DVALUE y, D3DVALUE z) PURE;
     STDMETHOD(AddScale)(THIS_ D3DRMCOMBINETYPE, D3DVALUE sx, D3DVALUE sy, D3DVALUE sz) PURE;
     STDMETHOD(AddRotation)(THIS_ D3DRMCOMBINETYPE, D3DVALUE x, D3DVALUE y, D3DVALUE z, D3DVALUE theta) PURE;
-    STDMETHOD(AddVisual)(THIS_ LPDIRECT3DRMVISUAL) PURE;
+    STDMETHOD(AddVisual)(THIS_ IDirect3DRMVisual *visual) PURE;
     STDMETHOD(GetChildren)(THIS_ LPDIRECT3DRMFRAMEARRAY *children) PURE;
     STDMETHOD_(D3DCOLOR, GetColor)(THIS) PURE;
     STDMETHOD(GetLights)(THIS_ LPDIRECT3DRMLIGHTARRAY *lights) PURE;
     STDMETHOD_(D3DRMMATERIALMODE, GetMaterialMode)(THIS) PURE;
-    STDMETHOD(GetParent)(THIS_ LPDIRECT3DRMFRAME *) PURE;
+    STDMETHOD(GetParent)(THIS_ IDirect3DRMFrame **parent) PURE;
     STDMETHOD(GetPosition)(THIS_ IDirect3DRMFrame *reference, D3DVECTOR *return_position) PURE;
     STDMETHOD(GetRotation)(THIS_ IDirect3DRMFrame *reference, D3DVECTOR *axis, D3DVALUE *return_theta) PURE;
-    STDMETHOD(GetScene)(THIS_ LPDIRECT3DRMFRAME *) PURE;
+    STDMETHOD(GetScene)(THIS_ IDirect3DRMFrame **scene) PURE;
     STDMETHOD_(D3DRMSORTMODE, GetSortMode)(THIS) PURE;
     STDMETHOD(GetTexture)(THIS_ LPDIRECT3DRMTEXTURE *) PURE;
     STDMETHOD(GetTransform)(THIS_ D3DRMMATRIX4D return_matrix) PURE;
@@ -1354,12 +1356,13 @@ DECLARE_INTERFACE_(IDirect3DRMFrame2,IDirect3DRMFrame)
     STDMETHOD(InverseTransform)(THIS_ D3DVECTOR *d, D3DVECTOR *s) PURE;
     STDMETHOD(Load)(THIS_ LPVOID filename, LPVOID name, D3DRMLOADOPTIONS loadflags, D3DRMLOADTEXTURECALLBACK,
         LPVOID pArg)PURE;
-    STDMETHOD(LookAt)(THIS_ LPDIRECT3DRMFRAME target, LPDIRECT3DRMFRAME reference, D3DRMFRAMECONSTRAINT) PURE;
+    STDMETHOD(LookAt)(THIS_ IDirect3DRMFrame *target, IDirect3DRMFrame *reference,
+            D3DRMFRAMECONSTRAINT constraint) PURE;
     STDMETHOD(Move)(THIS_ D3DVALUE delta) PURE;
-    STDMETHOD(DeleteChild)(THIS_ LPDIRECT3DRMFRAME) PURE;
-    STDMETHOD(DeleteLight)(THIS_ LPDIRECT3DRMLIGHT) PURE;
+    STDMETHOD(DeleteChild)(THIS_ IDirect3DRMFrame *child) PURE;
+    STDMETHOD(DeleteLight)(THIS_ struct IDirect3DRMLight *light) PURE;
     STDMETHOD(DeleteMoveCallback)(THIS_ D3DRMFRAMEMOVECALLBACK, VOID *arg) PURE;
-    STDMETHOD(DeleteVisual)(THIS_ LPDIRECT3DRMVISUAL) PURE;
+    STDMETHOD(DeleteVisual)(THIS_ IDirect3DRMVisual *visual) PURE;
     STDMETHOD_(D3DCOLOR, GetSceneBackground)(THIS) PURE;
     STDMETHOD(GetSceneBackgroundDepth)(THIS_ IDirectDrawSurface **surface) PURE;
     STDMETHOD_(D3DCOLOR, GetSceneFogColor)(THIS) PURE;
@@ -1378,14 +1381,15 @@ DECLARE_INTERFACE_(IDirect3DRMFrame2,IDirect3DRMFrame)
     STDMETHOD(SetColorRGB)(THIS_ D3DVALUE red, D3DVALUE green, D3DVALUE blue) PURE;
     STDMETHOD_(D3DRMZBUFFERMODE, GetZbufferMode)(THIS) PURE;
     STDMETHOD(SetMaterialMode)(THIS_ D3DRMMATERIALMODE) PURE;
-    STDMETHOD(SetOrientation)(THIS_ LPDIRECT3DRMFRAME reference, D3DVALUE dx, D3DVALUE dy, D3DVALUE dz,
-        D3DVALUE ux, D3DVALUE uy, D3DVALUE uz) PURE;
-    STDMETHOD(SetPosition)(THIS_ LPDIRECT3DRMFRAME reference, D3DVALUE x, D3DVALUE y, D3DVALUE z) PURE;
-    STDMETHOD(SetRotation)(THIS_ LPDIRECT3DRMFRAME reference, D3DVALUE x, D3DVALUE y, D3DVALUE z, D3DVALUE theta) PURE;
+    STDMETHOD(SetOrientation)(THIS_ IDirect3DRMFrame *reference, D3DVALUE dx, D3DVALUE dy, D3DVALUE dz,
+            D3DVALUE ux, D3DVALUE uy, D3DVALUE uz) PURE;
+    STDMETHOD(SetPosition)(THIS_ IDirect3DRMFrame *reference, D3DVALUE x, D3DVALUE y, D3DVALUE z) PURE;
+    STDMETHOD(SetRotation)(THIS_ IDirect3DRMFrame *reference, D3DVALUE x, D3DVALUE y, D3DVALUE z, D3DVALUE theta) PURE;
     STDMETHOD(SetSortMode)(THIS_ D3DRMSORTMODE) PURE;
     STDMETHOD(SetTexture)(THIS_ LPDIRECT3DRMTEXTURE) PURE;
     STDMETHOD(SetTextureTopology)(THIS_ WINBOOL wrap_u, WINBOOL wrap_v) PURE;
-    STDMETHOD(SetVelocity)(THIS_ LPDIRECT3DRMFRAME reference, D3DVALUE x, D3DVALUE y, D3DVALUE z, WINBOOL with_rotation) PURE;
+    STDMETHOD(SetVelocity)(THIS_ IDirect3DRMFrame *reference,
+            D3DVALUE x, D3DVALUE y, D3DVALUE z, WINBOOL with_rotation) PURE;
     STDMETHOD(SetZbufferMode)(THIS_ D3DRMZBUFFERMODE) PURE;
     STDMETHOD(Transform)(THIS_ D3DVECTOR *d, D3DVECTOR *s) PURE;
     /*** IDirect3DRMFrame2 methods ***/
@@ -1401,7 +1405,7 @@ DECLARE_INTERFACE_(IDirect3DRMFrame2,IDirect3DRMFrame)
     STDMETHOD(SetAxes)(THIS_ D3DVALUE dx, D3DVALUE dy, D3DVALUE dz, D3DVALUE ux, D3DVALUE uy, D3DVALUE uz);
     STDMETHOD(SetInheritAxes)(THIS_ WINBOOL inherit_from_parent);
     STDMETHOD(SetMaterial)(THIS_ LPDIRECT3DRMMATERIAL) PURE;
-    STDMETHOD(SetQuaternion)(THIS_ LPDIRECT3DRMFRAME reference, D3DRMQUATERNION *q) PURE;
+    STDMETHOD(SetQuaternion)(THIS_ IDirect3DRMFrame *reference, D3DRMQUATERNION *q) PURE;
     STDMETHOD(RayPick)(THIS_ IDirect3DRMFrame *reference, D3DRMRAY *ray, DWORD flags,
             struct IDirect3DRMPicked2Array **return_visuals) PURE;
     STDMETHOD(Save)(THIS_ LPCSTR filename, D3DRMXOFFORMAT d3dFormat, D3DRMSAVEOPTIONS d3dSaveFlags);
@@ -1608,8 +1612,8 @@ DECLARE_INTERFACE_(IDirect3DRMFrame3,IDirect3DRMVisual)
     STDMETHOD(GetName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     STDMETHOD(GetClassName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     /*** IDirect3DRMFrame3 methods ***/
-    STDMETHOD(AddChild)(THIS_ LPDIRECT3DRMFRAME3 child) PURE;
-    STDMETHOD(AddLight)(THIS_ LPDIRECT3DRMLIGHT) PURE;
+    STDMETHOD(AddChild)(THIS_ IDirect3DRMFrame3 *child) PURE;
+    STDMETHOD(AddLight)(THIS_ struct IDirect3DRMLight *light) PURE;
     STDMETHOD(AddMoveCallback)(THIS_ D3DRMFRAME3MOVECALLBACK, VOID *arg, DWORD flags) PURE;
     STDMETHOD(AddTransform)(THIS_ D3DRMCOMBINETYPE, D3DRMMATRIX4D) PURE;
     STDMETHOD(AddTranslation)(THIS_ D3DRMCOMBINETYPE, D3DVALUE x, D3DVALUE y, D3DVALUE z) PURE;
@@ -1620,23 +1624,24 @@ DECLARE_INTERFACE_(IDirect3DRMFrame3,IDirect3DRMVisual)
     STDMETHOD_(D3DCOLOR, GetColor)(THIS) PURE;
     STDMETHOD(GetLights)(THIS_ LPDIRECT3DRMLIGHTARRAY *lights) PURE;
     STDMETHOD_(D3DRMMATERIALMODE, GetMaterialMode)(THIS) PURE;
-    STDMETHOD(GetParent)(THIS_ LPDIRECT3DRMFRAME3 *) PURE;
+    STDMETHOD(GetParent)(THIS_ IDirect3DRMFrame3 **parent) PURE;
     STDMETHOD(GetPosition)(THIS_ IDirect3DRMFrame3 *reference, D3DVECTOR *return_position) PURE;
     STDMETHOD(GetRotation)(THIS_ IDirect3DRMFrame3 *reference, D3DVECTOR *axis, D3DVALUE *return_theta) PURE;
-    STDMETHOD(GetScene)(THIS_ LPDIRECT3DRMFRAME3 *) PURE;
+    STDMETHOD(GetScene)(THIS_ IDirect3DRMFrame3 **scene) PURE;
     STDMETHOD_(D3DRMSORTMODE, GetSortMode)(THIS) PURE;
     STDMETHOD(GetTexture)(THIS_ LPDIRECT3DRMTEXTURE3 *) PURE;
-    STDMETHOD(GetTransform)(THIS_ LPDIRECT3DRMFRAME3 reference, D3DRMMATRIX4D rmMatrix) PURE;
+    STDMETHOD(GetTransform)(THIS_ IDirect3DRMFrame3 *reference, D3DRMMATRIX4D matrix) PURE;
     STDMETHOD(GetVelocity)(THIS_ IDirect3DRMFrame3 *reference, D3DVECTOR *return_velocity, WINBOOL with_rotation) PURE;
     STDMETHOD(GetOrientation)(THIS_ IDirect3DRMFrame3 *reference, D3DVECTOR *dir, D3DVECTOR *up) PURE;
     STDMETHOD(GetVisuals)(THIS_ LPDWORD pCount, LPUNKNOWN *) PURE;
     STDMETHOD(InverseTransform)(THIS_ D3DVECTOR *d, D3DVECTOR *s) PURE;
     STDMETHOD(Load)(THIS_ LPVOID filename, LPVOID name, D3DRMLOADOPTIONS loadflags,
         D3DRMLOADTEXTURE3CALLBACK, LPVOID pArg) PURE;
-    STDMETHOD(LookAt)(THIS_ LPDIRECT3DRMFRAME3 target, LPDIRECT3DRMFRAME3 reference, D3DRMFRAMECONSTRAINT) PURE;
+    STDMETHOD(LookAt)(THIS_ IDirect3DRMFrame3 *target, IDirect3DRMFrame3 *reference,
+            D3DRMFRAMECONSTRAINT constraint) PURE;
     STDMETHOD(Move)(THIS_ D3DVALUE delta) PURE;
-    STDMETHOD(DeleteChild)(THIS_ LPDIRECT3DRMFRAME3) PURE;
-    STDMETHOD(DeleteLight)(THIS_ LPDIRECT3DRMLIGHT) PURE;
+    STDMETHOD(DeleteChild)(THIS_ IDirect3DRMFrame3 *child) PURE;
+    STDMETHOD(DeleteLight)(THIS_ struct IDirect3DRMLight *light) PURE;
     STDMETHOD(DeleteMoveCallback)(THIS_ D3DRMFRAME3MOVECALLBACK, VOID *arg) PURE;
     STDMETHOD(DeleteVisual)(THIS_ LPUNKNOWN) PURE;
     STDMETHOD_(D3DCOLOR, GetSceneBackground)(THIS) PURE;
@@ -1658,15 +1663,15 @@ DECLARE_INTERFACE_(IDirect3DRMFrame3,IDirect3DRMVisual)
     STDMETHOD(SetColorRGB)(THIS_ D3DVALUE red, D3DVALUE green, D3DVALUE blue) PURE;
     STDMETHOD_(D3DRMZBUFFERMODE, GetZbufferMode)(THIS) PURE;
     STDMETHOD(SetMaterialMode)(THIS_ D3DRMMATERIALMODE) PURE;
-    STDMETHOD(SetOrientation)(THIS_ LPDIRECT3DRMFRAME3 reference, D3DVALUE dx, D3DVALUE dy, D3DVALUE dz,
-        D3DVALUE ux, D3DVALUE uy, D3DVALUE uz) PURE;
-    STDMETHOD(SetPosition)(THIS_ LPDIRECT3DRMFRAME3 reference, D3DVALUE x, D3DVALUE y, D3DVALUE z) PURE;
-    STDMETHOD(SetRotation)(THIS_ LPDIRECT3DRMFRAME3 reference, D3DVALUE x, D3DVALUE y, D3DVALUE z,
-        D3DVALUE theta) PURE;
+    STDMETHOD(SetOrientation)(THIS_ IDirect3DRMFrame3 *reference, D3DVALUE dx, D3DVALUE dy, D3DVALUE dz,
+            D3DVALUE ux, D3DVALUE uy, D3DVALUE uz) PURE;
+    STDMETHOD(SetPosition)(THIS_ IDirect3DRMFrame3 *reference, D3DVALUE x, D3DVALUE y, D3DVALUE z) PURE;
+    STDMETHOD(SetRotation)(THIS_ IDirect3DRMFrame3 *reference,
+            D3DVALUE x, D3DVALUE y, D3DVALUE z, D3DVALUE theta) PURE;
     STDMETHOD(SetSortMode)(THIS_ D3DRMSORTMODE) PURE;
     STDMETHOD(SetTexture)(THIS_ LPDIRECT3DRMTEXTURE3) PURE;
-    STDMETHOD(SetVelocity)(THIS_ LPDIRECT3DRMFRAME3 reference, D3DVALUE x, D3DVALUE y, D3DVALUE z,
-        WINBOOL with_rotation) PURE;
+    STDMETHOD(SetVelocity)(THIS_ IDirect3DRMFrame3 *reference,
+            D3DVALUE x, D3DVALUE y, D3DVALUE z, WINBOOL with_rotation) PURE;
     STDMETHOD(SetZbufferMode)(THIS_ D3DRMZBUFFERMODE) PURE;
     STDMETHOD(Transform)(THIS_ D3DVECTOR *d, D3DVECTOR *s) PURE;
     STDMETHOD(GetBox)(THIS_ D3DRMBOX *box) PURE;
@@ -1680,7 +1685,7 @@ DECLARE_INTERFACE_(IDirect3DRMFrame3,IDirect3DRMVisual)
     STDMETHOD(SetAxes)(THIS_ D3DVALUE dx, D3DVALUE dy, D3DVALUE dz, D3DVALUE ux, D3DVALUE uy, D3DVALUE uz);
     STDMETHOD(SetInheritAxes)(THIS_ WINBOOL inherit_from_parent);
     STDMETHOD(SetMaterial)(THIS_ LPDIRECT3DRMMATERIAL2) PURE;
-    STDMETHOD(SetQuaternion)(THIS_ LPDIRECT3DRMFRAME3 reference, D3DRMQUATERNION *q) PURE;
+    STDMETHOD(SetQuaternion)(THIS_ IDirect3DRMFrame3 *reference, D3DRMQUATERNION *q) PURE;
     STDMETHOD(RayPick)(THIS_ IDirect3DRMFrame3 *reference, D3DRMRAY *ray, DWORD flags,
             struct IDirect3DRMPicked2Array **return_visuals) PURE;
     STDMETHOD(Save)(THIS_ LPCSTR filename, D3DRMXOFFORMAT d3dFormat, D3DRMSAVEOPTIONS d3dSaveFlags);
@@ -2022,7 +2027,7 @@ DECLARE_INTERFACE_(IDirect3DRMProgressiveMesh,IDirect3DRMVisual)
     /*** IDirect3DRMProgressiveMesh methods ***/
     STDMETHOD(Load) (THIS_ LPVOID pObjLocation, LPVOID pObjId, D3DRMLOADOPTIONS dloLoadflags,
         D3DRMLOADTEXTURECALLBACK pCallback, LPVOID lpArg) PURE;
-    STDMETHOD(GetLoadStatus) (THIS_ LPD3DRMPMESHLOADSTATUS pStatus) PURE;
+    STDMETHOD(GetLoadStatus) (THIS_ D3DRMPMESHLOADSTATUS *status) PURE;
     STDMETHOD(SetMinRenderDetail) (THIS_ D3DVALUE d3dVal) PURE;
     STDMETHOD(Abort) (THIS_ DWORD flags) PURE;
     STDMETHOD(GetFaceDetail) (THIS_ LPDWORD pCount) PURE;
@@ -2034,7 +2039,7 @@ DECLARE_INTERFACE_(IDirect3DRMProgressiveMesh,IDirect3DRMVisual)
     STDMETHOD(GetDetail) (THIS_ D3DVALUE *pdvVal) PURE;
     STDMETHOD(SetDetail) (THIS_ D3DVALUE d3dVal) PURE;
     STDMETHOD(RegisterEvents) (THIS_ HANDLE event, DWORD flags, DWORD reserved) PURE;
-    STDMETHOD(CreateMesh) (THIS_ LPDIRECT3DRMMESH *ppD3DRMMesh) PURE;
+    STDMETHOD(CreateMesh) (THIS_ IDirect3DRMMesh **mesh) PURE;
     STDMETHOD(Duplicate) (THIS_ LPDIRECT3DRMPROGRESSIVEMESH *ppD3DRMPMesh) PURE;
     STDMETHOD(GetBox) (THIS_ D3DRMBOX *box) PURE;
     STDMETHOD(SetQuality) (THIS_ D3DRMRENDERQUALITY quality) PURE;
@@ -2130,8 +2135,8 @@ DECLARE_INTERFACE_(IDirect3DRMShadow,IDirect3DRMVisual)
     STDMETHOD(GetName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     STDMETHOD(GetClassName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     /*** IDirect3DRMShadow methods ***/
-    STDMETHOD(Init)(THIS_ LPDIRECT3DRMVISUAL visual, LPDIRECT3DRMLIGHT light,
-        D3DVALUE px, D3DVALUE py, D3DVALUE pz, D3DVALUE nx, D3DVALUE ny, D3DVALUE nz) PURE;
+    STDMETHOD(Init)(THIS_ IDirect3DRMVisual *visual, struct IDirect3DRMLight *light,
+            D3DVALUE px, D3DVALUE py, D3DVALUE pz, D3DVALUE nx, D3DVALUE ny, D3DVALUE nz) PURE;
 };
 #undef INTERFACE
 
@@ -2189,13 +2194,13 @@ DECLARE_INTERFACE_(IDirect3DRMShadow2,IDirect3DRMVisual)
     STDMETHOD(GetName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     STDMETHOD(GetClassName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     /*** IDirect3DRMShadow methods ***/
-    STDMETHOD(Init)(THIS_ LPUNKNOWN pUNK, LPDIRECT3DRMLIGHT light,
-        D3DVALUE px, D3DVALUE py, D3DVALUE pz, D3DVALUE nx, D3DVALUE ny, D3DVALUE nz) PURE;
+    STDMETHOD(Init)(THIS_ IUnknown *object, struct IDirect3DRMLight *light,
+            D3DVALUE px, D3DVALUE py, D3DVALUE pz, D3DVALUE nx, D3DVALUE ny, D3DVALUE nz) PURE;
     /*** IDirect3DRMShadow2 methods ***/
-    STDMETHOD(GetVisual)(THIS_ LPDIRECT3DRMVISUAL *) PURE;
+    STDMETHOD(GetVisual)(THIS_ IDirect3DRMVisual **visual) PURE;
     STDMETHOD(SetVisual)(THIS_ LPUNKNOWN pUNK, DWORD) PURE;
-    STDMETHOD(GetLight)(THIS_ LPDIRECT3DRMLIGHT *) PURE;
-    STDMETHOD(SetLight)(THIS_ LPDIRECT3DRMLIGHT, DWORD) PURE;
+    STDMETHOD(GetLight)(THIS_ struct IDirect3DRMLight **light) PURE;
+    STDMETHOD(SetLight)(THIS_ struct IDirect3DRMLight *light, DWORD flags) PURE;
     STDMETHOD(GetPlane)(THIS_ D3DVALUE *px, D3DVALUE *py, D3DVALUE *pz,
             D3DVALUE *nx, D3DVALUE *ny, D3DVALUE *nz) PURE;
     STDMETHOD(SetPlane)(THIS_ D3DVALUE px, D3DVALUE py, D3DVALUE pz,
@@ -2505,10 +2510,10 @@ DECLARE_INTERFACE_(IDirect3DRMMeshBuilder,IDirect3DRMVisual)
     STDMETHOD(GetBox)(THIS_ D3DRMBOX *) PURE;
     STDMETHOD(GenerateNormals)(THIS) PURE;
     STDMETHOD_(D3DRMCOLORSOURCE, GetColorSource)(THIS) PURE;
-    STDMETHOD(AddMesh)(THIS_ LPDIRECT3DRMMESH) PURE;
-    STDMETHOD(AddMeshBuilder)(THIS_ LPDIRECT3DRMMESHBUILDER) PURE;
-    STDMETHOD(AddFrame)(THIS_ LPDIRECT3DRMFRAME) PURE;
-    STDMETHOD(AddFace)(THIS_ LPDIRECT3DRMFACE) PURE;
+    STDMETHOD(AddMesh)(THIS_ IDirect3DRMMesh *mesh) PURE;
+    STDMETHOD(AddMeshBuilder)(THIS_ IDirect3DRMMeshBuilder *mesh_builder) PURE;
+    STDMETHOD(AddFrame)(THIS_ IDirect3DRMFrame *frame) PURE;
+    STDMETHOD(AddFace)(THIS_ IDirect3DRMFace *face) PURE;
     STDMETHOD(AddFaces)(THIS_ DWORD vcount, D3DVECTOR *vertices, DWORD ncount, D3DVECTOR *normals, DWORD *data,
         LPDIRECT3DRMFACEARRAY*) PURE;
     STDMETHOD(ReserveSpace)(THIS_ DWORD vertex_Count, DWORD normal_count, DWORD face_count) PURE;
@@ -2530,13 +2535,13 @@ DECLARE_INTERFACE_(IDirect3DRMMeshBuilder,IDirect3DRMVisual)
     STDMETHOD(GetTextureCoordinates)(THIS_ DWORD index, D3DVALUE *u, D3DVALUE *v) PURE;
     STDMETHOD_(int, AddVertex)(THIS_ D3DVALUE x, D3DVALUE y, D3DVALUE z) PURE;
     STDMETHOD_(int, AddNormal)(THIS_ D3DVALUE x, D3DVALUE y, D3DVALUE z) PURE;
-    STDMETHOD(CreateFace)(THIS_ LPDIRECT3DRMFACE*) PURE;
+    STDMETHOD(CreateFace)(THIS_ IDirect3DRMFace **face) PURE;
     STDMETHOD_(D3DRMRENDERQUALITY, GetQuality)(THIS) PURE;
     STDMETHOD_(WINBOOL, GetPerspective)(THIS) PURE;
     STDMETHOD_(int, GetFaceCount)(THIS) PURE;
     STDMETHOD_(int, GetVertexCount)(THIS) PURE;
     STDMETHOD_(D3DCOLOR, GetVertexColor)(THIS_ DWORD index) PURE;
-    STDMETHOD(CreateMesh)(THIS_ LPDIRECT3DRMMESH*) PURE;
+    STDMETHOD(CreateMesh)(THIS_ IDirect3DRMMesh **mesh) PURE;
 };
 #undef INTERFACE
 
@@ -2676,10 +2681,10 @@ DECLARE_INTERFACE_(IDirect3DRMMeshBuilder2,IDirect3DRMMeshBuilder)
     STDMETHOD(GetBox)(THIS_ D3DRMBOX *) PURE;
     STDMETHOD(GenerateNormals)(THIS) PURE;
     STDMETHOD_(D3DRMCOLORSOURCE, GetColorSource)(THIS) PURE;
-    STDMETHOD(AddMesh)(THIS_ LPDIRECT3DRMMESH) PURE;
-    STDMETHOD(AddMeshBuilder)(THIS_ LPDIRECT3DRMMESHBUILDER) PURE;
-    STDMETHOD(AddFrame)(THIS_ LPDIRECT3DRMFRAME) PURE;
-    STDMETHOD(AddFace)(THIS_ LPDIRECT3DRMFACE) PURE;
+    STDMETHOD(AddMesh)(THIS_ IDirect3DRMMesh *mesh) PURE;
+    STDMETHOD(AddMeshBuilder)(THIS_ IDirect3DRMMeshBuilder *mesh_builder) PURE;
+    STDMETHOD(AddFrame)(THIS_ IDirect3DRMFrame *frame) PURE;
+    STDMETHOD(AddFace)(THIS_ IDirect3DRMFace *face) PURE;
     STDMETHOD(AddFaces)(THIS_ DWORD vcount, D3DVECTOR *vertices, DWORD ncount, D3DVECTOR *normals, DWORD *data,
         LPDIRECT3DRMFACEARRAY*) PURE;
     STDMETHOD(ReserveSpace)(THIS_ DWORD vertex_Count, DWORD normal_count, DWORD face_count) PURE;
@@ -2701,16 +2706,16 @@ DECLARE_INTERFACE_(IDirect3DRMMeshBuilder2,IDirect3DRMMeshBuilder)
     STDMETHOD(GetTextureCoordinates)(THIS_ DWORD index, D3DVALUE *u, D3DVALUE *v) PURE;
     STDMETHOD_(int, AddVertex)(THIS_ D3DVALUE x, D3DVALUE y, D3DVALUE z) PURE;
     STDMETHOD_(int, AddNormal)(THIS_ D3DVALUE x, D3DVALUE y, D3DVALUE z) PURE;
-    STDMETHOD(CreateFace)(THIS_ LPDIRECT3DRMFACE*) PURE;
+    STDMETHOD(CreateFace)(THIS_ IDirect3DRMFace **face) PURE;
     STDMETHOD_(D3DRMRENDERQUALITY, GetQuality)(THIS) PURE;
     STDMETHOD_(WINBOOL, GetPerspective)(THIS) PURE;
     STDMETHOD_(int, GetFaceCount)(THIS) PURE;
     STDMETHOD_(int, GetVertexCount)(THIS) PURE;
     STDMETHOD_(D3DCOLOR, GetVertexColor)(THIS_ DWORD index) PURE;
-    STDMETHOD(CreateMesh)(THIS_ LPDIRECT3DRMMESH*) PURE;
+    STDMETHOD(CreateMesh)(THIS_ IDirect3DRMMesh **mesh) PURE;
     /*** IDirect3DRMMeshBuilder2 methods ***/
     STDMETHOD(GenerateNormals2)(THIS_ D3DVALUE crease, DWORD flags) PURE;
-    STDMETHOD(GetFace)(THIS_ DWORD index, LPDIRECT3DRMFACE*) PURE;
+    STDMETHOD(GetFace)(THIS_ DWORD index, IDirect3DRMFace **face) PURE;
 };
 #undef INTERFACE
 
@@ -2856,10 +2861,10 @@ DECLARE_INTERFACE_(IDirect3DRMMeshBuilder3,IDirect3DRMVisual)
     STDMETHOD(GetBox)(THIS_ D3DRMBOX *) PURE;
     STDMETHOD(GenerateNormals)(THIS_ D3DVALUE crease, DWORD flags) PURE;
     STDMETHOD_(D3DRMCOLORSOURCE, GetColorSource)(THIS) PURE;
-    STDMETHOD(AddMesh)(THIS_ LPDIRECT3DRMMESH) PURE;
-    STDMETHOD(AddMeshBuilder)(THIS_ LPDIRECT3DRMMESHBUILDER3, DWORD flags) PURE;
-    STDMETHOD(AddFrame)(THIS_ LPDIRECT3DRMFRAME3) PURE;
-    STDMETHOD(AddFace)(THIS_ LPDIRECT3DRMFACE2) PURE;
+    STDMETHOD(AddMesh)(THIS_ IDirect3DRMMesh *mesh) PURE;
+    STDMETHOD(AddMeshBuilder)(THIS_ IDirect3DRMMeshBuilder3 *mesh_builder, DWORD flags) PURE;
+    STDMETHOD(AddFrame)(THIS_ IDirect3DRMFrame3 *frame) PURE;
+    STDMETHOD(AddFace)(THIS_ IDirect3DRMFace2 *face) PURE;
     STDMETHOD(AddFaces)(THIS_ DWORD vcount, D3DVECTOR *vertices, DWORD ncount, D3DVECTOR *normals, DWORD *data,
         LPDIRECT3DRMFACEARRAY*) PURE;
     STDMETHOD(ReserveSpace)(THIS_ DWORD vertex_Count, DWORD normal_count, DWORD face_count) PURE;
@@ -2881,19 +2886,19 @@ DECLARE_INTERFACE_(IDirect3DRMMeshBuilder3,IDirect3DRMVisual)
     STDMETHOD(GetTextureCoordinates)(THIS_ DWORD index, D3DVALUE *u, D3DVALUE *v) PURE;
     STDMETHOD_(int, AddVertex)(THIS_ D3DVALUE x, D3DVALUE y, D3DVALUE z) PURE;
     STDMETHOD_(int, AddNormal)(THIS_ D3DVALUE x, D3DVALUE y, D3DVALUE z) PURE;
-    STDMETHOD(CreateFace)(THIS_ LPDIRECT3DRMFACE2*) PURE;
+    STDMETHOD(CreateFace)(THIS_ IDirect3DRMFace2 **face) PURE;
     STDMETHOD_(D3DRMRENDERQUALITY, GetQuality)(THIS) PURE;
     STDMETHOD_(WINBOOL, GetPerspective)(THIS) PURE;
     STDMETHOD_(int, GetFaceCount)(THIS) PURE;
     STDMETHOD_(int, GetVertexCount)(THIS) PURE;
     STDMETHOD_(D3DCOLOR, GetVertexColor)(THIS_ DWORD index) PURE;
-    STDMETHOD(CreateMesh)(THIS_ LPDIRECT3DRMMESH*) PURE;
-    STDMETHOD(GetFace)(THIS_ DWORD index, LPDIRECT3DRMFACE2 *) PURE;
+    STDMETHOD(CreateMesh)(THIS_ IDirect3DRMMesh **mesh) PURE;
+    STDMETHOD(GetFace)(THIS_ DWORD index, IDirect3DRMFace2 **face) PURE;
     STDMETHOD(GetVertex)(THIS_ DWORD index, D3DVECTOR *vector) PURE;
     STDMETHOD(GetNormal)(THIS_ DWORD index, D3DVECTOR *vector) PURE;
     STDMETHOD(DeleteVertices)(THIS_ DWORD IndexFirst, DWORD count) PURE;
     STDMETHOD(DeleteNormals)(THIS_ DWORD IndexFirst, DWORD count) PURE;
-    STDMETHOD(DeleteFace)(THIS_ LPDIRECT3DRMFACE2) PURE;
+    STDMETHOD(DeleteFace)(THIS_ IDirect3DRMFace2 *face) PURE;
     STDMETHOD(Empty)(THIS_ DWORD flags) PURE;
     STDMETHOD(Optimize)(THIS_ DWORD flags) PURE;
     STDMETHOD(AddFacesIndexed)(THIS_ DWORD flags, DWORD *pvIndices, DWORD *pIndexFirst, DWORD *pCount) PURE;
@@ -3101,8 +3106,8 @@ DECLARE_INTERFACE_(IDirect3DRMLight,IDirect3DRMObject)
     STDMETHOD_(D3DVALUE, GetQuadraticAttenuation)(THIS) PURE;
     STDMETHOD_(D3DCOLOR, GetColor)(THIS) PURE;
     STDMETHOD_(D3DRMLIGHTTYPE, GetType)(THIS) PURE;
-    STDMETHOD(SetEnableFrame)(THIS_ LPDIRECT3DRMFRAME) PURE;
-    STDMETHOD(GetEnableFrame)(THIS_ LPDIRECT3DRMFRAME*) PURE;
+    STDMETHOD(SetEnableFrame)(THIS_ IDirect3DRMFrame *frame) PURE;
+    STDMETHOD(GetEnableFrame)(THIS_ IDirect3DRMFrame **frame) PURE;
 };
 #undef INTERFACE
 
@@ -3568,16 +3573,11 @@ DECLARE_INTERFACE_(IDirect3DRMWrap, IDirect3DRMObject)
     STDMETHOD(GetName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     STDMETHOD(GetClassName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     /*** IDirect3DRMWrap methods ***/
-    STDMETHOD(Init)
-    (   THIS_ D3DRMWRAPTYPE, LPDIRECT3DRMFRAME ref,
-        D3DVALUE ox, D3DVALUE oy, D3DVALUE oz,
-        D3DVALUE dx, D3DVALUE dy, D3DVALUE dz,
-        D3DVALUE ux, D3DVALUE uy, D3DVALUE uz,
-        D3DVALUE ou, D3DVALUE ov,
-        D3DVALUE su, D3DVALUE sv
-    ) PURE;
-    STDMETHOD(Apply)(THIS_ LPDIRECT3DRMOBJECT) PURE;
-    STDMETHOD(ApplyRelative)(THIS_ LPDIRECT3DRMFRAME frame, LPDIRECT3DRMOBJECT) PURE;
+    STDMETHOD(Init)(THIS_ D3DRMWRAPTYPE type, IDirect3DRMFrame *reference, D3DVALUE ox, D3DVALUE oy, D3DVALUE oz,
+            D3DVALUE dx, D3DVALUE dy, D3DVALUE dz, D3DVALUE ux, D3DVALUE uy, D3DVALUE uz,
+            D3DVALUE ou, D3DVALUE ov, D3DVALUE su, D3DVALUE sv) PURE;
+    STDMETHOD(Apply)(THIS_ IDirect3DRMObject *object) PURE;
+    STDMETHOD(ApplyRelative)(THIS_ IDirect3DRMFrame *frame, IDirect3DRMObject *object) PURE;
 };
 #undef INTERFACE
 
@@ -3796,7 +3796,7 @@ DECLARE_INTERFACE_(IDirect3DRMAnimation, IDirect3DRMObject)
     STDMETHOD(AddPositionKey)(THIS_ D3DVALUE time, D3DVALUE x, D3DVALUE y, D3DVALUE z) PURE;
     STDMETHOD(AddScaleKey)(THIS_ D3DVALUE time, D3DVALUE x, D3DVALUE y, D3DVALUE z) PURE;
     STDMETHOD(DeleteKey)(THIS_ D3DVALUE time) PURE;
-    STDMETHOD(SetFrame)(THIS_ LPDIRECT3DRMFRAME frame) PURE;
+    STDMETHOD(SetFrame)(THIS_ IDirect3DRMFrame *frame) PURE;
     STDMETHOD(SetTime)(THIS_ D3DVALUE time) PURE;
     STDMETHOD_(D3DRMANIMATIONOPTIONS, GetOptions)(THIS) PURE;
 };
@@ -3875,16 +3875,14 @@ DECLARE_INTERFACE_(IDirect3DRMAnimation2, IDirect3DRMObject)
     STDMETHOD(AddPositionKey)(THIS_ D3DVALUE time, D3DVALUE x, D3DVALUE y, D3DVALUE z) PURE;
     STDMETHOD(AddScaleKey)(THIS_ D3DVALUE time, D3DVALUE x, D3DVALUE y, D3DVALUE z) PURE;
     STDMETHOD(DeleteKey)(THIS_ D3DVALUE time) PURE;
-    STDMETHOD(SetFrame)(THIS_ LPDIRECT3DRMFRAME3 frame) PURE;
+    STDMETHOD(SetFrame)(THIS_ IDirect3DRMFrame3 *frame) PURE;
     STDMETHOD(SetTime)(THIS_ D3DVALUE time) PURE;
     STDMETHOD_(D3DRMANIMATIONOPTIONS, GetOptions)(THIS) PURE;
-    STDMETHOD(GetFrame)(THIS_ LPDIRECT3DRMFRAME3 *lpD3DFrame) PURE;
+    STDMETHOD(GetFrame)(THIS_ IDirect3DRMFrame3 **frame) PURE;
     STDMETHOD(DeleteKeyByID)(THIS_ DWORD dwID) PURE;
-    STDMETHOD(AddKey)(THIS_ LPD3DRMANIMATIONKEY lpKey) PURE;
-    STDMETHOD(ModifyKey)(THIS_ LPD3DRMANIMATIONKEY lpKey) PURE;
-    STDMETHOD(GetKeys)(THIS_ D3DVALUE dvTimeMin,
-                       D3DVALUE dvTimeMax, LPDWORD lpdwNumKeys,
-                       LPD3DRMANIMATIONKEY lpKey);
+    STDMETHOD(AddKey)(THIS_ D3DRMANIMATIONKEY *key) PURE;
+    STDMETHOD(ModifyKey)(THIS_ D3DRMANIMATIONKEY *key) PURE;
+    STDMETHOD(GetKeys)(THIS_ D3DVALUE time_min, D3DVALUE time_max, DWORD *key_count, D3DRMANIMATIONKEY *keys);
 };
 #undef INTERFACE
 
@@ -3967,7 +3965,8 @@ DECLARE_INTERFACE_(IDirect3DRMAnimationSet, IDirect3DRMObject)
     STDMETHOD(GetClassName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     /*** IDirect3DRMAnimationSet methods ***/
     STDMETHOD(AddAnimation)(THIS_ LPDIRECT3DRMANIMATION aid) PURE;
-    STDMETHOD(Load)(THIS_ LPVOID filename, LPVOID name, D3DRMLOADOPTIONS loadflags, D3DRMLOADTEXTURECALLBACK, LPVOID lpArg, LPDIRECT3DRMFRAME parent)PURE;
+    STDMETHOD(Load)(THIS_ void *filename, void *name, D3DRMLOADOPTIONS flags,
+            D3DRMLOADTEXTURECALLBACK cb, void *ctx, IDirect3DRMFrame *parent)PURE;
     STDMETHOD(DeleteAnimation)(THIS_ LPDIRECT3DRMANIMATION aid) PURE;
     STDMETHOD(SetTime)(THIS_ D3DVALUE time) PURE;
 };
@@ -4034,7 +4033,8 @@ DECLARE_INTERFACE_(IDirect3DRMAnimationSet2, IDirect3DRMObject)
     STDMETHOD(GetClassName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     /*** IDirect3DRMAnimationSet2 methods ***/
     STDMETHOD(AddAnimation)(THIS_ LPDIRECT3DRMANIMATION2 aid) PURE;
-    STDMETHOD(Load)(THIS_ LPVOID filename, LPVOID name, D3DRMLOADOPTIONS loadflags, D3DRMLOADTEXTURE3CALLBACK, LPVOID lpArg, LPDIRECT3DRMFRAME3 parent)PURE;
+    STDMETHOD(Load)(THIS_ void *source, void *object_id, D3DRMLOADOPTIONS flags,
+            D3DRMLOADTEXTURE3CALLBACK cb, void *ctx, IDirect3DRMFrame3 *parent_frame)PURE;
     STDMETHOD(DeleteAnimation)(THIS_ LPDIRECT3DRMANIMATION2 aid) PURE;
     STDMETHOD(SetTime)(THIS_ D3DVALUE time) PURE;
     STDMETHOD(GetAnimations)(THIS_ LPDIRECT3DRMANIMATIONARRAY *) PURE;
@@ -4185,7 +4185,7 @@ DECLARE_INTERFACE_(IDirect3DRMObjectArray, IDirect3DRMArray)
     /*** IDirect3DRMArray methods ***/
     STDMETHOD_(DWORD, GetSize)(THIS) PURE;
     /*** IDirect3DRMObjectArray methods ***/
-    STDMETHOD(GetElement)(THIS_ DWORD index, LPDIRECT3DRMOBJECT *) PURE;
+    STDMETHOD(GetElement)(THIS_ DWORD index, IDirect3DRMObject **element) PURE;
 };
 #undef INTERFACE
 
@@ -4222,7 +4222,7 @@ DECLARE_INTERFACE_(IDirect3DRMDeviceArray, IDirect3DRMArray)
     /*** IDirect3DRMArray methods ***/
     STDMETHOD_(DWORD, GetSize)(THIS) PURE;
     /*** IDirect3DRMDeviceArray methods ***/
-    STDMETHOD(GetElement)(THIS_ DWORD index, LPDIRECT3DRMDEVICE *) PURE;
+    STDMETHOD(GetElement)(THIS_ DWORD index, IDirect3DRMDevice **element) PURE;
 };
 #undef INTERFACE
 
@@ -4259,7 +4259,7 @@ DECLARE_INTERFACE_(IDirect3DRMFrameArray, IDirect3DRMArray)
     /*** IDirect3DRMArray methods ***/
     STDMETHOD_(DWORD, GetSize)(THIS) PURE;
     /*** IDirect3DRMFrameArray methods ***/
-    STDMETHOD(GetElement)(THIS_ DWORD index, LPDIRECT3DRMFRAME *) PURE;
+    STDMETHOD(GetElement)(THIS_ DWORD index, IDirect3DRMFrame **element) PURE;
 };
 #undef INTERFACE
 
@@ -4296,7 +4296,7 @@ DECLARE_INTERFACE_(IDirect3DRMViewportArray, IDirect3DRMArray)
     /*** IDirect3DRMArray methods ***/
     STDMETHOD_(DWORD, GetSize)(THIS) PURE;
     /*** IDirect3DRMViewportArray methods ***/
-    STDMETHOD(GetElement)(THIS_ DWORD index, LPDIRECT3DRMVIEWPORT *) PURE;
+    STDMETHOD(GetElement)(THIS_ DWORD index, IDirect3DRMViewport **element) PURE;
 };
 #undef INTERFACE
 
@@ -4333,7 +4333,7 @@ DECLARE_INTERFACE_(IDirect3DRMVisualArray, IDirect3DRMArray)
     /*** IDirect3DRMArray methods ***/
     STDMETHOD_(DWORD, GetSize)(THIS) PURE;
     /*** IDirect3DRMVisualArray methods ***/
-    STDMETHOD(GetElement)(THIS_ DWORD index, LPDIRECT3DRMVISUAL *) PURE;
+    STDMETHOD(GetElement)(THIS_ DWORD index, IDirect3DRMVisual **element) PURE;
 };
 #undef INTERFACE
 
@@ -4407,7 +4407,8 @@ DECLARE_INTERFACE_(IDirect3DRMPickedArray, IDirect3DRMArray)
     /*** IDirect3DRMArray methods ***/
     STDMETHOD_(DWORD, GetSize)(THIS) PURE;
     /*** IDirect3DRMPickedArray methods ***/
-    STDMETHOD(GetPick)(THIS_ DWORD index, LPDIRECT3DRMVISUAL *, LPDIRECT3DRMFRAMEARRAY *, LPD3DRMPICKDESC) PURE;
+    STDMETHOD(GetPick)(THIS_ DWORD index, IDirect3DRMVisual **visual,
+            IDirect3DRMFrameArray **frame_array, D3DRMPICKDESC *pick_desc) PURE;
 };
 #undef INTERFACE
 
@@ -4444,7 +4445,7 @@ DECLARE_INTERFACE_(IDirect3DRMLightArray, IDirect3DRMArray)
     /*** IDirect3DRMArray methods ***/
     STDMETHOD_(DWORD, GetSize)(THIS) PURE;
     /*** IDirect3DRMLightArray methods ***/
-    STDMETHOD(GetElement)(THIS_ DWORD index, LPDIRECT3DRMLIGHT *) PURE;
+    STDMETHOD(GetElement)(THIS_ DWORD index, IDirect3DRMLight **element) PURE;
 };
 #undef INTERFACE
 
@@ -4481,7 +4482,7 @@ DECLARE_INTERFACE_(IDirect3DRMFaceArray, IDirect3DRMArray)
     /*** IDirect3DRMArray methods ***/
     STDMETHOD_(DWORD, GetSize)(THIS) PURE;
     /*** IDirect3DRMFaceArray methods ***/
-    STDMETHOD(GetElement)(THIS_ DWORD index, LPDIRECT3DRMFACE *) PURE;
+    STDMETHOD(GetElement)(THIS_ DWORD index, IDirect3DRMFace **element) PURE;
 };
 #undef INTERFACE
 
@@ -4518,7 +4519,8 @@ DECLARE_INTERFACE_(IDirect3DRMPicked2Array, IDirect3DRMArray)
     /*** IDirect3DRMArray methods ***/
     STDMETHOD_(DWORD, GetSize)(THIS) PURE;
     /*** IDirect3DRMPicked2Array methods ***/
-    STDMETHOD(GetPick)(THIS_ DWORD index, LPDIRECT3DRMVISUAL *, LPDIRECT3DRMFRAMEARRAY *, LPD3DRMPICKDESC2) PURE;
+    STDMETHOD(GetPick)(THIS_ DWORD index, IDirect3DRMVisual **visual,
+            IDirect3DRMFrameArray **frame_array, D3DRMPICKDESC2 *pick_desc) PURE;
 };
 #undef INTERFACE
 
@@ -4562,12 +4564,12 @@ DECLARE_INTERFACE_(IDirect3DRMInterpolator, IDirect3DRMObject)
     STDMETHOD(GetName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     STDMETHOD(GetClassName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     /*** IDirect3DRMInterpolator methods ***/
-    STDMETHOD(AttachObject)(THIS_ LPDIRECT3DRMOBJECT) PURE;
+    STDMETHOD(AttachObject)(THIS_ IDirect3DRMObject *object) PURE;
     STDMETHOD(GetAttachedObjects)(THIS_ LPDIRECT3DRMOBJECTARRAY *) PURE;
-    STDMETHOD(DetachObject)(THIS_ LPDIRECT3DRMOBJECT) PURE;
+    STDMETHOD(DetachObject)(THIS_ IDirect3DRMObject *object) PURE;
     STDMETHOD(SetIndex)(THIS_ D3DVALUE) PURE;
     STDMETHOD_(D3DVALUE, GetIndex)(THIS) PURE;
-    STDMETHOD(Interpolate)(THIS_ D3DVALUE, LPDIRECT3DRMOBJECT, D3DRMINTERPOLATIONOPTIONS) PURE;
+    STDMETHOD(Interpolate)(THIS_ D3DVALUE index, IDirect3DRMObject *object, D3DRMINTERPOLATIONOPTIONS flags) PURE;
 };
 #undef INTERFACE
 
@@ -4635,7 +4637,7 @@ DECLARE_INTERFACE_(IDirect3DRMClippedVisual, IDirect3DRMVisual)
     STDMETHOD(GetName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     STDMETHOD(GetClassName)(THIS_ LPDWORD lpdwSize, LPSTR lpName) PURE;
     /*** IDirect3DRMClippedVisual methods ***/
-    STDMETHOD(Init) (THIS_ LPDIRECT3DRMVISUAL) PURE;
+    STDMETHOD(Init) (THIS_ IDirect3DRMVisual *visual) PURE;
     STDMETHOD(AddPlane) (THIS_ IDirect3DRMFrame3 *reference, D3DVECTOR *point,
             D3DVECTOR *normal, DWORD flags, DWORD *id) PURE;
     STDMETHOD(DeletePlane)(THIS_ DWORD, DWORD) PURE;
