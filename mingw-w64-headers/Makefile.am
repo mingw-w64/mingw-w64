@@ -64,6 +64,7 @@ IDL_SRCS = \
   include/docobj.idl \
   include/devicetopology.idl \
   include/downloadmgr.idl \
+  include/dxva2api.idl \
   include/endpointvolume.idl \
   include/fusion.idl \
   include/fwptypes.idl \

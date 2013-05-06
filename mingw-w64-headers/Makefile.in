@@ -288,6 +288,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/docobj.idl \
 @HAVE_WIDL_TRUE@  include/devicetopology.idl \
 @HAVE_WIDL_TRUE@  include/downloadmgr.idl \
+@HAVE_WIDL_TRUE@  include/dxva2api.idl \
 @HAVE_WIDL_TRUE@  include/endpointvolume.idl \
 @HAVE_WIDL_TRUE@  include/fusion.idl \
 @HAVE_WIDL_TRUE@  include/fwptypes.idl \
