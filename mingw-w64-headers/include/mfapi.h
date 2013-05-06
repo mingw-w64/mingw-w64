@@ -204,6 +204,17 @@ DEFINE_MEDIATYPE_GUID(MFVideoFormat_DVC,       FCC('dvc '));
 DEFINE_MEDIATYPE_GUID(MFVideoFormat_H264,      FCC('H264'));
 DEFINE_MEDIATYPE_GUID(MFVideoFormat_MJPG,      FCC('MJPG'));
 
+/* d3d*types.h contain true declarations of these defines. Undef here to avoid conflict. */
+#ifdef LOCAL_D3DFMT_DEFINES
+#undef D3DFMT_R8G8B8
+#undef D3DFMT_A8R8G8B8
+#undef D3DFMT_X8R8G8B8
+#undef D3DFMT_R5G6B5
+#undef D3DFMT_X1R5G5B5
+#undef D3DFMT_P8
+#undef LOCAL_D3DFMT_DEFINES
+#endif
+
 DEFINE_MEDIATYPE_GUID(MFAudioFormat_Base,              0);
 DEFINE_MEDIATYPE_GUID(MFAudioFormat_PCM,               WAVE_FORMAT_PCM);
 DEFINE_MEDIATYPE_GUID(MFAudioFormat_Float,             WAVE_FORMAT_IEEE_FLOAT);
