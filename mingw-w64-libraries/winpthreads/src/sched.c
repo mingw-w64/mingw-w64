@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2011 mingw-w64 project
+   Copyright (c) 2011-2013 mingw-w64 project
 
    Permission is hereby granted, free of charge, to any person obtaining a
    copy of this software and associated documentation files (the "Software"),
@@ -170,8 +170,13 @@ int sched_getscheduler(pid_t pid)
   return SCHED_OTHER;
 }
 
-int sched_setscheduler(pid_t pid, int pol)
+int sched_setscheduler(pid_t pid, int pol, const struct sched_param *param)
 {
+  if (!param)
+    {
+      errno = EINVAL;
+      return -1;
+    }
   if (pid != 0)
   {
       HANDLE h = NULL;

@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2011 mingw-w64 project
+   Copyright (c) 2011-2013 mingw-w64 project
 
    Permission is hereby granted, free of charge, to any person obtaining a
    copy of this software and associated documentation files (the "Software"),
@@ -246,7 +246,7 @@ int WINPTHREAD_API sched_yield(void);
 int WINPTHREAD_API sched_get_priority_min(int pol);
 int WINPTHREAD_API sched_get_priority_max(int pol);
 int WINPTHREAD_API sched_getscheduler(pid_t pid);
-int WINPTHREAD_API sched_setscheduler(pid_t pid, int pol);
+int WINPTHREAD_API sched_setscheduler(pid_t pid, int pol, const struct sched_param *param);
 
 #endif
 
