@@ -25,9 +25,11 @@
 #define _WIN32_WINNT 0x600 /* CreateSemaphoreExW is Vista+ */
 
 #define CreateSemaphoreW __CreateSemaphoreW
+#define CreateSemaphoreA __CreateSemaphoreA
 #include <windef.h>
 #include <winbase.h>
 #undef CreateSemaphoreW
+#undef CreateSemaphoreA
 
 HANDLE WINAPI CreateSemaphoreW(LPSECURITY_ATTRIBUTES lpSemaphoreAttributes,
                                LONG lInitialCount,
@@ -38,3 +40,24 @@ HANDLE WINAPI CreateSemaphoreW(LPSECURITY_ATTRIBUTES lpSemaphoreAttributes,
 }
 
 HANDLE WINAPI (*__MINGW_IMP_SYMBOL(CreateSemaphoreW))(LPSECURITY_ATTRIBUTES lpSemaphoreAttributes, LONG lInitialCount, LONG lMaximumCount, LPCWSTR lpName) asm("__imp__CreateSemaphoreW@16") = CreateSemaphoreW;
+
+/*
+ This is not really a proper implementation, but it is needed by gcc/libstdc++
+ */
+HANDLE WINAPI CreateSemaphoreA(LPSECURITY_ATTRIBUTES lpSemaphoreAttributes,
+                               LONG lInitialCount,
+                               LONG lMaximumCount,
+                               LPCSTR lpName)
+{
+    LPCWSTR lpwName;
+    if( lpName == NULL )
+        lpwName = NULL;
+    else
+    {
+        SetLastError( ERROR_BAD_ARGUMENTS );
+        return NULL; 
+    }
+    return CreateSemaphoreW(lpSemaphoreAttributes, lInitialCount, lMaximumCount, lpwName );
+}
+
+HANDLE WINAPI (*__MINGW_IMP_SYMBOL(CreateSemaphoreA))(LPSECURITY_ATTRIBUTES lpSemaphoreAttributes, LONG lInitialCount, LONG lMaximumCount, LPCSTR lpName) asm("__imp__CreateSemaphoreA@16") = CreateSemaphoreA;
