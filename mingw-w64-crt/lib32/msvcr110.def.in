@@ -1900,7 +1900,6 @@ lldiv
 localeconv
 log
 log10
-longjmp DATA
 malloc
 mblen
 mbrlen

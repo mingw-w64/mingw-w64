@@ -131,3 +131,5 @@ _tzname DATA
 ADD_UNDERSCORE(daylight)
 ADD_UNDERSCORE(timezone)
 ADD_UNDERSCORE(tzname)
+
+longjmp DATA

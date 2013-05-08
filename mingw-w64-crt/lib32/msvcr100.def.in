@@ -1767,7 +1767,6 @@ lldiv DATA
 localeconv
 log DATA
 log10
-longjmp DATA
 malloc
 mblen
 mbrlen DATA

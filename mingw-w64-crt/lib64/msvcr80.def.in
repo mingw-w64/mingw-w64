@@ -758,7 +758,6 @@ log DATA
 log10
 log10f
 logf DATA
-longjmp DATA
 malloc
 mblen
 mbstowcs

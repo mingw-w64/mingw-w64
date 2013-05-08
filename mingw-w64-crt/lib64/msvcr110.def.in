@@ -1850,7 +1850,6 @@ log
 log10
 log10f
 logf
-longjmp
 malloc
 mblen
 mbrlen

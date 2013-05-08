@@ -1726,7 +1726,6 @@ log DATA
 log10
 log10f DATA
 logf DATA
-longjmp DATA
 malloc
 mblen
 mbrlen DATA
