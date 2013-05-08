@@ -187,8 +187,51 @@ typedef D3D_PRIMITIVE D3D11_PRIMITIVE;
 typedef D3D_PRIMITIVE_TOPOLOGY D3D11_PRIMITIVE_TOPOLOGY;
 typedef D3D_SRV_DIMENSION D3D11_SRV_DIMENSION;
 typedef RECT D3D11_RECT;
+#define D3D11_DEFAULT_DEPTH_BIAS (0)
+
+#define D3D11_DEFAULT_DEPTH_BIAS_CLAMP 0.0f
+#define D3D11_DEFAULT_MAX_ANISOTROPY (16)
+
+#define D3D11_DEFAULT_MIP_LOD_BIAS 0.0f
+#define D3D11_DEFAULT_RENDER_TARGET_ARRAY_INDEX (0)
+
+#define D3D11_DEFAULT_SAMPLE_MASK (0xffffffff)
+
+#define D3D11_DEFAULT_SCISSOR_ENDX (0)
+
+#define D3D11_DEFAULT_SCISSOR_ENDY (0)
+
+#define D3D11_DEFAULT_SCISSOR_STARTX (0)
+
+#define D3D11_DEFAULT_SCISSOR_STARTY (0)
+
+#define D3D11_DEFAULT_SLOPE_SCALED_DEPTH_BIAS 0.0f
+#define D3D11_DEFAULT_STENCIL_READ_MASK (0xff)
+
+#define D3D11_DEFAULT_STENCIL_REFERENCE (0)
+
+#define D3D11_DEFAULT_STENCIL_WRITE_MASK (0xff)
+
+#define D3D11_DEFAULT_VIEWPORT_AND_SCISSORRECT_INDEX (0)
+
+#define D3D11_DEFAULT_VIEWPORT_HEIGHT (0)
+
+#define D3D11_DEFAULT_VIEWPORT_MAX_DEPTH 0.0f
+#define D3D11_DEFAULT_VIEWPORT_MIN_DEPTH 0.0f
+#define D3D11_DEFAULT_VIEWPORT_TOPLEFTX (0)
+
+#define D3D11_DEFAULT_VIEWPORT_TOPLEFTY (0)
+
+#define D3D11_DEFAULT_VIEWPORT_WIDTH (0)
+
 #define D3D11_SIMULTANEOUS_RENDER_TARGET_COUNT (8)
 
+#define D3D11_REQ_TEXTURE2D_U_OR_V_DIMENSION (16384)
+
+#if !defined(D3D11_NO_HELPERS) && defined(__cplusplus)
+struct CD3D11_DEFAULT {};
+extern const DECLSPEC_SELECTANY CD3D11_DEFAULT D3D11_DEFAULT;
+#endif
 typedef enum D3D11_BLEND {
     D3D11_BLEND_ZERO = 1,
     D3D11_BLEND_ONE = 2,
@@ -407,6 +450,40 @@ typedef struct D3D11_RASTERIZER_DESC {
     WINBOOL MultisampleEnable;
     WINBOOL AntialiasedLineEnable;
 } D3D11_RASTERIZER_DESC;
+#if !defined(D3D11_NO_HELPERS) && defined(__cplusplus)
+struct CD3D11_RASTERIZER_DESC : public D3D11_RASTERIZER_DESC {
+    CD3D11_RASTERIZER_DESC() {}
+    explicit CD3D11_RASTERIZER_DESC(const D3D11_RASTERIZER_DESC &o) : D3D11_RASTERIZER_DESC(o) {}
+    explicit CD3D11_RASTERIZER_DESC(CD3D11_DEFAULT) {
+        FillMode = D3D11_FILL_SOLID;
+        CullMode = D3D11_CULL_BACK;
+        FrontCounterClockwise = FALSE;
+        DepthBias = D3D11_DEFAULT_DEPTH_BIAS;
+        DepthBiasClamp = D3D11_DEFAULT_DEPTH_BIAS_CLAMP;
+        SlopeScaledDepthBias = D3D11_DEFAULT_SLOPE_SCALED_DEPTH_BIAS;
+        DepthClipEnable = TRUE;
+        ScissorEnable = FALSE;
+        MultisampleEnable = FALSE;
+        AntialiasedLineEnable = FALSE;
+    }
+    explicit CD3D11_RASTERIZER_DESC(D3D11_FILL_MODE fillMode, D3D11_CULL_MODE cullMode,
+            WINBOOL frontCounterClockwise, INT depthBias, FLOAT depthBiasClamp, FLOAT slopeScaledDepthBias,
+            BOOL depthClipEnable, WINBOOL scissorEnable, WINBOOL multisampleEnable, WINBOOL antialiasedLineEnable) {
+        FillMode = fillMode;
+        CullMode = cullMode;
+        FrontCounterClockwise = frontCounterClockwise;
+        DepthBias = depthBias;
+        DepthBiasClamp = depthBiasClamp;
+        SlopeScaledDepthBias = slopeScaledDepthBias;
+        DepthClipEnable = depthClipEnable;
+        ScissorEnable = scissorEnable;
+        MultisampleEnable = multisampleEnable;
+        AntialiasedLineEnable = antialiasedLineEnable;
+    }
+    ~CD3D11_RASTERIZER_DESC() {}
+    operator const D3D11_RASTERIZER_DESC&() const { return *this; }
+};
+#endif
 typedef enum D3D11_RESOURCE_DIMENSION {
     D3D11_RESOURCE_DIMENSION_UNKNOWN = 0,
     D3D11_RESOURCE_DIMENSION_BUFFER = 1,
@@ -595,6 +672,22 @@ typedef enum D3D11_USAGE {
     D3D11_USAGE_DYNAMIC = 2,
     D3D11_USAGE_STAGING = 3
 } D3D11_USAGE;
+typedef enum D3D11_BIND_FLAG {
+    D3D11_BIND_VERTEX_BUFFER = 0x1,
+    D3D11_BIND_INDEX_BUFFER = 0x2,
+    D3D11_BIND_CONSTANT_BUFFER = 0x4,
+    D3D11_BIND_SHADER_RESOURCE = 0x8,
+    D3D11_BIND_STREAM_OUTPUT = 0x10,
+    D3D11_BIND_RENDER_TARGET = 0x20,
+    D3D11_BIND_DEPTH_STENCIL = 0x40,
+    D3D11_BIND_UNORDERED_ACCESS = 0x80,
+    D3D11_BIND_DECODER = 0x200,
+    D3D11_BIND_VIDEO_ENCODER = 0x400
+} D3D11_BIND_FLAG;
+typedef enum D3D11_CPU_ACCESS_FLAG {
+    D3D11_CPU_ACCESS_WRITE = 0x10000,
+    D3D11_CPU_ACCESS_READ = 0x20000
+} D3D11_CPU_ACCESS_FLAG;
 typedef struct D3D11_VIEWPORT {
     FLOAT TopLeftX;
     FLOAT TopLeftY;
@@ -603,6 +696,13 @@ typedef struct D3D11_VIEWPORT {
     FLOAT MinDepth;
     FLOAT MaxDepth;
 } D3D11_VIEWPORT;
+typedef enum D3D11_COLOR_WRITE_ENABLE {
+    D3D11_COLOR_WRITE_ENABLE_RED = 1,
+    D3D11_COLOR_WRITE_ENABLE_GREEN = 2,
+    D3D11_COLOR_WRITE_ENABLE_BLUE = 4,
+    D3D11_COLOR_WRITE_ENABLE_ALPHA = 8,
+    D3D11_COLOR_WRITE_ENABLE_ALL = ((D3D11_COLOR_WRITE_ENABLE_RED | D3D11_COLOR_WRITE_ENABLE_GREEN) | D3D11_COLOR_WRITE_ENABLE_BLUE) | D3D11_COLOR_WRITE_ENABLE_ALPHA
+} D3D11_COLOR_WRITE_ENABLE;
 typedef struct D3D11_RENDER_TARGET_BLEND_DESC {
     WINBOOL BlendEnable;
     D3D11_BLEND SrcBlend;
@@ -618,6 +718,25 @@ typedef struct D3D11_BLEND_DESC {
     WINBOOL IndependentBlendEnable;
     D3D11_RENDER_TARGET_BLEND_DESC RenderTarget[8];
 } D3D11_BLEND_DESC;
+#if !defined(D3D11_NO_HELPERS) && defined(__cplusplus)
+struct CD3D11_BLEND_DESC : public D3D11_BLEND_DESC {
+    CD3D11_BLEND_DESC() {}
+    explicit CD3D11_BLEND_DESC(const D3D11_BLEND_DESC &o) : D3D11_BLEND_DESC(o) {}
+    explicit CD3D11_BLEND_DESC(CD3D11_DEFAULT) {
+        AlphaToCoverageEnable = FALSE;
+        IndependentBlendEnable = FALSE;
+        for(D3D11_RENDER_TARGET_BLEND_DESC *target; target < RenderTarget+D3D11_SIMULTANEOUS_RENDER_TARGET_COUNT; target++) {
+            target->BlendEnable = FALSE;
+            target->SrcBlend = target->SrcBlendAlpha = D3D11_BLEND_ONE;
+            target->DestBlend = target->DestBlendAlpha = D3D11_BLEND_ZERO;
+            target->BlendOp = target->BlendOpAlpha = D3D11_BLEND_OP_ADD;
+            target->RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_ALL;
+        }
+    }
+    ~CD3D11_BLEND_DESC() {}
+    operator const D3D11_BLEND_DESC&() const { return *this; }
+};
+#endif
 typedef struct D3D11_BUFFER_DESC {
     UINT ByteWidth;
     D3D11_USAGE Usage;
@@ -626,6 +745,24 @@ typedef struct D3D11_BUFFER_DESC {
     UINT MiscFlags;
     UINT StructureByteStride;
 } D3D11_BUFFER_DESC;
+#if !defined(D3D11_NO_HELPERS) && defined(__cplusplus)
+struct CD3D11_BUFFER_DESC : public D3D11_BUFFER_DESC {
+    CD3D11_BUFFER_DESC() {}
+    explicit CD3D11_BUFFER_DESC(const D3D11_BUFFER_DESC &o) : D3D11_BUFFER_DESC(o) {}
+    explicit CD3D11_BUFFER_DESC(UINT byteWidth,UINT bindFlags,
+            D3D11_USAGE usage = D3D11_USAGE_DEFAULT, UINT cpuaccessFlags = 0,
+            UINT miscFlags = 0, UINT structureByteStride = 0 ) {
+        ByteWidth = byteWidth;
+        Usage = usage;
+        BindFlags = bindFlags;
+        CPUAccessFlags = cpuaccessFlags;
+        MiscFlags = miscFlags;
+        StructureByteStride = structureByteStride;
+    }
+    ~CD3D11_BUFFER_DESC() {}
+    operator const D3D11_BUFFER_DESC&() const { return *this; }
+};
+#endif
 typedef struct D3D11_DEPTH_STENCIL_VIEW_DESC {
     DXGI_FORMAT Format;
     D3D11_DSV_DIMENSION ViewDimension;
@@ -681,6 +818,48 @@ typedef struct D3D11_SAMPLER_DESC {
     FLOAT MinLOD;
     FLOAT MaxLOD;
 } D3D11_SAMPLER_DESC;
+#if !defined(D3D11_NO_HELPERS) && defined(__cplusplus)
+struct CD3D11_SAMPLER_DESC : public D3D11_SAMPLER_DESC {
+    CD3D11_SAMPLER_DESC() {}
+    explicit CD3D11_SAMPLER_DESC(const D3D11_SAMPLER_DESC &o) : D3D11_SAMPLER_DESC(o) {}
+    explicit CD3D11_SAMPLER_DESC(CD3D11_DEFAULT) {
+        Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
+        AddressU = D3D11_TEXTURE_ADDRESS_CLAMP;
+        AddressV = D3D11_TEXTURE_ADDRESS_CLAMP;
+        AddressW = D3D11_TEXTURE_ADDRESS_CLAMP;
+        MipLODBias = 0;
+        MaxAnisotropy = 1;
+        ComparisonFunc = D3D11_COMPARISON_NEVER;
+        BorderColor[0] = BorderColor[1] = BorderColor[2] = BorderColor[3] = 1.0f;
+        MinLOD = -3.402823466e+38f;
+        MaxLOD = 3.402823466e+38f;
+    }
+    explicit CD3D11_SAMPLER_DESC(D3D11_FILTER filter, D3D11_TEXTURE_ADDRESS_MODE addressU,
+            D3D11_TEXTURE_ADDRESS_MODE addressV, D3D11_TEXTURE_ADDRESS_MODE addressW,
+            FLOAT mipLODBias, UINT maxAnisotropy, D3D11_COMPARISON_FUNC comparisonFunc,
+            const FLOAT *borderColor, FLOAT minLOD, FLOAT maxLOD) {
+        Filter = filter;
+        AddressU = addressU;
+        AddressV = addressV;
+        AddressW = addressW;
+        MipLODBias = mipLODBias;
+        MaxAnisotropy = maxAnisotropy;
+        ComparisonFunc = comparisonFunc;
+        if(borderColor) {
+            BorderColor[0] = borderColor[0];
+            BorderColor[1] = borderColor[1];
+            BorderColor[2] = borderColor[2];
+            BorderColor[3] = borderColor[3];
+        }else {
+            BorderColor[0] = BorderColor[1] = BorderColor[2] = BorderColor[3] = 1.0f;
+        }
+        MinLOD = minLOD;
+        MaxLOD = maxLOD;
+    }
+    ~CD3D11_SAMPLER_DESC() {}
+    operator const D3D11_SAMPLER_DESC&() const { return *this; }
+};
+#endif
 typedef struct D3D11_SHADER_RESOURCE_VIEW_DESC {
     DXGI_FORMAT Format;
     D3D11_SRV_DIMENSION ViewDimension;
@@ -720,6 +899,30 @@ typedef struct D3D11_TEXTURE2D_DESC {
     UINT CPUAccessFlags;
     UINT MiscFlags;
 } D3D11_TEXTURE2D_DESC;
+#if !defined(D3D11_NO_HELPERS) && defined(__cplusplus)
+struct CD3D11_TEXTURE2D_DESC : public D3D11_TEXTURE2D_DESC {
+    CD3D11_TEXTURE2D_DESC() {}
+    explicit CD3D11_TEXTURE2D_DESC(const D3D11_TEXTURE2D_DESC &o) : D3D11_TEXTURE2D_DESC(o) {}
+    explicit CD3D11_TEXTURE2D_DESC(DXGI_FORMAT format, UINT width, UINT height, UINT arraySize = 1,
+            UINT mipLevels = 0, UINT bindFlags = D3D11_BIND_SHADER_RESOURCE,
+            D3D11_USAGE usage = D3D11_USAGE_DEFAULT, UINT cpuaccessFlags = 0, UINT sampleCount = 1,
+            UINT sampleQuality = 0, UINT miscFlags = 0) {
+        Width = width;
+        Height = height;
+        MipLevels = mipLevels;
+        ArraySize = arraySize;
+        Format = format;
+        SampleDesc.Count = sampleCount;
+        SampleDesc.Quality = sampleQuality;
+        Usage = usage;
+        BindFlags = bindFlags;
+        CPUAccessFlags = cpuaccessFlags;
+        MiscFlags = miscFlags;
+    }
+    ~CD3D11_TEXTURE2D_DESC() {}
+    operator const D3D11_TEXTURE2D_DESC&() const { return *this; }
+};
+#endif
 typedef struct D3D11_TEXTURE3D_DESC {
     UINT Width;
     UINT Height;
@@ -8284,6 +8487,19 @@ void __RPC_STUB ID3D11Device_GetExceptionMode_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __ID3D11Device_INTERFACE_DEFINED__ */
+
+typedef enum D3D11_CREATE_DEVICE_FLAG {
+    D3D11_CREATE_DEVICE_SINGLETHREADED = 0x1,
+    D3D11_CREATE_DEVICE_DEBUG = 0x2,
+    D3D11_CREATE_DEVICE_SWITCH_TO_REF = 0x4,
+    D3D11_CREATE_DEVICE_PREVENT_INTERNAL_THREADING_OPTIMIZATIONS = 0x8,
+    D3D11_CREATE_DEVICE_BGRA_SUPPORT = 0x20,
+    D3D11_CREATE_DEVICE_DEBUGGABLE = 0x40,
+    D3D11_CREATE_DEVICE_PREVENT_ALTERING_LAYER_SETTINGS_FROM_REGISTRY = 0x80,
+    D3D11_CREATE_DEVICE_DISABLE_GPU_TIMEOUT = 0x100,
+    D3D11_CREATE_DEVICE_VIDEO_SUPPORT = 0x800
+} D3D11_CREATE_DEVICE_FLAG;
+#define D3D11_SDK_VERSION (7)
 
 #include <d3d10_1.h>
 #ifndef D3D11_IGNORE_SDK_LAYERS
