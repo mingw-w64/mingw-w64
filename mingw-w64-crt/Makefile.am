@@ -220,6 +220,7 @@ src_libmingwex=\
   secapi/_vcprintf_s.c secapi/_vcprintf_s_l.c \
   secapi/_cwprintf_s.c secapi/_cwprintf_s_l.c \
   secapi/_vcwprintf_s.c secapi/_vcwprintf_s_l.c \
+  secapi/vsprintf_s.c \
   secapi/_access_s.c secapi/_waccess_s.c \
   secapi/_chsize_s.c secapi/_mktemp_s.c secapi/_wmktemp_s.c \
   secapi/_umask_s.c \

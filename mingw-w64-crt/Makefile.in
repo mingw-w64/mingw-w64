@@ -614,15 +614,15 @@ am__lib32_libmingwex_a_SOURCES_DIST = crt/dllentry.c crt/dllmain.c \
 	secapi/_cprintf_s.c secapi/_cprintf_s_l.c secapi/_vcprintf_s.c \
 	secapi/_vcprintf_s_l.c secapi/_cwprintf_s.c \
 	secapi/_cwprintf_s_l.c secapi/_vcwprintf_s.c \
-	secapi/_vcwprintf_s_l.c secapi/_access_s.c secapi/_waccess_s.c \
-	secapi/_chsize_s.c secapi/_mktemp_s.c secapi/_wmktemp_s.c \
-	secapi/_umask_s.c secapi/_wctime32_s.c secapi/_ctime32_s.c \
-	secapi/_wctime64_s.c secapi/_ctime64_s.c secapi/asctime_s.c \
-	secapi/_wasctime_s.c secapi/_localtime32_s.c \
-	secapi/_localtime64_s.c secapi/_gmtime64_s.c \
-	secapi/_gmtime32_s.c secapi/_strdate_s.c secapi/_wstrdate_s.c \
-	secapi/_strtime_s.c secapi/_wstrtime_s.c secapi/wmemcpy_s.c \
-	secapi/memcpy_s.c
+	secapi/_vcwprintf_s_l.c secapi/vsprintf_s.c secapi/_access_s.c \
+	secapi/_waccess_s.c secapi/_chsize_s.c secapi/_mktemp_s.c \
+	secapi/_wmktemp_s.c secapi/_umask_s.c secapi/_wctime32_s.c \
+	secapi/_ctime32_s.c secapi/_wctime64_s.c secapi/_ctime64_s.c \
+	secapi/asctime_s.c secapi/_wasctime_s.c \
+	secapi/_localtime32_s.c secapi/_localtime64_s.c \
+	secapi/_gmtime64_s.c secapi/_gmtime32_s.c secapi/_strdate_s.c \
+	secapi/_wstrdate_s.c secapi/_strtime_s.c secapi/_wstrtime_s.c \
+	secapi/wmemcpy_s.c secapi/memcpy_s.c
 am__objects_16 = crt/lib32_libmingwex_a-dllentry.$(OBJEXT) \
 	crt/lib32_libmingwex_a-dllmain.$(OBJEXT) \
 	complex/lib32_libmingwex_a-cabs.$(OBJEXT) \
@@ -1046,6 +1046,7 @@ am__objects_16 = crt/lib32_libmingwex_a-dllentry.$(OBJEXT) \
 	secapi/lib32_libmingwex_a-_cwprintf_s_l.$(OBJEXT) \
 	secapi/lib32_libmingwex_a-_vcwprintf_s.$(OBJEXT) \
 	secapi/lib32_libmingwex_a-_vcwprintf_s_l.$(OBJEXT) \
+	secapi/lib32_libmingwex_a-vsprintf_s.$(OBJEXT) \
 	secapi/lib32_libmingwex_a-_access_s.$(OBJEXT) \
 	secapi/lib32_libmingwex_a-_waccess_s.$(OBJEXT) \
 	secapi/lib32_libmingwex_a-_chsize_s.$(OBJEXT) \
@@ -1701,15 +1702,15 @@ am__lib64_libmingwex_a_SOURCES_DIST = crt/dllentry.c crt/dllmain.c \
 	secapi/_cprintf_s.c secapi/_cprintf_s_l.c secapi/_vcprintf_s.c \
 	secapi/_vcprintf_s_l.c secapi/_cwprintf_s.c \
 	secapi/_cwprintf_s_l.c secapi/_vcwprintf_s.c \
-	secapi/_vcwprintf_s_l.c secapi/_access_s.c secapi/_waccess_s.c \
-	secapi/_chsize_s.c secapi/_mktemp_s.c secapi/_wmktemp_s.c \
-	secapi/_umask_s.c secapi/_wctime32_s.c secapi/_ctime32_s.c \
-	secapi/_wctime64_s.c secapi/_ctime64_s.c secapi/asctime_s.c \
-	secapi/_wasctime_s.c secapi/_localtime32_s.c \
-	secapi/_localtime64_s.c secapi/_gmtime64_s.c \
-	secapi/_gmtime32_s.c secapi/_strdate_s.c secapi/_wstrdate_s.c \
-	secapi/_strtime_s.c secapi/_wstrtime_s.c secapi/wmemcpy_s.c \
-	secapi/memcpy_s.c
+	secapi/_vcwprintf_s_l.c secapi/vsprintf_s.c secapi/_access_s.c \
+	secapi/_waccess_s.c secapi/_chsize_s.c secapi/_mktemp_s.c \
+	secapi/_wmktemp_s.c secapi/_umask_s.c secapi/_wctime32_s.c \
+	secapi/_ctime32_s.c secapi/_wctime64_s.c secapi/_ctime64_s.c \
+	secapi/asctime_s.c secapi/_wasctime_s.c \
+	secapi/_localtime32_s.c secapi/_localtime64_s.c \
+	secapi/_gmtime64_s.c secapi/_gmtime32_s.c secapi/_strdate_s.c \
+	secapi/_wstrdate_s.c secapi/_strtime_s.c secapi/_wstrtime_s.c \
+	secapi/wmemcpy_s.c secapi/memcpy_s.c
 am__objects_44 = crt/lib64_libmingwex_a-dllentry.$(OBJEXT) \
 	crt/lib64_libmingwex_a-dllmain.$(OBJEXT) \
 	complex/lib64_libmingwex_a-cabs.$(OBJEXT) \
@@ -2133,6 +2134,7 @@ am__objects_44 = crt/lib64_libmingwex_a-dllentry.$(OBJEXT) \
 	secapi/lib64_libmingwex_a-_cwprintf_s_l.$(OBJEXT) \
 	secapi/lib64_libmingwex_a-_vcwprintf_s.$(OBJEXT) \
 	secapi/lib64_libmingwex_a-_vcwprintf_s_l.$(OBJEXT) \
+	secapi/lib64_libmingwex_a-vsprintf_s.$(OBJEXT) \
 	secapi/lib64_libmingwex_a-_access_s.$(OBJEXT) \
 	secapi/lib64_libmingwex_a-_waccess_s.$(OBJEXT) \
 	secapi/lib64_libmingwex_a-_chsize_s.$(OBJEXT) \
@@ -3834,6 +3836,7 @@ src_libmingwex = \
   secapi/_vcprintf_s.c secapi/_vcprintf_s_l.c \
   secapi/_cwprintf_s.c secapi/_cwprintf_s_l.c \
   secapi/_vcwprintf_s.c secapi/_vcwprintf_s_l.c \
+  secapi/vsprintf_s.c \
   secapi/_access_s.c secapi/_waccess_s.c \
   secapi/_chsize_s.c secapi/_mktemp_s.c secapi/_wmktemp_s.c \
   secapi/_umask_s.c \
@@ -6227,6 +6230,8 @@ secapi/lib32_libmingwex_a-_vcwprintf_s.$(OBJEXT):  \
 	secapi/$(am__dirstamp) secapi/$(DEPDIR)/$(am__dirstamp)
 secapi/lib32_libmingwex_a-_vcwprintf_s_l.$(OBJEXT):  \
 	secapi/$(am__dirstamp) secapi/$(DEPDIR)/$(am__dirstamp)
+secapi/lib32_libmingwex_a-vsprintf_s.$(OBJEXT):  \
+	secapi/$(am__dirstamp) secapi/$(DEPDIR)/$(am__dirstamp)
 secapi/lib32_libmingwex_a-_access_s.$(OBJEXT): secapi/$(am__dirstamp) \
 	secapi/$(DEPDIR)/$(am__dirstamp)
 secapi/lib32_libmingwex_a-_waccess_s.$(OBJEXT):  \
@@ -7759,6 +7764,8 @@ secapi/lib64_libmingwex_a-_cwprintf_s_l.$(OBJEXT):  \
 secapi/lib64_libmingwex_a-_vcwprintf_s.$(OBJEXT):  \
 	secapi/$(am__dirstamp) secapi/$(DEPDIR)/$(am__dirstamp)
 secapi/lib64_libmingwex_a-_vcwprintf_s_l.$(OBJEXT):  \
+	secapi/$(am__dirstamp) secapi/$(DEPDIR)/$(am__dirstamp)
+secapi/lib64_libmingwex_a-vsprintf_s.$(OBJEXT):  \
 	secapi/$(am__dirstamp) secapi/$(DEPDIR)/$(am__dirstamp)
 secapi/lib64_libmingwex_a-_access_s.$(OBJEXT): secapi/$(am__dirstamp) \
 	secapi/$(DEPDIR)/$(am__dirstamp)
@@ -10078,6 +10085,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@secapi/$(DEPDIR)/lib32_libmingwex_a-_wstrtime_s.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@secapi/$(DEPDIR)/lib32_libmingwex_a-asctime_s.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@secapi/$(DEPDIR)/lib32_libmingwex_a-memcpy_s.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@secapi/$(DEPDIR)/lib32_libmingwex_a-vsprintf_s.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@secapi/$(DEPDIR)/lib32_libmingwex_a-wmemcpy_s.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@secapi/$(DEPDIR)/lib64_libmingwex_a-_access_s.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@secapi/$(DEPDIR)/lib64_libmingwex_a-_cgets_s.Po@am__quote@
@@ -10110,6 +10118,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@secapi/$(DEPDIR)/lib64_libmingwex_a-_wstrtime_s.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@secapi/$(DEPDIR)/lib64_libmingwex_a-asctime_s.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@secapi/$(DEPDIR)/lib64_libmingwex_a-memcpy_s.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@secapi/$(DEPDIR)/lib64_libmingwex_a-vsprintf_s.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@secapi/$(DEPDIR)/lib64_libmingwex_a-wmemcpy_s.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-_Exit.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@stdio/$(DEPDIR)/lib32_libmingwex_a-_findfirst64i32.Po@am__quote@
@@ -18960,6 +18969,20 @@ secapi/lib32_libmingwex_a-_vcwprintf_s_l.obj: secapi/_vcwprintf_s_l.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='secapi/_vcwprintf_s_l.c' object='secapi/lib32_libmingwex_a-_vcwprintf_s_l.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o secapi/lib32_libmingwex_a-_vcwprintf_s_l.obj `if test -f 'secapi/_vcwprintf_s_l.c'; then $(CYGPATH_W) 'secapi/_vcwprintf_s_l.c'; else $(CYGPATH_W) '$(srcdir)/secapi/_vcwprintf_s_l.c'; fi`
+
+secapi/lib32_libmingwex_a-vsprintf_s.o: secapi/vsprintf_s.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT secapi/lib32_libmingwex_a-vsprintf_s.o -MD -MP -MF secapi/$(DEPDIR)/lib32_libmingwex_a-vsprintf_s.Tpo -c -o secapi/lib32_libmingwex_a-vsprintf_s.o `test -f 'secapi/vsprintf_s.c' || echo '$(srcdir)/'`secapi/vsprintf_s.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) secapi/$(DEPDIR)/lib32_libmingwex_a-vsprintf_s.Tpo secapi/$(DEPDIR)/lib32_libmingwex_a-vsprintf_s.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='secapi/vsprintf_s.c' object='secapi/lib32_libmingwex_a-vsprintf_s.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o secapi/lib32_libmingwex_a-vsprintf_s.o `test -f 'secapi/vsprintf_s.c' || echo '$(srcdir)/'`secapi/vsprintf_s.c
+
+secapi/lib32_libmingwex_a-vsprintf_s.obj: secapi/vsprintf_s.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT secapi/lib32_libmingwex_a-vsprintf_s.obj -MD -MP -MF secapi/$(DEPDIR)/lib32_libmingwex_a-vsprintf_s.Tpo -c -o secapi/lib32_libmingwex_a-vsprintf_s.obj `if test -f 'secapi/vsprintf_s.c'; then $(CYGPATH_W) 'secapi/vsprintf_s.c'; else $(CYGPATH_W) '$(srcdir)/secapi/vsprintf_s.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) secapi/$(DEPDIR)/lib32_libmingwex_a-vsprintf_s.Tpo secapi/$(DEPDIR)/lib32_libmingwex_a-vsprintf_s.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='secapi/vsprintf_s.c' object='secapi/lib32_libmingwex_a-vsprintf_s.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o secapi/lib32_libmingwex_a-vsprintf_s.obj `if test -f 'secapi/vsprintf_s.c'; then $(CYGPATH_W) 'secapi/vsprintf_s.c'; else $(CYGPATH_W) '$(srcdir)/secapi/vsprintf_s.c'; fi`
 
 secapi/lib32_libmingwex_a-_access_s.o: secapi/_access_s.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT secapi/lib32_libmingwex_a-_access_s.o -MD -MP -MF secapi/$(DEPDIR)/lib32_libmingwex_a-_access_s.Tpo -c -o secapi/lib32_libmingwex_a-_access_s.o `test -f 'secapi/_access_s.c' || echo '$(srcdir)/'`secapi/_access_s.c
@@ -27822,6 +27845,20 @@ secapi/lib64_libmingwex_a-_vcwprintf_s_l.obj: secapi/_vcwprintf_s_l.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='secapi/_vcwprintf_s_l.c' object='secapi/lib64_libmingwex_a-_vcwprintf_s_l.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o secapi/lib64_libmingwex_a-_vcwprintf_s_l.obj `if test -f 'secapi/_vcwprintf_s_l.c'; then $(CYGPATH_W) 'secapi/_vcwprintf_s_l.c'; else $(CYGPATH_W) '$(srcdir)/secapi/_vcwprintf_s_l.c'; fi`
+
+secapi/lib64_libmingwex_a-vsprintf_s.o: secapi/vsprintf_s.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT secapi/lib64_libmingwex_a-vsprintf_s.o -MD -MP -MF secapi/$(DEPDIR)/lib64_libmingwex_a-vsprintf_s.Tpo -c -o secapi/lib64_libmingwex_a-vsprintf_s.o `test -f 'secapi/vsprintf_s.c' || echo '$(srcdir)/'`secapi/vsprintf_s.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) secapi/$(DEPDIR)/lib64_libmingwex_a-vsprintf_s.Tpo secapi/$(DEPDIR)/lib64_libmingwex_a-vsprintf_s.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='secapi/vsprintf_s.c' object='secapi/lib64_libmingwex_a-vsprintf_s.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o secapi/lib64_libmingwex_a-vsprintf_s.o `test -f 'secapi/vsprintf_s.c' || echo '$(srcdir)/'`secapi/vsprintf_s.c
+
+secapi/lib64_libmingwex_a-vsprintf_s.obj: secapi/vsprintf_s.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT secapi/lib64_libmingwex_a-vsprintf_s.obj -MD -MP -MF secapi/$(DEPDIR)/lib64_libmingwex_a-vsprintf_s.Tpo -c -o secapi/lib64_libmingwex_a-vsprintf_s.obj `if test -f 'secapi/vsprintf_s.c'; then $(CYGPATH_W) 'secapi/vsprintf_s.c'; else $(CYGPATH_W) '$(srcdir)/secapi/vsprintf_s.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) secapi/$(DEPDIR)/lib64_libmingwex_a-vsprintf_s.Tpo secapi/$(DEPDIR)/lib64_libmingwex_a-vsprintf_s.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='secapi/vsprintf_s.c' object='secapi/lib64_libmingwex_a-vsprintf_s.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o secapi/lib64_libmingwex_a-vsprintf_s.obj `if test -f 'secapi/vsprintf_s.c'; then $(CYGPATH_W) 'secapi/vsprintf_s.c'; else $(CYGPATH_W) '$(srcdir)/secapi/vsprintf_s.c'; fi`
 
 secapi/lib64_libmingwex_a-_access_s.o: secapi/_access_s.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libmingwex_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT secapi/lib64_libmingwex_a-_access_s.o -MD -MP -MF secapi/$(DEPDIR)/lib64_libmingwex_a-_access_s.Tpo -c -o secapi/lib64_libmingwex_a-_access_s.o `test -f 'secapi/_access_s.c' || echo '$(srcdir)/'`secapi/_access_s.c
