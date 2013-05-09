@@ -41,6 +41,10 @@ HIDAPI BOOLEAN NTAPI
 HidD_SetFeature(HANDLE HidDeviceObject, PVOID ReportBuffer,
 		ULONG ReportBufferLength);
 
+  /* http://msdn.microsoft.com/en-us/library/ff538924(v=vs.85).aspx */
+HIDAPI VOID NTAPI
+HidD_GetHidGuid(LPGUID HidGuid);
+
 #ifdef __cplusplus
 }
 #endif

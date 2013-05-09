@@ -1,3 +1,7 @@
+2013-05-09  Conrad Meyer <unknown>
+
+	* hidsdi.h (HidD_GetHidGuid): Add prototype.
+
 2013-04-09  Kai Tietz  <ktietz@redhat.com>
 
 	* winnt.h (WELL_KNOWN_SID_TYPE): Add new elements.
