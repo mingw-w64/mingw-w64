@@ -26,4 +26,5 @@ libwinstorecompat_a_SOURCES = \
   src/LocalAlloc.c \
   src/LocalFree.c \
   src/Sleep.c \
+  src/SleepEx.c \
   $(NULL)
