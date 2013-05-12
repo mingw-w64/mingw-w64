@@ -108,7 +108,7 @@ am_libwinstorecompat_a_OBJECTS = src/CreateEventW.$(OBJEXT) \
 	src/SetErrorMode.$(OBJEXT) src/GetACP.$(OBJEXT) \
 	src/VirtualProtect.$(OBJEXT) src/getenv.$(OBJEXT) \
 	src/getpid.$(OBJEXT) src/LocalAlloc.$(OBJEXT) \
-	src/LocalFree.$(OBJEXT)
+	src/LocalFree.$(OBJEXT) src/Sleep.$(OBJEXT)
 libwinstorecompat_a_OBJECTS = $(am_libwinstorecompat_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
@@ -253,6 +253,7 @@ libwinstorecompat_a_SOURCES = \
   src/getpid.c \
   src/LocalAlloc.c \
   src/LocalFree.c \
+  src/Sleep.c \
   $(NULL)
 
 all: all-am
@@ -370,6 +371,7 @@ src/LocalAlloc.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/LocalFree.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/Sleep.$(OBJEXT): src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
 libwinstorecompat.a: $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_DEPENDENCIES) $(EXTRA_libwinstorecompat_a_DEPENDENCIES) 
 	-rm -f libwinstorecompat.a
 	$(libwinstorecompat_a_AR) libwinstorecompat.a $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_LIBADD)
@@ -391,6 +393,7 @@ mostlyclean-compile:
 	-rm -f src/LocalFree.$(OBJEXT)
 	-rm -f src/SetErrorMode.$(OBJEXT)
 	-rm -f src/SetUnhandledExceptionFilter.$(OBJEXT)
+	-rm -f src/Sleep.$(OBJEXT)
 	-rm -f src/TerminateProcess.$(OBJEXT)
 	-rm -f src/UnhandledExceptionFilter.$(OBJEXT)
 	-rm -f src/VirtualProtect.$(OBJEXT)
@@ -415,6 +418,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/LocalFree.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/SetErrorMode.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/SetUnhandledExceptionFilter.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/Sleep.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/TerminateProcess.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/UnhandledExceptionFilter.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/VirtualProtect.Po@am__quote@
