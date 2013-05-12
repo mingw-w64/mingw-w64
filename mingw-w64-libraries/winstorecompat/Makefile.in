@@ -107,7 +107,8 @@ am_libwinstorecompat_a_OBJECTS = src/CreateEventW.$(OBJEXT) \
 	src/TerminateProcess.$(OBJEXT) src/IsDBCSLeadByteEx.$(OBJEXT) \
 	src/SetErrorMode.$(OBJEXT) src/GetACP.$(OBJEXT) \
 	src/VirtualProtect.$(OBJEXT) src/getenv.$(OBJEXT) \
-	src/getpid.$(OBJEXT) src/LocalAlloc.$(OBJEXT)
+	src/getpid.$(OBJEXT) src/LocalAlloc.$(OBJEXT) \
+	src/LocalFree.$(OBJEXT)
 libwinstorecompat_a_OBJECTS = $(am_libwinstorecompat_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
@@ -251,6 +252,7 @@ libwinstorecompat_a_SOURCES = \
   src/getenv.c \
   src/getpid.c \
   src/LocalAlloc.c \
+  src/LocalFree.c \
   $(NULL)
 
 all: all-am
@@ -366,6 +368,8 @@ src/getpid.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/LocalAlloc.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/LocalFree.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 libwinstorecompat.a: $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_DEPENDENCIES) $(EXTRA_libwinstorecompat_a_DEPENDENCIES) 
 	-rm -f libwinstorecompat.a
 	$(libwinstorecompat_a_AR) libwinstorecompat.a $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_LIBADD)
@@ -384,6 +388,7 @@ mostlyclean-compile:
 	-rm -f src/IsDBCSLeadByteEx.$(OBJEXT)
 	-rm -f src/LoadLibraryW.$(OBJEXT)
 	-rm -f src/LocalAlloc.$(OBJEXT)
+	-rm -f src/LocalFree.$(OBJEXT)
 	-rm -f src/SetErrorMode.$(OBJEXT)
 	-rm -f src/SetUnhandledExceptionFilter.$(OBJEXT)
 	-rm -f src/TerminateProcess.$(OBJEXT)
@@ -407,6 +412,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/IsDBCSLeadByteEx.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/LoadLibraryW.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/LocalAlloc.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/LocalFree.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/SetErrorMode.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/SetUnhandledExceptionFilter.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/TerminateProcess.Po@am__quote@

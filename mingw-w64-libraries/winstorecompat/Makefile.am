@@ -24,4 +24,5 @@ libwinstorecompat_a_SOURCES = \
   src/getenv.c \
   src/getpid.c \
   src/LocalAlloc.c \
+  src/LocalFree.c \
   $(NULL)
