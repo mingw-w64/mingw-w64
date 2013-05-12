@@ -109,7 +109,7 @@ am_libwinstorecompat_a_OBJECTS = src/CreateEventW.$(OBJEXT) \
 	src/VirtualProtect.$(OBJEXT) src/getenv.$(OBJEXT) \
 	src/getpid.$(OBJEXT) src/LocalAlloc.$(OBJEXT) \
 	src/LocalFree.$(OBJEXT) src/Sleep.$(OBJEXT) \
-	src/SleepEx.$(OBJEXT)
+	src/SleepEx.$(OBJEXT) src/SetFilePointer.$(OBJEXT)
 libwinstorecompat_a_OBJECTS = $(am_libwinstorecompat_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
@@ -256,6 +256,7 @@ libwinstorecompat_a_SOURCES = \
   src/LocalFree.c \
   src/Sleep.c \
   src/SleepEx.c \
+  src/SetFilePointer.c \
   $(NULL)
 
 all: all-am
@@ -376,6 +377,8 @@ src/LocalFree.$(OBJEXT): src/$(am__dirstamp) \
 src/Sleep.$(OBJEXT): src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
 src/SleepEx.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/SetFilePointer.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 libwinstorecompat.a: $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_DEPENDENCIES) $(EXTRA_libwinstorecompat_a_DEPENDENCIES) 
 	-rm -f libwinstorecompat.a
 	$(libwinstorecompat_a_AR) libwinstorecompat.a $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_LIBADD)
@@ -396,6 +399,7 @@ mostlyclean-compile:
 	-rm -f src/LocalAlloc.$(OBJEXT)
 	-rm -f src/LocalFree.$(OBJEXT)
 	-rm -f src/SetErrorMode.$(OBJEXT)
+	-rm -f src/SetFilePointer.$(OBJEXT)
 	-rm -f src/SetUnhandledExceptionFilter.$(OBJEXT)
 	-rm -f src/Sleep.$(OBJEXT)
 	-rm -f src/SleepEx.$(OBJEXT)
@@ -422,6 +426,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/LocalAlloc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/LocalFree.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/SetErrorMode.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/SetFilePointer.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/SetUnhandledExceptionFilter.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/Sleep.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/SleepEx.Po@am__quote@
