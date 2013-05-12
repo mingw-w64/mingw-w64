@@ -23,4 +23,5 @@ libwinstorecompat_a_SOURCES = \
   src/VirtualProtect.c \
   src/getenv.c \
   src/getpid.c \
+  src/LocalAlloc.c \
   $(NULL)
