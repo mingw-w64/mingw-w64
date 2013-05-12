@@ -109,7 +109,8 @@ am_libwinstorecompat_a_OBJECTS = src/CreateEventW.$(OBJEXT) \
 	src/VirtualProtect.$(OBJEXT) src/getenv.$(OBJEXT) \
 	src/getpid.$(OBJEXT) src/LocalAlloc.$(OBJEXT) \
 	src/LocalFree.$(OBJEXT) src/Sleep.$(OBJEXT) \
-	src/SleepEx.$(OBJEXT) src/SetFilePointer.$(OBJEXT)
+	src/SleepEx.$(OBJEXT) src/SetFilePointer.$(OBJEXT) \
+	src/GetFileSize.$(OBJEXT)
 libwinstorecompat_a_OBJECTS = $(am_libwinstorecompat_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
@@ -257,6 +258,7 @@ libwinstorecompat_a_SOURCES = \
   src/Sleep.c \
   src/SleepEx.c \
   src/SetFilePointer.c \
+  src/GetFileSize.c \
   $(NULL)
 
 all: all-am
@@ -379,6 +381,8 @@ src/SleepEx.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/SetFilePointer.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/GetFileSize.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 libwinstorecompat.a: $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_DEPENDENCIES) $(EXTRA_libwinstorecompat_a_DEPENDENCIES) 
 	-rm -f libwinstorecompat.a
 	$(libwinstorecompat_a_AR) libwinstorecompat.a $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_LIBADD)
@@ -392,6 +396,7 @@ mostlyclean-compile:
 	-rm -f src/CreateSemaphoreW.$(OBJEXT)
 	-rm -f src/GetACP.$(OBJEXT)
 	-rm -f src/GetFileAttributes.$(OBJEXT)
+	-rm -f src/GetFileSize.$(OBJEXT)
 	-rm -f src/GetTickCount.$(OBJEXT)
 	-rm -f src/InitializeCriticalSection.$(OBJEXT)
 	-rm -f src/IsDBCSLeadByteEx.$(OBJEXT)
@@ -419,6 +424,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/CreateSemaphoreW.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetACP.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetFileAttributes.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetFileSize.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetTickCount.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/InitializeCriticalSection.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/IsDBCSLeadByteEx.Po@am__quote@
