@@ -1,3 +1,6 @@
+2013-05-13  Xun Xun <xunxun1982@gmail.com>
+	* lib32/msvcrt.def.in: Make _vswprintf an alias to vswprintf.
+
 2013-04-06  Corinna Vinschen  <vinschen@redhat.com>
 
 	* intrincs/membarrier.c: Include <intrin.h>.  Add "for x86 only"
