@@ -38,4 +38,4 @@ DWORD WINAPI SleepEx(DWORD dwMilliseconds, BOOL bAlertable)
         return ret;
 }
 
-DWORD WINAPI (*__MINGW_IMP_SYMBOL(SleepEx))(DWORD dwMilliseconds, BOOL bAlertable) asm("__imp__SleepEx@8") = SleepEx;
+DWORD (WINAPI *__MINGW_IMP_SYMBOL(SleepEx))(DWORD dwMilliseconds, BOOL bAlertable) asm("__imp__SleepEx@8") = SleepEx;

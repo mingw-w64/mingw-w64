@@ -36,4 +36,4 @@ void WINAPI InitializeCriticalSection(LPCRITICAL_SECTION lpCriticalSection)
     InitializeCriticalSectionEx(lpCriticalSection, 0, flags);
 }
 
-void WINAPI (*__MINGW_IMP_SYMBOL(InitializeCriticalSection))(LPCRITICAL_SECTION lpCriticalSection) asm("__imp__InitializeCriticalSection@4") = InitializeCriticalSection;
+void (WINAPI *__MINGW_IMP_SYMBOL(InitializeCriticalSection))(LPCRITICAL_SECTION lpCriticalSection) asm("__imp__InitializeCriticalSection@4") = InitializeCriticalSection;

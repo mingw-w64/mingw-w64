@@ -39,4 +39,4 @@ LPTOP_LEVEL_EXCEPTION_FILTER WINAPI SetUnhandledExceptionFilter(LPTOP_LEVEL_EXCE
     return (LPTOP_LEVEL_EXCEPTION_FILTER)(INT_PTR)InterlockedExchangePointer(target, lpTopLevelExceptionFilter);
 }
 
-LPTOP_LEVEL_EXCEPTION_FILTER WINAPI (*__MINGW_IMP_SYMBOL(SetUnhandledExceptionFilter))(LPTOP_LEVEL_EXCEPTION_FILTER) asm("__imp__SetUnhandledExceptionFilter@4") = SetUnhandledExceptionFilter;
+LPTOP_LEVEL_EXCEPTION_FILTER (WINAPI *__MINGW_IMP_SYMBOL(SetUnhandledExceptionFilter))(LPTOP_LEVEL_EXCEPTION_FILTER) asm("__imp__SetUnhandledExceptionFilter@4") = SetUnhandledExceptionFilter;

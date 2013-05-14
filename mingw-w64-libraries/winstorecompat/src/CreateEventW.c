@@ -39,4 +39,4 @@ HANDLE WINAPI CreateEventW(LPSECURITY_ATTRIBUTES lpEventAttributes, BOOL bManual
     return CreateEventExW(lpEventAttributes, lpName, flags, EVENT_ALL_ACCESS);
 }
 
-HANDLE WINAPI (*_imp__CreateEventW)(LPSECURITY_ATTRIBUTES lpEventAttributes, BOOL bManualReset, BOOL bInitialState, LPCWSTR lpName) asm("__imp__CreateEventW@16") = CreateEventW;
+HANDLE (WINAPI *_imp__CreateEventW)(LPSECURITY_ATTRIBUTES lpEventAttributes, BOOL bManualReset, BOOL bInitialState, LPCWSTR lpName) asm("__imp__CreateEventW@16") = CreateEventW;

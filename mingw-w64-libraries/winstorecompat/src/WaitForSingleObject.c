@@ -34,4 +34,4 @@ DWORD WINAPI WaitForSingleObject(HANDLE hHandle, DWORD dwMilliseconds)
     return WaitForSingleObjectEx(hHandle, dwMilliseconds, FALSE);
 }
 
-DWORD WINAPI (*__MINGW_IMP_SYMBOL(WaitForSingleObject))(HANDLE hHandle, DWORD dwMilliseconds) asm("__imp__WaitForSingleObject@8") = WaitForSingleObject;
+DWORD (WINAPI *__MINGW_IMP_SYMBOL(WaitForSingleObject))(HANDLE hHandle, DWORD dwMilliseconds) asm("__imp__WaitForSingleObject@8") = WaitForSingleObject;

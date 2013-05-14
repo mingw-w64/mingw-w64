@@ -46,4 +46,4 @@ BOOL WINAPI IsDBCSLeadByteEx( UINT CodePage, BYTE TestChar )
     return FALSE;
 }
 
-BOOL WINAPI (*__MINGW_IMP_SYMBOL(IsDBCSLeadByteEx))(UINT CodePage, BYTE TestChar) asm("__imp__IsDBCSLeadByteEx@8") = IsDBCSLeadByteEx;
+BOOL (WINAPI *__MINGW_IMP_SYMBOL(IsDBCSLeadByteEx))(UINT CodePage, BYTE TestChar) asm("__imp__IsDBCSLeadByteEx@8") = IsDBCSLeadByteEx;

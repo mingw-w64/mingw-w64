@@ -34,4 +34,4 @@ HMODULE WINAPI LoadLibraryW(LPCWSTR lpFileName)
     return LoadPackagedLibrary(lpFileName, 0);
 }
 
-HMODULE WINAPI (*__MINGW_IMP_SYMBOL(LoadLibraryW))(LPCWSTR lpFileName) asm("__imp__LoadLibraryW@4") = LoadLibraryW;
+HMODULE (WINAPI *__MINGW_IMP_SYMBOL(LoadLibraryW))(LPCWSTR lpFileName) asm("__imp__LoadLibraryW@4") = LoadLibraryW;

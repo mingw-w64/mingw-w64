@@ -34,4 +34,4 @@ DWORD WINAPI GetTickCount(void)
     return (DWORD)GetTickCount64();
 }
 
-DWORD WINAPI (*__MINGW_IMP_SYMBOL(GetTickCount))(void) asm("__imp__GetTickCount@0") = GetTickCount;
+DWORD (WINAPI *__MINGW_IMP_SYMBOL(GetTickCount))(void) asm("__imp__GetTickCount@0") = GetTickCount;

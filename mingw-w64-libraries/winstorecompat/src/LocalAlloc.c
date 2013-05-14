@@ -38,4 +38,4 @@ HLOCAL WINAPI LocalAlloc(UINT uFlags, SIZE_T uBytes)
     return HeapAlloc(GetProcessHeap(), (uFlags & LMEM_ZEROINIT) ? HEAP_ZERO_MEMORY : 0, uBytes);
 }
 
-HLOCAL WINAPI (*__MINGW_IMP_SYMBOL(LocalAlloc))(UINT uFlags, SIZE_T uByte) asm("__imp__LocalAlloc@8") = LocalAlloc;
+HLOCAL (WINAPI *__MINGW_IMP_SYMBOL(LocalAlloc))(UINT uFlags, SIZE_T uByte) asm("__imp__LocalAlloc@8") = LocalAlloc;

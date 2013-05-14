@@ -37,4 +37,4 @@ HLOCAL WINAPI LocalFree(HLOCAL hMem)
         return hMem;
 }
 
-HLOCAL WINAPI (*__MINGW_IMP_SYMBOL(LocalFree))(HLOCAL hMem) asm("__imp__LocalFree@4") = LocalFree;
+HLOCAL (WINAPI *__MINGW_IMP_SYMBOL(LocalFree))(HLOCAL hMem) asm("__imp__LocalFree@4") = LocalFree;
