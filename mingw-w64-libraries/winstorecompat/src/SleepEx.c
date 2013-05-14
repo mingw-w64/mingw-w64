@@ -29,9 +29,13 @@
 #include <winbase.h>
 #undef SleepEx
 
-VOID WINAPI SleepEx(DWORD dwMilliseconds)
+DWORD WINAPI SleepEx(DWORD dwMilliseconds, BOOL bAlertable)
 {
-    WaitForSingleObjectEx(GetCurrentThread(), dwMilliseconds, TRUE);
+    DWORD ret = WaitForSingleObjectEx(GetCurrentThread(), dwMilliseconds, bAlertable);
+    if( ret == WAIT_TIMEOUT )
+        return 0;
+    else
+        return ret;
 }
 
-VOID WINAPI (*__MINGW_IMP_SYMBOL(SleepEx))(DWORD dwMilliseconds) asm("__imp__SleepEx@4") = SleepEx;
+DWORD WINAPI (*__MINGW_IMP_SYMBOL(SleepEx))(DWORD dwMilliseconds, BOOL bAlertable) asm("__imp__SleepEx@8") = SleepEx;
