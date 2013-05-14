@@ -110,7 +110,7 @@ am_libwinstorecompat_a_OBJECTS = src/CreateEventW.$(OBJEXT) \
 	src/getpid.$(OBJEXT) src/LocalAlloc.$(OBJEXT) \
 	src/LocalFree.$(OBJEXT) src/Sleep.$(OBJEXT) \
 	src/SleepEx.$(OBJEXT) src/SetFilePointer.$(OBJEXT) \
-	src/GetFileSize.$(OBJEXT)
+	src/GetFileSize.$(OBJEXT) src/Tls.$(OBJEXT)
 libwinstorecompat_a_OBJECTS = $(am_libwinstorecompat_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
@@ -259,6 +259,7 @@ libwinstorecompat_a_SOURCES = \
   src/SleepEx.c \
   src/SetFilePointer.c \
   src/GetFileSize.c \
+  src/Tls.c \
   $(NULL)
 
 all: all-am
@@ -383,6 +384,7 @@ src/SetFilePointer.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/GetFileSize.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/Tls.$(OBJEXT): src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
 libwinstorecompat.a: $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_DEPENDENCIES) $(EXTRA_libwinstorecompat_a_DEPENDENCIES) 
 	-rm -f libwinstorecompat.a
 	$(libwinstorecompat_a_AR) libwinstorecompat.a $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_LIBADD)
@@ -409,6 +411,7 @@ mostlyclean-compile:
 	-rm -f src/Sleep.$(OBJEXT)
 	-rm -f src/SleepEx.$(OBJEXT)
 	-rm -f src/TerminateProcess.$(OBJEXT)
+	-rm -f src/Tls.$(OBJEXT)
 	-rm -f src/UnhandledExceptionFilter.$(OBJEXT)
 	-rm -f src/VirtualProtect.$(OBJEXT)
 	-rm -f src/WaitForSingleObject.$(OBJEXT)
@@ -437,6 +440,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/Sleep.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/SleepEx.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/TerminateProcess.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/Tls.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/UnhandledExceptionFilter.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/VirtualProtect.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/WaitForSingleObject.Po@am__quote@

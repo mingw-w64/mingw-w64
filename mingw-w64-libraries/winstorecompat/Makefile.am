@@ -29,4 +29,5 @@ libwinstorecompat_a_SOURCES = \
   src/SleepEx.c \
   src/SetFilePointer.c \
   src/GetFileSize.c \
+  src/Tls.c \
   $(NULL)
