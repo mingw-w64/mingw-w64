@@ -6,6 +6,9 @@
 #ifndef _SHLOBJ_H_
 #define _SHLOBJ_H_
 
+#include <winapifamily.h>
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+
 #include <_mingw_unicode.h>
 
 #ifndef _WINRESRC_
@@ -2675,4 +2678,7 @@ SHDOCAPI_(WINBOOL) ImportPrivacySettings(LPCWSTR szFilename,WINBOOL *pfParsePriv
 typedef struct IEnumPrivacyRecords IEnumPrivacyRecords;
 #endif
 SHDOCAPI DoPrivacyDlg(HWND hwndParent,LPOLESTR pszUrl,IEnumPrivacyRecords *pPrivacyEnum,WINBOOL fReportAllSites);
+
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
+
 #endif
