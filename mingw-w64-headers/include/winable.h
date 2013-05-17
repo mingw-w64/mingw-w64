@@ -6,11 +6,7 @@
 #ifndef _WINABLE_
 #define _WINABLE_
 
-#ifndef _WINABLE_
-#define WINABLEAPI DECLSPEC_IMPORT
-#else
-#define WINABLEAPI
-#endif
+#include <apisetcconv.h>
 
 #ifdef __cplusplus
 extern "C" {

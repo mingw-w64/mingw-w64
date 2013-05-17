@@ -8,14 +8,7 @@
 
 #include <_mingw.h>
 #include <_mingw_unicode.h>
-
-#ifndef WINADVAPI
-#ifndef _ADVAPI32_
-#define WINADVAPI DECLSPEC_IMPORT
-#else
-#define WINADVAPI
-#endif
-#endif
+#include <apisetcconv.h>
 
 #ifdef __cplusplus
 extern "C" {

@@ -9,15 +9,10 @@
 #include <_mingw_unicode.h>
 #include <cfg.h>
 #include <guiddef.h>
+#include <apisetcconv.h>
 
 #ifdef __cplusplus
 extern "C" {
-#endif
-
-#ifndef _CFGMGR32_
-#define CMAPI DECLSPEC_IMPORT
-#else
-#define CMAPI
 #endif
 
   typedef CONST VOID *PCVOID;

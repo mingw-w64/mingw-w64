@@ -8,27 +8,7 @@
 
 #include <_mingw_unicode.h>
 
-#ifndef WINADVAPI
-#ifndef _ADVAPI32_
-#define WINADVAPI DECLSPEC_IMPORT
-#else
-#define WINADVAPI
-#endif
-#endif
-
-#ifndef WINBASEAPI
-#ifndef _KERNEL32_
-#define WINBASEAPI DECLSPEC_IMPORT
-#else
-#define WINBASEAPI
-#endif
-#endif
-
-#ifndef _ZAWPROXY_
-#define ZAWPROXYAPI DECLSPEC_IMPORT
-#else
-#define ZAWPROXYAPI
-#endif
+#include <apisetcconv.h>
 
 #ifdef __cplusplus
 extern "C" {

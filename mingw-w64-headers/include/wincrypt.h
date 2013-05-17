@@ -29,14 +29,7 @@ extern "C" {
 #define WINIMPM	DECLSPEC_IMPORT
 #endif
 
-#ifndef WINADVAPI
-#ifndef _ADVAPI32_
-#define WINADVAPI WINIMPM
-#else
-#define WINADVAPI
-#endif
-#endif
-
+#include <apisetcconv.h>
 
 #ifndef WINAPI
 #define WINAPI __stdcall

@@ -7,12 +7,7 @@
 #define _WINUSER_
 
 #include <_mingw_unicode.h>
-
-#ifdef _USER32_
-#define WINUSERAPI
-#else
-#define WINUSERAPI DECLSPEC_IMPORT
-#endif
+#include <apisetcconv.h>
 
 #ifdef __cplusplus
 extern "C" {
