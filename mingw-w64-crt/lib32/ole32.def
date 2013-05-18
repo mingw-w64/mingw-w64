@@ -32,6 +32,7 @@ CoCreateFreeThreadedMarshaler@8
 CoCreateGuid@4
 CoCreateInstance@20
 CoCreateInstanceEx@24
+CoCreateInstanceFromApp@24
 CoCreateObjectInContext@16
 CoDeactivateObject@8
 CoDisableCallCancellation@4
