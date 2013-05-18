@@ -110,7 +110,8 @@ am_libwinstorecompat_a_OBJECTS = src/CreateEventW.$(OBJEXT) \
 	src/getpid.$(OBJEXT) src/LocalAlloc.$(OBJEXT) \
 	src/LocalFree.$(OBJEXT) src/Sleep.$(OBJEXT) \
 	src/SleepEx.$(OBJEXT) src/SetFilePointer.$(OBJEXT) \
-	src/GetFileSize.$(OBJEXT) src/Tls.$(OBJEXT)
+	src/GetFileSize.$(OBJEXT) src/Tls.$(OBJEXT) \
+	src/CoCreateInstance.$(OBJEXT)
 libwinstorecompat_a_OBJECTS = $(am_libwinstorecompat_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
@@ -260,6 +261,7 @@ libwinstorecompat_a_SOURCES = \
   src/SetFilePointer.c \
   src/GetFileSize.c \
   src/Tls.c \
+  src/CoCreateInstance.c \
   $(NULL)
 
 all: all-am
@@ -385,6 +387,8 @@ src/SetFilePointer.$(OBJEXT): src/$(am__dirstamp) \
 src/GetFileSize.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/Tls.$(OBJEXT): src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
+src/CoCreateInstance.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 libwinstorecompat.a: $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_DEPENDENCIES) $(EXTRA_libwinstorecompat_a_DEPENDENCIES) 
 	-rm -f libwinstorecompat.a
 	$(libwinstorecompat_a_AR) libwinstorecompat.a $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_LIBADD)
@@ -392,6 +396,7 @@ libwinstorecompat.a: $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_DEPEND
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
+	-rm -f src/CoCreateInstance.$(OBJEXT)
 	-rm -f src/CreateEventW.$(OBJEXT)
 	-rm -f src/CreateFileW.$(OBJEXT)
 	-rm -f src/CreateMutexW.$(OBJEXT)
@@ -421,6 +426,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/CoCreateInstance.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/CreateEventW.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/CreateFileW.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/CreateMutexW.Po@am__quote@
