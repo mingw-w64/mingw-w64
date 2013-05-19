@@ -1580,42 +1580,18 @@ extern "C" {
     VOID __stosq(PDWORD64 Destination,DWORD64 Value,SIZE_T Count);
 
 #ifndef __CRT__NO_INLINE
-    __CRT_INLINE VOID __stosb(PBYTE Dest,BYTE Data,SIZE_T Count)
-    {
-      __asm__ __volatile__
-      (
-        "rep; stosb" :
-        [Dest] "=D" (Dest), [Count] "=c" (Count) :
-        "[Dest]" (Dest), "a" (Data), "[Count]" (Count)
-      );
-    }
-    __CRT_INLINE VOID __stosw(PWORD Dest,WORD Data,SIZE_T Count)
-    {
-      __asm__ __volatile__
-      (
-        "rep; stosw" :
-        [Dest] "=D" (Dest), [Count] "=c" (Count) :
-        "[Dest]" (Dest), "a" (Data), "[Count]" (Count)
-      );
-    }
-    __CRT_INLINE VOID __stosd(PDWORD Dest,DWORD Data,SIZE_T Count)
-    {
-      __asm__ __volatile__
-      (
-        "rep; stosl" :
-        [Dest] "=D" (Dest), [Count] "=c" (Count) :
-        "[Dest]" (Dest), "a" (Data), "[Count]" (Count)
-      );
-    }
-    __CRT_INLINE VOID __stosq(PDWORD64 Dest,DWORD64 Data,SIZE_T Count)
-    {
-      __asm__ __volatile__
-      (
-        "rep; stosq" :
-        [Dest] "=D" (Dest), [Count] "=c" (Count) :
-        "[Dest]" (Dest), "a" (Data), "[Count]" (Count)
-      );
-    }
+#define __buildstos(x, y) __CRT_INLINE VOID x(y *Dest, y Data, SIZE_T Count) \
+{ \
+   __asm__ __volatile__ ("rep stos%z2" \
+      :  /* no outputs */ \
+      : "D" (Dest), "c" (Count), "a" (Data) \
+      : "memory"); \
+}
+
+__buildstos(__stosb, BYTE)
+__buildstos(__stosw, WORD)
+__buildstos(__stosd, DWORD)
+__buildstos(__stosq, DWORD64)
 #endif /* __CRT__NO_INLINE */
 
 #define MultiplyHigh __mulh
