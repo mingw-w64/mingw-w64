@@ -97,8 +97,8 @@ libwinstorecompat_a_AR = $(AR) $(ARFLAGS)
 libwinstorecompat_a_LIBADD =
 am__dirstamp = $(am__leading_dot)dirstamp
 am_libwinstorecompat_a_OBJECTS = src/_wassert.$(OBJEXT) \
-	src/CreateEventW.$(OBJEXT) src/CreateMutexW.$(OBJEXT) \
-	src/CreateSemaphoreW.$(OBJEXT) \
+	src/GetModuleHandle.$(OBJEXT) src/CreateEventW.$(OBJEXT) \
+	src/CreateMutexW.$(OBJEXT) src/CreateSemaphoreW.$(OBJEXT) \
 	src/InitializeCriticalSection.$(OBJEXT) \
 	src/GetFileAttributes.$(OBJEXT) \
 	src/WaitForSingleObject.$(OBJEXT) src/LoadLibraryW.$(OBJEXT) \
@@ -238,6 +238,7 @@ AM_CFLAGS = -Wall -Wstrict-aliasing=2 -pedantic
 lib_LIBRARIES = libwinstorecompat.a
 libwinstorecompat_a_SOURCES = \
   src/_wassert.c \
+  src/GetModuleHandle.c \
   src/CreateEventW.c \
   src/CreateMutexW.c \
   src/CreateSemaphoreW.c \
@@ -343,6 +344,8 @@ src/$(DEPDIR)/$(am__dirstamp):
 	@: > src/$(DEPDIR)/$(am__dirstamp)
 src/_wassert.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/GetModuleHandle.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 src/CreateEventW.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/CreateMutexW.$(OBJEXT): src/$(am__dirstamp) \
@@ -408,6 +411,7 @@ mostlyclean-compile:
 	-rm -f src/GetACP.$(OBJEXT)
 	-rm -f src/GetFileAttributes.$(OBJEXT)
 	-rm -f src/GetFileSize.$(OBJEXT)
+	-rm -f src/GetModuleHandle.$(OBJEXT)
 	-rm -f src/GetTickCount.$(OBJEXT)
 	-rm -f src/InitializeCriticalSection.$(OBJEXT)
 	-rm -f src/IsDBCSLeadByteEx.$(OBJEXT)
@@ -439,6 +443,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetACP.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetFileAttributes.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetFileSize.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetModuleHandle.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetTickCount.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/InitializeCriticalSection.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/IsDBCSLeadByteEx.Po@am__quote@
