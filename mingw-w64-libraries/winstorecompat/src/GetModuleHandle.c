@@ -36,7 +36,7 @@ HMODULE WINAPI GetModuleHandleA(LPCSTR lpModuleName)
 {
     wchar_t msg[512];
 
-    _snwprintf(msg, 511, L"GetModuleHandleA (%S) call suppressed", lpModuleName);
+    _snwprintf(msg, 511, L"GetModuleHandleA (%S) call suppressed\n", lpModuleName);
     msg[511] = '\0';
 
     OutputDebugStringW(msg);
@@ -48,7 +48,7 @@ HMODULE WINAPI GetModuleHandleW(LPCWSTR lpModuleName)
 {
     wchar_t msg[512];
 
-    _snwprintf(msg, 511, L"GetModuleHandleW (%ws) call suppressed", lpModuleName);
+    _snwprintf(msg, 511, L"GetModuleHandleW (%ws) call suppressed\n", lpModuleName);
     msg[511] = '\0';
 
     OutputDebugStringW(msg);
