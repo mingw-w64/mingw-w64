@@ -18,6 +18,7 @@ extern "C" {
 #define ANYSIZE_ARRAY 1
 
 #include <specstrings.h>
+#include <psdk_inc/intrin-mac.h>
 
 #if defined(__x86_64) && \
   !(defined(_X86_) || defined(__i386__) || defined(_IA64_))
@@ -1580,18 +1581,10 @@ extern "C" {
     VOID __stosq(PDWORD64 Destination,DWORD64 Value,SIZE_T Count);
 
 #ifndef __CRT__NO_INLINE
-#define __buildstos(x, y) __CRT_INLINE VOID x(y *Dest, y Data, SIZE_T Count) \
-{ \
-   __asm__ __volatile__ ("rep stos%z2" \
-      :  /* no outputs */ \
-      : "D" (Dest), "c" (Count), "a" (Data) \
-      : "memory"); \
-}
-
-__buildstos(__stosb, BYTE)
-__buildstos(__stosw, WORD)
-__buildstos(__stosd, DWORD)
-__buildstos(__stosq, DWORD64)
+__CRT_INLINE __buildstos(__stosb, BYTE)
+__CRT_INLINE __buildstos(__stosw, WORD)
+__CRT_INLINE __buildstos(__stosd, DWORD)
+__CRT_INLINE __buildstos(__stosq, DWORD64)
 #endif /* __CRT__NO_INLINE */
 
 #define MultiplyHigh __mulh
