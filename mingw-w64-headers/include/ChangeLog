@@ -1,3 +1,8 @@
+2013-05-29  Caleb James DeLisle <unknown>
+	Kai Tietz  <ktietz@redhat.com>
+
+	* ifdef.h (NET_LUID): Don't pack struct.
+
 2013-05-16  Kai Tietz  <ktietz@redhat.com>
 
 	* wingdi.h: Add support for WINAPI_FAMILY_PARTITION.

@@ -83,7 +83,6 @@ typedef enum _TUNNEL_TYPE {
   TUNNEL_TYPE_IPHTTPS   = 15
 } TUNNEL_TYPE, *PTUNNEL_TYPE;
 
-#include <pshpack1.h>
 typedef union _NET_LUID {
   ULONG64 Value;
   __C89_NAMELESS struct { /* bitfield with 64 bit types. */
@@ -92,7 +91,6 @@ typedef union _NET_LUID {
     ULONG64 IfType  :16;
   } Info;
 } NET_LUID, *PNET_LUID;
-#include <poppack.h>
 
 typedef NET_LUID IF_LUID, *PIF_LUID;
 
