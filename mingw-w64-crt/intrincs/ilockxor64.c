@@ -1,12 +1,8 @@
 #include <intrin.h>
+#include <psdk_inc/intrin-mac.h>
 
 #ifdef _WIN64
-__int64 _InterlockedXor64(__int64 volatile *Destination, __int64 Value)
-{
-  __asm__ __volatile__("lock ; xorq %0,%1"
-    : : "r"(Value),"m"(*Destination) : "memory");
-  return *Destination;
-}
+__buildlogicali(_InterlockedXor64, __int64, xor)
 #else
 __int64 __stdcall InterlockedCompareExchange64(__int64 volatile *Destination,
   __int64 Exchange, __int64 Comperand);

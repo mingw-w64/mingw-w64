@@ -1417,37 +1417,14 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 	: "memory");
       return prev;
     }
-    __CRT_INLINE LONG InterlockedAnd(LONG volatile *Destination,LONG Value) {
-      __asm__ __volatile__("lock ; andl %0,%1"
-	: :"r"(Value),"m"(*Destination)
-	: "memory");
-      return *Destination;
-    }
-    __CRT_INLINE LONG InterlockedOr(LONG volatile *Destination,LONG Value) {
-      __asm__ __volatile__("lock ; orl %0,%1"
-	: : "r"(Value),"m"(*Destination) : "memory");
-      return *Destination;
-    }
-    __CRT_INLINE LONG InterlockedXor(LONG volatile *Destination,LONG Value) {
-      __asm__ __volatile__("lock ; xorl %0,%1"
-	: : "r"(Value),"m"(*Destination) : "memory");
-      return *Destination;
-    }
-    __CRT_INLINE LONG64 InterlockedAnd64(LONG64 volatile *Destination,LONG64 Value) {
-      __asm__ __volatile__("lock ; andq %0,%1"
-	: : "r"(Value),"m"(*Destination) : "memory");
-      return *Destination;
-    }
-    __CRT_INLINE LONG64 InterlockedOr64(LONG64 volatile *Destination,LONG64 Value) {
-      __asm__ __volatile__("lock ; orq %0,%1"
-	: : "r"(Value),"m"(*Destination) : "memory");
-      return *Destination;
-    }
-    __CRT_INLINE LONG64 InterlockedXor64(LONG64 volatile *Destination,LONG64 Value) {
-      __asm__ __volatile__("lock ; xorq %0,%1"
-	: : "r"(Value),"m"(*Destination) : "memory");
-      return *Destination;
-    }
+
+__CRT_INLINE __buildlogicali(InterlockedAnd, LONG, and)
+__CRT_INLINE __buildlogicali(InterlockedOr, LONG, or)
+__CRT_INLINE __buildlogicali(InterlockedXor, LONG, xor)
+
+__CRT_INLINE __buildlogicali(InterlockedAnd64, LONG64, and)
+__CRT_INLINE __buildlogicali(InterlockedOr64, LONG64, or)
+__CRT_INLINE __buildlogicali(InterlockedXor64, LONG64, xor)
 #endif /* !__CRT__NO_INLINE */
 
     LONG InterlockedExchangeAdd(LONG volatile *Addend,LONG Value);

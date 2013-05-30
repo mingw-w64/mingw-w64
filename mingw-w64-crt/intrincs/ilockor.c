@@ -1,11 +1,7 @@
 #include <intrin.h>
+#include <psdk_inc/intrin-mac.h>
 
-__LONG32 _InterlockedOr(__LONG32 volatile *Destination, __LONG32 Value)
-{
-  __asm__ __volatile__("lock ; orl %0,%1"
-    : : "r"(Value),"m"(*Destination) : "memory");
-  return *Destination;
-}
+__buildlogicali(_InterlockedOr, __LONG32, or)
 
 __LONG32 InterlockedOr(__LONG32 volatile *, __LONG32) __attribute__((alias("_InterlockedOr")));
 
