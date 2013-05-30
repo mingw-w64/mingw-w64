@@ -3991,24 +3991,25 @@ src_intrincs32 = \
 
 #These defs have no accompanying sources.  Look into using the rule below to run the dlltool command
 #for all libraries, including those with sources.
-@LIB32_TRUE@lib32_DATA = lib32/libwinusb.a lib32/libaclui.a \
-@LIB32_TRUE@	lib32/libadvapi32.a lib32/libapcups.a \
-@LIB32_TRUE@	lib32/libavicap32.a lib32/libavifil32.a \
-@LIB32_TRUE@	lib32/libcap.a lib32/libcfgmgr32.a \
-@LIB32_TRUE@	lib32/libcomctl32.a lib32/libcomdlg32.a \
-@LIB32_TRUE@	lib32/libcrypt32.a lib32/libctl3d32.a \
-@LIB32_TRUE@	lib32/libt2embed.a lib32/libclasspnp.a \
-@LIB32_TRUE@	lib32/libd3d8.a lib32/libd3d9.a lib32/libd3dim.a \
-@LIB32_TRUE@	lib32/libd3drm.a lib32/libd3dx8d.a \
-@LIB32_TRUE@	lib32/libd3dx9d.a lib32/libd3dxof.a \
-@LIB32_TRUE@	lib32/libdbghelp.a lib32/libddraw.a \
-@LIB32_TRUE@	lib32/libdhcpcsvc.a lib32/libdlcapi.a \
-@LIB32_TRUE@	lib32/libdnsapi.a lib32/libdplayx.a \
-@LIB32_TRUE@	lib32/libdpnaddr.a lib32/libdpnet.a \
-@LIB32_TRUE@	lib32/libdpnlobby.a lib32/libdpvoice.a \
-@LIB32_TRUE@	lib32/libdsetup.a lib32/libdsound.a \
-@LIB32_TRUE@	lib32/libdxapi.a lib32/libfaultrep.a \
-@LIB32_TRUE@	lib32/libgdi32.a lib32/libglaux.a lib32/libglu32.a \
+@LIB32_TRUE@lib32_DATA = lib32/libwinusb.a lib32/libavrt.a \
+@LIB32_TRUE@	lib32/libaclui.a lib32/libadvapi32.a \
+@LIB32_TRUE@	lib32/libapcups.a lib32/libavicap32.a \
+@LIB32_TRUE@	lib32/libavifil32.a lib32/libcap.a \
+@LIB32_TRUE@	lib32/libcfgmgr32.a lib32/libcomctl32.a \
+@LIB32_TRUE@	lib32/libcomdlg32.a lib32/libcrypt32.a \
+@LIB32_TRUE@	lib32/libctl3d32.a lib32/libt2embed.a \
+@LIB32_TRUE@	lib32/libclasspnp.a lib32/libd3d8.a \
+@LIB32_TRUE@	lib32/libd3d9.a lib32/libd3dim.a lib32/libd3drm.a \
+@LIB32_TRUE@	lib32/libd3dx8d.a lib32/libd3dx9d.a \
+@LIB32_TRUE@	lib32/libd3dxof.a lib32/libdbghelp.a \
+@LIB32_TRUE@	lib32/libddraw.a lib32/libdhcpcsvc.a \
+@LIB32_TRUE@	lib32/libdlcapi.a lib32/libdnsapi.a \
+@LIB32_TRUE@	lib32/libdplayx.a lib32/libdpnaddr.a \
+@LIB32_TRUE@	lib32/libdpnet.a lib32/libdpnlobby.a \
+@LIB32_TRUE@	lib32/libdpvoice.a lib32/libdsetup.a \
+@LIB32_TRUE@	lib32/libdsound.a lib32/libdxapi.a \
+@LIB32_TRUE@	lib32/libfaultrep.a lib32/libgdi32.a \
+@LIB32_TRUE@	lib32/libglaux.a lib32/libglu32.a \
 @LIB32_TRUE@	lib32/libglut32.a lib32/libhal.a lib32/libhid.a \
 @LIB32_TRUE@	lib32/libhidclass.a lib32/libhidparse.a \
 @LIB32_TRUE@	lib32/libicmui.a lib32/libigmpagnt.a \
@@ -4249,7 +4250,7 @@ src_intrincs32 = \
 @LIB64_TRUE@@W32API_FALSE@lib64_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
 @LIB64_TRUE@@W32API_FALSE@lib64_libmingwthrd_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 @LIB64_TRUE@lib64_DATA = \
-@LIB64_TRUE@  lib64/libwinusb.a \
+@LIB64_TRUE@  lib64/libwinusb.a     lib64/libavrt.a       \
 @LIB64_TRUE@  lib64/lib6to4svc.a    lib64/libaaaamon.a    lib64/libacledit.a      lib64/libaclui.a      \
 @LIB64_TRUE@  lib64/libactiveds.a   lib64/libactxprxy.a   lib64/libadmparse.a     lib64/libadmwprox.a   lib64/libadptif.a        \
 @LIB64_TRUE@  lib64/libadrot.a      lib64/libadsiis.a     lib64/libadsiisex.a     lib64/libadsldpc.a    lib64/libadsldp.a        \
