@@ -258,7 +258,7 @@ src_intrincs64=\
   intrincs/readgsqword.c  intrincs/writegsbyte.c  intrincs/writegsword.c  intrincs/writegsdword.c    \
   intrincs/writegsqword.c intrincs/mul128ex.c     intrincs/umul128ex.c    intrincs/_mul128.c         \
   intrincs/_umul128.c     intrincs/__movsq.c      intrincs/__stosq.c      intrincs/__shiftright128.c \
-  intrincs/__shiftleft128.c
+  intrincs/bittestci64.c  intrincs/__shiftleft128.c
 
 # these only go into the 32 bit version:
 src_intrincs32=\

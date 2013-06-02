@@ -1178,14 +1178,10 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define BitTestAndComplement _bittestandcomplement
 #define BitTestAndSet _bittestandset
 #define BitTestAndReset _bittestandreset
-#define InterlockedBitTestAndSet _interlockedbittestandset
-#define InterlockedBitTestAndReset _interlockedbittestandreset
 #define BitTest64 _bittest64
 #define BitTestAndComplement64 _bittestandcomplement64
 #define BitTestAndSet64 _bittestandset64
 #define BitTestAndReset64 _bittestandreset64
-#define InterlockedBitTestAndSet64 _interlockedbittestandset64
-#define InterlockedBitTestAndReset64 _interlockedbittestandreset64
 
     BOOLEAN _bittest(LONG const *Base,LONG Offset);
     BOOLEAN _bittestandcomplement(LONG *Base,LONG Offset);
@@ -1207,25 +1203,25 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
     }
 #endif /* __CRT__NO_INLINE */
 
-    BOOLEAN InterlockedBitTestAndComplement(LONG *Base,LONG Bit);
     BOOLEAN _bittestandset(LONG *Base,LONG Offset);
     BOOLEAN _bittestandreset(LONG *Base,LONG Offset);
-    BOOLEAN _interlockedbittestandset(LONG *Base,LONG Offset);
-    BOOLEAN _interlockedbittestandreset(LONG *Base,LONG Offset);
+    BOOLEAN _interlockedbittestandset(__LONG32 *Base,LONG Offset);
+    BOOLEAN _interlockedbittestandreset(__LONG32 *Base,LONG Offset);
+    BOOLEAN _interlockedbittestandcomplement(__LONG32 *Base,LONG Bit);
+    BOOLEAN InterlockedBitTestAndSet(volatile __LONG32 *Base,LONG Offset);
+    BOOLEAN InterlockedBitTestAndReset(volatile __LONG32 *Base,LONG Offset);
+    BOOLEAN InterlockedBitTestAndComplement(volatile __LONG32 *Base,LONG Bit);
     BOOLEAN _bittest64(LONG64 const *Base,LONG64 Offset);
     BOOLEAN _bittestandcomplement64(LONG64 *Base,LONG64 Offset);
     BOOLEAN _bittestandset64(LONG64 *Base,LONG64 Offset);
     BOOLEAN _bittestandreset64(LONG64 *Base,LONG64 Offset);
+    BOOLEAN InterlockedBitTestAndSet64(volatile LONG64 *Base,LONG64 Offset);
+    BOOLEAN InterlockedBitTestAndReset64(volatile LONG64 *Base,LONG64 Offset);
+    BOOLEAN InterlockedBitTestAndComplement64(volatile LONG64 *Base,LONG64 Bit);
     BOOLEAN _interlockedbittestandset64(LONG64 *Base,LONG64 Offset);
     BOOLEAN _interlockedbittestandreset64(LONG64 *Base,LONG64 Offset);
+    BOOLEAN _interlockedbittestandcomplement64(LONG64 *Base,LONG64 Bit);
 #ifndef __CRT__NO_INLINE
-    __CRT_INLINE BOOLEAN InterlockedBitTestAndComplement(LONG *Base,LONG Bit) {
-      int old = 0;
-      __asm__ __volatile__("lock ; btcl %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
-	:"Ir" (Bit) : "memory");
-      return (BOOLEAN) (old!=0);
-    }
     __CRT_INLINE BOOLEAN _bittestandset(LONG *Base,LONG Offset) {
       int old = 0;
       __asm__ __volatile__("btsl %2,%1\n\tsbbl %0,%0 "
@@ -1240,20 +1236,14 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
-    __CRT_INLINE BOOLEAN _interlockedbittestandset(LONG *Base,LONG Offset) {
-      int old = 0;
-      __asm__ __volatile__("lock ; btsl %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
-	:"Ir" (Offset) : "memory");
-      return (BOOLEAN) (old!=0);
-    }
-    __CRT_INLINE BOOLEAN _interlockedbittestandreset(LONG *Base,LONG Offset) {
-      int old = 0;
-      __asm__ __volatile__("lock ; btrl %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
-	:"Ir" (Offset) : "memory");
-      return (BOOLEAN) (old!=0);
-    }
+    __CRT_INLINE __buildbittesti(_interlockedbittestandset, __LONG32, "lock bts", "I", /* unused param */)
+    __CRT_INLINE __buildbittesti(_interlockedbittestandreset, __LONG32, "lock btr", "I", /* unused param */)
+    __CRT_INLINE __buildbittesti(_interlockedbittestandcomplement, __LONG32, "lock btc", "I", /* unused param */)
+
+    __CRT_INLINE __buildbittesti(InterlockedBitTestAndSet, __LONG32, "lock bts", "I", volatile)
+    __CRT_INLINE __buildbittesti(InterlockedBitTestAndReset, __LONG32, "lock btr", "I", volatile)
+    __CRT_INLINE __buildbittesti(InterlockedBitTestAndComplement, __LONG32, "lock btc", "I", volatile)
+
     __CRT_INLINE BOOLEAN _bittest64(LONG64 const *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("btq %2,%1\n\tsbbl %0,%0 "
@@ -1282,20 +1272,14 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
-    __CRT_INLINE BOOLEAN _interlockedbittestandset64(LONG64 *Base,LONG64 Offset) {
-      int old = 0;
-      __asm__ __volatile__("lock ; btsq %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
-	:"Ir" (Offset) : "memory");
-      return (BOOLEAN) (old!=0);
-    }
-    __CRT_INLINE BOOLEAN _interlockedbittestandreset64(LONG64 *Base,LONG64 Offset) {
-      int old = 0;
-      __asm__ __volatile__("lock ; btrq %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
-	:"Ir" (Offset) : "memory");
-      return (BOOLEAN) (old!=0);
-    }
+    __CRT_INLINE __buildbittesti(_interlockedbittestandset64, LONG64, "lock bts", "J", /* unused param */)
+    __CRT_INLINE __buildbittesti(_interlockedbittestandreset64, LONG64, "lock btr", "J", /* unused param */)
+    __CRT_INLINE __buildbittesti(_interlockedbittestandcomplement64, LONG64, "lock btc", "J", /* unused param */)
+
+    __CRT_INLINE __buildbittesti(InterlockedBitTestAndSet64, LONG64, "lock bts", "J", volatile)
+    __CRT_INLINE __buildbittesti(InterlockedBitTestAndReset64, LONG64, "lock btr", "J", volatile)
+    __CRT_INLINE __buildbittesti(InterlockedBitTestAndComplement64, LONG64, "lock btc", "J", volatile)
+
 #endif /* !__CRT__NO_INLINE */
 
 #define BitScanForward _BitScanForward
@@ -1418,13 +1402,13 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
       return prev;
     }
 
-__CRT_INLINE __buildlogicali(InterlockedAnd, LONG, and)
-__CRT_INLINE __buildlogicali(InterlockedOr, LONG, or)
-__CRT_INLINE __buildlogicali(InterlockedXor, LONG, xor)
+    __CRT_INLINE __buildlogicali(InterlockedAnd, LONG, and)
+    __CRT_INLINE __buildlogicali(InterlockedOr, LONG, or)
+    __CRT_INLINE __buildlogicali(InterlockedXor, LONG, xor)
 
-__CRT_INLINE __buildlogicali(InterlockedAnd64, LONG64, and)
-__CRT_INLINE __buildlogicali(InterlockedOr64, LONG64, or)
-__CRT_INLINE __buildlogicali(InterlockedXor64, LONG64, xor)
+    __CRT_INLINE __buildlogicali(InterlockedAnd64, LONG64, and)
+    __CRT_INLINE __buildlogicali(InterlockedOr64, LONG64, or)
+    __CRT_INLINE __buildlogicali(InterlockedXor64, LONG64, xor)
 #endif /* !__CRT__NO_INLINE */
 
     LONG InterlockedExchangeAdd(LONG volatile *Addend,LONG Value);
@@ -1809,8 +1793,6 @@ __CRT_INLINE __buildstos(__stosq, DWORD64)
 #define BitTestAndComplement _bittestandcomplement
 #define BitTestAndSet _bittestandset
 #define BitTestAndReset _bittestandreset
-#define InterlockedBitTestAndSet _interlockedbittestandset
-#define InterlockedBitTestAndReset _interlockedbittestandreset
 
 #define BitScanForward _BitScanForward
 #define BitScanReverse _BitScanReverse
@@ -1822,35 +1804,21 @@ __CRT_INLINE __buildstos(__stosq, DWORD64)
 #define InterlockedIncrementAcquire InterlockedIncrement
 #define InterlockedIncrementRelease InterlockedIncrement
 
-    BOOLEAN InterlockedBitTestAndSet(LONG *Base,LONG Bit);
-    BOOLEAN InterlockedBitTestAndReset(LONG *Base,LONG Bit);
-#ifndef __CRT__NO_INLINE
-    __CRT_INLINE BOOLEAN InterlockedBitTestAndSet(LONG *Base,LONG Bit) {
-      int old = 0;
-      __asm__ __volatile__("lock ; btsl %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
-	:"Ir" (Bit) : "memory");
-      return (BOOLEAN) (old!=0);
-    }
+    BOOLEAN _interlockedbittestandset(LONG *Base,LONG Bit);
+    BOOLEAN _interlockedbittestandreset(LONG *Base,LONG Bit);
+    BOOLEAN _interlockedbittestandcomplement(LONG *Base,LONG Bit);
 
-    __CRT_INLINE BOOLEAN InterlockedBitTestAndReset(LONG *Base,LONG Bit) {
-      int old = 0;
-      __asm__ __volatile__("lock ; btrl %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
-	:"Ir" (Bit) : "memory");
-      return (BOOLEAN) (old!=0);
-    }
-#endif /* __CRT__NO_INLINE */
-
-    BOOLEAN InterlockedBitTestAndComplement(LONG *Base,LONG Bit);
+    BOOLEAN InterlockedBitTestAndSet(volatile LONG *Base,LONG Bit);
+    BOOLEAN InterlockedBitTestAndReset(volatile LONG *Base,LONG Bit);
+    BOOLEAN InterlockedBitTestAndComplement(volatile LONG *Base,LONG Bit);
 #ifndef __CRT__NO_INLINE
-    __CRT_INLINE BOOLEAN InterlockedBitTestAndComplement(LONG *Base,LONG Bit) {
-      int old = 0;
-      __asm__ __volatile__("lock ; btcl %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
-	:"Ir" (Bit));
-      return (BOOLEAN) (old!=0);
-    }
+    __CRT_INLINE __buildbittesti(_interlockedbittestandset, LONG, "lock bts", "I", /* unused param */)
+    __CRT_INLINE __buildbittesti(_interlockedbittestandreset, LONG, "lock btr", "I", /* unused param */)
+    __CRT_INLINE __buildbittesti(_interlockedbittestandcomplement, LONG, "lock btc", "I", /* unused param */)
+
+    __CRT_INLINE __buildbittesti(InterlockedBitTestAndSet, LONG, "lock bts", "I", volatile)
+    __CRT_INLINE __buildbittesti(InterlockedBitTestAndReset, LONG, "lock btr", "I", volatile)
+    __CRT_INLINE __buildbittesti(InterlockedBitTestAndComplement, LONG, "lock btc", "I", volatile)
 #endif /* !__CRT__NO_INLINE */
 
 #ifdef _PREFIX_

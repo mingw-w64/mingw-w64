@@ -1,11 +1,6 @@
 #include <intrin.h>
+#include <psdk_inc/intrin-mac.h>
 
-unsigned char _interlockedbittestandset(__LONG32 *Base, __LONG32 Offset)
-{
-  int old = 0;
-  __asm__ __volatile__("lock ; btsl %2,%1\n\tsbbl %0,%0 "
-    :"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
-    :"Ir" (Offset) : "memory");
-  return (old != 0);
-}
+__buildbittesti(_interlockedbittestandset, __LONG32, "lock bts", "I", /* unused param */)
 
+unsigned char InterlockedBitTestAndSet(__LONG32 volatile *, __LONG32) __attribute__((alias("_interlockedbittestandset")));
