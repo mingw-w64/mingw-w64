@@ -3483,6 +3483,42 @@ WINBOOL WINAPI GetPhysicallyInstalledSystemMemory(
 
 typedef LPVOID PPROC_THREAD_ATTRIBUTE_LIST, LPPROC_THREAD_ATTRIBUTE_LIST;
 
+#define PROC_THREAD_ATTRIBUTE_NUMBER    0x0000ffff
+#define PROC_THREAD_ATTRIBUTE_THREAD    0x00010000
+#define PROC_THREAD_ATTRIBUTE_INPUT     0x00020000
+#define PROC_THREAD_ATTRIBUTE_ADDITIVE  0x00040000
+
+typedef enum _PROC_THREAD_ATTRIBUTE_NUM {
+    ProcThreadAttributeParentProcess = 0,
+    ProcThreadAttributeExtendedFlags,
+    ProcThreadAttributeHandleList,
+    ProcThreadAttributeGroupAffinity,
+    ProcThreadAttributePreferredNode,
+    ProcThreadAttributeIdealProcessor,
+    ProcThreadAttributeUmsThread,
+    ProcThreadAttributeMitigationPolicy,
+    ProcThreadAttributeMax
+} PROC_THREAD_ATTRIBUTE_NUM;
+
+#define ProcThreadAttributeValue(number, thread, input, additive) \
+    (((number)   & PROC_THREAD_ATTRIBUTE_NUMBER) \
+    |((thread)   ? PROC_THREAD_ATTRIBUTE_THREAD : 0) \
+    |((input)    ? PROC_THREAD_ATTRIBUTE_INPUT : 0) \
+    |((additive) ? PROC_THREAD_ATTRIBUTE_ADDITIVE : 0))
+
+#define PROC_THREAD_ATTRIBUTE_PARENT_PROCESS    ProcThreadAttributeValue(ProcThreadAttributeParentProcess,FALSE,TRUE,FALSE)
+#define PROC_THREAD_ATTRIBUTE_EXTENDED_FLAGS    ProcThreadAttributeValue(ProcThreadAttributeExtendedFlags,FALSE,TRUE,TRUE)
+#define PROC_THREAD_ATTRIBUTE_HANDLE_LIST       ProcThreadAttributeValue(ProcThreadAttributeHandleList,FALSE,TRUE,FALSE)
+#define PROC_THREAD_ATTRIBUTE_GROUP_AFFINITY    ProcThreadAttributeValue(ProcThreadAttributeGroupAffinity,TRUE,TRUE,FALSE)
+#define PROC_THREAD_ATTRIBUTE_PREFERRED_NODE    ProcThreadAttributeValue(ProcThreadAttributePreferredNode,FALSE,TRUE,FALSE)
+#define PROC_THREAD_ATTRIBUTE_IDEAL_PROCESSOR   ProcThreadAttributeValue(ProcThreadAttributeIdealProcessor,TRUE,TRUE,FALSE)
+#define PROC_THREAD_ATTRIBUTE_UMS_THREAD        ProcThreadAttributeValue(ProcThreadAttributeUmsThread,TRUE,TRUE,FALSE)
+#define PROC_THREAD_ATTRIBUTE_MITIGATION_POLICY ProcThreadAttributeValue(ProcThreadAttributeMitigationPolicy,FALSE,TRUE,FALSE)
+
+#define PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE           0x0001
+#define PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE 0x0002
+#define PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE         0x0004
+
 WINBASEAPI WINBOOL WINAPI UpdateProcThreadAttribute(
   LPPROC_THREAD_ATTRIBUTE_LIST lpAttributeList,
   DWORD dwFlags,
