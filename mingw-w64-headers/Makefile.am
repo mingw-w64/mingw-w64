@@ -68,6 +68,7 @@ IDL_SRCS = \
   include/endpointvolume.idl \
   include/fusion.idl \
   include/fwptypes.idl \
+  include/hstring.idl \
   include/iketypes.idl \
   include/inputscope.idl \
   include/oaidl.idl \

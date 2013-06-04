@@ -292,6 +292,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/endpointvolume.idl \
 @HAVE_WIDL_TRUE@  include/fusion.idl \
 @HAVE_WIDL_TRUE@  include/fwptypes.idl \
+@HAVE_WIDL_TRUE@  include/hstring.idl \
 @HAVE_WIDL_TRUE@  include/iketypes.idl \
 @HAVE_WIDL_TRUE@  include/inputscope.idl \
 @HAVE_WIDL_TRUE@  include/oaidl.idl \
