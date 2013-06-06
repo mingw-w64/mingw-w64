@@ -282,6 +282,7 @@ EXTRA_HEADERS = \
   ddk/include/ddk/*.h
 
 @HAVE_WIDL_TRUE@IDL_SRCS = \
+@HAVE_WIDL_TRUE@  include/activation.idl \
 @HAVE_WIDL_TRUE@  include/audioclient.idl \
 @HAVE_WIDL_TRUE@  include/audiopolicy.idl \
 @HAVE_WIDL_TRUE@  include/ctfutb.idl \
@@ -295,6 +296,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/hstring.idl \
 @HAVE_WIDL_TRUE@  include/iketypes.idl \
 @HAVE_WIDL_TRUE@  include/inputscope.idl \
+@HAVE_WIDL_TRUE@  include/inspectable.idl \
 @HAVE_WIDL_TRUE@  include/oaidl.idl \
 @HAVE_WIDL_TRUE@  include/ocidl.idl \
 @HAVE_WIDL_TRUE@  include/comcat.idl \

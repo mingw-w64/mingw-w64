@@ -58,6 +58,7 @@ EXTRA_HEADERS = \
 if HAVE_WIDL
 
 IDL_SRCS = \
+  include/activation.idl \
   include/audioclient.idl \
   include/audiopolicy.idl \
   include/ctfutb.idl \
@@ -71,6 +72,7 @@ IDL_SRCS = \
   include/hstring.idl \
   include/iketypes.idl \
   include/inputscope.idl \
+  include/inspectable.idl \
   include/oaidl.idl \
   include/ocidl.idl \
   include/comcat.idl \
