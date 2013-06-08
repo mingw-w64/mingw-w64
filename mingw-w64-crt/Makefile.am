@@ -543,7 +543,7 @@ lib32_DATA = \
   lib32/libd3dx10.a         lib32/libd3dx11.a         lib32/libd3dcsxd.a   \
   lib32/libd3dcompiler.a    lib32/libwinhttp.a        lib32/libmsvcr110.a  \
   lib32/libdevmgr.a         lib32/libdevobj.a         lib32/libdevrtl.a    \
-  lib32/libruntimeobject.a
+  lib32/libapi-ms-win-core-winrt-string-l1-1-0.a lib32/libruntimeobject.a
 
 if ! W32API
 lib32_DATA += lib32/libglut.a
@@ -1045,7 +1045,7 @@ lib64_DATA = \
   lib64/libxapofx.a         lib64/libx3daudio.a       lib64/libd3dx9.a     \
   lib64/libd3dx10.a         lib64/libd3dx11.a         lib64/libd3dcsxd.a   \
   lib64/libd3dcompiler.a    lib64/libwinhttp.a        lib64/libmsvcr110.a  \
-  lib64/libruntimeobject.a
+  lib64/libapi-ms-win-core-winrt-string-l1-1-0.a lib64/libruntimeobject.a
 
 lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
 	$(DTDEF64) $< --dllname $*.dll
