@@ -1536,12 +1536,11 @@ extern "C" {
     VOID __movsw(PWORD Destination,WORD const *Source,SIZE_T Count);
     VOID __movsd(PDWORD Destination,DWORD const *Source,SIZE_T Count);
     VOID __movsq(PDWORD64 Destination,DWORD64 const *Source,SIZE_T Count);
-#ifdef __CRT__NO_INLINE
     VOID __stosb(PBYTE Destination,BYTE Value,SIZE_T Count);
     VOID __stosw(PWORD Destination,WORD Value,SIZE_T Count);
     VOID __stosd(PDWORD Destination,DWORD Value,SIZE_T Count);
     VOID __stosq(PDWORD64 Destination,DWORD64 Value,SIZE_T Count);
-#else
+#ifndef __CRT__NO_INLINE
 __CRT_INLINE __buildstos(__stosb, BYTE)
 __CRT_INLINE __buildstos(__stosw, WORD)
 __CRT_INLINE __buildstos(__stosd, DWORD)
