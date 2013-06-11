@@ -889,6 +889,8 @@ typedef struct _REPARSE_DATA_BUFFER
   };
 } REPARSE_DATA_BUFFER, *PREPARSE_DATA_BUFFER;
 
+#define REPARSE_DATA_BUFFER_HEADER_SIZE      FIELD_OFFSET(REPARSE_DATA_BUFFER, GenericReparseBuffer)
+
 #endif /* !NT_DEFINED */
 
 #endif /* _NTDEF_ */
