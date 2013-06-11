@@ -1,3 +1,7 @@
+2013-06-11  Hannes Domani <ssbssa@yahoo.de>
+
+	* shlguid.h (IID_IPersistFolder2): Add missing GUID.
+
 2013-05-29  Caleb James DeLisle <unknown>
 	Kai Tietz  <ktietz@redhat.com>
 
