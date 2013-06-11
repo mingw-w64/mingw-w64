@@ -63,13 +63,13 @@ DECLARE_INTERFACE_(IDirect3DRM,IUnknown)
     STDMETHOD(CreateMesh)(THIS_ IDirect3DRMMesh **mesh) PURE;
     STDMETHOD(CreateMeshBuilder)(THIS_ IDirect3DRMMeshBuilder **mesh_builder) PURE;
     STDMETHOD(CreateFace)(THIS_ IDirect3DRMFace **face) PURE;
-    STDMETHOD(CreateAnimation)(THIS_ LPDIRECT3DRMANIMATION *) PURE;
-    STDMETHOD(CreateAnimationSet)(THIS_ LPDIRECT3DRMANIMATIONSET *) PURE;
+    STDMETHOD(CreateAnimation)(THIS_ IDirect3DRMAnimation **animation) PURE;
+    STDMETHOD(CreateAnimationSet)(THIS_ IDirect3DRMAnimationSet **set) PURE;
     STDMETHOD(CreateTexture)(THIS_ D3DRMIMAGE *image, IDirect3DRMTexture **texture) PURE;
     STDMETHOD(CreateLight)(THIS_ D3DRMLIGHTTYPE type, D3DCOLOR color, IDirect3DRMLight **light) PURE;
     STDMETHOD(CreateLightRGB)(THIS_ D3DRMLIGHTTYPE type, D3DVALUE r, D3DVALUE g, D3DVALUE b,
             IDirect3DRMLight **light) PURE;
-    STDMETHOD(CreateMaterial)(THIS_ D3DVALUE, LPDIRECT3DRMMATERIAL *) PURE;
+    STDMETHOD(CreateMaterial)(THIS_ D3DVALUE power, IDirect3DRMMaterial **material) PURE;
     STDMETHOD(CreateDevice)(THIS_ DWORD width, DWORD height, IDirect3DRMDevice **device) PURE;
     STDMETHOD(CreateDeviceFromSurface)(THIS_ GUID *guid, IDirectDraw *ddraw,
             IDirectDrawSurface *surface, IDirect3DRMDevice **device) PURE;
@@ -87,15 +87,15 @@ DECLARE_INTERFACE_(IDirect3DRM,IUnknown)
     STDMETHOD(CreateWrap)(THIS_ D3DRMWRAPTYPE type, IDirect3DRMFrame *reference, D3DVALUE ox, D3DVALUE oy, D3DVALUE oz,
         D3DVALUE dx, D3DVALUE dy, D3DVALUE dz, D3DVALUE ux, D3DVALUE uy, D3DVALUE uz, D3DVALUE ou, D3DVALUE ov,
         D3DVALUE su, D3DVALUE sv, IDirect3DRMWrap **wrap) PURE;
-    STDMETHOD(CreateUserVisual)(THIS_ D3DRMUSERVISUALCALLBACK, LPVOID pArg, LPDIRECT3DRMUSERVISUAL *) PURE;
-    STDMETHOD(LoadTexture)(THIS_ const char *, LPDIRECT3DRMTEXTURE *) PURE;
-    STDMETHOD(LoadTextureFromResource)(THIS_ HRSRC rs, LPDIRECT3DRMTEXTURE *) PURE;
+    STDMETHOD(CreateUserVisual)(THIS_ D3DRMUSERVISUALCALLBACK cb, void *ctx, IDirect3DRMUserVisual **visual) PURE;
+    STDMETHOD(LoadTexture)(THIS_ const char *filename, IDirect3DRMTexture **texture) PURE;
+    STDMETHOD(LoadTextureFromResource)(THIS_ HRSRC resource, IDirect3DRMTexture **texture) PURE;
     STDMETHOD(SetSearchPath)(THIS_ LPCSTR) PURE;
     STDMETHOD(AddSearchPath)(THIS_ LPCSTR) PURE;
     STDMETHOD(GetSearchPath)(THIS_ DWORD *size_return, LPSTR path_return) PURE;
     STDMETHOD(SetDefaultTextureColors)(THIS_ DWORD) PURE;
     STDMETHOD(SetDefaultTextureShades)(THIS_ DWORD) PURE;
-    STDMETHOD(GetDevices)(THIS_ LPDIRECT3DRMDEVICEARRAY *) PURE;
+    STDMETHOD(GetDevices)(THIS_ IDirect3DRMDeviceArray **array) PURE;
     STDMETHOD(GetNamedObject)(THIS_ const char *name, IDirect3DRMObject **object) PURE;
     STDMETHOD(EnumerateObjects)(THIS_ D3DRMOBJECTCALLBACK, LPVOID) PURE;
     STDMETHOD(Load)(THIS_ void *source, void *object_id, IID **iids, DWORD iid_count, D3DRMLOADOPTIONS flags,
@@ -202,13 +202,13 @@ DECLARE_INTERFACE_(IDirect3DRM2,IUnknown)
     STDMETHOD(CreateMesh)(THIS_ IDirect3DRMMesh **mesh) PURE;
     STDMETHOD(CreateMeshBuilder)(THIS_ IDirect3DRMMeshBuilder2 **mesh_builder) PURE;
     STDMETHOD(CreateFace)(THIS_ IDirect3DRMFace **face) PURE;
-    STDMETHOD(CreateAnimation)(THIS_ LPDIRECT3DRMANIMATION *) PURE;
-    STDMETHOD(CreateAnimationSet)(THIS_ LPDIRECT3DRMANIMATIONSET *) PURE;
+    STDMETHOD(CreateAnimation)(THIS_ IDirect3DRMAnimation **animation) PURE;
+    STDMETHOD(CreateAnimationSet)(THIS_ IDirect3DRMAnimationSet **set) PURE;
     STDMETHOD(CreateTexture)(THIS_ D3DRMIMAGE *image, IDirect3DRMTexture2 **texture) PURE;
     STDMETHOD(CreateLight)(THIS_ D3DRMLIGHTTYPE type, D3DCOLOR color, IDirect3DRMLight **light) PURE;
     STDMETHOD(CreateLightRGB)(THIS_ D3DRMLIGHTTYPE type, D3DVALUE r, D3DVALUE g, D3DVALUE b,
             IDirect3DRMLight **light) PURE;
-    STDMETHOD(CreateMaterial)(THIS_ D3DVALUE, LPDIRECT3DRMMATERIAL *) PURE;
+    STDMETHOD(CreateMaterial)(THIS_ D3DVALUE power, IDirect3DRMMaterial **material) PURE;
     STDMETHOD(CreateDevice)(THIS_ DWORD width, DWORD height, IDirect3DRMDevice2 **device) PURE;
     STDMETHOD(CreateDeviceFromSurface)(THIS_ GUID *guid, IDirectDraw *ddraw,
             IDirectDrawSurface *surface, IDirect3DRMDevice2 **device) PURE;
@@ -226,15 +226,16 @@ DECLARE_INTERFACE_(IDirect3DRM2,IUnknown)
     STDMETHOD(CreateWrap)(THIS_ D3DRMWRAPTYPE type, IDirect3DRMFrame *reference, D3DVALUE ox, D3DVALUE oy, D3DVALUE oz,
         D3DVALUE dx, D3DVALUE dy, D3DVALUE dz, D3DVALUE ux, D3DVALUE uy, D3DVALUE uz, D3DVALUE ou, D3DVALUE ov,
         D3DVALUE su, D3DVALUE sv, IDirect3DRMWrap **wrap) PURE;
-    STDMETHOD(CreateUserVisual)(THIS_ D3DRMUSERVISUALCALLBACK, LPVOID pArg, LPDIRECT3DRMUSERVISUAL *) PURE;
-    STDMETHOD(LoadTexture)(THIS_ const char *, LPDIRECT3DRMTEXTURE2 *) PURE;
-    STDMETHOD(LoadTextureFromResource)(THIS_ HMODULE hModule, LPCSTR /* LPCTSTR */ strName, LPCSTR /* LPCTSTR */ strType, LPDIRECT3DRMTEXTURE2 *) PURE;
+    STDMETHOD(CreateUserVisual)(THIS_ D3DRMUSERVISUALCALLBACK cb, void *ctx, IDirect3DRMUserVisual **visual) PURE;
+    STDMETHOD(LoadTexture)(THIS_ const char *filename, IDirect3DRMTexture2 **texture) PURE;
+    STDMETHOD(LoadTextureFromResource)(THIS_ HMODULE module, const char *resource_name,
+            const char *resource_type, IDirect3DRMTexture2 **texture) PURE;
     STDMETHOD(SetSearchPath)(THIS_ LPCSTR) PURE;
     STDMETHOD(AddSearchPath)(THIS_ LPCSTR) PURE;
     STDMETHOD(GetSearchPath)(THIS_ DWORD *size_return, LPSTR path_return) PURE;
     STDMETHOD(SetDefaultTextureColors)(THIS_ DWORD) PURE;
     STDMETHOD(SetDefaultTextureShades)(THIS_ DWORD) PURE;
-    STDMETHOD(GetDevices)(THIS_ LPDIRECT3DRMDEVICEARRAY *) PURE;
+    STDMETHOD(GetDevices)(THIS_ IDirect3DRMDeviceArray **array) PURE;
     STDMETHOD(GetNamedObject)(THIS_ const char *name, IDirect3DRMObject **object) PURE;
     STDMETHOD(EnumerateObjects)(THIS_ D3DRMOBJECTCALLBACK, LPVOID) PURE;
     STDMETHOD(Load)(THIS_ void *source, void *object_id, IID **iids, DWORD iid_count, D3DRMLOADOPTIONS flags,
@@ -344,13 +345,13 @@ DECLARE_INTERFACE_(IDirect3DRM3,IUnknown)
     STDMETHOD(CreateMesh)(THIS_ IDirect3DRMMesh **mesh) PURE;
     STDMETHOD(CreateMeshBuilder)(THIS_ IDirect3DRMMeshBuilder3 **mesh_builder) PURE;
     STDMETHOD(CreateFace)(THIS_ IDirect3DRMFace2 **face) PURE;
-    STDMETHOD(CreateAnimation)(THIS_ LPDIRECT3DRMANIMATION2 *) PURE;
-    STDMETHOD(CreateAnimationSet)(THIS_ LPDIRECT3DRMANIMATIONSET2 *) PURE;
+    STDMETHOD(CreateAnimation)(THIS_ IDirect3DRMAnimation2 **animation) PURE;
+    STDMETHOD(CreateAnimationSet)(THIS_ IDirect3DRMAnimationSet2 **set) PURE;
     STDMETHOD(CreateTexture)(THIS_ D3DRMIMAGE *image, IDirect3DRMTexture3 **texture) PURE;
     STDMETHOD(CreateLight)(THIS_ D3DRMLIGHTTYPE type, D3DCOLOR color, IDirect3DRMLight **light) PURE;
     STDMETHOD(CreateLightRGB)(THIS_ D3DRMLIGHTTYPE type, D3DVALUE r, D3DVALUE g, D3DVALUE b,
             IDirect3DRMLight **light) PURE;
-    STDMETHOD(CreateMaterial)(THIS_ D3DVALUE, LPDIRECT3DRMMATERIAL2 *) PURE;
+    STDMETHOD(CreateMaterial)(THIS_ D3DVALUE, IDirect3DRMMaterial2 **material) PURE;
     STDMETHOD(CreateDevice)(THIS_ DWORD width, DWORD height, IDirect3DRMDevice3 **device) PURE;
     STDMETHOD(CreateDeviceFromSurface)(THIS_ GUID *guid, IDirectDraw *ddraw,
             IDirectDrawSurface *surface, IDirect3DRMDevice3 **device) PURE;
@@ -368,15 +369,16 @@ DECLARE_INTERFACE_(IDirect3DRM3,IUnknown)
             D3DVALUE ox, D3DVALUE oy, D3DVALUE oz, D3DVALUE dx, D3DVALUE dy, D3DVALUE dz,
             D3DVALUE ux, D3DVALUE uy, D3DVALUE uz, D3DVALUE ou, D3DVALUE ov, D3DVALUE su, D3DVALUE sv,
             IDirect3DRMWrap **wrap) PURE;
-    STDMETHOD(CreateUserVisual)(THIS_ D3DRMUSERVISUALCALLBACK, LPVOID pArg, LPDIRECT3DRMUSERVISUAL *) PURE;
-    STDMETHOD(LoadTexture)(THIS_ const char *, LPDIRECT3DRMTEXTURE3 *) PURE;
-    STDMETHOD(LoadTextureFromResource)(THIS_ HMODULE hModule, LPCSTR /* LPCTSTR */ strName, LPCSTR  /* LPCTSTR */ strType, LPDIRECT3DRMTEXTURE3 *) PURE;
+    STDMETHOD(CreateUserVisual)(THIS_ D3DRMUSERVISUALCALLBACK cb, void *ctx, IDirect3DRMUserVisual **visual) PURE;
+    STDMETHOD(LoadTexture)(THIS_ const char *filename, IDirect3DRMTexture3 **texture) PURE;
+    STDMETHOD(LoadTextureFromResource)(THIS_ HMODULE module, const char *resource_name,
+            const char *resource_type, IDirect3DRMTexture3 **texture) PURE;
     STDMETHOD(SetSearchPath)(THIS_ LPCSTR) PURE;
     STDMETHOD(AddSearchPath)(THIS_ LPCSTR) PURE;
     STDMETHOD(GetSearchPath)(THIS_ DWORD *size_return, LPSTR path_return) PURE;
     STDMETHOD(SetDefaultTextureColors)(THIS_ DWORD) PURE;
     STDMETHOD(SetDefaultTextureShades)(THIS_ DWORD) PURE;
-    STDMETHOD(GetDevices)(THIS_ LPDIRECT3DRMDEVICEARRAY *) PURE;
+    STDMETHOD(GetDevices)(THIS_ IDirect3DRMDeviceArray **array) PURE;
     STDMETHOD(GetNamedObject)(THIS_ const char *name, IDirect3DRMObject **object) PURE;
     STDMETHOD(EnumerateObjects)(THIS_ D3DRMOBJECTCALLBACK, LPVOID) PURE;
     STDMETHOD(Load)(THIS_ void *source, void *object_id, IID **iids, DWORD iid_count, D3DRMLOADOPTIONS flags,
