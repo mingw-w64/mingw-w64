@@ -117,6 +117,10 @@ src_libws2_32=libsrc/ws2_32.c \
   libsrc/wspiapi/WspiapiLoad.c               libsrc/wspiapi/WspiapiGetAddrInfo.c       libsrc/wspiapi/WspiapiGetNameInfo.c        \
   libsrc/wspiapi/WspiapiFreeAddrInfo.c
 
+src_msvcrt=\
+  secapi/_access_s.c \
+  secapi/_waccess_s.c
+
 src_libmingwex=\
   crt/dllentry.c        crt/dllmain.c \
   \
@@ -221,7 +225,6 @@ src_libmingwex=\
   secapi/_cwprintf_s.c secapi/_cwprintf_s_l.c \
   secapi/_vcwprintf_s.c secapi/_vcwprintf_s_l.c \
   secapi/vsprintf_s.c \
-  secapi/_access_s.c secapi/_waccess_s.c \
   secapi/_chsize_s.c secapi/_mktemp_s.c secapi/_wmktemp_s.c \
   secapi/_umask_s.c \
   secapi/_wctime32_s.c secapi/_ctime32_s.c \
@@ -318,6 +321,12 @@ lib32_LIBRARIES = lib32/libkernel32.a
 lib32_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincs32)
 lib32_libkernel32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 lib32_libkernel32_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
+
+lib32_LIBRARIES += lib32/libmsvcrt.a
+lib32_libmsvcrt_a_SOURCES = $(src_msvcrt) lib32/msvcrt.def.in
+lib32_libmsvcrt_a_AR = $(DTDEF32) lib32/msvcrt.def && $(AR) $(ARFLAGS)
+lib32_libmsvcrt_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
+EXTRA_lib32_libmsvcrt_a_DEPENDENCIES=lib32/msvcrt.def
 
 lib32_LIBRARIES += lib32/libshell32.a
 lib32_libshell32_a_SOURCES = $(src_libshell32)
@@ -486,7 +495,7 @@ lib32_DATA = \
   lib32/libgpapi.a     lib32/libgpedit.a    lib32/libgpprefcl.a  lib32/libgpscript.a \
   lib32/libgptext.a    lib32/libmshtml.a    lib32/libmshtmled.a  \
   \
-  lib32/libcrtdll.a    lib32/libmsvcrt.a    lib32/libmsvcr80.a   \
+  lib32/libcrtdll.a    lib32/libmsvcr80.a   \
   \
   lib32/libbcrypt.a    lib32/libbthprops.a  lib32/libclusapi.a   lib32/libcmutil.a    \
   lib32/libcredui.a    lib32/libcryptnet.a  lib32/libdavclnt.a   lib32/libdhcpcsvc6.a \
@@ -552,7 +561,7 @@ endif
 
 # combine these two rules with the ones for lib64
 # Use two patterns, one for 32/64 in lib32/ and lib64/
-lib32/libcrtdll.a lib32/libmsvcrt.a lib32/libmsvcr80.a: lib32/lib%.a: lib32/%.def
+lib32/libcrtdll.a lib32/libmsvcr80.a: lib32/lib%.a: lib32/%.def
 	$(DTDEF32) $< --dllname $*.dll
 
 lib32/lib%.a: lib32/%.def
@@ -639,6 +648,12 @@ lib64_LIBRARIES = lib64/libkernel32.a
 lib64_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincs64)
 lib64_libkernel32_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include) $(AM_CPPFLAGS)
 lib64_libkernel32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
+
+lib64_LIBRARIES += lib64/libmsvcrt.a
+lib64_libmsvcrt_a_SOURCES = $(src_msvcrt) lib64/msvcrt.def.in
+lib64_libmsvcrt_a_AR = $(DTDEF64) lib64/msvcrt.def && $(AR) $(ARFLAGS)
+lib64_libmsvcrt_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
+EXTRA_lib64_libmsvcrt_a_DEPENDENCIES=lib64/msvcrt.def
 
 lib64_LIBRARIES += lib64/libshell32.a
 lib64_libshell32_a_SOURCES = $(src_libshell32)
@@ -998,7 +1013,7 @@ lib64_DATA = \
   lib64/libdwmapi.a     lib64/libntoskrnl.a     lib64/libuxtheme.a    \
   lib64/libwtsapi32.a   \
   \
-  lib64/libcrtdll.a     lib64/libmsvcrt.a     lib64/libmsvcr80.a     \
+  lib64/libcrtdll.a     lib64/libmsvcr80.a     \
   \
   lib64/libbcrypt.a     lib64/libbthprops.a   lib64/libdhcpcsvc6.a   lib64/libdxva2.a       lib64/libeappcfg.a       \
   lib64/libeappgnui.a   lib64/libeapphost.a   lib64/libeappprxy.a    lib64/libevr.a         lib64/libiscsidsc.a      \
@@ -1049,7 +1064,7 @@ lib64_DATA = \
   lib64/libapi-ms-win-core-winrt-string-l1-1-0.a lib64/libruntimeobject.a  \
   lib64/libapi-ms-win-core-winrt-l1-1-0.a
 
-lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
+lib64/libcrtdll.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
 	$(DTDEF64) $< --dllname $*.dll
 
 lib64/lib%.a: lib64/%.def
