@@ -119,7 +119,39 @@ src_libws2_32=libsrc/ws2_32.c \
 
 src_msvcrt=\
   secapi/_access_s.c \
-  secapi/_waccess_s.c
+  secapi/_cgets_s.c \
+  secapi/_cgetws_s.c \
+  secapi/_chsize_s.c \
+  secapi/_cprintf_s.c \
+  secapi/_cprintf_s_l.c \
+  secapi/_ctime32_s.c \
+  secapi/_ctime64_s.c \
+  secapi/_cwprintf_s.c \
+  secapi/_cwprintf_s_l.c \
+  secapi/_gmtime32_s.c \
+  secapi/_gmtime64_s.c \
+  secapi/_localtime32_s.c \
+  secapi/_localtime64_s.c \
+  secapi/_mktemp_s.c \
+  secapi/_strdate_s.c \
+  secapi/_strtime_s.c \
+  secapi/_umask_s.c \
+  secapi/_vcprintf_s.c \
+  secapi/_vcprintf_s_l.c \
+  secapi/_vcwprintf_s.c \
+  secapi/_vcwprintf_s_l.c \
+  secapi/_waccess_s.c \
+  secapi/_wasctime_s.c \
+  secapi/_wctime32_s.c \
+  secapi/_wctime64_s.c \
+  secapi/_wstrtime_s.c \
+  secapi/_wmktemp_s.c \
+  secapi/_wstrdate_s.c \
+  secapi/asctime_s.c \
+  secapi/memcpy_s.c \
+  secapi/vsprintf_s.c \
+  secapi/wmemcpy_s.c
+
 
 src_libmingwex=\
   crt/dllentry.c        crt/dllmain.c \
@@ -217,24 +249,7 @@ src_libmingwex=\
   stdio/mingw_wvfscanf.c   stdio/snprintf.c          stdio/snwprintf.c        stdio/strtof.c            stdio/truncate.c        \
   stdio/ulltoa.c           stdio/ulltow.c            stdio/vasprintf.c        stdio/vfscanf.c           stdio/vfwscanf.c        \
   stdio/vscanf.c           stdio/vsnprintf.c         stdio/vsnprintf_s.c      stdio/vsnwprintf.c        stdio/vsscanf.c         \
-  stdio/vswscanf.c         stdio/vwscanf.c           stdio/wtoll.c            stdio/mingw_asprintf.c    stdio/mingw_vasprintf.c \
-  \
-  secapi/_cgets_s.c secapi/_cgetws_s.c \
-  secapi/_cprintf_s.c secapi/_cprintf_s_l.c \
-  secapi/_vcprintf_s.c secapi/_vcprintf_s_l.c \
-  secapi/_cwprintf_s.c secapi/_cwprintf_s_l.c \
-  secapi/_vcwprintf_s.c secapi/_vcwprintf_s_l.c \
-  secapi/vsprintf_s.c \
-  secapi/_chsize_s.c secapi/_mktemp_s.c secapi/_wmktemp_s.c \
-  secapi/_umask_s.c \
-  secapi/_wctime32_s.c secapi/_ctime32_s.c \
-  secapi/_wctime64_s.c secapi/_ctime64_s.c \
-  secapi/asctime_s.c secapi/_wasctime_s.c \
-  secapi/_localtime32_s.c secapi/_localtime64_s.c \
-  secapi/_gmtime64_s.c secapi/_gmtime32_s.c \
-  secapi/_strdate_s.c secapi/_wstrdate_s.c \
-  secapi/_strtime_s.c secapi/_wstrtime_s.c \
-  secapi/wmemcpy_s.c secapi/memcpy_s.c
+  stdio/vswscanf.c         stdio/vwscanf.c           stdio/wtoll.c            stdio/mingw_asprintf.c    stdio/mingw_vasprintf.c
 
 # These intrinsics are target independent:
 src_intrincs= \
