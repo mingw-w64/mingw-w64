@@ -99,11 +99,28 @@ static void duplicate_ppstrings (int ac, char ***av);
 
 static int __cdecl pre_c_init (void);
 static void __cdecl pre_cpp_init (void);
-static void __cdecl __mingw_prepare_except_for_msvcr80_and_higher (void);
 _CRTALLOC(".CRT$XIAA") _PIFV mingw_pcinit = pre_c_init;
 _CRTALLOC(".CRT$XCAA") _PVFV mingw_pcppinit = pre_cpp_init;
 
 extern int _MINGW_INSTALL_DEBUG_MATHERR;
+
+#ifdef __MINGW_SHOW_INVALID_PARAMETER_EXCEPTION
+#define __UNUSED_PARAM_1(x) x
+#else
+#define __UNUSED_PARAM_1	__UNUSED_PARAM
+#endif
+static void
+__mingw_invalidParameterHandler (const wchar_t * __UNUSED_PARAM_1(expression),
+				 const wchar_t * __UNUSED_PARAM_1(function),
+				 const wchar_t * __UNUSED_PARAM_1(file),
+				 unsigned int    __UNUSED_PARAM_1(line),
+				 uintptr_t __UNUSED_PARAM(pReserved))
+{
+#ifdef __MINGW_SHOW_INVALID_PARAMETER_EXCEPTION
+  wprintf(L"Invalid parameter detected in function %s. File: %s Line: %d\n", function, file, line);
+  wprintf(L"Expression: %s\n", expression);
+#endif
+}
 
 static int __cdecl
 pre_c_init (void)
@@ -265,7 +282,7 @@ __tmainCRTStartup (void)
 #ifdef _WIN64
     __mingw_init_ehandler ();
 #endif
-    __mingw_prepare_except_for_msvcr80_and_higher ();
+    _set_invalid_parameter_handler (__mingw_invalidParameterHandler);
     
     _fpreset ();
 
@@ -409,33 +426,3 @@ static void duplicate_ppstrings (int ac, char ***av)
 	*av = n;
 }
 #endif
-
-#ifdef __MINGW_SHOW_INVALID_PARAMETER_EXCEPTION
-#define __UNUSED_PARAM_1(x) x
-#else
-#define __UNUSED_PARAM_1	__UNUSED_PARAM
-#endif
-static void
-__mingw_invalidParameterHandler (const wchar_t * __UNUSED_PARAM_1(expression),
-				 const wchar_t * __UNUSED_PARAM_1(function),
-				 const wchar_t * __UNUSED_PARAM_1(file),
-				 unsigned int    __UNUSED_PARAM_1(line),
-				 uintptr_t __UNUSED_PARAM(pReserved))
-{
-#ifdef __MINGW_SHOW_INVALID_PARAMETER_EXCEPTION
-  wprintf(L"Invalid parameter detected in function %s. File: %s Line: %d\n", function, file, line);
-  wprintf(L"Expression: %s\n", expression);
-#endif
-}
-
-HANDLE __mingw_get_msvcrt_handle(void);
-
-static void __cdecl 
-__mingw_prepare_except_for_msvcr80_and_higher (void)
-{
-  _invalid_parameter_handler (*fIPH)(_invalid_parameter_handler) = NULL;
-
-  fIPH = (void*)GetProcAddress (__mingw_get_msvcrt_handle(), "_set_invalid_parameter_handler");
-  if (fIPH)
-    (*fIPH)(__mingw_invalidParameterHandler);
-}

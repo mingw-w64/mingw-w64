@@ -134,8 +134,8 @@ extern "C" {
   _CRTIMP _purecall_handler __cdecl _get_purecall_handler(void);
 
   typedef void (__cdecl *_invalid_parameter_handler)(const wchar_t *,const wchar_t *,const wchar_t *,unsigned int,uintptr_t);
-  _invalid_parameter_handler __cdecl _set_invalid_parameter_handler(_invalid_parameter_handler _Handler);
-  _invalid_parameter_handler __cdecl _get_invalid_parameter_handler(void);
+  _CRTIMP _invalid_parameter_handler __cdecl _set_invalid_parameter_handler(_invalid_parameter_handler _Handler);
+  _CRTIMP _invalid_parameter_handler __cdecl _get_invalid_parameter_handler(void);
 
 #ifndef _CRT_ERRNO_DEFINED
 #define _CRT_ERRNO_DEFINED
