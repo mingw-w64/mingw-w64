@@ -648,7 +648,7 @@ putwchar
 qsort
 raise
 rand
-rand_s
+; rand_s Replaced by emu
 realloc
 remove
 rename
