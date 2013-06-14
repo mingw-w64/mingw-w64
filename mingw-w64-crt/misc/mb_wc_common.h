@@ -6,4 +6,4 @@
 
 #include <_mingw.h>
 
-extern unsigned int (__cdecl *__mingw_get_codepage)(void);
+_CRTIMP unsigned int __cdecl __lc_codepage_func(void);

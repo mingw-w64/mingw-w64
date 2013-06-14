@@ -31,7 +31,7 @@ long double wcstold (const wchar_t * __restrict__ wcs, wchar_t ** __restrict__ w
   char * cse;
   unsigned int i;
   long double ret;
-  const unsigned int cp = __mingw_get_codepage();
+  const unsigned int cp = __lc_codepage_func();
 
   /* Allocate enough room for (possibly) mb chars */
   cs = (char *) malloc ((wcslen(wcs)+1) * MB_CUR_MAX);

@@ -101,7 +101,7 @@ mbrtowc (wchar_t * __restrict__ pwc, const char * __restrict__ s,
   wchar_t* dst = pwc ? pwc : &byte_bucket;
 
   return (size_t) __mbrtowc_cp (dst, s, n, ps ? ps : &internal_mbstate,
-				__mingw_get_codepage(), MB_CUR_MAX);
+				__lc_codepage_func(), MB_CUR_MAX);
 }
 
 
@@ -113,7 +113,7 @@ mbsrtowcs (wchar_t* __restrict__ dst,  const char ** __restrict__ src,
   size_t n = 0;
   static mbstate_t internal_mbstate = 0;
   mbstate_t* internal_ps = ps ? ps : &internal_mbstate;
-  const unsigned int cp = __mingw_get_codepage();
+  const unsigned int cp = __lc_codepage_func();
   const unsigned int mb_max = MB_CUR_MAX;
 
   if (src == NULL || *src == NULL)	/* undefined behavior */
@@ -156,5 +156,5 @@ mbrlen (const char * __restrict__ s, size_t n,
   static mbstate_t s_mbstate = 0;
   wchar_t byte_bucket = 0;
   return __mbrtowc_cp (&byte_bucket, s, n, (ps) ? ps : &s_mbstate,
-		       __mingw_get_codepage(), MB_CUR_MAX);
+		       __lc_codepage_func(), MB_CUR_MAX);
 }
