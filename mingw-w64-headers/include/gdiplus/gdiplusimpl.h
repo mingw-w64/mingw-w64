@@ -753,9 +753,9 @@ __inline__ Font::Font(const FontFamily *family,
 __inline__ Font::Font(HDC hdc, HFONT hfont):
 	nativeFont(NULL), lastStatus(Ok)
 {
-	LOGFONTW logfont;
-	if (GetObject(hfont, sizeof logfont, &logfont)) {
-		lastStatus = DllExports::GdipCreateFontFromLogfontW(
+	LOGFONTA logfont;
+	if (hfont && GetObjectA(hfont, sizeof logfont, &logfont)) {
+		lastStatus = DllExports::GdipCreateFontFromLogfontA(
 				hdc, &logfont, &nativeFont);
 	} else {
 		lastStatus = DllExports::GdipCreateFontFromDC(
