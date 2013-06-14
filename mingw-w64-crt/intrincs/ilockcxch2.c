@@ -1,6 +1,6 @@
 #include <intrin.h>
 
-#ifdef _WIN32
+#ifndef _WIN64
 __LONG32 __stdcall InterlockedCompareExchange(__LONG32 volatile *Destination, __LONG32 ExChange, __LONG32 Comperand);
 
 __LONG32 __stdcall InterlockedCompareExchange(__LONG32 volatile *Destination, __LONG32 ExChange, __LONG32 Comperand)
