@@ -118,6 +118,7 @@ src_libws2_32=libsrc/ws2_32.c \
   libsrc/wspiapi/WspiapiFreeAddrInfo.c
 
 src_msvcrt=\
+  crt/msvcrt.c \
   misc/invalid_parameter_handler.c \
   misc/lc_locale_func.c \
   misc/output_format.c \
