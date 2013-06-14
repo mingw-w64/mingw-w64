@@ -120,6 +120,7 @@ src_libws2_32=libsrc/ws2_32.c \
 src_msvcrt=\
   misc/invalid_parameter_handler.c \
   misc/lc_locale_func.c \
+  misc/output_format.c \
   secapi/_access_s.c \
   secapi/_cgets_s.c \
   secapi/_cgetws_s.c \
@@ -222,7 +223,7 @@ src_libmingwex=\
   misc/gettimeofday.c                                 misc/imaxabs.c              misc/imaxdiv.c             misc/isblank.c        \
   misc/iswblank.c                                     misc/mb_wc_common.h         misc/mbrtowc.c             misc/mbsinit.c        \
   misc/mempcpy.c         misc/mingw-aligned-malloc.c  misc/mingw-fseek.c          misc/mingw_getsp.S    \
-  misc/mingw_matherr.c   misc/mingw_mbwc_convert.c    misc/mingw_output_format.c  misc/mingw_usleep.c        misc/mingw_wcstod.c   \
+  misc/mingw_matherr.c   misc/mingw_mbwc_convert.c    misc/mingw_usleep.c        misc/mingw_wcstod.c   \
   misc/mingw_wcstof.c    misc/mingw_wcstold.c                                     misc/seterrno.c            misc/sleep.c          \
   misc/spawnv.c          misc/spawnve.c               misc/spawnvp.c              misc/spawnvpe.c            misc/strnlen.c        \
   misc/strsafe.c         misc/strtoimax.c             misc/strtold.c              misc/strtoumax.c           misc/tdelete.c        \

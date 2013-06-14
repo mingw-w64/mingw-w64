@@ -70,11 +70,6 @@
 #define __MINGW_LSYMBOL(sym) sym
 #endif
 
-/* Use alias for msvcr80 export of get/set_output_format.  */
-#ifndef __USE_MINGW_OUTPUT_FORMAT_EMU
-#define __USE_MINGW_OUTPUT_FORMAT_EMU 1
-#endif
-
 /* Set VC specific compiler target macros.  */
 #if defined(__x86_64) && defined(_X86_)
 #undef _X86_	/* _X86_ is not for __x86_64 */

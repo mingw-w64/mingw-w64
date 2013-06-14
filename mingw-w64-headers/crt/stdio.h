@@ -520,12 +520,6 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
   _CRTIMP int __cdecl _setmaxstdio(int _Max);
   _CRTIMP unsigned int __cdecl _set_output_format(unsigned int _Format);
   _CRTIMP unsigned int __cdecl _get_output_format(void);
-  unsigned int __cdecl __mingw_set_output_format(unsigned int _Format);
-  unsigned int __cdecl __mingw_get_output_format(void);
-#if __USE_MINGW_OUTPUT_FORMAT_EMU == 1
-#define _set_output_format __mingw_set_output_format
-#define _get_output_format __mingw_get_output_format
-#endif
   int __cdecl setvbuf(FILE * __restrict__ _File,char * __restrict__ _Buf,int _Mode,size_t _Size);
   _CRTIMP int __cdecl _scprintf(const char * __restrict__ _Format,...);
   int __cdecl _sscanf_l(const char * __restrict__ buffer,const char * __restrict__ format,_locale_t locale,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
