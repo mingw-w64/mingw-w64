@@ -13,6 +13,7 @@
 #define WINAPI_FAMILY_DESKTOP_APP (WINAPI_PARTITION_DESKTOP \
 				   | WINAPI_PARTITION_APP)    
 
+/* WINAPI_FAMILY can be either desktop + App, or App.  */
 #ifndef WINAPI_FAMILY
 #define WINAPI_FAMILY WINAPI_FAMILY_DESKTOP_APP
 #endif
