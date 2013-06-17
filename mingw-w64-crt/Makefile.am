@@ -118,7 +118,6 @@ src_libws2_32=libsrc/ws2_32.c \
   libsrc/wspiapi/WspiapiFreeAddrInfo.c
 
 src_msvcrt=\
-  crt/msvcrt.c \
   misc/invalid_parameter_handler.c \
   misc/lc_locale_func.c \
   misc/output_format.c \
@@ -346,7 +345,7 @@ lib32_libkernel32_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
 lib32_LIBRARIES += lib32/libmsvcrt.a
 lib32_libmsvcrt_a_SOURCES = $(src_msvcrt) lib32/msvcrt.def.in
 lib32_libmsvcrt_a_AR = $(DTDEF32) lib32/msvcrt.def && $(AR) $(ARFLAGS)
-lib32_libmsvcrt_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
+lib32_libmsvcrt_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 EXTRA_lib32_libmsvcrt_a_DEPENDENCIES=lib32/msvcrt.def
 
 lib32_LIBRARIES += lib32/libshell32.a
@@ -673,7 +672,7 @@ lib64_libkernel32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 lib64_LIBRARIES += lib64/libmsvcrt.a
 lib64_libmsvcrt_a_SOURCES = $(src_msvcrt) lib64/msvcrt.def.in
 lib64_libmsvcrt_a_AR = $(DTDEF64) lib64/msvcrt.def && $(AR) $(ARFLAGS)
-lib64_libmsvcrt_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
+lib64_libmsvcrt_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 EXTRA_lib64_libmsvcrt_a_DEPENDENCIES=lib64/msvcrt.def
 
 lib64_LIBRARIES += lib64/libshell32.a

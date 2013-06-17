@@ -1,10 +1,9 @@
 #define __lc_codepage __dummy_lc_codepage
 #include <windows.h>
 #include <locale.h>
+#include <msvcrt.h>
 
 #include "mb_wc_common.h"
-
-HANDLE __mingw_get_msvcrt_handle(void);
 
 static unsigned int *msvcrt__lc_codepage;
 static unsigned int __cdecl msvcrt__lc_codepage_func(void)

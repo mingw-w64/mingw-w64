@@ -1,7 +1,6 @@
 #include <windows.h>
 #include <stdio.h>
-
-HANDLE __mingw_get_msvcrt_handle(void);
+#include <msvcrt.h>
 
 static unsigned int last_value = 0;
 typedef unsigned int (*f_get_output_format)(void);

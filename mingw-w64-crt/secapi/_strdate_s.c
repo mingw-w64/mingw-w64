@@ -1,8 +1,8 @@
 #include <windows.h>
 #include <malloc.h>
 #include <errno.h>
+#include <msvcrt.h>
 
-HMODULE __mingw_get_msvcrt_handle (void);
 errno_t __cdecl _strdate_s (char *, size_t);
 static errno_t __cdecl _int_strdate_s (char *, size_t);
 static errno_t __cdecl _stub (char *, size_t);

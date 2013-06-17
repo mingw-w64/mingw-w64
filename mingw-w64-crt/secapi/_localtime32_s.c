@@ -2,8 +2,8 @@
 #include <malloc.h>
 #include <time.h>
 #include <errno.h>
+#include <msvcrt.h>
 
-HMODULE __mingw_get_msvcrt_handle (void);
 /* struct tm * __cdecl _localtime32 (const __time32_t *); */
 errno_t __cdecl _localtime32_s (struct tm *, const __time32_t *);
 static errno_t __cdecl _int_localtime32_s (struct tm *, const __time32_t *);

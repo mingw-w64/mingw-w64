@@ -1,8 +1,8 @@
 #include <windows.h>
 #include <malloc.h>
 #include <errno.h>
+#include <msvcrt.h>
 
-HMODULE __mingw_get_msvcrt_handle(void);
 int __cdecl vsprintf (char *, const char *, va_list);
 int __cdecl vsprintf_s (char *, size_t, const char *, va_list);
 static int __cdecl _int_vsprintf_s (char *, size_t, const char *, va_list);

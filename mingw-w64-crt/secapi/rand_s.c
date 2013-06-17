@@ -3,8 +3,7 @@
 #include <windows.h>
 #include <ntsecapi.h>
 #include <errno.h>
-
-HMODULE __mingw_get_msvcrt_handle(void);
+#include <msvcrt.h>
 
 static BOOLEAN (WINAPI *pRtlGenRandom)(void*,ULONG);
 

@@ -1,8 +1,8 @@
 #include <windows.h>
 #include <malloc.h>
 #include <errno.h>
+#include <msvcrt.h>
 
-HMODULE __mingw_get_msvcrt_handle (void);
 errno_t __cdecl memcpy_s (void *, size_t, const void *, size_t);
 static errno_t __cdecl _int_memcpy_s (void *, size_t, const void *, size_t);
 static errno_t __cdecl _stub (void *, size_t, const void *, size_t);

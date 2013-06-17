@@ -1,8 +1,8 @@
 #include <windows.h>
 #include <malloc.h>
 #include <errno.h>
+#include <msvcrt.h>
 
-HMODULE __mingw_get_msvcrt_handle (void);
 int __cdecl _access (const char *, int);
 errno_t __cdecl _access_s (const char *, int);
 static errno_t __cdecl _int_access_s (const char *, int);

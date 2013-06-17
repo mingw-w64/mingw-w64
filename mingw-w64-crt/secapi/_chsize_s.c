@@ -1,8 +1,8 @@
 #include <windows.h>
 #include <malloc.h>
 #include <errno.h>
+#include <msvcrt.h>
 
-HMODULE __mingw_get_msvcrt_handle (void);
 int __cdecl _chsize (int, long);
 errno_t __cdecl _chsize_s (int, long long);
 static errno_t __cdecl _int_chsize_s (int, long long);

@@ -1,8 +1,8 @@
 #include <windows.h>
 #include <malloc.h>
 #include <errno.h>
+#include <msvcrt.h>
 
-HMODULE __mingw_get_msvcrt_handle(void);
 int __cdecl _cprintf_s_l (const char *, _locale_t, ...);
 int __cdecl _vcprintf_s_l(const char *,_locale_t,va_list);
 
