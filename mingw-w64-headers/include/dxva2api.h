@@ -278,7 +278,7 @@ typedef struct _DXVA2_ValueRange {
   DXVA2_Fixed32 StepSize;
 } DXVA2_ValueRange;
 
-#ifdef _D3D9_H
+#ifdef _D3D9_H_
 typedef struct _DXVA2_VideoDesc {
   UINT                 SampleWidth;
   UINT                 SampleHeight;
@@ -359,7 +359,7 @@ typedef struct _DXVA2_VideoProcessBltParams {
   DWORD                DestData;
 } DXVA2_VideoProcessBltParams;
 
-#ifdef _D3D9_H
+#ifdef _D3D9_H_
 typedef struct _DXVA2_VideoProcessorCaps {
   UINT    DeviceCaps;
   D3DPOOL InputPool;
@@ -380,7 +380,7 @@ DXVA2_SampleData_TFF
 DXVA2_SampleData_RFF_TFF_Present
 */
 
-#ifdef _D3D9_H
+#ifdef _D3D9_H_
 typedef struct _DXVA2_VideoSample {
   REFERENCE_TIME       Start;
   REFERENCE_TIME       End;
@@ -434,7 +434,7 @@ __forceinline DXVA2_Fixed32 DXVA2FloatToFixed (const float f) {
   return f32;
 }
 
-#ifdef _D3D9_H
+#ifdef _D3D9_H_
 HRESULT WINAPI DXVA2CreateDirect3DDeviceManager9(UINT *pResetToken,IDirect3DDeviceManager9 **ppDXVAManager);
 HRESULT WINAPI DXVA2CreateVideoService(IDirect3DDevice9 *pDD,REFIID riid,void **ppService);
 /*****************************************************************************
