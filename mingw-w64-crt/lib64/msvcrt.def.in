@@ -338,7 +338,7 @@ _gcvt
 _gcvt_s
 _get_heap_handle
 _get_osfhandle
-_get_output_format
+;_get_output_format provided by emu
 _get_sbh_threshold
 _getch
 _getche
@@ -684,7 +684,7 @@ _searchenv
 _searchenv_s
 _set_error_mode
 _set_sbh_threshold
-_set_output_format
+; _set_output_format provided by emu
 _seterrormode
 _setjmp
 _setjmpex
