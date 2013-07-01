@@ -207,6 +207,17 @@ typedef enum _D2D1_ARC_SIZE {
   D2D1_ARC_SIZE_LARGE   = 1 
 } D2D1_ARC_SIZE;
 
+enum {
+    D2D1_INTERPOLATION_MODE_DEFINITION_NEAREST_NEIGHBOR    = 0,
+    D2D1_INTERPOLATION_MODE_DEFINITION_LINEAR              = 1,
+    D2D1_INTERPOLATION_MODE_DEFINITION_CUBIC               = 2,
+    D2D1_INTERPOLATION_MODE_DEFINITION_MULTI_SAMPLE_LINEAR = 3,
+    D2D1_INTERPOLATION_MODE_DEFINITION_ANISOTROPIC         = 4,
+    D2D1_INTERPOLATION_MODE_DEFINITION_HIGH_QUALITY_CUBIC  = 5,
+    D2D1_INTERPOLATION_MODE_DEFINITION_FANT                = 6,
+    D2D1_INTERPOLATION_MODE_DEFINITION_MIPMAP_LINEAR       = 7
+};
+
 typedef enum _D2D1_BITMAP_INTERPOLATION_MODE {
   D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR   = 0,
   D2D1_BITMAP_INTERPOLATION_MODE_LINEAR             = 1 
@@ -622,6 +633,19 @@ interface ID2D1Brush {
 #define ID2D1Brush_SetTransform(this,A) (this)->lpVtbl->SetTransform(this,A)
 #define ID2D1Brush_GetOpacity(this) (this)->lpVtbl->GetOpacity(this)
 #define ID2D1Brush_GetTransform(this,A) (this)->lpVtbl->GetTransform(this,A)
+
+#endif
+
+DEFINE_GUID(IID_ID2D1Image, 0x65019f75,0x8da2,0x497c,0xb3,0x2c,0xdf,0xa3,0x4e,0x48,0xed,0xe6);
+
+#ifndef D2D_USE_C_DEFINITIONS
+
+interface ID2D1Image : public ID2D1Resource {};
+
+#else
+
+typedef interface ID2D1Image ID2D1Image;
+/* FIXME: Add full C declaration */
 
 #endif
 
@@ -2403,6 +2427,7 @@ __CRT_UUID_DECL(ID2D1EllipseGeometry, 0x2cd906a4,0x12e2,0x11dc,0x9f,0xed,0x00,0x
 __CRT_UUID_DECL(ID2D1GeometryGroup, 0x2cd906a6,0x12e2,0x11dc,0x9f,0xed,0x00,0x11,0x43,0xa0,0x55,0xf9);
 __CRT_UUID_DECL(ID2D1RoundedRectangleGeometry, 0x2cd906a3,0x12e2,0x11dc,0x9f,0xed,0x00,0x11,0x43,0xa0,0x55,0xf9);
 __CRT_UUID_DECL(ID2D1TessellationSink, 0x2cd906c1,0x12e2,0x11dc,0x9f,0xed,0x00,0x11,0x43,0xa0,0x55,0xf9);
+__CRT_UUID_DECL(ID2D1Image, 0x65019f75,0x8da2,0x497c,0xb3,0x2c,0xdf,0xa3,0x4e,0x48,0xed,0xe6);
 
 #ifdef __cplusplus
 extern "C" {
