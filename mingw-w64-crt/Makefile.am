@@ -119,7 +119,6 @@ src_libws2_32=libsrc/ws2_32.c \
 
 src_msvcrt=\
   misc/invalid_parameter_handler.c \
-  misc/lc_locale_func.c \
   misc/output_format.c \
   secapi/_access_s.c \
   secapi/_cgets_s.c \
@@ -156,6 +155,9 @@ src_msvcrt=\
   secapi/vsprintf_s.c \
   secapi/wmemcpy_s.c
 
+src_msvcrt32=
+  $(src_msvcrt) \
+  misc/lc_locale_func.c
 
 src_libmingwex=\
   crt/dllentry.c        crt/dllmain.c \
@@ -343,7 +345,7 @@ lib32_libkernel32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 lib32_libkernel32_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
 
 lib32_LIBRARIES += lib32/libmsvcrt.a
-lib32_libmsvcrt_a_SOURCES = $(src_msvcrt) lib32/msvcrt.def.in
+lib32_libmsvcrt_a_SOURCES = $(src_msvcrt32) lib32/msvcrt.def.in
 lib32_libmsvcrt_a_AR = $(DTDEF32) lib32/msvcrt.def && $(AR) $(ARFLAGS)
 lib32_libmsvcrt_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 EXTRA_lib32_libmsvcrt_a_DEPENDENCIES=lib32/msvcrt.def

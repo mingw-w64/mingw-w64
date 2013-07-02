@@ -797,7 +797,7 @@ _wcstoi64
 _wcstoui64
 _wctype
 _wtof
-___lc_codepage_func
+___lc_codepage_func DATA ; provided by emu
 ___lc_collate_cp_func
 ___lc_handle_func
 ___mb_cur_max_func

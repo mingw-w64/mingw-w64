@@ -49,7 +49,7 @@ wcrtomb (char *dst, wchar_t wc, mbstate_t * __UNUSED_PARAM (ps))
 {
   char byte_bucket [MB_LEN_MAX];
   char* tmp_dst = dst ? dst : &byte_bucket[0];
-  return (size_t)__wcrtomb_cp (tmp_dst, wc, __lc_codepage_func(),
+  return (size_t)__wcrtomb_cp (tmp_dst, wc, ___lc_codepage_func(),
 			       MB_CUR_MAX);
 }
 
@@ -58,7 +58,7 @@ size_t wcsrtombs (char *dst, const wchar_t **src, size_t len,
 {
   int ret = 0;
   size_t n = 0;
-  const unsigned int cp = __lc_codepage_func();
+  const unsigned int cp = ___lc_codepage_func();
   const unsigned int mb_max = MB_CUR_MAX;
   const wchar_t *pwc = *src;
 

@@ -23,7 +23,7 @@ float wcstof (const wchar_t * __restrict__ wcs, wchar_t ** __restrict__ wcse)
   char * cse;
   unsigned int i;
   float ret;
-  const unsigned int cp = __lc_codepage_func();
+  const unsigned int cp = ___lc_codepage_func();
 
   /* Allocate enough room for (possibly) mb chars */
   cs = (char *) malloc ((wcslen(wcs)+1) * MB_CUR_MAX);
