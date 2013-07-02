@@ -155,7 +155,7 @@ src_msvcrt=\
   secapi/vsprintf_s.c \
   secapi/wmemcpy_s.c
 
-src_msvcrt32=
+src_msvcrt32=\
   $(src_msvcrt) \
   misc/lc_locale_func.c
 
