@@ -1,8 +1,9 @@
+#define __INTRINSIC_ONLYSPECIAL
+#define __INTRINSIC_SPECIAL__InterlockedXor64 /* Causes code generation in intrin-impl.h */
+
 #include <intrin.h>
-#include <psdk_inc/intrin-mac.h>
 
 #ifdef _WIN64
-__buildlogicali(_InterlockedXor64, __int64, xor)
 #else
 __int64 __stdcall InterlockedCompareExchange64(__int64 volatile *Destination,
   __int64 Exchange, __int64 Comperand);

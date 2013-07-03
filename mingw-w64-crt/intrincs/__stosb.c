@@ -1,4 +1,4 @@
-#include <intrin.h>
-#include <psdk_inc/intrin-mac.h>
+#define __INTRINSIC_ONLYSPECIAL
+#define __INTRINSIC_SPECIAL___stosb /* Causes code generation in intrin-impl.h */
 
-__buildstos(__stosb, unsigned char)
+#include <intrin.h>

@@ -54,4 +54,22 @@
    return old; \
 }
 
+/* This macro is used by YieldProcessor when compiling x86 w/o SSE2.
+It generates the same opcodes as _mm_pause.  */
+#define __buildpause() __asm__ __volatile__("rep nop")
+
+/* This macro is used by DbgRaiseAssertionFailure and __int2c
+
+Parameters: (IntNum)
+IntNum: Interrupt number in hex */
+#define __buildint(a) __asm__ __volatile__("int {$}" #a :)
+
+/* This macro is used by MemoryBarrier when compiling x86 w/o SSE2. 
+Note that on i386, xchg performs an implicit lock. */
+#define __buildmemorybarrier() \
+{ \
+unsigned char Barrier; \
+__asm__ __volatile__("xchg{b %%| }al, %0" :"=m" (Barrier) : /* no inputs */ : "eax", "memory"); \
+}
+
 #endif /* _INTRIN_MAC_ */

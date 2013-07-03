@@ -1,6 +1,6 @@
-#include <intrin.h>
-#include <psdk_inc/intrin-mac.h>
+#define __INTRINSIC_ONLYSPECIAL
+#define __INTRINSIC_SPECIAL__interlockedbittestandset /* Causes code generation in intrin-impl.h */
 
-__buildbittesti(_interlockedbittestandset, __LONG32, "lock bts", "I", /* unused param */)
+#include <intrin.h>
 
 unsigned char InterlockedBitTestAndSet(__LONG32 volatile *, __LONG32) __attribute__((alias("_interlockedbittestandset")));

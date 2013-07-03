@@ -1,7 +1,7 @@
-#include <intrin.h>
-#include <psdk_inc/intrin-mac.h>
+#define __INTRINSIC_ONLYSPECIAL
+#define __INTRINSIC_SPECIAL__InterlockedOr /* Causes code generation in intrin-impl.h */
 
-__buildlogicali(_InterlockedOr, __LONG32, or)
+#include <intrin.h>
 
 __LONG32 InterlockedOr(__LONG32 volatile *, __LONG32) __attribute__((alias("_InterlockedOr")));
 

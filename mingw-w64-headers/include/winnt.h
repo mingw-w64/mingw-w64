@@ -18,7 +18,9 @@ extern "C" {
 #define ANYSIZE_ARRAY 1
 
 #include <specstrings.h>
-#include <psdk_inc/intrin-mac.h>
+
+#define __INTRINSIC_GROUP_WINNT /* only define the intrinsics in this file */
+#include <psdk_inc/intrin-impl.h>
 
 #if defined(__x86_64) && \
   !(defined(_X86_) || defined(__i386__) || defined(_IA64_))
@@ -1205,22 +1207,10 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 
     BOOLEAN _bittestandset(LONG *Base,LONG Offset);
     BOOLEAN _bittestandreset(LONG *Base,LONG Offset);
-    BOOLEAN _interlockedbittestandset(__LONG32 *Base,LONG Offset);
-    BOOLEAN _interlockedbittestandreset(__LONG32 *Base,LONG Offset);
-    BOOLEAN _interlockedbittestandcomplement(__LONG32 *Base,LONG Bit);
-    BOOLEAN InterlockedBitTestAndSet(volatile __LONG32 *Base,LONG Offset);
-    BOOLEAN InterlockedBitTestAndReset(volatile __LONG32 *Base,LONG Offset);
-    BOOLEAN InterlockedBitTestAndComplement(volatile __LONG32 *Base,LONG Bit);
     BOOLEAN _bittest64(LONG64 const *Base,LONG64 Offset);
     BOOLEAN _bittestandcomplement64(LONG64 *Base,LONG64 Offset);
     BOOLEAN _bittestandset64(LONG64 *Base,LONG64 Offset);
     BOOLEAN _bittestandreset64(LONG64 *Base,LONG64 Offset);
-    BOOLEAN InterlockedBitTestAndSet64(volatile LONG64 *Base,LONG64 Offset);
-    BOOLEAN InterlockedBitTestAndReset64(volatile LONG64 *Base,LONG64 Offset);
-    BOOLEAN InterlockedBitTestAndComplement64(volatile LONG64 *Base,LONG64 Bit);
-    BOOLEAN _interlockedbittestandset64(LONG64 *Base,LONG64 Offset);
-    BOOLEAN _interlockedbittestandreset64(LONG64 *Base,LONG64 Offset);
-    BOOLEAN _interlockedbittestandcomplement64(LONG64 *Base,LONG64 Bit);
 #ifndef __CRT__NO_INLINE
     __CRT_INLINE BOOLEAN _bittestandset(LONG *Base,LONG Offset) {
       int old = 0;
@@ -1236,14 +1226,6 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
-    __CRT_INLINE __buildbittesti(_interlockedbittestandset, __LONG32, "lock bts", "I", /* unused param */)
-    __CRT_INLINE __buildbittesti(_interlockedbittestandreset, __LONG32, "lock btr", "I", /* unused param */)
-    __CRT_INLINE __buildbittesti(_interlockedbittestandcomplement, __LONG32, "lock btc", "I", /* unused param */)
-
-    __CRT_INLINE __buildbittesti(InterlockedBitTestAndSet, __LONG32, "lock bts", "I", volatile)
-    __CRT_INLINE __buildbittesti(InterlockedBitTestAndReset, __LONG32, "lock btr", "I", volatile)
-    __CRT_INLINE __buildbittesti(InterlockedBitTestAndComplement, __LONG32, "lock btc", "I", volatile)
-
     __CRT_INLINE BOOLEAN _bittest64(LONG64 const *Base,LONG64 Offset) {
       int old = 0;
       __asm__ __volatile__("btq %2,%1\n\tsbbl %0,%0 "
@@ -1272,14 +1254,6 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 	:"Ir" (Offset) : "memory");
       return (BOOLEAN) (old!=0);
     }
-    __CRT_INLINE __buildbittesti(_interlockedbittestandset64, LONG64, "lock bts", "J", /* unused param */)
-    __CRT_INLINE __buildbittesti(_interlockedbittestandreset64, LONG64, "lock btr", "J", /* unused param */)
-    __CRT_INLINE __buildbittesti(_interlockedbittestandcomplement64, LONG64, "lock btc", "J", /* unused param */)
-
-    __CRT_INLINE __buildbittesti(InterlockedBitTestAndSet64, LONG64, "lock bts", "J", volatile)
-    __CRT_INLINE __buildbittesti(InterlockedBitTestAndReset64, LONG64, "lock btr", "J", volatile)
-    __CRT_INLINE __buildbittesti(InterlockedBitTestAndComplement64, LONG64, "lock btc", "J", volatile)
-
 #endif /* !__CRT__NO_INLINE */
 
 #define BitScanForward _BitScanForward
@@ -1366,15 +1340,9 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
     SHORT InterlockedIncrement16(SHORT volatile *Addend);
     SHORT InterlockedDecrement16(SHORT volatile *Addend);
     SHORT InterlockedCompareExchange16(SHORT volatile *Destination,SHORT ExChange,SHORT Comperand);
-    LONG InterlockedAnd(LONG volatile *Destination,LONG Value);
-    LONG InterlockedOr(LONG volatile *Destination,LONG Value);
-    LONG InterlockedXor(LONG volatile *Destination,LONG Value);
     LONG InterlockedIncrement(LONG volatile *Addend);
     LONG InterlockedDecrement(LONG volatile *Addend);
     LONG InterlockedExchange(LONG volatile *Target,LONG Value);
-    LONG64 InterlockedAnd64(LONG64 volatile *Destination,LONG64 Value);
-    LONG64 InterlockedOr64(LONG64 volatile *Destination,LONG64 Value);
-    LONG64 InterlockedXor64(LONG64 volatile *Destination,LONG64 Value);
 
 #ifndef __CRT__NO_INLINE
     __CRT_INLINE SHORT InterlockedIncrement16(SHORT volatile *Addend) {
@@ -1401,14 +1369,6 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 	: "memory");
       return prev;
     }
-
-    __CRT_INLINE __buildlogicali(InterlockedAnd, LONG, and)
-    __CRT_INLINE __buildlogicali(InterlockedOr, LONG, or)
-    __CRT_INLINE __buildlogicali(InterlockedXor, LONG, xor)
-
-    __CRT_INLINE __buildlogicali(InterlockedAnd64, LONG64, and)
-    __CRT_INLINE __buildlogicali(InterlockedOr64, LONG64, or)
-    __CRT_INLINE __buildlogicali(InterlockedXor64, LONG64, xor)
 #endif /* !__CRT__NO_INLINE */
 
     LONG InterlockedExchangeAdd(LONG volatile *Addend,LONG Value);
@@ -1479,10 +1439,6 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 
 #define CacheLineFlush(Address) _mm_clflush(Address)
 
-    VOID _ReadWriteBarrier(VOID);
-
-/* Don't include intrin.h on Cygwin.  It pulls in unneeded stuff. */
-#ifdef __CYGWIN__
 # if defined(__cplusplus)
 extern "C" {
 # endif
@@ -1490,23 +1446,14 @@ extern "C" {
 # if defined(__cplusplus)
 }
 # endif
-#else /* !__CYGWIN__ */
-# include <intrin.h>
-#endif /* __CYGWIN__ */
 
 #define FastFence __faststorefence
 #define LoadFence _mm_lfence
 #define MemoryFence _mm_mfence
 #define StoreFence _mm_sfence
 
-#ifdef __MINGW_INTRIN_INLINE
-    __MINGW_INTRIN_INLINE void __faststorefence(void) {
-      __asm__ __volatile__ ("" ::: "memory");
-    }
-#endif
-
 #define YieldProcessor _mm_pause
-#define MemoryBarrier __faststorefence
+#define MemoryBarrier _mm_mfence
 #define PreFetchCacheLine(l,a) _mm_prefetch((CHAR CONST *) a,l)
 #define PrefetchForWrite(p) _m_prefetchw(p)
 #define ReadForWriteAccess(p) (_m_prefetchw(p),*(p))
@@ -1519,9 +1466,7 @@ extern "C" {
 #define ReadMxCsr _mm_getcsr
 #define WriteMxCsr _mm_setcsr
 
-    VOID __int2c(VOID);
-
-#define DbgRaiseAssertionFailure() __int2c()
+#define DbgRaiseAssertionFailure __int2c
 #define GetCallersEflags() __getcallerseflags()
 
     unsigned __int32 __getcallerseflags(VOID);
@@ -1536,16 +1481,6 @@ extern "C" {
     VOID __movsw(PWORD Destination,WORD const *Source,SIZE_T Count);
     VOID __movsd(PDWORD Destination,DWORD const *Source,SIZE_T Count);
     VOID __movsq(PDWORD64 Destination,DWORD64 const *Source,SIZE_T Count);
-    VOID __stosb(PBYTE Destination,BYTE Value,SIZE_T Count);
-    VOID __stosw(PWORD Destination,WORD Value,SIZE_T Count);
-    VOID __stosd(PDWORD Destination,DWORD Value,SIZE_T Count);
-    VOID __stosq(PDWORD64 Destination,DWORD64 Value,SIZE_T Count);
-#ifndef __CRT__NO_INLINE
-__CRT_INLINE __buildstos(__stosb, BYTE)
-__CRT_INLINE __buildstos(__stosw, WORD)
-__CRT_INLINE __buildstos(__stosd, DWORD)
-__CRT_INLINE __buildstos(__stosq, DWORD64)
-#endif /* __CRT__NO_INLINE */
 
 #define MultiplyHigh __mulh
 #define UnsignedMultiplyHigh __umulh
@@ -1589,6 +1524,16 @@ __CRT_INLINE __buildstos(__stosq, DWORD64)
       return extractedProduct;
     }
 #endif
+
+    unsigned char __readgsbyte(unsigned __LONG32 Offset);
+    unsigned short __readgsword(unsigned __LONG32 Offset);
+    unsigned __LONG32 __readgsdword(unsigned __LONG32 Offset);
+    __MINGW_EXTENSION unsigned __int64 __readgsqword(unsigned __LONG32 Offset);
+
+    void __writegsbyte(unsigned __LONG32 Offset,unsigned char Data);
+    void __writegsword(unsigned __LONG32 Offset,unsigned short Data);
+    void __writegsdword(unsigned __LONG32 Offset,unsigned __LONG32 Data);
+    __MINGW_EXTENSION void __writegsqword(unsigned __LONG32 Offset,unsigned __int64 Data);
 
     __CRT_INLINE BYTE __readgsbyte(DWORD Offset) {
       BYTE ret;
@@ -1803,23 +1748,6 @@ __CRT_INLINE __buildstos(__stosq, DWORD64)
 #define InterlockedIncrementAcquire InterlockedIncrement
 #define InterlockedIncrementRelease InterlockedIncrement
 
-    BOOLEAN _interlockedbittestandset(LONG *Base,LONG Bit);
-    BOOLEAN _interlockedbittestandreset(LONG *Base,LONG Bit);
-    BOOLEAN _interlockedbittestandcomplement(LONG *Base,LONG Bit);
-
-    BOOLEAN InterlockedBitTestAndSet(volatile LONG *Base,LONG Bit);
-    BOOLEAN InterlockedBitTestAndReset(volatile LONG *Base,LONG Bit);
-    BOOLEAN InterlockedBitTestAndComplement(volatile LONG *Base,LONG Bit);
-#ifndef __CRT__NO_INLINE
-    __CRT_INLINE __buildbittesti(_interlockedbittestandset, LONG, "lock bts", "I", /* unused param */)
-    __CRT_INLINE __buildbittesti(_interlockedbittestandreset, LONG, "lock btr", "I", /* unused param */)
-    __CRT_INLINE __buildbittesti(_interlockedbittestandcomplement, LONG, "lock btc", "I", /* unused param */)
-
-    __CRT_INLINE __buildbittesti(InterlockedBitTestAndSet, LONG, "lock bts", "I", volatile)
-    __CRT_INLINE __buildbittesti(InterlockedBitTestAndReset, LONG, "lock btr", "I", volatile)
-    __CRT_INLINE __buildbittesti(InterlockedBitTestAndComplement, LONG, "lock btc", "I", volatile)
-#endif /* !__CRT__NO_INLINE */
-
 #ifdef _PREFIX_
     BYTE __readfsbyte(DWORD Offset);
     WORD __readfsword(DWORD Offset);
@@ -1836,7 +1764,15 @@ __CRT_INLINE __buildstos(__stosq, DWORD64)
 
 #if defined(__i386__) && !defined(__x86_64)
 
-#define YieldProcessor() __asm__ __volatile__("rep; nop");
+#ifdef __SSE2__
+#define YieldProcessor _mm_pause
+#define MemoryBarrier _mm_mfence
+#else
+#define YieldProcessor __buildpause()
+VOID MemoryBarrier(VOID);
+__CRT_INLINE VOID MemoryBarrier(VOID)
+__buildmemorybarrier()
+#endif
 
 #define PreFetchCacheLine(l,a)
 #define ReadForWriteAccess(p) (*(p))
@@ -1848,23 +1784,8 @@ __CRT_INLINE __buildstos(__stosq, DWORD64)
   struct _TEB *NtCurrentTeb(void);
   PVOID GetCurrentFiber(void);
   PVOID GetFiberData(void);
-  VOID MemoryBarrier(VOID);
 
-#ifdef __CRT__NO_INLINE
-# define DbgRaiseAssertionFailure() __asm__ __volatile__("int $0x2c");
-#else
-  VOID DbgRaiseAssertionFailure(void);
-  __CRT_INLINE VOID DbgRaiseAssertionFailure(void) {
-    __asm__ __volatile__("int $0x2c");
-  }
-#endif
-
-  __CRT_INLINE VOID MemoryBarrier(VOID)
-  {
-    LONG Barrier = 0;
-    __asm__ __volatile__("xchgl %%eax,%0 "
-      :"=r" (Barrier));
-  }
+#define DbgRaiseAssertionFailure __int2c
 
   __CRT_INLINE struct _TEB *NtCurrentTeb(void)
   {

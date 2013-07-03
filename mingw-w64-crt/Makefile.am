@@ -273,7 +273,7 @@ src_intrincs= \
   intrincs/outbytestring.c  intrincs/outdword.c       intrincs/outdwordstring.c  intrincs/outword.c       intrincs/outwordstring.c  \
   intrincs/rdtsc.c          intrincs/readcr0.c        intrincs/readcr2.c         intrincs/readcr3.c       intrincs/readcr4.c        \
   intrincs/readcr8.c        intrincs/readmsr.c        intrincs/writecr0.c        intrincs/writecr2.c      intrincs/writecr3.c       \
-  intrincs/writecr4.c       intrincs/writecr8.c       intrincs/writemsr.c        intrincs/RtlSecureZeroMemory.c
+  intrincs/writecr4.c       intrincs/writecr8.c       intrincs/writemsr.c        intrincs/__int2c.c       intrincs/RtlSecureZeroMemory.c
 
 # these only go into the 64 bit version:
 src_intrincs64=\
@@ -283,7 +283,7 @@ src_intrincs64=\
   intrincs/readgsqword.c  intrincs/writegsbyte.c  intrincs/writegsword.c  intrincs/writegsdword.c    \
   intrincs/writegsqword.c intrincs/mul128ex.c     intrincs/umul128ex.c    intrincs/_mul128.c         \
   intrincs/_umul128.c     intrincs/__movsq.c      intrincs/__stosq.c      intrincs/__shiftright128.c \
-  intrincs/bittestci64.c  intrincs/__shiftleft128.c
+  intrincs/bittestci64.c  intrincs/__faststorefence.c    intrincs/__shiftleft128.c
 
 # these only go into the 32 bit version:
 src_intrincs32=\
