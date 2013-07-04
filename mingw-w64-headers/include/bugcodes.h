@@ -1,7 +1,7 @@
 /* This file is generated with wmc version 1.4-rc5. Do not edit! */
 /* Source : bugcodes.mc */
 /* Cmdline: wmc bugcodes.mc */
-/* Date   : Mon Feb 27 10:01:33 2012 */
+/* Date   : Thu Jul  4 12:10:51 2013 */
 
 #ifndef __WMCGENERATED_4f4b46e6_H
 #define __WMCGENERATED_4f4b46e6_H
@@ -406,6 +406,14 @@
 /* Approximate msg: PINBALL_FILE_SYSTEM */
 #define PINBALL_FILE_SYSTEM	((ULONG)0x00000059)
 
+/* MessageId  : 0x0000005a */
+/* Approximate msg: CRITICAL_SERVICE_FAILED */
+#define CRITICAL_SERVICE_FAILED	((ULONG)0x0000005a)
+
+/* MessageId  : 0x0000005b */
+/* Approximate msg: SET_ENV_VAR_FAILED */
+#define SET_ENV_VAR_FAILED	((ULONG)0x0000005b)
+
 /* MessageId  : 0x0000005c */
 /* Approximate msg: HAL_INITIALIZATION_FAILED */
 #define HAL_INITIALIZATION_FAILED	((ULONG)0x0000005c)
@@ -701,6 +709,10 @@
 /* MessageId  : 0x000000e5 */
 /* Approximate msg: POWER_FAILURE_SIMULATE */
 #define POWER_FAILURE_SIMULATE	((ULONG)0x000000e5)
+
+/* MessageId  : 0x000000e8 */
+/* Approximate msg: Invalid cancel of a open file. It already has handle. */
+#define INVALID_CANCEL_OF_FILE_OPEN	((ULONG)0x000000e8)
 
 /* MessageId  : 0x000000e9 */
 /* Approximate msg: An executive worker thread is being terminated without having gone through the worker thread rundown code. */
