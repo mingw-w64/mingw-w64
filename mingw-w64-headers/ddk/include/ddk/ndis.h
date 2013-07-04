@@ -5654,7 +5654,7 @@ BOOLEAN
 NTAPI
 NdisWaitEvent(
   IN PNDIS_EVENT Event,
-  IN UINT Timeout);
+  IN UINT MsToWait);
 
 /* NDIS intermediate miniport structures */
 

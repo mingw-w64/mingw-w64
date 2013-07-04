@@ -275,7 +275,7 @@ typedef enum _HIDP_REPORT_TYPE {
  * HidP_GetButtonCaps(
  *   IN HIDP_REPORT_TYPE  ReportType,
  *   OUT PHIDP_BUTTON_CAPS  ButtonCaps,
- *   IN OUT PULONG  ButtonCapsLength,
+ *   IN OUT PUSHORT  ButtonCapsLength,
  *   IN PHIDP_PREPARSED_DATA  PreparsedData);
  */
 #define HidP_GetButtonCaps(_Type_, _Caps_, _Len_, _Data_) \
@@ -374,7 +374,7 @@ HidP_GetSpecificButtonCaps(
   USHORT  LinkCollection,
   USAGE  Usage,
   PHIDP_BUTTON_CAPS  ButtonCaps,
-  PULONG  ButtonCapsLength,
+  PUSHORT  ButtonCapsLength,
   PHIDP_PREPARSED_DATA  PreparsedData);
 
 HIDAPI
@@ -386,7 +386,7 @@ HidP_GetSpecificValueCaps(
   USHORT  LinkCollection,
   USAGE  Usage,
   PHIDP_VALUE_CAPS  ValueCaps,
-  PULONG  ValueCapsLength,
+  PUSHORT  ValueCapsLength,
   PHIDP_PREPARSED_DATA  PreparsedData);
 
 HIDAPI
@@ -448,7 +448,7 @@ HidP_GetUsageValueArray(
  * HidP_GetValueCaps(
  *   IN HIDP_REPORT_TYPE  ReportType,
  *   OUT PHIDP_VALUE_CAPS  ValueCaps,
- *   IN OUT PULONG  ValueCapsLength,
+ *   IN OUT PUSHORT  ValueCapsLength,
  *   IN PHIDP_PREPARSED_DATA  PreparsedData);
  */
 #define HidP_GetValueCaps(_Type_, _Caps_, _Len_, _Data_) \
