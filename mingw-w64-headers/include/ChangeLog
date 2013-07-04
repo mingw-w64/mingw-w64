@@ -1,9 +1,13 @@
+2013-07-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ntddmodm.h: New header based on data from msdn and ioctls.net
+
 2013-06-11  Hannes Domani <ssbssa@yahoo.de>
 
 	* shlguid.h (IID_IPersistFolder2): Add missing GUID.
 
 2013-05-29  Caleb James DeLisle <unknown>
-	Kai Tietz  <ktietz@redhat.com>
+	    Kai Tietz  <ktietz@redhat.com>
 
 	* ifdef.h (NET_LUID): Don't pack struct.
 
@@ -86,17 +90,17 @@
 	* msi.h: Add features for _WIN32_MSI 400, and 450.
 
 2013-01-08  Jean-Baptiste Kempf  <jb@videolan.org>
-        Kai Tietz  <ktietz@redhat.com>
+	    Kai Tietz  <ktietz@redhat.com>
 
-        * winnls.h (IDN_ALLOW_UNASSIGNED): New macro.
-        (IDN_USE_STD3_ASCII_RULES): Likewise.
-        (NORM_FORM): Reformat.
-        (IsNormalizedString): Add prototype.
-        (NormalizeString): Remove duplicate.
+	* winnls.h (IDN_ALLOW_UNASSIGNED): New macro.
+	(IDN_USE_STD3_ASCII_RULES): Likewise.
+	(NORM_FORM): Reformat.
+	(IsNormalizedString): Add prototype.
+	(NormalizeString): Remove duplicate.
 
 2013-01-08  Jean-Baptiste Kempf  <jb@videolan.org>
 
-        * winbase.h (CREATE_MUTEX_INITIAL_OWNER): New define.
-        (CRITICAL_SECTION_NO_DEBUG_INFO): New define.
-        (InitializeCriticalSectionEx): New prototype.
+	* winbase.h (CREATE_MUTEX_INITIAL_OWNER): New define.
+	(CRITICAL_SECTION_NO_DEBUG_INFO): New define.
+	(InitializeCriticalSectionEx): New prototype.
 
