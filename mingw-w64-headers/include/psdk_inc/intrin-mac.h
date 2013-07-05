@@ -15,11 +15,13 @@
    FunctionName: Any valid function name
    DataType: BYTE, WORD, DWORD or DWORD64 */
 
+/* While we don't need the output values for Dest or Count, we
+   must still inform the compiler the asm changes them. */
 #define __buildstos(x, y) void x(y *Dest, y Data, size_t Count) \
 { \
    __asm__ __volatile__ ("rep stos%z[Data]" \
-      :  /* no outputs */ \
-      : "D" (Dest), "c" (Count), [Data] "a" (Data) \
+      : "+D" (Dest), "+c" (Count) \
+      : [Data] "a" (Data) \
       : "memory"); \
 }
 
