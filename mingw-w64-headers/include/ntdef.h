@@ -111,7 +111,7 @@
 
 #undef  UNALIGNED	/* avoid redefinition warnings vs _mingw.h */
 #undef  UNALIGNED64
-#if defined(_M_MRX000) || defined(_M_ALPHA) || defined(_M_PPC) || defined(_M_IA64) || defined(_M_AMD64)
+#if defined(_M_MRX000) || defined(_M_ALPHA) || defined(_M_PPC) || defined(_M_IA64) || defined(_M_AMD64) || defined (_M_ARM)
 #define ALIGNMENT_MACHINE
 #define UNALIGNED __unaligned
 #if defined(_WIN64)
@@ -123,6 +123,14 @@
 #undef ALIGNMENT_MACHINE
 #define UNALIGNED
 #define UNALIGNED64
+#endif
+
+#if defined(_WIN64) || defined(_M_ALPHA)
+#define MAX_NATURAL_ALIGNMENT sizeof(ULONGLONG)
+#define MEMORY_ALLOCATION_ALIGNMENT 16
+#else
+#define MAX_NATURAL_ALIGNMENT sizeof(ULONG)
+#define MEMORY_ALLOCATION_ALIGNMENT 8
 #endif
 
 #if defined(_M_MRX000) && !(defined(MIDL_PASS) || defined(RC_INVOKED)) && defined(ENABLE_RESTRICTED)
@@ -153,6 +161,12 @@
 #define TYPE_ALIGNMENT(t) __alignof(t)
 #else
 #define TYPE_ALIGNMENT(t) FIELD_OFFSET(struct { char x; t test; }, test)
+#endif
+
+#if defined (_X86_) || defined (_AMD64_)
+#define PROBE_ALIGNMENT(v) TYPE_ALIGNMENT(ULONG)
+#elif defined (_IA64_) || defined (_ARM_)
+#define PROBE_ALIGNMENT(v) (TYPE_ALIGNMENT(v) > TYPE_ALIGNMENT(ULONG) ? TYPE_ALIGNMENT(v) : TYPE_ALIGNMENT(ULONG))
 #endif
 
 /* Calling Conventions */
@@ -234,6 +248,26 @@
 #define DECLSPEC_ALIGN(x)
 #endif
 #endif /* DECLSPEC_ALIGN */
+
+#ifndef SYSTEM_CACHE_ALIGNMENT_SIZE
+#if defined(_AMD64_) || defined(_X86_)
+#define SYSTEM_CACHE_ALIGNMENT_SIZE 64
+#else
+#define SYSTEM_CACHE_ALIGNMENT_SIZE 128
+#endif
+#endif
+
+#ifndef DECLSPEC_CACHEALIGN
+#define DECLSPEC_CACHEALIGN DECLSPEC_ALIGN(SYSTEM_CACHE_ALIGNMENT_SIZE)
+#endif
+
+#ifndef DECLSPEC_SELECTANY
+#if (_MSC_VER >= 1100) || defined(__GNUC__)
+#define DECLSPEC_SELECTANY __declspec(selectany)
+#else
+#define DECLSPEC_SELECTANY
+#endif
+#endif
 
 /* Use to silence unused variable warnings when it is intentional */
 #define UNREFERENCED_PARAMETER(P) {(P) = (P);}
@@ -588,6 +622,10 @@ typedef struct _GROUP_AFFINITY {
 } GROUP_AFFINITY, *PGROUP_AFFINITY;
 
 /* Helper Macros */
+#define RTL_FIELD_TYPE(type, field)    (((type*)0)->field)
+#define RTL_BITS_OF(sizeOfArg)         (sizeof(sizeOfArg) * 8)
+#define RTL_BITS_OF_FIELD(type, field) (RTL_BITS_OF(RTL_FIELD_TYPE(type, field)))
+
 #define RTL_CONSTANT_STRING(s) { sizeof(s)-sizeof((s)[0]), sizeof(s), s }
 
 #define RTL_FIELD_SIZE(type, field) (sizeof(((type *)0)->field))
