@@ -1,3 +1,8 @@
+2013-07-09  Roland Schwingel <roland.schwingel@onevision.com>
+
+	* include/wincon.h: Replace BOOL by WINBOOL in
+	struct _CONSOLE_SCREEN_BUFFER_INFOEX.
+
 2013-04-05  Corinna Vinschen  <vinschen@redhat.com>
 
 	* configure.ac (BASEHEAD_LIST): Add crt/intrin.h.
