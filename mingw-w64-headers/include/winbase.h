@@ -9,6 +9,7 @@
 #include <_mingw_unicode.h>
 
 #include <apisetcconv.h>
+#include <winapifamily.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -1244,6 +1245,7 @@ extern "C" {
 #define SCS_THIS_PLATFORM_BINARY SCS_32BIT_BINARY
 #endif
 
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
   WINBASEAPI WINBOOL WINAPI GetBinaryTypeA(LPCSTR lpApplicationName,LPDWORD lpBinaryType);
   WINBASEAPI WINBOOL WINAPI GetBinaryTypeW(LPCWSTR lpApplicationName,LPDWORD lpBinaryType);
   WINBASEAPI DWORD WINAPI GetShortPathNameA(LPCSTR lpszLongPath,LPSTR lpszShortPath,DWORD cchBuffer);
@@ -1252,6 +1254,7 @@ extern "C" {
   WINBASEAPI DWORD WINAPI GetLongPathNameW(LPCWSTR lpszShortPath,LPWSTR lpszLongPath,DWORD cchBuffer);
   WINBASEAPI WINBOOL WINAPI GetProcessAffinityMask(HANDLE hProcess,PDWORD_PTR lpProcessAffinityMask,PDWORD_PTR lpSystemAffinityMask);
   WINBASEAPI WINBOOL WINAPI SetProcessAffinityMask(HANDLE hProcess,DWORD_PTR dwProcessAffinityMask);
+#endif
 
   /* available in XP SP3, Vista SP1 and higher */ 
   WINBASEAPI WINBOOL WINAPI GetProcessDEPPolicy (HANDLE hProcess,LPDWORD lpFlags,PBOOL lpPermanent);
