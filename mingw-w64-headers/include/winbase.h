@@ -1818,8 +1818,12 @@ extern "C" {
 #define GetLogicalDriveStrings __MINGW_NAME_AW(GetLogicalDriveStrings)
 #define LoadLibrary __MINGW_NAME_AW(LoadLibrary)
 #define LoadLibraryEx __MINGW_NAME_AW(LoadLibraryEx)
+
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 #define GetModuleFileName __MINGW_NAME_AW(GetModuleFileName)
 #define GetModuleHandle __MINGW_NAME_AW(GetModuleHandle)
+#endif
+
 
   WINBASEAPI HANDLE WINAPI CreateWaitableTimerA(LPSECURITY_ATTRIBUTES lpTimerAttributes,WINBOOL bManualReset,LPCSTR lpTimerName);
   WINBASEAPI HANDLE WINAPI CreateWaitableTimerW(LPSECURITY_ATTRIBUTES lpTimerAttributes,WINBOOL bManualReset,LPCWSTR lpTimerName);
@@ -1852,10 +1856,12 @@ extern "C" {
 #define LOAD_LIBRARY_AS_IMAGE_RESOURCE 0x20
 #define LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE 0x40
 
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
   WINBASEAPI DWORD WINAPI GetModuleFileNameA(HMODULE hModule,LPCH lpFilename,DWORD nSize);
   WINBASEAPI DWORD WINAPI GetModuleFileNameW(HMODULE hModule,LPWCH lpFilename,DWORD nSize);
   WINBASEAPI HMODULE WINAPI GetModuleHandleA(LPCSTR lpModuleName);
   WINBASEAPI HMODULE WINAPI GetModuleHandleW(LPCWSTR lpModuleName);
+#endif
 
 #ifndef RC_INVOKED
 #define GET_MODULE_HANDLE_EX_FLAG_PIN (0x1)
