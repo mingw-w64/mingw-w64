@@ -10,6 +10,7 @@
 
 #include <winsock2.h>
 #include <psdk_inc/_ip_mreq1.h>
+#include <winapifamily.h>
 
 struct ip_mreq_source {
   struct in_addr imr_multiaddr;
@@ -67,6 +68,8 @@ struct ip_msfilter {
 
 #define IN6ADDR_ANY_INIT { 0 }
 #define IN6ADDR_LOOPBACK_INIT { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 }
+
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 
 #ifdef __cplusplus
 extern "C" {
@@ -174,6 +177,8 @@ C_ASSERT(sizeof(IN6_PKTINFO)==20);
 #define EAI_SOCKTYPE WSAESOCKTNOSUPPORT
 
 #define EAI_NODATA 11004 /* WSANO_DATA */
+
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 
 typedef struct addrinfo {
   int ai_flags;

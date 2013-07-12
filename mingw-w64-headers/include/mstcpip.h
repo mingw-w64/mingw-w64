@@ -7,6 +7,7 @@
 #define _MSTCPIP_
 
 #include <_mingw_unicode.h>
+#include <winapifamily.h>
 
 struct tcp_keepalive {
   u_long onoff;
@@ -95,6 +96,8 @@ typedef struct _SOCKET_SECURITY_SETTINGS_IPSEC {
   wchar_t                  AllStrings[];
 } SOCKET_SECURITY_SETTINGS_IPSEC;
 
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+
 #define RtlIpv6AddressToString __MINGW_NAME_AW(RtlIpv6AddressToString)
 #define RtlIpv6AddressToStringEx __MINGW_NAME_AW(RtlIpv6AddressToStringEx)
 
@@ -124,6 +127,7 @@ LONG NTAPI RtlIpv4StringToAddressExW(PCWSTR AddressString, BOOLEAN Strict, IN_AD
 LONG NTAPI RtlIpv6StringToAddressExA(PCSTR AddressString, IN6_ADDR *Address, PULONG ScopeId, PUSHORT Port);
 LONG NTAPI RtlIpv6StringToAddressExW(PCWSTR AddressString, IN6_ADDR *Address, PULONG ScopeId, PUSHORT Port);
 
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #endif /*(_WIN32_WINNT >= 0x0502)*/
 
 #endif /* _MSTCPIP_ */
