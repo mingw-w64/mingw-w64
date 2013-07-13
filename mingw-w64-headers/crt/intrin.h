@@ -281,33 +281,33 @@ extern "C" {
     __MACHINEIA64(__MINGW_EXTENSION __int64 _InterlockedAdd64(__int64 volatile *,__int64))
     __MACHINEIA64(__MINGW_EXTENSION __int64 _InterlockedAdd64_acq(__int64 volatile *,__int64))
     __MACHINEIA64(__MINGW_EXTENSION __int64 _InterlockedAdd64_rel(__int64 volatile *,__int64))
-    __MACHINEI(__LONG32 __cdecl _InterlockedDecrement(__LONG32 volatile *))
+    /* __MACHINEI(__LONG32 __cdecl _InterlockedDecrement(__LONG32 volatile *)) moved to psdk_inc/intrin-impl.h */
     __MACHINEIA64(long _InterlockedDecrement(long volatile *))
     __MACHINEIA64(long _InterlockedDecrement_acq(long volatile *))
     __MACHINEIA64(long _InterlockedDecrement_rel(long volatile *))
     __MACHINEIA64(__MINGW_EXTENSION __int64 _InterlockedDecrement64(__int64 volatile *))
     __MACHINEIA64(__MINGW_EXTENSION __int64 _InterlockedDecrement64_acq(__int64 volatile *))
     __MACHINEIA64(__MINGW_EXTENSION __int64 _InterlockedDecrement64_rel(__int64 volatile *))
-    __MACHINEX64(__MINGW_EXTENSION __int64 _InterlockedDecrement64(__int64 volatile *))
-    __MACHINEI(__LONG32 _InterlockedExchange(__LONG32 volatile *,__LONG32))
+    /* __MACHINEX64(__MINGW_EXTENSION __int64 _InterlockedDecrement64(__int64 volatile *)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEI(__LONG32 _InterlockedExchange(__LONG32 volatile *,__LONG32)) moved to psdk_inc/intrin-impl.h */
     __MACHINEIA64(long _InterlockedExchange(long volatile *,long))
     __MACHINEIA64(long _InterlockedExchange_acq(long volatile *,long))
     __MACHINESA(long WINAPI _InterlockedExchange(long volatile *,long))
     __MACHINEIA64(__MINGW_EXTENSION __int64 _InterlockedExchange64(__int64 volatile *,__int64))
     __MACHINEIA64(__MINGW_EXTENSION __int64 _InterlockedExchange64_acq(__int64 volatile *,__int64))
-    __MACHINEX64(__MINGW_EXTENSION __int64 _InterlockedExchange64(__int64 volatile *,__int64))
+    /* __MACHINEX64(__MINGW_EXTENSION __int64 _InterlockedExchange64(__int64 volatile *,__int64)) moved to psdk_inc/intrin-impl.h */
     __MACHINEIA64(void *_InterlockedExchangePointer(void *volatile *,void *))
     __MACHINEIA64(void *_InterlockedExchangePointer_acq(void *volatile *,void volatile *))
-    __MACHINEX64(void *_InterlockedExchangePointer(void *volatile *,void *))
-    __MACHINEI(__LONG32 _InterlockedExchangeAdd(__LONG32 volatile *,__LONG32))
+    /* __MACHINEX64(void *_InterlockedExchangePointer(void *volatile *,void *)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEI(__LONG32 _InterlockedExchangeAdd(__LONG32 volatile *,__LONG32)) moved to psdk_inc/intrin-impl.h */
     __MACHINEIA64(long _InterlockedExchangeAdd(long volatile *,long))
     __MACHINEIA64(long _InterlockedExchangeAdd_acq(long volatile *,long))
     __MACHINEIA64(long _InterlockedExchangeAdd_rel(long volatile *,long))
     __MACHINEIA64(__MINGW_EXTENSION __int64 _InterlockedExchangeAdd64(__int64 volatile *,__int64))
     __MACHINEIA64(__MINGW_EXTENSION __int64 _InterlockedExchangeAdd64_acq(__int64 volatile *,__int64))
     __MACHINEIA64(__MINGW_EXTENSION __int64 _InterlockedExchangeAdd64_rel(__int64 volatile *,__int64))
-    __MACHINEX64(__MINGW_EXTENSION __int64 _InterlockedExchangeAdd64(__int64 volatile *,__int64))
-    __MACHINEI(__LONG32 _InterlockedCompareExchange (__LONG32 volatile *,__LONG32,__LONG32))
+    /* __MACHINEX64(__MINGW_EXTENSION __int64 _InterlockedExchangeAdd64(__int64 volatile *,__int64)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEI(__LONG32 _InterlockedCompareExchange (__LONG32 volatile *,__LONG32,__LONG32)) moved to psdk_inc/intrin-impl.h */
     __MACHINEIA64(long _InterlockedCompareExchange (long volatile *,long,long))
     __MACHINEIA64(long _InterlockedCompareExchange_acq (long volatile *,long,long))
     __MACHINEIA64(long _InterlockedCompareExchange_rel (long volatile *,long,long))
@@ -323,16 +323,16 @@ extern "C" {
     __MACHINEIA64(void *_InterlockedCompareExchangePointer (void *volatile *,void *,void *))
     __MACHINEIA64(void *_InterlockedCompareExchangePointer_acq (void *volatile *,void *,void *))
     __MACHINEIA64(void *_InterlockedCompareExchangePointer_rel (void *volatile *,void *,void *))
-    __MACHINEI(__MINGW_EXTENSION __int64 _InterlockedCompareExchange64(__int64 volatile *,__int64,__int64))
-    __MACHINEX64(void *_InterlockedCompareExchangePointer (void *volatile *,void *,void *))
-    __MACHINEI(__LONG32 __cdecl _InterlockedIncrement(__LONG32 volatile *))
+    /* __MACHINEI(__MINGW_EXTENSION __int64 _InterlockedCompareExchange64(__int64 volatile *,__int64,__int64)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEX64(void *_InterlockedCompareExchangePointer (void *volatile *,void *,void *)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEI(__LONG32 __cdecl _InterlockedIncrement(__LONG32 volatile *)) moved to psdk_inc/intrin-impl.h */
     __MACHINEIA64(long _InterlockedIncrement(long volatile *))
     __MACHINEIA64(long _InterlockedIncrement_acq(long volatile *))
     __MACHINEIA64(long _InterlockedIncrement_rel(long volatile *))
     __MACHINEIA64(__MINGW_EXTENSION __int64 _InterlockedIncrement64(__int64 volatile *))
     __MACHINEIA64(__MINGW_EXTENSION __int64 _InterlockedIncrement64_acq(__int64 volatile *))
     __MACHINEIA64(__MINGW_EXTENSION __int64 _InterlockedIncrement64_rel(__int64 volatile *))
-    __MACHINEX64(__MINGW_EXTENSION __int64 _InterlockedIncrement64(__int64 volatile *))
+    /* __MACHINEX64(__MINGW_EXTENSION __int64 _InterlockedIncrement64(__int64 volatile *)) moved to psdk_inc/intrin-impl.h */
     /* __MACHINEIW64(__LONG32 _InterlockedOr(__LONG32 volatile *,__LONG32)) moved to psdk_inc/intrin-impl.h */
     __MACHINEIW64(char _InterlockedOr8(char volatile *,char))
     __MACHINEIW64(short _InterlockedOr16(short volatile *,short))
@@ -1110,9 +1110,9 @@ extern "C" {
     __MACHINEIW64(unsigned short _rotr16(unsigned short value,unsigned char shift))
     __MACHINEIW64(unsigned char _rotl8(unsigned char value,unsigned char shift))
     __MACHINEIW64(unsigned short _rotl16(unsigned short value,unsigned char shift))
-    __MACHINEIW64(short _InterlockedIncrement16(short volatile *Addend))
-    __MACHINEIW64(short _InterlockedDecrement16(short volatile *Addend))
-    __MACHINEIW64(short _InterlockedCompareExchange16(short volatile *Destination,short Exchange,short Comparand))
+    /* __MACHINEIW64(short _InterlockedIncrement16(short volatile *Addend)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEIW64(short _InterlockedDecrement16(short volatile *Addend)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEIW64(short _InterlockedCompareExchange16(short volatile *Destination,short Exchange,short Comparand)) moved to psdk_inc/intrin-impl.h */
     __MACHINEIA64(short _InterlockedIncrement16_acq(short volatile *Addend))
     __MACHINEIA64(short _InterlockedIncrement16_rel(short volatile *Addend))
     __MACHINEIA64(short _InterlockedDecrement16_acq(short volatile *Addend))

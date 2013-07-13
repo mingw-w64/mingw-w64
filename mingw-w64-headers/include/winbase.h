@@ -995,15 +995,28 @@ extern "C" {
 
 #else /* not ia64, nor x64.  */
 
-  LONG WINAPI InterlockedIncrement(LONG volatile *lpAddend);
-  LONG WINAPI InterlockedDecrement(LONG volatile *lpAddend);
-  LONG WINAPI InterlockedExchange(LONG volatile *Target,LONG Value);
+/* While MS resolves these 3 from kernel32.dll, we are mapping them
+to intrinsics. */
+#define InterlockedIncrement _InterlockedIncrement
+#define InterlockedDecrement _InterlockedDecrement
+#define InterlockedExchange _InterlockedExchange
+
+  /* LONG WINAPI InterlockedIncrement(LONG volatile *lpAddend); mapped to intrinsic */
+  /* LONG WINAPI InterlockedDecrement(LONG volatile *lpAddend); mapped to intrinsic */
+  /* LONG WINAPI InterlockedExchange(LONG volatile *Target,LONG Value); mapped to intrinsic */
 
 #define InterlockedExchangePointer(Target,Value) (PVOID)InterlockedExchange((PLONG)(Target),(LONG)(Value))
 
-  LONG WINAPI InterlockedExchangeAdd(LONG volatile *Addend,LONG Value);
-  LONG WINAPI InterlockedCompareExchange(LONG volatile *Destination,LONG Exchange,LONG Comperand);
-  LONGLONG WINAPI InterlockedCompareExchange64(LONGLONG volatile *Destination,LONGLONG Exchange,LONGLONG Comperand);
+/* While MS resolves these 3 from kernel32.dll, we are mapping them
+to intrinsics. */
+#define InterlockedExchangeAdd _InterlockedExchangeAdd
+#define InterlockedCompareExchange _InterlockedCompareExchange
+#define InterlockedCompareExchange64 _InterlockedCompareExchange64
+
+  /* LONG WINAPI InterlockedExchangeAdd(LONG volatile *Addend,LONG Value); mapped to intrinsic */
+  /* LONG WINAPI InterlockedCompareExchange(LONG volatile *Destination,LONG Exchange,LONG Comperand); mapped to intrinsic */
+  /* LONGLONG WINAPI InterlockedCompareExchange64(LONGLONG volatile *Destination,LONGLONG Exchange,LONGLONG Comperand); mapped to intrinsic */
+
   LONGLONG WINAPI InterlockedAnd64 (LONGLONG volatile *Destination,LONGLONG Value);
   LONGLONG WINAPI InterlockedOr64 (LONGLONG volatile *Destination,LONGLONG Value);
   LONGLONG WINAPI InterlockedXor64 (LONGLONG volatile *Destination,LONGLONG Value);

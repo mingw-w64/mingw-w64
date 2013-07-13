@@ -1,3 +1,5 @@
+/* todo - delete this file.  All __stdcalls of this method get macro'ed to the intrinsic.
+
 #include <intrin.h>
 
 #ifndef _WIN64
@@ -10,3 +12,4 @@ __LONG32 __stdcall InterlockedCompareExchange(__LONG32 volatile *Destination, __
   return prev;
 }
 #endif
+*/

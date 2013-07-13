@@ -1337,105 +1337,29 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define InterlockedIncrementSizeT(a) InterlockedIncrement64((LONG64 *)a)
 #define InterlockedDecrementSizeT(a) InterlockedDecrement64((LONG64 *)a)
 
-    SHORT InterlockedIncrement16(SHORT volatile *Addend);
-    SHORT InterlockedDecrement16(SHORT volatile *Addend);
-    SHORT InterlockedCompareExchange16(SHORT volatile *Destination,SHORT ExChange,SHORT Comperand);
-    LONG InterlockedIncrement(LONG volatile *Addend);
-    LONG InterlockedDecrement(LONG volatile *Addend);
-    LONG InterlockedExchange(LONG volatile *Target,LONG Value);
+    /* SHORT InterlockedIncrement16(SHORT volatile *Addend); moved to psdk_inc/intrin-impl.h */
+    /* SHORT InterlockedDecrement16(SHORT volatile *Addend); moved to psdk_inc/intrin-impl.h */
+    /* SHORT InterlockedCompareExchange16(SHORT volatile *Destination,SHORT ExChange,SHORT Comperand); moved to psdk_inc/intrin-impl.h */
+    /* LONG InterlockedIncrement(LONG volatile *Addend); moved to psdk_inc/intrin-impl.h */
+    /* LONG InterlockedDecrement(LONG volatile *Addend); moved to psdk_inc/intrin-impl.h */
+    /* LONG InterlockedExchange(LONG volatile *Target,LONG Value); moved to psdk_inc/intrin-impl.h */
 
-#ifndef __CRT__NO_INLINE
-    __CRT_INLINE SHORT InterlockedIncrement16(SHORT volatile *Addend) {
-      SHORT ret = 1;
-      __asm__ __volatile__("lock\n\t"
-		   "xaddw %0,%1"
-		   : "+r" (ret), "+m" (*Addend)
-		   : : "memory");
-      return ret + 1;
-    }
-    __CRT_INLINE SHORT InterlockedDecrement16(SHORT volatile *Addend) {
-      SHORT ret = -1;
-      __asm__ __volatile__("lock\n\t"
-		   "xaddw %0,%1"
-		   : "+r" (ret), "+m" (*Addend)
-		   : : "memory");
-      return ret - 1;
-    }
-    __CRT_INLINE SHORT InterlockedCompareExchange16(SHORT volatile *Destination,SHORT ExChange,SHORT Comperand) {
-      SHORT prev;
-      __asm__ __volatile__("lock ; cmpxchgw %w1,%2"
-	:"=a"(prev)
-	:"q"(ExChange), "m"(*Destination), "0"(Comperand)
-	: "memory");
-      return prev;
-    }
-#endif /* !__CRT__NO_INLINE */
-
-    LONG InterlockedExchangeAdd(LONG volatile *Addend,LONG Value);
-    LONG InterlockedCompareExchange(LONG volatile *Destination,LONG ExChange,LONG Comperand);
+    /* LONG InterlockedExchangeAdd(LONG volatile *Addend,LONG Value); moved to psdk_inc/intrin-impl.h */
+    /* LONG InterlockedCompareExchange(LONG volatile *Destination,LONG ExChange,LONG Comperand); moved to psdk_inc/intrin-impl.h */
     LONG InterlockedAdd(LONG volatile *Addend,LONG Value);
-    LONG64 InterlockedIncrement64(LONG64 volatile *Addend);
-    LONG64 InterlockedDecrement64(LONG64 volatile *Addend);
-    LONG64 InterlockedExchange64(LONG64 volatile *Target,LONG64 Value);
+    /* LONG64 InterlockedIncrement64(LONG64 volatile *Addend); moved to psdk_inc/intrin-impl.h */
+    /* LONG64 InterlockedDecrement64(LONG64 volatile *Addend); moved to psdk_inc/intrin-impl.h */
+    /* LONG64 InterlockedExchange64(LONG64 volatile *Target,LONG64 Value); moved to psdk_inc/intrin-impl.h */
 
-#ifndef __CRT__NO_INLINE
-    __CRT_INLINE LONG InterlockedAdd(LONG volatile *Addend,LONG Value) { return InterlockedExchangeAdd(Addend,Value) + Value; }
-    __CRT_INLINE LONG InterlockedCompareExchange(LONG volatile *Destination,LONG ExChange,LONG Comperand) {
-      LONG prev;
-      __asm__ __volatile__("lock ; cmpxchgl %1,%2" : "=a" (prev) : "q" (ExChange),"m" (*Destination), "0" (Comperand) : "memory");
-      return prev;
-    }
-    __CRT_INLINE LONG64 InterlockedIncrement64(LONG64 volatile *Addend) {
-      LONG64 ret = 1LL;
-      __asm__ __volatile__ ("lock\n\t"
-	       "xaddq %0,%1"
-	       : "+r" (ret), "+m" (*Addend)
-	       : : "memory");
-      return ret + 1LL;
-    }
-    __CRT_INLINE LONG64 InterlockedDecrement64(LONG64 volatile *Addend) {
-      LONG64 ret = -1LL;
-      __asm__ __volatile__ ("lock\n\t"
-	       "xaddq %0,%1"
-	       : "+r" (ret), "+m" (*Addend)
-	       : : "memory");
-      return ret - 1LL;
-    }
-    __CRT_INLINE LONG64 InterlockedExchange64(LONG64 volatile *Target,LONG64 Value) {
-      __asm__ __volatile("lock ; xchgq %0,%1"
-	: "=r"(Value)
-	: "m"(*Target),"0"(Value)
-	: "memory");
-      return Value;
-    }
-#endif /* !__CRT__NO_INLINE */
+    __forceinline LONG InterlockedAdd(LONG volatile *Addend,LONG Value) { return InterlockedExchangeAdd(Addend,Value) + Value; }
 
-    LONG64 InterlockedExchangeAdd64(LONG64 volatile *Addend,LONG64 Value);
+    /* LONG64 InterlockedExchangeAdd64(LONG64 volatile *Addend,LONG64 Value); moved to psdk_inc/intrin-impl.h */
     LONG64 InterlockedAdd64(LONG64 volatile *Addend,LONG64 Value);
-    LONG64 InterlockedCompareExchange64(LONG64 volatile *Destination,LONG64 ExChange,LONG64 Comperand);
-    PVOID InterlockedCompareExchangePointer(PVOID volatile *Destination,PVOID ExChange,PVOID Comperand);
-    PVOID InterlockedExchangePointer(PVOID volatile *Target,PVOID Value);
+    /* LONG64 InterlockedCompareExchange64(LONG64 volatile *Destination,LONG64 ExChange,LONG64 Comperand); moved to psdk_inc/intrin-impl.h */
+    /* PVOID InterlockedCompareExchangePointer(PVOID volatile *Destination,PVOID ExChange,PVOID Comperand); moved to psdk_inc/intrin-impl.h */
+    /* PVOID InterlockedExchangePointer(PVOID volatile *Target,PVOID Value); moved to psdk_inc/intrin-impl.h */
 
-#ifndef __CRT__NO_INLINE
-    __CRT_INLINE LONG64 InterlockedAdd64(LONG64 volatile *Addend,LONG64 Value) { return InterlockedExchangeAdd64(Addend,Value) + Value; }
-    __CRT_INLINE LONG64 InterlockedCompareExchange64(LONG64 volatile *Destination,LONG64 ExChange,LONG64 Comperand) {
-      LONG64 prev;
-      __asm__ __volatile__("lock ; cmpxchgq %1,%2" : "=a" (prev) : "q" (ExChange),"m" (*Destination), "0" (Comperand) : "memory");
-      return prev;
-    }
-    __CRT_INLINE PVOID InterlockedCompareExchangePointer(PVOID volatile *Destination,PVOID ExChange,PVOID Comperand) {
-      PVOID prev;
-      __asm__ __volatile__("lock ; cmpxchgq %1,%2" : "=a" (prev) : "q" (ExChange),"m" (*Destination), "0" (Comperand) : "memory");
-      return prev;
-    }
-    __CRT_INLINE PVOID InterlockedExchangePointer(PVOID volatile *Target,PVOID Value) {
-      __asm__ __volatile("lock ; xchgq %0,%1"
-	: "=r"(Value)
-	: "m"(*Target),"0"(Value)
-	: "memory");
-      return Value;
-    }
-#endif /* !__CRT__NO_INLINE */
+    __forceinline LONG64 InterlockedAdd64(LONG64 volatile *Addend,LONG64 Value) { return InterlockedExchangeAdd64(Addend,Value) + Value; }
 
 #define CacheLineFlush(Address) _mm_clflush(Address)
 
@@ -1741,12 +1665,7 @@ extern "C" {
 #define BitScanForward _BitScanForward
 #define BitScanReverse _BitScanReverse
 
-#define InterlockedIncrement16 _InterlockedIncrement16
-#define InterlockedDecrement16 _InterlockedDecrement16
 #define InterlockedCompareExchange16 _InterlockedCompareExchange16
-
-#define InterlockedIncrementAcquire InterlockedIncrement
-#define InterlockedIncrementRelease InterlockedIncrement
 
 #ifdef _PREFIX_
     BYTE __readfsbyte(DWORD Offset);
@@ -1883,35 +1802,9 @@ __buildmemorybarrier()
 
 #endif /* end of _X86_ */
 
-  LONG WINAPI InterlockedIncrement(LONG volatile *);
-  LONG WINAPI InterlockedDecrement(LONG volatile *);
-  LONG WINAPI InterlockedExchange(LONG volatile *, LONG);
-
-#if defined(__MINGW_INTRIN_INLINE) && (defined(__i386__) || defined(__x86_64))
-  __MINGW_INTRIN_INLINE LONG WINAPI InterlockedIncrement(LONG volatile *Addend) {
-    LONG ret = 1;
-    __asm__ __volatile__ ("lock\n\t"
-        "xaddl %0,%1"
-	: "+r" (ret), "+m" (*Addend)
-	: : "memory");
-    return ret + 1;
-  }
-  __MINGW_INTRIN_INLINE LONG WINAPI InterlockedDecrement(LONG volatile *Addend) {
-    LONG ret = -1;
-    __asm__ __volatile__ ("lock\n\t"
-        "xaddl %0,%1"
-        : "+r" (ret), "+m" (*Addend)
-        : : "memory");
-    return ret - 1;
-  }
-  __MINGW_INTRIN_INLINE LONG WINAPI InterlockedExchange(LONG volatile *Target,LONG Value) {
-    __asm__ __volatile__ ("lock ; xchgl %0,%1"
-        : "=r"(Value)
-        : "m"(*Target),"0"(Value)
-        : "memory");
-    return Value;
-  }
-#endif
+  /* LONG WINAPI InterlockedIncrement(LONG volatile *); moved to psdk_inc/intrin-impl.h */
+  /* LONG WINAPI InterlockedDecrement(LONG volatile *); moved to psdk_inc/intrin-impl.h */
+  /* LONG WINAPI InterlockedExchange(LONG volatile *, LONG); moved to psdk_inc/intrin-impl.h */
 
 #ifndef _LDT_ENTRY_DEFINED
 #define _LDT_ENTRY_DEFINED
