@@ -1,9 +1,4 @@
+#define __INTRINSIC_ONLYSPECIAL
+#define __INTRINSIC_SPECIAL___writefsword // Causes code generation in intrin-impl.h
+
 #include <intrin.h>
-
-/* for x86 only */
-void __writefsword(unsigned __LONG32 Offset, unsigned short Data)
-{
-    __asm__ volatile ("movw	%0,%%fs:%1"
-      : "=r" (Data) ,"=m" ((*(volatile __LONG32 *) Offset)));
-}
-

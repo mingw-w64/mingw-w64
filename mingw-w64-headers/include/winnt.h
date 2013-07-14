@@ -1449,56 +1449,14 @@ extern "C" {
     }
 #endif
 
-    unsigned char __readgsbyte(unsigned __LONG32 Offset);
-    unsigned short __readgsword(unsigned __LONG32 Offset);
-    unsigned __LONG32 __readgsdword(unsigned __LONG32 Offset);
-    __MINGW_EXTENSION unsigned __int64 __readgsqword(unsigned __LONG32 Offset);
+    /* unsigned char __readgsbyte(unsigned __LONG32 Offset); moved to psdk_inc/intrin-impl.h */
+    /* unsigned short __readgsword(unsigned __LONG32 Offset); moved to psdk_inc/intrin-impl.h */
+    /* unsigned __LONG32 __readgsdword(unsigned __LONG32 Offset); moved to psdk_inc/intrin-impl.h */
+    /* __MINGW_EXTENSION unsigned __int64 __readgsqword(unsigned __LONG32 Offset); moved to psdk_inc/intrin-impl.h */
 
-    void __writegsbyte(unsigned __LONG32 Offset,unsigned char Data);
-    void __writegsword(unsigned __LONG32 Offset,unsigned short Data);
-    void __writegsdword(unsigned __LONG32 Offset,unsigned __LONG32 Data);
-    __MINGW_EXTENSION void __writegsqword(unsigned __LONG32 Offset,unsigned __int64 Data);
-
-    __CRT_INLINE BYTE __readgsbyte(DWORD Offset) {
-      BYTE ret;
-      __asm__ volatile ("movb	%%gs:%1,%0"
-	: "=r" (ret) ,"=m" ((*(volatile __LONG32 *) (DWORD64) Offset)));
-      return ret;
-    }
-    __CRT_INLINE WORD __readgsword(DWORD Offset) {
-      WORD ret;
-      __asm__ volatile ("movw	%%gs:%1,%0"
-	: "=r" (ret) ,"=m" ((*(volatile __LONG32 *) (DWORD64) Offset)));
-      return ret;
-    }
-    __CRT_INLINE DWORD __readgsdword(DWORD Offset) {
-      DWORD ret;
-      __asm__ volatile ("movl	%%gs:%1,%0"
-	: "=r" (ret) ,"=m" ((*(volatile __LONG32 *) (DWORD64) Offset)));
-      return ret;
-    }
-    __CRT_INLINE DWORD64 __readgsqword(DWORD Offset) {
-      void *ret;
-      __asm__ volatile ("movq	%%gs:%1,%0"
-	: "=r" (ret) ,"=m" ((*(volatile __LONG32 *) (DWORD64) Offset)));
-      return (DWORD64) ret;
-    }
-    __CRT_INLINE VOID __writegsbyte(DWORD Offset,BYTE Data) {
-      __asm__ volatile ("movb	%0,%%gs:%1"
-	: "=r" (Data) ,"=m" ((*(volatile __LONG32 *) (DWORD64) Offset)));
-    }
-    __CRT_INLINE VOID __writegsword(DWORD Offset,WORD Data) {
-      __asm__ volatile ("movw	%0,%%gs:%1"
-	: "=r" (Data) ,"=m" ((*(volatile __LONG32 *) (DWORD64) Offset)));
-    }
-    __CRT_INLINE VOID __writegsdword(DWORD Offset,DWORD Data) {
-      __asm__ volatile ("movl	%0,%%gs:%1"
-	: "=r" (Data) ,"=m" ((*(volatile __LONG32 *) (DWORD64) Offset)));
-    }
-    __CRT_INLINE VOID __writegsqword(DWORD Offset,DWORD64 Data) {
-      __asm__ volatile ("movq	%0,%%gs:%1"
-	: "=r" (Data) ,"=m" ((*(volatile __LONG32 *) (DWORD64) Offset)));
-    }
+    /* void __writegsbyte(unsigned __LONG32 Offset,unsigned char Data); moved to psdk_inc/intrin-impl.h */
+    /* void __writegsword(unsigned __LONG32 Offset,unsigned short Data); moved to psdk_inc/intrin-impl.h */
+    /* void __writegsdword(unsigned __LONG32 Offset,unsigned __LONG32 Data); moved to psdk_inc/intrin-impl.h */
 
 #ifdef __cplusplus
   }
@@ -1668,12 +1626,12 @@ extern "C" {
 #define InterlockedCompareExchange16 _InterlockedCompareExchange16
 
 #ifdef _PREFIX_
-    BYTE __readfsbyte(DWORD Offset);
-    WORD __readfsword(DWORD Offset);
-    DWORD __readfsdword(DWORD Offset);
-    VOID __writefsbyte(DWORD Offset,BYTE Data);
-    VOID __writefsword(DWORD Offset,WORD Data);
-    VOID __writefsdword(DWORD Offset,DWORD Data);
+    /* BYTE __readfsbyte(DWORD Offset); moved to psdk_inc/intrin-impl.h */
+    /* WORD __readfsword(DWORD Offset); moved to psdk_inc/intrin-impl.h */
+    /* DWORD __readfsdword(DWORD Offset); moved to psdk_inc/intrin-impl.h */
+    /* VOID __writefsbyte(DWORD Offset,BYTE Data); moved to psdk_inc/intrin-impl.h */
+    /* VOID __writefsword(DWORD Offset,WORD Data); moved to psdk_inc/intrin-impl.h */
+    /* VOID __writefsdword(DWORD Offset,DWORD Data); moved to psdk_inc/intrin-impl.h */
 #endif
 
 #ifdef __cplusplus
@@ -1708,25 +1666,15 @@ __buildmemorybarrier()
 
   __CRT_INLINE struct _TEB *NtCurrentTeb(void)
   {
-    struct _TEB *ret;
-    __asm__ volatile ("movl	%%fs:0x18,%0"
-	: "=r" (ret));
-    return ret;
+    return (struct _TEB *)__readfsdword(PcTeb);
   }
   __CRT_INLINE PVOID GetCurrentFiber(void)
   {
-    void *ret;
-    __asm__ volatile ("movl	%%fs:0x10,%0"
-	: "=r" (ret));
-    return ret;
+    return(PVOID)__readfsdword(0x10);
   }
   __CRT_INLINE PVOID GetFiberData(void)
   {
-    void *ret;
-    __asm__ volatile ("movl	%%fs:0x10,%0\n"
-	"movl	(%0),%0"
-	: "=r" (ret));
-    return ret;
+      return *(PVOID *)GetCurrentFiber();
   }
 #endif /* defined(__i386__) && !defined(__x86_64) */
 

@@ -1,3 +1,5 @@
+/* todo - delete this file.  This is not an intrinsic.  It is only available thru winnt.h
+
 #ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN
 #endif
@@ -19,3 +21,4 @@
  }
 #endif
 
+*/

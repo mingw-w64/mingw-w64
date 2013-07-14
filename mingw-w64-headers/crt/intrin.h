@@ -1022,14 +1022,14 @@ extern "C" {
     __MACHINEI(void __movsw(unsigned short *,unsigned short const *,size_t))
     __MACHINEI(void __movsd(unsigned __LONG32 *,unsigned __LONG32 const *,size_t))
     __MACHINEX64(__MINGW_EXTENSION void __movsq(unsigned long long *,unsigned long long const *,size_t))
-    __MACHINEX64(unsigned char __readgsbyte(unsigned __LONG32 Offset))
-    __MACHINEX64(unsigned short __readgsword(unsigned __LONG32 Offset))
-    __MACHINEX64(unsigned __LONG32 __readgsdword(unsigned __LONG32 Offset))
-    __MACHINEX64(__MINGW_EXTENSION unsigned __int64 __readgsqword(unsigned __LONG32 Offset))
-    __MACHINEX64(void __writegsbyte(unsigned __LONG32 Offset,unsigned char Data))
-    __MACHINEX64(void __writegsword(unsigned __LONG32 Offset,unsigned short Data))
-    __MACHINEX64(void __writegsdword(unsigned __LONG32 Offset,unsigned __LONG32 Data))
-    __MACHINEX64(__MINGW_EXTENSION void __writegsqword(unsigned __LONG32 Offset,unsigned __int64 Data))
+    /* __MACHINEX64(unsigned char __readgsbyte(unsigned __LONG32 Offset)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEX64(unsigned short __readgsword(unsigned __LONG32 Offset)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEX64(unsigned __LONG32 __readgsdword(unsigned __LONG32 Offset)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEX64(__MINGW_EXTENSION unsigned __int64 __readgsqword(unsigned __LONG32 Offset)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEX64(void __writegsbyte(unsigned __LONG32 Offset,unsigned char Data)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEX64(void __writegsword(unsigned __LONG32 Offset,unsigned short Data)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEX64(void __writegsdword(unsigned __LONG32 Offset,unsigned __LONG32 Data)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEX64(__MINGW_EXTENSION void __writegsqword(unsigned __LONG32 Offset,unsigned __int64 Data)) moved to psdk_inc/intrin-impl.h */
     __MACHINEI(unsigned char __inbyte(unsigned short Port))
     __MACHINEI(unsigned short __inword(unsigned short Port))
     __MACHINEI(unsigned __LONG32 __indword(unsigned short Port))
@@ -1084,14 +1084,14 @@ extern "C" {
     __MACHINEI(__MINGW_EXTENSION unsigned __int64 __readpmc(unsigned __LONG32 a))
     __MACHINEI(unsigned __LONG32 __segmentlimit(unsigned __LONG32 a))
 
-    __MACHINEIA32(unsigned char __readfsbyte(unsigned __LONG32 Offset))
-    __MACHINEIA32(unsigned short __readfsword(unsigned __LONG32 Offset))
-    __MACHINEIA32(unsigned __LONG32 __readfsdword(unsigned __LONG32 Offset))
-    __MACHINEIA32(__MINGW_EXTENSION unsigned __int64 __readfsqword(unsigned __LONG32 Offset))
-    __MACHINEIA32(void __writefsbyte(unsigned __LONG32 Offset,unsigned char Data))
-    __MACHINEIA32(void __writefsword(unsigned __LONG32 Offset,unsigned short Data))
-    __MACHINEIA32(void __writefsdword(unsigned __LONG32 Offset,unsigned __LONG32 Data))
-    __MACHINEIA32(__MINGW_EXTENSION void __writefsqword(unsigned __LONG32 Offset,unsigned __int64 Data))
+    /* __MACHINEIA32(unsigned char __readfsbyte(unsigned __LONG32 Offset)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEIA32(unsigned short __readfsword(unsigned __LONG32 Offset)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEIA32(unsigned __LONG32 __readfsdword(unsigned __LONG32 Offset)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEIA32(__MINGW_EXTENSION unsigned __int64 __readfsqword(unsigned __LONG32 Offset)) intrinsic doesn't actually exist */
+    /* __MACHINEIA32(void __writefsbyte(unsigned __LONG32 Offset,unsigned char Data)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEIA32(void __writefsword(unsigned __LONG32 Offset,unsigned short Data)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEIA32(void __writefsdword(unsigned __LONG32 Offset,unsigned __LONG32 Data)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEIA32(__MINGW_EXTENSION void __writefsqword(unsigned __LONG32 Offset,unsigned __int64 Data)) intrinsic doesn't actually exist */
 
     __MACHINE(__MINGW_EXTENSION __int64 __cdecl _abs64(__int64))
 

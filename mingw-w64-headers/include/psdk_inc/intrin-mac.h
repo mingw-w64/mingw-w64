@@ -74,4 +74,34 @@ unsigned char Barrier; \
 __asm__ __volatile__("xchg{b %%| }al, %0" :"=m" (Barrier) : /* no inputs */ : "eax", "memory"); \
 }
 
+/* This macro is used by __readfsbyte, __readfsword, __readfsdword
+                         __readgsbyte, __readgsword, __readgsdword, __readgsqword
+
+Parameters: (FunctionName, DataType, Segment)
+   FunctionName: Any valid function name
+   DataType: char, short, __LONG32 or __int64
+   Segment: fs or gs */
+
+#define __buildreadseg(x, y, z) y x(unsigned __LONG32 Offset) { \
+    y ret; \
+    __asm__ ("mov{%z[ret] %%" z ":%[offset], %[ret] | %[ret], %%" z ":%[offset]}" \
+        : [ret] "=r" (ret) \
+        : [offset] "m" ((*(y *) (size_t) Offset))); \
+    return ret; \
+}
+
+/* This macro is used by __writefsbyte, __writefsword, __writefsdword
+                         __writegsbyte, __writegsword, __writegsdword, __writegsqword
+
+Parameters: (FunctionName, DataType, Segment)
+   FunctionName: Any valid function name
+   DataType: char, short, __LONG32 or __int64
+   Segment: fs or gs */
+
+#define __buildwriteseg(x, y, z) void x(unsigned __LONG32 Offset, y Data) { \
+    __asm__ ("mov{%z[offset] %[Data], %%" z ":%[offset] | %%" z ":%[offset], %[Data]}" \
+        : [offset] "=m" ((*(y *) (size_t) Offset)) \
+        : [Data] "ri" (Data)); \
+}
+
 #endif /* _INTRIN_MAC_ */

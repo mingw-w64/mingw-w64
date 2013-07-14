@@ -147,6 +147,20 @@ supports ReadWriteBarrier, map all 3 to do the same. */
 #define __INTRINSIC_SPECIAL__InterlockedCompareExchange64
 #define __INTRINSIC_SPECIAL__InterlockedExchangePointer
 #define __INTRINSIC_SPECIAL__InterlockedCompareExchangePointer
+#define __INTRINSIC_SPECIAL___readgsbyte
+#define __INTRINSIC_SPECIAL___readgsword
+#define __INTRINSIC_SPECIAL___readgsdword
+#define __INTRINSIC_SPECIAL___readgsqword
+#define __INTRINSIC_SPECIAL___writegsbyte
+#define __INTRINSIC_SPECIAL___writegsword
+#define __INTRINSIC_SPECIAL___writegsdword
+#define __INTRINSIC_SPECIAL___writegsqword
+#define __INTRINSIC_SPECIAL___readfsbyte
+#define __INTRINSIC_SPECIAL___readfsword
+#define __INTRINSIC_SPECIAL___readfsdword
+#define __INTRINSIC_SPECIAL___writefsbyte
+#define __INTRINSIC_SPECIAL___writefsword
+#define __INTRINSIC_SPECIAL___writefsdword
 
 #endif /* __INTRINSIC_GROUP_WINNT */
 
@@ -277,7 +291,63 @@ __int64 _InterlockedExchangeAdd64(__int64 volatile *Addend, __int64 Value) {
 #define __INTRINSIC_DEFINED__InterlockedExchangeAdd64
 #endif /* __INTRINSIC_PROLOG */
 
-#endif // __x86_64__
+#if __INTRINSIC_PROLOG(__readgsbyte)
+unsigned char __readgsbyte(unsigned __LONG32 Offset);
+__INTRINSICS_USEINLINE
+__buildreadseg(__readgsbyte, unsigned char, "gs")
+#define __INTRINSIC_DEFINED___readgsbyte
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__readgsword)
+unsigned short __readgsword(unsigned __LONG32 Offset);
+__INTRINSICS_USEINLINE
+__buildreadseg(__readgsword, unsigned short, "gs")
+#define __INTRINSIC_DEFINED___readgsword
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__readgsdword)
+unsigned __LONG32 __readgsdword(unsigned __LONG32 Offset);
+__INTRINSICS_USEINLINE
+__buildreadseg(__readgsdword, unsigned __LONG32, "gs")
+#define __INTRINSIC_DEFINED___readgsdword
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__readgsqword)
+__MINGW_EXTENSION unsigned __int64 __readgsqword(unsigned __LONG32 Offset);
+__MINGW_EXTENSION __INTRINSICS_USEINLINE
+__buildreadseg(__readgsqword, unsigned __int64, "gs")
+#define __INTRINSIC_DEFINED___readgsqword
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__writegsbyte)
+void __writegsbyte(unsigned __LONG32 Offset,unsigned char Data);
+__INTRINSICS_USEINLINE
+__buildwriteseg(__writegsbyte, unsigned char, "gs")
+#define __INTRINSIC_DEFINED___writegsbyte
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__writegsword)
+void __writegsword(unsigned __LONG32 Offset,unsigned short Data);
+__INTRINSICS_USEINLINE
+__buildwriteseg(__writegsword, unsigned short, "gs")
+#define __INTRINSIC_DEFINED___writegsword
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__writegsdword)
+void __writegsdword(unsigned __LONG32 Offset,unsigned __LONG32 Data);
+__INTRINSICS_USEINLINE
+__buildwriteseg(__writegsdword, unsigned __LONG32, "gs")
+#define __INTRINSIC_DEFINED___writegsdword
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__writegsqword)
+__MINGW_EXTENSION void __writegsqword(unsigned __LONG32 Offset,unsigned __int64 Data);
+__MINGW_EXTENSION __INTRINSICS_USEINLINE
+__buildwriteseg(__writegsqword, unsigned __int64, "gs")
+#define __INTRINSIC_DEFINED___writegsqword
+#endif /* __INTRINSIC_PROLOG */
+
+#endif /* __x86_64__ */
 
 /* ***************************************************** */
 
@@ -475,7 +545,53 @@ void *_InterlockedExchangePointer(void *volatile *Target,void *Value) {
 #define __INTRINSIC_DEFINED__InterlockedExchangePointer
 #endif /* __INTRINSIC_PROLOG */
 
-#endif // defined(__x86_64__) || (defined(_X86_)
+#endif /* defined(__x86_64__) || (defined(_X86_) */
+
+#if defined(_X86_)
+
+#if __INTRINSIC_PROLOG(__readfsbyte)
+unsigned char __readfsbyte(unsigned __LONG32 Offset);
+__INTRINSICS_USEINLINE
+__buildreadseg(__readfsbyte, unsigned char, "fs")
+#define __INTRINSIC_DEFINED___readfsbyte
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__readfsword)
+unsigned short __readfsword(unsigned __LONG32 Offset);
+__INTRINSICS_USEINLINE
+__buildreadseg(__readfsword, unsigned short, "fs")
+#define __INTRINSIC_DEFINED___readfsword
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__readfsdword)
+unsigned __LONG32 __readfsdword(unsigned __LONG32 Offset);
+__INTRINSICS_USEINLINE
+__buildreadseg(__readfsdword, unsigned __LONG32, "fs")
+#define __INTRINSIC_DEFINED___readfsdword
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__writefsbyte)
+void __writefsbyte(unsigned __LONG32 Offset,unsigned char Data);
+__INTRINSICS_USEINLINE
+__buildwriteseg(__writefsbyte, unsigned char, "fs")
+#define __INTRINSIC_DEFINED___writefsbyte
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__writefsword)
+void __writefsword(unsigned __LONG32 Offset,unsigned short Data);
+__INTRINSICS_USEINLINE
+__buildwriteseg(__writefsword, unsigned short, "fs")
+#define __INTRINSIC_DEFINED___writefsword
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__writefsdword)
+void __writefsdword(unsigned __LONG32 Offset,unsigned __LONG32 Data);
+__INTRINSICS_USEINLINE
+__buildwriteseg(__writefsdword, unsigned __LONG32, "fs")
+#define __INTRINSIC_DEFINED___writefsdword
+#endif /* __INTRINSIC_PROLOG */
+
+#endif /* defined(_X86_) */
 
 #ifdef __cplusplus
 }
