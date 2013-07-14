@@ -1095,10 +1095,10 @@ extern "C" {
 
     __MACHINE(__MINGW_EXTENSION __int64 __cdecl _abs64(__int64))
 
-    __MACHINEIW64(unsigned char _BitScanForward(unsigned __LONG32 *Index,unsigned __LONG32 Mask))
-    __MACHINEIW64(unsigned char _BitScanReverse(unsigned __LONG32 *Index,unsigned __LONG32 Mask))
-    __MACHINEW64(__MINGW_EXTENSION unsigned char _BitScanForward64(unsigned __LONG32 *Index,unsigned __int64 Mask))
-    __MACHINEW64(__MINGW_EXTENSION unsigned char _BitScanReverse64(unsigned __LONG32 *Index,unsigned __int64 Mask))
+    /* __MACHINEIW64(unsigned char _BitScanForward(unsigned __LONG32 *Index,unsigned __LONG32 Mask)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEIW64(unsigned char _BitScanReverse(unsigned __LONG32 *Index,unsigned __LONG32 Mask)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEW64(__MINGW_EXTENSION unsigned char _BitScanForward64(unsigned __LONG32 *Index,unsigned __int64 Mask)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEW64(__MINGW_EXTENSION unsigned char _BitScanReverse64(unsigned __LONG32 *Index,unsigned __int64 Mask)) moved to psdk_inc/intrin-impl.h */
     __MACHINEIW64(_CRTIMP wchar_t *__cdecl _wcsset(wchar_t *,wchar_t))
     __MACHINEW64(__MINGW_EXTENSION unsigned __int64 __shiftleft128(unsigned __int64 LowPart,unsigned __int64 HighPart,unsigned char Shift))
     __MACHINEW64(__MINGW_EXTENSION unsigned __int64 __shiftright128(unsigned __int64 LowPart,unsigned __int64 HighPart,unsigned char Shift))

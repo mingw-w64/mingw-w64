@@ -161,6 +161,10 @@ supports ReadWriteBarrier, map all 3 to do the same. */
 #define __INTRINSIC_SPECIAL___writefsbyte
 #define __INTRINSIC_SPECIAL___writefsword
 #define __INTRINSIC_SPECIAL___writefsdword
+#define __INTRINSIC_SPECIAL__BitScanForward
+#define __INTRINSIC_SPECIAL__BitScanForward64
+#define __INTRINSIC_SPECIAL__BitScanReverse
+#define __INTRINSIC_SPECIAL__BitScanReverse64
 
 #endif /* __INTRINSIC_GROUP_WINNT */
 
@@ -345,6 +349,20 @@ __MINGW_EXTENSION void __writegsqword(unsigned __LONG32 Offset,unsigned __int64 
 __MINGW_EXTENSION __INTRINSICS_USEINLINE
 __buildwriteseg(__writegsqword, unsigned __int64, "gs")
 #define __INTRINSIC_DEFINED___writegsqword
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_BitScanForward64)
+__MINGW_EXTENSION unsigned char _BitScanForward64(unsigned __LONG32 *Index, unsigned __int64 Mask);
+__MINGW_EXTENSION __INTRINSICS_USEINLINE
+__buildbitscan(_BitScanForward64, unsigned __int64, "bsf")
+#define __INTRINSIC_DEFINED__BitScanForward64
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_BitScanReverse64)
+__MINGW_EXTENSION unsigned char _BitScanReverse64(unsigned __LONG32 *Index, unsigned __int64 Mask);
+__MINGW_EXTENSION __INTRINSICS_USEINLINE
+__buildbitscan(_BitScanReverse64, unsigned __int64, "bsr")
+#define __INTRINSIC_DEFINED__BitScanReverse64
 #endif /* __INTRINSIC_PROLOG */
 
 #endif /* __x86_64__ */
@@ -543,6 +561,20 @@ void *_InterlockedExchangePointer(void *volatile *Target,void *Value) {
     return __sync_lock_test_and_set(Target, Value);
 }
 #define __INTRINSIC_DEFINED__InterlockedExchangePointer
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_BitScanForward)
+unsigned char _BitScanForward(unsigned __LONG32 *Index, unsigned __LONG32 Mask);
+__INTRINSICS_USEINLINE 
+__buildbitscan(_BitScanForward, unsigned __LONG32, "bsf")
+#define __INTRINSIC_DEFINED__BitScanForward
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_BitScanReverse)
+unsigned char _BitScanReverse(unsigned __LONG32 *Index, unsigned __LONG32 Mask);
+__INTRINSICS_USEINLINE 
+__buildbitscan(_BitScanReverse, unsigned __LONG32, "bsr")
+#define __INTRINSIC_DEFINED__BitScanReverse
 #endif /* __INTRINSIC_PROLOG */
 
 #endif /* defined(__x86_64__) || (defined(_X86_) */

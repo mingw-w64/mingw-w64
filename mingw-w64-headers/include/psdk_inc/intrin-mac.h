@@ -104,4 +104,21 @@ Parameters: (FunctionName, DataType, Segment)
         : [Data] "ri" (Data)); \
 }
 
+/* This macro is used by _BitScanForward, _BitScanForward64, _BitScanReverse _BitScanReverse64
+
+   FunctionName: Any valid function name
+   DataType: unsigned __LONG32 or unsigned __int64
+   Segment: BSF or BSR */
+
+#define __buildbitscan(x, y, z) unsigned char x(unsigned __LONG32 *Index, y Mask) \
+{ \
+   y n; \
+   __asm__ (z "{%z[Mask] %[Mask],%[Index] | %[Index],%[Mask]}" \
+      : [Index] "=r" (n) \
+      : [Mask] "r" (Mask) \
+      : "cc"); \
+   *Index = n; \
+   return Mask!=0; \
+}
+
 #endif /* _INTRIN_MAC_ */

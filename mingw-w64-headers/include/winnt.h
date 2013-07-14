@@ -1261,37 +1261,10 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define BitScanForward64 _BitScanForward64
 #define BitScanReverse64 _BitScanReverse64
 
-    BOOLEAN _BitScanForward(DWORD *Index,DWORD Mask);
-    BOOLEAN _BitScanReverse(DWORD *Index,DWORD Mask);
-    BOOLEAN _BitScanForward64(DWORD *Index,DWORD64 Mask);
-    BOOLEAN _BitScanReverse64(DWORD *Index,DWORD64 Mask);
-
-#ifndef __CRT__NO_INLINE
-    __CRT_INLINE BOOLEAN _BitScanForward(DWORD *Index,DWORD Mask) {
-      DWORD n;
-      __asm__ __volatile__("bsfl %0,%1" : "+r" (Mask),"=rm" (n) : : "memory");
-      *Index = n;
-      return Mask!=0;
-    }
-    __CRT_INLINE BOOLEAN _BitScanReverse(DWORD *Index,DWORD Mask) {
-     DWORD n;
-      __asm__ __volatile__("bsrl %0,%1" : "+r" (Mask),"=rm" (n) : : "memory");
-      *Index = n;
-      return Mask!=0;
-    }
-    __CRT_INLINE BOOLEAN _BitScanForward64(DWORD *Index,DWORD64 Mask) {
-      DWORD64 n;
-      __asm__ __volatile__("bsfq %0,%1" : "+r" (Mask),"=rm" (n) : : "memory");
-      *Index = (DWORD) n;
-      return Mask!=0;
-    }
-    __CRT_INLINE BOOLEAN _BitScanReverse64(DWORD *Index,DWORD64 Mask) {
-      DWORD64 n;
-      __asm__ __volatile__("bsrq %0,%1" : "+r" (Mask),"=rm" (n) : : "memory");
-      *Index = (DWORD) n;
-      return Mask!=0;
-    }
-#endif /* !__CRT__NO_INLINE */
+    /* BOOLEAN _BitScanForward(DWORD *Index,DWORD Mask); moved to psdk_inc/intrin-impl.h */
+    /* BOOLEAN _BitScanReverse(DWORD *Index,DWORD Mask); moved to psdk_inc/intrin-impl.h */
+    /* BOOLEAN _BitScanForward64(DWORD *Index,DWORD64 Mask); moved to psdk_inc/intrin-impl.h */
+    /* BOOLEAN _BitScanReverse64(DWORD *Index,DWORD64 Mask); moved to psdk_inc/intrin-impl.h */
 
 #define InterlockedIncrement16 _InterlockedIncrement16
 #define InterlockedDecrement16 _InterlockedDecrement16
