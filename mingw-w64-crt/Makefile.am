@@ -470,7 +470,7 @@ lib32_libmingwex_a_SOURCES = $(src_libmingwex)
 
 lib32_LIBRARIES += lib32/libmoldname.a
 lib32_libmoldname_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
-lib32_libmoldname_a_SOURCES = 
+lib32_libmoldname_a_SOURCES = $(src_libm)
 
 lib32_LIBRARIES += lib32/libmingwthrd.a
 lib32_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
@@ -797,7 +797,7 @@ lib64_libmingwex_a_SOURCES = $(src_libmingwex)
 
 lib64_LIBRARIES += lib64/libmoldname.a
 lib64_libmoldname_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include) $(AM_CPPFLAGS)
-lib64_libmoldname_a_SOURCES = 
+lib64_libmoldname_a_SOURCES = $(src_libm)
 
 lib64_LIBRARIES += lib64/libmingwthrd.a
 lib64_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
