@@ -34,7 +34,7 @@ _waccess_s (const wchar_t *s, int m)
 }
 
 static errno_t __cdecl
-_int_access_s (const wchar_t *s, int m)
+_int_waccess_s (const wchar_t *s, int m)
 {
   if (!s || (m & ~6) != 0)
     {
