@@ -288,19 +288,17 @@ am__lib32_libkernel32_a_SOURCES_DIST = intrincs/__movsb.c \
 	intrincs/_rotr64.c intrincs/bitscanfwd.c intrincs/bitscanrev.c \
 	intrincs/bittest.c intrincs/bittestc.c intrincs/bittestci.c \
 	intrincs/bittestr.c intrincs/bittestri.c intrincs/bittests.c \
-	intrincs/bittestsi.c intrincs/cpuid.c intrincs/currentfiber.c \
-	intrincs/currentteb.c intrincs/fiberdata.c intrincs/ilockadd.c \
+	intrincs/bittestsi.c intrincs/cpuid.c intrincs/ilockadd.c \
 	intrincs/ilockand.c intrincs/ilockand64.c intrincs/ilockcxch.c \
-	intrincs/ilockcxch2.c intrincs/ilockcxch16.c \
-	intrincs/ilockcxch64.c intrincs/ilockcxchptr.c \
-	intrincs/ilockdec.c intrincs/ilockdec16.c \
-	intrincs/ilockdec64.c intrincs/ilockexch.c \
-	intrincs/ilockexch64.c intrincs/ilockexchadd.c \
-	intrincs/ilockexchadd64.c intrincs/ilockexchptr.c \
-	intrincs/ilockinc.c intrincs/ilockinc16.c \
-	intrincs/ilockinc64.c intrincs/ilockor.c intrincs/ilockor64.c \
-	intrincs/ilockxor.c intrincs/ilockxor64.c intrincs/inbyte.c \
-	intrincs/inbytestring.c intrincs/indword.c \
+	intrincs/ilockcxch16.c intrincs/ilockcxch64.c \
+	intrincs/ilockcxchptr.c intrincs/ilockdec.c \
+	intrincs/ilockdec16.c intrincs/ilockdec64.c \
+	intrincs/ilockexch.c intrincs/ilockexch64.c \
+	intrincs/ilockexchadd.c intrincs/ilockexchadd64.c \
+	intrincs/ilockexchptr.c intrincs/ilockinc.c \
+	intrincs/ilockinc16.c intrincs/ilockinc64.c intrincs/ilockor.c \
+	intrincs/ilockor64.c intrincs/ilockxor.c intrincs/ilockxor64.c \
+	intrincs/inbyte.c intrincs/inbytestring.c intrincs/indword.c \
 	intrincs/indwordstring.c intrincs/inword.c \
 	intrincs/inwordstring.c intrincs/outbyte.c \
 	intrincs/outbytestring.c intrincs/outdword.c \
@@ -332,14 +330,10 @@ am__objects_8 = intrincs/lib32_libkernel32_a-__movsb.$(OBJEXT) \
 	intrincs/lib32_libkernel32_a-bittests.$(OBJEXT) \
 	intrincs/lib32_libkernel32_a-bittestsi.$(OBJEXT) \
 	intrincs/lib32_libkernel32_a-cpuid.$(OBJEXT) \
-	intrincs/lib32_libkernel32_a-currentfiber.$(OBJEXT) \
-	intrincs/lib32_libkernel32_a-currentteb.$(OBJEXT) \
-	intrincs/lib32_libkernel32_a-fiberdata.$(OBJEXT) \
 	intrincs/lib32_libkernel32_a-ilockadd.$(OBJEXT) \
 	intrincs/lib32_libkernel32_a-ilockand.$(OBJEXT) \
 	intrincs/lib32_libkernel32_a-ilockand64.$(OBJEXT) \
 	intrincs/lib32_libkernel32_a-ilockcxch.$(OBJEXT) \
-	intrincs/lib32_libkernel32_a-ilockcxch2.$(OBJEXT) \
 	intrincs/lib32_libkernel32_a-ilockcxch16.$(OBJEXT) \
 	intrincs/lib32_libkernel32_a-ilockcxch64.$(OBJEXT) \
 	intrincs/lib32_libkernel32_a-ilockcxchptr.$(OBJEXT) \
@@ -1365,19 +1359,17 @@ am__lib64_libkernel32_a_SOURCES_DIST = intrincs/__movsb.c \
 	intrincs/_rotr64.c intrincs/bitscanfwd.c intrincs/bitscanrev.c \
 	intrincs/bittest.c intrincs/bittestc.c intrincs/bittestci.c \
 	intrincs/bittestr.c intrincs/bittestri.c intrincs/bittests.c \
-	intrincs/bittestsi.c intrincs/cpuid.c intrincs/currentfiber.c \
-	intrincs/currentteb.c intrincs/fiberdata.c intrincs/ilockadd.c \
+	intrincs/bittestsi.c intrincs/cpuid.c intrincs/ilockadd.c \
 	intrincs/ilockand.c intrincs/ilockand64.c intrincs/ilockcxch.c \
-	intrincs/ilockcxch2.c intrincs/ilockcxch16.c \
-	intrincs/ilockcxch64.c intrincs/ilockcxchptr.c \
-	intrincs/ilockdec.c intrincs/ilockdec16.c \
-	intrincs/ilockdec64.c intrincs/ilockexch.c \
-	intrincs/ilockexch64.c intrincs/ilockexchadd.c \
-	intrincs/ilockexchadd64.c intrincs/ilockexchptr.c \
-	intrincs/ilockinc.c intrincs/ilockinc16.c \
-	intrincs/ilockinc64.c intrincs/ilockor.c intrincs/ilockor64.c \
-	intrincs/ilockxor.c intrincs/ilockxor64.c intrincs/inbyte.c \
-	intrincs/inbytestring.c intrincs/indword.c \
+	intrincs/ilockcxch16.c intrincs/ilockcxch64.c \
+	intrincs/ilockcxchptr.c intrincs/ilockdec.c \
+	intrincs/ilockdec16.c intrincs/ilockdec64.c \
+	intrincs/ilockexch.c intrincs/ilockexch64.c \
+	intrincs/ilockexchadd.c intrincs/ilockexchadd64.c \
+	intrincs/ilockexchptr.c intrincs/ilockinc.c \
+	intrincs/ilockinc16.c intrincs/ilockinc64.c intrincs/ilockor.c \
+	intrincs/ilockor64.c intrincs/ilockxor.c intrincs/ilockxor64.c \
+	intrincs/inbyte.c intrincs/inbytestring.c intrincs/indword.c \
 	intrincs/indwordstring.c intrincs/inword.c \
 	intrincs/inwordstring.c intrincs/outbyte.c \
 	intrincs/outbytestring.c intrincs/outdword.c \
@@ -1418,14 +1410,10 @@ am__objects_39 = intrincs/lib64_libkernel32_a-__movsb.$(OBJEXT) \
 	intrincs/lib64_libkernel32_a-bittests.$(OBJEXT) \
 	intrincs/lib64_libkernel32_a-bittestsi.$(OBJEXT) \
 	intrincs/lib64_libkernel32_a-cpuid.$(OBJEXT) \
-	intrincs/lib64_libkernel32_a-currentfiber.$(OBJEXT) \
-	intrincs/lib64_libkernel32_a-currentteb.$(OBJEXT) \
-	intrincs/lib64_libkernel32_a-fiberdata.$(OBJEXT) \
 	intrincs/lib64_libkernel32_a-ilockadd.$(OBJEXT) \
 	intrincs/lib64_libkernel32_a-ilockand.$(OBJEXT) \
 	intrincs/lib64_libkernel32_a-ilockand64.$(OBJEXT) \
 	intrincs/lib64_libkernel32_a-ilockcxch.$(OBJEXT) \
-	intrincs/lib64_libkernel32_a-ilockcxch2.$(OBJEXT) \
 	intrincs/lib64_libkernel32_a-ilockcxch16.$(OBJEXT) \
 	intrincs/lib64_libkernel32_a-ilockcxch64.$(OBJEXT) \
 	intrincs/lib64_libkernel32_a-ilockcxchptr.$(OBJEXT) \
@@ -3681,9 +3669,9 @@ src_intrincs = \
   intrincs/__movsb.c        intrincs/__movsd.c        intrincs/__movsw.c         intrincs/__stosb.c       intrincs/__stosd.c        \
   intrincs/__stosw.c        intrincs/_rotl64.c        intrincs/_rotr64.c         intrincs/bitscanfwd.c    intrincs/bitscanrev.c     \
   intrincs/bittest.c        intrincs/bittestc.c       intrincs/bittestci.c       intrincs/bittestr.c      intrincs/bittestri.c      \
-  intrincs/bittests.c       intrincs/bittestsi.c      intrincs/cpuid.c           intrincs/currentfiber.c  intrincs/currentteb.c     \
-  intrincs/fiberdata.c      intrincs/ilockadd.c       intrincs/ilockand.c        intrincs/ilockand64.c \
-  intrincs/ilockcxch.c      intrincs/ilockcxch2.c \
+  intrincs/bittests.c       intrincs/bittestsi.c      intrincs/cpuid.c           \
+  intrincs/ilockadd.c       intrincs/ilockand.c        intrincs/ilockand64.c \
+  intrincs/ilockcxch.c      \
   intrincs/ilockcxch16.c    intrincs/ilockcxch64.c    intrincs/ilockcxchptr.c    intrincs/ilockdec.c      intrincs/ilockdec16.c     \
   intrincs/ilockdec64.c     intrincs/ilockexch.c      intrincs/ilockexch64.c     intrincs/ilockexchadd.c  intrincs/ilockexchadd64.c \
   intrincs/ilockexchptr.c   intrincs/ilockinc.c       intrincs/ilockinc16.c      intrincs/ilockinc64.c    intrincs/ilockor.c        \
@@ -4973,12 +4961,6 @@ intrincs/lib32_libkernel32_a-bittestsi.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib32_libkernel32_a-cpuid.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
-intrincs/lib32_libkernel32_a-currentfiber.$(OBJEXT):  \
-	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
-intrincs/lib32_libkernel32_a-currentteb.$(OBJEXT):  \
-	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
-intrincs/lib32_libkernel32_a-fiberdata.$(OBJEXT):  \
-	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib32_libkernel32_a-ilockadd.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib32_libkernel32_a-ilockand.$(OBJEXT):  \
@@ -4986,8 +4968,6 @@ intrincs/lib32_libkernel32_a-ilockand.$(OBJEXT):  \
 intrincs/lib32_libkernel32_a-ilockand64.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib32_libkernel32_a-ilockcxch.$(OBJEXT):  \
-	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
-intrincs/lib32_libkernel32_a-ilockcxch2.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib32_libkernel32_a-ilockcxch16.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
@@ -6526,12 +6506,6 @@ intrincs/lib64_libkernel32_a-bittestsi.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib64_libkernel32_a-cpuid.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
-intrincs/lib64_libkernel32_a-currentfiber.$(OBJEXT):  \
-	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
-intrincs/lib64_libkernel32_a-currentteb.$(OBJEXT):  \
-	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
-intrincs/lib64_libkernel32_a-fiberdata.$(OBJEXT):  \
-	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib64_libkernel32_a-ilockadd.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib64_libkernel32_a-ilockand.$(OBJEXT):  \
@@ -6539,8 +6513,6 @@ intrincs/lib64_libkernel32_a-ilockand.$(OBJEXT):  \
 intrincs/lib64_libkernel32_a-ilockand64.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib64_libkernel32_a-ilockcxch.$(OBJEXT):  \
-	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
-intrincs/lib64_libkernel32_a-ilockcxch2.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
 intrincs/lib64_libkernel32_a-ilockcxch16.$(OBJEXT):  \
 	intrincs/$(am__dirstamp) intrincs/$(DEPDIR)/$(am__dirstamp)
@@ -9021,15 +8993,11 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libkernel32_a-bittests.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libkernel32_a-bittestsi.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libkernel32_a-cpuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libkernel32_a-currentfiber.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libkernel32_a-currentteb.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libkernel32_a-fiberdata.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libkernel32_a-ilockadd.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libkernel32_a-ilockand.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libkernel32_a-ilockand64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libkernel32_a-ilockcxch.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libkernel32_a-ilockcxch16.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libkernel32_a-ilockcxch2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libkernel32_a-ilockcxch64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libkernel32_a-ilockcxchptr.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib32_libkernel32_a-ilockdec.Po@am__quote@
@@ -9115,16 +9083,12 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libkernel32_a-bittestsi.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libkernel32_a-bittestsi64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libkernel32_a-cpuid.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libkernel32_a-currentfiber.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libkernel32_a-currentteb.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libkernel32_a-fiberdata.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libkernel32_a-ilockadd.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libkernel32_a-ilockadd64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libkernel32_a-ilockand.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libkernel32_a-ilockand64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libkernel32_a-ilockcxch.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libkernel32_a-ilockcxch16.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libkernel32_a-ilockcxch2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libkernel32_a-ilockcxch64.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libkernel32_a-ilockcxchptr.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@intrincs/$(DEPDIR)/lib64_libkernel32_a-ilockdec.Po@am__quote@
@@ -12324,48 +12288,6 @@ intrincs/lib32_libkernel32_a-cpuid.obj: intrincs/cpuid.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libkernel32_a-cpuid.obj `if test -f 'intrincs/cpuid.c'; then $(CYGPATH_W) 'intrincs/cpuid.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/cpuid.c'; fi`
 
-intrincs/lib32_libkernel32_a-currentfiber.o: intrincs/currentfiber.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libkernel32_a-currentfiber.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libkernel32_a-currentfiber.Tpo -c -o intrincs/lib32_libkernel32_a-currentfiber.o `test -f 'intrincs/currentfiber.c' || echo '$(srcdir)/'`intrincs/currentfiber.c
-@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libkernel32_a-currentfiber.Tpo intrincs/$(DEPDIR)/lib32_libkernel32_a-currentfiber.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/currentfiber.c' object='intrincs/lib32_libkernel32_a-currentfiber.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libkernel32_a-currentfiber.o `test -f 'intrincs/currentfiber.c' || echo '$(srcdir)/'`intrincs/currentfiber.c
-
-intrincs/lib32_libkernel32_a-currentfiber.obj: intrincs/currentfiber.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libkernel32_a-currentfiber.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libkernel32_a-currentfiber.Tpo -c -o intrincs/lib32_libkernel32_a-currentfiber.obj `if test -f 'intrincs/currentfiber.c'; then $(CYGPATH_W) 'intrincs/currentfiber.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/currentfiber.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libkernel32_a-currentfiber.Tpo intrincs/$(DEPDIR)/lib32_libkernel32_a-currentfiber.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/currentfiber.c' object='intrincs/lib32_libkernel32_a-currentfiber.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libkernel32_a-currentfiber.obj `if test -f 'intrincs/currentfiber.c'; then $(CYGPATH_W) 'intrincs/currentfiber.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/currentfiber.c'; fi`
-
-intrincs/lib32_libkernel32_a-currentteb.o: intrincs/currentteb.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libkernel32_a-currentteb.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libkernel32_a-currentteb.Tpo -c -o intrincs/lib32_libkernel32_a-currentteb.o `test -f 'intrincs/currentteb.c' || echo '$(srcdir)/'`intrincs/currentteb.c
-@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libkernel32_a-currentteb.Tpo intrincs/$(DEPDIR)/lib32_libkernel32_a-currentteb.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/currentteb.c' object='intrincs/lib32_libkernel32_a-currentteb.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libkernel32_a-currentteb.o `test -f 'intrincs/currentteb.c' || echo '$(srcdir)/'`intrincs/currentteb.c
-
-intrincs/lib32_libkernel32_a-currentteb.obj: intrincs/currentteb.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libkernel32_a-currentteb.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libkernel32_a-currentteb.Tpo -c -o intrincs/lib32_libkernel32_a-currentteb.obj `if test -f 'intrincs/currentteb.c'; then $(CYGPATH_W) 'intrincs/currentteb.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/currentteb.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libkernel32_a-currentteb.Tpo intrincs/$(DEPDIR)/lib32_libkernel32_a-currentteb.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/currentteb.c' object='intrincs/lib32_libkernel32_a-currentteb.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libkernel32_a-currentteb.obj `if test -f 'intrincs/currentteb.c'; then $(CYGPATH_W) 'intrincs/currentteb.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/currentteb.c'; fi`
-
-intrincs/lib32_libkernel32_a-fiberdata.o: intrincs/fiberdata.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libkernel32_a-fiberdata.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libkernel32_a-fiberdata.Tpo -c -o intrincs/lib32_libkernel32_a-fiberdata.o `test -f 'intrincs/fiberdata.c' || echo '$(srcdir)/'`intrincs/fiberdata.c
-@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libkernel32_a-fiberdata.Tpo intrincs/$(DEPDIR)/lib32_libkernel32_a-fiberdata.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/fiberdata.c' object='intrincs/lib32_libkernel32_a-fiberdata.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libkernel32_a-fiberdata.o `test -f 'intrincs/fiberdata.c' || echo '$(srcdir)/'`intrincs/fiberdata.c
-
-intrincs/lib32_libkernel32_a-fiberdata.obj: intrincs/fiberdata.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libkernel32_a-fiberdata.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libkernel32_a-fiberdata.Tpo -c -o intrincs/lib32_libkernel32_a-fiberdata.obj `if test -f 'intrincs/fiberdata.c'; then $(CYGPATH_W) 'intrincs/fiberdata.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/fiberdata.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libkernel32_a-fiberdata.Tpo intrincs/$(DEPDIR)/lib32_libkernel32_a-fiberdata.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/fiberdata.c' object='intrincs/lib32_libkernel32_a-fiberdata.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libkernel32_a-fiberdata.obj `if test -f 'intrincs/fiberdata.c'; then $(CYGPATH_W) 'intrincs/fiberdata.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/fiberdata.c'; fi`
-
 intrincs/lib32_libkernel32_a-ilockadd.o: intrincs/ilockadd.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libkernel32_a-ilockadd.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libkernel32_a-ilockadd.Tpo -c -o intrincs/lib32_libkernel32_a-ilockadd.o `test -f 'intrincs/ilockadd.c' || echo '$(srcdir)/'`intrincs/ilockadd.c
 @am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libkernel32_a-ilockadd.Tpo intrincs/$(DEPDIR)/lib32_libkernel32_a-ilockadd.Po
@@ -12421,20 +12343,6 @@ intrincs/lib32_libkernel32_a-ilockcxch.obj: intrincs/ilockcxch.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/ilockcxch.c' object='intrincs/lib32_libkernel32_a-ilockcxch.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libkernel32_a-ilockcxch.obj `if test -f 'intrincs/ilockcxch.c'; then $(CYGPATH_W) 'intrincs/ilockcxch.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/ilockcxch.c'; fi`
-
-intrincs/lib32_libkernel32_a-ilockcxch2.o: intrincs/ilockcxch2.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libkernel32_a-ilockcxch2.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libkernel32_a-ilockcxch2.Tpo -c -o intrincs/lib32_libkernel32_a-ilockcxch2.o `test -f 'intrincs/ilockcxch2.c' || echo '$(srcdir)/'`intrincs/ilockcxch2.c
-@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libkernel32_a-ilockcxch2.Tpo intrincs/$(DEPDIR)/lib32_libkernel32_a-ilockcxch2.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/ilockcxch2.c' object='intrincs/lib32_libkernel32_a-ilockcxch2.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libkernel32_a-ilockcxch2.o `test -f 'intrincs/ilockcxch2.c' || echo '$(srcdir)/'`intrincs/ilockcxch2.c
-
-intrincs/lib32_libkernel32_a-ilockcxch2.obj: intrincs/ilockcxch2.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libkernel32_a-ilockcxch2.obj -MD -MP -MF intrincs/$(DEPDIR)/lib32_libkernel32_a-ilockcxch2.Tpo -c -o intrincs/lib32_libkernel32_a-ilockcxch2.obj `if test -f 'intrincs/ilockcxch2.c'; then $(CYGPATH_W) 'intrincs/ilockcxch2.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/ilockcxch2.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib32_libkernel32_a-ilockcxch2.Tpo intrincs/$(DEPDIR)/lib32_libkernel32_a-ilockcxch2.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/ilockcxch2.c' object='intrincs/lib32_libkernel32_a-ilockcxch2.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib32_libkernel32_a-ilockcxch2.obj `if test -f 'intrincs/ilockcxch2.c'; then $(CYGPATH_W) 'intrincs/ilockcxch2.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/ilockcxch2.c'; fi`
 
 intrincs/lib32_libkernel32_a-ilockcxch16.o: intrincs/ilockcxch16.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib32_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib32_libkernel32_a-ilockcxch16.o -MD -MP -MF intrincs/$(DEPDIR)/lib32_libkernel32_a-ilockcxch16.Tpo -c -o intrincs/lib32_libkernel32_a-ilockcxch16.o `test -f 'intrincs/ilockcxch16.c' || echo '$(srcdir)/'`intrincs/ilockcxch16.c
@@ -21018,48 +20926,6 @@ intrincs/lib64_libkernel32_a-cpuid.obj: intrincs/cpuid.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libkernel32_a-cpuid.obj `if test -f 'intrincs/cpuid.c'; then $(CYGPATH_W) 'intrincs/cpuid.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/cpuid.c'; fi`
 
-intrincs/lib64_libkernel32_a-currentfiber.o: intrincs/currentfiber.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libkernel32_a-currentfiber.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libkernel32_a-currentfiber.Tpo -c -o intrincs/lib64_libkernel32_a-currentfiber.o `test -f 'intrincs/currentfiber.c' || echo '$(srcdir)/'`intrincs/currentfiber.c
-@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libkernel32_a-currentfiber.Tpo intrincs/$(DEPDIR)/lib64_libkernel32_a-currentfiber.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/currentfiber.c' object='intrincs/lib64_libkernel32_a-currentfiber.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libkernel32_a-currentfiber.o `test -f 'intrincs/currentfiber.c' || echo '$(srcdir)/'`intrincs/currentfiber.c
-
-intrincs/lib64_libkernel32_a-currentfiber.obj: intrincs/currentfiber.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libkernel32_a-currentfiber.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libkernel32_a-currentfiber.Tpo -c -o intrincs/lib64_libkernel32_a-currentfiber.obj `if test -f 'intrincs/currentfiber.c'; then $(CYGPATH_W) 'intrincs/currentfiber.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/currentfiber.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libkernel32_a-currentfiber.Tpo intrincs/$(DEPDIR)/lib64_libkernel32_a-currentfiber.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/currentfiber.c' object='intrincs/lib64_libkernel32_a-currentfiber.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libkernel32_a-currentfiber.obj `if test -f 'intrincs/currentfiber.c'; then $(CYGPATH_W) 'intrincs/currentfiber.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/currentfiber.c'; fi`
-
-intrincs/lib64_libkernel32_a-currentteb.o: intrincs/currentteb.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libkernel32_a-currentteb.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libkernel32_a-currentteb.Tpo -c -o intrincs/lib64_libkernel32_a-currentteb.o `test -f 'intrincs/currentteb.c' || echo '$(srcdir)/'`intrincs/currentteb.c
-@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libkernel32_a-currentteb.Tpo intrincs/$(DEPDIR)/lib64_libkernel32_a-currentteb.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/currentteb.c' object='intrincs/lib64_libkernel32_a-currentteb.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libkernel32_a-currentteb.o `test -f 'intrincs/currentteb.c' || echo '$(srcdir)/'`intrincs/currentteb.c
-
-intrincs/lib64_libkernel32_a-currentteb.obj: intrincs/currentteb.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libkernel32_a-currentteb.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libkernel32_a-currentteb.Tpo -c -o intrincs/lib64_libkernel32_a-currentteb.obj `if test -f 'intrincs/currentteb.c'; then $(CYGPATH_W) 'intrincs/currentteb.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/currentteb.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libkernel32_a-currentteb.Tpo intrincs/$(DEPDIR)/lib64_libkernel32_a-currentteb.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/currentteb.c' object='intrincs/lib64_libkernel32_a-currentteb.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libkernel32_a-currentteb.obj `if test -f 'intrincs/currentteb.c'; then $(CYGPATH_W) 'intrincs/currentteb.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/currentteb.c'; fi`
-
-intrincs/lib64_libkernel32_a-fiberdata.o: intrincs/fiberdata.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libkernel32_a-fiberdata.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libkernel32_a-fiberdata.Tpo -c -o intrincs/lib64_libkernel32_a-fiberdata.o `test -f 'intrincs/fiberdata.c' || echo '$(srcdir)/'`intrincs/fiberdata.c
-@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libkernel32_a-fiberdata.Tpo intrincs/$(DEPDIR)/lib64_libkernel32_a-fiberdata.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/fiberdata.c' object='intrincs/lib64_libkernel32_a-fiberdata.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libkernel32_a-fiberdata.o `test -f 'intrincs/fiberdata.c' || echo '$(srcdir)/'`intrincs/fiberdata.c
-
-intrincs/lib64_libkernel32_a-fiberdata.obj: intrincs/fiberdata.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libkernel32_a-fiberdata.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libkernel32_a-fiberdata.Tpo -c -o intrincs/lib64_libkernel32_a-fiberdata.obj `if test -f 'intrincs/fiberdata.c'; then $(CYGPATH_W) 'intrincs/fiberdata.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/fiberdata.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libkernel32_a-fiberdata.Tpo intrincs/$(DEPDIR)/lib64_libkernel32_a-fiberdata.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/fiberdata.c' object='intrincs/lib64_libkernel32_a-fiberdata.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libkernel32_a-fiberdata.obj `if test -f 'intrincs/fiberdata.c'; then $(CYGPATH_W) 'intrincs/fiberdata.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/fiberdata.c'; fi`
-
 intrincs/lib64_libkernel32_a-ilockadd.o: intrincs/ilockadd.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libkernel32_a-ilockadd.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libkernel32_a-ilockadd.Tpo -c -o intrincs/lib64_libkernel32_a-ilockadd.o `test -f 'intrincs/ilockadd.c' || echo '$(srcdir)/'`intrincs/ilockadd.c
 @am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libkernel32_a-ilockadd.Tpo intrincs/$(DEPDIR)/lib64_libkernel32_a-ilockadd.Po
@@ -21115,20 +20981,6 @@ intrincs/lib64_libkernel32_a-ilockcxch.obj: intrincs/ilockcxch.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/ilockcxch.c' object='intrincs/lib64_libkernel32_a-ilockcxch.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libkernel32_a-ilockcxch.obj `if test -f 'intrincs/ilockcxch.c'; then $(CYGPATH_W) 'intrincs/ilockcxch.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/ilockcxch.c'; fi`
-
-intrincs/lib64_libkernel32_a-ilockcxch2.o: intrincs/ilockcxch2.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libkernel32_a-ilockcxch2.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libkernel32_a-ilockcxch2.Tpo -c -o intrincs/lib64_libkernel32_a-ilockcxch2.o `test -f 'intrincs/ilockcxch2.c' || echo '$(srcdir)/'`intrincs/ilockcxch2.c
-@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libkernel32_a-ilockcxch2.Tpo intrincs/$(DEPDIR)/lib64_libkernel32_a-ilockcxch2.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/ilockcxch2.c' object='intrincs/lib64_libkernel32_a-ilockcxch2.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libkernel32_a-ilockcxch2.o `test -f 'intrincs/ilockcxch2.c' || echo '$(srcdir)/'`intrincs/ilockcxch2.c
-
-intrincs/lib64_libkernel32_a-ilockcxch2.obj: intrincs/ilockcxch2.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libkernel32_a-ilockcxch2.obj -MD -MP -MF intrincs/$(DEPDIR)/lib64_libkernel32_a-ilockcxch2.Tpo -c -o intrincs/lib64_libkernel32_a-ilockcxch2.obj `if test -f 'intrincs/ilockcxch2.c'; then $(CYGPATH_W) 'intrincs/ilockcxch2.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/ilockcxch2.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) intrincs/$(DEPDIR)/lib64_libkernel32_a-ilockcxch2.Tpo intrincs/$(DEPDIR)/lib64_libkernel32_a-ilockcxch2.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='intrincs/ilockcxch2.c' object='intrincs/lib64_libkernel32_a-ilockcxch2.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o intrincs/lib64_libkernel32_a-ilockcxch2.obj `if test -f 'intrincs/ilockcxch2.c'; then $(CYGPATH_W) 'intrincs/ilockcxch2.c'; else $(CYGPATH_W) '$(srcdir)/intrincs/ilockcxch2.c'; fi`
 
 intrincs/lib64_libkernel32_a-ilockcxch16.o: intrincs/ilockcxch16.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(lib64_libkernel32_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT intrincs/lib64_libkernel32_a-ilockcxch16.o -MD -MP -MF intrincs/$(DEPDIR)/lib64_libkernel32_a-ilockcxch16.Tpo -c -o intrincs/lib64_libkernel32_a-ilockcxch16.o `test -f 'intrincs/ilockcxch16.c' || echo '$(srcdir)/'`intrincs/ilockcxch16.c
