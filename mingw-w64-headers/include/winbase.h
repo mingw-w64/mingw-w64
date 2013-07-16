@@ -995,15 +995,35 @@ extern "C" {
 
 #else /* not ia64, nor x64.  */
 
-/* While MS resolves these 3 from kernel32.dll, we are mapping them
-to intrinsics. */
-#define InterlockedIncrement _InterlockedIncrement
-#define InterlockedDecrement _InterlockedDecrement
-#define InterlockedExchange _InterlockedExchange
+  LONG WINAPI InterlockedIncrement(LONG volatile *lpAddend);
+  LONG WINAPI InterlockedDecrement(LONG volatile *lpAddend);
+  LONG WINAPI InterlockedExchange(LONG volatile *Target,LONG Value);
+  LONG WINAPI InterlockedExchangeAdd(LONG volatile *Addend,LONG Value);
+  LONG WINAPI InterlockedCompareExchange(LONG volatile *Destination,LONG Exchange,LONG Comperand);
+  LONGLONG WINAPI InterlockedCompareExchange64(LONGLONG volatile *Destination,LONGLONG Exchange,LONGLONG Comperand);
 
-  /* LONG WINAPI InterlockedIncrement(LONG volatile *lpAddend); mapped to intrinsic */
-  /* LONG WINAPI InterlockedDecrement(LONG volatile *lpAddend); mapped to intrinsic */
-  /* LONG WINAPI InterlockedExchange(LONG volatile *Target,LONG Value); mapped to intrinsic */
+
+  /* While MS resolves these from kernel32.dll, we are mapping them to intrinsics. */
+#ifdef __MINGW_INTRIN_INLINE
+  __MINGW_INTRIN_INLINE LONG WINAPI InterlockedIncrement(LONG volatile *lpAddend) {
+      return _InterlockedIncrement(lpAddend);
+  }
+  __MINGW_INTRIN_INLINE LONG WINAPI InterlockedDecrement(LONG volatile *lpAddend) {
+      return _InterlockedDecrement(lpAddend);
+  }
+  __MINGW_INTRIN_INLINE LONG WINAPI InterlockedExchange(LONG volatile *Target, LONG Value) {
+      return _InterlockedExchange(Target, Value);
+  }
+  __MINGW_INTRIN_INLINE LONG WINAPI InterlockedExchangeAdd(LONG volatile *Addend, LONG Value) {
+      return _InterlockedExchangeAdd(Addend, Value);
+  }
+  __MINGW_INTRIN_INLINE LONG WINAPI InterlockedCompareExchange(LONG volatile *Destination, LONG Exchange, LONG Comperand) {
+      return _InterlockedCompareExchange(Destination, Exchange, Comperand);
+  }
+  __MINGW_INTRIN_INLINE LONGLONG WINAPI InterlockedCompareExchange64(LONGLONG volatile *Destination, LONGLONG Exchange, LONGLONG Comperand) {
+      return _InterlockedCompareExchange64(Destination, Exchange, Comperand);
+  }
+#endif /* __MINGW_INTRIN_INLINE */
 
 #define InterlockedExchangePointer(Target,Value) (PVOID)InterlockedExchange((PLONG)(Target),(LONG)(Value))
 
@@ -1012,10 +1032,6 @@ to intrinsics. */
 #define InterlockedExchangeAdd _InterlockedExchangeAdd
 #define InterlockedCompareExchange _InterlockedCompareExchange
 #define InterlockedCompareExchange64 _InterlockedCompareExchange64
-
-  /* LONG WINAPI InterlockedExchangeAdd(LONG volatile *Addend,LONG Value); mapped to intrinsic */
-  /* LONG WINAPI InterlockedCompareExchange(LONG volatile *Destination,LONG Exchange,LONG Comperand); mapped to intrinsic */
-  /* LONGLONG WINAPI InterlockedCompareExchange64(LONGLONG volatile *Destination,LONGLONG Exchange,LONGLONG Comperand); mapped to intrinsic */
 
   LONGLONG WINAPI InterlockedAnd64 (LONGLONG volatile *Destination,LONGLONG Value);
   LONGLONG WINAPI InterlockedOr64 (LONGLONG volatile *Destination,LONGLONG Value);
