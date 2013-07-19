@@ -1198,7 +1198,7 @@ strncat_s
 strncmp
 strncpy
 strncpy_s
-strnlen DATA	; msvcrt in XP and lower doesn't have this
+; strnlen replaced by emu
 strpbrk
 strrchr
 strspn

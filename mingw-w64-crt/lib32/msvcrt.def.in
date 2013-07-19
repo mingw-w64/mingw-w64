@@ -1205,7 +1205,7 @@ strcpy_s
 strerror_s
 strncat_s
 strncpy_s
-strnlen DATA	; msvcrt in XP and lower doesn't have this
+; strnlen replaced by emu
 strtok_s
 swprintf_s
 swscanf_s
