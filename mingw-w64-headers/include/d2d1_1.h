@@ -8,6 +8,7 @@
 #define _D2D1_1_H_
 
 #include <d2d1.h>
+#include <d2d1effects.h>
 #include <dxgi.h>
 
 #include <winapifamily.h>
