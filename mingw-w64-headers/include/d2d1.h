@@ -653,7 +653,7 @@ DEFINE_GUID(IID_ID2D1Bitmap, 0xa2296057,0xea42,0x4099,0x98,0x3b,0x53,0x9f,0xb6,0
 
 #ifndef D2D_USE_C_DEFINITIONS
 
-interface ID2D1Bitmap : public ID2D1Resource {
+interface ID2D1Bitmap : public ID2D1Image {
     STDMETHOD_(D2D1_SIZE_F, GetSize)(void) const PURE;
     STDMETHOD_(D2D1_SIZE_U, GetPixelSize)(void) const PURE;
     STDMETHOD_(D2D1_PIXEL_FORMAT, GetPixelFormat)(void) const PURE;
@@ -666,7 +666,7 @@ interface ID2D1Bitmap : public ID2D1Resource {
 #else
 
 typedef struct ID2D1BitmapVtbl {
-    ID2D1ResourceVtbl Base;
+    ID2D1ImageVtbl Base;
 
     STDMETHOD_(D2D1_SIZE_F, GetSize)(ID2D1Bitmap *This) PURE;
     STDMETHOD_(D2D1_SIZE_U, GetPixelSize)(ID2D1Bitmap *This) PURE;

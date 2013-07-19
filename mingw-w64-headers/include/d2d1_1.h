@@ -527,11 +527,14 @@ interface ID2D1Effect : public ID2D1Properties
     STDMETHOD_(UINT32, GetInputCount)() CONST PURE;
     STDMETHOD_(void, GetOutput)(ID2D1Image **outputImage) CONST PURE;
 
-    /* FIXME: Add inline implementation:
-    void SetInputEffect(UINT32 index, ID2D1Effect *inputEffect, BOOL invalidate=TRUE)
-    {
+    void SetInputEffect(UINT32 index, ID2D1Effect *inputEffect, BOOL invalidate=TRUE) {
+        ID2D1Image *output = NULL;
+        if(inputEffect)
+            inputEffect->GetOutput(&output);
+        SetInput(index, output, invalidate);
+        if(output)
+            output->Release();
     }
-    */
 };
 
 #else
