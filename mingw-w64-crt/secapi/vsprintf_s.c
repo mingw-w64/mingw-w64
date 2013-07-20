@@ -34,7 +34,7 @@ vsprintf_s (char *_DstBuf, size_t _Size, const char *_Format, va_list _ArgList)
 }
 
 static int __cdecl
-_int_vsprintf_s (char *_DstBuf, size_t _Size, const char *_Format, va_list _ArgList)
+_int_vsprintf_s (char *_DstBuf, size_t __UNUSED_PARAM(_Size), const char *_Format, va_list _ArgList)
 {
   return vsprintf (_DstBuf, _Format, _ArgList);
 }
