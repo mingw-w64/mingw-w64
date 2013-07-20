@@ -995,16 +995,20 @@ extern "C" {
 
 #else /* not ia64, nor x64.  */
 
-  LONG WINAPI InterlockedIncrement(LONG volatile *lpAddend);
-  LONG WINAPI InterlockedDecrement(LONG volatile *lpAddend);
-  LONG WINAPI InterlockedExchange(LONG volatile *Target,LONG Value);
-  LONG WINAPI InterlockedExchangeAdd(LONG volatile *Addend,LONG Value);
-  LONG WINAPI InterlockedCompareExchange(LONG volatile *Destination,LONG Exchange,LONG Comperand);
-  LONGLONG WINAPI InterlockedCompareExchange64(LONGLONG volatile *Destination,LONGLONG Exchange,LONGLONG Comperand);
+  /* While MS resolves these from kernel32.dll, we are mapping them to intrinsics. If we can. */
+  WINBASEAPI LONG WINAPI InterlockedIncrement(LONG volatile *lpAddend);
+  WINBASEAPI LONG WINAPI InterlockedDecrement(LONG volatile *lpAddend);
+  WINBASEAPI LONG WINAPI InterlockedExchange(LONG volatile *Target,LONG Value);
+  WINBASEAPI LONG WINAPI InterlockedExchangeAdd(LONG volatile *Addend,LONG Value);
+  WINBASEAPI LONG WINAPI InterlockedCompareExchange(LONG volatile *Destination,LONG Exchange,LONG Comperand);
+  WINBASEAPI LONGLONG WINAPI InterlockedCompareExchange64(LONGLONG volatile *Destination,LONGLONG Exchange,LONGLONG Comperand);
 
+ /* GCC in version <= 4.8.1 can't inline functions that have dllimport attribute. This may cause an error in
+  * combination with always_inline. Even if we don't explicitly use dllimport, some users have their own
+  * declarations.  If the compiler supports it, we'll use the always_inline (for best performance), otherwise
+  * we'll use the DLLIMPORT (for max compatibility). */
+#if defined(__MINGW_INTRIN_INLINE) && (!defined(__GNUC__) || __MINGW_GNUC_PREREQ(4, 9) || (__MINGW_GNUC_PREREQ(4, 8) && __GNUC_PATCHLEVEL__ >= 2))
 
-  /* While MS resolves these from kernel32.dll, we are mapping them to intrinsics. */
-#ifdef __MINGW_INTRIN_INLINE
   __MINGW_INTRIN_INLINE LONG WINAPI InterlockedIncrement(LONG volatile *lpAddend) {
       return _InterlockedIncrement(lpAddend);
   }
@@ -1023,7 +1027,8 @@ extern "C" {
   __MINGW_INTRIN_INLINE LONGLONG WINAPI InterlockedCompareExchange64(LONGLONG volatile *Destination, LONGLONG Exchange, LONGLONG Comperand) {
       return _InterlockedCompareExchange64(Destination, Exchange, Comperand);
   }
-#endif /* __MINGW_INTRIN_INLINE */
+
+#endif
 
 #define InterlockedExchangePointer(Target,Value) (PVOID)InterlockedExchange((PLONG)(Target),(LONG)(Value))
 
