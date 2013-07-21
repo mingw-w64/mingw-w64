@@ -193,8 +193,8 @@ typedef struct _PRINTPROVIDOR {
                                                         DWORD fdwOptions,
                                                         LPVOID pPrinterNotifyOptions);
   WINBOOL (WINAPI *fpFindClosePrinterChangeNotification)(HANDLE hChange);
-  WINBOOL (WINAPI *fpAddPortEx)(HANDLE hMonitor, LPWSTR pName, DWORD Level,
-                             LPBYTE lpBuffer, LPWSTR lpMonitorName);
+  WINBOOL (WINAPI *fpAddPortEx)(LPWSTR pName, DWORD Level, LPBYTE lpBuffer,
+                             LPWSTR lpMonitorName);
   WINBOOL (WINAPI *fpShutDown)(LPVOID pvReserved);
   WINBOOL (WINAPI *fpRefreshPrinterChangeNotification)(HANDLE hPrinter,
                                                     DWORD Reserved,
