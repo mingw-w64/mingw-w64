@@ -1003,11 +1003,10 @@ extern "C" {
   WINBASEAPI LONG WINAPI InterlockedCompareExchange(LONG volatile *Destination,LONG Exchange,LONG Comperand);
   WINBASEAPI LONGLONG WINAPI InterlockedCompareExchange64(LONGLONG volatile *Destination,LONGLONG Exchange,LONGLONG Comperand);
 
- /* GCC in version <= 4.8.1 can't inline functions that have dllimport attribute. This may cause an error in
-  * combination with always_inline. Even if we don't explicitly use dllimport, some users have their own
-  * declarations.  If the compiler supports it, we'll use the always_inline (for best performance), otherwise
-  * we'll use the DLLIMPORT (for max compatibility). */
-#if defined(__MINGW_INTRIN_INLINE) && (!defined(__GNUC__) || __MINGW_GNUC_PREREQ(4, 9) || (__MINGW_GNUC_PREREQ(4, 8) && __GNUC_PATCHLEVEL__ >= 2))
+ /* GCC in version <= 4.8.1 can't inline functions that have dllimport attribute. Even if we don't explicitly use dllimport, 
+  * some users have their own declarations.  If the compiler supports it, we'll use the always_inline (for best performance), 
+  * otherwise we'll use the DLLIMPORT (for max compatibility). */
+#if defined(__MINGW_INTRIN_INLINE) && (defined(__GNUC__) && (__MINGW_GNUC_PREREQ(4, 9) || (__MINGW_GNUC_PREREQ(4, 8) && __GNUC_PATCHLEVEL__ >= 2)))
 
   __MINGW_INTRIN_INLINE LONG WINAPI InterlockedIncrement(LONG volatile *lpAddend) {
       return _InterlockedIncrement(lpAddend);
@@ -1031,12 +1030,6 @@ extern "C" {
 #endif
 
 #define InterlockedExchangePointer(Target,Value) (PVOID)InterlockedExchange((PLONG)(Target),(LONG)(Value))
-
-/* While MS resolves these 3 from kernel32.dll, we are mapping them
-to intrinsics. */
-#define InterlockedExchangeAdd _InterlockedExchangeAdd
-#define InterlockedCompareExchange _InterlockedCompareExchange
-#define InterlockedCompareExchange64 _InterlockedCompareExchange64
 
   LONGLONG WINAPI InterlockedAnd64 (LONGLONG volatile *Destination,LONGLONG Value);
   LONGLONG WINAPI InterlockedOr64 (LONGLONG volatile *Destination,LONGLONG Value);
