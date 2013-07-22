@@ -11,6 +11,9 @@
 #include <apisetcconv.h>
 #include <winapifamily.h>
 
+#define __INTRINSIC_GROUP_WINBASE /* only define the intrinsics in this file */
+#include <psdk_inc/intrin-impl.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -977,21 +980,21 @@ extern "C" {
 #define InterlockedCompareExchangeAcquire64 InterlockedCompareExchange64
 #define InterlockedCompareExchangeRelease64 InterlockedCompareExchange64
 
-  LONG  __cdecl _InterlockedIncrement(LONG volatile *Addend);
-  LONG  __cdecl _InterlockedDecrement(LONG volatile *Addend);
-  LONG  __cdecl _InterlockedExchange(LONG volatile *Target,LONG Value);
-  LONG  __cdecl _InterlockedExchangeAdd(LONG volatile *Addend,LONG Value);
-  LONG  __cdecl _InterlockedCompareExchange(LONG volatile *Destination,LONG ExChange,LONG Comperand);
-  PVOID  __cdecl _InterlockedCompareExchangePointer(PVOID volatile *Destination,PVOID Exchange,PVOID Comperand);
-  PVOID  __cdecl _InterlockedExchangePointer(PVOID volatile *Target,PVOID Value);
-  LONG64  __cdecl _InterlockedAnd64(LONG64 volatile *Destination,LONG64 Value);
-  LONG64  __cdecl _InterlockedOr64(LONG64 volatile *Destination,LONG64 Value);
-  LONG64  __cdecl _InterlockedXor64(LONG64 volatile *Destination,LONG64 Value);
-  LONG64  __cdecl _InterlockedIncrement64(LONG64 volatile *Addend);
-  LONG64  __cdecl _InterlockedDecrement64(LONG64 volatile *Addend);
-  LONG64  __cdecl _InterlockedExchange64(LONG64 volatile *Target,LONG64 Value);
-  LONG64  __cdecl _InterlockedExchangeAdd64(LONG64 volatile *Addend,LONG64 Value);
-  LONG64  __cdecl _InterlockedCompareExchange64(LONG64 volatile *Destination,LONG64 ExChange,LONG64 Comperand);
+  /* LONG  __cdecl _InterlockedIncrement(LONG volatile *Addend); moved to psdk_inc/intrin-impl.h */
+  /* LONG  __cdecl _InterlockedDecrement(LONG volatile *Addend); moved to psdk_inc/intrin-impl.h */
+  /* LONG  __cdecl _InterlockedExchange(LONG volatile *Target,LONG Value); moved to psdk_inc/intrin-impl.h */
+  /* LONG  __cdecl _InterlockedExchangeAdd(LONG volatile *Addend,LONG Value); moved to psdk_inc/intrin-impl.h */
+  /* LONG  __cdecl _InterlockedCompareExchange(LONG volatile *Destination,LONG ExChange,LONG Comperand); moved to psdk_inc/intrin-impl.h */
+  /* PVOID  __cdecl _InterlockedCompareExchangePointer(PVOID volatile *Destination,PVOID Exchange,PVOID Comperand); moved to psdk_inc/intrin-impl.h */
+  /* PVOID  __cdecl _InterlockedExchangePointer(PVOID volatile *Target,PVOID Value); moved to psdk_inc/intrin-impl.h */
+  /* LONG64  __cdecl _InterlockedAnd64(LONG64 volatile *Destination,LONG64 Value); moved to psdk_inc/intrin-impl.h */
+  /* LONG64  __cdecl _InterlockedOr64(LONG64 volatile *Destination,LONG64 Value); moved to psdk_inc/intrin-impl.h */
+  /* LONG64  __cdecl _InterlockedXor64(LONG64 volatile *Destination,LONG64 Value); moved to psdk_inc/intrin-impl.h */
+  /* LONG64  __cdecl _InterlockedIncrement64(LONG64 volatile *Addend); moved to psdk_inc/intrin-impl.h */
+  /* LONG64  __cdecl _InterlockedDecrement64(LONG64 volatile *Addend); moved to psdk_inc/intrin-impl.h */
+  /* LONG64  __cdecl _InterlockedExchange64(LONG64 volatile *Target,LONG64 Value); moved to psdk_inc/intrin-impl.h */
+  /* LONG64  __cdecl _InterlockedExchangeAdd64(LONG64 volatile *Addend,LONG64 Value); moved to psdk_inc/intrin-impl.h */
+  /* LONG64  __cdecl _InterlockedCompareExchange64(LONG64 volatile *Destination,LONG64 ExChange,LONG64 Comperand); moved to psdk_inc/intrin-impl.h */
 
 #else /* not ia64, nor x64.  */
 
@@ -1031,15 +1034,15 @@ extern "C" {
 
 #define InterlockedExchangePointer(Target,Value) (PVOID)InterlockedExchange((PLONG)(Target),(LONG)(Value))
 
-  LONGLONG WINAPI InterlockedAnd64 (LONGLONG volatile *Destination,LONGLONG Value);
-  LONGLONG WINAPI InterlockedOr64 (LONGLONG volatile *Destination,LONGLONG Value);
-  LONGLONG WINAPI InterlockedXor64 (LONGLONG volatile *Destination,LONGLONG Value);
-  LONGLONG WINAPI InterlockedIncrement64(LONGLONG volatile *Addend);
-  LONGLONG WINAPI InterlockedDecrement64(LONGLONG volatile *Addend);
-  LONGLONG WINAPI InterlockedExchange64(LONGLONG volatile *Target,LONGLONG Value);
-  LONGLONG WINAPI InterlockedExchangeAdd64(LONGLONG volatile *Addend,LONGLONG Value);
-#ifndef __CRT__NO_INLINE
-  __CRT_INLINE LONGLONG WINAPI InterlockedAnd64 (LONGLONG volatile *Destination,LONGLONG Value) {
+  LONGLONG __cdecl InterlockedAnd64 (LONGLONG volatile *Destination,LONGLONG Value);
+  LONGLONG __cdecl InterlockedOr64 (LONGLONG volatile *Destination,LONGLONG Value);
+  LONGLONG __cdecl InterlockedXor64 (LONGLONG volatile *Destination,LONGLONG Value);
+  LONGLONG __cdecl InterlockedIncrement64(LONGLONG volatile *Addend);
+  LONGLONG __cdecl InterlockedDecrement64(LONGLONG volatile *Addend);
+  LONGLONG __cdecl InterlockedExchange64(LONGLONG volatile *Target,LONGLONG Value);
+  LONGLONG __cdecl InterlockedExchangeAdd64(LONGLONG volatile *Addend,LONGLONG Value);
+
+  FORCEINLINE LONGLONG InterlockedAnd64 (LONGLONG volatile *Destination,LONGLONG Value) {
     LONGLONG Old;
     do {
       Old = *Destination;
@@ -1047,7 +1050,7 @@ extern "C" {
     return Old;
   }
 
-  __CRT_INLINE LONGLONG WINAPI InterlockedOr64 (LONGLONG volatile *Destination,LONGLONG Value) {
+  FORCEINLINE LONGLONG InterlockedOr64 (LONGLONG volatile *Destination,LONGLONG Value) {
     LONGLONG Old;
     do {
       Old = *Destination;
@@ -1055,7 +1058,7 @@ extern "C" {
     return Old;
   }
 
-  __CRT_INLINE LONGLONG WINAPI InterlockedXor64 (LONGLONG volatile *Destination,LONGLONG Value) {
+  FORCEINLINE LONGLONG InterlockedXor64 (LONGLONG volatile *Destination,LONGLONG Value) {
     LONGLONG Old;
     do {
       Old = *Destination;
@@ -1064,7 +1067,7 @@ extern "C" {
     return Old;
   }
 
-  __CRT_INLINE LONGLONG WINAPI InterlockedIncrement64(LONGLONG volatile *Addend) {
+  FORCEINLINE LONGLONG InterlockedIncrement64(LONGLONG volatile *Addend) {
     LONGLONG Old;
     do {
       Old = *Addend;
@@ -1072,7 +1075,7 @@ extern "C" {
     return Old + 1;
   }
 
-  __CRT_INLINE LONGLONG WINAPI InterlockedDecrement64(LONGLONG volatile *Addend) {
+  FORCEINLINE LONGLONG InterlockedDecrement64(LONGLONG volatile *Addend) {
     LONGLONG Old;
     do {
       Old = *Addend;
@@ -1080,7 +1083,7 @@ extern "C" {
     return Old - 1;
   }
 
-  __CRT_INLINE LONGLONG WINAPI InterlockedExchange64(LONGLONG volatile *Target,LONGLONG Value) {
+  FORCEINLINE LONGLONG InterlockedExchange64(LONGLONG volatile *Target,LONGLONG Value) {
     LONGLONG Old;
     do {
       Old = *Target;
@@ -1088,17 +1091,16 @@ extern "C" {
     return Old;
   }
 
-  __CRT_INLINE LONGLONG WINAPI InterlockedExchangeAdd64(LONGLONG volatile *Addend,LONGLONG Value) {
+  FORCEINLINE LONGLONG InterlockedExchangeAdd64(LONGLONG volatile *Addend,LONGLONG Value) {
     LONGLONG Old;
     do {
       Old = *Addend;
     } while(InterlockedCompareExchange64(Addend,Old + Value,Old)!=Old);
     return Old;
   }
-#endif /* !__CRT__NO_INLINE */
 
-#if defined(__cplusplus) && !defined(__CRT__NO_INLINE)
-  __CRT_INLINE PVOID __cdecl
+#if defined(__cplusplus)
+  FORCEINLINE PVOID __cdecl
   __InlineInterlockedCompareExchangePointer(PVOID volatile *Destination,PVOID ExChange,PVOID Comperand) {
     return ((PVOID)(LONG_PTR)
 	    InterlockedCompareExchange((LONG volatile *)(LONG_PTR)Destination,(LONG)(LONG_PTR)ExChange,(LONG)(LONG_PTR)Comperand));

@@ -56,6 +56,11 @@ __INTRINSICS_USEINLINE
    included multiple times.  This is because this file might be included multiple
    times to define various subsets of the functions it contains. */
 
+/* However we do check for __MINGW_INTRIN_INLINE.  In theory this means we
+   can work with other compilers.  */
+
+#ifdef __MINGW_INTRIN_INLINE
+
 #include <psdk_inc/intrin-mac.h>
 
 /* The Barrier functions can never be in the library.  Since gcc only
@@ -167,6 +172,30 @@ supports ReadWriteBarrier, map all 3 to do the same. */
 #define __INTRINSIC_SPECIAL__BitScanReverse64
 
 #endif /* __INTRINSIC_GROUP_WINNT */
+
+#ifdef __INTRINSIC_GROUP_WINBASE
+#undef __INTRINSIC_GROUP_WINBASE /* Remove this for efficiency if intrin-impl.h is included again */
+
+/* Note that this gets undefined at the end of this file */
+#define __INTRINSIC_ONLYSPECIAL
+
+#define __INTRINSIC_SPECIAL__InterlockedIncrement
+#define __INTRINSIC_SPECIAL__InterlockedDecrement
+#define __INTRINSIC_SPECIAL__InterlockedExchange
+#define __INTRINSIC_SPECIAL__InterlockedExchangeAdd
+#define __INTRINSIC_SPECIAL__InterlockedCompareExchange
+#define __INTRINSIC_SPECIAL__InterlockedCompareExchangePointer
+#define __INTRINSIC_SPECIAL__InterlockedExchangePointer
+#define __INTRINSIC_SPECIAL__InterlockedAnd64
+#define __INTRINSIC_SPECIAL__InterlockedOr64
+#define __INTRINSIC_SPECIAL__InterlockedXor64
+#define __INTRINSIC_SPECIAL__InterlockedIncrement64
+#define __INTRINSIC_SPECIAL__InterlockedDecrement64
+#define __INTRINSIC_SPECIAL__InterlockedExchange64
+#define __INTRINSIC_SPECIAL__InterlockedExchangeAdd64
+#define __INTRINSIC_SPECIAL__InterlockedCompareExchange64
+
+#endif /* __INTRINSIC_GROUP_WINBASE */
 
 /* To add an additional group, put the #ifdef and definitions here. */
 
@@ -633,3 +662,5 @@ __buildwriteseg(__writefsdword, unsigned __LONG32, "fs")
 #undef __INTRINSIC_PROLOG
 #undef __INTRINSIC_EPILOG
 #undef __INTRINSICS_USEINLINE
+
+#endif /* __MINGW_INTRIN_INLINE */
