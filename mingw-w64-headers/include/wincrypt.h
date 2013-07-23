@@ -637,6 +637,8 @@ extern "C" {
     void *pReserved;
   } CMS_DH_KEY_INFO,*PCMS_DH_KEY_INFO;
 
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+
 #define CryptAcquireContext __MINGW_NAME_AW(CryptAcquireContext)
 #define CryptSignHash __MINGW_NAME_AW(CryptSignHash)
 #define CryptVerifySignature __MINGW_NAME_AW(CryptVerifySignature)
@@ -688,6 +690,8 @@ extern "C" {
   WINIMPM WINBOOL WINAPI CryptDuplicateKey(HCRYPTKEY hKey,DWORD *pdwReserved,DWORD dwFlags,HCRYPTKEY *phKey);
   WINIMPM WINBOOL WINAPI CryptDuplicateHash(HCRYPTHASH hHash,DWORD *pdwReserved,DWORD dwFlags,HCRYPTHASH *phHash);
   WINBOOL __cdecl GetEncSChannel(BYTE **pData,DWORD *dwDecSize);
+
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 
   typedef struct _CRYPT_BIT_BLOB {
     DWORD cbData;
