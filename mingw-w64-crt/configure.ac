@@ -118,23 +118,25 @@ AS_VAR_IF([enable_libce],[yes],[
   AS_IF([AS_VAR_TEST_SET([LIB32]) || AS_VAR_TEST_SET([LIB64])],
     [AC_MSG_WARN([Building the runtime to use libce with lib32 or lib64 is unsupported.])])])
 
-AS_CASE([$enable_w32api],
-  [yes],[
-	    AC_SUBST([LIB64SUFFIXDIR],[lib64/w32api])
-	    AC_SUBST([LIB32SUFFIXDIR],[lib/w32api])
-	],
-  [AS_CASE([$host_cpu],
-	  [x86_64],[
-	    AC_SUBST([LIB64SUFFIXDIR],[lib])
-	    AC_SUBST([LIB32SUFFIXDIR],[lib32])],
-	  [i*86],[
-	    AC_SUBST([LIB64SUFFIXDIR],[lib64])
-	    AC_SUBST([LIB32SUFFIXDIR],[lib])],
-	  [
-	    AC_SUBST([LIB64SUFFIXDIR],[lib64])
-	    AC_SUBST([LIB32SUFFIXDIR],[lib32])]
-	  )]
+AS_CASE([$host_cpu],
+  [x86_64],[
+    lib64suffx=lib
+    lib32suffx=lib32],
+  [i*86],[
+    lib64suffx=lib64
+    lib32suffx=lib],
+  [
+    lib64suffx=lib64
+    lib32suffx=lib32]
 )
+
+AS_VAR_IF([enable_w32api],[yes],[
+  lib64suffx=$lib64suffx/w32api
+  lib32suffx=$lib32suffx/w32api
+])
+
+AC_SUBST([LIB64SUFFIXDIR],[$lib64suffx])
+AC_SUBST([LIB32SUFFIXDIR],[$lib32suffx])
 
 # Checks for features.
 

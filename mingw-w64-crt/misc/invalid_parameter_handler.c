@@ -1,6 +1,6 @@
 #include <windows.h>
-#include <stdlib.h>
 
+typedef void (__cdecl *_invalid_parameter_handler)(const wchar_t *,const wchar_t *,const wchar_t *,unsigned int,uintptr_t);
 static _invalid_parameter_handler handler;
 
 static _invalid_parameter_handler __cdecl mingw_set_invalid_parameter_handler(_invalid_parameter_handler new_handler)

@@ -23,7 +23,6 @@
 #define _PTRDIFF_T_DEFINED
 #define _WCHAR_T_DEFINED
 #define _WCTYPE_T_DEFINED
-#define _ERRCODE_DEFINED	/* FIXME?  errno_t is no POSIX type. */
 #define _TIME_T_DEFINED
 
 /* _WIN64 is defined by the compiler specs when targeting Windows.
