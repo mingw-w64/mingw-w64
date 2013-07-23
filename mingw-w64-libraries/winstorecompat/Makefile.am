@@ -33,4 +33,5 @@ libwinstorecompat_a_SOURCES = \
   src/GetFileSize.c \
   src/Tls.c \
   src/CoCreateInstance.c \
+  src/SHGetFolderPathW.c \
   $(NULL)
