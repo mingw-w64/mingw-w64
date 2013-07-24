@@ -287,7 +287,7 @@ src_intrincs64=\
 
 # these only go into the 32 bit version:
 src_intrincs32=\
-  intrincs/membarrier.c   intrincs/readfsbyte.c   intrincs/readfsword.c   intrincs/readfsdword.c  \
+  intrincs/readfsbyte.c   intrincs/readfsword.c   intrincs/readfsdword.c  \
   intrincs/writefsbyte.c  intrincs/writefsword.c  intrincs/writefsdword.c
 
 if LIB32
