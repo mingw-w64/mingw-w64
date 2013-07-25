@@ -1620,7 +1620,7 @@ extern "C" {
 #else
 #define YieldProcessor __buildpause()
 VOID MemoryBarrier(VOID);
-__CRT_INLINE VOID MemoryBarrier(VOID)
+FORCEINLINE VOID MemoryBarrier(VOID)
 __buildmemorybarrier()
 #endif
 
@@ -6258,9 +6258,9 @@ __buildmemorybarrier()
     struct _TEB *NtCurrentTeb(VOID);
     PVOID GetCurrentFiber(VOID);
     PVOID GetFiberData(VOID);
-    __CRT_INLINE struct _TEB *NtCurrentTeb(VOID) { return (struct _TEB *)__readgsqword(FIELD_OFFSET(NT_TIB,Self)); }
-    __CRT_INLINE PVOID GetCurrentFiber(VOID) { return(PVOID)__readgsqword(FIELD_OFFSET(NT_TIB,FiberData)); }
-    __CRT_INLINE PVOID GetFiberData(VOID) {
+    FORCEINLINE struct _TEB *NtCurrentTeb(VOID) { return (struct _TEB *)__readgsqword(FIELD_OFFSET(NT_TIB,Self)); }
+    FORCEINLINE PVOID GetCurrentFiber(VOID) { return(PVOID)__readgsqword(FIELD_OFFSET(NT_TIB,FiberData)); }
+    FORCEINLINE PVOID GetFiberData(VOID) {
       return *(PVOID *)GetCurrentFiber();
     }
 #endif /* __x86_64 */
