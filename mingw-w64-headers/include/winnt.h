@@ -1185,76 +1185,14 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define BitTestAndSet64 _bittestandset64
 #define BitTestAndReset64 _bittestandreset64
 
-    BOOLEAN _bittest(LONG const *Base,LONG Offset);
-    BOOLEAN _bittestandcomplement(LONG *Base,LONG Offset);
-
-#ifndef __CRT__NO_INLINE
-    __CRT_INLINE BOOLEAN _bittest(LONG const *Base,LONG Offset) {
-      int old = 0;
-      __asm__ __volatile__("btl %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
-	:"Ir" (Offset) : "memory");
-      return (BOOLEAN) (old!=0);
-    }
-    __CRT_INLINE BOOLEAN _bittestandcomplement(LONG *Base,LONG Offset) {
-      int old = 0;
-      __asm__ __volatile__("btcl %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
-	:"Ir" (Offset) : "memory");
-      return (BOOLEAN) (old!=0);
-    }
-#endif /* __CRT__NO_INLINE */
-
-    BOOLEAN _bittestandset(LONG *Base,LONG Offset);
-    BOOLEAN _bittestandreset(LONG *Base,LONG Offset);
-    BOOLEAN _bittest64(LONG64 const *Base,LONG64 Offset);
-    BOOLEAN _bittestandcomplement64(LONG64 *Base,LONG64 Offset);
-    BOOLEAN _bittestandset64(LONG64 *Base,LONG64 Offset);
-    BOOLEAN _bittestandreset64(LONG64 *Base,LONG64 Offset);
-#ifndef __CRT__NO_INLINE
-    __CRT_INLINE BOOLEAN _bittestandset(LONG *Base,LONG Offset) {
-      int old = 0;
-      __asm__ __volatile__("btsl %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
-	:"Ir" (Offset) : "memory");
-      return (BOOLEAN) (old!=0);
-    }
-    __CRT_INLINE BOOLEAN _bittestandreset(LONG *Base,LONG Offset) {
-      int old = 0;
-      __asm__ __volatile__("btrl %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile __LONG32 *) Base))
-	:"Ir" (Offset) : "memory");
-      return (BOOLEAN) (old!=0);
-    }
-    __CRT_INLINE BOOLEAN _bittest64(LONG64 const *Base,LONG64 Offset) {
-      int old = 0;
-      __asm__ __volatile__("btq %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
-	:"Ir" (Offset) : "memory");
-      return (BOOLEAN) (old!=0);
-    }
-    __CRT_INLINE BOOLEAN _bittestandcomplement64(LONG64 *Base,LONG64 Offset) {
-      int old = 0;
-      __asm__ __volatile__("btcq %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
-	:"Ir" (Offset) : "memory");
-      return (BOOLEAN) (old!=0);
-    }
-    __CRT_INLINE BOOLEAN _bittestandset64(LONG64 *Base,LONG64 Offset) {
-      int old = 0;
-      __asm__ __volatile__("btsq %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
-	:"Ir" (Offset) : "memory");
-      return (BOOLEAN) (old!=0);
-    }
-    __CRT_INLINE BOOLEAN _bittestandreset64(LONG64 *Base,LONG64 Offset) {
-      int old = 0;
-      __asm__ __volatile__("btrq %2,%1\n\tsbbl %0,%0 "
-	:"=r" (old),"=m" ((*(volatile LONG64 *) Base))
-	:"Ir" (Offset) : "memory");
-      return (BOOLEAN) (old!=0);
-    }
-#endif /* !__CRT__NO_INLINE */
+    /* BOOLEAN _bittest(LONG const *Base,LONG Offset);  moved to psdk_inc/intrin-impl.h */
+    /* BOOLEAN _bittestandcomplement(LONG *Base,LONG Offset); moved to psdk_inc/intrin-impl.h */
+    /* BOOLEAN _bittestandset(LONG *Base,LONG Offset); moved to psdk_inc/intrin-impl.h */
+    /* BOOLEAN _bittestandreset(LONG *Base,LONG Offset); moved to psdk_inc/intrin-impl.h */
+    /* BOOLEAN _bittest64(LONG64 const *Base,LONG64 Offset); moved to psdk_inc/intrin-impl.h */
+    /* BOOLEAN _bittestandcomplement64(LONG64 *Base,LONG64 Offset); moved to psdk_inc/intrin-impl.h */
+    /* BOOLEAN _bittestandset64(LONG64 *Base,LONG64 Offset); moved to psdk_inc/intrin-impl.h */
+    /* BOOLEAN _bittestandreset64(LONG64 *Base,LONG64 Offset); moved to psdk_inc/intrin-impl.h */
 
 #define BitScanForward _BitScanForward
 #define BitScanReverse _BitScanReverse

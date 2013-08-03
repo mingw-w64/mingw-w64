@@ -86,7 +86,7 @@ __INTRINSICS_USEINLINE
 
 /* Parameters: (FunctionName, DataType, Operator)
    FunctionName: Any valid function name
-   DataType: __LONG32 or LONG64
+   DataType: __LONG32 or __int64
    Operator: One of xor, or, and */
 #define __buildlogicali(x, y, o) y x(volatile y *Destination, y Value) \
 { \
@@ -100,7 +100,7 @@ __INTRINSICS_USEINLINE
 
 /* Parameters: (FunctionName, DataType, AsmCode, OffsetConstraint, Volatile)
    FunctionName: Any valid function name
-   DataType: __LONG32 or LONG64
+   DataType: __LONG32 or __int64
    OffsetConstraint: either "I" for 32bit data types or "J" for 64.
    Volatile: either volatile or blank. */
 #define __buildbittesti(x, y, z, a, b) unsigned char x(b y *Base, y Offset) \
@@ -163,9 +163,10 @@ Parameters: (FunctionName, DataType, Segment)
 
 /* This macro is used by _BitScanForward, _BitScanForward64, _BitScanReverse _BitScanReverse64
 
+Parameters: (FunctionName, DataType, Segment)
    FunctionName: Any valid function name
    DataType: unsigned __LONG32 or unsigned __int64
-   Segment: BSF or BSR */
+   Statement: BSF or BSR */
 
 #define __buildbitscan(x, y, z) unsigned char x(unsigned __LONG32 *Index, y Mask) \
 { \
@@ -176,6 +177,44 @@ Parameters: (FunctionName, DataType, Segment)
       : "cc"); \
    *Index = n; \
    return Mask!=0; \
+}
+
+/* This macro is used by _bittest & _bittest64
+
+Parameters: (FunctionName, DataType, OffsetConstraint)
+   FunctionName: Any valid function name
+   DataType: __LONG32 or __int64
+   OffsetConstraint: either "I" for 32bit data types or "J" for 64.
+
+   */
+#define __buildbittest(x, y, a) unsigned char x(const y *Base, y Offset) \
+{ \
+   unsigned char old; \
+   __asm__ ("bt{%z[Base] %[Offset],%[Base] | %[Base],%[Offset]} ; setc %[old]" \
+      : [old] "=rm" (old) \
+      : [Offset] a "r" (Offset), [Base] "rm" (*Base) \
+      : "cc"); \
+   return old; \
+}
+
+/* This macro is used by _bittestandset, _bittestandreset, _bittestandcomplement,
+   _bittestandset64, _bittestandreset64, _bittestandcomplement64
+
+Parameters: (FunctionName, DataType, Statement, OffsetConstraint)
+   FunctionName: Any valid function name
+   DataType: __LONG32 or __int64
+   Statement: asm statement (bts, btr, btc)
+   OffsetConstraint: either "I" for 32bit data types or "J" for 64.
+
+   */
+#define __buildbittestand(x, y, z, a) unsigned char x(y *Base, y Offset) \
+{ \
+   unsigned char old; \
+   __asm__ (z "%z[Base] {%[Offset],%[Base] | %[Base],%[Offset]} ; setc %[old]" \
+      : [old] "=r" (old), [Base] "+rm" (*Base) \
+      : [Offset] a "r" (Offset) \
+      : "cc"); \
+   return old; \
 }
 
 #endif /* _INTRIN_MAC_ */
@@ -217,7 +256,7 @@ supports ReadWriteBarrier, map all 3 to do the same. */
    there can be overlap (definitions that appear in more than one
    file).  This is handled by __INTRINSIC_DEFINED_*
 
-   If no groups are defined (such as what happens when including intrin.h,
+   If no groups are defined (such as what happens when including intrin.h),
    all intrinsics are defined.   */
 
 /* If __INTRINSIC_ONLYSPECIAL is defined at this point, we are processing case 2.  In 
@@ -287,6 +326,14 @@ supports ReadWriteBarrier, map all 3 to do the same. */
 #define __INTRINSIC_SPECIAL__BitScanForward64
 #define __INTRINSIC_SPECIAL__BitScanReverse
 #define __INTRINSIC_SPECIAL__BitScanReverse64
+#define __INTRINSIC_SPECIAL__bittest
+#define __INTRINSIC_SPECIAL__bittestandset
+#define __INTRINSIC_SPECIAL__bittestandreset
+#define __INTRINSIC_SPECIAL__bittestandcomplement
+#define __INTRINSIC_SPECIAL__bittest64
+#define __INTRINSIC_SPECIAL__bittestandset64
+#define __INTRINSIC_SPECIAL__bittestandreset64
+#define __INTRINSIC_SPECIAL__bittestandcomplement64
 
 #endif /* __INTRINSIC_GROUP_WINNT */
 
@@ -511,6 +558,34 @@ __buildbitscan(_BitScanReverse64, unsigned __int64, "bsr")
 #define __INTRINSIC_DEFINED__BitScanReverse64
 #endif /* __INTRINSIC_PROLOG */
 
+#if __INTRINSIC_PROLOG(_bittest64)
+__MINGW_EXTENSION unsigned char _bittest64(__int64 const *a, __int64 b);
+__MINGW_EXTENSION __INTRINSICS_USEINLINE
+__buildbittest(_bittest64, __int64, "J")
+#define __INTRINSIC_DEFINED__bittest64
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_bittestandset64)
+__MINGW_EXTENSION unsigned char _bittestandset64(__int64 *a, __int64 b);
+__MINGW_EXTENSION __INTRINSICS_USEINLINE
+__buildbittestand(_bittestandset64, __int64, "bts", "J")
+#define __INTRINSIC_DEFINED__bittestandset64
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_bittestandreset64)
+__MINGW_EXTENSION unsigned char _bittestandreset64(__int64 *a, __int64 b);
+__MINGW_EXTENSION __INTRINSICS_USEINLINE
+__buildbittestand(_bittestandreset64, __int64, "btr", "J")
+#define __INTRINSIC_DEFINED__bittestandreset64
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_bittestandcomplement64)
+__MINGW_EXTENSION unsigned char _bittestandcomplement64(__int64 *a, __int64 b);
+__MINGW_EXTENSION __INTRINSICS_USEINLINE
+__buildbittestand(_bittestandcomplement64, __int64, "btc", "J")
+#define __INTRINSIC_DEFINED__bittestandcomplement64
+#endif /* __INTRINSIC_PROLOG */
+
 #endif /* __x86_64__ */
 
 /* ***************************************************** */
@@ -723,7 +798,37 @@ __buildbitscan(_BitScanReverse, unsigned __LONG32, "bsr")
 #define __INTRINSIC_DEFINED__BitScanReverse
 #endif /* __INTRINSIC_PROLOG */
 
+#if __INTRINSIC_PROLOG(_bittest)
+unsigned char _bittest(__LONG32 const *a, __LONG32 b);
+__INTRINSICS_USEINLINE
+__buildbittest(_bittest, __LONG32, "I")
+#define __INTRINSIC_DEFINED__bittest
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_bittestandset)
+unsigned char _bittestandset(__LONG32 *a, __LONG32 b);
+__INTRINSICS_USEINLINE
+__buildbittestand(_bittestandset, __LONG32, "bts", "I")
+#define __INTRINSIC_DEFINED__bittestandset
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_bittestandreset)
+unsigned char _bittestandreset(__LONG32 *a, __LONG32 b);
+__INTRINSICS_USEINLINE
+__buildbittestand(_bittestandreset, __LONG32, "btr", "I")
+#define __INTRINSIC_DEFINED__bittestandreset
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_bittestandcomplement)
+unsigned char _bittestandcomplement(__LONG32 *a, __LONG32 b);
+__INTRINSICS_USEINLINE
+__buildbittestand(_bittestandcomplement, __LONG32, "btc", "I")
+#define __INTRINSIC_DEFINED__bittestandcomplement
+#endif /* __INTRINSIC_PROLOG */
+
 #endif /* defined(__x86_64__) || (defined(_X86_) */
+
+/* ***************************************************** */
 
 #if defined(_X86_)
 
