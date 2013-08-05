@@ -1,3 +1,8 @@
+/**
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
+ */
+
 #ifndef _P2P_H_
 #define _P2P_H_
 
