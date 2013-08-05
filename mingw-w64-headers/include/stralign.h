@@ -14,11 +14,14 @@
 extern "C" {
 #endif
 
+#ifndef WSTR_ALIGNED
 #if defined (__amd64__) || defined (__arm__)
 #define WSTR_ALIGNED(s) TRUE
 #else
 #define WSTR_ALIGNED(s) (((DWORD_PTR)(s) & 1) == 0)
 #endif
+#endif
+
 #if defined(_X86_)
 #define ua_CharUpperW CharUpperW
 #define ua_lstrcmpiW lstrcmpiW
@@ -38,7 +41,9 @@ extern "C" {
 
 #else /* not _X86_ : */
 
+#ifndef WSTR_ALIGNED
 #define WSTR_ALIGNED(s) (((DWORD_PTR)(s) & (sizeof(WCHAR)-1))==0)
+#endif
 
   /* TODO: This method seems to be not present for amd64.  */
   LPUWSTR WINAPI uaw_CharUpperW(LPUWSTR String);
