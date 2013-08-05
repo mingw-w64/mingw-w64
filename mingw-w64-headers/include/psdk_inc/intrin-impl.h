@@ -217,6 +217,94 @@ Parameters: (FunctionName, DataType, Statement, OffsetConstraint)
    return old; \
 }
 
+/* This macro is used by __inbyte, __inword, __indword
+
+Parameters: (FunctionName, DataType)
+   FunctionName: Any valid function name
+   DataType: unsigned char, unsigned short, unsigned __LONG32
+
+   */
+#define __build_inport(x, y) y x(unsigned short Port) { \
+   y value; \
+      __asm__ __volatile__ ("in{%z0 %w1,%0| %0,%w1}" \
+          : "=a" (value) \
+          : "Nd" (Port)); \
+      return value; \
+   }
+
+/* This macro is used by __outbyte, __outword, __outdword
+
+Parameters: (FunctionName, DataType)
+   FunctionName: Any valid function name
+   DataType: unsigned char, unsigned short, unsigned __LONG32
+
+   */
+#define __build_outport(x, y) void x(unsigned short Port, y Data) { \
+      __asm__ __volatile__ ("out{%z0 %0,%w1| %w1,%0}" \
+          : \
+          : "a" (Data), "Nd" (Port)); \
+   }
+
+/* This macro is used by __inbytestring, __inwordstring, __indwordstring
+
+Parameters: (FunctionName, DataType, InstructionSizeAtt, InstructionSizeIntel)
+   FunctionName: Any valid function name
+   DataType: unsigned char, unsigned short, unsigned __LONG32
+   InstructionSizeAtt: b, w, l
+   InstructionSizeIntel: b, w, d (not b,w,l)
+
+   */
+#define __build_inportstring(x, y, z, a) void x(unsigned short Port, y *Buffer, unsigned __LONG32 Count) { \
+   __asm__ __volatile__ ("cld ; rep ins{" z "|" a "}" \
+      : "=D" (Buffer), "=c" (Count) \
+      : "d"(Port), "0"(Buffer), "1" (Count)); \
+   }
+
+/* This macro is used by __outbytestring, __outwordstring, __outdwordstring
+
+Parameters: (FunctionName, DataType, InstructionSizeAtt, InstructionSizeIntel)
+   FunctionName: Any valid function name
+   DataType: unsigned char, unsigned short, unsigned __LONG32
+   InstructionSizeAtt: b, w, l
+   InstructionSizeIntel: b, w, d (not b,w,l)
+
+   */
+#define __build_outportstring(x, y, z, a) void x(unsigned short Port, y *Buffer, unsigned __LONG32 Count) { \
+   __asm__ __volatile__ ("cld ; rep outs{" z "|" a "}" \
+      : "=S" (Buffer), "=c" (Count) \
+      : "d"(Port), "0"(Buffer), "1" (Count)); \
+  }
+
+/* This macro is used by __readcr0, __readcr2, __readcr3, __readcr4, __readcr8
+
+Parameters: (FunctionName, DataType, RegisterNumber)
+   FunctionName: Any valid function name
+   DataType: unsigned __LONG32, unsigned __int64
+   RegisterNumber: 0, 2, 3, 4, 8
+
+   */
+#define __build_readcr(x, y, z) y x(void) { \
+      y value; \
+      __asm__ __volatile__ ("mov {%%cr" z ", %[value] | %[value], %%cr" z "}" \
+          : [value] "=q" (value)); \
+      return value; \
+  }
+
+/* This macro is used by __writecr0, __writecr2, __writecr3, __writecr4, __writecr8
+
+Parameters: (FunctionName, DataType, RegisterNumber)
+   FunctionName: Any valid function name
+   DataType: unsigned __LONG32, unsigned __int64
+   RegisterNumber: 0, 2, 3, 4, 8
+
+   */
+#define __build_writecr(x, y, z) void x(y Data) { \
+   __asm__ __volatile__ ("mov {%[Data], %%cr" z "|%%cr" z ", %[Data]}" \
+       : \
+       : [Data] "q" (Data) \
+       : "memory"); \
+   }
+
 #endif /* _INTRIN_MAC_ */
 
 /* The Barrier functions can never be in the library.  Since gcc only
@@ -586,6 +674,69 @@ __buildbittestand(_bittestandcomplement64, __int64, "btc", "J")
 #define __INTRINSIC_DEFINED__bittestandcomplement64
 #endif /* __INTRINSIC_PROLOG */
 
+#if __INTRINSIC_PROLOG(__readcr0)
+__MINGW_EXTENSION unsigned __int64 __readcr0(void);
+__INTRINSICS_USEINLINE
+__build_readcr(__readcr0, unsigned __int64, "0")
+#define __INTRINSIC_DEFINED___readcr0
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__readcr2)
+__MINGW_EXTENSION unsigned __int64 __readcr2(void);
+__INTRINSICS_USEINLINE
+__build_readcr(__readcr2, unsigned __int64, "2")
+#define __INTRINSIC_DEFINED___readcr2
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__readcr3)
+__MINGW_EXTENSION unsigned __int64 __readcr3(void);
+__INTRINSICS_USEINLINE
+__build_readcr(__readcr3, unsigned __int64, "3")
+#define __INTRINSIC_DEFINED___readcr3
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__readcr4)
+__MINGW_EXTENSION unsigned __int64 __readcr4(void);
+__INTRINSICS_USEINLINE
+__build_readcr(__readcr4, unsigned __int64, "4")
+#define __INTRINSIC_DEFINED___readcr4
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__readcr8)
+__MINGW_EXTENSION unsigned __int64 __readcr8(void);
+__INTRINSICS_USEINLINE
+__build_readcr(__readcr8, unsigned __int64, "8")
+#define __INTRINSIC_DEFINED___readcr8
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__writecr0)
+__MINGW_EXTENSION void __writecr0(unsigned __int64);
+__INTRINSICS_USEINLINE
+__build_writecr(__writecr0, unsigned __int64, "0")
+#define __INTRINSIC_DEFINED___writecr0
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__writecr3)
+__MINGW_EXTENSION void __writecr3(unsigned __int64);
+__INTRINSICS_USEINLINE
+__build_writecr(__writecr3, unsigned __int64, "3")
+#define __INTRINSIC_DEFINED___writecr3
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__writecr4)
+__MINGW_EXTENSION void __writecr4(unsigned __int64);
+__INTRINSICS_USEINLINE
+__build_writecr(__writecr4, unsigned __int64, "4")
+#define __INTRINSIC_DEFINED___writecr4
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__writecr8)
+__MINGW_EXTENSION void __writecr8(unsigned __int64);
+__INTRINSICS_USEINLINE
+__build_writecr(__writecr8, unsigned __int64, "8")
+#define __INTRINSIC_DEFINED___writecr8
+#endif /* __INTRINSIC_PROLOG */
+
 #endif /* __x86_64__ */
 
 /* ***************************************************** */
@@ -826,6 +977,137 @@ __buildbittestand(_bittestandcomplement, __LONG32, "btc", "I")
 #define __INTRINSIC_DEFINED__bittestandcomplement
 #endif /* __INTRINSIC_PROLOG */
 
+#if __INTRINSIC_PROLOG(__inbyte)
+unsigned char __inbyte(unsigned short Port);
+__INTRINSICS_USEINLINE
+__build_inport(__inbyte, unsigned char)
+#define __INTRINSIC_DEFINED___inbyte
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__inword)
+unsigned short __inword(unsigned short Port);
+__INTRINSICS_USEINLINE
+__build_inport(__inword, unsigned short)
+#define __INTRINSIC_DEFINED___inword
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__indword)
+unsigned __LONG32 __indword(unsigned short Port);
+__INTRINSICS_USEINLINE
+__build_inport(__indword, unsigned __LONG32)
+#define __INTRINSIC_DEFINED___indword
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__outbyte)
+void __outbyte(unsigned short Port, unsigned char Data);
+__INTRINSICS_USEINLINE
+__build_outport(__outbyte, unsigned char)
+#define __INTRINSIC_DEFINED___outbyte
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__outword)
+void __outword(unsigned short Port, unsigned short Data);
+__INTRINSICS_USEINLINE
+__build_outport(__outword, unsigned short)
+#define __INTRINSIC_DEFINED___outword
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__outdword)
+void __outdword(unsigned short Port, unsigned __LONG32 Data);
+__INTRINSICS_USEINLINE
+__build_outport(__outdword, unsigned __LONG32)
+#define __INTRINSIC_DEFINED___outdword
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__inbytestring)
+void __inbytestring(unsigned short Port, unsigned char *Buffer, unsigned __LONG32 Count);
+__INTRINSICS_USEINLINE
+__build_inportstring(__inbytestring, unsigned char, "b", "b")
+#define __INTRINSIC_DEFINED___inbytestring
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__inwordstring)
+void __inwordstring(unsigned short Port, unsigned short *Buffer, unsigned __LONG32 Count);
+__INTRINSICS_USEINLINE
+__build_inportstring(__inwordstring, unsigned short, "w", "w")
+#define __INTRINSIC_DEFINED___inwordstring
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__indwordstring)
+void __indwordstring(unsigned short Port, unsigned __LONG32 *Buffer, unsigned __LONG32 Count);
+__INTRINSICS_USEINLINE
+__build_inportstring(__indwordstring, unsigned __LONG32, "l", "d")
+#define __INTRINSIC_DEFINED___indwordstring
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__outbytestring)
+void __outbytestring(unsigned short Port, unsigned char *Buffer, unsigned __LONG32 Count);
+__INTRINSICS_USEINLINE
+__build_outportstring(__outbytestring, unsigned char, "b", "b")
+#define __INTRINSIC_DEFINED___outbytestring
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__outwordstring)
+void __outwordstring(unsigned short Port, unsigned short *Buffer, unsigned __LONG32 Count);
+__INTRINSICS_USEINLINE
+__build_outportstring(__outwordstring, unsigned short, "w", "w")
+#define __INTRINSIC_DEFINED___outwordstring
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__outdwordstring)
+void __outdwordstring(unsigned short Port, unsigned __LONG32 *Buffer, unsigned __LONG32 Count);
+__INTRINSICS_USEINLINE
+__build_outportstring(__outdwordstring, unsigned __LONG32, "l", "d")
+#define __INTRINSIC_DEFINED___outdwordstring
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__cpuid)
+void __cpuid(int CPUInfo[4], int InfoType);
+__INTRINSICS_USEINLINE
+void __cpuid(int CPUInfo[4], int InfoType) {
+   __asm__ __volatile__ (
+      "cpuid"
+      : "=a" (CPUInfo [0]), "=b" (CPUInfo [1]), "=c" (CPUInfo [2]), "=d" (CPUInfo [3])
+      : "a" (InfoType));
+}
+#define __INTRINSIC_DEFINED___cpuid
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__readmsr)
+__MINGW_EXTENSION unsigned __int64 __readmsr(unsigned __LONG32);
+__INTRINSICS_USEINLINE
+unsigned __int64 __readmsr(unsigned __LONG32 msr)
+{
+#ifdef __x86_64__
+   unsigned __int64 val1, val2;
+#else
+   unsigned __LONG32 val1, val2;
+#endif
+
+   __asm__ __volatile__(
+      "rdmsr"
+      : "=a" (val1), "=d" (val2)
+      : "c" (msr));
+
+   return ((unsigned __int64) val1) | (((unsigned __int64)val2) << 32);
+}
+#define __INTRINSIC_DEFINED___readmsr
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__writemsr)
+__MINGW_EXTENSION void __writemsr(unsigned __LONG32, unsigned __int64);
+__INTRINSICS_USEINLINE
+void __writemsr(unsigned __LONG32 msr, unsigned __int64 Value)
+{
+   unsigned __LONG32 val1 = Value, val2 = Value >> 32;
+   __asm__ __volatile__ (
+      "wrmsr"
+      :
+      : "c" (msr), "a" (val1), "d" (val2));
+}
+#define __INTRINSIC_DEFINED___writemsr
+#endif /* __INTRINSIC_PROLOG */
+
 #endif /* defined(__x86_64__) || (defined(_X86_) */
 
 /* ***************************************************** */
@@ -872,6 +1154,69 @@ void __writefsdword(unsigned __LONG32 Offset,unsigned __LONG32 Data);
 __INTRINSICS_USEINLINE
 __buildwriteseg(__writefsdword, unsigned __LONG32, "fs")
 #define __INTRINSIC_DEFINED___writefsdword
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__readcr0)
+unsigned __LONG32 __readcr0(void);
+__INTRINSICS_USEINLINE
+__build_readcr(__readcr0, unsigned __LONG32, "0")
+#define __INTRINSIC_DEFINED___readcr0
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__readcr2)
+unsigned __LONG32 __readcr2(void);
+__INTRINSICS_USEINLINE
+__build_readcr(__readcr2, unsigned __LONG32, "2")
+#define __INTRINSIC_DEFINED___readcr2
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__readcr3)
+unsigned __LONG32 __readcr3(void);
+__INTRINSICS_USEINLINE
+__build_readcr(__readcr3, unsigned __LONG32, "3")
+#define __INTRINSIC_DEFINED___readcr3
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__readcr4)
+unsigned __LONG32 __readcr4(void);
+__INTRINSICS_USEINLINE
+__build_readcr(__readcr4, unsigned __LONG32, "4")
+#define __INTRINSIC_DEFINED___readcr4
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__readcr8)
+unsigned __LONG32 __readcr8(void);
+__INTRINSICS_USEINLINE
+__build_readcr(__readcr8, unsigned __LONG32, "8")
+#define __INTRINSIC_DEFINED___readcr8
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__writecr0)
+void __writecr0(unsigned __LONG32);
+__INTRINSICS_USEINLINE
+__build_writecr(__writecr0, unsigned __LONG32, "0")
+#define __INTRINSIC_DEFINED___writecr0
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__writecr3)
+void __writecr3(unsigned __LONG32);
+__INTRINSICS_USEINLINE
+__build_writecr(__writecr3, unsigned __LONG32, "3")
+#define __INTRINSIC_DEFINED___writecr3
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__writecr4)
+void __writecr4(unsigned __LONG32);
+__INTRINSICS_USEINLINE
+__build_writecr(__writecr4, unsigned __LONG32, "4")
+#define __INTRINSIC_DEFINED___writecr4
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__writecr8)
+void __writecr8(unsigned __LONG32);
+__INTRINSICS_USEINLINE
+__build_writecr(__writecr8, unsigned __LONG32, "8")
+#define __INTRINSIC_DEFINED___writecr8
 #endif /* __INTRINSIC_PROLOG */
 
 #endif /* defined(_X86_) */

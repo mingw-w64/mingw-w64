@@ -4,14 +4,7 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+#define __INTRINSIC_ONLYSPECIAL
+#define __INTRINSIC_SPECIAL___outdwordstring // Causes code generation in intrin-impl.h
+
 #include <intrin.h>
-
-void __outdwordstring(unsigned short Port,unsigned __LONG32 *Buffer,unsigned __LONG32 Count)
-{
-    __asm__ __volatile__ (
-        "cld ; rep ; outsl " 
-        : "=S" (Buffer), "=c" (Count)
-        : "d"(Port), "0"(Buffer), "1" (Count)
-        );
-}
-

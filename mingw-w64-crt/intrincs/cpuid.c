@@ -4,13 +4,7 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+#define __INTRINSIC_ONLYSPECIAL
+#define __INTRINSIC_SPECIAL___cpuid // Causes code generation in intrin-impl.h
+
 #include <intrin.h>
-
-  void __cpuid(int CPUInfo[4], int InfoType)
-  {
-      __asm__ __volatile__ (
-          "cpuid"
-          : "=a" (CPUInfo [0]), "=b" (CPUInfo [1]), "=c" (CPUInfo [2]), "=d" (CPUInfo [3])
-          : "a" (InfoType));
-  }
-

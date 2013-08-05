@@ -4,14 +4,7 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+#define __INTRINSIC_ONLYSPECIAL
+#define __INTRINSIC_SPECIAL___writemsr // Causes code generation in intrin-impl.h
+
 #include <intrin.h>
-
-void __writemsr (unsigned __LONG32 msr, unsigned __int64 Value)
-{
-    unsigned __LONG32 val1 = Value, val2 = Value >> 32;
-   __asm__ __volatile__ (
-       "wrmsr"
-       :
-       : "c" (msr), "a" (val1), "d" (val2));
-}
-

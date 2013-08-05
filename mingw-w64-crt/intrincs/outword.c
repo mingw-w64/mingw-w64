@@ -4,12 +4,7 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+#define __INTRINSIC_ONLYSPECIAL
+#define __INTRINSIC_SPECIAL___outword // Causes code generation in intrin-impl.h
+
 #include <intrin.h>
-
-void __outword(unsigned short Port,unsigned short Data)
-{
-    __asm__ __volatile__ ("outw %w0,%w1"
-        :
-    : "a" (Data), "Nd" (Port));
-}
-

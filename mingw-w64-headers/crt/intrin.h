@@ -995,26 +995,28 @@ extern "C" {
     /* __MACHINEX64(void __faststorefence(void)) moved to psdk_inc/intrin-impl.h */
     __MACHINEX64(__MINGW_EXTENSION __int64 __mulh(__int64,__int64))
     __MACHINEX64(__MINGW_EXTENSION unsigned __int64 __umulh(unsigned __int64,unsigned __int64))
-    __MACHINEX64(__MINGW_EXTENSION unsigned __int64 __readcr0(void))
-    __MACHINEX64(__MINGW_EXTENSION unsigned __int64 __readcr2(void))
-    __MACHINEX64(__MINGW_EXTENSION unsigned __int64 __readcr3(void))
-    __MACHINEX64(__MINGW_EXTENSION unsigned __int64 __readcr4(void))
-    __MACHINEX64(__MINGW_EXTENSION unsigned __int64 __readcr8(void))
-    __MACHINEIA32(unsigned __LONG32 __readcr0(void))
-    __MACHINEIA32(unsigned __LONG32 __readcr2(void))
-    __MACHINEIA32(unsigned __LONG32 __readcr3(void))
-    __MACHINEIA32(unsigned __LONG32 __readcr4(void))
-    __MACHINEX64(__MINGW_EXTENSION void __writecr0(unsigned __int64))
-    __MACHINEX64(__MINGW_EXTENSION void __writecr3(unsigned __int64))
-    __MACHINEX64(__MINGW_EXTENSION void __writecr4(unsigned __int64))
-    __MACHINEX64(__MINGW_EXTENSION void __writecr8(unsigned __int64))
-    __MACHINEIA32(void __writecr0(unsigned))
-    __MACHINEIA32(void __writecr3(unsigned))
-    __MACHINEIA32(void __writecr4(unsigned))
+    /* __MACHINEX64(__MINGW_EXTENSION unsigned __int64 __readcr0(void)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEX64(__MINGW_EXTENSION unsigned __int64 __readcr2(void)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEX64(__MINGW_EXTENSION unsigned __int64 __readcr3(void)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEX64(__MINGW_EXTENSION unsigned __int64 __readcr4(void)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEX64(__MINGW_EXTENSION unsigned __int64 __readcr8(void)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEIA32(unsigned __LONG32 __readcr0(void)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEIA32(unsigned __LONG32 __readcr2(void)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEIA32(unsigned __LONG32 __readcr3(void)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEIA32(unsigned __LONG32 __readcr4(void)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEIA32(unsigned __LONG32 __readcr8(void)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEX64(__MINGW_EXTENSION void __writecr0(unsigned __int64)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEX64(__MINGW_EXTENSION void __writecr3(unsigned __int64)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEX64(__MINGW_EXTENSION void __writecr4(unsigned __int64)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEX64(__MINGW_EXTENSION void __writecr8(unsigned __int64)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEIA32(void __writecr0(unsigned)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEIA32(void __writecr3(unsigned)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEIA32(void __writecr4(unsigned)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEIA32(void __writecr8(unsigned)) moved to psdk_inc/intrin-impl.h */
     __MACHINEI(void __wbinvd(void))
     __MACHINEI(void __invlpg(void*))
-    __MACHINEI(__MINGW_EXTENSION unsigned __int64 __readmsr(unsigned __LONG32))
-    __MACHINEI(__MINGW_EXTENSION void __writemsr(unsigned __LONG32,unsigned __int64))
+    /* __MACHINEI(__MINGW_EXTENSION unsigned __int64 __readmsr(unsigned __LONG32)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEI(__MINGW_EXTENSION void __writemsr(unsigned __LONG32,unsigned __int64)) moved to psdk_inc/intrin-impl.h */
 #ifndef __GNUC__
     __MACHINEI(__MINGW_EXTENSION unsigned __int64 __rdtsc(void))
 #endif
@@ -1030,18 +1032,18 @@ extern "C" {
     /* __MACHINEX64(void __writegsword(unsigned __LONG32 Offset,unsigned short Data)) moved to psdk_inc/intrin-impl.h */
     /* __MACHINEX64(void __writegsdword(unsigned __LONG32 Offset,unsigned __LONG32 Data)) moved to psdk_inc/intrin-impl.h */
     /* __MACHINEX64(__MINGW_EXTENSION void __writegsqword(unsigned __LONG32 Offset,unsigned __int64 Data)) moved to psdk_inc/intrin-impl.h */
-    __MACHINEI(unsigned char __inbyte(unsigned short Port))
-    __MACHINEI(unsigned short __inword(unsigned short Port))
-    __MACHINEI(unsigned __LONG32 __indword(unsigned short Port))
-    __MACHINEI(void __outbyte(unsigned short Port,unsigned char Data))
-    __MACHINEI(void __outword(unsigned short Port,unsigned short Data))
-    __MACHINEI(void __outdword(unsigned short Port,unsigned __LONG32 Data))
-    __MACHINEI(void __inbytestring(unsigned short Port,unsigned char *Buffer,unsigned __LONG32 Count))
-    __MACHINEI(void __inwordstring(unsigned short Port,unsigned short *Buffer,unsigned __LONG32 Count))
-    __MACHINEI(void __indwordstring(unsigned short Port,unsigned __LONG32 *Buffer,unsigned __LONG32 Count))
-    __MACHINEI(void __outbytestring(unsigned short Port,unsigned char *Buffer,unsigned __LONG32 Count))
-    __MACHINEI(void __outwordstring(unsigned short Port,unsigned short *Buffer,unsigned __LONG32 Count))
-    __MACHINEI(void __outdwordstring(unsigned short Port,unsigned __LONG32 *Buffer,unsigned __LONG32 Count))
+    /* __MACHINEI(unsigned char __inbyte(unsigned short Port)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEI(unsigned short __inword(unsigned short Port)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEI(unsigned __LONG32 __indword(unsigned short Port)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEI(void __outbyte(unsigned short Port,unsigned char Data)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEI(void __outword(unsigned short Port,unsigned short Data)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEI(void __outdword(unsigned short Port,unsigned __LONG32 Data)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEI(void __inbytestring(unsigned short Port,unsigned char *Buffer,unsigned __LONG32 Count)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEI(void __inwordstring(unsigned short Port,unsigned short *Buffer,unsigned __LONG32 Count)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEI(void __indwordstring(unsigned short Port,unsigned __LONG32 *Buffer,unsigned __LONG32 Count)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEI(void __outbytestring(unsigned short Port,unsigned char *Buffer,unsigned __LONG32 Count)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEI(void __outwordstring(unsigned short Port,unsigned short *Buffer,unsigned __LONG32 Count)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEI(void __outdwordstring(unsigned short Port,unsigned __LONG32 *Buffer,unsigned __LONG32 Count)) moved to psdk_inc/intrin-impl.h */
     __MACHINEI(unsigned int __getcallerseflags())
 #if !defined(__GNUC__) || !defined(__SSE2__)
     __MACHINEX64(__MINGW_EXTENSION __m128i _mm_set_epi64x(__int64 i1,__int64 i0))

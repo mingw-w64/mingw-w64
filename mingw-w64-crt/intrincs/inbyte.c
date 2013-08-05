@@ -4,14 +4,7 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+#define __INTRINSIC_ONLYSPECIAL
+#define __INTRINSIC_SPECIAL___inbyte // Causes code generation in intrin-impl.h
+
 #include <intrin.h>
-
-unsigned char __inbyte(unsigned short Port)
-{
-    unsigned char value;
-    __asm__ __volatile__ ("inb %w1,%b0"
-        : "=a" (value)
-        : "Nd" (Port));
-    return value;
-}
-

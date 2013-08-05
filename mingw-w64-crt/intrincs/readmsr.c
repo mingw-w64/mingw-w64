@@ -4,19 +4,7 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+#define __INTRINSIC_ONLYSPECIAL
+#define __INTRINSIC_SPECIAL___readmsr // Causes code generation in intrin-impl.h
+
 #include <intrin.h>
-
-unsigned __int64 __readmsr(unsigned __LONG32 msr)
-{
-#ifdef _WIN64
-      unsigned __int64 val1, val2;
-#else
-      unsigned val1, val2;
-#endif
-       __asm__ __volatile__(
-           "rdmsr"
-           : "=a" (val1), "=d" (val2)
-           : "c" (msr));
-      return ((unsigned __int64) val1) | (((unsigned __int64)val2) << 32);
-}
-

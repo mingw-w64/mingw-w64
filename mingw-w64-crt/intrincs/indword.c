@@ -4,14 +4,7 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+#define __INTRINSIC_ONLYSPECIAL
+#define __INTRINSIC_SPECIAL___indword // Causes code generation in intrin-impl.h
+
 #include <intrin.h>
-
-unsigned __LONG32 __indword(unsigned short Port)
-{
-    unsigned __LONG32 value;
-    __asm__ __volatile__ ("inl %w1,%0"
-        : "=a" (value)
-        : "Nd" (Port));
-    return value;
-}
-
