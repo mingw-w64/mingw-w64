@@ -4520,9 +4520,9 @@ typedef struct _userSTGMEDIUM {
 } userSTGMEDIUM;
 #else
 typedef struct _userSTGMEDIUM {
-    __C89_NAMELESS struct _STGMEDIUM_UNION {
+    /* __C89_NAMELESS struct _STGMEDIUM_UNION { */
         DWORD tymed;
-        union {
+        __extension__ union {
             wireHMETAFILEPICT hMetaFilePict;
             wireHENHMETAFILE hHEnhMetaFile;
             GDI_OBJECT *hGdiHandle;
@@ -4531,7 +4531,7 @@ typedef struct _userSTGMEDIUM {
             BYTE_BLOB *pstm;
             BYTE_BLOB *pstg;
         } u;
-    } DUMMYUNIONNAME;
+    /* } DUMMYUNIONNAME; */
     IUnknown *pUnkForRelease;
 } userSTGMEDIUM;
 #endif
