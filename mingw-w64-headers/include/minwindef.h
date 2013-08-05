@@ -121,7 +121,7 @@ typedef BOOL *LPBOOL;
 
   typedef unsigned char BYTE;
   typedef unsigned short WORD;
-  typedef unsigned __LOMG32 DWORD;
+  typedef unsigned __LONG32 DWORD;
   typedef float FLOAT;
   typedef FLOAT *PFLOAT;
   typedef BYTE *PBYTE;
