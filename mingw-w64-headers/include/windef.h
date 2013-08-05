@@ -1,12 +1,10 @@
 /**
- * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 #ifndef _WINDEF_
 #define _WINDEF_
 
-#include <_mingw.h>
 #include <minwindef.h>
 
 #ifdef __cplusplus
@@ -17,15 +15,29 @@ extern "C" {
 #define WINVER 0x0502
 #endif
 
+/* Make sure winnt.h is included.  */
+#ifndef NT_INCLUDED
+#include <winnt.h>
+#endif
+
 #ifndef WIN_INTERNAL
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
 DECLARE_HANDLE (HWND);
 DECLARE_HANDLE (HHOOK);
+#endif
 #ifdef WINABLE
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 DECLARE_HANDLE (HEVENT);
 #endif
 #endif
+#endif
 
-typedef void *HGDIOBJ;
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
+#ifdef STRICT
+  typedef void *HGDIOBJ;
+#else
+  DECLARE_HANDLE (HGDIOBJ);
+#endif
 
 DECLARE_HANDLE(HACCEL);
 DECLARE_HANDLE(HBITMAP);
@@ -42,14 +54,20 @@ DECLARE_HANDLE(HPALETTE);
 DECLARE_HANDLE(HPEN);
 DECLARE_HANDLE(HMONITOR);
 DECLARE_HANDLE(HWINEVENTHOOK);
-DECLARE_HANDLE(HUMPD);
 
 typedef HICON HCURSOR;
 typedef DWORD COLORREF;
+#endif
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
+DECLARE_HANDLE(HUMPD);
+
 typedef DWORD *LPCOLORREF;
 
 #define HFILE_ERROR ((HFILE)-1)
+#endif
 
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
 typedef struct tagRECT {
   LONG left;
   LONG top;
@@ -90,6 +108,7 @@ typedef struct tagPOINTS {
   SHORT x;
   SHORT y;
 } POINTS,*PPOINTS,*LPPOINTS;
+#endif
 
 #define DM_UPDATE 1
 #define DM_COPY 2
