@@ -6,6 +6,9 @@
 #define _PATCHAPI_H_
 
 #include <_mingw_unicode.h>
+#include <winapifamily.h>
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 
 #ifdef __cplusplus
 extern "C" {
@@ -41,6 +44,9 @@ extern "C" {
 #define PATCH_SYMBOL_NO_FAILURES 0x00000002
 #define PATCH_SYMBOL_UNDECORATED_TOO 0x00000004
 #define PATCH_SYMBOL_RESERVED1 0x80000000
+
+#define PATCH_TRANSFORM_PE_RESOURCE_2 0x00000100
+#define PATCH_TRANSFORM_PE_IRELOC_2 0x00000200
 
 #define APPLY_OPTION_FAIL_IF_EXACT 0x00000001
 #define APPLY_OPTION_FAIL_IF_CLOSE 0x00000002
@@ -180,5 +186,7 @@ WINBOOL PATCHAPI TestApplyPatchToFileByBuffers(PBYTE PatchFileBuffer, ULONG Patc
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif
 #endif
