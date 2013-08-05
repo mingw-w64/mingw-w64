@@ -1,18 +1,23 @@
 /**
- * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  */
+
 #ifndef _PARSER_H
 #define _PARSER_H
 
+#include <winapifamily.h>
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 #include <stdio.h>
 
 #undef CLASS_IMPORT_EXPORT
 #ifdef HHCTRL
 #define CLASS_IMPORT_EXPORT
+#elif defined (HHSETUP)
+#define CLASS_IMPORT_EXPORT __declspec (dllexport)
 #else
-#define CLASS_IMPORT_EXPORT __declspec(dllimport)
+#define CLASS_IMPORT_EXPORT __declspec (dllimport)
 #endif
 
 #define PARSER_API_INLINE
@@ -47,24 +52,24 @@ private:
   CHAR *m_pCurrentIndex;
   DWORD m_dwError;
 private:
-  DWORD Read();
-  DWORD SetError(DWORD dw) { m_dwError = dw; return m_dwError; }
+  DWORD Read ();
+  DWORD SetError (DWORD dw) { m_dwError = dw; return m_dwError; }
 public:
-  CParseXML() {
+  CParseXML () {
     m_fh = NULL;
     m_cCurBuffer[0] = '\0';
     m_pCurrentIndex = NULL;
     m_dwError = F_OK;
   }
-  ~CParseXML() {
-    End();
+  ~CParseXML () {
+    End ();
   }
-  CHAR *GetFirstWord(CHAR *);
-  CHAR *GetValue(CHAR *);
-  DWORD Start(const CHAR *szFile);
-  void End();
-  CHAR *GetToken();
-  DWORD GetError() { return m_dwError; }
+  CHAR *GetFirstWord (CHAR *);
+  CHAR *GetValue (CHAR *);
+  DWORD Start (const CHAR *szFile);
+  void End ();
+  CHAR *GetToken ();
+  DWORD GetError () { return m_dwError; }
 };
 
 typedef struct fifo {
@@ -76,10 +81,12 @@ class CLASS_IMPORT_EXPORT CFIFOString {
 private:
   FIFO *m_fifoTail;
 public:
-  CFIFOString() { m_fifoTail = NULL; }
-  ~CFIFOString();
-  void RemoveAll();
-  DWORD AddTail(CHAR *sz);
-  DWORD GetTail(CHAR **sz);
+  CFIFOString () { m_fifoTail = NULL; }
+  ~CFIFOString ();
+  void RemoveAll ();
+  DWORD AddTail (CHAR *sz);
+  DWORD GetTail (PZPSTR sz);
 };
+#endif
+
 #endif
