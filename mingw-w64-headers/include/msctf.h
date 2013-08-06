@@ -253,8 +253,6 @@ extern "C" {
 #define TF_E_DISCONNECTED    MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0504)
 #define TF_E_ALREADY_EXISTS  MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0506)
 #define TF_E_NOLOCK          MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0201)
-HRESULT WINAPI SetInputScope(HWND hwnd, INT inputscope);
-HRESULT WINAPI SetInputScopes(HWND hwnd, const INT *pInputScopes, UINT cInputScopes, WCHAR **ppszPhraseList, UINT cPhrases, WCHAR *pszRegExp, WCHAR *pszSRGS);
 HRESULT WINAPI TF_CreateThreadMgr(ITfThreadMgr **pptim);
 HRESULT WINAPI TF_GetThreadMgr(ITfThreadMgr **pptim);
 HRESULT WINAPI TF_CreateInputProcessorProfiles(ITfInputProcessorProfiles **ppipr);
