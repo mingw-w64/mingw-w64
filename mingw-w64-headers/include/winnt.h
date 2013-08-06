@@ -2967,6 +2967,79 @@ __buildmemorybarrier()
     } TOKEN_ACCESS_INFORMATION, *PTOKEN_ACCESS_INFORMATION;
 #endif
 
+#define CLAIM_SECURITY_ATTRIBUTE_TYPE_INVALID 0x00
+
+#define CLAIM_SECURITY_ATTRIBUTE_TYPE_INT64 0x01
+#define CLAIM_SECURITY_ATTRIBUTE_TYPE_UINT64 0x02
+#define CLAIM_SECURITY_ATTRIBUTE_TYPE_STRING 0x03
+#define CLAIM_SECURITY_ATTRIBUTE_TYPE_FQBN 0x04
+#define CLAIM_SECURITY_ATTRIBUTE_TYPE_SID 0x05
+#define CLAIM_SECURITY_ATTRIBUTE_TYPE_BOOLEAN 0x06
+
+    typedef struct _CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
+      DWORD64 Version;
+      PWSTR Name;
+    } CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE,*PCLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE;
+
+    typedef struct _CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
+      PVOID pValue;
+      DWORD ValueLength;
+    } CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE, *PCLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE;
+
+#define CLAIM_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING 0x10
+#define CLAIM_SECURITY_ATTRIBUTE_NON_INHERITABLE 0x0001
+#define CLAIM_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE 0x0002
+#define CLAIM_SECURITY_ATTRIBUTE_USE_FOR_DENY_ONLY 0x0004
+#define CLAIM_SECURITY_ATTRIBUTE_DISABLED_BY_DEFAULT 0x0008
+#define CLAIM_SECURITY_ATTRIBUTE_DISABLED 0x0010
+#define CLAIM_SECURITY_ATTRIBUTE_MANDATORY 0x0020
+
+#define CLAIM_SECURITY_ATTRIBUTE_VALID_FLAGS (CLAIM_SECURITY_ATTRIBUTE_NON_INHERITABLE | CLAIM_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE | CLAIM_SECURITY_ATTRIBUTE_USE_FOR_DENY_ONLY | CLAIM_SECURITY_ATTRIBUTE_DISABLED_BY_DEFAULT | CLAIM_SECURITY_ATTRIBUTE_DISABLED | CLAIM_SECURITY_ATTRIBUTE_MANDATORY)
+#define CLAIM_SECURITY_ATTRIBUTE_CUSTOM_FLAGS 0xffff0000
+
+    typedef struct _CLAIM_SECURITY_ATTRIBUTE_V1 {
+      PWSTR Name;
+      WORD ValueType;
+      WORD Reserved;
+      DWORD Flags;
+      DWORD ValueCount;
+      union {
+	PLONG64 pInt64;
+	PDWORD64 pUint64;
+	PWSTR *ppString;
+	PCLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE pFqbn;
+	PCLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE pOctetString;
+      } Values;
+    } CLAIM_SECURITY_ATTRIBUTE_V1,*PCLAIM_SECURITY_ATTRIBUTE_V1;
+
+    typedef struct _CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
+      DWORD Name;
+      WORD ValueType;
+      WORD Reserved;
+      DWORD Flags;
+      DWORD ValueCount;
+      union {
+	DWORD pInt64[ANYSIZE_ARRAY];
+	DWORD pUint64[ANYSIZE_ARRAY];
+	DWORD ppString[ANYSIZE_ARRAY];
+	DWORD pFqbn[ANYSIZE_ARRAY];
+	DWORD pOctetString[ANYSIZE_ARRAY];
+      } Values;
+    } CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1,*PCLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1;
+
+#define CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1 1
+
+#define CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1
+
+    typedef struct _CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
+      WORD Version;
+      WORD Reserved;
+      DWORD AttributeCount;
+      union {
+	PCLAIM_SECURITY_ATTRIBUTE_V1 pAttributeV1;
+      } Attribute;
+    } CLAIM_SECURITY_ATTRIBUTES_INFORMATION,*PCLAIM_SECURITY_ATTRIBUTES_INFORMATION;
+
 #define SECURITY_DYNAMIC_TRACKING (TRUE)
 #define SECURITY_STATIC_TRACKING (FALSE)
 
@@ -3162,6 +3235,73 @@ __buildmemorybarrier()
       PMCCounter,
       MaxHardwareCounterType
     } HARDWARE_COUNTER_TYPE, *PHARDWARE_COUNTER_TYPE;
+
+    typedef enum _PROCESS_MITIGATION_POLICY {
+      ProcessDEPPolicy,
+      ProcessASLRPolicy,
+      ProcessReserved1MitigationPolicy,
+      ProcessStrictHandleCheckPolicy,
+      ProcessSystemCallDisablePolicy,
+      ProcessMitigationOptionsMask,
+      ProcessExtensionPointDisablePolicy,
+      MaxProcessMitigationPolicy
+    } PROCESS_MITIGATION_POLICY,*PPROCESS_MITIGATION_POLICY;
+
+    typedef struct _PROCESS_MITIGATION_ASLR_POLICY {
+      __C89_NAMELESS union {
+	DWORD Flags;
+	__C89_NAMELESS struct {
+	  DWORD EnableBottomUpRandomization : 1;
+	  DWORD EnableForceRelocateImages : 1;
+	  DWORD EnableHighEntropy : 1;
+	  DWORD DisallowStrippedImages : 1;
+	  DWORD ReservedFlags : 28;
+	};
+      };
+    } PROCESS_MITIGATION_ASLR_POLICY,*PPROCESS_MITIGATION_ASLR_POLICY;
+
+    typedef struct _PROCESS_MITIGATION_DEP_POLICY {
+      __C89_NAMELESS union {
+	DWORD Flags;
+	__C89_NAMELESS struct {
+	  DWORD Enable : 1;
+	  DWORD DisableAtlThunkEmulation : 1;
+	  DWORD ReservedFlags : 30;
+	};
+      };
+      BOOLEAN Permanent;
+    } PROCESS_MITIGATION_DEP_POLICY,*PPROCESS_MITIGATION_DEP_POLICY;
+
+    typedef struct _PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
+      __C89_NAMELESS union {
+	DWORD Flags;
+	__C89_NAMELESS struct {
+	  DWORD RaiseExceptionOnInvalidHandleReference : 1;
+	  DWORD HandleExceptionsPermanentlyEnabled : 1;
+	  DWORD ReservedFlags : 30;
+	};
+      };
+    } PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY,*PPROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY;
+
+    typedef struct _PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
+      __C89_NAMELESS union {
+	DWORD Flags;
+	__C89_NAMELESS struct {
+	  DWORD DisallowWin32kSystemCalls : 1;
+	  DWORD ReservedFlags : 31;
+	};
+      };
+    } PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY,*PPROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY;
+
+    typedef struct _PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
+      __C89_NAMELESS union {
+	DWORD Flags;
+	__C89_NAMELESS struct {
+	  DWORD DisableExtensionPoints : 1;
+	  DWORD ReservedFlags : 31;
+	};
+      };
+    } PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY,*PPROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY;
 
     typedef struct _JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
       LARGE_INTEGER TotalUserTime;
@@ -5562,8 +5702,6 @@ __buildmemorybarrier()
 
 #define VER_SET_CONDITION(_m_,_t_,_c_) ((_m_)=VerSetConditionMask((_m_),(_t_),(_c_)))
 
-    NTSYSAPI ULONGLONG NTAPI VerSetConditionMask(ULONGLONG ConditionMask,DWORD TypeMask,BYTE Condition);
-
     typedef struct _RTL_CRITICAL_SECTION_DEBUG {
       WORD Type;
       WORD CreatorBackTraceIndex;
@@ -5734,7 +5872,9 @@ __buildmemorybarrier()
 
     VOID NTAPI RtlApplicationVerifierStop(ULONG_PTR Code,PSTR Message,ULONG_PTR Param1,PSTR Description1,ULONG_PTR Param2,PSTR Description2,ULONG_PTR Param3,PSTR Description3,ULONG_PTR Param4,PSTR Description4);
 
-    typedef LONG (NTAPI *PVECTORED_EXCEPTION_HANDLER)(struct _EXCEPTION_POINTERS *ExceptionInfo);
+  typedef VOID (NTAPI *PAPCFUNC) (ULONG_PTR Parameter);
+  typedef LONG (NTAPI *PVECTORED_EXCEPTION_HANDLER)(struct _EXCEPTION_POINTERS *ExceptionInfo);
+
 #define SEF_DACL_AUTO_INHERIT 0x01
 #define SEF_SACL_AUTO_INHERIT 0x02
 #define SEF_DEFAULT_DESCRIPTOR_FOR_OBJECT 0x04
@@ -5765,11 +5905,11 @@ __buildmemorybarrier()
 #define WT_TRANSFER_IMPERSONATION 0x00000100
 #define WT_SET_MAX_THREADPOOL_THREADS(Flags,Limit) ((Flags) |= (Limit)<<16)
     typedef VOID (NTAPI *WAITORTIMERCALLBACKFUNC)(PVOID,BOOLEAN);
+    typedef WAITORTIMERCALLBACKFUNC WAITORTIMERCALLBACK;
     typedef VOID (NTAPI *WORKERCALLBACKFUNC)(PVOID);
     typedef VOID (NTAPI *APC_CALLBACK_FUNCTION)(DWORD ,PVOID,PVOID);
-    typedef
-      VOID
-      (NTAPI *PFLS_CALLBACK_FUNCTION)(PVOID lpFlsData);
+    typedef VOID (NTAPI *PFLS_CALLBACK_FUNCTION)(PVOID lpFlsData);
+
 #define WT_EXECUTEINLONGTHREAD 0x00000010
 #define WT_EXECUTEDELETEWAIT 0x00000008
 
@@ -6192,7 +6332,76 @@ __buildmemorybarrier()
       TapeDriveProblemNone,TapeDriveReadWriteWarning,TapeDriveReadWriteError,TapeDriveReadWarning,TapeDriveWriteWarning,TapeDriveReadError,TapeDriveWriteError,TapeDriveHardwareError,TapeDriveUnsupportedMedia,TapeDriveScsiConnectionError,TapeDriveTimetoClean,TapeDriveCleanDriveNow,TapeDriveMediaLifeExpired,TapeDriveSnappedTape
     } TAPE_DRIVE_PROBLEM_TYPE;
 
-#if defined(__x86_64)
+  typedef DWORD TP_VERSION,*PTP_VERSION;
+  typedef struct _TP_CALLBACK_INSTANCE TP_CALLBACK_INSTANCE,*PTP_CALLBACK_INSTANCE;
+  typedef VOID (NTAPI *PTP_SIMPLE_CALLBACK) (PTP_CALLBACK_INSTANCE Instance, PVOID Context);
+  typedef struct _TP_POOL TP_POOL,*PTP_POOL;
+  typedef enum _TP_CALLBACK_PRIORITY {
+    TP_CALLBACK_PRIORITY_HIGH,
+    TP_CALLBACK_PRIORITY_NORMAL,
+    TP_CALLBACK_PRIORITY_LOW,
+    TP_CALLBACK_PRIORITY_INVALID,
+    TP_CALLBACK_PRIORITY_COUNT = TP_CALLBACK_PRIORITY_INVALID
+  } TP_CALLBACK_PRIORITY;
+
+  typedef struct _TP_POOL_STACK_INFORMATION {
+    SIZE_T StackReserve;
+    SIZE_T StackCommit;
+  } TP_POOL_STACK_INFORMATION, *PTP_POOL_STACK_INFORMATION;
+  typedef struct _TP_CLEANUP_GROUP TP_CLEANUP_GROUP,*PTP_CLEANUP_GROUP;
+  typedef VOID (NTAPI *PTP_CLEANUP_GROUP_CANCEL_CALLBACK) (PVOID ObjectContext, PVOID CleanupContext);
+#if _WIN32_WINNT >= 0x0601
+  typedef struct _TP_CALLBACK_ENVIRON_V3 {
+    TP_VERSION Version;
+    PTP_POOL Pool;
+    PTP_CLEANUP_GROUP CleanupGroup;
+    PTP_CLEANUP_GROUP_CANCEL_CALLBACK CleanupGroupCancelCallback;
+    PVOID RaceDll;
+    struct _ACTIVATION_CONTEXT *ActivationContext;
+    PTP_SIMPLE_CALLBACK FinalizationCallback;
+    union {
+      DWORD Flags;
+      struct {
+        DWORD LongFunction : 1;
+        DWORD Persistent : 1;
+        DWORD Private : 30;
+      } s;
+    } u;
+    TP_CALLBACK_PRIORITY CallbackPriority;
+    DWORD Size;
+  } TP_CALLBACK_ENVIRON_V3;
+  typedef TP_CALLBACK_ENVIRON_V3 TP_CALLBACK_ENVIRON, *PTP_CALLBACK_ENVIRON;
+#else
+  typedef struct _TP_CALLBACK_ENVIRON_V1 {
+    TP_VERSION Version;
+    PTP_POOL Pool;
+    PTP_CLEANUP_GROUP CleanupGroup;
+    PTP_CLEANUP_GROUP_CANCEL_CALLBACK CleanupGroupCancelCallback;
+    PVOID RaceDll;
+    struct _ACTIVATION_CONTEXT *ActivationContext;
+    PTP_SIMPLE_CALLBACK FinalizationCallback;
+    union {
+      DWORD Flags;
+      struct {
+	DWORD LongFunction : 1;
+	DWORD Persistent : 1;
+	DWORD Private : 30;
+      } s;
+    } u;
+  } TP_CALLBACK_ENVIRON_V1;
+  typedef TP_CALLBACK_ENVIRON_V1 TP_CALLBACK_ENVIRON,*PTP_CALLBACK_ENVIRON;
+#endif
+
+  typedef struct _TP_WORK TP_WORK,*PTP_WORK;
+  typedef VOID (NTAPI *PTP_WORK_CALLBACK) (PTP_CALLBACK_INSTANCE Instance, PVOID Context, PTP_WORK Work);
+  typedef struct _TP_TIMER TP_TIMER,*PTP_TIMER;
+  typedef VOID (NTAPI *PTP_TIMER_CALLBACK) (PTP_CALLBACK_INSTANCE Instance, PVOID Context, PTP_TIMER Timer);
+  typedef DWORD TP_WAIT_RESULT;
+  typedef struct _TP_WAIT TP_WAIT,*PTP_WAIT;
+  typedef VOID (NTAPI *PTP_WAIT_CALLBACK) (PTP_CALLBACK_INSTANCE Instance, PVOID Context, PTP_WAIT Wait, TP_WAIT_RESULT WaitResult);
+  typedef struct _TP_IO TP_IO,*PTP_IO;
+
+#if defined(__x86_64) && !defined (__WIDL__)
     struct _TEB *NtCurrentTeb(VOID);
     PVOID GetCurrentFiber(VOID);
     PVOID GetFiberData(VOID);
@@ -6203,30 +6412,33 @@ __buildmemorybarrier()
     }
 #endif /* __x86_64 */
 
-#if (_WIN32_WINNT >= 0x0600)
-/* FIXME: Opaque structs !!! */
-/* FIXME: Also see winbase.h */
-typedef PVOID RTL_CONDITION_VARIABLE;
-typedef PVOID RTL_SRWLOCK;
+typedef struct _RTL_CONDITION_VARIABLE { PVOID Ptr; } RTL_CONDITION_VARIABLE, *PRTL_CONDITION_VARIABLE;
+typedef struct _RTL_SRWLOCK { PVOID Ptr; } RTL_SRWLOCK, *PRTL_SRWLOCK;
 
+#define RTL_CONDITION_VARIABLE_INIT {0}
+#define RTL_CONDITION_VARIABLE_LOCKMODE_SHARED 0x1
+
+#define RTL_SRWLOCK_INIT {0}
+
+#if 1
 #ifndef _RTL_RUN_ONCE_DEF
 #define _RTL_RUN_ONCE_DEF 1
-typedef PVOID RTL_RUN_ONCE, *PRTL_RUN_ONCE;
+typedef struct _RTL_RUN_ONCE { PVOID Ptr; } RTL_RUN_ONCE, *PRTL_RUN_ONCE;
 typedef DWORD (WINAPI *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONCE, PVOID, PVOID *);
-#define RTL_RUN_ONCE_INIT 0
+#define RTL_RUN_ONCE_INIT {0}
 #define RTL_RUN_ONCE_CHECK_ONLY __MSABI_LONG(1U)
 #define RTL_RUN_ONCE_ASYNC __MSABI_LONG(2U)
 #define RTL_RUN_ONCE_INIT_FAILED __MSABI_LONG(4U)
 #define RTL_RUN_ONCE_CTX_RESERVED_BITS 2
-#endif /* _RTL_RUN_ONCE_DEF */
-#define RTL_SRWLOCK_INIT 0
-#define RTL_CONDITION_VARIABLE_INIT 0
-#define RTL_CONDITION_VARIABLE_LOCKMODE_SHARED 1
+#endif
 
-#define CONDITION_VARIABLE_INIT RTL_CONDITION_VARIABLE_INIT
-#define CONDITION_VARIABLE_LOCKMODE_SHARED RTL_CONDITION_VARIABLE_LOCKMODE_SHARED
-#define SRWLOCK_INIT RTL_SRWLOCK_INIT
-
+  typedef struct _RTL_BARRIER {
+    DWORD Reserved1;
+    DWORD Reserved2;
+    ULONG_PTR Reserved3[2];
+    DWORD Reserved4;
+    DWORD Reserved5;
+  } RTL_BARRIER,*PRTL_BARRIER;
 
 #include <ktmtypes.h>
 
