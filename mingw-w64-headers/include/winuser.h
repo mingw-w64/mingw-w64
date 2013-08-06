@@ -3563,11 +3563,6 @@ extern "C" {
 #define IDI_INFORMATION IDI_ASTERISK
 #endif
 
-#define LoadString __MINGW_NAME_AW(LoadString)
-
-  WINUSERAPI int WINAPI LoadStringA(HINSTANCE hInstance,UINT uID,LPSTR lpBuffer,int cchBufferMax);
-  WINUSERAPI int WINAPI LoadStringW(HINSTANCE hInstance,UINT uID,LPWSTR lpBuffer,int cchBufferMax);
-
 #define IDOK 1
 #define IDCANCEL 2
 #define IDABORT 3
