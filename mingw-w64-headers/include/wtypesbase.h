@@ -46,7 +46,7 @@ typedef byte BYTE;
 typedef unsigned short WORD;
 typedef unsigned int UINT;
 typedef int INT;
-typedef LONG BOOL;
+typedef LONG WINBOOL;
 typedef LONG LONG;
 typedef ULONG DWORD;
 typedef void *HANDLE;
@@ -147,7 +147,7 @@ typedef struct _SYSTEMTIME *LPSYSTEMTIME;
 typedef struct _SECURITY_ATTRIBUTES {
     DWORD nLength;
     LPVOID lpSecurityDescriptor;
-    BOOL bInheritHandle;
+    WINBOOL bInheritHandle;
 } SECURITY_ATTRIBUTES;
 typedef struct _SECURITY_ATTRIBUTES *PSECURITY_ATTRIBUTES;
 typedef struct _SECURITY_ATTRIBUTES *LPSECURITY_ATTRIBUTES;

@@ -4,12 +4,6 @@ cpp_quote(" * No warranty is given; refer to the file DISCLAIMER within this pac
 cpp_quote(" */")
 cpp_quote("")
 
-/* Make sure the type BOOL isn't defined. */
-#ifdef BOOL
-#undef BOOL
-#define REDEF_BOOL
-#endif
-
 import "basetsd.h";
 import "guiddef.h";
 
@@ -418,7 +412,3 @@ typedef struct _SID_AND_ATTRIBUTES {
   DWORD Attributes;
 } SID_AND_ATTRIBUTES,*PSID_AND_ATTRIBUTES;
 cpp_quote("#endif")
-
-#ifdef REDEF_BOOL
-#define BOOL WINBOOL
-#endif
