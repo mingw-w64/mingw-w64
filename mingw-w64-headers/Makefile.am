@@ -107,6 +107,7 @@ IDL_SRCS = \
   include/unknwn.idl \
   include/urlmon.idl \
   include/wincodec.idl \
+  include/wtypesbase.idl \
   include/wmcodecdsp.idl \
   include/wpcapi.idl \
   include/wtypes.idl \
