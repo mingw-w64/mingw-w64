@@ -60,6 +60,7 @@ if HAVE_WIDL
 IDL_SRCS = \
   include/activation.idl \
   include/activaut.idl \
+  include/activprof.idl \
   include/activscp.idl \
   include/audioclient.idl \
   include/audiopolicy.idl \
@@ -94,6 +95,7 @@ IDL_SRCS = \
   include/propidl.idl \
   include/propsys.idl \
   include/sensorsapi.idl \
+  include/servprov.idl \
   include/shobjidl.idl \
   include/shtypes.idl \
   include/strmif.idl \
