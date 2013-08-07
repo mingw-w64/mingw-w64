@@ -1,11 +1,13 @@
 /**
- * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 #ifndef __ADSIID_H__
 #define __ADSIID_H__
 
+#include <winapifamily.h>
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -61,4 +63,6 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
+#endif
+
 #endif
