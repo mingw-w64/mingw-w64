@@ -105,6 +105,7 @@ IDL_SRCS = \
   include/uiautomationclient.idl \
   include/uiautomationcore.idl \
   include/unknwn.idl \
+  include/unknwnbase.idl \
   include/urlmon.idl \
   include/wincodec.idl \
   include/wtypesbase.idl \
