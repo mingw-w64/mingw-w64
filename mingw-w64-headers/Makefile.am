@@ -89,6 +89,7 @@ IDL_SRCS = \
   include/msxml.idl \
   include/objectarray.idl \
   include/objidl.idl \
+  include/objidlbase.idl \
   include/oleidl.idl \
   include/optary.idl \
   include/portabledevicetypes.idl \
