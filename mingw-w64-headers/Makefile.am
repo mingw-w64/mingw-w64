@@ -60,6 +60,7 @@ if HAVE_WIDL
 IDL_SRCS = \
   include/activation.idl \
   include/activaut.idl \
+  include/activscp.idl \
   include/audioclient.idl \
   include/audiopolicy.idl \
   include/ctfutb.idl \
