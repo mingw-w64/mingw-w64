@@ -8,7 +8,7 @@ import "ocidl.idl";
 import "objidl.idl";
 import "oleidl.idl";
 import "oaidl.idl";
-//import "servprov.idl";
+import "servprov.idl";
 
 cpp_quote("#ifndef __IOleDocument_FWD_DEFINED__")
 cpp_quote("#define __IOleDocument_FWD_DEFINED__")

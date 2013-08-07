@@ -6,7 +6,7 @@
 
 import "oaidl.idl";
 import "oleidl.idl";
-// import "servprov.idl";
+import "servprov.idl";
 import "urlmon.idl";
 
 cpp_quote("#ifndef __IEnumConnections_FWD_DEFINED__")
