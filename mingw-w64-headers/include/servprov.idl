@@ -34,6 +34,7 @@ interface IServiceProvider : IUnknown {
   cpp_quote("")
   cpp_quote("HRESULT STDMETHODCALLTYPE IServiceProvider_RemoteQueryService_Proxy(IServiceProvider __RPC_FAR *This, REFGUID guidService, REFIID riid, IUnknown __RPC_FAR *__RPC_FAR *ppvObject);")
   cpp_quote("void __RPC_STUB IServiceProvider_RemoteQueryService_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase);")
+  cpp_quote("__CRT_UUID_DECL(IServiceProvider, 0x6d5140c1, 0x7436, 0x11ce, 0x80,0x34, 0x00,0xaa,0x00,0x60,0x09,0xfa)")
   cpp_quote("#else")
   [local] HRESULT QueryService ([in] REFGUID guidService,[in] REFIID riid,[out] void **ppvObject);
   [call_as (QueryService)] HRESULT RemoteQueryService ([in] REFGUID guidService,[in] REFIID riid,[out, iid_is (riid)] IUnknown **ppvObject);
