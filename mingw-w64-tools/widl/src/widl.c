@@ -77,6 +77,7 @@ static const char usage[] =
 "   -u                 Generate interface identifiers file\n"
 "   -V                 Print version and exit\n"
 "   -W                 Enable pedantic warnings\n"
+"   --rt               Enable RT's extensions\n"
 "   --win32            Only generate 32-bit code\n"
 "   --win64            Only generate 64-bit code\n"
 "   --win32-align n    Set win32 structure alignment to 'n'\n"
@@ -113,6 +114,7 @@ int do_win32 = 1;
 int do_win64 = 1;
 int win32_packing = 8;
 int win64_packing = 8;
+int flag_is_rt = 0;
 static enum stub_mode stub_mode = MODE_Os;
 
 char *input_name;
@@ -152,6 +154,7 @@ enum {
     PREFIX_CLIENT_OPTION,
     PREFIX_SERVER_OPTION,
     PRINT_HELP,
+    RT_OPTION,
     WIN32_OPTION,
     WIN64_OPTION,
     WIN32_ALIGN_OPTION,
@@ -171,6 +174,7 @@ static const struct option long_options[] = {
     { "prefix-all", 1, NULL, PREFIX_ALL_OPTION },
     { "prefix-client", 1, NULL, PREFIX_CLIENT_OPTION },
     { "prefix-server", 1, NULL, PREFIX_SERVER_OPTION },
+    { "rt", 0, NULL, RT_OPTION },
     { "win32", 0, NULL, WIN32_OPTION },
     { "win64", 0, NULL, WIN64_OPTION },
     { "win32-align", 1, NULL, WIN32_ALIGN_OPTION },
@@ -542,6 +546,9 @@ int main(int argc,char *argv[])
     case PRINT_HELP:
       fprintf(stderr, "%s", usage);
       return 0;
+    case RT_OPTION:
+      flag_is_rt = 1;
+      break;
     case WIN32_OPTION:
       do_win32 = 1;
       do_win64 = 0;

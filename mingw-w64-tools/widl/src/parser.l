@@ -425,7 +425,7 @@ static int kw_token(const char *kw)
 	struct keyword key, *kwp;
 	key.kw = kw;
 	kwp = bsearch(&key, keywords, NKEYWORDS, sizeof(keywords[0]), kw_cmp_func);
-	if (kwp) {
+	if (kwp && (flag_is_rt || kwp->token != tNAMESPACE)) {
 		parser_lval.str = xstrdup(kwp->kw);
 		return kwp->token;
 	}
