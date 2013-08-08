@@ -88,6 +88,15 @@ int import_stack_ptr = 0;
  * on overflow */
 static unsigned int xstrtoul(const char *nptr, char **endptr, int base)
 {
+#if defined(__MINGW32__) || defined(_MSC_VER)
+  unsigned long long val;
+
+  errno = 0;
+  val = strtoull (nptr, endptr, base);
+  if ((val == ULONG_LONG_MAX && errno == ERANGE) || ((unsigned int)val != val))
+    error_loc("integer constant %s is too large\n", nptr);
+  return (unsigned int) val;
+#else
     unsigned long val;
 
     errno = 0;
@@ -95,6 +104,7 @@ static unsigned int xstrtoul(const char *nptr, char **endptr, int base)
     if ((val == ULONG_MAX && errno == ERANGE) || ((unsigned int)val != val))
         error_loc("integer constant %s is too large\n", nptr);
     return val;
+#endif
 }
 
 UUID *parse_uuid(const char *u)
@@ -261,6 +271,7 @@ static const struct keyword keywords[] = {
 	{"long",			tLONG},
 	{"methods",			tMETHODS},
 	{"module",			tMODULE},
+	{"namespace",			tNAMESPACE},
 	{"pascal",			tPASCAL},
 	{"properties",			tPROPERTIES},
 	{"register",			tREGISTER},
