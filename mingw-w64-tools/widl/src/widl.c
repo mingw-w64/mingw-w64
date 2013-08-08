@@ -138,7 +138,7 @@ int line_number = 1;
 
 static FILE *idfile;
 
-unsigned int pointer_size = 0;
+unsigned int pointer_size = sizeof (void*);
 syskind_t typelib_kind = sizeof(void*) == 8 ? SYS_WIN64 : SYS_WIN32;
 
 time_t now;
