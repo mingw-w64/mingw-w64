@@ -2158,7 +2158,7 @@ static unsigned int write_simple_pointer(FILE *file, const attr_list_t *attrs,
 static void print_start_tfs_comment(FILE *file, type_t *t, unsigned int tfsoff)
 {
     print_file(file, 0, "/* %u (", tfsoff);
-    write_type_decl(file, t, NULL);
+    write_type_decl(file, t, NULL, "");
     print_file(file, 0, ") */\n");
 }
 
@@ -3969,7 +3969,7 @@ void print_phase_basetype(FILE *file, int indent, const char *local_var_prefix,
         if (phase == PHASE_MARSHAL)
         {
             print_file(file, indent, "*(");
-            write_type_decl(file, is_ptr(type) ? type_pointer_get_ref(type) : type, NULL);
+            write_type_decl(file, is_ptr(type) ? type_pointer_get_ref(type) : type, NULL, "");
             if (is_ptr(type))
                 fprintf(file, " *)__frame->_StubMsg.Buffer = *");
             else
@@ -3980,7 +3980,7 @@ void print_phase_basetype(FILE *file, int indent, const char *local_var_prefix,
         else if (phase == PHASE_UNMARSHAL)
         {
             print_file(file, indent, "if (__frame->_StubMsg.Buffer + sizeof(");
-            write_type_decl(file, is_ptr(type) ? type_pointer_get_ref(type) : type, NULL);
+            write_type_decl(file, is_ptr(type) ? type_pointer_get_ref(type) : type, NULL, "");
             fprintf(file, ") > __frame->_StubMsg.BufferEnd)\n");
             print_file(file, indent, "{\n");
             print_file(file, indent + 1, "RpcRaiseException(RPC_X_BAD_STUB_DATA);\n");
@@ -3992,12 +3992,12 @@ void print_phase_basetype(FILE *file, int indent, const char *local_var_prefix,
                 fprintf(file, " = (");
             else
                 fprintf(file, " = *(");
-            write_type_decl(file, is_ptr(type) ? type_pointer_get_ref(type) : type, NULL);
+            write_type_decl(file, is_ptr(type) ? type_pointer_get_ref(type) : type, NULL, "");
             fprintf(file, " *)__frame->_StubMsg.Buffer;\n");
         }
 
         print_file(file, indent, "__frame->_StubMsg.Buffer += sizeof(");
-        write_type_decl(file, is_ptr(type) ? type_pointer_get_ref(type) : type, NULL);
+        write_type_decl(file, is_ptr(type) ? type_pointer_get_ref(type) : type, NULL, "");
         fprintf(file, ");\n");
     }
 }
@@ -4301,9 +4301,9 @@ static void write_remoting_arg(FILE *file, int indent, const var_t *func, const 
             range_max = LIST_ENTRY(list_next(range_list, list_head(range_list)), const expr_t, entry);
 
             print_file(file, indent, "if ((%s%s < (", local_var_prefix, var->name);
-            write_type_decl(file, var->type, NULL);
+            write_type_decl(file, var->type, NULL, "");
             fprintf(file, ")0x%x) || (%s%s > (", range_min->cval, local_var_prefix, var->name);
-            write_type_decl(file, var->type, NULL);
+            write_type_decl(file, var->type, NULL, "");
             fprintf(file, ")0x%x))\n", range_max->cval);
             print_file(file, indent, "{\n");
             print_file(file, indent+1, "RpcRaiseException(RPC_S_INVALID_BOUND);\n");
@@ -4533,7 +4533,7 @@ void declare_stub_args( FILE *file, int indent, const var_t *func )
     if (!is_void(var->type))
     {
         print_file(file, indent, "%s", "");
-        write_type_decl(file, var->type, var->name);
+        write_type_decl(file, var->type, var->name, "");
         fprintf(file, ";\n");
     }
 
@@ -4562,7 +4562,7 @@ void declare_stub_args( FILE *file, int indent, const var_t *func )
                 else
                     type_to_print = type_pointer_get_ref(var->type);
                 sprintf(name, "_W%u", i++);
-                write_type_decl(file, type_to_print, name);
+                write_type_decl(file, type_to_print, name, "");
                 fprintf(file, ";\n");
             }
 
@@ -4737,7 +4737,7 @@ void write_func_param_struct( FILE *file, const type_t *iface, const type_t *fun
     if (add_retval && !is_void( retval->type ))
     {
         print_file(file, 2, "%s", "");
-        write_type_decl( file, retval->type, retval->name );
+        write_type_decl( file, retval->type, retval->name, "");
         if (is_array( retval->type ) || is_ptr( retval->type ) ||
             type_memsize( retval->type ) == pointer_size)
             fprintf( file, ";\n" );

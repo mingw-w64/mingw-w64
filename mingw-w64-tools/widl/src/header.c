@@ -42,7 +42,7 @@ user_type_list_t user_type_list = LIST_INIT(user_type_list);
 context_handle_list_t context_handle_list = LIST_INIT(context_handle_list);
 generic_handle_list_t generic_handle_list = LIST_INIT(generic_handle_list);
 
-static void write_type_def_or_decl(FILE *f, type_t *t, int field, const char *name);
+static void write_type_def_or_decl(FILE *f, type_t *t, int field, const char *name, const char *prename);
 
 static void indent(FILE *h, int delta)
 {
@@ -225,7 +225,7 @@ static void write_fields(FILE *h, var_list_t *fields)
         default:
             ;
         }
-        write_type_def_or_decl(h, v->type, TRUE, name);
+        write_type_def_or_decl(h, v->type, TRUE, name, "");
         fprintf(h, ";\n");
     }
 }
@@ -421,7 +421,7 @@ void write_type_right(FILE *h, type_t *t, int is_field)
   }
 }
 
-static void write_type_v(FILE *h, type_t *t, int is_field, int declonly, const char *name)
+static void write_type_v(FILE *h, type_t *t, int is_field, int declonly, const char *name, const char *prename)
 {
   type_t *pt = NULL;
   int ptr_level = 0;
@@ -447,7 +447,7 @@ static void write_type_v(FILE *h, type_t *t, int is_field, int declonly, const c
       write_type_left(h, t, declonly);
   }
 
-  if (name) fprintf(h, "%s%s", !t || needs_space_after(t) ? " " : "", name );
+  if (name) fprintf(h, "%s%s%s", !t || needs_space_after(t) ? " " : "", prename, name);
 
   if (t) {
     if (type_get_type_detect_alias(pt) == TYPE_FUNCTION) {
@@ -456,7 +456,7 @@ static void write_type_v(FILE *h, type_t *t, int is_field, int declonly, const c
       if (ptr_level) fputc(')', h);
       fputc('(', h);
       if (args)
-          write_args(h, args, NULL, 0, FALSE);
+          write_args(h, args, NULL, 0, FALSE, FILTER_NONE);
       else
           fprintf(h, "void");
       fputc(')', h);
@@ -465,14 +465,14 @@ static void write_type_v(FILE *h, type_t *t, int is_field, int declonly, const c
   }
 }
 
-static void write_type_def_or_decl(FILE *f, type_t *t, int field, const char *name)
+static void write_type_def_or_decl(FILE *f, type_t *t, int field, const char *name, const char *prename)
 {
-  write_type_v(f, t, field, FALSE, name);
+  write_type_v(f, t, field, FALSE, name, prename);
 }
 
-void write_type_decl(FILE *f, type_t *t, const char *name)
+void write_type_decl(FILE *f, type_t *t, const char *name, const char *prename)
 {
-  write_type_v(f, t, FALSE, TRUE, name);
+  write_type_v(f, t, FALSE, TRUE, name, prename);
 }
 
 void write_type_decl_left(FILE *f, type_t *t)
@@ -665,7 +665,7 @@ static void write_generic_handle_routines(FILE *header)
 static void write_typedef(FILE *header, type_t *type)
 {
   fprintf(header, "typedef ");
-  write_type_def_or_decl(header, type_alias_get_aliasee(type), FALSE, type->name);
+  write_type_def_or_decl(header, type_alias_get_aliasee(type), FALSE, type->name, "");
   fprintf(header, ";\n");
 }
 
@@ -709,7 +709,7 @@ static void write_declaration(FILE *header, const var_t *v)
         fprintf(header, "extern ");
         break;
     }
-    write_type_def_or_decl(header, v->type, FALSE, v->name);
+    write_type_def_or_decl(header, v->type, FALSE, v->name, "");
     fprintf(header, ";\n\n");
   }
 }
@@ -838,13 +838,15 @@ static int is_inherited_method(const type_t *iface, const var_t *func)
   return 0;
 }
 
-static void write_method_macro(FILE *header, const type_t *iface, const char *name)
+static void write_method_macro(FILE *header, const type_t *iface, const char *name, char fBeAsync)
 {
   const statement_t *stmt;
   int first_iface = 1;
 
+  if (!is_attr(iface->attrs, ATTR_ASYNCUUID))
+    fBeAsync = 0;
   if (type_iface_get_inherit(iface))
-    write_method_macro(header, type_iface_get_inherit(iface), name);
+    write_method_macro(header, type_iface_get_inherit(iface), name, fBeAsync);
 
   STATEMENTS_FOR_EACH_FUNC(stmt, type_iface_get_stmts(iface))
   {
@@ -859,22 +861,61 @@ static void write_method_macro(FILE *header, const type_t *iface, const char *na
     if (!is_callas(func->attrs) && !is_inherited_method(iface, func)) {
       const var_t *arg;
 
-      fprintf(header, "#define %s_%s(This", name, get_name(func));
+      fprintf(header, "#define %s_%s%s(This", name, (fBeAsync ? "Begin_" : ""), get_name(func));
       if (type_get_function_args(func->type))
           LIST_FOR_EACH_ENTRY( arg, type_get_function_args(func->type), const var_t, entry )
-              fprintf(header, ",%s", arg->name);
+              {
+		if (fBeAsync
+		    && !is_attr(arg->attrs, ATTR_IN) && is_attr(arg->attrs, ATTR_OUT))
+		  ;
+		else
+		  fprintf(header, ",%s", arg->name);
+              }
       fprintf(header, ") ");
 
-      fprintf(header, "(This)->lpVtbl->%s(This", get_name(func));
+      fprintf(header, "(This)->lpVtbl->%s%s(This", (fBeAsync ? "Begin_" : ""), get_name(func));
       if (type_get_function_args(func->type))
           LIST_FOR_EACH_ENTRY( arg, type_get_function_args(func->type), const var_t, entry )
-              fprintf(header, ",%s", arg->name);
+              {
+		if (fBeAsync
+		    && !is_attr(arg->attrs, ATTR_IN) && is_attr(arg->attrs, ATTR_OUT))
+		  ;
+		else
+		  fprintf(header, ",%s", arg->name);
+              }
       fprintf(header, ")\n");
+      /* For async we need to output Finish_  ... variant.  */
+      if (fBeAsync)
+      {
+	fprintf(header, "#define %s_Finish_%s(This", name, get_name(func));
+	if (type_get_function_args(func->type))
+	    LIST_FOR_EACH_ENTRY( arg, type_get_function_args(func->type), const var_t, entry )
+		{
+		  if (fBeAsync
+		      && is_attr(arg->attrs, ATTR_IN) && !is_attr(arg->attrs, ATTR_OUT))
+		    ;
+		  else
+		    fprintf(header, ",%s", arg->name);
+		}
+	fprintf(header, ") ");
+
+	fprintf(header, "(This)->lpVtbl->Finish_%s(This", get_name(func));
+	if (type_get_function_args(func->type))
+	    LIST_FOR_EACH_ENTRY( arg, type_get_function_args(func->type), const var_t, entry )
+		{
+		  if (fBeAsync
+		      && is_attr(arg->attrs, ATTR_IN) && !is_attr(arg->attrs, ATTR_OUT))
+		    ;
+		  else
+		    fprintf(header, ",%s", arg->name);
+		}
+	fprintf(header, ")\n");
+      }
     }
   }
 }
 
-void write_args(FILE *h, const var_list_t *args, const char *name, int method, int do_indent)
+void write_args(FILE *h, const var_list_t *args, const char *name, int method, int do_indent, int filter)
 {
   const var_t *arg;
   int count = 0;
@@ -889,6 +930,10 @@ void write_args(FILE *h, const var_list_t *args, const char *name, int method, i
     count++;
   }
   if (args) LIST_FOR_EACH_ENTRY( arg, args, const var_t, entry ) {
+    if (filter
+        && ((filter == FILTER_IN && (!is_attr(arg->attrs, ATTR_IN) && is_attr(arg->attrs, ATTR_OUT)))
+	    || (filter == FILTER_OUT && (is_attr(arg->attrs, ATTR_IN) && !is_attr(arg->attrs, ATTR_OUT)))))
+      continue;
     if (count) {
         if (do_indent)
         {
@@ -897,7 +942,7 @@ void write_args(FILE *h, const var_list_t *args, const char *name, int method, i
         }
         else fprintf(h, ",");
     }
-    write_type_decl(h, arg->type, arg->name);
+    write_type_decl(h, arg->type, arg->name, "");
     if (method == 2) {
         const expr_t *expr = get_attrp(arg->attrs, ATTR_DEFAULTVALUE);
         if (expr) {
@@ -910,7 +955,7 @@ void write_args(FILE *h, const var_list_t *args, const char *name, int method, i
   if (do_indent) indentation--;
 }
 
-static void write_cpp_method_def(FILE *header, const type_t *iface)
+static void write_cpp_method_def(FILE *header, const type_t *iface, const char *prename, char fBeAsync)
 {
   const statement_t *stmt;
 
@@ -922,22 +967,53 @@ static void write_cpp_method_def(FILE *header, const type_t *iface)
       if (!callconv) callconv = "STDMETHODCALLTYPE";
       indent(header, 0);
       fprintf(header, "virtual ");
-      write_type_decl_left(header, type_function_get_rettype(func->type));
-      fprintf(header, " %s %s(\n", callconv, get_name(func));
-      write_args(header, type_get_function_args(func->type), iface->name, 2, TRUE);
+      if (fBeAsync)
+	fprintf(header, "void");
+      else
+	write_type_decl_left(header, type_function_get_rettype(func->type));
+      fprintf(header, " %s %s%s(\n", callconv, (fBeAsync ? "Begin_" : ""), get_name(func));
+      if (*prename != 0)
+      {
+	char *h = xmalloc (strlen (prename) + strlen (iface->name) + 1);
+	sprintf (h, "%s%s", prename, iface->name);
+        write_args(header, type_get_function_args(func->type), h, 2, TRUE, (fBeAsync ? FILTER_IN : FILTER_NONE));
+	free (h);
+      }
+      else
+	write_args(header, type_get_function_args(func->type), iface->name, 2, TRUE, (fBeAsync ? FILTER_IN : FILTER_NONE));
       fprintf(header, ") = 0;\n");
       fprintf(header, "\n");
+      if (fBeAsync)
+      {
+	indent(header, 0);
+	fprintf(header, "virtual ");
+	write_type_decl_left(header, type_function_get_rettype(func->type));
+	fprintf(header, " %s Finish_%s(\n", callconv, get_name(func));
+	if (*prename != 0)
+	{
+	  char *h = xmalloc (strlen (prename) + strlen (iface->name) + 1);
+	  sprintf (h, "%s%s", prename, iface->name);
+	  write_args(header, type_get_function_args(func->type), h, 2, TRUE, FILTER_OUT);
+	  free (h);
+	}
+	else
+	  write_args(header, type_get_function_args(func->type), iface->name, 2, TRUE, FILTER_OUT);
+	fprintf(header, ") = 0;\n");
+	fprintf(header, "\n");
+      }
     }
   }
 }
 
-static void write_inline_wrappers(FILE *header, const type_t *iface, const char *name)
+static void write_inline_wrappers(FILE *header, const type_t *iface, const char *name, char fBeAsync)
 {
   const statement_t *stmt;
   int first_iface = 1;
 
+  if (!is_attr(iface->attrs, ATTR_ASYNCUUID))
+    fBeAsync = 0;
   if (type_iface_get_inherit(iface))
-    write_inline_wrappers(header, type_iface_get_inherit(iface), name);
+    write_inline_wrappers(header, type_iface_get_inherit(iface), name, fBeAsync);
 
   STATEMENTS_FOR_EACH_FUNC(stmt, type_iface_get_stmts(iface))
   {
@@ -953,28 +1029,49 @@ static void write_inline_wrappers(FILE *header, const type_t *iface, const char 
       const var_t *arg;
 
       fprintf(header, "static FORCEINLINE ");
-      write_type_decl_left(header, type_function_get_rettype(func->type));
-      fprintf(header, " %s_%s(", name, get_name(func));
-      write_args(header, type_get_function_args(func->type), name, 1, FALSE);
+      if (fBeAsync)
+	fprintf(header, "void");
+      else
+	write_type_decl_left(header, type_function_get_rettype(func->type));
+      fprintf(header, " %s%s_%s(", (fBeAsync ? "Begin_" : ""), name, get_name(func));
+      write_args(header, type_get_function_args(func->type), name, 1, FALSE, (fBeAsync ? FILTER_IN : FILTER_NONE));
       fprintf(header, ") {\n");
-      fprintf(header, "    %s", is_void(type_function_get_rettype(func->type)) ? "" : "return ");
-      fprintf(header, "This->lpVtbl->%s(This", get_name(func));
+      fprintf(header, "    %s", (fBeAsync || is_void(type_function_get_rettype(func->type))) ? "" : "return ");
+      fprintf(header, "This->lpVtbl->%s%s(This", (fBeAsync ? "Begin_" : ""), get_name(func));
       if (type_get_function_args(func->type))
           LIST_FOR_EACH_ENTRY( arg, type_get_function_args(func->type), const var_t, entry )
               fprintf(header, ",%s", arg->name);
       fprintf(header, ");\n");
       fprintf(header, "}\n");
+      if (fBeAsync)
+      {
+	fprintf(header, "static FORCEINLINE ");
+	write_type_decl_left(header, type_function_get_rettype(func->type));
+	fprintf(header, " Finish_%s_%s(", name, get_name(func));
+	write_args(header, type_get_function_args(func->type), name, 1, FALSE, FILTER_OUT);
+	fprintf(header, ") {\n");
+	fprintf(header, "    %s", is_void(type_function_get_rettype(func->type)) ? "" : "return ");
+	fprintf(header, "This->lpVtbl->Finish_%s(This);\n", get_name(func));
+	fprintf(header, "}\n");
+      }
     }
   }
 }
 
-static void do_write_c_method_def(FILE *header, const type_t *iface, const char *name)
+static void do_write_c_method_def(FILE *header, const type_t *iface, const char *name, const char *prename, char fBeAsync)
 {
   const statement_t *stmt;
   int first_iface = 1;
+  char *hname;
+
+    if (!is_attr(iface->attrs, ATTR_ASYNCUUID))
+    fBeAsync = 0;
 
   if (type_iface_get_inherit(iface))
-    do_write_c_method_def(header, type_iface_get_inherit(iface), name);
+    do_write_c_method_def(header, type_iface_get_inherit(iface), name, prename, fBeAsync);
+
+  hname = xmalloc (strlen (name) + strlen (prename) + 1);
+  sprintf (hname, "%s%s", prename, name);
 
   STATEMENTS_FOR_EACH_FUNC(stmt, type_iface_get_stmts(iface))
   {
@@ -986,31 +1083,48 @@ static void do_write_c_method_def(FILE *header, const type_t *iface, const char 
     }
     if (!is_callas(func->attrs)) {
       const char *callconv = get_attrp(func->type->attrs, ATTR_CALLCONV);
+
       if (!callconv) callconv = "STDMETHODCALLTYPE";
       indent(header, 0);
-      write_type_decl_left(header, type_function_get_rettype(func->type));
-      if (is_inherited_method(iface, func))
-        fprintf(header, " (%s *%s_%s)(\n", callconv, iface->name, func->name);
+      if (fBeAsync)
+	fprintf (header, "void");
       else
-        fprintf(header, " (%s *%s)(\n", callconv, get_name(func));
-      write_args(header, type_get_function_args(func->type), name, 1, TRUE);
+	write_type_decl_left(header, type_function_get_rettype(func->type));
+      if (is_inherited_method(iface, func))
+        fprintf(header, " (%s *%s_%s%s)(\n", callconv, iface->name, (fBeAsync ? "Begin_" : ""), func->name);
+      else
+        fprintf(header, " (%s *%s%s)(\n", callconv, (fBeAsync ? "Begin_" : ""), get_name(func));
+      write_args(header, type_get_function_args(func->type), hname, 1, TRUE, (fBeAsync ? FILTER_IN : FILTER_NONE));
       fprintf(header, ");\n");
       fprintf(header, "\n");
+      if (fBeAsync)
+      {
+	indent(header, 0);
+	write_type_decl_left(header, type_function_get_rettype(func->type));
+	if (is_inherited_method(iface, func))
+	  fprintf(header, " (%s *%s_Finish_%s)(\n", callconv, iface->name, func->name);
+	else
+	  fprintf(header, " (%s *Finish_%s)(\n", callconv, get_name(func));
+	write_args(header, type_get_function_args(func->type), hname, 1, TRUE, FILTER_OUT);
+	fprintf(header, ");\n");
+	fprintf(header, "\n");
+      }
     }
   }
+  free (hname);
 }
 
-static void write_c_method_def(FILE *header, const type_t *iface)
+static void write_c_method_def(FILE *header, const type_t *iface, const char *prename, char fBeAsync)
 {
-  do_write_c_method_def(header, iface, iface->name);
+  do_write_c_method_def(header, iface, iface->name, prename, fBeAsync);
 }
 
-static void write_c_disp_method_def(FILE *header, const type_t *iface)
+static void write_c_disp_method_def(FILE *header, const type_t *iface, const char *prename, char fBeAsync)
 {
-  do_write_c_method_def(header, type_iface_get_inherit(iface), iface->name);
+  do_write_c_method_def(header, type_iface_get_inherit(iface), iface->name, prename, fBeAsync);
 }
 
-static void write_method_proto(FILE *header, const type_t *iface)
+static void write_method_proto(FILE *header, const type_t *iface, const char *prename, char fBeAsync)
 {
   const statement_t *stmt;
 
@@ -1023,20 +1137,33 @@ static void write_method_proto(FILE *header, const type_t *iface)
       if (!callconv) callconv = "STDMETHODCALLTYPE";
       /* proxy prototype */
       write_type_decl_left(header, type_function_get_rettype(func->type));
-      fprintf(header, " %s %s_%s_Proxy(\n", callconv, iface->name, get_name(func));
-      write_args(header, type_get_function_args(func->type), iface->name, 1, TRUE);
+      fprintf(header, " %s %s%s_%s%s_Proxy(\n", callconv, prename, iface->name, (fBeAsync ? "Begin_" : ""), get_name(func));
+      write_args(header, type_get_function_args(func->type), iface->name, 1, TRUE, (fBeAsync ? FILTER_IN : FILTER_NONE));
       fprintf(header, ");\n");
       /* stub prototype */
-      fprintf(header, "void __RPC_STUB %s_%s_Stub(\n", iface->name, get_name(func));
+      fprintf(header, "void __RPC_STUB %s%s_%s%s_Stub(\n", prename, iface->name, (fBeAsync ? "Begin_" : ""), get_name(func));
       fprintf(header, "    IRpcStubBuffer* This,\n");
       fprintf(header, "    IRpcChannelBuffer* pRpcChannelBuffer,\n");
       fprintf(header, "    PRPC_MESSAGE pRpcMessage,\n");
       fprintf(header, "    DWORD* pdwStubPhase);\n");
+      if (fBeAsync)
+      {
+	write_type_decl_left(header, type_function_get_rettype(func->type));
+	fprintf(header, " %s %s%s_Finish_%s_Proxy(\n", callconv, prename, iface->name, get_name(func));
+	write_args(header, type_get_function_args(func->type), iface->name, 1, TRUE, (fBeAsync ? FILTER_IN : FILTER_NONE));
+	fprintf(header, ");\n");
+	/* stub prototype */
+	fprintf(header, "void __RPC_STUB %s%s_Finish_%s_Stub(\n", prename, iface->name, get_name(func));
+	fprintf(header, "    IRpcStubBuffer* This,\n");
+	fprintf(header, "    IRpcChannelBuffer* pRpcChannelBuffer,\n");
+	fprintf(header, "    PRPC_MESSAGE pRpcMessage,\n");
+	fprintf(header, "    DWORD* pdwStubPhase);\n");
+      }
     }
   }
 }
 
-static void write_locals(FILE *fp, const type_t *iface, int body)
+static void write_locals(FILE *fp, const type_t *iface, int body, const char *prename, char fBeAsync)
 {
   static const char comment[]
     = "/* WIDL-generated stub.  You must provide an implementation for this.  */";
@@ -1056,10 +1183,11 @@ static void write_locals(FILE *fp, const type_t *iface, int body)
           break;
       if (&stmt2->entry != type_iface_get_stmts(iface)) {
         const var_t *m = stmt2->u.var;
-        /* proxy prototype - use local prototype */
+
+	/* proxy prototype - use local prototype */
         write_type_decl_left(fp, type_function_get_rettype(m->type));
-        fprintf(fp, " CALLBACK %s_%s_Proxy(\n", iface->name, get_name(m));
-        write_args(fp, type_get_function_args(m->type), iface->name, 1, TRUE);
+        fprintf(fp, " CALLBACK %s%s_%s%s_Proxy(\n", prename, iface->name, (fBeAsync ? "Begin_" : ""), get_name(m));
+        write_args(fp, type_get_function_args(m->type), iface->name, 1, TRUE, (fBeAsync ? FILTER_IN : FILTER_NONE));
         fprintf(fp, ")");
         if (body) {
           type_t *rt = type_function_get_rettype(m->type);
@@ -1069,7 +1197,7 @@ static void write_locals(FILE *fp, const type_t *iface, int body)
             fprintf(fp, "    return E_NOTIMPL;\n");
           else if (type_get_type(rt) != TYPE_VOID) {
             fprintf(fp, "    ");
-            write_type_decl(fp, rt, "rv");
+            write_type_decl(fp, rt, "rv", "");
             fprintf(fp, ";\n");
             fprintf(fp, "    memset(&rv, 0, sizeof rv);\n");
             fprintf(fp, "    return rv;\n");
@@ -1078,19 +1206,58 @@ static void write_locals(FILE *fp, const type_t *iface, int body)
         }
         else
           fprintf(fp, ";\n");
-        /* stub prototype - use remotable prototype */
+
+	/* stub prototype - use remotable prototype. */
         write_type_decl_left(fp, type_function_get_rettype(func->type));
-        fprintf(fp, " __RPC_STUB %s_%s_Stub(\n", iface->name, get_name(m));
-        write_args(fp, type_get_function_args(func->type), iface->name, 1, TRUE);
+        fprintf(fp, " __RPC_STUB %s%s_%s%s_Stub(\n", prename, iface->name, (fBeAsync ? "Begin_" : ""), get_name(m));
+        write_args(fp, type_get_function_args(func->type), iface->name, 1, TRUE, (fBeAsync ? FILTER_IN : FILTER_NONE));
         fprintf(fp, ")");
         if (body)
           /* Remotable methods must all return HRESULTs.  */
           fprintf(fp, "\n{\n    %s\n    return E_NOTIMPL;\n}\n\n", comment);
         else
           fprintf(fp, ";\n");
+
+	/* Output the Finish_-stubs.  */
+	if (fBeAsync)
+	{
+	  /* proxy prototype - use local prototype */
+	  write_type_decl_left(fp, type_function_get_rettype(m->type));
+	  fprintf(fp, " CALLBACK %s%s_Finish_%s_Proxy(\n", prename, iface->name, get_name(m));
+	  write_args(fp, type_get_function_args(m->type), iface->name, 1, TRUE, (fBeAsync ? FILTER_OUT : FILTER_NONE));
+	  fprintf(fp, ")");
+	  if (body) {
+	    type_t *rt = type_function_get_rettype(m->type);
+	    fprintf(fp, "\n{\n");
+	    fprintf(fp, "    %s\n", comment);
+	    if (rt->name && strcmp(rt->name, "HRESULT") == 0)
+	      fprintf(fp, "    return E_NOTIMPL;\n");
+	    else if (type_get_type(rt) != TYPE_VOID) {
+	      fprintf(fp, "    ");
+	      write_type_decl(fp, rt, "rv", "");
+	      fprintf(fp, ";\n");
+	      fprintf(fp, "    memset(&rv, 0, sizeof rv);\n");
+	      fprintf(fp, "    return rv;\n");
+	    }
+	    fprintf(fp, "}\n\n");
+	  }
+	  else
+	    fprintf(fp, ";\n");
+
+	  /* stub prototype - use remotable prototype. */
+	  write_type_decl_left(fp, type_function_get_rettype(func->type));
+	  fprintf(fp, " __RPC_STUB %s%s_Finish_%s_Stub(\n", prename, iface->name, get_name(m));
+	  write_args(fp, type_get_function_args(func->type), iface->name, 1, TRUE, (fBeAsync ? FILTER_IN : FILTER_NONE));
+	  fprintf(fp, ")");
+	  if (body)
+	    /* Remotable methods must all return HRESULTs.  */
+	    fprintf(fp, "\n{\n    %s\n    return E_NOTIMPL;\n}\n\n", comment);
+	  else
+	    fprintf(fp, ";\n");
+	}
       }
       else
-        error_loc("invalid call_as attribute (%s -> %s)\n", func->name, cas->name);
+        error_loc("invalid call_as attribute (%s%s -> %s)\n", prename, func->name, cas->name);
     }
   }
 }
@@ -1101,7 +1268,7 @@ static void write_local_stubs_stmts(FILE *local_stubs, const statement_list_t *s
   if (stmts) LIST_FOR_EACH_ENTRY( stmt, stmts, const statement_t, entry )
   {
     if (stmt->type == STMT_TYPE && type_get_type(stmt->u.type) == TYPE_INTERFACE)
-      write_locals(local_stubs, stmt->u.type, TRUE);
+      write_locals(local_stubs, stmt->u.type, TRUE, "", FALSE);
   }
 }
 
@@ -1135,7 +1302,7 @@ static void write_function_proto(FILE *header, const type_t *iface, const var_t 
   fprintf(header, " %s ", callconv);
   fprintf(header, "%s%s(\n", prefix, get_name(fun));
   if (type_get_function_args(fun->type))
-    write_args(header, type_get_function_args(fun->type), iface->name, 0, TRUE);
+    write_args(header, type_get_function_args(fun->type), iface->name, 0, TRUE, FILTER_NONE);
   else
     fprintf(header, "    void");
   fprintf(header, ");\n\n");
@@ -1146,27 +1313,40 @@ static void write_forward(FILE *header, type_t *iface)
   fprintf(header, "#ifndef __%s_FWD_DEFINED__\n", iface->name);
   fprintf(header, "#define __%s_FWD_DEFINED__\n", iface->name);
   fprintf(header, "typedef interface %s %s;\n", iface->name, iface->name);
-  fprintf(header, "#endif\n\n" );
+  fprintf(header, "#endif\n\n");
+  if (is_attr(iface->attrs, ATTR_ASYNCUUID))
+  {
+    fprintf(header, "#ifndef __Async%s_FWD_DEFINED__\n", iface->name);
+    fprintf(header, "#define __Async%s_FWD_DEFINED__\n", iface->name);
+    fprintf(header, "typedef interface Async%s Async%s;\n", iface->name, iface->name);
+    fprintf(header, "#endif\n\n");
+  }
 }
 
-static void write_com_interface_start(FILE *header, const type_t *iface)
+static void write_com_interface_start(FILE *header, const type_t *iface, const char *prename)
 {
   int dispinterface = is_attr(iface->attrs, ATTR_DISPINTERFACE);
   fprintf(header, "/*****************************************************************************\n");
-  fprintf(header, " * %s %sinterface\n", iface->name, dispinterface ? "disp" : "");
+  fprintf(header, " * %s%s %sinterface\n", prename, iface->name, dispinterface ? "disp" : "");
   fprintf(header, " */\n");
-  fprintf(header,"#ifndef __%s_%sINTERFACE_DEFINED__\n", iface->name, dispinterface ? "DISP" : "");
-  fprintf(header,"#define __%s_%sINTERFACE_DEFINED__\n\n", iface->name, dispinterface ? "DISP" : "");
+  fprintf(header,"#ifndef __%s%s_%sINTERFACE_DEFINED__\n", prename, iface->name, dispinterface ? "DISP" : "");
+  fprintf(header,"#define __%s%s_%sINTERFACE_DEFINED__\n\n", prename, iface->name, dispinterface ? "DISP" : "");
 }
 
-static void write_com_interface_end(FILE *header, type_t *iface)
+static void write_com_interface_end(FILE *header, type_t *iface, const char *prename)
 {
   int dispinterface = is_attr(iface->attrs, ATTR_DISPINTERFACE);
-  const UUID *uuid = get_attrp(iface->attrs, ATTR_UUID);
-
+  const UUID *uuid;
+  char *h;
+  
+  if (!strcmp (prename, "Async"))
+    uuid = get_attrp(iface->attrs, ATTR_ASYNCUUID);
+  else
+    uuid = get_attrp(iface->attrs, ATTR_UUID);
+  h = xmalloc (strlen (iface->name) + strlen (prename) + 1);
+  sprintf (h, "%s%s", prename, iface->name);
   if (uuid)
-      write_guid(header, dispinterface ? "DIID" : "IID", iface->name, uuid);
-
+    write_guid(header, dispinterface ? "DIID" : "IID", h, uuid);
   /* C++ interface */
   fprintf(header, "#if defined(__cplusplus) && !defined(CINTERFACE)\n");
   if (uuid)
@@ -1175,13 +1355,13 @@ static void write_com_interface_end(FILE *header, type_t *iface)
       fprintf(header, "interface ");
   if (type_iface_get_inherit(iface))
   {
-    fprintf(header, "%s : public %s\n", iface->name,
+    fprintf(header, "%s : public %s\n", h,
             type_iface_get_inherit(iface)->name);
     fprintf(header, "{\n");
   }
   else
   {
-    fprintf(header, "%s\n", iface->name);
+    fprintf(header, "%s\n", h);
     fprintf(header, "{\n");
     fprintf(header, "    BEGIN_INTERFACE\n");
     fprintf(header, "\n");
@@ -1191,38 +1371,38 @@ static void write_com_interface_end(FILE *header, type_t *iface)
   if (!dispinterface)
   {
     indentation++;
-    write_cpp_method_def(header, iface);
+    write_cpp_method_def(header, iface, prename, *prename != 0);
     indentation--;
   }
   if (!type_iface_get_inherit(iface))
     fprintf(header, "    END_INTERFACE\n");
   fprintf(header, "};\n");
   if (uuid)
-      write_uuid_decl(header, iface->name, uuid);
+      write_uuid_decl(header, h, uuid);
   fprintf(header, "#else\n");
   /* C interface */
-  fprintf(header, "typedef struct %sVtbl {\n", iface->name);
+  fprintf(header, "typedef struct %sVtbl {\n", h);
   indentation++;
   fprintf(header, "    BEGIN_INTERFACE\n");
   fprintf(header, "\n");
   if (dispinterface)
-    write_c_disp_method_def(header, iface);
+    write_c_disp_method_def(header, iface, prename, (*prename != 0));
   else
-    write_c_method_def(header, iface);
+    write_c_method_def(header, iface, prename, (*prename != 0));
   indentation--;
   fprintf(header, "    END_INTERFACE\n");
-  fprintf(header, "} %sVtbl;\n", iface->name);
-  fprintf(header, "interface %s {\n", iface->name);
-  fprintf(header, "    CONST_VTBL %sVtbl* lpVtbl;\n", iface->name);
+  fprintf(header, "} %sVtbl;\n", h);
+  fprintf(header, "interface %s {\n", h);
+  fprintf(header, "    CONST_VTBL %sVtbl* lpVtbl;\n", h);
   fprintf(header, "};\n");
   fprintf(header, "\n");
   fprintf(header, "#ifdef COBJMACROS\n");
   /* dispinterfaces don't have real functions, so don't write macros for them,
    * only for the interface this interface inherits from, i.e. IDispatch */
   fprintf(header, "#ifndef WIDL_C_INLINE_WRAPPERS\n");
-  write_method_macro(header, dispinterface ? type_iface_get_inherit(iface) : iface, iface->name);
+  write_method_macro(header, dispinterface ? type_iface_get_inherit(iface) : iface, h, (*prename != 0));
   fprintf(header, "#else\n");
-  write_inline_wrappers(header, dispinterface ? type_iface_get_inherit(iface) : iface, iface->name);
+  write_inline_wrappers(header, dispinterface ? type_iface_get_inherit(iface) : iface, h, (*prename != 0));
   fprintf(header, "#endif\n");
   fprintf(header, "#endif\n");
   fprintf(header, "\n");
@@ -1232,46 +1412,47 @@ static void write_com_interface_end(FILE *header, type_t *iface)
    * them */
   if (!dispinterface)
   {
-    write_method_proto(header, iface);
-    write_locals(header, iface, FALSE);
+    write_method_proto(header, iface, prename, (*prename != 0));
+    write_locals(header, iface, FALSE, prename, (*prename != 0));
     fprintf(header, "\n");
   }
-  fprintf(header,"#endif  /* __%s_%sINTERFACE_DEFINED__ */\n\n", iface->name, dispinterface ? "DISP" : "");
+  fprintf(header,"#endif  /* __%s_%sINTERFACE_DEFINED__ */\n\n", h, dispinterface ? "DISP" : "");
+  free (h);
 }
 
-static void write_rpc_interface_start(FILE *header, const type_t *iface)
+static void write_rpc_interface_start(FILE *header, const type_t *iface, const char *prename)
 {
   unsigned int ver = get_attrv(iface->attrs, ATTR_VERSION);
   const var_t *var = get_attrp(iface->attrs, ATTR_IMPLICIT_HANDLE);
 
   fprintf(header, "/*****************************************************************************\n");
-  fprintf(header, " * %s interface (v%d.%d)\n", iface->name, MAJORVERSION(ver), MINORVERSION(ver));
+  fprintf(header, " * %s%s interface (v%d.%d)\n", prename, iface->name, MAJORVERSION(ver), MINORVERSION(ver));
   fprintf(header, " */\n");
-  fprintf(header,"#ifndef __%s_INTERFACE_DEFINED__\n", iface->name);
-  fprintf(header,"#define __%s_INTERFACE_DEFINED__\n\n", iface->name);
+  fprintf(header,"#ifndef __%s%s_INTERFACE_DEFINED__\n", prename, iface->name);
+  fprintf(header,"#define __%s%s_INTERFACE_DEFINED__\n\n", prename, iface->name);
   if (var)
   {
       fprintf(header, "extern ");
-      write_type_decl( header, var->type, var->name );
+      write_type_decl( header, var->type, var->name, prename);
       fprintf(header, ";\n");
   }
   if (old_names)
   {
-      fprintf(header, "extern RPC_IF_HANDLE %s%s_ClientIfHandle;\n", prefix_client, iface->name);
-      fprintf(header, "extern RPC_IF_HANDLE %s%s_ServerIfHandle;\n", prefix_server, iface->name);
+      fprintf(header, "extern RPC_IF_HANDLE %s%s%s_ClientIfHandle;\n", prefix_client, prename, iface->name);
+      fprintf(header, "extern RPC_IF_HANDLE %s%s%s_ServerIfHandle;\n", prefix_server, prename, iface->name);
   }
   else
   {
-      fprintf(header, "extern RPC_IF_HANDLE %s%s_v%d_%d_c_ifspec;\n",
-              prefix_client, iface->name, MAJORVERSION(ver), MINORVERSION(ver));
-      fprintf(header, "extern RPC_IF_HANDLE %s%s_v%d_%d_s_ifspec;\n",
-              prefix_server, iface->name, MAJORVERSION(ver), MINORVERSION(ver));
+      fprintf(header, "extern RPC_IF_HANDLE %s%s%s_v%d_%d_c_ifspec;\n",
+              prefix_client, prename, iface->name, MAJORVERSION(ver), MINORVERSION(ver));
+      fprintf(header, "extern RPC_IF_HANDLE %s%s%s_v%d_%d_s_ifspec;\n",
+              prefix_server, prename, iface->name, MAJORVERSION(ver), MINORVERSION(ver));
   }
 }
 
-static void write_rpc_interface_end(FILE *header, const type_t *iface)
+static void write_rpc_interface_end(FILE *header, const type_t *iface, const char *prename)
 {
-  fprintf(header,"\n#endif  /* __%s_INTERFACE_DEFINED__ */\n\n", iface->name);
+  fprintf(header,"\n#endif  /* __%s%s_INTERFACE_DEFINED__ */\n\n", prename, iface->name);
 }
 
 static void write_coclass(FILE *header, type_t *cocl)
@@ -1386,7 +1567,7 @@ static void write_forward_decls(FILE *header, const statement_list_t *stmts)
   }
 }
 
-static void write_header_stmts(FILE *header, const statement_list_t *stmts, const type_t *iface, int ignore_funcs)
+static void write_header_stmts(FILE *header, const statement_list_t *stmts, const type_t *iface, int ignore_funcs, const char *prename)
 {
   const statement_t *stmt;
   if (stmts) LIST_FOR_EACH_ENTRY( stmt, stmts, const statement_t, entry )
@@ -1397,18 +1578,32 @@ static void write_header_stmts(FILE *header, const statement_list_t *stmts, cons
         if (type_get_type(stmt->u.type) == TYPE_INTERFACE)
         {
           type_t *iface = stmt->u.type;
-          if (is_object(iface)) is_object_interface++;
+	  const char *prename2 = (is_attr(stmt->u.type->attrs, ATTR_ASYNCUUID) ? "Async" : prename);
+
+	  if (is_object(iface)) is_object_interface++;
           if (is_attr(stmt->u.type->attrs, ATTR_DISPINTERFACE) || is_object(stmt->u.type))
           {
-            write_com_interface_start(header, iface);
-            write_header_stmts(header, type_iface_get_stmts(iface), stmt->u.type, TRUE);
-            write_com_interface_end(header, iface);
+            write_com_interface_start(header, iface, "");
+            write_header_stmts(header, type_iface_get_stmts(iface), stmt->u.type, TRUE, prename);
+            write_com_interface_end(header, iface, "");
+	    if (*prename == 0 && *prename2 != 0)
+	    {
+	      write_com_interface_start(header, iface, prename2);
+	      write_header_stmts(header, type_iface_get_stmts(iface), stmt->u.type, TRUE, prename2);
+	      write_com_interface_end(header, iface, prename2);
+	    }
           }
           else
           {
-            write_rpc_interface_start(header, iface);
-            write_header_stmts(header, type_iface_get_stmts(iface), iface, FALSE);
-            write_rpc_interface_end(header, iface);
+            write_rpc_interface_start(header, iface, prename);
+            write_header_stmts(header, type_iface_get_stmts(iface), iface, FALSE, prename);
+            write_rpc_interface_end(header, iface, prename);
+	    if (*prename == 0 && *prename2 != 0)
+	    {
+	      write_rpc_interface_start(header, iface, prename2);
+	      write_header_stmts(header, type_iface_get_stmts(iface), iface, FALSE, prename2);
+	      write_rpc_interface_end(header, iface, prename2);
+	    }
           }
           if (is_object(iface)) is_object_interface--;
         }
@@ -1416,11 +1611,15 @@ static void write_header_stmts(FILE *header, const statement_list_t *stmts, cons
           write_coclass(header, stmt->u.type);
         else
         {
-          write_type_def_or_decl(header, stmt->u.type, FALSE, NULL);
+	  if (prename && *prename != 0)
+	    break;
+          write_type_def_or_decl(header, stmt->u.type, FALSE, NULL, prename);
           fprintf(header, ";\n\n");
         }
         break;
       case STMT_TYPEREF:
+	if (prename && *prename != 0)
+	  break;
         /* FIXME: shouldn't write out forward declarations for undefined
         * interfaces but a number of our IDL files depend on this */
         if (type_get_type(stmt->u.type) == TYPE_INTERFACE && !stmt->u.type->written)
@@ -1434,20 +1633,27 @@ static void write_header_stmts(FILE *header, const statement_list_t *stmts, cons
         /* not processed here */
         break;
       case STMT_TYPEDEF:
-      {
-        const type_list_t *type_entry = stmt->u.type_list;
-        for (; type_entry; type_entry = type_entry->next)
-	  write_typedef(header, type_entry->type);
+	if (!prename || *prename == 0)
+	{
+	  const type_list_t *type_entry = stmt->u.type_list;
+	  for (; type_entry; type_entry = type_entry->next)
+	    write_typedef(header, type_entry->type);
+	}
         break;
-      }
       case STMT_LIBRARY:
+	if (prename && *prename != 0)
+	  break;
         write_library(header, stmt->u.lib);
-        write_header_stmts(header, stmt->u.lib->stmts, NULL, FALSE);
+        write_header_stmts(header, stmt->u.lib->stmts, NULL, FALSE, "");
         break;
       case STMT_CPPQUOTE:
+	if (prename && *prename != 0)
+	  break;
         fprintf(header, "%s\n", stmt->u.str);
         break;
       case STMT_DECLARATION:
+	if (prename && *prename != 0)
+	  break;
         if (iface && type_get_type(stmt->u.var->type) == TYPE_FUNCTION)
         {
           if (!ignore_funcs)
@@ -1505,7 +1711,7 @@ void write_header(const statement_list_t *stmts)
   fprintf(header, "\n");
   start_cplusplus_guard(header);
 
-  write_header_stmts(header, stmts, NULL, FALSE);
+  write_header_stmts(header, stmts, NULL, FALSE, "");
 
   fprintf(header, "/* Begin additional prototypes for all interfaces */\n");
   fprintf(header, "\n");

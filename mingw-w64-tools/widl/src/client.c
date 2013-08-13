@@ -62,7 +62,7 @@ static void write_client_func_decl( const type_t *iface, const var_t *func )
     fprintf(client, "%s%s(\n", prefix_client, get_name(func));
     indent++;
     if (args)
-        write_args(client, args, iface->name, 0, TRUE);
+        write_args(client, args, iface->name, 0, TRUE, FILTER_NONE);
     else
         print_client("void");
     fprintf(client, ")\n");
@@ -136,7 +136,7 @@ static void write_function_stub( const type_t *iface, const var_t *func,
     if (has_ret)
     {
         print_client("%s", "");
-        write_type_decl(client, retval->type, retval->name);
+        write_type_decl(client, retval->type, retval->name, "");
         fprintf(client, ";\n");
     }
     print_client("RPC_MESSAGE _RpcMessage;\n");
@@ -407,7 +407,7 @@ static void write_implicithandledecl(type_t *iface)
 
     if (implicit_handle)
     {
-        write_type_decl( client, implicit_handle->type, implicit_handle->name );
+        write_type_decl( client, implicit_handle->type, implicit_handle->name, "");
         fprintf(client, ";\n\n");
     }
 }
