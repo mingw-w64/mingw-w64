@@ -60,11 +60,14 @@ if HAVE_WIDL
 IDL_SRCS = \
   include/activation.idl \
   include/activaut.idl \
+  include/activdbg.idl \
+  include/activdbg100.idl \
   include/activprof.idl \
   include/activscp.idl \
   include/audioclient.idl \
   include/audiopolicy.idl \
   include/ctfutb.idl \
+  include/dbgprop.idl \
   include/docobj.idl \
   include/devicetopology.idl \
   include/downloadmgr.idl \

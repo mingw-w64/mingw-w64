@@ -129,10 +129,7 @@ typedef struct tagMULTI_QI {
 
 cpp_quote("")
 [object, local, uuid (00000020-0000-0000-C000-000000000046),
-#if 0 /* current widl doesn't support that */
-  async_uuid (000e0020-0000-0000-C000-000000000046)
-#endif
-]
+async_uuid (000e0020-0000-0000-C000-000000000046)]
 interface IMultiQI : IUnknown {
   HRESULT QueryMultipleInterfaces ([in] ULONG cMQIs,[in, out] MULTI_QI *pMQIs);
 }
