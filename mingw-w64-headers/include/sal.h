@@ -21,5 +21,7 @@
 #define _In_opt_
 #define _Out_
 
+#define _Struct_size_bytes_(size)
+
 #endif
 
