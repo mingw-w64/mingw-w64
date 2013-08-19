@@ -14,7 +14,6 @@
 extern "C" {
 #endif
 
-#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
 #define SRWLOCK_INIT RTL_SRWLOCK_INIT
 
 #define INIT_ONCE_STATIC_INIT RTL_RUN_ONCE_INIT
@@ -99,9 +98,7 @@ extern "C" {
 #define OpenSemaphore OpenSemaphoreW
 #endif
 #define OpenEvent __MINGW_NAME_AW(OpenEvent)
-#endif
 
-#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
   typedef VOID (APIENTRY *PTIMERAPCROUTINE) (LPVOID lpArgToCompletionRoutine, DWORD dwTimerLowValue, DWORD dwTimerHighValue);
 
   typedef RTL_BARRIER SYNCHRONIZATION_BARRIER;
@@ -147,8 +144,6 @@ extern "C" {
 
 #ifdef UNICODE
 #define OpenWaitableTimer OpenWaitableTimerW
-#endif
-
 #endif
 
 #ifdef __cplusplus
