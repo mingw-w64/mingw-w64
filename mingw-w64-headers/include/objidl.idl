@@ -65,12 +65,12 @@ interface IBindCtx : IUnknown {
   typedef [unique] IBindCtx *LPBC;
   typedef [unique] IBindCtx *LPBINDCTX;
   cpp_quote("#if defined(__cplusplus)")
-  cpp_quote("typedef _Struct_size_bytes_(cbStruct) struct tagBIND_OPTS {")
-  cpp_quote("DWORD           cbStruct;")
-  cpp_quote("DWORD           grfFlags;")
-  cpp_quote("DWORD           grfMode;")
-  cpp_quote("DWORD           dwTickCountDeadline;")
-  cpp_quote("} BIND_OPTS, * LPBIND_OPTS;")
+  cpp_quote("typedef struct tagBIND_OPTS {")
+  cpp_quote("  DWORD cbStruct;")
+  cpp_quote("  DWORD grfFlags;")
+  cpp_quote("  DWORD grfMode;")
+  cpp_quote("  DWORD dwTickCountDeadline;")
+  cpp_quote("} BIND_OPTS, *LPBIND_OPTS;")
   cpp_quote("#else")
 
   typedef struct tagBIND_OPTS {

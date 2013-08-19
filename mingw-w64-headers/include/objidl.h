@@ -7934,12 +7934,12 @@ void __RPC_STUB IMallocSpy_PostHeapMinimize_Stub(
 typedef IBindCtx *LPBC;
 typedef IBindCtx *LPBINDCTX;
 #if defined(__cplusplus)
-typedef _Struct_size_bytes_(cbStruct) struct tagBIND_OPTS {
-DWORD           cbStruct;
-DWORD           grfFlags;
-DWORD           grfMode;
-DWORD           dwTickCountDeadline;
-} BIND_OPTS, * LPBIND_OPTS;
+typedef struct tagBIND_OPTS {
+  DWORD cbStruct;
+  DWORD grfFlags;
+  DWORD grfMode;
+  DWORD dwTickCountDeadline;
+} BIND_OPTS, *LPBIND_OPTS;
 #else
 typedef struct tagBIND_OPTS {
     DWORD cbStruct;
@@ -11410,7 +11410,7 @@ typedef struct _GDI_OBJECT {
     } u;
 } GDI_OBJECT;
 typedef struct _userSTGMEDIUM {
-    struct _STGMEDIUM_UNION {
+    /*struct _STGMEDIUM_UNION {*/
         DWORD tymed;
         union {
             wireHMETAFILEPICT hMetaFilePict;
@@ -11421,7 +11421,7 @@ typedef struct _userSTGMEDIUM {
             BYTE_BLOB *pstm;
             BYTE_BLOB *pstg;
         } u;
-    } DUMMYUNIONNAME;
+    /* } DUMMYUNIONNAME */;
     IUnknown *pUnkForRelease;
 } userSTGMEDIUM;
 typedef userSTGMEDIUM *wireSTGMEDIUM;
