@@ -1,0 +1,85 @@
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+
+import "inspectable.idl";
+
+namespace Windows {
+  namespace Foundation {
+    interface IAsyncInfo;
+    interface IAsyncAction;
+    interface IAsyncOperation;
+    interface AsyncActionCompletedHandler; // delegate
+    interface TypedEventHandler;           // delegate
+    struct    DateTime;
+    struct    EventRegistrationToken;
+
+    namespace Collections {
+      interface IVectorView;
+      interface IPropertySet;
+    }
+  }
+}
+
+namespace Windows {
+  namespace Foundation {
+    typedef enum AsyncStatus {
+      Started,
+      Completed,
+      Canceled,
+      Error
+    } AsyncStatus;
+
+    typedef struct DateTime {
+      UINT64 UniversalTime;
+    } DateTime;
+
+    typedef struct EventRegistrationToken {
+      UINT64 Value;
+    } EventRegistrationToken;
+
+    [uuid(00000036-0000-0000-C000-000000000046)]
+    interface IAsyncInfo : IInspectable
+    {
+      [propget] HRESULT Id(unsigned int *id);
+      [propget] HRESULT Status(AsyncStatus *status);
+      [propget] HRESULT ErrorCode(HRESULT *errorCode);
+      HRESULT Cancel();
+      HRESULT Close();
+    }
+
+    [uuid(5A648006-843A-4DA9-865B-9D26E5DFAD7B)]
+    interface IASyncAction : IInspectable {
+      [propput] HRESULT Completed(AsyncActionCompletedHandler* handler);
+      [propget] HRESULT Completed(AsyncActionCompletedHandler** handler);
+      HRESULT GetResults();
+    }
+
+    [uuid(A4ED5C81-76C9-40BD-8BE6-B1D90FB20AE7)]
+    interface AsyncActionCompletedHandler : IUnknown {
+      //FIXME: should support cyclic dependency
+      HRESULT Invoke(/*IAsyncAction*/ IInspectable *asyncAction, AsyncStatus status);
+    }
+
+    //FIXME: WHERE IS IT?
+    //generic <typename TResult>
+    [uuid("9fc2b0bb-e446-44e2-aa61-9cab8f636af2")]
+    interface IAsyncOperation : IAsyncInfo {
+      [propput] HRESULT Completed(AsyncActionCompletedHandler* handler);
+      [propget] HRESULT Completed(AsyncActionCompletedHandler** handler);
+      //FIXME: implement generics
+      /*TResult*/ IInspectable* GetResults();
+    }
+
+
+    namespace Collections {
+      //interface IVectorView;
+      /*[uuid(8A43ED9F-F4E6-4421-ACF9-1DAB2986820C)]
+      interface IPropertySet : IInspectable {
+        //
+      }*/
+    }
+  }
+}
