@@ -109,6 +109,11 @@ extern "C" {
 #define GetModuleHandle __MINGW_NAME_AW(GetModuleHandle)
 #define LoadLibraryEx __MINGW_NAME_AW(LoadLibraryEx)
 
+#define EnumResourceLanguages __MINGW_NAME_AW(EnumResourceLanguages)
+  WINBASEAPI WINBOOL WINAPI EnumResourceLanguagesA(HMODULE hModule,LPCSTR lpType,LPCSTR lpName,ENUMRESLANGPROCA lpEnumFunc,LONG_PTR lParam);
+  WINBASEAPI WINBOOL WINAPI EnumResourceLanguagesW(HMODULE hModule,LPCWSTR lpType,LPCWSTR lpName,ENUMRESLANGPROCW lpEnumFunc,LONG_PTR lParam);
+
+
 #if _WIN32_WINNT >= 0x0600
   WINBASEAPI WINBOOL APIENTRY EnumResourceLanguagesExA (HMODULE hModule, LPCSTR lpType, LPCSTR lpName, ENUMRESLANGPROCA lpEnumFunc, LONG_PTR lParam, DWORD dwFlags, LANGID LangId);
   WINBASEAPI WINBOOL APIENTRY EnumResourceLanguagesExW (HMODULE hModule, LPCWSTR lpType, LPCWSTR lpName, ENUMRESLANGPROCW lpEnumFunc, LONG_PTR lParam, DWORD dwFlags, LANGID LangId);
@@ -118,7 +123,7 @@ extern "C" {
   WINBASEAPI WINBOOL WINAPI EnumResourceTypesExW (HMODULE hModule, ENUMRESTYPEPROCW lpEnumFunc, LONG_PTR lParam, DWORD dwFlags, LANGID LangId);
   WINBASEAPI WINBOOL WINAPI QueryOptionalDelayLoadedAPI (HMODULE CallerModule, LPCSTR lpDllName, LPCSTR lpProcName, DWORD Reserved);
 
-#define EnumResourceLanguages __MINGW_NAME_AW(EnumResourceLanguages)
+#define EnumResourceLanguagesEx __MINGW_NAME_AW(EnumResourceLanguagesEx)
 #define EnumResourceNamesEx __MINGW_NAME_AW(EnumResourceNamesEx)
 #define EnumResourceTypesEx __MINGW_NAME_AW(EnumResourceTypesEx)
 #endif
