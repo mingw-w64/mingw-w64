@@ -114,6 +114,7 @@ IDL_SRCS = \
   include/wincodec.idl \
   include/wtypesbase.idl \
   include/windows.foundation.idl \
+  include/windows.security.cryptography.idl \
   include/wmcodecdsp.idl \
   include/wpcapi.idl \
   include/wtypes.idl \

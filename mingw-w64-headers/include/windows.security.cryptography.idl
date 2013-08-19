@@ -1,0 +1,52 @@
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+
+import "inspectable.idl";
+import "windows.storage.streams.idl";
+
+namespace Windows {
+  namespace Storage {
+    namespace Streams {
+      interface IBuffer;
+    }
+  }
+}
+
+namespace Windows {
+  namespace Security {
+    namespace Cryptography {
+      interface ICryptographicBufferStatics;
+      enum BinaryStringEncoding;
+    }
+  }
+}
+
+namespace Windows {
+  namespace Security {
+    namespace Cryptography {
+      typedef enum BinaryStringEncoding {
+        Utf8,
+        Utf16LE,
+        Utf16BE
+      } BinaryStringEncoding;
+
+      [uuid(320B7E22-3CB0-4CDF-8663-1D28910065EB)]
+      interface ICryptographicBufferStatics : IInspectable {
+        HRESULT Compare(IBuffer* object1, IBuffer* object2, boolean* isEqual);
+        HRESULT GenerateRandom(UINT32 length, IBuffer** buffer);
+        HRESULT GenerateRandomNumber(UINT32* value);
+        HRESULT CreateFromByteArray(UINT32 __valueSize, BYTE* value,IBuffer** buffer);
+        HRESULT CopyToByteArray(IBuffer* buffer, UINT32* __valueSize, BYTE** value);
+        HRESULT DecodeFromHexString(HSTRING value, IBuffer** buffer);
+        HRESULT EncodeToHexString(IBuffer* buffer, HSTRING* value);
+        HRESULT DecodeFromBase64String(HSTRING value, IBuffer** buffer);
+        HRESULT EncodeToBase64String(IBuffer* buffer, HSTRING* value);
+        HRESULT ConvertStringToBinary(HSTRING value, BinaryStringEncoding encoding, IBuffer** buffer);
+        HRESULT ConvertBinaryToString(BinaryStringEncoding encoding, IBuffer* buffer, HSTRING* value);
+      }
+    }
+  }
+}
