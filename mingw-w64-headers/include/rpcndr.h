@@ -750,7 +750,11 @@ typedef unsigned __LONG32 error_status_t;
 #endif
 
 #define MIDL_INTERFACE(x) struct
+#ifdef __cplusplus
 #define EXTERN_GUID(itf,l1,s1,s2,c1,c2,c3,c4,c5,c6,c7,c8) EXTERN_C const IID DECLSPEC_SELECTANY itf = {l1,s1,s2,{c1,c2,c3,c4,c5,c6,c7,c8}}
+#else
+#define EXTERN_GUID(itf,l1,s1,s2,c1,c2,c3,c4,c5,c6,c7,c8) const IID DECLSPEC_SELECTANY itf = {l1,s1,s2,{c1,c2,c3,c4,c5,c6,c7,c8}}
+#endif
 
   typedef struct _NDR_USER_MARSHAL_INFO_LEVEL1 {
     void *Buffer;
