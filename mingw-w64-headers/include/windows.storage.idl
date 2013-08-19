@@ -1,0 +1,179 @@
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+
+import "inspectable.idl";
+import "hstring.idl";
+import "windows.foundation.idl";
+
+namespace Windows {
+  namespace Foundation {
+    interface IAsyncAction;
+    interface TypedEventHandler;
+    //struct DateTime;
+    //struct EventRegistrationToken;
+
+    namespace Collections {
+      interface IPropertySet;
+      interface IMapView;
+    }
+  }
+  namespace Storage {
+    interface IStorageItem;
+    interface IStorageFolder;
+    interface IApplicationData;
+    interface IApplicationDataStatics;
+    interface IApplicationDataSetVersionHandler;
+    interface ApplicationDataContainer;
+    interface ApplicationDataSetVersionHandler; //delegate
+    interface ISetVersionRequest;
+    interface ISetVersionDeferral;
+    enum StorageDeleteOption;
+    enum NameCollisionOption;
+    enum StorageItemTypes;
+    enum ApplicationDataLocality;
+    enum ApplicationDataCreateDisposition;
+    enum FileAttributes;
+    enum CreationCollisionOption;
+  }
+}
+
+namespace Windows {
+  namespace Storage {
+    typedef enum NameCollisionoption {
+      GenerateUniqueName,
+      ReplaceExisting,
+      FailIfExists
+    } NameCollisionOption;
+
+    typedef enum StorageDeleteOption {
+      Default,
+      PermanentDelete
+    } StorageDeleteOption;
+
+    typedef enum StorageItemTypes {
+      None,
+      File,
+      Folder
+    } StorageItemTypes;
+
+    typedef enum ApplicationDataCreateDisposition {
+      Always,
+      Existing
+    } ApplicationDataCreateDisposition;
+
+    typedef enum ApplicationDataLocality {
+      Local,
+      Roaming,
+      Temporary
+    } ApplicationDataLocality;
+
+    typedef enum FileAttributes {
+      Normal,
+      ReadOnly,
+      Directory,
+      Archive,
+      Temporary
+    } FileAttributes;
+
+    typedef enum CreationCollisionOption {
+      GenerateUniqueName,
+      ReplaceExisting,
+      FailIfExists,
+      openIfExists
+    } CreationCollisionOption;
+
+    [uuid(4207A996-CA2F-42F7-BDE8-8B10457A7F30)]
+    interface IStorageItem : IInspectable
+    {
+      HRESULT RenameAsyncOverloadDefaultOptions(HSTRING desiredName, /*IAsyncAction*/ IInspectable** action);
+      HRESULT RenameAsync(HSTRING desiredName, NameCollisionOption option, /*IAsyncAction*/ IInspectable** action);
+      HRESULT DeleteAsyncOverloadDefaultOptions(/*IAsyncAction*/ IInspectable** action);
+      HRESULT DeleteAsync(StorageDeleteOption option, /*IAsyncAction*/ IInspectable** action);
+      HRESULT GetBasicPropertiesAsync(/*IAsyncOperation<Windows.Storage.FileProperties.BasicProperties*>*/ IInspectable** action);
+      [propget] HRESULT Name(HSTRING value);
+      [propget] HRESULT Path(HSTRING value);
+      [propget] HRESULT Attributes(FileAttributes* value);
+      [propget] HRESULT DateCreated(DateTime* value);
+      HRESULT IsOfType(StorageItemTypes itemType, boolean* value);
+    }
+
+    [uuid(5A2A7520-4802-452D-9AD9-4351ADA7EC35)]
+    interface IKnownFoldersStatics : IInspectable
+    {
+        [propget] HRESULT MusicLibrary(IStorageFolder** value);
+        [propget] HRESULT PicturesLibrary(IStorageFolder** value);
+        [propget] HRESULT VideosLibrary(IStorageFolder** value);
+        [propget] HRESULT DocumentsLibrary(IStorageFolder** value);
+        [propget] HRESULT HomeGroup(IStorageFolder** value);
+        [propget] HRESULT RemovableDevices(IStorageFolder** value);
+        [propget] HRESULT MediaServerDevices(IStorageFolder** value);
+    }
+
+    [uuid(72D1CB78-B3EF-4F75-A80B-6FD9DAE2944B)]
+    interface IStorageFolder : IInspectable
+    {
+      HRESULT CreateFileAsyncOverloadDefaultOptions(HSTRING desiredName, /*IAsyncOperation<IStorageFile*>*/IInspectable** operation);
+      HRESULT CreateFileAsync(HSTRING desiredName, CreationCollisionOption options, /*IAsyncOperation<IStorageFile*>*/IInspectable** operation);
+      HRESULT CreateFolderAsyncOverloadDefaultOptions(HSTRING desiredName, /*IAsyncOperation<IStorageFolder*>*/IInspectable** operation);
+      HRESULT CreateFolderAsync(HSTRING desiredName, CreationCollisionOption options, /*IAsyncOperation<StorageFolder*>*/IInspectable** operation);
+      HRESULT GetFileAsync(HSTRING name, /*IAsyncOperation<StorageFile*>*/IInspectable** operation);
+      HRESULT GetFolderAsync(HSTRING name, /*IAsyncOperation<StorageFolder*>*/IInspectable** operation);
+      HRESULT GetItemAsync(HSTRING name, /*IAsyncOperation<StorageItem*>*/IInspectable** operation);
+      HRESULT GetFilesAsyncOverloadDefaultOptionsStartAndCount(/*IAsyncOperation<IVectorView<StorageFile*>*>*/IInspectable** operation);
+      HRESULT GetFoldersAsyncOverloadDefaultOptionsStartAndCount(/*IAsyncOperation<IVectorView<StorageFolder*>*>*/IInspectable** operation);
+      HRESULT GetItemsAsyncOverloadDefaultStartAndCount(/*IAsyncOperation<IVectorView<StorageItem*>*>*/IInspectable** operation);
+    }
+
+    [uuid(C5AEFD1E-F467-40BA-8566-AB640A441E1D)]
+    interface IApplicationDataContainer : IInspectable {
+      [propget] HRESULT Name(HSTRING* value);
+      [propget] HRESULT Locality(ApplicationDataLocality* value);
+      [propget] HRESULT Values(/*IPropertySet*/IInspectable** value);
+      [propget] HRESULT Containers(/*IMapView<HSTRING, ApplicationDataContainer*>*/IInspectable** value);
+       HRESULT CreateContainer(HSTRING name, ApplicationDataCreateDisposition disposition, IApplicationDataContainer** container);
+       HRESULT DeleteContainer([in] HSTRING name);
+     }
+
+    [uuid(C3DA6FB7-B744-4B45-B0B8-223A0938D0DC)]
+    interface IApplicationData : IInspectable {
+      [propget] HRESULT Version(int* value);
+      HRESULT SetVersionAsync(int desiredVersion, ApplicationDataSetVersionHandler* handler, /*IAsyncAction*/ IInspectable** setVersionOperation);
+      HRESULT ClearAllAsync(/*IAsyncAction*/ IInspectable** clearOperation);
+      HRESULT ClearAsync(ApplicationDataLocality locality, /*IAsyncAction*/ IInspectable** clearOperation);
+      [propget] HRESULT LocalSettings(IApplicationDataContainer** value);
+      [propget] HRESULT RoamingSettings(IApplicationDataContainer** value);
+      [propget] HRESULT LocalFolder(IStorageFolder** value);
+      [propget] HRESULT RoamingFolder(IStorageFolder** value);
+      [propget] HRESULT TemporaryFolder(IStorageFolder** value);
+      HRESULT DataChanged(/*TypedEventHandler<ApplicationData*, IInspectable*>*/IInspectable* handler, EventRegistrationToken* token);
+      HRESULT DataChanged(EventRegistrationToken token);
+      HRESULT SignalDataChanged();
+      HRESULT RoamingStorageQuota(UINT64* value);
+    }
+
+    [uuid(5612147B-E843-45E3-94D8-06169E3C8E17)]
+    interface IApplicationDataStatics : IInspectable {
+      [propget] HRESULT Current(IApplicationData** data);
+    }
+
+    [uuid(A05791E6-CC9F-4687-ACAB-A364FD785463)]
+    interface ApplicationDataSetVersionHandler {
+      HRESULT ApplicationDataSetVersionHandler(ISetVersionRequest* setVersionRequest);
+    }
+
+    [uuid(B9C76B9B-1056-4E69-8330-162619956F9B)]
+    interface ISetVersionRequest : IInspectable {
+      [propget] HRESULT CurrentVersion(UINT32* currentVersion);
+      [propget] HRESULT DesiredVersion(UINT32* desiredVersion);
+      HRESULT GetDeferral(ISetVersionDeferral** deferral);
+    }
+
+    [uuid(033508A2-781A-437A-B078-3F32BADCFE47)]
+    interface ISetVersionDeferral : IInspectable {
+      HRESULT Complete();
+    }
+  }
+}
