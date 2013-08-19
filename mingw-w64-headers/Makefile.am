@@ -76,6 +76,7 @@ IDL_SRCS = \
   include/fusion.idl \
   include/fwptypes.idl \
   include/hstring.idl \
+  include/icodecapi.idl \
   include/iketypes.idl \
   include/inputscope.idl \
   include/inspectable.idl \
