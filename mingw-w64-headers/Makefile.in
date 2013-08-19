@@ -283,9 +283,13 @@ EXTRA_HEADERS = \
 
 @HAVE_WIDL_TRUE@IDL_SRCS = \
 @HAVE_WIDL_TRUE@  include/activation.idl \
+@HAVE_WIDL_TRUE@  include/activaut.idl \
+@HAVE_WIDL_TRUE@  include/activprof.idl \
+@HAVE_WIDL_TRUE@  include/activscp.idl \
 @HAVE_WIDL_TRUE@  include/audioclient.idl \
 @HAVE_WIDL_TRUE@  include/audiopolicy.idl \
 @HAVE_WIDL_TRUE@  include/ctfutb.idl \
+@HAVE_WIDL_TRUE@  include/dbgprop.idl \
 @HAVE_WIDL_TRUE@  include/docobj.idl \
 @HAVE_WIDL_TRUE@  include/devicetopology.idl \
 @HAVE_WIDL_TRUE@  include/downloadmgr.idl \
@@ -310,12 +314,14 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/msxml.idl \
 @HAVE_WIDL_TRUE@  include/objectarray.idl \
 @HAVE_WIDL_TRUE@  include/objidl.idl \
+@HAVE_WIDL_TRUE@  include/objidlbase.idl \
 @HAVE_WIDL_TRUE@  include/oleidl.idl \
 @HAVE_WIDL_TRUE@  include/optary.idl \
 @HAVE_WIDL_TRUE@  include/portabledevicetypes.idl \
 @HAVE_WIDL_TRUE@  include/propidl.idl \
 @HAVE_WIDL_TRUE@  include/propsys.idl \
 @HAVE_WIDL_TRUE@  include/sensorsapi.idl \
+@HAVE_WIDL_TRUE@  include/servprov.idl \
 @HAVE_WIDL_TRUE@  include/shobjidl.idl \
 @HAVE_WIDL_TRUE@  include/shtypes.idl \
 @HAVE_WIDL_TRUE@  include/strmif.idl \
@@ -325,8 +331,17 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/uiautomationclient.idl \
 @HAVE_WIDL_TRUE@  include/uiautomationcore.idl \
 @HAVE_WIDL_TRUE@  include/unknwn.idl \
+@HAVE_WIDL_TRUE@  include/unknwnbase.idl \
 @HAVE_WIDL_TRUE@  include/urlmon.idl \
 @HAVE_WIDL_TRUE@  include/wincodec.idl \
+@HAVE_WIDL_TRUE@  include/wmsbuffer.idl \
+@HAVE_WIDL_TRUE@  include/wmsdkidl.idl \
+@HAVE_WIDL_TRUE@  include/wtypesbase.idl \
+@HAVE_WIDL_TRUE@  include/windows.foundation.idl \
+@HAVE_WIDL_TRUE@  include/windows.security.cryptography.idl \
+@HAVE_WIDL_TRUE@  include/windows.storage.idl \
+@HAVE_WIDL_TRUE@  include/windows.storage.streams.idl \
+@HAVE_WIDL_TRUE@  include/windows.system.threading.idl \
 @HAVE_WIDL_TRUE@  include/wmcodecdsp.idl \
 @HAVE_WIDL_TRUE@  include/wpcapi.idl \
 @HAVE_WIDL_TRUE@  include/wtypes.idl \
