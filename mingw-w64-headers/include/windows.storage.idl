@@ -43,46 +43,46 @@ namespace Windows {
 namespace Windows {
   namespace Storage {
     typedef enum NameCollisionoption {
-      GenerateUniqueName,
-      ReplaceExisting,
-      FailIfExists
+      NameCollisionoption_GenerateUniqueName,
+      NameCollisionoption_ReplaceExisting,
+      NameCollisionoption_FailIfExists
     } NameCollisionOption;
 
     typedef enum StorageDeleteOption {
-      Default,
-      PermanentDelete
+      StorageDeleteOption_Default,
+      StorageDeleteOption_PermanentDelete
     } StorageDeleteOption;
 
     typedef enum StorageItemTypes {
-      None,
-      File,
-      Folder
+      StorageItemTypes_None,
+      StorageItemTypes_File,
+      StorageItemTypes_Folder
     } StorageItemTypes;
 
     typedef enum ApplicationDataCreateDisposition {
-      Always,
-      Existing
+      ApplicationDataCreateDisposition_Always,
+      ApplicationDataCreateDisposition_Existing
     } ApplicationDataCreateDisposition;
 
     typedef enum ApplicationDataLocality {
-      Local,
-      Roaming,
-      Temporary
+      ApplicationDataLocality_Local,
+      ApplicationDataLocality_Roaming,
+      ApplicationDataLocality_Temporary
     } ApplicationDataLocality;
 
     typedef enum FileAttributes {
-      Normal,
-      ReadOnly,
-      Directory,
-      Archive,
-      Temporary
+      FileAttributes_Normal,
+      FileAttributes_ReadOnly,
+      FileAttributes_Directory,
+      FileAttributes_Archive,
+      FileAttributes_Temporary
     } FileAttributes;
 
     typedef enum CreationCollisionOption {
-      GenerateUniqueName,
-      ReplaceExisting,
-      FailIfExists,
-      openIfExists
+      CreationCollisionOption_GenerateUniqueName,
+      CreationCollisionOption_ReplaceExisting,
+      CreationCollisionOption_FailIfExists,
+      CreationCollisionOption_OpenIfExists
     } CreationCollisionOption;
 
     [uuid(4207A996-CA2F-42F7-BDE8-8B10457A7F30)]
@@ -93,8 +93,8 @@ namespace Windows {
       HRESULT DeleteAsyncOverloadDefaultOptions(/*IAsyncAction*/ IInspectable** action);
       HRESULT DeleteAsync(StorageDeleteOption option, /*IAsyncAction*/ IInspectable** action);
       HRESULT GetBasicPropertiesAsync(/*IAsyncOperation<Windows.Storage.FileProperties.BasicProperties*>*/ IInspectable** action);
-      [propget] HRESULT Name(HSTRING value);
-      [propget] HRESULT Path(HSTRING value);
+      [propget] HRESULT Name(HSTRING *value);
+      [propget] HRESULT Path(HSTRING *value);
       [propget] HRESULT Attributes(FileAttributes* value);
       [propget] HRESULT DateCreated(DateTime* value);
       HRESULT IsOfType(StorageItemTypes itemType, boolean* value);
@@ -148,8 +148,8 @@ namespace Windows {
       [propget] HRESULT LocalFolder(IStorageFolder** value);
       [propget] HRESULT RoamingFolder(IStorageFolder** value);
       [propget] HRESULT TemporaryFolder(IStorageFolder** value);
-      HRESULT DataChanged(/*TypedEventHandler<ApplicationData*, IInspectable*>*/IInspectable* handler, EventRegistrationToken* token);
-      HRESULT DataChanged(EventRegistrationToken token);
+      // [eventadd] HRESULT DataChanged(/*TypedEventHandler<ApplicationData*, IInspectable*>*/IInspectable* handler, EventRegistrationToken* token);
+      /* [eventremove] */ HRESULT DataChanged(EventRegistrationToken token);
       HRESULT SignalDataChanged();
       HRESULT RoamingStorageQuota(UINT64* value);
     }
@@ -160,7 +160,7 @@ namespace Windows {
     }
 
     [uuid(A05791E6-CC9F-4687-ACAB-A364FD785463)]
-    interface ApplicationDataSetVersionHandler {
+    interface ApplicationDataSetVersionHandler : IUnknown {
       HRESULT ApplicationDataSetVersionHandler(ISetVersionRequest* setVersionRequest);
     }
 
