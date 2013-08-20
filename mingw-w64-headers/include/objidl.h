@@ -11410,7 +11410,7 @@ typedef struct _GDI_OBJECT {
     } u;
 } GDI_OBJECT;
 typedef struct _userSTGMEDIUM {
-    /*struct _STGMEDIUM_UNION {*/
+    struct _STGMEDIUM_UNION {
         DWORD tymed;
         union {
             wireHMETAFILEPICT hMetaFilePict;
@@ -11421,7 +11421,7 @@ typedef struct _userSTGMEDIUM {
             BYTE_BLOB *pstm;
             BYTE_BLOB *pstg;
         } u;
-    /* } DUMMYUNIONNAME */;
+    } DUMMYUNIONNAME;
     IUnknown *pUnkForRelease;
 } userSTGMEDIUM;
 typedef userSTGMEDIUM *wireSTGMEDIUM;
@@ -14568,7 +14568,6 @@ void __RPC_STUB ISurrogateService_ProcessShutdown_Stub(
 
 #endif  /* __ISurrogateService_INTERFACE_DEFINED__ */
 
-#if  (_WIN32_WINNT >= 0x0501 )
 /*****************************************************************************
  * IInitializeSpy interface
  */
@@ -14720,7 +14719,6 @@ void __RPC_STUB IInitializeSpy_PostUninitialize_Stub(
 
 #endif  /* __IInitializeSpy_INTERFACE_DEFINED__ */
 
-#endif
 #endif
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
 /*****************************************************************************

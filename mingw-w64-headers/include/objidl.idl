@@ -837,7 +837,6 @@ interface ISurrogateService : IUnknown {
   HRESULT ProcessShutdown ([in] ShutdownType shutdownType);
 }
 
-cpp_quote("#if  (_WIN32_WINNT >= 0x0501 )")
 [local, object, uuid (00000034-0000-0000-C000-000000000046), pointer_default (unique)]
 interface IInitializeSpy : IUnknown {
   typedef [unique] IInitializeSpy *LPINITIALIZESPY;
@@ -846,8 +845,6 @@ interface IInitializeSpy : IUnknown {
   HRESULT PreUninitialize ([in] DWORD dwCurThreadAptRefs);
   HRESULT PostUninitialize ([in] DWORD dwNewThreadAptRefs);
 };
-cpp_quote("#endif")
-
 cpp_quote("#endif")
 
 cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
