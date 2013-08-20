@@ -1,15 +1,17 @@
 /**
- * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  */
+#include <winapifamily.h>
+
 #ifndef _INC_SHELLAPI
 #define _INC_SHELLAPI
 
 #include <_mingw_unicode.h>
+#include <specstrings.h>
 
 #ifndef WINSHELLAPI
-#if !defined(_SHELL32_)
+#ifndef _SHELL32_
 #define WINSHELLAPI DECLSPEC_IMPORT
 #else
 #define WINSHELLAPI
@@ -17,9 +19,14 @@
 #endif
 
 #ifndef SHSTDAPI
-#if !defined(_SHELL32_)
-#define SHSTDAPI EXTERN_C DECLSPEC_IMPORT HRESULT WINAPI
-#define SHSTDAPI_(type) EXTERN_C DECLSPEC_IMPORT type WINAPI
+#ifndef _SHELL32_
+#ifdef __cplusplus
+#define SHSTDAPI EXTERN_C DECLSPEC_IMPORT HRESULT STDAPICALLTYPE
+#define SHSTDAPI_(type) EXTERN_C DECLSPEC_IMPORT type STDAPICALLTYPE
+#else
+#define SHSTDAPI DECLSPEC_IMPORT HRESULT STDAPICALLTYPE
+#define SHSTDAPI_(type) DECLSPEC_IMPORT type STDAPICALLTYPE
+#endif
 #else
 #define SHSTDAPI STDAPI
 #define SHSTDAPI_(type) STDAPI_(type)
@@ -27,16 +34,21 @@
 #endif
 
 #ifndef SHDOCAPI
-#if !defined(_SHDOCVW_)
-#define SHDOCAPI EXTERN_C DECLSPEC_IMPORT HRESULT WINAPI
-#define SHDOCAPI_(type) EXTERN_C DECLSPEC_IMPORT type WINAPI
+#ifndef _SHDOCVW_
+#ifdef __cplusplus
+#define SHDOCAPI EXTERN_C DECLSPEC_IMPORT HRESULT STDAPICALLTYPE
+#define SHDOCAPI_(type) EXTERN_C DECLSPEC_IMPORT type STDAPICALLTYPE
+#else
+#define SHDOCAPI DECLSPEC_IMPORT HRESULT STDAPICALLTYPE
+#define SHDOCAPI_(type) DECLSPEC_IMPORT type STDAPICALLTYPE
+#endif
 #else
 #define SHDOCAPI STDAPI
 #define SHDOCAPI_(type) STDAPI_(type)
 #endif
 #endif
 
-#if !defined(_WIN64)
+#ifndef _WIN64
 #include <pshpack1.h>
 #endif
 
@@ -44,7 +56,8 @@
 extern "C" {
 #endif
 
-  DECLARE_HANDLE(HDROP);
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
+  DECLARE_HANDLE (HDROP);
 
 #define DragQueryFile __MINGW_NAME_AW(DragQueryFile)
 #define ShellExecute __MINGW_NAME_AW(ShellExecute)
@@ -54,27 +67,25 @@ extern "C" {
 #define ExtractAssociatedIconEx __MINGW_NAME_AW(ExtractAssociatedIconEx)
 #define ExtractIcon __MINGW_NAME_AW(ExtractIcon)
 
-  SHSTDAPI_(UINT) DragQueryFileA(HDROP,UINT,LPSTR,UINT);
-  SHSTDAPI_(UINT) DragQueryFileW(HDROP,UINT,LPWSTR,UINT);
-  SHSTDAPI_(WINBOOL) DragQueryPoint(HDROP,LPPOINT);
-  SHSTDAPI_(void) DragFinish(HDROP);
-  SHSTDAPI_(void) DragAcceptFiles(HWND,WINBOOL);
-  SHSTDAPI_(HINSTANCE) ShellExecuteA(HWND hwnd,LPCSTR lpOperation,LPCSTR lpFile,LPCSTR lpParameters,LPCSTR lpDirectory,INT nShowCmd);
-  SHSTDAPI_(HINSTANCE) ShellExecuteW(HWND hwnd,LPCWSTR lpOperation,LPCWSTR lpFile,LPCWSTR lpParameters,LPCWSTR lpDirectory,INT nShowCmd);
-  SHSTDAPI_(HINSTANCE) FindExecutableA(LPCSTR lpFile,LPCSTR lpDirectory,LPSTR lpResult);
-  SHSTDAPI_(HINSTANCE) FindExecutableW(LPCWSTR lpFile,LPCWSTR lpDirectory,LPWSTR lpResult);
-  SHSTDAPI_(LPWSTR *) CommandLineToArgvW(LPCWSTR lpCmdLine,int*pNumArgs);
-  SHSTDAPI_(INT) ShellAboutA(HWND hWnd,LPCSTR szApp,LPCSTR szOtherStuff,HICON hIcon);
-  SHSTDAPI_(INT) ShellAboutW(HWND hWnd,LPCWSTR szApp,LPCWSTR szOtherStuff,HICON hIcon);
-  SHSTDAPI_(HICON) DuplicateIcon(HINSTANCE hInst,HICON hIcon);
-  SHSTDAPI_(HICON) ExtractAssociatedIconA(HINSTANCE hInst,LPSTR lpIconPath,LPWORD lpiIcon);
-  SHSTDAPI_(HICON) ExtractAssociatedIconW(HINSTANCE hInst,LPWSTR lpIconPath,LPWORD lpiIcon);
-#if (_WIN32_IE >= 0x0601)
-  SHSTDAPI_(HICON) ExtractAssociatedIconExA(HINSTANCE hInst,LPSTR lpIconPath,LPWORD lpiIconIndex,LPWORD lpiIconId);
-  SHSTDAPI_(HICON) ExtractAssociatedIconExW(HINSTANCE hInst,LPWSTR lpIconPath,LPWORD lpiIconIndex,LPWORD lpiIconId);
-#endif
-  SHSTDAPI_(HICON) ExtractIconA(HINSTANCE hInst,LPCSTR lpszExeFileName,UINT nIconIndex);
-  SHSTDAPI_(HICON) ExtractIconW(HINSTANCE hInst,LPCWSTR lpszExeFileName,UINT nIconIndex);
+  SHSTDAPI_(UINT) DragQueryFileA (HDROP hDrop, UINT iFile, LPSTR lpszFile, UINT cch);
+  SHSTDAPI_(UINT) DragQueryFileW (HDROP hDrop, UINT iFile, LPWSTR lpszFile, UINT cch);
+  SHSTDAPI_(WINBOOL) DragQueryPoint (HDROP hDrop, POINT *ppt);
+  SHSTDAPI_(void) DragFinish (HDROP hDrop);
+  SHSTDAPI_(void) DragAcceptFiles (HWND hWnd, WINBOOL fAccept);
+  SHSTDAPI_(HINSTANCE) ShellExecuteA (HWND hwnd, LPCSTR lpOperation, LPCSTR lpFile, LPCSTR lpParameters, LPCSTR lpDirectory, INT nShowCmd);
+  SHSTDAPI_(HINSTANCE) ShellExecuteW (HWND hwnd, LPCWSTR lpOperation, LPCWSTR lpFile, LPCWSTR lpParameters, LPCWSTR lpDirectory, INT nShowCmd);
+  SHSTDAPI_(HINSTANCE) FindExecutableA (LPCSTR lpFile, LPCSTR lpDirectory, LPSTR lpResult);
+  SHSTDAPI_(HINSTANCE) FindExecutableW (LPCWSTR lpFile, LPCWSTR lpDirectory, LPWSTR lpResult);
+  SHSTDAPI_(LPWSTR *) CommandLineToArgvW (LPCWSTR lpCmdLine, int *pNumArgs);
+  SHSTDAPI_(INT) ShellAboutA (HWND hWnd, LPCSTR szApp, LPCSTR szOtherStuff, HICON hIcon);
+  SHSTDAPI_(INT) ShellAboutW (HWND hWnd, LPCWSTR szApp, LPCWSTR szOtherStuff, HICON hIcon);
+  SHSTDAPI_(HICON) DuplicateIcon (HINSTANCE hInst, HICON hIcon);
+  SHSTDAPI_(HICON) ExtractAssociatedIconA (HINSTANCE hInst, LPSTR pszIconPath, WORD *piIcon);
+  SHSTDAPI_(HICON) ExtractAssociatedIconW (HINSTANCE hInst, LPWSTR pszIconPath, WORD *piIcon);
+  SHSTDAPI_(HICON) ExtractAssociatedIconExA (HINSTANCE hInst, LPSTR pszIconPath, WORD *piIconIndex, WORD *piIconId);
+  SHSTDAPI_(HICON) ExtractAssociatedIconExW (HINSTANCE hInst, LPWSTR pszIconPath, WORD *piIconIndex, WORD *piIconId);
+  SHSTDAPI_(HICON) ExtractIconA (HINSTANCE hInst, LPCSTR pszExeFileName, UINT nIconIndex);
+  SHSTDAPI_(HICON) ExtractIconW (HINSTANCE hInst, LPCWSTR pszExeFileName, UINT nIconIndex);
 
   typedef struct _DRAGINFOA {
     UINT uSize;
@@ -107,6 +118,10 @@ extern "C" {
 
 #define ABM_WINDOWPOSCHANGED 0x0000009
 #define ABM_SETSTATE 0x0000000a
+#if NTDDI_VERSION >= 0x06020000
+#define ABM_GETAUTOHIDEBAREX 0x0000000b
+#define ABM_SETAUTOHIDEBAREX 0x0000000c
+#endif
 
 #define ABN_STATECHANGE 0x0000000
 #define ABN_POSCHANGED 0x0000001
@@ -130,41 +145,40 @@ extern "C" {
     LPARAM lParam;
   } APPBARDATA,*PAPPBARDATA;
 
-#define EIRESID(x) (-1 *(int)(x))
+  SHSTDAPI_(UINT_PTR) SHAppBarMessage (DWORD dwMessage, PAPPBARDATA pData);
+  SHSTDAPI_(DWORD) DoEnvironmentSubstA (LPSTR pszSrc, UINT cchSrc);
+  SHSTDAPI_(DWORD) DoEnvironmentSubstW (LPWSTR pszSrc, UINT cchSrc);
+  SHSTDAPI_(UINT) ExtractIconExA (LPCSTR lpszFile, int nIconIndex, HICON *phiconLarge, HICON *phiconSmall, UINT nIcons);
+  SHSTDAPI_(UINT) ExtractIconExW (LPCWSTR lpszFile, int nIconIndex, HICON *phiconLarge, HICON *phiconSmall, UINT nIcons);
 
 #define DoEnvironmentSubst __MINGW_NAME_AW(DoEnvironmentSubst)
 #define ExtractIconEx __MINGW_NAME_AW(ExtractIconEx)
 
-  SHSTDAPI_(UINT_PTR) SHAppBarMessage(DWORD dwMessage,PAPPBARDATA pData);
-  SHSTDAPI_(DWORD) DoEnvironmentSubstA(LPSTR szString,UINT cchString);
-  SHSTDAPI_(DWORD) DoEnvironmentSubstW(LPWSTR szString,UINT cchString);
-  SHSTDAPI_(UINT) ExtractIconExA(LPCSTR lpszFile,int nIconIndex,HICON *phiconLarge,HICON *phiconSmall,UINT nIcons);
-  SHSTDAPI_(UINT) ExtractIconExW(LPCWSTR lpszFile,int nIconIndex,HICON *phiconLarge,HICON *phiconSmall,UINT nIcons);
+#define EIRESID(x) (-1 * (int)(x))
 
-#ifndef FO_MOVE
+#define FO_MOVE 0x1
+#define FO_COPY 0x2
+#define FO_DELETE 0x3
+#define FO_RENAME 0x4
 
-#define FO_MOVE 0x0001
-#define FO_COPY 0x0002
-#define FO_DELETE 0x0003
-#define FO_RENAME 0x0004
-
-#define FOF_MULTIDESTFILES 0x0001
-#define FOF_CONFIRMMOUSE 0x0002
-#define FOF_SILENT 0x0004
-#define FOF_RENAMEONCOLLISION 0x0008
-#define FOF_NOCONFIRMATION 0x0010
-#define FOF_WANTMAPPINGHANDLE 0x0020
-
-#define FOF_ALLOWUNDO 0x0040
-#define FOF_FILESONLY 0x0080
-#define FOF_SIMPLEPROGRESS 0x0100
-#define FOF_NOCONFIRMMKDIR 0x0200
-#define FOF_NOERRORUI 0x0400
-#define FOF_NOCOPYSECURITYATTRIBS 0x0800
+#define FOF_MULTIDESTFILES 0x1
+#define FOF_CONFIRMMOUSE 0x2
+#define FOF_SILENT 0x4
+#define FOF_RENAMEONCOLLISION 0x8
+#define FOF_NOCONFIRMATION 0x10
+#define FOF_WANTMAPPINGHANDLE 0x20
+#define FOF_ALLOWUNDO 0x40
+#define FOF_FILESONLY 0x80
+#define FOF_SIMPLEPROGRESS 0x100
+#define FOF_NOCONFIRMMKDIR 0x200
+#define FOF_NOERRORUI 0x400
+#define FOF_NOCOPYSECURITYATTRIBS 0x800
 #define FOF_NORECURSION 0x1000
 #define FOF_NO_CONNECTED_ELEMENTS 0x2000
 #define FOF_WANTNUKEWARNING 0x4000
 #define FOF_NORECURSEREPARSE 0x8000
+
+#define FOF_NO_UI (FOF_SILENT | FOF_NOCONFIRMATION | FOF_NOERRORUI | FOF_NOCONFIRMMKDIR)
 
   typedef WORD FILEOP_FLAGS;
 
@@ -175,7 +189,6 @@ extern "C" {
 #define PO_REN_PORT 0x0034
 
   typedef WORD PRINTEROP_FLAGS;
-#endif
 
   typedef struct _SHFILEOPSTRUCTA {
     HWND hwnd;
@@ -185,7 +198,7 @@ extern "C" {
     FILEOP_FLAGS fFlags;
     WINBOOL fAnyOperationsAborted;
     LPVOID hNameMappings;
-    LPCSTR lpszProgressTitle;
+    PCSTR lpszProgressTitle;
   } SHFILEOPSTRUCTA,*LPSHFILEOPSTRUCTA;
 
   typedef struct _SHFILEOPSTRUCTW {
@@ -196,17 +209,18 @@ extern "C" {
     FILEOP_FLAGS fFlags;
     WINBOOL fAnyOperationsAborted;
     LPVOID hNameMappings;
-    LPCWSTR lpszProgressTitle;
+    PCWSTR lpszProgressTitle;
   } SHFILEOPSTRUCTW,*LPSHFILEOPSTRUCTW;
 
   __MINGW_TYPEDEF_AW(SHFILEOPSTRUCT)
   __MINGW_TYPEDEF_AW(LPSHFILEOPSTRUCT)
 
+  SHSTDAPI_(int) SHFileOperationA (LPSHFILEOPSTRUCTA lpFileOp);
+  SHSTDAPI_(int) SHFileOperationW (LPSHFILEOPSTRUCTW lpFileOp);
+
 #define SHFileOperation __MINGW_NAME_AW(SHFileOperation)
 
-  SHSTDAPI_(int) SHFileOperationA(LPSHFILEOPSTRUCTA lpFileOp);
-  SHSTDAPI_(int) SHFileOperationW(LPSHFILEOPSTRUCTW lpFileOp);
-  SHSTDAPI_(void) SHFreeNameMappings(HANDLE hNameMappings);
+  SHSTDAPI_(void) SHFreeNameMappings (HANDLE hNameMappings);
 
   typedef struct _SHNAMEMAPPINGA {
     LPSTR pszOldPath;
@@ -221,6 +235,7 @@ extern "C" {
     int cchOldPath;
     int cchNewPath;
   } SHNAMEMAPPINGW,*LPSHNAMEMAPPINGW;
+
 
   __MINGW_TYPEDEF_AW(SHNAMEMAPPING)
   __MINGW_TYPEDEF_AW(LPSHNAMEMAPPING)
@@ -238,29 +253,48 @@ extern "C" {
 #define SE_ERR_DDEBUSY 30
 #define SE_ERR_NOASSOC 31
 
-#define SEE_MASK_CLASSNAME 0x00000001
-#define SEE_MASK_CLASSKEY 0x00000003
+#define SEE_MASK_DEFAULT 0x0
+#define SEE_MASK_CLASSNAME 0x1
+#define SEE_MASK_CLASSKEY 0x3
 
-#define SEE_MASK_IDLIST 0x00000004
-#define SEE_MASK_INVOKEIDLIST 0x0000000c
-#define SEE_MASK_ICON 0x00000010
-#define SEE_MASK_HOTKEY 0x00000020
-#define SEE_MASK_NOCLOSEPROCESS 0x00000040
-#define SEE_MASK_CONNECTNETDRV 0x00000080
-#define SEE_MASK_FLAG_DDEWAIT 0x00000100
-#define SEE_MASK_DOENVSUBST 0x00000200
-#define SEE_MASK_FLAG_NO_UI 0x00000400
-#define SEE_MASK_UNICODE 0x00004000
-#define SEE_MASK_NO_CONSOLE 0x00008000
-#define SEE_MASK_ASYNCOK 0x00100000
-#define SEE_MASK_HMONITOR 0x00200000
-#if (_WIN32_IE >= 0x0560)
-#define SEE_MASK_NOZONECHECKS 0x00800000
+#define SEE_MASK_IDLIST 0x4
+#define SEE_MASK_INVOKEIDLIST 0xc
+#if NTDDI_VERSION < 0x06000000
+#define SEE_MASK_ICON 0x10
 #endif
-#define SEE_MASK_NOQUERYCLASSSTORE 0x01000000
-#define SEE_MASK_WAITFORINPUTIDLE 0x02000000
-#if (_WIN32_IE >= 0x0560)
-#define SEE_MASK_FLAG_LOG_USAGE 0x04000000
+#define SEE_MASK_HOTKEY 0x20
+#define SEE_MASK_NOCLOSEPROCESS 0x40
+#define SEE_MASK_CONNECTNETDRV 0x80
+#define SEE_MASK_NOASYNC 0x100
+#define SEE_MASK_FLAG_DDEWAIT SEE_MASK_NOASYNC
+#define SEE_MASK_DOENVSUBST 0x200
+#define SEE_MASK_FLAG_NO_UI 0x400
+#define SEE_MASK_UNICODE 0x4000
+#define SEE_MASK_NO_CONSOLE 0x8000
+#define SEE_MASK_ASYNCOK 0x100000
+#define SEE_MASK_HMONITOR 0x200000
+#define SEE_MASK_NOZONECHECKS 0x800000
+#define SEE_MASK_NOQUERYCLASSSTORE 0x1000000
+#define SEE_MASK_WAITFORINPUTIDLE 0x2000000
+#define SEE_MASK_FLAG_LOG_USAGE 0x4000000
+#if NTDDI_VERSION >= 0x06020000
+#define SEE_MASK_FLAG_HINST_IS_SITE 0x8000000
+#endif
+
+#ifndef DUMMYUNIONNAME
+#ifdef NONAMELESSUNION
+#define DUMMYUNIONNAME u
+#define DUMMYUNIONNAME2 u2
+#define DUMMYUNIONNAME3 u3
+#define DUMMYUNIONNAME4 u4
+#define DUMMYUNIONNAME5 u5
+#else
+#define DUMMYUNIONNAME
+#define DUMMYUNIONNAME2
+#define DUMMYUNIONNAME3
+#define DUMMYUNIONNAME4
+#define DUMMYUNIONNAME5
+#endif
 #endif
 
   typedef struct _SHELLEXECUTEINFOA {
@@ -273,7 +307,7 @@ extern "C" {
     LPCSTR lpDirectory;
     int nShow;
     HINSTANCE hInstApp;
-    LPVOID lpIDList;
+    void *lpIDList;
     LPCSTR lpClass;
     HKEY hkeyClass;
     DWORD dwHotKey;
@@ -294,7 +328,7 @@ extern "C" {
     LPCWSTR lpDirectory;
     int nShow;
     HINSTANCE hInstApp;
-    LPVOID lpIDList;
+    void *lpIDList;
     LPCWSTR lpClass;
     HKEY hkeyClass;
     DWORD dwHotKey;
@@ -308,13 +342,10 @@ extern "C" {
   __MINGW_TYPEDEF_AW(SHELLEXECUTEINFO)
   __MINGW_TYPEDEF_AW(LPSHELLEXECUTEINFO)
 
-#define ShellExecuteEx __MINGW_NAME_AW(ShellExecuteEx)
-#define WinExecError __MINGW_NAME_AW(WinExecError)
+  SHSTDAPI_(WINBOOL) ShellExecuteExA (SHELLEXECUTEINFOA *pExecInfo);
+  SHSTDAPI_(WINBOOL) ShellExecuteExW (SHELLEXECUTEINFOW *pExecInfo);
 
-  SHSTDAPI_(WINBOOL) ShellExecuteExA(LPSHELLEXECUTEINFOA lpExecInfo);
-  SHSTDAPI_(WINBOOL) ShellExecuteExW(LPSHELLEXECUTEINFOW lpExecInfo);
-  SHSTDAPI_(void) WinExecErrorA(HWND hwnd,int error,LPCSTR lpstrFileName,LPCSTR lpstrTitle);
-  SHSTDAPI_(void) WinExecErrorW(HWND hwnd,int error,LPCWSTR lpstrFileName,LPCWSTR lpstrTitle);
+#define ShellExecuteEx __MINGW_NAME_AW(ShellExecuteEx)
 
   typedef struct _SHCREATEPROCESSINFOW {
     DWORD cbSize;
@@ -332,7 +363,36 @@ extern "C" {
     LPPROCESS_INFORMATION lpProcessInformation;
   } SHCREATEPROCESSINFOW,*PSHCREATEPROCESSINFOW;
 
-  SHSTDAPI_(WINBOOL) SHCreateProcessAsUserW(PSHCREATEPROCESSINFOW pscpi);
+  SHSTDAPI_(WINBOOL) SHCreateProcessAsUserW (PSHCREATEPROCESSINFOW pscpi);
+
+#if NTDDI_VERSION >= 0x06000000
+  SHSTDAPI SHEvaluateSystemCommandTemplate (PCWSTR pszCmdTemplate, PWSTR *ppszApplication, PWSTR *ppszCommandLine, PWSTR *ppszParameters);
+
+  typedef enum ASSOCCLASS {
+    ASSOCCLASS_SHELL_KEY = 0,
+    ASSOCCLASS_PROGID_KEY,
+    ASSOCCLASS_PROGID_STR,
+    ASSOCCLASS_CLSID_KEY,
+    ASSOCCLASS_CLSID_STR,
+    ASSOCCLASS_APP_KEY,
+    ASSOCCLASS_APP_STR,
+    ASSOCCLASS_SYSTEM_STR,
+    ASSOCCLASS_FOLDER,
+    ASSOCCLASS_STAR,
+#if NTDDI_VERSION >= 0x06020000
+    ASSOCCLASS_FIXED_PROGID_STR,
+    ASSOCCLASS_PROTOCOL_STR,
+#endif
+  } ASSOCCLASS;
+
+  typedef struct ASSOCIATIONELEMENT {
+    ASSOCCLASS ac;
+    HKEY hkClass;
+    PCWSTR pszClass;
+  } ASSOCIATIONELEMENT;
+
+  SHSTDAPI AssocCreateForClasses (const ASSOCIATIONELEMENT *rgClasses, ULONG cClasses, REFIID riid, _COM_Outptr_ void **ppv);
+#endif
 
   typedef struct _SHQUERYRBINFO {
     DWORD cbSize;
@@ -344,13 +404,37 @@ extern "C" {
 #define SHERB_NOPROGRESSUI 0x00000002
 #define SHERB_NOSOUND 0x00000004
 
+  SHSTDAPI SHQueryRecycleBinA (LPCSTR pszRootPath, LPSHQUERYRBINFO pSHQueryRBInfo);
+  SHSTDAPI SHQueryRecycleBinW (LPCWSTR pszRootPath, LPSHQUERYRBINFO pSHQueryRBInfo);
+
 #define SHQueryRecycleBin __MINGW_NAME_AW(SHQueryRecycleBin)
+
+  SHSTDAPI SHEmptyRecycleBinA (HWND hwnd, LPCSTR pszRootPath, DWORD dwFlags);
+  SHSTDAPI SHEmptyRecycleBinW (HWND hwnd, LPCWSTR pszRootPath, DWORD dwFlags);
+
 #define SHEmptyRecycleBin __MINGW_NAME_AW(SHEmptyRecycleBin)
 
-  SHSTDAPI SHQueryRecycleBinA(LPCSTR pszRootPath,LPSHQUERYRBINFO pSHQueryRBInfo);
-  SHSTDAPI SHQueryRecycleBinW(LPCWSTR pszRootPath,LPSHQUERYRBINFO pSHQueryRBInfo);
-  SHSTDAPI SHEmptyRecycleBinA(HWND hwnd,LPCSTR pszRootPath,DWORD dwFlags);
-  SHSTDAPI SHEmptyRecycleBinW(HWND hwnd,LPCWSTR pszRootPath,DWORD dwFlags);
+#if NTDDI_VERSION >= 0x06000000
+  typedef enum {
+    QUNS_NOT_PRESENT = 1,
+    QUNS_BUSY = 2,
+    QUNS_RUNNING_D3D_FULL_SCREEN = 3,
+    QUNS_PRESENTATION_MODE = 4,
+    QUNS_ACCEPTS_NOTIFICATIONS = 5
+#if NTDDI_VERSION >= 0x06010000
+    , QUNS_QUIET_TIME = 6
+#endif
+#if NTDDI_VERSION >= 0x06020000
+    , QUNS_APP = 7
+#endif
+  } QUERY_USER_NOTIFICATION_STATE;
+
+  SHSTDAPI SHQueryUserNotificationState (QUERY_USER_NOTIFICATION_STATE *pquns);
+#endif
+
+#if NTDDI_VERSION >= 0x06010000
+  SHSTDAPI SHGetPropertyStoreForWindow (HWND hwnd, REFIID riid, void **ppv);
+#endif
 
   typedef struct _NOTIFYICONDATAA {
     DWORD cbSize;
@@ -369,8 +453,9 @@ extern "C" {
     } DUMMYUNIONNAME;
     CHAR szInfoTitle[64];
     DWORD dwInfoFlags;
-#if (_WIN32_IE >= 0x600)
     GUID guidItem;
+#if NTDDI_VERSION >= 0x06000000
+    HICON hBalloonIcon;
 #endif
   } NOTIFYICONDATAA,*PNOTIFYICONDATAA;
 
@@ -391,38 +476,47 @@ extern "C" {
     } DUMMYUNIONNAME;
     WCHAR szInfoTitle[64];
     DWORD dwInfoFlags;
-#if (_WIN32_IE >= 0x600)
     GUID guidItem;
+#if NTDDI_VERSION >= 0x06000000
+    HICON hBalloonIcon;
 #endif
   } NOTIFYICONDATAW,*PNOTIFYICONDATAW;
 
   __MINGW_TYPEDEF_AW(NOTIFYICONDATA)
   __MINGW_TYPEDEF_AW(PNOTIFYICONDATA)
 
-#define NOTIFYICONDATAA_V1_SIZE FIELD_OFFSET(NOTIFYICONDATAA,szTip[64])
-#define NOTIFYICONDATAW_V1_SIZE FIELD_OFFSET(NOTIFYICONDATAW,szTip[64])
-
-#define NOTIFYICONDATAA_V2_SIZE FIELD_OFFSET(NOTIFYICONDATAA,guidItem)
-#define NOTIFYICONDATAW_V2_SIZE FIELD_OFFSET(NOTIFYICONDATAW,guidItem)
+#define NOTIFYICONDATAA_V1_SIZE FIELD_OFFSET (NOTIFYICONDATAA, szTip[64])
+#define NOTIFYICONDATAW_V1_SIZE FIELD_OFFSET (NOTIFYICONDATAW, szTip[64])
+#define NOTIFYICONDATAA_V2_SIZE FIELD_OFFSET (NOTIFYICONDATAA, guidItem)
+#define NOTIFYICONDATAW_V2_SIZE FIELD_OFFSET (NOTIFYICONDATAW, guidItem)
+#define NOTIFYICONDATAA_V3_SIZE FIELD_OFFSET (NOTIFYICONDATAA, hBalloonIcon)
+#define NOTIFYICONDATAW_V3_SIZE FIELD_OFFSET (NOTIFYICONDATAW, hBalloonIcon)
 
 #define NOTIFYICONDATA_V1_SIZE __MINGW_NAME_AW_EXT(NOTIFYICONDATA,_V1_SIZE)
 #define NOTIFYICONDATA_V2_SIZE __MINGW_NAME_AW_EXT(NOTIFYICONDATA,_V2_SIZE)
-
+#define NOTIFYICONDATA_V3_SIZE __MINGW_NAME_AW_EXT(NOTIFYICONDATA,_V3_SIZE)
 
 #define NIN_SELECT (WM_USER + 0)
 #define NINF_KEY 0x1
 #define NIN_KEYSELECT (NIN_SELECT | NINF_KEY)
+
 #define NIN_BALLOONSHOW (WM_USER + 2)
 #define NIN_BALLOONHIDE (WM_USER + 3)
 #define NIN_BALLOONTIMEOUT (WM_USER + 4)
 #define NIN_BALLOONUSERCLICK (WM_USER + 5)
+#if NTDDI_VERSION >= 0x06000000
+#define NIN_POPUPOPEN (WM_USER + 6)
+#define NIN_POPUPCLOSE (WM_USER + 7)
+#endif
+
 #define NIM_ADD 0x00000000
 #define NIM_MODIFY 0x00000001
 #define NIM_DELETE 0x00000002
 #define NIM_SETFOCUS 0x00000003
 #define NIM_SETVERSION 0x00000004
+
 #define NOTIFYICON_VERSION 3
-#if (_WIN32_WINNT >= 0x600)
+#if NTDDI_VERSION >= 0x06000000
 #define NOTIFYICON_VERSION_4 4
 #endif
 
@@ -431,8 +525,12 @@ extern "C" {
 #define NIF_TIP 0x00000004
 #define NIF_STATE 0x00000008
 #define NIF_INFO 0x00000010
-#if (_WIN32_IE >= 0x600)
+#if _WIN32_IE >= 0x600
 #define NIF_GUID 0x00000020
+#endif
+#if NTDDI_VERSION >= 0x06000000
+#define NIF_REALTIME 0x00000040
+#define NIF_SHOWTIP 0x00000080
 #endif
 
 #define NIS_HIDDEN 0x00000001
@@ -442,19 +540,35 @@ extern "C" {
 #define NIIF_INFO 0x00000001
 #define NIIF_WARNING 0x00000002
 #define NIIF_ERROR 0x00000003
-#if (_WIN32_IE >= 0x0600)
 #define NIIF_USER 0x00000004
-#endif
-#define NIIF_ICON_MASK 0x0000000F
+#define NIIF_ICON_MASK 0x0000000f
 #define NIIF_NOSOUND 0x00000010
+#if NTDDI_VERSION >= 0x06000000
+#define NIIF_LARGE_ICON 0x00000020
+#endif
+#if NTDDI_VERSION >= 0x06010000
+#define NIIF_RESPECT_QUIET_TIME 0x00000080
+#endif
+
+  typedef struct _NOTIFYICONIDENTIFIER {
+    DWORD cbSize;
+    HWND hWnd;
+    UINT uID;
+    GUID guidItem;
+  } NOTIFYICONIDENTIFIER,*PNOTIFYICONIDENTIFIER;
+
+  SHSTDAPI_(WINBOOL) Shell_NotifyIconA (DWORD dwMessage, PNOTIFYICONDATAA lpData);
+  SHSTDAPI_(WINBOOL) Shell_NotifyIconW (DWORD dwMessage, PNOTIFYICONDATAW lpData);
 
 #define Shell_NotifyIcon __MINGW_NAME_AW(Shell_NotifyIcon)
 
-  SHSTDAPI_(WINBOOL) Shell_NotifyIconA(DWORD dwMessage,PNOTIFYICONDATAA lpData);
-  SHSTDAPI_(WINBOOL) Shell_NotifyIconW(DWORD dwMessage,PNOTIFYICONDATAW lpData);
+#if NTDDI_VERSION >= 0x06010000
+  SHSTDAPI Shell_NotifyIconGetRect (const NOTIFYICONIDENTIFIER *identifier, RECT *iconLocation);
+#endif
 
 #ifndef SHFILEINFO_DEFINED
 #define SHFILEINFO_DEFINED
+
   typedef struct _SHFILEINFOA {
     HICON hIcon;
     int iIcon;
@@ -484,126 +598,41 @@ extern "C" {
 #define SHGFI_LINKOVERLAY 0x000008000
 #define SHGFI_SELECTED 0x000010000
 #define SHGFI_ATTR_SPECIFIED 0x000020000
+
 #define SHGFI_LARGEICON 0x000000000
 #define SHGFI_SMALLICON 0x000000001
 #define SHGFI_OPENICON 0x000000002
 #define SHGFI_SHELLICONSIZE 0x000000004
 #define SHGFI_PIDL 0x000000008
 #define SHGFI_USEFILEATTRIBUTES 0x000000010
+
 #define SHGFI_ADDOVERLAYS 0x000000020
 #define SHGFI_OVERLAYINDEX 0x000000040
 
+  SHSTDAPI_(DWORD_PTR) SHGetFileInfoA (LPCSTR pszPath, DWORD dwFileAttributes, SHFILEINFOA *psfi, UINT cbFileInfo, UINT uFlags);
+  SHSTDAPI_(DWORD_PTR) SHGetFileInfoW (LPCWSTR pszPath, DWORD dwFileAttributes, SHFILEINFOW *psfi, UINT cbFileInfo, UINT uFlags);
+
 #define SHGetFileInfo __MINGW_NAME_AW(SHGetFileInfo)
-#define SHGetDiskFreeSpaceEx __MINGW_NAME_AW(SHGetDiskFreeSpaceEx)
-#define SHGetNewLinkInfo __MINGW_NAME_AW(SHGetNewLinkInfo)
 
-  SHSTDAPI_(DWORD_PTR) SHGetFileInfoA(LPCSTR pszPath,DWORD dwFileAttributes,SHFILEINFOA *psfi,UINT cbFileInfo,UINT uFlags);
-  SHSTDAPI_(DWORD_PTR) SHGetFileInfoW(LPCWSTR pszPath,DWORD dwFileAttributes,SHFILEINFOW *psfi,UINT cbFileInfo,UINT uFlags);
-#define SHGetDiskFreeSpace SHGetDiskFreeSpaceEx
-  SHSTDAPI_(WINBOOL) SHGetDiskFreeSpaceExA(LPCSTR pszDirectoryName,ULARGE_INTEGER *pulFreeBytesAvailableToCaller,ULARGE_INTEGER *pulTotalNumberOfBytes,ULARGE_INTEGER *pulTotalNumberOfFreeBytes);
-  SHSTDAPI_(WINBOOL) SHGetDiskFreeSpaceExW(LPCWSTR pszDirectoryName,ULARGE_INTEGER *pulFreeBytesAvailableToCaller,ULARGE_INTEGER *pulTotalNumberOfBytes,ULARGE_INTEGER *pulTotalNumberOfFreeBytes);
-  SHSTDAPI_(WINBOOL) SHGetNewLinkInfoA(LPCSTR pszLinkTo,LPCSTR pszDir,LPSTR pszName,WINBOOL *pfMustCopy,UINT uFlags);
-  SHSTDAPI_(WINBOOL) SHGetNewLinkInfoW(LPCWSTR pszLinkTo,LPCWSTR pszDir,LPWSTR pszName,WINBOOL *pfMustCopy,UINT uFlags);
-
-#define SHGNLI_PIDL 0x000000001
-#define SHGNLI_PREFIXNAME 0x000000002
-#define SHGNLI_NOUNIQUE 0x000000004
-#define SHGNLI_NOLNK 0x000000008
-
-#define PRINTACTION_OPEN 0
-#define PRINTACTION_PROPERTIES 1
-#define PRINTACTION_NETINSTALL 2
-#define PRINTACTION_NETINSTALLLINK 3
-#define PRINTACTION_TESTPAGE 4
-#define PRINTACTION_OPENNETPRN 5
-#ifdef WINNT
-#define PRINTACTION_DOCUMENTDEFAULTS 6
-#define PRINTACTION_SERVERPROPERTIES 7
-#endif
-
-#define SHInvokePrinterCommand __MINGW_NAME_AW(SHInvokePrinterCommand)
-
-  SHSTDAPI_(WINBOOL) SHInvokePrinterCommandA(HWND hwnd,UINT uAction,LPCSTR lpBuf1,LPCSTR lpBuf2,WINBOOL fModal);
-  SHSTDAPI_(WINBOOL) SHInvokePrinterCommandW(HWND hwnd,UINT uAction,LPCWSTR lpBuf1,LPCWSTR lpBuf2,WINBOOL fModal);
-  SHSTDAPI SHLoadNonloadedIconOverlayIdentifiers(void);
-  SHSTDAPI SHIsFileAvailableOffline(LPCWSTR pwszPath,LPDWORD pdwStatus);
-
-#define OFFLINE_STATUS_LOCAL 0x0001
-#define OFFLINE_STATUS_REMOTE 0x0002
-#define OFFLINE_STATUS_INCOMPLETE 0x0004
-
-  SHSTDAPI SHSetLocalizedName(LPWSTR pszPath,LPCWSTR pszResModule,int idsRes);
-
-#if (_WIN32_IE >= 0x0601)
-
-#define ShellMessageBox __MINGW_NAME_AW(ShellMessageBox)
-
-  int __cdecl ShellMessageBoxA(HINSTANCE hAppInst,HWND hWnd,LPCSTR lpcText,LPCSTR lpcTitle,UINT fuStyle,...);
-  int __cdecl ShellMessageBoxW(HINSTANCE hAppInst,HWND hWnd,LPCWSTR lpcText,LPCWSTR lpcTitle,UINT fuStyle,...);
-#endif
-
-#if (_WIN32_IE >= 0x0601)
-
-#define IsLFNDrive __MINGW_NAME_AW(IsLFNDrive)
-
-  SHSTDAPI_(WINBOOL) IsLFNDriveA(LPCSTR pszPath);
-  SHSTDAPI_(WINBOOL) IsLFNDriveW(LPCWSTR pszPath);
-#endif
-
-#if _WIN32_IE >= 0x0600
-
-#define SHEnumerateUnreadMailAccounts __MINGW_NAME_AW(SHEnumerateUnreadMailAccounts)
-#define SHGetUnreadMailCount __MINGW_NAME_AW(SHGetUnreadMailCount)
-#define SHSetUnreadMailCount __MINGW_NAME_AW(SHSetUnreadMailCount)
-
-  STDAPI SHEnumerateUnreadMailAccountsA(HKEY hKeyUser,DWORD dwIndex,LPSTR pszMailAddress,int cchMailAddress);
-  STDAPI SHEnumerateUnreadMailAccountsW(HKEY hKeyUser,DWORD dwIndex,LPWSTR pszMailAddress,int cchMailAddress);
-  STDAPI SHGetUnreadMailCountA(HKEY hKeyUser,LPCSTR pszMailAddress,DWORD *pdwCount,FILETIME *pFileTime,LPSTR pszShellExecuteCommand,int cchShellExecuteCommand);
-  STDAPI SHGetUnreadMailCountW(HKEY hKeyUser,LPCWSTR pszMailAddress,DWORD *pdwCount,FILETIME *pFileTime,LPWSTR pszShellExecuteCommand,int cchShellExecuteCommand);
-  STDAPI SHSetUnreadMailCountA(LPCSTR pszMailAddress,DWORD dwCount,LPCSTR pszShellExecuteCommand);
-  STDAPI SHSetUnreadMailCountW(LPCWSTR pszMailAddress,DWORD dwCount,LPCWSTR pszShellExecuteCommand);
-#endif
-
-#if (_WIN32_IE >= 0x0601)
-  STDAPI_(WINBOOL) SHTestTokenMembership(HANDLE hToken,ULONG ulRID);
-#endif
-
-#if _WIN32_IE >= 0x0600
-
-  STDAPI SHGetImageList(int iImageList,REFIID riid,void **ppvObj);
-
-#define SHIL_LARGE 0x0
-#define SHIL_SMALL 0x1
-#define SHIL_EXTRALARGE 0x2
-#define SHIL_SYSSMALL 0x3
-#if (_WIN32_WINNT >= 0x600)
-#  define SHIL_JUMBO 0x4
-#  define SHIL_LAST SHIL_JUMBO
-#else
-#  define SHIL_LAST SHIL_SYSSMALL
-#endif
-  typedef HRESULT (WINAPI *PFNCANSHAREFOLDERW)(LPCWSTR pszPath);
-  typedef HRESULT (WINAPI *PFNSHOWSHAREFOLDERUIW)(HWND hwndParent,LPCWSTR pszPath);
-#endif
-
-typedef struct _SHSTOCKICONINFO {
+#if NTDDI_VERSION >= 0x06000000
+  typedef struct _SHSTOCKICONINFO {
     DWORD cbSize;
     HICON hIcon;
     int iSysImageIndex;
     int iIcon;
     WCHAR szPath[MAX_PATH];
-} SHSTOCKICONINFO;
+  } SHSTOCKICONINFO;
 
-#define SHGSI_ICONLOCATION   0
-#define SHGSI_ICON           SHGFI_ICON
-#define SHGSI_SYSICONINDEX   SHGFI_SYSICONINDEX
-#define SHGSI_LINKOVERLAY    SHGFI_LINKOVERLAY
-#define SHGSI_SELECTED       SHGFI_SELECTED
-#define SHGSI_LARGEICON      SHGFI_LARGEICON
-#define SHGSI_SMALLICON      SHGFI_SMALLICON
-#define SHGSI_SHELLICONSIZE  SHGFI_SHELLICONSIZE
+#define SHGSI_ICONLOCATION 0
+#define SHGSI_ICON SHGFI_ICON
+#define SHGSI_SYSICONINDEX SHGFI_SYSICONINDEX
+#define SHGSI_LINKOVERLAY SHGFI_LINKOVERLAY
+#define SHGSI_SELECTED SHGFI_SELECTED
+#define SHGSI_LARGEICON SHGFI_LARGEICON
+#define SHGSI_SMALLICON SHGFI_SMALLICON
+#define SHGSI_SHELLICONSIZE SHGFI_SHELLICONSIZE
 
-typedef enum SHSTOCKICONID {
+  typedef enum SHSTOCKICONID {
     SIID_DOCNOASSOC = 0,
     SIID_DOCASSOC = 1,
     SIID_APPLICATION = 2,
@@ -688,6 +717,7 @@ typedef enum SHSTOCKICONID {
     SIID_INTERNET = 104,
     SIID_ZIPFILE = 105,
     SIID_SETTINGS = 106,
+
     SIID_DRIVEHDDVD = 132,
     SIID_DRIVEBD = 133,
     SIID_MEDIAHDDVDROM = 134,
@@ -697,16 +727,175 @@ typedef enum SHSTOCKICONID {
     SIID_MEDIABDR = 138,
     SIID_MEDIABDRE = 139,
     SIID_CLUSTEREDDRIVE = 140,
-    SIID_MAX_ICONS = 174
-} SHSTOCKICONID;
 
-#define SIID_INVALID  ((SHSTOCKICONID)-1)
+    SIID_MAX_ICONS = 175
+  } SHSTOCKICONID;
+
+#define SIID_INVALID ((SHSTOCKICONID)-1)
+
+  SHSTDAPI SHGetStockIconInfo (SHSTOCKICONID siid, UINT uFlags, SHSTOCKICONINFO *psii);
+#endif
+
+#define SHGetDiskFreeSpace SHGetDiskFreeSpaceEx
+
+  SHSTDAPI_(WINBOOL) SHGetDiskFreeSpaceExA (LPCSTR pszDirectoryName, ULARGE_INTEGER *pulFreeBytesAvailableToCaller, ULARGE_INTEGER *pulTotalNumberOfBytes, ULARGE_INTEGER *pulTotalNumberOfFreeBytes);
+  SHSTDAPI_(WINBOOL) SHGetDiskFreeSpaceExW (LPCWSTR pszDirectoryName, ULARGE_INTEGER *pulFreeBytesAvailableToCaller, ULARGE_INTEGER *pulTotalNumberOfBytes, ULARGE_INTEGER *pulTotalNumberOfFreeBytes);
+  SHSTDAPI_(WINBOOL) SHGetNewLinkInfoA (LPCSTR pszLinkTo, LPCSTR pszDir, LPSTR pszName, WINBOOL *pfMustCopy, UINT uFlags);
+  SHSTDAPI_(WINBOOL) SHGetNewLinkInfoW (LPCWSTR pszLinkTo, LPCWSTR pszDir, LPWSTR pszName, WINBOOL *pfMustCopy, UINT uFlags);
+
+#define SHGetDiskFreeSpaceEx __MINGW_NAME_AW(SHGetDiskFreeSpaceEx)
+#define SHGetNewLinkInfo __MINGW_NAME_AW(SHGetNewLinkInfo)
+
+#define SHGNLI_PIDL 0x000000001
+#define SHGNLI_PREFIXNAME 0x000000002
+#define SHGNLI_NOUNIQUE 0x000000004
+#define SHGNLI_NOLNK 0x000000008
+#if _WIN32_IE >= 0x0600
+#define SHGNLI_NOLOCNAME 0x000000010
+#endif
+#if NTDDI_VERSION >= 0x06010000
+#define SHGNLI_USEURLEXT 0x000000020
+#endif
+
+#define PRINTACTION_OPEN 0
+#define PRINTACTION_PROPERTIES 1
+#define PRINTACTION_NETINSTALL 2
+#define PRINTACTION_NETINSTALLLINK 3
+#define PRINTACTION_TESTPAGE 4
+#define PRINTACTION_OPENNETPRN 5
+#define PRINTACTION_DOCUMENTDEFAULTS 6
+#define PRINTACTION_SERVERPROPERTIES 7
+
+  SHSTDAPI_(WINBOOL) SHInvokePrinterCommandA (HWND hwnd, UINT uAction, LPCSTR lpBuf1, LPCSTR lpBuf2, WINBOOL fModal);
+  SHSTDAPI_(WINBOOL) SHInvokePrinterCommandW (HWND hwnd, UINT uAction, LPCWSTR lpBuf1, LPCWSTR lpBuf2, WINBOOL fModal);
+
+#define SHInvokePrinterCommand __MINGW_NAME_AW(SHInvokePrinterCommand)
+
+#if NTDDI_VERSION >= 0x06000000
+  typedef struct _OPEN_PRINTER_PROPS_INFOA {
+    DWORD dwSize;
+    LPSTR pszSheetName;
+    UINT uSheetIndex;
+    DWORD dwFlags;
+    WINBOOL bModal;
+  } OPEN_PRINTER_PROPS_INFOA,*POPEN_PRINTER_PROPS_INFOA;
+
+  typedef struct _OPEN_PRINTER_PROPS_INFOW {
+    DWORD dwSize;
+    LPWSTR pszSheetName;
+    UINT uSheetIndex;
+    DWORD dwFlags;
+    WINBOOL bModal;
+  } OPEN_PRINTER_PROPS_INFOW,*POPEN_PRINTER_PROPS_INFOW;
+
+  __MINGW_TYPEDEF_AW(OPEN_PRINTER_PROPS_INFO)
+  __MINGW_TYPEDEF_AW(POPEN_PRINTER_PROPS_INFO)
+#define PRINT_PROP_FORCE_NAME 0x01
+#endif
+
+  SHSTDAPI SHLoadNonloadedIconOverlayIdentifiers (void);
+  SHSTDAPI SHIsFileAvailableOffline (PCWSTR pwszPath, DWORD *pdwStatus);
+
+#define OFFLINE_STATUS_LOCAL 0x0001
+#define OFFLINE_STATUS_REMOTE 0x0002
+#define OFFLINE_STATUS_INCOMPLETE 0x0004
+
+  SHSTDAPI SHSetLocalizedName (PCWSTR pszPath, PCWSTR pszResModule, int idsRes);
+
+#if NTDDI_VERSION >= 0x06000000
+  SHSTDAPI SHRemoveLocalizedName (PCWSTR pszPath);
+  SHSTDAPI SHGetLocalizedName (PCWSTR pszPath, PWSTR pszResModule, UINT cch, int *pidsRes);
+#endif
+
+#ifndef _SHLWAPI_
+#define LWSTDAPIV_(type) EXTERN_C DECLSPEC_IMPORT type STDAPIVCALLTYPE
+#else
+#define LWSTDAPIV_(type) STDAPIV_ (type)
+#endif
+
+  LWSTDAPIV_ (int) ShellMessageBoxA (HINSTANCE hAppInst, HWND hWnd, LPCSTR lpcText, LPCSTR lpcTitle, UINT fuStyle,...);
+  LWSTDAPIV_ (int) ShellMessageBoxW (HINSTANCE hAppInst, HWND hWnd, LPCWSTR lpcText, LPCWSTR lpcTitle, UINT fuStyle,...);
+
+#define ShellMessageBox __MINGW_NAME_AW(ShellMessageBox)
+
+  SHSTDAPI_(WINBOOL) IsLFNDriveA (LPCSTR pszPath);
+  SHSTDAPI_(WINBOOL) IsLFNDriveW (LPCWSTR pszPath);
+
+#define IsLFNDrive __MINGW_NAME_AW(IsLFNDrive)
+
+#if _WIN32_IE >= 0x0600
+  STDAPI SHEnumerateUnreadMailAccountsA (HKEY hKeyUser, DWORD dwIndex, LPSTR pszMailAddress, int cchMailAddress);
+  STDAPI SHEnumerateUnreadMailAccountsW (HKEY hKeyUser, DWORD dwIndex, LPWSTR pszMailAddress, int cchMailAddress);
+  STDAPI SHGetUnreadMailCountA (HKEY hKeyUser, LPCSTR pszMailAddress, DWORD *pdwCount, FILETIME *pFileTime, LPSTR pszShellExecuteCommand, int cchShellExecuteCommand);
+  STDAPI SHGetUnreadMailCountW (HKEY hKeyUser, LPCWSTR pszMailAddress, DWORD *pdwCount, FILETIME *pFileTime, LPWSTR pszShellExecuteCommand, int cchShellExecuteCommand);
+  STDAPI SHSetUnreadMailCountA (LPCSTR pszMailAddress, DWORD dwCount, LPCSTR pszShellExecuteCommand);
+  STDAPI SHSetUnreadMailCountW (LPCWSTR pszMailAddress, DWORD dwCount, LPCWSTR pszShellExecuteCommand);
+
+#define SHEnumerateUnreadMailAccounts __MINGW_NAME_AW(SHEnumerateUnreadMailAccounts)
+#define SHGetUnreadMailCount __MINGW_NAME_AW(SHGetUnreadMailCount)
+#define SHSetUnreadMailCount __MINGW_NAME_AW(SHSetUnreadMailCount)
+
+#endif
+#if _WIN32_IE >= 0x0601
+  STDAPI_ (WINBOOL) SHTestTokenMembership (HANDLE hToken, ULONG ulRID);
+#endif
+
+#if _WIN32_IE >= 0x0600
+  SHSTDAPI SHGetImageList (int iImageList, REFIID riid, void **ppvObj);
+
+#define SHIL_LARGE 0
+#define SHIL_SMALL 1
+#define SHIL_EXTRALARGE 2
+#define SHIL_SYSSMALL 3
+#if NTDDI_VERSION >= 0x06000000
+#define SHIL_JUMBO 4
+#define SHIL_LAST SHIL_JUMBO
+#else
+#define SHIL_LAST SHIL_SYSSMALL
+#endif
+
+  typedef HRESULT (STDMETHODCALLTYPE *PFNCANSHAREFOLDERW) (PCWSTR pszPath);
+  typedef HRESULT (STDMETHODCALLTYPE *PFNSHOWSHAREFOLDERUIW) (HWND hwndParent, PCWSTR pszPath);
+
+#endif
+#endif
 
 #ifdef __cplusplus
 }
 #endif
 
-#if !defined(_WIN64)
+#ifndef _WIN64
 #include <poppack.h>
+#endif
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
+#if NTDDI_VERSION >= 0x06000000
+
+#define WC_NETADDRESS L"msctls_netaddress"
+
+SHSTDAPI_(WINBOOL) InitNetworkAddressControl (void);
+
+#define NCM_GETADDRESS (WM_USER+1)
+#define NetAddr_GetAddress(hwnd, pv) (HRESULT)SNDMSG (hwnd, NCM_GETADDRESS, 0,(LPARAM)pv)
+
+typedef struct tagNC_ADDRESS {
+  struct NET_ADDRESS_INFO_ *pAddrInfo;
+  USHORT PortNumber;
+  BYTE PrefixLength;
+} NC_ADDRESS,*PNC_ADDRESS;
+
+#define NCM_SETALLOWTYPE (WM_USER+2)
+#define NetAddr_SetAllowType(hwnd, addrMask) (HRESULT)SNDMSG (hwnd, NCM_SETALLOWTYPE,(WPARAM)addrMask, 0)
+
+#define NCM_GETALLOWTYPE (WM_USER+3)
+#define NetAddr_GetAllowType(hwnd) (DWORD)SNDMSG (hwnd, NCM_GETALLOWTYPE, 0, 0)
+
+#define NCM_DISPLAYERRORTIP (WM_USER+4)
+#define NetAddr_DisplayErrorTip(hwnd) (HRESULT)SNDMSG (hwnd, NCM_DISPLAYERRORTIP, 0, 0)
+#endif
+
+#if NTDDI_VERSION >= 0x06000000
+STDAPI SHGetDriveMedia (PCWSTR pszDrive, DWORD *pdwMediaContent);
+#endif
 #endif
 #endif
