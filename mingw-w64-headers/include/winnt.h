@@ -3753,6 +3753,11 @@ __buildmemorybarrier()
 #define FILE_SUPPORTS_OPEN_BY_FILE_ID 0x01000000
 #define FILE_SUPPORTS_USN_JOURNAL 0x02000000
 
+    typedef struct FILE_ID_128 {
+      ULONGLONG LowPart;
+      ULONGLONG HighPart;
+    } FILE_ID_128, *PFILE_ID_128;
+
     typedef struct _FILE_NOTIFY_INFORMATION {
       DWORD NextEntryOffset;
       DWORD Action;
