@@ -3444,6 +3444,13 @@ __buildmemorybarrier()
       MaxJobObjectInfoClass
     } JOBOBJECTINFOCLASS;
 
+    typedef enum _FIRMWARE_TYPE {
+      FirmwareTypeUnknown,
+      FirmwareTypeBios,
+      FirmwareTypeUefi,
+      FirmwareTypeMax
+    } FIRMWARE_TYPE,*PFIRMWARE_TYPE;
+
 #define EVENT_MODIFY_STATE 0x0002
 #define EVENT_ALL_ACCESS (STANDARD_RIGHTS_REQUIRED|SYNCHRONIZE|0x3)
 
