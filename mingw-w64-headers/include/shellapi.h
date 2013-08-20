@@ -391,7 +391,7 @@ extern "C" {
     PCWSTR pszClass;
   } ASSOCIATIONELEMENT;
 
-  SHSTDAPI AssocCreateForClasses (const ASSOCIATIONELEMENT *rgClasses, ULONG cClasses, REFIID riid, _COM_Outptr_ void **ppv);
+  SHSTDAPI AssocCreateForClasses (const ASSOCIATIONELEMENT *rgClasses, ULONG cClasses, REFIID riid, void **ppv);
 #endif
 
   typedef struct _SHQUERYRBINFO {
