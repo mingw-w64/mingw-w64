@@ -70,6 +70,9 @@ cpp_quote("")
   typedef HANDLE HDWP;
   typedef INT HFILE;
 
+  typedef DWORD COLORREF;
+  typedef DWORD *LPCOLORREF;
+
   typedef struct _RECTL {
     LONG left;
     LONG top;
