@@ -40,8 +40,8 @@ DECLARE_INTERFACE_(IAMDirectSound,IUnknown)
     STDMETHOD(ReleaseDirectSoundInterface)(THIS_ IDirectSound *ds) PURE;
     STDMETHOD(ReleasePrimaryBufferInterface)(THIS_ IDirectSoundBuffer *buf) PURE;
     STDMETHOD(ReleaseSecondaryBufferInterface)(THIS_ IDirectSoundBuffer *buf) PURE;
-    STDMETHOD(SetFocusWindow)(THIS_ HWND hwnd, WINBOOL bgsilent) PURE;
-    STDMETHOD(GetFocusWindow)(THIS_ HWND hwnd) PURE;
+    STDMETHOD(SetFocusWindow)(THIS_ HWND hwnd, WINBOOL bgaudible) PURE;
+    STDMETHOD(GetFocusWindow)(THIS_ HWND *hwnd, WINBOOL *bgaudible) PURE;
 };
 #undef INTERFACE
 
