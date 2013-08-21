@@ -26,7 +26,7 @@ extern "C" {
 #define InterlockedExchangePointerNoFence InterlockedExchangePointer
 #endif
 
-#if defined(__MINGW_INTRIN_INLINE) && (defined(__GNUC__) && (__MINGW_GNUC_PREREQ(4, 9) || (__MINGW_GNUC_PREREQ(4, 8) && __GNUC_PATCHLEVEL__ >= 2)))
+#if defined(__MINGW_INTRIN_INLINE) && (defined(__GNUC__) && (__MINGW_GNUC_PREREQ(4, 9) || (__MINGW_GNUC_PREREQ(4, 8) && __GNUC_PATCHLEVEL__ >= 2))) && 0
   __MINGW_INTRIN_INLINE LONG WINAPI InterlockedIncrement(LONG volatile *lpAddend) {
     return _InterlockedIncrement(lpAddend);
   }
