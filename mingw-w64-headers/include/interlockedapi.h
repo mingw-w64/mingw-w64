@@ -24,9 +24,8 @@ extern "C" {
 
 #define InterlockedExchangePointer(Target, Value) (PVOID)InterlockedExchange ((PLONG) (Target),((LONG) (LONG_PTR) (Value)))
 #define InterlockedExchangePointerNoFence InterlockedExchangePointer
-#endif
 
-#if defined(__MINGW_INTRIN_INLINE) && (defined(__GNUC__) && (__MINGW_GNUC_PREREQ(4, 9) || (__MINGW_GNUC_PREREQ(4, 8) && __GNUC_PATCHLEVEL__ >= 2))) && 0
+#if defined(__MINGW_INTRIN_INLINE) && (defined(__GNUC__) && (__MINGW_GNUC_PREREQ(4, 9) || (__MINGW_GNUC_PREREQ(4, 8) && __GNUC_PATCHLEVEL__ >= 2)))
   __MINGW_INTRIN_INLINE LONG WINAPI InterlockedIncrement(LONG volatile *lpAddend) {
     return _InterlockedIncrement(lpAddend);
   }
@@ -45,6 +44,7 @@ extern "C" {
   __MINGW_INTRIN_INLINE LONGLONG WINAPI InterlockedCompareExchange64(LONGLONG volatile *Destination, LONGLONG Exchange, LONGLONG Comperand) {
     return _InterlockedCompareExchange64(Destination, Exchange, Comperand);
   }
+#endif
 #endif
 
 #if defined (_SLIST_HEADER_) && !defined (_NTOSP_)
