@@ -1750,6 +1750,9 @@ extern "C" {
 #define MOD_CONTROL 0x0002
 #define MOD_SHIFT 0x0004
 #define MOD_WIN 0x0008
+#if (_WIN32_WINNT >= 0x0600)
+#define MOD_NOREPEAT 0x4000
+#endif /* (_WIN32_WINNT >= 0x0600) */
 
 #define IDHOT_SNAPWINDOW (-1)
 #define IDHOT_SNAPDESKTOP (-2)
