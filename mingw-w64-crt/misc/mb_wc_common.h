@@ -6,4 +6,4 @@
 
 #include <_mingw.h>
 
-_CRTIMP unsigned int __cdecl ___lc_codepage_func(void);
+unsigned int __cdecl ___lc_codepage_func(void);
