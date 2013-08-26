@@ -64,6 +64,7 @@ IDL_SRCS = \
   include/activscp.idl \
   include/audioclient.idl \
   include/audiopolicy.idl \
+  include/control.idl \
   include/ctfutb.idl \
   include/dbgprop.idl \
   include/docobj.idl \
