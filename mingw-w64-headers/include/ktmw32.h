@@ -18,6 +18,7 @@ extern "C" {
   WINBOOL WINAPI CommitTransaction(HANDLE TransactionHandle);
   WINBOOL WINAPI CommitTransactionAsync(HANDLE TransactionHandle);
   HANDLE WINAPI CreateEnlistment(LPSECURITY_ATTRIBUTES lpEnlistmentrAttributes,HANDLE ResourceManagerHandle,HANDLE TransactionHandle,NOTIFICATION_MASK NotificationMask,DWORD CreateOptions,PVOID EnlistmentKey);
+  HANDLE WINAPI CreateTransaction (LPSECURITY_ATTRIBUTES lpTransactionAttributes, LPGUID UOW, DWORD CreateOptions, DWORD IsolationLevel, DWORD IsolationFlags, DWORD Timeout, LPWSTR Description);
   WINBOOL WINAPI SinglePhaseReject(HANDLE EnlistmentHandle,PLARGE_INTEGER TmVirtualClock);
   HANDLE WINAPI CreateResourceManager(LPSECURITY_ATTRIBUTES lpResourceManagerAttributes,LPGUID ResourceManagerID,DWORD CreateOptions,HANDLE TmHandle,LPWSTR Description);
   HANDLE WINAPI CreateTransactionManager(LPSECURITY_ATTRIBUTES lpTransactionAttributes,LPWSTR LogFileName,ULONG CreateOptions,ULONG CommitStrength);
