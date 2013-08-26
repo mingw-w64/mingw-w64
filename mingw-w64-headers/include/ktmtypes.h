@@ -145,11 +145,7 @@ typedef struct _KCRM_MARSHAL_HEADER {
 } KCRM_MARSHAL_HEADER, *PKCRM_MARSHAL_HEADER, *RESTRICTED_POINTER PRKCRM_MARSHAL_HEADER;
 
 typedef struct _KCRM_TRANSACTION_BLOB {
-#if defined(__cplusplus)
-  ::UOW UOW;
-#else
-  UOW UOW;
-#endif
+  GUID UOW;
   GUID TmIdentity;
   ULONG IsolationLevel;
   ULONG IsolationFlags;
