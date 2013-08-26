@@ -288,6 +288,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/activscp.idl \
 @HAVE_WIDL_TRUE@  include/audioclient.idl \
 @HAVE_WIDL_TRUE@  include/audiopolicy.idl \
+@HAVE_WIDL_TRUE@  include/control.idl \
 @HAVE_WIDL_TRUE@  include/ctfutb.idl \
 @HAVE_WIDL_TRUE@  include/dbgprop.idl \
 @HAVE_WIDL_TRUE@  include/docobj.idl \
@@ -298,6 +299,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/fusion.idl \
 @HAVE_WIDL_TRUE@  include/fwptypes.idl \
 @HAVE_WIDL_TRUE@  include/hstring.idl \
+@HAVE_WIDL_TRUE@  include/icodecapi.idl \
 @HAVE_WIDL_TRUE@  include/iketypes.idl \
 @HAVE_WIDL_TRUE@  include/inputscope.idl \
 @HAVE_WIDL_TRUE@  include/inspectable.idl \

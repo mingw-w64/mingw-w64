@@ -4,14 +4,11 @@ cpp_quote(" * This file is part of the mingw-w64 runtime package.")
 cpp_quote(" * No warranty is given; refer to the file DISCLAIMER.PD within this package.")
 cpp_quote(" */")
 
+import "oaidl.idl";
+
 cpp_quote("#ifndef __IAMCollection_FWD_DEFINED__")
 cpp_quote("#define __IAMCollection_FWD_DEFINED__")
 cpp_quote("typedef struct IAMCollection IAMCollection;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IMediaControl_FWD_DEFINED__")
-cpp_quote("#define __IMediaControl_FWD_DEFINED__")
-cpp_quote("typedef struct IMediaControl IMediaControl;")
 cpp_quote("#endif")
 cpp_quote("")
 cpp_quote("#ifndef __IMediaEvent_FWD_DEFINED__")
@@ -93,15 +90,41 @@ cpp_quote("#ifndef __IAMStats_FWD_DEFINED__")
 cpp_quote("#define __IAMStats_FWD_DEFINED__")
 cpp_quote("typedef struct IAMStats IAMStats;")
 cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __QuartzTypeLib_LIBRARY_DEFINED__")
-cpp_quote("#define __QuartzTypeLib_LIBRARY_DEFINED__")
-cpp_quote("  typedef double REFTIME;")
-cpp_quote("  typedef LONG_PTR OAEVENT;")
-cpp_quote("  typedef LONG_PTR OAHWND;")
-cpp_quote("  typedef __LONG32 OAFilterState;")
-cpp_quote("")
-cpp_quote("  DEFINE_GUID(LIBID_QuartzTypeLib,0x56a868b0,0x0ad4,0x11ce,0xb0,0x3a,0x00,0x20,0xaf,0x0b,0xa7,0x70);")
+
+[
+    version(1.0),
+    uuid(56a868b0-0ad4-11ce-b03a-0020af0ba770)
+]
+library QuartzTypeLib
+{
+    importlib("stdole2.tlb");
+
+    typedef LONG OAFilterState;
+    typedef LONG_PTR OAHWND;
+    typedef LONG_PTR OAEVENT;
+
+    cpp_quote("#ifndef REFTIME_DEFINED")
+    cpp_quote("#define REFTIME_DEFINED")
+    typedef DOUBLE REFTIME;
+    cpp_quote("#endif")
+
+    [
+        object,
+        uuid(56a868b1-0ad4-11ce-b03a-0020af0ba770),
+        pointer_default(unique)
+    ]
+    interface IMediaControl : IDispatch {
+        HRESULT Run();
+        HRESULT Pause();
+        HRESULT Stop();
+        HRESULT GetState( [in] LONG msTimeout, [out] OAFilterState *pfs );
+        HRESULT RenderFile( [in] BSTR strFilename );
+        HRESULT AddSourceFilter( [in] BSTR strFilename, [out] IDispatch **ppUnk );
+        [propget] HRESULT FilterCollection( [out] IDispatch **ppUnk );
+        [propget] HRESULT RegFilterCollection( [out] IDispatch **ppUnk );
+        HRESULT StopWhenReady();
+    }
+
 cpp_quote("#ifndef __IAMCollection_INTERFACE_DEFINED__")
 cpp_quote("#define __IAMCollection_INTERFACE_DEFINED__")
 cpp_quote("  DEFINE_GUID(IID_IAMCollection,0x56a868b9,0x0ad4,0x11ce,0xb0,0x3a,0x00,0x20,0xaf,0x0b,0xa7,0x70);")
@@ -150,86 +173,6 @@ cpp_quote("  void __RPC_STUB IAMCollection_Item_Stub(IRpcStubBuffer *This,IRpcCh
 cpp_quote("  HRESULT WINAPI IAMCollection_get__NewEnum_Proxy(IAMCollection *This,IUnknown **ppUnk);")
 cpp_quote("  void __RPC_STUB IAMCollection_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
 cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IMediaControl_INTERFACE_DEFINED__")
-cpp_quote("#define __IMediaControl_INTERFACE_DEFINED__")
-cpp_quote("  DEFINE_GUID(IID_IMediaControl,0x56a868b1,0x0ad4,0x11ce,0xb0,0x3a,0x00,0x20,0xaf,0x0b,0xa7,0x70);")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IMediaControl : public IDispatch {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI Run(void) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Pause(void) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Stop(void) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetState(LONG msTimeout,OAFilterState *pfs) = 0;")
-cpp_quote("    virtual HRESULT WINAPI RenderFile(BSTR strFilename) = 0;")
-cpp_quote("    virtual HRESULT WINAPI AddSourceFilter(BSTR strFilename,IDispatch **ppUnk) = 0;")
-cpp_quote("    virtual HRESULT WINAPI get_FilterCollection(IDispatch **ppUnk) = 0;")
-cpp_quote("    virtual HRESULT WINAPI get_RegFilterCollection(IDispatch **ppUnk) = 0;")
-cpp_quote("    virtual HRESULT WINAPI StopWhenReady(void) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IMediaControlVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IMediaControl *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IMediaControl *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IMediaControl *This);")
-cpp_quote("      HRESULT (WINAPI *GetTypeInfoCount)(IMediaControl *This,UINT *pctinfo);")
-cpp_quote("      HRESULT (WINAPI *GetTypeInfo)(IMediaControl *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);")
-cpp_quote("      HRESULT (WINAPI *GetIDsOfNames)(IMediaControl *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);")
-cpp_quote("      HRESULT (WINAPI *Invoke)(IMediaControl *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);")
-cpp_quote("      HRESULT (WINAPI *Run)(IMediaControl *This);")
-cpp_quote("      HRESULT (WINAPI *Pause)(IMediaControl *This);")
-cpp_quote("      HRESULT (WINAPI *Stop)(IMediaControl *This);")
-cpp_quote("      HRESULT (WINAPI *GetState)(IMediaControl *This,LONG msTimeout,OAFilterState *pfs);")
-cpp_quote("      HRESULT (WINAPI *RenderFile)(IMediaControl *This,BSTR strFilename);")
-cpp_quote("      HRESULT (WINAPI *AddSourceFilter)(IMediaControl *This,BSTR strFilename,IDispatch **ppUnk);")
-cpp_quote("      HRESULT (WINAPI *get_FilterCollection)(IMediaControl *This,IDispatch **ppUnk);")
-cpp_quote("      HRESULT (WINAPI *get_RegFilterCollection)(IMediaControl *This,IDispatch **ppUnk);")
-cpp_quote("      HRESULT (WINAPI *StopWhenReady)(IMediaControl *This);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IMediaControlVtbl;")
-cpp_quote("  struct IMediaControl {")
-cpp_quote("    CONST_VTBL struct IMediaControlVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IMediaControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IMediaControl_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IMediaControl_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IMediaControl_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)")
-cpp_quote("#define IMediaControl_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)")
-cpp_quote("#define IMediaControl_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)")
-cpp_quote("#define IMediaControl_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)")
-cpp_quote("#define IMediaControl_Run(This) (This)->lpVtbl->Run(This)")
-cpp_quote("#define IMediaControl_Pause(This) (This)->lpVtbl->Pause(This)")
-cpp_quote("#define IMediaControl_Stop(This) (This)->lpVtbl->Stop(This)")
-cpp_quote("#define IMediaControl_GetState(This,msTimeout,pfs) (This)->lpVtbl->GetState(This,msTimeout,pfs)")
-cpp_quote("#define IMediaControl_RenderFile(This,strFilename) (This)->lpVtbl->RenderFile(This,strFilename)")
-cpp_quote("#define IMediaControl_AddSourceFilter(This,strFilename,ppUnk) (This)->lpVtbl->AddSourceFilter(This,strFilename,ppUnk)")
-cpp_quote("#define IMediaControl_get_FilterCollection(This,ppUnk) (This)->lpVtbl->get_FilterCollection(This,ppUnk)")
-cpp_quote("#define IMediaControl_get_RegFilterCollection(This,ppUnk) (This)->lpVtbl->get_RegFilterCollection(This,ppUnk)")
-cpp_quote("#define IMediaControl_StopWhenReady(This) (This)->lpVtbl->StopWhenReady(This)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IMediaControl_Run_Proxy(IMediaControl *This);")
-cpp_quote("  void __RPC_STUB IMediaControl_Run_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IMediaControl_Pause_Proxy(IMediaControl *This);")
-cpp_quote("  void __RPC_STUB IMediaControl_Pause_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IMediaControl_Stop_Proxy(IMediaControl *This);")
-cpp_quote("  void __RPC_STUB IMediaControl_Stop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IMediaControl_GetState_Proxy(IMediaControl *This,LONG msTimeout,OAFilterState *pfs);")
-cpp_quote("  void __RPC_STUB IMediaControl_GetState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IMediaControl_RenderFile_Proxy(IMediaControl *This,BSTR strFilename);")
-cpp_quote("  void __RPC_STUB IMediaControl_RenderFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IMediaControl_AddSourceFilter_Proxy(IMediaControl *This,BSTR strFilename,IDispatch **ppUnk);")
-cpp_quote("  void __RPC_STUB IMediaControl_AddSourceFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IMediaControl_get_FilterCollection_Proxy(IMediaControl *This,IDispatch **ppUnk);")
-cpp_quote("  void __RPC_STUB IMediaControl_get_FilterCollection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IMediaControl_get_RegFilterCollection_Proxy(IMediaControl *This,IDispatch **ppUnk);")
-cpp_quote("  void __RPC_STUB IMediaControl_get_RegFilterCollection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IMediaControl_StopWhenReady_Proxy(IMediaControl *This);")
-cpp_quote("  void __RPC_STUB IMediaControl_StopWhenReady_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
 cpp_quote("#ifndef __IMediaEvent_INTERFACE_DEFINED__")
 cpp_quote("#define __IMediaEvent_INTERFACE_DEFINED__")
 cpp_quote("  DEFINE_GUID(IID_IMediaEvent,0x56a868b6,0x0ad4,0x11ce,0xb0,0x3a,0x00,0x20,0xaf,0x0b,0xa7,0x70);")
@@ -1436,4 +1379,5 @@ cpp_quote("  void __RPC_STUB IAMStats_GetIndex_Stub(IRpcStubBuffer *This,IRpcCha
 cpp_quote("  HRESULT WINAPI IAMStats_AddValue_Proxy(IAMStats *This,__LONG32 lIndex,double dValue);")
 cpp_quote("  void __RPC_STUB IAMStats_AddValue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
 cpp_quote("#endif")
-cpp_quote("#endif")
+
+} /* typelib */

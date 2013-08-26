@@ -17,8 +17,14 @@
 
 /* Forward declarations */
 
+#ifndef __IMediaControl_FWD_DEFINED__
+#define __IMediaControl_FWD_DEFINED__
+typedef interface IMediaControl IMediaControl;
+#endif
+
 /* Headers for imported files */
 
+#include <oaidl.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -32,11 +38,6 @@ extern "C" {
 #ifndef __IAMCollection_FWD_DEFINED__
 #define __IAMCollection_FWD_DEFINED__
 typedef struct IAMCollection IAMCollection;
-#endif
-
-#ifndef __IMediaControl_FWD_DEFINED__
-#define __IMediaControl_FWD_DEFINED__
-typedef struct IMediaControl IMediaControl;
 #endif
 
 #ifndef __IMediaEvent_FWD_DEFINED__
@@ -119,14 +120,297 @@ typedef struct IPinInfo IPinInfo;
 typedef struct IAMStats IAMStats;
 #endif
 
-#ifndef __QuartzTypeLib_LIBRARY_DEFINED__
-#define __QuartzTypeLib_LIBRARY_DEFINED__
-  typedef double REFTIME;
-  typedef LONG_PTR OAEVENT;
-  typedef LONG_PTR OAHWND;
-  typedef __LONG32 OAFilterState;
+DEFINE_GUID(LIBID_QuartzTypeLib, 0x56a868b0, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
 
-  DEFINE_GUID(LIBID_QuartzTypeLib,0x56a868b0,0x0ad4,0x11ce,0xb0,0x3a,0x00,0x20,0xaf,0x0b,0xa7,0x70);
+typedef LONG OAFilterState;
+typedef LONG_PTR OAHWND;
+typedef LONG_PTR OAEVENT;
+#ifndef REFTIME_DEFINED
+#define REFTIME_DEFINED
+typedef DOUBLE REFTIME;
+#endif
+/*****************************************************************************
+ * IMediaControl interface
+ */
+#ifndef __IMediaControl_INTERFACE_DEFINED__
+#define __IMediaControl_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMediaControl, 0x56a868b1, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("56a868b1-0ad4-11ce-b03a-0020af0ba770")
+IMediaControl : public IDispatch
+{
+    virtual HRESULT STDMETHODCALLTYPE Run(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Pause(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Stop(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetState(
+        LONG msTimeout,
+        OAFilterState *pfs) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RenderFile(
+        BSTR strFilename) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddSourceFilter(
+        BSTR strFilename,
+        IDispatch **ppUnk) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_FilterCollection(
+        IDispatch **ppUnk) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_RegFilterCollection(
+        IDispatch **ppUnk) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE StopWhenReady(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMediaControl, 0x56a868b1, 0x0ad4, 0x11ce, 0xb0,0x3a, 0x00,0x20,0xaf,0x0b,0xa7,0x70)
+#endif
+#else
+typedef struct IMediaControlVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMediaControl* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMediaControl* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMediaControl* This);
+
+    /*** IDispatch methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount)(
+        IMediaControl* This,
+        UINT *pctinfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfo)(
+        IMediaControl* This,
+        UINT iTInfo,
+        LCID lcid,
+        ITypeInfo **ppTInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetIDsOfNames)(
+        IMediaControl* This,
+        REFIID riid,
+        LPOLESTR *rgszNames,
+        UINT cNames,
+        LCID lcid,
+        DISPID *rgDispId);
+
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        IMediaControl* This,
+        DISPID dispIdMember,
+        REFIID riid,
+        LCID lcid,
+        WORD wFlags,
+        DISPPARAMS *pDispParams,
+        VARIANT *pVarResult,
+        EXCEPINFO *pExcepInfo,
+        UINT *puArgErr);
+
+    /*** IMediaControl methods ***/
+    HRESULT (STDMETHODCALLTYPE *Run)(
+        IMediaControl* This);
+
+    HRESULT (STDMETHODCALLTYPE *Pause)(
+        IMediaControl* This);
+
+    HRESULT (STDMETHODCALLTYPE *Stop)(
+        IMediaControl* This);
+
+    HRESULT (STDMETHODCALLTYPE *GetState)(
+        IMediaControl* This,
+        LONG msTimeout,
+        OAFilterState *pfs);
+
+    HRESULT (STDMETHODCALLTYPE *RenderFile)(
+        IMediaControl* This,
+        BSTR strFilename);
+
+    HRESULT (STDMETHODCALLTYPE *AddSourceFilter)(
+        IMediaControl* This,
+        BSTR strFilename,
+        IDispatch **ppUnk);
+
+    HRESULT (STDMETHODCALLTYPE *get_FilterCollection)(
+        IMediaControl* This,
+        IDispatch **ppUnk);
+
+    HRESULT (STDMETHODCALLTYPE *get_RegFilterCollection)(
+        IMediaControl* This,
+        IDispatch **ppUnk);
+
+    HRESULT (STDMETHODCALLTYPE *StopWhenReady)(
+        IMediaControl* This);
+
+    END_INTERFACE
+} IMediaControlVtbl;
+interface IMediaControl {
+    CONST_VTBL IMediaControlVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IMediaControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMediaControl_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMediaControl_Release(This) (This)->lpVtbl->Release(This)
+/*** IDispatch methods ***/
+#define IMediaControl_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
+#define IMediaControl_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
+#define IMediaControl_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
+#define IMediaControl_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
+/*** IMediaControl methods ***/
+#define IMediaControl_Run(This) (This)->lpVtbl->Run(This)
+#define IMediaControl_Pause(This) (This)->lpVtbl->Pause(This)
+#define IMediaControl_Stop(This) (This)->lpVtbl->Stop(This)
+#define IMediaControl_GetState(This,msTimeout,pfs) (This)->lpVtbl->GetState(This,msTimeout,pfs)
+#define IMediaControl_RenderFile(This,strFilename) (This)->lpVtbl->RenderFile(This,strFilename)
+#define IMediaControl_AddSourceFilter(This,strFilename,ppUnk) (This)->lpVtbl->AddSourceFilter(This,strFilename,ppUnk)
+#define IMediaControl_get_FilterCollection(This,ppUnk) (This)->lpVtbl->get_FilterCollection(This,ppUnk)
+#define IMediaControl_get_RegFilterCollection(This,ppUnk) (This)->lpVtbl->get_RegFilterCollection(This,ppUnk)
+#define IMediaControl_StopWhenReady(This) (This)->lpVtbl->StopWhenReady(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMediaControl_QueryInterface(IMediaControl* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMediaControl_AddRef(IMediaControl* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMediaControl_Release(IMediaControl* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static FORCEINLINE HRESULT IMediaControl_GetTypeInfoCount(IMediaControl* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static FORCEINLINE HRESULT IMediaControl_GetTypeInfo(IMediaControl* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static FORCEINLINE HRESULT IMediaControl_GetIDsOfNames(IMediaControl* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static FORCEINLINE HRESULT IMediaControl_Invoke(IMediaControl* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+/*** IMediaControl methods ***/
+static FORCEINLINE HRESULT IMediaControl_Run(IMediaControl* This) {
+    return This->lpVtbl->Run(This);
+}
+static FORCEINLINE HRESULT IMediaControl_Pause(IMediaControl* This) {
+    return This->lpVtbl->Pause(This);
+}
+static FORCEINLINE HRESULT IMediaControl_Stop(IMediaControl* This) {
+    return This->lpVtbl->Stop(This);
+}
+static FORCEINLINE HRESULT IMediaControl_GetState(IMediaControl* This,LONG msTimeout,OAFilterState *pfs) {
+    return This->lpVtbl->GetState(This,msTimeout,pfs);
+}
+static FORCEINLINE HRESULT IMediaControl_RenderFile(IMediaControl* This,BSTR strFilename) {
+    return This->lpVtbl->RenderFile(This,strFilename);
+}
+static FORCEINLINE HRESULT IMediaControl_AddSourceFilter(IMediaControl* This,BSTR strFilename,IDispatch **ppUnk) {
+    return This->lpVtbl->AddSourceFilter(This,strFilename,ppUnk);
+}
+static FORCEINLINE HRESULT IMediaControl_get_FilterCollection(IMediaControl* This,IDispatch **ppUnk) {
+    return This->lpVtbl->get_FilterCollection(This,ppUnk);
+}
+static FORCEINLINE HRESULT IMediaControl_get_RegFilterCollection(IMediaControl* This,IDispatch **ppUnk) {
+    return This->lpVtbl->get_RegFilterCollection(This,ppUnk);
+}
+static FORCEINLINE HRESULT IMediaControl_StopWhenReady(IMediaControl* This) {
+    return This->lpVtbl->StopWhenReady(This);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IMediaControl_Run_Proxy(
+    IMediaControl* This);
+void __RPC_STUB IMediaControl_Run_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaControl_Pause_Proxy(
+    IMediaControl* This);
+void __RPC_STUB IMediaControl_Pause_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaControl_Stop_Proxy(
+    IMediaControl* This);
+void __RPC_STUB IMediaControl_Stop_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaControl_GetState_Proxy(
+    IMediaControl* This,
+    LONG msTimeout,
+    OAFilterState *pfs);
+void __RPC_STUB IMediaControl_GetState_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaControl_RenderFile_Proxy(
+    IMediaControl* This,
+    BSTR strFilename);
+void __RPC_STUB IMediaControl_RenderFile_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaControl_AddSourceFilter_Proxy(
+    IMediaControl* This,
+    BSTR strFilename,
+    IDispatch **ppUnk);
+void __RPC_STUB IMediaControl_AddSourceFilter_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaControl_get_FilterCollection_Proxy(
+    IMediaControl* This,
+    IDispatch **ppUnk);
+void __RPC_STUB IMediaControl_get_FilterCollection_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaControl_get_RegFilterCollection_Proxy(
+    IMediaControl* This,
+    IDispatch **ppUnk);
+void __RPC_STUB IMediaControl_get_RegFilterCollection_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaControl_StopWhenReady_Proxy(
+    IMediaControl* This);
+void __RPC_STUB IMediaControl_StopWhenReady_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IMediaControl_INTERFACE_DEFINED__ */
+
 #ifndef __IAMCollection_INTERFACE_DEFINED__
 #define __IAMCollection_INTERFACE_DEFINED__
   DEFINE_GUID(IID_IAMCollection,0x56a868b9,0x0ad4,0x11ce,0xb0,0x3a,0x00,0x20,0xaf,0x0b,0xa7,0x70);
@@ -175,86 +459,6 @@ typedef struct IAMStats IAMStats;
   HRESULT WINAPI IAMCollection_get__NewEnum_Proxy(IAMCollection *This,IUnknown **ppUnk);
   void __RPC_STUB IAMCollection_get__NewEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
-
-#ifndef __IMediaControl_INTERFACE_DEFINED__
-#define __IMediaControl_INTERFACE_DEFINED__
-  DEFINE_GUID(IID_IMediaControl,0x56a868b1,0x0ad4,0x11ce,0xb0,0x3a,0x00,0x20,0xaf,0x0b,0xa7,0x70);
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IMediaControl : public IDispatch {
-  public:
-    virtual HRESULT WINAPI Run(void) = 0;
-    virtual HRESULT WINAPI Pause(void) = 0;
-    virtual HRESULT WINAPI Stop(void) = 0;
-    virtual HRESULT WINAPI GetState(LONG msTimeout,OAFilterState *pfs) = 0;
-    virtual HRESULT WINAPI RenderFile(BSTR strFilename) = 0;
-    virtual HRESULT WINAPI AddSourceFilter(BSTR strFilename,IDispatch **ppUnk) = 0;
-    virtual HRESULT WINAPI get_FilterCollection(IDispatch **ppUnk) = 0;
-    virtual HRESULT WINAPI get_RegFilterCollection(IDispatch **ppUnk) = 0;
-    virtual HRESULT WINAPI StopWhenReady(void) = 0;
-  };
-#else
-  typedef struct IMediaControlVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IMediaControl *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IMediaControl *This);
-      ULONG (WINAPI *Release)(IMediaControl *This);
-      HRESULT (WINAPI *GetTypeInfoCount)(IMediaControl *This,UINT *pctinfo);
-      HRESULT (WINAPI *GetTypeInfo)(IMediaControl *This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo);
-      HRESULT (WINAPI *GetIDsOfNames)(IMediaControl *This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId);
-      HRESULT (WINAPI *Invoke)(IMediaControl *This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);
-      HRESULT (WINAPI *Run)(IMediaControl *This);
-      HRESULT (WINAPI *Pause)(IMediaControl *This);
-      HRESULT (WINAPI *Stop)(IMediaControl *This);
-      HRESULT (WINAPI *GetState)(IMediaControl *This,LONG msTimeout,OAFilterState *pfs);
-      HRESULT (WINAPI *RenderFile)(IMediaControl *This,BSTR strFilename);
-      HRESULT (WINAPI *AddSourceFilter)(IMediaControl *This,BSTR strFilename,IDispatch **ppUnk);
-      HRESULT (WINAPI *get_FilterCollection)(IMediaControl *This,IDispatch **ppUnk);
-      HRESULT (WINAPI *get_RegFilterCollection)(IMediaControl *This,IDispatch **ppUnk);
-      HRESULT (WINAPI *StopWhenReady)(IMediaControl *This);
-    END_INTERFACE
-  } IMediaControlVtbl;
-  struct IMediaControl {
-    CONST_VTBL struct IMediaControlVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IMediaControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IMediaControl_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IMediaControl_Release(This) (This)->lpVtbl->Release(This)
-#define IMediaControl_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
-#define IMediaControl_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
-#define IMediaControl_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
-#define IMediaControl_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
-#define IMediaControl_Run(This) (This)->lpVtbl->Run(This)
-#define IMediaControl_Pause(This) (This)->lpVtbl->Pause(This)
-#define IMediaControl_Stop(This) (This)->lpVtbl->Stop(This)
-#define IMediaControl_GetState(This,msTimeout,pfs) (This)->lpVtbl->GetState(This,msTimeout,pfs)
-#define IMediaControl_RenderFile(This,strFilename) (This)->lpVtbl->RenderFile(This,strFilename)
-#define IMediaControl_AddSourceFilter(This,strFilename,ppUnk) (This)->lpVtbl->AddSourceFilter(This,strFilename,ppUnk)
-#define IMediaControl_get_FilterCollection(This,ppUnk) (This)->lpVtbl->get_FilterCollection(This,ppUnk)
-#define IMediaControl_get_RegFilterCollection(This,ppUnk) (This)->lpVtbl->get_RegFilterCollection(This,ppUnk)
-#define IMediaControl_StopWhenReady(This) (This)->lpVtbl->StopWhenReady(This)
-#endif
-#endif
-  HRESULT WINAPI IMediaControl_Run_Proxy(IMediaControl *This);
-  void __RPC_STUB IMediaControl_Run_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaControl_Pause_Proxy(IMediaControl *This);
-  void __RPC_STUB IMediaControl_Pause_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaControl_Stop_Proxy(IMediaControl *This);
-  void __RPC_STUB IMediaControl_Stop_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaControl_GetState_Proxy(IMediaControl *This,LONG msTimeout,OAFilterState *pfs);
-  void __RPC_STUB IMediaControl_GetState_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaControl_RenderFile_Proxy(IMediaControl *This,BSTR strFilename);
-  void __RPC_STUB IMediaControl_RenderFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaControl_AddSourceFilter_Proxy(IMediaControl *This,BSTR strFilename,IDispatch **ppUnk);
-  void __RPC_STUB IMediaControl_AddSourceFilter_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaControl_get_FilterCollection_Proxy(IMediaControl *This,IDispatch **ppUnk);
-  void __RPC_STUB IMediaControl_get_FilterCollection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaControl_get_RegFilterCollection_Proxy(IMediaControl *This,IDispatch **ppUnk);
-  void __RPC_STUB IMediaControl_get_RegFilterCollection_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IMediaControl_StopWhenReady_Proxy(IMediaControl *This);
-  void __RPC_STUB IMediaControl_StopWhenReady_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
 #ifndef __IMediaEvent_INTERFACE_DEFINED__
 #define __IMediaEvent_INTERFACE_DEFINED__
   DEFINE_GUID(IID_IMediaEvent,0x56a868b6,0x0ad4,0x11ce,0xb0,0x3a,0x00,0x20,0xaf,0x0b,0xa7,0x70);
@@ -1461,9 +1665,12 @@ typedef struct IAMStats IAMStats;
   HRESULT WINAPI IAMStats_AddValue_Proxy(IAMStats *This,__LONG32 lIndex,double dValue);
   void __RPC_STUB IAMStats_AddValue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
-#endif
 /* Begin additional prototypes for all interfaces */
 
+ULONG           __RPC_USER BSTR_UserSize     (ULONG *, ULONG, BSTR *);
+unsigned char * __RPC_USER BSTR_UserMarshal  (ULONG *, unsigned char *, BSTR *);
+unsigned char * __RPC_USER BSTR_UserUnmarshal(ULONG *, unsigned char *, BSTR *);
+void            __RPC_USER BSTR_UserFree     (ULONG *, BSTR *);
 
 /* End additional prototypes */
 
