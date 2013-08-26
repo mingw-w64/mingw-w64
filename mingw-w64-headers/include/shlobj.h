@@ -603,7 +603,6 @@ extern "C" {
 
 #define PO_REN_PORT 0x0034
 
-  typedef UINT PRINTEROP_FLAGS;
 #endif
 
 #undef INTERFACE
