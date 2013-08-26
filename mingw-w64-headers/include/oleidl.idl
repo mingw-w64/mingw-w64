@@ -40,7 +40,7 @@ cpp_quote("")
   HRESULT Uncache ([in] DWORD dwConnection);
   HRESULT EnumCache ([out] IEnumSTATDATA **ppenumSTATDATA);
   HRESULT InitCache ([in, unique] IDataObject *pDataObject);
-  HRESULT SetData ([in, unique] FORMATETC *pformatetc,[in, unique] STGMEDIUM *pmedium,[in] WINBOOL fRelease);
+  HRESULT SetData ([in, unique] FORMATETC *pformatetc,[in, unique] STGMEDIUM *pmedium,[in] BOOL fRelease);
 }
 
 cpp_quote("")
@@ -93,7 +93,7 @@ interface IOleContainer : IParseDisplayName {
   typedef [unique] IOleContainer *LPOLECONTAINER;
 cpp_quote("")
   HRESULT EnumObjects ([in] DWORD grfFlags,[out] IEnumUnknown **ppenum);
-  HRESULT LockContainer ([in] WINBOOL fLock);
+  HRESULT LockContainer ([in] BOOL fLock);
 }
 
 cpp_quote("")
@@ -105,7 +105,7 @@ cpp_quote("")
   HRESULT GetMoniker ([in] DWORD dwAssign,[in] DWORD dwWhichMoniker,[out] IMoniker **ppmk);
   HRESULT GetContainer ([out] IOleContainer **ppContainer);
   HRESULT ShowObject (void);
-  HRESULT OnShowWindow ([in] WINBOOL fShow);
+  HRESULT OnShowWindow ([in] BOOL fShow);
   HRESULT RequestNewObjectLayout (void);
 }
 
@@ -169,7 +169,7 @@ cpp_quote("")
   HRESULT Close ([in] DWORD dwSaveOption);
   HRESULT SetMoniker ([in] DWORD dwWhichMoniker,[in, unique] IMoniker *pmk);
   HRESULT GetMoniker ([in] DWORD dwAssign,[in] DWORD dwWhichMoniker,[out] IMoniker **ppmk);
-  HRESULT InitFromData ([in, unique] IDataObject *pDataObject,[in] WINBOOL fCreation,[in] DWORD dwReserved);
+  HRESULT InitFromData ([in, unique] IDataObject *pDataObject,[in] BOOL fCreation,[in] DWORD dwReserved);
   HRESULT GetClipboardData ([in] DWORD dwReserved,[out] IDataObject **ppDataObject);
   HRESULT DoVerb ([in] LONG iVerb,[in, unique] LPMSG lpmsg,[in, unique] IOleClientSite *pActiveSite,[in] LONG lindex,[in] HWND hwndParent,[in, unique] LPCRECT lprcPosRect);
   HRESULT EnumVerbs ([out] IEnumOLEVERB **ppEnumOleVerb);
@@ -216,7 +216,7 @@ interface IOleWindow : IUnknown {
   typedef [unique] IOleWindow *LPOLEWINDOW;
 cpp_quote("")
   [input_sync] HRESULT GetWindow ([out] HWND *phwnd);
-  HRESULT ContextSensitiveHelp ([in] WINBOOL fEnterMode);
+  HRESULT ContextSensitiveHelp ([in] BOOL fEnterMode);
 }
 
 cpp_quote("")
@@ -294,11 +294,11 @@ interface IOleInPlaceActiveObject : IOleWindow {
 cpp_quote("")
   [local] HRESULT TranslateAccelerator ([in] LPMSG lpmsg);
   [call_as (TranslateAccelerator)] HRESULT RemoteTranslateAccelerator ();
-  [input_sync] HRESULT OnFrameWindowActivate ([in] WINBOOL fActivate);
-  [input_sync] HRESULT OnDocWindowActivate ([in] WINBOOL fActivate);
-  [local] HRESULT ResizeBorder ([in] LPCRECT prcBorder,[in, unique] IOleInPlaceUIWindow *pUIWindow,[in] WINBOOL fFrameWindow);
-  [call_as (ResizeBorder), input_sync] HRESULT RemoteResizeBorder ([in] LPCRECT prcBorder,[in] REFIID riid,[in, unique, iid_is (riid)] IOleInPlaceUIWindow *pUIWindow,[in] WINBOOL fFrameWindow);
-  HRESULT EnableModeless ([in] WINBOOL fEnable);
+  [input_sync] HRESULT OnFrameWindowActivate ([in] BOOL fActivate);
+  [input_sync] HRESULT OnDocWindowActivate ([in] BOOL fActivate);
+  [local] HRESULT ResizeBorder ([in] LPCRECT prcBorder,[in, unique] IOleInPlaceUIWindow *pUIWindow,[in] BOOL fFrameWindow);
+  [call_as (ResizeBorder), input_sync] HRESULT RemoteResizeBorder ([in] LPCRECT prcBorder,[in] REFIID riid,[in, unique, iid_is (riid)] IOleInPlaceUIWindow *pUIWindow,[in] BOOL fFrameWindow);
+  HRESULT EnableModeless ([in] BOOL fEnable);
 }
 
 cpp_quote("")
@@ -308,7 +308,7 @@ interface IOleInPlaceFrame : IOleInPlaceUIWindow {
 cpp_quote("")
   typedef struct tagOIFI {
     UINT cb;
-    WINBOOL fMDIApp;
+    BOOL fMDIApp;
     HWND hwndFrame;
     HACCEL haccel;
     UINT cAccelEntries;
@@ -324,7 +324,7 @@ cpp_quote("")
   [input_sync] HRESULT SetMenu ([in] HMENU hmenuShared,[in] HOLEMENU holemenu,[in] HWND hwndActiveObject);
   HRESULT RemoveMenus ([in] HMENU hmenuShared);
   [input_sync] HRESULT SetStatusText ([in, unique] LPCOLESTR pszStatusText);
-  HRESULT EnableModeless ([in] WINBOOL fEnable);
+  HRESULT EnableModeless ([in] BOOL fEnable);
   HRESULT TranslateAccelerator ([in] LPMSG lpmsg,[in] WORD wID);
 }
 
@@ -349,7 +349,7 @@ cpp_quote("")
   HRESULT OnUIActivate (void);
   HRESULT GetWindowContext ([out] IOleInPlaceFrame **ppFrame,[out] IOleInPlaceUIWindow **ppDoc,[out] LPRECT lprcPosRect,[out] LPRECT lprcClipRect,[in, out] LPOLEINPLACEFRAMEINFO lpFrameInfo);
   HRESULT Scroll ([in] SIZE scrollExtant);
-  HRESULT OnUIDeactivate ([in] WINBOOL fUndoable);
+  HRESULT OnUIDeactivate ([in] BOOL fUndoable);
   HRESULT OnInPlaceDeactivate (void);
   HRESULT DiscardUndoState (void);
   HRESULT DeactivateAndUndo (void);
@@ -367,7 +367,7 @@ cpp_quote("")
 interface IViewObject : IUnknown {
   typedef [unique] IViewObject *LPVIEWOBJECT;
 cpp_quote("")
-  [local] HRESULT Draw ([in] DWORD dwDrawAspect,[in] LONG lindex,[in, unique] void *pvAspect,[in, unique] DVTARGETDEVICE *ptd,[in] HDC hdcTargetDev,[in] HDC hdcDraw,[in] LPCRECTL lprcBounds,[in, unique] LPCRECTL lprcWBounds,[in] WINBOOL (*pfnContinue) (ULONG_PTR dwContinue),[in] ULONG_PTR dwContinue);
+  [local] HRESULT Draw ([in] DWORD dwDrawAspect,[in] LONG lindex,[in, unique] void *pvAspect,[in, unique] DVTARGETDEVICE *ptd,[in] HDC hdcTargetDev,[in] HDC hdcDraw,[in] LPCRECTL lprcBounds,[in, unique] LPCRECTL lprcWBounds,[in] BOOL (*pfnContinue) (ULONG_PTR dwContinue),[in] ULONG_PTR dwContinue);
   [call_as (Draw)] HRESULT RemoteDraw ([in] DWORD dwDrawAspect,[in] LONG lindex,[in] ULONG_PTR pvAspect,[in, unique] DVTARGETDEVICE *ptd,[in] HDC hdcTargetDev,[in] HDC hdcDraw,[in, unique] LPCRECTL lprcBounds,[in, unique] LPCRECTL lprcWBounds,[in] IContinue *pContinue);
   [local] HRESULT GetColorSet ([in] DWORD dwDrawAspect,[in] LONG lindex,[in, unique] void *pvAspect,[in, unique] DVTARGETDEVICE *ptd,[in] HDC hicTargetDev,[out] LOGPALETTE **ppColorSet);
   [call_as (GetColorSet)] HRESULT RemoteGetColorSet ([in] DWORD dwDrawAspect,[in] LONG lindex,[in] ULONG_PTR pvAspect,[in, unique] DVTARGETDEVICE *ptd,[in] ULONG_PTR hicTargetDev,[out] LOGPALETTE **ppColorSet);
@@ -392,7 +392,7 @@ cpp_quote("")
 interface IDropSource : IUnknown {
   typedef [unique] IDropSource *LPDROPSOURCE;
 cpp_quote("")
-  HRESULT QueryContinueDrag ([in] WINBOOL fEscapePressed,[in] DWORD grfKeyState);
+  HRESULT QueryContinueDrag ([in] BOOL fEscapePressed,[in] DWORD grfKeyState);
   HRESULT GiveFeedback ([in] DWORD dwEffect);
 }
 

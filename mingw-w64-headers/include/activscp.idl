@@ -252,7 +252,7 @@ interface IActiveScriptError64 : IActiveScriptError {
 [object, uuid (D10F6761-83e9-11cf-8f20-00805f2cd064), pointer_default (unique)]
 interface IActiveScriptSiteWindow : IUnknown {
   HRESULT GetWindow ([out] HWND *phwnd);
-  HRESULT EnableModeless ([in] WINBOOL fEnable);
+  HRESULT EnableModeless ([in] BOOL fEnable);
 }
 
 cpp_quote("")

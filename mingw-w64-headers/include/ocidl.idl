@@ -157,8 +157,8 @@ interface IClassFactory2 : IClassFactory {
 cpp_quote("")
   typedef struct tagLICINFO {
     LONG cbLicInfo;
-    WINBOOL fRuntimeKeyAvail;
-    WINBOOL fLicVerified;
+    BOOL fRuntimeKeyAvail;
+    BOOL fLicVerified;
   } LICINFO;
 
 cpp_quote("")
@@ -229,7 +229,7 @@ cpp_quote("")
   HRESULT GetControlInfo ([in, out] CONTROLINFO *pCI);
   HRESULT OnMnemonic ([in] MSG *pMsg);
   HRESULT OnAmbientPropertyChange ([in] DISPID dispID);
-  HRESULT FreezeEvents ([in] WINBOOL bFreeze);
+  HRESULT FreezeEvents ([in] BOOL bFreeze);
 }
 
 cpp_quote("")
@@ -253,11 +253,11 @@ cpp_quote("")
   } XFORMCOORDS;
 cpp_quote("")
   HRESULT OnControlInfoChanged (void);
-  HRESULT LockInPlaceActive ([in] WINBOOL fLock);
+  HRESULT LockInPlaceActive ([in] BOOL fLock);
   HRESULT GetExtendedControl ([out] IDispatch **ppDisp);
   HRESULT TransformCoords ([in, out] POINTL *pPtlHimetric,[in, out] POINTF *pPtfContainer,[in] DWORD dwFlags);
   HRESULT TranslateAccelerator ([in] MSG *pMsg,[in] DWORD grfModifiers);
-  HRESULT OnFocus ([in] WINBOOL fGotFocus);
+  HRESULT OnFocus ([in] BOOL fGotFocus);
   HRESULT ShowPropertyFrame (void);
 }
 
@@ -278,7 +278,7 @@ cpp_quote("")
   typedef struct tagPROPPAGEINFO *LPPROPPAGEINFO;
 cpp_quote("")
   HRESULT SetPageSite ([in] IPropertyPageSite *pPageSite);
-  HRESULT Activate ([in] HWND hWndParent,[in] LPCRECT pRect,[in] WINBOOL bModal);
+  HRESULT Activate ([in] HWND hWndParent,[in] LPCRECT pRect,[in] BOOL bModal);
   HRESULT Deactivate (void);
   HRESULT GetPageInfo ([out] PROPPAGEINFO *pPageInfo);
   HRESULT SetObjects ([in] ULONG cObjects,[in, size_is (cObjects)] IUnknown **ppUnk);
@@ -347,8 +347,8 @@ cpp_quote("")
   HRESULT IsDirty (void);
   [local] HRESULT Load ([in, size_is (cbSize)] LPVOID pMem,[in] ULONG cbSize);
   [call_as (Load)] HRESULT RemoteLoad ([in, size_is (cbSize)] BYTE *pMem,[in] ULONG cbSize);
-  [local] HRESULT Save ([out, size_is (cbSize)] LPVOID pMem,[in] WINBOOL fClearDirty,[in] ULONG cbSize);
-  [call_as (Save)] HRESULT RemoteSave ([out, size_is (cbSize)] BYTE *pMem,[in] WINBOOL fClearDirty,[in] ULONG cbSize);
+  [local] HRESULT Save ([out, size_is (cbSize)] LPVOID pMem,[in] BOOL fClearDirty,[in] ULONG cbSize);
+  [call_as (Save)] HRESULT RemoteSave ([out, size_is (cbSize)] BYTE *pMem,[in] BOOL fClearDirty,[in] ULONG cbSize);
   HRESULT GetSizeMax ([out] ULONG *pCbSize);
   HRESULT InitNew (void);
 }
@@ -360,7 +360,7 @@ interface IPersistStreamInit : IPersist {
 cpp_quote("")
   HRESULT IsDirty (void);
   HRESULT Load ([in] LPSTREAM pStm);
-  HRESULT Save ([in] LPSTREAM pStm,[in] WINBOOL fClearDirty);
+  HRESULT Save ([in] LPSTREAM pStm,[in] BOOL fClearDirty);
   HRESULT GetSizeMax ([out] ULARGE_INTEGER *pCbSize);
   HRESULT InitNew (void);
 }
@@ -372,7 +372,7 @@ interface IPersistPropertyBag : IPersist {
 cpp_quote("")
   HRESULT InitNew (void);
   HRESULT Load ([in] IPropertyBag *pPropBag,[in, unique] IErrorLog *pErrorLog);
-  HRESULT Save ([in] IPropertyBag *pPropBag,[in] WINBOOL fClearDirty,[in] WINBOOL fSaveAllProperties);
+  HRESULT Save ([in] IPropertyBag *pPropBag,[in] BOOL fClearDirty,[in] BOOL fSaveAllProperties);
 }
 
 cpp_quote("")
@@ -402,14 +402,14 @@ cpp_quote("")
   HRESULT put_Name ([in] BSTR name);
   HRESULT get_Size ([out] CY *pSize);
   HRESULT put_Size ([in] CY size);
-  HRESULT get_Bold ([out] WINBOOL *pBold);
-  HRESULT put_Bold ([in] WINBOOL bold);
-  HRESULT get_Italic ([out] WINBOOL *pItalic);
-  HRESULT put_Italic ([in] WINBOOL italic);
-  HRESULT get_Underline ([out] WINBOOL *pUnderline);
-  HRESULT put_Underline ([in] WINBOOL underline);
-  HRESULT get_Strikethrough ([out] WINBOOL *pStrikethrough);
-  HRESULT put_Strikethrough ([in] WINBOOL strikethrough);
+  HRESULT get_Bold ([out] BOOL *pBold);
+  HRESULT put_Bold ([in] BOOL bold);
+  HRESULT get_Italic ([out] BOOL *pItalic);
+  HRESULT put_Italic ([in] BOOL italic);
+  HRESULT get_Underline ([out] BOOL *pUnderline);
+  HRESULT put_Underline ([in] BOOL underline);
+  HRESULT get_Strikethrough ([out] BOOL *pStrikethrough);
+  HRESULT put_Strikethrough ([in] BOOL strikethrough);
   HRESULT get_Weight ([out] SHORT *pWeight);
   HRESULT put_Weight ([in] SHORT weight);
   HRESULT get_Charset ([out] SHORT *pCharset);
@@ -449,10 +449,10 @@ cpp_quote("")
   HRESULT set_hPal ([in] OLE_HANDLE hPal);
   HRESULT get_CurDC ([out] HDC *phDC);
   HRESULT SelectPicture ([in] HDC hDCIn,[out] HDC *phDCOut,[out] OLE_HANDLE *phBmpOut);
-  HRESULT get_KeepOriginalFormat ([out] WINBOOL *pKeep);
-  HRESULT put_KeepOriginalFormat ([in] WINBOOL keep);
+  HRESULT get_KeepOriginalFormat ([out] BOOL *pKeep);
+  HRESULT put_KeepOriginalFormat ([in] BOOL keep);
   HRESULT PictureChanged (void);
-  HRESULT SaveAsFile ([in] LPSTREAM pStream,[in] WINBOOL fSaveMemCopy,[out] LONG *pCbSize);
+  HRESULT SaveAsFile ([in] LPSTREAM pStream,[in] BOOL fSaveMemCopy,[out] LONG *pCbSize);
   HRESULT get_Attributes ([out] DWORD *pDwAttr);
 }
 
@@ -471,10 +471,10 @@ cpp_quote("")
   HRESULT set_hPal ([in] HHANDLE hPal);
   HRESULT get_CurDC ([out] HDC *phDC);
   HRESULT SelectPicture ([in] HDC hDCIn,[out] HDC *phDCOut,[out] HHANDLE *phBmpOut);
-  HRESULT get_KeepOriginalFormat ([out] WINBOOL *pKeep);
-  HRESULT put_KeepOriginalFormat ([in] WINBOOL keep);
+  HRESULT get_KeepOriginalFormat ([out] BOOL *pKeep);
+  HRESULT put_KeepOriginalFormat ([in] BOOL keep);
   HRESULT PictureChanged (void);
-  HRESULT SaveAsFile ([in] LPSTREAM pStream,[in] WINBOOL fSaveMemCopy,[out] LONG *pCbSize);
+  HRESULT SaveAsFile ([in] LPSTREAM pStream,[in] BOOL fSaveMemCopy,[out] LONG *pCbSize);
   HRESULT get_Attributes ([out] DWORD *pDwAttr);
 }
 
@@ -514,8 +514,8 @@ cpp_quote("")
     ACTIVATE_WINDOWLESS = 1,
   } ACTIVATEFLAGS;
 cpp_quote("")
-  HRESULT OnInPlaceActivateEx ([out] WINBOOL *pfNoRedraw,[in] DWORD dwFlags);
-  HRESULT OnInPlaceDeactivateEx ([in] WINBOOL fNoRedraw);
+  HRESULT OnInPlaceActivateEx ([out] BOOL *pfNoRedraw,[in] DWORD dwFlags);
+  HRESULT OnInPlaceDeactivateEx ([in] BOOL fNoRedraw);
   HRESULT RequestUIActivate (void);
 }
 
@@ -532,13 +532,13 @@ cpp_quote("")
 cpp_quote("")
   HRESULT CanWindowlessActivate (void);
   HRESULT GetCapture (void);
-  HRESULT SetCapture ([in] WINBOOL fCapture);
+  HRESULT SetCapture ([in] BOOL fCapture);
   HRESULT GetFocus (void);
-  HRESULT SetFocus ([in] WINBOOL fFocus);
+  HRESULT SetFocus ([in] BOOL fFocus);
   HRESULT GetDC ([in, unique] LPCRECT pRect,[in] DWORD grfFlags,[out] HDC *phDC);
   HRESULT ReleaseDC ([in] HDC hDC);
-  HRESULT InvalidateRect ([in, unique] LPCRECT pRect,[in] WINBOOL fErase);
-  HRESULT InvalidateRgn ([in] HRGN hRGN,[in] WINBOOL fErase);
+  HRESULT InvalidateRect ([in, unique] LPCRECT pRect,[in] BOOL fErase);
+  HRESULT InvalidateRgn ([in] HRGN hRGN,[in] BOOL fErase);
   HRESULT ScrollRect ([in] INT dx,[in] INT dy,[in] LPCRECT pRectScroll,[in] LPCRECT pRectClip);
   HRESULT AdjustRect ([in, out] LPRECT prc);
   HRESULT OnDefWindowMessage ([in] UINT msg,[in] WPARAM wParam,[in] LPARAM lParam,[out] LRESULT *plResult);
@@ -614,7 +614,7 @@ interface IOleParentUndoUnit : IOleUndoUnit {
   typedef IOleParentUndoUnit *LPOLEPARENTUNDOUNIT;
 cpp_quote("")
   HRESULT Open ([in] IOleParentUndoUnit *pPUU);
-  HRESULT Close ([in] IOleParentUndoUnit *pPUU,[in] WINBOOL fCommit);
+  HRESULT Close ([in] IOleParentUndoUnit *pPUU,[in] BOOL fCommit);
   HRESULT Add ([in] IOleUndoUnit *pUU);
   HRESULT FindUnit ([in] IOleUndoUnit *pUU);
   HRESULT GetParentState ([out] DWORD *pdwState);
@@ -640,7 +640,7 @@ cpp_quote("")
   typedef IOleUndoManager *LPOLEUNDOMANAGER;
 cpp_quote("")
   HRESULT Open ([in] IOleParentUndoUnit *pPUU);
-  HRESULT Close ([in] IOleParentUndoUnit *pPUU,[in] WINBOOL fCommit);
+  HRESULT Close ([in] IOleParentUndoUnit *pPUU,[in] BOOL fCommit);
   HRESULT Add ([in] IOleUndoUnit *pUU);
   HRESULT GetOpenParentState ([out] DWORD *pdwState);
   HRESULT DiscardFrom ([in] IOleUndoUnit *pUU);
@@ -650,7 +650,7 @@ cpp_quote("")
   HRESULT EnumRedoable ([out] IEnumOleUndoUnits **ppEnum);
   HRESULT GetLastUndoDescription ([out] BSTR *pBstr);
   HRESULT GetLastRedoDescription ([out] BSTR *pBstr);
-  HRESULT Enable ([in] WINBOOL fEnable);
+  HRESULT Enable ([in] BOOL fEnable);
 }
 
 cpp_quote("")
@@ -666,7 +666,7 @@ cpp_quote("")
 cpp_quote("")
   HRESULT GetActivationPolicy ([out] DWORD *pdwPolicy);
   HRESULT OnInactiveMouseMove ([in] LPCRECT pRectBounds,[in] LONG x,[in] LONG y,[in] DWORD grfKeyState);
-  HRESULT OnInactiveSetCursor ([in] LPCRECT pRectBounds,[in] LONG x,[in] LONG y,[in] DWORD dwMouseMsg,[in] WINBOOL fSetAlways);
+  HRESULT OnInactiveSetCursor ([in] LPCRECT pRectBounds,[in] LONG x,[in] LONG y,[in] DWORD dwMouseMsg,[in] BOOL fSetAlways);
 }
 
 cpp_quote("")
@@ -750,7 +750,7 @@ interface IPersistPropertyBag2 : IPersist {
 cpp_quote("")
   HRESULT InitNew (void);
   HRESULT Load ([in] IPropertyBag2 *pPropBag,[in, unique] IErrorLog *pErrLog);
-  HRESULT Save ([in] IPropertyBag2 *pPropBag,[in] WINBOOL fClearDirty,[in] WINBOOL fSaveAllProperties);
+  HRESULT Save ([in] IPropertyBag2 *pPropBag,[in] BOOL fClearDirty,[in] BOOL fSaveAllProperties);
   HRESULT IsDirty (void);
 }
 cpp_quote("#endif")

@@ -243,8 +243,8 @@ interface IPersistMoniker : IUnknown {
 cpp_quote("")
   HRESULT GetClassID ([out] CLSID *pClassID);
   HRESULT IsDirty (void);
-  HRESULT Load ([in] WINBOOL fFullyAvailable,[in] IMoniker *pimkName,[in] LPBC pibc,[in] DWORD grfMode);
-  HRESULT Save ([in] IMoniker *pimkName,[in] LPBC pbc,[in] WINBOOL fRemember);
+  HRESULT Load ([in] BOOL fFullyAvailable,[in] IMoniker *pimkName,[in] LPBC pibc,[in] DWORD grfMode);
+  HRESULT Save ([in] IMoniker *pimkName,[in] LPBC pbc,[in] BOOL fRemember);
   HRESULT SaveCompleted ([in] IMoniker *pimkName,[in] LPBC pibc);
   HRESULT GetCurMoniker ([out] IMoniker **ppimkName);
 }
@@ -384,7 +384,7 @@ cpp_quote("")
   typedef struct _REMSECURITY_ATTRIBUTES {
     DWORD nLength;
     DWORD lpSecurityDescriptor;
-    WINBOOL bInheritHandle;
+    BOOL bInheritHandle;
   } REMSECURITY_ATTRIBUTES,*PREMSECURITY_ATTRIBUTES,*LPREMSECURITY_ATTRIBUTES;
 
 cpp_quote("")
@@ -737,7 +737,7 @@ cpp_quote("")
   HRESULT GetPropertyBSTR ([in, range (Uri_PROPERTY_STRING_START, Uri_PROPERTY_STRING_LAST)] Uri_PROPERTY uriProp,[out] BSTR *pbstrProperty,[in] DWORD dwFlags);
   HRESULT GetPropertyLength ([in, range (Uri_PROPERTY_STRING_START, Uri_PROPERTY_STRING_LAST)] Uri_PROPERTY uriProp,[out] DWORD *pcchProperty,[in] DWORD dwFlags);
   HRESULT GetPropertyDWORD ([in, range (Uri_PROPERTY_DWORD_START, Uri_PROPERTY_DWORD_LAST)] Uri_PROPERTY uriProp,[out] DWORD *pdwProperty,[in] DWORD dwFlags);
-  HRESULT HasProperty ([in, range (Uri_PROPERTY_STRING_START, Uri_PROPERTY_DWORD_LAST)] Uri_PROPERTY uriProp,[out] WINBOOL *pfHasProperty);
+  HRESULT HasProperty ([in, range (Uri_PROPERTY_STRING_START, Uri_PROPERTY_DWORD_LAST)] Uri_PROPERTY uriProp,[out] BOOL *pfHasProperty);
   HRESULT GetAbsoluteUri ([out] BSTR *pbstrAbsoluteUri);
   HRESULT GetAuthority ([out] BSTR *pbstrAuthority);
   HRESULT GetDisplayUri ([out] BSTR *pbstrDisplayString);
@@ -758,7 +758,7 @@ cpp_quote("")
   HRESULT GetScheme ([out] DWORD *pdwScheme);
   HRESULT GetZone ([out] DWORD *pdwZone);
   HRESULT GetProperties ([out] LPDWORD pdwFlags);
-  HRESULT IsEqual ([in] IUri *pUri,[out] WINBOOL *pfEqual);
+  HRESULT IsEqual ([in] IUri *pUri,[out] BOOL *pfEqual);
 }
 
 cpp_quote("")
@@ -848,7 +848,7 @@ interface IUriBuilder: IUnknown {
   HRESULT GetHost ([out] DWORD *pcchHost,[out] LPCWSTR *ppwzHost);
   HRESULT GetPassword ([out] DWORD *pcchPassword,[out] LPCWSTR *ppwzPassword);
   HRESULT GetPath ([out] DWORD *pcchPath,[out] LPCWSTR *ppwzPath);
-  HRESULT GetPort ([out]WINBOOL *pfHasPort,[out]DWORD *pdwPort);
+  HRESULT GetPort ([out] BOOL *pfHasPort,[out]DWORD *pdwPort);
   HRESULT GetQuery ([out] DWORD *pcchQuery,[out] LPCWSTR *ppwzQuery);
   HRESULT GetSchemeName ([out] DWORD *pcchSchemeName,[out] LPCWSTR *ppwzSchemeName);
   HRESULT GetUserName ([out] DWORD *pcchUserName,[out] LPCWSTR *ppwzUserName);
@@ -856,12 +856,12 @@ interface IUriBuilder: IUnknown {
   HRESULT SetHost ([in]LPCWSTR pwzNewValue);
   HRESULT SetPassword ([in]LPCWSTR pwzNewValue);
   HRESULT SetPath ([in]LPCWSTR pwzNewValue);
-  HRESULT SetPort ([in]WINBOOL fHasPort,[in]DWORD dwNewValue);
+  HRESULT SetPort ([in]BOOL fHasPort,[in]DWORD dwNewValue);
   HRESULT SetQuery ([in]LPCWSTR pwzNewValue);
   HRESULT SetSchemeName ([in]LPCWSTR pwzNewValue);
   HRESULT SetUserName ([in]LPCWSTR pwzNewValue);
   HRESULT RemoveProperties ([in]DWORD dwPropertyMask);
-  HRESULT HasBeenModified ([out]WINBOOL *pfModified);
+  HRESULT HasBeenModified ([out]BOOL *pfModified);
 };
 
 cpp_quote("")
@@ -1487,7 +1487,7 @@ cpp_quote("")
 [local, object, uuid (79eac9ed-baf9-11ce-8c82-00aa004ba90b), helpstring ("IInternetSecurityMgrSite Interface"), pointer_default (unique)]
 interface IInternetSecurityMgrSite : IUnknown {
   HRESULT GetWindow ([out] HWND *phwnd);
-  HRESULT EnableModeless ([in] WINBOOL fEnable);
+  HRESULT EnableModeless ([in] BOOL fEnable);
 };
 cpp_quote("#endif")
 
@@ -1928,8 +1928,8 @@ cpp_quote("")
 [local, object, uuid (EDC17559-DD5D-4846-8eef-8becba5a4abf), helpstring ("IInternetZoneManagerEx2 Interface"), pointer_default (unique)]
 interface IInternetZoneManagerEx2 : IInternetZoneManagerEx {
   HRESULT GetZoneAttributesEx ([in] DWORD dwZone,[in, out, unique]ZONEATTRIBUTES *pZoneAttributes,[in] DWORD dwFlags);
-  HRESULT GetZoneSecurityState ([in] DWORD dwZoneIndex,[in] WINBOOL fRespectPolicy,[in, out] LPDWORD pdwState,[in, out] WINBOOL *pfPolicyEncountered);
-  HRESULT GetIESecurityState ([in] WINBOOL fRespectPolicy,[in, out] LPDWORD pdwState,[in, out] WINBOOL *pfPolicyEncountered,[in] WINBOOL fNoCache);
+  HRESULT GetZoneSecurityState ([in] DWORD dwZoneIndex,[in] BOOL fRespectPolicy,[in, out] LPDWORD pdwState,[in, out] BOOL *pfPolicyEncountered);
+  HRESULT GetIESecurityState ([in] BOOL fRespectPolicy,[in, out] LPDWORD pdwState,[in, out] BOOL *pfPolicyEncountered,[in] BOOL fNoCache);
   HRESULT FixUnsecureSettings ();
 }
 cpp_quote("#endif")

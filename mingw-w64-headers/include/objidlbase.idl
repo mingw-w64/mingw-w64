@@ -112,7 +112,7 @@ cpp_quote("")
   } EXTCONN;
 cpp_quote("")
   DWORD AddConnection ([in] DWORD extconn,[in] DWORD reserved);
-  DWORD ReleaseConnection ([in] DWORD extconn,[in] DWORD reserved,[in] WINBOOL fLastReleaseCloses);
+  DWORD ReleaseConnection ([in] DWORD extconn,[in] DWORD reserved,[in] BOOL fLastReleaseCloses);
 }
 
 cpp_quote("")
@@ -402,7 +402,7 @@ interface IServerSecurity : IUnknown {
   HRESULT QueryBlanket ([out] DWORD *pAuthnSvc,[out] DWORD *pAuthzSvc,[out]OLECHAR **pServerPrincName,[out] DWORD *pAuthnLevel,[out] DWORD *pImpLevel,[out] void **pPrivs,[in, out] DWORD *pCapabilities);
   HRESULT ImpersonateClient ();
   HRESULT RevertToSelf ();
-  WINBOOL IsImpersonating ();
+  BOOL IsImpersonating ();
 }
 
 cpp_quote("")

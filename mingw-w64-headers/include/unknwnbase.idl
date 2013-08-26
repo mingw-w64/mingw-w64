@@ -71,7 +71,7 @@ interface IClassFactory : IUnknown {
 cpp_quote("")
   [local] HRESULT CreateInstance ([in, unique] IUnknown *pUnkOuter,[in] REFIID riid,[out, iid_is (riid)] void **ppvObject);
   [call_as (CreateInstance)] HRESULT RemoteCreateInstance ([in] REFIID riid,[out, iid_is (riid)] IUnknown **ppvObject);
-  [local] HRESULT LockServer ([in] WINBOOL fLock);
-  [call_as (LockServer)] HRESULT __stdcall RemoteLockServer ([in] WINBOOL fLock);
+  [local] HRESULT LockServer ([in] BOOL fLock);
+  [call_as (LockServer)] HRESULT __stdcall RemoteLockServer ([in] BOOL fLock);
 }
 cpp_quote("#endif")

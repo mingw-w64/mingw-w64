@@ -44,14 +44,14 @@ interface IMallocSpy : IUnknown {
   typedef [unique] IMallocSpy *LPMALLOCSPY;
   SIZE_T PreAlloc ([in] SIZE_T cbRequest);
   void *PostAlloc ([in] void *pActual);
-  void *PreFree ([in] void *pRequest,[in] WINBOOL fSpyed);
-  void PostFree ([in] WINBOOL fSpyed);
-  SIZE_T PreRealloc ([in] void *pRequest,[in] SIZE_T cbRequest,[out] void **ppNewRequest,[in] WINBOOL fSpyed);
-  void *PostRealloc ([in] void *pActual,[in] WINBOOL fSpyed);
-  void *PreGetSize ([in] void *pRequest,[in] WINBOOL fSpyed);
-  SIZE_T PostGetSize ([in] SIZE_T cbActual,[in] WINBOOL fSpyed);
-  void *PreDidAlloc ([in] void *pRequest,[in] WINBOOL fSpyed);
-  int PostDidAlloc ([in] void *pRequest,[in] WINBOOL fSpyed,[in] int fActual);
+  void *PreFree ([in] void *pRequest,[in] BOOL fSpyed);
+  void PostFree ([in] BOOL fSpyed);
+  SIZE_T PreRealloc ([in] void *pRequest,[in] SIZE_T cbRequest,[out] void **ppNewRequest,[in] BOOL fSpyed);
+  void *PostRealloc ([in] void *pActual,[in] BOOL fSpyed);
+  void *PreGetSize ([in] void *pRequest,[in] BOOL fSpyed);
+  SIZE_T PostGetSize ([in] SIZE_T cbActual,[in] BOOL fSpyed);
+  void *PreDidAlloc ([in] void *pRequest,[in] BOOL fSpyed);
+  int PostDidAlloc ([in] void *pRequest,[in] BOOL fSpyed,[in] int fActual);
   void PreHeapMinimize (void);
   void PostHeapMinimize (void);
 }
@@ -163,11 +163,11 @@ interface IRunnableObject : IUnknown {
   HRESULT GetRunningClass ([out] LPCLSID lpClsid);
   HRESULT Run ([in] LPBINDCTX pbc);
   [local]
-  WINBOOL IsRunning ();
+  BOOL IsRunning ();
   [call_as (IsRunning)]
   HRESULT RemoteIsRunning ();
-  HRESULT LockRunning ([in] WINBOOL fLock,[in] WINBOOL fLastUnlockCloses);
-  HRESULT SetContainedObject ([in] WINBOOL fContained);
+  HRESULT LockRunning ([in] BOOL fLock,[in] BOOL fLastUnlockCloses);
+  HRESULT SetContainedObject ([in] BOOL fContained);
 }
 [object, uuid (00000010-0000-0000-C000-000000000046)]
 
@@ -197,7 +197,7 @@ interface IPersistStream : IPersist {
   typedef [unique] IPersistStream *LPPERSISTSTREAM;
   HRESULT IsDirty (void);
   HRESULT Load ([in, unique] IStream *pStm);
-  HRESULT Save ([in, unique] IStream *pStm,[in] WINBOOL fClearDirty);
+  HRESULT Save ([in, unique] IStream *pStm,[in] BOOL fClearDirty);
   HRESULT GetSizeMax ([out] ULARGE_INTEGER *pcbSize);
 }
 [object, uuid (0000000f-0000-0000-C000-000000000046), pointer_default (unique)]
@@ -233,8 +233,8 @@ interface IMoniker : IPersistStream {
   [call_as (BindToStorage)]
   HRESULT RemoteBindToStorage ([in, unique] IBindCtx *pbc,[in, unique] IMoniker *pmkToLeft,[in] REFIID riid,[out, iid_is (riid)] IUnknown **ppvObj);
   HRESULT Reduce ([in, unique] IBindCtx *pbc,[in] DWORD dwReduceHowFar,[in, out, unique] IMoniker **ppmkToLeft,[out] IMoniker **ppmkReduced);
-  HRESULT ComposeWith ([in, unique] IMoniker *pmkRight,[in] WINBOOL fOnlyIfNotGeneric,[out] IMoniker **ppmkComposite);
-  HRESULT Enum ([in] WINBOOL fForward,[out] IEnumMoniker **ppenumMoniker);
+  HRESULT ComposeWith ([in, unique] IMoniker *pmkRight,[in] BOOL fOnlyIfNotGeneric,[out] IMoniker **ppmkComposite);
+  HRESULT Enum ([in] BOOL fForward,[out] IEnumMoniker **ppenumMoniker);
   HRESULT IsEqual ([in, unique] IMoniker *pmkOtherMoniker);
   HRESULT Hash ([out] DWORD *pdwHash);
   HRESULT IsRunning ([in, unique] IBindCtx *pbc,[in, unique] IMoniker *pmkToLeft,[in, unique] IMoniker *pmkNewlyRunning);
@@ -317,7 +317,7 @@ interface IPersistFile : IPersist {
   typedef [unique] IPersistFile *LPPERSISTFILE;
   HRESULT IsDirty (void);
   HRESULT Load ([in] LPCOLESTR pszFileName,[in] DWORD dwMode);
-  HRESULT Save ([in, unique] LPCOLESTR pszFileName,[in] WINBOOL fRemember);
+  HRESULT Save ([in, unique] LPCOLESTR pszFileName,[in] BOOL fRemember);
   HRESULT SaveCompleted ([in, unique] LPCOLESTR pszFileName);
   HRESULT GetCurFile ([out] LPOLESTR *ppszFileName);
 }
@@ -328,7 +328,7 @@ interface IPersistStorage : IPersist {
   HRESULT IsDirty (void);
   HRESULT InitNew ([in, unique] IStorage *pStg);
   HRESULT Load ([in, unique] IStorage *pStg);
-  HRESULT Save ([in, unique] IStorage *pStgSave,[in] WINBOOL fSameAsLoad);
+  HRESULT Save ([in, unique] IStorage *pStgSave,[in] BOOL fSameAsLoad);
   HRESULT SaveCompleted ([in, unique] IStorage *pStgNew);
   HRESULT HandsOffStorage (void);
 }
@@ -595,9 +595,9 @@ interface IDataObject : IUnknown {
   HRESULT QueryGetData ([in, unique] FORMATETC *pformatetc);
   HRESULT GetCanonicalFormatEtc ([in, unique] FORMATETC *pformatectIn,[out] FORMATETC *pformatetcOut);
   [local]
-  HRESULT SetData ([in, unique] FORMATETC *pformatetc,[in, unique] STGMEDIUM *pmedium,[in] WINBOOL fRelease);
+  HRESULT SetData ([in, unique] FORMATETC *pformatetc,[in, unique] STGMEDIUM *pmedium,[in] BOOL fRelease);
   [call_as (SetData)]
-  HRESULT RemoteSetData ([in, unique] FORMATETC *pformatetc,[in, unique] FLAG_STGMEDIUM *pmedium,[in] WINBOOL fRelease);
+  HRESULT RemoteSetData ([in, unique] FORMATETC *pformatetc,[in, unique] FLAG_STGMEDIUM *pmedium,[in] BOOL fRelease);
   HRESULT EnumFormatEtc ([in] DWORD dwDirection,[out] IEnumFORMATETC **ppenumFormatEtc);
   HRESULT DAdvise ([in] FORMATETC *pformatetc,[in] DWORD advf,[in, unique] IAdviseSink *pAdvSink,[out] DWORD *pdwConnection);
   HRESULT DUnadvise ([in] DWORD dwConnection);
@@ -734,7 +734,7 @@ interface IFillLockBytes: IUnknown {
   [call_as (FillAt)]
   HRESULT _stdcall RemoteFillAt ([in] ULARGE_INTEGER ulOffset,[in, size_is (cb)] byte const *pv,[in] ULONG cb,[out] ULONG *pcbWritten);
   HRESULT SetFillSize ([in] ULARGE_INTEGER ulSize);
-  HRESULT Terminate ([in] WINBOOL bCanceled);
+  HRESULT Terminate ([in] BOOL bCanceled);
 }
 
 cpp_quote("#endif")
@@ -743,7 +743,7 @@ cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
 [object, uuid (a9d758a0-4617-11cf-95fc-00aa00680db4), pointer_default (unique)]
 
 interface IProgressNotify: IUnknown {
-  HRESULT OnProgress ([in] DWORD dwProgressCurrent,[in] DWORD dwProgressMaximum,[in] WINBOOL fAccurate,[in] WINBOOL fOwner);
+  HRESULT OnProgress ([in] DWORD dwProgressCurrent,[in] DWORD dwProgressMaximum,[in] BOOL fAccurate,[in] BOOL fOwner);
 }
 
 cpp_quote("#endif")
@@ -830,7 +830,7 @@ interface IProcessLock : IUnknown {
 }
 [object, local, uuid (000001d4-0000-0000-C000-000000000046), pointer_default (unique)]
 interface ISurrogateService : IUnknown {
-  HRESULT Init ([in] REFGUID rguidProcessID,[in] IProcessLock *pProcessLock,[out] WINBOOL *pfApplicationAware);
+  HRESULT Init ([in] REFGUID rguidProcessID,[in] IProcessLock *pProcessLock,[out] BOOL *pfApplicationAware);
   HRESULT ApplicationLaunch ([in] REFGUID rguidApplID,[in] ApplicationType appType);
   HRESULT ApplicationFree ([in] REFGUID rguidApplID);
   HRESULT CatalogRefresh ([in] ULONG ulReserved);

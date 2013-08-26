@@ -23,8 +23,8 @@ cpp_quote("")
 typedef struct _AMMediaType {
   GUID majortype;
   GUID subtype;
-  WINBOOL bFixedSizeSamples;
-  WINBOOL bTemporalCompression;
+  BOOL bFixedSizeSamples;
+  BOOL bTemporalCompression;
   ULONG lSampleSize;
   GUID formattype;
   IUnknown *pUnk;
@@ -219,15 +219,15 @@ interface IMediaSample : IUnknown {
   HRESULT GetTime ([out] REFERENCE_TIME *pTimeStart, [out] REFERENCE_TIME *pTimeEnd);
   HRESULT SetTime ([in] REFERENCE_TIME *pTimeStart, [in] REFERENCE_TIME *pTimeEnd);
   HRESULT IsSyncPoint (void);
-  HRESULT SetSyncPoint (WINBOOL bIsSyncPoint);
+  HRESULT SetSyncPoint (BOOL bIsSyncPoint);
   HRESULT IsPreroll (void);
-  HRESULT SetPreroll (WINBOOL bIsPreroll);
+  HRESULT SetPreroll (BOOL bIsPreroll);
   long GetActualDataLength (void);
   HRESULT SetActualDataLength (long);
   HRESULT GetMediaType ([out] AM_MEDIA_TYPE **ppMediaType);
   HRESULT SetMediaType ([in] AM_MEDIA_TYPE *pMediaType);
   HRESULT IsDiscontinuity (void);
-  HRESULT SetDiscontinuity (WINBOOL bDiscontinuity);
+  HRESULT SetDiscontinuity (BOOL bDiscontinuity);
   HRESULT GetMediaTime ([out] LONGLONG *pTimeStart, [out] LONGLONG *pTimeEnd);
   HRESULT SetMediaTime ([in] LONGLONG *pTimeStart, [in] LONGLONG *pTimeEnd);
 }
@@ -314,7 +314,7 @@ cpp_quote("")
 [object, local, uuid (56a8689d-0ad4-11ce-b03a-0020af0ba770), pointer_default (unique)]
 interface IMemInputPin : IUnknown {
   HRESULT GetAllocator ([out] IMemAllocator **ppAllocator);
-  HRESULT NotifyAllocator ([in] IMemAllocator *pAllocator, [in] WINBOOL bReadOnly);
+  HRESULT NotifyAllocator ([in] IMemAllocator *pAllocator, [in] BOOL bReadOnly);
   HRESULT GetAllocatorRequirements ([out] ALLOCATOR_PROPERTIES *pProps);
   HRESULT Receive ([in] IMediaSample *pSample);
   HRESULT ReceiveMultiple ([in, size_is (nSamples)] IMediaSample **pSamples, [in] long nSamples, [out] long *nSamplesProcessed);
