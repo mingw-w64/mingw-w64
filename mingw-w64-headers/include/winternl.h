@@ -910,7 +910,6 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS {
      ThreadIsIoPending,
      ThreadHideFromDebugger
   } THREADINFOCLASS;
-  typedef THREADINFOCLASS THREAD_INFORMATION_CLASS, *PTHREAD_INFORMATION_CLASS;
 
   typedef enum _SYSTEM_INFORMATION_CLASS {
     SystemBasicInformation = 0,
