@@ -1,6 +1,19 @@
 /**
- * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-#define DBPROPFLAGS_ADSISEARCH 0x0000C000
+
+#include <winapifamily.h>
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#define DBPROPFLAGS_ADSISEARCH 0x0000c000
+
+#ifdef __cplusplus
+}
+#endif
+#endif
