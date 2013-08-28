@@ -38,6 +38,17 @@ public:
   static const IID& GetIID() throw() { return *_IID; }
 };
 
+/* This is needed for _COM_SMARTPTR_TYPEDEF using emulated __uuidof. Since we can't pass
+ * IID as a template argument, it's passed as a wrapper function. */
+template<typename _Interface,const IID &(*iid_getter)() >
+class _com_IIID_getter {
+public:
+  typedef _Interface Interface;
+  static _Interface *GetInterfacePtr() throw() { return NULL; }
+  static _Interface& GetInterface() throw() { return *GetInterfacePtr(); }
+  static const IID& GetIID() throw() { return iid_getter(); }
+};
+
 template<typename _IIID> class _com_ptr_t {
 public:
   typedef _IIID ThisIIID;
@@ -166,10 +177,15 @@ public:
     if(null!=0) { _com_issue_error(E_POINTER); }
     return !m_pInterface;
   }
+  bool operator==(long long null) {
+    if(null) { _com_issue_error(E_POINTER); }
+    return !m_pInterface;
+  }
   template<typename _OtherIID> bool operator!=(const _com_ptr_t<_OtherIID> &p) { return !(operator==(p)); }
   template<typename _OtherIID> bool operator!=(_com_ptr_t<_OtherIID> &p) { return !(operator==(p)); }
   template<typename _InterfaceType> bool operator!=(_InterfaceType *p) { return !(operator==(p)); }
   bool operator!=(int null) { return !(operator==(null)); }
+  bool operator!=(long long null) { return !(operator==(null)); }
   template<typename _OtherIID> bool operator<(const _com_ptr_t<_OtherIID> &p) { return _CompareUnknown(p)<0; }
   template<typename _OtherIID> bool operator<(_com_ptr_t<_OtherIID> &p) { return _CompareUnknown(p)<0; }
   template<typename _InterfaceType> bool operator<(_InterfaceType *p) { return _CompareUnknown(p)<0; }
