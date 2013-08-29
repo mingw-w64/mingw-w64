@@ -3,12 +3,12 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 
-#if !defined (NTDDI_VERSION) || (NTDDI_VERSION < 0x06020000)
-#include "adoint_backcompat.h"
-#else
-
 #ifndef _ADOINT_H_
 #define _ADOINT_H_
+
+#include <winapifamily.h>
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 
 #ifndef _INC_TCHAR
 #include <tchar.h>
@@ -242,16 +242,14 @@ extern "C" {
 #define __ADODB_LIBRARY_DEFINED__
 
   typedef DECLSPEC_UUID ("0000051B-0000-0010-8000-00AA006D2EA4")
-  enum CursorTypeEnum {
-    adOpenUnspecified = -1,
+  enum CursorTypeEnum { adOpenUnspecified = -1,
     adOpenForwardOnly = 0,
     adOpenKeyset = 1,
     adOpenDynamic = 2,
     adOpenStatic = 3
   } CursorTypeEnum;
   typedef DECLSPEC_UUID ("0000051C-0000-0010-8000-00AA006D2EA4")
-  enum CursorOptionEnum {
-    adHoldRecords = 0x100,
+  enum CursorOptionEnum { adHoldRecords = 0x100,
     adMovePrevious = 0x200,
     adAddNew = 0x1000400,
     adDelete = 0x1000800,
@@ -266,16 +264,14 @@ extern "C" {
     adIndex = 0x800000
   } CursorOptionEnum;
   typedef DECLSPEC_UUID ("0000051D-0000-0010-8000-00AA006D2EA4")
-  enum LockTypeEnum {
-    adLockUnspecified = -1,
+  enum LockTypeEnum { adLockUnspecified = -1,
     adLockReadOnly = 1,
     adLockPessimistic = 2,
     adLockOptimistic = 3,
     adLockBatchOptimistic = 4
   } LockTypeEnum;
   typedef DECLSPEC_UUID ("0000051E-0000-0010-8000-00AA006D2EA4")
-  enum ExecuteOptionEnum {
-    adOptionUnspecified = -1,
+  enum ExecuteOptionEnum { adOptionUnspecified = -1,
     adAsyncExecute = 0x10,
     adAsyncFetch = 0x20,
     adAsyncFetchNonBlocking = 0x40,
@@ -284,28 +280,24 @@ extern "C" {
     adExecuteRecord = 0x800
   } ExecuteOptionEnum;
   typedef DECLSPEC_UUID ("00000541-0000-0010-8000-00AA006D2EA4")
-  enum ConnectOptionEnum {
-    adConnectUnspecified = -1,
+  enum ConnectOptionEnum { adConnectUnspecified = -1,
     adAsyncConnect = 0x10
   } ConnectOptionEnum;
   typedef DECLSPEC_UUID ("00000532-0000-0010-8000-00AA006D2EA4")
-  enum ObjectStateEnum {
-    adStateClosed = 0,
+  enum ObjectStateEnum { adStateClosed = 0,
     adStateOpen = 0x1,
     adStateConnecting = 0x2,
     adStateExecuting = 0x4,
     adStateFetching = 0x8
   } ObjectStateEnum;
   typedef DECLSPEC_UUID ("0000052F-0000-0010-8000-00AA006D2EA4")
-  enum CursorLocationEnum {
-    adUseNone = 1,
+  enum CursorLocationEnum { adUseNone = 1,
     adUseServer = 2,
     adUseClient = 3,
     adUseClientBatch = 3
   } CursorLocationEnum;
   typedef DECLSPEC_UUID ("0000051F-0000-0010-8000-00AA006D2EA4")
-  enum DataTypeEnum {
-    adEmpty = 0,
+  enum DataTypeEnum { adEmpty = 0,
     adTinyInt = 16,
     adSmallInt = 2,
     adInteger = 3,
@@ -347,8 +339,7 @@ extern "C" {
     adArray = 0x2000
   } DataTypeEnum;
   typedef DECLSPEC_UUID ("00000525-0000-0010-8000-00AA006D2EA4")
-  enum FieldAttributeEnum {
-    adFldUnspecified = -1,
+  enum FieldAttributeEnum { adFldUnspecified = -1,
     adFldMayDefer = 0x2,
     adFldUpdatable = 0x4,
     adFldUnknownUpdatable = 0x8,
@@ -367,15 +358,13 @@ extern "C" {
     adFldIsCollection = 0x40000
   } FieldAttributeEnum;
   typedef DECLSPEC_UUID ("00000526-0000-0010-8000-00AA006D2EA4")
-  enum EditModeEnum {
-    adEditNone = 0,
+  enum EditModeEnum { adEditNone = 0,
     adEditInProgress = 0x1,
     adEditAdd = 0x2,
     adEditDelete = 0x4
   } EditModeEnum;
   typedef DECLSPEC_UUID ("00000527-0000-0010-8000-00AA006D2EA4")
-  enum RecordStatusEnum {
-    adRecOK = 0,
+  enum RecordStatusEnum { adRecOK = 0,
     adRecNew = 0x1,
     adRecModified = 0x2,
     adRecDeleted = 0x4,
@@ -395,49 +384,46 @@ extern "C" {
     adRecDBDeleted = 0x40000
   } RecordStatusEnum;
   typedef DECLSPEC_UUID ("00000542-0000-0010-8000-00AA006D2EA4")
-  enum GetRowsOptionEnum {
-    adGetRowsRest = -1
+  enum GetRowsOptionEnum { adGetRowsRest = -1
   } GetRowsOptionEnum;
   typedef DECLSPEC_UUID ("00000528-0000-0010-8000-00AA006D2EA4")
-  enum PositionEnum {
-    adPosUnknown = -1,
+  enum PositionEnum { adPosUnknown = -1,
     adPosBOF = -2,
     adPosEOF = -3
   } PositionEnum;
+#ifdef _WIN64
+  typedef LONGLONG PositionEnum_Param;
+#else
+  typedef PositionEnum PositionEnum_Param;
+#endif
   typedef
-  enum BookmarkEnum {
-    adBookmarkCurrent = 0,
+  enum BookmarkEnum { adBookmarkCurrent = 0,
     adBookmarkFirst = 1,
     adBookmarkLast = 2
   } BookmarkEnum;
   typedef DECLSPEC_UUID ("00000540-0000-0010-8000-00AA006D2EA4")
-  enum MarshalOptionsEnum {
-    adMarshalAll = 0,
+  enum MarshalOptionsEnum { adMarshalAll = 0,
     adMarshalModifiedOnly = 1
   } MarshalOptionsEnum;
   typedef DECLSPEC_UUID ("00000543-0000-0010-8000-00AA006D2EA4")
-  enum AffectEnum {
-    adAffectCurrent = 1,
+  enum AffectEnum { adAffectCurrent = 1,
     adAffectGroup = 2,
     adAffectAll = 3,
     adAffectAllChapters = 4
   } AffectEnum;
   typedef DECLSPEC_UUID ("00000544-0000-0010-8000-00AA006D2EA4")
-  enum ResyncEnum {
-    adResyncUnderlyingValues = 1,
+  enum ResyncEnum { adResyncUnderlyingValues = 1,
     adResyncAllValues = 2
   } ResyncEnum;
   typedef DECLSPEC_UUID ("00000545-0000-0010-8000-00AA006D2EA4")
-  enum CompareEnum {
-    adCompareLessThan = 0,
+  enum CompareEnum { adCompareLessThan = 0,
     adCompareEqual = 1,
     adCompareGreaterThan = 2,
     adCompareNotEqual = 3,
     adCompareNotComparable = 4
   } CompareEnum;
   typedef DECLSPEC_UUID ("00000546-0000-0010-8000-00AA006D2EA4")
-  enum FilterGroupEnum {
-    adFilterNone = 0,
+  enum FilterGroupEnum { adFilterNone = 0,
     adFilterPendingRecords = 1,
     adFilterAffectedRecords = 2,
     adFilterFetchedRecords = 3,
@@ -445,30 +431,25 @@ extern "C" {
     adFilterConflictingRecords = 5
   } FilterGroupEnum;
   typedef DECLSPEC_UUID ("00000547-0000-0010-8000-00AA006D2EA4")
-  enum SearchDirectionEnum {
-    adSearchForward = 1,
+  enum SearchDirectionEnum { adSearchForward = 1,
     adSearchBackward = -1
   } SearchDirectionEnum;
   typedef SearchDirectionEnum SearchDirection;
   typedef DECLSPEC_UUID ("00000548-0000-0010-8000-00AA006D2EA4")
-  enum PersistFormatEnum {
-    adPersistADTG = 0,
+  enum PersistFormatEnum { adPersistADTG = 0,
     adPersistXML = 1
   } PersistFormatEnum;
   typedef DECLSPEC_UUID ("00000549-0000-0010-8000-00AA006D2EA4")
-  enum StringFormatEnum {
-    adClipString = 2
+  enum StringFormatEnum { adClipString = 2
   } StringFormatEnum;
   typedef DECLSPEC_UUID ("00000520-0000-0010-8000-00AA006D2EA4")
-  enum ConnectPromptEnum {
-    adPromptAlways = 1,
+  enum ConnectPromptEnum { adPromptAlways = 1,
     adPromptComplete = 2,
     adPromptCompleteRequired = 3,
     adPromptNever = 4
   } ConnectPromptEnum;
   typedef DECLSPEC_UUID ("00000521-0000-0010-8000-00AA006D2EA4")
-  enum ConnectModeEnum {
-    adModeUnknown = 0,
+  enum ConnectModeEnum { adModeUnknown = 0,
     adModeRead = 1,
     adModeWrite = 2,
     adModeReadWrite = 3,
@@ -479,8 +460,7 @@ extern "C" {
     adModeRecursive = 0x400000
   } ConnectModeEnum;
   typedef DECLSPEC_UUID ("00000570-0000-0010-8000-00AA006D2EA4")
-  enum RecordCreateOptionsEnum {
-    adCreateCollection = 0x2000,
+  enum RecordCreateOptionsEnum { adCreateCollection = 0x2000,
     adCreateStructDoc = 0x80000000,
     adCreateNonCollection = 0,
     adOpenIfExists = 0x2000000,
@@ -488,8 +468,7 @@ extern "C" {
     adFailIfNotExists = -1
   } RecordCreateOptionsEnum;
   typedef DECLSPEC_UUID ("00000571-0000-0010-8000-00AA006D2EA4")
-  enum RecordOpenOptionsEnum {
-    adOpenRecordUnspecified = -1,
+  enum RecordOpenOptionsEnum { adOpenRecordUnspecified = -1,
     adOpenSource = 0x800000,
     adOpenOutput = 0x800000,
     adOpenAsync = 0x1000,
@@ -498,8 +477,7 @@ extern "C" {
     adOpenExecuteCommand = 0x10000
   } RecordOpenOptionsEnum;
   typedef DECLSPEC_UUID ("00000523-0000-0010-8000-00AA006D2EA4")
-  enum IsolationLevelEnum {
-    adXactUnspecified = 0xffffffff,
+  enum IsolationLevelEnum { adXactUnspecified = 0xffffffff,
     adXactChaos = 0x10,
     adXactReadUncommitted = 0x100,
     adXactBrowse = 0x100,
@@ -510,23 +488,20 @@ extern "C" {
     adXactIsolated = 0x100000
   } IsolationLevelEnum;
   typedef DECLSPEC_UUID ("00000524-0000-0010-8000-00AA006D2EA4")
-  enum XactAttributeEnum {
-    adXactCommitRetaining = 0x20000,
+  enum XactAttributeEnum { adXactCommitRetaining = 0x20000,
     adXactAbortRetaining = 0x40000,
     adXactAsyncPhaseOne = 0x80000,
     adXactSyncPhaseOne = 0x100000
   } XactAttributeEnum;
   typedef DECLSPEC_UUID ("00000529-0000-0010-8000-00AA006D2EA4")
-  enum PropertyAttributesEnum {
-    adPropNotSupported = 0,
+  enum PropertyAttributesEnum { adPropNotSupported = 0,
     adPropRequired = 0x1,
     adPropOptional = 0x2,
     adPropRead = 0x200,
     adPropWrite = 0x400
   } PropertyAttributesEnum;
   typedef DECLSPEC_UUID ("0000052A-0000-0010-8000-00AA006D2EA4")
-  enum ErrorValueEnum {
-    adErrProviderFailed = MAKE_HRESULT (SEVERITY_ERROR, FACILITY_CONTROL, 0xbb8),
+  enum ErrorValueEnum { adErrProviderFailed = MAKE_HRESULT (SEVERITY_ERROR, FACILITY_CONTROL, 0xbb8),
     adErrInvalidArgument = MAKE_HRESULT (SEVERITY_ERROR, FACILITY_CONTROL, 0xbb9),
     adErrOpeningFile = MAKE_HRESULT (SEVERITY_ERROR, FACILITY_CONTROL, 0xbba),
     adErrReadFile = MAKE_HRESULT (SEVERITY_ERROR, FACILITY_CONTROL, 0xbbb),
@@ -592,22 +567,19 @@ extern "C" {
     adErrConnectionStringTooLong = MAKE_HRESULT (SEVERITY_ERROR, FACILITY_CONTROL, 0xeaa)
   } ErrorValueEnum;
   typedef DECLSPEC_UUID ("0000052B-0000-0010-8000-00AA006D2EA4")
-  enum ParameterAttributesEnum {
-    adParamSigned = 0x10,
+  enum ParameterAttributesEnum { adParamSigned = 0x10,
     adParamNullable = 0x40,
     adParamLong = 0x80
   } ParameterAttributesEnum;
   typedef DECLSPEC_UUID ("0000052C-0000-0010-8000-00AA006D2EA4")
-  enum ParameterDirectionEnum {
-    adParamUnknown = 0,
+  enum ParameterDirectionEnum { adParamUnknown = 0,
     adParamInput = 0x1,
     adParamOutput = 0x2,
     adParamInputOutput = 0x3,
     adParamReturnValue = 0x4
   } ParameterDirectionEnum;
   typedef DECLSPEC_UUID ("0000052E-0000-0010-8000-00AA006D2EA4")
-  enum CommandTypeEnum {
-    adCmdUnspecified = -1,
+  enum CommandTypeEnum { adCmdUnspecified = -1,
     adCmdUnknown = 0x8,
     adCmdText = 0x1,
     adCmdTable = 0x2,
@@ -616,16 +588,14 @@ extern "C" {
     adCmdTableDirect = 0x200
   } CommandTypeEnum;
   typedef DECLSPEC_UUID ("00000530-0000-0010-8000-00AA006D2EA4")
-  enum EventStatusEnum {
-    adStatusOK = 0x1,
+  enum EventStatusEnum { adStatusOK = 0x1,
     adStatusErrorsOccurred = 0x2,
     adStatusCantDeny = 0x3,
     adStatusCancel = 0x4,
     adStatusUnwantedEvent = 0x5
   } EventStatusEnum;
   typedef DECLSPEC_UUID ("00000531-0000-0010-8000-00AA006D2EA4")
-  enum EventReasonEnum {
-    adRsnAddNew = 1,
+  enum EventReasonEnum { adRsnAddNew = 1,
     adRsnDelete = 2,
     adRsnUpdate = 3,
     adRsnUndoUpdate = 4,
@@ -642,8 +612,7 @@ extern "C" {
     adRsnMoveLast = 15
   } EventReasonEnum;
   typedef DECLSPEC_UUID ("00000533-0000-0010-8000-00AA006D2EA4")
-  enum SchemaEnum {
-    adSchemaProviderSpecific = -1,
+  enum SchemaEnum { adSchemaProviderSpecific = -1,
     adSchemaAsserts = 0,
     adSchemaCatalogs = 1,
     adSchemaCharacterSets = 2,
@@ -691,8 +660,7 @@ extern "C" {
     adSchemaSets = 43
   } SchemaEnum;
   typedef DECLSPEC_UUID ("0000057E-0000-0010-8000-00AA006D2EA4")
-  enum FieldStatusEnum {
-    adFieldOK = 0,
+  enum FieldStatusEnum { adFieldOK = 0,
     adFieldCantConvertValue = 2,
     adFieldIsNull = 3,
     adFieldTruncated = 4,
@@ -724,8 +692,7 @@ extern "C" {
     adFieldPendingUnknownDelete = 0x100000
   } FieldStatusEnum;
   typedef DECLSPEC_UUID ("00000552-0000-0010-8000-00AA006D2EA4")
-  enum SeekEnum {
-    adSeekFirstEQ = 0x1,
+  enum SeekEnum { adSeekFirstEQ = 0x1,
     adSeekLastEQ = 0x2,
     adSeekAfterEQ = 0x4,
     adSeekAfter = 0x8,
@@ -735,28 +702,24 @@ extern "C" {
 #ifndef _COMMON_ADC_AND_ADO_PROPS_
 #define _COMMON_ADC_AND_ADO_PROPS_
   typedef DECLSPEC_UUID ("0000054A-0000-0010-8000-00AA006D2EA4")
-  enum ADCPROP_UPDATECRITERIA_ENUM {
-    adCriteriaKey = 0,
+  enum ADCPROP_UPDATECRITERIA_ENUM { adCriteriaKey = 0,
     adCriteriaAllCols = 1,
     adCriteriaUpdCols = 2,
     adCriteriaTimeStamp = 3
   } ADCPROP_UPDATECRITERIA_ENUM;
   typedef DECLSPEC_UUID ("0000054B-0000-0010-8000-00AA006D2EA4")
-  enum ADCPROP_ASYNCTHREADPRIORITY_ENUM {
-    adPriorityLowest = 1,
+  enum ADCPROP_ASYNCTHREADPRIORITY_ENUM { adPriorityLowest = 1,
     adPriorityBelowNormal = 2,
     adPriorityNormal = 3,
     adPriorityAboveNormal = 4,
     adPriorityHighest = 5
   } ADCPROP_ASYNCTHREADPRIORITY_ENUM;
   typedef DECLSPEC_UUID ("00000554-0000-0010-8000-00AA006D2EA4")
-  enum ADCPROP_AUTORECALC_ENUM {
-    adRecalcUpFront = 0,
+  enum ADCPROP_AUTORECALC_ENUM { adRecalcUpFront = 0,
     adRecalcAlways = 1
   } ADCPROP_AUTORECALC_ENUM;
   typedef DECLSPEC_UUID ("00000553-0000-0010-8000-00AA006D2EA4")
-  enum ADCPROP_UPDATERESYNC_ENUM {
-    adResyncNone = 0,
+  enum ADCPROP_UPDATERESYNC_ENUM { adResyncNone = 0,
     adResyncAutoIncrement = 1,
     adResyncConflicts = 2,
     adResyncUpdates = 4,
@@ -766,61 +729,51 @@ extern "C" {
 #endif
   typedef ADCPROP_UPDATERESYNC_ENUM CEResyncEnum;
   typedef DECLSPEC_UUID ("00000573-0000-0010-8000-00AA006D2EA4")
-  enum MoveRecordOptionsEnum {
-    adMoveUnspecified = -1,
+  enum MoveRecordOptionsEnum { adMoveUnspecified = -1,
     adMoveOverWrite = 1,
     adMoveDontUpdateLinks = 2,
     adMoveAllowEmulation = 4
   } MoveRecordOptionsEnum;
   typedef DECLSPEC_UUID ("00000574-0000-0010-8000-00AA006D2EA4")
-  enum CopyRecordOptionsEnum {
-    adCopyUnspecified = -1,
+  enum CopyRecordOptionsEnum { adCopyUnspecified = -1,
     adCopyOverWrite = 1,
     adCopyAllowEmulation = 4,
     adCopyNonRecursive = 2
   } CopyRecordOptionsEnum;
   typedef DECLSPEC_UUID ("00000576-0000-0010-8000-00AA006D2EA4")
-  enum StreamTypeEnum {
-    adTypeBinary = 1,
+  enum StreamTypeEnum { adTypeBinary = 1,
     adTypeText = 2
   } StreamTypeEnum;
   typedef DECLSPEC_UUID ("00000577-0000-0010-8000-00AA006D2EA4")
-  enum LineSeparatorEnum {
-    adLF = 10,
+  enum LineSeparatorEnum { adLF = 10,
     adCR = 13,
     adCRLF = -1
   } LineSeparatorEnum;
   typedef DECLSPEC_UUID ("0000057A-0000-0010-8000-00AA006D2EA4")
-  enum StreamOpenOptionsEnum {
-    adOpenStreamUnspecified = -1,
+  enum StreamOpenOptionsEnum { adOpenStreamUnspecified = -1,
     adOpenStreamAsync = 1,
     adOpenStreamFromRecord = 4
   } StreamOpenOptionsEnum;
   typedef DECLSPEC_UUID ("0000057B-0000-0010-8000-00AA006D2EA4")
-  enum StreamWriteEnum {
-    adWriteChar = 0,
+  enum StreamWriteEnum { adWriteChar = 0,
     adWriteLine = 1,
     stWriteChar = 0,
     stWriteLine = 1
   } StreamWriteEnum;
   typedef DECLSPEC_UUID ("0000057C-0000-0010-8000-00AA006D2EA4")
-  enum SaveOptionsEnum {
-    adSaveCreateNotExist = 1,
+  enum SaveOptionsEnum { adSaveCreateNotExist = 1,
     adSaveCreateOverWrite = 2
   } SaveOptionsEnum;
   typedef
-  enum FieldEnum {
-    adDefaultStream = -1,
+  enum FieldEnum { adDefaultStream = -1,
     adRecordURL = -2
   } FieldEnum;
   typedef
-  enum StreamReadEnum {
-    adReadAll = -1,
+  enum StreamReadEnum { adReadAll = -1,
     adReadLine = -2
   } StreamReadEnum;
   typedef DECLSPEC_UUID ("0000057D-0000-0010-8000-00AA006D2EA4")
-  enum RecordTypeEnum {
-    adSimpleRecord = 0,
+  enum RecordTypeEnum { adSimpleRecord = 0,
     adCollectionRecord = 1,
     adStructDoc = 2
   } RecordTypeEnum;
@@ -840,7 +793,7 @@ extern "C" {
   };
 #else
   typedef struct _ADOCollectionVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (_ADOCollection *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (_ADOCollection *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (_ADOCollection *This);
     ULONG (STDMETHODCALLTYPE *Release) (_ADOCollection *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (_ADOCollection *This, UINT *pctinfo);
@@ -883,7 +836,7 @@ extern "C" {
   };
 #else
   typedef struct _ADODynaCollectionVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (_ADODynaCollection *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (_ADODynaCollection *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (_ADODynaCollection *This);
     ULONG (STDMETHODCALLTYPE *Release) (_ADODynaCollection *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (_ADODynaCollection *This, UINT *pctinfo);
@@ -929,7 +882,7 @@ extern "C" {
   };
 #else
   typedef struct _ADOVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (_ADO *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (_ADO *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (_ADO *This);
     ULONG (STDMETHODCALLTYPE *Release) (_ADO *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (_ADO *This, UINT *pctinfo);
@@ -973,7 +926,7 @@ extern "C" {
   };
 #else
   typedef struct ErrorVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOError *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOError *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (ADOError *This);
     ULONG (STDMETHODCALLTYPE *Release) (ADOError *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (ADOError *This, UINT *pctinfo);
@@ -1024,7 +977,7 @@ extern "C" {
   };
 #else
   typedef struct ErrorsVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOErrors *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOErrors *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (ADOErrors *This);
     ULONG (STDMETHODCALLTYPE *Release) (ADOErrors *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (ADOErrors *This, UINT *pctinfo);
@@ -1063,7 +1016,7 @@ extern "C" {
   EXTERN_C const IID IID_Command15;
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
-  MIDL_INTERFACE ("00001508-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("00000508-0000-0010-8000-00AA006D2EA4")
   Command15 : public _ADO {
     public:
     virtual HRESULT STDMETHODCALLTYPE get_ActiveConnection (_ADOConnection **ppvObject) = 0;
@@ -1076,7 +1029,7 @@ extern "C" {
     virtual HRESULT STDMETHODCALLTYPE get_Prepared (VARIANT_BOOL *pfPrepared) = 0;
     virtual HRESULT STDMETHODCALLTYPE put_Prepared (VARIANT_BOOL fPrepared) = 0;
     virtual HRESULT STDMETHODCALLTYPE Execute (VARIANT *RecordsAffected, VARIANT *Parameters, long Options, _ADORecordset **ppirs) = 0;
-    virtual HRESULT STDMETHODCALLTYPE CreateParameter (BSTR Name, DataTypeEnum Type, ParameterDirectionEnum Direction, long Size, VARIANT Value, _ADOParameter **ppiprm) = 0;
+    virtual HRESULT STDMETHODCALLTYPE CreateParameter (BSTR Name, DataTypeEnum Type, ParameterDirectionEnum Direction, ADO_LONGPTR Size, VARIANT Value, _ADOParameter **ppiprm) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_Parameters (ADOParameters **ppvObject) = 0;
     virtual HRESULT STDMETHODCALLTYPE put_CommandType (CommandTypeEnum lCmdType) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_CommandType (CommandTypeEnum *plCmdType) = 0;
@@ -1085,7 +1038,7 @@ extern "C" {
   };
 #else
   typedef struct Command15Vtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (Command15 *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (Command15 *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (Command15 *This);
     ULONG (STDMETHODCALLTYPE *Release) (Command15 *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (Command15 *This, UINT *pctinfo);
@@ -1103,7 +1056,7 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *get_Prepared) (Command15 *This, VARIANT_BOOL *pfPrepared);
     HRESULT (STDMETHODCALLTYPE *put_Prepared) (Command15 *This, VARIANT_BOOL fPrepared);
     HRESULT (STDMETHODCALLTYPE *Execute) (Command15 *This, VARIANT *RecordsAffected, VARIANT *Parameters, long Options, _ADORecordset **ppirs);
-    HRESULT (STDMETHODCALLTYPE *CreateParameter) (Command15 *This, BSTR Name, DataTypeEnum Type, ParameterDirectionEnum Direction, long Size, VARIANT Value, _ADOParameter **ppiprm);
+    HRESULT (STDMETHODCALLTYPE *CreateParameter) (Command15 *This, BSTR Name, DataTypeEnum Type, ParameterDirectionEnum Direction, ADO_LONGPTR Size, VARIANT Value, _ADOParameter **ppiprm);
     HRESULT (STDMETHODCALLTYPE *get_Parameters) (Command15 *This, ADOParameters **ppvObject);
     HRESULT (STDMETHODCALLTYPE *put_CommandType) (Command15 *This, CommandTypeEnum lCmdType);
     HRESULT (STDMETHODCALLTYPE *get_CommandType) (Command15 *This, CommandTypeEnum *plCmdType);
@@ -1148,7 +1101,7 @@ extern "C" {
   EXTERN_C const IID IID_Command25;
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
-  MIDL_INTERFACE ("0000154E-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("0000054E-0000-0010-8000-00AA006D2EA4")
   Command25 : public Command15 {
     public:
     virtual HRESULT STDMETHODCALLTYPE get_State (LONG *plObjState) = 0;
@@ -1156,7 +1109,7 @@ extern "C" {
   };
 #else
   typedef struct Command25Vtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (Command25 *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (Command25 *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (Command25 *This);
     ULONG (STDMETHODCALLTYPE *Release) (Command25 *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (Command25 *This, UINT *pctinfo);
@@ -1174,7 +1127,7 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *get_Prepared) (Command25 *This, VARIANT_BOOL *pfPrepared);
     HRESULT (STDMETHODCALLTYPE *put_Prepared) (Command25 *This, VARIANT_BOOL fPrepared);
     HRESULT (STDMETHODCALLTYPE *Execute) (Command25 *This, VARIANT *RecordsAffected, VARIANT *Parameters, long Options, _ADORecordset **ppirs);
-    HRESULT (STDMETHODCALLTYPE *CreateParameter) (Command25 *This, BSTR Name, DataTypeEnum Type, ParameterDirectionEnum Direction, long Size, VARIANT Value, _ADOParameter **ppiprm);
+    HRESULT (STDMETHODCALLTYPE *CreateParameter) (Command25 *This, BSTR Name, DataTypeEnum Type, ParameterDirectionEnum Direction, ADO_LONGPTR Size, VARIANT Value, _ADOParameter **ppiprm);
     HRESULT (STDMETHODCALLTYPE *get_Parameters) (Command25 *This, ADOParameters **ppvObject);
     HRESULT (STDMETHODCALLTYPE *put_CommandType) (Command25 *This, CommandTypeEnum lCmdType);
     HRESULT (STDMETHODCALLTYPE *get_CommandType) (Command25 *This, CommandTypeEnum *plCmdType);
@@ -1223,7 +1176,7 @@ extern "C" {
   EXTERN_C const IID IID__Command;
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
-  MIDL_INTERFACE ("986761E8-7269-4890-AA65-AD7C03697A6D")
+  MIDL_INTERFACE ("B08400BD-F9D1-4D02-B856-71D5DBA123E9")
   _ADOCommand : public Command25 {
     public:
     virtual HRESULT __stdcall putref_CommandStream (IUnknown *pStream) = 0;
@@ -1235,7 +1188,7 @@ extern "C" {
   };
 #else
   typedef struct _CommandVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (_ADOCommand *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (_ADOCommand *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (_ADOCommand *This);
     ULONG (STDMETHODCALLTYPE *Release) (_ADOCommand *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (_ADOCommand *This, UINT *pctinfo);
@@ -1253,7 +1206,7 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *get_Prepared) (_ADOCommand *This, VARIANT_BOOL *pfPrepared);
     HRESULT (STDMETHODCALLTYPE *put_Prepared) (_ADOCommand *This, VARIANT_BOOL fPrepared);
     HRESULT (STDMETHODCALLTYPE *Execute) (_ADOCommand *This, VARIANT *RecordsAffected, VARIANT *Parameters, long Options, _ADORecordset **ppirs);
-    HRESULT (STDMETHODCALLTYPE *CreateParameter) (_ADOCommand *This, BSTR Name, DataTypeEnum Type, ParameterDirectionEnum Direction, long Size, VARIANT Value, _ADOParameter **ppiprm);
+    HRESULT (STDMETHODCALLTYPE *CreateParameter) (_ADOCommand *This, BSTR Name, DataTypeEnum Type, ParameterDirectionEnum Direction, ADO_LONGPTR Size, VARIANT Value, _ADOParameter **ppiprm);
     HRESULT (STDMETHODCALLTYPE *get_Parameters) (_ADOCommand *This, ADOParameters **ppvObject);
     HRESULT (STDMETHODCALLTYPE *put_CommandType) (_ADOCommand *This, CommandTypeEnum lCmdType);
     HRESULT (STDMETHODCALLTYPE *get_CommandType) (_ADOCommand *This, CommandTypeEnum *plCmdType);
@@ -1314,7 +1267,7 @@ extern "C" {
   EXTERN_C const IID IID_ConnectionEventsVt;
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
-  MIDL_INTERFACE ("00001402-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("00000402-0000-0010-8000-00AA006D2EA4")
   ConnectionEventsVt : public IUnknown {
     public:
     virtual HRESULT STDMETHODCALLTYPE InfoMessage (ADOError *pError, EventStatusEnum *adStatus, _ADOConnection *pConnection) = 0;
@@ -1329,7 +1282,7 @@ extern "C" {
   };
 #else
   typedef struct ConnectionEventsVtVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ConnectionEventsVt *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ConnectionEventsVt *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (ConnectionEventsVt *This);
     ULONG (STDMETHODCALLTYPE *Release) (ConnectionEventsVt *This);
     HRESULT (STDMETHODCALLTYPE *InfoMessage) (ConnectionEventsVt *This, ADOError *pError, EventStatusEnum *adStatus, _ADOConnection *pConnection);
@@ -1368,7 +1321,7 @@ extern "C" {
   EXTERN_C const IID IID_RecordsetEventsVt;
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
-  MIDL_INTERFACE ("00001403-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("00000403-0000-0010-8000-00AA006D2EA4")
   RecordsetEventsVt : public IUnknown {
     public:
     virtual HRESULT STDMETHODCALLTYPE WillChangeField (LONG cFields, VARIANT Fields, EventStatusEnum *adStatus, _ADORecordset *pRecordset) = 0;
@@ -1385,7 +1338,7 @@ extern "C" {
   };
 #else
   typedef struct RecordsetEventsVtVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (RecordsetEventsVt *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (RecordsetEventsVt *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (RecordsetEventsVt *This);
     ULONG (STDMETHODCALLTYPE *Release) (RecordsetEventsVt *This);
     HRESULT (STDMETHODCALLTYPE *WillChangeADOField) (RecordsetEventsVt *This, LONG cFields, VARIANT Fields, EventStatusEnum *adStatus, _ADORecordset *pRecordset);
@@ -1427,12 +1380,12 @@ extern "C" {
 
   EXTERN_C const IID DIID_ConnectionEvents;
 #if defined (__cplusplus) && !defined (CINTERFACE)
-  MIDL_INTERFACE ("00001400-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("00000400-0000-0010-8000-00AA006D2EA4")
   ConnectionEvents : public IDispatch {
   };
 #else
   typedef struct ConnectionEventsVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ConnectionEvents *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ConnectionEvents *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (ConnectionEvents *This);
     ULONG (STDMETHODCALLTYPE *Release) (ConnectionEvents *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (ConnectionEvents *This, UINT *pctinfo);
@@ -1460,12 +1413,12 @@ extern "C" {
 
   EXTERN_C const IID DIID_RecordsetEvents;
 #if defined (__cplusplus) && !defined (CINTERFACE)
-  MIDL_INTERFACE ("00001266-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("00000266-0000-0010-8000-00AA006D2EA4")
   RecordsetEvents : public IDispatch {
   };
 #else
   typedef struct RecordsetEventsVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (RecordsetEvents *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (RecordsetEvents *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (RecordsetEvents *This);
     ULONG (STDMETHODCALLTYPE *Release) (RecordsetEvents *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (RecordsetEvents *This, UINT *pctinfo);
@@ -1494,7 +1447,7 @@ extern "C" {
   EXTERN_C const IID IID_Connection15;
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
-  MIDL_INTERFACE ("00001515-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("00000515-0000-0010-8000-00AA006D2EA4")
   Connection15 : public _ADO {
     public:
     virtual HRESULT STDMETHODCALLTYPE get_ConnectionString (BSTR *pbstr) = 0;
@@ -1528,7 +1481,7 @@ extern "C" {
   };
 #else
   typedef struct Connection15Vtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (Connection15 *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (Connection15 *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (Connection15 *This);
     ULONG (STDMETHODCALLTYPE *Release) (Connection15 *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (Connection15 *This, UINT *pctinfo);
@@ -1615,14 +1568,14 @@ extern "C" {
   EXTERN_C const IID IID__Connection;
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
-  MIDL_INTERFACE ("00001550-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("00000550-0000-0010-8000-00AA006D2EA4")
   _ADOConnection : public Connection15 {
     public:
     virtual HRESULT STDMETHODCALLTYPE Cancel (void) = 0;
   };
 #else
   typedef struct _ConnectionVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (_ADOConnection *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (_ADOConnection *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (_ADOConnection *This);
     ULONG (STDMETHODCALLTYPE *Release) (_ADOConnection *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (_ADOConnection *This, UINT *pctinfo);
@@ -1720,7 +1673,7 @@ extern "C" {
   };
 #else
   typedef struct ADOConnectionConstruction15Vtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOConnectionConstruction15 *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOConnectionConstruction15 *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (ADOConnectionConstruction15 *This);
     ULONG (STDMETHODCALLTYPE *Release) (ADOConnectionConstruction15 *This);
     HRESULT (STDMETHODCALLTYPE *get_DSO) (ADOConnectionConstruction15 *This, IUnknown **ppDSO);
@@ -1753,7 +1706,7 @@ extern "C" {
   };
 #else
   typedef struct ADOConnectionConstructionVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOConnectionConstruction *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOConnectionConstruction *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (ADOConnectionConstruction *This);
     ULONG (STDMETHODCALLTYPE *Release) (ADOConnectionConstruction *This);
     HRESULT (STDMETHODCALLTYPE *get_DSO) (ADOConnectionConstruction *This, IUnknown **ppDSO);
@@ -1784,7 +1737,7 @@ extern "C" {
   EXTERN_C const IID IID__Record;
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
-  MIDL_INTERFACE ("00001562-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("00000562-0000-0010-8000-00AA006D2EA4")
   _ADORecord : public _ADO {
     public:
     virtual HRESULT STDMETHODCALLTYPE get_ActiveConnection (VARIANT *pvar) = 0;
@@ -1809,7 +1762,7 @@ extern "C" {
   };
 #else
   typedef struct _RecordVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (_ADORecord *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (_ADORecord *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (_ADORecord *This);
     ULONG (STDMETHODCALLTYPE *Release) (_ADORecord *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (_ADORecord *This, UINT *pctinfo);
@@ -1882,13 +1835,13 @@ extern "C" {
   EXTERN_C const IID IID__Stream;
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
-  MIDL_INTERFACE ("00001565-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("00000565-0000-0010-8000-00AA006D2EA4")
   _ADOStream : public IDispatch {
     public:
-    virtual HRESULT STDMETHODCALLTYPE get_Size (long *pSize) = 0;
+    virtual HRESULT STDMETHODCALLTYPE get_Size (ADO_LONGPTR *pSize) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_EOS (VARIANT_BOOL *pEOS) = 0;
-    virtual HRESULT STDMETHODCALLTYPE get_Position (long *pPos) = 0;
-    virtual HRESULT STDMETHODCALLTYPE put_Position (long Position) = 0;
+    virtual HRESULT STDMETHODCALLTYPE get_Position (ADO_LONGPTR *pPos) = 0;
+    virtual HRESULT STDMETHODCALLTYPE put_Position (ADO_LONGPTR Position) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_Type (StreamTypeEnum *pType) = 0;
     virtual HRESULT STDMETHODCALLTYPE put_Type (StreamTypeEnum Type) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_LineSeparator (LineSeparatorEnum *pLS) = 0;
@@ -1904,7 +1857,7 @@ extern "C" {
     virtual HRESULT STDMETHODCALLTYPE SkipLine (void) = 0;
     virtual HRESULT STDMETHODCALLTYPE Write (VARIANT Buffer) = 0;
     virtual HRESULT STDMETHODCALLTYPE SetEOS (void) = 0;
-    virtual HRESULT STDMETHODCALLTYPE CopyTo (_ADOStream *DestStream, long CharNumber = -1) = 0;
+    virtual HRESULT STDMETHODCALLTYPE CopyTo (_ADOStream *DestStream, ADO_LONGPTR CharNumber = -1) = 0;
     virtual HRESULT STDMETHODCALLTYPE Flush (void) = 0;
     virtual HRESULT STDMETHODCALLTYPE SaveToFile (BSTR FileName, SaveOptionsEnum Options = adSaveCreateNotExist) = 0;
     virtual HRESULT STDMETHODCALLTYPE LoadFromFile (BSTR FileName) = 0;
@@ -1914,17 +1867,17 @@ extern "C" {
   };
 #else
   typedef struct _StreamVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (_ADOStream *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (_ADOStream *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (_ADOStream *This);
     ULONG (STDMETHODCALLTYPE *Release) (_ADOStream *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (_ADOStream *This, UINT *pctinfo);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfo) (_ADOStream *This, UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
     HRESULT (STDMETHODCALLTYPE *GetIDsOfNames) (_ADOStream *This, REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
     HRESULT (STDMETHODCALLTYPE *Invoke) (_ADOStream *This, DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
-    HRESULT (STDMETHODCALLTYPE *get_Size) (_ADOStream *This, long *pSize);
+    HRESULT (STDMETHODCALLTYPE *get_Size) (_ADOStream *This, ADO_LONGPTR *pSize);
     HRESULT (STDMETHODCALLTYPE *get_EOS) (_ADOStream *This, VARIANT_BOOL *pEOS);
-    HRESULT (STDMETHODCALLTYPE *get_Position) (_ADOStream *This, long *pPos);
-    HRESULT (STDMETHODCALLTYPE *put_Position) (_ADOStream *This, long Position);
+    HRESULT (STDMETHODCALLTYPE *get_Position) (_ADOStream *This, ADO_LONGPTR *pPos);
+    HRESULT (STDMETHODCALLTYPE *put_Position) (_ADOStream *This, ADO_LONGPTR Position);
     HRESULT (STDMETHODCALLTYPE *get_Type) (_ADOStream *This, StreamTypeEnum *pType);
     HRESULT (STDMETHODCALLTYPE *put_Type) (_ADOStream *This, StreamTypeEnum Type);
     HRESULT (STDMETHODCALLTYPE *get_LineSeparator) (_ADOStream *This, LineSeparatorEnum *pLS);
@@ -1940,7 +1893,7 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *SkipLine) (_ADOStream *This);
     HRESULT (STDMETHODCALLTYPE *Write) (_ADOStream *This, VARIANT Buffer);
     HRESULT (STDMETHODCALLTYPE *SetEOS) (_ADOStream *This);
-    HRESULT (STDMETHODCALLTYPE *CopyTo) (_ADOStream *This, _ADOStream *DestStream, long CharNumber);
+    HRESULT (STDMETHODCALLTYPE *CopyTo) (_ADOStream *This, _ADOStream *DestStream, ADO_LONGPTR CharNumber);
     HRESULT (STDMETHODCALLTYPE *Flush) (_ADOStream *This);
     HRESULT (STDMETHODCALLTYPE *SaveToFile) (_ADOStream *This, BSTR FileName, SaveOptionsEnum Options);
     HRESULT (STDMETHODCALLTYPE *LoadFromFile) (_ADOStream *This, BSTR FileName);
@@ -2008,7 +1961,7 @@ extern "C" {
   };
 #else
   typedef struct ADORecordConstructionVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADORecordConstruction *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADORecordConstruction *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (ADORecordConstruction *This);
     ULONG (STDMETHODCALLTYPE *Release) (ADORecordConstruction *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (ADORecordConstruction *This, UINT *pctinfo);
@@ -2051,7 +2004,7 @@ extern "C" {
   };
 #else
   typedef struct ADOStreamConstructionVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOStreamConstruction *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOStreamConstruction *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (ADOStreamConstruction *This);
     ULONG (STDMETHODCALLTYPE *Release) (ADOStreamConstruction *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (ADOStreamConstruction *This, UINT *pctinfo);
@@ -2092,7 +2045,7 @@ extern "C" {
   };
 #else
   typedef struct ADOCommandConstructionVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOCommandConstruction *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOCommandConstruction *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (ADOCommandConstruction *This);
     ULONG (STDMETHODCALLTYPE *Release) (ADOCommandConstruction *This);
     HRESULT (STDMETHODCALLTYPE *get_OLEDBCommand) (ADOCommandConstruction *This, IUnknown **ppOLEDBCommand);
@@ -2125,11 +2078,11 @@ extern "C" {
   EXTERN_C const IID IID_Recordset15;
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
-  MIDL_INTERFACE ("0000150E-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("0000050E-0000-0010-8000-00AA006D2EA4")
   Recordset15 : public _ADO {
     public:
-    virtual HRESULT STDMETHODCALLTYPE get_AbsolutePosition (PositionEnum *pl) = 0;
-    virtual HRESULT STDMETHODCALLTYPE put_AbsolutePosition (PositionEnum Position) = 0;
+    virtual HRESULT STDMETHODCALLTYPE get_AbsolutePosition (PositionEnum_Param *pl) = 0;
+    virtual HRESULT STDMETHODCALLTYPE put_AbsolutePosition (PositionEnum_Param Position) = 0;
     virtual HRESULT STDMETHODCALLTYPE putref_ActiveConnection (IDispatch *pconn) = 0;
     virtual HRESULT STDMETHODCALLTYPE put_ActiveConnection (VARIANT vConn) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_ActiveConnection (VARIANT *pvar) = 0;
@@ -2144,9 +2097,9 @@ extern "C" {
     virtual HRESULT STDMETHODCALLTYPE get_Fields (ADOFields **ppvObject) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_LockType (LockTypeEnum *plLockType) = 0;
     virtual HRESULT STDMETHODCALLTYPE put_LockType (LockTypeEnum lLockType) = 0;
-    virtual HRESULT STDMETHODCALLTYPE get_MaxRecords (long *plMaxRecords) = 0;
-    virtual HRESULT STDMETHODCALLTYPE put_MaxRecords (long lMaxRecords) = 0;
-    virtual HRESULT STDMETHODCALLTYPE get_RecordCount (long *pl) = 0;
+    virtual HRESULT STDMETHODCALLTYPE get_MaxRecords (ADO_LONGPTR *plMaxRecords) = 0;
+    virtual HRESULT STDMETHODCALLTYPE put_MaxRecords (ADO_LONGPTR lMaxRecords) = 0;
+    virtual HRESULT STDMETHODCALLTYPE get_RecordCount (ADO_LONGPTR *pl) = 0;
     virtual HRESULT STDMETHODCALLTYPE putref_Source (IDispatch *pcmd) = 0;
     virtual HRESULT STDMETHODCALLTYPE put_Source (BSTR bstrConn) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_Source (VARIANT *pvSource) = 0;
@@ -2155,7 +2108,7 @@ extern "C" {
     virtual HRESULT STDMETHODCALLTYPE Close (void) = 0;
     virtual HRESULT STDMETHODCALLTYPE Delete (AffectEnum AffectRecords = adAffectCurrent) = 0;
     virtual HRESULT STDMETHODCALLTYPE GetRows (long Rows, VARIANT Start, VARIANT Fields, VARIANT *pvar) = 0;
-    virtual HRESULT STDMETHODCALLTYPE Move (long NumRecords, VARIANT Start) = 0;
+    virtual HRESULT STDMETHODCALLTYPE Move (ADO_LONGPTR NumRecords, VARIANT Start) = 0;
     virtual HRESULT STDMETHODCALLTYPE MoveNext (void) = 0;
     virtual HRESULT STDMETHODCALLTYPE MovePrevious (void) = 0;
     virtual HRESULT STDMETHODCALLTYPE MoveFirst (void) = 0;
@@ -2164,12 +2117,12 @@ extern "C" {
     virtual HRESULT STDMETHODCALLTYPE Requery (LONG Options = adOptionUnspecified) = 0;
     virtual HRESULT STDMETHODCALLTYPE _xResync (AffectEnum AffectRecords = adAffectAll) = 0;
     virtual HRESULT STDMETHODCALLTYPE Update (VARIANT Fields, VARIANT Values) = 0;
-    virtual HRESULT STDMETHODCALLTYPE get_AbsolutePage (PositionEnum *pl) = 0;
-    virtual HRESULT STDMETHODCALLTYPE put_AbsolutePage (PositionEnum Page) = 0;
+    virtual HRESULT STDMETHODCALLTYPE get_AbsolutePage (PositionEnum_Param *pl) = 0;
+    virtual HRESULT STDMETHODCALLTYPE put_AbsolutePage (PositionEnum_Param Page) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_EditMode (EditModeEnum *pl) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_Filter (VARIANT *Criteria) = 0;
     virtual HRESULT STDMETHODCALLTYPE put_Filter (VARIANT Criteria) = 0;
-    virtual HRESULT STDMETHODCALLTYPE get_PageCount (long *pl) = 0;
+    virtual HRESULT STDMETHODCALLTYPE get_PageCount (ADO_LONGPTR *pl) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_PageSize (long *pl) = 0;
     virtual HRESULT STDMETHODCALLTYPE put_PageSize (long PageSize) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_Sort (BSTR *Criteria) = 0;
@@ -2187,11 +2140,11 @@ extern "C" {
     virtual HRESULT STDMETHODCALLTYPE put_Collect (VARIANT Index, VARIANT value) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_MarshalOptions (MarshalOptionsEnum *peMarshal) = 0;
     virtual HRESULT STDMETHODCALLTYPE put_MarshalOptions (MarshalOptionsEnum eMarshal) = 0;
-    virtual HRESULT STDMETHODCALLTYPE Find (BSTR Criteria, long SkipRecords, SearchDirectionEnum SearchDirection, VARIANT Start) = 0;
+    virtual HRESULT STDMETHODCALLTYPE Find (BSTR Criteria, ADO_LONGPTR SkipRecords, SearchDirectionEnum SearchDirection, VARIANT Start) = 0;
   };
 #else
   typedef struct Recordset15Vtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (Recordset15 *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (Recordset15 *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (Recordset15 *This);
     ULONG (STDMETHODCALLTYPE *Release) (Recordset15 *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (Recordset15 *This, UINT *pctinfo);
@@ -2199,8 +2152,8 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *GetIDsOfNames) (Recordset15 *This, REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
     HRESULT (STDMETHODCALLTYPE *Invoke) (Recordset15 *This, DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
     HRESULT (STDMETHODCALLTYPE *get_Properties) (Recordset15 *This, ADOProperties **ppvObject);
-    HRESULT (STDMETHODCALLTYPE *get_AbsolutePosition) (Recordset15 *This, PositionEnum *pl);
-    HRESULT (STDMETHODCALLTYPE *put_AbsolutePosition) (Recordset15 *This, PositionEnum Position);
+    HRESULT (STDMETHODCALLTYPE *get_AbsolutePosition) (Recordset15 *This, PositionEnum_Param *pl);
+    HRESULT (STDMETHODCALLTYPE *put_AbsolutePosition) (Recordset15 *This, PositionEnum_Param Position);
     HRESULT (STDMETHODCALLTYPE *putref_ActiveADOConnection) (Recordset15 *This, IDispatch *pconn);
     HRESULT (STDMETHODCALLTYPE *put_ActiveConnection) (Recordset15 *This, VARIANT vConn);
     HRESULT (STDMETHODCALLTYPE *get_ActiveConnection) (Recordset15 *This, VARIANT *pvar);
@@ -2215,9 +2168,9 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *get_Fields) (Recordset15 *This, ADOFields **ppvObject);
     HRESULT (STDMETHODCALLTYPE *get_LockType) (Recordset15 *This, LockTypeEnum *plLockType);
     HRESULT (STDMETHODCALLTYPE *put_LockType) (Recordset15 *This, LockTypeEnum lLockType);
-    HRESULT (STDMETHODCALLTYPE *get_MaxRecords) (Recordset15 *This, long *plMaxRecords);
-    HRESULT (STDMETHODCALLTYPE *put_MaxRecords) (Recordset15 *This, long lMaxRecords);
-    HRESULT (STDMETHODCALLTYPE *get_RecordCount) (Recordset15 *This, long *pl);
+    HRESULT (STDMETHODCALLTYPE *get_MaxRecords) (Recordset15 *This, ADO_LONGPTR *plMaxRecords);
+    HRESULT (STDMETHODCALLTYPE *put_MaxRecords) (Recordset15 *This, ADO_LONGPTR lMaxRecords);
+    HRESULT (STDMETHODCALLTYPE *get_RecordCount) (Recordset15 *This, ADO_LONGPTR *pl);
     HRESULT (STDMETHODCALLTYPE *putref_Source) (Recordset15 *This, IDispatch *pcmd);
     HRESULT (STDMETHODCALLTYPE *put_Source) (Recordset15 *This, BSTR bstrConn);
     HRESULT (STDMETHODCALLTYPE *get_Source) (Recordset15 *This, VARIANT *pvSource);
@@ -2226,7 +2179,7 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *Close) (Recordset15 *This);
     HRESULT (STDMETHODCALLTYPE *Delete) (Recordset15 *This, AffectEnum AffectRecords);
     HRESULT (STDMETHODCALLTYPE *GetRows) (Recordset15 *This, long Rows, VARIANT Start, VARIANT Fields, VARIANT *pvar);
-    HRESULT (STDMETHODCALLTYPE *Move) (Recordset15 *This, long NumRecords, VARIANT Start);
+    HRESULT (STDMETHODCALLTYPE *Move) (Recordset15 *This, ADO_LONGPTR NumRecords, VARIANT Start);
     HRESULT (STDMETHODCALLTYPE *MoveNext) (Recordset15 *This);
     HRESULT (STDMETHODCALLTYPE *MovePrevious) (Recordset15 *This);
     HRESULT (STDMETHODCALLTYPE *MoveFirst) (Recordset15 *This);
@@ -2235,12 +2188,12 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *Requery) (Recordset15 *This, LONG Options);
     HRESULT (STDMETHODCALLTYPE *_xResync) (Recordset15 *This, AffectEnum AffectRecords);
     HRESULT (STDMETHODCALLTYPE *Update) (Recordset15 *This, VARIANT Fields, VARIANT Values);
-    HRESULT (STDMETHODCALLTYPE *get_AbsolutePage) (Recordset15 *This, PositionEnum *pl);
-    HRESULT (STDMETHODCALLTYPE *put_AbsolutePage) (Recordset15 *This, PositionEnum Page);
+    HRESULT (STDMETHODCALLTYPE *get_AbsolutePage) (Recordset15 *This, PositionEnum_Param *pl);
+    HRESULT (STDMETHODCALLTYPE *put_AbsolutePage) (Recordset15 *This, PositionEnum_Param Page);
     HRESULT (STDMETHODCALLTYPE *get_EditMode) (Recordset15 *This, EditModeEnum *pl);
     HRESULT (STDMETHODCALLTYPE *get_Filter) (Recordset15 *This, VARIANT *Criteria);
     HRESULT (STDMETHODCALLTYPE *put_Filter) (Recordset15 *This, VARIANT Criteria);
-    HRESULT (STDMETHODCALLTYPE *get_PageCount) (Recordset15 *This, long *pl);
+    HRESULT (STDMETHODCALLTYPE *get_PageCount) (Recordset15 *This, ADO_LONGPTR *pl);
     HRESULT (STDMETHODCALLTYPE *get_PageSize) (Recordset15 *This, long *pl);
     HRESULT (STDMETHODCALLTYPE *put_PageSize) (Recordset15 *This, long PageSize);
     HRESULT (STDMETHODCALLTYPE *get_Sort) (Recordset15 *This, BSTR *Criteria);
@@ -2258,7 +2211,7 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *put_Collect) (Recordset15 *This, VARIANT Index, VARIANT value);
     HRESULT (STDMETHODCALLTYPE *get_MarshalOptions) (Recordset15 *This, MarshalOptionsEnum *peMarshal);
     HRESULT (STDMETHODCALLTYPE *put_MarshalOptions) (Recordset15 *This, MarshalOptionsEnum eMarshal);
-    HRESULT (STDMETHODCALLTYPE *Find) (Recordset15 *This, BSTR Criteria, long SkipRecords, SearchDirectionEnum SearchDirection, VARIANT Start);
+    HRESULT (STDMETHODCALLTYPE *Find) (Recordset15 *This, BSTR Criteria, ADO_LONGPTR SkipRecords, SearchDirectionEnum SearchDirection, VARIANT Start);
     END_INTERFACE
   } Recordset15Vtbl;
   interface Recordset15 {
@@ -2342,7 +2295,7 @@ extern "C" {
   EXTERN_C const IID IID_Recordset20;
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
-  MIDL_INTERFACE ("0000154F-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("0000054F-0000-0010-8000-00AA006D2EA4")
   Recordset20 : public Recordset15 {
     public:
     virtual HRESULT STDMETHODCALLTYPE Cancel (void) = 0;
@@ -2361,7 +2314,7 @@ extern "C" {
   };
 #else
   typedef struct Recordset20Vtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (Recordset20 *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (Recordset20 *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (Recordset20 *This);
     ULONG (STDMETHODCALLTYPE *Release) (Recordset20 *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (Recordset20 *This, UINT *pctinfo);
@@ -2369,8 +2322,8 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *GetIDsOfNames) (Recordset20 *This, REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
     HRESULT (STDMETHODCALLTYPE *Invoke) (Recordset20 *This, DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
     HRESULT (STDMETHODCALLTYPE *get_Properties) (Recordset20 *This, ADOProperties **ppvObject);
-    HRESULT (STDMETHODCALLTYPE *get_AbsolutePosition) (Recordset20 *This, PositionEnum *pl);
-    HRESULT (STDMETHODCALLTYPE *put_AbsolutePosition) (Recordset20 *This, PositionEnum Position);
+    HRESULT (STDMETHODCALLTYPE *get_AbsolutePosition) (Recordset20 *This, PositionEnum_Param *pl);
+    HRESULT (STDMETHODCALLTYPE *put_AbsolutePosition) (Recordset20 *This, PositionEnum_Param Position);
     HRESULT (STDMETHODCALLTYPE *putref_ActiveADOConnection) (Recordset20 *This, IDispatch *pconn);
     HRESULT (STDMETHODCALLTYPE *put_ActiveConnection) (Recordset20 *This, VARIANT vConn);
     HRESULT (STDMETHODCALLTYPE *get_ActiveConnection) (Recordset20 *This, VARIANT *pvar);
@@ -2385,9 +2338,9 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *get_Fields) (Recordset20 *This, ADOFields **ppvObject);
     HRESULT (STDMETHODCALLTYPE *get_LockType) (Recordset20 *This, LockTypeEnum *plLockType);
     HRESULT (STDMETHODCALLTYPE *put_LockType) (Recordset20 *This, LockTypeEnum lLockType);
-    HRESULT (STDMETHODCALLTYPE *get_MaxRecords) (Recordset20 *This, long *plMaxRecords);
-    HRESULT (STDMETHODCALLTYPE *put_MaxRecords) (Recordset20 *This, long lMaxRecords);
-    HRESULT (STDMETHODCALLTYPE *get_RecordCount) (Recordset20 *This, long *pl);
+    HRESULT (STDMETHODCALLTYPE *get_MaxRecords) (Recordset20 *This, ADO_LONGPTR *plMaxRecords);
+    HRESULT (STDMETHODCALLTYPE *put_MaxRecords) (Recordset20 *This, ADO_LONGPTR lMaxRecords);
+    HRESULT (STDMETHODCALLTYPE *get_RecordCount) (Recordset20 *This, ADO_LONGPTR *pl);
     HRESULT (STDMETHODCALLTYPE *putref_Source) (Recordset20 *This, IDispatch *pcmd);
     HRESULT (STDMETHODCALLTYPE *put_Source) (Recordset20 *This, BSTR bstrConn);
     HRESULT (STDMETHODCALLTYPE *get_Source) (Recordset20 *This, VARIANT *pvSource);
@@ -2396,7 +2349,7 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *Close) (Recordset20 *This);
     HRESULT (STDMETHODCALLTYPE *Delete) (Recordset20 *This, AffectEnum AffectRecords);
     HRESULT (STDMETHODCALLTYPE *GetRows) (Recordset20 *This, long Rows, VARIANT Start, VARIANT Fields, VARIANT *pvar);
-    HRESULT (STDMETHODCALLTYPE *Move) (Recordset20 *This, long NumRecords, VARIANT Start);
+    HRESULT (STDMETHODCALLTYPE *Move) (Recordset20 *This, ADO_LONGPTR NumRecords, VARIANT Start);
     HRESULT (STDMETHODCALLTYPE *MoveNext) (Recordset20 *This);
     HRESULT (STDMETHODCALLTYPE *MovePrevious) (Recordset20 *This);
     HRESULT (STDMETHODCALLTYPE *MoveFirst) (Recordset20 *This);
@@ -2405,12 +2358,12 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *Requery) (Recordset20 *This, LONG Options);
     HRESULT (STDMETHODCALLTYPE *_xResync) (Recordset20 *This, AffectEnum AffectRecords);
     HRESULT (STDMETHODCALLTYPE *Update) (Recordset20 *This, VARIANT Fields, VARIANT Values);
-    HRESULT (STDMETHODCALLTYPE *get_AbsolutePage) (Recordset20 *This, PositionEnum *pl);
-    HRESULT (STDMETHODCALLTYPE *put_AbsolutePage) (Recordset20 *This, PositionEnum Page);
+    HRESULT (STDMETHODCALLTYPE *get_AbsolutePage) (Recordset20 *This, PositionEnum_Param *pl);
+    HRESULT (STDMETHODCALLTYPE *put_AbsolutePage) (Recordset20 *This, PositionEnum_Param Page);
     HRESULT (STDMETHODCALLTYPE *get_EditMode) (Recordset20 *This, EditModeEnum *pl);
     HRESULT (STDMETHODCALLTYPE *get_Filter) (Recordset20 *This, VARIANT *Criteria);
     HRESULT (STDMETHODCALLTYPE *put_Filter) (Recordset20 *This, VARIANT Criteria);
-    HRESULT (STDMETHODCALLTYPE *get_PageCount) (Recordset20 *This, long *pl);
+    HRESULT (STDMETHODCALLTYPE *get_PageCount) (Recordset20 *This, ADO_LONGPTR *pl);
     HRESULT (STDMETHODCALLTYPE *get_PageSize) (Recordset20 *This, long *pl);
     HRESULT (STDMETHODCALLTYPE *put_PageSize) (Recordset20 *This, long PageSize);
     HRESULT (STDMETHODCALLTYPE *get_Sort) (Recordset20 *This, BSTR *Criteria);
@@ -2428,7 +2381,7 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *put_Collect) (Recordset20 *This, VARIANT Index, VARIANT value);
     HRESULT (STDMETHODCALLTYPE *get_MarshalOptions) (Recordset20 *This, MarshalOptionsEnum *peMarshal);
     HRESULT (STDMETHODCALLTYPE *put_MarshalOptions) (Recordset20 *This, MarshalOptionsEnum eMarshal);
-    HRESULT (STDMETHODCALLTYPE *Find) (Recordset20 *This, BSTR Criteria, long SkipRecords, SearchDirectionEnum SearchDirection, VARIANT Start);
+    HRESULT (STDMETHODCALLTYPE *Find) (Recordset20 *This, BSTR Criteria, ADO_LONGPTR SkipRecords, SearchDirectionEnum SearchDirection, VARIANT Start);
     HRESULT (STDMETHODCALLTYPE *Cancel) (Recordset20 *This);
     HRESULT (STDMETHODCALLTYPE *get_DataSource) (Recordset20 *This, IUnknown **ppunkDataSource);
     HRESULT (STDMETHODCALLTYPE *putref_DataSource) (Recordset20 *This, IUnknown *punkDataSource);
@@ -2538,7 +2491,7 @@ extern "C" {
   EXTERN_C const IID IID_Recordset21;
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
-  MIDL_INTERFACE ("00001555-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("00000555-0000-0010-8000-00AA006D2EA4")
   Recordset21 : public Recordset20 {
     public:
     virtual HRESULT STDMETHODCALLTYPE Seek (VARIANT KeyValues, SeekEnum SeekOption = adSeekFirstEQ) = 0;
@@ -2547,7 +2500,7 @@ extern "C" {
   };
 #else
   typedef struct Recordset21Vtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (Recordset21 *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (Recordset21 *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (Recordset21 *This);
     ULONG (STDMETHODCALLTYPE *Release) (Recordset21 *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (Recordset21 *This, UINT *pctinfo);
@@ -2555,8 +2508,8 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *GetIDsOfNames) (Recordset21 *This, REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
     HRESULT (STDMETHODCALLTYPE *Invoke) (Recordset21 *This, DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
     HRESULT (STDMETHODCALLTYPE *get_Properties) (Recordset21 *This, ADOProperties **ppvObject);
-    HRESULT (STDMETHODCALLTYPE *get_AbsolutePosition) (Recordset21 *This, PositionEnum *pl);
-    HRESULT (STDMETHODCALLTYPE *put_AbsolutePosition) (Recordset21 *This, PositionEnum Position);
+    HRESULT (STDMETHODCALLTYPE *get_AbsolutePosition) (Recordset21 *This, PositionEnum_Param *pl);
+    HRESULT (STDMETHODCALLTYPE *put_AbsolutePosition) (Recordset21 *This, PositionEnum_Param Position);
     HRESULT (STDMETHODCALLTYPE *putref_ActiveADOConnection) (Recordset21 *This, IDispatch *pconn);
     HRESULT (STDMETHODCALLTYPE *put_ActiveConnection) (Recordset21 *This, VARIANT vConn);
     HRESULT (STDMETHODCALLTYPE *get_ActiveConnection) (Recordset21 *This, VARIANT *pvar);
@@ -2571,9 +2524,9 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *get_Fields) (Recordset21 *This, ADOFields **ppvObject);
     HRESULT (STDMETHODCALLTYPE *get_LockType) (Recordset21 *This, LockTypeEnum *plLockType);
     HRESULT (STDMETHODCALLTYPE *put_LockType) (Recordset21 *This, LockTypeEnum lLockType);
-    HRESULT (STDMETHODCALLTYPE *get_MaxRecords) (Recordset21 *This, long *plMaxRecords);
-    HRESULT (STDMETHODCALLTYPE *put_MaxRecords) (Recordset21 *This, long lMaxRecords);
-    HRESULT (STDMETHODCALLTYPE *get_RecordCount) (Recordset21 *This, long *pl);
+    HRESULT (STDMETHODCALLTYPE *get_MaxRecords) (Recordset21 *This, ADO_LONGPTR *plMaxRecords);
+    HRESULT (STDMETHODCALLTYPE *put_MaxRecords) (Recordset21 *This, ADO_LONGPTR lMaxRecords);
+    HRESULT (STDMETHODCALLTYPE *get_RecordCount) (Recordset21 *This, ADO_LONGPTR *pl);
     HRESULT (STDMETHODCALLTYPE *putref_Source) (Recordset21 *This, IDispatch *pcmd);
     HRESULT (STDMETHODCALLTYPE *put_Source) (Recordset21 *This, BSTR bstrConn);
     HRESULT (STDMETHODCALLTYPE *get_Source) (Recordset21 *This, VARIANT *pvSource);
@@ -2582,7 +2535,7 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *Close) (Recordset21 *This);
     HRESULT (STDMETHODCALLTYPE *Delete) (Recordset21 *This, AffectEnum AffectRecords);
     HRESULT (STDMETHODCALLTYPE *GetRows) (Recordset21 *This, long Rows, VARIANT Start, VARIANT Fields, VARIANT *pvar);
-    HRESULT (STDMETHODCALLTYPE *Move) (Recordset21 *This, long NumRecords, VARIANT Start);
+    HRESULT (STDMETHODCALLTYPE *Move) (Recordset21 *This, ADO_LONGPTR NumRecords, VARIANT Start);
     HRESULT (STDMETHODCALLTYPE *MoveNext) (Recordset21 *This);
     HRESULT (STDMETHODCALLTYPE *MovePrevious) (Recordset21 *This);
     HRESULT (STDMETHODCALLTYPE *MoveFirst) (Recordset21 *This);
@@ -2591,12 +2544,12 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *Requery) (Recordset21 *This, LONG Options);
     HRESULT (STDMETHODCALLTYPE *_xResync) (Recordset21 *This, AffectEnum AffectRecords);
     HRESULT (STDMETHODCALLTYPE *Update) (Recordset21 *This, VARIANT Fields, VARIANT Values);
-    HRESULT (STDMETHODCALLTYPE *get_AbsolutePage) (Recordset21 *This, PositionEnum *pl);
-    HRESULT (STDMETHODCALLTYPE *put_AbsolutePage) (Recordset21 *This, PositionEnum Page);
+    HRESULT (STDMETHODCALLTYPE *get_AbsolutePage) (Recordset21 *This, PositionEnum_Param *pl);
+    HRESULT (STDMETHODCALLTYPE *put_AbsolutePage) (Recordset21 *This, PositionEnum_Param Page);
     HRESULT (STDMETHODCALLTYPE *get_EditMode) (Recordset21 *This, EditModeEnum *pl);
     HRESULT (STDMETHODCALLTYPE *get_Filter) (Recordset21 *This, VARIANT *Criteria);
     HRESULT (STDMETHODCALLTYPE *put_Filter) (Recordset21 *This, VARIANT Criteria);
-    HRESULT (STDMETHODCALLTYPE *get_PageCount) (Recordset21 *This, long *pl);
+    HRESULT (STDMETHODCALLTYPE *get_PageCount) (Recordset21 *This, ADO_LONGPTR *pl);
     HRESULT (STDMETHODCALLTYPE *get_PageSize) (Recordset21 *This, long *pl);
     HRESULT (STDMETHODCALLTYPE *put_PageSize) (Recordset21 *This, long PageSize);
     HRESULT (STDMETHODCALLTYPE *get_Sort) (Recordset21 *This, BSTR *Criteria);
@@ -2614,7 +2567,7 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *put_Collect) (Recordset21 *This, VARIANT Index, VARIANT value);
     HRESULT (STDMETHODCALLTYPE *get_MarshalOptions) (Recordset21 *This, MarshalOptionsEnum *peMarshal);
     HRESULT (STDMETHODCALLTYPE *put_MarshalOptions) (Recordset21 *This, MarshalOptionsEnum eMarshal);
-    HRESULT (STDMETHODCALLTYPE *Find) (Recordset21 *This, BSTR Criteria, long SkipRecords, SearchDirectionEnum SearchDirection, VARIANT Start);
+    HRESULT (STDMETHODCALLTYPE *Find) (Recordset21 *This, BSTR Criteria, ADO_LONGPTR SkipRecords, SearchDirectionEnum SearchDirection, VARIANT Start);
     HRESULT (STDMETHODCALLTYPE *Cancel) (Recordset21 *This);
     HRESULT (STDMETHODCALLTYPE *get_DataSource) (Recordset21 *This, IUnknown **ppunkDataSource);
     HRESULT (STDMETHODCALLTYPE *putref_DataSource) (Recordset21 *This, IUnknown *punkDataSource);
@@ -2730,14 +2683,14 @@ extern "C" {
   EXTERN_C const IID IID__Recordset;
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
-  MIDL_INTERFACE ("00001556-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("00000556-0000-0010-8000-00AA006D2EA4")
   _ADORecordset : public Recordset21 {
     public:
     virtual HRESULT STDMETHODCALLTYPE Save (VARIANT Destination, PersistFormatEnum PersistFormat = adPersistADTG) = 0;
   };
 #else
   typedef struct _RecordsetVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (_ADORecordset *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (_ADORecordset *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (_ADORecordset *This);
     ULONG (STDMETHODCALLTYPE *Release) (_ADORecordset *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (_ADORecordset *This, UINT *pctinfo);
@@ -2745,8 +2698,8 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *GetIDsOfNames) (_ADORecordset *This, REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
     HRESULT (STDMETHODCALLTYPE *Invoke) (_ADORecordset *This, DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
     HRESULT (STDMETHODCALLTYPE *get_Properties) (_ADORecordset *This, ADOProperties **ppvObject);
-    HRESULT (STDMETHODCALLTYPE *get_AbsolutePosition) (_ADORecordset *This, PositionEnum *pl);
-    HRESULT (STDMETHODCALLTYPE *put_AbsolutePosition) (_ADORecordset *This, PositionEnum Position);
+    HRESULT (STDMETHODCALLTYPE *get_AbsolutePosition) (_ADORecordset *This, PositionEnum_Param *pl);
+    HRESULT (STDMETHODCALLTYPE *put_AbsolutePosition) (_ADORecordset *This, PositionEnum_Param Position);
     HRESULT (STDMETHODCALLTYPE *putref_ActiveADOConnection) (_ADORecordset *This, IDispatch *pconn);
     HRESULT (STDMETHODCALLTYPE *put_ActiveConnection) (_ADORecordset *This, VARIANT vConn);
     HRESULT (STDMETHODCALLTYPE *get_ActiveConnection) (_ADORecordset *This, VARIANT *pvar);
@@ -2761,9 +2714,9 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *get_Fields) (_ADORecordset *This, ADOFields **ppvObject);
     HRESULT (STDMETHODCALLTYPE *get_LockType) (_ADORecordset *This, LockTypeEnum *plLockType);
     HRESULT (STDMETHODCALLTYPE *put_LockType) (_ADORecordset *This, LockTypeEnum lLockType);
-    HRESULT (STDMETHODCALLTYPE *get_MaxRecords) (_ADORecordset *This, long *plMaxRecords);
-    HRESULT (STDMETHODCALLTYPE *put_MaxRecords) (_ADORecordset *This, long lMaxRecords);
-    HRESULT (STDMETHODCALLTYPE *get_RecordCount) (_ADORecordset *This, long *pl);
+    HRESULT (STDMETHODCALLTYPE *get_MaxRecords) (_ADORecordset *This, ADO_LONGPTR *plMaxRecords);
+    HRESULT (STDMETHODCALLTYPE *put_MaxRecords) (_ADORecordset *This, ADO_LONGPTR lMaxRecords);
+    HRESULT (STDMETHODCALLTYPE *get_RecordCount) (_ADORecordset *This, ADO_LONGPTR *pl);
     HRESULT (STDMETHODCALLTYPE *putref_Source) (_ADORecordset *This, IDispatch *pcmd);
     HRESULT (STDMETHODCALLTYPE *put_Source) (_ADORecordset *This, BSTR bstrConn);
     HRESULT (STDMETHODCALLTYPE *get_Source) (_ADORecordset *This, VARIANT *pvSource);
@@ -2772,7 +2725,7 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *Close) (_ADORecordset *This);
     HRESULT (STDMETHODCALLTYPE *Delete) (_ADORecordset *This, AffectEnum AffectRecords);
     HRESULT (STDMETHODCALLTYPE *GetRows) (_ADORecordset *This, long Rows, VARIANT Start, VARIANT Fields, VARIANT *pvar);
-    HRESULT (STDMETHODCALLTYPE *Move) (_ADORecordset *This, long NumRecords, VARIANT Start);
+    HRESULT (STDMETHODCALLTYPE *Move) (_ADORecordset *This, ADO_LONGPTR NumRecords, VARIANT Start);
     HRESULT (STDMETHODCALLTYPE *MoveNext) (_ADORecordset *This);
     HRESULT (STDMETHODCALLTYPE *MovePrevious) (_ADORecordset *This);
     HRESULT (STDMETHODCALLTYPE *MoveFirst) (_ADORecordset *This);
@@ -2781,12 +2734,12 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *Requery) (_ADORecordset *This, LONG Options);
     HRESULT (STDMETHODCALLTYPE *_xResync) (_ADORecordset *This, AffectEnum AffectRecords);
     HRESULT (STDMETHODCALLTYPE *Update) (_ADORecordset *This, VARIANT Fields, VARIANT Values);
-    HRESULT (STDMETHODCALLTYPE *get_AbsolutePage) (_ADORecordset *This, PositionEnum *pl);
-    HRESULT (STDMETHODCALLTYPE *put_AbsolutePage) (_ADORecordset *This, PositionEnum Page);
+    HRESULT (STDMETHODCALLTYPE *get_AbsolutePage) (_ADORecordset *This, PositionEnum_Param *pl);
+    HRESULT (STDMETHODCALLTYPE *put_AbsolutePage) (_ADORecordset *This, PositionEnum_Param Page);
     HRESULT (STDMETHODCALLTYPE *get_EditMode) (_ADORecordset *This, EditModeEnum *pl);
     HRESULT (STDMETHODCALLTYPE *get_Filter) (_ADORecordset *This, VARIANT *Criteria);
     HRESULT (STDMETHODCALLTYPE *put_Filter) (_ADORecordset *This, VARIANT Criteria);
-    HRESULT (STDMETHODCALLTYPE *get_PageCount) (_ADORecordset *This, long *pl);
+    HRESULT (STDMETHODCALLTYPE *get_PageCount) (_ADORecordset *This, ADO_LONGPTR *pl);
     HRESULT (STDMETHODCALLTYPE *get_PageSize) (_ADORecordset *This, long *pl);
     HRESULT (STDMETHODCALLTYPE *put_PageSize) (_ADORecordset *This, long PageSize);
     HRESULT (STDMETHODCALLTYPE *get_Sort) (_ADORecordset *This, BSTR *Criteria);
@@ -2804,7 +2757,7 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *put_Collect) (_ADORecordset *This, VARIANT Index, VARIANT value);
     HRESULT (STDMETHODCALLTYPE *get_MarshalOptions) (_ADORecordset *This, MarshalOptionsEnum *peMarshal);
     HRESULT (STDMETHODCALLTYPE *put_MarshalOptions) (_ADORecordset *This, MarshalOptionsEnum eMarshal);
-    HRESULT (STDMETHODCALLTYPE *Find) (_ADORecordset *This, BSTR Criteria, long SkipRecords, SearchDirectionEnum SearchDirection, VARIANT Start);
+    HRESULT (STDMETHODCALLTYPE *Find) (_ADORecordset *This, BSTR Criteria, ADO_LONGPTR SkipRecords, SearchDirectionEnum SearchDirection, VARIANT Start);
     HRESULT (STDMETHODCALLTYPE *Cancel) (_ADORecordset *This);
     HRESULT (STDMETHODCALLTYPE *get_DataSource) (_ADORecordset *This, IUnknown **ppunkDataSource);
     HRESULT (STDMETHODCALLTYPE *putref_DataSource) (_ADORecordset *This, IUnknown *punkDataSource);
@@ -2934,7 +2887,7 @@ extern "C" {
   };
 #else
   typedef struct ADORecordsetConstructionVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADORecordsetConstruction *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADORecordsetConstruction *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (ADORecordsetConstruction *This);
     ULONG (STDMETHODCALLTYPE *Release) (ADORecordsetConstruction *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (ADORecordsetConstruction *This, UINT *pctinfo);
@@ -2975,12 +2928,12 @@ extern "C" {
   EXTERN_C const IID IID_Field15;
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
-  MIDL_INTERFACE ("00001505-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("00000505-0000-0010-8000-00AA006D2EA4")
   Field15 : public _ADO {
     public:
-    virtual HRESULT STDMETHODCALLTYPE get_ActualSize (long *pl) = 0;
+    virtual HRESULT STDMETHODCALLTYPE get_ActualSize (ADO_LONGPTR *pl) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_Attributes (long *pl) = 0;
-    virtual HRESULT STDMETHODCALLTYPE get_DefinedSize (long *pl) = 0;
+    virtual HRESULT STDMETHODCALLTYPE get_DefinedSize (ADO_LONGPTR *pl) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_Name (BSTR *pbstr) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_Type (DataTypeEnum *pDataType) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_Value (VARIANT *pvar) = 0;
@@ -2994,7 +2947,7 @@ extern "C" {
   };
 #else
   typedef struct Field15Vtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (Field15 *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (Field15 *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (Field15 *This);
     ULONG (STDMETHODCALLTYPE *Release) (Field15 *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (Field15 *This, UINT *pctinfo);
@@ -3002,9 +2955,9 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *GetIDsOfNames) (Field15 *This, REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
     HRESULT (STDMETHODCALLTYPE *Invoke) (Field15 *This, DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
     HRESULT (STDMETHODCALLTYPE *get_Properties) (Field15 *This, ADOProperties **ppvObject);
-    HRESULT (STDMETHODCALLTYPE *get_ActualSize) (Field15 *This, long *pl);
+    HRESULT (STDMETHODCALLTYPE *get_ActualSize) (Field15 *This, ADO_LONGPTR *pl);
     HRESULT (STDMETHODCALLTYPE *get_Attributes) (Field15 *This, long *pl);
-    HRESULT (STDMETHODCALLTYPE *get_DefinedSize) (Field15 *This, long *pl);
+    HRESULT (STDMETHODCALLTYPE *get_DefinedSize) (Field15 *This, ADO_LONGPTR *pl);
     HRESULT (STDMETHODCALLTYPE *get_Name) (Field15 *This, BSTR *pbstr);
     HRESULT (STDMETHODCALLTYPE *get_Type) (Field15 *This, DataTypeEnum *pDataType);
     HRESULT (STDMETHODCALLTYPE *get_Value) (Field15 *This, VARIANT *pvar);
@@ -3051,12 +3004,12 @@ extern "C" {
   EXTERN_C const IID IID_Field20;
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
-  MIDL_INTERFACE ("0000154C-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("0000054C-0000-0010-8000-00AA006D2EA4")
   Field20 : public _ADO {
     public:
-    virtual HRESULT STDMETHODCALLTYPE get_ActualSize (long *pl) = 0;
+    virtual HRESULT STDMETHODCALLTYPE get_ActualSize (ADO_LONGPTR *pl) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_Attributes (long *pl) = 0;
-    virtual HRESULT STDMETHODCALLTYPE get_DefinedSize (long *pl) = 0;
+    virtual HRESULT STDMETHODCALLTYPE get_DefinedSize (ADO_LONGPTR *pl) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_Name (BSTR *pbstr) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_Type (DataTypeEnum *pDataType) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_Value (VARIANT *pvar) = 0;
@@ -3072,12 +3025,12 @@ extern "C" {
     virtual HRESULT STDMETHODCALLTYPE put_Precision (BYTE bPrecision) = 0;
     virtual HRESULT STDMETHODCALLTYPE put_NumericScale (BYTE bScale) = 0;
     virtual HRESULT STDMETHODCALLTYPE put_Type (DataTypeEnum DataType) = 0;
-    virtual HRESULT STDMETHODCALLTYPE put_DefinedSize (long lSize) = 0;
+    virtual HRESULT STDMETHODCALLTYPE put_DefinedSize (ADO_LONGPTR lSize) = 0;
     virtual HRESULT STDMETHODCALLTYPE put_Attributes (long lAttributes) = 0;
   };
 #else
   typedef struct Field20Vtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (Field20 *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (Field20 *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (Field20 *This);
     ULONG (STDMETHODCALLTYPE *Release) (Field20 *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (Field20 *This, UINT *pctinfo);
@@ -3085,9 +3038,9 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *GetIDsOfNames) (Field20 *This, REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
     HRESULT (STDMETHODCALLTYPE *Invoke) (Field20 *This, DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
     HRESULT (STDMETHODCALLTYPE *get_Properties) (Field20 *This, ADOProperties **ppvObject);
-    HRESULT (STDMETHODCALLTYPE *get_ActualSize) (Field20 *This, long *pl);
+    HRESULT (STDMETHODCALLTYPE *get_ActualSize) (Field20 *This, ADO_LONGPTR *pl);
     HRESULT (STDMETHODCALLTYPE *get_Attributes) (Field20 *This, long *pl);
-    HRESULT (STDMETHODCALLTYPE *get_DefinedSize) (Field20 *This, long *pl);
+    HRESULT (STDMETHODCALLTYPE *get_DefinedSize) (Field20 *This, ADO_LONGPTR *pl);
     HRESULT (STDMETHODCALLTYPE *get_Name) (Field20 *This, BSTR *pbstr);
     HRESULT (STDMETHODCALLTYPE *get_Type) (Field20 *This, DataTypeEnum *pDataType);
     HRESULT (STDMETHODCALLTYPE *get_Value) (Field20 *This, VARIANT *pvar);
@@ -3103,7 +3056,7 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *put_Precision) (Field20 *This, BYTE bPrecision);
     HRESULT (STDMETHODCALLTYPE *put_NumericScale) (Field20 *This, BYTE bScale);
     HRESULT (STDMETHODCALLTYPE *put_Type) (Field20 *This, DataTypeEnum DataType);
-    HRESULT (STDMETHODCALLTYPE *put_DefinedSize) (Field20 *This, long lSize);
+    HRESULT (STDMETHODCALLTYPE *put_DefinedSize) (Field20 *This, ADO_LONGPTR lSize);
     HRESULT (STDMETHODCALLTYPE *put_Attributes) (Field20 *This, long lAttributes);
     END_INTERFACE
   } Field20Vtbl;
@@ -3148,14 +3101,14 @@ extern "C" {
   EXTERN_C const IID IID_Field;
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
-  MIDL_INTERFACE ("00001569-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("00000569-0000-0010-8000-00AA006D2EA4")
   ADOField : public Field20 {
     public:
     virtual HRESULT STDMETHODCALLTYPE get_Status (long *pFStatus) = 0;
   };
 #else
   typedef struct FieldVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOField *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOField *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (ADOField *This);
     ULONG (STDMETHODCALLTYPE *Release) (ADOField *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (ADOField *This, UINT *pctinfo);
@@ -3163,9 +3116,9 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *GetIDsOfNames) (ADOField *This, REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
     HRESULT (STDMETHODCALLTYPE *Invoke) (ADOField *This, DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
     HRESULT (STDMETHODCALLTYPE *get_Properties) (ADOField *This, ADOProperties **ppvObject);
-    HRESULT (STDMETHODCALLTYPE *get_ActualSize) (ADOField *This, long *pl);
+    HRESULT (STDMETHODCALLTYPE *get_ActualSize) (ADOField *This, ADO_LONGPTR *pl);
     HRESULT (STDMETHODCALLTYPE *get_Attributes) (ADOField *This, long *pl);
-    HRESULT (STDMETHODCALLTYPE *get_DefinedSize) (ADOField *This, long *pl);
+    HRESULT (STDMETHODCALLTYPE *get_DefinedSize) (ADOField *This, ADO_LONGPTR *pl);
     HRESULT (STDMETHODCALLTYPE *get_Name) (ADOField *This, BSTR *pbstr);
     HRESULT (STDMETHODCALLTYPE *get_Type) (ADOField *This, DataTypeEnum *pDataType);
     HRESULT (STDMETHODCALLTYPE *get_Value) (ADOField *This, VARIANT *pvar);
@@ -3181,7 +3134,7 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *put_Precision) (ADOField *This, BYTE bPrecision);
     HRESULT (STDMETHODCALLTYPE *put_NumericScale) (ADOField *This, BYTE bScale);
     HRESULT (STDMETHODCALLTYPE *put_Type) (ADOField *This, DataTypeEnum DataType);
-    HRESULT (STDMETHODCALLTYPE *put_DefinedSize) (ADOField *This, long lSize);
+    HRESULT (STDMETHODCALLTYPE *put_DefinedSize) (ADOField *This, ADO_LONGPTR lSize);
     HRESULT (STDMETHODCALLTYPE *put_Attributes) (ADOField *This, long lAttributes);
     HRESULT (STDMETHODCALLTYPE *get_Status) (ADOField *This, long *pFStatus);
     END_INTERFACE
@@ -3228,14 +3181,14 @@ extern "C" {
   EXTERN_C const IID IID_Fields15;
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
-  MIDL_INTERFACE ("00001506-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("00000506-0000-0010-8000-00AA006D2EA4")
   Fields15 : public _ADOCollection {
     public:
     virtual HRESULT STDMETHODCALLTYPE get_Item (VARIANT Index, ADOField **ppvObject) = 0;
   };
 #else
   typedef struct Fields15Vtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (Fields15 *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (Fields15 *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (Fields15 *This);
     ULONG (STDMETHODCALLTYPE *Release) (Fields15 *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (Fields15 *This, UINT *pctinfo);
@@ -3272,15 +3225,15 @@ extern "C" {
   EXTERN_C const IID IID_Fields20;
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
-  MIDL_INTERFACE ("0000154D-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("0000054D-0000-0010-8000-00AA006D2EA4")
   Fields20 : public Fields15 {
     public:
-    virtual HRESULT STDMETHODCALLTYPE _Append (BSTR Name, DataTypeEnum Type, long DefinedSize = 0, FieldAttributeEnum Attrib = adFldUnspecified) = 0;
+    virtual HRESULT STDMETHODCALLTYPE _Append (BSTR Name, DataTypeEnum Type, ADO_LONGPTR DefinedSize = 0, FieldAttributeEnum Attrib = adFldUnspecified) = 0;
     virtual HRESULT STDMETHODCALLTYPE Delete (VARIANT Index) = 0;
   };
 #else
   typedef struct Fields20Vtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (Fields20 *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (Fields20 *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (Fields20 *This);
     ULONG (STDMETHODCALLTYPE *Release) (Fields20 *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (Fields20 *This, UINT *pctinfo);
@@ -3291,7 +3244,7 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *_NewEnum) (Fields20 *This, IUnknown **ppvObject);
     HRESULT (STDMETHODCALLTYPE *Refresh) (Fields20 *This);
     HRESULT (STDMETHODCALLTYPE *get_Item) (Fields20 *This, VARIANT Index, ADOField **ppvObject);
-    HRESULT (STDMETHODCALLTYPE *_Append) (Fields20 *This, BSTR Name, DataTypeEnum Type, long DefinedSize, FieldAttributeEnum Attrib);
+    HRESULT (STDMETHODCALLTYPE *_Append) (Fields20 *This, BSTR Name, DataTypeEnum Type, ADO_LONGPTR DefinedSize, FieldAttributeEnum Attrib);
     HRESULT (STDMETHODCALLTYPE *Delete) (Fields20 *This, VARIANT Index);
     END_INTERFACE
   } Fields20Vtbl;
@@ -3321,17 +3274,17 @@ extern "C" {
   EXTERN_C const IID IID_Fields;
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
-  MIDL_INTERFACE ("00001564-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("00000564-0000-0010-8000-00AA006D2EA4")
   ADOFields : public Fields20 {
     public:
-    virtual HRESULT STDMETHODCALLTYPE Append (BSTR Name, DataTypeEnum Type, long DefinedSize, FieldAttributeEnum Attrib, VARIANT FieldValue) = 0;
+    virtual HRESULT STDMETHODCALLTYPE Append (BSTR Name, DataTypeEnum Type, ADO_LONGPTR DefinedSize, FieldAttributeEnum Attrib, VARIANT FieldValue) = 0;
     virtual HRESULT STDMETHODCALLTYPE Update (void) = 0;
     virtual HRESULT STDMETHODCALLTYPE Resync (ResyncEnum ResyncValues = adResyncAllValues) = 0;
     virtual HRESULT STDMETHODCALLTYPE CancelUpdate (void) = 0;
   };
 #else
   typedef struct FieldsVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOFields *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOFields *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (ADOFields *This);
     ULONG (STDMETHODCALLTYPE *Release) (ADOFields *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (ADOFields *This, UINT *pctinfo);
@@ -3342,9 +3295,9 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *_NewEnum) (ADOFields *This, IUnknown **ppvObject);
     HRESULT (STDMETHODCALLTYPE *Refresh) (ADOFields *This);
     HRESULT (STDMETHODCALLTYPE *get_Item) (ADOFields *This, VARIANT Index, ADOField **ppvObject);
-    HRESULT (STDMETHODCALLTYPE *_Append) (ADOFields *This, BSTR Name, DataTypeEnum Type, long DefinedSize, FieldAttributeEnum Attrib);
+    HRESULT (STDMETHODCALLTYPE *_Append) (ADOFields *This, BSTR Name, DataTypeEnum Type, ADO_LONGPTR DefinedSize, FieldAttributeEnum Attrib);
     HRESULT (STDMETHODCALLTYPE *Delete) (ADOFields *This, VARIANT Index);
-    HRESULT (STDMETHODCALLTYPE *Append) (ADOFields *This, BSTR Name, DataTypeEnum Type, long DefinedSize, FieldAttributeEnum Attrib, VARIANT FieldValue);
+    HRESULT (STDMETHODCALLTYPE *Append) (ADOFields *This, BSTR Name, DataTypeEnum Type, ADO_LONGPTR DefinedSize, FieldAttributeEnum Attrib, VARIANT FieldValue);
     HRESULT (STDMETHODCALLTYPE *Update) (ADOFields *This);
     HRESULT (STDMETHODCALLTYPE *Resync) (ADOFields *This, ResyncEnum ResyncValues);
     HRESULT (STDMETHODCALLTYPE *CancelUpdate) (ADOFields *This);
@@ -3380,7 +3333,7 @@ extern "C" {
   EXTERN_C const IID IID__Parameter;
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
-  MIDL_INTERFACE ("0000150C-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("0000050C-0000-0010-8000-00AA006D2EA4")
   _ADOParameter : public _ADO {
     public:
     virtual HRESULT STDMETHODCALLTYPE get_Name (BSTR *pbstr) = 0;
@@ -3395,15 +3348,15 @@ extern "C" {
     virtual HRESULT STDMETHODCALLTYPE get_Precision (BYTE *pbPrecision) = 0;
     virtual HRESULT STDMETHODCALLTYPE put_NumericScale (BYTE bScale) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_NumericScale (BYTE *pbScale) = 0;
-    virtual HRESULT STDMETHODCALLTYPE put_Size (long l) = 0;
-    virtual HRESULT STDMETHODCALLTYPE get_Size (long *pl) = 0;
+    virtual HRESULT STDMETHODCALLTYPE put_Size (ADO_LONGPTR l) = 0;
+    virtual HRESULT STDMETHODCALLTYPE get_Size (ADO_LONGPTR *pl) = 0;
     virtual HRESULT STDMETHODCALLTYPE AppendChunk (VARIANT Val) = 0;
     virtual HRESULT STDMETHODCALLTYPE get_Attributes (LONG *plParmAttribs) = 0;
     virtual HRESULT STDMETHODCALLTYPE put_Attributes (LONG lParmAttribs) = 0;
   };
 #else
   typedef struct _ParameterVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (_ADOParameter *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (_ADOParameter *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (_ADOParameter *This);
     ULONG (STDMETHODCALLTYPE *Release) (_ADOParameter *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (_ADOParameter *This, UINT *pctinfo);
@@ -3423,8 +3376,8 @@ extern "C" {
     HRESULT (STDMETHODCALLTYPE *get_Precision) (_ADOParameter *This, BYTE *pbPrecision);
     HRESULT (STDMETHODCALLTYPE *put_NumericScale) (_ADOParameter *This, BYTE bScale);
     HRESULT (STDMETHODCALLTYPE *get_NumericScale) (_ADOParameter *This, BYTE *pbScale);
-    HRESULT (STDMETHODCALLTYPE *put_Size) (_ADOParameter *This, long l);
-    HRESULT (STDMETHODCALLTYPE *get_Size) (_ADOParameter *This, long *pl);
+    HRESULT (STDMETHODCALLTYPE *put_Size) (_ADOParameter *This, ADO_LONGPTR l);
+    HRESULT (STDMETHODCALLTYPE *get_Size) (_ADOParameter *This, ADO_LONGPTR *pl);
     HRESULT (STDMETHODCALLTYPE *AppendChunk) (_ADOParameter *This, VARIANT Val);
     HRESULT (STDMETHODCALLTYPE *get_Attributes) (_ADOParameter *This, LONG *plParmAttribs);
     HRESULT (STDMETHODCALLTYPE *put_Attributes) (_ADOParameter *This, LONG lParmAttribs);
@@ -3472,14 +3425,14 @@ extern "C" {
   EXTERN_C const IID IID_Parameters;
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
-  MIDL_INTERFACE ("0000150D-0000-0010-8000-00AA006D2EA4")
+  MIDL_INTERFACE ("0000050D-0000-0010-8000-00AA006D2EA4")
   ADOParameters : public _ADODynaCollection {
     public:
     virtual HRESULT STDMETHODCALLTYPE get_Item (VARIANT Index, _ADOParameter **ppvObject) = 0;
   };
 #else
   typedef struct ParametersVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOParameters *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOParameters *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (ADOParameters *This);
     ULONG (STDMETHODCALLTYPE *Release) (ADOParameters *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (ADOParameters *This, UINT *pctinfo);
@@ -3532,7 +3485,7 @@ extern "C" {
   };
 #else
   typedef struct PropertyVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOProperty *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOProperty *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (ADOProperty *This);
     ULONG (STDMETHODCALLTYPE *Release) (ADOProperty *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (ADOProperty *This, UINT *pctinfo);
@@ -3580,7 +3533,7 @@ extern "C" {
   };
 #else
   typedef struct PropertiesVtbl {
-    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOProperties *This, REFIID riid, _COM_Outptr_ void **ppvObject);
+    BEGIN_INTERFACE HRESULT (STDMETHODCALLTYPE *QueryInterface) (ADOProperties *This, REFIID riid, void **ppvObject);
     ULONG (STDMETHODCALLTYPE *AddRef) (ADOProperties *This);
     ULONG (STDMETHODCALLTYPE *Release) (ADOProperties *This);
     HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount) (ADOProperties *This, UINT *pctinfo);
@@ -3613,8 +3566,8 @@ extern "C" {
 #endif
 #endif
 
-  extern RPC_IF_HANDLE __MIDL_itf_ado10_0000_0001_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_ado10_0000_0001_v0_0_s_ifspec;
+  extern RPC_IF_HANDLE __MIDL_itf_ado10_0001_0035_v0_0_c_ifspec;
+  extern RPC_IF_HANDLE __MIDL_itf_ado10_0001_0035_v0_0_s_ifspec;
 #ifdef __cplusplus
 }
 #endif
@@ -3630,5 +3583,4 @@ extern "C" {
 #define ADORecField _ADORecField
 #define ADOStream _ADOStream
 #endif
-
 #endif
