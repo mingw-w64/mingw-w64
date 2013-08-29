@@ -49,7 +49,7 @@ extern "C" {
   WINBOOL WINAPI RollbackEnlistment(HANDLE EnlistmentHandle,PLARGE_INTEGER TmVirtualClock);
   WINBOOL WINAPI RollbackTransaction(HANDLE TransactionHandle);
   WINBOOL WINAPI RollbackTransactionAsync(HANDLE TransactionHandle);
-  WINBOOL RollforwardTransactionManager(HANDLE TransactionManagerHandle,PLARGE_INTEGER TmVirtualClock);
+  WINBOOL WINAPI RollforwardTransactionManager(HANDLE TransactionManagerHandle,PLARGE_INTEGER TmVirtualClock);
   WINBOOL WINAPI RollbackTransactionAsync(HANDLE TransactionHandle);
   WINBOOL WINAPI SetEnlistmentRecoveryInformation(HANDLE EnlistmentHandle,ULONG BufferSize,PVOID Buffer);
   WINBOOL WINAPI SetTransactionInformation(HANDLE TransactionHandle,DWORD IsolationLevel,DWORD IsolationFlags,DWORD Timeout,LPWSTR Description);
