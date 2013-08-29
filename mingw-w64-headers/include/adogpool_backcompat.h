@@ -3,13 +3,14 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 
+#include <winapifamily.h>
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
+
 #ifndef INCLUDING_ADOGUIDS
 #error Include via adoguids.h header only
 #endif
 
-#if !defined (NTDDI_VERSION) || (NTDDI_VERSION < 0x06020000)
-#include "adogpool_backcompat.h"
-#else
 #define MAXAVAILABLEGUID 0x570
 #define MAXAVAILABLEGUIDALL 0x57f
 
@@ -30,8 +31,8 @@
 #define CLSID_CADORecordset GUID_BUILDER (CLSID_CADORecordset, 00000535, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define CLSID_CADOStream GUID_BUILDER (CLSID_CADOStream, 00000566, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID__ADO GUID_BUILDER (IID__ADO, 00000534, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_ConnectionEvents GUID_BUILDER (IID_ConnectionEvents, 00001400, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_ConnectionEventsVt GUID_BUILDER (IID_ConnectionEventsVt, 00001402, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_ConnectionEvents GUID_BUILDER (IID_ConnectionEvents, 00000400, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_ConnectionEventsVt GUID_BUILDER (IID_ConnectionEventsVt, 00000402, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID_EnumAffect GUID_BUILDER (IID_EnumAffect, 00000543, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID_EnumCEResync GUID_BUILDER (IID_EnumCEResync, 00000553, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID_EnumCommandType GUID_BUILDER (IID_EnumCommandType, 0000052e, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
@@ -87,47 +88,47 @@
 #define IID_IADO10StdObject GUID_BUILDER (IID_IADO10StdObject, 00000534, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID_IADOClass GUID_BUILDER (IID_IADOClass, 00000560, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID_IADOCollection GUID_BUILDER (IID_IADOCollection, 00000512, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADOCommand GUID_BUILDER (IID_IADOCommand, 986761e8, 7269, 4890, AA, 65, AD, 7c, 03, 69, 7a, 6d)
-#define IID_IADOCommand15 GUID_BUILDER (IID_IADOCommand15, 00001508, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADOCommand25 GUID_BUILDER (IID_IADOCommand25, 0000154e, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADOCommand GUID_BUILDER (IID_IADOCommand, B08400BD, F9D1, 4d02, B8, 56, 71, D5, DB, A1, 23, E9)
+#define IID_IADOCommand15 GUID_BUILDER (IID_IADOCommand15, 00000508, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADOCommand25 GUID_BUILDER (IID_IADOCommand25, 0000054e, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID_IADOCommandConstruction GUID_BUILDER (IID_IADOCommandConstruction, 00000517, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID_IADOCommands GUID_BUILDER (IID_IADOCommands, 00000509, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADOConnection GUID_BUILDER (IID_IADOConnection, 00001550, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADOConnection15 GUID_BUILDER (IID_IADOConnection15, 00001515, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADOConnection GUID_BUILDER (IID_IADOConnection, 00000550, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADOConnection15 GUID_BUILDER (IID_IADOConnection15, 00000515, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID_IADOConnectionConstruction GUID_BUILDER (IID_IADOConnectionConstruction, 00000551, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID_IADOConnectionConstruction15 GUID_BUILDER (IID_IADOConnectionConstruction15, 00000516, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADOConnectionEvents GUID_BUILDER (IID_IADOConnectionEvents, 00001400, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADOConnectionEventsVt GUID_BUILDER (IID_IADOConnectionEventsVt, 00001402, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADOConnectionEvents GUID_BUILDER (IID_IADOConnectionEvents, 00000400, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADOConnectionEventsVt GUID_BUILDER (IID_IADOConnectionEventsVt, 00000402, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID_IADOConnections GUID_BUILDER (IID_IADOConnections, 00000518, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID_IADOCustomError GUID_BUILDER (IID_IADOCustomError, 00000519, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID_IADODynaCollection GUID_BUILDER (IID_IADODynaCollection, 00000513, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID_IADOError GUID_BUILDER (IID_IADOError, 00000500, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID_IADOErrors GUID_BUILDER (IID_IADOErrors, 00000501, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADOField GUID_BUILDER (IID_IADOField, 00001569, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADOField15 GUID_BUILDER (IID_IADOField15, 00001505, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADOField20 GUID_BUILDER (IID_IADOField20, 0000154c, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADOField25 GUID_BUILDER (IID_IADOField25, 00001569, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADOFields GUID_BUILDER (IID_IADOFields, 00001564, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADOFields15 GUID_BUILDER (IID_IADOFields15, 00001506, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADOFields20 GUID_BUILDER (IID_IADOFields20, 0000154d, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADOParameter GUID_BUILDER (IID_IADOParameter, 0000150c, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADOParameters GUID_BUILDER (IID_IADOParameters, 0000150d, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADOField GUID_BUILDER (IID_IADOField, 00000569, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADOField15 GUID_BUILDER (IID_IADOField15, 00000505, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADOField20 GUID_BUILDER (IID_IADOField20, 0000054c, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADOFields GUID_BUILDER (IID_IADOFields, 00000564, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADOFields15 GUID_BUILDER (IID_IADOFields15, 00000506, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADOFields20 GUID_BUILDER (IID_IADOFields20, 0000054d, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADOParameter GUID_BUILDER (IID_IADOParameter, 0000050c, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADOParameters GUID_BUILDER (IID_IADOParameters, 0000050d, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID_IADOProperties GUID_BUILDER (IID_IADOProperties, 00000504, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID_IADOProperty GUID_BUILDER (IID_IADOProperty, 00000503, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADORecord GUID_BUILDER (IID_IADORecord, 00001562, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADORecord25 GUID_BUILDER (IID_IADORecord25, 00001562, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADORecord GUID_BUILDER (IID_IADORecord, 00000562, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADORecord25 GUID_BUILDER (IID_IADORecord25, 00000562, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADORecord26 GUID_BUILDER (IID_IADORecord26, 00000563, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID_IADORecordConstruction GUID_BUILDER (IID_IADORecordConstruction, 00000567, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID_IADORecordGroup GUID_BUILDER (IID_IADORecordGroup, 00000511, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADORecordset GUID_BUILDER (IID_IADORecordset, 00001556, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADORecordset15 GUID_BUILDER (IID_IADORecordset15, 0000150e, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADORecordset20 GUID_BUILDER (IID_IADORecordset20, 0000154f, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADORecordset21 GUID_BUILDER (IID_IADORecordset21, 00001555, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADORecordset25 GUID_BUILDER (IID_IADORecordset25, 00001556, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADORecordsetConstruction GUID_BUILDER (IID_IADORecordsetConstruction, 00001283, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADORecordsetEvents GUID_BUILDER (IID_IADORecordsetEvents, 00001266, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADORecordsetEventsVt GUID_BUILDER (IID_IADORecordsetEventsVt, 00001403, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADORecordset GUID_BUILDER (IID_IADORecordset, 00000556, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADORecordset15 GUID_BUILDER (IID_IADORecordset15, 0000050e, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADORecordset20 GUID_BUILDER (IID_IADORecordset20, 0000054f, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADORecordset21 GUID_BUILDER (IID_IADORecordset21, 00000555, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADORecordset25 GUID_BUILDER (IID_IADORecordset25, 00000556, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADORecordsetConstruction GUID_BUILDER (IID_IADORecordsetConstruction, 00000283, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADORecordsetEvents GUID_BUILDER (IID_IADORecordsetEvents, 00000266, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADORecordsetEventsVt GUID_BUILDER (IID_IADORecordsetEventsVt, 00000403, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID_IADORecordsets GUID_BUILDER (IID_IADORecordsets, 0000050f, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
-#define IID_IADOStream GUID_BUILDER (IID_IADOStream, 00001565, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADOStream GUID_BUILDER (IID_IADOStream, 00000565, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID_IADOStreamConstruction GUID_BUILDER (IID_IADOStreamConstruction, 00000568, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 #define IID_ICMemStreamProperties GUID_BUILDER (IID_ICMemStreamProperties, FF184014, B5D3, 4310, AB, F0, 9b, 70, 45, A2, CF, 17)
 #define IID_IPrivErrors GUID_BUILDER (IID_IPrivErrors, 00000502, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
@@ -230,7 +231,6 @@ IID_IADOErrors;
 IID_IADOField;
 IID_IADOField15;
 IID_IADOField20;
-IID_IADOField25;
 IID_IADOFields;
 IID_IADOFields15;
 IID_IADOFields20;
@@ -240,6 +240,7 @@ IID_IADOProperties;
 IID_IADOProperty;
 IID_IADORecord;
 IID_IADORecord25;
+IID_IADORecord26;
 IID_IADORecordConstruction;
 IID_IADORecordGroup;
 IID_IADORecordset;
@@ -353,7 +354,6 @@ LIBID_ADOR25;
 #undef IID_IADOField
 #undef IID_IADOField15
 #undef IID_IADOField20
-#undef IID_IADOField25
 #undef IID_IADOFields
 #undef IID_IADOFields15
 #undef IID_IADOFields20
@@ -363,6 +363,7 @@ LIBID_ADOR25;
 #undef IID_IADOProperty
 #undef IID_IADORecord
 #undef IID_IADORecord25
+#undef IID_IADORecord26
 #undef IID_IADORecordConstruction
 #undef IID_IADORecordGroup
 #undef IID_IADORecordset
@@ -391,11 +392,14 @@ LIBID_ADOR25;
 
 #ifdef _LOCKBYTESUPPORT_
 
-#define IID_IADOField26 GUID_BUILDER (IID_IADOField26, 00001557, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADOField25 GUID_BUILDER (IID_IADOField25, 00000569, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
+#define IID_IADOField26 GUID_BUILDER (IID_IADOField26, 00000557, 0000, 0010, 80, 00, 00, AA, 00, 6d, 2e, A4)
 
 #ifdef IMMEDIATE_GUID_USE
+IID_IADOField25;
 IID_IADOField26;
 
+#undef IID_IADOField25
 #undef IID_IADOField26
 #endif
 
@@ -404,6 +408,7 @@ IID_IADOField26;
 #ifdef RESERVED_GUIDS_BEYOND_THIS_POINT
 
 #define ADO_Reserved_4 GUID_BUILDER (ADO_Reserved_4, 567747f1, 658b, 4906, 82, C4, E9, CD, A1, 46, 26, 15)
+#define ADO_Reserved_5 GUID_BUILDER (ADO_Reserved_5, 986761e8, 7269, 4890, AA, 65, AD, 7c, 03, 69, 7a, 6d)
 #define ADO_Reserved_6 GUID_BUILDER (ADO_Reserved_6, ED5A4589, 7a9d, 41df, 89, 86, CC, A9, 25, 01, A5, DA)
 #define ADO_Reserved_7 GUID_BUILDER (ADO_Reserved_7, C029178A, F16B, 4a06, 82, 93, A8, 08, B7, F8, 78, 92)
 #define ADO_Reserved_8 GUID_BUILDER (ADO_Reserved_8, FD6974FD, 21fb, 409c, 96, 56, A5, 68, FE, C0, AC, 01)
@@ -650,7 +655,7 @@ IID_IADOField26;
 
 #ifdef IMMEDIATE_GUID_USE
 ADO_Reserved_4;
-ADO_Reserved_6; ADO_Reserved_7; ADO_Reserved_8; ADO_Reserved_9;
+ADO_Reserved_5; ADO_Reserved_6; ADO_Reserved_7; ADO_Reserved_8; ADO_Reserved_9;
 ADO_Reserved_10; ADO_Reserved_12; ADO_Reserved_13; ADO_Reserved_14;
 ADO_Reserved_15; ADO_Reserved_16; ADO_Reserved_17; ADO_Reserved_18; ADO_Reserved_19;
 ADO_Reserved_20; ADO_Reserved_21; ADO_Reserved_22; ADO_Reserved_23; ADO_Reserved_24;
@@ -701,6 +706,7 @@ ADO_Reserved_240; ADO_Reserved_241; ADO_Reserved_242; ADO_Reserved_243; ADO_Rese
 ADO_Reserved_245; ADO_Reserved_246; ADO_Reserved_247; ADO_Reserved_248; ADO_Reserved_249;
 
 #undef ADO_Reserved_4
+#undef ADO_Reserved_5
 #undef ADO_Reserved_6
 #undef ADO_Reserved_7
 #undef ADO_Reserved_8
