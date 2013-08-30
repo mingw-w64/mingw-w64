@@ -52,6 +52,7 @@ extern int win64_packing;
 extern int flag_is_rt;
 
 extern char *input_name;
+extern char *input_idl_name;
 extern char *header_name;
 extern char *header_token;
 extern char *local_stubs_name;
