@@ -1,4 +1,4 @@
-LIBRARY msvcrt.dll
+LIBRARY "msvcrt.dll"
 EXPORTS
 
 #include "msvcrt-common.def.in"
