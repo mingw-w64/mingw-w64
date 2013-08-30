@@ -88,16 +88,20 @@ int is_aliaschain_attr(const type_t *type, enum attr_type attr)
 int is_attr(const attr_list_t *list, enum attr_type t)
 {
     const attr_t *attr;
-    if (list) LIST_FOR_EACH_ENTRY( attr, list, const attr_t, entry )
+    if (list) {
+        LIST_FOR_EACH_ENTRY( attr, list, const attr_t, entry )
         if (attr->type == t) return 1;
+    }
     return 0;
 }
 
 void *get_attrp(const attr_list_t *list, enum attr_type t)
 {
     const attr_t *attr;
-    if (list) LIST_FOR_EACH_ENTRY( attr, list, const attr_t, entry )
+    if (list) {
+        LIST_FOR_EACH_ENTRY( attr, list, const attr_t, entry )
         if (attr->type == t) return attr->u.pval;
+    }
     return NULL;
 }
 
@@ -201,9 +205,13 @@ static void write_fields(FILE *h, var_list_t *fields)
         switch(type_get_type_detect_alias(v->type)) {
         case TYPE_STRUCT:
         case TYPE_ENCAPSULATED_UNION:
-            if(!v->name) {
+            if(!v->name
+               || !strncmp(v->name, "DUMMYUNIONNAME", 14)
+               || !strncmp(v->name, "DUMMYSTRUCTNAME", 15)) {
                 fprintf(h, "__C89_NAMELESS ");
-                if(nameless_struct_cnt == 1) {
+                if(v->name)
+                    ;
+                else if(nameless_struct_cnt == 1) {
                     name = "__C89_NAMELESSSTRUCTNAME";
                 }else if(nameless_struct_i < 5 /* # of supporting macros */) {
                     sprintf(buf, "__C89_NAMELESSSTRUCTNAME%d", ++nameless_struct_i);
@@ -212,9 +220,13 @@ static void write_fields(FILE *h, var_list_t *fields)
             }
             break;
         case TYPE_UNION:
-            if(!v->name) {
+            if(!v->name
+               || !strncmp(v->name, "DUMMYUNIONNAME", 14)
+               || !strncmp(v->name, "DUMMYSTRUCTNAME", 15)) {
                 fprintf(h, "__C89_NAMELESS ");
-                if(nameless_union_cnt == 1) {
+                if(v->name)
+                    ;
+                else if(nameless_union_cnt == 1) {
                     name = "__C89_NAMELESSUNIONNAME";
                 }else if(nameless_union_i < 8 /* # of supporting macros */ ) {
                     sprintf(buf, "__C89_NAMELESSUNIONNAME%d", ++nameless_union_i);

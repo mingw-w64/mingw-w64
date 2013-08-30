@@ -514,6 +514,7 @@ struct _type_list_t {
 struct _statement_t {
     struct list entry;
     enum statement_type type;
+    const char *nspace;
     union
     {
         ifref_t iface;

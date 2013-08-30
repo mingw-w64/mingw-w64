@@ -747,6 +747,7 @@ static int type_has_pointers(const type_t *type)
 static int type_has_full_pointer(const type_t *type, const attr_list_t *attrs,
                                  int toplevel_param)
 {
+redo:
     switch (typegen_detect_type(type, NULL, TDT_IGNORE_STRINGS))
     {
     case TGT_USER_TYPE:
@@ -759,15 +760,18 @@ static int type_has_full_pointer(const type_t *type, const attr_list_t *attrs,
     case TGT_ARRAY:
         if (get_pointer_fc(type, attrs, toplevel_param) == RPC_FC_FP)
             return TRUE;
-        else
-            return type_has_full_pointer(type_array_get_element(type), NULL, FALSE);
+	type = type_array_get_element(type);
+	attrs = NULL;
+	toplevel_param = 0;
+	goto redo;
+
     case TGT_STRUCT:
     {
         var_list_t *fields = type_struct_get_fields(type);
         const var_t *field;
-        if (fields) LIST_FOR_EACH_ENTRY( field, fields, const var_t, entry )
+        if (fields && toplevel_param) LIST_FOR_EACH_ENTRY( field, fields, const var_t, entry )
         {
-            if (type_has_full_pointer(field->type, field->attrs, FALSE))
+            if (field->type && type_has_full_pointer(field->type, field->attrs, FALSE))
                 return TRUE;
         }
         break;
@@ -777,7 +781,7 @@ static int type_has_full_pointer(const type_t *type, const attr_list_t *attrs,
         var_list_t *fields;
         const var_t *field;
         fields = type_union_get_cases(type);
-        if (fields) LIST_FOR_EACH_ENTRY( field, fields, const var_t, entry )
+        if (fields && toplevel_param) LIST_FOR_EACH_ENTRY( field, fields, const var_t, entry )
         {
             if (field->type && type_has_full_pointer(field->type, field->attrs, FALSE))
                 return TRUE;

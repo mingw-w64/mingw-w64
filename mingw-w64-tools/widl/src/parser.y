@@ -88,6 +88,26 @@ typedef struct _decl_spec_t
 
 typelist_t incomplete_types = LIST_INIT(incomplete_types);
 
+typedef struct str_namespace_pool_t {
+  struct str_namespace_pool_t *next;
+  size_t len;
+  char name[1];
+} str_namespace_pool_t;
+
+static const char *unify_ns_str (const char *str);
+static const char *unify_ns_name(const char *l, const char *r);
+
+typedef struct ctx_namespace_t {
+  struct ctx_namespace_t *prev;
+  const char *name;
+} ctx_namespace_t;
+
+static ctx_namespace_t *ctx_namespace = NULL;
+
+static void push_namespace(const char *name);
+static int pop_namespace(void);
+static const char *get_cur_namespace(void);
+
 static void fix_incomplete(void);
 static void fix_incomplete_types(type_t *complete_type);
 
@@ -344,7 +364,7 @@ input:   gbl_statements				{ fix_incomplete();
 
 gbl_statements:					{ $$ = NULL; }
 	| gbl_statements namespacedef '{' gbl_statements '}'
-						{ $$ = append_statements($1, $4); }
+						{ $$ = append_statements($1, $4); pop_namespace(); }
 	| gbl_statements interfacedec		{ $$ = append_statement($1, make_statement_reference($2)); }
 	| gbl_statements interfacedef		{ $$ = append_statement($1, make_statement_type_decl($2)); }
 	| gbl_statements coclass ';'		{ $$ = $1;
@@ -360,7 +380,7 @@ gbl_statements:					{ $$ = NULL; }
 
 imp_statements:					{ $$ = NULL; }
 	| imp_statements interfacedec		{ $$ = append_statement($1, make_statement_reference($2)); }
-	| imp_statements namespacedef '{' imp_statements '}'	{ $$ = append_statements($1, $4); }
+	| imp_statements namespacedef '{' imp_statements '}' { $$ = append_statements($1, $4); pop_namespace(); }
 	| imp_statements interfacedef		{ $$ = append_statement($1, make_statement_type_decl($2)); }
 	| imp_statements coclass ';'		{ $$ = $1; reg_type($2, $2->name, 0); }
 	| imp_statements coclassdef		{ $$ = append_statement($1, make_statement_type_decl($2));
@@ -834,7 +854,7 @@ coclassdef: coclasshdr '{' coclass_ints '}' semicolon_opt
 	;
 
 namespacedef: tNAMESPACE aIDENTIFIER
-						{ fprintf (stderr, "NS<%s>\n", $2); $$=NULL; }
+						{ $$=NULL; push_namespace($2); }
 	;
 
 coclass_ints:					{ $$ = NULL; }
@@ -2727,6 +2747,7 @@ static statement_t *make_statement(enum statement_type type)
 {
     statement_t *stmt = xmalloc(sizeof(*stmt));
     stmt->type = type;
+    stmt->nspace = get_cur_namespace();
     return stmt;
 }
 
@@ -2865,4 +2886,85 @@ static void check_def(const type_t *t)
     if (t->defined)
         error_loc("%s: redefinition error; original definition was at %s:%d\n",
                   t->name, t->loc_info.input_name, t->loc_info.line_number);
+}
+
+static void push_namespace(const char *nameadd)
+{
+  ctx_namespace_t *c;
+
+  if (!nameadd)
+    nameadd = "";
+  c = xmalloc(sizeof(ctx_namespace_t));
+  c->name = unify_ns_name(get_cur_namespace(), nameadd);
+  c->prev = ctx_namespace;
+  ctx_namespace = c;
+}
+
+static int pop_namespace(void)
+{
+  ctx_namespace_t *c;
+
+  if (!(c = ctx_namespace))
+    return 0;
+  ctx_namespace = c->prev;
+  c->prev = NULL;
+  free (c);
+  return 1;
+}
+
+static const char *get_cur_namespace(void)
+{
+  if (!ctx_namespace)
+    return unify_ns_str(NULL);
+  return ctx_namespace->name;
+}
+
+static const char *unify_ns_name(const char *l, const char *r)
+{
+  const char *r;
+  char *h;
+  if (!l || *l == 0)
+    return unify_ns_str(r);
+  if (!r || *r == 0)
+    return unify_ns_str(l);
+  h = xmalloc(strlen(l) + strlen(r) + 2);
+  strcpy(h, l);
+  strcat(h, ".");
+  strcat(h, r);
+  r = unify_ns_str(h);
+  free(h);
+  return r;
+}
+
+static const char *unify_ns_str (const char *str)
+{
+  static str_namespace_pool_t *pool = NULL;
+  size_t l;
+  int e;
+  str_namespace_pool_t *p, *c, *n;
+
+  if (!str || *str == 0)
+    return "";
+  l = strlen (str);
+  p = NULL;
+  c = pool;
+  while (c != NULL)
+  {
+    if (c->len == l && (e = strcmp (c->name, str)) >= 0)
+    {
+      if (!e)
+	return &(c->name[0]);
+      break;
+    }
+    c = (p = c)->next;
+  }
+  n = xmalloc (sizeof (str_namespace_pool_t) + l);
+  strcpy (n->name, str);
+  n->next = c;
+  n->len = l;
+  if (!p)
+    pool = n;
+  else
+    p->next = n;
+  return &(n->name[0]);
 }
