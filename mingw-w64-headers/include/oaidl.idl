@@ -1,122 +1,94 @@
-/**
- * This file has no copyright assigned and is placed in the Public Domain.
- * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
- */
+cpp_quote("/**")
+cpp_quote(" * This file is part of the mingw-w64 runtime package.")
+cpp_quote(" * No warranty is given; refer to the file DISCLAIMER within this package.")
+cpp_quote(" */")
+cpp_quote("")
+cpp_quote("#include <winapifamily.h>")
 
 #ifndef DO_NO_IMPORTS
 import "objidl.idl";
 #endif
 
+cpp_quote("")
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+interface ICreateTypeInfo;
+interface ICreateTypeInfo2;
+interface ICreateTypeLib;
+interface ICreateTypeLib2;
+cpp_quote("#endif")
+cpp_quote("")
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
 interface IDispatch;
-interface IRecordInfo;
+interface IEnumVARIANT;
+interface ITypeComp;
+cpp_quote("#endif")
+cpp_quote("")
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
 interface ITypeInfo;
+interface ITypeInfo2;
 interface ITypeLib;
-
-cpp_quote("#ifndef __ICreateTypeInfo2_FWD_DEFINED__")
-cpp_quote("#define __ICreateTypeInfo2_FWD_DEFINED__")
-cpp_quote("typedef struct ICreateTypeInfo2 ICreateTypeInfo2;")
+interface ITypeLib2;
+interface ITypeChangeEvents;
+interface IErrorInfo;
+interface ICreateErrorInfo;
+interface ISupportErrorInfo;
+interface ITypeFactory;
+interface ITypeMarshal;
+interface IRecordInfo;
 cpp_quote("#endif")
 cpp_quote("")
-cpp_quote("#ifndef __ICreateTypeLib_FWD_DEFINED__")
-cpp_quote("#define __ICreateTypeLib_FWD_DEFINED__")
-cpp_quote("typedef struct ICreateTypeLib ICreateTypeLib;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __ICreateTypeLib2_FWD_DEFINED__")
-cpp_quote("#define __ICreateTypeLib2_FWD_DEFINED__")
-cpp_quote("typedef struct ICreateTypeLib2 ICreateTypeLib2;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __ITypeInfo2_FWD_DEFINED__")
-cpp_quote("#define __ITypeInfo2_FWD_DEFINED__")
-cpp_quote("typedef struct ITypeInfo2 ITypeInfo2;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __ITypeLib2_FWD_DEFINED__")
-cpp_quote("#define __ITypeLib2_FWD_DEFINED__")
-cpp_quote("typedef struct ITypeLib2 ITypeLib2;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __ITypeChangeEvents_FWD_DEFINED__")
-cpp_quote("#define __ITypeChangeEvents_FWD_DEFINED__")
-cpp_quote("typedef struct ITypeChangeEvents ITypeChangeEvents;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IErrorInfo_FWD_DEFINED__")
-cpp_quote("#define __IErrorInfo_FWD_DEFINED__")
-cpp_quote("typedef struct IErrorInfo IErrorInfo;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __ICreateErrorInfo_FWD_DEFINED__")
-cpp_quote("#define __ICreateErrorInfo_FWD_DEFINED__")
-cpp_quote("typedef struct ICreateErrorInfo ICreateErrorInfo;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __ISupportErrorInfo_FWD_DEFINED__")
-cpp_quote("#define __ISupportErrorInfo_FWD_DEFINED__")
-cpp_quote("typedef struct ISupportErrorInfo ISupportErrorInfo;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __ITypeFactory_FWD_DEFINED__")
-cpp_quote("#define __ITypeFactory_FWD_DEFINED__")
-cpp_quote("typedef struct ITypeFactory ITypeFactory;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __ITypeMarshal_FWD_DEFINED__")
-cpp_quote("#define __ITypeMarshal_FWD_DEFINED__")
-cpp_quote("typedef struct ITypeMarshal ITypeMarshal;")
-cpp_quote("#endif")
-
-[
-    version(1.0),
-    pointer_default(unique)
-]
-interface IOleAutomationTypes
-{
-
-typedef CY CURRENCY;
-
-typedef struct tagSAFEARRAYBOUND {
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+[version (1.0), pointer_default (unique)]
+interface IOleAutomationTypes {
+  typedef CY CURRENCY;
+  typedef struct tagSAFEARRAYBOUND {
     ULONG cElements;
     LONG lLbound;
-} SAFEARRAYBOUND, *LPSAFEARRAYBOUND;
+  } SAFEARRAYBOUND,*LPSAFEARRAYBOUND;
 
-typedef [unique] struct _wireVARIANT *wireVARIANT;
-typedef [unique] struct _wireBRECORD *wireBRECORD;
-
-typedef struct _wireSAFEARR_BSTR {
+cpp_quote("")
+  typedef [unique] struct _wireVARIANT *wireVARIANT;
+  typedef [unique] struct _wireBRECORD *wireBRECORD;
+cpp_quote("")
+  typedef struct _wireSAFEARR_BSTR {
     ULONG Size;
-    [size_is(Size), ref] wireBSTR *aBstr;
-} SAFEARR_BSTR;
+    [size_is (Size), ref] wireBSTR *aBstr;
+  } SAFEARR_BSTR;
 
-typedef struct _wireSAFEARR_UNKNOWN {
+cpp_quote("")
+  typedef struct _wireSAFEARR_UNKNOWN {
     ULONG Size;
-    [size_is(Size), ref] IUnknown **apUnknown;
-} SAFEARR_UNKNOWN;
+    [size_is (Size), ref] IUnknown **apUnknown;
+  } SAFEARR_UNKNOWN;
 
-typedef struct _wireSAFEARR_DISPATCH {
+cpp_quote("")
+  typedef struct _wireSAFEARR_DISPATCH {
     ULONG Size;
-    [size_is(Size), ref] IDispatch **apDispatch;
-} SAFEARR_DISPATCH;
+    [size_is (Size), ref] IDispatch **apDispatch;
+  } SAFEARR_DISPATCH;
 
-typedef struct _wireSAFEARR_VARIANT {
+cpp_quote("")
+  typedef struct _wireSAFEARR_VARIANT {
     ULONG Size;
-    [size_is(Size), ref] wireVARIANT *aVariant;
-} SAFEARR_VARIANT;
+    [size_is (Size), ref] wireVARIANT *aVariant;
+  } SAFEARR_VARIANT;
 
-typedef struct _wireSAFEARR_BRECORD {
+cpp_quote("")
+  typedef struct _wireSAFEARR_BRECORD {
     ULONG Size;
-    [size_is(Size), ref] wireBRECORD *aRecord;
-} SAFEARR_BRECORD;
+    [size_is (Size), ref] wireBRECORD *aRecord;
+  } SAFEARR_BRECORD;
 
-typedef struct _wireSAFEARR_HAVEIID {
+cpp_quote("")
+  typedef struct _wireSAFEARR_HAVEIID {
     ULONG Size;
-    [size_is(Size), ref] IUnknown **apUnknown;
+    [size_is (Size), ref] IUnknown **apUnknown;
     IID iid;
-} SAFEARR_HAVEIID;
+  } SAFEARR_HAVEIID;
 
-typedef [v1_enum] enum tagSF_TYPE {
+cpp_quote("")
+  typedef [v1_enum] enum tagSF_TYPE {
     SF_ERROR = VT_ERROR,
     SF_I1 = VT_I1,
     SF_I2 = VT_I2,
@@ -128,57 +100,60 @@ typedef [v1_enum] enum tagSF_TYPE {
     SF_VARIANT = VT_VARIANT,
     SF_RECORD = VT_RECORD,
     SF_HAVEIID = VT_UNKNOWN | VT_RESERVED
-} SF_TYPE;
+  } SF_TYPE;
 
-typedef union _wireSAFEARRAY_UNION switch(ULONG sfType) u {
- case SF_BSTR: SAFEARR_BSTR BstrStr;
- case SF_UNKNOWN: SAFEARR_UNKNOWN UnknownStr;
- case SF_DISPATCH: SAFEARR_DISPATCH DispatchStr;
- case SF_VARIANT: SAFEARR_VARIANT VariantStr;
- case SF_RECORD: SAFEARR_BRECORD RecordStr;
- case SF_HAVEIID: SAFEARR_HAVEIID HaveIidStr;
- case SF_I1: BYTE_SIZEDARR ByteStr;
- case SF_I2: WORD_SIZEDARR WordStr;
- case SF_I4: DWORD_SIZEDARR LongStr;
- case SF_I8: HYPER_SIZEDARR HyperStr;
-} SAFEARRAYUNION;
+cpp_quote("")
+  typedef union _wireSAFEARRAY_UNION switch (ULONG sfType) u {
+    case SF_BSTR: SAFEARR_BSTR BstrStr;
+    case SF_UNKNOWN: SAFEARR_UNKNOWN UnknownStr;
+    case SF_DISPATCH: SAFEARR_DISPATCH DispatchStr;
+    case SF_VARIANT: SAFEARR_VARIANT VariantStr;
+    case SF_RECORD: SAFEARR_BRECORD RecordStr;
+    case SF_HAVEIID: SAFEARR_HAVEIID HaveIidStr;
+    case SF_I1: BYTE_SIZEDARR ByteStr;
+    case SF_I2: WORD_SIZEDARR WordStr;
+    case SF_I4: DWORD_SIZEDARR LongStr;
+    case SF_I8: HYPER_SIZEDARR HyperStr;
+  } SAFEARRAYUNION;
 
-typedef [unique] struct _wireSAFEARRAY {
+cpp_quote("")
+  typedef [unique] struct _wireSAFEARRAY {
     USHORT cDims;
     USHORT fFeatures;
     ULONG cbElements;
     ULONG cLocks;
     SAFEARRAYUNION uArrayStructs;
-    [size_is(cDims)] SAFEARRAYBOUND rgsabound[];
-} *wireSAFEARRAY;
+    [size_is (cDims)] SAFEARRAYBOUND rgsabound[];
+  } *wireSAFEARRAY;
+  typedef [unique] wireSAFEARRAY *wirePSAFEARRAY;
 
-typedef [unique] wireSAFEARRAY *wirePSAFEARRAY;
-
-typedef struct tagSAFEARRAY {
+cpp_quote("")
+  typedef struct tagSAFEARRAY {
     USHORT cDims;
     USHORT fFeatures;
     ULONG cbElements;
     ULONG cLocks;
     PVOID pvData;
     SAFEARRAYBOUND rgsabound[];
-} SAFEARRAY;
+  } SAFEARRAY;
+  typedef [wire_marshal (wirePSAFEARRAY)] SAFEARRAY *LPSAFEARRAY;
 
-typedef [wire_marshal(wirePSAFEARRAY)] SAFEARRAY *LPSAFEARRAY;
+cpp_quote("")
+  const USHORT FADF_AUTO = 0x0001;
+  const USHORT FADF_STATIC = 0x0002;
+  const USHORT FADF_EMBEDDED = 0x0004;
+  const USHORT FADF_FIXEDSIZE = 0x0010;
+  const USHORT FADF_RECORD = 0x0020;
+  const USHORT FADF_HAVEIID = 0x0040;
+  const USHORT FADF_HAVEVARTYPE= 0x0080;
+  const USHORT FADF_BSTR = 0x0100;
+  const USHORT FADF_UNKNOWN = 0x0200;
+  const USHORT FADF_DISPATCH = 0x0400;
+  const USHORT FADF_VARIANT = 0x0800;
+  const USHORT FADF_RESERVED = 0xf008;
 
-cpp_quote("#define FADF_AUTO (0x1)")
-cpp_quote("#define FADF_STATIC (0x2)")
-cpp_quote("#define FADF_EMBEDDED (0x4)")
-cpp_quote("#define FADF_FIXEDSIZE (0x10)")
-cpp_quote("#define FADF_RECORD (0x20)")
-cpp_quote("#define FADF_HAVEIID (0x40)")
-cpp_quote("#define FADF_HAVEVARTYPE (0x80)")
-cpp_quote("#define FADF_BSTR (0x100)")
-cpp_quote("#define FADF_UNKNOWN (0x200)")
-cpp_quote("#define FADF_DISPATCH (0x400)")
-cpp_quote("#define FADF_VARIANT (0x800)")
-cpp_quote("#define FADF_RESERVED (0xf008)")
-
-cpp_quote("#if defined(NONAMELESSUNION)")
+cpp_quote("")
+cpp_quote("#if (__STDC__ && !defined(_FORCENAMELESSUNION)) || defined(NONAMELESSUNION) || (!defined(_MSC_EXTENSIONS) && !defined(_FORCENAMELESSUNION))")
 cpp_quote("#define __VARIANT_NAME_1 n1")
 cpp_quote("#define __VARIANT_NAME_2 n2")
 cpp_quote("#define __VARIANT_NAME_3 n3")
@@ -192,147 +167,187 @@ cpp_quote("#define __tagBRECORD")
 cpp_quote("#define __VARIANT_NAME_4")
 cpp_quote("#endif")
 
-typedef [wire_marshal(wireVARIANT)] struct tagVARIANT VARIANT;
+cpp_quote("")
+  typedef [wire_marshal (wireVARIANT)] struct tagVARIANT VARIANT;
 
-struct tagVARIANT {
+cpp_quote("")
+  struct tagVARIANT {
     union {
-        struct __tagVARIANT {
-            VARTYPE vt;
-            WORD wReserved1;
-            WORD wReserved2;
-            WORD wReserved3;
-            union {
-                LONGLONG llVal;
-                LONG lVal;
-                BYTE bVal;
-                SHORT iVal;
-                FLOAT fltVal;
-                DOUBLE dblVal;
-                VARIANT_BOOL boolVal;
-                /* _VARIANT_BOOL bool; */
-                SCODE scode;
-                CY cyVal;
-                DATE date;
-                BSTR bstrVal;
-                IUnknown *punkVal;
-                IDispatch *pdispVal;
-                SAFEARRAY *parray;
-                BYTE *pbVal;
-                SHORT *piVal;
-                LONG *plVal;
-                LONGLONG *pllVal;
-                FLOAT *pfltVal;
-                DOUBLE *pdblVal;
-                VARIANT_BOOL *pboolVal;
-                /* _VARIANT_BOOL *pbool; */
-                SCODE *pscode;
-                CY *pcyVal;
-                DATE *pdate;
-                BSTR *pbstrVal;
-                IUnknown **ppunkVal;
-                IDispatch **ppdispVal;
-                SAFEARRAY **pparray;
-                VARIANT *pvarVal;
-                PVOID byref;
-                CHAR cVal;
-                USHORT uiVal;
-                ULONG ulVal;
-                ULONGLONG ullVal;
-                INT intVal;
-                UINT uintVal;
-                DECIMAL *pdecVal;
-                CHAR *pcVal;
-                USHORT *puiVal;
-                ULONG *pulVal;
-                ULONGLONG *pullVal;
-                INT *pintVal;
-                UINT *puintVal;
-                struct __tagBRECORD {
-                    PVOID pvRecord;
-                    IRecordInfo *pRecInfo;
-                } __VARIANT_NAME_4;
-            } __VARIANT_NAME_3;
-        } __VARIANT_NAME_2;
-        DECIMAL decVal;
+      struct __tagVARIANT {
+	VARTYPE vt;
+	WORD wReserved1;
+	WORD wReserved2;
+	WORD wReserved3;
+	union {
+	  LONGLONG llVal;
+	  LONG lVal;
+	  BYTE bVal;
+	  SHORT iVal;
+	  FLOAT fltVal;
+	  DOUBLE dblVal;
+	  VARIANT_BOOL boolVal;
+	  /* Removed due conflict with bool and gcc's inablity to express a macro expanding to a comment.
+	  _VARIANT_BOOL bool; */
+	  SCODE scode;
+	  CY cyVal;
+	  DATE date;
+	  BSTR bstrVal;
+	  IUnknown *punkVal;
+	  IDispatch *pdispVal;
+	  SAFEARRAY *parray;
+	  BYTE *pbVal;
+	  SHORT *piVal;
+	  LONG *plVal;
+	  LONGLONG *pllVal;
+	  FLOAT *pfltVal;
+	  DOUBLE *pdblVal;
+	  VARIANT_BOOL *pboolVal;
+	  /* Removed due conflict with bool and gcc's inablity to express a macro expanding to a comment.
+	  _VARIANT_BOOL *pbool; */
+	  SCODE *pscode;
+	  CY *pcyVal;
+	  DATE *pdate;
+	  BSTR *pbstrVal;
+	  IUnknown **ppunkVal;
+	  IDispatch **ppdispVal;
+	  SAFEARRAY **pparray;
+	  VARIANT *pvarVal;
+	  PVOID byref;
+	  CHAR cVal;
+	  USHORT uiVal;
+	  ULONG ulVal;
+	  ULONGLONG ullVal;
+	  INT intVal;
+	  UINT uintVal;
+	  DECIMAL *pdecVal;
+	  CHAR *pcVal;
+	  USHORT *puiVal;
+	  ULONG *pulVal;
+	  ULONGLONG *pullVal;
+	  INT *pintVal;
+	  UINT *puintVal;
+	  struct __tagBRECORD {
+	    PVOID pvRecord;
+	    IRecordInfo *pRecInfo;
+	  } __VARIANT_NAME_4;
+	} __VARIANT_NAME_3;
+      } __VARIANT_NAME_2;
+      DECIMAL decVal;
     } __VARIANT_NAME_1;
-};
+  };
 
-typedef VARIANT *LPVARIANT;
-typedef VARIANT VARIANTARG;
-typedef VARIANT *LPVARIANTARG;
+cpp_quote("")
+  typedef VARIANT *LPVARIANT;
+  typedef VARIANT VARIANTARG;
+  typedef VARIANT *LPVARIANTARG;
+  cpp_quote("#if 0")
+  typedef const VARIANT *REFVARIANT;
+  cpp_quote("#else")
+  cpp_quote("")
+  cpp_quote("#ifndef _REFVARIANT_DEFINED")
+  cpp_quote("#define _REFVARIANT_DEFINED")
+  cpp_quote("#ifdef __cplusplus")
+  cpp_quote("#define REFVARIANT const VARIANT &")
+  cpp_quote("#else")
+  cpp_quote("#define REFVARIANT const VARIANT * __MIDL_CONST")
+  cpp_quote("#endif")
+  cpp_quote("#endif")
+  cpp_quote("#endif")
 
-struct _wireBRECORD {
+cpp_quote("")
+  struct _wireBRECORD {
     ULONG fFlags;
     ULONG clSize;
     IRecordInfo *pRecInfo;
-    [size_is(clSize)] byte *pRecord;
-};
+    [size_is (clSize)] byte *pRecord;
+  };
 
-struct _wireVARIANT {
+cpp_quote("")
+  struct _wireVARIANT {
     DWORD clSize;
     DWORD rpcReserved;
     USHORT vt;
     USHORT wReserved1;
     USHORT wReserved2;
     USHORT wReserved3;
-    [switch_type(ULONG), switch_is(vt)] union {
-        [case(VT_I8)] LONGLONG llVal;
-        [case(VT_I4)] LONG lVal;
-        [case(VT_UI1)] BYTE bVal;
-        [case(VT_I2)] SHORT iVal;
-        [case(VT_R4)] FLOAT fltVal;
-        [case(VT_R8)] DOUBLE dblVal;
-        [case(VT_BOOL)] VARIANT_BOOL boolVal;
-        [case(VT_ERROR)] SCODE scode;
-        [case(VT_CY)] CY cyVal;
-        [case(VT_DATE)] DATE date;
-        [case(VT_BSTR)] wireBSTR bstrVal;
-        [case(VT_UNKNOWN)] IUnknown *punkVal;
-        [case(VT_DISPATCH)] IDispatch *pdispVal;
-        [case(VT_ARRAY)] wirePSAFEARRAY parray;
-        [case(VT_RECORD, VT_RECORD|VT_BYREF)] wireBRECORD brecVal;
-        [case(VT_UI1|VT_BYREF)] BYTE *pbVal;
-        [case(VT_I2|VT_BYREF)] SHORT *piVal;
-        [case(VT_I4|VT_BYREF)] LONG *plVal;
-        [case(VT_I8|VT_BYREF)] LONGLONG *pllVal;
-        [case(VT_R4|VT_BYREF)] FLOAT *pfltVal;
-        [case(VT_R8|VT_BYREF)] DOUBLE *pdblVal;
-        [case(VT_BOOL|VT_BYREF)] VARIANT_BOOL *pboolVal;
-        [case(VT_ERROR|VT_BYREF)] SCODE *pscode;
-        [case(VT_CY|VT_BYREF)] CY *pcyVal;
-        [case(VT_DATE|VT_BYREF)] DATE *pdate;
-        [case(VT_BSTR|VT_BYREF)] wireBSTR *pbstrVal;
-        [case(VT_UNKNOWN|VT_BYREF)] IUnknown **ppunkVal;
-        [case(VT_DISPATCH|VT_BYREF)] IDispatch **ppdispVal;
-        [case(VT_ARRAY|VT_BYREF)] wirePSAFEARRAY *pparray;
-        [case(VT_VARIANT|VT_BYREF)] wireVARIANT *pvarVal;
-        [case(VT_I1)] CHAR cVal;
-        [case(VT_UI2)] USHORT uiVal;
-        [case(VT_UI4)] ULONG ulVal;
-        [case(VT_UI8)] ULONGLONG ullVal;
-        [case(VT_INT)] INT intVal;
-        [case(VT_UINT)] UINT uintVal;
-        [case(VT_DECIMAL)] DECIMAL decVal;
-        [case(VT_DECIMAL|VT_BYREF)] DECIMAL *pdecVal;
-        [case(VT_I1|VT_BYREF)] CHAR *pcVal;
-        [case(VT_UI2|VT_BYREF)] USHORT *puiVal;
-        [case(VT_UI4|VT_BYREF)] ULONG *pulVal;
-        [case(VT_UI8|VT_BYREF)] ULONGLONG *pullVal;
-        [case(VT_INT|VT_BYREF)] INT *pintVal;
-        [case(VT_UINT|VT_BYREF)] UINT *puintVal;
-        [case(VT_EMPTY)] ;
-        [case(VT_NULL)] ;
-    } DUMMYUNIONNAME;
-};
+    [switch_type (ULONG), switch_is (vt)] union {
+      [case (VT_I8)] LONGLONG llVal;
+      [case (VT_I4)] LONG lVal;
+      [case (VT_UI1)] BYTE bVal;
+      [case (VT_I2)] SHORT iVal;
+      [case (VT_R4)] FLOAT fltVal;
+      [case (VT_R8)] DOUBLE dblVal;
+      [case (VT_BOOL)] VARIANT_BOOL boolVal;
+      [case (VT_ERROR)] SCODE scode;
+      [case (VT_CY)] CY cyVal;
+      [case (VT_DATE)] DATE date;
+      [case (VT_BSTR)] wireBSTR bstrVal;
+      [case (VT_UNKNOWN)] IUnknown *punkVal;
+      [case (VT_DISPATCH)] IDispatch *pdispVal;
+      [case (VT_ARRAY)] wirePSAFEARRAY parray;
+      [case (VT_RECORD, VT_RECORD|VT_BYREF)]
+      wireBRECORD brecVal;
+      [case (VT_UI1|VT_BYREF)]
+      BYTE *pbVal;
+      [case (VT_I2|VT_BYREF)]
+      SHORT *piVal;
+      [case (VT_I4|VT_BYREF)]
+      LONG *plVal;
+      [case (VT_I8|VT_BYREF)]
+      LONGLONG *pllVal;
+      [case (VT_R4|VT_BYREF)]
+      FLOAT *pfltVal;
+      [case (VT_R8|VT_BYREF)]
+      DOUBLE *pdblVal;
+      [case (VT_BOOL|VT_BYREF)]
+      VARIANT_BOOL *pboolVal;
+      [case (VT_ERROR|VT_BYREF)]
+      SCODE *pscode;
+      [case (VT_CY|VT_BYREF)]
+      CY *pcyVal;
+      [case (VT_DATE|VT_BYREF)]
+      DATE *pdate;
+      [case (VT_BSTR|VT_BYREF)]
+      wireBSTR *pbstrVal;
+      [case (VT_UNKNOWN|VT_BYREF)]
+      IUnknown **ppunkVal;
+      [case (VT_DISPATCH|VT_BYREF)]
+      IDispatch **ppdispVal;
+      [case (VT_ARRAY|VT_BYREF)]
+      wirePSAFEARRAY *pparray;
+      [case (VT_VARIANT|VT_BYREF)]
+      wireVARIANT *pvarVal;
+      [case (VT_I1)] CHAR cVal;
+      [case (VT_UI2)] USHORT uiVal;
+      [case (VT_UI4)] ULONG ulVal;
+      [case (VT_UI8)] ULONGLONG ullVal;
+      [case (VT_INT)] INT intVal;
+      [case (VT_UINT)] UINT uintVal;
+      [case (VT_DECIMAL)] DECIMAL decVal;
+      [case (VT_BYREF|VT_DECIMAL)]
+      DECIMAL *pdecVal;
+      [case (VT_BYREF|VT_I1)]
+      CHAR *pcVal;
+      [case (VT_BYREF|VT_UI2)]
+      USHORT *puiVal;
+      [case (VT_BYREF|VT_UI4)]
+      ULONG *pulVal;
+      [case (VT_BYREF|VT_UI8)]
+      ULONGLONG *pullVal;
+      [case (VT_BYREF|VT_INT)]
+      INT *pintVal;
+      [case (VT_BYREF|VT_UINT)]
+      UINT *puintVal;
+      [case (VT_EMPTY)];
+      [case (VT_NULL)];
+    };
+  };
 
-cpp_quote("#ifndef DEFINED_DISPID_MEMBERID")
-cpp_quote("#define DEFINED_DISPID_MEMBERID")
-typedef LONG DISPID;
-typedef DISPID MEMBERID;
-typedef DWORD HREFTYPE;
-cpp_quote("#endif")
-
-typedef [v1_enum] enum tagTYPEKIND {
+cpp_quote("")
+  typedef LONG DISPID;
+  typedef DISPID MEMBERID;
+  typedef DWORD HREFTYPE;
+  typedef [v1_enum] enum tagTYPEKIND {
     TKIND_ENUM = 0,
     TKIND_RECORD,
     TKIND_MODULE,
@@ -342,74 +357,79 @@ typedef [v1_enum] enum tagTYPEKIND {
     TKIND_ALIAS,
     TKIND_UNION,
     TKIND_MAX
-} TYPEKIND;
+  } TYPEKIND;
 
-typedef struct tagTYPEDESC {
-    [switch_type(VARTYPE), switch_is(vt)] union {
-        [case(VT_PTR, VT_SAFEARRAY)] struct tagTYPEDESC *lptdesc;
-        [case(VT_CARRAY)] struct tagARRAYDESC *lpadesc;
-        [case(VT_USERDEFINED)] HREFTYPE hreftype;
-        [default] ;
-    } DUMMYUNIONNAME;
+cpp_quote("")
+  typedef struct tagTYPEDESC {
+    [switch_type (VARTYPE), switch_is (vt)] union {
+      [case (VT_PTR, VT_SAFEARRAY)] struct tagTYPEDESC *lptdesc;
+      [case (VT_CARRAY)] struct tagARRAYDESC *lpadesc;
+      [case (VT_USERDEFINED)] HREFTYPE hreftype;
+      [default];
+    };
     VARTYPE vt;
-} TYPEDESC;
+  } TYPEDESC;
 
-typedef struct tagARRAYDESC {
+cpp_quote("")
+  typedef struct tagARRAYDESC {
     TYPEDESC tdescElem;
     USHORT cDims;
-    [size_is(cDims)] SAFEARRAYBOUND rgbounds[];
-} ARRAYDESC;
+    [size_is (cDims)] SAFEARRAYBOUND rgbounds[];
+  } ARRAYDESC;
 
-typedef struct tagPARAMDESCEX {
+cpp_quote("")
+  typedef struct tagPARAMDESCEX {
     ULONG cBytes;
     VARIANTARG varDefaultValue;
-} PARAMDESCEX, *LPPARAMDESCEX;
+  } PARAMDESCEX,*LPPARAMDESCEX;
 
-typedef struct tagPARAMDESC {
+cpp_quote("")
+  typedef struct tagPARAMDESC {
     LPPARAMDESCEX pparamdescex;
     USHORT wParamFlags;
-} PARAMDESC, *LPPARAMDESC;
+  } PARAMDESC,*LPPARAMDESC;
 
-const USHORT PARAMFLAG_NONE = 0;
-const USHORT PARAMFLAG_FIN = 0x1;
-const USHORT PARAMFLAG_FOUT = 0x2;
-const USHORT PARAMFLAG_FLCID = 0x4;
-const USHORT PARAMFLAG_FRETVAL = 0x8;
-const USHORT PARAMFLAG_FOPT = 0x10;
-const USHORT PARAMFLAG_FHASDEFAULT = 0x20;
-const USHORT PARAMFLAG_FHASCUSTDATA = 0x40;
+cpp_quote("")
+  const USHORT PARAMFLAG_NONE = 0x00;
+  const USHORT PARAMFLAG_FIN = 0x01;
+  const USHORT PARAMFLAG_FOUT = 0x02;
+  const USHORT PARAMFLAG_FLCID = 0x04;
+  const USHORT PARAMFLAG_FRETVAL = 0x08;
+  const USHORT PARAMFLAG_FOPT = 0x10;
+  const USHORT PARAMFLAG_FHASDEFAULT = 0x20;
+  const USHORT PARAMFLAG_FHASCUSTDATA = 0x40;
 
-typedef struct tagIDLDESC {
+cpp_quote("")
+  typedef struct tagIDLDESC {
     ULONG_PTR dwReserved;
     USHORT wIDLFlags;
-} IDLDESC, *LPIDLDESC;
+  } IDLDESC,*LPIDLDESC;
 
-const USHORT IDLFLAG_NONE = PARAMFLAG_NONE;
-const USHORT IDLFLAG_FIN = PARAMFLAG_FIN;
-const USHORT IDLFLAG_FOUT = PARAMFLAG_FOUT;
-const USHORT IDLFLAG_FLCID = PARAMFLAG_FLCID;
-const USHORT IDLFLAG_FRETVAL = PARAMFLAG_FRETVAL;
-
-cpp_quote("#if 0")
-
-typedef struct tagELEMDESC {
+cpp_quote("")
+  const USHORT IDLFLAG_NONE = PARAMFLAG_NONE;
+  const USHORT IDLFLAG_FIN = PARAMFLAG_FIN;
+  const USHORT IDLFLAG_FOUT = PARAMFLAG_FOUT;
+  const USHORT IDLFLAG_FLCID = PARAMFLAG_FLCID;
+  const USHORT IDLFLAG_FRETVAL = PARAMFLAG_FRETVAL;
+  cpp_quote("")
+  cpp_quote("#if 0")
+  typedef struct tagELEMDESC {
     TYPEDESC tdesc;
     PARAMDESC paramdesc;
-} ELEMDESC;
+  } ELEMDESC;
+  cpp_quote("#else")
+  cpp_quote("")
+  cpp_quote("  typedef struct tagELEMDESC {")
+  cpp_quote("    TYPEDESC tdesc;")
+  cpp_quote("    __C89_NAMELESS union {")
+  cpp_quote("      IDLDESC idldesc;")
+  cpp_quote("      PARAMDESC paramdesc;")
+  cpp_quote("    } DUMMYUNIONNAME;")
+  cpp_quote("  } ELEMDESC,*LPELEMDESC;")
+  cpp_quote("#endif")
 
-cpp_quote("#else")
-
-cpp_quote("  typedef struct tagELEMDESC {")
-cpp_quote("    TYPEDESC tdesc;")
-cpp_quote("    __C89_NAMELESS union {")
-cpp_quote("      IDLDESC idldesc;")
-cpp_quote("      PARAMDESC paramdesc;")
-cpp_quote("    } DUMMYUNIONNAME;")
-cpp_quote("  } ELEMDESC,*LPELEMDESC;")
-
-cpp_quote("#endif")
-
-typedef struct tagTYPEATTR {
+cpp_quote("")
+  typedef struct tagTYPEATTR {
     GUID guid;
     LCID lcid;
     DWORD dwReserved;
@@ -428,18 +448,18 @@ typedef struct tagTYPEATTR {
     WORD wMinorVerNum;
     TYPEDESC tdescAlias;
     IDLDESC idldescType;
-} TYPEATTR, *LPTYPEATTR;
+  } TYPEATTR,*LPTYPEATTR;
 
-typedef struct tagDISPPARAMS {
-    [size_is(cArgs)] VARIANTARG *rgvarg;
-    [size_is(cNamedArgs)] DISPID *rgdispidNamedArgs;
+cpp_quote("")
+  typedef struct tagDISPPARAMS {
+    [size_is (cArgs)] VARIANTARG *rgvarg;
+    [size_is (cNamedArgs)] DISPID *rgdispidNamedArgs;
     UINT cArgs;
     UINT cNamedArgs;
-} DISPPARAMS;
-
-cpp_quote("#if 0")
-
-typedef struct tagEXCEPINFO {
+  } DISPPARAMS;
+  cpp_quote("")
+  cpp_quote("#if 0")
+  typedef struct tagEXCEPINFO {
     WORD wCode;
     WORD wReserved;
     BSTR bstrSource;
@@ -449,57 +469,58 @@ typedef struct tagEXCEPINFO {
     ULONG_PTR pvReserved;
     ULONG_PTR pfnDeferredFillIn;
     SCODE scode;
-} EXCEPINFO;
+  } EXCEPINFO;
+  cpp_quote("#else")
+  cpp_quote("  typedef struct tagEXCEPINFO {")
+  cpp_quote("    WORD wCode;")
+  cpp_quote("    WORD wReserved;")
+  cpp_quote("    BSTR bstrSource;")
+  cpp_quote("    BSTR bstrDescription;")
+  cpp_quote("    BSTR bstrHelpFile;")
+  cpp_quote("    DWORD dwHelpContext;")
+  cpp_quote("    PVOID pvReserved;")
+  cpp_quote("    HRESULT (__stdcall *pfnDeferredFillIn)(struct tagEXCEPINFO *);")
+  cpp_quote("    SCODE scode;")
+  cpp_quote("  } EXCEPINFO, *LPEXCEPINFO;")
+  cpp_quote("#endif")
 
-cpp_quote("#else")
-
-cpp_quote("typedef struct tagEXCEPINFO {")
-cpp_quote("    WORD wCode;")
-cpp_quote("    WORD wReserved;")
-cpp_quote("    BSTR bstrSource;")
-cpp_quote("    BSTR bstrDescription;")
-cpp_quote("    BSTR bstrHelpFile;")
-cpp_quote("    DWORD dwHelpContext;")
-cpp_quote("    PVOID pvReserved;")
-cpp_quote("    HRESULT (WINAPI *pfnDeferredFillIn)(struct tagEXCEPINFO *);")
-cpp_quote("    SCODE scode;")
-cpp_quote("} EXCEPINFO,*LPEXCEPINFO;")
-
-cpp_quote("#endif")
-
-typedef [v1_enum] enum tagCALLCONV {
+cpp_quote("")
+  typedef [v1_enum] enum tagCALLCONV {
     CC_FASTCALL = 0,
     CC_CDECL = 1,
-    CC_MSCPASCAL = 2,
+    CC_MSCPASCAL,
     CC_PASCAL = CC_MSCPASCAL,
-    CC_MACPASCAL = 3,
-    CC_STDCALL = 4,
-    CC_FPFASTCALL = 5,
-    CC_SYSCALL = 6,
-    CC_MPWCDECL = 7,
-    CC_MPWPASCAL = 8,
-    CC_MAX = 9
-} CALLCONV;
+    CC_MACPASCAL,
+    CC_STDCALL,
+    CC_FPFASTCALL,
+    CC_SYSCALL,
+    CC_MPWCDECL,
+    CC_MPWPASCAL,
+    CC_MAX
+  } CALLCONV;
 
-typedef [v1_enum] enum tagFUNCKIND {
+cpp_quote("")
+  typedef [v1_enum] enum tagFUNCKIND {
     FUNC_VIRTUAL,
     FUNC_PUREVIRTUAL,
     FUNC_NONVIRTUAL,
     FUNC_STATIC,
     FUNC_DISPATCH
-} FUNCKIND;
+  } FUNCKIND;
 
-typedef [v1_enum] enum tagINVOKEKIND {
+cpp_quote("")
+  typedef [v1_enum] enum tagINVOKEKIND {
     INVOKE_FUNC = 1,
     INVOKE_PROPERTYGET = 2,
     INVOKE_PROPERTYPUT = 4,
     INVOKE_PROPERTYPUTREF = 8
-} INVOKEKIND;
+  } INVOKEKIND;
 
-typedef struct tagFUNCDESC {
+cpp_quote("")
+  typedef struct tagFUNCDESC {
     MEMBERID memid;
-    [size_is(cScodes)] SCODE *lprgscode;
-    [size_is(cParams)] ELEMDESC *lprgelemdescParam;
+    [size_is (cScodes)] SCODE *lprgscode;
+    [size_is (cParams)] ELEMDESC *lprgelemdescParam;
     FUNCKIND funckind;
     INVOKEKIND invkind;
     CALLCONV callconv;
@@ -509,1409 +530,479 @@ typedef struct tagFUNCDESC {
     SHORT cScodes;
     ELEMDESC elemdescFunc;
     WORD wFuncFlags;
-} FUNCDESC, *LPFUNCDESC;
+  } FUNCDESC,*LPFUNCDESC;
 
-typedef [v1_enum] enum tagVARKIND {
+cpp_quote("")
+  typedef [v1_enum] enum tagVARKIND {
     VAR_PERINSTANCE,
     VAR_STATIC,
     VAR_CONST,
     VAR_DISPATCH
-} VARKIND;
+  } VARKIND;
 
-const USHORT IMPLTYPEFLAG_FDEFAULT = 0x1;
-const USHORT IMPLTYPEFLAG_FSOURCE = 0x2;
-const USHORT IMPLTYPEFLAG_FRESTRICTED = 0x4;
-const USHORT IMPLTYPEFLAG_FDEFAULTVTABLE = 0x8;
+cpp_quote("")
+  const USHORT IMPLTYPEFLAG_FDEFAULT = 0x1;
+  const USHORT IMPLTYPEFLAG_FSOURCE = 0x2;
+  const USHORT IMPLTYPEFLAG_FRESTRICTED = 0x4;
+  const USHORT IMPLTYPEFLAG_FDEFAULTVTABLE= 0x8;
 
-typedef struct tagVARDESC {
+cpp_quote("")
+  typedef struct tagVARDESC {
     MEMBERID memid;
     LPOLESTR lpstrSchema;
-    [switch_type(VARKIND), switch_is(varkind)] union {
-        [case(VAR_PERINSTANCE, VAR_DISPATCH, VAR_STATIC)] ULONG oInst;
-        [case(VAR_CONST)] VARIANT *lpvarValue;
-    } DUMMYUNIONNAME;
+    [switch_type (VARKIND), switch_is (varkind)] union {
+      [case (VAR_PERINSTANCE, VAR_DISPATCH, VAR_STATIC)] ULONG oInst;
+      [case (VAR_CONST)] VARIANT *lpvarValue;
+    };
     ELEMDESC elemdescVar;
     WORD wVarFlags;
     VARKIND varkind;
-} VARDESC, *LPVARDESC;
+  } VARDESC,*LPVARDESC;
 
-cpp_quote("  typedef enum tagTYPEFLAGS {")
-cpp_quote("    TYPEFLAG_FAPPOBJECT = 0x1,TYPEFLAG_FCANCREATE = 0x2,TYPEFLAG_FLICENSED = 0x4,")
-cpp_quote("    TYPEFLAG_FPREDECLID = 0x8,TYPEFLAG_FHIDDEN = 0x10,")
-cpp_quote("    TYPEFLAG_FCONTROL = 0x20,TYPEFLAG_FDUAL = 0x40,TYPEFLAG_FNONEXTENSIBLE = 0x80,")
-cpp_quote("    TYPEFLAG_FOLEAUTOMATION = 0x100,TYPEFLAG_FRESTRICTED = 0x200,")
-cpp_quote("    TYPEFLAG_FAGGREGATABLE = 0x400,TYPEFLAG_FREPLACEABLE = 0x800,")
-cpp_quote("    TYPEFLAG_FDISPATCHABLE = 0x1000,TYPEFLAG_FREVERSEBIND = 0x2000,")
-cpp_quote("    TYPEFLAG_FPROXY = 0x4000")
-cpp_quote("  } TYPEFLAGS;")
 cpp_quote("")
-cpp_quote("  typedef enum tagFUNCFLAGS {")
-cpp_quote("    FUNCFLAG_FRESTRICTED = 0x1,FUNCFLAG_FSOURCE = 0x2,FUNCFLAG_FBINDABLE = 0x4,")
-cpp_quote("    FUNCFLAG_FREQUESTEDIT = 0x8,FUNCFLAG_FDISPLAYBIND = 0x10,")
-cpp_quote("    FUNCFLAG_FDEFAULTBIND = 0x20,FUNCFLAG_FHIDDEN = 0x40,")
-cpp_quote("    FUNCFLAG_FUSESGETLASTERROR = 0x80,FUNCFLAG_FDEFAULTCOLLELEM = 0x100,")
-cpp_quote("    FUNCFLAG_FUIDEFAULT = 0x200,")
-cpp_quote("    FUNCFLAG_FNONBROWSABLE = 0x400,FUNCFLAG_FREPLACEABLE = 0x800,")
-cpp_quote("    FUNCFLAG_FIMMEDIATEBIND = 0x1000")
-cpp_quote("  } FUNCFLAGS;")
-cpp_quote("")
-cpp_quote("  typedef enum tagVARFLAGS {")
-cpp_quote("    VARFLAG_FREADONLY = 0x1,VARFLAG_FSOURCE = 0x2,VARFLAG_FBINDABLE = 0x4,")
-cpp_quote("    VARFLAG_FREQUESTEDIT = 0x8,VARFLAG_FDISPLAYBIND = 0x10,")
-cpp_quote("    VARFLAG_FDEFAULTBIND = 0x20,VARFLAG_FHIDDEN = 0x40,VARFLAG_FRESTRICTED = 0x80,")
-cpp_quote("    VARFLAG_FDEFAULTCOLLELEM = 0x100,VARFLAG_FUIDEFAULT = 0x200,")
-cpp_quote("    VARFLAG_FNONBROWSABLE = 0x400,VARFLAG_FREPLACEABLE = 0x800,VARFLAG_FIMMEDIATEBIND = 0x1000")
-cpp_quote("  } VARFLAGS;")
+ typedef enum tagTYPEFLAGS {
+    TYPEFLAG_FAPPOBJECT = 0x01,
+    TYPEFLAG_FCANCREATE = 0x02,
+    TYPEFLAG_FLICENSED = 0x04,
+    TYPEFLAG_FPREDECLID = 0x08,
+    TYPEFLAG_FHIDDEN = 0x10,
+    TYPEFLAG_FCONTROL = 0x20,
+    TYPEFLAG_FDUAL = 0x40,
+    TYPEFLAG_FNONEXTENSIBLE = 0x80,
+    TYPEFLAG_FOLEAUTOMATION = 0x100,
+    TYPEFLAG_FRESTRICTED = 0x200,
+    TYPEFLAG_FAGGREGATABLE = 0x400,
+    TYPEFLAG_FREPLACEABLE = 0x800,
+    TYPEFLAG_FDISPATCHABLE = 0x1000,
+    TYPEFLAG_FREVERSEBIND = 0x2000,
+    TYPEFLAG_FPROXY = 0x4000
+  } TYPEFLAGS;
 
-typedef [wire_marshal(DWORD)] struct tagCLEANLOCALSTORAGE {
+cpp_quote("")
+  typedef enum tagFUNCFLAGS {
+    FUNCFLAG_FRESTRICTED = 0x1,
+    FUNCFLAG_FSOURCE = 0x2,
+    FUNCFLAG_FBINDABLE = 0x4,
+    FUNCFLAG_FREQUESTEDIT = 0x8,
+    FUNCFLAG_FDISPLAYBIND = 0x10,
+    FUNCFLAG_FDEFAULTBIND = 0x20,
+    FUNCFLAG_FHIDDEN = 0x40,
+    FUNCFLAG_FUSESGETLASTERROR = 0x80,
+    FUNCFLAG_FDEFAULTCOLLELEM = 0x100,
+    FUNCFLAG_FUIDEFAULT = 0x200,
+    FUNCFLAG_FNONBROWSABLE = 0x400,
+    FUNCFLAG_FREPLACEABLE = 0x800,
+    FUNCFLAG_FIMMEDIATEBIND = 0x1000
+  } FUNCFLAGS;
+
+cpp_quote("")
+  typedef enum tagVARFLAGS {
+    VARFLAG_FREADONLY = 0x1,
+    VARFLAG_FSOURCE = 0x2,
+    VARFLAG_FBINDABLE = 0x4,
+    VARFLAG_FREQUESTEDIT = 0x8,
+    VARFLAG_FDISPLAYBIND = 0x10,
+    VARFLAG_FDEFAULTBIND = 0x20,
+    VARFLAG_FHIDDEN = 0x40,
+    VARFLAG_FRESTRICTED = 0x80,
+    VARFLAG_FDEFAULTCOLLELEM = 0x100,
+    VARFLAG_FUIDEFAULT = 0x200,
+    VARFLAG_FNONBROWSABLE = 0x400,
+    VARFLAG_FREPLACEABLE = 0x800,
+    VARFLAG_FIMMEDIATEBIND = 0x1000
+  } VARFLAGS;
+
+cpp_quote("")
+  typedef [wire_marshal (DWORD)] struct tagCLEANLOCALSTORAGE {
     IUnknown *pInterface;
     PVOID pStorage;
     DWORD flags;
-} CLEANLOCALSTORAGE;
+  } CLEANLOCALSTORAGE;
 
-cpp_quote("  typedef struct tagCUSTDATAITEM {")
-cpp_quote("    GUID guid;")
-cpp_quote("    VARIANTARG varValue;")
-cpp_quote("  } CUSTDATAITEM;")
 cpp_quote("")
-cpp_quote("  typedef struct tagCUSTDATAITEM *LPCUSTDATAITEM;")
-cpp_quote("")
-cpp_quote("  typedef struct tagCUSTDATA {")
-cpp_quote("    DWORD cCustData;")
-cpp_quote("    LPCUSTDATAITEM prgCustData;")
-cpp_quote("  } CUSTDATA;")
-cpp_quote("")
-cpp_quote("  typedef struct tagCUSTDATA *LPCUSTDATA;")
+  typedef struct tagCUSTDATAITEM {
+    GUID guid;
+    VARIANTARG varValue;
+  } CUSTDATAITEM,*LPCUSTDATAITEM;
 
+cpp_quote("")
+  typedef struct tagCUSTDATA {
+    DWORD cCustData;
+    [size_is (cCustData)] LPCUSTDATAITEM prgCustData;
+  } CUSTDATA,*LPCUSTDATA;
+}
+cpp_quote("#endif")
+cpp_quote("")
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+[object, uuid (00020405-0000-0000-C000-000000000046), pointer_default (unique), local]
+interface ICreateTypeInfo: IUnknown {
+  typedef [unique] ICreateTypeInfo *LPCREATETYPEINFO;
+cpp_quote("")
+  HRESULT SetGuid ([in] REFGUID guid);
+  HRESULT SetTypeFlags ([in] UINT uTypeFlags);
+  HRESULT SetDocString ([in] LPOLESTR pStrDoc);
+  HRESULT SetHelpContext ([in] DWORD dwHelpContext);
+  HRESULT SetVersion ([in] WORD wMajorVerNum,[in] WORD wMinorVerNum);
+  HRESULT AddRefTypeInfo ([in] ITypeInfo *pTInfo,[in] HREFTYPE *phRefType);
+  HRESULT AddFuncDesc ([in] UINT index,[in] FUNCDESC *pFuncDesc);
+  HRESULT AddImplType ([in] UINT index,[in] HREFTYPE hRefType);
+  HRESULT SetImplTypeFlags ([in] UINT index,[in] INT implTypeFlags);
+  HRESULT SetAlignment ([in] WORD cbAlignment);
+  HRESULT SetSchema ([in] LPOLESTR pStrSchema);
+  HRESULT AddVarDesc ([in] UINT index,[in] VARDESC *pVarDesc);
+  HRESULT SetFuncAndParamNames ([in] UINT index,[in, size_is ((UINT) cNames)] LPOLESTR *rgszNames,[in] UINT cNames);
+  HRESULT SetVarName ([in] UINT index,[in] LPOLESTR szName);
+  HRESULT SetTypeDescAlias ([in] TYPEDESC *pTDescAlias);
+  HRESULT DefineFuncAsDllEntry ([in] UINT index,[in] LPOLESTR szDllName,[in] LPOLESTR szProcName);
+  HRESULT SetFuncDocString ([in] UINT index,[in] LPOLESTR szDocString);
+  HRESULT SetVarDocString ([in] UINT index,[in] LPOLESTR szDocString);
+  HRESULT SetFuncHelpContext ([in] UINT index,[in] DWORD dwHelpContext);
+  HRESULT SetVarHelpContext ([in] UINT index,[in] DWORD dwHelpContext);
+  HRESULT SetMops ([in] UINT index,[in] BSTR bstrMops);
+  HRESULT SetTypeIdldesc ([in] IDLDESC *pIdlDesc);
+  HRESULT LayOut (void);
 }
 
-[
-    local,
-    object,
-    uuid(00020405-0000-0000-c000-000000000046),
-    pointer_default(unique)
-]
-interface ICreateTypeInfo : IUnknown
-{
-    typedef [unique] ICreateTypeInfo *LPCREATETYPEINFO;
-
-    HRESULT SetGuid([in] REFGUID guid);
-    HRESULT SetTypeFlags([in] UINT uTypeFlags);
-    HRESULT SetDocString([in] LPOLESTR pStrDoc);
-    HRESULT SetHelpContext([in] DWORD dwHelpContext);
-    HRESULT SetVersion([in] WORD wMajorVerNum, [in] WORD wMinorVerNum);
-    HRESULT AddRefTypeInfo([in] ITypeInfo *pTInfo, [in] HREFTYPE *phRefType);
-    HRESULT AddFuncDesc([in] UINT index, [in] FUNCDESC *pFuncDesc);
-    HRESULT AddImplType([in] UINT index, [in] HREFTYPE hRefType);
-    HRESULT SetImplTypeFlags([in] UINT index, [in] INT implTypeFlags);
-    HRESULT SetAlignment([in] WORD cbAlignment);
-    HRESULT SetSchema([in] LPOLESTR pStrSchema);
-    HRESULT AddVarDesc([in] UINT index, [in] VARDESC *pVarDesc);
-
-    HRESULT SetFuncAndParamNames(
-            [in] UINT index,
-            [in, size_is(cNames)] LPOLESTR *rgszNames,
-            [in] UINT cNames);
-
-    HRESULT SetVarName([in] UINT index, [in] LPOLESTR szName);
-    HRESULT SetTypeDescAlias([in] TYPEDESC *pTDescAlias);
-
-    HRESULT DefineFuncAsDllEntry(
-            [in] UINT index,
-            [in] LPOLESTR szDllName,
-            [in] LPOLESTR szProcName);
-
-    HRESULT SetFuncDocString([in] UINT index, [in] LPOLESTR szDocString);
-    HRESULT SetVarDocString([in] UINT index, [in] LPOLESTR szDocString);
-    HRESULT SetFuncHelpContext([in] UINT index, [in] DWORD dwHelpContext);
-    HRESULT SetVarHelpContext([in] UINT index, [in] DWORD dwHelpContext);
-    HRESULT SetMops([in] UINT index, [in] BSTR bstrMops);
-    HRESULT SetTypeIdldesc([in] IDLDESC *pIdlDesc);
-    HRESULT LayOut();
+cpp_quote("")
+[object, uuid (0002040e-0000-0000-C000-000000000046), pointer_default (unique), local]
+interface ICreateTypeInfo2: ICreateTypeInfo {
+  typedef [unique] ICreateTypeInfo2 *LPCREATETYPEINFO2;
+cpp_quote("")
+  HRESULT DeleteFuncDesc ([in] UINT index);
+  HRESULT DeleteFuncDescByMemId ([in] MEMBERID memid,[in] INVOKEKIND invKind);
+  HRESULT DeleteVarDesc ([in] UINT index);
+  HRESULT DeleteVarDescByMemId ([in] MEMBERID memid);
+  HRESULT DeleteImplType ([in] UINT index);
+  HRESULT SetCustData ([in] REFGUID guid,[in] VARIANT *pVarVal);
+  HRESULT SetFuncCustData ([in] UINT index,[in] REFGUID guid,[in] VARIANT *pVarVal);
+  HRESULT SetParamCustData ([in] UINT indexFunc,[in] UINT indexParam,[in] REFGUID guid,[in] VARIANT *pVarVal);
+  HRESULT SetVarCustData ([in] UINT index,[in] REFGUID guid,[in] VARIANT *pVarVal);
+  HRESULT SetImplTypeCustData ([in] UINT index,[in] REFGUID guid,[in] VARIANT *pVarVal);
+  HRESULT SetHelpStringContext ([in] ULONG dwHelpStringContext);
+  HRESULT SetFuncHelpStringContext ([in] UINT index,[in] ULONG dwHelpStringContext);
+  HRESULT SetVarHelpStringContext ([in] UINT index,[in] ULONG dwHelpStringContext);
+  HRESULT Invalidate (void);
+  HRESULT SetName ([in] LPOLESTR szName);
+}
+cpp_quote("")
+[object, uuid (00020406-0000-0000-C000-000000000046), pointer_default (unique), local]
+interface ICreateTypeLib : IUnknown {
+  typedef [unique] ICreateTypeLib *LPCREATETYPELIB;
+cpp_quote("")
+  HRESULT CreateTypeInfo ([in] LPOLESTR szName,[in] TYPEKIND tkind,[out] ICreateTypeInfo **ppCTInfo);
+  HRESULT SetName ([in] LPOLESTR szName);
+  HRESULT SetVersion ([in] WORD wMajorVerNum,[in] WORD wMinorVerNum);
+  HRESULT SetGuid ([in] REFGUID guid);
+  HRESULT SetDocString ([in] LPOLESTR szDoc);
+  HRESULT SetHelpFileName ([in] LPOLESTR szHelpFileName);
+  HRESULT SetHelpContext ([in] DWORD dwHelpContext);
+  HRESULT SetLcid ([in] LCID lcid);
+  HRESULT SetLibFlags ([in] UINT uLibFlags);
+  HRESULT SaveAllChanges (void);
+}
+cpp_quote("")
+[object, uuid (0002040f-0000-0000-C000-000000000046), pointer_default (unique), local]
+interface ICreateTypeLib2 : ICreateTypeLib {
+  typedef [unique] ICreateTypeLib2 *LPCREATETYPELIB2;
+  HRESULT DeleteTypeInfo ([in] LPOLESTR szName);
+  HRESULT SetCustData ([in] REFGUID guid,[in] VARIANT *pVarVal);
+  HRESULT SetHelpStringContext ([in] ULONG dwHelpStringContext);
+  HRESULT SetHelpStringDll ([in] LPOLESTR szFileName);
+}
+cpp_quote("#endif")
+cpp_quote("")
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+[object, uuid (00020400-0000-0000-C000-000000000046), pointer_default (unique)]
+interface IDispatch : IUnknown {
+  typedef [unique] IDispatch *LPDISPATCH;
+cpp_quote("")
+  HRESULT GetTypeInfoCount ([out] UINT *pctinfo);
+  HRESULT GetTypeInfo ([in] UINT iTInfo,[in] LCID lcid,[out] ITypeInfo **ppTInfo);
+  HRESULT GetIDsOfNames ([in] REFIID riid,[in, size_is (cNames)] LPOLESTR *rgszNames,[in, range (0, 16384)] UINT cNames,[in] LCID lcid,[out, size_is (cNames)] DISPID *rgDispId);
+  [local] HRESULT Invoke ([in] DISPID dispIdMember,[in] REFIID riid,[in] LCID lcid,[in] WORD wFlags,[in, out] DISPPARAMS *pDispParams,[out] VARIANT *pVarResult,[out] EXCEPINFO *pExcepInfo,[out] UINT *puArgErr);
+  [call_as (Invoke)] HRESULT RemoteInvoke ([in] DISPID dispIdMember,[in] REFIID riid,[in] LCID lcid,[in] DWORD dwFlags,[in] DISPPARAMS *pDispParams,[out] VARIANT *pVarResult,[out] EXCEPINFO *pExcepInfo,[out] UINT *pArgErr,[in] UINT cVarRef,[in, size_is (cVarRef)] UINT *rgVarRefIdx,[in, out, size_is (cVarRef)] VARIANTARG *rgVarRef);
+  cpp_quote("")
+  const DISPID DISPID_UNKNOWN = -1;
+  const DISPID DISPID_VALUE = 0;
+  const DISPID DISPID_PROPERTYPUT = -3;
+  const DISPID DISPID_NEWENUM = -4;
+  const DISPID DISPID_EVALUATE = -5;
+  const DISPID DISPID_CONSTRUCTOR = -6;
+  const DISPID DISPID_DESTRUCTOR = -7;
+  const DISPID DISPID_COLLECT = -8;
+  cpp_quote("")
 }
 
-cpp_quote("#ifndef __ICreateTypeInfo2_INTERFACE_DEFINED__")
-cpp_quote("#define __ICreateTypeInfo2_INTERFACE_DEFINED__")
-cpp_quote("  typedef ICreateTypeInfo2 *LPCREATETYPEINFO2;")
 cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_ICreateTypeInfo2;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct ICreateTypeInfo2 : public ICreateTypeInfo {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI DeleteFuncDesc(UINT index) = 0;")
-cpp_quote("    virtual HRESULT WINAPI DeleteFuncDescByMemId(MEMBERID memid,INVOKEKIND invKind) = 0;")
-cpp_quote("    virtual HRESULT WINAPI DeleteVarDesc(UINT index) = 0;")
-cpp_quote("    virtual HRESULT WINAPI DeleteVarDescByMemId(MEMBERID memid) = 0;")
-cpp_quote("    virtual HRESULT WINAPI DeleteImplType(UINT index) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetCustData(REFGUID guid,VARIANT *pVarVal) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetFuncCustData(UINT index,REFGUID guid,VARIANT *pVarVal) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetParamCustData(UINT indexFunc,UINT indexParam,REFGUID guid,VARIANT *pVarVal) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetVarCustData(UINT index,REFGUID guid,VARIANT *pVarVal) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetImplTypeCustData(UINT index,REFGUID guid,VARIANT *pVarVal) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetHelpStringContext(ULONG dwHelpStringContext) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetFuncHelpStringContext(UINT index,ULONG dwHelpStringContext) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetVarHelpStringContext(UINT index,ULONG dwHelpStringContext) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Invalidate(void) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetName(LPOLESTR szName) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct ICreateTypeInfo2Vtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(ICreateTypeInfo2 *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(ICreateTypeInfo2 *This);")
-cpp_quote("      ULONG (WINAPI *Release)(ICreateTypeInfo2 *This);")
-cpp_quote("      HRESULT (WINAPI *SetGuid)(ICreateTypeInfo2 *This,REFGUID guid);")
-cpp_quote("      HRESULT (WINAPI *SetTypeFlags)(ICreateTypeInfo2 *This,UINT uTypeFlags);")
-cpp_quote("      HRESULT (WINAPI *SetDocString)(ICreateTypeInfo2 *This,LPOLESTR pStrDoc);")
-cpp_quote("      HRESULT (WINAPI *SetHelpContext)(ICreateTypeInfo2 *This,DWORD dwHelpContext);")
-cpp_quote("      HRESULT (WINAPI *SetVersion)(ICreateTypeInfo2 *This,WORD wMajorVerNum,WORD wMinorVerNum);")
-cpp_quote("      HRESULT (WINAPI *AddRefTypeInfo)(ICreateTypeInfo2 *This,ITypeInfo *pTInfo,HREFTYPE *phRefType);")
-cpp_quote("      HRESULT (WINAPI *AddFuncDesc)(ICreateTypeInfo2 *This,UINT index,FUNCDESC *pFuncDesc);")
-cpp_quote("      HRESULT (WINAPI *AddImplType)(ICreateTypeInfo2 *This,UINT index,HREFTYPE hRefType);")
-cpp_quote("      HRESULT (WINAPI *SetImplTypeFlags)(ICreateTypeInfo2 *This,UINT index,INT implTypeFlags);")
-cpp_quote("      HRESULT (WINAPI *SetAlignment)(ICreateTypeInfo2 *This,WORD cbAlignment);")
-cpp_quote("      HRESULT (WINAPI *SetSchema)(ICreateTypeInfo2 *This,LPOLESTR pStrSchema);")
-cpp_quote("      HRESULT (WINAPI *AddVarDesc)(ICreateTypeInfo2 *This,UINT index,VARDESC *pVarDesc);")
-cpp_quote("      HRESULT (WINAPI *SetFuncAndParamNames)(ICreateTypeInfo2 *This,UINT index,LPOLESTR *rgszNames,UINT cNames);")
-cpp_quote("      HRESULT (WINAPI *SetVarName)(ICreateTypeInfo2 *This,UINT index,LPOLESTR szName);")
-cpp_quote("      HRESULT (WINAPI *SetTypeDescAlias)(ICreateTypeInfo2 *This,TYPEDESC *pTDescAlias);")
-cpp_quote("      HRESULT (WINAPI *DefineFuncAsDllEntry)(ICreateTypeInfo2 *This,UINT index,LPOLESTR szDllName,LPOLESTR szProcName);")
-cpp_quote("      HRESULT (WINAPI *SetFuncDocString)(ICreateTypeInfo2 *This,UINT index,LPOLESTR szDocString);")
-cpp_quote("      HRESULT (WINAPI *SetVarDocString)(ICreateTypeInfo2 *This,UINT index,LPOLESTR szDocString);")
-cpp_quote("      HRESULT (WINAPI *SetFuncHelpContext)(ICreateTypeInfo2 *This,UINT index,DWORD dwHelpContext);")
-cpp_quote("      HRESULT (WINAPI *SetVarHelpContext)(ICreateTypeInfo2 *This,UINT index,DWORD dwHelpContext);")
-cpp_quote("      HRESULT (WINAPI *SetMops)(ICreateTypeInfo2 *This,UINT index,BSTR bstrMops);")
-cpp_quote("      HRESULT (WINAPI *SetTypeIdldesc)(ICreateTypeInfo2 *This,IDLDESC *pIdlDesc);")
-cpp_quote("      HRESULT (WINAPI *LayOut)(ICreateTypeInfo2 *This);")
-cpp_quote("      HRESULT (WINAPI *DeleteFuncDesc)(ICreateTypeInfo2 *This,UINT index);")
-cpp_quote("      HRESULT (WINAPI *DeleteFuncDescByMemId)(ICreateTypeInfo2 *This,MEMBERID memid,INVOKEKIND invKind);")
-cpp_quote("      HRESULT (WINAPI *DeleteVarDesc)(ICreateTypeInfo2 *This,UINT index);")
-cpp_quote("      HRESULT (WINAPI *DeleteVarDescByMemId)(ICreateTypeInfo2 *This,MEMBERID memid);")
-cpp_quote("      HRESULT (WINAPI *DeleteImplType)(ICreateTypeInfo2 *This,UINT index);")
-cpp_quote("      HRESULT (WINAPI *SetCustData)(ICreateTypeInfo2 *This,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("      HRESULT (WINAPI *SetFuncCustData)(ICreateTypeInfo2 *This,UINT index,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("      HRESULT (WINAPI *SetParamCustData)(ICreateTypeInfo2 *This,UINT indexFunc,UINT indexParam,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("      HRESULT (WINAPI *SetVarCustData)(ICreateTypeInfo2 *This,UINT index,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("      HRESULT (WINAPI *SetImplTypeCustData)(ICreateTypeInfo2 *This,UINT index,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("      HRESULT (WINAPI *SetHelpStringContext)(ICreateTypeInfo2 *This,ULONG dwHelpStringContext);")
-cpp_quote("      HRESULT (WINAPI *SetFuncHelpStringContext)(ICreateTypeInfo2 *This,UINT index,ULONG dwHelpStringContext);")
-cpp_quote("      HRESULT (WINAPI *SetVarHelpStringContext)(ICreateTypeInfo2 *This,UINT index,ULONG dwHelpStringContext);")
-cpp_quote("      HRESULT (WINAPI *Invalidate)(ICreateTypeInfo2 *This);")
-cpp_quote("      HRESULT (WINAPI *SetName)(ICreateTypeInfo2 *This,LPOLESTR szName);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } ICreateTypeInfo2Vtbl;")
-cpp_quote("  struct ICreateTypeInfo2 {")
-cpp_quote("    CONST_VTBL struct ICreateTypeInfo2Vtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define ICreateTypeInfo2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define ICreateTypeInfo2_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define ICreateTypeInfo2_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define ICreateTypeInfo2_SetGuid(This,guid) (This)->lpVtbl->SetGuid(This,guid)")
-cpp_quote("#define ICreateTypeInfo2_SetTypeFlags(This,uTypeFlags) (This)->lpVtbl->SetTypeFlags(This,uTypeFlags)")
-cpp_quote("#define ICreateTypeInfo2_SetDocString(This,pStrDoc) (This)->lpVtbl->SetDocString(This,pStrDoc)")
-cpp_quote("#define ICreateTypeInfo2_SetHelpContext(This,dwHelpContext) (This)->lpVtbl->SetHelpContext(This,dwHelpContext)")
-cpp_quote("#define ICreateTypeInfo2_SetVersion(This,wMajorVerNum,wMinorVerNum) (This)->lpVtbl->SetVersion(This,wMajorVerNum,wMinorVerNum)")
-cpp_quote("#define ICreateTypeInfo2_AddRefTypeInfo(This,pTInfo,phRefType) (This)->lpVtbl->AddRefTypeInfo(This,pTInfo,phRefType)")
-cpp_quote("#define ICreateTypeInfo2_AddFuncDesc(This,index,pFuncDesc) (This)->lpVtbl->AddFuncDesc(This,index,pFuncDesc)")
-cpp_quote("#define ICreateTypeInfo2_AddImplType(This,index,hRefType) (This)->lpVtbl->AddImplType(This,index,hRefType)")
-cpp_quote("#define ICreateTypeInfo2_SetImplTypeFlags(This,index,implTypeFlags) (This)->lpVtbl->SetImplTypeFlags(This,index,implTypeFlags)")
-cpp_quote("#define ICreateTypeInfo2_SetAlignment(This,cbAlignment) (This)->lpVtbl->SetAlignment(This,cbAlignment)")
-cpp_quote("#define ICreateTypeInfo2_SetSchema(This,pStrSchema) (This)->lpVtbl->SetSchema(This,pStrSchema)")
-cpp_quote("#define ICreateTypeInfo2_AddVarDesc(This,index,pVarDesc) (This)->lpVtbl->AddVarDesc(This,index,pVarDesc)")
-cpp_quote("#define ICreateTypeInfo2_SetFuncAndParamNames(This,index,rgszNames,cNames) (This)->lpVtbl->SetFuncAndParamNames(This,index,rgszNames,cNames)")
-cpp_quote("#define ICreateTypeInfo2_SetVarName(This,index,szName) (This)->lpVtbl->SetVarName(This,index,szName)")
-cpp_quote("#define ICreateTypeInfo2_SetTypeDescAlias(This,pTDescAlias) (This)->lpVtbl->SetTypeDescAlias(This,pTDescAlias)")
-cpp_quote("#define ICreateTypeInfo2_DefineFuncAsDllEntry(This,index,szDllName,szProcName) (This)->lpVtbl->DefineFuncAsDllEntry(This,index,szDllName,szProcName)")
-cpp_quote("#define ICreateTypeInfo2_SetFuncDocString(This,index,szDocString) (This)->lpVtbl->SetFuncDocString(This,index,szDocString)")
-cpp_quote("#define ICreateTypeInfo2_SetVarDocString(This,index,szDocString) (This)->lpVtbl->SetVarDocString(This,index,szDocString)")
-cpp_quote("#define ICreateTypeInfo2_SetFuncHelpContext(This,index,dwHelpContext) (This)->lpVtbl->SetFuncHelpContext(This,index,dwHelpContext)")
-cpp_quote("#define ICreateTypeInfo2_SetVarHelpContext(This,index,dwHelpContext) (This)->lpVtbl->SetVarHelpContext(This,index,dwHelpContext)")
-cpp_quote("#define ICreateTypeInfo2_SetMops(This,index,bstrMops) (This)->lpVtbl->SetMops(This,index,bstrMops)")
-cpp_quote("#define ICreateTypeInfo2_SetTypeIdldesc(This,pIdlDesc) (This)->lpVtbl->SetTypeIdldesc(This,pIdlDesc)")
-cpp_quote("#define ICreateTypeInfo2_LayOut(This) (This)->lpVtbl->LayOut(This)")
-cpp_quote("#define ICreateTypeInfo2_DeleteFuncDesc(This,index) (This)->lpVtbl->DeleteFuncDesc(This,index)")
-cpp_quote("#define ICreateTypeInfo2_DeleteFuncDescByMemId(This,memid,invKind) (This)->lpVtbl->DeleteFuncDescByMemId(This,memid,invKind)")
-cpp_quote("#define ICreateTypeInfo2_DeleteVarDesc(This,index) (This)->lpVtbl->DeleteVarDesc(This,index)")
-cpp_quote("#define ICreateTypeInfo2_DeleteVarDescByMemId(This,memid) (This)->lpVtbl->DeleteVarDescByMemId(This,memid)")
-cpp_quote("#define ICreateTypeInfo2_DeleteImplType(This,index) (This)->lpVtbl->DeleteImplType(This,index)")
-cpp_quote("#define ICreateTypeInfo2_SetCustData(This,guid,pVarVal) (This)->lpVtbl->SetCustData(This,guid,pVarVal)")
-cpp_quote("#define ICreateTypeInfo2_SetFuncCustData(This,index,guid,pVarVal) (This)->lpVtbl->SetFuncCustData(This,index,guid,pVarVal)")
-cpp_quote("#define ICreateTypeInfo2_SetParamCustData(This,indexFunc,indexParam,guid,pVarVal) (This)->lpVtbl->SetParamCustData(This,indexFunc,indexParam,guid,pVarVal)")
-cpp_quote("#define ICreateTypeInfo2_SetVarCustData(This,index,guid,pVarVal) (This)->lpVtbl->SetVarCustData(This,index,guid,pVarVal)")
-cpp_quote("#define ICreateTypeInfo2_SetImplTypeCustData(This,index,guid,pVarVal) (This)->lpVtbl->SetImplTypeCustData(This,index,guid,pVarVal)")
-cpp_quote("#define ICreateTypeInfo2_SetHelpStringContext(This,dwHelpStringContext) (This)->lpVtbl->SetHelpStringContext(This,dwHelpStringContext)")
-cpp_quote("#define ICreateTypeInfo2_SetFuncHelpStringContext(This,index,dwHelpStringContext) (This)->lpVtbl->SetFuncHelpStringContext(This,index,dwHelpStringContext)")
-cpp_quote("#define ICreateTypeInfo2_SetVarHelpStringContext(This,index,dwHelpStringContext) (This)->lpVtbl->SetVarHelpStringContext(This,index,dwHelpStringContext)")
-cpp_quote("#define ICreateTypeInfo2_Invalidate(This) (This)->lpVtbl->Invalidate(This)")
-cpp_quote("#define ICreateTypeInfo2_SetName(This,szName) (This)->lpVtbl->SetName(This,szName)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo2_DeleteFuncDesc_Proxy(ICreateTypeInfo2 *This,UINT index);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo2_DeleteFuncDesc_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo2_DeleteFuncDescByMemId_Proxy(ICreateTypeInfo2 *This,MEMBERID memid,INVOKEKIND invKind);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo2_DeleteFuncDescByMemId_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo2_DeleteVarDesc_Proxy(ICreateTypeInfo2 *This,UINT index);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo2_DeleteVarDesc_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo2_DeleteVarDescByMemId_Proxy(ICreateTypeInfo2 *This,MEMBERID memid);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo2_DeleteVarDescByMemId_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo2_DeleteImplType_Proxy(ICreateTypeInfo2 *This,UINT index);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo2_DeleteImplType_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo2_SetCustData_Proxy(ICreateTypeInfo2 *This,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo2_SetCustData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo2_SetFuncCustData_Proxy(ICreateTypeInfo2 *This,UINT index,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo2_SetFuncCustData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo2_SetParamCustData_Proxy(ICreateTypeInfo2 *This,UINT indexFunc,UINT indexParam,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo2_SetParamCustData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo2_SetVarCustData_Proxy(ICreateTypeInfo2 *This,UINT index,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo2_SetVarCustData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo2_SetImplTypeCustData_Proxy(ICreateTypeInfo2 *This,UINT index,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo2_SetImplTypeCustData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo2_SetHelpStringContext_Proxy(ICreateTypeInfo2 *This,ULONG dwHelpStringContext);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo2_SetHelpStringContext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo2_SetFuncHelpStringContext_Proxy(ICreateTypeInfo2 *This,UINT index,ULONG dwHelpStringContext);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo2_SetFuncHelpStringContext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo2_SetVarHelpStringContext_Proxy(ICreateTypeInfo2 *This,UINT index,ULONG dwHelpStringContext);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo2_SetVarHelpStringContext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo2_Invalidate_Proxy(ICreateTypeInfo2 *This);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo2_Invalidate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeInfo2_SetName_Proxy(ICreateTypeInfo2 *This,LPOLESTR szName);")
-cpp_quote("  void __RPC_STUB ICreateTypeInfo2_SetName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
+[object, uuid (00020404-0000-0000-C000-000000000046), pointer_default (unique)]
+interface IEnumVARIANT : IUnknown {
+  typedef [unique] IEnumVARIANT *LPENUMVARIANT;
 cpp_quote("")
-cpp_quote("#ifndef __ICreateTypeLib_INTERFACE_DEFINED__")
-cpp_quote("#define __ICreateTypeLib_INTERFACE_DEFINED__")
-cpp_quote("#ifndef DEFINED_LPCREATETYPELIB")
-cpp_quote("#define DEFINED_LPCREATETYPELIB")
-cpp_quote("  typedef ICreateTypeLib *LPCREATETYPELIB;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_ICreateTypeLib;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct ICreateTypeLib : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI CreateTypeInfo(LPOLESTR szName,TYPEKIND tkind,ICreateTypeInfo **ppCTInfo) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetName(LPOLESTR szName) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetVersion(WORD wMajorVerNum,WORD wMinorVerNum) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetGuid(REFGUID guid) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetDocString(LPOLESTR szDoc) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetHelpFileName(LPOLESTR szHelpFileName) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetHelpContext(DWORD dwHelpContext) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetLcid(LCID lcid) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetLibFlags(UINT uLibFlags) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SaveAllChanges(void) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct ICreateTypeLibVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(ICreateTypeLib *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(ICreateTypeLib *This);")
-cpp_quote("      ULONG (WINAPI *Release)(ICreateTypeLib *This);")
-cpp_quote("      HRESULT (WINAPI *CreateTypeInfo)(ICreateTypeLib *This,LPOLESTR szName,TYPEKIND tkind,ICreateTypeInfo **ppCTInfo);")
-cpp_quote("      HRESULT (WINAPI *SetName)(ICreateTypeLib *This,LPOLESTR szName);")
-cpp_quote("      HRESULT (WINAPI *SetVersion)(ICreateTypeLib *This,WORD wMajorVerNum,WORD wMinorVerNum);")
-cpp_quote("      HRESULT (WINAPI *SetGuid)(ICreateTypeLib *This,REFGUID guid);")
-cpp_quote("      HRESULT (WINAPI *SetDocString)(ICreateTypeLib *This,LPOLESTR szDoc);")
-cpp_quote("      HRESULT (WINAPI *SetHelpFileName)(ICreateTypeLib *This,LPOLESTR szHelpFileName);")
-cpp_quote("      HRESULT (WINAPI *SetHelpContext)(ICreateTypeLib *This,DWORD dwHelpContext);")
-cpp_quote("      HRESULT (WINAPI *SetLcid)(ICreateTypeLib *This,LCID lcid);")
-cpp_quote("      HRESULT (WINAPI *SetLibFlags)(ICreateTypeLib *This,UINT uLibFlags);")
-cpp_quote("      HRESULT (WINAPI *SaveAllChanges)(ICreateTypeLib *This);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } ICreateTypeLibVtbl;")
-cpp_quote("  struct ICreateTypeLib {")
-cpp_quote("    CONST_VTBL struct ICreateTypeLibVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define ICreateTypeLib_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define ICreateTypeLib_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define ICreateTypeLib_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define ICreateTypeLib_CreateTypeInfo(This,szName,tkind,ppCTInfo) (This)->lpVtbl->CreateTypeInfo(This,szName,tkind,ppCTInfo)")
-cpp_quote("#define ICreateTypeLib_SetName(This,szName) (This)->lpVtbl->SetName(This,szName)")
-cpp_quote("#define ICreateTypeLib_SetVersion(This,wMajorVerNum,wMinorVerNum) (This)->lpVtbl->SetVersion(This,wMajorVerNum,wMinorVerNum)")
-cpp_quote("#define ICreateTypeLib_SetGuid(This,guid) (This)->lpVtbl->SetGuid(This,guid)")
-cpp_quote("#define ICreateTypeLib_SetDocString(This,szDoc) (This)->lpVtbl->SetDocString(This,szDoc)")
-cpp_quote("#define ICreateTypeLib_SetHelpFileName(This,szHelpFileName) (This)->lpVtbl->SetHelpFileName(This,szHelpFileName)")
-cpp_quote("#define ICreateTypeLib_SetHelpContext(This,dwHelpContext) (This)->lpVtbl->SetHelpContext(This,dwHelpContext)")
-cpp_quote("#define ICreateTypeLib_SetLcid(This,lcid) (This)->lpVtbl->SetLcid(This,lcid)")
-cpp_quote("#define ICreateTypeLib_SetLibFlags(This,uLibFlags) (This)->lpVtbl->SetLibFlags(This,uLibFlags)")
-cpp_quote("#define ICreateTypeLib_SaveAllChanges(This) (This)->lpVtbl->SaveAllChanges(This)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI ICreateTypeLib_CreateTypeInfo_Proxy(ICreateTypeLib *This,LPOLESTR szName,TYPEKIND tkind,ICreateTypeInfo **ppCTInfo);")
-cpp_quote("  void __RPC_STUB ICreateTypeLib_CreateTypeInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeLib_SetName_Proxy(ICreateTypeLib *This,LPOLESTR szName);")
-cpp_quote("  void __RPC_STUB ICreateTypeLib_SetName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeLib_SetVersion_Proxy(ICreateTypeLib *This,WORD wMajorVerNum,WORD wMinorVerNum);")
-cpp_quote("  void __RPC_STUB ICreateTypeLib_SetVersion_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeLib_SetGuid_Proxy(ICreateTypeLib *This,REFGUID guid);")
-cpp_quote("  void __RPC_STUB ICreateTypeLib_SetGuid_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeLib_SetDocString_Proxy(ICreateTypeLib *This,LPOLESTR szDoc);")
-cpp_quote("  void __RPC_STUB ICreateTypeLib_SetDocString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeLib_SetHelpFileName_Proxy(ICreateTypeLib *This,LPOLESTR szHelpFileName);")
-cpp_quote("  void __RPC_STUB ICreateTypeLib_SetHelpFileName_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeLib_SetHelpContext_Proxy(ICreateTypeLib *This,DWORD dwHelpContext);")
-cpp_quote("  void __RPC_STUB ICreateTypeLib_SetHelpContext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeLib_SetLcid_Proxy(ICreateTypeLib *This,LCID lcid);")
-cpp_quote("  void __RPC_STUB ICreateTypeLib_SetLcid_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeLib_SetLibFlags_Proxy(ICreateTypeLib *This,UINT uLibFlags);")
-cpp_quote("  void __RPC_STUB ICreateTypeLib_SetLibFlags_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeLib_SaveAllChanges_Proxy(ICreateTypeLib *This);")
-cpp_quote("  void __RPC_STUB ICreateTypeLib_SaveAllChanges_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __ICreateTypeLib2_INTERFACE_DEFINED__")
-cpp_quote("#define __ICreateTypeLib2_INTERFACE_DEFINED__")
-cpp_quote("  typedef ICreateTypeLib2 *LPCREATETYPELIB2;")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_ICreateTypeLib2;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct ICreateTypeLib2 : public ICreateTypeLib {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI DeleteTypeInfo(LPOLESTR szName) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetCustData(REFGUID guid,VARIANT *pVarVal) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetHelpStringContext(ULONG dwHelpStringContext) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetHelpStringDll(LPOLESTR szFileName) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct ICreateTypeLib2Vtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(ICreateTypeLib2 *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(ICreateTypeLib2 *This);")
-cpp_quote("      ULONG (WINAPI *Release)(ICreateTypeLib2 *This);")
-cpp_quote("      HRESULT (WINAPI *CreateTypeInfo)(ICreateTypeLib2 *This,LPOLESTR szName,TYPEKIND tkind,ICreateTypeInfo **ppCTInfo);")
-cpp_quote("      HRESULT (WINAPI *SetName)(ICreateTypeLib2 *This,LPOLESTR szName);")
-cpp_quote("      HRESULT (WINAPI *SetVersion)(ICreateTypeLib2 *This,WORD wMajorVerNum,WORD wMinorVerNum);")
-cpp_quote("      HRESULT (WINAPI *SetGuid)(ICreateTypeLib2 *This,REFGUID guid);")
-cpp_quote("      HRESULT (WINAPI *SetDocString)(ICreateTypeLib2 *This,LPOLESTR szDoc);")
-cpp_quote("      HRESULT (WINAPI *SetHelpFileName)(ICreateTypeLib2 *This,LPOLESTR szHelpFileName);")
-cpp_quote("      HRESULT (WINAPI *SetHelpContext)(ICreateTypeLib2 *This,DWORD dwHelpContext);")
-cpp_quote("      HRESULT (WINAPI *SetLcid)(ICreateTypeLib2 *This,LCID lcid);")
-cpp_quote("      HRESULT (WINAPI *SetLibFlags)(ICreateTypeLib2 *This,UINT uLibFlags);")
-cpp_quote("      HRESULT (WINAPI *SaveAllChanges)(ICreateTypeLib2 *This);")
-cpp_quote("      HRESULT (WINAPI *DeleteTypeInfo)(ICreateTypeLib2 *This,LPOLESTR szName);")
-cpp_quote("      HRESULT (WINAPI *SetCustData)(ICreateTypeLib2 *This,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("      HRESULT (WINAPI *SetHelpStringContext)(ICreateTypeLib2 *This,ULONG dwHelpStringContext);")
-cpp_quote("      HRESULT (WINAPI *SetHelpStringDll)(ICreateTypeLib2 *This,LPOLESTR szFileName);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } ICreateTypeLib2Vtbl;")
-cpp_quote("  struct ICreateTypeLib2 {")
-cpp_quote("    CONST_VTBL struct ICreateTypeLib2Vtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define ICreateTypeLib2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define ICreateTypeLib2_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define ICreateTypeLib2_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define ICreateTypeLib2_CreateTypeInfo(This,szName,tkind,ppCTInfo) (This)->lpVtbl->CreateTypeInfo(This,szName,tkind,ppCTInfo)")
-cpp_quote("#define ICreateTypeLib2_SetName(This,szName) (This)->lpVtbl->SetName(This,szName)")
-cpp_quote("#define ICreateTypeLib2_SetVersion(This,wMajorVerNum,wMinorVerNum) (This)->lpVtbl->SetVersion(This,wMajorVerNum,wMinorVerNum)")
-cpp_quote("#define ICreateTypeLib2_SetGuid(This,guid) (This)->lpVtbl->SetGuid(This,guid)")
-cpp_quote("#define ICreateTypeLib2_SetDocString(This,szDoc) (This)->lpVtbl->SetDocString(This,szDoc)")
-cpp_quote("#define ICreateTypeLib2_SetHelpFileName(This,szHelpFileName) (This)->lpVtbl->SetHelpFileName(This,szHelpFileName)")
-cpp_quote("#define ICreateTypeLib2_SetHelpContext(This,dwHelpContext) (This)->lpVtbl->SetHelpContext(This,dwHelpContext)")
-cpp_quote("#define ICreateTypeLib2_SetLcid(This,lcid) (This)->lpVtbl->SetLcid(This,lcid)")
-cpp_quote("#define ICreateTypeLib2_SetLibFlags(This,uLibFlags) (This)->lpVtbl->SetLibFlags(This,uLibFlags)")
-cpp_quote("#define ICreateTypeLib2_SaveAllChanges(This) (This)->lpVtbl->SaveAllChanges(This)")
-cpp_quote("#define ICreateTypeLib2_DeleteTypeInfo(This,szName) (This)->lpVtbl->DeleteTypeInfo(This,szName)")
-cpp_quote("#define ICreateTypeLib2_SetCustData(This,guid,pVarVal) (This)->lpVtbl->SetCustData(This,guid,pVarVal)")
-cpp_quote("#define ICreateTypeLib2_SetHelpStringContext(This,dwHelpStringContext) (This)->lpVtbl->SetHelpStringContext(This,dwHelpStringContext)")
-cpp_quote("#define ICreateTypeLib2_SetHelpStringDll(This,szFileName) (This)->lpVtbl->SetHelpStringDll(This,szFileName)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI ICreateTypeLib2_DeleteTypeInfo_Proxy(ICreateTypeLib2 *This,LPOLESTR szName);")
-cpp_quote("  void __RPC_STUB ICreateTypeLib2_DeleteTypeInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeLib2_SetCustData_Proxy(ICreateTypeLib2 *This,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("  void __RPC_STUB ICreateTypeLib2_SetCustData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeLib2_SetHelpStringContext_Proxy(ICreateTypeLib2 *This,ULONG dwHelpStringContext);")
-cpp_quote("  void __RPC_STUB ICreateTypeLib2_SetHelpStringContext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateTypeLib2_SetHelpStringDll_Proxy(ICreateTypeLib2 *This,LPOLESTR szFileName);")
-cpp_quote("  void __RPC_STUB ICreateTypeLib2_SetHelpStringDll_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-
-[
-    object,
-    uuid(00020400-0000-0000-c000-000000000046),
-    pointer_default(unique)
-]
-interface IDispatch : IUnknown
-{
-    typedef [unique] IDispatch *LPDISPATCH;
-
-    HRESULT GetTypeInfoCount([out] UINT *pctinfo);
-
-    HRESULT GetTypeInfo(
-            [in] UINT iTInfo,
-            [in] LCID lcid,
-            [out] ITypeInfo **ppTInfo);
-
-    HRESULT GetIDsOfNames(
-            [in] REFIID riid,
-            [in, size_is(cNames)] LPOLESTR *rgszNames,
-            [in, range(0, 16384)] UINT cNames,
-            [in] LCID lcid,
-            [out, size_is(cNames)] DISPID *rgDispId);
-
-    [local] HRESULT Invoke(
-            [in] DISPID dispIdMember,
-            [in] REFIID riid,
-            [in] LCID lcid,
-            [in] WORD wFlags,
-            [in, out] DISPPARAMS *pDispParams,
-            [out] VARIANT *pVarResult,
-            [out] EXCEPINFO *pExcepInfo,
-            [out] UINT *puArgErr);
-
-    [call_as(Invoke)] HRESULT RemoteInvoke(
-            [in] DISPID dispIdMember,
-            [in] REFIID riid,
-            [in] LCID lcid,
-            [in] DWORD dwFlags,
-            [in] DISPPARAMS *pDispParams,
-            [out] VARIANT *pVarResult,
-            [out] EXCEPINFO *pExcepInfo,
-            [out] UINT *pArgErr,
-            [in] UINT cVarRef,
-            [in, size_is(cVarRef)] UINT *rgVarRefIdx,
-            [in, out, size_is(cVarRef)] VARIANTARG *rgVarRef);
-
-    const DISPID DISPID_UNKNOWN = -1;
-    const DISPID DISPID_VALUE = 0;
-    const DISPID DISPID_PROPERTYPUT = -3;
-    const DISPID DISPID_NEWENUM = -4;
-    const DISPID DISPID_EVALUATE = -5;
-    const DISPID DISPID_CONSTRUCTOR = -6;
-    const DISPID DISPID_DESTRUCTOR = -7;
-    const DISPID DISPID_COLLECT = -8;
+  [local] HRESULT Next ([in] ULONG celt,[out, size_is (celt), length_is (*pCeltFetched)] VARIANT *rgVar,[out] ULONG *pCeltFetched);
+  [call_as (Next)] HRESULT RemoteNext ([in] ULONG celt,[out, size_is (celt), length_is (*pCeltFetched)] VARIANT *rgVar,[out] ULONG *pCeltFetched);
+  HRESULT Skip ([in] ULONG celt);
+  HRESULT Reset ();
+  HRESULT Clone ([out] IEnumVARIANT **ppEnum);
 }
 
-[
-    object,
-    uuid(00020404-0000-0000-c000-000000000046),
-    pointer_default(unique)
-]
-interface IEnumVARIANT : IUnknown
-{
-    typedef [unique] IEnumVARIANT *LPENUMVARIANT;
-
-    [local]
-    HRESULT Next(
-            [in] ULONG celt,
-            [out] VARIANT *rgVar,
-            [out] ULONG *pCeltFetched);
-
-    [call_as(Next)]
-    HRESULT RemoteNext(
-            [in] ULONG celt,
-            [out, size_is(celt), length_is(*pCeltFetched)] VARIANT *rgVar,
-            [out] ULONG *pCeltFetched);
-
-    HRESULT Skip([in] ULONG celt);
-    HRESULT Reset();
-    HRESULT Clone([out] IEnumVARIANT **ppEnum);
+cpp_quote("")
+[object, uuid (00020403-0000-0000-C000-000000000046), pointer_default (unique)]
+interface ITypeComp : IUnknown {
+  typedef [unique] ITypeComp *LPTYPECOMP;
+cpp_quote("")
+  typedef [v1_enum] enum tagDESCKIND {
+    DESCKIND_NONE = 0,
+    DESCKIND_FUNCDESC,
+    DESCKIND_VARDESC,
+    DESCKIND_TYPECOMP,
+    DESCKIND_IMPLICITAPPOBJ,
+    DESCKIND_MAX
+  } DESCKIND;
+cpp_quote("")
+  typedef union tagBINDPTR {
+    FUNCDESC *lpfuncdesc;
+    VARDESC *lpvardesc;
+    ITypeComp *lptcomp;
+  } BINDPTR,*LPBINDPTR;
+cpp_quote("")
+  [local] HRESULT Bind ([in] LPOLESTR szName,[in] ULONG lHashVal,[in] WORD wFlags,[out] ITypeInfo **ppTInfo,[out] DESCKIND *pDescKind,[out] BINDPTR *pBindPtr);
+  [call_as (Bind)] HRESULT RemoteBind ([in] LPOLESTR szName,[in] ULONG lHashVal,[in] WORD wFlags,[out] ITypeInfo **ppTInfo,[out] DESCKIND *pDescKind,[out] LPFUNCDESC *ppFuncDesc,[out] LPVARDESC *ppVarDesc,[out] ITypeComp **ppTypeComp,[out] CLEANLOCALSTORAGE *pDummy);
+  [local] HRESULT BindType ([in] LPOLESTR szName,[in] ULONG lHashVal,[out] ITypeInfo **ppTInfo,[out] ITypeComp **ppTComp);
+  [call_as (BindType)] HRESULT RemoteBindType ([in] LPOLESTR szName,[in] ULONG lHashVal,[out] ITypeInfo **ppTInfo);
+}
+cpp_quote("#endif")
+cpp_quote("")
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+[object, uuid (00020401-0000-0000-C000-000000000046), pointer_default (unique)]
+interface ITypeInfo : IUnknown {
+  typedef [unique] ITypeInfo *LPTYPEINFO;
+cpp_quote("")
+  [local] HRESULT GetTypeAttr ([out] TYPEATTR **ppTypeAttr);
+  [call_as (GetTypeAttr)] HRESULT RemoteGetTypeAttr ([out] LPTYPEATTR *ppTypeAttr,[out] CLEANLOCALSTORAGE *pDummy);
+  HRESULT GetTypeComp ([out] ITypeComp **ppTComp);
+  [local] HRESULT GetFuncDesc ([in] UINT index,[out] FUNCDESC **ppFuncDesc);
+  [call_as (GetFuncDesc)] HRESULT RemoteGetFuncDesc ([in] UINT index,[out] LPFUNCDESC *ppFuncDesc,[out] CLEANLOCALSTORAGE *pDummy);
+  [local] HRESULT GetVarDesc ([in] UINT index,[out] VARDESC **ppVarDesc);
+  [call_as (GetVarDesc)] HRESULT RemoteGetVarDesc ([in] UINT index,[out] LPVARDESC *ppVarDesc,[out] CLEANLOCALSTORAGE *pDummy);
+  [local] HRESULT GetNames ([in] MEMBERID memid,[out, size_is (cMaxNames), length_is (*pcNames)] BSTR *rgBstrNames,[in] UINT cMaxNames,[out] UINT *pcNames);
+  [call_as (GetNames)] HRESULT RemoteGetNames ([in] MEMBERID memid,[out, size_is (cMaxNames), length_is (*pcNames)] BSTR *rgBstrNames,[in] UINT cMaxNames,[out] UINT *pcNames);
+  HRESULT GetRefTypeOfImplType ([in] UINT index,[out] HREFTYPE *pRefType);
+  HRESULT GetImplTypeFlags ([in] UINT index,[out] INT *pImplTypeFlags);
+  [local] HRESULT GetIDsOfNames ([in, size_is (cNames)] LPOLESTR *rgszNames,[in] UINT cNames,[out, size_is (cNames)] MEMBERID *pMemId);
+  [call_as (GetIDsOfNames)] HRESULT LocalGetIDsOfNames (void);
+  [local] HRESULT Invoke ([in] PVOID pvInstance,[in] MEMBERID memid,[in] WORD wFlags,[in, out] DISPPARAMS *pDispParams,[out] VARIANT *pVarResult,[out] EXCEPINFO *pExcepInfo,[out] UINT *puArgErr);
+  [call_as (Invoke)] HRESULT LocalInvoke (void);
+  [local] HRESULT GetDocumentation ([in] MEMBERID memid,[out] BSTR *pBstrName,[out] BSTR *pBstrDocString,[out] DWORD *pdwHelpContext,[out] BSTR *pBstrHelpFile);
+  [call_as (GetDocumentation)] HRESULT RemoteGetDocumentation ([in] MEMBERID memid,[in] DWORD refPtrFlags,[out] BSTR *pBstrName,[out] BSTR *pBstrDocString,[out] DWORD *pdwHelpContext,[out] BSTR *pBstrHelpFile);
+  [local]
+  HRESULT GetDllEntry ([in] MEMBERID memid,[in] INVOKEKIND invKind,[out] BSTR *pBstrDllName,[out] BSTR *pBstrName,[out] WORD *pwOrdinal);
+  [call_as (GetDllEntry)]
+  HRESULT RemoteGetDllEntry ([in] MEMBERID memid,[in] INVOKEKIND invKind,[in] DWORD refPtrFlags,[out] BSTR *pBstrDllName,[out] BSTR *pBstrName,[out] WORD *pwOrdinal);
+  HRESULT GetRefTypeInfo ([in] HREFTYPE hRefType,[out] ITypeInfo **ppTInfo);
+  [local] HRESULT AddressOfMember ([in] MEMBERID memid,[in] INVOKEKIND invKind,[out] PVOID *ppv);
+  [call_as (AddressOfMember)] HRESULT LocalAddressOfMember (void);
+  [local] HRESULT CreateInstance ([in] IUnknown *pUnkOuter,[in] REFIID riid,[out, iid_is (riid)] PVOID *ppvObj);
+  [call_as (CreateInstance)] HRESULT RemoteCreateInstance ([in] REFIID riid,[out, iid_is (riid)] IUnknown **ppvObj);
+  HRESULT GetMops ([in] MEMBERID memid,[out] BSTR *pBstrMops);
+  [local] HRESULT GetContainingTypeLib ([out] ITypeLib **ppTLib,[out] UINT *pIndex);
+  [call_as (GetContainingTypeLib)] HRESULT RemoteGetContainingTypeLib ([out] ITypeLib **ppTLib,[out] UINT *pIndex);
+  [local] void ReleaseTypeAttr ([in] TYPEATTR *pTypeAttr);
+  [call_as (ReleaseTypeAttr)] HRESULT LocalReleaseTypeAttr (void);
+  [local] void ReleaseFuncDesc ([in] FUNCDESC *pFuncDesc);
+  [call_as (ReleaseFuncDesc)] HRESULT LocalReleaseFuncDesc (void);
+  [local] void ReleaseVarDesc ([in] VARDESC *pVarDesc);
+  [call_as (ReleaseVarDesc)] HRESULT LocalReleaseVarDesc (void);
 }
 
-[
-    object,
-    uuid(00020403-0000-0000-c000-000000000046),
-    pointer_default(unique)
-]
-interface ITypeComp : IUnknown
-{
-    typedef [unique] ITypeComp *LPTYPECOMP;
-
-    typedef [v1_enum] enum tagDESCKIND {
-        DESCKIND_NONE = 0,
-        DESCKIND_FUNCDESC,
-        DESCKIND_VARDESC,
-        DESCKIND_TYPECOMP,
-        DESCKIND_IMPLICITAPPOBJ,
-        DESCKIND_MAX
-    } DESCKIND;
-
-    typedef union tagBINDPTR {
-        FUNCDESC *lpfuncdesc;
-        VARDESC *lpvardesc;
-        ITypeComp *lptcomp;
-    } BINDPTR, *LPBINDPTR;
-
-    [local]
-    HRESULT Bind(
-            [in] LPOLESTR szName,
-            [in] ULONG lHashVal,
-            [in] WORD wFlags,
-            [out] ITypeInfo **ppTInfo,
-            [out] DESCKIND *pDescKind,
-            [out] BINDPTR *pBindPtr);
-    [call_as(Bind)]
-    HRESULT RemoteBind(
-            [in] LPOLESTR szName,
-            [in] ULONG lHashVal,
-            [in] WORD wFlags,
-            [out] ITypeInfo **ppTInfo,
-            [out] DESCKIND *pDescKind,
-            [out] LPFUNCDESC *ppFuncDesc,
-            [out] LPVARDESC *ppVarDesc,
-            [out] ITypeComp **ppTypeComp,
-            [out] CLEANLOCALSTORAGE *pDummy);
-
-    [local]
-    HRESULT BindType(
-            [in] LPOLESTR szName,
-            [in] ULONG lHashVal,
-            [out] ITypeInfo **ppTInfo,
-            [out] ITypeComp **ppTComp);
-    [call_as(BindType)]
-    HRESULT RemoteBindType(
-            [in] LPOLESTR szName,
-            [in] ULONG lHashVal,
-            [out] ITypeInfo **ppTInfo);
+cpp_quote("")
+[object, uuid (00020412-0000-0000-C000-000000000046), pointer_default (unique)]
+interface ITypeInfo2 : ITypeInfo {
+  typedef [unique] ITypeInfo2 *LPTYPEINFO2;
+cpp_quote("")
+  HRESULT GetTypeKind ([out] TYPEKIND *pTypeKind);
+  HRESULT GetTypeFlags ([out] ULONG *pTypeFlags);
+  HRESULT GetFuncIndexOfMemId ([in] MEMBERID memid,[in] INVOKEKIND invKind,[out] UINT *pFuncIndex);
+  HRESULT GetVarIndexOfMemId ([in] MEMBERID memid,[out] UINT *pVarIndex);
+  HRESULT GetCustData ([in] REFGUID guid,[out] VARIANT *pVarVal);
+  HRESULT GetFuncCustData ([in] UINT index,[in] REFGUID guid,[out] VARIANT *pVarVal);
+  HRESULT GetParamCustData ([in] UINT indexFunc,[in] UINT indexParam,[in] REFGUID guid,[out] VARIANT *pVarVal);
+  HRESULT GetVarCustData ([in] UINT index,[in] REFGUID guid,[out] VARIANT *pVarVal);
+  HRESULT GetImplTypeCustData ([in] UINT index,[in] REFGUID guid,[out] VARIANT *pVarVal);
+  [local] HRESULT GetDocumentation2 ([in] MEMBERID memid,[in] LCID lcid,[out] BSTR *pbstrHelpString,[out] DWORD *pdwHelpStringContext,[out] BSTR *pbstrHelpStringDll);
+  [call_as (GetDocumentation2)] HRESULT RemoteGetDocumentation2 ([in] MEMBERID memid,[in] LCID lcid,[in] DWORD refPtrFlags,[out] BSTR *pbstrHelpString,[out] DWORD *pdwHelpStringContext,[out] BSTR *pbstrHelpStringDll);
+  HRESULT GetAllCustData ([out] CUSTDATA *pCustData);
+  HRESULT GetAllFuncCustData ([in] UINT index,[out] CUSTDATA *pCustData);
+  HRESULT GetAllParamCustData ([in] UINT indexFunc,[in] UINT indexParam,[out] CUSTDATA *pCustData);
+  HRESULT GetAllVarCustData ([in] UINT index,[out] CUSTDATA *pCustData);
+  HRESULT GetAllImplTypeCustData ([in] UINT index,[out] CUSTDATA *pCustData);
+}
+cpp_quote("#endif")
+cpp_quote("")
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+[object, uuid (00020402-0000-0000-C000-000000000046), pointer_default (unique)]
+interface ITypeLib : IUnknown {
+  typedef [v1_enum] enum tagSYSKIND {
+    SYS_WIN16 = 0,
+    SYS_WIN32,
+    SYS_MAC,
+    SYS_WIN64
+  } SYSKIND;
+cpp_quote("")
+  typedef [v1_enum] enum tagLIBFLAGS {
+    LIBFLAG_FRESTRICTED = 0x01,
+    LIBFLAG_FCONTROL = 0x02,
+    LIBFLAG_FHIDDEN = 0x04,
+    LIBFLAG_FHASDISKIMAGE = 0x08
+  } LIBFLAGS;
+cpp_quote("")
+  typedef [unique] ITypeLib *LPTYPELIB;
+cpp_quote("")
+  typedef struct tagTLIBATTR {
+    GUID guid;
+    LCID lcid;
+    SYSKIND syskind;
+    WORD wMajorVerNum;
+    WORD wMinorVerNum;
+    WORD wLibFlags;
+  } TLIBATTR,*LPTLIBATTR;
+cpp_quote("")
+  [local] UINT GetTypeInfoCount (void);
+  [call_as (GetTypeInfoCount)] HRESULT RemoteGetTypeInfoCount ([out] UINT *pcTInfo);
+  HRESULT GetTypeInfo ([in] UINT index,[out] ITypeInfo **ppTInfo);
+  HRESULT GetTypeInfoType ([in] UINT index,[out] TYPEKIND *pTKind);
+  HRESULT GetTypeInfoOfGuid ([in] REFGUID guid,[out] ITypeInfo **ppTinfo);
+  [local] HRESULT GetLibAttr ([out] TLIBATTR **ppTLibAttr);
+  [call_as (GetLibAttr)] HRESULT RemoteGetLibAttr ([out] LPTLIBATTR *ppTLibAttr,[out] CLEANLOCALSTORAGE *pDummy);
+  HRESULT GetTypeComp ([out] ITypeComp **ppTComp);
+  [local] HRESULT GetDocumentation ([in] INT index,[out] BSTR *pBstrName,[out] BSTR *pBstrDocString,[out] DWORD *pdwHelpContext,[out] BSTR *pBstrHelpFile);
+  [call_as (GetDocumentation)] HRESULT RemoteGetDocumentation ([in] INT index,[in] DWORD refPtrFlags,[out] BSTR *pBstrName,[out] BSTR *pBstrDocString,[out] DWORD *pdwHelpContext,[out] BSTR *pBstrHelpFile);
+  [local] HRESULT IsName ([in, out] LPOLESTR szNameBuf,[in] ULONG lHashVal,[out] BOOL *pfName);
+  [call_as (IsName)] HRESULT RemoteIsName ([in] LPOLESTR szNameBuf,[in] ULONG lHashVal,[out] BOOL *pfName,[out] BSTR *pBstrLibName);
+  [local] HRESULT FindName ([in, out] LPOLESTR szNameBuf,[in] ULONG lHashVal,[out, size_is (*pcFound), length_is (*pcFound)] ITypeInfo **ppTInfo,[out, size_is (*pcFound), length_is (*pcFound)] MEMBERID *rgMemId,[in, out] USHORT *pcFound);
+  [call_as (FindName)] HRESULT RemoteFindName ([in] LPOLESTR szNameBuf,[in] ULONG lHashVal,[out, size_is (*pcFound), length_is (*pcFound)] ITypeInfo **ppTInfo,[out, size_is (*pcFound), length_is (*pcFound)] MEMBERID *rgMemId,[in, out] USHORT *pcFound,[out] BSTR *pBstrLibName);
+  [local] void ReleaseTLibAttr ([in] TLIBATTR *pTLibAttr);
+  [call_as (ReleaseTLibAttr)] HRESULT LocalReleaseTLibAttr (void);
+}
+cpp_quote("#endif")
+cpp_quote("")
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+[object, uuid (00020411-0000-0000-C000-000000000046), pointer_default (unique)]
+interface ITypeLib2 : ITypeLib {
+  typedef [unique] ITypeLib2 *LPTYPELIB2;
+cpp_quote("")
+  HRESULT GetCustData ([in] REFGUID guid,[out] VARIANT *pVarVal);
+  [local] HRESULT GetLibStatistics ([out] ULONG *pcUniqueNames,[out] ULONG *pcchUniqueNames);
+  [call_as (GetLibStatistics)] HRESULT RemoteGetLibStatistics ([out] ULONG *pcUniqueNames,[out] ULONG *pcchUniqueNames);
+  [local] HRESULT GetDocumentation2 ([in] INT index,[in] LCID lcid,[out] BSTR *pbstrHelpString,[out] DWORD *pdwHelpStringContext,[out] BSTR *pbstrHelpStringDll);
+  [call_as (GetDocumentation2)] HRESULT RemoteGetDocumentation2 ([in] INT index,[in] LCID lcid,[in] DWORD refPtrFlags,[out] BSTR *pbstrHelpString,[out] DWORD *pdwHelpStringContext,[out] BSTR *pbstrHelpStringDll);
+  HRESULT GetAllCustData ([out] CUSTDATA *pCustData);
 }
 
-[
-    object,
-    uuid(00020401-0000-0000-c000-000000000046),
-    pointer_default(unique)
-]
-interface ITypeInfo : IUnknown
-{
-    typedef [unique] ITypeInfo *LPTYPEINFO;
-
-    [local]
-    HRESULT GetTypeAttr(
-            [out] TYPEATTR **ppTypeAttr);
-    [call_as(GetTypeAttr)]
-    HRESULT RemoteGetTypeAttr(
-            [out] LPTYPEATTR *ppTypeAttr,
-            [out] CLEANLOCALSTORAGE *pDummy);
-
-    HRESULT GetTypeComp([out] ITypeComp **ppTComp);
-
-    [local]
-    HRESULT GetFuncDesc(
-            [in] UINT index,
-            [out] FUNCDESC **ppFuncDesc);
-    [call_as(GetFuncDesc)]
-    HRESULT RemoteGetFuncDesc(
-            [in] UINT index,
-            [out] LPFUNCDESC *ppFuncDesc,
-            [out] CLEANLOCALSTORAGE *pDummy);
-
-    [local]
-    HRESULT GetVarDesc(
-            [in] UINT index,
-            [out] VARDESC **ppVarDesc);
-    [call_as(GetVarDesc)]
-    HRESULT RemoteGetVarDesc(
-            [in] UINT index,
-            [out] LPVARDESC *ppVarDesc,
-            [out] CLEANLOCALSTORAGE *pDummy);
-
-    [local]
-    HRESULT GetNames(
-            [in] MEMBERID memid,
-            [out,size_is(cMaxNames),length_is(*pcNames)] BSTR *rgBstrNames,
-            [in] UINT cMaxNames,
-            [out] UINT *pcNames);
-    [call_as(GetNames)]
-    HRESULT RemoteGetNames(
-            [in] MEMBERID memid,
-            [out, size_is(cMaxNames), length_is(*pcNames)] BSTR *rgBstrNames,
-            [in] UINT cMaxNames,
-            [out] UINT *pcNames);
-
-    HRESULT GetRefTypeOfImplType(
-            [in] UINT index,
-            [out] HREFTYPE *pRefType);
-
-    HRESULT GetImplTypeFlags(
-            [in] UINT index,
-            [out] INT *pImplTypeFlags);
-
-    [local]
-    HRESULT GetIDsOfNames(
-            [in, size_is(cNames)] LPOLESTR *rgszNames,
-            [in] UINT cNames,
-            [out, size_is(cNames)] MEMBERID *pMemId);
-    [call_as(GetIDsOfNames)]
-    HRESULT LocalGetIDsOfNames();
-
-    [local]
-    HRESULT Invoke(
-            [in] PVOID pvInstance,
-            [in] MEMBERID memid,
-            [in] WORD wFlags,
-            [in, out] DISPPARAMS *pDispParams,
-            [out] VARIANT *pVarResult,
-            [out] EXCEPINFO *pExcepInfo,
-            [out] UINT *puArgErr);
-    [call_as(Invoke)]
-    HRESULT LocalInvoke ();
-
-    [local]
-    HRESULT GetDocumentation(
-            [in] MEMBERID memid,
-            [out] BSTR *pBstrName,
-            [out] BSTR *pBstrDocString,
-            [out] DWORD *pdwHelpContext,
-            [out] BSTR *pBstrHelpFile);
-    [call_as(GetDocumentation)]
-    HRESULT RemoteGetDocumentation(
-            [in] MEMBERID memid,
-            [in] DWORD refPtrFlags,
-            [out] BSTR *pBstrName,
-            [out] BSTR *pBstrDocString,
-            [out] DWORD *pdwHelpContext,
-            [out] BSTR *pBstrHelpFile);
-
-    [local]
-    HRESULT GetDllEntry(
-            [in] MEMBERID memid,
-            [in] INVOKEKIND invKind,
-            [out] BSTR *pBstrDllName,
-            [out] BSTR *pBstrName,
-            [out] WORD *pwOrdinal);
-    [call_as(GetDllEntry)]
-    HRESULT RemoteGetDllEntry(
-            [in] MEMBERID memid,
-            [in] INVOKEKIND invKind,
-            [in] DWORD refPtrFlags,
-            [out] BSTR *pBstrDllName,
-            [out] BSTR *pBstrName,
-            [out] WORD *pwOrdinal);
-
-    HRESULT GetRefTypeInfo(
-            [in] HREFTYPE hRefType,
-            [out] ITypeInfo **ppTInfo);
-
-    [local]
-    HRESULT AddressOfMember(
-            [in] MEMBERID memid,
-            [in] INVOKEKIND invKind,
-            [out] PVOID *ppv);
-    [call_as(AddressOfMember)]
-    HRESULT LocalAddressOfMember();
-
-    [local]
-    HRESULT CreateInstance(
-            [in] IUnknown *pUnkOuter,
-            [in] REFIID riid,
-            [out, iid_is(riid)] PVOID *ppvObj);
-    [call_as(CreateInstance)]
-    HRESULT RemoteCreateInstance(
-            [in] REFIID riid,
-            [out, iid_is(riid)] IUnknown **ppvObj);
-
-    HRESULT GetMops(
-            [in] MEMBERID memid,
-            [out] BSTR *pBstrMops);
-
-    [local]
-    HRESULT GetContainingTypeLib(
-            [out] ITypeLib **ppTLib,
-            [out] UINT *pIndex);
-    [call_as(GetContainingTypeLib)]
-    HRESULT RemoteGetContainingTypeLib(
-            [out] ITypeLib **ppTLib,
-            [out] UINT *pIndex);
-
-    [local]
-    void ReleaseTypeAttr([in] TYPEATTR *pTypeAttr);
-    [call_as(ReleaseTypeAttr)]
-    HRESULT LocalReleaseTypeAttr();
-
-    [local]
-    void ReleaseFuncDesc([in] FUNCDESC *pFuncDesc);
-    [call_as(ReleaseFuncDesc)]
-    HRESULT LocalReleaseFuncDesc();
-
-    [local]
-    void ReleaseVarDesc([in] VARDESC *pVarDesc);
-    [call_as(ReleaseVarDesc)]
-    HRESULT LocalReleaseVarDesc();
+cpp_quote("")
+[object, uuid (00020410-0000-0000-C000-000000000046), pointer_default (unique), local]
+interface ITypeChangeEvents: IUnknown {
+  typedef [unique] ITypeChangeEvents *LPTYPECHANGEEVENTS;
+cpp_quote("")
+  typedef enum tagCHANGEKIND {
+    CHANGEKIND_ADDMEMBER,
+    CHANGEKIND_DELETEMEMBER,
+    CHANGEKIND_SETNAMES,
+    CHANGEKIND_SETDOCUMENTATION,
+    CHANGEKIND_GENERAL,
+    CHANGEKIND_INVALIDATE,
+    CHANGEKIND_CHANGEFAILED,
+    CHANGEKIND_MAX
+  } CHANGEKIND;
+cpp_quote("")
+  HRESULT RequestTypeChange ([in] CHANGEKIND changeKind,[in] ITypeInfo *pTInfoBefore,[in] LPOLESTR pStrName,[out] INT *pfCancel);
+  HRESULT AfterTypeChange ([in] CHANGEKIND changeKind,[in] ITypeInfo *pTInfoAfter,[in] LPOLESTR pStrName);
 }
 
-cpp_quote("#ifndef __ITypeInfo2_INTERFACE_DEFINED__")
-cpp_quote("#define __ITypeInfo2_INTERFACE_DEFINED__")
-cpp_quote("  typedef ITypeInfo2 *LPTYPEINFO2;")
 cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_ITypeInfo2;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct ITypeInfo2 : public ITypeInfo {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI GetTypeKind(TYPEKIND *pTypeKind) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetTypeFlags(ULONG *pTypeFlags) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetFuncIndexOfMemId(MEMBERID memid,INVOKEKIND invKind,UINT *pFuncIndex) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetVarIndexOfMemId(MEMBERID memid,UINT *pVarIndex) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetCustData(REFGUID guid,VARIANT *pVarVal) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetFuncCustData(UINT index,REFGUID guid,VARIANT *pVarVal) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetParamCustData(UINT indexFunc,UINT indexParam,REFGUID guid,VARIANT *pVarVal) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetVarCustData(UINT index,REFGUID guid,VARIANT *pVarVal) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetImplTypeCustData(UINT index,REFGUID guid,VARIANT *pVarVal) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetDocumentation2(MEMBERID memid,LCID lcid,BSTR *pbstrHelpString,DWORD *pdwHelpStringContext,BSTR *pbstrHelpStringDll) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetAllCustData(CUSTDATA *pCustData) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetAllFuncCustData(UINT index,CUSTDATA *pCustData) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetAllParamCustData(UINT indexFunc,UINT indexParam,CUSTDATA *pCustData) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetAllVarCustData(UINT index,CUSTDATA *pCustData) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetAllImplTypeCustData(UINT index,CUSTDATA *pCustData) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct ITypeInfo2Vtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(ITypeInfo2 *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(ITypeInfo2 *This);")
-cpp_quote("      ULONG (WINAPI *Release)(ITypeInfo2 *This);")
-cpp_quote("      HRESULT (WINAPI *GetTypeAttr)(ITypeInfo2 *This,TYPEATTR **ppTypeAttr);")
-cpp_quote("      HRESULT (WINAPI *GetTypeComp)(ITypeInfo2 *This,ITypeComp **ppTComp);")
-cpp_quote("      HRESULT (WINAPI *GetFuncDesc)(ITypeInfo2 *This,UINT index,FUNCDESC **ppFuncDesc);")
-cpp_quote("      HRESULT (WINAPI *GetVarDesc)(ITypeInfo2 *This,UINT index,VARDESC **ppVarDesc);")
-cpp_quote("      HRESULT (WINAPI *GetNames)(ITypeInfo2 *This,MEMBERID memid,BSTR *rgBstrNames,UINT cMaxNames,UINT *pcNames);")
-cpp_quote("      HRESULT (WINAPI *GetRefTypeOfImplType)(ITypeInfo2 *This,UINT index,HREFTYPE *pRefType);")
-cpp_quote("      HRESULT (WINAPI *GetImplTypeFlags)(ITypeInfo2 *This,UINT index,INT *pImplTypeFlags);")
-cpp_quote("      HRESULT (WINAPI *GetIDsOfNames)(ITypeInfo2 *This,LPOLESTR *rgszNames,UINT cNames,MEMBERID *pMemId);")
-cpp_quote("      HRESULT (WINAPI *Invoke)(ITypeInfo2 *This,PVOID pvInstance,MEMBERID memid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr);")
-cpp_quote("      HRESULT (WINAPI *GetDocumentation)(ITypeInfo2 *This,MEMBERID memid,BSTR *pBstrName,BSTR *pBstrDocString,DWORD *pdwHelpContext,BSTR *pBstrHelpFile);")
-cpp_quote("      HRESULT (WINAPI *GetDllEntry)(ITypeInfo2 *This,MEMBERID memid,INVOKEKIND invKind,BSTR *pBstrDllName,BSTR *pBstrName,WORD *pwOrdinal);")
-cpp_quote("      HRESULT (WINAPI *GetRefTypeInfo)(ITypeInfo2 *This,HREFTYPE hRefType,ITypeInfo **ppTInfo);")
-cpp_quote("      HRESULT (WINAPI *AddressOfMember)(ITypeInfo2 *This,MEMBERID memid,INVOKEKIND invKind,PVOID *ppv);")
-cpp_quote("      HRESULT (WINAPI *CreateInstance)(ITypeInfo2 *This,IUnknown *pUnkOuter,REFIID riid,PVOID *ppvObj);")
-cpp_quote("      HRESULT (WINAPI *GetMops)(ITypeInfo2 *This,MEMBERID memid,BSTR *pBstrMops);")
-cpp_quote("      HRESULT (WINAPI *GetContainingTypeLib)(ITypeInfo2 *This,ITypeLib **ppTLib,UINT *pIndex);")
-cpp_quote("      void (WINAPI *ReleaseTypeAttr)(ITypeInfo2 *This,TYPEATTR *pTypeAttr);")
-cpp_quote("      void (WINAPI *ReleaseFuncDesc)(ITypeInfo2 *This,FUNCDESC *pFuncDesc);")
-cpp_quote("      void (WINAPI *ReleaseVarDesc)(ITypeInfo2 *This,VARDESC *pVarDesc);")
-cpp_quote("      HRESULT (WINAPI *GetTypeKind)(ITypeInfo2 *This,TYPEKIND *pTypeKind);")
-cpp_quote("      HRESULT (WINAPI *GetTypeFlags)(ITypeInfo2 *This,ULONG *pTypeFlags);")
-cpp_quote("      HRESULT (WINAPI *GetFuncIndexOfMemId)(ITypeInfo2 *This,MEMBERID memid,INVOKEKIND invKind,UINT *pFuncIndex);")
-cpp_quote("      HRESULT (WINAPI *GetVarIndexOfMemId)(ITypeInfo2 *This,MEMBERID memid,UINT *pVarIndex);")
-cpp_quote("      HRESULT (WINAPI *GetCustData)(ITypeInfo2 *This,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("      HRESULT (WINAPI *GetFuncCustData)(ITypeInfo2 *This,UINT index,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("      HRESULT (WINAPI *GetParamCustData)(ITypeInfo2 *This,UINT indexFunc,UINT indexParam,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("      HRESULT (WINAPI *GetVarCustData)(ITypeInfo2 *This,UINT index,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("      HRESULT (WINAPI *GetImplTypeCustData)(ITypeInfo2 *This,UINT index,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("      HRESULT (WINAPI *GetDocumentation2)(ITypeInfo2 *This,MEMBERID memid,LCID lcid,BSTR *pbstrHelpString,DWORD *pdwHelpStringContext,BSTR *pbstrHelpStringDll);")
-cpp_quote("      HRESULT (WINAPI *GetAllCustData)(ITypeInfo2 *This,CUSTDATA *pCustData);")
-cpp_quote("      HRESULT (WINAPI *GetAllFuncCustData)(ITypeInfo2 *This,UINT index,CUSTDATA *pCustData);")
-cpp_quote("      HRESULT (WINAPI *GetAllParamCustData)(ITypeInfo2 *This,UINT indexFunc,UINT indexParam,CUSTDATA *pCustData);")
-cpp_quote("      HRESULT (WINAPI *GetAllVarCustData)(ITypeInfo2 *This,UINT index,CUSTDATA *pCustData);")
-cpp_quote("      HRESULT (WINAPI *GetAllImplTypeCustData)(ITypeInfo2 *This,UINT index,CUSTDATA *pCustData);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } ITypeInfo2Vtbl;")
-cpp_quote("  struct ITypeInfo2 {")
-cpp_quote("    CONST_VTBL struct ITypeInfo2Vtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define ITypeInfo2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define ITypeInfo2_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define ITypeInfo2_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define ITypeInfo2_GetTypeAttr(This,ppTypeAttr) (This)->lpVtbl->GetTypeAttr(This,ppTypeAttr)")
-cpp_quote("#define ITypeInfo2_GetTypeComp(This,ppTComp) (This)->lpVtbl->GetTypeComp(This,ppTComp)")
-cpp_quote("#define ITypeInfo2_GetFuncDesc(This,index,ppFuncDesc) (This)->lpVtbl->GetFuncDesc(This,index,ppFuncDesc)")
-cpp_quote("#define ITypeInfo2_GetVarDesc(This,index,ppVarDesc) (This)->lpVtbl->GetVarDesc(This,index,ppVarDesc)")
-cpp_quote("#define ITypeInfo2_GetNames(This,memid,rgBstrNames,cMaxNames,pcNames) (This)->lpVtbl->GetNames(This,memid,rgBstrNames,cMaxNames,pcNames)")
-cpp_quote("#define ITypeInfo2_GetRefTypeOfImplType(This,index,pRefType) (This)->lpVtbl->GetRefTypeOfImplType(This,index,pRefType)")
-cpp_quote("#define ITypeInfo2_GetImplTypeFlags(This,index,pImplTypeFlags) (This)->lpVtbl->GetImplTypeFlags(This,index,pImplTypeFlags)")
-cpp_quote("#define ITypeInfo2_GetIDsOfNames(This,rgszNames,cNames,pMemId) (This)->lpVtbl->GetIDsOfNames(This,rgszNames,cNames,pMemId)")
-cpp_quote("#define ITypeInfo2_Invoke(This,pvInstance,memid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,pvInstance,memid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)")
-cpp_quote("#define ITypeInfo2_GetDocumentation(This,memid,pBstrName,pBstrDocString,pdwHelpContext,pBstrHelpFile) (This)->lpVtbl->GetDocumentation(This,memid,pBstrName,pBstrDocString,pdwHelpContext,pBstrHelpFile)")
-cpp_quote("#define ITypeInfo2_GetDllEntry(This,memid,invKind,pBstrDllName,pBstrName,pwOrdinal) (This)->lpVtbl->GetDllEntry(This,memid,invKind,pBstrDllName,pBstrName,pwOrdinal)")
-cpp_quote("#define ITypeInfo2_GetRefTypeInfo(This,hRefType,ppTInfo) (This)->lpVtbl->GetRefTypeInfo(This,hRefType,ppTInfo)")
-cpp_quote("#define ITypeInfo2_AddressOfMember(This,memid,invKind,ppv) (This)->lpVtbl->AddressOfMember(This,memid,invKind,ppv)")
-cpp_quote("#define ITypeInfo2_CreateInstance(This,pUnkOuter,riid,ppvObj) (This)->lpVtbl->CreateInstance(This,pUnkOuter,riid,ppvObj)")
-cpp_quote("#define ITypeInfo2_GetMops(This,memid,pBstrMops) (This)->lpVtbl->GetMops(This,memid,pBstrMops)")
-cpp_quote("#define ITypeInfo2_GetContainingTypeLib(This,ppTLib,pIndex) (This)->lpVtbl->GetContainingTypeLib(This,ppTLib,pIndex)")
-cpp_quote("#define ITypeInfo2_ReleaseTypeAttr(This,pTypeAttr) (This)->lpVtbl->ReleaseTypeAttr(This,pTypeAttr)")
-cpp_quote("#define ITypeInfo2_ReleaseFuncDesc(This,pFuncDesc) (This)->lpVtbl->ReleaseFuncDesc(This,pFuncDesc)")
-cpp_quote("#define ITypeInfo2_ReleaseVarDesc(This,pVarDesc) (This)->lpVtbl->ReleaseVarDesc(This,pVarDesc)")
-cpp_quote("#define ITypeInfo2_GetTypeKind(This,pTypeKind) (This)->lpVtbl->GetTypeKind(This,pTypeKind)")
-cpp_quote("#define ITypeInfo2_GetTypeFlags(This,pTypeFlags) (This)->lpVtbl->GetTypeFlags(This,pTypeFlags)")
-cpp_quote("#define ITypeInfo2_GetFuncIndexOfMemId(This,memid,invKind,pFuncIndex) (This)->lpVtbl->GetFuncIndexOfMemId(This,memid,invKind,pFuncIndex)")
-cpp_quote("#define ITypeInfo2_GetVarIndexOfMemId(This,memid,pVarIndex) (This)->lpVtbl->GetVarIndexOfMemId(This,memid,pVarIndex)")
-cpp_quote("#define ITypeInfo2_GetCustData(This,guid,pVarVal) (This)->lpVtbl->GetCustData(This,guid,pVarVal)")
-cpp_quote("#define ITypeInfo2_GetFuncCustData(This,index,guid,pVarVal) (This)->lpVtbl->GetFuncCustData(This,index,guid,pVarVal)")
-cpp_quote("#define ITypeInfo2_GetParamCustData(This,indexFunc,indexParam,guid,pVarVal) (This)->lpVtbl->GetParamCustData(This,indexFunc,indexParam,guid,pVarVal)")
-cpp_quote("#define ITypeInfo2_GetVarCustData(This,index,guid,pVarVal) (This)->lpVtbl->GetVarCustData(This,index,guid,pVarVal)")
-cpp_quote("#define ITypeInfo2_GetImplTypeCustData(This,index,guid,pVarVal) (This)->lpVtbl->GetImplTypeCustData(This,index,guid,pVarVal)")
-cpp_quote("#define ITypeInfo2_GetDocumentation2(This,memid,lcid,pbstrHelpString,pdwHelpStringContext,pbstrHelpStringDll) (This)->lpVtbl->GetDocumentation2(This,memid,lcid,pbstrHelpString,pdwHelpStringContext,pbstrHelpStringDll)")
-cpp_quote("#define ITypeInfo2_GetAllCustData(This,pCustData) (This)->lpVtbl->GetAllCustData(This,pCustData)")
-cpp_quote("#define ITypeInfo2_GetAllFuncCustData(This,index,pCustData) (This)->lpVtbl->GetAllFuncCustData(This,index,pCustData)")
-cpp_quote("#define ITypeInfo2_GetAllParamCustData(This,indexFunc,indexParam,pCustData) (This)->lpVtbl->GetAllParamCustData(This,indexFunc,indexParam,pCustData)")
-cpp_quote("#define ITypeInfo2_GetAllVarCustData(This,index,pCustData) (This)->lpVtbl->GetAllVarCustData(This,index,pCustData)")
-cpp_quote("#define ITypeInfo2_GetAllImplTypeCustData(This,index,pCustData) (This)->lpVtbl->GetAllImplTypeCustData(This,index,pCustData)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI ITypeInfo2_GetTypeKind_Proxy(ITypeInfo2 *This,TYPEKIND *pTypeKind);")
-cpp_quote("  void __RPC_STUB ITypeInfo2_GetTypeKind_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ITypeInfo2_GetTypeFlags_Proxy(ITypeInfo2 *This,ULONG *pTypeFlags);")
-cpp_quote("  void __RPC_STUB ITypeInfo2_GetTypeFlags_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ITypeInfo2_GetFuncIndexOfMemId_Proxy(ITypeInfo2 *This,MEMBERID memid,INVOKEKIND invKind,UINT *pFuncIndex);")
-cpp_quote("  void __RPC_STUB ITypeInfo2_GetFuncIndexOfMemId_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ITypeInfo2_GetVarIndexOfMemId_Proxy(ITypeInfo2 *This,MEMBERID memid,UINT *pVarIndex);")
-cpp_quote("  void __RPC_STUB ITypeInfo2_GetVarIndexOfMemId_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ITypeInfo2_GetCustData_Proxy(ITypeInfo2 *This,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("  void __RPC_STUB ITypeInfo2_GetCustData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ITypeInfo2_GetFuncCustData_Proxy(ITypeInfo2 *This,UINT index,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("  void __RPC_STUB ITypeInfo2_GetFuncCustData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ITypeInfo2_GetParamCustData_Proxy(ITypeInfo2 *This,UINT indexFunc,UINT indexParam,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("  void __RPC_STUB ITypeInfo2_GetParamCustData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ITypeInfo2_GetVarCustData_Proxy(ITypeInfo2 *This,UINT index,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("  void __RPC_STUB ITypeInfo2_GetVarCustData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ITypeInfo2_GetImplTypeCustData_Proxy(ITypeInfo2 *This,UINT index,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("  void __RPC_STUB ITypeInfo2_GetImplTypeCustData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ITypeInfo2_RemoteGetDocumentation2_Proxy(ITypeInfo2 *This,MEMBERID memid,LCID lcid,DWORD refPtrFlags,BSTR *pbstrHelpString,DWORD *pdwHelpStringContext,BSTR *pbstrHelpStringDll);")
-cpp_quote("  void __RPC_STUB ITypeInfo2_RemoteGetDocumentation2_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ITypeInfo2_GetAllCustData_Proxy(ITypeInfo2 *This,CUSTDATA *pCustData);")
-cpp_quote("  void __RPC_STUB ITypeInfo2_GetAllCustData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ITypeInfo2_GetAllFuncCustData_Proxy(ITypeInfo2 *This,UINT index,CUSTDATA *pCustData);")
-cpp_quote("  void __RPC_STUB ITypeInfo2_GetAllFuncCustData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ITypeInfo2_GetAllParamCustData_Proxy(ITypeInfo2 *This,UINT indexFunc,UINT indexParam,CUSTDATA *pCustData);")
-cpp_quote("  void __RPC_STUB ITypeInfo2_GetAllParamCustData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ITypeInfo2_GetAllVarCustData_Proxy(ITypeInfo2 *This,UINT index,CUSTDATA *pCustData);")
-cpp_quote("  void __RPC_STUB ITypeInfo2_GetAllVarCustData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ITypeInfo2_GetAllImplTypeCustData_Proxy(ITypeInfo2 *This,UINT index,CUSTDATA *pCustData);")
-cpp_quote("  void __RPC_STUB ITypeInfo2_GetAllImplTypeCustData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-
-[
-    object,
-    uuid(00020402-0000-0000-c000-000000000046),
-    pointer_default(unique)
-]
-interface ITypeLib : IUnknown
-{
-    typedef [unique] ITypeLib *LPTYPELIB;
-
-    typedef [v1_enum] enum tagSYSKIND {
-        SYS_WIN16 = 0,
-        SYS_WIN32,
-        SYS_MAC,
-        SYS_WIN64
-    } SYSKIND;
-
-    typedef [v1_enum] enum tagLIBFLAGS {
-        LIBFLAG_FRESTRICTED   = 0x01,
-        LIBFLAG_FCONTROL      = 0x02,
-        LIBFLAG_FHIDDEN       = 0x04,
-        LIBFLAG_FHASDISKIMAGE = 0x08
-    } LIBFLAGS;
-
-    typedef struct tagTLIBATTR {
-        GUID guid;
-        LCID lcid;
-        SYSKIND syskind;
-        WORD wMajorVerNum;
-        WORD wMinorVerNum;
-        WORD wLibFlags;
-    } TLIBATTR, *LPTLIBATTR;
-
-    [local]
-    UINT GetTypeInfoCount();
-    [call_as(GetTypeInfoCount)]
-    HRESULT RemoteGetTypeInfoCount([out] UINT *pcTInfo);
-
-    HRESULT GetTypeInfo(
-        [in] UINT index,
-        [out] ITypeInfo **ppTInfo);
-
-    HRESULT GetTypeInfoType(
-            [in] UINT index,
-            [out] TYPEKIND *pTKind);
-
-    HRESULT GetTypeInfoOfGuid(
-            [in] REFGUID guid,
-            [out] ITypeInfo **ppTinfo);
-
-    [local]
-    HRESULT GetLibAttr(
-            [out] TLIBATTR **ppTLibAttr);
-    [call_as(GetLibAttr)]
-    HRESULT RemoteGetLibAttr(
-            [out] LPTLIBATTR *ppTLibAttr,
-            [out] CLEANLOCALSTORAGE *pDummy);
-
-    HRESULT GetTypeComp(
-            [out] ITypeComp **ppTComp);
-
-    [local]
-    HRESULT GetDocumentation(
-            [in] INT index,
-            [out] BSTR *pBstrName,
-            [out] BSTR *pBstrDocString,
-            [out] DWORD *pdwHelpContext,
-            [out] BSTR *pBstrHelpFile);
-    [call_as(GetDocumentation)]
-    HRESULT RemoteGetDocumentation(
-            [in] INT index,
-            [in] DWORD refPtrFlags,
-            [out] BSTR *pBstrName,
-            [out] BSTR *pBstrDocString,
-            [out] DWORD *pdwHelpContext,
-            [out] BSTR *pBstrHelpFile);
-
-    [local]
-    HRESULT IsName(
-            [in, out] LPOLESTR szNameBuf,
-            [in] ULONG lHashVal,
-            [out] BOOL *pfName);
-    [call_as(IsName)]
-    HRESULT RemoteIsName(
-            [in] LPOLESTR szNameBuf,
-            [in] ULONG lHashVal,
-            [out] BOOL *pfName,
-            [out] BSTR *pBstrLibName);
-
-    [local]
-    HRESULT FindName(
-            [in, out] LPOLESTR szNameBuf,
-            [in] ULONG lHashVal,
-            [out, size_is(*pcFound), length_is(*pcFound)] ITypeInfo **ppTInfo,
-            [out, size_is(*pcFound), length_is(*pcFound)] MEMBERID *rgMemId,
-            [in, out] USHORT *pcFound);
-    [call_as(FindName)]
-    HRESULT RemoteFindName(
-            [in] LPOLESTR szNameBuf,
-            [in] ULONG lHashVal,
-            [out, size_is(*pcFound), length_is(*pcFound)] ITypeInfo **ppTInfo,
-            [out, size_is(*pcFound), length_is(*pcFound)] MEMBERID *rgMemId,
-            [in, out] USHORT *pcFound,
-            [out] BSTR *pBstrLibName);
-
-    [local]
-    void ReleaseTLibAttr([in] TLIBATTR *pTLibAttr);
-    [call_as(ReleaseTLibAttr)]
-    HRESULT LocalReleaseTLibAttr();
+[object, uuid (1cf2b120-547d-101b-8e65-08002b2bd119), pointer_default (unique)]
+interface IErrorInfo: IUnknown {
+  typedef [unique] IErrorInfo *LPERRORINFO;
+cpp_quote("")
+  HRESULT GetGUID ([out] GUID *pGUID);
+  HRESULT GetSource ([out] BSTR *pBstrSource);
+  HRESULT GetDescription ([out] BSTR *pBstrDescription);
+  HRESULT GetHelpFile ([out] BSTR *pBstrHelpFile);
+  HRESULT GetHelpContext ([out] DWORD *pdwHelpContext);
 }
 
-cpp_quote("#ifndef __ITypeLib2_INTERFACE_DEFINED__")
-cpp_quote("#define __ITypeLib2_INTERFACE_DEFINED__")
-cpp_quote("  typedef ITypeLib2 *LPTYPELIB2;")
 cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_ITypeLib2;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct ITypeLib2 : public ITypeLib {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI GetCustData(REFGUID guid,VARIANT *pVarVal) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetLibStatistics(ULONG *pcUniqueNames,ULONG *pcchUniqueNames) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetDocumentation2(INT index,LCID lcid,BSTR *pbstrHelpString,DWORD *pdwHelpStringContext,BSTR *pbstrHelpStringDll) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetAllCustData(CUSTDATA *pCustData) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct ITypeLib2Vtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(ITypeLib2 *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(ITypeLib2 *This);")
-cpp_quote("      ULONG (WINAPI *Release)(ITypeLib2 *This);")
-cpp_quote("      UINT (WINAPI *GetTypeInfoCount)(ITypeLib2 *This);")
-cpp_quote("      HRESULT (WINAPI *GetTypeInfo)(ITypeLib2 *This,UINT index,ITypeInfo **ppTInfo);")
-cpp_quote("      HRESULT (WINAPI *GetTypeInfoType)(ITypeLib2 *This,UINT index,TYPEKIND *pTKind);")
-cpp_quote("      HRESULT (WINAPI *GetTypeInfoOfGuid)(ITypeLib2 *This,REFGUID guid,ITypeInfo **ppTinfo);")
-cpp_quote("      HRESULT (WINAPI *GetLibAttr)(ITypeLib2 *This,TLIBATTR **ppTLibAttr);")
-cpp_quote("      HRESULT (WINAPI *GetTypeComp)(ITypeLib2 *This,ITypeComp **ppTComp);")
-cpp_quote("      HRESULT (WINAPI *GetDocumentation)(ITypeLib2 *This,INT index,BSTR *pBstrName,BSTR *pBstrDocString,DWORD *pdwHelpContext,BSTR *pBstrHelpFile);")
-cpp_quote("      HRESULT (WINAPI *IsName)(ITypeLib2 *This,LPOLESTR szNameBuf,ULONG lHashVal,WINBOOL *pfName);")
-cpp_quote("      HRESULT (WINAPI *FindName)(ITypeLib2 *This,LPOLESTR szNameBuf,ULONG lHashVal,ITypeInfo **ppTInfo,MEMBERID *rgMemId,USHORT *pcFound);")
-cpp_quote("      void (WINAPI *ReleaseTLibAttr)(ITypeLib2 *This,TLIBATTR *pTLibAttr);")
-cpp_quote("      HRESULT (WINAPI *GetCustData)(ITypeLib2 *This,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("      HRESULT (WINAPI *GetLibStatistics)(ITypeLib2 *This,ULONG *pcUniqueNames,ULONG *pcchUniqueNames);")
-cpp_quote("      HRESULT (WINAPI *GetDocumentation2)(ITypeLib2 *This,INT index,LCID lcid,BSTR *pbstrHelpString,DWORD *pdwHelpStringContext,BSTR *pbstrHelpStringDll);")
-cpp_quote("      HRESULT (WINAPI *GetAllCustData)(ITypeLib2 *This,CUSTDATA *pCustData);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } ITypeLib2Vtbl;")
-cpp_quote("  struct ITypeLib2 {")
-cpp_quote("    CONST_VTBL struct ITypeLib2Vtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define ITypeLib2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define ITypeLib2_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define ITypeLib2_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define ITypeLib2_GetTypeInfoCount(This) (This)->lpVtbl->GetTypeInfoCount(This)")
-cpp_quote("#define ITypeLib2_GetTypeInfo(This,index,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,index,ppTInfo)")
-cpp_quote("#define ITypeLib2_GetTypeInfoType(This,index,pTKind) (This)->lpVtbl->GetTypeInfoType(This,index,pTKind)")
-cpp_quote("#define ITypeLib2_GetTypeInfoOfGuid(This,guid,ppTinfo) (This)->lpVtbl->GetTypeInfoOfGuid(This,guid,ppTinfo)")
-cpp_quote("#define ITypeLib2_GetLibAttr(This,ppTLibAttr) (This)->lpVtbl->GetLibAttr(This,ppTLibAttr)")
-cpp_quote("#define ITypeLib2_GetTypeComp(This,ppTComp) (This)->lpVtbl->GetTypeComp(This,ppTComp)")
-cpp_quote("#define ITypeLib2_GetDocumentation(This,index,pBstrName,pBstrDocString,pdwHelpContext,pBstrHelpFile) (This)->lpVtbl->GetDocumentation(This,index,pBstrName,pBstrDocString,pdwHelpContext,pBstrHelpFile)")
-cpp_quote("#define ITypeLib2_IsName(This,szNameBuf,lHashVal,pfName) (This)->lpVtbl->IsName(This,szNameBuf,lHashVal,pfName)")
-cpp_quote("#define ITypeLib2_FindName(This,szNameBuf,lHashVal,ppTInfo,rgMemId,pcFound) (This)->lpVtbl->FindName(This,szNameBuf,lHashVal,ppTInfo,rgMemId,pcFound)")
-cpp_quote("#define ITypeLib2_ReleaseTLibAttr(This,pTLibAttr) (This)->lpVtbl->ReleaseTLibAttr(This,pTLibAttr)")
-cpp_quote("#define ITypeLib2_GetCustData(This,guid,pVarVal) (This)->lpVtbl->GetCustData(This,guid,pVarVal)")
-cpp_quote("#define ITypeLib2_GetLibStatistics(This,pcUniqueNames,pcchUniqueNames) (This)->lpVtbl->GetLibStatistics(This,pcUniqueNames,pcchUniqueNames)")
-cpp_quote("#define ITypeLib2_GetDocumentation2(This,index,lcid,pbstrHelpString,pdwHelpStringContext,pbstrHelpStringDll) (This)->lpVtbl->GetDocumentation2(This,index,lcid,pbstrHelpString,pdwHelpStringContext,pbstrHelpStringDll)")
-cpp_quote("#define ITypeLib2_GetAllCustData(This,pCustData) (This)->lpVtbl->GetAllCustData(This,pCustData)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI ITypeLib2_GetCustData_Proxy(ITypeLib2 *This,REFGUID guid,VARIANT *pVarVal);")
-cpp_quote("  void __RPC_STUB ITypeLib2_GetCustData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ITypeLib2_RemoteGetLibStatistics_Proxy(ITypeLib2 *This,ULONG *pcUniqueNames,ULONG *pcchUniqueNames);")
-cpp_quote("  void __RPC_STUB ITypeLib2_RemoteGetLibStatistics_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ITypeLib2_RemoteGetDocumentation2_Proxy(ITypeLib2 *This,INT index,LCID lcid,DWORD refPtrFlags,BSTR *pbstrHelpString,DWORD *pdwHelpStringContext,BSTR *pbstrHelpStringDll);")
-cpp_quote("  void __RPC_STUB ITypeLib2_RemoteGetDocumentation2_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ITypeLib2_GetAllCustData_Proxy(ITypeLib2 *This,CUSTDATA *pCustData);")
-cpp_quote("  void __RPC_STUB ITypeLib2_GetAllCustData_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
+[object, uuid (22f03340-547d-101b-8e65-08002b2bd119), pointer_default (unique)]
+interface ICreateErrorInfo: IUnknown {
+  typedef [unique] ICreateErrorInfo *LPCREATEERRORINFO;
 cpp_quote("")
-cpp_quote("#ifndef __ITypeChangeEvents_INTERFACE_DEFINED__")
-cpp_quote("#define __ITypeChangeEvents_INTERFACE_DEFINED__")
-cpp_quote("  typedef ITypeChangeEvents *LPTYPECHANGEEVENTS;")
-cpp_quote("")
-cpp_quote("  typedef enum tagCHANGEKIND {")
-cpp_quote("    CHANGEKIND_ADDMEMBER = 0,")
-cpp_quote("    CHANGEKIND_DELETEMEMBER,CHANGEKIND_SETNAMES,CHANGEKIND_SETDOCUMENTATION,")
-cpp_quote("    CHANGEKIND_GENERAL,CHANGEKIND_INVALIDATE,CHANGEKIND_CHANGEFAILED,")
-cpp_quote("    CHANGEKIND_MAX")
-cpp_quote("  } CHANGEKIND;")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_ITypeChangeEvents;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct ITypeChangeEvents : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI RequestTypeChange(CHANGEKIND changeKind,ITypeInfo *pTInfoBefore,LPOLESTR pStrName,INT *pfCancel) = 0;")
-cpp_quote("    virtual HRESULT WINAPI AfterTypeChange(CHANGEKIND changeKind,ITypeInfo *pTInfoAfter,LPOLESTR pStrName) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct ITypeChangeEventsVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(ITypeChangeEvents *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(ITypeChangeEvents *This);")
-cpp_quote("      ULONG (WINAPI *Release)(ITypeChangeEvents *This);")
-cpp_quote("      HRESULT (WINAPI *RequestTypeChange)(ITypeChangeEvents *This,CHANGEKIND changeKind,ITypeInfo *pTInfoBefore,LPOLESTR pStrName,INT *pfCancel);")
-cpp_quote("      HRESULT (WINAPI *AfterTypeChange)(ITypeChangeEvents *This,CHANGEKIND changeKind,ITypeInfo *pTInfoAfter,LPOLESTR pStrName);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } ITypeChangeEventsVtbl;")
-cpp_quote("  struct ITypeChangeEvents {")
-cpp_quote("    CONST_VTBL struct ITypeChangeEventsVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define ITypeChangeEvents_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define ITypeChangeEvents_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define ITypeChangeEvents_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define ITypeChangeEvents_RequestTypeChange(This,changeKind,pTInfoBefore,pStrName,pfCancel) (This)->lpVtbl->RequestTypeChange(This,changeKind,pTInfoBefore,pStrName,pfCancel)")
-cpp_quote("#define ITypeChangeEvents_AfterTypeChange(This,changeKind,pTInfoAfter,pStrName) (This)->lpVtbl->AfterTypeChange(This,changeKind,pTInfoAfter,pStrName)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI ITypeChangeEvents_RequestTypeChange_Proxy(ITypeChangeEvents *This,CHANGEKIND changeKind,ITypeInfo *pTInfoBefore,LPOLESTR pStrName,INT *pfCancel);")
-cpp_quote("  void __RPC_STUB ITypeChangeEvents_RequestTypeChange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ITypeChangeEvents_AfterTypeChange_Proxy(ITypeChangeEvents *This,CHANGEKIND changeKind,ITypeInfo *pTInfoAfter,LPOLESTR pStrName);")
-cpp_quote("  void __RPC_STUB ITypeChangeEvents_AfterTypeChange_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IErrorInfo_INTERFACE_DEFINED__")
-cpp_quote("#define __IErrorInfo_INTERFACE_DEFINED__")
-cpp_quote("  typedef IErrorInfo *LPERRORINFO;")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_IErrorInfo;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IErrorInfo : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI GetGUID(GUID *pGUID) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetSource(BSTR *pBstrSource) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetDescription(BSTR *pBstrDescription) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetHelpFile(BSTR *pBstrHelpFile) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetHelpContext(DWORD *pdwHelpContext) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IErrorInfoVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IErrorInfo *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IErrorInfo *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IErrorInfo *This);")
-cpp_quote("      HRESULT (WINAPI *GetGUID)(IErrorInfo *This,GUID *pGUID);")
-cpp_quote("      HRESULT (WINAPI *GetSource)(IErrorInfo *This,BSTR *pBstrSource);")
-cpp_quote("      HRESULT (WINAPI *GetDescription)(IErrorInfo *This,BSTR *pBstrDescription);")
-cpp_quote("      HRESULT (WINAPI *GetHelpFile)(IErrorInfo *This,BSTR *pBstrHelpFile);")
-cpp_quote("      HRESULT (WINAPI *GetHelpContext)(IErrorInfo *This,DWORD *pdwHelpContext);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IErrorInfoVtbl;")
-cpp_quote("  struct IErrorInfo {")
-cpp_quote("    CONST_VTBL struct IErrorInfoVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IErrorInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IErrorInfo_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IErrorInfo_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IErrorInfo_GetGUID(This,pGUID) (This)->lpVtbl->GetGUID(This,pGUID)")
-cpp_quote("#define IErrorInfo_GetSource(This,pBstrSource) (This)->lpVtbl->GetSource(This,pBstrSource)")
-cpp_quote("#define IErrorInfo_GetDescription(This,pBstrDescription) (This)->lpVtbl->GetDescription(This,pBstrDescription)")
-cpp_quote("#define IErrorInfo_GetHelpFile(This,pBstrHelpFile) (This)->lpVtbl->GetHelpFile(This,pBstrHelpFile)")
-cpp_quote("#define IErrorInfo_GetHelpContext(This,pdwHelpContext) (This)->lpVtbl->GetHelpContext(This,pdwHelpContext)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IErrorInfo_GetGUID_Proxy(IErrorInfo *This,GUID *pGUID);")
-cpp_quote("  void __RPC_STUB IErrorInfo_GetGUID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IErrorInfo_GetSource_Proxy(IErrorInfo *This,BSTR *pBstrSource);")
-cpp_quote("  void __RPC_STUB IErrorInfo_GetSource_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IErrorInfo_GetDescription_Proxy(IErrorInfo *This,BSTR *pBstrDescription);")
-cpp_quote("  void __RPC_STUB IErrorInfo_GetDescription_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IErrorInfo_GetHelpFile_Proxy(IErrorInfo *This,BSTR *pBstrHelpFile);")
-cpp_quote("  void __RPC_STUB IErrorInfo_GetHelpFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IErrorInfo_GetHelpContext_Proxy(IErrorInfo *This,DWORD *pdwHelpContext);")
-cpp_quote("  void __RPC_STUB IErrorInfo_GetHelpContext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __ICreateErrorInfo_INTERFACE_DEFINED__")
-cpp_quote("#define __ICreateErrorInfo_INTERFACE_DEFINED__")
-cpp_quote("  typedef ICreateErrorInfo *LPCREATEERRORINFO;")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_ICreateErrorInfo;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct ICreateErrorInfo : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI SetGUID(REFGUID rguid) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetSource(LPOLESTR szSource) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetDescription(LPOLESTR szDescription) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetHelpFile(LPOLESTR szHelpFile) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetHelpContext(DWORD dwHelpContext) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct ICreateErrorInfoVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(ICreateErrorInfo *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(ICreateErrorInfo *This);")
-cpp_quote("      ULONG (WINAPI *Release)(ICreateErrorInfo *This);")
-cpp_quote("      HRESULT (WINAPI *SetGUID)(ICreateErrorInfo *This,REFGUID rguid);")
-cpp_quote("      HRESULT (WINAPI *SetSource)(ICreateErrorInfo *This,LPOLESTR szSource);")
-cpp_quote("      HRESULT (WINAPI *SetDescription)(ICreateErrorInfo *This,LPOLESTR szDescription);")
-cpp_quote("      HRESULT (WINAPI *SetHelpFile)(ICreateErrorInfo *This,LPOLESTR szHelpFile);")
-cpp_quote("      HRESULT (WINAPI *SetHelpContext)(ICreateErrorInfo *This,DWORD dwHelpContext);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } ICreateErrorInfoVtbl;")
-cpp_quote("  struct ICreateErrorInfo {")
-cpp_quote("    CONST_VTBL struct ICreateErrorInfoVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define ICreateErrorInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define ICreateErrorInfo_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define ICreateErrorInfo_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define ICreateErrorInfo_SetGUID(This,rguid) (This)->lpVtbl->SetGUID(This,rguid)")
-cpp_quote("#define ICreateErrorInfo_SetSource(This,szSource) (This)->lpVtbl->SetSource(This,szSource)")
-cpp_quote("#define ICreateErrorInfo_SetDescription(This,szDescription) (This)->lpVtbl->SetDescription(This,szDescription)")
-cpp_quote("#define ICreateErrorInfo_SetHelpFile(This,szHelpFile) (This)->lpVtbl->SetHelpFile(This,szHelpFile)")
-cpp_quote("#define ICreateErrorInfo_SetHelpContext(This,dwHelpContext) (This)->lpVtbl->SetHelpContext(This,dwHelpContext)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI ICreateErrorInfo_SetGUID_Proxy(ICreateErrorInfo *This,REFGUID rguid);")
-cpp_quote("  void __RPC_STUB ICreateErrorInfo_SetGUID_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateErrorInfo_SetSource_Proxy(ICreateErrorInfo *This,LPOLESTR szSource);")
-cpp_quote("  void __RPC_STUB ICreateErrorInfo_SetSource_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateErrorInfo_SetDescription_Proxy(ICreateErrorInfo *This,LPOLESTR szDescription);")
-cpp_quote("  void __RPC_STUB ICreateErrorInfo_SetDescription_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateErrorInfo_SetHelpFile_Proxy(ICreateErrorInfo *This,LPOLESTR szHelpFile);")
-cpp_quote("  void __RPC_STUB ICreateErrorInfo_SetHelpFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ICreateErrorInfo_SetHelpContext_Proxy(ICreateErrorInfo *This,DWORD dwHelpContext);")
-cpp_quote("  void __RPC_STUB ICreateErrorInfo_SetHelpContext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __ISupportErrorInfo_INTERFACE_DEFINED__")
-cpp_quote("#define __ISupportErrorInfo_INTERFACE_DEFINED__")
-cpp_quote("  typedef ISupportErrorInfo *LPSUPPORTERRORINFO;")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_ISupportErrorInfo;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct ISupportErrorInfo : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI InterfaceSupportsErrorInfo(REFIID riid) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct ISupportErrorInfoVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(ISupportErrorInfo *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(ISupportErrorInfo *This);")
-cpp_quote("      ULONG (WINAPI *Release)(ISupportErrorInfo *This);")
-cpp_quote("      HRESULT (WINAPI *InterfaceSupportsErrorInfo)(ISupportErrorInfo *This,REFIID riid);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } ISupportErrorInfoVtbl;")
-cpp_quote("  struct ISupportErrorInfo {")
-cpp_quote("    CONST_VTBL struct ISupportErrorInfoVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define ISupportErrorInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define ISupportErrorInfo_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define ISupportErrorInfo_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define ISupportErrorInfo_InterfaceSupportsErrorInfo(This,riid) (This)->lpVtbl->InterfaceSupportsErrorInfo(This,riid)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI ISupportErrorInfo_InterfaceSupportsErrorInfo_Proxy(ISupportErrorInfo *This,REFIID riid);")
-cpp_quote("  void __RPC_STUB ISupportErrorInfo_InterfaceSupportsErrorInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __ITypeFactory_INTERFACE_DEFINED__")
-cpp_quote("#define __ITypeFactory_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_ITypeFactory;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct ITypeFactory : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI CreateFromTypeInfo(ITypeInfo *pTypeInfo,REFIID riid,IUnknown **ppv) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct ITypeFactoryVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(ITypeFactory *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(ITypeFactory *This);")
-cpp_quote("      ULONG (WINAPI *Release)(ITypeFactory *This);")
-cpp_quote("      HRESULT (WINAPI *CreateFromTypeInfo)(ITypeFactory *This,ITypeInfo *pTypeInfo,REFIID riid,IUnknown **ppv);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } ITypeFactoryVtbl;")
-cpp_quote("  struct ITypeFactory {")
-cpp_quote("    CONST_VTBL struct ITypeFactoryVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define ITypeFactory_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define ITypeFactory_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define ITypeFactory_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define ITypeFactory_CreateFromTypeInfo(This,pTypeInfo,riid,ppv) (This)->lpVtbl->CreateFromTypeInfo(This,pTypeInfo,riid,ppv)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI ITypeFactory_CreateFromTypeInfo_Proxy(ITypeFactory *This,ITypeInfo *pTypeInfo,REFIID riid,IUnknown **ppv);")
-cpp_quote("  void __RPC_STUB ITypeFactory_CreateFromTypeInfo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __ITypeMarshal_INTERFACE_DEFINED__")
-cpp_quote("#define __ITypeMarshal_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_ITypeMarshal;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct ITypeMarshal : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI Size(PVOID pvType,DWORD dwDestContext,PVOID pvDestContext,ULONG *pSize) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Marshal(PVOID pvType,DWORD dwDestContext,PVOID pvDestContext,ULONG cbBufferLength,BYTE *pBuffer,ULONG *pcbWritten) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Unmarshal(PVOID pvType,DWORD dwFlags,ULONG cbBufferLength,BYTE *pBuffer,ULONG *pcbRead) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Free(PVOID pvType) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct ITypeMarshalVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(ITypeMarshal *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(ITypeMarshal *This);")
-cpp_quote("      ULONG (WINAPI *Release)(ITypeMarshal *This);")
-cpp_quote("      HRESULT (WINAPI *Size)(ITypeMarshal *This,PVOID pvType,DWORD dwDestContext,PVOID pvDestContext,ULONG *pSize);")
-cpp_quote("      HRESULT (WINAPI *Marshal)(ITypeMarshal *This,PVOID pvType,DWORD dwDestContext,PVOID pvDestContext,ULONG cbBufferLength,BYTE *pBuffer,ULONG *pcbWritten);")
-cpp_quote("      HRESULT (WINAPI *Unmarshal)(ITypeMarshal *This,PVOID pvType,DWORD dwFlags,ULONG cbBufferLength,BYTE *pBuffer,ULONG *pcbRead);")
-cpp_quote("      HRESULT (WINAPI *Free)(ITypeMarshal *This,PVOID pvType);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } ITypeMarshalVtbl;")
-cpp_quote("  struct ITypeMarshal {")
-cpp_quote("    CONST_VTBL struct ITypeMarshalVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define ITypeMarshal_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define ITypeMarshal_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define ITypeMarshal_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define ITypeMarshal_Size(This,pvType,dwDestContext,pvDestContext,pSize) (This)->lpVtbl->Size(This,pvType,dwDestContext,pvDestContext,pSize)")
-cpp_quote("#define ITypeMarshal_Marshal(This,pvType,dwDestContext,pvDestContext,cbBufferLength,pBuffer,pcbWritten) (This)->lpVtbl->Marshal(This,pvType,dwDestContext,pvDestContext,cbBufferLength,pBuffer,pcbWritten)")
-cpp_quote("#define ITypeMarshal_Unmarshal(This,pvType,dwFlags,cbBufferLength,pBuffer,pcbRead) (This)->lpVtbl->Unmarshal(This,pvType,dwFlags,cbBufferLength,pBuffer,pcbRead)")
-cpp_quote("#define ITypeMarshal_Free(This,pvType) (This)->lpVtbl->Free(This,pvType)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI ITypeMarshal_Size_Proxy(ITypeMarshal *This,PVOID pvType,DWORD dwDestContext,PVOID pvDestContext,ULONG *pSize);")
-cpp_quote("  void __RPC_STUB ITypeMarshal_Size_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ITypeMarshal_Marshal_Proxy(ITypeMarshal *This,PVOID pvType,DWORD dwDestContext,PVOID pvDestContext,ULONG cbBufferLength,BYTE *pBuffer,ULONG *pcbWritten);")
-cpp_quote("  void __RPC_STUB ITypeMarshal_Marshal_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ITypeMarshal_Unmarshal_Proxy(ITypeMarshal *This,PVOID pvType,DWORD dwFlags,ULONG cbBufferLength,BYTE *pBuffer,ULONG *pcbRead);")
-cpp_quote("  void __RPC_STUB ITypeMarshal_Unmarshal_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI ITypeMarshal_Free_Proxy(ITypeMarshal *This,PVOID pvType);")
-cpp_quote("  void __RPC_STUB ITypeMarshal_Free_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-
-[
-    local,
-    object,
-    uuid(0000002f-0000-0000-c000-000000000046)
-]
-interface IRecordInfo : IUnknown
-{
-    typedef [unique] IRecordInfo *LPRECORDINFO;
-
-    HRESULT RecordInit([out] PVOID pvNew);
-    HRESULT RecordClear([in] PVOID pvExisting);
-
-    HRESULT RecordCopy(
-            [in] PVOID pvExisting,
-            [out] PVOID pvNew);
-
-    HRESULT GetGuid([out] GUID *pguid);
-    HRESULT GetName([out] BSTR *pbstrName);
-    HRESULT GetSize([out] ULONG *pcbSize);
-    HRESULT GetTypeInfo([out] ITypeInfo **ppTypeInfo);
-
-    HRESULT GetField(
-            [in] PVOID pvData,
-            [in] LPCOLESTR szFieldName,
-            [out] VARIANT *pvarField);
-
-    HRESULT GetFieldNoCopy(
-            [in] PVOID pvData,
-            [in] LPCOLESTR szFieldName,
-            [out] VARIANT *pvarField,
-            [out] PVOID *ppvDataCArray);
-
-    HRESULT PutField(
-            [in] ULONG wFlags,
-            [in, out] PVOID pvData,
-            [in] LPCOLESTR szFieldName,
-            [in] VARIANT *pvarField);
-
-    HRESULT PutFieldNoCopy(
-            [in] ULONG wFlags,
-            [in, out] PVOID pvData,
-            [in] LPCOLESTR szFieldName,
-            [in] VARIANT *pvarField);
-
-    HRESULT GetFieldNames(
-            [in,out] ULONG *pcNames,
-            [out, size_is(*pcNames), length_is(*pcNames)] BSTR *rgBstrNames);
-
-    BOOL IsMatchingType([in] IRecordInfo *pRecordInfo);
-    PVOID RecordCreate();
-
-    HRESULT RecordCreateCopy(
-            [in] PVOID pvSource,
-            [out] PVOID *ppvDest);
-
-    HRESULT RecordDestroy([in] PVOID pvRecord);
+  HRESULT SetGUID ([in] REFGUID rguid);
+  HRESULT SetSource ([in] LPOLESTR szSource);
+  HRESULT SetDescription ([in] LPOLESTR szDescription);
+  HRESULT SetHelpFile ([in] LPOLESTR szHelpFile);
+  HRESULT SetHelpContext ([in] DWORD dwHelpContext);
 }
 
-[
-    object,
-    uuid(3127Ca40-446e-11ce-8135-00aa004bb851),
-    pointer_default(unique)
-]
-interface IErrorLog : IUnknown
-{
-    typedef IErrorLog *LPERRORLOG;
-
-    HRESULT AddError(
-            [in] LPCOLESTR pszPropName,
-            [in] EXCEPINFO *pExcepInfo);
+cpp_quote("")
+[object, uuid (DF0B3D60-548f-101b-8e65-08002b2bd119), pointer_default (unique)]
+interface ISupportErrorInfo: IUnknown {
+  typedef [unique] ISupportErrorInfo *LPSUPPORTERRORINFO;
+cpp_quote("")
+  HRESULT InterfaceSupportsErrorInfo ([in] REFIID riid);
 }
 
-[
-    object,
-    uuid(55272a00-42cb-11ce-8135-00aa004bb851),
-    pointer_default(unique)
- ]
+cpp_quote("")
+[object, uuid (0000002e-0000-0000-C000-000000000046)]
+interface ITypeFactory : IUnknown {
+  HRESULT CreateFromTypeInfo ([in] ITypeInfo *pTypeInfo,[in] REFIID riid,[out, iid_is (riid)] IUnknown **ppv);
+}
+
+cpp_quote("")
+[local, object, uuid (0000002d-0000-0000-C000-000000000046)]
+interface ITypeMarshal : IUnknown {
+  HRESULT Size ([in] PVOID pvType,[in] DWORD dwDestContext,[in] PVOID pvDestContext,[out] ULONG *pSize);
+  HRESULT Marshal ([in] PVOID pvType,[in] DWORD dwDestContext,[in] PVOID pvDestContext,[in] ULONG cbBufferLength,[out] BYTE *pBuffer,[out] ULONG *pcbWritten);
+  HRESULT Unmarshal ([out] PVOID pvType,[in] DWORD dwFlags,[in] ULONG cbBufferLength,[in] BYTE *pBuffer,[out] ULONG *pcbRead);
+  HRESULT Free ([in] PVOID pvType);
+}
+
+cpp_quote("")
+[local, object, uuid (0000002f-0000-0000-C000-000000000046)]
+interface IRecordInfo: IUnknown {
+  typedef [unique] IRecordInfo *LPRECORDINFO;
+cpp_quote("")
+  HRESULT RecordInit ([out] PVOID pvNew);
+  HRESULT RecordClear ([in] PVOID pvExisting);
+  HRESULT RecordCopy ([in] PVOID pvExisting,[out] PVOID pvNew);
+  HRESULT GetGuid ([out] GUID *pguid);
+  HRESULT GetName ([out] BSTR *pbstrName);
+  HRESULT GetSize ([out] ULONG *pcbSize);
+  HRESULT GetTypeInfo ([out] ITypeInfo **ppTypeInfo);
+  HRESULT GetField ([in] PVOID pvData,[in] LPCOLESTR szFieldName,[out] VARIANT *pvarField);
+  HRESULT GetFieldNoCopy ([in] PVOID pvData,[in] LPCOLESTR szFieldName,[out] VARIANT *pvarField,[out] PVOID *ppvDataCArray);
+  HRESULT PutField ([in] ULONG wFlags,[in, out] PVOID pvData,[in] LPCOLESTR szFieldName,[in] VARIANT *pvarField);
+  HRESULT PutFieldNoCopy ([in] ULONG wFlags,[in, out] PVOID pvData,[in] LPCOLESTR szFieldName,[in] VARIANT *pvarField);
+  HRESULT GetFieldNames ([in, out] ULONG *pcNames,[out, size_is (*pcNames), length_is (*pcNames)] BSTR *rgBstrNames);
+  BOOL IsMatchingType ([in] IRecordInfo *pRecordInfo);
+  PVOID RecordCreate ();
+  HRESULT RecordCreateCopy ([in] PVOID pvSource,[out] PVOID *ppvDest);
+  HRESULT RecordDestroy ([in] PVOID pvRecord);
+}
+
+cpp_quote("")
+[object, uuid (3127ca40-446e-11ce-8135-00aa004bb851), pointer_default (unique)]
+interface IErrorLog : IUnknown {
+  typedef IErrorLog *LPERRORLOG;
+cpp_quote("")
+  HRESULT AddError ([in] LPCOLESTR pszPropName,[in] EXCEPINFO *pExcepInfo);
+}
+
+cpp_quote("")
+[object, uuid (55272a00-42cb-11ce-8135-00aa004bb851), pointer_default (unique)]
 interface IPropertyBag : IUnknown {
-    typedef IPropertyBag *LPPROPERTYBAG;
-
-    [local]
-    HRESULT Read(
-            [in] LPCOLESTR pszPropName,
-            [in, out] VARIANT *pVar,
-            [in] IErrorLog *pErrorLog);
-
-    [call_as(Read)]
-    HRESULT RemoteRead(
-            [in] LPCOLESTR pszPropName,
-            [out] VARIANT *pVar,
-            [in] IErrorLog *pErrorLog,
-            [in] DWORD varType,
-            [in] IUnknown *pUnkObj);
-
-    HRESULT Write(
-            [in] LPCOLESTR pszPropName,
-            [in] VARIANT *pVar);
+  typedef IPropertyBag *LPPROPERTYBAG;
+cpp_quote("")
+  [local] HRESULT Read ([in] LPCOLESTR pszPropName,[in, out] VARIANT *pVar,[in, unique] IErrorLog *pErrorLog);
+  [call_as (Read)] HRESULT RemoteRead ([in] LPCOLESTR pszPropName,[out] VARIANT *pVar,[in, unique] IErrorLog *pErrorLog,[in] DWORD varType,[in] IUnknown *pUnkObj);
+  HRESULT Write ([in] LPCOLESTR pszPropName,[in] VARIANT *pVar);
 }
-
-cpp_quote("  HRESULT WINAPI ITypeInfo2_GetDocumentation2_Proxy(ITypeInfo2 *This,MEMBERID memid,LCID lcid,BSTR *pbstrHelpString,DWORD *pdwHelpStringContext,BSTR *pbstrHelpStringDll);")
-cpp_quote("  HRESULT WINAPI ITypeInfo2_GetDocumentation2_Stub(ITypeInfo2 *This,MEMBERID memid,LCID lcid,DWORD refPtrFlags,BSTR *pbstrHelpString,DWORD *pdwHelpStringContext,BSTR *pbstrHelpStringDll);")
-cpp_quote("  HRESULT WINAPI ITypeLib2_GetLibStatistics_Proxy(ITypeLib2 *This,ULONG *pcUniqueNames,ULONG *pcchUniqueNames);")
-cpp_quote("  HRESULT WINAPI ITypeLib2_GetLibStatistics_Stub(ITypeLib2 *This,ULONG *pcUniqueNames,ULONG *pcchUniqueNames);")
-cpp_quote("  HRESULT WINAPI ITypeLib2_GetDocumentation2_Proxy(ITypeLib2 *This,INT index,LCID lcid,BSTR *pbstrHelpString,DWORD *pdwHelpStringContext,BSTR *pbstrHelpStringDll);")
-cpp_quote("  HRESULT WINAPI ITypeLib2_GetDocumentation2_Stub(ITypeLib2 *This,INT index,LCID lcid,DWORD refPtrFlags,BSTR *pbstrHelpString,DWORD *pdwHelpStringContext,BSTR *pbstrHelpStringDll);")
+cpp_quote("#endif")
