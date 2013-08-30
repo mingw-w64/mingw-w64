@@ -1,203 +1,179 @@
-/**
- * This file has no copyright assigned and is placed in the Public Domain.
- * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
- */
+cpp_quote("/**")
+cpp_quote(" * This file is part of the mingw-w64 runtime package.")
+cpp_quote(" * No warranty is given; refer to the file DISCLAIMER within this package.")
+cpp_quote(" */")
+cpp_quote("")
+cpp_quote("#include <winapifamily.h>")
+cpp_quote("")
 
+#ifndef DO_NO_IMPORTS
+import "wtypes.idl";
 import "objidl.idl";
 import "oaidl.idl";
+#endif
 
-cpp_quote("#ifndef __IPropertyStorage_FWD_DEFINED__")
-cpp_quote("#define __IPropertyStorage_FWD_DEFINED__")
-cpp_quote("typedef struct IPropertyStorage IPropertyStorage;")
-cpp_quote("#endif")
 cpp_quote("")
-cpp_quote("#ifndef __IPropertySetStorage_FWD_DEFINED__")
-cpp_quote("#define __IPropertySetStorage_FWD_DEFINED__")
-cpp_quote("typedef struct IPropertySetStorage IPropertySetStorage;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IEnumSTATPROPSTG_FWD_DEFINED__")
-cpp_quote("#define __IEnumSTATPROPSTG_FWD_DEFINED__")
-cpp_quote("typedef struct IEnumSTATPROPSTG IEnumSTATPROPSTG;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IEnumSTATPROPSETSTG_FWD_DEFINED__")
-cpp_quote("#define __IEnumSTATPROPSETSTG_FWD_DEFINED__")
-cpp_quote("typedef struct IEnumSTATPROPSETSTG IEnumSTATPROPSETSTG;")
-cpp_quote("#endif")
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
 
+interface IPropertyStorage;
+interface IEnumSTATPROPSTG;
+interface IEnumSTATPROPSETSTG;
+
+cpp_quote("")
 typedef struct tagVersionedStream {
-    GUID guidVersion;
-    IStream *pStream;
-} VERSIONEDSTREAM, *LPVERSIONEDSTREAM;
-
+  GUID guidVersion;
+  IStream *pStream;
+} VERSIONEDSTREAM,*LPVERSIONEDSTREAM;
+cpp_quote("")
 const DWORD PROPSETFLAG_DEFAULT = 0;
 const DWORD PROPSETFLAG_NONSIMPLE = 1;
 const DWORD PROPSETFLAG_ANSI = 2;
 const DWORD PROPSETFLAG_UNBUFFERED = 4;
 const DWORD PROPSETFLAG_CASE_SENSITIVE = 8;
-
+cpp_quote("")
 const DWORD PROPSET_BEHAVIOR_CASE_SENSITIVE = 1;
-
+cpp_quote("")
 cpp_quote("#if 0")
 typedef struct tag_inner_PROPVARIANT PROPVARIANT;
 cpp_quote("#else")
 cpp_quote("typedef struct tagPROPVARIANT PROPVARIANT;")
 cpp_quote("#endif")
 
-#define TYPEDEF_CA(type, name)                  \
-    typedef struct tag ## name {                \
-        ULONG cElems;                           \
-        [size_is( cElems )] type *pElems;       \
-    } name
+#define TYPEDEF_CA(type, name) typedef struct tag##name { ULONG cElems; [size_is (cElems)] type *pElems; } name
 
-TYPEDEF_CA(CHAR,           CAC);
-TYPEDEF_CA(UCHAR,          CAUB);
-TYPEDEF_CA(SHORT,          CAI);
-TYPEDEF_CA(USHORT,         CAUI);
-TYPEDEF_CA(LONG,           CAL);
-TYPEDEF_CA(ULONG,          CAUL);
-TYPEDEF_CA(FLOAT,          CAFLT);
-TYPEDEF_CA(DOUBLE,         CADBL);
-TYPEDEF_CA(CY,             CACY);
-TYPEDEF_CA(DATE,           CADATE);
-TYPEDEF_CA(BSTR,           CABSTR);
-TYPEDEF_CA(BSTRBLOB,       CABSTRBLOB);
-TYPEDEF_CA(VARIANT_BOOL,   CABOOL);
-TYPEDEF_CA(SCODE,          CASCODE);
-TYPEDEF_CA(PROPVARIANT,    CAPROPVARIANT);
-TYPEDEF_CA(LARGE_INTEGER,  CAH);
-TYPEDEF_CA(ULARGE_INTEGER, CAUH);
-TYPEDEF_CA(LPSTR,          CALPSTR);
-TYPEDEF_CA(LPWSTR,         CALPWSTR);
-TYPEDEF_CA(FILETIME,       CAFILETIME);
-TYPEDEF_CA(CLIPDATA,       CACLIPDATA);
-TYPEDEF_CA(CLSID,          CACLSID);
+cpp_quote("")
+TYPEDEF_CA (CHAR, CAC);
+TYPEDEF_CA (UCHAR, CAUB);
+TYPEDEF_CA (SHORT, CAI);
+TYPEDEF_CA (USHORT, CAUI);
+TYPEDEF_CA (LONG, CAL);
+TYPEDEF_CA (ULONG, CAUL);
+TYPEDEF_CA (FLOAT, CAFLT);
+TYPEDEF_CA (DOUBLE, CADBL);
+TYPEDEF_CA (CY, CACY);
+TYPEDEF_CA (DATE, CADATE);
+TYPEDEF_CA (BSTR, CABSTR);
+TYPEDEF_CA (BSTRBLOB, CABSTRBLOB);
+TYPEDEF_CA (VARIANT_BOOL, CABOOL);
+TYPEDEF_CA (SCODE, CASCODE);
+TYPEDEF_CA (PROPVARIANT, CAPROPVARIANT);
+TYPEDEF_CA (LARGE_INTEGER, CAH);
+TYPEDEF_CA (ULARGE_INTEGER, CAUH);
+TYPEDEF_CA (LPSTR, CALPSTR);
+TYPEDEF_CA (LPWSTR, CALPWSTR);
+TYPEDEF_CA (FILETIME, CAFILETIME);
+TYPEDEF_CA (CLIPDATA, CACLIPDATA);
+TYPEDEF_CA (CLSID, CACLSID);
 
+cpp_quote("")
 cpp_quote("#if 0")
 typedef BYTE PROPVAR_PAD1;
 typedef BYTE PROPVAR_PAD2;
 typedef ULONG PROPVAR_PAD3;
 cpp_quote("#else")
-cpp_quote("  typedef WORD PROPVAR_PAD1;")
-cpp_quote("  typedef WORD PROPVAR_PAD2;")
-cpp_quote("  typedef WORD PROPVAR_PAD3;")
+cpp_quote("typedef WORD PROPVAR_PAD1;")
+cpp_quote("typedef WORD PROPVAR_PAD2;")
+cpp_quote("typedef WORD PROPVAR_PAD3;")
+cpp_quote("")
 cpp_quote("#define tag_inner_PROPVARIANT")
 cpp_quote("#endif")
-
-cpp_quote("struct tagPROPVARIANT {")
+cpp_quote("")
+cpp_quote("  struct tagPROPVARIANT {")
 cpp_quote("    __C89_NAMELESS union {")
-cpp_quote("        __C89_NAMELESS")
+cpp_quote("      __C89_NAMELESS")
 struct tag_inner_PROPVARIANT {
-    VARTYPE vt;
-    PROPVAR_PAD1 wReserved1;
-    PROPVAR_PAD2 wReserved2;
-    PROPVAR_PAD3 wReserved3;
-    [switch_is((unsigned short)vt)] union {
-        [case (VT_EMPTY, VT_NULL)] ;
-        [case (VT_I1)]    CHAR    cVal;
-        [case (VT_UI1)]   UCHAR   bVal;
-        [case (VT_I2)]    SHORT   iVal;
-        [case (VT_UI2)]   USHORT  uiVal;
-        [case (VT_I4)]    LONG    lVal;
-        [case (VT_UI4)]   ULONG   ulVal;
-        [case (VT_INT)]   INT     intVal;
-        [case (VT_UINT)]  UINT    uintVal;
-        [case (VT_DECIMAL, VT_I8)] LARGE_INTEGER hVal;
-        [case (VT_UI8)]   ULARGE_INTEGER uhVal;
-        [case (VT_R4)]    FLOAT   fltVal;
-        [case (VT_R8)]    DOUBLE  dblVal;
-        [case (VT_BOOL)]  VARIANT_BOOL boolVal;
-    /*  [case (VT_ILLEGAL)] _VARIANT_BOOL bool; */
-        [case (VT_ERROR)] SCODE   scode;
-        [case (VT_CY)]    CY      cyVal;
-        [case (VT_DATE)]  DATE    date;
-        [case (VT_FILETIME)] FILETIME filetime;
-        [case (VT_CLSID)] CLSID *puuid;
-        [case (VT_CF)]    CLIPDATA *pclipdata;
-        [case (VT_BSTR)]  BSTR    bstrVal;
-        [case (VT_BSTR_BLOB)] BSTRBLOB bstrblobVal;
-        [case (VT_BLOB, VT_BLOB_OBJECT)] BLOB blob;
-        [case (VT_LPSTR)]     LPSTR pszVal;
-        [case (VT_LPWSTR)]    LPWSTR pwszVal;
-        [case (VT_UNKNOWN)]   IUnknown *punkVal;
-        [case (VT_DISPATCH)]  IDispatch *pdispVal;
-        [case (VT_STREAM, VT_STREAMED_OBJECT)] IStream  *pStream;
-        [case (VT_STORAGE, VT_STORED_OBJECT)]  IStorage *pStorage;
-        [case (VT_VERSIONED_STREAM)] LPVERSIONEDSTREAM pVersionedStream;
-        [case (VT_ARRAY|VT_I1,
-               VT_ARRAY|VT_UI1,
-               VT_ARRAY|VT_I2,
-               VT_ARRAY|VT_UI2,
-               VT_ARRAY|VT_I4,
-               VT_ARRAY|VT_UI4,
-               VT_ARRAY|VT_INT,
-               VT_ARRAY|VT_UINT,
-               VT_ARRAY|VT_R4,
-               VT_ARRAY|VT_R8,
-               VT_ARRAY|VT_CY,
-               VT_ARRAY|VT_DATE,
-               VT_ARRAY|VT_BSTR,
-               VT_ARRAY|VT_BOOL,
-               VT_ARRAY|VT_DECIMAL,
-               VT_ARRAY|VT_DISPATCH,
-               VT_ARRAY|VT_UNKNOWN,
-               VT_ARRAY|VT_ERROR,
-               VT_ARRAY|VT_VARIANT)] LPSAFEARRAY parray;
-        [case (VT_VECTOR|VT_I1)]     CAC         cac;
-        [case (VT_VECTOR|VT_UI1)]    CAUB        caub;
-        [case (VT_VECTOR|VT_I2)]     CAI         cai;
-        [case (VT_VECTOR|VT_UI2)]    CAUI        caui;
-        [case (VT_VECTOR|VT_I4)]     CAL         cal;
-        [case (VT_VECTOR|VT_UI4)]    CAUL        caul;
-        [case (VT_VECTOR|VT_I8)]     CAH         cah;
-        [case (VT_VECTOR|VT_UI8)]    CAUH        cauh;
-        [case (VT_VECTOR|VT_R4)]     CAFLT       caflt;
-        [case (VT_VECTOR|VT_R8)]     CADBL       cadbl;
-        [case (VT_VECTOR|VT_BOOL)]   CABOOL      cabool;
-        [case (VT_VECTOR|VT_ERROR)]  CASCODE     cascode;
-        [case (VT_VECTOR|VT_CY)]     CACY        cacy;
-        [case (VT_VECTOR|VT_DATE)]   CADATE      cadate;
-        [case (VT_VECTOR|VT_FILETIME)] CAFILETIME cafiletime;
-        [case (VT_VECTOR|VT_CLSID)]  CACLSID     cauuid;
-        [case (VT_VECTOR|VT_CF)]     CACLIPDATA  caclipdata;
-        [case (VT_VECTOR|VT_BSTR)]   CABSTR      cabstr;
-        [case (VT_VECTOR|VT_BSTR_BLOB)] CABSTRBLOB cabstrblob;
-        [case (VT_VECTOR|VT_LPSTR)]  CALPSTR     calpstr;
-        [case (VT_VECTOR|VT_LPWSTR)] CALPWSTR    calpwstr;
-        [case (VT_VECTOR|VT_VARIANT)] CAPROPVARIANT capropvar;
-        [case (VT_BYREF|VT_I1)]      CHAR       *pcVal;
-        [case (VT_BYREF|VT_UI1)]     UCHAR      *pbVal;
-        [case (VT_BYREF|VT_I2)]      SHORT      *piVal;
-        [case (VT_BYREF|VT_UI2)]     USHORT     *puiVal;
-        [case (VT_BYREF|VT_I4)]      LONG       *plVal;
-        [case (VT_BYREF|VT_UI4)]     ULONG      *pulVal;
-        [case (VT_BYREF|VT_INT)]     INT        *pintVal;
-        [case (VT_BYREF|VT_UINT)]    UINT       *puintVal;
-        [case (VT_BYREF|VT_R4)]      FLOAT      *pfltVal;
-        [case (VT_BYREF|VT_R8)]      DOUBLE     *pdblVal;
-        [case (VT_BYREF|VT_BOOL)]    VARIANT_BOOL *pboolVal;
-        [case (VT_BYREF|VT_DECIMAL)] DECIMAL    *pdecVal;
-        [case (VT_BYREF|VT_ERROR)]   SCODE      *pscode;
-        [case (VT_BYREF|VT_CY)]      CY         *pcyVal;
-        [case (VT_BYREF|VT_DATE)]    DATE       *pdate;
-        [case (VT_BYREF|VT_BSTR)]    BSTR       *pbstrVal;
-        [case (VT_BYREF|VT_UNKNOWN)] IUnknown   **ppunkVal;
-        [case (VT_BYREF|VT_DISPATCH)] IDispatch **ppdispVal;
-        [case (VT_BYREF|VT_ARRAY)]   LPSAFEARRAY *pparray;
-        [case (VT_BYREF|VT_VARIANT)] PROPVARIANT *pvarVal;
-    };
+  VARTYPE vt;
+  PROPVAR_PAD1 wReserved1;
+  PROPVAR_PAD2 wReserved2;
+  PROPVAR_PAD3 wReserved3;
+  [switch_is ((unsigned short) vt)] union {
+    [case (VT_EMPTY, VT_NULL)];
+    [case (VT_I1)] CHAR cVal;
+    [case (VT_UI1)] UCHAR bVal;
+    [case (VT_I2)] SHORT iVal;
+    [case (VT_UI2)] USHORT uiVal;
+    [case (VT_I4)] LONG lVal;
+    [case (VT_UI4)] ULONG ulVal;
+    [case (VT_INT)] INT intVal;
+    [case (VT_UINT)] UINT uintVal;
+    [case (VT_DECIMAL, VT_I8)] LARGE_INTEGER hVal;
+    [case (VT_UI8)] ULARGE_INTEGER uhVal;
+    [case (VT_R4)] FLOAT fltVal;
+    [case (VT_R8)] DOUBLE dblVal;
+    [case (VT_BOOL)] VARIANT_BOOL boolVal;
+    /* [case (VT_ILLEGAL)] _VARIANT_BOOL bool; */
+    [case (VT_ERROR)] SCODE scode;
+    [case (VT_CY)] CY cyVal;
+    [case (VT_DATE)] DATE date;
+    [case (VT_FILETIME)] FILETIME filetime;
+    [case (VT_CLSID)] CLSID *puuid;
+    [case (VT_CF)] CLIPDATA *pclipdata;
+    [case (VT_BSTR)] BSTR bstrVal;
+    [case (VT_BSTR_BLOB)] BSTRBLOB bstrblobVal;
+    [case (VT_BLOB, VT_BLOB_OBJECT)] BLOB blob;
+    [case (VT_LPSTR)] LPSTR pszVal;
+    [case (VT_LPWSTR)] LPWSTR pwszVal;
+    [case (VT_UNKNOWN)] IUnknown *punkVal;
+    [case (VT_DISPATCH)] IDispatch *pdispVal;
+    [case (VT_STREAM, VT_STREAMED_OBJECT)] IStream *pStream;
+    [case (VT_STORAGE, VT_STORED_OBJECT)] IStorage *pStorage;
+    [case (VT_VERSIONED_STREAM)] LPVERSIONEDSTREAM pVersionedStream;
+    [case (VT_ARRAY|VT_I1, VT_ARRAY|VT_UI1, VT_ARRAY|VT_I2, VT_ARRAY|VT_UI2, VT_ARRAY|VT_I4, VT_ARRAY|VT_UI4, VT_ARRAY|VT_INT, VT_ARRAY|VT_UINT, VT_ARRAY|VT_R4, VT_ARRAY|VT_R8, VT_ARRAY|VT_CY, VT_ARRAY|VT_DATE, VT_ARRAY|VT_BSTR, VT_ARRAY|VT_BOOL, VT_ARRAY|VT_DECIMAL, VT_ARRAY|VT_DISPATCH, VT_ARRAY|VT_UNKNOWN, VT_ARRAY|VT_ERROR, VT_ARRAY|VT_VARIANT)] LPSAFEARRAY parray;
+    [case (VT_VECTOR|VT_I1)] CAC cac;
+    [case (VT_VECTOR|VT_UI1)] CAUB caub;
+    [case (VT_VECTOR|VT_I2)] CAI cai;
+    [case (VT_VECTOR|VT_UI2)] CAUI caui;
+    [case (VT_VECTOR|VT_I4)] CAL cal;
+    [case (VT_VECTOR|VT_UI4)] CAUL caul;
+    [case (VT_VECTOR|VT_I8)] CAH cah;
+    [case (VT_VECTOR|VT_UI8)] CAUH cauh;
+    [case (VT_VECTOR|VT_R4)] CAFLT caflt;
+    [case (VT_VECTOR|VT_R8)] CADBL cadbl;
+    [case (VT_VECTOR|VT_BOOL)] CABOOL cabool;
+    [case (VT_VECTOR|VT_ERROR)] CASCODE cascode;
+    [case (VT_VECTOR|VT_CY)] CACY cacy;
+    [case (VT_VECTOR|VT_DATE)] CADATE cadate;
+    [case (VT_VECTOR|VT_FILETIME)] CAFILETIME cafiletime;
+    [case (VT_VECTOR|VT_CLSID)] CACLSID cauuid;
+    [case (VT_VECTOR|VT_CF)] CACLIPDATA caclipdata;
+    [case (VT_VECTOR|VT_BSTR)] CABSTR cabstr;
+    [case (VT_VECTOR|VT_BSTR_BLOB)]CABSTRBLOB cabstrblob;
+    [case (VT_VECTOR|VT_LPSTR)] CALPSTR calpstr;
+    [case (VT_VECTOR|VT_LPWSTR)] CALPWSTR calpwstr;
+    [case (VT_VECTOR|VT_VARIANT)] CAPROPVARIANT capropvar;
+    [case (VT_BYREF|VT_I1)] CHAR *pcVal;
+    [case (VT_BYREF|VT_UI1)] UCHAR *pbVal;
+    [case (VT_BYREF|VT_I2)] SHORT *piVal;
+    [case (VT_BYREF|VT_UI2)] USHORT *puiVal;
+    [case (VT_BYREF|VT_I4)] LONG *plVal;
+    [case (VT_BYREF|VT_UI4)] ULONG *pulVal;
+    [case (VT_BYREF|VT_INT)] INT *pintVal;
+    [case (VT_BYREF|VT_UINT)] UINT *puintVal;
+    [case (VT_BYREF|VT_R4)] FLOAT *pfltVal;
+    [case (VT_BYREF|VT_R8)] DOUBLE *pdblVal;
+    [case (VT_BYREF|VT_BOOL)] VARIANT_BOOL *pboolVal;
+    [case (VT_BYREF|VT_DECIMAL)] DECIMAL *pdecVal;
+    [case (VT_BYREF|VT_ERROR)] SCODE *pscode;
+    [case (VT_BYREF|VT_CY)] CY *pcyVal;
+    [case (VT_BYREF|VT_DATE)] DATE *pdate;
+    [case (VT_BYREF|VT_BSTR)] BSTR *pbstrVal;
+    [case (VT_BYREF|VT_UNKNOWN)] IUnknown **ppunkVal;
+    [case (VT_BYREF|VT_DISPATCH)] IDispatch **ppdispVal;
+    [case (VT_BYREF|VT_ARRAY)] LPSAFEARRAY *pparray;
+    [case (VT_BYREF|VT_VARIANT)] PROPVARIANT *pvarVal;
+  };
 };
-cpp_quote("      DECIMAL decVal;")
-cpp_quote("    };")
+cpp_quote("    DECIMAL decVal;")
 cpp_quote("  };")
+cpp_quote("};")
+
+cpp_quote("")
 
 cpp_quote("#if 0")
 typedef struct tag_inner_PROPVARIANT *LPPROPVARIANT;
 typedef const PROPVARIANT *REFPROPVARIANT;
 cpp_quote("#else")
-cpp_quote("  typedef struct tagPROPVARIANT *LPPROPVARIANT;")
+cpp_quote("typedef struct tagPROPVARIANT * LPPROPVARIANT;")
 cpp_quote("")
 cpp_quote("#ifndef _REFPROPVARIANT_DEFINED")
 cpp_quote("#define _REFPROPVARIANT_DEFINED")
@@ -208,39 +184,43 @@ cpp_quote("#define REFPROPVARIANT const PROPVARIANT * __MIDL_CONST")
 cpp_quote("#endif")
 cpp_quote("#endif")
 cpp_quote("#endif")
-
-cpp_quote("#define PID_DICTIONARY (0)")
-cpp_quote("#define PID_CODEPAGE (0x1)")
-cpp_quote("#define PID_FIRST_USABLE (0x2)")
-cpp_quote("#define PID_FIRST_NAME_DEFAULT (0xfff)")
-cpp_quote("#define PID_LOCALE (0x80000000)")
-cpp_quote("#define PID_MODIFY_TIME (0x80000001)")
-cpp_quote("#define PID_SECURITY (0x80000002)")
-cpp_quote("#define PID_BEHAVIOR (0x80000003)")
-cpp_quote("#define PID_ILLEGAL (0xffffffff)")
-cpp_quote("#define PID_MIN_READONLY (0x80000000)")
-cpp_quote("#define PID_MAX_READONLY (0xbfffffff)")
 cpp_quote("")
-cpp_quote("#define PIDDI_THUMBNAIL 0x00000002L")
+const PROPID PID_DICTIONARY = 0x00000000;
+const PROPID PID_CODEPAGE = 0x00000001;
+const PROPID PID_FIRST_USABLE = 0x00000002;
+const PROPID PID_FIRST_NAME_DEFAULT = 0x00000fff;
+const PROPID PID_LOCALE = 0x80000000;
+const PROPID PID_MODIFY_TIME = 0x80000001;
+const PROPID PID_SECURITY = 0x80000002;
+const PROPID PID_BEHAVIOR = 0x80000003;
+const PROPID PID_ILLEGAL = 0xffffffff;
 cpp_quote("")
-cpp_quote("#define PIDSI_TITLE 0x00000002L")
-cpp_quote("#define PIDSI_SUBJECT 0x00000003L")
-cpp_quote("#define PIDSI_AUTHOR 0x00000004L")
-cpp_quote("#define PIDSI_KEYWORDS 0x00000005L")
-cpp_quote("#define PIDSI_COMMENTS 0x00000006L")
-cpp_quote("#define PIDSI_TEMPLATE 0x00000007L")
-cpp_quote("#define PIDSI_LASTAUTHOR 0x00000008L")
-cpp_quote("#define PIDSI_REVNUMBER 0x00000009L")
-cpp_quote("#define PIDSI_EDITTIME 0x0000000aL")
-cpp_quote("#define PIDSI_LASTPRINTED 0x0000000bL")
-cpp_quote("#define PIDSI_CREATE_DTM 0x0000000cL")
-cpp_quote("#define PIDSI_LASTSAVE_DTM 0x0000000dL")
-cpp_quote("#define PIDSI_PAGECOUNT 0x0000000eL")
-cpp_quote("#define PIDSI_WORDCOUNT 0x0000000fL")
-cpp_quote("#define PIDSI_CHARCOUNT 0x00000010L")
-cpp_quote("#define PIDSI_THUMBNAIL 0x00000011L")
-cpp_quote("#define PIDSI_APPNAME 0x00000012L")
-cpp_quote("#define PIDSI_DOC_SECURITY 0x00000013L")
+const PROPID PID_MIN_READONLY = 0x80000000;
+const PROPID PID_MAX_READONLY = 0xbfffffff;
+cpp_quote("#endif")
+cpp_quote("")
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+cpp_quote("")
+cpp_quote("#define PIDDI_THUMBNAIL __MSABI_LONG(0x2)")
+cpp_quote("")
+cpp_quote("#define PIDSI_TITLE __MSABI_LONG(0x2)")
+cpp_quote("#define PIDSI_SUBJECT __MSABI_LONG(0x3)")
+cpp_quote("#define PIDSI_AUTHOR __MSABI_LONG(0x4)")
+cpp_quote("#define PIDSI_KEYWORDS __MSABI_LONG(0x5)")
+cpp_quote("#define PIDSI_COMMENTS __MSABI_LONG(0x6)")
+cpp_quote("#define PIDSI_TEMPLATE __MSABI_LONG(0x7)")
+cpp_quote("#define PIDSI_LASTAUTHOR __MSABI_LONG(0x8)")
+cpp_quote("#define PIDSI_REVNUMBER __MSABI_LONG(0x9)")
+cpp_quote("#define PIDSI_EDITTIME __MSABI_LONG(0xa)")
+cpp_quote("#define PIDSI_LASTPRINTED __MSABI_LONG(0xb)")
+cpp_quote("#define PIDSI_CREATE_DTM __MSABI_LONG(0xc)")
+cpp_quote("#define PIDSI_LASTSAVE_DTM __MSABI_LONG(0xd)")
+cpp_quote("#define PIDSI_PAGECOUNT __MSABI_LONG(0xe)")
+cpp_quote("#define PIDSI_WORDCOUNT __MSABI_LONG(0xf)")
+cpp_quote("#define PIDSI_CHARCOUNT __MSABI_LONG(0x10)")
+cpp_quote("#define PIDSI_THUMBNAIL __MSABI_LONG(0x11)")
+cpp_quote("#define PIDSI_APPNAME __MSABI_LONG(0x12)")
+cpp_quote("#define PIDSI_DOC_SECURITY __MSABI_LONG(0x13)")
 cpp_quote("")
 cpp_quote("#define PIDDSI_CATEGORY 0x00000002")
 cpp_quote("#define PIDDSI_PRESFORMAT 0x00000003")
@@ -258,324 +238,162 @@ cpp_quote("#define PIDDSI_MANAGER 0x0000000E")
 cpp_quote("#define PIDDSI_COMPANY 0x0000000F")
 cpp_quote("#define PIDDSI_LINKSDIRTY 0x00000010")
 cpp_quote("")
-cpp_quote("#define PIDMSI_EDITOR 0x00000002L")
-cpp_quote("#define PIDMSI_SUPPLIER 0x00000003L")
-cpp_quote("#define PIDMSI_SOURCE 0x00000004L")
-cpp_quote("#define PIDMSI_SEQUENCE_NO 0x00000005L")
-cpp_quote("#define PIDMSI_PROJECT 0x00000006L")
-cpp_quote("#define PIDMSI_STATUS 0x00000007L")
-cpp_quote("#define PIDMSI_OWNER 0x00000008L")
-cpp_quote("#define PIDMSI_RATING 0x00000009L")
-cpp_quote("#define PIDMSI_PRODUCTION 0x0000000AL")
-cpp_quote("#define PIDMSI_COPYRIGHT 0x0000000BL")
+cpp_quote("#define PIDMSI_EDITOR __MSABI_LONG(0x2)")
+cpp_quote("#define PIDMSI_SUPPLIER __MSABI_LONG(0x3)")
+cpp_quote("#define PIDMSI_SOURCE __MSABI_LONG(0x4)")
+cpp_quote("#define PIDMSI_SEQUENCE_NO __MSABI_LONG(0x5)")
+cpp_quote("#define PIDMSI_PROJECT __MSABI_LONG(0x6)")
+cpp_quote("#define PIDMSI_STATUS __MSABI_LONG(0x7)")
+cpp_quote("#define PIDMSI_OWNER __MSABI_LONG(0x8)")
+cpp_quote("#define PIDMSI_RATING __MSABI_LONG(0x9)")
+cpp_quote("#define PIDMSI_PRODUCTION __MSABI_LONG(0xa)")
+cpp_quote("#define PIDMSI_COPYRIGHT __MSABI_LONG(0xb)")
+
 cpp_quote("")
-cpp_quote("  enum PIDMSI_STATUS_VALUE {")
-cpp_quote("    PIDMSI_STATUS_NORMAL = 0,PIDMSI_STATUS_NEW,PIDMSI_STATUS_PRELIM,")
-cpp_quote("    PIDMSI_STATUS_DRAFT,PIDMSI_STATUS_INPROGRESS,PIDMSI_STATUS_EDIT,")
-cpp_quote("    PIDMSI_STATUS_REVIEW,PIDMSI_STATUS_PROOF,PIDMSI_STATUS_FINAL,")
-cpp_quote("    PIDMSI_STATUS_OTHER = 0x7fff")
-cpp_quote("  };")
-cpp_quote("#define PRSPEC_INVALID (0xffffffff)")
-cpp_quote("#define PRSPEC_LPWSTR (0)")
-cpp_quote("#define PRSPEC_PROPID (1)")
+enum PIDMSI_STATUS_VALUE {
+  PIDMSI_STATUS_NORMAL = 0,
+  PIDMSI_STATUS_NEW,
+  PIDMSI_STATUS_PRELIM,
+  PIDMSI_STATUS_DRAFT,
+  PIDMSI_STATUS_INPROGRESS,
+  PIDMSI_STATUS_EDIT,
+  PIDMSI_STATUS_REVIEW,
+  PIDMSI_STATUS_PROOF,
+  PIDMSI_STATUS_FINAL,
+  PIDMSI_STATUS_OTHER = 0x7fff
+};
+cpp_quote("#endif")
 cpp_quote("")
-cpp_quote("  typedef struct tagPROPSPEC {")
-cpp_quote("    ULONG ulKind;")
-cpp_quote("    __C89_NAMELESS union {")
-cpp_quote("      PROPID propid;")
-cpp_quote("      LPOLESTR lpwstr;")
-cpp_quote("    } DUMMYUNIONNAME;")
-cpp_quote("  } PROPSPEC;")
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+const ULONG PRSPEC_INVALID = 0xffffffff;
+const ULONG PRSPEC_LPWSTR = 0;
+const ULONG PRSPEC_PROPID = 1;
 cpp_quote("")
-cpp_quote("  typedef struct tagSTATPROPSTG {")
-cpp_quote("    LPOLESTR lpwstrName;")
-cpp_quote("    PROPID propid;")
-cpp_quote("    VARTYPE vt;")
-cpp_quote("  } STATPROPSTG;")
+typedef struct tagPROPSPEC {
+  ULONG ulKind;
+  [switch_is (ulKind)] union {
+    [case (PRSPEC_PROPID)] PROPID propid;
+    [case (PRSPEC_LPWSTR)] LPOLESTR lpwstr;
+    [default];
+  } DUMMYUNIONNAME;
+} PROPSPEC;
+
+cpp_quote("")
+typedef struct tagSTATPROPSTG {
+  LPOLESTR lpwstrName;
+  PROPID propid;
+  VARTYPE vt;
+} STATPROPSTG;
 cpp_quote("")
 cpp_quote("#define PROPSETHDR_OSVER_KIND(dwOSVer) HIWORD((dwOSVer))")
 cpp_quote("#define PROPSETHDR_OSVER_MAJOR(dwOSVer) LOBYTE(LOWORD((dwOSVer)))")
 cpp_quote("#define PROPSETHDR_OSVER_MINOR(dwOSVer) HIBYTE(LOWORD((dwOSVer)))")
-cpp_quote("#define PROPSETHDR_OSVERSION_UNKNOWN 0xFFFFFFFF")
-cpp_quote("  typedef struct tagSTATPROPSETSTG {")
-cpp_quote("    FMTID fmtid;")
-cpp_quote("    CLSID clsid;")
-cpp_quote("    DWORD grfFlags;")
-cpp_quote("    FILETIME mtime;")
-cpp_quote("    FILETIME ctime;")
-cpp_quote("    FILETIME atime;")
-cpp_quote("    DWORD dwOSVersion;")
-cpp_quote("  } STATPROPSETSTG;")
+cpp_quote("#define PROPSETHDR_OSVERSION_UNKNOWN 0xffffffff")
+
 cpp_quote("")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_propidl_0000_v0_0_c_ifspec;")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_propidl_0000_v0_0_s_ifspec;")
+typedef struct tagSTATPROPSETSTG {
+  FMTID fmtid;
+  CLSID clsid;
+  DWORD grfFlags;
+  FILETIME mtime;
+  FILETIME ctime;
+  FILETIME atime;
+  DWORD dwOSVersion;
+} STATPROPSETSTG;
+
 cpp_quote("")
-cpp_quote("#ifndef __IPropertyStorage_INTERFACE_DEFINED__")
-cpp_quote("#define __IPropertyStorage_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_IPropertyStorage;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IPropertyStorage : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI ReadMultiple(ULONG cpspec,const PROPSPEC rgpspec[],PROPVARIANT rgpropvar[]) = 0;")
-cpp_quote("    virtual HRESULT WINAPI WriteMultiple(ULONG cpspec,const PROPSPEC rgpspec[],const PROPVARIANT rgpropvar[],PROPID propidNameFirst) = 0;")
-cpp_quote("    virtual HRESULT WINAPI DeleteMultiple(ULONG cpspec,const PROPSPEC rgpspec[]) = 0;")
-cpp_quote("    virtual HRESULT WINAPI ReadPropertyNames(ULONG cpropid,const PROPID rgpropid[],LPOLESTR rglpwstrName[]) = 0;")
-cpp_quote("    virtual HRESULT WINAPI WritePropertyNames(ULONG cpropid,const PROPID rgpropid[],const LPOLESTR rglpwstrName[]) = 0;")
-cpp_quote("    virtual HRESULT WINAPI DeletePropertyNames(ULONG cpropid,const PROPID rgpropid[]) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Commit(DWORD grfCommitFlags) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Revert(void) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Enum(IEnumSTATPROPSTG **ppenum) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetTimes(const FILETIME *pctime,const FILETIME *patime,const FILETIME *pmtime) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetClass(REFCLSID clsid) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Stat(STATPROPSETSTG *pstatpsstg) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IPropertyStorageVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IPropertyStorage *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IPropertyStorage *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IPropertyStorage *This);")
-cpp_quote("      HRESULT (WINAPI *ReadMultiple)(IPropertyStorage *This,ULONG cpspec,const PROPSPEC rgpspec[],PROPVARIANT rgpropvar[]);")
-cpp_quote("      HRESULT (WINAPI *WriteMultiple)(IPropertyStorage *This,ULONG cpspec,const PROPSPEC rgpspec[],const PROPVARIANT rgpropvar[],PROPID propidNameFirst);")
-cpp_quote("      HRESULT (WINAPI *DeleteMultiple)(IPropertyStorage *This,ULONG cpspec,const PROPSPEC rgpspec[]);")
-cpp_quote("      HRESULT (WINAPI *ReadPropertyNames)(IPropertyStorage *This,ULONG cpropid,const PROPID rgpropid[],LPOLESTR rglpwstrName[]);")
-cpp_quote("      HRESULT (WINAPI *WritePropertyNames)(IPropertyStorage *This,ULONG cpropid,const PROPID rgpropid[],const LPOLESTR rglpwstrName[]);")
-cpp_quote("      HRESULT (WINAPI *DeletePropertyNames)(IPropertyStorage *This,ULONG cpropid,const PROPID rgpropid[]);")
-cpp_quote("      HRESULT (WINAPI *Commit)(IPropertyStorage *This,DWORD grfCommitFlags);")
-cpp_quote("      HRESULT (WINAPI *Revert)(IPropertyStorage *This);")
-cpp_quote("      HRESULT (WINAPI *Enum)(IPropertyStorage *This,IEnumSTATPROPSTG **ppenum);")
-cpp_quote("      HRESULT (WINAPI *SetTimes)(IPropertyStorage *This,const FILETIME *pctime,const FILETIME *patime,const FILETIME *pmtime);")
-cpp_quote("      HRESULT (WINAPI *SetClass)(IPropertyStorage *This,REFCLSID clsid);")
-cpp_quote("      HRESULT (WINAPI *Stat)(IPropertyStorage *This,STATPROPSETSTG *pstatpsstg);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IPropertyStorageVtbl;")
-cpp_quote("  struct IPropertyStorage {")
-cpp_quote("    CONST_VTBL struct IPropertyStorageVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IPropertyStorage_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IPropertyStorage_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IPropertyStorage_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IPropertyStorage_ReadMultiple(This,cpspec,rgpspec,rgpropvar) (This)->lpVtbl->ReadMultiple(This,cpspec,rgpspec,rgpropvar)")
-cpp_quote("#define IPropertyStorage_WriteMultiple(This,cpspec,rgpspec,rgpropvar,propidNameFirst) (This)->lpVtbl->WriteMultiple(This,cpspec,rgpspec,rgpropvar,propidNameFirst)")
-cpp_quote("#define IPropertyStorage_DeleteMultiple(This,cpspec,rgpspec) (This)->lpVtbl->DeleteMultiple(This,cpspec,rgpspec)")
-cpp_quote("#define IPropertyStorage_ReadPropertyNames(This,cpropid,rgpropid,rglpwstrName) (This)->lpVtbl->ReadPropertyNames(This,cpropid,rgpropid,rglpwstrName)")
-cpp_quote("#define IPropertyStorage_WritePropertyNames(This,cpropid,rgpropid,rglpwstrName) (This)->lpVtbl->WritePropertyNames(This,cpropid,rgpropid,rglpwstrName)")
-cpp_quote("#define IPropertyStorage_DeletePropertyNames(This,cpropid,rgpropid) (This)->lpVtbl->DeletePropertyNames(This,cpropid,rgpropid)")
-cpp_quote("#define IPropertyStorage_Commit(This,grfCommitFlags) (This)->lpVtbl->Commit(This,grfCommitFlags)")
-cpp_quote("#define IPropertyStorage_Revert(This) (This)->lpVtbl->Revert(This)")
-cpp_quote("#define IPropertyStorage_Enum(This,ppenum) (This)->lpVtbl->Enum(This,ppenum)")
-cpp_quote("#define IPropertyStorage_SetTimes(This,pctime,patime,pmtime) (This)->lpVtbl->SetTimes(This,pctime,patime,pmtime)")
-cpp_quote("#define IPropertyStorage_SetClass(This,clsid) (This)->lpVtbl->SetClass(This,clsid)")
-cpp_quote("#define IPropertyStorage_Stat(This,pstatpsstg) (This)->lpVtbl->Stat(This,pstatpsstg)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IPropertyStorage_ReadMultiple_Proxy(IPropertyStorage *This,ULONG cpspec,const PROPSPEC rgpspec[],PROPVARIANT rgpropvar[]);")
-cpp_quote("  void __RPC_STUB IPropertyStorage_ReadMultiple_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IPropertyStorage_WriteMultiple_Proxy(IPropertyStorage *This,ULONG cpspec,const PROPSPEC rgpspec[],const PROPVARIANT rgpropvar[],PROPID propidNameFirst);")
-cpp_quote("  void __RPC_STUB IPropertyStorage_WriteMultiple_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IPropertyStorage_DeleteMultiple_Proxy(IPropertyStorage *This,ULONG cpspec,const PROPSPEC rgpspec[]);")
-cpp_quote("  void __RPC_STUB IPropertyStorage_DeleteMultiple_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IPropertyStorage_ReadPropertyNames_Proxy(IPropertyStorage *This,ULONG cpropid,const PROPID rgpropid[],LPOLESTR rglpwstrName[]);")
-cpp_quote("  void __RPC_STUB IPropertyStorage_ReadPropertyNames_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IPropertyStorage_WritePropertyNames_Proxy(IPropertyStorage *This,ULONG cpropid,const PROPID rgpropid[],const LPOLESTR rglpwstrName[]);")
-cpp_quote("  void __RPC_STUB IPropertyStorage_WritePropertyNames_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IPropertyStorage_DeletePropertyNames_Proxy(IPropertyStorage *This,ULONG cpropid,const PROPID rgpropid[]);")
-cpp_quote("  void __RPC_STUB IPropertyStorage_DeletePropertyNames_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IPropertyStorage_Commit_Proxy(IPropertyStorage *This,DWORD grfCommitFlags);")
-cpp_quote("  void __RPC_STUB IPropertyStorage_Commit_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IPropertyStorage_Revert_Proxy(IPropertyStorage *This);")
-cpp_quote("  void __RPC_STUB IPropertyStorage_Revert_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IPropertyStorage_Enum_Proxy(IPropertyStorage *This,IEnumSTATPROPSTG **ppenum);")
-cpp_quote("  void __RPC_STUB IPropertyStorage_Enum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IPropertyStorage_SetTimes_Proxy(IPropertyStorage *This,const FILETIME *pctime,const FILETIME *patime,const FILETIME *pmtime);")
-cpp_quote("  void __RPC_STUB IPropertyStorage_SetTimes_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IPropertyStorage_SetClass_Proxy(IPropertyStorage *This,REFCLSID clsid);")
-cpp_quote("  void __RPC_STUB IPropertyStorage_SetClass_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IPropertyStorage_Stat_Proxy(IPropertyStorage *This,STATPROPSETSTG *pstatpsstg);")
-cpp_quote("  void __RPC_STUB IPropertyStorage_Stat_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
+[object, uuid (00000138-0000-0000-C000-000000000046), pointer_default (unique)]
+interface IPropertyStorage : IUnknown {
+  HRESULT ReadMultiple ([in] ULONG cpspec,[in, size_is (cpspec)]const PROPSPEC rgpspec[],[out, size_is (cpspec)]PROPVARIANT rgpropvar[]);
+  HRESULT WriteMultiple ([in] ULONG cpspec,[in, size_is (cpspec)]const PROPSPEC rgpspec[],[in, size_is (cpspec)]const PROPVARIANT rgpropvar[],[in] PROPID propidNameFirst);
+  HRESULT DeleteMultiple ([in] ULONG cpspec,[in, size_is (cpspec)]const PROPSPEC rgpspec[]);
+  HRESULT ReadPropertyNames ([in] ULONG cpropid,[in, size_is (cpropid)]const PROPID rgpropid[],[out, size_is (cpropid)]LPOLESTR rglpwstrName[]);
+  HRESULT WritePropertyNames ([in] ULONG cpropid,[in, size_is (cpropid)]const PROPID rgpropid[],[in, size_is (cpropid)]const LPOLESTR rglpwstrName[]);
+  HRESULT DeletePropertyNames ([in] ULONG cpropid,[in, size_is (cpropid)]const PROPID rgpropid[]);
+  HRESULT Commit ([in] DWORD grfCommitFlags);
+  HRESULT Revert ();
+  HRESULT Enum ([out] IEnumSTATPROPSTG **ppenum);
+  HRESULT SetTimes ([in] FILETIME const *pctime,[in] FILETIME const *patime,[in] FILETIME const *pmtime);
+  HRESULT SetClass ([in] REFCLSID clsid);
+  HRESULT Stat ([out] STATPROPSETSTG *pstatpsstg);
+}
+
 cpp_quote("")
-cpp_quote("#ifndef __IPropertySetStorage_INTERFACE_DEFINED__")
-cpp_quote("#define __IPropertySetStorage_INTERFACE_DEFINED__")
-cpp_quote("  typedef IPropertySetStorage *LPPROPERTYSETSTORAGE;")
+[object, uuid (0000013a-0000-0000-C000-000000000046), pointer_default (unique)]
+interface IPropertySetStorage : IUnknown {
+  typedef [unique] IPropertySetStorage *LPPROPERTYSETSTORAGE;
 cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_IPropertySetStorage;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IPropertySetStorage : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI Create(REFFMTID rfmtid,const CLSID *pclsid,DWORD grfFlags,DWORD grfMode,IPropertyStorage **ppprstg) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Open(REFFMTID rfmtid,DWORD grfMode,IPropertyStorage **ppprstg) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Delete(REFFMTID rfmtid) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Enum(IEnumSTATPROPSETSTG **ppenum) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IPropertySetStorageVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IPropertySetStorage *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IPropertySetStorage *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IPropertySetStorage *This);")
-cpp_quote("      HRESULT (WINAPI *Create)(IPropertySetStorage *This,REFFMTID rfmtid,const CLSID *pclsid,DWORD grfFlags,DWORD grfMode,IPropertyStorage **ppprstg);")
-cpp_quote("      HRESULT (WINAPI *Open)(IPropertySetStorage *This,REFFMTID rfmtid,DWORD grfMode,IPropertyStorage **ppprstg);")
-cpp_quote("      HRESULT (WINAPI *Delete)(IPropertySetStorage *This,REFFMTID rfmtid);")
-cpp_quote("      HRESULT (WINAPI *Enum)(IPropertySetStorage *This,IEnumSTATPROPSETSTG **ppenum);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IPropertySetStorageVtbl;")
-cpp_quote("  struct IPropertySetStorage {")
-cpp_quote("    CONST_VTBL struct IPropertySetStorageVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IPropertySetStorage_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IPropertySetStorage_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IPropertySetStorage_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IPropertySetStorage_Create(This,rfmtid,pclsid,grfFlags,grfMode,ppprstg) (This)->lpVtbl->Create(This,rfmtid,pclsid,grfFlags,grfMode,ppprstg)")
-cpp_quote("#define IPropertySetStorage_Open(This,rfmtid,grfMode,ppprstg) (This)->lpVtbl->Open(This,rfmtid,grfMode,ppprstg)")
-cpp_quote("#define IPropertySetStorage_Delete(This,rfmtid) (This)->lpVtbl->Delete(This,rfmtid)")
-cpp_quote("#define IPropertySetStorage_Enum(This,ppenum) (This)->lpVtbl->Enum(This,ppenum)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IPropertySetStorage_Create_Proxy(IPropertySetStorage *This,REFFMTID rfmtid,const CLSID *pclsid,DWORD grfFlags,DWORD grfMode,IPropertyStorage **ppprstg);")
-cpp_quote("  void __RPC_STUB IPropertySetStorage_Create_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IPropertySetStorage_Open_Proxy(IPropertySetStorage *This,REFFMTID rfmtid,DWORD grfMode,IPropertyStorage **ppprstg);")
-cpp_quote("  void __RPC_STUB IPropertySetStorage_Open_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IPropertySetStorage_Delete_Proxy(IPropertySetStorage *This,REFFMTID rfmtid);")
-cpp_quote("  void __RPC_STUB IPropertySetStorage_Delete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IPropertySetStorage_Enum_Proxy(IPropertySetStorage *This,IEnumSTATPROPSETSTG **ppenum);")
-cpp_quote("  void __RPC_STUB IPropertySetStorage_Enum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
+  HRESULT Create ([in] REFFMTID rfmtid,[in, unique]const CLSID *pclsid,[in] DWORD grfFlags,[in] DWORD grfMode,[out] IPropertyStorage **ppprstg);
+  HRESULT Open ([in] REFFMTID rfmtid,[in] DWORD grfMode,[out] IPropertyStorage **ppprstg);
+  HRESULT Delete ([in] REFFMTID rfmtid);
+  HRESULT Enum ([out] IEnumSTATPROPSETSTG **ppenum);
+}
+
 cpp_quote("")
-cpp_quote("#ifndef __IEnumSTATPROPSTG_INTERFACE_DEFINED__")
-cpp_quote("#define __IEnumSTATPROPSTG_INTERFACE_DEFINED__")
-cpp_quote("  typedef IEnumSTATPROPSTG *LPENUMSTATPROPSTG;")
+[object, uuid (00000139-0000-0000-C000-000000000046), pointer_default (unique)]
+interface IEnumSTATPROPSTG : IUnknown {
+  typedef [unique] IEnumSTATPROPSTG *LPENUMSTATPROPSTG;
 cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_IEnumSTATPROPSTG;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IEnumSTATPROPSTG : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI Next(ULONG celt,STATPROPSTG *rgelt,ULONG *pceltFetched) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Skip(ULONG celt) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Reset(void) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Clone(IEnumSTATPROPSTG **ppenum) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IEnumSTATPROPSTGVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IEnumSTATPROPSTG *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IEnumSTATPROPSTG *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IEnumSTATPROPSTG *This);")
-cpp_quote("      HRESULT (WINAPI *Next)(IEnumSTATPROPSTG *This,ULONG celt,STATPROPSTG *rgelt,ULONG *pceltFetched);")
-cpp_quote("      HRESULT (WINAPI *Skip)(IEnumSTATPROPSTG *This,ULONG celt);")
-cpp_quote("      HRESULT (WINAPI *Reset)(IEnumSTATPROPSTG *This);")
-cpp_quote("      HRESULT (WINAPI *Clone)(IEnumSTATPROPSTG *This,IEnumSTATPROPSTG **ppenum);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IEnumSTATPROPSTGVtbl;")
-cpp_quote("  struct IEnumSTATPROPSTG {")
-cpp_quote("    CONST_VTBL struct IEnumSTATPROPSTGVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IEnumSTATPROPSTG_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IEnumSTATPROPSTG_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IEnumSTATPROPSTG_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IEnumSTATPROPSTG_Next(This,celt,rgelt,pceltFetched) (This)->lpVtbl->Next(This,celt,rgelt,pceltFetched)")
-cpp_quote("#define IEnumSTATPROPSTG_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)")
-cpp_quote("#define IEnumSTATPROPSTG_Reset(This) (This)->lpVtbl->Reset(This)")
-cpp_quote("#define IEnumSTATPROPSTG_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IEnumSTATPROPSTG_RemoteNext_Proxy(IEnumSTATPROPSTG *This,ULONG celt,STATPROPSTG *rgelt,ULONG *pceltFetched);")
-cpp_quote("  void __RPC_STUB IEnumSTATPROPSTG_RemoteNext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumSTATPROPSTG_Skip_Proxy(IEnumSTATPROPSTG *This,ULONG celt);")
-cpp_quote("  void __RPC_STUB IEnumSTATPROPSTG_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumSTATPROPSTG_Reset_Proxy(IEnumSTATPROPSTG *This);")
-cpp_quote("  void __RPC_STUB IEnumSTATPROPSTG_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumSTATPROPSTG_Clone_Proxy(IEnumSTATPROPSTG *This,IEnumSTATPROPSTG **ppenum);")
-cpp_quote("  void __RPC_STUB IEnumSTATPROPSTG_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
+  [local] HRESULT Next ([in] ULONG celt,[out, size_is (celt), length_is (*pceltFetched)]STATPROPSTG *rgelt,[out]ULONG *pceltFetched);
+  [call_as (Next)] HRESULT RemoteNext ([in] ULONG celt,[out, size_is (celt), length_is (*pceltFetched)]STATPROPSTG *rgelt,[out] ULONG *pceltFetched);
+  HRESULT Skip ([in] ULONG celt);
+  HRESULT Reset ();
+  HRESULT Clone ([out] IEnumSTATPROPSTG **ppenum);
+}
+
 cpp_quote("")
-cpp_quote("#ifndef __IEnumSTATPROPSETSTG_INTERFACE_DEFINED__")
-cpp_quote("#define __IEnumSTATPROPSETSTG_INTERFACE_DEFINED__")
-cpp_quote("  typedef IEnumSTATPROPSETSTG *LPENUMSTATPROPSETSTG;")
+[object, uuid (0000013b-0000-0000-C000-000000000046), pointer_default (unique)]
+interface IEnumSTATPROPSETSTG : IUnknown {
+  typedef [unique] IEnumSTATPROPSETSTG *LPENUMSTATPROPSETSTG;
 cpp_quote("")
-cpp_quote("  EXTERN_C const IID IID_IEnumSTATPROPSETSTG;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IEnumSTATPROPSETSTG : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI Next(ULONG celt,STATPROPSETSTG *rgelt,ULONG *pceltFetched) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Skip(ULONG celt) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Reset(void) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Clone(IEnumSTATPROPSETSTG **ppenum) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IEnumSTATPROPSETSTGVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IEnumSTATPROPSETSTG *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IEnumSTATPROPSETSTG *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IEnumSTATPROPSETSTG *This);")
-cpp_quote("      HRESULT (WINAPI *Next)(IEnumSTATPROPSETSTG *This,ULONG celt,STATPROPSETSTG *rgelt,ULONG *pceltFetched);")
-cpp_quote("      HRESULT (WINAPI *Skip)(IEnumSTATPROPSETSTG *This,ULONG celt);")
-cpp_quote("      HRESULT (WINAPI *Reset)(IEnumSTATPROPSETSTG *This);")
-cpp_quote("      HRESULT (WINAPI *Clone)(IEnumSTATPROPSETSTG *This,IEnumSTATPROPSETSTG **ppenum);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IEnumSTATPROPSETSTGVtbl;")
-cpp_quote("  struct IEnumSTATPROPSETSTG {")
-cpp_quote("    CONST_VTBL struct IEnumSTATPROPSETSTGVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IEnumSTATPROPSETSTG_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IEnumSTATPROPSETSTG_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IEnumSTATPROPSETSTG_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IEnumSTATPROPSETSTG_Next(This,celt,rgelt,pceltFetched) (This)->lpVtbl->Next(This,celt,rgelt,pceltFetched)")
-cpp_quote("#define IEnumSTATPROPSETSTG_Skip(This,celt) (This)->lpVtbl->Skip(This,celt)")
-cpp_quote("#define IEnumSTATPROPSETSTG_Reset(This) (This)->lpVtbl->Reset(This)")
-cpp_quote("#define IEnumSTATPROPSETSTG_Clone(This,ppenum) (This)->lpVtbl->Clone(This,ppenum)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IEnumSTATPROPSETSTG_RemoteNext_Proxy(IEnumSTATPROPSETSTG *This,ULONG celt,STATPROPSETSTG *rgelt,ULONG *pceltFetched);")
-cpp_quote("  void __RPC_STUB IEnumSTATPROPSETSTG_RemoteNext_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumSTATPROPSETSTG_Skip_Proxy(IEnumSTATPROPSETSTG *This,ULONG celt);")
-cpp_quote("  void __RPC_STUB IEnumSTATPROPSETSTG_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumSTATPROPSETSTG_Reset_Proxy(IEnumSTATPROPSETSTG *This);")
-cpp_quote("  void __RPC_STUB IEnumSTATPROPSETSTG_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumSTATPROPSETSTG_Clone_Proxy(IEnumSTATPROPSETSTG *This,IEnumSTATPROPSETSTG **ppenum);")
-cpp_quote("  void __RPC_STUB IEnumSTATPROPSETSTG_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
+  [local] HRESULT Next ([in] ULONG celt,[out, size_is (celt), length_is (*pceltFetched)]STATPROPSETSTG *rgelt,[out]ULONG *pceltFetched);
+  [call_as (Next)] HRESULT RemoteNext ([in] ULONG celt,[out, size_is (celt), length_is (*pceltFetched)]STATPROPSETSTG *rgelt,[out] ULONG *pceltFetched);
+  HRESULT Skip ([in] ULONG celt);
+  HRESULT Reset ();
+  HRESULT Clone ([out] IEnumSTATPROPSETSTG **ppenum);
+}
+
 cpp_quote("")
-cpp_quote("  typedef IPropertyStorage *LPPROPERTYSTORAGE;")
+typedef [unique] IPropertyStorage *LPPROPERTYSTORAGE;
 cpp_quote("")
-cpp_quote("  WINOLEAPI PropVariantCopy (PROPVARIANT *pvarDest,const PROPVARIANT *pvarSrc);")
-cpp_quote("  WINOLEAPI PropVariantClear (PROPVARIANT *pvar);")
-cpp_quote("  WINOLEAPI FreePropVariantArray (ULONG cVariants,PROPVARIANT *rgvars);")
+cpp_quote("  WINOLEAPI PropVariantCopy(PROPVARIANT *pvarDest,const PROPVARIANT *pvarSrc);")
+cpp_quote("  WINOLEAPI PropVariantClear(PROPVARIANT *pvar);")
+cpp_quote("  WINOLEAPI FreePropVariantArray(ULONG cVariants, PROPVARIANT *rgvars);")
 cpp_quote("")
 cpp_quote("#define _PROPVARIANTINIT_DEFINED_")
 cpp_quote("#ifdef __cplusplus")
-cpp_quote("  static inline void PropVariantInit(PROPVARIANT *pvar) { memset (pvar,0,sizeof(PROPVARIANT)); }")
+cpp_quote("inline void PropVariantInit (PROPVARIANT *pvar) { memset (pvar, 0, sizeof (PROPVARIANT)); }")
 cpp_quote("#else")
-cpp_quote("#define PropVariantInit(pvar) memset((pvar),0,sizeof(PROPVARIANT))")
+cpp_quote("#define PropVariantInit(pvar) memset ((pvar), 0, sizeof (PROPVARIANT))")
 cpp_quote("#endif")
 cpp_quote("")
 cpp_quote("#ifndef _STGCREATEPROPSTG_DEFINED_")
-cpp_quote("  WINOLEAPI StgCreatePropStg(IUnknown *pUnk,REFFMTID fmtid,const CLSID *pclsid,DWORD grfFlags,DWORD dwReserved,IPropertyStorage **ppPropStg);")
-cpp_quote("  WINOLEAPI StgOpenPropStg(IUnknown *pUnk,REFFMTID fmtid,DWORD grfFlags,DWORD dwReserved,IPropertyStorage **ppPropStg);")
-cpp_quote("  WINOLEAPI StgCreatePropSetStg(IStorage *pStorage,DWORD dwReserved,IPropertySetStorage **ppPropSetStg);")
+cpp_quote("  WINOLEAPI StgCreatePropStg(IUnknown *pUnk, REFFMTID fmtid, const CLSID *pclsid, DWORD grfFlags, DWORD dwReserved, IPropertyStorage **ppPropStg);")
+cpp_quote("  WINOLEAPI StgOpenPropStg(IUnknown *pUnk, REFFMTID fmtid, DWORD grfFlags, DWORD dwReserved, IPropertyStorage **ppPropStg);")
+cpp_quote("  WINOLEAPI StgCreatePropSetStg(IStorage *pStorage, DWORD dwReserved, IPropertySetStorage **ppPropSetStg);")
 cpp_quote("")
-cpp_quote("#define CCH_MAX_PROPSTG_NAME 31")
-cpp_quote("  WINOLEAPI FmtIdToPropStgName(const FMTID *pfmtid,LPOLESTR oszName);")
-cpp_quote("  WINOLEAPI PropStgNameToFmtId(const LPOLESTR oszName,FMTID *pfmtid);")
+cpp_quote("#define CCH_MAX_PROPSTG_NAME    31")
+cpp_quote("")
+cpp_quote("  WINOLEAPI FmtIdToPropStgName(const FMTID *pfmtid, LPOLESTR oszName);")
+cpp_quote("  WINOLEAPI PropStgNameToFmtId(const LPOLESTR oszName, FMTID *pfmtid);")
 cpp_quote("#endif")
 cpp_quote("")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_propidl_0120_v0_0_c_ifspec;")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_propidl_0120_v0_0_s_ifspec;")
+cpp_quote("#ifndef _SERIALIZEDPROPERTYVALUE_DEFINED_")
+cpp_quote("#define _SERIALIZEDPROPERTYVALUE_DEFINED_")
+cpp_quote("typedef struct tagSERIALIZEDPROPERTYVALUE {")
+cpp_quote("  DWORD dwType;")
+cpp_quote("  BYTE rgb[1];")
+cpp_quote("} SERIALIZEDPROPERTYVALUE;")
+cpp_quote("#endif")
+cpp_quote("#endif")
 cpp_quote("")
-cpp_quote("  ULONG __RPC_API BSTR_UserSize(ULONG *,ULONG,BSTR *);")
-cpp_quote("  unsigned char *__RPC_API BSTR_UserMarshal(ULONG *,unsigned char *,BSTR *);")
-cpp_quote("  unsigned char *__RPC_API BSTR_UserUnmarshal(ULONG *,unsigned char *,BSTR *);")
-cpp_quote("  void __RPC_API BSTR_UserFree(ULONG *,BSTR *);")
-cpp_quote("  ULONG __RPC_API LPSAFEARRAY_UserSize(ULONG *,ULONG,LPSAFEARRAY *);")
-cpp_quote("  unsigned char *__RPC_API LPSAFEARRAY_UserMarshal(ULONG *,unsigned char *,LPSAFEARRAY *);")
-cpp_quote("  unsigned char *__RPC_API LPSAFEARRAY_UserUnmarshal(ULONG *,unsigned char *,LPSAFEARRAY *);")
-cpp_quote("  void __RPC_API LPSAFEARRAY_UserFree(ULONG *,LPSAFEARRAY *);")
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+cpp_quote("EXTERN_C SERIALIZEDPROPERTYVALUE * __stdcall StgConvertVariantToProperty(const PROPVARIANT *pvar, USHORT CodePage, SERIALIZEDPROPERTYVALUE *pprop, ULONG *pcb, PROPID pid, BOOLEAN fReserved, ULONG *pcIndirect);")
 cpp_quote("")
-cpp_quote("  HRESULT WINAPI IEnumSTATPROPSTG_Next_Proxy(IEnumSTATPROPSTG *This,ULONG celt,STATPROPSTG *rgelt,ULONG *pceltFetched);")
-cpp_quote("  HRESULT WINAPI IEnumSTATPROPSTG_Next_Stub(IEnumSTATPROPSTG *This,ULONG celt,STATPROPSTG *rgelt,ULONG *pceltFetched);")
-cpp_quote("  HRESULT WINAPI IEnumSTATPROPSETSTG_Next_Proxy(IEnumSTATPROPSETSTG *This,ULONG celt,STATPROPSETSTG *rgelt,ULONG *pceltFetched);")
-cpp_quote("  HRESULT WINAPI IEnumSTATPROPSETSTG_Next_Stub(IEnumSTATPROPSETSTG *This,ULONG celt,STATPROPSETSTG *rgelt,ULONG *pceltFetched);")
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("class PMemoryAllocator;")
+cpp_quote("")
+cpp_quote("EXTERN_C BOOLEAN __stdcall StgConvertPropertyToVariant(const SERIALIZEDPROPERTYVALUE *pprop, USHORT CodePage, PROPVARIANT *pvar, PMemoryAllocator *pma);")
+cpp_quote("#endif")
+cpp_quote("")
+cpp_quote("#endif")
