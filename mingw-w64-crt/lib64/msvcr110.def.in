@@ -1448,6 +1448,7 @@ _strerror
 _strerror_s
 _strftime_l
 _stricmp
+_strcmpi == _stricmp
 _stricmp_l
 _stricoll
 _stricoll_l
