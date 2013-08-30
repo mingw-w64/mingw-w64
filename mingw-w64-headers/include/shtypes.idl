@@ -37,7 +37,6 @@ cpp_quote("#if (defined(_X86_) && !defined(__x86_64))")
 cpp_quote("#undef __unaligned")
 cpp_quote("#define __unaligned")
 cpp_quote("#endif")
-cpp_quote("#endif")
 
 cpp_quote("")
 typedef SHITEMID *LPSHITEMID;
@@ -198,12 +197,10 @@ typedef DWORD PERCEIVEDFLAG;
 cpp_quote("#endif")
 
   cpp_quote("")
-cpp_quote("#if NTDDI_VERSION >= NTDDI_VISTA")
 typedef struct _COMDLG_FILTERSPEC {
   [string] LPCWSTR pszName;
   [string] LPCWSTR pszSpec;
 } COMDLG_FILTERSPEC;
-cpp_quote("#endif")
 
 cpp_quote("")
 typedef GUID KNOWNFOLDERID;
