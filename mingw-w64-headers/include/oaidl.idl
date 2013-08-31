@@ -153,7 +153,7 @@ cpp_quote("")
   const USHORT FADF_RESERVED = 0xf008;
 
 cpp_quote("")
-cpp_quote("#if (__STDC__ && !defined(_FORCENAMELESSUNION)) || defined(NONAMELESSUNION) || (!defined(_MSC_EXTENSIONS) && !defined(_FORCENAMELESSUNION))")
+cpp_quote("#if (__STDC__ && !defined(__cplusplus) && !defined(_FORCENAMELESSUNION)) || defined(NONAMELESSUNION) || (defined (_MSC_VER) && !defined(_MSC_EXTENSIONS) && !defined(_FORCENAMELESSUNION))")
 cpp_quote("#define __VARIANT_NAME_1 n1")
 cpp_quote("#define __VARIANT_NAME_2 n2")
 cpp_quote("#define __VARIANT_NAME_3 n3")
