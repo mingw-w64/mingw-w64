@@ -2324,9 +2324,13 @@ extern "C" {
   WINBASEAPI HANDLE APIENTRY CreateBoundaryDescriptorA (LPCSTR Name, ULONG Flags);
   WINBASEAPI WINBOOL WINAPI AddIntegrityLabelToBoundaryDescriptor (HANDLE *BoundaryDescriptor, PSID IntegrityLabel);
 
+#ifndef UNICODE
 #define CreatePrivateNamespace __MINGW_NAME_AW(CreatePrivateNamespace)
+#endif
 #define OpenPrivateNamespace __MINGW_NAME_AW(OpenPrivateNamespace)
+#ifndef UNICODE
 #define CreateBoundaryDescriptor __MINGW_NAME_AW(CreateBoundaryDescriptor)
+#endif
 
 #endif
 
