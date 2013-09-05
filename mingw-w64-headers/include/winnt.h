@@ -235,18 +235,23 @@ extern "C" {
   typedef void *PVOID;
   typedef void *PVOID64;
 
-#if defined(_M_IX86)
+#ifndef FASTCALL
+#if defined (__i386__) && !defined (__WIDL__)
 #define FASTCALL __fastcall
 #else
 #define FASTCALL
 #endif
+#endif /* FASTCALL */
+
 #define NTAPI __stdcall
+#define NTAPI_INLINE NTAPI
+
 #if !defined(_NTSYSTEM_)
 #define NTSYSAPI DECLSPEC_IMPORT
 #define NTSYSCALLAPI DECLSPEC_IMPORT
 #else
 #define NTSYSAPI
-#define NTSYSCALLAPI
+#define NTSYSCALLAPI DECLSPEC_ADDRSAFE
 #endif
 
 #ifndef VOID
@@ -254,7 +259,11 @@ extern "C" {
   typedef char CHAR;
   typedef short SHORT;
   typedef __LONG32 LONG;
+#if !defined (__WIDL__)
+  typedef int INT;
 #endif
+#endif
+
 #ifndef __WCHAR_DEFINED
 #define __WCHAR_DEFINED
   typedef wchar_t WCHAR;
@@ -308,7 +317,7 @@ extern "C" {
   typedef CHAR *PNZCH;
   typedef CONST CHAR *PCNZCH;
 
-#if defined(UNICODE)
+#ifdef UNICODE
 #ifndef _TCHAR_DEFINED
 #define _TCHAR_DEFINED
   typedef WCHAR TCHAR, *PTCHAR;
@@ -321,6 +330,16 @@ extern "C" {
   typedef LPUWSTR PUTSTR,LPUTSTR;
   typedef LPCUWSTR PCUTSTR,LPCUTSTR;
   typedef LPWSTR LP;
+  typedef PZZWSTR PZZTSTR;
+  typedef PCZZWSTR PCZZTSTR;
+  typedef PUZZWSTR PUZZTSTR;
+  typedef PCUZZWSTR PCUZZTSTR;
+  typedef PZPWSTR PZPTSTR;
+  typedef PNZWCH PNZTCH;
+  typedef PCNZWCH PCNZTCH;
+  typedef PUNZWCH PUNZTCH;
+  typedef PCUNZWCH PCUNZTCH;
+
 #define __TEXT(quote) L##quote
 #else
 #ifndef _TCHAR_DEFINED
@@ -330,8 +349,15 @@ extern "C" {
 #endif
 
   typedef LPSTR LPTCH,PTCH;
+  typedef LPCCH LPCTCH,PCTCH;
   typedef LPSTR PTSTR,LPTSTR,PUTSTR,LPUTSTR;
   typedef LPCSTR PCTSTR,LPCTSTR,PCUTSTR,LPCUTSTR;
+  typedef PZZSTR PZZTSTR, PUZZTSTR;
+  typedef PCZZSTR PCZZTSTR, PCUZZTSTR;
+  typedef PZPSTR PZPTSTR;
+  typedef PNZCH PNZTCH, PUNZTCH;
+  typedef PCNZCH PCNZTCH, PCUNZTCH;
+
 #define __TEXT(quote) quote
 #endif
 
