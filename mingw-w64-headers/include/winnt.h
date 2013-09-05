@@ -365,10 +365,15 @@ extern "C" {
   typedef SHORT *PSHORT;
   typedef LONG *PLONG;
 
+#ifdef STRICT
   typedef void *HANDLE;
 #define DECLARE_HANDLE(name) struct name##__ { int unused; }; typedef struct name##__ *name
-  typedef HANDLE *PHANDLE;
+#else
+typedef PVOID HANDLE;
+#define DECLARE_HANDLE(name) typedef HANDLE name
+#endif
 
+  typedef HANDLE *PHANDLE;
   typedef BYTE FCHAR;
   typedef WORD FSHORT;
   typedef DWORD FLONG;
@@ -411,6 +416,16 @@ typedef DWORD LCID;
 #define _LANGID_DEFINED
   typedef WORD LANGID;
 #endif
+
+#ifndef __COMPARTMENT_ID_DEFINED__
+#define __COMPARTMENT_ID_DEFINED__
+
+typedef enum {
+  UNSPECIFIED_COMPARTMENT_ID = 0,
+  DEFAULT_COMPARTMENT_ID
+} COMPARTMENT_ID,*PCOMPARTMENT_ID;
+#endif
+
 #define APPLICATION_ERROR_MASK 0x20000000
 #define ERROR_SEVERITY_SUCCESS 0x00000000
 #define ERROR_SEVERITY_INFORMATIONAL 0x40000000
@@ -6750,6 +6765,8 @@ typedef struct _PROCESSOR_NUMBER {
   BYTE Number;
   BYTE Reserved;
 } PROCESSOR_NUMBER, *PPROCESSOR_NUMBER;
+
+#define ALL_PROCESSOR_GROUPS 0xffff
 #endif /* !___PROCESSOR_NUMBER_DEFINED */
 
 typedef struct _PROCESSOR_GROUP_INFO {
