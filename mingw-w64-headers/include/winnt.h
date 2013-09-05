@@ -207,6 +207,34 @@ extern "C" {
   typedef CONST WCHAR *LPCWSTR,*PCWSTR;
   typedef PCWSTR *PZPCWSTR;
   typedef CONST WCHAR UNALIGNED *LPCUWSTR,*PCUWSTR;
+  typedef WCHAR *PZZWSTR;
+  typedef CONST WCHAR *PCZZWSTR;
+  typedef WCHAR UNALIGNED *PUZZWSTR;
+  typedef CONST WCHAR UNALIGNED *PCUZZWSTR;
+  typedef WCHAR *PNZWCH;
+  typedef CONST WCHAR *PCNZWCH;
+  typedef WCHAR UNALIGNED *PUNZWCH;
+  typedef CONST WCHAR UNALIGNED *PCUNZWCH;
+
+#if _WIN32_WINNT >= 0x0600 || (defined (__cplusplus) && defined (WINDOWS_ENABLE_CPLUSPLUS))
+  typedef CONST WCHAR *LPCWCHAR,*PCWCHAR;
+  typedef CONST WCHAR UNALIGNED *LPCUWCHAR,*PCUWCHAR;
+  typedef unsigned long UCSCHAR;
+
+#define UCSCHAR_INVALID_CHARACTER (0xffffffff)
+#define MIN_UCSCHAR (0)
+#define MAX_UCSCHAR (0x0010ffff)
+
+  typedef UCSCHAR *PUCSCHAR;
+  typedef const UCSCHAR *PCUCSCHAR;
+  typedef UCSCHAR *PUCSSTR;
+  typedef UCSCHAR UNALIGNED *PUUCSSTR;
+  typedef const UCSCHAR *PCUCSSTR;
+  typedef const UCSCHAR UNALIGNED *PCUUCSSTR;
+  typedef UCSCHAR UNALIGNED *PUUCSCHAR;
+  typedef const UCSCHAR UNALIGNED *PCUUCSCHAR;
+#endif
+
   typedef CHAR *PCHAR,*LPCH,*PCH;
   typedef CONST CHAR *LPCCH,*PCCH;
   typedef CHAR *NPSTR,*LPSTR,*PSTR;
@@ -214,6 +242,10 @@ extern "C" {
   typedef CONST PSTR *PCZPSTR;
   typedef CONST CHAR *LPCSTR,*PCSTR;
   typedef PCSTR *PZPCSTR;
+  typedef CHAR *PZZSTR;
+  typedef CONST CHAR *PCZZSTR;
+  typedef CHAR *PNZCH;
+  typedef CONST CHAR *PCNZCH;
 
 #if defined(UNICODE)
 #ifndef _TCHAR_DEFINED
