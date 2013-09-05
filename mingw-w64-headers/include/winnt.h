@@ -15,6 +15,8 @@ extern "C" {
 #include <_mingw.h>
 #include <ctype.h>
 #include <excpt.h>
+#include <winapifamily.h>
+
 #define ANYSIZE_ARRAY 1
 
 #include <specstrings.h>
@@ -23,20 +25,60 @@ extern "C" {
 #include <psdk_inc/intrin-impl.h>
 
 #if defined(__x86_64) && \
-  !(defined(_X86_) || defined(__i386__) || defined(_IA64_))
+  !(defined(_X86_) || defined(__i386__) || defined(_IA64_) || defined (__arm__))
 #if !defined(_AMD64_)
 #define _AMD64_
 #endif
 #endif /* _AMD64_ */
 
 #if defined(__ia64__) && \
-  !(defined(_X86_) || defined(__x86_64) || defined(_AMD64_))
+  !(defined(_X86_) || defined(__x86_64) || defined(_AMD64_) || defined (__arm__))
 #if !defined(_IA64_)
 #define _IA64_
 #endif
 #endif /* _IA64_ */
 
 #include <sdkddkver.h>
+
+#ifndef DUMMYUNIONNAME
+#if defined (NONAMELESSUNION)
+#define DUMMYUNIONNAME u
+#define DUMMYUNIONNAME2 u2
+#define DUMMYUNIONNAME3 u3
+#define DUMMYUNIONNAME4 u4
+#define DUMMYUNIONNAME5 u5
+#define DUMMYUNIONNAME6 u6
+#define DUMMYUNIONNAME7 u7
+#define DUMMYUNIONNAME8 u8
+#define DUMMYUNIONNAME9 u9
+#else
+#define DUMMYUNIONNAME
+#define DUMMYUNIONNAME2
+#define DUMMYUNIONNAME3
+#define DUMMYUNIONNAME4
+#define DUMMYUNIONNAME5
+#define DUMMYUNIONNAME6
+#define DUMMYUNIONNAME7
+#define DUMMYUNIONNAME8
+#define DUMMYUNIONNAME9
+#endif
+#endif
+
+#ifndef DUMMYSTRUCTNAME
+#if defined (NONAMELESSUNION)
+#define DUMMYSTRUCTNAME s
+#define DUMMYSTRUCTNAME2 s2
+#define DUMMYSTRUCTNAME3 s3
+#define DUMMYSTRUCTNAME4 s4
+#define DUMMYSTRUCTNAME5 s5
+#else
+#define DUMMYSTRUCTNAME
+#define DUMMYSTRUCTNAME2
+#define DUMMYSTRUCTNAME3
+#define DUMMYSTRUCTNAME4
+#define DUMMYSTRUCTNAME5
+#endif
+#endif
 
 #define RESTRICTED_POINTER
 
