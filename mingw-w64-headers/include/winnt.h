@@ -649,7 +649,13 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define DEFINE_ENUM_FLAG_OPERATORS(ENUMTYPE) /* */
 #endif
 
-#define RTL_BITS_OF(sizeOfArg) (sizeof(sizeOfArg) *8)
+#define COMPILETIME_OR_2FLAGS(a, b) ((UINT) (a) | (UINT) (b))
+#define COMPILETIME_OR_3FLAGS(a, b, c) ((UINT) (a) | (UINT) (b) | (UINT) (c))
+#define COMPILETIME_OR_4FLAGS(a, b, c, d) ((UINT) (a) | (UINT) (b) | (UINT) (c) | (UINT) (d))
+#define COMPILETIME_OR_5FLAGS(a, b, c, d, e) ((UINT) (a) | (UINT) (b) | (UINT) (c) | (UINT) (d) | (UINT) (e))
+
+
+#define RTL_BITS_OF(sizeOfArg) (sizeof(sizeOfArg) * 8)
 #define RTL_BITS_OF_FIELD(type,field) (RTL_BITS_OF(RTL_FIELD_TYPE(type,field)))
 #define CONTAINING_RECORD(address,type,field) ((type *)((PCHAR)(address) - (ULONG_PTR)(&((type *)0)->field)))
 
@@ -977,9 +983,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define SUBLANG_ENGLISH_AUS                       0x03
 #define SUBLANG_ENGLISH_CAN                       0x04
 #define SUBLANG_ENGLISH_NZ                        0x05
-#if (WINVER >= 0x0600)
 #define SUBLANG_ENGLISH_IRELAND                   0x06
-#endif /* WINVER >= 0x0600 */
 #define SUBLANG_ENGLISH_EIRE                      0x06
 #define SUBLANG_ENGLISH_SOUTH_AFRICA              0x07
 #define SUBLANG_ENGLISH_JAMAICA                   0x08
@@ -1231,6 +1235,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 
 #define DEFAULT_UNREACHABLE
 
+#ifndef UMDF_USING_NTSTATUS
 #ifndef WIN32_NO_STATUS
 #define STATUS_WAIT_0 ((DWORD)0x00000000)
 #define STATUS_ABANDONED_WAIT_0 ((DWORD)0x00000080)
@@ -1240,6 +1245,7 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define DBG_EXCEPTION_HANDLED ((DWORD)0x00010001)
 #define DBG_CONTINUE ((DWORD)0x00010002)
 #define STATUS_SEGMENT_NOTIFICATION ((DWORD)0x40000005)
+#define STATUS_FATAL_APP_EXIT ((DWORD)0x40000015)
 #define DBG_TERMINATE_THREAD ((DWORD)0x40010003)
 #define DBG_TERMINATE_PROCESS ((DWORD)0x40010004)
 #define DBG_CONTROL_C ((DWORD)0x40010005)
@@ -1288,12 +1294,77 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define STATUS_SXS_EARLY_DEACTIVATION ((DWORD)0xC015000F)
 #define STATUS_SXS_INVALID_DEACTIVATION ((DWORD)0xC0150010)
 #endif
+#endif
 
 #define MAXIMUM_WAIT_OBJECTS 64
 #define MAXIMUM_SUSPEND_COUNT MAXCHAR
 
   typedef ULONG_PTR KSPIN_LOCK;
   typedef KSPIN_LOCK *PKSPIN_LOCK;
+
+    typedef struct DECLSPEC_ALIGN (16) _M128A {
+      ULONGLONG Low;
+      LONGLONG High;
+    } M128A,*PM128A;
+
+    typedef struct DECLSPEC_ALIGN (16) _XSAVE_FORMAT {
+      WORD ControlWord;
+      WORD StatusWord;
+      BYTE TagWord;
+      BYTE Reserved1;
+      WORD ErrorOpcode;
+      DWORD ErrorOffset;
+      WORD ErrorSelector;
+      WORD Reserved2;
+      DWORD DataOffset;
+      WORD DataSelector;
+      WORD Reserved3;
+      DWORD MxCsr;
+      DWORD MxCsr_Mask;
+      M128A FloatRegisters[8];
+#ifdef _WIN64
+      M128A XmmRegisters[16];
+      BYTE Reserved4[96];
+#else
+      M128A XmmRegisters[8];
+      BYTE Reserved4[220];
+      DWORD Cr0NpxState;
+#endif
+    } XSAVE_FORMAT,*PXSAVE_FORMAT;
+
+    typedef struct DECLSPEC_ALIGN (8) _XSAVE_AREA_HEADER {
+      DWORD64 Mask;
+      DWORD64 Reserved[7];
+    } XSAVE_AREA_HEADER,*PXSAVE_AREA_HEADER;
+
+    typedef struct DECLSPEC_ALIGN (16) _XSAVE_AREA {
+      XSAVE_FORMAT LegacyState;
+      XSAVE_AREA_HEADER Header;
+    } XSAVE_AREA,*PXSAVE_AREA;
+
+    typedef struct _XSTATE_CONTEXT {
+      DWORD64 Mask;
+      DWORD Length;
+      DWORD Reserved1;
+      PXSAVE_AREA Area;
+#if defined (__i386__)
+      DWORD Reserved2;
+#endif
+      PVOID Buffer;
+#if defined (__i386__)
+      DWORD Reserved3;
+#endif
+    } XSTATE_CONTEXT,*PXSTATE_CONTEXT;
+
+    typedef struct _SCOPE_TABLE_AMD64 {
+      DWORD Count;
+      struct {
+	DWORD BeginAddress;
+	DWORD EndAddress;
+	DWORD HandlerAddress;
+	DWORD JumpTarget;
+      } ScopeRecord[1];
+    } SCOPE_TABLE_AMD64,*PSCOPE_TABLE_AMD64;
 
 #ifdef _AMD64_
 
@@ -1526,11 +1597,6 @@ extern "C" {
 
 #define INITIAL_MXCSR 0x1f80
 #define INITIAL_FPCSR 0x027f
-
-  typedef struct DECLSPEC_ALIGN(16) _M128A {
-    ULONGLONG Low;
-    LONGLONG High;
-  } M128A,*PM128A;
 
   typedef struct _XMM_SAVE_AREA32 {
     WORD ControlWord;
