@@ -84,10 +84,10 @@ extern "C" {
 
 #undef  UNALIGNED	/* avoid redefinition warnings vs _mingw.h */
 #undef  UNALIGNED64
-#if defined(_M_MRX000) || defined(_M_ALPHA) || defined(_M_PPC) || defined(_M_IA64) || defined(_M_AMD64)
+#if defined (__ia64__) || defined (__x86_64__) || defined (__arm__)
 #define ALIGNMENT_MACHINE
 #define UNALIGNED __unaligned
-#if defined(_WIN64)
+#if defined (_WIN64)
 #define UNALIGNED64 __unaligned
 #else
 #define UNALIGNED64
@@ -112,17 +112,16 @@ extern "C" {
 #define TYPE_ALIGNMENT(t) FIELD_OFFSET(struct { char x; t test; }, test)
 #endif
 
-#ifdef _WIN64
-#ifdef _AMD64_
-#define PROBE_ALIGNMENT(_s) TYPE_ALIGNMENT(DWORD)
-#elif defined(_IA64_)
-#define PROBE_ALIGNMENT(_s) (TYPE_ALIGNMENT(_s) > TYPE_ALIGNMENT(DWORD) ? TYPE_ALIGNMENT(_s) : TYPE_ALIGNMENT(DWORD))
-#else
-#error No Target Architecture
+#if defined (__x86_64__) || defined (__i386__)
+#define PROBE_ALIGNMENT(_s) TYPE_ALIGNMENT (DWORD)
+#elif defined (__ia64__) || defined (__arm__)
+#define PROBE_ALIGNMENT(_s) (TYPE_ALIGNMENT (_s) > TYPE_ALIGNMENT (DWORD) ? TYPE_ALIGNMENT (_s) : TYPE_ALIGNMENT (DWORD))
+#elif !defined (RC_INVOKED) && !defined (__WIDL__)
+#error No supported target architecture.
 #endif
-#define PROBE_ALIGNMENT32(_s) TYPE_ALIGNMENT(DWORD)
-#else
-#define PROBE_ALIGNMENT(_s) TYPE_ALIGNMENT(DWORD)
+
+#ifdef _WIN64
+#define PROBE_ALIGNMENT32(_s) TYPE_ALIGNMENT (DWORD)
 #endif
 
 #if defined(_MSC_VER)
@@ -134,29 +133,45 @@ extern "C" {
 #include <basetsd.h>
 
 #ifndef DECLSPEC_IMPORT
-#if defined(_X86_) || defined(__ia64__) || defined(__x86_64)
-#define DECLSPEC_IMPORT __declspec(dllimport)
+#if (defined (__i386__) || defined (__ia64__) || defined (__x86_64__) || defined (__arm__)) && !defined (__WIDL__)
+#define DECLSPEC_IMPORT __declspec (dllimport)
 #else
 #define DECLSPEC_IMPORT
 #endif
 #endif
 
 #ifndef DECLSPEC_NORETURN
-#define DECLSPEC_NORETURN __declspec(noreturn)
+#ifndef __WIDL__
+#define DECLSPEC_NORETURN __declspec (noreturn)
+#else
+#define DECLSPEC_NORETURN
+#endif
+#endif
+
+#ifndef DECLSPEC_NOTHROW
+#ifndef __WIDL__
+#define DECLSPEC_NOTHROW __declspec (nothrow)
+#else
+#define DECLSPEC_NOTHROW
+#endif
 #endif
 
 #ifndef DECLSPEC_ALIGN
+#ifndef __WIDL__
 #if defined(_MSC_VER) && (_MSC_VER >= 1300) && !defined(MIDL_PASS)
 #define DECLSPEC_ALIGN(x) __declspec(align(x))
 #elif defined(__GNUC__)
 #define DECLSPEC_ALIGN(x) __attribute__ ((__aligned__ (x)))
+#else
+#define DECLSPEC_ALIGN(x) /*__declspec (align (x))*/
+#endif
 #else
 #define DECLSPEC_ALIGN(x)
 #endif
 #endif /* DECLSPEC_ALIGN */
 
 #ifndef SYSTEM_CACHE_ALIGNMENT_SIZE
-#if defined(_AMD64_) || defined(_X86_)
+#if defined(__x86_64__) || defined(__i386__)
 #define SYSTEM_CACHE_ALIGNMENT_SIZE 64
 #else
 #define SYSTEM_CACHE_ALIGNMENT_SIZE 128
@@ -185,6 +200,10 @@ extern "C" {
 #else
 #define NOP_FUNCTION (void)0
 #endif
+#endif
+
+#ifndef DECLSPEC_ADDRSAFE
+#define DECLSPEC_ADDRSAFE
 #endif
 
 #ifndef DECLSPEC_NOINLINE
