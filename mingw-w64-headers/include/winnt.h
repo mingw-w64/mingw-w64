@@ -432,7 +432,7 @@ typedef enum {
 #define ERROR_SEVERITY_WARNING 0x80000000
 #define ERROR_SEVERITY_ERROR 0xC0000000
 
-#ifdef __ia64__
+#if defined (__ia64__) && !defined (__WIDL__)
   __declspec(align(16))
 #endif
     typedef struct _FLOAT128 {
@@ -446,16 +446,18 @@ typedef enum {
   __MINGW_EXTENSION typedef __int64 LONGLONG;
   __MINGW_EXTENSION typedef unsigned __int64 ULONGLONG;
 
-#define MAXLONGLONG (0x7fffffffffffffff)
+#define MAXLONGLONG (0x7fffffffffffffffll)
 
   typedef LONGLONG *PLONGLONG;
   typedef ULONGLONG *PULONGLONG;
-
   typedef LONGLONG USN;
 
 #ifndef _LARGE_INTEGER_DEFINED
 #define _LARGE_INTEGER_DEFINED
 
+#if defined (__WIDL__)
+typedef struct _LARGE_INTEGER {
+#else
   typedef union _LARGE_INTEGER {
     __C89_NAMELESS struct {
       DWORD LowPart;
@@ -465,11 +467,15 @@ typedef enum {
       DWORD LowPart;
       LONG HighPart;
     } u;
+#endif
     LONGLONG QuadPart;
   } LARGE_INTEGER;
 
   typedef LARGE_INTEGER *PLARGE_INTEGER;
 
+#if defined (__WIDL__)
+  typedef struct _ULARGE_INTEGER {
+#else
   typedef union _ULARGE_INTEGER {
     __C89_NAMELESS struct {
       DWORD LowPart;
@@ -479,6 +485,7 @@ typedef enum {
       DWORD LowPart;
       DWORD HighPart;
     } u;
+#endif
     ULONGLONG QuadPart;
   } ULARGE_INTEGER;
 
@@ -495,24 +502,11 @@ typedef enum {
   typedef ULONGLONG DWORDLONG;
   typedef DWORDLONG *PDWORDLONG;
 
-#ifdef RC_INVOKED
-#define Int32x32To64(a,b) ((LONGLONG)((LONG)(a)) *(LONGLONG)((LONG)(b)))
-#define UInt32x32To64(a,b) ((ULONGLONG)((DWORD)(a)) *(ULONGLONG)((DWORD)(b)))
-#define Int64ShrlMod32(a,b) ((ULONGLONG)(a) >> (b))
-#elif (defined(_X86_) && !defined(__x86_64))
-#define Int32x32To64(a,b) (LONGLONG)((LONGLONG)(LONG)(a) *(LONG)(b))
-#define UInt32x32To64(a,b) (ULONGLONG)((ULONGLONG)(DWORD)(a) *(DWORD)(b))
-#define Int64ShrlMod32(a,b) ((DWORDLONG)(a)>>(b))
-#elif defined(__ia64__) || defined(__x86_64)
-#define Int32x32To64(a,b) ((LONGLONG)((LONG)(a)) *(LONGLONG)((LONG)(b)))
-#define UInt32x32To64(a,b) ((ULONGLONG)((DWORD)(a)) *(ULONGLONG)((DWORD)(b)))
-#define Int64ShrlMod32(a,b) ((ULONGLONG)(a) >> (b))
-#else
-#error Must define a target architecture.
-#endif
-
-#define Int64ShraMod32(a,b) ((LONGLONG)(a) >> (b))
-#define Int64ShllMod32(a,b) ((ULONGLONG)(a) << (b))
+#define Int32x32To64(a, b) (((LONGLONG) ((LONG) (a))) * ((LONGLONG) ((LONG) (b))))
+#define UInt32x32To64(a, b) (((ULONGLONG) ((unsigned int) (a))) *((ULONGLONG) ((unsigned int) (b))))
+#define Int64ShllMod32(a, b) (((ULONGLONG) (a)) << (b))
+#define Int64ShraMod32(a, b) (((LONGLONG) (a)) >> (b))
+#define Int64ShrlMod32(a, b) (((ULONGLONG) (a)) >> (b))
 
 #ifdef __cplusplus
   extern "C" {
