@@ -317,7 +317,7 @@ typedef HANDLE *PHANDLE;
 typedef char CHAR;
 typedef short SHORT;
 typedef __LONG32 LONG;
-#if !defined(MIDL_PASS)
+#if !defined(MIDL_PASS) && !defined (__WIDL__)
 typedef int INT;
 #endif
 #endif
@@ -423,7 +423,7 @@ typedef struct _QUAD {
 #ifndef _LARGE_INTEGER_DEFINED
 #define _LARGE_INTEGER_DEFINED
 /* Large Integer Unions */
-#if defined(MIDL_PASS)
+#if defined(MIDL_PASS) || defined (__WIDL__)
 typedef struct _LARGE_INTEGER {
 #else
 typedef union _LARGE_INTEGER {
@@ -439,7 +439,7 @@ typedef union _LARGE_INTEGER {
   LONGLONG QuadPart;
 } LARGE_INTEGER, *PLARGE_INTEGER;
 
-#if defined(MIDL_PASS)
+#if defined(MIDL_PASS) || defined (__WIDL__)
 typedef struct _ULARGE_INTEGER {
 #else
 typedef union _ULARGE_INTEGER {
