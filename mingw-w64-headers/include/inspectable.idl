@@ -31,3 +31,16 @@ interface IInspectable : IUnknown
     HRESULT GetTrustLevel(
             [out] TrustLevel *trustLevel);
 }
+
+cpp_quote("")
+cpp_quote("#if !defined (CINTERFACE) && defined (__cplusplus)")
+cpp_quote("extern \"C++\" {")
+cpp_quote("  template<typename T> void **IID_INS_ARGS_internal (T **p) {")
+cpp_quote("    static_cast<IInspectable *> (*p);")
+cpp_quote("    return reinterpret_cast<void **> (p);")
+cpp_quote("  }")
+cpp_quote("}")
+cpp_quote("")
+cpp_quote("#define IID_INS_ARGS(P) __uuidof(**(P)), IID_INS_ARGS_internal(P)")
+cpp_quote("#endif")
+
