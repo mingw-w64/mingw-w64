@@ -7086,7 +7086,6 @@ typedef struct _RTL_SRWLOCK { PVOID Ptr; } RTL_SRWLOCK, *PRTL_SRWLOCK;
 
 #define RTL_SRWLOCK_INIT {0}
 
-#if 1
 #ifndef _RTL_RUN_ONCE_DEF
 #define _RTL_RUN_ONCE_DEF 1
 typedef struct _RTL_RUN_ONCE { PVOID Ptr; } RTL_RUN_ONCE, *PRTL_RUN_ONCE;
@@ -7247,36 +7246,35 @@ typedef struct _WOW64_CONTEXT {
 } WOW64_CONTEXT, *PWOW64_CONTEXT;
 #include "poppack.h"
 
-    typedef struct _WOW64_LDT_ENTRY {
-      WORD LimitLow;
-      WORD BaseLow;
-      union {
-	struct {
-	  BYTE BaseMid;
-	  BYTE Flags1;
-	  BYTE Flags2;
-	  BYTE BaseHi;
-	} Bytes;
-	struct {
-	  DWORD BaseMid : 8;
-	  DWORD Type : 5;
-	  DWORD Dpl : 2;
-	  DWORD Pres : 1;
-	  DWORD LimitHi : 4;
-	  DWORD Sys : 1;
-	  DWORD Reserved_0 : 1;
-	  DWORD Default_Big : 1;
-	  DWORD Granularity : 1;
-	  DWORD BaseHi : 8;
-	} Bits;
-      } HighWord;
-    } WOW64_LDT_ENTRY,*PWOW64_LDT_ENTRY;
+typedef struct _WOW64_LDT_ENTRY {
+  WORD  LimitLow;
+  WORD  BaseLow;
+  __C89_NAMELESS union {
+    struct {
+      BYTE BaseMid;
+      BYTE Flags1;
+      BYTE Flags2;
+      BYTE BaseHi;
+    } Bytes;
+    struct {
+      DWORD BaseMid  :8;
+      DWORD Type  :5;
+      DWORD Dpl  :2;
+      DWORD Pres  :1;
+      DWORD LimitHi  :4;
+      DWORD Sys  :1;
+      DWORD Reserved_0  :1;
+      DWORD Default_Big  :1;
+      DWORD Granularity  :1;
+      DWORD BaseHi  :8;
+    } Bits;
+  } HighWord;
+} WOW64_LDT_ENTRY, *PWOW64_LDT_ENTRY;
 
     typedef struct _WOW64_DESCRIPTOR_TABLE_ENTRY {
       DWORD Selector;
       WOW64_LDT_ENTRY Descriptor;
     } WOW64_DESCRIPTOR_TABLE_ENTRY,*PWOW64_DESCRIPTOR_TABLE_ENTRY;
-#endif
 
 #if (_WIN32_WINNT >= 0x0601)
 
@@ -7308,90 +7306,6 @@ typedef struct _PROCESSOR_NUMBER {
 
 #define ALL_PROCESSOR_GROUPS 0xffff
 #endif /* !___PROCESSOR_NUMBER_DEFINED */
-
-typedef struct _PROCESSOR_GROUP_INFO {
-  BYTE      MaximumProcessorCount;
-  BYTE      ActiveProcessorCount;
-  BYTE      Reserved[38];
-  KAFFINITY ActiveProcessorMask;
-} PROCESSOR_GROUP_INFO, *PPROCESSOR_GROUP_INFO;
-
-typedef struct _GROUP_RELATIONSHIP {
-  WORD                 MaximumGroupCount;
-  WORD                 ActiveGroupCount;
-  BYTE                 Reserved[20];
-  PROCESSOR_GROUP_INFO GroupInfo[];
-} GROUP_RELATIONSHIP, *PGROUP_RELATIONSHIP;
-
-typedef struct _CACHE_RELATIONSHIP {
-  BYTE                 Level;
-  BYTE                 Associativity;
-  WORD                 LineSize;
-  DWORD                CacheSize;
-  PROCESSOR_CACHE_TYPE Type;
-  BYTE                 Reserved[20];
-  GROUP_AFFINITY       GroupMask;
-} CACHE_RELATIONSHIP, *PCACHE_RELATIONSHIP;
-
-typedef struct _NUMA_NODE_RELATIONSHIP {
-  DWORD          NodeNumber;
-  BYTE           Reserved[20];
-  GROUP_AFFINITY GroupMask;
-} NUMA_NODE_RELATIONSHIP, *PNUMA_NODE_RELATIONSHIP;
-
-typedef struct _PROCESSOR_RELATIONSHIP {
-  BYTE           Flags;
-  BYTE           Reserved[21];
-  WORD           GroupCount;
-  GROUP_AFFINITY GroupMask[];
-} PROCESSOR_RELATIONSHIP, *PPROCESSOR_RELATIONSHIP;
-
-typedef struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
-  LOGICAL_PROCESSOR_RELATIONSHIP Relationship;
-  DWORD                          Size;
-  __C89_NAMELESS union {
-    PROCESSOR_RELATIONSHIP Processor;
-    NUMA_NODE_RELATIONSHIP NumaNode;
-    CACHE_RELATIONSHIP     Cache;
-    GROUP_RELATIONSHIP     Group;
-  };
-} SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX, *PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX;
-
-typedef struct _UMS_CREATE_THREAD_ATTRIBUTES {
-  DWORD UmsVersion;
-  PVOID UmsContext;
-  PVOID UmsCompletionList;
-} UMS_CREATE_THREAD_ATTRIBUTES, *PUMS_CREATE_THREAD_ATTRIBUTES;
-
-typedef struct _WOW64_LDT_ENTRY {
-  WORD  LimitLow;
-  WORD  BaseLow;
-  __C89_NAMELESS union {
-    struct {
-      BYTE BaseMid;
-      BYTE Flags1;
-      BYTE Flags2;
-      BYTE BaseHi;
-    } Bytes;
-    struct {
-      DWORD BaseMid  :8;
-      DWORD Type  :5;
-      DWORD Dpl  :2;
-      DWORD Pres  :1;
-      DWORD LimitHi  :4;
-      DWORD Sys  :1;
-      DWORD Reserved_0  :1;
-      DWORD Default_Big  :1;
-      DWORD Granularity  :1;
-      DWORD BaseHi  :8;
-    } Bits;
-  } HighWord;
-} WOW64_LDT_ENTRY, *PWOW64_LDT_ENTRY;
-
-/* Retrieved from: https://kdlib.googlecode.com/svn/trunk/imports/c/windows/winnt.d */
-typedef struct _SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
-  DWORD64 CycleTime;
-} SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION, *PSYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION;
 
 typedef struct _HARDWARE_COUNTER_DATA {
   HARDWARE_COUNTER_TYPE Type;
