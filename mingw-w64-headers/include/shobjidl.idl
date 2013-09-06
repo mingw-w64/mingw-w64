@@ -177,7 +177,7 @@ interface IExecuteCommand : IUnknown {
   HRESULT SetParameters ([in, string] LPCWSTR pszParameters);
   HRESULT SetPosition ([in] POINT pt);
   HRESULT SetShowWindow ([in] int nShow);
-  HRESULT SetNoShowUI ([in] WINBOOL fNoShowUI);
+  HRESULT SetNoShowUI ([in] BOOL fNoShowUI);
   HRESULT SetDirectory ([in, string] LPCWSTR pszDirectory);
   HRESULT Execute ();
 }
@@ -200,7 +200,7 @@ cpp_quote("")
 [object, local, uuid (85788d00-6807-11d0-b810-00c04fd706ec)]
 interface IRunnableTask : IUnknown {
   HRESULT Run ();
-  HRESULT Kill ([in] WINBOOL bWait);
+  HRESULT Kill ([in] BOOL bWait);
   HRESULT Suspend ();
   HRESULT Resume ();
   ULONG IsRunning ();
@@ -227,7 +227,7 @@ cpp_quote("")
 [object, local, uuid (6ccb7be0-6807-11d0-B810-00c04fd706ec)]
 interface IShellTaskScheduler : IUnknown {
   HRESULT AddTask ([in] IRunnableTask *prt,[in] REFTASKOWNERID rtoid,[in] DWORD_PTR lParam,[in] DWORD dwPriority);
-  HRESULT RemoveTasks ([in] REFTASKOWNERID rtoid,[in] DWORD_PTR lParam,[in] WINBOOL bWaitIfRunning);
+  HRESULT RemoveTasks ([in] REFTASKOWNERID rtoid,[in] DWORD_PTR lParam,[in] BOOL bWaitIfRunning);
   UINT CountTasks ([in] REFTASKOWNERID rtoid);
   HRESULT Status ([in] DWORD dwReleaseStatus,[in] DWORD dwThreadTimeout);
 }
@@ -663,7 +663,7 @@ cpp_quote("")
 [object, uuid (000214e3-0000-0000-C000-000000000046), pointer_default (unique)]
 interface IShellView : IOleWindow {
   HRESULT TranslateAccelerator ([in] MSG *pmsg);
-  HRESULT EnableModeless ([in] WINBOOL fEnable);
+  HRESULT EnableModeless ([in] BOOL fEnable);
   HRESULT UIActivate ([in] UINT uState);
   HRESULT Refresh ();
   HRESULT CreateViewWindow ([in, unique] IShellView *psvPrevious,[in] LPCFOLDERSETTINGS pfs,[in] IShellBrowser *psb,[in] RECT *prcView,[out] HWND *phWnd);
@@ -784,9 +784,9 @@ cpp_quote("#endif")
 cpp_quote("")
 [object, uuid (1af3a467-214f-4298-908e-06b03e0b39f9), pointer_default (unique)]
 interface IFolderView2 : IFolderView {
-  HRESULT SetGroupBy ([in] REFPROPERTYKEY key,[in] WINBOOL fAscending);
-  [local] HRESULT GetGroupBy ([out] PROPERTYKEY *pkey,[out] WINBOOL *pfAscending);
-  [call_as (GetGroupBy)] HRESULT RemoteGetGroupBy ([out] PROPERTYKEY *pkey,[out] WINBOOL *pfAscending);
+  HRESULT SetGroupBy ([in] REFPROPERTYKEY key,[in] BOOL fAscending);
+  [local] HRESULT GetGroupBy ([out] PROPERTYKEY *pkey,[out] BOOL *pfAscending);
+  [call_as (GetGroupBy)] HRESULT RemoteGetGroupBy ([out] PROPERTYKEY *pkey,[out] BOOL *pfAscending);
   HRESULT SetViewProperty ([in] PCUITEMID_CHILD pidl,[in] REFPROPERTYKEY propkey,[in] REFPROPVARIANT propvar);
   HRESULT GetViewProperty ([in] PCUITEMID_CHILD pidl,[in] REFPROPERTYKEY propkey,[out] PROPVARIANT *ppropvar);
   HRESULT SetTileViewProperties ([in] PCUITEMID_CHILD pidl,[in, string] LPCWSTR pszPropList);
@@ -798,16 +798,16 @@ interface IFolderView2 : IFolderView {
   HRESULT SetSortColumns ([in, size_is (cColumns)] const SORTCOLUMN *rgSortColumns,[in] int cColumns);
   HRESULT GetSortColumns ([out, size_is (cColumns)] SORTCOLUMN *rgSortColumns,[in] int cColumns);
   HRESULT GetItem ([in] int iItem,[in] REFIID riid,[out, iid_is (riid)] void **ppv);
-  HRESULT GetVisibleItem ([in] int iStart,[in] WINBOOL fPrevious,[out] int *piItem);
+  HRESULT GetVisibleItem ([in] int iStart,[in] BOOL fPrevious,[out] int *piItem);
   HRESULT GetSelectedItem ([in] int iStart,[out] int *piItem);
-  HRESULT GetSelection ([in] WINBOOL fNoneImpliesFolder,[out] IShellItemArray **ppsia);
+  HRESULT GetSelection ([in] BOOL fNoneImpliesFolder,[out] IShellItemArray **ppsia);
   HRESULT GetSelectionState ([in] PCUITEMID_CHILD pidl,[out] DWORD *pdwFlags);
   HRESULT InvokeVerbOnSelection ([in, unique, string] LPCSTR pszVerb);
   HRESULT SetViewModeAndIconSize ([in] FOLDERVIEWMODE uViewMode,[in] int iImageSize);
   HRESULT GetViewModeAndIconSize ([out] FOLDERVIEWMODE *puViewMode,[out] int *piImageSize);
   HRESULT SetGroupSubsetCount ([in] UINT cVisibleRows);
   HRESULT GetGroupSubsetCount ([out] UINT *pcVisibleRows);
-  HRESULT SetRedraw ([in] WINBOOL fRedrawOn);
+  HRESULT SetRedraw ([in] BOOL fRedrawOn);
   HRESULT IsMoveInSameFolder ();
   HRESULT DoRename ();
 }
@@ -817,7 +817,7 @@ cpp_quote("#if NTDDI_VERSION >= NTDDI_VISTA")
 [object, uuid (ae8c987d-8797-4ed3-be72-2a47dd938db0)]
 interface IFolderViewSettings : IUnknown {
   HRESULT GetColumnPropertyList ([in] REFIID riid,[out, iid_is (riid)] void **ppv);
-  HRESULT GetGroupByProperty ([out] PROPERTYKEY *pkey,[out] WINBOOL *pfGroupAscending);
+  HRESULT GetGroupByProperty ([out] PROPERTYKEY *pkey,[out] BOOL *pfGroupAscending);
   HRESULT GetViewMode ([out] FOLDERLOGICALVIEWMODE *plvm);
   HRESULT GetIconSize ([out] UINT *puIconSize);
   HRESULT GetFolderFlags ([out] FOLDERFLAGS *pfolderMask,[out] FOLDERFLAGS *pfolderFlags);
@@ -859,7 +859,7 @@ cpp_quote("")
   HRESULT GetColor ([in] VPCOLORFLAGS vpcf,[out] COLORREF *pcr);
   HRESULT SetItemHeight ([in] int cyItemInPixels);
   HRESULT GetItemHeight ([out] int *cyItemInPixels);
-  HRESULT SetFont ([in] const LOGFONTW *plf,[in] WINBOOL bRedraw);
+  HRESULT SetFont ([in] const LOGFONTW *plf,[in] BOOL bRedraw);
   HRESULT GetFont ([out] LOGFONTW *plf);
   HRESULT SetTheme ([in, unique, string] LPCWSTR pszSubAppName,[in, unique, string] LPCWSTR pszSubIdList);
 }
@@ -994,13 +994,13 @@ interface IFolderFilter : IUnknown {
 cpp_quote("")
 [object, uuid (F1DB8392-7331-11d0-8c99-00a0c92dbfe8), pointer_default (unique),]
 interface IInputObjectSite: IUnknown {
-  HRESULT OnFocusChangeIS ([in, unique] IUnknown *punkObj,[in] WINBOOL fSetFocus);
+  HRESULT OnFocusChangeIS ([in, unique] IUnknown *punkObj,[in] BOOL fSetFocus);
 }
 
 cpp_quote("")
 [object, uuid (68284faa-6a48-11d0-8c78-00c04fd918b4), pointer_default (unique)]
 interface IInputObject: IUnknown {
-  HRESULT UIActivateIO ([in] WINBOOL fActivate,[in, unique] MSG *pMsg);
+  HRESULT UIActivateIO ([in] BOOL fActivate,[in, unique] MSG *pMsg);
   HRESULT HasFocusIO ();
   HRESULT TranslateAcceleratorIO ([in] MSG *pMsg);
 }
@@ -1084,7 +1084,7 @@ interface IShellBrowser : IOleWindow {
   HRESULT SetMenuSB ([in, unique] HMENU hmenuShared,[in, unique] HOLEMENU holemenuRes,[in, unique] HWND hwndActiveObject);
   HRESULT RemoveMenusSB ([in] HMENU hmenuShared);
   HRESULT SetStatusTextSB ([in, unique] LPCWSTR pszStatusText);
-  HRESULT EnableModelessSB ([in] WINBOOL fEnable);
+  HRESULT EnableModelessSB ([in] BOOL fEnable);
   HRESULT TranslateAcceleratorSB ([in] MSG *pmsg,[in] WORD wID);
   HRESULT BrowseObject ([in, unique] PCUIDLIST_RELATIVE pidl,[in] UINT wFlags);
   HRESULT GetViewStateStream ([in] DWORD grfMode,[out] IStream **ppStrm);
@@ -1200,7 +1200,7 @@ interface IShellItem2 : IShellItem {
   HRESULT GetString ([in] REFPROPERTYKEY key,[out, string] LPWSTR *ppsz);
   HRESULT GetUInt32 ([in] REFPROPERTYKEY key,[out] ULONG *pui);
   HRESULT GetUInt64 ([in] REFPROPERTYKEY key,[out] ULONGLONG *pull);
-  HRESULT GetBool ([in] REFPROPERTYKEY key,[out] WINBOOL *pf);
+  HRESULT GetBool ([in] REFPROPERTYKEY key,[out] BOOL *pf);
 }
 
 cpp_quote("")
@@ -1375,7 +1375,7 @@ cpp_quote("")
 interface IStreamAsync : IStream {
   HRESULT ReadAsync ([out, size_is (cb), length_is (*pcbRead)] void *pv,[in] DWORD cb,[out] LPDWORD pcbRead,[in] LPOVERLAPPED lpOverlapped);
   HRESULT WriteAsync ([in, size_is (cb)] void const *lpBuffer,[in] DWORD cb,[out] LPDWORD pcbWritten,[in] LPOVERLAPPED lpOverlapped);
-  HRESULT OverlappedResult ([in] LPOVERLAPPED lpOverlapped,[out] LPDWORD lpNumberOfBytesTransferred,[in] WINBOOL bWait);
+  HRESULT OverlappedResult ([in] LPOVERLAPPED lpOverlapped,[out] LPDWORD lpNumberOfBytesTransferred,[in] BOOL bWait);
   HRESULT CancelIo ();
 }
 
@@ -1578,7 +1578,7 @@ interface IDropTargetHelper : IUnknown {
   HRESULT DragLeave ();
   HRESULT DragOver ([in] POINT *ppt,[in] DWORD dwEffect);
   HRESULT Drop ([in] IDataObject *pDataObject,[in] POINT *ppt,[in] DWORD dwEffect);
-  HRESULT Show ([in] WINBOOL fShow);
+  HRESULT Show ([in] BOOL fShow);
 }
 
 cpp_quote("")
@@ -1807,8 +1807,8 @@ cpp_quote("")
 cpp_quote("")
   HRESULT Begin ([in] SPACTION action,[in] SPBEGINF flags);
   HRESULT UpdateProgress ([in] ULONGLONG ulCompleted,[in] ULONGLONG ulTotal);
-  HRESULT UpdateText ([in] SPTEXT sptext,[in, string] LPCWSTR pszText,[in] WINBOOL fMayCompact);
-  HRESULT QueryCancel ([out] WINBOOL *pfCancelled);
+  HRESULT UpdateText ([in] SPTEXT sptext,[in, string] LPCWSTR pszText,[in] BOOL fMayCompact);
+  HRESULT QueryCancel ([out] BOOL *pfCancelled);
   HRESULT ResetCancel ();
   HRESULT End ();
 }
@@ -1837,7 +1837,7 @@ typedef IShellPropSheetExt *LPSHELLPROPSHEETEXT;
 cpp_quote("")
 [object, uuid (000214fe-0000-0000-C000-000000000046), pointer_default (unique)]
 interface IRemoteComputer : IUnknown {
-  HRESULT Initialize ([in, string] LPCWSTR pszMachine,[in] WINBOOL bEnumerating);
+  HRESULT Initialize ([in, string] LPCWSTR pszMachine,[in] BOOL bEnumerating);
 }
 
 cpp_quote("")
@@ -1961,9 +1961,9 @@ interface IParentAndItem : IUnknown {
 cpp_quote("")
 [object, uuid (012dd920-7b26-11d0-8ca9-00a0c92dbfe8)]
 interface IDockingWindow : IOleWindow {
-  HRESULT ShowDW ([in] WINBOOL fShow);
+  HRESULT ShowDW ([in] BOOL fShow);
   HRESULT CloseDW ([in] DWORD dwReserved);
-  HRESULT ResizeBorderDW ([in, unique] LPCRECT prcBorder,[in, unique] IUnknown *punkToolbarSite,[in] WINBOOL fReserved);
+  HRESULT ResizeBorderDW ([in, unique] LPCRECT prcBorder,[in, unique] IUnknown *punkToolbarSite,[in] BOOL fReserved);
 }
 
 cpp_quote("")
@@ -2046,9 +2046,9 @@ interface IDeskBandInfo : IUnknown {
 cpp_quote("")
 [object, uuid (79d16de4-ABEE-4021-8d9d-9169b261d657)]
 interface IDeskBand2 : IDeskBand {
-  HRESULT CanRenderComposited ([out] WINBOOL *pfCanRenderComposited);
-  HRESULT SetCompositionState ([in] WINBOOL fCompositionEnabled);
-  HRESULT GetCompositionState ([out] WINBOOL *pfCompositionEnabled);
+  HRESULT CanRenderComposited ([out] BOOL *pfCanRenderComposited);
+  HRESULT SetCompositionState ([in] BOOL fCompositionEnabled);
+  HRESULT GetCompositionState ([out] BOOL *pfCompositionEnabled);
 }
 cpp_quote("#endif")
 
@@ -2065,7 +2065,7 @@ interface ITaskbarList : IUnknown {
 cpp_quote("")
 [object, uuid (602d4995-B13A-429b-A66E-1935e44f4317)]
 interface ITaskbarList2 : ITaskbarList {
-  HRESULT MarkFullscreenWindow ([in] HWND hwnd,[in] WINBOOL fFullscreen);
+  HRESULT MarkFullscreenWindow ([in] HWND hwnd,[in] BOOL fFullscreen);
 }
 
 cpp_quote("")
@@ -2166,7 +2166,7 @@ cpp_quote("")
 interface ICDBurn : IUnknown {
   HRESULT GetRecorderDriveLetter ([out, string, size_is (cch)] LPWSTR pszDrive,[in] UINT cch);
   HRESULT Burn ([in] HWND hwnd);
-  HRESULT HasRecordableDrive ([out] WINBOOL *pfHasRecorder);
+  HRESULT HasRecordableDrive ([out] BOOL *pfHasRecorder);
 }
 
 cpp_quote("")
@@ -2407,7 +2407,7 @@ interface IFileOperation : IUnknown {
   HRESULT DeleteItems ([in] IUnknown *punkItems);
   HRESULT NewItem ([in] IShellItem *psiDestinationFolder,[in] DWORD dwFileAttributes,[in, string] LPCWSTR pszName,[in, unique, string] LPCWSTR pszTemplateName,[in, unique] IFileOperationProgressSink *pfopsItem);
   HRESULT PerformOperations ();
-  HRESULT GetAnyOperationsAborted ([out] WINBOOL *pfAnyOperationsAborted);
+  HRESULT GetAnyOperationsAborted ([out] BOOL *pfAnyOperationsAborted);
 }
 
 cpp_quote("")
@@ -2636,17 +2636,17 @@ cpp_quote("")
 cpp_quote("")
 [object, uuid (47c01f95-e185-412c-b5c5-4f27df965aea), pointer_default (unique)]
 interface IFolderBandPriv : IUnknown {
-  HRESULT SetCascade ([in] WINBOOL fCascade);
-  HRESULT SetAccelerators ([in] WINBOOL fAccelerators);
-  HRESULT SetNoIcons ([in] WINBOOL fNoIcons);
-  HRESULT SetNoText ([in] WINBOOL fNoText);
+  HRESULT SetCascade ([in] BOOL fCascade);
+  HRESULT SetAccelerators ([in] BOOL fAccelerators);
+  HRESULT SetNoIcons ([in] BOOL fNoIcons);
+  HRESULT SetNoText ([in] BOOL fNoText);
 }
 
 cpp_quote("")
 [local, uuid (A9521922-0812-4d44-9ec3-7fd38c726f3d)]
 interface IRegTreeItem : IUnknown {
-  HRESULT GetCheckState ([out] WINBOOL *pbCheck);
-  HRESULT SetCheckState ([in] WINBOOL bCheck);
+  HRESULT GetCheckState ([out] BOOL *pbCheck);
+  HRESULT SetCheckState ([in] BOOL bCheck);
 }
 
 cpp_quote("")
@@ -2697,7 +2697,7 @@ cpp_quote("")
 cpp_quote("")
   HRESULT Popup ([in] POINTL *ppt,[in, unique] RECTL *prcExclude,[in] MP_POPUPFLAGS dwFlags);
   HRESULT OnSelect ([in] DWORD dwSelectType);
-  HRESULT SetSubMenu ([in] IMenuPopup *pmp,[in] WINBOOL fSet);
+  HRESULT SetSubMenu ([in] IMenuPopup *pmp,[in] BOOL fSet);
 }
 
 cpp_quote("#endif")
@@ -2821,7 +2821,7 @@ cpp_quote("")
 interface IFileSaveDialog : IFileDialog {
   HRESULT SetSaveAsItem ([in] IShellItem *psi);
   HRESULT SetProperties ([in] IPropertyStore *pStore);
-  HRESULT SetCollectedProperties ([in] IPropertyDescriptionList *pList,[in] WINBOOL fAppendDefault);
+  HRESULT SetCollectedProperties ([in] IPropertyDescriptionList *pList,[in] BOOL fAppendDefault);
   HRESULT GetProperties ([out] IPropertyStore **ppStore);
   HRESULT ApplyProperties ([in] IShellItem *psi,[in] IPropertyStore *pStore,[in, unique] HWND hwnd,[in, unique] IFileOperationProgressSink *pSink);
 }
@@ -2852,7 +2852,7 @@ interface IFileDialogCustomize : IUnknown {
   HRESULT AddPushButton ([in] DWORD dwIDCtl,[in, string] LPCWSTR pszLabel);
   HRESULT AddComboBox ([in] DWORD dwIDCtl);
   HRESULT AddRadioButtonList ([in] DWORD dwIDCtl);
-  HRESULT AddCheckButton ([in] DWORD dwIDCtl,[in, string] LPCWSTR pszLabel,[in] WINBOOL bChecked);
+  HRESULT AddCheckButton ([in] DWORD dwIDCtl,[in, string] LPCWSTR pszLabel,[in] BOOL bChecked);
   HRESULT AddEditBox ([in] DWORD dwIDCtl,[in, string] LPCWSTR pszText);
   HRESULT AddSeparator ([in] DWORD dwIDCtl);
   HRESULT AddText ([in] DWORD dwIDCtl,[in, string] LPCWSTR pszText);
@@ -2861,8 +2861,8 @@ interface IFileDialogCustomize : IUnknown {
   HRESULT SetControlState ([in] DWORD dwIDCtl,[in] CDCONTROLSTATEF dwState);
   HRESULT GetEditBoxText ([in] DWORD dwIDCtl,[out, string] WCHAR **ppszText);
   HRESULT SetEditBoxText ([in] DWORD dwIDCtl,[in, string] LPCWSTR pszText);
-  HRESULT GetCheckButtonState ([in] DWORD dwIDCtl,[out] WINBOOL *pbChecked);
-  HRESULT SetCheckButtonState ([in] DWORD dwIDCtl,[in] WINBOOL bChecked);
+  HRESULT GetCheckButtonState ([in] DWORD dwIDCtl,[out] BOOL *pbChecked);
+  HRESULT SetCheckButtonState ([in] DWORD dwIDCtl,[in] BOOL bChecked);
   HRESULT AddControlItem ([in] DWORD dwIDCtl,[in] DWORD dwIDItem,[in] LPCWSTR pszLabel);
   HRESULT RemoveControlItem ([in] DWORD dwIDCtl,[in] DWORD dwIDItem);
   HRESULT RemoveAllControlItems ([in] DWORD dwIDCtl);
@@ -2881,7 +2881,7 @@ cpp_quote("")
 interface IFileDialogControlEvents : IUnknown {
   HRESULT OnItemSelected ([in] IFileDialogCustomize *pfdc,[in] DWORD dwIDCtl,[in] DWORD dwIDItem);
   HRESULT OnButtonClicked ([in] IFileDialogCustomize *pfdc,[in] DWORD dwIDCtl);
-  HRESULT OnCheckButtonToggled ([in] IFileDialogCustomize *pfdc,[in] DWORD dwIDCtl,[in] WINBOOL bChecked);
+  HRESULT OnCheckButtonToggled ([in] IFileDialogCustomize *pfdc,[in] DWORD dwIDCtl,[in] BOOL bChecked);
   HRESULT OnControlActivating ([in] IFileDialogCustomize *pfdc,[in] DWORD dwIDCtl);
 }
 
@@ -2911,8 +2911,8 @@ cpp_quote("")
 [object, uuid (4e530b0a-e611-4c77-a3ac-9031d022281b), pointer_default (unique)]
 interface IApplicationAssociationRegistration : IUnknown {
   HRESULT QueryCurrentDefault ([in, string] LPCWSTR pszQuery,[in] ASSOCIATIONTYPE atQueryType,[in] ASSOCIATIONLEVEL alQueryLevel,[out, string] LPWSTR *ppszAssociation);
-  HRESULT QueryAppIsDefault ([in, string] LPCWSTR pszQuery,[in] ASSOCIATIONTYPE atQueryType,[in] ASSOCIATIONLEVEL alQueryLevel,[in, string] LPCWSTR pszAppRegistryName,[out] WINBOOL *pfDefault);
-  HRESULT QueryAppIsDefaultAll ([in] ASSOCIATIONLEVEL alQueryLevel,[in, string] LPCWSTR pszAppRegistryName,[out] WINBOOL *pfDefault);
+  HRESULT QueryAppIsDefault ([in, string] LPCWSTR pszQuery,[in] ASSOCIATIONTYPE atQueryType,[in] ASSOCIATIONLEVEL alQueryLevel,[in, string] LPCWSTR pszAppRegistryName,[out] BOOL *pfDefault);
+  HRESULT QueryAppIsDefaultAll ([in] ASSOCIATIONLEVEL alQueryLevel,[in, string] LPCWSTR pszAppRegistryName,[out] BOOL *pfDefault);
   HRESULT SetAppAsDefault ([in, string] LPCWSTR pszAppRegistryName,[in, string] LPCWSTR pszSet,[in] ASSOCIATIONTYPE atSetType);
   HRESULT SetAppAsDefaultAll ([in, string] LPCWSTR pszAppRegistryName);
   HRESULT ClearUserAssociations ();
@@ -3011,7 +3011,7 @@ cpp_quote("#define SID_SNewWindowManager IID_INewWindowManager")
 cpp_quote("")
 [object, uuid (D2BC4C84-3f72-4a52-A604-7bcbf3982cbb), pointer_default (unique)]
 interface INewWindowManager : IUnknown {
-  HRESULT EvaluateNewWindow ([in, string] LPCWSTR pszUrl,[in, string] LPCWSTR pszName,[in, string] LPCWSTR pszUrlContext,[in, string] LPCWSTR pszFeatures,[in] WINBOOL fReplace,[in] DWORD dwFlags,[in] DWORD dwUserActionTime);
+  HRESULT EvaluateNewWindow ([in, string] LPCWSTR pszUrl,[in, string] LPCWSTR pszName,[in, string] LPCWSTR pszUrlContext,[in, string] LPCWSTR pszFeatures,[in] BOOL fReplace,[in] DWORD dwFlags,[in] DWORD dwUserActionTime);
 }
 
 cpp_quote("")
@@ -3354,7 +3354,7 @@ cpp_quote("#endif")
 cpp_quote("")
 [object, local, uuid (76e54780-ad74-48e3-a695-3ba9a0aff10d), pointer_default (unique)]
 interface IPreviousVersionsInfo : IUnknown {
-  HRESULT AreSnapshotsAvailable ([in, string] LPCWSTR pszPath,[in] WINBOOL fOkToBeSlow,[out] WINBOOL *pfAvailable);
+  HRESULT AreSnapshotsAvailable ([in, string] LPCWSTR pszPath,[in] BOOL fOkToBeSlow,[out] BOOL *pfAvailable);
 }
 
 cpp_quote("")
@@ -3614,8 +3614,8 @@ cpp_quote("")
   HRESULT OnEndLabelEdit ([in] IShellItem *psi);
   HRESULT OnGetToolTip ([in] IShellItem *psi,[out, string, size_is (cchTip)] LPWSTR pszTip,[in] int cchTip);
   HRESULT OnBeforeItemDelete ([in] IShellItem *psi);
-  HRESULT OnItemAdded ([in] IShellItem *psi,[in] WINBOOL fIsRoot);
-  HRESULT OnItemDeleted ([in] IShellItem *psi,[in] WINBOOL fIsRoot);
+  HRESULT OnItemAdded ([in] IShellItem *psi,[in] BOOL fIsRoot);
+  HRESULT OnItemDeleted ([in] IShellItem *psi,[in] BOOL fIsRoot);
   HRESULT OnBeforeContextMenu ([in, unique] IShellItem *psi,[in] REFIID riid,[out, iid_is (riid)] void **ppv);
   HRESULT OnAfterContextMenu ([in] IShellItem *psi,[in] IContextMenu *pcmIn,[in] REFIID riid,[out, iid_is (riid)] void **ppv);
   HRESULT OnBeforeStateImageChange ([in] IShellItem *psi);
@@ -3628,7 +3628,7 @@ cpp_quote("#define NSTCDHPOS_ONTOP  -1")
 cpp_quote("")
 [object, local, uuid (F9C665D6-C2F2-4c19-BF33-8322d7352f51)]
 interface INameSpaceTreeControlDropHandler : IUnknown {
-  HRESULT OnDragEnter ([in, unique] IShellItem *psiOver,[in] IShellItemArray *psiaData,[in] WINBOOL fOutsideSource,[in] DWORD grfKeyState,[in, out] DWORD *pdwEffect);
+  HRESULT OnDragEnter ([in, unique] IShellItem *psiOver,[in] IShellItemArray *psiaData,[in] BOOL fOutsideSource,[in] DWORD grfKeyState,[in, out] DWORD *pdwEffect);
   HRESULT OnDragOver ([in, unique] IShellItem *psiOver,[in] IShellItemArray *psiaData,[in] DWORD grfKeyState,[in, out] DWORD *pdwEffect);
   HRESULT OnDragPosition ([in, unique] IShellItem *psiOver,[in] IShellItemArray *psiaData,[in] int iNewPosition,[in] int iOldPosition);
   HRESULT OnDrop ([in, unique] IShellItem *psiOver,[in] IShellItemArray *psiaData,[in] int iPosition,[in] DWORD grfKeyState,[in, out] DWORD *pdwEffect);
@@ -3723,8 +3723,8 @@ interface ITrayDeskBand : IUnknown {
 cpp_quote("")
 [object, uuid (B9075C7C-D48E-403f-AB99-D6C77A1084AC), pointer_default (unique)]
 interface IBandHost : IUnknown {
-  HRESULT CreateBand ([in] REFCLSID rclsidBand,[in] WINBOOL fAvailable,[in] WINBOOL fVisible,[in] REFIID riid,[out, iid_is (riid)]void **ppv);
-  HRESULT SetBandAvailability ([in] REFCLSID rclsidBand,[in] WINBOOL fAvailable);
+  HRESULT CreateBand ([in] REFCLSID rclsidBand,[in] BOOL fAvailable,[in] BOOL fVisible,[in] REFIID riid,[out, iid_is (riid)]void **ppv);
+  HRESULT SetBandAvailability ([in] REFCLSID rclsidBand,[in] BOOL fAvailable);
   HRESULT DestroyBand ([in] REFCLSID rclsidBand);
 }
 
@@ -3824,7 +3824,7 @@ cpp_quote("")
   HRESULT GetIcon ([in, unique] IShellItemArray *psiItemArray,[out, string] LPWSTR *ppszIcon);
   HRESULT GetToolTip ([in, unique] IShellItemArray *psiItemArray,[out, string] LPWSTR *ppszInfotip);
   HRESULT GetCanonicalName ([out] GUID *pguidCommandName);
-  HRESULT GetState ([in, unique] IShellItemArray *psiItemArray,[in] WINBOOL fOkToBeSlow,[out] EXPCMDSTATE *pCmdState);
+  HRESULT GetState ([in, unique] IShellItemArray *psiItemArray,[in] BOOL fOkToBeSlow,[out] EXPCMDSTATE *pCmdState);
   HRESULT Invoke ([in, unique] IShellItemArray *psiItemArray,[in, unique] IBindCtx *pbc);
   HRESULT GetFlags ([out] EXPCMDFLAGS *pFlags);
   HRESULT EnumSubCommands ([out] IEnumExplorerCommand **ppEnum);
@@ -3833,7 +3833,7 @@ cpp_quote("")
 cpp_quote("")
 [object, uuid (bddacb60-7657-47ae-8445-d23e1acf82ae), pointer_default (unique)]
 interface IExplorerCommandState : IUnknown {
-  HRESULT GetState ([in] IShellItemArray *psiItemArray,[in] WINBOOL fOkToBeSlow,[out] EXPCMDSTATE *pCmdState);
+  HRESULT GetState ([in] IShellItemArray *psiItemArray,[in] BOOL fOkToBeSlow,[out] EXPCMDSTATE *pCmdState);
 }
 
 cpp_quote("")
@@ -4028,7 +4028,7 @@ cpp_quote("")
   HRESULT GetSlideshowOptions ([out] DESKTOP_SLIDESHOW_OPTIONS *options,[out] UINT *slideshowTick);
   HRESULT AdvanceSlideshow ([in, unique] LPCWSTR monitorID,[in] DESKTOP_SLIDESHOW_DIRECTION direction);
   HRESULT GetStatus ([out] DESKTOP_SLIDESHOW_STATE *state);
-  HRESULT Enable ([in] WINBOOL enable);
+  HRESULT Enable ([in] BOOL enable);
 }
 cpp_quote("#endif")
 
@@ -4050,7 +4050,7 @@ interface IHomeGroup : IUnknown {
 cpp_quote("")
 cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(HOMEGROUPSHARINGCHOICES)")
 cpp_quote("")
-  HRESULT IsMember ([out] WINBOOL *member);
+  HRESULT IsMember ([out] BOOL *member);
   HRESULT ShowSharingWizard ([in] HWND owner,[out] HOMEGROUPSHARINGCHOICES *sharingchoices);
 }
 
@@ -4474,8 +4474,8 @@ interface IDataTransferManagerInterop : IUnknown {
 cpp_quote("")
 [object, uuid (226c537b-1e76-4d9e-A760-33db29922f18)]
 interface IFrameworkInputPaneHandler : IUnknown {
-  HRESULT Showing ([in] RECT *prcInputPaneScreenLocation,[in] WINBOOL fEnsureFocusedElementInView);
-  HRESULT Hiding ([in] WINBOOL fEnsureFocusedElementInView);
+  HRESULT Showing ([in] RECT *prcInputPaneScreenLocation,[in] BOOL fEnsureFocusedElementInView);
+  HRESULT Hiding ([in] BOOL fEnsureFocusedElementInView);
 }
 
 cpp_quote("")
@@ -4544,14 +4544,14 @@ cpp_quote("")
 [object, uuid (6584ce6b-7d82-49c2-89c9-C6BC02BA8C38)]
 interface IAppVisibilityEvents: IUnknown {
   HRESULT AppVisibilityOnMonitorChanged ([in] HMONITOR hMonitor,[in] MONITOR_APP_VISIBILITY previousMode,[in] MONITOR_APP_VISIBILITY currentMode);
-  HRESULT LauncherVisibilityChange ([in] WINBOOL currentVisibleState);
+  HRESULT LauncherVisibilityChange ([in] BOOL currentVisibleState);
 }
 
 cpp_quote("")
 [object, uuid (2246ea2d-CAEA-4444-A3C4-6de827e44313)]
 interface IAppVisibility : IUnknown {
   HRESULT GetAppVisibilityOnMonitor ([in] HMONITOR hMonitor,[out] MONITOR_APP_VISIBILITY *pMode);
-  HRESULT IsLauncherVisible ([out] WINBOOL *pfVisible);
+  HRESULT IsLauncherVisible ([out] BOOL *pfVisible);
   HRESULT Advise ([in] IAppVisibilityEvents *pCallback,[out] DWORD *pdwCookie);
   HRESULT Unadvise ([in] DWORD dwCookie);
 }
@@ -4646,7 +4646,7 @@ interface IApplicationDesignModeSettings : IUnknown {
   HRESULT SetScaleFactor ([in] DEVICE_SCALE_FACTOR scaleFactor);
   HRESULT SetApplicationViewState ([in] APPLICATION_VIEW_STATE viewState);
   HRESULT ComputeApplicationSize ([out] SIZE *psizeApplication);
-  HRESULT IsApplicationViewStateSupported ([in] APPLICATION_VIEW_STATE viewState,[in] SIZE sizeNativeDisplay,[in] DEVICE_SCALE_FACTOR scaleFactor,[out] WINBOOL *pfSupported);
+  HRESULT IsApplicationViewStateSupported ([in] APPLICATION_VIEW_STATE viewState,[in] SIZE sizeNativeDisplay,[in] DEVICE_SCALE_FACTOR scaleFactor,[out] BOOL *pfSupported);
   HRESULT TriggerEdgeGesture ([in] EDGE_GESTURE_KIND edgeGestureKind);
 }
 
