@@ -298,7 +298,7 @@ if LIB32
 lib32dir=$(prefix)/@LIB32SUFFIXDIR@
 crt32dir=$(lib32dir)
 
-if ! W32API
+if !W32API
 crt32_DATA = \
   lib32/crt1.o    lib32/crt2.o     lib32/crt1u.o   lib32/crt2u.o    lib32/dllcrt1.o    lib32/dllcrt2.o \
   lib32/CRT_fp8.o lib32/CRT_fp10.o lib32/txtmode.o lib32/binmode.o  lib32/crtbegin.o   lib32/crtend.o \
@@ -344,7 +344,7 @@ lib32_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincs32)
 lib32_libkernel32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 lib32_libkernel32_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
 
-if ! W32API
+if !W32API
 lib32_LIBRARIES += lib32/libmsvcrt.a
 lib32_libmsvcrt_a_SOURCES = $(src_msvcrt32) lib32/msvcrt.def.in
 lib32_libmsvcrt_a_AR = $(DTDEF32) lib32/msvcrt.def && $(AR) $(ARFLAGS)
@@ -443,7 +443,7 @@ lib32_libws2_32_a_SOURCES = $(src_libws2_32)
 lib32_libws2_32_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 lib32_libws2_32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 
-if ! W32API
+if !W32API
 lib32_LIBRARIES += lib32/libdelayimp.a
 lib32_libdelayimp_a_SOURCES =
 
@@ -576,7 +576,7 @@ lib32_DATA = \
   lib32/libapi-ms-win-core-winrt-string-l1-1-0.a lib32/libruntimeobject.a  \
   lib32/libapi-ms-win-core-winrt-l1-1-0.a
 
-if ! W32API
+if !W32API
 lib32_DATA += lib32/libglut.a lib32/libmsvcp60.a lib32/libmsvcr80.a lib32/libmsvcr90.a lib32/libmsvcr90d.a lib32/libmsvcr100.a lib32/libmsvcr110.a lib32/libcrtdll.a
 endif
 
@@ -632,7 +632,7 @@ if LIB64
 lib64dir=$(prefix)/@LIB64SUFFIXDIR@
 crt64dir=$(lib64dir)
 
-if ! W32API
+if !W32API
 crt64_DATA = \
   lib64/crt1.o    lib64/crt2.o     lib64/crt1u.o   lib64/crt2u.o   lib64/dllcrt1.o lib64/dllcrt2.o \
   lib64/CRT_fp8.o lib64/CRT_fp10.o lib64/txtmode.o lib64/binmode.o lib64/crtbegin.o lib64/crtend.o \
@@ -670,7 +670,7 @@ lib64_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincs64)
 lib64_libkernel32_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include) $(AM_CPPFLAGS)
 lib64_libkernel32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 
-if ! W32API
+if !W32API
 lib64_LIBRARIES += lib64/libmsvcrt.a
 lib64_libmsvcrt_a_SOURCES = $(src_msvcrt) lib64/msvcrt.def.in
 lib64_libmsvcrt_a_AR = $(DTDEF64) lib64/msvcrt.def && $(AR) $(ARFLAGS)
@@ -769,7 +769,7 @@ lib64_libws2_32_a_SOURCES = $(src_libws2_32)
 lib64_libws2_32_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 lib64_libws2_32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 
-if ! W32API
+if !W32API
 lib64_LIBRARIES += lib64/libdelayimp.a
 lib64_libdelayimp_a_SOURCES =
 
@@ -1084,7 +1084,7 @@ lib64_DATA = \
   lib64/libapi-ms-win-core-winrt-string-l1-1-0.a lib64/libruntimeobject.a  \
   lib64/libapi-ms-win-core-winrt-l1-1-0.a
 
-if ! W32API
+if !W32API
 lib64_DATA += lib64/libmsvcp60.a lib64/libmsvcr80.a lib64/libmsvcr90.a lib64/libmsvcr100.a lib64/libmsvcr90d.a lib64/libmsvcr110.a lib64/libcrtdll.a
 endif
 
