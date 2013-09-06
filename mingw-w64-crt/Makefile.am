@@ -290,6 +290,9 @@ src_intrincs32=\
   intrincs/readfsbyte.c   intrincs/readfsword.c   intrincs/readfsdword.c  \
   intrincs/writefsbyte.c  intrincs/writefsword.c  intrincs/writefsdword.c
 
+winrtlibs=\
+  winrt/libruntimeobject.a
+
 if LIB32
 #########
 # Compiling 32-bit runtime
@@ -297,6 +300,9 @@ if LIB32
 
 lib32dir=$(prefix)/@LIB32SUFFIXDIR@
 crt32dir=$(lib32dir)
+winrtdir=$(lib32dir)
+
+winrt_DATA = $(winrtlibs)
 
 if !W32API
 crt32_DATA = \
@@ -631,6 +637,9 @@ if LIB64
 
 lib64dir=$(prefix)/@LIB64SUFFIXDIR@
 crt64dir=$(lib64dir)
+winrtdir=$(lib64dir)
+
+winrt_DATA = $(winrtlibs)
 
 if !W32API
 crt64_DATA = \
