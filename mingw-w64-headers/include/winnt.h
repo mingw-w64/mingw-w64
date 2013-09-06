@@ -365,6 +365,15 @@ extern "C" {
   typedef SHORT *PSHORT;
   typedef LONG *PLONG;
 
+#ifndef ___GROUP_AFFINITY_DEFINED
+#define ___GROUP_AFFINITY_DEFINED
+typedef struct _GROUP_AFFINITY {
+  KAFFINITY Mask;
+  WORD      Group;
+  WORD      Reserved[3];
+} GROUP_AFFINITY, *PGROUP_AFFINITY;
+#endif /* !___GROUP_AFFINITY_DEFINED */
+
 #ifdef STRICT
   typedef void *HANDLE;
 #define DECLARE_HANDLE(name) struct name##__ { int unused; }; typedef struct name##__ *name
@@ -3602,6 +3611,12 @@ __buildmemorybarrier()
 #define THREAD_BASE_PRIORITY_MIN (-2)
 #define THREAD_BASE_PRIORITY_IDLE (-15)
 
+    typedef struct _UMS_CREATE_THREAD_ATTRIBUTES {
+      DWORD UmsVersion;
+      PVOID UmsContext;
+      PVOID UmsCompletionList;
+    } UMS_CREATE_THREAD_ATTRIBUTES,*PUMS_CREATE_THREAD_ATTRIBUTES;
+
     typedef struct _QUOTA_LIMITS {
       SIZE_T PagedPoolLimit;
       SIZE_T NonPagedPoolLimit;
@@ -3793,6 +3808,51 @@ __buildmemorybarrier()
       DWORD MemberLevel;
     } JOBOBJECT_JOBSET_INFORMATION,*PJOBOBJECT_JOBSET_INFORMATION;
 
+    typedef enum _JOBOBJECT_RATE_CONTROL_TOLERANCE {
+      ToleranceLow = 1,
+      ToleranceMedium,
+      ToleranceHigh
+    } JOBOBJECT_RATE_CONTROL_TOLERANCE;
+
+    typedef enum _JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
+      ToleranceIntervalShort = 1,
+      ToleranceIntervalMedium,
+      ToleranceIntervalLong
+    } JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL;
+
+    typedef struct _JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
+      DWORD64 IoReadBytesLimit;
+      DWORD64 IoWriteBytesLimit;
+      LARGE_INTEGER PerJobUserTimeLimit;
+      DWORD64 JobMemoryLimit;
+      JOBOBJECT_RATE_CONTROL_TOLERANCE RateControlTolerance;
+      JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL RateControlToleranceInterval;
+      DWORD LimitFlags;
+    } JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION,*PJOBOBJECT_NOTIFICATION_LIMIT_INFORMATION;
+
+    typedef struct _JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
+      DWORD LimitFlags;
+      DWORD ViolationLimitFlags;
+      DWORD64 IoReadBytes;
+      DWORD64 IoReadBytesLimit;
+      DWORD64 IoWriteBytes;
+      DWORD64 IoWriteBytesLimit;
+      LARGE_INTEGER PerJobUserTime;
+      LARGE_INTEGER PerJobUserTimeLimit;
+      DWORD64 JobMemory;
+      DWORD64 JobMemoryLimit;
+      JOBOBJECT_RATE_CONTROL_TOLERANCE RateControlTolerance;
+      JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL RateControlToleranceLimit;
+    } JOBOBJECT_LIMIT_VIOLATION_INFORMATION,*PJOBOBJECT_LIMIT_VIOLATION_INFORMATION;
+
+    typedef struct _JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
+      DWORD ControlFlags;
+      __C89_NAMELESS union {
+	DWORD CpuRate;
+	DWORD Weight;
+      };
+    } JOBOBJECT_CPU_RATE_CONTROL_INFORMATION,*PJOBOBJECT_CPU_RATE_CONTROL_INFORMATION;
+
 #define JOB_OBJECT_TERMINATE_AT_END_OF_JOB 0
 #define JOB_OBJECT_POST_AT_END_OF_JOB 1
 
@@ -3805,6 +3865,11 @@ __buildmemorybarrier()
 #define JOB_OBJECT_MSG_ABNORMAL_EXIT_PROCESS 8
 #define JOB_OBJECT_MSG_PROCESS_MEMORY_LIMIT 9
 #define JOB_OBJECT_MSG_JOB_MEMORY_LIMIT 10
+#define JOB_OBJECT_MSG_NOTIFICATION_LIMIT 11
+#define JOB_OBJECT_MSG_JOB_CYCLE_TIME_LIMIT 12
+
+#define JOB_OBJECT_MSG_MINIMUM 1
+#define JOB_OBJECT_MSG_MAXIMUM 12
 
 #define JOB_OBJECT_LIMIT_WORKINGSET 0x00000001
 #define JOB_OBJECT_LIMIT_PROCESS_TIME 0x00000002
@@ -3824,6 +3889,11 @@ __buildmemorybarrier()
 
 #define JOB_OBJECT_LIMIT_SUBSET_AFFINITY 0x00004000
 #define JOB_OBJECT_LIMIT_RESERVED3 0x00008000
+#define JOB_OBJECT_LIMIT_JOB_READ_BYTES 0x00010000
+#define JOB_OBJECT_LIMIT_JOB_WRITE_BYTES 0x00020000
+#define JOB_OBJECT_LIMIT_RATE_CONTROL 0x00040000
+
+#define JOB_OBJECT_LIMIT_RESERVED3 0x00008000
 #define JOB_OBJECT_LIMIT_RESERVED4 0x00010000
 #define JOB_OBJECT_LIMIT_RESERVED5 0x00020000
 #define JOB_OBJECT_LIMIT_RESERVED6 0x00040000
@@ -3833,6 +3903,7 @@ __buildmemorybarrier()
 #define JOB_OBJECT_BASIC_LIMIT_VALID_FLAGS 0x000000ff
 #define JOB_OBJECT_EXTENDED_LIMIT_VALID_FLAGS 0x00007fff
 #define JOB_OBJECT_RESERVED_LIMIT_VALID_FLAGS 0x0007ffff
+#define JOB_OBJECT_NOTIFICATION_LIMIT_VALID_FLAGS 0x00070204
 
 #define JOB_OBJECT_UILIMIT_NONE 0x00000000
 
@@ -3856,6 +3927,12 @@ __buildmemorybarrier()
 
 #define JOB_OBJECT_SECURITY_VALID_FLAGS 0x0000000f
 
+#define JOB_OBJECT_CPU_RATE_CONTROL_ENABLE 0x1
+#define JOB_OBJECT_CPU_RATE_CONTROL_WEIGHT_BASED 0x2
+#define JOB_OBJECT_CPU_RATE_CONTROL_HARD_CAP 0x4
+#define JOB_OBJECT_CPU_RATE_CONTROL_NOTIFY 0x8
+#define JOB_OBJECT_CPU_RATE_CONTROL_VALID_FLAGS 0xf
+
     typedef enum _JOBOBJECTINFOCLASS {
       JobObjectBasicAccountingInformation = 1, JobObjectBasicLimitInformation,
       JobObjectBasicProcessIdList, JobObjectBasicUIRestrictions,
@@ -3863,6 +3940,20 @@ __buildmemorybarrier()
       JobObjectAssociateCompletionPortInformation, JobObjectBasicAndIoAccountingInformation,
       JobObjectExtendedLimitInformation, JobObjectJobSetInformation,
       JobObjectGroupInformation,
+      JobObjectNotificationLimitInformation,
+      JobObjectLimitViolationInformation,
+      JobObjectGroupInformationEx,
+      JobObjectCpuRateControlInformation,
+      JobObjectCompletionFilter,
+      JobObjectCompletionCounter,
+      JobObjectReserved1Information = 18,
+      JobObjectReserved2Information,
+      JobObjectReserved3Information,
+      JobObjectReserved4Information,
+      JobObjectReserved5Information,
+      JobObjectReserved6Information,
+      JobObjectReserved7Information,
+      JobObjectReserved8Information,
       MaxJobObjectInfoClass
     } JOBOBJECTINFOCLASS;
 
@@ -3924,8 +4015,62 @@ __buildmemorybarrier()
 	} NumaNode;
 	CACHE_DESCRIPTOR Cache;
 	ULONGLONG Reserved[2];
-      };
+      } DUMMYUNIONNAME;
     } SYSTEM_LOGICAL_PROCESSOR_INFORMATION,*PSYSTEM_LOGICAL_PROCESSOR_INFORMATION;
+
+    typedef struct _PROCESSOR_RELATIONSHIP {
+      BYTE Flags;
+      BYTE Reserved[21];
+      WORD GroupCount;
+      GROUP_AFFINITY GroupMask[ANYSIZE_ARRAY];
+    } PROCESSOR_RELATIONSHIP,*PPROCESSOR_RELATIONSHIP;
+
+    typedef struct _NUMA_NODE_RELATIONSHIP {
+      DWORD NodeNumber;
+      BYTE Reserved[20];
+      GROUP_AFFINITY GroupMask;
+    } NUMA_NODE_RELATIONSHIP,*PNUMA_NODE_RELATIONSHIP;
+
+    typedef struct _CACHE_RELATIONSHIP {
+      BYTE Level;
+      BYTE Associativity;
+      WORD LineSize;
+      DWORD CacheSize;
+      PROCESSOR_CACHE_TYPE Type;
+      BYTE Reserved[20];
+      GROUP_AFFINITY GroupMask;
+    } CACHE_RELATIONSHIP,*PCACHE_RELATIONSHIP;
+
+    typedef struct _PROCESSOR_GROUP_INFO {
+      BYTE MaximumProcessorCount;
+      BYTE ActiveProcessorCount;
+      BYTE Reserved[38];
+      KAFFINITY ActiveProcessorMask;
+    } PROCESSOR_GROUP_INFO,*PPROCESSOR_GROUP_INFO;
+
+    typedef struct _GROUP_RELATIONSHIP {
+      WORD MaximumGroupCount;
+      WORD ActiveGroupCount;
+      BYTE Reserved[20];
+      PROCESSOR_GROUP_INFO GroupInfo[ANYSIZE_ARRAY];
+    } GROUP_RELATIONSHIP,*PGROUP_RELATIONSHIP;
+
+    struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
+      LOGICAL_PROCESSOR_RELATIONSHIP Relationship;
+      DWORD Size;
+      __C89_NAMELESS union {
+	PROCESSOR_RELATIONSHIP Processor;
+	NUMA_NODE_RELATIONSHIP NumaNode;
+	CACHE_RELATIONSHIP Cache;
+	GROUP_RELATIONSHIP Group;
+      } DUMMYUNIONNAME;
+    };
+
+    typedef struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX,*PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX;
+
+    typedef struct _SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
+      DWORD64 CycleTime;
+    } SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION,*PSYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION;
 
 #define PROCESSOR_INTEL_386 386
 #define PROCESSOR_INTEL_486 486
@@ -3962,8 +4107,9 @@ __buildmemorybarrier()
 #define PROCESSOR_ARCHITECTURE_MSIL 8
 #define PROCESSOR_ARCHITECTURE_AMD64 9
 #define PROCESSOR_ARCHITECTURE_IA32_ON_WIN64 10
+#define PROCESSOR_ARCHITECTURE_NEUTRAL 11
 
-#define PROCESSOR_ARCHITECTURE_UNKNOWN 0xFFFF
+#define PROCESSOR_ARCHITECTURE_UNKNOWN 0xffff
 
 #define PF_FLOATING_POINT_PRECISION_ERRATA 0
 #define PF_FLOATING_POINT_EMULATED 1
@@ -3983,6 +4129,42 @@ __buildmemorybarrier()
 #define PF_COMPARE64_EXCHANGE128 15
 #define PF_CHANNELS_ENABLED 16
 #define PF_XSAVE_ENABLED 17
+#define PF_ARM_VFP_32_REGISTERS_AVAILABLE 18
+#define PF_ARM_NEON_INSTRUCTIONS_AVAILABLE 19
+#define PF_SECOND_LEVEL_ADDRESS_TRANSLATION 20
+#define PF_VIRT_FIRMWARE_ENABLED 21
+#define PF_RDWRFSGSBASE_AVAILABLE 22
+#define PF_FASTFAIL_AVAILABLE 23
+#define PF_ARM_DIVIDE_INSTRUCTION_AVAILABLE 24
+#define PF_ARM_64BIT_LOADSTORE_ATOMIC 25
+#define PF_ARM_EXTERNAL_CACHE_AVAILABLE 26
+#define PF_ARM_FMAC_INSTRUCTIONS_AVAILABLE 27
+
+#define XSTATE_LEGACY_FLOATING_POINT (0)
+#define XSTATE_LEGACY_SSE (1)
+#define XSTATE_GSSE (2)
+#define XSTATE_AVX (XSTATE_GSSE)
+
+#define XSTATE_MASK_LEGACY_FLOATING_POINT (1ui64U << (XSTATE_LEGACY_FLOATING_POINT))
+#define XSTATE_MASK_LEGACY_SSE (1ui64U << (XSTATE_LEGACY_SSE))
+#define XSTATE_MASK_LEGACY (XSTATE_MASK_LEGACY_FLOATING_POINT | XSTATE_MASK_LEGACY_SSE)
+#define XSTATE_MASK_GSSE (1ui64U << (XSTATE_GSSE))
+#define XSTATE_MASK_AVX (XSTATE_MASK_GSSE)
+
+#define MAXIMUM_XSTATE_FEATURES (64)
+
+    typedef struct _XSTATE_FEATURE {
+      DWORD Offset;
+      DWORD Size;
+    } XSTATE_FEATURE,*PXSTATE_FEATURE;
+
+    typedef struct _XSTATE_CONFIGURATION {
+      DWORD64 EnabledFeatures;
+      DWORD64 EnabledVolatileFeatures;
+      DWORD Size;
+      DWORD OptimizedSave : 1;
+      XSTATE_FEATURE Features[MAXIMUM_XSTATE_FEATURES];
+    } XSTATE_CONFIGURATION,*PXSTATE_CONFIGURATION;
 
     typedef struct _MEMORY_BASIC_INFORMATION {
       PVOID BaseAddress;
@@ -4063,8 +4245,11 @@ __buildmemorybarrier()
 #define SEC_NOCACHE 0x10000000
 #define SEC_WRITECOMBINE 0x40000000
 #define SEC_LARGE_PAGES 0x80000000
+
+#define SEC_IMAGE_NO_EXECUTE (SEC_IMAGE | SEC_NOCACHE)
 #define MEM_IMAGE SEC_IMAGE
 #define WRITE_WATCH_FLAG_RESET 0x01
+#define MEM_UNMAP_WITH_TRANSIENT_BOOST 0x01
 
 #define FILE_READ_DATA (0x0001)
 #define FILE_LIST_DIRECTORY (0x0001)
@@ -4077,16 +4262,11 @@ __buildmemorybarrier()
 #define FILE_CREATE_PIPE_INSTANCE (0x0004)
 
 #define FILE_READ_EA (0x0008)
-
 #define FILE_WRITE_EA (0x0010)
-
 #define FILE_EXECUTE (0x0020)
 #define FILE_TRAVERSE (0x0020)
-
 #define FILE_DELETE_CHILD (0x0040)
-
 #define FILE_READ_ATTRIBUTES (0x0080)
-
 #define FILE_WRITE_ATTRIBUTES (0x0100)
 
 #define FILE_ALL_ACCESS (STANDARD_RIGHTS_REQUIRED | SYNCHRONIZE | 0x1FF)
@@ -4198,7 +4378,7 @@ __buildmemorybarrier()
     typedef union _FILE_SEGMENT_ELEMENT {
       PVOID64 Buffer;
       ULONGLONG Alignment;
-    }FILE_SEGMENT_ELEMENT,*PFILE_SEGMENT_ELEMENT;
+    } FILE_SEGMENT_ELEMENT,*PFILE_SEGMENT_ELEMENT;
 
     typedef struct _REPARSE_GUID_DATA_BUFFER {
       DWORD ReparseTag;
@@ -4236,6 +4416,38 @@ __buildmemorybarrier()
 #define IO_REPARSE_TAG_SYMLINK (__MSABI_LONG(0xA000000C))
 #define IO_REPARSE_TAG_IIS_CACHE (__MSABI_LONG(0xA0000010))
 #define IO_REPARSE_TAG_DRIVE_EXTENDER (__MSABI_LONG(0x80000005))
+#define IO_REPARSE_TAG_DEDUP (__MSABI_LONG(0x80000013))
+#define IO_REPARSE_TAG_NFS (__MSABI_LONG(0x80000014))
+
+#if _WIN32_WINNT >= 0x0602
+#define SCRUB_DATA_INPUT_FLAG_RESUME 0x00000001
+#define SCRUB_DATA_INPUT_FLAG_SKIP_IN_SYNC 0x00000002
+#define SCRUB_DATA_INPUT_FLAG_SKIP_NON_INTEGRITY_DATA 0x00000004
+
+#define SCRUB_DATA_OUTPUT_FLAG_INCOMPLETE 0x00000001
+#define SCRUB_DATA_OUTPUT_FLAG_NON_USER_DATA_RANGE 0x00010000
+
+    typedef struct _SCRUB_DATA_INPUT {
+      DWORD Size;
+      DWORD Flags;
+      DWORD MaximumIos;
+      DWORD Reserved[17];
+      BYTE ResumeContext[816];
+    } SCRUB_DATA_INPUT,*PSCRUB_DATA_INPUT;
+
+    typedef struct _SCRUB_DATA_OUTPUT {
+      DWORD Size;
+      DWORD Flags;
+      DWORD Status;
+      ULONGLONG ErrorFileOffset;
+      ULONGLONG ErrorLength;
+      ULONGLONG NumberOfBytesRepaired;
+      ULONGLONG NumberOfBytesFailed;
+      ULONGLONG InternalFileReference;
+      DWORD Reserved[6];
+      BYTE ResumeContext[816];
+    } SCRUB_DATA_OUTPUT,*PSCRUB_DATA_OUTPUT;
+#endif
 
 #define IO_COMPLETION_MODIFY_STATE 0x0002
 #define IO_COMPLETION_ALL_ACCESS (STANDARD_RIGHTS_REQUIRED|SYNCHRONIZE|0x3)
@@ -7110,15 +7322,6 @@ typedef struct _GROUP_RELATIONSHIP {
   BYTE                 Reserved[20];
   PROCESSOR_GROUP_INFO GroupInfo[];
 } GROUP_RELATIONSHIP, *PGROUP_RELATIONSHIP;
-
-#ifndef ___GROUP_AFFINITY_DEFINED
-#define ___GROUP_AFFINITY_DEFINED
-typedef struct _GROUP_AFFINITY {
-  KAFFINITY Mask;
-  WORD      Group;
-  WORD      Reserved[3];
-} GROUP_AFFINITY, *PGROUP_AFFINITY;
-#endif /* !___GROUP_AFFINITY_DEFINED */
 
 typedef struct _CACHE_RELATIONSHIP {
   BYTE                 Level;

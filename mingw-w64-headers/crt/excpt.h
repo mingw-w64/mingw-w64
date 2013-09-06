@@ -83,7 +83,7 @@ extern "C" {
   */
   typedef EXCEPTION_DISPOSITION (*PEXCEPTION_HANDLER)(struct _EXCEPTION_RECORD*, void*, struct _CONTEXT*, void*);
 
-#ifndef HAVE_NO_SEH
+#if !defined (HAVE_NO_SEH) && defined (__MINGW_EXCPT_DEFINE_PSDK)
   /*
   * This is not entirely necessary, but it is the structure installed by
   * the __try1 primitive below.
