@@ -1,9 +1,9 @@
 /**
- * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-#if !defined(_BASETYPS_H_)
+
+#ifndef _BASETYPS_H_
 #define _BASETYPS_H_
 
 #ifdef __cplusplus
@@ -14,15 +14,14 @@
 
 #define STDMETHODCALLTYPE WINAPI
 #define STDMETHODVCALLTYPE __cdecl
-
 #define STDAPICALLTYPE WINAPI
 #define STDAPIVCALLTYPE __cdecl
 
-#define STDAPI EXTERN_C HRESULT WINAPI
-#define STDAPI_(type) EXTERN_C type WINAPI
+#define STDAPI EXTERN_C HRESULT STDAPICALLTYPE
+#define STDAPI_(type) EXTERN_C type STDAPICALLTYPE
 
-#define STDMETHODIMP HRESULT WINAPI
-#define STDMETHODIMP_(type) type WINAPI
+#define STDMETHODIMP HRESULT STDMETHODCALLTYPE
+#define STDMETHODIMP_(type) type STDMETHODCALLTYPE
 
 #define STDAPIV EXTERN_C HRESULT STDAPIVCALLTYPE
 #define STDAPIV_(type) EXTERN_C type STDAPIVCALLTYPE
@@ -30,25 +29,28 @@
 #define STDMETHODIMPV HRESULT STDMETHODVCALLTYPE
 #define STDMETHODIMPV_(type) type STDMETHODVCALLTYPE
 
-#if defined(__cplusplus) && !defined(CINTERFACE)
+#if defined (__cplusplus) && !defined (CINTERFACE)
 
-#ifndef __OBJC__
-#undef interface
-#define interface struct
+#ifdef COM_STDMETHOD_CAN_THROW
+#define COM_DECLSPEC_NOTHROW
+#else
+#define COM_DECLSPEC_NOTHROW DECLSPEC_NOTHROW
 #endif
 
 #define __STRUCT__ struct
-#define STDMETHOD(method) virtual HRESULT WINAPI method
-#define STDMETHOD_(type,method) virtual type WINAPI method
-#define STDMETHODV(method) virtual HRESULT STDMETHODVCALLTYPE method
-#define STDMETHODV_(type,method) virtual type STDMETHODVCALLTYPE method
+#ifndef __OBJC__
+#undef interface
+#define interface __STRUCT__
+#endif
+#define STDMETHOD(method) virtual COM_DECLSPEC_NOTHROW HRESULT STDMETHODCALLTYPE method
+#define STDMETHOD_(type, method) virtual COM_DECLSPEC_NOTHROW type STDMETHODCALLTYPE method
+#define STDMETHODV(method) virtual COM_DECLSPEC_NOTHROW HRESULT STDMETHODVCALLTYPE method
+#define STDMETHODV_(type, method) virtual COM_DECLSPEC_NOTHROW type STDMETHODVCALLTYPE method
 #define PURE = 0
 #define THIS_
 #define THIS void
-#define DECLARE_INTERFACE(iface) __STRUCT__ iface
-#define DECLARE_INTERFACE_(iface,baseiface) __STRUCT__ iface : public baseiface
-#define DECLARE_INTERFACE_IID_(iface,baseiface,iidiface) __STRUCT__ iface : public baseiface
-
+#define DECLARE_INTERFACE(iface) interface DECLSPEC_NOVTABLE iface
+#define DECLARE_INTERFACE_(iface, baseiface) interface DECLSPEC_NOVTABLE iface : public baseiface
 #else
 
 #ifndef __OBJC__
@@ -56,34 +58,26 @@
 #define interface struct
 #endif
 
-#define STDMETHOD(method) HRESULT (WINAPI *method)
-#define STDMETHOD_(type,method) type (WINAPI *method)
+#define STDMETHOD(method) HRESULT (STDMETHODCALLTYPE *method)
+#define STDMETHOD_(type, method) type (STDMETHODCALLTYPE *method)
 #define STDMETHODV(method) HRESULT (STDMETHODVCALLTYPE *method)
-#define STDMETHODV_(type,method) type (STDMETHODVCALLTYPE *method)
+#define STDMETHODV_(type, method) type (STDMETHODVCALLTYPE *method)
 
 #define PURE
 #define THIS_ INTERFACE *This,
 #define THIS INTERFACE *This
 #ifdef CONST_VTABLE
-#define DECLARE_INTERFACE(iface) typedef struct iface { \
-  const struct iface##Vtbl *lpVtbl; } iface; \
-  typedef const struct iface##Vtbl iface##Vtbl; \
-  const struct iface##Vtbl
+#define DECLARE_INTERFACE(iface) typedef interface iface { const struct iface##Vtbl *lpVtbl; } iface; typedef const struct iface##Vtbl iface##Vtbl; const struct iface##Vtbl
 #else
-#define DECLARE_INTERFACE(iface) typedef struct iface { \
-    struct iface##Vtbl *lpVtbl; \
-  } iface; \
-  typedef struct iface##Vtbl iface##Vtbl; \
-  struct iface##Vtbl
+#define DECLARE_INTERFACE(iface) typedef interface iface { struct iface##Vtbl *lpVtbl; } iface; typedef struct iface##Vtbl iface##Vtbl; struct iface##Vtbl
 #endif
-#define DECLARE_INTERFACE_(iface,baseiface) DECLARE_INTERFACE(iface)
-#define DECLARE_INTERFACE_IID_(iface,baseiface,iidiface) DECLARE_INTERFACE(iface)
+#define DECLARE_INTERFACE_(iface, baseiface) DECLARE_INTERFACE (iface)
 #endif
 
-#define IFACEMETHOD(method)         STDMETHOD(method)
-#define IFACEMETHOD_(type,method)   STDMETHOD_(type,method)
-#define IFACEMETHODV(method)        STDMETHODV(method)
-#define IFACEMETHODV_(type,method)  STDMETHODV_(type,method)
+#define IFACEMETHOD(method) /*override*/ STDMETHOD (method)
+#define IFACEMETHOD_(type, method) /*override*/ STDMETHOD_ (type, method)
+#define IFACEMETHODV(method) /*override*/ STDMETHODV (method)
+#define IFACEMETHODV_(type, method) /*override*/ STDMETHODV_ (type, method)
 
 #include <guiddef.h>
 
@@ -93,7 +87,8 @@ typedef unsigned __LONG32 error_status_t;
 #endif
 
 #ifndef _WCHAR_T_DEFINED
-typedef unsigned short wchar_t;
 #define _WCHAR_T_DEFINED
+typedef unsigned short wchar_t;
 #endif
+
 #endif
