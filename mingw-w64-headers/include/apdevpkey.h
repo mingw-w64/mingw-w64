@@ -1,7 +1,10 @@
+/**
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
+ */
 #include <winapifamily.h>
 
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
-
 #if _WIN32_WINNT >= 0x0602
 #include "devpropdef.h"
 
