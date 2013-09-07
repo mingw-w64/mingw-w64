@@ -7,6 +7,7 @@
 #define _INC_SIGNAL
 
 #include <crtdefs.h>
+#include <pthread_signal.h>
 
 #ifdef __cplusplus
 extern "C" {
