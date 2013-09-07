@@ -668,6 +668,12 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define RTL_BITS_OF_FIELD(type,field) (RTL_BITS_OF(RTL_FIELD_TYPE(type,field)))
 #define CONTAINING_RECORD(address,type,field) ((type *)((PCHAR)(address) - (ULONG_PTR)(&((type *)0)->field)))
 
+    typedef EXCEPTION_DISPOSITION NTAPI EXCEPTION_ROUTINE (struct _EXCEPTION_RECORD *ExceptionRecord, PVOID EstablisherFrame, struct _CONTEXT *ContextRecord, PVOID DispatcherContext);
+#ifndef __PEXCEPTION_ROUTINE_DEFINED
+#define __PEXCEPTION_ROUTINE_DEFINED
+    typedef EXCEPTION_ROUTINE *PEXCEPTION_ROUTINE;
+#endif
+
 #define VER_WORKSTATION_NT                  0x40000000
 #define VER_SERVER_NT                       0x80000000
 #define VER_SUITE_SMALLBUSINESS             0x00000001
@@ -1913,8 +1919,8 @@ __buildmemorybarrier()
 #if !defined(GENUTIL) && !defined(_GENIA64_) && defined(_IA64_)
 
     void *_cdecl _rdteb(void);
-#ifdef __ia64__
 
+#ifdef __ia64__
 #define NtCurrentTeb() ((struct _TEB *)_rdteb())
 #define GetCurrentFiber() (((PNT_TIB)NtCurrentTeb())->FiberData)
 #define GetFiberData() (*(PVOID *)(GetCurrentFiber()))
@@ -2275,7 +2281,8 @@ __buildmemorybarrier()
 #endif
 
 #ifdef __x86_64__
-/* http://msdn.microsoft.com/en-us/library/ms680597(VS.85).aspx */
+
+    /* http://msdn.microsoft.com/en-us/library/ms680597(VS.85).aspx */
 
 #define UNWIND_HISTORY_TABLE_SIZE 12
 
@@ -2303,16 +2310,6 @@ __buildmemorybarrier()
   struct _DISPATCHER_CONTEXT;
   typedef struct _DISPATCHER_CONTEXT DISPATCHER_CONTEXT;
   typedef struct _DISPATCHER_CONTEXT *PDISPATCHER_CONTEXT;
-
-#ifndef __PEXCEPTION_ROUTINE_DEFINED
-#define __PEXCEPTION_ROUTINE_DEFINED
-
-  typedef EXCEPTION_DISPOSITION (NTAPI *PEXCEPTION_ROUTINE)
-    (PEXCEPTION_RECORD ExceptionRecord,
-     ULONG64 EstablisherFrame,
-     PCONTEXT ContextRecord,
-     PDISPATCHER_CONTEXT DispatcherContext);
-#endif /* __PEXCEPTION_ROUTINE_DEFINED */
 
   struct _DISPATCHER_CONTEXT {
     ULONG64 ControlPc;
