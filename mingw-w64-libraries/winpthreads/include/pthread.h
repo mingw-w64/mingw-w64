@@ -399,9 +399,6 @@ int WINPTHREAD_API pthread_barrierattr_destroy(void **attr);
 int WINPTHREAD_API pthread_barrierattr_setpshared(void **attr, int s);
 int WINPTHREAD_API pthread_barrierattr_getpshared(void **attr, int *s);
 
-/* Windows has rudimentary signals support.  */
-#define pthread_sigmask(H, S1, S2) 0
-
 /* Private extensions for analysis and internal use.  */
 struct _pthread_cleanup ** WINPTHREAD_API pthread_getclean (void);
 void *                     WINPTHREAD_API pthread_gethandle (pthread_t t);
