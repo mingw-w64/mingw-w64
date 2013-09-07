@@ -4622,27 +4622,6 @@ __buildmemorybarrier()
     PowerActionWarmEject
   } POWER_ACTION,*PPOWER_ACTION;
 
-#if (_WIN32_WINNT >= 0x0600)
-  typedef enum {
-    PoAc = 0,
-    PoDc = 1,
-    PoHot = 2,
-    PoConditionMaximum = 3
-  } SYSTEM_POWER_CONDITION, *PSYSTEM_POWER_CONDITION;
-
-  typedef enum _POWER_PLATFORM_ROLE {
-    PlatformRoleUnspecified         = 0,
-    PlatformRoleDesktop             = 1,
-    PlatformRoleMobile              = 2,
-    PlatformRoleWorkstation         = 3,
-    PlatformRoleEnterpriseServer    = 4,
-    PlatformRoleSOHOServer          = 5,
-    PlatformRoleAppliancePC         = 6,
-    PlatformRolePerformanceServer   = 7,
-    PlatformRoleMaximum             = 8
-  } POWER_PLATFORM_ROLE;
-#endif /* (_WIN32_WINNT >= 0x0600) */
-
   typedef enum _DEVICE_POWER_STATE {
     PowerDeviceUnspecified = 0, PowerDeviceD0, PowerDeviceD1, PowerDeviceD2, PowerDeviceD3,
     PowerDeviceMaximum
@@ -4651,6 +4630,14 @@ __buildmemorybarrier()
   typedef enum _MONITOR_DISPLAY_STATE {
     PowerMonitorOff = 0, PowerMonitorOn, PowerMonitorDim
   } MONITOR_DISPLAY_STATE, *PMONITOR_DISPLAY_STATE;
+
+  typedef enum _USER_ACTIVITY_PRESENCE {
+    PowerUserPresent = 0,
+    PowerUserNotPresent,
+    PowerUserInactive,
+    PowerUserMaximum,
+    PowerUserInvalid = PowerUserMaximum
+  } USER_ACTIVITY_PRESENCE,*PUSER_ACTIVITY_PRESENCE;
 
 #define ES_SYSTEM_REQUIRED ((DWORD)0x00000001)
 #define ES_DISPLAY_REQUIRED ((DWORD)0x00000002)
@@ -4704,13 +4691,443 @@ __buildmemorybarrier()
     } CM_POWER_DATA,*PCM_POWER_DATA;
 
     typedef enum {
-      SystemPowerPolicyAc,SystemPowerPolicyDc,VerifySystemPolicyAc,VerifySystemPolicyDc,SystemPowerCapabilities,SystemBatteryState,SystemPowerStateHandler,ProcessorStateHandler,SystemPowerPolicyCurrent,AdministratorPowerPolicy,SystemReserveHiberFile,ProcessorInformation,SystemPowerInformation,ProcessorStateHandler2,LastWakeTime,LastSleepTime,SystemExecutionState,SystemPowerStateNotifyHandler,ProcessorPowerPolicyAc,ProcessorPowerPolicyDc,VerifyProcessorPowerPolicyAc,VerifyProcessorPowerPolicyDc,ProcessorPowerPolicyCurrent,SystemPowerStateLogging,SystemPowerLoggingEntry
+      SystemPowerPolicyAc,
+      SystemPowerPolicyDc,
+      VerifySystemPolicyAc,
+      VerifySystemPolicyDc,
+      SystemPowerCapabilities,
+      SystemBatteryState,
+      SystemPowerStateHandler,
+      ProcessorStateHandler,
+      SystemPowerPolicyCurrent,
+      AdministratorPowerPolicy,
+      SystemReserveHiberFile,
+      ProcessorInformation,
+      SystemPowerInformation,
+      ProcessorStateHandler2,
+      LastWakeTime,
+      LastSleepTime,
+      SystemExecutionState,
+      SystemPowerStateNotifyHandler,
+      ProcessorPowerPolicyAc,
+      ProcessorPowerPolicyDc,
+      VerifyProcessorPowerPolicyAc,
+      VerifyProcessorPowerPolicyDc,
+      ProcessorPowerPolicyCurrent,
+      SystemPowerStateLogging,
+      SystemPowerLoggingEntry,
+      SetPowerSettingValue,
+      NotifyUserPowerSetting,
+      PowerInformationLevelUnused0,
+      SystemMonitorHiberBootPowerOff,
+      SystemVideoState,
+      TraceApplicationPowerMessage,
+      TraceApplicationPowerMessageEnd,
+      ProcessorPerfStates,
+      ProcessorIdleStates,
+      ProcessorCap,
+      SystemWakeSource,
+      SystemHiberFileInformation,
+      TraceServicePowerMessage,
+      ProcessorLoad,
+      PowerShutdownNotification,
+      MonitorCapabilities,
+      SessionPowerInit,
+      SessionDisplayState,
+      PowerRequestCreate,
+      PowerRequestAction,
+      GetPowerRequestList,
+      ProcessorInformationEx,
+      NotifyUserModeLegacyPowerEvent,
+      GroupPark,
+      ProcessorIdleDomains,
+      WakeTimerList,
+      SystemHiberFileSize,
+      ProcessorIdleStatesHv,
+      ProcessorPerfStatesHv,
+      ProcessorPerfCapHv,
+      ProcessorSetIdle,
+      LogicalProcessorIdling,
+      UserPresence,
+      PowerSettingNotificationName,
+      GetPowerSettingValue,
+      IdleResiliency,
+      SessionRITState,
+      SessionConnectNotification,
+      SessionPowerCleanup,
+      SessionLockState,
+      SystemHiberbootState,
+      PlatformInformation,
+      PdcInvocation,
+      MonitorInvocation,
+      FirmwareTableInformationRegistered,
+      SetShutdownSelectedTime,
+      SuspendResumeInvocation,
+      PlmPowerRequestCreate,
+      ScreenOff,
+      CsDeviceNotification,
+      PlatformRole,
+      LastResumePerformance,
+      DisplayBurst,
+      ExitLatencySamplingPercentage,
+      ApplyLowPowerScenarioSettings,
+      PowerInformationLevelMaximum
     } POWER_INFORMATION_LEVEL;
+
+    typedef enum {
+      UserNotPresent = 0,
+      UserPresent = 1,
+      UserUnknown = 0xff
+    } POWER_USER_PRESENCE_TYPE,*PPOWER_USER_PRESENCE_TYPE;
+
+    typedef struct _POWER_USER_PRESENCE {
+      POWER_USER_PRESENCE_TYPE UserPresence;
+    } POWER_USER_PRESENCE,*PPOWER_USER_PRESENCE;
+
+    typedef struct _POWER_SESSION_CONNECT {
+      BOOLEAN Connected;
+      BOOLEAN Console;
+    } POWER_SESSION_CONNECT,*PPOWER_SESSION_CONNECT;
+
+    typedef struct _POWER_SESSION_TIMEOUTS {
+      DWORD InputTimeout;
+      DWORD DisplayTimeout;
+    } POWER_SESSION_TIMEOUTS,*PPOWER_SESSION_TIMEOUTS;
+
+    typedef struct _POWER_SESSION_RIT_STATE {
+      BOOLEAN Active;
+      DWORD LastInputTime;
+    } POWER_SESSION_RIT_STATE,*PPOWER_SESSION_RIT_STATE;
+
+    typedef struct _POWER_SESSION_WINLOGON {
+      DWORD SessionId;
+      BOOLEAN Console;
+      BOOLEAN Locked;
+    } POWER_SESSION_WINLOGON,*PPOWER_SESSION_WINLOGON;
+
+    typedef struct _POWER_IDLE_RESILIENCY {
+      DWORD CoalescingTimeout;
+      DWORD IdleResiliencyPeriod;
+    } POWER_IDLE_RESILIENCY,*PPOWER_IDLE_RESILIENCY;
+
+    typedef enum {
+      MonitorRequestReasonUnknown,
+      MonitorRequestReasonPowerButton,
+      MonitorRequestReasonRemoteConnection,
+      MonitorRequestReasonScMonitorpower,
+      MonitorRequestReasonUserInput,
+      MonitorRequestReasonAcDcDisplayBurst,
+      MonitorRequestReasonUserDisplayBurst,
+      MonitorRequestReasonPoSetSystemState,
+      MonitorRequestReasonSetThreadExecutionState,
+      MonitorRequestReasonFullWake,
+      MonitorRequestReasonSessionUnlock,
+      MonitorRequestReasonScreenOffRequest,
+      MonitorRequestReasonIdleTimeout,
+      MonitorRequestReasonPolicyChange,
+      MonitorRequestReasonMax
+    } POWER_MONITOR_REQUEST_REASON;
+
+    typedef struct _POWER_MONITOR_INVOCATION {
+      BOOLEAN On;
+      BOOLEAN Console;
+      POWER_MONITOR_REQUEST_REASON RequestReason;
+    } POWER_MONITOR_INVOCATION,*PPOWER_MONITOR_INVOCATION;
+
+    typedef struct _RESUME_PERFORMANCE {
+      DWORD PostTimeMs;
+      ULONGLONG TotalResumeTimeMs;
+      ULONGLONG ResumeCompleteTimestamp;
+    } RESUME_PERFORMANCE,*PRESUME_PERFORMANCE;
+
+    typedef enum {
+      PoAc,
+      PoDc,
+      PoHot,
+      PoConditionMaximum
+    } SYSTEM_POWER_CONDITION;
+
+    typedef struct {
+      DWORD Version;
+      GUID Guid;
+      SYSTEM_POWER_CONDITION PowerCondition;
+      DWORD DataLength;
+      BYTE Data[ANYSIZE_ARRAY];
+    } SET_POWER_SETTING_VALUE,*PSET_POWER_SETTING_VALUE;
+
+#define POWER_SETTING_VALUE_VERSION (0x1)
+
+    typedef struct {
+      GUID Guid;
+    } NOTIFY_USER_POWER_SETTING,*PNOTIFY_USER_POWER_SETTING;
+
+    typedef struct _APPLICATIONLAUNCH_SETTING_VALUE {
+      LARGE_INTEGER ActivationTime;
+      DWORD Flags;
+      DWORD ButtonInstanceID;
+    } APPLICATIONLAUNCH_SETTING_VALUE,*PAPPLICATIONLAUNCH_SETTING_VALUE;
+
+    typedef enum _POWER_PLATFORM_ROLE {
+      PlatformRoleUnspecified = 0,
+      PlatformRoleDesktop,
+      PlatformRoleMobile,
+      PlatformRoleWorkstation,
+      PlatformRoleEnterpriseServer,
+      PlatformRoleSOHOServer,
+      PlatformRoleAppliancePC,
+      PlatformRolePerformanceServer,
+      PlatformRoleSlate,
+      PlatformRoleMaximum
+    } POWER_PLATFORM_ROLE,*PPOWER_PLATFORM_ROLE;
+
+    typedef struct _POWER_PLATFORM_INFORMATION {
+      BOOLEAN AoAc;
+    } POWER_PLATFORM_INFORMATION,*PPOWER_PLATFORM_INFORMATION;
+
+#define POWER_PLATFORM_ROLE_V1 (0x00000001)
+#define POWER_PLATFORM_ROLE_V1_MAX (PlatformRolePerformanceServer + 1)
+
+#define POWER_PLATFORM_ROLE_V2 (0x00000002)
+#define POWER_PLATFORM_ROLE_V2_MAX (PlatformRoleSlate + 1)
+
+#if _WIN32_WINNT >= 0x0602
+#define POWER_PLATFORM_ROLE_VERSION POWER_PLATFORM_ROLE_V2
+#define POWER_PLATFORM_ROLE_VERSION_MAX POWER_PLATFORM_ROLE_V2_MAX
+#else
+#define POWER_PLATFORM_ROLE_VERSION POWER_PLATFORM_ROLE_V1
+#define POWER_PLATFORM_ROLE_VERSION_MAX POWER_PLATFORM_ROLE_V1_MAX
+#endif
 
     typedef struct {
       DWORD Granularity;
       DWORD Capacity;
     } BATTERY_REPORTING_SCALE,*PBATTERY_REPORTING_SCALE;
+
+    typedef struct {
+      DWORD Frequency;
+      DWORD Flags;
+      DWORD PercentFrequency;
+    } PPM_WMI_LEGACY_PERFSTATE,*PPPM_WMI_LEGACY_PERFSTATE;
+
+    typedef struct {
+      DWORD Latency;
+      DWORD Power;
+      DWORD TimeCheck;
+      BYTE PromotePercent;
+      BYTE DemotePercent;
+      BYTE StateType;
+      BYTE Reserved;
+      DWORD StateFlags;
+      DWORD Context;
+      DWORD IdleHandler;
+      DWORD Reserved1;
+    } PPM_WMI_IDLE_STATE,*PPPM_WMI_IDLE_STATE;
+
+    typedef struct {
+      DWORD Type;
+      DWORD Count;
+      DWORD TargetState;
+      DWORD OldState;
+      DWORD64 TargetProcessors;
+      PPM_WMI_IDLE_STATE State[ANYSIZE_ARRAY];
+    } PPM_WMI_IDLE_STATES,*PPPM_WMI_IDLE_STATES;
+
+    typedef struct {
+      DWORD Type;
+      DWORD Count;
+      DWORD TargetState;
+      DWORD OldState;
+      PVOID TargetProcessors;
+      PPM_WMI_IDLE_STATE State[ANYSIZE_ARRAY];
+    } PPM_WMI_IDLE_STATES_EX,*PPPM_WMI_IDLE_STATES_EX;
+
+    typedef struct {
+      DWORD Frequency;
+      DWORD Power;
+      BYTE PercentFrequency;
+      BYTE IncreaseLevel;
+      BYTE DecreaseLevel;
+      BYTE Type;
+      DWORD IncreaseTime;
+      DWORD DecreaseTime;
+      DWORD64 Control;
+      DWORD64 Status;
+      DWORD HitCount;
+      DWORD Reserved1;
+      DWORD64 Reserved2;
+      DWORD64 Reserved3;
+    } PPM_WMI_PERF_STATE,*PPPM_WMI_PERF_STATE;
+
+    typedef struct {
+      DWORD Count;
+      DWORD MaxFrequency;
+      DWORD CurrentState;
+      DWORD MaxPerfState;
+      DWORD MinPerfState;
+      DWORD LowestPerfState;
+      DWORD ThermalConstraint;
+      BYTE BusyAdjThreshold;
+      BYTE PolicyType;
+      BYTE Type;
+      BYTE Reserved;
+      DWORD TimerInterval;
+      DWORD64 TargetProcessors;
+      DWORD PStateHandler;
+      DWORD PStateContext;
+      DWORD TStateHandler;
+      DWORD TStateContext;
+      DWORD FeedbackHandler;
+      DWORD Reserved1;
+      DWORD64 Reserved2;
+      PPM_WMI_PERF_STATE State[ANYSIZE_ARRAY];
+    } PPM_WMI_PERF_STATES,*PPPM_WMI_PERF_STATES;
+
+    typedef struct {
+      DWORD Count;
+      DWORD MaxFrequency;
+      DWORD CurrentState;
+      DWORD MaxPerfState;
+      DWORD MinPerfState;
+      DWORD LowestPerfState;
+      DWORD ThermalConstraint;
+      BYTE BusyAdjThreshold;
+      BYTE PolicyType;
+      BYTE Type;
+      BYTE Reserved;
+      DWORD TimerInterval;
+      PVOID TargetProcessors;
+      DWORD PStateHandler;
+      DWORD PStateContext;
+      DWORD TStateHandler;
+      DWORD TStateContext;
+      DWORD FeedbackHandler;
+      DWORD Reserved1;
+      DWORD64 Reserved2;
+      PPM_WMI_PERF_STATE State[ANYSIZE_ARRAY];
+    } PPM_WMI_PERF_STATES_EX,*PPPM_WMI_PERF_STATES_EX;
+
+#define PROC_IDLE_BUCKET_COUNT 6
+#define PROC_IDLE_BUCKET_COUNT_EX 16
+
+    typedef struct {
+      DWORD IdleTransitions;
+      DWORD FailedTransitions;
+      DWORD InvalidBucketIndex;
+      DWORD64 TotalTime;
+      DWORD IdleTimeBuckets[PROC_IDLE_BUCKET_COUNT];
+    } PPM_IDLE_STATE_ACCOUNTING,*PPPM_IDLE_STATE_ACCOUNTING;
+
+    typedef struct {
+      DWORD StateCount;
+      DWORD TotalTransitions;
+      DWORD ResetCount;
+      DWORD64 StartTime;
+      PPM_IDLE_STATE_ACCOUNTING State[ANYSIZE_ARRAY];
+    } PPM_IDLE_ACCOUNTING,*PPPM_IDLE_ACCOUNTING;
+
+    typedef struct {
+      DWORD64 TotalTimeUs;
+      DWORD MinTimeUs;
+      DWORD MaxTimeUs;
+      DWORD Count;
+    } PPM_IDLE_STATE_BUCKET_EX,*PPPM_IDLE_STATE_BUCKET_EX;
+
+    typedef struct {
+      DWORD64 TotalTime;
+      DWORD IdleTransitions;
+      DWORD FailedTransitions;
+      DWORD InvalidBucketIndex;
+      DWORD MinTimeUs;
+      DWORD MaxTimeUs;
+      DWORD CancelledTransitions;
+      PPM_IDLE_STATE_BUCKET_EX IdleTimeBuckets[PROC_IDLE_BUCKET_COUNT_EX];
+    } PPM_IDLE_STATE_ACCOUNTING_EX,*PPPM_IDLE_STATE_ACCOUNTING_EX;
+
+    typedef struct {
+      DWORD StateCount;
+      DWORD TotalTransitions;
+      DWORD ResetCount;
+      DWORD AbortCount;
+      DWORD64 StartTime;
+      PPM_IDLE_STATE_ACCOUNTING_EX State[ANYSIZE_ARRAY];
+    } PPM_IDLE_ACCOUNTING_EX,*PPPM_IDLE_ACCOUNTING_EX;
+
+#define ACPI_PPM_SOFTWARE_ALL 0xfc
+#define ACPI_PPM_SOFTWARE_ANY 0xfd
+#define ACPI_PPM_HARDWARE_ALL 0xfe
+
+#define MS_PPM_SOFTWARE_ALL 0x1
+
+#define PPM_FIRMWARE_ACPI1C2 0x1
+#define PPM_FIRMWARE_ACPI1C3 0x2
+#define PPM_FIRMWARE_ACPI1TSTATES 0x4
+#define PPM_FIRMWARE_CST 0x8
+#define PPM_FIRMWARE_CSD 0x10
+#define PPM_FIRMWARE_PCT 0x20
+#define PPM_FIRMWARE_PSS 0x40
+#define PPM_FIRMWARE_XPSS 0x80
+#define PPM_FIRMWARE_PPC 0x100
+#define PPM_FIRMWARE_PSD 0x200
+#define PPM_FIRMWARE_PTC 0x400
+#define PPM_FIRMWARE_TSS 0x800
+#define PPM_FIRMWARE_TPC 0x1000
+#define PPM_FIRMWARE_TSD 0x2000
+#define PPM_FIRMWARE_PCCH 0x4000
+#define PPM_FIRMWARE_PCCP 0x8000
+#define PPM_FIRMWARE_OSC 0x10000
+#define PPM_FIRMWARE_PDC 0x20000
+#define PPM_FIRMWARE_CPC 0x40000
+
+#define PPM_PERFORMANCE_IMPLEMENTATION_NONE 0
+#define PPM_PERFORMANCE_IMPLEMENTATION_PSTATES 1
+#define PPM_PERFORMANCE_IMPLEMENTATION_PCCV1 2
+#define PPM_PERFORMANCE_IMPLEMENTATION_CPPC 3
+#define PPM_PERFORMANCE_IMPLEMENTATION_PEP 4
+
+#define PPM_IDLE_IMPLEMENTATION_NONE 0x0
+#define PPM_IDLE_IMPLEMENTATION_CSTATES 0x1
+#define PPM_IDLE_IMPLEMENTATION_PEP 0x2
+
+    typedef struct {
+      DWORD State;
+      DWORD Status;
+      DWORD Latency;
+      DWORD Speed;
+      DWORD Processor;
+    } PPM_PERFSTATE_EVENT,*PPPM_PERFSTATE_EVENT;
+
+    typedef struct {
+      DWORD State;
+      DWORD Latency;
+      DWORD Speed;
+      DWORD64 Processors;
+    } PPM_PERFSTATE_DOMAIN_EVENT,*PPPM_PERFSTATE_DOMAIN_EVENT;
+
+    typedef struct {
+      DWORD NewState;
+      DWORD OldState;
+      DWORD64 Processors;
+    } PPM_IDLESTATE_EVENT,*PPPM_IDLESTATE_EVENT;
+
+    typedef struct {
+      DWORD ThermalConstraint;
+      DWORD64 Processors;
+    } PPM_THERMALCHANGE_EVENT,*PPPM_THERMALCHANGE_EVENT;
+    typedef struct {
+      BYTE Mode;
+      DWORD64 Processors;
+    } PPM_THERMAL_POLICY_EVENT,*PPPM_THERMAL_POLICY_EVENT;
+
+    DEFINE_GUID (PPM_PERFSTATE_CHANGE_GUID, 0xa5b32ddd, 0x7f39, 0x4abc, 0xb8, 0x92, 0x90, 0xe, 0x43, 0xb5, 0x9e, 0xbb);
+    DEFINE_GUID (PPM_PERFSTATE_DOMAIN_CHANGE_GUID, 0x995e6b7f, 0xd653, 0x497a, 0xb9, 0x78, 0x36, 0xa3, 0xc, 0x29, 0xbf, 0x1);
+    DEFINE_GUID (PPM_IDLESTATE_CHANGE_GUID, 0x4838fe4f, 0xf71c, 0x4e51, 0x9e, 0xcc, 0x84, 0x30, 0xa7, 0xac, 0x4c, 0x6c);
+    DEFINE_GUID (PPM_PERFSTATES_DATA_GUID, 0x5708cc20, 0x7d40, 0x4bf4, 0xb4, 0xaa, 0x2b, 0x01, 0x33, 0x8d, 0x01, 0x26);
+    DEFINE_GUID (PPM_IDLESTATES_DATA_GUID, 0xba138e10, 0xe250, 0x4ad7, 0x86, 0x16, 0xcf, 0x1a, 0x7a, 0xd4, 0x10, 0xe7);
+    DEFINE_GUID (PPM_IDLE_ACCOUNTING_GUID, 0xe2a26f78, 0xae07, 0x4ee0, 0xa3, 0x0f, 0xce, 0x54, 0xf5, 0x5a, 0x94, 0xcd);
+    DEFINE_GUID (PPM_IDLE_ACCOUNTING_EX_GUID, 0xd67abd39, 0x81f8, 0x4a5e, 0x81, 0x52, 0x72, 0xe3, 0x1e, 0xc9, 0x12, 0xee);
+    DEFINE_GUID (PPM_THERMALCONSTRAINT_GUID, 0xa852c2c8, 0x1a4c, 0x423b, 0x8c, 0x2c, 0xf3, 0x0d, 0x82, 0x93, 0x1a, 0x88);
+    DEFINE_GUID (PPM_PERFMON_PERFSTATE_GUID, 0x7fd18652, 0xcfe, 0x40d2, 0xb0, 0xa1, 0xb, 0x6, 0x6a, 0x87, 0x75, 0x9e);
+    DEFINE_GUID (PPM_THERMAL_POLICY_CHANGE_GUID, 0x48f377b8, 0x6880, 0x4c7b, 0x8b, 0xdc, 0x38, 0x1, 0x76, 0xc6, 0x65, 0x4d);
 
     typedef struct {
       POWER_ACTION Action;
