@@ -524,7 +524,7 @@ extern "C" {
   SHSTDAPI_(WINBOOL) ILIsEqual (PCIDLIST_ABSOLUTE pidl1, PCIDLIST_ABSOLUTE pidl2);
   SHSTDAPI_(WINBOOL) ILIsParent (PCIDLIST_ABSOLUTE pidl1, PCIDLIST_ABSOLUTE pidl2, WINBOOL fImmediate);
   SHSTDAPI ILSaveToStream (IStream *pstm, PCUIDLIST_RELATIVE pidl);
-  DECLSPEC_DEPRECATED SHSTDAPI ILLoadFromStream (IStream *pstm, PIDLIST_RELATIVE *pidl);
+  SHSTDAPI ILLoadFromStream (IStream *pstm, PIDLIST_RELATIVE *pidl);
 #if NTDDI_VERSION >= 0x06000000
   SHSTDAPI ILLoadFromStreamEx (IStream *pstm, PIDLIST_RELATIVE *pidl);
 #endif
@@ -2648,7 +2648,7 @@ typedef struct {
     UINT c = sizeof (p->mkid.cb);
 
     while (c <= sz && p->mkid.cb >= sizeof (p->mkid.cb) && p->mkid.cb <= (sz - c)) {
-      cbPidl += p->mkid.cb;
+      c += p->mkid.cb;
       p = ILNext(p);
     }
     return c <= sz && p->mkid.cb == 0;
