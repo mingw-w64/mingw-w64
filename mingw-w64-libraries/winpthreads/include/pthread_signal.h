@@ -20,10 +20,10 @@
    DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef WIN_PTHREADS_TIME_H
-#define WIN_PTHREADS_TIME_H
+#ifndef WIN_PTHREADS_SIGNAL_H
+#define WIN_PTHREADS_SIGNAL_H
 
 /* Windows has rudimentary signals support.  */
 #define pthread_sigmask(H, S1, S2) 0
 
-#endif /* WIN_PTHREADS_TIME_H */
+#endif /* WIN_PTHREADS_SIGNAL_H */
