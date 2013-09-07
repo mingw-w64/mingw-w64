@@ -5138,6 +5138,7 @@ __buildmemorybarrier()
 #define POWER_ACTION_QUERY_ALLOWED 0x00000001
 #define POWER_ACTION_UI_ALLOWED 0x00000002
 #define POWER_ACTION_OVERRIDE_APPS 0x00000004
+#define POWER_ACTION_HIBERBOOT 0x00000008
 #define POWER_ACTION_PSEUDO_TRANSITION 0x08000000
 #define POWER_ACTION_LIGHTEST_FIRST 0x10000000
 #define POWER_ACTION_LOCK_CONSOLE 0x20000000
@@ -5152,6 +5153,23 @@ __buildmemorybarrier()
 #define POWER_USER_NOTIFY_FORCED_SHUTDOWN 0x00000020
 #define POWER_FORCE_TRIGGER_RESET 0x80000000
 
+#define BATTERY_DISCHARGE_FLAGS_EVENTCODE_MASK 0x00000007
+#define BATTERY_DISCHARGE_FLAGS_ENABLE 0x80000000
+
+#define DISCHARGE_POLICY_CRITICAL 0
+#define DISCHARGE_POLICY_LOW 1
+
+#define NUM_DISCHARGE_POLICIES 4
+
+#define PROCESSOR_IDLESTATE_POLICY_COUNT 0x3
+
+    typedef struct {
+      DWORD TimeCheck;
+      BYTE DemotePercent;
+      BYTE PromotePercent;
+      BYTE Spare[2];
+    } PROCESSOR_IDLESTATE_INFO,*PPROCESSOR_IDLESTATE_INFO;
+
     typedef struct {
       BOOLEAN Enable;
       BYTE Spare[3];
@@ -5159,16 +5177,6 @@ __buildmemorybarrier()
       POWER_ACTION_POLICY PowerPolicy;
       SYSTEM_POWER_STATE MinSystemState;
     } SYSTEM_POWER_LEVEL,*PSYSTEM_POWER_LEVEL;
-
-#define NUM_DISCHARGE_POLICIES 4
-#define DISCHARGE_POLICY_CRITICAL 0
-#define DISCHARGE_POLICY_LOW 1
-
-#define PO_THROTTLE_NONE 0
-#define PO_THROTTLE_CONSTANT 1
-#define PO_THROTTLE_DEGRADE 2
-#define PO_THROTTLE_ADAPTIVE 3
-#define PO_THROTTLE_MAXIMUM 4
 
     typedef struct _SYSTEM_POWER_POLICY {
       DWORD Revision;
@@ -5201,6 +5209,26 @@ __buildmemorybarrier()
       POWER_ACTION_POLICY OverThrottled;
     } SYSTEM_POWER_POLICY,*PSYSTEM_POWER_POLICY;
 
+#define PO_THROTTLE_NONE 0
+#define PO_THROTTLE_CONSTANT 1
+#define PO_THROTTLE_DEGRADE 2
+#define PO_THROTTLE_ADAPTIVE 3
+#define PO_THROTTLE_MAXIMUM 4
+
+    typedef struct {
+      WORD Revision;
+      union {
+	WORD AsWORD;
+	__C89_NAMELESS struct {
+	  WORD AllowScaling : 1;
+	  WORD Disabled : 1;
+	  WORD Reserved : 14;
+	} DUMMYSTRUCTNAME;
+      } Flags;
+      DWORD PolicyCount;
+      PROCESSOR_IDLESTATE_INFO Policy[PROCESSOR_IDLESTATE_POLICY_COUNT];
+    } PROCESSOR_IDLESTATE_POLICY,*PPROCESSOR_IDLESTATE_POLICY;
+
     typedef struct _PROCESSOR_POWER_POLICY_INFO {
       DWORD TimeCheck;
       DWORD DemoteLimit;
@@ -5222,6 +5250,30 @@ __buildmemorybarrier()
       DWORD PolicyCount;
       PROCESSOR_POWER_POLICY_INFO Policy[3];
     } PROCESSOR_POWER_POLICY,*PPROCESSOR_POWER_POLICY;
+
+    typedef struct {
+      DWORD Revision;
+      BYTE MaxThrottle;
+      BYTE MinThrottle;
+      BYTE BusyAdjThreshold;
+      __C89_NAMELESS union {
+	BYTE Spare;
+	union {
+	  BYTE AsBYTE;
+	  __C89_NAMELESS struct {
+	    BYTE NoDomainAccounting : 1;
+	    BYTE IncreasePolicy: 2;
+	    BYTE DecreasePolicy: 2;
+	    BYTE Reserved : 3;
+	  } DUMMYSTRUCTNAME;
+	} Flags;
+      } DUMMYUNIONNAME;
+      DWORD TimeCheck;
+      DWORD IncreaseTime;
+      DWORD DecreaseTime;
+      DWORD IncreasePercent;
+      DWORD DecreasePercent;
+    } PROCESSOR_PERFSTATE_POLICY,*PPROCESSOR_PERFSTATE_POLICY;
 
     typedef struct _ADMINISTRATOR_POWER_POLICY {
       SYSTEM_POWER_STATE MinSleep;
@@ -5441,6 +5493,7 @@ __buildmemorybarrier()
 #define IMAGE_FILE_MACHINE_SH5 0x01a8
 #define IMAGE_FILE_MACHINE_ARM 0x01c0
 #define IMAGE_FILE_MACHINE_ARMV7 0x01c4
+#define IMAGE_FILE_MACHINE_ARMNT 0x01c4
 #define IMAGE_FILE_MACHINE_THUMB 0x01c2
 #define IMAGE_FILE_MACHINE_AM33 0x01d3
 #define IMAGE_FILE_MACHINE_POWERPC 0x01F0
@@ -5456,7 +5509,7 @@ __buildmemorybarrier()
 #define IMAGE_FILE_MACHINE_EBC 0x0EBC
 #define IMAGE_FILE_MACHINE_AMD64 0x8664
 #define IMAGE_FILE_MACHINE_M32R 0x9041
-#define IMAGE_FILE_MACHINE_CEE 0xC0EE
+#define IMAGE_FILE_MACHINE_CEE 0xc0ee
 
     typedef struct _IMAGE_DATA_DIRECTORY {
       DWORD VirtualAddress;
@@ -5618,6 +5671,7 @@ __buildmemorybarrier()
 #define IMAGE_DLLCHARACTERISTICS_NO_ISOLATION 0x0200
 #define IMAGE_DLLCHARACTERISTICS_NO_SEH 0x0400
 #define IMAGE_DLLCHARACTERISTICS_NO_BIND 0x0800
+#define IMAGE_DLLCHARACTERISTICS_APPCONTAINER 0x1000
 #define IMAGE_DLLCHARACTERISTICS_WDM_DRIVER 0x2000
 #define IMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE 0x8000
 
@@ -5628,7 +5682,6 @@ __buildmemorybarrier()
 #define IMAGE_DIRECTORY_ENTRY_SECURITY 4
 #define IMAGE_DIRECTORY_ENTRY_BASERELOC 5
 #define IMAGE_DIRECTORY_ENTRY_DEBUG 6
-
 #define IMAGE_DIRECTORY_ENTRY_ARCHITECTURE 7
 #define IMAGE_DIRECTORY_ENTRY_GLOBALPTR 8
 #define IMAGE_DIRECTORY_ENTRY_TLS 9
@@ -5647,6 +5700,35 @@ __buildmemorybarrier()
       CLSID ClassID;
       DWORD SizeOfData;
     } ANON_OBJECT_HEADER;
+
+    typedef struct ANON_OBJECT_HEADER_V2 {
+      WORD Sig1;
+      WORD Sig2;
+      WORD Version;
+      WORD Machine;
+      DWORD TimeDateStamp;
+      CLSID ClassID;
+      DWORD SizeOfData;
+      DWORD Flags;
+      DWORD MetaDataSize;
+      DWORD MetaDataOffset;
+    } ANON_OBJECT_HEADER_V2;
+
+    typedef struct ANON_OBJECT_HEADER_BIGOBJ {
+      WORD Sig1;
+      WORD Sig2;
+      WORD Version;
+      WORD Machine;
+      DWORD TimeDateStamp;
+      CLSID ClassID;
+      DWORD SizeOfData;
+      DWORD Flags;
+      DWORD MetaDataSize;
+      DWORD MetaDataOffset;
+      DWORD NumberOfSections;
+      DWORD PointerToSymbolTable;
+      DWORD NumberOfSymbols;
+    } ANON_OBJECT_HEADER_BIGOBJ;
 
 #define IMAGE_SIZEOF_SHORT_NAME 8
 
@@ -5714,7 +5796,6 @@ __buildmemorybarrier()
 #define IMAGE_SCN_SCALE_INDEX 0x00000001
 
 #include "pshpack2.h"
-
     typedef struct _IMAGE_SYMBOL {
       union {
 	BYTE ShortName[8];
@@ -5733,6 +5814,22 @@ __buildmemorybarrier()
     typedef IMAGE_SYMBOL UNALIGNED *PIMAGE_SYMBOL;
 
 #define IMAGE_SIZEOF_SYMBOL 18
+
+    typedef struct _IMAGE_SYMBOL_EX {
+      union {
+	BYTE ShortName[8];
+	struct {
+	  DWORD Short;
+	  DWORD Long;
+	} Name;
+	DWORD LongName[2];
+      } N;
+      DWORD Value;
+      LONG SectionNumber;
+      WORD Type;
+      BYTE StorageClass;
+      BYTE NumberOfAuxSymbols;
+    } IMAGE_SYMBOL_EX,UNALIGNED *PIMAGE_SYMBOL_EX;
 
 #define IMAGE_SYM_UNDEFINED (SHORT)0
 #define IMAGE_SYM_ABSOLUTE (SHORT)-1
@@ -5824,6 +5921,15 @@ __buildmemorybarrier()
 #define DECREF(x) ((((x)>>N_TSHIFT)&~N_BTMASK)|((x)&N_BTMASK))
 #endif
 
+#include <pshpack2.h>
+    typedef struct IMAGE_AUX_SYMBOL_TOKEN_DEF {
+      BYTE bAuxType;
+      BYTE bReserved;
+      DWORD SymbolTableIndex;
+      BYTE rgbReserved[12];
+    } IMAGE_AUX_SYMBOL_TOKEN_DEF,UNALIGNED *PIMAGE_AUX_SYMBOL_TOKEN_DEF;
+#include <poppack.h>
+
     typedef union _IMAGE_AUX_SYMBOL {
       struct {
 	DWORD TagIndex;
@@ -5856,27 +5962,48 @@ __buildmemorybarrier()
 	SHORT Number;
 	BYTE Selection;
       } Section;
-    } IMAGE_AUX_SYMBOL;
-    typedef IMAGE_AUX_SYMBOL UNALIGNED *PIMAGE_AUX_SYMBOL;
+      IMAGE_AUX_SYMBOL_TOKEN_DEF TokenDef;
+      struct {
+	DWORD crc;
+	BYTE rgbReserved[14];
+      } CRC;
+    } IMAGE_AUX_SYMBOL,UNALIGNED *PIMAGE_AUX_SYMBOL;
+
+    typedef union _IMAGE_AUX_SYMBOL_EX {
+      struct {
+	DWORD WeakDefaultSymIndex;
+	DWORD WeakSearchType;
+	BYTE rgbReserved[12];
+      } Sym;
+      struct {
+	BYTE Name[sizeof (IMAGE_SYMBOL_EX)];
+      } File;
+      struct {
+	DWORD Length;
+	WORD NumberOfRelocations;
+	WORD NumberOfLinenumbers;
+	DWORD CheckSum;
+	SHORT Number;
+	BYTE Selection;
+	BYTE bReserved;
+	SHORT HighNumber;
+	BYTE rgbReserved[2];
+      } Section;
+      __C89_NAMELESS struct {
+	IMAGE_AUX_SYMBOL_TOKEN_DEF TokenDef;
+	BYTE rgbReserved[2];
+      };
+      struct {
+	DWORD crc;
+	BYTE rgbReserved[16];
+      } CRC;
+    } IMAGE_AUX_SYMBOL_EX,UNALIGNED *PIMAGE_AUX_SYMBOL_EX;
 
 #define IMAGE_SIZEOF_AUX_SYMBOL 18
 
     typedef enum IMAGE_AUX_SYMBOL_TYPE {
       IMAGE_AUX_SYMBOL_TYPE_TOKEN_DEF = 1
     } IMAGE_AUX_SYMBOL_TYPE;
-
-#include <pshpack2.h>
-
-    typedef struct IMAGE_AUX_SYMBOL_TOKEN_DEF {
-      BYTE bAuxType;
-      BYTE bReserved;
-      DWORD SymbolTableIndex;
-      BYTE rgbReserved[12];
-    } IMAGE_AUX_SYMBOL_TOKEN_DEF;
-
-    typedef IMAGE_AUX_SYMBOL_TOKEN_DEF UNALIGNED *PIMAGE_AUX_SYMBOL_TOKEN_DEF;
-
-#include <poppack.h>
 
 #define IMAGE_COMDAT_SELECT_NODUPLICATES 1
 #define IMAGE_COMDAT_SELECT_ANY 2
@@ -6026,6 +6153,16 @@ __buildmemorybarrier()
 #define IMAGE_REL_ARM_BLX11 0x0009
 #define IMAGE_REL_ARM_SECTION 0x000E
 #define IMAGE_REL_ARM_SECREL 0x000F
+#define IMAGE_REL_ARM_MOV32A 0x0010
+#define IMAGE_REL_ARM_MOV32 0x0010
+#define IMAGE_REL_ARM_MOV32T 0x0011
+#define IMAGE_REL_THUMB_MOV32 0x0011
+#define IMAGE_REL_ARM_BRANCH20T 0x0012
+#define IMAGE_REL_THUMB_BRANCH20 0x0012
+#define IMAGE_REL_ARM_BRANCH24T 0x0014
+#define IMAGE_REL_THUMB_BRANCH24 0x0014
+#define IMAGE_REL_ARM_BLX23T 0x0015
+#define IMAGE_REL_THUMB_BLX23 0x0015
 
 #define IMAGE_REL_AM_ABSOLUTE 0x0000
 #define IMAGE_REL_AM_ADDR32 0x0001
@@ -6234,7 +6371,6 @@ __buildmemorybarrier()
     typedef struct _IMAGE_BASE_RELOCATION {
       DWORD VirtualAddress;
       DWORD SizeOfBlock;
-
     } IMAGE_BASE_RELOCATION;
     typedef IMAGE_BASE_RELOCATION UNALIGNED *PIMAGE_BASE_RELOCATION;
 
@@ -6246,6 +6382,8 @@ __buildmemorybarrier()
 #define IMAGE_REL_BASED_HIGHLOW 3
 #define IMAGE_REL_BASED_HIGHADJ 4
 #define IMAGE_REL_BASED_MIPS_JMPADDR 5
+#define IMAGE_REL_BASED_ARM_MOV32 5
+#define IMAGE_REL_BASED_THUMB_MOV32 7
 #define IMAGE_REL_BASED_MIPS_JMPADDR16 9
 #define IMAGE_REL_BASED_IA64_IMM64 9
 #define IMAGE_REL_BASED_DIR64 10
@@ -6319,8 +6457,7 @@ __buildmemorybarrier()
 #define IMAGE_SNAP_BY_ORDINAL64(Ordinal) ((Ordinal & IMAGE_ORDINAL_FLAG64)!=0)
 #define IMAGE_SNAP_BY_ORDINAL32(Ordinal) ((Ordinal & IMAGE_ORDINAL_FLAG32)!=0)
 
-    typedef VOID
-      (NTAPI *PIMAGE_TLS_CALLBACK)(PVOID DllHandle,DWORD Reason,PVOID Reserved);
+    typedef VOID (NTAPI *PIMAGE_TLS_CALLBACK)(PVOID DllHandle,DWORD Reason,PVOID Reserved);
 
     typedef struct _IMAGE_TLS_DIRECTORY64 {
       ULONGLONG StartAddressOfRawData;
@@ -6384,6 +6521,24 @@ __buildmemorybarrier()
       WORD OffsetModuleName;
       WORD Reserved;
     } IMAGE_BOUND_FORWARDER_REF,*PIMAGE_BOUND_FORWARDER_REF;
+
+    typedef struct _IMAGE_DELAYLOAD_DESCRIPTOR {
+      union {
+	DWORD AllAttributes;
+	__C89_NAMELESS struct {
+	  DWORD RvaBased : 1;
+	  DWORD ReservedAttributes : 31;
+	};
+      } Attributes;
+      DWORD DllNameRVA;
+      DWORD ModuleHandleRVA;
+      DWORD ImportAddressTableRVA;
+      DWORD ImportNameTableRVA;
+      DWORD BoundImportAddressTableRVA;
+      DWORD UnloadInformationTableRVA;
+      DWORD TimeDateStamp;
+    } IMAGE_DELAYLOAD_DESCRIPTOR,*PIMAGE_DELAYLOAD_DESCRIPTOR;
+    typedef const IMAGE_DELAYLOAD_DESCRIPTOR *PCIMAGE_DELAYLOAD_DESCRIPTOR;
 
     typedef struct _IMAGE_RESOURCE_DIRECTORY {
       DWORD Characteristics;
@@ -6510,17 +6665,51 @@ __buildmemorybarrier()
       DWORD PrologEndAddress;
     } IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY,*PIMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY;
 
+    typedef struct _IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
+      DWORD BeginAddress;
+      __C89_NAMELESS union {
+	DWORD UnwindData;
+	__C89_NAMELESS struct {
+	  DWORD Flag : 2;
+	  DWORD FunctionLength : 11;
+	  DWORD Ret : 2;
+	  DWORD H : 1;
+	  DWORD Reg : 3;
+	  DWORD R : 1;
+	  DWORD L : 1;
+	  DWORD C : 1;
+	  DWORD StackAdjust : 10;
+	} DUMMYSTRUCTNAME;
+      } DUMMYUNIONNAME;
+    } IMAGE_ARM_RUNTIME_FUNCTION_ENTRY,*PIMAGE_ARM_RUNTIME_FUNCTION_ENTRY;
+
     typedef struct _IMAGE_RUNTIME_FUNCTION_ENTRY {
       DWORD BeginAddress;
       DWORD EndAddress;
-      DWORD UnwindInfoAddress;
+      __C89_NAMELESS union {
+	DWORD UnwindInfoAddress;
+	DWORD UnwindData;
+      } DUMMYUNIONNAME;
     } _IMAGE_RUNTIME_FUNCTION_ENTRY,*_PIMAGE_RUNTIME_FUNCTION_ENTRY;
 
     typedef _IMAGE_RUNTIME_FUNCTION_ENTRY IMAGE_IA64_RUNTIME_FUNCTION_ENTRY;
     typedef _PIMAGE_RUNTIME_FUNCTION_ENTRY PIMAGE_IA64_RUNTIME_FUNCTION_ENTRY;
 
+#if defined (_AXP64_)
+    typedef IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY IMAGE_AXP64_RUNTIME_FUNCTION_ENTRY;
+    typedef PIMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY PIMAGE_AXP64_RUNTIME_FUNCTION_ENTRY;
+    typedef IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY IMAGE_RUNTIME_FUNCTION_ENTRY;
+    typedef PIMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY PIMAGE_RUNTIME_FUNCTION_ENTRY;
+#elif defined (_ALPHA_)
+    typedef IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY IMAGE_RUNTIME_FUNCTION_ENTRY;
+    typedef PIMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY PIMAGE_RUNTIME_FUNCTION_ENTRY;
+#elif defined (__arm__)
+    typedef IMAGE_ARM_RUNTIME_FUNCTION_ENTRY IMAGE_RUNTIME_FUNCTION_ENTRY;
+    typedef PIMAGE_ARM_RUNTIME_FUNCTION_ENTRY PIMAGE_RUNTIME_FUNCTION_ENTRY;
+#else
     typedef _IMAGE_RUNTIME_FUNCTION_ENTRY IMAGE_RUNTIME_FUNCTION_ENTRY;
     typedef _PIMAGE_RUNTIME_FUNCTION_ENTRY PIMAGE_RUNTIME_FUNCTION_ENTRY;
+#endif
 
     typedef struct _IMAGE_DEBUG_DIRECTORY {
       DWORD Characteristics;
@@ -6627,7 +6816,6 @@ __buildmemorybarrier()
       DWORD CheckSum;
       DWORD SizeOfImage;
       ULONGLONG ImageBase;
-
     } NON_PAGED_DEBUG_INFO,*PNON_PAGED_DEBUG_INFO;
 
 #define IMAGE_SEPARATE_DEBUG_SIGNATURE 0x4944
@@ -6638,9 +6826,9 @@ __buildmemorybarrier()
 
     typedef struct _ImageArchitectureHeader {
       unsigned int AmaskValue: 1;
-      int Adummy1 :7;
-      unsigned int AmaskShift: 8;
-      int Adummy2 :16;
+      int Adummy1 : 7;
+      unsigned int AmaskShift : 8;
+      int Adummy2 : 16;
       DWORD FirstEntryRVA;
     } IMAGE_ARCHITECTURE_HEADER,*PIMAGE_ARCHITECTURE_HEADER;
 
@@ -6648,7 +6836,6 @@ __buildmemorybarrier()
       DWORD FixupInstRVA;
       DWORD NewInst;
     } IMAGE_ARCHITECTURE_ENTRY,*PIMAGE_ARCHITECTURE_ENTRY;
-
 #include "poppack.h"
 
 #define IMPORT_OBJECT_HDR_SIG2 0xffff
@@ -6680,12 +6867,12 @@ __buildmemorybarrier()
 #ifndef __IMAGE_COR20_HEADER_DEFINED__
 #define __IMAGE_COR20_HEADER_DEFINED__
     typedef enum ReplacesCorHdrNumericDefines {
-      COMIMAGE_FLAGS_ILONLY =0x00000001,COMIMAGE_FLAGS_32BITREQUIRED =0x00000002,COMIMAGE_FLAGS_IL_LIBRARY =0x00000004,
-      COMIMAGE_FLAGS_STRONGNAMESIGNED =0x00000008,COMIMAGE_FLAGS_TRACKDEBUGDATA =0x00010000,COR_VERSION_MAJOR_V2 =2,
-      COR_VERSION_MAJOR =COR_VERSION_MAJOR_V2,COR_VERSION_MINOR =0,COR_DELETED_NAME_LENGTH =8,COR_VTABLEGAP_NAME_LENGTH =8,
-      NATIVE_TYPE_MAX_CB =1,COR_ILMETHOD_SECT_SMALL_MAX_DATASIZE=0xFF,IMAGE_COR_MIH_METHODRVA =0x01,IMAGE_COR_MIH_EHRVA =0x02,
-      IMAGE_COR_MIH_BASICBLOCK =0x08,COR_VTABLE_32BIT =0x01,COR_VTABLE_64BIT =0x02,COR_VTABLE_FROM_UNMANAGED =0x04,
-      COR_VTABLE_CALL_MOST_DERIVED =0x10,IMAGE_COR_EATJ_THUNK_SIZE =32,MAX_CLASS_NAME =1024,MAX_PACKAGE_NAME =1024
+      COMIMAGE_FLAGS_ILONLY = 0x00000001,COMIMAGE_FLAGS_32BITREQUIRED = 0x00000002,COMIMAGE_FLAGS_IL_LIBRARY = 0x00000004,
+      COMIMAGE_FLAGS_STRONGNAMESIGNED = 0x00000008,COMIMAGE_FLAGS_TRACKDEBUGDATA = 0x00010000,COR_VERSION_MAJOR_V2 = 2,
+      COR_VERSION_MAJOR = COR_VERSION_MAJOR_V2,COR_VERSION_MINOR = 0,COR_DELETED_NAME_LENGTH = 8,COR_VTABLEGAP_NAME_LENGTH = 8,
+      NATIVE_TYPE_MAX_CB = 1,COR_ILMETHOD_SECT_SMALL_MAX_DATASIZE= 0xFF,IMAGE_COR_MIH_METHODRVA = 0x01,IMAGE_COR_MIH_EHRVA = 0x02,
+      IMAGE_COR_MIH_BASICBLOCK = 0x08,COR_VTABLE_32BIT =0x01,COR_VTABLE_64BIT =0x02,COR_VTABLE_FROM_UNMANAGED = 0x04,
+      COR_VTABLE_CALL_MOST_DERIVED = 0x10,IMAGE_COR_EATJ_THUNK_SIZE = 32,MAX_CLASS_NAME =1024,MAX_PACKAGE_NAME = 1024
     } ReplacesCorHdrNumericDefines;
 
     typedef struct IMAGE_COR20_HEADER {
@@ -6694,7 +6881,10 @@ __buildmemorybarrier()
       WORD MinorRuntimeVersion;
       IMAGE_DATA_DIRECTORY MetaData;
       DWORD Flags;
-      DWORD EntryPointToken;
+      __C89_NAMELESS union {
+	DWORD EntryPointToken;
+	DWORD EntryPointRVA;
+      } DUMMYUNIONNAME;
       IMAGE_DATA_DIRECTORY Resources;
       IMAGE_DATA_DIRECTORY StrongNameSignature;
       IMAGE_DATA_DIRECTORY CodeManagerTable;
