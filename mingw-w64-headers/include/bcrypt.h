@@ -397,7 +397,7 @@ typedef PVOID BCRYPT_HANDLE;
     ULONG cbKey;
   } BCRYPT_DH_KEY_BLOB,*PBCRYPT_DH_KEY_BLOB;
 
-  typedef _Struct_size_bytes_ (cbLength) struct _BCRYPT_DH_PARAMETER_HEADER {
+  typedef struct _BCRYPT_DH_PARAMETER_HEADER {
     ULONG cbLength;
     ULONG dwMagic;
     ULONG cbKeyLength;
@@ -576,7 +576,7 @@ typedef PVOID BCRYPT_HANDLE;
   NTSTATUS WINAPI BCryptFinishHash (BCRYPT_HASH_HANDLE hHash, PUCHAR pbOutput, ULONG cbOutput, ULONG dwFlags);
   NTSTATUS WINAPI BCryptDuplicateHash (BCRYPT_HASH_HANDLE hHash, BCRYPT_HASH_HANDLE *phNewHash, PUCHAR pbHashObject, ULONG cbHashObject, ULONG dwFlags);
   NTSTATUS WINAPI BCryptDestroyHash (BCRYPT_HASH_HANDLE hHash);
-  NTSTATUS WINAPI BCryptGenRandom (BCRYPT_ALG_HANDLE hAlgorithm, _Inout_updates_bytes_all_ (cbBuffer) PUCHAR pbBuffer, ULONG cbBuffer, ULONG dwFlags);
+  NTSTATUS WINAPI BCryptGenRandom (BCRYPT_ALG_HANDLE hAlgorithm, PUCHAR pbBuffer, ULONG cbBuffer, ULONG dwFlags);
   NTSTATUS WINAPI BCryptDeriveKeyCapi (BCRYPT_HASH_HANDLE hHash, BCRYPT_ALG_HANDLE hTargetAlg, PUCHAR pbDerivedKey, ULONG cbDerivedKey, ULONG dwFlags);
   NTSTATUS WINAPI BCryptDeriveKeyPBKDF2 (BCRYPT_ALG_HANDLE hPrf, PUCHAR pbPassword, ULONG cbPassword, PUCHAR pbSalt, ULONG cbSalt, ULONGLONG cIterations, PUCHAR pbDerivedKey, ULONG cbDerivedKey, ULONG dwFlags);
   NTSTATUS WINAPI BCryptResolveProviders (LPCWSTR pszContext, ULONG dwInterface, LPCWSTR pszFunction, LPCWSTR pszProvider, ULONG dwMode, ULONG dwFlags, ULONG *pcbBuffer, PCRYPT_PROVIDER_REFS *ppBuffer);
