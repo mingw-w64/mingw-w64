@@ -287,7 +287,11 @@ extern "C" {
 #ifdef __cplusplus
     DATABLOCK_HEADER dbh;
 #else
-    DATABLOCK_HEADER DUMMYSTRUCTNAME;
+    /* DATABLOCK_HEADER DUMMYSTRUCTNAME; */
+    __C89_NAMELESS struct {
+      DWORD cbSize;
+      DWORD dwSignature;
+    };
 #endif
     UINT uCodePage;
   } NT_FE_CONSOLE_PROPS,*LPNT_FE_CONSOLE_PROPS;
