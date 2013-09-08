@@ -644,8 +644,18 @@ interface ID2D1Image : public ID2D1Resource {};
 
 #else
 
-typedef interface ID2D1Image ID2D1Image;
-/* FIXME: Add full C declaration */
+typedef struct ID2D1ImageVtbl {
+    ID2D1ResourceVtbl Base;
+} ID2D1ImageVtbl;
+
+interface ID2D1Image {
+    const ID2D1ImageVtbl *lpVtbl;
+};
+
+#define ID2D1Image_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnkwnown*)this,A,B)
+#define ID2D1Image_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)this)
+#define ID2D1Image_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)this)
+#define ID2D1Image_GetFactory(this,A) (this)->lpVtbl->Base.GetFactory((ID2D1Resource*)this,A)
 
 #endif
 
@@ -681,10 +691,10 @@ interface ID2D1Bitmap {
     const ID2D1BitmapVtbl *lpVtbl;
 };
 
-#define ID2D1Bitmap_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnkwnown*)this,A,B)
-#define ID2D1Bitmap_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)this)
-#define ID2D1Bitmap_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)this)
-#define ID2D1Bitmap_GetFactory(this,A) (this)->lpVtbl->Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1Bitmap_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnkwnown*)this,A,B)
+#define ID2D1Bitmap_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)this)
+#define ID2D1Bitmap_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)this)
+#define ID2D1Bitmap_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)this,A)
 #define ID2D1Bitmap_GetSize(this) (this)->lpVtbl->GetSize(this)
 #define ID2D1Bitmap_GetPixelSize(this) (this)->lpVtbl->GetPixelSize(this)
 #define ID2D1Bitmap_GetPixelFormat(this) (this)->lpVtbl->GetPixelFormat(this)
