@@ -491,6 +491,9 @@ endif
 #These defs have no accompanying sources.  Look into using the rule below to run the dlltool command
 #for all libraries, including those with sources.
 lib32_DATA = \
+  lib32/libbrowcli.a   \
+  lib32/libdavhlpr.a   \
+  lib32/libdfscli.a    \
   lib32/libwinusb.a    lib32/libavrt.a      \
   lib32/libaclui.a     lib32/libadvapi32.a  lib32/libapcups.a    lib32/libavicap32.a  lib32/libavifil32.a \
   lib32/libcap.a       lib32/libcfgmgr32.a  lib32/libcomctl32.a  lib32/libcomdlg32.a  lib32/libcrypt32.a  \
