@@ -494,6 +494,20 @@ lib32_DATA = \
   lib32/libbrowcli.a   \
   lib32/libdavhlpr.a   \
   lib32/libdfscli.a    \
+  lib32/libdsrole.a    \
+  lib32/libelscore.a   \
+  lib32/liblogoncli.a  \
+  lib32/libmsctf.a     \
+  lib32/libmsvcp60.a   \
+  lib32/libnetjoin.a   \
+  lib32/libnetutils.a  \
+  lib32/libolethk32.a  \
+  lib32/libsamcli.a    \
+  lib32/libschedcli.a  \
+  lib32/libsrvcli.a    \
+  lib32/liburlmon.a    \
+  lib32/libwindowscodecs.a \
+  lib32/libwkscli.a    \
   lib32/libwinusb.a    lib32/libavrt.a      \
   lib32/libaclui.a     lib32/libadvapi32.a  lib32/libapcups.a    lib32/libavicap32.a  lib32/libavifil32.a \
   lib32/libcap.a       lib32/libcfgmgr32.a  lib32/libcomctl32.a  lib32/libcomdlg32.a  lib32/libcrypt32.a  \
