@@ -2648,7 +2648,7 @@ typedef struct {
   SHSTDAPI SHBindToObject (IShellFolder *psf, PCUIDLIST_RELATIVE pidl, IBindCtx *pbc, REFIID riid, void **ppv);
 #endif
 
-  __inline WINBOOL IDListContainerIsConsistent(PCUIDLIST_RELATIVE p, UINT sz) {
+  __forceinline WINBOOL IDListContainerIsConsistent(PCUIDLIST_RELATIVE p, UINT sz) {
     UINT c = sizeof (p->mkid.cb);
 
     while (c <= sz && p->mkid.cb >= sizeof (p->mkid.cb) && p->mkid.cb <= (sz - c)) {
