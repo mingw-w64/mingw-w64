@@ -301,6 +301,7 @@ if LIB32
 lib32dir=$(prefix)/@LIB32SUFFIXDIR@
 crt32dir=$(lib32dir)
 winrtdir=$(lib32dir)
+dxdir=$(lib32dir)
 
 winrt_DATA = $(winrtlibs)
 
@@ -619,6 +620,18 @@ lib32/libvfw32.a: lib32/vfw32.mri lib32/libmsvfw32.a lib32/libavifil32.a lib32/l
 	rm -f $@
 	$(AR) -M < $<
 	$(RANLIB) $@
+
+dx_DATA =
+dx_DATA += lib32/libxinput.a
+dx_DATA += lib32/libxaudio.a
+dx_DATA += lib32/libxaudiod.a
+dx_DATA += lib32/libxapofx.a
+dx_DATA += lib32/libx3daudio.a
+dx_DATA += lib32/libd3dx9.a
+dx_DATA += lib32/libd3dx10.a
+dx_DATA += lib32/libd3dx11.a
+dx_DATA += lib32/libd3dcsxd.a
+dx_DATA += lib32/libd3dcompiler.a
 
 lib32/libxinput.a: lib32/$(xinput).def
 	$(DTDEF32) $<
@@ -1103,10 +1116,7 @@ lib64_DATA = \
   lib64/libxaudiod2_7.a     lib64/libxinput1_1.a      lib64/libxinput1_2.a \
   lib64/libxinput1_3.a      lib64/libd3dcompiler_46.a lib64/libd3dcsx_46.a \
   \
-  lib64/libxinput.a         lib64/libxaudio.a         lib64/libxaudiod.a   \
-  lib64/libxapofx.a         lib64/libx3daudio.a       lib64/libd3dx9.a     \
-  lib64/libd3dx10.a         lib64/libd3dx11.a         lib64/libd3dcsxd.a   \
-  lib64/libd3dcompiler.a    lib64/libwinhttp.a \
+  lib64/libwinhttp.a \
   lib64/libapi-ms-win-core-winrt-string-l1-1-0.a \
   lib64/libapi-ms-win-core-winrt-l1-1-0.a
 
