@@ -8018,6 +8018,7 @@ typedef DWORD (WINAPI *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONCE, PVOID, PVOID *);
   typedef struct _TP_CALLBACK_INSTANCE TP_CALLBACK_INSTANCE,*PTP_CALLBACK_INSTANCE;
   typedef VOID (NTAPI *PTP_SIMPLE_CALLBACK) (PTP_CALLBACK_INSTANCE Instance, PVOID Context);
   typedef struct _TP_POOL TP_POOL,*PTP_POOL;
+
   typedef enum _TP_CALLBACK_PRIORITY {
     TP_CALLBACK_PRIORITY_HIGH,
     TP_CALLBACK_PRIORITY_NORMAL,
@@ -8030,8 +8031,10 @@ typedef DWORD (WINAPI *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONCE, PVOID, PVOID *);
     SIZE_T StackReserve;
     SIZE_T StackCommit;
   } TP_POOL_STACK_INFORMATION, *PTP_POOL_STACK_INFORMATION;
+
   typedef struct _TP_CLEANUP_GROUP TP_CLEANUP_GROUP,*PTP_CLEANUP_GROUP;
   typedef VOID (NTAPI *PTP_CLEANUP_GROUP_CANCEL_CALLBACK) (PVOID ObjectContext, PVOID CleanupContext);
+
 #if _WIN32_WINNT >= 0x0601
   typedef struct _TP_CALLBACK_ENVIRON_V3 {
     TP_VERSION Version;
@@ -8083,6 +8086,40 @@ typedef DWORD (WINAPI *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONCE, PVOID, PVOID *);
   typedef VOID (NTAPI *PTP_WAIT_CALLBACK) (PTP_CALLBACK_INSTANCE Instance, PVOID Context, PTP_WAIT Wait, TP_WAIT_RESULT WaitResult);
   typedef struct _TP_IO TP_IO,*PTP_IO;
 
+#if !defined (__WIDL__)
+    FORCEINLINE VOID TpInitializeCallbackEnviron (PTP_CALLBACK_ENVIRON cbe) {
+      cbe->Pool = NULL;
+      cbe->CleanupGroup = NULL;
+      cbe->CleanupGroupCancelCallback = NULL;
+      cbe->RaceDll = NULL;
+      cbe->ActivationContext = NULL;
+      cbe->FinalizationCallback = NULL;
+      cbe->u.Flags = 0;
+#if _WIN32_WINNT < 0x0601
+      cbe->Version = 1;
+#else
+      cbe->Version = 3;
+      cbe->CallbackPriority = TP_CALLBACK_PRIORITY_NORMAL;
+      cbe->Size = sizeof (TP_CALLBACK_ENVIRON);
+#endif
+    }
+    FORCEINLINE VOID TpSetCallbackThreadpool (PTP_CALLBACK_ENVIRON cbe, PTP_POOL pool) { cbe->Pool = pool; }
+    FORCEINLINE VOID TpSetCallbackCleanupGroup (PTP_CALLBACK_ENVIRON cbe, PTP_CLEANUP_GROUP cleanup_group, PTP_CLEANUP_GROUP_CANCEL_CALLBACK cleanup_group_cb) {
+      cbe->CleanupGroup = cleanup_group;
+      cbe->CleanupGroupCancelCallback = cleanup_group_cb;
+    }
+    FORCEINLINE VOID TpSetCallbackActivationContext (PTP_CALLBACK_ENVIRON cbe, struct _ACTIVATION_CONTEXT *actx) { cbe->ActivationContext = actx; }
+    FORCEINLINE VOID TpSetCallbackNoActivationContext (PTP_CALLBACK_ENVIRON cbe) { cbe->ActivationContext = (struct _ACTIVATION_CONTEXT *) (LONG_PTR) -1; }
+    FORCEINLINE VOID TpSetCallbackLongFunction (PTP_CALLBACK_ENVIRON cbe) { cbe->u.s.LongFunction = 1; }
+    FORCEINLINE VOID TpSetCallbackRaceWithDll (PTP_CALLBACK_ENVIRON cbe, PVOID h) { cbe->RaceDll = h; }
+    FORCEINLINE VOID TpSetCallbackFinalizationCallback (PTP_CALLBACK_ENVIRON cbe, PTP_SIMPLE_CALLBACK fini_cb) { cbe->FinalizationCallback = fini_cb; }
+#if _WIN32_WINNT >= 0x0601
+    FORCEINLINE VOID TpSetCallbackPriority (PTP_CALLBACK_ENVIRON cbe, TP_CALLBACK_PRIORITY prio) { cbe->CallbackPriority = prio; }
+#endif
+    FORCEINLINE VOID TpSetCallbackPersistent (PTP_CALLBACK_ENVIRON cbe) { cbe->u.s.Persistent = 1; }
+    FORCEINLINE VOID TpDestroyCallbackEnviron (PTP_CALLBACK_ENVIRON cbe) { UNREFERENCED_PARAMETER (cbe); }
+#endif
+
 #if defined(__x86_64) && !defined (__WIDL__)
     struct _TEB *NtCurrentTeb(VOID);
     PVOID GetCurrentFiber(VOID);
@@ -8093,6 +8130,13 @@ typedef DWORD (WINAPI *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONCE, PVOID, PVOID *);
       return *(PVOID *)GetCurrentFiber();
     }
 #endif /* __x86_64 */
+
+#if defined (__arm__) && !defined (__WIDL__)
+    struct _TEB *NtCurrentTeb (VOID);
+    PVOID GetCurrentFiber (VOID);
+    PVOID GetFiberData (VOID);
+    FORCEINLINE PVOID GetFiberData (VOID) { return *(PVOID *)GetCurrentFiber (); }
+#endif /* arm */
 
 #ifndef _NTTMAPI_
 #define _NTTMAPI_
@@ -8427,6 +8471,7 @@ typedef struct _PROCESSOR_NUMBER {
 #define ACTIVATION_CONTEXT_SECTION_GLOBAL_OBJECT_RENAME_TABLE (8)
 #define ACTIVATION_CONTEXT_SECTION_CLR_SURROGATES (9)
 #define ACTIVATION_CONTEXT_SECTION_APPLICATION_SETTINGS (10)
+#define ACTIVATION_CONTEXT_SECTION_COMPATIBILITY_INFO (11)
 
 #ifdef __cplusplus
 }
