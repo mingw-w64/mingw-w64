@@ -23178,7 +23178,7 @@ void __RPC_STUB INamespaceWalk_GetIDArrayResult_Stub(
 #endif  /* __INamespaceWalk_INTERFACE_DEFINED__ */
 
 
-  __inline void FreeIDListArray(PIDLIST_RELATIVE *ppidls, UINT cItems) {
+  __forceinline void FreeIDListArray(PIDLIST_RELATIVE *ppidls, UINT cItems) {
     UINT i;
     for (i = 0; i < cItems; i++) {
       CoTaskMemFree(ppidls[i]);
@@ -23186,13 +23186,13 @@ void __RPC_STUB INamespaceWalk_GetIDArrayResult_Stub(
     CoTaskMemFree(ppidls);
   }
 #if defined(STRICT_TYPED_ITEMIDS) && defined(__cplusplus)
-  __inline void FreeIDListArrayFull(PIDLIST_ABSOLUTE *ppidls, UINT cItems) {
+  __forceinline void FreeIDListArrayFull(PIDLIST_ABSOLUTE *ppidls, UINT cItems) {
     UINT i;
     for (i = 0; i < cItems; i++)
       CoTaskMemFree(ppidls[i]);
     CoTaskMemFree(ppidls);
   }
-  __inline void FreeIDListArrayChild(PITEMID_CHILD *ppidls, UINT cItems) {
+  __forceinline void FreeIDListArrayChild(PITEMID_CHILD *ppidls, UINT cItems) {
     UINT i;
     for (i = 0; i < cItems; i++)
       CoTaskMemFree(ppidls[i]);
