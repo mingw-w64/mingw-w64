@@ -158,7 +158,7 @@ void __RPC_STUB IOptionArray_SetOption_Stub(
 #ifndef __IHtmlLoadOptions_INTERFACE_DEFINED__
 #define __IHtmlLoadOptions_INTERFACE_DEFINED__
 
-typedef enum __WIDL_optary_generated_name_00000000 {
+typedef enum __WIDL_optary_generated_name_00000002 {
     HTMLLOADOPTION_CODEPAGE = 0,
     HTMLLOADOPTION_INETSHORTCUTPATH = 1,
     HTMLLOADOPTION_HYPERLINK = 2,

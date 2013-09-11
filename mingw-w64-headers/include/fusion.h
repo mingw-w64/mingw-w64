@@ -75,14 +75,14 @@ typedef interface IAssemblyEnum IAssemblyEnum;
 typedef interface IAssemblyName IAssemblyName;
 #endif
 
-typedef enum __WIDL_fusion_generated_name_00000000 {
+typedef enum __WIDL_fusion_generated_name_00000002 {
     ASM_CACHE_ZAP = 0x1,
     ASM_CACHE_GAC = 0x2,
     ASM_CACHE_DOWNLOAD = 0x4,
     ASM_CACHE_ROOT = 0x8,
     ASM_CACHE_ROOT_EX = 0x80
 } ASM_CACHE_FLAGS;
-typedef enum __WIDL_fusion_generated_name_00000001 {
+typedef enum __WIDL_fusion_generated_name_00000003 {
     peNone = 0x0,
     peMSIL = 0x1,
     peI386 = 0x2,
@@ -477,13 +477,13 @@ void __RPC_STUB IAssemblyCacheItem_AbortItem_Stub(
 #define __IAssemblyName_INTERFACE_DEFINED__
 
 typedef IAssemblyName *LPASSEMBLYNAME;
-typedef enum __WIDL_fusion_generated_name_00000002 {
+typedef enum __WIDL_fusion_generated_name_00000004 {
     CANOF_PARSE_DISPLAY_NAME = 0x1,
     CANOF_SET_DEFAULT_VALUES = 0x2,
     CANOF_VERIFY_FRIEND_ASSEMBLYNAME = 0x4,
     CANOF_PARSE_FRIEND_DISPLAY_NAME = CANOF_PARSE_DISPLAY_NAME | CANOF_VERIFY_FRIEND_ASSEMBLYNAME
 } CREATE_ASM_NAME_OBJ_FLAGS;
-typedef enum __WIDL_fusion_generated_name_00000003 {
+typedef enum __WIDL_fusion_generated_name_00000005 {
     ASM_NAME_PUBLIC_KEY = 0,
     ASM_NAME_PUBLIC_KEY_TOKEN = 1,
     ASM_NAME_HASH_VALUE = 2,
@@ -514,7 +514,7 @@ typedef enum __WIDL_fusion_generated_name_00000003 {
     ASM_NAME_ARCHITECTURE = 27,
     ASM_NAME_MAX_PARAMS = 28
 } ASM_NAME;
-typedef enum __WIDL_fusion_generated_name_00000004 {
+typedef enum __WIDL_fusion_generated_name_00000006 {
     ASM_DISPLAYF_VERSION = 0x1,
     ASM_DISPLAYF_CULTURE = 0x2,
     ASM_DISPLAYF_PUBLIC_KEY_TOKEN = 0x4,
@@ -527,7 +527,7 @@ typedef enum __WIDL_fusion_generated_name_00000004 {
     ASM_DISPLAYF_MVID = 0x200,
     ASM_DISPLAYF_FULL = (((ASM_DISPLAYF_VERSION | ASM_DISPLAYF_CULTURE) | ASM_DISPLAYF_PUBLIC_KEY_TOKEN) | ASM_DISPLAYF_RETARGET) | ASM_DISPLAYF_PROCESSORARCHITECTURE
 } ASM_DISPLAY_FLAGS;
-typedef enum __WIDL_fusion_generated_name_00000005 {
+typedef enum __WIDL_fusion_generated_name_00000007 {
     ASM_CMPF_NAME = 0x1,
     ASM_CMPF_MAJOR_VERSION = 0x2,
     ASM_CMPF_MINOR_VERSION = 0x4,

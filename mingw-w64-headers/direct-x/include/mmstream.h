@@ -63,16 +63,16 @@ typedef void *PAPCFUNC;
 typedef LONGLONG STREAM_TIME;
 typedef GUID MSPID;
 typedef REFGUID REFMSPID;
-typedef enum __WIDL_mmstream_generated_name_00000000 {
+typedef enum __WIDL_mmstream_generated_name_00000002 {
     STREAMTYPE_READ = 0,
     STREAMTYPE_WRITE = 1,
     STREAMTYPE_TRANSFORM = 2
 } STREAM_TYPE;
-typedef enum __WIDL_mmstream_generated_name_00000001 {
+typedef enum __WIDL_mmstream_generated_name_00000003 {
     STREAMSTATE_STOP = 0,
     STREAMSTATE_RUN = 1
 } STREAM_STATE;
-typedef enum __WIDL_mmstream_generated_name_00000002 {
+typedef enum __WIDL_mmstream_generated_name_00000004 {
     COMPSTAT_NOUPDATEOK = 0x1,
     COMPSTAT_WAIT = 0x2,
     COMPSTAT_ABORT = 0x4

@@ -415,7 +415,7 @@ typedef struct TF_PRESERVEDKEY {
     UINT uVKey;
     UINT uModifiers;
 } TF_PRESERVEDKEY;
-typedef enum __WIDL_msctf_generated_name_00000000 {
+typedef enum __WIDL_msctf_generated_name_00000005 {
     TF_ANCHOR_START = 0,
     TF_ANCHOR_END = 1
 } TfAnchor;
@@ -1012,7 +1012,7 @@ void __RPC_STUB ITfDocumentMgr_EnumContexts_Stub(
 
 #define TF_ES_ASYNC (0x8)
 
-typedef enum __WIDL_msctf_generated_name_00000001 {
+typedef enum __WIDL_msctf_generated_name_00000006 {
     TF_AE_NONE = 0,
     TF_AE_START = 1,
     TF_AE_END = 2
@@ -2532,14 +2532,14 @@ void __RPC_STUB ITfInputProcessorProfileMgr_GetActiveProfile_Stub(
 
 #endif  /* __ITfInputProcessorProfileMgr_INTERFACE_DEFINED__ */
 
-typedef enum __WIDL_msctf_generated_name_00000002 {
+typedef enum __WIDL_msctf_generated_name_00000007 {
     TF_LS_NONE = 0,
     TF_LS_SOLID = 1,
     TF_LS_DOT = 2,
     TF_LS_DASH = 3,
     TF_LS_SQUIGGLE = 4
 } TF_DA_LINESTYLE;
-typedef enum __WIDL_msctf_generated_name_00000003 {
+typedef enum __WIDL_msctf_generated_name_00000008 {
     TF_CT_NONE = 0,
     TF_CT_SYSCOLOR = 1,
     TF_CT_COLORREF = 2
@@ -2551,7 +2551,7 @@ typedef struct TF_DA_COLOR {
         COLORREF cr;
     } __C89_NAMELESSUNIONNAME;
 } TF_DA_COLOR;
-typedef enum __WIDL_msctf_generated_name_00000004 {
+typedef enum __WIDL_msctf_generated_name_00000009 {
     TF_ATTR_INPUT = 0,
     TF_ATTR_TARGET_CONVERTED = 1,
     TF_ATTR_CONVERTED = 2,
@@ -5126,11 +5126,11 @@ void __RPC_STUB ITfEditSession_DoEditSession_Stub(
 
 #define TF_CHAR_EMBEDDED (TS_CHAR_EMBEDDED)
 
-typedef enum __WIDL_msctf_generated_name_00000005 {
+typedef enum __WIDL_msctf_generated_name_0000000A {
     TF_GRAVITY_BACKWARD = 0,
     TF_GRAVITY_FORWARD = 1
 } TfGravity;
-typedef enum __WIDL_msctf_generated_name_00000006 {
+typedef enum __WIDL_msctf_generated_name_0000000B {
     TF_SD_BACKWARD = 0,
     TF_SD_FORWARD = 1
 } TfShiftDir;

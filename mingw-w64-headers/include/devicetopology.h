@@ -190,7 +190,7 @@ DEFINE_GUID(EVENTCONTEXT_VOLUMESLIDER, 0xe2c2e9de, 0x09b1, 0x4b04,0x84,0xe5, 0x0
 #include <ks.h>
 #include <ksmedia.h>
 #ifndef _KS_
-typedef struct __WIDL_devicetopology_generated_name_00000000 {
+typedef struct __WIDL_devicetopology_generated_name_00000013 {
     ULONG FormatSize;
     ULONG Flags;
     ULONG SampleSize;
@@ -200,7 +200,7 @@ typedef struct __WIDL_devicetopology_generated_name_00000000 {
     GUID Specifier;
 } KSDATAFORMAT;
 typedef KSDATAFORMAT *PKSDATAFORMAT;
-typedef struct __WIDL_devicetopology_generated_name_00000001 {
+typedef struct __WIDL_devicetopology_generated_name_00000014 {
     __C89_NAMELESS union {
         __C89_NAMELESS struct {
             GUID Set;
@@ -216,7 +216,7 @@ typedef KSIDENTIFIER KSMETHOD;
 typedef KSIDENTIFIER *PKSMETHOD;
 typedef KSIDENTIFIER KSEVENT;
 typedef KSIDENTIFIER *PKSEVENT;
-typedef enum __WIDL_devicetopology_generated_name_00000002 {
+typedef enum __WIDL_devicetopology_generated_name_00000015 {
     eConnTypeUnknown = 0,
     eConnType3Point5mm = 1,
     eConnTypeQuarter = 2,
@@ -230,7 +230,7 @@ typedef enum __WIDL_devicetopology_generated_name_00000002 {
     eConnTypeRj11Modem = 10,
     eConnTypeCombination = 11
 } EPcxConnectionType;
-typedef enum __WIDL_devicetopology_generated_name_00000003 {
+typedef enum __WIDL_devicetopology_generated_name_00000016 {
     eGeoLocRear = 1,
     eGeoLocFront = 2,
     eGeoLocLeft = 3,
@@ -247,19 +247,19 @@ typedef enum __WIDL_devicetopology_generated_name_00000003 {
     eGeoLocReserved5 = 14,
     eGeoLocReserved6 = 15
 } EPcxGeoLocation;
-typedef enum __WIDL_devicetopology_generated_name_00000004 {
+typedef enum __WIDL_devicetopology_generated_name_00000017 {
     eGenLocPrimaryBox = 0,
     eGenLocInternal = 1,
     eGenLocSeparate = 2,
     eGenLocOther = 3
 } EPcxGenLocation;
-typedef enum __WIDL_devicetopology_generated_name_00000005 {
+typedef enum __WIDL_devicetopology_generated_name_00000018 {
     ePortConnJack = 0,
     ePortConnIntegratedDevice = 1,
     ePortConnBothIntegratedAndJack = 2,
     ePortConnUnknown = 3
 } EPxcPortConnection;
-typedef struct __WIDL_devicetopology_generated_name_00000006 {
+typedef struct __WIDL_devicetopology_generated_name_00000019 {
     DWORD ChannelMapping;
     COLORREF Color;
     EPcxConnectionType ConnectionType;
@@ -274,7 +274,7 @@ typedef struct _LUID {
     LONG HighPart;
 } LUID;
 typedef struct _LUID *PLUID;
-typedef enum __WIDL_devicetopology_generated_name_00000007 {
+typedef enum __WIDL_devicetopology_generated_name_0000001A {
     KSJACK_SINK_CONNECTIONTYPE_HDMI = 0,
     KSJACK_SINK_CONNECTIONTYPE_DISPLAYPORT = 1
 } KSJACK_SINK_CONNECTIONTYPE;
@@ -295,15 +295,15 @@ typedef struct _tagKSJACK_DESCRIPTION2 {
 } KSJACK_DESCRIPTION2;
 typedef struct _tagKSJACK_DESCRIPTION2 *PKSJACK_DESCRIPTION2;
 #endif
-typedef enum __WIDL_devicetopology_generated_name_00000008 {
+typedef enum __WIDL_devicetopology_generated_name_0000001B {
     In = 0,
     Out = 1
 } DataFlow;
-typedef enum __WIDL_devicetopology_generated_name_00000009 {
+typedef enum __WIDL_devicetopology_generated_name_0000001C {
     Connector = 0,
     Subunit = 1
 } PartType;
-typedef enum __WIDL_devicetopology_generated_name_0000000A {
+typedef enum __WIDL_devicetopology_generated_name_0000001D {
     Unknown_Connector = 0,
     Physical_Internal = 1,
     Physical_External = 2,

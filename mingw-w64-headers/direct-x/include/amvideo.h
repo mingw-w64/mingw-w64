@@ -60,7 +60,7 @@ typedef void DDSURFACEDESC;
 typedef void DDCAPS;
 typedef DWORD RGBQUAD;
 typedef LONGLONG REFERENCE_TIME;
-typedef struct __WIDL_amvideo_generated_name_00000000 {
+typedef struct __WIDL_amvideo_generated_name_00000002 {
     DWORD biSize;
     LONG biWidth;
     LONG biHeight;
@@ -73,8 +73,8 @@ typedef struct __WIDL_amvideo_generated_name_00000000 {
     DWORD biClrUsed;
     DWORD biClrImportant;
 } BITMAPINFOHEADER;
-typedef struct __WIDL_amvideo_generated_name_00000000 *PBITMAPINFOHEADER;
-typedef struct __WIDL_amvideo_generated_name_00000000 *LPBITMAPINFOHEADER;
+typedef struct __WIDL_amvideo_generated_name_00000002 *PBITMAPINFOHEADER;
+typedef struct __WIDL_amvideo_generated_name_00000002 *LPBITMAPINFOHEADER;
 #endif
 #include <ddraw.h>
 #define AMDDS_NONE 0x00
@@ -1546,7 +1546,7 @@ typedef struct tagAnalogVideoInfo {
     DWORD dwActiveHeight;
     REFERENCE_TIME AvgTimePerFrame;
 } ANALOGVIDEOINFO;
-typedef enum __WIDL_amvideo_generated_name_00000001 {
+typedef enum __WIDL_amvideo_generated_name_00000003 {
     AM_PROPERTY_FRAMESTEP_STEP = 0x1,
     AM_PROPERTY_FRAMESTEP_CANCEL = 0x2,
     AM_PROPERTY_FRAMESTEP_CANSTEP = 0x3,

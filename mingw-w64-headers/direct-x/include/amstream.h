@@ -138,7 +138,7 @@ enum {
     AMMSF_RUN = 0x8
 };
 
-typedef enum __WIDL_amstream_generated_name_00000000 {
+typedef enum __WIDL_amstream_generated_name_0000000C {
     Disabled = 0,
     ReadData = 1,
     RenderData = 2
