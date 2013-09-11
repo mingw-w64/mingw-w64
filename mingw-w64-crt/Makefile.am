@@ -41,8 +41,6 @@ processed_defs=
 
 # default directx import library names
 xinput=xinput1_3
-xaudio=xaudio2_7
-xaudiod=xaudiod2_7
 xapofx=xapofx1_5
 x3daudio=x3daudio1_7
 d3dx9=d3dx9_43
@@ -514,8 +512,6 @@ lib32/libvfw32.a: lib32/vfw32.mri lib32/libmsvfw32.a lib32/libavifil32.a lib32/l
 
 dx32_DATA =
 dx32_DATA += lib32/libxinput.a
-dx32_DATA += lib32/libxaudio.a
-dx32_DATA += lib32/libxaudiod.a
 dx32_DATA += lib32/libxapofx.a
 dx32_DATA += lib32/libx3daudio.a
 dx32_DATA += lib32/libd3dx9.a
@@ -525,10 +521,6 @@ dx32_DATA += lib32/libd3dcsxd.a
 dx32_DATA += lib32/libd3dcompiler.a
 
 lib32/libxinput.a: lib32/$(xinput).def
-	$(DTDEF32) $<
-lib32/libxaudio.a: lib32/$(xaudio).def
-	$(DTDEF32) $<
-lib32/libxaudiod.a: lib32/$(xaudiod).def
 	$(DTDEF32) $<
 lib32/libxapofx.a: lib32/$(xapofx).def
 	$(DTDEF32) $<
@@ -1001,10 +993,7 @@ lib64_DATA = \
   lib64/libx3daudio1_6.a    lib64/libx3daudio1_7.a    lib64/libx3daudiod1_7.a \
   lib64/libxapofx1_0.a      lib64/libxapofx1_1.a      lib64/libxapofx1_2.a \
   lib64/libxapofx1_3.a      lib64/libxapofx1_4.a      lib64/libxapofx1_5.a \
-  lib64/libxapofxd1_5.a     lib64/libxaudio2_0.a      lib64/libxaudio2_1.a \
-  lib64/libxaudio2_2.a      lib64/libxaudio2_3.a      lib64/libxaudio2_4.a \
-  lib64/libxaudio2_5.a      lib64/libxaudio2_6.a      lib64/libxaudio2_7.a \
-  lib64/libxaudiod2_7.a     lib64/libxinput1_1.a      lib64/libxinput1_2.a \
+  lib64/libxapofxd1_5.a     lib64/libxinput1_1.a      lib64/libxinput1_2.a \
   lib64/libxinput1_3.a      lib64/libd3dcompiler_46.a lib64/libd3dcsx_46.a \
   \
   lib64/libwinhttp.a \
@@ -1031,10 +1020,6 @@ lib64/libvfw32.a: lib64/vfw32.mri lib64/libmsvfw32.a lib64/libavifil32.a lib64/l
 	$(RANLIB) $@
 
 lib64/libxinput.a: lib64/$(xinput).def
-	$(DTDEF64) $<
-lib64/libxaudio.a: lib64/$(xaudio).def
-	$(DTDEF64) $<
-lib64/libxaudiod.a: lib64/$(xaudiod).def
 	$(DTDEF64) $<
 lib64/libxapofx.a: lib64/$(xapofx).def
 	$(DTDEF64) $<
@@ -1082,7 +1067,6 @@ CLEANFILES = $(BUILT_SOURCES) $(crt64_DATA) $(lib64_DATA) $(crt32_DATA) $(lib32_
 # Distribution options
 #
 
-
 EXTRA_DIST = $(srcdir)/ChangeLog.*
 EXTRA_DIST += revstamp.h \
   $(top_srcdir)/lib32/*.def \
@@ -1114,6 +1098,7 @@ dist-hook:
 	find $(top_distdir) -name ".svn" -delete
 
 # Testsuite options
+#
 
 #old
 #  testcases/tstwassert_win \
