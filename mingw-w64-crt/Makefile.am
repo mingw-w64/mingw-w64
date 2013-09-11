@@ -36,8 +36,6 @@ extra_include=-I$(top_srcdir)/include
 
 # default directx import library names
 xinput=xinput1_3
-xaudio=xaudio2_7
-xaudiod=xaudiod2_7
 xapofx=xapofx1_5
 x3daudio=x3daudio1_7
 d3dx9=d3dx9_43
@@ -432,16 +430,12 @@ lib32_DATA = \
   lib32/libx3daudio1_6.a    lib32/libx3daudio1_7.a    lib32/libx3daudiod1_7.a \
   lib32/libxapofx1_0.a      lib32/libxapofx1_1.a      lib32/libxapofx1_2.a \
   lib32/libxapofx1_3.a      lib32/libxapofx1_4.a      lib32/libxapofx1_5.a \
-  lib32/libxapofxd1_5.a     lib32/libxaudio2_0.a      lib32/libxaudio2_1.a \
-  lib32/libxaudio2_2.a      lib32/libxaudio2_3.a      lib32/libxaudio2_4.a \
-  lib32/libxaudio2_5.a      lib32/libxaudio2_6.a      lib32/libxaudio2_7.a \
-  lib32/libxaudiod2_7.a     lib32/libxinput1_1.a      lib32/libxinput1_2.a \
+  lib32/libxapofxd1_5.a     lib32/libxinput1_1.a      lib32/libxinput1_2.a \
   lib32/libxinput1_3.a      \
   \
-  lib32/libxinput.a         lib32/libxaudio.a         lib32/libxaudiod.a   \
-  lib32/libxapofx.a         lib32/libx3daudio.a       lib32/libd3dx9.a     \
-  lib32/libd3dx10.a         lib32/libd3dx11.a         lib32/libd3dcsxd.a   \
-  lib32/libd3dcompiler.a
+  lib32/libxinput.a         lib32/libxapofx.a         lib32/libx3daudio.a  \
+  lib32/libd3dx9.a          lib32/libd3dx10.a         lib32/libd3dx11.a    \
+  lib32/libd3dcsxd.a        lib32/libd3dcompiler.a
 
 # combine these two rules with the ones for lib64
 # Use two patterns, one for 32/64 in lib32/ and lib64/
@@ -461,10 +455,6 @@ lib32/libvfw32.a: lib32/vfw32.mri lib32/libmsvfw32.a lib32/libavifil32.a lib32/l
 	$(RANLIB) $@
 
 lib32/libxinput.a: lib32/$(xinput).def
-	$(DTDEF32) $<
-lib32/libxaudio.a: lib32/$(xaudio).def
-	$(DTDEF32) $<
-lib32/libxaudiod.a: lib32/$(xaudiod).def
 	$(DTDEF32) $<
 lib32/libxapofx.a: lib32/$(xapofx).def
 	$(DTDEF32) $<
@@ -866,16 +856,12 @@ lib64_DATA = \
   lib64/libx3daudio1_6.a    lib64/libx3daudio1_7.a    lib64/libx3daudiod1_7.a \
   lib64/libxapofx1_0.a      lib64/libxapofx1_1.a      lib64/libxapofx1_2.a \
   lib64/libxapofx1_3.a      lib64/libxapofx1_4.a      lib64/libxapofx1_5.a \
-  lib64/libxapofxd1_5.a     lib64/libxaudio2_0.a      lib64/libxaudio2_1.a \
-  lib64/libxaudio2_2.a      lib64/libxaudio2_3.a      lib64/libxaudio2_4.a \
-  lib64/libxaudio2_5.a      lib64/libxaudio2_6.a      lib64/libxaudio2_7.a \
-  lib64/libxaudiod2_7.a     lib64/libxinput1_1.a      lib64/libxinput1_2.a \
+  lib64/libxapofxd1_5.a     lib64/libxinput1_1.a      lib64/libxinput1_2.a \
   lib64/libxinput1_3.a      \
   \
-  lib64/libxinput.a         lib64/libxaudio.a         lib64/libxaudiod.a   \
-  lib64/libxapofx.a         lib64/libx3daudio.a       lib64/libd3dx9.a     \
-  lib64/libd3dx10.a         lib64/libd3dx11.a         lib64/libd3dcsxd.a   \
-  lib64/libd3dcompiler.a
+  lib64/libxinput.a         lib64/libxapofx.a         lib64/libx3daudio.a  \
+  lib64/libd3dx9.a          lib64/libd3dx10.a         lib64/libd3dx11.a    \
+  lib64/libd3dcsxd.a        lib64/libd3dcompiler.a
 
 lib64/libcrtdll.a lib64/libmsvcrt.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
 	$(DTDEF64) $< --dllname $*.dll
@@ -893,10 +879,6 @@ lib64/libvfw32.a: lib64/vfw32.mri lib64/libmsvfw32.a lib64/libavifil32.a lib64/l
 	$(RANLIB) $@
 
 lib64/libxinput.a: lib64/$(xinput).def
-	$(DTDEF64) $<
-lib64/libxaudio.a: lib64/$(xaudio).def
-	$(DTDEF64) $<
-lib64/libxaudiod.a: lib64/$(xaudiod).def
 	$(DTDEF64) $<
 lib64/libxapofx.a: lib64/$(xapofx).def
 	$(DTDEF64) $<
@@ -942,7 +924,6 @@ CLEANFILES = $(BUILT_SOURCES) $(crt64_DATA) $(lib64_DATA) $(crt32_DATA) $(lib32_
 # Distribution options
 #
 
-
 EXTRA_DIST =
 EXTRA_DIST += revstamp.h \
   $(top_srcdir)/lib64/*.def \
@@ -970,6 +951,7 @@ dist-hook:
 
 
 # Testsuite options
+#
 
 #old
 #  testcases/tstwassert_win \
