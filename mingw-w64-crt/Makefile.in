@@ -3146,8 +3146,6 @@ extra_include = -I$(top_srcdir)/include
 
 # default directx import library names
 xinput = xinput1_3
-xaudio = xaudio2_7
-xaudiod = xaudiod2_7
 xapofx = xapofx1_5
 x3daudio = x3daudio1_7
 d3dx9 = d3dx9_43
@@ -3535,16 +3533,12 @@ src_libmingwex32 = \
 @LIB32_TRUE@  lib32/libx3daudio1_6.a    lib32/libx3daudio1_7.a    lib32/libx3daudiod1_7.a \
 @LIB32_TRUE@  lib32/libxapofx1_0.a      lib32/libxapofx1_1.a      lib32/libxapofx1_2.a \
 @LIB32_TRUE@  lib32/libxapofx1_3.a      lib32/libxapofx1_4.a      lib32/libxapofx1_5.a \
-@LIB32_TRUE@  lib32/libxapofxd1_5.a     lib32/libxaudio2_0.a      lib32/libxaudio2_1.a \
-@LIB32_TRUE@  lib32/libxaudio2_2.a      lib32/libxaudio2_3.a      lib32/libxaudio2_4.a \
-@LIB32_TRUE@  lib32/libxaudio2_5.a      lib32/libxaudio2_6.a      lib32/libxaudio2_7.a \
-@LIB32_TRUE@  lib32/libxaudiod2_7.a     lib32/libxinput1_1.a      lib32/libxinput1_2.a \
+@LIB32_TRUE@  lib32/libxapofxd1_5.a     lib32/libxinput1_1.a      lib32/libxinput1_2.a \
 @LIB32_TRUE@  lib32/libxinput1_3.a      \
 @LIB32_TRUE@  \
-@LIB32_TRUE@  lib32/libxinput.a         lib32/libxaudio.a         lib32/libxaudiod.a   \
-@LIB32_TRUE@  lib32/libxapofx.a         lib32/libx3daudio.a       lib32/libd3dx9.a     \
-@LIB32_TRUE@  lib32/libd3dx10.a         lib32/libd3dx11.a         lib32/libd3dcsxd.a   \
-@LIB32_TRUE@  lib32/libd3dcompiler.a
+@LIB32_TRUE@  lib32/libxinput.a         lib32/libxapofx.a         lib32/libx3daudio.a  \
+@LIB32_TRUE@  lib32/libd3dx9.a          lib32/libd3dx10.a         lib32/libd3dx11.a    \
+@LIB32_TRUE@  lib32/libd3dcsxd.a        lib32/libd3dcompiler.a
 
 
 # End 32-bit runtime
@@ -3893,16 +3887,12 @@ src_libmingwex32 = \
 @LIB64_TRUE@  lib64/libx3daudio1_6.a    lib64/libx3daudio1_7.a    lib64/libx3daudiod1_7.a \
 @LIB64_TRUE@  lib64/libxapofx1_0.a      lib64/libxapofx1_1.a      lib64/libxapofx1_2.a \
 @LIB64_TRUE@  lib64/libxapofx1_3.a      lib64/libxapofx1_4.a      lib64/libxapofx1_5.a \
-@LIB64_TRUE@  lib64/libxapofxd1_5.a     lib64/libxaudio2_0.a      lib64/libxaudio2_1.a \
-@LIB64_TRUE@  lib64/libxaudio2_2.a      lib64/libxaudio2_3.a      lib64/libxaudio2_4.a \
-@LIB64_TRUE@  lib64/libxaudio2_5.a      lib64/libxaudio2_6.a      lib64/libxaudio2_7.a \
-@LIB64_TRUE@  lib64/libxaudiod2_7.a     lib64/libxinput1_1.a      lib64/libxinput1_2.a \
+@LIB64_TRUE@  lib64/libxapofxd1_5.a     lib64/libxinput1_1.a      lib64/libxinput1_2.a \
 @LIB64_TRUE@  lib64/libxinput1_3.a      \
 @LIB64_TRUE@  \
-@LIB64_TRUE@  lib64/libxinput.a         lib64/libxaudio.a         lib64/libxaudiod.a   \
-@LIB64_TRUE@  lib64/libxapofx.a         lib64/libx3daudio.a       lib64/libd3dx9.a     \
-@LIB64_TRUE@  lib64/libd3dx10.a         lib64/libd3dx11.a         lib64/libd3dcsxd.a   \
-@LIB64_TRUE@  lib64/libd3dcompiler.a
+@LIB64_TRUE@  lib64/libxinput.a         lib64/libxapofx.a         lib64/libx3daudio.a  \
+@LIB64_TRUE@  lib64/libd3dx9.a          lib64/libd3dx10.a         lib64/libd3dx11.a    \
+@LIB64_TRUE@  lib64/libd3dcsxd.a        lib64/libd3dcompiler.a
 
 
 # End 64-bit runtime
@@ -3939,6 +3929,7 @@ EXTRA_DIST = ChangeLog-2009 revstamp.h $(top_srcdir)/lib64/*.def \
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet) $(withsys)
 
 # Testsuite options
+#
 
 #old
 #  testcases/tstwassert_win \
@@ -32125,10 +32116,6 @@ _libm_dummy.c:
 
 @LIB32_TRUE@lib32/libxinput.a: lib32/$(xinput).def
 @LIB32_TRUE@	$(DTDEF32) $<
-@LIB32_TRUE@lib32/libxaudio.a: lib32/$(xaudio).def
-@LIB32_TRUE@	$(DTDEF32) $<
-@LIB32_TRUE@lib32/libxaudiod.a: lib32/$(xaudiod).def
-@LIB32_TRUE@	$(DTDEF32) $<
 @LIB32_TRUE@lib32/libxapofx.a: lib32/$(xapofx).def
 @LIB32_TRUE@	$(DTDEF32) $<
 @LIB32_TRUE@lib32/libx3daudio.a: lib32/$(x3daudio).def
@@ -32182,10 +32169,6 @@ _libm_dummy.c:
 @LIB64_TRUE@	$(RANLIB) $@
 
 @LIB64_TRUE@lib64/libxinput.a: lib64/$(xinput).def
-@LIB64_TRUE@	$(DTDEF64) $<
-@LIB64_TRUE@lib64/libxaudio.a: lib64/$(xaudio).def
-@LIB64_TRUE@	$(DTDEF64) $<
-@LIB64_TRUE@lib64/libxaudiod.a: lib64/$(xaudiod).def
 @LIB64_TRUE@	$(DTDEF64) $<
 @LIB64_TRUE@lib64/libxapofx.a: lib64/$(xapofx).def
 @LIB64_TRUE@	$(DTDEF64) $<
