@@ -70,13 +70,14 @@ __INTRINSICS_USEINLINE
 
 /* Parameters: (FunctionName, DataType, Operator)
    FunctionName: Any valid function name
-   DataType: BYTE, WORD, DWORD or DWORD64 */
+   DataType: BYTE, WORD, DWORD or DWORD64
+   InstructionSizeIntel: b, w, d, q (not b,w,l,q) */
 
 /* While we don't need the output values for Dest or Count, we
    must still inform the compiler the asm changes them. */
-#define __buildstos(x, y) void x(y *Dest, y Data, size_t Count) \
+#define __buildstos(x, y, z) void x(y *Dest, y Data, size_t Count) \
 { \
-   __asm__ __volatile__ ("rep stos%z[Data]" \
+   __asm__ __volatile__ ("rep stos{%z[Data]|" z "}" \
       : "+D" (Dest), "+c" (Count) \
       : [Data] "a" (Data) \
       : "memory"); \
@@ -305,6 +306,23 @@ Parameters: (FunctionName, DataType, RegisterNumber)
        : "memory"); \
    }
 
+/* This macro is used by __movsb, __movsd, __movsq, __movsw
+
+Parameters: (FunctionName, DataType, RegisterNumber)
+   FunctionName: Any valid function name
+   DataType: unsigned char, unsigned short, unsigned __LONG32, unsigned __int64
+   InstructionSize: b, w, d, q
+
+   */
+#define __buildmov(x, y, z) void x(y *Destination, y const *Source, size_t Count) \
+{ \
+  __asm__ __volatile__ ( \
+    "rep movs" z \
+       : "=D" (Destination), "=S" (Source), "=c" (Count) \
+       : "0" (Destination), "1" (Source), "2" (Count) \
+       : "memory"); \
+}
+
 #endif /* _INTRIN_MAC_ */
 
 /* The Barrier functions can never be in the library.  Since gcc only
@@ -422,6 +440,10 @@ supports ReadWriteBarrier, map all 3 to do the same. */
 #define __INTRINSIC_SPECIAL__bittestandset64
 #define __INTRINSIC_SPECIAL__bittestandreset64
 #define __INTRINSIC_SPECIAL__bittestandcomplement64
+#define __INTRINSIC_SPECIAL___movsb
+#define __INTRINSIC_SPECIAL___movsw
+#define __INTRINSIC_SPECIAL___movsd
+#define __INTRINSIC_SPECIAL___movsq
 
 #endif /* __INTRINSIC_GROUP_WINNT */
 
@@ -473,7 +495,7 @@ void __faststorefence(void) {
 #if __INTRINSIC_PROLOG(__stosq)
 __MINGW_EXTENSION void __stosq(unsigned __int64 *, unsigned __int64, size_t);
 __INTRINSICS_USEINLINE 
-__buildstos(__stosq, unsigned __int64)
+__buildstos(__stosq, unsigned __int64, "q")
 #define __INTRINSIC_DEFINED___stosq
 #endif /* __INTRINSIC_PROLOG */
 
@@ -737,6 +759,13 @@ __build_writecr(__writecr8, unsigned __int64, "8")
 #define __INTRINSIC_DEFINED___writecr8
 #endif /* __INTRINSIC_PROLOG */
 
+#if __INTRINSIC_PROLOG(__movsq)
+__MINGW_EXTENSION void __movsq(unsigned __int64 *Dest, unsigned __int64 const *Source, size_t Count);
+__MINGW_EXTENSION __INTRINSICS_USEINLINE
+__buildmov(__movsq, unsigned __int64, "q")
+#define __INTRINSIC_DEFINED___movsq
+#endif /* __INTRINSIC_PROLOG */
+
 #endif /* __x86_64__ */
 
 /* ***************************************************** */
@@ -755,21 +784,21 @@ void __int2c(void) {
 #if __INTRINSIC_PROLOG(__stosb)
 void __stosb(unsigned char *, unsigned char, size_t);
 __INTRINSICS_USEINLINE 
-__buildstos(__stosb, unsigned char)
+__buildstos(__stosb, unsigned char, "b")
 #define __INTRINSIC_DEFINED___stosb
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__stosw)
 void __stosw(unsigned short *, unsigned short, size_t);
 __INTRINSICS_USEINLINE 
-__buildstos(__stosw, unsigned short)
+__buildstos(__stosw, unsigned short, "w")
 #define __INTRINSIC_DEFINED___stosw
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__stosd)
 void __stosd(unsigned __LONG32 *, unsigned __LONG32, size_t);
 __INTRINSICS_USEINLINE 
-__buildstos(__stosd, unsigned __LONG32)
+__buildstos(__stosd, unsigned __LONG32, "d")
 #define __INTRINSIC_DEFINED___stosd
 #endif /* __INTRINSIC_PROLOG */
 
@@ -1106,6 +1135,27 @@ void __writemsr(unsigned __LONG32 msr, unsigned __int64 Value)
       : "c" (msr), "a" (val1), "d" (val2));
 }
 #define __INTRINSIC_DEFINED___writemsr
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__movsb)
+void __movsb(unsigned char *Destination, unsigned char const *Source, size_t Count);
+__INTRINSICS_USEINLINE
+__buildmov(__movsb, unsigned char, "b")
+#define __INTRINSIC_DEFINED___movsb
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__movsw)
+void __movsw(unsigned short *Dest, unsigned short const *Source, size_t Count);
+__INTRINSICS_USEINLINE
+__buildmov(__movsw, unsigned short, "w")
+#define __INTRINSIC_DEFINED___movsw
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__movsd)
+void __movsd(unsigned __LONG32 *Dest, unsigned __LONG32 const *Source, size_t Count);
+__INTRINSICS_USEINLINE
+__buildmov(__movsd, unsigned __LONG32, "d")
+#define __INTRINSIC_DEFINED___movsd
 #endif /* __INTRINSIC_PROLOG */
 
 #endif /* defined(__x86_64__) || (defined(_X86_) */

@@ -1527,10 +1527,10 @@ extern "C" {
 
 #define ReadTimeStampCounter() __rdtsc()
 
-    VOID __movsb(PBYTE Destination,BYTE const *Source,SIZE_T Count);
-    VOID __movsw(PWORD Destination,WORD const *Source,SIZE_T Count);
-    VOID __movsd(PDWORD Destination,DWORD const *Source,SIZE_T Count);
-    VOID __movsq(PDWORD64 Destination,DWORD64 const *Source,SIZE_T Count);
+    /* VOID __movsb(PBYTE Destination,BYTE const *Source,SIZE_T Count); moved to psdk_inc/intrin-impl.h */
+    /* VOID __movsw(PWORD Destination,WORD const *Source,SIZE_T Count); moved to psdk_inc/intrin-impl.h */
+    /* VOID __movsd(PDWORD Destination,DWORD const *Source,SIZE_T Count); moved to psdk_inc/intrin-impl.h */
+    /* VOID __movsq(PDWORD64 Destination,DWORD64 const *Source,SIZE_T Count); moved to psdk_inc/intrin-impl.h */
 
 #define MultiplyHigh __mulh
 #define UnsignedMultiplyHigh __umulh

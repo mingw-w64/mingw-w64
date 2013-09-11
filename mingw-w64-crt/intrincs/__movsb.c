@@ -1,12 +1,10 @@
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+
+#define __INTRINSIC_ONLYSPECIAL
+#define __INTRINSIC_SPECIAL___movsb /* Causes code generation in intrin-impl.h */
+
 #include <intrin.h>
-
-void __movsb(unsigned char *Destination, unsigned char const *Source, size_t Count)
-{
-  __asm__ __volatile__
-  (
-    "rep; movsb" :
-    [Destination] "=D" (Destination), [Source] "=S" (Source), [Count] "=c" (Count) :
-    "[Destination]" (Destination), "[Source]" (Source), "[Count]" (Count)
-  );
-}
-

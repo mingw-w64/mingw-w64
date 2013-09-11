@@ -1,12 +1,10 @@
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+
+#define __INTRINSIC_ONLYSPECIAL
+#define __INTRINSIC_SPECIAL___movsd /* Causes code generation in intrin-impl.h */
+
 #include <intrin.h>
-
-void __movsd(unsigned __LONG32 *Dest, unsigned __LONG32 const *Source, size_t Count)
-{
-  __asm__ __volatile__
-  (
-    "rep; movsd" :
-    [Dest] "=D" (Dest), [Source] "=S" (Source), [Count] "=c" (Count) :
-    "[Dest]" (Dest), "[Source]" (Source), "[Count]" (Count)
-  );
-}
-

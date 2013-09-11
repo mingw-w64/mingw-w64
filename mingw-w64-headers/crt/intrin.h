@@ -20,13 +20,13 @@
      is included by intrin.h, as well as various platform sdk headers.
    - Including intrin.h will create definitions/implementations for all available MSVC intrinsics.
    - Including various platforms sdk headers will only include the intrinsics defined in that
-     header.  As of this writing, only winnt.h uses this approach.
+     header.  As of this writing, only winnt.h and winbase.h use this approach.
    - If an application defines its own prototypes for intrinsics (ie without including any
      platform header or intrin.h), the symbols will be resolved from the library.  Since this
      will likely result in the code being invoked via 'call', performance may be degraded.
 
    If you wish to implement intrinsic functions that are defined in intrin.h but are not
-   yet implemented in mingw, see the comments at the top of intrin-impl.h.
+   yet implemented in mingw-w64, see the comments at the top of intrin-impl.h.
 */
 
 #ifndef __INTRIN_H_
@@ -1020,10 +1020,10 @@ extern "C" {
 #ifndef __GNUC__
     __MACHINEI(__MINGW_EXTENSION unsigned __int64 __rdtsc(void))
 #endif
-    __MACHINEI(void __movsb(unsigned char *,unsigned char const *,size_t))
-    __MACHINEI(void __movsw(unsigned short *,unsigned short const *,size_t))
-    __MACHINEI(void __movsd(unsigned __LONG32 *,unsigned __LONG32 const *,size_t))
-    __MACHINEX64(__MINGW_EXTENSION void __movsq(unsigned long long *,unsigned long long const *,size_t))
+    /* __MACHINEI(void __movsb(unsigned char *,unsigned char const *,size_t)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEI(void __movsw(unsigned short *,unsigned short const *,size_t)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEI(void __movsd(unsigned __LONG32 *,unsigned __LONG32 const *,size_t)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINEX64(__MINGW_EXTENSION void __movsq(unsigned long long *,unsigned long long const *,size_t)) moved to psdk_inc/intrin-impl.h */
     /* __MACHINEX64(unsigned char __readgsbyte(unsigned __LONG32 Offset)) moved to psdk_inc/intrin-impl.h */
     /* __MACHINEX64(unsigned short __readgsword(unsigned __LONG32 Offset)) moved to psdk_inc/intrin-impl.h */
     /* __MACHINEX64(unsigned __LONG32 __readgsdword(unsigned __LONG32 Offset)) moved to psdk_inc/intrin-impl.h */
