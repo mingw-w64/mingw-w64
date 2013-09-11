@@ -300,10 +300,10 @@ if LIB32
 
 lib32dir=$(prefix)/@LIB32SUFFIXDIR@
 crt32dir=$(lib32dir)
-winrtdir=$(lib32dir)
-dxdir=$(lib32dir)
+winrt32dir=$(lib32dir)
+dx32dir=$(lib32dir)
 
-winrt_DATA = $(winrtlibs)
+winrt32_DATA = $(winrtlibs)
 
 if !W32API
 crt32_DATA = \
@@ -512,17 +512,17 @@ lib32/libvfw32.a: lib32/vfw32.mri lib32/libmsvfw32.a lib32/libavifil32.a lib32/l
 	$(AR) -M < $<
 	$(RANLIB) $@
 
-dx_DATA =
-dx_DATA += lib32/libxinput.a
-dx_DATA += lib32/libxaudio.a
-dx_DATA += lib32/libxaudiod.a
-dx_DATA += lib32/libxapofx.a
-dx_DATA += lib32/libx3daudio.a
-dx_DATA += lib32/libd3dx9.a
-dx_DATA += lib32/libd3dx10.a
-dx_DATA += lib32/libd3dx11.a
-dx_DATA += lib32/libd3dcsxd.a
-dx_DATA += lib32/libd3dcompiler.a
+dx32_DATA =
+dx32_DATA += lib32/libxinput.a
+dx32_DATA += lib32/libxaudio.a
+dx32_DATA += lib32/libxaudiod.a
+dx32_DATA += lib32/libxapofx.a
+dx32_DATA += lib32/libx3daudio.a
+dx32_DATA += lib32/libd3dx9.a
+dx32_DATA += lib32/libd3dx10.a
+dx32_DATA += lib32/libd3dx11.a
+dx32_DATA += lib32/libd3dcsxd.a
+dx32_DATA += lib32/libd3dcompiler.a
 
 lib32/libxinput.a: lib32/$(xinput).def
 	$(DTDEF32) $<
@@ -558,9 +558,9 @@ if LIB64
 
 lib64dir=$(prefix)/@LIB64SUFFIXDIR@
 crt64dir=$(lib64dir)
-winrtdir=$(lib64dir)
+winrt64dir=$(lib64dir)
 
-winrt_DATA = $(winrtlibs)
+winrt64_DATA = $(winrtlibs)
 
 if !W32API
 crt64_DATA = \
@@ -1085,13 +1085,14 @@ CLEANFILES = $(BUILT_SOURCES) $(crt64_DATA) $(lib64_DATA) $(crt32_DATA) $(lib32_
 
 EXTRA_DIST = $(srcdir)/ChangeLog.*
 EXTRA_DIST += revstamp.h \
-  $(top_srcdir)/lib64/*.def \
-  $(top_srcdir)/lib64/*.mri \
   $(top_srcdir)/lib32/*.def \
+  $(top_srcdir)/lib64/*.def \
+  $(top_srcdir)/lib32/*.mri \
+  $(top_srcdir)/lib64/*.mri \
   $(top_srcdir)/lib32/*.def.in \
   $(top_srcdir)/lib64/*.def.in \
   $(top_srcdir)/def-include/*.def.in \
-  $(top_srcdir)/lib32/*.mri \
+  $(top_srcdir)/$(winrtlibs) \
   crt/binmode.c \
   crt/crtbegin.c \
   crt/crtdll.c \
@@ -1104,13 +1105,13 @@ EXTRA_DIST += revstamp.h \
   crt/txtmode.c \
   crt/ucrtexe.c \
   profile/gcrt0.c \
-  profile/COPYING profile/CYGWIN_LICENSE
+  profile/COPYING \
+  profile/CYGWIN_LICENSE
 
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet) $(withsys)
 
 dist-hook:
 	find $(top_distdir) -name ".svn" -delete
-
 
 # Testsuite options
 
