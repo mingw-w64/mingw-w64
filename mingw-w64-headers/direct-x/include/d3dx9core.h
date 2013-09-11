@@ -67,11 +67,11 @@ typedef struct ID3DXSprite *LPD3DXSPRITE;
 DECLARE_INTERFACE_(ID3DXBuffer, IUnknown)
 {
     /*** IUnknown methods ***/
-    STDMETHOD(QueryInterface) (THIS_ REFIID riid, LPVOID *object) PURE;
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **out) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
     /*** ID3DXBuffer methods ***/
-    STDMETHOD_(LPVOID, GetBufferPointer)(THIS) PURE;
+    STDMETHOD_(void *, GetBufferPointer)(THIS) PURE;
     STDMETHOD_(DWORD, GetBufferSize)(THIS) PURE;
 };
 #undef INTERFACE
@@ -129,7 +129,7 @@ __MINGW_TYPEDEF_AW(LPD3DXFONT_DESC)
 DECLARE_INTERFACE_(ID3DXFont, IUnknown)
 {
     /*** IUnknown methods ***/
-    STDMETHOD(QueryInterface)(THIS_ REFIID riid, LPVOID *object) PURE;
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **out) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
     /*** ID3DXFont methods ***/
@@ -145,8 +145,8 @@ DECLARE_INTERFACE_(ID3DXFont, IUnknown)
 
     STDMETHOD(PreloadCharacters)(THIS_ UINT first, UINT last) PURE;
     STDMETHOD(PreloadGlyphs)(THIS_ UINT first, UINT last) PURE;
-    STDMETHOD(PreloadTextA)(THIS_ LPCSTR string, INT count) PURE;
-    STDMETHOD(PreloadTextW)(THIS_ LPCWSTR string, INT count) PURE;
+    STDMETHOD(PreloadTextA)(THIS_ const char *string, INT count) PURE;
+    STDMETHOD(PreloadTextW)(THIS_ const WCHAR *string, INT count) PURE;
 
     STDMETHOD_(INT, DrawTextA)(THIS_ struct ID3DXSprite *sprite, const char *string,
             INT count, RECT *rect, DWORD format, D3DCOLOR color) PURE;
@@ -211,7 +211,7 @@ DECLARE_INTERFACE_(ID3DXFont, IUnknown)
 DECLARE_INTERFACE_(ID3DXLine, IUnknown)
 {
     /*** IUnknown methods ***/
-    STDMETHOD(QueryInterface)(THIS_ REFIID riid, LPVOID *object) PURE;
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **out) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
@@ -300,7 +300,7 @@ typedef struct _D3DXRTE_DESC
 DECLARE_INTERFACE_(ID3DXRenderToEnvMap, IUnknown)
 {
     /*** IUnknown methods ***/
-    STDMETHOD(QueryInterface)(THIS_ REFIID riid, LPVOID *object) PURE;
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **out) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
@@ -368,7 +368,7 @@ typedef struct _D3DXRTS_DESC
 DECLARE_INTERFACE_(ID3DXRenderToSurface, IUnknown)
 {
     /*** IUnknown methods ***/
-    STDMETHOD(QueryInterface) (THIS_ REFIID riid, LPVOID *object) PURE;
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **out) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
     /*** ID3DXRenderToSurface methods ***/
@@ -413,7 +413,7 @@ DECLARE_INTERFACE_(ID3DXRenderToSurface, IUnknown)
 DECLARE_INTERFACE_(ID3DXSprite, IUnknown)
 {
     /*** IUnknown methods ***/
-    STDMETHOD(QueryInterface)(THIS_ REFIID riid, LPVOID *object) PURE;
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **object) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
     /*** ID3DXSprite methods ***/

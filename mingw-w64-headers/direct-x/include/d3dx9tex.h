@@ -84,8 +84,10 @@ typedef struct _D3DXIMAGE_INFO
  ****************** Functions *****************
  **********************************************/
 /* Typedefs for callback functions */
-typedef VOID (WINAPI *LPD3DXFILL2D)(D3DXVECTOR4 *out, CONST D3DXVECTOR2 *texcoord, CONST D3DXVECTOR2 *texelsize, LPVOID data);
-typedef VOID (WINAPI *LPD3DXFILL3D)(D3DXVECTOR4 *out, CONST D3DXVECTOR3 *texcoord, CONST D3DXVECTOR3 *texelsize, LPVOID data);
+typedef void (WINAPI *LPD3DXFILL2D)(D3DXVECTOR4 *out, const D3DXVECTOR2 *texcoord,
+        const D3DXVECTOR2 *texelsize, void *data);
+typedef void (WINAPI *LPD3DXFILL3D)(D3DXVECTOR4 *out, const D3DXVECTOR3 *texcoord,
+        const D3DXVECTOR3 *texelsize, void *data);
 
 #ifdef __cplusplus
 extern "C" {
@@ -93,15 +95,15 @@ extern "C" {
 
 
 /* Image Information */
-HRESULT WINAPI D3DXGetImageInfoFromFileA(LPCSTR file, D3DXIMAGE_INFO *info);
-HRESULT WINAPI D3DXGetImageInfoFromFileW(LPCWSTR file, D3DXIMAGE_INFO *info);
+HRESULT WINAPI D3DXGetImageInfoFromFileA(const char *file, D3DXIMAGE_INFO *info);
+HRESULT WINAPI D3DXGetImageInfoFromFileW(const WCHAR *file, D3DXIMAGE_INFO *info);
 #define        D3DXGetImageInfoFromFile __MINGW_NAME_AW(D3DXGetImageInfoFromFile)
 
-HRESULT WINAPI D3DXGetImageInfoFromResourceA(HMODULE module, LPCSTR resource, D3DXIMAGE_INFO *info);
-HRESULT WINAPI D3DXGetImageInfoFromResourceW(HMODULE module, LPCWSTR resource, D3DXIMAGE_INFO *info);
+HRESULT WINAPI D3DXGetImageInfoFromResourceA(HMODULE module, const char *resource, D3DXIMAGE_INFO *info);
+HRESULT WINAPI D3DXGetImageInfoFromResourceW(HMODULE module, const WCHAR *resource, D3DXIMAGE_INFO *info);
 #define        D3DXGetImageInfoFromResource __MINGW_NAME_AW(D3DXGetImageInfoFromResource)
 
-HRESULT WINAPI D3DXGetImageInfoFromFileInMemory(LPCVOID data, UINT datasize, D3DXIMAGE_INFO *info);
+HRESULT WINAPI D3DXGetImageInfoFromFileInMemory(const void *data, UINT data_size, D3DXIMAGE_INFO *info);
 
 
 /* Surface Loading/Saving */
