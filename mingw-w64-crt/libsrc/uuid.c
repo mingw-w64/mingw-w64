@@ -12,6 +12,7 @@
 */
 
 #define _WIN32_IE 0x0900
+#define NTDDI_VERSION NTDDI_WIN8
 
 #define INITGUID
 #include <basetyps.h>
