@@ -766,6 +766,40 @@ __buildmov(__movsq, unsigned __int64, "q")
 #define __INTRINSIC_DEFINED___movsq
 #endif /* __INTRINSIC_PROLOG */
 
+#if __INTRINSIC_PROLOG(__shiftleft128)
+unsigned __int64 __shiftleft128(unsigned __int64  LowPart, unsigned __int64 HighPart, unsigned char Shift);
+__INTRINSICS_USEINLINE
+unsigned __int64 __shiftleft128 (unsigned __int64  LowPart, unsigned __int64 HighPart, unsigned char Shift)
+{
+   unsigned __int64 ret;
+
+   __asm__ ("shld {%[Shift],%[LowPart],%[HighPart]|%[HighPart], %[LowPart], %[Shift]}" 
+      : [ret] "=r" (ret)
+      : [LowPart] "r" (LowPart), [HighPart] "0" (HighPart), [Shift] "Jc" (Shift)
+      : "cc");
+
+   return ret;
+}
+#define __INTRINSIC_DEFINED___shiftleft128
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(__shiftright128)
+unsigned __int64 __shiftright128 (unsigned __int64  LowPart, unsigned __int64 HighPart, unsigned char Shift);
+__INTRINSICS_USEINLINE
+unsigned __int64 __shiftright128 (unsigned __int64  LowPart, unsigned __int64 HighPart, unsigned char Shift)
+{
+   unsigned __int64 ret;
+
+   __asm__ ("shrd {%[Shift],%[HighPart],%[LowPart]|%[LowPart], %[HighPart], %[Shift]}" 
+      : [ret] "=r" (ret)
+      : [LowPart] "0" (LowPart), [HighPart] "r" (HighPart), [Shift] "Jc" (Shift)
+      : "cc");
+
+   return ret;
+}
+#define __INTRINSIC_DEFINED___shiftright128
+#endif /* __INTRINSIC_PROLOG */
+
 #endif /* __x86_64__ */
 
 /* ***************************************************** */
