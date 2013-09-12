@@ -43,6 +43,10 @@ extern "C" {
 #endif
 
 #include <d3d10_1shader.h>
+#define D3D10_1_SHADER_MAJOR_VERSION (4)
+
+#define D3D10_1_SHADER_MINOR_VERSION (1)
+
 typedef enum D3D10_FEATURE_LEVEL1 {
     D3D10_FEATURE_LEVEL_10_0 = 0xa000,
     D3D10_FEATURE_LEVEL_10_1 = 0xa100,
