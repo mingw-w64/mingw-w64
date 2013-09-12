@@ -2588,7 +2588,8 @@ src_libmingwex32 = \
 @LIB32_TRUE@  lib32/libxapofx1_0.a      lib32/libxapofx1_1.a      lib32/libxapofx1_2.a \
 @LIB32_TRUE@  lib32/libxapofx1_3.a      lib32/libxapofx1_4.a      lib32/libxapofx1_5.a \
 @LIB32_TRUE@  lib32/libxapofxd1_5.a     lib32/libxinput1_1.a      lib32/libxinput1_2.a \
-@LIB32_TRUE@  lib32/libxinput1_3.a      \
+@LIB32_TRUE@  lib32/libxinput1_3.a      lib32/libxinput1_4.a      lib32/libxinput9_1_0.a \
+@LIB32_TRUE@  lib32/libxaudio2_8.a      \
 @LIB32_TRUE@  \
 @LIB32_TRUE@  lib32/libxinput.a         lib32/libxapofx.a         lib32/libx3daudio.a  \
 @LIB32_TRUE@  lib32/libd3dx9.a          lib32/libd3dx10.a         lib32/libd3dx11.a    \
@@ -2922,7 +2923,8 @@ src_libmingwex32 = \
 @LIB64_TRUE@  lib64/libxapofx1_0.a      lib64/libxapofx1_1.a      lib64/libxapofx1_2.a \
 @LIB64_TRUE@  lib64/libxapofx1_3.a      lib64/libxapofx1_4.a      lib64/libxapofx1_5.a \
 @LIB64_TRUE@  lib64/libxapofxd1_5.a     lib64/libxinput1_1.a      lib64/libxinput1_2.a \
-@LIB64_TRUE@  lib64/libxinput1_3.a      \
+@LIB64_TRUE@  lib64/libxinput1_3.a      lib64/libxinput1_4.a      lib64/libxinput9_1_0.a \
+@LIB64_TRUE@  lib64/libxaudio2_8.a      \
 @LIB64_TRUE@  \
 @LIB64_TRUE@  lib64/libxinput.a         lib64/libxapofx.a         lib64/libx3daudio.a  \
 @LIB64_TRUE@  lib64/libd3dx9.a          lib64/libd3dx10.a         lib64/libd3dx11.a    \
