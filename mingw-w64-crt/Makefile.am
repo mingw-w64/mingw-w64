@@ -498,7 +498,8 @@ lib32_DATA = \
   lib32/libxapofx1_0.a      lib32/libxapofx1_1.a      lib32/libxapofx1_2.a \
   lib32/libxapofx1_3.a      lib32/libxapofx1_4.a      lib32/libxapofx1_5.a \
   lib32/libxapofxd1_5.a     lib32/libxinput1_1.a      lib32/libxinput1_2.a \
-  lib32/libxinput1_3.a      \
+  lib32/libxinput1_3.a      lib32/libxinput1_4.a      lib32/libxinput9_1_0.a \
+  lib32/libxaudio2_8.a      \
   \
   lib32/libxinput.a         lib32/libxapofx.a         lib32/libx3daudio.a  \
   lib32/libd3dx9.a          lib32/libd3dx10.a         lib32/libd3dx11.a    \
@@ -946,7 +947,8 @@ lib64_DATA = \
   lib64/libxapofx1_0.a      lib64/libxapofx1_1.a      lib64/libxapofx1_2.a \
   lib64/libxapofx1_3.a      lib64/libxapofx1_4.a      lib64/libxapofx1_5.a \
   lib64/libxapofxd1_5.a     lib64/libxinput1_1.a      lib64/libxinput1_2.a \
-  lib64/libxinput1_3.a      \
+  lib64/libxinput1_3.a      lib64/libxinput1_4.a      lib64/libxinput9_1_0.a \
+  lib64/libxaudio2_8.a      \
   \
   lib64/libxinput.a         lib64/libxapofx.a         lib64/libx3daudio.a  \
   lib64/libd3dx9.a          lib64/libd3dx10.a         lib64/libd3dx11.a    \
