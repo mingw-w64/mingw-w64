@@ -1,22 +1,10 @@
-#include <_mingw.h>
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
 
-#ifdef _WIN64
-#ifndef __SIZEOF_INT128__
-typedef unsigned int __uint128 __attribute__ ((__mode__ (TI)));
-#else
-typedef unsigned __int128 __uint128;
-#endif
+#define __INTRINSIC_ONLYSPECIAL
+#define __INTRINSIC_SPECIAL__umul128 /* Causes code generation in intrin-impl.h */
 
-unsigned __int64 _umul128(unsigned __int64, unsigned __int64, unsigned __int64 *);
-
-unsigned __int64 _umul128(unsigned __int64 a, unsigned __int64 b, unsigned __int64 *hi)
-{
-  union { __uint128 v; unsigned __int64 sv[2]; } var;
-  var.v = ((__uint128) a) * ((__uint128) b);
-  if (hi) *hi = var.sv[1];
-  return var.sv[0];
-}
-
-#endif /* _WIN64 */
-
-
+#include <intrin.h>

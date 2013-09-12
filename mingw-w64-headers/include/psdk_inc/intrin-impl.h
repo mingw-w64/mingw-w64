@@ -766,6 +766,34 @@ __buildmov(__movsq, unsigned __int64, "q")
 #define __INTRINSIC_DEFINED___movsq
 #endif /* __INTRINSIC_PROLOG */
 
+#if __INTRINSIC_PROLOG(_umul128)
+unsigned __int64 _umul128(unsigned __int64, unsigned __int64, unsigned __int64 *);
+__INTRINSICS_USEINLINE
+unsigned __int64 _umul128(unsigned __int64 a, unsigned __int64 b, unsigned __int64 *hi)
+{
+   __MINGW_EXTENSION union { unsigned __int128 v; unsigned __int64 sv[2]; } var;
+   var.v = a;
+   var.v *= b;
+   if (hi) *hi = var.sv[1];
+   return var.sv[0];
+}
+#define __INTRINSIC_DEFINED__umul128
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_mul128)
+__int64 _mul128(__int64, __int64, __int64 *);
+__INTRINSICS_USEINLINE
+__int64 _mul128(__int64 a, __int64 b, __int64 *hi)
+{
+   __MINGW_EXTENSION union { __int128 v; __int64 sv[2]; } var;
+   var.v = a;
+   var.v *= b;
+   if (hi) *hi = var.sv[1];
+   return var.sv[0];
+}
+#define __INTRINSIC_DEFINED__mul128
+#endif /* __INTRINSIC_PROLOG */
+
 #if __INTRINSIC_PROLOG(__shiftleft128)
 unsigned __int64 __shiftleft128(unsigned __int64  LowPart, unsigned __int64 HighPart, unsigned char Shift);
 __INTRINSICS_USEINLINE
