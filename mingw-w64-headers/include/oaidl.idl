@@ -153,6 +153,13 @@ cpp_quote("")
   const USHORT FADF_RESERVED = 0xf008;
 
 cpp_quote("")
+cpp_quote("/* Kludge for 3.0 release to disable new default-behavior.")
+cpp_quote(" * For now we define _FORCENAMELESSUNION.  For 4.0 this define")
+cpp_quote(" * will be removed. */")
+cpp_quote("#ifndef _FORCENAMELESSUNION")
+cpp_quote("#define _FORCENAMELESSUNION 1")
+cpp_quote("#endif")
+cpp_quote("")
 cpp_quote("#if (__STDC__ && !defined(__cplusplus) && !defined(_FORCENAMELESSUNION)) || defined(NONAMELESSUNION) || (defined (_MSC_VER) && !defined(_MSC_EXTENSIONS) && !defined(_FORCENAMELESSUNION))")
 cpp_quote("#define __VARIANT_NAME_1 n1")
 cpp_quote("#define __VARIANT_NAME_2 n2")
