@@ -1080,7 +1080,7 @@ typedef struct D3D10_SUBRESOURCE_DATA {
     UINT SysMemSlicePitch;
 } D3D10_SUBRESOURCE_DATA;
 typedef struct D3D10_SO_DECLARATION_ENTRY {
-    LPCSTR SemanticName;
+    const char *SemanticName;
     UINT SemanticIndex;
     BYTE StartComponent;
     BYTE ComponentCount;
@@ -1091,7 +1091,7 @@ typedef enum D3D10_INPUT_CLASSIFICATION {
     D3D10_INPUT_PER_INSTANCE_DATA = 1
 } D3D10_INPUT_CLASSIFICATION;
 typedef struct D3D10_INPUT_ELEMENT_DESC {
-    LPCSTR SemanticName;
+    const char *SemanticName;
     UINT SemanticIndex;
     DXGI_FORMAT Format;
     UINT InputSlot;
@@ -4812,11 +4812,11 @@ ID3D10Device : public IUnknown
         const D3D10_COUNTER_DESC *pDesc,
         D3D10_COUNTER_TYPE *pType,
         UINT *pActiveCounters,
-        LPSTR szName,
+        char *name,
         UINT *pNameLength,
-        LPSTR szUnits,
+        char *units,
         UINT *pUnitsLength,
-        LPSTR szDescription,
+        char *description,
         UINT *pDescriptionLength) = 0;
 
     virtual UINT STDMETHODCALLTYPE GetCreationFlags(
@@ -5359,11 +5359,11 @@ typedef struct ID3D10DeviceVtbl {
         const D3D10_COUNTER_DESC *pDesc,
         D3D10_COUNTER_TYPE *pType,
         UINT *pActiveCounters,
-        LPSTR szName,
+        char *name,
         UINT *pNameLength,
-        LPSTR szUnits,
+        char *units,
         UINT *pUnitsLength,
-        LPSTR szDescription,
+        char *description,
         UINT *pDescriptionLength);
 
     UINT (STDMETHODCALLTYPE *GetCreationFlags)(
@@ -5488,7 +5488,7 @@ interface ID3D10Device {
 #define ID3D10Device_CheckFormatSupport(This,Format,pFormatSupport) (This)->lpVtbl->CheckFormatSupport(This,Format,pFormatSupport)
 #define ID3D10Device_CheckMultisampleQualityLevels(This,Format,SampleCount,pNumQualityLevels) (This)->lpVtbl->CheckMultisampleQualityLevels(This,Format,SampleCount,pNumQualityLevels)
 #define ID3D10Device_CheckCounterInfo(This,pCounterInfo) (This)->lpVtbl->CheckCounterInfo(This,pCounterInfo)
-#define ID3D10Device_CheckCounter(This,pDesc,pType,pActiveCounters,szName,pNameLength,szUnits,pUnitsLength,szDescription,pDescriptionLength) (This)->lpVtbl->CheckCounter(This,pDesc,pType,pActiveCounters,szName,pNameLength,szUnits,pUnitsLength,szDescription,pDescriptionLength)
+#define ID3D10Device_CheckCounter(This,pDesc,pType,pActiveCounters,name,pNameLength,units,pUnitsLength,description,pDescriptionLength) (This)->lpVtbl->CheckCounter(This,pDesc,pType,pActiveCounters,name,pNameLength,units,pUnitsLength,description,pDescriptionLength)
 #define ID3D10Device_GetCreationFlags(This) (This)->lpVtbl->GetCreationFlags(This)
 #define ID3D10Device_OpenSharedResource(This,hResource,ReturnedInterface,ppResource) (This)->lpVtbl->OpenSharedResource(This,hResource,ReturnedInterface,ppResource)
 #define ID3D10Device_SetTextFilterSize(This,Width,Height) (This)->lpVtbl->SetTextFilterSize(This,Width,Height)
@@ -5775,8 +5775,8 @@ static FORCEINLINE HRESULT ID3D10Device_CheckMultisampleQualityLevels(ID3D10Devi
 static FORCEINLINE void ID3D10Device_CheckCounterInfo(ID3D10Device* This,D3D10_COUNTER_INFO *pCounterInfo) {
     This->lpVtbl->CheckCounterInfo(This,pCounterInfo);
 }
-static FORCEINLINE HRESULT ID3D10Device_CheckCounter(ID3D10Device* This,const D3D10_COUNTER_DESC *pDesc,D3D10_COUNTER_TYPE *pType,UINT *pActiveCounters,LPSTR szName,UINT *pNameLength,LPSTR szUnits,UINT *pUnitsLength,LPSTR szDescription,UINT *pDescriptionLength) {
-    return This->lpVtbl->CheckCounter(This,pDesc,pType,pActiveCounters,szName,pNameLength,szUnits,pUnitsLength,szDescription,pDescriptionLength);
+static FORCEINLINE HRESULT ID3D10Device_CheckCounter(ID3D10Device* This,const D3D10_COUNTER_DESC *pDesc,D3D10_COUNTER_TYPE *pType,UINT *pActiveCounters,char *name,UINT *pNameLength,char *units,UINT *pUnitsLength,char *description,UINT *pDescriptionLength) {
+    return This->lpVtbl->CheckCounter(This,pDesc,pType,pActiveCounters,name,pNameLength,units,pUnitsLength,description,pDescriptionLength);
 }
 static FORCEINLINE UINT ID3D10Device_GetCreationFlags(ID3D10Device* This) {
     return This->lpVtbl->GetCreationFlags(This);
@@ -6658,11 +6658,11 @@ HRESULT STDMETHODCALLTYPE ID3D10Device_CheckCounter_Proxy(
     const D3D10_COUNTER_DESC *pDesc,
     D3D10_COUNTER_TYPE *pType,
     UINT *pActiveCounters,
-    LPSTR szName,
+    char *name,
     UINT *pNameLength,
-    LPSTR szUnits,
+    char *units,
     UINT *pUnitsLength,
-    LPSTR szDescription,
+    char *description,
     UINT *pDescriptionLength);
 void __RPC_STUB ID3D10Device_CheckCounter_Stub(
     IRpcStubBuffer* This,

@@ -8622,7 +8622,7 @@ typedef enum D3D11_CREATE_DEVICE_FLAG {
 
 #include <d3d10_1.h>
 #ifndef D3D11_IGNORE_SDK_LAYERS
-/* FIXME: # include <d3d11sdklayers.h> */
+# include <d3d11sdklayers.h>
 #endif
 #include <d3d10misc.h>
 #include <d3d10shader.h>

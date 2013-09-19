@@ -1529,6 +1529,14 @@ void __RPC_STUB IDXGIAdapter_CheckInterfaceSupport_Stub(
 
 #endif  /* __IDXGIAdapter_INTERFACE_DEFINED__ */
 
+#define DXGI_MAX_SWAP_CHAIN_BUFFERS  (16)
+#define DXGI_PRESENT_TEST                   __MSABI_LONG(0x00000001U)
+#define DXGI_PRESENT_DO_NOT_SEQUENCE        __MSABI_LONG(0x00000002U)
+#define DXGI_PRESENT_RESTART                __MSABI_LONG(0x00000004U)
+#define DXGI_PRESENT_DO_NOT_WAIT            __MSABI_LONG(0x00000008U)
+#define DXGI_PRESENT_STEREO_PREFER_RIGHT    __MSABI_LONG(0x00000010U)
+#define DXGI_PRESENT_STEREO_TEMPORARY_MONO  __MSABI_LONG(0x00000020U)
+#define DXGI_PRESENT_RESTRICT_TO_OUTPUT     __MSABI_LONG(0x00000040U)
 /*****************************************************************************
  * IDXGISwapChain interface
  */

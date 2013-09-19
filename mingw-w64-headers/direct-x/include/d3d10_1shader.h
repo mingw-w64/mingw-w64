@@ -28,18 +28,18 @@ DEFINE_GUID(IID_ID3D10ShaderReflection1, 0xc3457783, 0xa846, 0x47ce, 0x95, 0x20,
 DECLARE_INTERFACE_(ID3D10ShaderReflection1, IUnknown)
 {
     /* IUnknown methods */
-    STDMETHOD(QueryInterface)(THIS_ REFIID riid, LPVOID *object) PURE;
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **out) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
     /* ID3D10ShaderReflection1 methods */
     STDMETHOD(GetDesc)(THIS_ D3D10_SHADER_DESC *desc) PURE;
     STDMETHOD_(struct ID3D10ShaderReflectionConstantBuffer *, GetConstantBufferByIndex)(THIS_ UINT index) PURE;
-    STDMETHOD_(struct ID3D10ShaderReflectionConstantBuffer *, GetConstantBufferByName)(THIS_ LPCSTR name) PURE;
+    STDMETHOD_(struct ID3D10ShaderReflectionConstantBuffer *, GetConstantBufferByName)(THIS_ const char *name) PURE;
     STDMETHOD(GetResourceBindingDesc)(THIS_ UINT index, D3D10_SHADER_INPUT_BIND_DESC *desc) PURE;
     STDMETHOD(GetInputParameterDesc)(THIS_ UINT index, D3D10_SIGNATURE_PARAMETER_DESC *desc) PURE;
     STDMETHOD(GetOutputParameterDesc)(THIS_ UINT index, D3D10_SIGNATURE_PARAMETER_DESC *desc) PURE;
-    STDMETHOD_(struct ID3D10ShaderReflectionVariable *, GetVariableByName)(THIS_ LPCSTR name) PURE;
-    STDMETHOD(GetResourceBindingDescByName)(THIS_ LPCSTR name, D3D10_SHADER_INPUT_BIND_DESC *desc) PURE;
+    STDMETHOD_(struct ID3D10ShaderReflectionVariable *, GetVariableByName)(THIS_ const char *name) PURE;
+    STDMETHOD(GetResourceBindingDescByName)(THIS_ const char *name, D3D10_SHADER_INPUT_BIND_DESC *desc) PURE;
     STDMETHOD(GetMovInstructionCount)(THIS_ UINT *count) PURE;
     STDMETHOD(GetMovcInstructionCount)(THIS_ UINT *count) PURE;
     STDMETHOD(GetConversionInstructionCount)(THIS_ UINT *count) PURE;

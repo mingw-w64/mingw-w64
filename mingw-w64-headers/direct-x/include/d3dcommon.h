@@ -37,8 +37,8 @@ extern "C" {
 #endif
 
 typedef struct _D3D_SHADER_MACRO {
-    LPCSTR Name;
-    LPCSTR Definition;
+    const char *Name;
+    const char *Definition;
 } D3D_SHADER_MACRO;
 typedef struct _D3D_SHADER_MACRO *LPD3D_SHADER_MACRO;
 /*****************************************************************************
@@ -776,6 +776,7 @@ typedef enum _D3D_SHADER_INPUT_TYPE {
     D3D11_SIT_UAV_CONSUME_STRUCTURED = 10,
     D3D11_SIT_UAV_RWSTRUCTURED_WITH_COUNTER = 11
 } D3D_SHADER_INPUT_TYPE;
+DEFINE_GUID(WKPDID_D3DDebugObjectName,0x429b8c22,0x9188,0x4b0c,0x87,0x42,0xac,0xb0,0xbf,0x85,0xc2,0x00);
 /* Begin additional prototypes for all interfaces */
 
 

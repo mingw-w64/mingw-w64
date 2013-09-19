@@ -920,11 +920,11 @@ typedef struct ID3D10Device1Vtbl {
         const D3D10_COUNTER_DESC *pDesc,
         D3D10_COUNTER_TYPE *pType,
         UINT *pActiveCounters,
-        LPSTR szName,
+        char *name,
         UINT *pNameLength,
-        LPSTR szUnits,
+        char *units,
         UINT *pUnitsLength,
-        LPSTR szDescription,
+        char *description,
         UINT *pDescriptionLength);
 
     UINT (STDMETHODCALLTYPE *GetCreationFlags)(
@@ -1064,7 +1064,7 @@ interface ID3D10Device1 {
 #define ID3D10Device1_CheckFormatSupport(This,Format,pFormatSupport) (This)->lpVtbl->CheckFormatSupport(This,Format,pFormatSupport)
 #define ID3D10Device1_CheckMultisampleQualityLevels(This,Format,SampleCount,pNumQualityLevels) (This)->lpVtbl->CheckMultisampleQualityLevels(This,Format,SampleCount,pNumQualityLevels)
 #define ID3D10Device1_CheckCounterInfo(This,pCounterInfo) (This)->lpVtbl->CheckCounterInfo(This,pCounterInfo)
-#define ID3D10Device1_CheckCounter(This,pDesc,pType,pActiveCounters,szName,pNameLength,szUnits,pUnitsLength,szDescription,pDescriptionLength) (This)->lpVtbl->CheckCounter(This,pDesc,pType,pActiveCounters,szName,pNameLength,szUnits,pUnitsLength,szDescription,pDescriptionLength)
+#define ID3D10Device1_CheckCounter(This,pDesc,pType,pActiveCounters,name,pNameLength,units,pUnitsLength,description,pDescriptionLength) (This)->lpVtbl->CheckCounter(This,pDesc,pType,pActiveCounters,name,pNameLength,units,pUnitsLength,description,pDescriptionLength)
 #define ID3D10Device1_GetCreationFlags(This) (This)->lpVtbl->GetCreationFlags(This)
 #define ID3D10Device1_OpenSharedResource(This,hResource,ReturnedInterface,ppResource) (This)->lpVtbl->OpenSharedResource(This,hResource,ReturnedInterface,ppResource)
 #define ID3D10Device1_SetTextFilterSize(This,Width,Height) (This)->lpVtbl->SetTextFilterSize(This,Width,Height)
@@ -1355,8 +1355,8 @@ static FORCEINLINE HRESULT ID3D10Device1_CheckMultisampleQualityLevels(ID3D10Dev
 static FORCEINLINE void ID3D10Device1_CheckCounterInfo(ID3D10Device1* This,D3D10_COUNTER_INFO *pCounterInfo) {
     This->lpVtbl->CheckCounterInfo(This,pCounterInfo);
 }
-static FORCEINLINE HRESULT ID3D10Device1_CheckCounter(ID3D10Device1* This,const D3D10_COUNTER_DESC *pDesc,D3D10_COUNTER_TYPE *pType,UINT *pActiveCounters,LPSTR szName,UINT *pNameLength,LPSTR szUnits,UINT *pUnitsLength,LPSTR szDescription,UINT *pDescriptionLength) {
-    return This->lpVtbl->CheckCounter(This,pDesc,pType,pActiveCounters,szName,pNameLength,szUnits,pUnitsLength,szDescription,pDescriptionLength);
+static FORCEINLINE HRESULT ID3D10Device1_CheckCounter(ID3D10Device1* This,const D3D10_COUNTER_DESC *pDesc,D3D10_COUNTER_TYPE *pType,UINT *pActiveCounters,char *name,UINT *pNameLength,char *units,UINT *pUnitsLength,char *description,UINT *pDescriptionLength) {
+    return This->lpVtbl->CheckCounter(This,pDesc,pType,pActiveCounters,name,pNameLength,units,pUnitsLength,description,pDescriptionLength);
 }
 static FORCEINLINE UINT ID3D10Device1_GetCreationFlags(ID3D10Device1* This) {
     return This->lpVtbl->GetCreationFlags(This);

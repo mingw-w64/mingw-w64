@@ -287,6 +287,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/activprof.idl \
 @HAVE_WIDL_TRUE@  include/activscp.idl \
 @HAVE_WIDL_TRUE@  include/audioclient.idl \
+@HAVE_WIDL_TRUE@  include/audioendpoints.idl \
 @HAVE_WIDL_TRUE@  include/audiopolicy.idl \
 @HAVE_WIDL_TRUE@  include/control.idl \
 @HAVE_WIDL_TRUE@  include/ctfutb.idl \
@@ -354,6 +355,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  direct-x/include/d3d10.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/d3d10_1.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/d3d11.idl \
+@HAVE_WIDL_TRUE@  direct-x/include/d3d11sdklayers.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/d3dcommon.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/ddstream.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/dmodshow.idl \
