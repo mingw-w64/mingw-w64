@@ -11,7 +11,7 @@
 #define __MINGW64_STRINGIFY(x) \
   __STRINGIFY(x)
 
-#define __MINGW64_VERSION_MAJOR 3
+#define __MINGW64_VERSION_MAJOR 4
 #define __MINGW64_VERSION_MINOR 0
 
 /* This macro holds an monotonic increasing value, which indicates
@@ -20,7 +20,7 @@
    fix was applied to trunk.  This macro gets just increased on trunk.  For
    other branches its value won't be modified.  */
 
-#define __MINGW64_VERSION_RC 1
+#define __MINGW64_VERSION_RC 0
 
 #define __MINGW64_VERSION_STR	\
   __MINGW64_STRINGIFY(__MINGW64_VERSION_MAJOR) \

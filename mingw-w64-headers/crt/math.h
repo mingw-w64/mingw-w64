@@ -105,6 +105,16 @@ extern "C" {
     } lh;
   } __mingw_ldbl_type_t;
 
+  typedef union __mingw_fp_types_t
+  {
+    long double *ld;
+    double *d;
+    float *f;
+    __mingw_ldbl_type_t *ldt;
+    __mingw_dbl_type_t *dt;
+    __mingw_flt_type_t *ft;
+  } __mingw_fp_types_t;
+
 #endif
 
 #ifndef _HUGE
@@ -367,12 +377,12 @@ typedef long double double_t;
   }
   __CRT_INLINE int __cdecl __fpclassify (double x) {
 #ifdef __x86_64__
-    __mingw_dbl_type_t hlp;
+    __mingw_fp_types_t hlp;
     unsigned int l, h;
 
-    hlp.x = x;
-    h = hlp.lh.high;
-    l = hlp.lh.low | (h & 0xfffff);
+    hlp.d = &x;
+    h = hlp.ldt->lh.high;
+    l = hlp.ldt->lh.low | (h & 0xfffff);
     h &= 0x7ff00000;
     if ((h | l) == 0)
       return FP_ZERO;
@@ -389,16 +399,16 @@ typedef long double double_t;
   }
   __CRT_INLINE int __cdecl __fpclassifyf (float x) {
 #ifdef __x86_64__
-    __mingw_flt_type_t hlp;
+    __mingw_fp_types_t hlp;
 
-    hlp.x = x;
-    hlp.val &= 0x7fffffff;
-    if (hlp.val == 0)
+    hlp.f = &x;
+    hlp.ft->val &= 0x7fffffff;
+    if (hlp.ft->val == 0)
       return FP_ZERO;
-    if (hlp.val < 0x800000)
+    if (hlp.ft->val < 0x800000)
       return FP_SUBNORMAL;
-    if (hlp.val >= 0x7f800000)
-      return (hlp.val > 0x7f800000 ? FP_NAN : FP_INFINITE);
+    if (hlp.ft->val >= 0x7f800000)
+      return (hlp.ft->val > 0x7f800000 ? FP_NAN : FP_INFINITE);
     return FP_NORMAL;
 #else
     unsigned short sw;
@@ -430,12 +440,12 @@ typedef long double double_t;
   __CRT_INLINE int __cdecl __isnan (double _x)
   {
 #ifdef __x86_64__
-    __mingw_dbl_type_t hlp;
+    __mingw_fp_types_t hlp;
     int l, h;
 
-    hlp.x = _x;
-    l = hlp.lh.low;
-    h = hlp.lh.high & 0x7fffffff;
+    hlp.d = &_x;
+    l = hlp.dt->lh.low;
+    h = hlp.dt->lh.high & 0x7fffffff;
     h |= (unsigned int) (l | -l) >> 31;
     h = 0x7ff00000 - h;
     return (int) ((unsigned int) h) >> 31;
@@ -451,11 +461,11 @@ typedef long double double_t;
   __CRT_INLINE int __cdecl __isnanf (float _x)
   {
 #ifdef __x86_64__
-    __mingw_flt_type_t hlp;
+    __mingw_fp_types_t hlp;
     int i;
     
-    hlp.x = _x;
-    i = hlp.val & 0x7fffffff;
+    hlp.f = &_x;
+    i = hlp.ft->val & 0x7fffffff;
     i = 0x7f800000 - i;
     return (int) (((unsigned int) i) >> 31);
 #else
@@ -469,11 +479,23 @@ typedef long double double_t;
 
   __CRT_INLINE int __cdecl __isnanl (long double _x)
   {
+#ifdef __x86_64__
+    __mingw_fp_types_t ld;
+    int xx, signexp;
+
+    ld.ld = &_x;
+    signexp = (ld.ldt->lh.sign_exponent & 0x7fff) << 1;
+    xx = (int) (ld.ldt->lh.low | (ld.ldt->lh.high & 0x7fffffffu)); /* explicit */
+    signexp |= (unsigned int) (xx | (-xx)) >> 31;
+    signexp = 0xfffe - signexp;
+    return (int) ((unsigned int) signexp) >> 16;
+#else
     unsigned short sw;
     __asm__ __volatile__ ("fxam;"
       "fstsw %%ax": "=a" (sw) : "t" (_x));
     return (sw & (FP_NAN | FP_NORMAL | FP_INFINITE | FP_ZERO | FP_SUBNORMAL))
       == FP_NAN;
+#endif
   }
 #endif
 
@@ -491,10 +513,10 @@ typedef long double double_t;
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl __signbit (double x) {
 #ifdef __x86_64__
-    __mingw_dbl_type_t hlp;
+    __mingw_fp_types_t hlp;
     
-    hlp.x = x;
-    return ((hlp.lh.high & 0x80000000) != 0);
+    hlp.d = &x;
+    return ((hlp.dt->lh.high & 0x80000000) != 0);
 #else
     unsigned short stw;
     __asm__ __volatile__ ( "fxam; fstsw %%ax;": "=a" (stw) : "t" (x));
@@ -504,9 +526,9 @@ typedef long double double_t;
 
   __CRT_INLINE int __cdecl __signbitf (float x) {
 #ifdef __x86_64__
-    __mingw_flt_type_t hlp;
-    hlp.x = x;
-    return ((hlp.val & 0x80000000) != 0);
+    __mingw_fp_types_t hlp;
+    hlp.f = &x;
+    return ((hlp.ft->val & 0x80000000) != 0);
 #else
     unsigned short stw;
     __asm__ __volatile__ ("fxam; fstsw %%ax;": "=a" (stw) : "t" (x));
@@ -515,9 +537,15 @@ typedef long double double_t;
   }
 
   __CRT_INLINE int __cdecl __signbitl (long double x) {
+#ifdef __x86_64__
+    __mingw_fp_types_t ld;
+    ld.ld = &x;
+    return ((ld.ldt->lh.sign_exponent & 0x8000) != 0);
+#else
     unsigned short stw;
     __asm__ __volatile__ ("fxam; fstsw %%ax;": "=a" (stw) : "t" (x));
     return stw & 0x0200;
+#endif
   }
 #endif
 
@@ -651,12 +679,12 @@ typedef long double double_t;
   __CRT_INLINE double __cdecl logb (double x)
   {
 #ifdef __x86_64__
-  __mingw_dbl_type_t hlp;
+  __mingw_fp_types_t hlp;
   int lx, hx;
 
-  hlp.x = x;
-  lx = hlp.lh.low;
-  hx = hlp.lh.high & 0x7fffffff; /* high |x| */
+  hlp.d = &x;
+  lx = hlp.dt->lh.low;
+  hx = hlp.dt->lh.high & 0x7fffffff; /* high |x| */
   if ((hx | lx) == 0)
     return -1.0 / fabs (x);
   if (hx >= 0x7ff00000)
@@ -676,10 +704,10 @@ typedef long double double_t;
   {
 #ifdef __x86_64__
     int v;
-    __mingw_flt_type_t hlp;
+    __mingw_fp_types_t hlp;
 
-    hlp.x = x;
-    v = hlp.val & 0x7fffffff;                     /* high |x| */
+    hlp.f = &x;
+    v = hlp.ft->val & 0x7fffffff;                     /* high |x| */
     if (!v)
       return (float)-1.0 / fabsf (x);
     if (v >= 0x7f800000)
