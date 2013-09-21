@@ -156,7 +156,7 @@ __inline int IsEqualGUID (REFGUID rguid1, REFGUID rguid2) {
   return !memcmp (&rguid1,&rguid2, sizeof (GUID));
 }
 #else
-#define InlineIsEqualGUID(rguid1, rguid2) ((&rguid1->Data1)[0] == (&rguid2->Data1)[0] && (&rguid1->Data1)[1] == (&rguid2->Data1)[1] && (&rguid1->Data1)[2] == (&rguid2->Data1)[2] && (&rguid1->Data1)[3] == (&rguid2->Data1)[3])
+#define InlineIsEqualGUID(rguid1, rguid2) ((&(rguid1)->Data1)[0] == (&(rguid2)->Data1)[0] && (&(rguid1)->Data1)[1] == (&(rguid2)->Data1)[1] && (&(rguid1)->Data1)[2] == (&(rguid2)->Data1)[2] && (&(rguid1)->Data1)[3] == (&(rguid2)->Data1)[3])
 #define IsEqualGUID(rguid1, rguid2) (!memcmp (rguid1, rguid2, sizeof (GUID)))
 #endif
 
