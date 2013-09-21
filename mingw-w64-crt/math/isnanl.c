@@ -8,11 +8,23 @@
 int
 __isnanl (long double _x)
 {
+#ifdef __x86_64__
+  __mingw_fp_types_t ld;
+  int xx, signexp;
+
+  ld.ld = &_x;
+  signexp = (ld.ldt->lh.sign_exponent & 0x7fff) << 1;
+  xx = (int) (ld.ldt->lh.low | (ld.ldt->lh.high & 0x7fffffffu)); /* explicit */
+  signexp |= (unsigned int) (xx | (-xx)) >> 31;
+  signexp = 0xfffe - signexp;
+  return (int) ((unsigned int) signexp) >> 16;
+#else
   unsigned short _sw;
   __asm__ __volatile__ ("fxam;"
 	   "fstsw %%ax": "=a" (_sw) : "t" (_x));
   return (_sw & (FP_NAN | FP_NORMAL | FP_INFINITE | FP_ZERO | FP_SUBNORMAL))
     == FP_NAN;
+#endif
 }
 
 int __attribute__ ((alias ("__isnanl"))) isnanl (long double);
