@@ -619,7 +619,7 @@ typedef struct _LARGE_INTEGER {
 #define MAXWORD 0xffff
 #define MAXDWORD 0xffffffff
 
-#define FIELD_OFFSET(type,field) ((LONG)(LONG_PTR)&(((type *)0)->field))
+#define FIELD_OFFSET(Type, Field) ((LONG) __builtin_offsetof(Type, Field))
 #define RTL_FIELD_SIZE(type,field) (sizeof(((type *)0)->field))
 #define RTL_SIZEOF_THROUGH_FIELD(type,field) (FIELD_OFFSET(type,field) + RTL_FIELD_SIZE(type,field))
 #define RTL_CONTAINS_FIELD(Struct,Size,Field) ((((PCHAR)(&(Struct)->Field)) + sizeof((Struct)->Field)) <= (((PCHAR)(Struct))+(Size)))

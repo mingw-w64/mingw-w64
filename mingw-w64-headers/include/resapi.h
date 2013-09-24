@@ -97,7 +97,7 @@ extern "C" {
   } CLRES_FUNCTION_TABLE,*PCLRES_FUNCTION_TABLE;
 
 #ifndef FIELD_OFFSET
-#define FIELD_OFFSET(type,field) ((LONG)&(((type *)0)->field))
+#define FIELD_OFFSET(Type, Field) ((LONG) __builtin_offsetof(Type, Field))
 #endif
 
   typedef struct RESUTIL_LARGEINT_DATA {
