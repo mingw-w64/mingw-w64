@@ -239,6 +239,7 @@ typedef const DSCAPS *LPCDSCAPS;
 
 #define DSBSIZE_MIN                 4
 #define DSBSIZE_MAX                 0xFFFFFFF
+#define DSBSIZE_FX_MIN		    150
 #define DSBPAN_LEFT                 -10000
 #define DSBPAN_CENTER               0
 #define DSBPAN_RIGHT                 10000
@@ -347,6 +348,8 @@ typedef const DSBPOSITIONNOTIFY *LPCDSBPOSITIONNOTIFY;
 
 #define DS_CERTIFIED                0x00000000
 #define DS_UNCERTIFIED              0x00000001
+
+#define DS3DALG_DEFAULT GUID_NULL
 
 typedef struct _DSCEFFECTDESC
 {
@@ -1040,7 +1043,7 @@ DECLARE_INTERFACE_(IDirectSound3DListener,IUnknown)
 #define IDirectSound3DListener_SetVelocity(p,a,b,c,d)          (p)->SetVelocity(a,b,c,d)
 #define IDirectSound3DListener_CommitDeferredSettings(p)       (p)->CommitDeferredSettings()
 #endif
-
+#define IDirectSound3DListener8 IDirectSound3DListener
 
 /*****************************************************************************
  * IDirectSound3DBuffer interface
@@ -1138,6 +1141,7 @@ DECLARE_INTERFACE_(IDirectSound3DBuffer,IUnknown)
 #define IDirectSound3DBuffer_SetPosition(p,a,b,c,d)        (p)->SetPosition(a,b,c,d)
 #define IDirectSound3DBuffer_SetVelocity(p,a,b,c,d)        (p)->SetVelocity(a,b,c,d)
 #endif
+#define IDirectSound3DBuffer8 IDirectSound3DBuffer
 
 /*****************************************************************************
  * IKsPropertySet interface
