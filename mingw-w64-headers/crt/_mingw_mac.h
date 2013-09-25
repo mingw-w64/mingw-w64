@@ -27,7 +27,7 @@
   "." \
   __MINGW64_STRINGIFY(__MINGW64_VERSION_MINOR)
 
-#define __MINGW64_VERSION_STATE "alpha"
+#define __MINGW64_VERSION_STATE "stable"
 
 /* mingw.org's version macros: these make gcc to define
    MINGW32_SUPPORTS_MT_EH and to use the _CRT_MT global
