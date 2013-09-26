@@ -2921,12 +2921,19 @@ extern "C" {
 #endif
 #if MICROSOFT_WINDOWS_WINBASE_H_DEFINE_INTERLOCKED_CPLUSPLUS_OVERLOADS && defined (__cplusplus)
 extern "C++" {
+#if defined(__x86_64__) && defined(__CYGWIN__)
+#define __MINGW_USE_INT64_INTERLOCKED_LONG
+#endif
   FORCEINLINE unsigned InterlockedIncrement (unsigned volatile *Addend) {
     return (unsigned) InterlockedIncrement ((volatile __LONG32 *) Addend);
   }
 
-  FORCEINLINE unsigned __LONG32 InterlockedIncrement (unsigned __LONG32 volatile *Addend) {
+  FORCEINLINE unsigned long InterlockedIncrement (unsigned long volatile *Addend) {
+#ifndef __MINGW_USE_INT64_INTERLOCKED_LONG
     return (unsigned __LONG32) InterlockedIncrement ((volatile __LONG32 *) Addend);
+#else
+    return (unsigned long) InterlockedIncrement64 ((volatile __int64 *) Addend);
+#endif
   }
 
 #if defined (_WIN64) || ((_WIN32_WINNT >= 0x0502) && defined (_WINBASE_))
@@ -2936,11 +2943,15 @@ extern "C++" {
 #endif
 
   FORCEINLINE unsigned InterlockedDecrement (unsigned volatile *Addend) {
-    return (unsigned __LONG32) InterlockedDecrement ((volatile __LONG32 *) Addend);
+    return (unsigned) InterlockedDecrement ((volatile __LONG32 *) Addend);
   }
 
-  FORCEINLINE unsigned __LONG32 InterlockedDecrement (unsigned __LONG32 volatile *Addend) {
+  FORCEINLINE unsigned long InterlockedDecrement (unsigned long volatile *Addend) {
+#ifndef __MINGW_USE_INT64_INTERLOCKED_LONG
     return (unsigned __LONG32) InterlockedDecrement ((volatile __LONG32 *) Addend);
+#else
+    return (unsigned long) InterlockedDecrement64 ((volatile __int64 *) Addend);
+#endif
   }
 
 #if defined (_WIN64) || ((_WIN32_WINNT >= 0x0502) && defined (_WINBASE_))
@@ -2953,8 +2964,12 @@ extern "C++" {
     return (unsigned) InterlockedExchange ((volatile __LONG32 *) Target,(__LONG32) Value);
   }
 
-  FORCEINLINE unsigned __LONG32 InterlockedExchange (unsigned __LONG32 volatile *Target, unsigned __LONG32 Value) {
+  FORCEINLINE unsigned long InterlockedExchange (unsigned long volatile *Target, unsigned long Value) {
+#ifndef __MINGW_USE_INT64_INTERLOCKED_LONG
     return (unsigned __LONG32) InterlockedExchange ((volatile __LONG32 *) Target,(__LONG32) Value);
+#else
+    return (unsigned long) InterlockedExchange64 ((volatile __int64 *) Target,(__int64) Value);
+#endif
   }
 
 #if defined (_WIN64) || ((_WIN32_WINNT >= 0x0502) && defined (_WINBASE_))
@@ -2971,12 +2986,20 @@ extern "C++" {
     return (unsigned) InterlockedExchangeAdd ((volatile __LONG32 *) Addend,- (__LONG32) Value);
   }
 
-  FORCEINLINE unsigned __LONG32 InterlockedExchangeAdd (unsigned __LONG32 volatile *Addend, unsigned __LONG32 Value) {
+  FORCEINLINE unsigned long InterlockedExchangeAdd (unsigned long volatile *Addend, unsigned long Value) {
+#ifndef __MINGW_USE_INT64_INTERLOCKED_LONG
     return (unsigned __LONG32) InterlockedExchangeAdd ((volatile __LONG32 *) Addend,(__LONG32) Value);
+#else
+    return (unsigned __int64) InterlockedExchangeAdd64 ((volatile __int64 *) Addend,(__int64) Value);
+#endif
   }
 
-  FORCEINLINE unsigned __LONG32 InterlockedExchangeSubtract (unsigned __LONG32 volatile *Addend, unsigned __LONG32 Value) {
+  FORCEINLINE unsigned long InterlockedExchangeSubtract (unsigned long volatile *Addend, unsigned long Value) {
+#ifndef __MINGW_USE_INT64_INTERLOCKED_LONG
     return (unsigned __LONG32) InterlockedExchangeAdd ((volatile __LONG32 *) Addend,- (__LONG32) Value);
+#else
+    return (unsigned long) InterlockedExchangeAdd64 ((volatile __int64 *) Addend,- (__int64) Value);
+#endif
   }
 
 #if defined (_WIN64) || ((_WIN32_WINNT >= 0x0502) && defined (_WINBASE_))
@@ -2993,8 +3016,12 @@ extern "C++" {
     return (unsigned) InterlockedCompareExchange ((volatile __LONG32 *) Destination,(__LONG32) Exchange,(__LONG32) Comperand);
   }
 
-  FORCEINLINE unsigned __LONG32 InterlockedCompareExchange (unsigned __LONG32 volatile *Destination, unsigned __LONG32 Exchange, unsigned __LONG32 Comperand) {
+  FORCEINLINE unsigned long InterlockedCompareExchange (unsigned long volatile *Destination, unsigned long Exchange, unsigned long Comperand) {
+#ifndef __MINGW_USE_INT64_INTERLOCKED_LONG
     return (unsigned __LONG32) InterlockedCompareExchange ((volatile __LONG32 *) Destination,(__LONG32) Exchange,(__LONG32) Comperand);
+#else
+    return (unsigned long) InterlockedCompareExchange64 ((volatile __int64 *) Destination,(__int64) Exchange,(__int64) Comperand);
+#endif
   }
 
 #if defined (_WIN64) || ((_WIN32_WINNT >= 0x0502) && defined (_WINBASE_))
