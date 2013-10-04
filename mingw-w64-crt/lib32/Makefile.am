@@ -263,6 +263,7 @@ lib32_DATA += %reldir%/libvdmdbg.a
 lib32_DATA += %reldir%/libversion.a
 lib32_DATA += %reldir%/libvideoprt.a
 lib32_DATA += %reldir%/libvirtdisk.a
+lib32_DATA += %reldir%/libvfw32.a
 lib32_DATA += %reldir%/libvss_ps.a
 lib32_DATA += %reldir%/libvssapi.a
 lib32_DATA += %reldir%/libvsstrace.a
