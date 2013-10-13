@@ -50,6 +50,11 @@
  ******************************************************************
  *
  */
+
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include <stdio.h>
 #include <stdarg.h>
 #include <stddef.h>
@@ -59,6 +64,15 @@
 #include <limits.h>
 #include <locale.h>
 #include <wchar.h>
+
+#ifdef __ENABLE_DFP
+#ifndef __STDC_WANT_DEC_FP__
+#define __STDC_WANT_DEC_FP__ 1
+#endif
+
+#include "../math/DFP/dfp_internal.h"
+#endif /* __ENABLE_DFP */
+
 #include <math.h>
 
 /* FIXME: The following belongs in values.h, but current MinGW
@@ -66,6 +80,28 @@
  * header, and it's use may be considered obsolete; perhaps it
  * is better to just keep these definitions here.
  */
+
+#include <pshpack1.h>
+/* workaround gcc bug */
+#ifdef __GNUC__
+#define ATTRIB_GCC_STRUCT __attribute__((gcc_struct))
+#else
+#define ATTRIB_GCC_STRUCT
+#endif
+typedef struct ATTRIB_GCC_STRUCT __tI128 {
+  int64_t digits[2];
+} __tI128;
+
+typedef struct ATTRIB_GCC_STRUCT __tI128_2 {
+  uint32_t digits32[4];
+} __tI128_2;
+
+typedef union ATTRIB_GCC_STRUCT __uI128 {
+  __tI128 t128;
+  __tI128_2 t128_2;
+} __uI128;
+#include <poppack.h>
+
 #ifndef _VALUES_H
 /*
  * values.h
@@ -77,7 +113,11 @@
 
 #define _TYPEBITS(type)     (sizeof(type) * CHAR_BIT)
 
+#if defined(__ENABLE_PRINTF128) || defined(__ENABLE_DFP)
+#define LLONGBITS           _TYPEBITS(__tI128)
+#else
 #define LLONGBITS           _TYPEBITS(long long)
+#endif
 
 #endif /* !defined _VALUES_H -- end of file */
 
@@ -86,34 +126,40 @@
 /* Bit-map constants, defining the internal format control
  * states, which propagate through the flags.
  */
-#define PFORMAT_GROUPED     0x1000
-#define PFORMAT_HASHED      0x0800
-#define PFORMAT_LJUSTIFY    0x0400
-#define PFORMAT_ZEROFILL    0x0200
+#define PFORMAT_GROUPED     0x00001000
+#define PFORMAT_HASHED      0x00000800
+#define PFORMAT_LJUSTIFY    0x00000400
+#define PFORMAT_ZEROFILL    0x00000200
 
 #define PFORMAT_JUSTIFY    (PFORMAT_LJUSTIFY | PFORMAT_ZEROFILL)
 #define PFORMAT_IGNORE      -1
 
-#define PFORMAT_SIGNED      0x01C0
-#define PFORMAT_POSITIVE    0x0100
-#define PFORMAT_NEGATIVE    0x0080
-#define PFORMAT_ADDSPACE    0x0040
+#define PFORMAT_SIGNED      0x000001C0
+#define PFORMAT_POSITIVE    0x00000100
+#define PFORMAT_NEGATIVE    0x00000080
+#define PFORMAT_ADDSPACE    0x00000040
 
-#define PFORMAT_XCASE       0x0020
+#define PFORMAT_XCASE       0x00000020
 
-#define PFORMAT_LDOUBLE     0x0004
+#define PFORMAT_LDOUBLE     0x00000004
+
+#ifdef __ENABLE_DFP
+#define PFORMAT_DECIM32     0x00020000
+#define PFORMAT_DECIM64     0x00040000
+#define PFORMAT_DECIM128    0x00080000
+#endif
 
 /* `%o' format digit extraction mask, and shift count...
  * (These are constant, and do not propagate through the flags).
  */
-#define PFORMAT_OMASK       0x0007
-#define PFORMAT_OSHIFT      0x0003
+#define PFORMAT_OMASK       0x00000007
+#define PFORMAT_OSHIFT      0x00000003
 
 /* `%x' and `%X' format digit extraction mask, and shift count...
  * (These are constant, and do not propagate through the flags).
  */
-#define PFORMAT_XMASK       0x000F
-#define PFORMAT_XSHIFT      0x0004
+#define PFORMAT_XMASK       0x0000000F
+#define PFORMAT_XSHIFT      0x00000004
 
 /* The radix point character, used in floating point formats, is
  * localised on the basis of the active LC_NUMERIC locale category.
@@ -199,7 +245,8 @@ typedef union
   unsigned char           __pformat_uchar_t;
   signed short            __pformat_short_t;
   signed char             __pformat_char_t;
-  void *		  __pformat_ptr_t;
+  void *                  __pformat_ptr_t;
+  __uI128                 __pformat_u128_t;
 } __pformat_intarg_t;
 
 typedef enum
@@ -223,6 +270,7 @@ typedef enum
   PFORMAT_LENGTH_SHORT,
   PFORMAT_LENGTH_LONG,
   PFORMAT_LENGTH_LLONG,
+  PFORMAT_LENGTH_LLONG128,
   PFORMAT_LENGTH_CHAR
 } __pformat_length_t;
 /*
@@ -230,12 +278,35 @@ typedef enum
  * matching index, selected from those above; the compiler should
  * collapse this to a simple assignment.
  */
+
+#ifdef __GNUC__
+/* provides for some deadcode elimination via compile time eval */
+#define __pformat_arg_length(x) \
+__builtin_choose_expr (                                         \
+  __builtin_types_compatible_p (typeof (x), __tI128),           \
+   PFORMAT_LENGTH_LLONG128,                                     \
+    __builtin_choose_expr (                                     \
+      __builtin_types_compatible_p (typeof (x), long long),     \
+        PFORMAT_LENGTH_LLONG,                                   \
+    __builtin_choose_expr (                                     \
+      __builtin_types_compatible_p (typeof (x), long),          \
+        PFORMAT_LENGTH_LONG,                                    \
+    __builtin_choose_expr (                                     \
+      __builtin_types_compatible_p (typeof (x), short),         \
+        PFORMAT_LENGTH_SHORT,                                   \
+    __builtin_choose_expr (                                     \
+      __builtin_types_compatible_p (typeof (x), char),          \
+        PFORMAT_LENGTH_CHAR,                                    \
+  PFORMAT_LENGTH_INT)))))
+#else
 #define __pformat_arg_length( type )    \
+  sizeof( type ) == sizeof( __tI128 )   ? PFORMAT_LENGTH_LLONG128 : \
   sizeof( type ) == sizeof( long long ) ? PFORMAT_LENGTH_LLONG : \
   sizeof( type ) == sizeof( long )      ? PFORMAT_LENGTH_LONG  : \
   sizeof( type ) == sizeof( short )     ? PFORMAT_LENGTH_SHORT : \
   sizeof( type ) == sizeof( char )      ? PFORMAT_LENGTH_CHAR  : \
   /* should never need this default */    PFORMAT_LENGTH_INT
+#endif
 
 typedef struct
 {
@@ -256,6 +327,92 @@ typedef struct
   int            quota;
   int            expmin;
 } __pformat_t;
+
+/* trim leading, leave at least n characters */
+static char * __bigint_trim_leading_zeroes(char *in, int n){
+  char *src = in;
+  int len = strlen(in);
+  while( len > n && *++src == '0') len--;
+
+  /* we want to null terminator too */
+  memmove(in, src, strlen(src) + 1);
+  return in;
+}
+
+#if defined(__ENABLE_PRINTF128) || defined(__ENABLE_DFP)
+/* LSB first */
+static
+void __bigint_to_string(const uint32_t *digits, const uint32_t digitlen, char *buff, const uint32_t bufflen){
+  int64_t digitsize = sizeof(*digits) * 8;
+  int64_t shiftpos = digitlen * digitsize - 1;
+  memset(buff, 0, bufflen);
+
+  while(shiftpos >= 0) {
+    /* increment */
+    for(uint32_t i = 0; i < bufflen - 1; i++){
+      buff[i] += (buff[i] > 4) ? 3 : 0;
+    }
+
+    /* shift left */
+    for(uint32_t i = 0; i < bufflen - 1; i++)
+      buff[i] <<= 1;
+
+    /* shift in */
+    buff[bufflen - 2] |= digits[shiftpos / digitsize] & (0x1 << (shiftpos % digitsize)) ? 1 : 0;
+
+    /* overflow check */
+    for(uint32_t i = bufflen - 1; i > 0; i--){
+      buff[i - 1] |= (buff[i] > 0xf);
+      buff[i] &= 0x0f;
+    }
+    shiftpos--;
+  }
+
+  for(uint32_t i = 0; i < bufflen - 1; i++){
+    buff[i] += '0';
+  }
+  buff[bufflen - 1] = '\0';
+}
+
+/* LSB first, hex version */
+static
+void __bigint_to_stringx(const uint32_t *digits, const uint32_t digitlen, char *buff, const uint32_t bufflen, int upper){
+  int32_t stride = sizeof(*digits) * 2;
+  uint32_t lastpos = 0;
+
+  for(uint32_t i = 0; i < digitlen * stride; i++){
+    int32_t buffpos = bufflen - i - 2;
+    buff[buffpos] = (digits[ i / stride ] & (0xf << 4 * (i % stride))) >> ( 4 * (i % stride));
+    buff[buffpos] += (buff[buffpos] > 9) ? ((upper) ? 0x7 : 0x27) : 0;
+    buff[buffpos] += '0';
+    lastpos = buffpos;
+    if(buffpos == 0) break; /* sanity check */
+  }
+  memset(buff, '0', lastpos);
+  buff[bufflen - 1] = '\0';
+}
+
+/* LSB first, octet version */
+static
+void __bigint_to_stringo(const uint32_t *digits, const uint32_t digitlen, char *buff, const uint32_t bufflen){
+  const uint32_t digitsize = sizeof(*digits) * 8;
+  const uint64_t bits = digitsize * digitlen;
+  uint32_t pos = bufflen - 2;
+  uint32_t reg = 0;
+  for(uint32_t i = 0; i <= bits; i++){
+    reg |= (digits[ i / digitsize] & (0x1 << (i % digitsize))) ? 1 << (i % 3) : 0;
+    if( (i && ( i + 1) % 3 == 0) || (i + 1) == bits){ /* make sure all is committed after last bit */
+      buff[pos] = '0' + reg;
+      reg = 0;
+      if(!pos) break; /* sanity check */
+      pos--;
+    }
+  }
+  if(pos < bufflen - 1)
+    memset(buff,'0', pos + 1);
+  buff[bufflen - 1] = '\0';
+}
+#endif /* defined(__ENABLE_PRINTF128) || defined(__ENABLE_DFP) */
 
 static
 void __pformat_putc( int c, __pformat_t *stream )
@@ -499,21 +656,29 @@ void __pformat_int( __pformat_intarg_t value, __pformat_t *stream )
    * formatted as a decimal number, to the `__pformat()' output queue;
    * output will be truncated, if any specified quota is exceeded.
    */
-  char buf[__pformat_int_bufsiz(1, PFORMAT_OSHIFT, stream)];
+  int32_t bufflen = __pformat_int_bufsiz(1, PFORMAT_OSHIFT, stream);
+  char *tmp_buff = NULL;
+  char *buf = NULL;
   char *p = buf; int precision;
 
+  tmp_buff = alloca(bufflen);
+  buf = alloca(bufflen);
   if( stream->flags & PFORMAT_NEGATIVE )
   {
     /* The input value might be negative, (i.e. it is a signed value)...
      */
-    if( value.__pformat_llong_t < 0LL )
+#ifdef __ENABLE_PRINTF128
+    if( value.__pformat_u128_t.t128.digits[1] < 0) {
       /*
        * It IS negative, but we want to encode it as unsigned,
        * displayed with a leading minus sign, so convert it...
        */
-      value.__pformat_llong_t = -value.__pformat_llong_t;
-
-    else
+      /* two's complement */
+      value.__pformat_u128_t.t128.digits[0] = ~value.__pformat_u128_t.t128.digits[0];
+      value.__pformat_u128_t.t128.digits[1] = ~value.__pformat_u128_t.t128.digits[1];
+      value.__pformat_u128_t.t128.digits[0] += 1;
+      value.__pformat_u128_t.t128.digits[1] += (!value.__pformat_u128_t.t128.digits[0]) ? 1 : 0;
+    } else
       /* It is unequivocally a POSITIVE value, so turn off the
        * request to prefix it with a minus sign...
        */
@@ -522,7 +687,23 @@ void __pformat_int( __pformat_intarg_t value, __pformat_t *stream )
 
   /* Encode the input value for display...
    */
-  while( value.__pformat_ullong_t )
+  __bigint_to_string(value.__pformat_u128_t.t128_2.digits32,
+    4, tmp_buff, bufflen);
+  __bigint_trim_leading_zeroes(tmp_buff,1);
+
+  memset(p,0,bufflen);
+  for(int32_t i = strlen(tmp_buff) - 1; i >= 0; i--){
+  if ( i && (stream->flags & PFORMAT_GROUPED) != 0 && stream->thousands_chr != 0
+        && (i % 4) == 3)
+      {
+        *p++ = ',';
+      }
+      *p++ = tmp_buff[i];
+    if( i > bufflen - 1) break; /* sanity chec */
+    if(  tmp_buff[i] == '\0' ) break; /* end */
+  }
+#else
+while( value.__pformat_ullong_t )
   {
     /* decomposing it into its constituent decimal digits,
      * in order from least significant to most significant, using
@@ -536,6 +717,7 @@ void __pformat_int( __pformat_intarg_t value, __pformat_t *stream )
     *p++ = '0' + (unsigned char)(value.__pformat_ullong_t % 10LL);
     value.__pformat_ullong_t /= 10LL;
   }
+#endif
 
   if(  (stream->precision > 0)
   &&  ((precision = stream->precision - (p - buf)) > 0)  )
@@ -630,11 +812,27 @@ void __pformat_xint( int fmt, __pformat_intarg_t value, __pformat_t *stream )
    * digits of the formatted value, in preparation for output.
    */
   int width;
-  int mask = (fmt == 'o') ? PFORMAT_OMASK : PFORMAT_XMASK;
+  /* int mask = (fmt == 'o') ? PFORMAT_OMASK : PFORMAT_XMASK;*/
   int shift = (fmt == 'o') ? PFORMAT_OSHIFT : PFORMAT_XSHIFT;
-  char buf[__pformat_int_bufsiz(2, shift, stream)];
-  char *p = buf;
+  int bufflen = __pformat_int_bufsiz(2, shift, stream);
+  char *buf = NULL;
+  char *tmp_buf = NULL;
+  char *p;
+#ifdef __ENABLE_PRINTF128
+  tmp_buf = alloca(bufflen);
+  buf = alloca(bufflen);
+  p = buf;
+  if(fmt == 'o'){
+    __bigint_to_stringo(value.__pformat_u128_t.t128_2.digits32,4,tmp_buf,bufflen);
+  } else {
+    __bigint_to_stringx(value.__pformat_u128_t.t128_2.digits32,4,tmp_buf,bufflen, !(fmt & PFORMAT_XCASE));
+  }
+  __bigint_trim_leading_zeroes(tmp_buf,0);
 
+  memset(buf,0,bufflen);
+  for(int32_t i = strlen(tmp_buf); i >= 0; i--)
+    *p++ = tmp_buf[i];
+#else
   while( value.__pformat_ullong_t )
   {
     /* Encode the specified non-zero input value as a sequence of digits,
@@ -647,6 +845,7 @@ void __pformat_xint( int fmt, __pformat_intarg_t value, __pformat_t *stream )
       *q = (*q + 'A' - '9' - 1) | (fmt & PFORMAT_XCASE);
     value.__pformat_ullong_t >>= shift;
   }
+#endif
 
   if( p == buf )
     /*
@@ -1314,6 +1513,222 @@ void __pformat_float( long double x, __pformat_t *stream )
   __pformat_fcvt_release( value );
 }
 
+#ifdef __ENABLE_DFP
+
+typedef struct decimal128_decode {
+  int64_t significand[2];
+  int32_t exponent;
+  int sig_neg;
+  int exp_neg;
+} decimal128_decode;
+
+static uint32_t dec128_decode(decimal128_decode *result, const _Decimal128 deci){
+  int64_t significand2;
+  int64_t significand1;
+  int32_t exp_part;
+  int8_t sig_sign;
+  ud128 in;
+  in.d = deci;
+
+  if(in.t0.bits == 0x3){ /*case 11 */
+    /* should not enter here */
+    sig_sign = in.t2.sign;
+    exp_part = in.t2.exponent;
+    significand1 = in.t2.mantissaL;
+    significand2 = (in.t2.mantissaH | (0x1ULL << 49));
+  } else {
+    sig_sign = in.t1.sign;
+    exp_part = in.t1.exponent;
+    significand1 = in.t1.mantissaL;
+    significand2 = in.t1.mantissaH;
+  }
+  exp_part -= 6176; /* exp bias */
+
+  result->significand[0] = significand1;
+  result->significand[1] = significand2; /* higher */
+  result->exponent = exp_part;
+  result->exp_neg = (exp_part < 0 )? 1 : 0;
+  result->sig_neg = sig_sign;
+
+  return 0;
+}
+
+static
+void  __pformat_efloat_decimal(_Decimal128 x, __pformat_t *stream ){
+  decimal128_decode in;
+  char str_exp[8];
+  char str_sig[40];
+  int floatclass = __fpclassifyd128(x);
+
+  /* precision control */
+  int32_t prec = ( (stream->precision < 0) || (stream->precision > 38) ) ?
+    6 : stream->precision;
+  int32_t max_prec;
+  int32_t exp_strlen;
+
+  dec128_decode(&in,x);
+
+  if((floatclass & FP_INFINITE) == FP_INFINITE){
+    stream->precision = 3;
+    if(stream->flags & PFORMAT_SIGNED)
+      __pformat_putc( in.sig_neg ? '-' : '+', stream );
+    __pformat_puts( (stream->flags & PFORMAT_XCASE) ? "inf" : "INF", stream);
+    return;
+  } else if(floatclass & FP_NAN){
+    stream->precision = 3;
+    if(stream->flags & PFORMAT_SIGNED)
+      __pformat_putc( in.sig_neg ? '-' : '+', stream );
+    __pformat_puts( (stream->flags & PFORMAT_XCASE) ? "nan" : "NAN", stream);
+    return;
+  }
+
+  /* Stringify significand */
+  __bigint_to_string(
+    (uint32_t[4]){in.significand[0] & 0x0ffffffff, in.significand[0] >> 32, in.significand[1] & 0x0ffffffff, in.significand[1] >> 32 },
+    4, str_sig, sizeof(str_sig));
+  __bigint_trim_leading_zeroes(str_sig,1);
+  max_prec = strlen(str_sig+1);
+
+  /* Try to canonize exponent */
+  in.exponent += max_prec;
+  in.exp_neg = (in.exponent < 0 ) ? 1 : 0;
+
+  /* stringify exponent */
+  __bigint_to_string(
+    (uint32_t[1]) { in.exp_neg ? -in.exponent : in.exponent},
+    1, str_exp, sizeof(str_exp));
+  exp_strlen = strlen(__bigint_trim_leading_zeroes(str_exp,3));
+
+  /* account for dot, +-e */
+  for(int32_t spacers = 0; spacers < stream->width - max_prec - exp_strlen - 4; spacers++)
+    __pformat_putc( ' ', stream );
+
+  /* optional sign */
+  if (in.sig_neg || (stream->flags & PFORMAT_SIGNED)) {
+    __pformat_putc( in.sig_neg ? '-' : '+', stream );
+  } else if( stream->width - max_prec - exp_strlen - 4 > 0 ) {
+    __pformat_putc( ' ', stream );
+  }
+  *stream = push_stream;
+  stream->width = 0;
+  /* s.sss form */
+  __pformat_putc(str_sig[0], stream);
+  if(prec) {
+    /* str_sig[prec+1] = '\0';*/
+    __pformat_emit_radix_point(stream);
+    __pformat_putchars(str_sig+1, prec, stream);
+
+    /* Pad with 0s */
+    for(int i = max_prec; i < prec; i++)
+      __pformat_putc('0', stream);
+  }
+
+  stream->precision = exp_strlen; /* force puts to emit */
+
+  __pformat_putc( ('E' | (stream->flags & PFORMAT_XCASE)), stream );
+  __pformat_putc( in.exp_neg ? '-' : '+', stream );
+
+  for(int32_t trailing = 0; trailing < 3 - exp_strlen; trailing++)
+    __pformat_putc('0', stream);
+  __pformat_putchars(str_exp, exp_strlen,stream);
+}
+
+static
+void  __pformat_float_decimal(_Decimal128 x, __pformat_t *stream ){
+  decimal128_decode in;
+  char str_exp[8];
+  char str_sig[40];
+  int floatclass = __fpclassifyd128(x);
+
+  /* precision control */
+  int prec = ( (stream->precision < 0) || (stream->precision > 38) ) ?
+    6 : stream->precision;
+  int max_prec;
+
+  dec128_decode(&in,x);
+
+  if((floatclass & FP_INFINITE) == FP_INFINITE){
+    stream->precision = 3;
+    if(stream->flags & PFORMAT_SIGNED)
+      __pformat_putc( in.sig_neg ? '-' : '+', stream );
+    __pformat_puts( (stream->flags & PFORMAT_XCASE) ? "inf" : "INF", stream);
+    return;
+  } else if(floatclass & FP_NAN){
+    stream->precision = 3;
+    if(stream->flags & PFORMAT_SIGNED)
+      __pformat_putc( in.sig_neg ? '-' : '+', stream );
+    __pformat_puts( (stream->flags & PFORMAT_XCASE) ? "nan" : "NAN", stream);
+    return;
+  }
+
+  /* Stringify significand */
+  __bigint_to_string(
+    (uint32_t[4]){in.significand[0] & 0x0ffffffff, in.significand[0] >> 32, in.significand[1] & 0x0ffffffff, in.significand[1] >> 32 },
+    4, str_sig, sizeof(str_sig));
+  __bigint_trim_leading_zeroes(str_sig,0);
+  max_prec = strlen(str_sig);
+
+  /* stringify exponent */
+  __bigint_to_string(
+    (uint32_t[1]) { in.exp_neg ? -in.exponent : in.exponent},
+    1, str_exp, sizeof(str_exp));
+  __bigint_trim_leading_zeroes(str_exp,0);
+
+  int32_t decimal_place = max_prec + in.exponent;
+  int32_t sig_written = 0;
+
+  /*account for . +- */
+  for(int32_t spacers = 0; spacers < stream->width - decimal_place - prec - 2; spacers++)
+    __pformat_putc( ' ', stream );
+
+  if (in.sig_neg || (stream->flags & PFORMAT_SIGNED)) {
+    __pformat_putc( in.sig_neg ? '-' : '+', stream );
+  } else if(stream->width - decimal_place - prec - 1 > 0){
+    __pformat_putc( ' ', stream );
+  }
+
+  if(decimal_place <= 0){ /* easy mode */
+    __pformat_putc( '0', stream );
+    points:
+    __pformat_emit_radix_point(stream);
+    for(int32_t written = 0; written < prec; written++){
+      if(decimal_place < 0){ /* leading 0s */
+        decimal_place++;
+        __pformat_putc( '0', stream );
+      /* significand */
+      } else if ( sig_written < max_prec ){
+        __pformat_putc( str_sig[sig_written], stream );
+        sig_written++;
+      } else { /* trailing 0s */
+        __pformat_putc( '0', stream );
+      }
+    }
+  } else { /* hard mode */
+    for(; sig_written < decimal_place; sig_written++){
+      __pformat_putc( str_sig[sig_written], stream );
+      if(sig_written == max_prec - 1) break;
+    }
+    decimal_place -= sig_written;
+    for(; decimal_place > 0; decimal_place--)
+      __pformat_putc( '0', stream );
+      goto points;
+  }
+
+  return;
+}
+
+static
+void  __pformat_gfloat_decimal(_Decimal128 x, __pformat_t *stream ){
+  int prec = ( (stream->precision < 0)) ?
+    6 : stream->precision;
+  decimal128_decode in;
+  dec128_decode(&in,x);
+  if(in.exponent > prec) __pformat_efloat_decimal(x,stream);
+  else __pformat_float_decimal(x,stream);
+}
+
+#endif /* __ENABLE_DFP */
+
 static
 void __pformat_efloat( long double x, __pformat_t *stream )
 {
@@ -1723,7 +2138,9 @@ void __pformat_emit_xfloat( __pformat_fpreg_t value, __pformat_t *stream )
    */
   stream->width += exp_width;
   stream->flags |= PFORMAT_SIGNED;
-  exponent.__pformat_llong_t = value.__pformat_fpreg_exponent;
+  /* sign extend */
+  exponent.__pformat_u128_t.t128.digits[1] = (value.__pformat_fpreg_exponent < 0) ? -1 : 0;
+  exponent.__pformat_u128_t.t128.digits[0] = value.__pformat_fpreg_exponent;
   __pformat_int( exponent, stream );
 }
 
@@ -1948,21 +2365,27 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
 	    /*
 	     * Unsigned integer values; octal, decimal or hexadecimal format...
 	     */
-	    if( length == PFORMAT_LENGTH_LLONG )
+#if __ENABLE_PRINTF128
+        argval.__pformat_u128_t.t128.digits[1] = 0LL; /* no sign extend needed */
+	    if( length == PFORMAT_LENGTH_LLONG128 )
+	      argval.__pformat_u128_t.t128 = va_arg( argv, __tI128 );
+	    else
+#endif
+        if( length == PFORMAT_LENGTH_LLONG ) {
 	      /*
 	       * with an `unsigned long long' argument, which we
 	       * process `as is'...
 	       */
 	      argval.__pformat_ullong_t = va_arg( argv, unsigned long long );
 
-	    else if( length == PFORMAT_LENGTH_LONG )
+	    } else if( length == PFORMAT_LENGTH_LONG ) {
 	      /*
 	       * or with an `unsigned long', which we promote to
 	       * `unsigned long long'...
 	       */
 	      argval.__pformat_ullong_t = va_arg( argv, unsigned long );
 
-	    else
+	    } else
 	    { /* or for any other size, which will have been promoted
 	       * to `unsigned int', we select only the appropriately sized
 	       * least significant segment, and again promote to the same
@@ -2007,37 +2430,42 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
 	     * and be prepared to handle negative numbers.
 	     */
 	    stream.flags |= PFORMAT_NEGATIVE;
-
-	    if( length == PFORMAT_LENGTH_LLONG )
+#if __ENABLE_PRINTF128
+	    if( length == PFORMAT_LENGTH_LLONG128 ) {
+	      argval.__pformat_u128_t.t128 = va_arg( argv, __tI128 );
+          goto skip_sign; /* skip sign extend */
+	    } else
+#endif
+	    if( length == PFORMAT_LENGTH_LLONG ){
 	      /*
 	       * The argument is a `long long' type...
 	       */
-	      argval.__pformat_llong_t = va_arg( argv, long long );
-
-	    else if( length == PFORMAT_LENGTH_LONG )
+	      argval.__pformat_u128_t.t128.digits[0] = va_arg( argv, long long );
+	    } else if( length == PFORMAT_LENGTH_LONG ) {
 	      /*
 	       * or here, a `long' type...
 	       */
-	      argval.__pformat_llong_t = va_arg( argv, long );
-
-	    else
+	      argval.__pformat_u128_t.t128.digits[0] = va_arg( argv, long );
+	    } else
 	    { /* otherwise, it's an `int' type...
 	       */
-	      argval.__pformat_llong_t = va_arg( argv, int );
+	      argval.__pformat_u128_t.t128.digits[0] = va_arg( argv, int );
 	      if( length == PFORMAT_LENGTH_SHORT )
 		/*
 		 * but it was promoted from a `short' type...
 		 */
-		argval.__pformat_llong_t = argval.__pformat_short_t;
+		argval.__pformat_u128_t.t128.digits[0] = argval.__pformat_short_t;
 	      else if( length == PFORMAT_LENGTH_CHAR )
 		/*
 		 * or even from a `char' type...
 		 */
-		argval.__pformat_llong_t = argval.__pformat_char_t;
+		argval.__pformat_u128_t.t128.digits[0] = argval.__pformat_char_t;
 	    }
 	    
 	    /* In any case, all share a common handler...
 	     */
+        argval.__pformat_u128_t.t128.digits[1] = (argval.__pformat_llong_t < 0) ? -1LL : 0LL;
+        skip_sign:
 	    __pformat_int( argval, &stream );
 	    goto format_scan;
 
@@ -2059,7 +2487,8 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
 	      stream.flags |= PFORMAT_ZEROFILL;
 	      stream.precision = 2 * sizeof( uintptr_t );
 	    }
-	    argval.__pformat_ullong_t = va_arg( argv, uintptr_t );
+	    argval.__pformat_u128_t.t128.digits[0] = va_arg( argv, uintptr_t );
+	    argval.__pformat_u128_t.t128.digits[1] = 0;
 	    __pformat_xint( 'x', argval, &stream );
 	    goto format_scan;
 
@@ -2078,6 +2507,22 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
 	     * (or lower case for all of these, on fall through from above);
 	     * select lower case mode, and simply fall through...
 	     */
+#ifdef __ENABLE_DFP
+	    if( stream.flags & PFORMAT_DECIM32 )
+	      /* Is a 32bit decimal float */
+	      __pformat_efloat_decimal((_Decimal128)va_arg( argv, _Decimal32 ), &stream );
+	    else if( stream.flags & PFORMAT_DECIM64 )
+	      /*
+	       * Is a 64bit decimal float
+	       */
+	      __pformat_efloat_decimal((_Decimal128)va_arg( argv, _Decimal64 ), &stream );
+	    else if( stream.flags & PFORMAT_DECIM128 )
+	      /*
+	       * Is a 128bit decimal float
+	       */
+	      __pformat_efloat_decimal(va_arg( argv, _Decimal128 ), &stream );
+	    else
+#endif /* __ENABLE_DFP */
 	    if( stream.flags & PFORMAT_LDOUBLE )
 	      /*
 	       * for a `long double' argument...
@@ -2105,6 +2550,22 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
 	     * Fixed case format using upper case, or lower case on
 	     * fall through from above, for `INF' and `NAN'...
 	     */
+#ifdef __ENABLE_DFP
+	    if( stream.flags & PFORMAT_DECIM32 )
+	      /* Is a 32bit decimal float */
+	      __pformat_float_decimal((_Decimal128)va_arg( argv, _Decimal32 ), &stream );
+	    else if( stream.flags & PFORMAT_DECIM64 )
+	      /*
+	       * Is a 64bit decimal float
+	       */
+	      __pformat_float_decimal((_Decimal128)va_arg( argv, _Decimal64 ), &stream );
+	    else if( stream.flags & PFORMAT_DECIM128 )
+	      /*
+	       * Is a 128bit decimal float
+	       */
+	      __pformat_float_decimal(va_arg( argv, _Decimal128 ), &stream );
+	    else
+#endif /* __ENABLE_DFP */
 	    if( stream.flags & PFORMAT_LDOUBLE )
 	      /*
 	       * for a `long double' argument...
@@ -2133,7 +2594,23 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
 	     * or on fall through from above, with lower case exponent
 	     * indicator when required...
 	     */
-	    if( stream.flags & PFORMAT_LDOUBLE )
+#ifdef __ENABLE_DFP
+	    if( stream.flags & PFORMAT_DECIM32 )
+	      /* Is a 32bit decimal float */
+	      __pformat_gfloat_decimal((_Decimal128)va_arg( argv, _Decimal32 ), &stream );
+	    else if( stream.flags & PFORMAT_DECIM64 )
+	      /*
+	       * Is a 64bit decimal float
+	       */
+	      __pformat_gfloat_decimal((_Decimal128)va_arg( argv, _Decimal64 ), &stream );
+	    else if( stream.flags & PFORMAT_DECIM128 )
+	      /*
+	       * Is a 128bit decimal float
+	       */
+	      __pformat_gfloat_decimal(va_arg( argv, _Decimal128 ), &stream );
+	    else
+#endif /* __ENABLE_DFP */
+	   if( stream.flags & PFORMAT_LDOUBLE )
 	      /*
 	       * for a `long double' argument...
 	       */
@@ -2252,16 +2729,20 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
 	       * The MSVCRT implementation of the printf() family of
 	       * functions explicitly uses...
 	       */
-	      if( (fmt[0] == '6') && (fmt[1] == '4') )
+#ifdef __ENABLE_PRINTF128
+	      if( (fmt[0] == '1') && (fmt[1] == '2') && (fmt[2] == '8')){
+	        length = PFORMAT_LENGTH_LLONG128;
+	        fmt += 3;
+	      } else if( (fmt[0] == '6') && (fmt[1] == '4') )
 	      {
 		/* I64' instead of `ll',
 		 * when referring to `long long' integer types...
 		 */
 		length = PFORMAT_LENGTH_LLONG;
 		fmt += 2;
-	      }
-
-	      else if( (fmt[0] == '3') && (fmt[1] == '2') )
+	      } else
+#endif
+	      if( (fmt[0] == '3') && (fmt[1] == '2') )
 	      {
 		/* and `I32' instead of `l',
 		 * when referring to `long' integer types...
@@ -2282,6 +2763,34 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
 
 #	  endif
 	  
+#ifdef __ENABLE_DFP
+	  case 'H':
+	      stream.flags |= PFORMAT_DECIM32;
+	      state = PFORMAT_END;
+	      break;
+
+	  case 'D':
+	    /*
+	     * Interpret the argument as explicitly of a
+	     * `_Decimal64' or `_Decimal128' data type.
+	     */
+	    if( *fmt == 'D' )
+	    {
+	      /* Modifier is `DD'; data type is `_Decimal128' sized...
+	       * Skip the second `D', and set length accordingly.
+	       */
+	      ++fmt;
+	      stream.flags |= PFORMAT_DECIM128;
+	    }
+
+	    else
+	      /* Modifier is `D'; data type is `_Decimal64' sized...
+	       */
+	      stream.flags |= PFORMAT_DECIM64;
+
+	      state = PFORMAT_END;
+	      break;
+#endif /* __ENABLE_DFP */
 	  case 'l':
 	    /*
 	     * Interpret the argument as explicitly of a
