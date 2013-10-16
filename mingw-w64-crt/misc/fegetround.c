@@ -14,6 +14,6 @@ fegetround (void)
 {
   int _control;
 
-  __asm__ volatile ("fnstcw %0" : "=m" (_control));
+  __asm__ volatile ("fnstcw %0" : "=m" (*&_control));
   return (_control & (FE_TONEAREST | FE_DOWNWARD |  FE_UPWARD | FE_TOWARDZERO));
 }
