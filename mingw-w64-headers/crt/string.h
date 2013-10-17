@@ -50,7 +50,7 @@ extern "C" {
   char * __cdecl _strset_l(char *_Str,int _Val,_locale_t _Locale) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   char * __cdecl strcpy(char * __restrict__ _Dest,const char * __restrict__ _Source);
   char * __cdecl __mingw_stpcpy(char * __restrict__ _Dest,const char * __restrict__ _Source) __MINGW_NOTHROW;
-#if (defined (_XOPEN_SOURCE) && _XOPEN_SOURCE >= 700) || \
+#if (defined (_XOPEN_SOURCE) &&  (_XOPEN_SOURCE - 0) >= 700) || \
     (defined (_POSIX_C_SOURCE) && _POSIX_C_SOURCE >= 200809L) || \
     (defined (_GNU_SOURCE))
   __mingw_ovr char *stpcpy(char * __restrict__ _Dest,const char * __restrict__ _Source) { return __mingw_stpcpy(_Dest, _Source); }
