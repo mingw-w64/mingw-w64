@@ -1625,7 +1625,6 @@ void  __pformat_efloat_decimal(_Decimal128 x, __pformat_t *stream ){
   } else if( stream->width - max_prec - exp_strlen - 4 > 0 ) {
     __pformat_putc( ' ', stream );
   }
-  *stream = push_stream;
   stream->width = 0;
   /* s.sss form */
   __pformat_putc(str_sig[0], stream);
