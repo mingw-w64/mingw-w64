@@ -664,10 +664,10 @@ void __pformat_int( __pformat_intarg_t value, __pformat_t *stream )
   tmp_buff = alloca(bufflen);
   buf = alloca(bufflen);
   if( stream->flags & PFORMAT_NEGATIVE )
+#ifdef __ENABLE_PRINTF128
   {
     /* The input value might be negative, (i.e. it is a signed value)...
      */
-#ifdef __ENABLE_PRINTF128
     if( value.__pformat_u128_t.t128.digits[1] < 0) {
       /*
        * It IS negative, but we want to encode it as unsigned,
@@ -703,6 +703,22 @@ void __pformat_int( __pformat_intarg_t value, __pformat_t *stream )
     if(  tmp_buff[i] == '\0' ) break; /* end */
   }
 #else
+  {
+    /* The input value might be negative, (i.e. it is a signed value)...
+     */
+    if( value.__pformat_llong_t < 0LL )
+      /*
+       * It IS negative, but we want to encode it as unsigned,
+       * displayed with a leading minus sign, so convert it...
+       */
+      value.__pformat_llong_t = -value.__pformat_llong_t;
+
+    else
+      /* It is unequivocally a POSITIVE value, so turn off the
+       * request to prefix it with a minus sign...
+       */
+      stream->flags &= ~PFORMAT_NEGATIVE;
+  }
 while( value.__pformat_ullong_t )
   {
     /* decomposing it into its constituent decimal digits,
@@ -812,7 +828,6 @@ void __pformat_xint( int fmt, __pformat_intarg_t value, __pformat_t *stream )
    * digits of the formatted value, in preparation for output.
    */
   int width;
-  /* int mask = (fmt == 'o') ? PFORMAT_OMASK : PFORMAT_XMASK;*/
   int shift = (fmt == 'o') ? PFORMAT_OSHIFT : PFORMAT_XSHIFT;
   int bufflen = __pformat_int_bufsiz(2, shift, stream);
   char *buf = NULL;
@@ -833,6 +848,7 @@ void __pformat_xint( int fmt, __pformat_intarg_t value, __pformat_t *stream )
   for(int32_t i = strlen(tmp_buf); i >= 0; i--)
     *p++ = tmp_buf[i];
 #else
+  int mask = (fmt == 'o') ? PFORMAT_OMASK : PFORMAT_XMASK;
   while( value.__pformat_ullong_t )
   {
     /* Encode the specified non-zero input value as a sequence of digits,
