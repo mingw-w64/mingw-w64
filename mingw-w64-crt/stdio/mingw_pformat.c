@@ -659,10 +659,11 @@ void __pformat_int( __pformat_intarg_t value, __pformat_t *stream )
   int32_t bufflen = __pformat_int_bufsiz(1, PFORMAT_OSHIFT, stream);
   char *tmp_buff = NULL;
   char *buf = NULL;
-  char *p = buf; int precision;
+  char *p;
+  int precision;
 
-  tmp_buff = alloca(bufflen);
   buf = alloca(bufflen);
+  p = buf;
   if( stream->flags & PFORMAT_NEGATIVE )
 #ifdef __ENABLE_PRINTF128
   {
@@ -685,6 +686,7 @@ void __pformat_int( __pformat_intarg_t value, __pformat_t *stream )
       stream->flags &= ~PFORMAT_NEGATIVE;
   }
 
+  tmp_buff = alloca(bufflen);
   /* Encode the input value for display...
    */
   __bigint_to_string(value.__pformat_u128_t.t128_2.digits32,
