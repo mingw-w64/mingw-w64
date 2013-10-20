@@ -328,6 +328,7 @@ typedef struct
   int            expmin;
 } __pformat_t;
 
+#if defined(__ENABLE_PRINTF128) || defined(__ENABLE_DFP)
 /* trim leading, leave at least n characters */
 static char * __bigint_trim_leading_zeroes(char *in, int n){
   char *src = in;
@@ -339,7 +340,6 @@ static char * __bigint_trim_leading_zeroes(char *in, int n){
   return in;
 }
 
-#if defined(__ENABLE_PRINTF128) || defined(__ENABLE_DFP)
 /* LSB first */
 static
 void __bigint_to_string(const uint32_t *digits, const uint32_t digitlen, char *buff, const uint32_t bufflen){
@@ -374,6 +374,7 @@ void __bigint_to_string(const uint32_t *digits, const uint32_t digitlen, char *b
   buff[bufflen - 1] = '\0';
 }
 
+#if defined(__ENABLE_PRINTF128)
 /* LSB first, hex version */
 static
 void __bigint_to_stringx(const uint32_t *digits, const uint32_t digitlen, char *buff, const uint32_t bufflen, int upper){
@@ -412,6 +413,7 @@ void __bigint_to_stringo(const uint32_t *digits, const uint32_t digitlen, char *
     memset(buff,'0', pos + 1);
   buff[bufflen - 1] = '\0';
 }
+#endif /* defined(__ENABLE_PRINTF128) */
 #endif /* defined(__ENABLE_PRINTF128) || defined(__ENABLE_DFP) */
 
 static
@@ -657,7 +659,9 @@ void __pformat_int( __pformat_intarg_t value, __pformat_t *stream )
    * output will be truncated, if any specified quota is exceeded.
    */
   int32_t bufflen = __pformat_int_bufsiz(1, PFORMAT_OSHIFT, stream);
+#ifdef __ENABLE_PRINTF128
   char *tmp_buff = NULL;
+#endif
   char *buf = NULL;
   char *p;
   int precision;
@@ -833,12 +837,14 @@ void __pformat_xint( int fmt, __pformat_intarg_t value, __pformat_t *stream )
   int shift = (fmt == 'o') ? PFORMAT_OSHIFT : PFORMAT_XSHIFT;
   int bufflen = __pformat_int_bufsiz(2, shift, stream);
   char *buf = NULL;
-  char *tmp_buf = NULL;
-  char *p;
 #ifdef __ENABLE_PRINTF128
-  tmp_buf = alloca(bufflen);
+  char *tmp_buf = NULL;
+#endif
+  char *p;
   buf = alloca(bufflen);
   p = buf;
+#ifdef __ENABLE_PRINTF128
+  tmp_buf = alloca(bufflen);
   if(fmt == 'o'){
     __bigint_to_stringo(value.__pformat_u128_t.t128_2.digits32,4,tmp_buf,bufflen);
   } else {
@@ -2482,7 +2488,9 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
 	    /* In any case, all share a common handler...
 	     */
         argval.__pformat_u128_t.t128.digits[1] = (argval.__pformat_llong_t < 0) ? -1LL : 0LL;
+#if __ENABLE_PRINTF128
         skip_sign:
+#endif
 	    __pformat_int( argval, &stream );
 	    goto format_scan;
 
@@ -2750,7 +2758,9 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
 	      if( (fmt[0] == '1') && (fmt[1] == '2') && (fmt[2] == '8')){
 	        length = PFORMAT_LENGTH_LLONG128;
 	        fmt += 3;
-	      } else if( (fmt[0] == '6') && (fmt[1] == '4') )
+	      } else
+#endif
+	      if( (fmt[0] == '6') && (fmt[1] == '4') )
 	      {
 		/* I64' instead of `ll',
 		 * when referring to `long long' integer types...
@@ -2758,7 +2768,6 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
 		length = PFORMAT_LENGTH_LLONG;
 		fmt += 2;
 	      } else
-#endif
 	      if( (fmt[0] == '3') && (fmt[1] == '2') )
 	      {
 		/* and `I32' instead of `l',
