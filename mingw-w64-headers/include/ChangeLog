@@ -1,3 +1,8 @@
+2013-10-30  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* bthdef.h: Remove duplicated PnPInformationServiceClass_UUID
+	definition (bug #355.)
+
 2013-07-09  Roland Schwingel <roland.schwingel@onevision.com>
 
 	* include/wincon.h: Replace BOOL by WINBOOL in
