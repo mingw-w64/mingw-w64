@@ -1,6 +1,11 @@
+2013-10-30  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* bthdef.h: Remove duplicated PnPInformationServiceClass_UUID
+	definition (bug #355.)
+
 2013-09-21  Kai Tietz  <ktietz@redhat.com>
 
-        * guiddef.h: Fix InlineIsEqualGUID macro, as reported in bug #346.
+	* guiddef.h: Fix InlineIsEqualGUID macro, as reported in bug #346.
 
 2013-07-04  Ozkan Sezer  <sezeroz@gmail.com>
 
