@@ -199,6 +199,8 @@ sem_wait (sem_t *sem)
       pthread_cleanup_push (clean_wait_sem, (void *) &arg);
       ret = do_sema_b_wait_intern (semh, 2, INFINITE);
       pthread_cleanup_pop (ret);
+      if (ret == EINVAL)
+        return 0;
     }
 
   if (!ret)
@@ -237,6 +239,8 @@ sem_timedwait (sem_t *sem, const struct timespec *t)
       pthread_cleanup_push (clean_wait_sem, (void *) &arg);
       ret = do_sema_b_wait_intern (semh, 2, dwr);
       pthread_cleanup_pop (ret);
+      if (ret == EINVAL)
+        return 0;
     }
 
   if (!ret)
