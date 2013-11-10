@@ -27,21 +27,20 @@
 #include "thread.h"
 #include "ref.h"
 #include "rwlock.h"
-#include "spinlock.h"
 #include "misc.h"
 
-static spin_t rwl_global = {0, 0, LIFE_SPINLOCK,1};
+static pthread_spinlock_t rwl_global = PTHREAD_SPINLOCK_INITIALIZER;
 
 static WINPTHREADS_ATTRIBUTE((noinline)) int rwlock_static_init(pthread_rwlock_t *rw);
 
 static WINPTHREADS_ATTRIBUTE((noinline)) int rwl_unref(volatile pthread_rwlock_t *rwl, int res)
 {
-    _spin_lite_lock(&rwl_global);
+    pthread_spin_lock(&rwl_global);
 #ifdef WINPTHREAD_DBG
     assert((((rwlock_t *)*rwl)->valid == LIFE_RWLOCK) && (((rwlock_t *)*rwl)->busy > 0));
 #endif
      ((rwlock_t *)*rwl)->busy--;
-    _spin_lite_unlock(&rwl_global);
+    pthread_spin_unlock(&rwl_global);
     return res;
 }
 
@@ -49,14 +48,14 @@ static WINPTHREADS_ATTRIBUTE((noinline)) int rwl_ref(pthread_rwlock_t *rwl, int 
 {
     int r = 0;
     INIT_RWLOCK(rwl);
-    _spin_lite_lock(&rwl_global);
+    pthread_spin_lock(&rwl_global);
 
     if (!rwl || !*rwl || ((rwlock_t *)*rwl)->valid != LIFE_RWLOCK) r = EINVAL;
     else {
         ((rwlock_t *)*rwl)->busy ++;
     }
 
-    _spin_lite_unlock(&rwl_global);
+    pthread_spin_unlock(&rwl_global);
 
     return r;
 }
@@ -65,7 +64,7 @@ static WINPTHREADS_ATTRIBUTE((noinline)) int rwl_ref_unlock(pthread_rwlock_t *rw
 {
     int r = 0;
 
-    _spin_lite_lock(&rwl_global);
+    pthread_spin_lock(&rwl_global);
 
     if (!rwl || !*rwl || ((rwlock_t *)*rwl)->valid != LIFE_RWLOCK) r = EINVAL;
     else if (STATIC_RWL_INITIALIZER(*rwl)) r= EPERM;
@@ -73,7 +72,7 @@ static WINPTHREADS_ATTRIBUTE((noinline)) int rwl_ref_unlock(pthread_rwlock_t *rw
         ((rwlock_t *)*rwl)->busy ++;
     }
 
-    _spin_lite_unlock(&rwl_global);
+    pthread_spin_unlock(&rwl_global);
 
     return r;
 }
@@ -83,7 +82,7 @@ static WINPTHREADS_ATTRIBUTE((noinline)) int rwl_ref_destroy(pthread_rwlock_t *r
     int r = 0;
 
     *rDestroy = NULL;
-    if (_spin_lite_trylock(&rwl_global)) return EBUSY;
+    if (pthread_spin_trylock(&rwl_global)) return EBUSY;
     
     if (!rwl || !*rwl) r = EINVAL;
     else {
@@ -97,7 +96,7 @@ static WINPTHREADS_ATTRIBUTE((noinline)) int rwl_ref_destroy(pthread_rwlock_t *r
         }
     }
 
-    _spin_lite_unlock(&rwl_global);
+    pthread_spin_unlock(&rwl_global);
     return r;
 }
 
@@ -149,19 +148,19 @@ void rwl_print(volatile pthread_rwlock_t *rwl, char *txt)
 }
 #endif
 
-static spin_t cond_locked = {0, 0, LIFE_SPINLOCK,1};
+static pthread_spinlock_t cond_locked = PTHREAD_SPINLOCK_INITIALIZER;
 
 static WINPTHREADS_ATTRIBUTE((noinline)) int rwlock_static_init(pthread_rwlock_t *rw)
 {
   int r;
-  _spin_lite_lock(&cond_locked);
+  pthread_spin_lock(&cond_locked);
   if (*rw != PTHREAD_RWLOCK_INITIALIZER)
   {
-    _spin_lite_unlock(&cond_locked);
+    pthread_spin_unlock(&cond_locked);
     return EINVAL;
   }
   r = pthread_rwlock_init (rw, NULL);
-  _spin_lite_unlock(&cond_locked);
+  pthread_spin_unlock(&cond_locked);
   
   return r;
 }
@@ -208,9 +207,9 @@ int pthread_rwlock_destroy (pthread_rwlock_t *rwlock_)
     pthread_rwlock_t rDestroy;
     int r, r2;
     
-    _spin_lite_lock(&cond_locked);
+    pthread_spin_lock(&cond_locked);
     r = rwl_ref_destroy(rwlock_,&rDestroy);
-    _spin_lite_unlock(&cond_locked);
+    pthread_spin_unlock(&cond_locked);
     
     if(r) return r;
     if(!rDestroy) return 0; /* destroyed a (still) static initialized rwl */

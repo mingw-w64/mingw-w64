@@ -25,7 +25,6 @@
 #include <stdio.h>
 #include <malloc.h>
 #include "pthread.h"
-#include "spinlock.h"
 #include "ref.h"
 #include "mutex.h"
 #include "misc.h"
@@ -34,19 +33,19 @@ extern int do_sema_b_wait_intern (HANDLE sema, int nointerrupt, DWORD timeout);
 static WINPTHREADS_ATTRIBUTE((noinline)) int mutex_static_init(pthread_mutex_t *m);
 static WINPTHREADS_ATTRIBUTE((noinline)) int _mutex_trylock(pthread_mutex_t *m);
 
-static spin_t mutex_global = {0, 0, LIFE_SPINLOCK,1};
-static spin_t mutex_global_static = {0, 0, LIFE_SPINLOCK,1};
+static pthread_spinlock_t mutex_global = PTHREAD_SPINLOCK_INITIALIZER;
+static pthread_spinlock_t mutex_global_static = PTHREAD_SPINLOCK_INITIALIZER;
 
 static WINPTHREADS_ATTRIBUTE((noinline)) int
 mutex_unref(pthread_mutex_t *m, int r)
 {
   mutex_t *m_ = (mutex_t *)*m;
-  _spin_lite_lock (&mutex_global);
+  pthread_spin_lock (&mutex_global);
 #ifdef WINPTHREAD_DBG
   assert((m_->valid == LIFE_MUTEX) && (m_->busy > 0));
 #endif
   m_->busy --;
-  _spin_lite_unlock (&mutex_global);
+  pthread_spin_unlock (&mutex_global);
   return r;
 }
 
@@ -57,23 +56,23 @@ mutex_ref (pthread_mutex_t *m)
 {
   int r = 0;
 
-  _spin_lite_lock (&mutex_global);
+  pthread_spin_lock (&mutex_global);
 
   if (!m || !*m)
   {
-    _spin_lite_unlock (&mutex_global);
+    pthread_spin_unlock (&mutex_global);
     return EINVAL;
   }
 
   if (STATIC_INITIALIZER(*m))
   {
-    _spin_lite_unlock (&mutex_global);
+    pthread_spin_unlock (&mutex_global);
     r = mutex_static_init (m);
-    _spin_lite_lock (&mutex_global);
+    pthread_spin_lock (&mutex_global);
 
     if (r != 0 && r != EBUSY)
     {
-      _spin_lite_unlock (&mutex_global);
+      pthread_spin_unlock (&mutex_global);
 	  return r;
     }
   }
@@ -85,7 +84,7 @@ mutex_ref (pthread_mutex_t *m)
   else
     ((mutex_t *)*m)->busy ++;
 
-  _spin_lite_unlock (&mutex_global);
+  pthread_spin_unlock (&mutex_global);
 
   return r;
 }
@@ -97,7 +96,7 @@ mutex_ref_unlock (pthread_mutex_t *m)
   int r = 0;
   mutex_t *m_ = (mutex_t *)*m;
 
-  _spin_lite_lock (&mutex_global);
+  pthread_spin_lock (&mutex_global);
 
   if (!m || !*m || ((mutex_t *)*m)->valid != LIFE_MUTEX) 
     r = EINVAL;
@@ -106,7 +105,7 @@ mutex_ref_unlock (pthread_mutex_t *m)
   else
     ((mutex_t *)*m)->busy ++;
 
-  _spin_lite_unlock (&mutex_global);
+  pthread_spin_unlock (&mutex_global);
 
   return r;
 }
@@ -120,7 +119,7 @@ mutex_ref_destroy (pthread_mutex_t *m, pthread_mutex_t *mDestroy )
 
   *mDestroy = NULL;
   /* also considered as busy, any concurrent access prevents destruction: $$$$ */
-  if (_spin_lite_trylock (&mutex_global) != 0)
+  if (pthread_spin_trylock (&mutex_global) != 0)
     return EBUSY;
     
   if (!m || !*m)
@@ -141,7 +140,7 @@ mutex_ref_destroy (pthread_mutex_t *m, pthread_mutex_t *mDestroy )
     }
   }
 
-  _spin_lite_unlock (&mutex_global);
+  pthread_spin_unlock (&mutex_global);
   return r;
 }
 
@@ -150,11 +149,11 @@ mutex_ref_init (pthread_mutex_t *m )
 {
     int r = 0;
 
-    _spin_lite_lock (&mutex_global);
+    pthread_spin_lock (&mutex_global);
     
     if (!m)  r = EINVAL;
  
-    _spin_lite_unlock (&mutex_global);
+    pthread_spin_unlock (&mutex_global);
     return r;
 }
 
@@ -193,7 +192,7 @@ mutex_static_init (pthread_mutex_t *m)
 
   int r;
 
-  _spin_lite_lock (&mutex_global_static);
+  pthread_spin_lock (&mutex_global_static);
   if (!STATIC_INITIALIZER(*m))
       /* Assume someone crept in between: */
       r = 0;
@@ -211,7 +210,7 @@ mutex_static_init (pthread_mutex_t *m)
       r = pthread_mutex_init (m, NULL);
   }
   
-  _spin_lite_unlock (&mutex_global_static);
+  pthread_spin_unlock (&mutex_global_static);
   return r;
 }
 

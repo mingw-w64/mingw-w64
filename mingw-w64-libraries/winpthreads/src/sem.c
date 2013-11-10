@@ -30,7 +30,6 @@
 #include "sem.h"
 #include "mutex.h"
 #include "ref.h"
-#include "spinlock.h"
 
 int do_sema_b_wait_intern (HANDLE sema, int nointerrupt, DWORD timeout);
 

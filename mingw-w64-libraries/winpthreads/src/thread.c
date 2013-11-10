@@ -27,7 +27,6 @@
 #include "pthread.h"
 #include "thread.h"
 #include "misc.h"
-#include "spinlock.h"
 #include "winpthread_internal.h"
 
 static _pthread_v *__pthread_self_lite (void);
@@ -323,7 +322,7 @@ static BOOL WINAPI
 __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 {
   _pthread_v *t = NULL;
-  spin_t new_spin_keys = {0, 0, LIFE_SPINLOCK, 1};
+  pthread_spinlock_t new_spin_keys = PTHREAD_SPINLOCK_INITIALIZER;
 
   if (dwReason == DLL_PROCESS_DETACH)
     {
@@ -431,13 +430,13 @@ typedef struct collect_once_t {
 
 static collect_once_t *once_obj = NULL;
 
-static spin_t once_global = {0, 0, LIFE_SPINLOCK,1};
+static pthread_spinlock_t once_global = PTHREAD_SPINLOCK_INITIALIZER;
 
 static collect_once_t *
 enterOnceObject (pthread_once_t *o)
 {
   collect_once_t *c, *p = NULL;
-  _spin_lite_lock (&once_global);
+  pthread_spin_lock (&once_global);
   c = once_obj;
   while (c != NULL && c->o != o)
     {
@@ -456,7 +455,7 @@ enterOnceObject (pthread_once_t *o)
     }
   else
     c->count += 1;
-  _spin_lite_unlock (&once_global);
+  pthread_spin_unlock (&once_global);
   return c;
 }
 
@@ -466,7 +465,7 @@ leaveOnceObject (collect_once_t *c)
   collect_once_t *h, *p = NULL;
   if (!c)
     return;
-  _spin_lite_lock (&once_global);
+  pthread_spin_lock (&once_global);
   h = once_obj;
   while (h != NULL && c != h)
     h = (p = h)->next;
@@ -486,7 +485,7 @@ leaveOnceObject (collect_once_t *c)
     }
   else
     fprintf(stderr, "%p not found?!?!\n", c);
-  _spin_lite_unlock (&once_global);
+  pthread_spin_unlock (&once_global);
 }
 
 static void
@@ -754,9 +753,9 @@ pthread_getspecific (pthread_key_t key)
   DWORD lasterr = GetLastError ();
   void *r;
   _pthread_v *t = __pthread_self_lite ();
-  _spin_lite_lock (&t->spin_keys);
+  pthread_spin_lock (&t->spin_keys);
   r = (key >= t->keymax || t->keyval_set[key] == 0 ? NULL : t->keyval[key]);
-  _spin_lite_unlock (&t->spin_keys);
+  pthread_spin_unlock (&t->spin_keys);
   SetLastError (lasterr);
   return r;
 }
@@ -767,7 +766,7 @@ pthread_setspecific (pthread_key_t key, const void *value)
   DWORD lasterr = GetLastError ();
   _pthread_v *t = __pthread_self_lite ();
   
-  _spin_lite_lock (&t->spin_keys);
+  pthread_spin_lock (&t->spin_keys);
 
   if (key >= t->keymax)
     {
@@ -779,13 +778,13 @@ pthread_setspecific (pthread_key_t key, const void *value)
 
       if (!kv)
         {
-	  _spin_lite_unlock (&t->spin_keys);
+	  pthread_spin_unlock (&t->spin_keys);
 	  return ENOMEM;
 	}
       kv_set = (unsigned char *) realloc (t->keyval_set, keymax);
       if (!kv_set)
         {
-	  _spin_lite_unlock (&t->spin_keys);
+	  pthread_spin_unlock (&t->spin_keys);
 	  return ENOMEM;
 	}
 
@@ -800,7 +799,7 @@ pthread_setspecific (pthread_key_t key, const void *value)
 
   t->keyval[key] = (void *) value;
   t->keyval_set[key] = 1;
-  _spin_lite_unlock (&t->spin_keys);
+  pthread_spin_unlock (&t->spin_keys);
   SetLastError (lasterr);
 
   return 0;
@@ -838,7 +837,7 @@ _pthread_cleanup_dest (pthread_t t)
 	{
 		int flag = 0;
 
-		_spin_lite_lock (&tv->spin_keys);
+		pthread_spin_lock (&tv->spin_keys);
 		for (i = 0; i < tv->keymax; i++)
 		{
 			void *val = tv->keyval[i];
@@ -851,9 +850,9 @@ _pthread_cleanup_dest (pthread_t t)
 					/* Call destructor */
 					tv->keyval[i] = NULL;
 					tv->keyval_set[i] = 0;
-					_spin_lite_unlock (&tv->spin_keys);
+					pthread_spin_unlock (&tv->spin_keys);
 					_pthread_key_dest[i](val);
-					_spin_lite_lock (&tv->spin_keys);
+					pthread_spin_lock (&tv->spin_keys);
 					flag = 1;
 				}
 				else
@@ -864,7 +863,7 @@ _pthread_cleanup_dest (pthread_t t)
 				pthread_rwlock_unlock(&_pthread_key_lock);
 			}
 		}
-		_spin_lite_unlock (&tv->spin_keys);
+		pthread_spin_unlock (&tv->spin_keys);
 		/* Nothing to do? */
 		if (!flag)
 			return;
@@ -875,7 +874,7 @@ static _pthread_v *
 __pthread_self_lite (void)
 {
   _pthread_v *t;
-  spin_t new_spin_keys = {0, 0, LIFE_SPINLOCK,1};
+  pthread_spinlock_t new_spin_keys = PTHREAD_SPINLOCK_INITIALIZER;
 
   _pthread_once_raw (&_pthread_tls_once, pthread_tls_init);
 
@@ -1425,7 +1424,7 @@ pthread_create (pthread_t *th, const pthread_attr_t *attr, void *(* func)(void *
   int redo = 0;
   struct _pthread_v *tv;
   size_t ssize = 0;
-  spin_t new_spin_keys = {0, 0, LIFE_SPINLOCK,1};
+  pthread_spinlock_t new_spin_keys = PTHREAD_SPINLOCK_INITIALIZER;
 
   if ((tv = pop_pthread_mem ()) == NULL)
     return EAGAIN;
@@ -1529,7 +1528,7 @@ pthread_join (pthread_t t, void **res)
 {
   DWORD dwFlags;
   struct _pthread_v *tv = __pth_gpointer_locked (t);
-  spin_t new_spin_keys = {0, 0, LIFE_SPINLOCK,1};
+  pthread_spinlock_t new_spin_keys = PTHREAD_SPINLOCK_INITIALIZER;
 
   if (!tv || tv->h == NULL || !GetHandleInformation(tv->h, &dwFlags))
     return ESRCH;
@@ -1561,7 +1560,7 @@ _pthread_tryjoin (pthread_t t, void **res)
 {
   DWORD dwFlags;
   struct _pthread_v *tv;
-  spin_t new_spin_keys = {0, 0, LIFE_SPINLOCK,1};
+  pthread_spinlock_t new_spin_keys = PTHREAD_SPINLOCK_INITIALIZER;
 
   pthread_mutex_lock (&mtx_pthr_locked);
   tv = __pth_gpointer_locked (t);
@@ -1616,7 +1615,7 @@ pthread_detach (pthread_t t)
   DWORD dwFlags;
   struct _pthread_v *tv = __pth_gpointer_locked (t);
   HANDLE dw;
-  spin_t new_spin_keys = {0, 0, LIFE_SPINLOCK,1};
+  pthread_spinlock_t new_spin_keys = PTHREAD_SPINLOCK_INITIALIZER;
 
   pthread_mutex_lock (&mtx_pthr_locked);
   if (!tv || tv->h == NULL || !GetHandleInformation(tv->h, &dwFlags))

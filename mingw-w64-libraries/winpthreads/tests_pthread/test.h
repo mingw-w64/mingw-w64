@@ -49,7 +49,6 @@
 #include "../src/cond.h"
 #include "../src/rwlock.h"
 #include "../src/thread.h"
-#include "../src/spinlock.h"
 #include "../src/barrier.h"
 
 #define PTW32_THREAD_NULL_ID {NULL,0}

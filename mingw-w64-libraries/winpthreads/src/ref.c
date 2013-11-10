@@ -25,7 +25,6 @@
 #include <stdio.h>
 #include "pthread.h"
 #include "semaphore.h"
-#include "spinlock.h"
 #include "mutex.h"
 #include "rwlock.h"
 #include "cond.h"
