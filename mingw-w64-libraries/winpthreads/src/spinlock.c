@@ -36,13 +36,22 @@ typedef struct spin_t {
    CRITICAL_SECTION section;
 } spin_t;
 
+/* Per the MSDN documentation, Windows components such as the heap manager
+use a spin count of 4000. */
+static const DWORD kSpinCount = 4000;
+
 static CRITICAL_SECTION global_lock;
 
 __attribute__((constructor))
 static void
 global_spin_ctor (void)
 {
+  /* Use two distinct calls here, instead of just one call to
+  InitializeCriticalSectionAndSpinCount. The latter may fail on older
+  versions of Windows. This way we'll always get a working critical
+  section from the first call. */
   InitializeCriticalSection (&global_lock);
+  SetCriticalSectionSpinCount (&global_lock, kSpinCount);
 }
 
 __attribute__((destructor))
@@ -88,6 +97,7 @@ pthread_spin_init (pthread_spinlock_t *lock, int pshared)
     return ENOMEM;
 
   InitializeCriticalSection (&spin->section);
+  SetCriticalSectionSpinCount (&spin->section, kSpinCount);
   *lock = spin;
   return 0;
 }
