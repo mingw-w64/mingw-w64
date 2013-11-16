@@ -69,6 +69,23 @@ int pthread_attr_getschedparam(const pthread_attr_t *attr, struct sched_param *p
     return r;
 }
 
+int pthread_attr_setschedpolicy (pthread_attr_t *attr, int pol)
+{
+  if (!attr || pol < SCHED_MIN || pol > SCHED_MAX)
+    return EINVAL;
+  if (pol != SCHED_OTHER)
+    return ENOTSUP;
+  return 0;
+}
+
+int pthread_attr_getschedpolicy (pthread_attr_t *attr, int *pol)
+{
+  if (!attr || !pol)
+    return EINVAL;
+  *pol = SCHED_OTHER;
+  return 0;
+}
+
 static int pthread_check(pthread_t t)
 {
   struct _pthread_v *pv;
