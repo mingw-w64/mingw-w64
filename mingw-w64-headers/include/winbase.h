@@ -1487,10 +1487,13 @@ extern "C" {
 #define SHUTDOWN_NORETRY 0x1
 #endif
 
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) || defined(WINSTORECOMPAT)
+#define CreateSemaphore __MINGW_NAME_AW(CreateSemaphore)
+  WINBASEAPI HANDLE WINAPI CreateSemaphoreW (LPSECURITY_ATTRIBUTES lpSemaphoreAttributes, LONG lInitialCount, LONG lMaximumCount, LPCWSTR lpName);
+#endif
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
   WINBASEAPI HANDLE WINAPI OpenMutexA (DWORD dwDesiredAccess, WINBOOL bInheritHandle, LPCSTR lpName);
   WINBASEAPI HANDLE WINAPI CreateSemaphoreA (LPSECURITY_ATTRIBUTES lpSemaphoreAttributes, LONG lInitialCount, LONG lMaximumCount, LPCSTR lpName);
-  WINBASEAPI HANDLE WINAPI CreateSemaphoreW (LPSECURITY_ATTRIBUTES lpSemaphoreAttributes, LONG lInitialCount, LONG lMaximumCount, LPCWSTR lpName);
   WINBASEAPI HANDLE WINAPI OpenSemaphoreA (DWORD dwDesiredAccess, WINBOOL bInheritHandle, LPCSTR lpName);
   WINBASEAPI HANDLE WINAPI CreateWaitableTimerA (LPSECURITY_ATTRIBUTES lpTimerAttributes, WINBOOL bManualReset, LPCSTR lpTimerName);
   WINBASEAPI HANDLE WINAPI CreateWaitableTimerW (LPSECURITY_ATTRIBUTES lpTimerAttributes, WINBOOL bManualReset, LPCWSTR lpTimerName);
@@ -1515,7 +1518,6 @@ extern "C" {
 #define GetLogicalDriveStrings GetLogicalDriveStringsA
 #endif
 
-#define CreateSemaphore __MINGW_NAME_AW(CreateSemaphore)
 #define CreateWaitableTimer __MINGW_NAME_AW(CreateWaitableTimer)
 #define LoadLibrary __MINGW_NAME_AW(LoadLibrary)
 
