@@ -112,7 +112,8 @@ am_libwinstorecompat_a_OBJECTS = src/_wassert.$(OBJEXT) \
 	src/LocalFree.$(OBJEXT) src/Sleep.$(OBJEXT) \
 	src/SleepEx.$(OBJEXT) src/SetFilePointer.$(OBJEXT) \
 	src/GetFileSize.$(OBJEXT) src/Tls.$(OBJEXT) \
-	src/CoCreateInstance.$(OBJEXT) src/SHGetFolderPathW.$(OBJEXT)
+	src/CoCreateInstance.$(OBJEXT) src/SHGetFolderPathW.$(OBJEXT) \
+	src/QueueTimer.$(OBJEXT)
 libwinstorecompat_a_OBJECTS = $(am_libwinstorecompat_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
@@ -266,6 +267,7 @@ libwinstorecompat_a_SOURCES = \
   src/Tls.c \
   src/CoCreateInstance.c \
   src/SHGetFolderPathW.c \
+  src/QueueTimer.c \
   $(NULL)
 
 all: all-am
@@ -399,6 +401,8 @@ src/CoCreateInstance.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/SHGetFolderPathW.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/QueueTimer.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 libwinstorecompat.a: $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_DEPENDENCIES) $(EXTRA_libwinstorecompat_a_DEPENDENCIES) 
 	-rm -f libwinstorecompat.a
 	$(libwinstorecompat_a_AR) libwinstorecompat.a $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_LIBADD)
@@ -422,6 +426,7 @@ mostlyclean-compile:
 	-rm -f src/LocalAlloc.$(OBJEXT)
 	-rm -f src/LocalFree.$(OBJEXT)
 	-rm -f src/SHGetFolderPathW.$(OBJEXT)
+	-rm -f src/QueueTimer.$(OBJEXT)
 	-rm -f src/SetErrorMode.$(OBJEXT)
 	-rm -f src/SetFilePointer.$(OBJEXT)
 	-rm -f src/SetUnhandledExceptionFilter.$(OBJEXT)
@@ -455,6 +460,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/LocalAlloc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/LocalFree.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/SHGetFolderPathW.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/QueueTimer.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/SetErrorMode.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/SetFilePointer.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/SetUnhandledExceptionFilter.Po@am__quote@
