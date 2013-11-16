@@ -34,4 +34,5 @@ libwinstorecompat_a_SOURCES = \
   src/Tls.c \
   src/CoCreateInstance.c \
   src/SHGetFolderPathW.c \
+  src/QueueTimer.c \
   $(NULL)
