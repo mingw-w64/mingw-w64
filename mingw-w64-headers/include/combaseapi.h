@@ -258,7 +258,7 @@ WINOLEAPI CoCreateInstanceEx (REFCLSID Clsid, IUnknown *punkOuter, DWORD dwClsCt
 #endif
 
 #if WINAPI_FAMILY == WINAPI_FAMILY_APP
-  __inline HRESULT CoCreateInstance (REFCLSID rclsid, LPUNKNOWN pUnkOuter, DWORD dwClsContext, REFIID riid, LPVOID *ppv) {
+  __forceinline HRESULT CoCreateInstance (REFCLSID rclsid, LPUNKNOWN pUnkOuter, DWORD dwClsContext, REFIID riid, LPVOID *ppv) {
     MULTI_QI OneQI;
     HRESULT hr;
 
@@ -273,7 +273,7 @@ WINOLEAPI CoCreateInstanceEx (REFCLSID Clsid, IUnknown *punkOuter, DWORD dwClsCt
     return FAILED (hr) ? hr : OneQI.hr;
   }
 
-  __inline HRESULT CoCreateInstanceEx (REFCLSID Clsid, IUnknown *punkOuter, DWORD dwClsCtx, COSERVERINFO *pServerInfo, DWORD dwCount, MULTI_QI *pResults) {
+  __forceinline HRESULT CoCreateInstanceEx (REFCLSID Clsid, IUnknown *punkOuter, DWORD dwClsCtx, COSERVERINFO *pServerInfo, DWORD dwCount, MULTI_QI *pResults) {
     return CoCreateInstanceFromApp (Clsid, punkOuter, dwClsCtx, pServerInfo, dwCount, pResults);
   }
 #endif
