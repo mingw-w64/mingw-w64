@@ -297,6 +297,8 @@ extern "C" {
 #endif
 #endif
 
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+
   typedef struct _SHELLEXECUTEINFOA {
     DWORD cbSize;
     ULONG fMask;
@@ -435,6 +437,8 @@ extern "C" {
 #if NTDDI_VERSION >= 0x06010000
   SHSTDAPI SHGetPropertyStoreForWindow (HWND hwnd, REFIID riid, void **ppv);
 #endif
+
+#endif /* WINAPI_PARTITION_DESKTOP.  */
 
   typedef struct _NOTIFYICONDATAA {
     DWORD cbSize;
