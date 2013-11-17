@@ -4,7 +4,6 @@ Sizes of winpthreads structs
                pthread_attr_t_   32
               pthread_mutex_t_   32
           pthread_mutexattr_t_    4
-           pthread_spinlock_t_   16
             pthread_barrier_t_   48
         pthread_barrierattr_t_    8
                 pthread_key_t_    4

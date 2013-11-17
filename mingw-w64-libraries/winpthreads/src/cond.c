@@ -33,7 +33,6 @@
 #include "ref.h"
 #include "cond.h"
 #include "mutex.h"
-#include "spinlock.h"
 #include "thread.h"
 #include "misc.h"
 #include "winpthread_internal.h"
@@ -84,14 +83,14 @@ void cond_print(volatile pthread_cond_t *c, char *txt)
 }
 #endif
 
-static spin_t cond_locked = {0, 0, LIFE_SPINLOCK,1};
+static pthread_spinlock_t cond_locked = PTHREAD_SPINLOCK_INITIALIZER;
 
 static int
 cond_static_init (pthread_cond_t *c)
 {
   int r = 0;
   
-  _spin_lite_lock (&cond_locked);
+  pthread_spin_lock (&cond_locked);
   if (c == NULL)
     r = EINVAL;
   else if (*c == PTHREAD_COND_INITIALIZER)
@@ -99,7 +98,7 @@ cond_static_init (pthread_cond_t *c)
   else
     /* We assume someone was faster ... */
     r = 0;
-  _spin_lite_unlock (&cond_locked);
+  pthread_spin_unlock (&cond_locked);
   return r;
 }
 
@@ -256,7 +255,7 @@ pthread_cond_destroy (pthread_cond_t *c)
     return EINVAL;
   if (*c == PTHREAD_COND_INITIALIZER)
     {
-      _spin_lite_lock (&cond_locked);
+      pthread_spin_lock (&cond_locked);
       if (*c == PTHREAD_COND_INITIALIZER)
       {
 	*c = NULL;
@@ -264,7 +263,7 @@ pthread_cond_destroy (pthread_cond_t *c)
       }
       else
 	r = EBUSY;
-      _spin_lite_unlock (&cond_locked);
+      pthread_spin_unlock (&cond_locked);
       return r;
     }
   _c = (cond_t *) *c;

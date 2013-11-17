@@ -27,33 +27,32 @@
 #include "barrier.h"
 #include "ref.h" 
 #include "misc.h"
-#include "spinlock.h"
 
-static spin_t barrier_global = {0, 0, LIFE_SPINLOCK,1};
+static pthread_spinlock_t barrier_global = PTHREAD_SPINLOCK_INITIALIZER;
 
 static WINPTHREADS_ATTRIBUTE((noinline)) int
 barrier_unref(volatile pthread_barrier_t *barrier, int res)
 {
-    _spin_lite_lock(&barrier_global);
+    pthread_spin_lock(&barrier_global);
 #ifdef WINPTHREAD_DBG
     assert((((barrier_t *)*barrier)->valid == LIFE_BARRIER) && (((barrier_t *)*barrier)->busy > 0));
 #endif
      ((barrier_t *)*barrier)->busy--;
-    _spin_lite_unlock(&barrier_global);
+    pthread_spin_unlock(&barrier_global);
     return res;
 }
 
 static WINPTHREADS_ATTRIBUTE((noinline)) int barrier_ref(volatile pthread_barrier_t *barrier)
 {
     int r = 0;
-    _spin_lite_lock(&barrier_global);
+    pthread_spin_lock(&barrier_global);
 
     if (!barrier || !*barrier || ((barrier_t *)*barrier)->valid != LIFE_BARRIER) r = EINVAL;
     else {
         ((barrier_t *)*barrier)->busy ++;
     }
 
-    _spin_lite_unlock(&barrier_global);
+    pthread_spin_unlock(&barrier_global);
 
     return r;
 }
@@ -64,7 +63,7 @@ barrier_ref_destroy(volatile pthread_barrier_t *barrier, pthread_barrier_t *bDes
     int r = 0;
 
     *bDestroy = NULL;
-    if (_spin_lite_trylock(&barrier_global)) return EBUSY;
+    if (pthread_spin_trylock(&barrier_global)) return EBUSY;
     
     if (!barrier || !*barrier || ((barrier_t *)*barrier)->valid != LIFE_BARRIER) r = EINVAL;
     else {
@@ -76,16 +75,16 @@ barrier_ref_destroy(volatile pthread_barrier_t *barrier, pthread_barrier_t *bDes
         }
     }
 
-    _spin_lite_unlock(&barrier_global);
+    pthread_spin_unlock(&barrier_global);
     return r;
 }
 
 static WINPTHREADS_ATTRIBUTE((noinline)) void
 barrier_ref_set (volatile pthread_barrier_t *barrier, void *v)
 {
-  _spin_lite_lock(&barrier_global);
+  pthread_spin_lock(&barrier_global);
   *barrier = v;
-  _spin_lite_unlock(&barrier_global);
+  pthread_spin_unlock(&barrier_global);
 }
 
 int pthread_barrier_destroy(pthread_barrier_t *b_)

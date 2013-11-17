@@ -13,7 +13,6 @@ main()
   /*  printf("%30s %4" PRIdPTR "\n", "sem_t_", sizeof(struct sem_t_)); */
   printf("%30s %4" PRIdPTR "\n", "pthread_mutex_t_", sizeof(mutex_t));
   printf("%30s %4" PRIdPTR "\n", "pthread_mutexattr_t_", sizeof(pthread_mutexattr_t));
-  printf("%30s %4" PRIdPTR "\n", "pthread_spinlock_t_", sizeof(spin_t));
   printf("%30s %4" PRIdPTR "\n", "pthread_barrier_t_", sizeof(barrier_t));
   printf("%30s %4" PRIdPTR "\n", "pthread_barrierattr_t_", sizeof(pthread_barrierattr_t));
   printf("%30s %4" PRIdPTR "\n", "pthread_key_t_", sizeof(pthread_key_t));
