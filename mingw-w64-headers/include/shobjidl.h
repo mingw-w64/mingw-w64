@@ -29950,7 +29950,7 @@ HRESULT __RPC_STUB IKnownFolderManager_Redirect_Stub(
 #endif  /* __IKnownFolderManager_INTERFACE_DEFINED__ */
 
 
-  __inline void FreeKnownFolderDefinitionFields(KNOWNFOLDER_DEFINITION *pKFD) {
+  __forceinline void FreeKnownFolderDefinitionFields(KNOWNFOLDER_DEFINITION *pKFD) {
     CoTaskMemFree(pKFD->pszName);
     CoTaskMemFree(pKFD->pszDescription);
     CoTaskMemFree(pKFD->pszRelativePath);
@@ -39343,11 +39343,11 @@ DEFINE_ENUM_FLAG_OPERATORS(LIBRARYMANAGEDIALOGOPTIONS)
   SHSTDAPI SHShowManageLibraryUI(IShellItem *psiLibrary, HWND hwndOwner, LPCWSTR pszTitle, LPCWSTR pszInstruction, LIBRARYMANAGEDIALOGOPTIONS lmdOptions);
   SHSTDAPI SHResolveLibrary(IShellItem *psiLibrary);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-  __inline HRESULT SHCreateLibrary(REFIID riid, void **ppv) {
+  __forceinline HRESULT SHCreateLibrary(REFIID riid, void **ppv) {
     return CoCreateInstance(CLSID_ShellLibrary, NULL, CLSCTX_INPROC_SERVER, riid, ppv);
   }
 
-  __inline HRESULT SHLoadLibraryFromItem(IShellItem *psiLibrary, DWORD grfMode, REFIID riid, void **ppv) {
+  __forceinline HRESULT SHLoadLibraryFromItem(IShellItem *psiLibrary, DWORD grfMode, REFIID riid, void **ppv) {
     IShellLibrary *plib;
     HRESULT hr;
 
@@ -39362,7 +39362,7 @@ DEFINE_ENUM_FLAG_OPERATORS(LIBRARYMANAGEDIALOGOPTIONS)
     return hr;
   }
 
-  __inline HRESULT SHLoadLibraryFromKnownFolder(REFKNOWNFOLDERID kfidLibrary, DWORD grfMode, REFIID riid, void **ppv) {
+  __forceinline HRESULT SHLoadLibraryFromKnownFolder(REFKNOWNFOLDERID kfidLibrary, DWORD grfMode, REFIID riid, void **ppv) {
     IShellLibrary *plib;
     HRESULT hr;
 
@@ -39377,7 +39377,7 @@ DEFINE_ENUM_FLAG_OPERATORS(LIBRARYMANAGEDIALOGOPTIONS)
     return hr;
   }
 
-  __inline HRESULT SHLoadLibraryFromParsingName(PCWSTR pszParsingName, DWORD grfMode, REFIID riid, void **ppv) {
+  __forceinline HRESULT SHLoadLibraryFromParsingName(PCWSTR pszParsingName, DWORD grfMode, REFIID riid, void **ppv) {
     IShellItem *psiLibrary;
     HRESULT hr;
 
@@ -39390,7 +39390,7 @@ DEFINE_ENUM_FLAG_OPERATORS(LIBRARYMANAGEDIALOGOPTIONS)
     return hr;
   }
 
-   __inline HRESULT SHAddFolderPathToLibrary(IShellLibrary *plib, PCWSTR pszFolderPath) {
+   __forceinline HRESULT SHAddFolderPathToLibrary(IShellLibrary *plib, PCWSTR pszFolderPath) {
     IShellItem *psiFolder;
     HRESULT hr = SHCreateItemFromParsingName(pszFolderPath, NULL, IID_PPV_ARGS(&psiFolder));
 
@@ -39401,7 +39401,7 @@ DEFINE_ENUM_FLAG_OPERATORS(LIBRARYMANAGEDIALOGOPTIONS)
     return hr;
   }
 
-  __inline HRESULT SHRemoveFolderPathFromLibrary(IShellLibrary *plib, PCWSTR pszFolderPath) {
+  __forceinline HRESULT SHRemoveFolderPathFromLibrary(IShellLibrary *plib, PCWSTR pszFolderPath) {
     PIDLIST_ABSOLUTE pidlFolder = SHSimpleIDListFromPath(pszFolderPath);
     HRESULT hr = pidlFolder ? S_OK : E_INVALIDARG;
 
@@ -39418,7 +39418,7 @@ DEFINE_ENUM_FLAG_OPERATORS(LIBRARYMANAGEDIALOGOPTIONS)
     return hr;
   }
 
-  __inline HRESULT SHResolveFolderPathInLibrary(IShellLibrary *plib, PCWSTR pszFolderPath, DWORD dwTimeout, PWSTR *ppszResolvedPath) {
+  __forceinline HRESULT SHResolveFolderPathInLibrary(IShellLibrary *plib, PCWSTR pszFolderPath, DWORD dwTimeout, PWSTR *ppszResolvedPath) {
     *ppszResolvedPath = NULL;
     PIDLIST_ABSOLUTE pidlFolder = SHSimpleIDListFromPath(pszFolderPath);
     HRESULT hr = pidlFolder ? S_OK : E_INVALIDARG;
@@ -39441,7 +39441,7 @@ DEFINE_ENUM_FLAG_OPERATORS(LIBRARYMANAGEDIALOGOPTIONS)
     return hr;
   }
 
-  __inline HRESULT SHSaveLibraryInFolderPath(IShellLibrary *plib, PCWSTR pszFolderPath, PCWSTR pszLibraryName, LIBRARYSAVEFLAGS lsf, PWSTR *ppszSavedToPath) {
+  __forceinline HRESULT SHSaveLibraryInFolderPath(IShellLibrary *plib, PCWSTR pszFolderPath, PCWSTR pszLibraryName, LIBRARYSAVEFLAGS lsf, PWSTR *ppszSavedToPath) {
     IShellItem *psiFolder;
     HRESULT hr;
 
@@ -40346,7 +40346,7 @@ void __RPC_STUB IFrameworkInputPane_Location_Stub(
 #define PROP_CONTRACT_DELEGATE L"ContractDelegate"
 #endif
 
-  __inline void SetContractDelegateWindow(HWND hwndSource, HWND hwndDelegate) {
+  __forceinline void SetContractDelegateWindow(HWND hwndSource, HWND hwndDelegate) {
     if (hwndDelegate != NULL)
       SetPropW (hwndSource, PROP_CONTRACT_DELEGATE, (HANDLE)hwndDelegate);
     else
@@ -40357,7 +40357,7 @@ void __RPC_STUB IFrameworkInputPane_Location_Stub(
 #define PROP_CONTRACT_DELEGATE L"ContractDelegate"
 #endif
 
-  __inline HWND GetContractDelegateWindow(HWND hwndSource) { return (HWND)GetPropW(hwndSource, PROP_CONTRACT_DELEGATE); }
+  __forceinline HWND GetContractDelegateWindow(HWND hwndSource) { return (HWND)GetPropW(hwndSource, PROP_CONTRACT_DELEGATE); }
 #endif
 
 #if NTDDI_VERSION >= NTDDI_WIN8
