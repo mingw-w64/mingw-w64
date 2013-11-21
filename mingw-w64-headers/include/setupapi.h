@@ -24,6 +24,7 @@ typedef GUID *LPGUID;
 #endif
 
 #include <commctrl.h>
+#include <oledlg.h>
 
 #ifdef _WIN64
 #include <pshpack8.h>

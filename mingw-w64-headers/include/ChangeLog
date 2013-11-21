@@ -1,3 +1,7 @@
+2013-11-21  Erik van Pienbroek  <epienbro@fedoraproject.org>
+
+	* setupapi.h: Add oledbg.h header include.
+
 2013-10-30  Ozkan Sezer  <sezeroz@gmail.com>
 
 	* bthdef.h: Remove duplicated PnPInformationServiceClass_UUID
