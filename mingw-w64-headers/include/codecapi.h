@@ -6,7 +6,6 @@
 #ifndef _INC_CODECAPI
 #define _INC_CODECAPI
 
-#if (_WIN32_WINNT >= 0x0601)
   enum eAVEncH264VLevel {
     eAVEncH264VLevel1     = 10,
     eAVEncH264VLevel1_b   = 11,
@@ -38,5 +37,4 @@
     eAVEncH264VProfile_Extended   = 88 
   };
 
-#endif /*(_WIN32_WINNT >= 0x0601)*/
 #endif /*_INC_CODECAPI*/
