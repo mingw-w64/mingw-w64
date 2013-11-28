@@ -39,6 +39,39 @@ namespace D2D1 {
         return r;
     }
 
+    class Matrix5x4F : public D2D1_MATRIX_5X4_F {
+    public:
+        inline Matrix5x4F(
+                FLOAT m11, FLOAT m12, FLOAT m13, FLOAT m14,
+                FLOAT m21, FLOAT m22, FLOAT m23, FLOAT m24,
+                FLOAT m31, FLOAT m32, FLOAT m33, FLOAT m34,
+                FLOAT m41, FLOAT m42, FLOAT m43, FLOAT m44,
+                FLOAT m51, FLOAT m52, FLOAT m53, FLOAT m54) {
+            _11 = m11; _12 = m12; _13 = m13; _14 = m14;
+            _21 = m21; _22 = m22; _23 = m23; _24 = m24;
+            _31 = m31; _32 = m32; _33 = m33; _34 = m34;
+            _41 = m41; _42 = m42; _43 = m43; _44 = m44;
+            _51 = m51; _52 = m52; _53 = m53; _54 = m54;
+        }
+
+        inline Matrix5x4F() {
+            _11 = 1; _12 = 0; _13 = 0; _14 = 0;
+            _21 = 0; _22 = 1; _23 = 0; _24 = 0;
+            _31 = 0; _32 = 0; _33 = 1; _34 = 0;
+            _41 = 0; _42 = 0; _43 = 0; _44 = 1;
+            _51 = 0; _52 = 0; _53 = 0; _54 = 0;
+        }
+    };
+
+    D2D1FORCEINLINE D2D1_VECTOR_3F Vector3F(FLOAT x = 0.0f, FLOAT y = 0.0f, FLOAT z = 0.0f) {
+        D2D1_VECTOR_3F r = {x, y, z};
+        return r;
+    }
+
+    D2D1FORCEINLINE D2D1_VECTOR_4F Vector4F(FLOAT x = 0.0f, FLOAT y = 0.0f, FLOAT z = 0.0f, FLOAT w = 0.0f) {
+        D2D1_VECTOR_4F r = {x, y, z, w};
+        return r;
+    }
 }
 
 #endif /* D2D_USE_C_DEFINITIONS */
