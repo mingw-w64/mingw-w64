@@ -74,11 +74,12 @@ gendef_getsymbol_info (const char *dllname, const char *symbolname, int *isData,
 	  r1 = r2;
 	}
       symbolname = r1;
-      r2 = strdup (dllname);
+      r2 = (char *) malloc (strlen (dllname) + 5);
+      strcpy (r2, dllname);
       strcpy (strchr (r2, '.'), ".dll");
       dllname = r2;
     }
-  def = (char *) malloc (strlen (dllname) + 4);
+  def = (char *) malloc (strlen (dllname) + 5);
   strcpy (def, dllname);
   strlwr (def);
   if (strchr (def, '.') == NULL)
