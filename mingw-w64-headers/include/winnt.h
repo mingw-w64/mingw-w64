@@ -226,8 +226,13 @@ extern "C" {
 #endif /* FORCEINLINE */
 
 #ifndef DECLSPEC_DEPRECATED
+#if !defined (__WIDL__)
 #define DECLSPEC_DEPRECATED __declspec(deprecated)
 #define DEPRECATE_SUPPORTED
+#else
+#define DECLSPEC_DEPRECATED
+#undef DEPRECATE_SUPPORTED
+#endif
 #endif
 
 #define DECLSPEC_DEPRECATED_DDK
