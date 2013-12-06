@@ -1,7 +1,7 @@
 /*
  This Software is provided under the Zope Public License (ZPL) Version 2.1.
 
- Copyright (c) 2009, 2010 by the mingw-w64 project
+ Copyright (c) 2009, 2010, 2013 by the mingw-w64 project
 
  See the AUTHORS file for the list of contributors to the mingw-w64 project.
 
@@ -45,10 +45,12 @@
 #ifndef __WINUSBIO_H
 #define __WINUSBIO_H
 
+#include <winapifamily.h>
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 
 #include <windows.h>
 #include <usb.h>	/* for USBD_PIPE_TYPE */
-
 
 #ifdef __cplusplus
 extern "C" {
@@ -69,11 +71,13 @@ typedef struct _WINUSB_PIPE_INFORMATION {
 #define ALLOW_PARTIAL_READS    0x05
 #define AUTO_FLUSH             0x06
 #define RAW_IO                 0x07
+#define MAXIMUM_TRANSFER_SIZE 0x08
+#define RESET_PIPE_ON_RESUME 0x09
 
 /* constants for WinUsb_Get/SetPowerPolicy.  */
-#define AUTO_SUSPEND  0x01
-#define ENABLE_WAKE   0x02
-#define SUSPEND_DELAY 0x03
+#define AUTO_SUSPEND  0x81
+#define ENABLE_WAKE   0x82
+#define SUSPEND_DELAY 0x83
 
 /* constants for WinUsb_QueryDeviceInformation.  */
 #define DEVICE_SPEED 0x01
@@ -81,9 +85,13 @@ typedef struct _WINUSB_PIPE_INFORMATION {
 #define FullSpeed    0x02
 #define HighSpeed    0x03
 
-
 #ifdef __cplusplus
 }
+#endif
+
+#include <initguid.h>
+DEFINE_GUID (WinUSB_TestGuid, 0xda812bff, 0x12c3, 0x46a2, 0x8e, 0x2b, 0xdb, 0xd3, 0xb7, 0x83, 0x4c, 0x43);
+
 #endif
 
 #endif /* __WINUSBIO_H */
