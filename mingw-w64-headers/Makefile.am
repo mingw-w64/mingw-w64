@@ -83,6 +83,7 @@ IDL_SRCS = \
   include/oaidl.idl \
   include/ocidl.idl \
   include/comcat.idl \
+  include/mediaobj.idl \
   include/mfidl.idl \
   include/mfobjects.idl \
   include/mfreadwrite.idl \

@@ -307,6 +307,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/oaidl.idl \
 @HAVE_WIDL_TRUE@  include/ocidl.idl \
 @HAVE_WIDL_TRUE@  include/comcat.idl \
+@HAVE_WIDL_TRUE@  include/mediaobj.idl \
 @HAVE_WIDL_TRUE@  include/mfidl.idl \
 @HAVE_WIDL_TRUE@  include/mfobjects.idl \
 @HAVE_WIDL_TRUE@  include/mfreadwrite.idl \
