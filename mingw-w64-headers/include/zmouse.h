@@ -1,7 +1,6 @@
 /**
- * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 
 #include <_mingw_unicode.h>
@@ -33,18 +32,16 @@
 #endif
 
 #ifndef __CRT__NO_INLINE
-__CRT_INLINE HWND HwndMSWheel(PUINT puiMsh_MsgMouseWheel,PUINT puiMsh_Msg3DSupport,PUINT puiMsh_MsgScrollLines,PBOOL pf3DSupport,PINT piScrollLines) {
-  HWND hdlMsWheel;
-  hdlMsWheel = FindWindow(MSH_WHEELMODULE_CLASS,MSH_WHEELMODULE_TITLE);
-  *puiMsh_MsgMouseWheel = RegisterWindowMessage(MSH_MOUSEWHEEL);
-  *puiMsh_Msg3DSupport = RegisterWindowMessage(MSH_WHEELSUPPORT);
-  *puiMsh_MsgScrollLines = RegisterWindowMessage(MSH_SCROLL_LINES);
-  if(*puiMsh_Msg3DSupport) *pf3DSupport = (BOOL)SendMessage(hdlMsWheel,*puiMsh_Msg3DSupport,0,0);
-  else *pf3DSupport = FALSE;
-  if(*puiMsh_MsgScrollLines) *piScrollLines = (int)SendMessage(hdlMsWheel,*puiMsh_MsgScrollLines,0,0);
-  else *piScrollLines = 3;
-  return(hdlMsWheel);
-}
-#endif /* !__CRT__NO_INLINE */
-#include <psdk_inc/_pop_BOOL.h>
+__CRT_INLINE HWND HwndMSWheel (PUINT puiMsh_MsgMouseWheel, PUINT puiMsh_Msg3DSupport, PUINT puiMsh_MsgScrollLines, PBOOL pf3DSupport, PINT piScrollLines) {
+  HWND hw = FindWindow (MSH_WHEELMODULE_CLASS, MSH_WHEELMODULE_TITLE);
 
+  *puiMsh_MsgMouseWheel = RegisterWindowMessage (MSH_MOUSEWHEEL);
+  *puiMsh_Msg3DSupport = RegisterWindowMessage (MSH_WHEELSUPPORT);
+  *puiMsh_MsgScrollLines = RegisterWindowMessage (MSH_SCROLL_LINES);
+  *pf3DSupport = (*puiMsh_Msg3DSupport ? (WINBOOL) SendMessage (hw, *puiMsh_Msg3DSupport, 0, 0) : FALSE);
+  *piScrollLines = (*puiMsh_MsgScrollLines ? (int)SendMessage (hw, *puiMsh_MsgScrollLines, 0, 0) : 3);
+  return hw;
+}
+#endif
+
+#include <psdk_inc/_pop_BOOL.h>
