@@ -305,7 +305,6 @@ int       WINPTHREAD_API pthread_get_concurrency(int *val);
 int       WINPTHREAD_API pthread_set_concurrency(int val);
 void      WINPTHREAD_API pthread_exit(void *res);
 void      WINPTHREAD_API _pthread_invoke_cancel(void);
-void      WINPTHREAD_API pthread_testcancel(void);
 int       WINPTHREAD_API pthread_cancel(pthread_t t);
 int       WINPTHREAD_API pthread_kill(pthread_t t, int sig);
 unsigned  WINPTHREAD_API _pthread_get_state(const pthread_attr_t *attr, unsigned flag);
