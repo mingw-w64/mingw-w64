@@ -40,44 +40,37 @@ typedef struct spin_t {
 use a spin count of 4000. */
 static const DWORD kSpinCount = 4000;
 
-static CRITICAL_SECTION global_lock;
+static volatile LONG global_lock = 0;
 
-__attribute__((constructor))
 static void
-global_spin_ctor (void)
+enter_global_cs (void)
 {
-  /* Use two distinct calls here, instead of just one call to
-  InitializeCriticalSectionAndSpinCount. The latter may fail on older
-  versions of Windows. This way we'll always get a working critical
-  section from the first call. */
-  InitializeCriticalSection (&global_lock);
-  SetCriticalSectionSpinCount (&global_lock, kSpinCount);
+  while (global_lock || InterlockedExchange (&global_lock, 1))
+    asm volatile ("pause");
 }
 
-__attribute__((destructor))
 static void
-global_spin_dtor (void)
+leave_global_cs (void)
 {
-  DeleteCriticalSection (&global_lock);
+  InterlockedExchange (&global_lock, 0);
 }
-
 
 static int
 static_spin_init (pthread_spinlock_t* lock)
 {
   if (PTHREAD_SPINLOCK_INITIALIZER == *lock)
     {
-      EnterCriticalSection (&global_lock);
+      enter_global_cs ();
       if (PTHREAD_SPINLOCK_INITIALIZER == *lock)
         {
           int initrv = pthread_spin_init (lock, PTHREAD_PROCESS_PRIVATE);
           if (initrv < 0)
             {
-              LeaveCriticalSection (&global_lock);
+              leave_global_cs ();
               return initrv;
             }
         }
-      LeaveCriticalSection (&global_lock);
+      leave_global_cs ();
     }
   return 0;
 }
@@ -111,11 +104,11 @@ pthread_spin_destroy (pthread_spinlock_t *lock)
   if (!lock || !*lock)
     return EINVAL;
 
-  EnterCriticalSection (&global_lock);
+  enter_global_cs ();
   if (*lock == PTHREAD_SPINLOCK_INITIALIZER)
     {
       *lock = NULL;
-      LeaveCriticalSection (&global_lock);
+      leave_global_cs ();
       return 0;
     }
 
@@ -126,7 +119,7 @@ pthread_spin_destroy (pthread_spinlock_t *lock)
   DeleteCriticalSection (&spin->section);
   free (spin);
   *lock = NULL;
-  LeaveCriticalSection (&global_lock);
+  leave_global_cs ();
   return 0;
 }
 
