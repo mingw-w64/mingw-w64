@@ -114,7 +114,10 @@ pthread_spin_destroy (pthread_spinlock_t *lock)
 
   spin = (spin_t*)*lock;
   if (spin->owner && spin->owner != GetCurrentThreadId ())
-    return EPERM;
+    {
+      leave_global_cs ();
+      return EPERM;
+    }
 
   DeleteCriticalSection (&spin->section);
   free (spin);
