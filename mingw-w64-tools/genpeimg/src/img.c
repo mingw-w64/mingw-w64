@@ -57,6 +57,7 @@ fimg_free (file_image *pimg)
 int fimg_load (file_image *pimg, const char *fname)
 {
   FILE *fp;
+  size_t r;
 
   fp = fopen (fname, "rb");
   if (!pimg || !fp)
@@ -89,9 +90,9 @@ int fimg_load (file_image *pimg, const char *fname)
       fimg_free_content (pimg);
       return 0;
     }
-  fread (pimg->data, 1, pimg->data_len, fp);
+  r = fread (pimg->data, 1, pimg->data_len, fp);
   fclose (fp);
-  return 1;
+  return r == pimg->data_len;
 }
 
 int
