@@ -1,10 +1,12 @@
 /**
- * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 
+#include <winapifamily.h>
 #include <_mingw_unicode.h>
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 
 #ifndef NTLMSP_NAME_A
 #define NTLMSP_NAME_A "NTLM"
@@ -30,10 +32,11 @@
 
 #include <sspi.h>
 
-#if defined(SECURITY_WIN32) || defined(SECURITY_KERNEL)
+#if defined (SECURITY_WIN32) || defined (SECURITY_KERNEL)
 #include <secext.h>
 #endif
 
-#if ISSP_LEVEL==16
+#if ISSP_LEVEL == 16
 #include <issper16.h>
+#endif
 #endif
