@@ -1,3 +1,8 @@
+2013-12-13  Roland Schwingel <roland.schwingel@onevision.com>
+
+	* include/ntsecapi.h: Add definition of LSA_LAST_INTER_LOGON_INFO
+	and some missing members in SECURITY_LOGON_SESSION_DATA. 
+
 2013-07-09  Roland Schwingel <roland.schwingel@onevision.com>
 
 	* include/wincon.h: Replace BOOL by WINBOOL in
