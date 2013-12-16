@@ -125,7 +125,7 @@ DECLARE_INTERFACE_(IVssBackupComponents,IUnknown)
     STDMETHOD_(HRESULT,InitializeForRestore)(THIS_ BSTR bstrXML) PURE;
     STDMETHOD_(HRESULT,SetRestoreState)(THIS_ VSS_RESTORE_TYPE restoreType) PURE;
     STDMETHOD_(HRESULT,GatherWriterMetadata)(THIS_ IVssAsync **ppAsync) PURE;
-    STDMETHOD_(HRESULT,GetWriterMetadataCount)(THIS_ UINT pcWriters) PURE;
+    STDMETHOD_(HRESULT,GetWriterMetadataCount)(THIS_ UINT *pcWriters) PURE;
     STDMETHOD_(HRESULT,GetWriterMetadata)(THIS_ UINT iWriter,VSS_ID *pidWriterInstance,IVssExamineWriterMetadata **ppMetadata) PURE;
     STDMETHOD_(HRESULT,FreeWriterMetadata)(THIS) PURE;
     STDMETHOD_(HRESULT,AddComponent)(THIS_ VSS_ID instanceId,VSS_ID writerId,VSS_COMPONENT_TYPE componentType,LPCWSTR wszLogicalPath,LPCWSTR wszComponentName) PURE;
@@ -246,7 +246,7 @@ DECLARE_INTERFACE_(IVssBackupComponentsEx,IVssBackupComponents)
     STDMETHOD_(HRESULT,InitializeForRestore)(THIS_ BSTR bstrXML) PURE;
     STDMETHOD_(HRESULT,SetRestoreState)(THIS_ VSS_RESTORE_TYPE restoreType) PURE;
     STDMETHOD_(HRESULT,GatherWriterMetadata)(THIS_ IVssAsync **ppAsync) PURE;
-    STDMETHOD_(HRESULT,GetWriterMetadataCount)(THIS_ UINT pcWriters) PURE;
+    STDMETHOD_(HRESULT,GetWriterMetadataCount)(THIS_ UINT *pcWriters) PURE;
     STDMETHOD_(HRESULT,GetWriterMetadata)(THIS_ UINT iWriter,VSS_ID *pidWriterInstance,IVssExamineWriterMetadata **ppMetadata) PURE;
     STDMETHOD_(HRESULT,FreeWriterMetadata)(THIS) PURE;
     STDMETHOD_(HRESULT,AddComponent)(THIS_ VSS_ID instanceId,VSS_ID writerId,VSS_COMPONENT_TYPE componentType,LPCWSTR wszLogicalPath,LPCWSTR wszComponentName) PURE;
@@ -372,7 +372,7 @@ DECLARE_INTERFACE_(IVssBackupComponentsEx2,IVssBackupComponentsEx)
     STDMETHOD_(HRESULT,InitializeForRestore)(THIS_ BSTR bstrXML) PURE;
     STDMETHOD_(HRESULT,SetRestoreState)(THIS_ VSS_RESTORE_TYPE restoreType) PURE;
     STDMETHOD_(HRESULT,GatherWriterMetadata)(THIS_ IVssAsync **ppAsync) PURE;
-    STDMETHOD_(HRESULT,GetWriterMetadataCount)(THIS_ UINT pcWriters) PURE;
+    STDMETHOD_(HRESULT,GetWriterMetadataCount)(THIS_ UINT *pcWriters) PURE;
     STDMETHOD_(HRESULT,GetWriterMetadata)(THIS_ UINT iWriter,VSS_ID *pidWriterInstance,IVssExamineWriterMetadata **ppMetadata) PURE;
     STDMETHOD_(HRESULT,FreeWriterMetadata)(THIS) PURE;
     STDMETHOD_(HRESULT,AddComponent)(THIS_ VSS_ID instanceId,VSS_ID writerId,VSS_COMPONENT_TYPE componentType,LPCWSTR wszLogicalPath,LPCWSTR wszComponentName) PURE;
@@ -516,7 +516,7 @@ DECLARE_INTERFACE_(IVssBackupComponentsEx3,IVssBackupComponentsEx2)
     STDMETHOD_(HRESULT,InitializeForRestore)(THIS_ BSTR bstrXML) PURE;
     STDMETHOD_(HRESULT,SetRestoreState)(THIS_ VSS_RESTORE_TYPE restoreType) PURE;
     STDMETHOD_(HRESULT,GatherWriterMetadata)(THIS_ IVssAsync **ppAsync) PURE;
-    STDMETHOD_(HRESULT,GetWriterMetadataCount)(THIS_ UINT pcWriters) PURE;
+    STDMETHOD_(HRESULT,GetWriterMetadataCount)(THIS_ UINT *pcWriters) PURE;
     STDMETHOD_(HRESULT,GetWriterMetadata)(THIS_ UINT iWriter,VSS_ID *pidWriterInstance,IVssExamineWriterMetadata **ppMetadata) PURE;
     STDMETHOD_(HRESULT,FreeWriterMetadata)(THIS) PURE;
     STDMETHOD_(HRESULT,AddComponent)(THIS_ VSS_ID instanceId,VSS_ID writerId,VSS_COMPONENT_TYPE componentType,LPCWSTR wszLogicalPath,LPCWSTR wszComponentName) PURE;
