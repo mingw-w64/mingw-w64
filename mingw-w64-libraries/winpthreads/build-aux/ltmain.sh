@@ -1,6 +1,6 @@
 #! /bin/sh
 
-# libtool (GNU libtool) 2.4.2.418
+# libtool (GNU libtool) 2.4.2.418.11-4494
 # Provide generalized library-building support services.
 # Written by Gordon Matzigkeit <gord@gnu.ai.mit.edu>, 1996
 
@@ -29,8 +29,8 @@
 
 PROGRAM=libtool
 PACKAGE=libtool
-VERSION=2.4.2.418
-package_revision=2.4.2.418
+VERSION=2.4.2.418.11-4494
+package_revision=2.4.2.418.11
 
 
 ## ------ ##
@@ -62,7 +62,7 @@ package_revision=2.4.2.418
 # libraries, which are installed to $pkgauxdir.
 
 # Set a version string for this script.
-scriptversion=2013-08-23.20; # UTC
+scriptversion=2013-10-28.05; # UTC
 
 # General shell script boiler plate, and helper functions.
 # Written by Gary V. Vaughan, 2004
@@ -147,6 +147,75 @@ nl='
 '
 IFS="$sp	$nl"
 
+# There are apparently some retarded systems that use ';' as a PATH separator!
+if test "${PATH_SEPARATOR+set}" != set; then
+  PATH_SEPARATOR=:
+  (PATH='/bin;/bin'; FPATH=$PATH; sh -c :) >/dev/null 2>&1 && {
+    (PATH='/bin:/bin'; FPATH=$PATH; sh -c :) >/dev/null 2>&1 ||
+      PATH_SEPARATOR=';'
+  }
+fi
+
+
+
+## ------------------------- ##
+## Locate command utilities. ##
+## ------------------------- ##
+
+
+# func_executable_p FILE
+# ----------------------
+# Check that FILE is an executable regular file.
+func_executable_p ()
+{
+    test -f "$1" && test -x "$1"
+}
+
+
+# func_path_progs PROGS_LIST CHECK_FUNC [PATH]
+# --------------------------------------------
+# Search for either a program that responds to --version with output
+# containing "GNU", or else returned by CHECK_FUNC otherwise, by
+# trying all the directories in PATH with each of the elements of
+# PROGS_LIST.
+#
+# CHECK_FUNC should accept the path to a candidate program, and
+# set $func_check_prog_result if it truncates its output less than
+# $_G_path_prog_max characters.
+func_path_progs ()
+{
+    _G_progs_list=$1
+    _G_check_func=$2
+    _G_PATH=${3-"$PATH"}
+
+    _G_path_prog_max=0
+    _G_path_prog_found=false
+    _G_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+    for _G_dir in $_G_PATH; do
+      IFS=$_G_save_IFS
+      test -z "$_G_dir" && _G_dir=.
+      for _G_prog_name in $_G_progs_list; do
+        for _exeext in '' .EXE; do
+          _G_path_prog=$_G_dir/$_G_prog_name$_exeext
+          func_executable_p "$_G_path_prog" || continue
+          case `"$_G_path_prog" --version 2>&1` in
+            *GNU*) func_path_progs_result=$_G_path_prog _G_path_prog_found=: ;;
+            *)     $_G_check_func $_G_path_prog
+		   func_path_progs_result=$func_check_prog_result
+		   ;;
+          esac
+          $_G_path_prog_found && break 3
+        done
+      done
+    done
+    IFS=$_G_save_IFS
+    test -z "$func_path_progs_result" && {
+      echo "no acceptable sed could be found in \$PATH" >&2
+      exit 1
+    }
+}
+
+
 # There are still modern systems that have problems with 'echo' mis-
 # handling backslashes, among others, so make sure $bs_echo is set to a
 # command that correctly interprets backslashes.
@@ -188,6 +257,82 @@ else
 fi
 
 
+# Unless the user overrides by setting SED, search the path for either GNU
+# sed, or the sed that truncates its output the least.
+test -z "$SED" && {
+  _G_sed_script=s/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/
+  for _G_i in 1 2 3 4 5 6 7; do
+    _G_sed_script=$_G_sed_script$nl$_G_sed_script
+  done
+  echo "$_G_sed_script" 2>/dev/null | sed 99q >conftest.sed
+  _G_sed_script=
+
+  func_check_prog_sed ()
+  {
+    _G_path_prog=$1
+
+    _G_count=0
+    $bs_echo_n 0123456789 >conftest.in
+    while :
+    do
+      cat conftest.in conftest.in >conftest.tmp
+      mv conftest.tmp conftest.in
+      cp conftest.in conftest.nl
+      $bs_echo '' >> conftest.nl
+      "$_G_path_prog" -f conftest.sed <conftest.nl >conftest.out 2>/dev/null || break
+      diff conftest.out conftest.nl >/dev/null 2>&1 || break
+      _G_count=`expr $_G_count + 1`
+      if test "$_G_count" -gt "$_G_path_prog_max"; then
+        # Best one so far, save it but keep looking for a better one
+        func_check_prog_result=$_G_path_prog
+        _G_path_prog_max=$_G_count
+      fi
+      # 10*(2^10) chars as input seems more than enough
+      test 10 -lt "$_G_count" && break
+    done
+    rm -f conftest.in conftest.tmp conftest.nl conftest.out
+  }
+
+  func_path_progs "sed gsed" func_check_prog_sed $PATH:/usr/xpg4/bin
+  SED=$func_path_progs_result
+}
+
+
+# Unless the user overrides by setting GREP, search the path for either GNU
+# grep, or the sed that truncates its output the least.
+test -z "$GREP" && {
+  func_check_prog_grep ()
+  {
+    _G_path_prog=$1
+
+    _G_count=0
+    _G_path_prog_max=0
+    $bs_echo_n 0123456789 >conftest.in
+    while :
+    do
+      cat conftest.in conftest.in >conftest.tmp
+      mv conftest.tmp conftest.in
+      cp conftest.in conftest.nl
+      $bs_echo 'GREP' >> conftest.nl
+      "$_G_path_prog" -e 'GREP$' -e '-(cannot match)-' <conftest.nl >conftest.out 2>/dev/null || break
+      diff conftest.out conftest.nl >/dev/null 2>&1 || break
+      _G_count=`expr $_G_count + 1`
+      if test "$_G_count" -gt "$_G_path_prog_max"; then
+        # Best one so far, save it but keep looking for a better one
+        func_check_prog_result=$_G_path_prog
+        _G_path_prog_max=$_G_count
+      fi
+      # 10*(2^10) chars as input seems more than enough
+      test 10 -lt "$_G_count" && break
+    done
+    rm -f conftest.in conftest.tmp conftest.nl conftest.out
+  }
+
+  func_path_progs "grep ggrep" func_check_prog_grep $PATH:/usr/xpg4/bin
+  GREP=$func_path_progs_result
+}
+
+
 ## ------------------------------- ##
 ## User overridable command paths. ##
 ## ------------------------------- ##
@@ -199,15 +344,13 @@ fi
 
 : ${CP="cp -f"}
 : ${ECHO="$bs_echo"}
-: ${EGREP="grep -E"}
-: ${FGREP="grep -F"}
-: ${GREP="grep"}
+: ${EGREP="$GREP -E"}
+: ${FGREP="$GREP -F"}
 : ${LN_S="ln -s"}
 : ${MAKE="make"}
 : ${MKDIR="mkdir"}
 : ${MV="mv -f"}
 : ${RM="rm -f"}
-: ${SED="sed"}
 : ${SHELL="${CONFIG_SHELL-/bin/sh}"}
 
 
@@ -1232,37 +1375,21 @@ func_sort_ver ()
 {
     $debug_cmd
 
-    ver1=$1
-    ver2=$2
+    printf '%s\n%s\n' "$1" "$2" |
+    sort -t. -k1n -k1 -k2n -k2 -k3n -k3 -k4n -k4 -k5n -k5 -k6n -k6 -k7n -k7 -k8n -k8 -k9n -k9
+}
 
-    # Split on '.' and compare each component.
-    i=1
-    while :; do
-      p1=`echo "$ver1" |cut -d. -f$i`
-      p2=`echo "$ver2" |cut -d. -f$i`
-      if test ! "$p1"; then
-        echo "$1 $2"
-        break
-      elif test ! "$p2"; then
-        echo "$2 $1"
-        break
-      elif test ! "$p1" = "$p2"; then
-        if test "$p1" -gt "$p2" 2>/dev/null; then # numeric comparison
-          echo "$2 $1"
-        elif test "$p2" -gt "$p1" 2>/dev/null; then # numeric comparison
-          echo "$1 $2"
-        else # numeric, then lexicographic comparison
-          lp=`printf "$p1\n$p2\n" |sort -n |tail -n1`
-          if test "$lp" = "$p2"; then
-            echo "$1 $2"
-          else
-            echo "$2 $1"
-          fi
-        fi
-        break
-      fi
-      i=`expr $i + 1`
-    done
+# func_lt_ver PREV CURR
+# ---------------------
+# Return true if PREV and CURR are in the correct order according to
+# func_sort_ver, otherwise false.  Use it like this:
+#
+#  func_lt_ver "$prev_ver" "$proposed_ver" || func_fatal_error "..."
+func_lt_ver ()
+{
+    $debug_cmd
+
+    test "x$1" = x`func_sort_ver "$1" "$2" | sed 1q`
 }
 
 
@@ -1883,7 +2010,7 @@ func_version ()
 # End:
 
 # Set a version string.
-scriptversion='(GNU libtool) 2.4.2.418'
+scriptversion='(GNU libtool) 2.4.2.418.11-4494'
 
 
 # func_echo ARG...
@@ -1969,12 +2096,12 @@ include the following information:
        compiler:       $LTCC
        compiler flags: $LTCFLAGS
        linker:         $LD (gnu? $with_gnu_ld)
-       version:        $progname (GNU libtool) 2.4.2.418
+       version:        $progname (GNU libtool) 2.4.2.418.11-4494
        automake:       `($AUTOMAKE --version) 2>/dev/null |$SED 1q`
        autoconf:       `($AUTOCONF --version) 2>/dev/null |$SED 1q`
 
 Report bugs to <bug-libtool@gnu.org>.
-GNU libtool home page: <http://www.gnu.org/software/libtool/>.
+GNU libtool home page: <http://www.gnu.org/s/libtool/>.
 General help using GNU software: <http://www.gnu.org/gethelp/>."
 
 
