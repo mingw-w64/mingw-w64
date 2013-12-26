@@ -6516,14 +6516,6 @@ typedef struct tagINPUT_TRANSFORM {
   };
 } INPUT_TRANSFORM;
 
-/* Does this belongs here? */
-typedef struct tagTouchPredictionParameters {
-  UINT cbSize;
-  UINT dwLatency;
-  UINT dwSampleTime;
-  UINT bUseHWTimeStamp;
-} TouchPredictionParameters, *PTouchPredictionParameters;
-
 /* Do these functions belong here? */
 WINUSERAPI WINBOOL WINAPI GetPointerInputTransform(UINT32 pointerId, UINT32 historyCount, UINT32 *inputTransform);
 WINUSERAPI WINBOOL WINAPI IsMousePointerEnabled(void);
