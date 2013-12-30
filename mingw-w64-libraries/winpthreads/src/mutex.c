@@ -37,14 +37,15 @@ static pthread_spinlock_t mutex_global = PTHREAD_SPINLOCK_INITIALIZER;
 static pthread_spinlock_t mutex_global_static = PTHREAD_SPINLOCK_INITIALIZER;
 
 static WINPTHREADS_ATTRIBUTE((noinline)) int
-mutex_unref(pthread_mutex_t *m, int r)
+mutex_unref (pthread_mutex_t *m, int r)
 {
   mutex_t *m_ = (mutex_t *)*m;
   pthread_spin_lock (&mutex_global);
 #ifdef WINPTHREAD_DBG
   assert((m_->valid == LIFE_MUTEX) && (m_->busy > 0));
 #endif
-  m_->busy --;
+  if (m_->valid == LIFE_MUTEX)
+    m_->busy --;
   pthread_spin_unlock (&mutex_global);
   return r;
 }
@@ -73,7 +74,7 @@ mutex_ref (pthread_mutex_t *m)
     if (r != 0 && r != EBUSY)
     {
       pthread_spin_unlock (&mutex_global);
-	  return r;
+      return r;
     }
   }
   
@@ -82,7 +83,7 @@ mutex_ref (pthread_mutex_t *m)
   if (!m || !*m || ((mutex_t *)*m)->valid != LIFE_MUTEX) 
     r = EINVAL;
   else
-    ((mutex_t *)*m)->busy ++;
+    ((mutex_t *)*m)->busy += 1;
 
   pthread_spin_unlock (&mutex_global);
 
@@ -113,39 +114,52 @@ mutex_ref_unlock (pthread_mutex_t *m)
 /* doesn't lock the mutex but set it to invalid in a thread-safe way */
 /* A busy mutex can't be destroyed -> EBUSY */
 static WINPTHREADS_ATTRIBUTE((noinline)) int
-mutex_ref_destroy (pthread_mutex_t *m, pthread_mutex_t *mDestroy )
+mutex_ref_destroy (pthread_mutex_t *m, pthread_mutex_t *mDestroy)
 {
+  pthread_mutex_t mx;
+  mutex_t *m_;
   int r = 0;
+
+  if (!m || !*m)
+    return EINVAL;
 
   *mDestroy = NULL;
   /* also considered as busy, any concurrent access prevents destruction: $$$$ */
-  if (pthread_spin_trylock (&mutex_global) != 0)
-    return EBUSY;
-    
-  if (!m || !*m)
+  while (pthread_spin_trylock (&mutex_global) != 0)
+  {
+    mx = *m;
+    r = pthread_mutex_trylock (&mx);
+    if (r != 0)
+      return r;
+    pthread_mutex_unlock (&mx);
+  }
+
+  if (!*m)
     r = EINVAL;
   else
   {
-    mutex_t *m_ = (mutex_t *)*m;
-    if (STATIC_INITIALIZER(*m)) 
-	  *m = NULL;
-    else if (m_->valid != LIFE_MUTEX) 
-	  r = EINVAL;
-    else if (m_->busy || COND_LOCKED(m_)) 
-	  r = EBUSY;
+    m_ = (mutex_t *)*m;
+    if (STATIC_INITIALIZER(*m))
+      *m = NULL;
+    else if (m_->valid != LIFE_MUTEX)
+      r = EINVAL;
+    else if (m_->busy || COND_LOCKED(m_))
+      r = EBUSY;
     else
     {
-	  *mDestroy = *m;
-	  *m = NULL;
+      *mDestroy = *m;
+      *m = NULL;
     }
   }
 
-  pthread_spin_unlock (&mutex_global);
+  if (r)
+    pthread_spin_unlock (&mutex_global);
+
   return r;
 }
 
 static WINPTHREADS_ATTRIBUTE((noinline)) int
-mutex_ref_init (pthread_mutex_t *m )
+mutex_ref_init (pthread_mutex_t *m)
 {
     int r = 0;
 
@@ -429,8 +443,8 @@ pthread_mutex_init (pthread_mutex_t *m, const pthread_mutexattr_t *a)
 {
   mutex_t *_m;
 
-  int r = mutex_ref_init(m);
-  if(r) 
+  int r = mutex_ref_init (m);
+  if (r) 
     return r;
 
   if (!(_m = (pthread_mutex_t)calloc(1,sizeof(*_m))))
@@ -446,10 +460,8 @@ pthread_mutex_init (pthread_mutex_t *m, const pthread_mutexattr_t *a)
     if (!r)
       r = pthread_mutexattr_getpshared(a, &share);
     
-	if (!r && share == PTHREAD_PROCESS_SHARED)
-    {
-	  r = ENOSYS;
-	}
+    if (!r && share == PTHREAD_PROCESS_SHARED)
+      r = ENOSYS;
   }
   
   if (!r)
@@ -480,25 +492,31 @@ pthread_mutex_init (pthread_mutex_t *m, const pthread_mutexattr_t *a)
   return 0;
 }
 
-int pthread_mutex_destroy(pthread_mutex_t *m)
+int pthread_mutex_destroy (pthread_mutex_t *m)
 {
   mutex_t *_m;
   pthread_mutex_t mDestroy;
-  int r = mutex_ref_destroy(m,&mDestroy);
-  if(r) 
+  int r = mutex_ref_destroy (m, &mDestroy);
+  if (r)
     return r;
 
-  if(!mDestroy)
+  if (!mDestroy)
+  {
+    pthread_spin_unlock (&mutex_global);
     return 0; /* destroyed a (still) static initialized mutex */
+  }
 
   /* now the mutex is invalid, and no one can touch it */
   _m = (mutex_t *)mDestroy;
 
-  CloseHandle(_m->h);
+  CloseHandle (_m->h);
   _m->valid = DEAD_MUTEX;
   _m->type  = 0;
   _m->count = 0;
-  free(mDestroy);
+  free (mDestroy);
+  *m = NULL;
+  pthread_spin_unlock (&mutex_global);
+
   return 0;
 }
 
