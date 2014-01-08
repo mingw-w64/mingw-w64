@@ -106,6 +106,16 @@ extern "C" {
 #endif
 
 /* NOTE: it's not included by MS version, but we do it to try work around C++/C linkage differences */
+#if defined(__SSE__) || defined(__MINGW_FORCE_SYS_INTRINS)
+#if defined(__cplusplus)
+extern "C" {
+#endif
+#include <xmmintrin.h>
+#if defined(__cplusplus)
+}
+#endif
+#endif
+
 #if defined(__SSE2__) || defined(__MINGW_FORCE_SYS_INTRINS)
 #if defined(__cplusplus)
 extern "C" {
@@ -612,6 +622,7 @@ extern "C" {
     __MACHINEX86X_NOX64(__m64 _mm_setr_pi16(short,short,short,short))
     __MACHINEX86X_NOX64(__m64 _mm_setr_pi8(char,char,char,char,char,char,char,char))
 #endif
+#if !defined(__GNUC__) || (!defined(__SSE__) && !defined(__MINGW_FORCE_SYS_INTRINS))
 #pragma push_macro ("_m_pextrw")
 #undef _m_pextrw
     __MACHINEX86X_NOX64(int _m_pextrw(__m64,int))
@@ -621,19 +632,16 @@ extern "C" {
 #undef _m_pinsrw
     __MACHINEX86X_NOX64(__m64 _m_pinsrw(__m64,int,int))
 #pragma pop_macro ("_m_pinsrw")
-#if !defined(__GNUC__) || (!defined(__SSE2__) && !defined(__MINGW_FORCE_SYS_INTRINS))
     __MACHINEX86X_NOX64(__m64 _m_pmaxsw(__m64,__m64))
     __MACHINEX86X_NOX64(__m64 _m_pmaxub(__m64,__m64))
     __MACHINEX86X_NOX64(__m64 _m_pminsw(__m64,__m64))
     __MACHINEX86X_NOX64(__m64 _m_pminub(__m64,__m64))
     __MACHINEX86X_NOX64(int _m_pmovmskb(__m64))
     __MACHINEX86X_NOX64(__m64 _m_pmulhuw(__m64,__m64))
-#endif
 #pragma push_macro ("_m_pshufw")
 #undef _m_pshufw
     __MACHINEX86X_NOX64(__m64 _m_pshufw(__m64,int))
 #pragma pop_macro ("_m_pshufw")
-#if !defined(__GNUC__) || (!defined(__SSE2__) && !defined(__MINGW_FORCE_SYS_INTRINS))
     __MACHINEX86X_NOX64(void _m_maskmovq(__m64,__m64,char*))
     __MACHINEX86X_NOX64(__m64 _m_pavgb(__m64,__m64))
     __MACHINEX86X_NOX64(__m64 _m_pavgw(__m64,__m64))
@@ -641,7 +649,7 @@ extern "C" {
 #endif
     __MACHINEX86X_NOWIN64(__m64 _m_from_float(float))
     __MACHINEX86X_NOWIN64(float _m_to_float(__m64))
-#if !defined(__GNUC__) || (!defined(__SSE2__) && !defined(__MINGW_FORCE_SYS_INTRINS))
+#if !defined(__GNUC__) || (!defined(__SSE__) && !defined(__MINGW_FORCE_SYS_INTRINS))
     __MACHINEX86X_NOIA64(__m128 _mm_add_ss(__m128,__m128))
     __MACHINEX86X_NOIA64(__m128 _mm_add_ps(__m128,__m128))
     __MACHINEX86X_NOIA64(__m128 _mm_sub_ss(__m128,__m128))
@@ -706,12 +714,10 @@ extern "C" {
     __MACHINEX86X_NOWIN64(__m64 _mm_cvtt_ps2pi(__m128))
     __MACHINEX86X_NOIA64(__m128 _mm_cvt_si2ss(__m128,int))
     __MACHINEX86X_NOWIN64(__m128 _mm_cvt_pi2ps(__m128,__m64))
-#endif
 #pragma push_macro ("_mm_shuffle_ps")
 #undef _mm_shuffle_ps
     __MACHINEX86X_NOIA64(__m128 _mm_shuffle_ps(__m128,__m128,int const))
 #pragma pop_macro ("_mm_shuffle_ps")
-#if !defined(__GNUC__) || (!defined(__SSE2__) && !defined(__MINGW_FORCE_SYS_INTRINS))
     __MACHINEX86X_NOIA64(__m128 _mm_unpackhi_ps(__m128,__m128))
     __MACHINEX86X_NOIA64(__m128 _mm_unpacklo_ps(__m128,__m128))
     __MACHINEX86X_NOIA64(__m128 _mm_loadh_pi(__m128,__m64 const*))
@@ -987,6 +993,8 @@ extern "C" {
     __MACHINEX86X(void _mm_lfence(void))
     __MACHINEX86X(void _mm_mfence(void))
     __MACHINEX86X(void _mm_stream_si32(int*,int))
+#endif
+#if !defined(__GNUC__) || (!defined(__SSE__) && !defined(__MINGW_FORCE_SYS_INTRINS))
     __MACHINEX86X(void _mm_pause(void))
 #endif
 #if !defined(__GNUC__) || (!defined(__SSE3__) && !defined(__MINGW_FORCE_SYS_INTRINS))
