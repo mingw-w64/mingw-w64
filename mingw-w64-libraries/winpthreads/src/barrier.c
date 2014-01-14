@@ -63,7 +63,7 @@ barrier_ref_destroy(volatile pthread_barrier_t *barrier, pthread_barrier_t *bDes
     int r = 0;
 
     *bDestroy = NULL;
-    if (pthread_spin_trylock(&barrier_global)) return EBUSY;
+    pthread_spin_trylock(&barrier_global);
     
     if (!barrier || !*barrier || ((barrier_t *)*barrier)->valid != LIFE_BARRIER) r = EINVAL;
     else {

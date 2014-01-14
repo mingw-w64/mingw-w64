@@ -82,7 +82,7 @@ static WINPTHREADS_ATTRIBUTE((noinline)) int rwl_ref_destroy(pthread_rwlock_t *r
     int r = 0;
 
     *rDestroy = NULL;
-    if (pthread_spin_trylock(&rwl_global)) return EBUSY;
+    pthread_spin_lock(&rwl_global);
     
     if (!rwl || !*rwl) r = EINVAL;
     else {
