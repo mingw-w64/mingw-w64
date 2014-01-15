@@ -128,22 +128,24 @@ __FLT_ABI(__powi) (__FLT_TYPE x, int y)
       d = __FLT_CST(1.0) / d;
       y = -y;
     }
+
   if (!y)
     rslt = __FLT_CST(1.0);
   else if (y == 1)
     rslt = d;
   else
     {
-      rslt = ((y & 1) != 0) ? d : __FLT_CST(1.0);
-      y >>= 1;
+      unsigned int u = (unsigned int) y;
+      rslt = ((u & 1) != 0) ? d : __FLT_CST(1.0);
+      u >>= 1;
       do
 	{
 	  d *= d;
-	  if ((y & 1) != 0)
+	  if ((u & 1) != 0)
 	    rslt *= d;
-	  y >>= 1;
+	  u >>= 1;
 	}
-      while (y > 0);
+      while (u > 0);
     }
   if (signbit (x) && odd_y)
     rslt = -rslt;
