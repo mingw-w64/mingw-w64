@@ -22,6 +22,8 @@ interface IAMAudioInputMixer;
 interface IAMAudioRendererStats;
 interface IAMBufferNegotiation;
 interface IAMCameraControl;
+interface IAMCertifiedOutputProtection;
+interface IAMClockSlave;
 interface IAMCopyCaptureFileProgress;
 interface IAMCrossbar;
 interface IAMDevMemoryAllocator;
@@ -731,6 +733,122 @@ interface ICaptureGraphBuilder2 : IUnknown
         [out] IPin **ppPin);
 }
 
+[
+    local,
+    object,
+    uuid(5acd6aa0-f482-11ce-8b67-00aa00a3f1a6),
+    pointer_default(unique)
+]
+interface IConfigAviMux : IUnknown
+{
+    HRESULT SetMasterStream(
+        [in] LONG iStream);
+
+    HRESULT GetMasterStream(
+        [out] LONG *pStream);
+
+    HRESULT SetOutputCompatibilityIndex(
+        [in] BOOL fOldIndex);
+
+    HRESULT GetOutputCompatibilityIndex(
+        [out] BOOL *pfOldIndex);
+}
+
+[
+    local,
+    object,
+    uuid(bee3d220-157b-11d0-bd23-00a0c911ce86),
+    pointer_default(unique)
+]
+interface IConfigInterleaving : IUnknown
+{
+    typedef enum InterleavingMode {
+        INTERLEAVE_NONE,
+        INTERLEAVE_CAPTURE,
+        INTERLEAVE_FULL,
+        INTERLEAVE_NONE_BUFFERED
+    } InterleavingMode;
+
+    HRESULT put_Mode(
+        [in] InterleavingMode mode);
+
+    HRESULT get_Mode(
+        [out] InterleavingMode *pMode);
+
+    HRESULT put_Interleaving(
+        [in] const REFERENCE_TIME *prtInterleave,
+        [in] const REFERENCE_TIME *prtPreroll);
+
+    HRESULT get_Interleaving(
+        [out] REFERENCE_TIME *prtInterleave,
+        [out] REFERENCE_TIME *prtPreroll);
+}
+
+[
+    local,
+    object,
+    uuid(9fd52741-176d-4b36-8f51-ca8f933223be),
+    pointer_default(unique)
+]
+interface IAMClockSlave : IUnknown
+{
+    HRESULT SetErrorTolerance(
+        [in] DWORD dwTolerance);
+
+    HRESULT GetErrorTolerance(
+        [out] DWORD *pdwTolerance);
+}
+
+typedef struct _AMCOPPSignature {
+    BYTE Signature[256];
+} AMCOPPSignature;
+
+typedef struct _AMCOPPCommand {
+    GUID macKDI;
+    GUID guidCommandID;
+    DWORD dwSequence;
+    DWORD bSizeData;
+    BYTE CommandData[4056];
+} AMCOPPCommand, *LPAMCOPPCommand;
+
+typedef struct _AMCOPPStatusInput {
+    GUID rApp;
+    GUID guidStatusRequestID;
+    DWORD dwSequence;
+    DWORD cbSizeData;
+    BYTE StatusData[4056];
+} AMCOPPStatusInput, *LPAMCOPPStatusInput;
+
+typedef struct _AMCOPPStatusOutput {
+    GUID macKDI;
+    DWORD cbSizeData;
+    BYTE COPPStatus[4076];
+} AMCOPPStatusOutput, *LPAMCOPPStatusOutput;
+
+[
+    local,
+    object,
+    uuid(6feded3e-0ff1-4901-a2f1-43f7012c8515),
+    pointer_default(unique)
+]
+interface IAMCertifiedOutputProtection : IUnknown
+{
+    HRESULT KeyExchange (
+        [out] GUID* pRandom,
+        [out] BYTE** VarLenCertGH,
+        [out] DWORD* pdwLengthCertGH);
+
+    HRESULT SessionSequenceStart(
+        [in] AMCOPPSignature* pSig);
+
+    HRESULT ProtectionCommand(
+        [in] const AMCOPPCommand* cmd);
+
+    HRESULT ProtectionStatus(
+        [in] const AMCOPPStatusInput* pStatusInput,
+        [out] AMCOPPStatusOutput* pStatusOutput);
+};
+
 enum _AM_RENSDEREXFLAGS
 {
     AM_RENDEREX_RENDERTOEXISTINGRENDERERS = 0x01
@@ -988,6 +1106,44 @@ interface IResourceManager : IUnknown
 
 }
 
+typedef enum AM_STREAM_INFO_FLAGS
+{
+    AM_STREAM_INFO_START_DEFINED   = 0x01,
+    AM_STREAM_INFO_STOP_DEFINED    = 0x02,
+    AM_STREAM_INFO_DISCARDING      = 0x04,
+    AM_STREAM_INFO_STOP_SEND_EXTRA = 0x10
+} AM_STREAM_INFO_FLAGS;
+
+typedef struct AM_STREAM_INFO
+{
+    REFERENCE_TIME tStart;
+    REFERENCE_TIME tStop;
+    DWORD dwStartCookie;
+    DWORD dwStopCookie;
+    DWORD dwFlags;
+} AM_STREAM_INFO;
+
+[
+    local,
+    object,
+    uuid(36b73881-c2c8-11cf-8b46-00805f6cef60),
+    pointer_default(unique)
+]
+interface IAMStreamControl : IUnknown
+{
+    HRESULT StartAt(
+        [in] const REFERENCE_TIME *ptStart,
+        [in] DWORD dwCookie);
+
+    HRESULT StopAt(
+        [in] const REFERENCE_TIME *ptStop,
+        [in] BOOL bSendExtra,
+        [in] DWORD dwCookie);
+
+    HRESULT GetInfo(
+        [out] AM_STREAM_INFO *pInfo);
+}
+
 cpp_quote("#ifndef _IKsPropertySet_")
 cpp_quote("#define _IKsPropertySet_")
 cpp_quote("#define KSPROPERTY_SUPPORT_GET  1")
@@ -1021,6 +1177,45 @@ interface IKsPropertySet : IUnknown
                             [out] DWORD *pTypeSupport);
 }
 cpp_quote("#endif /* _IKsPropertySet_ */")
+
+[
+    local,
+    object,
+    uuid(6025a880-c0d5-11d0-bd4e-00a0c911ce86),
+    pointer_default(unique)
+]
+interface IMediaPropertyBag : IPropertyBag
+{
+    typedef IMediaPropertyBag *LPMEDIAPROPERTYBAG;
+
+    HRESULT EnumProperty(
+            [in]  ULONG iProperty,
+            [in, out] VARIANT *pvarPropertyName,
+            [in, out] VARIANT *pvarPropertyValue);
+}
+
+
+[
+    local,
+    object,
+    uuid(5738e040-b67f-11d0-bd4d-00a0c911ce86),
+    pointer_default(unique)
+]
+interface IPersistMediaPropertyBag : IPersist
+{
+    HRESULT InitNew(void);
+
+    HRESULT Load(
+            [in] IMediaPropertyBag *pPropBag,
+            [in] IErrorLog *pErrorLog);
+
+    HRESULT Save(
+            [in] IMediaPropertyBag *pPropBag,
+            [in] BOOL fClearDirty,
+            [in] BOOL fSaveAllProperties);
+
+    typedef IPersistMediaPropertyBag *LPPERSISTMEDIAPROPERTYBAG;
+}
 
 [
     object,

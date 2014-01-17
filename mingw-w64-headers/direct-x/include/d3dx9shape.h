@@ -34,9 +34,6 @@ HRESULT WINAPI D3DXCreateSphere(struct IDirect3DDevice9 *device, float radius, U
         UINT stacks, struct ID3DXMesh **mesh, struct ID3DXBuffer **adjacency);
 HRESULT WINAPI D3DXCreateTeapot(struct IDirect3DDevice9 *device,
         struct ID3DXMesh **mesh, struct ID3DXBuffer **adjacency);
-HRESULT WINAPI D3DXCreateTorus(LPDIRECT3DDEVICE9 device, FLOAT innerradius,
-	FLOAT outerradius, UINT sides,
-        UINT rings, LPD3DXMESH *mesh, LPD3DXBUFFER *adjacency);
 HRESULT WINAPI D3DXCreateTextA(struct IDirect3DDevice9 *device, HDC hdc, const char *text, float deviation,
         float extrusion, struct ID3DXMesh **mesh, struct ID3DXBuffer **adjacency, GLYPHMETRICSFLOAT *glyphmetrics);
 HRESULT WINAPI D3DXCreateTextW(struct IDirect3DDevice9 *device, HDC hdc, const WCHAR *text, float deviation,

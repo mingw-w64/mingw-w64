@@ -237,6 +237,11 @@ typedef interface ITfSourceSingle ITfSourceSingle;
 typedef interface ITfThreadFocusSink ITfThreadFocusSink;
 #endif
 
+#ifndef __ITfInputProcessorProfileActivationSink_FWD_DEFINED__
+#define __ITfInputProcessorProfileActivationSink_FWD_DEFINED__
+typedef interface ITfInputProcessorProfileActivationSink ITfInputProcessorProfileActivationSink;
+#endif
+
 /* Headers for imported files */
 
 #include <oaidl.h>
@@ -298,6 +303,7 @@ typedef DWORD TfGuidAtom;
 #define TF_MOD_IGNORE_ALL_MODIFIER   0x0400
 #define TF_PROFILETYPE_INPUTPROCESSOR  0x0001
 #define TF_PROFILETYPE_KEYBOARDLAYOUT  0x0002
+#define TF_IPSINK_FLAG_ACTIVE 0x0001
 #ifndef __ITfDocumentMgr_FWD_DEFINED__
 #define __ITfDocumentMgr_FWD_DEFINED__
 typedef interface ITfDocumentMgr ITfDocumentMgr;
@@ -1441,6 +1447,8 @@ void __RPC_STUB ITfContext_CreateRangeBackup_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __ITfContext_INTERFACE_DEFINED__ */
+
+#define TF_INVALID_COOKIE (0xffffffff)
 
 /*****************************************************************************
  * ITfSource interface
@@ -8782,6 +8790,108 @@ void __RPC_STUB ITfThreadFocusSink_OnKillThreadFocus_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __ITfThreadFocusSink_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITfInputProcessorProfileActivationSink interface
+ */
+#ifndef __ITfInputProcessorProfileActivationSink_INTERFACE_DEFINED__
+#define __ITfInputProcessorProfileActivationSink_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ITfInputProcessorProfileActivationSink, 0x71c6e74e, 0x0f28, 0x11d8, 0xa8,0x2a, 0x00,0x06,0x5b,0x84,0x43,0x5c);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("71c6e74e-0f28-11d8-a82a-00065b84435c")
+ITfInputProcessorProfileActivationSink : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE OnActivated(
+        DWORD dwProfileType,
+        LANGID langid,
+        REFCLSID clsid,
+        REFGUID catid,
+        REFGUID guidProfile,
+        HKL hkl,
+        DWORD dwFlags) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITfInputProcessorProfileActivationSink, 0x71c6e74e, 0x0f28, 0x11d8, 0xa8,0x2a, 0x00,0x06,0x5b,0x84,0x43,0x5c)
+#endif
+#else
+typedef struct ITfInputProcessorProfileActivationSinkVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITfInputProcessorProfileActivationSink* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITfInputProcessorProfileActivationSink* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITfInputProcessorProfileActivationSink* This);
+
+    /*** ITfInputProcessorProfileActivationSink methods ***/
+    HRESULT (STDMETHODCALLTYPE *OnActivated)(
+        ITfInputProcessorProfileActivationSink* This,
+        DWORD dwProfileType,
+        LANGID langid,
+        REFCLSID clsid,
+        REFGUID catid,
+        REFGUID guidProfile,
+        HKL hkl,
+        DWORD dwFlags);
+
+    END_INTERFACE
+} ITfInputProcessorProfileActivationSinkVtbl;
+interface ITfInputProcessorProfileActivationSink {
+    CONST_VTBL ITfInputProcessorProfileActivationSinkVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITfInputProcessorProfileActivationSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITfInputProcessorProfileActivationSink_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITfInputProcessorProfileActivationSink_Release(This) (This)->lpVtbl->Release(This)
+/*** ITfInputProcessorProfileActivationSink methods ***/
+#define ITfInputProcessorProfileActivationSink_OnActivated(This,dwProfileType,langid,clsid,catid,guidProfile,hkl,dwFlags) (This)->lpVtbl->OnActivated(This,dwProfileType,langid,clsid,catid,guidProfile,hkl,dwFlags)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfInputProcessorProfileActivationSink_QueryInterface(ITfInputProcessorProfileActivationSink* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfInputProcessorProfileActivationSink_AddRef(ITfInputProcessorProfileActivationSink* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfInputProcessorProfileActivationSink_Release(ITfInputProcessorProfileActivationSink* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfInputProcessorProfileActivationSink methods ***/
+static FORCEINLINE HRESULT ITfInputProcessorProfileActivationSink_OnActivated(ITfInputProcessorProfileActivationSink* This,DWORD dwProfileType,LANGID langid,REFCLSID clsid,REFGUID catid,REFGUID guidProfile,HKL hkl,DWORD dwFlags) {
+    return This->lpVtbl->OnActivated(This,dwProfileType,langid,clsid,catid,guidProfile,hkl,dwFlags);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ITfInputProcessorProfileActivationSink_OnActivated_Proxy(
+    ITfInputProcessorProfileActivationSink* This,
+    DWORD dwProfileType,
+    LANGID langid,
+    REFCLSID clsid,
+    REFGUID catid,
+    REFGUID guidProfile,
+    HKL hkl,
+    DWORD dwFlags);
+void __RPC_STUB ITfInputProcessorProfileActivationSink_OnActivated_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ITfInputProcessorProfileActivationSink_INTERFACE_DEFINED__ */
 
 /* Begin additional prototypes for all interfaces */
 
