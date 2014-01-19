@@ -1487,10 +1487,13 @@ extern "C" {
 #define SHUTDOWN_NORETRY 0x1
 #endif
 
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) || defined(WINSTORECOMPAT)
+#define CreateSemaphore __MINGW_NAME_AW(CreateSemaphore)
+  WINBASEAPI HANDLE WINAPI CreateSemaphoreW (LPSECURITY_ATTRIBUTES lpSemaphoreAttributes, LONG lInitialCount, LONG lMaximumCount, LPCWSTR lpName);
+#endif
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
   WINBASEAPI HANDLE WINAPI OpenMutexA (DWORD dwDesiredAccess, WINBOOL bInheritHandle, LPCSTR lpName);
   WINBASEAPI HANDLE WINAPI CreateSemaphoreA (LPSECURITY_ATTRIBUTES lpSemaphoreAttributes, LONG lInitialCount, LONG lMaximumCount, LPCSTR lpName);
-  WINBASEAPI HANDLE WINAPI CreateSemaphoreW (LPSECURITY_ATTRIBUTES lpSemaphoreAttributes, LONG lInitialCount, LONG lMaximumCount, LPCWSTR lpName);
   WINBASEAPI HANDLE WINAPI OpenSemaphoreA (DWORD dwDesiredAccess, WINBOOL bInheritHandle, LPCSTR lpName);
   WINBASEAPI HANDLE WINAPI CreateWaitableTimerA (LPSECURITY_ATTRIBUTES lpTimerAttributes, WINBOOL bManualReset, LPCSTR lpTimerName);
   WINBASEAPI HANDLE WINAPI CreateWaitableTimerW (LPSECURITY_ATTRIBUTES lpTimerAttributes, WINBOOL bManualReset, LPCWSTR lpTimerName);
@@ -1515,7 +1518,6 @@ extern "C" {
 #define GetLogicalDriveStrings GetLogicalDriveStringsA
 #endif
 
-#define CreateSemaphore __MINGW_NAME_AW(CreateSemaphore)
 #define CreateWaitableTimer __MINGW_NAME_AW(CreateWaitableTimer)
 #define LoadLibrary __MINGW_NAME_AW(LoadLibrary)
 
@@ -2921,36 +2923,125 @@ extern "C" {
 #endif
 #if MICROSOFT_WINDOWS_WINBASE_H_DEFINE_INTERLOCKED_CPLUSPLUS_OVERLOADS && defined (__cplusplus)
 extern "C++" {
-  FORCEINLINE unsigned InterlockedIncrement (unsigned volatile *Addend) { return (unsigned) InterlockedIncrement ((volatile __LONG32 *) Addend); }
-  FORCEINLINE unsigned __LONG32 InterlockedIncrement (unsigned __LONG32 volatile *Addend) { return (unsigned __LONG32) InterlockedIncrement ((volatile __LONG32 *) Addend); }
-#if defined (_WIN64) || ((_WIN32_WINNT >= 0x0502) && defined (_WINBASE_))
-  FORCEINLINE unsigned __int64 InterlockedIncrement (unsigned __int64 volatile *Addend) { return (unsigned __int64) InterlockedIncrement64 ((volatile __int64 *) Addend); }
+#if defined(__x86_64__) && defined(__CYGWIN__)
+#define __MINGW_USE_INT64_INTERLOCKED_LONG
 #endif
-  FORCEINLINE unsigned InterlockedDecrement (unsigned volatile *Addend) { return (unsigned __LONG32) InterlockedDecrement ((volatile __LONG32 *) Addend); }
-  FORCEINLINE unsigned __LONG32 InterlockedDecrement (unsigned __LONG32 volatile *Addend) { return (unsigned __LONG32) InterlockedDecrement ((volatile __LONG32 *) Addend); }
-#if defined (_WIN64) || ((_WIN32_WINNT >= 0x0502) && defined (_WINBASE_))
-  FORCEINLINE unsigned __int64 InterlockedDecrement (unsigned __int64 volatile *Addend) { return (unsigned __int64) InterlockedDecrement64 ((volatile __int64 *) Addend); }
+  FORCEINLINE unsigned InterlockedIncrement (unsigned volatile *Addend) {
+    return (unsigned) InterlockedIncrement ((volatile __LONG32 *) Addend);
+  }
+
+  FORCEINLINE unsigned long InterlockedIncrement (unsigned long volatile *Addend) {
+#ifndef __MINGW_USE_INT64_INTERLOCKED_LONG
+    return (unsigned __LONG32) InterlockedIncrement ((volatile __LONG32 *) Addend);
+#else
+    return (unsigned long) InterlockedIncrement64 ((volatile __int64 *) Addend);
 #endif
-  FORCEINLINE unsigned InterlockedExchange (unsigned volatile *Target, unsigned Value) { return (unsigned) InterlockedExchange ((volatile __LONG32 *) Target,(__LONG32) Value); }
-  FORCEINLINE unsigned __LONG32 InterlockedExchange (unsigned __LONG32 volatile *Target, unsigned __LONG32 Value) { return (unsigned __LONG32) InterlockedExchange ((volatile __LONG32 *) Target,(__LONG32) Value); }
+  }
+
 #if defined (_WIN64) || ((_WIN32_WINNT >= 0x0502) && defined (_WINBASE_))
-  FORCEINLINE unsigned __int64 InterlockedExchange (unsigned __int64 volatile *Target, unsigned __int64 Value) { return (unsigned __int64) InterlockedExchange64 ((volatile __int64 *) Target,(__int64) Value); }
+  FORCEINLINE unsigned __int64 InterlockedIncrement (unsigned __int64 volatile *Addend) {
+    return (unsigned __int64) InterlockedIncrement64 ((volatile __int64 *) Addend);
+  }
 #endif
-  FORCEINLINE unsigned InterlockedExchangeAdd (unsigned volatile *Addend, unsigned Value) { return (unsigned) InterlockedExchangeAdd ((volatile __LONG32 *) Addend,(__LONG32) Value); }
-  FORCEINLINE unsigned InterlockedExchangeSubtract (unsigned volatile *Addend, unsigned Value) { return (unsigned) InterlockedExchangeAdd ((volatile __LONG32 *) Addend,- (__LONG32) Value); }
-  FORCEINLINE unsigned __LONG32 InterlockedExchangeAdd (unsigned __LONG32 volatile *Addend, unsigned __LONG32 Value) { return (unsigned __LONG32) InterlockedExchangeAdd ((volatile __LONG32 *) Addend,(__LONG32) Value); }
-  FORCEINLINE unsigned __LONG32 InterlockedExchangeSubtract (unsigned __LONG32 volatile *Addend, unsigned __LONG32 Value) { return (unsigned __LONG32) InterlockedExchangeAdd ((volatile __LONG32 *) Addend,- (__LONG32) Value); }
-#if defined (_WIN64) || ((_WIN32_WINNT >= 0x0502) && defined (_WINBASE_))
-  FORCEINLINE unsigned __int64 InterlockedExchangeAdd (unsigned __int64 volatile *Addend, unsigned __int64 Value) { return (unsigned __int64) InterlockedExchangeAdd64 ((volatile __int64 *) Addend,(__int64) Value); }
-  FORCEINLINE unsigned __int64 InterlockedExchangeSubtract (unsigned __int64 volatile *Addend, unsigned __int64 Value) { return (unsigned __int64) InterlockedExchangeAdd64 ((volatile __int64 *) Addend,- (__int64) Value); }
+
+  FORCEINLINE unsigned InterlockedDecrement (unsigned volatile *Addend) {
+    return (unsigned) InterlockedDecrement ((volatile __LONG32 *) Addend);
+  }
+
+  FORCEINLINE unsigned long InterlockedDecrement (unsigned long volatile *Addend) {
+#ifndef __MINGW_USE_INT64_INTERLOCKED_LONG
+    return (unsigned __LONG32) InterlockedDecrement ((volatile __LONG32 *) Addend);
+#else
+    return (unsigned long) InterlockedDecrement64 ((volatile __int64 *) Addend);
 #endif
-  FORCEINLINE unsigned InterlockedCompareExchange (unsigned volatile *Destination, unsigned Exchange, unsigned Comperand) { return (unsigned) InterlockedCompareExchange ((volatile __LONG32 *) Destination,(__LONG32) Exchange,(__LONG32) Comperand); }
-  FORCEINLINE unsigned __LONG32 InterlockedCompareExchange (unsigned __LONG32 volatile *Destination, unsigned __LONG32 Exchange, unsigned __LONG32 Comperand) { return (unsigned __LONG32) InterlockedCompareExchange ((volatile __LONG32 *) Destination,(__LONG32) Exchange,(__LONG32) Comperand); }
+  }
+
 #if defined (_WIN64) || ((_WIN32_WINNT >= 0x0502) && defined (_WINBASE_))
-  FORCEINLINE unsigned __int64 InterlockedCompareExchange (unsigned __int64 volatile *Destination, unsigned __int64 Exchange, unsigned __int64 Comperand) { return (unsigned __int64) InterlockedCompareExchange64 ((volatile __int64 *) Destination,(__int64) Exchange,(__int64) Comperand); }
-  FORCEINLINE unsigned __int64 InterlockedAnd (unsigned __int64 volatile *Destination, unsigned __int64 Value) { return (unsigned __int64) InterlockedAnd64 ((volatile __int64 *) Destination,(__int64) Value); }
-  FORCEINLINE unsigned __int64 InterlockedOr (unsigned __int64 volatile *Destination, unsigned __int64 Value) { return (unsigned __int64) InterlockedOr64 ((volatile __int64 *) Destination,(__int64) Value); }
-  FORCEINLINE unsigned __int64 InterlockedXor (unsigned __int64 volatile *Destination, unsigned __int64 Value) { return (unsigned __int64) InterlockedXor64 ((volatile __int64 *) Destination,(__int64) Value); }
+  FORCEINLINE unsigned __int64 InterlockedDecrement (unsigned __int64 volatile *Addend) {
+    return (unsigned __int64) InterlockedDecrement64 ((volatile __int64 *) Addend);
+  }
+#endif
+
+  FORCEINLINE unsigned InterlockedExchange (unsigned volatile *Target, unsigned Value) {
+    return (unsigned) InterlockedExchange ((volatile __LONG32 *) Target,(__LONG32) Value);
+  }
+
+  FORCEINLINE unsigned long InterlockedExchange (unsigned long volatile *Target, unsigned long Value) {
+#ifndef __MINGW_USE_INT64_INTERLOCKED_LONG
+    return (unsigned __LONG32) InterlockedExchange ((volatile __LONG32 *) Target,(__LONG32) Value);
+#else
+    return (unsigned long) InterlockedExchange64 ((volatile __int64 *) Target,(__int64) Value);
+#endif
+  }
+
+#if defined (_WIN64) || ((_WIN32_WINNT >= 0x0502) && defined (_WINBASE_))
+  FORCEINLINE unsigned __int64 InterlockedExchange (unsigned __int64 volatile *Target, unsigned __int64 Value) {
+    return (unsigned __int64) InterlockedExchange64 ((volatile __int64 *) Target,(__int64) Value);
+  }
+#endif
+
+  FORCEINLINE unsigned InterlockedExchangeAdd (unsigned volatile *Addend, unsigned Value) {
+    return (unsigned) InterlockedExchangeAdd ((volatile __LONG32 *) Addend,(__LONG32) Value);
+  }
+
+  FORCEINLINE unsigned InterlockedExchangeSubtract (unsigned volatile *Addend, unsigned Value) {
+    return (unsigned) InterlockedExchangeAdd ((volatile __LONG32 *) Addend,- (__LONG32) Value);
+  }
+
+  FORCEINLINE unsigned long InterlockedExchangeAdd (unsigned long volatile *Addend, unsigned long Value) {
+#ifndef __MINGW_USE_INT64_INTERLOCKED_LONG
+    return (unsigned __LONG32) InterlockedExchangeAdd ((volatile __LONG32 *) Addend,(__LONG32) Value);
+#else
+    return (unsigned __int64) InterlockedExchangeAdd64 ((volatile __int64 *) Addend,(__int64) Value);
+#endif
+  }
+
+  FORCEINLINE unsigned long InterlockedExchangeSubtract (unsigned long volatile *Addend, unsigned long Value) {
+#ifndef __MINGW_USE_INT64_INTERLOCKED_LONG
+    return (unsigned __LONG32) InterlockedExchangeAdd ((volatile __LONG32 *) Addend,- (__LONG32) Value);
+#else
+    return (unsigned long) InterlockedExchangeAdd64 ((volatile __int64 *) Addend,- (__int64) Value);
+#endif
+  }
+
+#if defined (_WIN64) || ((_WIN32_WINNT >= 0x0502) && defined (_WINBASE_))
+  FORCEINLINE unsigned __int64 InterlockedExchangeAdd (unsigned __int64 volatile *Addend, unsigned __int64 Value) {
+    return (unsigned __int64) InterlockedExchangeAdd64 ((volatile __int64 *) Addend,(__int64) Value);
+  }
+
+  FORCEINLINE unsigned __int64 InterlockedExchangeSubtract (unsigned __int64 volatile *Addend, unsigned __int64 Value) {
+    return (unsigned __int64) InterlockedExchangeAdd64 ((volatile __int64 *) Addend,- (__int64) Value);
+  }
+#endif
+
+  FORCEINLINE unsigned InterlockedCompareExchange (unsigned volatile *Destination, unsigned Exchange, unsigned Comperand) {
+    return (unsigned) InterlockedCompareExchange ((volatile __LONG32 *) Destination,(__LONG32) Exchange,(__LONG32) Comperand);
+  }
+
+  FORCEINLINE unsigned long InterlockedCompareExchange (unsigned long volatile *Destination, unsigned long Exchange, unsigned long Comperand) {
+#ifndef __MINGW_USE_INT64_INTERLOCKED_LONG
+    return (unsigned __LONG32) InterlockedCompareExchange ((volatile __LONG32 *) Destination,(__LONG32) Exchange,(__LONG32) Comperand);
+#else
+    return (unsigned long) InterlockedCompareExchange64 ((volatile __int64 *) Destination,(__int64) Exchange,(__int64) Comperand);
+#endif
+  }
+
+#if defined (_WIN64) || ((_WIN32_WINNT >= 0x0502) && defined (_WINBASE_))
+  FORCEINLINE unsigned __int64 InterlockedCompareExchange (unsigned __int64 volatile *Destination, unsigned __int64 Exchange, unsigned __int64 Comperand) {
+    return (unsigned __int64) InterlockedCompareExchange64 ((volatile __int64 *) Destination,(__int64) Exchange,(__int64) Comperand);
+  }
+
+  FORCEINLINE unsigned __int64 InterlockedAnd (unsigned __int64 volatile *Destination, unsigned __int64 Value) {
+    return (unsigned __int64) InterlockedAnd64 ((volatile __int64 *) Destination,(__int64) Value);
+  }
+
+  FORCEINLINE unsigned __int64 InterlockedOr (unsigned __int64 volatile *Destination, unsigned __int64 Value) {
+    return (unsigned __int64) InterlockedOr64 ((volatile __int64 *) Destination,(__int64) Value);
+  }
+
+  FORCEINLINE unsigned __int64 InterlockedXor (unsigned __int64 volatile *Destination, unsigned __int64 Value) {
+    return (unsigned __int64) InterlockedXor64 ((volatile __int64 *) Destination,(__int64) Value);
+  }
 #endif
 }
 #endif
