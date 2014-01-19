@@ -949,7 +949,8 @@ lib64_DATA = \
   lib64/libwiashext.a   lib64/libwin32spl.a   lib64/libwinfax.a       lib64/libwininet.a    lib64/libwinipsec.a      \
   lib64/libwinmm.a      lib64/libwinrnr.a     lib64/libwinscard.a     lib64/libwinspool.a   lib64/libwinsrv.a        \
   lib64/libwinsta.a     lib64/libwintrust.a   lib64/libwkssvc.a       lib64/libwldap32.a    lib64/libwlnotify.a      \
-  lib64/libwlstore.a    lib64/libwmi2xml.a    lib64/libwmiaprpl.a     lib64/libwmi.a        lib64/libwmiprop.a       \
+  lib64/libwlstore.a    lib64/libwmi2xml.a    lib64/libwmiaprpl.a     lib64/libwmi.a        lib64/libwmilib.a        \
+  lib64/libwmiprop.a    \
   lib64/libwmisvc.a     lib64/libwow64cpu.a   lib64/libwow64.a        lib64/libwow64mib.a   lib64/libwow64win.a      \
   lib64/libwpd_ci.a     lib64/libws2help.a    lib64/libwscsvc.a       lib64/libwshatm.a     lib64/libwshbth.a        \
   lib64/libwshcon.a     lib64/libwsock32.a    lib64/libzoneoc.a       lib64/libnormaliz.a   \

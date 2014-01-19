@@ -294,6 +294,7 @@ lib32_DATA += %reldir%/libwlanapi.a
 lib32_DATA += %reldir%/libwlanui.a
 lib32_DATA += %reldir%/libwlanutil.a
 lib32_DATA += %reldir%/libwldap32.a
+lib32_DATA += %reldir%/libwmilib.a
 lib32_DATA += %reldir%/libwow32.a
 #lib32_DATA += %reldir%/libws2_32.a      # Handled by custom rule
 lib32_DATA += %reldir%/libwsdapi.a
