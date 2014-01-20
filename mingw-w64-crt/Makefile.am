@@ -550,6 +550,7 @@ if LIB64
 lib64dir=$(prefix)/@LIB64SUFFIXDIR@
 crt64dir=$(lib64dir)
 winrt64dir=$(lib64dir)
+dx64dir=$(lib64dir)
 
 winrt64_DATA = $(winrtlibs)
 
@@ -1019,6 +1020,16 @@ lib64/libvfw32.a: lib64/vfw32.mri lib64/libmsvfw32.a lib64/libavifil32.a lib64/l
 	rm -f $@
 	$(AR) -M < $<
 	$(RANLIB) $@
+
+dx64_DATA =
+dx64_DATA += lib64/libxinput.a
+dx64_DATA += lib64/libxapofx.a
+dx64_DATA += lib64/libx3daudio.a
+dx64_DATA += lib64/libd3dx9.a
+dx64_DATA += lib64/libd3dx10.a
+dx64_DATA += lib64/libd3dx11.a
+dx64_DATA += lib64/libd3dcsxd.a
+dx64_DATA += lib64/libd3dcompiler.a
 
 lib64/libxinput.a: lib64/$(xinput).def
 	$(DTDEF64) $<
