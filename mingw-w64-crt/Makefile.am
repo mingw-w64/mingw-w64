@@ -214,33 +214,32 @@ src_libmingwex=\
   math/powi.def.h       math/sin.def.h     math/sqrt.def.h       \
   math/cephes_emath.h  math/cephes_mconf.h  math/fastmath.h  math/fp_consts.h  math/abs64.c \
   \
-                                                                                  misc/alarm.c          \
-  misc/basename.c        misc/btowc.c                                             misc/delay-f.c             misc/delay-n.c        \
-  misc/delayimp.c        misc/difftime.c              misc/difftime32.c           misc/difftime64.c          misc/dirent.c         \
-  misc/dirname.c         misc/execv.c                 misc/execve.c               misc/execvp.c              misc/execvpe.c        \
-  misc/feclearexcept.c   misc/fegetenv.c              misc/fegetexceptflag.c      misc/fegetround.c          misc/feholdexcept.c   \
-  misc/feraiseexcept.c   misc/fesetenv.c              misc/fesetexceptflag.c      misc/fesetround.c          misc/fetestexcept.c   \
-  misc/feupdateenv.c     misc/ftruncate.c             misc/fwide.c                misc/getlogin.c            misc/getopt.c         \
-  misc/gettimeofday.c                                 misc/imaxabs.c              misc/imaxdiv.c             misc/isblank.c        \
-  misc/iswblank.c                                     misc/mb_wc_common.h         misc/mbrtowc.c             misc/mbsinit.c        \
-  misc/mempcpy.c         misc/mingw-aligned-malloc.c  misc/mingw-fseek.c          misc/mingw_getsp.S    \
-  misc/mingw_matherr.c   misc/mingw_mbwc_convert.c    misc/mingw_usleep.c        misc/mingw_wcstod.c   \
-  misc/mingw_wcstof.c    misc/mingw_wcstold.c                                     misc/seterrno.c            misc/sleep.c          \
-  misc/spawnv.c          misc/spawnve.c               misc/spawnvp.c              misc/spawnvpe.c            misc/strnlen.c        \
-  misc/strsafe.c         misc/strtoimax.c             misc/strtold.c              misc/strtoumax.c           misc/tdelete.c        \
-  misc/tfind.c           misc/tsearch.c               misc/twalk.c                misc/uchar_c16rtomb.c \
-  misc/uchar_c32rtomb.c  misc/uchar_mbrtoc16.c        misc/uchar_mbrtoc32.c       misc/wassert.c             misc/wcrtomb.c        \
-  misc/wcsnlen.c         misc/wcstof.c                misc/wcstoimax.c            misc/wcstold.c             misc/wcstoumax.c      \
-  misc/wctob.c           misc/wctrans.c               misc/wctype.c               misc/wdirent.c             misc/winbs_uint64.c   \
-  misc/winbs_ulong.c     misc/winbs_ushort.c          misc/wmemchr.c              misc/wmemcmp.c             misc/wmemcpy.c        \
-  misc/wmemmove.c        misc/wmempcpy.c              misc/wmemset.c              misc/purecall.c \
+  misc/mb_wc_common.h \
+  misc/mingw_getsp.S \
+  misc/alarm.c           misc/basename.c            misc/btowc.c            misc/delay-f.c               misc/delay-n.c         \
+  misc/delayimp.c        misc/difftime.c            misc/difftime32.c       misc/difftime64.c            misc/dirent.c          \
+  misc/dirname.c         misc/execv.c               misc/execve.c           misc/execvp.c                misc/execvpe.c         \
+  misc/feclearexcept.c   misc/fegetenv.c            misc/fegetexceptflag.c  misc/fegetround.c            misc/feholdexcept.c    \
+  misc/feraiseexcept.c   misc/fesetenv.c            misc/fesetexceptflag.c  misc/fesetround.c            misc/fetestexcept.c    \
+  misc/feupdateenv.c     misc/ftruncate.c           misc/fwide.c            misc/getlogin.c              misc/getopt.c          \
+  misc/gettimeofday.c    misc/imaxabs.c             misc/imaxdiv.c          misc/isblank.c               misc/iswblank.c        \
+  misc/mbrtowc.c         misc/mbsinit.c             misc/mempcpy.c          misc/mingw-aligned-malloc.c  misc/mingw-fseek.c     \
+  misc/mingw_matherr.c   misc/mingw_mbwc_convert.c  misc/mingw_usleep.c     misc/mingw_wcstod.c          misc/mingw_wcstof.c    \
+  misc/mingw_wcstold.c   misc/purecall.c            misc/seterrno.c         misc/sleep.c                 misc/spawnv.c          \
+  misc/spawnve.c         misc/spawnvp.c             misc/spawnvpe.c         misc/strnlen.c               misc/strsafe.c         \
+  misc/strtoimax.c       misc/strtold.c             misc/strtoumax.c        misc/tdelete.c               misc/tfind.c           \
+  misc/tsearch.c         misc/twalk.c               misc/uchar_c16rtomb.c   misc/uchar_c32rtomb.c        misc/uchar_mbrtoc16.c  \
+  misc/uchar_mbrtoc32.c  misc/wassert.c             misc/wcrtomb.c          misc/wcsnlen.c               misc/wcstof.c          \
+  misc/wcstoimax.c       misc/wcstold.c             misc/wcstoumax.c        misc/wctob.c                 misc/wctrans.c         \
+  misc/wctype.c          misc/wdirent.c             misc/winbs_uint64.c     misc/winbs_ulong.c           misc/winbs_ushort.c    \
+  misc/wmemchr.c         misc/wmemcmp.c             misc/wmemcpy.c          misc/wmemmove.c              misc/wmempcpy.c        \
+  misc/wmemset.c         \
   \
   stdio/mingw_pformat.h    \
   stdio/vfscanf2.S         stdio/vfwscanf2.S         stdio/vscanf2.S          stdio/vsscanf2.S          stdio/vswscanf2.S \
   stdio/vwscanf2.S         \
   stdio/_Exit.c            stdio/_findfirst64i32.c   stdio/_findnext64i32.c   stdio/_fstat.c \
-  stdio/_fstat64i32.c                                                      \
-  stdio/_ftime.c            stdio/_getc_nolock.c     stdio/_getwc_nolock.c     stdio/_putc_nolock.c    \
+  stdio/_fstat64i32.c      stdio/_ftime.c            stdio/_getc_nolock.c     stdio/_getwc_nolock.c     stdio/_putc_nolock.c    \
   stdio/_putwc_nolock.c    stdio/_stat.c             stdio/_stat64i32.c       stdio/_wfindfirst64i32.c  stdio/_wfindnext64i32.c \
   stdio/_wstat.c           stdio/_wstat64i32.c       stdio/asprintf.c         stdio/atoll.c             stdio/fgetpos64.c       \
   stdio/fopen64.c          stdio/fseeko32.c          stdio/fseeko64.c         stdio/fsetpos64.c         stdio/ftello.c          \
