@@ -1160,7 +1160,7 @@ qsort
 qsort_s
 raise
 rand
-rand_s
+; rand_s replaced by emu
 realloc
 remove
 rename
@@ -1239,7 +1239,7 @@ vprintf_s
 vsnprintf == _vsnprintf
 snprintf == _snprintf
 vsprintf
-vsprintf_s
+; vsprintf_s replaced by emu
 vswprintf
 vswprintf_s
 vwprintf

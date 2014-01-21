@@ -1218,7 +1218,7 @@ vsnprintf == _vsnprintf
 snprintf == _snprintf
 snwprintf == _snwprintf
 vsnwprintf == _vsnwprintf
-vsprintf_s
+; vsprintf_s replaced by emu
 vswprintf_s
 vwprintf_s
 wcrtomb_s
