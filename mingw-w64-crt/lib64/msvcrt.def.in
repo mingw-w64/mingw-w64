@@ -356,6 +356,7 @@ _getw
 _getwch
 _getwche
 _getws
+_gmtime32
 ; _gmtime32_s replaced by emu
 _gmtime64
 ; _gmtime64_s replaced by emu
@@ -471,6 +472,7 @@ _lfind
 _loaddll
 _lfind_s
 _local_unwind
+_localtime32
 ; _localtime32_s replaced by emu
 _localtime64
 ; _localtime64_s replaced by emu
