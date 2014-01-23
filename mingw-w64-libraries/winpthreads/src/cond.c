@@ -319,7 +319,7 @@ pthread_cond_signal (pthread_cond_t *c)
       if (_c->waiters_count_ == 0)
       {
 	LeaveCriticalSection (&_c->waiters_count_lock_);
-	pthread_testcancel();
+	/* pthread_testcancel(); */
 	return 0;
       }
       _c->waiters_count_ -= 1;
@@ -331,7 +331,7 @@ pthread_cond_signal (pthread_cond_t *c)
       if (r != 0)
       {
 	LeaveCriticalSection (&_c->waiters_count_lock_);
-	pthread_testcancel();
+	/* pthread_testcancel(); */
 	return r;
       }
       if (_c->waiters_count_gone_ != 0)
@@ -345,12 +345,12 @@ pthread_cond_signal (pthread_cond_t *c)
   else
     {
       LeaveCriticalSection (&_c->waiters_count_lock_);
-      pthread_testcancel();
+      /* pthread_testcancel(); */
       return 0;
     }
   LeaveCriticalSection (&_c->waiters_count_lock_);
   r = do_sema_b_release(_c->sema_q, 1,&_c->waiters_q_lock_,&_c->value_q);
-  pthread_testcancel();
+  /* pthread_testcancel(); */
   return r;
 }
 
@@ -376,7 +376,7 @@ pthread_cond_broadcast (pthread_cond_t *c)
       if (_c->waiters_count_ == 0)
       {
 	LeaveCriticalSection (&_c->waiters_count_lock_);
-	pthread_testcancel();
+	/* pthread_testcancel(); */
 	return 0;
       }
       relCnt = _c->waiters_count_;
@@ -389,7 +389,7 @@ pthread_cond_broadcast (pthread_cond_t *c)
       if (r != 0)
       {
 	LeaveCriticalSection (&_c->waiters_count_lock_);
-	pthread_testcancel();
+	/* pthread_testcancel(); */
 	return r;
       }
       if (_c->waiters_count_gone_ != 0)
@@ -404,12 +404,12 @@ pthread_cond_broadcast (pthread_cond_t *c)
   else
     {
       LeaveCriticalSection (&_c->waiters_count_lock_);
-      pthread_testcancel();
+      /* pthread_testcancel(); */
       return 0;
     }
   LeaveCriticalSection (&_c->waiters_count_lock_);
   r = do_sema_b_release(_c->sema_q, relCnt,&_c->waiters_q_lock_,&_c->value_q);
-  pthread_testcancel();
+  /* pthread_testcancel(); */
   return r;
 }
 
@@ -420,7 +420,7 @@ pthread_cond_wait (pthread_cond_t *c, pthread_mutex_t *external_mutex)
   cond_t *_c;
   int r;
 
-  pthread_testcancel();
+  /* pthread_testcancel(); */
 
   if (!c || *c == NULL)
     return EINVAL;
@@ -465,7 +465,7 @@ pthread_cond_timedwait (pthread_cond_t *c, pthread_mutex_t *external_mutex, cons
   int r;
   cond_t *_c;
 
-  pthread_testcancel();
+  /* pthread_testcancel(); */
 
   if (!c || !*c)
     return EINVAL;

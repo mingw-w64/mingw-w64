@@ -1179,8 +1179,8 @@ pthread_kill (pthread_t t, int sig)
 
   pthread_mutex_lock (&mtx_pthr_locked);
   tv = __pthread_get_pointer (t);
-  if (!tv || t != tv->x || tv->in_cancel || tv->ended || tv->h == NULL ||
-      tv->h == INVALID_HANDLE_VALUE)
+  if (!tv || t != tv->x || tv->in_cancel || tv->ended || tv->h == NULL
+      || tv->h == INVALID_HANDLE_VALUE)
   {
     pthread_mutex_unlock (&mtx_pthr_locked);
     return ESRCH;
@@ -1378,7 +1378,8 @@ pthread_create_wrapper (void *args)
 	  );
       #endif      /* Call function and save return value */
       pthread_mutex_unlock (&mtx_pthr_locked);
-      trslt = (intptr_t) tv->func(tv->ret_arg);
+      if (tv->func)
+        trslt = (intptr_t) tv->func(tv->ret_arg);
       #ifdef __SEH__
 	asm ("\tnop\n\t.tl_end: nop\n");
       #endif
@@ -1407,9 +1408,9 @@ pthread_create_wrapper (void *args)
     }
   else
     {
-      tv->ended = 1;
       pthread_mutex_unlock (&tv->p_clock);
       pthread_mutex_destroy (&tv->p_clock);
+      tv->ended = 1;
     }
   while (pthread_mutex_unlock (&mtx_pthr_locked) == 0)
    Sleep (0);
@@ -1456,7 +1457,7 @@ pthread_create (pthread_t *th, const pthread_attr_t *attr, void *(* func)(void *
   if (tv->evStart == NULL)
     {
       if (th)
-       memset (th,0, sizeof (pthread_t));
+       memset (th, 0, sizeof (pthread_t));
       push_pthread_mem (tv);
       return EAGAIN;
     }
@@ -1489,8 +1490,9 @@ pthread_create (pthread_t *th, const pthread_attr_t *attr, void *(* func)(void *
       pthread_mutex_destroy (&tv->p_clock);
       tv->spin_keys = new_spin_keys;
       tv->evStart = NULL;
+      tv->h = 0;
       if (th)
-        memset(th,0, sizeof (pthread_t));
+        memset (th, 0, sizeof (pthread_t));
       push_pthread_mem (tv);
       return EAGAIN;
     }
@@ -1537,9 +1539,8 @@ pthread_join (pthread_t t, void **res)
   if (pthread_equal(pthread_self(), t))
     return EDEADLK;
 
-  pthread_testcancel ();
-
-  if (tv->ended == 0)
+  /* pthread_testcancel (); */
+  if (tv->ended == 0 || (tv->h != NULL && tv->h != INVALID_HANDLE_VALUE))
     WaitForSingleObject (tv->h, INFINITE);
   CloseHandle (tv->h);
   if (tv->evStart)
@@ -1563,7 +1564,7 @@ _pthread_tryjoin (pthread_t t, void **res)
   pthread_spinlock_t new_spin_keys = PTHREAD_SPINLOCK_INITIALIZER;
 
   pthread_mutex_lock (&mtx_pthr_locked);
-  tv = __pth_gpointer_locked (t);
+  tv = __pthread_get_pointer (t);
 
   if (!tv || tv->h == NULL || !GetHandleInformation(tv->h, &dwFlags))
     {
@@ -1586,7 +1587,7 @@ _pthread_tryjoin (pthread_t t, void **res)
       if (tv->ended == 0);
         {
 	  pthread_mutex_unlock (&mtx_pthr_locked);
-	  pthread_testcancel ();
+	  /* pthread_testcancel (); */
 	  return EBUSY;
 	}
     }
@@ -1604,7 +1605,7 @@ _pthread_tryjoin (pthread_t t, void **res)
   push_pthread_mem (tv);
 
   pthread_mutex_unlock (&mtx_pthr_locked);
-  pthread_testcancel ();
+  /* pthread_testcancel (); */
   return 0;
 }
 

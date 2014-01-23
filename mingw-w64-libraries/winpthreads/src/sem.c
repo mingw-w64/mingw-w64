@@ -184,7 +184,7 @@ sem_wait (sem_t *sem)
   if (sem_std_enter (sem, &sv, 1) != 0)
     return -1;
 
-  arg.ret = NULL;
+  arg.ret = &ret;
   arg.p = sem;
   InterlockedDecrement (&sv->value);
   cur_v = sv->value;
