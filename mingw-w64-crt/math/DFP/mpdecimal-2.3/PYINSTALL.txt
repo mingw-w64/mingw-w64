@@ -1,0 +1,150 @@
+
+## ======================================================================
+##                     Python module install instructions
+## ======================================================================
+
+## ------------------
+##  Build the module
+## ------------------
+
+python setup.py build
+
+#
+# THREAD LOCAL CONTEXTS:
+#
+# For compatibility with decimal.py, automatic thread local contexts
+# are enabled by default. It is possible to build a NON-COMPATIBLE
+# version that uses a single global default context. This version is
+# 8-16% faster:
+#
+#   python setup.py build --without-threads
+#
+# There are many ways to avoid the global default context, so it
+# is still possible to use threads if the usual precautions are
+# observed.
+#
+
+#
+# TROUBLESHOOTING:
+#
+# setup.py runs ./configure to detect the optimal configuration. If
+# ./configure guesses incorrectly, a specific configuration can be
+# enforced by passing the --with-machine parameter to setup.py.
+#
+# Example:
+#
+#   python setup.py build --with-machine=ansi32
+#
+# Possible values (in decreasing order of preference):
+#
+#   1. x64         - 64-bit Python, x86_64 processor (AMD, Intel)
+#
+#   2. uint128     - 64-bit Python, compiler provides __uint128_t (gcc)
+#
+#   3. ansi64      - 64-bit Python, ANSI C
+#
+#   4. ppro        - 32-bit Python, x86 CPU, PentiumPro or later
+#
+#   5. ansi32      - 32-bit Python, ANSI C
+#
+#   6. ansi-legacy - 32-bit Python, compiler without uint64_t
+#
+
+
+## -----------------
+##  Test the module
+## -----------------
+
+#
+# Get the tests (requires hg):
+#
+# Most of the tests do not have a redistribution license, so
+# they are not included in mpdecimal.
+#
+# It is vital to use the 'decimaltestdata' directory from the
+# cpython default branch. Earlier versions (especially 2.5) of
+# this directory may contain bugs, causing several tests to fail.
+#
+# Since mercurial does not support directory checkouts, the
+# checkout procedure is highly awkward.
+cd python && ./gettests.sh # gettests.bat
+
+
+#
+# Official regression tests:
+#
+# Python-2.5.x: test_cdecimal2.5.py
+# Python-2.6.x: test_cdecimal2.py
+# Python-2.7.x: test_cdecimal2.py
+# Python-3.1.x: test_cdecimal3.py
+# Python-3.2.x: test_cdecimal3.py
+# Python-3.3.x: test_cdecimal3.py
+#
+python test_cdecimal2.py # test_cdecimal2.5.py test_cdecimal3.py
+
+
+#
+# Tests against decimal.py:
+#
+# Note for Python 2.5.0 through 2.5.4: decimal.py contains several bugs
+# that make the tests impractical to run. It is recommended to upgrade
+# to Python 2.5.5 or 2.6.6.
+#
+
+# Python-2.x:
+python deccheck2.py
+python ctx-deccheck2.py
+
+# Python-3.x:
+python deccheck3.py
+
+
+## -----------------------
+##  Long tests (optional)
+## -----------------------
+
+# Very long tests (several days):
+python deccheck2.py --long
+python ctx-deccheck2.py --long
+# Extremely long tests (several weeks):
+python deccheck2.py --all
+python ctx-deccheck2.py --all
+
+
+## ---------------
+##  Test failures
+## ---------------
+
+#
+#   1) Make sure that you have 'decimaltestdata' from the cpython
+#      default branch.
+#
+#   2) The author runs all long tests against these hg branches:
+#
+#          2.5
+#          2.6
+#          2.7
+#          3.1
+#          3.2
+#          default
+#
+#      Earlier micro versions (say 2.6.1 vs 2.6.6) often have bugs
+#      in decimal.py. deccheck tries to skip known issues, but the
+#      list might not be complete.
+#
+#      Please consider testing against the latest micro release
+#      before reporting a bug.
+#
+#   3) Though rare, compiler bugs are a possibility. For example,
+#      recently a workaround for a bug in gcc-4.5.x was added.
+#
+
+
+## ---------
+##  Install
+## ---------
+
+python setup.py install
+
+
+

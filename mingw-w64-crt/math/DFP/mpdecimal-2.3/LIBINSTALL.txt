@@ -1,0 +1,285 @@
+
+# ======================================================================
+#                   Unix: library install instructions
+# ======================================================================
+
+# NONGNU: gmake required!
+#
+# Section 'Custom build' explains how to change the relevant
+# build parameters.
+./configure
+make
+
+
+# Short tests. On a fast machine 1 min for CONFIG_64 and 2 min
+# for CONFIG_32.
+#
+# ./runshort.sh attempts to download the official tests from
+# http://speleotrove.com/decimal/dectest.zip. If wget is
+# not installed, download dectest.zip and put the contents
+# into the tests/testdata directory.
+make check
+make install
+
+
+# ======================================================================
+#                            Custom build
+# ======================================================================
+
+#
+# MACHINE variable:
+#
+# If ./configure fails to detect the optimal configuration, a specific
+# configuration can be enforced by providing the MACHINE variable.
+#
+# Example:
+#
+#   ./configure MACHINE=x64
+#
+# Possible values (in decreasing order of preference):
+#
+#    1. x64         - 64-bit OS with x86_64 processor (AMD, Intel)
+#
+#    2. uint128     - 64-bit OS, compiler provides __uint128_t (gcc)
+#
+#    3. ansi64      - 64-bit OS, ANSI C
+#
+#    4. ppro        - 32-bit OS, x86 CPU, PentiumPro or later
+#
+#    5. ansi32      - 32-bit OS, ANSI C
+#
+#    6. ansi-legacy - 32-bit OS, compiler without uint64_t
+#
+# Testing only:
+#
+#    7. full_coverage - 64bit OS, produces 64-bit library, using
+#                       CONFIG_32. This option should ONLY be
+#                       used for coverage testing.
+#
+
+#
+# CFLAGS, LDFLAGS:
+#
+# If CFLAGS are passed to ./configure, they are appended to the
+# minimal libmpdec configuration:
+#
+#   ./configure CFLAGS="-march=i586 -O2 -Wall"
+#
+#      ==> -DCONFIG_32 -DPPRO -DASM -fpic -march=i586 -O2 -Wall
+#
+# Both MACHINE and CFLAGS can be specified, making it possible to
+# have a complete custom configuration:
+#
+#   ./configure MACHINE=ansi32 CFLAGS="-Wall -W -O3 -g"
+#
+#      ==> -DCONFIG_32 -DANSI -Wall -W -O3 -g
+#
+#
+# If CFLAGS are passed to `make`, they override ALL existing flags,
+# including the minimal libmpdec configuration. This means that
+# exported CFLAGS must be unset before calling make (unless of
+# course they contain the libmpdec configuration).
+#
+
+
+# ======================================================================
+#                       Unix: code coverage tests
+# ======================================================================
+
+# These tests require gcc/gcov and take quite long. To achieve 100%
+# coverage of the various multiplication functions, 4-8GB of RAM is
+# required for CONFIG_32, 1TB for CONFIG_64.
+#
+# So, realistically it is only possible to get 100% coverage using
+# ./configure MACHINE=full_coverage on a 64-bit machine with 8GB of
+# memory.
+#
+# !!! MACHINE=full_coverage is for testing only and does not work
+#     for pycoverage.
+
+# Library coverage:
+./configure
+make libcoverage
+python tests/covreport.py
+make distclean
+
+# 100% library coverage (64-bit OS):
+./configure MACHINE=full_coverage
+patch < tests/fullcov_header.patch
+make libcoverage
+python tests/covreport.py
+make distclean
+
+# Python module coverage. The following variables need to be set
+# either in the Makefile or on the command line:
+#
+# PYTHON2INC, PYTHON2EXEC, PYTHON3INC, PYTHON3EXEC
+./configure
+make pycoverage
+python tests/covreport.py
+make distclean
+
+# lib/pycoverage:
+./configure
+make coverage
+python tests/covreport.py
+make distclean
+
+
+# ======================================================================
+#                        Unix: extended tests
+# ======================================================================
+
+make extended
+cd tests && ./runalltests.sh
+
+
+# ======================================================================
+#           Windows: library build instructions for Visual C
+# ======================================================================
+
+# ---------------------------------------
+#  Get the official tests (do not skip!)
+# ---------------------------------------
+
+#
+# If the command line programs wget and unzip are installed and in
+# the PATH, the official tests should be downloaded automatically
+# as part of `make MACHINE=xyz check`. wget and unzip are part of
+# a Cygwin install.
+#
+# Otherwise, download manually:
+#
+#    http://speleotrove.com/decimal/dectest.zip
+#
+# Extract the archive so that you have this directory structure:
+#
+#    mpdecimal-x.y\tests\testdata\*.decTest
+#
+# Copy the additional tests:
+#
+#    cd mpdecimal-x.y\tests
+#    copy testdata_dist\* testdata
+#    cd ..
+#
+
+
+# ----------------------------------------------------
+#  64-bit OS (fastest version, use whenever possible)
+# ----------------------------------------------------
+
+# Find the path to vcvarsamd64.bat (or vcvars64.bat) and execute it. Example:
+"C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\bin\amd64\vcvarsamd64.bat"
+
+# Copy Makefile:
+copy Makefile.vc Makefile
+
+
+# EITHER build the static library
+# -------------------------------
+nmake clean
+nmake MACHINE=x64
+nmake MACHINE=x64 check
+
+
+# OR build the DLL
+# ----------------
+nmake clean
+nmake MACHINE=x64 DLL=1
+nmake MACHINE=x64 DLL=1 check
+
+# Visual Studio Professional, profile guided optimization:
+nmake clean
+nmake MACHINE=x64 DLL=1 profile
+nmake MACHINE=x64 DLL=1 check
+
+
+# OR build BOTH the static library and the DLL
+# --------------------------------------------
+nmake clean
+nmake MACHINE=x64
+nmake MACHINE=x64 check
+
+# Save the static library
+copy libmpdec-x.y.lib ..\
+
+nmake clean
+nmake MACHINE=x64 DLL=1
+nmake MACHINE=x64 DLL=1 check
+
+# Restore the static library
+move ..\libmpdec-x.y.lib .
+
+
+# ----------------------------------------------------
+#                      32-bit OS
+# ----------------------------------------------------
+
+# Find the path to vcvars32.bat and execute it. Example:
+"C:\Program Files\Microsoft Visual Studio 9.0\VC\bin\vcvars32.bat"
+
+# Copy Makefile:
+copy Makefile.vc Makefile
+
+
+# EITHER build the static library
+# -------------------------------
+nmake clean
+nmake MACHINE=ppro
+nmake MACHINE=ppro check
+
+
+# OR build the DLL
+# ----------------
+nmake clean
+nmake MACHINE=ppro DLL=1
+nmake MACHINE=ppro DLL=1 check
+
+# Visual Studio Professional, profile guided optimization:
+nmake clean
+nmake MACHINE=ppro DLL=1 profile
+nmake MACHINE=ppro DLL=1 check
+
+
+# OR build BOTH the static library and the DLL
+# --------------------------------------------
+nmake clean
+nmake MACHINE=ppro
+nmake MACHINE=ppro check
+
+# Save the static library
+copy libmpdec-x.y.lib ..\
+
+nmake clean
+nmake MACHINE=ppro DLL=1
+nmake MACHINE=ppro DLL=1 check
+
+# Restore the static library
+move ..\libmpdec-x.y.lib .
+
+
+# ---------------------
+#  Using the libraries
+# ---------------------
+
+# Static library: use the library directly
+cl.exe cmd\pow.c libmpdec-2.3.lib
+
+# DLL: specify the import library on the command line and define USE_DLL
+cl.exe /DUSE_DLL cmd\pow.c libmpdec-2.3.dll.lib
+
+
+# ---------------------------------
+#  Optional extended tests (long):
+# ---------------------------------
+
+# Use the exact same variables as for building! Example:
+make MACHINE=x64 extended
+cd tests && runalltests.bat
+
+# Extended tests with gmp:
+make MACHINE=x64 extended_gmp
+cd tests && runalltests.bat
+
+
+

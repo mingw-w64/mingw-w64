@@ -1,0 +1,597 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="index,follow" name="robots" />
+<meta content="libmpdec documentation" name="description" />
+
+    <title>Function Index &mdash; mpdecimal v2.3 documentation</title>
+    <link rel="stylesheet" href="../_static/mpdecimal-doc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="mpdecimal v2.3 documentation" href="../index.html" />
+    <link rel="up" title="libmpdec" href="index.html" />
+    <link rel="next" title="Context" href="context.html" />
+    <link rel="prev" title="libmpdec" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="context.html" title="Context"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="index.html" title="libmpdec"
+             accesskey="P">previous</a> |</li>
+    <li><a href="http://www.bytereef.org/mpdecimal/index.html">project home</a>|&nbsp;</li>
+    <li><a href="../index.html">mpdecimal v2.3 documentation </a> &raquo;</li>
+
+          <li><a href="index.html" accesskey="U">libmpdec</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Function Index</a><ul>
+<li><a class="reference internal" href="#naming-conventions">Naming Conventions</a></li>
+<li><a class="reference internal" href="#thread-safety">Thread Safety</a></li>
+<li><a class="reference internal" href="#quiet-functions">Quiet Functions</a></li>
+<li><a class="reference internal" href="#signaling-functions">Signaling functions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">libmpdec</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="context.html"
+                        title="next chapter">Context</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="function-index">
+<h1>Function Index</h1>
+<div class="section" id="naming-conventions">
+<h2>Naming Conventions</h2>
+<p>Most functions are specified as signaling functions, which call the trap handler
+if a trap-enabled condition occurs. This behavior is not always desirable.
+For example, if temporary storage has been allocated and an error occurs, it
+is better to free the storage first and raise the condition at function exit.
+Another example is a threaded application where many functions use the same
+context simultaneously.</p>
+<p>For each signaling function in the specification, <strong>libmpdec</strong> offers a quiet,
+thread-safe counterpart. The naming convention is such that if the signaling
+function is called <tt class="xref c c-func docutils literal"><span class="pre">mpd_add</span></tt>, the quiet function is called <tt class="xref c c-func docutils literal"><span class="pre">mpd_qadd</span></tt>.</p>
+<p>All signaling functions are wrappers around quiet functions:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qmul</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+              <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+
+<span class="kt">void</span>
+<span class="nf">mpd_mul</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">uint32_t</span> <span class="n">status</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">mpd_qmul</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span><span class="p">);</span>
+        <span class="n">mpd_addstatus_raise</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">status</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Instead of writing to the context, <tt class="xref c c-func docutils literal"><span class="pre">mpd_qmul</span></tt> only updates the status parameter.
+<tt class="xref c c-func docutils literal"><span class="pre">mpd_addstatus_raise</span></tt> adds the accumulated status to the context and calls the
+trap handler if necessary.</p>
+<p>For brevity&#8217;s sake, throughout this document only the quiet versions of functions
+will be explained.</p>
+</div>
+<div class="section" id="thread-safety">
+<h2>Thread Safety</h2>
+<p>All quiet functions <em>except</em> <tt class="xref c c-func docutils literal"><span class="pre">mpd_update_ln10</span></tt>, <tt class="xref c c-func docutils literal"><span class="pre">mpd_qln</span></tt>,
+<tt class="xref c c-func docutils literal"><span class="pre">mpd_qlog10</span></tt> and <tt class="xref c c-func docutils literal"><span class="pre">mpd_qpow</span></tt> are thread-safe. The latter
+functions share the global variable <tt class="xref c c-macro docutils literal"><span class="pre">mpd_ln10</span></tt>.</p>
+<p>For the <strong>cdecimal</strong> module the situation is different. The GIL prevents
+that more than one of these functions is called simultaneously, so the
+module is thread-safe.</p>
+</div>
+<div class="section" id="quiet-functions">
+<h2>Quiet Functions</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="34%" />
+<col width="35%" />
+<col width="31%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="attributes.html#std:topic-mpd_adjexp"><strong class="xref std std-topic">mpd_adjexp</strong></a></td>
+<td><a class="reference internal" href="memory.html#std:topic-mpd_alloc"><strong class="xref std std-topic">mpd_alloc</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_arith_sign"><strong class="xref std std-topic">mpd_arith_sign</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="context.html#std:topic-mpd_basiccontext"><strong class="xref std std-topic">mpd_basiccontext</strong></a></td>
+<td><a class="reference internal" href="memory.html#std:topic-mpd_calloc"><strong class="xref std std-topic">mpd_calloc</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_class"><strong class="xref std std-topic">mpd_class</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="attributes.html#std:topic-mpd_clear_flags"><strong class="xref std std-topic">mpd_clear_flags</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_cmp_total"><strong class="xref std std-topic">mpd_cmp_total</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_cmp_total_mag"><strong class="xref std std-topic">mpd_cmp_total_mag</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_compare_total"><strong class="xref std std-topic">mpd_compare_total</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_compare_total_mag"><strong class="xref std std-topic">mpd_compare_total_mag</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_copy_flags"><strong class="xref std std-topic">mpd_copy_flags</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="context.html#std:topic-mpd_defaultcontext"><strong class="xref std std-topic">mpd_defaultcontext</strong></a></td>
+<td><a class="reference internal" href="decimals.html#std:topic-mpd_del"><strong class="xref std std-topic">mpd_del</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_digits_to_size"><strong class="xref std std-topic">mpd_digits_to_size</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="context.html#std:topic-mpd_etiny"><strong class="xref std std-topic">mpd_etiny</strong></a></td>
+<td><a class="reference internal" href="context.html#std:topic-mpd_etop"><strong class="xref std std-topic">mpd_etop</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_exp_digits"><strong class="xref std std-topic">mpd_exp_digits</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="assign-convert.html#std:topic-mpd_fprint"><strong class="xref std std-topic">mpd_fprint</strong></a></td>
+<td><a class="reference internal" href="context.html#std:topic-mpd_getclamp"><strong class="xref std std-topic">mpd_getclamp</strong></a></td>
+<td><a class="reference internal" href="context.html#std:topic-mpd_getcr"><strong class="xref std std-topic">mpd_getcr</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="context.html#std:topic-mpd_getemax"><strong class="xref std std-topic">mpd_getemax</strong></a></td>
+<td><a class="reference internal" href="context.html#std:topic-mpd_getemin"><strong class="xref std std-topic">mpd_getemin</strong></a></td>
+<td><a class="reference internal" href="context.html#std:topic-mpd_getprec"><strong class="xref std std-topic">mpd_getprec</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="context.html#std:topic-mpd_getround"><strong class="xref std std-topic">mpd_getround</strong></a></td>
+<td><a class="reference internal" href="context.html#std:topic-mpd_getstatus"><strong class="xref std std-topic">mpd_getstatus</strong></a></td>
+<td><a class="reference internal" href="context.html#std:topic-mpd_gettraps"><strong class="xref std std-topic">mpd_gettraps</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="context.html#std:topic-mpd_ieee_context"><strong class="xref std std-topic">mpd_ieee_context</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_iscanonical"><strong class="xref std std-topic">mpd_iscanonical</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_isconst_data"><strong class="xref std std-topic">mpd_isconst_data</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="attributes.html#std:topic-mpd_isdynamic"><strong class="xref std std-topic">mpd_isdynamic</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_isdynamic_data"><strong class="xref std std-topic">mpd_isdynamic_data</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_iseven"><strong class="xref std std-topic">mpd_iseven</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="attributes.html#std:topic-mpd_isfinite"><strong class="xref std std-topic">mpd_isfinite</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_isinfinite"><strong class="xref std std-topic">mpd_isinfinite</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_isinteger"><strong class="xref std std-topic">mpd_isinteger</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="attributes.html#std:topic-mpd_isnan"><strong class="xref std std-topic">mpd_isnan</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_isnegative"><strong class="xref std std-topic">mpd_isnegative</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_isnormal"><strong class="xref std std-topic">mpd_isnormal</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="attributes.html#std:topic-mpd_isodd"><strong class="xref std std-topic">mpd_isodd</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_isoddcoeff"><strong class="xref std std-topic">mpd_isoddcoeff</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_isoddword"><strong class="xref std std-topic">mpd_isoddword</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="attributes.html#std:topic-mpd_ispositive"><strong class="xref std std-topic">mpd_ispositive</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_isqnan"><strong class="xref std std-topic">mpd_isqnan</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_isshared_data"><strong class="xref std std-topic">mpd_isshared_data</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="attributes.html#std:topic-mpd_issigned"><strong class="xref std std-topic">mpd_issigned</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_issnan"><strong class="xref std std-topic">mpd_issnan</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_isspecial"><strong class="xref std std-topic">mpd_isspecial</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="attributes.html#std:topic-mpd_isstatic"><strong class="xref std std-topic">mpd_isstatic</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_isstatic_data"><strong class="xref std std-topic">mpd_isstatic_data</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_issubnormal"><strong class="xref std std-topic">mpd_issubnormal</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="attributes.html#std:topic-mpd_iszero"><strong class="xref std std-topic">mpd_iszero</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_iszerocoeff"><strong class="xref std std-topic">mpd_iszerocoeff</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_lsd"><strong class="xref std std-topic">mpd_lsd</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="assign-convert.html#std:topic-mpd_lsnprint_flags"><strong class="xref std std-topic">mpd_lsnprint_flags</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_lsnprint_signals"><strong class="xref std std-topic">mpd_lsnprint_signals</strong></a></td>
+<td><a class="reference internal" href="context.html#std:topic-mpd_maxcontext"><strong class="xref std std-topic">mpd_maxcontext</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="memory.html#std:topic-mpd_minalloc"><strong class="xref std std-topic">mpd_minalloc</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_msd"><strong class="xref std std-topic">mpd_msd</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_msword"><strong class="xref std std-topic">mpd_msword</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="assign-convert.html#std:topic-mpd_print"><strong class="xref std std-topic">mpd_print</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qabs"><strong class="xref std std-topic">mpd_qabs</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_qabs_uint"><strong class="xref std std-topic">mpd_qabs_uint</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qadd"><strong class="xref std std-topic">mpd_qadd</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qadd_i32"><strong class="xref std std-topic">mpd_qadd_i32</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qadd_i64"><strong class="xref std std-topic">mpd_qadd_i64</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qadd_ssize"><strong class="xref std std-topic">mpd_qadd_ssize</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qadd_u32"><strong class="xref std std-topic">mpd_qadd_u32</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qadd_u64"><strong class="xref std std-topic">mpd_qadd_u64</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qadd_uint"><strong class="xref std std-topic">mpd_qadd_uint</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_qand"><strong class="xref std std-topic">mpd_qand</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qceil"><strong class="xref std std-topic">mpd_qceil</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="various.html#std:topic-mpd_qcheck_nan"><strong class="xref std std-topic">mpd_qcheck_nan</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_qcheck_nans"><strong class="xref std std-topic">mpd_qcheck_nans</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qcmp"><strong class="xref std std-topic">mpd_qcmp</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qcompare"><strong class="xref std std-topic">mpd_qcompare</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qcompare_signal"><strong class="xref std std-topic">mpd_qcompare_signal</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_qcopy"><strong class="xref std std-topic">mpd_qcopy</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="assign-convert.html#std:topic-mpd_qcopy_abs"><strong class="xref std std-topic">mpd_qcopy_abs</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_qcopy_negate"><strong class="xref std std-topic">mpd_qcopy_negate</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_qcopy_sign"><strong class="xref std std-topic">mpd_qcopy_sign</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qdiv"><strong class="xref std std-topic">mpd_qdiv</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qdiv_i32"><strong class="xref std std-topic">mpd_qdiv_i32</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qdiv_i64"><strong class="xref std std-topic">mpd_qdiv_i64</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qdivint"><strong class="xref std std-topic">mpd_qdivint</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qdivmod"><strong class="xref std std-topic">mpd_qdivmod</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qdiv_ssize"><strong class="xref std std-topic">mpd_qdiv_ssize</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qdiv_u32"><strong class="xref std std-topic">mpd_qdiv_u32</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qdiv_u64"><strong class="xref std std-topic">mpd_qdiv_u64</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qdiv_uint"><strong class="xref std std-topic">mpd_qdiv_uint</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qexp"><strong class="xref std std-topic">mpd_qexp</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_qexport_u16"><strong class="xref std std-topic">mpd_qexport_u16</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_qexport_u32"><strong class="xref std std-topic">mpd_qexport_u32</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="various.html#std:topic-mpd_qfinalize"><strong class="xref std std-topic">mpd_qfinalize</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qfloor"><strong class="xref std std-topic">mpd_qfloor</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qfma"><strong class="xref std std-topic">mpd_qfma</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="assign-convert.html#std:topic-mpd_qformat"><strong class="xref std std-topic">mpd_qformat</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_qget_i32"><strong class="xref std std-topic">mpd_qget_i32</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_qget_i64"><strong class="xref std std-topic">mpd_qget_i64</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="assign-convert.html#std:topic-mpd_qget_ssize"><strong class="xref std std-topic">mpd_qget_ssize</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_qget_u32"><strong class="xref std std-topic">mpd_qget_u32</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_qget_u64"><strong class="xref std std-topic">mpd_qget_u64</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="assign-convert.html#std:topic-mpd_qget_uint"><strong class="xref std std-topic">mpd_qget_uint</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_qimport_u16"><strong class="xref std std-topic">mpd_qimport_u16</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_qimport_u32"><strong class="xref std std-topic">mpd_qimport_u32</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="various.html#std:topic-mpd_qinvert"><strong class="xref std std-topic">mpd_qinvert</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qinvroot"><strong class="xref std std-topic">mpd_qinvroot</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qln"><strong class="xref std std-topic">mpd_qln</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qlog10"><strong class="xref std std-topic">mpd_qlog10</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qlogb"><strong class="xref std std-topic">mpd_qlogb</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qmax"><strong class="xref std std-topic">mpd_qmax</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="assign-convert.html#std:topic-mpd_qmaxcoeff"><strong class="xref std std-topic">mpd_qmaxcoeff</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qmax_mag"><strong class="xref std std-topic">mpd_qmax_mag</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qmin"><strong class="xref std std-topic">mpd_qmin</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qmin_mag"><strong class="xref std std-topic">mpd_qmin_mag</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qminus"><strong class="xref std std-topic">mpd_qminus</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qmul"><strong class="xref std std-topic">mpd_qmul</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qmul_i32"><strong class="xref std std-topic">mpd_qmul_i32</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qmul_i64"><strong class="xref std std-topic">mpd_qmul_i64</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qmul_ssize"><strong class="xref std std-topic">mpd_qmul_ssize</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qmul_u32"><strong class="xref std std-topic">mpd_qmul_u32</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qmul_u64"><strong class="xref std std-topic">mpd_qmul_u64</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qmul_uint"><strong class="xref std std-topic">mpd_qmul_uint</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="assign-convert.html#std:topic-mpd_qncopy"><strong class="xref std std-topic">mpd_qncopy</strong></a></td>
+<td><a class="reference internal" href="decimals.html#std:topic-mpd_qnew"><strong class="xref std std-topic">mpd_qnew</strong></a></td>
+<td><a class="reference internal" href="decimals.html#std:topic-mpd_qnew_size"><strong class="xref std std-topic">mpd_qnew_size</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qnext_minus"><strong class="xref std std-topic">mpd_qnext_minus</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qnext_plus"><strong class="xref std std-topic">mpd_qnext_plus</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qnext_toward"><strong class="xref std std-topic">mpd_qnext_toward</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="various.html#std:topic-mpd_qor"><strong class="xref std std-topic">mpd_qor</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qplus"><strong class="xref std std-topic">mpd_qplus</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qpow"><strong class="xref std std-topic">mpd_qpow</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qpowmod"><strong class="xref std std-topic">mpd_qpowmod</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qquantize"><strong class="xref std std-topic">mpd_qquantize</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qreduce"><strong class="xref std std-topic">mpd_qreduce</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qrem"><strong class="xref std std-topic">mpd_qrem</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qrem_near"><strong class="xref std std-topic">mpd_qrem_near</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qrescale"><strong class="xref std std-topic">mpd_qrescale</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="memory.html#std:topic-mpd_qresize"><strong class="xref std std-topic">mpd_qresize</strong></a></td>
+<td><a class="reference internal" href="memory.html#std:topic-mpd_qresize_zero"><strong class="xref std std-topic">mpd_qresize_zero</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_qrotate"><strong class="xref std std-topic">mpd_qrotate</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qround_to_int"><strong class="xref std std-topic">mpd_qround_to_int</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qround_to_intx"><strong class="xref std std-topic">mpd_qround_to_intx</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qscaleb"><strong class="xref std std-topic">mpd_qscaleb</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="context.html#std:topic-mpd_qsetclamp"><strong class="xref std std-topic">mpd_qsetclamp</strong></a></td>
+<td><a class="reference internal" href="context.html#std:topic-mpd_qsetcr"><strong class="xref std std-topic">mpd_qsetcr</strong></a></td>
+<td><a class="reference internal" href="context.html#std:topic-mpd_qsetemax"><strong class="xref std std-topic">mpd_qsetemax</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="context.html#std:topic-mpd_qsetemin"><strong class="xref std std-topic">mpd_qsetemin</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_qset_i32"><strong class="xref std std-topic">mpd_qset_i32</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_qset_i64"><strong class="xref std std-topic">mpd_qset_i64</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="context.html#std:topic-mpd_qsetprec"><strong class="xref std std-topic">mpd_qsetprec</strong></a></td>
+<td><a class="reference internal" href="context.html#std:topic-mpd_qsetround"><strong class="xref std std-topic">mpd_qsetround</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_qset_ssize"><strong class="xref std std-topic">mpd_qset_ssize</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="context.html#std:topic-mpd_qsetstatus"><strong class="xref std std-topic">mpd_qsetstatus</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_qset_string"><strong class="xref std std-topic">mpd_qset_string</strong></a></td>
+<td><a class="reference internal" href="context.html#std:topic-mpd_qsettraps"><strong class="xref std std-topic">mpd_qsettraps</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="assign-convert.html#std:topic-mpd_qset_u32"><strong class="xref std std-topic">mpd_qset_u32</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_qset_u64"><strong class="xref std std-topic">mpd_qset_u64</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_qset_uint"><strong class="xref std std-topic">mpd_qset_uint</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="various.html#std:topic-mpd_qshift"><strong class="xref std std-topic">mpd_qshift</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_qshiftl"><strong class="xref std std-topic">mpd_qshiftl</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_qshiftn"><strong class="xref std std-topic">mpd_qshiftn</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="various.html#std:topic-mpd_qshiftr"><strong class="xref std std-topic">mpd_qshiftr</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_qshiftr_inplace"><strong class="xref std std-topic">mpd_qshiftr_inplace</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qsqrt"><strong class="xref std std-topic">mpd_qsqrt</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qsub"><strong class="xref std std-topic">mpd_qsub</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qsub_i32"><strong class="xref std std-topic">mpd_qsub_i32</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qsub_i64"><strong class="xref std std-topic">mpd_qsub_i64</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qsub_ssize"><strong class="xref std std-topic">mpd_qsub_ssize</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qsub_u32"><strong class="xref std std-topic">mpd_qsub_u32</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qsub_u64"><strong class="xref std std-topic">mpd_qsub_u64</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qsub_uint"><strong class="xref std std-topic">mpd_qsub_uint</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_qtrunc"><strong class="xref std std-topic">mpd_qtrunc</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_qxor"><strong class="xref std std-topic">mpd_qxor</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="various.html#std:topic-mpd_radix"><strong class="xref std std-topic">mpd_radix</strong></a></td>
+<td><a class="reference internal" href="memory.html#std:topic-mpd_realloc"><strong class="xref std std-topic">mpd_realloc</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_same_quantum"><strong class="xref std std-topic">mpd_same_quantum</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="attributes.html#std:topic-mpd_set_const_data"><strong class="xref std std-topic">mpd_set_const_data</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_setdigits"><strong class="xref std std-topic">mpd_setdigits</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_set_dynamic"><strong class="xref std std-topic">mpd_set_dynamic</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="attributes.html#std:topic-mpd_set_dynamic_data"><strong class="xref std std-topic">mpd_set_dynamic_data</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_seterror"><strong class="xref std std-topic">mpd_seterror</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_set_flags"><strong class="xref std std-topic">mpd_set_flags</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="attributes.html#std:topic-mpd_set_infinity"><strong class="xref std std-topic">mpd_set_infinity</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_set_negative"><strong class="xref std std-topic">mpd_set_negative</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_set_positive"><strong class="xref std std-topic">mpd_set_positive</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="attributes.html#std:topic-mpd_set_qnan"><strong class="xref std std-topic">mpd_set_qnan</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_set_shared_data"><strong class="xref std std-topic">mpd_set_shared_data</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_set_sign"><strong class="xref std std-topic">mpd_set_sign</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="attributes.html#std:topic-mpd_set_snan"><strong class="xref std std-topic">mpd_set_snan</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_setspecial"><strong class="xref std std-topic">mpd_setspecial</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_set_static"><strong class="xref std std-topic">mpd_set_static</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="attributes.html#std:topic-mpd_set_static_data"><strong class="xref std std-topic">mpd_set_static_data</strong></a></td>
+<td><a class="reference internal" href="memory.html#std:topic-mpd_sh_alloc"><strong class="xref std std-topic">mpd_sh_alloc</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_sign"><strong class="xref std std-topic">mpd_sign</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="attributes.html#std:topic-mpd_signcpy"><strong class="xref std std-topic">mpd_signcpy</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_sizeinbase"><strong class="xref std std-topic">mpd_sizeinbase</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_snprint_flags"><strong class="xref std std-topic">mpd_snprint_flags</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="assign-convert.html#std:topic-mpd_to_eng"><strong class="xref std std-topic">mpd_to_eng</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_to_sci"><strong class="xref std std-topic">mpd_to_sci</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_trail_zeros"><strong class="xref std std-topic">mpd_trail_zeros</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_update_ln10"><strong class="xref std std-topic">mpd_update_ln10</strong></a></td>
+<td><a class="reference internal" href="attributes.html#std:topic-mpd_word_digits"><strong class="xref std std-topic">mpd_word_digits</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_zerocoeff"><strong class="xref std std-topic">mpd_zerocoeff</strong></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="signaling-functions">
+<h2>Signaling functions</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="35%" />
+<col width="32%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_abs"><strong class="xref std std-topic">mpd_abs</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_abs_uint"><strong class="xref std std-topic">mpd_abs_uint</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_add"><strong class="xref std std-topic">mpd_add</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_add_i32"><strong class="xref std std-topic">mpd_add_i32</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_add_i64"><strong class="xref std std-topic">mpd_add_i64</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_add_ssize"><strong class="xref std std-topic">mpd_add_ssize</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="context.html#std:topic-mpd_addstatus_raise"><strong class="xref std std-topic">mpd_addstatus_raise</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_add_u32"><strong class="xref std std-topic">mpd_add_u32</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_add_u64"><strong class="xref std std-topic">mpd_add_u64</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_add_uint"><strong class="xref std std-topic">mpd_add_uint</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_and"><strong class="xref std std-topic">mpd_and</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_canonical"><strong class="xref std std-topic">mpd_canonical</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_ceil"><strong class="xref std std-topic">mpd_ceil</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_check_nan"><strong class="xref std std-topic">mpd_check_nan</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_check_nans"><strong class="xref std std-topic">mpd_check_nans</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_cmp"><strong class="xref std std-topic">mpd_cmp</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_compare"><strong class="xref std std-topic">mpd_compare</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_compare_signal"><strong class="xref std std-topic">mpd_compare_signal</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="assign-convert.html#std:topic-mpd_copy"><strong class="xref std std-topic">mpd_copy</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_copy_abs"><strong class="xref std std-topic">mpd_copy_abs</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_copy_negate"><strong class="xref std std-topic">mpd_copy_negate</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="assign-convert.html#std:topic-mpd_copy_sign"><strong class="xref std std-topic">mpd_copy_sign</strong></a></td>
+<td><a class="reference internal" href="context.html#std:topic-mpd_dflt_traphandler"><strong class="xref std std-topic">mpd_dflt_traphandler</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_div"><strong class="xref std std-topic">mpd_div</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_div_i32"><strong class="xref std std-topic">mpd_div_i32</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_div_i64"><strong class="xref std std-topic">mpd_div_i64</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_divint"><strong class="xref std std-topic">mpd_divint</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_divmod"><strong class="xref std std-topic">mpd_divmod</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_div_ssize"><strong class="xref std std-topic">mpd_div_ssize</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_div_u32"><strong class="xref std std-topic">mpd_div_u32</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_div_u64"><strong class="xref std std-topic">mpd_div_u64</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_div_uint"><strong class="xref std std-topic">mpd_div_uint</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_exp"><strong class="xref std std-topic">mpd_exp</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="various.html#std:topic-mpd_export_u16"><strong class="xref std std-topic">mpd_export_u16</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_export_u32"><strong class="xref std std-topic">mpd_export_u32</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_finalize"><strong class="xref std std-topic">mpd_finalize</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_floor"><strong class="xref std std-topic">mpd_floor</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_fma"><strong class="xref std std-topic">mpd_fma</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_format"><strong class="xref std std-topic">mpd_format</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="assign-convert.html#std:topic-mpd_get_i32"><strong class="xref std std-topic">mpd_get_i32</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_get_i64"><strong class="xref std std-topic">mpd_get_i64</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_get_ssize"><strong class="xref std std-topic">mpd_get_ssize</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="assign-convert.html#std:topic-mpd_get_u32"><strong class="xref std std-topic">mpd_get_u32</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_get_u64"><strong class="xref std std-topic">mpd_get_u64</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_get_uint"><strong class="xref std std-topic">mpd_get_uint</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="various.html#std:topic-mpd_import_u16"><strong class="xref std std-topic">mpd_import_u16</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_import_u32"><strong class="xref std std-topic">mpd_import_u32</strong></a></td>
+<td><a class="reference internal" href="context.html#std:topic-mpd_init"><strong class="xref std std-topic">mpd_init</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="various.html#std:topic-mpd_invert"><strong class="xref std std-topic">mpd_invert</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_invroot"><strong class="xref std std-topic">mpd_invroot</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_ln"><strong class="xref std std-topic">mpd_ln</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_log10"><strong class="xref std std-topic">mpd_log10</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_logb"><strong class="xref std std-topic">mpd_logb</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_max"><strong class="xref std std-topic">mpd_max</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="assign-convert.html#std:topic-mpd_maxcoeff"><strong class="xref std std-topic">mpd_maxcoeff</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_max_mag"><strong class="xref std std-topic">mpd_max_mag</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_min"><strong class="xref std std-topic">mpd_min</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_min_mag"><strong class="xref std std-topic">mpd_min_mag</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_minus"><strong class="xref std std-topic">mpd_minus</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_mul"><strong class="xref std std-topic">mpd_mul</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_mul_i32"><strong class="xref std std-topic">mpd_mul_i32</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_mul_i64"><strong class="xref std std-topic">mpd_mul_i64</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_mul_ssize"><strong class="xref std std-topic">mpd_mul_ssize</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_mul_u32"><strong class="xref std std-topic">mpd_mul_u32</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_mul_u64"><strong class="xref std std-topic">mpd_mul_u64</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_mul_uint"><strong class="xref std std-topic">mpd_mul_uint</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="decimals.html#std:topic-mpd_new"><strong class="xref std std-topic">mpd_new</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_next_minus"><strong class="xref std std-topic">mpd_next_minus</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_next_plus"><strong class="xref std std-topic">mpd_next_plus</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_next_toward"><strong class="xref std std-topic">mpd_next_toward</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_or"><strong class="xref std std-topic">mpd_or</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_plus"><strong class="xref std std-topic">mpd_plus</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_pow"><strong class="xref std std-topic">mpd_pow</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_powmod"><strong class="xref std std-topic">mpd_powmod</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_quantize"><strong class="xref std std-topic">mpd_quantize</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_reduce"><strong class="xref std std-topic">mpd_reduce</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_rem"><strong class="xref std std-topic">mpd_rem</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_rem_near"><strong class="xref std std-topic">mpd_rem_near</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_rescale"><strong class="xref std std-topic">mpd_rescale</strong></a></td>
+<td><a class="reference internal" href="memory.html#std:topic-mpd_resize"><strong class="xref std std-topic">mpd_resize</strong></a></td>
+<td><a class="reference internal" href="memory.html#std:topic-mpd_resize_zero"><strong class="xref std std-topic">mpd_resize_zero</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="various.html#std:topic-mpd_rotate"><strong class="xref std std-topic">mpd_rotate</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_round_to_int"><strong class="xref std std-topic">mpd_round_to_int</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_round_to_intx"><strong class="xref std std-topic">mpd_round_to_intx</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_scaleb"><strong class="xref std std-topic">mpd_scaleb</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_set_i32"><strong class="xref std std-topic">mpd_set_i32</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_set_i64"><strong class="xref std std-topic">mpd_set_i64</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="memory.html#std:topic-mpd_setminalloc"><strong class="xref std std-topic">mpd_setminalloc</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_set_ssize"><strong class="xref std std-topic">mpd_set_ssize</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_set_string"><strong class="xref std std-topic">mpd_set_string</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="assign-convert.html#std:topic-mpd_set_u32"><strong class="xref std std-topic">mpd_set_u32</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_set_u64"><strong class="xref std std-topic">mpd_set_u64</strong></a></td>
+<td><a class="reference internal" href="assign-convert.html#std:topic-mpd_set_uint"><strong class="xref std std-topic">mpd_set_uint</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="various.html#std:topic-mpd_shift"><strong class="xref std std-topic">mpd_shift</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_shiftl"><strong class="xref std std-topic">mpd_shiftl</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_shiftn"><strong class="xref std std-topic">mpd_shiftn</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="various.html#std:topic-mpd_shiftr"><strong class="xref std std-topic">mpd_shiftr</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_sqrt"><strong class="xref std std-topic">mpd_sqrt</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_sub"><strong class="xref std std-topic">mpd_sub</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_sub_i32"><strong class="xref std std-topic">mpd_sub_i32</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_sub_i64"><strong class="xref std std-topic">mpd_sub_i64</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_sub_ssize"><strong class="xref std std-topic">mpd_sub_ssize</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_sub_u32"><strong class="xref std std-topic">mpd_sub_u32</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_sub_u64"><strong class="xref std std-topic">mpd_sub_u64</strong></a></td>
+<td><a class="reference internal" href="arithmetic.html#std:topic-mpd_sub_uint"><strong class="xref std std-topic">mpd_sub_uint</strong></a></td>
+</tr>
+<tr><td><a class="reference internal" href="arithmetic.html#std:topic-mpd_trunc"><strong class="xref std std-topic">mpd_trunc</strong></a></td>
+<td><a class="reference internal" href="various.html#std:topic-mpd_xor"><strong class="xref std std-topic">mpd_xor</strong></a></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="context.html" title="Context"
+             >next</a></li>
+        <li class="right" >
+          <a href="index.html" title="libmpdec"
+             >previous</a> |</li>
+    <li><a href="http://www.bytereef.org/mpdecimal/index.html">project home</a>|&nbsp;</li>
+    <li><a href="../index.html">mpdecimal v2.3 documentation </a> &raquo;</li>
+
+          <li><a href="index.html" >libmpdec</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Stefan Krah.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

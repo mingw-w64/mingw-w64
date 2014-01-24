@@ -54,5 +54,14 @@
 /* Version number of package */
 #undef VERSION
 
+/* Build DFP support */
+#undef __ENABLE_DFP
+
 /* Define as -1 to enable command line globbing or 0 to disable it. */
 #undef __ENABLE_GLOBBING
+
+/* Build DFP support */
+#undef __ENABLE_PRINTF128
+
+/* Build DFP support */
+#undef __ENABLE_REGISTEREDPRINTF

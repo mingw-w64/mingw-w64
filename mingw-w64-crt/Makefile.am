@@ -55,6 +55,36 @@ _libm_dummy.c:
 	echo "static int __attribute__((unused)) __mingw_libm_dummy;" > _libm_dummy.c
 
 src_libm=_libm_dummy.c
+
+lib32/DFP_src_%.dfp.obj: math/DFP/mpdecimal-2.3/%.c
+	$(COMPILE) $(CPPFLAGS32) -std=gnu99 -frounding-math -fsignaling-nans -Wno-inline -DCONFIG_32 -DPPRO -DASM -Dmpdecimal_header=\"mpdecimal-i686.h\" -DUSE_LOCKING_CTOR -c $< -o $@
+
+lib64/DFP_src_%.dfp.obj: math/DFP/mpdecimal-2.3/%.c
+	$(COMPILE) $(CPPFLAGS64) -std=gnu99 -frounding-math -fsignaling-nans -Wno-inline -DCONFIG_64 -DASM -Dmpdecimal_header=\"mpdecimal-x86_64.h\" -DUSE_LOCKING_CTOR -c $< -o $@
+
+if ENABLE_DFP
+obj_dfpsrc32 = \
+lib32/DFP_src_basearith.dfp.obj lib32/DFP_src_context.dfp.obj lib32/DFP_src_constants.dfp.obj lib32/DFP_src_convolute.dfp.obj lib32/DFP_src_crt.dfp.obj \
+lib32/DFP_src_mpdecimal.dfp.obj lib32/DFP_src_mpsignal.dfp.obj lib32/DFP_src_difradix2.dfp.obj lib32/DFP_src_fnt.dfp.obj lib32/DFP_src_fourstep.dfp.obj \
+lib32/DFP_src_io.dfp.obj lib32/DFP_src_memory.dfp.obj lib32/DFP_src_numbertheory.dfp.obj lib32/DFP_src_sixstep.dfp.obj lib32/DFP_src_transpose.dfp.obj
+
+obj_dfpsrc64 = \
+lib64/DFP_src_basearith.dfp.obj lib64/DFP_src_context.dfp.obj lib64/DFP_src_constants.dfp.obj lib64/DFP_src_convolute.dfp.obj lib64/DFP_src_crt.dfp.obj \
+lib64/DFP_src_mpdecimal.dfp.obj lib64/DFP_src_mpsignal.dfp.obj lib64/DFP_src_difradix2.dfp.obj lib64/DFP_src_fnt.dfp.obj lib64/DFP_src_fourstep.dfp.obj \
+lib64/DFP_src_io.dfp.obj lib64/DFP_src_memory.dfp.obj lib64/DFP_src_numbertheory.dfp.obj lib64/DFP_src_sixstep.dfp.obj lib64/DFP_src_transpose.dfp.obj
+
+src_dfp_math = \
+math/DFP/__fpclassifyd32.c math/DFP/__fpclassifyd64.c math/DFP/__fpclassifyd128.c \
+math/DFP/__isnand32.c math/DFP/__isnand64.c math/DFP/__isnand128.c \
+math/DFP/__signbitd32.c math/DFP/__signbitd64.c math/DFP/__signbitd128.c \
+math/DFP/isinfd32.c math/DFP/isinfd64.c math/DFP/isinfd128.c
+
+else
+obj_dfpsrc32 =
+obj_dfpsrc64 =
+src_dfp_math =
+endif
+
 src_libshell32=libsrc/shell32.c
 src_libdinput=libsrc/dinput_kbd.c libsrc/dinput_joy.c libsrc/dinput_joy2.c libsrc/dinput_mouse.c libsrc/dinput_mouse2.c
 src_libdinput8=libsrc/dinput_private.h libsrc/dinput_joy.c libsrc/dinput_joy2.c libsrc/dinput_mouse.c libsrc/dinput_mouse2.c libsrc/dinput_kbd.c
@@ -472,7 +502,8 @@ lib32_libmingw32_a_SOURCES = $(src_libmingw32)
 
 lib32_LIBRARIES += lib32/libmingwex.a
 lib32_libmingwex_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
-lib32_libmingwex_a_SOURCES = $(src_libmingwex)
+lib32_libmingwex_a_SOURCES = $(src_libmingwex) $(src_dfp_math)
+lib32_libmingwex_a_LIBADD = $(obj_dfpsrc32)
 
 lib32_LIBRARIES += lib32/libmoldname.a
 lib32_libmoldname_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
@@ -716,7 +747,8 @@ lib64_libmingw32_a_SOURCES = $(src_libmingw32)
 
 lib64_LIBRARIES += lib64/libmingwex.a
 lib64_libmingwex_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include) $(AM_CPPFLAGS)
-lib64_libmingwex_a_SOURCES = $(src_libmingwex)
+lib64_libmingwex_a_SOURCES = $(src_libmingwex) $(src_dfp_math)
+lib64_libmingwex_a_LIBADD = $(obj_dfpsrc64)
 
 lib64_LIBRARIES += lib64/libmoldname.a
 lib64_libmoldname_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include) $(AM_CPPFLAGS)
@@ -1103,6 +1135,189 @@ EXTRA_DIST += revstamp.h \
   profile/gcrt0.c \
   profile/COPYING \
   profile/CYGWIN_LICENSE
+
+EXTRA_DIST += math/DFP/mpdecimal-2.3/.hg_archival.txt \
+math/DFP/mpdecimal-2.3/basearith.c \
+math/DFP/mpdecimal-2.3/basearith.h \
+math/DFP/mpdecimal-2.3/bench.c \
+math/DFP/mpdecimal-2.3/bits.h \
+math/DFP/mpdecimal-2.3/cdecimal2.c \
+math/DFP/mpdecimal-2.3/cdecimal3.c \
+math/DFP/mpdecimal-2.3/CHANGELOG.txt \
+math/DFP/mpdecimal-2.3/cmd/compare.c \
+math/DFP/mpdecimal-2.3/cmd/div.c \
+math/DFP/mpdecimal-2.3/cmd/divmod.c \
+math/DFP/mpdecimal-2.3/cmd/multiply.c \
+math/DFP/mpdecimal-2.3/cmd/pow.c \
+math/DFP/mpdecimal-2.3/cmd/powmod.c \
+math/DFP/mpdecimal-2.3/cmd/README.txt \
+math/DFP/mpdecimal-2.3/cmd/shift.c \
+math/DFP/mpdecimal-2.3/cmd/sqrt.c \
+math/DFP/mpdecimal-2.3/config.h.in \
+math/DFP/mpdecimal-2.3/configure \
+math/DFP/mpdecimal-2.3/configure.in \
+math/DFP/mpdecimal-2.3/constants.c \
+math/DFP/mpdecimal-2.3/constants.h \
+math/DFP/mpdecimal-2.3/context.c \
+math/DFP/mpdecimal-2.3/convolute.c \
+math/DFP/mpdecimal-2.3/convolute.h \
+math/DFP/mpdecimal-2.3/crt.c \
+math/DFP/mpdecimal-2.3/crt.h \
+math/DFP/mpdecimal-2.3/difradix2.c \
+math/DFP/mpdecimal-2.3/difradix2.h \
+math/DFP/mpdecimal-2.3/doc/cdecimal/index.html \
+math/DFP/mpdecimal-2.3/doc/index.html \
+math/DFP/mpdecimal-2.3/doc/libmpdec/arithmetic.html \
+math/DFP/mpdecimal-2.3/doc/libmpdec/assign-convert.html \
+math/DFP/mpdecimal-2.3/doc/libmpdec/attributes.html \
+math/DFP/mpdecimal-2.3/doc/libmpdec/context.html \
+math/DFP/mpdecimal-2.3/doc/libmpdec/decimals.html \
+math/DFP/mpdecimal-2.3/doc/libmpdec/functions.html \
+math/DFP/mpdecimal-2.3/doc/libmpdec/index.html \
+math/DFP/mpdecimal-2.3/doc/libmpdec/memory.html \
+math/DFP/mpdecimal-2.3/doc/libmpdec/various.html \
+math/DFP/mpdecimal-2.3/doc/LICENSE.txt \
+math/DFP/mpdecimal-2.3/doc/objects.inv \
+math/DFP/mpdecimal-2.3/doc/search.html \
+math/DFP/mpdecimal-2.3/doc/searchindex.js \
+math/DFP/mpdecimal-2.3/doc/_static/basic.css \
+math/DFP/mpdecimal-2.3/doc/_static/default.css \
+math/DFP/mpdecimal-2.3/doc/_static/doctools.js \
+math/DFP/mpdecimal-2.3/doc/_static/file.png \
+math/DFP/mpdecimal-2.3/doc/_static/jquery.js \
+math/DFP/mpdecimal-2.3/doc/_static/minus.png \
+math/DFP/mpdecimal-2.3/doc/_static/mpdecimal-doc.css \
+math/DFP/mpdecimal-2.3/doc/_static/plus.png \
+math/DFP/mpdecimal-2.3/doc/_static/pygments.css \
+math/DFP/mpdecimal-2.3/doc/_static/searchtools.js \
+math/DFP/mpdecimal-2.3/doc/_static/sidebar.js \
+math/DFP/mpdecimal-2.3/doc/_static/underscore.js \
+math/DFP/mpdecimal-2.3/docstrings.h \
+math/DFP/mpdecimal-2.3/fnt.c \
+math/DFP/mpdecimal-2.3/fnt.h \
+math/DFP/mpdecimal-2.3/fourstep.c \
+math/DFP/mpdecimal-2.3/fourstep.h \
+math/DFP/mpdecimal-2.3/io.c \
+math/DFP/mpdecimal-2.3/io.h \
+math/DFP/mpdecimal-2.3/LIBINSTALL.txt \
+math/DFP/mpdecimal-2.3/LICENSE.txt \
+math/DFP/mpdecimal-2.3/literature/mpdecimal.lisp \
+math/DFP/mpdecimal-2.3/literature/README.txt \
+math/DFP/mpdecimal-2.3/literature/umodarith.lisp \
+math/DFP/mpdecimal-2.3/Makefile.in \
+math/DFP/mpdecimal-2.3/Makefile.vc \
+math/DFP/mpdecimal-2.3/memory.c \
+math/DFP/mpdecimal-2.3/memory.h \
+math/DFP/mpdecimal-2.3/mpdecimal-i686.h \
+math/DFP/mpdecimal-2.3/mpdecimal-x86_64.h \
+math/DFP/mpdecimal-2.3/mpdecimal.c \
+math/DFP/mpdecimal-2.3/mpdecimal.h.in \
+math/DFP/mpdecimal-2.3/mpdecimal32vc.h \
+math/DFP/mpdecimal-2.3/mpdecimal64vc.h \
+math/DFP/mpdecimal-2.3/mpsignal.c \
+math/DFP/mpdecimal-2.3/mptest.h \
+math/DFP/mpdecimal-2.3/mptypes.h \
+math/DFP/mpdecimal-2.3/numbertheory.c \
+math/DFP/mpdecimal-2.3/numbertheory.h \
+math/DFP/mpdecimal-2.3/PKG-INFO \
+math/DFP/mpdecimal-2.3/PYINSTALL.txt \
+math/DFP/mpdecimal-2.3/python/Bench.class \
+math/DFP/mpdecimal-2.3/python/Bench.java \
+math/DFP/mpdecimal-2.3/python/bench.py \
+math/DFP/mpdecimal-2.3/python/BENCHMARK.txt \
+math/DFP/mpdecimal-2.3/python/build_all_branches.bat \
+math/DFP/mpdecimal-2.3/python/build_all_branches.sh \
+math/DFP/mpdecimal-2.3/python/build_all_releases.sh \
+math/DFP/mpdecimal-2.3/python/ctx-deccheck2.py \
+math/DFP/mpdecimal-2.3/python/deccheck2.py \
+math/DFP/mpdecimal-2.3/python/deccheck3.py \
+math/DFP/mpdecimal-2.3/python/failapi2.diff \
+math/DFP/mpdecimal-2.3/python/failapi3.diff \
+math/DFP/mpdecimal-2.3/python/formathelper.py \
+math/DFP/mpdecimal-2.3/python/genlocale.py \
+math/DFP/mpdecimal-2.3/python/genrandformat.py \
+math/DFP/mpdecimal-2.3/python/genrandlocale.py \
+math/DFP/mpdecimal-2.3/python/gettests.bat \
+math/DFP/mpdecimal-2.3/python/gettests.sh \
+math/DFP/mpdecimal-2.3/python/get_all_branches.bat \
+math/DFP/mpdecimal-2.3/python/get_all_branches.sh \
+math/DFP/mpdecimal-2.3/python/get_all_releases.sh \
+math/DFP/mpdecimal-2.3/python/randdec.py \
+math/DFP/mpdecimal-2.3/python/randfloat.py \
+math/DFP/mpdecimal-2.3/python/README.txt \
+math/DFP/mpdecimal-2.3/python/runall-amd64.bat \
+math/DFP/mpdecimal-2.3/python/runall-memorydebugger.sh \
+math/DFP/mpdecimal-2.3/python/runall-refleak.bat \
+math/DFP/mpdecimal-2.3/python/runall-releases.sh \
+math/DFP/mpdecimal-2.3/python/runall-x86.bat \
+math/DFP/mpdecimal-2.3/python/runall.sh \
+math/DFP/mpdecimal-2.3/python/test_cdecimal2.5.py \
+math/DFP/mpdecimal-2.3/python/test_cdecimal2.py \
+math/DFP/mpdecimal-2.3/python/test_cdecimal3.py \
+math/DFP/mpdecimal-2.3/python/valgrind.supp \
+math/DFP/mpdecimal-2.3/README.txt \
+math/DFP/mpdecimal-2.3/setup.py \
+math/DFP/mpdecimal-2.3/sixstep.c \
+math/DFP/mpdecimal-2.3/sixstep.h \
+math/DFP/mpdecimal-2.3/tests/additional.decTest \
+math/DFP/mpdecimal-2.3/tests/cov.c \
+math/DFP/mpdecimal-2.3/tests/covreport.py \
+math/DFP/mpdecimal-2.3/tests/deccheck.c \
+math/DFP/mpdecimal-2.3/tests/dnloop-windows.patch \
+math/DFP/mpdecimal-2.3/tests/dnloop.patch \
+math/DFP/mpdecimal-2.3/tests/fntcov.c \
+math/DFP/mpdecimal-2.3/tests/fullcov_header.patch \
+math/DFP/mpdecimal-2.3/tests/getdn.bat \
+math/DFP/mpdecimal-2.3/tests/getdn.sh \
+math/DFP/mpdecimal-2.3/tests/gettests.bat \
+math/DFP/mpdecimal-2.3/tests/gettests.sh \
+math/DFP/mpdecimal-2.3/tests/karatsuba_fnt.c \
+math/DFP/mpdecimal-2.3/tests/karatsuba_fnt2.c \
+math/DFP/mpdecimal-2.3/tests/Makefile.in \
+math/DFP/mpdecimal-2.3/tests/Makefile.vc \
+math/DFP/mpdecimal-2.3/tests/malloc_fail.c \
+math/DFP/mpdecimal-2.3/tests/malloc_fail.h \
+math/DFP/mpdecimal-2.3/tests/mpd_mpz_add.c \
+math/DFP/mpdecimal-2.3/tests/mpd_mpz_divmod.c \
+math/DFP/mpdecimal-2.3/tests/mpd_mpz_mul.c \
+math/DFP/mpdecimal-2.3/tests/mpd_mpz_sub.c \
+math/DFP/mpdecimal-2.3/tests/official.decTest \
+math/DFP/mpdecimal-2.3/tests/ppro_mulmod.c \
+math/DFP/mpdecimal-2.3/tests/README.txt \
+math/DFP/mpdecimal-2.3/tests/runallconfigs.bat \
+math/DFP/mpdecimal-2.3/tests/runallconfigs.sh \
+math/DFP/mpdecimal-2.3/tests/runalltests.bat \
+math/DFP/mpdecimal-2.3/tests/runalltests.sh \
+math/DFP/mpdecimal-2.3/tests/runshort.bat \
+math/DFP/mpdecimal-2.3/tests/runshort.sh \
+math/DFP/mpdecimal-2.3/tests/runtest.c \
+math/DFP/mpdecimal-2.3/tests/testdata_dist/baseconv.decTest \
+math/DFP/mpdecimal-2.3/tests/testdata_dist/binop_eq.decTest \
+math/DFP/mpdecimal-2.3/tests/testdata_dist/cov.decTest \
+math/DFP/mpdecimal-2.3/tests/testdata_dist/divmod.decTest \
+math/DFP/mpdecimal-2.3/tests/testdata_dist/divmod_eq.decTest \
+math/DFP/mpdecimal-2.3/tests/testdata_dist/extra.decTest \
+math/DFP/mpdecimal-2.3/tests/testdata_dist/fma_eq.decTest \
+math/DFP/mpdecimal-2.3/tests/testdata_dist/format.decTest \
+math/DFP/mpdecimal-2.3/tests/testdata_dist/getint.decTest \
+math/DFP/mpdecimal-2.3/tests/testdata_dist/invroot.decTest \
+math/DFP/mpdecimal-2.3/tests/testdata_dist/largeint.decTest \
+math/DFP/mpdecimal-2.3/tests/testdata_dist/powmod.decTest \
+math/DFP/mpdecimal-2.3/tests/testdata_dist/powmod_eq.decTest \
+math/DFP/mpdecimal-2.3/tests/testdata_dist/shiftlr.decTest \
+math/DFP/mpdecimal-2.3/tests/testdata_dist/testruntest.decTest \
+math/DFP/mpdecimal-2.3/tests/test_transpose.c \
+math/DFP/mpdecimal-2.3/tools/release.sh \
+math/DFP/mpdecimal-2.3/tools/replace.sh \
+math/DFP/mpdecimal-2.3/tools/todos.sh \
+math/DFP/mpdecimal-2.3/transpose.c \
+math/DFP/mpdecimal-2.3/transpose.h \
+math/DFP/mpdecimal-2.3/typearith.h \
+math/DFP/mpdecimal-2.3/umodarith.h \
+math/DFP/mpdecimal-2.3/vars.mk \
+math/DFP/mpdecimal-2.3/vccompat.h \
+math/DFP/mpdecimal-2.3/vcdiv64.asm \
+math/DFP/mpdecimal-2.3/vcstdint.h
 
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet) $(withsys)
 

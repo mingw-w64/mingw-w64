@@ -1,0 +1,1763 @@
+--- cdecimal2.c	2011-06-14 20:23:19.000000000 +0200
++++ cdecimal2_failapi.c	2011-06-14 20:33:44.000000000 +0200
+@@ -161,6 +161,105 @@
+ /* Top level Exception; inherits from ArithmeticError */
+ static PyObject *DecimalException = NULL;
+ 
++/* FailAPI */
++static PyObject *FailAPIException = NULL;
++
++static unsigned long counter = 0;
++static unsigned long apicalls = 0;
++static unsigned long failpoint = 0;
++#if PY_VERSION_HEX >= 0x02080000
++static Py_complex _cfail = {-1, -1};
++#endif
++
++#define FFUNC(ret, funcall) (\
++  (++counter, ++apicalls == failpoint)                    \
++    ? (PyErr_SetString(FailAPIException, "failapi"), ret) \
++    : funcall)
++
++#define FFUNC_NOEX(ret, funcall) (\
++  (++counter, ++apicalls == failpoint) ? ret : funcall)
++
++#define IFUNC(funcall) (\
++  (++counter, ++apicalls == failpoint)                   \
++    ? (PyErr_SetString(FailAPIException, "failapi"), -1) \
++    : funcall)
++
++#define PFUNC(funcall) (\
++  (++counter, ++apicalls == failpoint)                     \
++    ? (PyErr_SetString(FailAPIException, "failapi"), NULL) \
++    : funcall)
++
++#define PFUNC_NOEX(funcall) (\
++  (++counter, ++apicalls == failpoint) ? NULL : funcall)
++
++#define SFUNC(func, result, ...) do { \
++    if (++counter, ++apicalls == failpoint)              \
++        mpd_seterror(result, MPD_Malloc_error, &status); \
++    else                                                 \
++        func(result, __VA_ARGS__);                       \
++    } while (0)
++
++static PyObject *
++get_failpoint(PyObject *self UNUSED, PyObject *dummy UNUSED)
++{
++	return Py_BuildValue("k", failpoint);
++}
++
++static PyObject *
++get_apicalls(PyObject *self UNUSED, PyObject *dummy UNUSED)
++{
++	return Py_BuildValue("k", apicalls);
++}
++
++static PyObject *
++set_failpoint(PyObject *self UNUSED, PyObject *value)
++{
++	failpoint = PyLong_AsUnsignedLong(value);
++	if (PyErr_Occurred()) {
++		return NULL; /* GCOV_NOT_REACHED */
++	}
++	Py_RETURN_NONE;
++}
++
++static PyObject *
++set_apicalls(PyObject *self UNUSED, PyObject *value)
++{
++	apicalls = PyLong_AsUnsignedLong(value);
++	if (PyErr_Occurred()) {
++		return NULL; /* GCOV_NOT_REACHED */
++	}
++	Py_RETURN_NONE;
++}
++
++void *
++mpd_malloc_fail(size_t size)
++{
++
++	if (++apicalls == failpoint) {
++		return NULL;
++	}
++	return PyMem_Malloc(size);
++}
++
++void *
++mpd_calloc_fail(size_t nmemb, size_t size)
++{
++	if (++apicalls == failpoint) {
++		return NULL;
++	}
++	return mpd_callocfunc_em(nmemb, size);
++}
++
++void *
++mpd_realloc_fail(void *ptr, size_t size)
++{
++	if (++apicalls == failpoint) {
++		return NULL;
++	}
++	return PyMem_Realloc(ptr, size);
++}
++/* End FailAPI */
++
+ /* Exceptions that correspond to IEEE signals; inherit from DecimalException */
+ static DecCondMap signal_map[] = {
+   {"InvalidOperation", "cdecimal.InvalidOperation", MPD_IEEE_Invalid_operation, NULL},
+@@ -251,7 +350,7 @@
+ static int
+ runtime_error_int(const char *mesg)
+ {
+-	PyErr_SetString(PyExc_RuntimeError, mesg);
++	PyErr_SetString(FailAPIException, mesg);
+ 	return -1;
+ }
+ #define INTERNAL_ERROR_INT(funcname) \
+@@ -260,7 +359,7 @@
+ static PyObject *
+ runtime_error_ptr(const char *mesg)
+ {
+-	PyErr_SetString(PyExc_RuntimeError, mesg);
++	PyErr_SetString(FailAPIException, mesg);
+ 	return NULL;
+ }
+ #define INTERNAL_ERROR_PTR(funcname) \
+@@ -307,20 +406,20 @@
+ 	PyObject *list;
+ 	DecCondMap *cm;
+ 
+-	if ((list = PyList_New(0)) == NULL) {
++	if ((list = PFUNC(PyList_New(0))) == NULL) {
+ 		return NULL;
+ 	}
+ 
+ 	for (cm = cond_map; cm->name != NULL; cm++) {
+ 		if (flags&cm->mpd_cond) {
+-			if (PyList_Append(list, cm->dec_cond) < 0) {
++			if (IFUNC(PyList_Append(list, cm->dec_cond)) < 0) {
+ 				goto error;
+ 			}
+ 		}
+ 	}
+ 	for (cm = signal_map+1; cm->name != NULL; cm++) {
+ 		if (flags&cm->mpd_cond) {
+-			if (PyList_Append(list, cm->dec_cond) < 0) {
++			if (IFUNC(PyList_Append(list, cm->dec_cond)) < 0) {
+ 				goto error;
+ 			}
+ 		}
+@@ -339,13 +438,13 @@
+ 	PyObject *list;
+ 	DecCondMap *cm;
+ 
+-	if ((list = PyList_New(0)) == NULL) {
++	if ((list = PFUNC(PyList_New(0))) == NULL) {
+ 		return NULL;
+ 	}
+ 
+ 	for (cm = signal_map; cm->name != NULL; cm++) {
+ 		if (flags&cm->mpd_cond) {
+-			if (PyList_Append(list, cm->dec_cond) < 0) {
++			if (IFUNC(PyList_Append(list, cm->dec_cond)) < 0) {
+ 				goto error;
+ 			}
+ 		}
+@@ -405,7 +504,7 @@
+ 			return UINT32_MAX;
+ 		}
+ 
+-		if ((x = PyObject_IsTrue(b)) < 0) {
++		if ((x = IFUNC(PyObject_IsTrue(b))) < 0) {
+ 			return UINT32_MAX;
+ 		}
+ 		if (x == 1) {
+@@ -422,10 +521,10 @@
+ 	long x;
+ 
+ 	if (PyInt_Check(v)) {
+-		x = PyInt_AsLong(v);
++		x = IFUNC(PyInt_AsLong(v));
+ 	}
+ 	else if (PyLong_Check(v)) {
+-		x = PyLong_AsLong(v);
++		x = IFUNC(PyLong_AsLong(v));
+ 	}
+ 	else {
+ 		PyErr_SetString(PyExc_TypeError,
+@@ -450,10 +549,10 @@
+ 	mpd_ssize_t x;
+ 
+ 	if (PyInt_Check(v)) {
+-		x = PyInt_AsLong(v);
++		x = IFUNC(PyInt_AsLong(v));
+ 	}
+ 	else if (PyLong_Check(v)) {
+-		x = _PyLong_AsMpdSsize(v);
++		x = IFUNC(_PyLong_AsMpdSsize(v));
+ 	}
+ 	else {
+ 		PyErr_SetString(PyExc_TypeError,
+@@ -473,6 +572,12 @@
+ {
+ 	mpd_context_t *ctx = CTX(context);
+ 
++	if (status&MPD_Malloc_error) {
++		/* Translate MemoryError to FailAPIException */
++		PyErr_SetString(FailAPIException, "failapi");
++		return 1;
++	}
++
+ 	ctx->status |= status;
+ 	if (ctx->traps&status) {
+ 		PyObject *ex, *siglist;
+@@ -501,7 +606,7 @@
+ static int
+ signaldict_init(PyObject *self, PyObject *args, PyObject *kwds)
+ {
+-	if (PyDict_Type.tp_init(self, args, kwds) < 0) {
++	if (IFUNC(PyDict_Type.tp_init(self, args, kwds)) < 0) {
+ 		return -1;
+ 	}
+ 
+@@ -521,7 +626,7 @@
+ 
+ 	for (cm = signal_map; cm->name != NULL; cm++) {
+ 		b = (flags&cm->mpd_cond) ? Py_True : Py_False;
+-		if (PyDict_SetItem(self, cm->dec_cond, b) < 0) {
++		if (IFUNC(PyDict_SetItem(self, cm->dec_cond, b)) < 0) {
+ 			return -1;
+ 		}
+ 	}
+@@ -537,7 +642,7 @@
+ 	SdFlags(self) = 0;
+ 
+ 	for (cm = signal_map; cm->name != NULL; cm++) {
+-		if (PyDict_SetItem(self, cm->dec_cond, Py_False) < 0) {
++		if (IFUNC(PyDict_SetItem(self, cm->dec_cond, Py_False)) < 0) {
+ 			return -1;
+ 		}
+ 	}
+@@ -554,19 +659,19 @@
+ 		return -1;
+ 	}
+ 
+-	if ((x = PyObject_IsTrue(value)) < 0) {
++	if ((x = IFUNC(PyObject_IsTrue(value))) < 0) {
+ 		return -1;
+ 	}
+ 	if (x == 1) {
+ 		SdFlags(self) |= flag;
+-		if (PyDict_SetItem(self, key, Py_True) < 0) {
++		if (IFUNC(PyDict_SetItem(self, key, Py_True)) < 0) {
+ 			return -1;
+ 		}
+ 		return 0;
+ 	}
+ 	else {
+ 		SdFlags(self) &= ~flag;
+-		if (PyDict_SetItem(self, key, Py_False) < 0) {
++		if (IFUNC(PyDict_SetItem(self, key, Py_False)) < 0) {
+ 			return -1;
+ 		}
+ 		return 0;
+@@ -579,7 +684,7 @@
+ 	if (signaldict_update(self) < 0) {
+ 		return NULL;
+ 	}
+-	return PyObject_CallMethod((PyObject *)&PyDict_Type, name, "O", self);
++	return PFUNC(PyObject_CallMethod((PyObject *)&PyDict_Type, name, "O", self));
+ }
+ 
+ static int
+@@ -595,7 +700,7 @@
+ 			return -1;
+ 		}
+ 	}
+-	return PyDict_Type.tp_compare(a, b);
++	return IFUNC(PyDict_Type.tp_compare(a, b));
+ }
+ 
+ static int
+@@ -604,7 +709,7 @@
+ 	if (signaldict_update(self) < 0) {
+ 		return -1;
+ 	}
+-	return PyDict_Contains(self, key);
++	return IFUNC(PyDict_Contains(self, key));
+ }
+ 
+ static PyObject *
+@@ -613,25 +718,25 @@
+ 	if (signaldict_update(self) < 0) {
+ 		return NULL;
+ 	}
+-	return PyDict_Copy(self);
++	return PFUNC(PyDict_Copy(self));
+ }
+ 
+ static PyObject *
+ signaldict_get(PyObject *self, PyObject *args)
+ {
+ 	PyObject *key = NULL, *failobj = NULL;
+-	if (!PyArg_ParseTuple(args, "O|O", &key, &failobj)) {
++	if (!FFUNC(0, PyArg_ParseTuple(args, "O|O", &key, &failobj))) {
+ 		return NULL; /* GCOV_NOT_REACHED (why?) */
+ 	}
+ 	if (signaldict_update(self) < 0) {
+ 		return NULL;
+ 	}
+ 	if (failobj) {
+-		return PyObject_CallMethod((PyObject *)&PyDict_Type, "get",
+-		                           "OOO", self, key, failobj);
++		return PFUNC(PyObject_CallMethod((PyObject *)&PyDict_Type, "get",
++		                           "OOO", self, key, failobj));
+ 	}
+-	return PyObject_CallMethod((PyObject *)&PyDict_Type, "get",
+-	                           "OO", self, key);
++	return PFUNC(PyObject_CallMethod((PyObject *)&PyDict_Type, "get",
++	                           "OO", self, key));
+ }
+ 
+ static PyObject *
+@@ -641,8 +746,8 @@
+ 	if (signaldict_update(self) < 0) {
+ 		return NULL;
+ 	}
+-	ret = PyDict_Contains(self, key);
+-	return ret < 0 ? NULL : PyBool_FromLong(ret);
++	ret = IFUNC(PyDict_Contains(self, key));
++	return ret < 0 ? NULL : PFUNC(PyBool_FromLong(ret));
+ }
+ 
+ static PyObject *
+@@ -651,7 +756,7 @@
+ 	if (signaldict_update(self) < 0) {
+ 		return NULL;
+ 	}
+-	return PyDict_Items(self);
++	return PFUNC(PyDict_Items(self));
+ }
+ 
+ static PyObject *
+@@ -660,7 +765,7 @@
+ 	if (signaldict_update(self) < 0) {
+ 		return NULL;
+ 	}
+-	return PyDict_Type.tp_iter(self);
++	return PFUNC(PyDict_Type.tp_iter(self));
+ }
+ 
+ static PyObject *
+@@ -687,7 +792,7 @@
+ 	if (signaldict_update(self) < 0) {
+ 		return NULL;
+ 	}
+-	return PyDict_Keys(self);
++	return PFUNC(PyDict_Keys(self));
+ }
+ 
+ static Py_ssize_t
+@@ -696,7 +801,7 @@
+ 	if (signaldict_update(self) < 0) {
+ 		return -1;
+ 	}
+-	return PyDict_Type.tp_as_mapping->mp_length(self);
++	return IFUNC(PyDict_Type.tp_as_mapping->mp_length(self));
+ }
+ 
+ static int
+@@ -714,7 +819,7 @@
+ 	if (signaldict_update(self) < 0) {
+ 		return NULL;
+ 	}
+-	return PyDict_Type.tp_repr(self);
++	return PFUNC(PyDict_Type.tp_repr(self));
+ }
+ 
+ static PyObject *
+@@ -740,7 +845,7 @@
+ 	if (signaldict_update(self) < 0) {
+ 		return NULL;
+ 	}
+-	return PyDict_Type.tp_as_mapping->mp_subscript(self, key);
++	return PFUNC(PyDict_Type.tp_as_mapping->mp_subscript(self, key));
+ }
+ 
+ static PyObject *
+@@ -749,7 +854,7 @@
+ 	if (signaldict_update(self) < 0) {
+ 		return NULL;
+ 	}
+-	return PyDict_Values(self);
++	return PFUNC(PyDict_Values(self));
+ }
+ 
+ 
+@@ -844,7 +949,7 @@
+ 	mpd_context_t *ctx;
+ 
+ 	ctx = CTX(self);
+-	return Py_BuildValue(CONV_mpd_ssize_t, mpd_getprec(ctx));
++	return PFUNC(Py_BuildValue(CONV_mpd_ssize_t, mpd_getprec(ctx)));
+ }
+ 
+ static PyObject *
+@@ -853,7 +958,7 @@
+ 	mpd_context_t *ctx;
+ 
+ 	ctx = CTX(self);
+-	return Py_BuildValue(CONV_mpd_ssize_t, mpd_getemax(ctx));
++	return PFUNC(Py_BuildValue(CONV_mpd_ssize_t, mpd_getemax(ctx)));
+ }
+ 
+ static PyObject *
+@@ -862,7 +967,7 @@
+ 	mpd_context_t *ctx;
+ 
+ 	ctx = CTX(self);
+-	return Py_BuildValue(CONV_mpd_ssize_t, mpd_getemin(ctx));
++	return PFUNC(Py_BuildValue(CONV_mpd_ssize_t, mpd_getemin(ctx)));
+ }
+ 
+ static PyObject *
+@@ -871,7 +976,7 @@
+ 	mpd_context_t *ctx;
+ 
+ 	ctx = CTX(self);
+-	return Py_BuildValue(CONV_mpd_ssize_t, mpd_etiny(ctx));
++	return PFUNC(Py_BuildValue(CONV_mpd_ssize_t, mpd_etiny(ctx)));
+ }
+ 
+ static PyObject *
+@@ -880,7 +985,7 @@
+ 	mpd_context_t *ctx;
+ 
+ 	ctx = CTX(self);
+-	return Py_BuildValue(CONV_mpd_ssize_t, mpd_etop(ctx));
++	return PFUNC(Py_BuildValue(CONV_mpd_ssize_t, mpd_etop(ctx)));
+ }
+ 
+ static PyObject *
+@@ -889,13 +994,13 @@
+ 	mpd_context_t *ctx;
+ 
+ 	ctx = CTX(self);
+-	return Py_BuildValue("i", mpd_getround(ctx));
++	return PFUNC(Py_BuildValue("i", mpd_getround(ctx)));
+ }
+ 
+ static PyObject *
+ context_getcapitals(PyObject *self, void *closure UNUSED)
+ {
+-	return Py_BuildValue("i", CtxCaps(self));
++	return PFUNC(Py_BuildValue("i", CtxCaps(self)));
+ }
+ 
+ static PyObject *
+@@ -904,7 +1009,7 @@
+ 	mpd_context_t *ctx;
+ 
+ 	ctx = CTX(self);
+-	return Py_BuildValue("i", mpd_gettraps(ctx));
++	return PFUNC(Py_BuildValue("i", mpd_gettraps(ctx)));
+ }
+ 
+ static PyObject *
+@@ -913,7 +1018,7 @@
+ 	mpd_context_t *ctx;
+ 
+ 	ctx = CTX(self);
+-	return Py_BuildValue("i", mpd_getstatus(ctx));
++	return PFUNC(Py_BuildValue("i", mpd_getstatus(ctx)));
+ }
+ 
+ static PyObject *
+@@ -922,7 +1027,7 @@
+ 	mpd_context_t *ctx;
+ 
+ 	ctx = CTX(self);
+-	return Py_BuildValue("i", mpd_getclamp(ctx));
++	return PFUNC(Py_BuildValue("i", mpd_getclamp(ctx)));
+ }
+ 
+ static PyObject *
+@@ -931,7 +1036,7 @@
+ 	mpd_context_t *ctx;
+ 
+ 	ctx = CTX(self);
+-	return Py_BuildValue("i", mpd_getcr(ctx));
++	return PFUNC(Py_BuildValue("i", mpd_getcr(ctx)));
+ }
+ 
+ static int
+@@ -1091,7 +1196,7 @@
+ 	}
+ 
+ 	ctx = CTX(self);
+-	if (!mpd_qsettraps(ctx, flags)) {
++	if (!FFUNC_NOEX(0, mpd_qsettraps(ctx, flags))) {
+ 		INTERNAL_ERROR_INT("context_settraps");
+ 	}
+ 
+@@ -1110,7 +1215,7 @@
+ 	}
+ 
+ 	ctx = CTX(self);
+-	if (!mpd_qsettraps(ctx, flags)) {
++	if (!FFUNC_NOEX(0, mpd_qsettraps(ctx, flags))) {
+ 		INTERNAL_ERROR_INT("context_settraps_list");
+ 	}
+ 
+@@ -1129,7 +1234,7 @@
+ 	}
+ 
+ 	ctx = CTX(self);
+-	if (!mpd_qsettraps(ctx, flags)) {
++	if (!FFUNC_NOEX(0, mpd_qsettraps(ctx, flags))) {
+ 		INTERNAL_ERROR_INT("context_settraps_dict");
+ 	}
+ 
+@@ -1148,7 +1253,7 @@
+ 	}
+ 
+ 	ctx = CTX(self);
+-	if (!mpd_qsetstatus(ctx, flags)) {
++	if (!FFUNC_NOEX(0, mpd_qsetstatus(ctx, flags))) {
+ 		INTERNAL_ERROR_INT("context_setstatus");
+ 	}
+ 
+@@ -1167,7 +1272,7 @@
+ 	}
+ 
+ 	ctx = CTX(self);
+-	if (!mpd_qsetstatus(ctx, flags)) {
++	if (!FFUNC_NOEX(0, mpd_qsetstatus(ctx, flags))) {
+ 		INTERNAL_ERROR_INT("context_setstatus_list");
+ 	}
+ 
+@@ -1186,7 +1291,7 @@
+ 	}
+ 
+ 	ctx = CTX(self);
+-	if (!mpd_qsetstatus(ctx, flags)) {
++	if (!FFUNC_NOEX(0, mpd_qsetstatus(ctx, flags))) {
+ 		INTERNAL_ERROR_INT("context_setstatus_dict");
+ 	}
+ 
+@@ -1315,18 +1420,18 @@
+ 	PyDecContextObject *self = NULL;
+ 	mpd_context_t *ctx;
+ 
+-	self = PyObject_New(PyDecContextObject, &PyDecContext_Type);
++	self = PFUNC(PyObject_New(PyDecContextObject, &PyDecContext_Type));
+ 	if (self == NULL) {
+ 		return NULL;
+ 	}
+ 
+-	self->traps = PyObject_CallObject((PyObject *)&PyDecSignalDict_Type, NULL);
++	self->traps = PFUNC(PyObject_CallObject((PyObject *)&PyDecSignalDict_Type, NULL));
+ 	if (self->traps == NULL) {
+ 		self->flags = NULL;
+ 		Py_DECREF(self);
+ 		return NULL;
+ 	}
+-	self->flags = PyObject_CallObject((PyObject *)&PyDecSignalDict_Type, NULL);
++	self->flags = PFUNC(PyObject_CallObject((PyObject *)&PyDecSignalDict_Type, NULL));
+ 	if (self->flags == NULL) {
+ 		Py_DECREF(self);
+ 		return NULL;
+@@ -1369,7 +1474,7 @@
+ 	int i;
+ 
+ 	if (PyInt_Check(v) || PyLong_Check(v)) {
+-		x = PyLong_AsLong(v);
++		x = IFUNC(PyLong_AsLong(v));
+ 		if (PyErr_Occurred()) {
+ 			return -1;
+ 		}
+@@ -1408,13 +1513,13 @@
+ 	if (default_context_template) {
+ 		t = *CTX(default_context_template);
+ 	}
+-	if (!PyArg_ParseTupleAndKeywords(
++	if (!FFUNC(0, PyArg_ParseTupleAndKeywords(
+ 	        args, kwds,
+ 	        "|" CONV_mpd_ssize_t "O" CONV_mpd_ssize_t CONV_mpd_ssize_t "ii"
+ 	        "OOi", kwlist,
+ 	        &t.prec, &rounding, &t.emin, &t.emax, &capitals, &t.clamp,
+ 	        &status, &traps, &t.allcr
+-	     )) {
++	     ))) {
+ 		return -1;
+ 	}
+ 	if (rounding != NULL) {
+@@ -1487,32 +1592,32 @@
+ 	ctx = CTX(self);
+ 
+ 	cp = s; mem = FD_CTX_LEN;
+-	n = snprintf(cp, mem,
++	n = FFUNC_NOEX(-1, snprintf(cp, mem,
+ 	             "Context(prec=%"PRI_mpd_ssize_t", rounding=%s, "
+ 	             "Emin=%"PRI_mpd_ssize_t", Emax=%"PRI_mpd_ssize_t", "
+ 	             "capitals=%d, clamp=%d, flags=",
+ 	             ctx->prec, mpd_round_string[ctx->round],
+ 	             ctx->emin, ctx->emax,
+-	             self->capitals, ctx->clamp);
++	             self->capitals, ctx->clamp));
+ 	if (n < 0 || n >= mem) goto error;
+ 	cp += n; mem -= n;
+ 
+-	n = mpd_lsnprint_signals(cp, mem, ctx->status, dec_signal_string);
++	n = FFUNC_NOEX(-1, mpd_lsnprint_signals(cp, mem, ctx->status, dec_signal_string));
+ 	if (n < 0 || n >= mem) goto error;
+ 	cp += n; mem -= n;
+ 
+-	n = snprintf(cp, mem, ", traps=");
++	n = FFUNC_NOEX(-1, snprintf(cp, mem, ", traps="));
+ 	if (n < 0 || n >= mem) goto error;
+ 	cp += n; mem -= n;
+ 
+-	n = mpd_lsnprint_signals(cp, mem, ctx->traps, dec_signal_string);
++	n = FFUNC_NOEX(-1, mpd_lsnprint_signals(cp, mem, ctx->traps, dec_signal_string));
+ 	if (n < 0 || n >= mem) goto error;
+ 	cp += n; mem -= n;
+ 
+-	n = snprintf(cp, mem, ")");
++	n = FFUNC_NOEX(-1, snprintf(cp, mem, ")"));
+ 	if (n < 0 || n >= mem) goto error;
+ 
+-	return PyString_FromString(s);
++	return PFUNC(PyString_FromString(s));
+ 
+ error:
+ 	INTERNAL_ERROR_PTR("context_repr");
+@@ -1562,7 +1667,7 @@
+ 		goto error;
+ 	}
+ 
+-	context = PyObject_CallObject((PyObject *)&PyDecContext_Type, NULL);
++	context = PFUNC(PyObject_CallObject((PyObject *)&PyDecContext_Type, NULL));
+ 	if (context == NULL) {
+ 		return NULL;
+ 	}
+@@ -1583,7 +1688,7 @@
+ {
+ 	PyObject *copy;
+ 
+-	copy = PyObject_CallObject((PyObject *)&PyDecContext_Type, NULL);
++	copy = PFUNC(PyObject_CallObject((PyObject *)&PyDecContext_Type, NULL));
+ 	if (copy == NULL) {
+ 		return NULL;
+ 	}
+@@ -1613,13 +1718,13 @@
+ 		return NULL;
+ 	}
+ 
+-	ret = Py_BuildValue(
++	ret = PFUNC(Py_BuildValue(
+ 	        "O(" CONV_mpd_ssize_t "s" CONV_mpd_ssize_t CONV_mpd_ssize_t
+ 	        "iiOO)",
+ 	        Py_TYPE(self),
+ 	        ctx->prec, mpd_round_string[ctx->round], ctx->emin, ctx->emax,
+ 	        CtxCaps(self), ctx->clamp, flags, traps
+-	);
++	));
+ 
+ 	Py_DECREF(flags);
+ 	Py_DECREF(traps);
+@@ -1758,9 +1863,9 @@
+ 	PyObject *dict = NULL;
+ 	PyObject *tl_context = NULL;
+ 
+-	dict = PyThreadState_GetDict();
++	dict = PFUNC_NOEX(PyThreadState_GetDict());
+ 	if (dict == NULL) {
+-		PyErr_SetString(PyExc_RuntimeError,
++		PyErr_SetString(FailAPIException,
+ 		    "cannot get thread state.");
+ 		return NULL;
+ 	}
+@@ -1778,7 +1883,7 @@
+ 	if (tl_context == NULL) {
+ 		return NULL;
+ 	}
+-	if (PyDict_SetItem(dict, tls_context_key, tl_context) < 0) {
++	if (IFUNC(PyDict_SetItem(dict, tls_context_key, tl_context)) < 0) {
+ 		Py_DECREF(tl_context);
+ 		return NULL;
+ 	}
+@@ -1825,9 +1930,9 @@
+ 
+ 	CONTEXT_CHECK(v);
+ 
+-	dict = PyThreadState_GetDict();
++	dict = PFUNC_NOEX(PyThreadState_GetDict());
+ 	if (dict == NULL) {
+-		PyErr_SetString(PyExc_RuntimeError,
++		PyErr_SetString(FailAPIException,
+ 		    "cannot get thread state.");
+ 		return NULL;
+ 	}
+@@ -1845,7 +1950,7 @@
+ 		Py_INCREF(v);
+ 	}
+ 
+-	if (PyDict_SetItem(dict, tls_context_key, v) < 0) {
++	if (IFUNC(PyDict_SetItem(dict, tls_context_key, v)) < 0) {
+ 		Py_DECREF(v);
+ 		return NULL;
+ 	}
+@@ -1867,13 +1972,13 @@
+ 
+ 	CURRENT_CONTEXT(global);
+ 	local = global;
+-	if (!PyArg_ParseTuple(args, "|O", &local)) {
++	if (!FFUNC(0, PyArg_ParseTuple(args, "|O", &local))) {
+ 		return NULL;
+ 	}
+ 	CONTEXT_CHECK_VA(local);
+ 
+-	self = PyObject_New(PyDecContextManagerObject,
+-	                    &PyDecContextManager_Type);
++	self = PFUNC(PyObject_New(PyDecContextManagerObject,
++	                    &PyDecContextManager_Type));
+ 	if (self == NULL) {
+ 		return NULL;
+ 	}
+@@ -1921,6 +2026,19 @@
+ 
+ 	ret = PyDec_SetCurrentContext(NULL, self->global);
+ 	if (ret == NULL) {
++		/* This particular failpoint leaves the global state
++		   undefined (global context is not restored, but the
++		   exception is swallowed by the test suite). So we
++		   make sure that the proper exception has occcurred,
++		   restore the context and reraise the esception. */
++		assert(PyErr_Occurred() == FailAPIException);
++		PyErr_Clear();
++
++		ret = PyDec_SetCurrentContext(NULL, self->global);
++		PyErr_SetString(FailAPIException, "failapi");
++
++		assert(ret != NULL);
++		Py_DECREF(ret);
+ 		return NULL;
+ 	}
+ 	Py_DECREF(ret);
+@@ -1979,10 +2097,10 @@
+ 	PyObject *dec;
+ 
+ 	if (type == &PyDec_Type) {
+-		dec = (PyObject *)PyObject_New(PyDecObject, &PyDec_Type);
++		dec = (PyObject *)PFUNC(PyObject_New(PyDecObject, &PyDec_Type));
+ 	}
+ 	else {
+-		dec = type->tp_alloc(type, 0);
++		dec = PFUNC(type->tp_alloc(type, 0));
+ 	}
+ 	if (dec == NULL) {
+ 		return NULL;
+@@ -1991,7 +2109,7 @@
+ 	MPD(dec) = mpd_qnew();
+ 	if (MPD(dec) == NULL) {
+ 		Py_DECREF(dec);
+-		PyErr_NoMemory();
++		PyErr_SetString(FailAPIException, "failapi");
+ 		return NULL;
+ 	}
+ 
+@@ -2073,14 +2191,14 @@
+ {
+ 	char *s;
+ 
+-	s = PyMem_Malloc(PyUnicode_GET_SIZE(u)+1);
++	s = PFUNC_NOEX(PyMem_Malloc(PyUnicode_GET_SIZE(u)+1));
+ 	if (s == NULL) {
+-		PyErr_NoMemory();
++		PyErr_SetString(FailAPIException, "failapi");
+ 		return NULL;
+ 	}
+-	if (PyUnicode_EncodeDecimal(PyUnicode_AS_UNICODE(u),
++	if (IFUNC(PyUnicode_EncodeDecimal(PyUnicode_AS_UNICODE(u),
+ 	                            PyUnicode_GET_SIZE(u),
+-	                            s, NULL)) {
++	                            s, NULL))) {
+ 		PyMem_Free(s);
+ 		return NULL;
+ 	}
+@@ -2108,8 +2226,8 @@
+ 
+ 	if (s != x || t != y) {
+ 		n = t-s;
+-		if ((y = PyMem_Malloc(n+1)) == NULL) {
+-			PyErr_NoMemory();
++		if ((y = PFUNC_NOEX(PyMem_Malloc(n+1))) == NULL) {
++			PyErr_SetString(FailAPIException, "failapi");
+ 			return NULL;
+ 		}
+ 		strncpy(y, s, n);
+@@ -2237,7 +2355,7 @@
+ 		return NULL;
+ 	}
+ 
+-	mpd_qset_ssize(MPD(dec), v, CTX(context), &status);
++	SFUNC(mpd_qset_ssize, MPD(dec), v, CTX(context), &status);
+ 	if (dec_addstatus(context, status)) {
+ 		Py_DECREF(dec);
+ 		return NULL;
+@@ -2260,7 +2378,7 @@
+ 
+ 	mpd_maxcontext(&maxctx);
+ 
+-	mpd_qset_ssize(MPD(dec), v, &maxctx, &status);
++	SFUNC(mpd_qset_ssize, MPD(dec), v, &maxctx, &status);
+ 	if (dec_addstatus(context, status)) {
+ 		Py_DECREF(dec);
+ 		return NULL;
+@@ -2275,7 +2393,7 @@
+ {
+ 	mpd_ssize_t x;
+ 
+-	x = _PyInt_AsMpdSsize(pyint);
++	x = IFUNC(_PyInt_AsMpdSsize(pyint));
+ 	if (PyErr_Occurred()) {
+ 		return NULL;
+ 	}
+@@ -2291,7 +2409,7 @@
+ {
+ 	mpd_ssize_t x;
+ 
+-	x = _PyInt_AsMpdSsize(pyint);
++	x = IFUNC(_PyInt_AsMpdSsize(pyint));
+ 	if (PyErr_Occurred()) {
+ 		return NULL;
+ 	}
+@@ -2432,7 +2550,7 @@
+ 		return NULL;
+ 	}
+ 
+-	x = PyFloat_AsDouble(v);
++	x = IFUNC(PyFloat_AsDouble(v));
+ 	if (x == -1.0 && PyErr_Occurred()) {
+ 		return NULL;
+ 	}
+@@ -2455,13 +2573,13 @@
+ 	}
+ 
+ 	/* absolute value of the float */
+-	tmp = PyObject_CallMethod(v, "__abs__", NULL);
++	tmp = PFUNC(PyObject_CallMethod(v, "__abs__", NULL));
+ 	if (tmp == NULL) {
+ 		return NULL;
+ 	}
+ 
+ 	/* float as integer ratio: numerator/denominator */
+-	n_d = PyObject_CallMethod(tmp, "as_integer_ratio", NULL);
++	n_d = PFUNC(PyObject_CallMethod(tmp, "as_integer_ratio", NULL));
+ 	Py_DECREF(tmp);
+ 	if (n_d == NULL) {
+ 		return NULL;
+@@ -2471,13 +2589,13 @@
+ 
+ 	/* slow but portable bit_length() */
+ 	if (PyInt_Check(d)) {
+-		if ((tmp = _PyInt_Format((PyIntObject *)d, 2, 0)) == NULL) {
++		if ((tmp = PFUNC(_PyInt_Format((PyIntObject *)d, 2, 0))) == NULL) {
+ 			Py_DECREF(n_d);
+ 			return NULL;
+ 		}
+ 	}
+ 	else {
+-		if ((tmp = _PyLong_Format(d, 2, 0, 0)) == NULL) {
++		if ((tmp = PFUNC(_PyLong_Format(d, 2, 0, 0))) == NULL) {
+ 			Py_DECREF(n_d);
+ 			return NULL;
+ 		}
+@@ -2499,14 +2617,14 @@
+ 	d1 = mpd_qnew();
+ 	if (d1 == NULL) {
+ 		Py_DECREF(dec);
+-		PyErr_NoMemory();
++		PyErr_SetString(FailAPIException, "failapi");
+ 		return NULL;
+ 	}
+ 	d2 = mpd_qnew();
+ 	if (d2 == NULL) {
+ 		mpd_del(d1);
+ 		Py_DECREF(dec);
+-		PyErr_NoMemory();
++		PyErr_SetString(FailAPIException, "failapi");
+ 		return NULL;
+ 	}
+ 
+@@ -2603,7 +2721,7 @@
+ 		    "sign must be an integer with the value 0 or 1.");
+ 		goto error;
+ 	}
+-	sign = PyLong_AsLong(tmp);
++	sign = IFUNC(PyLong_AsLong(tmp));
+ 	if (PyErr_Occurred()) {
+ 		goto error;
+ 	}
+@@ -2659,15 +2777,15 @@
+ 	tsize = PyTuple_Size(digits);
+ 	/* [sign][coeffdigits+1][E][-][expdigits+1]['\0'] */
+ 	mem = 1 + tsize + 3 + MPD_EXPDIGITS + 2;
+-	cp = decstring = PyMem_Malloc(mem);
++	cp = decstring = PFUNC_NOEX(PyMem_Malloc(mem));
+ 	if (decstring == NULL) {
+-		PyErr_NoMemory();
++		PyErr_SetString(FailAPIException, "failapi");
+ 		goto error;
+ 	}
+ 
+-	n = snprintf(cp, mem, "%s", sign_special);
++	n = FFUNC(-1, snprintf(cp, mem, "%s", sign_special));
+ 	if (n < 0 || n >= mem) {
+-		PyErr_SetString(PyExc_RuntimeError,
++		PyErr_SetString(FailAPIException,
+ 		    "internal error in dec_sequence_as_str.");
+ 		goto error;
+ 	}
+@@ -2684,7 +2802,7 @@
+ 			    "coefficient must be a tuple of digits.");
+ 			goto error;
+ 		}
+-		l = PyLong_AsLong(tmp);
++		l = IFUNC(PyLong_AsLong(tmp));
+ 		if (PyErr_Occurred()) {
+ 			goto error;
+ 		}
+@@ -2700,9 +2818,9 @@
+ 	if (sign_special[1] == '\0') {
+ 		/* not a special number */
+ 		*cp++ = 'E';
+-		n = snprintf(cp, MPD_EXPDIGITS+1, "%" PRI_mpd_ssize_t, exp);
++		n = FFUNC(-1, snprintf(cp, MPD_EXPDIGITS+1, "%" PRI_mpd_ssize_t, exp));
+ 		if (n < 0 || n >= MPD_EXPDIGITS+1) {
+-			PyErr_SetString(PyExc_RuntimeError,
++			PyErr_SetString(FailAPIException,
+ 			    "internal error in dec_sequence_as_str.");
+ 			goto error;
+ 		}
+@@ -2855,13 +2973,13 @@
+ 		return NULL;
+ 	}
+ 
+-	mpd_qcopy(MPD(result), MPD(v), &status);
++	SFUNC(mpd_qcopy, MPD(result), MPD(v), &status);
+ 	if (dec_addstatus(context, status)) {
+ 		Py_DECREF(result);
+ 		return NULL;
+ 	}
+ 
+-	mpd_qfinalize(MPD(result), CTX(context), &status);
++	SFUNC(mpd_qfinalize, MPD(result), CTX(context), &status);
+ 	if (dec_addstatus(context, status)) {
+ 		Py_DECREF(result);
+ 		return NULL;
+@@ -2978,7 +3096,7 @@
+ 	PyObject *context;
+ 
+ 	CURRENT_CONTEXT(context);
+-	if (!PyArg_ParseTuple(args, "|OO", &v, &context)) {
++	if (!FFUNC(0, PyArg_ParseTuple(args, "|OO", &v, &context))) {
+ 		return NULL;
+ 	}
+ 	CONTEXT_CHECK_VA(context);
+@@ -2991,7 +3109,7 @@
+ {
+ 	PyObject *v = NULL;
+ 
+-	if (!PyArg_ParseTuple(args, "|O", &v)) {
++	if (!FFUNC(0, PyArg_ParseTuple(args, "|O", &v))) {
+ 		return NULL;
+ 	}
+ 
+@@ -3122,7 +3240,7 @@
+ 	mpd_t *vv;
+ 
+ 	/* v is not special, r is a rational */
+-	tmp = PyObject_GetAttrString(r, "denominator");
++	tmp = PFUNC(PyObject_GetAttrString(r, "denominator"));
+ 	if (tmp == NULL) {
+ 		return NULL;
+ 	}
+@@ -3135,7 +3253,7 @@
+ 	vv = mpd_qncopy(MPD(v));
+ 	if (vv == NULL) {
+ 		Py_DECREF(denom);
+-		PyErr_NoMemory();
++		PyErr_SetString(FailAPIException, "failapi");
+ 		return NULL;
+ 	}
+ 	result = dec_alloc();
+@@ -3175,7 +3293,7 @@
+ {
+ 	PyObject *tmp, *num;
+ 
+-	tmp = PyObject_GetAttrString(r, "numerator");
++	tmp = PFUNC(PyObject_GetAttrString(r, "numerator"));
+ 	if (tmp == NULL) {
+ 		return NULL;
+ 	}
+@@ -3226,12 +3344,12 @@
+ 	}
+ #if PY_VERSION_HEX >= 0x02080000
+ 	else if (PyComplex_Check(w) && (op == Py_EQ || op == Py_NE)) {
+-		Py_complex c = PyComplex_AsCComplex(w);
++		Py_complex c = FFUNC(_cfail, PyComplex_AsCComplex(w));
+ 		if (PyErr_Occurred()) {
+ 			*wcmp = NULL;
+ 		}
+ 		else if (c.imag == 0.0) {
+-			PyObject *tmp = PyFloat_FromDouble(c.real);
++			PyObject *tmp = PFUNC(PyFloat_FromDouble(c.real));
+ 			if (tmp == NULL) {
+ 				*wcmp = NULL;
+ 			}
+@@ -3291,11 +3409,11 @@
+ 	CURRENT_CONTEXT(c);
+ 	res = mpd_to_sci(MPD(dec), CtxCaps(c));
+ 	if (res == NULL) {
+-		PyErr_NoMemory();
++		PyErr_SetString(FailAPIException, "failapi");
+ 		return NULL;
+ 	}
+ 
+-	s = PyString_FromString(res);
++	s = PFUNC(PyString_FromString(res));
+ 	mpd_free(res);
+ 
+ 	return s;
+@@ -3316,16 +3434,18 @@
+ 	CURRENT_CONTEXT(c);
+ 	cp = mpd_to_sci(MPD(dec), CtxCaps(c));
+ 	if (cp == NULL) {
+-		PyErr_NoMemory();
++		PyErr_SetString(FailAPIException, "failapi");
+ 		return NULL;
+ 	}
+ 	declen = strlen(cp);
+ 
+ 	err = 0;
++	mpd_reallocfunc = mpd_realloc_fail;
+ 	cp = mpd_realloc(cp, (mpd_size_t)(declen+dtaglen+3), sizeof *cp, &err);
++	mpd_reallocfunc = PyMem_Realloc;
+ 	if (err) {
+ 		mpd_free(cp);
+-		PyErr_NoMemory();
++		PyErr_SetString(FailAPIException, "failapi");
+ 		return NULL;
+ 	}
+ 
+@@ -3335,7 +3455,7 @@
+ 	cp[declen+dtaglen+1] = ')';
+ 	cp[declen+dtaglen+2] = '\0';
+ 
+-	s = PyString_FromString(cp);
++	s = PFUNC(PyString_FromString(cp));
+ 
+ 	mpd_free(cp);
+ 	return s;
+@@ -3360,7 +3480,7 @@
+ 
+ 
+ 	CURRENT_CONTEXT(context);
+-	if (!PyArg_ParseTuple(args, "O|O", &fmtarg, &override)) {
++	if (!FFUNC(0, PyArg_ParseTuple(args, "O|O", &fmtarg, &override))) {
+ 		return NULL;
+ 	}
+ 
+@@ -3368,7 +3488,7 @@
+ 		fmt = fmtarg;
+ 	}
+ 	else if (PyUnicode_Check(fmtarg)) {
+-		if ((fmt = PyUnicode_AsUTF8String(fmtarg)) == NULL) {
++		if ((fmt = PFUNC(PyUnicode_AsUTF8String(fmtarg))) == NULL) {
+ 			return NULL;
+ 		}
+ 	}
+@@ -3391,19 +3511,19 @@
+ 			goto finish;
+ 		}
+ 		if ((dot = PyDict_GetItemString(override, "decimal_point"))) {
+-			if ((dot = PyUnicode_AsUTF8String(dot)) == NULL) {
++			if ((dot = PFUNC(PyUnicode_AsUTF8String(dot))) == NULL) {
+ 				goto finish;
+ 			}
+ 			spec.dot = PyBytes_AS_STRING(dot);
+ 		}
+ 		if ((sep = PyDict_GetItemString(override, "thousands_sep"))) {
+-			if ((sep = PyUnicode_AsUTF8String(sep)) == NULL) {
++			if ((sep = PFUNC(PyUnicode_AsUTF8String(sep))) == NULL) {
+ 				goto finish;
+ 			}
+ 			spec.sep = PyBytes_AS_STRING(sep);
+ 		}
+ 		if ((grouping = PyDict_GetItemString(override, "grouping"))) {
+-			if ((grouping = PyUnicode_AsUTF8String(grouping)) == NULL) {
++			if ((grouping = PFUNC(PyUnicode_AsUTF8String(grouping))) == NULL) {
+ 				goto finish;
+ 			}
+ 			spec.grouping = PyBytes_AS_STRING(grouping);
+@@ -3416,7 +3536,7 @@
+ 		dec_addstatus(context, status);
+ 		goto finish;
+ 	}
+-	result = Py_BuildValue("s", decstring);
++	result = PFUNC(Py_BuildValue("s", decstring));
+ 
+ 
+ finish:
+@@ -3455,12 +3575,12 @@
+ 	}
+ 
+ 	if ((x = mpd_qnew()) == NULL) {
+-		PyErr_NoMemory();
++		PyErr_SetString(FailAPIException, "failapi");
+ 		return NULL;
+ 	}
+ 	workctx = *CTX(context);
+ 	workctx.round = round;
+-	mpd_qround_to_int(x, MPD(dec), &workctx, &status);
++	SFUNC(mpd_qround_to_int, x, MPD(dec), &workctx, &status);
+ 	if (dec_addstatus(context, status)) {
+ 		mpd_del(x);
+ 		return NULL;
+@@ -3472,17 +3592,17 @@
+ 		l = mpd_qget_ssize(x, &status);
+ 		if (!(status&MPD_Invalid_operation)) {
+ 			mpd_del(x);
+-			return _PyInt_FromMpdSsize(l);
++			return PFUNC(_PyInt_FromMpdSsize(l));
+ 		}
+ 	}
+ 
+-	maxsize = mpd_sizeinbase(x, PyLong_BASE);
++	maxsize = FFUNC_NOEX((size_t)PY_SSIZE_T_MAX+1, mpd_sizeinbase(x, PyLong_BASE));
+ 	if (maxsize > PY_SSIZE_T_MAX) {
+ 		mpd_del(x);
+-		PyErr_NoMemory();
++		PyErr_SetString(FailAPIException, "failapi");
+ 		return NULL;
+ 	}
+-	if ((pylong = _PyLong_New(maxsize)) == NULL) {
++	if ((pylong = PFUNC(_PyLong_New(maxsize))) == NULL) {
+ 		mpd_del(x);
+ 		return NULL;
+ 	}
+@@ -3526,8 +3646,8 @@
+ 	int round = -1;
+ 
+ 	CURRENT_CONTEXT(context);
+-	if (!PyArg_ParseTupleAndKeywords(args, kwds, "|iO", kwlist,
+-	                                 &round, &context)) {
++	if (!FFUNC(0, PyArg_ParseTupleAndKeywords(args, kwds, "|iO", kwlist,
++	                                 &round, &context))) {
+ 		return NULL;
+ 	}
+ 	CONTEXT_CHECK_VA(context);
+@@ -3543,7 +3663,7 @@
+ 		return NULL;
+ 	}
+ 
+-	mpd_qround_to_int(MPD(result), MPD(dec), &workctx, &status);
++	SFUNC(mpd_qround_to_int, MPD(result), MPD(dec), &workctx, &status);
+ 	if (dec_addstatus(context, status)) {
+ 		Py_DECREF(result);
+ 		return NULL;
+@@ -3563,8 +3683,8 @@
+ 	int round = -1;
+ 
+ 	CURRENT_CONTEXT(context);
+-	if (!PyArg_ParseTupleAndKeywords(args, kwds, "|iO", kwlist,
+-	                                 &round, &context)) {
++	if (!FFUNC(0, PyArg_ParseTupleAndKeywords(args, kwds, "|iO", kwlist,
++	                                 &round, &context))) {
+ 		return NULL;
+ 	}
+ 	CONTEXT_CHECK_VA(context);
+@@ -3580,7 +3700,7 @@
+ 		return NULL;
+ 	}
+ 
+-	mpd_qround_to_intx(MPD(result), MPD(dec), &workctx, &status);
++	SFUNC(mpd_qround_to_intx, MPD(result), MPD(dec), &workctx, &status);
+ 	if (dec_addstatus(context, status)) {
+ 		Py_DECREF(result);
+ 		return NULL;
+@@ -3614,7 +3734,7 @@
+ 
+ 
+ 	CURRENT_CONTEXT(context);
+-	if (!PyArg_ParseTuple(args, "|O", &x)) {
++	if (!FFUNC(0, PyArg_ParseTuple(args, "|O", &x))) {
+ 		return NULL;
+ 	}
+ 
+@@ -3668,28 +3788,28 @@
+ 
+ 
+ 	if ((x = mpd_qncopy(MPD(dec))) == NULL) {
+-		PyErr_NoMemory();
++		PyErr_SetString(FailAPIException, "failapi");
+ 		goto out;
+ 	}
+ 
+-	sign = Py_BuildValue("i", mpd_sign(MPD(dec)));
++	sign = PFUNC(Py_BuildValue("i", mpd_sign(MPD(dec))));
+ 	if (sign == NULL) goto out;
+ 
+ 	if (mpd_isinfinite(x)) {
+-		if ((expt = Py_BuildValue("s", "F")) == NULL) {
++		if ((expt = PFUNC(Py_BuildValue("s", "F"))) == NULL) {
+ 			goto out;
+ 		}
+ 		/* decimal.py has non-compliant infinity payloads. */
+-		if ((coeff = Py_BuildValue("(i)", 0)) == NULL) {
++		if ((coeff = PFUNC(Py_BuildValue("(i)", 0))) == NULL) {
+ 			goto out;
+ 		}
+ 	}
+ 	else {
+ 		if (mpd_isnan(x)) {
+-			expt = Py_BuildValue("s", mpd_isqnan(x)?"n":"N");
++			expt = PFUNC(Py_BuildValue("s", mpd_isqnan(x)?"n":"N"));
+ 		}
+ 		else {
+-			expt = Py_BuildValue(CONV_mpd_ssize_t, MPD(dec)->exp);
++			expt = PFUNC(Py_BuildValue(CONV_mpd_ssize_t, MPD(dec)->exp));
+ 		}
+ 		if (expt == NULL) goto out;
+ 
+@@ -3702,33 +3822,33 @@
+ 			mpd_clear_flags(x);
+ 			intstring = mpd_to_sci(x, 1);
+ 			if (intstring == NULL) {
+-				PyErr_NoMemory();
++				PyErr_SetString(FailAPIException, "failapi");
+ 				goto out;
+ 			}
+ 
+ 			intlen = strlen(intstring);
+-			if ((coeff = PyTuple_New(intlen)) == NULL) {
++			if ((coeff = PFUNC(PyTuple_New(intlen))) == NULL) {
+ 				goto out;
+ 			}
+ 
+ 			for (i = 0; i < intlen; i++) {
+-				tmp = Py_BuildValue("i", intstring[i]-'0');
++				tmp = PFUNC(Py_BuildValue("i", intstring[i]-'0'));
+ 				if (tmp == NULL) goto out;
+ 				PyTuple_SET_ITEM(coeff, i, tmp);
+ 			}
+ 		}
+ 		else {
+-			if ((coeff = PyTuple_New(0)) == NULL) {
++			if ((coeff = PFUNC(PyTuple_New(0))) == NULL) {
+ 				goto out;
+ 			}
+ 		}
+ 	}
+ 
+ #if PY_VERSION_HEX >= 0x02060000
+-	result = PyObject_CallFunctionObjArgs(DecimalTuple,
+-	                                      sign, coeff, expt, NULL);
++	result = PFUNC(PyObject_CallFunctionObjArgs(DecimalTuple,
++	                                      sign, coeff, expt, NULL));
+ #else
+-	result = Py_BuildValue("(OOO)", sign, coeff, expt);
++	result = PFUNC(Py_BuildValue("(OOO)", sign, coeff, expt));
+ #endif
+ 
+ out:
+@@ -3814,7 +3934,7 @@
+         PyObject *context;                             \
+                                                        \
+         CURRENT_CONTEXT(context);                      \
+-        if (!PyArg_ParseTuple(args, "|O", &context)) { \
++        if (!FFUNC(0, PyArg_ParseTuple(args, "|O", &context))) { \
+                 return NULL;                           \
+         }                                              \
+         CONTEXT_CHECK_VA(context);                     \
+@@ -3833,7 +3953,7 @@
+         uint32_t status = 0;                                    \
+                                                                 \
+         CURRENT_CONTEXT(context);                               \
+-        if (!PyArg_ParseTuple(args, "|O", &context)) {          \
++        if (!FFUNC(0, PyArg_ParseTuple(args, "|O", &context))) {          \
+                 return NULL;                                    \
+         }                                                       \
+         CONTEXT_CHECK_VA(context);                              \
+@@ -3862,7 +3982,7 @@
+         uint32_t status = 0;                                         \
+                                                                      \
+         CURRENT_CONTEXT(context);                                    \
+-        if (!PyArg_ParseTuple(args, "O|O", &w, &context)) {          \
++        if (!FFUNC(0, PyArg_ParseTuple(args, "O|O", &w, &context))) {          \
+                 return NULL;                                         \
+         }                                                            \
+         CONTEXT_CHECK_VA(context);                                   \
+@@ -3896,7 +4016,7 @@
+         PyObject *result;                                   \
+                                                             \
+         CURRENT_CONTEXT(context);                           \
+-        if (!PyArg_ParseTuple(args, "O|O", &w, &context)) { \
++        if (!FFUNC(0, PyArg_ParseTuple(args, "O|O", &w, &context))) { \
+                 return NULL;                                \
+         }                                                   \
+         CONTEXT_CHECK_VA(context);                          \
+@@ -3926,7 +4046,7 @@
+         uint32_t status = 0;                                                 \
+                                                                              \
+         CURRENT_CONTEXT(context);                                            \
+-        if (!PyArg_ParseTuple(args, "OO|O", &w, &x, &context)) {             \
++        if (!FFUNC(0, PyArg_ParseTuple(args, "OO|O", &w, &x, &context))) {             \
+                 return NULL;                                                 \
+         }                                                                    \
+         CONTEXT_CHECK_VA(context);                                           \
+@@ -4024,7 +4144,7 @@
+ 		return NULL;
+ 	}
+ 
+-	ret = Py_BuildValue("(OO)", q, r);
++	ret = PFUNC(Py_BuildValue("(OO)", q, r));
+ 	Py_DECREF(r);
+ 	Py_DECREF(q);
+ 	return ret;
+@@ -4139,7 +4259,7 @@
+ 		retval = mpd_adjexp(MPD(self));
+ 	}
+ 
+-	return _PyLong_FromMpdSsize(retval);
++	return PFUNC(_PyLong_FromMpdSsize(retval));
+ }
+ 
+ /* Apply either the current context or the context provided as an optional
+@@ -4150,7 +4270,7 @@
+ 	PyObject *context;
+ 
+ 	CURRENT_CONTEXT(context);
+-	if (!PyArg_ParseTuple(args, "|O", &context)) {
++	if (!FFUNC(0, PyArg_ParseTuple(args, "|O", &context))) {
+ 		return NULL;
+ 	}
+ 	CONTEXT_CHECK_VA(context);
+@@ -4170,7 +4290,7 @@
+ 		return NULL;
+ 	}
+ 
+-	mpd_qcopy_abs(MPD(result), MPD(self), &status);
++	SFUNC(mpd_qcopy_abs, MPD(result), MPD(self), &status);
+ 	if (dec_addstatus(context, status)) {
+ 		Py_DECREF(result);
+ 		return NULL;
+@@ -4191,7 +4311,7 @@
+ 		return NULL;
+ 	}
+ 
+-	mpd_qcopy_negate(MPD(result), MPD(self), &status);
++	SFUNC(mpd_qcopy_negate, MPD(result), MPD(self), &status);
+ 	if (dec_addstatus(context, status)) {
+ 		Py_DECREF(result);
+ 		return NULL;
+@@ -4223,7 +4343,7 @@
+ 		return NULL;
+ 	}
+ 
+-	mpd_qcopy_sign(MPD(result), MPD(a), MPD(b), &status);
++	SFUNC(mpd_qcopy_sign, MPD(result), MPD(a), MPD(b), &status);
+ 	Py_DECREF(a);
+ 	Py_DECREF(b);
+ 	if (dec_addstatus(context, status)) {
+@@ -4249,13 +4369,13 @@
+ 	const char *cp;
+ 
+ 	CURRENT_CONTEXT(context);
+-	if (!PyArg_ParseTuple(args, "|O", &context)) {
++	if (!FFUNC(0, PyArg_ParseTuple(args, "|O", &context))) {
+ 		return NULL;
+ 	}
+ 	CONTEXT_CHECK_VA(context);
+ 
+ 	cp = mpd_class(MPD(self), CTX(context));
+-	return Py_BuildValue("s", cp);
++	return PFUNC(Py_BuildValue("s", cp));
+ }
+ 
+ static PyObject *
+@@ -4282,7 +4402,7 @@
+ 	PyObject *ret;
+ 
+ 	CURRENT_CONTEXT(context);
+-	if (!PyArg_ParseTuple(args, "O|O", &w, &context)) {
++	if (!FFUNC(0, PyArg_ParseTuple(args, "O|O", &w, &context))) {
+ 		return NULL;
+ 	}
+ 	CONTEXT_CHECK_VA(context);
+@@ -4309,7 +4429,7 @@
+ 		return NULL;
+ 	}
+ 
+-	ret = Py_BuildValue("(OO)", q, r);
++	ret = PFUNC(Py_BuildValue("(OO)", q, r));
+ 	Py_DECREF(r);
+ 	Py_DECREF(q);
+ 	return ret;
+@@ -4327,8 +4447,8 @@
+ 	int round = -1;
+ 
+ 	CURRENT_CONTEXT(context);
+-	if (!PyArg_ParseTupleAndKeywords(args, kwds, "O|iO", kwlist,
+-	                                 &w, &round, &context)) {
++	if (!FFUNC(0, PyArg_ParseTupleAndKeywords(args, kwds, "O|iO", kwlist,
++	                                 &w, &round, &context))) {
+ 		return NULL;
+ 	}
+ 	CONTEXT_CHECK_VA(context);
+@@ -4380,7 +4500,7 @@
+ 	PyObject *a, *b;
+ 
+ 	CURRENT_CONTEXT(context);
+-	if (!PyArg_ParseTuple(args, "O|O", &w, &context)) {
++	if (!FFUNC(0, PyArg_ParseTuple(args, "O|O", &w, &context))) {
+ 		return NULL;
+ 	}
+ 	CONTEXT_CHECK_VA(context);
+@@ -4397,7 +4517,7 @@
+ static PyObject *
+ dec_mpd_sign(PyObject *self, PyObject *dummy UNUSED)
+ {
+-	return Py_BuildValue("i", mpd_arith_sign(MPD(self)));
++	return PFUNC(Py_BuildValue("i", mpd_arith_sign(MPD(self))));
+ }
+ 
+ static PyObject *
+@@ -4408,18 +4528,18 @@
+ 	char *s;
+ 
+ 	CURRENT_CONTEXT(context);
+-	if (!PyArg_ParseTuple(args, "|O", &context)) {
++	if (!FFUNC(0, PyArg_ParseTuple(args, "|O", &context))) {
+ 		return NULL;
+ 	}
+ 	CONTEXT_CHECK_VA(context);
+ 
+ 	s = mpd_to_sci(MPD(self), CtxCaps(context));
+ 	if (s == NULL) {
+-		PyErr_NoMemory();
++		PyErr_SetString(FailAPIException, "failapi");
+ 		return NULL;
+ 	}
+ 
+-	result = PyString_FromString(s);
++	result = PFUNC(PyString_FromString(s));
+ 	mpd_free(s);
+ 
+ 	return result;
+@@ -4433,18 +4553,18 @@
+ 	char *s;
+ 
+ 	CURRENT_CONTEXT(context);
+-	if (!PyArg_ParseTuple(args, "|O", &context)) {
++	if (!FFUNC(0, PyArg_ParseTuple(args, "|O", &context))) {
+ 		return NULL;
+ 	}
+ 	CONTEXT_CHECK_VA(context);
+ 
+ 	s = mpd_to_eng(MPD(self), CtxCaps(context));
+ 	if (s == NULL) {
+-		PyErr_NoMemory();
++		PyErr_SetString(FailAPIException, "failapi");
+ 		return NULL;
+ 	}
+ 
+-	result = PyString_FromString(s);
++	result = PFUNC(PyString_FromString(s));
+ 	mpd_free(s);
+ 
+ 	return result;
+@@ -4536,11 +4656,11 @@
+ 	long result;
+ 
+ 	if ((a = dec_alloc()) == NULL) {
+-		PyErr_NoMemory();
++		PyErr_SetString(FailAPIException, "failapi");
+ 		return -1;
+ 	}
+-	if (!mpd_qcopy(MPD(a), MPD(v), &status)) {
+-		PyErr_NoMemory();
++	if (!FFUNC_NOEX(0, mpd_qcopy(MPD(a), MPD(v), &status))) {
++		PyErr_SetString(FailAPIException, "failapi");
+ 		result = -1;
+ 		goto finish;
+ 	}
+@@ -4554,8 +4674,8 @@
+ 		mpd_maxcontext(&maxcontext);
+ 
+ #if PY_VERSION_HEX >= 0x02060000
+-		if ((tmp = mpd_qnew()) == NULL) {
+-			PyErr_NoMemory();
++		if ((tmp = PFUNC_NOEX(mpd_qnew())) == NULL) {
++			PyErr_SetString(FailAPIException, "failapi");
+ 			result = -1;
+ 			goto finish;
+ 		}
+@@ -4565,7 +4685,7 @@
+ 		mpd_qset_ssize(tmp, MPD(a)->exp, &maxcontext, &status);
+ 		mpd_qpowmod(tmp, &ten, tmp, &two64m1, &maxcontext, &status);
+ 		MPD(a)->exp = 0;
+-		mpd_qmul(MPD(a), MPD(a), tmp, &maxcontext, &status);
++		SFUNC(mpd_qmul, MPD(a), MPD(a), tmp, &maxcontext, &status);
+ 
+ 		if (status&MPD_Errors) {
+ 			if (dec_addstatus(context, status)) {
+@@ -4598,17 +4718,17 @@
+ 
+ 		cp = mpd_to_sci(MPD(a), 1);
+ 		if (cp == NULL) {
+-			PyErr_NoMemory();
++			PyErr_SetString(FailAPIException, "failapi");
+ 			result = -1;
+ 			goto finish;
+ 		}
+ 
+-		obj = Py_BuildValue("(i"CONV_mpd_ssize_t"s)", sign, exp, cp);
++		obj = PFUNC(Py_BuildValue("(i"CONV_mpd_ssize_t"s)", sign, exp, cp));
+ 		if (obj == NULL) {
+ 			result = -1;
+ 			goto finish;
+ 		}
+-		result = PyObject_Hash(obj);
++		result = IFUNC(PyObject_Hash(obj));
+ 	}
+ 
+ 
+@@ -4635,7 +4755,7 @@
+ 			if (obj == NULL) {
+ 				return -1;
+ 			}
+-			result = PyObject_Hash(obj);
++			result = IFUNC(PyObject_Hash(obj));
+ 			Py_DECREF(obj);
+ 			return result;
+ 		}
+@@ -4675,7 +4795,7 @@
+ 		}
+ 	}
+ 
+-	v_as_float = PyDec_AsFloat(v);
++	v_as_float = PFUNC(PyDec_AsFloat(v));
+ 	if (v_as_float == NULL) {
+ 		return -1;
+ 	}
+@@ -4688,7 +4808,7 @@
+ 
+ 	if (!mpd_isspecial(MPD(roundtrip)) &&
+ 	    mpd_qcmp(MPD(v), MPD(roundtrip), &status) == 0) {
+-		ret = PyObject_Hash(v_as_float);
++		ret = IFUNC(PyObject_Hash(v_as_float));
+ 	}
+ 	else {
+ 		ret = _dec_hash(v);
+@@ -4709,7 +4829,7 @@
+ 		return NULL;
+ 	}
+ 
+-	result = Py_BuildValue("O(O)", Py_TYPE(self), str);
++	result = PFUNC(Py_BuildValue("O(O)", Py_TYPE(self), str));
+ 	Py_DECREF(str);
+ 
+ 	return result;
+@@ -4748,17 +4868,17 @@
+ 	PyObject *f;
+ 	double x;
+ 
+-	if ((f = PyDec_AsFloat(self)) == NULL) {
++	if ((f = PFUNC(PyDec_AsFloat(self))) == NULL) {
+ 		return NULL;
+ 	}
+ 
+-	x = PyFloat_AsDouble(f);
++	x = IFUNC(PyFloat_AsDouble(f));
+ 	Py_DECREF(f);
+ 	if (PyErr_Occurred()) {
+ 		return NULL;
+ 	}
+ 
+-	return PyComplex_FromDoubles(x, 0);
++	return PFUNC(PyComplex_FromDoubles(x, 0));
+ }
+ 
+ static PyObject *
+@@ -5055,7 +5175,7 @@
+         PyObject *result;                                            \
+         uint32_t status = 0;                                         \
+                                                                      \
+-        if (!PyArg_ParseTuple(args, "OO", &v, &w)) {                 \
++        if (!FFUNC(0, PyArg_ParseTuple(args, "OO", &v, &w))) {                 \
+                 return NULL;                                         \
+         }                                                            \
+                                                                      \
+@@ -5090,7 +5210,7 @@
+         PyObject *a, *b;                             \
+         PyObject *result;                            \
+                                                      \
+-        if (!PyArg_ParseTuple(args, "OO", &v, &w)) { \
++        if (!FFUNC(0, PyArg_ParseTuple(args, "OO", &v, &w))) { \
+                 return NULL;                         \
+         }                                            \
+                                                      \
+@@ -5119,7 +5239,7 @@
+         PyObject *result;                                                    \
+         uint32_t status = 0;                                                 \
+                                                                              \
+-        if (!PyArg_ParseTuple(args, "OOO", &v, &w, &x)) {                    \
++        if (!FFUNC(0, PyArg_ParseTuple(args, "OOO", &v, &w, &x))) {                    \
+                 return NULL;                                                 \
+         }                                                                    \
+                                                                              \
+@@ -5212,7 +5332,7 @@
+ 		return NULL;
+ 	}
+ 
+-	mpd_qcopy_abs(MPD(result), MPD(a), &status);
++	SFUNC(mpd_qcopy_abs, MPD(result), MPD(a), &status);
+ 	Py_DECREF(a);
+ 	if (dec_addstatus(context, status)) {
+ 		Py_DECREF(result);
+@@ -5248,7 +5368,7 @@
+ 		return NULL;
+ 	}
+ 
+-	mpd_qcopy_negate(MPD(result), MPD(a), &status);
++	SFUNC(mpd_qcopy_negate, MPD(result), MPD(a), &status);
+ 	Py_DECREF(a);
+ 	if (dec_addstatus(context, status)) {
+ 		Py_DECREF(result);
+@@ -5272,7 +5392,7 @@
+ 	PyObject *result;
+ 	uint32_t status = 0;
+ 
+-	if (!PyArg_ParseTuple(args, "OO", &v, &w)) {
++	if (!FFUNC(0, PyArg_ParseTuple(args, "OO", &v, &w))) {
+ 		return NULL;
+ 	}
+ 
+@@ -5284,7 +5404,7 @@
+ 		return NULL;
+ 	}
+ 
+-	mpd_qcopy_sign(MPD(result), MPD(a), MPD(b), &status);
++	SFUNC(mpd_qcopy_sign, MPD(result), MPD(a), MPD(b), &status);
+ 	Py_DECREF(a);
+ 	Py_DECREF(b);
+ 	if (dec_addstatus(context, status)) {
+@@ -5339,7 +5459,7 @@
+ 	cp = mpd_class(MPD(a), CTX(context));
+ 	Py_DECREF(a);
+ 
+-	return Py_BuildValue("s", cp);
++	return PFUNC(Py_BuildValue("s", cp));
+ }
+ 
+ static PyObject *
+@@ -5351,7 +5471,7 @@
+ 	uint32_t status = 0;
+ 	PyObject *ret;
+ 
+-	if (!PyArg_ParseTuple(args, "OO", &v, &w)) {
++	if (!FFUNC(0, PyArg_ParseTuple(args, "OO", &v, &w))) {
+ 		return NULL;
+ 	}
+ 
+@@ -5378,7 +5498,7 @@
+ 		return NULL;
+ 	}
+ 
+-	ret = Py_BuildValue("(OO)", q, r);
++	ret = PFUNC(Py_BuildValue("(OO)", q, r));
+ 	Py_DECREF(r);
+ 	Py_DECREF(q);
+ 	return ret;
+@@ -5396,11 +5516,11 @@
+ 	s = mpd_to_sci(MPD(a), CtxCaps(context));
+ 	Py_DECREF(a);
+ 	if (s == NULL) {
+-		PyErr_NoMemory();
++		PyErr_SetString(FailAPIException, "failapi");
+ 		return NULL;
+ 	}
+ 
+-	result = PyString_FromString(s);
++	result = PFUNC(PyString_FromString(s));
+ 	mpd_free(s);
+ 
+ 	return result;
+@@ -5418,11 +5538,11 @@
+ 	s = mpd_to_eng(MPD(a), CtxCaps(context));
+ 	Py_DECREF(a);
+ 	if (s == NULL) {
+-		PyErr_NoMemory();
++		PyErr_SetString(FailAPIException, "failapi");
+ 		return NULL;
+ 	}
+ 
+-	result = PyString_FromString(s);
++	result = PFUNC(PyString_FromString(s));
+ 	mpd_free(s);
+ 
+ 	return result;
+@@ -5441,7 +5561,7 @@
+ 	PyObject *a, *b;
+ 	PyObject *result;
+ 
+-	if (!PyArg_ParseTuple(args, "OO", &v, &w)) {
++	if (!FFUNC(0, PyArg_ParseTuple(args, "OO", &v, &w))) {
+ 		return NULL;
+ 	}
+ 
+@@ -5620,6 +5740,10 @@
+   { "setcontext", (PyCFunction)PyDec_SetCurrentContext, METH_O, doc_setcontext},
+   { "localcontext", (PyCFunction)ctxmanager_new, METH_VARARGS, doc_localcontext},
+   { "IEEEContext", (PyCFunction)ieee_context, METH_O, doc_ieee_context},
++  { "getfailpoint", get_failpoint, METH_NOARGS, NULL},
++  { "getapicalls", get_apicalls, METH_NOARGS, NULL},
++  { "setfailpoint", set_failpoint, METH_O, NULL},
++  { "setapicalls", set_apicalls, METH_O, NULL},
+   { NULL, NULL, 1, NULL }
+ };
+ 
+@@ -5699,9 +5823,13 @@
+ 
+ 	/* Init libmpdec */
+ 	mpd_traphandler = dec_traphandler;
+-	mpd_mallocfunc = PyMem_Malloc;
++	mpd_mallocfunc = mpd_malloc_fail;
++	/* If dec->alloc is greater that the requested size,
++	   mpd_realloc uses the old memory area if the actual
++	   call to realloc fails. This makes it difficult to
++	   generate failures reliably. */
+ 	mpd_reallocfunc = PyMem_Realloc;
+-	mpd_callocfunc = mpd_callocfunc_em;
++	mpd_callocfunc = mpd_calloc_fail;
+ 	mpd_free = PyMem_Free;
+ 	mpd_setminalloc(4);
+ 
+@@ -5768,8 +5896,13 @@
+ 	ASSIGN_PTR(DecimalException, PyErr_NewException(
+ 	                                 "cdecimal.DecimalException",
+ 	                                 PyExc_ArithmeticError, NULL));
++	ASSIGN_PTR(FailAPIException, PyErr_NewException(
++	                                 "decimal.FailAPIException",
++	                                 PyExc_BaseException, NULL));
+ 	Py_INCREF(DecimalException);
+ 	CHECK_INT(PyModule_AddObject(m, "DecimalException", DecimalException));
++	Py_INCREF(FailAPIException);
++	CHECK_INT(PyModule_AddObject(m, "FailAPIException", FailAPIException));
+ 
+ 	/* Add exceptions that correspond to IEEE signals */
+ 	for (cm = signal_map; cm->name != NULL; cm++) {

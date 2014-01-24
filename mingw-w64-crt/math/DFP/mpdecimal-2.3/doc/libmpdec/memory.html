@@ -1,0 +1,249 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="index,follow" name="robots" />
+<meta content="libmpdec documentation" name="description" />
+
+    <title>Advanced Memory Handling &mdash; mpdecimal v2.3 documentation</title>
+    <link rel="stylesheet" href="../_static/mpdecimal-doc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="mpdecimal v2.3 documentation" href="../index.html" />
+    <link rel="up" title="libmpdec" href="index.html" />
+    <link rel="next" title="cdecimal" href="../cdecimal/index.html" />
+    <link rel="prev" title="Various Functions" href="various.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../cdecimal/index.html" title="cdecimal"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="various.html" title="Various Functions"
+             accesskey="P">previous</a> |</li>
+    <li><a href="http://www.bytereef.org/mpdecimal/index.html">project home</a>|&nbsp;</li>
+    <li><a href="../index.html">mpdecimal v2.3 documentation </a> &raquo;</li>
+
+          <li><a href="index.html" accesskey="U">libmpdec</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Advanced Memory Handling</a><ul>
+<li><a class="reference internal" href="#static-and-dynamic-decimals">Static and Dynamic Decimals</a></li>
+<li><a class="reference internal" href="#shared-and-constant-decimals">Shared and Constant Decimals</a></li>
+<li><a class="reference internal" href="#mpd-minalloc">MPD_MINALLOC</a></li>
+<li><a class="reference internal" href="#resizing-decimals">Resizing Decimals</a></li>
+<li><a class="reference internal" href="#custom-allocation-functions">Custom Allocation Functions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="various.html"
+                        title="previous chapter">Various Functions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../cdecimal/index.html"
+                        title="next chapter">cdecimal</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="advanced-memory-handling">
+<span id="id1"></span><h1>Advanced Memory Handling</h1>
+<p>The allocation scheme used in <strong>libmpdec</strong> allows for mixing statically
+and dynamically allocated decimals. If a decimal with a static coefficient
+needs to grow beyond the fixed array size, the coefficient automatically
+switches to dynamic memory. This is very fast in practice and eliminates
+the need for <tt class="xref c c-func docutils literal"><span class="pre">alloca</span></tt>.</p>
+<p>It is <em>not necessary</em> to read this section if only dynamically allocated
+decimals are used.</p>
+<div class="section" id="static-and-dynamic-decimals">
+<h2>Static and Dynamic Decimals</h2>
+<p>Static and dynamic decimals may be mixed freely. In particular, they may
+be used in the position of the <em>result operand</em> or passed as an argument
+to <tt class="xref c c-func docutils literal"><span class="pre">mpd_del</span></tt>.</p>
+<p>The coefficient of a static decimal <em>must</em> have the size <tt class="xref c c-macro docutils literal"><span class="pre">MPD_MINALLOC_MAX</span></tt>
+(see below).</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="63%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_STATIC</span></tt></td>
+<td>if set, the <tt class="xref c c-macro docutils literal"><span class="pre">mpd_t</span></tt> struct is static</td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_STATIC_DATA</span></tt></td>
+<td>if set, the coefficient is static</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="shared-and-constant-decimals">
+<h2>Shared and Constant Decimals</h2>
+<p>The coefficient of a decimal can be marked shared or constant. Decimals with
+such coefficients <em>must not</em> be <em>result operands</em> or passed to <tt class="xref c c-func docutils literal"><span class="pre">mpd_del</span></tt>.
+Since these flags are intended for internal use, the memory reallocation
+functions only check for their presence using <tt class="xref c c-func docutils literal"><span class="pre">assert</span></tt>.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="41%" />
+<col width="59%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_SHARED_DATA</span></tt></td>
+<td>if set, the coefficient is shared</td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_CONST_DATA</span></tt></td>
+<td>if set, the coefficient is constant</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="mpd-minalloc">
+<h2>MPD_MINALLOC</h2>
+<p>In order to avoid frequent resizing operations, the global variable
+<tt class="xref c c-macro docutils literal"><span class="pre">MPD_MINALLOC</span></tt> guarantees a minimum amount of allocated words for
+the coefficient of each <tt class="xref c c-macro docutils literal"><span class="pre">mpd_t</span></tt>. The variable can be set <em>once</em>
+at program start and all memory functions respect it. The minimum value
+for <tt class="xref c c-macro docutils literal"><span class="pre">MPD_MINALLOC</span></tt> is <tt class="xref c c-macro docutils literal"><span class="pre">MPD_MINALLOC_MIN=2</span></tt>, the maximum value
+is <tt class="xref c c-macro docutils literal"><span class="pre">MPD_MINALLOC_MAX=64</span></tt>.</p>
+<div class="highlight-c" id="std:topic-mpd_setminalloc"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_setminalloc</span><span class="p">(</span><span class="n">mpd_ssize_t</span> <span class="n">n</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>At program start, set <tt class="xref c c-macro docutils literal"><span class="pre">MPD_MINALLOC</span></tt> to <em>n</em>. If <em>n</em> is outside the
+limits, the function prints an error and exits. If an attempt is made to
+set <tt class="xref c c-macro docutils literal"><span class="pre">MPD_MINALLOC</span></tt> a second time, the function does nothing but
+print a warning.</p>
+</div>
+<div class="section" id="resizing-decimals">
+<h2>Resizing Decimals</h2>
+<p>When writing functions that operate directly on the data of a decimal,
+it is necessary to resize the coefficient. All the above functions may
+be called on static decimals, since they are smart enough to allocate
+dynamic storage if the static array is too small. The functions
+<em>must not</em> be called on constant or shared decimals.</p>
+<span class="target" id="std:topic-mpd_qresize"></span><span class="target" id="std:topic-mpd_resize"></span><span class="target" id="std:topic-mpd_qresize_zero"></span><div class="highlight-c" id="std:topic-mpd_resize_zero"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_qresize</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_resize</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">size</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="n">mpd_qresize_zero</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_resize_zero</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">size</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><tt class="xref c c-func docutils literal"><span class="pre">mpd_qresize</span></tt> tries to resize result to size words. If the size is
+increased, the existing coefficient data is left untouched. On success, 1
+is returned. On failure, 0 is returned and <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Malloc_error</span></tt> is
+added to the status parameter.</p>
+<p><tt class="xref c c-func docutils literal"><span class="pre">mpd_qresize_zero</span></tt> is the same, but initializes the complete
+coefficient - including the old memory area - to zero.</p>
+<div class="highlight-c" id="std:topic-mpd_minalloc"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_minalloc</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Reduce the size of the coefficient to <tt class="xref c c-macro docutils literal"><span class="pre">MPD_MINALLOC</span></tt> words. This
+function cannot fail.</p>
+</div>
+<div class="section" id="custom-allocation-functions">
+<h2>Custom Allocation Functions</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">extern</span> <span class="kt">void</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span> <span class="n">mpd_mallocfunc</span><span class="p">)(</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">);</span>
+<span class="k">extern</span> <span class="kt">void</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span> <span class="n">mpd_callocfunc</span><span class="p">)(</span><span class="kt">size_t</span> <span class="n">nmemb</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">);</span>
+<span class="k">extern</span> <span class="kt">void</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span> <span class="n">mpd_reallocfunc</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">);</span>
+<span class="k">extern</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">mpd_free</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>At program start, these variables can be set to custom memory allocation
+functions. By default, they are set to the standard C functions.</p>
+<span class="target" id="std:topic-mpd_alloc"></span><div class="highlight-c" id="std:topic-mpd_calloc"><div class="highlight"><pre><span class="kt">void</span> <span class="o">*</span><span class="n">mpd_alloc</span><span class="p">(</span><span class="n">mpd_size_t</span> <span class="n">nmemb</span><span class="p">,</span> <span class="n">mpd_size_t</span> <span class="n">size</span><span class="p">);</span>
+<span class="kt">void</span> <span class="o">*</span><span class="n">mpd_calloc</span><span class="p">(</span><span class="n">mpd_size_t</span> <span class="n">nmemb</span><span class="p">,</span> <span class="n">mpd_size_t</span> <span class="n">size</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Memory allocation with overflow checking, using the custom allocation
+functions. If the allocation fails, <tt class="xref c c-macro docutils literal"><span class="pre">NULL</span></tt> is returned.</p>
+<p>In the overflow case, the functions print an error and exit. Note
+that overflow can only happen due to a serious programming error,
+like using a context with invalid values.</p>
+<div class="highlight-c" id="std:topic-mpd_realloc"><div class="highlight"><pre><span class="kt">void</span> <span class="o">*</span><span class="n">mpd_realloc</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">,</span> <span class="n">mpd_size_t</span> <span class="n">nmemb</span><span class="p">,</span> <span class="n">mpd_size_t</span> <span class="n">size</span><span class="p">,</span>
+                  <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">err</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If successful, return the pointer to the new memory area. Otherwise,
+return <em>ptr</em> and set <em>err</em> to 1.</p>
+<p>Overflow handling as above.</p>
+<div class="highlight-c" id="std:topic-mpd_sh_alloc"><div class="highlight"><pre><span class="cm">/* struct hack alloc */</span>
+<span class="kt">void</span> <span class="o">*</span><span class="n">mpd_sh_alloc</span><span class="p">(</span><span class="n">mpd_size_t</span> <span class="n">struct_size</span><span class="p">,</span> <span class="n">mpd_size_t</span> <span class="n">nmemb</span><span class="p">,</span>
+                   <span class="n">mpd_size_t</span> <span class="n">size</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Like <tt class="xref c c-func docutils literal"><span class="pre">mpd_alloc</span></tt>, with an additional parameter for <em>struct hack</em>
+allocations.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../cdecimal/index.html" title="cdecimal"
+             >next</a></li>
+        <li class="right" >
+          <a href="various.html" title="Various Functions"
+             >previous</a> |</li>
+    <li><a href="http://www.bytereef.org/mpdecimal/index.html">project home</a>|&nbsp;</li>
+    <li><a href="../index.html">mpdecimal v2.3 documentation </a> &raquo;</li>
+
+          <li><a href="index.html" >libmpdec</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Stefan Krah.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

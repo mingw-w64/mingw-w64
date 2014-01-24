@@ -1,0 +1,25 @@
+diff -ur a/decNumber/decNumber.c b/decNumber/decNumber.c
+--- a/decNumber/decNumber.c	2009-12-24 09:41:06.000000000 +0100
++++ b/decNumber/decNumber.c	2011-02-05 17:23:19.000000000 +0100
+@@ -5605,8 +5605,8 @@
+   decNumber  cmp;                  // work
+   decContext aset, bset;           // working contexts
+ 
+-  #if DECCHECK
+   Int iterations=0;                // for later sanity check
++  #if DECCHECK
+   if (decCheckOperands(res, DECUNUSED, rhs, set)) return res;
+   #endif
+ 
+@@ -5735,7 +5735,11 @@
+     // 34+2, which is ideal for standard-sized numbers]
+     aset.digits=pp;                     // working context
+     bset.digits=pp+rhs->digits;         // wider context
++
+     for (;;) {                          // iterate
++      if (++iterations > 24) {
++        break;
++      }
+       #if DECCHECK
+       iterations++;
+       if (iterations>24) break;         // consider 9 * 2**24

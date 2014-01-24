@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="index,follow" name="robots" />
+<meta content="libmpdec documentation" name="description" />
+<meta content="mpdecimal, libmpdec, documentation" name="keywords" />
+
+    <title>libmpdec &mdash; mpdecimal v2.3 documentation</title>
+    <link rel="stylesheet" href="../_static/mpdecimal-doc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="mpdecimal v2.3 documentation" href="../index.html" />
+    <link rel="next" title="Function Index" href="functions.html" />
+    <link rel="prev" title="mpdecimal" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="functions.html" title="Function Index"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="../index.html" title="mpdecimal"
+             accesskey="P">previous</a> |</li>
+    <li><a href="http://www.bytereef.org/mpdecimal/index.html">project home</a>|&nbsp;</li>
+    <li><a href="../index.html">mpdecimal v2.3 documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../index.html"
+                        title="previous chapter">mpdecimal</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="functions.html"
+                        title="next chapter">Function Index</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="libmpdec">
+<h1>libmpdec</h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Function Index</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#naming-conventions">Naming Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#thread-safety">Thread Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#quiet-functions">Quiet Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#signaling-functions">Signaling functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="context.html">Context</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="context.html#data-type">Data Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html#constants">Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html#precision-and-exponents">Precision and Exponents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html#rounding">Rounding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html#signals-and-conditions">Signals and Conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html#exponent-clamping">Exponent Clamping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html#correct-rounding">Correct Rounding</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="context.html#context-functions">Context Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="context.html#initialization">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html#ieee-interchange-formats">IEEE Interchange Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html#getters-and-setters">Getters and Setters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html#calling-the-trap-handler">Calling the Trap Handler</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="decimals.html">Decimals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="decimals.html#data-type">Data Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decimals.html#allocation-functions">Allocation Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="assign-convert.html">Assignment, Conversions, I/O</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="assign-convert.html#create-decimal">Create Decimal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="assign-convert.html#from-string">From String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assign-convert.html#from-integer">From Integer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assign-convert.html#from-special-values">From Special Values</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="assign-convert.html#convert-decimal">Convert Decimal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="assign-convert.html#to-string">To String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assign-convert.html#to-integer">To Integer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="assign-convert.html#copy-decimal">Copy Decimal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assign-convert.html#print-decimal">Print Decimal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assign-convert.html#print-status-flags">Print Status Flags</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="attributes.html">Attributes of a Decimal</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html#getting-attributes">Getting Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html#setting-attributes">Setting Attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="arithmetic.html">Arithmetic Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic.html#basic-arithmetic">Basic Arithmetic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#add">add</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#subtract">subtract</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#multiply">multiply</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#divide">divide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#fused-multiply-add">fused-multiply-add</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic.html#integer-division">Integer Division</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#divide-integer">divide-integer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#remainder">remainder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#remainder-near">remainder-near</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#divmod">divmod</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic.html#powers-and-logarithms">Powers and Logarithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#exp">exp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#ln10">ln10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#ln">ln</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#log10">log10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#power">power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#square-root">square-root</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#inverse-square-root">inverse-square-root</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic.html#sign-and-absolute">Sign and Absolute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#minus">minus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#plus">plus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#abs">abs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic.html#comparisons">Comparisons</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#compare">compare</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#compare-signal">compare-signal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#compare-total">compare-total</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#compare-total-magnitude">compare-total-magnitude</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#cmp">cmp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#cmp-total">cmp-total</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#cmp-total-magnitude">cmp-total-magnitude</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#max">max</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#max-mag">max-mag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#min">min</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#min-mag">min-mag</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic.html#closest-numbers">Closest Numbers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#next-minus">next-minus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#next-plus">next-plus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#next-toward">next-toward</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic.html#quantizing-and-normalizing">Quantizing and Normalizing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#quantize">quantize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#rescale">rescale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#same-quantum">same-quantum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#reduce">reduce</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic.html#integral-values">Integral Values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#round-to-integral-exact">round-to-integral-exact</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#round-to-integral-value">round-to-integral-value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#floor">floor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#ceiling">ceiling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#truncate">truncate</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic.html#scale">Scale</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#logb">logb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#scaleb">scaleb</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic.html#integer-functions">Integer Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arithmetic.html#powmod">powmod</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="various.html">Various Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="various.html#applying-the-context">Applying the Context</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="various.html#finalize">finalize</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="various.html#nan-handling">NaN Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="various.html#check-nan">check-nan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="various.html#check-nans">check-nans</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="various.html#shifting-and-rotating">Shifting and Rotating</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="various.html#shift">shift</a></li>
+<li class="toctree-l3"><a class="reference internal" href="various.html#shiftn">shiftn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="various.html#shiftl">shiftl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="various.html#shiftr">shiftr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="various.html#shiftr-inplace">shiftr-inplace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="various.html#rotate">rotate</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="various.html#logical-operations">Logical Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="various.html#and">and</a></li>
+<li class="toctree-l3"><a class="reference internal" href="various.html#or">or</a></li>
+<li class="toctree-l3"><a class="reference internal" href="various.html#xor">xor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="various.html#invert">invert</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="various.html#base-conversions">Base Conversions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="various.html#importing">Importing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="various.html#exporting">Exporting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="various.html#required-functions">Required Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="memory.html">Advanced Memory Handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="memory.html#static-and-dynamic-decimals">Static and Dynamic Decimals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memory.html#shared-and-constant-decimals">Shared and Constant Decimals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memory.html#mpd-minalloc">MPD_MINALLOC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memory.html#resizing-decimals">Resizing Decimals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memory.html#custom-allocation-functions">Custom Allocation Functions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="functions.html" title="Function Index"
+             >next</a></li>
+        <li class="right" >
+          <a href="../index.html" title="mpdecimal"
+             >previous</a> |</li>
+    <li><a href="http://www.bytereef.org/mpdecimal/index.html">project home</a>|&nbsp;</li>
+    <li><a href="../index.html">mpdecimal v2.3 documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Stefan Krah.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,796 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="index,follow" name="robots" />
+<meta content="libmpdec documentation" name="description" />
+
+    <title>Arithmetic Functions &mdash; mpdecimal v2.3 documentation</title>
+    <link rel="stylesheet" href="../_static/mpdecimal-doc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="mpdecimal v2.3 documentation" href="../index.html" />
+    <link rel="up" title="libmpdec" href="index.html" />
+    <link rel="next" title="Various Functions" href="various.html" />
+    <link rel="prev" title="Attributes of a Decimal" href="attributes.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="various.html" title="Various Functions"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="attributes.html" title="Attributes of a Decimal"
+             accesskey="P">previous</a> |</li>
+    <li><a href="http://www.bytereef.org/mpdecimal/index.html">project home</a>|&nbsp;</li>
+    <li><a href="../index.html">mpdecimal v2.3 documentation </a> &raquo;</li>
+
+          <li><a href="index.html" accesskey="U">libmpdec</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Arithmetic Functions</a><ul>
+<li><a class="reference internal" href="#basic-arithmetic">Basic Arithmetic</a><ul>
+<li><a class="reference internal" href="#add">add</a></li>
+<li><a class="reference internal" href="#subtract">subtract</a></li>
+<li><a class="reference internal" href="#multiply">multiply</a></li>
+<li><a class="reference internal" href="#divide">divide</a></li>
+<li><a class="reference internal" href="#fused-multiply-add">fused-multiply-add</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#integer-division">Integer Division</a><ul>
+<li><a class="reference internal" href="#divide-integer">divide-integer</a></li>
+<li><a class="reference internal" href="#remainder">remainder</a></li>
+<li><a class="reference internal" href="#remainder-near">remainder-near</a></li>
+<li><a class="reference internal" href="#divmod">divmod</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#powers-and-logarithms">Powers and Logarithms</a><ul>
+<li><a class="reference internal" href="#exp">exp</a></li>
+<li><a class="reference internal" href="#ln10">ln10</a></li>
+<li><a class="reference internal" href="#ln">ln</a></li>
+<li><a class="reference internal" href="#log10">log10</a></li>
+<li><a class="reference internal" href="#power">power</a></li>
+<li><a class="reference internal" href="#square-root">square-root</a></li>
+<li><a class="reference internal" href="#inverse-square-root">inverse-square-root</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sign-and-absolute">Sign and Absolute</a><ul>
+<li><a class="reference internal" href="#minus">minus</a></li>
+<li><a class="reference internal" href="#plus">plus</a></li>
+<li><a class="reference internal" href="#abs">abs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#comparisons">Comparisons</a><ul>
+<li><a class="reference internal" href="#compare">compare</a></li>
+<li><a class="reference internal" href="#compare-signal">compare-signal</a></li>
+<li><a class="reference internal" href="#compare-total">compare-total</a></li>
+<li><a class="reference internal" href="#compare-total-magnitude">compare-total-magnitude</a></li>
+<li><a class="reference internal" href="#cmp">cmp</a></li>
+<li><a class="reference internal" href="#cmp-total">cmp-total</a></li>
+<li><a class="reference internal" href="#cmp-total-magnitude">cmp-total-magnitude</a></li>
+<li><a class="reference internal" href="#max">max</a></li>
+<li><a class="reference internal" href="#max-mag">max-mag</a></li>
+<li><a class="reference internal" href="#min">min</a></li>
+<li><a class="reference internal" href="#min-mag">min-mag</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#closest-numbers">Closest Numbers</a><ul>
+<li><a class="reference internal" href="#next-minus">next-minus</a></li>
+<li><a class="reference internal" href="#next-plus">next-plus</a></li>
+<li><a class="reference internal" href="#next-toward">next-toward</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#quantizing-and-normalizing">Quantizing and Normalizing</a><ul>
+<li><a class="reference internal" href="#quantize">quantize</a></li>
+<li><a class="reference internal" href="#rescale">rescale</a></li>
+<li><a class="reference internal" href="#same-quantum">same-quantum</a></li>
+<li><a class="reference internal" href="#reduce">reduce</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#integral-values">Integral Values</a><ul>
+<li><a class="reference internal" href="#round-to-integral-exact">round-to-integral-exact</a></li>
+<li><a class="reference internal" href="#round-to-integral-value">round-to-integral-value</a></li>
+<li><a class="reference internal" href="#floor">floor</a></li>
+<li><a class="reference internal" href="#ceiling">ceiling</a></li>
+<li><a class="reference internal" href="#truncate">truncate</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#scale">Scale</a><ul>
+<li><a class="reference internal" href="#logb">logb</a></li>
+<li><a class="reference internal" href="#scaleb">scaleb</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#integer-functions">Integer Functions</a><ul>
+<li><a class="reference internal" href="#powmod">powmod</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="attributes.html"
+                        title="previous chapter">Attributes of a Decimal</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="various.html"
+                        title="next chapter">Various Functions</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="arithmetic-functions">
+<h1>Arithmetic Functions</h1>
+<div class="section" id="basic-arithmetic">
+<h2>Basic Arithmetic</h2>
+<p>Most of these functions are part of the specification, and some descriptions
+contain direct quotes.</p>
+<span class="target" id="std:topic-mpd_qadd"></span><span class="target" id="std:topic-mpd_add"></span><span class="target" id="std:topic-mpd_qadd_ssize"></span><span class="target" id="std:topic-mpd_qadd_i32"></span><span class="target" id="std:topic-mpd_qadd_i64"></span><span class="target" id="std:topic-mpd_qadd_uint"></span><span class="target" id="std:topic-mpd_qadd_u32"></span><span class="target" id="std:topic-mpd_qadd_u64"></span><span class="target" id="std:topic-mpd_add_ssize"></span><span class="target" id="std:topic-mpd_add_i32"></span><span class="target" id="std:topic-mpd_add_i64"></span><span class="target" id="std:topic-mpd_add_uint"></span><span class="target" id="std:topic-mpd_add_u32"></span><div class="section" id="add">
+<span id="std:topic-mpd_add_u64"></span><h3>add</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qadd</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+              <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_add</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+             <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to <em>a</em> + <em>b</em>.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qadd_ssize</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">b</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qadd_i32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int32_t</span> <span class="n">b</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qadd_i64</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int64_t</span> <span class="n">b</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qadd_uint</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_uint_t</span> <span class="n">b</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qadd_u32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">b</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qadd_u64</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">b</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+
+<span class="kt">void</span> <span class="n">mpd_add_ssize</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">b</span><span class="p">,</span>
+                   <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_add_i32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int32_t</span> <span class="n">b</span><span class="p">,</span>
+                 <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_add_i64</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int64_t</span> <span class="n">b</span><span class="p">,</span>
+                 <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_add_uint</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_uint_t</span> <span class="n">b</span><span class="p">,</span>
+                  <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_add_u32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">b</span><span class="p">,</span>
+                 <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_add_u64</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">b</span><span class="p">,</span>
+                 <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to <em>a</em> + <em>b</em>. The <tt class="xref c c-macro docutils literal"><span class="pre">i64</span></tt> and <tt class="xref c c-macro docutils literal"><span class="pre">u64</span></tt> functions
+are only available for the 64-bit versions of <strong>libmpdec</strong>.</p>
+<span class="target" id="std:topic-mpd_qsub"></span><span class="target" id="std:topic-mpd_sub"></span><span class="target" id="std:topic-mpd_qsub_ssize"></span><span class="target" id="std:topic-mpd_qsub_i32"></span><span class="target" id="std:topic-mpd_qsub_i64"></span><span class="target" id="std:topic-mpd_qsub_uint"></span><span class="target" id="std:topic-mpd_qsub_u32"></span><span class="target" id="std:topic-mpd_qsub_u64"></span><span class="target" id="std:topic-mpd_sub_ssize"></span><span class="target" id="std:topic-mpd_sub_i32"></span><span class="target" id="std:topic-mpd_sub_i64"></span><span class="target" id="std:topic-mpd_sub_uint"></span><span class="target" id="std:topic-mpd_sub_u32"></span></div>
+<div class="section" id="subtract">
+<span id="std:topic-mpd_sub_u64"></span><h3>subtract</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qsub</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+              <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_sub</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+             <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to <em>a</em> - <em>b</em>.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qsub_ssize</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">b</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qsub_i32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int32_t</span> <span class="n">b</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qsub_i64</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int64_t</span> <span class="n">b</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qsub_uint</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_uint_t</span> <span class="n">b</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qsub_u32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">b</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qsub_u64</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">b</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+
+<span class="kt">void</span> <span class="n">mpd_sub_ssize</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">b</span><span class="p">,</span>
+                   <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_sub_i32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int32_t</span> <span class="n">b</span><span class="p">,</span>
+                 <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_sub_i64</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int64_t</span> <span class="n">b</span><span class="p">,</span>
+                 <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_sub_uint</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_uint_t</span> <span class="n">b</span><span class="p">,</span>
+                  <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_sub_u32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">b</span><span class="p">,</span>
+                 <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_sub_u64</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">b</span><span class="p">,</span>
+                 <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to <em>a</em> - <em>b</em>. The <tt class="xref c c-macro docutils literal"><span class="pre">i64</span></tt> and <tt class="xref c c-macro docutils literal"><span class="pre">u64</span></tt> functions are
+only available for the 64-bit versions of <strong>libmpdec</strong>.</p>
+<span class="target" id="std:topic-mpd_qmul"></span><span class="target" id="std:topic-mpd_mul"></span><span class="target" id="std:topic-mpd_qmul_ssize"></span><span class="target" id="std:topic-mpd_qmul_i32"></span><span class="target" id="std:topic-mpd_qmul_i64"></span><span class="target" id="std:topic-mpd_qmul_uint"></span><span class="target" id="std:topic-mpd_qmul_u32"></span><span class="target" id="std:topic-mpd_qmul_u64"></span><span class="target" id="std:topic-mpd_mul_ssize"></span><span class="target" id="std:topic-mpd_mul_i32"></span><span class="target" id="std:topic-mpd_mul_i64"></span><span class="target" id="std:topic-mpd_mul_uint"></span><span class="target" id="std:topic-mpd_mul_u32"></span></div>
+<div class="section" id="multiply">
+<span id="std:topic-mpd_mul_u64"></span><h3>multiply</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qmul</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+              <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_mul</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+             <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to <em>a</em> * <em>b</em>.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qmul_ssize</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">b</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qmul_i32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int32_t</span> <span class="n">b</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qmul_i64</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int64_t</span> <span class="n">b</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qmul_uint</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_uint_t</span> <span class="n">b</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qmul_u32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">b</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qmul_u64</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">b</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+
+<span class="kt">void</span> <span class="n">mpd_mul_ssize</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">b</span><span class="p">,</span>
+                   <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_mul_i32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int32_t</span> <span class="n">b</span><span class="p">,</span>
+                 <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_mul_i64</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int64_t</span> <span class="n">b</span><span class="p">,</span>
+                 <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_mul_uint</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_uint_t</span> <span class="n">b</span><span class="p">,</span>
+                  <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_mul_u32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">b</span><span class="p">,</span>
+                 <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_mul_u64</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">b</span><span class="p">,</span>
+                 <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to <em>a</em> * <em>b</em>. The <tt class="xref c c-macro docutils literal"><span class="pre">i64</span></tt> and <tt class="xref c c-macro docutils literal"><span class="pre">u64</span></tt> functions are
+only available for the 64-bit versions of <strong>libmpdec</strong>.</p>
+<span class="target" id="std:topic-mpd_qdiv"></span><span class="target" id="std:topic-mpd_div"></span><span class="target" id="std:topic-mpd_qdiv_ssize"></span><span class="target" id="std:topic-mpd_qdiv_i32"></span><span class="target" id="std:topic-mpd_qdiv_i64"></span><span class="target" id="std:topic-mpd_qdiv_uint"></span><span class="target" id="std:topic-mpd_qdiv_u32"></span><span class="target" id="std:topic-mpd_qdiv_u64"></span><span class="target" id="std:topic-mpd_div_ssize"></span><span class="target" id="std:topic-mpd_div_i32"></span><span class="target" id="std:topic-mpd_div_i64"></span><span class="target" id="std:topic-mpd_div_uint"></span><span class="target" id="std:topic-mpd_div_u32"></span></div>
+<div class="section" id="divide">
+<span id="std:topic-mpd_div_u64"></span><h3>divide</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qdiv</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">q</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+              <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_div</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">q</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+             <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to <em>a</em> / <em>b</em>.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qdiv_ssize</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">b</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qdiv_i32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int32_t</span> <span class="n">b</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qdiv_i64</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int64_t</span> <span class="n">b</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qdiv_uint</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_uint_t</span> <span class="n">b</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qdiv_u32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">b</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qdiv_u64</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">b</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+
+<span class="kt">void</span> <span class="n">mpd_div_ssize</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">b</span><span class="p">,</span>
+                   <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_div_i32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int32_t</span> <span class="n">b</span><span class="p">,</span>
+                 <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_div_i64</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int64_t</span> <span class="n">b</span><span class="p">,</span>
+                 <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_div_uint</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_uint_t</span> <span class="n">b</span><span class="p">,</span>
+                  <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_div_u32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">b</span><span class="p">,</span>
+                 <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_div_u64</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">b</span><span class="p">,</span>
+                 <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to <em>a</em> / <em>b</em>. The <tt class="xref c c-macro docutils literal"><span class="pre">i64</span></tt> and <tt class="xref c c-macro docutils literal"><span class="pre">u64</span></tt> functions are
+only available for the 64-bit versions of <strong>libmpdec</strong>.</p>
+<span class="target" id="std:topic-mpd_qfma"></span></div>
+<div class="section" id="fused-multiply-add">
+<span id="std:topic-mpd_fma"></span><h3>fused-multiply-add</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qfma</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">r</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">c</span><span class="p">,</span>
+              <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_fma</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">r</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">c</span><span class="p">,</span>
+             <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>r</em> to <em>a</em> * <em>b</em> + <em>c</em> with a single, final rounding.</p>
+</div>
+</div>
+<div class="section" id="integer-division">
+<h2>Integer Division</h2>
+<span class="target" id="std:topic-mpd_qdivint"></span><div class="section" id="divide-integer">
+<span id="std:topic-mpd_divint"></span><h3>divide-integer</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qdivint</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">q</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                 <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_divint</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">q</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>q</em> to the integer part of <em>a</em> / <em>b</em>.</p>
+<span class="target" id="std:topic-mpd_qrem"></span></div>
+<div class="section" id="remainder">
+<span id="std:topic-mpd_rem"></span><h3>remainder</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qrem</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">r</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+              <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_rem</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">r</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+             <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>r</em> to the remainder of <em>a</em> / <em>b</em>.</p>
+<span class="target" id="std:topic-mpd_qrem_near"></span></div>
+<div class="section" id="remainder-near">
+<span id="std:topic-mpd_rem_near"></span><h3>remainder-near</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qrem_near</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">r</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_rem_near</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">r</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                  <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>r</em> to <em>a</em> - <em>b</em> * n, where n is the integer nearest the exact value
+of a / b. If two integers are equally near then the even one is chosen.</p>
+<span class="target" id="std:topic-mpd_qdivmod"></span></div>
+<div class="section" id="divmod">
+<span id="std:topic-mpd_divmod"></span><h3>divmod</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qdivmod</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">q</span><span class="p">,</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">r</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                 <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_divmod</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">q</span><span class="p">,</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">r</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>q</em> and <em>r</em> to the integer part and remainder of <em>a</em> / <em>b</em>. This
+function is not part of the standard.</p>
+</div>
+</div>
+<div class="section" id="powers-and-logarithms">
+<h2>Powers and Logarithms</h2>
+<span class="target" id="std:topic-mpd_qexp"></span><div class="section" id="exp">
+<span id="std:topic-mpd_exp"></span><h3>exp</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qexp</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+              <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_exp</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to <em>e</em> ** <em>a</em>. Results are correctly rounded if the <em>allcr</em>
+field in the context is set to 1.</p>
+</div>
+<div class="section" id="ln10">
+<span id="std:topic-mpd_update_ln10"></span><h3>ln10</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">extern</span> <span class="n">mpd_t</span> <span class="n">mpd_ln10</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="n">mpd_update_ln10</span><span class="p">(</span><span class="n">mpd_ssize_t</span> <span class="n">prec</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set the global variable <tt class="xref c c-macro docutils literal"><span class="pre">mpd_ln10</span></tt> to the natural logarithm of 10,
+with <em>prec</em> digits.</p>
+<p>This function is not thread-safe.</p>
+<span class="target" id="std:topic-mpd_qln"></span></div>
+<div class="section" id="ln">
+<span id="std:topic-mpd_ln"></span><h3>ln</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qln</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+             <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_ln</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to the natural logarithm of <em>a</em>. Results are correctly rounded
+if the <em>allcr</em> field in the context is set to 1.</p>
+<p>This function is not thread-safe.</p>
+<span class="target" id="std:topic-mpd_qlog10"></span></div>
+<div class="section" id="log10">
+<span id="std:topic-mpd_log10"></span><h3>log10</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qlog10</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_log10</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to the base-10 logarithm of <em>a</em>. Results are correctly rounded
+if the <em>allcr</em> field in the context is set to 1.</p>
+<p>This function is not thread-safe.</p>
+<span class="target" id="std:topic-mpd_qpow"></span></div>
+<div class="section" id="power">
+<span id="std:topic-mpd_pow"></span><h3>power</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qpow</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">base</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">exp</span><span class="p">,</span>
+              <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_pow</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">base</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">exp</span><span class="p">,</span>
+             <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to <em>base</em> ** <em>exp</em>. Integer powers are exact, provided that that
+the result is finite and fits into <em>prec</em>.</p>
+<p>Results are not correctly rounded, even if the <em>allcr</em> context field is set
+to 1. This might change in a future release. The error of the function is
+less than <em>1ULP+t</em>, where <em>t</em> has a maximum of <em>0.1ULP</em>, but is almost always
+less than <em>0.01ULP</em>.</p>
+<p>This function is not thread-safe.</p>
+<span class="target" id="std:topic-mpd_qsqrt"></span></div>
+<div class="section" id="square-root">
+<span id="std:topic-mpd_sqrt"></span><h3>square-root</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qsqrt</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+               <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_sqrt</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to the square root of <em>a</em>. This function is always correctly
+rounded and always uses the <tt class="xref c c-macro docutils literal"><span class="pre">ROUND_HALF_EVEN</span></tt> mode.</p>
+<span class="target" id="std:topic-mpd_qinvroot"></span></div>
+<div class="section" id="inverse-square-root">
+<span id="std:topic-mpd_invroot"></span><h3>inverse-square-root</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qinvroot</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                  <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_invroot</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to the reciprocal of the square root of <em>a</em>. The function always
+uses the <tt class="xref c c-macro docutils literal"><span class="pre">ROUND_HALF_EVEN</span></tt> mode. Results are not correctly rounded,
+even if the <em>allcr</em> context field is set to 1. This might change in a future
+release.</p>
+</div>
+</div>
+<div class="section" id="sign-and-absolute">
+<h2>Sign and Absolute</h2>
+<span class="target" id="std:topic-mpd_qminus"></span><div class="section" id="minus">
+<span id="std:topic-mpd_minus"></span><h3>minus</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qminus</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_minus</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to - <em>a</em>. The operation is context sensitive.</p>
+<span class="target" id="std:topic-mpd_qplus"></span></div>
+<div class="section" id="plus">
+<span id="std:topic-mpd_plus"></span><h3>plus</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qplus</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+               <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_plus</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to + <em>a</em>. The operation is context sensitive.</p>
+<span class="target" id="std:topic-mpd_qabs"></span></div>
+<div class="section" id="abs">
+<span id="std:topic-mpd_abs"></span><h3>abs</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qabs</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+              <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_abs</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to the absolute value of <em>a</em>. For negative numbers,
+<tt class="xref c c-func docutils literal"><span class="pre">mpd_qabs</span></tt> is the same as <tt class="xref c c-func docutils literal"><span class="pre">mpd_qminus</span></tt>, for positive
+numbers the same as <tt class="xref c c-func docutils literal"><span class="pre">mpd_qplus</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="comparisons">
+<h2>Comparisons</h2>
+<span class="target" id="std:topic-mpd_qcompare"></span><div class="section" id="compare">
+<span id="std:topic-mpd_compare"></span><h3>compare</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_qcompare</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                 <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_compare</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to -1 if <em>a</em> is less than <em>b</em>, 0 if <em>a</em> is equal to <em>b</em> and 1
+if <em>a</em> is greater than <em>b</em>. For convenience, the result is also returned as
+a C integer. The <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Invalid_Operation</span></tt> condition is added to <em>status</em>
+if at least one of the operands is a signaling NaN. In this case, result is
+set to NaN and <tt class="xref c c-macro docutils literal"><span class="pre">INT_MAX</span></tt> is returned.</p>
+<span class="target" id="std:topic-mpd_qcompare_signal"></span></div>
+<div class="section" id="compare-signal">
+<span id="std:topic-mpd_compare_signal"></span><h3>compare-signal</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_qcompare_signal</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                        <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_compare_signal</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                       <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Same as <tt class="xref c c-func docutils literal"><span class="pre">mpd_qcompare</span></tt>, except that the <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Invalid_Operation</span></tt>
+condition is also added to <em>status</em> if at least one of the operands is a quiet
+NaN.</p>
+</div>
+<div class="section" id="compare-total">
+<span id="std:topic-mpd_compare_total"></span><h3>compare-total</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_compare_total</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Compare <em>a</em> and <em>b</em> using a total ordering. This function is always quiet.</p>
+</div>
+<div class="section" id="compare-total-magnitude">
+<span id="std:topic-mpd_compare_total_mag"></span><h3>compare-total-magnitude</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_compare_total_mag</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Compare the magnitude of <em>a</em> and <em>b</em> using a total ordering. This function
+is always quiet.</p>
+<span class="target" id="std:topic-mpd_qcmp"></span></div>
+<div class="section" id="cmp">
+<span id="std:topic-mpd_cmp"></span><h3>cmp</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_qcmp</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_cmp</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Same as <tt class="xref c c-func docutils literal"><span class="pre">mpd_qcompare_signal</span></tt>, but without the decimal result operand.</p>
+</div>
+<div class="section" id="cmp-total">
+<span id="std:topic-mpd_cmp_total"></span><h3>cmp-total</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_cmp_total</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Same as <tt class="xref c c-func docutils literal"><span class="pre">mpd_compare_total</span></tt>, but without the decimal result operand.</p>
+</div>
+<div class="section" id="cmp-total-magnitude">
+<span id="std:topic-mpd_cmp_total_mag"></span><h3>cmp-total-magnitude</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_cmp_total_mag</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Same as <tt class="xref c c-func docutils literal"><span class="pre">mpd_compare_total_mag</span></tt>, but without the decimal result operand.</p>
+<span class="target" id="std:topic-mpd_qmax"></span></div>
+<div class="section" id="max">
+<span id="std:topic-mpd_max"></span><h3>max</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qmax</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+              <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_max</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+             <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to the maximum of <em>a</em> and <em>b</em>. If one of the operands is a quiet NaN
+and the other is numeric, the numeric operand is returned.</p>
+<span class="target" id="std:topic-mpd_qmax_mag"></span></div>
+<div class="section" id="max-mag">
+<span id="std:topic-mpd_max_mag"></span><h3>max-mag</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qmax_mag</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_max_mag</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                 <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Same as <tt class="xref c c-func docutils literal"><span class="pre">mpd_qmax</span></tt>, but the numerical comparison takes place with the
+signs of the operands set to 0 (positive).</p>
+<span class="target" id="std:topic-mpd_qmin"></span></div>
+<div class="section" id="min">
+<span id="std:topic-mpd_min"></span><h3>min</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qmin</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+              <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_min</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+             <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to the minimum of <em>a</em> and <em>b</em>. If one of the operands is a quiet NaN
+and the other is numeric, the numeric operand is returned.</p>
+<span class="target" id="std:topic-mpd_qmin_mag"></span></div>
+<div class="section" id="min-mag">
+<span id="std:topic-mpd_min_mag"></span><h3>min-mag</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qmin_mag</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_min_mag</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                 <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Same as <tt class="xref c c-func docutils literal"><span class="pre">mpd_qmin</span></tt>, but the numerical comparison takes place with the
+signs of the operands set to 0 (positive).</p>
+</div>
+</div>
+<div class="section" id="closest-numbers">
+<h2>Closest Numbers</h2>
+<span class="target" id="std:topic-mpd_qnext_minus"></span><div class="section" id="next-minus">
+<span id="std:topic-mpd_next_minus"></span><h3>next-minus</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qnext_minus</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span>
+                     <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_next_minus</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The closest representable number that is smaller than <em>a</em>.</p>
+<span class="target" id="std:topic-mpd_qnext_plus"></span></div>
+<div class="section" id="next-plus">
+<span id="std:topic-mpd_next_plus"></span><h3>next-plus</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qnext_plus</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_next_plus</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The closest representable number that is larger than <em>a</em>.</p>
+<span class="target" id="std:topic-mpd_qnext_toward"></span></div>
+<div class="section" id="next-toward">
+<span id="std:topic-mpd_next_toward"></span><h3>next-toward</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qnext_toward</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                      <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_next_toward</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                     <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Representable number closest to <em>a</em> that is in the direction towards <em>b</em>.</p>
+</div>
+</div>
+<div class="section" id="quantizing-and-normalizing">
+<h2>Quantizing and Normalizing</h2>
+<span class="target" id="std:topic-mpd_qquantize"></span><div class="section" id="quantize">
+<span id="std:topic-mpd_quantize"></span><h3>quantize</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qquantize</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_quantize</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                  <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to the number that is equal in value to <em>a</em>, but has the exponent of <em>b</em>.</p>
+<span class="target" id="std:topic-mpd_qrescale"></span></div>
+<div class="section" id="rescale">
+<span id="std:topic-mpd_rescale"></span><h3>rescale</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qrescale</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">exp</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_rescale</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">exp</span><span class="p">,</span>
+                 <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to the number that is equal in value to <em>a</em>, but has the exponent <em>exp</em>.
+Special numbers are copied without signaling. This function is not part of the
+standard. It is also not equivalent to the <tt class="xref c c-func docutils literal"><span class="pre">rescale</span></tt> function that was removed
+from the standard.</p>
+</div>
+<div class="section" id="same-quantum">
+<span id="std:topic-mpd_same_quantum"></span><h3>same-quantum</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_same_quantum</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Return 1 if <em>a</em> and <em>b</em> have the same exponent, 0 otherwise.</p>
+<span class="target" id="std:topic-mpd_qreduce"></span></div>
+<div class="section" id="reduce">
+<span id="std:topic-mpd_reduce"></span><h3>reduce</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qreduce</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                 <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_reduce</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If <em>a</em> is finite after applying rounding and overflow/underflow checks, <em>result</em>
+is set to the simplest form of <em>a</em> with all trailing zeros removed.</p>
+<span class="target" id="std:topic-mpd_qround_to_intx"></span></div>
+</div>
+<div class="section" id="integral-values">
+<span id="std:topic-mpd_round_to_intx"></span><h2>Integral Values</h2>
+<div class="section" id="round-to-integral-exact">
+<h3>round-to-integral-exact</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qround_to_intx</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span>
+                        <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_round_to_intx</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Round to an integer, using the rounding mode of the context. Only a signaling
+NaN causes an <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Invalid_operation</span></tt> condition.</p>
+<span class="target" id="std:topic-mpd_qround_to_int"></span></div>
+<div class="section" id="round-to-integral-value">
+<span id="std:topic-mpd_round_to_int"></span><h3>round-to-integral-value</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qround_to_int</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span>
+                       <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_round_to_int</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Same as <tt class="xref c c-func docutils literal"><span class="pre">mpd_qround_to_intx</span></tt>, but the <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Inexact</span></tt> and
+<tt class="xref c c-macro docutils literal"><span class="pre">MPD_Rounded</span></tt> flags are never set.</p>
+<span class="target" id="std:topic-mpd_qfloor"></span></div>
+<div class="section" id="floor">
+<span id="std:topic-mpd_floor"></span><h3>floor</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qfloor</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_floor</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to the floor of <em>a</em>. Not part of the standard.</p>
+<span class="target" id="std:topic-mpd_qceil"></span></div>
+<div class="section" id="ceiling">
+<span id="std:topic-mpd_ceil"></span><h3>ceiling</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qceil</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+               <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_ceil</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to the ceiling of <em>a</em>. Not part of the standard.</p>
+<span class="target" id="std:topic-mpd_qtrunc"></span></div>
+<div class="section" id="truncate">
+<span id="std:topic-mpd_trunc"></span><h3>truncate</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qtrunc</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_trunc</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to the truncated value of <em>a</em>. Not part of the standard.</p>
+</div>
+</div>
+<div class="section" id="scale">
+<h2>Scale</h2>
+<span class="target" id="std:topic-mpd_qlogb"></span><div class="section" id="logb">
+<span id="std:topic-mpd_logb"></span><h3>logb</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qlogb</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+               <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_logb</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If <em>a</em> is NaN, the general rules apply. If <em>a</em> is infinite, <em>result</em> is +Infinity.
+If <em>a</em> is zero, result is -Infinity and <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Invalid_operation</span></tt> is added
+to <em>status</em>. Otherwise, <em>result</em> is the same as the adjusted exponent of <em>a</em>, or
+<tt class="xref c c-macro docutils literal"><span class="pre">floor(log10(a))</span></tt>.</p>
+<span class="target" id="std:topic-mpd_qscaleb"></span></div>
+<div class="section" id="scaleb">
+<span id="std:topic-mpd_scaleb"></span><h3>scaleb</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qscaleb</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                 <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_scaleb</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><em>b</em> must be an integer with exponent 0. If <em>a</em> is infinite, <em>result</em> is set
+to a. Otherwise, <em>result</em> is <em>a</em> with the value of <em>b</em> added to the exponent.</p>
+</div>
+</div>
+<div class="section" id="integer-functions">
+<h2>Integer Functions</h2>
+<span class="target" id="std:topic-mpd_qpowmod"></span><div class="section" id="powmod">
+<span id="std:topic-mpd_powmod"></span><h3>powmod</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qpowmod</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">base</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">exp</span><span class="p">,</span>
+                 <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">mod</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                 <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_powmod</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">base</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">exp</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">mod</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to (<em>base</em> ** <em>exp</em>) % <em>mod</em>. All operands must be integers.
+The function fails if <em>result</em> does not fit in the current <em>prec</em>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="various.html" title="Various Functions"
+             >next</a></li>
+        <li class="right" >
+          <a href="attributes.html" title="Attributes of a Decimal"
+             >previous</a> |</li>
+    <li><a href="http://www.bytereef.org/mpdecimal/index.html">project home</a>|&nbsp;</li>
+    <li><a href="../index.html">mpdecimal v2.3 documentation </a> &raquo;</li>
+
+          <li><a href="index.html" >libmpdec</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Stefan Krah.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

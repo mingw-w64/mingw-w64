@@ -1,0 +1,41 @@
+# Additional suppressions that are not covered in the
+# official valgrind-python.supp.
+
+{
+   add1
+   Memcheck:Addr4
+   fun:PyUnicodeUCS2_FSConverter
+}
+
+{
+   add2
+   Memcheck:Addr4
+   fun:convertsimple
+}
+
+{
+   add3
+   Memcheck:Addr8
+   fun:PySys_SetArgvEx
+   fun:Py_Main
+   fun:main
+}
+
+{
+   add4
+   Memcheck:Value8
+   fun:_itoa_word
+   fun:vfprintf
+   fun:vsnprintf
+}
+
+{
+   add5
+   Memcheck:Cond
+   fun:vfprintf
+   fun:vsnprintf
+   fun:PyOS_snprintf
+}
+
+
+

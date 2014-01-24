@@ -634,6 +634,12 @@ EGREP
 GREP
 ENABLE_TESTS_UNICODE_FALSE
 ENABLE_TESTS_UNICODE_TRUE
+ENABLE_REGISTEREDPRINTF_FALSE
+ENABLE_REGISTEREDPRINTF_TRUE
+ENABLE_PRINTF128_FALSE
+ENABLE_PRINTF128_TRUE
+ENABLE_DFP_FALSE
+ENABLE_DFP_TRUE
 DELAY_IMPORT_LIBS_FALSE
 DELAY_IMPORT_LIBS_TRUE
 PRIVATE_EXPORTS_FALSE
@@ -776,6 +782,7 @@ enable_libce
 enable_wildcard
 enable_private_exports
 enable_delay_import_libs
+enable_experimental
 enable_tests_unicode
 enable_warnings
 '
@@ -1430,6 +1437,10 @@ Optional Features:
                           Enable exporting private internal functions
   --enable-delay-import-libs
                           Enable creation of delay-import libraries
+  --enable-experimental   Enable experimental features, valid options are
+                          comma separated combination of all, dfp, printf128,
+                          registeredprintf. Refer to experimental.txt for
+                          descriptions.
   --enable-tests-unicode  Enable the unicode testsuite without testing the
                           compiler for support.
   --enable-warnings[=0-5] Enable compile time warnings [default=3]
@@ -2976,6 +2987,48 @@ fi
 $as_echo "$ac_cv_path_SED" >&6; }
  SED="$ac_cv_path_SED"
   rm -f conftest.sed
+
+for ac_prog in gawk mawk nawk awk
+do
+  # Extract the first word of "$ac_prog", so it can be a program name with args.
+set dummy $ac_prog; ac_word=$2
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+$as_echo_n "checking for $ac_word... " >&6; }
+if ${ac_cv_prog_AWK+:} false; then :
+  $as_echo_n "(cached) " >&6
+else
+  if test -n "$AWK"; then
+  ac_cv_prog_AWK="$AWK" # Let the user override the test.
+else
+as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  test -z "$as_dir" && as_dir=.
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
+    ac_cv_prog_AWK="$ac_prog"
+    $as_echo "$as_me:${as_lineno-$LINENO}: found $as_dir/$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+fi
+fi
+AWK=$ac_cv_prog_AWK
+if test -n "$AWK"; then
+  { $as_echo "$as_me:${as_lineno-$LINENO}: result: $AWK" >&5
+$as_echo "$AWK" >&6; }
+else
+  { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+fi
+
+
+  test -n "$AWK" && break
+done
 
 ac_ext=c
 ac_cpp='$CPP $CPPFLAGS'
@@ -5478,6 +5531,84 @@ fi
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_delay_import_libs" >&5
 $as_echo "$enable_delay_import_libs" >&6; }
 
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to enable experimental features" >&5
+$as_echo_n "checking whether to enable experimental features... " >&6; }
+# Check whether --enable-experimental was given.
+if test "${enable_experimental+set}" = set; then :
+  enableval=$enable_experimental; experimental_features=$enable_experimental
+else
+  experimental_features="no"
+fi
+
+
+enable_dfp=no
+enable_printf128=no
+enable_registeredprintf=no
+experiment_list=$($AWK 'BEGIN{OFS=" "; len = split(ARGV[1],str,","); for(; len != 0; len--) print str[len] }' "$experimental_features")
+
+for arg in $experiment_list
+do
+case $arg in #(
+  dfp) :
+    enable_dfp=yes ;; #(
+  printf128) :
+    enable_printf128=yes ;; #(
+  registeredprintf) :
+    enable_registeredprintf=yes ;; #(
+  all) :
+    enable_dfp=yes; enable_printf128=yes; enable_registeredprintf=yes;  ;; #(
+  yes) :
+    enable_dfp=yes; enable_printf128=yes; enable_registeredprintf=yes;  ;; #(
+  no) :
+    enable_dfp=no; enable_printf128=no; enable_registeredprintf=no;  ;; #(
+  *) :
+    as_fn_error $? "Unknown option \"$experiment\"" "$LINENO" 5
+ ;;
+esac
+done
+
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $experimental_features" >&5
+$as_echo "$experimental_features" >&6; }
+ if  test "$enable_dfp" = "yes" ; then
+  ENABLE_DFP_TRUE=
+  ENABLE_DFP_FALSE='#'
+else
+  ENABLE_DFP_TRUE='#'
+  ENABLE_DFP_FALSE=
+fi
+
+ if  test "$enable_printf128" = "yes" ; then
+  ENABLE_PRINTF128_TRUE=
+  ENABLE_PRINTF128_FALSE='#'
+else
+  ENABLE_PRINTF128_TRUE='#'
+  ENABLE_PRINTF128_FALSE=
+fi
+
+ if  test "$enable_registeredprintf" = "yes" ; then
+  ENABLE_REGISTEREDPRINTF_TRUE=
+  ENABLE_REGISTEREDPRINTF_FALSE='#'
+else
+  ENABLE_REGISTEREDPRINTF_TRUE='#'
+  ENABLE_REGISTEREDPRINTF_FALSE=
+fi
+
+if test -z "$ENABLE_DFP_TRUE"; then :
+
+$as_echo "#define __ENABLE_DFP 1" >>confdefs.h
+
+fi
+if test -z "$ENABLE_PRINTF128_TRUE"; then :
+
+$as_echo "#define __ENABLE_PRINTF128 1" >>confdefs.h
+
+fi
+if test -z "$ENABLE_REGISTEREDPRINTF_TRUE"; then :
+
+$as_echo "#define __ENABLE_REGISTEREDPRINTF 1" >>confdefs.h
+
+fi
+
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether the compiler supports -municode" >&5
 $as_echo_n "checking whether the compiler supports -municode... " >&6; }
 # Check whether --enable-tests-unicode was given.
@@ -6032,6 +6163,18 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${DELAY_IMPORT_LIBS_TRUE}" && test -z "${DELAY_IMPORT_LIBS_FALSE}"; then
   as_fn_error $? "conditional \"DELAY_IMPORT_LIBS\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${ENABLE_DFP_TRUE}" && test -z "${ENABLE_DFP_FALSE}"; then
+  as_fn_error $? "conditional \"ENABLE_DFP\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${ENABLE_PRINTF128_TRUE}" && test -z "${ENABLE_PRINTF128_FALSE}"; then
+  as_fn_error $? "conditional \"ENABLE_PRINTF128\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${ENABLE_REGISTEREDPRINTF_TRUE}" && test -z "${ENABLE_REGISTEREDPRINTF_FALSE}"; then
+  as_fn_error $? "conditional \"ENABLE_REGISTEREDPRINTF\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ENABLE_TESTS_UNICODE_TRUE}" && test -z "${ENABLE_TESTS_UNICODE_FALSE}"; then
@@ -7392,6 +7535,14 @@ $as_echo "$as_me:   C Warning Flags......: $ADD_C_ONLY_WARNING_FLAGS" >&6;}
 $as_echo "$as_me:   C++ Warning Flags....: $ADD_CXX_ONLY_WARNING_FLAGS" >&6;}
 { $as_echo "$as_me:${as_lineno-$LINENO}:   Common Warning Flags.: $ADD_C_CXX_WARNING_FLAGS" >&5
 $as_echo "$as_me:   Common Warning Flags.: $ADD_C_CXX_WARNING_FLAGS" >&6;}
+{ $as_echo "$as_me:${as_lineno-$LINENO}: " >&5
+$as_echo "$as_me: " >&6;}
+{ $as_echo "$as_me:${as_lineno-$LINENO}:   DFP printf...........: $enable_dfp" >&5
+$as_echo "$as_me:   DFP printf...........: $enable_dfp" >&6;}
+{ $as_echo "$as_me:${as_lineno-$LINENO}:   128-bit printf.......: $enable_printf128" >&5
+$as_echo "$as_me:   128-bit printf.......: $enable_printf128" >&6;}
+{ $as_echo "$as_me:${as_lineno-$LINENO}:   Custom printf........: $enable_registeredprintf" >&5
+$as_echo "$as_me:   Custom printf........: $enable_registeredprintf" >&6;}
 { $as_echo "$as_me:${as_lineno-$LINENO}: " >&5
 $as_echo "$as_me: " >&6;}
 

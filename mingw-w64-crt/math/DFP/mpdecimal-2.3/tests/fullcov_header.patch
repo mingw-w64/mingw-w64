@@ -1,0 +1,28 @@
+--- a/mpdecimal.h	2011-03-29 20:23:00.000000000 +0200
++++ b/mpdecimal.h	2011-03-29 20:24:50.000000000 +0200
+@@ -107,8 +107,9 @@
+ typedef uint64_t mpd_uuint_t; /* double width unsigned mod type */
+ #endif
+ 
+-#define MPD_SIZE_MAX SIZE_MAX
+-typedef size_t mpd_size_t; /* unsigned size type */
++/* enable CONFIG_32+ANSI on 64-bit platforms without resorting to -m32 */
++#define MPD_SIZE_MAX UINT32_MAX
++typedef uint32_t mpd_size_t; /* unsigned size type */
+ 
+ /* type for dec->len, dec->exp, ctx->prec */
+ #define MPD_SSIZE_MAX INT32_MAX
+@@ -140,8 +141,11 @@
+ /* END CONFIG */
+ 
+ 
+-#if MPD_SIZE_MAX != MPD_UINT_MAX
+-  #error "unsupported platform: need mpd_size_t == mpd_uint_t"
++#if SIZE_MAX < MPD_SIZE_MAX
++  #error "unsupported platform: need size_t >= mpd_size_t"
++#endif
++#ifndef TEST_COVERAGE
++  #error "Define TEST_COVERAGE or revert tests/fullcov_header.patch."
+ #endif
+ 
+ 

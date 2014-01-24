@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="index,follow" name="robots" />
+<meta content="libmpdec documentation" name="description" />
+
+    <title>Assignment, Conversions, I/O &mdash; mpdecimal v2.3 documentation</title>
+    <link rel="stylesheet" href="../_static/mpdecimal-doc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="mpdecimal v2.3 documentation" href="../index.html" />
+    <link rel="up" title="libmpdec" href="index.html" />
+    <link rel="next" title="Attributes of a Decimal" href="attributes.html" />
+    <link rel="prev" title="Decimals" href="decimals.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="attributes.html" title="Attributes of a Decimal"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="decimals.html" title="Decimals"
+             accesskey="P">previous</a> |</li>
+    <li><a href="http://www.bytereef.org/mpdecimal/index.html">project home</a>|&nbsp;</li>
+    <li><a href="../index.html">mpdecimal v2.3 documentation </a> &raquo;</li>
+
+          <li><a href="index.html" accesskey="U">libmpdec</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Assignment, Conversions, I/O</a><ul>
+<li><a class="reference internal" href="#create-decimal">Create Decimal</a><ul>
+<li><a class="reference internal" href="#from-string">From String</a></li>
+<li><a class="reference internal" href="#from-integer">From Integer</a></li>
+<li><a class="reference internal" href="#from-special-values">From Special Values</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#convert-decimal">Convert Decimal</a><ul>
+<li><a class="reference internal" href="#to-string">To String</a></li>
+<li><a class="reference internal" href="#to-integer">To Integer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#copy-decimal">Copy Decimal</a></li>
+<li><a class="reference internal" href="#print-decimal">Print Decimal</a></li>
+<li><a class="reference internal" href="#print-status-flags">Print Status Flags</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="decimals.html"
+                        title="previous chapter">Decimals</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="attributes.html"
+                        title="next chapter">Attributes of a Decimal</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="assignment-conversions-i-o">
+<h1>Assignment, Conversions, I/O</h1>
+<div class="section" id="create-decimal">
+<h2>Create Decimal</h2>
+<span class="target" id="std:topic-mpd_qset_string"></span><div class="section" id="from-string">
+<span id="std:topic-mpd_set_string"></span><h3>From String</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qset_string</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">s</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                     <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_set_string</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">s</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> from <em>s</em>. The context is respected. This means that rounding, overflow
+etc. can take place. If the string is not valid, the <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Conversion_syntax</span></tt>
+condition is added to <em>status</em> and <em>result</em> is set to NaN.</p>
+<span class="target" id="std:topic-mpd_qset_ssize"></span><span class="target" id="std:topic-mpd_qset_i32"></span><span class="target" id="std:topic-mpd_qset_i64"></span><span class="target" id="std:topic-mpd_qset_uint"></span><span class="target" id="std:topic-mpd_qset_u32"></span><span class="target" id="std:topic-mpd_qset_u64"></span><span class="target" id="std:topic-mpd_set_ssize"></span><span class="target" id="std:topic-mpd_set_i32"></span><span class="target" id="std:topic-mpd_set_i64"></span><span class="target" id="std:topic-mpd_set_uint"></span><span class="target" id="std:topic-mpd_set_u32"></span></div>
+<div class="section" id="from-integer">
+<span id="std:topic-mpd_set_u64"></span><h3>From Integer</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qset_ssize</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                    <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qset_i32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="kt">int32_t</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                  <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qset_i64</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="kt">int64_t</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                  <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qset_uint</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="n">mpd_uint_t</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                   <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qset_u32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                  <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_qset_u64</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                  <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+
+<span class="kt">void</span> <span class="n">mpd_set_ssize</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_set_i32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="kt">int32_t</span> <span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_set_i64</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="kt">int64_t</span> <span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_set_uint</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="n">mpd_uint_t</span> <span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_set_u32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_set_u64</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> from a C integer type. The context is respected.</p>
+</div>
+<div class="section" id="from-special-values">
+<span id="std:topic-mpd_seterror"></span><h3>From Special Values</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_seterror</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">flags</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to NaN, with the error condition passed in <em>flags</em>. The error
+condition is added to <em>status</em>. This is a convenience function intended to
+be used inside quiet functions.</p>
+<div class="highlight-c" id="std:topic-mpd_setspecial"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_setspecial</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">sign</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">type</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to a special number. <em>sign</em> must be one of {<tt class="xref c c-macro docutils literal"><span class="pre">MPD_POS</span></tt>, <tt class="xref c c-macro docutils literal"><span class="pre">MPD_NEG</span></tt>},
+<em>type</em> one of {<tt class="xref c c-macro docutils literal"><span class="pre">MPD_INF</span></tt>, <tt class="xref c c-macro docutils literal"><span class="pre">MPD_NAN</span></tt>, <tt class="xref c c-macro docutils literal"><span class="pre">MPD_SNAN</span></tt>}.</p>
+<div class="highlight-c" id="std:topic-mpd_zerocoeff"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_zerocoeff</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set the coefficient of <em>result</em> to zero. This function cannot fail.</p>
+<span class="target" id="std:topic-mpd_qmaxcoeff"></span><div class="highlight-c" id="std:topic-mpd_maxcoeff"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qmaxcoeff</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                   <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_maxcoeff</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set the coefficient of <em>result</em> to the maximum value allowed by <em>ctx-&gt;prec</em>.
+The function can fail with <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Malloc_error</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="convert-decimal">
+<h2>Convert Decimal</h2>
+<span class="target" id="std:topic-mpd_to_sci"></span><div class="section" id="to-string">
+<span id="std:topic-mpd_to_eng"></span><h3>To String</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">char</span> <span class="o">*</span><span class="n">mpd_to_sci</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">,</span> <span class="kt">int</span> <span class="n">fmt</span><span class="p">);</span>
+<span class="kt">char</span> <span class="o">*</span><span class="n">mpd_to_eng</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">,</span> <span class="kt">int</span> <span class="n">fmt</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Return the <em>scientific</em> or <em>engineering</em> string representation of a decimal.
+This operation is not context sensitive. If <em>fmt</em> is zero, the exponent
+character is lower case, otherwise it is upper case. If allocating memory
+for the string fails, <tt class="xref c c-macro docutils literal"><span class="pre">NULL</span></tt> is returned.</p>
+<span class="target" id="std:topic-mpd_qformat"></span><div class="highlight-c" id="std:topic-mpd_format"><div class="highlight"><pre><span class="kt">char</span> <span class="o">*</span><span class="n">mpd_qformat</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fmt</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">char</span> <span class="o">*</span><span class="n">mpd_format</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fmt</span><span class="p">,</span>
+                 <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Return the string representation of a decimal according to format string <em>fmt</em>.
+The format string syntax is the same as in Python PEP 3101 (See Standard Format
+Specifiers) and is quite similar to the syntax used for floating point numbers
+the C <tt class="xref c c-func docutils literal"><span class="pre">fprintf</span></tt> function. The fill character may be a UTF-8 character,
+the rest of the format string must be ASCII.</p>
+<p>The function can fail with <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Invalid_operation</span></tt> for an invalid format
+string or <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Malloc_error</span></tt>. In both cases, the return value is
+<tt class="xref c c-macro docutils literal"><span class="pre">NULL</span></tt>.</p>
+<span class="target" id="std:topic-mpd_qget_ssize"></span><span class="target" id="std:topic-mpd_qget_uint"></span><span class="target" id="std:topic-mpd_get_ssize"></span><span class="target" id="std:topic-mpd_get_uint"></span><span class="target" id="std:topic-mpd_qget_i32"></span><span class="target" id="std:topic-mpd_qget_u32"></span><span class="target" id="std:topic-mpd_get_i32"></span><span class="target" id="std:topic-mpd_get_u32"></span><span class="target" id="std:topic-mpd_qget_u64"></span><span class="target" id="std:topic-mpd_qget_i64"></span><span class="target" id="std:topic-mpd_get_i64"></span></div>
+<div class="section" id="to-integer">
+<span id="std:topic-mpd_get_u64"></span><h3>To Integer</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">mpd_ssize_t</span> <span class="n">mpd_qget_ssize</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="n">mpd_uint_t</span> <span class="n">mpd_qget_uint</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="n">mpd_ssize_t</span> <span class="n">mpd_get_ssize</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="n">mpd_uint_t</span> <span class="n">mpd_get_uint</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+
+<span class="cm">/* 32-bit version only */</span>
+<span class="kt">int32_t</span> <span class="n">mpd_qget_i32</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">uint32_t</span> <span class="n">mpd_qget_u32</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">int32_t</span> <span class="n">mpd_get_i32</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">uint32_t</span> <span class="n">mpd_get_u32</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+
+<span class="cm">/* 64-bit version only */</span>
+<span class="kt">uint64_t</span> <span class="n">mpd_qget_u64</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">int64_t</span> <span class="n">mpd_qget_i64</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">int64_t</span> <span class="n">mpd_get_i64</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">uint64_t</span> <span class="n">mpd_get_u64</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Convert a decimal to a C integer type. If the decimal is not an integer or
+its value is outside the range of the C type, <tt class="xref c c-macro docutils literal"><span class="pre">MPD_SSIZE_MAX</span></tt> is
+returned for signed types and <tt class="xref c c-macro docutils literal"><span class="pre">MPD_UINT_MAX</span></tt> for unsigned types. In
+this case, the status is set to <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Invalid_operation</span></tt>. Since a
+decimal can have the values <tt class="xref c c-macro docutils literal"><span class="pre">MPD_SSIZE_MAX</span></tt> or <tt class="xref c c-macro docutils literal"><span class="pre">MPD_UINT_MAX</span></tt>,
+the only reliable way to check for errors is to check the status.</p>
+<span class="target" id="std:topic-mpd_qabs_uint"></span><div class="highlight-c" id="std:topic-mpd_abs_uint"><div class="highlight"><pre><span class="n">mpd_uint_t</span> <span class="n">mpd_qabs_uint</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="n">mpd_uint_t</span> <span class="n">mpd_abs_uint</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Return the absolute of numbers in the range [<tt class="xref c c-macro docutils literal"><span class="pre">-MPD_UINT_MAX</span></tt>, <tt class="xref c c-macro docutils literal"><span class="pre">MPD_UINT_MAX</span></tt>].
+Error handling as above.</p>
+</div>
+</div>
+<div class="section" id="copy-decimal">
+<h2>Copy Decimal</h2>
+<span class="target" id="std:topic-mpd_qcopy"></span><div class="highlight-c" id="std:topic-mpd_copy"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_qcopy</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span>  <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_copy</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to the value of <em>a</em> and return 1 for success. On failure,
+return 0 and add <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Malloc_Error</span></tt> to <em>status</em>.</p>
+<div class="highlight-c" id="std:topic-mpd_qncopy"><div class="highlight"><pre><span class="n">mpd_t</span> <span class="o">*</span><span class="n">mpd_qncopy</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Return a pointer to a fresh copy of <em>a</em>, <tt class="xref c c-macro docutils literal"><span class="pre">NULL</span></tt> on failure.</p>
+<span class="target" id="std:topic-mpd_qcopy_abs"></span><div class="highlight-c" id="std:topic-mpd_copy_abs"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_qcopy_abs</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_copy_abs</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to the value of <em>a</em> with the sign set to 0. If successful,
+return 1. Otherwise, return 0 and add <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Malloc_Error</span></tt> to <em>status</em>.</p>
+<span class="target" id="std:topic-mpd_qcopy_negate"></span><div class="highlight-c" id="std:topic-mpd_copy_negate"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_qcopy_negate</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_copy_negate</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to the value of <em>a</em> with the sign inverted. If successful,
+return 1. Otherwise, return 0 and add <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Malloc_Error</span></tt> to <em>status</em>.</p>
+<span class="target" id="std:topic-mpd_qcopy_sign"></span><div class="highlight-c" id="std:topic-mpd_copy_sign"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_qcopy_sign</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                   <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_copy_sign</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                   <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to the value of <em>a</em>, using the sign of <em>b</em>. If successful,
+return 1. Otherwise, return 0 and add <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Malloc_Error</span></tt> to <em>status</em>.</p>
+</div>
+<div class="section" id="print-decimal">
+<h2>Print Decimal</h2>
+<span class="target" id="std:topic-mpd_fprint"></span><div class="highlight-c" id="std:topic-mpd_print"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_fprint</span><span class="p">(</span><span class="kt">FILE</span> <span class="o">*</span><span class="n">file</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_print</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Print a decimal with a trailing newline to <em>FILE</em> or to <em>stdout</em>. These
+functions are mostly useful for debugging.</p>
+</div>
+<div class="section" id="print-status-flags">
+<h2>Print Status Flags</h2>
+<span class="target" id="std:topic-mpd_snprint_flags"></span><span class="target" id="std:topic-mpd_lsnprint_flags"></span><div class="highlight-c" id="std:topic-mpd_lsnprint_signals"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_snprint_flags</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">dest</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nmemb</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">flags</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_lsnprint_flags</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">dest</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nmemb</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">flags</span><span class="p">,</span>
+                       <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">flag_string</span><span class="p">[]);</span>
+<span class="kt">int</span> <span class="n">mpd_lsnprint_signals</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">dest</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nmemb</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">flags</span><span class="p">,</span>
+                         <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">signal_string</span><span class="p">[]);</span>
+</pre></div>
+</div>
+<p><tt class="xref c c-func docutils literal"><span class="pre">mpd_snprint_flags</span></tt> prints the conditions contained in <em>flags</em>
+- separated by spaces - to the buffer <em>dest</em> with size <em>nmemb</em>. <em>nmemb</em>
+must be at least <tt class="xref c c-macro docutils literal"><span class="pre">MPD_MAX_FLAG_STRING</span></tt>.</p>
+<p><tt class="xref c c-func docutils literal"><span class="pre">mpd_lsnprint_flags</span></tt> prints the conditions contained in <em>flags</em> as
+a comma separated list to the buffer <em>dest</em> with size <em>nmemb</em>. <em>nmemb</em>
+must be at least <tt class="xref c c-macro docutils literal"><span class="pre">MPD_MAX_FLAG_LIST</span></tt>.</p>
+<p><tt class="xref c c-func docutils literal"><span class="pre">mpd_lsnprint_signals</span></tt> prints signals contained in <em>flags</em> as
+a comma separated list to the buffer <em>dest</em> with size <em>nmemb</em>. <em>nmemb</em>
+must be at least <tt class="xref c c-macro docutils literal"><span class="pre">MPD_MAX_SIGNAL_LIST</span></tt>.</p>
+<p>The result string is always <tt class="xref c c-macro docutils literal"><span class="pre">NUL</span></tt> terminated. The return value of
+both functions is the number of characters printed, without the <tt class="xref c c-macro docutils literal"><span class="pre">NUL</span></tt>
+terminator. On failure, -1 is returned.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="attributes.html" title="Attributes of a Decimal"
+             >next</a></li>
+        <li class="right" >
+          <a href="decimals.html" title="Decimals"
+             >previous</a> |</li>
+    <li><a href="http://www.bytereef.org/mpdecimal/index.html">project home</a>|&nbsp;</li>
+    <li><a href="../index.html">mpdecimal v2.3 documentation </a> &raquo;</li>
+
+          <li><a href="index.html" >libmpdec</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Stefan Krah.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

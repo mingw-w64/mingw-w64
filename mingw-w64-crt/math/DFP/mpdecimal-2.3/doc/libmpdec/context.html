@@ -1,0 +1,573 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="index,follow" name="robots" />
+<meta content="libmpdec documentation" name="description" />
+
+    <title>Context &mdash; mpdecimal v2.3 documentation</title>
+    <link rel="stylesheet" href="../_static/mpdecimal-doc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="mpdecimal v2.3 documentation" href="../index.html" />
+    <link rel="up" title="libmpdec" href="index.html" />
+    <link rel="next" title="Decimals" href="decimals.html" />
+    <link rel="prev" title="Function Index" href="functions.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="decimals.html" title="Decimals"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="functions.html" title="Function Index"
+             accesskey="P">previous</a> |</li>
+    <li><a href="http://www.bytereef.org/mpdecimal/index.html">project home</a>|&nbsp;</li>
+    <li><a href="../index.html">mpdecimal v2.3 documentation </a> &raquo;</li>
+
+          <li><a href="index.html" accesskey="U">libmpdec</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Context</a><ul>
+<li><a class="reference internal" href="#data-type">Data Type</a></li>
+<li><a class="reference internal" href="#constants">Constants</a></li>
+<li><a class="reference internal" href="#precision-and-exponents">Precision and Exponents</a></li>
+<li><a class="reference internal" href="#rounding">Rounding</a></li>
+<li><a class="reference internal" href="#signals-and-conditions">Signals and Conditions</a></li>
+<li><a class="reference internal" href="#exponent-clamping">Exponent Clamping</a></li>
+<li><a class="reference internal" href="#correct-rounding">Correct Rounding</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#context-functions">Context Functions</a><ul>
+<li><a class="reference internal" href="#initialization">Initialization</a></li>
+<li><a class="reference internal" href="#ieee-interchange-formats">IEEE Interchange Formats</a></li>
+<li><a class="reference internal" href="#getters-and-setters">Getters and Setters</a></li>
+<li><a class="reference internal" href="#calling-the-trap-handler">Calling the Trap Handler</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="functions.html"
+                        title="previous chapter">Function Index</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="decimals.html"
+                        title="next chapter">Decimals</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="context">
+<h1>Context</h1>
+<p>Most operations are affected by context. Usually, a pointer to the context
+is passed as the last parameter to signaling functions or the last but one
+parameter to quiet functions.</p>
+<div class="section" id="data-type">
+<h2>Data Type</h2>
+<p>The context is defined as a C struct:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#include &lt;mpdecimal.h&gt;</span>
+
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+        <span class="n">mpd_ssize_t</span> <span class="n">prec</span><span class="p">;</span>   <span class="c1">// precision</span>
+        <span class="n">mpd_ssize_t</span> <span class="n">emax</span><span class="p">;</span>   <span class="c1">// max positive exp</span>
+        <span class="n">mpd_ssize_t</span> <span class="n">emin</span><span class="p">;</span>   <span class="c1">// min negative exp</span>
+        <span class="kt">uint32_t</span> <span class="n">traps</span><span class="p">;</span>     <span class="c1">// status events that should be trapped</span>
+        <span class="kt">uint32_t</span> <span class="n">status</span><span class="p">;</span>    <span class="c1">// status flags</span>
+        <span class="kt">uint32_t</span> <span class="n">newtrap</span><span class="p">;</span>   <span class="c1">// set by mpd_addstatus_raise()</span>
+        <span class="kt">int</span>      <span class="n">round</span><span class="p">;</span>     <span class="c1">// rounding mode</span>
+        <span class="kt">int</span>      <span class="n">clamp</span><span class="p">;</span>     <span class="c1">// clamp mode</span>
+        <span class="kt">int</span>      <span class="n">allcr</span><span class="p">;</span>     <span class="c1">// all functions correctly rounded</span>
+<span class="p">}</span> <span class="n">mpd_context_t</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants</h2>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="28%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">&nbsp;</th>
+<th class="head">32-bit</th>
+<th class="head">64-bit</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_MAX_PREC</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">425000000</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">999999999999999999</span></tt></td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_MAX_EMAX</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">425000000</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">999999999999999999</span></tt></td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_MIN_EMIN</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">-425000000</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">-999999999999999999</span></tt></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="precision-and-exponents">
+<h2>Precision and Exponents</h2>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><em>prec</em></td>
+<td>[<tt class="xref c c-macro docutils literal"><span class="pre">1</span></tt>, <tt class="xref c c-macro docutils literal"><span class="pre">MPD_MAX_PREC</span></tt>]</td>
+</tr>
+<tr><td><em>emax</em></td>
+<td>[<tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt>, <tt class="xref c c-macro docutils literal"><span class="pre">MPD_MAX_EMAX</span></tt>]</td>
+</tr>
+<tr><td><em>emin</em></td>
+<td>[<tt class="xref c c-macro docutils literal"><span class="pre">MPD_MIN_EMIN</span></tt>, <tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt>]</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Apart from the limits, the following rules must be observed when setting the context manually:</p>
+<blockquote>
+<div><ul class="simple">
+<li><em>prec</em> &lt;= <em>emax</em></li>
+<li><em>emin</em> = 1 - <em>emax</em> or <em>emin</em> = <em>-emax</em></li>
+</ul>
+</div></blockquote>
+<p>The specification requires 5 x <em>prec</em> &lt;= <em>emax</em> and recommends 10 x <em>prec</em> &lt;= <em>emax</em>.</p>
+</div>
+<div class="section" id="rounding">
+<h2>Rounding</h2>
+<p>The <em>round</em> field can take one of these values:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_ROUND_UP</span></tt></td>
+<td>round away from <tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt></td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_ROUND_DOWN</span></tt></td>
+<td>round toward <tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt> (truncate)</td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_ROUND_CEILING</span></tt></td>
+<td>round toward <tt class="xref c c-macro docutils literal"><span class="pre">+infinity</span></tt></td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_ROUND_FLOOR</span></tt></td>
+<td>round toward <tt class="xref c c-macro docutils literal"><span class="pre">-infinity</span></tt></td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_ROUND_HALF_UP</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">0.5</span></tt> is rounded up</td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_ROUND_HALF_DOWN</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">0.5</span></tt> is rounded down</td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_ROUND_HALF_EVEN</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">0.5</span></tt> is rounded to even</td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_ROUND_05UP</span></tt></td>
+<td>round zero or five away from <tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt></td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_ROUND_TRUNC</span></tt></td>
+<td>truncate, but set infinities</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="signals-and-conditions">
+<h2>Signals and Conditions</h2>
+<p>The standard distinguishes between <em>signals</em> and <em>conditions</em>. In particular,
+the <tt class="xref c c-macro docutils literal"><span class="pre">MPD_IEEE_Invalid_operation</span></tt> <em>signal</em> comprises several <em>conditions</em>.</p>
+<p>In a signaling function, the <em>status</em> field of the context is updated with
+all conditions that occurred during the execution. It is never reset
+automatically, so at any point in a program it contains the cumulative
+status of all signaling functions.</p>
+<p>The <em>traps</em> field determines which signals invoke the <tt class="xref c c-func docutils literal"><span class="pre">mpd_traphandler</span></tt>
+custom function. By default, this function raises <tt class="xref c c-macro docutils literal"><span class="pre">SIGFPE</span></tt>.</p>
+<p>If a trap occurs, the <em>newtrap</em> field is set to the value of the respective
+condition. This makes it possible to determine the latest error condition
+that occurred even when the status has already been &#8220;polluted&#8221; with previous
+error conditions.</p>
+<p>Here are the possible <em>signals</em> and <em>conditions</em>:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Signals</th>
+<th class="head">Conditions</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td rowspan="6"><tt class="xref c c-macro docutils literal"><span class="pre">MPD_IEEE_Invalid_operation</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Conversion_syntax</span></tt></td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Division_impossible</span></tt></td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Division_undefined</span></tt></td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Invalid_context</span></tt></td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Invalid_operation</span></tt></td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Malloc_error</span></tt></td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Clamped</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Clamped</span></tt></td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Division_by_zero</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Division_by_zero</span></tt></td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Fpu_error</span></tt> <a class="footnote-reference" href="#f1" id="id1">[1]</a></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Fpu_error</span></tt></td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Inexact</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Inexact</span></tt></td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Not_implemented</span></tt> <a class="footnote-reference" href="#f2" id="id2">[2]</a></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Not_implemented</span></tt></td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Overflow</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Overflow</span></tt></td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Rounded</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Rounded</span></tt></td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Subnormal</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Subnormal</span></tt></td>
+</tr>
+<tr><td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Underflow</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Underflow</span></tt></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>deprecated, might be renamed to a user-definable signal.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>unused, might be renamed to a user-definable signal.</td></tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="exponent-clamping">
+<h2>Exponent Clamping</h2>
+<p>If the <tt class="xref c c-member docutils literal"><span class="pre">clamp</span></tt> field is set to 1, the maximum exponent is reduced to
+<em>emax</em> - <em>prec</em> + 1. This is compatible with the IEEE 754 decimal
+interchange formats.</p>
+</div>
+<div class="section" id="correct-rounding">
+<h2>Correct Rounding</h2>
+<p>Most functions are correctly-rounded by default. If <em>allcr</em> is set
+to 1, correct rounding is additionally enabled for <tt class="xref c c-func docutils literal"><span class="pre">mpd_exp</span></tt>,
+<tt class="xref c c-func docutils literal"><span class="pre">mpd_ln</span></tt> and <tt class="xref c c-func docutils literal"><span class="pre">mpd_log10</span></tt>.</p>
+<p>In this case, all functions except <tt class="xref c c-func docutils literal"><span class="pre">mpd_pow</span></tt> and <tt class="xref c c-func docutils literal"><span class="pre">mpd_invroot</span></tt>
+return correctly rounded results.</p>
+</div>
+</div>
+<div class="section" id="context-functions">
+<h1>Context Functions</h1>
+<div class="section" id="initialization">
+<h2>Initialization</h2>
+<div class="highlight-c" id="std:topic-mpd_init"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_init</span><span class="p">(</span><span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">prec</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><em>ctx</em> is initialized by <tt class="xref c c-func docutils literal"><span class="pre">mpd_defaultcontext</span></tt>, using <em>prec</em>.
+At the same time, <tt class="xref c c-macro docutils literal"><span class="pre">MPD_MINALLOC</span></tt> is initialized to the ideal
+value for the given precision. Note that memory usage increases by
+setting <tt class="xref c c-macro docutils literal"><span class="pre">MPD_MINALLOC</span></tt> to higher values.</p>
+<p>This function can only be used at program start.</p>
+<span class="target" id="std:topic-mpd_maxcontext"></span><span class="target" id="std:topic-mpd_defaultcontext"></span><div class="highlight-c" id="std:topic-mpd_basiccontext"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_maxcontext</span><span class="p">(</span><span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_defaultcontext</span><span class="p">(</span><span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_basiccontext</span><span class="p">(</span><span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The values for each function:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="29%" />
+<col width="29%" />
+<col width="32%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">&nbsp;</th>
+<th class="head">maxcontext</th>
+<th class="head">defaultcontext  <a class="footnote-reference" href="#f3" id="id3">[3]</a></th>
+<th class="head">basiccontext  <a class="footnote-reference" href="#f4" id="id4">[4]</a></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><em>prec</em></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_MAX_PREC</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">2*MPD_RDIGITS</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">9</span></tt></td>
+</tr>
+<tr><td><em>emax</em></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_MAX_EMAX</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_MAX_EMAX</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_MAX_EMAX</span></tt></td>
+</tr>
+<tr><td><em>emin</em></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_MIN_EMIN</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_MIN_EMIN</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_MIN_EMIN</span></tt></td>
+</tr>
+<tr><td><em>round</em></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_ROUND_HALF_EVEN</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_ROUND_HALF_UP</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_ROUND_HALF_UP</span></tt></td>
+</tr>
+<tr><td><em>traps</em></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Traps</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Traps</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Traps|MPD_Clamped</span></tt></td>
+</tr>
+<tr><td><em>status</em></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt></td>
+</tr>
+<tr><td><em>newtrap</em></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt></td>
+</tr>
+<tr><td><em>clamp</em></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt></td>
+</tr>
+<tr><td><em>allcr</em></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">1</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">1</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">1</span></tt></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td><strong>libmpdec&#8217;s</strong> default context</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>the specification&#8217;s <em>basic default context</em></td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ieee-interchange-formats">
+<h2>IEEE Interchange Formats</h2>
+<div class="highlight-c" id="std:topic-mpd_ieee_context"><div class="highlight"><pre><span class="n">MPD_IEEE_CONTEXT_MAX_BITS</span>
+<span class="n">MPD_DECIMAL32</span>
+<span class="n">MPD_DECIMAL64</span>
+<span class="n">MPD_DECIMAL128</span>
+
+<span class="kt">int</span> <span class="n">mpd_ieee_context</span><span class="p">(</span><span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">int</span> <span class="n">bits</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Initialize the context to the proper values for one of the IEEE interchange
+formats. The argument must be a multiple of 32 and less than
+<tt class="xref c c-macro docutils literal"><span class="pre">IEEE_CONTEXT_MAX_BITS</span></tt>.</p>
+<p>For the most common values, the following constants are provided:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="30%" />
+<col width="30%" />
+<col width="30%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">&nbsp;</th>
+<th class="head"><tt class="xref c c-macro docutils literal"><span class="pre">MPD_DECIMAL32</span></tt></th>
+<th class="head"><tt class="xref c c-macro docutils literal"><span class="pre">MPD_DECIMAL64</span></tt></th>
+<th class="head"><tt class="xref c c-macro docutils literal"><span class="pre">MPD_DECIMAL128</span></tt></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><em>prec</em></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">7</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">16</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">34</span></tt></td>
+</tr>
+<tr><td><em>emax</em></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">96</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">384</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">6144</span></tt></td>
+</tr>
+<tr><td><em>emin</em></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">-95</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">-383</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">-6143</span></tt></td>
+</tr>
+<tr><td><em>round</em></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_ROUND_HALF_EVEN</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_ROUND_HALF_EVEN</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">MPD_ROUND_HALF_EVEN</span></tt></td>
+</tr>
+<tr><td><em>traps</em></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt></td>
+</tr>
+<tr><td><em>status</em></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt></td>
+</tr>
+<tr><td><em>newtrap</em></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">0</span></tt></td>
+</tr>
+<tr><td><em>clamp</em></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">1</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">1</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">1</span></tt></td>
+</tr>
+<tr><td><em>allcr</em></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">1</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">1</span></tt></td>
+<td><tt class="xref c c-macro docutils literal"><span class="pre">1</span></tt></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="getters-and-setters">
+<h2>Getters and Setters</h2>
+<span class="target" id="std:topic-mpd_getprec"></span><span class="target" id="std:topic-mpd_getemax"></span><span class="target" id="std:topic-mpd_getemin"></span><span class="target" id="std:topic-mpd_getround"></span><span class="target" id="std:topic-mpd_gettraps"></span><span class="target" id="std:topic-mpd_getstatus"></span><span class="target" id="std:topic-mpd_getclamp"></span><div class="highlight-c" id="std:topic-mpd_getcr"><div class="highlight"><pre><span class="kt">size_t</span> <span class="n">mpd_getprec</span><span class="p">(</span><span class="n">macro</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="n">mpd_ssize_t</span> <span class="n">mpd_getemax</span><span class="p">(</span><span class="n">macro</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="n">mpd_ssize_t</span> <span class="n">mpd_getemin</span><span class="p">(</span><span class="n">macro</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_getround</span><span class="p">(</span><span class="n">macro</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">uint32_t</span> <span class="n">mpd_gettraps</span><span class="p">(</span><span class="n">macro</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">uint32_t</span> <span class="n">mpd_getstatus</span><span class="p">(</span><span class="n">macro</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_getclamp</span><span class="p">(</span><span class="n">macro</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_getcr</span><span class="p">(</span><span class="n">macro</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Get the individual values.</p>
+<div class="highlight-c" id="std:topic-mpd_etiny"><div class="highlight"><pre><span class="n">mpd_ssize_t</span> <span class="n">mpd_etiny</span><span class="p">(</span><span class="n">macro</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Return the lowest possible exponent of a subnormal number: <em>emin</em> - <em>prec</em> + 1</p>
+<div class="highlight-c" id="std:topic-mpd_etop"><div class="highlight"><pre><span class="n">mpd_ssize_t</span> <span class="n">mpd_etop</span><span class="p">(</span><span class="n">macro</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Return the highest possible exponent of a normal number: <em>emax</em> - <em>prec</em> + 1</p>
+<p>Only relevant if <em>clamp</em> is set to 1.</p>
+<span class="target" id="std:topic-mpd_qsetprec"></span><span class="target" id="std:topic-mpd_qsetemax"></span><span class="target" id="std:topic-mpd_qsetemin"></span><span class="target" id="std:topic-mpd_qsetround"></span><span class="target" id="std:topic-mpd_qsettraps"></span><span class="target" id="std:topic-mpd_qsetstatus"></span><span class="target" id="std:topic-mpd_qsetclamp"></span><div class="highlight-c" id="std:topic-mpd_qsetcr"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_qsetprec</span><span class="p">(</span><span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">prec</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_qsetemax</span><span class="p">(</span><span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">emax</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_qsetemin</span><span class="p">(</span><span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">emin</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_qsetround</span><span class="p">(</span><span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">int</span> <span class="n">newround</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_qsettraps</span><span class="p">(</span><span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">flags</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_qsetstatus</span><span class="p">(</span><span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">flags</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_qsetclamp</span><span class="p">(</span><span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_qsetcr</span><span class="p">(</span><span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Quietly set the individual values. These functions check the limits, but they
+are not foolproof: For example, they still allow setting a <em>prec</em> that does
+not agree with <em>emax</em>. The functions return 1 on success and 0 on failure.
+They are quiet since raising an <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Invalid_context</span></tt> condition would
+not make sense in most cases.</p>
+</div>
+<div class="section" id="calling-the-trap-handler">
+<h2>Calling the Trap Handler</h2>
+<span class="target" id="std:topic-mpd_addstatus_raise"></span><span class="target" id="std:topic-mpd_dflt_traphandler"></span><div class="highlight-c" id="std:topic-mpd_traphandler"><div class="highlight"><pre><span class="k">extern</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">mpd_traphandler</span><span class="p">)(</span><span class="n">mpd_context_t</span> <span class="o">*</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_dflt_traphandler</span><span class="p">(</span><span class="n">mpd_context_t</span> <span class="o">*</span><span class="p">);</span>
+
+<span class="kt">void</span> <span class="n">mpd_addstatus_raise</span><span class="p">(</span><span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">flags</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Add <em>flags</em> to the <em>status</em> field of <em>ctx</em>. If a condition is trapped, set
+<em>newtrap</em> to the condition and call <tt class="xref c c-func docutils literal"><span class="pre">mpd_traphandler</span></tt>. By default,
+<tt class="xref c c-func docutils literal"><span class="pre">mpd_traphandler</span></tt> is points to <tt class="xref c c-func docutils literal"><span class="pre">mpd_dflt_traphandler</span></tt>, which
+raises <tt class="xref c c-macro docutils literal"><span class="pre">SIGFPE</span></tt>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="decimals.html" title="Decimals"
+             >next</a></li>
+        <li class="right" >
+          <a href="functions.html" title="Function Index"
+             >previous</a> |</li>
+    <li><a href="http://www.bytereef.org/mpdecimal/index.html">project home</a>|&nbsp;</li>
+    <li><a href="../index.html">mpdecimal v2.3 documentation </a> &raquo;</li>
+
+          <li><a href="index.html" >libmpdec</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Stefan Krah.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

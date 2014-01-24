@@ -1,0 +1,161 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="index,follow" name="robots" />
+<meta content="libmpdec documentation" name="description" />
+
+    <title>Decimals &mdash; mpdecimal v2.3 documentation</title>
+    <link rel="stylesheet" href="../_static/mpdecimal-doc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="mpdecimal v2.3 documentation" href="../index.html" />
+    <link rel="up" title="libmpdec" href="index.html" />
+    <link rel="next" title="Assignment, Conversions, I/O" href="assign-convert.html" />
+    <link rel="prev" title="Context" href="context.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="assign-convert.html" title="Assignment, Conversions, I/O"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="context.html" title="Context"
+             accesskey="P">previous</a> |</li>
+    <li><a href="http://www.bytereef.org/mpdecimal/index.html">project home</a>|&nbsp;</li>
+    <li><a href="../index.html">mpdecimal v2.3 documentation </a> &raquo;</li>
+
+          <li><a href="index.html" accesskey="U">libmpdec</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Decimals</a><ul>
+<li><a class="reference internal" href="#data-type">Data Type</a></li>
+<li><a class="reference internal" href="#allocation-functions">Allocation Functions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="context.html"
+                        title="previous chapter">Context</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="assign-convert.html"
+                        title="next chapter">Assignment, Conversions, I/O</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="decimals">
+<h1>Decimals</h1>
+<div class="section" id="data-type">
+<h2>Data Type</h2>
+<p>The decimal data type is called <tt class="xref c c-macro docutils literal"><span class="pre">mpd_t</span></tt>, which is short for
+<em>multi precision decimal</em>.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#include &lt;mpdecimal.h&gt;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+       <span class="kt">uint8_t</span> <span class="n">flags</span><span class="p">;</span>       <span class="c1">// [memory flags] | [specials] | sign</span>
+       <span class="n">mpd_ssize_t</span> <span class="n">exp</span><span class="p">;</span>     <span class="c1">// exponent</span>
+       <span class="n">mpd_ssize_t</span> <span class="n">digits</span><span class="p">;</span>  <span class="c1">// number of decimal digits</span>
+       <span class="n">mpd_ssize_t</span> <span class="n">len</span><span class="p">;</span>     <span class="c1">// number of words in use</span>
+       <span class="n">mpd_ssize_t</span> <span class="n">alloc</span><span class="p">;</span>   <span class="c1">// number of allocated words</span>
+       <span class="n">mpd_uint_t</span> <span class="o">*</span><span class="n">data</span><span class="p">;</span>    <span class="c1">// words</span>
+<span class="p">}</span> <span class="n">mpd_t</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The flags contain two types of information: The lowest bit is the sign of the
+decimal. The following three bits determine whether the decimal is Infinity,
+NaN or sNaN. The upper four bits carry the information how the storage was
+allocated. The normal case is that both the struct and the data have been
+dynamically allocated by <tt class="xref c c-func docutils literal"><span class="pre">mpd_new</span></tt>. More on this in the section
+<a class="reference internal" href="memory.html#advanced-memory-handling"><em>Advanced Memory Handling</em></a>.</p>
+</div>
+<div class="section" id="allocation-functions">
+<h2>Allocation Functions</h2>
+<span class="target" id="std:topic-mpd_qnew"></span><div class="highlight-c" id="std:topic-mpd_new"><div class="highlight"><pre><span class="n">mpd_t</span> <span class="o">*</span><span class="n">mpd_qnew</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="n">mpd_t</span> <span class="o">*</span><span class="n">mpd_new</span><span class="p">(</span><span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><tt class="xref c c-func docutils literal"><span class="pre">mpd_qnew</span></tt> attempts to allocate a dynamic decimal with <tt class="xref c c-macro docutils literal"><span class="pre">MPD_MINALLOC</span></tt>
+words reserved for the coefficient. If successful, the return value is the new
+pointer, <tt class="xref c c-macro docutils literal"><span class="pre">NULL</span></tt> otherwise. <tt class="xref c c-func docutils literal"><span class="pre">mpd_new</span></tt> is the same, but raises the
+<tt class="xref c c-macro docutils literal"><span class="pre">MPD_Malloc_error</span></tt> exception on failure.</p>
+<div class="highlight-c" id="std:topic-mpd_qnew_size"><div class="highlight"><pre><span class="n">mpd_t</span> <span class="o">*</span><span class="n">mpd_qnew_size</span><span class="p">(</span><span class="n">mpd_ssize_t</span> <span class="n">size</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Same as <tt class="xref c c-func docutils literal"><span class="pre">mpd_qnew</span></tt>, but the <em>size</em> argument indicates that <em>size</em> words
+should be allocated for the coefficient rather than <tt class="xref c c-macro docutils literal"><span class="pre">MPD_MINALLOC</span></tt> words.</p>
+<div class="highlight-c" id="std:topic-mpd_del"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_del</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><tt class="xref c c-func docutils literal"><span class="pre">mpd_del</span></tt> frees all storage allocated for a decimal. The function may
+also be called with a completely or partly static decimal as an argument, see
+<a class="reference internal" href="memory.html#advanced-memory-handling"><em>Advanced Memory Handling</em></a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="assign-convert.html" title="Assignment, Conversions, I/O"
+             >next</a></li>
+        <li class="right" >
+          <a href="context.html" title="Context"
+             >previous</a> |</li>
+    <li><a href="http://www.bytereef.org/mpdecimal/index.html">project home</a>|&nbsp;</li>
+    <li><a href="../index.html">mpdecimal v2.3 documentation </a> &raquo;</li>
+
+          <li><a href="index.html" >libmpdec</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Stefan Krah.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

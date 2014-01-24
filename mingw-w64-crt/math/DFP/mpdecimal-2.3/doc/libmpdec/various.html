@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="index,follow" name="robots" />
+<meta content="libmpdec documentation" name="description" />
+
+    <title>Various Functions &mdash; mpdecimal v2.3 documentation</title>
+    <link rel="stylesheet" href="../_static/mpdecimal-doc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="mpdecimal v2.3 documentation" href="../index.html" />
+    <link rel="up" title="libmpdec" href="index.html" />
+    <link rel="next" title="Advanced Memory Handling" href="memory.html" />
+    <link rel="prev" title="Arithmetic Functions" href="arithmetic.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="memory.html" title="Advanced Memory Handling"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="arithmetic.html" title="Arithmetic Functions"
+             accesskey="P">previous</a> |</li>
+    <li><a href="http://www.bytereef.org/mpdecimal/index.html">project home</a>|&nbsp;</li>
+    <li><a href="../index.html">mpdecimal v2.3 documentation </a> &raquo;</li>
+
+          <li><a href="index.html" accesskey="U">libmpdec</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Various Functions</a><ul>
+<li><a class="reference internal" href="#applying-the-context">Applying the Context</a><ul>
+<li><a class="reference internal" href="#finalize">finalize</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#nan-handling">NaN Handling</a><ul>
+<li><a class="reference internal" href="#check-nan">check-nan</a></li>
+<li><a class="reference internal" href="#check-nans">check-nans</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#shifting-and-rotating">Shifting and Rotating</a><ul>
+<li><a class="reference internal" href="#shift">shift</a></li>
+<li><a class="reference internal" href="#shiftn">shiftn</a></li>
+<li><a class="reference internal" href="#shiftl">shiftl</a></li>
+<li><a class="reference internal" href="#shiftr">shiftr</a></li>
+<li><a class="reference internal" href="#shiftr-inplace">shiftr-inplace</a></li>
+<li><a class="reference internal" href="#rotate">rotate</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#logical-operations">Logical Operations</a><ul>
+<li><a class="reference internal" href="#and">and</a></li>
+<li><a class="reference internal" href="#or">or</a></li>
+<li><a class="reference internal" href="#xor">xor</a></li>
+<li><a class="reference internal" href="#invert">invert</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#base-conversions">Base Conversions</a><ul>
+<li><a class="reference internal" href="#importing">Importing</a></li>
+<li><a class="reference internal" href="#exporting">Exporting</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#required-functions">Required Functions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="arithmetic.html"
+                        title="previous chapter">Arithmetic Functions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="memory.html"
+                        title="next chapter">Advanced Memory Handling</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="various-functions">
+<h1>Various Functions</h1>
+<div class="section" id="applying-the-context">
+<h2>Applying the Context</h2>
+<div class="section" id="finalize">
+<h3>finalize</h3>
+<span class="target" id="std:topic-mpd_qfinalize"></span><div class="highlight-c" id="std:topic-mpd_finalize"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qfinalize</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                   <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_finalize</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Apply <em>ctx</em> to <em>result</em>. This function performs checks the exponent limits
+and performs rounding. The following conditions can occur:</p>
+<p><tt class="xref c c-macro docutils literal"><span class="pre">MPD_Clamped</span></tt>, <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Inexact</span></tt>, <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Overflow</span></tt>,
+<tt class="xref c c-macro docutils literal"><span class="pre">MPD_Rounded</span></tt>, <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Subnormal</span></tt>, <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Underflow</span></tt></p>
+</div>
+</div>
+<div class="section" id="nan-handling">
+<h2>NaN Handling</h2>
+<p>These functions are convenience functions that take care of the elaborate
+NaN handling rules. They are meant to be used at the beginning of composite
+functions.</p>
+<div class="section" id="check-nan">
+<h3>check-nan</h3>
+<span class="target" id="std:topic-mpd_qcheck_nan"></span><div class="highlight-c" id="std:topic-mpd_check_nan"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_qcheck_nan</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                   <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_check_nan</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If <em>a</em> is NaN or sNaN, set <em>result</em> to qNaN, copy any payload, apply <em>ctx</em>
+to the payload and return 1. If <em>a</em> is sNaN, additionally set
+<tt class="xref c c-macro docutils literal"><span class="pre">MPD_Invalid_operation</span></tt>.</p>
+<p>Otherwise, <em>result</em> is undefined and the return value is 0.</p>
+</div>
+<div class="section" id="check-nans">
+<h3>check-nans</h3>
+<span class="target" id="std:topic-mpd_qcheck_nans"></span><div class="highlight-c" id="std:topic-mpd_check_nans"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_qcheck_nans</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_check_nans</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                   <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If either operand is NaN or sNaN, apply the precedence rules, set <em>result</em>
+to qNaN, copy any payload, apply <em>ctx</em> to the payload and return 1. If
+one of the operands is sNaN, additionally set <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Invalid_operation</span></tt>.</p>
+<p>Otherwise, <em>result</em> is undefined and the return value is 0.</p>
+</div>
+</div>
+<div class="section" id="shifting-and-rotating">
+<h2>Shifting and Rotating</h2>
+<span class="target" id="std:topic-mpd_qshift"></span><div class="section" id="shift">
+<span id="std:topic-mpd_shift"></span><h3>shift</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qshift</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_shift</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+               <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to <em>a</em> shifted by <em>b</em> places. <em>b</em> must be in the range
+[<em>-prec</em>, <em>prec</em>]. A negative <em>b</em> indicates a right shift, a positive
+<em>b</em> a left shift. Digits that do not fit are discarded.</p>
+<span class="target" id="std:topic-mpd_qshiftn"></span></div>
+<div class="section" id="shiftn">
+<span id="std:topic-mpd_shiftn"></span><h3>shiftn</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qshiftn</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">n</span><span class="p">,</span>
+                 <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_shiftn</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">n</span><span class="p">,</span>
+                <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Like <tt class="xref c c-func docutils literal"><span class="pre">mpd_qshift</span></tt>, only that the number of places is specified by a
+C integer type rather than a decimal. This function is not part of the
+specification.</p>
+<span class="target" id="std:topic-mpd_qshiftl"></span></div>
+<div class="section" id="shiftl">
+<span id="std:topic-mpd_shiftl"></span><h3>shiftl</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_qshiftl</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">n</span><span class="p">,</span>
+                <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_shiftl</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">n</span><span class="p">,</span>
+                <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to <em>a</em>, shifted by <em>n</em> places to the left. <em>a</em> must not be
+a special number. Digits are never discarded, so the coefficient of
+<em>result</em> might exceed <em>prec</em>. Return 1 on success. On failure, return 0
+and add <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Malloc_error</span></tt> to <em>status</em>.</p>
+<p>This function is not part of the specification.</p>
+<span class="target" id="std:topic-mpd_qshiftr"></span></div>
+<div class="section" id="shiftr">
+<span id="std:topic-mpd_shiftr"></span><h3>shiftr</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">mpd_uint_t</span> <span class="n">mpd_qshiftr</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">n</span><span class="p">,</span>
+                       <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="n">mpd_uint_t</span> <span class="n">mpd_shiftr</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">n</span><span class="p">,</span>
+                      <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to <em>a</em>, shifted by <em>n</em> places to the right. <em>a</em> must not be
+a special number. On success, return the digit relevant for rounding.
+On failure, return <tt class="xref c c-macro docutils literal"><span class="pre">MPD_UINT_MAX</span></tt> and add <tt class="xref c c-macro docutils literal"><span class="pre">MPD_Malloc_error</span></tt>
+to <em>status</em>.</p>
+<p>This function is not part of the specification.</p>
+</div>
+<div class="section" id="shiftr-inplace">
+<span id="std:topic-mpd_qshiftr_inplace"></span><h3>shiftr-inplace</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">mpd_uint_t</span> <span class="n">mpd_qshiftr_inplace</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="n">mpd_ssize_t</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Like <tt class="xref c c-func docutils literal"><span class="pre">mpd_qshiftr</span></tt>, but shifts <em>result</em> in place. <em>result</em>
+must not be a special number. This function cannot fail.</p>
+</div>
+<div class="section" id="rotate">
+<h3>rotate</h3>
+<span class="target" id="std:topic-mpd_qrotate"></span><div class="highlight-c" id="std:topic-mpd_rotate"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qrotate</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                 <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_rotate</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+                <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to <em>a</em> rotated by <em>b</em> places. <em>b</em> must be in the range [<em>-prec</em>, <em>prec</em>].
+A negative <em>b</em> indicates a right rotation, a positive <em>b</em> a left rotation.</p>
+</div>
+</div>
+<div class="section" id="logical-operations">
+<h2>Logical Operations</h2>
+<p>Logical operands are finite numbers with a sign of 0, an exponent of 0 and
+a coefficient consisting only of ones and zeros.</p>
+<span class="target" id="std:topic-mpd_qand"></span><div class="section" id="and">
+<span id="std:topic-mpd_and"></span><h3>and</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qand</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+              <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_and</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+             <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to the digit-wise <em>logical and</em> of <em>a</em> and <em>b</em>.</p>
+<span class="target" id="std:topic-mpd_qor"></span></div>
+<div class="section" id="or">
+<span id="std:topic-mpd_or"></span><h3>or</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qor</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+             <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_or</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+            <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to the digit-wise <em>logical or</em> of <em>a</em> and <em>b</em>.</p>
+<span class="target" id="std:topic-mpd_qxor"></span></div>
+<div class="section" id="xor">
+<span id="std:topic-mpd_xor"></span><h3>xor</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qxor</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+              <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_xor</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">b</span><span class="p">,</span>
+             <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to the digit-wise <em>logical xor</em> of <em>a</em> and <em>b</em>.</p>
+<span class="target" id="std:topic-mpd_qinvert"></span></div>
+<div class="section" id="invert">
+<span id="std:topic-mpd_invert"></span><h3>invert</h3>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qinvert</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span>
+                 <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_invert</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>result</em> to the digit-wise <em>logical inversion</em> of <em>a</em>.</p>
+</div>
+</div>
+<div class="section" id="base-conversions">
+<h2>Base Conversions</h2>
+<p>Functions for converting decimals to multi-precision integers and vice
+versa. Decimals that are exported must be integers.</p>
+<div class="section" id="importing">
+<h3>Importing</h3>
+<span class="target" id="std:topic-mpd_qimport_u16"></span><div class="highlight-c" id="std:topic-mpd_import_u16"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qimport_u16</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="kt">uint16_t</span> <span class="o">*</span><span class="n">srcdata</span><span class="p">,</span>
+                     <span class="kt">size_t</span> <span class="n">srclen</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">srcsign</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">srcbase</span><span class="p">,</span>
+                     <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_import_u16</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="kt">uint16_t</span> <span class="o">*</span><span class="n">srcdata</span><span class="p">,</span>
+                    <span class="kt">size_t</span> <span class="n">srclen</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">srcsign</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">srcbase</span><span class="p">,</span>
+                    <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Convert a multi-precision integer at <em>srcdata</em> with base <em>srcbase</em> to a
+decimal. The least significant word is <em>srcdata</em>[0].</p>
+<p><em>srcsign</em> is <tt class="xref c c-macro docutils literal"><span class="pre">MPD_POS</span></tt> for positive and <tt class="xref c c-macro docutils literal"><span class="pre">MPD_NEG</span></tt> for
+negative, <em>srclen</em> the length of <em>srcdata</em>.</p>
+<p>Valid bases are in the range 2 &lt;= <em>srcbase</em> &lt;= <tt class="xref c c-macro docutils literal"><span class="pre">UINT16_MAX</span></tt> + 1.</p>
+<span class="target" id="std:topic-mpd_qimport_u32"></span><div class="highlight-c" id="std:topic-mpd_import_u32"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_qimport_u32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">srcdata</span><span class="p">,</span>
+                     <span class="kt">size_t</span> <span class="n">srclen</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">srcsign</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">srcbase</span><span class="p">,</span>
+                     <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_import_u32</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">srcdata</span><span class="p">,</span>
+                    <span class="kt">size_t</span> <span class="n">srclen</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">srcsign</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">base</span><span class="p">,</span>
+                    <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Convert a multi-precision integer at <em>srcdata</em> with base <em>srcbase</em> to a
+decimal. The least significant word is <em>srcdata</em>[0].</p>
+<p><em>srcsign</em> is <tt class="xref c c-macro docutils literal"><span class="pre">MPD_POS</span></tt> for positive and <tt class="xref c c-macro docutils literal"><span class="pre">MPD_NEG</span></tt> for
+negative, <em>srclen</em> the length of <em>srcdata</em>.</p>
+<p>Valid bases are in the range 2 &lt;= <em>srcbase</em> &lt;= <tt class="xref c c-macro docutils literal"><span class="pre">UINT32_MAX</span></tt>.</p>
+</div>
+<div class="section" id="exporting">
+<h3>Exporting</h3>
+<div class="highlight-c" id="std:topic-mpd_sizeinbase"><div class="highlight"><pre><span class="n">mpd_sizeinbase</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">base</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Return the number of words needed to represent a decimal when converted
+to <em>base</em>. The decimal <em>must be an integer</em>, results are undefined for
+non-integers.</p>
+<span class="target" id="std:topic-mpd_qexport_u16"></span><div class="highlight-c" id="std:topic-mpd_export_u16"><div class="highlight"><pre><span class="kt">size_t</span> <span class="n">mpd_qexport_u16</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="o">*</span><span class="n">rdata</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">rlen</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">rbase</span><span class="p">,</span>
+                       <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">src</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">size_t</span> <span class="n">mpd_export_u16</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="o">*</span><span class="n">rdata</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">rlen</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">rbase</span><span class="p">,</span>
+                      <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">src</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>rdata</em> to <em>src</em>, converted to a representation in base <em>rbase</em>.
+The least significant word of the result is <em>rdata</em>[0].</p>
+<p><em>src</em> must be an integer. The memory area pointed to by <em>rdata</em> must
+be large enough to hold the result. A proper estimate for <em>rlen</em>
+can be obtained by using <tt class="xref c c-func docutils literal"><span class="pre">mpd_sizeinbase</span></tt>.</p>
+<p>Valid bases are in the range 2 &lt;= <em>rbase</em> &lt;= <tt class="xref c c-macro docutils literal"><span class="pre">UINT16_MAX</span></tt> + 1.</p>
+<span class="target" id="std:topic-mpd_qexport_u32"></span><div class="highlight-c" id="std:topic-mpd_export_u32"><div class="highlight"><pre><span class="kt">size_t</span> <span class="n">mpd_qexport_u32</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="o">*</span><span class="n">rdata</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">rlen</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">rbase</span><span class="p">,</span>
+                       <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">src</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="o">*</span><span class="n">status</span><span class="p">);</span>
+<span class="kt">size_t</span> <span class="n">mpd_export_u32</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="o">*</span><span class="n">rdata</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">rlen</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">rbase</span><span class="p">,</span>
+                      <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">src</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set <em>rdata</em> to <em>src</em>, converted to a representation in base <em>rbase</em>.
+The least significant word of the result is <em>rdata</em>[0].</p>
+<p><em>src</em> must be an integer. The memory area pointed to by <em>rdata</em> must
+be large enough to hold the result. A proper estimate for <em>rlen</em>
+can be obtained by using <tt class="xref c c-func docutils literal"><span class="pre">mpd_sizeinbase</span></tt>.</p>
+<p>Valid bases are in the range 2 &lt;= <em>rbase</em> &lt;= <tt class="xref c c-macro docutils literal"><span class="pre">UINT32_MAX</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="required-functions">
+<h2>Required Functions</h2>
+<p>The functions in this section are not needed for this implementation.
+They are provided for full compliance with the specification.</p>
+<div class="highlight-c" id="std:topic-mpd_canonical"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_canonical</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Same as <tt class="xref c c-func docutils literal"><span class="pre">mpd_copy</span></tt>.</p>
+<div class="highlight-c" id="std:topic-mpd_iscanonical"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_iscanonical</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Return 1, for compatibility with the standard.</p>
+<div class="highlight-c" id="std:topic-mpd_radix"><div class="highlight"><pre><span class="kt">long</span> <span class="n">mpd_radix</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Return 10.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="memory.html" title="Advanced Memory Handling"
+             >next</a></li>
+        <li class="right" >
+          <a href="arithmetic.html" title="Arithmetic Functions"
+             >previous</a> |</li>
+    <li><a href="http://www.bytereef.org/mpdecimal/index.html">project home</a>|&nbsp;</li>
+    <li><a href="../index.html">mpdecimal v2.3 documentation </a> &raquo;</li>
+
+          <li><a href="index.html" >libmpdec</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Stefan Krah.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

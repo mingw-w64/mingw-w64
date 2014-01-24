@@ -1,0 +1,108 @@
+
+SRCDIR = ..
+INC = -I$(SRCDIR)
+
+CC = @CC@
+LD = @CC@
+AR = @AR@
+
+MPD_WARN = @MPD_WARN@
+MPD_CONFIG = @MPD_CONFIG@
+MPD_CCOV = @MPD_CCOV@
+
+CONFIGURE_CFLAGS = @CONFIGURE_CFLAGS@
+CFLAGS ?= $(CONFIGURE_CFLAGS)
+
+GMPDEPS = @GMPDEPS@
+GMPPATH = @GMPPATH@
+ifneq ($(strip $(GMPPATH)),)
+  INC += -I$(GMPPATH)/include -L$(GMPPATH)/lib
+  ifeq ($(CC), suncc)
+    INC += -R$(GMPPATH)/lib
+  endif
+endif
+
+
+default:  runtest cov fntcov test_transpose ppro_mulmod
+extended: default karatsuba_fnt karatsuba_fnt2 $(GMPDEPS)
+build_libcoverage: CFLAGS = $(MPD_WARN) $(MPD_CONFIG) $(MPD_CCOV)
+build_libcoverage: default
+
+
+# dectest
+runtest:\
+runtest.c $(SRCDIR)/io.h  $(SRCDIR)/mpdecimal.h $(SRCDIR)/memory.h \
+          $(SRCDIR)/mptest.h $(SRCDIR)/mptypes.h $(SRCDIR)/libmpdec.a \
+          malloc_fail.c malloc_fail.h
+	$(CC) $(INC) $(CFLAGS) -o runtest runtest.c malloc_fail.c $(SRCDIR)/libmpdec.a -lm
+
+cov:\
+cov.c $(SRCDIR)/mpdecimal.h $(SRCDIR)/mptypes.h $(SRCDIR)/libmpdec.a \
+      malloc_fail.c malloc_fail.h
+	$(CC) $(INC) $(CFLAGS) -o cov cov.c malloc_fail.c $(SRCDIR)/libmpdec.a -lm
+
+fntcov:\
+fntcov.c $(SRCDIR)/mpdecimal.h $(SRCDIR)/mptypes.h $(SRCDIR)/libmpdec.a \
+         malloc_fail.c malloc_fail.h
+	$(CC) $(INC) $(CFLAGS) -o fntcov fntcov.c malloc_fail.c $(SRCDIR)/libmpdec.a -lm
+
+# extended tests
+karatsuba_fnt:\
+karatsuba_fnt.c $(SRCDIR)/mpdecimal.h  $(SRCDIR)/mptypes.h $(SRCDIR)/libmpdec.a
+	$(CC) $(INC) $(CFLAGS) -o karatsuba_fnt karatsuba_fnt.c $(SRCDIR)/libmpdec.a -lm
+
+karatsuba_fnt2:\
+karatsuba_fnt2.c $(SRCDIR)/mpdecimal.h  $(SRCDIR)/mptypes.h $(SRCDIR)/libmpdec.a
+	$(CC) $(INC) $(CFLAGS) -o karatsuba_fnt2 karatsuba_fnt2.c $(SRCDIR)/libmpdec.a -lm
+
+ppro_mulmod:\
+ppro_mulmod.c $(SRCDIR)/mpdecimal.h    $(SRCDIR)/constants.h \
+              $(SRCDIR)/numbertheory.h $(SRCDIR)/mptypes.h \
+              $(SRCDIR)/mptest.h       $(SRCDIR)/umodarith.h \
+              $(SRCDIR)/typearith.h    $(SRCDIR)/libmpdec.a
+	$(CC) $(INC) $(CFLAGS) -o ppro_mulmod ppro_mulmod.c $(SRCDIR)/libmpdec.a -lm
+
+test_transpose:\
+test_transpose.c $(SRCDIR)/bits.h      $(SRCDIR)/mpdecimal.h \
+                 $(SRCDIR)/constants.h $(SRCDIR)/mptypes.h \
+                 $(SRCDIR)/mptest.h    $(SRCDIR)/typearith.h \
+                 $(SRCDIR)/transpose.h $(SRCDIR)/libmpdec.a
+	$(CC) $(INC) $(CFLAGS) -o test_transpose test_transpose.c $(SRCDIR)/libmpdec.a -lm
+
+# tests against gmp
+mpd_mpz_add:\
+mpd_mpz_add.c $(SRCDIR)/mpdecimal.h $(SRCDIR)/mptypes.h $(SRCDIR)/libmpdec.a
+	$(CC) $(INC) $(CFLAGS) -o mpd_mpz_add mpd_mpz_add.c $(SRCDIR)/libmpdec.a -lm -lgmp
+
+mpd_mpz_divmod:\
+mpd_mpz_divmod.c $(SRCDIR)/mpdecimal.h $(SRCDIR)/mptypes.h $(SRCDIR)/libmpdec.a
+	$(CC) $(INC) $(CFLAGS) -o mpd_mpz_divmod mpd_mpz_divmod.c $(SRCDIR)/libmpdec.a -lm -lgmp
+
+mpd_mpz_mul:\
+mpd_mpz_mul.c $(SRCDIR)/mpdecimal.h $(SRCDIR)/mptypes.h $(SRCDIR)/libmpdec.a
+	$(CC) $(INC) $(CFLAGS) -o mpd_mpz_mul mpd_mpz_mul.c $(SRCDIR)/libmpdec.a -lm -lgmp
+
+mpd_mpz_sub:\
+mpd_mpz_sub.c $(SRCDIR)/mpdecimal.h $(SRCDIR)/mptypes.h $(SRCDIR)/libmpdec.a
+	$(CC) $(INC) $(CFLAGS) -o mpd_mpz_sub mpd_mpz_sub.c $(SRCDIR)/libmpdec.a -lm -lgmp
+
+# tests against decNumber
+deccheck:\
+deccheck.c $(SRCDIR)/io.h  $(SRCDIR)/mpdecimal.h $(SRCDIR)/memory.h \
+           $(SRCDIR)/mptest.h $(SRCDIR)/mptypes.h $(SRCDIR)/libmpdec.a
+	$(CC) $(INC) -IdecNumber $(CFLAGS) -o deccheck deccheck.c \
+	decNumber/decNumber.c decNumber/decContext.c $(SRCDIR)/libmpdec.a -lm
+
+
+FORCE:
+
+clean: FORCE
+	rm -f *.o *.gch *.gcda *.gcno *.gcov *.dyn *.dpi *.lock \
+	      runtest cov fntcov karatsuba_fnt karatsuba_fnt2 ppro_mulmod \
+              test_transpose mpd_mpz_add mpd_mpz_divmod mpd_mpz_mul mpd_mpz_sub
+
+distclean: FORCE
+	$(MAKE) clean
+	rm -rf Makefile deccheck dectest.zip testdata decNumber*
+
+

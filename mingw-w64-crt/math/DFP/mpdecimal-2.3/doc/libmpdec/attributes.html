@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="index,follow" name="robots" />
+<meta content="libmpdec documentation" name="description" />
+
+    <title>Attributes of a Decimal &mdash; mpdecimal v2.3 documentation</title>
+    <link rel="stylesheet" href="../_static/mpdecimal-doc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="mpdecimal v2.3 documentation" href="../index.html" />
+    <link rel="up" title="libmpdec" href="index.html" />
+    <link rel="next" title="Arithmetic Functions" href="arithmetic.html" />
+    <link rel="prev" title="Assignment, Conversions, I/O" href="assign-convert.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="arithmetic.html" title="Arithmetic Functions"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="assign-convert.html" title="Assignment, Conversions, I/O"
+             accesskey="P">previous</a> |</li>
+    <li><a href="http://www.bytereef.org/mpdecimal/index.html">project home</a>|&nbsp;</li>
+    <li><a href="../index.html">mpdecimal v2.3 documentation </a> &raquo;</li>
+
+          <li><a href="index.html" accesskey="U">libmpdec</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Attributes of a Decimal</a><ul>
+<li><a class="reference internal" href="#getting-attributes">Getting Attributes</a></li>
+<li><a class="reference internal" href="#setting-attributes">Setting Attributes</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="assign-convert.html"
+                        title="previous chapter">Assignment, Conversions, I/O</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="arithmetic.html"
+                        title="next chapter">Arithmetic Functions</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="attributes-of-a-decimal">
+<h1>Attributes of a Decimal</h1>
+<div class="section" id="getting-attributes">
+<h2>Getting Attributes</h2>
+<div class="highlight-c" id="std:topic-mpd_adjexp"><div class="highlight"><pre><span class="n">mpd_ssize_t</span> <span class="n">mpd_adjexp</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Adjusted exponent of a decimal: <em>exp + digits - 1</em></p>
+<div class="highlight-c" id="std:topic-mpd_class"><div class="highlight"><pre><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">mpd_class</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Return a pointer to the class of <em>dec</em>, which is one of sNaN, NaN,
+-Infinity, -Normal, -Subnormal, -Zero, +Zero, +Subnormal, +Normal,
++Infinity.</p>
+<span class="target" id="std:topic-mpd_isfinite"></span><span class="target" id="std:topic-mpd_isinfinite"></span><span class="target" id="std:topic-mpd_isnan"></span><span class="target" id="std:topic-mpd_isnegative"></span><span class="target" id="std:topic-mpd_ispositive"></span><span class="target" id="std:topic-mpd_isqnan"></span><span class="target" id="std:topic-mpd_issigned"></span><span class="target" id="std:topic-mpd_issnan"></span><span class="target" id="std:topic-mpd_isspecial"></span><div class="highlight-c" id="std:topic-mpd_iszero"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_isfinite</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">)</span>
+<span class="kt">int</span> <span class="n">mpd_isinfinite</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_isnan</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_isnegative</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_ispositive</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_isqnan</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_issigned</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_issnan</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_isspecial</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_iszero</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>These functions should be self-explanatory. <tt class="xref c c-func docutils literal"><span class="pre">mpd_issigned</span></tt> is the same
+as <tt class="xref c c-func docutils literal"><span class="pre">mpd_isnegative</span></tt>.</p>
+<div class="highlight-c" id="std:topic-mpd_isnormal"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_isnormal</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Return 0 if the decimal is special or zero, or the exponent is less than <em>emin</em>.
+Return 1 otherwise.</p>
+<div class="highlight-c" id="std:topic-mpd_issubnormal"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_issubnormal</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_context_t</span> <span class="o">*</span><span class="n">ctx</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Return 0 if the decimal is special or zero, or the exponent is greater or equal
+to <em>emin</em>. Return 1 otherwise.</p>
+<div class="highlight-c" id="std:topic-mpd_isinteger"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_isinteger</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Determine whether <em>dec</em> is an (arbitrary precision) integer. The exponent
+of an integer is not necessarily zero and may be negative if the coefficient
+has trailing zeros.</p>
+<span class="target" id="std:topic-mpd_isodd"></span><div class="highlight-c" id="std:topic-mpd_iseven"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_isodd</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_iseven</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Determine whether an <em>integer</em> is odd or even. These functions are undefined
+for non-integers, so they should only be used <em>after calling</em> <tt class="xref c c-func docutils literal"><span class="pre">mpd_isinteger</span></tt>.</p>
+<div class="highlight-c" id="std:topic-mpd_sign"><div class="highlight"><pre><span class="kt">uint8_t</span> <span class="n">mpd_sign</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Return the sign flag, which is 0 for positive decimals and 1 for negative.</p>
+<div class="highlight-c" id="std:topic-mpd_arith_sign"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_arith_sign</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Return 1 for positive decimals and -1 for negative.</p>
+<div class="highlight-c" id="std:topic-mpd_trail_zeros"><div class="highlight"><pre><span class="n">mpd_ssize_t</span> <span class="n">mpd_trail_zeros</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Return the number of trailing zeros in the coefficient.</p>
+<div class="highlight-c" id="std:topic-mpd_iszerocoeff"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_iszerocoeff</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Test if the coefficient is zero. Only useful for non-special numbers.</p>
+<div class="highlight-c" id="std:topic-mpd_isoddcoeff"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_isoddcoeff</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Test if the coefficient is odd. Only useful for non-special numbers.</p>
+<div class="highlight-c" id="std:topic-mpd_msword"><div class="highlight"><pre><span class="n">mpd_uint_t</span> <span class="n">mpd_msword</span><span class="p">(</span><span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Return the most significant word of the coefficient.</p>
+<div class="highlight-c" id="std:topic-mpd_word_digits"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_word_digits</span><span class="p">(</span><span class="n">mpd_uint_t</span> <span class="n">word</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Return the number of decimal digits in a word.</p>
+<div class="highlight-c" id="std:topic-mpd_msd"><div class="highlight"><pre><span class="n">mpd_uint_t</span> <span class="n">mpd_msd</span><span class="p">(</span><span class="n">mpd_uint_t</span> <span class="n">word</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Return the most significant digit of a word.</p>
+<div class="highlight-c" id="std:topic-mpd_lsd"><div class="highlight"><pre><span class="n">mpd_uint_t</span> <span class="n">mpd_lsd</span><span class="p">(</span><span class="n">mpd_uint_t</span> <span class="n">word</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Return the least significant digit of a word.</p>
+<div class="highlight-c" id="std:topic-mpd_isoddword"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_isoddword</span><span class="p">(</span><span class="n">mpd_uint_t</span> <span class="n">word</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Test if a word is odd.</p>
+<div class="highlight-c" id="std:topic-mpd_exp_digits"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_exp_digits</span><span class="p">(</span><span class="n">mpd_ssize_t</span> <span class="n">exp</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Number of decimal digits in the exponent.</p>
+<span class="target" id="std:topic-mpd_isdynamic"></span><span class="target" id="std:topic-mpd_isstatic"></span><span class="target" id="std:topic-mpd_isdynamic_data"></span><span class="target" id="std:topic-mpd_isstatic_data"></span><span class="target" id="std:topic-mpd_isshared_data"></span><div class="highlight-c" id="std:topic-mpd_isconst_data"><div class="highlight"><pre><span class="kt">int</span> <span class="n">mpd_isdynamic</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_isstatic</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_isdynamic_data</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_isstatic_data</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_isshared_data</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">mpd_isconst_data</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">dec</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>These functions test the memory attributes of a decimal. They are only of interest
+if features from the section <em>Advanced Memory Handling</em> are used.</p>
+</div>
+<div class="section" id="setting-attributes">
+<h2>Setting Attributes</h2>
+<p>The functions in this section are mostly low level functions that users
+of the library should not need. They are required when operating
+directly on the <em>data</em> field of a decimal, so that <em>len</em>, <em>digits</em>,
+<em>sign</em> etc. have to be set.</p>
+<p>When setting one of {<tt class="xref c c-macro docutils literal"><span class="pre">MPD_NEG</span></tt>, <tt class="xref c c-macro docutils literal"><span class="pre">MPD_INF</span></tt>, <tt class="xref c c-macro docutils literal"><span class="pre">MPD_NAN</span></tt>,
+<tt class="xref c c-macro docutils literal"><span class="pre">MPD_SNAN</span></tt>}, the memory flags <em>must</em> be left intact. All functions in
+this section take care of this aspect.</p>
+<div class="highlight-c" id="std:topic-mpd_clear_flags"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_clear_flags</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Clear the numeric flags, but leave the memory flags intact.</p>
+<div class="highlight-c" id="std:topic-mpd_set_flags"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_set_flags</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">flags</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set numeric flags, but leave the memory flags intact.</p>
+<div class="highlight-c" id="std:topic-mpd_copy_flags"><div class="highlight"><pre><span class="n">mpd_copy_flags</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="k">const</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Copy only the numeric flags from <em>a</em> to result.</p>
+<div class="highlight-c" id="std:topic-mpd_digits_to_size"><div class="highlight"><pre><span class="n">mpd_ssize_t</span> <span class="n">mpd_digits_to_size</span><span class="p">(</span><span class="n">mpd_ssize_t</span> <span class="n">ndigits</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Return the coefficient size required to store <em>ndigits</em>.</p>
+<div class="highlight-c" id="std:topic-mpd_setdigits"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_setdigits</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">);</span>
+
+<span class="cm">/* Example */</span>
+<span class="n">dec</span><span class="o">-&gt;</span><span class="n">len</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">mpd_setdigits</span><span class="p">(</span><span class="n">dec</span><span class="p">);</span>
+<span class="n">mpd_set_negative</span><span class="p">(</span><span class="n">dec</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Calculate and set <em>digits</em> field. The <em>len</em> field of result is assumed to be correct.</p>
+<div class="highlight-c" id="std:topic-mpd_set_sign"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_set_sign</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">sign</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set the sign of result to <tt class="xref c c-macro docutils literal"><span class="pre">MPD_POS</span></tt> or <tt class="xref c c-macro docutils literal"><span class="pre">MPD_NEG</span></tt>.</p>
+<span class="target" id="std:topic-mpd_set_negative"></span><div class="highlight-c" id="std:topic-mpd_set_positive"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_set_negative</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_set_positive</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set the sign of result to negative or positive.</p>
+<div class="highlight-c" id="std:topic-mpd_signcpy"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_signcpy</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="n">mpd_t</span> <span class="o">*</span><span class="n">a</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set the sign of result to the sign of a.</p>
+<span class="target" id="std:topic-mpd_set_dynamic"></span><span class="target" id="std:topic-mpd_set_static"></span><span class="target" id="std:topic-mpd_set_dynamic_data"></span><span class="target" id="std:topic-mpd_set_static_data"></span><span class="target" id="std:topic-mpd_set_shared_data"></span><div class="highlight-c" id="std:topic-mpd_set_const_data"><div class="highlight"><pre><span class="kt">void</span> <span class="n">mpd_set_dynamic</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_set_static</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_set_dynamic_data</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_set_static_data</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_set_shared_data</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_set_const_data</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Set memory flags. These functions are only of interest if features from
+the section <em>Advanced Memory Handling</em> are used.</p>
+<span class="target" id="std:topic-mpd_set_infinity"></span><span class="target" id="std:topic-mpd_set_qnan"></span><div class="highlight-c" id="std:topic-mpd_set_snan"><div class="highlight"><pre><span class="cm">/* DEPRECATED */</span>
+<span class="kt">void</span> <span class="n">mpd_set_infinity</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_set_qnan</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">mpd_set_snan</span><span class="p">(</span><span class="n">mpd_t</span> <span class="o">*</span><span class="n">result</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>All of these functions are deprecated, since they do not set the <em>len</em> and
+<em>digits</em> fields of <em>result</em>. It is safer to use <tt class="xref c c-func docutils literal"><span class="pre">mpd_setspecial</span></tt>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="arithmetic.html" title="Arithmetic Functions"
+             >next</a></li>
+        <li class="right" >
+          <a href="assign-convert.html" title="Assignment, Conversions, I/O"
+             >previous</a> |</li>
+    <li><a href="http://www.bytereef.org/mpdecimal/index.html">project home</a>|&nbsp;</li>
+    <li><a href="../index.html">mpdecimal v2.3 documentation </a> &raquo;</li>
+
+          <li><a href="index.html" >libmpdec</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Stefan Krah.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+Metadata-Version: 1.0
+Name: cdecimal
+Version: 2.3
+Summary: Fast arbitrary precision correctly-rounded decimal floating point arithmetic.
+Home-page: http://www.bytereef.org/mpdecimal/index.html
+Author: Stefan Krah
+Author-email: skrah@bytereef.org
+License: BSD License
+Download-URL: http://www.bytereef.org/software/mpdecimal/releases/cdecimal-2.3.tar.gz
+Description: 
+        Overview
+        --------
+        
+        The ``cdecimal`` package is a fast drop-in replacement for the ``decimal`` module
+        in Python's standard library. Both modules provide complete implementations of
+        Mike Cowlishaw/IBM's ``General Decimal Arithmetic Specification``.
+        
+        Testing
+        -------
+        
+        Both ``cdecimal`` and the underlying library - ``libmpdec`` - are extremely
+        well tested. ``libmpdec`` is one of the few open source projects with 100%
+        code coverage. ``cdecimal`` is rigorously tested against ``decimal.py``.
+        
+        Short benchmarks
+        ----------------
+        
+        Typical performance gains are between 30x for I/O heavy benchmarks
+        and 80x for numerical programs. In a database benchmark, cdecimal
+        exhibits a speedup of 12x over decimal.py.
+        
+        +---------+-------------+--------------+-------------+
+        |         |   decimal   |   cdecimal   |   speedup   |
+        +=========+=============+==============+=============+
+        |   pi    |    42.75s   |    0.58s     |     74x     |
+        +---------+-------------+--------------+-------------+
+        | telco   |   172.19s   |    5.68s     |     30x     |
+        +---------+-------------+--------------+-------------+
+        | psycopg |     3.57s   |    0.29s     |     12x     |
+        +---------+-------------+--------------+-------------+
+        
+        Documentation
+        -------------
+        
+        Since ``cdecimal`` is compatible with ``decimal.py``, the official documentation
+        is valid. For the few remaining differences, refer to the second link.
+        
+        * `Decimal module <http://docs.python.org/dev/py3k/library/decimal.html>`_
+        * `Differences between cdecimal and decimal <http://www.bytereef.org/mpdecimal/doc/cdecimal/index.html>`_
+        
+        Linux Notes
+        -----------
+        
+        The build process requires a working C compiler and a *full* Python install with
+        development headers. Linux distributions often ship the Python header files as
+        a separate package, called *python-dev* or *python-devel*.
+        
+        Install headers on Debian/Ubuntu:
+        
+        * ``sudo apt-get install python-dev``
+        
+        Windows Notes
+        -------------
+        
+        * `Binary installers <http://www.bytereef.org/mpdecimal/download.html>`_
+        
+        Links
+        -----
+        
+        * `cdecimal project homepage <http://www.bytereef.org/mpdecimal/index.html>`_
+        * `cdecimal benchmarks <http://www.bytereef.org/mpdecimal/benchmarks.html>`_
+        
+        
+Keywords: decimal,floating point,correctly-rounded,arithmetic,arbitrary precision
+Platform: Many
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.1
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Software Development

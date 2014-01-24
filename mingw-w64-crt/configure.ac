@@ -33,6 +33,7 @@ AM_CONDITIONAL([WITHSYSROOT],[AS_VAR_TEST_SET([TARGET_SYSTEM_ROOT])])
 # Checks for headers, libs, etc need to utilize the sysroot... no idea how
 AC_NO_EXECUTABLES
 AC_PROG_SED
+AC_PROG_AWK
 AC_PROG_CC
 AC_PROG_CXX
 AC_PROG_CPP
@@ -179,6 +180,39 @@ AS_CASE([$enable_delay_import_libs],
 AM_CONDITIONAL([DELAY_IMPORT_LIBS],[test $enable_delay_import_libs = yes])
 AC_MSG_RESULT([$enable_delay_import_libs])
 
+AC_MSG_CHECKING([whether to enable experimental features])
+AC_ARG_ENABLE([experimental],
+  [AS_HELP_STRING([--enable-experimental],
+    [Enable experimental features, valid options are comma separated combination of all, dfp, printf128, registeredprintf. Refer to experimental.txt for descriptions.])],
+    [experimental_features=$enable_experimental],
+    [experimental_features="no"])
+
+enable_dfp=no
+enable_printf128=no
+enable_registeredprintf=no
+experiment_list=$($AWK 'BEGIN{OFS=" "; len = split(ARGV@<:@1@:>@,str,","); for(; len != 0; len--) print str@<:@len@:>@ }' "$experimental_features")
+
+for arg in $experiment_list
+do
+AS_CASE([$arg],
+  [dfp],[enable_dfp=yes],
+  [printf128],[enable_printf128=yes],
+  [registeredprintf],[enable_registeredprintf=yes],
+  [all], [enable_dfp=yes; enable_printf128=yes; enable_registeredprintf=yes; ],
+  [yes], [enable_dfp=yes; enable_printf128=yes; enable_registeredprintf=yes; ],
+  [no],  [enable_dfp=no; enable_printf128=no; enable_registeredprintf=no; ],
+  [AC_MSG_ERROR([Unknown option \"$experiment\"])]
+)
+done
+
+AC_MSG_RESULT([$experimental_features])
+AM_CONDITIONAL([ENABLE_DFP],[ test "$enable_dfp" = "yes" ])
+AM_CONDITIONAL([ENABLE_PRINTF128],[ test "$enable_printf128" = "yes" ])
+AM_CONDITIONAL([ENABLE_REGISTEREDPRINTF],[ test "$enable_registeredprintf" = "yes" ])
+AM_COND_IF([ENABLE_DFP],[AC_DEFINE([__ENABLE_DFP],[1],[Build DFP support])])
+AM_COND_IF([ENABLE_PRINTF128],[AC_DEFINE([__ENABLE_PRINTF128],[1],[Build DFP support])])
+AM_COND_IF([ENABLE_REGISTEREDPRINTF],[AC_DEFINE([__ENABLE_REGISTEREDPRINTF],[1],[Build DFP support])])
+
 AC_MSG_CHECKING([whether the compiler supports -municode])
 AC_ARG_ENABLE([tests-unicode],
   [AS_HELP_STRING([--enable-tests-unicode],
@@ -276,6 +310,10 @@ AC_MSG_NOTICE([  Win64 runtime........: $enable_lib64])
 AC_MSG_NOTICE([  C Warning Flags......: $ADD_C_ONLY_WARNING_FLAGS])
 AC_MSG_NOTICE([  C++ Warning Flags....: $ADD_CXX_ONLY_WARNING_FLAGS])
 AC_MSG_NOTICE([  Common Warning Flags.: $ADD_C_CXX_WARNING_FLAGS])
+AC_MSG_NOTICE([])
+AC_MSG_NOTICE([  DFP printf...........: $enable_dfp])
+AC_MSG_NOTICE([  128-bit printf.......: $enable_printf128])
+AC_MSG_NOTICE([  Custom printf........: $enable_registeredprintf])
 AC_MSG_NOTICE([])
 
 

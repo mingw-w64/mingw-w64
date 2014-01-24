@@ -1,0 +1,587 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="index,follow" name="robots" />
+<meta content="cdecimal documentation" name="description" />
+<meta content="mpdecimal, cdecimal, documentation" name="keywords" />
+
+    <title>cdecimal &mdash; mpdecimal v2.3 documentation</title>
+    <link rel="stylesheet" href="../_static/mpdecimal-doc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="mpdecimal v2.3 documentation" href="../index.html" />
+    <link rel="prev" title="Advanced Memory Handling" href="../libmpdec/memory.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../libmpdec/memory.html" title="Advanced Memory Handling"
+             accesskey="P">previous</a></li>
+    <li><a href="http://www.bytereef.org/mpdecimal/index.html">project home</a>|&nbsp;</li>
+    <li><a href="../index.html">mpdecimal v2.3 documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">cdecimal</a><ul>
+<li><a class="reference internal" href="#setting-context-values">Setting Context Values</a></li>
+<li><a class="reference internal" href="#context-limits">Context Limits</a></li>
+<li><a class="reference internal" href="#thread-local-default-context">Thread Local Default Context</a></li>
+<li><a class="reference internal" href="#decimal-constructor">Decimal Constructor</a></li>
+<li><a class="reference internal" href="#power-method">Power Method</a></li>
+<li><a class="reference internal" href="#floatoperation-signal">FloatOperation Signal</a></li>
+<li><a class="reference internal" href="#ieeecontext-function">IEEEContext Function</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../libmpdec/memory.html"
+                        title="previous chapter">Advanced Memory Handling</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-cdecimal">
+<span id="cdecimal"></span><h1>cdecimal</h1>
+<p>The <strong>cdecimal</strong> module is compatible with <strong>decimal.py</strong>. Since the
+<a class="reference external" href="http://docs.python.org/dev/py3k/library/decimal.html">official documentation</a>
+is valid, the rest of this document focuses on the few remaining differences
+as well as extra features.</p>
+<div class="section" id="setting-context-values">
+<h2>Setting Context Values</h2>
+<ul>
+<li><p class="first"><em>prec</em>, <em>Emin</em>, <em>Emax</em>, <em>rounding</em>, <em>capitals</em> and <em>clamp</em> are implemented as
+getters/setters.</p>
+</li>
+<li><p class="first">An additional field <em>_allcr</em> toggles correct rounding for <tt class="xref py py-meth docutils literal"><span class="pre">exp</span></tt>,
+<tt class="xref py py-meth docutils literal"><span class="pre">ln</span></tt> and <tt class="xref py py-meth docutils literal"><span class="pre">log10</span></tt>. If enabled (default), all methods except
+<tt class="xref py py-meth docutils literal"><span class="pre">power</span></tt> and <tt class="xref py py-meth docutils literal"><span class="pre">invroot</span></tt> are correctly rounded.</p>
+</li>
+<li><p class="first"><em>traps</em> and <em>flags</em> have the custom type <tt class="xref py py-class docutils literal"><span class="pre">SignalDict</span></tt>, which behaves
+like a dictionary for most purposes. This is the familiar interface from
+<strong>decimal.py</strong>.</p>
+</li>
+<li><p class="first">Internally, <em>traps</em> and <em>flags</em> are just C unsigned integers. <strong>cdecimal</strong>
+provides the option to access the integers directly using the getters/setters
+<em>_traps</em> and <em>_flags</em>.</p>
+</li>
+<li><p class="first">The use of the two interfaces can be mixed freely. The following table
+shows how the <tt class="xref py py-class docutils literal"><span class="pre">SignalDict</span></tt> items and the C-flags are related:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="36%" />
+<col width="32%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><p class="first last">SignalDict</p>
+</th>
+<th class="head"><p class="first last">C signals</p>
+</th>
+<th class="head"><p class="first last">C conditions</p>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td rowspan="6"><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">InvalidOperation</span></tt></p>
+</td>
+<td rowspan="6"><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecIEEEInvalidOperation</span></tt></p>
+</td>
+<td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecConversionSyntax</span></tt></p>
+</td>
+</tr>
+<tr><td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecDivisionImpossible</span></tt></p>
+</td>
+</tr>
+<tr><td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecDivisionUndefined</span></tt></p>
+</td>
+</tr>
+<tr><td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecInvalidContext</span></tt></p>
+</td>
+</tr>
+<tr><td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecInvalidOperation</span></tt></p>
+</td>
+</tr>
+<tr><td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecMallocError</span></tt></p>
+</td>
+</tr>
+<tr><td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">Clamped</span></tt></p>
+</td>
+<td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecClamped</span></tt></p>
+</td>
+<td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecClamped</span></tt></p>
+</td>
+</tr>
+<tr><td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DivisionByZero</span></tt></p>
+</td>
+<td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecDivisionByZero</span></tt></p>
+</td>
+<td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecDivisionByZero</span></tt></p>
+</td>
+</tr>
+<tr><td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">FloatOperation</span></tt> <a class="footnote-reference" href="#f1" id="id1">[1]</a></p>
+</td>
+<td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecFloatOperation</span></tt></p>
+</td>
+<td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecFloatOperation</span></tt></p>
+</td>
+</tr>
+<tr><td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">Inexact</span></tt></p>
+</td>
+<td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecInexact</span></tt></p>
+</td>
+<td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecInexact</span></tt></p>
+</td>
+</tr>
+<tr><td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">Rounded</span></tt></p>
+</td>
+<td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecRounded</span></tt></p>
+</td>
+<td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecRounded</span></tt></p>
+</td>
+</tr>
+<tr><td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">Subnormal</span></tt></p>
+</td>
+<td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecSubnormal</span></tt></p>
+</td>
+<td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecSubnormal</span></tt></p>
+</td>
+</tr>
+<tr><td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">Overflow</span></tt></p>
+</td>
+<td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecOverflow</span></tt></p>
+</td>
+<td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecOverflow</span></tt></p>
+</td>
+</tr>
+<tr><td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">Underflow</span></tt></p>
+</td>
+<td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecUnderflow</span></tt></p>
+</td>
+<td><p class="first last"><tt class="xref py py-const docutils literal"><span class="pre">DecUnderflow</span></tt></p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><p class="first last"><strong>cdecimal</strong> extension.</p>
+</td></tr>
+</tbody>
+</table>
+</li>
+<li><p class="first">An example of mixing the two interfaces:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cdecimal</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">getcontext</span><span class="p">()</span>               <span class="c"># Global (thread-local) context</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">traps</span><span class="p">[</span><span class="n">Inexact</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>        <span class="c"># Trap the Inexact signal</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">traps</span><span class="p">[</span><span class="n">Inexact</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>       <span class="c"># Clear the Inexact signal</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">_traps</span> <span class="o">|=</span> <span class="n">DecInexact</span>         <span class="c"># Trap the Inexact signal</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">traps</span><span class="p">[</span><span class="n">Inexact</span><span class="p">]</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">_traps</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="n">DecInexact</span>        <span class="c"># Clear the Inexact signal</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">traps</span><span class="p">[</span><span class="n">Inexact</span><span class="p">]</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="context-limits">
+<h2>Context Limits</h2>
+<p>Module constants:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="30%" />
+<col width="43%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">&nbsp;</th>
+<th class="head">cdecimal 32-bit</th>
+<th class="head">cdecimal 64-bit</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">MAX_PREC</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">425000000</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">999999999999999999</span></tt></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">MAX_EMAX</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">425000000</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">999999999999999999</span></tt></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">MIN_EMIN</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">-425000000</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">-999999999999999999</span></tt></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Valid ranges:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="42%" />
+<col width="44%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">&nbsp;</th>
+<th class="head">decimal.py</th>
+<th class="head">cdecimal</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><em>prec</em></td>
+<td>[<tt class="xref py py-const docutils literal"><span class="pre">1</span></tt>, <tt class="xref py py-const docutils literal"><span class="pre">unlimited</span></tt>]</td>
+<td>[<tt class="xref py py-const docutils literal"><span class="pre">1</span></tt>, <tt class="xref py py-const docutils literal"><span class="pre">MPD_MAX_PREC</span></tt>]</td>
+</tr>
+<tr><td><em>Emax</em></td>
+<td>[<tt class="xref py py-const docutils literal"><span class="pre">0</span></tt>, <tt class="xref py py-const docutils literal"><span class="pre">unlimited</span></tt>]</td>
+<td>[<tt class="xref py py-const docutils literal"><span class="pre">0</span></tt>, <tt class="xref py py-const docutils literal"><span class="pre">MPD_MAX_EMAX</span></tt>]</td>
+</tr>
+<tr><td><em>Emin</em></td>
+<td>[<tt class="xref py py-const docutils literal"><span class="pre">-unlimited</span></tt>, <tt class="xref py py-const docutils literal"><span class="pre">0</span></tt>]</td>
+<td>[<tt class="xref py py-const docutils literal"><span class="pre">MPD_MIN_EMIN</span></tt>, <tt class="xref py py-const docutils literal"><span class="pre">0</span></tt>]</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="thread-local-default-context">
+<h2>Thread Local Default Context</h2>
+<p>The choice whether the default context is thread local or global is made at
+compile time. If thread local contexts are enabled, the module constant
+<tt class="xref py py-const docutils literal"><span class="pre">HAVE_THREADS</span></tt> has a value of 1. Otherwise, the value is 0.</p>
+<p>By default, local contexts are enabled.</p>
+</div>
+<div class="section" id="decimal-constructor">
+<h2>Decimal Constructor</h2>
+<p>The <tt class="xref py py-class docutils literal"><span class="pre">Decimal</span></tt> constructor does not observe the current context, i.e. any
+value is read exactly as entered. Since the context of <strong>cdecimal</strong> has limits,
+the following approach is used:</p>
+<p>If an <tt class="xref py py-const docutils literal"><span class="pre">Inexact</span></tt> or <tt class="xref py py-const docutils literal"><span class="pre">Rounded</span></tt> condition occurs during conversion,
+<tt class="xref py py-const docutils literal"><span class="pre">InvalidOperation</span></tt> is raised and the result is NaN. In this case, the
+<tt class="xref py py-meth docutils literal"><span class="pre">create_decimal</span></tt> context method has to be used.</p>
+</div>
+<div class="section" id="power-method">
+<h2>Power Method</h2>
+<p>The <tt class="xref py py-meth docutils literal"><span class="pre">power</span></tt> method in <strong>decimal.py</strong> is correctly rounded. <strong>cdecimal</strong>
+currently only guarantees an error less than <cite>1ULP+t</cite>, where <cite>t</cite> has a maximum of
+<cite>0.1ULP</cite>, but is almost always less than <cite>0.01ULP</cite>.</p>
+</div>
+<div class="section" id="floatoperation-signal">
+<h2>FloatOperation Signal</h2>
+<p>In <strong>Python</strong> <strong>2.7</strong> and <strong>3.2</strong> the rules for mixing decimals and floats were
+relaxed. This can give rise to mistakes:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="mf">1.1</span><span class="p">)</span>    <span class="c"># meaning Decimal(&quot;1.1&quot;)</span>
+<span class="go">Decimal(&#39;1.100000000000000088817841970012523233890533447265625&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s">&quot;1.9&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">&gt;</span> <span class="mf">1.9</span>         <span class="c"># meaning Decimal(1.9)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>In order to prevent accidental mixing, <strong>cdecimal</strong> has an additional
+<cite>FloatOperation</cite> signal. Here is the behavior with the trap set:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">getcontext</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">traps</span><span class="p">[</span><span class="n">FloatOperation</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="mf">1.9</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">cdecimal.FloatOperation</span>: <span class="n">[&lt;class &#39;cdecimal.FloatOperation&#39;&gt;]</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s">&quot;1.9&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">&gt;</span> <span class="mf">1.9</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">cdecimal.FloatOperation</span>: <span class="n">[&lt;class &#39;cdecimal.FloatOperation&#39;&gt;]</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>For compatibility with <strong>decimal.py</strong> the FloatOperation signal is
+off by default. This is the standard behavior for mixed operations
+across several Python versions:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="18%" />
+<col width="14%" />
+<col width="18%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">&nbsp;</th>
+<th class="head">2.5</th>
+<th class="head">2.6</th>
+<th class="head">2.7</th>
+<th class="head">3.1</th>
+<th class="head">3.2</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>mixed arithmetic</td>
+<td>TypeError</td>
+<td>TypeError</td>
+<td>TypeError</td>
+<td>TypeError</td>
+<td>TypeError</td>
+</tr>
+<tr><td>constructor</td>
+<td>TypeError</td>
+<td>TypeError</td>
+<td>exact <a class="footnote-reference" href="#f4" id="id2">[4]</a></td>
+<td>TypeError</td>
+<td>exact</td>
+</tr>
+<tr><td>__eq__</td>
+<td>false <a class="footnote-reference" href="#f2" id="id3">[2]</a></td>
+<td>false</td>
+<td>exact</td>
+<td>false</td>
+<td>exact</td>
+</tr>
+<tr><td>__ne__</td>
+<td>true <a class="footnote-reference" href="#f3" id="id4">[3]</a></td>
+<td>true</td>
+<td>exact</td>
+<td>true</td>
+<td>exact</td>
+</tr>
+<tr><td>ordering</td>
+<td>arbitrary</td>
+<td>arbitrary</td>
+<td>exact</td>
+<td>TypeError</td>
+<td>exact</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>The same table with the FloatOperation signal enabled:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="20%" />
+<col width="14%" />
+<col width="15%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">&nbsp;</th>
+<th class="head">2.5</th>
+<th class="head">2.6</th>
+<th class="head">2.7</th>
+<th class="head">3.1</th>
+<th class="head">3.2</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>mixed arithmetic</td>
+<td>TypeError</td>
+<td>TypeError</td>
+<td>TypeError</td>
+<td>TypeError</td>
+<td>TypeError</td>
+</tr>
+<tr><td>constructor</td>
+<td>TypeError</td>
+<td>TypeError</td>
+<td>FloatOp</td>
+<td>TypeError</td>
+<td>FloatOp</td>
+</tr>
+<tr><td>__eq__</td>
+<td>false</td>
+<td>false</td>
+<td>exact</td>
+<td>false</td>
+<td>exact</td>
+</tr>
+<tr><td>__ne__</td>
+<td>true</td>
+<td>true</td>
+<td>exact</td>
+<td>true</td>
+<td>exact</td>
+</tr>
+<tr><td>ordering</td>
+<td>FloatOp <a class="footnote-reference" href="#f5" id="id5">[5]</a></td>
+<td>FloatOp</td>
+<td>FloatOp</td>
+<td>FloatOp</td>
+<td>FloatOp</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[2]</a></td><td>always false</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[3]</a></td><td>always true</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[4]</a></td><td>exact conversions or comparisons</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td>raises FloatOperation</td></tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="ieeecontext-function">
+<h2>IEEEContext Function</h2>
+<dl class="method">
+<dt id="cdecimal.IEEEContext">
+<tt class="descclassname">cdecimal.</tt><tt class="descname">IEEEContext</tt><big>(</big><em>bits</em><big>)</big></dt>
+<dd><p>Return a context object initialized to the proper values for one of the
+IEEE interchange formats. The argument must be a multiple of 32 and less
+than <tt class="xref py py-const docutils literal"><span class="pre">IEEE_CONTEXT_MAX_BITS</span></tt>.</p>
+<p>For the most common values, the following constants are provided:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="29%" />
+<col width="29%" />
+<col width="29%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">&nbsp;</th>
+<th class="head"><tt class="xref py py-const docutils literal"><span class="pre">DECIMAL32</span></tt></th>
+<th class="head"><tt class="xref py py-const docutils literal"><span class="pre">DECIMAL64</span></tt></th>
+<th class="head"><tt class="xref py py-const docutils literal"><span class="pre">DECIMAL128</span></tt></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><em>prec</em></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">7</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">16</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">34</span></tt></td>
+</tr>
+<tr><td><em>emax</em></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">96</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">384</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">6144</span></tt></td>
+</tr>
+<tr><td><em>emin</em></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">-95</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">-383</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">-6143</span></tt></td>
+</tr>
+<tr><td><em>round</em></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">ROUND_HALF_EVEN</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">ROUND_HALF_EVEN</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">ROUND_HALF_EVEN</span></tt></td>
+</tr>
+<tr><td><em>traps</em></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">0</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">0</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">0</span></tt></td>
+</tr>
+<tr><td><em>status</em></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">0</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">0</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">0</span></tt></td>
+</tr>
+<tr><td><em>newtrap</em></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">0</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">0</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">0</span></tt></td>
+</tr>
+<tr><td><em>clamp</em></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">1</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">1</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">1</span></tt></td>
+</tr>
+<tr><td><em>allcr</em></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">1</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">1</span></tt></td>
+<td><tt class="xref py py-const docutils literal"><span class="pre">1</span></tt></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../libmpdec/memory.html" title="Advanced Memory Handling"
+             >previous</a></li>
+    <li><a href="http://www.bytereef.org/mpdecimal/index.html">project home</a>|&nbsp;</li>
+    <li><a href="../index.html">mpdecimal v2.3 documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Stefan Krah.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>
