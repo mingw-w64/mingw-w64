@@ -4,6 +4,7 @@
 #include <locale.h>
 #include <msvcrt.h>
 
+#undef __lc_codepage
 #undef ___lc_codepage_func
 #include "mb_wc_common.h"
 
