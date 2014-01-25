@@ -1,8 +1,1 @@
-2013-02-16  Kai Tietz  <ktietz@redhat.com>
-
-	* cfgmgr32.def: Update.
-	* devmgr.def: New.
-	* devobj.def: New.
-	* devrtl.def: New.
-	* setupapi.def: Update.
 
