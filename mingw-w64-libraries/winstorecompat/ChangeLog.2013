@@ -1,0 +1,22 @@
+2013-03-16  Rafaël Carré  <funmanvideolan.org>
+
+	* GetFileAttributesA(): remove
+
+2013-01-23  Jean-Baptiste Kempf  <jbvideolan.org>
+
+	* GetFileAttributesA() and GetFileAttributesW() replacements
+	* WaitForSingleObject() replacement
+	* LoadLibraryW() replacement
+	* CreateFileW() replacement
+	* GetTickCount() replacement
+
+2013-01-21  Jean-Baptiste Kempf  <jbvideolan.org>
+
+	* InitializeCriticalSection() replacement
+	* CreateSemaphoreW() replacement
+	* CreateMutexW() replacement
+
+2013-01-16  Rafaël Carré  <funman@videolan.org>
+
+	* Initial import with CreateEventW() replacement
+

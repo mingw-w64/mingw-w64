@@ -1,0 +1,91 @@
+2013-05-13  Xun Xun <xunxun1982@gmail.com>
+	* lib32/msvcrt.def.in: Make _vswprintf an alias to vswprintf.
+
+2013-04-06  Corinna Vinschen  <vinschen@redhat.com>
+
+	* intrincs/membarrier.c: Include <intrin.h>.  Add "for x86 only"
+	comment, as in other x86-only files.  Drop gratuitous declaration.
+
+2013-04-05  Corinna Vinschen  <vinschen@redhat.com>
+
+	* intrincs/*.c: Change `long' to `__LONG32' throughout to handle
+	LP64 systems.
+
+2013-04-04  Rafaël Carré  <funman@videolan.org>
+
+	* misc/_ctime32.c: Remove
+	* misc/_gmtime32.c: Likewise.
+	* misc/_localtime.c: Likewise.
+	* misc/_mkgmtime.c: Likewise.
+	* misc/_mkgmtime32.c: Likewise.
+	* misc/_mktime32.c: Likewise.
+	* misc/_wctime.c: Likewise.
+	* misc/_wctime32.c: Likewise.
+	* misc/ctime.c: Likewise.
+	* misc/gmtime.c: Likewise.
+	* lib32/msvcr*.def: Alias *time to *time32 when missing
+	* lib64/msvcr*.def: Alias *time to *time64 when missing
+
+2013-04-03  Rafaël Carré  <funman@videolan.org>
+
+	* misc/time.c: Remove
+	* misc/_time32.c: Likewise.
+	* lib32/msvcr*.def: Alias time to _time32 when missing
+	* lib64/msvcr*.def: Alias time to _time64 when missing
+
+2013-04-02  Corinna Vinschen  <vinschen@redhat.com>
+
+	* Makefile.am (src_libmingwex): Split off intrinsic functions into...
+	(src_intrincs): ...this new variable.
+	(src_intrincs64): Rename from src_libmingwex64.
+	(src_intrincs32): Rename from src_libmingwex32.
+	(lib32_LIBRARIES): Add lib32/libkernel32.a.
+	(lib32_libkernel32_a_SOURCES): New variable.
+	(lib32_libkernel32_a_AR): New variable.
+	(lib32_libkernel32_a_CPPFLAGS): New variable.
+	(lib32_DATA): Remove lib32/libkernel32.a.
+	(lib64_LIBRARIES): Add lib64/libkernel32.a.
+	(lib64_libkernel32_a_SOURCES): New variable.
+	(lib64_libkernel32_a_CPPFLAGS): New variable.
+	(lib64_libkernel32_a_AR): New variable.
+	(lib64_DATA): Remove lib64/libkernel32.a.
+	* Makefile.in: Regenerate.
+
+2013-03-14  Kai Tietz  <ktietz@redhat.com>
+
+	* Makefile.am: Add new files to build of libmingwex.a library.
+	* Makefile,in: Regenerated.
+	* lib32/msvcr80.def: Remove replaced exports.
+	* lib32/msvcrt.def: Likewise.
+	* lib64/msvcr80.def: Likewise.
+	* lib32/msvcrt.def: Likewise.
+	* stdio/_fstati64.c: New file.
+	* stdio/_stati64.c: New file.
+	* stdio/_wstati64.c: New file.
+
+2013-02-23  David Nadlinger  <code@klickverbot.at>
+
+	* crt/tlssup.c (_tls_used): Remove +1 form _tls_start to avoid
+	section-relative offset displacement.
+
+2013-02-16  Kai Tietz  <ktietz@redhat.com>
+
+	* Makefile.am: Add new library files.
+	* Makefile.in: Regenerated.
+
+2012-01-16  Rafaël Carré <funman@videolan.org>
+
+	* lib32/msvcr110.def: Mark atexit with DATA.
+	* lib64/msvcr110.def: Likewise.
+	* lib32/msvcr90d.def: Likewise.
+	* lib64/msvcr90d.def: Likewise.
+
+2012-01-13  Kai Tietz  <ktietz@redhat.com>
+
+	* crt/tlssup.c (_tls_start,_tls_end): Make variables
+	pointer-typed, so that alignment for start-address is
+	on pointer-alignment.
+
+2013-01-12  Jonathan Yong  <jon_y@users.sourceforge.net>
+
+	* gdtoa/strtodnrp.c (__mingw_strtod): New, aliased to __strtod.

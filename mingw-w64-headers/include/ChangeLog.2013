@@ -1,0 +1,119 @@
+2013-11-21  Erik van Pienbroek  <epienbro@fedoraproject.org>
+
+	* setupapi.h: Add oledbg.h header include.
+
+2013-10-30  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* bthdef.h: Remove duplicated PnPInformationServiceClass_UUID
+	definition (bug #355.)
+
+2013-09-21  Kai Tietz  <ktietz@redhat.com>
+
+	* guiddef.h: Fix InlineIsEqualGUID macro, as reported in bug #346.
+
+2013-07-04  Ozkan Sezer  <sezeroz@gmail.com>
+
+	* ntddmodm.h: New header based on data from msdn and ioctls.net
+
+2013-06-11  Hannes Domani <ssbssa@yahoo.de>
+
+	* shlguid.h (IID_IPersistFolder2): Add missing GUID.
+
+2013-05-29  Caleb James DeLisle <unknown>
+	    Kai Tietz  <ktietz@redhat.com>
+
+	* ifdef.h (NET_LUID): Don't pack struct.
+
+2013-05-16  Kai Tietz  <ktietz@redhat.com>
+
+	* wingdi.h: Add support for WINAPI_FAMILY_PARTITION.
+	(ETO_REVERSE_INDEX_MAP):  New macros.
+	(MILCORE_TS_QUERYVER_RESULT_FALSE, MILCORE_TS_QUERYVER_RESULT_TRUE): Likewise.
+	(GDI_OBJ_LAST): Likewise.
+	(EXTLOGPEN32, *PEXTLOGPEN32, *NPEXTLOGPEN32, *LPEXTLOGPEN32): New.
+	(HS_API_MAX): New.
+	(DM_INTERLACED): New.
+	(DISPLAY_DEVICE_ACC_DRIVER): New.
+	(DISPLAY_DEVICE_TS_COMPATIBLE): New.
+	(DISPLAY_DEVICE_UNSAFE_MODES_ON): New.
+	(DISPLAYCONFIG_MAXPATH): New.
+	(DISPLAYCONFIG_RATIONAL): New.
+	(DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY): New.
+	(DISPLAYCONFIG_SCANLINE_ORDERING): New.
+	(DISPLAYCONFIG_DEVICE_INFO_TYPE): New.
+	(DISPLAYCONFIG_TOPOLOGY_ID): New.
+	(DISPLAYCONFIG_PATH_ACTIVE): New.
+	(DISPLAYCONFIG_PATH_INFO): New.
+	(DISPLAYCONFIG_TARGET_*): New macros.
+	(DISPLAYCONFIG_PATH_TARGET_INFO): New.
+	(DISPLAYCONFIG_SOURCE_IN_USE): New macro.
+	(DISPLAYCONFIG_PATH_SOURCE_INFO): New.
+	(DISPLAYCONFIG_PATH_MODE_IDX_INVALID): New macro.
+	(DISPLAYCONFIG_MODE_INFO): New.
+	(DISPLAYCONFIG_TARGET_MODE): New.
+	(DISPLAYCONFIG_SOURCE_MODE): New.
+	(DISPLAYCONFIG_PIXELFORMAT): New.
+	(DISPLAYCONFIG_MODE_INFO_TYPE): New.
+	(DISPLAYCONFIG_2DREGION): New.
+	(DISPLAYCONFIG_VIDEO_SIGNAL_INFO): New.
+	(DISPLAYCONFIG_SCALING): New.
+	(DISPLAYCONFIG_ROTATION): New.
+	(DISPLAYCONFIG_DEVICE_INFO_HEADER): New.
+	(DISPLAYCONFIG_SOURCE_DEVICE_NAME): New.
+	(DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS): New.
+	(DISPLAYCONFIG_TARGET_DEVICE_NAME): New.
+	(DISPLAYCONFIG_TARGET_PREFERRED_MODE): New.
+	(DISPLAYCONFIG_ADAPTER_NAME): New.
+	(DISPLAYCONFIG_SET_TARGET_PERSISTENCE): New.
+	(QDC_*, SDC_*): New macros.
+	(PFD_DIRECT3D_ACCELERATED, PFD_SUPPORT_COMPOSITION): New macro.
+
+2013-05-09  Conrad Meyer <unknown>
+
+	* hidsdi.h (HidD_GetHidGuid): Add prototype.
+
+2013-04-09  Kai Tietz  <ktietz@redhat.com>
+
+	* winnt.h (WELL_KNOWN_SID_TYPE): Add new elements.
+	(SECURITY_SCOPED...,SECURITY_AUTHNTICATION_....,
+	SECURITY_TRUSTED...): Add new defines.
+
+2013-03-28  Corinna Vinschen  <vinschen@redhat.com>
+
+	* ntstatus.h: Regenerate from MSDN information.
+
+2013-03-14  Corinna Vinschen  <vinschen@redhat.com>
+
+	* winbase.h (PIPE_ACCEPT_REMOTE_CLIENTS): Define when building for
+	Vista or later.
+	(PIPE_REJECT_REMOTE_CLIENTS): Ditto.
+
+2013-03-09  Corinna Vinschen  <vinschen@redhat.com>
+
+	* lmaccess.h (SERVICE_ACCOUNT_FLAG_LINK_TO_HOST_ONLY): Define.
+	(NetAddServiceAccount): Add prototype.
+	(NetRemoveServiceAccount): Ditto.
+	(NetIsServiceAccount): Ditto.
+	(NetEnumerateServiceAccounts): Ditto.
+
+2013-02-19  Kai Tietz  <ktietz@redhat.com>
+
+	* patchapi.h: Update to 400, 450 MSI API.
+	* msidefs.h: Add enumerators additions for _WIN32_MSI 400, and 450.
+	* msi.h: Add features for _WIN32_MSI 400, and 450.
+
+2013-01-08  Jean-Baptiste Kempf  <jb@videolan.org>
+	    Kai Tietz  <ktietz@redhat.com>
+
+	* winnls.h (IDN_ALLOW_UNASSIGNED): New macro.
+	(IDN_USE_STD3_ASCII_RULES): Likewise.
+	(NORM_FORM): Reformat.
+	(IsNormalizedString): Add prototype.
+	(NormalizeString): Remove duplicate.
+
+2013-01-08  Jean-Baptiste Kempf  <jb@videolan.org>
+
+	* winbase.h (CREATE_MUTEX_INITIAL_OWNER): New define.
+	(CRITICAL_SECTION_NO_DEBUG_INFO): New define.
+	(InitializeCriticalSectionEx): New prototype.
+

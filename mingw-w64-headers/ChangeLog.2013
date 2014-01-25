@@ -1,0 +1,27 @@
+2013-12-13  Roland Schwingel <roland.schwingel@onevision.com>
+
+	* include/ntsecapi.h: Add definition of LSA_LAST_INTER_LOGON_INFO
+	and some missing members in SECURITY_LOGON_SESSION_DATA. 
+
+2013-07-09  Roland Schwingel <roland.schwingel@onevision.com>
+
+	* include/wincon.h: Replace BOOL by WINBOOL in
+	struct _CONSOLE_SCREEN_BUFFER_INFOEX.
+
+2013-04-05  Corinna Vinschen  <vinschen@redhat.com>
+
+	* configure.ac (BASEHEAD_LIST): Add crt/intrin.h.
+	* configure: Regenerate.
+
+2013-03-01  Jan Holesovsky <kendy@suse.cz>
+
+	* include/usp10.h: Updated SCRIPT_CONTROL struct.
+
+2013-01-30  Christian Franke  <franke@computer.org>
+
+	* include/winsvc.h (SERVICE_CONFIG_DELAYED_AUTO_START_INFO): New define
+	for _WIN32_WINNT >= 0x0600.  The related struct is already present.
+	(SERVICE_CONFIG_FAILURE_ACTIONS_FLAG): Likewise.
+	(SERVICE_CONFIG_SERVICE_SID_INFO): Likewise.
+	(SERVICE_CONFIG_REQUIRED_PRIVILEGES_INFO): Likewise.
+	(SERVICE_CONFIG_PRESHUTDOWN_INFO): Likewise.
