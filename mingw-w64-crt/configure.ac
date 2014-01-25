@@ -3,7 +3,7 @@
 # Use AM_MAINTANER_MODE somewhere in this file once reconfigurations settle down.
 
 AC_PREREQ([2.69])
-AC_INIT([mingw-w64-runtime],[3.0b],[mingw-w64-public@lists.sourceforge.net])
+AC_INIT([mingw-w64-runtime],[4.0b],[mingw-w64-public@lists.sourceforge.net])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_SRCDIR([ChangeLog])
 AC_CONFIG_HEADER([config.h])
