@@ -437,9 +437,34 @@ typedef long double double_t;
   }
 #endif
 
-#define fpclassify(x) (sizeof (x) == sizeof (float) ? __fpclassifyf (x)	  \
-  : sizeof (x) == sizeof (double) ? __fpclassify (x) \
-  : __fpclassifyl (x))
+#ifdef __STDC_WANT_DEC_FP__
+#define __dfp_expansion(__call,__fin,x) \
+__builtin_choose_expr (                                  \
+      __builtin_types_compatible_p (typeof (x), _Decimal32),    \
+        __call##d32(x),                                         \
+    __builtin_choose_expr (                                     \
+      __builtin_types_compatible_p (typeof (x), _Decimal64),    \
+        __call##d64(x),                                         \
+    __builtin_choose_expr (                                     \
+      __builtin_types_compatible_p (typeof (x), _Decimal128),   \
+        __call##d128(x),                                        \
+__fin)))
+#else
+#define __dfp_expansion(__call,__fin,x) __fin
+#endif
+
+#define fpclassify(x) \
+__builtin_choose_expr (                                         \
+  __builtin_types_compatible_p (typeof (x), double),            \
+    __fpclassify(x),                                            \
+    __builtin_choose_expr (                                     \
+      __builtin_types_compatible_p (typeof (x), float),         \
+        __fpclassifyf(x),                                       \
+    __builtin_choose_expr (                                     \
+      __builtin_types_compatible_p (typeof (x), long double),   \
+        __fpclassifyl(x),                                       \
+    __dfp_expansion(__fpclassify,__builtin_trap(),x))))
+
 
 /* 7.12.3.2 */
 #define isfinite(x) ((fpclassify(x) & FP_NAN) == 0)
@@ -518,9 +543,17 @@ typedef long double double_t;
   }
 #endif
 
-#define isnan(x) (sizeof (x) == sizeof (float) ? __isnanf (x)	\
-  : sizeof (x) == sizeof (double) ? __isnan (x)	\
-  : __isnanl (x))
+#define isnan(x) \
+__builtin_choose_expr (                                         \
+  __builtin_types_compatible_p (typeof (x), double),            \
+    __isnan(x),                                                 \
+    __builtin_choose_expr (                                     \
+      __builtin_types_compatible_p (typeof (x), float),         \
+        __isnanf(x),                                            \
+    __builtin_choose_expr (                                     \
+      __builtin_types_compatible_p (typeof (x), long double),   \
+        __isnanl(x),                                            \
+    __dfp_expansion(__isnan,__builtin_trap(),x))))
 
 /* 7.12.3.5 */
 #define isnormal(x) (fpclassify(x) == FP_NORMAL)
@@ -568,9 +601,17 @@ typedef long double double_t;
   }
 #endif
 
-#define signbit(x) (sizeof (x) == sizeof (float) ? __signbitf (x)	\
-  : sizeof (x) == sizeof (double) ? __signbit (x)	\
-  : __signbitl (x))
+#define signbit(x) \
+__builtin_choose_expr (                                         \
+  __builtin_types_compatible_p (typeof (x), double),            \
+    __signbit(x),                                               \
+    __builtin_choose_expr (                                     \
+      __builtin_types_compatible_p (typeof (x), float),         \
+        __signbitf(x),                                          \
+    __builtin_choose_expr (                                     \
+      __builtin_types_compatible_p (typeof (x), long double),   \
+        __signbitl(x),                                          \
+     __dfp_expansion(__signbit,__builtin_trap(),x))))
 
 /* 7.12.4 Trigonometric functions: Double in C89 */
   extern float __cdecl sinf(float _X);
@@ -1089,6 +1130,379 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
 #define matherr _matherr
 #define HUGE	_HUGE
 #endif
+
+/* Documentation on decimal float math
+   http://h21007.www2.hp.com/portal/site/dspp/menuitem.863c3e4cbcdc3f3515b49c108973a801?ciid=8cf166fedd1aa110VgnVCM100000a360ea10RCRD 
+ */
+#ifdef __STDC_WANT_DEC_FP__
+
+#define DEC_INFINITY __builtin_infd32()
+#define DEC_NAN __builtin_nand32("")
+
+  extern int __cdecl __isnand32(_Decimal32 x);
+  extern int __cdecl __isnand64(_Decimal64 x);
+  extern int __cdecl __isnand128(_Decimal128 x);
+  extern int __cdecl __fpclassifyd32 (_Decimal32);
+  extern int __cdecl __fpclassifyd64 (_Decimal64);
+  extern int __cdecl __fpclassifyd128 (_Decimal128);
+  extern int __cdecl __signbitd32 (_Decimal32);
+  extern int __cdecl __signbitd64 (_Decimal64);
+  extern int __cdecl __signbitd128 (_Decimal128);
+
+#ifndef __CRT__NO_INLINE
+  __CRT_INLINE __cdecl __isnand32(_Decimal32 x){
+    return __builtin_isnand32(x);
+  }
+
+  __CRT_INLINE __cdecl __isnand64(_Decimal64 x){
+    return __builtin_isnand64(x);
+  }
+
+  __CRT_INLINE __cdecl __isnand128(_Decimal128 x){
+    return __builtin_isnand128(x);
+  }
+
+  __CRT_INLINE int __cdecl __signbitd32 (_Decimal32 x){
+    return __buintin_signbitd32(x);
+  }
+
+  __CRT_INLINE int __cdecl __signbitd64 (_Decimal64 x){
+    return __buintin_signbitd64(x);
+  }
+
+  __CRT_INLINE int __cdecl __signbitd128 (_Decimal128 x){
+    return __buintin_signbitd128(x);
+  }
+
+#endif
+
+/* Still missing 
+#define HUGE_VAL_D32
+#define HUGE_VAL_D64
+#define HUGE_VAL_D128
+*/
+
+/*** exponentials ***/
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/expd64.3m.htm */
+_Decimal64 __cdecl expd64(_Decimal64 _X);
+_Decimal128 __cdecl expd128(_Decimal128 _X);
+_Decimal32 __cdecl expd32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/exp2d64.3m.htm */
+_Decimal64 __cdecl exp2d64(_Decimal64 _X);
+_Decimal128 __cdecl exp2d128(_Decimal128 _X);
+_Decimal32 __cdecl exp2d32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/exp10d64.3m.htm */
+_Decimal64 __cdecl exp10d64(_Decimal64 _X);
+_Decimal128 __cdecl exp10d128(_Decimal128 _X);
+_Decimal32 __cdecl exp10d32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/expm1d64.3m.htm */
+_Decimal64 __cdecl expm1d64(_Decimal64 _X);
+_Decimal128 __cdecl expm1d128(_Decimal128 _X);
+_Decimal32 __cdecl expm1d32(_Decimal32 _X);
+
+/*** logarithms ***/
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/logd64.3m.htm */
+_Decimal64 __cdecl logd64(_Decimal64 _X);
+_Decimal128 __cdecl logd128(_Decimal128 _X);
+_Decimal32 __cdecl logd32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/log2d64.3m.htm */
+_Decimal64 __cdecl log2d64(_Decimal64 _X);
+_Decimal128 __cdecl log2d128(_Decimal128 _X);
+_Decimal32 __cdecl log2d32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/log10d64.3m.htm */
+_Decimal64 __cdecl log10d64(_Decimal64 _X);
+_Decimal128 __cdecl log10d128(_Decimal128 _X);
+_Decimal32 __cdecl log10d32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/log1pd64.3m.htm */
+_Decimal64 __cdecl log1pd64(_Decimal64 _X);
+_Decimal128 __cdecl log1pd128(_Decimal128 _X);
+_Decimal32 __cdecl log1pd32(_Decimal32 _X);
+
+/*** trigonometrics ***/
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/cosd64.3m.htm */
+_Decimal64 __cdecl cosd64(_Decimal64 _X);
+_Decimal128 __cdecl cosd128(_Decimal128 _X);
+_Decimal32 __cdecl cosd32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/sind64.3m.htm */
+_Decimal64 __cdecl sind64(_Decimal64 _X);
+_Decimal128 __cdecl sind128(_Decimal128 _X);
+_Decimal32 __cdecl sind32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/tand64.3m.htm */
+_Decimal64 __cdecl tand64(_Decimal64 _X);
+_Decimal128 __cdecl tand128(_Decimal128 _X);
+_Decimal32 __cdecl tand32(_Decimal32 _X);
+
+/*** inverse trigonometrics ***/
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/acosd64.3m.htm */
+_Decimal64 __cdecl acosd64(_Decimal64 _X);
+_Decimal128 __cdecl acosd128(_Decimal128 _X);
+_Decimal32 __cdecl acosd32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/asind64.3m.htm */
+_Decimal64 __cdecl asind64(_Decimal64 _X);
+_Decimal128 __cdecl asind128(_Decimal128 _X);
+_Decimal32 __cdecl asind32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/atand64.3m.htm */
+_Decimal64 __cdecl atand64(_Decimal64 _X);
+_Decimal128 __cdecl atand128(_Decimal128 _X);
+_Decimal32 __cdecl atand32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/atan2d64.3m.htm */
+_Decimal64 __cdecl atan2d64(_Decimal64 _X, _Decimal64 _Y);
+_Decimal128 __cdecl atan2d128(_Decimal128 _X, _Decimal128 _Y);
+_Decimal32 __cdecl atan2d32(_Decimal32 _X, _Decimal32 _Y);
+
+/*** hyperbolics ***/
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/coshd64.3m.htm */
+_Decimal64 __cdecl coshd64(_Decimal64 _X);
+_Decimal128 __cdecl coshd128(_Decimal128 _X);
+_Decimal32 __cdecl coshd32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/sinhd64.3m.htm */
+_Decimal64 __cdecl sinhd64(_Decimal64 _X);
+_Decimal128 __cdecl sinhd128(_Decimal128 _X);
+_Decimal32 __cdecl sinhd32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/tanhd64.3m.htm */
+_Decimal64 __cdecl tanhd64(_Decimal64 _X);
+_Decimal128 __cdecl tanhd128(_Decimal128 _X);
+_Decimal32 __cdecl tanhd32(_Decimal32 _X);
+
+/*** inverse hyperbolics ***/
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/acoshd64.3m.htm */
+_Decimal64 __cdecl acoshd64(_Decimal64 _X);
+_Decimal128 __cdecl acoshd128(_Decimal128 _X);
+_Decimal32 __cdecl acoshd32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/asinhd64.3m.htm */
+_Decimal64 __cdecl asinhd64(_Decimal64 _X);
+_Decimal128 __cdecl asinhd128(_Decimal128 _X);
+_Decimal32 __cdecl asinhd32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/atanhd64.3m.htm */
+_Decimal64 __cdecl atanhd64(_Decimal64 _X);
+_Decimal128 __cdecl atanhd128(_Decimal128 _X);
+_Decimal32 __cdecl atanhd32(_Decimal32 _X);
+
+/*** square & cube roots, hypotenuse ***/
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/sqrtd64.3m.htm */
+_Decimal64 __cdecl sqrtd64(_Decimal64 _X);
+_Decimal128 __cdecl sqrtd128(_Decimal128 _X);
+_Decimal32 __cdecl sqrtd32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/cbrtd64.3m.htm */
+_Decimal64 __cdecl cbrtd64(_Decimal64 _X);
+_Decimal128 __cdecl cbrtd128(_Decimal128 _X);
+_Decimal32 __cdecl cbrtd32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/hypotd64.3m.htm */
+_Decimal64 __cdecl hypotd64(_Decimal64 _X, _Decimal64 _Y);
+_Decimal128 __cdecl hypotd128(_Decimal128 _X, _Decimal128 _Y);
+_Decimal32 __cdecl hypotd32(_Decimal32 _X, _Decimal32 _Y);
+
+/*** floating multiply-add ***/
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/fmad64.3m.htm */
+_Decimal64 __cdecl fmad64(_Decimal64 _X, _Decimal64 y, _Decimal64 _Z);
+_Decimal128 __cdecl fmad128(_Decimal128 _X, _Decimal128 y, _Decimal128 _Z);
+_Decimal32 __cdecl fmad32(_Decimal32 _X, _Decimal32 y, _Decimal32 _Z);
+
+/*** exponent/significand ***/
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/logbd64.3m.htm */
+_Decimal64 __cdecl logbd64(_Decimal64 _X);
+_Decimal128 __cdecl logbd128(_Decimal128 _X);
+_Decimal32 __cdecl logbd32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/ilogbd64.3m.htm */
+int __cdecl ilogbd64(_Decimal64 _X);
+int __cdecl ilogbd128(_Decimal128 _X);
+int __cdecl ilogbd32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/frexpd64.3m.htm */
+_Decimal64 __cdecl frexpd64(_Decimal64 _X, int *_Y);
+_Decimal128 __cdecl frexpd128(_Decimal128 _X, int *_Y);
+_Decimal32 __cdecl frexpd32(_Decimal32 _X, int *_Y);
+
+/*** quantum ***/
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/quantized64.3m.htm */
+_Decimal64 __cdecl quantized64(_Decimal64 _X, _Decimal64 _Y);
+_Decimal128 __cdecl quantized128(_Decimal128 _X, _Decimal128 _Y);
+_Decimal32 __cdecl quantized32(_Decimal32 _X, _Decimal32 _Y);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/samequantumd64.3m.htm */
+_Bool __cdecl samequantumd64(_Decimal64 _X, _Decimal64 _Y);
+_Bool __cdecl samequantumd128(_Decimal128 _X, _Decimal128 _Y);
+_Bool __cdecl samequantumd32(_Decimal32 _X, _Decimal32 _Y);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/quantexpd64.3m.htm */
+int __cdecl quantexpd64(_Decimal64 _X);
+int __cdecl quantexpd128(_Decimal128 _X);
+int __cdecl quantexpd32(_Decimal32 _X);
+
+/*** scaling ***/
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/scalbnd64.3m.htm */
+_Decimal64 __cdecl scalbnd64(_Decimal64 _X, int _Y);
+_Decimal128 __cdecl scalbnd128(_Decimal128 _X, int _Y);
+_Decimal32 __cdecl scalbnd32(_Decimal32 _X, int _Y);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/scalblnd64.3m.htm */
+_Decimal64 __cdecl scalblnd64(_Decimal64 _X, long int _Y);
+_Decimal128 __cdecl scalblnd128(_Decimal128 _X, long int _Y);
+_Decimal32 __cdecl scalblnd32(_Decimal32 _X, long int _Y);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/ldexpd64.3m.htm */
+_Decimal64 __cdecl ldexpd64(_Decimal64 _X, int _Y);
+_Decimal128 __cdecl ldexpd128(_Decimal128 _X, int _Y);
+_Decimal32 __cdecl ldexpd32(_Decimal32 _X, int _Y);
+
+/*** rounding to integral floating ***/
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/ceild64.3m.htm */
+_Decimal64 __cdecl ceild64(_Decimal64 _X);
+_Decimal128 __cdecl ceild128(_Decimal128 _X);
+_Decimal32 __cdecl ceild32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/floord64.3m.htm */
+_Decimal64 __cdecl floord64(_Decimal64 _X);
+_Decimal128 __cdecl floord128(_Decimal128 _X);
+_Decimal32 __cdecl floord32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/truncd64.3m.htm */
+_Decimal64 __cdecl truncd64(_Decimal64 _X);
+_Decimal128 __cdecl truncd128(_Decimal128 _X);
+_Decimal32 __cdecl truncd32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/roundd64.3m.htm */
+_Decimal64 __cdecl roundd64(_Decimal64 _X);
+_Decimal128 __cdecl roundd128(_Decimal128 _X);
+_Decimal32 __cdecl roundd32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/rintd64.3m.htm */
+_Decimal64 __cdecl rintd64(_Decimal64 _X);
+_Decimal128 __cdecl rintd128(_Decimal128 _X);
+_Decimal32 __cdecl rintd32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/nearbyintd64.3m.htm */
+_Decimal64 __cdecl nearbyintd64(_Decimal64 _X);
+_Decimal128 __cdecl nearbyintd128(_Decimal128 _X);
+_Decimal32 __cdecl nearbyintd32(_Decimal32 _X);
+
+/*** rounding to integer ***/
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/lroundd64.3m.htm */
+long int __cdecl lroundd64(_Decimal64 _X);
+long int __cdecl lroundd128(_Decimal128 _X);
+long int __cdecl lroundd32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/llroundd64.3m.htm */
+long long int __cdecl llroundd64(_Decimal64 _X);
+long long int __cdecl llroundd128(_Decimal128 _X);
+long long int __cdecl llroundd32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/lrintd64.3m.htm */
+long int __cdecl lrintd64(_Decimal64 _X);
+long int __cdecl lrintd128(_Decimal128 _X);
+long int __cdecl lrintd32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/llrintd64.3m.htm */
+long long int __cdecl llrintd64(_Decimal64 _X);
+long long int __cdecl llrintd128(_Decimal128 _X);
+long long int __cdecl llrintd32(_Decimal32 _X);
+
+/*** integral and fractional parts ***/
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/modfd64.3m.htm */
+_Decimal64 __cdecl modfd64(_Decimal64 _X, _Decimal64 *_Y);
+_Decimal128 __cdecl modfd128(_Decimal128 _X, _Decimal128 *_Y);
+_Decimal32 __cdecl modfd32(_Decimal32 _X, _Decimal32 *_Y);
+
+/** remainder/mod ***/
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/remainderd64.3m.htm */
+_Decimal64 __cdecl remainderd64(_Decimal64 _X, _Decimal64 _Y);
+_Decimal128 __cdecl remainderd128(_Decimal128 _X, _Decimal128 _Y);
+_Decimal32 __cdecl remainderd32(_Decimal32 _X, _Decimal32 _Y);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/fmodd64.3m.htm */
+_Decimal64 __cdecl fmodd64(_Decimal64 _X, _Decimal64 _Y);
+_Decimal128 __cdecl fmodd128(_Decimal128 _X, _Decimal128 _Y);
+_Decimal32 __cdecl fmodd32(_Decimal32 _X, _Decimal32 _Y);
+
+/*** error functions ***/
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/erfd64.3m.htm */
+_Decimal64 __cdecl erfd64(_Decimal64 _X);
+_Decimal128 __cdecl erfd128(_Decimal128 _X);
+_Decimal32 __cdecl erfd32(_Decimal32 _X);
+_Decimal64 __cdecl erfcd64(_Decimal64 _X);
+_Decimal128 __cdecl erfcd128(_Decimal128 _X);
+_Decimal32 __cdecl erfcd32(_Decimal32 _X);
+
+/*** gamma functions ***/
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/lgammad64.3m.htm */
+_Decimal64 __cdecl lgammad64(_Decimal64 _X);
+_Decimal128 __cdecl lgammad128(_Decimal128 _X);
+_Decimal32 __cdecl lgammad32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/tgammad64.3m.htm */
+_Decimal64 __cdecl tgammad64(_Decimal64 _X);
+_Decimal128 __cdecl tgammad128(_Decimal128 _X);
+_Decimal32 __cdecl tgammad32(_Decimal32 _X);
+
+/*** next value ***/
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/nextafterd64.3m.htm */
+_Decimal64 __cdecl nextafterd64(_Decimal64 _X, _Decimal64 _Y);
+_Decimal128 __cdecl nextafterd128(_Decimal128 _X, _Decimal128 _Y);
+_Decimal32 __cdecl nextafterd32(_Decimal32 _X, _Decimal32 _Y);
+_Decimal64 __cdecl nexttowardd64(_Decimal64 _X, _Decimal128 _Y);
+_Decimal128 __cdecl nexttowardd128(_Decimal128 _X, _Decimal128 _Y);
+_Decimal32 __cdecl nexttowardd32(_Decimal32 _X, _Decimal128 _Y);
+
+/*** absolute value, copy sign ***/
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/fabsd64.3m.htm */
+_Decimal64 __cdecl fabsd64(_Decimal64 _X);
+_Decimal128 __cdecl fabsd128(_Decimal128 _X);
+_Decimal32 __cdecl fabsd32(_Decimal32 _X);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/copysignd64.3m.htm */
+_Decimal64 __cdecl copysignd64(_Decimal64 _X, _Decimal64 _Y);
+_Decimal128 __cdecl copysignd128(_Decimal128 _X, _Decimal128 _Y);
+_Decimal32 __cdecl copysignd32(_Decimal32 _X, _Decimal32 _Y);
+
+/*** max, min, positive difference ***/
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/fmaxd64.3m.htm */
+_Decimal64 __cdecl fmaxd64(_Decimal64 _X, _Decimal64 y_Y);
+_Decimal128 __cdecl fmaxd128(_Decimal128 _X, _Decimal128 _Y);
+_Decimal32 __cdecl fmaxd32(_Decimal32 _X, _Decimal32 _Y);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/fmind64.3m.htm */
+_Decimal64 __cdecl fmind64(_Decimal64 _X, _Decimal64 _Y);
+_Decimal128 __cdecl fmind128(_Decimal128 _X, _Decimal128 _Y);
+_Decimal32 __cdecl fmind32(_Decimal32 _X, _Decimal32 _Y);
+
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/fdimd64.3m.htm */
+_Decimal64 __cdecl fdimd64(_Decimal64 _X, _Decimal64 _Y);
+_Decimal128 __cdecl fdimd128(_Decimal128 _X, _Decimal128 _Y);
+_Decimal32 __cdecl fdimd32(_Decimal32 _X, _Decimal32 _Y);
+
+/*** not-a-number ***/
+/* http://h21007.www2.hp.com/portal/download/files/unprot/fp/manpages/nand64.3m.htm */
+_Decimal64 __cdecl nand64(__UNUSED_PARAM(const char *_X));
+_Decimal128 __cdecl nand128(__UNUSED_PARAM(const char *_X));
+_Decimal32 __cdecl nand32(__UNUSED_PARAM(const char *_X));
+
+/*** classifiers ***/
+int __cdecl isinfd64(_Decimal64 _X);
+int __cdecl isinfd128(_Decimal128 _X);
+int __cdecl isinfd32(_Decimal32 _X);
+int __cdecl isnand64(_Decimal64 _X);
+int __cdecl isnand128(_Decimal128 _X);
+int __cdecl isnand32(_Decimal32 _X);
+
+#endif /* __STDC_WANT_DEC_FP__ */
 
 #ifdef __cplusplus
 }
