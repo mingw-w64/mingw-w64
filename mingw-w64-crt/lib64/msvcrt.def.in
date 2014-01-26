@@ -1177,7 +1177,7 @@ sin
 sinh
 ;sinhf
 sprintf
-sprintf_s
+; sprintf_s replaced by emu
 sqrt DATA
 sqrtf DATA
 srand
