@@ -440,13 +440,13 @@ typedef long double double_t;
 #ifdef __STDC_WANT_DEC_FP__
 #define __dfp_expansion(__call,__fin,x) \
 __builtin_choose_expr (                                  \
-      __builtin_types_compatible_p (typeof (x), _Decimal32),    \
+      __builtin_types_compatible_p (__typeof__ (x), _Decimal32),    \
         __call##d32(x),                                         \
     __builtin_choose_expr (                                     \
-      __builtin_types_compatible_p (typeof (x), _Decimal64),    \
+      __builtin_types_compatible_p (__typeof__ (x), _Decimal64),    \
         __call##d64(x),                                         \
     __builtin_choose_expr (                                     \
-      __builtin_types_compatible_p (typeof (x), _Decimal128),   \
+      __builtin_types_compatible_p (__typeof__ (x), _Decimal128),   \
         __call##d128(x),                                        \
 __fin)))
 #else
@@ -455,13 +455,13 @@ __fin)))
 
 #define fpclassify(x) \
 __builtin_choose_expr (                                         \
-  __builtin_types_compatible_p (typeof (x), double),            \
+  __builtin_types_compatible_p (__typeof__ (x), double),            \
     __fpclassify(x),                                            \
     __builtin_choose_expr (                                     \
-      __builtin_types_compatible_p (typeof (x), float),         \
+      __builtin_types_compatible_p (__typeof__ (x), float),         \
         __fpclassifyf(x),                                       \
     __builtin_choose_expr (                                     \
-      __builtin_types_compatible_p (typeof (x), long double),   \
+      __builtin_types_compatible_p (__typeof__ (x), long double),   \
         __fpclassifyl(x),                                       \
     __dfp_expansion(__fpclassify,__builtin_trap(),x))))
 
@@ -545,13 +545,13 @@ __builtin_choose_expr (                                         \
 
 #define isnan(x) \
 __builtin_choose_expr (                                         \
-  __builtin_types_compatible_p (typeof (x), double),            \
+  __builtin_types_compatible_p (__typeof__ (x), double),            \
     __isnan(x),                                                 \
     __builtin_choose_expr (                                     \
-      __builtin_types_compatible_p (typeof (x), float),         \
+      __builtin_types_compatible_p (__typeof__ (x), float),         \
         __isnanf(x),                                            \
     __builtin_choose_expr (                                     \
-      __builtin_types_compatible_p (typeof (x), long double),   \
+      __builtin_types_compatible_p (__typeof__ (x), long double),   \
         __isnanl(x),                                            \
     __dfp_expansion(__isnan,__builtin_trap(),x))))
 
@@ -603,13 +603,13 @@ __builtin_choose_expr (                                         \
 
 #define signbit(x) \
 __builtin_choose_expr (                                         \
-  __builtin_types_compatible_p (typeof (x), double),            \
+  __builtin_types_compatible_p (__typeof__ (x), double),            \
     __signbit(x),                                               \
     __builtin_choose_expr (                                     \
-      __builtin_types_compatible_p (typeof (x), float),         \
+      __builtin_types_compatible_p (__typeof__ (x), float),         \
         __signbitf(x),                                          \
     __builtin_choose_expr (                                     \
-      __builtin_types_compatible_p (typeof (x), long double),   \
+      __builtin_types_compatible_p (__typeof__ (x), long double),   \
         __signbitl(x),                                          \
      __dfp_expansion(__signbit,__builtin_trap(),x))))
 
