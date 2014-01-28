@@ -37,7 +37,7 @@ barrier_unref(volatile pthread_barrier_t *barrier, int res)
 #ifdef WINPTHREAD_DBG
     assert((((barrier_t *)*barrier)->valid == LIFE_BARRIER) && (((barrier_t *)*barrier)->busy > 0));
 #endif
-     ((barrier_t *)*barrier)->busy--;
+     ((barrier_t *)*barrier)->busy -= 1;
     pthread_spin_unlock(&barrier_global);
     return res;
 }
@@ -49,7 +49,7 @@ static WINPTHREADS_ATTRIBUTE((noinline)) int barrier_ref(volatile pthread_barrie
 
     if (!barrier || !*barrier || ((barrier_t *)*barrier)->valid != LIFE_BARRIER) r = EINVAL;
     else {
-        ((barrier_t *)*barrier)->busy ++;
+        ((barrier_t *)*barrier)->busy += 1;
     }
 
     pthread_spin_unlock(&barrier_global);
@@ -63,7 +63,7 @@ barrier_ref_destroy(volatile pthread_barrier_t *barrier, pthread_barrier_t *bDes
     int r = 0;
 
     *bDestroy = NULL;
-    pthread_spin_trylock(&barrier_global);
+    pthread_spin_lock(&barrier_global);
     
     if (!barrier || !*barrier || ((barrier_t *)*barrier)->valid != LIFE_BARRIER) r = EINVAL;
     else {
@@ -91,7 +91,10 @@ int pthread_barrier_destroy(pthread_barrier_t *b_)
 {
     pthread_barrier_t bDestroy;
     barrier_t *b;
-    int r = barrier_ref_destroy(b_,&bDestroy);
+    int r;
+    
+    while ((r = barrier_ref_destroy(b_,&bDestroy)) == EBUSY)
+      Sleep(0);
     
     if (r)
       return r;

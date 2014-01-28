@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2011 mingw-w64 project
+   Copyright (c) 2011, 2014 mingw-w64 project
 
    Permission is hereby granted, free of charge, to any person obtaining a
    copy of this software and associated documentation files (the "Software"),
@@ -45,7 +45,7 @@ mutex_unref (pthread_mutex_t *m, int r)
   assert((m_->valid == LIFE_MUTEX) && (m_->busy > 0));
 #endif
   if (m_->valid == LIFE_MUTEX)
-    m_->busy --;
+    m_->busy -= 1;
   pthread_spin_unlock (&mutex_global);
   return r;
 }
@@ -143,7 +143,9 @@ mutex_ref_destroy (pthread_mutex_t *m, pthread_mutex_t *mDestroy)
       *m = NULL;
     else if (m_->valid != LIFE_MUTEX)
       r = EINVAL;
-    else if (m_->busy || COND_LOCKED(m_))
+    else if (m_->busy)
+      return 0xbeef; /* Indicate we want to wait here.  */
+    else if (COND_LOCKED(m_))
       r = EBUSY;
     else
     {
@@ -496,7 +498,10 @@ int pthread_mutex_destroy (pthread_mutex_t *m)
 {
   mutex_t *_m;
   pthread_mutex_t mDestroy;
-  int r = mutex_ref_destroy (m, &mDestroy);
+  int r;
+  
+  while ((r = mutex_ref_destroy (m, &mDestroy)) == 0xbeef)
+    Sleep (0);
   if (r)
     return r;
 

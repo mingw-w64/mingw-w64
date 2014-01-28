@@ -70,12 +70,10 @@ void cond_print(volatile pthread_cond_t *c, char *txt)
     if (c_ == NULL) {
         fprintf(fo,"C%p %d %s\n",*c,(int)GetCurrentThreadId(),txt);
     } else {
-        fprintf(fo,"C%p %d V=%0X B=%d b=%p w=%ld %s\n",
+        fprintf(fo,"C%p %d V=%0X w=%ld %s\n",
             *c, 
             (int)GetCurrentThreadId(), 
             (int)c_->valid, 
-            (int)c_->busy,
-            NULL,
             c_->waiters_count_,
             txt
             );
@@ -209,7 +207,7 @@ pthread_cond_init (pthread_cond_t *c, const pthread_condattr_t *a)
       return ENOMEM; 
   }
   _c->valid  = DEAD_COND;
-
+  _c->busy = 0;
   _c->waiters_count_ = 0;
   _c->waiters_count_gone_ = 0;
   _c->waiters_count_unblock_ = 0;
@@ -275,7 +273,7 @@ pthread_cond_destroy (pthread_cond_t *c)
        do_sema_b_release (_c->sema_b, 1,&_c->waiters_b_lock_,&_c->value_b);
        return EBUSY;
     }
-  if (_c->waiters_count_ > _c->waiters_count_gone_ || _c->busy != 0)
+  if (_c->waiters_count_ > _c->waiters_count_gone_)
     {
       r = do_sema_b_release (_c->sema_b, 1,&_c->waiters_b_lock_,&_c->value_b);
       if (!r) r = EBUSY;
