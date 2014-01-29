@@ -70,12 +70,10 @@ void cond_print(volatile pthread_cond_t *c, char *txt)
     if (c_ == NULL) {
         fprintf(fo,"C%p %d %s\n",*c,(int)GetCurrentThreadId(),txt);
     } else {
-        fprintf(fo,"C%p %d V=%0X B=%d b=%p w=%ld %s\n",
+        fprintf(fo,"C%p %d V=%0X w=%ld %s\n",
             *c, 
             (int)GetCurrentThreadId(), 
             (int)c_->valid, 
-            (int)c_->busy,
-            NULL,
             c_->waiters_count_,
             txt
             );
@@ -209,7 +207,7 @@ pthread_cond_init (pthread_cond_t *c, const pthread_condattr_t *a)
       return ENOMEM; 
   }
   _c->valid  = DEAD_COND;
-
+  _c->busy = 0;
   _c->waiters_count_ = 0;
   _c->waiters_count_gone_ = 0;
   _c->waiters_count_unblock_ = 0;
@@ -275,7 +273,7 @@ pthread_cond_destroy (pthread_cond_t *c)
        do_sema_b_release (_c->sema_b, 1,&_c->waiters_b_lock_,&_c->value_b);
        return EBUSY;
     }
-  if (_c->waiters_count_ > _c->waiters_count_gone_ || _c->busy != 0)
+  if (_c->waiters_count_ > _c->waiters_count_gone_)
     {
       r = do_sema_b_release (_c->sema_b, 1,&_c->waiters_b_lock_,&_c->value_b);
       if (!r) r = EBUSY;
@@ -319,7 +317,7 @@ pthread_cond_signal (pthread_cond_t *c)
       if (_c->waiters_count_ == 0)
       {
 	LeaveCriticalSection (&_c->waiters_count_lock_);
-	pthread_testcancel();
+	/* pthread_testcancel(); */
 	return 0;
       }
       _c->waiters_count_ -= 1;
@@ -331,7 +329,7 @@ pthread_cond_signal (pthread_cond_t *c)
       if (r != 0)
       {
 	LeaveCriticalSection (&_c->waiters_count_lock_);
-	pthread_testcancel();
+	/* pthread_testcancel(); */
 	return r;
       }
       if (_c->waiters_count_gone_ != 0)
@@ -345,12 +343,12 @@ pthread_cond_signal (pthread_cond_t *c)
   else
     {
       LeaveCriticalSection (&_c->waiters_count_lock_);
-      pthread_testcancel();
+      /* pthread_testcancel(); */
       return 0;
     }
   LeaveCriticalSection (&_c->waiters_count_lock_);
   r = do_sema_b_release(_c->sema_q, 1,&_c->waiters_q_lock_,&_c->value_q);
-  pthread_testcancel();
+  /* pthread_testcancel(); */
   return r;
 }
 
@@ -376,7 +374,7 @@ pthread_cond_broadcast (pthread_cond_t *c)
       if (_c->waiters_count_ == 0)
       {
 	LeaveCriticalSection (&_c->waiters_count_lock_);
-	pthread_testcancel();
+	/* pthread_testcancel(); */
 	return 0;
       }
       relCnt = _c->waiters_count_;
@@ -389,7 +387,7 @@ pthread_cond_broadcast (pthread_cond_t *c)
       if (r != 0)
       {
 	LeaveCriticalSection (&_c->waiters_count_lock_);
-	pthread_testcancel();
+	/* pthread_testcancel(); */
 	return r;
       }
       if (_c->waiters_count_gone_ != 0)
@@ -404,12 +402,12 @@ pthread_cond_broadcast (pthread_cond_t *c)
   else
     {
       LeaveCriticalSection (&_c->waiters_count_lock_);
-      pthread_testcancel();
+      /* pthread_testcancel(); */
       return 0;
     }
   LeaveCriticalSection (&_c->waiters_count_lock_);
   r = do_sema_b_release(_c->sema_q, relCnt,&_c->waiters_q_lock_,&_c->value_q);
-  pthread_testcancel();
+  /* pthread_testcancel(); */
   return r;
 }
 
@@ -420,7 +418,7 @@ pthread_cond_wait (pthread_cond_t *c, pthread_mutex_t *external_mutex)
   cond_t *_c;
   int r;
 
-  pthread_testcancel();
+  /* pthread_testcancel(); */
 
   if (!c || *c == NULL)
     return EINVAL;
@@ -465,7 +463,7 @@ pthread_cond_timedwait (pthread_cond_t *c, pthread_mutex_t *external_mutex, cons
   int r;
   cond_t *_c;
 
-  pthread_testcancel();
+  /* pthread_testcancel(); */
 
   if (!c || !*c)
     return EINVAL;
