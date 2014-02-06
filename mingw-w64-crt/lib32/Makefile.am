@@ -288,6 +288,7 @@ lib32_DATA += %reldir%/libwinmm.a
 lib32_DATA += %reldir%/libwinscard.a
 lib32_DATA += %reldir%/libwinspool.a
 lib32_DATA += %reldir%/libwinstrm.a
+lib32_DATA += %reldir%/libwintrust.a
 lib32_DATA += %reldir%/libwinusb.a
 lib32_DATA += %reldir%/libwkscli.a
 lib32_DATA += %reldir%/libwlanapi.a
