@@ -87,6 +87,11 @@ typedef interface ITfTextEditSink ITfTextEditSink;
 typedef interface ITfContextOwnerCompositionSink ITfContextOwnerCompositionSink;
 #endif
 
+#ifndef __ITfActiveLanguageProfileNotifySink_FWD_DEFINED__
+#define __ITfActiveLanguageProfileNotifySink_FWD_DEFINED__
+typedef interface ITfActiveLanguageProfileNotifySink ITfActiveLanguageProfileNotifySink;
+#endif
+
 #ifndef __IEnumTfLanguageProfiles_FWD_DEFINED__
 #define __IEnumTfLanguageProfiles_FWD_DEFINED__
 typedef interface IEnumTfLanguageProfiles IEnumTfLanguageProfiles;
@@ -3619,6 +3624,96 @@ void __RPC_STUB ITfContextOwnerCompositionSink_OnEndComposition_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __ITfContextOwnerCompositionSink_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITfActiveLanguageProfileNotifySink interface
+ */
+#ifndef __ITfActiveLanguageProfileNotifySink_INTERFACE_DEFINED__
+#define __ITfActiveLanguageProfileNotifySink_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ITfActiveLanguageProfileNotifySink, 0xb246cb75, 0xa93e, 0x4652, 0xbf,0x8c, 0xb3,0xfe,0x0c,0xfd,0x7e,0x57);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("b246cb75-a93e-4652-bf8c-b3fe0cfd7e57")
+ITfActiveLanguageProfileNotifySink : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE OnActivated(
+        REFCLSID clsid,
+        REFGUID guidProfile,
+        WINBOOL fActivated) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITfActiveLanguageProfileNotifySink, 0xb246cb75, 0xa93e, 0x4652, 0xbf,0x8c, 0xb3,0xfe,0x0c,0xfd,0x7e,0x57)
+#endif
+#else
+typedef struct ITfActiveLanguageProfileNotifySinkVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITfActiveLanguageProfileNotifySink* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITfActiveLanguageProfileNotifySink* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITfActiveLanguageProfileNotifySink* This);
+
+    /*** ITfActiveLanguageProfileNotifySink methods ***/
+    HRESULT (STDMETHODCALLTYPE *OnActivated)(
+        ITfActiveLanguageProfileNotifySink* This,
+        REFCLSID clsid,
+        REFGUID guidProfile,
+        WINBOOL fActivated);
+
+    END_INTERFACE
+} ITfActiveLanguageProfileNotifySinkVtbl;
+interface ITfActiveLanguageProfileNotifySink {
+    CONST_VTBL ITfActiveLanguageProfileNotifySinkVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITfActiveLanguageProfileNotifySink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITfActiveLanguageProfileNotifySink_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITfActiveLanguageProfileNotifySink_Release(This) (This)->lpVtbl->Release(This)
+/*** ITfActiveLanguageProfileNotifySink methods ***/
+#define ITfActiveLanguageProfileNotifySink_OnActivated(This,clsid,guidProfile,fActivated) (This)->lpVtbl->OnActivated(This,clsid,guidProfile,fActivated)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfActiveLanguageProfileNotifySink_QueryInterface(ITfActiveLanguageProfileNotifySink* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfActiveLanguageProfileNotifySink_AddRef(ITfActiveLanguageProfileNotifySink* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfActiveLanguageProfileNotifySink_Release(ITfActiveLanguageProfileNotifySink* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfActiveLanguageProfileNotifySink methods ***/
+static FORCEINLINE HRESULT ITfActiveLanguageProfileNotifySink_OnActivated(ITfActiveLanguageProfileNotifySink* This,REFCLSID clsid,REFGUID guidProfile,WINBOOL fActivated) {
+    return This->lpVtbl->OnActivated(This,clsid,guidProfile,fActivated);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ITfActiveLanguageProfileNotifySink_OnActivated_Proxy(
+    ITfActiveLanguageProfileNotifySink* This,
+    REFCLSID clsid,
+    REFGUID guidProfile,
+    WINBOOL fActivated);
+void __RPC_STUB ITfActiveLanguageProfileNotifySink_OnActivated_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ITfActiveLanguageProfileNotifySink_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IEnumTfLanguageProfiles interface

@@ -266,7 +266,7 @@ DECLARE_INTERFACE_(IDirect3DSwapChain8,IUnknown)
 #define IDirect3DSwapChain8_AddRef(p)                    (p)->lpVtbl->AddRef(p)
 #define IDirect3DSwapChain8_Release(p)                   (p)->lpVtbl->Release(p)
 /*** IDirect3DSwapChain8 methods ***/
-#define IDirect3DSwapChain8_Present(p,a,b,c)             (p)->lpVtbl->Present(p,a,b,c)
+#define IDirect3DSwapChain8_Present(p,a,b,c,d)           (p)->lpVtbl->Present(p,a,b,c,d)
 #define IDirect3DSwapChain8_GetBackBuffer(p,a,b,c)       (p)->lpVtbl->GetBackBuffer(p,a,b,c)
 #else
 /*** IUnknown methods ***/
@@ -274,7 +274,7 @@ DECLARE_INTERFACE_(IDirect3DSwapChain8,IUnknown)
 #define IDirect3DSwapChain8_AddRef(p)                    (p)->AddRef()
 #define IDirect3DSwapChain8_Release(p)                   (p)->Release()
 /*** IDirect3DSwapChain8 methods ***/
-#define IDirect3DSwapChain8_Present(p,a,b,c)             (p)->Present(a,b,c)
+#define IDirect3DSwapChain8_Present(p,a,b,c,d)           (p)->Present(a,b,c,d)
 #define IDirect3DSwapChain8_GetBackBuffer(p,a,b,c)       (p)->GetBackBuffer(a,b,c)
 #endif
 
