@@ -2,8 +2,8 @@
  * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
-#ifndef _INC_WS2IPDEF
-#define _INC_WS2IPDEF
+#ifndef _WS2IPDEF_
+#define _WS2IPDEF_
 
 #include <winapifamily.h>
 
@@ -123,4 +123,4 @@ typedef struct group_source_req {
 
 #endif /* WINAPI_PARTION_DESKTOP.  */
 
-#endif /*_INC_WS2IPDEF*/
+#endif /*_WS2IPDEF_ */

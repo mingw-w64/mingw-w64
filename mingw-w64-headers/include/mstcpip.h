@@ -98,6 +98,8 @@ typedef struct _SOCKET_SECURITY_SETTINGS_IPSEC {
 #define RtlIpv6AddressToString __MINGW_NAME_AW(RtlIpv6AddressToString)
 #define RtlIpv6AddressToStringEx __MINGW_NAME_AW(RtlIpv6AddressToStringEx)
 
+#ifdef _WS2IPDEF_
+
 LPSTR NTAPI RtlIpv6AddressToStringA(const IN6_ADDR *Addr, LPSTR S);
 LPWSTR NTAPI RtlIpv6AddressToStringW(const IN6_ADDR *Addr, LPWSTR S);
 
@@ -123,6 +125,8 @@ LONG NTAPI RtlIpv4StringToAddressExW(PCWSTR AddressString, BOOLEAN Strict, IN_AD
 #define RtlIpv6StringToAddressEx __MINGW_NAME_AW(RtlIpv6StringToAddressEx)
 LONG NTAPI RtlIpv6StringToAddressExA(PCSTR AddressString, IN6_ADDR *Address, PULONG ScopeId, PUSHORT Port);
 LONG NTAPI RtlIpv6StringToAddressExW(PCWSTR AddressString, IN6_ADDR *Address, PULONG ScopeId, PUSHORT Port);
+
+#endif /* _WS2IPDEF_ */
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #endif /*(_WIN32_WINNT >= 0x0502)*/
