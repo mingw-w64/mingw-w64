@@ -74,6 +74,7 @@ struct _exception;
 
 #ifndef __mingw_types_compatible_p
 #ifdef __cplusplus
+extern "C++" {
 template <typename type1, typename type2> struct __mingw_types_compatible_p {
   static const bool result = false;
 };
@@ -81,6 +82,7 @@ template <typename type1, typename type2> struct __mingw_types_compatible_p {
 template <typename type1> struct __mingw_types_compatible_p<type1, type1> {
  static const bool result = true;
 };
+}
 
 #define __mingw_types_compatible_p(type1, type2) __mingw_types_compatible_p <type1, type2>::result
 #else
