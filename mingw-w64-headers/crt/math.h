@@ -72,6 +72,31 @@ struct _exception;
 
 #ifndef RC_INVOKED
 
+#ifndef __mingw_types_compatible_p
+#ifdef __cplusplus
+template <typename type1, typename type2> struct __mingw_types_compatible_p {
+  static const bool result = false;
+};
+
+template <typename type1> struct __mingw_types_compatible_p<type1, type1> {
+ static const bool result = true;
+};
+
+#define __mingw_types_compatible_p(type1, type2) __mingw_types_compatible_p <type1, type2>::result
+#else
+#define __mingw_types_compatible_p(type1, type2) __builtin_types_compatible_p (type1, type2)
+#endif
+#endif
+
+#ifndef __mingw_choose_expr
+#ifdef __cplusplus
+#define __mingw_choose_expr(C, E1, E2) ((C) ? E1 : E2)
+#else
+#define __mingw_choose_expr __builtin_choose_expr
+#endif
+#endif
+
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -439,14 +464,14 @@ typedef long double double_t;
 
 #ifdef __STDC_WANT_DEC_FP__
 #define __dfp_expansion(__call,__fin,x) \
-__builtin_choose_expr (                                  \
-      __builtin_types_compatible_p (__typeof__ (x), _Decimal32),    \
+__mingw_choose_expr (                                  \
+      __mingw_types_compatible_p (__typeof__ (x), _Decimal32),    \
         __call##d32(x),                                         \
-    __builtin_choose_expr (                                     \
-      __builtin_types_compatible_p (__typeof__ (x), _Decimal64),    \
+    __mingw_choose_expr (                                     \
+      __mingw_types_compatible_p (__typeof__ (x), _Decimal64),    \
         __call##d64(x),                                         \
-    __builtin_choose_expr (                                     \
-      __builtin_types_compatible_p (__typeof__ (x), _Decimal128),   \
+    __mingw_choose_expr (                                     \
+      __mingw_types_compatible_p (__typeof__ (x), _Decimal128),   \
         __call##d128(x),                                        \
 __fin)))
 #else
@@ -454,16 +479,16 @@ __fin)))
 #endif
 
 #define fpclassify(x) \
-__builtin_choose_expr (                                         \
-  __builtin_types_compatible_p (__typeof__ (x), double),            \
+__mingw_choose_expr (                                         \
+  __mingw_types_compatible_p (__typeof__ (x), double),            \
     __fpclassify(x),                                            \
-    __builtin_choose_expr (                                     \
-      __builtin_types_compatible_p (__typeof__ (x), float),         \
+    __mingw_choose_expr (                                     \
+      __mingw_types_compatible_p (__typeof__ (x), float),         \
         __fpclassifyf(x),                                       \
-    __builtin_choose_expr (                                     \
-      __builtin_types_compatible_p (__typeof__ (x), long double),   \
+    __mingw_choose_expr (                                     \
+      __mingw_types_compatible_p (__typeof__ (x), long double),   \
         __fpclassifyl(x),                                       \
-    __dfp_expansion(__fpclassify,__builtin_trap(),x))))
+    __dfp_expansion(__fpclassify,(__builtin_trap(),x),x))))
 
 
 /* 7.12.3.2 */
@@ -543,17 +568,19 @@ __builtin_choose_expr (                                         \
   }
 #endif
 
+
+
 #define isnan(x) \
-__builtin_choose_expr (                                         \
-  __builtin_types_compatible_p (__typeof__ (x), double),            \
+__mingw_choose_expr (                                         \
+  __mingw_types_compatible_p (__typeof__ (x), double),            \
     __isnan(x),                                                 \
-    __builtin_choose_expr (                                     \
-      __builtin_types_compatible_p (__typeof__ (x), float),         \
+    __mingw_choose_expr (                                     \
+      __mingw_types_compatible_p (__typeof__ (x), float),         \
         __isnanf(x),                                            \
-    __builtin_choose_expr (                                     \
-      __builtin_types_compatible_p (__typeof__ (x), long double),   \
+    __mingw_choose_expr (                                     \
+      __mingw_types_compatible_p (__typeof__ (x), long double),   \
         __isnanl(x),                                            \
-    __dfp_expansion(__isnan,__builtin_trap(),x))))
+    __dfp_expansion(__isnan,(__builtin_trap(),x),x))))
 
 /* 7.12.3.5 */
 #define isnormal(x) (fpclassify(x) == FP_NORMAL)
@@ -602,16 +629,16 @@ __builtin_choose_expr (                                         \
 #endif
 
 #define signbit(x) \
-__builtin_choose_expr (                                         \
-  __builtin_types_compatible_p (__typeof__ (x), double),            \
+__mingw_choose_expr (                                         \
+  __mingw_types_compatible_p (__typeof__ (x), double),            \
     __signbit(x),                                               \
-    __builtin_choose_expr (                                     \
-      __builtin_types_compatible_p (__typeof__ (x), float),         \
+    __mingw_choose_expr (                                     \
+      __mingw_types_compatible_p (__typeof__ (x), float),         \
         __signbitf(x),                                          \
-    __builtin_choose_expr (                                     \
-      __builtin_types_compatible_p (__typeof__ (x), long double),   \
+    __mingw_choose_expr (                                     \
+      __mingw_types_compatible_p (__typeof__ (x), long double),   \
         __signbitl(x),                                          \
-     __dfp_expansion(__signbit,__builtin_trap(),x))))
+     __dfp_expansion(__signbit,(__builtin_trap(),x),x))))
 
 /* 7.12.4 Trigonometric functions: Double in C89 */
   extern float __cdecl sinf(float _X);
