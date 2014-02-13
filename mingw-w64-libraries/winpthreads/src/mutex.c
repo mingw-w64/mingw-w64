@@ -44,7 +44,7 @@ mutex_unref (pthread_mutex_t *m, int r)
 #ifdef WINPTHREAD_DBG
   assert((m_->valid == LIFE_MUTEX) && (m_->busy > 0));
 #endif
-  if (m_->valid == LIFE_MUTEX)
+  if (m_->valid == LIFE_MUTEX && m_->busy > 0)
     m_->busy -= 1;
   pthread_spin_unlock (&mutex_global);
   return r;
@@ -454,6 +454,7 @@ pthread_mutex_init (pthread_mutex_t *m, const pthread_mutexattr_t *a)
 
   _m->type = PTHREAD_MUTEX_DEFAULT;
   _m->count = 0;
+  _m->busy = 0;
 
   if (a)
   {
@@ -518,6 +519,7 @@ int pthread_mutex_destroy (pthread_mutex_t *m)
   _m->valid = DEAD_MUTEX;
   _m->type  = 0;
   _m->count = 0;
+  _m->busy = 0;
   free (mDestroy);
   *m = NULL;
   pthread_spin_unlock (&mutex_global);
