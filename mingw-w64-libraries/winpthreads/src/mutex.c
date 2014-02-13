@@ -124,15 +124,13 @@ mutex_ref_destroy (pthread_mutex_t *m, pthread_mutex_t *mDestroy)
     return EINVAL;
 
   *mDestroy = NULL;
-  /* also considered as busy, any concurrent access prevents destruction: $$$$ */
-  while (pthread_spin_trylock (&mutex_global) != 0)
-  {
-    mx = *m;
-    r = pthread_mutex_trylock (&mx);
-    if (r != 0)
-      return r;
-    pthread_mutex_unlock (&mx);
-  }
+  /* also considered as busy, any concurrent access prevents destruction: */
+  mx = *m;
+  r = pthread_mutex_trylock (&mx);
+  if (r)
+    return r;
+
+  pthread_spin_lock (&mutex_global);
 
   if (!*m)
     r = EINVAL;
@@ -143,10 +141,6 @@ mutex_ref_destroy (pthread_mutex_t *m, pthread_mutex_t *mDestroy)
       *m = NULL;
     else if (m_->valid != LIFE_MUTEX)
       r = EINVAL;
-    else if (m_->busy)
-      return 0xbeef; /* Indicate we want to wait here.  */
-    else if (COND_LOCKED(m_))
-      r = EBUSY;
     else
     {
       *mDestroy = *m;
@@ -168,8 +162,9 @@ mutex_ref_init (pthread_mutex_t *m)
     pthread_spin_lock (&mutex_global);
     
     if (!m)  r = EINVAL;
- 
-    pthread_spin_unlock (&mutex_global);
+
+    if (r) 
+      pthread_spin_unlock (&mutex_global);
     return r;
 }
 
@@ -450,7 +445,10 @@ pthread_mutex_init (pthread_mutex_t *m, const pthread_mutexattr_t *a)
     return r;
 
   if (!(_m = (pthread_mutex_t)calloc(1,sizeof(*_m))))
-    return ENOMEM; 
+    {
+      pthread_spin_unlock (&mutex_global);
+      return ENOMEM;
+    }
 
   _m->type = PTHREAD_MUTEX_DEFAULT;
   _m->count = 0;
@@ -486,11 +484,13 @@ pthread_mutex_init (pthread_mutex_t *m, const pthread_mutexattr_t *a)
     _m->valid = DEAD_MUTEX;
     free(_m);
     *m = NULL;
+    pthread_spin_unlock (&mutex_global);
     return r;
   }
 
   _m->valid = LIFE_MUTEX;
   *m = _m;
+  pthread_spin_unlock (&mutex_global);
 
   return 0;
 }
