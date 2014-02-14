@@ -139,8 +139,10 @@ mutex_ref_destroy (pthread_mutex_t *m, pthread_mutex_t *mDestroy)
     m_ = (mutex_t *)*m;
     if (STATIC_INITIALIZER(*m))
       *m = NULL;
-    else if (m_->valid != LIFE_MUTEX)
+    else  if (m_->valid != LIFE_MUTEX)
       r = EINVAL;
+    else if (m_->busy)
+      r = 0xbeef;
     else
     {
       *mDestroy = *m;
@@ -149,8 +151,10 @@ mutex_ref_destroy (pthread_mutex_t *m, pthread_mutex_t *mDestroy)
   }
 
   if (r)
-    pthread_spin_unlock (&mutex_global);
-
+    {
+      pthread_spin_unlock (&mutex_global);
+      pthread_mutex_unlock (&mx);
+    }
   return r;
 }
 
