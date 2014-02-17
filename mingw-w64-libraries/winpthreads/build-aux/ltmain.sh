@@ -1,10 +1,12 @@
 #! /bin/sh
+## DO NOT EDIT - This file generated from ./build-aux/ltmain.in
+##               by inline-source v2014-01-03.01
 
-# libtool (GNU libtool) 2.4.2.418.11-4494
+# libtool (GNU libtool) 2.4.2.444.28-053d
 # Provide generalized library-building support services.
 # Written by Gordon Matzigkeit <gord@gnu.ai.mit.edu>, 1996
 
-# Copyright (C) 1996-2013 Free Software Foundation, Inc.
+# Copyright (C) 1996-2014 Free Software Foundation, Inc.
 # This is free software; see the source for copying conditions.  There is NO
 # warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
@@ -29,8 +31,8 @@
 
 PROGRAM=libtool
 PACKAGE=libtool
-VERSION=2.4.2.418.11-4494
-package_revision=2.4.2.418.11
+VERSION=2.4.2.444.28-053d
+package_revision=2.4.2.444.28
 
 
 ## ------ ##
@@ -62,12 +64,12 @@ package_revision=2.4.2.418.11
 # libraries, which are installed to $pkgauxdir.
 
 # Set a version string for this script.
-scriptversion=2013-10-28.05; # UTC
+scriptversion=2014-02-10.13; # UTC
 
 # General shell script boiler plate, and helper functions.
 # Written by Gary V. Vaughan, 2004
 
-# Copyright (C) 2004-2013 Free Software Foundation, Inc.
+# Copyright (C) 2004-2014 Free Software Foundation, Inc.
 # This is free software; see the source for copying conditions.  There is NO
 # warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
@@ -216,46 +218,10 @@ func_path_progs ()
 }
 
 
-# There are still modern systems that have problems with 'echo' mis-
-# handling backslashes, among others, so make sure $bs_echo is set to a
-# command that correctly interprets backslashes.
-# (this code from Autoconf 2.68)
-
-# Printing a long string crashes Solaris 7 /usr/bin/printf.
-bs_echo='\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'
-bs_echo=$bs_echo$bs_echo$bs_echo$bs_echo$bs_echo
-bs_echo=$bs_echo$bs_echo$bs_echo$bs_echo$bs_echo$bs_echo
-# Prefer a ksh shell builtin over an external printf program on Solaris,
-# but without wasting forks for bash or zsh.
-if test -z "$BASH_VERSION$ZSH_VERSION" \
-    && (test "X`print -r -- $bs_echo`" = "X$bs_echo") 2>/dev/null; then
-  bs_echo='print -r --'
-  bs_echo_n='print -rn --'
-elif (test "X`printf %s $bs_echo`" = "X$bs_echo") 2>/dev/null; then
-  bs_echo='printf %s\n'
-  bs_echo_n='printf %s'
-else
-  if test "X`(/usr/ucb/echo -n -n $bs_echo) 2>/dev/null`" = "X-n $bs_echo"; then
-    bs_echo_body='eval /usr/ucb/echo -n "$1$nl"'
-    bs_echo_n='/usr/ucb/echo -n'
-  else
-    bs_echo_body='eval expr "X$1" : "X\\(.*\\)"'
-    bs_echo_n_body='eval
-      arg=$1;
-      case $arg in #(
-      *"$nl"*)
-	expr "X$arg" : "X\\(.*\\)$nl";
-	arg=`expr "X$arg" : ".*$nl\\(.*\\)"`;;
-      esac;
-      expr "X$arg" : "X\\(.*\\)" | tr -d "$nl"
-    '
-    export bs_echo_n_body
-    bs_echo_n='sh -c $bs_echo_n_body bs_echo'
-  fi
-  export bs_echo_body
-  bs_echo='sh -c $bs_echo_body bs_echo'
-fi
-
+# We want to be able to use the functions in this file before configure
+# has figured out where the best binaries are kept, which means we have
+# to search for them ourselves - except when the results are already set
+# where we skip the searches.
 
 # Unless the user overrides by setting SED, search the path for either GNU
 # sed, or the sed that truncates its output the least.
@@ -272,13 +238,13 @@ test -z "$SED" && {
     _G_path_prog=$1
 
     _G_count=0
-    $bs_echo_n 0123456789 >conftest.in
+    printf 0123456789 >conftest.in
     while :
     do
       cat conftest.in conftest.in >conftest.tmp
       mv conftest.tmp conftest.in
       cp conftest.in conftest.nl
-      $bs_echo '' >> conftest.nl
+      echo '' >> conftest.nl
       "$_G_path_prog" -f conftest.sed <conftest.nl >conftest.out 2>/dev/null || break
       diff conftest.out conftest.nl >/dev/null 2>&1 || break
       _G_count=`expr $_G_count + 1`
@@ -294,12 +260,13 @@ test -z "$SED" && {
   }
 
   func_path_progs "sed gsed" func_check_prog_sed $PATH:/usr/xpg4/bin
+  rm -f conftest.sed
   SED=$func_path_progs_result
 }
 
 
 # Unless the user overrides by setting GREP, search the path for either GNU
-# grep, or the sed that truncates its output the least.
+# grep, or the grep that truncates its output the least.
 test -z "$GREP" && {
   func_check_prog_grep ()
   {
@@ -307,13 +274,13 @@ test -z "$GREP" && {
 
     _G_count=0
     _G_path_prog_max=0
-    $bs_echo_n 0123456789 >conftest.in
+    printf 0123456789 >conftest.in
     while :
     do
       cat conftest.in conftest.in >conftest.tmp
       mv conftest.tmp conftest.in
       cp conftest.in conftest.nl
-      $bs_echo 'GREP' >> conftest.nl
+      echo 'GREP' >> conftest.nl
       "$_G_path_prog" -e 'GREP$' -e '-(cannot match)-' <conftest.nl >conftest.out 2>/dev/null || break
       diff conftest.out conftest.nl >/dev/null 2>&1 || break
       _G_count=`expr $_G_count + 1`
@@ -343,7 +310,7 @@ test -z "$GREP" && {
 # in the command search PATH.
 
 : ${CP="cp -f"}
-: ${ECHO="$bs_echo"}
+: ${ECHO="printf %s\n"}
 : ${EGREP="$GREP -E"}
 : ${FGREP="$GREP -F"}
 : ${LN_S="ln -s"}
@@ -441,13 +408,13 @@ exit_status=$EXIT_SUCCESS
 progpath=$0
 
 # The name of this program.
-progname=`$bs_echo "$progpath" |$SED "$sed_basename"`
+progname=`$ECHO "$progpath" |$SED "$sed_basename"`
 
 # Make sure we have an absolute progpath for reexecution:
 case $progpath in
   [\\/]*|[A-Za-z]:\\*) ;;
   *[\\/]*)
-     progdir=`$bs_echo "$progpath" |$SED "$sed_dirname"`
+     progdir=`$ECHO "$progpath" |$SED "$sed_dirname"`
      progdir=`cd "$progdir" && pwd`
      progpath=$progdir/$progname
      ;;
@@ -641,7 +608,7 @@ func_append_uniq ()
 {
     $debug_cmd
 
-    eval _G_current_value='`$bs_echo $'$1'`'
+    eval _G_current_value='`$ECHO $'$1'`'
     _G_delim=`expr "$2" : '\(.\)'`
 
     case $_G_delim$_G_current_value$_G_delim in
@@ -754,7 +721,7 @@ func_echo ()
     IFS=$nl
     for _G_line in $_G_message; do
       IFS=$func_echo_IFS
-      $bs_echo "$progname: $_G_line"
+      $ECHO "$progname: $_G_line"
     done
     IFS=$func_echo_IFS
 }
@@ -788,17 +755,17 @@ func_echo_infix_1 ()
     for _G_tc in "$tc_reset" "$tc_bold" "$tc_standout" "$tc_red" "$tc_green" "$tc_blue" "$tc_cyan"
     do
       test -n "$_G_tc" && {
-        _G_esc_tc=`$bs_echo "$_G_tc" | sed "$sed_make_literal_regex"`
-        _G_indent=`$bs_echo "$_G_indent" | sed "s|$_G_esc_tc||g"`
+        _G_esc_tc=`$ECHO "$_G_tc" | $SED "$sed_make_literal_regex"`
+        _G_indent=`$ECHO "$_G_indent" | $SED "s|$_G_esc_tc||g"`
       }
     done
-    _G_indent="$progname: "`echo "$_G_indent" | sed 's|.| |g'`"  " ## exclude from sc_prohibit_nested_quotes
+    _G_indent="$progname: "`echo "$_G_indent" | $SED 's|.| |g'`"  " ## exclude from sc_prohibit_nested_quotes
 
     func_echo_infix_1_IFS=$IFS
     IFS=$nl
     for _G_line in $_G_message; do
       IFS=$func_echo_infix_1_IFS
-      $bs_echo "$_G_prefix$tc_bold$_G_line$tc_reset" >&2
+      $ECHO "$_G_prefix$tc_bold$_G_line$tc_reset" >&2
       _G_prefix=$_G_indent
     done
     IFS=$func_echo_infix_1_IFS
@@ -1366,7 +1333,7 @@ func_warning ()
 # -----------------------
 # 'sort -V' is not generally available.
 # Note this deviates from the version comparison in automake
-# in that it treats 1.5 < 1.5.0, and treats 1.4.4a < 1.4-p3a
+# in that it treats 1.5 < 1.5.0, and treats 1.4-p12a < 1.4-p3a
 # but this should suffice as we won't be specifying old
 # version formats or redundant trailing .0 in bootstrap.conf.
 # If we did want full compatibility then we should probably
@@ -1375,8 +1342,8 @@ func_sort_ver ()
 {
     $debug_cmd
 
-    printf '%s\n%s\n' "$1" "$2" |
-    sort -t. -k1n -k1 -k2n -k2 -k3n -k3 -k4n -k4 -k5n -k5 -k6n -k6 -k7n -k7 -k8n -k8 -k9n -k9
+    printf '%s\n%s\n' "$1" "$2" \
+      | sort -t. -k 1,1n -k 2,2n -k 3,3n -k 4,4n -k 5,5n -k 6,6n -k 7,7n -k 8,8n -k 9,9n
 }
 
 # func_lt_ver PREV CURR
@@ -1389,26 +1356,26 @@ func_lt_ver ()
 {
     $debug_cmd
 
-    test "x$1" = x`func_sort_ver "$1" "$2" | sed 1q`
+    test "x$1" = x`func_sort_ver "$1" "$2" | $SED 1q`
 }
 
 
 # Local variables:
 # mode: shell-script
 # sh-indentation: 2
-# eval: (add-hook 'write-file-hooks 'time-stamp)
+# eval: (add-hook 'before-save-hook 'time-stamp)
 # time-stamp-pattern: "10/scriptversion=%:y-%02m-%02d.%02H; # UTC"
 # time-stamp-time-zone: "UTC"
 # End:
 #! /bin/sh
 
 # Set a version string for this script.
-scriptversion=2012-10-21.11; # UTC
+scriptversion=2014-01-07.03; # UTC
 
 # A portable, pluggable option parser for Bourne shell.
 # Written by Gary V. Vaughan, 2010
 
-# Copyright (C) 2010-2013 Free Software Foundation, Inc.
+# Copyright (C) 2010-2014 Free Software Foundation, Inc.
 # This is free software; see the source for copying conditions.  There is NO
 # warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
@@ -1548,7 +1515,7 @@ func_remove_hook ()
 {
     $debug_cmd
 
-    eval ${1}_hooks='`$bs_echo "\$'$1'_hooks" |$SED "s| '$2'||"`'
+    eval ${1}_hooks='`$ECHO "\$'$1'_hooks" |$SED "s| '$2'||"`'
 }
 
 
@@ -1825,9 +1792,9 @@ func_validate_options ()
 
 
 
-## ------------------##
+## ----------------- ##
 ## Helper functions. ##
-## ------------------##
+## ----------------- ##
 
 # This section contains the helper functions used by the rest of the
 # hookable option parser framework in ascii-betical order.
@@ -1841,8 +1808,8 @@ func_fatal_help ()
 {
     $debug_cmd
 
-    eval \$bs_echo \""Usage: $usage"\"
-    eval \$bs_echo \""$fatal_help"\"
+    eval \$ECHO \""Usage: $usage"\"
+    eval \$ECHO \""$fatal_help"\"
     func_error ${1+"$@"}
     exit $EXIT_FAILURE
 }
@@ -1856,7 +1823,7 @@ func_help ()
     $debug_cmd
 
     func_usage_message
-    $bs_echo "$long_help_message"
+    $ECHO "$long_help_message"
     exit 0
 }
 
@@ -1943,7 +1910,7 @@ func_usage ()
     $debug_cmd
 
     func_usage_message
-    $bs_echo "Run '$progname --help |${PAGER-more}' for full usage"
+    $ECHO "Run '$progname --help |${PAGER-more}' for full usage"
     exit 0
 }
 
@@ -1955,7 +1922,7 @@ func_usage_message ()
 {
     $debug_cmd
 
-    eval \$bs_echo \""Usage: $usage"\"
+    eval \$ECHO \""Usage: $usage"\"
     echo
     $SED -n 's|^# ||
         /^Written by/{
@@ -1964,7 +1931,7 @@ func_usage_message ()
 	h
 	/^Written by/q' < "$progpath"
     echo
-    eval \$bs_echo \""$usage_message"\"
+    eval \$ECHO \""$usage_message"\"
 }
 
 
@@ -1976,7 +1943,7 @@ func_version ()
     $debug_cmd
 
     printf '%s\n' "$progname $scriptversion"
-    $SED -n '/^##/q
+    $SED -n '
         /(C)/!b go
         :more
         /\./!{
@@ -2004,13 +1971,13 @@ func_version ()
 # Local variables:
 # mode: shell-script
 # sh-indentation: 2
-# eval: (add-hook 'write-file-hooks 'time-stamp)
+# eval: (add-hook 'before-save-hook 'time-stamp)
 # time-stamp-pattern: "10/scriptversion=%:y-%02m-%02d.%02H; # UTC"
 # time-stamp-time-zone: "UTC"
 # End:
 
 # Set a version string.
-scriptversion='(GNU libtool) 2.4.2.418.11-4494'
+scriptversion='(GNU libtool) 2.4.2.444.28-053d'
 
 
 # func_echo ARG...
@@ -2027,7 +1994,7 @@ func_echo ()
     IFS=$nl
     for _G_line in $_G_message; do
       IFS=$func_echo_IFS
-      $bs_echo "$progname${opt_mode+: $opt_mode}: $_G_line"
+      $ECHO "$progname${opt_mode+: $opt_mode}: $_G_line"
     done
     IFS=$func_echo_IFS
 }
@@ -2096,12 +2063,12 @@ include the following information:
        compiler:       $LTCC
        compiler flags: $LTCFLAGS
        linker:         $LD (gnu? $with_gnu_ld)
-       version:        $progname (GNU libtool) 2.4.2.418.11-4494
+       version:        $progname (GNU libtool) 2.4.2.444.28-053d
        automake:       `($AUTOMAKE --version) 2>/dev/null |$SED 1q`
        autoconf:       `($AUTOCONF --version) 2>/dev/null |$SED 1q`
 
 Report bugs to <bug-libtool@gnu.org>.
-GNU libtool home page: <http://www.gnu.org/s/libtool/>.
+GNU libtool home page: <http://www.gnu.org/software/libtool/>.
 General help using GNU software: <http://www.gnu.org/gethelp/>."
 
 
@@ -2442,7 +2409,9 @@ libtool_validate_options ()
     test : = "$debug_cmd" || func_append preserve_args " --debug"
 
     case $host in
-      *cygwin* | *mingw* | *pw32* | *cegcc*)
+      # Solaris2 added to fix http://debbugs.gnu.org/cgi/bugreport.cgi?bug=16452
+      # see also: http://gcc.gnu.org/bugzilla/show_bug.cgi?id=59788
+      *cygwin* | *mingw* | *pw32* | *cegcc* | *solaris2* | *os2*)
         # don't eliminate duplications in $postdeps and $predeps
         opt_duplicate_compiler_generated_deps=:
         ;;
@@ -3760,6 +3729,7 @@ The following components of LINK-COMMAND are treated specially:
   -rpath LIBDIR     the created library will eventually be installed in LIBDIR
   -R[ ]LIBDIR       add LIBDIR to the runtime path of programs and libraries
   -shared           only do dynamic linking of libtool libraries
+  -shortname NAME   specify a short name for a DLL(effect on OS/2 only)
   -shrext SUFFIX    override the standard shared library file extension
   -static           do not do any dynamic linking of uninstalled libtool libraries
   -static-libtool-libs
@@ -3823,7 +3793,7 @@ if $opt_help; then
       for opt_mode in compile link execute install finish uninstall clean; do
 	func_mode_help
       done
-    } | sed -n '1p; 2,$s/^Usage:/  or: /p'
+    } | $SED -n '1p; 2,$s/^Usage:/  or: /p'
     {
       func_help noexit
       for opt_mode in compile link execute install finish uninstall clean; do
@@ -3831,7 +3801,7 @@ if $opt_help; then
 	func_mode_help
       done
     } |
-    sed '1d
+    $SED '1d
       /^When reporting/,/^Report/{
 	H
 	d
@@ -4021,7 +3991,7 @@ func_mode_finish ()
       else
         tmpdir=`func_mktempdir`
         for lib in $libs; do
-	  sed -e "$sysroot_cmd s/\([ ']-[LR]\)=/\1/g; s/\([ ']\)=/\1/g" $lib \
+	  $SED -e "$sysroot_cmd s/\([ ']-[LR]\)=/\1/g; s/\([ ']\)=/\1/g" $lib \
 	    > $tmpdir/tmp-la
 	  mv -f $tmpdir/tmp-la $lib
 	done
@@ -4347,8 +4317,17 @@ func_mode_install ()
 	    # so we also need to try rm && ln -s.
 	    for linkname
 	    do
-	      test "$linkname" != "$realname" \
-		&& func_show_eval "(cd $destdir && { $LN_S -f $realname $linkname || { $RM $linkname && $LN_S $realname $linkname; }; })"
+	      if test "$linkname" != "$realname"; then
+		case $host_os in
+		os2*)
+		  # Create import libraries instead of links on OS/2
+		  func_show_eval "(emximp -o $destdir/$linkname $dir/${linkname%%_dll.$libext}.def)"
+		  ;;
+		*)
+		  func_show_eval "(cd $destdir && { $LN_S -f $realname $linkname || { $RM $linkname && $LN_S $realname $linkname; }; })"
+		  ;;
+		esac
+	      fi
 	    done
 	  fi
 
@@ -4576,7 +4555,7 @@ func_generate_dlsyms ()
     my_outputname=$1
     my_originator=$2
     my_pic_p=${3-false}
-    my_prefix=`$ECHO "$my_originator" | sed 's%[^a-zA-Z0-9]%_%g'`
+    my_prefix=`$ECHO "$my_originator" | $SED 's%[^a-zA-Z0-9]%_%g'`
     my_dlsyms=
 
     if test -n "$dlfiles$dlprefiles" || test no != "$dlself"; then
@@ -6818,6 +6797,11 @@ func_mode_link ()
 	  prev=
 	  continue
 	  ;;
+	shortname)
+	  shortname_cmds="$ECHO $arg | cut -b -8"
+	  prev=
+	  continue
+	  ;;
 	shrext)
 	  shrext_cmds=$arg
 	  prev=
@@ -7143,6 +7127,11 @@ func_mode_link ()
 	continue
 	;;
 
+      -shortname)
+	prev=shortname
+	continue
+	;;
+
       -shrext)
 	prev=shrext
 	continue
@@ -7256,6 +7245,17 @@ func_mode_link ()
         func_append compiler_flags " $arg"
         continue
         ;;
+
+      # OS/2 uses -Zxxx to specify OS/2-specific options
+      -Z*)
+       compiler_flags="$compiler_flags $arg"
+       func_append compile_command " $arg"
+       func_append finalize_command " $arg"
+       case $arg in
+       -Zlinker | -Zstack) prev=xcompiler;;
+       esac
+       continue
+       ;;
 
       # Some other compiler flag.
       -* | +*)
@@ -7602,33 +7602,66 @@ func_mode_link ()
 	    # If $allow_libtool_libs_with_static_runtimes && $deplib is a stdlib,
 	    # We need to do some special things here, and not later.
 	    if test yes = "$allow_libtool_libs_with_static_runtimes"; then
-	      case " $predeps $postdeps " in
-	      *" $deplib "*)
-		if func_lalib_p "$lib"; then
-		  library_names=
-		  old_library=
-		  func_source "$lib"
-		  for l in $old_library $library_names; do
-		    ll=$l
-		  done
-		  if test "X$ll" = "X$old_library"; then # only static version available
-		    found=false
-		    func_dirname "$lib" "" "."
-		    ladir=$func_dirname_result
-		    lib=$ladir/$old_library
-		    if test prog,link = "$linkmode,$pass"; then
-		      compile_deplibs="$deplib $compile_deplibs"
-		      finalize_deplibs="$deplib $finalize_deplibs"
-		    else
-		      deplibs="$deplib $deplibs"
-		      test lib = "$linkmode" && newdependency_libs="$deplib $newdependency_libs"
+	      case $host_os in
+	      os2*)
+		case " $predeps $postdeps " in
+		*" $deplib "*) ;;
+		*)
+		  if func_lalib_p "$lib"; then
+		    library_names=
+		    old_library=
+		    func_source "$lib"
+		    for l in $old_library $library_names; do
+		      ll="$l"
+		    done
+		    if test "X$ll" = "X$old_library" ; then # only static version available
+		      found=false
+		      func_dirname "$lib" "" "."
+		      ladir="$func_dirname_result"
+		      lib=$ladir/$old_library
+		      if test prog,link = "$linkmode,$pass"; then
+			compile_deplibs="$deplib $compile_deplibs"
+			finalize_deplibs="$deplib $finalize_deplibs"
+		      else
+			deplibs="$deplib $deplibs"
+			test lib = "$linkmode" && newdependency_libs="$deplib $newdependency_libs"
+		      fi
+		      continue
 		    fi
-		    continue
 		  fi
-		fi
+		  ;;
+		esac
 		;;
-	      *) ;;
-	      esac
+	      *)
+		case " $predeps $postdeps " in
+		*" $deplib "*)
+		  if func_lalib_p "$lib"; then
+		    library_names=
+		    old_library=
+		    func_source "$lib"
+		    for l in $old_library $library_names; do
+		      ll="$l"
+		    done
+		    if test "X$ll" = "X$old_library" ; then # only static version available
+		      found=false
+		      func_dirname "$lib" "" "."
+		      ladir="$func_dirname_result"
+		      lib=$ladir/$old_library
+		      if test prog,link = "$linkmode,$pass"; then
+			compile_deplibs="$deplib $compile_deplibs"
+			finalize_deplibs="$deplib $finalize_deplibs"
+		      else
+			deplibs="$deplib $deplibs"
+			test lib = "$linkmode" && newdependency_libs="$deplib $newdependency_libs"
+		      fi
+		      continue
+		    fi
+		  fi
+		  ;;
+		*) ;;
+		esac
+		;;
+	      esac # case $host_os in
 	    fi
 	  else
 	    # deplib doesn't seem to be a libtool library
@@ -8083,7 +8116,7 @@ func_mode_link ()
 	if test -n "$library_names" &&
 	   { test no = "$use_static_libs" || test -z "$old_library"; }; then
 	  case $host in
-	  *cygwin* | *mingw* | *cegcc*)
+	  *cygwin* | *mingw* | *cegcc* | *os2*)
 	      # No point in relinking DLLs because paths are not encoded
 	      func_append notinst_deplibs " $lib"
 	      need_relink=no
@@ -8465,6 +8498,28 @@ func_mode_link ()
 		      path=
 		    fi
 		  fi
+		  ;;
+		*-*-os2*)
+		  depdepl=
+		  deplibrary_names=
+		  if test "$build_old_libs" != yes && test "$link_static" != yes ; then
+		    eval deplibrary_names=`${SED} -n -e 's/^library_names=\(.*\)$/\1/p' $deplib`
+		  fi
+		  if test -z "$deplibrary_names" ; then
+		    # fall back to static library
+		    eval deplibrary_names=`${SED} -n -e 's/^old_library=\(.*\)$/\1/p' $deplib`
+		  fi
+		  if test -n "$deplibrary_names" ; then
+		    for tmp in $deplibrary_names ; do
+		      depdepl=$tmp
+		    done
+		    if test -f "$absdir/$objdir/$depdepl" ; then
+		      depdepl="$absdir/$objdir/$depdepl"
+		      compiler_flags="$compiler_flags $depdepl"
+		      linker_flags="$linker_flags $depdepl"
+		    fi
+		  fi
+		  path=
 		  ;;
 		*)
 		  path=-L$absdir/$objdir
@@ -9975,7 +10030,15 @@ EOF
 	# Create links to the real library.
 	for linkname in $linknames; do
 	  if test "$realname" != "$linkname"; then
-	    func_show_eval '(cd "$output_objdir" && $RM "$linkname" && $LN_S "$realname" "$linkname")' 'exit $?'
+	    case $host_os in
+	    os2*)
+	      # Create import libraries instead of links on OS/2
+	      func_show_eval '(emximp -o $output_objdir/$linkname $output_objdir/$libname.def)' 'exit $?'
+	      ;;
+	    *)
+	      func_show_eval '(cd "$output_objdir" && $RM "$linkname" && $LN_S "$realname" "$linkname")' 'exit $?'
+	      ;;
+	    esac
 	  fi
 	done
 
@@ -10033,15 +10096,17 @@ EOF
       # the extraction.
       reload_conv_objs=
       gentop=
-      # reload_cmds runs $LD directly, so let us get rid of
-      # -Wl from whole_archive_flag_spec and hope we can get by with
-      # turning comma into space..
-      wl=
-
+      # if reload_cmds runs $LD directly, get rid of -Wl from
+      # whole_archive_flag_spec and hope we can get by with turning comma
+      # into space.
+      case $reload_cmds in
+        *\$LD[\ \$]*) wl= ;;
+      esac
       if test -n "$convenience"; then
 	if test -n "$whole_archive_flag_spec"; then
 	  eval tmp_whole_archive_flags=\"$whole_archive_flag_spec\"
-	  reload_conv_objs=$reload_objs\ `$ECHO "$tmp_whole_archive_flags" | $SED 's|,| |g'`
+	  test -n "$wl" || tmp_whole_archive_flags=`$ECHO "$tmp_whole_archive_flags" | $SED 's|,| |g'`
+	  reload_conv_objs=$reload_objs\ $tmp_whole_archive_flags
 	else
 	  gentop=$output_objdir/${obj}x
 	  func_append generated " $gentop"
