@@ -4520,8 +4520,8 @@ esac
 
 
 
-macro_version='2.4.2.418.11-4494'
-macro_revision='2.4.2.418.11'
+macro_version='2.4.2.444.28-053d'
+macro_revision='2.4.2.444.28'
 
 
 
@@ -5812,6 +5812,9 @@ sysv4 | sysv4.3*)
   ;;
 
 tpf*)
+  lt_cv_deplibs_check_method=pass_all
+  ;;
+os2*)
   lt_cv_deplibs_check_method=pass_all
   ;;
 esac
@@ -8958,6 +8961,11 @@ lt_prog_compiler_static=
       # Although the cygwin gcc ignores -fPIC, still need this for old-style
       # (--disable-auto-import) libraries
       lt_prog_compiler_pic='-DDLL_EXPORT'
+      case $host_os in
+      os2*)
+        lt_prog_compiler_static='-Bstatic'
+        ;;
+      esac
       ;;
 
     darwin* | rhapsody*)
@@ -9054,6 +9062,11 @@ lt_prog_compiler_static=
       # This hack is so that the source file can tell whether it is being
       # built for inclusion in a dll (and should export symbols for example).
       lt_prog_compiler_pic='-DDLL_EXPORT'
+      case $host_os in
+      os2*)
+        lt_prog_compiler_static='-Bstatic'
+        ;;
+      esac
       ;;
 
     hpux9* | hpux10* | hpux11*)
@@ -9692,6 +9705,16 @@ _LT_EOF
     haiku*)
       archive_cmds='$CC -shared $libobjs $deplibs $compiler_flags $wl-soname $wl$soname -o $lib'
       link_all_deplibs=yes
+      ;;
+
+    os2*)
+      hardcode_libdir_flag_spec='-L$libdir'
+      hardcode_minus_L=yes
+      allow_undefined_flag=unsupported
+      shrext_cmds=".dll"
+      archive_cmds='$ECHO "LIBRARY `eval $shortname_cmds` INITINSTANCE TERMINSTANCE" > $output_objdir/$libname.def~$ECHO "DESCRIPTION \"$libname\"" >> $output_objdir/$libname.def~$ECHO DATA >> $output_objdir/$libname.def~$ECHO "  MULTIPLE NONSHARED" >> $output_objdir/$libname.def~$ECHO EXPORTS >> $output_objdir/$libname.def~emxexp $libobjs | $SED /"_DLL_InitTerm"/d >> $output_objdir/$libname.def~$CC -Zdll -Zcrtdll -o $lib $libobjs $deplibs $compiler_flags $output_objdir/$libname.def'
+      old_archive_From_new_cmds='emximp -o $output_objdir/${libname}_dll.a $output_objdir/$libname.def'
+      enable_shared_with_static_runtimes=yes
       ;;
 
     interix[3-9]*)
@@ -10470,8 +10493,10 @@ $as_echo "$lt_cv_irix_exported_symbol" >&6; }
       hardcode_libdir_flag_spec='-L$libdir'
       hardcode_minus_L=yes
       allow_undefined_flag=unsupported
-      archive_cmds='$ECHO "LIBRARY $libname INITINSTANCE" > $output_objdir/$libname.def~$ECHO "DESCRIPTION \"$libname\"" >> $output_objdir/$libname.def~echo DATA >> $output_objdir/$libname.def~echo " SINGLE NONSHARED" >> $output_objdir/$libname.def~echo EXPORTS >> $output_objdir/$libname.def~emxexp $libobjs >> $output_objdir/$libname.def~$CC -Zdll -Zcrtdll -o $lib $libobjs $deplibs $compiler_flags $output_objdir/$libname.def'
-      old_archive_from_new_cmds='emximp -o $output_objdir/$libname.a $output_objdir/$libname.def'
+      shrext_cmds=".dll"
+      archive_cmds='$ECHO "LIBRARY `eval $shortname_cmds` INITINSTANCE TERMINSTANCE" > $output_objdir/$libname.def~$ECHO "DESCRIPTION \"$libname\"" >> $output_objdir/$libname.def~$ECHO DATA >> $output_objdir/$libname.def~$ECHO "  MULTIPLE NONSHARED" >> $output_objdir/$libname.def~$ECHO EXPORTS >> $output_objdir/$libname.def~emxexp $libobjs | $SED /"_DLL_InitTerm"/d >> $output_objdir/$libname.def~$CC -Zdll -Zcrtdll -o $lib $libobjs $deplibs $compiler_flags $output_objdir/$libname.def'
+      old_archive_From_new_cmds='emximp -o $output_objdir/${libname}_dll.a $output_objdir/$libname.def'
+      enable_shared_with_static_runtimes=yes
       ;;
 
     osf3*)
@@ -10974,6 +10999,7 @@ BEGIN {RS = " "; FS = "/|\n";} {
 else
   sys_lib_search_path_spec="/lib /usr/lib /usr/local/lib"
 fi
+shortname_cmds=
 library_names_spec=
 libname_spec='lib$name'
 soname_spec=
@@ -11520,9 +11546,15 @@ os2*)
   libname_spec='$name'
   shrext_cmds=.dll
   need_lib_prefix=no
-  library_names_spec='$libname$shared_ext $libname.a'
+  # OS/2 limits a length of a DLL basename up to 8 characters.
+  # So there is need to use a short name instead of a original name
+  # longer than 8 characters.
+  shortname_cmds='$ECHO $libname | cut -b -8'
+  library_names_spec='`eval $shortname_cmds`${shared_ext} ${libname}_dll.$libext'
   dynamic_linker='OS/2 ld.exe'
-  shlibpath_var=LIBPATH
+  shlibpath_var=BEGINLIBPATH
+  sys_lib_search_path_spec="/lib /usr/lib /usr/local/lib"
+  sys_lib_dlsearch_path_spec="$sys_lib_search_path_spec"
   ;;
 
 osf3* | osf4* | osf5*)
@@ -11656,6 +11688,11 @@ fi
 if test set = "${lt_cv_sys_lib_dlsearch_path_spec+set}"; then
   sys_lib_dlsearch_path_spec=$lt_cv_sys_lib_dlsearch_path_spec
 fi
+
+
+
+
+
 
 
 
@@ -13592,6 +13629,7 @@ runpath_var='`$ECHO "$runpath_var" | $SED "$delay_single_quote_subst"`'
 shlibpath_var='`$ECHO "$shlibpath_var" | $SED "$delay_single_quote_subst"`'
 shlibpath_overrides_runpath='`$ECHO "$shlibpath_overrides_runpath" | $SED "$delay_single_quote_subst"`'
 libname_spec='`$ECHO "$libname_spec" | $SED "$delay_single_quote_subst"`'
+shortname_cmds='`$ECHO "$shortname_cmds" | $SED "$delay_single_quote_subst"`'
 library_names_spec='`$ECHO "$library_names_spec" | $SED "$delay_single_quote_subst"`'
 soname_spec='`$ECHO "$soname_spec" | $SED "$delay_single_quote_subst"`'
 install_override_mode='`$ECHO "$install_override_mode" | $SED "$delay_single_quote_subst"`'
@@ -13776,6 +13814,7 @@ module_expsym_cmds \
 export_symbols_cmds \
 prelink_cmds \
 postlink_cmds \
+shortname_cmds \
 postinstall_cmds \
 postuninstall_cmds \
 finish_cmds \
@@ -14536,39 +14575,34 @@ $as_echo X"$file" |
 
     cat <<_LT_EOF >> "$cfgfile"
 #! $SHELL
-
-# `$ECHO "$ofile" | sed 's%^.*/%%'` - Provide generalized library-building support services.
 # Generated automatically by $as_me ($PACKAGE) $VERSION
 # Libtool was configured on host `(hostname || uname -n) 2>/dev/null | sed 1q`:
 # NOTE: Changes made to this file will be lost: look at ltmain.sh.
+
+# Provide generalized library-building support services.
+# Written by Gordon Matzigkeit, 1996
+
+# Copyright (C) 2014 Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.  There is NO
+# warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+# GNU Libtool is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of of the License, or
+# (at your option) any later version.
 #
-#   Copyright (C) 1996, 1997, 1998, 1999, 2000, 2001, 2003, 2004, 2005,
-#                 2006, 2007, 2008, 2009, 2010, 2011 Free Software
-#                 Foundation, Inc.
-#   Written by Gordon Matzigkeit, 1996
+# As a special exception to the GNU General Public License, if you
+# distribute this file as part of a program or library that is built
+# using GNU Libtool, you may include this file under the  same
+# distribution terms that you use for the rest of that program.
 #
-#   This file is part of GNU Libtool.
-#
-# GNU Libtool is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License as
-# published by the Free Software Foundation; either version 2 of
-# the License, or (at your option) any later version.
-#
-# As a special exception to the GNU General Public License,
-# if you distribute this file as part of a program or library that
-# is built using GNU Libtool, you may include this file under the
-# same distribution terms that you use for the rest of that program.
-#
-# GNU Libtool is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# GNU Libtool is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with GNU Libtool; see the file COPYING.  If not, a copy
-# can be downloaded from http://www.gnu.org/licenses/gpl.html, or
-# obtained by writing to the Free Software Foundation, Inc.,
-# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 # The names of the tagged configurations supported by this script.
@@ -14790,6 +14824,9 @@ shlibpath_overrides_runpath=$shlibpath_overrides_runpath
 
 # Format of library name prefix.
 libname_spec=$lt_libname_spec
+
+# Command to make a short name.
+shortname_cmds=$lt_shortname_cmds
 
 # List of archive names.  First name is the real one, the rest are links.
 # The last name is the one that the linker finds with -lNAME
