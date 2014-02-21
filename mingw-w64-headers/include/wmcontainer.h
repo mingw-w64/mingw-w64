@@ -622,7 +622,6 @@ extern "C" {
 #endif
 
 HRESULT WINAPI MFCreateASFSplitter(IMFASFSplitter **ppISplitter);
-HRESULT WINAPI MFCreateAttributes(IMFAttributes **ppMFAttributes,UINT32 cInitialSize);
 HRESULT WINAPI MFCreateWMAEncoderActivate(IMFMediaType *pMediaType,IPropertyStore *pEncodingConfigurationProperties,IMFActivate **ppActivate);
 HRESULT WINAPI MFCreateWMVEncoderActivate(IMFMediaType *pMediaType,IPropertyStore *pEncodingConfigurationProperties,IMFActivate **ppActivate);
 

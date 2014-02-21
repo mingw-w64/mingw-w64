@@ -425,6 +425,8 @@ double WINAPI MFGetAttributeDouble(IMFAttributes *pAttributes,REFGUID guidKey,do
 HRESULT WINAPI MFGetAttributesAsBlob(IMFAttributes *pAttributes,UINT8 *pBuf,UINT cbBufSize);
 HRESULT WINAPI MFGetAttributesAsBlobSize(IMFAttributes *pAttributes,UINT32 *pcbBufSize);
 UINT64 WINAPI MFGetAttributeUINT64(IMFAttributes *pAttributes,REFGUID guidKey,UINT64 unDefault);
+HRESULT WINAPI MFCreateAttributes(IMFAttributes**,UINT32);
+
 HRESULT WINAPI MFGetPlaneSize(DWORD format,DWORD dwWidth,DWORD dwHeight,DWORD *pdwPlaneSize);
 HRESULT WINAPI MFGetStrideForBitmapInfoHeader(DWORD format,DWORD dwWidth,LONG *pStride);
 HRESULT WINAPI MFGetTimerPeriodicity(DWORD *Periodicity);
