@@ -5,7 +5,7 @@
  */
 #ifndef _INC_EAPTYPES
 #define _INC_EAPTYPES
-#if (_WIN32_WINNT >= 0x0600)
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -306,5 +306,5 @@ typedef struct _EAP_CRED_EXPIRY_RESP {
 #ifdef __cplusplus
 }
 #endif
-#endif /*(_WIN32_WINNT >= 0x0600)*/
+
 #endif /*_INC_EAPTYPES*/

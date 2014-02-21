@@ -102,7 +102,7 @@ typedef VOID
   PEVENT_FILTER_DESCRIPTOR FilterData,
   PVOID CallbackContext);
 
-#if (_WIN32_WINNT >= 0x0600)
+#if (WINVER >= 0x0600)
 ULONG EVNTAPI EventRegister(
   LPCGUID ProviderId,
   PENABLECALLBACK EnableCallback,
@@ -153,7 +153,7 @@ ULONG EVNTAPI EventActivityIdControl(
   LPGUID ActivityId
 );
 
-#endif /*(_WIN32_WINNT >= 0x0600)*/
+#endif /*(WINVER >= 0x0600)*/
 
 #if (_WIN32_WINNT >= 0x0601)
 ULONG EVNTAPI EventWriteEx(

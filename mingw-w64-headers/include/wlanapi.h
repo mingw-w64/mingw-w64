@@ -386,7 +386,6 @@ DWORD WINAPI WlanSetProfilePosition(
   PVOID pReserved
 );
 
-#if (_WIN32_WINNT >= 0x0600)
 typedef char DOT11_COUNTRY_OR_REGION_STRING[3];
 
 typedef enum _WLAN_AUTOCONF_OPCODE {
@@ -737,8 +736,6 @@ DWORD WINAPI WlanUIEditProfile(
   PVOID pReserved,
   PWLAN_REASON_CODE *pWlanReasonCode
 );
-
-#endif /*(_WIN32_WINNT >= 0x0600)*/
 
 #ifdef __cplusplus
 }
