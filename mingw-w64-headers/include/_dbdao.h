@@ -346,12 +346,49 @@ public:
 #define DAOMFC_STATIC_COLLECTION_IMPL(objColl,objSingle,intColl,intSingle) objSingle objColl::Item(LONG i) { return (intSingle *)(ObItem(i).GetInterface(TRUE)); } objSingle objColl::Item(LPCTSTR pstr) { return (intSingle *)(ObItem(pstr).GetInterface(TRUE)); } objSingle objColl::operator[](LONG i) { return (intSingle *)(Item(i).GetInterface(TRUE)); } objSingle objColl::operator[](LPCTSTR pstr) { return (intSingle *)(Item(pstr).GetInterface(TRUE)); }
 #define DAOMFC_DYNAMIC_COLLECTION_IMPL(objColl,objSingle,intColl,intSingle) objSingle objColl::Item(LONG i) { return (intSingle *)(ObItem(i).GetInterface(TRUE)); } objSingle objColl::Item(LPCTSTR pstr) { return (intSingle *)(ObItem(pstr).GetInterface(TRUE)); } VOID objColl::Append(objSingle &o) { ObAppend(o); } objSingle objColl::operator[](LONG i) { return (intSingle *)(Item(i).GetInterface(TRUE)); } objSingle objColl::operator[](LPCTSTR pstr) { return (intSingle *)(Item(pstr).GetInterface(TRUE)); }
 
+#undef INTERFACE
+#define INTERFACE DAOMFCSCollection
 DECLARE_INTERFACE_(DAOMFCSCollection,_DAOCollection) {
-  STDMETHOD(get_Item) (VARIANT index,LPUNKNOWN *ppunk);
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAOCollection ***/
+  STDMETHOD(get_Count) (THIS_ short *c) PURE;
+  STDMETHOD(_NewEnum) (THIS_ IUnknown **ppunk) PURE;
+  STDMETHOD(Refresh) (THIS) PURE;
+#endif
+  STDMETHOD(get_Item) (THIS_ VARIANT index,LPUNKNOWN *ppunk);
 };
 
+#undef INTERFACE
+#define INTERFACE DAOMFCDCollection
 DECLARE_INTERFACE_(DAOMFCDCollection,_DAODynaCollection) {
-  STDMETHOD(get_Item) (VARIANT index,LPUNKNOWN *ppunk);
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAOCollection ***/
+  STDMETHOD(get_Count) (THIS_ short *c) PURE;
+  STDMETHOD(_NewEnum) (THIS_ IUnknown **ppunk) PURE;
+  STDMETHOD(Refresh) (THIS) PURE;
+  /*** _DAODynaCollection ***/
+  STDMETHOD(Append) (THIS_ IDispatch *Object) PURE;
+  STDMETHOD(Delete) (THIS_ BSTR Name) PURE;
+#endif
+  STDMETHOD(get_Item) (THIS_ VARIANT index,LPUNKNOWN *ppunk);
 };
 
 #endif /* __cplusplus */
