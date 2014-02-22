@@ -199,6 +199,18 @@ typedef enum _DAOSuppHelp {
 #undef INTERFACE
 #define INTERFACE _DAOCollection
 DECLARE_INTERFACE_(_DAOCollection,IDispatch) {
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+#endif
+  /*** _DAOCollection ***/
   STDMETHOD(get_Count) (THIS_ short *c) PURE;
   STDMETHOD(_NewEnum) (THIS_ IUnknown **ppunk) PURE;
   STDMETHOD(Refresh) (THIS) PURE;
@@ -207,6 +219,22 @@ DECLARE_INTERFACE_(_DAOCollection,IDispatch) {
 #undef INTERFACE
 #define INTERFACE _DAODynaCollection
 DECLARE_INTERFACE_(_DAODynaCollection,_DAOCollection) {
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAOCollection ***/
+  STDMETHOD(get_Count) (THIS_ short *c) PURE;
+  STDMETHOD(_NewEnum) (THIS_ IUnknown **ppunk) PURE;
+  STDMETHOD(Refresh) (THIS) PURE;
+#endif
+  /*** _DAODynaCollection ***/
   STDMETHOD(Append) (THIS_ IDispatch *Object) PURE;
   STDMETHOD(Delete) (THIS_ BSTR Name) PURE;
 };
@@ -214,583 +242,1094 @@ DECLARE_INTERFACE_(_DAODynaCollection,_DAOCollection) {
 #undef INTERFACE
 #define INTERFACE _DAO
 DECLARE_INTERFACE_(_DAO,IDispatch) {
-  STDMETHOD(get_Properties) (THIS_ DAOProperties **ppprops) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+#endif
+  /*** _DAO ***/
+  STDMETHOD(get_Properties) (THIS_ interface DAOProperties **ppprops) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE _DAODBEngine
 DECLARE_INTERFACE_(_DAODBEngine,_DAO) {
-  STDMETHOD(get_Properties) (DAOProperties **ppprops);
-  STDMETHOD(get_Version) (BSTR *pbstr) PURE;
-  STDMETHOD(get_IniPath) (BSTR *pbstr) PURE;
-  STDMETHOD(put_IniPath) (BSTR path) PURE;
-  STDMETHOD(put_DefaultUser) (BSTR user) PURE;
-  STDMETHOD(put_DefaultPassword) (BSTR pw) PURE;
-  STDMETHOD(get_LoginTimeout) (short *ps) PURE;
-  STDMETHOD(put_LoginTimeout) (short Timeout) PURE;
-  STDMETHOD(get_Workspaces) (DAOWorkspaces **ppworks) PURE;
-  STDMETHOD(get_Errors) (DAOErrors **pperrs) PURE;
-  STDMETHOD(Idle) (VARIANT Action) PURE;
-  STDMETHOD(CompactDatabase) (BSTR SrcName,BSTR DstName,VARIANT DstLocale,VARIANT Options,VARIANT SrcLocale) PURE;
-  STDMETHOD(RepairDatabase) (BSTR Name) PURE;
-  STDMETHOD(RegisterDatabase) (BSTR Dsn,BSTR Driver,VARIANT_BOOL Silent,BSTR Attributes) PURE;
-  STDMETHOD(_30_CreateWorkspace) (BSTR Name,BSTR UserName,BSTR Password,DAOWorkspace **ppwrk) PURE;
-  STDMETHOD(OpenDatabase) (BSTR Name,VARIANT Options,VARIANT ReadOnly,VARIANT Connect,DAODatabase **ppdb) PURE;
-  STDMETHOD(CreateDatabase) (BSTR Name,BSTR Locale,VARIANT Option,DAODatabase **ppdb) PURE;
-  STDMETHOD(FreeLocks) (VOID) PURE;
-  STDMETHOD(BeginTrans) (VOID) PURE;
-  STDMETHOD(CommitTrans) (__LONG32 Option) PURE;
-  STDMETHOD(Rollback) (VOID) PURE;
-  STDMETHOD(SetDefaultWorkspace) (BSTR Name,BSTR Password) PURE;
-  STDMETHOD(SetDataAccessOption) (short Option,VARIANT Value) PURE;
-  STDMETHOD(ISAMStats) (__LONG32 StatNum,VARIANT Reset,__LONG32 *pl) PURE;
-  STDMETHOD(get_SystemDB) (BSTR *pbstr) PURE;
-  STDMETHOD(put_SystemDB) (BSTR SystemDBPath) PURE;
-  STDMETHOD(CreateWorkspace) (BSTR Name,BSTR UserName,BSTR Password,VARIANT UseType,DAOWorkspace **ppwrk) PURE;
-  STDMETHOD(OpenConnection) (BSTR Name,VARIANT Options,VARIANT ReadOnly,VARIANT Connect,DAOConnection **ppconn) PURE;
-  STDMETHOD(get_DefaultType) (__LONG32 *Option) PURE;
-  STDMETHOD(put_DefaultType) (__LONG32 Option) PURE;
-  STDMETHOD(SetOption) (LONG Option,VARIANT Value) PURE;
-  STDMETHOD(DumpObjects) (BSTR *pbstr) PURE;
-  STDMETHOD(DebugPrint) (BSTR bstr) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAO ***/
+  STDMETHOD(get_Properties) (THIS_ interface DAOProperties **ppprops) PURE;
+#endif
+  STDMETHOD(get_Version) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(get_IniPath) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_IniPath) (THIS_ BSTR path) PURE;
+  STDMETHOD(put_DefaultUser) (THIS_ BSTR user) PURE;
+  STDMETHOD(put_DefaultPassword) (THIS_ BSTR pw) PURE;
+  STDMETHOD(get_LoginTimeout) (THIS_ short *ps) PURE;
+  STDMETHOD(put_LoginTimeout) (THIS_ short Timeout) PURE;
+  STDMETHOD(get_Workspaces) (THIS_ interface DAOWorkspaces **ppworks) PURE;
+  STDMETHOD(get_Errors) (THIS_ interface DAOErrors **pperrs) PURE;
+  STDMETHOD(Idle) (THIS_ VARIANT Action) PURE;
+  STDMETHOD(CompactDatabase) (THIS_ BSTR SrcName,BSTR DstName,VARIANT DstLocale,VARIANT Options,VARIANT SrcLocale) PURE;
+  STDMETHOD(RepairDatabase) (THIS_ BSTR Name) PURE;
+  STDMETHOD(RegisterDatabase) (THIS_ BSTR Dsn,BSTR Driver,VARIANT_BOOL Silent,BSTR Attributes) PURE;
+  STDMETHOD(_30_CreateWorkspace) (THIS_ BSTR Name,BSTR UserName,BSTR Password, interface DAOWorkspace **ppwrk) PURE;
+  STDMETHOD(OpenDatabase) (THIS_ BSTR Name,VARIANT Options,VARIANT ReadOnly,VARIANT Connect, interface DAODatabase **ppdb) PURE;
+  STDMETHOD(CreateDatabase) (THIS_ BSTR Name,BSTR Locale,VARIANT Option, interface DAODatabase **ppdb) PURE;
+  STDMETHOD(FreeLocks) (THIS) PURE;
+  STDMETHOD(BeginTrans) (THIS) PURE;
+  STDMETHOD(CommitTrans) (THIS_ __LONG32 Option) PURE;
+  STDMETHOD(Rollback) (THIS) PURE;
+  STDMETHOD(SetDefaultWorkspace) (THIS_ BSTR Name,BSTR Password) PURE;
+  STDMETHOD(SetDataAccessOption) (THIS_ short Option,VARIANT Value) PURE;
+  STDMETHOD(ISAMStats) (THIS_ __LONG32 StatNum,VARIANT Reset,__LONG32 *pl) PURE;
+  STDMETHOD(get_SystemDB) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_SystemDB) (THIS_ BSTR SystemDBPath) PURE;
+  STDMETHOD(CreateWorkspace) (THIS_ BSTR Name,BSTR UserName,BSTR Password,VARIANT UseType, interface DAOWorkspace **ppwrk) PURE;
+  STDMETHOD(OpenConnection) (THIS_ BSTR Name,VARIANT Options,VARIANT ReadOnly,VARIANT Connect, interface DAOConnection **ppconn) PURE;
+  STDMETHOD(get_DefaultType) (THIS_ __LONG32 *Option) PURE;
+  STDMETHOD(put_DefaultType) (THIS_ __LONG32 Option) PURE;
+  STDMETHOD(SetOption) (THIS_ LONG Option,VARIANT Value) PURE;
+  STDMETHOD(DumpObjects) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(DebugPrint) (THIS_ BSTR bstr) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAOError
 DECLARE_INTERFACE_(DAOError,IDispatch) {
-  STDMETHOD(get_Number) (__LONG32 *pl) PURE;
-  STDMETHOD(get_Source) (BSTR *pbstr) PURE;
-  STDMETHOD(get_Description) (BSTR *pbstr) PURE;
-  STDMETHOD(get_HelpFile) (BSTR *pbstr) PURE;
-  STDMETHOD(get_HelpContext) (__LONG32 *pl) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+#endif
+  /*** DAOError ***/
+  STDMETHOD(get_Number) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(get_Source) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(get_Description) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(get_HelpFile) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(get_HelpContext) (THIS_ __LONG32 *pl) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAOErrors
 DECLARE_INTERFACE_(DAOErrors,_DAOCollection) {
-  STDMETHOD(get_Item) (VARIANT Item,DAOError **pperr) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAOCollection ***/
+  STDMETHOD(get_Count) (THIS_ short *c) PURE;
+  STDMETHOD(_NewEnum) (THIS_ IUnknown **ppunk) PURE;
+  STDMETHOD(Refresh) (THIS) PURE;
+#endif
+  STDMETHOD(get_Item) (THIS_ VARIANT Item,DAOError **pperr) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAOProperty
 DECLARE_INTERFACE_(DAOProperty,_DAO) {
-  STDMETHOD(get_Value) (VARIANT *pval) PURE;
-  STDMETHOD(put_Value) (VARIANT val) PURE;
-  STDMETHOD(get_Name) (BSTR *pbstr) PURE;
-  STDMETHOD(put_Name) (BSTR bstr) PURE;
-  STDMETHOD(get_Type) (short *ptype) PURE;
-  STDMETHOD(put_Type) (short type) PURE;
-  STDMETHOD(get_Inherited) (VARIANT_BOOL *pb) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAO ***/
+  STDMETHOD(get_Properties) (THIS_ interface DAOProperties **ppprops) PURE;
+#endif
+  STDMETHOD(get_Value) (THIS_ VARIANT *pval) PURE;
+  STDMETHOD(put_Value) (THIS_ VARIANT val) PURE;
+  STDMETHOD(get_Name) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_Name) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(get_Type) (THIS_ short *ptype) PURE;
+  STDMETHOD(put_Type) (THIS_ short type) PURE;
+  STDMETHOD(get_Inherited) (THIS_ VARIANT_BOOL *pb) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAOProperties
 DECLARE_INTERFACE_(DAOProperties,_DAODynaCollection) {
-  STDMETHOD(get_Item) (VARIANT Item,DAOProperty **ppprop) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAOCollection ***/
+  STDMETHOD(get_Count) (THIS_ short *c) PURE;
+  STDMETHOD(_NewEnum) (THIS_ IUnknown **ppunk) PURE;
+  STDMETHOD(Refresh) (THIS) PURE;
+  /*** _DAODynaCollection ***/
+  STDMETHOD(Append) (THIS_ IDispatch *Object) PURE;
+  STDMETHOD(Delete) (THIS_ BSTR Name) PURE;
+#endif
+  STDMETHOD(get_Item) (THIS_ VARIANT Item,DAOProperty **ppprop) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAOWorkspace
 DECLARE_INTERFACE_(DAOWorkspace,_DAO) {
-  STDMETHOD(get_Name) (BSTR *pbstr) PURE;
-  STDMETHOD(put_Name) (BSTR Name) PURE;
-  STDMETHOD(get_UserName) (BSTR *pbstr) PURE;
-  STDMETHOD(put__30_UserName) (BSTR UserName) PURE;
-  STDMETHOD(put__30_Password) (BSTR Password) PURE;
-  STDMETHOD(get_IsolateODBCTrans) (short *ps) PURE;
-  STDMETHOD(put_IsolateODBCTrans) (short s) PURE;
-  STDMETHOD(get_Databases) (DAODatabases **ppdbs) PURE;
-  STDMETHOD(get_Users) (DAOUsers **ppusrs) PURE;
-  STDMETHOD(get_Groups) (DAOGroups **ppgrps) PURE;
-  STDMETHOD(BeginTrans) (VOID) PURE;
-  STDMETHOD(CommitTrans) (__LONG32 Options) PURE;
-  STDMETHOD(Close) (VOID) PURE;
-  STDMETHOD(Rollback) (VOID) PURE;
-  STDMETHOD(OpenDatabase) (BSTR Name,VARIANT Options,VARIANT ReadOnly,VARIANT Connect,DAODatabase **ppdb) PURE;
-  STDMETHOD(CreateDatabase) (BSTR Name,BSTR Connect,VARIANT Option,DAODatabase **ppdb) PURE;
-  STDMETHOD(CreateUser) (VARIANT Name,VARIANT PID,VARIANT Password,DAOUser **ppusr) PURE;
-  STDMETHOD(CreateGroup) (VARIANT Name,VARIANT PID,DAOGroup **ppgrp) PURE;
-  STDMETHOD(OpenConnection) (BSTR Name,VARIANT Options,VARIANT ReadOnly,VARIANT Connect,DAOConnection **ppconn) PURE;
-  STDMETHOD(get_LoginTimeout) (__LONG32 *pTimeout) PURE;
-  STDMETHOD(put_LoginTimeout) (__LONG32 Timeout) PURE;
-  STDMETHOD(get_DefaultCursorDriver) (__LONG32 *pCursorType) PURE;
-  STDMETHOD(put_DefaultCursorDriver) (__LONG32 CursorType) PURE;
-  STDMETHOD(get_hEnv) (LONG *phEnv) PURE;
-  STDMETHOD(get_Type) (LONG *ptype) PURE;
-  STDMETHOD(get_Connections) (DAOConnections **ppcns) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAO ***/
+  STDMETHOD(get_Properties) (THIS_ DAOProperties **ppprops) PURE;
+#endif
+  STDMETHOD(get_Name) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_Name) (THIS_ BSTR Name) PURE;
+  STDMETHOD(get_UserName) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put__30_UserName) (THIS_ BSTR UserName) PURE;
+  STDMETHOD(put__30_Password) (THIS_ BSTR Password) PURE;
+  STDMETHOD(get_IsolateODBCTrans) (THIS_ short *ps) PURE;
+  STDMETHOD(put_IsolateODBCTrans) (THIS_ short s) PURE;
+  STDMETHOD(get_Databases) (THIS_ interface DAODatabases **ppdbs) PURE;
+  STDMETHOD(get_Users) (THIS_ interface DAOUsers **ppusrs) PURE;
+  STDMETHOD(get_Groups) (THIS_ interface DAOGroups **ppgrps) PURE;
+  STDMETHOD(BeginTrans) (THIS) PURE;
+  STDMETHOD(CommitTrans) (THIS_ __LONG32 Options) PURE;
+  STDMETHOD(Close) (THIS) PURE;
+  STDMETHOD(Rollback) (THIS) PURE;
+  STDMETHOD(OpenDatabase) (THIS_ BSTR Name,VARIANT Options,VARIANT ReadOnly,VARIANT Connect, interface DAODatabase **ppdb) PURE;
+  STDMETHOD(CreateDatabase) (THIS_ BSTR Name,BSTR Connect,VARIANT Option, interface DAODatabase **ppdb) PURE;
+  STDMETHOD(CreateUser) (THIS_ VARIANT Name,VARIANT PID,VARIANT Password, interface DAOUser **ppusr) PURE;
+  STDMETHOD(CreateGroup) (THIS_ VARIANT Name,VARIANT PID, interface DAOGroup **ppgrp) PURE;
+  STDMETHOD(OpenConnection) (THIS_ BSTR Name,VARIANT Options,VARIANT ReadOnly,VARIANT Connect, interface DAOConnection **ppconn) PURE;
+  STDMETHOD(get_LoginTimeout) (THIS_ __LONG32 *pTimeout) PURE;
+  STDMETHOD(put_LoginTimeout) (THIS_ __LONG32 Timeout) PURE;
+  STDMETHOD(get_DefaultCursorDriver) (THIS_ __LONG32 *pCursorType) PURE;
+  STDMETHOD(put_DefaultCursorDriver) (THIS_ __LONG32 CursorType) PURE;
+  STDMETHOD(get_hEnv) (THIS_ LONG *phEnv) PURE;
+  STDMETHOD(get_Type) (THIS_ LONG *ptype) PURE;
+  STDMETHOD(get_Connections) (THIS_ interface DAOConnections **ppcns) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAOWorkspaces
 DECLARE_INTERFACE_(DAOWorkspaces,_DAODynaCollection) {
-  STDMETHOD(get_Item) (VARIANT Item,DAOWorkspace **ppwrk) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAOCollection ***/
+  STDMETHOD(get_Count) (THIS_ short *c) PURE;
+  STDMETHOD(_NewEnum) (THIS_ IUnknown **ppunk) PURE;
+  STDMETHOD(Refresh) (THIS) PURE;
+  /*** _DAODynaCollection ***/
+  STDMETHOD(Append) (THIS_ IDispatch *Object) PURE;
+  STDMETHOD(Delete) (THIS_ BSTR Name) PURE;
+#endif
+  STDMETHOD(get_Item) (THIS_ VARIANT Item,DAOWorkspace **ppwrk) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAOConnection
 DECLARE_INTERFACE_(DAOConnection,IDispatch) {
-  STDMETHOD(QueryInterface) (REFIID riid,LPVOID *ppvObj);
-  STDMETHOD(get_Name) (BSTR *pbstr) PURE;
-  STDMETHOD(get_Connect) (BSTR *pbstr) PURE;
-  STDMETHOD(get_Database) (DAODatabase **ppDb) PURE;
-  STDMETHOD(get_hDbc) (LONG *phDbc) PURE;
-  STDMETHOD(get_QueryTimeout) (SHORT *pSeconds) PURE;
-  STDMETHOD(put_QueryTimeout) (SHORT Seconds) PURE;
-  STDMETHOD(get_Transactions) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(get_RecordsAffected) (LONG *pRecords) PURE;
-  STDMETHOD(get_StillExecuting) (VARIANT_BOOL *pStillExec) PURE;
-  STDMETHOD(get_Updatable) (VARIANT_BOOL *pStillExec) PURE;
-  STDMETHOD(get_QueryDefs) (DAOQueryDefs **ppqdfs) PURE;
-  STDMETHOD(get_Recordsets) (DAORecordsets **pprsts) PURE;
-  STDMETHOD(Cancel) (VOID) PURE;
-  STDMETHOD(Close) (VOID) PURE;
-  STDMETHOD(CreateQueryDef) (VARIANT Name,VARIANT SQLText,DAOQueryDef **ppqdf) PURE;
-  STDMETHOD(Execute) (BSTR Query,VARIANT Options) PURE;
-  STDMETHOD(OpenRecordset) (BSTR Name,VARIANT Type,VARIANT Options,VARIANT LockEdit,DAORecordset **pprst) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+#endif
+  STDMETHOD(get_Name) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(get_Connect) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(get_Database) (THIS_ interface DAODatabase **ppDb) PURE;
+  STDMETHOD(get_hDbc) (THIS_ LONG *phDbc) PURE;
+  STDMETHOD(get_QueryTimeout) (THIS_ SHORT *pSeconds) PURE;
+  STDMETHOD(put_QueryTimeout) (THIS_ SHORT Seconds) PURE;
+  STDMETHOD(get_Transactions) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(get_RecordsAffected) (THIS_ LONG *pRecords) PURE;
+  STDMETHOD(get_StillExecuting) (THIS_ VARIANT_BOOL *pStillExec) PURE;
+  STDMETHOD(get_Updatable) (THIS_ VARIANT_BOOL *pStillExec) PURE;
+  STDMETHOD(get_QueryDefs) (THIS_ interface DAOQueryDefs **ppqdfs) PURE;
+  STDMETHOD(get_Recordsets) (THIS_ interface DAORecordsets **pprsts) PURE;
+  STDMETHOD(Cancel) (THIS) PURE;
+  STDMETHOD(Close) (THIS) PURE;
+  STDMETHOD(CreateQueryDef) (THIS_ VARIANT Name,VARIANT SQLText, interface DAOQueryDef **ppqdf) PURE;
+  STDMETHOD(Execute) (THIS_ BSTR Query,VARIANT Options) PURE;
+  STDMETHOD(OpenRecordset) (THIS_ BSTR Name,VARIANT Type,VARIANT Options,VARIANT LockEdit, interface DAORecordset **pprst) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAOConnections
 DECLARE_INTERFACE_(DAOConnections,_DAOCollection) {
-  STDMETHOD(get_Item) (VARIANT Item,DAOConnection **ppconn) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAOCollection ***/
+  STDMETHOD(get_Count) (THIS_ short *c) PURE;
+  STDMETHOD(_NewEnum) (THIS_ IUnknown **ppunk) PURE;
+  STDMETHOD(Refresh) (THIS) PURE;
+#endif
+  STDMETHOD(get_Item) (THIS_ VARIANT Item,DAOConnection **ppconn) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAODatabase
 DECLARE_INTERFACE_(DAODatabase,_DAO) {
-  STDMETHOD(get_CollatingOrder) (LONG *pl) PURE;
-  STDMETHOD(get_Connect) (BSTR *pbstr) PURE;
-  STDMETHOD(get_Name) (BSTR *pbstr) PURE;
-  STDMETHOD(get_QueryTimeout) (short *ps) PURE;
-  STDMETHOD(put_QueryTimeout) (short Timeout) PURE;
-  STDMETHOD(get_Transactions) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(get_Updatable) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(get_Version) (BSTR *pbstr) PURE;
-  STDMETHOD(get_RecordsAffected) (__LONG32 *pl) PURE;
-  STDMETHOD(get_TableDefs) (DAOTableDefs **pptdfs) PURE;
-  STDMETHOD(get_QueryDefs) (DAOQueryDefs **ppqdfs) PURE;
-  STDMETHOD(get_Relations) (DAORelations **pprls) PURE;
-  STDMETHOD(get_Containers) (DAOContainers **ppctns) PURE;
-  STDMETHOD(get_Recordsets) (DAORecordsets **pprsts) PURE;
-  STDMETHOD(Close) (VOID) PURE;
-  STDMETHOD(Execute) (BSTR Query,VARIANT Options) PURE;
-  STDMETHOD(_30_OpenRecordset) (BSTR Name,VARIANT Type,VARIANT Options,DAORecordset **pprst) PURE;
-  STDMETHOD(CreateProperty) (VARIANT Name,VARIANT Type,VARIANT Value,VARIANT DDL,DAOProperty **pprp) PURE;
-  STDMETHOD(CreateRelation) (VARIANT Name,VARIANT Table,VARIANT ForeignTable,VARIANT Attributes,DAORelation **pprel) PURE;
-  STDMETHOD(CreateTableDef) (VARIANT Name,VARIANT Attributes,VARIANT SourceTablename,VARIANT Connect,DAOTableDef **pptdf) PURE;
-  STDMETHOD(BeginTrans) (VOID) PURE;
-  STDMETHOD(CommitTrans) (__LONG32 Options) PURE;
-  STDMETHOD(Rollback) (VOID) PURE;
-  STDMETHOD(CreateDynaset) (BSTR Name,VARIANT Options,VARIANT Inconsistent,DAORecordset **pprst) PURE;
-  STDMETHOD(CreateQueryDef) (VARIANT Name,VARIANT SQLText,DAOQueryDef **ppqdf) PURE;
-  STDMETHOD(CreateSnapshot) (BSTR Source,VARIANT Options,DAORecordset **pprst) PURE;
-  STDMETHOD(DeleteQueryDef) (BSTR Name) PURE;
-  STDMETHOD(ExecuteSQL) (BSTR SQL,__LONG32 *pl) PURE;
-  STDMETHOD(ListFields) (BSTR Name,DAORecordset **pprst) PURE;
-  STDMETHOD(ListTables) (DAORecordset **pprst) PURE;
-  STDMETHOD(OpenQueryDef) (BSTR Name,DAOQueryDef **ppqdf) PURE;
-  STDMETHOD(OpenTable) (BSTR Name,VARIANT Options,DAORecordset **pprst) PURE;
-  STDMETHOD(get_ReplicaID) (BSTR *pbstr) PURE;
-  STDMETHOD(get_DesignMasterID) (BSTR *pbstr) PURE;
-  STDMETHOD(put_DesignMasterID) (BSTR MasterID) PURE;
-  STDMETHOD(Synchronize) (BSTR DbPathName,VARIANT ExchangeType) PURE;
-  STDMETHOD(MakeReplica) (BSTR PathName,BSTR Description,VARIANT Options) PURE;
-  STDMETHOD(put_Connect) (BSTR ODBCConnnect) PURE;
-  STDMETHOD(NewPassword) (BSTR bstrOld,BSTR bstrNew) PURE;
-  STDMETHOD(OpenRecordset) (BSTR Name,VARIANT Type,VARIANT Options,VARIANT LockEdit,DAORecordset **pprst) PURE;
-  STDMETHOD(get_Connection) (DAOConnection **ppCn) PURE;
-  STDMETHOD(PopulatePartial) (BSTR DbPathName) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAO ***/
+  STDMETHOD(get_Properties) (THIS_ DAOProperties **ppprops) PURE;
+#endif
+  STDMETHOD(get_CollatingOrder) (THIS_ LONG *pl) PURE;
+  STDMETHOD(get_Connect) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(get_Name) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(get_QueryTimeout) (THIS_ short *ps) PURE;
+  STDMETHOD(put_QueryTimeout) (THIS_ short Timeout) PURE;
+  STDMETHOD(get_Transactions) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(get_Updatable) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(get_Version) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(get_RecordsAffected) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(get_TableDefs) (THIS_ interface DAOTableDefs **pptdfs) PURE;
+  STDMETHOD(get_QueryDefs) (THIS_ interface DAOQueryDefs **ppqdfs) PURE;
+  STDMETHOD(get_Relations) (THIS_ interface DAORelations **pprls) PURE;
+  STDMETHOD(get_Containers) (THIS_ interface DAOContainers **ppctns) PURE;
+  STDMETHOD(get_Recordsets) (THIS_ interface DAORecordsets **pprsts) PURE;
+  STDMETHOD(Close) (THIS) PURE;
+  STDMETHOD(Execute) (THIS_ BSTR Query,VARIANT Options) PURE;
+  STDMETHOD(_30_OpenRecordset) (THIS_ BSTR Name,VARIANT Type,VARIANT Options, interface DAORecordset **pprst) PURE;
+  STDMETHOD(CreateProperty) (THIS_ VARIANT Name,VARIANT Type,VARIANT Value,VARIANT DDL,DAOProperty **pprp) PURE;
+  STDMETHOD(CreateRelation) (THIS_ VARIANT Name,VARIANT Table,VARIANT ForeignTable,VARIANT Attributes, interface DAORelation **pprel) PURE;
+  STDMETHOD(CreateTableDef) (THIS_ VARIANT Name,VARIANT Attributes,VARIANT SourceTablename,VARIANT Connect, interface DAOTableDef **pptdf) PURE;
+  STDMETHOD(BeginTrans) (THIS) PURE;
+  STDMETHOD(CommitTrans) (THIS_ __LONG32 Options) PURE;
+  STDMETHOD(Rollback) (THIS) PURE;
+  STDMETHOD(CreateDynaset) (THIS_ BSTR Name,VARIANT Options,VARIANT Inconsistent, interface DAORecordset **pprst) PURE;
+  STDMETHOD(CreateQueryDef) (THIS_ VARIANT Name,VARIANT SQLText, interface DAOQueryDef **ppqdf) PURE;
+  STDMETHOD(CreateSnapshot) (THIS_ BSTR Source,VARIANT Options, interface DAORecordset **pprst) PURE;
+  STDMETHOD(DeleteQueryDef) (THIS_ BSTR Name) PURE;
+  STDMETHOD(ExecuteSQL) (THIS_ BSTR SQL,__LONG32 *pl) PURE;
+  STDMETHOD(ListFields) (THIS_ BSTR Name, interface DAORecordset **pprst) PURE;
+  STDMETHOD(ListTables) (THIS_ interface DAORecordset **pprst) PURE;
+  STDMETHOD(OpenQueryDef) (THIS_ BSTR Name, interface DAOQueryDef **ppqdf) PURE;
+  STDMETHOD(OpenTable) (THIS_ BSTR Name,VARIANT Options, interface DAORecordset **pprst) PURE;
+  STDMETHOD(get_ReplicaID) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(get_DesignMasterID) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_DesignMasterID) (THIS_ BSTR MasterID) PURE;
+  STDMETHOD(Synchronize) (THIS_ BSTR DbPathName,VARIANT ExchangeType) PURE;
+  STDMETHOD(MakeReplica) (THIS_ BSTR PathName,BSTR Description,VARIANT Options) PURE;
+  STDMETHOD(put_Connect) (THIS_ BSTR ODBCConnnect) PURE;
+  STDMETHOD(NewPassword) (THIS_ BSTR bstrOld,BSTR bstrNew) PURE;
+  STDMETHOD(OpenRecordset) (THIS_ BSTR Name,VARIANT Type,VARIANT Options,VARIANT LockEdit, interface DAORecordset **pprst) PURE;
+  STDMETHOD(get_Connection) (THIS_ DAOConnection **ppCn) PURE;
+  STDMETHOD(PopulatePartial) (THIS_ BSTR DbPathName) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAODatabases
 DECLARE_INTERFACE_(DAODatabases,_DAOCollection) {
-  STDMETHOD(get_Item) (VARIANT Item,DAODatabase **ppdb) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAOCollection ***/
+  STDMETHOD(get_Count) (THIS_ short *c) PURE;
+  STDMETHOD(_NewEnum) (THIS_ IUnknown **ppunk) PURE;
+  STDMETHOD(Refresh) (THIS) PURE;
+#endif
+  STDMETHOD(get_Item) (THIS_ VARIANT Item,DAODatabase **ppdb) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE _DAOTableDef
 DECLARE_INTERFACE_(_DAOTableDef,_DAO) {
-  STDMETHOD(get_Attributes) (__LONG32 *pl) PURE;
-  STDMETHOD(put_Attributes) (__LONG32 Attributes) PURE;
-  STDMETHOD(get_Connect) (BSTR *pbstr) PURE;
-  STDMETHOD(put_Connect) (BSTR Connection) PURE;
-  STDMETHOD(get_DateCreated) (VARIANT *pvar) PURE;
-  STDMETHOD(get_LastUpdated) (VARIANT *pvar) PURE;
-  STDMETHOD(get_Name) (BSTR *pbstr) PURE;
-  STDMETHOD(put_Name) (BSTR Name) PURE;
-  STDMETHOD(get_SourceTableName) (BSTR *pbstr) PURE;
-  STDMETHOD(put_SourceTableName) (BSTR bstr) PURE;
-  STDMETHOD(get_Updatable) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(get_ValidationText) (BSTR *pbstr) PURE;
-  STDMETHOD(put_ValidationText) (BSTR bstr) PURE;
-  STDMETHOD(get_ValidationRule) (BSTR *pbstr) PURE;
-  STDMETHOD(put_ValidationRule) (BSTR bstr) PURE;
-  STDMETHOD(get_RecordCount) (__LONG32 *pl) PURE;
-  STDMETHOD(get_Fields) (DAOFields **ppflds) PURE;
-  STDMETHOD(get_Indexes) (DAOIndexes **ppidxs) PURE;
-  STDMETHOD(OpenRecordset) (VARIANT Type,VARIANT Options,DAORecordset **pprst) PURE;
-  STDMETHOD(RefreshLink) (VOID) PURE;
-  STDMETHOD(CreateField) (VARIANT Name,VARIANT Type,VARIANT Size,DAOField **ppfld) PURE;
-  STDMETHOD(CreateIndex) (VARIANT Name,DAOIndex **ppidx) PURE;
-  STDMETHOD(CreateProperty) (VARIANT Name,VARIANT Type,VARIANT Value,VARIANT DDL,DAOProperty **pprp) PURE;
-  STDMETHOD(get_ConflictTable) (BSTR *pbstr) PURE;
-  STDMETHOD(get_ReplicaFilter) (VARIANT *pFilter) PURE;
-  STDMETHOD(put_ReplicaFilter) (VARIANT Filter) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAO ***/
+  STDMETHOD(get_Properties) (THIS_ DAOProperties **ppprops) PURE;
+#endif
+  STDMETHOD(get_Attributes) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(put_Attributes) (THIS_ __LONG32 Attributes) PURE;
+  STDMETHOD(get_Connect) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_Connect) (THIS_ BSTR Connection) PURE;
+  STDMETHOD(get_DateCreated) (THIS_ VARIANT *pvar) PURE;
+  STDMETHOD(get_LastUpdated) (THIS_ VARIANT *pvar) PURE;
+  STDMETHOD(get_Name) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_Name) (THIS_ BSTR Name) PURE;
+  STDMETHOD(get_SourceTableName) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_SourceTableName) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(get_Updatable) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(get_ValidationText) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_ValidationText) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(get_ValidationRule) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_ValidationRule) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(get_RecordCount) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(get_Fields) (THIS_ interface DAOFields **ppflds) PURE;
+  STDMETHOD(get_Indexes) (THIS_ interface DAOIndexes **ppidxs) PURE;
+  STDMETHOD(OpenRecordset) (THIS_ VARIANT Type,VARIANT Options, interface DAORecordset **pprst) PURE;
+  STDMETHOD(RefreshLink) (THIS) PURE;
+  STDMETHOD(CreateField) (THIS_ VARIANT Name,VARIANT Type,VARIANT Size, interface DAOField **ppfld) PURE;
+  STDMETHOD(CreateIndex) (THIS_ VARIANT Name, interface DAOIndex **ppidx) PURE;
+  STDMETHOD(CreateProperty) (THIS_ VARIANT Name,VARIANT Type,VARIANT Value,VARIANT DDL,DAOProperty **pprp) PURE;
+  STDMETHOD(get_ConflictTable) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(get_ReplicaFilter) (THIS_ VARIANT *pFilter) PURE;
+  STDMETHOD(put_ReplicaFilter) (THIS_ VARIANT Filter) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAOTableDefs
 DECLARE_INTERFACE_(DAOTableDefs,_DAODynaCollection) {
-  STDMETHOD(get_Item) (VARIANT Item,DAOTableDef **pptdf) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAOCollection ***/
+  STDMETHOD(get_Count) (THIS_ short *c) PURE;
+  STDMETHOD(_NewEnum) (THIS_ IUnknown **ppunk) PURE;
+  STDMETHOD(Refresh) (THIS) PURE;
+  /*** _DAODynaCollection ***/
+  STDMETHOD(Append) (THIS_ IDispatch *Object) PURE;
+  STDMETHOD(Delete) (THIS_ BSTR Name) PURE;
+#endif
+  STDMETHOD(get_Item) (THIS_ VARIANT Item,DAOTableDef **pptdf) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE _DAOQueryDef
 DECLARE_INTERFACE_(_DAOQueryDef,_DAO) {
-  STDMETHOD(get_DateCreated) (VARIANT *pvar) PURE;
-  STDMETHOD(get_LastUpdated) (VARIANT *pvar) PURE;
-  STDMETHOD(get_Name) (BSTR *pbstr) PURE;
-  STDMETHOD(put_Name) (BSTR bstr) PURE;
-  STDMETHOD(get_ODBCTimeout) (short *ps) PURE;
-  STDMETHOD(put_ODBCTimeout) (short timeout) PURE;
-  STDMETHOD(get_Type) (short *pi) PURE;
-  STDMETHOD(get_SQL) (BSTR *pbstr) PURE;
-  STDMETHOD(put_SQL) (BSTR bstr) PURE;
-  STDMETHOD(get_Updatable) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(get_Connect) (BSTR *pbstr) PURE;
-  STDMETHOD(put_Connect) (BSTR bstr) PURE;
-  STDMETHOD(get_ReturnsRecords) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(put_ReturnsRecords) (VARIANT_BOOL f) PURE;
-  STDMETHOD(get_RecordsAffected) (__LONG32 *pl) PURE;
-  STDMETHOD(get_Fields) (DAOFields **ppflds) PURE;
-  STDMETHOD(get_Parameters) (DAOParameters **ppprms) PURE;
-  STDMETHOD(Close) (VOID) PURE;
-  STDMETHOD(_30_OpenRecordset) (VARIANT Type,VARIANT Options,DAORecordset **pprst) PURE;
-  STDMETHOD(_30__OpenRecordset) (VARIANT Type,VARIANT Options,DAORecordset **pprst) PURE;
-  STDMETHOD(_Copy) (DAOQueryDef **ppqdf) PURE;
-  STDMETHOD(Execute) (VARIANT Options) PURE;
-  STDMETHOD(Compare) (DAOQueryDef *pQdef,SHORT *lps) PURE;
-  STDMETHOD(CreateDynaset) (VARIANT Options,VARIANT Inconsistent,DAORecordset **pprst) PURE;
-  STDMETHOD(CreateSnapshot) (VARIANT Options,DAORecordset **pprst) PURE;
-  STDMETHOD(ListParameters) (DAORecordset **pprst) PURE;
-  STDMETHOD(CreateProperty) (VARIANT Name,VARIANT Type,VARIANT Value,VARIANT DDL,DAOProperty **pprp) PURE;
-  STDMETHOD(OpenRecordset) (VARIANT Type,VARIANT Options,VARIANT LockEdit,DAORecordset **pprst) PURE;
-  STDMETHOD(_OpenRecordset) (VARIANT Type,VARIANT Options,VARIANT LockEdit,DAORecordset **pprst) PURE;
-  STDMETHOD(Cancel) (VOID) PURE;
-  STDMETHOD(get_hStmt) (LONG *phStmt) PURE;
-  STDMETHOD(get_MaxRecords) (LONG *pMxRecs) PURE;
-  STDMETHOD(put_MaxRecords) (LONG MxRecs) PURE;
-  STDMETHOD(get_StillExecuting) (VARIANT_BOOL *pStillExec) PURE;
-  STDMETHOD(get_CacheSize) (__LONG32 *lCacheSize) PURE;
-  STDMETHOD(put_CacheSize) (__LONG32 lCacheSize) PURE;
-  STDMETHOD(get_Prepare) (VARIANT *pb) PURE;
-  STDMETHOD(put_Prepare) (VARIANT f) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAO ***/
+  STDMETHOD(get_Properties) (THIS_ DAOProperties **ppprops) PURE;
+#endif
+  STDMETHOD(get_DateCreated) (THIS_ VARIANT *pvar) PURE;
+  STDMETHOD(get_LastUpdated) (THIS_ VARIANT *pvar) PURE;
+  STDMETHOD(get_Name) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_Name) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(get_ODBCTimeout) (THIS_ short *ps) PURE;
+  STDMETHOD(put_ODBCTimeout) (THIS_ short timeout) PURE;
+  STDMETHOD(get_Type) (THIS_ short *pi) PURE;
+  STDMETHOD(get_SQL) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_SQL) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(get_Updatable) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(get_Connect) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_Connect) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(get_ReturnsRecords) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(put_ReturnsRecords) (THIS_ VARIANT_BOOL f) PURE;
+  STDMETHOD(get_RecordsAffected) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(get_Fields) (THIS_ interface DAOFields **ppflds) PURE;
+  STDMETHOD(get_Parameters) (THIS_ interface DAOParameters **ppprms) PURE;
+  STDMETHOD(Close) (THIS) PURE;
+  STDMETHOD(_30_OpenRecordset) (THIS_ VARIANT Type,VARIANT Options, interface DAORecordset **pprst) PURE;
+  STDMETHOD(_30__OpenRecordset) (THIS_ VARIANT Type,VARIANT Options, interface DAORecordset **pprst) PURE;
+  STDMETHOD(_Copy) (THIS_ DAOQueryDef **ppqdf) PURE;
+  STDMETHOD(Execute) (THIS_ VARIANT Options) PURE;
+  STDMETHOD(Compare) (THIS_ DAOQueryDef *pQdef,SHORT *lps) PURE;
+  STDMETHOD(CreateDynaset) (THIS_ VARIANT Options,VARIANT Inconsistent, interface DAORecordset **pprst) PURE;
+  STDMETHOD(CreateSnapshot) (THIS_ VARIANT Options, interface DAORecordset **pprst) PURE;
+  STDMETHOD(ListParameters) (THIS_ interface DAORecordset **pprst) PURE;
+  STDMETHOD(CreateProperty) (THIS_ VARIANT Name,VARIANT Type,VARIANT Value,VARIANT DDL,DAOProperty **pprp) PURE;
+  STDMETHOD(OpenRecordset) (THIS_ VARIANT Type,VARIANT Options,VARIANT LockEdit, interface DAORecordset **pprst) PURE;
+  STDMETHOD(_OpenRecordset) (THIS_ VARIANT Type,VARIANT Options,VARIANT LockEdit, interface DAORecordset **pprst) PURE;
+  STDMETHOD(Cancel) (THIS) PURE;
+  STDMETHOD(get_hStmt) (THIS_ LONG *phStmt) PURE;
+  STDMETHOD(get_MaxRecords) (THIS_ LONG *pMxRecs) PURE;
+  STDMETHOD(put_MaxRecords) (THIS_ LONG MxRecs) PURE;
+  STDMETHOD(get_StillExecuting) (THIS_ VARIANT_BOOL *pStillExec) PURE;
+  STDMETHOD(get_CacheSize) (THIS_ __LONG32 *lCacheSize) PURE;
+  STDMETHOD(put_CacheSize) (THIS_ __LONG32 lCacheSize) PURE;
+  STDMETHOD(get_Prepare) (THIS_ VARIANT *pb) PURE;
+  STDMETHOD(put_Prepare) (THIS_ VARIANT f) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAOQueryDefs
 DECLARE_INTERFACE_(DAOQueryDefs,_DAODynaCollection) {
-  STDMETHOD(get_Item) (VARIANT Item,DAOQueryDef **ppqdef) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAOCollection ***/
+  STDMETHOD(get_Count) (THIS_ short *c) PURE;
+  STDMETHOD(_NewEnum) (THIS_ IUnknown **ppunk) PURE;
+  STDMETHOD(Refresh) (THIS) PURE;
+  /*** _DAODynaCollection ***/
+  STDMETHOD(Append) (THIS_ IDispatch *Object) PURE;
+  STDMETHOD(Delete) (THIS_ BSTR Name) PURE;
+#endif
+  STDMETHOD(get_Item) (THIS_ VARIANT Item,DAOQueryDef **ppqdef) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAORecordset
 DECLARE_INTERFACE_(DAORecordset,_DAO) {
-  STDMETHOD(GetIDsOfNames) (REFIID riid,OLECHAR **rgszNames,UINT cNames,LCID lcid,DISPID *rgdispid);
-  STDMETHOD(Invoke) (DISPID dispidMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pdispparams,VARIANT *pvarResult,EXCEPINFO *pexcepinfo,UINT *puArgErr);
-  STDMETHOD(get_BOF) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(get_Bookmark) (SAFEARRAY **ppsach) PURE;
-  STDMETHOD(put_Bookmark) (SAFEARRAY **psach) PURE;
-  STDMETHOD(get_Bookmarkable) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(get_DateCreated) (VARIANT *pvar) PURE;
-  STDMETHOD(get_EOF) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(get_Filter) (BSTR *pbstr) PURE;
-  STDMETHOD(put_Filter) (BSTR Filter) PURE;
-  STDMETHOD(get_Index) (BSTR *pbstr) PURE;
-  STDMETHOD(put_Index) (BSTR bstr) PURE;
-  STDMETHOD(get_LastModified) (SAFEARRAY **ppsa) PURE;
-  STDMETHOD(get_LastUpdated) (VARIANT *pvar) PURE;
-  STDMETHOD(get_LockEdits) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(put_LockEdits) (VARIANT_BOOL Lock) PURE;
-  STDMETHOD(get_Name) (BSTR *pbstr) PURE;
-  STDMETHOD(get_NoMatch) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(get_Sort) (BSTR *pbstr) PURE;
-  STDMETHOD(put_Sort) (BSTR Sort) PURE;
-  STDMETHOD(get_Transactions) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(get_Type) (short *ps) PURE;
-  STDMETHOD(get_RecordCount) (__LONG32 *pl) PURE;
-  STDMETHOD(get_Updatable) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(get_Restartable) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(get_ValidationText) (BSTR *pbstr) PURE;
-  STDMETHOD(get_ValidationRule) (BSTR *pbstr) PURE;
-  STDMETHOD(get_CacheStart) (SAFEARRAY **ppsa) PURE;
-  STDMETHOD(put_CacheStart) (SAFEARRAY **psa) PURE;
-  STDMETHOD(get_CacheSize) (__LONG32 *pl) PURE;
-  STDMETHOD(put_CacheSize) (__LONG32 CacheSize) PURE;
-  STDMETHOD(get_PercentPosition) (float *pd) PURE;
-  STDMETHOD(put_PercentPosition) (float Position) PURE;
-  STDMETHOD(get_AbsolutePosition) (__LONG32 *pl) PURE;
-  STDMETHOD(put_AbsolutePosition) (__LONG32 Position) PURE;
-  STDMETHOD(get_EditMode) (short *pi) PURE;
-  STDMETHOD(get_ODBCFetchCount) (__LONG32 *pl) PURE;
-  STDMETHOD(get_ODBCFetchDelay) (__LONG32 *pl) PURE;
-  STDMETHOD(get_Parent) (DAODatabase **pdb) PURE;
-  STDMETHOD(get_Fields) (DAOFields **ppflds) PURE;
-  STDMETHOD(get_Indexes) (DAOIndexes **ppidxs) PURE;
-  STDMETHOD(_30_CancelUpdate) (VOID) PURE;
-  STDMETHOD(AddNew) (VOID) PURE;
-  STDMETHOD(Close) (VOID) PURE;
-  STDMETHOD(OpenRecordset) (VARIANT Type,VARIANT Options,DAORecordset **pprst) PURE;
-  STDMETHOD(Delete) (VOID) PURE;
-  STDMETHOD(Edit) (VOID) PURE;
-  STDMETHOD(FindFirst) (BSTR Criteria) PURE;
-  STDMETHOD(FindLast) (BSTR Criteria) PURE;
-  STDMETHOD(FindNext) (BSTR Criteria) PURE;
-  STDMETHOD(FindPrevious) (BSTR Criteria) PURE;
-  STDMETHOD(MoveFirst) (VOID) PURE;
-  STDMETHOD(_30_MoveLast) (VOID) PURE;
-  STDMETHOD(MoveNext) (VOID) PURE;
-  STDMETHOD(MovePrevious) (VOID) PURE;
-  STDMETHOD(Seek) (BSTR Comparison,VARIANT Key1,VARIANT Key2,VARIANT Key3,VARIANT Key4,VARIANT Key5,VARIANT Key6,VARIANT Key7,VARIANT Key8,VARIANT Key9,VARIANT Key10,VARIANT Key11,VARIANT Key12,VARIANT Key13) PURE;
-  STDMETHOD(_30_Update) (VOID) PURE;
-  STDMETHOD(Clone) (DAORecordset **pprst) PURE;
-  STDMETHOD(Requery) (VARIANT NewQueryDef) PURE;
-  STDMETHOD(Move) (__LONG32 Rows,VARIANT StartBookmark) PURE;
-  STDMETHOD(FillCache) (VARIANT Rows,VARIANT StartBookmark) PURE;
-  STDMETHOD(CreateDynaset) (VARIANT Options,VARIANT Inconsistent,DAORecordset **pprst) PURE;
-  STDMETHOD(CreateSnapshot) (VARIANT Options,DAORecordset **pprst) PURE;
-  STDMETHOD(CopyQueryDef) (DAOQueryDef **ppqdf) PURE;
-  STDMETHOD(ListFields) (DAORecordset **pprst) PURE;
-  STDMETHOD(ListIndexes) (DAORecordset **pprst) PURE;
-  STDMETHOD(GetRows) (VARIANT NumRows,VARIANT *pvar) PURE;
-  STDMETHOD(get_Collect) (VARIANT Item,VARIANT *pvar) PURE;
-  STDMETHOD(put_Collect) (VARIANT Item,VARIANT value) PURE;
-  STDMETHOD(Cancel) (VOID) PURE;
-  STDMETHOD(NextRecordset) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(get_hStmt) (LONG *phStmt) PURE;
-  STDMETHOD(get_StillExecuting) (VARIANT_BOOL *pStillExec) PURE;
-  STDMETHOD(get_BatchSize) (__LONG32 *pl) PURE;
-  STDMETHOD(put_BatchSize) (__LONG32 BatchSize) PURE;
-  STDMETHOD(get_BatchCollisionCount) (__LONG32 *pl) PURE;
-  STDMETHOD(get_BatchCollisions) (VARIANT *pvar) PURE;
-  STDMETHOD(get_Connection) (DAOConnection **ppCn) PURE;
-  STDMETHOD(putref_Connection) (DAOConnection *pNewCn) PURE;
-  STDMETHOD(get_RecordStatus) (short *pi) PURE;
-  STDMETHOD(get_UpdateOptions) (__LONG32 *pl) PURE;
-  STDMETHOD(put_UpdateOptions) (__LONG32 l) PURE;
-  STDMETHOD(CancelUpdate) (__LONG32 UpdateType) PURE;
-  STDMETHOD(Update) (__LONG32 UpdateType,VARIANT_BOOL Force) PURE;
-  STDMETHOD(MoveLast) (__LONG32 Options) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAO ***/
+  STDMETHOD(get_Properties) (THIS_ DAOProperties **ppprops) PURE;
+#endif
+  STDMETHOD(get_BOF) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(get_Bookmark) (THIS_ SAFEARRAY **ppsach) PURE;
+  STDMETHOD(put_Bookmark) (THIS_ SAFEARRAY **psach) PURE;
+  STDMETHOD(get_Bookmarkable) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(get_DateCreated) (THIS_ VARIANT *pvar) PURE;
+  STDMETHOD(get_EOF) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(get_Filter) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_Filter) (THIS_ BSTR Filter) PURE;
+  STDMETHOD(get_Index) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_Index) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(get_LastModified) (THIS_ SAFEARRAY **ppsa) PURE;
+  STDMETHOD(get_LastUpdated) (THIS_ VARIANT *pvar) PURE;
+  STDMETHOD(get_LockEdits) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(put_LockEdits) (THIS_ VARIANT_BOOL Lock) PURE;
+  STDMETHOD(get_Name) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(get_NoMatch) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(get_Sort) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_Sort) (THIS_ BSTR Sort) PURE;
+  STDMETHOD(get_Transactions) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(get_Type) (THIS_ short *ps) PURE;
+  STDMETHOD(get_RecordCount) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(get_Updatable) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(get_Restartable) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(get_ValidationText) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(get_ValidationRule) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(get_CacheStart) (THIS_ SAFEARRAY **ppsa) PURE;
+  STDMETHOD(put_CacheStart) (THIS_ SAFEARRAY **psa) PURE;
+  STDMETHOD(get_CacheSize) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(put_CacheSize) (THIS_ __LONG32 CacheSize) PURE;
+  STDMETHOD(get_PercentPosition) (THIS_ float *pd) PURE;
+  STDMETHOD(put_PercentPosition) (THIS_ float Position) PURE;
+  STDMETHOD(get_AbsolutePosition) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(put_AbsolutePosition) (THIS_ __LONG32 Position) PURE;
+  STDMETHOD(get_EditMode) (THIS_ short *pi) PURE;
+  STDMETHOD(get_ODBCFetchCount) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(get_ODBCFetchDelay) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(get_Parent) (THIS_ DAODatabase **pdb) PURE;
+  STDMETHOD(get_Fields) (THIS_ interface DAOFields **ppflds) PURE;
+  STDMETHOD(get_Indexes) (THIS_ interface DAOIndexes **ppidxs) PURE;
+  STDMETHOD(_30_CancelUpdate) (THIS) PURE;
+  STDMETHOD(AddNew) (THIS) PURE;
+  STDMETHOD(Close) (THIS) PURE;
+  STDMETHOD(OpenRecordset) (THIS_ VARIANT Type,VARIANT Options,DAORecordset **pprst) PURE;
+  STDMETHOD(Delete) (THIS) PURE;
+  STDMETHOD(Edit) (THIS) PURE;
+  STDMETHOD(FindFirst) (THIS_ BSTR Criteria) PURE;
+  STDMETHOD(FindLast) (THIS_ BSTR Criteria) PURE;
+  STDMETHOD(FindNext) (THIS_ BSTR Criteria) PURE;
+  STDMETHOD(FindPrevious) (THIS_ BSTR Criteria) PURE;
+  STDMETHOD(MoveFirst) (THIS) PURE;
+  STDMETHOD(_30_MoveLast) (THIS) PURE;
+  STDMETHOD(MoveNext) (THIS) PURE;
+  STDMETHOD(MovePrevious) (THIS) PURE;
+  STDMETHOD(Seek) (THIS_ BSTR Comparison,VARIANT Key1,VARIANT Key2,VARIANT Key3,VARIANT Key4,VARIANT Key5,VARIANT Key6,VARIANT Key7,VARIANT Key8,VARIANT Key9,VARIANT Key10,VARIANT Key11,VARIANT Key12,VARIANT Key13) PURE;
+  STDMETHOD(_30_Update) (THIS) PURE;
+  STDMETHOD(Clone) (THIS_ DAORecordset **pprst) PURE;
+  STDMETHOD(Requery) (THIS_ VARIANT NewQueryDef) PURE;
+  STDMETHOD(Move) (THIS_ __LONG32 Rows,VARIANT StartBookmark) PURE;
+  STDMETHOD(FillCache) (THIS_ VARIANT Rows,VARIANT StartBookmark) PURE;
+  STDMETHOD(CreateDynaset) (THIS_ VARIANT Options,VARIANT Inconsistent,DAORecordset **pprst) PURE;
+  STDMETHOD(CreateSnapshot) (THIS_ VARIANT Options,DAORecordset **pprst) PURE;
+  STDMETHOD(CopyQueryDef) (THIS_ DAOQueryDef **ppqdf) PURE;
+  STDMETHOD(ListFields) (THIS_ DAORecordset **pprst) PURE;
+  STDMETHOD(ListIndexes) (THIS_ DAORecordset **pprst) PURE;
+  STDMETHOD(GetRows) (THIS_ VARIANT NumRows,VARIANT *pvar) PURE;
+  STDMETHOD(get_Collect) (THIS_ VARIANT Item,VARIANT *pvar) PURE;
+  STDMETHOD(put_Collect) (THIS_ VARIANT Item,VARIANT value) PURE;
+  STDMETHOD(Cancel) (THIS) PURE;
+  STDMETHOD(NextRecordset) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(get_hStmt) (THIS_ LONG *phStmt) PURE;
+  STDMETHOD(get_StillExecuting) (THIS_ VARIANT_BOOL *pStillExec) PURE;
+  STDMETHOD(get_BatchSize) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(put_BatchSize) (THIS_ __LONG32 BatchSize) PURE;
+  STDMETHOD(get_BatchCollisionCount) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(get_BatchCollisions) (THIS_ VARIANT *pvar) PURE;
+  STDMETHOD(get_Connection) (THIS_ DAOConnection **ppCn) PURE;
+  STDMETHOD(putref_Connection) (THIS_ DAOConnection *pNewCn) PURE;
+  STDMETHOD(get_RecordStatus) (THIS_ short *pi) PURE;
+  STDMETHOD(get_UpdateOptions) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(put_UpdateOptions) (THIS_ __LONG32 l) PURE;
+  STDMETHOD(CancelUpdate) (THIS_ __LONG32 UpdateType) PURE;
+  STDMETHOD(Update) (THIS_ __LONG32 UpdateType,VARIANT_BOOL Force) PURE;
+  STDMETHOD(MoveLast) (THIS_ __LONG32 Options) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAORecordsets
 DECLARE_INTERFACE_(DAORecordsets,_DAOCollection) {
-  STDMETHOD(get_Item) (VARIANT Item,DAORecordset **pprst) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAOCollection ***/
+  STDMETHOD(get_Count) (THIS_ short *c) PURE;
+  STDMETHOD(_NewEnum) (THIS_ IUnknown **ppunk) PURE;
+  STDMETHOD(Refresh) (THIS) PURE;
+#endif
+  STDMETHOD(get_Item) (THIS_ VARIANT Item,DAORecordset **pprst) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE _DAOField
 DECLARE_INTERFACE_(_DAOField,_DAO) {
-  STDMETHOD(get_CollatingOrder) (__LONG32 *pl) PURE;
-  STDMETHOD(get_Type) (short *ps) PURE;
-  STDMETHOD(put_Type) (short Type) PURE;
-  STDMETHOD(get_Name) (BSTR *pbstr) PURE;
-  STDMETHOD(put_Name) (BSTR Name) PURE;
-  STDMETHOD(get_Size) (__LONG32 *pl) PURE;
-  STDMETHOD(put_Size) (__LONG32 Size) PURE;
-  STDMETHOD(get_SourceField) (BSTR *pbstr) PURE;
-  STDMETHOD(get_SourceTable) (BSTR *pbstr) PURE;
-  STDMETHOD(get_Value) (VARIANT *pvar) PURE;
-  STDMETHOD(put_Value) (VARIANT Val) PURE;
-  STDMETHOD(get_Attributes) (__LONG32 *pl) PURE;
-  STDMETHOD(put_Attributes) (__LONG32 Attr) PURE;
-  STDMETHOD(get_OrdinalPosition) (short *ps) PURE;
-  STDMETHOD(put_OrdinalPosition) (short Pos) PURE;
-  STDMETHOD(get_ValidationText) (BSTR *pbstr) PURE;
-  STDMETHOD(put_ValidationText) (BSTR bstr) PURE;
-  STDMETHOD(get_ValidateOnSet) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(put_ValidateOnSet) (VARIANT_BOOL Validate) PURE;
-  STDMETHOD(get_ValidationRule) (BSTR *pbstr) PURE;
-  STDMETHOD(put_ValidationRule) (BSTR bstr) PURE;
-  STDMETHOD(get_DefaultValue) (VARIANT *pvar) PURE;
-  STDMETHOD(put_DefaultValue) (VARIANT var) PURE;
-  STDMETHOD(get_Required) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(put_Required) (VARIANT_BOOL fReq) PURE;
-  STDMETHOD(get_AllowZeroLength) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(put_AllowZeroLength) (VARIANT_BOOL fAllow) PURE;
-  STDMETHOD(get_DataUpdatable) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(get_ForeignName) (BSTR *pbstr) PURE;
-  STDMETHOD(put_ForeignName) (BSTR bstr) PURE;
-  STDMETHOD(AppendChunk) (VARIANT Val) PURE;
-  STDMETHOD(GetChunk) (__LONG32 Offset,__LONG32 Bytes,VARIANT *pvar) PURE;
-  STDMETHOD(_30_FieldSize) (__LONG32 *pl) PURE;
-  STDMETHOD(CreateProperty) (VARIANT Name,VARIANT Type,VARIANT Value,VARIANT DDL,DAOProperty **pprp) PURE;
-  STDMETHOD(get_CollectionIndex) (short *i) PURE;
-  STDMETHOD(get_OriginalValue) (VARIANT *pvar) PURE;
-  STDMETHOD(get_VisibleValue) (VARIANT *pvar) PURE;
-  STDMETHOD(get_FieldSize) (__LONG32 *pl) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAO ***/
+  STDMETHOD(get_Properties) (THIS_ DAOProperties **ppprops) PURE;
+#endif
+  STDMETHOD(get_CollatingOrder) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(get_Type) (THIS_ short *ps) PURE;
+  STDMETHOD(put_Type) (THIS_ short Type) PURE;
+  STDMETHOD(get_Name) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_Name) (THIS_ BSTR Name) PURE;
+  STDMETHOD(get_Size) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(put_Size) (THIS_ __LONG32 Size) PURE;
+  STDMETHOD(get_SourceField) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(get_SourceTable) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(get_Value) (THIS_ VARIANT *pvar) PURE;
+  STDMETHOD(put_Value) (THIS_ VARIANT Val) PURE;
+  STDMETHOD(get_Attributes) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(put_Attributes) (THIS_ __LONG32 Attr) PURE;
+  STDMETHOD(get_OrdinalPosition) (THIS_ short *ps) PURE;
+  STDMETHOD(put_OrdinalPosition) (THIS_ short Pos) PURE;
+  STDMETHOD(get_ValidationText) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_ValidationText) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(get_ValidateOnSet) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(put_ValidateOnSet) (THIS_ VARIANT_BOOL Validate) PURE;
+  STDMETHOD(get_ValidationRule) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_ValidationRule) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(get_DefaultValue) (THIS_ VARIANT *pvar) PURE;
+  STDMETHOD(put_DefaultValue) (THIS_ VARIANT var) PURE;
+  STDMETHOD(get_Required) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(put_Required) (THIS_ VARIANT_BOOL fReq) PURE;
+  STDMETHOD(get_AllowZeroLength) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(put_AllowZeroLength) (THIS_ VARIANT_BOOL fAllow) PURE;
+  STDMETHOD(get_DataUpdatable) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(get_ForeignName) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_ForeignName) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(AppendChunk) (THIS_ VARIANT Val) PURE;
+  STDMETHOD(GetChunk) (THIS_ __LONG32 Offset,__LONG32 Bytes,VARIANT *pvar) PURE;
+  STDMETHOD(_30_FieldSize) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(CreateProperty) (THIS_ VARIANT Name,VARIANT Type,VARIANT Value,VARIANT DDL,DAOProperty **pprp) PURE;
+  STDMETHOD(get_CollectionIndex) (THIS_ short *i) PURE;
+  STDMETHOD(get_OriginalValue) (THIS_ VARIANT *pvar) PURE;
+  STDMETHOD(get_VisibleValue) (THIS_ VARIANT *pvar) PURE;
+  STDMETHOD(get_FieldSize) (THIS_ __LONG32 *pl) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAOFields
 DECLARE_INTERFACE_(DAOFields,_DAODynaCollection) {
-  STDMETHOD(get_Item) (VARIANT Item,DAOField **ppfld) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAOCollection ***/
+  STDMETHOD(get_Count) (THIS_ short *c) PURE;
+  STDMETHOD(_NewEnum) (THIS_ IUnknown **ppunk) PURE;
+  STDMETHOD(Refresh) (THIS) PURE;
+  /*** _DAODynaCollection ***/
+  STDMETHOD(Append) (THIS_ IDispatch *Object) PURE;
+  STDMETHOD(Delete) (THIS_ BSTR Name) PURE;
+#endif
+  STDMETHOD(get_Item) (THIS_ VARIANT Item,DAOField **ppfld) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE _DAOIndex
 DECLARE_INTERFACE_(_DAOIndex,_DAO) {
-  STDMETHOD(get_Name) (BSTR *pbstr) PURE;
-  STDMETHOD(put_Name) (BSTR bstr) PURE;
-  STDMETHOD(get_Foreign) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(get_Unique) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(put_Unique) (VARIANT_BOOL fUnique) PURE;
-  STDMETHOD(get_Clustered) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(put_Clustered) (VARIANT_BOOL fClustered) PURE;
-  STDMETHOD(get_Required) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(put_Required) (VARIANT_BOOL fRequired) PURE;
-  STDMETHOD(get_IgnoreNulls) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(put_IgnoreNulls) (VARIANT_BOOL fIgnoreNulls) PURE;
-  STDMETHOD(get_Primary) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(put_Primary) (VARIANT_BOOL fPrimary) PURE;
-  STDMETHOD(get_DistinctCount) (__LONG32 *pl) PURE;
-  STDMETHOD(get_Fields) (VARIANT *pv) PURE;
-  STDMETHOD(put_Fields) (VARIANT v) PURE;
-  STDMETHOD(CreateField) (VARIANT Name,VARIANT Type,VARIANT Size,DAOField **ppfld) PURE;
-  STDMETHOD(CreateProperty) (VARIANT Name,VARIANT Type,VARIANT Value,VARIANT DDL,DAOProperty **pprp) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAO ***/
+  STDMETHOD(get_Properties) (THIS_ DAOProperties **ppprops) PURE;
+#endif
+  STDMETHOD(get_Name) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_Name) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(get_Foreign) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(get_Unique) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(put_Unique) (THIS_ VARIANT_BOOL fUnique) PURE;
+  STDMETHOD(get_Clustered) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(put_Clustered) (THIS_ VARIANT_BOOL fClustered) PURE;
+  STDMETHOD(get_Required) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(put_Required) (THIS_ VARIANT_BOOL fRequired) PURE;
+  STDMETHOD(get_IgnoreNulls) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(put_IgnoreNulls) (THIS_ VARIANT_BOOL fIgnoreNulls) PURE;
+  STDMETHOD(get_Primary) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(put_Primary) (THIS_ VARIANT_BOOL fPrimary) PURE;
+  STDMETHOD(get_DistinctCount) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(get_Fields) (THIS_ VARIANT *pv) PURE;
+  STDMETHOD(put_Fields) (THIS_ VARIANT v) PURE;
+  STDMETHOD(CreateField) (THIS_ VARIANT Name,VARIANT Type,VARIANT Size,DAOField **ppfld) PURE;
+  STDMETHOD(CreateProperty) (THIS_ VARIANT Name,VARIANT Type,VARIANT Value,VARIANT DDL,DAOProperty **pprp) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAOIndexes
 DECLARE_INTERFACE_(DAOIndexes,_DAODynaCollection) {
-  STDMETHOD(get_Item) (VARIANT Item,DAOIndex **ppidx) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAOCollection ***/
+  STDMETHOD(get_Count) (THIS_ short *c) PURE;
+  STDMETHOD(_NewEnum) (THIS_ IUnknown **ppunk) PURE;
+  STDMETHOD(Refresh) (THIS) PURE;
+  /*** _DAODynaCollection ***/
+  STDMETHOD(Append) (THIS_ IDispatch *Object) PURE;
+  STDMETHOD(Delete) (THIS_ BSTR Name) PURE;
+#endif
+  STDMETHOD(get_Item) (THIS_ VARIANT Item,DAOIndex **ppidx) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAOParameter
 DECLARE_INTERFACE_(DAOParameter,_DAO) {
-  STDMETHOD(get_Name) (BSTR *pbstr) PURE;
-  STDMETHOD(get_Value) (VARIANT *pvar) PURE;
-  STDMETHOD(put_Value) (VARIANT val) PURE;
-  STDMETHOD(get_Type) (short *ps) PURE;
-  STDMETHOD(put_Type) (short s) PURE;
-  STDMETHOD(get_Direction) (short *pOption) PURE;
-  STDMETHOD(put_Direction) (short Option) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAO ***/
+  STDMETHOD(get_Properties) (THIS_ DAOProperties **ppprops) PURE;
+#endif
+  STDMETHOD(get_Name) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(get_Value) (THIS_ VARIANT *pvar) PURE;
+  STDMETHOD(put_Value) (THIS_ VARIANT val) PURE;
+  STDMETHOD(get_Type) (THIS_ short *ps) PURE;
+  STDMETHOD(put_Type) (THIS_ short s) PURE;
+  STDMETHOD(get_Direction) (THIS_ short *pOption) PURE;
+  STDMETHOD(put_Direction) (THIS_ short Option) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAOParameters
 DECLARE_INTERFACE_(DAOParameters,_DAOCollection) {
-  STDMETHOD(get_Item) (VARIANT Item,DAOParameter **ppprm) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAOCollection ***/
+  STDMETHOD(get_Count) (THIS_ short *c) PURE;
+  STDMETHOD(_NewEnum) (THIS_ IUnknown **ppunk) PURE;
+  STDMETHOD(Refresh) (THIS) PURE;
+#endif
+  STDMETHOD(get_Item) (THIS_ VARIANT Item,DAOParameter **ppprm) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE _DAOUser
 DECLARE_INTERFACE_(_DAOUser,_DAO) {
-  STDMETHOD(get_Name) (BSTR *pbstr) PURE;
-  STDMETHOD(put_Name) (BSTR bstr) PURE;
-  STDMETHOD(put_PID) (BSTR bstr) PURE;
-  STDMETHOD(put_Password) (BSTR bstr) PURE;
-  STDMETHOD(get_Groups) (DAOGroups **ppgrps) PURE;
-  STDMETHOD(NewPassword) (BSTR bstrOld,BSTR bstrNew) PURE;
-  STDMETHOD(CreateGroup) (VARIANT Name,VARIANT PID,DAOGroup **ppgrp) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAO ***/
+  STDMETHOD(get_Properties) (THIS_ DAOProperties **ppprops) PURE;
+#endif
+  STDMETHOD(get_Name) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_Name) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(put_PID) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(put_Password) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(get_Groups) (THIS_ interface DAOGroups **ppgrps) PURE;
+  STDMETHOD(NewPassword) (THIS_ BSTR bstrOld,BSTR bstrNew) PURE;
+  STDMETHOD(CreateGroup) (THIS_ VARIANT Name,VARIANT PID, interface DAOGroup **ppgrp) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAOUsers
 DECLARE_INTERFACE_(DAOUsers,_DAODynaCollection) {
-  STDMETHOD(get_Item) (VARIANT Item,DAOUser **ppusr) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAOCollection ***/
+  STDMETHOD(get_Count) (THIS_ short *c) PURE;
+  STDMETHOD(_NewEnum) (THIS_ IUnknown **ppunk) PURE;
+  STDMETHOD(Refresh) (THIS) PURE;
+  /*** _DAODynaCollection ***/
+  STDMETHOD(Append) (THIS_ IDispatch *Object) PURE;
+  STDMETHOD(Delete) (THIS_ BSTR Name) PURE;
+#endif
+  STDMETHOD(get_Item) (THIS_ VARIANT Item,DAOUser **ppusr) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE _DAOGroup
 DECLARE_INTERFACE_(_DAOGroup,_DAO) {
-  STDMETHOD(get_Name) (BSTR *pbstr) PURE;
-  STDMETHOD(put_Name) (BSTR bstr) PURE;
-  STDMETHOD(put_PID) (BSTR bstr) PURE;
-  STDMETHOD(get_Users) (DAOUsers **ppusrs) PURE;
-  STDMETHOD(CreateUser) (VARIANT Name,VARIANT PID,VARIANT Password,DAOUser **ppusr) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAO ***/
+  STDMETHOD(get_Properties) (THIS_ DAOProperties **ppprops) PURE;
+#endif
+  STDMETHOD(get_Name) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_Name) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(put_PID) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(get_Users) (THIS_ DAOUsers **ppusrs) PURE;
+  STDMETHOD(CreateUser) (THIS_ VARIANT Name,VARIANT PID,VARIANT Password,DAOUser **ppusr) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAOGroups
 DECLARE_INTERFACE_(DAOGroups,_DAODynaCollection) {
-  STDMETHOD(get_Item) (VARIANT Item,DAOGroup **ppgrp) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAOCollection ***/
+  STDMETHOD(get_Count) (THIS_ short *c) PURE;
+  STDMETHOD(_NewEnum) (THIS_ IUnknown **ppunk) PURE;
+  STDMETHOD(Refresh) (THIS) PURE;
+  /*** _DAODynaCollection ***/
+  STDMETHOD(Append) (THIS_ IDispatch *Object) PURE;
+  STDMETHOD(Delete) (THIS_ BSTR Name) PURE;
+#endif
+  STDMETHOD(get_Item) (THIS_ VARIANT Item,DAOGroup **ppgrp) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE _DAORelation
 DECLARE_INTERFACE_(_DAORelation,_DAO) {
-  STDMETHOD(get_Name) (BSTR *pbstr) PURE;
-  STDMETHOD(put_Name) (BSTR bstr) PURE;
-  STDMETHOD(get_Table) (BSTR *pbstr) PURE;
-  STDMETHOD(put_Table) (BSTR bstr) PURE;
-  STDMETHOD(get_ForeignTable) (BSTR *pbstr) PURE;
-  STDMETHOD(put_ForeignTable) (BSTR bstr) PURE;
-  STDMETHOD(get_Attributes) (__LONG32 *pl) PURE;
-  STDMETHOD(put_Attributes) (__LONG32 attr) PURE;
-  STDMETHOD(get_Fields) (DAOFields **ppflds) PURE;
-  STDMETHOD(CreateField) (VARIANT Name,VARIANT Type,VARIANT Size,DAOField **ppfld) PURE;
-  STDMETHOD(get_PartialReplica) (VARIANT_BOOL *pfPartialReplica) PURE;
-  STDMETHOD(put_PartialReplica) (VARIANT_BOOL fPartialReplica) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAO ***/
+  STDMETHOD(get_Properties) (THIS_ DAOProperties **ppprops) PURE;
+#endif
+  STDMETHOD(get_Name) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_Name) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(get_Table) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_Table) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(get_ForeignTable) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_ForeignTable) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(get_Attributes) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(put_Attributes) (THIS_ __LONG32 attr) PURE;
+  STDMETHOD(get_Fields) (THIS_ DAOFields **ppflds) PURE;
+  STDMETHOD(CreateField) (THIS_ VARIANT Name,VARIANT Type,VARIANT Size,DAOField **ppfld) PURE;
+  STDMETHOD(get_PartialReplica) (THIS_ VARIANT_BOOL *pfPartialReplica) PURE;
+  STDMETHOD(put_PartialReplica) (THIS_ VARIANT_BOOL fPartialReplica) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAORelations
 DECLARE_INTERFACE_(DAORelations,_DAODynaCollection) {
-  STDMETHOD(get_Item) (VARIANT Item,DAORelation **pprel) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAOCollection ***/
+  STDMETHOD(get_Count) (THIS_ short *c) PURE;
+  STDMETHOD(_NewEnum) (THIS_ IUnknown **ppunk) PURE;
+  STDMETHOD(Refresh) (THIS) PURE;
+  /*** _DAODynaCollection ***/
+  STDMETHOD(Append) (THIS_ IDispatch *Object) PURE;
+  STDMETHOD(Delete) (THIS_ BSTR Name) PURE;
+#endif
+  STDMETHOD(get_Item) (THIS_ VARIANT Item,DAORelation **pprel) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAOContainer
 DECLARE_INTERFACE_(DAOContainer,_DAO) {
-  STDMETHOD(get_Name) (BSTR *pbstr) PURE;
-  STDMETHOD(get_Owner) (BSTR *pbstr) PURE;
-  STDMETHOD(put_Owner) (BSTR bstr) PURE;
-  STDMETHOD(get_UserName) (BSTR *pbstr) PURE;
-  STDMETHOD(put_UserName) (BSTR bstr) PURE;
-  STDMETHOD(get_Permissions) (__LONG32 *pl) PURE;
-  STDMETHOD(put_Permissions) (__LONG32 permissions) PURE;
-  STDMETHOD(get_Inherit) (VARIANT_BOOL *pb) PURE;
-  STDMETHOD(put_Inherit) (VARIANT_BOOL fInherit) PURE;
-  STDMETHOD(get_Documents) (DAODocuments **ppdocs) PURE;
-  STDMETHOD(get_AllPermissions) (__LONG32 *pl) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAO ***/
+  STDMETHOD(get_Properties) (THIS_ DAOProperties **ppprops) PURE;
+#endif
+  STDMETHOD(get_Name) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(get_Owner) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_Owner) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(get_UserName) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_UserName) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(get_Permissions) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(put_Permissions) (THIS_ __LONG32 permissions) PURE;
+  STDMETHOD(get_Inherit) (THIS_ VARIANT_BOOL *pb) PURE;
+  STDMETHOD(put_Inherit) (THIS_ VARIANT_BOOL fInherit) PURE;
+  STDMETHOD(get_Documents) (THIS_ struct DAODocuments **ppdocs) PURE;
+  STDMETHOD(get_AllPermissions) (THIS_ __LONG32 *pl) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAOContainers
 DECLARE_INTERFACE_(DAOContainers,_DAOCollection) {
-  STDMETHOD(get_Item) (VARIANT Item,DAOContainer **ppctn) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAOCollection ***/
+  STDMETHOD(get_Count) (THIS_ short *c) PURE;
+  STDMETHOD(_NewEnum) (THIS_ IUnknown **ppunk) PURE;
+  STDMETHOD(Refresh) (THIS) PURE;
+#endif
+  STDMETHOD(get_Item) (THIS_ VARIANT Item,DAOContainer **ppctn) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAODocument
 DECLARE_INTERFACE_(DAODocument,_DAO) {
-  STDMETHOD(get_Name) (BSTR *pbstr) PURE;
-  STDMETHOD(get_Owner) (BSTR *pbstr) PURE;
-  STDMETHOD(put_Owner) (BSTR bstr) PURE;
-  STDMETHOD(get_Container) (BSTR *pbstr) PURE;
-  STDMETHOD(get_UserName) (BSTR *pbstr) PURE;
-  STDMETHOD(put_UserName) (BSTR bstr) PURE;
-  STDMETHOD(get_Permissions) (__LONG32 *pl) PURE;
-  STDMETHOD(put_Permissions) (__LONG32 permissions) PURE;
-  STDMETHOD(get_DateCreated) (VARIANT *pvar) PURE;
-  STDMETHOD(get_LastUpdated) (VARIANT *pvar) PURE;
-  STDMETHOD(get_AllPermissions) (__LONG32 *pl) PURE;
-  STDMETHOD(CreateProperty) (VARIANT Name,VARIANT Type,VARIANT Value,VARIANT DDL,DAOProperty **pprp) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAO ***/
+  STDMETHOD(get_Properties) (THIS_ DAOProperties **ppprops) PURE;
+#endif
+  STDMETHOD(get_Name) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(get_Owner) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_Owner) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(get_Container) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(get_UserName) (THIS_ BSTR *pbstr) PURE;
+  STDMETHOD(put_UserName) (THIS_ BSTR bstr) PURE;
+  STDMETHOD(get_Permissions) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(put_Permissions) (THIS_ __LONG32 permissions) PURE;
+  STDMETHOD(get_DateCreated) (THIS_ VARIANT *pvar) PURE;
+  STDMETHOD(get_LastUpdated) (THIS_ VARIANT *pvar) PURE;
+  STDMETHOD(get_AllPermissions) (THIS_ __LONG32 *pl) PURE;
+  STDMETHOD(CreateProperty) (THIS_ VARIANT Name,VARIANT Type,VARIANT Value,VARIANT DDL,DAOProperty **pprp) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAODocuments
 DECLARE_INTERFACE_(DAODocuments,_DAOCollection) {
-  STDMETHOD(get_Item) (VARIANT Item,DAODocument **ppdoc) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAOCollection ***/
+  STDMETHOD(get_Count) (THIS_ short *c) PURE;
+  STDMETHOD(_NewEnum) (THIS_ IUnknown **ppunk) PURE;
+  STDMETHOD(Refresh) (THIS) PURE;
+#endif
+  STDMETHOD(get_Item) (THIS_ VARIANT Item,DAODocument **ppdoc) PURE;
 };
 
 #undef INTERFACE
 #define INTERFACE DAOIndexFields
 DECLARE_INTERFACE_(DAOIndexFields,_DAODynaCollection) {
-  STDMETHOD(get_Item) (VARIANT Item,VARIANT *pvar) PURE;
+#ifndef __cplusplus
+  /* IUnknown methods */
+  STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+  STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+  STDMETHOD_(ULONG, Release)(THIS) PURE;
+  /*** IDispatch methods ***/
+  STDMETHOD(GetTypeInfoCount)(THIS_ UINT *pctinfo);
+  STDMETHOD(GetTypeInfo)(THIS_ UINT iTInfo, LCID lcid, ITypeInfo **ppTInfo);
+  STDMETHOD(GetIDsOfNames)(THIS_ REFIID riid, LPOLESTR *rgszNames, UINT cNames, LCID lcid, DISPID *rgDispId);
+  STDMETHOD(Invoke)(THIS_ DISPID dispIdMember, REFIID riid, LCID lcid, WORD wFlags, DISPPARAMS *pDispParams, VARIANT *pVarResult, EXCEPINFO *pExcepInfo, UINT *puArgErr);
+  /*** _DAOCollection ***/
+  STDMETHOD(get_Count) (THIS_ short *c) PURE;
+  STDMETHOD(_NewEnum) (THIS_ IUnknown **ppunk) PURE;
+  STDMETHOD(Refresh) (THIS) PURE;
+  /*** _DAODynaCollection ***/
+  STDMETHOD(Append) (THIS_ IDispatch *Object) PURE;
+  STDMETHOD(Delete) (THIS_ BSTR Name) PURE;
+#endif
+  STDMETHOD(get_Item) (THIS_ VARIANT Item,VARIANT *pvar) PURE;
 };
 #endif
