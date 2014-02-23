@@ -14,23 +14,17 @@
 
 #undef  INTERFACE
 #define INTERFACE IWSDServiceMessaging
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDServiceMessaging,IUnknown)
-{
+DECLARE_INTERFACE_(IWSDServiceMessaging,IUnknown) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
-
+#endif
     /* IWSDServiceMessaging methods */
-    STDMETHOD_(HRESULT,FaultRequest)(THIS_ WSD_SOAP_HEADER *pRequestHeader,IWSDMessageParameters *pMessageParameters,WSD_SOAP_FAULT *pFault) PURE;
     STDMETHOD_(HRESULT,SendResponse)(THIS_ void *pBody,WSD_OPERATION *pOperation,IWSDMessageParameters *pMessageParameters) PURE;
+    STDMETHOD_(HRESULT,FaultRequest)(THIS_ WSD_SOAP_HEADER *pRequestHeader,IWSDMessageParameters *pMessageParameters,WSD_SOAP_FAULT *pFault) PURE;
 
     END_INTERFACE
 };
@@ -44,20 +38,14 @@ DECLARE_INTERFACE_(IWSDServiceMessaging,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IWSDDeviceHostNotify
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDDeviceHostNotify,IUnknown)
-{
+DECLARE_INTERFACE_(IWSDDeviceHostNotify,IUnknown) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
-
+#endif
     /* IWSDDeviceHostNotify methods */
     STDMETHOD_(HRESULT,GetService)(THIS_ LPCWSTR pszServiceId,IUnknown **ppService) PURE;
 
@@ -70,28 +58,16 @@ DECLARE_INTERFACE_(IWSDDeviceHostNotify,IUnknown)
 #define IWSDDeviceHostNotify_GetService(This,pszServiceId,ppService) (This)->lpVtbl->GetService(This,pszServiceId,ppService)
 #endif /*COBJMACROS*/
 
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-#warning IWSDDeviceHost is unverified.
-#endif
-
 #undef  INTERFACE
 #define INTERFACE IWSDDeviceHost
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDDeviceHost,IUnknown)
-{
+DECLARE_INTERFACE_(IWSDDeviceHost,IUnknown) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
-
+#endif
     /* IWSDDeviceHost methods */
     STDMETHOD_(HRESULT,Init)(THIS_ LPCWSTR pszLocalId,DWORD dwHostAddressCount) PURE;
     STDMETHOD_(HRESULT,Start)(THIS_ ULONGLONG ullInstanceId,const WSD_URI_LIST *pScopeList,IWSDDeviceHostNotify *pNotificationSink) PURE;
@@ -130,19 +106,8 @@ DECLARE_INTERFACE_(IWSDDeviceHost,IUnknown)
 extern "C" {
 #endif
 
-HRESULT WINAPI WSDCreateDeviceHost(
-  const WCHAR *pszLocalId,
-  IWSDXMLContext *pContext,
-  IWSDDeviceHost **ppDeviceHost
-);
-
-HRESULT WSDCreateDeviceHostAdvanced(
-  const WCHAR *pszLocalId,
-  IWSDXMLContext *pContext,
-  IWSDAddress **ppHostAddresses,
-  DWORD dwHostAddressCount,
-  IWSDDeviceHost **ppDeviceHost
-);
+HRESULT WINAPI WSDCreateDeviceHost(const WCHAR *pszLocalId, IWSDXMLContext *pContext, IWSDDeviceHost **ppDeviceHost);
+HRESULT WSDCreateDeviceHostAdvanced(const WCHAR *pszLocalId, IWSDXMLContext *pContext, IWSDAddress **ppHostAddresses, DWORD dwHostAddressCount, IWSDDeviceHost **ppDeviceHost);
 
 #ifdef __cplusplus
 }

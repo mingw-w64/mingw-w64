@@ -14,20 +14,14 @@
 
 #undef  INTERFACE
 #define INTERFACE IWSDScopeMatchingRule
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDScopeMatchingRule,IUnknown)
-{
+DECLARE_INTERFACE_(IWSDScopeMatchingRule,IUnknown) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
-
+#endif
     /* IWSDScopeMatchingRule methods */
     STDMETHOD_(HRESULT,GetScopeRule)(THIS_ LPCWSTR *ppszScopeMatchingRule) PURE;
     STDMETHOD_(HRESULT,MatchScopes)(THIS_ LPCWSTR pszScope1,LPCWSTR pszScope2,BOOL *pfMatch) PURE;
@@ -44,20 +38,14 @@ DECLARE_INTERFACE_(IWSDScopeMatchingRule,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IWSDiscoveryPublisherNotify
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDiscoveryPublisherNotify,IUnknown)
-{
+DECLARE_INTERFACE_(IWSDiscoveryPublisherNotify,IUnknown) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
-
+#endif
     /* IWSDiscoveryPublisherNotify methods */
     STDMETHOD_(HRESULT,ProbeHandler)(THIS_ const WSD_SOAP_MESSAGE *pSoap,IWSDMessageParameters *pMessageParameters) PURE;
     STDMETHOD_(HRESULT,ResolveHandler)(THIS_ const WSD_SOAP_MESSAGE *pSoap,IWSDMessageParameters *pMessageParameters) PURE;
@@ -74,20 +62,14 @@ DECLARE_INTERFACE_(IWSDiscoveryPublisherNotify,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IWSDiscoveredService
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDiscoveredService,IUnknown)
-{
+DECLARE_INTERFACE_(IWSDiscoveredService,IUnknown) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
-
+#endif
     /* IWSDiscoveryProviderNotify methods */
     STDMETHOD_(HRESULT *,GetEndpointReference)(THIS_ WSD_ENDPOINT_REFERENCE **ppEndPointReference) PURE;
     STDMETHOD_(HRESULT,GetTypes)(THIS_ WSD_NAME_LIST **ppTypesList) PURE;
@@ -122,20 +104,14 @@ DECLARE_INTERFACE_(IWSDiscoveredService,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IWSDiscoveryProviderNotify
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDiscoveryProviderNotify,IUnknown)
-{
+DECLARE_INTERFACE_(IWSDiscoveryProviderNotify,IUnknown) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
-
+#endif
     /* IWSDiscoveryProviderNotify methods */
     STDMETHOD_(HRESULT,Add)(THIS_ IWSDiscoveredService *pService) PURE;
     STDMETHOD_(HRESULT,Remove)(THIS_ IWSDiscoveredService *pService) PURE;
@@ -156,20 +132,14 @@ DECLARE_INTERFACE_(IWSDiscoveryProviderNotify,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IWSDiscoveryProvider
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDiscoveryProvider,IUnknown)
-{
+DECLARE_INTERFACE_(IWSDiscoveryProvider,IUnknown) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
-
+#endif
     /* IWSDiscoveryProvider methods */
     STDMETHOD_(HRESULT,SetAddressFamily)(THIS_ DWORD dwAddressFamily) PURE;
     STDMETHOD_(HRESULT,Attach)(THIS_ IWSDiscoveryProviderNotify *pSink) PURE;
@@ -196,20 +166,14 @@ DECLARE_INTERFACE_(IWSDiscoveryProvider,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IWSDiscoveryPublisher
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDiscoveryPublisher,IUnknown)
-{
+DECLARE_INTERFACE_(IWSDiscoveryPublisher,IUnknown) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
-
+#endif
     /* IWSDiscoveryPublisher methods */
     STDMETHOD_(HRESULT,SetAddressFamily)(THIS_ DWORD dwAddressFamily) PURE;
     STDMETHOD_(HRESULT,RegisterNotificationSink)(THIS_ IWSDiscoveryPublisherNotify *pSink) PURE;
