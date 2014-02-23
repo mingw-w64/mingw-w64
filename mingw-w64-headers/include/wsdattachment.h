@@ -14,20 +14,14 @@
 
 #undef  INTERFACE
 #define INTERFACE IWSDAttachment
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDAttachment,IUnknown)
-{
+DECLARE_INTERFACE_(IWSDAttachment,IUnknown) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
-
+#endif
     /* IWSDAttachment methods */
 
     END_INTERFACE
@@ -40,22 +34,16 @@ DECLARE_INTERFACE_(IWSDAttachment,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IWSDInboundAttachment
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDInboundAttachment,IWSDAttachment)
-{
+DECLARE_INTERFACE_(IWSDInboundAttachment,IWSDAttachment) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
     /* IWSDAttachment methods */
-
+#endif
     /* IWSDInboundAttachment methods */
     STDMETHOD_(HRESULT,Read)(THIS_ BYTE *pBuffer,DWORD dwBytesToRead,LPDWORD pdwNumberofBytesRead) PURE;
     STDMETHOD_(HRESULT,Close)(THIS) PURE;
@@ -72,22 +60,16 @@ DECLARE_INTERFACE_(IWSDInboundAttachment,IWSDAttachment)
 
 #undef  INTERFACE
 #define INTERFACE IWSDOutboundAttachment
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDOutboundAttachment,IWSDAttachment)
-{
+DECLARE_INTERFACE_(IWSDOutboundAttachment,IWSDAttachment) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
     /* IWSDAttachment methods */
-
+#endif
     /* IWSDOutboundAttachment methods */
     STDMETHOD_(HRESULT,Write)(THIS_ const BYTE *pBuffer,DWORD dwBytesToWrite,LPDWORD pdwNumberofBytesWritten) PURE;
     STDMETHOD_(HRESULT,Close)(THIS) PURE;

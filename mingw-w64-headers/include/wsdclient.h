@@ -14,20 +14,14 @@
 
 #undef  INTERFACE
 #define INTERFACE IWSDEventingStatus
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDEventingStatus,IUnknown)
-{
+DECLARE_INTERFACE_(IWSDEventingStatus,IUnknown) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
-
+#endif
     /* IWSDEventingStatus methods */
     STDMETHOD(SubscriptionRenewed)(THIS_ LPCWSTR pszSubscriptionAction) PURE;
     STDMETHOD(SubscriptionRenewalFailed)(THIS_ LPCWSTR pszSubscriptionAction,HRESULT hr) PURE;
@@ -46,20 +40,14 @@ DECLARE_INTERFACE_(IWSDEventingStatus,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IWSDAsyncCallback
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDAsyncCallback,IUnknown)
-{
+DECLARE_INTERFACE_(IWSDAsyncCallback,IUnknown) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
-
+#endif
     /* IWSDAsyncCallback methods */
     STDMETHOD_(HRESULT,AsyncOperationComplete)(THIS_ IWSDAsyncResult *pAsyncResult,IUnknown *pAsyncState) PURE;
 
@@ -74,20 +62,14 @@ DECLARE_INTERFACE_(IWSDAsyncCallback,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IWSDAsyncResult
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDAsyncResult,IUnknown)
-{
+DECLARE_INTERFACE_(IWSDAsyncResult,IUnknown) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
-
+#endif
     /* IWSDAsyncResult methods */
     STDMETHOD_(HRESULT,SetCallback)(THIS_ IWSDAsyncCallback *pCallback,IUnknown *pAsyncState) PURE;
     STDMETHOD_(HRESULT,SetWaitHandle)(THIS_ HANDLE hWaitHandle) PURE;
@@ -114,20 +96,14 @@ DECLARE_INTERFACE_(IWSDAsyncResult,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IWSDDeviceProxy
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDDeviceProxy,IUnknown)
-{
+DECLARE_INTERFACE_(IWSDDeviceProxy,IUnknown) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
-
+#endif
     /* IWSDDeviceProxy methods */
     STDMETHOD_(HRESULT,Init)(THIS_ LPCWSTR pszDeviceId,IWSDAddress *pDeviceAddress,LPCWSTR pszLocalId,IWSDDeviceProxy *pSponsor) PURE;
     STDMETHOD_(HRESULT,BeginGetMetadata)(THIS_ IWSDAsyncResult **ppResult) PURE;
@@ -160,20 +136,14 @@ DECLARE_INTERFACE_(IWSDDeviceProxy,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IWSDMetadataExchange
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDMetadataExchange,IUnknown)
-{
+DECLARE_INTERFACE_(IWSDMetadataExchange,IUnknown) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
-
+#endif
     /* IWSDMetadataExchange methods */
     STDMETHOD_(HRESULT,GetMetadata)(THIS_ WSD_METADATA_SECTION_LIST **MetadataOut) PURE;
 
@@ -188,15 +158,9 @@ DECLARE_INTERFACE_(IWSDMetadataExchange,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IWSDServiceProxy
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDServiceProxy,IWSDMetadataExchange)
-{
+DECLARE_INTERFACE_(IWSDServiceProxy,IWSDMetadataExchange) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
@@ -204,7 +168,7 @@ DECLARE_INTERFACE_(IWSDServiceProxy,IWSDMetadataExchange)
 
     /* IWSDMetadataExchange methods */
     STDMETHOD_(HRESULT,GetMetadata)(THIS_ WSD_METADATA_SECTION_LIST **MetadataOut) PURE;
-
+#endif
     /* IWSDServiceProxy methods */
     STDMETHOD_(HRESULT,BeginGetMetadata)(THIS_ IWSDAsyncResult **ppResult) PURE;
     STDMETHOD_(HRESULT,EndGetMetadata)(THIS_ IWSDAsyncResult *pResult,WSD_METADATA_SECTION_LIST **ppMetadata) PURE;
@@ -231,20 +195,14 @@ DECLARE_INTERFACE_(IWSDServiceProxy,IWSDMetadataExchange)
 
 #undef  INTERFACE
 #define INTERFACE IWSDEndpointProxy
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDEndpointProxy,IUnknown)
-{
+DECLARE_INTERFACE_(IWSDEndpointProxy,IUnknown) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
-
+#endif
     /* IWSDEndpointProxy methods */
     STDMETHOD_(HRESULT,SendOneWayRequest)(THIS_ const void *pBody,const WSD_OPERATION *pOperation) PURE;
     STDMETHOD_(HRESULT,SendTwoWayRequest)(THIS_ const void *pBody,const WSD_OPERATION *pOperation,WSD_SYNCHRONOUS_RESPONSE_CONTEXT *pResponseContext) PURE;
@@ -273,20 +231,8 @@ DECLARE_INTERFACE_(IWSDEndpointProxy,IUnknown)
 extern "C" {
 #endif
 
-HRESULT WINAPI WSDCreateDeviceProxy(
-  const WCHAR *pszDeviceId,
-  const WCHAR *pszLocalId,
-  IWSDXMLContext *pContext,
-  IWSDDeviceProxy **ppDeviceProxy
-);
-
-HRESULT WINAPI WSDCreateDeviceProxyAdvanced(
-  const WCHAR *pszDeviceId,
-  IWSDAddress *pDeviceAddress,
-  const WCHAR *pszLocalId,
-  IWSDXMLContext *pContext,
-  IWSDDeviceProxy **ppDeviceProxy
-);
+HRESULT WINAPI WSDCreateDeviceProxy(const WCHAR *pszDeviceId, const WCHAR *pszLocalId, IWSDXMLContext *pContext,IWSDDeviceProxy **ppDeviceProxy);
+HRESULT WINAPI WSDCreateDeviceProxyAdvanced(const WCHAR *pszDeviceId, IWSDAddress *pDeviceAddress, const WCHAR *pszLocalId, IWSDXMLContext *pContext, IWSDDeviceProxy **ppDeviceProxy);
 
 #ifdef __cplusplus
 }

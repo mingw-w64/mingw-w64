@@ -11,27 +11,21 @@
 #endif
 
 #if (_WIN32_WINNT >= 0x0600)
-
 #undef  INTERFACE
 #define INTERFACE IWSDXMLContext
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDXMLContext,IUnknown)
-{
+DECLARE_INTERFACE_(IWSDXMLContext,IUnknown) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
-
+#endif
     /* IWSDXMLContext methods */
+    STDMETHOD_(HRESULT,AddNamespace)(THIS_ const LPCWSTR *pszUri,const LPCWSTR *pszSuggestedPrefix,WSDXML_NAMESPACE **ppNamespace) PURE;
+    STDMETHOD_(HRESULT,AddNameToNamespace) (THIS_ LPCWSTR pszUri, LPCWSTR pszName, WSDXML_NAME **ppName);
     STDMETHOD_(HRESULT,SetNamespaces)(THIS_ const PCWSDXML_NAMESPACE *pNamespaces,WORD wNamespacesCount,BYTE bLayerNumber) PURE;
     STDMETHOD_(HRESULT,SetTypes)(THIS_ const PCWSDXML_TYPE *pTypes,DWORD dwTypesCount,BYTE bLayerNumber) PURE;
-    STDMETHOD_(HRESULT,AddNamespace)(THIS_ const LPCWSTR *pszUri,const LPCWSTR *pszSuggestedPrefix,WSDXML_NAMESPACE **ppNamespace) PURE;
 
     END_INTERFACE
 };
@@ -44,18 +38,9 @@ DECLARE_INTERFACE_(IWSDXMLContext,IUnknown)
 #define IWSDXMLContext_AddNamespace(This,pszUri,pszSuggestedPrefix,ppNamespace) (This)->lpVtbl->AddNamespace(This,pszUri,pszSuggestedPrefix,ppNamespace)
 #endif /*COBJMACROS*/
 
-/* In WsdXml.idl
-HRESULT WINAPI WSDXMLCreateContext(
-  __out  IWSDXMLContext **ppContext
-);
-
-HRESULT WINAPI WSDXMLGetNameFromBuiltinNamespace(
-    LPCWSTR pszNamespace,
-    LPCWSTR pszName,
-    WSDXML_NAME **ppName
-);
-
-*/
+HRESULT WINAPI WSDXMLGetNameFromBuiltinNamespace(LPCWSTR pszNamespace, LPCWSTR pszName, WSDXML_NAME **ppName);
+HRESULT WINAPI WSDXMLGetNameFromBuiltinNamespace(LPCWSTR pszNamespace, LPCWSTR pszName, WSDXML_NAME **ppName);
+HRESULT WINAPI WSDXMLCreateContext(IWSDXMLContext **ppContext);
 
 #endif /*(_WIN32_WINNT >= 0x0600)*/
 #endif /*_INC_WSDXML*/
