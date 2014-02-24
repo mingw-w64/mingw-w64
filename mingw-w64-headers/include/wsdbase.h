@@ -12,9 +12,6 @@
 
 #if (_WIN32_WINNT >= 0x0600)
 
-#warning COM interfaces layout in this header has not been validated.
-#warning COM interfaces with incorrect layout may not work at all.
-
 typedef enum _WSDUdpMessageType {
   ONE_WAY   = 0,
   TWO_WAY   = 1 
@@ -29,21 +26,44 @@ typedef struct _WSDUpdRetransmitParams {
 } WSDUdpRetransmitParams, *PWSDUdpRetransmitParams;
 
 #undef  INTERFACE
-#define INTERFACE IWSDTransportAddress
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
+#define INTERFACE IWSDAddress
+DECLARE_INTERFACE_(IWSDAddress,IUnknown) {
+  BEGIN_INTERFACE
+#ifndef __cplusplus
+    /* IUnknown methods */
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
 #endif
-DECLARE_INTERFACE_(IWSDTransportAddress,IUnknown)
+    /* IWSDAddress methods */
+    STDMETHOD_(HRESULT, Serialize) (THIS_ LPWSTR pszBuffer, DWORD cchLength, WINBOOL fSafe);
+    STDMETHOD_(HRESULT,Deserialize) (THIS_ LPCWSTR pszBuffer);
+
+    END_INTERFACE
+};
+#ifdef COBJMACROS
+#define IWSDAddress_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDAddress_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDAddress_Release(This) (This)->lpVtbl->Release(This)
+#define IWSDAddress_Serialize(This,pszBuffer,cchLength,fSafe) (This)->lpVtbl->Serialize(This,pszBuffer,cchLength,fSafe)
+#define IWSDAddress_Deserialize(This,pszBuffer) (This)->lpVtbl->Deserialize(This,pszBuffer)
+#endif /*COBJMACROS*/
+
+#undef  INTERFACE
+#define INTERFACE IWSDTransportAddress
+DECLARE_INTERFACE_(IWSDTransportAddress,IWSDAddress)
 {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
+    /* IWSDAddress methods */
+    STDMETHOD_(HRESULT, Serialize) (THIS_ LPWSTR pszBuffer, DWORD cchLength, WINBOOL fSafe);
+    STDMETHOD_(HRESULT,Deserialize) (THIS_ LPCWSTR pszBuffer);
+#endif
     /* IWSDTransportAddress methods */
     STDMETHOD_(HRESULT,GetPort)(THIS_ WORD *pwPort) PURE;
     STDMETHOD_(HRESULT,SetPort)(THIS_ WORD wPort) PURE;
@@ -65,20 +85,47 @@ DECLARE_INTERFACE_(IWSDTransportAddress,IUnknown)
 #endif /*COBJMACROS*/
 
 #undef  INTERFACE
-#define INTERFACE IWSDHttpAddress
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDHttpAddress,IWSDTransportAddress)
-{
-    BEGIN_INTERFACE
-
+#define INTERFACE IWSDMessageParameters
+DECLARE_INTERFACE_(IWSDMessageParameters,IUnknown) {
+  BEGIN_INTERFACE
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
+#endif
+    /* IWSDMessageParameters methods */
+    STDMETHOD_(HRESULT, GetLocalAddress) (THIS_ IWSDAddress **ppAddress);
+    STDMETHOD_(HRESULT, SetLocalAddress) (THIS_ IWSDAddress *pAddress);
+    STDMETHOD_(HRESULT,GetRemoteAddress) (THIS_ IWSDAddress **ppAddress);
+    STDMETHOD_(HRESULT,SetRemoteAddress) (THIS_ IWSDAddress *pAddress);
+    STDMETHOD_(HRESULT,GetLowerParameters) (THIS_ IWSDMessageParameters **ppTxParams);
+
+  END_INTERFACE
+};
+#ifdef COBJMACROS
+#define IWSDMessageParameters_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWSDMessageParameters_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWSDMessageParameters_Release(This) (This)->lpVtbl->Release(This)
+#define IWSDMessageParameters_GetLocalAddress(This,ppAddress) (This)->lpVtbl->GetLocalAddress(This,ppAddress)
+#define IWSDMessageParameters_SetLocalAddress(This,pAddress) (This)->lpVtbl->SetLocalAddress(This,pAddress)
+#define IWSDMessageParameters_GetRemoteAddress(This,ppAddress) (This)->lpVtbl->GetRemoteAddress(This,ppAddress)
+#define IWSDMessageParameters_SetRemoteAddress(This,pAddress) (This)->lpVtbl->SetRemoteAddress(This,pAddress)
+#define IWSDMessageParameters_GetLowerParameters(This,ppTxParams) (This)->lpVtbl->GetLowerParameters(This,ppTxParams)
+#endif /*COBJMACROS*/
+
+#undef  INTERFACE
+#define INTERFACE IWSDHttpAddress
+DECLARE_INTERFACE_(IWSDHttpAddress,IWSDTransportAddress) {
+#ifndef __cplusplus
+    /* IUnknown methods */
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+
+    /* IWSDAddress methods */
+    STDMETHOD_(HRESULT, Serialize) (THIS_ LPWSTR pszBuffer, DWORD cchLength, WINBOOL fSafe);
+    STDMETHOD_(HRESULT,Deserialize) (THIS_ LPCWSTR pszBuffer);
 
     /* IWSDTransportAddress methods */
     STDMETHOD_(HRESULT,GetPort)(THIS_ WORD *pwPort) PURE;
@@ -86,14 +133,12 @@ DECLARE_INTERFACE_(IWSDHttpAddress,IWSDTransportAddress)
     STDMETHOD_(HRESULT,GetTransportAddress)(THIS_ LPCWSTR *ppszAddress) PURE;
     STDMETHOD_(HRESULT,GetTransportAddressEx)(THIS_ WINBOOL fSafe,LPCWSTR *ppszAddress) PURE;
     STDMETHOD_(HRESULT,SetTransportAddress)(THIS_ LPCWSTR pszAddress) PURE;
-
+#endif
     /* IWSDHttpAddress methods */
     STDMETHOD_(HRESULT,GetSecure)(THIS) PURE;
     STDMETHOD_(HRESULT,SetSecure)(THIS_ WINBOOL fSecure) PURE;
     STDMETHOD_(HRESULT,GetPath)(THIS_ LPCWSTR *ppszPath) PURE;
     STDMETHOD_(HRESULT,SetPath)(THIS_ LPCWSTR pszPath) PURE;
-
-    END_INTERFACE
 };
 #ifdef COBJMACROS
 #define IWSDHttpAddress_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
@@ -112,19 +157,17 @@ DECLARE_INTERFACE_(IWSDHttpAddress,IWSDTransportAddress)
 
 #undef  INTERFACE
 #define INTERFACE IWSDUdpAddress
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDUdpAddress,IWSDTransportAddress)
-{
+DECLARE_INTERFACE_(IWSDUdpAddress,IWSDTransportAddress) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
+
+    /* IWSDAddress methods */
+    STDMETHOD_(HRESULT, Serialize) (THIS_ LPWSTR pszBuffer, DWORD cchLength, WINBOOL fSafe);
+    STDMETHOD_(HRESULT,Deserialize) (THIS_ LPCWSTR pszBuffer);
 
     /* IWSDTransportAddress methods */
     STDMETHOD_(HRESULT,GetPort)(THIS_ WORD *pwPort) PURE;
@@ -132,7 +175,7 @@ DECLARE_INTERFACE_(IWSDUdpAddress,IWSDTransportAddress)
     STDMETHOD_(HRESULT,GetTransportAddress)(THIS_ LPCWSTR *ppszAddress) PURE;
     STDMETHOD_(HRESULT,GetTransportAddressEx)(THIS_ WINBOOL fSafe,LPCWSTR *ppszAddress) PURE;
     STDMETHOD_(HRESULT,SetTransportAddress)(THIS_ LPCWSTR pszAddress) PURE;
-
+#endif
     /* IWSDUdpAddress methods */
     STDMETHOD_(HRESULT,SetSockaddr)(THIS_ const SOCKADDR_STORAGE *pSockAddr) PURE;
     STDMETHOD_(HRESULT *,GetSockaddr)(THIS_ SOCKADDR_STORAGE *pSockAddr) PURE;
@@ -169,82 +212,10 @@ DECLARE_INTERFACE_(IWSDUdpAddress,IWSDTransportAddress)
 #endif /*COBJMACROS*/
 
 #undef  INTERFACE
-#define INTERFACE IWSDAddress
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDAddress,IUnknown)
-{
-    BEGIN_INTERFACE
-
-    /* IUnknown methods */
-    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
-    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
-    STDMETHOD_(ULONG, Release)(THIS) PURE;
-
-    /* IWSDAddress methods */
-    STDMETHOD_(HRESULT,Serialize)(THIS_ LPWSTR pszBuffer,DWORD cchLength,WINBOOL fSafe) PURE;
-    STDMETHOD_(HRESULT,Deserialize)(THIS_ LPCWSTR pszBuffer) PURE;
-
-    END_INTERFACE
-};
-#ifdef COBJMACROS
-#define IWSDAddress_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDAddress_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IWSDAddress_Release(This) (This)->lpVtbl->Release(This)
-#define IWSDAddress_Serialize(This,pszBuffer,cchLength,fSafe) (This)->lpVtbl->Serialize(This,pszBuffer,cchLength,fSafe)
-#define IWSDAddress_Deserialize(This,pszBuffer) (This)->lpVtbl->Deserialize(This,pszBuffer)
-#endif /*COBJMACROS*/
-
-#undef  INTERFACE
-#define INTERFACE IWSDMessageParameters
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDMessageParameters,IUnknown)
-{
-    BEGIN_INTERFACE
-
-    /* IUnknown methods */
-    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
-    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
-    STDMETHOD_(ULONG, Release)(THIS) PURE;
-
-    /* IWSDServiceMessaging methods */
-    STDMETHOD_(HRESULT,GetLocalAddress)(THIS_ IWSDAddress **ppAddress) PURE;
-    STDMETHOD_(HRESULT,SetLocalAddress)(THIS_ IWSDAddress *pAddress) PURE;
-    STDMETHOD_(HRESULT,GetRemoteAddress)(THIS_ IWSDAddress **ppAddress) PURE;
-    STDMETHOD_(HRESULT,SetRemoteAddress)(THIS_ IWSDAddress *pAddress) PURE;
-    STDMETHOD_(HRESULT,GetLowerParameters)(THIS_ IWSDMessageParameters **ppTxParams) PURE;
-
-    END_INTERFACE
-};
-#ifdef COBJMACROS
-#define IWSDMessageParameters_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IWSDMessageParameters_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IWSDMessageParameters_Release(This) (This)->lpVtbl->Release(This)
-#define IWSDMessageParameters_GetLocalAddress(This,ppAddress) (This)->lpVtbl->GetLocalAddress(This,ppAddress)
-#define IWSDMessageParameters_SetLocalAddress(This,pAddress) (This)->lpVtbl->SetLocalAddress(This,pAddress)
-#define IWSDMessageParameters_GetRemoteAddress(This,ppAddress) (This)->lpVtbl->GetRemoteAddress(This,ppAddress)
-#define IWSDMessageParameters_SetRemoteAddress(This,pAddress) (This)->lpVtbl->SetRemoteAddress(This,pAddress)
-#define IWSDMessageParameters_GetLowerParameters(This,ppTxParams) (This)->lpVtbl->GetLowerParameters(This,ppTxParams)
-#endif /*COBJMACROS*/
-
-#undef  INTERFACE
 #define INTERFACE IWSDHttpMessageParameters
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDHttpMessageParameters,IWSDMessageParameters)
-{
+DECLARE_INTERFACE_(IWSDHttpMessageParameters,IWSDMessageParameters) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
@@ -256,7 +227,7 @@ DECLARE_INTERFACE_(IWSDHttpMessageParameters,IWSDMessageParameters)
     STDMETHOD_(HRESULT,GetRemoteAddress)(THIS_ IWSDAddress **ppAddress) PURE;
     STDMETHOD_(HRESULT,SetRemoteAddress)(THIS_ IWSDAddress *pAddress) PURE;
     STDMETHOD_(HRESULT,GetLowerParameters)(THIS_ IWSDMessageParameters **ppTxParams) PURE;
-
+#endif
     /* IWSDHttpMessageParameters methods */
     STDMETHOD_(HRESULT,SetInboundHttpHeaders)(THIS_ LPCWSTR pszHeaders) PURE;
     STDMETHOD_(HRESULT,GetInboundHttpHeaders)(THIS_ LPCWSTR *ppszHeaders) PURE;
@@ -292,15 +263,9 @@ DECLARE_INTERFACE_(IWSDHttpMessageParameters,IWSDMessageParameters)
 
 #undef  INTERFACE
 #define INTERFACE IWSDUdpMessageParameters
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IWSDUdpMessageParameters,IWSDMessageParameters)
-{
+DECLARE_INTERFACE_(IWSDUdpMessageParameters,IWSDMessageParameters) {
     BEGIN_INTERFACE
-
+#ifndef __cplusplus
     /* IUnknown methods */
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
@@ -312,7 +277,7 @@ DECLARE_INTERFACE_(IWSDUdpMessageParameters,IWSDMessageParameters)
     STDMETHOD_(HRESULT,GetRemoteAddress)(THIS_ IWSDAddress **ppAddress) PURE;
     STDMETHOD_(HRESULT,SetRemoteAddress)(THIS_ IWSDAddress *pAddress) PURE;
     STDMETHOD_(HRESULT,GetLowerParameters)(THIS_ IWSDMessageParameters **ppTxParams) PURE;
-
+#endif
     /* IWSDUdpMessageParameters methods */
     STDMETHOD_(HRESULT,SetRetransmitParams)(THIS_ const WSDUdpRetransmitParams *pParams) PURE;
     STDMETHOD_(HRESULT,GetRetransmitParams)(THIS_ WSDUdpRetransmitParams *pParams) PURE;
@@ -336,24 +301,14 @@ DECLARE_INTERFACE_(IWSDUdpMessageParameters,IWSDMessageParameters)
 extern "C" {
 #endif
 
-HRESULT WINAPI WSDCreateHttpAddress(
-  IWSDHttpAddress **ppAddress
-);
-
-HRESULT WINAPI WSDCreateHttpMessageParameters(
-  IWSDHttpMessageParameters **ppTxParams
-);
-
-HRESULT WINAPI WSDCreateUdpAddress(
-  IWSDUdpAddress **ppAddress
-);
-
-HRESULT WINAPI WSDCreateUdpMessageParameters(
-  IWSDUdpMessageParameters **ppTxParams
-);
+HRESULT WINAPI WSDCreateHttpAddress(IWSDHttpAddress **ppAddress);
+HRESULT WINAPI WSDCreateHttpMessageParameters(IWSDHttpMessageParameters **ppTxParams);
+HRESULT WINAPI WSDCreateUdpAddress(IWSDUdpAddress **ppAddress);
+HRESULT WINAPI WSDCreateUdpMessageParameters(IWSDUdpMessageParameters **ppTxParams);
 
 #ifdef __cplusplus
 }
 #endif
+
 #endif /*(_WIN32_WINNT >= 0x0600)*/
 #endif /*_INC_WSDBASE*/
