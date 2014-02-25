@@ -147,11 +147,6 @@ extern "C" {
 }
 #endif
 
-#if defined(__cplusplus)
-#include <dvec.h>
-#include <fvec.h>
-#include <ivec.h>
-#endif
 #endif
 
 #define __MACHINEX64 __MACHINE
