@@ -114,6 +114,7 @@ IDL_SRCS = \
   include/unknwnbase.idl \
   include/urlmon.idl \
   include/wbemcli.idl \
+  include/wdstptmgmt.idl \
   include/wincodec.idl \
   include/wmsbuffer.idl \
   include/wmsdkidl.idl \
