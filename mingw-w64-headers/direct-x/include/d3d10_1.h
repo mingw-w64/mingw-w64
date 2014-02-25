@@ -1416,6 +1416,8 @@ void __RPC_STUB ID3D10Device1_GetFeatureLevel_Stub(
 
 #define D3D10_1_SDK_VERSION (0x20)
 
+HRESULT WINAPI D3D10CreateDevice1(IDXGIAdapter*,D3D10_DRIVER_TYPE,
+    HMODULE,UINT,D3D10_FEATURE_LEVEL1,UINT,ID3D10Device1**);
 /* Begin additional prototypes for all interfaces */
 
 

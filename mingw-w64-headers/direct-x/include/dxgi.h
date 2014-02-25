@@ -2094,6 +2094,8 @@ void __RPC_STUB IDXGIFactory_CreateSoftwareAdapter_Stub(
 
 HRESULT __stdcall  CreateDXGIFactory(REFIID riid,void **factory);
 
+HRESULT __stdcall  CreateDXGIFactory1(REFIID riid,void **factory);
+
 /*****************************************************************************
  * IDXGIDevice interface
  */
