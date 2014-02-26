@@ -9,6 +9,7 @@
 #include <_mingw_unicode.h>
 
 #include <winsock2.h>
+#include <ws2ipdef.h>
 #include <psdk_inc/_ip_mreq1.h>
 #include <winapifamily.h>
 
@@ -78,9 +79,6 @@ extern "C" {
   extern const struct in6_addr in6addr_any;
   extern const struct in6_addr in6addr_loopback;
 
-#define WS2TCPIP_INLINE __CRT_INLINE
-
-int IN6_ADDR_EQUAL(const struct in6_addr *,const struct in6_addr *);
 int IN6_IS_ADDR_UNSPECIFIED(const struct in6_addr *);
 int IN6_IS_ADDR_LOOPBACK(const struct in6_addr *);
 int IN6_IS_ADDR_MULTICAST(const struct in6_addr *);
@@ -100,7 +98,6 @@ void IN6_SET_ADDR_LOOPBACK(struct in6_addr *);
 void IN6ADDR_SETANY(struct sockaddr_in6 *);
 void IN6ADDR_SETLOOPBACK(struct sockaddr_in6 *);
 
-WS2TCPIP_INLINE int IN6_ADDR_EQUAL(const struct in6_addr *a,const struct in6_addr *b) { return (memcmp(a,b,sizeof(struct in6_addr))==0); }
 WS2TCPIP_INLINE int IN6_IS_ADDR_UNSPECIFIED(const struct in6_addr *a) { return ((a->s6_words[0]==0) && (a->s6_words[1]==0) && (a->s6_words[2]==0) && (a->s6_words[3]==0) && (a->s6_words[4]==0) && (a->s6_words[5]==0) && (a->s6_words[6]==0) && (a->s6_words[7]==0)); }
 WS2TCPIP_INLINE int IN6_IS_ADDR_LOOPBACK(const struct in6_addr *a) { return ((a->s6_words[0]==0) && (a->s6_words[1]==0) && (a->s6_words[2]==0) && (a->s6_words[3]==0) && (a->s6_words[4]==0) && (a->s6_words[5]==0) && (a->s6_words[6]==0) && (a->s6_words[7]==0x0100)); }
 WS2TCPIP_INLINE int IN6_IS_ADDR_MULTICAST(const struct in6_addr *a) { return (a->s6_bytes[0]==0xff); }

@@ -117,6 +117,15 @@ typedef struct group_source_req {
 #define IPV6_TCLASS            39
 #define IPV6_RECVTCLASS        40
 
+#define WS2TCPIP_INLINE __CRT_INLINE
+
+int IN6_ADDR_EQUAL(const struct in6_addr *,const struct in6_addr *);
+WS2TCPIP_INLINE int IN6_ADDR_EQUAL(const struct in6_addr *a, const struct in6_addr *b) {
+    return !memcmp(a, b, sizeof(struct in6_addr));
+}
+
+#define IN6_ARE_ADDR_EQUAL IN6_ADDR_EQUAL
+
 #ifdef __cplusplus
 }
 #endif
