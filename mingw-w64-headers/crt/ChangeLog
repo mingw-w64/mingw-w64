@@ -1,1 +1,5 @@
+2014-03-03  Ray Donnelly mingw.android@gmail.com
+
+	* stdlib.h (strtod): Don't define it to __strtod if
+	__USE_MINGW_STRTOX is defined.
 

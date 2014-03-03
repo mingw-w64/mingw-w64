@@ -409,7 +409,9 @@ float __cdecl __MINGW_NOTHROW strtof(const char * __restrict__ _Str,char ** __re
   /* libmingwex.a provides a c99-compliant strtod() exported as __strtod() */
   extern double __cdecl __MINGW_NOTHROW
   __strtod (const char * __restrict__ , char ** __restrict__);
+#if !defined(__USE_MINGW_STRTOX)
 #define strtod __strtod
+#endif /* !defined(__USE_MINGW_STRTOX) */
 #endif /* __NO_ISOCEXT */
 
 #if !defined __NO_ISOCEXT  /* in libmingwex.a */
