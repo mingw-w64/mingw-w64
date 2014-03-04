@@ -116,6 +116,7 @@ IDL_SRCS = \
   include/wbemcli.idl \
   include/wdstptmgmt.idl \
   include/wincodec.idl \
+  include/wmcontainer.idl \
   include/wmsbuffer.idl \
   include/wmsdkidl.idl \
   include/wtypesbase.idl \

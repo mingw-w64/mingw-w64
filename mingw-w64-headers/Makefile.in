@@ -340,6 +340,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/wbemcli.idl \
 @HAVE_WIDL_TRUE@  include/wdstptmgmt.idl \
 @HAVE_WIDL_TRUE@  include/wincodec.idl \
+@HAVE_WIDL_TRUE@  include/wmcontainer.idl \
 @HAVE_WIDL_TRUE@  include/wmsbuffer.idl \
 @HAVE_WIDL_TRUE@  include/wmsdkidl.idl \
 @HAVE_WIDL_TRUE@  include/wtypesbase.idl \
