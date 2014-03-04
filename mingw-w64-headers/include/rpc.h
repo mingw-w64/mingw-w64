@@ -56,7 +56,11 @@ extern "C" {
 #define RPC_ENTRY __RPC_API
 
 #ifndef DECLSPEC_IMPORT
+#ifndef __WIDL__
 #define DECLSPEC_IMPORT __declspec(dllimport)
+#else
+#define DECLSPEC_IMPORT
+#endif
 #endif
 
 #ifndef _RPCRT4_

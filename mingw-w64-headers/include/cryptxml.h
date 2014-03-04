@@ -12,7 +12,11 @@ extern "C" {
 #endif
 
 #ifndef DECLSPEC_IMPORT
+#ifndef __WIDL__
 #define DECLSPEC_IMPORT __declspec(dllimport)
+#else
+#define DECLSPEC_IMPORT
+#endif
 #endif
 
 #ifndef CRYPTXMLAPI
