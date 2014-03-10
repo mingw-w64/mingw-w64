@@ -343,6 +343,12 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/wmcontainer.idl \
 @HAVE_WIDL_TRUE@  include/wmsbuffer.idl \
 @HAVE_WIDL_TRUE@  include/wmsdkidl.idl \
+@HAVE_WIDL_TRUE@  include/wsdattachment.idl \
+@HAVE_WIDL_TRUE@  include/wsdbase.idl \
+@HAVE_WIDL_TRUE@  include/wsdclient.idl \
+@HAVE_WIDL_TRUE@  include/wsddisco.idl \
+@HAVE_WIDL_TRUE@  include/wsdhost.idl \
+@HAVE_WIDL_TRUE@  include/wsdxml.idl \
 @HAVE_WIDL_TRUE@  include/wtypesbase.idl \
 @HAVE_WIDL_TRUE@  include/windows.foundation.idl \
 @HAVE_WIDL_TRUE@  include/windows.security.cryptography.idl \

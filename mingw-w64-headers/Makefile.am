@@ -119,6 +119,12 @@ IDL_SRCS = \
   include/wmcontainer.idl \
   include/wmsbuffer.idl \
   include/wmsdkidl.idl \
+  include/wsdattachment.idl \
+  include/wsdbase.idl \
+  include/wsdclient.idl \
+  include/wsddisco.idl \
+  include/wsdhost.idl \
+  include/wsdxml.idl \
   include/wtypesbase.idl \
   include/windows.foundation.idl \
   include/windows.security.cryptography.idl \
