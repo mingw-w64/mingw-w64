@@ -349,6 +349,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/wsddisco.idl \
 @HAVE_WIDL_TRUE@  include/wsdhost.idl \
 @HAVE_WIDL_TRUE@  include/wsdxml.idl \
+@HAVE_WIDL_TRUE@  include/wsmandisp.idl \
 @HAVE_WIDL_TRUE@  include/wtypesbase.idl \
 @HAVE_WIDL_TRUE@  include/windows.foundation.idl \
 @HAVE_WIDL_TRUE@  include/windows.security.cryptography.idl \

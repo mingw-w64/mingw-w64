@@ -125,6 +125,7 @@ IDL_SRCS = \
   include/wsddisco.idl \
   include/wsdhost.idl \
   include/wsdxml.idl \
+  include/wsmandisp.idl \
   include/wtypesbase.idl \
   include/windows.foundation.idl \
   include/windows.security.cryptography.idl \
