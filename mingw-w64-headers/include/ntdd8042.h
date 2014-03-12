@@ -3,10 +3,10 @@
  *
  * i8042 IOCTL interface.
  *
- * This file is part of the w32api package.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  *
- * Contributors:
- *   Created by Casper S. Hornstrup <chorns@users.sourceforge.net>
+ * Initial contributor is Casper S. Hornstrup <chorns@users.sourceforge.net>
  *
  * THIS SOFTWARE IS NOT COPYRIGHTED
  *
@@ -22,6 +22,10 @@
 
 #ifndef _NTDD8042_
 #define _NTDD8042_
+
+#include <winapifamily.h>
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 
 #include "ntddkbd.h"
 #include "ntddmou.h"
@@ -203,6 +207,8 @@ typedef struct _INTERNAL_I8042_HOOK_MOUSE {
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif
 
 #endif /* _NTDD8042_ */
