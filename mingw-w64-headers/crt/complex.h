@@ -35,7 +35,7 @@
 #define complex _Complex
 #endif
 
-#define _Complex_I  (0.0F +  1.0iF)
+#define _Complex_I  (__extension__  1.0iF)
 
 /* GCC doesn't support _Imaginary type yet, so we don't
    define _Imaginary_I */
