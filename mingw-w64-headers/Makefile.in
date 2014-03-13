@@ -324,6 +324,9 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/portabledevicetypes.idl \
 @HAVE_WIDL_TRUE@  include/propidl.idl \
 @HAVE_WIDL_TRUE@  include/propsys.idl \
+@HAVE_WIDL_TRUE@  include/sapi51.idl \
+@HAVE_WIDL_TRUE@  include/sapi53.idl \
+@HAVE_WIDL_TRUE@  include/sapi54.idl \
 @HAVE_WIDL_TRUE@  include/sensorsapi.idl \
 @HAVE_WIDL_TRUE@  include/servprov.idl \
 @HAVE_WIDL_TRUE@  include/shobjidl.idl \
