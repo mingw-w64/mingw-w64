@@ -105,6 +105,16 @@ extern "C" {
 #endif
 #endif
 
+#if defined(__3dNOW__) || defined(__MINGW_FORCE_SYS_INTRINS)
+#if defined(__cplusplus)
+extern "C" {
+#endif
+#include <mm3dnow.h>
+#if defined(__cplusplus)
+}
+#endif
+#endif
+
 /* NOTE: it's not included by MS version, but we do it to try work around C++/C linkage differences */
 #if defined(__SSE__) || defined(__MINGW_FORCE_SYS_INTRINS)
 #if defined(__cplusplus)
@@ -642,8 +652,6 @@ extern "C" {
     __MACHINEX86X_NOX64(__m64 _m_pavgw(__m64,__m64))
     __MACHINEX86X_NOX64(__m64 _m_psadbw(__m64,__m64))
 #endif
-    __MACHINEX86X_NOWIN64(__m64 _m_from_float(float))
-    __MACHINEX86X_NOWIN64(float _m_to_float(__m64))
 #if !defined(__GNUC__) || (!defined(__SSE__) && !defined(__MINGW_FORCE_SYS_INTRINS))
     __MACHINEX86X_NOIA64(__m128 _mm_add_ss(__m128,__m128))
     __MACHINEX86X_NOIA64(__m128 _mm_add_ps(__m128,__m128))
@@ -745,6 +753,9 @@ extern "C" {
     __MACHINEX86X_NOIA64(__m128 _mm_movelh_ps(__m128,__m128))
     __MACHINEX86X_NOIA64(__m128 _mm_movehl_ps(__m128,__m128))
 #endif
+#if !defined(__GNUC__) || (!defined(__3dNOW__) && !defined(__MINGW_FORCE_SYS_INTRINS))
+    __MACHINEX86X_NOWIN64(__m64 _m_from_float(float))
+    __MACHINEX86X_NOWIN64(float _m_to_float(__m64))
     __MACHINEX86X_NOIA64(void _m_prefetch(void*))
     __MACHINEX86X_NOIA64(void _m_prefetchw(void*_Source))
     __MACHINEX86X_NOWIN64(void _m_femms(void))
@@ -767,6 +778,7 @@ extern "C" {
     __MACHINEX86X_NOWIN64(__m64 _m_pfsubr(__m64,__m64))
     __MACHINEX86X_NOWIN64(__m64 _m_pi2fd(__m64))
     __MACHINEX86X_NOWIN64(__m64 _m_pmulhrw(__m64,__m64))
+#endif
     __MACHINEX86X_NOWIN64(__m64 _m_pf2iw(__m64))
     __MACHINEX86X_NOWIN64(__m64 _m_pfnacc(__m64,__m64))
     __MACHINEX86X_NOWIN64(__m64 _m_pfpnacc(__m64,__m64))
