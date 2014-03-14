@@ -315,6 +315,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/mmdeviceapi.idl \
 @HAVE_WIDL_TRUE@  include/mscoree.idl \
 @HAVE_WIDL_TRUE@  include/msctf.idl \
+@HAVE_WIDL_TRUE@  include/msopc.idl \
 @HAVE_WIDL_TRUE@  include/msxml.idl \
 @HAVE_WIDL_TRUE@  include/objectarray.idl \
 @HAVE_WIDL_TRUE@  include/objidl.idl \
