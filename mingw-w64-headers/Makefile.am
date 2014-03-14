@@ -140,6 +140,7 @@ IDL_SRCS = \
   include/wpcapi.idl \
   include/wtypes.idl \
   include/xmllite.idl \
+  include/xpsdigitalsignature.idl \
   direct-x/include/amstream.idl \
   direct-x/include/amvideo.idl \
   direct-x/include/austream.idl \

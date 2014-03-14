@@ -364,6 +364,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/wpcapi.idl \
 @HAVE_WIDL_TRUE@  include/wtypes.idl \
 @HAVE_WIDL_TRUE@  include/xmllite.idl \
+@HAVE_WIDL_TRUE@  include/xpsdigitalsignature.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/amstream.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/amvideo.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/austream.idl \
