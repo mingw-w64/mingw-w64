@@ -300,7 +300,6 @@ void      WINPTHREAD_API pthread_testcancel(void);
 int       WINPTHREAD_API pthread_equal(pthread_t t1, pthread_t t2);
 void      WINPTHREAD_API pthread_tls_init(void);
 void      WINPTHREAD_API _pthread_cleanup_dest(pthread_t t);
-pthread_t WINPTHREAD_API pthread_self(void);
 int       WINPTHREAD_API pthread_get_concurrency(int *val);
 int       WINPTHREAD_API pthread_set_concurrency(int val);
 void      WINPTHREAD_API pthread_exit(void *res);
