@@ -141,6 +141,10 @@ IDL_SRCS = \
   include/wtypes.idl \
   include/xmllite.idl \
   include/xpsdigitalsignature.idl \
+  include/xpsobjectmodel_1.idl \
+  include/xpsrassvc.idl \
+  include/xpsobjectmodel.idl \
+  include/xpsprint.idl \
   direct-x/include/amstream.idl \
   direct-x/include/amvideo.idl \
   direct-x/include/austream.idl \
