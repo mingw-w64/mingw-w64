@@ -36,6 +36,8 @@
 #define _WIN32_IE_IE60SP2		0x0603
 #define _WIN32_IE_IE70			0x0700
 #define _WIN32_IE_IE80			0x0800
+#define _WIN32_IE_IE90                  0x0900
+#define _WIN32_IE_IE100                 0x0a00
 
 /* Mappings Between IE Version  and Windows Version */
 #define _WIN32_IE_NT4			_WIN32_IE_IE20
@@ -61,6 +63,7 @@
 #define _WIN32_IE_WIN6			_WIN32_IE_IE70
 #define _WIN32_IE_LONGHORN		_WIN32_IE_IE70
 #define _WIN32_IE_WIN7			_WIN32_IE_IE80
+#define _WIN32_IE_WIN8                  _WIN32_IE_IE100
 
 /* NTDDI_VERSION */
 #ifndef NTDDI_WIN2K
@@ -169,9 +172,15 @@
 #elif (_WIN32_WINNT <= _WIN32_WINNT_WINXP)
 #define _WIN32_IE	_WIN32_IE_IE60
 #elif (_WIN32_WINNT <= _WIN32_WINNT_WS03)
-#define _WIN32_IE	0x0602
+#define _WIN32_IE	_WIN32_IE_WS03
+#elif (_WIN32_WINNT <= _WIN32_WINNT_VISTA)
+#define _WIN32_IE       _WIN32_IE_LONGHORN
+#elif (_WIN32_WINNT <= _WIN32_WINNT_WIN7)
+#define _WIN32_IE       _WIN32_IE_WIN7
+#elif (_WIN32_WINNT <= _WIN32_WINNT_WIN8)
+#define _WIN32_IE       _WIN32_IE_WIN8
 #else
-#define _WIN32_IE	0x0700
+#define _WIN32_IE       0x0a00
 #endif
 #else
 #define _WIN32_IE	0x0700
