@@ -455,8 +455,8 @@ pthread_cond_wait (pthread_cond_t *c, pthread_mutex_t *external_mutex)
   return r;
 }
 
-int
-pthread_cond_timedwait (pthread_cond_t *c, pthread_mutex_t *external_mutex, const struct timespec *t)
+static int
+pthread_cond_timedwait_impl (pthread_cond_t *c, pthread_mutex_t *external_mutex, const struct timespec *t, int rel)
 {
   sCondWaitHelper ch;
   DWORD dwr;
@@ -477,7 +477,15 @@ pthread_cond_timedwait (pthread_cond_t *c, pthread_mutex_t *external_mutex, cons
   } else if ((_c)->valid != (unsigned int)LIFE_COND)
     return EINVAL;
 
-  dwr = dwMilliSecs(_pthread_rel_time_in_ms(t));
+  if (rel == 0)
+  {
+    dwr = dwMilliSecs(_pthread_rel_time_in_ms(t));
+  }
+  else
+  {
+    dwr = dwMilliSecs(_pthread_time_in_ms_from_timespec(t));
+  }
+
   r = do_sema_b_wait (_c->sema_b, 0, INFINITE,&_c->waiters_b_lock_,&_c->value_b);
   if (r != 0)
     return r;
@@ -489,7 +497,7 @@ pthread_cond_timedwait (pthread_cond_t *c, pthread_mutex_t *external_mutex, cons
   ch.c = _c;
   ch.r = &r;
   ch.external_mutex = external_mutex;
-  { 
+  {
     pthread_cleanup_push(cleanup_wait, (void *) &ch);
 
     r = pthread_mutex_unlock(external_mutex);
@@ -499,6 +507,18 @@ pthread_cond_timedwait (pthread_cond_t *c, pthread_mutex_t *external_mutex, cons
     pthread_cleanup_pop(1);
   }
   return r;
+}
+
+int
+pthread_cond_timedwait(pthread_cond_t *c, pthread_mutex_t *m, const struct timespec *t)
+{
+  return pthread_cond_timedwait_impl(c, m, t, 0);
+}
+
+int
+pthread_cond_timedwait_relative(pthread_cond_t *c, pthread_mutex_t *m, const struct timespec *t)
+{
+  return pthread_cond_timedwait_impl(c, m, t, 1);
 }
 
 static void

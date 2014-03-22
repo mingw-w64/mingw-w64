@@ -331,6 +331,7 @@ int WINPTHREAD_API pthread_cond_signal (pthread_cond_t *cv);
 int WINPTHREAD_API pthread_cond_broadcast (pthread_cond_t *cv);
 int WINPTHREAD_API pthread_cond_wait (pthread_cond_t *cv, pthread_mutex_t *external_mutex);
 int WINPTHREAD_API pthread_cond_timedwait(pthread_cond_t *cv, pthread_mutex_t *external_mutex, const struct timespec *t);
+int WINPTHREAD_API pthread_cond_timedwait_relative(pthread_cond_t *cv, pthread_mutex_t *external_mutex, const struct timespec *t);
 
 int WINPTHREAD_API pthread_mutex_lock(pthread_mutex_t *m);
 int WINPTHREAD_API pthread_mutex_timedlock(pthread_mutex_t *m, const struct timespec *ts);
