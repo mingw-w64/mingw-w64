@@ -3,7 +3,7 @@
  * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
-#include <_mingw.h>
+#include <crtdefs.h>
 
 #ifndef _INC_TYPEINFO
 #define _INC_TYPEINFO

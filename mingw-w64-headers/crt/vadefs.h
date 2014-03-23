@@ -9,6 +9,8 @@
 #include <_mingw.h>
 
 #ifndef __WIDL__
+#undef _CRT_PACKING
+#define _CRT_PACKING 8
 #pragma pack(push,_CRT_PACKING)
 #endif
 
