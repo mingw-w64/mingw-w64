@@ -93,6 +93,7 @@ IDL_SRCS = \
   include/msctf.idl \
   include/msopc.idl \
   include/msxml.idl \
+  include/naptypes.idl \
   include/objectarray.idl \
   include/objidl.idl \
   include/objidlbase.idl \
