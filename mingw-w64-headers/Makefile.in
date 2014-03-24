@@ -317,6 +317,14 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/msctf.idl \
 @HAVE_WIDL_TRUE@  include/msopc.idl \
 @HAVE_WIDL_TRUE@  include/msxml.idl \
+@HAVE_WIDL_TRUE@  include/napcertrelyingparty.idl \
+@HAVE_WIDL_TRUE@  include/napcommon.idl \
+@HAVE_WIDL_TRUE@  include/napenforcementclient.idl \
+@HAVE_WIDL_TRUE@  include/napmanagement.idl \
+@HAVE_WIDL_TRUE@  include/napprotocol.idl \
+@HAVE_WIDL_TRUE@  include/napservermanagement.idl \
+@HAVE_WIDL_TRUE@  include/napsystemhealthagent.idl \
+@HAVE_WIDL_TRUE@  include/napsystemhealthvalidator.idl \
 @HAVE_WIDL_TRUE@  include/naptypes.idl \
 @HAVE_WIDL_TRUE@  include/objectarray.idl \
 @HAVE_WIDL_TRUE@  include/objidl.idl \

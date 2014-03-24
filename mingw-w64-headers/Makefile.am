@@ -93,6 +93,14 @@ IDL_SRCS = \
   include/msctf.idl \
   include/msopc.idl \
   include/msxml.idl \
+  include/napcertrelyingparty.idl \
+  include/napcommon.idl \
+  include/napenforcementclient.idl \
+  include/napmanagement.idl \
+  include/napprotocol.idl \
+  include/napservermanagement.idl \
+  include/napsystemhealthagent.idl \
+  include/napsystemhealthvalidator.idl \
   include/naptypes.idl \
   include/objectarray.idl \
   include/objidl.idl \
