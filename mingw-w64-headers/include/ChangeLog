@@ -1,1 +1,5 @@
+2014-03-24  Kai Tietz  <ktietz@redhat.com>
 
+	* nap*: Add NAP API.
+	* naperror.h: Move content into winerror.h and remove.
+	* winerror.h: Add content of naperror.h header.
