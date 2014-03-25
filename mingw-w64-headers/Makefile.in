@@ -284,6 +284,8 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@IDL_SRCS = \
 @HAVE_WIDL_TRUE@  include/activation.idl \
 @HAVE_WIDL_TRUE@  include/activaut.idl \
+@HAVE_WIDL_TRUE@  include/activdbg.idl \
+@HAVE_WIDL_TRUE@  include/activdbg100.idl \
 @HAVE_WIDL_TRUE@  include/activprof.idl \
 @HAVE_WIDL_TRUE@  include/activscp.idl \
 @HAVE_WIDL_TRUE@  include/audioclient.idl \
