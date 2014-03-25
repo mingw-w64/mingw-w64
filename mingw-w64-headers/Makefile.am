@@ -75,6 +75,8 @@ IDL_SRCS = \
   include/downloadmgr.idl \
   include/dxva2api.idl \
   include/endpointvolume.idl \
+  include/fsrm.idl \
+  include/fsrmenums.idl \
   include/fusion.idl \
   include/fwptypes.idl \
   include/hstring.idl \
