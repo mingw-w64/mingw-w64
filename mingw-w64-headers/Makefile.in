@@ -289,6 +289,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/activprof.idl \
 @HAVE_WIDL_TRUE@  include/activscp.idl \
 @HAVE_WIDL_TRUE@  include/adhoc.idl \
+@HAVE_WIDL_TRUE@  include/alg.idl \
 @HAVE_WIDL_TRUE@  include/audioclient.idl \
 @HAVE_WIDL_TRUE@  include/audioendpoints.idl \
 @HAVE_WIDL_TRUE@  include/audiopolicy.idl \

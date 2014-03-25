@@ -65,6 +65,7 @@ IDL_SRCS = \
   include/activprof.idl \
   include/activscp.idl \
   include/adhoc.idl \
+  include/alg.idl \
   include/audioclient.idl \
   include/audioendpoints.idl \
   include/audiopolicy.idl \
