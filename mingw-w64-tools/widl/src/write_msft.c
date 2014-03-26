@@ -174,7 +174,7 @@ static void ctl2_init_segdir(
 
     segdir = &typelib->typelib_segdir[MSFT_SEG_TYPEINFO];
 
-    for (i = 0; i < 15; i++) {
+    for (i = 0; i < MSFT_SEG_MAX; i++) {
 	segdir[i].offset = -1;
 	segdir[i].length = 0;
 	segdir[i].res08 = -1;
@@ -743,6 +743,7 @@ static importinfo_t *find_importinfo(msft_typelib_t *typelib, const char *name)
     return NULL;
 }
 
+static void add_union_typeinfo(msft_typelib_t *typelib, type_t *structure);
 static void add_structure_typeinfo(msft_typelib_t *typelib, type_t *structure);
 static void add_interface_typeinfo(msft_typelib_t *typelib, type_t *interface);
 static void add_enum_typeinfo(msft_typelib_t *typelib, type_t *enumeration);
@@ -827,7 +828,6 @@ static int encode_type(
     case VT_UI4:
     case VT_R4:
     case VT_ERROR:
-    case VT_BSTR:
     case VT_HRESULT:
 	*encoded_type = default_type;
 	*width = 4;
@@ -863,8 +863,9 @@ static int encode_type(
 
     case VT_UNKNOWN:
     case VT_DISPATCH:
+    case VT_BSTR:
         *encoded_type = default_type;
-        *width = 4;
+        *width = pointer_size;
         *alignment = 4;
         break;
 
@@ -875,7 +876,7 @@ static int encode_type(
     case VT_LPSTR:
     case VT_LPWSTR:
         *encoded_type = 0xfffe0000 | vt;
-        *width = 4;
+        *width = pointer_size;
         *alignment = 4;
         break;
 
@@ -898,7 +899,7 @@ static int encode_type(
         if(next_vt == VT_DISPATCH || next_vt == VT_UNKNOWN) {
             chat("encode_type: skipping ptr\n");
             *encoded_type = target_type;
-            *width = 4;
+            *width = pointer_size;
             *alignment = 4;
             *decoded_size = child_size;
             break;
@@ -928,12 +929,11 @@ static int encode_type(
 
 	*encoded_type = typeoffset;
 
-	*width = 4;
+	*width = pointer_size;
 	*alignment = 4;
 	*decoded_size = 8 /*sizeof(TYPEDESC)*/ + child_size;
         break;
     }
-
 
     case VT_SAFEARRAY:
 	{
@@ -966,12 +966,11 @@ static int encode_type(
 
 	*encoded_type = typeoffset;
 
-	*width = 4;
+	*width = pointer_size;
 	*alignment = 4;
 	*decoded_size = 8 /*sizeof(TYPEDESC)*/ + child_size;
 	break;
 	}
-
 
     case VT_USERDEFINED:
       {
@@ -989,6 +988,9 @@ static int encode_type(
             switch (type_get_type(type)) {
             case TYPE_STRUCT:
                 add_structure_typeinfo(typelib, type);
+                break;
+            case TYPE_UNION:
+                add_union_typeinfo(typelib, type);
                 break;
             case TYPE_INTERFACE:
                 add_interface_typeinfo(typelib, type);
@@ -1119,7 +1121,7 @@ static int encode_var(
             chat("encode_var: skipping ptr\n");
             *encoded_type = target_type;
             *decoded_size = child_size;
-            *width = 4;
+            *width = pointer_size;
             *alignment = 4;
             return 0;
         }
@@ -1148,7 +1150,7 @@ static int encode_var(
 
 	*encoded_type = typeoffset;
 
-	*width = 4;
+	*width = pointer_size;
 	*alignment = 4;
 	*decoded_size = 8 /*sizeof(TYPEDESC)*/ + child_size;
         return 0;
@@ -1193,6 +1195,8 @@ static void write_value(msft_typelib_t* typelib, int *out, int vt, const void *v
     case VT_UINT:
     case VT_HRESULT:
     case VT_PTR:
+    case VT_UNKNOWN:
+    case VT_DISPATCH:
       {
         const unsigned int lv = get_ulong_val(*(const unsigned int *)value, vt);
         if((lv & 0x3ffffff) == lv) {
@@ -1232,7 +1236,7 @@ static void write_value(msft_typelib_t* typelib, int *out, int vt, const void *v
 }
 
 static HRESULT set_custdata(msft_typelib_t *typelib, REFGUID guid,
-                            int vt, int value, int *offset)
+                            int vt, const void *value, int *offset)
 {
     MSFT_GuidEntry guidentry;
     int guidoffset;
@@ -1246,7 +1250,7 @@ static HRESULT set_custdata(msft_typelib_t *typelib, REFGUID guid,
     guidentry.next_hash = -1;
 
     guidoffset = ctl2_alloc_guid(typelib, &guidentry);
-    write_value(typelib, &data_out, vt, &value);
+    write_value(typelib, &data_out, vt, value);
 
     custoffset = ctl2_alloc_segment(typelib, MSFT_SEG_CUSTDATAGUID, 12, 0);
 
@@ -1257,6 +1261,33 @@ static HRESULT set_custdata(msft_typelib_t *typelib, REFGUID guid,
     *offset = custoffset;
 
     return S_OK;
+}
+
+/* It's possible to have a default value for pointer arguments too.
+   In this case default value has a referenced type, e.g.
+   'LONG*' argument gets VT_I4, 'DOUBLE*' - VT_R8. IUnknown* and IDispatch*
+   are recognised too and stored as VT_UNKNOWN and VT_DISPATCH.
+   But IUnknown/IDispatch arguments can only have default value of 0
+   (or expression that resolves to zero) while other pointers can have
+   any default value. */
+static int get_defaultvalue_vt(type_t *type)
+{
+    int vt = get_type_vt(type);
+    if (type_get_type(type) == TYPE_ENUM)
+        vt = VT_I4;
+    else
+   {
+        vt = get_type_vt(type);
+        if (vt == VT_PTR && is_ptr(type)) {
+            vt = get_type_vt(type_pointer_get_ref(type));
+            /* The only acceptable value for pointers to non-basic types
+               is NULL, it's stored as VT_I4 for both 32 and 64 bit typelibs. */
+            if (vt == VT_USERDEFINED)
+                vt = VT_I4;
+        }
+    }
+
+    return vt;
 }
 
 static HRESULT add_func_desc(msft_typeinfo_t* typeinfo, var_t *func, int index)
@@ -1483,10 +1514,7 @@ static HRESULT add_func_desc(msft_typeinfo_t* typeinfo, var_t *func, int index)
               {
                 int vt;
                 expr_t *expr = (expr_t *)attr->u.pval;
-                if (type_get_type(arg->type) == TYPE_ENUM)
-                    vt = VT_INT;
-                else
-                    vt = get_type_vt(arg->type);
+                vt = get_defaultvalue_vt(arg->type);
                 paramflags |= 0x30; /* PARAMFLAG_FHASDEFAULT | PARAMFLAG_FOPT */
                 if (expr->type == EXPR_STRLIT || expr->type == EXPR_WSTRLIT)
                 {
@@ -1728,7 +1756,7 @@ static HRESULT add_var_desc(msft_typeinfo_t *typeinfo, UINT index, var_t* var)
         break;
     case TKIND_DISPATCH:
         var_kind = 3; /* VAR_DISPATCH */
-        typeinfo->datawidth = 4;
+        typeinfo->datawidth = pointer_size;
         var_alignment = 4;
         break;
     default:
@@ -1981,7 +2009,7 @@ static void add_dispinterface_typeinfo(msft_typelib_t *typelib, type_t *dispinte
     msft_typeinfo = create_msft_typeinfo(typelib, TKIND_DISPATCH, dispinterface->name,
                                          dispinterface->attrs);
 
-    msft_typeinfo->typeinfo->size = 4;
+    msft_typeinfo->typeinfo->size = pointer_size;
     msft_typeinfo->typeinfo->typekind |= 0x2100;
 
     msft_typeinfo->typeinfo->flags |= 0x1000; /* TYPEFLAG_FDISPATCHABLE */
@@ -2046,7 +2074,7 @@ static void add_interface_typeinfo(msft_typelib_t *typelib, type_t *interface)
 
     interface->typelib_idx = typelib->typelib_header.nrtypeinfos;
     msft_typeinfo = create_msft_typeinfo(typelib, TKIND_INTERFACE, interface->name, interface->attrs);
-    msft_typeinfo->typeinfo->size = 4;
+    msft_typeinfo->typeinfo->size = pointer_size;
     msft_typeinfo->typeinfo->typekind |= 0x2200;
 
     for (derived = inherit; derived; derived = type_iface_get_inherit(derived))
@@ -2079,6 +2107,24 @@ static void add_interface_typeinfo(msft_typelib_t *typelib, type_t *interface)
     }
 }
 
+static void add_union_typeinfo(msft_typelib_t *typelib, type_t *structure)
+{
+    int idx = 0;
+    var_t *cur;
+    msft_typeinfo_t *msft_typeinfo;
+
+    if (-1 < structure->typelib_idx)
+        return;
+
+    structure->typelib_idx = typelib->typelib_header.nrtypeinfos;
+    msft_typeinfo = create_msft_typeinfo(typelib, TKIND_UNION, structure->name, structure->attrs);
+    msft_typeinfo->typeinfo->size = 0;
+
+    if (type_union_get_cases(structure))
+        LIST_FOR_EACH_ENTRY( cur, type_union_get_cases(structure), var_t, entry )
+            add_var_desc(msft_typeinfo, idx++, cur);
+}
+
 static void add_structure_typeinfo(msft_typelib_t *typelib, type_t *structure)
 {
     int idx = 0;
@@ -2102,6 +2148,9 @@ static void add_enum_typeinfo(msft_typelib_t *typelib, type_t *enumeration)
     int idx = 0;
     var_t *cur;
     msft_typeinfo_t *msft_typeinfo;
+
+    if (-1 < enumeration->typelib_idx)
+        return;
 
     enumeration->typelib_idx = typelib->typelib_header.nrtypeinfos;
     msft_typeinfo = create_msft_typeinfo(typelib, TKIND_ENUM, enumeration->name, enumeration->attrs);
@@ -2210,7 +2259,7 @@ static void add_coclass_typeinfo(msft_typelib_t *typelib, type_t *cls)
         first_source->flags |= 0x1;
 
     msft_typeinfo->typeinfo->cImplTypes = num_ifaces;
-    msft_typeinfo->typeinfo->size = 4;
+    msft_typeinfo->typeinfo->size = pointer_size;
     msft_typeinfo->typeinfo->typekind |= 0x2200;
 }
 
@@ -2245,6 +2294,9 @@ static void add_type_typeinfo(msft_typelib_t *typelib, type_t *type)
     case TYPE_STRUCT:
         add_structure_typeinfo(typelib, type);
         break;
+    case TYPE_UNION:
+        add_union_typeinfo(typelib, type);
+        break;
     case TYPE_ENUM:
         add_enum_typeinfo(typelib, type);
         break;
@@ -2266,6 +2318,7 @@ static void add_entry(msft_typelib_t *typelib, const statement_t *stmt)
     switch(stmt->type) {
     case STMT_LIBRARY:
     case STMT_IMPORT:
+    case STMT_PRAGMA:
     case STMT_CPPQUOTE:
     case STMT_DECLARATION:
         /* not included in typelib */
@@ -2566,9 +2619,11 @@ int create_msft_typelib(typelib_t *typelib)
     const statement_t *stmt;
     time_t cur_time;
     char *time_override;
-    unsigned int version = 5 << 24 | 1 << 16 | 164; /* 5.01.0164 */
-    GUID midl_time_guid    = {0xde77ba63,0x517c,0x11d1,{0xa2,0xda,0x00,0x00,0xf8,0x77,0x3c,0xe9}}; 
-    GUID midl_version_guid = {0xde77ba64,0x517c,0x11d1,{0xa2,0xda,0x00,0x00,0xf8,0x77,0x3c,0xe9}}; 
+    unsigned int version = 7 << 24 | 555; /* 7.00.0555 */
+    GUID midl_time_guid    = {0xde77ba63,0x517c,0x11d1,{0xa2,0xda,0x00,0x00,0xf8,0x77,0x3c,0xe9}};
+    GUID midl_version_guid = {0xde77ba64,0x517c,0x11d1,{0xa2,0xda,0x00,0x00,0xf8,0x77,0x3c,0xe9}};
+    GUID midl_info_guid = {0xde77ba65,0x517c,0x11d1,{0xa2,0xda,0x00,0x00,0xf8,0x77,0x3c,0xe9}};
+    char info_string[128];
 
     pointer_size = (typelib_kind == SYS_WIN64) ? 8 : 4;
 
@@ -2615,8 +2670,10 @@ int create_msft_typelib(typelib_t *typelib)
        and midl's version number */
     time_override = getenv( "WIDL_TIME_OVERRIDE");
     cur_time = time_override ? atol( time_override) : time(NULL);
-    set_custdata(msft, &midl_time_guid, VT_UI4, cur_time, &msft->typelib_header.CustomDataOffset);
-    set_custdata(msft, &midl_version_guid, VT_UI4, version, &msft->typelib_header.CustomDataOffset);
+    sprintf(info_string, "Created by WIDL version %s at %s\n", PACKAGE_VERSION, ctime(&cur_time));
+    set_custdata(msft, &midl_info_guid, VT_BSTR, info_string, &msft->typelib_header.CustomDataOffset);
+    set_custdata(msft, &midl_time_guid, VT_UI4, &cur_time, &msft->typelib_header.CustomDataOffset);
+    set_custdata(msft, &midl_version_guid, VT_UI4, &version, &msft->typelib_header.CustomDataOffset);
 
     if (typelib->stmts)
         LIST_FOR_EACH_ENTRY( stmt, typelib->stmts, const statement_t, entry )

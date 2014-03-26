@@ -85,6 +85,13 @@ static inline var_list_t *type_struct_get_fields(const type_t *type)
     return type->details.structure->fields;
 }
 
+static inline var_list_t *type_union_get_fields(const type_t *type)
+{
+    type = type_get_real_type(type);
+    assert(type_get_type(type) == TYPE_UNION);
+    return type->details.structure->fields;
+}
+
 static inline var_list_t *type_function_get_args(const type_t *type)
 {
     type = type_get_real_type(type);

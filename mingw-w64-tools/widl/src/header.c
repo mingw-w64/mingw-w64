@@ -88,20 +88,16 @@ int is_aliaschain_attr(const type_t *type, enum attr_type attr)
 int is_attr(const attr_list_t *list, enum attr_type t)
 {
     const attr_t *attr;
-    if (list) {
-        LIST_FOR_EACH_ENTRY( attr, list, const attr_t, entry )
+    if (list) LIST_FOR_EACH_ENTRY( attr, list, const attr_t, entry )
         if (attr->type == t) return 1;
-    }
     return 0;
 }
 
 void *get_attrp(const attr_list_t *list, enum attr_type t)
 {
     const attr_t *attr;
-    if (list) {
-        LIST_FOR_EACH_ENTRY( attr, list, const attr_t, entry )
+    if (list) LIST_FOR_EACH_ENTRY( attr, list, const attr_t, entry )
         if (attr->type == t) return attr->u.pval;
-    }
     return NULL;
 }
 
@@ -111,16 +107,6 @@ unsigned int get_attrv(const attr_list_t *list, enum attr_type t)
     if (list) LIST_FOR_EACH_ENTRY( attr, list, const attr_t, entry )
         if (attr->type == t) return attr->u.ival;
     return 0;
-}
-
-int is_void(const type_t *t)
-{
-    return type_get_type(t) == TYPE_VOID;
-}
-
-int is_conformant_array(const type_t *t)
-{
-    return is_array(t) && type_array_has_conformance(t);
 }
 
 static void write_guid(FILE *f, const char *guid_prefix, const char *name, const UUID *uuid)
@@ -1535,6 +1521,7 @@ static void write_imports(FILE *header, const statement_list_t *stmts)
       case STMT_TYPEDEF:
       case STMT_MODULE:
       case STMT_CPPQUOTE:
+      case STMT_PRAGMA:
       case STMT_DECLARATION:
         /* not processed here */
         break;
@@ -1569,6 +1556,7 @@ static void write_forward_decls(FILE *header, const statement_list_t *stmts)
       case STMT_TYPEDEF:
       case STMT_MODULE:
       case STMT_CPPQUOTE:
+      case STMT_PRAGMA:
       case STMT_DECLARATION:
         /* not processed here */
         break;
@@ -1639,6 +1627,7 @@ static void write_header_stmts(FILE *header, const statement_list_t *stmts, cons
         break;
       case STMT_IMPORTLIB:
       case STMT_MODULE:
+      case STMT_PRAGMA:
         /* not included in header */
         break;
       case STMT_IMPORT:

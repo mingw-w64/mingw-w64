@@ -864,7 +864,7 @@ static const char *get_context_handle_type_name(const type_t *type)
     do { \
         if (file) \
             fprintf(file, "/* %2u */\n", typestring_offset); \
-        print_file((file), 2, "0x%02x,    /* " #fctype " */\n", RPC_##fctype); \
+        print_file((file), 2, "0x%02x,\t/* " #fctype " */\n", RPC_##fctype); \
     } \
     while (0)
 
@@ -1451,8 +1451,8 @@ static void write_procformatstring_func( FILE *file, int indent, const type_t *i
         if (!is_new_style)
         {
             print_file(file, 0, "/* %u (void) */\n", *offset);
-            print_file(file, indent, "0x5b,    /* FC_END */\n");
-            print_file(file, indent, "0x5c,    /* FC_PAD */\n");
+            print_file(file, indent, "0x5b,\t/* FC_END */\n");
+            print_file(file, indent, "0x5c,\t/* FC_PAD */\n");
             *offset += 2;
         }
     }
@@ -2354,10 +2354,10 @@ static void write_end(FILE *file, unsigned int *tfsoff)
 {
     if (*tfsoff % 2 == 0)
     {
-        print_file(file, 2, "0x%x,\t\t/* FC_PAD */\n", RPC_FC_PAD);
+        print_file(file, 2, "0x%x,\t/* FC_PAD */\n", RPC_FC_PAD);
         *tfsoff += 1;
     }
-    print_file(file, 2, "0x%x,\t\t/* FC_END */\n", RPC_FC_END);
+    print_file(file, 2, "0x%x,\t/* FC_END */\n", RPC_FC_END);
     *tfsoff += 1;
 }
 
@@ -2778,11 +2778,6 @@ static void write_pointer_description(FILE *file, type_t *type,
             &offset_in_memory, &offset_in_buffer, typestring_offset);
 }
 
-int is_declptr(const type_t *t)
-{
-  return is_ptr(t) || (type_get_type(t) == TYPE_ARRAY && type_array_is_decl_as_ptr(t));
-}
-
 static unsigned int write_string_tfs(FILE *file, const attr_list_t *attrs,
                                      type_t *type, enum type_context context,
                                      const char *name, unsigned int *typestring_offset)
@@ -2846,7 +2841,7 @@ static unsigned int write_string_tfs(FILE *file, const attr_list_t *attrs,
             WRITE_FCTYPE(file, FC_WSTRING, *typestring_offset);
         else
             WRITE_FCTYPE(file, FC_CSTRING, *typestring_offset);
-        print_file(file, 2, "0x%x, /* FC_PAD */\n", RPC_FC_PAD);
+        print_file(file, 2, "0x%x,\t/* FC_PAD */\n", RPC_FC_PAD);
         *typestring_offset += 2;
 
         print_file(file, 2, "NdrFcShort(0x%hx),\t/* %d */\n", (unsigned short)dim, dim);
@@ -2861,7 +2856,7 @@ static unsigned int write_string_tfs(FILE *file, const attr_list_t *attrs,
             WRITE_FCTYPE(file, FC_C_WSTRING, *typestring_offset);
         else
             WRITE_FCTYPE(file, FC_C_CSTRING, *typestring_offset);
-        print_file(file, 2, "0x%x, /* FC_STRING_SIZED */\n", RPC_FC_STRING_SIZED);
+        print_file(file, 2, "0x%x,\t/* FC_STRING_SIZED */\n", RPC_FC_STRING_SIZED);
         *typestring_offset += 2;
 
         *typestring_offset += write_conf_or_var_desc(
@@ -2882,7 +2877,7 @@ static unsigned int write_string_tfs(FILE *file, const attr_list_t *attrs,
             WRITE_FCTYPE(file, FC_C_WSTRING, *typestring_offset);
         else
             WRITE_FCTYPE(file, FC_C_CSTRING, *typestring_offset);
-        print_file(file, 2, "0x%x, /* FC_PAD */\n", RPC_FC_PAD);
+        print_file(file, 2, "0x%x,\t/* FC_PAD */\n", RPC_FC_PAD);
         *typestring_offset += 2;
 
         update_tfsoff(type, start_offset, file);
@@ -2968,11 +2963,11 @@ static unsigned int write_array_tfs(FILE *file, const attr_list_t *attrs, type_t
         if (type_has_pointers(type_array_get_element(type)) &&
             (type_array_is_decl_as_ptr(type) || !current_structure))
         {
-            print_file(file, 2, "0x%x, /* FC_PP */\n", RPC_FC_PP);
-            print_file(file, 2, "0x%x, /* FC_PAD */\n", RPC_FC_PAD);
+            print_file(file, 2, "0x%x,\t/* FC_PP */\n", RPC_FC_PP);
+            print_file(file, 2, "0x%x,\t/* FC_PAD */\n", RPC_FC_PAD);
             *typestring_offset += 2;
             write_pointer_description(file, type, typestring_offset);
-            print_file(file, 2, "0x%x, /* FC_END */\n", RPC_FC_END);
+            print_file(file, 2, "0x%x,\t/* FC_END */\n", RPC_FC_END);
             *typestring_offset += 1;
         }
 
@@ -3155,11 +3150,11 @@ static unsigned int write_struct_tfs(FILE *file, type_t *type,
              (fc == RPC_FC_CPSTRUCT) ||
              (fc == RPC_FC_CVSTRUCT && type_has_pointers(type)))
     {
-        print_file(file, 2, "0x%x, /* FC_PP */\n", RPC_FC_PP);
-        print_file(file, 2, "0x%x, /* FC_PAD */\n", RPC_FC_PAD);
+        print_file(file, 2, "0x%x,\t/* FC_PP */\n", RPC_FC_PP);
+        print_file(file, 2, "0x%x,\t/* FC_PAD */\n", RPC_FC_PAD);
         *tfsoff += 2;
         write_pointer_description(file, type, tfsoff);
-        print_file(file, 2, "0x%x, /* FC_END */\n", RPC_FC_END);
+        print_file(file, 2, "0x%x,\t/* FC_END */\n", RPC_FC_END);
         *tfsoff += 1;
     }
 

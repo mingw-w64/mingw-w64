@@ -72,12 +72,12 @@ static const char usage[] =
 "   --prefix-client=p  Prefix names of client stubs with 'p'\n"
 "   --prefix-server=p  Prefix names of server functions with 'p'\n"
 "   -r                 Generate registration script\n"
+"   --rt               Enable WinRT's language extensions for IDL\n"
 "   -s                 Generate server stub\n"
 "   -t                 Generate typelib\n"
 "   -u                 Generate interface identifiers file\n"
 "   -V                 Print version and exit\n"
 "   -W                 Enable pedantic warnings\n"
-"   --rt               Enable RT's extensions\n"
 "   --win32            Only generate 32-bit code\n"
 "   --win64            Only generate 64-bit code\n"
 "   --win32-align n    Set win32 structure alignment to 'n'\n"
@@ -114,7 +114,7 @@ int do_win32 = 1;
 int do_win64 = 1;
 int win32_packing = 8;
 int win64_packing = 8;
-int flag_is_rt = 0;
+int do_rt_extension = 0;
 static enum stub_mode stub_mode = MODE_Os;
 
 char *input_name;
@@ -141,7 +141,7 @@ int line_number = 1;
 
 static FILE *idfile;
 
-unsigned int pointer_size = sizeof (void*);
+unsigned int pointer_size = sizeof(void*);
 syskind_t typelib_kind = sizeof(void*) == 8 ? SYS_WIN64 : SYS_WIN32;
 
 time_t now;
@@ -400,7 +400,7 @@ void write_dlldata(const statement_list_t *stmts)
 
   dlldata = fopen(dlldata_name, "r");
   if (dlldata) {
-    static char marker[] = "REFERENCE_PROXY_FILE";
+    static const char marker[] = "REFERENCE_PROXY_FILE";
     static const char delegation_define[] = "#define PROXY_DELEGATION";
     char *line = NULL;
     size_t len = 0;
@@ -578,7 +578,7 @@ int main(int argc,char *argv[])
       fprintf(stderr, "%s", usage);
       return 0;
     case RT_OPTION:
-      flag_is_rt = 1;
+      do_rt_extension = 1;
       break;
     case WIN32_OPTION:
       do_win32 = 1;
@@ -635,7 +635,6 @@ int main(int argc,char *argv[])
     case 'm':
       if (!strcmp( optarg, "32" )) typelib_kind = SYS_WIN32;
       else if (!strcmp( optarg, "64" )) typelib_kind = SYS_WIN64;
-      else error( "Invalid -m argument '%s'\n", optarg );
       break;
     case 'N':
       no_preprocess = 1;
@@ -699,14 +698,30 @@ int main(int argc,char *argv[])
   wpp_add_include_path(DEFAULT_INCLUDE_DIR);
 #endif
 
+  /* if nothing specified, try to guess output type from the output file name */
+  if (output_name && do_everything && !do_header && !do_typelib && !do_proxies &&
+      !do_client && !do_server && !do_regscript && !do_idfile && !do_dlldata)
+  {
+      do_everything = 0;
+      if (strendswith( output_name, ".h" )) do_header = 1;
+      else if (strendswith( output_name, ".tlb" )) do_typelib = 1;
+      else if (strendswith( output_name, "_p.c" )) do_proxies = 1;
+      else if (strendswith( output_name, "_c.c" )) do_client = 1;
+      else if (strendswith( output_name, "_s.c" )) do_server = 1;
+      else if (strendswith( output_name, "_i.c" )) do_idfile = 1;
+      else if (strendswith( output_name, "_r.res" )) do_regscript = 1;
+      else if (strendswith( output_name, "_t.res" )) do_typelib = 1;
+      else if (strendswith( output_name, "dlldata.c" )) do_dlldata = 1;
+      else do_everything = 1;
+  }
+
   if(do_everything) {
     set_everything(TRUE);
   }
 
   if (!output_name) output_name = dup_basename(input_name, ".idl");
 
-  if (!do_everything &&
-      do_header + do_typelib + do_proxies + do_client +
+  if (do_header + do_typelib + do_proxies + do_client +
       do_server + do_regscript + do_idfile + do_dlldata == 1)
   {
       if (do_header) header_name = output_name;

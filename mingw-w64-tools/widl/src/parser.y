@@ -38,33 +38,6 @@
 #include "expr.h"
 #include "typetree.h"
 
-#if defined(YYBYACC)
-	/* Berkeley yacc (byacc) doesn't seem to know about these */
-	/* Some *BSD supplied versions do define these though */
-# ifndef YYEMPTY
-#  define YYEMPTY	(-1)	/* Empty lookahead value of yychar */
-# endif
-# ifndef YYLEX
-#  define YYLEX		yylex()
-# endif
-
-#elif defined(YYBISON)
-	/* Bison was used for original development */
-	/* #define YYEMPTY -2 */
-	/* #define YYLEX   yylex() */
-
-#else
-	/* No yacc we know yet */
-# if !defined(YYEMPTY) || !defined(YYLEX)
-#  error Yacc version/type unknown. This version needs to be verified for settings of YYEMPTY and YYLEX.
-# elif defined(__GNUC__)	/* gcc defines the #warning directive */
-#  warning Yacc version/type unknown. It defines YYEMPTY and YYLEX, but is not tested
-  /* #else we just take a chance that it works... */
-# endif
-#endif
-
-#define YYERROR_VERBOSE
-
 static unsigned char pointer_default = RPC_FC_UP;
 
 typedef struct list typelist_t;
@@ -87,26 +60,6 @@ typedef struct _decl_spec_t
 } decl_spec_t;
 
 typelist_t incomplete_types = LIST_INIT(incomplete_types);
-
-typedef struct str_namespace_pool_t {
-  struct str_namespace_pool_t *next;
-  size_t len;
-  char name[1];
-} str_namespace_pool_t;
-
-static const char *unify_ns_str (const char *str);
-static const char *unify_ns_name(const char *l, const char *r);
-
-typedef struct ctx_namespace_t {
-  struct ctx_namespace_t *prev;
-  const char *name;
-} ctx_namespace_t;
-
-static ctx_namespace_t *ctx_namespace = NULL;
-
-static void push_namespace(const char *name);
-static int pop_namespace(void);
-static const char *get_cur_namespace(void);
 
 static void fix_incomplete(void);
 static void fix_incomplete_types(type_t *complete_type);
@@ -161,6 +114,7 @@ static statement_t *make_statement_type_decl(type_t *type);
 static statement_t *make_statement_reference(type_t *type);
 static statement_t *make_statement_declaration(var_t *var);
 static statement_t *make_statement_library(typelib_t *typelib);
+static statement_t *make_statement_pragma(const char *str);
 static statement_t *make_statement_cppquote(const char *str);
 static statement_t *make_statement_importlib(const char *str);
 static statement_t *make_statement_module(type_t *type);
@@ -199,7 +153,7 @@ static attr_list_t *append_attribs(attr_list_t *, attr_list_t *);
 	enum storage_class stgclass;
 }
 
-%token <str> aIDENTIFIER
+%token <str> aIDENTIFIER aPRAGMA
 %token <str> aKNOWNTYPE
 %token <num> aNUM aHEXNUM
 %token <dbl> aDOUBLE
@@ -305,9 +259,10 @@ static attr_list_t *append_attribs(attr_list_t *, attr_list_t *);
 %type <ifinfo> interfacehdr
 %type <stgclass> storage_cls_spec
 %type <declspec> decl_spec decl_spec_no_type m_decl_spec_no_type
-%type <type> inherit interface interfacedef interfacedec namespacedef
+%type <type> inherit interface interfacedef interfacedec
 %type <type> dispinterface dispinterfacehdr dispinterfacedef
 %type <type> module modulehdr moduledef
+%type <type> namespacedef
 %type <type> base_type int_std
 %type <type> enumdef structdef uniondef typedecl
 %type <type> type
@@ -346,6 +301,8 @@ static attr_list_t *append_attribs(attr_list_t *, attr_list_t *);
 %right '!' '~' CAST PPTR POS NEG ADDRESSOF tSIZEOF
 %left '.' MEMBERPTR '[' ']'
 
+%error-verbose
+
 %%
 
 input:   gbl_statements				{ fix_incomplete();
@@ -364,7 +321,7 @@ input:   gbl_statements				{ fix_incomplete();
 
 gbl_statements:					{ $$ = NULL; }
 	| gbl_statements namespacedef '{' gbl_statements '}'
-						{ $$ = append_statements($1, $4); pop_namespace(); }
+						{ $$ = append_statements($1, $4); }
 	| gbl_statements interfacedec		{ $$ = append_statement($1, make_statement_reference($2)); }
 	| gbl_statements interfacedef		{ $$ = append_statement($1, make_statement_type_decl($2)); }
 	| gbl_statements coclass ';'		{ $$ = $1;
@@ -380,7 +337,8 @@ gbl_statements:					{ $$ = NULL; }
 
 imp_statements:					{ $$ = NULL; }
 	| imp_statements interfacedec		{ $$ = append_statement($1, make_statement_reference($2)); }
-	| imp_statements namespacedef '{' imp_statements '}' { $$ = append_statements($1, $4); pop_namespace(); }
+	| imp_statements namespacedef '{' imp_statements '}'
+						{ $$ = append_statements($1, $4); }
 	| imp_statements interfacedef		{ $$ = append_statement($1, make_statement_type_decl($2)); }
 	| imp_statements coclass ';'		{ $$ = $1; reg_type($2, $2->name, 0); }
 	| imp_statements coclassdef		{ $$ = append_statement($1, make_statement_type_decl($2));
@@ -406,6 +364,7 @@ statement:
 	| declaration ';'			{ $$ = make_statement_declaration($1); }
 	| import				{ $$ = make_statement_import($1); }
 	| typedef ';'				{ $$ = $1; }
+	| aPRAGMA				{ $$ = make_statement_pragma($1); }
 	;
 
 typedecl:
@@ -853,8 +812,7 @@ coclassdef: coclasshdr '{' coclass_ints '}' semicolon_opt
 						{ $$ = type_coclass_define($1, $3); }
 	;
 
-namespacedef: tNAMESPACE aIDENTIFIER
-						{ $$=NULL; push_namespace($2); }
+namespacedef: tNAMESPACE aIDENTIFIER		{ $$ = NULL; }
 	;
 
 coclass_ints:					{ $$ = NULL; }
@@ -1140,8 +1098,7 @@ type:	  tVOID					{ $$ = type_new_void(); }
 	;
 
 typedef: m_attributes tTYPEDEF m_attributes decl_spec declarator_list
-						{
-						  $1 = append_attribs ($1, $3);
+						{ $1 = append_attribs($1, $3);
 						  reg_typedefs($4, $5, check_typedef_attrs($1));
 						  $$ = make_statement_typedef($5);
 						}
@@ -1892,7 +1849,7 @@ static type_t *reg_typedefs(decl_spec_t *decl_spec, declarator_list_t *decls, at
     type->name = gen_name();
   }
   else if (is_attr(attrs, ATTR_UUID) && !is_attr(attrs, ATTR_PUBLIC)
-	   && !is_attr (attrs, ATTR_HIDDEN))
+	   && !is_attr(attrs, ATTR_HIDDEN))
     attrs = append_attr( attrs, make_attr(ATTR_PUBLIC) );
 
   LIST_FOR_EACH_ENTRY( decl, decls, const declarator_t, entry )
@@ -2066,7 +2023,7 @@ struct allowed_attr allowed_attr[] =
     /* ATTR_ANNOTATION */          { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, "annotation" },
     /* ATTR_APPOBJECT */           { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, "appobject" },
     /* ATTR_ASYNC */               { 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "async" },
-    /* ATTR_ASYNCUUID */	   { 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, "async_uuid" },
+    /* ATTR_ASYNCUUID */           { 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, "async_uuid" },
     /* ATTR_AUTO_HANDLE */         { 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "auto_handle" },
     /* ATTR_BINDABLE */            { 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "bindable" },
     /* ATTR_BROADCAST */           { 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "broadcast" },
@@ -2157,7 +2114,7 @@ struct allowed_attr allowed_attr[] =
     /* ATTR_UIDEFAULT */           { 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "uidefault" },
     /* ATTR_USESGETLASTERROR */    { 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "usesgetlasterror" },
     /* ATTR_USERMARSHAL */         { 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, "user_marshal" },
-    /* ATTR_UUID */                { 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, "uuid" },
+    /* ATTR_UUID */                { 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, "uuid" },
     /* ATTR_V1ENUM */              { 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, "v1_enum" },
     /* ATTR_VARARG */              { 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "vararg" },
     /* ATTR_VERSION */             { 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, "version" },
@@ -2747,7 +2704,6 @@ static statement_t *make_statement(enum statement_type type)
 {
     statement_t *stmt = xmalloc(sizeof(*stmt));
     stmt->type = type;
-    stmt->nspace = get_cur_namespace();
     return stmt;
 }
 
@@ -2787,6 +2743,13 @@ static statement_t *make_statement_library(typelib_t *typelib)
 {
     statement_t *stmt = make_statement(STMT_LIBRARY);
     stmt->u.lib = typelib;
+    return stmt;
+}
+
+static statement_t *make_statement_pragma(const char *str)
+{
+    statement_t *stmt = make_statement(STMT_PRAGMA);
+    stmt->u.str = str;
     return stmt;
 }
 
@@ -2848,18 +2811,18 @@ static statement_t *make_statement_typedef(declarator_list_t *decls)
 
 static statement_list_t *append_statements(statement_list_t *l1, statement_list_t *l2)
 {
-  if (!l2) return l1;
-  if (!l1 || l1 == l2) return l2;
-  list_move_tail (l1, l2);
-  return l1;
+    if (!l2) return l1;
+    if (!l1 || l1 == l2) return l2;
+    list_move_tail (l1, l2);
+    return l1;
 }
 
 static attr_list_t *append_attribs(attr_list_t *l1, attr_list_t *l2)
 {
-  if (!l2) return l1;
-  if (!l1 || l1 == l2) return l2;
-  list_move_tail (l1, l2);
-  return l1;
+    if (!l2) return l1;
+    if (!l1 || l1 == l2) return l2;
+    list_move_tail (l1, l2);
+    return l1;
 }
 
 static statement_list_t *append_statement(statement_list_t *list, statement_t *stmt)
@@ -2886,85 +2849,4 @@ static void check_def(const type_t *t)
     if (t->defined)
         error_loc("%s: redefinition error; original definition was at %s:%d\n",
                   t->name, t->loc_info.input_name, t->loc_info.line_number);
-}
-
-static void push_namespace(const char *nameadd)
-{
-  ctx_namespace_t *c;
-
-  if (!nameadd)
-    nameadd = "";
-  c = xmalloc(sizeof(ctx_namespace_t));
-  c->name = unify_ns_name(get_cur_namespace(), nameadd);
-  c->prev = ctx_namespace;
-  ctx_namespace = c;
-}
-
-static int pop_namespace(void)
-{
-  ctx_namespace_t *c;
-
-  if (!(c = ctx_namespace))
-    return 0;
-  ctx_namespace = c->prev;
-  c->prev = NULL;
-  free (c);
-  return 1;
-}
-
-static const char *get_cur_namespace(void)
-{
-  if (!ctx_namespace)
-    return unify_ns_str(NULL);
-  return ctx_namespace->name;
-}
-
-static const char *unify_ns_name(const char *l, const char *r)
-{
-  const char *r;
-  char *h;
-  if (!l || *l == 0)
-    return unify_ns_str(r);
-  if (!r || *r == 0)
-    return unify_ns_str(l);
-  h = xmalloc(strlen(l) + strlen(r) + 2);
-  strcpy(h, l);
-  strcat(h, ".");
-  strcat(h, r);
-  r = unify_ns_str(h);
-  free(h);
-  return r;
-}
-
-static const char *unify_ns_str (const char *str)
-{
-  static str_namespace_pool_t *pool = NULL;
-  size_t l;
-  int e;
-  str_namespace_pool_t *p, *c, *n;
-
-  if (!str || *str == 0)
-    return "";
-  l = strlen (str);
-  p = NULL;
-  c = pool;
-  while (c != NULL)
-  {
-    if (c->len == l && (e = strcmp (c->name, str)) >= 0)
-    {
-      if (!e)
-	return &(c->name[0]);
-      break;
-    }
-    c = (p = c)->next;
-  }
-  n = xmalloc (sizeof (str_namespace_pool_t) + l);
-  strcpy (n->name, str);
-  n->next = c;
-  n->len = l;
-  if (!p)
-    pool = n;
-  else
-    p->next = n;
-  return &(n->name[0]);
 }
