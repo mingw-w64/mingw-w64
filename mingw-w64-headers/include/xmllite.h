@@ -1478,6 +1478,10 @@ void __RPC_STUB IXmlWriter_Flush_Stub(
 
 #endif  /* __IXmlWriter_INTERFACE_DEFINED__ */
 
+STDAPI CreateXmlWriter(REFIID riid, void **ppvObject, IMalloc *pMalloc);
+typedef IUnknown IXmlWriterOutput;
+STDAPI CreateXmlWriterOutputWithEncodingName(IUnknown *stream, IMalloc *pMalloc,
+                                             LPCWSTR encoding, IXmlWriterOutput **output);
 /* Begin additional prototypes for all interfaces */
 
 

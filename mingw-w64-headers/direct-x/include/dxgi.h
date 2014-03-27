@@ -72,6 +72,11 @@ typedef interface IDXGIDevice IDXGIDevice;
 typedef interface IDXGIAdapter1 IDXGIAdapter1;
 #endif
 
+#ifndef __IDXGIDevice1_FWD_DEFINED__
+#define __IDXGIDevice1_FWD_DEFINED__
+typedef interface IDXGIDevice1 IDXGIDevice1;
+#endif
+
 #ifndef __IDXGIFactory1_FWD_DEFINED__
 #define __IDXGIFactory1_FWD_DEFINED__
 typedef interface IDXGIFactory1 IDXGIFactory1;
@@ -2485,6 +2490,199 @@ void __RPC_STUB IDXGIAdapter1_GetDesc1_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __IDXGIAdapter1_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IDXGIDevice1 interface
+ */
+#ifndef __IDXGIDevice1_INTERFACE_DEFINED__
+#define __IDXGIDevice1_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IDXGIDevice1, 0x77db970f, 0x6276, 0x48ba, 0xba,0x28, 0x07,0x01,0x43,0xb4,0x39,0x2c);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("77db970f-6276-48ba-ba28-070143b4392c")
+IDXGIDevice1 : public IDXGIDevice
+{
+    virtual HRESULT STDMETHODCALLTYPE SetMaximumFrameLatency(
+        UINT MaxLatency) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMaximumFrameLatency(
+        UINT *pMaxLatency) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDXGIDevice1, 0x77db970f, 0x6276, 0x48ba, 0xba,0x28, 0x07,0x01,0x43,0xb4,0x39,0x2c)
+#endif
+#else
+typedef struct IDXGIDevice1Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IDXGIDevice1* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IDXGIDevice1* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IDXGIDevice1* This);
+
+    /*** IDXGIObject methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        IDXGIDevice1* This,
+        REFGUID guid,
+        UINT data_size,
+        const void *data);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        IDXGIDevice1* This,
+        REFGUID guid,
+        const IUnknown *object);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        IDXGIDevice1* This,
+        REFGUID guid,
+        UINT *data_size,
+        void *data);
+
+    HRESULT (STDMETHODCALLTYPE *GetParent)(
+        IDXGIDevice1* This,
+        REFIID riid,
+        void **parent);
+
+    /*** IDXGIDevice methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetAdapter)(
+        IDXGIDevice1* This,
+        IDXGIAdapter **adapter);
+
+    HRESULT (STDMETHODCALLTYPE *CreateSurface)(
+        IDXGIDevice1* This,
+        const DXGI_SURFACE_DESC *desc,
+        UINT surface_count,
+        DXGI_USAGE usage,
+        const DXGI_SHARED_RESOURCE *shared_resource,
+        IDXGISurface **surface);
+
+    HRESULT (STDMETHODCALLTYPE *QueryResourceResidency)(
+        IDXGIDevice1* This,
+        IUnknown *const *resources,
+        DXGI_RESIDENCY *residency,
+        UINT resource_count);
+
+    HRESULT (STDMETHODCALLTYPE *SetGPUThreadPriority)(
+        IDXGIDevice1* This,
+        INT priority);
+
+    HRESULT (STDMETHODCALLTYPE *GetGPUThreadPriority)(
+        IDXGIDevice1* This,
+        INT *priority);
+
+    /*** IDXGIDevice1 methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetMaximumFrameLatency)(
+        IDXGIDevice1* This,
+        UINT MaxLatency);
+
+    HRESULT (STDMETHODCALLTYPE *GetMaximumFrameLatency)(
+        IDXGIDevice1* This,
+        UINT *pMaxLatency);
+
+    END_INTERFACE
+} IDXGIDevice1Vtbl;
+interface IDXGIDevice1 {
+    CONST_VTBL IDXGIDevice1Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IDXGIDevice1_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDXGIDevice1_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDXGIDevice1_Release(This) (This)->lpVtbl->Release(This)
+/*** IDXGIObject methods ***/
+#define IDXGIDevice1_SetPrivateData(This,guid,data_size,data) (This)->lpVtbl->SetPrivateData(This,guid,data_size,data)
+#define IDXGIDevice1_SetPrivateDataInterface(This,guid,object) (This)->lpVtbl->SetPrivateDataInterface(This,guid,object)
+#define IDXGIDevice1_GetPrivateData(This,guid,data_size,data) (This)->lpVtbl->GetPrivateData(This,guid,data_size,data)
+#define IDXGIDevice1_GetParent(This,riid,parent) (This)->lpVtbl->GetParent(This,riid,parent)
+/*** IDXGIDevice methods ***/
+#define IDXGIDevice1_GetAdapter(This,adapter) (This)->lpVtbl->GetAdapter(This,adapter)
+#define IDXGIDevice1_CreateSurface(This,desc,surface_count,usage,shared_resource,surface) (This)->lpVtbl->CreateSurface(This,desc,surface_count,usage,shared_resource,surface)
+#define IDXGIDevice1_QueryResourceResidency(This,resources,residency,resource_count) (This)->lpVtbl->QueryResourceResidency(This,resources,residency,resource_count)
+#define IDXGIDevice1_SetGPUThreadPriority(This,priority) (This)->lpVtbl->SetGPUThreadPriority(This,priority)
+#define IDXGIDevice1_GetGPUThreadPriority(This,priority) (This)->lpVtbl->GetGPUThreadPriority(This,priority)
+/*** IDXGIDevice1 methods ***/
+#define IDXGIDevice1_SetMaximumFrameLatency(This,MaxLatency) (This)->lpVtbl->SetMaximumFrameLatency(This,MaxLatency)
+#define IDXGIDevice1_GetMaximumFrameLatency(This,pMaxLatency) (This)->lpVtbl->GetMaximumFrameLatency(This,pMaxLatency)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDXGIDevice1_QueryInterface(IDXGIDevice1* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDXGIDevice1_AddRef(IDXGIDevice1* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDXGIDevice1_Release(IDXGIDevice1* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDXGIObject methods ***/
+static FORCEINLINE HRESULT IDXGIDevice1_SetPrivateData(IDXGIDevice1* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIDevice1_SetPrivateDataInterface(IDXGIDevice1* This,REFGUID guid,const IUnknown *object) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,object);
+}
+static FORCEINLINE HRESULT IDXGIDevice1_GetPrivateData(IDXGIDevice1* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIDevice1_GetParent(IDXGIDevice1* This,REFIID riid,void **parent) {
+    return This->lpVtbl->GetParent(This,riid,parent);
+}
+/*** IDXGIDevice methods ***/
+static FORCEINLINE HRESULT IDXGIDevice1_GetAdapter(IDXGIDevice1* This,IDXGIAdapter **adapter) {
+    return This->lpVtbl->GetAdapter(This,adapter);
+}
+static FORCEINLINE HRESULT IDXGIDevice1_CreateSurface(IDXGIDevice1* This,const DXGI_SURFACE_DESC *desc,UINT surface_count,DXGI_USAGE usage,const DXGI_SHARED_RESOURCE *shared_resource,IDXGISurface **surface) {
+    return This->lpVtbl->CreateSurface(This,desc,surface_count,usage,shared_resource,surface);
+}
+static FORCEINLINE HRESULT IDXGIDevice1_QueryResourceResidency(IDXGIDevice1* This,IUnknown *const *resources,DXGI_RESIDENCY *residency,UINT resource_count) {
+    return This->lpVtbl->QueryResourceResidency(This,resources,residency,resource_count);
+}
+static FORCEINLINE HRESULT IDXGIDevice1_SetGPUThreadPriority(IDXGIDevice1* This,INT priority) {
+    return This->lpVtbl->SetGPUThreadPriority(This,priority);
+}
+static FORCEINLINE HRESULT IDXGIDevice1_GetGPUThreadPriority(IDXGIDevice1* This,INT *priority) {
+    return This->lpVtbl->GetGPUThreadPriority(This,priority);
+}
+/*** IDXGIDevice1 methods ***/
+static FORCEINLINE HRESULT IDXGIDevice1_SetMaximumFrameLatency(IDXGIDevice1* This,UINT MaxLatency) {
+    return This->lpVtbl->SetMaximumFrameLatency(This,MaxLatency);
+}
+static FORCEINLINE HRESULT IDXGIDevice1_GetMaximumFrameLatency(IDXGIDevice1* This,UINT *pMaxLatency) {
+    return This->lpVtbl->GetMaximumFrameLatency(This,pMaxLatency);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IDXGIDevice1_SetMaximumFrameLatency_Proxy(
+    IDXGIDevice1* This,
+    UINT MaxLatency);
+void __RPC_STUB IDXGIDevice1_SetMaximumFrameLatency_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIDevice1_GetMaximumFrameLatency_Proxy(
+    IDXGIDevice1* This,
+    UINT *pMaxLatency);
+void __RPC_STUB IDXGIDevice1_GetMaximumFrameLatency_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IDXGIDevice1_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IDXGIFactory1 interface

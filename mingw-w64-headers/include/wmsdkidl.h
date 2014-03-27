@@ -27,6 +27,31 @@ typedef interface IWMStatusCallback IWMStatusCallback;
 typedef interface IWMReaderCallback IWMReaderCallback;
 #endif
 
+#ifndef __IWMStreamList_FWD_DEFINED__
+#define __IWMStreamList_FWD_DEFINED__
+typedef interface IWMStreamList IWMStreamList;
+#endif
+
+#ifndef __IWMMutualExclusion_FWD_DEFINED__
+#define __IWMMutualExclusion_FWD_DEFINED__
+typedef interface IWMMutualExclusion IWMMutualExclusion;
+#endif
+
+#ifndef __IWMStreamConfig_FWD_DEFINED__
+#define __IWMStreamConfig_FWD_DEFINED__
+typedef interface IWMStreamConfig IWMStreamConfig;
+#endif
+
+#ifndef __IWMProfile_FWD_DEFINED__
+#define __IWMProfile_FWD_DEFINED__
+typedef interface IWMProfile IWMProfile;
+#endif
+
+#ifndef __IWMProfileManager_FWD_DEFINED__
+#define __IWMProfileManager_FWD_DEFINED__
+typedef interface IWMProfileManager IWMProfileManager;
+#endif
+
 #ifndef __IWMMediaProps_FWD_DEFINED__
 #define __IWMMediaProps_FWD_DEFINED__
 typedef interface IWMMediaProps IWMMediaProps;
@@ -142,6 +167,13 @@ typedef enum WMT_STREAM_SELECTION {
     WMT_CLEANPOINT_ONLY = 1,
     WMT_ON = 2
 } WMT_STREAM_SELECTION;
+typedef enum WMT_VERSION {
+    WMT_VER_4_0 = 0x40000,
+    WMT_VER_7_0 = 0x70000,
+    WMT_VER_8_0 = 0x80000,
+    WMT_VER_9_0 = 0x90000
+} WMT_VERSION;
+typedef LPCWSTR LPCWSTR_WMSDK_TYPE_SAFE;
 /*****************************************************************************
  * IWMStatusCallback interface
  */
@@ -352,6 +384,1165 @@ void __RPC_STUB IWMReaderCallback_OnSample_Stub(
 
 #endif  /* __IWMReaderCallback_INTERFACE_DEFINED__ */
 
+/*****************************************************************************
+ * IWMStreamList interface
+ */
+#ifndef __IWMStreamList_INTERFACE_DEFINED__
+#define __IWMStreamList_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMStreamList, 0x96406bdd, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("96406bdd-2b2b-11d3-b36b-00c04f6108ff")
+IWMStreamList : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetStreams(
+        WORD *pwStreamNumArray,
+        WORD *pcStreams) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddStream(
+        WORD wStreamNum) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveStream(
+        WORD wStreamNum) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMStreamList, 0x96406bdd, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff)
+#endif
+#else
+typedef struct IWMStreamListVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMStreamList* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMStreamList* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMStreamList* This);
+
+    /*** IWMStreamList methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetStreams)(
+        IWMStreamList* This,
+        WORD *pwStreamNumArray,
+        WORD *pcStreams);
+
+    HRESULT (STDMETHODCALLTYPE *AddStream)(
+        IWMStreamList* This,
+        WORD wStreamNum);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveStream)(
+        IWMStreamList* This,
+        WORD wStreamNum);
+
+    END_INTERFACE
+} IWMStreamListVtbl;
+interface IWMStreamList {
+    CONST_VTBL IWMStreamListVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMStreamList_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMStreamList_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMStreamList_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMStreamList methods ***/
+#define IWMStreamList_GetStreams(This,pwStreamNumArray,pcStreams) (This)->lpVtbl->GetStreams(This,pwStreamNumArray,pcStreams)
+#define IWMStreamList_AddStream(This,wStreamNum) (This)->lpVtbl->AddStream(This,wStreamNum)
+#define IWMStreamList_RemoveStream(This,wStreamNum) (This)->lpVtbl->RemoveStream(This,wStreamNum)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMStreamList_QueryInterface(IWMStreamList* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMStreamList_AddRef(IWMStreamList* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMStreamList_Release(IWMStreamList* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMStreamList methods ***/
+static FORCEINLINE HRESULT IWMStreamList_GetStreams(IWMStreamList* This,WORD *pwStreamNumArray,WORD *pcStreams) {
+    return This->lpVtbl->GetStreams(This,pwStreamNumArray,pcStreams);
+}
+static FORCEINLINE HRESULT IWMStreamList_AddStream(IWMStreamList* This,WORD wStreamNum) {
+    return This->lpVtbl->AddStream(This,wStreamNum);
+}
+static FORCEINLINE HRESULT IWMStreamList_RemoveStream(IWMStreamList* This,WORD wStreamNum) {
+    return This->lpVtbl->RemoveStream(This,wStreamNum);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMStreamList_GetStreams_Proxy(
+    IWMStreamList* This,
+    WORD *pwStreamNumArray,
+    WORD *pcStreams);
+void __RPC_STUB IWMStreamList_GetStreams_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMStreamList_AddStream_Proxy(
+    IWMStreamList* This,
+    WORD wStreamNum);
+void __RPC_STUB IWMStreamList_AddStream_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMStreamList_RemoveStream_Proxy(
+    IWMStreamList* This,
+    WORD wStreamNum);
+void __RPC_STUB IWMStreamList_RemoveStream_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMStreamList_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMMutualExclusion interface
+ */
+#ifndef __IWMMutualExclusion_INTERFACE_DEFINED__
+#define __IWMMutualExclusion_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMMutualExclusion, 0x96406bde, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("96406bde-2b2b-11d3-b36b-00c04f6108ff")
+IWMMutualExclusion : public IWMStreamList
+{
+    virtual HRESULT STDMETHODCALLTYPE GetType(
+        GUID *pguidType) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetType(
+        REFGUID guidType) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMMutualExclusion, 0x96406bde, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff)
+#endif
+#else
+typedef struct IWMMutualExclusionVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMMutualExclusion* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMMutualExclusion* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMMutualExclusion* This);
+
+    /*** IWMStreamList methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetStreams)(
+        IWMMutualExclusion* This,
+        WORD *pwStreamNumArray,
+        WORD *pcStreams);
+
+    HRESULT (STDMETHODCALLTYPE *AddStream)(
+        IWMMutualExclusion* This,
+        WORD wStreamNum);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveStream)(
+        IWMMutualExclusion* This,
+        WORD wStreamNum);
+
+    /*** IWMMutualExclusion methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetType)(
+        IWMMutualExclusion* This,
+        GUID *pguidType);
+
+    HRESULT (STDMETHODCALLTYPE *SetType)(
+        IWMMutualExclusion* This,
+        REFGUID guidType);
+
+    END_INTERFACE
+} IWMMutualExclusionVtbl;
+interface IWMMutualExclusion {
+    CONST_VTBL IWMMutualExclusionVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMMutualExclusion_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMMutualExclusion_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMMutualExclusion_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMStreamList methods ***/
+#define IWMMutualExclusion_GetStreams(This,pwStreamNumArray,pcStreams) (This)->lpVtbl->GetStreams(This,pwStreamNumArray,pcStreams)
+#define IWMMutualExclusion_AddStream(This,wStreamNum) (This)->lpVtbl->AddStream(This,wStreamNum)
+#define IWMMutualExclusion_RemoveStream(This,wStreamNum) (This)->lpVtbl->RemoveStream(This,wStreamNum)
+/*** IWMMutualExclusion methods ***/
+#define IWMMutualExclusion_GetType(This,pguidType) (This)->lpVtbl->GetType(This,pguidType)
+#define IWMMutualExclusion_SetType(This,guidType) (This)->lpVtbl->SetType(This,guidType)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMMutualExclusion_QueryInterface(IWMMutualExclusion* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMMutualExclusion_AddRef(IWMMutualExclusion* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMMutualExclusion_Release(IWMMutualExclusion* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMStreamList methods ***/
+static FORCEINLINE HRESULT IWMMutualExclusion_GetStreams(IWMMutualExclusion* This,WORD *pwStreamNumArray,WORD *pcStreams) {
+    return This->lpVtbl->GetStreams(This,pwStreamNumArray,pcStreams);
+}
+static FORCEINLINE HRESULT IWMMutualExclusion_AddStream(IWMMutualExclusion* This,WORD wStreamNum) {
+    return This->lpVtbl->AddStream(This,wStreamNum);
+}
+static FORCEINLINE HRESULT IWMMutualExclusion_RemoveStream(IWMMutualExclusion* This,WORD wStreamNum) {
+    return This->lpVtbl->RemoveStream(This,wStreamNum);
+}
+/*** IWMMutualExclusion methods ***/
+static FORCEINLINE HRESULT IWMMutualExclusion_GetType(IWMMutualExclusion* This,GUID *pguidType) {
+    return This->lpVtbl->GetType(This,pguidType);
+}
+static FORCEINLINE HRESULT IWMMutualExclusion_SetType(IWMMutualExclusion* This,REFGUID guidType) {
+    return This->lpVtbl->SetType(This,guidType);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMMutualExclusion_GetType_Proxy(
+    IWMMutualExclusion* This,
+    GUID *pguidType);
+void __RPC_STUB IWMMutualExclusion_GetType_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMMutualExclusion_SetType_Proxy(
+    IWMMutualExclusion* This,
+    REFGUID guidType);
+void __RPC_STUB IWMMutualExclusion_SetType_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMMutualExclusion_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMStreamConfig interface
+ */
+#ifndef __IWMStreamConfig_INTERFACE_DEFINED__
+#define __IWMStreamConfig_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMStreamConfig, 0x96406bdc, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("96406bdc-2b2b-11d3-b36b-00c04f6108ff")
+IWMStreamConfig : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetStreamType(
+        GUID *pguidStreamType) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetStreamNumber(
+        WORD *pwStreamNum) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetStreamNumber(
+        WORD wStreamNum) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetStreamName(
+        WCHAR *pwszStreamName,
+        WORD *pcchStreamName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetStreamName(
+        LPCWSTR_WMSDK_TYPE_SAFE pwszStreamName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetConnectionName(
+        WCHAR *pwszInputName,
+        WORD *pcchInputName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetConnectionName(
+        LPCWSTR_WMSDK_TYPE_SAFE pwszInputName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetBitrate(
+        DWORD *pdwBitrate) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetBitrate(
+        DWORD pdwBitrate) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetBufferWindow(
+        DWORD *pmsBufferWindow) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetBufferWindow(
+        DWORD msBufferWindow) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMStreamConfig, 0x96406bdc, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff)
+#endif
+#else
+typedef struct IWMStreamConfigVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMStreamConfig* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMStreamConfig* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMStreamConfig* This);
+
+    /*** IWMStreamConfig methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetStreamType)(
+        IWMStreamConfig* This,
+        GUID *pguidStreamType);
+
+    HRESULT (STDMETHODCALLTYPE *GetStreamNumber)(
+        IWMStreamConfig* This,
+        WORD *pwStreamNum);
+
+    HRESULT (STDMETHODCALLTYPE *SetStreamNumber)(
+        IWMStreamConfig* This,
+        WORD wStreamNum);
+
+    HRESULT (STDMETHODCALLTYPE *GetStreamName)(
+        IWMStreamConfig* This,
+        WCHAR *pwszStreamName,
+        WORD *pcchStreamName);
+
+    HRESULT (STDMETHODCALLTYPE *SetStreamName)(
+        IWMStreamConfig* This,
+        LPCWSTR_WMSDK_TYPE_SAFE pwszStreamName);
+
+    HRESULT (STDMETHODCALLTYPE *GetConnectionName)(
+        IWMStreamConfig* This,
+        WCHAR *pwszInputName,
+        WORD *pcchInputName);
+
+    HRESULT (STDMETHODCALLTYPE *SetConnectionName)(
+        IWMStreamConfig* This,
+        LPCWSTR_WMSDK_TYPE_SAFE pwszInputName);
+
+    HRESULT (STDMETHODCALLTYPE *GetBitrate)(
+        IWMStreamConfig* This,
+        DWORD *pdwBitrate);
+
+    HRESULT (STDMETHODCALLTYPE *SetBitrate)(
+        IWMStreamConfig* This,
+        DWORD pdwBitrate);
+
+    HRESULT (STDMETHODCALLTYPE *GetBufferWindow)(
+        IWMStreamConfig* This,
+        DWORD *pmsBufferWindow);
+
+    HRESULT (STDMETHODCALLTYPE *SetBufferWindow)(
+        IWMStreamConfig* This,
+        DWORD msBufferWindow);
+
+    END_INTERFACE
+} IWMStreamConfigVtbl;
+interface IWMStreamConfig {
+    CONST_VTBL IWMStreamConfigVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMStreamConfig_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMStreamConfig_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMStreamConfig_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMStreamConfig methods ***/
+#define IWMStreamConfig_GetStreamType(This,pguidStreamType) (This)->lpVtbl->GetStreamType(This,pguidStreamType)
+#define IWMStreamConfig_GetStreamNumber(This,pwStreamNum) (This)->lpVtbl->GetStreamNumber(This,pwStreamNum)
+#define IWMStreamConfig_SetStreamNumber(This,wStreamNum) (This)->lpVtbl->SetStreamNumber(This,wStreamNum)
+#define IWMStreamConfig_GetStreamName(This,pwszStreamName,pcchStreamName) (This)->lpVtbl->GetStreamName(This,pwszStreamName,pcchStreamName)
+#define IWMStreamConfig_SetStreamName(This,pwszStreamName) (This)->lpVtbl->SetStreamName(This,pwszStreamName)
+#define IWMStreamConfig_GetConnectionName(This,pwszInputName,pcchInputName) (This)->lpVtbl->GetConnectionName(This,pwszInputName,pcchInputName)
+#define IWMStreamConfig_SetConnectionName(This,pwszInputName) (This)->lpVtbl->SetConnectionName(This,pwszInputName)
+#define IWMStreamConfig_GetBitrate(This,pdwBitrate) (This)->lpVtbl->GetBitrate(This,pdwBitrate)
+#define IWMStreamConfig_SetBitrate(This,pdwBitrate) (This)->lpVtbl->SetBitrate(This,pdwBitrate)
+#define IWMStreamConfig_GetBufferWindow(This,pmsBufferWindow) (This)->lpVtbl->GetBufferWindow(This,pmsBufferWindow)
+#define IWMStreamConfig_SetBufferWindow(This,msBufferWindow) (This)->lpVtbl->SetBufferWindow(This,msBufferWindow)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMStreamConfig_QueryInterface(IWMStreamConfig* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMStreamConfig_AddRef(IWMStreamConfig* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMStreamConfig_Release(IWMStreamConfig* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMStreamConfig methods ***/
+static FORCEINLINE HRESULT IWMStreamConfig_GetStreamType(IWMStreamConfig* This,GUID *pguidStreamType) {
+    return This->lpVtbl->GetStreamType(This,pguidStreamType);
+}
+static FORCEINLINE HRESULT IWMStreamConfig_GetStreamNumber(IWMStreamConfig* This,WORD *pwStreamNum) {
+    return This->lpVtbl->GetStreamNumber(This,pwStreamNum);
+}
+static FORCEINLINE HRESULT IWMStreamConfig_SetStreamNumber(IWMStreamConfig* This,WORD wStreamNum) {
+    return This->lpVtbl->SetStreamNumber(This,wStreamNum);
+}
+static FORCEINLINE HRESULT IWMStreamConfig_GetStreamName(IWMStreamConfig* This,WCHAR *pwszStreamName,WORD *pcchStreamName) {
+    return This->lpVtbl->GetStreamName(This,pwszStreamName,pcchStreamName);
+}
+static FORCEINLINE HRESULT IWMStreamConfig_SetStreamName(IWMStreamConfig* This,LPCWSTR_WMSDK_TYPE_SAFE pwszStreamName) {
+    return This->lpVtbl->SetStreamName(This,pwszStreamName);
+}
+static FORCEINLINE HRESULT IWMStreamConfig_GetConnectionName(IWMStreamConfig* This,WCHAR *pwszInputName,WORD *pcchInputName) {
+    return This->lpVtbl->GetConnectionName(This,pwszInputName,pcchInputName);
+}
+static FORCEINLINE HRESULT IWMStreamConfig_SetConnectionName(IWMStreamConfig* This,LPCWSTR_WMSDK_TYPE_SAFE pwszInputName) {
+    return This->lpVtbl->SetConnectionName(This,pwszInputName);
+}
+static FORCEINLINE HRESULT IWMStreamConfig_GetBitrate(IWMStreamConfig* This,DWORD *pdwBitrate) {
+    return This->lpVtbl->GetBitrate(This,pdwBitrate);
+}
+static FORCEINLINE HRESULT IWMStreamConfig_SetBitrate(IWMStreamConfig* This,DWORD pdwBitrate) {
+    return This->lpVtbl->SetBitrate(This,pdwBitrate);
+}
+static FORCEINLINE HRESULT IWMStreamConfig_GetBufferWindow(IWMStreamConfig* This,DWORD *pmsBufferWindow) {
+    return This->lpVtbl->GetBufferWindow(This,pmsBufferWindow);
+}
+static FORCEINLINE HRESULT IWMStreamConfig_SetBufferWindow(IWMStreamConfig* This,DWORD msBufferWindow) {
+    return This->lpVtbl->SetBufferWindow(This,msBufferWindow);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMStreamConfig_GetStreamType_Proxy(
+    IWMStreamConfig* This,
+    GUID *pguidStreamType);
+void __RPC_STUB IWMStreamConfig_GetStreamType_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMStreamConfig_GetStreamNumber_Proxy(
+    IWMStreamConfig* This,
+    WORD *pwStreamNum);
+void __RPC_STUB IWMStreamConfig_GetStreamNumber_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMStreamConfig_SetStreamNumber_Proxy(
+    IWMStreamConfig* This,
+    WORD wStreamNum);
+void __RPC_STUB IWMStreamConfig_SetStreamNumber_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMStreamConfig_GetStreamName_Proxy(
+    IWMStreamConfig* This,
+    WCHAR *pwszStreamName,
+    WORD *pcchStreamName);
+void __RPC_STUB IWMStreamConfig_GetStreamName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMStreamConfig_SetStreamName_Proxy(
+    IWMStreamConfig* This,
+    LPCWSTR_WMSDK_TYPE_SAFE pwszStreamName);
+void __RPC_STUB IWMStreamConfig_SetStreamName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMStreamConfig_GetConnectionName_Proxy(
+    IWMStreamConfig* This,
+    WCHAR *pwszInputName,
+    WORD *pcchInputName);
+void __RPC_STUB IWMStreamConfig_GetConnectionName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMStreamConfig_SetConnectionName_Proxy(
+    IWMStreamConfig* This,
+    LPCWSTR_WMSDK_TYPE_SAFE pwszInputName);
+void __RPC_STUB IWMStreamConfig_SetConnectionName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMStreamConfig_GetBitrate_Proxy(
+    IWMStreamConfig* This,
+    DWORD *pdwBitrate);
+void __RPC_STUB IWMStreamConfig_GetBitrate_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMStreamConfig_SetBitrate_Proxy(
+    IWMStreamConfig* This,
+    DWORD pdwBitrate);
+void __RPC_STUB IWMStreamConfig_SetBitrate_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMStreamConfig_GetBufferWindow_Proxy(
+    IWMStreamConfig* This,
+    DWORD *pmsBufferWindow);
+void __RPC_STUB IWMStreamConfig_GetBufferWindow_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMStreamConfig_SetBufferWindow_Proxy(
+    IWMStreamConfig* This,
+    DWORD msBufferWindow);
+void __RPC_STUB IWMStreamConfig_SetBufferWindow_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMStreamConfig_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMProfile interface
+ */
+#ifndef __IWMProfile_INTERFACE_DEFINED__
+#define __IWMProfile_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMProfile, 0x96406bdb, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("96406bdb-2b2b-11d3-b36b-00c04f6108ff")
+IWMProfile : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetVersion(
+        WMT_VERSION *pdwVersion) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetName(
+        WCHAR *pwszName,
+        DWORD *pcchName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetName(
+        const WCHAR *pwszName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDescription(
+        WCHAR *pwszDescription,
+        DWORD *pcchDescription) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetDescription(
+        const WCHAR *pwszDescription) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetStreamCount(
+        DWORD *pcStreams) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetStream(
+        DWORD dwStreamIndex,
+        IWMStreamConfig **ppConfig) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetStreamByNumber(
+        WORD wStreamNum,
+        IWMStreamConfig **ppConfig) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveStream(
+        IWMStreamConfig *pConfig) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveStreamByNumber(
+        WORD wStreamNum) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddStream(
+        IWMStreamConfig *pConfig) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ReconfigStream(
+        IWMStreamConfig *pConfig) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateNewStream(
+        REFGUID guidStreamType,
+        IWMStreamConfig **ppConfig) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMutualExclusionCount(
+        DWORD *pcME) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMutualExclusion(
+        DWORD dwMEIndex,
+        IWMMutualExclusion **ppME) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveMutualExclusion(
+        IWMMutualExclusion *pME) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddMutualExclusion(
+        IWMMutualExclusion *pME) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateNewMutualExclusion(
+        IWMMutualExclusion **ppME) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMProfile, 0x96406bdb, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff)
+#endif
+#else
+typedef struct IWMProfileVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMProfile* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMProfile* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMProfile* This);
+
+    /*** IWMProfile methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetVersion)(
+        IWMProfile* This,
+        WMT_VERSION *pdwVersion);
+
+    HRESULT (STDMETHODCALLTYPE *GetName)(
+        IWMProfile* This,
+        WCHAR *pwszName,
+        DWORD *pcchName);
+
+    HRESULT (STDMETHODCALLTYPE *SetName)(
+        IWMProfile* This,
+        const WCHAR *pwszName);
+
+    HRESULT (STDMETHODCALLTYPE *GetDescription)(
+        IWMProfile* This,
+        WCHAR *pwszDescription,
+        DWORD *pcchDescription);
+
+    HRESULT (STDMETHODCALLTYPE *SetDescription)(
+        IWMProfile* This,
+        const WCHAR *pwszDescription);
+
+    HRESULT (STDMETHODCALLTYPE *GetStreamCount)(
+        IWMProfile* This,
+        DWORD *pcStreams);
+
+    HRESULT (STDMETHODCALLTYPE *GetStream)(
+        IWMProfile* This,
+        DWORD dwStreamIndex,
+        IWMStreamConfig **ppConfig);
+
+    HRESULT (STDMETHODCALLTYPE *GetStreamByNumber)(
+        IWMProfile* This,
+        WORD wStreamNum,
+        IWMStreamConfig **ppConfig);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveStream)(
+        IWMProfile* This,
+        IWMStreamConfig *pConfig);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveStreamByNumber)(
+        IWMProfile* This,
+        WORD wStreamNum);
+
+    HRESULT (STDMETHODCALLTYPE *AddStream)(
+        IWMProfile* This,
+        IWMStreamConfig *pConfig);
+
+    HRESULT (STDMETHODCALLTYPE *ReconfigStream)(
+        IWMProfile* This,
+        IWMStreamConfig *pConfig);
+
+    HRESULT (STDMETHODCALLTYPE *CreateNewStream)(
+        IWMProfile* This,
+        REFGUID guidStreamType,
+        IWMStreamConfig **ppConfig);
+
+    HRESULT (STDMETHODCALLTYPE *GetMutualExclusionCount)(
+        IWMProfile* This,
+        DWORD *pcME);
+
+    HRESULT (STDMETHODCALLTYPE *GetMutualExclusion)(
+        IWMProfile* This,
+        DWORD dwMEIndex,
+        IWMMutualExclusion **ppME);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveMutualExclusion)(
+        IWMProfile* This,
+        IWMMutualExclusion *pME);
+
+    HRESULT (STDMETHODCALLTYPE *AddMutualExclusion)(
+        IWMProfile* This,
+        IWMMutualExclusion *pME);
+
+    HRESULT (STDMETHODCALLTYPE *CreateNewMutualExclusion)(
+        IWMProfile* This,
+        IWMMutualExclusion **ppME);
+
+    END_INTERFACE
+} IWMProfileVtbl;
+interface IWMProfile {
+    CONST_VTBL IWMProfileVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMProfile_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMProfile_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMProfile_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMProfile methods ***/
+#define IWMProfile_GetVersion(This,pdwVersion) (This)->lpVtbl->GetVersion(This,pdwVersion)
+#define IWMProfile_GetName(This,pwszName,pcchName) (This)->lpVtbl->GetName(This,pwszName,pcchName)
+#define IWMProfile_SetName(This,pwszName) (This)->lpVtbl->SetName(This,pwszName)
+#define IWMProfile_GetDescription(This,pwszDescription,pcchDescription) (This)->lpVtbl->GetDescription(This,pwszDescription,pcchDescription)
+#define IWMProfile_SetDescription(This,pwszDescription) (This)->lpVtbl->SetDescription(This,pwszDescription)
+#define IWMProfile_GetStreamCount(This,pcStreams) (This)->lpVtbl->GetStreamCount(This,pcStreams)
+#define IWMProfile_GetStream(This,dwStreamIndex,ppConfig) (This)->lpVtbl->GetStream(This,dwStreamIndex,ppConfig)
+#define IWMProfile_GetStreamByNumber(This,wStreamNum,ppConfig) (This)->lpVtbl->GetStreamByNumber(This,wStreamNum,ppConfig)
+#define IWMProfile_RemoveStream(This,pConfig) (This)->lpVtbl->RemoveStream(This,pConfig)
+#define IWMProfile_RemoveStreamByNumber(This,wStreamNum) (This)->lpVtbl->RemoveStreamByNumber(This,wStreamNum)
+#define IWMProfile_AddStream(This,pConfig) (This)->lpVtbl->AddStream(This,pConfig)
+#define IWMProfile_ReconfigStream(This,pConfig) (This)->lpVtbl->ReconfigStream(This,pConfig)
+#define IWMProfile_CreateNewStream(This,guidStreamType,ppConfig) (This)->lpVtbl->CreateNewStream(This,guidStreamType,ppConfig)
+#define IWMProfile_GetMutualExclusionCount(This,pcME) (This)->lpVtbl->GetMutualExclusionCount(This,pcME)
+#define IWMProfile_GetMutualExclusion(This,dwMEIndex,ppME) (This)->lpVtbl->GetMutualExclusion(This,dwMEIndex,ppME)
+#define IWMProfile_RemoveMutualExclusion(This,pME) (This)->lpVtbl->RemoveMutualExclusion(This,pME)
+#define IWMProfile_AddMutualExclusion(This,pME) (This)->lpVtbl->AddMutualExclusion(This,pME)
+#define IWMProfile_CreateNewMutualExclusion(This,ppME) (This)->lpVtbl->CreateNewMutualExclusion(This,ppME)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMProfile_QueryInterface(IWMProfile* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMProfile_AddRef(IWMProfile* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMProfile_Release(IWMProfile* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMProfile methods ***/
+static FORCEINLINE HRESULT IWMProfile_GetVersion(IWMProfile* This,WMT_VERSION *pdwVersion) {
+    return This->lpVtbl->GetVersion(This,pdwVersion);
+}
+static FORCEINLINE HRESULT IWMProfile_GetName(IWMProfile* This,WCHAR *pwszName,DWORD *pcchName) {
+    return This->lpVtbl->GetName(This,pwszName,pcchName);
+}
+static FORCEINLINE HRESULT IWMProfile_SetName(IWMProfile* This,const WCHAR *pwszName) {
+    return This->lpVtbl->SetName(This,pwszName);
+}
+static FORCEINLINE HRESULT IWMProfile_GetDescription(IWMProfile* This,WCHAR *pwszDescription,DWORD *pcchDescription) {
+    return This->lpVtbl->GetDescription(This,pwszDescription,pcchDescription);
+}
+static FORCEINLINE HRESULT IWMProfile_SetDescription(IWMProfile* This,const WCHAR *pwszDescription) {
+    return This->lpVtbl->SetDescription(This,pwszDescription);
+}
+static FORCEINLINE HRESULT IWMProfile_GetStreamCount(IWMProfile* This,DWORD *pcStreams) {
+    return This->lpVtbl->GetStreamCount(This,pcStreams);
+}
+static FORCEINLINE HRESULT IWMProfile_GetStream(IWMProfile* This,DWORD dwStreamIndex,IWMStreamConfig **ppConfig) {
+    return This->lpVtbl->GetStream(This,dwStreamIndex,ppConfig);
+}
+static FORCEINLINE HRESULT IWMProfile_GetStreamByNumber(IWMProfile* This,WORD wStreamNum,IWMStreamConfig **ppConfig) {
+    return This->lpVtbl->GetStreamByNumber(This,wStreamNum,ppConfig);
+}
+static FORCEINLINE HRESULT IWMProfile_RemoveStream(IWMProfile* This,IWMStreamConfig *pConfig) {
+    return This->lpVtbl->RemoveStream(This,pConfig);
+}
+static FORCEINLINE HRESULT IWMProfile_RemoveStreamByNumber(IWMProfile* This,WORD wStreamNum) {
+    return This->lpVtbl->RemoveStreamByNumber(This,wStreamNum);
+}
+static FORCEINLINE HRESULT IWMProfile_AddStream(IWMProfile* This,IWMStreamConfig *pConfig) {
+    return This->lpVtbl->AddStream(This,pConfig);
+}
+static FORCEINLINE HRESULT IWMProfile_ReconfigStream(IWMProfile* This,IWMStreamConfig *pConfig) {
+    return This->lpVtbl->ReconfigStream(This,pConfig);
+}
+static FORCEINLINE HRESULT IWMProfile_CreateNewStream(IWMProfile* This,REFGUID guidStreamType,IWMStreamConfig **ppConfig) {
+    return This->lpVtbl->CreateNewStream(This,guidStreamType,ppConfig);
+}
+static FORCEINLINE HRESULT IWMProfile_GetMutualExclusionCount(IWMProfile* This,DWORD *pcME) {
+    return This->lpVtbl->GetMutualExclusionCount(This,pcME);
+}
+static FORCEINLINE HRESULT IWMProfile_GetMutualExclusion(IWMProfile* This,DWORD dwMEIndex,IWMMutualExclusion **ppME) {
+    return This->lpVtbl->GetMutualExclusion(This,dwMEIndex,ppME);
+}
+static FORCEINLINE HRESULT IWMProfile_RemoveMutualExclusion(IWMProfile* This,IWMMutualExclusion *pME) {
+    return This->lpVtbl->RemoveMutualExclusion(This,pME);
+}
+static FORCEINLINE HRESULT IWMProfile_AddMutualExclusion(IWMProfile* This,IWMMutualExclusion *pME) {
+    return This->lpVtbl->AddMutualExclusion(This,pME);
+}
+static FORCEINLINE HRESULT IWMProfile_CreateNewMutualExclusion(IWMProfile* This,IWMMutualExclusion **ppME) {
+    return This->lpVtbl->CreateNewMutualExclusion(This,ppME);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMProfile_GetVersion_Proxy(
+    IWMProfile* This,
+    WMT_VERSION *pdwVersion);
+void __RPC_STUB IWMProfile_GetVersion_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile_GetName_Proxy(
+    IWMProfile* This,
+    WCHAR *pwszName,
+    DWORD *pcchName);
+void __RPC_STUB IWMProfile_GetName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile_SetName_Proxy(
+    IWMProfile* This,
+    const WCHAR *pwszName);
+void __RPC_STUB IWMProfile_SetName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile_GetDescription_Proxy(
+    IWMProfile* This,
+    WCHAR *pwszDescription,
+    DWORD *pcchDescription);
+void __RPC_STUB IWMProfile_GetDescription_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile_SetDescription_Proxy(
+    IWMProfile* This,
+    const WCHAR *pwszDescription);
+void __RPC_STUB IWMProfile_SetDescription_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile_GetStreamCount_Proxy(
+    IWMProfile* This,
+    DWORD *pcStreams);
+void __RPC_STUB IWMProfile_GetStreamCount_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile_GetStream_Proxy(
+    IWMProfile* This,
+    DWORD dwStreamIndex,
+    IWMStreamConfig **ppConfig);
+void __RPC_STUB IWMProfile_GetStream_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile_GetStreamByNumber_Proxy(
+    IWMProfile* This,
+    WORD wStreamNum,
+    IWMStreamConfig **ppConfig);
+void __RPC_STUB IWMProfile_GetStreamByNumber_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile_RemoveStream_Proxy(
+    IWMProfile* This,
+    IWMStreamConfig *pConfig);
+void __RPC_STUB IWMProfile_RemoveStream_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile_RemoveStreamByNumber_Proxy(
+    IWMProfile* This,
+    WORD wStreamNum);
+void __RPC_STUB IWMProfile_RemoveStreamByNumber_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile_AddStream_Proxy(
+    IWMProfile* This,
+    IWMStreamConfig *pConfig);
+void __RPC_STUB IWMProfile_AddStream_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile_ReconfigStream_Proxy(
+    IWMProfile* This,
+    IWMStreamConfig *pConfig);
+void __RPC_STUB IWMProfile_ReconfigStream_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile_CreateNewStream_Proxy(
+    IWMProfile* This,
+    REFGUID guidStreamType,
+    IWMStreamConfig **ppConfig);
+void __RPC_STUB IWMProfile_CreateNewStream_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile_GetMutualExclusionCount_Proxy(
+    IWMProfile* This,
+    DWORD *pcME);
+void __RPC_STUB IWMProfile_GetMutualExclusionCount_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile_GetMutualExclusion_Proxy(
+    IWMProfile* This,
+    DWORD dwMEIndex,
+    IWMMutualExclusion **ppME);
+void __RPC_STUB IWMProfile_GetMutualExclusion_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile_RemoveMutualExclusion_Proxy(
+    IWMProfile* This,
+    IWMMutualExclusion *pME);
+void __RPC_STUB IWMProfile_RemoveMutualExclusion_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile_AddMutualExclusion_Proxy(
+    IWMProfile* This,
+    IWMMutualExclusion *pME);
+void __RPC_STUB IWMProfile_AddMutualExclusion_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile_CreateNewMutualExclusion_Proxy(
+    IWMProfile* This,
+    IWMMutualExclusion **ppME);
+void __RPC_STUB IWMProfile_CreateNewMutualExclusion_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMProfile_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMProfileManager interface
+ */
+#ifndef __IWMProfileManager_INTERFACE_DEFINED__
+#define __IWMProfileManager_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMProfileManager, 0xd16679f2, 0x6ca0, 0x472d, 0x8d,0x31, 0x2f,0x5d,0x55,0xae,0xe1,0x55);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("d16679f2-6ca0-472d-8d31-2f5d55aee155")
+IWMProfileManager : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE CreateEmptyProfile(
+        WMT_VERSION dwVersion,
+        IWMProfile **ppProfile) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE LoadProfileByID(
+        REFGUID guidProfile,
+        IWMProfile **ppProfile) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE LoadProfileByData(
+        const WCHAR *pwszProfile,
+        IWMProfile **ppProfile) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SaveProfile(
+        IWMProfile *pIWMProfile,
+        WCHAR *pwszProfile,
+        DWORD *pdwLength) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetSystemProfileCount(
+        DWORD *pcProfiles) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE LoadSystemProfile(
+        DWORD dwProfileIndex,
+        IWMProfile **ppProfile) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMProfileManager, 0xd16679f2, 0x6ca0, 0x472d, 0x8d,0x31, 0x2f,0x5d,0x55,0xae,0xe1,0x55)
+#endif
+#else
+typedef struct IWMProfileManagerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMProfileManager* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMProfileManager* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMProfileManager* This);
+
+    /*** IWMProfileManager methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateEmptyProfile)(
+        IWMProfileManager* This,
+        WMT_VERSION dwVersion,
+        IWMProfile **ppProfile);
+
+    HRESULT (STDMETHODCALLTYPE *LoadProfileByID)(
+        IWMProfileManager* This,
+        REFGUID guidProfile,
+        IWMProfile **ppProfile);
+
+    HRESULT (STDMETHODCALLTYPE *LoadProfileByData)(
+        IWMProfileManager* This,
+        const WCHAR *pwszProfile,
+        IWMProfile **ppProfile);
+
+    HRESULT (STDMETHODCALLTYPE *SaveProfile)(
+        IWMProfileManager* This,
+        IWMProfile *pIWMProfile,
+        WCHAR *pwszProfile,
+        DWORD *pdwLength);
+
+    HRESULT (STDMETHODCALLTYPE *GetSystemProfileCount)(
+        IWMProfileManager* This,
+        DWORD *pcProfiles);
+
+    HRESULT (STDMETHODCALLTYPE *LoadSystemProfile)(
+        IWMProfileManager* This,
+        DWORD dwProfileIndex,
+        IWMProfile **ppProfile);
+
+    END_INTERFACE
+} IWMProfileManagerVtbl;
+interface IWMProfileManager {
+    CONST_VTBL IWMProfileManagerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMProfileManager_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMProfileManager_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMProfileManager_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMProfileManager methods ***/
+#define IWMProfileManager_CreateEmptyProfile(This,dwVersion,ppProfile) (This)->lpVtbl->CreateEmptyProfile(This,dwVersion,ppProfile)
+#define IWMProfileManager_LoadProfileByID(This,guidProfile,ppProfile) (This)->lpVtbl->LoadProfileByID(This,guidProfile,ppProfile)
+#define IWMProfileManager_LoadProfileByData(This,pwszProfile,ppProfile) (This)->lpVtbl->LoadProfileByData(This,pwszProfile,ppProfile)
+#define IWMProfileManager_SaveProfile(This,pIWMProfile,pwszProfile,pdwLength) (This)->lpVtbl->SaveProfile(This,pIWMProfile,pwszProfile,pdwLength)
+#define IWMProfileManager_GetSystemProfileCount(This,pcProfiles) (This)->lpVtbl->GetSystemProfileCount(This,pcProfiles)
+#define IWMProfileManager_LoadSystemProfile(This,dwProfileIndex,ppProfile) (This)->lpVtbl->LoadSystemProfile(This,dwProfileIndex,ppProfile)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMProfileManager_QueryInterface(IWMProfileManager* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMProfileManager_AddRef(IWMProfileManager* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMProfileManager_Release(IWMProfileManager* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMProfileManager methods ***/
+static FORCEINLINE HRESULT IWMProfileManager_CreateEmptyProfile(IWMProfileManager* This,WMT_VERSION dwVersion,IWMProfile **ppProfile) {
+    return This->lpVtbl->CreateEmptyProfile(This,dwVersion,ppProfile);
+}
+static FORCEINLINE HRESULT IWMProfileManager_LoadProfileByID(IWMProfileManager* This,REFGUID guidProfile,IWMProfile **ppProfile) {
+    return This->lpVtbl->LoadProfileByID(This,guidProfile,ppProfile);
+}
+static FORCEINLINE HRESULT IWMProfileManager_LoadProfileByData(IWMProfileManager* This,const WCHAR *pwszProfile,IWMProfile **ppProfile) {
+    return This->lpVtbl->LoadProfileByData(This,pwszProfile,ppProfile);
+}
+static FORCEINLINE HRESULT IWMProfileManager_SaveProfile(IWMProfileManager* This,IWMProfile *pIWMProfile,WCHAR *pwszProfile,DWORD *pdwLength) {
+    return This->lpVtbl->SaveProfile(This,pIWMProfile,pwszProfile,pdwLength);
+}
+static FORCEINLINE HRESULT IWMProfileManager_GetSystemProfileCount(IWMProfileManager* This,DWORD *pcProfiles) {
+    return This->lpVtbl->GetSystemProfileCount(This,pcProfiles);
+}
+static FORCEINLINE HRESULT IWMProfileManager_LoadSystemProfile(IWMProfileManager* This,DWORD dwProfileIndex,IWMProfile **ppProfile) {
+    return This->lpVtbl->LoadSystemProfile(This,dwProfileIndex,ppProfile);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMProfileManager_CreateEmptyProfile_Proxy(
+    IWMProfileManager* This,
+    WMT_VERSION dwVersion,
+    IWMProfile **ppProfile);
+void __RPC_STUB IWMProfileManager_CreateEmptyProfile_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfileManager_LoadProfileByID_Proxy(
+    IWMProfileManager* This,
+    REFGUID guidProfile,
+    IWMProfile **ppProfile);
+void __RPC_STUB IWMProfileManager_LoadProfileByID_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfileManager_LoadProfileByData_Proxy(
+    IWMProfileManager* This,
+    const WCHAR *pwszProfile,
+    IWMProfile **ppProfile);
+void __RPC_STUB IWMProfileManager_LoadProfileByData_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfileManager_SaveProfile_Proxy(
+    IWMProfileManager* This,
+    IWMProfile *pIWMProfile,
+    WCHAR *pwszProfile,
+    DWORD *pdwLength);
+void __RPC_STUB IWMProfileManager_SaveProfile_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfileManager_GetSystemProfileCount_Proxy(
+    IWMProfileManager* This,
+    DWORD *pcProfiles);
+void __RPC_STUB IWMProfileManager_GetSystemProfileCount_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfileManager_LoadSystemProfile_Proxy(
+    IWMProfileManager* This,
+    DWORD dwProfileIndex,
+    IWMProfile **ppProfile);
+void __RPC_STUB IWMProfileManager_LoadSystemProfile_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMProfileManager_INTERFACE_DEFINED__ */
+
+HRESULT WINAPI WMCreateProfileManager(IWMProfileManager**);
 /*****************************************************************************
  * IWMMediaProps interface
  */

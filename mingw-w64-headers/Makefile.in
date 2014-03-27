@@ -398,6 +398,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  direct-x/include/ddstream.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/dmodshow.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/dxgi.idl \
+@HAVE_WIDL_TRUE@  direct-x/include/dxgi1_2.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/mediaobj.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/medparam.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/mmstream.idl \

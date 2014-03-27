@@ -174,6 +174,7 @@ IDL_SRCS = \
   direct-x/include/ddstream.idl \
   direct-x/include/dmodshow.idl \
   direct-x/include/dxgi.idl \
+  direct-x/include/dxgi1_2.idl \
   direct-x/include/mediaobj.idl \
   direct-x/include/medparam.idl \
   direct-x/include/mmstream.idl \
