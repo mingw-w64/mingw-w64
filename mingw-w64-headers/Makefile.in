@@ -303,6 +303,9 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/endpointvolume.idl \
 @HAVE_WIDL_TRUE@  include/fsrm.idl \
 @HAVE_WIDL_TRUE@  include/fsrmenums.idl \
+@HAVE_WIDL_TRUE@  include/fsrmquota.idl \
+@HAVE_WIDL_TRUE@  include/fsrmreports.idl \
+@HAVE_WIDL_TRUE@  include/fsrmscreen.idl \
 @HAVE_WIDL_TRUE@  include/fusion.idl \
 @HAVE_WIDL_TRUE@  include/fwptypes.idl \
 @HAVE_WIDL_TRUE@  include/hstring.idl \

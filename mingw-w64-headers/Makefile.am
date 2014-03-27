@@ -79,6 +79,9 @@ IDL_SRCS = \
   include/endpointvolume.idl \
   include/fsrm.idl \
   include/fsrmenums.idl \
+  include/fsrmquota.idl \
+  include/fsrmreports.idl \
+  include/fsrmscreen.idl \
   include/fusion.idl \
   include/fwptypes.idl \
   include/hstring.idl \
