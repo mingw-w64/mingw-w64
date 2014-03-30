@@ -1202,7 +1202,7 @@ scanf_s
 sscanf_s
 strcat_s
 strcpy_s
-strerror_s
+; strerror_s replaced by emu
 strncat_s
 strncpy_s
 ; strnlen replaced by emu

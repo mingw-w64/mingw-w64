@@ -1192,7 +1192,7 @@ strcpy
 strcpy_s
 strcspn
 strerror
-strerror_s
+; strerror_s replaced by emu
 strftime
 strlen
 strncat
