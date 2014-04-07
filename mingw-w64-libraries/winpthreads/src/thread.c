@@ -919,10 +919,10 @@ pthread_self (void)
 
 /* Internal helper for getting event handle of thread T.  */
 void *
-pthread_getevent (pthread_t t)
+pthread_getevent ()
 {
-  struct _pthread_v *tv = __pth_gpointer_locked (t);
-  return (!tv ? NULL : tv->evStart);
+  _pthread_v *t = __pthread_self_lite ();
+  return (!t ? NULL : t->evStart);
 }
 
 /* Internal helper for getting thread handle of thread T.  */

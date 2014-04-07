@@ -401,7 +401,7 @@ int WINPTHREAD_API pthread_barrierattr_getpshared(void **attr, int *s);
 /* Private extensions for analysis and internal use.  */
 struct _pthread_cleanup ** WINPTHREAD_API pthread_getclean (void);
 void *                     WINPTHREAD_API pthread_gethandle (pthread_t t);
-void *                     WINPTHREAD_API pthread_getevent (pthread_t t);
+void *                     WINPTHREAD_API pthread_getevent ();
 
 unsigned long long         WINPTHREAD_API _pthread_rel_time_in_ms(const struct timespec *ts);
 unsigned long long         WINPTHREAD_API _pthread_time_in_ms(void);
