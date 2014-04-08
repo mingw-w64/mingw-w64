@@ -44,7 +44,7 @@ mutex_unref (pthread_mutex_t *m, int r)
 #ifdef WINPTHREAD_DBG
   assert((m_->valid == LIFE_MUTEX) && (m_->busy > 0));
 #endif
-  if (m_->valid == LIFE_MUTEX)
+  if (m_->valid == LIFE_MUTEX && m_->busy > 0)
     m_->busy -= 1;
   pthread_spin_unlock (&mutex_global);
   return r;
@@ -124,15 +124,13 @@ mutex_ref_destroy (pthread_mutex_t *m, pthread_mutex_t *mDestroy)
     return EINVAL;
 
   *mDestroy = NULL;
-  /* also considered as busy, any concurrent access prevents destruction: $$$$ */
-  while (pthread_spin_trylock (&mutex_global) != 0)
-  {
-    mx = *m;
-    r = pthread_mutex_trylock (&mx);
-    if (r != 0)
-      return r;
-    pthread_mutex_unlock (&mx);
-  }
+  /* also considered as busy, any concurrent access prevents destruction: */
+  mx = *m;
+  r = pthread_mutex_trylock (&mx);
+  if (r)
+    return r;
+
+  pthread_spin_lock (&mutex_global);
 
   if (!*m)
     r = EINVAL;
@@ -141,12 +139,10 @@ mutex_ref_destroy (pthread_mutex_t *m, pthread_mutex_t *mDestroy)
     m_ = (mutex_t *)*m;
     if (STATIC_INITIALIZER(*m))
       *m = NULL;
-    else if (m_->valid != LIFE_MUTEX)
+    else  if (m_->valid != LIFE_MUTEX)
       r = EINVAL;
     else if (m_->busy)
-      return 0xbeef; /* Indicate we want to wait here.  */
-    else if (COND_LOCKED(m_))
-      r = EBUSY;
+      r = 0xbeef;
     else
     {
       *mDestroy = *m;
@@ -155,8 +151,10 @@ mutex_ref_destroy (pthread_mutex_t *m, pthread_mutex_t *mDestroy)
   }
 
   if (r)
-    pthread_spin_unlock (&mutex_global);
-
+    {
+      pthread_spin_unlock (&mutex_global);
+      pthread_mutex_unlock (&mx);
+    }
   return r;
 }
 
@@ -168,8 +166,9 @@ mutex_ref_init (pthread_mutex_t *m)
     pthread_spin_lock (&mutex_global);
     
     if (!m)  r = EINVAL;
- 
-    pthread_spin_unlock (&mutex_global);
+
+    if (r) 
+      pthread_spin_unlock (&mutex_global);
     return r;
 }
 
@@ -244,9 +243,6 @@ pthread_mutex_lock_intern (pthread_mutex_t *m, DWORD timeout)
   mutex_t *_m;
   int r;
   HANDLE h;
-#if 0
-  int waited = 0;
-#endif
 
   r = mutex_ref (m);
   if (r)
@@ -261,16 +257,10 @@ pthread_mutex_lock_intern (pthread_mutex_t *m, DWORD timeout)
       {
 	    if (_m->type == PTHREAD_MUTEX_RECURSIVE)
 	    {
-#if 0
-	      printf("thread %d, recursive increment %p\n", GetCurrentThreadId(), m);
-#endif
-	  
 	      InterlockedIncrement(&_m->count);
 	      return mutex_unref(m,0);
 	    }
-#if 0
-		printf("thread %d, non recursive increment?!? %p\n", GetCurrentThreadId(), m);
-#endif
+
 	    return mutex_unref(m, EDEADLK);
       }
     }
@@ -279,20 +269,8 @@ pthread_mutex_lock_intern (pthread_mutex_t *m, DWORD timeout)
   h = _m->h;
   mutex_unref (m, 0);
 
-  if(_m->owner) {
-#if 0
-    waited = 1;
-    printf("thread %d, waiting for thread: %d on mutex %p for %d time\n", GetCurrentThreadId(), _m->owner, m, timeout);
-#endif
-  }
   r = do_sema_b_wait_intern (h, 1, timeout);
 
-#if 0
-  if(waited) {
-    printf("thread %d, resumed\n", GetCurrentThreadId());
-  }
- #endif
- 
   if (r != 0)
     return r;
 
@@ -302,9 +280,7 @@ pthread_mutex_lock_intern (pthread_mutex_t *m, DWORD timeout)
 
   _m->count = 1;
   SET_OWNER(_m);
-#if 0
-  printf("thread %d, setting owner of mutex %p\n", GetCurrentThreadId(), m);
-#endif
+
   return mutex_unref (m, r);
 }
 
@@ -343,54 +319,36 @@ int pthread_mutex_unlock(pthread_mutex_t *m)
   int r = mutex_ref_unlock(m);
   
   if(r) {
-#if 0
-    printf("thread %d, la pool, no user unset in mutex %p\n", GetCurrentThreadId(), m);
-#endif
     return r;
   }
 
   _m = (mutex_t *)*m;
-  
+
   if (_m->type == PTHREAD_MUTEX_NORMAL)
   {
     if (!COND_LOCKED(_m))
       {
-#if 0
-	  printf("thread %d, mutex %p never locked, actually :p\n", GetCurrentThreadId(), m);
-#endif
-	  return mutex_unref(m, EPERM);
+		  return mutex_unref(m, EPERM);
       }
   }
   else if (!COND_LOCKED(_m) || !COND_OWNER(_m)) {
-#if 0
-    printf("thread %d, mutex %p never locked or not owner, actually :p\n", GetCurrentThreadId(), m);
-#endif
     return mutex_unref(m,EPERM);
   }
   
   if (_m->type == PTHREAD_MUTEX_RECURSIVE)
   {
     if(InterlockedDecrement(&_m->count)) {
-#if 0
-	  printf("thread %d, mutex %p decreasing recursive\n", GetCurrentThreadId(), m);
-#endif
 	  return mutex_unref(m,0);
 	}
   }
-#if 0
-  printf("thread %d,unsetting owner of mutex %p\n", GetCurrentThreadId(), m);
-#endif
   UNSET_OWNER(_m);
-  
+
   if (_m->h != NULL && !ReleaseSemaphore(_m->h, 1, NULL)) {
   	SET_OWNER(_m);
-#if 0
-	printf("Error, not released! thread %d, setting owner of mutex m\n", GetCurrentThreadId(), m);
-#endif
     /* restore our own bookkeeping */
     return mutex_unref(m,EPERM);
   }
-  
+
   return mutex_unref(m,0);
 }
 
@@ -423,9 +381,6 @@ _mutex_trylock(pthread_mutex_t *m)
   {
     _m->count = 1;
     SET_OWNER(_m);
-#if 0
-	printf("thread %d, setting owner of mutex %d\n", GetCurrentThreadId(), _m->owner);
-#endif
   }
   
   return r;
@@ -450,10 +405,14 @@ pthread_mutex_init (pthread_mutex_t *m, const pthread_mutexattr_t *a)
     return r;
 
   if (!(_m = (pthread_mutex_t)calloc(1,sizeof(*_m))))
-    return ENOMEM; 
+    {
+      pthread_spin_unlock (&mutex_global);
+      return ENOMEM;
+    }
 
   _m->type = PTHREAD_MUTEX_DEFAULT;
   _m->count = 0;
+  _m->busy = 0;
 
   if (a)
   {
@@ -485,11 +444,13 @@ pthread_mutex_init (pthread_mutex_t *m, const pthread_mutexattr_t *a)
     _m->valid = DEAD_MUTEX;
     free(_m);
     *m = NULL;
+    pthread_spin_unlock (&mutex_global);
     return r;
   }
 
   _m->valid = LIFE_MUTEX;
   *m = _m;
+  pthread_spin_unlock (&mutex_global);
 
   return 0;
 }
@@ -518,6 +479,7 @@ int pthread_mutex_destroy (pthread_mutex_t *m)
   _m->valid = DEAD_MUTEX;
   _m->type  = 0;
   _m->count = 0;
+  _m->busy = 0;
   free (mDestroy);
   *m = NULL;
   pthread_spin_unlock (&mutex_global);

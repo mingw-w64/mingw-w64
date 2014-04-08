@@ -85,11 +85,16 @@ sem_destroy (sem_t *sem)
   if ((r = pthread_mutex_lock (&sv->vlock)) != 0)
     return sem_result (r);
 
+#if 0
+  /* We don't wait for destroying a semaphore ...
+     or?  */
   if (sv->value < 0)
     {
       pthread_mutex_unlock (&sv->vlock);
       return sem_result (EBUSY);
     }
+#endif
+
   if (!CloseHandle (sv->s))
     {
       pthread_mutex_unlock (&sv->vlock);
@@ -184,7 +189,7 @@ sem_wait (sem_t *sem)
   if (sem_std_enter (sem, &sv, 1) != 0)
     return -1;
 
-  arg.ret = NULL;
+  arg.ret = &ret;
   arg.p = sem;
   InterlockedDecrement (&sv->value);
   cur_v = sv->value;
