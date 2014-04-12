@@ -7,7 +7,6 @@
 LIBRARY DDRAW.dll
 EXPORTS
 AcquireDDThreadLock
-CheckFullscreen
 CompleteCreateSysmemSurface
 D3DParseUnknownCommand
 DDGetAttachedSurfaceLcl
