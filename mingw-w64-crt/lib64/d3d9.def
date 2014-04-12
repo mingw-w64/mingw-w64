@@ -6,7 +6,6 @@
 ;
 LIBRARY d3d9.dll
 EXPORTS
-CheckFullscreen
 Direct3DShaderValidatorCreate9
 PSGPError
 PSGPSampleTexture
