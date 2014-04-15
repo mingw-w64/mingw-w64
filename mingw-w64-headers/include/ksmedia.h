@@ -4538,6 +4538,7 @@ typedef enum __WIDL_devicetopology_generated_name_00000002 {
     eConnTypeMultichannelAnalogDIN = 8,
     eConnTypeXlrProfessional = 9,
     eConnTypeRj11Modem = 10,
+    eConnTypeRJ11Modem = eConnTypeRj11Modem,
     eConnTypeCombination = 11
 } EPcxConnectionType;
 
