@@ -82,7 +82,7 @@ internal_modf (__FLT_TYPE value, __FLT_TYPE *iptr)
   /* truncate */ 
   /* truncate */
 #ifdef _WIN64
-  asm ("subq $8, %%rsp\n"
+  asm ("pushq %%rax\n\tsubq $8, %%rsp\n"
     "fnstcw 4(%%rsp)\n"
     "movzwl 4(%%rsp), %%eax\n"
     "orb $12, %%ah\n"
@@ -90,7 +90,7 @@ internal_modf (__FLT_TYPE value, __FLT_TYPE *iptr)
     "fldcw (%%rsp)\n"
     "frndint\n"
     "fldcw 4(%%rsp)\n"
-    "addq $8, %%rsp\n" : "=t" (int_part) : "0" (value)); /* round */
+    "addq $8, %%rsp\npopq %%rax" : "=t" (int_part) : "0" (value)); /* round */
 #else
   asm ("push %%eax\n\tsubl $8, %%esp\n"
     "fnstcw 4(%%esp)\n"
