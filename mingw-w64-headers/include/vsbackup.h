@@ -125,13 +125,14 @@ DECLARE_INTERFACE_(IVssBackupComponents,IUnknown)
     STDMETHOD_(HRESULT,InitializeForRestore)(THIS_ BSTR bstrXML) PURE;
     STDMETHOD_(HRESULT,SetRestoreState)(THIS_ VSS_RESTORE_TYPE restoreType) PURE;
     STDMETHOD_(HRESULT,GatherWriterMetadata)(THIS_ IVssAsync **ppAsync) PURE;
-    STDMETHOD_(HRESULT,GetWriterMetadataCount)(THIS_ UINT pcWriters) PURE;
+    STDMETHOD_(HRESULT,GetWriterMetadataCount)(THIS_ UINT *pcWriters) PURE;
     STDMETHOD_(HRESULT,GetWriterMetadata)(THIS_ UINT iWriter,VSS_ID *pidWriterInstance,IVssExamineWriterMetadata **ppMetadata) PURE;
     STDMETHOD_(HRESULT,FreeWriterMetadata)(THIS) PURE;
     STDMETHOD_(HRESULT,AddComponent)(THIS_ VSS_ID instanceId,VSS_ID writerId,VSS_COMPONENT_TYPE componentType,LPCWSTR wszLogicalPath,LPCWSTR wszComponentName) PURE;
     STDMETHOD_(HRESULT,PrepareForBackup)(THIS_ IVssAsync **ppAsync) PURE;
     STDMETHOD_(HRESULT,AbortBackup)(THIS) PURE;
     STDMETHOD_(HRESULT,GatherWriterStatus)(THIS_ IVssAsync **ppAsync) PURE;
+    STDMETHOD_(HRESULT,GetWriterStatusCount)(THIS_ UINT *pcWriters) PURE;
     STDMETHOD_(HRESULT,FreeWriterStatus)(THIS) PURE;
     STDMETHOD_(HRESULT,GetWriterStatus)(THIS_ UINT iWriter,VSS_ID *pidInstance,VSS_ID *pidWriter,BSTR *pbstrWriter,VSS_WRITER_STATE *pState,HRESULT *pHrResultFailure) PURE;
     STDMETHOD_(HRESULT,SetBackupSucceeded)(THIS_ VSS_ID instanceId,VSS_ID writerId,VSS_COMPONENT_TYPE componentType,LPCWSTR wszLogicalPath,LPCWSTR wszComponentName,BOOLEAN bSucceeded) PURE;
@@ -186,6 +187,7 @@ DECLARE_INTERFACE_(IVssBackupComponents,IUnknown)
 #define IVssBackupComponents_PrepareForBackup(This,ppAsync) (This)->lpVtbl->PrepareForBackup(This,ppAsync)
 #define IVssBackupComponents_AbortBackup() (This)->lpVtbl->AbortBackup(This)
 #define IVssBackupComponents_GatherWriterStatus(This,ppAsync) (This)->lpVtbl->GatherWriterStatus(This,ppAsync)
+#define IVssBackupComponents_GetWriterStatusCount(This,pcWriters) (This)->lpVtbl->GetWriterStatusCount(This,pcWriters)
 #define IVssBackupComponents_FreeWriterStatus() (This)->lpVtbl->FreeWriterStatus(This)
 #define IVssBackupComponents_GetWriterStatus(This,iWriter,pidInstance,pidWriter,pbstrWriter,pState,pHrResultFailure) (This)->lpVtbl->GetWriterStatus(This,iWriter,pidInstance,pidWriter,pbstrWriter,pState,pHrResultFailure)
 #define IVssBackupComponents_SetBackupSucceeded(This,instanceId,writerId,componentType,wszLogicalPath,wszComponentName,bSucceeded) (This)->lpVtbl->SetBackupSucceeded(This,instanceId,writerId,componentType,wszLogicalPath,wszComponentName,bSucceeded)
@@ -246,13 +248,14 @@ DECLARE_INTERFACE_(IVssBackupComponentsEx,IVssBackupComponents)
     STDMETHOD_(HRESULT,InitializeForRestore)(THIS_ BSTR bstrXML) PURE;
     STDMETHOD_(HRESULT,SetRestoreState)(THIS_ VSS_RESTORE_TYPE restoreType) PURE;
     STDMETHOD_(HRESULT,GatherWriterMetadata)(THIS_ IVssAsync **ppAsync) PURE;
-    STDMETHOD_(HRESULT,GetWriterMetadataCount)(THIS_ UINT pcWriters) PURE;
+    STDMETHOD_(HRESULT,GetWriterMetadataCount)(THIS_ UINT *pcWriters) PURE;
     STDMETHOD_(HRESULT,GetWriterMetadata)(THIS_ UINT iWriter,VSS_ID *pidWriterInstance,IVssExamineWriterMetadata **ppMetadata) PURE;
     STDMETHOD_(HRESULT,FreeWriterMetadata)(THIS) PURE;
     STDMETHOD_(HRESULT,AddComponent)(THIS_ VSS_ID instanceId,VSS_ID writerId,VSS_COMPONENT_TYPE componentType,LPCWSTR wszLogicalPath,LPCWSTR wszComponentName) PURE;
     STDMETHOD_(HRESULT,PrepareForBackup)(THIS_ IVssAsync **ppAsync) PURE;
     STDMETHOD_(HRESULT,AbortBackup)(THIS) PURE;
     STDMETHOD_(HRESULT,GatherWriterStatus)(THIS_ IVssAsync **ppAsync) PURE;
+    STDMETHOD_(HRESULT,GetWriterStatusCount)(THIS_ UINT *pcWriters) PURE;
     STDMETHOD_(HRESULT,FreeWriterStatus)(THIS) PURE;
     STDMETHOD_(HRESULT,GetWriterStatus)(THIS_ UINT iWriter,VSS_ID *pidInstance,VSS_ID *pidWriter,BSTR *pbstrWriter,VSS_WRITER_STATE *pState,HRESULT *pHrResultFailure) PURE;
     STDMETHOD_(HRESULT,SetBackupSucceeded)(THIS_ VSS_ID instanceId,VSS_ID writerId,VSS_COMPONENT_TYPE componentType,LPCWSTR wszLogicalPath,LPCWSTR wszComponentName,BOOLEAN bSucceeded) PURE;
@@ -311,6 +314,7 @@ DECLARE_INTERFACE_(IVssBackupComponentsEx,IVssBackupComponents)
 #define IVssBackupComponentsEx_PrepareForBackup(This,ppAsync) (This)->lpVtbl->PrepareForBackup(This,ppAsync)
 #define IVssBackupComponentsEx_AbortBackup() (This)->lpVtbl->AbortBackup(This)
 #define IVssBackupComponentsEx_GatherWriterStatus(This,ppAsync) (This)->lpVtbl->GatherWriterStatus(This,ppAsync)
+#define IVssBackupComponentsEx_GetWriterStatusCount(This,pcWriters) (This)->lpVtbl->GetWriterStatusCount(This,pcWriters)
 #define IVssBackupComponentsEx_FreeWriterStatus() (This)->lpVtbl->FreeWriterStatus(This)
 #define IVssBackupComponentsEx_GetWriterStatus(This,iWriter,pidInstance,pidWriter,pbstrWriter,pState,pHrResultFailure) (This)->lpVtbl->GetWriterStatus(This,iWriter,pidInstance,pidWriter,pbstrWriter,pState,pHrResultFailure)
 #define IVssBackupComponentsEx_SetBackupSucceeded(This,instanceId,writerId,componentType,wszLogicalPath,wszComponentName,bSucceeded) (This)->lpVtbl->SetBackupSucceeded(This,instanceId,writerId,componentType,wszLogicalPath,wszComponentName,bSucceeded)
@@ -372,13 +376,14 @@ DECLARE_INTERFACE_(IVssBackupComponentsEx2,IVssBackupComponentsEx)
     STDMETHOD_(HRESULT,InitializeForRestore)(THIS_ BSTR bstrXML) PURE;
     STDMETHOD_(HRESULT,SetRestoreState)(THIS_ VSS_RESTORE_TYPE restoreType) PURE;
     STDMETHOD_(HRESULT,GatherWriterMetadata)(THIS_ IVssAsync **ppAsync) PURE;
-    STDMETHOD_(HRESULT,GetWriterMetadataCount)(THIS_ UINT pcWriters) PURE;
+    STDMETHOD_(HRESULT,GetWriterMetadataCount)(THIS_ UINT *pcWriters) PURE;
     STDMETHOD_(HRESULT,GetWriterMetadata)(THIS_ UINT iWriter,VSS_ID *pidWriterInstance,IVssExamineWriterMetadata **ppMetadata) PURE;
     STDMETHOD_(HRESULT,FreeWriterMetadata)(THIS) PURE;
     STDMETHOD_(HRESULT,AddComponent)(THIS_ VSS_ID instanceId,VSS_ID writerId,VSS_COMPONENT_TYPE componentType,LPCWSTR wszLogicalPath,LPCWSTR wszComponentName) PURE;
     STDMETHOD_(HRESULT,PrepareForBackup)(THIS_ IVssAsync **ppAsync) PURE;
     STDMETHOD_(HRESULT,AbortBackup)(THIS) PURE;
     STDMETHOD_(HRESULT,GatherWriterStatus)(THIS_ IVssAsync **ppAsync) PURE;
+    STDMETHOD_(HRESULT,GetWriterStatusCount)(THIS_ UINT *pcWriters) PURE;
     STDMETHOD_(HRESULT,FreeWriterStatus)(THIS) PURE;
     STDMETHOD_(HRESULT,GetWriterStatus)(THIS_ UINT iWriter,VSS_ID *pidInstance,VSS_ID *pidWriter,BSTR *pbstrWriter,VSS_WRITER_STATE *pState,HRESULT *pHrResultFailure) PURE;
     STDMETHOD_(HRESULT,SetBackupSucceeded)(THIS_ VSS_ID instanceId,VSS_ID writerId,VSS_COMPONENT_TYPE componentType,LPCWSTR wszLogicalPath,LPCWSTR wszComponentName,BOOLEAN bSucceeded) PURE;
@@ -446,6 +451,7 @@ DECLARE_INTERFACE_(IVssBackupComponentsEx2,IVssBackupComponentsEx)
 #define IVssBackupComponentsEx2_PrepareForBackup(This,ppAsync) (This)->lpVtbl->PrepareForBackup(This,ppAsync)
 #define IVssBackupComponentsEx2_AbortBackup() (This)->lpVtbl->AbortBackup(This)
 #define IVssBackupComponentsEx2_GatherWriterStatus(This,ppAsync) (This)->lpVtbl->GatherWriterStatus(This,ppAsync)
+#define IVssBackupComponentsEx2_GetWriterStatusCount(This,pcWriters) (This)->lpVtbl->GetWriterStatusCount(This,pcWriters)
 #define IVssBackupComponentsEx2_FreeWriterStatus() (This)->lpVtbl->FreeWriterStatus(This)
 #define IVssBackupComponentsEx2_GetWriterStatus(This,iWriter,pidInstance,pidWriter,pbstrWriter,pState,pHrResultFailure) (This)->lpVtbl->GetWriterStatus(This,iWriter,pidInstance,pidWriter,pbstrWriter,pState,pHrResultFailure)
 #define IVssBackupComponentsEx2_SetBackupSucceeded(This,instanceId,writerId,componentType,wszLogicalPath,wszComponentName,bSucceeded) (This)->lpVtbl->SetBackupSucceeded(This,instanceId,writerId,componentType,wszLogicalPath,wszComponentName,bSucceeded)
@@ -516,13 +522,14 @@ DECLARE_INTERFACE_(IVssBackupComponentsEx3,IVssBackupComponentsEx2)
     STDMETHOD_(HRESULT,InitializeForRestore)(THIS_ BSTR bstrXML) PURE;
     STDMETHOD_(HRESULT,SetRestoreState)(THIS_ VSS_RESTORE_TYPE restoreType) PURE;
     STDMETHOD_(HRESULT,GatherWriterMetadata)(THIS_ IVssAsync **ppAsync) PURE;
-    STDMETHOD_(HRESULT,GetWriterMetadataCount)(THIS_ UINT pcWriters) PURE;
+    STDMETHOD_(HRESULT,GetWriterMetadataCount)(THIS_ UINT *pcWriters) PURE;
     STDMETHOD_(HRESULT,GetWriterMetadata)(THIS_ UINT iWriter,VSS_ID *pidWriterInstance,IVssExamineWriterMetadata **ppMetadata) PURE;
     STDMETHOD_(HRESULT,FreeWriterMetadata)(THIS) PURE;
     STDMETHOD_(HRESULT,AddComponent)(THIS_ VSS_ID instanceId,VSS_ID writerId,VSS_COMPONENT_TYPE componentType,LPCWSTR wszLogicalPath,LPCWSTR wszComponentName) PURE;
     STDMETHOD_(HRESULT,PrepareForBackup)(THIS_ IVssAsync **ppAsync) PURE;
     STDMETHOD_(HRESULT,AbortBackup)(THIS) PURE;
     STDMETHOD_(HRESULT,GatherWriterStatus)(THIS_ IVssAsync **ppAsync) PURE;
+    STDMETHOD_(HRESULT,GetWriterStatusCount)(THIS_ UINT *pcWriters) PURE;
     STDMETHOD_(HRESULT,FreeWriterStatus)(THIS) PURE;
     STDMETHOD_(HRESULT,GetWriterStatus)(THIS_ UINT iWriter,VSS_ID *pidInstance,VSS_ID *pidWriter,BSTR *pbstrWriter,VSS_WRITER_STATE *pState,HRESULT *pHrResultFailure) PURE;
     STDMETHOD_(HRESULT,SetBackupSucceeded)(THIS_ VSS_ID instanceId,VSS_ID writerId,VSS_COMPONENT_TYPE componentType,LPCWSTR wszLogicalPath,LPCWSTR wszComponentName,BOOLEAN bSucceeded) PURE;
