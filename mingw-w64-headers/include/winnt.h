@@ -1760,7 +1760,7 @@ extern "C" {
 #define YieldProcessor _mm_pause
 #define MemoryBarrier _mm_mfence
 #else
-#define YieldProcessor __buildpause()
+#define YieldProcessor __buildpause
 VOID MemoryBarrier(VOID);
 FORCEINLINE VOID MemoryBarrier(VOID)
 __buildmemorybarrier()
