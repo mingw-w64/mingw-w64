@@ -30,9 +30,10 @@ __MINGW_USYMBOL(remquo):
 	andl $4, %ecx
 	andl $3, %eax
 	orl %eax, %ecx
-	movl $0xef2960, %eax
+	leal (%ecx,%ecx,2),%ecx
+	movl $0xef2a60, %eax
 	shrl %cl, %eax
-	andl $3, %eax
+	andl $7, %eax
 	movl -12(%rsp), %edx
 	movsd %xmm1,-16(%rsp)
 	xorl -12(%rsp), %edx
@@ -58,9 +59,10 @@ __MINGW_USYMBOL(remquo):
 	andl $4, %ecx
 	andl $3, %eax
 	orl %eax, %ecx
-	movl $0xef2960, %eax
+	leal (%ecx,%ecx,2),%ecx
+	movl $0xef2a60, %eax
 	shrl %cl, %eax
-	andl $3, %eax
+	andl $7, %eax
 	movl 4 +8 +8(%esp), %ecx      
 	movl 4 +4(%esp), %edx
 	xorl 4 +8 +4(%esp), %edx
