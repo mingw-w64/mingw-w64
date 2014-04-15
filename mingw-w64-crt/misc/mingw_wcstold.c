@@ -22,9 +22,10 @@ __mingw_wcstold (const wchar_t * __restrict__ _Str, wchar_t ** __restrict__ _End
     l2 = MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, n, -1, NULL, 0);
     if (l2 > 0)
       l2 -= 1; /* Remove zero terminator from length.  */
-    *_EndPtr = (wchar_t *) &_Str[l2];
+    if (_EndPtr)
+      *_EndPtr = (wchar_t *) &_Str[l2];
   }
-  else
+  else if (_EndPtr)
    *_EndPtr = NULL;
   return r;
 }
