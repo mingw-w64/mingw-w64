@@ -84,7 +84,7 @@ template <typename type1> struct __mingw_types_compatible_p<type1, type1> {
 };
 }
 
-#define __mingw_types_compatible_p(type1, type2) __mingw_types_compatible_p <type1, type2>::result
+#define __mingw_types_compatible_p(type1, type2) (__mingw_types_compatible_p <type1, type2>::result || __mingw_types_compatible_p <type1, const type2>::result)
 #else
 #define __mingw_types_compatible_p(type1, type2) __builtin_types_compatible_p (type1, type2)
 #endif
