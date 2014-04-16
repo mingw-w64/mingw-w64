@@ -40341,6 +40341,7 @@ void __RPC_STUB IFrameworkInputPane_Location_Stub(
 
 #endif  /* __IFrameworkInputPane_INTERFACE_DEFINED__ */
 
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 
 #ifndef PROP_CONTRACT_DELEGATE
 #define PROP_CONTRACT_DELEGATE L"ContractDelegate"
