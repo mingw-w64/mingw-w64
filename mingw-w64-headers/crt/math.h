@@ -82,9 +82,17 @@ template <typename type1, typename type2> struct __mingw_types_compatible_p {
 template <typename type1> struct __mingw_types_compatible_p<type1, type1> {
  static const bool result = true;
 };
+
+template <typename type1> struct __mingw_types_compatible_p<const type1, type1> {
+  static const bool result = true;
+};
+
+template <typename type1> struct __mingw_types_compatible_p<type1, const type1> {
+  static const bool result = true;
+};
 }
 
-#define __mingw_types_compatible_p(type1, type2) (__mingw_types_compatible_p <type1, type2>::result || __mingw_types_compatible_p <type1, const type2>::result)
+#define __mingw_types_compatible_p(type1, type2) __mingw_types_compatible_p <type1, type2>::result
 #else
 #define __mingw_types_compatible_p(type1, type2) __builtin_types_compatible_p (type1, type2)
 #endif
