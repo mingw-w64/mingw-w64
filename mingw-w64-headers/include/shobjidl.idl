@@ -4487,6 +4487,7 @@ interface IFrameworkInputPane : IUnknown {
   HRESULT Location ([out] RECT *prcInputPaneScreenLocation);
 }
 
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
 cpp_quote("")
 cpp_quote("#ifndef PROP_CONTRACT_DELEGATE")
 cpp_quote("#define PROP_CONTRACT_DELEGATE L\"ContractDelegate\"")
@@ -4504,6 +4505,7 @@ cpp_quote("#define PROP_CONTRACT_DELEGATE L\"ContractDelegate\"")
 cpp_quote("#endif")
 cpp_quote("")
 cpp_quote("  __forceinline HWND GetContractDelegateWindow(HWND hwndSource) { return (HWND)GetPropW(hwndSource, PROP_CONTRACT_DELEGATE); }")
+cpp_quote("#endif")
 cpp_quote("#endif")
 
 cpp_quote("")

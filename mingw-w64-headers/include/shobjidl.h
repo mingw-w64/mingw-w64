@@ -40359,6 +40359,7 @@ void __RPC_STUB IFrameworkInputPane_Location_Stub(
 
   __forceinline HWND GetContractDelegateWindow(HWND hwndSource) { return (HWND)GetPropW(hwndSource, PROP_CONTRACT_DELEGATE); }
 #endif
+#endif
 
 #if NTDDI_VERSION >= NTDDI_WIN8
 /*****************************************************************************
