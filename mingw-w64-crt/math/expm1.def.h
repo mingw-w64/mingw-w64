@@ -60,7 +60,7 @@ __FLT_ABI(expm1) (__FLT_TYPE x)
   }
   else if (x_class == FP_ZERO)
   {
-    return __FLT_CST(0.0);
+    return x;
   }
   if (__FLT_ABI (fabs) (x) < __FLT_LOGE2)
     {
