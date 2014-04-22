@@ -516,7 +516,7 @@ pthread_cond_timedwait(pthread_cond_t *c, pthread_mutex_t *m, const struct times
 }
 
 int
-pthread_cond_timedwait_relative(pthread_cond_t *c, pthread_mutex_t *m, const struct timespec *t)
+pthread_cond_timedwait_relative_np(pthread_cond_t *c, pthread_mutex_t *m, const struct timespec *t)
 {
   return pthread_cond_timedwait_impl(c, m, t, 1);
 }
