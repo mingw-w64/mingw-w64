@@ -32,6 +32,13 @@ extern "C" {
 #endif
 #endif /* _AMD64_ */
 
+#if defined(__arm__) && \
+  !(defined(_X86_) || defined(__x86_64) || defined(_AMD64_) || defined (__ia64__))
+#if !defined(_ARM_)
+#define _ARM_
+#endif
+#endif /* _ARM_ */
+
 #if defined(__ia64__) && \
   !(defined(_X86_) || defined(__x86_64) || defined(_AMD64_) || defined (__arm__))
 #if !defined(_IA64_)
@@ -1726,6 +1733,172 @@ extern "C" {
 
 #define OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME "OutOfProcessFunctionTableCallback"
 #endif /* end of _AMD64_ */
+
+
+#ifdef _ARM_
+
+#if defined(__arm__) && !defined(RC_INVOKED)
+
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
+#define BitTest _bittest
+#define BitTestAndComplement _bittestandcomplement
+#define BitTestAndSet _bittestandset
+#define BitTestAndReset _bittestandreset
+
+#define BitScanForward _BitScanForward
+#define BitScanReverse _BitScanReverse
+
+#define InterlockedIncrement16 _InterlockedIncrement16
+#define InterlockedDecrement16 _InterlockedDecrement16
+#define InterlockedCompareExchange16 _InterlockedCompareExchange16
+
+#define InterlockedAnd _InterlockedAnd
+#define InterlockedOr _InterlockedOr
+#define InterlockedXor _InterlockedXor
+#define InterlockedIncrement _InterlockedIncrement
+#define InterlockedIncrementAcquire InterlockedIncrement
+#define InterlockedIncrementRelease InterlockedIncrement
+#define InterlockedDecrement _InterlockedDecrement
+#define InterlockedDecrementAcquire InterlockedDecrement
+#define InterlockedDecrementRelease InterlockedDecrement
+#define InterlockedAdd _InterlockedAdd
+#define InterlockedExchange _InterlockedExchange
+#define InterlockedExchangeAdd _InterlockedExchangeAdd
+#define InterlockedCompareExchange _InterlockedCompareExchange
+#define InterlockedCompareExchangeAcquire InterlockedCompareExchange
+#define InterlockedCompareExchangeRelease InterlockedCompareExchange
+
+#define InterlockedAnd64 _InterlockedAnd64
+#define InterlockedAndAffinity InterlockedAnd64
+#define InterlockedOr64 _InterlockedOr64
+#define InterlockedOrAffinity InterlockedOr64
+#define InterlockedXor64 _InterlockedXor64
+#define InterlockedIncrement64 _InterlockedIncrement64
+#define InterlockedDecrement64 _InterlockedDecrement64
+#define InterlockedAdd64 _InterlockedAdd64
+#define InterlockedExchange64 _InterlockedExchange64
+#define InterlockedExchangeAcquire64 InterlockedExchange64
+#define InterlockedExchangeAdd64 _InterlockedExchangeAdd64
+#define InterlockedCompareExchange64 _InterlockedCompareExchange64
+#define InterlockedCompareExchangeAcquire64 InterlockedCompareExchange64
+#define InterlockedCompareExchangeRelease64 InterlockedCompareExchange64
+
+#define InterlockedExchangePointer _InterlockedExchangePointer
+#define InterlockedCompareExchangePointer _InterlockedCompareExchangePointer
+#define InterlockedCompareExchangePointerAcquire _InterlockedCompareExchangePointer
+#define InterlockedCompareExchangePointerRelease _InterlockedCompareExchangePointer
+
+#ifdef __cplusplus
+  }
+#endif
+#endif /* defined(__arm__) && !defined(RC_INVOKED) */
+
+#define EXCEPTION_READ_FAULT    0
+#define EXCEPTION_WRITE_FAULT   1
+#define EXCEPTION_EXECUTE_FAULT 8
+
+#if !defined(RC_INVOKED)
+
+#define CONTEXT_ARM    0x0200000
+
+#define CONTEXT_CONTROL         (CONTEXT_ARM | 0x00000001)
+#define CONTEXT_INTEGER         (CONTEXT_ARM | 0x00000002)
+#define CONTEXT_FLOATING_POINT  (CONTEXT_ARM | 0x00000004)
+#define CONTEXT_DEBUG_REGISTERS (CONTEXT_ARM | 0x00000008)
+
+#define CONTEXT_FULL (CONTEXT_CONTROL | CONTEXT_INTEGER | CONTEXT_FLOATING_POINT)
+
+#define CONTEXT_ALL  (CONTEXT_CONTROL | CONTEXT_INTEGER | CONTEXT_FLOATING_POINT | CONTEXT_DEBUG_REGISTERS)
+
+#define CONTEXT_EXCEPTION_ACTIVE    0x08000000
+#define CONTEXT_SERVICE_ACTIVE      0x10000000
+#define CONTEXT_EXCEPTION_REQUEST   0x40000000
+#define CONTEXT_EXCEPTION_REPORTING 0x80000000
+
+#define CONTEXT_UNWOUND_TO_CALL     0x20000000
+
+#endif /* !defined(RC_INVOKED) */
+
+#define INITIAL_CPSR  0x10
+#define INITIAL_FPSCR 0x00
+
+#define ARM_MAX_BREAKPOINTS 8
+#define ARM_MAX_WATCHPOINTS 1
+
+
+  typedef struct _NEON128 {
+    ULONGLONG Low;
+    LONGLONG High;
+  } NEON128, *PNEON128;
+
+  typedef struct DECLSPEC_ALIGN(8) _CONTEXT {
+    DWORD ContextFlags;
+
+    DWORD R0;
+    DWORD R1;
+    DWORD R2;
+    DWORD R3;
+    DWORD R4;
+    DWORD R5;
+    DWORD R6;
+    DWORD R7;
+    DWORD R8;
+    DWORD R9;
+    DWORD R10;
+    DWORD R11;
+    DWORD R12;
+
+    DWORD Sp;
+    DWORD Lr;
+    DWORD Pc;
+    DWORD Cpsr;
+
+    DWORD Fpscr;
+    DWORD Padding;
+    union {
+        NEON128   Q[16];
+        ULONGLONG D[32];
+        DWORD     S[32];
+    } DUMMYUNIONNAME;
+
+    DWORD Bvr[ARM_MAX_BREAKPOINTS];
+    DWORD Bcr[ARM_MAX_BREAKPOINTS];
+    DWORD Wvr[ARM_MAX_WATCHPOINTS];
+    DWORD Wcr[ARM_MAX_WATCHPOINTS];
+
+    DWORD Padding2[2];
+  } CONTEXT;
+
+  typedef struct _IMAGE_ARM_RUNTIME_FUNCTION_ENTRY RUNTIME_FUNCTION, *PRUNTIME_FUNCTION;
+
+#define UNW_FLAG_NHANDLER   0x0
+#define UNW_FLAG_EHANDLER   0x1
+#define UNW_FLAG_UHANDLER   0x2
+
+#define UNWIND_HISTORY_TABLE_SIZE 12
+
+  typedef struct _UNWIND_HISTORY_TABLE_ENTRY {
+    DWORD ImageBase;
+    PRUNTIME_FUNCTION FunctionEntry;
+  } UNWIND_HISTORY_TABLE_ENTRY, *PUNWIND_HISTORY_TABLE_ENTRY;
+
+  typedef struct _UNWIND_HISTORY_TABLE {
+    DWORD Count;
+    BYTE  LocalHint;
+    BYTE  GlobalHint;
+    BYTE  Search;
+    BYTE  Once;
+    DWORD LowAddress;
+    DWORD HighAddress;
+    UNWIND_HISTORY_TABLE_ENTRY Entry[UNWIND_HISTORY_TABLE_SIZE];
+  } UNWIND_HISTORY_TABLE, *PUNWIND_HISTORY_TABLE;
+
+#define OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME "OutOfProcessFunctionTableCallback"
+
+#endif /* _ARM_ */
 
 
 #ifdef _X86_
