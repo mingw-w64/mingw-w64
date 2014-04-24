@@ -5,7 +5,14 @@
 #ifndef _WS2IPDEF_
 #define _WS2IPDEF_
 
+#include <_mingw_unicode.h>
 #include <winapifamily.h>
+
+#ifdef __LP64__
+#pragma push_macro("u_long")
+#undef u_long
+#define u_long __ms_u_long
+#endif
 
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 
@@ -131,5 +138,9 @@ WS2TCPIP_INLINE int IN6_ADDR_EQUAL(const struct in6_addr *a, const struct in6_ad
 #endif
 
 #endif /* WINAPI_PARTION_DESKTOP.  */
+
+#ifdef __LP64__
+#pragma pop_macro("u_long")
+#endif
 
 #endif /*_WS2IPDEF_ */

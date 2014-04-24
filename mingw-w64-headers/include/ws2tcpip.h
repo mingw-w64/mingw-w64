@@ -8,6 +8,12 @@
 
 #include <_mingw_unicode.h>
 
+#ifdef __LP64__
+#pragma push_macro("u_long")
+#undef u_long
+#define u_long __ms_u_long
+#endif
+
 #include <winsock2.h>
 #include <ws2ipdef.h>
 #include <psdk_inc/_ip_mreq1.h>
@@ -433,6 +439,10 @@ WINSOCK_API_LINKAGE INT WSAAPI InetPtonA(INT Family, LPCSTR pStringBuf, PVOID pA
 
 #ifdef __cplusplus
 }
+#endif
+
+#ifdef __LP64__
+#pragma pop_macro("u_long")
 #endif
 
 #endif /* _WS2TCPIP_H_ */

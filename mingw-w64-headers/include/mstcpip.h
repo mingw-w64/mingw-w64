@@ -9,6 +9,12 @@
 #include <_mingw_unicode.h>
 #include <winapifamily.h>
 
+#ifdef __LP64__
+#pragma push_macro("u_long")
+#undef u_long
+#define u_long __ms_u_long
+#endif
+
 struct tcp_keepalive {
   u_long onoff;
   u_long keepalivetime;
@@ -130,6 +136,10 @@ LONG NTAPI RtlIpv6StringToAddressExW(PCWSTR AddressString, IN6_ADDR *Address, PU
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #endif /*(_WIN32_WINNT >= 0x0502)*/
+
+#ifdef __LP64__
+#pragma pop_macro("u_long")
+#endif
 
 #endif /* _MSTCPIP_ */
 
