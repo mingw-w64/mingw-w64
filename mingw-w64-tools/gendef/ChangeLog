@@ -1,1 +1,6 @@
+2014-04-24  Kai Tietz  <ktietz@redhat.com>
+
+	* src/gendef.c (has_atdecoration): New function.
+	(dump_def): Use it.
+	(disassembleRet): Don't try to decode for none i386 machine.
 

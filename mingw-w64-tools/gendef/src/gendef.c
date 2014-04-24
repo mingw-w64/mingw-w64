@@ -1,6 +1,6 @@
 /*
     gendef - Generate list of exported symbols from a Portable Executable.
-    Copyright (C) 2009, 2010, 2011, 2012, 2013  mingw-w64 project
+    Copyright (C) 2009-2014  mingw-w64 project
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -57,6 +57,7 @@ static sImportname *theImports = NULL;
 static void *map_va (uint32_t va);
 static int is_data (uint32_t va);
 static int is_reloc (uint32_t va);
+static int has_atdecoration (void);
 
 static int disassembleRetIntern (uint32_t pc, uint32_t *retpop, sAddresses *seen, sAddresses *stack,
 				 int *hasret, int *atleast_one, const char *name, sImportname **ppimpname);
@@ -691,7 +692,7 @@ dump_def (void)
       if (exp->be64)
         exp->retpop = 0;
 
-      if (exp->retpop != (uint32_t) -1 && !exp->be64)
+      if (exp->retpop != (uint32_t) -1 && !exp->be64 && has_atdecoration())
         {
           if (exp->name[0]=='?')
             fprintf(fp," ; has WINAPI (@%u)", (unsigned int) exp->retpop);
@@ -705,7 +706,7 @@ dump_def (void)
       if (exp->beData)
         fprintf(fp," DATA");
 
-      if (exp->retpop != (uint32_t) -1 || (exp->be64 && exp->retpop == 0))
+      if (exp->retpop != (uint32_t) -1 || (exp->retpop == 0 && exp->be64) || !has_atdecoration ())
 	{
 	}
       else if (pimpname)
@@ -780,6 +781,12 @@ pop_addr (sAddresses *ad, uint32_t *val)
   return 1;
 }
 
+static int
+has_atdecoration (void)
+{
+  return (gPEDta && gPEDta->FileHeader.Machine == 0x014c /* IMAGE_FILE_MACHINE_I386 */);
+}
+
 /* exp->beData */
 static int
 disassembleRet (uint32_t func, uint32_t *retpop, const char *name, sImportname **ppimpname, int *seen_ret)
@@ -790,6 +797,11 @@ disassembleRet (uint32_t func, uint32_t *retpop, const char *name, sImportname *
   int hasret = 0;
   int atleast_one = 0;
 
+  if (!has_atdecoration())
+  {
+    *retpop = 0;
+    return 0;
+  }
   *retpop = (uint32_t) -1;
   push_addr (stack, func);
 
