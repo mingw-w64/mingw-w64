@@ -5,7 +5,12 @@
 #include <windef.h>
 #include <ks.h>
 
+#if defined(_ARM_)
+#define STREAMAPI
+#else
 #define STREAMAPI __stdcall
+#endif
+
 #define STREAM_SYSTEM_TIME_MASK   ((STREAM_SYSTEM_TIME)0x00000001FFFFFFFF)
 
 typedef enum {

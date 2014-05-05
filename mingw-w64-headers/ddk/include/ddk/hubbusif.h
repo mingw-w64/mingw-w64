@@ -19,7 +19,11 @@ typedef struct _ROOTHUB_PDO_EXTENSION {
 #define USBD_DEVHACK_SET_DIAG_ID	0x00000004
 
 #ifndef USB_BUSIFFN
+#if defined(_ARM_)
+#define USB_BUSIFFN
+#else
 #define USB_BUSIFFN __stdcall
+#endif
 #endif
 
 #define CD_ERR_V1			0x00000001

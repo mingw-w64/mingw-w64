@@ -92,7 +92,11 @@ typedef union __m128i { char v[16]; } __m128i;
 #endif
 
 #ifndef WINAPI
+#if defined(_ARM_)
+#define WINAPI
+#else
 #define WINAPI __stdcall
+#endif
 #endif
 
 #if defined(__MMX__) || defined(__MINGW_FORCE_SYS_INTRINS)

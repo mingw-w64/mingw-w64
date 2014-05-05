@@ -24,9 +24,17 @@
 #ifndef EVNTAPI
 #ifndef MIDL_PASS
 #ifdef _EVNT_SOURCE_
+#if defined(_ARM_)
+#define EVNTAPI
+#else
 #define EVNTAPI __stdcall
+#endif
+#else
+#if defined(_ARM_)
+#define EVNTAPI DECLSPEC_IMPORT
 #else
 #define EVNTAPI DECLSPEC_IMPORT __stdcall
+#endif
 #endif /* _EVNT_SOURCE_ */
 #endif /* MIDL_PASS */
 #endif /* EVNTAPI */

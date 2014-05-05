@@ -3,7 +3,11 @@
 #define _USBBUSIF_
 
 #ifndef USB_BUSIFFN
+#if defined(_ARM_)
+#define USB_BUSIFFN
+#else
 #define USB_BUSIFFN __stdcall
+#endif
 #endif
 
 #if (NTDDI_VERSION >= NTDDI_WINXP)

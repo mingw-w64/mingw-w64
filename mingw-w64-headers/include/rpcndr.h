@@ -96,7 +96,11 @@ extern "C" {
 #endif
 
 #ifdef __RPC_WIN32__
+#if defined(_ARM_)
+#define __RPC_CALLEE
+#else
 #define __RPC_CALLEE __stdcall
+#endif
 #endif
 
 #ifndef __MIDL_USER_DEFINED

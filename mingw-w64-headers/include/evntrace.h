@@ -11,9 +11,17 @@
 #ifndef WMIAPI
 #ifndef MIDL_PASS
 #ifdef _WMI_SOURCE_
+#if defined(_ARM_)
+#define WMIAPI
+#else
 #define WMIAPI __stdcall
+#endif
+#else
+#if defined(_ARM_)
+#define WMIAPI DECLSPEC_IMPORT
 #else
 #define WMIAPI DECLSPEC_IMPORT __stdcall
+#endif
 #endif
 #endif /* MIDL_PASS */
 #endif /* WMIAPI */

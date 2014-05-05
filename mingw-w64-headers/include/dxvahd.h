@@ -11,7 +11,11 @@ extern "C" {
 #endif
 
 #ifndef CALLBACK
+#if defined(_ARM_)
+#define CALLBACK
+#else
 #define CALLBACK __stdcall
+#endif
 #endif
 
 typedef struct IDXVAHD_Device IDXVAHD_Device;

@@ -38,7 +38,11 @@ extern "C" {
   typedef FIO_CONTEXT *PFIO_CONTEXT;
 
 #ifndef WINAPI
+#if defined(_ARM_)
+#define WINAPI
+#else
 #define WINAPI __stdcall
+#endif
 #endif
 
 #define FILEHC_EXPORT __declspec(dllimport)
