@@ -99,6 +99,8 @@ typedef union __m128i { char v[16]; } __m128i;
 #endif
 #endif
 
+#if (defined(_X86_) || defined(__x86_64))
+
 #if defined(__MMX__) || defined(__MINGW_FORCE_SYS_INTRINS)
 #if defined(__cplusplus)
 extern "C" {
@@ -148,6 +150,8 @@ extern "C" {
 #if defined(__cplusplus)
 }
 #endif
+#endif
+
 #endif
 
 #if (defined(_X86_) && !defined(__x86_64))
