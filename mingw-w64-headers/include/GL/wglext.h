@@ -6,7 +6,7 @@ extern "C" {
 #endif
 
 /*
-** Copyright (c) 2013 The Khronos Group Inc.
+** Copyright (c) 2013-2014 The Khronos Group Inc.
 **
 ** Permission is hereby granted, free of charge, to any person obtaining a
 ** copy of this software and/or associated documentation files (the
@@ -33,7 +33,7 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision$ on $Date$
+** Khronos $Revision: 26290 $ on $Date: 2014-04-16 12:35:38 +0000 (Wed, 16 Apr 2014) $
 */
 
 #if defined(_WIN32) && !defined(APIENTRY) && !defined(__CYGWIN__) && !defined(__SCITECH_SNAP__)
@@ -41,7 +41,7 @@ extern "C" {
 #include <windows.h>
 #endif
 
-#define WGL_WGLEXT_VERSION 20130710
+#define WGL_WGLEXT_VERSION 20140416
 
 /* Generated C header for:
  * API: wgl
@@ -644,6 +644,14 @@ typedef BOOL (WINAPI * PFNWGLCOPYIMAGESUBDATANVPROC) (HGLRC hSrcRC, GLuint srcNa
 BOOL WINAPI wglCopyImageSubDataNV (HGLRC hSrcRC, GLuint srcName, GLenum srcTarget, GLint srcLevel, GLint srcX, GLint srcY, GLint srcZ, HGLRC hDstRC, GLuint dstName, GLenum dstTarget, GLint dstLevel, GLint dstX, GLint dstY, GLint dstZ, GLsizei width, GLsizei height, GLsizei depth);
 #endif
 #endif /* WGL_NV_copy_image */
+
+#ifndef WGL_NV_delay_before_swap
+#define WGL_NV_delay_before_swap 1
+typedef BOOL (WINAPI * PFNWGLDELAYBEFORESWAPNVPROC) (HDC hDC, GLfloat seconds);
+#ifdef WGL_WGLEXT_PROTOTYPES
+BOOL WINAPI wglDelayBeforeSwapNV (HDC hDC, GLfloat seconds);
+#endif
+#endif /* WGL_NV_delay_before_swap */
 
 #ifndef WGL_NV_float_buffer
 #define WGL_NV_float_buffer 1
