@@ -269,52 +269,11 @@ typedef enum _HIDP_REPORT_TYPE {
 #define HIDP_STATUS_I8242_TRANS_UNKNOWN     HIDP_STATUS_I8042_TRANS_UNKNOWN
 
 
-#if !defined(_HIDPI_NO_FUNCTION_MACROS_)
-/*
- * NTSTATUS
- * HidP_GetButtonCaps(
- *   IN HIDP_REPORT_TYPE  ReportType,
- *   OUT PHIDP_BUTTON_CAPS  ButtonCaps,
- *   IN OUT PUSHORT  ButtonCapsLength,
- *   IN PHIDP_PREPARSED_DATA  PreparsedData);
- */
-#define HidP_GetButtonCaps(_Type_, _Caps_, _Len_, _Data_) \
-  HidP_GetSpecificButtonCaps(_Type_, 0, 0, 0, _Caps_, _Len_, _Data_)
-
-/*
- * NTSTATUS
- * HidP_GetButtons(
- *   IN HIDP_REPORT_TYPE  ReportType,
- *   IN USAGE  UsagePage,
- *   IN USHORT  LinkCollection,
- *   OUT USAGE  *UsageList,
- *   IN OUT ULONG  *UsageLength,
- *   IN PHIDP_PREPARSED_DATA  PreparsedData,
- *   IN PCHAR  Report,
- *   IN ULONG  ReportLength);
- */
-#define HidP_GetButtons(Rty, UPa, LCo, ULi, ULe, Ppd, Rep, RLe) \
-  HidP_GetUsages(Rty, UPa, LCo, ULi, ULe, Ppd, Rep, RLe)
-
-#define HidP_GetButtonListLength(RTy, UPa, Ppd) \
-  HidP_GetUsageListLength(Rty, UPa, Ppd)
-
-
-/*
- * NTSTATUS
- * HidP_GetButtonsEx(
- *   IN HIDP_REPORT_TYPE  ReportType,
- *   IN USHORT  LinkCollection,
- *   OUT PUSAGE_AND_PAGE  ButtonList,
- *   IN OUT ULONG  *UsageLength,
- *   IN PHIDP_PREPARSED_DATA  PreparsedData,
- *   IN PCHAR  Report,
- *   IN ULONG  ReportLength);
- */
-#define HidP_GetButtonsEx(RT, LC, BL, UL, PD, R, RL)  \
-  HidP_GetUsagesEx(RT, LC, BL, UL, PD, R, RL)
-
-#endif /* _HIDPI_NO_FUNCTION_MACROS_ */
+NTSTATUS HidP_GetButtonCaps(
+  HIDP_REPORT_TYPE  ReportType,
+  PHIDP_BUTTON_CAPS  ButtonCaps,
+  PUSHORT ButtonCapsLength,
+  PHIDP_PREPARSED_DATA  PreparsedData);
 
 HIDAPI
 NTSTATUS
@@ -389,6 +348,9 @@ HidP_GetSpecificValueCaps(
   PUSHORT  ValueCapsLength,
   PHIDP_PREPARSED_DATA  PreparsedData);
 
+#define HidP_GetButtons(Rty, UPa, LCo, ULi, ULe, Ppd, Rep, RLe) \
+  HidP_GetUsages(Rty, UPa, LCo, ULi, ULe, Ppd, Rep, RLe)
+
 HIDAPI
 NTSTATUS
 NTAPI
@@ -401,6 +363,9 @@ HidP_GetUsages(
   PHIDP_PREPARSED_DATA  PreparsedData,
   PCHAR  Report,
   ULONG  ReportLength);
+
+#define HidP_GetButtonsEx(RT, LC, BL, UL, PD, R, RL)  \
+  HidP_GetUsagesEx(RT, LC, BL, UL, PD, R, RL)
 
 HIDAPI
 NTSTATUS
@@ -440,6 +405,12 @@ HidP_GetUsageValueArray(
   PHIDP_PREPARSED_DATA  PreparsedData,
   PCHAR  Report,
   ULONG  ReportLength);
+
+NTSTATUS NTAPI HidP_GetValueCaps(
+  HIDP_REPORT_TYPE ReportType,
+  PHIDP_VALUE_CAPS ValueCaps,
+  PUSHORT ValueCapsLength,
+  PHIDP_PREPARSED_DATA PreparsedData);
 
 #if !defined(_HIDPI_NO_FUNCTION_MACROS_)
 
