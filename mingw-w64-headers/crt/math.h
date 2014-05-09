@@ -36,7 +36,7 @@ struct _exception;
 #endif
 #endif
 
-#if !defined(__STRICT_ANSI__) || defined(_XOPEN_SOURCE) || defined(_GNU_SOURCE) || defined(_BSD_SOURCE) 
+#if !defined(__STRICT_ANSI__) || defined(_XOPEN_SOURCE) || defined(_GNU_SOURCE) || defined(_BSD_SOURCE) || defined(_USE_MATH_DEFINES)
 #define M_E		2.7182818284590452354
 #define M_LOG2E		1.4426950408889634074
 #define M_LOG10E	0.43429448190325182765
