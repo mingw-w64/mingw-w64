@@ -12,10 +12,10 @@
 #else
 	.align 4
 #endif
-.globl __MINGW_USYMBOL(nearbyintl)
+	.globl __MINGW_USYMBOL(nearbyintl)
 	.def	__MINGW_USYMBOL(nearbyintl);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(nearbyintl):
-#ifdef _WIN64
+#if defined(_AMD64_) || defined(__x86_64__)
 	fldt	(%rdx)
 	movq	%rcx,%r8
 	pushq	%rax
@@ -34,7 +34,11 @@ __MINGW_USYMBOL(nearbyintl):
 	movq	$0,8(%r8)
 	fstpt	(%r8)
 	ret
-#else
+#elif defined(_ARM_) || defined(__arm__)
+	vcvtr.s32.f64	s0, d0
+	vcvt.f64.s32	d0, s0
+	bx	lr
+#elif defined(_X86_) || defined(__i386__)
 	fldt	4(%esp)
 	pushl	%eax
 	pushl	%ecx
