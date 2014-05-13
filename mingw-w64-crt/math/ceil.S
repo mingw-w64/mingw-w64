@@ -8,14 +8,14 @@
 	.file	"ceil.S"
 	.text
 	.align 4
-.globl __MINGW_USYMBOL(ceil)
+	.globl __MINGW_USYMBOL(ceil)
 	.def	__MINGW_USYMBOL(ceil);	.scl	2;	.type	32;	.endef
 #ifdef _WIN64
 	.seh_proc	__MINGW_USYMBOL(ceil)
 #endif
 
 __MINGW_USYMBOL(ceil):
-#ifdef _WIN64
+#if defined(_AMD64_) || defined(__x86_64__)
 	.seh_endprologue
 	movd %xmm0, %rax
 	movq	%rax, %rcx
@@ -91,7 +91,16 @@ __MINGW_USYMBOL(ceil):
 .zero:
 	.long	0
 	.long	0
-#else
+#elif defined(_ARM_) || defined(__arm__)
+	vmrs	r1, fpscr
+	bic		r0, r1, #0x00c00000
+	orr		r0, r0, #0x00400000 /* Round towards Plus Infinity */
+	vmsr	fpscr, r0
+	vcvtr.s32.f64	s0, d0
+	vcvt.f64.s32	d0, s0
+	vmsr	fpscr, r1
+	bx	lr
+#elif defined(_X86_) || defined(__i386__)
 	fldl	4(%esp)
 	subl	$8,%esp
 

@@ -8,14 +8,14 @@
 	.file	"ceilf.S"
 	.text
 	.align 4
-.globl __MINGW_USYMBOL(ceilf)
+	.globl __MINGW_USYMBOL(ceilf)
 	.def	__MINGW_USYMBOL(ceilf);	.scl	2;	.type	32;	.endef
 #ifdef _WIN64
 	.seh_proc	__MINGW_USYMBOL(ceilf)
 #endif
 
 __MINGW_USYMBOL(ceilf):
-#ifdef _WIN64
+#if defined(_AMD64_) || defined(__x86_64__)
         subq    $24, %rsp
         .seh_stackalloc 24
         .seh_endprologue
@@ -87,7 +87,16 @@ __MINGW_USYMBOL(ceilf):
         .align 4
 .zeroval:
         .long   0
-#else
+#elif defined(_ARM_) || defined(__arm__)
+	vmrs	r1, fpscr
+	bic		r0, r1, #0x00c00000
+	orr		r0, r0, #0x00400000 /* Round towards Plus Infinity */
+	vmsr	fpscr, r0
+	vcvt.s32.f32	s0, s0
+	vcvt.f32.s32	s0, s0
+	vmsr	fpscr, r1
+	bx	lr
+#elif defined(_X86_) || defined(__i386__)
 	flds	4(%esp)
 	subl	$8,%esp
 
