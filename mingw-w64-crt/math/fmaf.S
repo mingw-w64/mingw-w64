@@ -13,10 +13,10 @@
 	.align 2
 #endif
 	.p2align 4,,15
-.globl __MINGW_USYMBOL(fmaf)
+	.globl __MINGW_USYMBOL(fmaf)
 	.def	__MINGW_USYMBOL(fmaf);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(fmaf):
-#ifdef _WIN64
+#if defined(_AMD64_) || defined(__x86_64__)
 	subq	$56, %rsp
 	movss	%xmm0,(%rsp)
 	movss	%xmm1,16(%rsp)
@@ -29,7 +29,11 @@ __MINGW_USYMBOL(fmaf):
 	movss	(%rsp),%xmm0
 	addq	$56, %rsp
 	ret
-#else
+#elif defined(_ARM_) || defined(__arm__)
+	fmacs s2, s0, s1
+	fcpys s0, s2
+	bx	lr
+#elif defined(_X86_) || defined(__i386__)
 	flds	4(%esp)
 	fmuls	8(%esp)
 	flds	12(%esp)
