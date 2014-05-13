@@ -43,10 +43,12 @@ get_thrpc (HANDLE thr)
   ctx.ContextFlags = CONTEXT_CONTROL | CONTEXT_INTEGER;
   pc = (size_t) - 1;
   if (GetThreadContext (thr, &ctx)) {
-#ifndef _WIN64
-    pc = ctx.Eip;
-#else
+#if defined(_AMD64_) || defined(__x86_64__)
     pc = ctx.Rip;
+#elif defined(_ARM_) || defined(__arm__)
+    pc = ctx.Pc;
+#elif defined(_X86_) || defined(__i386__)
+    pc = ctx.Eip;
 #endif
   }
   ResumeThread (thr);
