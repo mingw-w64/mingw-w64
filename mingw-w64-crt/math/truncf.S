@@ -8,14 +8,14 @@
         .file "truncf.S"
         .text
         .p2align 4,,15
-.globl __MINGW_USYMBOL(truncf)
+        .globl __MINGW_USYMBOL(truncf)
         .def    __MINGW_USYMBOL(truncf);  .scl    2;      .type   32;     .endef
 
 #ifdef _WIN64
         .seh_proc __MINGW_USYMBOL(truncf)
 #endif
 __MINGW_USYMBOL(truncf):
-#ifdef _WIN64
+#if defined(_AMD64_) || defined(__x86_64__)
 	subq	$24, %rsp
 	.seh_stackalloc	24
 	.seh_endprologue
@@ -55,7 +55,15 @@ __MINGW_USYMBOL(truncf):
 	addq	$24, %rsp
 	ret
 	.seh_endproc
-#else
+#elif defined(_ARM_) || defined(__arm__)
+	vmrs	r1, fpscr
+	orr		r0, r1, #0x00c00000 /* Round towards Zero */
+	vmsr	fpscr, r0
+	vcvt.s32.f32	s0, s0
+	vcvt.f32.s32	s0, s0
+	vmsr	fpscr, r1
+	bx	lr
+#elif defined(_X86_) || defined(__i386__)
         flds    4(%esp)
         subl    $8, %esp
         fstcw   (%esp)
