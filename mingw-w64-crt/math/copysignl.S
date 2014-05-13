@@ -18,10 +18,10 @@
 	.align 4
 #endif
 
-.globl __MINGW_USYMBOL(copysignl)
+	.globl __MINGW_USYMBOL(copysignl)
 	.def	__MINGW_USYMBOL(copysignl);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(copysignl):
-#ifdef _WIN64
+#if defined(_AMD64_) || defined(__x86_64__)
 	movq	(%rdx), %rax
 	movq	%rax, (%rcx)
 	movq	8(%rdx), %rax
@@ -32,7 +32,19 @@ __MINGW_USYMBOL(copysignl):
 	movq	%rax, 8(%rcx)
 	movq	%rcx, %rax
 	ret
-#else
+#elif defined(_ARM_) || defined(__arm__)
+	fcmpzd	d1
+	fmstat
+	bmi	1f /* jump if d1 is negative */
+	fcmpzd	d0
+	fmstat
+	vnegmi.f64	d0, d0 /* negate d0 if it is negative */
+	bx	lr
+	1: fcmpzd	d0
+	fmstat
+	vnegpl.f64	d0, d0 /* negate d0 if it is positive */
+	bx	lr
+#elif defined(_X86_) || defined(__i386__)
 	movl	24(%esp),%edx
 	movl	12(%esp),%eax
 	andl	$0x8000,%edx
