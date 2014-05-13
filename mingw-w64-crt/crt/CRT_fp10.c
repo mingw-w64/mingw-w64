@@ -8,10 +8,16 @@ void _fpreset (void);
 
 void _fpreset (void)
 {
+#if defined(_ARM_) || defined(__arm__)
+  __asm__ __volatile__ (
+    "mov	r0, #0x00\n\t" /* INITIAL_FPSCR */
+    "vmsr	fpscr, r0\n\t");
+#else
 #ifdef __GNUC__
   __asm__ ("fninit");
 #else /* msvc: */
   __asm fninit;
+#endif
 #endif
 }
 
