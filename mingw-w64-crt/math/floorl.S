@@ -12,10 +12,10 @@
 #else
 	.align 4
 #endif
-.globl __MINGW_USYMBOL(floorl)
+	.globl __MINGW_USYMBOL(floorl)
 	.def	__MINGW_USYMBOL(floorl);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(floorl):
-#ifdef _WIN64
+#if defined(_AMD64_) || defined(__x86_64__)
 	fldt	(%rdx)
 	subq	$24,%rsp
 
@@ -39,7 +39,16 @@ __MINGW_USYMBOL(floorl):
 	movq	$0,8(%rcx)
 	fstpt	(%rcx)
 	ret
-#else
+#elif defined(_ARM_) || defined(__arm__)
+	vmrs	r1, fpscr
+	bic		r0, r1, #0x00c00000
+	orr		r0, r0, #0x00800000 /* Round towards Minus Infinity */
+	vmsr	fpscr, r0
+	vcvtr.s32.f64	s0, d0
+	vcvt.f64.s32	d0, s0
+	vmsr	fpscr, r1
+	bx	lr
+#elif defined(_X86_) || defined(__i386__)
 	fldt	4(%esp)
 	subl	$8,%esp
 

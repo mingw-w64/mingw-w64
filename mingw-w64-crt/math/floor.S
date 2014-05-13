@@ -8,13 +8,13 @@
 	.file	"floor.S"
 	.text
 	.p2align 4,,15
-.globl __MINGW_USYMBOL(floor)
+	.globl __MINGW_USYMBOL(floor)
 	.def	__MINGW_USYMBOL(floor);	.scl	2;	.type	32;	.endef
 #ifdef _WIN64
 	.seh_proc __MINGW_USYMBOL(floor)
 #endif
 __MINGW_USYMBOL(floor):
-#ifdef _WIN64
+#if defined(_AMD64_) || defined(__x86_64__)
 	pushq	%rbx
 	.seh_pushreg	%rbx
 	subq	$16, %rsp
@@ -143,7 +143,16 @@ __MINGW_USYMBOL(floor):
 .hugeval:
 	.long	-2013235812
 	.long	2117592124
-#else
+#elif defined(_ARM_) || defined(__arm__)
+	vmrs	r1, fpscr
+	bic		r0, r1, #0x00c00000
+	orr		r0, r0, #0x00800000 /* Round towards Minus Infinity */
+	vmsr	fpscr, r0
+	vcvtr.s32.f64	s0, d0
+	vcvt.f64.s32	d0, s0
+	vmsr	fpscr, r1
+	bx	lr
+#elif defined(_X86_) || defined(__i386__)
 	fldl	4(%esp)
 	subl	$8,%esp
 
