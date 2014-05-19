@@ -1,1 +1,5 @@
+2014-05-19  Corinna Vinschen  <vinschen@redhat.com>
 
+	* crt/pseudo-reloc.c (__report_error): Keep in sync with Cygwin version:
+	Raise size of module name buffer to PATH_MAX.  Fix length in call to
+	GetModuleFileNameW.

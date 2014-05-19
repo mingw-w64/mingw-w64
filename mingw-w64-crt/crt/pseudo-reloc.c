@@ -92,7 +92,7 @@ __report_error (const char *msg, ...)
    * cygwin ptys.
    */
   char buf[SHORT_MSG_BUF_SZ];
-  wchar_t module[MAX_PATH];
+  wchar_t module[PATH_MAX];
   char * posix_module = NULL;
   static const char   UNKNOWN_MODULE[] = "<unknown module>: ";
   static const size_t UNKNOWN_MODULE_LEN = sizeof (UNKNOWN_MODULE) - 1;
@@ -102,7 +102,7 @@ __report_error (const char *msg, ...)
   DWORD done;
   va_list args;
   HANDLE errh = GetStdHandle (STD_ERROR_HANDLE);
-  ssize_t modulelen = GetModuleFileNameW (NULL, module, sizeof (module));
+  ssize_t modulelen = GetModuleFileNameW (NULL, module, PATH_MAX);
 
   if (errh == INVALID_HANDLE_VALUE)
     cygwin_internal (CW_EXIT_PROCESS,
