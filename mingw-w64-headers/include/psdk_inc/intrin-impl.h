@@ -479,7 +479,7 @@ supports ReadWriteBarrier, map all 3 to do the same. */
 extern "C" {
 #endif
 
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(_AMD64_)
 
 #if __INTRINSIC_PROLOG(__faststorefence)
 void __faststorefence(void);
@@ -828,11 +828,11 @@ unsigned __int64 __shiftright128 (unsigned __int64  LowPart, unsigned __int64 Hi
 #define __INTRINSIC_DEFINED___shiftright128
 #endif /* __INTRINSIC_PROLOG */
 
-#endif /* __x86_64__ */
+#endif /* defined(__x86_64__) || defined(_AMD64_) */
 
 /* ***************************************************** */
 
-#if defined(__x86_64__) || defined(_X86_)
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__i386__) || defined(_X86_)
 
 #if __INTRINSIC_PROLOG(__int2c)
 void __int2c(void);
@@ -1169,11 +1169,11 @@ __MINGW_EXTENSION unsigned __int64 __readmsr(unsigned __LONG32);
 __INTRINSICS_USEINLINE
 unsigned __int64 __readmsr(unsigned __LONG32 msr)
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(_AMD64_)
    unsigned __int64 val1, val2;
 #else
    unsigned __LONG32 val1, val2;
-#endif
+#endif /* defined(__x86_64__) || defined(_AMD64_) */
 
    __asm__ __volatile__(
       "rdmsr"
@@ -1220,11 +1220,11 @@ __buildmov(__movsd, unsigned __LONG32, "d")
 #define __INTRINSIC_DEFINED___movsd
 #endif /* __INTRINSIC_PROLOG */
 
-#endif /* defined(__x86_64__) || (defined(_X86_) */
+#endif /* defined(__x86_64__) || defined(_AMD64_) || defined(__i386__) || defined(_X86_) */
 
 /* ***************************************************** */
 
-#if defined(_X86_)
+#if defined(__i386__) || defined(_X86_)
 
 #if __INTRINSIC_PROLOG(__readfsbyte)
 unsigned char __readfsbyte(unsigned __LONG32 Offset);
@@ -1331,7 +1331,7 @@ __build_writecr(__writecr8, unsigned __LONG32, "8")
 #define __INTRINSIC_DEFINED___writecr8
 #endif /* __INTRINSIC_PROLOG */
 
-#endif /* defined(_X86_) */
+#endif /* defined(__i386__) || defined(_X86_) */
 
 #ifdef __cplusplus
 }
