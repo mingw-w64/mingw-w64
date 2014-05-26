@@ -26,14 +26,19 @@ AM_DLLTOOLFLAGS=-k --as=$(AS) --output-lib $@
 if DELAY_IMPORT_LIBS
   AM_DLLTOOLFLAGS += --output-delaylib $@.delayimp.a
 endif
+CPPFLAGSARM32=-mfpu=vfp
 CPPFLAGS32=-m32
 CPPFLAGS64=-m64
+DLLTOOLFLAGSARM32=
 DLLTOOLFLAGS32=--as-flags=--32 -m i386
 DLLTOOLFLAGS64=--as-flags=--64 -m i386:x86-64
+DTDEFARM32=$(DLLTOOL) $(DLLTOOLFLAGSARM32) $(AM_DLLTOOLFLAGS) --input-def
 DTDEF32=$(DLLTOOL) $(DLLTOOLFLAGS32) $(AM_DLLTOOLFLAGS) --input-def
 DTDEF64=$(DLLTOOL) $(DLLTOOLFLAGS64) $(AM_DLLTOOLFLAGS) --input-def
+DTLIBARM32=$(DTDEFARM32) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
 DTLIB32=$(DTDEF32) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
 DTLIB64=$(DTDEF64) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
+LDFLAGSARM32= -L$(top_builddir)/libarm32
 LDFLAGS32=-m32 -L$(top_builddir)/lib32
 LDFLAGS64=-m64 -L$(top_builddir)/lib64
 extra_include=-I$(top_srcdir)/include
@@ -1086,6 +1091,249 @@ lib64/libd3dcompiler.a: lib64/$(d3dcompiler).def
 endif
 # End 64-bit runtime
 ##########
+
+
+
+if LIBARM32
+#########
+# Compiling ARM 32-bit runtime
+#
+
+libarm32dir=$(prefix)/@LIBARM32SUFFIXDIR@
+crt32dir=$(libarm32dir)
+winrt32dir=$(libarm32dir)
+dx32dir=$(libarm32dir)
+
+winrt32_DATA = $(winrtlibs)
+
+if !W32API
+crt32_DATA = \
+  libarm32/crt1.o    libarm32/crt2.o     libarm32/crt1u.o   libarm32/crt2u.o    libarm32/dllcrt1.o    libarm32/dllcrt2.o \
+  libarm32/CRT_fp8.o libarm32/CRT_fp10.o libarm32/txtmode.o libarm32/binmode.o  libarm32/crtbegin.o   libarm32/crtend.o \
+  libarm32/gcrt0.o   libarm32/gcrt1.o    libarm32/gcrt2.o   libarm32/CRT_glob.o libarm32/CRT_noglob.o
+else
+crt32_DATA =
+endif
+
+COMPILE32=$(COMPILE) $(CPPFLAGSARM32) $(extra_include) -D_SYSCRT=1 -DCRTDLL=1
+libarm32/crt1.o: crt/crtexe.c
+	$(COMPILE32) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
+libarm32/crt2.o: crt/crtexe.c
+	$(COMPILE32) -c $< -o $@ -U__CRTDLL__ -D__MSVCRT__
+libarm32/crt1u.o: crt/ucrtexe.c
+	$(COMPILE32) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
+libarm32/crt2u.o: crt/ucrtexe.c
+	$(COMPILE32) -c $< -o $@ -U__CRTDLL__ -D__MSVCRT__
+libarm32/dllcrt1.o: crt/crtdll.c
+	$(COMPILE32) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
+libarm32/dllcrt2.o: crt/crtdll.c
+	$(COMPILE32) -c $< -o $@ -U__CRTDLL__ -D__MSVCRT__
+
+libarm32/gcrt0.o: profile/gcrt0.c
+	$(COMPILE) $(CPPFLAGSARM32) -c $< -o $@
+libarm32/gcrt1.o: profile/gcrt0.c
+	$(COMPILE) $(CPPFLAGSARM32) -c $< -o $@ -U__MSVCRT__
+libarm32/gcrt2.o: profile/gcrt0.c
+	$(COMPILE) $(CPPFLAGSARM32) -c $< -o $@ -D__MSVCRT__
+
+libarm32/%.o: crt/%.c
+	$(COMPILE) $(CPPFLAGSARM32) -c $< -o $@
+
+# These source files aren't compiled in to any library yet.  I'm not sure how / where to do so.
+# The source files that I did compile somewhere I just guessed at anyway.
+#
+
+temp= \
+dxerr.c \
+test.c
+
+libarm32_LIBRARIES = libarm32/libkernel32.a
+libarm32_libkernel32_a_SOURCES = $(src_intrincs)
+libarm32_libkernel32_a_AR = $(DTLIBARM32) && $(AR) $(ARFLAGS)
+libarm32_libkernel32_a_CPPFLAGS=$(CPPFLAGSARM32) $(extra_include) $(AM_CPPFLAGS)
+
+if !W32API
+libarm32_LIBRARIES += libarm32/libmsvcrt.a
+libarm32_libmsvcrt_a_SOURCES = $(src_msvcrt32)
+libarm32_libmsvcrt_a_AR = $(DTDEFARM32) && $(AR) $(ARFLAGS)
+libarm32_libmsvcrt_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
+EXTRA_libarm32_libmsvcrt_a_DEPENDENCIES=libarm32/msvcrt.def
+endif
+
+libarm32_LIBRARIES += libarm32/libshell32.a
+libarm32_libshell32_a_SOURCES = $(src_libshell32)
+libarm32_libshell32_a_AR = $(DTLIBARM32) && $(AR) $(ARFLAGS)
+libarm32_libshell32_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+
+libarm32_LIBRARIES += libarm32/libdmoguids.a
+libarm32_libdmoguids_a_SOURCES = $(src_libdmoguids)
+libarm32_libdmoguids_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+
+libarm32_LIBRARIES += libarm32/libdxerr8.a
+libarm32_libdxerr8_a_SOURCES = $(src_libdxerr8)
+libarm32_libdxerr8_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+
+libarm32_LIBRARIES += libarm32/libdxerr9.a
+libarm32_libdxerr9_a_SOURCES = $(src_libdxerr9)
+libarm32_libdxerr9_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+
+libarm32_LIBRARIES += libarm32/libmfuuid.a
+libarm32_libmfuuid_a_SOURCES = $(src_libmfuuid)
+libarm32_libmfuuid_a_CPPFLAGS = $(CPPFLAGSARM32) $(sysincludes)
+
+libarm32_LIBRARIES += libarm32/libwmcodecdspuuid.a
+libarm32_libwmcodecdspuuid_a_SOURCES = $(src_libwmcodecdspuuid)
+libarm32_libwmcodecdspuuid_a_CPPFLAGS = $(CPPFLAGSARM32) $(sysincludes)
+
+libarm32_LIBRARIES += libarm32/libwindowscodecs.a
+libarm32_libwindowscodecs_a_SOURCES = $(src_libwindowscodecs)
+libarm32_libwindowscodecs_a_CPPFLAGS = $(CPPFLAGSARM32) $(sysincludes)
+
+libarm32_LIBRARIES += libarm32/libwbemuuid.a
+libarm32_libwbemuuid_a_SOURCES = $(src_libwbemuuid)
+libarm32_libwbemuuid_a_CPPFLAGS = $(CPPFLAGSARM32) $(sysincludes)
+
+libarm32_LIBRARIES += libarm32/libdxguid.a
+libarm32_libdxguid_a_SOURCES = $(src_libdxguid)
+libarm32_libdxguid_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+
+libarm32_LIBRARIES += libarm32/libksuser.a
+libarm32_libksuser_a_SOURCES = $(src_libksuser)
+libarm32_libksuser_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+libarm32_libksuser_a_AR = $(DTLIBARM32) && $(AR) $(ARFLAGS)
+
+libarm32_LIBRARIES += libarm32/libksguid.a
+libarm32_libksguid_a_SOURCES = $(src_libksguid)
+libarm32_libksguid_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+
+libarm32_LIBRARIES += libarm32/libsensorsapi.a
+libarm32_libsensorsapi_a_SOURCES = $(src_libsensorsapi)
+libarm32_libsensorsapi_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+
+libarm32_LIBRARIES += libarm32/libportabledeviceguids.a
+libarm32_libportabledeviceguids_a_SOURCES = $(src_libportabledeviceguids)
+libarm32_libportabledeviceguids_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+
+libarm32_LIBRARIES += libarm32/libscrnsave.a
+libarm32_libscrnsave_a_SOURCES = $(src_libscrnsave)
+libarm32_libscrnsave_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+
+libarm32_LIBRARIES += libarm32/libscrnsavw.a
+libarm32_libscrnsavw_a_SOURCES = $(src_libscrnsavw)
+libarm32_libscrnsavw_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+libarm32_libscrnsavw_a_CFLAGS = -DUNICODE
+
+libarm32_LIBRARIES += libarm32/libstrmiids.a
+libarm32_libstrmiids_a_SOURCES = $(src_libstrmiids)
+libarm32_libstrmiids_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+
+libarm32_LIBRARIES += libarm32/libuuid.a
+libarm32_libuuid_a_SOURCES = $(src_libuuid)
+libarm32_libuuid_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+
+libarm32_LIBRARIES += libarm32/libgdiplus.a
+libarm32_libgdiplus_a_SOURCES = $(src_libgdiplus)
+libarm32_libgdiplus_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+libarm32_libgdiplus_a_AR = $(DTLIBARM32) && $(AR) $(ARFLAGS)
+
+libarm32_LIBRARIES += libarm32/libws2_32.a
+libarm32_libws2_32_a_SOURCES = $(src_libws2_32)
+libarm32_libws2_32_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+libarm32_libws2_32_a_AR = $(DTLIBARM32) && $(AR) $(ARFLAGS)
+
+if !W32API
+libarm32_LIBRARIES += libarm32/libdelayimp.a
+libarm32_libdelayimp_a_SOURCES =
+
+libarm32_LIBRARIES += libarm32/libm.a
+nodist_libarm32_libm_a_SOURCES = $(src_libm)
+libarm32_libm_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+
+#libarm32_LIBRARIES += libarm32/libgmon.a
+#libarm32_libgmon_a_SOURCES = profile/mcount.c \
+#  profile/profil.h profile/profil.c        \
+#  profile/gmon.h   profile/gmon.c \
+#  profile/mcountFunc.S
+#libarm32_libgmon_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+
+libarm32_LIBRARIES += libarm32/liblargeint.a
+libarm32_liblargeint_a_SOURCES = $(src_liblargeint)
+libarm32_liblargeint_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+
+libarm32_LIBRARIES += libarm32/libmingw32.a
+libarm32_libmingw32_a_CPPFLAGS=$(CPPFLAGSARM32) -D_SYSCRT=1 -DCRTDLL=1 $(extra_include) $(AM_CPPFLAGS)
+libarm32_libmingw32_a_SOURCES = $(src_libmingw32)
+
+libarm32_LIBRARIES += libarm32/libmingwex.a
+libarm32_libmingwex_a_CPPFLAGS=$(CPPFLAGSARM32) $(extra_include) $(AM_CPPFLAGS)
+libarm32_libmingwex_a_SOURCES = $(src_libmingwex) $(src_dfp_math)
+libarm32_libmingwex_a_LIBADD = $(obj_dfpsrc32)
+
+libarm32_LIBRARIES += libarm32/libmoldname.a
+libarm32_libmoldname_a_CPPFLAGS=$(CPPFLAGSARM32) $(extra_include) $(AM_CPPFLAGS)
+libarm32_libmoldname_a_SOURCES = $(src_libm)
+
+libarm32_LIBRARIES += libarm32/libmingwthrd.a
+libarm32_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
+libarm32_libmingwthrd_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+
+processed_defs += libarm32/msvcrt.def libarm32/msvcr80.def libarm32/msvcr90.def libarm32/msvcr90d.def libarm32/msvcr100.def libarm32/msvcr110.def
+
+endif
+
+include libarm32/Makefile.am
+
+if !W32API
+libarm32_DATA += libarm32/libmsvcp60.a libarm32/libmsvcr110.a
+endif
+
+# combine these two rules with the ones for lib64
+# Use two patterns, one for 32/64 in libarm32/ and lib64/
+libarm32/libcrtdll.a libarm32/libmsvcr80.a: libarm32/lib%.a: libarm32/%.def
+	$(DTDEFARM32) $< --dllname $*.dll
+
+libarm32/lib%.a: libarm32/%.def
+	$(DTDEFARM32) $<
+
+# libvfw32.a contains import stubs for 3 dll's.  Using an MRI script
+# seems to be the simplest way to combine them into one archive.
+# NB: With older dlltool, the object file members will not have unique
+# names.
+libarm32/libvfw32.a: libarm32/vfw32.mri libarm32/libmsvfw32.a libarm32/libavifil32.a libarm32/libavicap32.a
+	rm -f $@
+	$(AR) -M < $<
+	$(RANLIB) $@
+
+dx32_DATA =
+dx32_DATA += libarm32/libxinput.a
+dx32_DATA += libarm32/libxapofx.a
+dx32_DATA += libarm32/libx3daudio.a
+dx32_DATA += libarm32/libd3dx9.a
+dx32_DATA += libarm32/libd3dx10.a
+dx32_DATA += libarm32/libd3dx11.a
+dx32_DATA += libarm32/libd3dcsxd.a
+dx32_DATA += libarm32/libd3dcompiler.a
+
+libarm32/libxinput.a: libarm32/$(xinput).def
+	$(DTDEFARM32) $<
+libarm32/libxapofx.a: libarm32/$(xapofx).def
+	$(DTDEFARM32) $<
+libarm32/libx3daudio.a: libarm32/$(x3daudio).def
+	$(DTDEFARM32) $<
+libarm32/libd3dx9.a: libarm32/$(d3dx9).def
+	$(DTDEFARM32) $<
+libarm32/libd3dx10.a: libarm32/$(d3dx10).def
+	$(DTDEFARM32) $<
+libarm32/libd3dx11.a: libarm32/$(d3dx11).def
+	$(DTDEFARM32) $<
+libarm32/libd3dcsxd.a: libarm32/$(d3dcsxd).def
+	$(DTDEFARM32) $<
+libarm32/libd3dcompiler.a: libarm32/$(d3dcompiler).def
+	$(DTDEFARM32) $<
+
+endif
+# End ARM 32-bit runtime
+# ##########
 
 %.def: %.def.in
 	$(CPP) -x c $< -Wp,-w -I$(top_srcdir)/def-include | $(SED) 's/^#/;/' >$@
