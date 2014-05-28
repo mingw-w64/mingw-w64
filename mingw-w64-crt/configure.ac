@@ -134,6 +134,10 @@ AS_VAR_IF([enable_libce],[yes],[
   AS_IF([AS_VAR_TEST_SET([LIB32]) || AS_VAR_TEST_SET([LIB64]) || AS_VAR_TEST_SET([LIBARM32])],
     [AC_MSG_WARN([Building the runtime to use libce with lib32, lib64 or libarm32 is unsupported.])])])
 
+AS_VAR_IF([enable_libarm32],[yes],[
+  AS_IF([AS_VAR_TEST_SET([LIB32]) || AS_VAR_TEST_SET([LIB64])],
+    [AC_MSG_WARN([Building the runtime to use libarm32 with lib32 or lib64 is unsupported.])])])
+
 AS_CASE([$host_cpu],
   [x86_64],[
     lib64suffx=lib

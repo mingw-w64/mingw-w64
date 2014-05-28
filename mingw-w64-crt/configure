@@ -5458,6 +5458,14 @@ $as_echo "$as_me: WARNING: Building the runtime to use libce with lib32, lib64 o
 fi
 fi
 
+if test "x$enable_libarm32" = xyes; then :
+
+  if ${LIB32+:} false || ${LIB64+:} false; then :
+  { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: Building the runtime to use libarm32 with lib32 or lib64 is unsupported." >&5
+$as_echo "$as_me: WARNING: Building the runtime to use libarm32 with lib32 or lib64 is unsupported." >&2;}
+fi
+fi
+
 case $host_cpu in #(
   x86_64) :
 
