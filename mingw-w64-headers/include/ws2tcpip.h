@@ -73,8 +73,8 @@ struct ip_msfilter {
 
 #define SS_PORT(ssp) (((struct sockaddr_in*)(ssp))->sin_port)
 
-#define IN6ADDR_ANY_INIT { 0 }
-#define IN6ADDR_LOOPBACK_INIT { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 }
+#define IN6ADDR_ANY_INIT { { { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 } } }
+#define IN6ADDR_LOOPBACK_INIT { { { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 } } }
 
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 
