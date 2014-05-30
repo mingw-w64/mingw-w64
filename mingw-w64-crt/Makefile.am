@@ -306,7 +306,7 @@ src_intrincs= \
   intrincs/ilockor64.c      intrincs/ilockxor.c       intrincs/ilockxor64.c      intrincs/inbyte.c        intrincs/inbytestring.c   \
   intrincs/indword.c        intrincs/indwordstring.c  intrincs/inword.c          intrincs/inwordstring.c  intrincs/outbyte.c        \
   intrincs/outbytestring.c  intrincs/outdword.c       intrincs/outdwordstring.c  intrincs/outword.c       intrincs/outwordstring.c  \
-  intrincs/rdtsc.c          intrincs/readcr0.c        intrincs/readcr2.c         intrincs/readcr3.c       intrincs/readcr4.c        \
+  intrincs/readcr0.c        intrincs/readcr2.c        intrincs/readcr3.c         intrincs/readcr4.c       \
   intrincs/readcr8.c        intrincs/readmsr.c        intrincs/writecr0.c        intrincs/writecr2.c      intrincs/writecr3.c       \
   intrincs/writecr4.c       intrincs/writecr8.c       intrincs/writemsr.c        intrincs/__int2c.c       intrincs/RtlSecureZeroMemory.c
 
@@ -314,7 +314,7 @@ src_intrincs= \
 src_intrincs64=\
   intrincs/bittest64.c    intrincs/bittestc64.c   intrincs/bittestr64.c   intrincs/bittestri64.c     \
   intrincs/bittests64.c   intrincs/bittestsi64.c  intrincs/bitscanfwd64.c intrincs/bitscanrev64.c    \
-  intrincs/ilockadd64.c   intrincs/readgsbyte.c   intrincs/readgsword.c   intrincs/readgsdword.c     \
+  intrincs/ilockadd64.c   intrincs/rdtsc.c        intrincs/readgsbyte.c   intrincs/readgsword.c      intrincs/readgsdword.c \
   intrincs/readgsqword.c  intrincs/writegsbyte.c  intrincs/writegsword.c  intrincs/writegsdword.c    \
   intrincs/writegsqword.c intrincs/mul128ex.c     intrincs/umul128ex.c    intrincs/_mul128.c         \
   intrincs/_umul128.c     intrincs/__movsq.c      intrincs/__stosq.c      intrincs/__shiftright128.c \
@@ -322,8 +322,11 @@ src_intrincs64=\
 
 # these only go into the 32 bit version:
 src_intrincs32=\
-  intrincs/readfsbyte.c   intrincs/readfsword.c   intrincs/readfsdword.c  \
+  intrincs/rdtsc.c        intrincs/readfsbyte.c   intrincs/readfsword.c   intrincs/readfsdword.c  \
   intrincs/writefsbyte.c  intrincs/writefsword.c  intrincs/writefsdword.c
+
+# these only go into the ARM32 version:
+src_intrincsarm32=
 
 winrtlibs=\
   winrt/libruntimeobject.a
@@ -1148,7 +1151,7 @@ dxerr.c \
 test.c
 
 libarm32_LIBRARIES = libarm32/libkernel32.a
-libarm32_libkernel32_a_SOURCES = $(src_intrincs)
+libarm32_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincsarm32)
 libarm32_libkernel32_a_AR = $(DTLIBARM32) && $(AR) $(ARFLAGS)
 libarm32_libkernel32_a_CPPFLAGS=$(CPPFLAGSARM32) $(extra_include) $(AM_CPPFLAGS)
 
