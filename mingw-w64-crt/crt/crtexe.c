@@ -226,7 +226,7 @@ __tmainCRTStartup (void)
   WINBOOL inDoubleQuote = FALSE;
   memset (&StartupInfo, 0, sizeof (STARTUPINFO));
 
-#ifndef _WIN64
+#if defined(__i386__) || defined(_X86_)
   /* We need to make sure that this function is build with frame-pointer
      and that we align the stack to 16 bytes for the sake of SSE ops in main
      or in functions inlined into main.  */
@@ -235,7 +235,7 @@ __tmainCRTStartup (void)
 #ifdef __GNUC__
   asm  __volatile__  ("andl $-16, %%esp" : : : "%esp");
 #endif
-#endif
+#endif /* defined(__i386__) || defined(_X86_) */
 
   if (mingw_app_type)
     GetStartupInfo (&StartupInfo);
