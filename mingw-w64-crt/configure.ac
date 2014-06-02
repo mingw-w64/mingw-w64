@@ -115,25 +115,6 @@ AS_CASE([$enable_libarm32],
   [AC_MSG_ERROR([invalid argument.  Must be either yes or no.])])
 AM_CONDITIONAL([LIBARM32], [AS_VAR_TEST_SET([LIBARM32])])
 
-AC_MSG_CHECKING([whether to build the WinCE libraries])
-AC_ARG_ENABLE([libce],
-  [AS_HELP_STRING([--enable-libce],
-    [Build the WinCE libraries])],
-  [],
-  [AS_CASE([$host_cpu],
-    [*],[enable_libce=no])
-  ])
-AC_MSG_RESULT([$enable_libce])
-AS_CASE([$enable_libce],
-  [no],[],
-  [yes],[AS_VAR_SET([LIBCE])],
-  [AC_MSG_ERROR([invalid argument.  Must be either yes or no.])])
-AM_CONDITIONAL([LIBCE], [AS_VAR_TEST_SET([LIBCE])])
-
-AS_VAR_IF([enable_libce],[yes],[
-  AS_IF([AS_VAR_TEST_SET([LIB32]) || AS_VAR_TEST_SET([LIB64]) || AS_VAR_TEST_SET([LIBARM32])],
-    [AC_MSG_WARN([Building the runtime to use libce with lib32, lib64 or libarm32 is unsupported.])])])
-
 AS_VAR_IF([enable_libarm32],[yes],[
   AS_IF([AS_VAR_TEST_SET([LIB32]) || AS_VAR_TEST_SET([LIB64])],
     [AC_MSG_WARN([Building the runtime to use libarm32 with lib32 or lib64 is unsupported.])])])
@@ -323,7 +304,6 @@ AC_MSG_NOTICE([])
 AC_MSG_NOTICE([])
 AC_MSG_NOTICE([Configuration Options Summary:])
 AC_MSG_NOTICE([])
-AC_MSG_NOTICE([  WinCE runtime........: $enable_libce])
 AC_MSG_NOTICE([  WinARM32 runtime.....: $enable_libarm32])
 AC_MSG_NOTICE([  Win32 runtime........: $enable_lib32])
 AC_MSG_NOTICE([  Win64 runtime........: $enable_lib64])

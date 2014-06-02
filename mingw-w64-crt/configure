@@ -646,8 +646,6 @@ PRIVATE_EXPORTS_FALSE
 PRIVATE_EXPORTS_TRUE
 LIB32SUFFIXDIR
 LIB64SUFFIXDIR
-LIBCE_FALSE
-LIBCE_TRUE
 LIBARM32_FALSE
 LIBARM32_TRUE
 LIB64_FALSE
@@ -781,7 +779,6 @@ enable_w32api
 enable_lib32
 enable_lib64
 enable_libarm32
-enable_libce
 enable_wildcard
 enable_private_exports
 enable_delay_import_libs
@@ -1435,7 +1432,6 @@ Optional Features:
   --enable-lib32          Build the Win32 libraries
   --enable-lib64          Build the Win64 libraries
   --enable-libarm32       Build the WinARM32 libraries
-  --enable-libce          Build the WinCE libraries
   --enable-wildcard       Enable command line globbing
   --enable-private-exports
                           Enable exporting private internal functions
@@ -5416,48 +5412,6 @@ else
 fi
 
 
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build the WinCE libraries" >&5
-$as_echo_n "checking whether to build the WinCE libraries... " >&6; }
-# Check whether --enable-libce was given.
-if test "${enable_libce+set}" = set; then :
-  enableval=$enable_libce;
-else
-  case $host_cpu in #(
-  *) :
-    enable_libce=no ;; #(
-  *) :
-     ;;
-esac
-
-fi
-
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_libce" >&5
-$as_echo "$enable_libce" >&6; }
-case $enable_libce in #(
-  no) :
-     ;; #(
-  yes) :
-    LIBCE= ;; #(
-  *) :
-    as_fn_error $? "invalid argument.  Must be either yes or no." "$LINENO" 5 ;;
-esac
- if ${LIBCE+:} false; then
-  LIBCE_TRUE=
-  LIBCE_FALSE='#'
-else
-  LIBCE_TRUE='#'
-  LIBCE_FALSE=
-fi
-
-
-if test "x$enable_libce" = xyes; then :
-
-  if ${LIB32+:} false || ${LIB64+:} false || ${LIBARM32+:} false; then :
-  { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: Building the runtime to use libce with lib32, lib64 or libarm32 is unsupported." >&5
-$as_echo "$as_me: WARNING: Building the runtime to use libce with lib32, lib64 or libarm32 is unsupported." >&2;}
-fi
-fi
-
 if test "x$enable_libarm32" = xyes; then :
 
   if ${LIB32+:} false || ${LIB64+:} false; then :
@@ -6201,10 +6155,6 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${LIBARM32_TRUE}" && test -z "${LIBARM32_FALSE}"; then
   as_fn_error $? "conditional \"LIBARM32\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${LIBCE_TRUE}" && test -z "${LIBCE_FALSE}"; then
-  as_fn_error $? "conditional \"LIBCE\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${PRIVATE_EXPORTS_TRUE}" && test -z "${PRIVATE_EXPORTS_FALSE}"; then
@@ -7573,8 +7523,6 @@ $as_echo "$as_me: " >&6;}
 $as_echo "$as_me: Configuration Options Summary:" >&6;}
 { $as_echo "$as_me:${as_lineno-$LINENO}: " >&5
 $as_echo "$as_me: " >&6;}
-{ $as_echo "$as_me:${as_lineno-$LINENO}:   WinCE runtime........: $enable_libce" >&5
-$as_echo "$as_me:   WinCE runtime........: $enable_libce" >&6;}
 { $as_echo "$as_me:${as_lineno-$LINENO}:   WinARM32 runtime.....: $enable_libarm32" >&5
 $as_echo "$as_me:   WinARM32 runtime.....: $enable_libarm32" >&6;}
 { $as_echo "$as_me:${as_lineno-$LINENO}:   Win32 runtime........: $enable_lib32" >&5
