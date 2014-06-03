@@ -8,7 +8,11 @@ long double fabsl (long double x);
 long double
 fabsl (long double x)
 {
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__i386__) || defined(_X86_)
   long double res = 0.0L;
   asm ("fabs;" : "=t" (res) : "0" (x));
   return res;
+#elif defined(__arm__) || defined(_ARM_)
+  return __builtin_fabsl (x);
+#endif /* defined(__x86_64__) || defined(_AMD64_) || defined(__i386__) || defined(_X86_) */
 }

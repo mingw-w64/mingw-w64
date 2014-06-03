@@ -9,12 +9,12 @@
 double
 fabs (double x)
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
   return __builtin_fabs (x);
-#else
+#elif defined(__i386__) || defined(_X86_)
   double res = 0.0;
 
   asm ("fabs;" : "=t" (res) : "0" (x));
   return res;
-#endif
+#endif /* defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_) */
 }
