@@ -1198,7 +1198,7 @@ memmove_s
 printf_s
 qsort_s
 scanf_s
-sprintf_s
+; sprintf_s replaced by emu
 sscanf_s
 strcat_s
 strcpy_s
