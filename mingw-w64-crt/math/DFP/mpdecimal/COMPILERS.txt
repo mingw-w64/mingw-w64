@@ -1,0 +1,109 @@
+
+
+Like many arbitrary precision libraries, libmpdec frequently exposes toolchain
+bugs.  Be sure to run all tests!
+
+
+gcc
+===
+
+   gcc should work on all platforms and generates the fastest code of all
+   tested compilers.  The configure script contains workarounds for these
+   two toolchain bugs (which should have been fixed in all Linux distribu-
+   tions by now):
+
+      1) In December 2010 it was discovered that some gcc versions
+         miscompile the inline assembly of the PPRO configuration.
+         See also:
+
+            http://gcc.gnu.org/bugzilla/show_bug.cgi?id=46491
+            http://gcc.gnu.org/ml/gcc/2010-11/msg00366.html
+
+         The bug is only triggered in bignum arithmetic and will fail
+         instantly with an assert in crt.c. The current configure script
+         automatically detects the bug and enables a workaround
+         (-fno-ipa-pure-const).
+
+      2) gcc-4.6 exposes a bug in glibc, which had incorrect _FORTIFY_SOURCE
+         wrappers for memmove and bcopy:
+
+            http://sourceware.org/ml/libc-alpha/2010-12/msg00009.html
+
+         If an unpatched glibc is detected, the current configure script
+         automatically enables a workaround (-U_FORTIFY_SOURCE).
+
+
+clang
+=====
+
+   There are no known issues.  Tested on FreeBSD with clang 3.0.
+
+
+icc
+===
+
+   Intel compilers >= 11.0 should work.  Previous versions had problems with
+   GNU inline assembly.  Tested on Linux with version 12.0.
+
+
+Visual Studio
+=============
+
+   There are no known issues.  Tests have been run with VC 2008 and VC 2010.
+
+
+suncc
+=====
+
+   x86/x64
+   -------
+
+     studio12u1 had a bug resulting in incorrect array offset calculations.
+     According to Sun this was fixed in sunstudio12.1.  Tests run successfully
+     here with sunstudio12.3.
+
+
+   SPARC
+   -----
+
+      64-bit build
+      ~~~~~~~~~~~~
+
+         With the following flags the tests pass.  Note that at least a subset
+         of these flags is absolutely required.  See also:
+
+            http://bugs.python.org/issue15963
+
+            ./configure CFLAGS="-v -fsimple=0 -m64 -mt=yes -xbuiltin -xhwcprof \
+                   -xF -xarch=native -xchip=native -fma=fused -g -xO5 -xlibmil \
+                   -xlibmopt -xmemalign=8s -xregs=frameptr -xtarget=native \
+                   -xbuiltin=%all -library=sunperf" \
+                        CPPFLAGS="-IInclude" OPT="" \
+                        LDFLAGS="-v  -fsimple=0 -m64 -mt=yes -xbuiltin -xhwcprof \
+                   -xF -xarch=native -xchip=native -fma=fused -g -xO5 -xlibmil \
+                   -xlibmopt -xmemalign=8s -xbuiltin=%all -xregs=frameptr \
+                   -xtarget=native -library=sunperf" \
+                        CC=/opt/solarisstudio12.3/bin/cc
+
+     32-bit build
+     ~~~~~~~~~~~~
+
+         The 32-bit build appears to work without any special flags.
+
+
+xlc
+===
+
+   For a while http://buildbot.python.org/ had an AIX/xlc buildslave which
+   successfully compiled libmpdec.
+
+
+
+CompCert
+========
+
+   Versions >= 1.8.2 work.
+
+
+
+

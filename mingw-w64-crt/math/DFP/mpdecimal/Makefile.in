@@ -1,0 +1,53 @@
+
+# ==============================================================================
+#                          Unix Makefile for libmpdec
+# ==============================================================================
+
+
+PACKAGE_TARNAME = @PACKAGE_TARNAME@
+LIBSTATIC = @LIBSTATIC@
+LIBSONAME = @LIBSONAME@
+LIBSHARED = @LIBSHARED@
+INSTALL = @INSTALL@
+
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+includedir = @includedir@
+libdir = @libdir@
+datarootdir = @datarootdir@
+docdir = @docdir@
+
+
+default: FORCE
+	cd libmpdec && $(MAKE)
+
+check: default
+	cd tests && $(MAKE) && ./runshort.sh
+
+profile: FORCE
+	cd libmpdec && $(MAKE) profile
+
+
+install: FORCE
+	$(INSTALL) -d -m 755 $(DESTDIR)$(includedir)
+	$(INSTALL) -m 644 libmpdec/mpdecimal.h $(DESTDIR)$(includedir)
+	$(INSTALL) -d -m 755 $(DESTDIR)$(libdir)
+	$(INSTALL) -m 644 libmpdec/$(LIBSTATIC) $(DESTDIR)$(libdir)
+	$(INSTALL) -m 755 libmpdec/$(LIBSHARED) $(DESTDIR)$(libdir)
+	cd $(DESTDIR)$(libdir) && ln -sf $(LIBSHARED) $(LIBSONAME) && ln -sf $(LIBSHARED) libmpdec.so
+	$(INSTALL) -d -m 755 $(DESTDIR)$(docdir)
+	cp -R doc/* $(DESTDIR)$(docdir)
+
+clean: FORCE
+	cd libmpdec && if [ -f Makefile ]; then $(MAKE) clean; else exit 0; fi
+	cd tests && if [ -f Makefile ]; then $(MAKE) clean; else exit 0; fi
+
+distclean: FORCE
+	cd libmpdec && if [ -f Makefile ]; then $(MAKE) distclean; else exit 0; fi
+	cd tests && if [ -f Makefile ]; then $(MAKE) distclean; else exit 0; fi
+	rm -f config.h config.log config.status Makefile
+
+FORCE:
+
+
+

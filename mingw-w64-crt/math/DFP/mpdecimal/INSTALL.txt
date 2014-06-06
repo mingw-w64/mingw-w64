@@ -1,0 +1,85 @@
+
+# ======================================================================
+#                   Unix: library install instructions
+# ======================================================================
+
+# NONGNU: gmake required!
+
+# Section 'Custom build' explains how to change the relevant
+# build parameters.
+./configure
+
+
+# Short tests. On a fast machine 5 min for CONFIG_64 and 10 min
+# for CONFIG_32.
+#
+# ./runshort.sh attempts to download the official tests from
+# http://speleotrove.com/decimal/dectest.zip. If wget is
+# not installed, download dectest.zip and put the contents
+# into the tests/testdata directory.
+make check
+
+
+# Production build:
+make clean
+make CFLAGS=-DNDEBUG
+make install
+
+
+# ======================================================================
+#                            Custom build
+# ======================================================================
+
+#
+# MACHINE variable:
+#
+# If ./configure fails to detect the optimal configuration, a specific
+# configuration can be enforced by providing the MACHINE variable.
+#
+# Example:
+#
+#   ./configure MACHINE=x64
+#
+# Possible values (in decreasing order of preference):
+#
+#    1. x64         - 64-bit OS with x86_64 processor (AMD, Intel)
+#
+#    2. uint128     - 64-bit OS, compiler provides __uint128_t (gcc)
+#
+#    3. ansi64      - 64-bit OS, ANSI C
+#
+#    4. ppro        - 32-bit OS, x86 CPU, PentiumPro or later
+#
+#    5. ansi32      - 32-bit OS, ANSI C
+#
+#    6. ansi-legacy - 32-bit OS, compiler without uint64_t
+#
+
+#
+# CFLAGS, LDFLAGS:
+#
+# If CFLAGS or LDFLAGS are passed to ./configure, they are appended to the
+# minimal libmpdec configuration:
+#
+#   ./configure CFLAGS="-m32 -march=i586 -O3" LDFLAGS="-m32"
+#
+#      ==> -DCONFIG_32 -DPPRO -DASM -O2 -fpic -m32 -march=i586 -O3
+#
+# Both MACHINE and CFLAGS can be specified, making it possible to have a
+# complete custom configuration:
+#
+#   ./configure MACHINE=ansi32 CFLAGS="-Wall -W -O3 -g"
+#
+#      ==> -DCONFIG_32 -DANSI -Wall -W -O3 -g
+#
+#
+
+
+# ======================================================================
+#                   Windows: library install instructions
+# ======================================================================
+
+# Build scripts for Visual Studio are in the vcbuild directory.
+
+
+

@@ -1,0 +1,141 @@
+
+
+Changelog
+=========
+
+Version 2.4.0
+-------------
+
+    **features**
+
+    1) Faster integer to string conversion.
+
+    2) mpd_qln(), mpd_qlog10() and mpd_pow() are now thread-safe.
+
+    3) All functions that take or return C integers are now available in
+       both the 64-bit and the 32-bit builds.
+
+    4) Support for cross-compiling.
+
+    5) Scripts for Visual Studio builds.
+
+    **code improvements**
+
+    1) This version is exactly the same as the version shipped with Python-3.3+.
+       Large portions of the code have been refactored in order to facilitate
+       proofs.  Many ACL2 proofs have been added.
+
+    **removed**
+
+    1) The Python module has been removed from mpdecimal, since both libmpdec
+       and cdecimal are included in Python-3.3+.
+
+    2) The large test suite against decNumber as well as the multi-precision
+       tests against gmp have been removed, but will be available in a separate
+       package.  Naturally these tests are still run as part of the release
+       process.
+
+
+Version 2.3
+-----------
+
+    **features**
+
+    1) New test suite with comprehensive tests against decNumber.
+
+    2) Full support for compilers without uint64_t (tested with CompCert).
+
+    **bug fixes**
+
+    1) If ROUND_FLOOR is set and the operand is zero, the functions
+       mpd_plus() and mpd_minus() have special cases for the sign of
+       the result.
+
+
+Version 2.2
+-----------
+
+    **build process**
+
+    1) configure: append CFLAGS to CONFIG flags.
+
+    2) Makefile: use includedir, libdir, datarootdir, datadir, docdir, DESTDIR.
+
+    **workarounds for toolchain bugs**
+
+    1) Enable workaround for a gcc miscompilation. See:
+
+           `http://gcc.gnu.org/bugzilla/show_bug.cgi?id=46491 <http://gcc.gnu.org/bugzilla/show_bug.cgi?id=46491>`_
+
+    2) Enable workaround for the glibc _FORTIFY_SOURCE/memmove bug, which is
+       exposed by gcc-4.6. See:
+
+           `http://sourceware.org/ml/libc-alpha/2010-12/msg00009.html <http://sourceware.org/ml/libc-alpha/2010-12/msg00009.html>`_
+
+    **features**
+
+    1) Make PPRO inline assembly PIC-compliant (for the dynamic library).
+
+
+Version 2.1
+-----------
+
+Version 2.1 was never released, but escaped into the wild via the Makefile
+and setup.py in cdecimal-1.97-rc2.tar.gz. Both files already had that version
+number.
+
+    **features**
+
+    1) Code coverage increased to 100%. This includes every possible
+       allocation failure.
+
+    2) Switch build process to ./configure.
+
+    3) Makefile targets for creating coverage reports.
+
+    **bug fixes**
+
+    1) mpd_qget_uint, mpd_qget_u64, mpd_qget_u32 did not raise for
+       negative input.
+
+    2) Handle allocation failures in _mpd_fntmul under extreme conditions.
+
+
+
+Version 1.2.1
+-------------
+
+    **bug fixes**
+
+    1) With MACHINE=ansi64, the macros BSR and BSF used x86 assembly.
+       This caused compilation to fail on non-x64 platforms.
+
+
+Version 1.2
+-----------
+
+    **features**
+
+    1) Support for compilers with __uint128_t
+       (option MACHINE=ansi64).
+
+    2) Support for other 64-bit compilers
+       (option MACHINE=ansi64c32).
+
+    3) Support for legacy compilers without uint64_t
+       (option MACHINE=ansi-legacy).
+
+    4) Slightly different build process (please read INSTALL.txt).
+
+    5) If clamp=1, the maximum payload length of a NaN is prec-1.
+
+    **bug fixes**
+
+    1) Fix for mpd_qround_to_int, which did not handle digits
+       exceeding the context precision correctly in all cases.
+
+    2) In rare corner cases Underflow was not set in
+       transcendental functions.
+
+
+
