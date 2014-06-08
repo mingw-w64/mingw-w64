@@ -31,7 +31,7 @@
 
 
 #include "constants.h"
-#include "mpdecimal.h"
+#include mpdecimal_header
 #include "typearith.h"
 
 

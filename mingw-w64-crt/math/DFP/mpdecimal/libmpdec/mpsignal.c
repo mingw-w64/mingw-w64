@@ -26,7 +26,7 @@
  */
 
 
-#include "mpdecimal.h"
+#include mpdecimal_header
 
 
 /* Signaling wrappers for the quiet functions in mpdecimal.c. */

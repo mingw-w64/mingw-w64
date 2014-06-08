@@ -26,7 +26,7 @@
  */
 
 
-#include "mpdecimal.h"
+#include mpdecimal_header
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>

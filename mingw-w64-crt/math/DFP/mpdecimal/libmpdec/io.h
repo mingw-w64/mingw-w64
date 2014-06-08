@@ -31,7 +31,7 @@
 
 
 #include <errno.h>
-#include "mpdecimal.h"
+#include mpdecimal_header
 
 
 #if SIZE_MAX == MPD_SIZE_MAX

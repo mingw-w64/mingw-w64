@@ -30,7 +30,7 @@
 #define CONSTANTS_H
 
 
-#include "mpdecimal.h"
+#include mpdecimal_header
 
 
 /* Internal header file: all symbols have local scope in the DSO */

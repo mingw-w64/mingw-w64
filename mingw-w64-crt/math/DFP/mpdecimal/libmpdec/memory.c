@@ -26,11 +26,30 @@
  */
 
 
-#include "mpdecimal.h"
+#include mpdecimal_header
 #include <stdio.h>
 #include <stdlib.h>
+#include <windows.h>
 #include "typearith.h"
 #include "memory.h"
+
+static void h_free(void *in){
+  HeapFree(GetProcessHeap(),0,in);
+}
+
+static void *h_realloc(void *in, size_t s){
+  return HeapReAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, in, s);
+}
+
+static void *h_malloc(size_t t){
+  return HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, t);
+}
+
+
+static void *h_calloc(size_t n, size_t t){
+  return h_malloc(n * t);
+}
+
 
 
 /* Guaranteed minimum allocation for a coefficient. May be changed once
@@ -38,10 +57,11 @@
 mpd_ssize_t MPD_MINALLOC = MPD_MINALLOC_MIN;
 
 /* Custom allocation and free functions */
-void *(* mpd_mallocfunc)(size_t size) = malloc;
-void *(* mpd_reallocfunc)(void *ptr, size_t size) = realloc;
-void *(* mpd_callocfunc)(size_t nmemb, size_t size) = calloc;
-void (* mpd_free)(void *ptr) = free;
+/* hardcoded for mingw-w64 */
+void *(* const mpd_mallocfunc)(size_t size) = h_malloc;
+void *(* const mpd_reallocfunc)(void *ptr, size_t size) = h_realloc;
+void *(* const mpd_callocfunc)(size_t nmemb, size_t size) = h_calloc;
+void (* const mpd_free)(void *ptr) = h_free;
 
 
 /* emulate calloc if it is not available */

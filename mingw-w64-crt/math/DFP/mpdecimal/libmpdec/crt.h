@@ -30,7 +30,7 @@
 #define CRT_H
 
 
-#include "mpdecimal.h"
+#include mpdecimal_header
 #include <stdio.h>
 
 

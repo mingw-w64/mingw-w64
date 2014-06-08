@@ -30,7 +30,7 @@
 #define DIF_RADIX2_H
 
 
-#include "mpdecimal.h"
+#include mpdecimal_header
 #include <stdio.h>
 #include "numbertheory.h"
 

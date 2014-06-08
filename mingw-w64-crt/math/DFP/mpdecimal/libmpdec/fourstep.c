@@ -26,7 +26,7 @@
  */
 
 
-#include "mpdecimal.h"
+#include mpdecimal_header
 #include <assert.h>
 #include "numbertheory.h"
 #include "sixstep.h"

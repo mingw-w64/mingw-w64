@@ -30,7 +30,7 @@
 #define TYPEARITH_H
 
 
-#include "mpdecimal.h"
+#include mpdecimal_header
 
 
 /*****************************************************************************/
