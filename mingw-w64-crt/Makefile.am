@@ -61,11 +61,11 @@ _libm_dummy.c:
 
 src_libm=_libm_dummy.c
 
-lib32/DFP_src_%.dfp.obj: math/DFP/mpdecimal-2.3/%.c
-	$(COMPILE) $(CPPFLAGS32) -std=gnu99 -frounding-math -fsignaling-nans -Wno-inline -DCONFIG_32 -DPPRO -DASM -Dmpdecimal_header=\"mpdecimal-i686.h\" -DUSE_LOCKING_CTOR -c $< -o $@
+lib32/DFP_src_%.dfp.obj: math/DFP/mpdecimal/libmpdec/%.c
+	$(COMPILE) $(CPPFLAGS32) -Wno-unknown-pragmas -std=gnu99 -DCONFIG_32 -DASM -DPPRO -DHAVE_GCC_ASM_FOR_X87=1 -DHAVE_INTTYPES_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STDINT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRINGS_H=1 -DHAVE_STRING_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DPACKAGE_BUGREPORT='"mpdecimal-bugs@bytereef.org"' -DPACKAGE_NAME='"mpdecimal"' -DPACKAGE_STRING='"mpdecimal 2.4.0"' -DPACKAGE_TARNAME='"mpdecimal"' -DPACKAGE_URL='"http://www.bytereef.org/mpdecimal/index.html"' -DPACKAGE_VERSION='"2.4.0"' -DSIZEOF_SIZE_T=4 -DSIZEOF___UINT128_T=0 -DSTDC_HEADERS=1 -O2 -Dmpdecimal_header=\"mpdecimal-i686.h\" -c $< -o $@
 
-lib64/DFP_src_%.dfp.obj: math/DFP/mpdecimal-2.3/%.c
-	$(COMPILE) $(CPPFLAGS64) -std=gnu99 -frounding-math -fsignaling-nans -Wno-inline -DCONFIG_64 -DASM -Dmpdecimal_header=\"mpdecimal-x86_64.h\" -DUSE_LOCKING_CTOR -c $< -o $@
+lib64/DFP_src_%.dfp.obj: math/DFP/mpdecimal/libmpdec/%.c
+	$(COMPILE) $(CPPFLAGS64) -Wno-unknown-pragmas -std=gnu99 -DCONFIG_64 -DASM -DHAVE_GCC_ASM_FOR_X64=1 -DHAVE_GCC_ASM_FOR_X87=1 -DHAVE_INTTYPES_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STDINT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRINGS_H=1 -DHAVE_STRING_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UINT128_T=1 -DHAVE_UNISTD_H=1 -DPACKAGE_BUGREPORT='"mpdecimal-bugs@bytereef.org"' -DPACKAGE_NAME='"mpdecimal"' -DPACKAGE_STRING='"mpdecimal 2.4.0"' -DPACKAGE_TARNAME='"mpdecimal"' -DPACKAGE_URL='"http://www.bytereef.org/mpdecimal/index.html"' -DPACKAGE_VERSION='"2.4.0"' -DSIZEOF_SIZE_T=8 -DSIZEOF___UINT128_T=16 -DSTDC_HEADERS=1 -O2 -Dmpdecimal_header=\"mpdecimal-x86_64.h\" -c $< -o $@
 
 if ENABLE_DFP
 obj_dfpsrc32 = \
