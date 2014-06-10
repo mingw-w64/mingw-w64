@@ -85,6 +85,9 @@ extern "C" {
   size_t __cdecl strspn(const char *_Str,const char *_Control);
   _CONST_RETURN char *__cdecl strstr(const char *_Str,const char *_SubStr);
   char *__cdecl strtok(char * __restrict__ _Str,const char * __restrict__ _Delim) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+#if defined (_SVID_SOURCE) || defined (_BSD_SOURCE) || (_POSIX_C_SOURCE >= 1) || defined(_XOPEN_SOURCE) || defined (_POSIX_SOURCE)
+  char *strtok_r(char * __restrict__ _Str, const char * __restrict__ _Delim, char ** __restrict__ __last);
+#endif
   _CRTIMP char *__cdecl _strupr(char *_String) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP char *_strupr_l(char *_String,_locale_t _Locale) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   size_t __cdecl strxfrm(char * __restrict__ _Dst,const char * __restrict__ _Src,size_t _MaxCount);

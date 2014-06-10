@@ -452,9 +452,6 @@ int                        WINPTHREAD_API pthread_rwlockattr_setpshared(pthread_
 						   strcpy((_Buf),___tmp_tm);\
 						___tmp_tm;	})
 
-#ifndef strtok_r
-#define strtok_r(__s, __sep, __last)  (*(__last) = strtok((__s), (__sep)))
-#endif
 #ifndef rand_r
 #define rand_r(__seed) (__seed == __seed ? rand () : rand ())
 #endif
