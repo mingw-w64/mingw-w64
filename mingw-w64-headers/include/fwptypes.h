@@ -333,11 +333,6 @@ typedef struct FWP_CONDITION_VALUE0_ {
     } __C89_NAMELESSUNIONNAME;
 } FWP_CONDITION_VALUE0;
 
-typedef struct FWPM_DISPLAY_DATA0_ {
-    wchar_t *name;
-    wchar_t *description;
-} FWPM_DISPLAY_DATA0;
-
 #endif /* WINAPI_PARTITION_DESKTOP. */
 /* Begin additional prototypes for all interfaces */
 
