@@ -195,6 +195,7 @@ src_msvcrt32=\
   $(src_msvcrt) \
   misc/lc_locale_func.c
 
+# These mingwex sources are target independent:
 src_libmingwex=\
   crt/dllentry.c        crt/dllmain.c \
   \
@@ -229,7 +230,7 @@ src_libmingwex=\
   math/asinh.c          math/asinhf.c      math/asinhl.c         math/asinl.c         math/atan2f.c        math/atan2l.c        \
   math/atanf.c          math/atanh.c       math/atanhf.c         math/atanhl.c        math/atanl.c         math/cbrt.c          \
   math/cbrtf.c          math/cbrtl.c       math/cephes_emath.c   math/copysign.c      math/copysignf.c     math/cos.c           \
-  math/cosf.c           math/coshf.c       math/coshl.c          math/cosl.c          math/cossin.c        math/erfl.c          \
+  math/coshf.c          math/coshl.c       math/cosl.c           math/cossin.c        math/erfl.c          \
   math/exp.c            math/expf.c        math/expl.c           math/expm1.c         math/expm1f.c        math/expm1l.c        \
   math/fabs.c           math/fabsf.c       math/fabsl.c          math/fdim.c          math/fdimf.c         math/fdiml.c         \
   math/fmal.c           math/fmax.c        math/fmaxf.c          math/fmaxl.c         math/fmin.c          math/fminf.c         \
@@ -291,6 +292,20 @@ src_libmingwex=\
   stdio/ulltoa.c           stdio/ulltow.c            stdio/vasprintf.c        stdio/vfscanf.c           stdio/vfwscanf.c        \
   stdio/vscanf.c           stdio/vsnprintf.c         stdio/vsnprintf_s.c      stdio/vsnwprintf.c        stdio/vsscanf.c         \
   stdio/vswscanf.c         stdio/vwscanf.c           stdio/wtoll.c            stdio/mingw_asprintf.c    stdio/mingw_vasprintf.c
+
+# these only go into the 64 bit version:
+src_libmingwex64=\
+  math/cosf.c
+
+# these only go into the 32 bit version:
+src_libmingwex32=\
+  math/cosf.c
+
+# these only go into the ARM32 version:
+src_libmingwexarm32=\
+  math/softmath/e_fmodf.c   math/softmath/e_powf.c    \
+  math/softmath/cosf.c
+
 
 # These intrinsics are target independent:
 src_intrincs= \
@@ -513,7 +528,7 @@ lib32_libmingw32_a_SOURCES = $(src_libmingw32)
 
 lib32_LIBRARIES += lib32/libmingwex.a
 lib32_libmingwex_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
-lib32_libmingwex_a_SOURCES = $(src_libmingwex) $(src_dfp_math)
+lib32_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex32) $(src_dfp_math)
 lib32_libmingwex_a_LIBADD = $(obj_dfpsrc32)
 
 lib32_LIBRARIES += lib32/libmoldname.a
@@ -758,7 +773,7 @@ lib64_libmingw32_a_SOURCES = $(src_libmingw32)
 
 lib64_LIBRARIES += lib64/libmingwex.a
 lib64_libmingwex_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include) $(AM_CPPFLAGS)
-lib64_libmingwex_a_SOURCES = $(src_libmingwex) $(src_dfp_math)
+lib64_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwex64) $(src_dfp_math)
 lib64_libmingwex_a_LIBADD = $(obj_dfpsrc64)
 
 lib64_LIBRARIES += lib64/libmoldname.a
@@ -1269,7 +1284,7 @@ libarm32_libmingw32_a_SOURCES = $(src_libmingw32)
 
 libarm32_LIBRARIES += libarm32/libmingwex.a
 libarm32_libmingwex_a_CPPFLAGS=$(CPPFLAGSARM32) $(extra_include) $(AM_CPPFLAGS)
-libarm32_libmingwex_a_SOURCES = $(src_libmingwex) $(src_dfp_math)
+libarm32_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwexarm32) $(src_dfp_math)
 libarm32_libmingwex_a_LIBADD = $(obj_dfpsrc32)
 
 libarm32_LIBRARIES += libarm32/libmoldname.a
