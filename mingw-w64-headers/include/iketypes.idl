@@ -234,7 +234,6 @@ typedef struct IKEEXT_PRESHARED_KEY_AUTHENTICATION1__ {
   FWP_BYTE_BLOB presharedKey;
   UINT32 flags;
 } IKEEXT_PRESHARED_KEY_AUTHENTICATION1;
-cpp_quote("#endif")
 cpp_quote("")
 
 typedef struct IKEEXT_CERTIFICATE_AUTHENTICATION0_ {
