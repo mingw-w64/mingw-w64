@@ -375,11 +375,4 @@ typedef struct FWP_CONDITION_VALUE0_ {
 
 cpp_quote("")
 
-typedef struct FWPM_DISPLAY_DATA0_ {
-  [string, unique] wchar_t *name;
-  [string, unique] wchar_t *description;
-} FWPM_DISPLAY_DATA0;
-
-cpp_quote("")
-
 cpp_quote("#endif /* WINAPI_PARTITION_DESKTOP. */")
