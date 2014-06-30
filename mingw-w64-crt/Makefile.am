@@ -246,7 +246,7 @@ src_libmingwex=\
   math/nexttowardf.c    math/pow.c         math/powf.c           math/powi.c          math/powif.c         math/powil.c         \
   math/powl.c           math/rint.c        math/rintf.c          math/rintl.c         math/round.c         math/roundf.c        \
   math/roundl.c         math/s_erf.c       math/sf_erf.c         math/signbit.c       math/signbitf.c      math/signbitl.c      \
-  math/sin.c            math/sinf.c        math/sinhf.c          math/sinhl.c         math/sinl.c          math/sqrt.c          \
+  math/sin.c            math/sinhf.c       math/sinhl.c          math/sinl.c          math/sqrt.c          \
   math/sqrtf.c          math/sqrtl.c       math/tanf.c           math/tanhf.c         math/tanhl.c         math/tgamma.c        \
   math/tgammaf.c        math/tgammal.c     math/truncl.c         \
   math/acosh.def.h      math/cos.def.h     math/exp.def.h        math/expm1.def.h     math/log.def.h       math/pow.def.h       \
@@ -295,16 +295,16 @@ src_libmingwex=\
 
 # these only go into the 64 bit version:
 src_libmingwex64=\
-  math/cosf.c
+  math/cosf.c               math/sinf.c
 
 # these only go into the 32 bit version:
 src_libmingwex32=\
-  math/cosf.c
+  math/cosf.c               math/sinf.c
 
 # these only go into the ARM32 version:
 src_libmingwexarm32=\
   math/softmath/e_fmodf.c   math/softmath/e_powf.c    \
-  math/softmath/cosf.c
+  math/softmath/cosf.c      math/softmath/sinf.c
 
 
 # These intrinsics are target independent:
