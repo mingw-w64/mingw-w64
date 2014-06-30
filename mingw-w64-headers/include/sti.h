@@ -264,11 +264,9 @@ extern "C" {
 
 #define STI_RAW_RESERVED 0x1000
 
-#ifdef __cplusplus
   struct IStillImageW;
   struct IStillImageA;
   struct IStiDevice;
-#endif
 
   STDMETHODIMP StiCreateInstanceW(HINSTANCE hinst,DWORD dwVer,struct IStillImageW **ppSti,LPUNKNOWN punkOuter);
   STDMETHODIMP StiCreateInstanceA(HINSTANCE hinst,DWORD dwVer,struct IStillImageA **ppSti,LPUNKNOWN punkOuter);
