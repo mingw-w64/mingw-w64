@@ -78,6 +78,21 @@ static inline double softmath_fact(double number)
     return number * softmath_fact(number - 1);
 }
 
+static inline float softmath_expf(float x)
+{
+    float result = 0.0;
+    int n;
+
+    for(n = 0; n < 64; n++)
+    {
+        result += (bsd__ieee754_powf(x, n) / softmath_fact(n));
+        if (isnan(result) || isinf(result))
+            break;
+    }
+
+    return result;
+}
+
 static inline float softmath_logf(float x)
 {
     int n, aprox = 8 / (x / 2);
