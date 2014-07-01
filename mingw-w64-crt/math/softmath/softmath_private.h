@@ -67,6 +67,9 @@ typedef union {
     (d) = gf_u.value; \
 } while(0)
 
+extern float bsd__ieee754_fmodf(float, float);
+extern float bsd__ieee754_powf(float, float);
+
 static inline double softmath_fact(double number)
 {
     if (number <= 0)
@@ -75,5 +78,23 @@ static inline double softmath_fact(double number)
     return number * softmath_fact(number - 1);
 }
 
-extern float bsd__ieee754_fmodf(float, float);
-extern float bsd__ieee754_powf(float, float);
+static inline float softmath_logf(float x)
+{
+    int n, aprox = 8 / (x / 2);
+    float result = 0.0;
+
+    if (x == 0.0)
+        return -HUGE_VALF;
+    else if (x < 0.0001)
+        aprox = 32768;
+
+    for(n = 0; n < aprox; n++)
+    {
+        result += bsd__ieee754_powf((x - 1.0) / (x + 1.0), 2 * n + 1) * (1.0 / (2.0 * n + 1.0));
+        if (isinf(result))
+            break;
+    }
+    result *= 2;
+
+    return result;
+}
