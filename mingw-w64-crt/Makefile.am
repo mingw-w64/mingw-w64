@@ -222,7 +222,7 @@ src_libmingwex=\
   math/_chgsignl.S      math/ceil.S        math/ceilf.S          math/ceill.S         math/copysignl.S     math/cosl_internal.S \
   math/exp2.S           math/exp2l.S       math/floor.S          math/floorf.S        math/floorl.S        \
   math/fma.S            math/fmaf.S        math/frexpl.S         math/ilogb.S         math/ilogbf.S        math/ilogbl.S        \
-  math/internal_logl.S  math/log10l.S      math/log1p.S          math/log1pf.S        math/log1pl.S        math/log2.S          \
+  math/internal_logl.S  math/log10l.S      math/log1p.S          math/log1pl.S        math/log2.S          \
   math/log2l.S          math/nearbyint.S   math/nearbyintf.S     math/nearbyintl.S    math/remainder.S     \
   math/remainderf.S     math/remainderl.S  math/remquo.S         math/remquof.S       math/remquol.S       math/scalbn.S        \
   math/scalbnf.S        math/scalbnl.S     math/sinl_internal.S  math/tanl.S          math/trunc.S         math/truncf.S        \
@@ -296,18 +296,18 @@ src_libmingwex=\
 # these only go into the 64 bit version:
 src_libmingwex64=\
   math/acosf.c              math/asinf.c              math/atanf.c              math/cosf.c               math/exp2f.S              \
-  math/log2f.S              math/sinf.c               math/tanf.c
+  math/log1pf.S             math/log2f.S              math/sinf.c               math/tanf.c
 
 # these only go into the 32 bit version:
 src_libmingwex32=\
   math/acosf.c              math/asinf.c              math/atanf.c              math/cosf.c               math/exp2f.S              \
-  math/log2f.S              math/sinf.c               math/tanf.c
+  math/log1pf.S             math/log2f.S              math/sinf.c               math/tanf.c
 
 # these only go into the ARM32 version:
 src_libmingwexarm32=\
   math/softmath/e_fmodf.c   math/softmath/e_powf.c    \
   math/softmath/acosf.c     math/softmath/asinf.c     math/softmath/atanf.c     math/softmath/cosf.c      math/softmath/exp2f.c     \
-  math/softmath/log2f.c     math/softmath/sinf.c      math/softmath/tanf.c
+  math/softmath/log1pf.c    math/softmath/log2f.c     math/softmath/sinf.c      math/softmath/tanf.c
 
 
 # These intrinsics are target independent:
