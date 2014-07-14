@@ -9,7 +9,7 @@
 #include <crtdefs.h>
 #include <limits.h>
 
-#if defined (__USE_MINGW_ANSI_STDIO) && !defined (__USE_MINGW_STRTOX)
+#if defined (__USE_MINGW_ANSI_STDIO) && ((__USE_MINGW_ANSI_STDIO + 0) != 0) && !defined (__USE_MINGW_STRTOX)
 #define __USE_MINGW_STRTOX 1
 #endif
 

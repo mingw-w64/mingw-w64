@@ -9,7 +9,7 @@
 #include <crtdefs.h>
 #include <_mingw_print_push.h>
 
-#if defined (__USE_MINGW_ANSI_STDIO) && !defined (__USE_MINGW_STRTOX)
+#if defined (__USE_MINGW_ANSI_STDIO) && ((__USE_MINGW_ANSI_STDIO + 0) != 0) && !defined (__USE_MINGW_STRTOX)
 #define __USE_MINGW_STRTOX 1
 #endif
 
@@ -775,7 +775,7 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
   float __cdecl __mingw_wcstof(const wchar_t * __restrict__ nptr, wchar_t ** __restrict__ endptr);
   long double __cdecl __mingw_wcstold(const wchar_t * __restrict__, wchar_t ** __restrict__);
 
-#if defined(__USE_MINGW_ANSI_STDIO)
+#if __USE_MINGW_ANSI_STDIO
   __mingw_ovr
   double __cdecl wcstod(const wchar_t * __restrict__ _Str,wchar_t ** __restrict__ _EndPtr){
     return __mingw_wcstod(_Str,_EndPtr);
