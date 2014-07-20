@@ -59,7 +59,7 @@ esac
 # LT_INIT([OPTIONS])
 # ------------------
 AC_DEFUN([LT_INIT],
-[AC_PREREQ([2.58])dnl We use AC_INCLUDES_DEFAULT
+[AC_PREREQ([2.62])dnl We use AC_PATH_PROGS_FEATURE_CHECK
 AC_REQUIRE([AC_CONFIG_AUX_DIR_DEFAULT])dnl
 AC_BEFORE([$0], [LT_LANG])dnl
 AC_BEFORE([$0], [LT_OUTPUT])dnl
@@ -169,6 +169,7 @@ m4_require([_LT_CHECK_SHAREDLIB_FROM_LINKLIB])dnl
 m4_require([_LT_CMD_OLD_ARCHIVE])dnl
 m4_require([_LT_CMD_GLOBAL_SYMBOLS])dnl
 m4_require([_LT_WITH_SYSROOT])dnl
+m4_require([_LT_CMD_TRUNCATE])dnl
 
 _LT_CONFIG_LIBTOOL_INIT([
 # See if we are running on zsh, and set the options that allow our
@@ -3224,6 +3225,43 @@ _LT_TAGDECL([], [reload_cmds], [2])dnl
 ])# _LT_CMD_RELOAD
 
 
+# _LT_PATH_DD
+# -----------
+# find a working dd
+m4_defun([_LT_PATH_DD],
+[AC_CACHE_CHECK([for a working dd], [ac_cv_path_lt_DD],
+[printf 0123456789abcdef0123456789abcdef >conftest.i
+cat conftest.i conftest.i >conftest2.i
+: ${lt_DD:=$DD}
+AC_PATH_PROGS_FEATURE_CHECK([lt_DD], [dd],
+[if "$ac_path_lt_DD" bs=32 count=1 <conftest2.i >conftest.out 2>/dev/null; then
+  cmp -s conftest.i conftest.out \
+  && ac_cv_path_lt_DD="$ac_path_lt_DD" ac_path_lt_DD_found=:
+fi])
+rm -f conftest.i conftest2.i conftest.out])
+])# _LT_PATH_DD
+
+
+# _LT_CMD_TRUNCATE
+# ----------------
+# find command to truncate a binary pipe
+m4_defun([_LT_CMD_TRUNCATE],
+[m4_require([_LT_PATH_DD])
+AC_CACHE_CHECK([how to truncate binary pipes], [lt_cv_truncate_bin],
+[printf 0123456789abcdef0123456789abcdef >conftest.i
+cat conftest.i conftest.i >conftest2.i
+lt_cv_truncate_bin=
+if "$ac_cv_path_lt_DD" bs=32 count=1 <conftest2.i >conftest.out 2>/dev/null; then
+  cmp -s conftest.i conftest.out \
+  && lt_cv_truncate_bin="$ac_cv_path_lt_DD bs=4096 count=1"
+fi
+rm -f conftest.i conftest2.i conftest.out
+test -z "$lt_cv_truncate_bin" && lt_cv_truncate_bin="$SED -e 4q"])
+_LT_DECL([lt_truncate_bin], [lt_cv_truncate_bin], [1],
+  [Command to truncate a binary pipe])
+])# _LT_CMD_TRUNCATE
+
+
 # _LT_CHECK_MAGIC_METHOD
 # ----------------------
 # how to check for library dependencies
@@ -3482,8 +3520,13 @@ else
 	# Adding the 'sed 1q' prevents false positives on HP-UX, which says:
 	#   nm: unknown option "B" ignored
 	# Tru64's nm complains that /dev/null is an invalid object file
-	case `"$tmp_nm" -B /dev/null 2>&1 | sed '1q'` in
-	*/dev/null* | *'Invalid file or object type'*)
+	# MSYS converts /dev/null to NUL, MinGW nm treats NUL as empty
+	case $build_os in
+	mingw*) lt_bad_file=conftest.nm/nofile ;;
+	*) lt_bad_file=/dev/null ;;
+	esac
+	case `"$tmp_nm" -B $lt_bad_file 2>&1 | sed '1q'` in
+	*$lt_bad_file* | *'Invalid file or object type'*)
 	  lt_cv_path_NM="$tmp_nm -B"
 	  break 2
 	  ;;
