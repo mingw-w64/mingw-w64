@@ -9,15 +9,15 @@
 
 # @configure_input@
 
-# serial 4092 ltversion.m4
+# serial 4095 ltversion.m4
 # This file is part of GNU Libtool
 
-m4_define([LT_PACKAGE_VERSION], [2.4.2.444.28-053d])
-m4_define([LT_PACKAGE_REVISION], [2.4.2.444.28])
+m4_define([LT_PACKAGE_VERSION], [2.4.2.444.31-13aa])
+m4_define([LT_PACKAGE_REVISION], [2.4.2.444.31])
 
 AC_DEFUN([LTVERSION_VERSION],
-[macro_version='2.4.2.444.28-053d'
-macro_revision='2.4.2.444.28'
+[macro_version='2.4.2.444.31-13aa'
+macro_revision='2.4.2.444.31'
 _LT_DECL(, macro_version, 0, [Which release of libtool.m4 was used?])
 _LT_DECL(, macro_revision, 0)
 ])
