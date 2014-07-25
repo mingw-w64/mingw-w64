@@ -226,7 +226,7 @@ src_libmingwex=\
   math/log2l.S          math/nearbyint.S   math/nearbyintf.S     math/nearbyintl.S    math/remainder.S     \
   math/remainderf.S     math/remainderl.S  math/remquo.S         math/remquof.S       math/remquol.S       math/scalbn.S        \
   math/scalbnl.S        math/sinl_internal.S  math/tanl.S        math/trunc.S         math/truncf.S        \
-  math/acosh.c          math/acoshl.c      math/acosl.c          \
+  math/acoshl.c         math/acosl.c       \
   math/asinh.c          math/asinhl.c      math/asinl.c          math/atan2l.c        \
   math/atanh.c          math/atanhl.c      math/atanl.c          math/cbrt.c          \
   math/cbrtf.c          math/cbrtl.c       math/cephes_emath.c   math/copysign.c      math/copysignf.c     math/cos.c           \
@@ -295,25 +295,25 @@ src_libmingwex=\
 
 # these only go into the 64 bit version:
 src_libmingwex64=\
-  math/acosf.c              math/acoshf.c             math/asinf.c              math/asinhf.c             math/atan2f.c             \
-  math/atanf.c              math/atanhf.c             math/cosf.c               math/exp2f.S              math/expm1f.c             \
-  math/fmodf.c              math/ilogbf.S             math/log1pf.S             math/log2f.S              math/logbf.c              \
-  math/scalbnf.S            math/sinf.c               math/tanf.c
+  math/acosf.c              math/acosh.c              math/acoshf.c             math/asinf.c              math/asinhf.c             \
+  math/atan2f.c             math/atanf.c              math/atanhf.c             math/cosf.c               math/exp2f.S              \
+  math/expm1f.c             math/fmodf.c              math/ilogbf.S             math/log1pf.S             math/log2f.S              \
+  math/logbf.c              math/scalbnf.S            math/sinf.c               math/tanf.c
 
 # these only go into the 32 bit version:
 src_libmingwex32=\
-  math/acosf.c              math/acoshf.c             math/asinf.c              math/asinhf.c             math/atan2f.c             \
-  math/atanf.c              math/atanhf.c             math/cosf.c               math/exp2f.S              math/expm1f.c             \
-  math/fmodf.c              math/ilogbf.S             math/log1pf.S             math/log2f.S              math/logbf.c              \
-  math/scalbnf.S            math/sinf.c               math/tanf.c
+  math/acosf.c              math/acosh.c              math/acoshf.c             math/asinf.c              math/asinhf.c             \
+  math/atan2f.c             math/atanf.c              math/atanhf.c             math/cosf.c               math/exp2f.S              \
+  math/expm1f.c             math/fmodf.c              math/ilogbf.S             math/log1pf.S             math/log2f.S              \
+  math/logbf.c              math/scalbnf.S            math/sinf.c               math/tanf.c
 
 # these only go into the ARM32 version:
 src_libmingwexarm32=\
   math/softmath/e_fmodf.c   math/softmath/e_powf.c    \
-  math/softmath/acosf.c     math/softmath/acoshf.c    math/softmath/asinf.c     math/softmath/asinhf.c    math/softmath/atan2f.c    \
-  math/softmath/atanf.c     math/softmath/atanhf.c    math/softmath/cosf.c      math/softmath/exp2f.c     math/softmath/expm1f.c    \
-  math/softmath/fmodf.c     math/softmath/ilogbf.c    math/softmath/log1pf.c    math/softmath/log2f.c     math/softmath/logbf.c     \
-  math/softmath/scalbnf.c   math/softmath/sinf.c      math/softmath/tanf.c
+  math/softmath/acosf.c     math/softmath/acosh.c     math/softmath/acoshf.c    math/softmath/asinf.c     math/softmath/asinhf.c    \
+  math/softmath/atan2f.c    math/softmath/atanf.c     math/softmath/atanhf.c    math/softmath/cosf.c      math/softmath/exp2f.c     \
+  math/softmath/expm1f.c    math/softmath/fmodf.c     math/softmath/ilogbf.c    math/softmath/log1pf.c    math/softmath/log2f.c     \
+  math/softmath/logbf.c     math/softmath/scalbnf.c   math/softmath/sinf.c      math/softmath/tanf.c
 
 
 # These intrinsics are target independent:

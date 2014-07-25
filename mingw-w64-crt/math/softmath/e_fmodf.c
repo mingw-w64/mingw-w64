@@ -16,7 +16,7 @@
  */
 
 #include "math.h"
-#include "softmath_private.h"
+#include "bsd_privatef.h"
 
 float bsd__ieee754_fmodf(float x, float y)
 {

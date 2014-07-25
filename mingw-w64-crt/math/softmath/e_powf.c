@@ -10,7 +10,7 @@
  */
 
 #include "math.h"
-#include "softmath_private.h"
+#include "bsd_privatef.h"
 
 float bsd__ieee754_powf(float x, float y)
 {
