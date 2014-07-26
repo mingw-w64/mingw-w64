@@ -12,6 +12,8 @@
 extern "C" {
 #endif
 
+#include <pshpack1.h>
+
 /*
   constants as found on
   http://www.koders.com/delphi/fid882B076395C727550B1DA378430A79672B587941.aspx
@@ -163,6 +165,7 @@ typedef struct _SOCKADDR_BTH {
   ULONG    port;
 } SOCKADDR_BTH, *PSOCKADDR_BTH;
 
+#include <poppack.h>
 #ifdef __cplusplus
 }
 #endif
