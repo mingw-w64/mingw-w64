@@ -46,5 +46,5 @@
 
 float log2f(float x)
 {
-    return softmath_logf(x) / softmath_logf(2);
+    return softmath_logf(x) / 0.69314718246459960938f;
 }
