@@ -12,6 +12,7 @@
 #include <math.h>
 #include <inttypes.h>
 
+extern double bsd__ieee754_fmod(double, double);
 extern float bsd__ieee754_fmodf(float, float);
 extern double bsd__ieee754_pow(double, double);
 extern float bsd__ieee754_powf(float, float);
