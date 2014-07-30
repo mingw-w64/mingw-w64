@@ -185,6 +185,7 @@ src_msvcrt=\
   secapi/_wstrdate_s.c \
   secapi/asctime_s.c \
   secapi/memcpy_s.c \
+  secapi/memmove_s.c \
   secapi/rand_s.c \
   secapi/sprintf_s.c \
   secapi/strerror_s.c \

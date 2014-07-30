@@ -1194,7 +1194,7 @@ getenv_s
 mbsrtowcs_s
 mbstowcs_s
 ; memcpy_s replaced by emu
-memmove_s
+; memmove_s replaced by emu
 printf_s
 qsort_s
 scanf_s

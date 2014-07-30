@@ -1141,7 +1141,7 @@ memcmp
 memcpy
 ; memcpy_s replaced by emu
 memmove
-memmove_s
+; memmove_s replaced by emu
 memset
 mktime
 modf
