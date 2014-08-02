@@ -16,6 +16,8 @@ extern double bsd__ieee754_fmod(double, double);
 extern float bsd__ieee754_fmodf(float, float);
 extern double bsd__ieee754_pow(double, double);
 extern float bsd__ieee754_powf(float, float);
+extern double bsd__ieee754_remainder(double, double);
+extern float bsd__ieee754_remainderf(float, float);
 
 static inline double softmath_fact(double number)
 {

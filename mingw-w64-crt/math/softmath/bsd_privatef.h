@@ -9,7 +9,7 @@
 * ====================================================
 */
 
-#include <math.h>
+#include "softmath_private.h"
 #include <inttypes.h>
 
 static const float

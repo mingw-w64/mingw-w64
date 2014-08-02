@@ -15,7 +15,6 @@
  * Method: shift and subtract
  */
 
-#include "math.h"
 #include "bsd_privatef.h"
 
 float bsd__ieee754_fmodf(float x, float y)

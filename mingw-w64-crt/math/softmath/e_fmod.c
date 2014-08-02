@@ -15,7 +15,6 @@
  * Method: shift and subtract
  */
 
-#include "math.h"
 #include "bsd_private.h"
 
 double bsd__ieee754_fmod(double x, double y)

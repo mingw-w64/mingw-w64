@@ -9,7 +9,6 @@
  * ====================================================
  */
 
-#include "math.h"
 #include "bsd_privatef.h"
 
 float bsd__ieee754_powf(float x, float y)

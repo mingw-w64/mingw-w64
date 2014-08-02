@@ -8,7 +8,6 @@
  * ====================================================
  */
 
-#include "math.h"
 #include "bsd_private.h"
 
 double bsd__ieee754_pow(double x, double y)
