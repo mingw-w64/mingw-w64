@@ -7,7 +7,7 @@
 int
 __isnanf (float _x)
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
     __mingw_flt_type_t hlp;
     int i;
     
@@ -15,7 +15,7 @@ __isnanf (float _x)
     i = hlp.val & 0x7fffffff;
     i = 0x7f800000 - i;
     return (int) (((unsigned int) i) >> 31);
-#else
+#elif defined(__i386__) || defined(_X86_)
   unsigned short _sw;
   __asm__ __volatile__ ("fxam;"
 	   "fstsw %%ax": "=a" (_sw) : "t" (_x) );

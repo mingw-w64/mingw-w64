@@ -8,7 +8,7 @@
 int
 __isnan (double _x)
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
     __mingw_dbl_type_t hlp;
     int l, h;
 
@@ -18,7 +18,7 @@ __isnan (double _x)
     h |= (unsigned int) (l | -l) >> 31;
     h = 0x7ff00000 - h;
     return (int) ((unsigned int) h) >> 31;
-#else
+#elif defined(__i386__) || defined(_X86_)
   unsigned short _sw;
   __asm__ __volatile__ ("fxam;"
 	   "fstsw %%ax": "=a" (_sw) : "t" (_x));
