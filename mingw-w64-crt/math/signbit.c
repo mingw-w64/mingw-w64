@@ -16,12 +16,12 @@ typedef union __mingw_dbl_type_t {
 
 int __signbit (double x)
 {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
     __mingw_dbl_type_t hlp;
     
     hlp.x = x;
     return ((hlp.lh.high & 0x80000000) != 0);
-#else
+#elif defined(__i386__) || defined(_X86_)
   unsigned short sw;
   __asm__ __volatile__ ("fxam; fstsw %%ax;"
 	   : "=a" (sw)

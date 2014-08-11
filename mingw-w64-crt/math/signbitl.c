@@ -25,11 +25,13 @@ int __signbitl (long double x);
 
 
 int __signbitl (long double x) {
-#ifdef __x86_64
+#if defined(__x86_64__) || defined(_AMD64_)
     __mingw_fp_types_t ld;
     ld.ld = &x;
     return ((ld.ldt->lh.sign_exponent & 0x8000) != 0);
-#else
+#elif defined(__arm__) || defined(_ARM_)
+    __signbit(x);
+#elif defined(__i386__) || defined(_X86_)
   unsigned short sw;
   __asm__ __volatile__ ("fxam; fstsw %%ax;"
 	   : "=a" (sw)
