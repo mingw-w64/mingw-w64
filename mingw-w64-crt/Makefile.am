@@ -237,7 +237,7 @@ src_libmingwex=\
   math/fmal.c           math/fmax.c        math/fmaxf.c          math/fmaxl.c         math/fmin.c          math/fminf.c         \
   math/fminl.c          math/fmodl.c       math/fp_consts.c      math/fp_constsf.c    \
   math/fp_constsl.c     math/fpclassify.c  math/fpclassifyf.c    math/fpclassifyl.c   math/frexpf.c        math/fucom.c         \
-  math/hypotf.c         math/hypotl.c      math/isnan.c          math/isnanf.c        math/isnanl.c        math/ldexp.c         \
+  math/hypotf.c         math/hypotl.c      math/isnan.c          math/isnanf.c        math/isnanl.c        \
   math/ldexpf.c         math/ldexpl.c      math/lgamma.c         math/lgammaf.c       math/lgammal.c       math/llrint.c        \
   math/signgam.c \
   math/llrintf.c        math/llrintl.c     math/llround.c        math/llroundf.c      math/llroundl.c      math/log.c           \
@@ -300,9 +300,10 @@ src_libmingwex64=\
   math/asinhf.c             math/atan2f.c             math/atanf.c              math/atanh.c              math/atanhf.c             \
   math/cos.c                math/cosf.c               math/cossin.c             math/exp.c                math/exp2.S               \
   math/exp2f.S              math/expm1.c              math/expm1f.c             math/fmod.c               math/fmodf.c              \
-  math/ilogb.S              math/ilogbf.S             math/log1p.S              math/log1pf.S             math/log2.S               \
-  math/log2f.S              math/logb.c               math/logbf.c              math/remainder.S          math/remainderf.S         \
-  math/scalbn.S             math/scalbnf.S            math/sin.c                math/sinf.c               math/tanf.c
+  math/ilogb.S              math/ilogbf.S             math/ldexp.c              math/log1p.S              math/log1pf.S             \
+  math/log2.S               math/log2f.S              math/logb.c               math/logbf.c              math/remainder.S          \
+  math/remainderf.S         math/scalbn.S             math/scalbnf.S            math/sin.c                math/sinf.c               \
+  math/tanf.c
 
 # these only go into the 32 bit version:
 src_libmingwex32=\
@@ -310,9 +311,10 @@ src_libmingwex32=\
   math/asinhf.c             math/atan2f.c             math/atanf.c              math/atanh.c              math/atanhf.c             \
   math/cos.c                math/cosf.c               math/cossin.c             math/exp.c                math/exp2.S               \
   math/exp2f.S              math/expm1.c              math/expm1f.c             math/fmod.c               math/fmodf.c              \
-  math/ilogb.S              math/ilogbf.S             math/log1p.S              math/log1pf.S             math/log2.S               \
-  math/log2f.S              math/logb.c               math/logbf.c              math/remainder.S          math/remainderf.S         \
-  math/scalbn.S             math/scalbnf.S            math/sin.c                math/sinf.c               math/tanf.c
+  math/ilogb.S              math/ilogbf.S             math/ldexp.c              math/log1p.S              math/log1pf.S             \
+  math/log2.S               math/log2f.S              math/logb.c               math/logbf.c              math/remainder.S          \
+  math/remainderf.S         math/scalbn.S             math/scalbnf.S            math/sin.c                math/sinf.c               \
+  math/tanf.c
 
 # these only go into the ARM32 version:
 src_libmingwexarm32=\
@@ -321,10 +323,10 @@ src_libmingwexarm32=\
   math/softmath/asinhf.c    math/softmath/atan2f.c    math/softmath/atanf.c     math/softmath/atanh.c     math/softmath/atanhf.c    \
   math/softmath/cos.c       math/softmath/cosf.c      math/softmath/exp.c       math/softmath/exp2.c      math/softmath/exp2f.c     \
   math/softmath/expm1.c     math/softmath/expm1f.c    math/softmath/fmod.c      math/softmath/fmodf.c     math/softmath/ilogb.c     \
-  math/softmath/ilogbf.c    math/softmath/log1p.c     math/softmath/log1pf.c    math/softmath/log2.c      math/softmath/log2f.c     \
-  math/softmath/logb.c      math/softmath/logbf.c     math/softmath/remainder.c math/softmath/remainderf.c math/softmath/scalbn.c   \
-  math/softmath/scalbnf.c   math/softmath/sin.c       math/softmath/sincos.c    math/softmath/sincosf.c   math/softmath/sinf.c      \
-  math/softmath/tanf.c
+  math/softmath/ilogbf.c    math/softmath/ldexp.c     math/softmath/log1p.c     math/softmath/log1pf.c    math/softmath/log2.c      \
+  math/softmath/log2f.c     math/softmath/logb.c      math/softmath/logbf.c     math/softmath/remainder.c math/softmath/remainderf.c \
+  math/softmath/scalbn.c    math/softmath/scalbnf.c   math/softmath/sin.c       math/softmath/sincos.c    math/softmath/sincosf.c   \
+  math/softmath/sinf.c      math/softmath/tanf.c
 
 
 # These intrinsics are target independent:
