@@ -17,3 +17,6 @@ static _invalid_parameter_handler __cdecl mingw_get_invalid_parameter_handler(vo
 }
 
 _invalid_parameter_handler (__cdecl *__MINGW_IMP_SYMBOL(_get_invalid_parameter_handler))(void) = mingw_get_invalid_parameter_handler;
+
+_invalid_parameter_handler __cdecl _get_invalid_parameter_handler(void) __attribute__ ((alias ("mingw_get_invalid_parameter_handler")));
+_invalid_parameter_handler __cdecl _set_invalid_parameter_handler(_invalid_parameter_handler new_handler) __attribute__ ((alias ("mingw_set_invalid_parameter_handler")));
