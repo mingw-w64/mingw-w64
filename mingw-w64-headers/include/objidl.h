@@ -11389,7 +11389,7 @@ IUnknown *pUnkForRelease;
 #else
 typedef struct tagSTGMEDIUM {
     DWORD tymed;
-    union {
+    __C89_NAMELESS union {
         HBITMAP hBitmap;
         HMETAFILEPICT hMetaFilePict;
         HENHMETAFILE hEnhMetaFile;
@@ -11410,7 +11410,7 @@ typedef struct _GDI_OBJECT {
     } u;
 } GDI_OBJECT;
 typedef struct _userSTGMEDIUM {
-    struct _STGMEDIUM_UNION {
+    __C89_NAMELESS struct _STGMEDIUM_UNION {
         DWORD tymed;
         union {
             wireHMETAFILEPICT hMetaFilePict;
