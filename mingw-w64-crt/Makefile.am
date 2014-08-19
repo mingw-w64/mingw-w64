@@ -335,7 +335,7 @@ src_libmingwexarm32=\
   math/softmath/log2f.c     math/softmath/log2l.c     math/softmath/logb.c      math/softmath/logbf.c     math/softmath/logbl.c     \
   math/softmath/pow.c       math/softmath/powl.c      math/softmath/remainder.c math/softmath/remainderf.c math/softmath/remainderl.c \
   math/softmath/scalbn.c    math/softmath/scalbnf.c   math/softmath/scalbnl.c   math/softmath/sin.c       math/softmath/sincos.c    \
-  math/softmath/sincosf.c   math/softmath/sinf.c      math/softmath/tanf.c
+  math/softmath/sincosf.c   math/softmath/sincosl.c   math/softmath/sinf.c      math/softmath/tanf.c
 
 
 # These intrinsics are target independent:
