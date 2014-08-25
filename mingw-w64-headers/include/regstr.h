@@ -1,10 +1,14 @@
 /**
- * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  */
+
 #ifndef _INC_REGSTR
 #define _INC_REGSTR
+
+#include <winapifamily.h>
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 
 #define REGSTR_KEY_CLASS TEXT("Class")
 #define REGSTR_KEY_CONFIG TEXT("Config")
@@ -52,6 +56,7 @@
 #define REGSTR_PATH_RUNSERVICESONCE TEXT("Software\\Microsoft\\Windows\\CurrentVersion\\RunServicesOnce")
 #define REGSTR_PATH_RUNSERVICES TEXT("Software\\Microsoft\\Windows\\CurrentVersion\\RunServices")
 #define REGSTR_PATH_EXPLORER TEXT("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer")
+#define REGSTR_PATH_PROPERTYSYSTEM TEXT("Software\\Microsoft\\Windows\\CurrentVersion\\PropertySystem")
 #define REGSTR_PATH_DETECT TEXT("Software\\Microsoft\\Windows\\CurrentVersion\\Detect")
 #define REGSTR_PATH_APPPATHS TEXT("Software\\Microsoft\\Windows\\CurrentVersion\\App Paths")
 #define REGSTR_PATH_UNINSTALL TEXT("Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall")
@@ -117,23 +122,33 @@
 #define REGSTR_MAX_VALUE_LENGTH 256
 
 #define REGSTR_KEY_DEVICE_PROPERTIES TEXT("Properties")
+
 #define REGSTR_VAL_SLOTNUMBER TEXT("SlotNumber")
 #define REGSTR_VAL_ATTACHEDCOMPONENTS TEXT("AttachedComponents")
 #define REGSTR_VAL_BASEDEVICEPATH TEXT("BaseDevicePath")
 #define REGSTR_VAL_SYSTEMBUSNUMBER TEXT("SystemBusNumber")
 #define REGSTR_VAL_BUSDATATYPE TEXT("BusDataType")
 #define REGSTR_VAL_INTERFACETYPE TEXT("InterfaceType")
+
 #define REGSTR_VAL_SERVICE TEXT("Service")
+
 #define REGSTR_VAL_DETECTSIGNATURE TEXT("DetectSignature")
+
 #define REGSTR_VAL_CLASSGUID TEXT("ClassGUID")
-#define REGSTR_VAL_INSTANCEIDENTIFIER TEXT("InstanceIdentifier")
+
+#define REGSTR_VAL_INSTANCEIDENTIFIER TEXT("InstanceIde
 #define REGSTR_VAL_DUPLICATEOF TEXT("DuplicateOf")
 #define REGSTR_VAL_STATUSFLAGS TEXT("StatusFlags")
+
 #define REGSTR_VAL_DISABLECOUNT TEXT("DisableCount")
+
 #define REGSTR_VAL_UNKNOWNPROBLEMS TEXT("UnknownProblem")
+
 #define REGSTR_VAL_DOCKSTATE TEXT("DockState")
+
 #define REGSTR_VAL_PREFERENCEORDER TEXT("PreferenceOrder")
 #define REGSTR_VAL_USERWAITINTERVAL TEXT("UserWaitInterval")
+
 #define REGSTR_VAL_DEVICE_INSTANCE TEXT("DeviceInstance")
 #define REGSTR_VAL_SYMBOLIC_LINK TEXT("SymbolicLink")
 #define REGSTR_VAL_DEFAULT TEXT("Default")
@@ -152,9 +167,8 @@
 #define REGSTR_VAL_CUSTOM_PROPERTY_CACHE_DATE TEXT("CustomPropertyCacheDate")
 #define REGSTR_VAL_CUSTOM_PROPERTY_HW_ID_KEY TEXT("CustomPropertyHwIdKey")
 #define REGSTR_VAL_LAST_UPDATE_TIME TEXT("LastUpdateTime")
+#define REGSTR_VAL_CONTAINERID TEXT("ContainerID")
 
-#define REGSTR_VALUE_DEVICE_OBJECT_NAME TEXT("DeviceObjectName")
-#define REGSTR_VALUE_DEVICE_SYMBOLIC_NAME TEXT("DeviceSymbolicName")
 #define REGSTR_VAL_EJECT_PRIORITY TEXT("EjectPriority")
 
 #define REGSTR_KEY_CONTROL TEXT("Control")
@@ -220,9 +234,23 @@
 
 #define REGSTR_VAL_WRAPPER TEXT("Wrapper")
 
+#define REGSTR_KEY_RUNHISTORY TEXT("RunHistory")
 #define REGSTR_VAL_LASTALIVEINTERVAL TEXT("TimeStampInterval")
+#define REGSTR_VAL_DIRTYSHUTDOWN TEXT("DirtyShutdown")
+#define REGSTR_VAL_DIRTYSHUTDOWNTIME TEXT("DirtyShutdownTime")
+#define REGSTR_VAL_BT TEXT("6005BT")
+#define REGSTR_VAL_LASTCOMPUTERNAME TEXT("LastComputerName")
+#define REGSTR_VAL_LASTALIVEBT TEXT("LastAliveBT")
 #define REGSTR_VAL_LASTALIVESTAMP TEXT("LastAliveStamp")
+#define REGSTR_VAL_LASTALIVESTAMPFORCED TEXT("LastAliveStampForced")
+#define REGSTR_VAL_LASTALIVESTAMPINTERVAL TEXT("LastAliveStampInterval")
+#define REGSTR_VAL_LASTALIVESTAMPPOLICYINTERVAL TEXT("LastAliveStampPolicyInterval")
 #define REGSTR_VAL_LASTALIVEUPTIME TEXT("LastAliveUptime")
+#define REGSTR_VAL_LASTALIVEPMPOLICY TEXT("LastAlivePMPolicy")
+
+#define REGSTR_VAL_REASONCODE TEXT("ReasonCode")
+#define REGSTR_VAL_COMMENT TEXT("Comment")
+
 #define REGSTR_VAL_SHUTDOWNREASON TEXT("ShutdownReason")
 #define REGSTR_VAL_SHUTDOWNREASON_CODE TEXT("ShutdownReasonCode")
 #define REGSTR_VAL_SHUTDOWNREASON_COMMENT TEXT("ShutdownReasonComment")
@@ -432,8 +460,8 @@
 #define PCMCIA_OPT_NO_APMREMOVE __MSABI_LONG(0x00000020)
 
 #define REGSTR_VAL_PCMCIA_MEM TEXT("Memory")
-#define PCMCIA_DEF_MEMBEGIN 0x000C0000
-#define PCMCIA_DEF_MEMEND 0x00FFFFFF
+#define PCMCIA_DEF_MEMBEGIN 0x000c0000
+#define PCMCIA_DEF_MEMEND 0x00ffffff
 #define PCMCIA_DEF_MEMLEN 0x00001000
 
 #define REGSTR_VAL_PCMCIA_ALLOC TEXT("AllocMemWin")
@@ -463,8 +491,8 @@
 #define AGP_FLAG_NO_SBA_ENABLE __MSABI_LONG(0x00000100)
 #define AGP_FLAG_NO_FW_ENABLE __MSABI_LONG(0x00000200)
 
-#define AGP_FLAG_SPECIAL_TARGET __MSABI_LONG(0x000FFFFF)
-#define AGP_FLAG_SPECIAL_RESERVE __MSABI_LONG(0x000F8000)
+#define AGP_FLAG_SPECIAL_TARGET __MSABI_LONG(0x000fffff)
+#define AGP_FLAG_SPECIAL_RESERVE __MSABI_LONG(0x000f8000)
 
 #define REGSTR_KEY_CRASHES TEXT("Crashes")
 #define REGSTR_KEY_DANGERS TEXT("Dangers")
@@ -474,6 +502,7 @@
 #define REGSTR_VAL_RESOURCES TEXT("Resources")
 #define REGSTR_VAL_CRASHFUNCS TEXT("CrashFuncs")
 #define REGSTR_VAL_CLASS TEXT("Class")
+#define REGSTR_VAL_CLASSDESC TEXT("ClassDesc")
 #define REGSTR_VAL_DEVDESC TEXT("DeviceDesc")
 #define REGSTR_VAL_BOOTCONFIG TEXT("BootConfig")
 #define REGSTR_VAL_DETFUNC TEXT("DetFunc")
@@ -597,12 +626,15 @@
 #define CONFIGFLAG_NOREMOVEEXIT 0x00000200
 #define CONFIGFLAG_FINISH_INSTALL 0x00000400
 #define CONFIGFLAG_NEEDS_FORCED_CONFIG 0x00000800
-#if defined(REMOTE_BOOT)
+#if defined (REMOTE_BOOT)
 #define CONFIGFLAG_NETBOOT_CARD 0x00001000
 #endif
 #define CONFIGFLAG_PARTIAL_LOG_CONF 0x00002000
 #define CONFIGFLAG_SUPPRESS_SURPRISE 0x00004000
 #define CONFIGFLAG_VERIFY_HARDWARE 0x00008000
+#define CONFIGFLAG_FINISHINSTALL_UI 0x00010000
+#define CONFIGFLAG_FINISHINSTALL_ACTION 0x00020000
+#define CONFIGFLAG_BOOT_DEVICE 0x00040000
 
 #define CSCONFIGFLAG_BITS 0x00000007
 #define CSCONFIGFLAG_DISABLED 0x00000001
@@ -640,7 +672,7 @@
 #endif
 #define EISAFLAG_NO_IO_MERGE 0x00000001
 #define EISAFLAG_SLOT_IO_FIRST 0x00000002
-#define EISA_NO_MAX_FUNCTION 0xFF
+#define EISA_NO_MAX_FUNCTION 0xff
 #define NUM_EISA_RANGES 4
 
 #define REGSTR_VAL_DRVDESC TEXT("DriverDesc")
@@ -742,7 +774,7 @@
 #define REGSTR_VAL_PCICOPTIONS TEXT("PCICOptions")
 
 #ifndef NEC_98
-#define PCIC_DEFAULT_IRQMASK 0x4EB8
+#define PCIC_DEFAULT_IRQMASK 0x4eb8
 #else
 #define PCIC_DEFAULT_IRQMASK 0x1468
 #endif
@@ -828,6 +860,9 @@
 #define REGSTR_KEY_SYSTEM TEXT("System")
 #define REGSTR_KEY_PRINTERS TEXT("Printers")
 #define REGSTR_KEY_WINOLDAPP TEXT("WinOldApp")
+#define REGSTR_KEY_EXPLORER TEXT("Explorer")
+
+#define REGSTR_PATH_RUN_POLICY REGSTR_PATH_POLICIES TEXT("\\Explorer\\Run")
 
 #define REGSTR_VAL_NOFILESHARING TEXT("NoFileSharing")
 #define REGSTR_VAL_NOPRINTSHARING TEXT("NoPrintSharing")
@@ -875,6 +910,7 @@
 #define REGSTR_VAL_LEGALNOTICECAPTION TEXT("LegalNoticeCaption")
 #define REGSTR_VAL_LEGALNOTICETEXT TEXT("LegalNoticeText")
 #define REGSTR_VAL_DRIVE_SPINDOWN TEXT("NoDispSpinDown")
+#define REGSTR_VAL_SHUTDOWN_FLAGS TEXT("ShutdownFlags")
 
 #define REGSTR_VAL_RESTRICTRUN TEXT("RestrictRun")
 
@@ -1064,9 +1100,12 @@ typedef struct _DSKTLSYSTEMTIME {
 
 #define REGSTR_PATH_DEVICEINSTALLER TEXT("Software\\Microsoft\\Windows\\CurrentVersion\\Device Installer")
 
+#define REGSTR_PATH_DIFX TEXT("Software\\Microsoft\\Windows\\CurrentVersion\\DIFX")
+
 #define REGSTR_VAL_SEARCHOPTIONS TEXT("SearchOptions")
 
 #define REGSTR_PATH_BIOSINFO TEXT("System\\CurrentControlSet\\Control\\BiosInfo")
+
 #define REGSTR_PATH_PCIIR TEXT("System\\CurrentControlSet\\Control\\Pnp\\PciIrqRouting")
 #define REGSTR_VAL_OPTIONS TEXT("Options")
 #define REGSTR_VAL_STAT TEXT("Status")
@@ -1106,7 +1145,8 @@ typedef struct _DSKTLSYSTEMTIME {
 #define REGSTR_PATH_LASTGOOD TEXT("System\\LastKnownGoodRecovery\\LastGood")
 #define REGSTR_PATH_LASTGOODTMP TEXT("System\\LastKnownGoodRecovery\\LastGood.Tmp")
 
-#define LASTGOOD_OPERATION 0x000000FF
+#define LASTGOOD_OPERATION 0x000000ff
 #define LASTGOOD_OPERATION_NOPOSTPROC 0x00000000
 #define LASTGOOD_OPERATION_DELETE 0x00000001
+#endif
 #endif
