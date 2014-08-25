@@ -234,12 +234,14 @@ extern "C" {
   WINBOOL WINAPI xGetMonitorInfo (HMONITOR hmon, LPMONITORINFO pmi) {
     RECT r;
     WINBOOL f;
+    union { LPMONITORINFO mi; MONITORINFOEX ex; } c;
 
+    c.mi = pmi;
     if (InitMultipleMonitorStubs ()) {
       f = g_pfnGetMonitorInfo (hmon, pmi);
 #ifdef UNICODE
       if (f && !g_fMultimonPlatformNT && pmi->cbSize >= sizeof (MONITORINFOEX))
-	MultiByteToWideChar (CP_ACP, 0, (LPSTR) ((MONITORINFOEX *)pmi)->szDevice, -1, ((MONITORINFOEX *)pmi)->szDevice, (sizeof (((MONITORINFOEX *)pmi)->szDevice) / 2));
+	MultiByteToWideChar (CP_ACP, 0, (LPSTR) c.ex->szDevice, -1, c.ex->szDevice, (sizeof (c.ex->szDevice) / 2));
 #endif
       return f;
     }
@@ -253,9 +255,9 @@ extern "C" {
       pmi->dwFlags = MONITORINFOF_PRIMARY;
       if (pmi->cbSize >= sizeof (MONITORINFOEX)) {
 #ifdef UNICODE
-	MultiByteToWideChar (CP_ACP, 0, "DISPLAY", -1, ((MONITORINFOEX *)pmi)->szDevice, (sizeof (((MONITORINFOEX *)pmi)->szDevice) / 2));
+	MultiByteToWideChar (CP_ACP, 0, "DISPLAY", -1, c.ex->szDevice, (sizeof (c.ex->szDevice) / 2));
 #else
-	lstrcpyn (((MONITORINFOEX *)pmi)->szDevice, "DISPLAY", sizeof (((MONITORINFOEX *)pmi)->szDevice));
+	lstrcpyn (c.ex->szDevice, "DISPLAY", sizeof (c.ex->szDevice));
 #endif
       }
 
