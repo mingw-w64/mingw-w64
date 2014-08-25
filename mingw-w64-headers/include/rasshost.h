@@ -1,14 +1,17 @@
 /**
- * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 #ifndef _RASSHOST_
 #define _RASSHOST_
 
+#include <winapifamily.h>
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
+
 #include <mprapi.h>
 
-typedef DWORD HPORT;
+typedef HANDLE HPORT;
 
 typedef struct _SECURITY_MESSAGE {
   DWORD dwMsgId;
@@ -37,4 +40,5 @@ DWORD WINAPI RasSecurityDialogSend(HPORT hPort,PBYTE pBuffer,WORD BufferLength);
 DWORD WINAPI RasSecurityDialogReceive(HPORT hPort,PBYTE pBuffer,PWORD pBufferLength,DWORD Timeout,HANDLE hEvent);
 DWORD WINAPI RasSecurityDialogGetInfo(HPORT hPort,RAS_SECURITY_INFO *pBuffer);
 
+#endif
 #endif
