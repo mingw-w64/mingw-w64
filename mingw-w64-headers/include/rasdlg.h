@@ -1,11 +1,13 @@
 /**
- * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 #ifndef _RASDLG_H_
 #define _RASDLG_H_
 
+#include <winapifamily.h>
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 #include <_mingw_unicode.h>
 #include <pshpack4.h>
 
@@ -28,8 +30,7 @@ extern "C" {
 
 #define RASNOUSER_SmartCard 0x00000001
 
-#define RASNOUSERW struct tagRASNOUSERW
-  RASNOUSERW {
+  struct tagRASNOUSERW {
     DWORD dwSize;
     DWORD dwFlags;
     DWORD dwTimeoutMs;
@@ -38,8 +39,7 @@ extern "C" {
     WCHAR szDomain[DNLEN + 1];
   };
 
-#define RASNOUSERA struct tagRASNOUSERA
-  RASNOUSERA {
+  struct tagRASNOUSERA {
     DWORD dwSize;
     DWORD dwFlags;
     DWORD dwTimeoutMs;
@@ -50,17 +50,19 @@ extern "C" {
 
 #define RASNOUSER __MINGW_NAME_AW(RASNOUSER)
 
-#define LPRASNOUSERW RASNOUSERW*
-#define LPRASNOUSERA RASNOUSERA*
-#define LPRASNOUSER RASNOUSER*
+#define RASNOUSERW struct tagRASNOUSERW
+#define RASNOUSERA struct tagRASNOUSERA
+
+#define LPRASNOUSERW RASNOUSERW *
+#define LPRASNOUSERA RASNOUSERA *
+#define LPRASNOUSER RASNOUSER *
 
 #define RASPBDFLAG_PositionDlg 0x00000001
 #define RASPBDFLAG_ForceCloseOnDial 0x00000002
 #define RASPBDFLAG_NoUser 0x00000010
 #define RASPBDFLAG_UpdateDefaults 0x80000000
 
-#define RASPBDLGW struct tagRASPBDLGW
-  RASPBDLGW {
+  struct tagRASPBDLGW {
     DWORD dwSize;
     HWND hwndOwner;
     DWORD dwFlags;
@@ -73,8 +75,7 @@ extern "C" {
     ULONG_PTR reserved2;
   };
 
-#define RASPBDLGA struct tagRASPBDLGA
-  RASPBDLGA {
+  struct tagRASPBDLGA {
     DWORD dwSize;
     HWND hwndOwner;
     DWORD dwFlags;
@@ -90,24 +91,33 @@ extern "C" {
 #define RASPBDLG __MINGW_NAME_AW(RASPBDLG)
 #define RASPBDLGFUNC __MINGW_NAME_AW(RASPBDLGFUNC)
 
-#define LPRASPBDLGW RASPBDLGW*
-#define LPRASPBDLGA RASPBDLGA*
-#define LPRASPBDLG RASPBDLG*
+#define RASPBDLGW struct tagRASPBDLGW
+#define RASPBDLGA struct tagRASPBDLGA
+
+#define LPRASPBDLGW RASPBDLGW *
+#define LPRASPBDLGA RASPBDLGA *
+#define LPRASPBDLG RASPBDLG *
 
 #define RASEDFLAG_PositionDlg 0x00000001
 #define RASEDFLAG_NewEntry 0x00000002
+#if WINVER < 0x600
 #define RASEDFLAG_CloneEntry 0x00000004
+#endif
 #define RASEDFLAG_NoRename 0x00000008
 #define RASEDFLAG_ShellOwned 0x40000000
 #define RASEDFLAG_NewPhoneEntry 0x00000010
 #define RASEDFLAG_NewTunnelEntry 0x00000020
+#if WINVER < 0x600
 #define RASEDFLAG_NewDirectEntry 0x00000040
+#endif
 #define RASEDFLAG_NewBroadbandEntry 0x00000080
 #define RASEDFLAG_InternetEntry 0x00000100
 #define RASEDFLAG_NAT 0x00000200
+#if WINVER >= 0x600
+#define RASEDFLAG_IncomingConnection 0x00000400
+#endif
 
-#define RASENTRYDLGW struct tagRASENTRYDLGW
-  RASENTRYDLGW {
+  struct tagRASENTRYDLGW {
     DWORD dwSize;
     HWND hwndOwner;
     DWORD dwFlags;
@@ -119,8 +129,7 @@ extern "C" {
     ULONG_PTR reserved2;
   };
 
-#define RASENTRYDLGA struct tagRASENTRYDLGA
-  RASENTRYDLGA {
+  struct tagRASENTRYDLGA {
     DWORD dwSize;
     HWND hwndOwner;
     DWORD dwFlags;
@@ -134,16 +143,18 @@ extern "C" {
 
 #define RASENTRYDLG __MINGW_NAME_AW(RASENTRYDLG)
 
-#define LPRASENTRYDLGW RASENTRYDLGW*
-#define LPRASENTRYDLGA RASENTRYDLGA*
-#define LPRASENTRYDLG RASENTRYDLG*
+#define RASENTRYDLGW struct tagRASENTRYDLGW
+#define RASENTRYDLGA struct tagRASENTRYDLGA
+
+#define LPRASENTRYDLGW RASENTRYDLGW *
+#define LPRASENTRYDLGA RASENTRYDLGA *
+#define LPRASENTRYDLG RASENTRYDLG *
 
 #define RASDDFLAG_PositionDlg 0x00000001
 #define RASDDFLAG_NoPrompt 0x00000002
 #define RASDDFLAG_LinkFailure 0x80000000
 
-#define RASDIALDLG struct tagRASDIALDLG
-  RASDIALDLG {
+  struct tagRASDIALDLG {
     DWORD dwSize;
     HWND hwndOwner;
     DWORD dwFlags;
@@ -155,7 +166,8 @@ extern "C" {
     ULONG_PTR reserved2;
   };
 
-#define LPRASDIALDLG RASDIALDLG*
+#define RASDIALDLG struct tagRASDIALDLG
+#define LPRASDIALDLG RASDIALDLG *
 
   typedef WINBOOL (WINAPI *RasCustomDialDlgFn)(HINSTANCE hInstDll,DWORD dwFlags,LPWSTR lpszPhonebook,LPWSTR lpszEntry,LPWSTR lpszPhoneNumber,LPRASDIALDLG lpInfo,PVOID pvInfo);
   typedef WINBOOL (WINAPI *RasCustomEntryDlgFn)(HINSTANCE hInstDll,LPWSTR lpszPhonebook,LPWSTR lpszEntry,LPRASENTRYDLG lpInfo,DWORD dwFlags);
@@ -176,4 +188,5 @@ extern "C" {
 #endif
 
 #include <poppack.h>
+#endif
 #endif
