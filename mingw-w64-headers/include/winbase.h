@@ -40,6 +40,10 @@
 #include <utilapiset.h>
 #include <wow64apiset.h>
 
+#ifdef __WIDL__
+#define NOWINBASEINTERLOCK 1
+#endif
+
 #ifndef NOWINBASEINTERLOCK
 #define __INTRINSIC_GROUP_WINBASE /* only define the intrinsics in this file */
 #include <psdk_inc/intrin-impl.h>
