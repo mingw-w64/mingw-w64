@@ -14,6 +14,11 @@ import "ocidl.idl";
 #include "shdispid.h"
 
 dispinterface DShellFolderViewEvents;
+interface IAutoComplete;
+interface FolderItem;
+interface FolderItems;
+interface FolderItemVerb;
+interface FolderItemVerbs;
 
 [uuid (50a7e9b0-70ef-11d1-b75a-00a0c90564fe), lcid (0x0000), version (1.0)]
 library Shell32 {
@@ -46,11 +51,6 @@ library Shell32 {
     [propget] HRESULT Name ([out, retval] BSTR *pbs);
     [propget] HRESULT Value ([out, retval] VARIANT *pv);
   }
-
-  interface FolderItem;
-  interface FolderItems;
-  interface FolderItemVerb;
-  interface FolderItemVerbs;
 
   [uuid (BBCBDE60-C3FF-11ce-8350-444553540000), oleautomation, dual]
   interface Folder : IDispatch {
@@ -386,14 +386,12 @@ library Shell32 {
   };
 };
 
-interface IAutoComplete;
-cpp_quote("")
 [local, object, uuid (00bb2762-6a77-11d0-a535-00c04fd7d062), pointer_default (unique)]
 interface IAutoComplete : IUnknown {
   typedef [unique] IAutoComplete *LPAUTOCOMPLETE;
 
   HRESULT Init ([in] HWND hwndEdit,[in, unique] IUnknown *punkACL,[in, unique] LPCWSTR pwszRegKeyPath,[in] LPCWSTR pwszQuickComplete);
-  HRESULT Enable ([in] WINBOOL fEnable);
+  HRESULT Enable ([in] BOOL fEnable);
 }
 
 [local, object, uuid (EAC04BC0-3791-11d2-BB95-0060977b464c), pointer_default (unique)]
@@ -434,10 +432,10 @@ interface IEnumACString : IEnumString {
 
 [uuid (3d8b0590-F691-11d2-8ea9-006097df5bd4), object]
 interface IDataObjectAsyncCapability : IUnknown {
-  HRESULT SetAsyncMode ([in] WINBOOL fDoOpAsync);
-  HRESULT GetAsyncMode ([out] WINBOOL *pfIsOpAsync);
+  HRESULT SetAsyncMode ([in] BOOL fDoOpAsync);
+  HRESULT GetAsyncMode ([out] BOOL *pfIsOpAsync);
   HRESULT StartOperation ([in, unique, optional] IBindCtx *pbcReserved);
-  HRESULT InOperation ([out] WINBOOL *pfInAsyncOp);
+  HRESULT InOperation ([out] BOOL *pfInAsyncOp);
   HRESULT EndOperation ([in] HRESULT hResult,[in, unique] IBindCtx *pbcReserved,[in] DWORD dwEffects);
 }
 
