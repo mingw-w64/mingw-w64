@@ -1,10 +1,12 @@
 /**
- * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  */
+
 #ifndef _OLECTL_H_
 #define _OLECTL_H_
+
+#if !defined (__WIDL__)
 
 #ifndef RC_INVOKED
 #include <pshpack8.h>
@@ -287,6 +289,7 @@ WINOLECTLAPI_(HCURSOR) OleIconToCursor(HINSTANCE hinstExe,HICON hIcon);
 #if !defined(RC_INVOKED)
 #include <poppack.h>
 #endif
+#endif
 
 #define DISPID_AUTOSIZE (-500)
 #define DISPID_BACKCOLOR (-501)
@@ -404,4 +407,14 @@ WINOLECTLAPI_(HCURSOR) OleIconToCursor(HINSTANCE hinstExe,HICON hIcon);
 #define DISPID_PICT_WIDTH 4
 #define DISPID_PICT_HEIGHT 5
 #define DISPID_PICT_RENDER 6
+
+#if defined (__WIDL__)
+#define STDOLE_TLB "stdole2.tlb"
+#ifdef _WIN64
+#define STDTYPE_TLB "stdole2.tlb"
+#else
+#define STDTYPE_TLB "olepro32.dll"
+#endif
+#endif
+
 #endif
