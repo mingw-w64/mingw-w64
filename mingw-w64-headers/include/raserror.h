@@ -1,3 +1,8 @@
+/**
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
+ */
+
 #ifndef _RASERROR_H_
 #define _RASERROR_H_
 
