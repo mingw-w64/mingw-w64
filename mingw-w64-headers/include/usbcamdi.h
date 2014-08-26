@@ -20,7 +20,7 @@
  *
  */
 
-#pragma once
+#if !defined(__USB_H) && !defined(__USBDI_H)
 
 #ifdef __cplusplus
 extern "C" {
