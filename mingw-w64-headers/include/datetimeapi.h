@@ -15,7 +15,7 @@
 extern "C" {
 #endif
 
-  #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
   WINBASEAPI int WINAPI GetTimeFormatEx (LPCWSTR lpLocaleName, DWORD dwFlags, CONST SYSTEMTIME *lpTime, LPCWSTR lpFormat, LPWSTR lpTimeStr, int cchTime);
   WINBASEAPI int WINAPI GetDateFormatEx (LPCWSTR lpLocaleName, DWORD dwFlags, CONST SYSTEMTIME *lpDate, LPCWSTR lpFormat, LPWSTR lpDateStr, int cchDate, LPCWSTR lpCalendar);
 #endif
