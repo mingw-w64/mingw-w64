@@ -22,8 +22,10 @@ extern "C" {
 
 #include <specstrings.h>
 
+#ifndef __WIDL__
 #define __INTRINSIC_GROUP_WINNT /* only define the intrinsics in this file */
 #include <psdk_inc/intrin-impl.h>
+#endif
 
 #if defined(__x86_64) && \
   !(defined(_X86_) || defined(__i386__) || defined(_IA64_) || defined (__arm__))
