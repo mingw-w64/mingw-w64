@@ -124,6 +124,7 @@ IDL_SRCS = \
   include/sapi54.idl \
   include/sensorsapi.idl \
   include/servprov.idl \
+  include/shldisp.idl \
   include/shobjidl.idl \
   include/shtypes.idl \
   include/strmif.idl \

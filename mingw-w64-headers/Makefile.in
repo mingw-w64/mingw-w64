@@ -348,6 +348,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/sapi54.idl \
 @HAVE_WIDL_TRUE@  include/sensorsapi.idl \
 @HAVE_WIDL_TRUE@  include/servprov.idl \
+@HAVE_WIDL_TRUE@  include/shldisp.idl \
 @HAVE_WIDL_TRUE@  include/shobjidl.idl \
 @HAVE_WIDL_TRUE@  include/shtypes.idl \
 @HAVE_WIDL_TRUE@  include/strmif.idl \
