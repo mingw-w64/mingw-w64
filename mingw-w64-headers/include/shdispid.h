@@ -1,10 +1,14 @@
 /**
- * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  */
+
 #ifndef _SHDISPID_H_
 #define _SHDISPID_H_
+
+#include <winapifamily.h>
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 
 #define DISPID_SELECTIONCHANGED 200
 #define DISPID_FILELISTENUMDONE 201
@@ -15,6 +19,21 @@
 #define DISPID_NOITEMSTATE_CHANGED 206
 #define DISPID_CONTENTSCHANGED 207
 #define DISPID_FOCUSCHANGED 208
+#define DISPID_CHECKSTATECHANGED 209
+#define DISPID_ORDERCHANGED 210
+#define DISPID_VIEWPAINTDONE 211
+#define DISPID_COLUMNSCHANGED 212
+#define DISPID_CTRLMOUSEWHEEL 213
+#define DISPID_SORTDONE 214
+#define DISPID_ICONSIZECHANGED 215
+#define DISPID_FOLDERCHANGED 217
+#define DISPID_FILTERINVOKED 218
+#define DISPID_WORDWHEELEDITED 219
+#define DISPID_SELECTEDITEMCHANGED 220
+#define DISPID_EXPLORERWINDOWREADY 221
+#define DISPID_UPDATEIMAGE 222
+#define DISPID_INITIALENUMERATIONDONE 223
+
 #define DISPID_ENTERPRESSED 200
 
 #define DISPID_SEARCHCOMMAND_START 1
@@ -33,4 +52,5 @@
 #define DISPID_IADCCTL_ONDOMAIN 0x105
 #define DISPID_IADCCTL_DEFAULTCAT 0x106
 
+#endif
 #endif
