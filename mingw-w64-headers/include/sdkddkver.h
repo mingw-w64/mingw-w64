@@ -126,7 +126,7 @@
 #define NTDDI_WIN8                      0x06020000
 
 /* Version Fields in NTDDI_VERSION */
-#define OSVERSION_MASK			0xFFFF0000
+#define OSVERSION_MASK			0xFFFF0000U
 #define SPVERSION_MASK			0x0000FF00
 #define SUBVERSION_MASK			0x000000FF
 
