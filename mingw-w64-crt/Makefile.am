@@ -228,7 +228,7 @@ src_libmingwex=\
   math/remquo.S         math/remquof.S     math/remquol.S        \
   math/sinl_internal.S  math/tanl.S        math/trunc.S          math/truncf.S        \
   math/acosl.c          \
-  math/asinl.c          math/atan2l.c      \
+  math/atan2l.c         \
   math/atanl.c          math/cbrt.c        \
   math/cbrtf.c          math/cbrtl.c       math/cephes_emath.c   math/copysign.c      math/copysignf.c     \
   math/coshf.c          math/coshl.c       math/cosl.c           math/erfl.c          \
@@ -297,45 +297,45 @@ src_libmingwex=\
 # these only go into the 64 bit version:
 src_libmingwex64=\
   math/acosf.c              math/acosh.c              math/acoshf.c             math/acoshl.c             math/asinf.c              \
-  math/asinh.c              math/asinhf.c             math/asinhl.c             math/atan2f.c             math/atanf.c              \
-  math/atanh.c              math/atanhf.c             math/atanhl.c             math/cos.c                math/cosf.c               \
-  math/cossin.c             math/exp.c                math/expl.c               math/exp2.S               math/exp2f.S              \
-  math/exp2l.S              math/expm1.c              math/expm1f.c             math/expm1l.c             math/fmod.c               \
-  math/fmodf.c              math/fmodl.c              math/ilogb.S              math/ilogbf.S             math/ilogbl.S             \
-  math/ldexp.c              math/ldexpl.c             math/log1p.S              math/log1pf.S             math/log1pl.S             \
-  math/log2.S               math/log2f.S              math/log2l.S              math/logb.c               math/logbf.c              \
-  math/logbl.c              math/pow.c                math/powl.c               math/remainder.S          math/remainderf.S         \
-  math/remainderl.S         math/scalbn.S             math/scalbnf.S            math/scalbnl.S            math/sin.c                \
-  math/sinf.c               math/tanf.c
+  math/asinh.c              math/asinl.c              math/asinhf.c             math/asinhl.c             math/atan2f.c             \
+  math/atanf.c              math/atanh.c              math/atanhf.c             math/atanhl.c             math/cos.c                \
+  math/cosf.c               math/cossin.c             math/exp.c                math/expl.c               math/exp2.S               \
+  math/exp2f.S              math/exp2l.S              math/expm1.c              math/expm1f.c             math/expm1l.c             \
+  math/fmod.c               math/fmodf.c              math/fmodl.c              math/ilogb.S              math/ilogbf.S             \
+  math/ilogbl.S             math/ldexp.c              math/ldexpl.c             math/log1p.S              math/log1pf.S             \
+  math/log1pl.S             math/log2.S               math/log2f.S              math/log2l.S              math/logb.c               \
+  math/logbf.c              math/logbl.c              math/pow.c                math/powl.c               math/remainder.S          \
+  math/remainderf.S         math/remainderl.S         math/scalbn.S             math/scalbnf.S            math/scalbnl.S            \
+  math/sin.c                math/sinf.c               math/tanf.c
 
 # these only go into the 32 bit version:
 src_libmingwex32=\
   math/acosf.c              math/acosh.c              math/acoshf.c             math/acoshl.c             math/asinf.c              \
-  math/asinh.c              math/asinhf.c             math/asinhl.c             math/atan2f.c             math/atanf.c              \
-  math/atanh.c              math/atanhf.c             math/atanhl.c             math/cos.c                math/cosf.c               \
-  math/cossin.c             math/exp.c                math/expl.c               math/exp2.S               math/exp2f.S              \
-  math/exp2l.S              math/expm1.c              math/expm1f.c             math/expm1l.c             math/fmod.c               \
-  math/fmodf.c              math/fmodl.c              math/ilogb.S              math/ilogbf.S             math/ilogbl.S             \
-  math/ldexp.c              math/ldexpl.c             math/log1p.S              math/log1pf.S             math/log1pl.S             \
-  math/log2.S               math/log2f.S              math/log2l.S              math/logb.c               math/logbf.c              \
-  math/logbl.c              math/pow.c                math/powl.c               math/remainder.S          math/remainderf.S         \
-  math/remainderl.S         math/scalbn.S             math/scalbnf.S            math/scalbnl.S            math/sin.c                \
-  math/sinf.c               math/tanf.c
+  math/asinh.c              math/asinl.c              math/asinhf.c             math/asinhl.c             math/atan2f.c             \
+  math/atanf.c              math/atanh.c              math/atanhf.c             math/atanhl.c             math/cos.c                \
+  math/cosf.c               math/cossin.c             math/exp.c                math/expl.c               math/exp2.S               \
+  math/exp2f.S              math/exp2l.S              math/expm1.c              math/expm1f.c             math/expm1l.c             \
+  math/fmod.c               math/fmodf.c              math/fmodl.c              math/ilogb.S              math/ilogbf.S             \
+  math/ilogbl.S             math/ldexp.c              math/ldexpl.c             math/log1p.S              math/log1pf.S             \
+  math/log1pl.S             math/log2.S               math/log2f.S              math/log2l.S              math/logb.c               \
+  math/logbf.c              math/logbl.c              math/pow.c                math/powl.c               math/remainder.S          \
+  math/remainderf.S         math/remainderl.S         math/scalbn.S             math/scalbnf.S            math/scalbnl.S            \
+  math/sin.c                math/sinf.c               math/tanf.c
 
 # these only go into the ARM32 version:
 src_libmingwexarm32=\
   math/softmath/e_fmod.c    math/softmath/e_fmodf.c   math/softmath/e_powf.c    \
   math/softmath/acosf.c     math/softmath/acosh.c     math/softmath/acoshf.c    math/softmath/acoshl.c    math/softmath/asinf.c     \
-  math/softmath/asinh.c     math/softmath/asinhf.c    math/softmath/asinhl.c    math/softmath/atan2f.c    math/softmath/atanf.c     \
-  math/softmath/atanh.c     math/softmath/atanhf.c    math/softmath/atanhl.c    math/softmath/cos.c       math/softmath/cosf.c      \
-  math/softmath/exp.c       math/softmath/expl.c      math/softmath/exp2.c      math/softmath/exp2f.c     math/softmath/exp2l.c     \
-  math/softmath/expm1.c     math/softmath/expm1f.c    math/softmath/expm1l.c    math/softmath/fmod.c      math/softmath/fmodf.c     \
-  math/softmath/fmodl.c     math/softmath/ilogb.c     math/softmath/ilogbf.c    math/softmath/ilogbl.c    math/softmath/ldexp.c     \
-  math/softmath/ldexpl.c    math/softmath/log1p.c     math/softmath/log1pf.c    math/softmath/log1pl.c    math/softmath/log2.c      \
-  math/softmath/log2f.c     math/softmath/log2l.c     math/softmath/logb.c      math/softmath/logbf.c     math/softmath/logbl.c     \
-  math/softmath/pow.c       math/softmath/powl.c      math/softmath/remainder.c math/softmath/remainderf.c math/softmath/remainderl.c \
-  math/softmath/scalbn.c    math/softmath/scalbnf.c   math/softmath/scalbnl.c   math/softmath/sin.c       math/softmath/sincos.c    \
-  math/softmath/sincosf.c   math/softmath/sincosl.c   math/softmath/sinf.c      math/softmath/tanf.c
+  math/softmath/asinh.c     math/softmath/asinl.c     math/softmath/asinhf.c    math/softmath/asinhl.c    math/softmath/atan2f.c    \
+  math/softmath/atanf.c     math/softmath/atanh.c     math/softmath/atanhf.c    math/softmath/atanhl.c    math/softmath/cos.c       \
+  math/softmath/cosf.c      math/softmath/exp.c       math/softmath/expl.c      math/softmath/exp2.c      math/softmath/exp2f.c     \
+  math/softmath/exp2l.c     math/softmath/expm1.c     math/softmath/expm1f.c    math/softmath/expm1l.c    math/softmath/fmod.c      \
+  math/softmath/fmodf.c     math/softmath/fmodl.c     math/softmath/ilogb.c     math/softmath/ilogbf.c    math/softmath/ilogbl.c    \
+  math/softmath/ldexp.c     math/softmath/ldexpl.c    math/softmath/log1p.c     math/softmath/log1pf.c    math/softmath/log1pl.c    \
+  math/softmath/log2.c      math/softmath/log2f.c     math/softmath/log2l.c     math/softmath/logb.c      math/softmath/logbf.c     \
+  math/softmath/logbl.c     math/softmath/pow.c       math/softmath/powl.c      math/softmath/remainder.c math/softmath/remainderf.c \
+  math/softmath/remainderl.c math/softmath/scalbn.c   math/softmath/scalbnf.c   math/softmath/scalbnl.c   math/softmath/sin.c       \
+  math/softmath/sincos.c    math/softmath/sincosf.c   math/softmath/sincosl.c   math/softmath/sinf.c      math/softmath/tanf.c
 
 
 # These intrinsics are target independent:
