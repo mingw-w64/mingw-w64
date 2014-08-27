@@ -226,7 +226,7 @@ src_libmingwex=\
   math/internal_logl.S  math/log10l.S      \
   math/nearbyint.S      math/nearbyintf.S  math/nearbyintl.S     \
   math/remquo.S         math/remquof.S     math/remquol.S        \
-  math/sinl_internal.S  math/tanl.S        math/trunc.S          math/truncf.S        \
+  math/sinl_internal.S  math/trunc.S       math/truncf.S        \
   math/cbrt.c           \
   math/cbrtf.c          math/cbrtl.c       math/cephes_emath.c   math/copysign.c      math/copysignf.c     \
   math/coshf.c          math/coshl.c       math/cosl.c           math/erfl.c          \
@@ -305,7 +305,7 @@ src_libmingwex64=\
   math/log2f.S              math/log2l.S              math/logb.c               math/logbf.c              math/logbl.c              \
   math/pow.c                math/powl.c               math/remainder.S          math/remainderf.S         math/remainderl.S         \
   math/scalbn.S             math/scalbnf.S            math/scalbnl.S            math/sin.c                math/sinf.c               \
-  math/tanf.c
+  math/tanf.c               math/tanl.S
 
 # these only go into the 32 bit version:
 src_libmingwex32=\
@@ -320,7 +320,7 @@ src_libmingwex32=\
   math/log2f.S              math/log2l.S              math/logb.c               math/logbf.c              math/logbl.c              \
   math/pow.c                math/powl.c               math/remainder.S          math/remainderf.S         math/remainderl.S         \
   math/scalbn.S             math/scalbnf.S            math/scalbnl.S            math/sin.c                math/sinf.c               \
-  math/tanf.c
+  math/tanf.c               math/tanl.S
 
 # these only go into the ARM32 version:
 src_libmingwexarm32=\
@@ -337,7 +337,7 @@ src_libmingwexarm32=\
   math/softmath/powl.c      \
   math/softmath/remainder.c math/softmath/remainderf.c math/softmath/remainderl.c \
   math/softmath/scalbn.c    math/softmath/scalbnf.c   math/softmath/scalbnl.c   math/softmath/sin.c       math/softmath/sincos.c    \
-  math/softmath/sincosf.c   math/softmath/sincosl.c   math/softmath/sinf.c      math/softmath/tanf.c
+  math/softmath/sincosf.c   math/softmath/sincosl.c   math/softmath/sinf.c      math/softmath/tanf.c      math/softmath/tanl.c
 
 
 # These intrinsics are target independent:
