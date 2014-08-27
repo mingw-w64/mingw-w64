@@ -1,7 +1,6 @@
 /**
- * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 #ifndef _WMISTR_
 #define _WMISTR_
@@ -46,6 +45,9 @@ typedef struct _WNODE_HEADER {
 #define WNODE_FLAG_USE_GUID_PTR 0x00080000
 #define WNODE_FLAG_USE_MOF_PTR 0x00100000
 #define WNODE_FLAG_NO_HEADER 0x00200000
+#if NTDDI_VERSION >= 0x06000000
+#define WNODE_FLAG_SEND_DATA_BLOCK 0x00400000
+#endif
 #define WNODE_FLAG_SEVERITY_MASK 0xff000000
 
 typedef struct {
@@ -152,7 +154,8 @@ typedef PWMIREGINFOW PWMIREGINFO;
 
 typedef enum {
   WMI_GET_ALL_DATA = 0,WMI_GET_SINGLE_INSTANCE = 1,WMI_SET_SINGLE_INSTANCE = 2,WMI_SET_SINGLE_ITEM = 3,WMI_ENABLE_EVENTS = 4,WMI_DISABLE_EVENTS = 5,
-  WMI_ENABLE_COLLECTION = 6,WMI_DISABLE_COLLECTION = 7,WMI_REGINFO = 8,WMI_EXECUTE_METHOD = 9
+  WMI_ENABLE_COLLECTION = 6,WMI_DISABLE_COLLECTION = 7,WMI_REGINFO = 8,WMI_EXECUTE_METHOD = 9,
+  WMI_CAPTURE_STATE = 10
 } WMIDPREQUESTCODE;
 
 #if defined(_WINNT_) || defined(WINNT)
@@ -172,6 +175,7 @@ typedef enum {
 #define TRACELOG_GUID_ENABLE 0x0080
 #define TRACELOG_ACCESS_KERNEL_LOGGER 0x0100
 #define TRACELOG_CREATE_INPROC 0x0200
+#define TRACELOG_LOG_EVENT 0x0200
 #define TRACELOG_ACCESS_REALTIME 0x0400
 #define TRACELOG_REGISTER_GUIDS 0x0800
 
