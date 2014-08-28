@@ -1,3 +1,7 @@
+/**
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
+ */
 /*
  * evntprov.h
  *
@@ -5,6 +9,7 @@
  *
  * Contributors:
  *   Created by Amine Khaldi.
+ *   Extended by Kai Tietz for mingw-w64
  *
  * THIS SOFTWARE IS NOT COPYRIGHTED
  *
@@ -21,23 +26,39 @@
 #ifndef _EVNTPROV_H_
 #define _EVNTPROV_H_
 
-#ifndef EVNTAPI
-#ifndef MIDL_PASS
+#include <winapifamily.h>
+
+#if !defined (EVNTAPI) && !defined (__WIDL__) && !defined (MIDL_PASS)
 #ifdef _EVNT_SOURCE_
-#if defined(_ARM_)
+#ifdef _ARM_
 #define EVNTAPI
 #else
 #define EVNTAPI __stdcall
 #endif
 #else
-#if defined(_ARM_)
+#ifdef _ARM_
 #define EVNTAPI DECLSPEC_IMPORT
 #else
 #define EVNTAPI DECLSPEC_IMPORT __stdcall
 #endif
-#endif /* _EVNT_SOURCE_ */
-#endif /* MIDL_PASS */
-#endif /* EVNTAPI */
+#endif
+#endif
+
+#define EVENT_MIN_LEVEL (0)
+#define EVENT_MAX_LEVEL (0xff)
+
+#define EVENT_ACTIVITY_CTRL_GET_ID (1)
+#define EVENT_ACTIVITY_CTRL_SET_ID (2)
+#define EVENT_ACTIVITY_CTRL_CREATE_ID (3)
+#define EVENT_ACTIVITY_CTRL_GET_SET_ID (4)
+#define EVENT_ACTIVITY_CTRL_CREATE_SET_ID (5)
+
+#define EVENT_FILTER_TYPE_SCHEMATIZED (0x80000000)
+#define EVENT_FILTER_TYPE_SYSTEM_FLAGS (0x80000001)
+#define EVENT_FILTER_TYPE_TRACEHANDLE (0x80000002)
+
+#define MAX_EVENT_DATA_DESCRIPTORS (128)
+#define MAX_EVENT_FILTER_DATA_SIZE (1024)
 
 #ifdef __cplusplus
 extern "C" {
@@ -45,320 +66,176 @@ extern "C" {
 
 #include <guiddef.h>
 
-#define EVENT_MIN_LEVEL				0
-#define EVENT_MAX_LEVEL				0xff
+  typedef ULONGLONG REGHANDLE,*PREGHANDLE;
 
-#define EVENT_ACTIVITY_CTRL_GET_ID		1
-#define EVENT_ACTIVITY_CTRL_SET_ID		2
-#define EVENT_ACTIVITY_CTRL_CREATE_ID		3
-#define EVENT_ACTIVITY_CTRL_GET_SET_ID		4
-#define EVENT_ACTIVITY_CTRL_CREATE_SET_ID	5
+  typedef struct _EVENT_DATA_DESCRIPTOR {
+    ULONGLONG Ptr;
+    ULONG Size;
+    ULONG Reserved;
+  } EVENT_DATA_DESCRIPTOR,*PEVENT_DATA_DESCRIPTOR;
 
-typedef ULONGLONG REGHANDLE, *PREGHANDLE;
+#ifndef EVENT_DESCRIPTOR_DEF
+#define EVENT_DESCRIPTOR_DEF
+  typedef struct _EVENT_DESCRIPTOR {
+    USHORT Id;
+    UCHAR Version;
+    UCHAR Channel;
+    UCHAR Level;
+    UCHAR Opcode;
+    USHORT Task;
+    ULONGLONG Keyword;
+  } EVENT_DESCRIPTOR,*PEVENT_DESCRIPTOR;
+  typedef const EVENT_DESCRIPTOR *PCEVENT_DESCRIPTOR;
+#endif
 
-#define MAX_EVENT_DATA_DESCRIPTORS		128
-#define MAX_EVENT_FILTER_DATA_SIZE		1024
+  typedef struct _EVENT_FILTER_DESCRIPTOR {
+    ULONGLONG Ptr;
+    ULONG Size;
+    ULONG Type;
+  };
 
-#define EVENT_FILTER_TYPE_SCHEMATIZED		0x80000000
-
-typedef struct _EVENT_DESCRIPTOR {
-  USHORT    Id;
-  UCHAR     Version;
-  UCHAR     Channel;
-  UCHAR     Level;
-  UCHAR     Opcode;
-  USHORT    Task;
-  ULONGLONG Keyword;
-} EVENT_DESCRIPTOR, *PEVENT_DESCRIPTOR;
-typedef const EVENT_DESCRIPTOR *PCEVENT_DESCRIPTOR;
-
-typedef struct _EVENT_DATA_DESCRIPTOR {
-  ULONGLONG Ptr;
-  ULONG     Size;
-  ULONG     Reserved;
-} EVENT_DATA_DESCRIPTOR, *PEVENT_DATA_DESCRIPTOR;
-
-struct _EVENT_FILTER_DESCRIPTOR {
-  ULONGLONG Ptr;
-  ULONG     Size;
-  ULONG     Type;
-};
 #ifndef DEFINED_PEVENT_FILTER_DESC
-typedef struct _EVENT_FILTER_DESCRIPTOR EVENT_FILTER_DESCRIPTOR, *PEVENT_FILTER_DESCRIPTOR;
-#define DEFINED_PEVENT_FILTER_DESC	1
-#endif	/* for  evntrace.h */
+#define DEFINED_PEVENT_FILTER_DESC
+  typedef struct _EVENT_FILTER_DESCRIPTOR EVENT_FILTER_DESCRIPTOR,*PEVENT_FILTER_DESCRIPTOR;
+#endif /* for evntrace.h */
 
-typedef struct _EVENT_FILTER_HEADER {
-  USHORT    Id;
-  UCHAR     Version;
-  UCHAR     Reserved[5];
-  ULONGLONG InstanceId;
-  ULONG     Size;
-  ULONG     NextOffset;
-} EVENT_FILTER_HEADER, *PEVENT_FILTER_HEADER;
+  typedef struct _EVENT_FILTER_HEADER {
+    USHORT Id;
+    UCHAR Version;
+    UCHAR Reserved[5];
+    ULONGLONG InstanceId;
+    ULONG Size;
+    ULONG NextOffset;
+  } EVENT_FILTER_HEADER,*PEVENT_FILTER_HEADER;
 
+#if !defined (_ETW_KM_) && !defined (__WIDL__)  /* for wdm.h & widl */
+  typedef enum _EVENT_INFO_CLASS {
+    EventProviderBinaryTrackInfo,
+    MaxEventInfo
+  } EVENT_INFO_CLASS;
 
-#ifndef _ETW_KM_ /* for wdm.h */
+  typedef VOID (NTAPI *PENABLECALLBACK) (LPCGUID SourceId, ULONG IsEnabled, UCHAR Level, ULONGLONG MatchAnyKeyword, ULONGLONG MatchAllKeyword, PEVENT_FILTER_DESCRIPTOR FilterData, PVOID CallbackContext);
 
-typedef VOID
-(NTAPI *PENABLECALLBACK)(
-  LPCGUID SourceId,
-  ULONG IsEnabled,
-  UCHAR Level,
-  ULONGLONG MatchAnyKeyword,
-  ULONGLONG MatchAllKeyword,
-  PEVENT_FILTER_DESCRIPTOR FilterData,
-  PVOID CallbackContext);
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
+#if WINVER >= 0x0600
+  BOOLEAN EVNTAPI EventEnabled (REGHANDLE RegHandle, PCEVENT_DESCRIPTOR EventDescriptor);
+  BOOLEAN EVNTAPI EventProviderEnabled (REGHANDLE RegHandle, UCHAR Level, ULONGLONG Keyword);
+  ULONG EVNTAPI EventWriteTransfer (REGHANDLE RegHandle, PCEVENT_DESCRIPTOR EventDescriptor, LPCGUID ActivityId, LPCGUID RelatedActivityId, ULONG UserDataCount, PEVENT_DATA_DESCRIPTOR UserData);
+  ULONG EVNTAPI EventWriteString (REGHANDLE RegHandle, UCHAR Level, ULONGLONG Keyword, PCWSTR String);
+  ULONG EVNTAPI EventActivityIdControl (ULONG ControlCode, LPGUID ActivityId);
+#endif
+#if WINVER >= 0x0601
+  ULONG EVNTAPI EventWriteEx (REGHANDLE RegHandle, PCEVENT_DESCRIPTOR EventDescriptor, ULONG64 Filter, ULONG Flags, LPCGUID ActivityId, LPCGUID RelatedActivityId, ULONG UserDataCount, PEVENT_DATA_DESCRIPTOR UserData);
+#endif
+#endif
 
-#if (WINVER >= 0x0600)
-ULONG EVNTAPI EventRegister(
-  LPCGUID ProviderId,
-  PENABLECALLBACK EnableCallback,
-  PVOID CallbackContext,
-  PREGHANDLE RegHandle
-);
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
+#if WINVER >= 0x0600
+  ULONG EVNTAPI EventRegister (LPCGUID ProviderId, PENABLECALLBACK EnableCallback, PVOID CallbackContext, PREGHANDLE RegHandle);
+  ULONG EVNTAPI EventUnregister (REGHANDLE RegHandle);
+  ULONG EVNTAPI EventWrite (REGHANDLE RegHandle, PCEVENT_DESCRIPTOR EventDescriptor, ULONG UserDataCount, PEVENT_DATA_DESCRIPTOR UserData);
+#endif
+#if WINVER >= 0x0602
+  ULONG EVNTAPI EventSetInformation (REGHANDLE RegHandle, EVENT_INFO_CLASS InformationClass, PVOID EventInformation, ULONG InformationLength);
+#endif
+#endif
 
-ULONG EVNTAPI EventUnregister(
-  REGHANDLE RegHandle
-);
+#endif
 
-BOOLEAN EVNTAPI EventEnabled(
-  REGHANDLE RegHandle,
-  PCEVENT_DESCRIPTOR EventDescriptor
-);
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
+  FORCEINLINE VOID EventDataDescCreate (PEVENT_DATA_DESCRIPTOR evp, const VOID *d, ULONG sz) {
+    evp->Ptr = (ULONGLONG) (ULONG_PTR) d;
+    evp->Size = sz;
+    evp->Reserved = 0;
+  }
+#endif
 
-BOOLEAN EVNTAPI EventProviderEnabled(
-  REGHANDLE RegHandle,
-  UCHAR Level,
-  ULONGLONG Keyword
-);
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
+  FORCEINLINE VOID EventDescCreate (PEVENT_DESCRIPTOR ev, USHORT Id, UCHAR ver, UCHAR ch, UCHAR lvl, USHORT t, UCHAR opc, ULONGLONG keyw) {
+    ev->Id = Id;
+    ev->Version = ver;
+    ev->Channel = ch;
+    ev->Level = lvl;
+    ev->Task = t;
+    ev->Opcode = opc;
+    ev->Keyword = keyw;
+  }
 
-ULONG EVNTAPI EventWrite(
-  REGHANDLE RegHandle,
-  PCEVENT_DESCRIPTOR EventDescriptor,
-  ULONG UserDataCount,
-  PEVENT_DATA_DESCRIPTOR UserData
-);
+  FORCEINLINE UCHAR EventDescGetChannel (PCEVENT_DESCRIPTOR ev) {
+    return ev->Channel;
+  }
 
-ULONG EVNTAPI EventWriteTransfer(
-  REGHANDLE RegHandle,
-  PCEVENT_DESCRIPTOR EventDescriptor,
-  LPCGUID ActivityId,
-  LPCGUID RelatedActivityId,
-  ULONG UserDataCount,
-  PEVENT_DATA_DESCRIPTOR UserData
-);
+  FORCEINLINE USHORT EventDescGetId (PCEVENT_DESCRIPTOR ev) {
+    return ev->Id;
+  }
 
-ULONG EVNTAPI EventWriteString(
-  REGHANDLE RegHandle,
-  UCHAR Level,
-  ULONGLONG Keyword,
-  PCWSTR String
-);
+  FORCEINLINE ULONGLONG EventDescGetKeyword (PCEVENT_DESCRIPTOR ev) {
+    return ev->Keyword;
+  }
 
-ULONG EVNTAPI EventActivityIdControl(
-  ULONG ControlCode,
-  LPGUID ActivityId
-);
+  FORCEINLINE UCHAR EventDescGetLevel (PCEVENT_DESCRIPTOR ev) {
+    return ev->Level;
+  }
 
-#endif /*(WINVER >= 0x0600)*/
+  FORCEINLINE UCHAR EventDescGetOpcode (PCEVENT_DESCRIPTOR ev) {
+    return ev->Opcode;
+  }
 
-#if (_WIN32_WINNT >= 0x0601)
-ULONG EVNTAPI EventWriteEx(
-  REGHANDLE RegHandle,
-  PCEVENT_DESCRIPTOR EventDescriptor,
-  ULONG64 Filter,
-  ULONG Flags,
-  LPCGUID ActivityId,
-  LPCGUID RelatedActivityId,
-  ULONG UserDataCount,
-  PEVENT_DATA_DESCRIPTOR UserData
-);
-#endif /*(_WIN32_WINNT >= 0x0601)*/
+  FORCEINLINE USHORT EventDescGetTask (PCEVENT_DESCRIPTOR ev) {
+    return ev->Task;
+  }
 
-#endif /* _ETW_KM_ */
+  FORCEINLINE PEVENT_DESCRIPTOR EventDescOrKeyword (PEVENT_DESCRIPTOR ev, ULONGLONG keyw) {
+    ev->Keyword |= keyw;
+    return ev;
+  }
 
-FORCEINLINE
-VOID
-EventDataDescCreate(
-  PEVENT_DATA_DESCRIPTOR EventDataDescriptor,
-  const VOID* DataPtr,
-  ULONG DataSize)
-{
-  EventDataDescriptor->Ptr = (ULONGLONG)(ULONG_PTR)DataPtr;
-  EventDataDescriptor->Size = DataSize;
-  EventDataDescriptor->Reserved = 0;
-}
+  FORCEINLINE UCHAR EventDescGetVersion (PCEVENT_DESCRIPTOR ev) {
+    return ev->Version;
+  }
 
-FORCEINLINE
-VOID
-EventDescCreate(
-  PEVENT_DESCRIPTOR EventDescriptor,
-  USHORT Id,
-  UCHAR Version,
-  UCHAR Channel,
-  UCHAR Level,
-  USHORT Task,
-  UCHAR Opcode,
-  ULONGLONG Keyword)
-{
-  EventDescriptor->Id = Id;
-  EventDescriptor->Version = Version;
-  EventDescriptor->Channel = Channel;
-  EventDescriptor->Level = Level;
-  EventDescriptor->Task = Task;
-  EventDescriptor->Opcode = Opcode;
-  EventDescriptor->Keyword = Keyword;
-}
+  FORCEINLINE PEVENT_DESCRIPTOR EventDescSetChannel (PEVENT_DESCRIPTOR ev, UCHAR ch) {
+    ev->Channel = ch;
+    return ev;
+  }
 
-FORCEINLINE
-VOID
-EventDescZero(
-  PEVENT_DESCRIPTOR EventDescriptor)
-{
-  memset(EventDescriptor, 0, sizeof(EVENT_DESCRIPTOR));
-}
+  FORCEINLINE PEVENT_DESCRIPTOR EventDescSetId (PEVENT_DESCRIPTOR ev, USHORT Id) {
+    ev->Id = Id;
+    return ev;
+  }
 
-FORCEINLINE
-USHORT
-EventDescGetId(
-  PCEVENT_DESCRIPTOR EventDescriptor)
-{
-  return (EventDescriptor->Id);
-}
+  FORCEINLINE PEVENT_DESCRIPTOR EventDescSetKeyword (PEVENT_DESCRIPTOR ev, ULONGLONG keyw) {
+    ev->Keyword = keyw;
+    return ev;
+  }
 
-FORCEINLINE
-UCHAR
-EventDescGetVersion(
-  PCEVENT_DESCRIPTOR EventDescriptor)
-{
-  return (EventDescriptor->Version);
-}
+  FORCEINLINE PEVENT_DESCRIPTOR EventDescSetLevel (PEVENT_DESCRIPTOR ev, UCHAR lvl) {
+    ev->Level = Lvl;
+    return ev;
+  }
 
-FORCEINLINE
-USHORT
-EventDescGetTask(
-  PCEVENT_DESCRIPTOR EventDescriptor)
-{
-  return (EventDescriptor->Task);
-}
+  FORCEINLINE PEVENT_DESCRIPTOR EventDescSetOpcode (PEVENT_DESCRIPTOR ev, UCHAR opc) {
+    ev->Opcode = opc;
+    return ev;
+  }
 
-FORCEINLINE
-UCHAR
-EventDescGetOpcode(
-  PCEVENT_DESCRIPTOR EventDescriptor)
-{
-  return (EventDescriptor->Opcode);
-}
+  FORCEINLINE PEVENT_DESCRIPTOR EventDescSetTask (PEVENT_DESCRIPTOR ev, USHORT t) {
+    ev->Task = t;
+    return ev;
+  }
 
-FORCEINLINE
-UCHAR
-EventDescGetChannel(
-  PCEVENT_DESCRIPTOR EventDescriptor)
-{
-  return (EventDescriptor->Channel);
-}
+  FORCEINLINE PEVENT_DESCRIPTOR EventDescSetVersion (PEVENT_DESCRIPTOR ev, UCHAR ver) {
+    ev->Version = ver;
+    return ev;
+  }
 
-FORCEINLINE
-UCHAR
-EventDescGetLevel(
-  PCEVENT_DESCRIPTOR EventDescriptor)
-{
-  return (EventDescriptor->Level);
-}
-
-FORCEINLINE
-ULONGLONG
-EventDescGetKeyword(
-  PCEVENT_DESCRIPTOR EventDescriptor)
-{
-  return (EventDescriptor->Keyword);
-}
-
-FORCEINLINE
-PEVENT_DESCRIPTOR
-EventDescSetId(
-  PEVENT_DESCRIPTOR EventDescriptor,
-  USHORT Id)
-{
-  EventDescriptor->Id = Id;
-  return (EventDescriptor);
-}
-
-FORCEINLINE
-PEVENT_DESCRIPTOR
-EventDescSetVersion(
-  PEVENT_DESCRIPTOR EventDescriptor,
-  UCHAR Version)
-{
-  EventDescriptor->Version = Version;
-  return (EventDescriptor);
-}
-
-FORCEINLINE
-PEVENT_DESCRIPTOR
-EventDescSetTask(
-  PEVENT_DESCRIPTOR EventDescriptor,
-  USHORT Task)
-{
-  EventDescriptor->Task = Task;
-  return (EventDescriptor);
-}
-
-FORCEINLINE
-PEVENT_DESCRIPTOR
-EventDescSetOpcode(
-  PEVENT_DESCRIPTOR EventDescriptor,
-  UCHAR Opcode)
-{
-  EventDescriptor->Opcode = Opcode;
-  return (EventDescriptor);
-}
-
-FORCEINLINE
-PEVENT_DESCRIPTOR
-EventDescSetLevel(
-  PEVENT_DESCRIPTOR EventDescriptor,
-  UCHAR  Level)
-{
-  EventDescriptor->Level = Level;
-  return (EventDescriptor);
-}
-
-FORCEINLINE
-PEVENT_DESCRIPTOR
-EventDescSetChannel(
-  PEVENT_DESCRIPTOR EventDescriptor,
-  UCHAR Channel)
-{
-  EventDescriptor->Channel = Channel;
-  return (EventDescriptor);
-}
-
-FORCEINLINE
-PEVENT_DESCRIPTOR
-EventDescSetKeyword(
-  PEVENT_DESCRIPTOR EventDescriptor,
-  ULONGLONG Keyword)
-{
-  EventDescriptor->Keyword = Keyword;
-  return (EventDescriptor);
-}
-
-
-FORCEINLINE
-PEVENT_DESCRIPTOR
-EventDescOrKeyword(
-  PEVENT_DESCRIPTOR EventDescriptor,
-  ULONGLONG Keyword)
-{
-  EventDescriptor->Keyword |= Keyword;
-  return (EventDescriptor);
-}
+  FORCEINLINE VOID EventDescZero (PEVENT_DESCRIPTOR ev) {
+    memset (ev, 0, sizeof (EVENT_DESCRIPTOR));
+  }
+#endif
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* _EVNTPROV_H_ */
-
+#endif
