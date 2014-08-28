@@ -378,6 +378,34 @@ WINADVAPI LONG WINAPI RegSetKeyValueW(
 );
 #define RegSetKeyValue __MINGW_NAME_AW(RegSetKeyValue)
 
+#define SHUTDOWN_FORCE_OTHERS 0x00000001
+#define SHUTDOWN_FORCE_SELF 0x00000002
+#define SHUTDOWN_RESTART 0x00000004
+#define SHUTDOWN_POWEROFF 0x00000008
+#define SHUTDOWN_NOREBOOT 0x00000010
+#define SHUTDOWN_GRACE_OVERRIDE 0x00000020
+#define SHUTDOWN_INSTALL_UPDATES 0x00000040
+#define SHUTDOWN_RESTARTAPPS 0x00000080
+#define SHUTDOWN_HYBRID 0x00000200
+
+WINADVAPI DWORD WINAPI InitiateShutdownA(
+  LPSTR lpMachineName,
+  LPSTR lpMessage,
+  DWORD dwGracePeriod,
+  DWORD dwShutdownFlags,
+  DWORD dwReason
+);
+
+WINADVAPI DWORD WINAPI InitiateShutdownW(
+  LPWSTR lpMachineName,
+  LPWSTR lpMessage,
+  DWORD dwGracePeriod,
+  DWORD dwShutdownFlags,
+  DWORD dwReason
+);
+
+#define InitiateShutdown __MINGW_NAME_AW(InitiateShutdown)
+
 #endif /* (_WIN32_WINNT >= 0x0600) */
 
 #ifdef __cplusplus
