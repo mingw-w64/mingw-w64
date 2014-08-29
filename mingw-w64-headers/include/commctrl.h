@@ -1,10 +1,14 @@
 /**
- * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  */
+
+#include <winapifamily.h>
+
 #ifndef _INC_COMMCTRL
 #define _INC_COMMCTRL
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 
 #include <_mingw_unicode.h>
 
@@ -4677,6 +4681,8 @@ typedef const void* (CALLBACK *PFNDPAMERGECONST)(UINT, const void*, const void*,
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif
 #endif
 #endif
