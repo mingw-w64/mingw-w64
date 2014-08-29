@@ -5,6 +5,7 @@
  *
  * Contributors:
  *   Created by Simon Josefsson <simon@josefsson.org>
+ *   Extended by Kai Tietz
  *
  * THIS SOFTWARE IS NOT COPYRIGHTED
  *
@@ -18,42 +19,54 @@
  *
  */
 
-#ifndef __HIDSDI_H
-#define __HIDSDI_H
+#include <winapifamily.h>
 
+#ifndef _HIDSDI_H
+#define _HIDSDI_H
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
+
+#include <pshpack4.h>
+
+typedef LONG NTSTATUS;
+
+#include "hidusage.h"
 #include "hidpi.h"
 
-#ifdef __cplusplus
-extern "C" {
+typedef struct _HIDD_CONFIGURATION {
+  PVOID cookie;
+  ULONG size;
+  ULONG RingBufferSize;
+} HIDD_CONFIGURATION,*PHIDD_CONFIGURATION;
+
+typedef struct _HIDD_ATTRIBUTES {
+  ULONG Size;
+  USHORT VendorID;
+  USHORT ProductID;
+  USHORT VersionNumber;
+} HIDD_ATTRIBUTES,*PHIDD_ATTRIBUTES;
+
+BOOLEAN NTAPI HidD_FlushQueue (HANDLE HidDeviceObject);
+BOOLEAN NTAPI HidD_FreePreparsedData (PHIDP_PREPARSED_DATA PreparsedData);
+BOOLEAN NTAPI HidD_GetAttributes (HANDLE HidDeviceObject, PHIDD_ATTRIBUTES Attributes);
+BOOLEAN NTAPI HidD_GetConfiguration (HANDLE HidDeviceObject, PHIDD_CONFIGURATION Configuration, ULONG ConfigurationLength);
+BOOLEAN NTAPI HidD_GetFeature (HANDLE HidDeviceObject, PVOID ReportBuffer, ULONG ReportBufferLength);
+void NTAPI HidD_GetHidGuid (LPGUID HidGuid);
+BOOLEAN NTAPI HidD_GetInputReport (HANDLE HidDeviceObject, PVOID ReportBuffer, ULONG ReportBufferLength);
+BOOLEAN NTAPI HidD_GetIndexedString (HANDLE HidDeviceObject, ULONG StringIndex, PVOID Buffer, ULONG BufferLength);
+BOOLEAN NTAPI HidD_GetManufacturerString (HANDLE HidDeviceObject, PVOID Buffer, ULONG BufferLength);
+BOOLEAN NTAPI HidD_GetMsGenreDescriptor (HANDLE HidDeviceObject, PVOID Buffer, ULONG BufferLength);
+BOOLEAN NTAPI HidD_GetNumInputBuffers (HANDLE HidDeviceObject, PULONG NumberBuffers);
+BOOLEAN NTAPI HidD_GetPhysicalDescriptor (HANDLE HidDeviceObject, PVOID Buffer, ULONG BufferLength);
+BOOLEAN NTAPI HidD_GetPreparsedData (HANDLE HidDeviceObject, PHIDP_PREPARSED_DATA *PreparsedData);
+BOOLEAN NTAPI HidD_GetProductString (HANDLE HidDeviceObject, PVOID Buffer, ULONG BufferLength);
+BOOLEAN NTAPI HidD_GetSerialNumberString (HANDLE HidDeviceObject, PVOID Buffer, ULONG BufferLength);
+BOOLEAN NTAPI HidD_SetConfiguration (HANDLE HidDeviceObject, PHIDD_CONFIGURATION Configuration, ULONG ConfigurationLength);
+BOOLEAN NTAPI HidD_SetFeature (HANDLE HidDeviceObject, PVOID ReportBuffer, ULONG ReportBufferLength);
+BOOLEAN NTAPI HidD_SetNumInputBuffers (HANDLE HidDeviceObject, ULONG NumberBuffers);
+BOOLEAN NTAPI HidD_SetOutputReport (HANDLE HidDeviceObject, PVOID ReportBuffer, ULONG ReportBufferLength);
+
+#include <poppack.h>
+
 #endif
-
-  /* http://msdn.microsoft.com/en-us/library/ff538900%28v=VS.85%29.aspx */
-HIDAPI BOOLEAN NTAPI HidD_GetAttributes(HANDLE HidDeviceObject, PHIDD_ATTRIBUTES Attributes);
-
-  /* http://msdn.microsoft.com/en-us/library/ff538910%28v=VS.85%29.aspx */
-HIDAPI BOOLEAN NTAPI HidD_GetFeature(HANDLE HidDeviceObject, PVOID ReportBuffer, ULONG ReportBufferLength);
-
-  /* http://msdn.microsoft.com/en-us/library/ff539684%28v=VS.85%29.aspx */
-HIDAPI BOOLEAN NTAPI HidD_SetFeature(HANDLE HidDeviceObject, PVOID ReportBuffer, ULONG ReportBufferLength);
-
-/* http://msdn.microsoft.com/en-us/library/ff538924(v=vs.85).aspx */
-HIDAPI VOID NTAPI HidD_GetHidGuid(LPGUID HidGuid);
-
-/* http://msdn.microsoft.com/en-us/library/windows/hardware/ff538959(v=vs.85).aspx */
-HIDAPI BOOLEAN NTAPI HidD_GetManufacturerString (HANDLE HidDeviceObject, PVOID Buffer, ULONG BufferLength);
-
-/* http://msdn.microsoft.com/en-us/library/windows/hardware/ff539681(v=vs.85).aspx */
-HIDAPI BOOLEAN NTAPI HidD_GetProductString (HANDLE HidDeviceObject, PVOID Buffer, ULONG BufferLength);
-
-/* http://msdn.microsoft.com/en-us/library/windows/hardware/ff539686(v=vs.85).aspx */
-HIDAPI BOOLEAN NTAPI HidD_SetNumInputBuffers (HANDLE HidDeviceObject, ULONG NumberBuffers);
-
-/* http://msdn.microsoft.com/en-us/library/windows/hardware/ff539675(v=vs.85).aspx */
-HIDAPI BOOLEAN NTAPI HidD_GetNumInputBuffers (HANDLE HidDeviceObject, PULONG NumberBuffers);
-
-#ifdef __cplusplus
-}
 #endif
-
-#endif /* __HIDSDI_H */
-
