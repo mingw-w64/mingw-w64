@@ -5307,7 +5307,7 @@ typedef struct tagTVDISPINFOEXW {
 #define __COMMCTRL_DA_DEFINED__
 
 #define DA_LAST (0x7fffffff)
-#define DA_ERR (-1) $
+#define DA_ERR (-1)
 
   typedef int (CALLBACK *PFNDAENUMCALLBACK) (void *p, void *pData);
   typedef int (CALLBACK *PFNDAENUMCALLBACKCONST) (const void *p, void *pData);
