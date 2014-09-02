@@ -69,6 +69,7 @@ IDL_SRCS = \
   include/audioclient.idl \
   include/audioendpoints.idl \
   include/audiopolicy.idl \
+  include/comadmin.idl \
   include/control.idl \
   include/ctfutb.idl \
   include/dbgprop.idl \
