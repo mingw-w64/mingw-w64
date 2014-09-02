@@ -1996,7 +1996,7 @@ __CRT_INLINE HRESULT HRESULT_FROM_WIN32(__LONG32 x) { return x <= 0 ? (HRESULT)x
 #define GetScode(hr) ((SCODE) (hr))
 #define ResultFromScode(sc) ((HRESULT) (sc))
 #define PropagateResult(hrPrevious,scBase) ((HRESULT) scBase)
-#ifdef RC_INVOKED
+#if defined (RC_INVOKED) || defined (__WIDL__)
 #define _HRESULT_TYPEDEF_(_sc) _sc
 #else
 #define _HRESULT_TYPEDEF_(_sc) ((HRESULT)_sc)
