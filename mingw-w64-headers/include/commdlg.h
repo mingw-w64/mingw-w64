@@ -1,8 +1,10 @@
 /**
- * This file has no copyright assigned and is placed in the Public Domain.
  * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ * No warranty is given; refer to the file DISCLAIMER within this package.
  */
+
+#include <winapifamily.h>
+
 #ifndef _INC_COMMDLG
 #define _INC_COMMDLG
 
@@ -18,6 +20,8 @@ DEFINE_GUID(IID_IPrintDialogServices,0x509aaeda,0x5639,0x11d1,0xb6,0xa1,0x0,0x0,
 #if !defined(_WIN64)
 #include <pshpack1.h>
 #endif
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 
 #ifdef __cplusplus
 extern "C" {
@@ -456,6 +460,9 @@ extern "C" {
 #define CF_SELECTSCRIPT __MSABI_LONG(0x400000)
 #define CF_NOSCRIPTSEL __MSABI_LONG(0x800000)
 #define CF_NOVERTFONTS __MSABI_LONG(0x1000000)
+#if WINVER >= 0x0601
+#define CF_INACTIVEFONTS __MSABI_LONG (0x02000000)
+#endif
 
 #define SIMULATED_FONTTYPE 0x8000
 #define PRINTER_FONTTYPE 0x4000
@@ -468,6 +475,9 @@ extern "C" {
 #define PS_OPENTYPE_FONTTYPE 0x10000
 #define TT_OPENTYPE_FONTTYPE 0x20000
 #define TYPE1_FONTTYPE 0x40000
+#if WINVER >= 0x0601
+#define SYMBOL_FONTTYPE 0x80000
+#endif
 #endif
 
 #define WM_CHOOSEFONT_GETLOGFONT (WM_USER + 1)
@@ -563,9 +573,11 @@ extern "C" {
 #define INTERFACE IPrintDialogCallback
 
   DECLARE_INTERFACE_(IPrintDialogCallback,IUnknown) {
+#ifndef __cplusplus
     STDMETHOD(QueryInterface) (THIS_ REFIID riid,LPVOID *ppvObj) PURE;
     STDMETHOD_(ULONG,AddRef) (THIS) PURE;
     STDMETHOD_(ULONG,Release) (THIS) PURE;
+#endif
     STDMETHOD(InitDone) (THIS) PURE;
     STDMETHOD(SelectionChange) (THIS) PURE;
     STDMETHOD(HandleMessage) (THIS_ HWND hDlg,UINT uMsg,WPARAM wParam,LPARAM lParam,LRESULT *pResult) PURE;
@@ -574,9 +586,11 @@ extern "C" {
 #undef INTERFACE
 #define INTERFACE IPrintDialogServices
   DECLARE_INTERFACE_(IPrintDialogServices,IUnknown) {
+#ifndef __cplusplus
     STDMETHOD(QueryInterface) (THIS_ REFIID riid,LPVOID *ppvObj) PURE;
     STDMETHOD_(ULONG,AddRef) (THIS) PURE;
     STDMETHOD_(ULONG,Release) (THIS) PURE;
+#endif
     STDMETHOD(GetCurrentDevMode) (THIS_ LPDEVMODE pDevMode,UINT *pcbSize) PURE;
     STDMETHOD(GetCurrentPrinterName) (THIS_ LPTSTR pPrinterName,UINT *pcchSize) PURE;
     STDMETHOD(GetCurrentPortName) (THIS_ LPTSTR pPortName,UINT *pcchSize) PURE;
@@ -766,6 +780,8 @@ extern "C" {
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif
 
 #ifndef _WIN64
