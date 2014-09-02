@@ -294,6 +294,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/audioendpoints.idl \
 @HAVE_WIDL_TRUE@  include/audiopolicy.idl \
 @HAVE_WIDL_TRUE@  include/comadmin.idl \
+@HAVE_WIDL_TRUE@  include/commoncontrols.idl \
 @HAVE_WIDL_TRUE@  include/control.idl \
 @HAVE_WIDL_TRUE@  include/ctfutb.idl \
 @HAVE_WIDL_TRUE@  include/dbgprop.idl \
