@@ -210,7 +210,7 @@ extern "C" {
   }
 
   FORCEINLINE PEVENT_DESCRIPTOR EventDescSetLevel (PEVENT_DESCRIPTOR ev, UCHAR lvl) {
-    ev->Level = Lvl;
+    ev->Level = lvl;
     return ev;
   }
 
