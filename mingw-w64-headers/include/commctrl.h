@@ -2194,6 +2194,31 @@ extern "C" {
 #define CCS_RIGHT (CCS_VERT | CCS_BOTTOM)
 #define CCS_NOMOVEX (CCS_VERT | CCS_NOMOVEY)
 
+#define INVALID_LINK_INDEX (-1)
+#define MAX_LINKID_TEXT 48
+#define L_MAX_URL_LENGTH (2048+32+sizeof("://"))
+
+#define WC_LINK L"SysLink"
+
+  typedef struct tagLITEM {
+    UINT mask;
+    int iLink;
+    UINT state;
+    UINT stateMask;
+    WCHAR szID[MAX_LINKID_TEXT];
+    WCHAR szUrl[L_MAX_URL_LENGTH];
+  } LITEM,*PLITEM;
+
+  typedef struct tagLHITTESTINFO {
+    POINT pt;
+    LITEM item;
+  } LHITTESTINFO,*PLHITTESTINFO;
+
+  typedef struct tagNMLINK {
+    NMHDR hdr;
+    LITEM item;
+  } NMLINK,*PNMLINK;
+
 #ifndef NOLISTVIEW
 
 #define WC_LISTVIEWA "SysListView32"
@@ -5109,12 +5134,6 @@ typedef struct tagTVDISPINFOEXW {
 
 #endif
 
-#define INVALID_LINK_INDEX (-1)
-#define MAX_LINKID_TEXT 48
-#define L_MAX_URL_LENGTH (2048+32+sizeof("://"))
-
-#define WC_LINK L"SysLink"
-
 #define LWS_TRANSPARENT 0x1
 #define LWS_IGNORERETURN 0x2
 #if NTDDI_VERSION >= 0x06000000
@@ -5135,25 +5154,6 @@ typedef struct tagTVDISPINFOEXW {
 #define LIS_HOTTRACK 0x8
 #define LIS_DEFAULTCOLORS 0x10
 #endif
-
-  typedef struct tagLITEM {
-    UINT mask;
-    int iLink;
-    UINT state;
-    UINT stateMask;
-    WCHAR szID[MAX_LINKID_TEXT];
-    WCHAR szUrl[L_MAX_URL_LENGTH];
-  } LITEM,*PLITEM;
-
-  typedef struct tagLHITTESTINFO {
-    POINT pt;
-    LITEM item;
-  } LHITTESTINFO,*PLHITTESTINFO;
-
-  typedef struct tagNMLINK {
-    NMHDR hdr;
-    LITEM item;
-  } NMLINK,*PNMLINK;
 
 #define LM_HITTEST (WM_USER+0x300)
 #define LM_GETIDEALHEIGHT (WM_USER+0x301)
@@ -5343,8 +5343,7 @@ typedef struct tagTVDISPINFOEXW {
 #if NTDDI_VERSION >= 0x06000000
   WINCOMMCTRLAPI HDSA WINAPI DSA_Clone (HDSA hdsa);
   WINCOMMCTRLAPI ULONGLONG WINAPI DSA_GetSize (HDSA hdsa);
-  WINCOMMCTRLAPI WINBOOL WINAPI DSA_Sort (HDSA pdsa, PFNDACOMPARE pfnCompare, LP
-ARAM lParam);
+  WINCOMMCTRLAPI WINBOOL WINAPI DSA_Sort (HDSA pdsa, PFNDACOMPARE pfnCompare, LPARAM lParam);
 #ifdef __cplusplus
   extern "C++" __inline WINBOOL DSA_Sort (HDSA hdsa, PFNDACOMPARECONST pfnCompare, LPARAM lParam) {
     return DSA_Sort (hdsa,(PFNDACOMPARE) (pfnCompare), lParam);
