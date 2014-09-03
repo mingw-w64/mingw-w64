@@ -12,6 +12,8 @@
 #define EXTERN_C extern
 #endif
 
+/* Keep in sync with winnt.h header.  */
+#ifndef STDMETHODCALLTYPE
 #define STDMETHODCALLTYPE WINAPI
 #define STDMETHODVCALLTYPE __cdecl
 #define STDAPICALLTYPE WINAPI
@@ -28,6 +30,7 @@
 
 #define STDMETHODIMPV HRESULT STDMETHODVCALLTYPE
 #define STDMETHODIMPV_(type) type STDMETHODVCALLTYPE
+#endif
 
 #if defined (__cplusplus) && !defined (CINTERFACE)
 
