@@ -42,6 +42,8 @@ typedef interface ID3D10Device1 ID3D10Device1;
 extern "C" {
 #endif
 
+#ifndef _D3D10_1_CONSTANTS
+#define _D3D10_1_CONSTANTS
 #define D3D10_1_DEFAULT_SAMPLE_MASK (0xffffffff)
 
 #define D3D10_1_GS_INPUT_REGISTER_COUNT (32)
@@ -80,6 +82,7 @@ extern "C" {
 
 #define D3D10_1_VS_OUTPUT_REGISTER_COUNT (32)
 
+#endif
 #define D3D10_1_FLOAT16_FUSED_TOLERANCE_IN_ULP      (0.6)
 #define D3D10_1_FLOAT32_TO_INTEGER_TOLERANCE_IN_ULP (0.6f)
 #include <d3d10_1shader.h>

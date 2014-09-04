@@ -247,6 +247,21 @@ typedef interface ITfThreadFocusSink ITfThreadFocusSink;
 typedef interface ITfInputProcessorProfileActivationSink ITfInputProcessorProfileActivationSink;
 #endif
 
+#ifndef __ITfMouseSink_FWD_DEFINED__
+#define __ITfMouseSink_FWD_DEFINED__
+typedef interface ITfMouseSink ITfMouseSink;
+#endif
+
+#ifndef __ITfMouseTracker_FWD_DEFINED__
+#define __ITfMouseTracker_FWD_DEFINED__
+typedef interface ITfMouseTracker ITfMouseTracker;
+#endif
+
+#ifndef __ITfMouseTrackerACP_FWD_DEFINED__
+#define __ITfMouseTrackerACP_FWD_DEFINED__
+typedef interface ITfMouseTrackerACP ITfMouseTrackerACP;
+#endif
+
 /* Headers for imported files */
 
 #include <oaidl.h>
@@ -8987,6 +9002,317 @@ void __RPC_STUB ITfInputProcessorProfileActivationSink_OnActivated_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __ITfInputProcessorProfileActivationSink_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITfMouseSink interface
+ */
+#ifndef __ITfMouseSink_INTERFACE_DEFINED__
+#define __ITfMouseSink_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ITfMouseSink, 0xa1adaaa2, 0x3a24, 0x449d, 0xac,0x96, 0x51,0x83,0xe7,0xf5,0xc2,0x17);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("a1adaaa2-3a24-449d-ac96-5183e7f5c217")
+ITfMouseSink : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE OnMouseEvent(
+        ULONG uEdge,
+        ULONG uQuadrant,
+        DWORD dwBtnStatus,
+        WINBOOL *pfEaten) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITfMouseSink, 0xa1adaaa2, 0x3a24, 0x449d, 0xac,0x96, 0x51,0x83,0xe7,0xf5,0xc2,0x17)
+#endif
+#else
+typedef struct ITfMouseSinkVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITfMouseSink* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITfMouseSink* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITfMouseSink* This);
+
+    /*** ITfMouseSink methods ***/
+    HRESULT (STDMETHODCALLTYPE *OnMouseEvent)(
+        ITfMouseSink* This,
+        ULONG uEdge,
+        ULONG uQuadrant,
+        DWORD dwBtnStatus,
+        WINBOOL *pfEaten);
+
+    END_INTERFACE
+} ITfMouseSinkVtbl;
+interface ITfMouseSink {
+    CONST_VTBL ITfMouseSinkVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITfMouseSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITfMouseSink_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITfMouseSink_Release(This) (This)->lpVtbl->Release(This)
+/*** ITfMouseSink methods ***/
+#define ITfMouseSink_OnMouseEvent(This,uEdge,uQuadrant,dwBtnStatus,pfEaten) (This)->lpVtbl->OnMouseEvent(This,uEdge,uQuadrant,dwBtnStatus,pfEaten)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfMouseSink_QueryInterface(ITfMouseSink* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfMouseSink_AddRef(ITfMouseSink* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfMouseSink_Release(ITfMouseSink* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfMouseSink methods ***/
+static FORCEINLINE HRESULT ITfMouseSink_OnMouseEvent(ITfMouseSink* This,ULONG uEdge,ULONG uQuadrant,DWORD dwBtnStatus,WINBOOL *pfEaten) {
+    return This->lpVtbl->OnMouseEvent(This,uEdge,uQuadrant,dwBtnStatus,pfEaten);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ITfMouseSink_OnMouseEvent_Proxy(
+    ITfMouseSink* This,
+    ULONG uEdge,
+    ULONG uQuadrant,
+    DWORD dwBtnStatus,
+    WINBOOL *pfEaten);
+void __RPC_STUB ITfMouseSink_OnMouseEvent_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ITfMouseSink_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITfMouseTracker interface
+ */
+#ifndef __ITfMouseTracker_INTERFACE_DEFINED__
+#define __ITfMouseTracker_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ITfMouseTracker, 0x09d146cd, 0xa544, 0x4132, 0x92,0x5b, 0x7a,0xfa,0x8e,0xf3,0x22,0xd0);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("09d146cd-a544-4132-925b-7afa8ef322d0")
+ITfMouseTracker : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE AdviseMouseSink(
+        ITfRange *range,
+        ITfMouseSink *pSink,
+        DWORD *pdwCookie) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE UnadviseMouseSink(
+        DWORD dwCookie) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITfMouseTracker, 0x09d146cd, 0xa544, 0x4132, 0x92,0x5b, 0x7a,0xfa,0x8e,0xf3,0x22,0xd0)
+#endif
+#else
+typedef struct ITfMouseTrackerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITfMouseTracker* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITfMouseTracker* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITfMouseTracker* This);
+
+    /*** ITfMouseTracker methods ***/
+    HRESULT (STDMETHODCALLTYPE *AdviseMouseSink)(
+        ITfMouseTracker* This,
+        ITfRange *range,
+        ITfMouseSink *pSink,
+        DWORD *pdwCookie);
+
+    HRESULT (STDMETHODCALLTYPE *UnadviseMouseSink)(
+        ITfMouseTracker* This,
+        DWORD dwCookie);
+
+    END_INTERFACE
+} ITfMouseTrackerVtbl;
+interface ITfMouseTracker {
+    CONST_VTBL ITfMouseTrackerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITfMouseTracker_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITfMouseTracker_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITfMouseTracker_Release(This) (This)->lpVtbl->Release(This)
+/*** ITfMouseTracker methods ***/
+#define ITfMouseTracker_AdviseMouseSink(This,range,pSink,pdwCookie) (This)->lpVtbl->AdviseMouseSink(This,range,pSink,pdwCookie)
+#define ITfMouseTracker_UnadviseMouseSink(This,dwCookie) (This)->lpVtbl->UnadviseMouseSink(This,dwCookie)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfMouseTracker_QueryInterface(ITfMouseTracker* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfMouseTracker_AddRef(ITfMouseTracker* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfMouseTracker_Release(ITfMouseTracker* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfMouseTracker methods ***/
+static FORCEINLINE HRESULT ITfMouseTracker_AdviseMouseSink(ITfMouseTracker* This,ITfRange *range,ITfMouseSink *pSink,DWORD *pdwCookie) {
+    return This->lpVtbl->AdviseMouseSink(This,range,pSink,pdwCookie);
+}
+static FORCEINLINE HRESULT ITfMouseTracker_UnadviseMouseSink(ITfMouseTracker* This,DWORD dwCookie) {
+    return This->lpVtbl->UnadviseMouseSink(This,dwCookie);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ITfMouseTracker_AdviseMouseSink_Proxy(
+    ITfMouseTracker* This,
+    ITfRange *range,
+    ITfMouseSink *pSink,
+    DWORD *pdwCookie);
+void __RPC_STUB ITfMouseTracker_AdviseMouseSink_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfMouseTracker_UnadviseMouseSink_Proxy(
+    ITfMouseTracker* This,
+    DWORD dwCookie);
+void __RPC_STUB ITfMouseTracker_UnadviseMouseSink_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ITfMouseTracker_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITfMouseTrackerACP interface
+ */
+#ifndef __ITfMouseTrackerACP_INTERFACE_DEFINED__
+#define __ITfMouseTrackerACP_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ITfMouseTrackerACP, 0x3bdd78e2, 0xc16e, 0x47fd, 0xb8,0x83, 0xce,0x6f,0xac,0xc1,0xa2,0x08);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("3bdd78e2-c16e-47fd-b883-ce6facc1a208")
+ITfMouseTrackerACP : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE AdviseMouseSink(
+        ITfRangeACP *range,
+        ITfMouseSink *pSink,
+        DWORD *pdwCookie) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE UnadviseMouseSink(
+        DWORD dwCookie) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITfMouseTrackerACP, 0x3bdd78e2, 0xc16e, 0x47fd, 0xb8,0x83, 0xce,0x6f,0xac,0xc1,0xa2,0x08)
+#endif
+#else
+typedef struct ITfMouseTrackerACPVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITfMouseTrackerACP* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITfMouseTrackerACP* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITfMouseTrackerACP* This);
+
+    /*** ITfMouseTrackerACP methods ***/
+    HRESULT (STDMETHODCALLTYPE *AdviseMouseSink)(
+        ITfMouseTrackerACP* This,
+        ITfRangeACP *range,
+        ITfMouseSink *pSink,
+        DWORD *pdwCookie);
+
+    HRESULT (STDMETHODCALLTYPE *UnadviseMouseSink)(
+        ITfMouseTrackerACP* This,
+        DWORD dwCookie);
+
+    END_INTERFACE
+} ITfMouseTrackerACPVtbl;
+interface ITfMouseTrackerACP {
+    CONST_VTBL ITfMouseTrackerACPVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITfMouseTrackerACP_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITfMouseTrackerACP_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITfMouseTrackerACP_Release(This) (This)->lpVtbl->Release(This)
+/*** ITfMouseTrackerACP methods ***/
+#define ITfMouseTrackerACP_AdviseMouseSink(This,range,pSink,pdwCookie) (This)->lpVtbl->AdviseMouseSink(This,range,pSink,pdwCookie)
+#define ITfMouseTrackerACP_UnadviseMouseSink(This,dwCookie) (This)->lpVtbl->UnadviseMouseSink(This,dwCookie)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfMouseTrackerACP_QueryInterface(ITfMouseTrackerACP* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfMouseTrackerACP_AddRef(ITfMouseTrackerACP* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfMouseTrackerACP_Release(ITfMouseTrackerACP* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfMouseTrackerACP methods ***/
+static FORCEINLINE HRESULT ITfMouseTrackerACP_AdviseMouseSink(ITfMouseTrackerACP* This,ITfRangeACP *range,ITfMouseSink *pSink,DWORD *pdwCookie) {
+    return This->lpVtbl->AdviseMouseSink(This,range,pSink,pdwCookie);
+}
+static FORCEINLINE HRESULT ITfMouseTrackerACP_UnadviseMouseSink(ITfMouseTrackerACP* This,DWORD dwCookie) {
+    return This->lpVtbl->UnadviseMouseSink(This,dwCookie);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ITfMouseTrackerACP_AdviseMouseSink_Proxy(
+    ITfMouseTrackerACP* This,
+    ITfRangeACP *range,
+    ITfMouseSink *pSink,
+    DWORD *pdwCookie);
+void __RPC_STUB ITfMouseTrackerACP_AdviseMouseSink_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfMouseTrackerACP_UnadviseMouseSink_Proxy(
+    ITfMouseTrackerACP* This,
+    DWORD dwCookie);
+void __RPC_STUB ITfMouseTrackerACP_UnadviseMouseSink_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ITfMouseTrackerACP_INTERFACE_DEFINED__ */
 
 /* Begin additional prototypes for all interfaces */
 
