@@ -45,6 +45,25 @@
 #include "../complex/complex_internal.h"
 #include <errno.h>
 
+#if defined(__arm__) || defined(_ARM_)
+/* This works around a compiler bug, normally you would inline it with e.g.
+ * asm ("fsqrts %[dst], %[src];\n" : [dst] "=w" (res) : [src] "w" (x));
+ */
+__FLT_TYPE __fsqrt_internal( __FLT_TYPE x ) __attribute__((visibility ("hidden")));
+asm(".def __fsqrt_internal; .scl 2; .type 32; .endef\n"
+    "\t.text\n"
+    "\t.align 4\n"
+    "\t.globl __fsqrt_internal\n"
+    //"\t.type __fsqrt_internal,2\n"
+    "__fsqrt_internal:\n"
+#if _NEW_COMPLEX_FLOAT
+    "\t" "fsqrts s0, s0\n"
+#else
+    "\t" "fsqrtd d0, d0\n"
+#endif /* _NEW_COMPLEX_FLOAT */
+    "\tbx lr");
+#endif /* defined(__arm__) || defined(_ARM_) */
+
 __FLT_TYPE
 __FLT_ABI (sqrt) (__FLT_TYPE x)
 {
@@ -62,6 +81,12 @@ __FLT_ABI (sqrt) (__FLT_TYPE x)
     return __FLT_HUGE_VAL;
   else if (x == __FLT_CST (1.0))
    return __FLT_CST (1.0);
+#if defined(__arm__) || defined(_ARM_)
+  __fsqrt_internal(x);
+#elif defined(_X86_) || defined(__i386__) || defined(_AMD64_) || defined(__x86_64__)
   asm ("fsqrt" : "=t" (res) : "0" (x));
+#else
+#error Not supported on your platform yet
+#endif
   return res;
 }
