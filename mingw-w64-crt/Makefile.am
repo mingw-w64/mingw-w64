@@ -223,7 +223,6 @@ src_libmingwex=\
   math/_chgsignl.S      math/ceil.S        math/ceilf.S          math/ceill.S         math/copysignl.S     \
   math/floor.S          math/floorf.S      math/floorl.S         \
   math/fma.S            math/fmaf.S        math/frexpl.S         \
-  math/log10l.S         \
   math/nearbyint.S      math/nearbyintf.S  math/nearbyintl.S     \
   math/remquo.S         math/remquof.S     math/remquol.S        \
   math/trunc.S          math/truncf.S      \
@@ -302,11 +301,11 @@ src_libmingwex64=\
   math/exp2f.S              math/exp2l.S              math/expm1.c              math/expm1f.c             math/expm1l.c             \
   math/fmod.c               math/fmodf.c              math/fmodl.c              math/ilogb.S              math/ilogbf.S             \
   math/ilogbl.S             math/internal_logl.S      math/ldexp.c              math/ldexpl.c             math/logl.c               \
-  math/log1p.S              math/log1pf.S             math/log1pl.S             math/log2.S               math/log2f.S              \
-  math/log2l.S              math/logb.c               math/logbf.c              math/logbl.c              math/logl.c               \
-  math/pow.c                math/powl.c               math/remainder.S          math/remainderf.S         math/remainderl.S         \
-  math/scalbn.S             math/scalbnf.S            math/scalbnl.S            math/sin.c                math/sinf.c               \
-  math/sinl.c               math/sinl_internal.S      math/tanf.c               math/tanl.S
+  math/log10l.S             math/log1p.S              math/log1pf.S             math/log1pl.S             math/log2.S               \
+  math/log2f.S              math/log2l.S              math/logb.c               math/logbf.c              math/logbl.c              \
+  math/logl.c               math/pow.c                math/powl.c               math/remainder.S          math/remainderf.S         \
+  math/remainderl.S         math/scalbn.S             math/scalbnf.S            math/scalbnl.S            math/sin.c                \
+  math/sinf.c               math/sinl.c               math/sinl_internal.S      math/tanf.c               math/tanl.S
 
 # these only go into the 32 bit version:
 src_libmingwex32=\
@@ -318,11 +317,11 @@ src_libmingwex32=\
   math/exp2f.S              math/exp2l.S              math/expm1.c              math/expm1f.c             math/expm1l.c             \
   math/fmod.c               math/fmodf.c              math/fmodl.c              math/ilogb.S              math/ilogbf.S             \
   math/ilogbl.S             math/internal_logl.S      math/ldexp.c              math/ldexpl.c             math/logl.c               \
-  math/log1p.S              math/log1pf.S             math/log1pl.S             math/log2.S               math/log2f.S              \
-  math/log2l.S              math/logb.c               math/logbf.c              math/logbl.c              math/logl.c               \
-  math/pow.c                math/powl.c               math/remainder.S          math/remainderf.S         math/remainderl.S         \
-  math/scalbn.S             math/scalbnf.S            math/scalbnl.S            math/sin.c                math/sinf.c               \
-  math/sinl.c               math/sinl_internal.S      math/tanf.c               math/tanl.S
+  math/log10l.S             math/log1p.S              math/log1pf.S             math/log1pl.S             math/log2.S               \
+  math/log2f.S              math/log2l.S              math/logb.c               math/logbf.c              math/logbl.c              \
+  math/logl.c               math/pow.c                math/powl.c               math/remainder.S          math/remainderf.S         \
+  math/remainderl.S         math/scalbn.S             math/scalbnf.S            math/scalbnl.S            math/sin.c                \
+  math/sinf.c               math/sinl.c               math/sinl_internal.S      math/tanf.c               math/tanl.S
 
 # these only go into the ARM32 version:
 src_libmingwexarm32=\
@@ -334,9 +333,9 @@ src_libmingwexarm32=\
   math/softmath/exp.c       math/softmath/expl.c      math/softmath/exp2.c      math/softmath/exp2f.c     math/softmath/exp2l.c     \
   math/softmath/expm1.c     math/softmath/expm1f.c    math/softmath/expm1l.c    math/softmath/fmod.c      math/softmath/fmodf.c     \
   math/softmath/fmodl.c     math/softmath/ilogb.c     math/softmath/ilogbf.c    math/softmath/ilogbl.c    math/softmath/ldexp.c     \
-  math/softmath/ldexpl.c    math/softmath/log.c       math/softmath/log1p.c     math/softmath/log1pf.c    math/softmath/log1pl.c    \
-  math/softmath/log2.c      math/softmath/log2f.c     math/softmath/log2l.c     math/softmath/logb.c      math/softmath/logbf.c     \
-  math/softmath/logbl.c     math/softmath/logl.c      math/softmath/pow.c       math/softmath/powl.c      \
+  math/softmath/ldexpl.c    math/softmath/log.c       math/softmath/log10l.c    math/softmath/log1p.c     math/softmath/log1pf.c    \
+  math/softmath/log1pl.c    math/softmath/log2.c      math/softmath/log2f.c     math/softmath/log2l.c     math/softmath/logb.c      \
+  math/softmath/logbf.c     math/softmath/logbl.c     math/softmath/logl.c      math/softmath/pow.c       math/softmath/powl.c      \
   math/softmath/remainder.c math/softmath/remainderf.c math/softmath/remainderl.c \
   math/softmath/scalbn.c    math/softmath/scalbnf.c   math/softmath/scalbnl.c   math/softmath/sin.c       math/softmath/sincos.c    \
   math/softmath/sincosf.c   math/softmath/sincosl.c   math/softmath/sinf.c      math/softmath/sinl.c      math/softmath/tanf.c      \
