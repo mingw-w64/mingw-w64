@@ -45,40 +45,25 @@
 #include "softmath_private.h"
 #include <errno.h>
 
-double cos(double x)
+long double cosl(long double x)
 {
-    double result = 0.0, neg = (x < 0) ? -1 : 1;
-    int n, quadrant;
-
     int x_class = fpclassify(x);
     if (x_class == FP_NAN)
     {
         errno = EDOM;
-        __mingw_raise_matherr (_DOMAIN, "cos", x, 0.0, x);
+        __mingw_raise_matherr (_DOMAIN, "cosl", x, 0.0, x);
         return x;
     }
     else if (x_class == FP_INFINITE)
     {
         errno = EDOM;
-        __mingw_raise_matherr (_DOMAIN, "cos", x, 0.0, NAN);
-        return NAN;
+        __mingw_raise_matherr (_DOMAIN, "cosl", x, 0.0, NANL);
+        return NANL;
     }
 
-    x *= neg;
-    quadrant = (int)(x / M_PI_2) % 4;
-
-    x = bsd__ieee754_fmod(x, M_PI_2);
-    if (quadrant == 1 || quadrant == 3)
-        x = M_PI_2 - x;
-
-    for(n = 0; n < 6; n++)
-    {
-        double sign = (n % 2 == 0) ? 1 : -1;
-        result += sign * (bsd__ieee754_pow(x, (2 * n)) / softmath_fact(2 * n));
-    }
-
-    if (quadrant == 1 || quadrant == 2)
-        result *= -1;
-
-    return result;
+#if defined(__arm__) || defined(_ARM_)
+    return cos(x);
+#else
+#error Not supported on your platform yet
+#endif
 }

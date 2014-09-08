@@ -12,6 +12,14 @@
 #include <math.h>
 #include <inttypes.h>
 
+/* NAN builtins for gcc, as they are not part of math.h  */
+#ifndef NANF
+#define NANF __builtin_nanf ("")
+#endif
+#ifndef NANL
+#define NANL __builtin_nanl ("")
+#endif
+
 extern double bsd__ieee754_fmod(double, double);
 extern float bsd__ieee754_fmodf(float, float);
 extern double bsd__ieee754_pow(double, double);
