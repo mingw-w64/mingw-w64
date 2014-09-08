@@ -49,6 +49,20 @@ double sin(double x)
     double result = 0.0, neg = (x < 0) ? -1 : 1;
     int n, quadrant;
 
+    int x_class = fpclassify(x);
+    if (x_class == FP_NAN)
+    {
+        errno = EDOM;
+        __mingw_raise_matherr (_DOMAIN, "sin", x, 0.0, x);
+        return x;
+    }
+    else if (x_class == FP_INFINITE)
+    {
+        errno = EDOM;
+        __mingw_raise_matherr (_DOMAIN, "sin", x, 0.0, NAN);
+        return NAN;
+    }
+
     x *= neg;
     quadrant = (int)(x / M_PI_2) % 4;
 

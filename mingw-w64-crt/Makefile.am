@@ -245,7 +245,7 @@ src_libmingwex=\
   math/nexttowardf.c    math/powf.c        math/powi.c           math/powif.c         math/powil.c         \
   math/rint.c           math/rintf.c       math/rintl.c          math/round.c         math/roundf.c        \
   math/roundl.c         math/s_erf.c       math/sf_erf.c         math/signbit.c       math/signbitf.c      math/signbitl.c      \
-  math/sinhf.c          math/sinhl.c       math/sinl.c           math/sqrt.c          \
+  math/sinhf.c          math/sinhl.c       math/sqrt.c           \
   math/sqrtf.c          math/sqrtl.c       math/tanhf.c          math/tanhl.c         math/tgamma.c        \
   math/tgammaf.c        math/tgammal.c     math/truncl.c         \
   math/acosh.def.h      math/cos.def.h     math/exp.def.h        math/expm1.def.h     math/log.def.h       math/pow.def.h       \
@@ -305,8 +305,8 @@ src_libmingwex64=\
   math/log1pf.S             math/log1pl.S             math/log2.S               math/log2f.S              math/log2l.S              \
   math/logb.c               math/logbf.c              math/logbl.c              math/pow.c                math/powl.c               \
   math/remainder.S          math/remainderf.S         math/remainderl.S         math/scalbn.S             math/scalbnf.S            \
-  math/scalbnl.S            math/sin.c                math/sinf.c               math/sinl_internal.S      math/tanf.c               \
-  math/tanl.S
+  math/scalbnl.S            math/sin.c                math/sinf.c               math/sinl.c               math/sinl_internal.S      \
+  math/tanf.c               math/tanl.S
 
 # these only go into the 32 bit version:
 src_libmingwex32=\
@@ -321,8 +321,8 @@ src_libmingwex32=\
   math/log1pf.S             math/log1pl.S             math/log2.S               math/log2f.S              math/log2l.S              \
   math/logb.c               math/logbf.c              math/logbl.c              math/pow.c                math/powl.c               \
   math/remainder.S          math/remainderf.S         math/remainderl.S         math/scalbn.S             math/scalbnf.S            \
-  math/scalbnl.S            math/sin.c                math/sinf.c               math/sinl_internal.S      math/tanf.c               \
-  math/tanl.S
+  math/scalbnl.S            math/sin.c                math/sinf.c               math/sinl.c               math/sinl_internal.S      \
+  math/tanf.c               math/tanl.S
 
 # these only go into the ARM32 version:
 src_libmingwexarm32=\
@@ -339,7 +339,8 @@ src_libmingwexarm32=\
   math/softmath/pow.c       math/softmath/powl.c      \
   math/softmath/remainder.c math/softmath/remainderf.c math/softmath/remainderl.c \
   math/softmath/scalbn.c    math/softmath/scalbnf.c   math/softmath/scalbnl.c   math/softmath/sin.c       math/softmath/sincos.c    \
-  math/softmath/sincosf.c   math/softmath/sincosl.c   math/softmath/sinf.c      math/softmath/tanf.c      math/softmath/tanl.c
+  math/softmath/sincosf.c   math/softmath/sincosl.c   math/softmath/sinf.c      math/softmath/sinl.c      math/softmath/tanf.c      \
+  math/softmath/tanl.c
 
 
 # These intrinsics are target independent:
