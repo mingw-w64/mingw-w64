@@ -1359,29 +1359,11 @@ libarm32/libvfw32.a: libarm32/vfw32.mri libarm32/libmsvfw32.a libarm32/libavifil
 
 dx32_DATA =
 dx32_DATA += libarm32/libxinput.a
-dx32_DATA += libarm32/libxapofx.a
-dx32_DATA += libarm32/libx3daudio.a
-dx32_DATA += libarm32/libd3dx9.a
-dx32_DATA += libarm32/libd3dx10.a
-dx32_DATA += libarm32/libd3dx11.a
-dx32_DATA += libarm32/libd3dcsxd.a
 dx32_DATA += libarm32/libd3dcompiler.a
 
-libarm32/libxinput.a: libarm32/$(xinput).def
+libarm32/libxinput.a: libarm32/xinput1_4.def
 	$(DTDEFARM32) $<
-libarm32/libxapofx.a: libarm32/$(xapofx).def
-	$(DTDEFARM32) $<
-libarm32/libx3daudio.a: libarm32/$(x3daudio).def
-	$(DTDEFARM32) $<
-libarm32/libd3dx9.a: libarm32/$(d3dx9).def
-	$(DTDEFARM32) $<
-libarm32/libd3dx10.a: libarm32/$(d3dx10).def
-	$(DTDEFARM32) $<
-libarm32/libd3dx11.a: libarm32/$(d3dx11).def
-	$(DTDEFARM32) $<
-libarm32/libd3dcsxd.a: libarm32/$(d3dcsxd).def
-	$(DTDEFARM32) $<
-libarm32/libd3dcompiler.a: libarm32/$(d3dcompiler).def
+libarm32/libd3dcompiler.a: libarm32/d3dcompiler_47.def
 	$(DTDEFARM32) $<
 
 endif
