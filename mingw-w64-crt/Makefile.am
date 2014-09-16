@@ -300,7 +300,7 @@ src_libmingwex64=\
   math/cosl_internal.S      math/cossin.c             math/exp.c                math/expl.c               math/exp2.S               \
   math/exp2f.S              math/exp2l.S              math/expm1.c              math/expm1f.c             math/expm1l.c             \
   math/fmod.c               math/fmodf.c              math/fmodl.c              math/ilogb.S              math/ilogbf.S             \
-  math/ilogbl.S             math/internal_logl.S      math/ldexp.c              math/ldexpl.c             math/logl.c               \
+  math/ilogbl.S             math/internal_logl.S      math/ldexp.c              math/ldexpl.c             math/log.c               \
   math/log10l.S             math/log1p.S              math/log1pf.S             math/log1pl.S             math/log2.S               \
   math/log2f.S              math/log2l.S              math/logb.c               math/logbf.c              math/logbl.c              \
   math/logl.c               math/pow.c                math/powl.c               math/remainder.S          math/remainderf.S         \
@@ -316,7 +316,7 @@ src_libmingwex32=\
   math/cosl_internal.S      math/cossin.c             math/exp.c                math/expl.c               math/exp2.S               \
   math/exp2f.S              math/exp2l.S              math/expm1.c              math/expm1f.c             math/expm1l.c             \
   math/fmod.c               math/fmodf.c              math/fmodl.c              math/ilogb.S              math/ilogbf.S             \
-  math/ilogbl.S             math/internal_logl.S      math/ldexp.c              math/ldexpl.c             math/logl.c               \
+  math/ilogbl.S             math/internal_logl.S      math/ldexp.c              math/ldexpl.c             math/log.c               \
   math/log10l.S             math/log1p.S              math/log1pf.S             math/log1pl.S             math/log2.S               \
   math/log2f.S              math/log2l.S              math/logb.c               math/logbf.c              math/logbl.c              \
   math/logl.c               math/pow.c                math/powl.c               math/remainder.S          math/remainderf.S         \
