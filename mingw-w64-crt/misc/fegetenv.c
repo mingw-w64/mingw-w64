@@ -5,7 +5,9 @@
  */
 #include <fenv.h>
 
+#if !(defined(_ARM_) || defined(__arm__))
 int __mingw_has_sse (void);
+#endif /* !(defined(_ARM_) || defined(__arm__)) */
 
 /* 7.6.4.1
    The fegetenv function stores the current floating-point environment
@@ -13,6 +15,9 @@ int __mingw_has_sse (void);
 
 int fegetenv (fenv_t * envp)
 {
+#if defined(_ARM_) || defined(__arm__)
+  __asm__ volatile ("fmrx %0, FPSCR" : "=r" (*envp));
+#else
   __asm__ __volatile__ ("fnstenv %0;": "=m" (*envp));
  /* fnstenv sets control word to non-stop for all exceptions, so we
     need to reload our env to restore the original mask.  */
@@ -24,6 +29,7 @@ int fegetenv (fenv_t * envp)
       envp->__unused0 = (((unsigned int) _mxcsr) >> 16);
       envp->__unused1 = (((unsigned int) _mxcsr) & 0xffff);
     }
+#endif /* defined(_ARM_) || defined(__arm__) */
   return 0;
 }
 
