@@ -16,9 +16,15 @@
 int feraiseexcept (int excepts)
 {
   fenv_t _env;
+#if defined(_ARM_) || defined(__arm__)
+  __asm__ volatile ("fmrx %0, FPSCR" : "=r" (_env));
+  _env.__cw |= excepts & FE_ALL_EXCEPT;
+  __asm__ volatile ("fmxr FPSCR, %0" : : "r" (_env));
+#else
   __asm__ volatile ("fnstenv %0;" : "=m" (_env));
   _env.__status_word |= excepts & FE_ALL_EXCEPT;
   __asm__ volatile ("fldenv %0;"
 		    "fwait;" : : "m" (_env));
+#endif /* defined(_ARM_) || defined(__arm__) */
   return 0;
 }
