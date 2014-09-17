@@ -12,8 +12,13 @@
 int
 fegetround (void)
 {
+#if defined(_ARM_) || defined(__arm__)
+  fenv_t _env;
+  __asm__ volatile ("fmrx %0, FPSCR" : "=r" (_env));
+  return (_env.__cw & (FE_TONEAREST | FE_DOWNWARD |  FE_UPWARD | FE_TOWARDZERO));
+#else
   int _control;
-
   __asm__ volatile ("fnstcw %0" : "=m" (*&_control));
   return (_control & (FE_TONEAREST | FE_DOWNWARD |  FE_UPWARD | FE_TOWARDZERO));
+#endif /* defined(_ARM_) || defined(__arm__) */
 }
