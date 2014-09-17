@@ -6,7 +6,9 @@
 
 #include <fenv.h> 
 
+#if !(defined(_ARM_) || defined(__arm__))
 extern int __mingw_has_sse (void);
+#endif /* !(defined(_ARM_) || defined(__arm__)) */
 
 /* 7.6.2.5 
    The fetestexcept function determines which of a specified subset of
@@ -18,6 +20,11 @@ extern int __mingw_has_sse (void);
 
 int fetestexcept (int excepts)
 {
+#if defined(_ARM_) || defined(__arm__)
+  fenv_t _env;
+  __asm__ volatile ("fmrx %0, FPSCR" : "=r" (_env));
+  return _env.__cw & excepts & FE_ALL_EXCEPT;
+#else
   unsigned short _sw;
   __asm__ __volatile__ ("fnstsw %%ax" : "=a" (_sw));
 
@@ -27,6 +34,6 @@ int fetestexcept (int excepts)
       __asm__ __volatile__ ("stmxcsr %0;" : "=m" (sse_sw));
       _sw |= sse_sw;
     }
-
   return _sw & excepts & FE_ALL_EXCEPT;
+#endif /* defined(_ARM_) || defined(__arm__) */
 }
