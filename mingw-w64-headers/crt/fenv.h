@@ -8,7 +8,27 @@
 
 #include <crtdefs.h>
 
+#if defined(_ARM_) || defined(__arm__)
+
 /* FPU status word exception flags */
+#define FE_INVALID      0x01
+#define FE_DIVBYZERO    0x02
+#define FE_OVERFLOW     0x04
+#define FE_UNDERFLOW    0x08
+#define FE_INEXACT      0x10
+#define FE_ALL_EXCEPT   (FE_INVALID | FE_DIVBYZERO | FE_OVERFLOW | FE_UNDERFLOW | FE_INEXACT)
+
+/* FPU control word rounding flags */
+#define FE_TONEAREST    0x00000000
+#define FE_UPWARD       0x00400000
+#define FE_DOWNWARD     0x00800000
+#define FE_TOWARDZERO   0x00c00000
+
+/* Amount to shift by to convert an exception to a mask bit.  */
+#define FE_EXCEPT_SHIFT 0x08
+
+#else
+
 #define FE_INVALID	0x01
 #define FE_DENORMAL	0x02
 #define FE_DIVBYZERO	0x04
@@ -36,7 +56,26 @@
    to get MXCSR rounding flags,  */
 #define __MXCSR_ROUND_FLAG_SHIFT 3
 
+#endif /* defined(_ARM_) || defined(__arm__) */
+
 #ifndef RC_INVOKED
+
+#if defined(_ARM_) || defined(__arm__)
+
+/* Type representing exception flags. */
+typedef unsigned int fexcept_t;
+
+/* Type representing floating-point environment.  */
+typedef struct
+{
+    unsigned int __cw;
+} fenv_t;
+
+/* If the default argument is used we use this value.  */
+#define FE_DFL_ENV  ((const fenv_t *) -1l)
+
+#else
+
 /*
   For now, support only for the basic abstraction of flags that are
   either set or clear. fexcept_t could be  structure that holds more
@@ -78,6 +117,8 @@ typedef struct
 /* The FE_DFL_ENV macro is required by standard.
   fesetenv will use the environment set at app startup.*/
 #define FE_DFL_ENV ((const fenv_t *) 0)
+
+#endif /* defined(_ARM_) || defined(__arm__) */
 
 #ifdef __cplusplus
 extern "C" {
