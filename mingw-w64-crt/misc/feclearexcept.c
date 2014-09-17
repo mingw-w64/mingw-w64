@@ -5,6 +5,7 @@
  */
 #include <fenv.h>
 
+#if !(defined(_ARM_) || defined(__arm__))
 int __mingw_has_sse (void);
 
 int __mingw_has_sse(void)
@@ -31,6 +32,7 @@ int __mingw_has_sse(void)
     return 1;
   return 0;
 }
+#endif /* !(defined(_ARM_) || defined(__arm__)) */
 
 /* 7.6.2.1
    The feclearexcept function clears the supported exceptions
@@ -38,9 +40,13 @@ int __mingw_has_sse(void)
 
 int feclearexcept (int excepts)
 {
+#if defined(_ARM_) || defined(__arm__)
   fenv_t _env;
+  __asm__ volatile ("fmrx %0, FPSCR" : "=r" (_env));
+  _env.__cw &= ~(excepts & FE_ALL_EXCEPT);
+  __asm__ volatile ("fmxr FPSCR, %0" : : "r" (_env));
+#else
   int _mxcsr;
-
   if (excepts == FE_ALL_EXCEPT)
     {
       __asm__ volatile ("fnclex");
@@ -57,5 +63,6 @@ int feclearexcept (int excepts)
       _mxcsr &= ~(((excepts & FE_ALL_EXCEPT)));
       __asm__ volatile ("ldmxcsr %0" : : "m" (_mxcsr));
     }
+#endif /* defined(_ARM_) || defined(__arm__) */
   return (0);
 }
