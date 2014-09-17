@@ -54,7 +54,6 @@ asm(".def __fsqrt_internal; .scl 2; .type 32; .endef\n"
     "\t.text\n"
     "\t.align 4\n"
     "\t.globl __fsqrt_internal\n"
-    //"\t.type __fsqrt_internal,2\n"
     "__fsqrt_internal:\n"
 #if _NEW_COMPLEX_FLOAT
     "\t" "fsqrts s0, s0\n"
