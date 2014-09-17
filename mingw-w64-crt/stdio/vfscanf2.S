@@ -20,7 +20,11 @@ FCT:
 #ifdef _WIN64
         .seh_endprologue
 #endif
+#if defined(_AMD64_) || defined(__x86_64__) || defined(_X86_) || defined(__i386__)
         jmp     FWD
+#elif defined(_ARM_) || defined(__arm__)
+        b       FWD
+#endif
 #ifdef _WIN64
         .seh_endproc
 #endif
