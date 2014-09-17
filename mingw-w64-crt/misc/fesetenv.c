@@ -7,7 +7,9 @@
 #include <fenv.h>
 #include <float.h>
 
+#if !(defined(_ARM_) || defined(__arm__))
 extern int __mingw_has_sse (void);
+#endif /* !(defined(_ARM_) || defined(__arm__)) */
 
 /* 7.6.4.3
    The fesetenv function establishes the floating-point environment
@@ -24,6 +26,13 @@ extern void _fpreset(void);
 
 int fesetenv (const fenv_t * envp)
 {
+#if defined(_ARM_) || defined(__arm__)
+  if (envp == FE_DFL_ENV)
+    /* Use the choice made at app startup */ 
+    _fpreset();
+  else
+    __asm__ volatile ("fmxr FPSCR, %0" : : "r" (*envp));
+#else
   if (envp == FE_PC64_ENV)
    /*
     *  fninit initializes the control register to 0x37f,
@@ -61,5 +70,6 @@ int fesetenv (const fenv_t * envp)
         __asm__ volatile ("ldmxcsr %0" : : "m" (*&_mxcsr));
     }
 
+#endif /* defined(_ARM_) || defined(__arm__) */
   return 0;
 }
