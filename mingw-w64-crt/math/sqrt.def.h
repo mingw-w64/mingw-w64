@@ -71,6 +71,9 @@ __FLT_ABI (sqrt) (__FLT_TYPE x)
   int x_class = fpclassify (x);
   if (x_class == FP_NAN || signbit (x))
     {
+      if (x_class == FP_ZERO)
+	return __FLT_CST (-0.0);
+
       res = (signbit (x) ? -__FLT_NAN : __FLT_NAN);
       __FLT_RPT_DOMAIN ("sqrt", x, 0.0, res);
       return res;
