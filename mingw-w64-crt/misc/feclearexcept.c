@@ -40,8 +40,8 @@ int __mingw_has_sse(void)
 
 int feclearexcept (int excepts)
 {
-#if defined(_ARM_) || defined(__arm__)
   fenv_t _env;
+#if defined(_ARM_) || defined(__arm__)
   __asm__ volatile ("fmrx %0, FPSCR" : "=r" (_env));
   _env.__cw &= ~(excepts & FE_ALL_EXCEPT);
   __asm__ volatile ("fmxr FPSCR, %0" : : "r" (_env));
