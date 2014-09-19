@@ -432,6 +432,10 @@ extern "C" {
     HttpLogDataTypeFields   = 0
   } HTTP_LOG_DATA_TYPE, *PHTTP_LOG_DATA_TYPE;
 
+  typedef struct _HTTP_LOG_DATA {
+    HTTP_LOG_DATA_TYPE Type;
+  } HTTP_LOG_DATA, *PHTTP_LOG_DATA;
+
   typedef enum _HTTP_REQUEST_AUTH_TYPE {
     HttpRequestAuthTypeNone = 0,
     HttpRequestAuthTypeBasic,
