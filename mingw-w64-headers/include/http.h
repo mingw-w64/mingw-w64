@@ -9,6 +9,9 @@
 #include <winsock2.h>
 #include <ws2tcpip.h>
 
+#define SECURITY_WIN32
+#include <sspi.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
