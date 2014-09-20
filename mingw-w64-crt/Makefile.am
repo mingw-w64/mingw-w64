@@ -233,7 +233,7 @@ src_libmingwex=\
   math/fabs.c           math/fabsf.c       math/fabsl.c          math/fdim.c          math/fdimf.c         math/fdiml.c         \
   math/fmal.c           math/fmax.c        math/fmaxf.c          math/fmaxl.c         math/fmin.c          math/fminf.c         \
   math/fminl.c          math/fp_consts.c   math/fp_constsf.c     \
-  math/fp_constsl.c     math/fpclassify.c  math/fpclassifyf.c    math/fpclassifyl.c   math/frexpf.c        math/fucom.c         \
+  math/fp_constsl.c     math/fpclassify.c  math/fpclassifyf.c    math/fpclassifyl.c   math/frexpf.c        \
   math/hypotf.c         math/hypotl.c      math/isnan.c          math/isnanf.c        math/isnanl.c        \
   math/ldexpf.c         math/lgamma.c      math/lgammaf.c        math/lgammal.c       math/llrint.c        \
   math/signgam.c \
@@ -299,13 +299,14 @@ src_libmingwex64=\
   math/atanhf.c             math/atanhl.c             math/cos.c                math/cosf.c               math/cosl.c               \
   math/cosl_internal.S      math/cossin.c             math/exp.c                math/expl.c               math/exp2.S               \
   math/exp2f.S              math/exp2l.S              math/expm1.c              math/expm1f.c             math/expm1l.c             \
-  math/fmod.c               math/fmodf.c              math/fmodl.c              math/ilogb.S              math/ilogbf.S             \
-  math/ilogbl.S             math/internal_logl.S      math/ldexp.c              math/ldexpl.c             math/log.c               \
-  math/log10l.S             math/log1p.S              math/log1pf.S             math/log1pl.S             math/log2.S               \
-  math/log2f.S              math/log2l.S              math/logb.c               math/logbf.c              math/logbl.c              \
-  math/logl.c               math/pow.c                math/powl.c               math/remainder.S          math/remainderf.S         \
-  math/remainderl.S         math/scalbn.S             math/scalbnf.S            math/scalbnl.S            math/sin.c                \
-  math/sinf.c               math/sinl.c               math/sinl_internal.S      math/tanf.c               math/tanl.S
+  math/fmod.c               math/fmodf.c              math/fmodl.c              math/fucom.c              math/ilogb.S              \
+  math/ilogbf.S             math/ilogbl.S             math/internal_logl.S      math/ldexp.c              math/ldexpl.c             \
+  math/log.c                math/log10l.S             math/log1p.S              math/log1pf.S             math/log1pl.S             \
+  math/log2.S               math/log2f.S              math/log2l.S              math/logb.c               math/logbf.c              \
+  math/logbl.c              math/logl.c               math/pow.c                math/powl.c               math/remainder.S          \
+  math/remainderf.S         math/remainderl.S         math/scalbn.S             math/scalbnf.S            math/scalbnl.S            \
+  math/sin.c                math/sinf.c               math/sinl.c               math/sinl_internal.S      math/tanf.c               \
+  math/tanl.S
 
 # these only go into the 32 bit version:
 src_libmingwex32=\
@@ -315,13 +316,14 @@ src_libmingwex32=\
   math/atanhf.c             math/atanhl.c             math/cos.c                math/cosf.c               math/cosl.c               \
   math/cosl_internal.S      math/cossin.c             math/exp.c                math/expl.c               math/exp2.S               \
   math/exp2f.S              math/exp2l.S              math/expm1.c              math/expm1f.c             math/expm1l.c             \
-  math/fmod.c               math/fmodf.c              math/fmodl.c              math/ilogb.S              math/ilogbf.S             \
-  math/ilogbl.S             math/internal_logl.S      math/ldexp.c              math/ldexpl.c             math/log.c               \
-  math/log10l.S             math/log1p.S              math/log1pf.S             math/log1pl.S             math/log2.S               \
-  math/log2f.S              math/log2l.S              math/logb.c               math/logbf.c              math/logbl.c              \
-  math/logl.c               math/pow.c                math/powl.c               math/remainder.S          math/remainderf.S         \
-  math/remainderl.S         math/scalbn.S             math/scalbnf.S            math/scalbnl.S            math/sin.c                \
-  math/sinf.c               math/sinl.c               math/sinl_internal.S      math/tanf.c               math/tanl.S
+  math/fmod.c               math/fmodf.c              math/fmodl.c              math/fucom.c              math/ilogb.S              \
+  math/ilogbf.S             math/ilogbl.S             math/internal_logl.S      math/ldexp.c              math/ldexpl.c             \
+  math/log.c                math/log10l.S             math/log1p.S              math/log1pf.S             math/log1pl.S             \
+  math/log2.S               math/log2f.S              math/log2l.S              math/logb.c               math/logbf.c              \
+  math/logbl.c              math/logl.c               math/pow.c                math/powl.c               math/remainder.S          \
+  math/remainderf.S         math/remainderl.S         math/scalbn.S             math/scalbnf.S            math/scalbnl.S            \
+  math/sin.c                math/sinf.c               math/sinl.c               math/sinl_internal.S      math/tanf.c               \
+  math/tanl.S
 
 # these only go into the ARM32 version:
 src_libmingwexarm32=\
