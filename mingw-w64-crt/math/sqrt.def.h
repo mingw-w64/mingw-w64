@@ -49,7 +49,7 @@
 /* This works around a compiler bug, normally you would inline it with e.g.
  * asm ("fsqrts %[dst], %[src];\n" : [dst] "=w" (res) : [src] "w" (x));
  */
-__FLT_TYPE __fsqrt_internal( __FLT_TYPE x ) __attribute__((visibility ("hidden")));
+__FLT_TYPE __fsqrt_internal( __FLT_TYPE x );
 asm(".def __fsqrt_internal; .scl 2; .type 32; .endef\n"
     "\t.text\n"
     "\t.align 4\n"
