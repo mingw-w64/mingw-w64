@@ -8,7 +8,10 @@
 long long llrintf (float x) 
 {
   long long retval = 0ll;
-  __asm__ __volatile__							      \
-    ("fistpll %0"  : "=m" (retval) : "t" (x) : "st");				      \
+#if defined(_AMD64_) || defined(__x86_64__) || defined(_X86_) || defined(__i386__)
+  __asm__ __volatile__ ("fistpll %0"  : "=m" (retval) : "t" (x) : "st");
+#else
+  retval = (long long)x;
+#endif
   return retval;
 }
