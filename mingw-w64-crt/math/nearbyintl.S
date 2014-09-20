@@ -35,8 +35,10 @@ __MINGW_USYMBOL(nearbyintl):
 	fstpt	(%r8)
 	ret
 #elif defined(_ARM_) || defined(__arm__)
+	vmrs	r1, fpscr
 	vcvtr.s32.f64	s0, d0
 	vcvt.f64.s32	d0, s0
+	vmsr	fpscr, r1
 	bx	lr
 #elif defined(_X86_) || defined(__i386__)
 	fldt	4(%esp)

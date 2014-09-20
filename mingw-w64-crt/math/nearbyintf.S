@@ -34,8 +34,10 @@ __MINGW_USYMBOL(nearbyintf):
 	movss	-12(%rsp),%xmm0
 	ret
 #elif defined(_ARM_) || defined(__arm__)
+	vmrs	r1, fpscr
 	vcvt.s32.f32	s0, s0
 	vcvt.f32.s32	s0, s0
+	vmsr	fpscr, r1
 	bx	lr
 #elif defined(_X86_) || defined(__i386__)
 	flds	4(%esp)
