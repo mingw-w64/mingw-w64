@@ -17,7 +17,7 @@ int __ms_vfwscanf (FILE * __restrict__ stream, const wchar_t * __restrict__ form
 
   int ret;
 
-#ifdef _WIN64
+#if defined(_AMD64_) || defined(__x86_64__)
   __asm__ __volatile__ (
 
     // allocate stack (esp += frame - arg3 - (8[arg1,2] + 12))
@@ -53,7 +53,7 @@ int __ms_vfwscanf (FILE * __restrict__ stream, const wchar_t * __restrict__ form
     : "1"(stream), "2"(format), "S"(arg),
       "a"(&ret)
     : "rbx", "rdi");
-#else
+#elif defined(_X86_) || defined(__i386__)
   __asm__ __volatile__ (
 
     // allocate stack (esp += frame - arg3 - (8[arg1,2] + 12))
@@ -82,6 +82,36 @@ int __ms_vfwscanf (FILE * __restrict__ stream, const wchar_t * __restrict__ form
     : "1"(stream), "2"(format), "S"(arg),
       "a"(&ret)
     : "ebx", "edi");
+#elif defined(_ARM_) || defined(__arm__)
+  int tmp1, tmp2, tmp3, tmp4, tmp5;
+  __asm__ __volatile__ (
+    "mov %[t1], sp\n\t"
+    "sub %[t1], %[t1], #128\n\t"
+    "mov %[t2], %[arg]\n\t"
+
+    "ldr ip, [%[t2]], #4\n\t"
+    "mov %[t4], ip\n\t"
+    "ldr ip, [%[t2]], #4\n\t"
+    "mov %[t5], ip\n\t"
+
+    "mov %[t3], #120\n\t"
+    "1: ldr ip, [%[t2]], #4\n\t"
+    "str ip, [%[t1]], #4\n\t"
+    "subs %[t3], %[t3], #4\n\t"
+    "bge 1b\n\t"
+
+    "sub sp, sp, #128\n\t"
+    "mov r0, %[s]\n\t"
+    "mov r1, %[format]\n\t"
+    "mov r2, %[t4]\n\t"
+    "mov r3, %[t5]\n\t"
+    "bl " QUOTE(__MINGW_USYMBOL(fwscanf)) "\n\t"
+    "add sp, sp, #128\n\t"
+    "mov %[ret], r0\n\t"
+    : [ret] "=r" (ret), [t1] "+r" (tmp1), [t2] "+r" (tmp2), [t3] "+r" (tmp3), [t4] "+r" (tmp4), [t5] "+r" (tmp5)
+    : [s] "r" (stream), [format] "r" (format), [arg] "r" (arg)
+    : "r0", "r1", "r2", "r3", "ip", "cc", "memory"
+    );
 #endif
 
   return ret;
