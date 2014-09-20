@@ -1,12 +1,10 @@
-/*
- * dwmapi.h
+/* dwmapi.h
  *
  * Some dwmapi.dll exported functions such as
  *   DwmFlush
  *   DwmAttachMilContent
  *   DwmDetachMilContent
  * are not declared in this header for not being documented by Microsoft
- *
  */
 
 #ifndef __WINAPI_DWMAPI_H
@@ -37,6 +35,8 @@ extern "C" {
 #define DWM_BB_ENABLE     0x00000001
 #define DWM_BB_BLURREGION 0x00000002
 #define DWM_BB_TRANSITIONONMAXIMIZED 0x00000004
+
+#include <pshpack1.h>
 
 typedef struct _DWM_BLURBEHIND {
     DWORD dwFlags;
@@ -154,6 +154,8 @@ typedef enum _DWMNCRENDERINGPOLICY {
     DWMNCRP_ENABLED,
     DWMNCRP_LAST
 } DWMNCRENDERINGPOLICY;
+
+#include <poppack.h>
 
 typedef HANDLE HTHUMBNAIL;
 typedef HTHUMBNAIL* PHTHUMBNAIL;
