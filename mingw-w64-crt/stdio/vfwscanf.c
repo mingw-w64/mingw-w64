@@ -28,7 +28,7 @@ int __ms_vfwscanf (FILE * __restrict__ stream, const wchar_t * __restrict__ form
     // set up stack
     "movq	%1, 0x18(%%rsp)\n\t"  // stream
     "movq	%2, 0x20(%%rsp)\n\t"  // format
-    "lea	0x28(%%rsp), %%edi\n\t"
+    "lea	0x28(%%rsp), %%rdi\n\t"
     "movq	%%rdi, (%%rsp)\n\t"  // memcpy dest
     "movq	%5, 0x8(%%rsp)\n\t"  // memcpy src
     "movq	%5, 0x10(%%rsp)\n\t"
