@@ -6,15 +6,13 @@
 #include <fenv.h>
 #include <math.h>
 #include <errno.h>
-#define FE_ROUNDING_MASK \
-  (FE_TONEAREST | FE_DOWNWARD | FE_UPWARD | FE_TOWARDZERO)
 
 double
 modf (double value, double* iptr)
 {
   double int_part = 0.0;
   /* truncate */
-#ifdef _WIN64
+#if defined(_AMD64_) || defined(__x86_64__)
   asm ("subq $8, %%rsp\n"
     "fnstcw 4(%%rsp)\n"
     "movzwl 4(%%rsp), %%eax\n"
@@ -24,7 +22,7 @@ modf (double value, double* iptr)
     "frndint\n"
     "fldcw 4(%%rsp)\n"
     "addq $8, %%rsp\n" : "=t" (int_part) : "0" (value)); /* round */
-#else
+#elif defined(_X86_) || defined(__i386__)
   asm ("push %%eax\n\tsubl $8, %%esp\n"
     "fnstcw 4(%%esp)\n"
     "movzwl 4(%%esp), %%eax\n"
@@ -34,6 +32,8 @@ modf (double value, double* iptr)
     "frndint\n"
     "fldcw 4(%%esp)\n"
     "addl $8, %%esp\n\tpop %%eax\n" : "=t" (int_part) : "0" (value)); /* round */
+#else
+  int_part = trunc(value);
 #endif
   if (iptr)
     *iptr = int_part;
