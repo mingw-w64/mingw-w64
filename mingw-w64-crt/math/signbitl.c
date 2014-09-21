@@ -21,6 +21,7 @@ typedef union __mingw_fp_types_t
 } __mingw_fp_types_t;
 
 #define __FP_SIGNBIT  0x0200
+extern int __signbit (double x);
 int __signbitl (long double x);
 
 
@@ -30,7 +31,7 @@ int __signbitl (long double x) {
     ld.ld = &x;
     return ((ld.ldt->lh.sign_exponent & 0x8000) != 0);
 #elif defined(__arm__) || defined(_ARM_)
-    __signbit(x);
+    return __signbit(x);
 #elif defined(__i386__) || defined(_X86_)
   unsigned short sw;
   __asm__ __volatile__ ("fxam; fstsw %%ax;"
