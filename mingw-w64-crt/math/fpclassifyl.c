@@ -24,7 +24,7 @@ int __fpclassifyl (long double _x){
 	      FP_INFINITE : FP_NAN);
     return FP_NORMAL;
 #elif defined(__arm__) || defined(_ARM_)
-    __fpclassify(_x);
+    return __fpclassify(_x);
 #elif defined(__i386__) || defined(_X86_)
   unsigned short sw;
   __asm__ __volatile__ (
