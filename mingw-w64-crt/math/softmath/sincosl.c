@@ -46,9 +46,6 @@
 
 void sincosl(long double x, long double *s, long double *c)
 {
-#if defined(__arm__) || defined(_ARM_)
-    return sincos(x, s, c);
-#else
-#error Not supported on your platform yet
-#endif
+    if (s) *s = sinl(x);
+    if (c) *c = cosl(x);
 }
