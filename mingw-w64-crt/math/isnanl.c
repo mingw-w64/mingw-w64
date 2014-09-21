@@ -19,7 +19,7 @@ __isnanl (long double _x)
   signexp = 0xfffe - signexp;
   return (int) ((unsigned int) signexp) >> 16;
 #elif defined(__arm__) || defined(_ARM_)
-    __isnan(_x);
+    return __isnan(_x);
 #elif defined(__i386__) || defined(_X86_)
   unsigned short _sw;
   __asm__ __volatile__ ("fxam;"
