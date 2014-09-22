@@ -34,7 +34,7 @@ extern "C" {
   typedef HTTP_OPAQUE_ID HTTP_CONNECTION_ID,*PHTTP_CONNECTION_ID;
   typedef HTTP_OPAQUE_ID HTTP_RAW_CONNECTION_ID,*PHTTP_RAW_CONNECTION_ID;
   typedef HTTP_OPAQUE_ID HTTP_URL_GROUP_ID, *PHTTP_URL_GROUP_ID;
-  typedef HTTP_OPAQUE_ID HTTP_SERVER_SESSION_ID, *PHTTP_SERVER_SESSION_ID
+  typedef HTTP_OPAQUE_ID HTTP_SERVER_SESSION_ID, *PHTTP_SERVER_SESSION_ID;
 
 #define HTTP_NULL_ID (0ull)
 #define HTTP_IS_NULL_ID(pid) (HTTP_NULL_ID==*(pid))
@@ -207,11 +207,38 @@ extern "C" {
     PVOID                  pInfo;
   } HTTP_REQUEST_INFO, *PHTTP_REQUEST_INFO;
 
+#ifdef __cplusplus
   typedef struct _HTTP_REQUEST_V2 : HTTP_REQUEST_V1 {
-    //struct HTTP_REQUEST_V1;
     USHORT             RequestInfoCount;
     PHTTP_REQUEST_INFO pRequestInfo;
   } HTTP_REQUEST_V2, *PHTTP_REQUEST_V2;
+#else
+  typedef struct _HTTP_REQUEST_V2 {
+    /* struct HTTP_REQUEST_V1; */
+    __C89_NAMELESS struct {
+    ULONG Flags;
+    HTTP_CONNECTION_ID ConnectionId;
+    HTTP_REQUEST_ID RequestId;
+    HTTP_URL_CONTEXT UrlContext;
+    HTTP_VERSION Version;
+    HTTP_VERB Verb;
+    USHORT UnknownVerbLength;
+    USHORT RawUrlLength;
+    PCSTR pUnknownVerb;
+    PCSTR pRawUrl;
+    HTTP_COOKED_URL CookedUrl;
+    HTTP_TRANSPORT_ADDRESS Address;
+    HTTP_REQUEST_HEADERS Headers;
+    ULONGLONG BytesReceived;
+    USHORT EntityChunkCount;
+    PHTTP_DATA_CHUNK pEntityChunks;
+    HTTP_RAW_CONNECTION_ID RawConnectionId;
+    PHTTP_SSL_INFO pSslInfo;
+    };
+    USHORT             RequestInfoCount;
+    PHTTP_REQUEST_INFO pRequestInfo;
+  } HTTP_REQUEST_V2, *PHTTP_REQUEST_V2;
+#endif
 
 #if (_WIN32_WINNT >= 0x0600)
   typedef HTTP_REQUEST_V2 HTTP_REQUEST, *PHTTP_REQUEST;
@@ -245,11 +272,28 @@ extern "C" {
     PVOID                   pInfo;
   } HTTP_RESPONSE_INFO, *PHTTP_RESPONSE_INFO;
 
+#ifdef __cplusplus
   typedef struct _HTTP_RESPONSE_V2 : HTTP_RESPONSE_V1 {
-    //struct HTTP_RESPONSE_V1;
     USHORT              ResponseInfoCount;
     PHTTP_RESPONSE_INFO pResponseInfo;
   } HTTP_RESPONSE_V2, *PHTTP_RESPONSE_V2;
+#else
+  typedef struct _HTTP_RESPONSE_V2 {
+    /* struct HTTP_RESPONSE_V1; */
+    __C89_NAMELESS struct {
+    ULONG Flags;
+    HTTP_VERSION Version;
+    USHORT StatusCode;
+    USHORT ReasonLength;
+    PCSTR pReason;
+    HTTP_RESPONSE_HEADERS Headers;
+    USHORT EntityChunkCount;
+    PHTTP_DATA_CHUNK pEntityChunks;
+    };
+    USHORT              ResponseInfoCount;
+    PHTTP_RESPONSE_INFO pResponseInfo;
+  } HTTP_RESPONSE_V2, *PHTTP_RESPONSE_V2;
+#endif
 
 #if (_WIN32_WINNT >= 0x0600)
   typedef HTTP_RESPONSE_V2 HTTP_RESPONSE, *PHTTP_RESPONSE;
@@ -344,7 +388,7 @@ extern "C" {
   } HTTP_SERVICE_CONFIG_URLACL_QUERY,*PHTTP_SERVICE_CONFIG_URLACL_QUERY;
 
 #if !defined(HTTPAPI_LINKAGE)
-#ifdef HTTPAPI_LINKAGE_EXPORT // Added support for DECLSPEC_EXPORT option
+#ifdef HTTPAPI_LINKAGE_EXPORT
 #define DECLSPEC_EXPORT __declspec(dllexport)
 #define HTTPAPI_LINKAGE DECLSPEC_EXPORT
 #else
