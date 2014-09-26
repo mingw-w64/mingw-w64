@@ -15,8 +15,6 @@
 #define ANY_SIZE 1
 #endif
 
-#if (_WIN32_WINNT >= 0x0600)
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -604,7 +602,5 @@ NETIOAPI_API SetUnicastIpAddressEntry(
 #ifdef __cplusplus
 }
 #endif
-
-#endif /*(_WIN32_WINNT >= 0x0600)*/
 
 #endif /*_INC_NETIOAPI*/
