@@ -22,13 +22,15 @@
 
 #include "pthread.h"
 #include "misc.h"
+#include "windows.h"
 
 unsigned long long _pthread_time_in_ms(void)
 {
-    struct _timeb tb;
+    FILETIME ft;
 
-    _ftime(&tb);
-    return (unsigned long long)tb.time * 1000ULL + (unsigned long long) tb.millitm;
+    GetSystemTimeAsFileTime(&ft);
+    return (((unsigned long long)ft.dwHighDateTime << 32) + ft.dwLowDateTime
+            - 0x19DB1DED53E8000ULL) / 10000ULL;
 }
 
 unsigned long long _pthread_time_in_ms_from_timespec(const struct timespec *ts)
