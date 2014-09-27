@@ -204,11 +204,38 @@ extern "C" {
     PVOID                  pInfo;
   } HTTP_REQUEST_INFO, *PHTTP_REQUEST_INFO;
 
-  typedef struct _HTTP_REQUEST_V2 {
-    struct HTTP_REQUEST_V1;
+#ifdef __cplusplus
+  typedef struct _HTTP_REQUEST_V2 : HTTP_REQUEST_V1 {
     USHORT             RequestInfoCount;
     PHTTP_REQUEST_INFO pRequestInfo;
   } HTTP_REQUEST_V2, *PHTTP_REQUEST_V2;
+#else
+  typedef struct _HTTP_REQUEST_V2 {
+ /* struct HTTP_REQUEST_V1;*/
+    __C89_NAMELESS struct {
+    ULONG Flags;
+    HTTP_CONNECTION_ID ConnectionId;
+    HTTP_REQUEST_ID RequestId;
+    HTTP_URL_CONTEXT UrlContext;
+    HTTP_VERSION Version;
+    HTTP_VERB Verb;
+    USHORT UnknownVerbLength;
+    USHORT RawUrlLength;
+    PCSTR pUnknownVerb;
+    PCSTR pRawUrl;
+    HTTP_COOKED_URL CookedUrl;
+    HTTP_TRANSPORT_ADDRESS Address;
+    HTTP_REQUEST_HEADERS Headers;
+    ULONGLONG BytesReceived;
+    USHORT EntityChunkCount;
+    PHTTP_DATA_CHUNK pEntityChunks;
+    HTTP_RAW_CONNECTION_ID RawConnectionId;
+    PHTTP_SSL_INFO pSslInfo;
+    };
+    USHORT             RequestInfoCount;
+    PHTTP_REQUEST_INFO pRequestInfo;
+  } HTTP_REQUEST_V2, *PHTTP_REQUEST_V2;
+#endif
 
 #if (_WIN32_WINNT >= 0x0600)
   typedef HTTP_REQUEST_V2 HTTP_REQUEST, *PHTTP_REQUEST;
@@ -242,11 +269,28 @@ extern "C" {
     PVOID                   pInfo;
   } HTTP_RESPONSE_INFO, *PHTTP_RESPONSE_INFO;
 
-  typedef struct {
-    struct HTTP_RESPONSE_V1;
+#ifdef __cplusplus
+  typedef struct _HTTP_RESPONSE_V2 : HTTP_RESPONSE_V1 {
     USHORT              ResponseInfoCount;
     PHTTP_RESPONSE_INFO pResponseInfo;
   } HTTP_RESPONSE_V2, *PHTTP_RESPONSE_V2;
+#else
+  typedef struct _HTTP_RESPONSE_V2 {
+ /* struct HTTP_RESPONSE_V1;*/
+    __C89_NAMELESS struct {
+    ULONG Flags;
+    HTTP_VERSION Version;
+    USHORT StatusCode;
+    USHORT ReasonLength;
+    PCSTR pReason;
+    HTTP_RESPONSE_HEADERS Headers;
+    USHORT EntityChunkCount;
+    PHTTP_DATA_CHUNK pEntityChunks;
+    };
+    USHORT              ResponseInfoCount;
+    PHTTP_RESPONSE_INFO pResponseInfo;
+  } HTTP_RESPONSE_V2, *PHTTP_RESPONSE_V2;
+#endif
 
 #if (_WIN32_WINNT >= 0x0600)
   typedef HTTP_RESPONSE_V2 HTTP_RESPONSE, *PHTTP_RESPONSE;
