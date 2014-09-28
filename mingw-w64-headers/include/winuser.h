@@ -1112,10 +1112,11 @@ extern "C" {
 #define WM_XBUTTONDOWN 0x020B
 #define WM_XBUTTONUP 0x020C
 #define WM_XBUTTONDBLCLK 0x020D
-#define WM_MOUSELAST 0x020D
-
 #if (_WIN32_WINNT >= 0x0600)
 #define WM_MOUSEHWHEEL 0x020E
+#define WM_MOUSELAST 0x020E
+#else
+#define WM_MOUSELAST 0x020D
 #endif
 
 #define WHEEL_DELTA 120
@@ -1959,6 +1960,7 @@ extern "C" {
   } UPDATELAYEREDWINDOWINFO,*PUPDATELAYEREDWINDOWINFO;
 
   WINUSERAPI WINBOOL WINAPI UpdateLayeredWindowIndirect(HWND hWnd,UPDATELAYEREDWINDOWINFO CONST *pULWInfo);
+#endif
   WINUSERAPI WINBOOL WINAPI GetLayeredWindowAttributes(HWND hwnd,COLORREF *pcrKey,BYTE *pbAlpha,DWORD *pdwFlags);
 
 #define PW_CLIENTONLY 0x00000001
@@ -5541,8 +5543,6 @@ WINUSERAPI WINBOOL WINAPI CloseGestureInfoHandle(
 );
 
 #endif /*(_WIN32_WINNT >= 0x0601)*/
-
-#endif /* NOUSER */
 
 #ifdef __cplusplus
 }
