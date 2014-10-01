@@ -826,7 +826,7 @@ _atol_l
 ; _cgets_s replaced by emu
 ; _cgetws_s  likewise
 ; _chsize_s Likewise.
-_controlfp_s
+; _controlfp_s replaced by emu
 _cprintf_l
 _cprintf_p
 _cprintf_p_l

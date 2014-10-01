@@ -158,6 +158,7 @@ src_msvcrt=\
   secapi/_cgets_s.c \
   secapi/_cgetws_s.c \
   secapi/_chsize_s.c \
+  secapi/_controlfp_s.c \
   secapi/_cprintf_s.c \
   secapi/_cprintf_s_l.c \
   secapi/_ctime32_s.c \

@@ -228,7 +228,7 @@ _commit
 _commode DATA
 _control87
 _controlfp
-_controlfp_s
+; _controlfp_s replaced by emu
 _copysign
 _copysignf
 _cprintf
