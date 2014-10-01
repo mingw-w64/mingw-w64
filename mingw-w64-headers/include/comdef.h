@@ -165,7 +165,7 @@ inline void _com_error::Ctor(const _com_error &that) throw() {
   if(m_perrinfo!=NULL) m_perrinfo->AddRef();
 }
 
-inline void _com_issue_error(HRESULT hr) throw(_com_error) {
+inline void _com_issue_error(HRESULT hr) {
 #if __EXCEPTIONS
     throw _com_error(hr);
 #else
