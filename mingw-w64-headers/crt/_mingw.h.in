@@ -256,7 +256,7 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 #ifdef __cplusplus
 #define __forceinline inline __attribute__((__always_inline__))
 #else
-#define __forceinline __inline__ __attribute__((__always_inline__))
+#define __forceinline extern __inline__ __attribute__((__always_inline__,__gnu_inline__))
 #endif /* __cplusplus */
 #endif /* __GNUC__ */
 
