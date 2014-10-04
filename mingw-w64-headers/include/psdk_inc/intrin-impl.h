@@ -121,7 +121,8 @@ __INTRINSICS_USEINLINE
    Offset = 1 << Offset; \
    __asm__ __volatile__ ("dmb	sy\n\t" \
         "1: ldrex	%[old], %[Base]\n\t" \
-        z "	%[tmp1], %[old], %[Offset]\n\t" \
+        "mov	%[tmp1], %[old]\n\t" \
+        z "	%[tmp1], %[tmp1], %[Offset]\n\t" \
         "strex	%[tmp2], %[tmp1], %[Base]\n\t" \
         "cmp	%[tmp2], #0\n\t" \
         "bne	1b\n\t" \
