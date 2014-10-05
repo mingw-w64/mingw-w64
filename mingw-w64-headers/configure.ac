@@ -139,7 +139,7 @@ AC_SUBST([IDLHEAD_LIST])
 AC_MSG_CHECKING([whether to enable the secure API])
 AC_ARG_ENABLE([secure-api],
   [AS_HELP_STRING([--enable-secure-api],
-    [Enable secure API by default])],
+    [Expose secure API prototypes])],
   [],
   [enable_secure_api=no])
 AC_MSG_RESULT([$enable_secure_api])
