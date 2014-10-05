@@ -406,7 +406,7 @@ typedef long double double_t;
 
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl __fpclassifyl (long double x) {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(_AMD64_)
     __mingw_fp_types_t hlp;
     unsigned int e;
     hlp.ld = &x;
@@ -423,14 +423,7 @@ typedef long double double_t;
       return (((hlp.ldt->lh.high & 0x7fffffff) | hlp.ldt->lh.low) == 0 ?
               FP_INFINITE : FP_NAN);
     return FP_NORMAL;
-#else
-    unsigned short sw;
-    __asm__ __volatile__ ("fxam; fstsw %%ax;" : "=a" (sw): "t" (x));
-    return sw & (FP_NAN | FP_NORMAL | FP_ZERO );
-#endif
-  }
-  __CRT_INLINE int __cdecl __fpclassify (double x) {
-#ifdef __x86_64__
+#elif defined(__arm__) || defined(_ARM_)
     __mingw_fp_types_t hlp;
     unsigned int l, h;
 
@@ -445,14 +438,36 @@ typedef long double double_t;
     if (h == 0x7ff00000)
       return (l ? FP_NAN : FP_INFINITE);
     return FP_NORMAL;
-#else
+#elif defined(__i386__) || defined(_X86_)
+    unsigned short sw;
+    __asm__ __volatile__ ("fxam; fstsw %%ax;" : "=a" (sw): "t" (x));
+    return sw & (FP_NAN | FP_NORMAL | FP_ZERO );
+#endif
+  }
+  __CRT_INLINE int __cdecl __fpclassify (double x) {
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
+    __mingw_fp_types_t hlp;
+    unsigned int l, h;
+
+    hlp.d = &x;
+    h = hlp.ldt->lh.high;
+    l = hlp.ldt->lh.low | (h & 0xfffff);
+    h &= 0x7ff00000;
+    if ((h | l) == 0)
+      return FP_ZERO;
+    if (!h)
+      return FP_SUBNORMAL;
+    if (h == 0x7ff00000)
+      return (l ? FP_NAN : FP_INFINITE);
+    return FP_NORMAL;
+#elif defined(__i386__) || defined(_X86_)
     unsigned short sw;
     __asm__ __volatile__ ("fxam; fstsw %%ax;" : "=a" (sw): "t" (x));
     return sw & (FP_NAN | FP_NORMAL | FP_ZERO );
 #endif
   }
   __CRT_INLINE int __cdecl __fpclassifyf (float x) {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
     __mingw_fp_types_t hlp;
 
     hlp.f = &x;
@@ -464,7 +479,7 @@ typedef long double double_t;
     if (hlp.ft->val >= 0x7f800000)
       return (hlp.ft->val > 0x7f800000 ? FP_NAN : FP_INFINITE);
     return FP_NORMAL;
-#else
+#elif defined(__i386__) || defined(_X86_)
     unsigned short sw;
     __asm__ __volatile__ ("fxam; fstsw %%ax;" : "=a" (sw): "t" (x));
     return sw & (FP_NAN | FP_NORMAL | FP_ZERO );
@@ -518,7 +533,7 @@ __mingw_choose_expr (                                         \
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl __isnan (double _x)
   {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
     __mingw_fp_types_t hlp;
     int l, h;
 
@@ -528,7 +543,7 @@ __mingw_choose_expr (                                         \
     h |= (unsigned int) (l | -l) >> 31;
     h = 0x7ff00000 - h;
     return (int) ((unsigned int) h) >> 31;
-#else
+#elif defined(__i386__) || defined(_X86_)
     unsigned short sw;
     __asm__ __volatile__ ("fxam;"
       "fstsw %%ax": "=a" (sw) : "t" (_x));
@@ -539,7 +554,7 @@ __mingw_choose_expr (                                         \
 
   __CRT_INLINE int __cdecl __isnanf (float _x)
   {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
     __mingw_fp_types_t hlp;
     int i;
     
@@ -547,7 +562,7 @@ __mingw_choose_expr (                                         \
     i = hlp.ft->val & 0x7fffffff;
     i = 0x7f800000 - i;
     return (int) (((unsigned int) i) >> 31);
-#else
+#elif defined(__i386__) || defined(_X86_)
     unsigned short sw;
     __asm__ __volatile__ ("fxam;"
       "fstsw %%ax": "=a" (sw) : "t" (_x));
@@ -558,7 +573,7 @@ __mingw_choose_expr (                                         \
 
   __CRT_INLINE int __cdecl __isnanl (long double _x)
   {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(_AMD64_)
     __mingw_fp_types_t ld;
     int xx, signexp;
 
@@ -568,7 +583,17 @@ __mingw_choose_expr (                                         \
     signexp |= (unsigned int) (xx | (-xx)) >> 31;
     signexp = 0xfffe - signexp;
     return (int) ((unsigned int) signexp) >> 16;
-#else
+#elif defined(__arm__) || defined(_ARM_)
+    __mingw_fp_types_t hlp;
+    int l, h;
+
+    hlp.d = &_x;
+    l = hlp.dt->lh.low;
+    h = hlp.dt->lh.high & 0x7fffffff;
+    h |= (unsigned int) (l | -l) >> 31;
+    h = 0x7ff00000 - h;
+    return (int) ((unsigned int) h) >> 31;
+#elif defined(__i386__) || defined(_X86_)
     unsigned short sw;
     __asm__ __volatile__ ("fxam;"
       "fstsw %%ax": "=a" (sw) : "t" (_x));
@@ -601,12 +626,12 @@ __mingw_choose_expr (                                         \
   extern int __cdecl __signbitl (long double);
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl __signbit (double x) {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
     __mingw_fp_types_t hlp;
-    
+
     hlp.d = &x;
     return ((hlp.dt->lh.high & 0x80000000) != 0);
-#else
+#elif defined(__i386__) || defined(_X86_)
     unsigned short stw;
     __asm__ __volatile__ ( "fxam; fstsw %%ax;": "=a" (stw) : "t" (x));
     return stw & 0x0200;
@@ -614,11 +639,11 @@ __mingw_choose_expr (                                         \
   }
 
   __CRT_INLINE int __cdecl __signbitf (float x) {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
     __mingw_fp_types_t hlp;
     hlp.f = &x;
     return ((hlp.ft->val & 0x80000000) != 0);
-#else
+#elif defined(__i386__) || defined(_X86_)
     unsigned short stw;
     __asm__ __volatile__ ("fxam; fstsw %%ax;": "=a" (stw) : "t" (x));
     return stw & 0x0200;
@@ -626,11 +651,16 @@ __mingw_choose_expr (                                         \
   }
 
   __CRT_INLINE int __cdecl __signbitl (long double x) {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(_AMD64_)
     __mingw_fp_types_t ld;
     ld.ld = &x;
     return ((ld.ldt->lh.sign_exponent & 0x8000) != 0);
-#else
+#elif defined(__arm__) || defined(_ARM_)
+    __mingw_fp_types_t hlp;
+
+    hlp.d = &x;
+    return ((hlp.dt->lh.high & 0x80000000) != 0);
+#elif defined(__i386__) || defined(_X86_)
     unsigned short stw;
     __asm__ __volatile__ ("fxam; fstsw %%ax;": "=a" (stw) : "t" (x));
     return stw & 0x0200;
@@ -775,7 +805,7 @@ __mingw_choose_expr (                                         \
 #if !(__MINGW_GNUC_PREREQ (4, 0) && defined (__FAST_MATH__))
   __CRT_INLINE double __cdecl logb (double x)
   {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
   __mingw_fp_types_t hlp;
   int lx, hx;
 
@@ -789,7 +819,7 @@ __mingw_choose_expr (                                         \
   if ((hx >>= 20) == 0) /* IEEE 754 logb */
     return -1022.0;
   return (double) (hx - 1023);
-#else
+#elif defined(__i386__) || defined(_X86_)
     double res = 0.0;
     __asm__ __volatile__ ("fxtract\n\t"
       "fstp	%%st" : "=t" (res) : "0" (x));
@@ -799,7 +829,7 @@ __mingw_choose_expr (                                         \
 
   __CRT_INLINE float __cdecl logbf (float x)
   {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
     int v;
     __mingw_fp_types_t hlp;
 
@@ -812,7 +842,7 @@ __mingw_choose_expr (                                         \
   if ((v >>= 23) == 0) /* IEEE 754 logb */
     return -126.0;
   return (float) (v - 127);
-#else
+#elif defined(__i386__) || defined(_X86_)
     float res = 0.0F;
     __asm__ __volatile__ ("fxtract\n\t"
       "fstp	%%st" : "=t" (res) : "0" (x));
@@ -822,10 +852,26 @@ __mingw_choose_expr (                                         \
 
   __CRT_INLINE long double __cdecl logbl (long double x)
   {
+#if defined(__arm__) || defined(_ARM_)
+  __mingw_fp_types_t hlp;
+  int lx, hx;
+
+  hlp.d = &x;
+  lx = hlp.dt->lh.low;
+  hx = hlp.dt->lh.high & 0x7fffffff; /* high |x| */
+  if ((hx | lx) == 0)
+    return -1.0 / fabs (x);
+  if (hx >= 0x7ff00000)
+    return x * x;
+  if ((hx >>= 20) == 0) /* IEEE 754 logb */
+    return -1022.0;
+  return (double) (hx - 1023);
+#elif defined(__x86_64__) || defined(_AMD64_) || defined(__i386__) || defined(_X86_)
     long double res = 0.0l;
     __asm__ __volatile__ ("fxtract\n\t"
       "fstp	%%st" : "=t" (res) : "0" (x));
     return res;
+#endif
   }
 #endif /* !defined __FAST_MATH__ || !__MINGW_GNUC_PREREQ (4, 0) */
 #endif /* __CRT__NO_INLINE */
