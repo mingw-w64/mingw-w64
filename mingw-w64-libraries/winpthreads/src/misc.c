@@ -21,8 +21,8 @@
 */
 
 #include "pthread.h"
-#include "misc.h"
 #include "windows.h"
+#include "misc.h"
 
 unsigned long long _pthread_time_in_ms(void)
 {
