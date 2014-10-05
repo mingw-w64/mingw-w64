@@ -11,6 +11,7 @@
 
 #include <math.h>
 #include <inttypes.h>
+#include <errno.h>
 
 /* NAN builtins for gcc, as they are not part of math.h  */
 #ifndef NANF

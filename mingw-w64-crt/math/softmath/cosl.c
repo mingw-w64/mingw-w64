@@ -43,7 +43,6 @@
 */
 
 #include "softmath_private.h"
-#include <errno.h>
 
 long double cosl(long double x)
 {
