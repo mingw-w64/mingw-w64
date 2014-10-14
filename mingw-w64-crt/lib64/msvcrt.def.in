@@ -1218,7 +1218,7 @@ swprintf_s
 swscanf
 swscanf_s
 system
-tan DATA
+tan
 tanf DATA
 ; if we implement tanh, we can set it to DATA only.
 tanh

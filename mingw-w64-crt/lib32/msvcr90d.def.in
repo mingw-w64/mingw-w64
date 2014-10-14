@@ -1557,7 +1557,7 @@ swprintf_s
 swscanf
 swscanf_s
 system
-tan DATA
+tan
 ; If we implement tanh too, we can set it to DATA only.
 tanh
 tmpfile

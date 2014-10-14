@@ -694,7 +694,7 @@ strxfrm
 swprintf
 swscanf
 system
-tan DATA
+tan
 ; If we have tanh implemtation too, we can set it to DATA only too.
 tanh
 time
