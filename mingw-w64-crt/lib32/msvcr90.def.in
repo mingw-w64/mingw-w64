@@ -1301,12 +1301,12 @@ _y1
 _yn
 abort
 abs
-acos
+acos DATA
 asctime
 asctime_s
-asin
-atan
-atan2
+asin DATA
+atan DATA
+atan2 DATA
 atexit DATA
 atof
 atoi
@@ -1320,6 +1320,7 @@ clearerr
 clearerr_s
 clock
 cos DATA
+; If we have cosh implementation, we can set it to DATA only.
 cosh
 div
 exit
@@ -1349,6 +1350,7 @@ fread_s
 free
 freopen
 freopen_s
+; If we have frexp implementation too, we need to change this to DATA only
 frexp
 fscanf
 fscanf_s
@@ -1399,6 +1401,7 @@ ldexp DATA
 ldiv
 localeconv
 log DATA
+; If we have log10 implemtation too, we can set this to DATA only.
 log10
 malloc
 mblen
@@ -1442,6 +1445,7 @@ setlocale
 setvbuf
 signal
 sin DATA
+; If we have sinh implemtation, we can set it to DATA only.
 sinh
 sprintf
 sprintf_s
@@ -1481,7 +1485,8 @@ swprintf_s
 swscanf
 swscanf_s
 system
-tan
+tan DATA
+; If we have tanh implementation, we can set it to DATA only too.
 tanh
 tmpfile
 tmpfile_s

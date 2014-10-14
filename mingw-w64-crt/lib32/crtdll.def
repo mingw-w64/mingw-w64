@@ -511,9 +511,9 @@ abort
 abs
 acos
 asctime
-asin
-atan
-atan2
+asin DATA
+atan DATA
+atan2 DATA
 atexit DATA
 atof
 atoi
@@ -523,15 +523,15 @@ calloc
 ceil
 clearerr
 clock
-cos
+cos DATA
 cosh
 ctime DATA
 ;_ctime32 = ctime
 difftime
 div
 exit
-exp
-fabs
+exp DATA
+fabs DATA
 fclose
 feof
 ferror

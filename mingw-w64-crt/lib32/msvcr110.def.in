@@ -1800,12 +1800,12 @@ _y1
 _yn
 abort ; Check!!! Couldn't determine function argument count. Function doesn't return. 
 abs
-acos
+acos DATA
 asctime
 asctime_s
-asin
-atan
-atan2
+asin DATA
+atan DATA
+atan2 DATA
 atexit DATA
 atof
 atoi
@@ -1814,16 +1814,17 @@ bsearch
 bsearch_s
 btowc
 calloc
-ceil
+ceil DATA
 clearerr
 clearerr_s
 clock
-cos
+cos DATA
+; If we implement cosh, we can set it to DATA only.
 cosh
 div
 exit
-exp
-fabs
+exp DATA
+fabs DATA
 fclose
 feof
 ferror
@@ -1833,8 +1834,8 @@ fgetpos
 fgets
 fgetwc
 fgetws
-floor
-fmod
+floor DATA
+fmod DATA
 fopen
 fopen_s
 fprintf
@@ -1848,6 +1849,7 @@ fread_s
 free
 freopen
 freopen_s
+; If we implement frexp, we can set it to DATA only.
 frexp
 fscanf
 fscanf_s
@@ -1894,12 +1896,13 @@ iswupper
 iswxdigit
 isxdigit
 labs
-ldexp
+ldexp DATA
 ldiv
 llabs
 lldiv
 localeconv
-log
+log DATA
+; If we implement log10, we can set it to DATA only.
 log10
 malloc
 mblen
@@ -1917,9 +1920,9 @@ memcpy_s
 memmove
 memmove_s
 memset
-modf
+modf DATA
 perror
-pow
+pow DATA
 printf
 printf_s
 putc
@@ -1942,11 +1945,12 @@ setbuf
 setlocale
 setvbuf
 signal
-sin
+sin DATA
+; If we implement sinh, we can set it to DATA only.
 sinh
 sprintf
 sprintf_s
-sqrt
+sqrt DATA
 srand
 sscanf
 sscanf_s
@@ -1982,7 +1986,8 @@ swprintf_s
 swscanf
 swscanf_s
 system
-tan
+tan DATA
+; If we implement tanh, we can set it to DATA only.
 tanh
 tmpfile
 tmpfile_s

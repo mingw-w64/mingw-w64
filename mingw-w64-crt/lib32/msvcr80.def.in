@@ -536,11 +536,11 @@ _y1
 _yn
 abort
 abs
-acos
+acos DATA
 asctime
-asin
-atan
-atan2
+asin DATA
+atan DATA
+atan2 DATA
 atexit DATA
 atof
 atoi
@@ -550,7 +550,8 @@ calloc
 ceil DATA
 clearerr
 clock
-cos
+cos DATA
+; If we implement cosh, we can set it to DATA only.
 cosh
 _ctime32
 ctime == _ctime32
@@ -558,7 +559,7 @@ difftime
 div
 exit
 exp DATA
-fabs
+fabs DATA
 fclose
 feof
 ferror
@@ -569,7 +570,7 @@ fgets
 fgetwc
 fgetws
 floor DATA
-fmod
+fmod DATA
 fopen
 fprintf
 fputc
@@ -579,6 +580,7 @@ fputws
 fread
 free
 freopen
+; If we implement frexp, we can set it to DATA only.
 frexp
 fscanf
 fseek
@@ -628,6 +630,7 @@ localeconv
 localtime == _localtime32
 _localtime32
 log DATA
+; If we implement log10, we can set it to DATA only.
 log10
 malloc
 mblen
@@ -640,9 +643,9 @@ memmove
 memset
 mktime == _mktime32
 _mktime32
-modf
+modf DATA
 perror
-;pow
+pow DATA
 printf
 putc
 putchar
@@ -662,7 +665,8 @@ setbuf
 setlocale
 setvbuf
 signal
-sin
+sin DATA
+; If we impelement sinh, we can set it to DATA only.
 sinh
 sprintf
 sqrt DATA
@@ -692,7 +696,8 @@ strxfrm
 swprintf
 swscanf
 system
-tan
+tan DATA
+; If we implement tanh, we can set it to DATA only.
 tanh
 _time32
 time == _time32
