@@ -632,15 +632,15 @@ _y1
 _yn
 abort
 abs
-acos
-acosf
+acos DATA
+acosf DATA
 asctime
-asin
-asinf
-atan
-atan2
-atan2f
-atanf
+asin DATA
+asinf DATA
+atan DATA
+atan2 DATA
+atan2f DATA
+atanf DATA
 atexit DATA
 atof
 atoi

@@ -234,7 +234,7 @@ src_libmingwex=\
   math/fmal.c           math/fmax.c        math/fmaxf.c          math/fmaxl.c         math/fmin.c          math/fminf.c         \
   math/fminl.c          math/fp_consts.c   math/fp_constsf.c     \
   math/fp_constsl.c     math/fpclassify.c  math/fpclassifyf.c    math/fpclassifyl.c   math/frexpf.c        \
-  math/hypotf.c         math/hypotl.c      math/isnan.c          math/isnanf.c        math/isnanl.c        \
+  math/hypotf.c         math/hypot.c  math/hypotl.c      math/isnan.c          math/isnanf.c        math/isnanl.c        \
   math/ldexpf.c         math/lgamma.c      math/lgammaf.c        math/lgammal.c       math/llrint.c        \
   math/signgam.c \
   math/llrintf.c        math/llrintl.c     math/llround.c        math/llroundf.c      math/llroundl.c      \
@@ -295,7 +295,7 @@ src_libmingwex=\
 src_libmingwex64=\
   math/acosf.c              math/acosh.c              math/acosl.c              math/acoshf.c             math/acoshl.c             \
   math/asinf.c              math/asinh.c              math/asinl.c              math/asinhf.c             math/asinhl.c             \
-  math/atan2f.c             math/atan2l.c             math/atanf.c              math/atanh.c              math/atanl.c              \
+  math/atan2f.c           math/atan2.c math/atan2l.c             math/atanf.c              math/atanh.c              math/atanl.c              \
   math/atanhf.c             math/atanhl.c             math/cos.c                math/cosf.c               math/cosl.c               \
   math/cosl_internal.S      math/cossin.c             math/exp.c                math/expl.c               math/exp2.S               \
   math/exp2f.S              math/exp2l.S              math/expm1.c              math/expm1f.c             math/expm1l.c             \
@@ -312,7 +312,7 @@ src_libmingwex64=\
 src_libmingwex32=\
   math/acosf.c              math/acosh.c              math/acosl.c              math/acoshf.c             math/acoshl.c             \
   math/asinf.c              math/asinh.c              math/asinl.c              math/asinhf.c             math/asinhl.c             \
-  math/atan2f.c             math/atan2l.c             math/atanf.c              math/atanh.c              math/atanl.c              \
+  math/atan2f.c             math/atan2.c  math/atan2l.c             math/atanf.c              math/atanh.c              math/atanl.c              \
   math/atanhf.c             math/atanhl.c             math/cos.c                math/cosf.c               math/cosl.c               \
   math/cosl_internal.S      math/cossin.c             math/exp.c                math/expl.c               math/exp2.S               \
   math/exp2f.S              math/exp2l.S              math/expm1.c              math/expm1f.c             math/expm1l.c             \
