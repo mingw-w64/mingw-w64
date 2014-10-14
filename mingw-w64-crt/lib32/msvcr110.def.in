@@ -1800,11 +1800,11 @@ _y1
 _yn
 abort ; Check!!! Couldn't determine function argument count. Function doesn't return. 
 abs
-acos DATA
+acos
 asctime
 asctime_s
-asin DATA
-atan DATA
+asin
+atan
 atan2 DATA
 atexit DATA
 atof

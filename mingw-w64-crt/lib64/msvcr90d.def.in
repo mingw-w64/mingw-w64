@@ -1301,15 +1301,15 @@ _yn
 abort
 abs
 acos
-acosf
+acosf DATA
 asctime
 asctime_s
 asin
-asinf
+asinf DATA
 atan
-atan2
-atan2f
-atanf
+atan2 DATA
+atan2f DATA
+atanf DATA
 atexit DATA
 atof
 atoi

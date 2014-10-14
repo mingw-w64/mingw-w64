@@ -536,10 +536,10 @@ _y1
 _yn
 abort
 abs
-acos DATA
+acos
 asctime
-asin DATA
-atan DATA
+asin
+atan
 atan2 DATA
 atexit DATA
 atof

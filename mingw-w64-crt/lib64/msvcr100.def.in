@@ -1614,13 +1614,13 @@ _y1
 _yn
 abort
 abs
-acos DATA
+acos
 acosf DATA
 asctime
 asctime_s
-asin DATA
+asin
 asinf DATA
-atan DATA
+atan
 atan2 DATA
 atan2f DATA
 atanf DATA

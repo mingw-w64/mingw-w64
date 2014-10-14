@@ -1018,16 +1018,16 @@ _y1
 _yn
 abort
 abs
-acos
-;acosf
+acos DATA
+acosf DATA
 asctime
 ; asctime_s replaced by emu
-asin
-;asinf
-atan
-atan2
-;atan2f
-;atanf
+asin DATA
+asinf DATA
+atan DATA
+atan2 DATA
+atan2f DATA
+atanf DATA
 atexit DATA
 atof
 atoi
@@ -1040,17 +1040,17 @@ ceilf DATA
 clearerr
 clearerr_s
 clock
-cos
-;cosf
+cos DATA
+cosf DATA
 cosh
-;coshf
+coshf DATA
 ctime
 difftime
 div
 exit
 exp DATA
 expf DATA
-;fabs
+fabs DATA
 fclose
 feof
 ferror
@@ -1062,8 +1062,8 @@ fgetwc
 fgetws
 floor DATA
 floorf DATA
-fmod
-;fmodf
+fmod DATA
+fmodf DATA
 fopen
 fopen_s
 fprintf
@@ -1076,6 +1076,7 @@ fread
 free
 freopen
 freopen_s
+; If we implement frexp, we can set it to DATA only.
 frexp
 fscanf
 fscanf_s
@@ -1144,11 +1145,11 @@ memmove
 ; memmove_s replaced by emu
 memset
 mktime
-modf
-;modff
+modf DATA
+modff DATA
 perror
-;pow
-;powf
+pow DATA
+powf DATA
 printf
 printf_s
 putc
@@ -1172,10 +1173,11 @@ setjmp
 setlocale
 setvbuf
 signal
-sin
-;sinf
+sin DATA
+sinf DATA
+; if we implement sinh, we can set it DATA only.
 sinh
-;sinhf
+sinhf DATA
 sprintf
 ; sprintf_s replaced by emu
 sqrt DATA
@@ -1216,8 +1218,9 @@ swprintf_s
 swscanf
 swscanf_s
 system
-tan
-;tanf
+tan DATA
+tanf DATA
+; if we implement tanh, we can set it to DATA only.
 tanh
 time == _time64
 tmpfile

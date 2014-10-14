@@ -1241,7 +1241,7 @@ asctime_s
 asin
 asinf DATA
 atan
-atan2
+atan2 DATA
 atan2f DATA
 atanf DATA
 atexit DATA
