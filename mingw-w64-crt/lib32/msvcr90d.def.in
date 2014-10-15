@@ -426,7 +426,7 @@ _byteswap_uint64
 _byteswap_ulong
 _byteswap_ushort
 _c_exit
-_cabs
+_cabs DATA
 _callnewh
 _calloc_dbg
 _cexit

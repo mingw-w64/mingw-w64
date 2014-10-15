@@ -199,7 +199,7 @@ _beep
 _beginthread
 _beginthreadex
 _c_exit
-_cabs
+_cabs DATA
 _callnewh
 _cexit
 _cgets

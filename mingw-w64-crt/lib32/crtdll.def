@@ -217,7 +217,7 @@ _baseversion_dll DATA
 _beep
 _beginthread
 _c_exit
-_cabs
+_cabs DATA
 _cexit
 _cgets
 _chdir

@@ -750,7 +750,7 @@ _byteswap_uint64 DATA
 _byteswap_ulong DATA
 _byteswap_ushort DATA
 _c_exit
-_cabs
+_cabs DATA
 _callnewh
 _calloc_crt
 _cexit
