@@ -169,7 +169,7 @@ char *__cdecl ctime(const time_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 struct tm *__cdecl gmtime(const time_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 struct tm *__cdecl localtime(const time_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 
-#ifdef _POSIX
+#if defined(_POSIX) || defined(_POSIX_THREAD_SAFE_FUNCTIONS)
 #ifdef __GNUC__ /* FIXME: Other compilers that these macros work with? */
 #ifndef localtime_r
 #define localtime_r(_Time, _Tm)	({ struct tm *___tmp_tm =		\
