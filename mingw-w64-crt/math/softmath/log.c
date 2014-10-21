@@ -59,7 +59,7 @@ double log(double x)
     }
     else if (x_class == FP_ZERO)
     {
-        errno = EDOM;
+        errno = ERANGE;
         __mingw_raise_matherr (_OVERFLOW, "log", x, 0.0, -HUGE_VAL);
         return -HUGE_VAL;
     }
