@@ -46,6 +46,20 @@
 
 long double acoshl(long double x)
 {
+    int x_class = fpclassify (x);
+    if (x_class == FP_NAN || x < 1.0l)
+    {
+        errno = EDOM;
+        __mingw_raise_matherr (_DOMAIN, "acoshl", x, 0.0, NANL);
+        return NANL;
+    }
+    else if (x_class == FP_INFINITE)
+    {
+        errno = EDOM;
+        __mingw_raise_matherr (_DOMAIN, "acoshl", x, 0.0, NANL);
+        return NANL;
+    }
+
 #if defined(__arm__) || defined(_ARM_)
     return acosh(x);
 #else

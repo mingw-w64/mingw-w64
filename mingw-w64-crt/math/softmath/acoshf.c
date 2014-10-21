@@ -46,5 +46,19 @@
 
 float acoshf(float x)
 {
+    int x_class = fpclassify (x);
+    if (x_class == FP_NAN || x < 1.0f)
+    {
+        errno = EDOM;
+        __mingw_raise_matherr (_DOMAIN, "acoshf", x, 0.0, NANF);
+        return NANF;
+    }
+    else if (x_class == FP_INFINITE)
+    {
+        errno = EDOM;
+        __mingw_raise_matherr (_DOMAIN, "acoshf", x, 0.0, NANF);
+        return NANF;
+    }
+
     return softmath_logf(x + sqrtf(x * x * 2 - 1));
 }

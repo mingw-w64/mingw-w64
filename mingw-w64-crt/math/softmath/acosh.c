@@ -46,5 +46,19 @@
 
 double acosh(double x)
 {
+    int x_class = fpclassify (x);
+    if (x_class == FP_NAN || x < 1.0)
+    {
+        errno = EDOM;
+        __mingw_raise_matherr (_DOMAIN, "acosh", x, 0.0, NAN);
+        return NAN;
+    }
+    else if (x_class == FP_INFINITE)
+    {
+        errno = EDOM;
+        __mingw_raise_matherr (_DOMAIN, "acosh", x, 0.0, NAN);
+        return NAN;
+    }
+
     return softmath_log(x + sqrt(x * x * 2 - 1));
 }
