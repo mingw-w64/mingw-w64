@@ -46,6 +46,35 @@
 
 long double expl(long double x)
 {
+    int x_class = fpclassify (x);
+    if (x_class == FP_NAN)
+    {
+        errno = EDOM;
+        __mingw_raise_matherr (_DOMAIN, "expl", x, 0.0, x);
+        return x;
+    }
+    else if (x_class == FP_INFINITE)
+    {
+        long double r = (signbit (x) ? 0.0l : HUGE_VALL);
+        errno = ERANGE;
+        __mingw_raise_matherr (signbit (x) ? _OVERFLOW : _UNDERFLOW, "expl", x, 0.0, r);
+        return r;
+    }
+    else if (x_class == FP_ZERO)
+    {
+        return 1.0l;
+    }
+    else if (x > 1.1356523406294143949492E4L)
+    {
+        errno = ERANGE;
+        __mingw_raise_matherr (_OVERFLOW, "expl", x, 0.0, HUGE_VALL);
+        return HUGE_VALL;
+    }
+    else if (x < -1.1355137111933024058873E4L)
+    {
+        return 0.0l;
+    }
+
 #if defined(__arm__) || defined(_ARM_)
     return exp(x);
 #else

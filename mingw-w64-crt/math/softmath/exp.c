@@ -49,6 +49,35 @@ double exp(double x)
     double result = 0.0;
     int n;
 
+    int x_class = fpclassify (x);
+    if (x_class == FP_NAN)
+    {
+        errno = EDOM;
+        __mingw_raise_matherr (_DOMAIN, "exp", x, 0.0, x);
+        return x;
+    }
+    else if (x_class == FP_INFINITE)
+    {
+        double r = (signbit (x) ? 0.0 : HUGE_VAL);
+        errno = ERANGE;
+        __mingw_raise_matherr (signbit (x) ? _OVERFLOW : _UNDERFLOW, "exp", x, 0.0, r);
+        return r;
+    }
+    else if (x_class == FP_ZERO)
+    {
+        return 1.0;
+    }
+    else if (x > 7.09782712893383996843E2)
+    {
+        errno = ERANGE;
+        __mingw_raise_matherr (_OVERFLOW, "exp", x, 0.0, HUGE_VAL);
+        return HUGE_VAL;
+    }
+    else if (x < -7.45133219101941108420E2)
+    {
+        return 0.0;
+    }
+
     for(n = 0; n < 64; n++)
     {
         result += (bsd__ieee754_pow(x, n) / softmath_fact(n));
