@@ -46,5 +46,21 @@
 
 double expm1(double x)
 {
+    int x_class = fpclassify (x);
+    if (x_class == FP_NAN)
+    {
+        errno = EDOM;
+        __mingw_raise_matherr (_DOMAIN, "expm1", x, 0.0, x);
+        return x;
+    }
+    else if (x_class == FP_INFINITE)
+    {
+        return (signbit (x) ? -1.0 : HUGE_VAL);
+    }
+    else if (x_class == FP_ZERO)
+    {
+        return x;
+    }
+
     return exp(x) - 1;
 }

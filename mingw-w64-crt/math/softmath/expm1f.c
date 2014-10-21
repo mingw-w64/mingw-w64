@@ -46,5 +46,21 @@
 
 float expm1f(float x)
 {
+    int x_class = fpclassify (x);
+    if (x_class == FP_NAN)
+    {
+        errno = EDOM;
+        __mingw_raise_matherr (_DOMAIN, "expm1f", x, 0.0, x);
+        return x;
+    }
+    else if (x_class == FP_INFINITE)
+    {
+        return (signbit (x) ? -1.0f : HUGE_VALF);
+    }
+    else if (x_class == FP_ZERO)
+    {
+        return x;
+    }
+
     return softmath_expf(x) - 1;
 }
