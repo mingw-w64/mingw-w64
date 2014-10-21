@@ -7,6 +7,7 @@
 #define _INC_NETIOAPI
 
 #include <ws2def.h>
+#include <ws2ipdef.h>
 #include <iprtrmib.h>
 #include <ifdef.h>
 #include <ntddndis.h>
