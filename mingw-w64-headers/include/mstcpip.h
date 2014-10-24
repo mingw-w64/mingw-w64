@@ -36,6 +36,7 @@ struct tcp_keepalive {
 #define RCVALL_OFF 0
 #define RCVALL_ON 1
 #define RCVALL_SOCKETLEVELONLY 2
+#define RCVALL_IPLEVEL 3
 
 #if (_WIN32_WINNT >= 0x0502)
 typedef enum _SOCKET_SECURITY_PROTOCOL {
