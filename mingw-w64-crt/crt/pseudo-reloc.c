@@ -206,7 +206,8 @@ mark_section_writable (LPVOID addr)
       return;
     }
 
-  if (b.Protect != PAGE_EXECUTE_READWRITE && b.Protect != PAGE_READWRITE)
+  if (b.Protect != PAGE_EXECUTE_READWRITE && b.Protect != PAGE_READWRITE
+      && b.Protect != PAGE_EXECUTE_WRITECOPY && b.Protect != PAGE_WRITECOPY)
     {
       if (!VirtualProtect (b.BaseAddress, b.RegionSize,
 			   PAGE_EXECUTE_READWRITE,
@@ -259,16 +260,17 @@ restore_modified_sections (void)
 static void
 __write_memory (void *addr, const void *src, size_t len)
 {
-  MEMORY_BASIC_INFORMATION b;
-  DWORD oldprot;
-  int call_unprotect = 0;
-
   if (!len)
     return;
 
 #ifdef __MINGW64_VERSION_MAJOR
+  /* Mark the section writable once, and unset it in
+   * restore_modified_sections */
   mark_section_writable ((LPVOID) addr);
-#endif
+#else
+  MEMORY_BASIC_INFORMATION b;
+  DWORD oldprot = 0;
+  int call_unprotect = 0;
 
   if (!VirtualQuery (addr, &b, sizeof(b)))
     {
@@ -277,18 +279,25 @@ __write_memory (void *addr, const void *src, size_t len)
     }
 
   /* Temporarily allow write access to read-only protected memory.  */
-  if (b.Protect != PAGE_EXECUTE_READWRITE && b.Protect != PAGE_READWRITE)
+  if (b.Protect != PAGE_EXECUTE_READWRITE && b.Protect != PAGE_READWRITE
+      && b.Protect != PAGE_WRITECOPY && b.Protect != PAGE_EXECUTE_WRITECOPY)
     {
       call_unprotect = 1;
       VirtualProtect (b.BaseAddress, b.RegionSize, PAGE_EXECUTE_READWRITE,
 		      &oldprot);
     }
+#endif
 
   /* write the data. */
   memcpy (addr, src, len);
+
+#ifndef __MINGW64_VERSION_MAJOR
   /* Restore original protection. */
-  if (call_unprotect && b.Protect != PAGE_EXECUTE_READWRITE && b.Protect != PAGE_READWRITE)
+  if (call_unprotect
+      && b.Protect != PAGE_EXECUTE_READWRITE && b.Protect != PAGE_READWRITE
+      && b.Protect != PAGE_WRITECOPY && b.Protect != PAGE_EXECUTE_WRITECOPY)
     VirtualProtect (b.BaseAddress, b.RegionSize, oldprot, &oldprot);
+#endif
 }
 
 #define RP_VERSION_V1 0
