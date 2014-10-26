@@ -12,7 +12,7 @@
   __STRINGIFY(x)
 
 #define __MINGW64_VERSION_MAJOR 3
-#define __MINGW64_VERSION_MINOR 1
+#define __MINGW64_VERSION_MINOR 3
 
 /* This macro holds an monotonic increasing value, which indicates
    a specific fix/patch is present on trunk.  This value isn't related to
