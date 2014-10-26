@@ -2,8 +2,8 @@
 #include <malloc.h>
 #include <errno.h>
 #include <msvcrt.h>
+#include <stdio.h>
 
-int __cdecl vsprintf (char *, const char *, va_list);
 int __cdecl vsprintf_s (char *, size_t, const char *, va_list);
 static int __cdecl _int_vsprintf_s (char *, size_t, const char *, va_list);
 static int __cdecl _stub (char *, size_t, const char *, va_list);
@@ -34,7 +34,7 @@ vsprintf_s (char *_DstBuf, size_t _Size, const char *_Format, va_list _ArgList)
 }
 
 static int __cdecl
-_int_vsprintf_s (char *_DstBuf, size_t __UNUSED_PARAM(_Size), const char *_Format, va_list _ArgList)
+_int_vsprintf_s (char *_DstBuf, size_t _Size, const char *_Format, va_list _ArgList)
 {
-  return vsprintf (_DstBuf, _Format, _ArgList);
+  return __ms_vsnprintf (_DstBuf, _Size, _Format, _ArgList);
 }
