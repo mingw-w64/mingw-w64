@@ -6,9 +6,9 @@
 #ifndef _MATH_H_
 #define _MATH_H_
 
-#if __GNUC__ >= 3
+#ifdef __GNUC__
 #pragma GCC system_header
-#endif
+#endif /* __GNUC__ */
 
 #include <crtdefs.h>
 
@@ -157,11 +157,11 @@ extern "C" {
 #define _HUGE	(* __MINGW_IMP_SYMBOL(_HUGE))
 #endif
 
-#if __MINGW_GNUC_PREREQ(3, 3)
+#ifdef __GNUC__
 #define	HUGE_VAL __builtin_huge_val()
 #else
 #define HUGE_VAL _HUGE
-#endif
+#endif /* __GNUC__ */
 
 #ifndef _EXCEPTION_DEFINED
 #define _EXCEPTION_DEFINED
@@ -346,7 +346,7 @@ _CRTIMP double __cdecl scalb (double, long);
 #if (defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L) \
 	|| !defined __STRICT_ANSI__ || defined __cplusplus
 
-#if __MINGW_GNUC_PREREQ(3, 3)
+#ifdef __GNUC__
 #define HUGE_VALF	__builtin_huge_valf()
 #define HUGE_VALL	__builtin_huge_vall()
 #define INFINITY	__builtin_inf()
@@ -359,7 +359,7 @@ extern const long double  __INFL;
 #define INFINITY HUGE_VALF
 extern const double __QNAN;
 #define NAN __QNAN
-#endif /* __MINGW_GNUC_PREREQ(3, 3) */
+#endif /* __GNUC__ */
 
 /* Use the compiler's builtin define for FLT_EVAL_METHOD to
    set float_t and double_t.  */
@@ -802,7 +802,7 @@ __mingw_choose_expr (                                         \
 /* Inline versions.  GCC-4.0+ can do a better fast-math optimization
    with __builtins. */
 #ifndef __CRT__NO_INLINE
-#if !(__MINGW_GNUC_PREREQ (4, 0) && defined (__FAST_MATH__))
+#if (!defined(__GNUC__) && defined (__FAST_MATH__))
   __CRT_INLINE double __cdecl logb (double x)
   {
 #if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
@@ -873,7 +873,7 @@ __mingw_choose_expr (                                         \
     return res;
 #endif
   }
-#endif /* !defined __FAST_MATH__ || !__MINGW_GNUC_PREREQ (4, 0) */
+#endif /* (!defined(__GNUC__) && defined (__FAST_MATH__)) */
 #endif /* __CRT__NO_INLINE */
 
 /* 7.12.6.12  Double in C89 */
@@ -968,7 +968,7 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
    GCC 4.0+ can do a better fast-math job with __builtins. */
 
 #ifndef __CRT__NO_INLINE
-#if !(__MINGW_GNUC_PREREQ (4, 0) && defined __FAST_MATH__ )
+#if (!defined(__GNUC__) && defined (__FAST_MATH__))
   __CRT_INLINE double __cdecl rint (double x)
   {
     double retval = 0.0;
@@ -1037,7 +1037,7 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
       ("fistpll %0"  : "=m" (retval) : "t" (x) : "st");				      \
       return retval;
   }
-#endif /* !__FAST_MATH__ || !__MINGW_GNUC_PREREQ (4,0)  */
+#endif /* (!defined(__GNUC__) && defined (__FAST_MATH__))  */
 #endif /* !__CRT__NO_INLINE */
 
 /* 7.12.9.6 */
@@ -1155,7 +1155,7 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
  *  which always returns true: yes, (NaN != NaN) is true).
  */
 
-#if __GNUC__ >= 3
+#ifdef __GNUC__
 
 #define isgreater(x, y) __builtin_isgreater(x, y)
 #define isgreaterequal(x, y) __builtin_isgreaterequal(x, y)
@@ -1174,7 +1174,7 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
 	"fnstsw;": "=a" (retval) : "t" (x), "u" (y));
       return retval;
   }
-#endif
+#endif /* __GNUC__ */
 
 #define isgreater(x, y) ((__fp_unordered_compare(x, y)  & 0x4500) == 0)
 #define isless(x, y) ((__fp_unordered_compare (y, x)  & 0x4500) == 0)
