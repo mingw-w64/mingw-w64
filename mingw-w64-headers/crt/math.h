@@ -802,7 +802,7 @@ __mingw_choose_expr (                                         \
 /* Inline versions.  GCC-4.0+ can do a better fast-math optimization
    with __builtins. */
 #ifndef __CRT__NO_INLINE
-#if (!defined(__GNUC__) && defined (__FAST_MATH__))
+#if defined(__GNUC__) && !defined(__FAST_MATH__)
   __CRT_INLINE double __cdecl logb (double x)
   {
 #if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
@@ -873,7 +873,7 @@ __mingw_choose_expr (                                         \
     return res;
 #endif
   }
-#endif /* (!defined(__GNUC__) && defined (__FAST_MATH__)) */
+#endif /* defined(__GNUC__) && !defined(__FAST_MATH__) */
 #endif /* __CRT__NO_INLINE */
 
 /* 7.12.6.12  Double in C89 */
@@ -968,7 +968,7 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
    GCC 4.0+ can do a better fast-math job with __builtins. */
 
 #ifndef __CRT__NO_INLINE
-#if (!defined(__GNUC__) && defined (__FAST_MATH__))
+#if defined(__GNUC__) && !defined(__FAST_MATH__)
   __CRT_INLINE double __cdecl rint (double x)
   {
     double retval = 0.0;
@@ -1037,7 +1037,7 @@ __MINGW_EXTENSION long long __cdecl llrintl (long double);
       ("fistpll %0"  : "=m" (retval) : "t" (x) : "st");				      \
       return retval;
   }
-#endif /* (!defined(__GNUC__) && defined (__FAST_MATH__))  */
+#endif /* defined(__GNUC__) && !defined(__FAST_MATH__) */
 #endif /* !__CRT__NO_INLINE */
 
 /* 7.12.9.6 */
