@@ -2,7 +2,7 @@
 ## DO NOT EDIT - This file generated from ./build-aux/ltmain.in
 ##               by inline-source v2014-01-03.01
 
-# libtool (GNU libtool) 2.4.2.444.31-13aa
+# libtool (GNU libtool) 2.4.3
 # Provide generalized library-building support services.
 # Written by Gordon Matzigkeit <gord@gnu.ai.mit.edu>, 1996
 
@@ -31,8 +31,8 @@
 
 PROGRAM=libtool
 PACKAGE=libtool
-VERSION=2.4.2.444.31-13aa
-package_revision=2.4.2.444.31
+VERSION=2.4.3
+package_revision=2.4.3
 
 
 ## ------ ##
@@ -64,7 +64,7 @@ package_revision=2.4.2.444.31
 # libraries, which are installed to $pkgauxdir.
 
 # Set a version string for this script.
-scriptversion=2014-02-10.13; # UTC
+scriptversion=2014-01-03.01; # UTC
 
 # General shell script boiler plate, and helper functions.
 # Written by Gary V. Vaughan, 2004
@@ -1333,7 +1333,7 @@ func_warning ()
 # -----------------------
 # 'sort -V' is not generally available.
 # Note this deviates from the version comparison in automake
-# in that it treats 1.5 < 1.5.0, and treats 1.4-p12a < 1.4-p3a
+# in that it treats 1.5 < 1.5.0, and treats 1.4.4a < 1.4-p3a
 # but this should suffice as we won't be specifying old
 # version formats or redundant trailing .0 in bootstrap.conf.
 # If we did want full compatibility then we should probably
@@ -1977,7 +1977,7 @@ func_version ()
 # End:
 
 # Set a version string.
-scriptversion='(GNU libtool) 2.4.2.444.31-13aa'
+scriptversion='(GNU libtool) 2.4.3'
 
 
 # func_echo ARG...
@@ -2063,7 +2063,7 @@ include the following information:
        compiler:       $LTCC
        compiler flags: $LTCFLAGS
        linker:         $LD (gnu? $with_gnu_ld)
-       version:        $progname (GNU libtool) 2.4.2.444.31-13aa
+       version:        $progname (GNU libtool) 2.4.3
        automake:       `($AUTOMAKE --version) 2>/dev/null |$SED 1q`
        autoconf:       `($AUTOCONF --version) 2>/dev/null |$SED 1q`
 
@@ -7243,6 +7243,7 @@ func_mode_link ()
       # -m*, -t[45]*, -txscale* architecture-specific flags for GCC
       # -F/path              path to uninstalled frameworks, gcc on darwin
       # -p, -pg, --coverage, -fprofile-*  profiling flags for GCC
+      # -fstack-protector*   stack protector flags for GCC
       # @file                GCC response files
       # -tp=*                Portland pgcc target processor selection
       # --sysroot=*          for sysroot support
@@ -7250,7 +7251,7 @@ func_mode_link ()
       # -stdlib=*            select c++ std lib with clang
       -64|-mips[0-9]|-r[0-9][0-9]*|-xarch=*|-xtarget=*|+DA*|+DD*|-q*|-m*| \
       -t[45]*|-txscale*|-p|-pg|--coverage|-fprofile-*|-F*|@*|-tp=*|--sysroot=*| \
-      -O*|-g*|-flto*|-fwhopr*|-fuse-linker-plugin|-stdlib=*)
+      -O*|-g*|-flto*|-fwhopr*|-fuse-linker-plugin|-fstack-protector*|-stdlib=*)
         func_quote_for_eval "$arg"
 	arg=$func_quote_for_eval_result
         func_append compile_command " $arg"
@@ -7615,66 +7616,66 @@ func_mode_link ()
 	    # If $allow_libtool_libs_with_static_runtimes && $deplib is a stdlib,
 	    # We need to do some special things here, and not later.
 	    if test yes = "$allow_libtool_libs_with_static_runtimes"; then
-	      case $host_os in
-	      os2*)
-		case " $predeps $postdeps " in
-		*" $deplib "*) ;;
-		*)
-		  if func_lalib_p "$lib"; then
-		    library_names=
-		    old_library=
-		    func_source "$lib"
-		    for l in $old_library $library_names; do
-		      ll="$l"
-		    done
-		    if test "X$ll" = "X$old_library" ; then # only static version available
-		      found=false
-		      func_dirname "$lib" "" "."
-		      ladir="$func_dirname_result"
-		      lib=$ladir/$old_library
-		      if test prog,link = "$linkmode,$pass"; then
-			compile_deplibs="$deplib $compile_deplibs"
-			finalize_deplibs="$deplib $finalize_deplibs"
-		      else
-			deplibs="$deplib $deplibs"
-			test lib = "$linkmode" && newdependency_libs="$deplib $newdependency_libs"
-		      fi
-		      continue
-		    fi
-		  fi
-		  ;;
-		esac
-		;;
+	     case $host_os in
+	     os2*)
+	      case " $predeps $postdeps " in
+	      *" $deplib "*) ;;
 	      *)
-		case " $predeps $postdeps " in
-		*" $deplib "*)
-		  if func_lalib_p "$lib"; then
-		    library_names=
-		    old_library=
-		    func_source "$lib"
-		    for l in $old_library $library_names; do
-		      ll="$l"
-		    done
-		    if test "X$ll" = "X$old_library" ; then # only static version available
-		      found=false
-		      func_dirname "$lib" "" "."
-		      ladir="$func_dirname_result"
-		      lib=$ladir/$old_library
-		      if test prog,link = "$linkmode,$pass"; then
-			compile_deplibs="$deplib $compile_deplibs"
-			finalize_deplibs="$deplib $finalize_deplibs"
-		      else
-			deplibs="$deplib $deplibs"
-			test lib = "$linkmode" && newdependency_libs="$deplib $newdependency_libs"
-		      fi
-		      continue
+		if func_lalib_p "$lib"; then
+		  library_names=
+		  old_library=
+		  func_source "$lib"
+		  for l in $old_library $library_names; do
+		    ll="$l"
+		  done
+		  if test "X$ll" = "X$old_library"; then # only static version available
+		    found=false
+		    func_dirname "$lib" "" "."
+		    ladir="$func_dirname_result"
+		    lib=$ladir/$old_library
+		    if test prog,link = "$linkmode,$pass"; then
+		      compile_deplibs="$deplib $compile_deplibs"
+		      finalize_deplibs="$deplib $finalize_deplibs"
+		    else
+		      deplibs="$deplib $deplibs"
+		      test lib = "$linkmode" && newdependency_libs="$deplib $newdependency_libs"
 		    fi
+		    continue
 		  fi
-		  ;;
-		*) ;;
-		esac
+		fi
 		;;
-	      esac # case $host_os in
+	       esac
+	       ;;
+	     *)
+	      case " $predeps $postdeps " in
+	      *" $deplib "*)
+		if func_lalib_p "$lib"; then
+		  library_names=
+		  old_library=
+		  func_source "$lib"
+		  for l in $old_library $library_names; do
+		    ll=$l
+		  done
+		  if test "X$ll" = "X$old_library"; then # only static version available
+		    found=false
+		    func_dirname "$lib" "" "."
+		    ladir=$func_dirname_result
+		    lib=$ladir/$old_library
+		    if test prog,link = "$linkmode,$pass"; then
+		      compile_deplibs="$deplib $compile_deplibs"
+		      finalize_deplibs="$deplib $finalize_deplibs"
+		    else
+		      deplibs="$deplib $deplibs"
+		      test lib = "$linkmode" && newdependency_libs="$deplib $newdependency_libs"
+		    fi
+		    continue
+		  fi
+		fi
+		;;
+	      *) ;;
+	      esac
+	     ;;
+	     esac # case $host_os in
 	    fi
 	  else
 	    # deplib doesn't seem to be a libtool library
@@ -10043,15 +10044,15 @@ EOF
 	# Create links to the real library.
 	for linkname in $linknames; do
 	  if test "$realname" != "$linkname"; then
-	    case $host_os in
-	    os2*)
-	      # Create import libraries instead of links on OS/2
-	      func_show_eval '(emximp -o $output_objdir/$linkname $output_objdir/$libname.def)' 'exit $?'
-	      ;;
-	    *)
-	      func_show_eval '(cd "$output_objdir" && $RM "$linkname" && $LN_S "$realname" "$linkname")' 'exit $?'
-	      ;;
-	    esac
+	   case $host_os in
+	   os2*)
+	    # Create import libraries instead of links on OS/2
+	    func_show_eval '(emximp -o $output_objdir/$linkname $output_objdir/$libname.def)' 'exit $?'
+	    ;;
+	   *)
+	    func_show_eval '(cd "$output_objdir" && $RM "$linkname" && $LN_S "$realname" "$linkname")' 'exit $?'
+	    ;;
+	   esac
 	  fi
 	done
 
