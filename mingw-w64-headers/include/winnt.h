@@ -1746,6 +1746,12 @@ extern "C" {
   typedef DWORD (*POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK)(HANDLE Process,PVOID TableAddress,PDWORD Entries,PRUNTIME_FUNCTION *Functions);
 
 #define OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME "OutOfProcessFunctionTableCallback"
+
+#define UNW_FLAG_NHANDLER   0x00
+#define UNW_FLAG_EHANDLER   0x01
+#define UNW_FLAG_UHANDLER   0x02
+#define UNW_FLAG_CHAININFO  0x04
+
 #endif /* end of _AMD64_ */
 
 
