@@ -129,6 +129,10 @@ public:
     if(null!=0) { _com_issue_error(E_POINTER); }
     return operator=(reinterpret_cast<Interface*>(NULL));
   }
+  _com_ptr_t &operator=(long long null) {
+    if(null!=0) { _com_issue_error(E_POINTER); }
+    return operator=(reinterpret_cast<Interface*>(NULL));
+  }
   _com_ptr_t &operator=(const _variant_t& varSrc) {
     HRESULT hr = QueryStdInterfaces(varSrc);
     if(FAILED(hr) && (hr!=E_NOINTERFACE)) { _com_issue_error(hr); }
