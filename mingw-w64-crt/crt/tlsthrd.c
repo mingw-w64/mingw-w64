@@ -133,6 +133,14 @@ __mingw_TLScallback (HANDLE __UNUSED_PARAM(hDllHandle),
       __mingwthr_run_key_dtors();
       if (__mingwthr_cs_init == 1)
         {
+          __mingwthr_key_t volatile *keyp, *t;
+          for (keyp = key_dtor_list; keyp; )
+          {
+            t = keyp->next;
+            free((void *)keyp);
+            keyp = t;
+          }
+          key_dtor_list = NULL;
           __mingwthr_cs_init = 0;
           DeleteCriticalSection (&__mingwthr_cs);
         }
