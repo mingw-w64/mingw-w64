@@ -25,6 +25,18 @@
 #define STDERR_FILENO 2
 #endif
 
+/* Used by shutdown(2). */
+#ifdef _POSIX_SOURCE
+
+/* MySql connector already defined SHUT_RDWR. */
+#ifndef SHUT_RDWR
+#define SHUT_RD   0x00
+#define SHUT_WR   0x01
+#define SHUT_RDWR 0x02
+#endif
+
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
