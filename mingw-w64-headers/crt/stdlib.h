@@ -381,9 +381,15 @@ extern "C" {
   int __cdecl rand(void);
   _CRTIMP int __cdecl _set_error_mode(int _Mode);
   void __cdecl srand(unsigned int _Seed);
+#if defined(_POSIX) || defined(_POSIX_THREAD_SAFE_FUNCTIONS)
+  #ifndef rand_r
+  #define rand_r(__seed) (__seed == __seed ? rand () : rand ())
+  #endif
+#endif
 #ifdef _CRT_RAND_S
   _CRTIMP errno_t __cdecl rand_s(unsigned int *randomValue);
 #endif
+
 #if defined(__USE_MINGW_STRTOX)
 __mingw_ovr
 double __cdecl __MINGW_NOTHROW strtod(const char * __restrict__ _Str,char ** __restrict__ _EndPtr)

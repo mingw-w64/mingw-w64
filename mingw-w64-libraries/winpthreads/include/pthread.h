@@ -413,10 +413,6 @@ int                        WINPTHREAD_API pthread_rwlockattr_getpshared(pthread_
 int                        WINPTHREAD_API pthread_rwlockattr_init(pthread_rwlockattr_t *a);
 int                        WINPTHREAD_API pthread_rwlockattr_setpshared(pthread_rwlockattr_t *a, int s);
 
-#ifndef rand_r
-#define rand_r(__seed) (__seed == __seed ? rand () : rand ())
-#endif
-
 #ifndef SIG_BLOCK
 #define SIG_BLOCK 0
 #endif
