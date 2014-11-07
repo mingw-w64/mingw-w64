@@ -156,7 +156,10 @@ extern "C" {
   intptr_t __cdecl spawnle(int,const char *_Filename,const char *_ArgList,...) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   intptr_t __cdecl spawnlp(int,const char *_Filename,const char *_ArgList,...) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   intptr_t __cdecl spawnlpe(int,const char *_Filename,const char *_ArgList,...) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+#ifndef _CRT_GETPID_DEFINED
+#define _CRT_GETPID_DEFINED  /* Also in unistd.h */
   int __cdecl getpid(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+#endif
 #ifdef __GNUC__
   /* Those methods are predefined by gcc builtins to return int. So to prevent
      stupid warnings, define them in POSIX way.  This is save, because those
