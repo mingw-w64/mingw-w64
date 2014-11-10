@@ -191,7 +191,8 @@ src_msvcrt=\
   secapi/sprintf_s.c \
   secapi/strerror_s.c \
   secapi/vsprintf_s.c \
-  secapi/wmemcpy_s.c
+  secapi/wmemcpy_s.c \
+  secapi/wmemmove_s.c
 
 src_msvcrt32=\
   $(src_msvcrt) \
