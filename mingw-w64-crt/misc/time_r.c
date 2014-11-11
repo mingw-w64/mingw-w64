@@ -24,13 +24,13 @@ struct tm *__cdecl localtime_r(const time_t *_Time, struct tm *_Tm)
 
     tmp = localtime(_Time);
     if (tmp != NULL)
-        memcpy(_Tm, tmp, sizeof(struct tm);
+        memcpy(_Tm, tmp, sizeof(struct tm));
     return tmp;
 }
 
 struct tm *__cdecl gmtime_r(const time_t *_Time, struct tm *_Tm)
 {
-	struct tm *tmp;
+    struct tm *tmp;
 
     if (_Time == NULL || _Tm == NULL)
     {
@@ -38,26 +38,26 @@ struct tm *__cdecl gmtime_r(const time_t *_Time, struct tm *_Tm)
         return NULL;
     }
 
-	tmp = gmtime(_Time);
-	if (tmp != NULL)
-		memcpy(_Tm, tmp, sizeof(struct tm);
-	return tmp;
+    tmp = gmtime(_Time);
+    if (tmp != NULL)
+        memcpy(_Tm, tmp, sizeof(struct tm));
+    return tmp;
 }
 
 char *__cdecl ctime_r(const time_t *_Time, char * _Str)
 {
-	char *tmp;
+    char *tmp;
 
-    if (_Tm == NULL || _Str == NULL)
+    if (_Time == NULL || _Str == NULL)
     {
         errno = EINVAL;
         return NULL;
     }
 
-	tmp = ctime(_Time);
-	if (tmp != NULL)
-		tmp = strcpy(_Str,tmp);
-	return tmp;
+    tmp = ctime(_Time);
+    if (tmp != NULL)
+        tmp = strcpy(_Str,tmp);
+    return tmp;
 }
 
  /* TODO: thread safe implementation */
