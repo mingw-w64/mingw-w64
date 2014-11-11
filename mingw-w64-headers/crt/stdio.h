@@ -962,6 +962,26 @@ void __cdecl __mingw_str_free(void *ptr);
   _CRTIMP intptr_t __cdecl _wspawnvpe(int _Mode,const wchar_t *_Filename,const wchar_t *const *_ArgList,const wchar_t *const *_Env);
 #endif
 
+#ifndef _P_WAIT
+#define _P_WAIT 0
+#define _P_NOWAIT 1
+#define _OLD_P_OVERLAY 2
+#define _P_NOWAITO 3
+#define _P_DETACH 4
+#define _P_OVERLAY 2
+
+#define _WAIT_CHILD 0
+#define _WAIT_GRANDCHILD 1
+#endif
+
+#ifndef _SPAWNV_DEFINED
+#define _SPAWNV_DEFINED
+  _CRTIMP intptr_t __cdecl _spawnv(int _Mode,const char *_Filename,const char *const *_ArgList);
+  _CRTIMP intptr_t __cdecl _spawnve(int _Mode,const char *_Filename,const char *const *_ArgList,const char *const *_Env);
+  _CRTIMP intptr_t __cdecl _spawnvp(int _Mode,const char *_Filename,const char *const *_ArgList);
+  _CRTIMP intptr_t __cdecl _spawnvpe(int _Mode,const char *_Filename,const char *const *_ArgList,const char *const *_Env);
+#endif
+
 #ifdef __cplusplus
 }
 #endif

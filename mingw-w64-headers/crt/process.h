@@ -16,6 +16,7 @@
 extern "C" {
 #endif
 
+#ifndef _P_WAIT
 #define _P_WAIT 0
 #define _P_NOWAIT 1
 #define _OLD_P_OVERLAY 2
@@ -25,6 +26,7 @@ extern "C" {
 
 #define _WAIT_CHILD 0
 #define _WAIT_GRANDCHILD 1
+#endif
 
   _CRTIMP uintptr_t __cdecl _beginthread(void (__cdecl *_StartAddress) (void *),unsigned _StackSize,void *_ArgList);
   _CRTIMP void __cdecl _endthread(void) __MINGW_ATTRIB_NORETURN;
@@ -68,10 +70,14 @@ extern "C" {
   _CRTIMP intptr_t __cdecl _spawnle(int _Mode,const char *_Filename,const char *_ArgList,...);
   _CRTIMP intptr_t __cdecl _spawnlp(int _Mode,const char *_Filename,const char *_ArgList,...);
   _CRTIMP intptr_t __cdecl _spawnlpe(int _Mode,const char *_Filename,const char *_ArgList,...);
+
+#ifndef _SPAWNV_DEFINED
+#define _SPAWNV_DEFINED
   _CRTIMP intptr_t __cdecl _spawnv(int _Mode,const char *_Filename,const char *const *_ArgList);
   _CRTIMP intptr_t __cdecl _spawnve(int _Mode,const char *_Filename,const char *const *_ArgList,const char *const *_Env);
   _CRTIMP intptr_t __cdecl _spawnvp(int _Mode,const char *_Filename,const char *const *_ArgList);
   _CRTIMP intptr_t __cdecl _spawnvpe(int _Mode,const char *_Filename,const char *const *_ArgList,const char *const *_Env);
+#endif
 
 #ifndef _CRT_SYSTEM_DEFINED
 #define _CRT_SYSTEM_DEFINED
