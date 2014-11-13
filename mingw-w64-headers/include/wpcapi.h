@@ -51,6 +51,14 @@ typedef interface IWindowsParentalControls IWindowsParentalControls;
 extern "C" {
 #endif
 
+typedef enum tagWPCFLAG_RESTRICTION {
+    WPCFLAG_NO_RESTRICTION = 0x0,
+    WPCFLAG_LOGGING_REQUIRED = 0x1,
+    WPCFLAG_WEB_FILTERED = 0x2,
+    WPCFLAG_HOURS_RESTRICTED = 0x4,
+    WPCFLAG_GAMES_BLOCKED = 0x8,
+    WPCFLAG_APPS_RESTRICTED = 0x10
+} WPCFLAG_RESTRICTION;
 /*****************************************************************************
  * IWPCSettings interface
  */
