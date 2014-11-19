@@ -213,10 +213,17 @@ typedef ADDRINFOA ADDRINFO,*LPADDRINFO;
 #define AI_CANONNAME 0x2
 #define AI_NUMERICHOST 0x4
 #if (_WIN32_WINNT >= 0x0600)
+#define AI_NUMERICSERV            0x0008
+#define AI_ALL                    0x0100
 #define AI_ADDRCONFIG             0x0400
+#define AI_V4MAPPED               0x0800
 #define AI_NON_AUTHORITATIVE      0x04000
 #define AI_SECURE                 0x08000
 #define AI_RETURN_PREFERRED_NAMES 0x010000
+#endif
+#if (_WIN32_WINNT >= 0x0601)
+#define AI_FQDN                   0x020000
+#define AI_FILESERVER             0x040000
 #endif
 
 #ifdef __cplusplus
