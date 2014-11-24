@@ -17,6 +17,7 @@ extern "C" {
 #define _CRT_ALGO_DEFINED
   void *__cdecl bsearch(const void *_Key,const void *_Base,size_t _NumOfElements,size_t _SizeOfElements,int (__cdecl *_PtFuncCompare)(const void *,const void *));
   void __cdecl qsort(void *_Base,size_t _NumOfElements,size_t _SizeOfElements,int (__cdecl *_PtFuncCompare)(const void *,const void *));
+  void __cdecl qsort_s(void *_Base,size_t _NumOfElements,size_t _SizeOfElements,int (__cdecl *_PtFuncCompare)(void *,const void *,const void *),void *_Context);
 #endif
   _CRTIMP void *__cdecl _lfind(const void *_Key,const void *_Base,unsigned int *_NumOfElements,unsigned int _SizeOfElements,int (__cdecl *_PtFuncCompare)(const void *,const void *));
   _CRTIMP void *__cdecl _lsearch(const void *_Key,void *_Base,unsigned int *_NumOfElements,unsigned int _SizeOfElements,int (__cdecl *_PtFuncCompare)(const void *,const void *));

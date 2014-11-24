@@ -351,6 +351,7 @@ extern "C" {
 #define _CRT_ALGO_DEFINED
   void *__cdecl bsearch(const void *_Key,const void *_Base,size_t _NumOfElements,size_t _SizeOfElements,int (__cdecl *_PtFuncCompare)(const void *,const void *));
   void __cdecl qsort(void *_Base,size_t _NumOfElements,size_t _SizeOfElements,int (__cdecl *_PtFuncCompare)(const void *,const void *));
+  void __cdecl qsort_s(void *_Base,size_t _NumOfElements,size_t _SizeOfElements,int (__cdecl *_PtFuncCompare)(void *,const void *,const void *),void *_Context);
 #endif
   unsigned short __cdecl _byteswap_ushort(unsigned short _Short);
   unsigned long __cdecl _byteswap_ulong (unsigned long _Long);
