@@ -1324,7 +1324,7 @@ Optional Features:
   --enable-sdk=ARG        Add the desired SDK, where ARG can be one of ddk,
                           directx, no or all. Default is all.
   --enable-idl            Enable installing idl files
-  --enable-secure-api     Enable secure API by default
+  --enable-secure-api     Expose secure API prototypes
 
 Optional Packages:
   --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]

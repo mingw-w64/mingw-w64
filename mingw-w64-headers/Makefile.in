@@ -298,6 +298,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/control.idl \
 @HAVE_WIDL_TRUE@  include/ctfutb.idl \
 @HAVE_WIDL_TRUE@  include/dbgprop.idl \
+@HAVE_WIDL_TRUE@  include/dispex.idl \
 @HAVE_WIDL_TRUE@  include/docobj.idl \
 @HAVE_WIDL_TRUE@  include/devicetopology.idl \
 @HAVE_WIDL_TRUE@  include/downloadmgr.idl \
@@ -363,7 +364,11 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/unknwn.idl \
 @HAVE_WIDL_TRUE@  include/unknwnbase.idl \
 @HAVE_WIDL_TRUE@  include/urlmon.idl \
+@HAVE_WIDL_TRUE@  include/wbemads.idl \
 @HAVE_WIDL_TRUE@  include/wbemcli.idl \
+@HAVE_WIDL_TRUE@  include/wbemdisp.idl \
+@HAVE_WIDL_TRUE@  include/wbemprov.idl \
+@HAVE_WIDL_TRUE@  include/wbemtran.idl \
 @HAVE_WIDL_TRUE@  include/wdstptmgmt.idl \
 @HAVE_WIDL_TRUE@  include/wincodec.idl \
 @HAVE_WIDL_TRUE@  include/wmcontainer.idl \

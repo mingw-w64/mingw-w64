@@ -74,6 +74,7 @@ IDL_SRCS = \
   include/control.idl \
   include/ctfutb.idl \
   include/dbgprop.idl \
+  include/dispex.idl \
   include/docobj.idl \
   include/devicetopology.idl \
   include/downloadmgr.idl \
@@ -139,7 +140,11 @@ IDL_SRCS = \
   include/unknwn.idl \
   include/unknwnbase.idl \
   include/urlmon.idl \
+  include/wbemads.idl \
   include/wbemcli.idl \
+  include/wbemdisp.idl \
+  include/wbemprov.idl \
+  include/wbemtran.idl \
   include/wdstptmgmt.idl \
   include/wincodec.idl \
   include/wmcontainer.idl \
