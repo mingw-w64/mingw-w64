@@ -1,1593 +1,714 @@
 cpp_quote("/**")
-cpp_quote(" * This file has no copyright assigned and is placed in the Public Domain.")
 cpp_quote(" * This file is part of the mingw-w64 runtime package.")
-cpp_quote(" * No warranty is given; refer to the file DISCLAIMER.PD within this package.")
+cpp_quote(" * No warranty is given; refer to the file DISCLAIMER within this package.")
 cpp_quote(" */")
+cpp_quote("")
 
-import "oaidl.idl";
-import "objidl.idl";
-
-cpp_quote("#ifndef __IWbemClassObject_FWD_DEFINED__")
-cpp_quote("#define __IWbemClassObject_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemClassObject IWbemClassObject;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemObjectAccess_FWD_DEFINED__")
-cpp_quote("#define __IWbemObjectAccess_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemObjectAccess IWbemObjectAccess;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemQualifierSet_FWD_DEFINED__")
-cpp_quote("#define __IWbemQualifierSet_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemQualifierSet IWbemQualifierSet;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemServices_FWD_DEFINED__")
-cpp_quote("#define __IWbemServices_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemServices IWbemServices;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemLocator_FWD_DEFINED__")
-cpp_quote("#define __IWbemLocator_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemLocator IWbemLocator;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemObjectSink_FWD_DEFINED__")
-cpp_quote("#define __IWbemObjectSink_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemObjectSink IWbemObjectSink;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IEnumWbemClassObject_FWD_DEFINED__")
-cpp_quote("#define __IEnumWbemClassObject_FWD_DEFINED__")
-cpp_quote("typedef struct IEnumWbemClassObject IEnumWbemClassObject;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemCallResult_FWD_DEFINED__")
-cpp_quote("#define __IWbemCallResult_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemCallResult IWbemCallResult;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IUnsecuredApartment_FWD_DEFINED__")
-cpp_quote("#define __IUnsecuredApartment_FWD_DEFINED__")
-cpp_quote("typedef struct IUnsecuredApartment IUnsecuredApartment;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemUnsecuredApartment_FWD_DEFINED__")
-cpp_quote("#define __IWbemUnsecuredApartment_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemUnsecuredApartment IWbemUnsecuredApartment;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemStatusCodeText_FWD_DEFINED__")
-cpp_quote("#define __IWbemStatusCodeText_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemStatusCodeText IWbemStatusCodeText;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemBackupRestore_FWD_DEFINED__")
-cpp_quote("#define __IWbemBackupRestore_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemBackupRestore IWbemBackupRestore;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemBackupRestoreEx_FWD_DEFINED__")
-cpp_quote("#define __IWbemBackupRestoreEx_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemBackupRestoreEx IWbemBackupRestoreEx;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemRefresher_FWD_DEFINED__")
-cpp_quote("#define __IWbemRefresher_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemRefresher IWbemRefresher;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemHiPerfEnum_FWD_DEFINED__")
-cpp_quote("#define __IWbemHiPerfEnum_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemHiPerfEnum IWbemHiPerfEnum;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemConfigureRefresher_FWD_DEFINED__")
-cpp_quote("#define __IWbemConfigureRefresher_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemConfigureRefresher IWbemConfigureRefresher;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __WbemLocator_FWD_DEFINED__")
-cpp_quote("#define __WbemLocator_FWD_DEFINED__")
-cpp_quote("#ifdef __cplusplus")
-cpp_quote("typedef class WbemLocator WbemLocator;")
-cpp_quote("#else")
-cpp_quote("typedef struct WbemLocator WbemLocator;")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __WbemContext_FWD_DEFINED__")
-cpp_quote("#define __WbemContext_FWD_DEFINED__")
-cpp_quote("#ifdef __cplusplus")
-cpp_quote("typedef class WbemContext WbemContext;")
-cpp_quote("#else")
-cpp_quote("typedef struct WbemContext WbemContext;")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __UnsecuredApartment_FWD_DEFINED__")
-cpp_quote("#define __UnsecuredApartment_FWD_DEFINED__")
-cpp_quote("#ifdef __cplusplus")
-cpp_quote("typedef class UnsecuredApartment UnsecuredApartment;")
-cpp_quote("#else")
-cpp_quote("typedef struct UnsecuredApartment UnsecuredApartment;")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __WbemClassObject_FWD_DEFINED__")
-cpp_quote("#define __WbemClassObject_FWD_DEFINED__")
-cpp_quote("#ifdef __cplusplus")
-cpp_quote("typedef class WbemClassObject WbemClassObject;")
-cpp_quote("#else")
-cpp_quote("typedef struct WbemClassObject WbemClassObject;")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __MofCompiler_FWD_DEFINED__")
-cpp_quote("#define __MofCompiler_FWD_DEFINED__")
-cpp_quote("#ifdef __cplusplus")
-cpp_quote("typedef class MofCompiler MofCompiler;")
-cpp_quote("#else")
-cpp_quote("typedef struct MofCompiler MofCompiler;")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __WbemStatusCodeText_FWD_DEFINED__")
-cpp_quote("#define __WbemStatusCodeText_FWD_DEFINED__")
-cpp_quote("#ifdef __cplusplus")
-cpp_quote("typedef class WbemStatusCodeText WbemStatusCodeText;")
-cpp_quote("#else")
-cpp_quote("typedef struct WbemStatusCodeText WbemStatusCodeText;")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __WbemBackupRestore_FWD_DEFINED__")
-cpp_quote("#define __WbemBackupRestore_FWD_DEFINED__")
-cpp_quote("#ifdef __cplusplus")
-cpp_quote("typedef class WbemBackupRestore WbemBackupRestore;")
-cpp_quote("#else")
-cpp_quote("typedef struct WbemBackupRestore WbemBackupRestore;")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __WbemRefresher_FWD_DEFINED__")
-cpp_quote("#define __WbemRefresher_FWD_DEFINED__")
-cpp_quote("#ifdef __cplusplus")
-cpp_quote("typedef class WbemRefresher WbemRefresher;")
-cpp_quote("#else")
-cpp_quote("typedef struct WbemRefresher WbemRefresher;")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __WbemObjectTextSrc_FWD_DEFINED__")
-cpp_quote("#define __WbemObjectTextSrc_FWD_DEFINED__")
-cpp_quote("#ifdef __cplusplus")
-cpp_quote("typedef class WbemObjectTextSrc WbemObjectTextSrc;")
-cpp_quote("#else")
-cpp_quote("typedef struct WbemObjectTextSrc WbemObjectTextSrc;")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemClassObject_FWD_DEFINED__")
-cpp_quote("#define __IWbemClassObject_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemClassObject IWbemClassObject;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemQualifierSet_FWD_DEFINED__")
-cpp_quote("#define __IWbemQualifierSet_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemQualifierSet IWbemQualifierSet;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemObjectSink_FWD_DEFINED__")
-cpp_quote("#define __IWbemObjectSink_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemObjectSink IWbemObjectSink;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IEnumWbemClassObject_FWD_DEFINED__")
-cpp_quote("#define __IEnumWbemClassObject_FWD_DEFINED__")
-cpp_quote("typedef struct IEnumWbemClassObject IEnumWbemClassObject;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemCallResult_FWD_DEFINED__")
-cpp_quote("#define __IWbemCallResult_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemCallResult IWbemCallResult;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemServices_FWD_DEFINED__")
-cpp_quote("#define __IWbemServices_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemServices IWbemServices;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemShutdown_FWD_DEFINED__")
-cpp_quote("#define __IWbemShutdown_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemShutdown IWbemShutdown;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemObjectTextSrc_FWD_DEFINED__")
-cpp_quote("#define __IWbemObjectTextSrc_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemObjectTextSrc IWbemObjectTextSrc;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemObjectAccess_FWD_DEFINED__")
-cpp_quote("#define __IWbemObjectAccess_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemObjectAccess IWbemObjectAccess;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IMofCompiler_FWD_DEFINED__")
-cpp_quote("#define __IMofCompiler_FWD_DEFINED__")
-cpp_quote("typedef struct IMofCompiler IMofCompiler;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IUnsecuredApartment_FWD_DEFINED__")
-cpp_quote("#define __IUnsecuredApartment_FWD_DEFINED__")
-cpp_quote("typedef struct IUnsecuredApartment IUnsecuredApartment;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemUnsecuredApartment_FWD_DEFINED__")
-cpp_quote("#define __IWbemUnsecuredApartment_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemUnsecuredApartment IWbemUnsecuredApartment;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemStatusCodeText_FWD_DEFINED__")
-cpp_quote("#define __IWbemStatusCodeText_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemStatusCodeText IWbemStatusCodeText;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemBackupRestore_FWD_DEFINED__")
-cpp_quote("#define __IWbemBackupRestore_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemBackupRestore IWbemBackupRestore;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemBackupRestoreEx_FWD_DEFINED__")
-cpp_quote("#define __IWbemBackupRestoreEx_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemBackupRestoreEx IWbemBackupRestoreEx;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemRefresher_FWD_DEFINED__")
-cpp_quote("#define __IWbemRefresher_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemRefresher IWbemRefresher;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemHiPerfEnum_FWD_DEFINED__")
-cpp_quote("#define __IWbemHiPerfEnum_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemHiPerfEnum IWbemHiPerfEnum;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemConfigureRefresher_FWD_DEFINED__")
-cpp_quote("#define __IWbemConfigureRefresher_FWD_DEFINED__")
-cpp_quote("typedef struct IWbemConfigureRefresher IWbemConfigureRefresher;")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __WbemClient_v1_LIBRARY_DEFINED__")
-cpp_quote("#define __WbemClient_v1_LIBRARY_DEFINED__")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEM_GENUS_TYPE {")
-cpp_quote("    WBEM_GENUS_CLASS = 1,WBEM_GENUS_INSTANCE = 2")
-cpp_quote("  } WBEM_GENUS_TYPE;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEM_CHANGE_FLAG_TYPE {")
-cpp_quote("    WBEM_FLAG_CREATE_OR_UPDATE = 0,WBEM_FLAG_UPDATE_ONLY = 0x1,WBEM_FLAG_CREATE_ONLY = 0x2,WBEM_FLAG_UPDATE_COMPATIBLE = 0,")
-cpp_quote("    WBEM_FLAG_UPDATE_SAFE_MODE = 0x20,WBEM_FLAG_UPDATE_FORCE_MODE = 0x40,WBEM_MASK_UPDATE_MODE = 0x60,WBEM_FLAG_ADVISORY = 0x10000")
-cpp_quote("  } WBEM_CHANGE_FLAG_TYPE;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEM_GENERIC_FLAG_TYPE {")
-cpp_quote("    WBEM_FLAG_RETURN_IMMEDIATELY = 0x10,WBEM_FLAG_RETURN_WBEM_COMPLETE = 0,WBEM_FLAG_BIDIRECTIONAL = 0,WBEM_FLAG_FORWARD_ONLY = 0x20,")
-cpp_quote("    WBEM_FLAG_NO_ERROR_OBJECT = 0x40,WBEM_FLAG_RETURN_ERROR_OBJECT = 0,WBEM_FLAG_SEND_STATUS = 0x80,WBEM_FLAG_DONT_SEND_STATUS = 0,")
-cpp_quote("    WBEM_FLAG_ENSURE_LOCATABLE = 0x100,WBEM_FLAG_DIRECT_READ = 0x200,WBEM_FLAG_SEND_ONLY_SELECTED = 0,WBEM_RETURN_WHEN_COMPLETE = 0,")
-cpp_quote("    WBEM_RETURN_IMMEDIATELY = 0x10,WBEM_MASK_RESERVED_FLAGS = 0x1f000,WBEM_FLAG_USE_AMENDED_QUALIFIERS = 0x20000,")
-cpp_quote("    WBEM_FLAG_STRONG_VALIDATION = 0x100000")
-cpp_quote("  } WBEM_GENERIC_FLAG_TYPE;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEM_STATUS_TYPE {")
-cpp_quote("    WBEM_STATUS_COMPLETE = 0,WBEM_STATUS_REQUIREMENTS = 1,WBEM_STATUS_PROGRESS = 2")
-cpp_quote("  } WBEM_STATUS_TYPE;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEM_TIMEOUT_TYPE {")
-cpp_quote("    WBEM_NO_WAIT = 0,WBEM_INFINITE = 0xffffffff")
-cpp_quote("  } WBEM_TIMEOUT_TYPE;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEM_CONDITION_FLAG_TYPE {")
-cpp_quote("    WBEM_FLAG_ALWAYS = 0,WBEM_FLAG_ONLY_IF_TRUE = 0x1,WBEM_FLAG_ONLY_IF_FALSE = 0x2,WBEM_FLAG_ONLY_IF_IDENTICAL = 0x3,WBEM_MASK_PRIMARY_CONDITION = 0x3,")
-cpp_quote("    WBEM_FLAG_KEYS_ONLY = 0x4,WBEM_FLAG_REFS_ONLY = 0x8,WBEM_FLAG_LOCAL_ONLY = 0x10,WBEM_FLAG_PROPAGATED_ONLY = 0x20,WBEM_FLAG_SYSTEM_ONLY = 0x30,")
-cpp_quote("    WBEM_FLAG_NONSYSTEM_ONLY = 0x40,WBEM_MASK_CONDITION_ORIGIN = 0x70,WBEM_FLAG_CLASS_OVERRIDES_ONLY = 0x100,WBEM_FLAG_CLASS_LOCAL_AND_OVERRIDES = 0x200,")
-cpp_quote("    WBEM_MASK_CLASS_CONDITION = 0x300")
-cpp_quote("  } WBEM_CONDITION_FLAG_TYPE;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEM_FLAVOR_TYPE {")
-cpp_quote("    WBEM_FLAVOR_DONT_PROPAGATE = 0,WBEM_FLAVOR_FLAG_PROPAGATE_TO_INSTANCE = 0x1,WBEM_FLAVOR_FLAG_PROPAGATE_TO_DERIVED_CLASS = 0x2,")
-cpp_quote("    WBEM_FLAVOR_MASK_PROPAGATION = 0xf,WBEM_FLAVOR_OVERRIDABLE = 0,WBEM_FLAVOR_NOT_OVERRIDABLE = 0x10,WBEM_FLAVOR_MASK_PERMISSIONS = 0x10,")
-cpp_quote("    WBEM_FLAVOR_ORIGIN_LOCAL = 0,WBEM_FLAVOR_ORIGIN_PROPAGATED = 0x20,WBEM_FLAVOR_ORIGIN_SYSTEM = 0x40,WBEM_FLAVOR_MASK_ORIGIN = 0x60,")
-cpp_quote("    WBEM_FLAVOR_NOT_AMENDED = 0,WBEM_FLAVOR_AMENDED = 0x80,WBEM_FLAVOR_MASK_AMENDED = 0x80")
-cpp_quote("  } WBEM_FLAVOR_TYPE;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEM_QUERY_FLAG_TYPE {")
-cpp_quote("    WBEM_FLAG_DEEP = 0,WBEM_FLAG_SHALLOW = 1,WBEM_FLAG_PROTOTYPE = 2")
-cpp_quote("  } WBEM_QUERY_FLAG_TYPE;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEM_SECURITY_FLAGS {")
-cpp_quote("    WBEM_ENABLE = 1,WBEM_METHOD_EXECUTE = 2,WBEM_FULL_WRITE_REP = 4,WBEM_PARTIAL_WRITE_REP = 8,WBEM_WRITE_PROVIDER = 0x10,WBEM_REMOTE_ACCESS = 0x20,")
-cpp_quote("    WBEM_RIGHT_SUBSCRIBE = 0x40,WBEM_RIGHT_PUBLISH = 0x80")
-cpp_quote("  } WBEM_SECURITY_FLAGS;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEM_LIMITATION_FLAG_TYPE {")
-cpp_quote("    WBEM_FLAG_EXCLUDE_OBJECT_QUALIFIERS = 0x10,WBEM_FLAG_EXCLUDE_PROPERTY_QUALIFIERS = 0x20")
-cpp_quote("  } WBEM_LIMITATION_FLAG_TYPE;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEM_TEXT_FLAG_TYPE {")
-cpp_quote("    WBEM_FLAG_NO_FLAVORS = 0x1")
-cpp_quote("  } WBEM_TEXT_FLAG_TYPE;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEM_COMPARISON_FLAG {")
-cpp_quote("    WBEM_COMPARISON_INCLUDE_ALL = 0,WBEM_FLAG_IGNORE_QUALIFIERS = 0x1,WBEM_FLAG_IGNORE_OBJECT_SOURCE = 0x2,WBEM_FLAG_IGNORE_DEFAULT_VALUES = 0x4,")
-cpp_quote("    WBEM_FLAG_IGNORE_CLASS = 0x8,WBEM_FLAG_IGNORE_CASE = 0x10,WBEM_FLAG_IGNORE_FLAVOR = 0x20")
-cpp_quote("  } WBEM_COMPARISON_FLAG;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEM_LOCKING {")
-cpp_quote("    WBEM_FLAG_ALLOW_READ = 0x1")
-cpp_quote("  } WBEM_LOCKING_FLAG_TYPE;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_CIMTYPE_ENUMERATION {")
-cpp_quote("    CIM_ILLEGAL = 0xfff,CIM_EMPTY = 0,CIM_SINT8 = 16,CIM_UINT8 = 17,CIM_SINT16 = 2,CIM_UINT16 = 18,CIM_SINT32 = 3,CIM_UINT32 = 19,CIM_SINT64 = 20,")
-cpp_quote("    CIM_UINT64 = 21,CIM_REAL32 = 4,CIM_REAL64 = 5,CIM_BOOLEAN = 11,CIM_STRING = 8,CIM_DATETIME = 101,CIM_REFERENCE = 102,CIM_CHAR16 = 103,")
-cpp_quote("    CIM_OBJECT = 13,CIM_FLAG_ARRAY = 0x2000")
-cpp_quote("  } CIMTYPE_ENUMERATION;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEM_BACKUP_RESTORE_FLAGS {")
-cpp_quote("    WBEM_FLAG_BACKUP_RESTORE_DEFAULT = 0,WBEM_FLAG_BACKUP_RESTORE_FORCE_SHUTDOWN = 1")
-cpp_quote("  } WBEM_BACKUP_RESTORE_FLAGS;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEM_REFRESHER_FLAGS {")
-cpp_quote("    WBEM_FLAG_REFRESH_AUTO_RECONNECT = 0,WBEM_FLAG_REFRESH_NO_AUTO_RECONNECT = 1")
-cpp_quote("  } WBEM_REFRESHER_FLAGS;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEM_SHUTDOWN_FLAGS {")
-cpp_quote("    WBEM_SHUTDOWN_UNLOAD_COMPONENT = 1,WBEM_SHUTDOWN_WMI = 2,WBEM_SHUTDOWN_OS = 3")
-cpp_quote("  } WBEM_SHUTDOWN_FLAGS;")
-cpp_quote("")
-cpp_quote("  typedef __LONG32 CIMTYPE;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEMSTATUS_FORMAT {")
-cpp_quote("    WBEMSTATUS_FORMAT_NEWLINE = 0,WBEMSTATUS_FORMAT_NO_NEWLINE = 1")
-cpp_quote("  } WBEMSTATUS_FORMAT;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEM_LIMITS {")
-cpp_quote("    WBEM_MAX_IDENTIFIER = 0x1000,WBEM_MAX_QUERY = 0x4000,WBEM_MAX_PATH = 0x2000,WBEM_MAX_OBJECT_NESTING = 64,WBEM_MAX_USER_PROPERTIES = 1024")
-cpp_quote("  } WBEM_LIMITS;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEMSTATUS {")
-cpp_quote("    WBEM_NO_ERROR = 0,WBEM_S_NO_ERROR = 0,WBEM_S_SAME = 0,WBEM_S_FALSE = 1,WBEM_S_ALREADY_EXISTS = 0x40001,WBEM_S_RESET_TO_DEFAULT = 0x40002,")
-cpp_quote("    WBEM_S_DIFFERENT = 0x40003,WBEM_S_TIMEDOUT = 0x40004,WBEM_S_NO_MORE_DATA = 0x40005,WBEM_S_OPERATION_CANCELLED = 0x40006,WBEM_S_PENDING = 0x40007,")
-cpp_quote("    WBEM_S_DUPLICATE_OBJECTS = 0x40008,WBEM_S_ACCESS_DENIED = 0x40009,WBEM_S_PARTIAL_RESULTS = 0x40010,WBEM_S_SOURCE_NOT_AVAILABLE = 0x40017,")
-cpp_quote("    WBEM_E_FAILED = 0x80041001,WBEM_E_NOT_FOUND = 0x80041002,WBEM_E_ACCESS_DENIED = 0x80041003,WBEM_E_PROVIDER_FAILURE = 0x80041004,")
-cpp_quote("    WBEM_E_TYPE_MISMATCH = 0x80041005,WBEM_E_OUT_OF_MEMORY = 0x80041006,WBEM_E_INVALID_CONTEXT = 0x80041007,WBEM_E_INVALID_PARAMETER = 0x80041008,")
-cpp_quote("    WBEM_E_NOT_AVAILABLE = 0x80041009,WBEM_E_CRITICAL_ERROR = 0x8004100a,WBEM_E_INVALID_STREAM = 0x8004100b,WBEM_E_NOT_SUPPORTED = 0x8004100c,")
-cpp_quote("    WBEM_E_INVALID_SUPERCLASS = 0x8004100d,WBEM_E_INVALID_NAMESPACE = 0x8004100e,WBEM_E_INVALID_OBJECT = 0x8004100f,WBEM_E_INVALID_CLASS = 0x80041010,")
-cpp_quote("    WBEM_E_PROVIDER_NOT_FOUND = 0x80041011,WBEM_E_INVALID_PROVIDER_REGISTRATION = 0x80041012,WBEM_E_PROVIDER_LOAD_FAILURE = 0x80041013,")
-cpp_quote("    WBEM_E_INITIALIZATION_FAILURE = 0x80041014,WBEM_E_TRANSPORT_FAILURE = 0x80041015,WBEM_E_INVALID_OPERATION = 0x80041016,")
-cpp_quote("    WBEM_E_INVALID_QUERY = 0x80041017,WBEM_E_INVALID_QUERY_TYPE = 0x80041018,WBEM_E_ALREADY_EXISTS = 0x80041019,WBEM_E_OVERRIDE_NOT_ALLOWED = 0x8004101a,")
-cpp_quote("    WBEM_E_PROPAGATED_QUALIFIER = 0x8004101b,WBEM_E_PROPAGATED_PROPERTY = 0x8004101c,WBEM_E_UNEXPECTED = 0x8004101d,WBEM_E_ILLEGAL_OPERATION = 0x8004101e,")
-cpp_quote("    WBEM_E_CANNOT_BE_KEY = 0x8004101f,WBEM_E_INCOMPLETE_CLASS = 0x80041020,WBEM_E_INVALID_SYNTAX = 0x80041021,WBEM_E_NONDECORATED_OBJECT = 0x80041022,")
-cpp_quote("    WBEM_E_READ_ONLY = 0x80041023,WBEM_E_PROVIDER_NOT_CAPABLE = 0x80041024,WBEM_E_CLASS_HAS_CHILDREN = 0x80041025,")
-cpp_quote("    WBEM_E_CLASS_HAS_INSTANCES = 0x80041026,WBEM_E_QUERY_NOT_IMPLEMENTED = 0x80041027,WBEM_E_ILLEGAL_NULL = 0x80041028,")
-cpp_quote("    WBEM_E_INVALID_QUALIFIER_TYPE = 0x80041029,WBEM_E_INVALID_PROPERTY_TYPE = 0x8004102a,WBEM_E_VALUE_OUT_OF_RANGE = 0x8004102b,")
-cpp_quote("    WBEM_E_CANNOT_BE_SINGLETON = 0x8004102c,WBEM_E_INVALID_CIM_TYPE = 0x8004102d,WBEM_E_INVALID_METHOD = 0x8004102e,")
-cpp_quote("    WBEM_E_INVALID_METHOD_PARAMETERS = 0x8004102f,WBEM_E_SYSTEM_PROPERTY = 0x80041030,WBEM_E_INVALID_PROPERTY = 0x80041031,")
-cpp_quote("    WBEM_E_CALL_CANCELLED = 0x80041032,WBEM_E_SHUTTING_DOWN = 0x80041033,WBEM_E_PROPAGATED_METHOD = 0x80041034,")
-cpp_quote("    WBEM_E_UNSUPPORTED_PARAMETER = 0x80041035,WBEM_E_MISSING_PARAMETER_ID = 0x80041036,WBEM_E_INVALID_PARAMETER_ID = 0x80041037,")
-cpp_quote("    WBEM_E_NONCONSECUTIVE_PARAMETER_IDS = 0x80041038,WBEM_E_PARAMETER_ID_ON_RETVAL = 0x80041039,WBEM_E_INVALID_OBJECT_PATH = 0x8004103a,")
-cpp_quote("    WBEM_E_OUT_OF_DISK_SPACE = 0x8004103b,WBEM_E_BUFFER_TOO_SMALL = 0x8004103c,WBEM_E_UNSUPPORTED_PUT_EXTENSION = 0x8004103d,")
-cpp_quote("    WBEM_E_UNKNOWN_OBJECT_TYPE = 0x8004103e,WBEM_E_UNKNOWN_PACKET_TYPE = 0x8004103f,WBEM_E_MARSHAL_VERSION_MISMATCH = 0x80041040,")
-cpp_quote("    WBEM_E_MARSHAL_INVALID_SIGNATURE = 0x80041041,WBEM_E_INVALID_QUALIFIER = 0x80041042,WBEM_E_INVALID_DUPLICATE_PARAMETER = 0x80041043,")
-cpp_quote("    WBEM_E_TOO_MUCH_DATA = 0x80041044,WBEM_E_SERVER_TOO_BUSY = 0x80041045,WBEM_E_INVALID_FLAVOR = 0x80041046,WBEM_E_CIRCULAR_REFERENCE = 0x80041047,")
-cpp_quote("    WBEM_E_UNSUPPORTED_CLASS_UPDATE = 0x80041048,WBEM_E_CANNOT_CHANGE_KEY_INHERITANCE = 0x80041049,WBEM_E_CANNOT_CHANGE_INDEX_INHERITANCE = 0x80041050,")
-cpp_quote("    WBEM_E_TOO_MANY_PROPERTIES = 0x80041051,WBEM_E_UPDATE_TYPE_MISMATCH = 0x80041052,WBEM_E_UPDATE_OVERRIDE_NOT_ALLOWED = 0x80041053,")
-cpp_quote("    WBEM_E_UPDATE_PROPAGATED_METHOD = 0x80041054,WBEM_E_METHOD_NOT_IMPLEMENTED = 0x80041055,WBEM_E_METHOD_DISABLED = 0x80041056,")
-cpp_quote("    WBEM_E_REFRESHER_BUSY = 0x80041057,WBEM_E_UNPARSABLE_QUERY = 0x80041058,WBEM_E_NOT_EVENT_CLASS = 0x80041059,WBEM_E_MISSING_GROUP_WITHIN = 0x8004105a,")
-cpp_quote("    WBEM_E_MISSING_AGGREGATION_LIST = 0x8004105b,WBEM_E_PROPERTY_NOT_AN_OBJECT = 0x8004105c,WBEM_E_AGGREGATING_BY_OBJECT = 0x8004105d,")
-cpp_quote("    WBEM_E_UNINTERPRETABLE_PROVIDER_QUERY = 0x8004105f,WBEM_E_BACKUP_RESTORE_WINMGMT_RUNNING = 0x80041060,WBEM_E_QUEUE_OVERFLOW = 0x80041061,")
-cpp_quote("    WBEM_E_PRIVILEGE_NOT_HELD = 0x80041062,WBEM_E_INVALID_OPERATOR = 0x80041063,WBEM_E_LOCAL_CREDENTIALS = 0x80041064,")
-cpp_quote("    WBEM_E_CANNOT_BE_ABSTRACT = 0x80041065,WBEM_E_AMENDED_OBJECT = 0x80041066,WBEM_E_CLIENT_TOO_SLOW = 0x80041067,")
-cpp_quote("    WBEM_E_NULL_SECURITY_DESCRIPTOR = 0x80041068,WBEM_E_TIMED_OUT = 0x80041069,WBEM_E_INVALID_ASSOCIATION = 0x8004106a,")
-cpp_quote("    WBEM_E_AMBIGUOUS_OPERATION = 0x8004106b,WBEM_E_QUOTA_VIOLATION = 0x8004106c,WBEM_E_RESERVED_001 = 0x8004106d,WBEM_E_RESERVED_002 = 0x8004106e,")
-cpp_quote("    WBEM_E_UNSUPPORTED_LOCALE = 0x8004106f,WBEM_E_HANDLE_OUT_OF_DATE = 0x80041070,WBEM_E_CONNECTION_FAILED = 0x80041071,")
-cpp_quote("    WBEM_E_INVALID_HANDLE_REQUEST = 0x80041072,WBEM_E_PROPERTY_NAME_TOO_WIDE = 0x80041073,WBEM_E_CLASS_NAME_TOO_WIDE = 0x80041074,")
-cpp_quote("    WBEM_E_METHOD_NAME_TOO_WIDE = 0x80041075,WBEM_E_QUALIFIER_NAME_TOO_WIDE = 0x80041076,WBEM_E_RERUN_COMMAND = 0x80041077,")
-cpp_quote("    WBEM_E_DATABASE_VER_MISMATCH = 0x80041078,WBEM_E_VETO_DELETE = 0x80041079,WBEM_E_VETO_PUT = 0x8004107a,WBEM_E_INVALID_LOCALE = 0x80041080,")
-cpp_quote("    WBEM_E_PROVIDER_SUSPENDED = 0x80041081,WBEM_E_SYNCHRONIZATION_REQUIRED = 0x80041082,WBEM_E_NO_SCHEMA = 0x80041083,")
-cpp_quote("    WBEM_E_PROVIDER_ALREADY_REGISTERED = 0x80041084,WBEM_E_PROVIDER_NOT_REGISTERED = 0x80041085,WBEM_E_FATAL_TRANSPORT_ERROR = 0x80041086,")
-cpp_quote("    WBEM_E_ENCRYPTED_CONNECTION_REQUIRED = 0x80041087,WBEM_E_PROVIDER_TIMED_OUT = 0x80041088,WBEM_E_NO_KEY = 0x80041089,")
-cpp_quote("    WBEM_E_PROVIDER_DISABLED = 0x8004108a,WBEMESS_E_REGISTRATION_TOO_BROAD = 0x80042001,WBEMESS_E_REGISTRATION_TOO_PRECISE = 0x80042002,")
-cpp_quote("    WBEMESS_E_AUTHZ_NOT_PRIVILEGED = 0x80042003,WBEMMOF_E_EXPECTED_QUALIFIER_NAME = 0x80044001,WBEMMOF_E_EXPECTED_SEMI = 0x80044002,")
-cpp_quote("    WBEMMOF_E_EXPECTED_OPEN_BRACE = 0x80044003,WBEMMOF_E_EXPECTED_CLOSE_BRACE = 0x80044004,WBEMMOF_E_EXPECTED_CLOSE_BRACKET = 0x80044005,")
-cpp_quote("    WBEMMOF_E_EXPECTED_CLOSE_PAREN = 0x80044006,WBEMMOF_E_ILLEGAL_CONSTANT_VALUE = 0x80044007,WBEMMOF_E_EXPECTED_TYPE_IDENTIFIER = 0x80044008,")
-cpp_quote("    WBEMMOF_E_EXPECTED_OPEN_PAREN = 0x80044009,WBEMMOF_E_UNRECOGNIZED_TOKEN = 0x8004400a,WBEMMOF_E_UNRECOGNIZED_TYPE = 0x8004400b,")
-cpp_quote("    WBEMMOF_E_EXPECTED_PROPERTY_NAME = 0x8004400c,WBEMMOF_E_TYPEDEF_NOT_SUPPORTED = 0x8004400d,WBEMMOF_E_UNEXPECTED_ALIAS = 0x8004400e,")
-cpp_quote("    WBEMMOF_E_UNEXPECTED_ARRAY_INIT = 0x8004400f,WBEMMOF_E_INVALID_AMENDMENT_SYNTAX = 0x80044010,WBEMMOF_E_INVALID_DUPLICATE_AMENDMENT = 0x80044011,")
-cpp_quote("    WBEMMOF_E_INVALID_PRAGMA = 0x80044012,WBEMMOF_E_INVALID_NAMESPACE_SYNTAX = 0x80044013,WBEMMOF_E_EXPECTED_CLASS_NAME = 0x80044014,")
-cpp_quote("    WBEMMOF_E_TYPE_MISMATCH = 0x80044015,WBEMMOF_E_EXPECTED_ALIAS_NAME = 0x80044016,WBEMMOF_E_INVALID_CLASS_DECLARATION = 0x80044017,")
-cpp_quote("    WBEMMOF_E_INVALID_INSTANCE_DECLARATION = 0x80044018,WBEMMOF_E_EXPECTED_DOLLAR = 0x80044019,WBEMMOF_E_CIMTYPE_QUALIFIER = 0x8004401a,")
-cpp_quote("    WBEMMOF_E_DUPLICATE_PROPERTY = 0x8004401b,WBEMMOF_E_INVALID_NAMESPACE_SPECIFICATION = 0x8004401c,WBEMMOF_E_OUT_OF_RANGE = 0x8004401d,")
-cpp_quote("    WBEMMOF_E_INVALID_FILE = 0x8004401e,WBEMMOF_E_ALIASES_IN_EMBEDDED = 0x8004401f,WBEMMOF_E_NULL_ARRAY_ELEM = 0x80044020,")
-cpp_quote("    WBEMMOF_E_DUPLICATE_QUALIFIER = 0x80044021,WBEMMOF_E_EXPECTED_FLAVOR_TYPE = 0x80044022,WBEMMOF_E_INCOMPATIBLE_FLAVOR_TYPES = 0x80044023,")
-cpp_quote("    WBEMMOF_E_MULTIPLE_ALIASES = 0x80044024,WBEMMOF_E_INCOMPATIBLE_FLAVOR_TYPES2 = 0x80044025,WBEMMOF_E_NO_ARRAYS_RETURNED = 0x80044026,")
-cpp_quote("    WBEMMOF_E_MUST_BE_IN_OR_OUT = 0x80044027,WBEMMOF_E_INVALID_FLAGS_SYNTAX = 0x80044028,WBEMMOF_E_EXPECTED_BRACE_OR_BAD_TYPE = 0x80044029,")
-cpp_quote("    WBEMMOF_E_UNSUPPORTED_CIMV22_QUAL_VALUE = 0x8004402a,WBEMMOF_E_UNSUPPORTED_CIMV22_DATA_TYPE = 0x8004402b,")
-cpp_quote("    WBEMMOF_E_INVALID_DELETEINSTANCE_SYNTAX = 0x8004402c,WBEMMOF_E_INVALID_QUALIFIER_SYNTAX = 0x8004402d,")
-cpp_quote("    WBEMMOF_E_QUALIFIER_USED_OUTSIDE_SCOPE = 0x8004402e,WBEMMOF_E_ERROR_CREATING_TEMP_FILE = 0x8004402f,")
-cpp_quote("    WBEMMOF_E_ERROR_INVALID_INCLUDE_FILE = 0x80044030,WBEMMOF_E_INVALID_DELETECLASS_SYNTAX = 0x80044031")
-cpp_quote("  } WBEMSTATUS;")
-cpp_quote("")
-cpp_quote("  EXTERN_C const IID LIBID_WbemClient_v1;")
-cpp_quote("#ifndef __IWbemClassObject_INTERFACE_DEFINED__")
-cpp_quote("#define __IWbemClassObject_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_IWbemClassObject;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IWbemClassObject : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI GetQualifierSet(IWbemQualifierSet **ppQualSet) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Get(LPCWSTR wszName,__LONG32 lFlags,VARIANT *pVal,CIMTYPE *pType,__LONG32 *plFlavor) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Put(LPCWSTR wszName,__LONG32 lFlags,VARIANT *pVal,CIMTYPE Type) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Delete(LPCWSTR wszName) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetNames(LPCWSTR wszQualifierName,__LONG32 lFlags,VARIANT *pQualifierVal,SAFEARRAY **pNames) = 0;")
-cpp_quote("    virtual HRESULT WINAPI BeginEnumeration(__LONG32 lEnumFlags) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Next(__LONG32 lFlags,BSTR *strName,VARIANT *pVal,CIMTYPE *pType,__LONG32 *plFlavor) = 0;")
-cpp_quote("    virtual HRESULT WINAPI EndEnumeration(void) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetPropertyQualifierSet(LPCWSTR wszProperty,IWbemQualifierSet **ppQualSet) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Clone(IWbemClassObject **ppCopy) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetObjectText(__LONG32 lFlags,BSTR *pstrObjectText) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SpawnDerivedClass(__LONG32 lFlags,IWbemClassObject **ppNewClass) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SpawnInstance(__LONG32 lFlags,IWbemClassObject **ppNewInstance) = 0;")
-cpp_quote("    virtual HRESULT WINAPI CompareTo(__LONG32 lFlags,IWbemClassObject *pCompareTo) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetPropertyOrigin(LPCWSTR wszName,BSTR *pstrClassName) = 0;")
-cpp_quote("    virtual HRESULT WINAPI InheritsFrom(LPCWSTR strAncestor) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetMethod(LPCWSTR wszName,__LONG32 lFlags,IWbemClassObject **ppInSignature,IWbemClassObject **ppOutSignature) = 0;")
-cpp_quote("    virtual HRESULT WINAPI PutMethod(LPCWSTR wszName,__LONG32 lFlags,IWbemClassObject *pInSignature,IWbemClassObject *pOutSignature) = 0;")
-cpp_quote("    virtual HRESULT WINAPI DeleteMethod(LPCWSTR wszName) = 0;")
-cpp_quote("    virtual HRESULT WINAPI BeginMethodEnumeration(__LONG32 lEnumFlags) = 0;")
-cpp_quote("    virtual HRESULT WINAPI NextMethod(__LONG32 lFlags,BSTR *pstrName,IWbemClassObject **ppInSignature,IWbemClassObject **ppOutSignature) = 0;")
-cpp_quote("    virtual HRESULT WINAPI EndMethodEnumeration(void) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetMethodQualifierSet(LPCWSTR wszMethod,IWbemQualifierSet **ppQualSet) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetMethodOrigin(LPCWSTR wszMethodName,BSTR *pstrClassName) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IWbemClassObjectVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IWbemClassObject *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IWbemClassObject *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IWbemClassObject *This);")
-cpp_quote("      HRESULT (WINAPI *GetQualifierSet)(IWbemClassObject *This,IWbemQualifierSet **ppQualSet);")
-cpp_quote("      HRESULT (WINAPI *Get)(IWbemClassObject *This,LPCWSTR wszName,__LONG32 lFlags,VARIANT *pVal,CIMTYPE *pType,__LONG32 *plFlavor);")
-cpp_quote("      HRESULT (WINAPI *Put)(IWbemClassObject *This,LPCWSTR wszName,__LONG32 lFlags,VARIANT *pVal,CIMTYPE Type);")
-cpp_quote("      HRESULT (WINAPI *Delete)(IWbemClassObject *This,LPCWSTR wszName);")
-cpp_quote("      HRESULT (WINAPI *GetNames)(IWbemClassObject *This,LPCWSTR wszQualifierName,__LONG32 lFlags,VARIANT *pQualifierVal,SAFEARRAY **pNames);")
-cpp_quote("      HRESULT (WINAPI *BeginEnumeration)(IWbemClassObject *This,__LONG32 lEnumFlags);")
-cpp_quote("      HRESULT (WINAPI *Next)(IWbemClassObject *This,__LONG32 lFlags,BSTR *strName,VARIANT *pVal,CIMTYPE *pType,__LONG32 *plFlavor);")
-cpp_quote("      HRESULT (WINAPI *EndEnumeration)(IWbemClassObject *This);")
-cpp_quote("      HRESULT (WINAPI *GetPropertyQualifierSet)(IWbemClassObject *This,LPCWSTR wszProperty,IWbemQualifierSet **ppQualSet);")
-cpp_quote("      HRESULT (WINAPI *Clone)(IWbemClassObject *This,IWbemClassObject **ppCopy);")
-cpp_quote("      HRESULT (WINAPI *GetObjectText)(IWbemClassObject *This,__LONG32 lFlags,BSTR *pstrObjectText);")
-cpp_quote("      HRESULT (WINAPI *SpawnDerivedClass)(IWbemClassObject *This,__LONG32 lFlags,IWbemClassObject **ppNewClass);")
-cpp_quote("      HRESULT (WINAPI *SpawnInstance)(IWbemClassObject *This,__LONG32 lFlags,IWbemClassObject **ppNewInstance);")
-cpp_quote("      HRESULT (WINAPI *CompareTo)(IWbemClassObject *This,__LONG32 lFlags,IWbemClassObject *pCompareTo);")
-cpp_quote("      HRESULT (WINAPI *GetPropertyOrigin)(IWbemClassObject *This,LPCWSTR wszName,BSTR *pstrClassName);")
-cpp_quote("      HRESULT (WINAPI *InheritsFrom)(IWbemClassObject *This,LPCWSTR strAncestor);")
-cpp_quote("      HRESULT (WINAPI *GetMethod)(IWbemClassObject *This,LPCWSTR wszName,__LONG32 lFlags,IWbemClassObject **ppInSignature,IWbemClassObject **ppOutSignature);")
-cpp_quote("      HRESULT (WINAPI *PutMethod)(IWbemClassObject *This,LPCWSTR wszName,__LONG32 lFlags,IWbemClassObject *pInSignature,IWbemClassObject *pOutSignature);")
-cpp_quote("      HRESULT (WINAPI *DeleteMethod)(IWbemClassObject *This,LPCWSTR wszName);")
-cpp_quote("      HRESULT (WINAPI *BeginMethodEnumeration)(IWbemClassObject *This,__LONG32 lEnumFlags);")
-cpp_quote("      HRESULT (WINAPI *NextMethod)(IWbemClassObject *This,__LONG32 lFlags,BSTR *pstrName,IWbemClassObject **ppInSignature,IWbemClassObject **ppOutSignature);")
-cpp_quote("      HRESULT (WINAPI *EndMethodEnumeration)(IWbemClassObject *This);")
-cpp_quote("      HRESULT (WINAPI *GetMethodQualifierSet)(IWbemClassObject *This,LPCWSTR wszMethod,IWbemQualifierSet **ppQualSet);")
-cpp_quote("      HRESULT (WINAPI *GetMethodOrigin)(IWbemClassObject *This,LPCWSTR wszMethodName,BSTR *pstrClassName);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IWbemClassObjectVtbl;")
-cpp_quote("  struct IWbemClassObject {")
-cpp_quote("    CONST_VTBL struct IWbemClassObjectVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IWbemClassObject_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IWbemClassObject_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IWbemClassObject_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IWbemClassObject_GetQualifierSet(This,ppQualSet) (This)->lpVtbl->GetQualifierSet(This,ppQualSet)")
-cpp_quote("#define IWbemClassObject_Get(This,wszName,lFlags,pVal,pType,plFlavor) (This)->lpVtbl->Get(This,wszName,lFlags,pVal,pType,plFlavor)")
-cpp_quote("#define IWbemClassObject_Put(This,wszName,lFlags,pVal,Type) (This)->lpVtbl->Put(This,wszName,lFlags,pVal,Type)")
-cpp_quote("#define IWbemClassObject_Delete(This,wszName) (This)->lpVtbl->Delete(This,wszName)")
-cpp_quote("#define IWbemClassObject_GetNames(This,wszQualifierName,lFlags,pQualifierVal,pNames) (This)->lpVtbl->GetNames(This,wszQualifierName,lFlags,pQualifierVal,pNames)")
-cpp_quote("#define IWbemClassObject_BeginEnumeration(This,lEnumFlags) (This)->lpVtbl->BeginEnumeration(This,lEnumFlags)")
-cpp_quote("#define IWbemClassObject_Next(This,lFlags,strName,pVal,pType,plFlavor) (This)->lpVtbl->Next(This,lFlags,strName,pVal,pType,plFlavor)")
-cpp_quote("#define IWbemClassObject_EndEnumeration(This) (This)->lpVtbl->EndEnumeration(This)")
-cpp_quote("#define IWbemClassObject_GetPropertyQualifierSet(This,wszProperty,ppQualSet) (This)->lpVtbl->GetPropertyQualifierSet(This,wszProperty,ppQualSet)")
-cpp_quote("#define IWbemClassObject_Clone(This,ppCopy) (This)->lpVtbl->Clone(This,ppCopy)")
-cpp_quote("#define IWbemClassObject_GetObjectText(This,lFlags,pstrObjectText) (This)->lpVtbl->GetObjectText(This,lFlags,pstrObjectText)")
-cpp_quote("#define IWbemClassObject_SpawnDerivedClass(This,lFlags,ppNewClass) (This)->lpVtbl->SpawnDerivedClass(This,lFlags,ppNewClass)")
-cpp_quote("#define IWbemClassObject_SpawnInstance(This,lFlags,ppNewInstance) (This)->lpVtbl->SpawnInstance(This,lFlags,ppNewInstance)")
-cpp_quote("#define IWbemClassObject_CompareTo(This,lFlags,pCompareTo) (This)->lpVtbl->CompareTo(This,lFlags,pCompareTo)")
-cpp_quote("#define IWbemClassObject_GetPropertyOrigin(This,wszName,pstrClassName) (This)->lpVtbl->GetPropertyOrigin(This,wszName,pstrClassName)")
-cpp_quote("#define IWbemClassObject_InheritsFrom(This,strAncestor) (This)->lpVtbl->InheritsFrom(This,strAncestor)")
-cpp_quote("#define IWbemClassObject_GetMethod(This,wszName,lFlags,ppInSignature,ppOutSignature) (This)->lpVtbl->GetMethod(This,wszName,lFlags,ppInSignature,ppOutSignature)")
-cpp_quote("#define IWbemClassObject_PutMethod(This,wszName,lFlags,pInSignature,pOutSignature) (This)->lpVtbl->PutMethod(This,wszName,lFlags,pInSignature,pOutSignature)")
-cpp_quote("#define IWbemClassObject_DeleteMethod(This,wszName) (This)->lpVtbl->DeleteMethod(This,wszName)")
-cpp_quote("#define IWbemClassObject_BeginMethodEnumeration(This,lEnumFlags) (This)->lpVtbl->BeginMethodEnumeration(This,lEnumFlags)")
-cpp_quote("#define IWbemClassObject_NextMethod(This,lFlags,pstrName,ppInSignature,ppOutSignature) (This)->lpVtbl->NextMethod(This,lFlags,pstrName,ppInSignature,ppOutSignature)")
-cpp_quote("#define IWbemClassObject_EndMethodEnumeration(This) (This)->lpVtbl->EndMethodEnumeration(This)")
-cpp_quote("#define IWbemClassObject_GetMethodQualifierSet(This,wszMethod,ppQualSet) (This)->lpVtbl->GetMethodQualifierSet(This,wszMethod,ppQualSet)")
-cpp_quote("#define IWbemClassObject_GetMethodOrigin(This,wszMethodName,pstrClassName) (This)->lpVtbl->GetMethodOrigin(This,wszMethodName,pstrClassName)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_GetQualifierSet_Proxy(IWbemClassObject *This,IWbemQualifierSet **ppQualSet);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_GetQualifierSet_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_Get_Proxy(IWbemClassObject *This,LPCWSTR wszName,__LONG32 lFlags,VARIANT *pVal,CIMTYPE *pType,__LONG32 *plFlavor);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_Get_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_Put_Proxy(IWbemClassObject *This,LPCWSTR wszName,__LONG32 lFlags,VARIANT *pVal,CIMTYPE Type);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_Put_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_Delete_Proxy(IWbemClassObject *This,LPCWSTR wszName);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_Delete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_GetNames_Proxy(IWbemClassObject *This,LPCWSTR wszQualifierName,__LONG32 lFlags,VARIANT *pQualifierVal,SAFEARRAY **pNames);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_GetNames_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_BeginEnumeration_Proxy(IWbemClassObject *This,__LONG32 lEnumFlags);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_BeginEnumeration_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_Next_Proxy(IWbemClassObject *This,__LONG32 lFlags,BSTR *strName,VARIANT *pVal,CIMTYPE *pType,__LONG32 *plFlavor);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_Next_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_EndEnumeration_Proxy(IWbemClassObject *This);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_EndEnumeration_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_GetPropertyQualifierSet_Proxy(IWbemClassObject *This,LPCWSTR wszProperty,IWbemQualifierSet **ppQualSet);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_GetPropertyQualifierSet_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_Clone_Proxy(IWbemClassObject *This,IWbemClassObject **ppCopy);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_GetObjectText_Proxy(IWbemClassObject *This,__LONG32 lFlags,BSTR *pstrObjectText);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_GetObjectText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_SpawnDerivedClass_Proxy(IWbemClassObject *This,__LONG32 lFlags,IWbemClassObject **ppNewClass);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_SpawnDerivedClass_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_SpawnInstance_Proxy(IWbemClassObject *This,__LONG32 lFlags,IWbemClassObject **ppNewInstance);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_SpawnInstance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_CompareTo_Proxy(IWbemClassObject *This,__LONG32 lFlags,IWbemClassObject *pCompareTo);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_CompareTo_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_GetPropertyOrigin_Proxy(IWbemClassObject *This,LPCWSTR wszName,BSTR *pstrClassName);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_GetPropertyOrigin_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_InheritsFrom_Proxy(IWbemClassObject *This,LPCWSTR strAncestor);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_InheritsFrom_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_GetMethod_Proxy(IWbemClassObject *This,LPCWSTR wszName,__LONG32 lFlags,IWbemClassObject **ppInSignature,IWbemClassObject **ppOutSignature);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_GetMethod_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_PutMethod_Proxy(IWbemClassObject *This,LPCWSTR wszName,__LONG32 lFlags,IWbemClassObject *pInSignature,IWbemClassObject *pOutSignature);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_PutMethod_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_DeleteMethod_Proxy(IWbemClassObject *This,LPCWSTR wszName);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_DeleteMethod_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_BeginMethodEnumeration_Proxy(IWbemClassObject *This,__LONG32 lEnumFlags);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_BeginMethodEnumeration_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_NextMethod_Proxy(IWbemClassObject *This,__LONG32 lFlags,BSTR *pstrName,IWbemClassObject **ppInSignature,IWbemClassObject **ppOutSignature);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_NextMethod_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_EndMethodEnumeration_Proxy(IWbemClassObject *This);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_EndMethodEnumeration_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_GetMethodQualifierSet_Proxy(IWbemClassObject *This,LPCWSTR wszMethod,IWbemQualifierSet **ppQualSet);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_GetMethodQualifierSet_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemClassObject_GetMethodOrigin_Proxy(IWbemClassObject *This,LPCWSTR wszMethodName,BSTR *pstrClassName);")
-cpp_quote("  void __RPC_STUB IWbemClassObject_GetMethodOrigin_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemObjectAccess_INTERFACE_DEFINED__")
-cpp_quote("#define __IWbemObjectAccess_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_IWbemObjectAccess;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IWbemObjectAccess : public IWbemClassObject {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI GetPropertyHandle(LPCWSTR wszPropertyName,CIMTYPE *pType,__LONG32 *plHandle) = 0;")
-cpp_quote("    virtual HRESULT WINAPI WritePropertyValue(__LONG32 lHandle,__LONG32 lNumBytes,const byte *aData) = 0;")
-cpp_quote("    virtual HRESULT WINAPI ReadPropertyValue(__LONG32 lHandle,__LONG32 lBufferSize,__LONG32 *plNumBytes,byte *aData) = 0;")
-cpp_quote("    virtual HRESULT WINAPI ReadDWORD(__LONG32 lHandle,DWORD *pdw) = 0;")
-cpp_quote("    virtual HRESULT WINAPI WriteDWORD(__LONG32 lHandle,DWORD dw) = 0;")
-cpp_quote("    __MINGW_EXTENSION virtual HRESULT WINAPI ReadQWORD(__LONG32 lHandle,unsigned __int64 *pqw) = 0;")
-cpp_quote("    __MINGW_EXTENSION virtual HRESULT WINAPI WriteQWORD(__LONG32 lHandle,unsigned __int64 pw) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetPropertyInfoByHandle(__LONG32 lHandle,BSTR *pstrName,CIMTYPE *pType) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Lock(__LONG32 lFlags) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Unlock(__LONG32 lFlags) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IWbemObjectAccessVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IWbemObjectAccess *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IWbemObjectAccess *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IWbemObjectAccess *This);")
-cpp_quote("      HRESULT (WINAPI *GetQualifierSet)(IWbemObjectAccess *This,IWbemQualifierSet **ppQualSet);")
-cpp_quote("      HRESULT (WINAPI *Get)(IWbemObjectAccess *This,LPCWSTR wszName,__LONG32 lFlags,VARIANT *pVal,CIMTYPE *pType,__LONG32 *plFlavor);")
-cpp_quote("      HRESULT (WINAPI *Put)(IWbemObjectAccess *This,LPCWSTR wszName,__LONG32 lFlags,VARIANT *pVal,CIMTYPE Type);")
-cpp_quote("      HRESULT (WINAPI *Delete)(IWbemObjectAccess *This,LPCWSTR wszName);")
-cpp_quote("      HRESULT (WINAPI *GetNames)(IWbemObjectAccess *This,LPCWSTR wszQualifierName,__LONG32 lFlags,VARIANT *pQualifierVal,SAFEARRAY **pNames);")
-cpp_quote("      HRESULT (WINAPI *BeginEnumeration)(IWbemObjectAccess *This,__LONG32 lEnumFlags);")
-cpp_quote("      HRESULT (WINAPI *Next)(IWbemObjectAccess *This,__LONG32 lFlags,BSTR *strName,VARIANT *pVal,CIMTYPE *pType,__LONG32 *plFlavor);")
-cpp_quote("      HRESULT (WINAPI *EndEnumeration)(IWbemObjectAccess *This);")
-cpp_quote("      HRESULT (WINAPI *GetPropertyQualifierSet)(IWbemObjectAccess *This,LPCWSTR wszProperty,IWbemQualifierSet **ppQualSet);")
-cpp_quote("      HRESULT (WINAPI *Clone)(IWbemObjectAccess *This,IWbemClassObject **ppCopy);")
-cpp_quote("      HRESULT (WINAPI *GetObjectText)(IWbemObjectAccess *This,__LONG32 lFlags,BSTR *pstrObjectText);")
-cpp_quote("      HRESULT (WINAPI *SpawnDerivedClass)(IWbemObjectAccess *This,__LONG32 lFlags,IWbemClassObject **ppNewClass);")
-cpp_quote("      HRESULT (WINAPI *SpawnInstance)(IWbemObjectAccess *This,__LONG32 lFlags,IWbemClassObject **ppNewInstance);")
-cpp_quote("      HRESULT (WINAPI *CompareTo)(IWbemObjectAccess *This,__LONG32 lFlags,IWbemClassObject *pCompareTo);")
-cpp_quote("      HRESULT (WINAPI *GetPropertyOrigin)(IWbemObjectAccess *This,LPCWSTR wszName,BSTR *pstrClassName);")
-cpp_quote("      HRESULT (WINAPI *InheritsFrom)(IWbemObjectAccess *This,LPCWSTR strAncestor);")
-cpp_quote("      HRESULT (WINAPI *GetMethod)(IWbemObjectAccess *This,LPCWSTR wszName,__LONG32 lFlags,IWbemClassObject **ppInSignature,IWbemClassObject **ppOutSignature);")
-cpp_quote("      HRESULT (WINAPI *PutMethod)(IWbemObjectAccess *This,LPCWSTR wszName,__LONG32 lFlags,IWbemClassObject *pInSignature,IWbemClassObject *pOutSignature);")
-cpp_quote("      HRESULT (WINAPI *DeleteMethod)(IWbemObjectAccess *This,LPCWSTR wszName);")
-cpp_quote("      HRESULT (WINAPI *BeginMethodEnumeration)(IWbemObjectAccess *This,__LONG32 lEnumFlags);")
-cpp_quote("      HRESULT (WINAPI *NextMethod)(IWbemObjectAccess *This,__LONG32 lFlags,BSTR *pstrName,IWbemClassObject **ppInSignature,IWbemClassObject **ppOutSignature);")
-cpp_quote("      HRESULT (WINAPI *EndMethodEnumeration)(IWbemObjectAccess *This);")
-cpp_quote("      HRESULT (WINAPI *GetMethodQualifierSet)(IWbemObjectAccess *This,LPCWSTR wszMethod,IWbemQualifierSet **ppQualSet);")
-cpp_quote("      HRESULT (WINAPI *GetMethodOrigin)(IWbemObjectAccess *This,LPCWSTR wszMethodName,BSTR *pstrClassName);")
-cpp_quote("      HRESULT (WINAPI *GetPropertyHandle)(IWbemObjectAccess *This,LPCWSTR wszPropertyName,CIMTYPE *pType,__LONG32 *plHandle);")
-cpp_quote("      HRESULT (WINAPI *WritePropertyValue)(IWbemObjectAccess *This,__LONG32 lHandle,__LONG32 lNumBytes,const byte *aData);")
-cpp_quote("      HRESULT (WINAPI *ReadPropertyValue)(IWbemObjectAccess *This,__LONG32 lHandle,__LONG32 lBufferSize,__LONG32 *plNumBytes,byte *aData);")
-cpp_quote("      HRESULT (WINAPI *ReadDWORD)(IWbemObjectAccess *This,__LONG32 lHandle,DWORD *pdw);")
-cpp_quote("      HRESULT (WINAPI *WriteDWORD)(IWbemObjectAccess *This,__LONG32 lHandle,DWORD dw);")
-cpp_quote("      __MINGW_EXTENSION HRESULT (WINAPI *ReadQWORD)(IWbemObjectAccess *This,__LONG32 lHandle,unsigned __int64 *pqw);")
-cpp_quote("      __MINGW_EXTENSION HRESULT (WINAPI *WriteQWORD)(IWbemObjectAccess *This,__LONG32 lHandle,unsigned __int64 pw);")
-cpp_quote("      HRESULT (WINAPI *GetPropertyInfoByHandle)(IWbemObjectAccess *This,__LONG32 lHandle,BSTR *pstrName,CIMTYPE *pType);")
-cpp_quote("      HRESULT (WINAPI *Lock)(IWbemObjectAccess *This,__LONG32 lFlags);")
-cpp_quote("      HRESULT (WINAPI *Unlock)(IWbemObjectAccess *This,__LONG32 lFlags);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IWbemObjectAccessVtbl;")
-cpp_quote("  struct IWbemObjectAccess {")
-cpp_quote("    CONST_VTBL struct IWbemObjectAccessVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IWbemObjectAccess_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IWbemObjectAccess_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IWbemObjectAccess_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IWbemObjectAccess_GetQualifierSet(This,ppQualSet) (This)->lpVtbl->GetQualifierSet(This,ppQualSet)")
-cpp_quote("#define IWbemObjectAccess_Get(This,wszName,lFlags,pVal,pType,plFlavor) (This)->lpVtbl->Get(This,wszName,lFlags,pVal,pType,plFlavor)")
-cpp_quote("#define IWbemObjectAccess_Put(This,wszName,lFlags,pVal,Type) (This)->lpVtbl->Put(This,wszName,lFlags,pVal,Type)")
-cpp_quote("#define IWbemObjectAccess_Delete(This,wszName) (This)->lpVtbl->Delete(This,wszName)")
-cpp_quote("#define IWbemObjectAccess_GetNames(This,wszQualifierName,lFlags,pQualifierVal,pNames) (This)->lpVtbl->GetNames(This,wszQualifierName,lFlags,pQualifierVal,pNames)")
-cpp_quote("#define IWbemObjectAccess_BeginEnumeration(This,lEnumFlags) (This)->lpVtbl->BeginEnumeration(This,lEnumFlags)")
-cpp_quote("#define IWbemObjectAccess_Next(This,lFlags,strName,pVal,pType,plFlavor) (This)->lpVtbl->Next(This,lFlags,strName,pVal,pType,plFlavor)")
-cpp_quote("#define IWbemObjectAccess_EndEnumeration(This) (This)->lpVtbl->EndEnumeration(This)")
-cpp_quote("#define IWbemObjectAccess_GetPropertyQualifierSet(This,wszProperty,ppQualSet) (This)->lpVtbl->GetPropertyQualifierSet(This,wszProperty,ppQualSet)")
-cpp_quote("#define IWbemObjectAccess_Clone(This,ppCopy) (This)->lpVtbl->Clone(This,ppCopy)")
-cpp_quote("#define IWbemObjectAccess_GetObjectText(This,lFlags,pstrObjectText) (This)->lpVtbl->GetObjectText(This,lFlags,pstrObjectText)")
-cpp_quote("#define IWbemObjectAccess_SpawnDerivedClass(This,lFlags,ppNewClass) (This)->lpVtbl->SpawnDerivedClass(This,lFlags,ppNewClass)")
-cpp_quote("#define IWbemObjectAccess_SpawnInstance(This,lFlags,ppNewInstance) (This)->lpVtbl->SpawnInstance(This,lFlags,ppNewInstance)")
-cpp_quote("#define IWbemObjectAccess_CompareTo(This,lFlags,pCompareTo) (This)->lpVtbl->CompareTo(This,lFlags,pCompareTo)")
-cpp_quote("#define IWbemObjectAccess_GetPropertyOrigin(This,wszName,pstrClassName) (This)->lpVtbl->GetPropertyOrigin(This,wszName,pstrClassName)")
-cpp_quote("#define IWbemObjectAccess_InheritsFrom(This,strAncestor) (This)->lpVtbl->InheritsFrom(This,strAncestor)")
-cpp_quote("#define IWbemObjectAccess_GetMethod(This,wszName,lFlags,ppInSignature,ppOutSignature) (This)->lpVtbl->GetMethod(This,wszName,lFlags,ppInSignature,ppOutSignature)")
-cpp_quote("#define IWbemObjectAccess_PutMethod(This,wszName,lFlags,pInSignature,pOutSignature) (This)->lpVtbl->PutMethod(This,wszName,lFlags,pInSignature,pOutSignature)")
-cpp_quote("#define IWbemObjectAccess_DeleteMethod(This,wszName) (This)->lpVtbl->DeleteMethod(This,wszName)")
-cpp_quote("#define IWbemObjectAccess_BeginMethodEnumeration(This,lEnumFlags) (This)->lpVtbl->BeginMethodEnumeration(This,lEnumFlags)")
-cpp_quote("#define IWbemObjectAccess_NextMethod(This,lFlags,pstrName,ppInSignature,ppOutSignature) (This)->lpVtbl->NextMethod(This,lFlags,pstrName,ppInSignature,ppOutSignature)")
-cpp_quote("#define IWbemObjectAccess_EndMethodEnumeration(This) (This)->lpVtbl->EndMethodEnumeration(This)")
-cpp_quote("#define IWbemObjectAccess_GetMethodQualifierSet(This,wszMethod,ppQualSet) (This)->lpVtbl->GetMethodQualifierSet(This,wszMethod,ppQualSet)")
-cpp_quote("#define IWbemObjectAccess_GetMethodOrigin(This,wszMethodName,pstrClassName) (This)->lpVtbl->GetMethodOrigin(This,wszMethodName,pstrClassName)")
-cpp_quote("#define IWbemObjectAccess_GetPropertyHandle(This,wszPropertyName,pType,plHandle) (This)->lpVtbl->GetPropertyHandle(This,wszPropertyName,pType,plHandle)")
-cpp_quote("#define IWbemObjectAccess_WritePropertyValue(This,lHandle,lNumBytes,aData) (This)->lpVtbl->WritePropertyValue(This,lHandle,lNumBytes,aData)")
-cpp_quote("#define IWbemObjectAccess_ReadPropertyValue(This,lHandle,lBufferSize,plNumBytes,aData) (This)->lpVtbl->ReadPropertyValue(This,lHandle,lBufferSize,plNumBytes,aData)")
-cpp_quote("#define IWbemObjectAccess_ReadDWORD(This,lHandle,pdw) (This)->lpVtbl->ReadDWORD(This,lHandle,pdw)")
-cpp_quote("#define IWbemObjectAccess_WriteDWORD(This,lHandle,dw) (This)->lpVtbl->WriteDWORD(This,lHandle,dw)")
-cpp_quote("#define IWbemObjectAccess_ReadQWORD(This,lHandle,pqw) (This)->lpVtbl->ReadQWORD(This,lHandle,pqw)")
-cpp_quote("#define IWbemObjectAccess_WriteQWORD(This,lHandle,pw) (This)->lpVtbl->WriteQWORD(This,lHandle,pw)")
-cpp_quote("#define IWbemObjectAccess_GetPropertyInfoByHandle(This,lHandle,pstrName,pType) (This)->lpVtbl->GetPropertyInfoByHandle(This,lHandle,pstrName,pType)")
-cpp_quote("#define IWbemObjectAccess_Lock(This,lFlags) (This)->lpVtbl->Lock(This,lFlags)")
-cpp_quote("#define IWbemObjectAccess_Unlock(This,lFlags) (This)->lpVtbl->Unlock(This,lFlags)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IWbemObjectAccess_GetPropertyHandle_Proxy(IWbemObjectAccess *This,LPCWSTR wszPropertyName,CIMTYPE *pType,__LONG32 *plHandle);")
-cpp_quote("  void __RPC_STUB IWbemObjectAccess_GetPropertyHandle_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemObjectAccess_WritePropertyValue_Proxy(IWbemObjectAccess *This,__LONG32 lHandle,__LONG32 lNumBytes,const byte *aData);")
-cpp_quote("  void __RPC_STUB IWbemObjectAccess_WritePropertyValue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemObjectAccess_ReadPropertyValue_Proxy(IWbemObjectAccess *This,__LONG32 lHandle,__LONG32 lBufferSize,__LONG32 *plNumBytes,byte *aData);")
-cpp_quote("  void __RPC_STUB IWbemObjectAccess_ReadPropertyValue_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemObjectAccess_ReadDWORD_Proxy(IWbemObjectAccess *This,__LONG32 lHandle,DWORD *pdw);")
-cpp_quote("  void __RPC_STUB IWbemObjectAccess_ReadDWORD_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemObjectAccess_WriteDWORD_Proxy(IWbemObjectAccess *This,__LONG32 lHandle,DWORD dw);")
-cpp_quote("  void __RPC_STUB IWbemObjectAccess_WriteDWORD_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  __MINGW_EXTENSION HRESULT WINAPI IWbemObjectAccess_ReadQWORD_Proxy(IWbemObjectAccess *This,__LONG32 lHandle,unsigned __int64 *pqw);")
-cpp_quote("  void __RPC_STUB IWbemObjectAccess_ReadQWORD_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  __MINGW_EXTENSION HRESULT WINAPI IWbemObjectAccess_WriteQWORD_Proxy(IWbemObjectAccess *This,__LONG32 lHandle,unsigned __int64 pw);")
-cpp_quote("  void __RPC_STUB IWbemObjectAccess_WriteQWORD_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemObjectAccess_GetPropertyInfoByHandle_Proxy(IWbemObjectAccess *This,__LONG32 lHandle,BSTR *pstrName,CIMTYPE *pType);")
-cpp_quote("  void __RPC_STUB IWbemObjectAccess_GetPropertyInfoByHandle_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemObjectAccess_Lock_Proxy(IWbemObjectAccess *This,__LONG32 lFlags);")
-cpp_quote("  void __RPC_STUB IWbemObjectAccess_Lock_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemObjectAccess_Unlock_Proxy(IWbemObjectAccess *This,__LONG32 lFlags);")
-cpp_quote("  void __RPC_STUB IWbemObjectAccess_Unlock_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemQualifierSet_INTERFACE_DEFINED__")
-cpp_quote("#define __IWbemQualifierSet_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_IWbemQualifierSet;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IWbemQualifierSet : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI Get(LPCWSTR wszName,__LONG32 lFlags,VARIANT *pVal,__LONG32 *plFlavor) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Put(LPCWSTR wszName,VARIANT *pVal,__LONG32 lFlavor) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Delete(LPCWSTR wszName) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetNames(__LONG32 lFlags,SAFEARRAY **pNames) = 0;")
-cpp_quote("    virtual HRESULT WINAPI BeginEnumeration(__LONG32 lFlags) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Next(__LONG32 lFlags,BSTR *pstrName,VARIANT *pVal,__LONG32 *plFlavor) = 0;")
-cpp_quote("    virtual HRESULT WINAPI EndEnumeration(void) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IWbemQualifierSetVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IWbemQualifierSet *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IWbemQualifierSet *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IWbemQualifierSet *This);")
-cpp_quote("      HRESULT (WINAPI *Get)(IWbemQualifierSet *This,LPCWSTR wszName,__LONG32 lFlags,VARIANT *pVal,__LONG32 *plFlavor);")
-cpp_quote("      HRESULT (WINAPI *Put)(IWbemQualifierSet *This,LPCWSTR wszName,VARIANT *pVal,__LONG32 lFlavor);")
-cpp_quote("      HRESULT (WINAPI *Delete)(IWbemQualifierSet *This,LPCWSTR wszName);")
-cpp_quote("      HRESULT (WINAPI *GetNames)(IWbemQualifierSet *This,__LONG32 lFlags,SAFEARRAY **pNames);")
-cpp_quote("      HRESULT (WINAPI *BeginEnumeration)(IWbemQualifierSet *This,__LONG32 lFlags);")
-cpp_quote("      HRESULT (WINAPI *Next)(IWbemQualifierSet *This,__LONG32 lFlags,BSTR *pstrName,VARIANT *pVal,__LONG32 *plFlavor);")
-cpp_quote("      HRESULT (WINAPI *EndEnumeration)(IWbemQualifierSet *This);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IWbemQualifierSetVtbl;")
-cpp_quote("  struct IWbemQualifierSet {")
-cpp_quote("    CONST_VTBL struct IWbemQualifierSetVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IWbemQualifierSet_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IWbemQualifierSet_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IWbemQualifierSet_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IWbemQualifierSet_Get(This,wszName,lFlags,pVal,plFlavor) (This)->lpVtbl->Get(This,wszName,lFlags,pVal,plFlavor)")
-cpp_quote("#define IWbemQualifierSet_Put(This,wszName,pVal,lFlavor) (This)->lpVtbl->Put(This,wszName,pVal,lFlavor)")
-cpp_quote("#define IWbemQualifierSet_Delete(This,wszName) (This)->lpVtbl->Delete(This,wszName)")
-cpp_quote("#define IWbemQualifierSet_GetNames(This,lFlags,pNames) (This)->lpVtbl->GetNames(This,lFlags,pNames)")
-cpp_quote("#define IWbemQualifierSet_BeginEnumeration(This,lFlags) (This)->lpVtbl->BeginEnumeration(This,lFlags)")
-cpp_quote("#define IWbemQualifierSet_Next(This,lFlags,pstrName,pVal,plFlavor) (This)->lpVtbl->Next(This,lFlags,pstrName,pVal,plFlavor)")
-cpp_quote("#define IWbemQualifierSet_EndEnumeration(This) (This)->lpVtbl->EndEnumeration(This)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IWbemQualifierSet_Get_Proxy(IWbemQualifierSet *This,LPCWSTR wszName,__LONG32 lFlags,VARIANT *pVal,__LONG32 *plFlavor);")
-cpp_quote("  void __RPC_STUB IWbemQualifierSet_Get_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemQualifierSet_Put_Proxy(IWbemQualifierSet *This,LPCWSTR wszName,VARIANT *pVal,__LONG32 lFlavor);")
-cpp_quote("  void __RPC_STUB IWbemQualifierSet_Put_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemQualifierSet_Delete_Proxy(IWbemQualifierSet *This,LPCWSTR wszName);")
-cpp_quote("  void __RPC_STUB IWbemQualifierSet_Delete_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemQualifierSet_GetNames_Proxy(IWbemQualifierSet *This,__LONG32 lFlags,SAFEARRAY **pNames);")
-cpp_quote("  void __RPC_STUB IWbemQualifierSet_GetNames_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemQualifierSet_BeginEnumeration_Proxy(IWbemQualifierSet *This,__LONG32 lFlags);")
-cpp_quote("  void __RPC_STUB IWbemQualifierSet_BeginEnumeration_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemQualifierSet_Next_Proxy(IWbemQualifierSet *This,__LONG32 lFlags,BSTR *pstrName,VARIANT *pVal,__LONG32 *plFlavor);")
-cpp_quote("  void __RPC_STUB IWbemQualifierSet_Next_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemQualifierSet_EndEnumeration_Proxy(IWbemQualifierSet *This);")
-cpp_quote("  void __RPC_STUB IWbemQualifierSet_EndEnumeration_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemServices_INTERFACE_DEFINED__")
-cpp_quote("#define __IWbemServices_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_IWbemServices;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IWbemServices : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI OpenNamespace(const BSTR strNamespace,__LONG32 lFlags,IWbemContext *pCtx,IWbemServices **ppWorkingNamespace,IWbemCallResult **ppResult) = 0;")
-cpp_quote("    virtual HRESULT WINAPI CancelAsyncCall(IWbemObjectSink *pSink) = 0;")
-cpp_quote("    virtual HRESULT WINAPI QueryObjectSink(__LONG32 lFlags,IWbemObjectSink **ppResponseHandler) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetObject(const BSTR strObjectPath,__LONG32 lFlags,IWbemContext *pCtx,IWbemClassObject **ppObject,IWbemCallResult **ppCallResult) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetObjectAsync(const BSTR strObjectPath,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) = 0;")
-cpp_quote("    virtual HRESULT WINAPI PutClass(IWbemClassObject *pObject,__LONG32 lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult) = 0;")
-cpp_quote("    virtual HRESULT WINAPI PutClassAsync(IWbemClassObject *pObject,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) = 0;")
-cpp_quote("    virtual HRESULT WINAPI DeleteClass(const BSTR strClass,__LONG32 lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult) = 0;")
-cpp_quote("    virtual HRESULT WINAPI DeleteClassAsync(const BSTR strClass,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) = 0;")
-cpp_quote("    virtual HRESULT WINAPI CreateClassEnum(const BSTR strSuperclass,__LONG32 lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum) = 0;")
-cpp_quote("    virtual HRESULT WINAPI CreateClassEnumAsync(const BSTR strSuperclass,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) = 0;")
-cpp_quote("    virtual HRESULT WINAPI PutInstance(IWbemClassObject *pInst,__LONG32 lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult) = 0;")
-cpp_quote("    virtual HRESULT WINAPI PutInstanceAsync(IWbemClassObject *pInst,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) = 0;")
-cpp_quote("    virtual HRESULT WINAPI DeleteInstance(const BSTR strObjectPath,__LONG32 lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult) = 0;")
-cpp_quote("    virtual HRESULT WINAPI DeleteInstanceAsync(const BSTR strObjectPath,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) = 0;")
-cpp_quote("    virtual HRESULT WINAPI CreateInstanceEnum(const BSTR strFilter,__LONG32 lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum) = 0;")
-cpp_quote("    virtual HRESULT WINAPI CreateInstanceEnumAsync(const BSTR strFilter,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) = 0;")
-cpp_quote("    virtual HRESULT WINAPI ExecQuery(const BSTR strQueryLanguage,const BSTR strQuery,__LONG32 lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum) = 0;")
-cpp_quote("    virtual HRESULT WINAPI ExecQueryAsync(const BSTR strQueryLanguage,const BSTR strQuery,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) = 0;")
-cpp_quote("    virtual HRESULT WINAPI ExecNotificationQuery(const BSTR strQueryLanguage,const BSTR strQuery,__LONG32 lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum) = 0;")
-cpp_quote("    virtual HRESULT WINAPI ExecNotificationQueryAsync(const BSTR strQueryLanguage,const BSTR strQuery,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler) = 0;")
-cpp_quote("    virtual HRESULT WINAPI ExecMethod(const BSTR strObjectPath,const BSTR strMethodName,__LONG32 lFlags,IWbemContext *pCtx,IWbemClassObject *pInParams,IWbemClassObject **ppOutParams,IWbemCallResult **ppCallResult) = 0;")
-cpp_quote("    virtual HRESULT WINAPI ExecMethodAsync(const BSTR strObjectPath,const BSTR strMethodName,__LONG32 lFlags,IWbemContext *pCtx,IWbemClassObject *pInParams,IWbemObjectSink *pResponseHandler) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IWbemServicesVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IWbemServices *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IWbemServices *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IWbemServices *This);")
-cpp_quote("      HRESULT (WINAPI *OpenNamespace)(IWbemServices *This,const BSTR strNamespace,__LONG32 lFlags,IWbemContext *pCtx,IWbemServices **ppWorkingNamespace,IWbemCallResult **ppResult);")
-cpp_quote("      HRESULT (WINAPI *CancelAsyncCall)(IWbemServices *This,IWbemObjectSink *pSink);")
-cpp_quote("      HRESULT (WINAPI *QueryObjectSink)(IWbemServices *This,__LONG32 lFlags,IWbemObjectSink **ppResponseHandler);")
-cpp_quote("      HRESULT (WINAPI *GetObject)(IWbemServices *This,const BSTR strObjectPath,__LONG32 lFlags,IWbemContext *pCtx,IWbemClassObject **ppObject,IWbemCallResult **ppCallResult);")
-cpp_quote("      HRESULT (WINAPI *GetObjectAsync)(IWbemServices *This,const BSTR strObjectPath,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler);")
-cpp_quote("      HRESULT (WINAPI *PutClass)(IWbemServices *This,IWbemClassObject *pObject,__LONG32 lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult);")
-cpp_quote("      HRESULT (WINAPI *PutClassAsync)(IWbemServices *This,IWbemClassObject *pObject,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler);")
-cpp_quote("      HRESULT (WINAPI *DeleteClass)(IWbemServices *This,const BSTR strClass,__LONG32 lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult);")
-cpp_quote("      HRESULT (WINAPI *DeleteClassAsync)(IWbemServices *This,const BSTR strClass,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler);")
-cpp_quote("      HRESULT (WINAPI *CreateClassEnum)(IWbemServices *This,const BSTR strSuperclass,__LONG32 lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum);")
-cpp_quote("      HRESULT (WINAPI *CreateClassEnumAsync)(IWbemServices *This,const BSTR strSuperclass,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler);")
-cpp_quote("      HRESULT (WINAPI *PutInstance)(IWbemServices *This,IWbemClassObject *pInst,__LONG32 lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult);")
-cpp_quote("      HRESULT (WINAPI *PutInstanceAsync)(IWbemServices *This,IWbemClassObject *pInst,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler);")
-cpp_quote("      HRESULT (WINAPI *DeleteInstance)(IWbemServices *This,const BSTR strObjectPath,__LONG32 lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult);")
-cpp_quote("      HRESULT (WINAPI *DeleteInstanceAsync)(IWbemServices *This,const BSTR strObjectPath,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler);")
-cpp_quote("      HRESULT (WINAPI *CreateInstanceEnum)(IWbemServices *This,const BSTR strFilter,__LONG32 lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum);")
-cpp_quote("      HRESULT (WINAPI *CreateInstanceEnumAsync)(IWbemServices *This,const BSTR strFilter,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler);")
-cpp_quote("      HRESULT (WINAPI *ExecQuery)(IWbemServices *This,const BSTR strQueryLanguage,const BSTR strQuery,__LONG32 lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum);")
-cpp_quote("      HRESULT (WINAPI *ExecQueryAsync)(IWbemServices *This,const BSTR strQueryLanguage,const BSTR strQuery,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler);")
-cpp_quote("      HRESULT (WINAPI *ExecNotificationQuery)(IWbemServices *This,const BSTR strQueryLanguage,const BSTR strQuery,__LONG32 lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum);")
-cpp_quote("      HRESULT (WINAPI *ExecNotificationQueryAsync)(IWbemServices *This,const BSTR strQueryLanguage,const BSTR strQuery,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler);")
-cpp_quote("      HRESULT (WINAPI *ExecMethod)(IWbemServices *This,const BSTR strObjectPath,const BSTR strMethodName,__LONG32 lFlags,IWbemContext *pCtx,IWbemClassObject *pInParams,IWbemClassObject **ppOutParams,IWbemCallResult **ppCallResult);")
-cpp_quote("      HRESULT (WINAPI *ExecMethodAsync)(IWbemServices *This,const BSTR strObjectPath,const BSTR strMethodName,__LONG32 lFlags,IWbemContext *pCtx,IWbemClassObject *pInParams,IWbemObjectSink *pResponseHandler);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IWbemServicesVtbl;")
-cpp_quote("  struct IWbemServices {")
-cpp_quote("    CONST_VTBL struct IWbemServicesVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IWbemServices_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IWbemServices_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IWbemServices_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IWbemServices_OpenNamespace(This,strNamespace,lFlags,pCtx,ppWorkingNamespace,ppResult) (This)->lpVtbl->OpenNamespace(This,strNamespace,lFlags,pCtx,ppWorkingNamespace,ppResult)")
-cpp_quote("#define IWbemServices_CancelAsyncCall(This,pSink) (This)->lpVtbl->CancelAsyncCall(This,pSink)")
-cpp_quote("#define IWbemServices_QueryObjectSink(This,lFlags,ppResponseHandler) (This)->lpVtbl->QueryObjectSink(This,lFlags,ppResponseHandler)")
-cpp_quote("#define IWbemServices_GetObject(This,strObjectPath,lFlags,pCtx,ppObject,ppCallResult) (This)->lpVtbl->GetObject(This,strObjectPath,lFlags,pCtx,ppObject,ppCallResult)")
-cpp_quote("#define IWbemServices_GetObjectAsync(This,strObjectPath,lFlags,pCtx,pResponseHandler) (This)->lpVtbl->GetObjectAsync(This,strObjectPath,lFlags,pCtx,pResponseHandler)")
-cpp_quote("#define IWbemServices_PutClass(This,pObject,lFlags,pCtx,ppCallResult) (This)->lpVtbl->PutClass(This,pObject,lFlags,pCtx,ppCallResult)")
-cpp_quote("#define IWbemServices_PutClassAsync(This,pObject,lFlags,pCtx,pResponseHandler) (This)->lpVtbl->PutClassAsync(This,pObject,lFlags,pCtx,pResponseHandler)")
-cpp_quote("#define IWbemServices_DeleteClass(This,strClass,lFlags,pCtx,ppCallResult) (This)->lpVtbl->DeleteClass(This,strClass,lFlags,pCtx,ppCallResult)")
-cpp_quote("#define IWbemServices_DeleteClassAsync(This,strClass,lFlags,pCtx,pResponseHandler) (This)->lpVtbl->DeleteClassAsync(This,strClass,lFlags,pCtx,pResponseHandler)")
-cpp_quote("#define IWbemServices_CreateClassEnum(This,strSuperclass,lFlags,pCtx,ppEnum) (This)->lpVtbl->CreateClassEnum(This,strSuperclass,lFlags,pCtx,ppEnum)")
-cpp_quote("#define IWbemServices_CreateClassEnumAsync(This,strSuperclass,lFlags,pCtx,pResponseHandler) (This)->lpVtbl->CreateClassEnumAsync(This,strSuperclass,lFlags,pCtx,pResponseHandler)")
-cpp_quote("#define IWbemServices_PutInstance(This,pInst,lFlags,pCtx,ppCallResult) (This)->lpVtbl->PutInstance(This,pInst,lFlags,pCtx,ppCallResult)")
-cpp_quote("#define IWbemServices_PutInstanceAsync(This,pInst,lFlags,pCtx,pResponseHandler) (This)->lpVtbl->PutInstanceAsync(This,pInst,lFlags,pCtx,pResponseHandler)")
-cpp_quote("#define IWbemServices_DeleteInstance(This,strObjectPath,lFlags,pCtx,ppCallResult) (This)->lpVtbl->DeleteInstance(This,strObjectPath,lFlags,pCtx,ppCallResult)")
-cpp_quote("#define IWbemServices_DeleteInstanceAsync(This,strObjectPath,lFlags,pCtx,pResponseHandler) (This)->lpVtbl->DeleteInstanceAsync(This,strObjectPath,lFlags,pCtx,pResponseHandler)")
-cpp_quote("#define IWbemServices_CreateInstanceEnum(This,strFilter,lFlags,pCtx,ppEnum) (This)->lpVtbl->CreateInstanceEnum(This,strFilter,lFlags,pCtx,ppEnum)")
-cpp_quote("#define IWbemServices_CreateInstanceEnumAsync(This,strFilter,lFlags,pCtx,pResponseHandler) (This)->lpVtbl->CreateInstanceEnumAsync(This,strFilter,lFlags,pCtx,pResponseHandler)")
-cpp_quote("#define IWbemServices_ExecQuery(This,strQueryLanguage,strQuery,lFlags,pCtx,ppEnum) (This)->lpVtbl->ExecQuery(This,strQueryLanguage,strQuery,lFlags,pCtx,ppEnum)")
-cpp_quote("#define IWbemServices_ExecQueryAsync(This,strQueryLanguage,strQuery,lFlags,pCtx,pResponseHandler) (This)->lpVtbl->ExecQueryAsync(This,strQueryLanguage,strQuery,lFlags,pCtx,pResponseHandler)")
-cpp_quote("#define IWbemServices_ExecNotificationQuery(This,strQueryLanguage,strQuery,lFlags,pCtx,ppEnum) (This)->lpVtbl->ExecNotificationQuery(This,strQueryLanguage,strQuery,lFlags,pCtx,ppEnum)")
-cpp_quote("#define IWbemServices_ExecNotificationQueryAsync(This,strQueryLanguage,strQuery,lFlags,pCtx,pResponseHandler) (This)->lpVtbl->ExecNotificationQueryAsync(This,strQueryLanguage,strQuery,lFlags,pCtx,pResponseHandler)")
-cpp_quote("#define IWbemServices_ExecMethod(This,strObjectPath,strMethodName,lFlags,pCtx,pInParams,ppOutParams,ppCallResult) (This)->lpVtbl->ExecMethod(This,strObjectPath,strMethodName,lFlags,pCtx,pInParams,ppOutParams,ppCallResult)")
-cpp_quote("#define IWbemServices_ExecMethodAsync(This,strObjectPath,strMethodName,lFlags,pCtx,pInParams,pResponseHandler) (This)->lpVtbl->ExecMethodAsync(This,strObjectPath,strMethodName,lFlags,pCtx,pInParams,pResponseHandler)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IWbemServices_OpenNamespace_Proxy(IWbemServices *This,const BSTR strNamespace,__LONG32 lFlags,IWbemContext *pCtx,IWbemServices **ppWorkingNamespace,IWbemCallResult **ppResult);")
-cpp_quote("  void __RPC_STUB IWbemServices_OpenNamespace_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_CancelAsyncCall_Proxy(IWbemServices *This,IWbemObjectSink *pSink);")
-cpp_quote("  void __RPC_STUB IWbemServices_CancelAsyncCall_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_QueryObjectSink_Proxy(IWbemServices *This,__LONG32 lFlags,IWbemObjectSink **ppResponseHandler);")
-cpp_quote("  void __RPC_STUB IWbemServices_QueryObjectSink_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_GetObject_Proxy(IWbemServices *This,const BSTR strObjectPath,__LONG32 lFlags,IWbemContext *pCtx,IWbemClassObject **ppObject,IWbemCallResult **ppCallResult);")
-cpp_quote("  void __RPC_STUB IWbemServices_GetObject_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_GetObjectAsync_Proxy(IWbemServices *This,const BSTR strObjectPath,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler);")
-cpp_quote("  void __RPC_STUB IWbemServices_GetObjectAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_PutClass_Proxy(IWbemServices *This,IWbemClassObject *pObject,__LONG32 lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult);")
-cpp_quote("  void __RPC_STUB IWbemServices_PutClass_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_PutClassAsync_Proxy(IWbemServices *This,IWbemClassObject *pObject,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler);")
-cpp_quote("  void __RPC_STUB IWbemServices_PutClassAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_DeleteClass_Proxy(IWbemServices *This,const BSTR strClass,__LONG32 lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult);")
-cpp_quote("  void __RPC_STUB IWbemServices_DeleteClass_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_DeleteClassAsync_Proxy(IWbemServices *This,const BSTR strClass,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler);")
-cpp_quote("  void __RPC_STUB IWbemServices_DeleteClassAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_CreateClassEnum_Proxy(IWbemServices *This,const BSTR strSuperclass,__LONG32 lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum);")
-cpp_quote("  void __RPC_STUB IWbemServices_CreateClassEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_CreateClassEnumAsync_Proxy(IWbemServices *This,const BSTR strSuperclass,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler);")
-cpp_quote("  void __RPC_STUB IWbemServices_CreateClassEnumAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_PutInstance_Proxy(IWbemServices *This,IWbemClassObject *pInst,__LONG32 lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult);")
-cpp_quote("  void __RPC_STUB IWbemServices_PutInstance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_PutInstanceAsync_Proxy(IWbemServices *This,IWbemClassObject *pInst,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler);")
-cpp_quote("  void __RPC_STUB IWbemServices_PutInstanceAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_DeleteInstance_Proxy(IWbemServices *This,const BSTR strObjectPath,__LONG32 lFlags,IWbemContext *pCtx,IWbemCallResult **ppCallResult);")
-cpp_quote("  void __RPC_STUB IWbemServices_DeleteInstance_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_DeleteInstanceAsync_Proxy(IWbemServices *This,const BSTR strObjectPath,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler);")
-cpp_quote("  void __RPC_STUB IWbemServices_DeleteInstanceAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_CreateInstanceEnum_Proxy(IWbemServices *This,const BSTR strFilter,__LONG32 lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum);")
-cpp_quote("  void __RPC_STUB IWbemServices_CreateInstanceEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_CreateInstanceEnumAsync_Proxy(IWbemServices *This,const BSTR strFilter,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler);")
-cpp_quote("  void __RPC_STUB IWbemServices_CreateInstanceEnumAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_ExecQuery_Proxy(IWbemServices *This,const BSTR strQueryLanguage,const BSTR strQuery,__LONG32 lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum);")
-cpp_quote("  void __RPC_STUB IWbemServices_ExecQuery_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_ExecQueryAsync_Proxy(IWbemServices *This,const BSTR strQueryLanguage,const BSTR strQuery,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler);")
-cpp_quote("  void __RPC_STUB IWbemServices_ExecQueryAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_ExecNotificationQuery_Proxy(IWbemServices *This,const BSTR strQueryLanguage,const BSTR strQuery,__LONG32 lFlags,IWbemContext *pCtx,IEnumWbemClassObject **ppEnum);")
-cpp_quote("  void __RPC_STUB IWbemServices_ExecNotificationQuery_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_ExecNotificationQueryAsync_Proxy(IWbemServices *This,const BSTR strQueryLanguage,const BSTR strQuery,__LONG32 lFlags,IWbemContext *pCtx,IWbemObjectSink *pResponseHandler);")
-cpp_quote("  void __RPC_STUB IWbemServices_ExecNotificationQueryAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_ExecMethod_Proxy(IWbemServices *This,const BSTR strObjectPath,const BSTR strMethodName,__LONG32 lFlags,IWbemContext *pCtx,IWbemClassObject *pInParams,IWbemClassObject **ppOutParams,IWbemCallResult **ppCallResult);")
-cpp_quote("  void __RPC_STUB IWbemServices_ExecMethod_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemServices_ExecMethodAsync_Proxy(IWbemServices *This,const BSTR strObjectPath,const BSTR strMethodName,__LONG32 lFlags,IWbemContext *pCtx,IWbemClassObject *pInParams,IWbemObjectSink *pResponseHandler);")
-cpp_quote("  void __RPC_STUB IWbemServices_ExecMethodAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-
-[
-    object,
-    restricted,
-    local,
-    uuid(44aca674-e8fc-11d0-a07c-00c04fb68820)
-]
-interface IWbemContext : IUnknown
-{
-    HRESULT Clone([out] IWbemContext **ppNewCopy);
-
-    HRESULT GetNames(
-            [in] long lFlags,
-            [out] SAFEARRAY(BSTR) *pNames);
-
-    HRESULT BeginEnumeration([in] long lFlags);
-
-    HRESULT Next(
-            [in] long lFlags,
-            [out] BSTR *pstrName,
-            [out] VARIANT *pValue);
-
-    HRESULT EndEnumeration();
-
-    HRESULT SetValue(
-            [in, string] LPCWSTR wszName,
-            [in] long lFlags,
-            [in] VARIANT *pValue);
-
-    HRESULT GetValue(
-            [in, string] LPCWSTR wszName,
-            [in] long lFlags,
-            [out] VARIANT *pValue);
-
-    HRESULT DeleteValue(
-            [in, string] LPCWSTR wszName,
-            [in] long lFlags);
-
-    HRESULT DeleteAll();
-}
-
+interface IEnumWbemClassObject;
+interface IUnsecuredApartment;
+interface IWbemBackupRestore;
+interface IWbemBackupRestoreEx;
+interface IWbemCallResult;
+interface IWbemClassObject;
+interface IWbemConfigureRefresher;
+interface IWbemConnection;
+interface IWbemContext;
+interface IWbemEventSink;
+interface IWbemHiPerfEnum;
+interface IWbemLocator;
+interface IWbemObjectAccess;
+interface IWbemObjectSink;
+interface IWbemQualifierSet;
+interface IWbemRefresher;
+interface IWbemSecureObjectSink;
 interface IWbemServices;
+interface IWbemStatusCodeText;
+interface IWbemUnsecuredApartment;
 
-[
-    object,
-    restricted,
-    local,
-    uuid(dc12a687-737f-11cf-884d-00aa004b2e24),
-    pointer_default(unique)
-]
-interface IWbemLocator : IUnknown
-{
-    HRESULT ConnectServer(
-        [in] const BSTR strNetworkResource,
-        [in] const BSTR strUser,
-        [in] const BSTR strPassword,
-        [in] const BSTR strLocale,
-        [in] long lSecurityFlags,
-        [in] const BSTR strAuthority,
-        [in] IWbemContext *pCtx,
-        [out] IWbemServices **ppNamespace);
-}
+#ifndef DO_NO_IMPORTS
+import "ocidl.idl";
+import "oleidl.idl";
+import "oaidl.idl";
+import "servprov.idl";
+#endif
 
-cpp_quote("#ifndef __IWbemObjectSink_INTERFACE_DEFINED__")
-cpp_quote("#define __IWbemObjectSink_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_IWbemObjectSink;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IWbemObjectSink : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI Indicate(__LONG32 lObjectCount,IWbemClassObject **apObjArray) = 0;")
-cpp_quote("    virtual HRESULT WINAPI SetStatus(__LONG32 lFlags,HRESULT hResult,BSTR strParam,IWbemClassObject *pObjParam) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IWbemObjectSinkVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IWbemObjectSink *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IWbemObjectSink *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IWbemObjectSink *This);")
-cpp_quote("      HRESULT (WINAPI *Indicate)(IWbemObjectSink *This,__LONG32 lObjectCount,IWbemClassObject **apObjArray);")
-cpp_quote("      HRESULT (WINAPI *SetStatus)(IWbemObjectSink *This,__LONG32 lFlags,HRESULT hResult,BSTR strParam,IWbemClassObject *pObjParam);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IWbemObjectSinkVtbl;")
-cpp_quote("  struct IWbemObjectSink {")
-cpp_quote("    CONST_VTBL struct IWbemObjectSinkVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IWbemObjectSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IWbemObjectSink_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IWbemObjectSink_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IWbemObjectSink_Indicate(This,lObjectCount,apObjArray) (This)->lpVtbl->Indicate(This,lObjectCount,apObjArray)")
-cpp_quote("#define IWbemObjectSink_SetStatus(This,lFlags,hResult,strParam,pObjParam) (This)->lpVtbl->SetStatus(This,lFlags,hResult,strParam,pObjParam)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IWbemObjectSink_Indicate_Proxy(IWbemObjectSink *This,__LONG32 lObjectCount,IWbemClassObject **apObjArray);")
-cpp_quote("  void __RPC_STUB IWbemObjectSink_Indicate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemObjectSink_SetStatus_Proxy(IWbemObjectSink *This,__LONG32 lFlags,HRESULT hResult,BSTR strParam,IWbemClassObject *pObjParam);")
-cpp_quote("  void __RPC_STUB IWbemObjectSink_SetStatus_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
+cpp_quote("#include <winapifamily.h>")
 cpp_quote("")
-cpp_quote("#ifndef __IEnumWbemClassObject_INTERFACE_DEFINED__")
-cpp_quote("#define __IEnumWbemClassObject_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_IEnumWbemClassObject;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IEnumWbemClassObject : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI Reset(void) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Next(__LONG32 lTimeout,ULONG uCount,IWbemClassObject **apObjects,ULONG *puReturned) = 0;")
-cpp_quote("    virtual HRESULT WINAPI NextAsync(ULONG uCount,IWbemObjectSink *pSink) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Clone(IEnumWbemClassObject **ppEnum) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Skip(__LONG32 lTimeout,ULONG nCount) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IEnumWbemClassObjectVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IEnumWbemClassObject *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IEnumWbemClassObject *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IEnumWbemClassObject *This);")
-cpp_quote("      HRESULT (WINAPI *Reset)(IEnumWbemClassObject *This);")
-cpp_quote("      HRESULT (WINAPI *Next)(IEnumWbemClassObject *This,__LONG32 lTimeout,ULONG uCount,IWbemClassObject **apObjects,ULONG *puReturned);")
-cpp_quote("      HRESULT (WINAPI *NextAsync)(IEnumWbemClassObject *This,ULONG uCount,IWbemObjectSink *pSink);")
-cpp_quote("      HRESULT (WINAPI *Clone)(IEnumWbemClassObject *This,IEnumWbemClassObject **ppEnum);")
-cpp_quote("      HRESULT (WINAPI *Skip)(IEnumWbemClassObject *This,__LONG32 lTimeout,ULONG nCount);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IEnumWbemClassObjectVtbl;")
-cpp_quote("  struct IEnumWbemClassObject {")
-cpp_quote("    CONST_VTBL struct IEnumWbemClassObjectVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IEnumWbemClassObject_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IEnumWbemClassObject_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IEnumWbemClassObject_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IEnumWbemClassObject_Reset(This) (This)->lpVtbl->Reset(This)")
-cpp_quote("#define IEnumWbemClassObject_Next(This,lTimeout,uCount,apObjects,puReturned) (This)->lpVtbl->Next(This,lTimeout,uCount,apObjects,puReturned)")
-cpp_quote("#define IEnumWbemClassObject_NextAsync(This,uCount,pSink) (This)->lpVtbl->NextAsync(This,uCount,pSink)")
-cpp_quote("#define IEnumWbemClassObject_Clone(This,ppEnum) (This)->lpVtbl->Clone(This,ppEnum)")
-cpp_quote("#define IEnumWbemClassObject_Skip(This,lTimeout,nCount) (This)->lpVtbl->Skip(This,lTimeout,nCount)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IEnumWbemClassObject_Reset_Proxy(IEnumWbemClassObject *This);")
-cpp_quote("  void __RPC_STUB IEnumWbemClassObject_Reset_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumWbemClassObject_Next_Proxy(IEnumWbemClassObject *This,__LONG32 lTimeout,ULONG uCount,IWbemClassObject **apObjects,ULONG *puReturned);")
-cpp_quote("  void __RPC_STUB IEnumWbemClassObject_Next_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumWbemClassObject_NextAsync_Proxy(IEnumWbemClassObject *This,ULONG uCount,IWbemObjectSink *pSink);")
-cpp_quote("  void __RPC_STUB IEnumWbemClassObject_NextAsync_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumWbemClassObject_Clone_Proxy(IEnumWbemClassObject *This,IEnumWbemClassObject **ppEnum);")
-cpp_quote("  void __RPC_STUB IEnumWbemClassObject_Clone_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IEnumWbemClassObject_Skip_Proxy(IEnumWbemClassObject *This,__LONG32 lTimeout,ULONG nCount);")
-cpp_quote("  void __RPC_STUB IEnumWbemClassObject_Skip_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemCallResult_INTERFACE_DEFINED__")
-cpp_quote("#define __IWbemCallResult_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_IWbemCallResult;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IWbemCallResult : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI GetResultObject(__LONG32 lTimeout,IWbemClassObject **ppResultObject) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetResultString(__LONG32 lTimeout,BSTR *pstrResultString) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetResultServices(__LONG32 lTimeout,IWbemServices **ppServices) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetCallStatus(__LONG32 lTimeout,__LONG32 *plStatus) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IWbemCallResultVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IWbemCallResult *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IWbemCallResult *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IWbemCallResult *This);")
-cpp_quote("      HRESULT (WINAPI *GetResultObject)(IWbemCallResult *This,__LONG32 lTimeout,IWbemClassObject **ppResultObject);")
-cpp_quote("      HRESULT (WINAPI *GetResultString)(IWbemCallResult *This,__LONG32 lTimeout,BSTR *pstrResultString);")
-cpp_quote("      HRESULT (WINAPI *GetResultServices)(IWbemCallResult *This,__LONG32 lTimeout,IWbemServices **ppServices);")
-cpp_quote("      HRESULT (WINAPI *GetCallStatus)(IWbemCallResult *This,__LONG32 lTimeout,__LONG32 *plStatus);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IWbemCallResultVtbl;")
-cpp_quote("  struct IWbemCallResult {")
-cpp_quote("    CONST_VTBL struct IWbemCallResultVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IWbemCallResult_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IWbemCallResult_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IWbemCallResult_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IWbemCallResult_GetResultObject(This,lTimeout,ppResultObject) (This)->lpVtbl->GetResultObject(This,lTimeout,ppResultObject)")
-cpp_quote("#define IWbemCallResult_GetResultString(This,lTimeout,pstrResultString) (This)->lpVtbl->GetResultString(This,lTimeout,pstrResultString)")
-cpp_quote("#define IWbemCallResult_GetResultServices(This,lTimeout,ppServices) (This)->lpVtbl->GetResultServices(This,lTimeout,ppServices)")
-cpp_quote("#define IWbemCallResult_GetCallStatus(This,lTimeout,plStatus) (This)->lpVtbl->GetCallStatus(This,lTimeout,plStatus)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IWbemCallResult_GetResultObject_Proxy(IWbemCallResult *This,__LONG32 lTimeout,IWbemClassObject **ppResultObject);")
-cpp_quote("  void __RPC_STUB IWbemCallResult_GetResultObject_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemCallResult_GetResultString_Proxy(IWbemCallResult *This,__LONG32 lTimeout,BSTR *pstrResultString);")
-cpp_quote("  void __RPC_STUB IWbemCallResult_GetResultString_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemCallResult_GetResultServices_Proxy(IWbemCallResult *This,__LONG32 lTimeout,IWbemServices **ppServices);")
-cpp_quote("  void __RPC_STUB IWbemCallResult_GetResultServices_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemCallResult_GetCallStatus_Proxy(IWbemCallResult *This,__LONG32 lTimeout,__LONG32 *plStatus);")
-cpp_quote("  void __RPC_STUB IWbemCallResult_GetCallStatus_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IUnsecuredApartment_INTERFACE_DEFINED__")
-cpp_quote("#define __IUnsecuredApartment_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_IUnsecuredApartment;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IUnsecuredApartment : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI CreateObjectStub(IUnknown *pObject,IUnknown **ppStub) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IUnsecuredApartmentVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IUnsecuredApartment *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IUnsecuredApartment *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IUnsecuredApartment *This);")
-cpp_quote("      HRESULT (WINAPI *CreateObjectStub)(IUnsecuredApartment *This,IUnknown *pObject,IUnknown **ppStub);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IUnsecuredApartmentVtbl;")
-cpp_quote("  struct IUnsecuredApartment {")
-cpp_quote("    CONST_VTBL struct IUnsecuredApartmentVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IUnsecuredApartment_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IUnsecuredApartment_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IUnsecuredApartment_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IUnsecuredApartment_CreateObjectStub(This,pObject,ppStub) (This)->lpVtbl->CreateObjectStub(This,pObject,ppStub)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IUnsecuredApartment_CreateObjectStub_Proxy(IUnsecuredApartment *This,IUnknown *pObject,IUnknown **ppStub);")
-cpp_quote("  void __RPC_STUB IUnsecuredApartment_CreateObjectStub_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemUnsecuredApartment_INTERFACE_DEFINED__")
-cpp_quote("#define __IWbemUnsecuredApartment_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_IWbemUnsecuredApartment;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IWbemUnsecuredApartment : public IUnsecuredApartment {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI CreateSinkStub(IWbemObjectSink *pSink,DWORD dwFlags,LPCWSTR wszReserved,IWbemObjectSink **ppStub) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IWbemUnsecuredApartmentVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IWbemUnsecuredApartment *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IWbemUnsecuredApartment *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IWbemUnsecuredApartment *This);")
-cpp_quote("      HRESULT (WINAPI *CreateObjectStub)(IWbemUnsecuredApartment *This,IUnknown *pObject,IUnknown **ppStub);")
-cpp_quote("      HRESULT (WINAPI *CreateSinkStub)(IWbemUnsecuredApartment *This,IWbemObjectSink *pSink,DWORD dwFlags,LPCWSTR wszReserved,IWbemObjectSink **ppStub);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IWbemUnsecuredApartmentVtbl;")
-cpp_quote("  struct IWbemUnsecuredApartment {")
-cpp_quote("    CONST_VTBL struct IWbemUnsecuredApartmentVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IWbemUnsecuredApartment_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IWbemUnsecuredApartment_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IWbemUnsecuredApartment_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IWbemUnsecuredApartment_CreateObjectStub(This,pObject,ppStub) (This)->lpVtbl->CreateObjectStub(This,pObject,ppStub)")
-cpp_quote("#define IWbemUnsecuredApartment_CreateSinkStub(This,pSink,dwFlags,wszReserved,ppStub) (This)->lpVtbl->CreateSinkStub(This,pSink,dwFlags,wszReserved,ppStub)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IWbemUnsecuredApartment_CreateSinkStub_Proxy(IWbemUnsecuredApartment *This,IWbemObjectSink *pSink,DWORD dwFlags,LPCWSTR wszReserved,IWbemObjectSink **ppStub);")
-cpp_quote("  void __RPC_STUB IWbemUnsecuredApartment_CreateSinkStub_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemStatusCodeText_INTERFACE_DEFINED__")
-cpp_quote("#define __IWbemStatusCodeText_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_IWbemStatusCodeText;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IWbemStatusCodeText : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI GetErrorCodeText(HRESULT hRes,LCID LocaleId,__LONG32 lFlags,BSTR *MessageText) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetFacilityCodeText(HRESULT hRes,LCID LocaleId,__LONG32 lFlags,BSTR *MessageText) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IWbemStatusCodeTextVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IWbemStatusCodeText *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IWbemStatusCodeText *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IWbemStatusCodeText *This);")
-cpp_quote("      HRESULT (WINAPI *GetErrorCodeText)(IWbemStatusCodeText *This,HRESULT hRes,LCID LocaleId,__LONG32 lFlags,BSTR *MessageText);")
-cpp_quote("      HRESULT (WINAPI *GetFacilityCodeText)(IWbemStatusCodeText *This,HRESULT hRes,LCID LocaleId,__LONG32 lFlags,BSTR *MessageText);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IWbemStatusCodeTextVtbl;")
-cpp_quote("  struct IWbemStatusCodeText {")
-cpp_quote("    CONST_VTBL struct IWbemStatusCodeTextVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IWbemStatusCodeText_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IWbemStatusCodeText_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IWbemStatusCodeText_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IWbemStatusCodeText_GetErrorCodeText(This,hRes,LocaleId,lFlags,MessageText) (This)->lpVtbl->GetErrorCodeText(This,hRes,LocaleId,lFlags,MessageText)")
-cpp_quote("#define IWbemStatusCodeText_GetFacilityCodeText(This,hRes,LocaleId,lFlags,MessageText) (This)->lpVtbl->GetFacilityCodeText(This,hRes,LocaleId,lFlags,MessageText)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IWbemStatusCodeText_GetErrorCodeText_Proxy(IWbemStatusCodeText *This,HRESULT hRes,LCID LocaleId,__LONG32 lFlags,BSTR *MessageText);")
-cpp_quote("  void __RPC_STUB IWbemStatusCodeText_GetErrorCodeText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemStatusCodeText_GetFacilityCodeText_Proxy(IWbemStatusCodeText *This,HRESULT hRes,LCID LocaleId,__LONG32 lFlags,BSTR *MessageText);")
-cpp_quote("  void __RPC_STUB IWbemStatusCodeText_GetFacilityCodeText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemBackupRestore_INTERFACE_DEFINED__")
-cpp_quote("#define __IWbemBackupRestore_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_IWbemBackupRestore;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IWbemBackupRestore : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI Backup(LPCWSTR strBackupToFile,__LONG32 lFlags) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Restore(LPCWSTR strRestoreFromFile,__LONG32 lFlags) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IWbemBackupRestoreVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IWbemBackupRestore *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IWbemBackupRestore *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IWbemBackupRestore *This);")
-cpp_quote("      HRESULT (WINAPI *Backup)(IWbemBackupRestore *This,LPCWSTR strBackupToFile,__LONG32 lFlags);")
-cpp_quote("      HRESULT (WINAPI *Restore)(IWbemBackupRestore *This,LPCWSTR strRestoreFromFile,__LONG32 lFlags);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IWbemBackupRestoreVtbl;")
-cpp_quote("  struct IWbemBackupRestore {")
-cpp_quote("    CONST_VTBL struct IWbemBackupRestoreVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IWbemBackupRestore_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IWbemBackupRestore_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IWbemBackupRestore_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IWbemBackupRestore_Backup(This,strBackupToFile,lFlags) (This)->lpVtbl->Backup(This,strBackupToFile,lFlags)")
-cpp_quote("#define IWbemBackupRestore_Restore(This,strRestoreFromFile,lFlags) (This)->lpVtbl->Restore(This,strRestoreFromFile,lFlags)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IWbemBackupRestore_Backup_Proxy(IWbemBackupRestore *This,LPCWSTR strBackupToFile,__LONG32 lFlags);")
-cpp_quote("  void __RPC_STUB IWbemBackupRestore_Backup_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemBackupRestore_Restore_Proxy(IWbemBackupRestore *This,LPCWSTR strRestoreFromFile,__LONG32 lFlags);")
-cpp_quote("  void __RPC_STUB IWbemBackupRestore_Restore_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemBackupRestoreEx_INTERFACE_DEFINED__")
-cpp_quote("#define __IWbemBackupRestoreEx_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_IWbemBackupRestoreEx;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IWbemBackupRestoreEx : public IWbemBackupRestore {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI Pause(void) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Resume(void) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IWbemBackupRestoreExVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IWbemBackupRestoreEx *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IWbemBackupRestoreEx *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IWbemBackupRestoreEx *This);")
-cpp_quote("      HRESULT (WINAPI *Backup)(IWbemBackupRestoreEx *This,LPCWSTR strBackupToFile,__LONG32 lFlags);")
-cpp_quote("      HRESULT (WINAPI *Restore)(IWbemBackupRestoreEx *This,LPCWSTR strRestoreFromFile,__LONG32 lFlags);")
-cpp_quote("      HRESULT (WINAPI *Pause)(IWbemBackupRestoreEx *This);")
-cpp_quote("      HRESULT (WINAPI *Resume)(IWbemBackupRestoreEx *This);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IWbemBackupRestoreExVtbl;")
-cpp_quote("  struct IWbemBackupRestoreEx {")
-cpp_quote("    CONST_VTBL struct IWbemBackupRestoreExVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IWbemBackupRestoreEx_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IWbemBackupRestoreEx_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IWbemBackupRestoreEx_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IWbemBackupRestoreEx_Backup(This,strBackupToFile,lFlags) (This)->lpVtbl->Backup(This,strBackupToFile,lFlags)")
-cpp_quote("#define IWbemBackupRestoreEx_Restore(This,strRestoreFromFile,lFlags) (This)->lpVtbl->Restore(This,strRestoreFromFile,lFlags)")
-cpp_quote("#define IWbemBackupRestoreEx_Pause(This) (This)->lpVtbl->Pause(This)")
-cpp_quote("#define IWbemBackupRestoreEx_Resume(This) (This)->lpVtbl->Resume(This)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IWbemBackupRestoreEx_Pause_Proxy(IWbemBackupRestoreEx *This);")
-cpp_quote("  void __RPC_STUB IWbemBackupRestoreEx_Pause_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemBackupRestoreEx_Resume_Proxy(IWbemBackupRestoreEx *This);")
-cpp_quote("  void __RPC_STUB IWbemBackupRestoreEx_Resume_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemRefresher_INTERFACE_DEFINED__")
-cpp_quote("#define __IWbemRefresher_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_IWbemRefresher;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IWbemRefresher : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI Refresh(__LONG32 lFlags) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IWbemRefresherVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IWbemRefresher *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IWbemRefresher *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IWbemRefresher *This);")
-cpp_quote("      HRESULT (WINAPI *Refresh)(IWbemRefresher *This,__LONG32 lFlags);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IWbemRefresherVtbl;")
-cpp_quote("  struct IWbemRefresher {")
-cpp_quote("    CONST_VTBL struct IWbemRefresherVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IWbemRefresher_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IWbemRefresher_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IWbemRefresher_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IWbemRefresher_Refresh(This,lFlags) (This)->lpVtbl->Refresh(This,lFlags)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IWbemRefresher_Refresh_Proxy(IWbemRefresher *This,__LONG32 lFlags);")
-cpp_quote("  void __RPC_STUB IWbemRefresher_Refresh_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemHiPerfEnum_INTERFACE_DEFINED__")
-cpp_quote("#define __IWbemHiPerfEnum_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_IWbemHiPerfEnum;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IWbemHiPerfEnum : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI AddObjects(__LONG32 lFlags,ULONG uNumObjects,__LONG32 *apIds,IWbemObjectAccess **apObj) = 0;")
-cpp_quote("    virtual HRESULT WINAPI RemoveObjects(__LONG32 lFlags,ULONG uNumObjects,__LONG32 *apIds) = 0;")
-cpp_quote("    virtual HRESULT WINAPI GetObjects(__LONG32 lFlags,ULONG uNumObjects,IWbemObjectAccess **apObj,ULONG *puReturned) = 0;")
-cpp_quote("    virtual HRESULT WINAPI RemoveAll(__LONG32 lFlags) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IWbemHiPerfEnumVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IWbemHiPerfEnum *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IWbemHiPerfEnum *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IWbemHiPerfEnum *This);")
-cpp_quote("      HRESULT (WINAPI *AddObjects)(IWbemHiPerfEnum *This,__LONG32 lFlags,ULONG uNumObjects,__LONG32 *apIds,IWbemObjectAccess **apObj);")
-cpp_quote("      HRESULT (WINAPI *RemoveObjects)(IWbemHiPerfEnum *This,__LONG32 lFlags,ULONG uNumObjects,__LONG32 *apIds);")
-cpp_quote("      HRESULT (WINAPI *GetObjects)(IWbemHiPerfEnum *This,__LONG32 lFlags,ULONG uNumObjects,IWbemObjectAccess **apObj,ULONG *puReturned);")
-cpp_quote("      HRESULT (WINAPI *RemoveAll)(IWbemHiPerfEnum *This,__LONG32 lFlags);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IWbemHiPerfEnumVtbl;")
-cpp_quote("  struct IWbemHiPerfEnum {")
-cpp_quote("    CONST_VTBL struct IWbemHiPerfEnumVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IWbemHiPerfEnum_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IWbemHiPerfEnum_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IWbemHiPerfEnum_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IWbemHiPerfEnum_AddObjects(This,lFlags,uNumObjects,apIds,apObj) (This)->lpVtbl->AddObjects(This,lFlags,uNumObjects,apIds,apObj)")
-cpp_quote("#define IWbemHiPerfEnum_RemoveObjects(This,lFlags,uNumObjects,apIds) (This)->lpVtbl->RemoveObjects(This,lFlags,uNumObjects,apIds)")
-cpp_quote("#define IWbemHiPerfEnum_GetObjects(This,lFlags,uNumObjects,apObj,puReturned) (This)->lpVtbl->GetObjects(This,lFlags,uNumObjects,apObj,puReturned)")
-cpp_quote("#define IWbemHiPerfEnum_RemoveAll(This,lFlags) (This)->lpVtbl->RemoveAll(This,lFlags)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IWbemHiPerfEnum_AddObjects_Proxy(IWbemHiPerfEnum *This,__LONG32 lFlags,ULONG uNumObjects,__LONG32 *apIds,IWbemObjectAccess **apObj);")
-cpp_quote("  void __RPC_STUB IWbemHiPerfEnum_AddObjects_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemHiPerfEnum_RemoveObjects_Proxy(IWbemHiPerfEnum *This,__LONG32 lFlags,ULONG uNumObjects,__LONG32 *apIds);")
-cpp_quote("  void __RPC_STUB IWbemHiPerfEnum_RemoveObjects_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemHiPerfEnum_GetObjects_Proxy(IWbemHiPerfEnum *This,__LONG32 lFlags,ULONG uNumObjects,IWbemObjectAccess **apObj,ULONG *puReturned);")
-cpp_quote("  void __RPC_STUB IWbemHiPerfEnum_GetObjects_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemHiPerfEnum_RemoveAll_Proxy(IWbemHiPerfEnum *This,__LONG32 lFlags);")
-cpp_quote("  void __RPC_STUB IWbemHiPerfEnum_RemoveAll_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemConfigureRefresher_INTERFACE_DEFINED__")
-cpp_quote("#define __IWbemConfigureRefresher_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_IWbemConfigureRefresher;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IWbemConfigureRefresher : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI AddObjectByPath(IWbemServices *pNamespace,LPCWSTR wszPath,__LONG32 lFlags,IWbemContext *pContext,IWbemClassObject **ppRefreshable,__LONG32 *plId) = 0;")
-cpp_quote("    virtual HRESULT WINAPI AddObjectByTemplate(IWbemServices *pNamespace,IWbemClassObject *pTemplate,__LONG32 lFlags,IWbemContext *pContext,IWbemClassObject **ppRefreshable,__LONG32 *plId) = 0;")
-cpp_quote("    virtual HRESULT WINAPI AddRefresher(IWbemRefresher *pRefresher,__LONG32 lFlags,__LONG32 *plId) = 0;")
-cpp_quote("    virtual HRESULT WINAPI Remove(__LONG32 lId,__LONG32 lFlags) = 0;")
-cpp_quote("    virtual HRESULT WINAPI AddEnum(IWbemServices *pNamespace,LPCWSTR wszClassName,__LONG32 lFlags,IWbemContext *pContext,IWbemHiPerfEnum **ppEnum,__LONG32 *plId) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IWbemConfigureRefresherVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IWbemConfigureRefresher *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IWbemConfigureRefresher *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IWbemConfigureRefresher *This);")
-cpp_quote("      HRESULT (WINAPI *AddObjectByPath)(IWbemConfigureRefresher *This,IWbemServices *pNamespace,LPCWSTR wszPath,__LONG32 lFlags,IWbemContext *pContext,IWbemClassObject **ppRefreshable,__LONG32 *plId);")
-cpp_quote("      HRESULT (WINAPI *AddObjectByTemplate)(IWbemConfigureRefresher *This,IWbemServices *pNamespace,IWbemClassObject *pTemplate,__LONG32 lFlags,IWbemContext *pContext,IWbemClassObject **ppRefreshable,__LONG32 *plId);")
-cpp_quote("      HRESULT (WINAPI *AddRefresher)(IWbemConfigureRefresher *This,IWbemRefresher *pRefresher,__LONG32 lFlags,__LONG32 *plId);")
-cpp_quote("      HRESULT (WINAPI *Remove)(IWbemConfigureRefresher *This,__LONG32 lId,__LONG32 lFlags);")
-cpp_quote("      HRESULT (WINAPI *AddEnum)(IWbemConfigureRefresher *This,IWbemServices *pNamespace,LPCWSTR wszClassName,__LONG32 lFlags,IWbemContext *pContext,IWbemHiPerfEnum **ppEnum,__LONG32 *plId);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IWbemConfigureRefresherVtbl;")
-cpp_quote("  struct IWbemConfigureRefresher {")
-cpp_quote("    CONST_VTBL struct IWbemConfigureRefresherVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IWbemConfigureRefresher_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IWbemConfigureRefresher_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IWbemConfigureRefresher_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IWbemConfigureRefresher_AddObjectByPath(This,pNamespace,wszPath,lFlags,pContext,ppRefreshable,plId) (This)->lpVtbl->AddObjectByPath(This,pNamespace,wszPath,lFlags,pContext,ppRefreshable,plId)")
-cpp_quote("#define IWbemConfigureRefresher_AddObjectByTemplate(This,pNamespace,pTemplate,lFlags,pContext,ppRefreshable,plId) (This)->lpVtbl->AddObjectByTemplate(This,pNamespace,pTemplate,lFlags,pContext,ppRefreshable,plId)")
-cpp_quote("#define IWbemConfigureRefresher_AddRefresher(This,pRefresher,lFlags,plId) (This)->lpVtbl->AddRefresher(This,pRefresher,lFlags,plId)")
-cpp_quote("#define IWbemConfigureRefresher_Remove(This,lId,lFlags) (This)->lpVtbl->Remove(This,lId,lFlags)")
-cpp_quote("#define IWbemConfigureRefresher_AddEnum(This,pNamespace,wszClassName,lFlags,pContext,ppEnum,plId) (This)->lpVtbl->AddEnum(This,pNamespace,wszClassName,lFlags,pContext,ppEnum,plId)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IWbemConfigureRefresher_AddObjectByPath_Proxy(IWbemConfigureRefresher *This,IWbemServices *pNamespace,LPCWSTR wszPath,__LONG32 lFlags,IWbemContext *pContext,IWbemClassObject **ppRefreshable,__LONG32 *plId);")
-cpp_quote("  void __RPC_STUB IWbemConfigureRefresher_AddObjectByPath_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemConfigureRefresher_AddObjectByTemplate_Proxy(IWbemConfigureRefresher *This,IWbemServices *pNamespace,IWbemClassObject *pTemplate,__LONG32 lFlags,IWbemContext *pContext,IWbemClassObject **ppRefreshable,__LONG32 *plId);")
-cpp_quote("  void __RPC_STUB IWbemConfigureRefresher_AddObjectByTemplate_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemConfigureRefresher_AddRefresher_Proxy(IWbemConfigureRefresher *This,IWbemRefresher *pRefresher,__LONG32 lFlags,__LONG32 *plId);")
-cpp_quote("  void __RPC_STUB IWbemConfigureRefresher_AddRefresher_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemConfigureRefresher_Remove_Proxy(IWbemConfigureRefresher *This,__LONG32 lId,__LONG32 lFlags);")
-cpp_quote("  void __RPC_STUB IWbemConfigureRefresher_Remove_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemConfigureRefresher_AddEnum_Proxy(IWbemConfigureRefresher *This,IWbemServices *pNamespace,LPCWSTR wszClassName,__LONG32 lFlags,IWbemContext *pContext,IWbemHiPerfEnum **ppEnum,__LONG32 *plId);")
-cpp_quote("  void __RPC_STUB IWbemConfigureRefresher_AddEnum_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
 
+[uuid (7ec196fe-7005-11d1-ad90-00c04fd8fdff)]
+library WbemClient_v1 {
+  importlib ("stdole32.tlb");
 
-[
- /* restricted, */
-    uuid(4590f811-1d3a-11d0-891f-00aa004b2e24)
-]
-coclass WbemLocator {
+  typedef [v1_enum] enum tag_WBEM_GENUS_TYPE {
+    WBEM_GENUS_CLASS = 1,
+    WBEM_GENUS_INSTANCE = 2
+  } WBEM_GENUS_TYPE;
+
+  typedef [v1_enum] enum tag_WBEM_CHANGE_FLAG_TYPE {
+    WBEM_FLAG_CREATE_OR_UPDATE = 0,
+    WBEM_FLAG_UPDATE_ONLY = 0x1,
+    WBEM_FLAG_CREATE_ONLY = 0x2,
+    WBEM_FLAG_UPDATE_COMPATIBLE = 0x0,
+    WBEM_FLAG_UPDATE_SAFE_MODE = 0x20,
+    WBEM_FLAG_UPDATE_FORCE_MODE = 0x40,
+    WBEM_MASK_UPDATE_MODE = 0x60,
+    WBEM_FLAG_ADVISORY = 0x000010000
+  } WBEM_CHANGE_FLAG_TYPE;
+
+  typedef [v1_enum] enum tag_WBEM_GENERIC_FLAG_TYPE {
+    WBEM_FLAG_RETURN_IMMEDIATELY = 0x10,
+    WBEM_FLAG_RETURN_WBEM_COMPLETE = 0,
+    WBEM_FLAG_BIDIRECTIONAL = 0,
+    WBEM_FLAG_FORWARD_ONLY = 0x20,
+    WBEM_FLAG_NO_ERROR_OBJECT = 0x40,
+    WBEM_FLAG_RETURN_ERROR_OBJECT = 0,
+    WBEM_FLAG_SEND_STATUS = 0x80,
+    WBEM_FLAG_DONT_SEND_STATUS = 0,
+    WBEM_FLAG_ENSURE_LOCATABLE = 0x100,
+    WBEM_FLAG_DIRECT_READ = 0x200,
+    WBEM_FLAG_SEND_ONLY_SELECTED = 0,
+    WBEM_RETURN_WHEN_COMPLETE = 0,
+    WBEM_RETURN_IMMEDIATELY = 0x10,
+    WBEM_MASK_RESERVED_FLAGS = 0x1f000,
+    WBEM_FLAG_USE_AMENDED_QUALIFIERS = 0x20000,
+    WBEM_FLAG_STRONG_VALIDATION = 0x100000,
+  } WBEM_GENERIC_FLAG_TYPE;
+
+  typedef enum tag_WBEM_STATUS_TYPE {
+    WBEM_STATUS_COMPLETE = 0,
+    WBEM_STATUS_REQUIREMENTS = 1,
+    WBEM_STATUS_PROGRESS = 2,
+    WBEM_STATUS_LOGGING_INFORMATION = 0x100,
+    WBEM_STATUS_LOGGING_INFORMATION_PROVIDER = 0x200,
+    WBEM_STATUS_LOGGING_INFORMATION_HOST = 0x400,
+    WBEM_STATUS_LOGGING_INFORMATION_REPOSITORY = 0x800,
+    WBEM_STATUS_LOGGING_INFORMATION_ESS = 0x1000,
+  } WBEM_STATUS_TYPE;
+
+  typedef [v1_enum] enum tag_WBEM_TIMEOUT_TYPE {
+    WBEM_NO_WAIT = 0,
+    WBEM_INFINITE = 0xffffffff,
+  } WBEM_TIMEOUT_TYPE;
+
+  typedef [v1_enum] enum tag_WBEM_CONDITION_FLAG_TYPE {
+    WBEM_FLAG_ALWAYS = 0,
+    WBEM_FLAG_ONLY_IF_TRUE = 0x1,
+    WBEM_FLAG_ONLY_IF_FALSE = 0x2,
+    WBEM_FLAG_ONLY_IF_IDENTICAL = 0x3,
+    WBEM_MASK_PRIMARY_CONDITION = 0x3,
+    WBEM_FLAG_KEYS_ONLY = 0x4,
+    WBEM_FLAG_REFS_ONLY = 0x8,
+    WBEM_FLAG_LOCAL_ONLY = 0x10,
+    WBEM_FLAG_PROPAGATED_ONLY = 0x20,
+    WBEM_FLAG_SYSTEM_ONLY = 0x30,
+    WBEM_FLAG_NONSYSTEM_ONLY = 0x40,
+    WBEM_MASK_CONDITION_ORIGIN = 0x70,
+    WBEM_FLAG_CLASS_OVERRIDES_ONLY = 0x100,
+    WBEM_FLAG_CLASS_LOCAL_AND_OVERRIDES = 0x200,
+    WBEM_MASK_CLASS_CONDITION = 0x300
+  } WBEM_CONDITION_FLAG_TYPE;
+
+  typedef [v1_enum] enum tag_WBEM_FLAVOR_TYPE {
+    WBEM_FLAVOR_DONT_PROPAGATE = 0,
+    WBEM_FLAVOR_FLAG_PROPAGATE_TO_INSTANCE = 0x1,
+    WBEM_FLAVOR_FLAG_PROPAGATE_TO_DERIVED_CLASS = 0x2,
+    WBEM_FLAVOR_MASK_PROPAGATION = 0x0f,
+    WBEM_FLAVOR_OVERRIDABLE = 0,
+    WBEM_FLAVOR_NOT_OVERRIDABLE = 0x10,
+    WBEM_FLAVOR_MASK_PERMISSIONS = 0x10,
+    WBEM_FLAVOR_ORIGIN_LOCAL = 0,
+    WBEM_FLAVOR_ORIGIN_PROPAGATED = 0x20,
+    WBEM_FLAVOR_ORIGIN_SYSTEM = 0x40,
+    WBEM_FLAVOR_MASK_ORIGIN = 0x60,
+    WBEM_FLAVOR_NOT_AMENDED = 0,
+    WBEM_FLAVOR_AMENDED = 0x80,
+    WBEM_FLAVOR_MASK_AMENDED = 0x80
+  } WBEM_FLAVOR_TYPE;
+
+  typedef [v1_enum] enum tag_WBEM_QUERY_FLAG_TYPE {
+    WBEM_FLAG_DEEP = 0,
+    WBEM_FLAG_SHALLOW = 1,
+    WBEM_FLAG_PROTOTYPE = 2
+  } WBEM_QUERY_FLAG_TYPE;
+
+  typedef [v1_enum] enum tag_WBEM_SECURITY_FLAGS {
+    WBEM_ENABLE = 1,
+    WBEM_METHOD_EXECUTE = 2,
+    WBEM_FULL_WRITE_REP = 4,
+    WBEM_PARTIAL_WRITE_REP = 8,
+    WBEM_WRITE_PROVIDER = 0x10,
+    WBEM_REMOTE_ACCESS = 0x20,
+    WBEM_RIGHT_SUBSCRIBE = 0x40,
+    WBEM_RIGHT_PUBLISH = 0x80
+  } WBEM_SECURITY_FLAGS;
+  typedef [v1_enum] enum tag_WBEM_LIMITATION_FLAG_TYPE {
+    WBEM_FLAG_EXCLUDE_OBJECT_QUALIFIERS = 0x10,
+    WBEM_FLAG_EXCLUDE_PROPERTY_QUALIFIERS = 0x20
+  } WBEM_LIMITATION_FLAG_TYPE;
+
+  typedef [v1_enum] enum tag_WBEM_TEXT_FLAG_TYPE {
+    WBEM_FLAG_NO_FLAVORS = 0x1
+  } WBEM_TEXT_FLAG_TYPE;
+
+  typedef [v1_enum] enum tag_WBEM_COMPARISON_FLAG {
+    WBEM_COMPARISON_INCLUDE_ALL = 0,
+    WBEM_FLAG_IGNORE_QUALIFIERS = 0x1,
+    WBEM_FLAG_IGNORE_OBJECT_SOURCE = 0x2,
+    WBEM_FLAG_IGNORE_DEFAULT_VALUES = 0x4,
+    WBEM_FLAG_IGNORE_CLASS = 0x8,
+    WBEM_FLAG_IGNORE_CASE = 0x10,
+    WBEM_FLAG_IGNORE_FLAVOR = 0x20
+  } WBEM_COMPARISON_FLAG;
+
+  typedef [v1_enum] enum tag_WBEM_LOCKING {
+    WBEM_FLAG_ALLOW_READ = 0x1
+  } WBEM_LOCKING_FLAG_TYPE;
+
+  typedef [v1_enum] enum tag_CIMTYPE_ENUMERATION {
+    CIM_ILLEGAL = 0xfff,
+    CIM_EMPTY = 0,
+    CIM_SINT8 = 16,
+    CIM_UINT8 = 17,
+    CIM_SINT16 = 2,
+    CIM_UINT16 = 18,
+    CIM_SINT32 = 3,
+    CIM_UINT32 = 19,
+    CIM_SINT64 = 20,
+    CIM_UINT64 = 21,
+    CIM_REAL32 = 4,
+    CIM_REAL64 = 5,
+    CIM_BOOLEAN = 11,
+    CIM_STRING = 8,
+    CIM_DATETIME = 101,
+    CIM_REFERENCE = 102,
+    CIM_CHAR16 = 103,
+    CIM_OBJECT = 13,
+    CIM_FLAG_ARRAY = 0x2000
+  } CIMTYPE_ENUMERATION;
+
+  typedef [v1_enum] enum tag_WBEM_BACKUP_RESTORE_FLAGS {
+    WBEM_FLAG_BACKUP_RESTORE_DEFAULT = 0,
+    WBEM_FLAG_BACKUP_RESTORE_FORCE_SHUTDOWN = 1
+  } WBEM_BACKUP_RESTORE_FLAGS;
+
+  typedef [v1_enum] enum tag_WBEM_REFRESHER_FLAGS {
+    WBEM_FLAG_REFRESH_AUTO_RECONNECT = 0,
+    WBEM_FLAG_REFRESH_NO_AUTO_RECONNECT = 1
+  } WBEM_REFRESHER_FLAGS;
+
+  typedef enum tag_WBEM_SHUTDOWN_FLAGS {
+    WBEM_SHUTDOWN_UNLOAD_COMPONENT = 1,
+    WBEM_SHUTDOWN_WMI = 2,
+    WBEM_SHUTDOWN_OS = 3
+  } WBEM_SHUTDOWN_FLAGS;
+
+  typedef [v1_enum] enum tag_WBEMSTATUS_FORMAT {
+    WBEMSTATUS_FORMAT_NEWLINE= 0,
+    WBEMSTATUS_FORMAT_NO_NEWLINE= 1
+  } WBEMSTATUS_FORMAT;
+
+  typedef [v1_enum] enum tag_WBEM_LIMITS {
+    WBEM_MAX_IDENTIFIER = 0x1000,
+    WBEM_MAX_QUERY = 0x4000,
+    WBEM_MAX_PATH = 0x2000,
+    WBEM_MAX_OBJECT_NESTING = 64,
+    WBEM_MAX_USER_PROPERTIES = 1024
+  } WBEM_LIMITS;
+
+  typedef [v1_enum] enum tag_WBEMSTATUS {
+    WBEM_NO_ERROR = 0,
+    WBEM_S_NO_ERROR = 0,
+    WBEM_S_SAME = 0,
+    WBEM_S_FALSE = 1,
+    WBEM_S_ALREADY_EXISTS = 0x40001,
+    WBEM_S_RESET_TO_DEFAULT = 0x40002,
+    WBEM_S_DIFFERENT = 0x40003,
+    WBEM_S_TIMEDOUT = 0x40004,
+    WBEM_S_NO_MORE_DATA = 0x40005,
+    WBEM_S_OPERATION_CANCELLED = 0x40006,
+    WBEM_S_PENDING = 0x40007,
+    WBEM_S_DUPLICATE_OBJECTS = 0x40008,
+    WBEM_S_ACCESS_DENIED = 0x40009,
+    WBEM_S_PARTIAL_RESULTS = 0x40010,
+    WBEM_S_SOURCE_NOT_AVAILABLE = 0x40017,
+    WBEM_E_FAILED = 0x80041001,
+    WBEM_E_NOT_FOUND = 0x80041002,
+    WBEM_E_ACCESS_DENIED = 0x80041003,
+    WBEM_E_PROVIDER_FAILURE = 0x80041004,
+    WBEM_E_TYPE_MISMATCH = 0x80041005,
+    WBEM_E_OUT_OF_MEMORY = 0x80041006,
+    WBEM_E_INVALID_CONTEXT = 0x80041007,
+    WBEM_E_INVALID_PARAMETER = 0x80041008,
+    WBEM_E_NOT_AVAILABLE = 0x80041009,
+    WBEM_E_CRITICAL_ERROR = 0x8004100a,
+    WBEM_E_INVALID_STREAM = 0x8004100b,
+    WBEM_E_NOT_SUPPORTED = 0x8004100c,
+    WBEM_E_INVALID_SUPERCLASS = 0x8004100d,
+    WBEM_E_INVALID_NAMESPACE = 0x8004100e,
+    WBEM_E_INVALID_OBJECT = 0x8004100f,
+    WBEM_E_INVALID_CLASS = 0x80041010,
+    WBEM_E_PROVIDER_NOT_FOUND = 0x80041011,
+    WBEM_E_INVALID_PROVIDER_REGISTRATION = 0x80041012,
+    WBEM_E_PROVIDER_LOAD_FAILURE = 0x80041013,
+    WBEM_E_INITIALIZATION_FAILURE = 0x80041014,
+    WBEM_E_TRANSPORT_FAILURE = 0x80041015,
+    WBEM_E_INVALID_OPERATION = 0x80041016,
+    WBEM_E_INVALID_QUERY = 0x80041017,
+    WBEM_E_INVALID_QUERY_TYPE = 0x80041018,
+    WBEM_E_ALREADY_EXISTS = 0x80041019,
+    WBEM_E_OVERRIDE_NOT_ALLOWED = 0x8004101a,
+    WBEM_E_PROPAGATED_QUALIFIER = 0x8004101b,
+    WBEM_E_PROPAGATED_PROPERTY = 0x8004101c,
+    WBEM_E_UNEXPECTED = 0x8004101d,
+    WBEM_E_ILLEGAL_OPERATION = 0x8004101e,
+    WBEM_E_CANNOT_BE_KEY = 0x8004101f,
+    WBEM_E_INCOMPLETE_CLASS = 0x80041020,
+    WBEM_E_INVALID_SYNTAX = 0x80041021,
+    WBEM_E_NONDECORATED_OBJECT = 0x80041022,
+    WBEM_E_READ_ONLY = 0x80041023,
+    WBEM_E_PROVIDER_NOT_CAPABLE = 0x80041024,
+    WBEM_E_CLASS_HAS_CHILDREN = 0x80041025,
+    WBEM_E_CLASS_HAS_INSTANCES = 0x80041026,
+    WBEM_E_QUERY_NOT_IMPLEMENTED = 0x80041027,
+    WBEM_E_ILLEGAL_NULL = 0x80041028,
+    WBEM_E_INVALID_QUALIFIER_TYPE = 0x80041029,
+    WBEM_E_INVALID_PROPERTY_TYPE = 0x8004102a,
+    WBEM_E_VALUE_OUT_OF_RANGE = 0x8004102b,
+    WBEM_E_CANNOT_BE_SINGLETON = 0x8004102c,
+    WBEM_E_INVALID_CIM_TYPE = 0x8004102d,
+    WBEM_E_INVALID_METHOD = 0x8004102e,
+    WBEM_E_INVALID_METHOD_PARAMETERS = 0x8004102f,
+    WBEM_E_SYSTEM_PROPERTY = 0x80041030,
+    WBEM_E_INVALID_PROPERTY = 0x80041031,
+    WBEM_E_CALL_CANCELLED = 0x80041032,
+    WBEM_E_SHUTTING_DOWN = 0x80041033,
+    WBEM_E_PROPAGATED_METHOD = 0x80041034,
+    WBEM_E_UNSUPPORTED_PARAMETER = 0x80041035,
+    WBEM_E_MISSING_PARAMETER_ID = 0x80041036,
+    WBEM_E_INVALID_PARAMETER_ID = 0x80041037,
+    WBEM_E_NONCONSECUTIVE_PARAMETER_IDS = 0x80041038,
+    WBEM_E_PARAMETER_ID_ON_RETVAL = 0x80041039,
+    WBEM_E_INVALID_OBJECT_PATH = 0x8004103a,
+    WBEM_E_OUT_OF_DISK_SPACE = 0x8004103b,
+    WBEM_E_BUFFER_TOO_SMALL = 0x8004103c,
+    WBEM_E_UNSUPPORTED_PUT_EXTENSION = 0x8004103d,
+    WBEM_E_UNKNOWN_OBJECT_TYPE = 0x8004103e,
+    WBEM_E_UNKNOWN_PACKET_TYPE = 0x8004103f,
+    WBEM_E_MARSHAL_VERSION_MISMATCH = 0x80041040,
+    WBEM_E_MARSHAL_INVALID_SIGNATURE = 0x80041041,
+    WBEM_E_INVALID_QUALIFIER = 0x80041042,
+    WBEM_E_INVALID_DUPLICATE_PARAMETER = 0x80041043,
+    WBEM_E_TOO_MUCH_DATA = 0x80041044,
+    WBEM_E_SERVER_TOO_BUSY = 0x80041045,
+    WBEM_E_INVALID_FLAVOR = 0x80041046,
+    WBEM_E_CIRCULAR_REFERENCE = 0x80041047,
+    WBEM_E_UNSUPPORTED_CLASS_UPDATE = 0x80041048,
+    WBEM_E_CANNOT_CHANGE_KEY_INHERITANCE = 0x80041049,
+    WBEM_E_CANNOT_CHANGE_INDEX_INHERITANCE = 0x80041050,
+    WBEM_E_TOO_MANY_PROPERTIES = 0x80041051,
+    WBEM_E_UPDATE_TYPE_MISMATCH = 0x80041052,
+    WBEM_E_UPDATE_OVERRIDE_NOT_ALLOWED = 0x80041053,
+    WBEM_E_UPDATE_PROPAGATED_METHOD = 0x80041054,
+    WBEM_E_METHOD_NOT_IMPLEMENTED = 0x80041055,
+    WBEM_E_METHOD_DISABLED = 0x80041056,
+    WBEM_E_REFRESHER_BUSY = 0x80041057,
+    WBEM_E_UNPARSABLE_QUERY = 0x80041058,
+    WBEM_E_NOT_EVENT_CLASS = 0x80041059,
+    WBEM_E_MISSING_GROUP_WITHIN = 0x8004105a,
+    WBEM_E_MISSING_AGGREGATION_LIST = 0x8004105b,
+    WBEM_E_PROPERTY_NOT_AN_OBJECT = 0x8004105c,
+    WBEM_E_AGGREGATING_BY_OBJECT = 0x8004105d,
+    WBEM_E_UNINTERPRETABLE_PROVIDER_QUERY = 0x8004105f,
+    WBEM_E_BACKUP_RESTORE_WINMGMT_RUNNING = 0x80041060,
+    WBEM_E_QUEUE_OVERFLOW = 0x80041061,
+    WBEM_E_PRIVILEGE_NOT_HELD = 0x80041062,
+    WBEM_E_INVALID_OPERATOR = 0x80041063,
+    WBEM_E_LOCAL_CREDENTIALS = 0x80041064,
+    WBEM_E_CANNOT_BE_ABSTRACT = 0x80041065,
+    WBEM_E_AMENDED_OBJECT = 0x80041066,
+    WBEM_E_CLIENT_TOO_SLOW = 0x80041067,
+    WBEM_E_NULL_SECURITY_DESCRIPTOR = 0x80041068,
+    WBEM_E_TIMED_OUT = 0x80041069,
+    WBEM_E_INVALID_ASSOCIATION = 0x8004106a,
+    WBEM_E_AMBIGUOUS_OPERATION = 0x8004106b,
+    WBEM_E_QUOTA_VIOLATION = 0x8004106c,
+    WBEM_E_RESERVED_001 = 0x8004106d,
+    WBEM_E_RESERVED_002 = 0x8004106e,
+    WBEM_E_UNSUPPORTED_LOCALE = 0x8004106f,
+    WBEM_E_HANDLE_OUT_OF_DATE = 0x80041070,
+    WBEM_E_CONNECTION_FAILED = 0x80041071,
+    WBEM_E_INVALID_HANDLE_REQUEST = 0x80041072,
+    WBEM_E_PROPERTY_NAME_TOO_WIDE = 0x80041073,
+    WBEM_E_CLASS_NAME_TOO_WIDE = 0x80041074,
+    WBEM_E_METHOD_NAME_TOO_WIDE = 0x80041075,
+    WBEM_E_QUALIFIER_NAME_TOO_WIDE = 0x80041076,
+    WBEM_E_RERUN_COMMAND = 0x80041077,
+    WBEM_E_DATABASE_VER_MISMATCH = 0x80041078,
+    WBEM_E_VETO_DELETE = 0x80041079,
+    WBEM_E_VETO_PUT = 0x8004107a,
+    WBEM_E_INVALID_LOCALE = 0x80041080,
+    WBEM_E_PROVIDER_SUSPENDED = 0x80041081,
+    WBEM_E_SYNCHRONIZATION_REQUIRED = 0x80041082,
+    WBEM_E_NO_SCHEMA = 0x80041083,
+    WBEM_E_PROVIDER_ALREADY_REGISTERED = 0x80041084,
+    WBEM_E_PROVIDER_NOT_REGISTERED = 0x80041085,
+    WBEM_E_FATAL_TRANSPORT_ERROR = 0x80041086,
+    WBEM_E_ENCRYPTED_CONNECTION_REQUIRED = 0x80041087,
+    WBEM_E_PROVIDER_TIMED_OUT = 0x80041088,
+    WBEM_E_NO_KEY = 0x80041089,
+    WBEM_E_PROVIDER_DISABLED = 0x8004108a,
+    WBEMESS_E_REGISTRATION_TOO_BROAD = 0x80042001,
+    WBEMESS_E_REGISTRATION_TOO_PRECISE = 0x80042002,
+    WBEMESS_E_AUTHZ_NOT_PRIVILEGED = 0x80042003,
+    WBEMMOF_E_EXPECTED_QUALIFIER_NAME = 0x80044001,
+    WBEMMOF_E_EXPECTED_SEMI = 0x80044002,
+    WBEMMOF_E_EXPECTED_OPEN_BRACE = 0x80044003,
+    WBEMMOF_E_EXPECTED_CLOSE_BRACE = 0x80044004,
+    WBEMMOF_E_EXPECTED_CLOSE_BRACKET = 0x80044005,
+    WBEMMOF_E_EXPECTED_CLOSE_PAREN = 0x80044006,
+    WBEMMOF_E_ILLEGAL_CONSTANT_VALUE = 0x80044007,
+    WBEMMOF_E_EXPECTED_TYPE_IDENTIFIER = 0x80044008,
+    WBEMMOF_E_EXPECTED_OPEN_PAREN = 0x80044009,
+    WBEMMOF_E_UNRECOGNIZED_TOKEN = 0x8004400a,
+    WBEMMOF_E_UNRECOGNIZED_TYPE = 0x8004400b,
+    WBEMMOF_E_EXPECTED_PROPERTY_NAME = 0x8004400c,
+    WBEMMOF_E_TYPEDEF_NOT_SUPPORTED = 0x8004400d,
+    WBEMMOF_E_UNEXPECTED_ALIAS = 0x8004400e,
+    WBEMMOF_E_UNEXPECTED_ARRAY_INIT = 0x8004400f,
+    WBEMMOF_E_INVALID_AMENDMENT_SYNTAX = 0x80044010,
+    WBEMMOF_E_INVALID_DUPLICATE_AMENDMENT = 0x80044011,
+    WBEMMOF_E_INVALID_PRAGMA = 0x80044012,
+    WBEMMOF_E_INVALID_NAMESPACE_SYNTAX = 0x80044013,
+    WBEMMOF_E_EXPECTED_CLASS_NAME = 0x80044014,
+    WBEMMOF_E_TYPE_MISMATCH = 0x80044015,
+    WBEMMOF_E_EXPECTED_ALIAS_NAME = 0x80044016,
+    WBEMMOF_E_INVALID_CLASS_DECLARATION = 0x80044017,
+    WBEMMOF_E_INVALID_INSTANCE_DECLARATION = 0x80044018,
+    WBEMMOF_E_EXPECTED_DOLLAR = 0x80044019,
+    WBEMMOF_E_CIMTYPE_QUALIFIER = 0x8004401a,
+    WBEMMOF_E_DUPLICATE_PROPERTY = 0x8004401b,
+    WBEMMOF_E_INVALID_NAMESPACE_SPECIFICATION = 0x8004401c,
+    WBEMMOF_E_OUT_OF_RANGE = 0x8004401d,
+    WBEMMOF_E_INVALID_FILE = 0x8004401e,
+    WBEMMOF_E_ALIASES_IN_EMBEDDED = 0x8004401f,
+    WBEMMOF_E_NULL_ARRAY_ELEM = 0x80044020,
+    WBEMMOF_E_DUPLICATE_QUALIFIER = 0x80044021,
+    WBEMMOF_E_EXPECTED_FLAVOR_TYPE = 0x80044022,
+    WBEMMOF_E_INCOMPATIBLE_FLAVOR_TYPES = 0x80044023,
+    WBEMMOF_E_MULTIPLE_ALIASES = 0x80044024,
+    WBEMMOF_E_INCOMPATIBLE_FLAVOR_TYPES2 = 0x80044025,
+    WBEMMOF_E_NO_ARRAYS_RETURNED = 0x80044026,
+    WBEMMOF_E_MUST_BE_IN_OR_OUT = 0x80044027,
+    WBEMMOF_E_INVALID_FLAGS_SYNTAX = 0x80044028,
+    WBEMMOF_E_EXPECTED_BRACE_OR_BAD_TYPE = 0x80044029,
+    WBEMMOF_E_UNSUPPORTED_CIMV22_QUAL_VALUE = 0x8004402a,
+    WBEMMOF_E_UNSUPPORTED_CIMV22_DATA_TYPE = 0x8004402b,
+    WBEMMOF_E_INVALID_DELETEINSTANCE_SYNTAX = 0x8004402c,
+    WBEMMOF_E_INVALID_QUALIFIER_SYNTAX = 0x8004402d,
+    WBEMMOF_E_QUALIFIER_USED_OUTSIDE_SCOPE = 0x8004402e,
+    WBEMMOF_E_ERROR_CREATING_TEMP_FILE = 0x8004402f,
+    WBEMMOF_E_ERROR_INVALID_INCLUDE_FILE = 0x80044030,
+    WBEMMOF_E_INVALID_DELETECLASS_SYNTAX = 0x80044031
+  } WBEMSTATUS;
+
+typedef [v1_enum] enum tag_WMI_OBJ_TEXT {
+  WMI_OBJ_TEXT_CIM_DTD_2_0 = 1,
+  WMI_OBJ_TEXT_WMI_DTD_2_0 = 2,
+  WMI_OBJ_TEXT_WMI_EXT1 = 3,
+  WMI_OBJ_TEXT_WMI_EXT2 = 4,
+  WMI_OBJ_TEXT_WMI_EXT3 = 5,
+  WMI_OBJ_TEXT_WMI_EXT4 = 6,
+  WMI_OBJ_TEXT_WMI_EXT5 = 7,
+  WMI_OBJ_TEXT_WMI_EXT6 = 8,
+  WMI_OBJ_TEXT_WMI_EXT7 = 9,
+  WMI_OBJ_TEXT_WMI_EXT8 = 10,
+  WMI_OBJ_TEXT_WMI_EXT9 = 11,
+  WMI_OBJ_TEXT_WMI_EXT10 = 12,
+  WMI_OBJ_TEXT_LAST = 13
+} WMI_OBJ_TEXT;
+
+typedef [v1_enum] enum tag_WBEM_COMPILER_OPTIONS {
+  WBEM_FLAG_CHECK_ONLY = 0x1,
+  WBEM_FLAG_AUTORECOVER = 0x2,
+  WBEM_FLAG_WMI_CHECK = 0x4,
+  WBEM_FLAG_CONSOLE_PRINT = 0x8,
+  WBEM_FLAG_DONT_ADD_TO_LIST = 0x10,
+  WBEM_FLAG_SPLIT_FILES = 0x20,
+  WBEM_FLAG_STORE_FILE = 0x100,
+} WBEM_COMPILER_OPTIONS;
+
+typedef [v1_enum] enum tag_WBEM_CONNECT_OPTIONS {
+  WBEM_FLAG_CONNECT_REPOSITORY_ONLY = 0x40,
+  WBEM_FLAG_CONNECT_USE_MAX_WAIT = 0x80,
+  WBEM_FLAG_CONNECT_PROVIDERS = 0x100
+} WBEM_CONNECT_OPTIONS;
+
+typedef [v1_enum] enum tag_WBEM_UNSECAPP_FLAG_TYPE {
+  WBEM_FLAG_UNSECAPP_DEFAULT_CHECK_ACCESS = 0,
+  WBEM_FLAG_UNSECAPP_CHECK_ACCESS = 1,
+  WBEM_FLAG_UNSECAPP_DONT_CHECK_ACCESS = 2
+} WBEM_UNSECAPP_FLAG_TYPE;
+
+typedef [v1_enum] enum tag_WBEM_INFORMATION_FLAG_TYPE {
+  WBEM_FLAG_SHORT_NAME = 0x1,
+  WBEM_FLAG_LONG_NAME = 0x2
+} WBEM_INFORMATION_FLAG_TYPE;
+
+typedef struct tag_CompileStatusInfo {
+  long lPhaseError;
+  HRESULT hRes;
+  long ObjectNum;
+  long FirstLine;
+  long LastLine;
+  DWORD dwOutFlags;
+} WBEM_COMPILE_STATUS_INFO;
+
+typedef long CIMTYPE;
+
+  [uuid (c49e32c6-bc8b-11d2-85d4-00105a1f8304)]
+  coclass WbemBackupRestore {
+    interface IWbemBackupRestoreEx;
+  };
+
+  [uuid (9a653086-174f-11d2-b5f9-00104b703efd)]
+  coclass WbemClassObject {
+    interface IWbemClassObject;
+  };
+
+  [uuid (674b6698-ee92-11d0-AD71-00c04fd8fdff)] /* restricted, */
+  coclass WbemContext {
+    interface IWbemContext;
+  };
+
+  [uuid (4590f811-1d3a-11d0-891f-00aa004b2e24)] /* restricted */
+  coclass WbemLocator {
     interface IWbemLocator;
+  };
+
+  [uuid (eb87e1bd-3233-11d2-aec9-00c04fb68820)]
+  coclass WbemStatusCodeText {
+    interface IWbemStatusCodeText;
+  };
+
+  [uuid (49bd2028-1523-11d1-ad79-00c04fd8fdff)]
+  coclass UnsecuredApartment {
+    interface IUnsecuredApartment;
+    interface IWbemUnsecuredApartment;
+  };
+
+  [uuid (6daf9757-2e37-11d2-aec9-00c04fb68820)]
+  coclass MofCompiler {
+    interface IMofCompiler;
+  };
+
+  [uuid (8d1c559d-84f0-4bb3-A7D5-56a7435a9ba6)] /* restricted */
+  coclass WbemObjectTextSrc {
+    interface IWbemObjectTextSrc;
+  }
+
+  [uuid (c71566f2-561e-11d1-ad87-00c04fd8fdff)] /* restricted */
+  coclass WbemRefresher {
+    interface IMarshal;
+    interface IWbemRefresher;
+    interface IWbemConfigureRefresher;
+  };
+};
+
+[local, object, restricted, uuid (dc12a681-737f-11cf-884d-00aa004b2e24)]
+interface IWbemClassObject : IUnknown {
+  HRESULT GetQualifierSet ([out] IWbemQualifierSet **ppQualSet);
+  HRESULT Get ([in, string] LPCWSTR wszName,[in] long lFlags,[out] VARIANT *pVal,[out,] CIMTYPE *pType,[out] long *plFlavor);
+  HRESULT Put ([in, string] LPCWSTR wszName,[in] long lFlags,[in] VARIANT *pVal,[in] CIMTYPE Type);
+  HRESULT Delete ([in, string] LPCWSTR wszName);
+  HRESULT GetNames ([in, string] LPCWSTR wszQualifierName,[in] long lFlags,[in] VARIANT *pQualifierVal,[out] SAFEARRAY (BSTR) *pNames);
+  HRESULT BeginEnumeration ([in] long lEnumFlags);
+  HRESULT Next ([in] long lFlags,[out,] BSTR *strName,[out,] VARIANT *pVal,[out,] CIMTYPE *pType,[out,] long *plFlavor);
+  HRESULT EndEnumeration ();
+  HRESULT GetPropertyQualifierSet ([in, string] LPCWSTR wszProperty,[out] IWbemQualifierSet **ppQualSet);
+  HRESULT Clone ([out] IWbemClassObject **ppCopy);
+  HRESULT GetObjectText ([in] long lFlags,[out] BSTR *pstrObjectText);
+  HRESULT SpawnDerivedClass ([in] long lFlags,[out] IWbemClassObject **ppNewClass);
+  HRESULT SpawnInstance ([in] long lFlags,[out] IWbemClassObject **ppNewInstance);
+  HRESULT CompareTo ([in] long lFlags,[in] IWbemClassObject *pCompareTo);
+  HRESULT GetPropertyOrigin ([in, string] LPCWSTR wszName,[out] BSTR *pstrClassName);
+  HRESULT InheritsFrom ([in] LPCWSTR strAncestor);
+  HRESULT GetMethod ([in, string] LPCWSTR wszName,[in] long lFlags,[out] IWbemClassObject **ppInSignature,[out] IWbemClassObject **ppOutSignature);
+  HRESULT PutMethod ([in, string] LPCWSTR wszName,[in] long lFlags,[in] IWbemClassObject *pInSignature,[in] IWbemClassObject *pOutSignature);
+  HRESULT DeleteMethod ([in, string] LPCWSTR wszName);
+  HRESULT BeginMethodEnumeration ([in] long lEnumFlags);
+  HRESULT NextMethod ([in] long lFlags,[out,] BSTR *pstrName,[out,] IWbemClassObject **ppInSignature,[out,] IWbemClassObject **ppOutSignature);
+  HRESULT EndMethodEnumeration ();
+  HRESULT GetMethodQualifierSet ([in, string] LPCWSTR wszMethod,[out] IWbemQualifierSet **ppQualSet);
+  HRESULT GetMethodOrigin ([in, string] LPCWSTR wszMethodName,[out] BSTR *pstrClassName);
+};
+
+[local, object, restricted, uuid (dc12a680-737f-11cf-884d-00aa004b2e24)]
+interface IWbemQualifierSet : IUnknown {
+  HRESULT Get ([in, string] LPCWSTR wszName,[in] long lFlags,[out,] VARIANT *pVal,[out,] long *plFlavor);
+  HRESULT Put ([in, string] LPCWSTR wszName,[in] VARIANT *pVal,[in] long lFlavor);
+  HRESULT Delete ([in, string] LPCWSTR wszName);
+  HRESULT GetNames ([in] long lFlags,[out] SAFEARRAY (BSTR) *pNames);
+  HRESULT BeginEnumeration ([in] long lFlags);
+  HRESULT Next ([in] long lFlags,[out,] BSTR *pstrName,[out,] VARIANT *pVal,[out,] long *plFlavor);
+  HRESULT EndEnumeration ();
+};
+
+[local, object, restricted, uuid (dc12a687-737f-11cf-884d-00aa004b2e24), pointer_default (unique)]
+interface IWbemLocator : IUnknown {
+  HRESULT ConnectServer ([in] const BSTR strNetworkResource,[in] const BSTR strUser,[in] const BSTR strPassword,[in] const BSTR strLocale,[in] long lSecurityFlags,[in] const BSTR strAuthority,[in] IWbemContext *pCtx,[out] IWbemServices **ppNamespace);
+};
+
+[object, restricted, uuid (7c857801-7381-11cf-884d-00aa004b2e24)]
+interface IWbemObjectSink : IUnknown {
+  HRESULT Indicate ([in] long lObjectCount,[in, size_is (lObjectCount)] IWbemClassObject **apObjArray);
+  HRESULT SetStatus ([in] long lFlags,[in] HRESULT hResult,[in, unique] BSTR strParam,[in, unique] IWbemClassObject *pObjParam);
+};
+
+[object, restricted, uuid (e7d35cfa-348b-485e-b524-252725d697ca)]
+interface IWbemObjectSinkEx : IWbemObjectSink {
+  HRESULT WriteMessage ([in] ULONG uChannel,[in] const BSTR strMessage);
+  HRESULT WriteError ([in, unique] IWbemClassObject *pObjError,[out] unsigned char *puReturned);
+  HRESULT PromptUser ([in] const BSTR strMessage,[in] unsigned char uPromptType,[out] unsigned char *puReturned);
+  HRESULT WriteProgress ([in] const BSTR strActivity,[in] const BSTR strCurrentOperation,[in] const BSTR strStatusDescription,[in] ULONG uPercentComplete,[in] ULONG uSecondsRemaining);
+  HRESULT WriteStreamParameter ([in] const BSTR strName,[in] VARIANT *vtValue,[in] ULONG ulType,[in] ULONG ulFlags);
+};
+
+[object, restricted, uuid (027947e1-d731-11ce-a357-000000000001)]
+interface IEnumWbemClassObject : IUnknown {
+  HRESULT Reset ();
+  HRESULT Next ([in] long lTimeout,[in] ULONG uCount,[out, size_is (uCount), length_is (*puReturned)] IWbemClassObject **apObjects,[out] ULONG *puReturned);
+  HRESULT NextAsync ([in] ULONG uCount,[in] IWbemObjectSink *pSink);
+  HRESULT Clone ([out] IEnumWbemClassObject **ppEnum);
+  HRESULT Skip ([in] long lTimeout,[in] ULONG nCount);
+};
+
+[object, restricted, local, uuid (44aca674-e8fc-11d0-a07c-00c04fb68820)]
+interface IWbemContext : IUnknown {
+  HRESULT Clone ([out] IWbemContext **ppNewCopy);
+  HRESULT GetNames ([in] long lFlags,[out] SAFEARRAY (BSTR) *pNames);
+  HRESULT BeginEnumeration ([in] long lFlags);
+  HRESULT Next ([in] long lFlags,[out] BSTR *pstrName,[out] VARIANT *pValue);
+  HRESULT EndEnumeration ();
+  HRESULT SetValue ([in, string] LPCWSTR wszName,[in] long lFlags,[in] VARIANT *pValue);
+  HRESULT GetValue ([in, string] LPCWSTR wszName,[in] long lFlags,[out] VARIANT *pValue);
+  HRESULT DeleteValue ([in, string] LPCWSTR wszName,[in] long lFlags);
+  HRESULT DeleteAll ();
+};
+
+[object, restricted, uuid (44aca675-e8fc-11d0-a07c-00c04fb68820)]
+interface IWbemCallResult : IUnknown {
+  HRESULT GetResultObject ([in] long lTimeout,[out] IWbemClassObject **ppResultObject);
+  HRESULT GetResultString ([in] long lTimeout,[out] BSTR *pstrResultString);
+  HRESULT GetResultServices ([in] long lTimeout,[out] IWbemServices **ppServices);
+  HRESULT GetCallStatus ([in] long lTimeout,[out] long *plStatus);
+};
+
+[object, restricted, uuid (9556dc99-828c-11cf-a37e-00aa003240c7), pointer_default (unique)]
+interface IWbemServices : IUnknown {
+  HRESULT OpenNamespace ([in] const BSTR strNamespace,[in] long lFlags,[in] IWbemContext *pCtx,[out,] IWbemServices **ppWorkingNamespace,[out,] IWbemCallResult **ppResult);
+  HRESULT CancelAsyncCall ([in] IWbemObjectSink *pSink);
+  HRESULT QueryObjectSink ([in] long lFlags,[out] IWbemObjectSink **ppResponseHandler);
+  HRESULT GetObject ([in] const BSTR strObjectPath,[in] long lFlags,[in] IWbemContext *pCtx,[out,] IWbemClassObject **ppObject,[out,] IWbemCallResult **ppCallResult);
+  HRESULT GetObjectAsync ([in] const BSTR strObjectPath,[in] long lFlags,[in] IWbemContext *pCtx,[in] IWbemObjectSink *pResponseHandler);
+  HRESULT PutClass ([in] IWbemClassObject *pObject,[in] long lFlags,[in] IWbemContext *pCtx,[out,] IWbemCallResult **ppCallResult);
+  HRESULT PutClassAsync ([in] IWbemClassObject *pObject,[in] long lFlags,[in] IWbemContext *pCtx,[in] IWbemObjectSink *pResponseHandler);
+  HRESULT DeleteClass ([in] const BSTR strClass,[in] long lFlags,[in] IWbemContext *pCtx,[out,] IWbemCallResult **ppCallResult);
+  HRESULT DeleteClassAsync ([in] const BSTR strClass,[in] long lFlags,[in] IWbemContext *pCtx,[in] IWbemObjectSink *pResponseHandler);
+  HRESULT CreateClassEnum ([in] const BSTR strSuperclass,[in] long lFlags,[in] IWbemContext *pCtx,[out] IEnumWbemClassObject **ppEnum);
+  HRESULT CreateClassEnumAsync ([in] const BSTR strSuperclass,[in] long lFlags,[in] IWbemContext *pCtx,[in] IWbemObjectSink *pResponseHandler);
+  HRESULT PutInstance ([in] IWbemClassObject *pInst,[in] long lFlags,[in] IWbemContext *pCtx,[out,] IWbemCallResult **ppCallResult);
+  HRESULT PutInstanceAsync ([in] IWbemClassObject *pInst,[in] long lFlags,[in] IWbemContext *pCtx,[in] IWbemObjectSink *pResponseHandler);
+  HRESULT DeleteInstance ([in] const BSTR strObjectPath,[in] long lFlags,[in] IWbemContext *pCtx,[out,] IWbemCallResult **ppCallResult);
+  HRESULT DeleteInstanceAsync ([in] const BSTR strObjectPath,[in] long lFlags,[in] IWbemContext *pCtx,[in] IWbemObjectSink *pResponseHandler);
+  HRESULT CreateInstanceEnum ([in] const BSTR strFilter,[in] long lFlags,[in] IWbemContext *pCtx,[out] IEnumWbemClassObject **ppEnum);
+  HRESULT CreateInstanceEnumAsync ([in] const BSTR strFilter,[in] long lFlags,[in] IWbemContext *pCtx,[in] IWbemObjectSink *pResponseHandler);
+  HRESULT ExecQuery ([in] const BSTR strQueryLanguage,[in] const BSTR strQuery,[in] long lFlags,[in] IWbemContext *pCtx,[out] IEnumWbemClassObject **ppEnum);
+  HRESULT ExecQueryAsync ([in] const BSTR strQueryLanguage,[in] const BSTR strQuery,[in] long lFlags,[in] IWbemContext *pCtx,[in] IWbemObjectSink *pResponseHandler);
+  HRESULT ExecNotificationQuery ([in] const BSTR strQueryLanguage,[in] const BSTR strQuery,[in] long lFlags,[in] IWbemContext *pCtx,[out] IEnumWbemClassObject **ppEnum);
+  HRESULT ExecNotificationQueryAsync ([in] const BSTR strQueryLanguage,[in] const BSTR strQuery,[in] long lFlags,[in] IWbemContext *pCtx,[in] IWbemObjectSink *pResponseHandler);
+  HRESULT ExecMethod ([in] const BSTR strObjectPath,[in] const BSTR strMethodName,[in] long lFlags,[in] IWbemContext *pCtx,[in] IWbemClassObject *pInParams,[out,] IWbemClassObject **ppOutParams,[out,] IWbemCallResult **ppCallResult);
+  HRESULT ExecMethodAsync ([in] const BSTR strObjectPath,[in] const BSTR strMethodName,[in] long lFlags,[in] IWbemContext *pCtx,[in] IWbemClassObject *pInParams,[in] IWbemObjectSink *pResponseHandler);
+};
+
+[object, uuid (b7b31df9-d515-11d3-a11c-00105a1f515a)]
+interface IWbemShutdown : IUnknown {
+  HRESULT Shutdown ([in] LONG uReason,[in] ULONG uMaxMilliseconds,[in] IWbemContext *pCtx);
+};
+
+[object, restricted, local, uuid (bfbf883a-cad7-11d3-a11b-00105a1f515a)]
+interface IWbemObjectTextSrc : IUnknown {
+  HRESULT GetText ([in] long lFlags,[in] IWbemClassObject *pObj,[in] ULONG uObjTextFormat,[in] IWbemContext *pCtx,[out] BSTR *strText);
+  HRESULT CreateFromText ([in] long lFlags,[in] BSTR strText,[in] ULONG uObjTextFormat,[in] IWbemContext *pCtx,[out] IWbemClassObject **pNewObj);
+}
+[local, restricted, object, uuid (49353c9a-516b-11d1-aea6-00c04fb68820)] interface IWbemObjectAccess : IWbemClassObject {
+  HRESULT GetPropertyHandle ([in, string] LPCWSTR wszPropertyName,[out] CIMTYPE *pType,[out] long *plHandle);
+  HRESULT WritePropertyValue ([in] long lHandle,[in] long lNumBytes,[in, size_is (lNumBytes)] const byte *aData);
+  HRESULT ReadPropertyValue ([in] long lHandle,[in] long lBufferSize,[out] long *plNumBytes,[out, size_is (lBufferSize), length_is (*plNumBytes)] byte *aData);
+  HRESULT ReadDWORD ([in] long lHandle,[out] DWORD *pdw);
+  HRESULT WriteDWORD ([in] long lHandle,[in] DWORD dw);
+  HRESULT ReadQWORD ([in] long lHandle,[out] unsigned __int64 *pqw);
+  HRESULT WriteQWORD ([in] long lHandle,[in] unsigned __int64 pw);
+  HRESULT GetPropertyInfoByHandle ([in] long lHandle,[out] BSTR *pstrName,[out] CIMTYPE *pType);
+  HRESULT Lock ([in] long lFlags);
+  HRESULT Unlock ([in] long lFlags);
+};
+
+[local, object, uuid (6daf974e-2e37-11d2-aec9-00c04fb68820)]
+interface IMofCompiler : IUnknown {
+  HRESULT CompileFile ([in, string] LPWSTR FileName,[in, string] LPWSTR ServerAndNamespace,[in, string] LPWSTR User,[in, string] LPWSTR Authority,[in, string] LPWSTR Password,[in] LONG lOptionFlags,[in] LONG lClassFlags,[in] LONG lInstanceFlags,[in, out] WBEM_COMPILE_STATUS_INFO *pInfo);
+  HRESULT CompileBuffer ([in] long BuffSize,[in, size_is (BuffSize)]BYTE *pBuffer,[in, string] LPWSTR ServerAndNamespace,[in, string] LPWSTR User,[in, string] LPWSTR Authority,[in, string] LPWSTR Password,[in] LONG lOptionFlags,[in] LONG lClassFlags,[in] LONG lInstanceFlags,[in, out] WBEM_COMPILE_STATUS_INFO *pInfo);
+  HRESULT CreateBMOF ([in, string] LPWSTR TextFileName,[in, string] LPWSTR BMOFFileName,[in, string] LPWSTR ServerAndNamespace,[in] LONG lOptionFlags,[in] LONG lClassFlags,[in] LONG lInstanceFlags,[in, out] WBEM_COMPILE_STATUS_INFO *pInfo);
+};
+
+[object, restricted, uuid (1cfaba8c-1523-11d1-ad79-00c04fd8fdff)]
+interface IUnsecuredApartment : IUnknown {
+  HRESULT CreateObjectStub ([in] IUnknown *pObject,[out] IUnknown **ppStub);
+};
+
+[object, restricted, uuid (31739d04-3471-4cf4-9a7c-57a44ae71956)]
+interface IWbemUnsecuredApartment : IUnsecuredApartment {
+  HRESULT CreateSinkStub ([in] IWbemObjectSink *pSink,[in] DWORD dwFlags,[in, unique] LPCWSTR wszReserved,[out] IWbemObjectSink **ppStub);
+};
+
+[local, object, uuid (eb87e1bc-3233-11d2-aec9-00c04fb68820)]
+interface IWbemStatusCodeText : IUnknown {
+  HRESULT GetErrorCodeText ([in] HRESULT hRes,[in] LCID LocaleId,[in] long lFlags,[out] BSTR *MessageText);
+  HRESULT GetFacilityCodeText ([in] HRESULT hRes,[in] LCID LocaleId,[in] long lFlags,[out] BSTR *MessageText);
+};
+
+[object, restricted, uuid (c49e32c7-bc8b-11d2-85d4-00105a1f8304)]
+interface IWbemBackupRestore : IUnknown {
+  HRESULT Backup ([in, string] LPCWSTR strBackupToFile,[in] long lFlags);
+  HRESULT Restore ([in, string] LPCWSTR strRestoreFromFile,[in] long lFlags);
+};
+
+[object, restricted, uuid (a359dec5-e813-4834-8a2a-ba7F1d777d76)]
+interface IWbemBackupRestoreEx : IWbemBackupRestore {
+  HRESULT Pause ();
+  HRESULT Resume ();
+};
+
+[local, object, restricted, uuid (49353c99-516b-11d1-aea6-00c04fb68820)]
+interface IWbemRefresher : IUnknown {
+  HRESULT Refresh ([in] long lFlags);
 }
 
-cpp_quote("  EXTERN_C const CLSID CLSID_WbemContext;")
-cpp_quote("#ifdef __cplusplus")
-cpp_quote("  class WbemContext;")
+[local, object, restricted, uuid (2705c288-79ae-11d2-B348-00105a1f8177)]
+interface IWbemHiPerfEnum : IUnknown {
+  HRESULT AddObjects ([in] long lFlags,[in] ULONG uNumObjects,[in, size_is (uNumObjects)] long *apIds,[in, size_is (uNumObjects)] IWbemObjectAccess **apObj);
+  HRESULT RemoveObjects ([in] long lFlags,[in] ULONG uNumObjects,[in, size_is (uNumObjects)] long *apIds);
+  HRESULT GetObjects ([in] long lFlags,[in] ULONG uNumObjects,[out, size_is (uNumObjects), length_is (*puReturned)] IWbemObjectAccess **apObj,[out] ULONG *puReturned);
+  HRESULT RemoveAll ([in] long lFlags);
+};
+
+[local, object, restricted, uuid (49353c92-516b-11d1-aea6-00c04fb68820)]
+interface IWbemConfigureRefresher : IUnknown {
+  HRESULT AddObjectByPath ([in] IWbemServices *pNamespace,[in, string] LPCWSTR wszPath,[in] long lFlags,[in] IWbemContext *pContext,[out] IWbemClassObject **ppRefreshable,[out,] long *plId);
+  HRESULT AddObjectByTemplate ([in] IWbemServices *pNamespace,[in] IWbemClassObject *pTemplate,[in] long lFlags,[in] IWbemContext *pContext,[out] IWbemClassObject **ppRefreshable,[out,] long *plId);
+  HRESULT AddRefresher ([in] IWbemRefresher *pRefresher,[in] long lFlags,[out,] long *plId);
+  HRESULT Remove ([in] long lId,[in] long lFlags);
+  HRESULT AddEnum ([in] IWbemServices *pNamespace,[in, string] LPCWSTR wszClassName,[in] long lFlags,[in] IWbemContext *pContext,[out] IWbemHiPerfEnum **ppEnum,[out,] long *plId);
+};
+
 cpp_quote("#endif")
-cpp_quote("  EXTERN_C const CLSID CLSID_UnsecuredApartment;")
-cpp_quote("#ifdef __cplusplus")
-cpp_quote("  class UnsecuredApartment;")
-cpp_quote("#endif")
-cpp_quote("  EXTERN_C const CLSID CLSID_WbemClassObject;")
-cpp_quote("#ifdef __cplusplus")
-cpp_quote("  class WbemClassObject;")
-cpp_quote("#endif")
-cpp_quote("  EXTERN_C const CLSID CLSID_MofCompiler;")
-cpp_quote("#ifdef __cplusplus")
-cpp_quote("  class MofCompiler;")
-cpp_quote("#endif")
-cpp_quote("  EXTERN_C const CLSID CLSID_WbemStatusCodeText;")
-cpp_quote("#ifdef __cplusplus")
-cpp_quote("  class WbemStatusCodeText;")
-cpp_quote("#endif")
-cpp_quote("  EXTERN_C const CLSID CLSID_WbemBackupRestore;")
-cpp_quote("#ifdef __cplusplus")
-cpp_quote("  class WbemBackupRestore;")
-cpp_quote("#endif")
-cpp_quote("  EXTERN_C const CLSID CLSID_WbemRefresher;")
-cpp_quote("#ifdef __cplusplus")
-cpp_quote("  class WbemRefresher;")
-cpp_quote("#endif")
-cpp_quote("  EXTERN_C const CLSID CLSID_WbemObjectTextSrc;")
-cpp_quote("#ifdef __cplusplus")
-cpp_quote("  class WbemObjectTextSrc;")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_wbemcli_0000_v0_0_c_ifspec;")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_wbemcli_0000_v0_0_s_ifspec;")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_wbemcli_0116_v0_0_c_ifspec;")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_wbemcli_0116_v0_0_s_ifspec;")
-cpp_quote("")
-cpp_quote("#ifndef __IWbemShutdown_INTERFACE_DEFINED__")
-cpp_quote("#define __IWbemShutdown_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_IWbemShutdown;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IWbemShutdown : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI Shutdown(LONG uReason,ULONG uMaxMilliseconds,IWbemContext *pCtx) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IWbemShutdownVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IWbemShutdown *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IWbemShutdown *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IWbemShutdown *This);")
-cpp_quote("      HRESULT (WINAPI *Shutdown)(IWbemShutdown *This,LONG uReason,ULONG uMaxMilliseconds,IWbemContext *pCtx);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IWbemShutdownVtbl;")
-cpp_quote("  struct IWbemShutdown {")
-cpp_quote("    CONST_VTBL struct IWbemShutdownVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IWbemShutdown_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IWbemShutdown_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IWbemShutdown_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IWbemShutdown_Shutdown(This,uReason,uMaxMilliseconds,pCtx) (This)->lpVtbl->Shutdown(This,uReason,uMaxMilliseconds,pCtx)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IWbemShutdown_Shutdown_Proxy(IWbemShutdown *This,LONG uReason,ULONG uMaxMilliseconds,IWbemContext *pCtx);")
-cpp_quote("  void __RPC_STUB IWbemShutdown_Shutdown_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WMI_OBJ_TEXT {")
-cpp_quote("    WMI_OBJ_TEXT_CIM_DTD_2_0 = 1,WMI_OBJ_TEXT_WMI_DTD_2_0 = 2,WMI_OBJ_TEXT_WMI_EXT1 = 3,WMI_OBJ_TEXT_WMI_EXT2 = 4,WMI_OBJ_TEXT_WMI_EXT3 = 5,")
-cpp_quote("    WMI_OBJ_TEXT_WMI_EXT4 = 6,WMI_OBJ_TEXT_WMI_EXT5 = 7,WMI_OBJ_TEXT_WMI_EXT6 = 8,WMI_OBJ_TEXT_WMI_EXT7 = 9,WMI_OBJ_TEXT_WMI_EXT8 = 10,")
-cpp_quote("    WMI_OBJ_TEXT_WMI_EXT9 = 11,WMI_OBJ_TEXT_WMI_EXT10 = 12,WMI_OBJ_TEXT_LAST = 13")
-cpp_quote("  } WMI_OBJ_TEXT;")
-cpp_quote("")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_wbemcli_0123_v0_0_c_ifspec;")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_wbemcli_0123_v0_0_s_ifspec;")
-cpp_quote("#ifndef __IWbemObjectTextSrc_INTERFACE_DEFINED__")
-cpp_quote("#define __IWbemObjectTextSrc_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_IWbemObjectTextSrc;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IWbemObjectTextSrc : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI GetText(__LONG32 lFlags,IWbemClassObject *pObj,ULONG uObjTextFormat,IWbemContext *pCtx,BSTR *strText) = 0;")
-cpp_quote("    virtual HRESULT WINAPI CreateFromText(__LONG32 lFlags,BSTR strText,ULONG uObjTextFormat,IWbemContext *pCtx,IWbemClassObject **pNewObj) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IWbemObjectTextSrcVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IWbemObjectTextSrc *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IWbemObjectTextSrc *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IWbemObjectTextSrc *This);")
-cpp_quote("      HRESULT (WINAPI *GetText)(IWbemObjectTextSrc *This,__LONG32 lFlags,IWbemClassObject *pObj,ULONG uObjTextFormat,IWbemContext *pCtx,BSTR *strText);")
-cpp_quote("      HRESULT (WINAPI *CreateFromText)(IWbemObjectTextSrc *This,__LONG32 lFlags,BSTR strText,ULONG uObjTextFormat,IWbemContext *pCtx,IWbemClassObject **pNewObj);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IWbemObjectTextSrcVtbl;")
-cpp_quote("  struct IWbemObjectTextSrc {")
-cpp_quote("    CONST_VTBL struct IWbemObjectTextSrcVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IWbemObjectTextSrc_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IWbemObjectTextSrc_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IWbemObjectTextSrc_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IWbemObjectTextSrc_GetText(This,lFlags,pObj,uObjTextFormat,pCtx,strText) (This)->lpVtbl->GetText(This,lFlags,pObj,uObjTextFormat,pCtx,strText)")
-cpp_quote("#define IWbemObjectTextSrc_CreateFromText(This,lFlags,strText,uObjTextFormat,pCtx,pNewObj) (This)->lpVtbl->CreateFromText(This,lFlags,strText,uObjTextFormat,pCtx,pNewObj)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IWbemObjectTextSrc_GetText_Proxy(IWbemObjectTextSrc *This,__LONG32 lFlags,IWbemClassObject *pObj,ULONG uObjTextFormat,IWbemContext *pCtx,BSTR *strText);")
-cpp_quote("  void __RPC_STUB IWbemObjectTextSrc_GetText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IWbemObjectTextSrc_CreateFromText_Proxy(IWbemObjectTextSrc *This,__LONG32 lFlags,BSTR strText,ULONG uObjTextFormat,IWbemContext *pCtx,IWbemClassObject **pNewObj);")
-cpp_quote("  void __RPC_STUB IWbemObjectTextSrc_CreateFromText_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("  typedef struct tag_CompileStatusInfo {")
-cpp_quote("    __LONG32 lPhaseError;")
-cpp_quote("    HRESULT hRes;")
-cpp_quote("    __LONG32 ObjectNum;")
-cpp_quote("    __LONG32 FirstLine;")
-cpp_quote("    __LONG32 LastLine;")
-cpp_quote("    DWORD dwOutFlags;")
-cpp_quote("  } WBEM_COMPILE_STATUS_INFO;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEM_COMPILER_OPTIONS {")
-cpp_quote("    WBEM_FLAG_CHECK_ONLY = 0x1,WBEM_FLAG_AUTORECOVER = 0x2,WBEM_FLAG_WMI_CHECK = 0x4,WBEM_FLAG_CONSOLE_PRINT = 0x8,WBEM_FLAG_DONT_ADD_TO_LIST = 0x10,")
-cpp_quote("    WBEM_FLAG_SPLIT_FILES = 0x20,WBEM_FLAG_STORE_FILE = 0x100")
-cpp_quote("  } WBEM_COMPILER_OPTIONS;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEM_CONNECT_OPTIONS {")
-cpp_quote("    WBEM_FLAG_CONNECT_REPOSITORY_ONLY = 0x40,WBEM_FLAG_CONNECT_USE_MAX_WAIT = 0x80,WBEM_FLAG_CONNECT_PROVIDERS = 0x100")
-cpp_quote("  } WBEM_CONNECT_OPTIONS;")
-cpp_quote("")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_wbemcli_0125_v0_0_c_ifspec;")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_wbemcli_0125_v0_0_s_ifspec;")
-cpp_quote("#ifndef __IMofCompiler_INTERFACE_DEFINED__")
-cpp_quote("#define __IMofCompiler_INTERFACE_DEFINED__")
-cpp_quote("  EXTERN_C const IID IID_IMofCompiler;")
-cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
-cpp_quote("  struct IMofCompiler : public IUnknown {")
-cpp_quote("  public:")
-cpp_quote("    virtual HRESULT WINAPI CompileFile(LPWSTR FileName,LPWSTR ServerAndNamespace,LPWSTR User,LPWSTR Authority,LPWSTR Password,LONG lOptionFlags,LONG lClassFlags,LONG lInstanceFlags,WBEM_COMPILE_STATUS_INFO *pInfo) = 0;")
-cpp_quote("    virtual HRESULT WINAPI CompileBuffer(__LONG32 BuffSize,BYTE *pBuffer,LPWSTR ServerAndNamespace,LPWSTR User,LPWSTR Authority,LPWSTR Password,LONG lOptionFlags,LONG lClassFlags,LONG lInstanceFlags,WBEM_COMPILE_STATUS_INFO *pInfo) = 0;")
-cpp_quote("    virtual HRESULT WINAPI CreateBMOF(LPWSTR TextFileName,LPWSTR BMOFFileName,LPWSTR ServerAndNamespace,LONG lOptionFlags,LONG lClassFlags,LONG lInstanceFlags,WBEM_COMPILE_STATUS_INFO *pInfo) = 0;")
-cpp_quote("  };")
-cpp_quote("#else")
-cpp_quote("  typedef struct IMofCompilerVtbl {")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("      HRESULT (WINAPI *QueryInterface)(IMofCompiler *This,REFIID riid,void **ppvObject);")
-cpp_quote("      ULONG (WINAPI *AddRef)(IMofCompiler *This);")
-cpp_quote("      ULONG (WINAPI *Release)(IMofCompiler *This);")
-cpp_quote("      HRESULT (WINAPI *CompileFile)(IMofCompiler *This,LPWSTR FileName,LPWSTR ServerAndNamespace,LPWSTR User,LPWSTR Authority,LPWSTR Password,LONG lOptionFlags,LONG lClassFlags,LONG lInstanceFlags,WBEM_COMPILE_STATUS_INFO *pInfo);")
-cpp_quote("      HRESULT (WINAPI *CompileBuffer)(IMofCompiler *This,__LONG32 BuffSize,BYTE *pBuffer,LPWSTR ServerAndNamespace,LPWSTR User,LPWSTR Authority,LPWSTR Password,LONG lOptionFlags,LONG lClassFlags,LONG lInstanceFlags,WBEM_COMPILE_STATUS_INFO *pInfo);")
-cpp_quote("      HRESULT (WINAPI *CreateBMOF)(IMofCompiler *This,LPWSTR TextFileName,LPWSTR BMOFFileName,LPWSTR ServerAndNamespace,LONG lOptionFlags,LONG lClassFlags,LONG lInstanceFlags,WBEM_COMPILE_STATUS_INFO *pInfo);")
-cpp_quote("    END_INTERFACE")
-cpp_quote("  } IMofCompilerVtbl;")
-cpp_quote("  struct IMofCompiler {")
-cpp_quote("    CONST_VTBL struct IMofCompilerVtbl *lpVtbl;")
-cpp_quote("  };")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IMofCompiler_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IMofCompiler_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IMofCompiler_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IMofCompiler_CompileFile(This,FileName,ServerAndNamespace,User,Authority,Password,lOptionFlags,lClassFlags,lInstanceFlags,pInfo) (This)->lpVtbl->CompileFile(This,FileName,ServerAndNamespace,User,Authority,Password,lOptionFlags,lClassFlags,lInstanceFlags,pInfo)")
-cpp_quote("#define IMofCompiler_CompileBuffer(This,BuffSize,pBuffer,ServerAndNamespace,User,Authority,Password,lOptionFlags,lClassFlags,lInstanceFlags,pInfo) (This)->lpVtbl->CompileBuffer(This,BuffSize,pBuffer,ServerAndNamespace,User,Authority,Password,lOptionFlags,lClassFlags,lInstanceFlags,pInfo)")
-cpp_quote("#define IMofCompiler_CreateBMOF(This,TextFileName,BMOFFileName,ServerAndNamespace,lOptionFlags,lClassFlags,lInstanceFlags,pInfo) (This)->lpVtbl->CreateBMOF(This,TextFileName,BMOFFileName,ServerAndNamespace,lOptionFlags,lClassFlags,lInstanceFlags,pInfo)")
-cpp_quote("#endif")
-cpp_quote("#endif")
-cpp_quote("  HRESULT WINAPI IMofCompiler_CompileFile_Proxy(IMofCompiler *This,LPWSTR FileName,LPWSTR ServerAndNamespace,LPWSTR User,LPWSTR Authority,LPWSTR Password,LONG lOptionFlags,LONG lClassFlags,LONG lInstanceFlags,WBEM_COMPILE_STATUS_INFO *pInfo);")
-cpp_quote("  void __RPC_STUB IMofCompiler_CompileFile_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IMofCompiler_CompileBuffer_Proxy(IMofCompiler *This,__LONG32 BuffSize,BYTE *pBuffer,LPWSTR ServerAndNamespace,LPWSTR User,LPWSTR Authority,LPWSTR Password,LONG lOptionFlags,LONG lClassFlags,LONG lInstanceFlags,WBEM_COMPILE_STATUS_INFO *pInfo);")
-cpp_quote("  void __RPC_STUB IMofCompiler_CompileBuffer_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("  HRESULT WINAPI IMofCompiler_CreateBMOF_Proxy(IMofCompiler *This,LPWSTR TextFileName,LPWSTR BMOFFileName,LPWSTR ServerAndNamespace,LONG lOptionFlags,LONG lClassFlags,LONG lInstanceFlags,WBEM_COMPILE_STATUS_INFO *pInfo);")
-cpp_quote("  void __RPC_STUB IMofCompiler_CreateBMOF_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);")
-cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEM_UNSECAPP_FLAG_TYPE {")
-cpp_quote("    WBEM_FLAG_UNSECAPP_DEFAULT_CHECK_ACCESS = 0,WBEM_FLAG_UNSECAPP_CHECK_ACCESS = 1,WBEM_FLAG_UNSECAPP_DONT_CHECK_ACCESS = 2")
-cpp_quote("  } WBEM_UNSECAPP_FLAG_TYPE;")
-cpp_quote("")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_wbemcli_0127_v0_0_c_ifspec;")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_wbemcli_0127_v0_0_s_ifspec;")
-cpp_quote("")
-cpp_quote("  typedef enum tag_WBEM_INFORMATION_FLAG_TYPE {")
-cpp_quote("    WBEM_FLAG_SHORT_NAME = 0x1,WBEM_FLAG_LONG_NAME = 0x2")
-cpp_quote("  } WBEM_INFORMATION_FLAG_TYPE;")
-cpp_quote("")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_wbemcli_0128_v0_0_c_ifspec;")
-cpp_quote("  extern RPC_IF_HANDLE __MIDL_itf_wbemcli_0128_v0_0_s_ifspec;")
-cpp_quote("")
-cpp_quote("  ULONG __RPC_API BSTR_UserSize(ULONG *,ULONG,BSTR *);")
-cpp_quote("  unsigned char *__RPC_API BSTR_UserMarshal(ULONG *,unsigned char *,BSTR *);")
-cpp_quote("  unsigned char *__RPC_API BSTR_UserUnmarshal(ULONG *,unsigned char *,BSTR *);")
-cpp_quote("  void __RPC_API BSTR_UserFree(ULONG *,BSTR *);")
