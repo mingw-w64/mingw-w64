@@ -81,22 +81,11 @@ extern "C" {
   WINBASEAPI WINBOOL WINAPI TerminateProcess (HANDLE hProcess, UINT uExitCode);
   WINBASEAPI WINBOOL WINAPI GetExitCodeProcess (HANDLE hProcess, LPDWORD lpExitCode);
   WINBASEAPI WINBOOL WINAPI SwitchToThread (VOID);
-  WINBASEAPI HANDLE WINAPI CreateThread (LPSECURITY_ATTRIBUTES lpThreadAttributes, SIZE_T dwStackSize, LPTHREAD_START_ROUTINE lpStartAddress, LPVOID lpParameter, DWORD dwCreationFlags, LPDWORD lpThreadId);
   WINBASEAPI HANDLE WINAPI CreateRemoteThread (HANDLE hProcess, LPSECURITY_ATTRIBUTES lpThreadAttributes, SIZE_T dwStackSize, LPTHREAD_START_ROUTINE lpStartAddress, LPVOID lpParameter, DWORD dwCreationFlags, LPDWORD lpThreadId);
   WINBASEAPI HANDLE WINAPI OpenThread (DWORD dwDesiredAccess, WINBOOL bInheritHandle, DWORD dwThreadId);
-  WINBASEAPI WINBOOL WINAPI SetThreadPriority (HANDLE hThread, int nPriority);
   WINBASEAPI WINBOOL WINAPI SetThreadPriorityBoost (HANDLE hThread, WINBOOL bDisablePriorityBoost);
   WINBASEAPI WINBOOL WINAPI GetThreadPriorityBoost (HANDLE hThread, PBOOL pDisablePriorityBoost);
-  WINBASEAPI int WINAPI GetThreadPriority (HANDLE hThread);
-  WINBASEAPI DECLSPEC_NORETURN VOID WINAPI ExitThread (DWORD dwExitCode);
   WINBASEAPI WINBOOL WINAPI TerminateThread (HANDLE hThread, DWORD dwExitCode);
-  WINBASEAPI WINBOOL WINAPI GetExitCodeThread (HANDLE hThread, LPDWORD lpExitCode);
-  WINBASEAPI DWORD WINAPI SuspendThread (HANDLE hThread);
-  WINBASEAPI DWORD WINAPI ResumeThread (HANDLE hThread);
-  WINBASEAPI DWORD WINAPI TlsAlloc (VOID);
-  WINBASEAPI LPVOID WINAPI TlsGetValue (DWORD dwTlsIndex);
-  WINBASEAPI WINBOOL WINAPI TlsSetValue (DWORD dwTlsIndex, LPVOID lpTlsValue);
-  WINBASEAPI WINBOOL WINAPI TlsFree (DWORD dwTlsIndex);
   WINBASEAPI WINBOOL WINAPI SetProcessShutdownParameters (DWORD dwLevel, DWORD dwFlags);
   WINBASEAPI DWORD WINAPI GetProcessVersion (DWORD ProcessId);
   WINBASEAPI VOID WINAPI GetStartupInfoW (LPSTARTUPINFOW lpStartupInfo);
@@ -148,7 +137,6 @@ extern "C" {
   WINBASEAPI WINBOOL WINAPI UpdateProcThreadAttribute (LPPROC_THREAD_ATTRIBUTE_LIST lpAttributeList, DWORD dwFlags, DWORD_PTR Attribute, PVOID lpValue, SIZE_T cbSize, PVOID lpPreviousValue, PSIZE_T lpReturnSize);
 #endif
 #if _WIN32_WINNT >= 0x0601
-  WINBASEAPI WINBOOL WINAPI SetThreadIdealProcessorEx (HANDLE hThread, PPROCESSOR_NUMBER lpIdealProcessor, PPROCESSOR_NUMBER lpPreviousIdealProcessor);
   WINBASEAPI WINBOOL WINAPI GetThreadIdealProcessorEx (HANDLE hThread, PPROCESSOR_NUMBER lpIdealProcessor);
   WINBASEAPI VOID WINAPI GetCurrentProcessorNumberEx (PPROCESSOR_NUMBER ProcNumber);
 #endif
@@ -169,6 +157,21 @@ extern "C" {
 #if _WIN32_WINNT >= 0x0600
   WINBASEAPI VOID WINAPI FlushProcessWriteBuffers (VOID);
 #endif
+  WINBASEAPI HANDLE WINAPI CreateThread (LPSECURITY_ATTRIBUTES lpThreadAttributes, SIZE_T dwStackSize, LPTHREAD_START_ROUTINE lpStartAddress, LPVOID lpParameter, DWORD dwCreationFlags, LPDWORD lpThreadId);
+  WINBASEAPI WINBOOL WINAPI SetThreadPriority (HANDLE hThread, int nPriority);
+  WINBASEAPI int WINAPI GetThreadPriority (HANDLE hThread);
+  WINBASEAPI DECLSPEC_NORETURN VOID WINAPI ExitThread (DWORD dwExitCode);
+  WINBASEAPI WINBOOL WINAPI GetExitCodeThread (HANDLE hThread, LPDWORD lpExitCode);
+  WINBASEAPI DWORD WINAPI SuspendThread (HANDLE hThread);
+  WINBASEAPI DWORD WINAPI ResumeThread (HANDLE hThread);
+  WINBASEAPI DWORD WINAPI TlsAlloc (VOID);
+  WINBASEAPI LPVOID WINAPI TlsGetValue (DWORD dwTlsIndex);
+  WINBASEAPI WINBOOL WINAPI TlsSetValue (DWORD dwTlsIndex, LPVOID lpTlsValue);
+  WINBASEAPI WINBOOL WINAPI TlsFree (DWORD dwTlsIndex);
+#if _WIN32_WINNT >= 0x0601
+  WINBASEAPI WINBOOL WINAPI SetThreadIdealProcessorEx (HANDLE hThread, PPROCESSOR_NUMBER lpIdealProcessor, PPROCESSOR_NUMBER lpPreviousIdealProcessor);
+#endif
+
 #endif
 
 #ifdef __cplusplus
