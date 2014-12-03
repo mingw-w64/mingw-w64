@@ -1143,6 +1143,7 @@ extern "C" {
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
   WINBASEAPI VOID WINAPI RaiseFailFastException (PEXCEPTION_RECORD pExceptionRecord, PCONTEXT pContextRecord, DWORD dwFlags);
+  WINBASEAPI DWORD WINAPI SetThreadIdealProcessor (HANDLE hThread, DWORD dwIdealProcessor);
 #endif
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
@@ -1157,7 +1158,6 @@ extern "C" {
   WINBASEAPI WINBOOL WINAPI ConvertFiberToThread (VOID);
   WINBASEAPI VOID WINAPI SwitchToFiber (LPVOID lpFiber);
   WINBASEAPI DWORD_PTR WINAPI SetThreadAffinityMask (HANDLE hThread, DWORD_PTR dwThreadAffinityMask);
-  WINBASEAPI DWORD WINAPI SetThreadIdealProcessor (HANDLE hThread, DWORD dwIdealProcessor);
 
   /* TODO: Add RTL_UMS... to winnt.h header and add UMS-base API.  */
 
