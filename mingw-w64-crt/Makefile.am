@@ -1094,7 +1094,7 @@ lib64_DATA = \
   lib64/libxapofxd1_5.a     lib64/libxinput1_1.a      lib64/libxinput1_2.a \
   lib64/libxinput1_3.a      lib64/libxinput1_4.a      lib64/libxinput9_1_0.a \
   lib64/libxaudio2_8.a      lib64/libd3dcompiler_46.a lib64/libd3dcsx_46.a \
-  \
+  lib64/libd3d11.a \
   lib64/libwinhttp.a \
   lib64/libapi-ms-win-core-winrt-string-l1-1-0.a \
   lib64/libapi-ms-win-core-winrt-l1-1-0.a
