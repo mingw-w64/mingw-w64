@@ -653,6 +653,7 @@ puts
 putwc
 putwchar
 qsort
+qsort_s
 raise
 rand
 rand_s

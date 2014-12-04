@@ -58,6 +58,12 @@ extern "C" {
   __DEFINE_CPP_OVERLOAD_SECURE_FUNC_SPLITPATH(errno_t,_wsplitpath_s,wchar_t,_Dest)
 
 #endif
+
+#ifndef _QSORT_S_DEFINED
+#define _QSORT_S_DEFINED
+  _CRTIMP void __cdecl qsort_s(void *_Base,size_t _NumOfElements,size_t _SizeOfElements,int (__cdecl *_PtFuncCompare)(void *,const void *,const void *),void *_Context);
+#endif
+
 #endif
 
 #ifdef __cplusplus
