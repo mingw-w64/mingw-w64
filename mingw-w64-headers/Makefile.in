@@ -298,8 +298,11 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/control.idl \
 @HAVE_WIDL_TRUE@  include/ctfutb.idl \
 @HAVE_WIDL_TRUE@  include/dbgprop.idl \
+@HAVE_WIDL_TRUE@  include/dimm.idl \
 @HAVE_WIDL_TRUE@  include/dispex.idl \
 @HAVE_WIDL_TRUE@  include/docobj.idl \
+@HAVE_WIDL_TRUE@  include/docobjectservice.idl \
+@HAVE_WIDL_TRUE@  include/documenttarget.idl \
 @HAVE_WIDL_TRUE@  include/devicetopology.idl \
 @HAVE_WIDL_TRUE@  include/downloadmgr.idl \
 @HAVE_WIDL_TRUE@  include/dxva2api.idl \
@@ -328,6 +331,8 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/mmdeviceapi.idl \
 @HAVE_WIDL_TRUE@  include/mscoree.idl \
 @HAVE_WIDL_TRUE@  include/msctf.idl \
+@HAVE_WIDL_TRUE@  include/mshtml.idl \
+@HAVE_WIDL_TRUE@  include/mshtmhst.idl \
 @HAVE_WIDL_TRUE@  include/msopc.idl \
 @HAVE_WIDL_TRUE@  include/msxml.idl \
 @HAVE_WIDL_TRUE@  include/napcertrelyingparty.idl \

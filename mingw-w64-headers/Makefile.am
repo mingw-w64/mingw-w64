@@ -74,8 +74,11 @@ IDL_SRCS = \
   include/control.idl \
   include/ctfutb.idl \
   include/dbgprop.idl \
+  include/dimm.idl \
   include/dispex.idl \
   include/docobj.idl \
+  include/docobjectservice.idl \
+  include/documenttarget.idl \
   include/devicetopology.idl \
   include/downloadmgr.idl \
   include/dxva2api.idl \
@@ -104,6 +107,8 @@ IDL_SRCS = \
   include/mmdeviceapi.idl \
   include/mscoree.idl \
   include/msctf.idl \
+  include/mshtml.idl \
+  include/mshtmhst.idl \
   include/msopc.idl \
   include/msxml.idl \
   include/napcertrelyingparty.idl \
