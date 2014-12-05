@@ -1771,7 +1771,7 @@ interface ISpeechObjectToken : IDispatch {
   [propget, id (DISPID_SOTDataKey), hidden] HRESULT DataKey ([out, retval]ISpeechDataKey **DataKey);
   [propget, id (DISPID_SOTCategory)] HRESULT Category ([out, retval]ISpeechObjectTokenCategory **Category);
   [id (DISPID_SOTGetDescription)] HRESULT GetDescription ([in, defaultvalue (0)]long Locale,[out, retval]BSTR *Description);
-  [hidden, id (DISPID_SOTSetId)] HRESULT SetId ([in] BSTR Id,[in, defaultvalue ("")] BSTR CategoryID,[in, defaultvalue (0)]VARIANT_BOOL CreateIfNotExist);
+  [hidden, id (DISPID_SOTSetId)] HRESULT SetId ([in] BSTR Id,[in, defaultvalue (L"")] BSTR CategoryID,[in, defaultvalue (0)]VARIANT_BOOL CreateIfNotExist);
   [id (DISPID_SOTGetAttribute)] HRESULT GetAttribute ([in] BSTR AttributeName,[out, retval]BSTR *AttributeValue);
   [id (DISPID_SOTCreateInstance)] HRESULT CreateInstance ([in, defaultvalue (NULL)] IUnknown *pUnkOuter,[in, defaultvalue (STCAll)] SpeechTokenContext ClsContext,[out, retval]IUnknown **Object);
   [hidden, id (DISPID_SOTRemove)] HRESULT Remove ([in]BSTR ObjectStorageCLSID);
@@ -1796,7 +1796,7 @@ interface ISpeechObjectTokenCategory : IDispatch {
   [propget, id (DISPID_SOTCDefault)] HRESULT Default ([out, retval] BSTR *TokenId);
   [id (DISPID_SOTCSetId)] HRESULT SetId ([in] const BSTR Id,[in, defaultvalue (0)]VARIANT_BOOL CreateIfNotExist);
   [hidden, id (DISPID_SOTCGetDataKey)] HRESULT GetDataKey ([in, defaultvalue (SDKLDefaultLocation)]SpeechDataKeyLocation Location,[out, retval]ISpeechDataKey **DataKey);
-  [id (DISPID_SOTCEnumerateTokens)] HRESULT EnumerateTokens ([in, defaultvalue ("")]BSTR RequiredAttributes,[in, defaultvalue ("")]BSTR OptionalAttributes,[out, retval]ISpeechObjectTokens **Tokens);
+  [id (DISPID_SOTCEnumerateTokens)] HRESULT EnumerateTokens ([in, defaultvalue (L"")]BSTR RequiredAttributes,[in, defaultvalue (L"")]BSTR OptionalAttributes,[out, retval]ISpeechObjectTokens **Tokens);
 };
 
 typedef enum SpeechAudioFormatType {
@@ -2173,8 +2173,8 @@ interface ISpeechVoice : IDispatch {
   [id (DISPID_SVPause)] HRESULT Pause (void);
   [id (DISPID_SVResume)] HRESULT Resume (void);
   [id (DISPID_SVSkip)] HRESULT Skip ([in]const BSTR Type,[in]long NumItems,[out, retval]long *NumSkipped);
-  [id (DISPID_SVGetVoices)] HRESULT GetVoices ([in, defaultvalue ("")]BSTR RequiredAttributes,[in, defaultvalue ("")]BSTR OptionalAttributes,[out, retval]ISpeechObjectTokens **ObjectTokens);
-  [id (DISPID_SVGetAudioOutputs)] HRESULT GetAudioOutputs ([in, defaultvalue ("")]BSTR RequiredAttributes,[in, defaultvalue ("")]BSTR OptionalAttributes,[out, retval]ISpeechObjectTokens **ObjectTokens);
+  [id (DISPID_SVGetVoices)] HRESULT GetVoices ([in, defaultvalue (L"")]BSTR RequiredAttributes,[in, defaultvalue (L"")]BSTR OptionalAttributes,[out, retval]ISpeechObjectTokens **ObjectTokens);
+  [id (DISPID_SVGetAudioOutputs)] HRESULT GetAudioOutputs ([in, defaultvalue (L"")]BSTR RequiredAttributes,[in, defaultvalue (L"")]BSTR OptionalAttributes,[out, retval]ISpeechObjectTokens **ObjectTokens);
   [id (DISPID_SVWaitUntilDone)] HRESULT WaitUntilDone ([in]long msTimeout,[out, retval]VARIANT_BOOL *Done);
   [hidden, id (DISPID_SVSpeakCompleteEvent)] HRESULT SpeakCompleteEvent ([out, retval]long *Handle);
   [id (DISPID_SVIsUISupported)] HRESULT IsUISupported ([in]const BSTR TypeOfUI,[in, defaultvalue (NULL)]const VARIANT *ExtraData,[out, retval] VARIANT_BOOL *Supported);
@@ -2802,9 +2802,9 @@ interface ISpeechRecognizer : IDispatch {
   [id (DISPID_SRGetPropertyString), hidden] HRESULT GetPropertyString ([in]const BSTR Name,[in, out]BSTR *Value,[out, retval]VARIANT_BOOL *Supported);
   [id (DISPID_SRIsUISupported)] HRESULT IsUISupported ([in]const BSTR TypeOfUI,[in, defaultvalue (NULL)]const VARIANT *ExtraData,[out, retval] VARIANT_BOOL *Supported);
   [id (DISPID_SRDisplayUI)] HRESULT DisplayUI ([in]long hWndParent,[in]BSTR Title,[in]const BSTR TypeOfUI,[in, defaultvalue (NULL)]const VARIANT *ExtraData);
-  [id (DISPID_SRGetRecognizers)] HRESULT GetRecognizers ([in, defaultvalue ("")]BSTR RequiredAttributes,[in, defaultvalue ("")]BSTR OptionalAttributes,[out, retval]ISpeechObjectTokens **ObjectTokens);
-  [id (DISPID_SVGetAudioInputs)] HRESULT GetAudioInputs ([in, defaultvalue ("")]BSTR RequiredAttributes,[in, defaultvalue ("")]BSTR OptionalAttributes,[out, retval]ISpeechObjectTokens **ObjectTokens);
-  [id (DISPID_SVGetProfiles)] HRESULT GetProfiles ([in, defaultvalue ("")]BSTR RequiredAttributes,[in, defaultvalue ("")]BSTR OptionalAttributes,[out, retval]ISpeechObjectTokens **ObjectTokens);
+  [id (DISPID_SRGetRecognizers)] HRESULT GetRecognizers ([in, defaultvalue (L"")]BSTR RequiredAttributes,[in, defaultvalue (L"")]BSTR OptionalAttributes,[out, retval]ISpeechObjectTokens **ObjectTokens);
+  [id (DISPID_SVGetAudioInputs)] HRESULT GetAudioInputs ([in, defaultvalue (L"")]BSTR RequiredAttributes,[in, defaultvalue (L"")]BSTR OptionalAttributes,[out, retval]ISpeechObjectTokens **ObjectTokens);
+  [id (DISPID_SVGetProfiles)] HRESULT GetProfiles ([in, defaultvalue (L"")]BSTR RequiredAttributes,[in, defaultvalue (L"")]BSTR OptionalAttributes,[out, retval]ISpeechObjectTokens **ObjectTokens);
 };
 
 [object, uuid (BFF9E781-53ec-484e-BB8A-0e1b5551e35c), dual, pointer_default (unique)]
@@ -2861,7 +2861,7 @@ interface ISpeechRecoGrammar : IDispatch {
   [id (DISPID_SRGCmdLoadFromProprietaryGrammar)] HRESULT CmdLoadFromProprietaryGrammar ([in]const BSTR ProprietaryGuid,[in]const BSTR ProprietaryString,[in]VARIANT ProprietaryData,[in, defaultvalue (SLOStatic)]SpeechLoadOption LoadOption);
   [id (DISPID_SRGCmdSetRuleState)] HRESULT CmdSetRuleState ([in]const BSTR Name,[in]SpeechRuleState State);
   [id (DISPID_SRGCmdSetRuleIdState)] HRESULT CmdSetRuleIdState ([in]long RuleId,[in]SpeechRuleState State);
-  [id (DISPID_SRGDictationLoad)] HRESULT DictationLoad ([in, defaultvalue ("")] const BSTR TopicName,[in, defaultvalue (SLOStatic)]SpeechLoadOption LoadOption);
+  [id (DISPID_SRGDictationLoad)] HRESULT DictationLoad ([in, defaultvalue (L"")] const BSTR TopicName,[in, defaultvalue (SLOStatic)]SpeechLoadOption LoadOption);
   [id (DISPID_SRGDictationUnload)] HRESULT DictationUnload (void);
   [id (DISPID_SRGDictationSetState)] HRESULT DictationSetState ([in]SpeechRuleState State);
   [id (DISPID_SRGSetWordSequenceData)] HRESULT SetWordSequenceData ([in]const BSTR Text,[in]long TextLength,[in]ISpeechTextSelectionInformation *Info);
@@ -2920,9 +2920,9 @@ interface ISpeechGrammarRules : IDispatch {
 interface ISpeechGrammarRuleState : IDispatch {
   [propget, id (DISPID_SGRSRule)] HRESULT Rule ([out, retval] ISpeechGrammarRule **Rule);
   [propget, id (DISPID_SGRSTransitions)] HRESULT Transitions ([out, retval] ISpeechGrammarRuleStateTransitions **Transitions);
-  [id (DISPID_SGRSAddWordTransition)] HRESULT AddWordTransition ([in]ISpeechGrammarRuleState *DestState,[in]const BSTR Words, [in, defaultvalue (" ")]const BSTR Separators, [in, defaultvalue (SGLexical)]SpeechGrammarWordType Type, [in, defaultvalue ("")]const BSTR PropertyName, [in, defaultvalue (0)]long PropertyId, [in, defaultvalue (0)]VARIANT *PropertyValue, [in, defaultvalue (1)]float Weight);
-  [id (DISPID_SGRSAddRuleTransition)] HRESULT AddRuleTransition ([in]ISpeechGrammarRuleState *DestinationState,[in]ISpeechGrammarRule *Rule,[in, defaultvalue ("")]const BSTR PropertyName,[in, defaultvalue (0)]long PropertyId,[in, defaultvalue (0)]VARIANT *PropertyValue,[in, defaultvalue (1)]float Weight);
-  [id (DISPID_SGRSAddSpecialTransition)] HRESULT AddSpecialTransition ([in]ISpeechGrammarRuleState *DestinationState,[in]SpeechSpecialTransitionType Type,[in, defaultvalue ("")]const BSTR PropertyName,[in, defaultvalue (0)]long PropertyId,[in, defaultvalue (0)]VARIANT *PropertyValue,[in, defaultvalue (1)]float Weight);
+  [id (DISPID_SGRSAddWordTransition)] HRESULT AddWordTransition ([in]ISpeechGrammarRuleState *DestState,[in]const BSTR Words, [in, defaultvalue (L" ")]const BSTR Separators, [in, defaultvalue (SGLexical)]SpeechGrammarWordType Type, [in, defaultvalue (L"")]const BSTR PropertyName, [in, defaultvalue (0)]long PropertyId, [in, defaultvalue (0)]VARIANT *PropertyValue, [in, defaultvalue (1)]float Weight);
+  [id (DISPID_SGRSAddRuleTransition)] HRESULT AddRuleTransition ([in]ISpeechGrammarRuleState *DestinationState,[in]ISpeechGrammarRule *Rule,[in, defaultvalue (L"")]const BSTR PropertyName,[in, defaultvalue (0)]long PropertyId,[in, defaultvalue (0)]VARIANT *PropertyValue,[in, defaultvalue (1)]float Weight);
+  [id (DISPID_SGRSAddSpecialTransition)] HRESULT AddSpecialTransition ([in]ISpeechGrammarRuleState *DestinationState,[in]SpeechSpecialTransitionType Type,[in, defaultvalue (L"")]const BSTR PropertyName,[in, defaultvalue (0)]long PropertyId,[in, defaultvalue (0)]VARIANT *PropertyValue,[in, defaultvalue (1)]float Weight);
 };
 
 [object, uuid (EABCE657-75bc-44a2-AA7F-C56476742963), dual, pointer_default (unique)]
@@ -3138,9 +3138,9 @@ interface ISpeechLexiconWords : IDispatch {
 interface ISpeechLexicon : IDispatch {
   [id (DISPID_SLGenerationId), propget, hidden] HRESULT GenerationId ([out, retval]long *GenerationId);
   [id (DISPID_SLGetWords)] HRESULT GetWords ([in, defaultvalue (eLEXTYPE_USER | eLEXTYPE_APP)]SpeechLexiconType Flags,[out, defaultvalue (NULL)]long *GenerationID,[out, retval]ISpeechLexiconWords **Words);
-  [id (DISPID_SLAddPronunciation)] HRESULT AddPronunciation ([in]BSTR bstrWord,[in]SpeechLanguageId LangId,[in, defaultvalue (SPSUnknown)]SpeechPartOfSpeech PartOfSpeech,[in, defaultvalue ("")]BSTR bstrPronunciation);
+  [id (DISPID_SLAddPronunciation)] HRESULT AddPronunciation ([in]BSTR bstrWord,[in]SpeechLanguageId LangId,[in, defaultvalue (SPSUnknown)]SpeechPartOfSpeech PartOfSpeech,[in, defaultvalue (L"")]BSTR bstrPronunciation);
   [hidden, id (DISPID_SLAddPronunciationByPhoneIds)] HRESULT AddPronunciationByPhoneIds ([in]BSTR bstrWord,[in]SpeechLanguageId LangId,[in, defaultvalue (SPSUnknown)]SpeechPartOfSpeech PartOfSpeech,[in, defaultvalue (NULL)]VARIANT *PhoneIds);
-  [id (DISPID_SLRemovePronunciation)] HRESULT RemovePronunciation ([in]BSTR bstrWord,[in]SpeechLanguageId LangId,[in, defaultvalue (SPSUnknown)]SpeechPartOfSpeech PartOfSpeech,[in, defaultvalue ("")]BSTR bstrPronunciation);
+  [id (DISPID_SLRemovePronunciation)] HRESULT RemovePronunciation ([in]BSTR bstrWord,[in]SpeechLanguageId LangId,[in, defaultvalue (SPSUnknown)]SpeechPartOfSpeech PartOfSpeech,[in, defaultvalue (L"")]BSTR bstrPronunciation);
   [id (DISPID_SLRemovePronunciationByPhoneIds), hidden] HRESULT RemovePronunciationByPhoneIds ([in]BSTR bstrWord,[in]SpeechLanguageId LangId,[in, defaultvalue (SPSUnknown)]SpeechPartOfSpeech PartOfSpeech,[in, defaultvalue (NULL)]VARIANT *PhoneIds);
   [id (DISPID_SLGetPronunciations)] HRESULT GetPronunciations ([in]BSTR bstrWord,[in, defaultvalue (0)]SpeechLanguageId LangId,[in, defaultvalue (eLEXTYPE_USER | eLEXTYPE_APP)]SpeechLexiconType TypeFlags,[out, retval]ISpeechLexiconPronunciations **ppPronunciations);
   [id (DISPID_SLGetGenerationChange), hidden] HRESULT GetGenerationChange ([in, out]long *GenerationID,[out, retval]ISpeechLexiconWords **ppWords);

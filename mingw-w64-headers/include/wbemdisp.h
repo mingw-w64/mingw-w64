@@ -1084,12 +1084,12 @@ MIDL_INTERFACE("76a6415b-cb41-11d1-8b02-00600806d9b6")
 ISWbemLocator : public IDispatch
 {
     virtual HRESULT STDMETHODCALLTYPE ConnectServer(
-        BSTR strServer = ".",
-        BSTR strNamespace = "",
-        BSTR strUser = "",
-        BSTR strPassword = "",
-        BSTR strLocale = "",
-        BSTR strAuthority = "",
+        BSTR strServer = L".",
+        BSTR strNamespace = L"",
+        BSTR strUser = L"",
+        BSTR strPassword = L"",
+        BSTR strLocale = L"",
+        BSTR strAuthority = L"",
         LONG iSecurityFlags = 0,
         IDispatch *objWbemNamedValueSet = 0,
         ISWbemServices **objWbemServices) = 0;
@@ -1259,14 +1259,14 @@ MIDL_INTERFACE("76a6415c-cb41-11d1-8b02-00600806d9b6")
 ISWbemServices : public IDispatch
 {
     virtual HRESULT STDMETHODCALLTYPE Get(
-        BSTR strObjectPath = "",
+        BSTR strObjectPath = L"",
         LONG iFlags = 0,
         IDispatch *objWbemNamedValueSet = 0,
         ISWbemObject **objWbemObject) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetAsync(
         IDispatch *objWbemSink,
-        BSTR strObjectPath = "",
+        BSTR strObjectPath = L"",
         LONG iFlags = 0,
         IDispatch *objWbemNamedValueSet = 0,
         IDispatch *objWbemAsyncContext = 0) = 0;
@@ -1297,21 +1297,21 @@ ISWbemServices : public IDispatch
         IDispatch *objWbemAsyncContext = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SubclassesOf(
-        BSTR strSuperclass = "",
+        BSTR strSuperclass = L"",
         LONG iFlags = wbemFlagReturnImmediately | wbemQueryFlagDeep,
         IDispatch *objWbemNamedValueSet = 0,
         ISWbemObjectSet **objWbemObjectSet) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SubclassesOfAsync(
         IDispatch *objWbemSink,
-        BSTR strSuperclass = "",
+        BSTR strSuperclass = L"",
         LONG iFlags = wbemQueryFlagDeep,
         IDispatch *objWbemNamedValueSet = 0,
         IDispatch *objWbemAsyncContext = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE ExecQuery(
         BSTR strQuery,
-        BSTR strQueryLanguage = "WQL",
+        BSTR strQueryLanguage = L"WQL",
         LONG iFlags = wbemFlagReturnImmediately,
         IDispatch *objWbemNamedValueSet = 0,
         ISWbemObjectSet **objWbemObjectSet) = 0;
@@ -1319,21 +1319,21 @@ ISWbemServices : public IDispatch
     virtual HRESULT STDMETHODCALLTYPE ExecQueryAsync(
         IDispatch *objWbemSink,
         BSTR strQuery,
-        BSTR strQueryLanguage = "WQL",
+        BSTR strQueryLanguage = L"WQL",
         LONG lFlags = 0,
         IDispatch *objWbemNamedValueSet = 0,
         IDispatch *objWbemAsyncContext = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE AssociatorsOf(
         BSTR strObjectPath,
-        BSTR strAssocClass = "",
-        BSTR strResultClass = "",
-        BSTR strResultRole = "",
-        BSTR strRole = "",
+        BSTR strAssocClass = L"",
+        BSTR strResultClass = L"",
+        BSTR strResultRole = L"",
+        BSTR strRole = L"",
         VARIANT_BOOL bClassesOnly = FALSE,
         VARIANT_BOOL bSchemaOnly = FALSE,
-        BSTR strRequiredAssocQualifier = "",
-        BSTR strRequiredQualifier = "",
+        BSTR strRequiredAssocQualifier = L"",
+        BSTR strRequiredQualifier = L"",
         LONG iFlags = wbemFlagReturnImmediately,
         IDispatch *objWbemNamedValueSet = 0,
         ISWbemObjectSet **objWbemObjectSet) = 0;
@@ -1341,25 +1341,25 @@ ISWbemServices : public IDispatch
     virtual HRESULT STDMETHODCALLTYPE AssociatorsOfAsync(
         IDispatch *objWbemSink,
         BSTR strObjectPath,
-        BSTR strAssocClass = "",
-        BSTR strResultClass = "",
-        BSTR strResultRole = "",
-        BSTR strRole = "",
+        BSTR strAssocClass = L"",
+        BSTR strResultClass = L"",
+        BSTR strResultRole = L"",
+        BSTR strRole = L"",
         VARIANT_BOOL bClassesOnly = FALSE,
         VARIANT_BOOL bSchemaOnly = FALSE,
-        BSTR strRequiredAssocQualifier = "",
-        BSTR strRequiredQualifier = "",
+        BSTR strRequiredAssocQualifier = L"",
+        BSTR strRequiredQualifier = L"",
         LONG iFlags = 0,
         IDispatch *objWbemNamedValueSet = 0,
         IDispatch *objWbemAsyncContext = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE ReferencesTo(
         BSTR strObjectPath,
-        BSTR strResultClass = "",
-        BSTR strRole = "",
+        BSTR strResultClass = L"",
+        BSTR strRole = L"",
         VARIANT_BOOL bClassesOnly = FALSE,
         VARIANT_BOOL bSchemaOnly = FALSE,
-        BSTR strRequiredQualifier = "",
+        BSTR strRequiredQualifier = L"",
         LONG iFlags = wbemFlagReturnImmediately,
         IDispatch *objWbemNamedValueSet = 0,
         ISWbemObjectSet **objWbemObjectSet) = 0;
@@ -1367,18 +1367,18 @@ ISWbemServices : public IDispatch
     virtual HRESULT STDMETHODCALLTYPE ReferencesToAsync(
         IDispatch *objWbemSink,
         BSTR strObjectPath,
-        BSTR strResultClass = "",
-        BSTR strRole = "",
+        BSTR strResultClass = L"",
+        BSTR strRole = L"",
         VARIANT_BOOL bClassesOnly = FALSE,
         VARIANT_BOOL bSchemaOnly = FALSE,
-        BSTR strRequiredQualifier = "",
+        BSTR strRequiredQualifier = L"",
         LONG iFlags = 0,
         IDispatch *objWbemNamedValueSet = 0,
         IDispatch *objWbemAsyncContext = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE ExecNotificationQuery(
         BSTR strQuery,
-        BSTR strQueryLanguage = "WQL",
+        BSTR strQueryLanguage = L"WQL",
         LONG iFlags = wbemFlagReturnImmediately | wbemFlagForwardOnly,
         IDispatch *objWbemNamedValueSet = 0,
         ISWbemEventSource **objWbemEventSource) = 0;
@@ -1386,7 +1386,7 @@ ISWbemServices : public IDispatch
     virtual HRESULT STDMETHODCALLTYPE ExecNotificationQueryAsync(
         IDispatch *objWbemSink,
         BSTR strQuery,
-        BSTR strQueryLanguage = "WQL",
+        BSTR strQueryLanguage = L"WQL",
         LONG iFlags = 0,
         IDispatch *objWbemNamedValueSet = 0,
         IDispatch *objWbemAsyncContext = 0) = 0;
@@ -2487,49 +2487,49 @@ ISWbemObject : public IDispatch
         IDispatch *objWbemAsyncContext = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Associators_(
-        BSTR strAssocClass = "",
-        BSTR strResultClass = "",
-        BSTR strResultRole = "",
-        BSTR strRole = "",
+        BSTR strAssocClass = L"",
+        BSTR strResultClass = L"",
+        BSTR strResultRole = L"",
+        BSTR strRole = L"",
         VARIANT_BOOL bClassesOnly = FALSE,
         VARIANT_BOOL bSchemaOnly = FALSE,
-        BSTR strRequiredAssocQualifier = "",
-        BSTR strRequiredQualifier = "",
+        BSTR strRequiredAssocQualifier = L"",
+        BSTR strRequiredQualifier = L"",
         LONG iFlags = wbemFlagReturnImmediately,
         IDispatch *objWbemNamedValueSet = 0,
         ISWbemObjectSet **objWbemObjectSet) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE AssociatorsAsync_(
         IDispatch *objWbemSink,
-        BSTR strAssocClass = "",
-        BSTR strResultClass = "",
-        BSTR strResultRole = "",
-        BSTR strRole = "",
+        BSTR strAssocClass = L"",
+        BSTR strResultClass = L"",
+        BSTR strResultRole = L"",
+        BSTR strRole = L"",
         VARIANT_BOOL bClassesOnly = FALSE,
         VARIANT_BOOL bSchemaOnly = FALSE,
-        BSTR strRequiredAssocQualifier = "",
-        BSTR strRequiredQualifier = "",
+        BSTR strRequiredAssocQualifier = L"",
+        BSTR strRequiredQualifier = L"",
         LONG iFlags = 0,
         IDispatch *objWbemNamedValueSet = 0,
         IDispatch *objWbemAsyncContext = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE References_(
-        BSTR strResultClass = "",
-        BSTR strRole = "",
+        BSTR strResultClass = L"",
+        BSTR strRole = L"",
         VARIANT_BOOL bClassesOnly = FALSE,
         VARIANT_BOOL bSchemaOnly = FALSE,
-        BSTR strRequiredQualifier = "",
+        BSTR strRequiredQualifier = L"",
         LONG iFlags = wbemFlagReturnImmediately,
         IDispatch *objWbemNamedValueSet = 0,
         ISWbemObjectSet **objWbemObjectSet) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE ReferencesAsync_(
         IDispatch *objWbemSink,
-        BSTR strResultClass = "",
-        BSTR strRole = "",
+        BSTR strResultClass = L"",
+        BSTR strRole = L"",
         VARIANT_BOOL bClassesOnly = FALSE,
         VARIANT_BOOL bSchemaOnly = FALSE,
-        BSTR strRequiredQualifier = "",
+        BSTR strRequiredQualifier = L"",
         LONG iFlags = 0,
         IDispatch *objWbemNamedValueSet = 0,
         IDispatch *objWbemAsyncContext = 0) = 0;

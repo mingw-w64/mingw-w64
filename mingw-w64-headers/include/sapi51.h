@@ -10120,7 +10120,7 @@ ISpeechObjectToken : public IDispatch
 
     virtual HRESULT STDMETHODCALLTYPE SetId(
         BSTR Id,
-        BSTR CategoryID = "",
+        BSTR CategoryID = L"",
         VARIANT_BOOL CreateIfNotExist = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetAttribute(
@@ -10716,8 +10716,8 @@ ISpeechObjectTokenCategory : public IDispatch
         ISpeechDataKey **DataKey) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE EnumerateTokens(
-        BSTR RequiredAttributes = "",
-        BSTR OptionalAttributes = "",
+        BSTR RequiredAttributes = L"",
+        BSTR OptionalAttributes = L"",
         ISpeechObjectTokens **Tokens) = 0;
 
 };
@@ -13770,13 +13770,13 @@ ISpeechVoice : public IDispatch
         LONG *NumSkipped) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetVoices(
-        BSTR RequiredAttributes = "",
-        BSTR OptionalAttributes = "",
+        BSTR RequiredAttributes = L"",
+        BSTR OptionalAttributes = L"",
         ISpeechObjectTokens **ObjectTokens) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetAudioOutputs(
-        BSTR RequiredAttributes = "",
-        BSTR OptionalAttributes = "",
+        BSTR RequiredAttributes = L"",
+        BSTR OptionalAttributes = L"",
         ISpeechObjectTokens **ObjectTokens) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE WaitUntilDone(
@@ -15455,18 +15455,18 @@ ISpeechRecognizer : public IDispatch
         const VARIANT *ExtraData = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetRecognizers(
-        BSTR RequiredAttributes = "",
-        BSTR OptionalAttributes = "",
+        BSTR RequiredAttributes = L"",
+        BSTR OptionalAttributes = L"",
         ISpeechObjectTokens **ObjectTokens) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetAudioInputs(
-        BSTR RequiredAttributes = "",
-        BSTR OptionalAttributes = "",
+        BSTR RequiredAttributes = L"",
+        BSTR OptionalAttributes = L"",
         ISpeechObjectTokens **ObjectTokens) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetProfiles(
-        BSTR RequiredAttributes = "",
-        BSTR OptionalAttributes = "",
+        BSTR RequiredAttributes = L"",
+        BSTR OptionalAttributes = L"",
         ISpeechObjectTokens **ObjectTokens) = 0;
 
 };
@@ -16918,7 +16918,7 @@ ISpeechRecoGrammar : public IDispatch
         SpeechRuleState State) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE DictationLoad(
-        const BSTR TopicName = "",
+        const BSTR TopicName = L"",
         SpeechLoadOption LoadOption = SLOStatic) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE DictationUnload(
@@ -18034,9 +18034,9 @@ ISpeechGrammarRuleState : public IDispatch
     virtual HRESULT STDMETHODCALLTYPE AddWordTransition(
         ISpeechGrammarRuleState *DestState,
         const BSTR Words,
-        const BSTR Separators = " ",
+        const BSTR Separators = L" ",
         SpeechGrammarWordType Type = SGLexical,
-        const BSTR PropertyName = "",
+        const BSTR PropertyName = L"",
         LONG PropertyId = 0,
         VARIANT *PropertyValue = 0,
         float Weight = 1) = 0;
@@ -18044,7 +18044,7 @@ ISpeechGrammarRuleState : public IDispatch
     virtual HRESULT STDMETHODCALLTYPE AddRuleTransition(
         ISpeechGrammarRuleState *DestinationState,
         ISpeechGrammarRule *Rule,
-        const BSTR PropertyName = "",
+        const BSTR PropertyName = L"",
         LONG PropertyId = 0,
         VARIANT *PropertyValue = 0,
         float Weight = 1) = 0;
@@ -18052,7 +18052,7 @@ ISpeechGrammarRuleState : public IDispatch
     virtual HRESULT STDMETHODCALLTYPE AddSpecialTransition(
         ISpeechGrammarRuleState *DestinationState,
         SpeechSpecialTransitionType Type,
-        const BSTR PropertyName = "",
+        const BSTR PropertyName = L"",
         LONG PropertyId = 0,
         VARIANT *PropertyValue = 0,
         float Weight = 1) = 0;
@@ -22427,7 +22427,7 @@ ISpeechLexicon : public IDispatch
         BSTR bstrWord,
         SpeechLanguageId LangId,
         SpeechPartOfSpeech PartOfSpeech = SPSUnknown,
-        BSTR bstrPronunciation = "") = 0;
+        BSTR bstrPronunciation = L"") = 0;
 
     virtual HRESULT STDMETHODCALLTYPE AddPronunciationByPhoneIds(
         BSTR bstrWord,
@@ -22439,7 +22439,7 @@ ISpeechLexicon : public IDispatch
         BSTR bstrWord,
         SpeechLanguageId LangId,
         SpeechPartOfSpeech PartOfSpeech = SPSUnknown,
-        BSTR bstrPronunciation = "") = 0;
+        BSTR bstrPronunciation = L"") = 0;
 
     virtual HRESULT STDMETHODCALLTYPE RemovePronunciationByPhoneIds(
         BSTR bstrWord,

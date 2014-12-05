@@ -253,7 +253,7 @@ MIDL_INTERFACE("190d8637-5cd3-496d-ad24-69636bb5a3b5")
 IWSMan : public IDispatch
 {
     virtual HRESULT STDMETHODCALLTYPE CreateSession(
-        BSTR connection = "",
+        BSTR connection = L"",
         LONG flags = 0,
         IDispatch *connectionOptions = 0,
         IDispatch **session) = 0;
@@ -451,7 +451,7 @@ MIDL_INTERFACE("2d53bdaa-798e-49e6-a1aa-74d01256f411")
 IWSManEx : public IWSMan
 {
     virtual HRESULT STDMETHODCALLTYPE CreateResourceLocator(
-        BSTR strResourceLocator = "",
+        BSTR strResourceLocator = L"",
         IDispatch **newResourceLocator) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SessionFlagUTF8(
@@ -2133,8 +2133,8 @@ IWSManConnectionOptionsEx2 : public IWSManConnectionOptionsEx
     virtual HRESULT STDMETHODCALLTYPE SetProxy(
         LONG accessType = 0,
         LONG authenticationMechanism = 0,
-        BSTR userName = "",
-        BSTR password = "") = 0;
+        BSTR userName = L"",
+        BSTR password = L"") = 0;
 
     virtual HRESULT STDMETHODCALLTYPE ProxyIEConfig(
         LONG *value) = 0;
@@ -2480,8 +2480,8 @@ IWSManSession : public IDispatch
 
     virtual HRESULT STDMETHODCALLTYPE Enumerate(
         VARIANT resourceUri,
-        BSTR filter = "",
-        BSTR dialect = "",
+        BSTR filter = L"",
+        BSTR dialect = L"",
         LONG flags = 0,
         IDispatch **resultSet) = 0;
 

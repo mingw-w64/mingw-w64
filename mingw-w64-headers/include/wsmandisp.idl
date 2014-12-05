@@ -89,7 +89,7 @@ library WSManAutomation {
 
 [dual, object, local, oleautomation, nonextensible, hidden, uuid (190d8637-5cd3-496d-ad24-69636bb5a3b5)]
 interface IWSMan : IDispatch {
-  [id (1)] HRESULT CreateSession ([in, defaultvalue ("")] BSTR connection, [in, defaultvalue (0)] long flags, [in, defaultvalue (0)] IDispatch *connectionOptions, [out, retval] IDispatch **session);
+  [id (1)] HRESULT CreateSession ([in, defaultvalue (L"")] BSTR connection, [in, defaultvalue (0)] long flags, [in, defaultvalue (0)] IDispatch *connectionOptions, [out, retval] IDispatch **session);
   [id (2)] HRESULT CreateConnectionOptions ([out, retval] IDispatch **connectionOptions);
   [id (3), propget] HRESULT CommandLine ([out, retval] BSTR *value);
   [id (4), propget] HRESULT Error ([out, retval] BSTR *value);
@@ -97,7 +97,7 @@ interface IWSMan : IDispatch {
 
 [dual, object, local, oleautomation, nonextensible, hidden, uuid (2d53bdaa-798e-49e6-A1AA-74d01256f411)]
 interface IWSManEx : IWSMan {
-  [id (5)] HRESULT CreateResourceLocator ([in, defaultvalue ("")] BSTR strResourceLocator,[out, retval] IDispatch **newResourceLocator);
+  [id (5)] HRESULT CreateResourceLocator ([in, defaultvalue (L"")] BSTR strResourceLocator,[out, retval] IDispatch **newResourceLocator);
   [id (6)] HRESULT SessionFlagUTF8 ([out, retval] long *flags);
   [id (7)] HRESULT SessionFlagCredUsernamePassword ([out, retval] long *flags);
   [id (8)] HRESULT SessionFlagSkipCACheck ([out, retval] long *flags);
@@ -150,7 +150,7 @@ interface IWSManConnectionOptionsEx : IWSManConnectionOptions {
 
 [dual, object, local, oleautomation, nonextensible, uuid (f500c9ec-24ee-48ab-b38d-fc9a164c658e)]
 interface IWSManConnectionOptionsEx2 : IWSManConnectionOptionsEx {
-  [id (4)] HRESULT SetProxy ([in, defaultvalue (0)] long accessType,[in, defaultvalue (0)] long authenticationMechanism,[in, defaultvalue ("")] BSTR userName,[in, defaultvalue ("")] BSTR password);
+  [id (4)] HRESULT SetProxy ([in, defaultvalue (0)] long accessType,[in, defaultvalue (0)] long authenticationMechanism,[in, defaultvalue (L"")] BSTR userName,[in, defaultvalue (L"")] BSTR password);
   [id (5)] HRESULT ProxyIEConfig ([out, retval] long *value);
   [id (6)] HRESULT ProxyWinHttpConfig ([out, retval] long *value);
   [id (7)] HRESULT ProxyAutoDetect ([out, retval] long *value);
@@ -167,7 +167,7 @@ interface IWSManSession : IDispatch {
   [id (3)] HRESULT Create ([in] VARIANT resourceUri,[in] BSTR resource,[in, defaultvalue (0)] long flags,[out, retval] BSTR *newUri);
   [id (4)] HRESULT Delete ([in] VARIANT resourceUri,[in, defaultvalue (0)] long flags);
   [id (5)] HRESULT Invoke ([in] BSTR actionUri,[in] VARIANT resourceUri,[in] BSTR parameters,[in, defaultvalue (0)] long flags,[out, retval] BSTR *result);
-  [id (6)] HRESULT Enumerate ([in] VARIANT resourceUri,[in, defaultvalue ("")] BSTR filter,[in, defaultvalue ("")] BSTR dialect,[in, defaultvalue (0)] long flags,[out, retval] IDispatch **resultSet);
+  [id (6)] HRESULT Enumerate ([in] VARIANT resourceUri,[in, defaultvalue (L"")] BSTR filter,[in, defaultvalue (L"")] BSTR dialect,[in, defaultvalue (0)] long flags,[out, retval] IDispatch **resultSet);
   [id (7)] HRESULT Identify ([in, defaultvalue (0)] long flags,[out, retval] BSTR *result);
   [id (8), propget] HRESULT Error ([out, retval] BSTR *value);
   [id (9), propget] HRESULT BatchItems ([out, retval] long *value);
