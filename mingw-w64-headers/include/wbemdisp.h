@@ -1092,7 +1092,7 @@ ISWbemLocator : public IDispatch
         BSTR strAuthority = L"",
         LONG iSecurityFlags = 0,
         IDispatch *objWbemNamedValueSet = 0,
-        ISWbemServices **objWbemServices) = 0;
+        ISWbemServices **objWbemServices = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE get_Security_(
         ISWbemSecurity **objWbemSecurity) = 0;
@@ -1262,7 +1262,7 @@ ISWbemServices : public IDispatch
         BSTR strObjectPath = L"",
         LONG iFlags = 0,
         IDispatch *objWbemNamedValueSet = 0,
-        ISWbemObject **objWbemObject) = 0;
+        ISWbemObject **objWbemObject = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetAsync(
         IDispatch *objWbemSink,
@@ -1287,7 +1287,7 @@ ISWbemServices : public IDispatch
         BSTR strClass,
         LONG iFlags = wbemFlagReturnImmediately,
         IDispatch *objWbemNamedValueSet = 0,
-        ISWbemObjectSet **objWbemObjectSet) = 0;
+        ISWbemObjectSet **objWbemObjectSet = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE InstancesOfAsync(
         IDispatch *objWbemSink,
@@ -1300,7 +1300,7 @@ ISWbemServices : public IDispatch
         BSTR strSuperclass = L"",
         LONG iFlags = wbemFlagReturnImmediately | wbemQueryFlagDeep,
         IDispatch *objWbemNamedValueSet = 0,
-        ISWbemObjectSet **objWbemObjectSet) = 0;
+        ISWbemObjectSet **objWbemObjectSet = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SubclassesOfAsync(
         IDispatch *objWbemSink,
@@ -1314,7 +1314,7 @@ ISWbemServices : public IDispatch
         BSTR strQueryLanguage = L"WQL",
         LONG iFlags = wbemFlagReturnImmediately,
         IDispatch *objWbemNamedValueSet = 0,
-        ISWbemObjectSet **objWbemObjectSet) = 0;
+        ISWbemObjectSet **objWbemObjectSet = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE ExecQueryAsync(
         IDispatch *objWbemSink,
@@ -1336,7 +1336,7 @@ ISWbemServices : public IDispatch
         BSTR strRequiredQualifier = L"",
         LONG iFlags = wbemFlagReturnImmediately,
         IDispatch *objWbemNamedValueSet = 0,
-        ISWbemObjectSet **objWbemObjectSet) = 0;
+        ISWbemObjectSet **objWbemObjectSet = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE AssociatorsOfAsync(
         IDispatch *objWbemSink,
@@ -1362,7 +1362,7 @@ ISWbemServices : public IDispatch
         BSTR strRequiredQualifier = L"",
         LONG iFlags = wbemFlagReturnImmediately,
         IDispatch *objWbemNamedValueSet = 0,
-        ISWbemObjectSet **objWbemObjectSet) = 0;
+        ISWbemObjectSet **objWbemObjectSet = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE ReferencesToAsync(
         IDispatch *objWbemSink,
@@ -1381,7 +1381,7 @@ ISWbemServices : public IDispatch
         BSTR strQueryLanguage = L"WQL",
         LONG iFlags = wbemFlagReturnImmediately | wbemFlagForwardOnly,
         IDispatch *objWbemNamedValueSet = 0,
-        ISWbemEventSource **objWbemEventSource) = 0;
+        ISWbemEventSource **objWbemEventSource = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE ExecNotificationQueryAsync(
         IDispatch *objWbemSink,
@@ -1397,7 +1397,7 @@ ISWbemServices : public IDispatch
         IDispatch *objWbemInParameters = 0,
         LONG iFlags = 0,
         IDispatch *objWbemNamedValueSet = 0,
-        ISWbemObject **objWbemOutParameters) = 0;
+        ISWbemObject **objWbemOutParameters = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE ExecMethodAsync(
         IDispatch *objWbemSink,
@@ -2024,7 +2024,7 @@ ISWbemServicesEx : public ISWbemServices
         ISWbemObjectEx *objWbemObject,
         LONG iFlags = wbemChangeFlagCreateOrUpdate,
         IDispatch *objWbemNamedValueSet = 0,
-        ISWbemObjectPath **objWbemObjectPath) = 0;
+        ISWbemObjectPath **objWbemObjectPath = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE PutAsync(
         ISWbemSink *objWbemSink,
@@ -2446,7 +2446,7 @@ ISWbemObject : public IDispatch
     virtual HRESULT STDMETHODCALLTYPE Put_(
         LONG iFlags = wbemChangeFlagCreateOrUpdate,
         IDispatch *objWbemNamedValueSet = 0,
-        ISWbemObjectPath **objWbemObjectPath) = 0;
+        ISWbemObjectPath **objWbemObjectPath = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE PutAsync_(
         IDispatch *objWbemSink,
@@ -2467,7 +2467,7 @@ ISWbemObject : public IDispatch
     virtual HRESULT STDMETHODCALLTYPE Instances_(
         LONG iFlags = wbemFlagReturnImmediately,
         IDispatch *objWbemNamedValueSet = 0,
-        ISWbemObjectSet **objWbemObjectSet) = 0;
+        ISWbemObjectSet **objWbemObjectSet = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE InstancesAsync_(
         IDispatch *objWbemSink,
@@ -2478,7 +2478,7 @@ ISWbemObject : public IDispatch
     virtual HRESULT STDMETHODCALLTYPE Subclasses_(
         LONG iFlags = wbemFlagReturnImmediately | wbemQueryFlagDeep,
         IDispatch *objWbemNamedValueSet = 0,
-        ISWbemObjectSet **objWbemObjectSet) = 0;
+        ISWbemObjectSet **objWbemObjectSet = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SubclassesAsync_(
         IDispatch *objWbemSink,
@@ -2497,7 +2497,7 @@ ISWbemObject : public IDispatch
         BSTR strRequiredQualifier = L"",
         LONG iFlags = wbemFlagReturnImmediately,
         IDispatch *objWbemNamedValueSet = 0,
-        ISWbemObjectSet **objWbemObjectSet) = 0;
+        ISWbemObjectSet **objWbemObjectSet = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE AssociatorsAsync_(
         IDispatch *objWbemSink,
@@ -2521,7 +2521,7 @@ ISWbemObject : public IDispatch
         BSTR strRequiredQualifier = L"",
         LONG iFlags = wbemFlagReturnImmediately,
         IDispatch *objWbemNamedValueSet = 0,
-        ISWbemObjectSet **objWbemObjectSet) = 0;
+        ISWbemObjectSet **objWbemObjectSet = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE ReferencesAsync_(
         IDispatch *objWbemSink,
@@ -2539,7 +2539,7 @@ ISWbemObject : public IDispatch
         IDispatch *objWbemInParameters = 0,
         LONG iFlags = 0,
         IDispatch *objWbemNamedValueSet = 0,
-        ISWbemObject **objWbemOutParameters) = 0;
+        ISWbemObject **objWbemOutParameters = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE ExecMethodAsync_(
         IDispatch *objWbemSink,
@@ -2554,20 +2554,20 @@ ISWbemObject : public IDispatch
 
     virtual HRESULT STDMETHODCALLTYPE GetObjectText_(
         LONG iFlags = 0,
-        BSTR *strObjectText) = 0;
+        BSTR *strObjectText = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SpawnDerivedClass_(
         LONG iFlags = 0,
-        ISWbemObject **objWbemObject) = 0;
+        ISWbemObject **objWbemObject = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SpawnInstance_(
         LONG iFlags = 0,
-        ISWbemObject **objWbemObject) = 0;
+        ISWbemObject **objWbemObject = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE CompareTo_(
         IDispatch *objWbemObject,
         LONG iFlags = wbemComparisonFlagIncludeAll,
-        VARIANT_BOOL *bResult) = 0;
+        VARIANT_BOOL *bResult = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE get_Qualifiers_(
         ISWbemQualifierSet **objWbemQualifierSet) = 0;
@@ -3249,7 +3249,7 @@ ISWbemObjectEx : public ISWbemObject
         WbemObjectTextFormatEnum iObjectTextFormat,
         LONG iFlags = 0,
         IDispatch *objWbemNamedValueSet = 0,
-        BSTR *bsText) = 0;
+        BSTR *bsText = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SetFromText_(
         BSTR bsText,
@@ -4108,7 +4108,7 @@ ISWbemObjectSet : public IDispatch
     virtual HRESULT STDMETHODCALLTYPE Item(
         BSTR strObjectPath,
         LONG iFlags = 0,
-        ISWbemObject **objWbemObject) = 0;
+        ISWbemObject **objWbemObject = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE get_Count(
         LONG *iCount) = 0;
@@ -4325,7 +4325,7 @@ ISWbemNamedValueSet : public IDispatch
     virtual HRESULT STDMETHODCALLTYPE Item(
         BSTR strName,
         LONG iFlags = 0,
-        ISWbemNamedValue **objWbemNamedValue) = 0;
+        ISWbemNamedValue **objWbemNamedValue = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE get_Count(
         LONG *iCount) = 0;
@@ -4334,7 +4334,7 @@ ISWbemNamedValueSet : public IDispatch
         BSTR strName,
         VARIANT *varValue,
         LONG iFlags = 0,
-        ISWbemNamedValue **objWbemNamedValue) = 0;
+        ISWbemNamedValue **objWbemNamedValue = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Remove(
         BSTR strName,
@@ -5568,7 +5568,7 @@ ISWbemPropertySet : public IDispatch
     virtual HRESULT STDMETHODCALLTYPE Item(
         BSTR strName,
         LONG iFlags = 0,
-        ISWbemProperty **objWbemProperty) = 0;
+        ISWbemProperty **objWbemProperty = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE get_Count(
         LONG *iCount) = 0;
@@ -5578,7 +5578,7 @@ ISWbemPropertySet : public IDispatch
         WbemCimtypeEnum iCIMType,
         VARIANT_BOOL bIsArray = FALSE,
         LONG iFlags = 0,
-        ISWbemProperty **objWbemProperty) = 0;
+        ISWbemProperty **objWbemProperty = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Remove(
         BSTR strName,
@@ -6119,7 +6119,7 @@ ISWbemQualifierSet : public IDispatch
     virtual HRESULT STDMETHODCALLTYPE Item(
         BSTR name,
         LONG iFlags = 0,
-        ISWbemQualifier **objWbemQualifier) = 0;
+        ISWbemQualifier **objWbemQualifier = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE get_Count(
         LONG *iCount) = 0;
@@ -6131,7 +6131,7 @@ ISWbemQualifierSet : public IDispatch
         VARIANT_BOOL bPropagatesToInstance = TRUE,
         VARIANT_BOOL bIsOverridable = TRUE,
         LONG iFlags = 0,
-        ISWbemQualifier **objWbemQualifier) = 0;
+        ISWbemQualifier **objWbemQualifier = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Remove(
         BSTR strName,
@@ -6562,7 +6562,7 @@ ISWbemMethodSet : public IDispatch
     virtual HRESULT STDMETHODCALLTYPE Item(
         BSTR strName,
         LONG iFlags = 0,
-        ISWbemMethod **objWbemMethod) = 0;
+        ISWbemMethod **objWbemMethod = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE get_Count(
         LONG *iCount) = 0;
@@ -6973,7 +6973,7 @@ ISWbemEventSource : public IDispatch
 {
     virtual HRESULT STDMETHODCALLTYPE NextEvent(
         LONG iTimeoutMs = wbemTimeoutInfinite,
-        ISWbemObject **objWbemObject) = 0;
+        ISWbemObject **objWbemObject = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE get_Security_(
         ISWbemSecurity **objWbemSecurity) = 0;
@@ -7554,7 +7554,7 @@ ISWbemPrivilegeSet : public IDispatch
     virtual HRESULT STDMETHODCALLTYPE Add(
         WbemPrivilegeEnum iPrivilege,
         VARIANT_BOOL bIsEnabled = TRUE,
-        ISWbemPrivilege **objWbemPrivilege) = 0;
+        ISWbemPrivilege **objWbemPrivilege = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Remove(
         WbemPrivilegeEnum iPrivilege) = 0;
@@ -7565,7 +7565,7 @@ ISWbemPrivilegeSet : public IDispatch
     virtual HRESULT STDMETHODCALLTYPE AddAsString(
         BSTR strPrivilege,
         VARIANT_BOOL bIsEnabled = TRUE,
-        ISWbemPrivilege **objWbemPrivilege) = 0;
+        ISWbemPrivilege **objWbemPrivilege = 0) = 0;
 
 };
 #ifdef __CRT_UUID_DECL
@@ -7910,7 +7910,7 @@ ISWbemDateTime : public IDispatch
 
     virtual HRESULT STDMETHODCALLTYPE GetVarDate(
         VARIANT_BOOL bIsLocal = TRUE,
-        DATE *dVarDate) = 0;
+        DATE *dVarDate = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SetVarDate(
         DATE dVarDate,
@@ -7918,7 +7918,7 @@ ISWbemDateTime : public IDispatch
 
     virtual HRESULT STDMETHODCALLTYPE GetFileTime(
         VARIANT_BOOL bIsLocal = TRUE,
-        BSTR *strFileTime) = 0;
+        BSTR *strFileTime = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SetFileTime(
         BSTR strFileTime,
@@ -8927,14 +8927,14 @@ ISWbemRefresher : public IDispatch
         BSTR bsInstancePath,
         LONG iFlags = 0,
         IDispatch *objWbemNamedValueSet = 0,
-        ISWbemRefreshableItem **objWbemRefreshableItem) = 0;
+        ISWbemRefreshableItem **objWbemRefreshableItem = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE AddEnum(
         ISWbemServicesEx *objWbemServices,
         BSTR bsClassName,
         LONG iFlags = 0,
         IDispatch *objWbemNamedValueSet = 0,
-        ISWbemRefreshableItem **objWbemRefreshableItem) = 0;
+        ISWbemRefreshableItem **objWbemRefreshableItem = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Remove(
         LONG iIndex,
