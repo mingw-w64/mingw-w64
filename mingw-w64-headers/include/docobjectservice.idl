@@ -17,16 +17,16 @@ cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
 
 [object, uuid (3050f801-98b5-11cf-bb82-00aa00bdce0b)]
 interface IDocObjectService : IUnknown {
-  HRESULT STDMETHODCALLTYPE FireBeforeNavigate2 ([in] IDispatch *pDispatch, [in, string] LPCWSTR lpszUrl, [in] DWORD dwFlags, [in, string] LPCWSTR lpszFrameName, [out] BYTE *pPostData, [in] DWORD cbPostData, [in, string] LPCWSTR lpszHeaders, [in] BOOL fPlayNavSound, [out] BOOL *pfCancel);
-  HRESULT STDMETHODCALLTYPE FireNavigateComplete2 ([in] IHTMLWindow2 *pHTMLWindow2, [in] DWORD dwFlags);
-  HRESULT STDMETHODCALLTYPE FireDownloadBegin ();
-  HRESULT STDMETHODCALLTYPE FireDownloadComplete ();
-  HRESULT STDMETHODCALLTYPE FireDocumentComplete ([in] IHTMLWindow2 *pHTMLWindow, [in} DWORD dwFlags);
-  HRESULT STDMETHODCALLTYPE UpdateDesktopComponent ([in] IHTMLWindow2 *pHTMLWindow);
-  HRESULT STDMETHODCALLTYPE GetPendingUrl ([out] BSTR *pbstrPendingUrl);
-  HRESULT STDMETHODCALLTYPE ActiveElementChanged ([in] IHTMLElement *pHTMLElement);
-  HRESULT STDMETHODCALLTYPE GetUrlSearchComponent ([out] BSTR *pbstrSearch);
-  HRESULT STDMETHODCALLTYPE IsErrorUrl ([in, string] LPCWSTR lpszUrl, [out] BOOL *pfIsError);
+  HRESULT FireBeforeNavigate2 ([in] IDispatch *pDispatch, [in, string] LPCWSTR lpszUrl, [in] DWORD dwFlags, [in, string] LPCWSTR lpszFrameName, [out] BYTE *pPostData, [in] DWORD cbPostData, [in, string] LPCWSTR lpszHeaders, [in] BOOL fPlayNavSound, [out] BOOL *pfCancel);
+  HRESULT FireNavigateComplete2 ([in] IHTMLWindow2 *pHTMLWindow2, [in] DWORD dwFlags);
+  HRESULT FireDownloadBegin ();
+  HRESULT FireDownloadComplete ();
+  HRESULT FireDocumentComplete ([in] IHTMLWindow2 *pHTMLWindow, [in] DWORD dwFlags);
+  HRESULT UpdateDesktopComponent ([in] IHTMLWindow2 *pHTMLWindow);
+  HRESULT GetPendingUrl ([out] BSTR *pbstrPendingUrl);
+  HRESULT ActiveElementChanged ([in] IHTMLElement *pHTMLElement);
+  HRESULT GetUrlSearchComponent ([out] BSTR *pbstrSearch);
+  HRESULT IsErrorUrl ([in, string] LPCWSTR lpszUrl, [out] BOOL *pfIsError);
 };
 
 cpp_quote("#endif")
