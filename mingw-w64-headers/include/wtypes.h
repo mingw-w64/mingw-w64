@@ -601,7 +601,7 @@ typedef enum tagTYSPEC {
     TYSPEC_OBJECTID = 6
 } TYSPEC;
 
-typedef struct __WIDL_wtypes_generated_name_00000000 {
+typedef struct __WIDL_wtypes_generated_name_00000001 {
     DWORD tyspec;
     union {
         CLSID clsid;

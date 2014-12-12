@@ -83,14 +83,14 @@ DEFINE_GUID(IID_IActiveScriptProfilerHeapEnum, 0x32e4694e, 0xd37, 0x419b, 0xb9, 
 DEFINE_GUID(IID_IActiveScriptProfilerControl3, 0xb403015, 0xf381, 0x4023, 0xa5, 0xd0, 0x6f, 0xed, 0x7, 0x6d, 0xe7, 0x16);
 #endif
 
-typedef enum __WIDL_activprof_generated_name_00000000 {
+typedef enum __WIDL_activprof_generated_name_00000002 {
     PROFILER_SCRIPT_TYPE_USER = 0,
     PROFILER_SCRIPT_TYPE_DYNAMIC = 1,
     PROFILER_SCRIPT_TYPE_NATIVE = 2,
     PROFILER_SCRIPT_TYPE_DOM = 3
 } PROFILER_SCRIPT_TYPE;
 
-typedef enum __WIDL_activprof_generated_name_00000001 {
+typedef enum __WIDL_activprof_generated_name_00000003 {
     PROFILER_EVENT_MASK_TRACE_SCRIPT_FUNCTION_CALL = 0x1,
     PROFILER_EVENT_MASK_TRACE_NATIVE_FUNCTION_CALL = 0x2,
     PROFILER_EVENT_MASK_TRACE_DOM_FUNCTION_CALL = 0x4,
@@ -362,7 +362,7 @@ typedef DWORD_PTR PROFILER_HEAP_OBJECT_ID;
 typedef UINT PROFILER_HEAP_OBJECT_NAME_ID;
 typedef void *PROFILER_EXTERNAL_OBJECT_ADDRESS;
 
-typedef enum __WIDL_activprof_generated_name_00000002 {
+typedef enum __WIDL_activprof_generated_name_00000004 {
     PROFILER_HEAP_OBJECT_FLAGS_NEW_OBJECT = 0x1,
     PROFILER_HEAP_OBJECT_FLAGS_IS_ROOT = 0x2,
     PROFILER_HEAP_OBJECT_FLAGS_SITE_CLOSED = 0x4,
@@ -378,7 +378,7 @@ typedef enum __WIDL_activprof_generated_name_00000002 {
     PROFILER_HEAP_OBJECT_FLAGS_WINRT_NAMESPACE = 0x1000
 } PROFILER_HEAP_OBJECT_FLAGS;
 
-typedef enum __WIDL_activprof_generated_name_00000003 {
+typedef enum __WIDL_activprof_generated_name_00000005 {
     PROFILER_HEAP_OBJECT_OPTIONAL_INFO_PROTOTYPE = 0x1,
     PROFILER_HEAP_OBJECT_OPTIONAL_INFO_FUNCTION_NAME = 0x2,
     PROFILER_HEAP_OBJECT_OPTIONAL_INFO_SCOPE_LIST = 0x3,
@@ -397,7 +397,7 @@ typedef struct _PROFILER_HEAP_OBJECT_SCOPE_LIST {
     PROFILER_HEAP_OBJECT_ID scopes[1];
 } PROFILER_HEAP_OBJECT_SCOPE_LIST;
 
-typedef enum __WIDL_activprof_generated_name_00000004 {
+typedef enum __WIDL_activprof_generated_name_00000006 {
     PROFILER_PROPERTY_TYPE_NUMBER = 0x1,
     PROFILER_PROPERTY_TYPE_STRING = 0x2,
     PROFILER_PROPERTY_TYPE_HEAP_OBJECT = 0x3,

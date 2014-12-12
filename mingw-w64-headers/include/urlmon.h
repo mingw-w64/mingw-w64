@@ -792,7 +792,7 @@ void __RPC_STUB IPersistMoniker_GetCurMoniker_Stub(
 
 typedef IMonikerProp *LPMONIKERPROP;
 
-typedef enum __WIDL_urlmon_generated_name_00000000 {
+typedef enum __WIDL_urlmon_generated_name_00000002 {
     MIMETYPEPROP = 0x0,
     USE_SRC_URL = 0x1,
     CLASSIDPROP = 0x2,
@@ -1194,7 +1194,7 @@ HRESULT __RPC_STUB IBinding_GetBindResult_Stub(
 
 typedef IBindStatusCallback *LPBINDSTATUSCALLBACK;
 
-typedef enum __WIDL_urlmon_generated_name_00000001 {
+typedef enum __WIDL_urlmon_generated_name_00000003 {
     BINDVERB_GET = 0x0,
     BINDVERB_POST = 0x1,
     BINDVERB_PUT = 0x2,
@@ -1202,12 +1202,12 @@ typedef enum __WIDL_urlmon_generated_name_00000001 {
     BINDVERB_RESERVED1 = 0x4
 } BINDVERB;
 
-typedef enum __WIDL_urlmon_generated_name_00000002 {
+typedef enum __WIDL_urlmon_generated_name_00000004 {
     BINDINFOF_URLENCODESTGMEDDATA = 0x1,
     BINDINFOF_URLENCODEDEXTRAINFO = 0x2
 } BINDINFOF;
 
-typedef enum __WIDL_urlmon_generated_name_00000003 {
+typedef enum __WIDL_urlmon_generated_name_00000005 {
     BINDF_ASYNCHRONOUS = 0x1,
     BINDF_ASYNCSTORAGE = 0x2,
     BINDF_NOPROGRESSIVERENDERING = 0x4,
@@ -1241,7 +1241,7 @@ typedef enum __WIDL_urlmon_generated_name_00000003 {
     BINDF_RESERVED_8 = 0x20000000
 } BINDF;
 
-typedef enum __WIDL_urlmon_generated_name_00000004 {
+typedef enum __WIDL_urlmon_generated_name_00000006 {
     URL_ENCODING_NONE = 0x0,
     URL_ENCODING_ENABLE_UTF8 = 0x10000000,
     URL_ENCODING_DISABLE_UTF8 = 0x20000000
@@ -1297,7 +1297,7 @@ typedef struct tagRemFORMATETC {
 } RemFORMATETC;
 typedef struct tagRemFORMATETC *LPREMFORMATETC;
 
-typedef enum __WIDL_urlmon_generated_name_00000005 {
+typedef enum __WIDL_urlmon_generated_name_00000007 {
     BINDINFO_OPTIONS_WININETFLAG = 0x10000,
     BINDINFO_OPTIONS_ENABLE_UTF8 = 0x20000,
     BINDINFO_OPTIONS_DISABLE_UTF8 = 0x40000,
@@ -1315,7 +1315,7 @@ typedef enum __WIDL_urlmon_generated_name_00000005 {
     BINDINFO_OPTIONS_SHDOCVW_NAVIGATE = (int)0x80000000
 } BINDINFO_OPTIONS;
 
-typedef enum __WIDL_urlmon_generated_name_00000006 {
+typedef enum __WIDL_urlmon_generated_name_00000008 {
     BSCF_FIRSTDATANOTIFICATION = 0x1,
     BSCF_INTERMEDIATEDATANOTIFICATION = 0x2,
     BSCF_LASTDATANOTIFICATION = 0x4,
@@ -1674,7 +1674,7 @@ HRESULT __RPC_STUB IBindStatusCallback_OnDataAvailable_Stub(
 
 typedef IBindStatusCallbackEx *LPBINDSTATUSCALLBACKEX;
 
-typedef enum __WIDL_urlmon_generated_name_00000007 {
+typedef enum __WIDL_urlmon_generated_name_00000009 {
     BINDF2_DISABLEBASICOVERHTTP = 0x1,
     BINDF2_DISABLEAUTOCOOKIEHANDLING = 0x2,
     BINDF2_READ_DATA_GREATER_THAN_4GB = 0x4,
@@ -1988,7 +1988,7 @@ void __RPC_STUB IAuthenticate_Authenticate_Stub(
 
 typedef IAuthenticateEx *LPAUTHENTICATIONEX;
 
-typedef enum __WIDL_urlmon_generated_name_00000008 {
+typedef enum __WIDL_urlmon_generated_name_0000000A {
     AUTHENTICATEF_PROXY = 0x1,
     AUTHENTICATEF_BASIC = 0x2,
     AUTHENTICATEF_HTTP = 0x4
@@ -2701,7 +2701,7 @@ void __RPC_STUB IWindowForBindingUI_GetWindow_Stub(
 
 typedef ICodeInstall *LPCODEINSTALL;
 
-typedef enum __WIDL_urlmon_generated_name_00000009 {
+typedef enum __WIDL_urlmon_generated_name_0000000B {
     CIP_DISK_FULL = 0,
     CIP_ACCESS_DENIED = 1,
     CIP_NEWER_VERSION_EXISTS = 2,
@@ -2826,7 +2826,7 @@ void __RPC_STUB ICodeInstall_OnCodeInstallProblem_Stub(
 #ifndef __IUri_INTERFACE_DEFINED__
 #define __IUri_INTERFACE_DEFINED__
 
-typedef enum __WIDL_urlmon_generated_name_0000000A {
+typedef enum __WIDL_urlmon_generated_name_0000000C {
     Uri_PROPERTY_ABSOLUTE_URI = 0,
     Uri_PROPERTY_STRING_START = Uri_PROPERTY_ABSOLUTE_URI,
     Uri_PROPERTY_AUTHORITY = 1,
@@ -2852,7 +2852,7 @@ typedef enum __WIDL_urlmon_generated_name_0000000A {
     Uri_PROPERTY_DWORD_LAST = Uri_PROPERTY_ZONE
 } Uri_PROPERTY;
 
-typedef enum __WIDL_urlmon_generated_name_0000000B {
+typedef enum __WIDL_urlmon_generated_name_0000000D {
     Uri_HOST_UNKNOWN = 0,
     Uri_HOST_DNS = 1,
     Uri_HOST_IPV4 = 2,
@@ -7494,7 +7494,7 @@ void __RPC_STUB IInternetSecurityMgrSite_EnableModeless_Stub(
 #define MAX_SIZE_SECURITY_ID 512
 
 
-typedef enum __WIDL_urlmon_generated_name_0000000C {
+typedef enum __WIDL_urlmon_generated_name_0000000E {
     PUAF_DEFAULT = 0x0,
     PUAF_NOUI = 0x1,
     PUAF_ISFILE = 0x2,
@@ -7517,13 +7517,13 @@ typedef enum __WIDL_urlmon_generated_name_0000000C {
     PUAF_NOUIIFLOCKED = 0x100000,
     PUAF_DRAGPROTOCOLCHECK = 0x200000
 } PUAF;
-typedef enum __WIDL_urlmon_generated_name_0000000D {
+typedef enum __WIDL_urlmon_generated_name_0000000F {
     PUAFOUT_DEFAULT = 0x0,
     PUAFOUT_ISLOCKZONEPOLICY = 0x1
 } PUAFOUT;
 
 
-typedef enum __WIDL_urlmon_generated_name_0000000E {
+typedef enum __WIDL_urlmon_generated_name_00000010 {
     SZM_CREATE = 0x0,
     SZM_DELETE = 0x1
 } SZM_FLAGS;
@@ -8865,7 +8865,7 @@ enum {
 };
 
 
-typedef enum __WIDL_urlmon_generated_name_0000000F {
+typedef enum __WIDL_urlmon_generated_name_00000011 {
     ZAFLAGS_CUSTOM_EDIT = 0x1,
     ZAFLAGS_ADD_SITES = 0x2,
     ZAFLAGS_REQUIRE_VERIFICATION = 0x4,
@@ -10654,7 +10654,7 @@ void __RPC_STUB IWrappedProtocol_GetWrapperCode_Stub(
 
 typedef IGetBindHandle *LPGETBINDHANDLE;
 
-typedef enum __WIDL_urlmon_generated_name_00000010 {
+typedef enum __WIDL_urlmon_generated_name_00000012 {
     BINDHANDLETYPES_APPCACHE = 0x0,
     BINDHANDLETYPES_DEPENDENCY = 0x1,
     BINDHANDLETYPES_COUNT = 0x2
