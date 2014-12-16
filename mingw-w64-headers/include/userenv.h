@@ -123,6 +123,10 @@ extern "C" {
   USERENVAPI DWORD WINAPI GetAppliedGPOListA(DWORD dwFlags,LPCSTR pMachineName,PSID pSidUser,GUID *pGuidExtension,PGROUP_POLICY_OBJECTA *ppGPOList);
   USERENVAPI DWORD WINAPI GetAppliedGPOListW(DWORD dwFlags,LPCWSTR pMachineName,PSID pSidUser,GUID *pGuidExtension,PGROUP_POLICY_OBJECTW *ppGPOList);
 
+#if WINVER >= 0x0600
+  USERENVAPI HRESULT WINAPI CreateProfile (LPCWSTR pszUserSid, LPCWSTR pszUserName, LPWSTR pszProfilePath, DWORD cchProfilePath);
+#endif
+
 #define GP_DLLNAME TEXT("DllName")
 #define GP_ENABLEASYNCHRONOUSPROCESSING TEXT("EnableAsynchronousProcessing")
 #define GP_MAXNOGPOLISTCHANGESINTERVAL TEXT("MaxNoGPOListChangesInterval")
