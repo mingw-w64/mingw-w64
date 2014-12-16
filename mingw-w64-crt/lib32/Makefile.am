@@ -1,5 +1,7 @@
 lib32_DATA =
 lib32_DATA += %reldir%/libaclui.a
+lib32_DATA += %reldir%/libactiveds.a
+lib32_DATA += %reldir%/libadsldpc.a
 lib32_DATA += %reldir%/libadvapi32.a
 lib32_DATA += %reldir%/libapcups.a
 lib32_DATA += %reldir%/libapi-ms-win-core-winrt-l1-1-0.a
