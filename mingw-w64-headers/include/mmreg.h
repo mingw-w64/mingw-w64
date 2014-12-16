@@ -2725,7 +2725,7 @@ extern "C" {
 #endif
 
 #endif
-#else /* defined (__WIDL__)
+#else /* defined (__WIDL__) */
 cpp_quote("#if 0")
 /* FIXME: #pragma pack(push, 1) */
 typedef struct tWAVEFORMATEX {

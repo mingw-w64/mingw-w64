@@ -158,6 +158,7 @@ extern "C" {
 typedef ULONGLONG QWORD;
 
 #include <mmreg.h>
+#if 0
 typedef struct tWAVEFORMATEX {
     WORD wFormatTag;
     WORD nChannels;
