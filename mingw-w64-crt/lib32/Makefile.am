@@ -282,6 +282,7 @@ lib32_DATA += %reldir%/libwecapi.a
 lib32_DATA += %reldir%/libwer.a
 lib32_DATA += %reldir%/libwevtapi.a
 lib32_DATA += %reldir%/libwevtfwd.a
+lib32_DATA += %reldir%/libwiadss.a
 lib32_DATA += %reldir%/libwin32k.a
 lib32_DATA += %reldir%/libwin32spl.a
 lib32_DATA += %reldir%/libwindowscodecs.a
