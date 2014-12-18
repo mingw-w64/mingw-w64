@@ -588,9 +588,9 @@ interface ID2D1Resource {
     const ID2D1ResourceVtbl *lpVtbl;
 };
 
-#define ID2D1Resource_QueryInterface(this,A,B) (this)->lpVtbl->Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1Resource_AddRef(this) (this)->lpVtbl->Base.AddRef((IUnknown*)this)
-#define ID2D1Resource_Release(this) (this)->lpVtbl->Base.Release((IUnknown*)this)
+#define ID2D1Resource_QueryInterface(this,A,B) (this)->lpVtbl->Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1Resource_AddRef(this) (this)->lpVtbl->Base.AddRef((IUnknown*)(this))
+#define ID2D1Resource_Release(this) (this)->lpVtbl->Base.Release((IUnknown*)(this))
 #define ID2D1Resource_GetFactory(this,A) (this)->lpVtbl->GetFactory(this,A)
 
 #endif
@@ -625,10 +625,10 @@ interface ID2D1Brush {
     const ID2D1BrushVtbl *lpVtbl;
 };
 
-#define ID2D1Brush_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1Brush_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)this)
-#define ID2D1Brush_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)this)
-#define ID2D1Brush_GetFactory(this,A) (this)->lpVtbl->Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1Brush_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1Brush_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1Brush_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)(this))
+#define ID2D1Brush_GetFactory(this,A) (this)->lpVtbl->Base.GetFactory((ID2D1Resource*)(this),A)
 #define ID2D1Brush_SetOpacity(this,A) (this)->lpVtbl->SetOpacity(this,A)
 #define ID2D1Brush_SetTransform(this,A) (this)->lpVtbl->SetTransform(this,A)
 #define ID2D1Brush_GetOpacity(this) (this)->lpVtbl->GetOpacity(this)
@@ -652,10 +652,10 @@ interface ID2D1Image {
     const ID2D1ImageVtbl *lpVtbl;
 };
 
-#define ID2D1Image_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnkwnown*)this,A,B)
-#define ID2D1Image_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)this)
-#define ID2D1Image_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)this)
-#define ID2D1Image_GetFactory(this,A) (this)->lpVtbl->Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1Image_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnkwnown*)(this),A,B)
+#define ID2D1Image_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1Image_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)(this))
+#define ID2D1Image_GetFactory(this,A) (this)->lpVtbl->Base.GetFactory((ID2D1Resource*)(this),A)
 
 #endif
 
@@ -691,10 +691,10 @@ interface ID2D1Bitmap {
     const ID2D1BitmapVtbl *lpVtbl;
 };
 
-#define ID2D1Bitmap_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnkwnown*)this,A,B)
-#define ID2D1Bitmap_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)this)
-#define ID2D1Bitmap_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)this)
-#define ID2D1Bitmap_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1Bitmap_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnkwnown*)(this),A,B)
+#define ID2D1Bitmap_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1Bitmap_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)(this))
+#define ID2D1Bitmap_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)(this),A)
 #define ID2D1Bitmap_GetSize(this) (this)->lpVtbl->GetSize(this)
 #define ID2D1Bitmap_GetPixelSize(this) (this)->lpVtbl->GetPixelSize(this)
 #define ID2D1Bitmap_GetPixelFormat(this) (this)->lpVtbl->GetPixelFormat(this)
@@ -739,14 +739,14 @@ interface ID2D1BitmapBrush {
     const ID2D1BitmapBrushVtbl *lpVtbl;
 };
 
-#define ID2D1BitmapBrush_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnkwnown*)this,A,B)
-#define ID2D1BitmapBrush_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)this)
-#define ID2D1BitmapBrush_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)this)
-#define ID2D1BitmapBrush_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)this,A)
-#define ID2D1BitmapBrush_SetOpacity(this,A) (this)->lpVtbl->Base.SetOpacity((ID2D1Brush*)this,A)
-#define ID2D1BitmapBrush_SetTransform(this,A) (this)->lpVtbl->Base.SetTransform((ID2D1Brush*)this,A)
-#define ID2D1BitmapBrush_GetOpacity(this) (this)->lpVtbl->Base.GetOpacity((ID2D1Brush*)this)
-#define ID2D1BitmapBrush_GetTransform(this,A) (this)->lpVtbl->Base.GetTransform((ID2D1Brush*)this,A)
+#define ID2D1BitmapBrush_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnkwnown*)(this),A,B)
+#define ID2D1BitmapBrush_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1BitmapBrush_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)(this))
+#define ID2D1BitmapBrush_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)(this),A)
+#define ID2D1BitmapBrush_SetOpacity(this,A) (this)->lpVtbl->Base.SetOpacity((ID2D1Brush*)(this),A)
+#define ID2D1BitmapBrush_SetTransform(this,A) (this)->lpVtbl->Base.SetTransform((ID2D1Brush*)(this),A)
+#define ID2D1BitmapBrush_GetOpacity(this) (this)->lpVtbl->Base.GetOpacity((ID2D1Brush*)(this))
+#define ID2D1BitmapBrush_GetTransform(this,A) (this)->lpVtbl->Base.GetTransform((ID2D1Brush*)(this),A)
 #define ID2D1BitmapBrush_SetExtendModeX(this,A) (this)->lpVtbl->SetExtendModeX(this,A)
 #define ID2D1BitmapBrush_SetExtendModeY(this,A) (this)->lpVtbl->SetExtendModeY(this,A)
 #define ID2D1BitmapBrush_SetInterpolationMode(this,A) (this)->lpVtbl->SetInterpolationMode(this,A)
@@ -1026,10 +1026,10 @@ interface ID2D1RenderTarget {
     const ID2D1RenderTargetVtbl *lpVtbl;
 };
 
-#define ID2D1RenderTarget_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1RenderTarget_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)this)
-#define ID2D1RenderTarget_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)this)
-#define ID2D1RenderTarget_GetFactory(this,A) (this)->lpVtbl->Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1RenderTarget_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1RenderTarget_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1RenderTarget_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)(this))
+#define ID2D1RenderTarget_GetFactory(this,A) (this)->lpVtbl->Base.GetFactory((ID2D1Resource*)(this),A)
 #define ID2D1RenderTarget_BeginDraw(this) (this)->lpVtbl->BeginDraw(this)
 #define ID2D1RenderTarget_Clear(this,A) (this)->lpVtbl->Clear(this,A)
 #define ID2D1RenderTarget_CreateBitmap(this,A,B,C,D,E) (this)->lpVtbl->CreateBitmap(this,A,B,C,D,E)
@@ -1278,10 +1278,10 @@ interface ID2D1Geometry {
     const ID2D1GeometryVtbl *lpVtbl;
 };
 
-#define ID2D1Geometry_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1Geometry_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)this)
-#define ID2D1Geometry_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)this)
-#define ID2D1Geometry_GetFactory(this,A) (this)->lpVtbl->Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1Geometry_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1Geometry_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1Geometry_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)(this))
+#define ID2D1Geometry_GetFactory(this,A) (this)->lpVtbl->Base.GetFactory((ID2D1Resource*)(this),A)
 #define ID2D1Geometry_CombineWithGeometry(this,A,B,C,D) (this)->lpVtbl->CombineWithGeometry(this,A,B,C,D)
 #define ID2D1Geometry_CompareWithGeometry(this,A,B,C) (this)->lpVtbl->CompareWithGeometry(this,A,B,C)
 #define ID2D1Geometry_ComputeArea(this,A,B) (this)->lpVtbl->ComputeArea(this,A,B)
@@ -1318,10 +1318,10 @@ interface ID2D1BitmapRenderTarget {
     const ID2D1BitmapRenderTargetVtbl *lpVtbl;
 };
 
-#define ID2D1BitmapRenderTarget_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1BitmapRenderTarget_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)this)
-#define ID2D1BitmapRenderTarget_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)this)
-#define ID2D1BitmapRenderTarget_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1BitmapRenderTarget_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1BitmapRenderTarget_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1BitmapRenderTarget_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)(this))
+#define ID2D1BitmapRenderTarget_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)(this),A)
 #define ID2D1BitmapRenderTarget_BeginDraw(this) (this)->lpVtbl->Base.BeginDraw(this)
 #define ID2D1BitmapRenderTarget_Clear(this,A) (this)->lpVtbl->Base.Clear(this,A)
 #define ID2D1BitmapRenderTarget_CreateBitmap(this,A,B,C,D,E) (this)->lpVtbl->Base.CreateBitmap(this,A,B,C,D,E)
@@ -1400,10 +1400,10 @@ interface ID2D1DCRenderTarget
     const ID2D1DCRenderTargetVtbl *lpVtbl;
 };
 
-#define ID2D1DCRenderTarget_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1DCRenderTarget_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)this)
-#define ID2D1DCRenderTarget_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)this)
-#define ID2D1DCRenderTarget_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1DCRenderTarget_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1DCRenderTarget_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1DCRenderTarget_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)(this))
+#define ID2D1DCRenderTarget_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)(this),A)
 #define ID2D1DCRenderTarget_BeginDraw(this) (this)->lpVtbl->Base.BeginDraw(this)
 #define ID2D1DCRenderTarget_Clear(this,A) (this)->lpVtbl->Base.Clear(this,A)
 #define ID2D1DCRenderTarget_CreateBitmap(this,A,B,C,D,E) (this)->lpVtbl->Base.CreateBitmap(this,A,B,C,D,E)
@@ -1491,10 +1491,10 @@ interface ID2D1DrawingStateBlock {
     const struct ID2D1DrawingStateBlockVtbl *lpVtbl;
 };
 
-#define ID2D1DrawingStateBlock_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1DrawingStateBlock_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)this)
-#define ID2D1DrawingStateBlock_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)this)
-#define ID2D1DrawingStateBlock_GetFactory(this,A) (this)->lpVtbl->Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1DrawingStateBlock_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1DrawingStateBlock_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1DrawingStateBlock_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)(this))
+#define ID2D1DrawingStateBlock_GetFactory(this,A) (this)->lpVtbl->Base.GetFactory((ID2D1Resource*)(this),A)
 #define ID2D1DrawingStateBlock_GetDescription(this,A) (this)->lpVtbl->GetDescription(this,A)
 #define ID2D1DrawingStateBlock_GetTextRenderingParams(this,A) (this)->lpVtbl->GetTextRenderingParams(this,A)
 #define ID2D1DrawingStateBlock_SetDescription(this,A) (this)->lpVtbl->SetDescription(this,A)
@@ -1534,9 +1534,9 @@ interface ID2D1SimplifiedGeometrySink {
     const ID2D1SimplifiedGeometrySinkVtbl *lpVtbl;
 };
 
-#define ID2D1SimplifiedGeometrySink_QueryInterface(this,A,B) (this)->lpVtbl->Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1SimplifiedGeometrySink_AddRef(this) (this)->lpVtbl->Base.AddRef((IUnknown*)this)
-#define ID2D1SimplifiedGeometrySink_Release(this) (this)->lpVtbl->Base.Release((IUnknown*)this)
+#define ID2D1SimplifiedGeometrySink_QueryInterface(this,A,B) (this)->lpVtbl->Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1SimplifiedGeometrySink_AddRef(this) (this)->lpVtbl->Base.AddRef((IUnknown*)(this))
+#define ID2D1SimplifiedGeometrySink_Release(this) (this)->lpVtbl->Base.Release((IUnknown*)(this))
 #define ID2D1SimplifiedGeometrySink_SetFillMode(this,A) (this)->lpVtbl->SetFillMode(this,A)
 #define ID2D1SimplifiedGeometrySink_SetSegmentFlags(this,A) (this)->lpVtbl->SetSegmentFlags(this,A)
 #define ID2D1SimplifiedGeometrySink_BeginFigure(this,A,B) (this)->lpVtbl->BeginFigure(this,A,B)
@@ -1567,10 +1567,10 @@ interface ID2D1EllipseGeometry {
     const struct ID2D1EllipseGeometryVtbl *lpVtbl;
 };
 
-#define ID2D1EllipseGeometry_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1EllipseGeometry_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)this)
-#define ID2D1EllipseGeometry_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)this)
-#define ID2D1EllipseGeometry_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1EllipseGeometry_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1EllipseGeometry_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1EllipseGeometry_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)(this))
+#define ID2D1EllipseGeometry_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)(this),A)
 #define ID2D1EllipseGeometry_CombineWithGeometry(this,A,B,C,D) (this)->lpVtbl->Base.CombineWithGeometry(this,A,B,C,D)
 #define ID2D1EllipseGeometry_CompareWithGeometry(this,A,B,C) (this)->lpVtbl->Base.CompareWithGeometry(this,A,B,C)
 #define ID2D1EllipseGeometry_ComputeArea(this,A,B) (this)->lpVtbl->Base.ComputeArea(this,A,B)
@@ -1674,9 +1674,9 @@ interface ID2D1Factory {
     const ID2D1FactoryVtbl *lpVtbl;
 };
 
-#define ID2D1Factory_QueryInterface(this,A,B) (this)->lpVtbl->Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1Factory_AddRef(this) (this)->lpVtbl->Base.AddRef((IUnknown*)this)
-#define ID2D1Factory_Release(this) (this)->lpVtbl->Base.Release((IUnknown*)this)
+#define ID2D1Factory_QueryInterface(this,A,B) (this)->lpVtbl->Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1Factory_AddRef(this) (this)->lpVtbl->Base.AddRef((IUnknown*)(this))
+#define ID2D1Factory_Release(this) (this)->lpVtbl->Base.Release((IUnknown*)(this))
 #define ID2D1Factory_CreateDCRenderTarget(this,A,B) (this)->lpVtbl->CreateDCRenderTarget(this,A,B)
 #define ID2D1Factory_CreateDrawingStateBlock(this,A,B,C) (this)->lpVtbl->CreateDrawingStateBlock(this,A,B,C)
 #define ID2D1Factory_CreateDxgiSurfaceRenderTarget(this,A,B,C) (this)->lpVtbl->CreateDxgiSurfaceRenderTarget(this,A,B,C)
@@ -1811,9 +1811,9 @@ interface ID2D1GeometrySink {
     const ID2D1GeometrySinkVtbl *lpVtbl;
 };
 
-#define ID2D1GeometrySink_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1GeometrySink_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)this)
-#define ID2D1GeometrySink_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)this)
+#define ID2D1GeometrySink_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1GeometrySink_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1GeometrySink_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)(this))
 #define ID2D1GeometrySink_SetFillMode(this,A) (this)->lpVtbl->Base.SetFillMode(this,A)
 #define ID2D1GeometrySink_SetSegmentFlags(this,A) (this)->lpVtbl->Base.SetSegmentFlags(this,A)
 #define ID2D1GeometrySink_BeginFigure(this,A,B) (this)->lpVtbl->Base.BeginFigure(this,A,B)
@@ -1855,10 +1855,10 @@ interface ID2D1GradientStopCollection {
     const ID2D1GradientStopCollectionVtbl *lpVtbl;
 };
 
-#define ID2D1GradientStopCollection_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1GradientStopCollection_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)this)
-#define ID2D1GradientStopCollection_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)this)
-#define ID2D1GradientStopCollection_GetFactory(this,A) (this)->lpVtbl->Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1GradientStopCollection_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1GradientStopCollection_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1GradientStopCollection_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)(this))
+#define ID2D1GradientStopCollection_GetFactory(this,A) (this)->lpVtbl->Base.GetFactory((ID2D1Resource*)(this),A)
 #define ID2D1GradientStopCollection_GetColorInterpolationGamma(this) (this)->lpVtbl->GetColorInterpolationGamma(this)
 #define ID2D1GradientStopCollection_GetExtendMode(this) (this)->lpVtbl->GetExtendMode(this)
 #define ID2D1GradientStopCollection_GetGradientStopCount(this) (this)->lpVtbl->GetGradientStopCount(this)
@@ -1894,10 +1894,10 @@ interface ID2D1HwndRenderTarget {
     const struct ID2D1HwndRenderTargetVtbl *lpVtbl;
 };
 
-#define ID2D1HwndRenderTarget_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1HwndRenderTarget_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)this)
-#define ID2D1HwndRenderTarget_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)this)
-#define ID2D1HwndRenderTarget_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1HwndRenderTarget_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1HwndRenderTarget_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1HwndRenderTarget_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)(this))
+#define ID2D1HwndRenderTarget_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)(this),A)
 #define ID2D1HwndRenderTarget_BeginDraw(this) (this)->lpVtbl->Base.BeginDraw(this)
 #define ID2D1HwndRenderTarget_Clear(this,A) (this)->lpVtbl->Base.Clear(this,A)
 #define ID2D1HwndRenderTarget_CreateBitmap(this,A,B,C,D,E) (this)->lpVtbl->Base.CreateBitmap(this,A,B,C,D,E)
@@ -1977,10 +1977,10 @@ interface ID2D1Layer {
     const ID2D1LayerVtbl *lpVtbl;
 };
 
-#define ID2D1Layer_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1Layer_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)this)
-#define ID2D1Layer_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)this)
-#define ID2D1Layer_GetFactory(this,A) (this)->lpVtbl->Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1Layer_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1Layer_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1Layer_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)(this))
+#define ID2D1Layer_GetFactory(this,A) (this)->lpVtbl->Base.GetFactory((ID2D1Resource*)(this),A)
 #define ID2D1Layer_GetSize(this) (this)->lpVtbl->GetSize(this)
 
 #endif
@@ -2013,10 +2013,10 @@ interface ID2D1LinearGradientBrush {
     const ID2D1LinearGradientBrushVtbl *lpVtbl;
 };
 
-#define ID2D1LinearGradientBrush_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1LinearGradientBrush_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)this)
-#define ID2D1LinearGradientBrush_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)this)
-#define ID2D1LinearGradientBrush_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1LinearGradientBrush_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1LinearGradientBrush_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1LinearGradientBrush_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)(this))
+#define ID2D1LinearGradientBrush_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)(this),A)
 #define ID2D1LinearGradientBrush_SetOpacity(this,A) (this)->lpVtbl->Base.SetOpacity(this,A)
 #define ID2D1LinearGradientBrush_SetTransform(this,A) (this)->lpVtbl->Base.SetTransform(this,A)
 #define ID2D1LinearGradientBrush_GetOpacity(this) (this)->lpVtbl->Base.GetOpacity(this)
@@ -2049,10 +2049,10 @@ interface ID2D1Mesh {
     const struct ID2D1MeshVtbl *lpVtbl;
 };
 
-#define ID2D1Mesh_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1Mesh_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)this)
-#define ID2D1Mesh_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)this)
-#define ID2D1Mesh_GetFactory(this,A) (this)->lpVtbl->Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1Mesh_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1Mesh_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1Mesh_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)(this))
+#define ID2D1Mesh_GetFactory(this,A) (this)->lpVtbl->Base.GetFactory((ID2D1Resource*)(this),A)
 #define ID2D1Mesh_Open(this,A) (this)->lpVtbl->Open(this,A)
 
 #endif
@@ -2083,10 +2083,10 @@ interface ID2D1PathGeometry {
     const ID2D1PathGeometryVtbl *lpVtbl;
 };
 
-#define ID2D1PathGeometry_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1PathGeometry_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)this)
-#define ID2D1PathGeometry_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)this)
-#define ID2D1PathGeometry_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1PathGeometry_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1PathGeometry_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1PathGeometry_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)(this))
+#define ID2D1PathGeometry_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)(this),A)
 #define ID2D1PathGeometry_CombineWithGeometry(this,A,B,C,D) (this)->lpVtbl->Base.CombineWithGeometry(this,A,B,C,D)
 #define ID2D1PathGeometry_CompareWithGeometry(this,A,B,C) (this)->lpVtbl->Base.CompareWithGeometry(this,A,B,C)
 #define ID2D1PathGeometry_ComputeArea(this,A,B) (this)->lpVtbl->Base.ComputeArea(this,A,B)
@@ -2143,10 +2143,10 @@ interface ID2D1RadialGradientBrush {
     const ID2D1RadialGradientBrushVtbl *lpVtbl;
 };
 
-#define ID2D1RadialGradientBrush_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1RadialGradientBrush_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)this)
-#define ID2D1RadialGradientBrush_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)this)
-#define ID2D1RadialGradientBrush_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1RadialGradientBrush_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1RadialGradientBrush_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1RadialGradientBrush_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)(this))
+#define ID2D1RadialGradientBrush_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)(this),A)
 #define ID2D1RadialGradientBrush_SetOpacity(this,A) (this)->lpVtbl->Base.SetOpacity(this,A)
 #define ID2D1RadialGradientBrush_SetTransform(this,A) (this)->lpVtbl->Base.SetTransform(this,A)
 #define ID2D1RadialGradientBrush_GetOpacity(this) (this)->lpVtbl->Base.GetOpacity(this)
@@ -2183,10 +2183,10 @@ interface ID2D1RectangleGeometry {
     const ID2D1RectangleGeometryVtbl *lpVtbl;
 };
 
-#define ID2D1RectangleGeometry_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1RectangleGeometry_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)this)
-#define ID2D1RectangleGeometry_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)this)
-#define ID2D1RectangleGeometry_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1RectangleGeometry_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1RectangleGeometry_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1RectangleGeometry_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)(this))
+#define ID2D1RectangleGeometry_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)(this),A)
 #define ID2D1RectangleGeometry_CombineWithGeometry(this,A,B,C,D) (this)->lpVtbl->Base.CombineWithGeometry(this,A,B,C,D)
 #define ID2D1RectangleGeometry_CompareWithGeometry(this,A,B,C) (this)->lpVtbl->Base.CompareWithGeometry(this,A,B,C)
 #define ID2D1RectangleGeometry_ComputeArea(this,A,B) (this)->lpVtbl->Base.ComputeArea(this,A,B)
@@ -2224,10 +2224,10 @@ interface ID2D1RoundedRectangleGeometry {
     const struct ID2D1RoundedRectangleGeometryVtbl *lpVtbl;
 };
 
-#define ID2D1RoundedRectangleGeometry_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1RoundedRectangleGeometry_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)this)
-#define ID2D1RoundedRectangleGeometry_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)this)
-#define ID2D1RoundedRectangleGeometry_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1RoundedRectangleGeometry_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1RoundedRectangleGeometry_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1RoundedRectangleGeometry_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)(this))
+#define ID2D1RoundedRectangleGeometry_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)(this),A)
 #define ID2D1RoundedRectangleGeometry_CombineWithGeometry(this,A,B,C,D) (this)->lpVtbl->Base.CombineWithGeometry(this,A,B,C,D)
 #define ID2D1RoundedRectangleGeometry_CompareWithGeometry(this,A,B,C) (this)->lpVtbl->Base.CompareWithGeometry(this,A,B,C)
 #define ID2D1RoundedRectangleGeometry_ComputeArea(this,A,B) (this)->lpVtbl->Base.ComputeArea(this,A,B)
@@ -2271,10 +2271,10 @@ interface ID2D1SolidColorBrush {
     const ID2D1SolidColorBrushVtbl *lpVtbl;
 };
 
-#define ID2D1SolidColorBrush_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1SolidColorBrush_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)this)
-#define ID2D1SolidColorBrush_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)this)
-#define ID2D1SolidColorBrush_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1SolidColorBrush_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1SolidColorBrush_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1SolidColorBrush_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)(this))
+#define ID2D1SolidColorBrush_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)(this),A)
 #define ID2D1SolidColorBrush_SetOpacity(this,A) (this)->lpVtbl->Base.SetOpacity(this,A)
 #define ID2D1SolidColorBrush_SetTransform(this,A) (this)->lpVtbl->Base.SetTransform(this,A)
 #define ID2D1SolidColorBrush_GetOpacity(this) (this)->lpVtbl->Base.GetOpacity(this)
@@ -2320,10 +2320,10 @@ interface ID2D1StrokeStyle {
     const ID2D1StrokeStyleVtbl *lpVtbl;
 };
 
-#define ID2D1StrokeStyle_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1StrokeStyle_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)this)
-#define ID2D1StrokeStyle_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)this)
-#define ID2D1StrokeStyle_GetFactory(this,A) (this)->lpVtbl->Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1StrokeStyle_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1StrokeStyle_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1StrokeStyle_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown*)(this))
+#define ID2D1StrokeStyle_GetFactory(this,A) (this)->lpVtbl->Base.GetFactory((ID2D1Resource*)(this),A)
 #define ID2D1StrokeStyle_GetDashCap(this) (this)->lpVtbl->GetDashCap(this)
 #define ID2D1StrokeStyle_GetDashes(this,A,B) (this)->lpVtbl->GetDashes(this,A,B)
 #define ID2D1StrokeStyle_GetDashesCount(this) (this)->lpVtbl->GetDashesCount(this)
@@ -2358,9 +2358,9 @@ interface ID2D1TessellationSink {
     const struct ID2D1TessellationSinkVtbl *lpVtbl;
 };
 
-#define ID2D1TessellationSink_QueryInterface(this,A,B) (this)->lpVtbl->Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1TessellationSink_AddRef(this) (this)->lpVtbl->Base.AddRef((IUnknown*)this)
-#define ID2D1TessellationSink_Release(this) (this)->lpVtbl->Base.Release((IUnknown*)this)
+#define ID2D1TessellationSink_QueryInterface(this,A,B) (this)->lpVtbl->Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1TessellationSink_AddRef(this) (this)->lpVtbl->Base.AddRef((IUnknown*)(this))
+#define ID2D1TessellationSink_Release(this) (this)->lpVtbl->Base.Release((IUnknown*)(this))
 #define ID2D1TessellationSink_AddTriangles(this,A,B) (this)->lpVtbl->AddTriangles(this,A,B)
 #define ID2D1TessellationSink_Close(this) (this)->lpVtbl->Close(this)
 
@@ -2388,10 +2388,10 @@ interface ID2D1TransformedGeometry {
     const ID2D1TransformedGeometryVtbl *lpVtbl;
 };
 
-#define ID2D1TransformedGeometry_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)this,A,B)
-#define ID2D1TransformedGeometry_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)this)
-#define ID2D1TransformedGeometry_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)this)
-#define ID2D1TransformedGeometry_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)this,A)
+#define ID2D1TransformedGeometry_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.Base.QueryInterface((IUnknown*)(this),A,B)
+#define ID2D1TransformedGeometry_AddRef(this) (this)->lpVtbl->Base.Base.Base.AddRef((IUnknown*)(this))
+#define ID2D1TransformedGeometry_Release(this) (this)->lpVtbl->Base.Base.Base.Release((IUnknown*)(this))
+#define ID2D1TransformedGeometry_GetFactory(this,A) (this)->lpVtbl->Base.Base.GetFactory((ID2D1Resource*)(this),A)
 #define ID2D1TransformedGeometry_CombineWithGeometry(this,A,B,C,D) (this)->lpVtbl->Base.CombineWithGeometry(this,A,B,C,D)
 #define ID2D1TransformedGeometry_CompareWithGeometry(this,A,B,C) (this)->lpVtbl->Base.CompareWithGeometry(this,A,B,C)
 #define ID2D1TransformedGeometry_ComputeArea(this,A,B) (this)->lpVtbl->Base.ComputeArea(this,A,B)
