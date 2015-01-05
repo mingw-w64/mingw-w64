@@ -12,38 +12,6 @@
  * conversion. Each call to one of these functions destroys the
  * result of any previous call.
  */
-struct tm *__cdecl localtime_r(const time_t *_Time, struct tm *_Tm)
-{
-    struct tm *tmp;
-
-    if (_Time == NULL || _Tm == NULL)
-    {
-        errno = EINVAL;
-        return NULL;
-    }
-
-    tmp = localtime(_Time);
-    if (tmp != NULL)
-        memcpy(_Tm, tmp, sizeof(struct tm));
-    return tmp;
-}
-
-struct tm *__cdecl gmtime_r(const time_t *_Time, struct tm *_Tm)
-{
-    struct tm *tmp;
-
-    if (_Time == NULL || _Tm == NULL)
-    {
-        errno = EINVAL;
-        return NULL;
-    }
-
-    tmp = gmtime(_Time);
-    if (tmp != NULL)
-        memcpy(_Tm, tmp, sizeof(struct tm));
-    return tmp;
-}
-
 char *__cdecl ctime_r(const time_t *_Time, char * _Str)
 {
     char *tmp;

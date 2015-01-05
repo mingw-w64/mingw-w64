@@ -169,13 +169,6 @@ char *__cdecl ctime(const time_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 struct tm *__cdecl gmtime(const time_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 struct tm *__cdecl localtime(const time_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 
-#if defined(_POSIX) || defined(_POSIX_THREAD_SAFE_FUNCTIONS)
-struct tm *__cdecl localtime_r(const time_t *_Time, struct tm *_Tm);
-struct tm *__cdecl gmtime_r(const time_t *_Time, struct tm *_Tm);
-char *__cdecl ctime_r(const time_t *_Time, char * _Str);
-char *__cdecl asctime_r(const struct tm *_Tm, char * _Str);
-#endif /* _POSIX */
-
 time_t __cdecl mktime(struct tm *_Tm);
 time_t __cdecl _mkgmtime(struct tm *_Tm);
 time_t __cdecl time(time_t *_Time);
@@ -231,6 +224,17 @@ struct timezone {
 #pragma pack(pop)
 
 #include <sec_api/time_s.h>
+
+#if defined(_POSIX) || defined(_POSIX_THREAD_SAFE_FUNCTIONS)
+__forceinline struct tm *__cdecl localtime_r(const time_t *_Time, struct tm *_Tm) {
+  return localtime_s(_Tm, _Time) ? NULL : _Tm;
+}
+__forceinline struct tm *__cdecl gmtime_r(const time_t *_Time, struct tm *_Tm) {
+  return gmtime_s(_Tm, _Time) ? NULL : _Tm;
+}
+char *__cdecl ctime_r(const time_t *_Time, char * _Str);
+char *__cdecl asctime_r(const struct tm *_Tm, char * _Str);
+#endif /* _POSIX */
 
 /* Adding timespec definition.  */
 #include <sys/timeb.h>
