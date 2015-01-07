@@ -183,6 +183,7 @@ IDL_SRCS = \
   direct-x/include/d3d10.idl \
   direct-x/include/d3d10_1.idl \
   direct-x/include/d3d11.idl \
+  direct-x/include/d3d11_1.idl \
   direct-x/include/d3d11sdklayers.idl \
   direct-x/include/d3dcommon.idl \
   direct-x/include/ddstream.idl \

@@ -3,7 +3,6 @@
 
 #include <crtdefs.h>
 #include <math.h>
-#include <ansidecl.h>
 
 #endif /* _IEEE_FP_H_ */
 
