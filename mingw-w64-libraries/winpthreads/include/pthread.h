@@ -407,7 +407,6 @@ unsigned long long         WINPTHREAD_API _pthread_rel_time_in_ms(const struct t
 unsigned long long         WINPTHREAD_API _pthread_time_in_ms(void);
 unsigned long long         WINPTHREAD_API _pthread_time_in_ms_from_timespec(const struct timespec *ts);
 int                        WINPTHREAD_API _pthread_tryjoin (pthread_t t, void **res);
-int                        WINPTHREAD_API pthread_delay_np (const struct timespec *interval);
 int                        WINPTHREAD_API pthread_rwlockattr_destroy(pthread_rwlockattr_t *a);
 int                        WINPTHREAD_API pthread_rwlockattr_getpshared(pthread_rwlockattr_t *a, int *s);
 int                        WINPTHREAD_API pthread_rwlockattr_init(pthread_rwlockattr_t *a);
