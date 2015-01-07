@@ -152,6 +152,16 @@ extern "C" {
 #define	S_IRUSR		_S_IRUSR
 #define	_S_IRUSR	_S_IREAD
 
+#define S_IRGRP    (S_IRUSR >> 3)
+#define S_IWGRP    (S_IWUSR >> 3)
+#define S_IXGRP    (S_IXUSR >> 3)
+#define S_IRWXG    (S_IRWXU >> 3)
+
+#define S_IROTH    (S_IRGRP >> 3)
+#define S_IWOTH    (S_IWGRP >> 3)
+#define S_IXOTH    (S_IXGRP >> 3)
+#define S_IRWXO    (S_IRWXG >> 3)
+
 #define	S_ISDIR(m)	(((m) & S_IFMT) == S_IFDIR)
 #define	S_ISFIFO(m)	(((m) & S_IFMT) == S_IFIFO)
 #define	S_ISCHR(m)	(((m) & S_IFMT) == S_IFCHR)

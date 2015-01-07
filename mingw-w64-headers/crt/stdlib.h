@@ -378,6 +378,7 @@ extern "C" {
   _CRTIMP int __cdecl _mbtowc_l(wchar_t * __restrict__ _DstCh,const char * __restrict__ _SrcCh,size_t _SrcSizeInBytes,_locale_t _Locale);
   size_t __cdecl mbstowcs(wchar_t * __restrict__ _Dest,const char * __restrict__ _Source,size_t _MaxCount);
   _CRTIMP size_t __cdecl _mbstowcs_l(wchar_t * __restrict__ _Dest,const char * __restrict__ _Source,size_t _MaxCount,_locale_t _Locale);
+  int __cdecl mkstemp(char *template_name);
   int __cdecl rand(void);
   _CRTIMP int __cdecl _set_error_mode(int _Mode);
   void __cdecl srand(unsigned int _Seed);
