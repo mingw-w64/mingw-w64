@@ -235,7 +235,7 @@ __forceinline struct tm *__cdecl gmtime_r(const time_t *_Time, struct tm *_Tm) {
 __forceinline char *__cdecl ctime_r(const time_t *_Time, char *_Str) {
   return _ctime_s(_Str, 0x7fffffff, _Time) ? NULL : _Str;
 }
-char *__cdecl asctime_r(const struct tm *_Tm, char * _Str) {
+__forceinline char *__cdecl asctime_r(const struct tm *_Tm, char * _Str) {
   return asctime_s(_Str, 0x7fffffff, _Tm) ? NULL : _Str;
 }
 #endif /* _POSIX */
