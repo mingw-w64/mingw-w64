@@ -359,6 +359,8 @@ typedef struct _MIB_TCP6ROW_OWNER_MODULE {
    We simply typedef it to int.  */
 typedef int MIB_TCP_STATE;
 
+#include <tcpmib.h>
+
 typedef struct _MIB_TCPTABLE {
   DWORD dwNumEntries;
   MIB_TCPROW table[ANY_SIZE];

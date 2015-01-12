@@ -43,13 +43,13 @@ extern "C" {
 #if NTDDI_VERSION >= 0x06000000
   ULONG WINAPI GetTcp6Table (PMIB_TCP6TABLE TcpTable, PULONG SizePointer, WINBOOL Order);
   ULONG WINAPI GetTcp6Table2 (PMIB_TCP6TABLE2 TcpTable, PULONG SizePointer, WINBOOL Order);
-#endif
   ULONG WINAPI GetPerTcpConnectionEStats (PMIB_TCPROW Row, TCP_ESTATS_TYPE EstatsType, PUCHAR Rw, ULONG RwVersion, ULONG RwSize, PUCHAR Ros, ULONG RosVersion, ULONG RosSize, PUCHAR Rod, ULONG RodVersion, ULONG RodSize);
   ULONG WINAPI SetPerTcpConnectionEStats (PMIB_TCPROW Row, TCP_ESTATS_TYPE EstatsType, PUCHAR Rw, ULONG RwVersion, ULONG RwSize, ULONG Offset);
   ULONG WINAPI GetPerTcp6ConnectionEStats (PMIB_TCP6ROW Row, TCP_ESTATS_TYPE EstatsType, PUCHAR Rw, ULONG RwVersion, ULONG RwSize, PUCHAR Ros, ULONG RosVersion, ULONG RosSize, PUCHAR Rod, ULONG RodVersion, ULONG RodSize);
   ULONG WINAPI SetPerTcp6ConnectionEStats (PMIB_TCP6ROW Row, TCP_ESTATS_TYPE EstatsType, PUCHAR Rw, ULONG RwVersion, ULONG RwSize, ULONG Offset);
-  DWORD WINAPI GetOwnerModuleFromTcp6Entry (PMIB_TCP6ROW_OWNER_MODULE pTcpEntry, TCPIP_OWNER_MODULE_INFO_CLASS Class, PVOID pBuffer, PDWORD pdwSize);
   ULONG WINAPI GetUdp6Table (PMIB_UDP6TABLE Udp6Table, PULONG SizePointer, WINBOOL Order);
+#endif
+  DWORD WINAPI GetOwnerModuleFromTcp6Entry (PMIB_TCP6ROW_OWNER_MODULE pTcpEntry, TCPIP_OWNER_MODULE_INFO_CLASS Class, PVOID pBuffer, PDWORD pdwSize);
   DWORD WINAPI GetOwnerModuleFromUdp6Entry (PMIB_UDP6ROW_OWNER_MODULE pUdpEntry, TCPIP_OWNER_MODULE_INFO_CLASS Class, PVOID pBuffer, PDWORD pdwSize);
 #endif
   DWORD GetOwnerModuleFromPidAndInfo (ULONG ulPid, ULONGLONG *pInfo, TCPIP_OWNER_MODULE_INFO_CLASS Class, PVOID pBuffer, PDWORD pdwSize);
