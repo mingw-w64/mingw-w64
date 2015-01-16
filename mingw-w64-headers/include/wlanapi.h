@@ -397,8 +397,6 @@ DWORD WINAPI WlanSetProfilePosition(
   PVOID pReserved
 );
 
-typedef char DOT11_COUNTRY_OR_REGION_STRING[3];
-
 typedef enum _WLAN_AUTOCONF_OPCODE {
   wlan_autoconf_opcode_start                                       = 0,
   wlan_autoconf_opcode_show_denied_networks                        = 1,
