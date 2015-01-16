@@ -70,6 +70,11 @@ typedef struct _MIB_TCPTABLE2 {
   MIB_TCPROW2 table[ANY_SIZE];
 } MIB_TCPTABLE2, *PMIB_TCPTABLE2;
 
+/* As I read msdn on Vista the defines above were moved into
+   typedef enum { MIB_..., } MIB_TCP_STATE;
+   We simply typedef it to int.  */
+typedef int MIB_TCP_STATE;
+
 #ifdef __cplusplus
 }
 #endif
