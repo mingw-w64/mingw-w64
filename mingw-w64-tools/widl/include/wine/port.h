@@ -8,7 +8,7 @@
 # define O_BINARY 0
 #endif
 
-#ifndef HAVE_MKSTEMP
+#ifndef HAVE_MKSTEMPS
 extern int mkstemps(char *template, int suffix_len);
 #endif
 

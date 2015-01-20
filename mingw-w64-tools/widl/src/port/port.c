@@ -19,7 +19,7 @@
 #include "config.h"
 #include "wine/port.h"
 
-#ifndef HAVE_MKSTEMP
+#ifndef HAVE_MKSTEMPS
 
 #include <sys/types.h>
 #include <stdlib.h>
