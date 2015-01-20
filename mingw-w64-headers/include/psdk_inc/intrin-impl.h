@@ -71,13 +71,13 @@ __INTRINSICS_USEINLINE
 /* Parameters: (FunctionName, DataType, Operator)
    FunctionName: Any valid function name
    DataType: BYTE, WORD, DWORD or DWORD64
-   InstructionSizeIntel: b, w, d, q (not b,w,l,q) */
+   InstructionSize: b|b, w|w, l|d, q|q */
 
 /* While we don't need the output values for Dest or Count, we
    must still inform the compiler the asm changes them. */
 #define __buildstos(x, y, z) void x(y *Dest, y Data, size_t Count) \
 { \
-   __asm__ __volatile__ ("rep stos{%z[Data]|" z "}" \
+   __asm__ __volatile__ ("rep stos{" z "}" \
       : "+D" (Dest), "+c" (Count) \
       : [Data] "a" (Data) \
       : "memory"); \
@@ -105,10 +105,10 @@ __INTRINSICS_USEINLINE
    OffsetConstraint: either "I" for 32bit data types or "J" for 64.
    Volatile: either volatile or blank. */
 #if defined(__x86_64__) || defined(_AMD64_) || defined(__i386__) || defined(_X86_)
-#define __buildbittesti(x, y, z, a, b) unsigned char x(b y *Base, y Offset) \
+#define __buildbittesti(x, y, z, a, b) unsigned char x(y *Base, b Offset) \
 { \
    unsigned char old; \
-   __asm__ __volatile__ (z "%z[Base] {%[Offset],%[Base] | %[Base],%[Offset]} ; setc %[old]" \
+   __asm__ __volatile__ (z \
       : [old] "=qm" (old), [Base] "+m" (*Base) \
       : [Offset] a "r" (Offset) \
       : "memory", "cc"); \
@@ -158,11 +158,13 @@ __asm__ __volatile__("xchg{b %%| }al, %0" :"=m" (Barrier) : /* no inputs */ : "e
 Parameters: (FunctionName, DataType, Segment)
    FunctionName: Any valid function name
    DataType: char, short, __LONG32 or __int64
-   Segment: fs or gs */
+   Segment: fs or gs
+   Type: b, w, l, q
+   */
 
-#define __buildreadseg(x, y, z) y x(unsigned __LONG32 Offset) { \
+#define __buildreadseg(x, y, z, a) y x(unsigned __LONG32 Offset) { \
     y ret; \
-    __asm__ ("mov{%z[ret] %%" z ":%[offset], %[ret] | %[ret], %%" z ":%[offset]}" \
+    __asm__ ("mov{" a " %%" z ":%[offset], %[ret] | %[ret], %%" z ":%[offset]}" \
         : [ret] "=r" (ret) \
         : [offset] "m" ((*(y *) (size_t) Offset))); \
     return ret; \
@@ -174,10 +176,12 @@ Parameters: (FunctionName, DataType, Segment)
 Parameters: (FunctionName, DataType, Segment)
    FunctionName: Any valid function name
    DataType: char, short, __LONG32 or __int64
-   Segment: fs or gs */
+   Segment: fs or gs
+   Type: b, w, l, q
+   */
 
-#define __buildwriteseg(x, y, z) void x(unsigned __LONG32 Offset, y Data) { \
-    __asm__ ("mov{%z[offset] %[Data], %%" z ":%[offset] | %%" z ":%[offset], %[Data]}" \
+#define __buildwriteseg(x, y, z, a) void x(unsigned __LONG32 Offset, y Data) { \
+    __asm__ ("mov{" a " %[Data], %%" z ":%[offset] | %%" z ":%[offset], %[Data]}" \
         : [offset] "=m" ((*(y *) (size_t) Offset)) \
         : [Data] "ri" (Data)); \
 }
@@ -192,7 +196,7 @@ Parameters: (FunctionName, DataType, Segment)
 #define __buildbitscan(x, y, z) unsigned char x(unsigned __LONG32 *Index, y Mask) \
 { \
    y n; \
-   __asm__ (z "{%z[Mask] %[Mask],%[Index] | %[Index],%[Mask]}" \
+   __asm__ (z \
       : [Index] "=r" (n) \
       : [Mask] "r" (Mask) \
       : "cc"); \
@@ -205,13 +209,14 @@ Parameters: (FunctionName, DataType, Segment)
 Parameters: (FunctionName, DataType, OffsetConstraint)
    FunctionName: Any valid function name
    DataType: __LONG32 or __int64
+   Type: l, q
    OffsetConstraint: either "I" for 32bit data types or "J" for 64.
 
    */
-#define __buildbittest(x, y, a) unsigned char x(const y *Base, y Offset) \
+#define __buildbittest(x, y, z, a) unsigned char x(const y *Base, y Offset) \
 { \
    unsigned char old; \
-   __asm__ ("bt{%z[Base] %[Offset],%[Base] | %[Base],%[Offset]} ; setc %[old]" \
+   __asm__ ("bt{" z " %[Offset],%[Base] | %[Base],%[Offset]} ; setc %[old]" \
       : [old] "=rm" (old) \
       : [Offset] a "r" (Offset), [Base] "rm" (*Base) \
       : "cc"); \
@@ -226,12 +231,12 @@ Parameters: (FunctionName, DataType, Statement, OffsetConstraint)
    DataType: __LONG32 or __int64
    Statement: asm statement (bts, btr, btc)
    OffsetConstraint: either "I" for 32bit data types or "J" for 64.
-
+   Type: l, q
    */
-#define __buildbittestand(x, y, z, a) unsigned char x(y *Base, y Offset) \
+#define __buildbittestand(x, y, z, a, b) unsigned char x(y *Base, y Offset) \
 { \
    unsigned char old; \
-   __asm__ (z "%z[Base] {%[Offset],%[Base] | %[Base],%[Offset]} ; setc %[old]" \
+   __asm__ (z "{" b " %[Offset],%[Base] | %[Base],%[Offset]} ; setc %[old]" \
       : [old] "=r" (old), [Base] "+rm" (*Base) \
       : [Offset] a "r" (Offset) \
       : "cc"); \
@@ -243,13 +248,13 @@ Parameters: (FunctionName, DataType, Statement, OffsetConstraint)
 Parameters: (FunctionName, DataType)
    FunctionName: Any valid function name
    DataType: unsigned char, unsigned short, unsigned __LONG32
-
+   Type: b, w, l
    */
-#define __build_inport(x, y) y x(unsigned short Port) { \
+#define __build_inport(x, y, z) y x(unsigned short Port) { \
    y value; \
-      __asm__ __volatile__ ("in{%z0 %w1,%0| %0,%w1}" \
-          : "=a" (value) \
-          : "Nd" (Port)); \
+      __asm__ __volatile__ ("in{" z " %w[port],%[value]| %[value],%w[port]}" \
+          : [value] "=a" (value) \
+          : [port] "Nd" (Port)); \
       return value; \
    }
 
@@ -258,12 +263,12 @@ Parameters: (FunctionName, DataType)
 Parameters: (FunctionName, DataType)
    FunctionName: Any valid function name
    DataType: unsigned char, unsigned short, unsigned __LONG32
-
+   Type: b, w, l
    */
-#define __build_outport(x, y) void x(unsigned short Port, y Data) { \
-      __asm__ __volatile__ ("out{%z0 %0,%w1| %w1,%0}" \
+#define __build_outport(x, y, z) void x(unsigned short Port, y Data) { \
+      __asm__ __volatile__ ("out{" z " %[data],%w[port]| %w[port],%[data]}" \
           : \
-          : "a" (Data), "Nd" (Port)); \
+          : [data] "a" (Data), [port] "Nd" (Port)); \
    }
 
 /* This macro is used by __inbytestring, __inwordstring, __indwordstring
@@ -273,12 +278,12 @@ Parameters: (FunctionName, DataType, InstructionSizeAtt, InstructionSizeIntel)
    DataType: unsigned char, unsigned short, unsigned __LONG32
    InstructionSizeAtt: b, w, l
    InstructionSizeIntel: b, w, d (not b,w,l)
-
    */
 #define __build_inportstring(x, y, z, a) void x(unsigned short Port, y *Buffer, unsigned __LONG32 Count) { \
    __asm__ __volatile__ ("cld ; rep ins{" z "|" a "}" \
       : "=D" (Buffer), "=c" (Count) \
-      : "d"(Port), "0"(Buffer), "1" (Count)); \
+      : "d"(Port), "0"(Buffer), "1" (Count) \
+      : "memory"); \
    }
 
 /* This macro is used by __outbytestring, __outwordstring, __outdwordstring
@@ -293,7 +298,8 @@ Parameters: (FunctionName, DataType, InstructionSizeAtt, InstructionSizeIntel)
 #define __build_outportstring(x, y, z, a) void x(unsigned short Port, y *Buffer, unsigned __LONG32 Count) { \
    __asm__ __volatile__ ("cld ; rep outs{" z "|" a "}" \
       : "=S" (Buffer), "=c" (Count) \
-      : "d"(Port), "0"(Buffer), "1" (Count)); \
+      : "d"(Port), "0"(Buffer), "1" (Count) \
+      : "memory"); \
   }
 
 /* This macro is used by __readcr0, __readcr2, __readcr3, __readcr4, __readcr8
@@ -515,49 +521,49 @@ void __faststorefence(void) {
 #if __INTRINSIC_PROLOG(__stosq)
 __MINGW_EXTENSION void __stosq(unsigned __int64 *, unsigned __int64, size_t);
 __INTRINSICS_USEINLINE 
-__buildstos(__stosq, unsigned __int64, "q")
+__buildstos(__stosq, unsigned __int64, "q|q")
 #define __INTRINSIC_DEFINED___stosq
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_interlockedbittestandset64)
 __MINGW_EXTENSION unsigned char _interlockedbittestandset64(__int64 *a, __int64 b);
 __INTRINSICS_USEINLINE 
-__buildbittesti(_interlockedbittestandset64, __int64, "lock bts", "J", /* unused param */)
+__buildbittesti(_interlockedbittestandset64, __int64, "lock bts{q %[Offset],%[Base] | %[Base],%[Offset]} ; setc %[old]", "J", __int64)
 #define __INTRINSIC_DEFINED__interlockedbittestandset64
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_interlockedbittestandreset64)
 __MINGW_EXTENSION unsigned char _interlockedbittestandreset64(__int64 *a, __int64 b);
 __INTRINSICS_USEINLINE 
-__buildbittesti(_interlockedbittestandreset64, __int64, "lock btr", "J", /* unused param */)
+__buildbittesti(_interlockedbittestandreset64, __int64, "lock btr{q %[Offset],%[Base] | %[Base],%[Offset]} ; setc %[old]", "J", __int64)
 #define __INTRINSIC_DEFINED__interlockedbittestandreset64
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_interlockedbittestandcomplement64)
 __MINGW_EXTENSION unsigned char _interlockedbittestandcomplement64(__int64 *a, __int64 b);
 __INTRINSICS_USEINLINE 
-__buildbittesti(_interlockedbittestandcomplement64, __int64, "lock btc", "J", /* unused param */)
+__buildbittesti(_interlockedbittestandcomplement64, __int64, "lock btc{q %[Offset],%[Base] | %[Base],%[Offset]} ; setc %[old]", "J", __int64)
 #define __INTRINSIC_DEFINED__interlockedbittestandcomplement64
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(InterlockedBitTestAndSet64)
 __MINGW_EXTENSION unsigned char InterlockedBitTestAndSet64(volatile __int64 *a, __int64 b);
 __INTRINSICS_USEINLINE 
-__buildbittesti(InterlockedBitTestAndSet64, __int64, "lock bts", "J", volatile)
+__buildbittesti(InterlockedBitTestAndSet64, volatile __int64, "lock bts{q %[Offset],%[Base] | %[Base],%[Offset]} ; setc %[old]", "J", __int64)
 #define __INTRINSIC_DEFINED_InterlockedBitTestAndSet64
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(InterlockedBitTestAndReset64)
 __MINGW_EXTENSION unsigned char InterlockedBitTestAndReset64(volatile __int64 *a, __int64 b);
 __INTRINSICS_USEINLINE 
-__buildbittesti(InterlockedBitTestAndReset64, __int64, "lock btr", "J", volatile)
+__buildbittesti(InterlockedBitTestAndReset64, volatile __int64, "lock btr{q %[Offset],%[Base] | %[Base],%[Offset]} ; setc %[old]", "J", __int64)
 #define __INTRINSIC_DEFINED_InterlockedBitTestAndReset64
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(InterlockedBitTestAndComplement64)
 __MINGW_EXTENSION unsigned char InterlockedBitTestAndComplement64(volatile __int64 *a, __int64 b);
 __INTRINSICS_USEINLINE 
-__buildbittesti(InterlockedBitTestAndComplement64, __int64, "lock btc", "J", volatile)
+__buildbittesti(InterlockedBitTestAndComplement64, volatile __int64, "lock btc{q %[Offset],%[Base] | %[Base],%[Offset]} ; setc %[old]", "J", __int64)
 #define __INTRINSIC_DEFINED_InterlockedBitTestAndComplement64
 #endif /* __INTRINSIC_PROLOG */
 
@@ -621,98 +627,98 @@ __int64 _InterlockedExchangeAdd64(__int64 volatile *Addend, __int64 Value) {
 #if __INTRINSIC_PROLOG(__readgsbyte)
 unsigned char __readgsbyte(unsigned __LONG32 Offset);
 __INTRINSICS_USEINLINE
-__buildreadseg(__readgsbyte, unsigned char, "gs")
+__buildreadseg(__readgsbyte, unsigned char, "gs", "b")
 #define __INTRINSIC_DEFINED___readgsbyte
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__readgsword)
 unsigned short __readgsword(unsigned __LONG32 Offset);
 __INTRINSICS_USEINLINE
-__buildreadseg(__readgsword, unsigned short, "gs")
+__buildreadseg(__readgsword, unsigned short, "gs", "w")
 #define __INTRINSIC_DEFINED___readgsword
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__readgsdword)
 unsigned __LONG32 __readgsdword(unsigned __LONG32 Offset);
 __INTRINSICS_USEINLINE
-__buildreadseg(__readgsdword, unsigned __LONG32, "gs")
+__buildreadseg(__readgsdword, unsigned __LONG32, "gs", "l")
 #define __INTRINSIC_DEFINED___readgsdword
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__readgsqword)
 __MINGW_EXTENSION unsigned __int64 __readgsqword(unsigned __LONG32 Offset);
 __MINGW_EXTENSION __INTRINSICS_USEINLINE
-__buildreadseg(__readgsqword, unsigned __int64, "gs")
+__buildreadseg(__readgsqword, unsigned __int64, "gs", "q")
 #define __INTRINSIC_DEFINED___readgsqword
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__writegsbyte)
 void __writegsbyte(unsigned __LONG32 Offset,unsigned char Data);
 __INTRINSICS_USEINLINE
-__buildwriteseg(__writegsbyte, unsigned char, "gs")
+__buildwriteseg(__writegsbyte, unsigned char, "gs", "b")
 #define __INTRINSIC_DEFINED___writegsbyte
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__writegsword)
 void __writegsword(unsigned __LONG32 Offset,unsigned short Data);
 __INTRINSICS_USEINLINE
-__buildwriteseg(__writegsword, unsigned short, "gs")
+__buildwriteseg(__writegsword, unsigned short, "gs", "w")
 #define __INTRINSIC_DEFINED___writegsword
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__writegsdword)
 void __writegsdword(unsigned __LONG32 Offset,unsigned __LONG32 Data);
 __INTRINSICS_USEINLINE
-__buildwriteseg(__writegsdword, unsigned __LONG32, "gs")
+__buildwriteseg(__writegsdword, unsigned __LONG32, "gs", "l")
 #define __INTRINSIC_DEFINED___writegsdword
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__writegsqword)
 __MINGW_EXTENSION void __writegsqword(unsigned __LONG32 Offset,unsigned __int64 Data);
 __MINGW_EXTENSION __INTRINSICS_USEINLINE
-__buildwriteseg(__writegsqword, unsigned __int64, "gs")
+__buildwriteseg(__writegsqword, unsigned __int64, "gs", "q")
 #define __INTRINSIC_DEFINED___writegsqword
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_BitScanForward64)
 __MINGW_EXTENSION unsigned char _BitScanForward64(unsigned __LONG32 *Index, unsigned __int64 Mask);
 __MINGW_EXTENSION __INTRINSICS_USEINLINE
-__buildbitscan(_BitScanForward64, unsigned __int64, "bsf")
+__buildbitscan(_BitScanForward64, unsigned __int64, "bsf{q %[Mask],%[Index] | %[Index],%[Mask]}")
 #define __INTRINSIC_DEFINED__BitScanForward64
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_BitScanReverse64)
 __MINGW_EXTENSION unsigned char _BitScanReverse64(unsigned __LONG32 *Index, unsigned __int64 Mask);
 __MINGW_EXTENSION __INTRINSICS_USEINLINE
-__buildbitscan(_BitScanReverse64, unsigned __int64, "bsr")
+__buildbitscan(_BitScanReverse64, unsigned __int64, "bsr{q %[Mask],%[Index] | %[Index],%[Mask]}")
 #define __INTRINSIC_DEFINED__BitScanReverse64
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_bittest64)
 __MINGW_EXTENSION unsigned char _bittest64(__int64 const *a, __int64 b);
 __MINGW_EXTENSION __INTRINSICS_USEINLINE
-__buildbittest(_bittest64, __int64, "J")
+__buildbittest(_bittest64, __int64, "q", "J")
 #define __INTRINSIC_DEFINED__bittest64
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_bittestandset64)
 __MINGW_EXTENSION unsigned char _bittestandset64(__int64 *a, __int64 b);
 __MINGW_EXTENSION __INTRINSICS_USEINLINE
-__buildbittestand(_bittestandset64, __int64, "bts", "J")
+__buildbittestand(_bittestandset64, __int64, "bts", "J", "q")
 #define __INTRINSIC_DEFINED__bittestandset64
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_bittestandreset64)
 __MINGW_EXTENSION unsigned char _bittestandreset64(__int64 *a, __int64 b);
 __MINGW_EXTENSION __INTRINSICS_USEINLINE
-__buildbittestand(_bittestandreset64, __int64, "btr", "J")
+__buildbittestand(_bittestandreset64, __int64, "btr", "J", "q")
 #define __INTRINSIC_DEFINED__bittestandreset64
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_bittestandcomplement64)
 __MINGW_EXTENSION unsigned char _bittestandcomplement64(__int64 *a, __int64 b);
 __MINGW_EXTENSION __INTRINSICS_USEINLINE
-__buildbittestand(_bittestandcomplement64, __int64, "btc", "J")
+__buildbittestand(_bittestandcomplement64, __int64, "btc", "J", "q")
 #define __INTRINSIC_DEFINED__bittestandcomplement64
 #endif /* __INTRINSIC_PROLOG */
 
@@ -1038,147 +1044,147 @@ void __int2c(void) {
 #if __INTRINSIC_PROLOG(__stosb)
 void __stosb(unsigned char *, unsigned char, size_t);
 __INTRINSICS_USEINLINE
-__buildstos(__stosb, unsigned char, "b")
+__buildstos(__stosb, unsigned char, "b|b")
 #define __INTRINSIC_DEFINED___stosb
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__stosw)
 void __stosw(unsigned short *, unsigned short, size_t);
 __INTRINSICS_USEINLINE
-__buildstos(__stosw, unsigned short, "w")
+__buildstos(__stosw, unsigned short, "w|w")
 #define __INTRINSIC_DEFINED___stosw
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__stosd)
 void __stosd(unsigned __LONG32 *, unsigned __LONG32, size_t);
 __INTRINSICS_USEINLINE
-__buildstos(__stosd, unsigned __LONG32, "d")
+__buildstos(__stosd, unsigned __LONG32, "l|d")
 #define __INTRINSIC_DEFINED___stosd
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_interlockedbittestandset)
 unsigned char _interlockedbittestandset(__LONG32 *a, __LONG32 b);
 __INTRINSICS_USEINLINE
-__buildbittesti(_interlockedbittestandset, __LONG32, "lock bts", "I", /* unused param */)
+__buildbittesti(_interlockedbittestandset, __LONG32, "lock bts{l %[Offset],%[Base] | %[Base],%[Offset]} ; setc %[old]", "I", __LONG32)
 #define __INTRINSIC_DEFINED__interlockedbittestandset
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_interlockedbittestandreset)
 unsigned char _interlockedbittestandreset(__LONG32 *a, __LONG32 b);
 __INTRINSICS_USEINLINE
-__buildbittesti(_interlockedbittestandreset, __LONG32, "lock btr", "I", /* unused param */)
+__buildbittesti(_interlockedbittestandreset, __LONG32, "lock btr{l %[Offset],%[Base] | %[Base],%[Offset]} ; setc %[old]", "I", __LONG32)
 #define __INTRINSIC_DEFINED__interlockedbittestandreset
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_interlockedbittestandcomplement)
 unsigned char _interlockedbittestandcomplement(__LONG32 *a, __LONG32 b);
 __INTRINSICS_USEINLINE
-__buildbittesti(_interlockedbittestandcomplement, __LONG32, "lock btc", "I", /* unused param */)
+__buildbittesti(_interlockedbittestandcomplement, __LONG32, "lock btc{l %[Offset],%[Base] | %[Base],%[Offset]} ; setc %[old]", "I", __LONG32)
 #define __INTRINSIC_DEFINED__interlockedbittestandcomplement
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(InterlockedBitTestAndSet)
 unsigned char InterlockedBitTestAndSet(volatile __LONG32 *a, __LONG32 b);
 __INTRINSICS_USEINLINE
-__buildbittesti(InterlockedBitTestAndSet, __LONG32, "lock bts", "I", volatile)
+__buildbittesti(InterlockedBitTestAndSet, volatile __LONG32, "lock bts{l %[Offset],%[Base] | %[Base],%[Offset]} ; setc %[old]", "I", __LONG32)
 #define __INTRINSIC_DEFINED_InterlockedBitTestAndSet
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(InterlockedBitTestAndReset)
 unsigned char InterlockedBitTestAndReset(volatile __LONG32 *a, __LONG32 b);
 __INTRINSICS_USEINLINE
-__buildbittesti(InterlockedBitTestAndReset, __LONG32, "lock btr", "I", volatile)
+__buildbittesti(InterlockedBitTestAndReset, volatile __LONG32, "lock btr{l %[Offset],%[Base] | %[Base],%[Offset]} ; setc %[old]", "I", __LONG32)
 #define __INTRINSIC_DEFINED_InterlockedBitTestAndReset
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(InterlockedBitTestAndComplement)
 unsigned char InterlockedBitTestAndComplement(volatile __LONG32 *a, __LONG32 b);
 __INTRINSICS_USEINLINE
-__buildbittesti(InterlockedBitTestAndComplement, __LONG32, "lock btc", "I", volatile)
+__buildbittesti(InterlockedBitTestAndComplement, volatile __LONG32, "lock btc{l %[Offset],%[Base] | %[Base],%[Offset]} ; setc %[old]", "I", __LONG32)
 #define __INTRINSIC_DEFINED_InterlockedBitTestAndComplement
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_BitScanForward)
 unsigned char _BitScanForward(unsigned __LONG32 *Index, unsigned __LONG32 Mask);
 __INTRINSICS_USEINLINE 
-__buildbitscan(_BitScanForward, unsigned __LONG32, "bsf")
+__buildbitscan(_BitScanForward, unsigned __LONG32, "bsf{l %[Mask],%[Index] | %[Index],%[Mask]}")
 #define __INTRINSIC_DEFINED__BitScanForward
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_BitScanReverse)
 unsigned char _BitScanReverse(unsigned __LONG32 *Index, unsigned __LONG32 Mask);
 __INTRINSICS_USEINLINE 
-__buildbitscan(_BitScanReverse, unsigned __LONG32, "bsr")
+__buildbitscan(_BitScanReverse, unsigned __LONG32, "bsr{l %[Mask],%[Index] | %[Index],%[Mask]}")
 #define __INTRINSIC_DEFINED__BitScanReverse
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_bittest)
 unsigned char _bittest(__LONG32 const *a, __LONG32 b);
 __INTRINSICS_USEINLINE
-__buildbittest(_bittest, __LONG32, "I")
+__buildbittest(_bittest, __LONG32, "l", "I")
 #define __INTRINSIC_DEFINED__bittest
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_bittestandset)
 unsigned char _bittestandset(__LONG32 *a, __LONG32 b);
 __INTRINSICS_USEINLINE
-__buildbittestand(_bittestandset, __LONG32, "bts", "I")
+__buildbittestand(_bittestandset, __LONG32, "bts", "I", "l")
 #define __INTRINSIC_DEFINED__bittestandset
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_bittestandreset)
 unsigned char _bittestandreset(__LONG32 *a, __LONG32 b);
 __INTRINSICS_USEINLINE
-__buildbittestand(_bittestandreset, __LONG32, "btr", "I")
+__buildbittestand(_bittestandreset, __LONG32, "btr", "I", "l")
 #define __INTRINSIC_DEFINED__bittestandreset
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_bittestandcomplement)
 unsigned char _bittestandcomplement(__LONG32 *a, __LONG32 b);
 __INTRINSICS_USEINLINE
-__buildbittestand(_bittestandcomplement, __LONG32, "btc", "I")
+__buildbittestand(_bittestandcomplement, __LONG32, "btc", "I", "l")
 #define __INTRINSIC_DEFINED__bittestandcomplement
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__inbyte)
 unsigned char __inbyte(unsigned short Port);
 __INTRINSICS_USEINLINE
-__build_inport(__inbyte, unsigned char)
+__build_inport(__inbyte, unsigned char, "b")
 #define __INTRINSIC_DEFINED___inbyte
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__inword)
 unsigned short __inword(unsigned short Port);
 __INTRINSICS_USEINLINE
-__build_inport(__inword, unsigned short)
+__build_inport(__inword, unsigned short, "w")
 #define __INTRINSIC_DEFINED___inword
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__indword)
 unsigned __LONG32 __indword(unsigned short Port);
 __INTRINSICS_USEINLINE
-__build_inport(__indword, unsigned __LONG32)
+__build_inport(__indword, unsigned __LONG32, "l")
 #define __INTRINSIC_DEFINED___indword
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__outbyte)
 void __outbyte(unsigned short Port, unsigned char Data);
 __INTRINSICS_USEINLINE
-__build_outport(__outbyte, unsigned char)
+__build_outport(__outbyte, unsigned char, "b")
 #define __INTRINSIC_DEFINED___outbyte
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__outword)
 void __outword(unsigned short Port, unsigned short Data);
 __INTRINSICS_USEINLINE
-__build_outport(__outword, unsigned short)
+__build_outport(__outword, unsigned short, "w")
 #define __INTRINSIC_DEFINED___outword
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__outdword)
 void __outdword(unsigned short Port, unsigned __LONG32 Data);
 __INTRINSICS_USEINLINE
-__build_outport(__outdword, unsigned __LONG32)
+__build_outport(__outdword, unsigned __LONG32, "l")
 #define __INTRINSIC_DEFINED___outdword
 #endif /* __INTRINSIC_PROLOG */
 
@@ -1301,42 +1307,42 @@ __buildmov(__movsd, unsigned __LONG32, "d")
 #if __INTRINSIC_PROLOG(__readfsbyte)
 unsigned char __readfsbyte(unsigned __LONG32 Offset);
 __INTRINSICS_USEINLINE
-__buildreadseg(__readfsbyte, unsigned char, "fs")
+__buildreadseg(__readfsbyte, unsigned char, "fs", "b")
 #define __INTRINSIC_DEFINED___readfsbyte
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__readfsword)
 unsigned short __readfsword(unsigned __LONG32 Offset);
 __INTRINSICS_USEINLINE
-__buildreadseg(__readfsword, unsigned short, "fs")
+__buildreadseg(__readfsword, unsigned short, "fs", "w")
 #define __INTRINSIC_DEFINED___readfsword
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__readfsdword)
 unsigned __LONG32 __readfsdword(unsigned __LONG32 Offset);
 __INTRINSICS_USEINLINE
-__buildreadseg(__readfsdword, unsigned __LONG32, "fs")
+__buildreadseg(__readfsdword, unsigned __LONG32, "fs", "l")
 #define __INTRINSIC_DEFINED___readfsdword
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__writefsbyte)
 void __writefsbyte(unsigned __LONG32 Offset,unsigned char Data);
 __INTRINSICS_USEINLINE
-__buildwriteseg(__writefsbyte, unsigned char, "fs")
+__buildwriteseg(__writefsbyte, unsigned char, "fs", "b")
 #define __INTRINSIC_DEFINED___writefsbyte
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__writefsword)
 void __writefsword(unsigned __LONG32 Offset,unsigned short Data);
 __INTRINSICS_USEINLINE
-__buildwriteseg(__writefsword, unsigned short, "fs")
+__buildwriteseg(__writefsword, unsigned short, "fs", "w")
 #define __INTRINSIC_DEFINED___writefsword
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__writefsdword)
 void __writefsdword(unsigned __LONG32 Offset,unsigned __LONG32 Data);
 __INTRINSICS_USEINLINE
-__buildwriteseg(__writefsdword, unsigned __LONG32, "fs")
+__buildwriteseg(__writefsdword, unsigned __LONG32, "fs", "l")
 #define __INTRINSIC_DEFINED___writefsdword
 #endif /* __INTRINSIC_PROLOG */
 
