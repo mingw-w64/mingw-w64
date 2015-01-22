@@ -24,7 +24,6 @@
  */
 int __cdecl mkstemp (char *template_name)
 {
-    errno_t ec;
     int i, j, fd, len, index;
 
     /* These are the (62) characters used in temporary filenames. */
@@ -48,12 +47,11 @@ int __cdecl mkstemp (char *template_name)
         for(j = index; j < len; j++) {
             template_name[j] = letters[rand () % 62];
         }
-
-        ec = _sopen_s (&fd, template_name,
+        fd = _sopen(template_name,
                 _O_RDWR | _O_CREAT | _O_EXCL | _O_TEMPORARY | _O_BINARY,
-                SH_DENYRW, _S_IREAD | _S_IWRITE);
-        if (ec == 0) return fd;
-        if (ec != EEXIST) return -1;
+                _SH_DENYRW, _S_IREAD | _S_IWRITE);
+        if (fd != -1) return fd;
+        if (fd == -1 && errno != EEXIST) return -1;
     }
 
     return -1;
