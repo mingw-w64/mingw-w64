@@ -1498,20 +1498,15 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 
     /* LONG InterlockedExchangeAdd(LONG volatile *Addend,LONG Value); moved to psdk_inc/intrin-impl.h */
     /* LONG InterlockedCompareExchange(LONG volatile *Destination,LONG ExChange,LONG Comperand); moved to psdk_inc/intrin-impl.h */
-    LONG InterlockedAdd(LONG volatile *Addend,LONG Value);
+    /* LONG InterlockedAdd(LONG volatile *Addend,LONG Value); moved to psdk_inc/intrin-impl.h */
     /* LONG64 InterlockedIncrement64(LONG64 volatile *Addend); moved to psdk_inc/intrin-impl.h */
     /* LONG64 InterlockedDecrement64(LONG64 volatile *Addend); moved to psdk_inc/intrin-impl.h */
     /* LONG64 InterlockedExchange64(LONG64 volatile *Target,LONG64 Value); moved to psdk_inc/intrin-impl.h */
-
-    __forceinline LONG InterlockedAdd(LONG volatile *Addend,LONG Value) { return InterlockedExchangeAdd(Addend,Value) + Value; }
-
     /* LONG64 InterlockedExchangeAdd64(LONG64 volatile *Addend,LONG64 Value); moved to psdk_inc/intrin-impl.h */
-    LONG64 InterlockedAdd64(LONG64 volatile *Addend,LONG64 Value);
+    /* LONG64 InterlockedAdd64(LONG64 volatile *Addend,LONG64 Value); moved to psdk_inc/intrin-impl.h */
     /* LONG64 InterlockedCompareExchange64(LONG64 volatile *Destination,LONG64 ExChange,LONG64 Comperand); moved to psdk_inc/intrin-impl.h */
     /* PVOID InterlockedCompareExchangePointer(PVOID volatile *Destination,PVOID ExChange,PVOID Comperand); moved to psdk_inc/intrin-impl.h */
     /* PVOID InterlockedExchangePointer(PVOID volatile *Target,PVOID Value); moved to psdk_inc/intrin-impl.h */
-
-    __forceinline LONG64 InterlockedAdd64(LONG64 volatile *Addend,LONG64 Value) { return InterlockedExchangeAdd64(Addend,Value) + Value; }
 
 #define CacheLineFlush(Address) _mm_clflush(Address)
 
@@ -1958,6 +1953,8 @@ extern "C" {
 #define BitScanReverse _BitScanReverse
 
 #define InterlockedCompareExchange16 _InterlockedCompareExchange16
+#define InterlockedAdd _InterlockedAdd
+#define InterlockedAdd64 _InterlockedAdd64
 
 #ifdef _PREFIX_
     /* BYTE __readfsbyte(DWORD Offset); moved to psdk_inc/intrin-impl.h */

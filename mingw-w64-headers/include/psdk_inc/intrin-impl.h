@@ -430,11 +430,13 @@ supports ReadWriteBarrier, map all 3 to do the same. */
 #define __INTRINSIC_SPECIAL__InterlockedCompareExchange16
 #define __INTRINSIC_SPECIAL__InterlockedIncrement
 #define __INTRINSIC_SPECIAL__InterlockedDecrement
+#define __INTRINSIC_SPECIAL__InterlockedAdd
 #define __INTRINSIC_SPECIAL__InterlockedExchange
 #define __INTRINSIC_SPECIAL__InterlockedExchangeAdd
 #define __INTRINSIC_SPECIAL__InterlockedCompareExchange
 #define __INTRINSIC_SPECIAL__InterlockedIncrement64
 #define __INTRINSIC_SPECIAL__InterlockedDecrement64
+#define __INTRINSIC_SPECIAL__InterlockedAdd64
 #define __INTRINSIC_SPECIAL__InterlockedExchangeAdd64
 #define __INTRINSIC_SPECIAL__InterlockedExchange64
 #define __INTRINSIC_SPECIAL__InterlockedCompareExchange64
@@ -481,6 +483,7 @@ supports ReadWriteBarrier, map all 3 to do the same. */
 
 #define __INTRINSIC_SPECIAL__InterlockedIncrement
 #define __INTRINSIC_SPECIAL__InterlockedDecrement
+#define __INTRINSIC_SPECIAL__InterlockedAdd
 #define __INTRINSIC_SPECIAL__InterlockedExchange
 #define __INTRINSIC_SPECIAL__InterlockedExchangeAdd
 #define __INTRINSIC_SPECIAL__InterlockedCompareExchange
@@ -491,6 +494,7 @@ supports ReadWriteBarrier, map all 3 to do the same. */
 #define __INTRINSIC_SPECIAL__InterlockedXor64
 #define __INTRINSIC_SPECIAL__InterlockedIncrement64
 #define __INTRINSIC_SPECIAL__InterlockedDecrement64
+#define __INTRINSIC_SPECIAL__InterlockedAdd64
 #define __INTRINSIC_SPECIAL__InterlockedExchange64
 #define __INTRINSIC_SPECIAL__InterlockedExchangeAdd64
 #define __INTRINSIC_SPECIAL__InterlockedCompareExchange64
@@ -990,6 +994,24 @@ __LONG32 _InterlockedDecrement(__LONG32 volatile *Addend) {
    return __sync_sub_and_fetch(Addend, 1);
 }
 #define __INTRINSIC_DEFINED__InterlockedDecrement
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_InterlockedAdd)
+__MINGW_EXTENSION __LONG32 _InterlockedAdd(__LONG32 volatile *Addend, __LONG32 Value);
+__MINGW_EXTENSION __INTRINSICS_USEINLINE
+__LONG32 _InterlockedAdd(__LONG32 volatile *Addend, __LONG32 Value) {
+    return __sync_add_and_fetch(Addend, Value);
+}
+#define __INTRINSIC_DEFINED__InterlockedAdd
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_InterlockedAdd64)
+__MINGW_EXTENSION __int64 _InterlockedAdd64(__int64 volatile *Addend, __int64 Value);
+__MINGW_EXTENSION __INTRINSICS_USEINLINE
+__int64 _InterlockedAdd64(__int64 volatile *Addend, __int64 Value) {
+    return __sync_add_and_fetch(Addend, Value);
+}
+#define __INTRINSIC_DEFINED__InterlockedAdd64
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_InterlockedExchange)
