@@ -170,6 +170,7 @@ src_msvcrt=\
   secapi/_localtime32_s.c \
   secapi/_localtime64_s.c \
   secapi/_mktemp_s.c \
+  secapi/_sopen_s.c \
   secapi/_strdate_s.c \
   secapi/_strtime_s.c \
   secapi/_umask_s.c \
