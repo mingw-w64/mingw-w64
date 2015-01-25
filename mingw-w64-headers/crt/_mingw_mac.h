@@ -11,7 +11,7 @@
 #define __MINGW64_STRINGIFY(x) \
   __STRINGIFY(x)
 
-#define __MINGW64_VERSION_MAJOR 4
+#define __MINGW64_VERSION_MAJOR 5
 #define __MINGW64_VERSION_MINOR 0
 
 /* This macro holds an monotonic increasing value, which indicates
@@ -27,7 +27,7 @@
   "." \
   __MINGW64_STRINGIFY(__MINGW64_VERSION_MINOR)
 
-#define __MINGW64_VERSION_STATE "stable"
+#define __MINGW64_VERSION_STATE "alpha"
 
 /* mingw.org's version macros: these make gcc to define
    MINGW32_SUPPORTS_MT_EH and to use the _CRT_MT global
