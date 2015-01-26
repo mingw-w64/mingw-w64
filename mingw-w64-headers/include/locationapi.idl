@@ -1,0 +1,44 @@
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "sensorsapi.idl";
+
+cpp_quote("#include <propkeydef.h>")
+
+[
+    uuid(c8b7f7ee-75d0-4db9-b62d-7a0f369ca456),
+    object
+]
+interface ILocationReport : IUnknown {
+    HRESULT GetSensorID([out, retval] SENSOR_ID *pSensorID);
+    HRESULT GetTimestamp([out, retval] SYSTEMTIME *pCreationTime);
+    HRESULT GetValue([in] REFPROPERTYKEY pKey, [out, retval] PROPVARIANT *pValue);
+}
+
+[
+    uuid(c0b19f70-4adf-445d-87f2-cad8fd711792),
+    object
+]
+interface ICivicAddressReport : ILocationReport {
+    HRESULT GetAddressLine1([out, retval] BSTR *pbstrAddress1);
+    HRESULT GetAddressLine2([out, retval] BSTR *pbstrAddress2);
+    HRESULT GetCity([out, retval] BSTR *pbstrCity);
+    HRESULT GetStateProvince([out, retval] BSTR *pbstrStateProvince);
+    HRESULT GetPostalCode([out, retval] BSTR *pbstrPostalCode);
+    HRESULT GetCountryRegion([out, retval] BSTR *pbstrCountryRegion);
+    HRESULT GetDetailLevel([out, retval] DWORD *pDetailLevel);
+}
+
+[
+    uuid(a65aF77e-969a-4a2e-8aca-33bb7cbb1235),
+    object
+]
+interface IDefaultLocation : IUnknown {
+    HRESULT SetReport([in] REFIID reportType, [in] ILocationReport *pLocationReport);
+    HRESULT GetReport([in] REFIID reportType, [out, retval] ILocationReport **ppLocationReport);
+}

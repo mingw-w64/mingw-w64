@@ -320,6 +320,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/iketypes.idl \
 @HAVE_WIDL_TRUE@  include/inputscope.idl \
 @HAVE_WIDL_TRUE@  include/inspectable.idl \
+@HAVE_WIDL_TRUE@  include/locationapi.idl \
 @HAVE_WIDL_TRUE@  include/oaidl.idl \
 @HAVE_WIDL_TRUE@  include/ocidl.idl \
 @HAVE_WIDL_TRUE@  include/comcat.idl \
