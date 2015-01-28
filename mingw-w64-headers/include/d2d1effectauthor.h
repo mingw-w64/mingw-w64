@@ -465,9 +465,9 @@ interface ID2D1EffectImpl {
 };
 
 
-#define ID2D1EffectImpl_QueryInterface(This, riid, ppv) ((This)->lpVtbl->Base.QueryInterface((IUnknown*)This, riid, ppv))
-#define ID2D1EffectImpl_AddRef(This) ((This)->lpVtbl->Base.AddRef((IUnknown*)This))
-#define ID2D1EffectImpl_Release(This) ((This)->lpVtbl->Base.Release((IUnknown*)This))
+#define ID2D1EffectImpl_QueryInterface(This, riid, ppv) ((This)->lpVtbl->Base.QueryInterface((IUnknown*)(This), riid, ppv))
+#define ID2D1EffectImpl_AddRef(This) ((This)->lpVtbl->Base.AddRef((IUnknown*)(This)))
+#define ID2D1EffectImpl_Release(This) ((This)->lpVtbl->Base.Release((IUnknown*)(This)))
 #define ID2D1EffectImpl_Initialize(This, effectContext, transformGraph) ((This)->lpVtbl->Initialize(This, effectContext, transformGraph))
 #define ID2D1EffectImpl_PrepareForRender(This, changeType) ((This)->lpVtbl->PrepareForRender(This, changeType))
 #define ID2D1EffectImpl_SetGraph(This, transformGraph) ((This)->lpVtbl->SetGraph(This, transformGraph))
