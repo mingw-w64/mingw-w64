@@ -261,7 +261,7 @@ struct timezone {
 
 #pragma pack(pop)
 
-#if defined(_POSIX) || defined(_POSIX_THREAD_SAFE_FUNCTIONS)
+#if defined(_POSIX_C_SOURCE) || defined(_POSIX_THREAD_SAFE_FUNCTIONS)
 __forceinline struct tm *__cdecl localtime_r(const time_t *_Time, struct tm *_Tm) {
   return localtime_s(_Tm, _Time) ? NULL : _Tm;
 }
@@ -274,7 +274,7 @@ __forceinline char *__cdecl ctime_r(const time_t *_Time, char *_Str) {
 __forceinline char *__cdecl asctime_r(const struct tm *_Tm, char * _Str) {
   return asctime_s(_Str, 0x7fffffff, _Tm) ? NULL : _Str;
 }
-#endif /* _POSIX */
+#endif /* _POSIX_C_SOURCE */
 
 /* Adding timespec definition.  */
 #include <sys/timeb.h>
