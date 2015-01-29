@@ -13,7 +13,7 @@ AC_CANONICAL_HOST
 
 AS_CASE([$host],
         [i*86-*-mingw*],[],
-        [*],[AC_MSG_ERROR([Only Win32 host variants are supported])])
+        [*],[AC_MSG_ERROR([Only x86 32-bit Win32 host variants are supported])])
 
 # Checks for programs.
 AC_PROG_CC

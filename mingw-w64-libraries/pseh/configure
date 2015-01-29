@@ -2737,7 +2737,7 @@ case $host in #(
   i*86-*-mingw*) :
      ;; #(
   *) :
-    as_fn_error $? "Only Win32 host variants are supported" "$LINENO" 5 ;; #(
+    as_fn_error $? "Only x86 32-bit Win32 host variants are supported" "$LINENO" 5 ;; #(
   *) :
      ;;
 esac
