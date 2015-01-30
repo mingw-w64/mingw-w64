@@ -176,8 +176,10 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #define	R_OK	4	/* Check for read permission */
 
   _CRTIMP int __cdecl _access(const char *_Filename,int _AccessMode);
+  _CRTIMP errno_t __cdecl _access_s(const char *_Filename,int _AccessMode);
   _CRTIMP int __cdecl _chmod(const char *_Filename,int _Mode);
   _CRTIMP int __cdecl _chsize(int _FileHandle,long _Size) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP errno_t __cdecl _chsize_s (int _FileHandle,__int64 _Size);
   _CRTIMP int __cdecl _close(int _FileHandle);
   _CRTIMP int __cdecl _commit(int _FileHandle);
   _CRTIMP int __cdecl _creat(const char *_Filename,int _PermissionMode) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
@@ -193,6 +195,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
   _CRTIMP long __cdecl _lseek(int _FileHandle,long _Offset,int _Origin);
   _off64_t lseek64(int fd,_off64_t offset, int whence);
   _CRTIMP char *__cdecl _mktemp(char *_TemplateName) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP errno_t __cdecl _mktemp_s (char *_TemplateName,size_t _Size);
   _CRTIMP int __cdecl _pipe(int *_PtHandles,unsigned int _PipeSize,int _TextMode);
   _CRTIMP int __cdecl _read(int _FileHandle,void *_DstBuf,unsigned int _MaxCharCount);
 
@@ -209,6 +212,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
   _CRTIMP int __cdecl _setmode(int _FileHandle,int _Mode);
   _CRTIMP long __cdecl _tell(int _FileHandle);
   _CRTIMP int __cdecl _umask(int _Mode) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP errno_t __cdecl _umask_s (int _NewMode,int *_OldMode);
   _CRTIMP int __cdecl _write(int _FileHandle,const void *_Buf,unsigned int _MaxCharCount);
 
   __MINGW_EXTENSION _CRTIMP __int64 __cdecl _filelengthi64(int _FileHandle);
@@ -279,6 +283,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
 #ifndef _WIO_DEFINED
 #define _WIO_DEFINED
   _CRTIMP int __cdecl _waccess(const wchar_t *_Filename,int _AccessMode);
+  _CRTIMP errno_t __cdecl _waccess_s (const wchar_t *_Filename,int _AccessMode);
   _CRTIMP int __cdecl _wchmod(const wchar_t *_Filename,int _Mode);
   _CRTIMP int __cdecl _wcreat(const wchar_t *_Filename,int _PermissionMode) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP intptr_t __cdecl _wfindfirst32(const wchar_t *_Filename,struct _wfinddata32_t *_FindData);
@@ -286,6 +291,7 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
   _CRTIMP int __cdecl _wunlink(const wchar_t *_Filename);
   _CRTIMP int __cdecl _wrename(const wchar_t *_OldFilename,const wchar_t *_NewFilename);
   _CRTIMP wchar_t *__cdecl _wmktemp(wchar_t *_TemplateName) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP errno_t __cdecl _wmktemp_s (wchar_t *_TemplateName, size_t _SizeInWords);
 
   _CRTIMP intptr_t __cdecl _wfindfirst32i64(const wchar_t *_Filename,struct _wfinddata32i64_t *_FindData);
   intptr_t __cdecl _wfindfirst64i32(const wchar_t *_Filename,struct _wfinddata64i32_t *_FindData);
@@ -364,8 +370,6 @@ static inline int __mingw_access (const char *__fname, int __mode) {
 
 
 #pragma pack(pop)
-
-#include <sec_api/io_s.h>
 
 #endif /* End _IO_H_ */
 
