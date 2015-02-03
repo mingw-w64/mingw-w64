@@ -770,7 +770,7 @@ extern "C" {
 
   WINLDAPAPI ULONG LDAPAPI ldap_set_dbg_flags(ULONG NewFlags);
 
-  typedef ULONG (_cdecl *DBGPRINT)(PCH Format,...);
+  typedef ULONG (LDAPAPI *DBGPRINT)(PCH Format,...);
 
   WINLDAPAPI VOID LDAPAPI ldap_set_dbg_routine(DBGPRINT DebugPrintRoutine);
   WINLDAPAPI int LDAPAPI LdapUTF8ToUnicode(LPCSTR lpSrcStr,int cchSrc,LPWSTR lpDestStr,int cchDest);
@@ -933,9 +933,9 @@ extern "C" {
 
 #define LDAP_OPT_REFERRAL_CALLBACK 0x70
 
-  typedef ULONG (_cdecl QUERYFORCONNECTION)(PLDAP PrimaryConnection,PLDAP ReferralFromConnection,PWCHAR NewDN,PCHAR HostName,ULONG PortNumber,PVOID SecAuthIdentity,PVOID CurrentUserToken,PLDAP *ConnectionToUse);
-  typedef BOOLEAN (_cdecl NOTIFYOFNEWCONNECTION) (PLDAP PrimaryConnection,PLDAP ReferralFromConnection,PWCHAR NewDN,PCHAR HostName,PLDAP NewConnection,ULONG PortNumber,PVOID SecAuthIdentity,PVOID CurrentUser,ULONG ErrorCodeFromBind);
-  typedef ULONG (_cdecl DEREFERENCECONNECTION)(PLDAP PrimaryConnection,PLDAP ConnectionToDereference);
+  typedef ULONG (LDAPAPI QUERYFORCONNECTION)(PLDAP PrimaryConnection,PLDAP ReferralFromConnection,PWCHAR NewDN,PCHAR HostName,ULONG PortNumber,PVOID SecAuthIdentity,PVOID CurrentUserToken,PLDAP *ConnectionToUse);
+  typedef BOOLEAN (LDAPAPI NOTIFYOFNEWCONNECTION) (PLDAP PrimaryConnection,PLDAP ReferralFromConnection,PWCHAR NewDN,PCHAR HostName,PLDAP NewConnection,ULONG PortNumber,PVOID SecAuthIdentity,PVOID CurrentUser,ULONG ErrorCodeFromBind);
+  typedef ULONG (LDAPAPI DEREFERENCECONNECTION)(PLDAP PrimaryConnection,PLDAP ConnectionToDereference);
 
   typedef struct LdapReferralCallback {
     ULONG SizeOfCallbacks;
@@ -951,8 +951,8 @@ extern "C" {
 #define LDAP_OPT_SERVER_CERTIFICATE 0x81
 #define LDAP_OPT_REF_DEREF_CONN_PER_MSG 0x94
 
-  typedef BOOLEAN (_cdecl QUERYCLIENTCERT) (PLDAP Connection,PSecPkgContext_IssuerListInfoEx trusted_CAs,PCCERT_CONTEXT *ppCertificate);
-  typedef BOOLEAN (_cdecl VERIFYSERVERCERT) (PLDAP Connection,PCCERT_CONTEXT pServerCert);
+  typedef BOOLEAN (LDAPAPI QUERYCLIENTCERT) (PLDAP Connection,PSecPkgContext_IssuerListInfoEx trusted_CAs,PCCERT_CONTEXT *ppCertificate);
+  typedef BOOLEAN (LDAPAPI VERIFYSERVERCERT) (PLDAP Connection,PCCERT_CONTEXT pServerCert);
 
   WINLDAPAPI LDAP *LDAPAPI ldap_conn_from_msg (LDAP *PrimaryConn,LDAPMessage *res);
 
