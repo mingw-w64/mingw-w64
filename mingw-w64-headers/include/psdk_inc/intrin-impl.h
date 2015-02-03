@@ -997,8 +997,8 @@ __LONG32 _InterlockedDecrement(__LONG32 volatile *Addend) {
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_InterlockedAdd)
-__MINGW_EXTENSION __LONG32 _InterlockedAdd(__LONG32 volatile *Addend, __LONG32 Value);
-__MINGW_EXTENSION __INTRINSICS_USEINLINE
+__LONG32 _InterlockedAdd(__LONG32 volatile *Addend, __LONG32 Value);
+__INTRINSICS_USEINLINE
 __LONG32 _InterlockedAdd(__LONG32 volatile *Addend, __LONG32 Value) {
     return __sync_add_and_fetch(Addend, Value);
 }
