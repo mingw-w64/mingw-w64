@@ -10,6 +10,75 @@
 #include <bdatypes.h>
 #include <dshow.h>
 
+#if (_WIN32_WINNT >= 0x0600)
+
+#ifndef __IEnumPIDMap_FWD_DEFINED__
+#define __IEnumPIDMap_FWD_DEFINED__
+typedef interface IEnumPIDMap IEnumPIDMap;
+#endif
+
+#ifndef __IMPEG2PIDMap_FWD_DEFINED__
+#define __IMPEG2PIDMap_FWD_DEFINED__
+typedef interface IMPEG2PIDMap IMPEG2PIDMap;
+#endif
+
+#undef  INTERFACE
+#define INTERFACE IEnumPIDMap
+DECLARE_INTERFACE_(IEnumPIDMap,IUnknown)
+{
+    BEGIN_INTERFACE
+
+    /* IUnknown methods */
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+    /* IEnumPIDMap methods */
+    STDMETHOD_(HRESULT,Next)(THIS_ ULONG req, PID_MAP *map, ULONG count) PURE;
+    STDMETHOD_(HRESULT,Skip)(THIS_ ULONG rec) PURE;
+    STDMETHOD_(HRESULT,Reset)(THIS) PURE;
+    STDMETHOD_(HRESULT,Clone)(THIS_ IEnumPIDMap **pIEnumPIDMap) PURE;
+
+    END_INTERFACE
+};
+#ifdef COBJMACROS
+#define IEnumPIDMap_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IEnumPIDMap_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IEnumPIDMap_Release(This) (This)->lpVtbl->Release(This)
+#define IEnumPIDMap_Next(This,req,map,count) (This)->lpVtbl->Next(This,req,map,count)
+#define IEnumPIDMap_Skip(This,rec) (This)->lpVtbl->Skip(This,rec)
+#define IEnumPIDMap_Reset(This) (This)->lpVtbl->Reset(This)
+#define IEnumPIDMap_Clone(This,pIEnumPIDMap) (This)->lpVtbl->Clone(This,pIEnumPIDMap)
+#endif /*COBJMACROS*/
+
+#undef  INTERFACE
+#define INTERFACE IMPEG2PIDMap
+DECLARE_INTERFACE_(IMPEG2PIDMap,IUnknown)
+{
+    BEGIN_INTERFACE
+
+    /* IUnknown methods */
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+
+    /* IMPEG2PIDMap methods */
+    STDMETHOD_(HRESULT,MapPID)(THIS_ ULONG numPid,ULONG *pPid,MEDIA_SAMPLE_CONTENT MediaSampleContent) PURE;
+    STDMETHOD_(HRESULT,UnmapPID)(THIS_ ULONG numPid,ULONG *pPid) PURE;
+    STDMETHOD_(HRESULT,EnumPIDMap)(THIS_ IEnumPIDMap **pIEnumPIDMap) PURE;
+
+    END_INTERFACE
+};
+#ifdef COBJMACROS
+#define IMPEG2PIDMap_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMPEG2PIDMap_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMPEG2PIDMap_Release(This) (This)->lpVtbl->Release(This)
+#define IMPEG2PIDMap_MapPID(This,numPid,pPid,MediaSampleContent) (This)->lpVtbl->MapPID(This,numPid,pPid,MediaSampleContent)
+#define IMPEG2PIDMap_UnmapPID(This,numPid,pPid) (This)->lpVtbl->UnmapPID(This,numPid,pPid)
+#define IMPEG2PIDMap_EnumPIDMap(This,pIEnumPIDMap) (This)->lpVtbl->EnumPIDMap(This,pIEnumPIDMap)
+#endif /*COBJMACROS*/
+
+
+#endif
 #if (_WIN32_WINNT >= 0x0601)
 
 typedef enum ApplicationTypeType {
