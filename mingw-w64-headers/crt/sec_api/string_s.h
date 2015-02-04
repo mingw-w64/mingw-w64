@@ -65,11 +65,6 @@ extern "C" {
   }
 #endif
 
-#ifndef _MEMORY_S_DEFINED
-#define _MEMORY_S_DEFINED
-  _CRTIMP errno_t __cdecl memcpy_s (void *_dest,size_t _numberOfElements,const void *_src,size_t _count);
-#endif /*_MEMORY_S_DEFINED*/
-
 #ifdef __cplusplus
 }
 #endif
