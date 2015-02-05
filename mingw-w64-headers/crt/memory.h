@@ -7,7 +7,6 @@
 #define _INC_MEMORY
 
 #include <crtdefs.h>
-#include <sec_api/memory_s.h>
 
 #ifdef __cplusplus
 extern "C" {
