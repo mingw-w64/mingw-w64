@@ -2039,7 +2039,12 @@ usage_message="Options:
 "
 
 # Additional text appended to 'usage_message' in response to '--help'.
-long_help_message=$long_help_message"
+func_help ()
+{
+    $debug_cmd
+
+    func_usage_message
+    $ECHO "$long_help_message
 
 MODE must be one of the following:
 
@@ -2070,6 +2075,8 @@ include the following information:
 Report bugs to <bug-libtool@gnu.org>.
 GNU libtool home page: <http://www.gnu.org/software/libtool/>.
 General help using GNU software: <http://www.gnu.org/gethelp/>."
+    exit 0
+}
 
 
 # func_lo2o OBJECT-NAME
