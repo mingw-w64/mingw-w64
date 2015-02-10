@@ -225,12 +225,12 @@ __CRT_INLINE time_t __cdecl time(time_t *_Time) { return _time32(_Time); }
 #ifdef _USE_32BIT_TIME_T
 __forceinline errno_t __cdecl localtime_s(struct tm *_Tm,const time_t *_Time) { return _localtime32_s(_Tm,_Time); }
 __forceinline errno_t __cdecl gmtime_s(struct tm *_Tm, const time_t *_Time)   { return _gmtime32_s(_Tm, _Time); }
-__forceinline errno_t __cdecl _ctime_s(char *_Buf,size_t _SizeInBytes,const time_t *_Time) { return _ctime32_s(_Buf,_SizeInBytes,_Time); }
+__forceinline errno_t __cdecl ctime_s(char *_Buf,size_t _SizeInBytes,const time_t *_Time) { return _ctime32_s(_Buf,_SizeInBytes,_Time); }
 
 #else
 __forceinline errno_t __cdecl localtime_s(struct tm *_Tm,const time_t *_Time) { return _localtime64_s(_Tm,_Time); }
 __forceinline errno_t __cdecl gmtime_s(struct tm *_Tm, const time_t *_Time) { return _gmtime64_s(_Tm, _Time); }
-__forceinline errno_t __cdecl _ctime_s(char *_Buf,size_t _SizeInBytes,const time_t *_Time) { return _ctime64_s(_Buf,_SizeInBytes,_Time); }
+__forceinline errno_t __cdecl ctime_s(char *_Buf,size_t _SizeInBytes,const time_t *_Time) { return _ctime64_s(_Buf,_SizeInBytes,_Time); }
 #endif
 #endif /* !RC_INVOKED */
 
@@ -273,7 +273,7 @@ __forceinline struct tm *__cdecl gmtime_r(const time_t *_Time, struct tm *_Tm) {
   return gmtime_s(_Tm, _Time) ? NULL : _Tm;
 }
 __forceinline char *__cdecl ctime_r(const time_t *_Time, char *_Str) {
-  return _ctime_s(_Str, 0x7fffffff, _Time) ? NULL : _Str;
+  return ctime_s(_Str, 0x7fffffff, _Time) ? NULL : _Str;
 }
 __forceinline char *__cdecl asctime_r(const struct tm *_Tm, char * _Str) {
   return asctime_s(_Str, 0x7fffffff, _Tm) ? NULL : _Str;
