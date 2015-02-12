@@ -10,11 +10,15 @@
 #ifndef D2D_USE_C_DEFINITIONS
 
 namespace D2D1 {
+    template<> struct TypeTraits<INT32> {
+        typedef D2D1_POINT_2L Point;
+        typedef D2D1_RECT_L Rect;
+    };
 
-    D2D1FORCEINLINE D2D1_VECTOR_2F Vector2F(FLOAT x = 0.0f, FLOAT y = 0.0f) {
-        D2D1_VECTOR_2F r = {x, y};
-        return r;
-    }
+    template<> struct TypeTraits<LONG> {
+        typedef D2D1_POINT_2L Point;
+        typedef D2D1_RECT_L Rect;
+    };
 
     D2D1FORCEINLINE D2D1_LAYER_PARAMETERS1 LayerParameters1(CONST D2D1_RECT_F &contentBounds = D2D1::InfiniteRect(),
             ID2D1Geometry *geometricMask = NULL, D2D1_ANTIALIAS_MODE maskAntialiasMode = D2D1_ANTIALIAS_MODE_PER_PRIMITIVE,
@@ -63,6 +67,11 @@ namespace D2D1 {
         }
     };
 
+    D2D1FORCEINLINE D2D1_VECTOR_2F Vector2F(FLOAT x = 0.0f, FLOAT y = 0.0f) {
+        D2D1_VECTOR_2F r = {x, y};
+        return r;
+    }
+
     D2D1FORCEINLINE D2D1_VECTOR_3F Vector3F(FLOAT x = 0.0f, FLOAT y = 0.0f, FLOAT z = 0.0f) {
         D2D1_VECTOR_3F r = {x, y, z};
         return r;
@@ -71,6 +80,14 @@ namespace D2D1 {
     D2D1FORCEINLINE D2D1_VECTOR_4F Vector4F(FLOAT x = 0.0f, FLOAT y = 0.0f, FLOAT z = 0.0f, FLOAT w = 0.0f) {
         D2D1_VECTOR_4F r = {x, y, z, w};
         return r;
+    }
+
+    D2D1FORCEINLINE D2D1_POINT_2L Point2L(INT32 x = 0, INT32 y = 0) {
+        return Point2<INT32>(x, y);
+    }
+
+    D2D1FORCEINLINE D2D1_RECT_L RectL(INT32 left = 0.0f, INT32 top = 0.0f, INT32 right = 0.0f, INT32 bottom = 0.0f) {
+        return Rect<INT32>(left, top, right, bottom);
     }
 }
 
