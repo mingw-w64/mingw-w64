@@ -1064,7 +1064,7 @@ _snwscanf_l
 _snwscanf_s
 _snwscanf_s_l
 _sopen
-; _sopen_s replaced by emu
+_sopen_s
 _spawnl
 _spawnle
 _spawnlp
