@@ -22,6 +22,10 @@ typedef interface IEnumPIDMap IEnumPIDMap;
 typedef interface IMPEG2PIDMap IMPEG2PIDMap;
 #endif
 
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IEnumPIDMap,0xafb6c2a2,0x2c41,0x11d3,0x8a,0x60,0x00,0x00,0xf8,0x1e,0x0e,0x4a);
+#endif
+
 #undef  INTERFACE
 #define INTERFACE IEnumPIDMap
 DECLARE_INTERFACE_(IEnumPIDMap,IUnknown)
@@ -49,6 +53,10 @@ DECLARE_INTERFACE_(IEnumPIDMap,IUnknown)
 #define IEnumPIDMap_Reset(This) (This)->lpVtbl->Reset(This)
 #define IEnumPIDMap_Clone(This,pIEnumPIDMap) (This)->lpVtbl->Clone(This,pIEnumPIDMap)
 #endif /*COBJMACROS*/
+
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMPEG2PIDMap,0xafb6c2a1,0x2c41,0x11d3,0x8a,0x60,0x00,0x00,0xf8,0x1e,0x0e,0x4a);
+#endif
 
 #undef  INTERFACE
 #define INTERFACE IMPEG2PIDMap
