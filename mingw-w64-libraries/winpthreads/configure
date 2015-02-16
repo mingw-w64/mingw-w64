@@ -4604,8 +4604,8 @@ esac
 
 
 
-macro_version='2.4.5'
-macro_revision='2.4.5'
+macro_version='2.4.6'
+macro_revision='2.4.6'
 
 
 
@@ -15585,9 +15585,8 @@ hardcode_action=$hardcode_action
 _LT_EOF
 
     cat <<'_LT_EOF' >> "$cfgfile"
-## -------------------------------------- ##
-## Shell functions shared with configure. ##
-## -------------------------------------- ##
+
+# ### BEGIN FUNCTIONS SHARED WITH CONFIGURE
 
 # func_munge_path_list VARIABLE PATH
 # -----------------------------------
@@ -15639,6 +15638,8 @@ func_cc_basename ()
     func_cc_basename_result=`$ECHO "$cc_temp" | $SED "s%.*/%%; s%^$host_alias-%%"`
 }
 
+
+# ### END FUNCTIONS SHARED WITH CONFIGURE
 
 _LT_EOF
 

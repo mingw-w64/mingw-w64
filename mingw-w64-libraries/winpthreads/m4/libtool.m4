@@ -748,12 +748,13 @@ _LT_LIBTOOL_TAG_VARS
 _LT_EOF
 
     cat <<'_LT_EOF' >> "$cfgfile"
-## -------------------------------------- ##
-## Shell functions shared with configure. ##
-## -------------------------------------- ##
+
+# ### BEGIN FUNCTIONS SHARED WITH CONFIGURE
 
 _LT_PREPARE_MUNGE_PATH_LIST
 _LT_PREPARE_CC_BASENAME
+
+# ### END FUNCTIONS SHARED WITH CONFIGURE
 
 _LT_EOF
 
