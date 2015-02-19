@@ -11451,6 +11451,10 @@ typedef struct IAMPluginControl IAMPluginControl;
   void __RPC_STUB IAMVideoControl_GetFrameRateList_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAMCrossbar,0xc6e13380,0x30ac,0x11d0,0xa1,0x8c,0x00,0xa0,0xc9,0x11,0x89,0x56);
+#endif
+
 #ifndef __IAMCrossbar_INTERFACE_DEFINED__
 #define __IAMCrossbar_INTERFACE_DEFINED__
   EXTERN_C const IID IID_IAMCrossbar;
@@ -13318,6 +13322,10 @@ typedef struct IAMPluginControl IAMPluginControl;
   void __RPC_STUB IAMOpenProgress_QueryProgress_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IAMOpenProgress_AbortOperation_Proxy(IAMOpenProgress *This);
   void __RPC_STUB IAMOpenProgress_AbortOperation_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
+#endif
+
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMpeg2Demultiplexer,0x436eee9c,0x264f,0x4242,0x90,0xe1,0x4e,0x33,0x0c,0x10,0x75,0x12);
 #endif
 
 #ifndef __IMpeg2Demultiplexer_INTERFACE_DEFINED__
