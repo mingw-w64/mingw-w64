@@ -674,6 +674,14 @@ int                        WINPTHREAD_API pthread_rwlockattr_setpshared(pthread_
 #define wscanf(...) (pthread_testcancel(), wscanf(__VA_ARGS__))
 #endif
 
+/* We deal here with a gcc issue for posix threading on Windows.
+   We would need to change here gcc's gthr-posix.h header, but this
+   got rejected.  So we deal it within this header.  */
+#ifdef _GTHREAD_USE_MUTEX_INIT_FUNC
+#undef _GTHREAD_USE_MUTEX_INIT_FUNC
+#endif
+#define _GTHREAD_USE_MUTEX_INIT_FUNC 1
+
 #ifdef __cplusplus
 }
 #endif
