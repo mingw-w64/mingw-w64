@@ -536,19 +536,27 @@ float __cdecl __MINGW_NOTHROW strtof(const char * __restrict__ _Str,char ** __re
   _CRTIMP int __cdecl _atodbl_l(_CRT_DOUBLE *_Result,char *_Str,_locale_t _Locale);
   _CRTIMP int __cdecl _atoldbl_l(_LDOUBLE *_Result,char *_Str,_locale_t _Locale);
   _CRTIMP int __cdecl _atoflt_l(_CRT_FLOAT *_Result,char *_Str,_locale_t _Locale);
-#pragma push_macro ("_lrotr")
-#pragma push_macro ("_lrotl")
+
+#if defined(__INTRIN_H_) || \
+   (defined(_X86INTRIN_H_INCLUDED) && \
+     ((__MINGW_GCC_VERSION >= 40902) || defined(__LP64__) || defined(_X86_)))
+
+/* We already have bug-free prototypes and inline definitions for _lrotl
+   and _lrotr from either intrin.h or x86intrin.h. */
+
+#else
+
+/* Remove buggy x86intrin.h definitions if present (see gcc bug 61662). */
 #undef _lrotr
 #undef _lrotl
-#ifdef __x86_64__
-  __MINGW_EXTENSION unsigned long long __cdecl _lrotl(unsigned long long _Val,int _Shift);
-  __MINGW_EXTENSION unsigned long long __cdecl _lrotr(unsigned long long _Val,int _Shift);
-#else
-  unsigned long __cdecl _lrotl(unsigned long _Val,int _Shift);
-  unsigned long __cdecl _lrotr(unsigned long _Val,int _Shift);
-#endif
-#pragma pop_macro ("_lrotl")
-#pragma pop_macro ("_lrotr")
+
+/* These prototypes work for x86, x64 (native Windows), and cyginwin64. */
+unsigned long __cdecl _lrotl(unsigned long,int);
+unsigned long __cdecl _lrotr(unsigned long,int);
+
+#endif /* defined(__INTRIN_H_) || \
+    (defined(_X86INTRIN_H_INCLUDED) && \
+       ((__MINGW_GCC_VERSION >= 40902) || defined(__LP64__))) */
 
   _CRTIMP void __cdecl _makepath(char *_Path,const char *_Drive,const char *_Dir,const char *_Filename,const char *_Ext);
   _onexit_t __cdecl _onexit(_onexit_t _Func);

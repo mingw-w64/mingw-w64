@@ -72,6 +72,10 @@ extern "C" {
 
 #include <x86intrin.h>
 
+/* Before 4.9.2, x86intrin.h had broken versions of these. */
+#undef _lrotl
+#undef _lrotr
+
 #if defined(__cplusplus)
 }
 #endif
@@ -430,19 +434,8 @@ extern "C" {
     __MACHINEIA64(__MINGW_EXTENSION __int64 __load128_acq(void *,__int64 *))
     __MACHINEZ(void __cdecl longjmp(jmp_buf,int))
 
-#pragma push_macro ("_lrotl")
-#undef _lrotl
-#pragma push_macro ("_lrotr")
-#undef _lrotr
-#ifdef __x86_64__
-    __MACHINE(__MINGW_EXTENSION unsigned long long __cdecl _lrotl(unsigned long long,int))
-    __MACHINE(__MINGW_EXTENSION unsigned long long __cdecl _lrotr(unsigned long long,int))
-#else
-    __MACHINE(unsigned __LONG32 __cdecl _lrotl(unsigned __LONG32,int))
-    __MACHINE(unsigned __LONG32 __cdecl _lrotr(unsigned __LONG32,int))
-#endif
-#pragma pop_macro ("_lrotl")
-#pragma pop_macro ("_lrotr")
+    /* __MACHINE(unsigned long __cdecl _lrotl(unsigned long,int)) moved to psdk_inc/intrin-impl.h */
+    /* __MACHINE(unsigned long __cdecl _lrotr(unsigned long,int)) moved to psdk_inc/intrin-impl.h */
 
     __MACHINEI(__MINGW_EXTENSION unsigned __int64 __ll_lshift(unsigned __int64,int))
     __MACHINEI(__MINGW_EXTENSION __int64 __ll_rshift(__int64,int))
