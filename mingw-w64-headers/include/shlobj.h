@@ -8,6 +8,36 @@
 
 #include <winapifamily.h>
 
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) || defined(WINSTORECOMPAT)
+
+#ifndef _SHFOLDER_H_
+#define CSIDL_FLAG_CREATE 0x8000
+#endif
+
+#ifndef SHFOLDERAPI
+#if defined (_SHFOLDER_) || defined (_SHELL32_)
+#define SHFOLDERAPI STDAPI
+#else
+#define SHFOLDERAPI EXTERN_C DECLSPEC_IMPORT HRESULT STDAPICALLTYPE
+#endif
+#endif
+
+#define CSIDL_PERSONAL 0x0005
+#define CSIDL_MYPICTURES 0x0027
+
+#define CSIDL_APPDATA 0x001a
+#define CSIDL_MYMUSIC 0x000d
+#define CSIDL_MYVIDEO 0x000e
+
+typedef enum {
+  SHGFP_TYPE_CURRENT = 0,
+  SHGFP_TYPE_DEFAULT = 1,
+} SHGFP_TYPE;
+
+  SHFOLDERAPI SHGetFolderPathW (HWND hwnd, int csidl, HANDLE hToken, DWORD dwFlags, LPWSTR pszPath);
+
+#endif
+
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 
 #include <_mingw_unicode.h>
@@ -71,14 +101,6 @@
 #else
 #define BROWSEUIAPI EXTERN_C DECLSPEC_IMPORT HRESULT STDAPICALLTYPE
 #define BROWSEUIAPI_(type) EXTERN_C DECLSPEC_IMPORT type STDAPICALLTYPE
-#endif
-#endif
-
-#ifndef SHFOLDERAPI
-#if defined (_SHFOLDER_) || defined (_SHELL32_)
-#define SHFOLDERAPI STDAPI
-#else
-#define SHFOLDERAPI EXTERN_C DECLSPEC_IMPORT HRESULT STDAPICALLTYPE
 #endif
 #endif
 
@@ -614,7 +636,6 @@ extern "C" {
 #define CSIDL_PROGRAMS 0x0002
 #define CSIDL_CONTROLS 0x0003
 #define CSIDL_PRINTERS 0x0004
-#define CSIDL_PERSONAL 0x0005
 #define CSIDL_FAVORITES 0x0006
 #define CSIDL_STARTUP 0x0007
 #define CSIDL_RECENT 0x0008
@@ -622,8 +643,6 @@ extern "C" {
 #define CSIDL_BITBUCKET 0x000a
 #define CSIDL_STARTMENU 0x000b
 #define CSIDL_MYDOCUMENTS CSIDL_PERSONAL
-#define CSIDL_MYMUSIC 0x000d
-#define CSIDL_MYVIDEO 0x000e
 #define CSIDL_DESKTOPDIRECTORY 0x0010
 #define CSIDL_DRIVES 0x0011
 #define CSIDL_NETWORK 0x0012
@@ -634,7 +653,6 @@ extern "C" {
 #define CSIDL_COMMON_PROGRAMS 0x0017
 #define CSIDL_COMMON_STARTUP 0x0018
 #define CSIDL_COMMON_DESKTOPDIRECTORY 0x0019
-#define CSIDL_APPDATA 0x001a
 #define CSIDL_PRINTHOOD 0x001b
 
 #ifndef CSIDL_LOCAL_APPDATA
@@ -653,7 +671,6 @@ extern "C" {
 #define CSIDL_WINDOWS 0x0024
 #define CSIDL_SYSTEM 0x0025
 #define CSIDL_PROGRAM_FILES 0x0026
-#define CSIDL_MYPICTURES 0x0027
 #endif
 
 #define CSIDL_PROFILE 0x0028
@@ -688,10 +705,6 @@ extern "C" {
 
 #define CSIDL_COMPUTERSNEARME 0x003d
 
-#ifndef _SHFOLDER_H_
-#define CSIDL_FLAG_CREATE 0x8000
-#endif
-
 #define CSIDL_FLAG_DONT_VERIFY 0x4000
 #define CSIDL_FLAG_DONT_UNEXPAND 0x2000
 #define CSIDL_FLAG_NO_ALIAS 0x1000
@@ -704,13 +717,7 @@ extern "C" {
   SHSTDAPI_(WINBOOL) SHGetSpecialFolderPathW (HWND hwnd, LPWSTR pszPath, int csidl, WINBOOL fCreate);
   SHSTDAPI_(void) SHFlushSFCache (void);
 
-  typedef enum {
-    SHGFP_TYPE_CURRENT = 0,
-    SHGFP_TYPE_DEFAULT = 1,
-  } SHGFP_TYPE;
-
   SHFOLDERAPI SHGetFolderPathA (HWND hwnd, int csidl, HANDLE hToken, DWORD dwFlags, LPSTR pszPath);
-  SHFOLDERAPI SHGetFolderPathW (HWND hwnd, int csidl, HANDLE hToken, DWORD dwFlags, LPWSTR pszPath);
   SHSTDAPI SHGetFolderLocation (HWND hwnd, int csidl, HANDLE hToken, DWORD dwFlags, PIDLIST_ABSOLUTE *ppidl);
   SHSTDAPI SHSetFolderPathA (int csidl, HANDLE hToken, DWORD dwFlags, LPCSTR pszPath);
   SHSTDAPI SHSetFolderPathW (int csidl, HANDLE hToken, DWORD dwFlags, LPCWSTR pszPath);
