@@ -1494,6 +1494,7 @@ extern "C" {
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) || defined(WINSTORECOMPAT)
 #define CreateSemaphore __MINGW_NAME_AW(CreateSemaphore)
   WINBASEAPI HANDLE WINAPI CreateSemaphoreW (LPSECURITY_ATTRIBUTES lpSemaphoreAttributes, LONG lInitialCount, LONG lMaximumCount, LPCWSTR lpName);
+  WINBASEAPI HMODULE WINAPI LoadLibraryW (LPCWSTR lpLibFileName);
 #endif
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
   WINBASEAPI HANDLE WINAPI OpenMutexA (DWORD dwDesiredAccess, WINBOOL bInheritHandle, LPCSTR lpName);
@@ -1511,7 +1512,6 @@ extern "C" {
   WINBASEAPI HANDLE WINAPI OpenFileMappingA (DWORD dwDesiredAccess, WINBOOL bInheritHandle, LPCSTR lpName);
   WINBASEAPI DWORD WINAPI GetLogicalDriveStringsA (DWORD nBufferLength, LPSTR lpBuffer);
   WINBASEAPI HMODULE WINAPI LoadLibraryA (LPCSTR lpLibFileName);
-  WINBASEAPI HMODULE WINAPI LoadLibraryW (LPCWSTR lpLibFileName);
 
 #ifndef UNICODE
 #define OpenMutex OpenMutexA
