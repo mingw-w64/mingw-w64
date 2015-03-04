@@ -14,8 +14,6 @@
 #define u_long __ms_u_long
 #endif
 
-#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
-
 #include <in6addr.h>
 
 #ifdef __cplusplus
@@ -136,8 +134,6 @@ WS2TCPIP_INLINE int IN6_ADDR_EQUAL(const struct in6_addr *a, const struct in6_ad
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* WINAPI_PARTION_DESKTOP.  */
 
 #ifdef __LP64__
 #pragma pop_macro("u_long")
