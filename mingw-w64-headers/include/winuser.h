@@ -5682,9 +5682,7 @@ extern "C" {
 #endif
 
 #if (_WIN32_WINNT >= 0x0601)
-#define WM_TOUCHMOVE 576
-#define WM_TOUCHDOWN 577
-#define WM_TOUCHUP 578
+#define WM_TOUCH 576
 
 #define TOUCHEVENTF_MOVE        0x0001
 #define TOUCHEVENTF_DOWN        0x0002
