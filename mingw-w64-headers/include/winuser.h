@@ -6482,13 +6482,6 @@ extern "C" {
 #endif
 #endif
 
-/* These WM_... defines seem not to belong here.  */
-#if _WIN32_WINNT >= 0x0601
-#define WM_TOUCHMOVE 576
-#define WM_TOUCHDOWN 577
-#define WM_TOUCHUP 578
-#endif /* (_WIN32_WINNT >= 0x0601) */
-
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 #if (_WIN32_WINNT >= 0x0602)
 /* Does this belongs here? */
