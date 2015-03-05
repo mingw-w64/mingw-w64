@@ -1016,7 +1016,10 @@ typedef struct _DDSURFACEDESC2
 		LONG	lPitch;	      /*10: distance to start of next line (return value only)*/
 		DWORD   dwLinearSize; /*10: formless late-allocated optimized surface size */
 	} DUMMYUNIONNAME1;
-	DWORD	dwBackBufferCount;/* 14: number of back buffers requested*/
+	__GNU_EXTENSION union {
+	  DWORD dwBackBufferCount;/* 14: number of back buffers requested */
+	  DWORD dwDepth;          /* The bit-depth if this is a volume texture. */
+	} DUMMYUNIONNAME5;
 	__GNU_EXTENSION union {
 		DWORD	dwMipMapCount;/* 18:number of mip-map levels requested*/
 		DWORD	dwRefreshRate;/* 18:refresh rate (used when display mode is described)*/
