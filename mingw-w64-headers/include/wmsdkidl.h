@@ -77,6 +77,16 @@ typedef interface IWMReader IWMReader;
 typedef interface IWMSyncReader IWMSyncReader;
 #endif
 
+#ifndef __IWMInputMediaProps_FWD_DEFINED__
+#define __IWMInputMediaProps_FWD_DEFINED__
+typedef interface IWMInputMediaProps IWMInputMediaProps;
+#endif
+
+#ifndef __IWMWriter_FWD_DEFINED__
+#define __IWMWriter_FWD_DEFINED__
+typedef interface IWMWriter IWMWriter;
+#endif
+
 /* Headers for imported files */
 
 #include <oaidl.h>
@@ -2774,6 +2784,477 @@ void __RPC_STUB IWMSyncReader_OpenStream_Stub(
 
 #endif  /* __IWMSyncReader_INTERFACE_DEFINED__ */
 
+/*****************************************************************************
+ * IWMInputMediaProps interface
+ */
+#ifndef __IWMInputMediaProps_INTERFACE_DEFINED__
+#define __IWMInputMediaProps_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMInputMediaProps, 0x96406bd5, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("96406bd5-2b2b-11d3-b36b-00c04f6108ff")
+IWMInputMediaProps : public IWMMediaProps
+{
+    virtual HRESULT STDMETHODCALLTYPE GetConnectionName(
+        WCHAR *pwszName,
+        WORD *pcchName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetGroupName(
+        WCHAR *pwszName,
+        WORD *pcchName) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMInputMediaProps, 0x96406bd5, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff)
+#endif
+#else
+typedef struct IWMInputMediaPropsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMInputMediaProps* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMInputMediaProps* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMInputMediaProps* This);
+
+    /*** IWMMediaProps methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetType)(
+        IWMInputMediaProps* This,
+        GUID *pguidType);
+
+    HRESULT (STDMETHODCALLTYPE *GetMediaType)(
+        IWMInputMediaProps* This,
+        WM_MEDIA_TYPE *pType,
+        DWORD *pcbType);
+
+    HRESULT (STDMETHODCALLTYPE *SetMediaType)(
+        IWMInputMediaProps* This,
+        WM_MEDIA_TYPE *pType);
+
+    /*** IWMInputMediaProps methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetConnectionName)(
+        IWMInputMediaProps* This,
+        WCHAR *pwszName,
+        WORD *pcchName);
+
+    HRESULT (STDMETHODCALLTYPE *GetGroupName)(
+        IWMInputMediaProps* This,
+        WCHAR *pwszName,
+        WORD *pcchName);
+
+    END_INTERFACE
+} IWMInputMediaPropsVtbl;
+interface IWMInputMediaProps {
+    CONST_VTBL IWMInputMediaPropsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMInputMediaProps_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMInputMediaProps_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMInputMediaProps_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMMediaProps methods ***/
+#define IWMInputMediaProps_GetType(This,pguidType) (This)->lpVtbl->GetType(This,pguidType)
+#define IWMInputMediaProps_GetMediaType(This,pType,pcbType) (This)->lpVtbl->GetMediaType(This,pType,pcbType)
+#define IWMInputMediaProps_SetMediaType(This,pType) (This)->lpVtbl->SetMediaType(This,pType)
+/*** IWMInputMediaProps methods ***/
+#define IWMInputMediaProps_GetConnectionName(This,pwszName,pcchName) (This)->lpVtbl->GetConnectionName(This,pwszName,pcchName)
+#define IWMInputMediaProps_GetGroupName(This,pwszName,pcchName) (This)->lpVtbl->GetGroupName(This,pwszName,pcchName)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMInputMediaProps_QueryInterface(IWMInputMediaProps* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMInputMediaProps_AddRef(IWMInputMediaProps* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMInputMediaProps_Release(IWMInputMediaProps* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMMediaProps methods ***/
+static FORCEINLINE HRESULT IWMInputMediaProps_GetType(IWMInputMediaProps* This,GUID *pguidType) {
+    return This->lpVtbl->GetType(This,pguidType);
+}
+static FORCEINLINE HRESULT IWMInputMediaProps_GetMediaType(IWMInputMediaProps* This,WM_MEDIA_TYPE *pType,DWORD *pcbType) {
+    return This->lpVtbl->GetMediaType(This,pType,pcbType);
+}
+static FORCEINLINE HRESULT IWMInputMediaProps_SetMediaType(IWMInputMediaProps* This,WM_MEDIA_TYPE *pType) {
+    return This->lpVtbl->SetMediaType(This,pType);
+}
+/*** IWMInputMediaProps methods ***/
+static FORCEINLINE HRESULT IWMInputMediaProps_GetConnectionName(IWMInputMediaProps* This,WCHAR *pwszName,WORD *pcchName) {
+    return This->lpVtbl->GetConnectionName(This,pwszName,pcchName);
+}
+static FORCEINLINE HRESULT IWMInputMediaProps_GetGroupName(IWMInputMediaProps* This,WCHAR *pwszName,WORD *pcchName) {
+    return This->lpVtbl->GetGroupName(This,pwszName,pcchName);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMInputMediaProps_GetConnectionName_Proxy(
+    IWMInputMediaProps* This,
+    WCHAR *pwszName,
+    WORD *pcchName);
+void __RPC_STUB IWMInputMediaProps_GetConnectionName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMInputMediaProps_GetGroupName_Proxy(
+    IWMInputMediaProps* This,
+    WCHAR *pwszName,
+    WORD *pcchName);
+void __RPC_STUB IWMInputMediaProps_GetGroupName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMInputMediaProps_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMWriter interface
+ */
+#ifndef __IWMWriter_INTERFACE_DEFINED__
+#define __IWMWriter_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMWriter, 0x96406bd4, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("96406bd4-2b2b-11d3-b36b-00c04f6108ff")
+IWMWriter : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetProfileByID(
+        REFGUID guidProfile) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetProfile(
+        IWMProfile *pProfile) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetOutputFilename(
+        const WCHAR *pwszFilename) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetInputCount(
+        DWORD *pcInputs) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetInputProps(
+        DWORD dwInputNum,
+        IWMInputMediaProps **ppInput) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetInputProps(
+        DWORD dwInputNum,
+        IWMInputMediaProps *pInput) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetInputFormatCount(
+        DWORD dwInputNumber,
+        DWORD *pcFormats) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetInputFormat(
+        DWORD dwInputNumber,
+        DWORD dwFormatNumber,
+        IWMInputMediaProps **pProps) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE BeginWriting(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EndWriting(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AllocateSample(
+        DWORD dwSampleSize,
+        INSSBuffer **ppSample) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteSample(
+        DWORD dwInputNum,
+        QWORD cnsSampleTime,
+        DWORD dwFlags,
+        INSSBuffer *pSample) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Flush(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMWriter, 0x96406bd4, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff)
+#endif
+#else
+typedef struct IWMWriterVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMWriter* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMWriter* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMWriter* This);
+
+    /*** IWMWriter methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetProfileByID)(
+        IWMWriter* This,
+        REFGUID guidProfile);
+
+    HRESULT (STDMETHODCALLTYPE *SetProfile)(
+        IWMWriter* This,
+        IWMProfile *pProfile);
+
+    HRESULT (STDMETHODCALLTYPE *SetOutputFilename)(
+        IWMWriter* This,
+        const WCHAR *pwszFilename);
+
+    HRESULT (STDMETHODCALLTYPE *GetInputCount)(
+        IWMWriter* This,
+        DWORD *pcInputs);
+
+    HRESULT (STDMETHODCALLTYPE *GetInputProps)(
+        IWMWriter* This,
+        DWORD dwInputNum,
+        IWMInputMediaProps **ppInput);
+
+    HRESULT (STDMETHODCALLTYPE *SetInputProps)(
+        IWMWriter* This,
+        DWORD dwInputNum,
+        IWMInputMediaProps *pInput);
+
+    HRESULT (STDMETHODCALLTYPE *GetInputFormatCount)(
+        IWMWriter* This,
+        DWORD dwInputNumber,
+        DWORD *pcFormats);
+
+    HRESULT (STDMETHODCALLTYPE *GetInputFormat)(
+        IWMWriter* This,
+        DWORD dwInputNumber,
+        DWORD dwFormatNumber,
+        IWMInputMediaProps **pProps);
+
+    HRESULT (STDMETHODCALLTYPE *BeginWriting)(
+        IWMWriter* This);
+
+    HRESULT (STDMETHODCALLTYPE *EndWriting)(
+        IWMWriter* This);
+
+    HRESULT (STDMETHODCALLTYPE *AllocateSample)(
+        IWMWriter* This,
+        DWORD dwSampleSize,
+        INSSBuffer **ppSample);
+
+    HRESULT (STDMETHODCALLTYPE *WriteSample)(
+        IWMWriter* This,
+        DWORD dwInputNum,
+        QWORD cnsSampleTime,
+        DWORD dwFlags,
+        INSSBuffer *pSample);
+
+    HRESULT (STDMETHODCALLTYPE *Flush)(
+        IWMWriter* This);
+
+    END_INTERFACE
+} IWMWriterVtbl;
+interface IWMWriter {
+    CONST_VTBL IWMWriterVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMWriter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMWriter_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMWriter_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMWriter methods ***/
+#define IWMWriter_SetProfileByID(This,guidProfile) (This)->lpVtbl->SetProfileByID(This,guidProfile)
+#define IWMWriter_SetProfile(This,pProfile) (This)->lpVtbl->SetProfile(This,pProfile)
+#define IWMWriter_SetOutputFilename(This,pwszFilename) (This)->lpVtbl->SetOutputFilename(This,pwszFilename)
+#define IWMWriter_GetInputCount(This,pcInputs) (This)->lpVtbl->GetInputCount(This,pcInputs)
+#define IWMWriter_GetInputProps(This,dwInputNum,ppInput) (This)->lpVtbl->GetInputProps(This,dwInputNum,ppInput)
+#define IWMWriter_SetInputProps(This,dwInputNum,pInput) (This)->lpVtbl->SetInputProps(This,dwInputNum,pInput)
+#define IWMWriter_GetInputFormatCount(This,dwInputNumber,pcFormats) (This)->lpVtbl->GetInputFormatCount(This,dwInputNumber,pcFormats)
+#define IWMWriter_GetInputFormat(This,dwInputNumber,dwFormatNumber,pProps) (This)->lpVtbl->GetInputFormat(This,dwInputNumber,dwFormatNumber,pProps)
+#define IWMWriter_BeginWriting(This) (This)->lpVtbl->BeginWriting(This)
+#define IWMWriter_EndWriting(This) (This)->lpVtbl->EndWriting(This)
+#define IWMWriter_AllocateSample(This,dwSampleSize,ppSample) (This)->lpVtbl->AllocateSample(This,dwSampleSize,ppSample)
+#define IWMWriter_WriteSample(This,dwInputNum,cnsSampleTime,dwFlags,pSample) (This)->lpVtbl->WriteSample(This,dwInputNum,cnsSampleTime,dwFlags,pSample)
+#define IWMWriter_Flush(This) (This)->lpVtbl->Flush(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMWriter_QueryInterface(IWMWriter* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMWriter_AddRef(IWMWriter* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMWriter_Release(IWMWriter* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMWriter methods ***/
+static FORCEINLINE HRESULT IWMWriter_SetProfileByID(IWMWriter* This,REFGUID guidProfile) {
+    return This->lpVtbl->SetProfileByID(This,guidProfile);
+}
+static FORCEINLINE HRESULT IWMWriter_SetProfile(IWMWriter* This,IWMProfile *pProfile) {
+    return This->lpVtbl->SetProfile(This,pProfile);
+}
+static FORCEINLINE HRESULT IWMWriter_SetOutputFilename(IWMWriter* This,const WCHAR *pwszFilename) {
+    return This->lpVtbl->SetOutputFilename(This,pwszFilename);
+}
+static FORCEINLINE HRESULT IWMWriter_GetInputCount(IWMWriter* This,DWORD *pcInputs) {
+    return This->lpVtbl->GetInputCount(This,pcInputs);
+}
+static FORCEINLINE HRESULT IWMWriter_GetInputProps(IWMWriter* This,DWORD dwInputNum,IWMInputMediaProps **ppInput) {
+    return This->lpVtbl->GetInputProps(This,dwInputNum,ppInput);
+}
+static FORCEINLINE HRESULT IWMWriter_SetInputProps(IWMWriter* This,DWORD dwInputNum,IWMInputMediaProps *pInput) {
+    return This->lpVtbl->SetInputProps(This,dwInputNum,pInput);
+}
+static FORCEINLINE HRESULT IWMWriter_GetInputFormatCount(IWMWriter* This,DWORD dwInputNumber,DWORD *pcFormats) {
+    return This->lpVtbl->GetInputFormatCount(This,dwInputNumber,pcFormats);
+}
+static FORCEINLINE HRESULT IWMWriter_GetInputFormat(IWMWriter* This,DWORD dwInputNumber,DWORD dwFormatNumber,IWMInputMediaProps **pProps) {
+    return This->lpVtbl->GetInputFormat(This,dwInputNumber,dwFormatNumber,pProps);
+}
+static FORCEINLINE HRESULT IWMWriter_BeginWriting(IWMWriter* This) {
+    return This->lpVtbl->BeginWriting(This);
+}
+static FORCEINLINE HRESULT IWMWriter_EndWriting(IWMWriter* This) {
+    return This->lpVtbl->EndWriting(This);
+}
+static FORCEINLINE HRESULT IWMWriter_AllocateSample(IWMWriter* This,DWORD dwSampleSize,INSSBuffer **ppSample) {
+    return This->lpVtbl->AllocateSample(This,dwSampleSize,ppSample);
+}
+static FORCEINLINE HRESULT IWMWriter_WriteSample(IWMWriter* This,DWORD dwInputNum,QWORD cnsSampleTime,DWORD dwFlags,INSSBuffer *pSample) {
+    return This->lpVtbl->WriteSample(This,dwInputNum,cnsSampleTime,dwFlags,pSample);
+}
+static FORCEINLINE HRESULT IWMWriter_Flush(IWMWriter* This) {
+    return This->lpVtbl->Flush(This);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMWriter_SetProfileByID_Proxy(
+    IWMWriter* This,
+    REFGUID guidProfile);
+void __RPC_STUB IWMWriter_SetProfileByID_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriter_SetProfile_Proxy(
+    IWMWriter* This,
+    IWMProfile *pProfile);
+void __RPC_STUB IWMWriter_SetProfile_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriter_SetOutputFilename_Proxy(
+    IWMWriter* This,
+    const WCHAR *pwszFilename);
+void __RPC_STUB IWMWriter_SetOutputFilename_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriter_GetInputCount_Proxy(
+    IWMWriter* This,
+    DWORD *pcInputs);
+void __RPC_STUB IWMWriter_GetInputCount_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriter_GetInputProps_Proxy(
+    IWMWriter* This,
+    DWORD dwInputNum,
+    IWMInputMediaProps **ppInput);
+void __RPC_STUB IWMWriter_GetInputProps_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriter_SetInputProps_Proxy(
+    IWMWriter* This,
+    DWORD dwInputNum,
+    IWMInputMediaProps *pInput);
+void __RPC_STUB IWMWriter_SetInputProps_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriter_GetInputFormatCount_Proxy(
+    IWMWriter* This,
+    DWORD dwInputNumber,
+    DWORD *pcFormats);
+void __RPC_STUB IWMWriter_GetInputFormatCount_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriter_GetInputFormat_Proxy(
+    IWMWriter* This,
+    DWORD dwInputNumber,
+    DWORD dwFormatNumber,
+    IWMInputMediaProps **pProps);
+void __RPC_STUB IWMWriter_GetInputFormat_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriter_BeginWriting_Proxy(
+    IWMWriter* This);
+void __RPC_STUB IWMWriter_BeginWriting_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriter_EndWriting_Proxy(
+    IWMWriter* This);
+void __RPC_STUB IWMWriter_EndWriting_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriter_AllocateSample_Proxy(
+    IWMWriter* This,
+    DWORD dwSampleSize,
+    INSSBuffer **ppSample);
+void __RPC_STUB IWMWriter_AllocateSample_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriter_WriteSample_Proxy(
+    IWMWriter* This,
+    DWORD dwInputNum,
+    QWORD cnsSampleTime,
+    DWORD dwFlags,
+    INSSBuffer *pSample);
+void __RPC_STUB IWMWriter_WriteSample_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriter_Flush_Proxy(
+    IWMWriter* This);
+void __RPC_STUB IWMWriter_Flush_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMWriter_INTERFACE_DEFINED__ */
+
+HRESULT WINAPI WMCreateWriter(IUnknown*,IWMWriter**);
 EXTERN_GUID(WMMEDIASUBTYPE_Base,   0x00000000,0x0000,0x0010,0x80,0x00,0x00,0xaa,0x00,0x38,0x9b,0x71);
 EXTERN_GUID(WMMEDIATYPE_Video,     0x73646976,0x0000,0x0010,0x80,0x00,0x00,0xaa,0x00,0x38,0x9b,0x71);
 EXTERN_GUID(WMMEDIASUBTYPE_RGB1,   0xe436eb78,0x524f,0x11ce,0x9f,0x53,0x00,0x20,0xaf,0x0b,0xa7,0x70);
