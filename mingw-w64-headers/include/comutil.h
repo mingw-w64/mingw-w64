@@ -243,7 +243,7 @@ inline void _bstr_t::Attach(BSTR s) {
   if(!m_Data) { _com_issue_error(E_OUTOFMEMORY); }
 }
 
-inline BSTR _bstr_t::Detach() {
+inline BSTR _bstr_t::Detach() throw () {
   _COM_ASSERT(m_Data!=NULL && m_Data->RefCount()==1);
   if(m_Data!=NULL && m_Data->RefCount()==1) {
     BSTR b = m_Data->GetWString();
