@@ -568,6 +568,7 @@ typedef struct DWRITE_TEXT_METRICS {
   FLOAT  layoutWidth;
   FLOAT  layoutHeight;
   UINT32 maxBidiReorderingDepth;
+  UINT32 lineCount;
 } DWRITE_TEXT_METRICS;
 
 typedef struct DWRITE_TEXT_RANGE {
