@@ -39,8 +39,8 @@ __MINGW_USYMBOL(mingw_getsp):
 __MINGW_USYMBOL(longjmp):
 #if defined(_AMD64_) || defined(__x86_64__)
 #ifndef __SEH__
-  xorl %eax,%eax
-  movl %eax, (%rcx)
+  xorl %rax,%rax
+  movl %rax, (%rcx)
 #endif
   leaq __MINGW_IMP_LSYMBOL(longjmp)(%rip), %rax
   jmpq *(%rax)
