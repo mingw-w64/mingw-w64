@@ -26,8 +26,8 @@ __MINGW_USYMBOL(mingw_getsp):
 	.def	__MINGW_USYMBOL(longjmp);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(longjmp):
 #ifdef _WIN64
-  xorl %eax,%eax
-  movl %eax, (%rcx)
+  xorl %rax,%rax
+  movl %rax, (%rcx)
   leaq __MINGW_IMP_LSYMBOL(longjmp)(%rip), %rax
   jmpq *(%rax)
 #else
