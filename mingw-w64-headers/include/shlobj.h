@@ -6,6 +6,8 @@
 #ifndef _SHLOBJ_H_
 #define _SHLOBJ_H_
 
+#include <wtypesbase.h>
+#include <wincrypt.h>
 #include <winapifamily.h>
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) || defined(WINSTORECOMPAT)
