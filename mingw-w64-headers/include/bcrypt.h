@@ -34,17 +34,16 @@ extern "C" {
 #ifndef CONST
 #define CONST const
 #endif
-
+#ifndef _NO_W32_PSEUDO_MODIFIERS
 #ifndef IN
 #define IN
 #endif
-
 #ifndef OUT
 #define OUT
 #endif
-
 #ifndef OPTIONAL
 #define OPTIONAL
+#endif
 #endif
 
 #define BCRYPT_OBJECT_ALIGNMENT 16
