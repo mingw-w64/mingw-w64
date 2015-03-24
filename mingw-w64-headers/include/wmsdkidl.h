@@ -82,9 +82,29 @@ typedef interface IWMSyncReader IWMSyncReader;
 typedef interface IWMInputMediaProps IWMInputMediaProps;
 #endif
 
+#ifndef __IWMWriterSink_FWD_DEFINED__
+#define __IWMWriterSink_FWD_DEFINED__
+typedef interface IWMWriterSink IWMWriterSink;
+#endif
+
 #ifndef __IWMWriter_FWD_DEFINED__
 #define __IWMWriter_FWD_DEFINED__
 typedef interface IWMWriter IWMWriter;
+#endif
+
+#ifndef __IWMWriterAdvanced_FWD_DEFINED__
+#define __IWMWriterAdvanced_FWD_DEFINED__
+typedef interface IWMWriterAdvanced IWMWriterAdvanced;
+#endif
+
+#ifndef __IWMWriterAdvanced2_FWD_DEFINED__
+#define __IWMWriterAdvanced2_FWD_DEFINED__
+typedef interface IWMWriterAdvanced2 IWMWriterAdvanced2;
+#endif
+
+#ifndef __IWMWriterAdvanced3_FWD_DEFINED__
+#define __IWMWriterAdvanced3_FWD_DEFINED__
+typedef interface IWMWriterAdvanced3 IWMWriterAdvanced3;
 #endif
 
 /* Headers for imported files */
@@ -108,6 +128,27 @@ typedef struct _WMMediaType {
     ULONG cbFormat;
     BYTE *pbFormat;
 } WM_MEDIA_TYPE;
+typedef struct _WMWriterStatistics {
+    QWORD qwSampleCount;
+    QWORD qwByteCount;
+    QWORD qwDroppedSampleCount;
+    QWORD qwDroppedByteCount;
+    DWORD dwCurrentBitrate;
+    DWORD dwAverageBitrate;
+    DWORD dwExpectedBitrate;
+    DWORD dwCurrentSampleRate;
+    DWORD dwAverageSampleRate;
+    DWORD dwExpectedSampleRate;
+} WM_WRITER_STATISTICS;
+typedef struct _WMWriterStatisticsEx {
+    DWORD dwBitratePlusOverhead;
+    DWORD dwCurrentSampleDropRateInQueue;
+    DWORD dwCurrentSampleDropRateInCodec;
+    DWORD dwCurrentSampleDropRateInMultiplexer;
+    DWORD dwTotalSampleDropsInQueue;
+    DWORD dwTotalSampleDropsInCodec;
+    DWORD dwTotalSampleDropsInMultiplexer;
+} WM_WRITER_STATISTICS_EX;
 typedef enum WMT_ATTR_DATATYPE {
     WMT_TYPE_DWORD = 0,
     WMT_TYPE_STRING = 1,
@@ -2922,6 +2963,167 @@ void __RPC_STUB IWMInputMediaProps_GetGroupName_Stub(
 #endif  /* __IWMInputMediaProps_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
+ * IWMWriterSink interface
+ */
+#ifndef __IWMWriterSink_INTERFACE_DEFINED__
+#define __IWMWriterSink_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMWriterSink, 0x96406be4, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("96406be4-2b2b-11d3-b36b-00c04f6108ff")
+IWMWriterSink : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE OnHeader(
+        INSSBuffer *pHeader) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IsRealTime(
+        WINBOOL *pfRealTime) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AllocateDataUnit(
+        DWORD cbDataUnit,
+        INSSBuffer **ppDataUnit) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OnDataUnit(
+        INSSBuffer *pDataUnit) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OnEndWriting(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMWriterSink, 0x96406be4, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff)
+#endif
+#else
+typedef struct IWMWriterSinkVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMWriterSink* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMWriterSink* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMWriterSink* This);
+
+    /*** IWMWriterSink methods ***/
+    HRESULT (STDMETHODCALLTYPE *OnHeader)(
+        IWMWriterSink* This,
+        INSSBuffer *pHeader);
+
+    HRESULT (STDMETHODCALLTYPE *IsRealTime)(
+        IWMWriterSink* This,
+        WINBOOL *pfRealTime);
+
+    HRESULT (STDMETHODCALLTYPE *AllocateDataUnit)(
+        IWMWriterSink* This,
+        DWORD cbDataUnit,
+        INSSBuffer **ppDataUnit);
+
+    HRESULT (STDMETHODCALLTYPE *OnDataUnit)(
+        IWMWriterSink* This,
+        INSSBuffer *pDataUnit);
+
+    HRESULT (STDMETHODCALLTYPE *OnEndWriting)(
+        IWMWriterSink* This);
+
+    END_INTERFACE
+} IWMWriterSinkVtbl;
+interface IWMWriterSink {
+    CONST_VTBL IWMWriterSinkVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMWriterSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMWriterSink_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMWriterSink_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMWriterSink methods ***/
+#define IWMWriterSink_OnHeader(This,pHeader) (This)->lpVtbl->OnHeader(This,pHeader)
+#define IWMWriterSink_IsRealTime(This,pfRealTime) (This)->lpVtbl->IsRealTime(This,pfRealTime)
+#define IWMWriterSink_AllocateDataUnit(This,cbDataUnit,ppDataUnit) (This)->lpVtbl->AllocateDataUnit(This,cbDataUnit,ppDataUnit)
+#define IWMWriterSink_OnDataUnit(This,pDataUnit) (This)->lpVtbl->OnDataUnit(This,pDataUnit)
+#define IWMWriterSink_OnEndWriting(This) (This)->lpVtbl->OnEndWriting(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMWriterSink_QueryInterface(IWMWriterSink* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMWriterSink_AddRef(IWMWriterSink* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMWriterSink_Release(IWMWriterSink* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMWriterSink methods ***/
+static FORCEINLINE HRESULT IWMWriterSink_OnHeader(IWMWriterSink* This,INSSBuffer *pHeader) {
+    return This->lpVtbl->OnHeader(This,pHeader);
+}
+static FORCEINLINE HRESULT IWMWriterSink_IsRealTime(IWMWriterSink* This,WINBOOL *pfRealTime) {
+    return This->lpVtbl->IsRealTime(This,pfRealTime);
+}
+static FORCEINLINE HRESULT IWMWriterSink_AllocateDataUnit(IWMWriterSink* This,DWORD cbDataUnit,INSSBuffer **ppDataUnit) {
+    return This->lpVtbl->AllocateDataUnit(This,cbDataUnit,ppDataUnit);
+}
+static FORCEINLINE HRESULT IWMWriterSink_OnDataUnit(IWMWriterSink* This,INSSBuffer *pDataUnit) {
+    return This->lpVtbl->OnDataUnit(This,pDataUnit);
+}
+static FORCEINLINE HRESULT IWMWriterSink_OnEndWriting(IWMWriterSink* This) {
+    return This->lpVtbl->OnEndWriting(This);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMWriterSink_OnHeader_Proxy(
+    IWMWriterSink* This,
+    INSSBuffer *pHeader);
+void __RPC_STUB IWMWriterSink_OnHeader_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriterSink_IsRealTime_Proxy(
+    IWMWriterSink* This,
+    WINBOOL *pfRealTime);
+void __RPC_STUB IWMWriterSink_IsRealTime_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriterSink_AllocateDataUnit_Proxy(
+    IWMWriterSink* This,
+    DWORD cbDataUnit,
+    INSSBuffer **ppDataUnit);
+void __RPC_STUB IWMWriterSink_AllocateDataUnit_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriterSink_OnDataUnit_Proxy(
+    IWMWriterSink* This,
+    INSSBuffer *pDataUnit);
+void __RPC_STUB IWMWriterSink_OnDataUnit_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriterSink_OnEndWriting_Proxy(
+    IWMWriterSink* This);
+void __RPC_STUB IWMWriterSink_OnEndWriting_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMWriterSink_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
  * IWMWriter interface
  */
 #ifndef __IWMWriter_INTERFACE_DEFINED__
@@ -3253,6 +3455,755 @@ void __RPC_STUB IWMWriter_Flush_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __IWMWriter_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMWriterAdvanced interface
+ */
+#ifndef __IWMWriterAdvanced_INTERFACE_DEFINED__
+#define __IWMWriterAdvanced_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMWriterAdvanced, 0x96406be3, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("96406be3-2b2b-11d3-b36b-00c04f6108ff")
+IWMWriterAdvanced : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetSinkCount(
+        DWORD *pcSinks) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetSink(
+        DWORD dwSinkNum,
+        IWMWriterSink **ppSink) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddSink(
+        IWMWriterSink *pSink) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveSink(
+        IWMWriterSink *pSink) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE WriteStreamSample(
+        WORD wStreamNum,
+        QWORD cnsSampleTime,
+        DWORD msSampleSendTime,
+        QWORD cnsSampleDuration,
+        DWORD dwFlags,
+        INSSBuffer *pSample) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetLiveSource(
+        WINBOOL fIsLiveSource) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IsRealTime(
+        WINBOOL *pfRealTime) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetWriterTime(
+        QWORD *pCurrentTime) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetStatistics(
+        WORD wStreamNum,
+        WM_WRITER_STATISTICS *pStats) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetSyncTolerance(
+        DWORD msWindow) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetSyncTolerance(
+        DWORD *pmsWindow) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMWriterAdvanced, 0x96406be3, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff)
+#endif
+#else
+typedef struct IWMWriterAdvancedVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMWriterAdvanced* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMWriterAdvanced* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMWriterAdvanced* This);
+
+    /*** IWMWriterAdvanced methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetSinkCount)(
+        IWMWriterAdvanced* This,
+        DWORD *pcSinks);
+
+    HRESULT (STDMETHODCALLTYPE *GetSink)(
+        IWMWriterAdvanced* This,
+        DWORD dwSinkNum,
+        IWMWriterSink **ppSink);
+
+    HRESULT (STDMETHODCALLTYPE *AddSink)(
+        IWMWriterAdvanced* This,
+        IWMWriterSink *pSink);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveSink)(
+        IWMWriterAdvanced* This,
+        IWMWriterSink *pSink);
+
+    HRESULT (STDMETHODCALLTYPE *WriteStreamSample)(
+        IWMWriterAdvanced* This,
+        WORD wStreamNum,
+        QWORD cnsSampleTime,
+        DWORD msSampleSendTime,
+        QWORD cnsSampleDuration,
+        DWORD dwFlags,
+        INSSBuffer *pSample);
+
+    HRESULT (STDMETHODCALLTYPE *SetLiveSource)(
+        IWMWriterAdvanced* This,
+        WINBOOL fIsLiveSource);
+
+    HRESULT (STDMETHODCALLTYPE *IsRealTime)(
+        IWMWriterAdvanced* This,
+        WINBOOL *pfRealTime);
+
+    HRESULT (STDMETHODCALLTYPE *GetWriterTime)(
+        IWMWriterAdvanced* This,
+        QWORD *pCurrentTime);
+
+    HRESULT (STDMETHODCALLTYPE *GetStatistics)(
+        IWMWriterAdvanced* This,
+        WORD wStreamNum,
+        WM_WRITER_STATISTICS *pStats);
+
+    HRESULT (STDMETHODCALLTYPE *SetSyncTolerance)(
+        IWMWriterAdvanced* This,
+        DWORD msWindow);
+
+    HRESULT (STDMETHODCALLTYPE *GetSyncTolerance)(
+        IWMWriterAdvanced* This,
+        DWORD *pmsWindow);
+
+    END_INTERFACE
+} IWMWriterAdvancedVtbl;
+interface IWMWriterAdvanced {
+    CONST_VTBL IWMWriterAdvancedVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMWriterAdvanced_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMWriterAdvanced_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMWriterAdvanced_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMWriterAdvanced methods ***/
+#define IWMWriterAdvanced_GetSinkCount(This,pcSinks) (This)->lpVtbl->GetSinkCount(This,pcSinks)
+#define IWMWriterAdvanced_GetSink(This,dwSinkNum,ppSink) (This)->lpVtbl->GetSink(This,dwSinkNum,ppSink)
+#define IWMWriterAdvanced_AddSink(This,pSink) (This)->lpVtbl->AddSink(This,pSink)
+#define IWMWriterAdvanced_RemoveSink(This,pSink) (This)->lpVtbl->RemoveSink(This,pSink)
+#define IWMWriterAdvanced_WriteStreamSample(This,wStreamNum,cnsSampleTime,msSampleSendTime,cnsSampleDuration,dwFlags,pSample) (This)->lpVtbl->WriteStreamSample(This,wStreamNum,cnsSampleTime,msSampleSendTime,cnsSampleDuration,dwFlags,pSample)
+#define IWMWriterAdvanced_SetLiveSource(This,fIsLiveSource) (This)->lpVtbl->SetLiveSource(This,fIsLiveSource)
+#define IWMWriterAdvanced_IsRealTime(This,pfRealTime) (This)->lpVtbl->IsRealTime(This,pfRealTime)
+#define IWMWriterAdvanced_GetWriterTime(This,pCurrentTime) (This)->lpVtbl->GetWriterTime(This,pCurrentTime)
+#define IWMWriterAdvanced_GetStatistics(This,wStreamNum,pStats) (This)->lpVtbl->GetStatistics(This,wStreamNum,pStats)
+#define IWMWriterAdvanced_SetSyncTolerance(This,msWindow) (This)->lpVtbl->SetSyncTolerance(This,msWindow)
+#define IWMWriterAdvanced_GetSyncTolerance(This,pmsWindow) (This)->lpVtbl->GetSyncTolerance(This,pmsWindow)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMWriterAdvanced_QueryInterface(IWMWriterAdvanced* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMWriterAdvanced_AddRef(IWMWriterAdvanced* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMWriterAdvanced_Release(IWMWriterAdvanced* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMWriterAdvanced methods ***/
+static FORCEINLINE HRESULT IWMWriterAdvanced_GetSinkCount(IWMWriterAdvanced* This,DWORD *pcSinks) {
+    return This->lpVtbl->GetSinkCount(This,pcSinks);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced_GetSink(IWMWriterAdvanced* This,DWORD dwSinkNum,IWMWriterSink **ppSink) {
+    return This->lpVtbl->GetSink(This,dwSinkNum,ppSink);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced_AddSink(IWMWriterAdvanced* This,IWMWriterSink *pSink) {
+    return This->lpVtbl->AddSink(This,pSink);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced_RemoveSink(IWMWriterAdvanced* This,IWMWriterSink *pSink) {
+    return This->lpVtbl->RemoveSink(This,pSink);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced_WriteStreamSample(IWMWriterAdvanced* This,WORD wStreamNum,QWORD cnsSampleTime,DWORD msSampleSendTime,QWORD cnsSampleDuration,DWORD dwFlags,INSSBuffer *pSample) {
+    return This->lpVtbl->WriteStreamSample(This,wStreamNum,cnsSampleTime,msSampleSendTime,cnsSampleDuration,dwFlags,pSample);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced_SetLiveSource(IWMWriterAdvanced* This,WINBOOL fIsLiveSource) {
+    return This->lpVtbl->SetLiveSource(This,fIsLiveSource);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced_IsRealTime(IWMWriterAdvanced* This,WINBOOL *pfRealTime) {
+    return This->lpVtbl->IsRealTime(This,pfRealTime);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced_GetWriterTime(IWMWriterAdvanced* This,QWORD *pCurrentTime) {
+    return This->lpVtbl->GetWriterTime(This,pCurrentTime);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced_GetStatistics(IWMWriterAdvanced* This,WORD wStreamNum,WM_WRITER_STATISTICS *pStats) {
+    return This->lpVtbl->GetStatistics(This,wStreamNum,pStats);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced_SetSyncTolerance(IWMWriterAdvanced* This,DWORD msWindow) {
+    return This->lpVtbl->SetSyncTolerance(This,msWindow);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced_GetSyncTolerance(IWMWriterAdvanced* This,DWORD *pmsWindow) {
+    return This->lpVtbl->GetSyncTolerance(This,pmsWindow);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMWriterAdvanced_GetSinkCount_Proxy(
+    IWMWriterAdvanced* This,
+    DWORD *pcSinks);
+void __RPC_STUB IWMWriterAdvanced_GetSinkCount_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriterAdvanced_GetSink_Proxy(
+    IWMWriterAdvanced* This,
+    DWORD dwSinkNum,
+    IWMWriterSink **ppSink);
+void __RPC_STUB IWMWriterAdvanced_GetSink_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriterAdvanced_AddSink_Proxy(
+    IWMWriterAdvanced* This,
+    IWMWriterSink *pSink);
+void __RPC_STUB IWMWriterAdvanced_AddSink_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriterAdvanced_RemoveSink_Proxy(
+    IWMWriterAdvanced* This,
+    IWMWriterSink *pSink);
+void __RPC_STUB IWMWriterAdvanced_RemoveSink_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriterAdvanced_WriteStreamSample_Proxy(
+    IWMWriterAdvanced* This,
+    WORD wStreamNum,
+    QWORD cnsSampleTime,
+    DWORD msSampleSendTime,
+    QWORD cnsSampleDuration,
+    DWORD dwFlags,
+    INSSBuffer *pSample);
+void __RPC_STUB IWMWriterAdvanced_WriteStreamSample_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriterAdvanced_SetLiveSource_Proxy(
+    IWMWriterAdvanced* This,
+    WINBOOL fIsLiveSource);
+void __RPC_STUB IWMWriterAdvanced_SetLiveSource_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriterAdvanced_IsRealTime_Proxy(
+    IWMWriterAdvanced* This,
+    WINBOOL *pfRealTime);
+void __RPC_STUB IWMWriterAdvanced_IsRealTime_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriterAdvanced_GetWriterTime_Proxy(
+    IWMWriterAdvanced* This,
+    QWORD *pCurrentTime);
+void __RPC_STUB IWMWriterAdvanced_GetWriterTime_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriterAdvanced_GetStatistics_Proxy(
+    IWMWriterAdvanced* This,
+    WORD wStreamNum,
+    WM_WRITER_STATISTICS *pStats);
+void __RPC_STUB IWMWriterAdvanced_GetStatistics_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriterAdvanced_SetSyncTolerance_Proxy(
+    IWMWriterAdvanced* This,
+    DWORD msWindow);
+void __RPC_STUB IWMWriterAdvanced_SetSyncTolerance_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriterAdvanced_GetSyncTolerance_Proxy(
+    IWMWriterAdvanced* This,
+    DWORD *pmsWindow);
+void __RPC_STUB IWMWriterAdvanced_GetSyncTolerance_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMWriterAdvanced_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMWriterAdvanced2 interface
+ */
+#ifndef __IWMWriterAdvanced2_INTERFACE_DEFINED__
+#define __IWMWriterAdvanced2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMWriterAdvanced2, 0x962dc1ec, 0xc046, 0x4db8, 0x9c,0xc7, 0x26,0xce,0xae,0x50,0x08,0x17);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("962dc1ec-c046-4db8-9cc7-26ceae500817")
+IWMWriterAdvanced2 : public IWMWriterAdvanced
+{
+    virtual HRESULT STDMETHODCALLTYPE GetInputSetting(
+        DWORD dwInputNum,
+        LPCWSTR pszName,
+        WMT_ATTR_DATATYPE *pType,
+        BYTE *pValue,
+        WORD *pcbLength) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetInputSetting(
+        DWORD dwInputNum,
+        LPCWSTR pszName,
+        WMT_ATTR_DATATYPE Type,
+        const BYTE *pValue,
+        WORD cbLength) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMWriterAdvanced2, 0x962dc1ec, 0xc046, 0x4db8, 0x9c,0xc7, 0x26,0xce,0xae,0x50,0x08,0x17)
+#endif
+#else
+typedef struct IWMWriterAdvanced2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMWriterAdvanced2* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMWriterAdvanced2* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMWriterAdvanced2* This);
+
+    /*** IWMWriterAdvanced methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetSinkCount)(
+        IWMWriterAdvanced2* This,
+        DWORD *pcSinks);
+
+    HRESULT (STDMETHODCALLTYPE *GetSink)(
+        IWMWriterAdvanced2* This,
+        DWORD dwSinkNum,
+        IWMWriterSink **ppSink);
+
+    HRESULT (STDMETHODCALLTYPE *AddSink)(
+        IWMWriterAdvanced2* This,
+        IWMWriterSink *pSink);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveSink)(
+        IWMWriterAdvanced2* This,
+        IWMWriterSink *pSink);
+
+    HRESULT (STDMETHODCALLTYPE *WriteStreamSample)(
+        IWMWriterAdvanced2* This,
+        WORD wStreamNum,
+        QWORD cnsSampleTime,
+        DWORD msSampleSendTime,
+        QWORD cnsSampleDuration,
+        DWORD dwFlags,
+        INSSBuffer *pSample);
+
+    HRESULT (STDMETHODCALLTYPE *SetLiveSource)(
+        IWMWriterAdvanced2* This,
+        WINBOOL fIsLiveSource);
+
+    HRESULT (STDMETHODCALLTYPE *IsRealTime)(
+        IWMWriterAdvanced2* This,
+        WINBOOL *pfRealTime);
+
+    HRESULT (STDMETHODCALLTYPE *GetWriterTime)(
+        IWMWriterAdvanced2* This,
+        QWORD *pCurrentTime);
+
+    HRESULT (STDMETHODCALLTYPE *GetStatistics)(
+        IWMWriterAdvanced2* This,
+        WORD wStreamNum,
+        WM_WRITER_STATISTICS *pStats);
+
+    HRESULT (STDMETHODCALLTYPE *SetSyncTolerance)(
+        IWMWriterAdvanced2* This,
+        DWORD msWindow);
+
+    HRESULT (STDMETHODCALLTYPE *GetSyncTolerance)(
+        IWMWriterAdvanced2* This,
+        DWORD *pmsWindow);
+
+    /*** IWMWriterAdvanced2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetInputSetting)(
+        IWMWriterAdvanced2* This,
+        DWORD dwInputNum,
+        LPCWSTR pszName,
+        WMT_ATTR_DATATYPE *pType,
+        BYTE *pValue,
+        WORD *pcbLength);
+
+    HRESULT (STDMETHODCALLTYPE *SetInputSetting)(
+        IWMWriterAdvanced2* This,
+        DWORD dwInputNum,
+        LPCWSTR pszName,
+        WMT_ATTR_DATATYPE Type,
+        const BYTE *pValue,
+        WORD cbLength);
+
+    END_INTERFACE
+} IWMWriterAdvanced2Vtbl;
+interface IWMWriterAdvanced2 {
+    CONST_VTBL IWMWriterAdvanced2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMWriterAdvanced2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMWriterAdvanced2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMWriterAdvanced2_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMWriterAdvanced methods ***/
+#define IWMWriterAdvanced2_GetSinkCount(This,pcSinks) (This)->lpVtbl->GetSinkCount(This,pcSinks)
+#define IWMWriterAdvanced2_GetSink(This,dwSinkNum,ppSink) (This)->lpVtbl->GetSink(This,dwSinkNum,ppSink)
+#define IWMWriterAdvanced2_AddSink(This,pSink) (This)->lpVtbl->AddSink(This,pSink)
+#define IWMWriterAdvanced2_RemoveSink(This,pSink) (This)->lpVtbl->RemoveSink(This,pSink)
+#define IWMWriterAdvanced2_WriteStreamSample(This,wStreamNum,cnsSampleTime,msSampleSendTime,cnsSampleDuration,dwFlags,pSample) (This)->lpVtbl->WriteStreamSample(This,wStreamNum,cnsSampleTime,msSampleSendTime,cnsSampleDuration,dwFlags,pSample)
+#define IWMWriterAdvanced2_SetLiveSource(This,fIsLiveSource) (This)->lpVtbl->SetLiveSource(This,fIsLiveSource)
+#define IWMWriterAdvanced2_IsRealTime(This,pfRealTime) (This)->lpVtbl->IsRealTime(This,pfRealTime)
+#define IWMWriterAdvanced2_GetWriterTime(This,pCurrentTime) (This)->lpVtbl->GetWriterTime(This,pCurrentTime)
+#define IWMWriterAdvanced2_GetStatistics(This,wStreamNum,pStats) (This)->lpVtbl->GetStatistics(This,wStreamNum,pStats)
+#define IWMWriterAdvanced2_SetSyncTolerance(This,msWindow) (This)->lpVtbl->SetSyncTolerance(This,msWindow)
+#define IWMWriterAdvanced2_GetSyncTolerance(This,pmsWindow) (This)->lpVtbl->GetSyncTolerance(This,pmsWindow)
+/*** IWMWriterAdvanced2 methods ***/
+#define IWMWriterAdvanced2_GetInputSetting(This,dwInputNum,pszName,pType,pValue,pcbLength) (This)->lpVtbl->GetInputSetting(This,dwInputNum,pszName,pType,pValue,pcbLength)
+#define IWMWriterAdvanced2_SetInputSetting(This,dwInputNum,pszName,Type,pValue,cbLength) (This)->lpVtbl->SetInputSetting(This,dwInputNum,pszName,Type,pValue,cbLength)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMWriterAdvanced2_QueryInterface(IWMWriterAdvanced2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMWriterAdvanced2_AddRef(IWMWriterAdvanced2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMWriterAdvanced2_Release(IWMWriterAdvanced2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMWriterAdvanced methods ***/
+static FORCEINLINE HRESULT IWMWriterAdvanced2_GetSinkCount(IWMWriterAdvanced2* This,DWORD *pcSinks) {
+    return This->lpVtbl->GetSinkCount(This,pcSinks);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced2_GetSink(IWMWriterAdvanced2* This,DWORD dwSinkNum,IWMWriterSink **ppSink) {
+    return This->lpVtbl->GetSink(This,dwSinkNum,ppSink);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced2_AddSink(IWMWriterAdvanced2* This,IWMWriterSink *pSink) {
+    return This->lpVtbl->AddSink(This,pSink);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced2_RemoveSink(IWMWriterAdvanced2* This,IWMWriterSink *pSink) {
+    return This->lpVtbl->RemoveSink(This,pSink);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced2_WriteStreamSample(IWMWriterAdvanced2* This,WORD wStreamNum,QWORD cnsSampleTime,DWORD msSampleSendTime,QWORD cnsSampleDuration,DWORD dwFlags,INSSBuffer *pSample) {
+    return This->lpVtbl->WriteStreamSample(This,wStreamNum,cnsSampleTime,msSampleSendTime,cnsSampleDuration,dwFlags,pSample);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced2_SetLiveSource(IWMWriterAdvanced2* This,WINBOOL fIsLiveSource) {
+    return This->lpVtbl->SetLiveSource(This,fIsLiveSource);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced2_IsRealTime(IWMWriterAdvanced2* This,WINBOOL *pfRealTime) {
+    return This->lpVtbl->IsRealTime(This,pfRealTime);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced2_GetWriterTime(IWMWriterAdvanced2* This,QWORD *pCurrentTime) {
+    return This->lpVtbl->GetWriterTime(This,pCurrentTime);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced2_GetStatistics(IWMWriterAdvanced2* This,WORD wStreamNum,WM_WRITER_STATISTICS *pStats) {
+    return This->lpVtbl->GetStatistics(This,wStreamNum,pStats);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced2_SetSyncTolerance(IWMWriterAdvanced2* This,DWORD msWindow) {
+    return This->lpVtbl->SetSyncTolerance(This,msWindow);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced2_GetSyncTolerance(IWMWriterAdvanced2* This,DWORD *pmsWindow) {
+    return This->lpVtbl->GetSyncTolerance(This,pmsWindow);
+}
+/*** IWMWriterAdvanced2 methods ***/
+static FORCEINLINE HRESULT IWMWriterAdvanced2_GetInputSetting(IWMWriterAdvanced2* This,DWORD dwInputNum,LPCWSTR pszName,WMT_ATTR_DATATYPE *pType,BYTE *pValue,WORD *pcbLength) {
+    return This->lpVtbl->GetInputSetting(This,dwInputNum,pszName,pType,pValue,pcbLength);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced2_SetInputSetting(IWMWriterAdvanced2* This,DWORD dwInputNum,LPCWSTR pszName,WMT_ATTR_DATATYPE Type,const BYTE *pValue,WORD cbLength) {
+    return This->lpVtbl->SetInputSetting(This,dwInputNum,pszName,Type,pValue,cbLength);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMWriterAdvanced2_GetInputSetting_Proxy(
+    IWMWriterAdvanced2* This,
+    DWORD dwInputNum,
+    LPCWSTR pszName,
+    WMT_ATTR_DATATYPE *pType,
+    BYTE *pValue,
+    WORD *pcbLength);
+void __RPC_STUB IWMWriterAdvanced2_GetInputSetting_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriterAdvanced2_SetInputSetting_Proxy(
+    IWMWriterAdvanced2* This,
+    DWORD dwInputNum,
+    LPCWSTR pszName,
+    WMT_ATTR_DATATYPE Type,
+    const BYTE *pValue,
+    WORD cbLength);
+void __RPC_STUB IWMWriterAdvanced2_SetInputSetting_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMWriterAdvanced2_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMWriterAdvanced3 interface
+ */
+#ifndef __IWMWriterAdvanced3_INTERFACE_DEFINED__
+#define __IWMWriterAdvanced3_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMWriterAdvanced3, 0x2cd6492d, 0x7c37, 0x4e76, 0x9d,0x3b, 0x59,0x26,0x11,0x83,0xa2,0x2e);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("2cd6492d-7c37-4e76-9d3b-59261183a22e")
+IWMWriterAdvanced3 : public IWMWriterAdvanced2
+{
+    virtual HRESULT STDMETHODCALLTYPE GetStatisticsEx(
+        WORD wStreamNum,
+        WM_WRITER_STATISTICS_EX *pStats) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetNonBlocking(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMWriterAdvanced3, 0x2cd6492d, 0x7c37, 0x4e76, 0x9d,0x3b, 0x59,0x26,0x11,0x83,0xa2,0x2e)
+#endif
+#else
+typedef struct IWMWriterAdvanced3Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMWriterAdvanced3* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMWriterAdvanced3* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMWriterAdvanced3* This);
+
+    /*** IWMWriterAdvanced methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetSinkCount)(
+        IWMWriterAdvanced3* This,
+        DWORD *pcSinks);
+
+    HRESULT (STDMETHODCALLTYPE *GetSink)(
+        IWMWriterAdvanced3* This,
+        DWORD dwSinkNum,
+        IWMWriterSink **ppSink);
+
+    HRESULT (STDMETHODCALLTYPE *AddSink)(
+        IWMWriterAdvanced3* This,
+        IWMWriterSink *pSink);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveSink)(
+        IWMWriterAdvanced3* This,
+        IWMWriterSink *pSink);
+
+    HRESULT (STDMETHODCALLTYPE *WriteStreamSample)(
+        IWMWriterAdvanced3* This,
+        WORD wStreamNum,
+        QWORD cnsSampleTime,
+        DWORD msSampleSendTime,
+        QWORD cnsSampleDuration,
+        DWORD dwFlags,
+        INSSBuffer *pSample);
+
+    HRESULT (STDMETHODCALLTYPE *SetLiveSource)(
+        IWMWriterAdvanced3* This,
+        WINBOOL fIsLiveSource);
+
+    HRESULT (STDMETHODCALLTYPE *IsRealTime)(
+        IWMWriterAdvanced3* This,
+        WINBOOL *pfRealTime);
+
+    HRESULT (STDMETHODCALLTYPE *GetWriterTime)(
+        IWMWriterAdvanced3* This,
+        QWORD *pCurrentTime);
+
+    HRESULT (STDMETHODCALLTYPE *GetStatistics)(
+        IWMWriterAdvanced3* This,
+        WORD wStreamNum,
+        WM_WRITER_STATISTICS *pStats);
+
+    HRESULT (STDMETHODCALLTYPE *SetSyncTolerance)(
+        IWMWriterAdvanced3* This,
+        DWORD msWindow);
+
+    HRESULT (STDMETHODCALLTYPE *GetSyncTolerance)(
+        IWMWriterAdvanced3* This,
+        DWORD *pmsWindow);
+
+    /*** IWMWriterAdvanced2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetInputSetting)(
+        IWMWriterAdvanced3* This,
+        DWORD dwInputNum,
+        LPCWSTR pszName,
+        WMT_ATTR_DATATYPE *pType,
+        BYTE *pValue,
+        WORD *pcbLength);
+
+    HRESULT (STDMETHODCALLTYPE *SetInputSetting)(
+        IWMWriterAdvanced3* This,
+        DWORD dwInputNum,
+        LPCWSTR pszName,
+        WMT_ATTR_DATATYPE Type,
+        const BYTE *pValue,
+        WORD cbLength);
+
+    /*** IWMWriterAdvanced3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetStatisticsEx)(
+        IWMWriterAdvanced3* This,
+        WORD wStreamNum,
+        WM_WRITER_STATISTICS_EX *pStats);
+
+    HRESULT (STDMETHODCALLTYPE *SetNonBlocking)(
+        IWMWriterAdvanced3* This);
+
+    END_INTERFACE
+} IWMWriterAdvanced3Vtbl;
+interface IWMWriterAdvanced3 {
+    CONST_VTBL IWMWriterAdvanced3Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMWriterAdvanced3_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMWriterAdvanced3_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMWriterAdvanced3_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMWriterAdvanced methods ***/
+#define IWMWriterAdvanced3_GetSinkCount(This,pcSinks) (This)->lpVtbl->GetSinkCount(This,pcSinks)
+#define IWMWriterAdvanced3_GetSink(This,dwSinkNum,ppSink) (This)->lpVtbl->GetSink(This,dwSinkNum,ppSink)
+#define IWMWriterAdvanced3_AddSink(This,pSink) (This)->lpVtbl->AddSink(This,pSink)
+#define IWMWriterAdvanced3_RemoveSink(This,pSink) (This)->lpVtbl->RemoveSink(This,pSink)
+#define IWMWriterAdvanced3_WriteStreamSample(This,wStreamNum,cnsSampleTime,msSampleSendTime,cnsSampleDuration,dwFlags,pSample) (This)->lpVtbl->WriteStreamSample(This,wStreamNum,cnsSampleTime,msSampleSendTime,cnsSampleDuration,dwFlags,pSample)
+#define IWMWriterAdvanced3_SetLiveSource(This,fIsLiveSource) (This)->lpVtbl->SetLiveSource(This,fIsLiveSource)
+#define IWMWriterAdvanced3_IsRealTime(This,pfRealTime) (This)->lpVtbl->IsRealTime(This,pfRealTime)
+#define IWMWriterAdvanced3_GetWriterTime(This,pCurrentTime) (This)->lpVtbl->GetWriterTime(This,pCurrentTime)
+#define IWMWriterAdvanced3_GetStatistics(This,wStreamNum,pStats) (This)->lpVtbl->GetStatistics(This,wStreamNum,pStats)
+#define IWMWriterAdvanced3_SetSyncTolerance(This,msWindow) (This)->lpVtbl->SetSyncTolerance(This,msWindow)
+#define IWMWriterAdvanced3_GetSyncTolerance(This,pmsWindow) (This)->lpVtbl->GetSyncTolerance(This,pmsWindow)
+/*** IWMWriterAdvanced2 methods ***/
+#define IWMWriterAdvanced3_GetInputSetting(This,dwInputNum,pszName,pType,pValue,pcbLength) (This)->lpVtbl->GetInputSetting(This,dwInputNum,pszName,pType,pValue,pcbLength)
+#define IWMWriterAdvanced3_SetInputSetting(This,dwInputNum,pszName,Type,pValue,cbLength) (This)->lpVtbl->SetInputSetting(This,dwInputNum,pszName,Type,pValue,cbLength)
+/*** IWMWriterAdvanced3 methods ***/
+#define IWMWriterAdvanced3_GetStatisticsEx(This,wStreamNum,pStats) (This)->lpVtbl->GetStatisticsEx(This,wStreamNum,pStats)
+#define IWMWriterAdvanced3_SetNonBlocking(This) (This)->lpVtbl->SetNonBlocking(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMWriterAdvanced3_QueryInterface(IWMWriterAdvanced3* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMWriterAdvanced3_AddRef(IWMWriterAdvanced3* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMWriterAdvanced3_Release(IWMWriterAdvanced3* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMWriterAdvanced methods ***/
+static FORCEINLINE HRESULT IWMWriterAdvanced3_GetSinkCount(IWMWriterAdvanced3* This,DWORD *pcSinks) {
+    return This->lpVtbl->GetSinkCount(This,pcSinks);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced3_GetSink(IWMWriterAdvanced3* This,DWORD dwSinkNum,IWMWriterSink **ppSink) {
+    return This->lpVtbl->GetSink(This,dwSinkNum,ppSink);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced3_AddSink(IWMWriterAdvanced3* This,IWMWriterSink *pSink) {
+    return This->lpVtbl->AddSink(This,pSink);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced3_RemoveSink(IWMWriterAdvanced3* This,IWMWriterSink *pSink) {
+    return This->lpVtbl->RemoveSink(This,pSink);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced3_WriteStreamSample(IWMWriterAdvanced3* This,WORD wStreamNum,QWORD cnsSampleTime,DWORD msSampleSendTime,QWORD cnsSampleDuration,DWORD dwFlags,INSSBuffer *pSample) {
+    return This->lpVtbl->WriteStreamSample(This,wStreamNum,cnsSampleTime,msSampleSendTime,cnsSampleDuration,dwFlags,pSample);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced3_SetLiveSource(IWMWriterAdvanced3* This,WINBOOL fIsLiveSource) {
+    return This->lpVtbl->SetLiveSource(This,fIsLiveSource);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced3_IsRealTime(IWMWriterAdvanced3* This,WINBOOL *pfRealTime) {
+    return This->lpVtbl->IsRealTime(This,pfRealTime);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced3_GetWriterTime(IWMWriterAdvanced3* This,QWORD *pCurrentTime) {
+    return This->lpVtbl->GetWriterTime(This,pCurrentTime);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced3_GetStatistics(IWMWriterAdvanced3* This,WORD wStreamNum,WM_WRITER_STATISTICS *pStats) {
+    return This->lpVtbl->GetStatistics(This,wStreamNum,pStats);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced3_SetSyncTolerance(IWMWriterAdvanced3* This,DWORD msWindow) {
+    return This->lpVtbl->SetSyncTolerance(This,msWindow);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced3_GetSyncTolerance(IWMWriterAdvanced3* This,DWORD *pmsWindow) {
+    return This->lpVtbl->GetSyncTolerance(This,pmsWindow);
+}
+/*** IWMWriterAdvanced2 methods ***/
+static FORCEINLINE HRESULT IWMWriterAdvanced3_GetInputSetting(IWMWriterAdvanced3* This,DWORD dwInputNum,LPCWSTR pszName,WMT_ATTR_DATATYPE *pType,BYTE *pValue,WORD *pcbLength) {
+    return This->lpVtbl->GetInputSetting(This,dwInputNum,pszName,pType,pValue,pcbLength);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced3_SetInputSetting(IWMWriterAdvanced3* This,DWORD dwInputNum,LPCWSTR pszName,WMT_ATTR_DATATYPE Type,const BYTE *pValue,WORD cbLength) {
+    return This->lpVtbl->SetInputSetting(This,dwInputNum,pszName,Type,pValue,cbLength);
+}
+/*** IWMWriterAdvanced3 methods ***/
+static FORCEINLINE HRESULT IWMWriterAdvanced3_GetStatisticsEx(IWMWriterAdvanced3* This,WORD wStreamNum,WM_WRITER_STATISTICS_EX *pStats) {
+    return This->lpVtbl->GetStatisticsEx(This,wStreamNum,pStats);
+}
+static FORCEINLINE HRESULT IWMWriterAdvanced3_SetNonBlocking(IWMWriterAdvanced3* This) {
+    return This->lpVtbl->SetNonBlocking(This);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMWriterAdvanced3_GetStatisticsEx_Proxy(
+    IWMWriterAdvanced3* This,
+    WORD wStreamNum,
+    WM_WRITER_STATISTICS_EX *pStats);
+void __RPC_STUB IWMWriterAdvanced3_GetStatisticsEx_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMWriterAdvanced3_SetNonBlocking_Proxy(
+    IWMWriterAdvanced3* This);
+void __RPC_STUB IWMWriterAdvanced3_SetNonBlocking_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMWriterAdvanced3_INTERFACE_DEFINED__ */
 
 HRESULT WINAPI WMCreateWriter(IUnknown*,IWMWriter**);
 EXTERN_GUID(WMMEDIASUBTYPE_Base,   0x00000000,0x0000,0x0010,0x80,0x00,0x00,0xaa,0x00,0x38,0x9b,0x71);

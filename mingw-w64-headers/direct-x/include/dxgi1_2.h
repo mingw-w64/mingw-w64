@@ -27,6 +27,11 @@ typedef interface IDXGIDevice2 IDXGIDevice2;
 typedef interface IDXGISwapChain1 IDXGISwapChain1;
 #endif
 
+#ifndef __IDXGIFactory2_FWD_DEFINED__
+#define __IDXGIFactory2_FWD_DEFINED__
+typedef interface IDXGIFactory2 IDXGIFactory2;
+#endif
+
 /* Headers for imported files */
 
 #include <dxgi.h>
@@ -744,6 +749,443 @@ void __RPC_STUB IDXGISwapChain1_GetRotation_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __IDXGISwapChain1_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IDXGIFactory2 interface
+ */
+#ifndef __IDXGIFactory2_INTERFACE_DEFINED__
+#define __IDXGIFactory2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IDXGIFactory2, 0x50c83a1c, 0xe072, 0x4c48, 0x87,0xb0, 0x36,0x30,0xfa,0x36,0xa6,0xd0);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("50c83a1c-e072-4c48-87b0-3630fa36a6d0")
+IDXGIFactory2 : public IDXGIFactory1
+{
+    virtual WINBOOL STDMETHODCALLTYPE IsWindowedStereoEnabled(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateSwapChainForHwnd(
+        IUnknown *pDevice,
+        HWND hWnd,
+        const DXGI_SWAP_CHAIN_DESC1 *pDesc,
+        const DXGI_SWAP_CHAIN_FULLSCREEN_DESC *pFullscreenDesc,
+        IDXGIOutput *pRestrictToOutput,
+        IDXGISwapChain1 **ppSwapChain) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateSwapChainForCoreWindow(
+        IUnknown *pDevice,
+        IUnknown *pWindow,
+        const DXGI_SWAP_CHAIN_DESC1 *pDesc,
+        IDXGIOutput *pRestrictToOutput,
+        IDXGISwapChain1 **ppSwapChain) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetSharedResourceAdapterLuid(
+        HANDLE hResource,
+        LUID *pLuid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RegisterOcclusionStatusWindow(
+        HWND WindowHandle,
+        UINT wMsg,
+        DWORD *pdwCookie) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RegisterStereoStatusEvent(
+        HANDLE hEvent,
+        DWORD *pdwCookie) = 0;
+
+    virtual void STDMETHODCALLTYPE UnregisterStereoStatus(
+        DWORD dwCookie) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RegisterStereoStatusWindow(
+        HWND WindowHandle,
+        UINT wMsg,
+        DWORD *pdwCookie) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RegisterOcclusionStatusEvent(
+        HANDLE hEvent,
+        DWORD *pdwCookie) = 0;
+
+    virtual void STDMETHODCALLTYPE UnregisterOcclusionStatus(
+        DWORD dwCookie) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateSwapChainForComposition(
+        IUnknown *pDevice,
+        const DXGI_SWAP_CHAIN_DESC1 *pDesc,
+        IDXGIOutput *pRestrictToOutput,
+        IDXGISwapChain1 **ppSwapChain) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDXGIFactory2, 0x50c83a1c, 0xe072, 0x4c48, 0x87,0xb0, 0x36,0x30,0xfa,0x36,0xa6,0xd0)
+#endif
+#else
+typedef struct IDXGIFactory2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IDXGIFactory2* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IDXGIFactory2* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IDXGIFactory2* This);
+
+    /*** IDXGIObject methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        IDXGIFactory2* This,
+        REFGUID guid,
+        UINT data_size,
+        const void *data);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        IDXGIFactory2* This,
+        REFGUID guid,
+        const IUnknown *object);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        IDXGIFactory2* This,
+        REFGUID guid,
+        UINT *data_size,
+        void *data);
+
+    HRESULT (STDMETHODCALLTYPE *GetParent)(
+        IDXGIFactory2* This,
+        REFIID riid,
+        void **parent);
+
+    /*** IDXGIFactory methods ***/
+    HRESULT (STDMETHODCALLTYPE *EnumAdapters)(
+        IDXGIFactory2* This,
+        UINT adapter_idx,
+        IDXGIAdapter **adapter);
+
+    HRESULT (STDMETHODCALLTYPE *MakeWindowAssociation)(
+        IDXGIFactory2* This,
+        HWND window,
+        UINT flags);
+
+    HRESULT (STDMETHODCALLTYPE *GetWindowAssociation)(
+        IDXGIFactory2* This,
+        HWND *window);
+
+    HRESULT (STDMETHODCALLTYPE *CreateSwapChain)(
+        IDXGIFactory2* This,
+        IUnknown *device,
+        DXGI_SWAP_CHAIN_DESC *desc,
+        IDXGISwapChain **swapchain);
+
+    HRESULT (STDMETHODCALLTYPE *CreateSoftwareAdapter)(
+        IDXGIFactory2* This,
+        HMODULE swrast,
+        IDXGIAdapter **adapter);
+
+    /*** IDXGIFactory1 methods ***/
+    HRESULT (STDMETHODCALLTYPE *EnumAdapters1)(
+        IDXGIFactory2* This,
+        UINT Adapter,
+        IDXGIAdapter1 **ppAdapter);
+
+    WINBOOL (STDMETHODCALLTYPE *IsCurrent)(
+        IDXGIFactory2* This);
+
+    /*** IDXGIFactory2 methods ***/
+    WINBOOL (STDMETHODCALLTYPE *IsWindowedStereoEnabled)(
+        IDXGIFactory2* This);
+
+    HRESULT (STDMETHODCALLTYPE *CreateSwapChainForHwnd)(
+        IDXGIFactory2* This,
+        IUnknown *pDevice,
+        HWND hWnd,
+        const DXGI_SWAP_CHAIN_DESC1 *pDesc,
+        const DXGI_SWAP_CHAIN_FULLSCREEN_DESC *pFullscreenDesc,
+        IDXGIOutput *pRestrictToOutput,
+        IDXGISwapChain1 **ppSwapChain);
+
+    HRESULT (STDMETHODCALLTYPE *CreateSwapChainForCoreWindow)(
+        IDXGIFactory2* This,
+        IUnknown *pDevice,
+        IUnknown *pWindow,
+        const DXGI_SWAP_CHAIN_DESC1 *pDesc,
+        IDXGIOutput *pRestrictToOutput,
+        IDXGISwapChain1 **ppSwapChain);
+
+    HRESULT (STDMETHODCALLTYPE *GetSharedResourceAdapterLuid)(
+        IDXGIFactory2* This,
+        HANDLE hResource,
+        LUID *pLuid);
+
+    HRESULT (STDMETHODCALLTYPE *RegisterOcclusionStatusWindow)(
+        IDXGIFactory2* This,
+        HWND WindowHandle,
+        UINT wMsg,
+        DWORD *pdwCookie);
+
+    HRESULT (STDMETHODCALLTYPE *RegisterStereoStatusEvent)(
+        IDXGIFactory2* This,
+        HANDLE hEvent,
+        DWORD *pdwCookie);
+
+    void (STDMETHODCALLTYPE *UnregisterStereoStatus)(
+        IDXGIFactory2* This,
+        DWORD dwCookie);
+
+    HRESULT (STDMETHODCALLTYPE *RegisterStereoStatusWindow)(
+        IDXGIFactory2* This,
+        HWND WindowHandle,
+        UINT wMsg,
+        DWORD *pdwCookie);
+
+    HRESULT (STDMETHODCALLTYPE *RegisterOcclusionStatusEvent)(
+        IDXGIFactory2* This,
+        HANDLE hEvent,
+        DWORD *pdwCookie);
+
+    void (STDMETHODCALLTYPE *UnregisterOcclusionStatus)(
+        IDXGIFactory2* This,
+        DWORD dwCookie);
+
+    HRESULT (STDMETHODCALLTYPE *CreateSwapChainForComposition)(
+        IDXGIFactory2* This,
+        IUnknown *pDevice,
+        const DXGI_SWAP_CHAIN_DESC1 *pDesc,
+        IDXGIOutput *pRestrictToOutput,
+        IDXGISwapChain1 **ppSwapChain);
+
+    END_INTERFACE
+} IDXGIFactory2Vtbl;
+interface IDXGIFactory2 {
+    CONST_VTBL IDXGIFactory2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IDXGIFactory2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDXGIFactory2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDXGIFactory2_Release(This) (This)->lpVtbl->Release(This)
+/*** IDXGIObject methods ***/
+#define IDXGIFactory2_SetPrivateData(This,guid,data_size,data) (This)->lpVtbl->SetPrivateData(This,guid,data_size,data)
+#define IDXGIFactory2_SetPrivateDataInterface(This,guid,object) (This)->lpVtbl->SetPrivateDataInterface(This,guid,object)
+#define IDXGIFactory2_GetPrivateData(This,guid,data_size,data) (This)->lpVtbl->GetPrivateData(This,guid,data_size,data)
+#define IDXGIFactory2_GetParent(This,riid,parent) (This)->lpVtbl->GetParent(This,riid,parent)
+/*** IDXGIFactory methods ***/
+#define IDXGIFactory2_EnumAdapters(This,adapter_idx,adapter) (This)->lpVtbl->EnumAdapters(This,adapter_idx,adapter)
+#define IDXGIFactory2_MakeWindowAssociation(This,window,flags) (This)->lpVtbl->MakeWindowAssociation(This,window,flags)
+#define IDXGIFactory2_GetWindowAssociation(This,window) (This)->lpVtbl->GetWindowAssociation(This,window)
+#define IDXGIFactory2_CreateSwapChain(This,device,desc,swapchain) (This)->lpVtbl->CreateSwapChain(This,device,desc,swapchain)
+#define IDXGIFactory2_CreateSoftwareAdapter(This,swrast,adapter) (This)->lpVtbl->CreateSoftwareAdapter(This,swrast,adapter)
+/*** IDXGIFactory1 methods ***/
+#define IDXGIFactory2_EnumAdapters1(This,Adapter,ppAdapter) (This)->lpVtbl->EnumAdapters1(This,Adapter,ppAdapter)
+#define IDXGIFactory2_IsCurrent(This) (This)->lpVtbl->IsCurrent(This)
+/*** IDXGIFactory2 methods ***/
+#define IDXGIFactory2_IsWindowedStereoEnabled(This) (This)->lpVtbl->IsWindowedStereoEnabled(This)
+#define IDXGIFactory2_CreateSwapChainForHwnd(This,pDevice,hWnd,pDesc,pFullscreenDesc,pRestrictToOutput,ppSwapChain) (This)->lpVtbl->CreateSwapChainForHwnd(This,pDevice,hWnd,pDesc,pFullscreenDesc,pRestrictToOutput,ppSwapChain)
+#define IDXGIFactory2_CreateSwapChainForCoreWindow(This,pDevice,pWindow,pDesc,pRestrictToOutput,ppSwapChain) (This)->lpVtbl->CreateSwapChainForCoreWindow(This,pDevice,pWindow,pDesc,pRestrictToOutput,ppSwapChain)
+#define IDXGIFactory2_GetSharedResourceAdapterLuid(This,hResource,pLuid) (This)->lpVtbl->GetSharedResourceAdapterLuid(This,hResource,pLuid)
+#define IDXGIFactory2_RegisterOcclusionStatusWindow(This,WindowHandle,wMsg,pdwCookie) (This)->lpVtbl->RegisterOcclusionStatusWindow(This,WindowHandle,wMsg,pdwCookie)
+#define IDXGIFactory2_RegisterStereoStatusEvent(This,hEvent,pdwCookie) (This)->lpVtbl->RegisterStereoStatusEvent(This,hEvent,pdwCookie)
+#define IDXGIFactory2_UnregisterStereoStatus(This,dwCookie) (This)->lpVtbl->UnregisterStereoStatus(This,dwCookie)
+#define IDXGIFactory2_RegisterStereoStatusWindow(This,WindowHandle,wMsg,pdwCookie) (This)->lpVtbl->RegisterStereoStatusWindow(This,WindowHandle,wMsg,pdwCookie)
+#define IDXGIFactory2_RegisterOcclusionStatusEvent(This,hEvent,pdwCookie) (This)->lpVtbl->RegisterOcclusionStatusEvent(This,hEvent,pdwCookie)
+#define IDXGIFactory2_UnregisterOcclusionStatus(This,dwCookie) (This)->lpVtbl->UnregisterOcclusionStatus(This,dwCookie)
+#define IDXGIFactory2_CreateSwapChainForComposition(This,pDevice,pDesc,pRestrictToOutput,ppSwapChain) (This)->lpVtbl->CreateSwapChainForComposition(This,pDevice,pDesc,pRestrictToOutput,ppSwapChain)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDXGIFactory2_QueryInterface(IDXGIFactory2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDXGIFactory2_AddRef(IDXGIFactory2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDXGIFactory2_Release(IDXGIFactory2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDXGIObject methods ***/
+static FORCEINLINE HRESULT IDXGIFactory2_SetPrivateData(IDXGIFactory2* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIFactory2_SetPrivateDataInterface(IDXGIFactory2* This,REFGUID guid,const IUnknown *object) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,object);
+}
+static FORCEINLINE HRESULT IDXGIFactory2_GetPrivateData(IDXGIFactory2* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIFactory2_GetParent(IDXGIFactory2* This,REFIID riid,void **parent) {
+    return This->lpVtbl->GetParent(This,riid,parent);
+}
+/*** IDXGIFactory methods ***/
+static FORCEINLINE HRESULT IDXGIFactory2_EnumAdapters(IDXGIFactory2* This,UINT adapter_idx,IDXGIAdapter **adapter) {
+    return This->lpVtbl->EnumAdapters(This,adapter_idx,adapter);
+}
+static FORCEINLINE HRESULT IDXGIFactory2_MakeWindowAssociation(IDXGIFactory2* This,HWND window,UINT flags) {
+    return This->lpVtbl->MakeWindowAssociation(This,window,flags);
+}
+static FORCEINLINE HRESULT IDXGIFactory2_GetWindowAssociation(IDXGIFactory2* This,HWND *window) {
+    return This->lpVtbl->GetWindowAssociation(This,window);
+}
+static FORCEINLINE HRESULT IDXGIFactory2_CreateSwapChain(IDXGIFactory2* This,IUnknown *device,DXGI_SWAP_CHAIN_DESC *desc,IDXGISwapChain **swapchain) {
+    return This->lpVtbl->CreateSwapChain(This,device,desc,swapchain);
+}
+static FORCEINLINE HRESULT IDXGIFactory2_CreateSoftwareAdapter(IDXGIFactory2* This,HMODULE swrast,IDXGIAdapter **adapter) {
+    return This->lpVtbl->CreateSoftwareAdapter(This,swrast,adapter);
+}
+/*** IDXGIFactory1 methods ***/
+static FORCEINLINE HRESULT IDXGIFactory2_EnumAdapters1(IDXGIFactory2* This,UINT Adapter,IDXGIAdapter1 **ppAdapter) {
+    return This->lpVtbl->EnumAdapters1(This,Adapter,ppAdapter);
+}
+static FORCEINLINE WINBOOL IDXGIFactory2_IsCurrent(IDXGIFactory2* This) {
+    return This->lpVtbl->IsCurrent(This);
+}
+/*** IDXGIFactory2 methods ***/
+static FORCEINLINE WINBOOL IDXGIFactory2_IsWindowedStereoEnabled(IDXGIFactory2* This) {
+    return This->lpVtbl->IsWindowedStereoEnabled(This);
+}
+static FORCEINLINE HRESULT IDXGIFactory2_CreateSwapChainForHwnd(IDXGIFactory2* This,IUnknown *pDevice,HWND hWnd,const DXGI_SWAP_CHAIN_DESC1 *pDesc,const DXGI_SWAP_CHAIN_FULLSCREEN_DESC *pFullscreenDesc,IDXGIOutput *pRestrictToOutput,IDXGISwapChain1 **ppSwapChain) {
+    return This->lpVtbl->CreateSwapChainForHwnd(This,pDevice,hWnd,pDesc,pFullscreenDesc,pRestrictToOutput,ppSwapChain);
+}
+static FORCEINLINE HRESULT IDXGIFactory2_CreateSwapChainForCoreWindow(IDXGIFactory2* This,IUnknown *pDevice,IUnknown *pWindow,const DXGI_SWAP_CHAIN_DESC1 *pDesc,IDXGIOutput *pRestrictToOutput,IDXGISwapChain1 **ppSwapChain) {
+    return This->lpVtbl->CreateSwapChainForCoreWindow(This,pDevice,pWindow,pDesc,pRestrictToOutput,ppSwapChain);
+}
+static FORCEINLINE HRESULT IDXGIFactory2_GetSharedResourceAdapterLuid(IDXGIFactory2* This,HANDLE hResource,LUID *pLuid) {
+    return This->lpVtbl->GetSharedResourceAdapterLuid(This,hResource,pLuid);
+}
+static FORCEINLINE HRESULT IDXGIFactory2_RegisterOcclusionStatusWindow(IDXGIFactory2* This,HWND WindowHandle,UINT wMsg,DWORD *pdwCookie) {
+    return This->lpVtbl->RegisterOcclusionStatusWindow(This,WindowHandle,wMsg,pdwCookie);
+}
+static FORCEINLINE HRESULT IDXGIFactory2_RegisterStereoStatusEvent(IDXGIFactory2* This,HANDLE hEvent,DWORD *pdwCookie) {
+    return This->lpVtbl->RegisterStereoStatusEvent(This,hEvent,pdwCookie);
+}
+static FORCEINLINE void IDXGIFactory2_UnregisterStereoStatus(IDXGIFactory2* This,DWORD dwCookie) {
+    This->lpVtbl->UnregisterStereoStatus(This,dwCookie);
+}
+static FORCEINLINE HRESULT IDXGIFactory2_RegisterStereoStatusWindow(IDXGIFactory2* This,HWND WindowHandle,UINT wMsg,DWORD *pdwCookie) {
+    return This->lpVtbl->RegisterStereoStatusWindow(This,WindowHandle,wMsg,pdwCookie);
+}
+static FORCEINLINE HRESULT IDXGIFactory2_RegisterOcclusionStatusEvent(IDXGIFactory2* This,HANDLE hEvent,DWORD *pdwCookie) {
+    return This->lpVtbl->RegisterOcclusionStatusEvent(This,hEvent,pdwCookie);
+}
+static FORCEINLINE void IDXGIFactory2_UnregisterOcclusionStatus(IDXGIFactory2* This,DWORD dwCookie) {
+    This->lpVtbl->UnregisterOcclusionStatus(This,dwCookie);
+}
+static FORCEINLINE HRESULT IDXGIFactory2_CreateSwapChainForComposition(IDXGIFactory2* This,IUnknown *pDevice,const DXGI_SWAP_CHAIN_DESC1 *pDesc,IDXGIOutput *pRestrictToOutput,IDXGISwapChain1 **ppSwapChain) {
+    return This->lpVtbl->CreateSwapChainForComposition(This,pDevice,pDesc,pRestrictToOutput,ppSwapChain);
+}
+#endif
+#endif
+
+#endif
+
+WINBOOL STDMETHODCALLTYPE IDXGIFactory2_IsWindowedStereoEnabled_Proxy(
+    IDXGIFactory2* This);
+void __RPC_STUB IDXGIFactory2_IsWindowedStereoEnabled_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIFactory2_CreateSwapChainForHwnd_Proxy(
+    IDXGIFactory2* This,
+    IUnknown *pDevice,
+    HWND hWnd,
+    const DXGI_SWAP_CHAIN_DESC1 *pDesc,
+    const DXGI_SWAP_CHAIN_FULLSCREEN_DESC *pFullscreenDesc,
+    IDXGIOutput *pRestrictToOutput,
+    IDXGISwapChain1 **ppSwapChain);
+void __RPC_STUB IDXGIFactory2_CreateSwapChainForHwnd_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIFactory2_CreateSwapChainForCoreWindow_Proxy(
+    IDXGIFactory2* This,
+    IUnknown *pDevice,
+    IUnknown *pWindow,
+    const DXGI_SWAP_CHAIN_DESC1 *pDesc,
+    IDXGIOutput *pRestrictToOutput,
+    IDXGISwapChain1 **ppSwapChain);
+void __RPC_STUB IDXGIFactory2_CreateSwapChainForCoreWindow_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIFactory2_GetSharedResourceAdapterLuid_Proxy(
+    IDXGIFactory2* This,
+    HANDLE hResource,
+    LUID *pLuid);
+void __RPC_STUB IDXGIFactory2_GetSharedResourceAdapterLuid_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIFactory2_RegisterOcclusionStatusWindow_Proxy(
+    IDXGIFactory2* This,
+    HWND WindowHandle,
+    UINT wMsg,
+    DWORD *pdwCookie);
+void __RPC_STUB IDXGIFactory2_RegisterOcclusionStatusWindow_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIFactory2_RegisterStereoStatusEvent_Proxy(
+    IDXGIFactory2* This,
+    HANDLE hEvent,
+    DWORD *pdwCookie);
+void __RPC_STUB IDXGIFactory2_RegisterStereoStatusEvent_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE IDXGIFactory2_UnregisterStereoStatus_Proxy(
+    IDXGIFactory2* This,
+    DWORD dwCookie);
+void __RPC_STUB IDXGIFactory2_UnregisterStereoStatus_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIFactory2_RegisterStereoStatusWindow_Proxy(
+    IDXGIFactory2* This,
+    HWND WindowHandle,
+    UINT wMsg,
+    DWORD *pdwCookie);
+void __RPC_STUB IDXGIFactory2_RegisterStereoStatusWindow_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIFactory2_RegisterOcclusionStatusEvent_Proxy(
+    IDXGIFactory2* This,
+    HANDLE hEvent,
+    DWORD *pdwCookie);
+void __RPC_STUB IDXGIFactory2_RegisterOcclusionStatusEvent_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE IDXGIFactory2_UnregisterOcclusionStatus_Proxy(
+    IDXGIFactory2* This,
+    DWORD dwCookie);
+void __RPC_STUB IDXGIFactory2_UnregisterOcclusionStatus_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIFactory2_CreateSwapChainForComposition_Proxy(
+    IDXGIFactory2* This,
+    IUnknown *pDevice,
+    const DXGI_SWAP_CHAIN_DESC1 *pDesc,
+    IDXGIOutput *pRestrictToOutput,
+    IDXGISwapChain1 **ppSwapChain);
+void __RPC_STUB IDXGIFactory2_CreateSwapChainForComposition_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IDXGIFactory2_INTERFACE_DEFINED__ */
 
 /* Begin additional prototypes for all interfaces */
 
