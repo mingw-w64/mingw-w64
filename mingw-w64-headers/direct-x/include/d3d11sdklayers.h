@@ -17,6 +17,11 @@
 
 /* Forward declarations */
 
+#ifndef __ID3D11Debug_FWD_DEFINED__
+#define __ID3D11Debug_FWD_DEFINED__
+typedef interface ID3D11Debug ID3D11Debug;
+#endif
+
 #ifndef __ID3D11InfoQueue_FWD_DEFINED__
 #define __ID3D11InfoQueue_FWD_DEFINED__
 typedef interface ID3D11InfoQueue ID3D11InfoQueue;
@@ -1190,6 +1195,10 @@ typedef enum D3D11_MESSAGE_ID {
     D3D11_MESSAGE_ID_DEVICE_UNORDEREDACCESSVIEW_NOT_SET_DUE_TO_FLIP_PRESENT = 0x300163,
     D3D11_MESSAGE_ID_D3D11_1_MESSAGES_END = 0x300164
 } D3D11_MESSAGE_ID;
+typedef enum D3D11_RLDO_FLAGS {
+    D3D11_RLDO_SUMMARY = 1,
+    D3D11_RLDO_DETAIL = 2
+} D3D11_RLDO_FLAGS;
 typedef struct D3D11_MESSAGE {
     D3D11_MESSAGE_CATEGORY Category;
     D3D11_MESSAGE_SEVERITY Severity;
@@ -1210,6 +1219,238 @@ typedef struct D3D11_INFO_QUEUE_FILTER {
     D3D11_INFO_QUEUE_FILTER_DESC DenyList;
 } D3D11_INFO_QUEUE_FILTER;
 #define D3D11_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT 1024
+/*****************************************************************************
+ * ID3D11Debug interface
+ */
+#ifndef __ID3D11Debug_INTERFACE_DEFINED__
+#define __ID3D11Debug_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11Debug, 0x79cf2233, 0x7536, 0x4948, 0x9d,0x36, 0x1e,0x46,0x92,0xdc,0x57,0x60);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("79cf2233-7536-4948-9d36-1e4692dc5760")
+ID3D11Debug : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetFeatureMask(
+        UINT Mask) = 0;
+
+    virtual UINT STDMETHODCALLTYPE GetFeatureMask(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetPresentPerRenderOpDelay(
+        UINT Milliseconds) = 0;
+
+    virtual UINT STDMETHODCALLTYPE GetPresentPerRenderOpDelay(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetSwapChain(
+        IDXGISwapChain *pSwapChain) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetSwapChain(
+        IDXGISwapChain **ppSwapChain) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ValidateContext(
+        ID3D11DeviceContext *pContext) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ReportLiveDeviceObjects(
+        D3D11_RLDO_FLAGS Flags) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ValidateContextForDispatch(
+        ID3D11DeviceContext *pContext) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11Debug, 0x79cf2233, 0x7536, 0x4948, 0x9d,0x36, 0x1e,0x46,0x92,0xdc,0x57,0x60)
+#endif
+#else
+typedef struct ID3D11DebugVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11Debug* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11Debug* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11Debug* This);
+
+    /*** ID3D11Debug methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetFeatureMask)(
+        ID3D11Debug* This,
+        UINT Mask);
+
+    UINT (STDMETHODCALLTYPE *GetFeatureMask)(
+        ID3D11Debug* This);
+
+    HRESULT (STDMETHODCALLTYPE *SetPresentPerRenderOpDelay)(
+        ID3D11Debug* This,
+        UINT Milliseconds);
+
+    UINT (STDMETHODCALLTYPE *GetPresentPerRenderOpDelay)(
+        ID3D11Debug* This);
+
+    HRESULT (STDMETHODCALLTYPE *SetSwapChain)(
+        ID3D11Debug* This,
+        IDXGISwapChain *pSwapChain);
+
+    HRESULT (STDMETHODCALLTYPE *GetSwapChain)(
+        ID3D11Debug* This,
+        IDXGISwapChain **ppSwapChain);
+
+    HRESULT (STDMETHODCALLTYPE *ValidateContext)(
+        ID3D11Debug* This,
+        ID3D11DeviceContext *pContext);
+
+    HRESULT (STDMETHODCALLTYPE *ReportLiveDeviceObjects)(
+        ID3D11Debug* This,
+        D3D11_RLDO_FLAGS Flags);
+
+    HRESULT (STDMETHODCALLTYPE *ValidateContextForDispatch)(
+        ID3D11Debug* This,
+        ID3D11DeviceContext *pContext);
+
+    END_INTERFACE
+} ID3D11DebugVtbl;
+interface ID3D11Debug {
+    CONST_VTBL ID3D11DebugVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11Debug_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11Debug_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11Debug_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11Debug methods ***/
+#define ID3D11Debug_SetFeatureMask(This,Mask) (This)->lpVtbl->SetFeatureMask(This,Mask)
+#define ID3D11Debug_GetFeatureMask(This) (This)->lpVtbl->GetFeatureMask(This)
+#define ID3D11Debug_SetPresentPerRenderOpDelay(This,Milliseconds) (This)->lpVtbl->SetPresentPerRenderOpDelay(This,Milliseconds)
+#define ID3D11Debug_GetPresentPerRenderOpDelay(This) (This)->lpVtbl->GetPresentPerRenderOpDelay(This)
+#define ID3D11Debug_SetSwapChain(This,pSwapChain) (This)->lpVtbl->SetSwapChain(This,pSwapChain)
+#define ID3D11Debug_GetSwapChain(This,ppSwapChain) (This)->lpVtbl->GetSwapChain(This,ppSwapChain)
+#define ID3D11Debug_ValidateContext(This,pContext) (This)->lpVtbl->ValidateContext(This,pContext)
+#define ID3D11Debug_ReportLiveDeviceObjects(This,Flags) (This)->lpVtbl->ReportLiveDeviceObjects(This,Flags)
+#define ID3D11Debug_ValidateContextForDispatch(This,pContext) (This)->lpVtbl->ValidateContextForDispatch(This,pContext)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11Debug_QueryInterface(ID3D11Debug* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11Debug_AddRef(ID3D11Debug* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11Debug_Release(ID3D11Debug* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11Debug methods ***/
+static FORCEINLINE HRESULT ID3D11Debug_SetFeatureMask(ID3D11Debug* This,UINT Mask) {
+    return This->lpVtbl->SetFeatureMask(This,Mask);
+}
+static FORCEINLINE UINT ID3D11Debug_GetFeatureMask(ID3D11Debug* This) {
+    return This->lpVtbl->GetFeatureMask(This);
+}
+static FORCEINLINE HRESULT ID3D11Debug_SetPresentPerRenderOpDelay(ID3D11Debug* This,UINT Milliseconds) {
+    return This->lpVtbl->SetPresentPerRenderOpDelay(This,Milliseconds);
+}
+static FORCEINLINE UINT ID3D11Debug_GetPresentPerRenderOpDelay(ID3D11Debug* This) {
+    return This->lpVtbl->GetPresentPerRenderOpDelay(This);
+}
+static FORCEINLINE HRESULT ID3D11Debug_SetSwapChain(ID3D11Debug* This,IDXGISwapChain *pSwapChain) {
+    return This->lpVtbl->SetSwapChain(This,pSwapChain);
+}
+static FORCEINLINE HRESULT ID3D11Debug_GetSwapChain(ID3D11Debug* This,IDXGISwapChain **ppSwapChain) {
+    return This->lpVtbl->GetSwapChain(This,ppSwapChain);
+}
+static FORCEINLINE HRESULT ID3D11Debug_ValidateContext(ID3D11Debug* This,ID3D11DeviceContext *pContext) {
+    return This->lpVtbl->ValidateContext(This,pContext);
+}
+static FORCEINLINE HRESULT ID3D11Debug_ReportLiveDeviceObjects(ID3D11Debug* This,D3D11_RLDO_FLAGS Flags) {
+    return This->lpVtbl->ReportLiveDeviceObjects(This,Flags);
+}
+static FORCEINLINE HRESULT ID3D11Debug_ValidateContextForDispatch(ID3D11Debug* This,ID3D11DeviceContext *pContext) {
+    return This->lpVtbl->ValidateContextForDispatch(This,pContext);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ID3D11Debug_SetFeatureMask_Proxy(
+    ID3D11Debug* This,
+    UINT Mask);
+void __RPC_STUB ID3D11Debug_SetFeatureMask_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+UINT STDMETHODCALLTYPE ID3D11Debug_GetFeatureMask_Proxy(
+    ID3D11Debug* This);
+void __RPC_STUB ID3D11Debug_GetFeatureMask_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Debug_SetPresentPerRenderOpDelay_Proxy(
+    ID3D11Debug* This,
+    UINT Milliseconds);
+void __RPC_STUB ID3D11Debug_SetPresentPerRenderOpDelay_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+UINT STDMETHODCALLTYPE ID3D11Debug_GetPresentPerRenderOpDelay_Proxy(
+    ID3D11Debug* This);
+void __RPC_STUB ID3D11Debug_GetPresentPerRenderOpDelay_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Debug_SetSwapChain_Proxy(
+    ID3D11Debug* This,
+    IDXGISwapChain *pSwapChain);
+void __RPC_STUB ID3D11Debug_SetSwapChain_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Debug_GetSwapChain_Proxy(
+    ID3D11Debug* This,
+    IDXGISwapChain **ppSwapChain);
+void __RPC_STUB ID3D11Debug_GetSwapChain_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Debug_ValidateContext_Proxy(
+    ID3D11Debug* This,
+    ID3D11DeviceContext *pContext);
+void __RPC_STUB ID3D11Debug_ValidateContext_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Debug_ReportLiveDeviceObjects_Proxy(
+    ID3D11Debug* This,
+    D3D11_RLDO_FLAGS Flags);
+void __RPC_STUB ID3D11Debug_ReportLiveDeviceObjects_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11Debug_ValidateContextForDispatch_Proxy(
+    ID3D11Debug* This,
+    ID3D11DeviceContext *pContext);
+void __RPC_STUB ID3D11Debug_ValidateContextForDispatch_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11Debug_INTERFACE_DEFINED__ */
+
 /*****************************************************************************
  * ID3D11InfoQueue interface
  */

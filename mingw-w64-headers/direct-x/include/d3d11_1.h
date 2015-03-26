@@ -471,7 +471,7 @@ ID3D11DeviceContext1 : public ID3D11DeviceContext
 
     virtual void STDMETHODCALLTYPE ClearView(
         ID3D11View *pView,
-        FLOAT Color[4],
+        const FLOAT Color[4],
         const D3D11_RECT *pRect,
         UINT NumRects) = 0;
 
@@ -1279,7 +1279,7 @@ typedef struct ID3D11DeviceContext1Vtbl {
     void (STDMETHODCALLTYPE *ClearView)(
         ID3D11DeviceContext1* This,
         ID3D11View *pView,
-        FLOAT Color[4],
+        const FLOAT Color[4],
         const D3D11_RECT *pRect,
         UINT NumRects);
 
@@ -1836,7 +1836,7 @@ static FORCEINLINE void ID3D11DeviceContext1_CSGetConstantBuffers1(ID3D11DeviceC
 static FORCEINLINE void ID3D11DeviceContext1_SwapDeviceContextState(ID3D11DeviceContext1* This,ID3DDeviceContextState *pState,ID3DDeviceContextState **ppPreviousState) {
     This->lpVtbl->SwapDeviceContextState(This,pState,ppPreviousState);
 }
-static FORCEINLINE void ID3D11DeviceContext1_ClearView(ID3D11DeviceContext1* This,ID3D11View *pView,FLOAT Color[4],const D3D11_RECT *pRect,UINT NumRects) {
+static FORCEINLINE void ID3D11DeviceContext1_ClearView(ID3D11DeviceContext1* This,ID3D11View *pView,const FLOAT Color[4],const D3D11_RECT *pRect,UINT NumRects) {
     This->lpVtbl->ClearView(This,pView,Color,pRect,NumRects);
 }
 static FORCEINLINE void ID3D11DeviceContext1_DiscardView1(ID3D11DeviceContext1* This,ID3D11View *pResourceView,const D3D11_RECT *pRects,UINT NumRects) {
@@ -2049,7 +2049,7 @@ void __RPC_STUB ID3D11DeviceContext1_SwapDeviceContextState_Stub(
 void STDMETHODCALLTYPE ID3D11DeviceContext1_ClearView_Proxy(
     ID3D11DeviceContext1* This,
     ID3D11View *pView,
-    FLOAT Color[4],
+    const FLOAT Color[4],
     const D3D11_RECT *pRect,
     UINT NumRects);
 void __RPC_STUB ID3D11DeviceContext1_ClearView_Stub(

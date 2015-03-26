@@ -32,6 +32,11 @@ typedef interface IDXGISwapChain1 IDXGISwapChain1;
 typedef interface IDXGIFactory2 IDXGIFactory2;
 #endif
 
+#ifndef __IDXGIAdapter2_FWD_DEFINED__
+#define __IDXGIAdapter2_FWD_DEFINED__
+typedef interface IDXGIAdapter2 IDXGIAdapter2;
+#endif
+
 /* Headers for imported files */
 
 #include <dxgi.h>
@@ -1186,6 +1191,199 @@ void __RPC_STUB IDXGIFactory2_CreateSwapChainForComposition_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __IDXGIFactory2_INTERFACE_DEFINED__ */
+
+typedef enum DXGI_GRAPHICS_PREEMPTION_GRANULARITY {
+    DXGI_GRAPHICS_PREEMPTION_DMA_BUFFER_BOUNDARY = 0,
+    DXGI_GRAPHICS_PREEMPTION_PRIMITIVE_BOUNDARY = 1,
+    DXGI_GRAPHICS_PREEMPTION_TRIANGLE_BOUNDARY = 2,
+    DXGI_GRAPHICS_PREEMPTION_PIXEL_BOUNDARY = 3,
+    DXGI_GRAPHICS_PREEMPTION_INSTRUCTION_BOUNDARY = 4
+} DXGI_GRAPHICS_PREEMPTION_GRANULARITY;
+typedef enum DXGI_COMPUTE_PREEMPTION_GRANULARITY {
+    DXGI_COMPUTE_PREEMPTION_DMA_BUFFER_BOUNDARY = 0,
+    DXGI_COMPUTE_PREEMPTION_DISPATCH_BOUNDARY = 1,
+    DXGI_COMPUTE_PREEMPTION_THREAD_GROUP_BOUNDARY = 2,
+    DXGI_COMPUTE_PREEMPTION_THREAD_BOUNDARY = 3,
+    DXGI_COMPUTE_PREEMPTION_INSTRUCTION_BOUNDARY = 4
+} DXGI_COMPUTE_PREEMPTION_GRANULARITY;
+typedef struct DXGI_ADAPTER_DESC2 {
+    WCHAR Description[128];
+    UINT VendorId;
+    UINT DeviceId;
+    UINT SubSysId;
+    UINT Revision;
+    SIZE_T DedicatedVideoMemory;
+    SIZE_T DedicatedSystemMemory;
+    SIZE_T SharedSystemMemory;
+    LUID AdapterLuid;
+    UINT Flags;
+    DXGI_GRAPHICS_PREEMPTION_GRANULARITY GraphicsPreemptionGranularity;
+    DXGI_COMPUTE_PREEMPTION_GRANULARITY ComputePreemptionGranularity;
+} DXGI_ADAPTER_DESC2;
+/*****************************************************************************
+ * IDXGIAdapter2 interface
+ */
+#ifndef __IDXGIAdapter2_INTERFACE_DEFINED__
+#define __IDXGIAdapter2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IDXGIAdapter2, 0x0aa1ae0a, 0xfa0e, 0x4b84, 0x86,0x44, 0xe0,0x5f,0xf8,0xe5,0xac,0xb5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("0aa1ae0a-fa0e-4b84-8644-e05ff8e5acb5")
+IDXGIAdapter2 : public IDXGIAdapter1
+{
+    virtual HRESULT STDMETHODCALLTYPE GetDesc2(
+        DXGI_ADAPTER_DESC2 *pDesc) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDXGIAdapter2, 0x0aa1ae0a, 0xfa0e, 0x4b84, 0x86,0x44, 0xe0,0x5f,0xf8,0xe5,0xac,0xb5)
+#endif
+#else
+typedef struct IDXGIAdapter2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IDXGIAdapter2* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IDXGIAdapter2* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IDXGIAdapter2* This);
+
+    /*** IDXGIObject methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        IDXGIAdapter2* This,
+        REFGUID guid,
+        UINT data_size,
+        const void *data);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        IDXGIAdapter2* This,
+        REFGUID guid,
+        const IUnknown *object);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        IDXGIAdapter2* This,
+        REFGUID guid,
+        UINT *data_size,
+        void *data);
+
+    HRESULT (STDMETHODCALLTYPE *GetParent)(
+        IDXGIAdapter2* This,
+        REFIID riid,
+        void **parent);
+
+    /*** IDXGIAdapter methods ***/
+    HRESULT (STDMETHODCALLTYPE *EnumOutputs)(
+        IDXGIAdapter2* This,
+        UINT output_idx,
+        IDXGIOutput **output);
+
+    HRESULT (STDMETHODCALLTYPE *GetDesc)(
+        IDXGIAdapter2* This,
+        DXGI_ADAPTER_DESC *desc);
+
+    HRESULT (STDMETHODCALLTYPE *CheckInterfaceSupport)(
+        IDXGIAdapter2* This,
+        REFGUID guid,
+        LARGE_INTEGER *umd_version);
+
+    /*** IDXGIAdapter1 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetDesc1)(
+        IDXGIAdapter2* This,
+        DXGI_ADAPTER_DESC1 *pDesc);
+
+    /*** IDXGIAdapter2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetDesc2)(
+        IDXGIAdapter2* This,
+        DXGI_ADAPTER_DESC2 *pDesc);
+
+    END_INTERFACE
+} IDXGIAdapter2Vtbl;
+interface IDXGIAdapter2 {
+    CONST_VTBL IDXGIAdapter2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IDXGIAdapter2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDXGIAdapter2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDXGIAdapter2_Release(This) (This)->lpVtbl->Release(This)
+/*** IDXGIObject methods ***/
+#define IDXGIAdapter2_SetPrivateData(This,guid,data_size,data) (This)->lpVtbl->SetPrivateData(This,guid,data_size,data)
+#define IDXGIAdapter2_SetPrivateDataInterface(This,guid,object) (This)->lpVtbl->SetPrivateDataInterface(This,guid,object)
+#define IDXGIAdapter2_GetPrivateData(This,guid,data_size,data) (This)->lpVtbl->GetPrivateData(This,guid,data_size,data)
+#define IDXGIAdapter2_GetParent(This,riid,parent) (This)->lpVtbl->GetParent(This,riid,parent)
+/*** IDXGIAdapter methods ***/
+#define IDXGIAdapter2_EnumOutputs(This,output_idx,output) (This)->lpVtbl->EnumOutputs(This,output_idx,output)
+#define IDXGIAdapter2_GetDesc(This,desc) (This)->lpVtbl->GetDesc(This,desc)
+#define IDXGIAdapter2_CheckInterfaceSupport(This,guid,umd_version) (This)->lpVtbl->CheckInterfaceSupport(This,guid,umd_version)
+/*** IDXGIAdapter1 methods ***/
+#define IDXGIAdapter2_GetDesc1(This,pDesc) (This)->lpVtbl->GetDesc1(This,pDesc)
+/*** IDXGIAdapter2 methods ***/
+#define IDXGIAdapter2_GetDesc2(This,pDesc) (This)->lpVtbl->GetDesc2(This,pDesc)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDXGIAdapter2_QueryInterface(IDXGIAdapter2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDXGIAdapter2_AddRef(IDXGIAdapter2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDXGIAdapter2_Release(IDXGIAdapter2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDXGIObject methods ***/
+static FORCEINLINE HRESULT IDXGIAdapter2_SetPrivateData(IDXGIAdapter2* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIAdapter2_SetPrivateDataInterface(IDXGIAdapter2* This,REFGUID guid,const IUnknown *object) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,object);
+}
+static FORCEINLINE HRESULT IDXGIAdapter2_GetPrivateData(IDXGIAdapter2* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIAdapter2_GetParent(IDXGIAdapter2* This,REFIID riid,void **parent) {
+    return This->lpVtbl->GetParent(This,riid,parent);
+}
+/*** IDXGIAdapter methods ***/
+static FORCEINLINE HRESULT IDXGIAdapter2_EnumOutputs(IDXGIAdapter2* This,UINT output_idx,IDXGIOutput **output) {
+    return This->lpVtbl->EnumOutputs(This,output_idx,output);
+}
+static FORCEINLINE HRESULT IDXGIAdapter2_GetDesc(IDXGIAdapter2* This,DXGI_ADAPTER_DESC *desc) {
+    return This->lpVtbl->GetDesc(This,desc);
+}
+static FORCEINLINE HRESULT IDXGIAdapter2_CheckInterfaceSupport(IDXGIAdapter2* This,REFGUID guid,LARGE_INTEGER *umd_version) {
+    return This->lpVtbl->CheckInterfaceSupport(This,guid,umd_version);
+}
+/*** IDXGIAdapter1 methods ***/
+static FORCEINLINE HRESULT IDXGIAdapter2_GetDesc1(IDXGIAdapter2* This,DXGI_ADAPTER_DESC1 *pDesc) {
+    return This->lpVtbl->GetDesc1(This,pDesc);
+}
+/*** IDXGIAdapter2 methods ***/
+static FORCEINLINE HRESULT IDXGIAdapter2_GetDesc2(IDXGIAdapter2* This,DXGI_ADAPTER_DESC2 *pDesc) {
+    return This->lpVtbl->GetDesc2(This,pDesc);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IDXGIAdapter2_GetDesc2_Proxy(
+    IDXGIAdapter2* This,
+    DXGI_ADAPTER_DESC2 *pDesc);
+void __RPC_STUB IDXGIAdapter2_GetDesc2_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IDXGIAdapter2_INTERFACE_DEFINED__ */
 
 /* Begin additional prototypes for all interfaces */
 

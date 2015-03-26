@@ -597,8 +597,29 @@ typedef enum D3D11_FEATURE {
     D3D11_FEATURE_DOUBLES = 1,
     D3D11_FEATURE_FORMAT_SUPPORT = 2,
     D3D11_FEATURE_FORMAT_SUPPORT2 = 3,
-    D3D11_FEATURE_D3D10_X_HARDWARE_OPTIONS = 4
+    D3D11_FEATURE_D3D10_X_HARDWARE_OPTIONS = 4,
+    D3D11_FEATURE_D3D11_OPTIONS = 5,
+    D3D11_FEATURE_ARCHITECTURE_INFO = 6,
+    D3D11_FEATURE_D3D9_OPTIONS = 7,
+    D3D11_FEATURE_SHADER_MIN_PRECISION_SUPPORT = 8,
+    D3D11_FEATURE_D3D9_SHADOW_SUPPORT = 9
 } D3D11_FEATURE;
+typedef struct D3D11_FEATURE_DATA_D3D11_OPTIONS {
+    WINBOOL OutputMergerLogicOp;
+    WINBOOL UAVOnlyRenderingForcedSampleCount;
+    WINBOOL DiscardAPIsSeenByDriver;
+    WINBOOL FlagsForUpdateAndCopySeenByDriver;
+    WINBOOL ClearView;
+    WINBOOL CopyWithOverlap;
+    WINBOOL ConstantBufferPartialUpdate;
+    WINBOOL ConstantBufferOffsetting;
+    WINBOOL MapNoOverwriteOnDynamicConstantBuffer;
+    WINBOOL MapNoOverwriteOnDynamicBufferSRV;
+    WINBOOL MultisampleRTVWithForcedSampleCountOne;
+    WINBOOL SAD4ShaderInstructions;
+    WINBOOL ExtendedDoublesShaderInstructions;
+    WINBOOL ExtendedResourceSharing;
+} D3D11_FEATURE_DATA_D3D11_OPTIONS;
 typedef enum D3D11_FILL_MODE {
     D3D11_FILL_WIREFRAME = 2,
     D3D11_FILL_SOLID = 3
