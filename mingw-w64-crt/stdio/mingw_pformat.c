@@ -297,7 +297,23 @@ __builtin_choose_expr (                                         \
     __builtin_choose_expr (                                     \
       __builtin_types_compatible_p (typeof (x), char),          \
         PFORMAT_LENGTH_CHAR,                                    \
-  PFORMAT_LENGTH_INT)))))
+    __builtin_choose_expr (                                     \
+      __builtin_types_compatible_p (typeof (x), __uI128),       \
+        PFORMAT_LENGTH_LLONG128,                                \
+    __builtin_choose_expr (                                              \
+      __builtin_types_compatible_p (typeof (x), unsigned long),          \
+        PFORMAT_LENGTH_LLONG,                                            \
+    __builtin_choose_expr (                                              \
+      __builtin_types_compatible_p (typeof (x), unsigned long long),     \
+        PFORMAT_LENGTH_LLONG,                                            \
+    __builtin_choose_expr (                                              \
+      __builtin_types_compatible_p (typeof (x), unsigned short),         \
+        PFORMAT_LENGTH_SHORT,                                            \
+    __builtin_choose_expr (                                              \
+      __builtin_types_compatible_p (typeof (x), unsigned char),          \
+        PFORMAT_LENGTH_CHAR,                                             \
+  PFORMAT_LENGTH_INT))))))))))
+
 #else
 #define __pformat_arg_length( type )    \
   sizeof( type ) == sizeof( __tI128 )   ? PFORMAT_LENGTH_LLONG128 : \
