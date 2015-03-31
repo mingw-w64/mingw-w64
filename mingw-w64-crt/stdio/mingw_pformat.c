@@ -302,7 +302,7 @@ __builtin_choose_expr (                                         \
         PFORMAT_LENGTH_LLONG128,                                \
     __builtin_choose_expr (                                              \
       __builtin_types_compatible_p (typeof (x), unsigned long),          \
-        PFORMAT_LENGTH_LLONG,                                            \
+        PFORMAT_LENGTH_LONG,                                             \
     __builtin_choose_expr (                                              \
       __builtin_types_compatible_p (typeof (x), unsigned long long),     \
         PFORMAT_LENGTH_LLONG,                                            \
