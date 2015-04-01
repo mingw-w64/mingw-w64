@@ -217,12 +217,17 @@ typedef union ATTRIB_GCC_STRUCT __uI128 {
 static
 int __pformat_exponent_digits( void )
 {
-  char *exponent_digits = getenv( "PRINTF_EXPONENT_DIGITS" );
-  return ((exponent_digits != NULL) && ((unsigned)(*exponent_digits - '0') < 3))
-    || (_get_output_format() & _TWO_DIGIT_EXPONENT)
-    ? 2
-    : 3
-    ;
+  /* Calling getenv is expensive; only do it once and cache the result. */
+  static int two_exp_digits_env = -1;
+  if (two_exp_digits_env == -1) {
+    const char *exponent_digits_env = getenv( "PRINTF_EXPONENT_DIGITS" );
+    two_exp_digits_env = exponent_digits_env != NULL
+                         && (unsigned)(*exponent_digits_env - '0') < 3;
+  }
+  return (two_exp_digits_env || (_get_output_format() & _TWO_DIGIT_EXPONENT))
+         ? 2
+         : 3
+         ;
 }
 #else
 /*
@@ -1461,6 +1466,8 @@ void __pformat_emit_efloat( int sign, char *value, int e, __pformat_t *stream )
 
   /* Ensure that this is at least as many as the standard requirement.
    */
+  if (stream->expmin == -1)
+    stream->expmin = PFORMAT_MINEXP;
   if( exp_width < stream->expmin )
     exp_width = stream->expmin;
 
@@ -2273,7 +2280,8 @@ __pformat (int flags, void *dest, int max, const APICHAR *fmt, va_list argv)
     (wchar_t)(0),				/* leave it unspecified	      */
     0,						/* zero output char count     */
     max,					/* establish output limit     */
-    PFORMAT_MINEXP				/* exponent chars preferred   */
+    -1						/* exponent chars preferred;
+                                                   -1 means to be determined. */
   };
 
   format_scan: while( (c = *fmt++) != 0 )
