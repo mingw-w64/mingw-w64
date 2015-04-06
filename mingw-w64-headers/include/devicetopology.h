@@ -1230,9 +1230,9 @@ void __RPC_STUB IAudioOutputSelector_SetSelection_Stub(
 #ifndef __IAudioMute_INTERFACE_DEFINED__
 #define __IAudioMute_INTERFACE_DEFINED__
 
-DEFINE_GUID(IID_IAudioMute, 0xbb515f69, 0x94a7, 0x429e, 0x8b,0x9c, 0x27,0x1b,0x3f,0x11,0xa3,0xab);
+DEFINE_GUID(IID_IAudioMute, 0xdf45aeea, 0xb74a, 0x4b6b, 0xaf,0xad, 0x23,0x66,0xb6,0xaa,0x01,0x2e);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-MIDL_INTERFACE("bb515f69-94a7-429e-8b9c-271b3f11a3ab")
+MIDL_INTERFACE("df45aeea-b74a-4b6b-afad-2366b6aa012e")
 IAudioMute : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE SetMute(
@@ -1244,7 +1244,7 @@ IAudioMute : public IUnknown
 
 };
 #ifdef __CRT_UUID_DECL
-__CRT_UUID_DECL(IAudioMute, 0xbb515f69, 0x94a7, 0x429e, 0x8b,0x9c, 0x27,0x1b,0x3f,0x11,0xa3,0xab)
+__CRT_UUID_DECL(IAudioMute, 0xdf45aeea, 0xb74a, 0x4b6b, 0xaf,0xad, 0x23,0x66,0xb6,0xaa,0x01,0x2e)
 #endif
 #else
 typedef struct IAudioMuteVtbl {
@@ -1702,9 +1702,9 @@ static FORCEINLINE HRESULT IAudioTreble_SetLevelAllChannels(IAudioTreble* This,f
 #ifndef __IAudioAutoGainControl_INTERFACE_DEFINED__
 #define __IAudioAutoGainControl_INTERFACE_DEFINED__
 
-DEFINE_GUID(IID_IAudioAutoGainControl, 0xbb515f69, 0x94a7, 0x429e, 0x8b,0x9c, 0x27,0x1b,0x3f,0x11,0xa3,0xab);
+DEFINE_GUID(IID_IAudioAutoGainControl, 0x85401fd4, 0x6de4, 0x4b9d, 0x98,0x69, 0x2d,0x67,0x53,0xa8,0x2f,0x3c);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-MIDL_INTERFACE("bb515f69-94a7-429e-8b9c-271b3f11a3ab")
+MIDL_INTERFACE("85401fd4-6de4-4b9d-9869-2d6753a82f3c")
 IAudioAutoGainControl : public IUnknown
 {
     virtual HRESULT STDMETHODCALLTYPE GetEnabled(
@@ -1716,7 +1716,7 @@ IAudioAutoGainControl : public IUnknown
 
 };
 #ifdef __CRT_UUID_DECL
-__CRT_UUID_DECL(IAudioAutoGainControl, 0xbb515f69, 0x94a7, 0x429e, 0x8b,0x9c, 0x27,0x1b,0x3f,0x11,0xa3,0xab)
+__CRT_UUID_DECL(IAudioAutoGainControl, 0x85401fd4, 0x6de4, 0x4b9d, 0x98,0x69, 0x2d,0x67,0x53,0xa8,0x2f,0x3c)
 #endif
 #else
 typedef struct IAudioAutoGainControlVtbl {
@@ -3583,6 +3583,7 @@ void __RPC_STUB IDeviceTopology_GetSignalPath_Stub(
 #endif  /* __IDeviceTopology_INTERFACE_DEFINED__ */
 
 
+DEFINE_GUID(LIBID_DevTopologyLib, 0x51b9a01d, 0x8181, 0x4363, 0xb5,0x9c, 0xe6,0x78,0xf4,0x76,0xdd,0x0e);
 
 /*****************************************************************************
  * DeviceTopology coclass

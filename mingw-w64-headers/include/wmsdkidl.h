@@ -72,6 +72,41 @@ typedef interface IWMMetadataEditor IWMMetadataEditor;
 typedef interface IWMReader IWMReader;
 #endif
 
+#ifndef __IWMPlayerHook_FWD_DEFINED__
+#define __IWMPlayerHook_FWD_DEFINED__
+typedef interface IWMPlayerHook IWMPlayerHook;
+#endif
+
+#ifndef __IWMReaderAdvanced_FWD_DEFINED__
+#define __IWMReaderAdvanced_FWD_DEFINED__
+typedef interface IWMReaderAdvanced IWMReaderAdvanced;
+#endif
+
+#ifndef __IWMReaderAdvanced2_FWD_DEFINED__
+#define __IWMReaderAdvanced2_FWD_DEFINED__
+typedef interface IWMReaderAdvanced2 IWMReaderAdvanced2;
+#endif
+
+#ifndef __IWMReaderAdvanced3_FWD_DEFINED__
+#define __IWMReaderAdvanced3_FWD_DEFINED__
+typedef interface IWMReaderAdvanced3 IWMReaderAdvanced3;
+#endif
+
+#ifndef __IWMReaderAdvanced4_FWD_DEFINED__
+#define __IWMReaderAdvanced4_FWD_DEFINED__
+typedef interface IWMReaderAdvanced4 IWMReaderAdvanced4;
+#endif
+
+#ifndef __IWMReaderAdvanced5_FWD_DEFINED__
+#define __IWMReaderAdvanced5_FWD_DEFINED__
+typedef interface IWMReaderAdvanced5 IWMReaderAdvanced5;
+#endif
+
+#ifndef __IWMReaderAdvanced6_FWD_DEFINED__
+#define __IWMReaderAdvanced6_FWD_DEFINED__
+typedef interface IWMReaderAdvanced6 IWMReaderAdvanced6;
+#endif
+
 #ifndef __IWMSyncReader_FWD_DEFINED__
 #define __IWMSyncReader_FWD_DEFINED__
 typedef interface IWMSyncReader IWMSyncReader;
@@ -149,6 +184,25 @@ typedef struct _WMWriterStatisticsEx {
     DWORD dwTotalSampleDropsInCodec;
     DWORD dwTotalSampleDropsInMultiplexer;
 } WM_WRITER_STATISTICS_EX;
+typedef struct _WMReaderStatistics {
+    DWORD cbSize;
+    DWORD dwBandwidth;
+    DWORD cPacketsReceived;
+    DWORD cPacketsRecovered;
+    DWORD cPacketsLost;
+    WORD wQuality;
+} WM_READER_STATISTICS;
+typedef struct _WMReaderClientInfo {
+    DWORD cbSize;
+    WCHAR *wszLang;
+    WCHAR *wszBrowserUserAgent;
+    WCHAR *wszBrowserWebPage;
+    QWORD qwReserved;
+    LPARAM *pReserved;
+    WCHAR *wszHostExe;
+    QWORD qwHostVersion;
+    WCHAR *wszPlayerUserAgent;
+} WM_READER_CLIENTINFO;
 typedef enum WMT_ATTR_DATATYPE {
     WMT_TYPE_DWORD = 0,
     WMT_TYPE_STRING = 1,
@@ -224,6 +278,19 @@ typedef enum WMT_VERSION {
     WMT_VER_8_0 = 0x80000,
     WMT_VER_9_0 = 0x90000
 } WMT_VERSION;
+typedef enum WMT_PLAY_MODE {
+    WMT_PLAY_MODE_AUTOSELECT = 0,
+    WMT_PLAY_MODE_LOCAL = 1,
+    WMT_PLAY_MODE_DOWNLOAD = 2,
+    WMT_PLAY_MODE_STREAMING = 3
+} WMT_PLAY_MODE;
+typedef enum tagWMT_OFFSET_FORMAT {
+    WMT_OFFSET_FORMAT_100NS = 0,
+    WMT_OFFSET_FORMAT_FRAME_NUMBERS = 1,
+    WMT_OFFSET_FORMAT_PLAYLIST_OFFSET = 2,
+    WMT_OFFSET_FORMAT_TIMECODE = 3,
+    WMT_OFFSET_FORMAT_100NS_APPROXIMATE = 4
+} WMT_OFFSET_FORMAT;
 typedef LPCWSTR LPCWSTR_WMSDK_TYPE_SAFE;
 /*****************************************************************************
  * IWMStatusCallback interface
@@ -2271,6 +2338,3201 @@ void __RPC_STUB IWMReader_Resume_Stub(
 #endif  /* __IWMReader_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
+ * IWMPlayerHook interface
+ */
+#ifndef __IWMPlayerHook_INTERFACE_DEFINED__
+#define __IWMPlayerHook_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMPlayerHook, 0xe5b7ca9a, 0x0f1c, 0x4f66, 0x90,0x02, 0x74,0xec,0x50,0xd8,0xb3,0x04);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("e5b7ca9a-0f1c-4f66-9002-74ec50d8b304")
+IWMPlayerHook : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE PreDecode(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMPlayerHook, 0xe5b7ca9a, 0x0f1c, 0x4f66, 0x90,0x02, 0x74,0xec,0x50,0xd8,0xb3,0x04)
+#endif
+#else
+typedef struct IWMPlayerHookVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMPlayerHook* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMPlayerHook* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMPlayerHook* This);
+
+    /*** IWMPlayerHook methods ***/
+    HRESULT (STDMETHODCALLTYPE *PreDecode)(
+        IWMPlayerHook* This);
+
+    END_INTERFACE
+} IWMPlayerHookVtbl;
+interface IWMPlayerHook {
+    CONST_VTBL IWMPlayerHookVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMPlayerHook_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMPlayerHook_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMPlayerHook_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMPlayerHook methods ***/
+#define IWMPlayerHook_PreDecode(This) (This)->lpVtbl->PreDecode(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMPlayerHook_QueryInterface(IWMPlayerHook* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMPlayerHook_AddRef(IWMPlayerHook* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMPlayerHook_Release(IWMPlayerHook* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMPlayerHook methods ***/
+static FORCEINLINE HRESULT IWMPlayerHook_PreDecode(IWMPlayerHook* This) {
+    return This->lpVtbl->PreDecode(This);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMPlayerHook_PreDecode_Proxy(
+    IWMPlayerHook* This);
+void __RPC_STUB IWMPlayerHook_PreDecode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMPlayerHook_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMReaderAdvanced interface
+ */
+#ifndef __IWMReaderAdvanced_INTERFACE_DEFINED__
+#define __IWMReaderAdvanced_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMReaderAdvanced, 0x96406bea, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("96406bea-2b2b-11d3-b36b-00c04f6108ff")
+IWMReaderAdvanced : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetUserProvidedClock(
+        WINBOOL fUserClock) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetUserProvidedClock(
+        WINBOOL *pfUserClock) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE DeliverTime(
+        QWORD cnsTime) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetManualStreamSelection(
+        WINBOOL fSelection) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetManualStreamSelection(
+        WINBOOL *pfSelection) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetStreamsSelected(
+        WORD cStreamCount,
+        WORD *pwStreamNumbers,
+        WMT_STREAM_SELECTION *pSelections) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetStreamSelected(
+        WORD wStreamNum,
+        WMT_STREAM_SELECTION *pSelection) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetReceiveSelectionCallbacks(
+        WINBOOL fGetCallbacks) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetReceiveSelectionCallbacks(
+        WINBOOL *pfGetCallbacks) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetReceiveStreamSamples(
+        WORD wStreamNum,
+        WINBOOL fReceiveStreamSamples) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetReceiveStreamSamples(
+        WORD wStreamNum,
+        WINBOOL *pfReceiveStreamSamples) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetAllocateForOutput(
+        DWORD dwOutputNum,
+        WINBOOL fAllocate) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetAllocateForOutput(
+        DWORD dwOutputNum,
+        WINBOOL *pfAllocate) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetAllocateForStream(
+        WORD wStreamNum,
+        WINBOOL fAllocate) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetAllocateForStream(
+        WORD dwSreamNum,
+        WINBOOL *pfAllocate) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetStatistics(
+        WM_READER_STATISTICS *pStatistics) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetClientInfo(
+        WM_READER_CLIENTINFO *pClientInfo) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMaxOutputSampleSize(
+        DWORD dwOutput,
+        DWORD *pcbMax) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMaxStreamSampleSize(
+        WORD wStream,
+        DWORD *pcbMax) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE NotifyLateDelivery(
+        QWORD cnsLateness) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMReaderAdvanced, 0x96406bea, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff)
+#endif
+#else
+typedef struct IWMReaderAdvancedVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMReaderAdvanced* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMReaderAdvanced* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMReaderAdvanced* This);
+
+    /*** IWMReaderAdvanced methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetUserProvidedClock)(
+        IWMReaderAdvanced* This,
+        WINBOOL fUserClock);
+
+    HRESULT (STDMETHODCALLTYPE *GetUserProvidedClock)(
+        IWMReaderAdvanced* This,
+        WINBOOL *pfUserClock);
+
+    HRESULT (STDMETHODCALLTYPE *DeliverTime)(
+        IWMReaderAdvanced* This,
+        QWORD cnsTime);
+
+    HRESULT (STDMETHODCALLTYPE *SetManualStreamSelection)(
+        IWMReaderAdvanced* This,
+        WINBOOL fSelection);
+
+    HRESULT (STDMETHODCALLTYPE *GetManualStreamSelection)(
+        IWMReaderAdvanced* This,
+        WINBOOL *pfSelection);
+
+    HRESULT (STDMETHODCALLTYPE *SetStreamsSelected)(
+        IWMReaderAdvanced* This,
+        WORD cStreamCount,
+        WORD *pwStreamNumbers,
+        WMT_STREAM_SELECTION *pSelections);
+
+    HRESULT (STDMETHODCALLTYPE *GetStreamSelected)(
+        IWMReaderAdvanced* This,
+        WORD wStreamNum,
+        WMT_STREAM_SELECTION *pSelection);
+
+    HRESULT (STDMETHODCALLTYPE *SetReceiveSelectionCallbacks)(
+        IWMReaderAdvanced* This,
+        WINBOOL fGetCallbacks);
+
+    HRESULT (STDMETHODCALLTYPE *GetReceiveSelectionCallbacks)(
+        IWMReaderAdvanced* This,
+        WINBOOL *pfGetCallbacks);
+
+    HRESULT (STDMETHODCALLTYPE *SetReceiveStreamSamples)(
+        IWMReaderAdvanced* This,
+        WORD wStreamNum,
+        WINBOOL fReceiveStreamSamples);
+
+    HRESULT (STDMETHODCALLTYPE *GetReceiveStreamSamples)(
+        IWMReaderAdvanced* This,
+        WORD wStreamNum,
+        WINBOOL *pfReceiveStreamSamples);
+
+    HRESULT (STDMETHODCALLTYPE *SetAllocateForOutput)(
+        IWMReaderAdvanced* This,
+        DWORD dwOutputNum,
+        WINBOOL fAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *GetAllocateForOutput)(
+        IWMReaderAdvanced* This,
+        DWORD dwOutputNum,
+        WINBOOL *pfAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *SetAllocateForStream)(
+        IWMReaderAdvanced* This,
+        WORD wStreamNum,
+        WINBOOL fAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *GetAllocateForStream)(
+        IWMReaderAdvanced* This,
+        WORD dwSreamNum,
+        WINBOOL *pfAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *GetStatistics)(
+        IWMReaderAdvanced* This,
+        WM_READER_STATISTICS *pStatistics);
+
+    HRESULT (STDMETHODCALLTYPE *SetClientInfo)(
+        IWMReaderAdvanced* This,
+        WM_READER_CLIENTINFO *pClientInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetMaxOutputSampleSize)(
+        IWMReaderAdvanced* This,
+        DWORD dwOutput,
+        DWORD *pcbMax);
+
+    HRESULT (STDMETHODCALLTYPE *GetMaxStreamSampleSize)(
+        IWMReaderAdvanced* This,
+        WORD wStream,
+        DWORD *pcbMax);
+
+    HRESULT (STDMETHODCALLTYPE *NotifyLateDelivery)(
+        IWMReaderAdvanced* This,
+        QWORD cnsLateness);
+
+    END_INTERFACE
+} IWMReaderAdvancedVtbl;
+interface IWMReaderAdvanced {
+    CONST_VTBL IWMReaderAdvancedVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMReaderAdvanced_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMReaderAdvanced_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMReaderAdvanced_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMReaderAdvanced methods ***/
+#define IWMReaderAdvanced_SetUserProvidedClock(This,fUserClock) (This)->lpVtbl->SetUserProvidedClock(This,fUserClock)
+#define IWMReaderAdvanced_GetUserProvidedClock(This,pfUserClock) (This)->lpVtbl->GetUserProvidedClock(This,pfUserClock)
+#define IWMReaderAdvanced_DeliverTime(This,cnsTime) (This)->lpVtbl->DeliverTime(This,cnsTime)
+#define IWMReaderAdvanced_SetManualStreamSelection(This,fSelection) (This)->lpVtbl->SetManualStreamSelection(This,fSelection)
+#define IWMReaderAdvanced_GetManualStreamSelection(This,pfSelection) (This)->lpVtbl->GetManualStreamSelection(This,pfSelection)
+#define IWMReaderAdvanced_SetStreamsSelected(This,cStreamCount,pwStreamNumbers,pSelections) (This)->lpVtbl->SetStreamsSelected(This,cStreamCount,pwStreamNumbers,pSelections)
+#define IWMReaderAdvanced_GetStreamSelected(This,wStreamNum,pSelection) (This)->lpVtbl->GetStreamSelected(This,wStreamNum,pSelection)
+#define IWMReaderAdvanced_SetReceiveSelectionCallbacks(This,fGetCallbacks) (This)->lpVtbl->SetReceiveSelectionCallbacks(This,fGetCallbacks)
+#define IWMReaderAdvanced_GetReceiveSelectionCallbacks(This,pfGetCallbacks) (This)->lpVtbl->GetReceiveSelectionCallbacks(This,pfGetCallbacks)
+#define IWMReaderAdvanced_SetReceiveStreamSamples(This,wStreamNum,fReceiveStreamSamples) (This)->lpVtbl->SetReceiveStreamSamples(This,wStreamNum,fReceiveStreamSamples)
+#define IWMReaderAdvanced_GetReceiveStreamSamples(This,wStreamNum,pfReceiveStreamSamples) (This)->lpVtbl->GetReceiveStreamSamples(This,wStreamNum,pfReceiveStreamSamples)
+#define IWMReaderAdvanced_SetAllocateForOutput(This,dwOutputNum,fAllocate) (This)->lpVtbl->SetAllocateForOutput(This,dwOutputNum,fAllocate)
+#define IWMReaderAdvanced_GetAllocateForOutput(This,dwOutputNum,pfAllocate) (This)->lpVtbl->GetAllocateForOutput(This,dwOutputNum,pfAllocate)
+#define IWMReaderAdvanced_SetAllocateForStream(This,wStreamNum,fAllocate) (This)->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate)
+#define IWMReaderAdvanced_GetAllocateForStream(This,dwSreamNum,pfAllocate) (This)->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate)
+#define IWMReaderAdvanced_GetStatistics(This,pStatistics) (This)->lpVtbl->GetStatistics(This,pStatistics)
+#define IWMReaderAdvanced_SetClientInfo(This,pClientInfo) (This)->lpVtbl->SetClientInfo(This,pClientInfo)
+#define IWMReaderAdvanced_GetMaxOutputSampleSize(This,dwOutput,pcbMax) (This)->lpVtbl->GetMaxOutputSampleSize(This,dwOutput,pcbMax)
+#define IWMReaderAdvanced_GetMaxStreamSampleSize(This,wStream,pcbMax) (This)->lpVtbl->GetMaxStreamSampleSize(This,wStream,pcbMax)
+#define IWMReaderAdvanced_NotifyLateDelivery(This,cnsLateness) (This)->lpVtbl->NotifyLateDelivery(This,cnsLateness)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced_QueryInterface(IWMReaderAdvanced* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMReaderAdvanced_AddRef(IWMReaderAdvanced* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMReaderAdvanced_Release(IWMReaderAdvanced* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMReaderAdvanced methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced_SetUserProvidedClock(IWMReaderAdvanced* This,WINBOOL fUserClock) {
+    return This->lpVtbl->SetUserProvidedClock(This,fUserClock);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced_GetUserProvidedClock(IWMReaderAdvanced* This,WINBOOL *pfUserClock) {
+    return This->lpVtbl->GetUserProvidedClock(This,pfUserClock);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced_DeliverTime(IWMReaderAdvanced* This,QWORD cnsTime) {
+    return This->lpVtbl->DeliverTime(This,cnsTime);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced_SetManualStreamSelection(IWMReaderAdvanced* This,WINBOOL fSelection) {
+    return This->lpVtbl->SetManualStreamSelection(This,fSelection);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced_GetManualStreamSelection(IWMReaderAdvanced* This,WINBOOL *pfSelection) {
+    return This->lpVtbl->GetManualStreamSelection(This,pfSelection);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced_SetStreamsSelected(IWMReaderAdvanced* This,WORD cStreamCount,WORD *pwStreamNumbers,WMT_STREAM_SELECTION *pSelections) {
+    return This->lpVtbl->SetStreamsSelected(This,cStreamCount,pwStreamNumbers,pSelections);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced_GetStreamSelected(IWMReaderAdvanced* This,WORD wStreamNum,WMT_STREAM_SELECTION *pSelection) {
+    return This->lpVtbl->GetStreamSelected(This,wStreamNum,pSelection);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced_SetReceiveSelectionCallbacks(IWMReaderAdvanced* This,WINBOOL fGetCallbacks) {
+    return This->lpVtbl->SetReceiveSelectionCallbacks(This,fGetCallbacks);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced_GetReceiveSelectionCallbacks(IWMReaderAdvanced* This,WINBOOL *pfGetCallbacks) {
+    return This->lpVtbl->GetReceiveSelectionCallbacks(This,pfGetCallbacks);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced_SetReceiveStreamSamples(IWMReaderAdvanced* This,WORD wStreamNum,WINBOOL fReceiveStreamSamples) {
+    return This->lpVtbl->SetReceiveStreamSamples(This,wStreamNum,fReceiveStreamSamples);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced_GetReceiveStreamSamples(IWMReaderAdvanced* This,WORD wStreamNum,WINBOOL *pfReceiveStreamSamples) {
+    return This->lpVtbl->GetReceiveStreamSamples(This,wStreamNum,pfReceiveStreamSamples);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced_SetAllocateForOutput(IWMReaderAdvanced* This,DWORD dwOutputNum,WINBOOL fAllocate) {
+    return This->lpVtbl->SetAllocateForOutput(This,dwOutputNum,fAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced_GetAllocateForOutput(IWMReaderAdvanced* This,DWORD dwOutputNum,WINBOOL *pfAllocate) {
+    return This->lpVtbl->GetAllocateForOutput(This,dwOutputNum,pfAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced_SetAllocateForStream(IWMReaderAdvanced* This,WORD wStreamNum,WINBOOL fAllocate) {
+    return This->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced_GetAllocateForStream(IWMReaderAdvanced* This,WORD dwSreamNum,WINBOOL *pfAllocate) {
+    return This->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced_GetStatistics(IWMReaderAdvanced* This,WM_READER_STATISTICS *pStatistics) {
+    return This->lpVtbl->GetStatistics(This,pStatistics);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced_SetClientInfo(IWMReaderAdvanced* This,WM_READER_CLIENTINFO *pClientInfo) {
+    return This->lpVtbl->SetClientInfo(This,pClientInfo);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced_GetMaxOutputSampleSize(IWMReaderAdvanced* This,DWORD dwOutput,DWORD *pcbMax) {
+    return This->lpVtbl->GetMaxOutputSampleSize(This,dwOutput,pcbMax);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced_GetMaxStreamSampleSize(IWMReaderAdvanced* This,WORD wStream,DWORD *pcbMax) {
+    return This->lpVtbl->GetMaxStreamSampleSize(This,wStream,pcbMax);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced_NotifyLateDelivery(IWMReaderAdvanced* This,QWORD cnsLateness) {
+    return This->lpVtbl->NotifyLateDelivery(This,cnsLateness);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced_SetUserProvidedClock_Proxy(
+    IWMReaderAdvanced* This,
+    WINBOOL fUserClock);
+void __RPC_STUB IWMReaderAdvanced_SetUserProvidedClock_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced_GetUserProvidedClock_Proxy(
+    IWMReaderAdvanced* This,
+    WINBOOL *pfUserClock);
+void __RPC_STUB IWMReaderAdvanced_GetUserProvidedClock_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced_DeliverTime_Proxy(
+    IWMReaderAdvanced* This,
+    QWORD cnsTime);
+void __RPC_STUB IWMReaderAdvanced_DeliverTime_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced_SetManualStreamSelection_Proxy(
+    IWMReaderAdvanced* This,
+    WINBOOL fSelection);
+void __RPC_STUB IWMReaderAdvanced_SetManualStreamSelection_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced_GetManualStreamSelection_Proxy(
+    IWMReaderAdvanced* This,
+    WINBOOL *pfSelection);
+void __RPC_STUB IWMReaderAdvanced_GetManualStreamSelection_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced_SetStreamsSelected_Proxy(
+    IWMReaderAdvanced* This,
+    WORD cStreamCount,
+    WORD *pwStreamNumbers,
+    WMT_STREAM_SELECTION *pSelections);
+void __RPC_STUB IWMReaderAdvanced_SetStreamsSelected_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced_GetStreamSelected_Proxy(
+    IWMReaderAdvanced* This,
+    WORD wStreamNum,
+    WMT_STREAM_SELECTION *pSelection);
+void __RPC_STUB IWMReaderAdvanced_GetStreamSelected_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced_SetReceiveSelectionCallbacks_Proxy(
+    IWMReaderAdvanced* This,
+    WINBOOL fGetCallbacks);
+void __RPC_STUB IWMReaderAdvanced_SetReceiveSelectionCallbacks_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced_GetReceiveSelectionCallbacks_Proxy(
+    IWMReaderAdvanced* This,
+    WINBOOL *pfGetCallbacks);
+void __RPC_STUB IWMReaderAdvanced_GetReceiveSelectionCallbacks_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced_SetReceiveStreamSamples_Proxy(
+    IWMReaderAdvanced* This,
+    WORD wStreamNum,
+    WINBOOL fReceiveStreamSamples);
+void __RPC_STUB IWMReaderAdvanced_SetReceiveStreamSamples_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced_GetReceiveStreamSamples_Proxy(
+    IWMReaderAdvanced* This,
+    WORD wStreamNum,
+    WINBOOL *pfReceiveStreamSamples);
+void __RPC_STUB IWMReaderAdvanced_GetReceiveStreamSamples_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced_SetAllocateForOutput_Proxy(
+    IWMReaderAdvanced* This,
+    DWORD dwOutputNum,
+    WINBOOL fAllocate);
+void __RPC_STUB IWMReaderAdvanced_SetAllocateForOutput_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced_GetAllocateForOutput_Proxy(
+    IWMReaderAdvanced* This,
+    DWORD dwOutputNum,
+    WINBOOL *pfAllocate);
+void __RPC_STUB IWMReaderAdvanced_GetAllocateForOutput_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced_SetAllocateForStream_Proxy(
+    IWMReaderAdvanced* This,
+    WORD wStreamNum,
+    WINBOOL fAllocate);
+void __RPC_STUB IWMReaderAdvanced_SetAllocateForStream_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced_GetAllocateForStream_Proxy(
+    IWMReaderAdvanced* This,
+    WORD dwSreamNum,
+    WINBOOL *pfAllocate);
+void __RPC_STUB IWMReaderAdvanced_GetAllocateForStream_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced_GetStatistics_Proxy(
+    IWMReaderAdvanced* This,
+    WM_READER_STATISTICS *pStatistics);
+void __RPC_STUB IWMReaderAdvanced_GetStatistics_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced_SetClientInfo_Proxy(
+    IWMReaderAdvanced* This,
+    WM_READER_CLIENTINFO *pClientInfo);
+void __RPC_STUB IWMReaderAdvanced_SetClientInfo_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced_GetMaxOutputSampleSize_Proxy(
+    IWMReaderAdvanced* This,
+    DWORD dwOutput,
+    DWORD *pcbMax);
+void __RPC_STUB IWMReaderAdvanced_GetMaxOutputSampleSize_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced_GetMaxStreamSampleSize_Proxy(
+    IWMReaderAdvanced* This,
+    WORD wStream,
+    DWORD *pcbMax);
+void __RPC_STUB IWMReaderAdvanced_GetMaxStreamSampleSize_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced_NotifyLateDelivery_Proxy(
+    IWMReaderAdvanced* This,
+    QWORD cnsLateness);
+void __RPC_STUB IWMReaderAdvanced_NotifyLateDelivery_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMReaderAdvanced_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMReaderAdvanced2 interface
+ */
+#ifndef __IWMReaderAdvanced2_INTERFACE_DEFINED__
+#define __IWMReaderAdvanced2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMReaderAdvanced2, 0xae14a945, 0xb90c, 0x4d0d, 0x91,0x27, 0x80,0xd6,0x65,0xf7,0xd7,0x3e);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("ae14a945-b90c-4d0d-9127-80d665f7d73e")
+IWMReaderAdvanced2 : public IWMReaderAdvanced
+{
+    virtual HRESULT STDMETHODCALLTYPE SetPlayMode(
+        WMT_PLAY_MODE Mode) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPlayMode(
+        WMT_PLAY_MODE *pMode) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetBufferProgress(
+        DWORD *pdwPercent,
+        QWORD *pcnsBuffering) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDownloadProgress(
+        DWORD *pdwPercent,
+        QWORD *pqwBytesDownloaded,
+        QWORD *pcnsDownload) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetSaveAsProgress(
+        DWORD *pdwPercent) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SaveFileAs(
+        const WCHAR *pwszFilename) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetProtocolName(
+        WCHAR *pwszProtocol,
+        DWORD *pcchProtocol) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE StartAtMarker(
+        WORD wMarkerIndex,
+        QWORD cnsDuration,
+        float fRate,
+        void *pvContext) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetOutputSetting(
+        DWORD dwOutputNum,
+        LPCWSTR pszName,
+        WMT_ATTR_DATATYPE *pType,
+        BYTE *pValue,
+        WORD *pcbLength) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetOutputSetting(
+        DWORD dwOutputNum,
+        LPCWSTR pszName,
+        WMT_ATTR_DATATYPE Type,
+        const BYTE *pValue,
+        WORD cbLength) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Preroll(
+        QWORD cnsStart,
+        QWORD cnsDuration,
+        float fRate) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetLogClientID(
+        WINBOOL fLogClientID) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetLogClientID(
+        WINBOOL *pfLogClientID) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE StopBuffering(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OpenStream(
+        IStream *pStream,
+        IWMReaderCallback *pCallback,
+        void *pvContext) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMReaderAdvanced2, 0xae14a945, 0xb90c, 0x4d0d, 0x91,0x27, 0x80,0xd6,0x65,0xf7,0xd7,0x3e)
+#endif
+#else
+typedef struct IWMReaderAdvanced2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMReaderAdvanced2* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMReaderAdvanced2* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMReaderAdvanced2* This);
+
+    /*** IWMReaderAdvanced methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetUserProvidedClock)(
+        IWMReaderAdvanced2* This,
+        WINBOOL fUserClock);
+
+    HRESULT (STDMETHODCALLTYPE *GetUserProvidedClock)(
+        IWMReaderAdvanced2* This,
+        WINBOOL *pfUserClock);
+
+    HRESULT (STDMETHODCALLTYPE *DeliverTime)(
+        IWMReaderAdvanced2* This,
+        QWORD cnsTime);
+
+    HRESULT (STDMETHODCALLTYPE *SetManualStreamSelection)(
+        IWMReaderAdvanced2* This,
+        WINBOOL fSelection);
+
+    HRESULT (STDMETHODCALLTYPE *GetManualStreamSelection)(
+        IWMReaderAdvanced2* This,
+        WINBOOL *pfSelection);
+
+    HRESULT (STDMETHODCALLTYPE *SetStreamsSelected)(
+        IWMReaderAdvanced2* This,
+        WORD cStreamCount,
+        WORD *pwStreamNumbers,
+        WMT_STREAM_SELECTION *pSelections);
+
+    HRESULT (STDMETHODCALLTYPE *GetStreamSelected)(
+        IWMReaderAdvanced2* This,
+        WORD wStreamNum,
+        WMT_STREAM_SELECTION *pSelection);
+
+    HRESULT (STDMETHODCALLTYPE *SetReceiveSelectionCallbacks)(
+        IWMReaderAdvanced2* This,
+        WINBOOL fGetCallbacks);
+
+    HRESULT (STDMETHODCALLTYPE *GetReceiveSelectionCallbacks)(
+        IWMReaderAdvanced2* This,
+        WINBOOL *pfGetCallbacks);
+
+    HRESULT (STDMETHODCALLTYPE *SetReceiveStreamSamples)(
+        IWMReaderAdvanced2* This,
+        WORD wStreamNum,
+        WINBOOL fReceiveStreamSamples);
+
+    HRESULT (STDMETHODCALLTYPE *GetReceiveStreamSamples)(
+        IWMReaderAdvanced2* This,
+        WORD wStreamNum,
+        WINBOOL *pfReceiveStreamSamples);
+
+    HRESULT (STDMETHODCALLTYPE *SetAllocateForOutput)(
+        IWMReaderAdvanced2* This,
+        DWORD dwOutputNum,
+        WINBOOL fAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *GetAllocateForOutput)(
+        IWMReaderAdvanced2* This,
+        DWORD dwOutputNum,
+        WINBOOL *pfAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *SetAllocateForStream)(
+        IWMReaderAdvanced2* This,
+        WORD wStreamNum,
+        WINBOOL fAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *GetAllocateForStream)(
+        IWMReaderAdvanced2* This,
+        WORD dwSreamNum,
+        WINBOOL *pfAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *GetStatistics)(
+        IWMReaderAdvanced2* This,
+        WM_READER_STATISTICS *pStatistics);
+
+    HRESULT (STDMETHODCALLTYPE *SetClientInfo)(
+        IWMReaderAdvanced2* This,
+        WM_READER_CLIENTINFO *pClientInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetMaxOutputSampleSize)(
+        IWMReaderAdvanced2* This,
+        DWORD dwOutput,
+        DWORD *pcbMax);
+
+    HRESULT (STDMETHODCALLTYPE *GetMaxStreamSampleSize)(
+        IWMReaderAdvanced2* This,
+        WORD wStream,
+        DWORD *pcbMax);
+
+    HRESULT (STDMETHODCALLTYPE *NotifyLateDelivery)(
+        IWMReaderAdvanced2* This,
+        QWORD cnsLateness);
+
+    /*** IWMReaderAdvanced2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetPlayMode)(
+        IWMReaderAdvanced2* This,
+        WMT_PLAY_MODE Mode);
+
+    HRESULT (STDMETHODCALLTYPE *GetPlayMode)(
+        IWMReaderAdvanced2* This,
+        WMT_PLAY_MODE *pMode);
+
+    HRESULT (STDMETHODCALLTYPE *GetBufferProgress)(
+        IWMReaderAdvanced2* This,
+        DWORD *pdwPercent,
+        QWORD *pcnsBuffering);
+
+    HRESULT (STDMETHODCALLTYPE *GetDownloadProgress)(
+        IWMReaderAdvanced2* This,
+        DWORD *pdwPercent,
+        QWORD *pqwBytesDownloaded,
+        QWORD *pcnsDownload);
+
+    HRESULT (STDMETHODCALLTYPE *GetSaveAsProgress)(
+        IWMReaderAdvanced2* This,
+        DWORD *pdwPercent);
+
+    HRESULT (STDMETHODCALLTYPE *SaveFileAs)(
+        IWMReaderAdvanced2* This,
+        const WCHAR *pwszFilename);
+
+    HRESULT (STDMETHODCALLTYPE *GetProtocolName)(
+        IWMReaderAdvanced2* This,
+        WCHAR *pwszProtocol,
+        DWORD *pcchProtocol);
+
+    HRESULT (STDMETHODCALLTYPE *StartAtMarker)(
+        IWMReaderAdvanced2* This,
+        WORD wMarkerIndex,
+        QWORD cnsDuration,
+        float fRate,
+        void *pvContext);
+
+    HRESULT (STDMETHODCALLTYPE *GetOutputSetting)(
+        IWMReaderAdvanced2* This,
+        DWORD dwOutputNum,
+        LPCWSTR pszName,
+        WMT_ATTR_DATATYPE *pType,
+        BYTE *pValue,
+        WORD *pcbLength);
+
+    HRESULT (STDMETHODCALLTYPE *SetOutputSetting)(
+        IWMReaderAdvanced2* This,
+        DWORD dwOutputNum,
+        LPCWSTR pszName,
+        WMT_ATTR_DATATYPE Type,
+        const BYTE *pValue,
+        WORD cbLength);
+
+    HRESULT (STDMETHODCALLTYPE *Preroll)(
+        IWMReaderAdvanced2* This,
+        QWORD cnsStart,
+        QWORD cnsDuration,
+        float fRate);
+
+    HRESULT (STDMETHODCALLTYPE *SetLogClientID)(
+        IWMReaderAdvanced2* This,
+        WINBOOL fLogClientID);
+
+    HRESULT (STDMETHODCALLTYPE *GetLogClientID)(
+        IWMReaderAdvanced2* This,
+        WINBOOL *pfLogClientID);
+
+    HRESULT (STDMETHODCALLTYPE *StopBuffering)(
+        IWMReaderAdvanced2* This);
+
+    HRESULT (STDMETHODCALLTYPE *OpenStream)(
+        IWMReaderAdvanced2* This,
+        IStream *pStream,
+        IWMReaderCallback *pCallback,
+        void *pvContext);
+
+    END_INTERFACE
+} IWMReaderAdvanced2Vtbl;
+interface IWMReaderAdvanced2 {
+    CONST_VTBL IWMReaderAdvanced2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMReaderAdvanced2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMReaderAdvanced2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMReaderAdvanced2_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMReaderAdvanced methods ***/
+#define IWMReaderAdvanced2_SetUserProvidedClock(This,fUserClock) (This)->lpVtbl->SetUserProvidedClock(This,fUserClock)
+#define IWMReaderAdvanced2_GetUserProvidedClock(This,pfUserClock) (This)->lpVtbl->GetUserProvidedClock(This,pfUserClock)
+#define IWMReaderAdvanced2_DeliverTime(This,cnsTime) (This)->lpVtbl->DeliverTime(This,cnsTime)
+#define IWMReaderAdvanced2_SetManualStreamSelection(This,fSelection) (This)->lpVtbl->SetManualStreamSelection(This,fSelection)
+#define IWMReaderAdvanced2_GetManualStreamSelection(This,pfSelection) (This)->lpVtbl->GetManualStreamSelection(This,pfSelection)
+#define IWMReaderAdvanced2_SetStreamsSelected(This,cStreamCount,pwStreamNumbers,pSelections) (This)->lpVtbl->SetStreamsSelected(This,cStreamCount,pwStreamNumbers,pSelections)
+#define IWMReaderAdvanced2_GetStreamSelected(This,wStreamNum,pSelection) (This)->lpVtbl->GetStreamSelected(This,wStreamNum,pSelection)
+#define IWMReaderAdvanced2_SetReceiveSelectionCallbacks(This,fGetCallbacks) (This)->lpVtbl->SetReceiveSelectionCallbacks(This,fGetCallbacks)
+#define IWMReaderAdvanced2_GetReceiveSelectionCallbacks(This,pfGetCallbacks) (This)->lpVtbl->GetReceiveSelectionCallbacks(This,pfGetCallbacks)
+#define IWMReaderAdvanced2_SetReceiveStreamSamples(This,wStreamNum,fReceiveStreamSamples) (This)->lpVtbl->SetReceiveStreamSamples(This,wStreamNum,fReceiveStreamSamples)
+#define IWMReaderAdvanced2_GetReceiveStreamSamples(This,wStreamNum,pfReceiveStreamSamples) (This)->lpVtbl->GetReceiveStreamSamples(This,wStreamNum,pfReceiveStreamSamples)
+#define IWMReaderAdvanced2_SetAllocateForOutput(This,dwOutputNum,fAllocate) (This)->lpVtbl->SetAllocateForOutput(This,dwOutputNum,fAllocate)
+#define IWMReaderAdvanced2_GetAllocateForOutput(This,dwOutputNum,pfAllocate) (This)->lpVtbl->GetAllocateForOutput(This,dwOutputNum,pfAllocate)
+#define IWMReaderAdvanced2_SetAllocateForStream(This,wStreamNum,fAllocate) (This)->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate)
+#define IWMReaderAdvanced2_GetAllocateForStream(This,dwSreamNum,pfAllocate) (This)->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate)
+#define IWMReaderAdvanced2_GetStatistics(This,pStatistics) (This)->lpVtbl->GetStatistics(This,pStatistics)
+#define IWMReaderAdvanced2_SetClientInfo(This,pClientInfo) (This)->lpVtbl->SetClientInfo(This,pClientInfo)
+#define IWMReaderAdvanced2_GetMaxOutputSampleSize(This,dwOutput,pcbMax) (This)->lpVtbl->GetMaxOutputSampleSize(This,dwOutput,pcbMax)
+#define IWMReaderAdvanced2_GetMaxStreamSampleSize(This,wStream,pcbMax) (This)->lpVtbl->GetMaxStreamSampleSize(This,wStream,pcbMax)
+#define IWMReaderAdvanced2_NotifyLateDelivery(This,cnsLateness) (This)->lpVtbl->NotifyLateDelivery(This,cnsLateness)
+/*** IWMReaderAdvanced2 methods ***/
+#define IWMReaderAdvanced2_SetPlayMode(This,Mode) (This)->lpVtbl->SetPlayMode(This,Mode)
+#define IWMReaderAdvanced2_GetPlayMode(This,pMode) (This)->lpVtbl->GetPlayMode(This,pMode)
+#define IWMReaderAdvanced2_GetBufferProgress(This,pdwPercent,pcnsBuffering) (This)->lpVtbl->GetBufferProgress(This,pdwPercent,pcnsBuffering)
+#define IWMReaderAdvanced2_GetDownloadProgress(This,pdwPercent,pqwBytesDownloaded,pcnsDownload) (This)->lpVtbl->GetDownloadProgress(This,pdwPercent,pqwBytesDownloaded,pcnsDownload)
+#define IWMReaderAdvanced2_GetSaveAsProgress(This,pdwPercent) (This)->lpVtbl->GetSaveAsProgress(This,pdwPercent)
+#define IWMReaderAdvanced2_SaveFileAs(This,pwszFilename) (This)->lpVtbl->SaveFileAs(This,pwszFilename)
+#define IWMReaderAdvanced2_GetProtocolName(This,pwszProtocol,pcchProtocol) (This)->lpVtbl->GetProtocolName(This,pwszProtocol,pcchProtocol)
+#define IWMReaderAdvanced2_StartAtMarker(This,wMarkerIndex,cnsDuration,fRate,pvContext) (This)->lpVtbl->StartAtMarker(This,wMarkerIndex,cnsDuration,fRate,pvContext)
+#define IWMReaderAdvanced2_GetOutputSetting(This,dwOutputNum,pszName,pType,pValue,pcbLength) (This)->lpVtbl->GetOutputSetting(This,dwOutputNum,pszName,pType,pValue,pcbLength)
+#define IWMReaderAdvanced2_SetOutputSetting(This,dwOutputNum,pszName,Type,pValue,cbLength) (This)->lpVtbl->SetOutputSetting(This,dwOutputNum,pszName,Type,pValue,cbLength)
+#define IWMReaderAdvanced2_Preroll(This,cnsStart,cnsDuration,fRate) (This)->lpVtbl->Preroll(This,cnsStart,cnsDuration,fRate)
+#define IWMReaderAdvanced2_SetLogClientID(This,fLogClientID) (This)->lpVtbl->SetLogClientID(This,fLogClientID)
+#define IWMReaderAdvanced2_GetLogClientID(This,pfLogClientID) (This)->lpVtbl->GetLogClientID(This,pfLogClientID)
+#define IWMReaderAdvanced2_StopBuffering(This) (This)->lpVtbl->StopBuffering(This)
+#define IWMReaderAdvanced2_OpenStream(This,pStream,pCallback,pvContext) (This)->lpVtbl->OpenStream(This,pStream,pCallback,pvContext)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced2_QueryInterface(IWMReaderAdvanced2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMReaderAdvanced2_AddRef(IWMReaderAdvanced2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMReaderAdvanced2_Release(IWMReaderAdvanced2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMReaderAdvanced methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced2_SetUserProvidedClock(IWMReaderAdvanced2* This,WINBOOL fUserClock) {
+    return This->lpVtbl->SetUserProvidedClock(This,fUserClock);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_GetUserProvidedClock(IWMReaderAdvanced2* This,WINBOOL *pfUserClock) {
+    return This->lpVtbl->GetUserProvidedClock(This,pfUserClock);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_DeliverTime(IWMReaderAdvanced2* This,QWORD cnsTime) {
+    return This->lpVtbl->DeliverTime(This,cnsTime);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_SetManualStreamSelection(IWMReaderAdvanced2* This,WINBOOL fSelection) {
+    return This->lpVtbl->SetManualStreamSelection(This,fSelection);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_GetManualStreamSelection(IWMReaderAdvanced2* This,WINBOOL *pfSelection) {
+    return This->lpVtbl->GetManualStreamSelection(This,pfSelection);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_SetStreamsSelected(IWMReaderAdvanced2* This,WORD cStreamCount,WORD *pwStreamNumbers,WMT_STREAM_SELECTION *pSelections) {
+    return This->lpVtbl->SetStreamsSelected(This,cStreamCount,pwStreamNumbers,pSelections);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_GetStreamSelected(IWMReaderAdvanced2* This,WORD wStreamNum,WMT_STREAM_SELECTION *pSelection) {
+    return This->lpVtbl->GetStreamSelected(This,wStreamNum,pSelection);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_SetReceiveSelectionCallbacks(IWMReaderAdvanced2* This,WINBOOL fGetCallbacks) {
+    return This->lpVtbl->SetReceiveSelectionCallbacks(This,fGetCallbacks);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_GetReceiveSelectionCallbacks(IWMReaderAdvanced2* This,WINBOOL *pfGetCallbacks) {
+    return This->lpVtbl->GetReceiveSelectionCallbacks(This,pfGetCallbacks);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_SetReceiveStreamSamples(IWMReaderAdvanced2* This,WORD wStreamNum,WINBOOL fReceiveStreamSamples) {
+    return This->lpVtbl->SetReceiveStreamSamples(This,wStreamNum,fReceiveStreamSamples);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_GetReceiveStreamSamples(IWMReaderAdvanced2* This,WORD wStreamNum,WINBOOL *pfReceiveStreamSamples) {
+    return This->lpVtbl->GetReceiveStreamSamples(This,wStreamNum,pfReceiveStreamSamples);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_SetAllocateForOutput(IWMReaderAdvanced2* This,DWORD dwOutputNum,WINBOOL fAllocate) {
+    return This->lpVtbl->SetAllocateForOutput(This,dwOutputNum,fAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_GetAllocateForOutput(IWMReaderAdvanced2* This,DWORD dwOutputNum,WINBOOL *pfAllocate) {
+    return This->lpVtbl->GetAllocateForOutput(This,dwOutputNum,pfAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_SetAllocateForStream(IWMReaderAdvanced2* This,WORD wStreamNum,WINBOOL fAllocate) {
+    return This->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_GetAllocateForStream(IWMReaderAdvanced2* This,WORD dwSreamNum,WINBOOL *pfAllocate) {
+    return This->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_GetStatistics(IWMReaderAdvanced2* This,WM_READER_STATISTICS *pStatistics) {
+    return This->lpVtbl->GetStatistics(This,pStatistics);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_SetClientInfo(IWMReaderAdvanced2* This,WM_READER_CLIENTINFO *pClientInfo) {
+    return This->lpVtbl->SetClientInfo(This,pClientInfo);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_GetMaxOutputSampleSize(IWMReaderAdvanced2* This,DWORD dwOutput,DWORD *pcbMax) {
+    return This->lpVtbl->GetMaxOutputSampleSize(This,dwOutput,pcbMax);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_GetMaxStreamSampleSize(IWMReaderAdvanced2* This,WORD wStream,DWORD *pcbMax) {
+    return This->lpVtbl->GetMaxStreamSampleSize(This,wStream,pcbMax);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_NotifyLateDelivery(IWMReaderAdvanced2* This,QWORD cnsLateness) {
+    return This->lpVtbl->NotifyLateDelivery(This,cnsLateness);
+}
+/*** IWMReaderAdvanced2 methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced2_SetPlayMode(IWMReaderAdvanced2* This,WMT_PLAY_MODE Mode) {
+    return This->lpVtbl->SetPlayMode(This,Mode);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_GetPlayMode(IWMReaderAdvanced2* This,WMT_PLAY_MODE *pMode) {
+    return This->lpVtbl->GetPlayMode(This,pMode);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_GetBufferProgress(IWMReaderAdvanced2* This,DWORD *pdwPercent,QWORD *pcnsBuffering) {
+    return This->lpVtbl->GetBufferProgress(This,pdwPercent,pcnsBuffering);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_GetDownloadProgress(IWMReaderAdvanced2* This,DWORD *pdwPercent,QWORD *pqwBytesDownloaded,QWORD *pcnsDownload) {
+    return This->lpVtbl->GetDownloadProgress(This,pdwPercent,pqwBytesDownloaded,pcnsDownload);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_GetSaveAsProgress(IWMReaderAdvanced2* This,DWORD *pdwPercent) {
+    return This->lpVtbl->GetSaveAsProgress(This,pdwPercent);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_SaveFileAs(IWMReaderAdvanced2* This,const WCHAR *pwszFilename) {
+    return This->lpVtbl->SaveFileAs(This,pwszFilename);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_GetProtocolName(IWMReaderAdvanced2* This,WCHAR *pwszProtocol,DWORD *pcchProtocol) {
+    return This->lpVtbl->GetProtocolName(This,pwszProtocol,pcchProtocol);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_StartAtMarker(IWMReaderAdvanced2* This,WORD wMarkerIndex,QWORD cnsDuration,float fRate,void *pvContext) {
+    return This->lpVtbl->StartAtMarker(This,wMarkerIndex,cnsDuration,fRate,pvContext);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_GetOutputSetting(IWMReaderAdvanced2* This,DWORD dwOutputNum,LPCWSTR pszName,WMT_ATTR_DATATYPE *pType,BYTE *pValue,WORD *pcbLength) {
+    return This->lpVtbl->GetOutputSetting(This,dwOutputNum,pszName,pType,pValue,pcbLength);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_SetOutputSetting(IWMReaderAdvanced2* This,DWORD dwOutputNum,LPCWSTR pszName,WMT_ATTR_DATATYPE Type,const BYTE *pValue,WORD cbLength) {
+    return This->lpVtbl->SetOutputSetting(This,dwOutputNum,pszName,Type,pValue,cbLength);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_Preroll(IWMReaderAdvanced2* This,QWORD cnsStart,QWORD cnsDuration,float fRate) {
+    return This->lpVtbl->Preroll(This,cnsStart,cnsDuration,fRate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_SetLogClientID(IWMReaderAdvanced2* This,WINBOOL fLogClientID) {
+    return This->lpVtbl->SetLogClientID(This,fLogClientID);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_GetLogClientID(IWMReaderAdvanced2* This,WINBOOL *pfLogClientID) {
+    return This->lpVtbl->GetLogClientID(This,pfLogClientID);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_StopBuffering(IWMReaderAdvanced2* This) {
+    return This->lpVtbl->StopBuffering(This);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced2_OpenStream(IWMReaderAdvanced2* This,IStream *pStream,IWMReaderCallback *pCallback,void *pvContext) {
+    return This->lpVtbl->OpenStream(This,pStream,pCallback,pvContext);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced2_SetPlayMode_Proxy(
+    IWMReaderAdvanced2* This,
+    WMT_PLAY_MODE Mode);
+void __RPC_STUB IWMReaderAdvanced2_SetPlayMode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced2_GetPlayMode_Proxy(
+    IWMReaderAdvanced2* This,
+    WMT_PLAY_MODE *pMode);
+void __RPC_STUB IWMReaderAdvanced2_GetPlayMode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced2_GetBufferProgress_Proxy(
+    IWMReaderAdvanced2* This,
+    DWORD *pdwPercent,
+    QWORD *pcnsBuffering);
+void __RPC_STUB IWMReaderAdvanced2_GetBufferProgress_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced2_GetDownloadProgress_Proxy(
+    IWMReaderAdvanced2* This,
+    DWORD *pdwPercent,
+    QWORD *pqwBytesDownloaded,
+    QWORD *pcnsDownload);
+void __RPC_STUB IWMReaderAdvanced2_GetDownloadProgress_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced2_GetSaveAsProgress_Proxy(
+    IWMReaderAdvanced2* This,
+    DWORD *pdwPercent);
+void __RPC_STUB IWMReaderAdvanced2_GetSaveAsProgress_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced2_SaveFileAs_Proxy(
+    IWMReaderAdvanced2* This,
+    const WCHAR *pwszFilename);
+void __RPC_STUB IWMReaderAdvanced2_SaveFileAs_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced2_GetProtocolName_Proxy(
+    IWMReaderAdvanced2* This,
+    WCHAR *pwszProtocol,
+    DWORD *pcchProtocol);
+void __RPC_STUB IWMReaderAdvanced2_GetProtocolName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced2_StartAtMarker_Proxy(
+    IWMReaderAdvanced2* This,
+    WORD wMarkerIndex,
+    QWORD cnsDuration,
+    float fRate,
+    void *pvContext);
+void __RPC_STUB IWMReaderAdvanced2_StartAtMarker_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced2_GetOutputSetting_Proxy(
+    IWMReaderAdvanced2* This,
+    DWORD dwOutputNum,
+    LPCWSTR pszName,
+    WMT_ATTR_DATATYPE *pType,
+    BYTE *pValue,
+    WORD *pcbLength);
+void __RPC_STUB IWMReaderAdvanced2_GetOutputSetting_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced2_SetOutputSetting_Proxy(
+    IWMReaderAdvanced2* This,
+    DWORD dwOutputNum,
+    LPCWSTR pszName,
+    WMT_ATTR_DATATYPE Type,
+    const BYTE *pValue,
+    WORD cbLength);
+void __RPC_STUB IWMReaderAdvanced2_SetOutputSetting_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced2_Preroll_Proxy(
+    IWMReaderAdvanced2* This,
+    QWORD cnsStart,
+    QWORD cnsDuration,
+    float fRate);
+void __RPC_STUB IWMReaderAdvanced2_Preroll_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced2_SetLogClientID_Proxy(
+    IWMReaderAdvanced2* This,
+    WINBOOL fLogClientID);
+void __RPC_STUB IWMReaderAdvanced2_SetLogClientID_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced2_GetLogClientID_Proxy(
+    IWMReaderAdvanced2* This,
+    WINBOOL *pfLogClientID);
+void __RPC_STUB IWMReaderAdvanced2_GetLogClientID_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced2_StopBuffering_Proxy(
+    IWMReaderAdvanced2* This);
+void __RPC_STUB IWMReaderAdvanced2_StopBuffering_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced2_OpenStream_Proxy(
+    IWMReaderAdvanced2* This,
+    IStream *pStream,
+    IWMReaderCallback *pCallback,
+    void *pvContext);
+void __RPC_STUB IWMReaderAdvanced2_OpenStream_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMReaderAdvanced2_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMReaderAdvanced3 interface
+ */
+#ifndef __IWMReaderAdvanced3_INTERFACE_DEFINED__
+#define __IWMReaderAdvanced3_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMReaderAdvanced3, 0x5dc0674b, 0xf04b, 0x4a4e, 0x9f,0x2a, 0xb1,0xaf,0xde,0x2c,0x81,0x00);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("5dc0674b-f04b-4a4e-9f2a-b1afde2c8100")
+IWMReaderAdvanced3 : public IWMReaderAdvanced2
+{
+    virtual HRESULT STDMETHODCALLTYPE StopNetStreaming(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE StartAtPosition(
+        WORD wStreamNum,
+        void *pvOffsetStart,
+        void *pvDuration,
+        WMT_OFFSET_FORMAT dwOffsetFormat,
+        float fRate,
+        void *pvContext) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMReaderAdvanced3, 0x5dc0674b, 0xf04b, 0x4a4e, 0x9f,0x2a, 0xb1,0xaf,0xde,0x2c,0x81,0x00)
+#endif
+#else
+typedef struct IWMReaderAdvanced3Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMReaderAdvanced3* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMReaderAdvanced3* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMReaderAdvanced3* This);
+
+    /*** IWMReaderAdvanced methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetUserProvidedClock)(
+        IWMReaderAdvanced3* This,
+        WINBOOL fUserClock);
+
+    HRESULT (STDMETHODCALLTYPE *GetUserProvidedClock)(
+        IWMReaderAdvanced3* This,
+        WINBOOL *pfUserClock);
+
+    HRESULT (STDMETHODCALLTYPE *DeliverTime)(
+        IWMReaderAdvanced3* This,
+        QWORD cnsTime);
+
+    HRESULT (STDMETHODCALLTYPE *SetManualStreamSelection)(
+        IWMReaderAdvanced3* This,
+        WINBOOL fSelection);
+
+    HRESULT (STDMETHODCALLTYPE *GetManualStreamSelection)(
+        IWMReaderAdvanced3* This,
+        WINBOOL *pfSelection);
+
+    HRESULT (STDMETHODCALLTYPE *SetStreamsSelected)(
+        IWMReaderAdvanced3* This,
+        WORD cStreamCount,
+        WORD *pwStreamNumbers,
+        WMT_STREAM_SELECTION *pSelections);
+
+    HRESULT (STDMETHODCALLTYPE *GetStreamSelected)(
+        IWMReaderAdvanced3* This,
+        WORD wStreamNum,
+        WMT_STREAM_SELECTION *pSelection);
+
+    HRESULT (STDMETHODCALLTYPE *SetReceiveSelectionCallbacks)(
+        IWMReaderAdvanced3* This,
+        WINBOOL fGetCallbacks);
+
+    HRESULT (STDMETHODCALLTYPE *GetReceiveSelectionCallbacks)(
+        IWMReaderAdvanced3* This,
+        WINBOOL *pfGetCallbacks);
+
+    HRESULT (STDMETHODCALLTYPE *SetReceiveStreamSamples)(
+        IWMReaderAdvanced3* This,
+        WORD wStreamNum,
+        WINBOOL fReceiveStreamSamples);
+
+    HRESULT (STDMETHODCALLTYPE *GetReceiveStreamSamples)(
+        IWMReaderAdvanced3* This,
+        WORD wStreamNum,
+        WINBOOL *pfReceiveStreamSamples);
+
+    HRESULT (STDMETHODCALLTYPE *SetAllocateForOutput)(
+        IWMReaderAdvanced3* This,
+        DWORD dwOutputNum,
+        WINBOOL fAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *GetAllocateForOutput)(
+        IWMReaderAdvanced3* This,
+        DWORD dwOutputNum,
+        WINBOOL *pfAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *SetAllocateForStream)(
+        IWMReaderAdvanced3* This,
+        WORD wStreamNum,
+        WINBOOL fAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *GetAllocateForStream)(
+        IWMReaderAdvanced3* This,
+        WORD dwSreamNum,
+        WINBOOL *pfAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *GetStatistics)(
+        IWMReaderAdvanced3* This,
+        WM_READER_STATISTICS *pStatistics);
+
+    HRESULT (STDMETHODCALLTYPE *SetClientInfo)(
+        IWMReaderAdvanced3* This,
+        WM_READER_CLIENTINFO *pClientInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetMaxOutputSampleSize)(
+        IWMReaderAdvanced3* This,
+        DWORD dwOutput,
+        DWORD *pcbMax);
+
+    HRESULT (STDMETHODCALLTYPE *GetMaxStreamSampleSize)(
+        IWMReaderAdvanced3* This,
+        WORD wStream,
+        DWORD *pcbMax);
+
+    HRESULT (STDMETHODCALLTYPE *NotifyLateDelivery)(
+        IWMReaderAdvanced3* This,
+        QWORD cnsLateness);
+
+    /*** IWMReaderAdvanced2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetPlayMode)(
+        IWMReaderAdvanced3* This,
+        WMT_PLAY_MODE Mode);
+
+    HRESULT (STDMETHODCALLTYPE *GetPlayMode)(
+        IWMReaderAdvanced3* This,
+        WMT_PLAY_MODE *pMode);
+
+    HRESULT (STDMETHODCALLTYPE *GetBufferProgress)(
+        IWMReaderAdvanced3* This,
+        DWORD *pdwPercent,
+        QWORD *pcnsBuffering);
+
+    HRESULT (STDMETHODCALLTYPE *GetDownloadProgress)(
+        IWMReaderAdvanced3* This,
+        DWORD *pdwPercent,
+        QWORD *pqwBytesDownloaded,
+        QWORD *pcnsDownload);
+
+    HRESULT (STDMETHODCALLTYPE *GetSaveAsProgress)(
+        IWMReaderAdvanced3* This,
+        DWORD *pdwPercent);
+
+    HRESULT (STDMETHODCALLTYPE *SaveFileAs)(
+        IWMReaderAdvanced3* This,
+        const WCHAR *pwszFilename);
+
+    HRESULT (STDMETHODCALLTYPE *GetProtocolName)(
+        IWMReaderAdvanced3* This,
+        WCHAR *pwszProtocol,
+        DWORD *pcchProtocol);
+
+    HRESULT (STDMETHODCALLTYPE *StartAtMarker)(
+        IWMReaderAdvanced3* This,
+        WORD wMarkerIndex,
+        QWORD cnsDuration,
+        float fRate,
+        void *pvContext);
+
+    HRESULT (STDMETHODCALLTYPE *GetOutputSetting)(
+        IWMReaderAdvanced3* This,
+        DWORD dwOutputNum,
+        LPCWSTR pszName,
+        WMT_ATTR_DATATYPE *pType,
+        BYTE *pValue,
+        WORD *pcbLength);
+
+    HRESULT (STDMETHODCALLTYPE *SetOutputSetting)(
+        IWMReaderAdvanced3* This,
+        DWORD dwOutputNum,
+        LPCWSTR pszName,
+        WMT_ATTR_DATATYPE Type,
+        const BYTE *pValue,
+        WORD cbLength);
+
+    HRESULT (STDMETHODCALLTYPE *Preroll)(
+        IWMReaderAdvanced3* This,
+        QWORD cnsStart,
+        QWORD cnsDuration,
+        float fRate);
+
+    HRESULT (STDMETHODCALLTYPE *SetLogClientID)(
+        IWMReaderAdvanced3* This,
+        WINBOOL fLogClientID);
+
+    HRESULT (STDMETHODCALLTYPE *GetLogClientID)(
+        IWMReaderAdvanced3* This,
+        WINBOOL *pfLogClientID);
+
+    HRESULT (STDMETHODCALLTYPE *StopBuffering)(
+        IWMReaderAdvanced3* This);
+
+    HRESULT (STDMETHODCALLTYPE *OpenStream)(
+        IWMReaderAdvanced3* This,
+        IStream *pStream,
+        IWMReaderCallback *pCallback,
+        void *pvContext);
+
+    /*** IWMReaderAdvanced3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *StopNetStreaming)(
+        IWMReaderAdvanced3* This);
+
+    HRESULT (STDMETHODCALLTYPE *StartAtPosition)(
+        IWMReaderAdvanced3* This,
+        WORD wStreamNum,
+        void *pvOffsetStart,
+        void *pvDuration,
+        WMT_OFFSET_FORMAT dwOffsetFormat,
+        float fRate,
+        void *pvContext);
+
+    END_INTERFACE
+} IWMReaderAdvanced3Vtbl;
+interface IWMReaderAdvanced3 {
+    CONST_VTBL IWMReaderAdvanced3Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMReaderAdvanced3_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMReaderAdvanced3_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMReaderAdvanced3_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMReaderAdvanced methods ***/
+#define IWMReaderAdvanced3_SetUserProvidedClock(This,fUserClock) (This)->lpVtbl->SetUserProvidedClock(This,fUserClock)
+#define IWMReaderAdvanced3_GetUserProvidedClock(This,pfUserClock) (This)->lpVtbl->GetUserProvidedClock(This,pfUserClock)
+#define IWMReaderAdvanced3_DeliverTime(This,cnsTime) (This)->lpVtbl->DeliverTime(This,cnsTime)
+#define IWMReaderAdvanced3_SetManualStreamSelection(This,fSelection) (This)->lpVtbl->SetManualStreamSelection(This,fSelection)
+#define IWMReaderAdvanced3_GetManualStreamSelection(This,pfSelection) (This)->lpVtbl->GetManualStreamSelection(This,pfSelection)
+#define IWMReaderAdvanced3_SetStreamsSelected(This,cStreamCount,pwStreamNumbers,pSelections) (This)->lpVtbl->SetStreamsSelected(This,cStreamCount,pwStreamNumbers,pSelections)
+#define IWMReaderAdvanced3_GetStreamSelected(This,wStreamNum,pSelection) (This)->lpVtbl->GetStreamSelected(This,wStreamNum,pSelection)
+#define IWMReaderAdvanced3_SetReceiveSelectionCallbacks(This,fGetCallbacks) (This)->lpVtbl->SetReceiveSelectionCallbacks(This,fGetCallbacks)
+#define IWMReaderAdvanced3_GetReceiveSelectionCallbacks(This,pfGetCallbacks) (This)->lpVtbl->GetReceiveSelectionCallbacks(This,pfGetCallbacks)
+#define IWMReaderAdvanced3_SetReceiveStreamSamples(This,wStreamNum,fReceiveStreamSamples) (This)->lpVtbl->SetReceiveStreamSamples(This,wStreamNum,fReceiveStreamSamples)
+#define IWMReaderAdvanced3_GetReceiveStreamSamples(This,wStreamNum,pfReceiveStreamSamples) (This)->lpVtbl->GetReceiveStreamSamples(This,wStreamNum,pfReceiveStreamSamples)
+#define IWMReaderAdvanced3_SetAllocateForOutput(This,dwOutputNum,fAllocate) (This)->lpVtbl->SetAllocateForOutput(This,dwOutputNum,fAllocate)
+#define IWMReaderAdvanced3_GetAllocateForOutput(This,dwOutputNum,pfAllocate) (This)->lpVtbl->GetAllocateForOutput(This,dwOutputNum,pfAllocate)
+#define IWMReaderAdvanced3_SetAllocateForStream(This,wStreamNum,fAllocate) (This)->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate)
+#define IWMReaderAdvanced3_GetAllocateForStream(This,dwSreamNum,pfAllocate) (This)->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate)
+#define IWMReaderAdvanced3_GetStatistics(This,pStatistics) (This)->lpVtbl->GetStatistics(This,pStatistics)
+#define IWMReaderAdvanced3_SetClientInfo(This,pClientInfo) (This)->lpVtbl->SetClientInfo(This,pClientInfo)
+#define IWMReaderAdvanced3_GetMaxOutputSampleSize(This,dwOutput,pcbMax) (This)->lpVtbl->GetMaxOutputSampleSize(This,dwOutput,pcbMax)
+#define IWMReaderAdvanced3_GetMaxStreamSampleSize(This,wStream,pcbMax) (This)->lpVtbl->GetMaxStreamSampleSize(This,wStream,pcbMax)
+#define IWMReaderAdvanced3_NotifyLateDelivery(This,cnsLateness) (This)->lpVtbl->NotifyLateDelivery(This,cnsLateness)
+/*** IWMReaderAdvanced2 methods ***/
+#define IWMReaderAdvanced3_SetPlayMode(This,Mode) (This)->lpVtbl->SetPlayMode(This,Mode)
+#define IWMReaderAdvanced3_GetPlayMode(This,pMode) (This)->lpVtbl->GetPlayMode(This,pMode)
+#define IWMReaderAdvanced3_GetBufferProgress(This,pdwPercent,pcnsBuffering) (This)->lpVtbl->GetBufferProgress(This,pdwPercent,pcnsBuffering)
+#define IWMReaderAdvanced3_GetDownloadProgress(This,pdwPercent,pqwBytesDownloaded,pcnsDownload) (This)->lpVtbl->GetDownloadProgress(This,pdwPercent,pqwBytesDownloaded,pcnsDownload)
+#define IWMReaderAdvanced3_GetSaveAsProgress(This,pdwPercent) (This)->lpVtbl->GetSaveAsProgress(This,pdwPercent)
+#define IWMReaderAdvanced3_SaveFileAs(This,pwszFilename) (This)->lpVtbl->SaveFileAs(This,pwszFilename)
+#define IWMReaderAdvanced3_GetProtocolName(This,pwszProtocol,pcchProtocol) (This)->lpVtbl->GetProtocolName(This,pwszProtocol,pcchProtocol)
+#define IWMReaderAdvanced3_StartAtMarker(This,wMarkerIndex,cnsDuration,fRate,pvContext) (This)->lpVtbl->StartAtMarker(This,wMarkerIndex,cnsDuration,fRate,pvContext)
+#define IWMReaderAdvanced3_GetOutputSetting(This,dwOutputNum,pszName,pType,pValue,pcbLength) (This)->lpVtbl->GetOutputSetting(This,dwOutputNum,pszName,pType,pValue,pcbLength)
+#define IWMReaderAdvanced3_SetOutputSetting(This,dwOutputNum,pszName,Type,pValue,cbLength) (This)->lpVtbl->SetOutputSetting(This,dwOutputNum,pszName,Type,pValue,cbLength)
+#define IWMReaderAdvanced3_Preroll(This,cnsStart,cnsDuration,fRate) (This)->lpVtbl->Preroll(This,cnsStart,cnsDuration,fRate)
+#define IWMReaderAdvanced3_SetLogClientID(This,fLogClientID) (This)->lpVtbl->SetLogClientID(This,fLogClientID)
+#define IWMReaderAdvanced3_GetLogClientID(This,pfLogClientID) (This)->lpVtbl->GetLogClientID(This,pfLogClientID)
+#define IWMReaderAdvanced3_StopBuffering(This) (This)->lpVtbl->StopBuffering(This)
+#define IWMReaderAdvanced3_OpenStream(This,pStream,pCallback,pvContext) (This)->lpVtbl->OpenStream(This,pStream,pCallback,pvContext)
+/*** IWMReaderAdvanced3 methods ***/
+#define IWMReaderAdvanced3_StopNetStreaming(This) (This)->lpVtbl->StopNetStreaming(This)
+#define IWMReaderAdvanced3_StartAtPosition(This,wStreamNum,pvOffsetStart,pvDuration,dwOffsetFormat,fRate,pvContext) (This)->lpVtbl->StartAtPosition(This,wStreamNum,pvOffsetStart,pvDuration,dwOffsetFormat,fRate,pvContext)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced3_QueryInterface(IWMReaderAdvanced3* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMReaderAdvanced3_AddRef(IWMReaderAdvanced3* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMReaderAdvanced3_Release(IWMReaderAdvanced3* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMReaderAdvanced methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced3_SetUserProvidedClock(IWMReaderAdvanced3* This,WINBOOL fUserClock) {
+    return This->lpVtbl->SetUserProvidedClock(This,fUserClock);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_GetUserProvidedClock(IWMReaderAdvanced3* This,WINBOOL *pfUserClock) {
+    return This->lpVtbl->GetUserProvidedClock(This,pfUserClock);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_DeliverTime(IWMReaderAdvanced3* This,QWORD cnsTime) {
+    return This->lpVtbl->DeliverTime(This,cnsTime);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_SetManualStreamSelection(IWMReaderAdvanced3* This,WINBOOL fSelection) {
+    return This->lpVtbl->SetManualStreamSelection(This,fSelection);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_GetManualStreamSelection(IWMReaderAdvanced3* This,WINBOOL *pfSelection) {
+    return This->lpVtbl->GetManualStreamSelection(This,pfSelection);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_SetStreamsSelected(IWMReaderAdvanced3* This,WORD cStreamCount,WORD *pwStreamNumbers,WMT_STREAM_SELECTION *pSelections) {
+    return This->lpVtbl->SetStreamsSelected(This,cStreamCount,pwStreamNumbers,pSelections);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_GetStreamSelected(IWMReaderAdvanced3* This,WORD wStreamNum,WMT_STREAM_SELECTION *pSelection) {
+    return This->lpVtbl->GetStreamSelected(This,wStreamNum,pSelection);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_SetReceiveSelectionCallbacks(IWMReaderAdvanced3* This,WINBOOL fGetCallbacks) {
+    return This->lpVtbl->SetReceiveSelectionCallbacks(This,fGetCallbacks);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_GetReceiveSelectionCallbacks(IWMReaderAdvanced3* This,WINBOOL *pfGetCallbacks) {
+    return This->lpVtbl->GetReceiveSelectionCallbacks(This,pfGetCallbacks);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_SetReceiveStreamSamples(IWMReaderAdvanced3* This,WORD wStreamNum,WINBOOL fReceiveStreamSamples) {
+    return This->lpVtbl->SetReceiveStreamSamples(This,wStreamNum,fReceiveStreamSamples);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_GetReceiveStreamSamples(IWMReaderAdvanced3* This,WORD wStreamNum,WINBOOL *pfReceiveStreamSamples) {
+    return This->lpVtbl->GetReceiveStreamSamples(This,wStreamNum,pfReceiveStreamSamples);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_SetAllocateForOutput(IWMReaderAdvanced3* This,DWORD dwOutputNum,WINBOOL fAllocate) {
+    return This->lpVtbl->SetAllocateForOutput(This,dwOutputNum,fAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_GetAllocateForOutput(IWMReaderAdvanced3* This,DWORD dwOutputNum,WINBOOL *pfAllocate) {
+    return This->lpVtbl->GetAllocateForOutput(This,dwOutputNum,pfAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_SetAllocateForStream(IWMReaderAdvanced3* This,WORD wStreamNum,WINBOOL fAllocate) {
+    return This->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_GetAllocateForStream(IWMReaderAdvanced3* This,WORD dwSreamNum,WINBOOL *pfAllocate) {
+    return This->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_GetStatistics(IWMReaderAdvanced3* This,WM_READER_STATISTICS *pStatistics) {
+    return This->lpVtbl->GetStatistics(This,pStatistics);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_SetClientInfo(IWMReaderAdvanced3* This,WM_READER_CLIENTINFO *pClientInfo) {
+    return This->lpVtbl->SetClientInfo(This,pClientInfo);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_GetMaxOutputSampleSize(IWMReaderAdvanced3* This,DWORD dwOutput,DWORD *pcbMax) {
+    return This->lpVtbl->GetMaxOutputSampleSize(This,dwOutput,pcbMax);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_GetMaxStreamSampleSize(IWMReaderAdvanced3* This,WORD wStream,DWORD *pcbMax) {
+    return This->lpVtbl->GetMaxStreamSampleSize(This,wStream,pcbMax);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_NotifyLateDelivery(IWMReaderAdvanced3* This,QWORD cnsLateness) {
+    return This->lpVtbl->NotifyLateDelivery(This,cnsLateness);
+}
+/*** IWMReaderAdvanced2 methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced3_SetPlayMode(IWMReaderAdvanced3* This,WMT_PLAY_MODE Mode) {
+    return This->lpVtbl->SetPlayMode(This,Mode);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_GetPlayMode(IWMReaderAdvanced3* This,WMT_PLAY_MODE *pMode) {
+    return This->lpVtbl->GetPlayMode(This,pMode);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_GetBufferProgress(IWMReaderAdvanced3* This,DWORD *pdwPercent,QWORD *pcnsBuffering) {
+    return This->lpVtbl->GetBufferProgress(This,pdwPercent,pcnsBuffering);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_GetDownloadProgress(IWMReaderAdvanced3* This,DWORD *pdwPercent,QWORD *pqwBytesDownloaded,QWORD *pcnsDownload) {
+    return This->lpVtbl->GetDownloadProgress(This,pdwPercent,pqwBytesDownloaded,pcnsDownload);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_GetSaveAsProgress(IWMReaderAdvanced3* This,DWORD *pdwPercent) {
+    return This->lpVtbl->GetSaveAsProgress(This,pdwPercent);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_SaveFileAs(IWMReaderAdvanced3* This,const WCHAR *pwszFilename) {
+    return This->lpVtbl->SaveFileAs(This,pwszFilename);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_GetProtocolName(IWMReaderAdvanced3* This,WCHAR *pwszProtocol,DWORD *pcchProtocol) {
+    return This->lpVtbl->GetProtocolName(This,pwszProtocol,pcchProtocol);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_StartAtMarker(IWMReaderAdvanced3* This,WORD wMarkerIndex,QWORD cnsDuration,float fRate,void *pvContext) {
+    return This->lpVtbl->StartAtMarker(This,wMarkerIndex,cnsDuration,fRate,pvContext);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_GetOutputSetting(IWMReaderAdvanced3* This,DWORD dwOutputNum,LPCWSTR pszName,WMT_ATTR_DATATYPE *pType,BYTE *pValue,WORD *pcbLength) {
+    return This->lpVtbl->GetOutputSetting(This,dwOutputNum,pszName,pType,pValue,pcbLength);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_SetOutputSetting(IWMReaderAdvanced3* This,DWORD dwOutputNum,LPCWSTR pszName,WMT_ATTR_DATATYPE Type,const BYTE *pValue,WORD cbLength) {
+    return This->lpVtbl->SetOutputSetting(This,dwOutputNum,pszName,Type,pValue,cbLength);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_Preroll(IWMReaderAdvanced3* This,QWORD cnsStart,QWORD cnsDuration,float fRate) {
+    return This->lpVtbl->Preroll(This,cnsStart,cnsDuration,fRate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_SetLogClientID(IWMReaderAdvanced3* This,WINBOOL fLogClientID) {
+    return This->lpVtbl->SetLogClientID(This,fLogClientID);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_GetLogClientID(IWMReaderAdvanced3* This,WINBOOL *pfLogClientID) {
+    return This->lpVtbl->GetLogClientID(This,pfLogClientID);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_StopBuffering(IWMReaderAdvanced3* This) {
+    return This->lpVtbl->StopBuffering(This);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_OpenStream(IWMReaderAdvanced3* This,IStream *pStream,IWMReaderCallback *pCallback,void *pvContext) {
+    return This->lpVtbl->OpenStream(This,pStream,pCallback,pvContext);
+}
+/*** IWMReaderAdvanced3 methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced3_StopNetStreaming(IWMReaderAdvanced3* This) {
+    return This->lpVtbl->StopNetStreaming(This);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced3_StartAtPosition(IWMReaderAdvanced3* This,WORD wStreamNum,void *pvOffsetStart,void *pvDuration,WMT_OFFSET_FORMAT dwOffsetFormat,float fRate,void *pvContext) {
+    return This->lpVtbl->StartAtPosition(This,wStreamNum,pvOffsetStart,pvDuration,dwOffsetFormat,fRate,pvContext);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced3_StopNetStreaming_Proxy(
+    IWMReaderAdvanced3* This);
+void __RPC_STUB IWMReaderAdvanced3_StopNetStreaming_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced3_StartAtPosition_Proxy(
+    IWMReaderAdvanced3* This,
+    WORD wStreamNum,
+    void *pvOffsetStart,
+    void *pvDuration,
+    WMT_OFFSET_FORMAT dwOffsetFormat,
+    float fRate,
+    void *pvContext);
+void __RPC_STUB IWMReaderAdvanced3_StartAtPosition_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMReaderAdvanced3_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMReaderAdvanced4 interface
+ */
+#ifndef __IWMReaderAdvanced4_INTERFACE_DEFINED__
+#define __IWMReaderAdvanced4_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMReaderAdvanced4, 0x945a76a2, 0x12ae, 0x4d48, 0xbd,0x3c, 0xcd,0x1d,0x90,0x39,0x9b,0x85);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("945a76a2-12ae-4d48-bd3c-cd1d90399b85")
+IWMReaderAdvanced4 : public IWMReaderAdvanced3
+{
+    virtual HRESULT STDMETHODCALLTYPE GetLanguageCount(
+        DWORD dwOutputNum,
+        WORD *pwLanguageCount) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetLanguage(
+        DWORD dwOutputNum,
+        WORD wLanguage,
+        WCHAR *pwszLanguageString,
+        WORD *pcchLanguageStringLength) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMaxSpeedFactor(
+        double *pdblFactor) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IsUsingFastCache(
+        WINBOOL *pfUsingFastCache) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddLogParam(
+        LPCWSTR wszNameSpace,
+        LPCWSTR wszName,
+        LPCWSTR wszValue) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SendLogParams(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CanSaveFileAs(
+        WINBOOL *pfCanSave) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CancelSaveFileAs(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetURL(
+        WCHAR *pwszURL,
+        DWORD *pcchURL) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMReaderAdvanced4, 0x945a76a2, 0x12ae, 0x4d48, 0xbd,0x3c, 0xcd,0x1d,0x90,0x39,0x9b,0x85)
+#endif
+#else
+typedef struct IWMReaderAdvanced4Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMReaderAdvanced4* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMReaderAdvanced4* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMReaderAdvanced4* This);
+
+    /*** IWMReaderAdvanced methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetUserProvidedClock)(
+        IWMReaderAdvanced4* This,
+        WINBOOL fUserClock);
+
+    HRESULT (STDMETHODCALLTYPE *GetUserProvidedClock)(
+        IWMReaderAdvanced4* This,
+        WINBOOL *pfUserClock);
+
+    HRESULT (STDMETHODCALLTYPE *DeliverTime)(
+        IWMReaderAdvanced4* This,
+        QWORD cnsTime);
+
+    HRESULT (STDMETHODCALLTYPE *SetManualStreamSelection)(
+        IWMReaderAdvanced4* This,
+        WINBOOL fSelection);
+
+    HRESULT (STDMETHODCALLTYPE *GetManualStreamSelection)(
+        IWMReaderAdvanced4* This,
+        WINBOOL *pfSelection);
+
+    HRESULT (STDMETHODCALLTYPE *SetStreamsSelected)(
+        IWMReaderAdvanced4* This,
+        WORD cStreamCount,
+        WORD *pwStreamNumbers,
+        WMT_STREAM_SELECTION *pSelections);
+
+    HRESULT (STDMETHODCALLTYPE *GetStreamSelected)(
+        IWMReaderAdvanced4* This,
+        WORD wStreamNum,
+        WMT_STREAM_SELECTION *pSelection);
+
+    HRESULT (STDMETHODCALLTYPE *SetReceiveSelectionCallbacks)(
+        IWMReaderAdvanced4* This,
+        WINBOOL fGetCallbacks);
+
+    HRESULT (STDMETHODCALLTYPE *GetReceiveSelectionCallbacks)(
+        IWMReaderAdvanced4* This,
+        WINBOOL *pfGetCallbacks);
+
+    HRESULT (STDMETHODCALLTYPE *SetReceiveStreamSamples)(
+        IWMReaderAdvanced4* This,
+        WORD wStreamNum,
+        WINBOOL fReceiveStreamSamples);
+
+    HRESULT (STDMETHODCALLTYPE *GetReceiveStreamSamples)(
+        IWMReaderAdvanced4* This,
+        WORD wStreamNum,
+        WINBOOL *pfReceiveStreamSamples);
+
+    HRESULT (STDMETHODCALLTYPE *SetAllocateForOutput)(
+        IWMReaderAdvanced4* This,
+        DWORD dwOutputNum,
+        WINBOOL fAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *GetAllocateForOutput)(
+        IWMReaderAdvanced4* This,
+        DWORD dwOutputNum,
+        WINBOOL *pfAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *SetAllocateForStream)(
+        IWMReaderAdvanced4* This,
+        WORD wStreamNum,
+        WINBOOL fAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *GetAllocateForStream)(
+        IWMReaderAdvanced4* This,
+        WORD dwSreamNum,
+        WINBOOL *pfAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *GetStatistics)(
+        IWMReaderAdvanced4* This,
+        WM_READER_STATISTICS *pStatistics);
+
+    HRESULT (STDMETHODCALLTYPE *SetClientInfo)(
+        IWMReaderAdvanced4* This,
+        WM_READER_CLIENTINFO *pClientInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetMaxOutputSampleSize)(
+        IWMReaderAdvanced4* This,
+        DWORD dwOutput,
+        DWORD *pcbMax);
+
+    HRESULT (STDMETHODCALLTYPE *GetMaxStreamSampleSize)(
+        IWMReaderAdvanced4* This,
+        WORD wStream,
+        DWORD *pcbMax);
+
+    HRESULT (STDMETHODCALLTYPE *NotifyLateDelivery)(
+        IWMReaderAdvanced4* This,
+        QWORD cnsLateness);
+
+    /*** IWMReaderAdvanced2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetPlayMode)(
+        IWMReaderAdvanced4* This,
+        WMT_PLAY_MODE Mode);
+
+    HRESULT (STDMETHODCALLTYPE *GetPlayMode)(
+        IWMReaderAdvanced4* This,
+        WMT_PLAY_MODE *pMode);
+
+    HRESULT (STDMETHODCALLTYPE *GetBufferProgress)(
+        IWMReaderAdvanced4* This,
+        DWORD *pdwPercent,
+        QWORD *pcnsBuffering);
+
+    HRESULT (STDMETHODCALLTYPE *GetDownloadProgress)(
+        IWMReaderAdvanced4* This,
+        DWORD *pdwPercent,
+        QWORD *pqwBytesDownloaded,
+        QWORD *pcnsDownload);
+
+    HRESULT (STDMETHODCALLTYPE *GetSaveAsProgress)(
+        IWMReaderAdvanced4* This,
+        DWORD *pdwPercent);
+
+    HRESULT (STDMETHODCALLTYPE *SaveFileAs)(
+        IWMReaderAdvanced4* This,
+        const WCHAR *pwszFilename);
+
+    HRESULT (STDMETHODCALLTYPE *GetProtocolName)(
+        IWMReaderAdvanced4* This,
+        WCHAR *pwszProtocol,
+        DWORD *pcchProtocol);
+
+    HRESULT (STDMETHODCALLTYPE *StartAtMarker)(
+        IWMReaderAdvanced4* This,
+        WORD wMarkerIndex,
+        QWORD cnsDuration,
+        float fRate,
+        void *pvContext);
+
+    HRESULT (STDMETHODCALLTYPE *GetOutputSetting)(
+        IWMReaderAdvanced4* This,
+        DWORD dwOutputNum,
+        LPCWSTR pszName,
+        WMT_ATTR_DATATYPE *pType,
+        BYTE *pValue,
+        WORD *pcbLength);
+
+    HRESULT (STDMETHODCALLTYPE *SetOutputSetting)(
+        IWMReaderAdvanced4* This,
+        DWORD dwOutputNum,
+        LPCWSTR pszName,
+        WMT_ATTR_DATATYPE Type,
+        const BYTE *pValue,
+        WORD cbLength);
+
+    HRESULT (STDMETHODCALLTYPE *Preroll)(
+        IWMReaderAdvanced4* This,
+        QWORD cnsStart,
+        QWORD cnsDuration,
+        float fRate);
+
+    HRESULT (STDMETHODCALLTYPE *SetLogClientID)(
+        IWMReaderAdvanced4* This,
+        WINBOOL fLogClientID);
+
+    HRESULT (STDMETHODCALLTYPE *GetLogClientID)(
+        IWMReaderAdvanced4* This,
+        WINBOOL *pfLogClientID);
+
+    HRESULT (STDMETHODCALLTYPE *StopBuffering)(
+        IWMReaderAdvanced4* This);
+
+    HRESULT (STDMETHODCALLTYPE *OpenStream)(
+        IWMReaderAdvanced4* This,
+        IStream *pStream,
+        IWMReaderCallback *pCallback,
+        void *pvContext);
+
+    /*** IWMReaderAdvanced3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *StopNetStreaming)(
+        IWMReaderAdvanced4* This);
+
+    HRESULT (STDMETHODCALLTYPE *StartAtPosition)(
+        IWMReaderAdvanced4* This,
+        WORD wStreamNum,
+        void *pvOffsetStart,
+        void *pvDuration,
+        WMT_OFFSET_FORMAT dwOffsetFormat,
+        float fRate,
+        void *pvContext);
+
+    /*** IWMReaderAdvanced4 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetLanguageCount)(
+        IWMReaderAdvanced4* This,
+        DWORD dwOutputNum,
+        WORD *pwLanguageCount);
+
+    HRESULT (STDMETHODCALLTYPE *GetLanguage)(
+        IWMReaderAdvanced4* This,
+        DWORD dwOutputNum,
+        WORD wLanguage,
+        WCHAR *pwszLanguageString,
+        WORD *pcchLanguageStringLength);
+
+    HRESULT (STDMETHODCALLTYPE *GetMaxSpeedFactor)(
+        IWMReaderAdvanced4* This,
+        double *pdblFactor);
+
+    HRESULT (STDMETHODCALLTYPE *IsUsingFastCache)(
+        IWMReaderAdvanced4* This,
+        WINBOOL *pfUsingFastCache);
+
+    HRESULT (STDMETHODCALLTYPE *AddLogParam)(
+        IWMReaderAdvanced4* This,
+        LPCWSTR wszNameSpace,
+        LPCWSTR wszName,
+        LPCWSTR wszValue);
+
+    HRESULT (STDMETHODCALLTYPE *SendLogParams)(
+        IWMReaderAdvanced4* This);
+
+    HRESULT (STDMETHODCALLTYPE *CanSaveFileAs)(
+        IWMReaderAdvanced4* This,
+        WINBOOL *pfCanSave);
+
+    HRESULT (STDMETHODCALLTYPE *CancelSaveFileAs)(
+        IWMReaderAdvanced4* This);
+
+    HRESULT (STDMETHODCALLTYPE *GetURL)(
+        IWMReaderAdvanced4* This,
+        WCHAR *pwszURL,
+        DWORD *pcchURL);
+
+    END_INTERFACE
+} IWMReaderAdvanced4Vtbl;
+interface IWMReaderAdvanced4 {
+    CONST_VTBL IWMReaderAdvanced4Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMReaderAdvanced4_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMReaderAdvanced4_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMReaderAdvanced4_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMReaderAdvanced methods ***/
+#define IWMReaderAdvanced4_SetUserProvidedClock(This,fUserClock) (This)->lpVtbl->SetUserProvidedClock(This,fUserClock)
+#define IWMReaderAdvanced4_GetUserProvidedClock(This,pfUserClock) (This)->lpVtbl->GetUserProvidedClock(This,pfUserClock)
+#define IWMReaderAdvanced4_DeliverTime(This,cnsTime) (This)->lpVtbl->DeliverTime(This,cnsTime)
+#define IWMReaderAdvanced4_SetManualStreamSelection(This,fSelection) (This)->lpVtbl->SetManualStreamSelection(This,fSelection)
+#define IWMReaderAdvanced4_GetManualStreamSelection(This,pfSelection) (This)->lpVtbl->GetManualStreamSelection(This,pfSelection)
+#define IWMReaderAdvanced4_SetStreamsSelected(This,cStreamCount,pwStreamNumbers,pSelections) (This)->lpVtbl->SetStreamsSelected(This,cStreamCount,pwStreamNumbers,pSelections)
+#define IWMReaderAdvanced4_GetStreamSelected(This,wStreamNum,pSelection) (This)->lpVtbl->GetStreamSelected(This,wStreamNum,pSelection)
+#define IWMReaderAdvanced4_SetReceiveSelectionCallbacks(This,fGetCallbacks) (This)->lpVtbl->SetReceiveSelectionCallbacks(This,fGetCallbacks)
+#define IWMReaderAdvanced4_GetReceiveSelectionCallbacks(This,pfGetCallbacks) (This)->lpVtbl->GetReceiveSelectionCallbacks(This,pfGetCallbacks)
+#define IWMReaderAdvanced4_SetReceiveStreamSamples(This,wStreamNum,fReceiveStreamSamples) (This)->lpVtbl->SetReceiveStreamSamples(This,wStreamNum,fReceiveStreamSamples)
+#define IWMReaderAdvanced4_GetReceiveStreamSamples(This,wStreamNum,pfReceiveStreamSamples) (This)->lpVtbl->GetReceiveStreamSamples(This,wStreamNum,pfReceiveStreamSamples)
+#define IWMReaderAdvanced4_SetAllocateForOutput(This,dwOutputNum,fAllocate) (This)->lpVtbl->SetAllocateForOutput(This,dwOutputNum,fAllocate)
+#define IWMReaderAdvanced4_GetAllocateForOutput(This,dwOutputNum,pfAllocate) (This)->lpVtbl->GetAllocateForOutput(This,dwOutputNum,pfAllocate)
+#define IWMReaderAdvanced4_SetAllocateForStream(This,wStreamNum,fAllocate) (This)->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate)
+#define IWMReaderAdvanced4_GetAllocateForStream(This,dwSreamNum,pfAllocate) (This)->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate)
+#define IWMReaderAdvanced4_GetStatistics(This,pStatistics) (This)->lpVtbl->GetStatistics(This,pStatistics)
+#define IWMReaderAdvanced4_SetClientInfo(This,pClientInfo) (This)->lpVtbl->SetClientInfo(This,pClientInfo)
+#define IWMReaderAdvanced4_GetMaxOutputSampleSize(This,dwOutput,pcbMax) (This)->lpVtbl->GetMaxOutputSampleSize(This,dwOutput,pcbMax)
+#define IWMReaderAdvanced4_GetMaxStreamSampleSize(This,wStream,pcbMax) (This)->lpVtbl->GetMaxStreamSampleSize(This,wStream,pcbMax)
+#define IWMReaderAdvanced4_NotifyLateDelivery(This,cnsLateness) (This)->lpVtbl->NotifyLateDelivery(This,cnsLateness)
+/*** IWMReaderAdvanced2 methods ***/
+#define IWMReaderAdvanced4_SetPlayMode(This,Mode) (This)->lpVtbl->SetPlayMode(This,Mode)
+#define IWMReaderAdvanced4_GetPlayMode(This,pMode) (This)->lpVtbl->GetPlayMode(This,pMode)
+#define IWMReaderAdvanced4_GetBufferProgress(This,pdwPercent,pcnsBuffering) (This)->lpVtbl->GetBufferProgress(This,pdwPercent,pcnsBuffering)
+#define IWMReaderAdvanced4_GetDownloadProgress(This,pdwPercent,pqwBytesDownloaded,pcnsDownload) (This)->lpVtbl->GetDownloadProgress(This,pdwPercent,pqwBytesDownloaded,pcnsDownload)
+#define IWMReaderAdvanced4_GetSaveAsProgress(This,pdwPercent) (This)->lpVtbl->GetSaveAsProgress(This,pdwPercent)
+#define IWMReaderAdvanced4_SaveFileAs(This,pwszFilename) (This)->lpVtbl->SaveFileAs(This,pwszFilename)
+#define IWMReaderAdvanced4_GetProtocolName(This,pwszProtocol,pcchProtocol) (This)->lpVtbl->GetProtocolName(This,pwszProtocol,pcchProtocol)
+#define IWMReaderAdvanced4_StartAtMarker(This,wMarkerIndex,cnsDuration,fRate,pvContext) (This)->lpVtbl->StartAtMarker(This,wMarkerIndex,cnsDuration,fRate,pvContext)
+#define IWMReaderAdvanced4_GetOutputSetting(This,dwOutputNum,pszName,pType,pValue,pcbLength) (This)->lpVtbl->GetOutputSetting(This,dwOutputNum,pszName,pType,pValue,pcbLength)
+#define IWMReaderAdvanced4_SetOutputSetting(This,dwOutputNum,pszName,Type,pValue,cbLength) (This)->lpVtbl->SetOutputSetting(This,dwOutputNum,pszName,Type,pValue,cbLength)
+#define IWMReaderAdvanced4_Preroll(This,cnsStart,cnsDuration,fRate) (This)->lpVtbl->Preroll(This,cnsStart,cnsDuration,fRate)
+#define IWMReaderAdvanced4_SetLogClientID(This,fLogClientID) (This)->lpVtbl->SetLogClientID(This,fLogClientID)
+#define IWMReaderAdvanced4_GetLogClientID(This,pfLogClientID) (This)->lpVtbl->GetLogClientID(This,pfLogClientID)
+#define IWMReaderAdvanced4_StopBuffering(This) (This)->lpVtbl->StopBuffering(This)
+#define IWMReaderAdvanced4_OpenStream(This,pStream,pCallback,pvContext) (This)->lpVtbl->OpenStream(This,pStream,pCallback,pvContext)
+/*** IWMReaderAdvanced3 methods ***/
+#define IWMReaderAdvanced4_StopNetStreaming(This) (This)->lpVtbl->StopNetStreaming(This)
+#define IWMReaderAdvanced4_StartAtPosition(This,wStreamNum,pvOffsetStart,pvDuration,dwOffsetFormat,fRate,pvContext) (This)->lpVtbl->StartAtPosition(This,wStreamNum,pvOffsetStart,pvDuration,dwOffsetFormat,fRate,pvContext)
+/*** IWMReaderAdvanced4 methods ***/
+#define IWMReaderAdvanced4_GetLanguageCount(This,dwOutputNum,pwLanguageCount) (This)->lpVtbl->GetLanguageCount(This,dwOutputNum,pwLanguageCount)
+#define IWMReaderAdvanced4_GetLanguage(This,dwOutputNum,wLanguage,pwszLanguageString,pcchLanguageStringLength) (This)->lpVtbl->GetLanguage(This,dwOutputNum,wLanguage,pwszLanguageString,pcchLanguageStringLength)
+#define IWMReaderAdvanced4_GetMaxSpeedFactor(This,pdblFactor) (This)->lpVtbl->GetMaxSpeedFactor(This,pdblFactor)
+#define IWMReaderAdvanced4_IsUsingFastCache(This,pfUsingFastCache) (This)->lpVtbl->IsUsingFastCache(This,pfUsingFastCache)
+#define IWMReaderAdvanced4_AddLogParam(This,wszNameSpace,wszName,wszValue) (This)->lpVtbl->AddLogParam(This,wszNameSpace,wszName,wszValue)
+#define IWMReaderAdvanced4_SendLogParams(This) (This)->lpVtbl->SendLogParams(This)
+#define IWMReaderAdvanced4_CanSaveFileAs(This,pfCanSave) (This)->lpVtbl->CanSaveFileAs(This,pfCanSave)
+#define IWMReaderAdvanced4_CancelSaveFileAs(This) (This)->lpVtbl->CancelSaveFileAs(This)
+#define IWMReaderAdvanced4_GetURL(This,pwszURL,pcchURL) (This)->lpVtbl->GetURL(This,pwszURL,pcchURL)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced4_QueryInterface(IWMReaderAdvanced4* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMReaderAdvanced4_AddRef(IWMReaderAdvanced4* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMReaderAdvanced4_Release(IWMReaderAdvanced4* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMReaderAdvanced methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced4_SetUserProvidedClock(IWMReaderAdvanced4* This,WINBOOL fUserClock) {
+    return This->lpVtbl->SetUserProvidedClock(This,fUserClock);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetUserProvidedClock(IWMReaderAdvanced4* This,WINBOOL *pfUserClock) {
+    return This->lpVtbl->GetUserProvidedClock(This,pfUserClock);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_DeliverTime(IWMReaderAdvanced4* This,QWORD cnsTime) {
+    return This->lpVtbl->DeliverTime(This,cnsTime);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_SetManualStreamSelection(IWMReaderAdvanced4* This,WINBOOL fSelection) {
+    return This->lpVtbl->SetManualStreamSelection(This,fSelection);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetManualStreamSelection(IWMReaderAdvanced4* This,WINBOOL *pfSelection) {
+    return This->lpVtbl->GetManualStreamSelection(This,pfSelection);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_SetStreamsSelected(IWMReaderAdvanced4* This,WORD cStreamCount,WORD *pwStreamNumbers,WMT_STREAM_SELECTION *pSelections) {
+    return This->lpVtbl->SetStreamsSelected(This,cStreamCount,pwStreamNumbers,pSelections);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetStreamSelected(IWMReaderAdvanced4* This,WORD wStreamNum,WMT_STREAM_SELECTION *pSelection) {
+    return This->lpVtbl->GetStreamSelected(This,wStreamNum,pSelection);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_SetReceiveSelectionCallbacks(IWMReaderAdvanced4* This,WINBOOL fGetCallbacks) {
+    return This->lpVtbl->SetReceiveSelectionCallbacks(This,fGetCallbacks);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetReceiveSelectionCallbacks(IWMReaderAdvanced4* This,WINBOOL *pfGetCallbacks) {
+    return This->lpVtbl->GetReceiveSelectionCallbacks(This,pfGetCallbacks);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_SetReceiveStreamSamples(IWMReaderAdvanced4* This,WORD wStreamNum,WINBOOL fReceiveStreamSamples) {
+    return This->lpVtbl->SetReceiveStreamSamples(This,wStreamNum,fReceiveStreamSamples);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetReceiveStreamSamples(IWMReaderAdvanced4* This,WORD wStreamNum,WINBOOL *pfReceiveStreamSamples) {
+    return This->lpVtbl->GetReceiveStreamSamples(This,wStreamNum,pfReceiveStreamSamples);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_SetAllocateForOutput(IWMReaderAdvanced4* This,DWORD dwOutputNum,WINBOOL fAllocate) {
+    return This->lpVtbl->SetAllocateForOutput(This,dwOutputNum,fAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetAllocateForOutput(IWMReaderAdvanced4* This,DWORD dwOutputNum,WINBOOL *pfAllocate) {
+    return This->lpVtbl->GetAllocateForOutput(This,dwOutputNum,pfAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_SetAllocateForStream(IWMReaderAdvanced4* This,WORD wStreamNum,WINBOOL fAllocate) {
+    return This->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetAllocateForStream(IWMReaderAdvanced4* This,WORD dwSreamNum,WINBOOL *pfAllocate) {
+    return This->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetStatistics(IWMReaderAdvanced4* This,WM_READER_STATISTICS *pStatistics) {
+    return This->lpVtbl->GetStatistics(This,pStatistics);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_SetClientInfo(IWMReaderAdvanced4* This,WM_READER_CLIENTINFO *pClientInfo) {
+    return This->lpVtbl->SetClientInfo(This,pClientInfo);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetMaxOutputSampleSize(IWMReaderAdvanced4* This,DWORD dwOutput,DWORD *pcbMax) {
+    return This->lpVtbl->GetMaxOutputSampleSize(This,dwOutput,pcbMax);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetMaxStreamSampleSize(IWMReaderAdvanced4* This,WORD wStream,DWORD *pcbMax) {
+    return This->lpVtbl->GetMaxStreamSampleSize(This,wStream,pcbMax);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_NotifyLateDelivery(IWMReaderAdvanced4* This,QWORD cnsLateness) {
+    return This->lpVtbl->NotifyLateDelivery(This,cnsLateness);
+}
+/*** IWMReaderAdvanced2 methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced4_SetPlayMode(IWMReaderAdvanced4* This,WMT_PLAY_MODE Mode) {
+    return This->lpVtbl->SetPlayMode(This,Mode);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetPlayMode(IWMReaderAdvanced4* This,WMT_PLAY_MODE *pMode) {
+    return This->lpVtbl->GetPlayMode(This,pMode);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetBufferProgress(IWMReaderAdvanced4* This,DWORD *pdwPercent,QWORD *pcnsBuffering) {
+    return This->lpVtbl->GetBufferProgress(This,pdwPercent,pcnsBuffering);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetDownloadProgress(IWMReaderAdvanced4* This,DWORD *pdwPercent,QWORD *pqwBytesDownloaded,QWORD *pcnsDownload) {
+    return This->lpVtbl->GetDownloadProgress(This,pdwPercent,pqwBytesDownloaded,pcnsDownload);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetSaveAsProgress(IWMReaderAdvanced4* This,DWORD *pdwPercent) {
+    return This->lpVtbl->GetSaveAsProgress(This,pdwPercent);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_SaveFileAs(IWMReaderAdvanced4* This,const WCHAR *pwszFilename) {
+    return This->lpVtbl->SaveFileAs(This,pwszFilename);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetProtocolName(IWMReaderAdvanced4* This,WCHAR *pwszProtocol,DWORD *pcchProtocol) {
+    return This->lpVtbl->GetProtocolName(This,pwszProtocol,pcchProtocol);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_StartAtMarker(IWMReaderAdvanced4* This,WORD wMarkerIndex,QWORD cnsDuration,float fRate,void *pvContext) {
+    return This->lpVtbl->StartAtMarker(This,wMarkerIndex,cnsDuration,fRate,pvContext);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetOutputSetting(IWMReaderAdvanced4* This,DWORD dwOutputNum,LPCWSTR pszName,WMT_ATTR_DATATYPE *pType,BYTE *pValue,WORD *pcbLength) {
+    return This->lpVtbl->GetOutputSetting(This,dwOutputNum,pszName,pType,pValue,pcbLength);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_SetOutputSetting(IWMReaderAdvanced4* This,DWORD dwOutputNum,LPCWSTR pszName,WMT_ATTR_DATATYPE Type,const BYTE *pValue,WORD cbLength) {
+    return This->lpVtbl->SetOutputSetting(This,dwOutputNum,pszName,Type,pValue,cbLength);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_Preroll(IWMReaderAdvanced4* This,QWORD cnsStart,QWORD cnsDuration,float fRate) {
+    return This->lpVtbl->Preroll(This,cnsStart,cnsDuration,fRate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_SetLogClientID(IWMReaderAdvanced4* This,WINBOOL fLogClientID) {
+    return This->lpVtbl->SetLogClientID(This,fLogClientID);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetLogClientID(IWMReaderAdvanced4* This,WINBOOL *pfLogClientID) {
+    return This->lpVtbl->GetLogClientID(This,pfLogClientID);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_StopBuffering(IWMReaderAdvanced4* This) {
+    return This->lpVtbl->StopBuffering(This);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_OpenStream(IWMReaderAdvanced4* This,IStream *pStream,IWMReaderCallback *pCallback,void *pvContext) {
+    return This->lpVtbl->OpenStream(This,pStream,pCallback,pvContext);
+}
+/*** IWMReaderAdvanced3 methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced4_StopNetStreaming(IWMReaderAdvanced4* This) {
+    return This->lpVtbl->StopNetStreaming(This);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_StartAtPosition(IWMReaderAdvanced4* This,WORD wStreamNum,void *pvOffsetStart,void *pvDuration,WMT_OFFSET_FORMAT dwOffsetFormat,float fRate,void *pvContext) {
+    return This->lpVtbl->StartAtPosition(This,wStreamNum,pvOffsetStart,pvDuration,dwOffsetFormat,fRate,pvContext);
+}
+/*** IWMReaderAdvanced4 methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetLanguageCount(IWMReaderAdvanced4* This,DWORD dwOutputNum,WORD *pwLanguageCount) {
+    return This->lpVtbl->GetLanguageCount(This,dwOutputNum,pwLanguageCount);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetLanguage(IWMReaderAdvanced4* This,DWORD dwOutputNum,WORD wLanguage,WCHAR *pwszLanguageString,WORD *pcchLanguageStringLength) {
+    return This->lpVtbl->GetLanguage(This,dwOutputNum,wLanguage,pwszLanguageString,pcchLanguageStringLength);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetMaxSpeedFactor(IWMReaderAdvanced4* This,double *pdblFactor) {
+    return This->lpVtbl->GetMaxSpeedFactor(This,pdblFactor);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_IsUsingFastCache(IWMReaderAdvanced4* This,WINBOOL *pfUsingFastCache) {
+    return This->lpVtbl->IsUsingFastCache(This,pfUsingFastCache);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_AddLogParam(IWMReaderAdvanced4* This,LPCWSTR wszNameSpace,LPCWSTR wszName,LPCWSTR wszValue) {
+    return This->lpVtbl->AddLogParam(This,wszNameSpace,wszName,wszValue);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_SendLogParams(IWMReaderAdvanced4* This) {
+    return This->lpVtbl->SendLogParams(This);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_CanSaveFileAs(IWMReaderAdvanced4* This,WINBOOL *pfCanSave) {
+    return This->lpVtbl->CanSaveFileAs(This,pfCanSave);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_CancelSaveFileAs(IWMReaderAdvanced4* This) {
+    return This->lpVtbl->CancelSaveFileAs(This);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetURL(IWMReaderAdvanced4* This,WCHAR *pwszURL,DWORD *pcchURL) {
+    return This->lpVtbl->GetURL(This,pwszURL,pcchURL);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced4_GetLanguageCount_Proxy(
+    IWMReaderAdvanced4* This,
+    DWORD dwOutputNum,
+    WORD *pwLanguageCount);
+void __RPC_STUB IWMReaderAdvanced4_GetLanguageCount_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced4_GetLanguage_Proxy(
+    IWMReaderAdvanced4* This,
+    DWORD dwOutputNum,
+    WORD wLanguage,
+    WCHAR *pwszLanguageString,
+    WORD *pcchLanguageStringLength);
+void __RPC_STUB IWMReaderAdvanced4_GetLanguage_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced4_GetMaxSpeedFactor_Proxy(
+    IWMReaderAdvanced4* This,
+    double *pdblFactor);
+void __RPC_STUB IWMReaderAdvanced4_GetMaxSpeedFactor_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced4_IsUsingFastCache_Proxy(
+    IWMReaderAdvanced4* This,
+    WINBOOL *pfUsingFastCache);
+void __RPC_STUB IWMReaderAdvanced4_IsUsingFastCache_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced4_AddLogParam_Proxy(
+    IWMReaderAdvanced4* This,
+    LPCWSTR wszNameSpace,
+    LPCWSTR wszName,
+    LPCWSTR wszValue);
+void __RPC_STUB IWMReaderAdvanced4_AddLogParam_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced4_SendLogParams_Proxy(
+    IWMReaderAdvanced4* This);
+void __RPC_STUB IWMReaderAdvanced4_SendLogParams_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced4_CanSaveFileAs_Proxy(
+    IWMReaderAdvanced4* This,
+    WINBOOL *pfCanSave);
+void __RPC_STUB IWMReaderAdvanced4_CanSaveFileAs_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced4_CancelSaveFileAs_Proxy(
+    IWMReaderAdvanced4* This);
+void __RPC_STUB IWMReaderAdvanced4_CancelSaveFileAs_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced4_GetURL_Proxy(
+    IWMReaderAdvanced4* This,
+    WCHAR *pwszURL,
+    DWORD *pcchURL);
+void __RPC_STUB IWMReaderAdvanced4_GetURL_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMReaderAdvanced4_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMReaderAdvanced5 interface
+ */
+#ifndef __IWMReaderAdvanced5_INTERFACE_DEFINED__
+#define __IWMReaderAdvanced5_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMReaderAdvanced5, 0x24c44db0, 0x55d1, 0x49ae, 0xa5,0xcc, 0xf1,0x38,0x15,0xe3,0x63,0x63);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("24c44db0-55d1-49ae-a5cc-f13815e36363")
+IWMReaderAdvanced5 : public IWMReaderAdvanced4
+{
+    virtual HRESULT STDMETHODCALLTYPE SetPlayerHook(
+        DWORD dwOutputNum,
+        IWMPlayerHook *pHook) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMReaderAdvanced5, 0x24c44db0, 0x55d1, 0x49ae, 0xa5,0xcc, 0xf1,0x38,0x15,0xe3,0x63,0x63)
+#endif
+#else
+typedef struct IWMReaderAdvanced5Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMReaderAdvanced5* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMReaderAdvanced5* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMReaderAdvanced5* This);
+
+    /*** IWMReaderAdvanced methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetUserProvidedClock)(
+        IWMReaderAdvanced5* This,
+        WINBOOL fUserClock);
+
+    HRESULT (STDMETHODCALLTYPE *GetUserProvidedClock)(
+        IWMReaderAdvanced5* This,
+        WINBOOL *pfUserClock);
+
+    HRESULT (STDMETHODCALLTYPE *DeliverTime)(
+        IWMReaderAdvanced5* This,
+        QWORD cnsTime);
+
+    HRESULT (STDMETHODCALLTYPE *SetManualStreamSelection)(
+        IWMReaderAdvanced5* This,
+        WINBOOL fSelection);
+
+    HRESULT (STDMETHODCALLTYPE *GetManualStreamSelection)(
+        IWMReaderAdvanced5* This,
+        WINBOOL *pfSelection);
+
+    HRESULT (STDMETHODCALLTYPE *SetStreamsSelected)(
+        IWMReaderAdvanced5* This,
+        WORD cStreamCount,
+        WORD *pwStreamNumbers,
+        WMT_STREAM_SELECTION *pSelections);
+
+    HRESULT (STDMETHODCALLTYPE *GetStreamSelected)(
+        IWMReaderAdvanced5* This,
+        WORD wStreamNum,
+        WMT_STREAM_SELECTION *pSelection);
+
+    HRESULT (STDMETHODCALLTYPE *SetReceiveSelectionCallbacks)(
+        IWMReaderAdvanced5* This,
+        WINBOOL fGetCallbacks);
+
+    HRESULT (STDMETHODCALLTYPE *GetReceiveSelectionCallbacks)(
+        IWMReaderAdvanced5* This,
+        WINBOOL *pfGetCallbacks);
+
+    HRESULT (STDMETHODCALLTYPE *SetReceiveStreamSamples)(
+        IWMReaderAdvanced5* This,
+        WORD wStreamNum,
+        WINBOOL fReceiveStreamSamples);
+
+    HRESULT (STDMETHODCALLTYPE *GetReceiveStreamSamples)(
+        IWMReaderAdvanced5* This,
+        WORD wStreamNum,
+        WINBOOL *pfReceiveStreamSamples);
+
+    HRESULT (STDMETHODCALLTYPE *SetAllocateForOutput)(
+        IWMReaderAdvanced5* This,
+        DWORD dwOutputNum,
+        WINBOOL fAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *GetAllocateForOutput)(
+        IWMReaderAdvanced5* This,
+        DWORD dwOutputNum,
+        WINBOOL *pfAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *SetAllocateForStream)(
+        IWMReaderAdvanced5* This,
+        WORD wStreamNum,
+        WINBOOL fAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *GetAllocateForStream)(
+        IWMReaderAdvanced5* This,
+        WORD dwSreamNum,
+        WINBOOL *pfAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *GetStatistics)(
+        IWMReaderAdvanced5* This,
+        WM_READER_STATISTICS *pStatistics);
+
+    HRESULT (STDMETHODCALLTYPE *SetClientInfo)(
+        IWMReaderAdvanced5* This,
+        WM_READER_CLIENTINFO *pClientInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetMaxOutputSampleSize)(
+        IWMReaderAdvanced5* This,
+        DWORD dwOutput,
+        DWORD *pcbMax);
+
+    HRESULT (STDMETHODCALLTYPE *GetMaxStreamSampleSize)(
+        IWMReaderAdvanced5* This,
+        WORD wStream,
+        DWORD *pcbMax);
+
+    HRESULT (STDMETHODCALLTYPE *NotifyLateDelivery)(
+        IWMReaderAdvanced5* This,
+        QWORD cnsLateness);
+
+    /*** IWMReaderAdvanced2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetPlayMode)(
+        IWMReaderAdvanced5* This,
+        WMT_PLAY_MODE Mode);
+
+    HRESULT (STDMETHODCALLTYPE *GetPlayMode)(
+        IWMReaderAdvanced5* This,
+        WMT_PLAY_MODE *pMode);
+
+    HRESULT (STDMETHODCALLTYPE *GetBufferProgress)(
+        IWMReaderAdvanced5* This,
+        DWORD *pdwPercent,
+        QWORD *pcnsBuffering);
+
+    HRESULT (STDMETHODCALLTYPE *GetDownloadProgress)(
+        IWMReaderAdvanced5* This,
+        DWORD *pdwPercent,
+        QWORD *pqwBytesDownloaded,
+        QWORD *pcnsDownload);
+
+    HRESULT (STDMETHODCALLTYPE *GetSaveAsProgress)(
+        IWMReaderAdvanced5* This,
+        DWORD *pdwPercent);
+
+    HRESULT (STDMETHODCALLTYPE *SaveFileAs)(
+        IWMReaderAdvanced5* This,
+        const WCHAR *pwszFilename);
+
+    HRESULT (STDMETHODCALLTYPE *GetProtocolName)(
+        IWMReaderAdvanced5* This,
+        WCHAR *pwszProtocol,
+        DWORD *pcchProtocol);
+
+    HRESULT (STDMETHODCALLTYPE *StartAtMarker)(
+        IWMReaderAdvanced5* This,
+        WORD wMarkerIndex,
+        QWORD cnsDuration,
+        float fRate,
+        void *pvContext);
+
+    HRESULT (STDMETHODCALLTYPE *GetOutputSetting)(
+        IWMReaderAdvanced5* This,
+        DWORD dwOutputNum,
+        LPCWSTR pszName,
+        WMT_ATTR_DATATYPE *pType,
+        BYTE *pValue,
+        WORD *pcbLength);
+
+    HRESULT (STDMETHODCALLTYPE *SetOutputSetting)(
+        IWMReaderAdvanced5* This,
+        DWORD dwOutputNum,
+        LPCWSTR pszName,
+        WMT_ATTR_DATATYPE Type,
+        const BYTE *pValue,
+        WORD cbLength);
+
+    HRESULT (STDMETHODCALLTYPE *Preroll)(
+        IWMReaderAdvanced5* This,
+        QWORD cnsStart,
+        QWORD cnsDuration,
+        float fRate);
+
+    HRESULT (STDMETHODCALLTYPE *SetLogClientID)(
+        IWMReaderAdvanced5* This,
+        WINBOOL fLogClientID);
+
+    HRESULT (STDMETHODCALLTYPE *GetLogClientID)(
+        IWMReaderAdvanced5* This,
+        WINBOOL *pfLogClientID);
+
+    HRESULT (STDMETHODCALLTYPE *StopBuffering)(
+        IWMReaderAdvanced5* This);
+
+    HRESULT (STDMETHODCALLTYPE *OpenStream)(
+        IWMReaderAdvanced5* This,
+        IStream *pStream,
+        IWMReaderCallback *pCallback,
+        void *pvContext);
+
+    /*** IWMReaderAdvanced3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *StopNetStreaming)(
+        IWMReaderAdvanced5* This);
+
+    HRESULT (STDMETHODCALLTYPE *StartAtPosition)(
+        IWMReaderAdvanced5* This,
+        WORD wStreamNum,
+        void *pvOffsetStart,
+        void *pvDuration,
+        WMT_OFFSET_FORMAT dwOffsetFormat,
+        float fRate,
+        void *pvContext);
+
+    /*** IWMReaderAdvanced4 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetLanguageCount)(
+        IWMReaderAdvanced5* This,
+        DWORD dwOutputNum,
+        WORD *pwLanguageCount);
+
+    HRESULT (STDMETHODCALLTYPE *GetLanguage)(
+        IWMReaderAdvanced5* This,
+        DWORD dwOutputNum,
+        WORD wLanguage,
+        WCHAR *pwszLanguageString,
+        WORD *pcchLanguageStringLength);
+
+    HRESULT (STDMETHODCALLTYPE *GetMaxSpeedFactor)(
+        IWMReaderAdvanced5* This,
+        double *pdblFactor);
+
+    HRESULT (STDMETHODCALLTYPE *IsUsingFastCache)(
+        IWMReaderAdvanced5* This,
+        WINBOOL *pfUsingFastCache);
+
+    HRESULT (STDMETHODCALLTYPE *AddLogParam)(
+        IWMReaderAdvanced5* This,
+        LPCWSTR wszNameSpace,
+        LPCWSTR wszName,
+        LPCWSTR wszValue);
+
+    HRESULT (STDMETHODCALLTYPE *SendLogParams)(
+        IWMReaderAdvanced5* This);
+
+    HRESULT (STDMETHODCALLTYPE *CanSaveFileAs)(
+        IWMReaderAdvanced5* This,
+        WINBOOL *pfCanSave);
+
+    HRESULT (STDMETHODCALLTYPE *CancelSaveFileAs)(
+        IWMReaderAdvanced5* This);
+
+    HRESULT (STDMETHODCALLTYPE *GetURL)(
+        IWMReaderAdvanced5* This,
+        WCHAR *pwszURL,
+        DWORD *pcchURL);
+
+    /*** IWMReaderAdvanced5 methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetPlayerHook)(
+        IWMReaderAdvanced5* This,
+        DWORD dwOutputNum,
+        IWMPlayerHook *pHook);
+
+    END_INTERFACE
+} IWMReaderAdvanced5Vtbl;
+interface IWMReaderAdvanced5 {
+    CONST_VTBL IWMReaderAdvanced5Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMReaderAdvanced5_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMReaderAdvanced5_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMReaderAdvanced5_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMReaderAdvanced methods ***/
+#define IWMReaderAdvanced5_SetUserProvidedClock(This,fUserClock) (This)->lpVtbl->SetUserProvidedClock(This,fUserClock)
+#define IWMReaderAdvanced5_GetUserProvidedClock(This,pfUserClock) (This)->lpVtbl->GetUserProvidedClock(This,pfUserClock)
+#define IWMReaderAdvanced5_DeliverTime(This,cnsTime) (This)->lpVtbl->DeliverTime(This,cnsTime)
+#define IWMReaderAdvanced5_SetManualStreamSelection(This,fSelection) (This)->lpVtbl->SetManualStreamSelection(This,fSelection)
+#define IWMReaderAdvanced5_GetManualStreamSelection(This,pfSelection) (This)->lpVtbl->GetManualStreamSelection(This,pfSelection)
+#define IWMReaderAdvanced5_SetStreamsSelected(This,cStreamCount,pwStreamNumbers,pSelections) (This)->lpVtbl->SetStreamsSelected(This,cStreamCount,pwStreamNumbers,pSelections)
+#define IWMReaderAdvanced5_GetStreamSelected(This,wStreamNum,pSelection) (This)->lpVtbl->GetStreamSelected(This,wStreamNum,pSelection)
+#define IWMReaderAdvanced5_SetReceiveSelectionCallbacks(This,fGetCallbacks) (This)->lpVtbl->SetReceiveSelectionCallbacks(This,fGetCallbacks)
+#define IWMReaderAdvanced5_GetReceiveSelectionCallbacks(This,pfGetCallbacks) (This)->lpVtbl->GetReceiveSelectionCallbacks(This,pfGetCallbacks)
+#define IWMReaderAdvanced5_SetReceiveStreamSamples(This,wStreamNum,fReceiveStreamSamples) (This)->lpVtbl->SetReceiveStreamSamples(This,wStreamNum,fReceiveStreamSamples)
+#define IWMReaderAdvanced5_GetReceiveStreamSamples(This,wStreamNum,pfReceiveStreamSamples) (This)->lpVtbl->GetReceiveStreamSamples(This,wStreamNum,pfReceiveStreamSamples)
+#define IWMReaderAdvanced5_SetAllocateForOutput(This,dwOutputNum,fAllocate) (This)->lpVtbl->SetAllocateForOutput(This,dwOutputNum,fAllocate)
+#define IWMReaderAdvanced5_GetAllocateForOutput(This,dwOutputNum,pfAllocate) (This)->lpVtbl->GetAllocateForOutput(This,dwOutputNum,pfAllocate)
+#define IWMReaderAdvanced5_SetAllocateForStream(This,wStreamNum,fAllocate) (This)->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate)
+#define IWMReaderAdvanced5_GetAllocateForStream(This,dwSreamNum,pfAllocate) (This)->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate)
+#define IWMReaderAdvanced5_GetStatistics(This,pStatistics) (This)->lpVtbl->GetStatistics(This,pStatistics)
+#define IWMReaderAdvanced5_SetClientInfo(This,pClientInfo) (This)->lpVtbl->SetClientInfo(This,pClientInfo)
+#define IWMReaderAdvanced5_GetMaxOutputSampleSize(This,dwOutput,pcbMax) (This)->lpVtbl->GetMaxOutputSampleSize(This,dwOutput,pcbMax)
+#define IWMReaderAdvanced5_GetMaxStreamSampleSize(This,wStream,pcbMax) (This)->lpVtbl->GetMaxStreamSampleSize(This,wStream,pcbMax)
+#define IWMReaderAdvanced5_NotifyLateDelivery(This,cnsLateness) (This)->lpVtbl->NotifyLateDelivery(This,cnsLateness)
+/*** IWMReaderAdvanced2 methods ***/
+#define IWMReaderAdvanced5_SetPlayMode(This,Mode) (This)->lpVtbl->SetPlayMode(This,Mode)
+#define IWMReaderAdvanced5_GetPlayMode(This,pMode) (This)->lpVtbl->GetPlayMode(This,pMode)
+#define IWMReaderAdvanced5_GetBufferProgress(This,pdwPercent,pcnsBuffering) (This)->lpVtbl->GetBufferProgress(This,pdwPercent,pcnsBuffering)
+#define IWMReaderAdvanced5_GetDownloadProgress(This,pdwPercent,pqwBytesDownloaded,pcnsDownload) (This)->lpVtbl->GetDownloadProgress(This,pdwPercent,pqwBytesDownloaded,pcnsDownload)
+#define IWMReaderAdvanced5_GetSaveAsProgress(This,pdwPercent) (This)->lpVtbl->GetSaveAsProgress(This,pdwPercent)
+#define IWMReaderAdvanced5_SaveFileAs(This,pwszFilename) (This)->lpVtbl->SaveFileAs(This,pwszFilename)
+#define IWMReaderAdvanced5_GetProtocolName(This,pwszProtocol,pcchProtocol) (This)->lpVtbl->GetProtocolName(This,pwszProtocol,pcchProtocol)
+#define IWMReaderAdvanced5_StartAtMarker(This,wMarkerIndex,cnsDuration,fRate,pvContext) (This)->lpVtbl->StartAtMarker(This,wMarkerIndex,cnsDuration,fRate,pvContext)
+#define IWMReaderAdvanced5_GetOutputSetting(This,dwOutputNum,pszName,pType,pValue,pcbLength) (This)->lpVtbl->GetOutputSetting(This,dwOutputNum,pszName,pType,pValue,pcbLength)
+#define IWMReaderAdvanced5_SetOutputSetting(This,dwOutputNum,pszName,Type,pValue,cbLength) (This)->lpVtbl->SetOutputSetting(This,dwOutputNum,pszName,Type,pValue,cbLength)
+#define IWMReaderAdvanced5_Preroll(This,cnsStart,cnsDuration,fRate) (This)->lpVtbl->Preroll(This,cnsStart,cnsDuration,fRate)
+#define IWMReaderAdvanced5_SetLogClientID(This,fLogClientID) (This)->lpVtbl->SetLogClientID(This,fLogClientID)
+#define IWMReaderAdvanced5_GetLogClientID(This,pfLogClientID) (This)->lpVtbl->GetLogClientID(This,pfLogClientID)
+#define IWMReaderAdvanced5_StopBuffering(This) (This)->lpVtbl->StopBuffering(This)
+#define IWMReaderAdvanced5_OpenStream(This,pStream,pCallback,pvContext) (This)->lpVtbl->OpenStream(This,pStream,pCallback,pvContext)
+/*** IWMReaderAdvanced3 methods ***/
+#define IWMReaderAdvanced5_StopNetStreaming(This) (This)->lpVtbl->StopNetStreaming(This)
+#define IWMReaderAdvanced5_StartAtPosition(This,wStreamNum,pvOffsetStart,pvDuration,dwOffsetFormat,fRate,pvContext) (This)->lpVtbl->StartAtPosition(This,wStreamNum,pvOffsetStart,pvDuration,dwOffsetFormat,fRate,pvContext)
+/*** IWMReaderAdvanced4 methods ***/
+#define IWMReaderAdvanced5_GetLanguageCount(This,dwOutputNum,pwLanguageCount) (This)->lpVtbl->GetLanguageCount(This,dwOutputNum,pwLanguageCount)
+#define IWMReaderAdvanced5_GetLanguage(This,dwOutputNum,wLanguage,pwszLanguageString,pcchLanguageStringLength) (This)->lpVtbl->GetLanguage(This,dwOutputNum,wLanguage,pwszLanguageString,pcchLanguageStringLength)
+#define IWMReaderAdvanced5_GetMaxSpeedFactor(This,pdblFactor) (This)->lpVtbl->GetMaxSpeedFactor(This,pdblFactor)
+#define IWMReaderAdvanced5_IsUsingFastCache(This,pfUsingFastCache) (This)->lpVtbl->IsUsingFastCache(This,pfUsingFastCache)
+#define IWMReaderAdvanced5_AddLogParam(This,wszNameSpace,wszName,wszValue) (This)->lpVtbl->AddLogParam(This,wszNameSpace,wszName,wszValue)
+#define IWMReaderAdvanced5_SendLogParams(This) (This)->lpVtbl->SendLogParams(This)
+#define IWMReaderAdvanced5_CanSaveFileAs(This,pfCanSave) (This)->lpVtbl->CanSaveFileAs(This,pfCanSave)
+#define IWMReaderAdvanced5_CancelSaveFileAs(This) (This)->lpVtbl->CancelSaveFileAs(This)
+#define IWMReaderAdvanced5_GetURL(This,pwszURL,pcchURL) (This)->lpVtbl->GetURL(This,pwszURL,pcchURL)
+/*** IWMReaderAdvanced5 methods ***/
+#define IWMReaderAdvanced5_SetPlayerHook(This,dwOutputNum,pHook) (This)->lpVtbl->SetPlayerHook(This,dwOutputNum,pHook)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced5_QueryInterface(IWMReaderAdvanced5* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMReaderAdvanced5_AddRef(IWMReaderAdvanced5* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMReaderAdvanced5_Release(IWMReaderAdvanced5* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMReaderAdvanced methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced5_SetUserProvidedClock(IWMReaderAdvanced5* This,WINBOOL fUserClock) {
+    return This->lpVtbl->SetUserProvidedClock(This,fUserClock);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetUserProvidedClock(IWMReaderAdvanced5* This,WINBOOL *pfUserClock) {
+    return This->lpVtbl->GetUserProvidedClock(This,pfUserClock);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_DeliverTime(IWMReaderAdvanced5* This,QWORD cnsTime) {
+    return This->lpVtbl->DeliverTime(This,cnsTime);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_SetManualStreamSelection(IWMReaderAdvanced5* This,WINBOOL fSelection) {
+    return This->lpVtbl->SetManualStreamSelection(This,fSelection);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetManualStreamSelection(IWMReaderAdvanced5* This,WINBOOL *pfSelection) {
+    return This->lpVtbl->GetManualStreamSelection(This,pfSelection);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_SetStreamsSelected(IWMReaderAdvanced5* This,WORD cStreamCount,WORD *pwStreamNumbers,WMT_STREAM_SELECTION *pSelections) {
+    return This->lpVtbl->SetStreamsSelected(This,cStreamCount,pwStreamNumbers,pSelections);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetStreamSelected(IWMReaderAdvanced5* This,WORD wStreamNum,WMT_STREAM_SELECTION *pSelection) {
+    return This->lpVtbl->GetStreamSelected(This,wStreamNum,pSelection);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_SetReceiveSelectionCallbacks(IWMReaderAdvanced5* This,WINBOOL fGetCallbacks) {
+    return This->lpVtbl->SetReceiveSelectionCallbacks(This,fGetCallbacks);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetReceiveSelectionCallbacks(IWMReaderAdvanced5* This,WINBOOL *pfGetCallbacks) {
+    return This->lpVtbl->GetReceiveSelectionCallbacks(This,pfGetCallbacks);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_SetReceiveStreamSamples(IWMReaderAdvanced5* This,WORD wStreamNum,WINBOOL fReceiveStreamSamples) {
+    return This->lpVtbl->SetReceiveStreamSamples(This,wStreamNum,fReceiveStreamSamples);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetReceiveStreamSamples(IWMReaderAdvanced5* This,WORD wStreamNum,WINBOOL *pfReceiveStreamSamples) {
+    return This->lpVtbl->GetReceiveStreamSamples(This,wStreamNum,pfReceiveStreamSamples);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_SetAllocateForOutput(IWMReaderAdvanced5* This,DWORD dwOutputNum,WINBOOL fAllocate) {
+    return This->lpVtbl->SetAllocateForOutput(This,dwOutputNum,fAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetAllocateForOutput(IWMReaderAdvanced5* This,DWORD dwOutputNum,WINBOOL *pfAllocate) {
+    return This->lpVtbl->GetAllocateForOutput(This,dwOutputNum,pfAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_SetAllocateForStream(IWMReaderAdvanced5* This,WORD wStreamNum,WINBOOL fAllocate) {
+    return This->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetAllocateForStream(IWMReaderAdvanced5* This,WORD dwSreamNum,WINBOOL *pfAllocate) {
+    return This->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetStatistics(IWMReaderAdvanced5* This,WM_READER_STATISTICS *pStatistics) {
+    return This->lpVtbl->GetStatistics(This,pStatistics);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_SetClientInfo(IWMReaderAdvanced5* This,WM_READER_CLIENTINFO *pClientInfo) {
+    return This->lpVtbl->SetClientInfo(This,pClientInfo);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetMaxOutputSampleSize(IWMReaderAdvanced5* This,DWORD dwOutput,DWORD *pcbMax) {
+    return This->lpVtbl->GetMaxOutputSampleSize(This,dwOutput,pcbMax);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetMaxStreamSampleSize(IWMReaderAdvanced5* This,WORD wStream,DWORD *pcbMax) {
+    return This->lpVtbl->GetMaxStreamSampleSize(This,wStream,pcbMax);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_NotifyLateDelivery(IWMReaderAdvanced5* This,QWORD cnsLateness) {
+    return This->lpVtbl->NotifyLateDelivery(This,cnsLateness);
+}
+/*** IWMReaderAdvanced2 methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced5_SetPlayMode(IWMReaderAdvanced5* This,WMT_PLAY_MODE Mode) {
+    return This->lpVtbl->SetPlayMode(This,Mode);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetPlayMode(IWMReaderAdvanced5* This,WMT_PLAY_MODE *pMode) {
+    return This->lpVtbl->GetPlayMode(This,pMode);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetBufferProgress(IWMReaderAdvanced5* This,DWORD *pdwPercent,QWORD *pcnsBuffering) {
+    return This->lpVtbl->GetBufferProgress(This,pdwPercent,pcnsBuffering);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetDownloadProgress(IWMReaderAdvanced5* This,DWORD *pdwPercent,QWORD *pqwBytesDownloaded,QWORD *pcnsDownload) {
+    return This->lpVtbl->GetDownloadProgress(This,pdwPercent,pqwBytesDownloaded,pcnsDownload);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetSaveAsProgress(IWMReaderAdvanced5* This,DWORD *pdwPercent) {
+    return This->lpVtbl->GetSaveAsProgress(This,pdwPercent);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_SaveFileAs(IWMReaderAdvanced5* This,const WCHAR *pwszFilename) {
+    return This->lpVtbl->SaveFileAs(This,pwszFilename);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetProtocolName(IWMReaderAdvanced5* This,WCHAR *pwszProtocol,DWORD *pcchProtocol) {
+    return This->lpVtbl->GetProtocolName(This,pwszProtocol,pcchProtocol);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_StartAtMarker(IWMReaderAdvanced5* This,WORD wMarkerIndex,QWORD cnsDuration,float fRate,void *pvContext) {
+    return This->lpVtbl->StartAtMarker(This,wMarkerIndex,cnsDuration,fRate,pvContext);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetOutputSetting(IWMReaderAdvanced5* This,DWORD dwOutputNum,LPCWSTR pszName,WMT_ATTR_DATATYPE *pType,BYTE *pValue,WORD *pcbLength) {
+    return This->lpVtbl->GetOutputSetting(This,dwOutputNum,pszName,pType,pValue,pcbLength);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_SetOutputSetting(IWMReaderAdvanced5* This,DWORD dwOutputNum,LPCWSTR pszName,WMT_ATTR_DATATYPE Type,const BYTE *pValue,WORD cbLength) {
+    return This->lpVtbl->SetOutputSetting(This,dwOutputNum,pszName,Type,pValue,cbLength);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_Preroll(IWMReaderAdvanced5* This,QWORD cnsStart,QWORD cnsDuration,float fRate) {
+    return This->lpVtbl->Preroll(This,cnsStart,cnsDuration,fRate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_SetLogClientID(IWMReaderAdvanced5* This,WINBOOL fLogClientID) {
+    return This->lpVtbl->SetLogClientID(This,fLogClientID);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetLogClientID(IWMReaderAdvanced5* This,WINBOOL *pfLogClientID) {
+    return This->lpVtbl->GetLogClientID(This,pfLogClientID);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_StopBuffering(IWMReaderAdvanced5* This) {
+    return This->lpVtbl->StopBuffering(This);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_OpenStream(IWMReaderAdvanced5* This,IStream *pStream,IWMReaderCallback *pCallback,void *pvContext) {
+    return This->lpVtbl->OpenStream(This,pStream,pCallback,pvContext);
+}
+/*** IWMReaderAdvanced3 methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced5_StopNetStreaming(IWMReaderAdvanced5* This) {
+    return This->lpVtbl->StopNetStreaming(This);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_StartAtPosition(IWMReaderAdvanced5* This,WORD wStreamNum,void *pvOffsetStart,void *pvDuration,WMT_OFFSET_FORMAT dwOffsetFormat,float fRate,void *pvContext) {
+    return This->lpVtbl->StartAtPosition(This,wStreamNum,pvOffsetStart,pvDuration,dwOffsetFormat,fRate,pvContext);
+}
+/*** IWMReaderAdvanced4 methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetLanguageCount(IWMReaderAdvanced5* This,DWORD dwOutputNum,WORD *pwLanguageCount) {
+    return This->lpVtbl->GetLanguageCount(This,dwOutputNum,pwLanguageCount);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetLanguage(IWMReaderAdvanced5* This,DWORD dwOutputNum,WORD wLanguage,WCHAR *pwszLanguageString,WORD *pcchLanguageStringLength) {
+    return This->lpVtbl->GetLanguage(This,dwOutputNum,wLanguage,pwszLanguageString,pcchLanguageStringLength);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetMaxSpeedFactor(IWMReaderAdvanced5* This,double *pdblFactor) {
+    return This->lpVtbl->GetMaxSpeedFactor(This,pdblFactor);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_IsUsingFastCache(IWMReaderAdvanced5* This,WINBOOL *pfUsingFastCache) {
+    return This->lpVtbl->IsUsingFastCache(This,pfUsingFastCache);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_AddLogParam(IWMReaderAdvanced5* This,LPCWSTR wszNameSpace,LPCWSTR wszName,LPCWSTR wszValue) {
+    return This->lpVtbl->AddLogParam(This,wszNameSpace,wszName,wszValue);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_SendLogParams(IWMReaderAdvanced5* This) {
+    return This->lpVtbl->SendLogParams(This);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_CanSaveFileAs(IWMReaderAdvanced5* This,WINBOOL *pfCanSave) {
+    return This->lpVtbl->CanSaveFileAs(This,pfCanSave);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_CancelSaveFileAs(IWMReaderAdvanced5* This) {
+    return This->lpVtbl->CancelSaveFileAs(This);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetURL(IWMReaderAdvanced5* This,WCHAR *pwszURL,DWORD *pcchURL) {
+    return This->lpVtbl->GetURL(This,pwszURL,pcchURL);
+}
+/*** IWMReaderAdvanced5 methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced5_SetPlayerHook(IWMReaderAdvanced5* This,DWORD dwOutputNum,IWMPlayerHook *pHook) {
+    return This->lpVtbl->SetPlayerHook(This,dwOutputNum,pHook);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced5_SetPlayerHook_Proxy(
+    IWMReaderAdvanced5* This,
+    DWORD dwOutputNum,
+    IWMPlayerHook *pHook);
+void __RPC_STUB IWMReaderAdvanced5_SetPlayerHook_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMReaderAdvanced5_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMReaderAdvanced6 interface
+ */
+#ifndef __IWMReaderAdvanced6_INTERFACE_DEFINED__
+#define __IWMReaderAdvanced6_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMReaderAdvanced6, 0x18a2e7f8, 0x428f, 0x4acd, 0x8a,0x00, 0xe6,0x46,0x39,0xbc,0x93,0xde);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("18a2e7f8-428f-4acd-8a00-e64639bc93de")
+IWMReaderAdvanced6 : public IWMReaderAdvanced5
+{
+    virtual HRESULT STDMETHODCALLTYPE SetProtectStreamSamples(
+        BYTE *pbCertificate,
+        DWORD cbCertificate,
+        DWORD dwCertificateType,
+        DWORD dwFlags,
+        BYTE *pbInitializationVector,
+        DWORD *pcbInitializationVector) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMReaderAdvanced6, 0x18a2e7f8, 0x428f, 0x4acd, 0x8a,0x00, 0xe6,0x46,0x39,0xbc,0x93,0xde)
+#endif
+#else
+typedef struct IWMReaderAdvanced6Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMReaderAdvanced6* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMReaderAdvanced6* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMReaderAdvanced6* This);
+
+    /*** IWMReaderAdvanced methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetUserProvidedClock)(
+        IWMReaderAdvanced6* This,
+        WINBOOL fUserClock);
+
+    HRESULT (STDMETHODCALLTYPE *GetUserProvidedClock)(
+        IWMReaderAdvanced6* This,
+        WINBOOL *pfUserClock);
+
+    HRESULT (STDMETHODCALLTYPE *DeliverTime)(
+        IWMReaderAdvanced6* This,
+        QWORD cnsTime);
+
+    HRESULT (STDMETHODCALLTYPE *SetManualStreamSelection)(
+        IWMReaderAdvanced6* This,
+        WINBOOL fSelection);
+
+    HRESULT (STDMETHODCALLTYPE *GetManualStreamSelection)(
+        IWMReaderAdvanced6* This,
+        WINBOOL *pfSelection);
+
+    HRESULT (STDMETHODCALLTYPE *SetStreamsSelected)(
+        IWMReaderAdvanced6* This,
+        WORD cStreamCount,
+        WORD *pwStreamNumbers,
+        WMT_STREAM_SELECTION *pSelections);
+
+    HRESULT (STDMETHODCALLTYPE *GetStreamSelected)(
+        IWMReaderAdvanced6* This,
+        WORD wStreamNum,
+        WMT_STREAM_SELECTION *pSelection);
+
+    HRESULT (STDMETHODCALLTYPE *SetReceiveSelectionCallbacks)(
+        IWMReaderAdvanced6* This,
+        WINBOOL fGetCallbacks);
+
+    HRESULT (STDMETHODCALLTYPE *GetReceiveSelectionCallbacks)(
+        IWMReaderAdvanced6* This,
+        WINBOOL *pfGetCallbacks);
+
+    HRESULT (STDMETHODCALLTYPE *SetReceiveStreamSamples)(
+        IWMReaderAdvanced6* This,
+        WORD wStreamNum,
+        WINBOOL fReceiveStreamSamples);
+
+    HRESULT (STDMETHODCALLTYPE *GetReceiveStreamSamples)(
+        IWMReaderAdvanced6* This,
+        WORD wStreamNum,
+        WINBOOL *pfReceiveStreamSamples);
+
+    HRESULT (STDMETHODCALLTYPE *SetAllocateForOutput)(
+        IWMReaderAdvanced6* This,
+        DWORD dwOutputNum,
+        WINBOOL fAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *GetAllocateForOutput)(
+        IWMReaderAdvanced6* This,
+        DWORD dwOutputNum,
+        WINBOOL *pfAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *SetAllocateForStream)(
+        IWMReaderAdvanced6* This,
+        WORD wStreamNum,
+        WINBOOL fAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *GetAllocateForStream)(
+        IWMReaderAdvanced6* This,
+        WORD dwSreamNum,
+        WINBOOL *pfAllocate);
+
+    HRESULT (STDMETHODCALLTYPE *GetStatistics)(
+        IWMReaderAdvanced6* This,
+        WM_READER_STATISTICS *pStatistics);
+
+    HRESULT (STDMETHODCALLTYPE *SetClientInfo)(
+        IWMReaderAdvanced6* This,
+        WM_READER_CLIENTINFO *pClientInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetMaxOutputSampleSize)(
+        IWMReaderAdvanced6* This,
+        DWORD dwOutput,
+        DWORD *pcbMax);
+
+    HRESULT (STDMETHODCALLTYPE *GetMaxStreamSampleSize)(
+        IWMReaderAdvanced6* This,
+        WORD wStream,
+        DWORD *pcbMax);
+
+    HRESULT (STDMETHODCALLTYPE *NotifyLateDelivery)(
+        IWMReaderAdvanced6* This,
+        QWORD cnsLateness);
+
+    /*** IWMReaderAdvanced2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetPlayMode)(
+        IWMReaderAdvanced6* This,
+        WMT_PLAY_MODE Mode);
+
+    HRESULT (STDMETHODCALLTYPE *GetPlayMode)(
+        IWMReaderAdvanced6* This,
+        WMT_PLAY_MODE *pMode);
+
+    HRESULT (STDMETHODCALLTYPE *GetBufferProgress)(
+        IWMReaderAdvanced6* This,
+        DWORD *pdwPercent,
+        QWORD *pcnsBuffering);
+
+    HRESULT (STDMETHODCALLTYPE *GetDownloadProgress)(
+        IWMReaderAdvanced6* This,
+        DWORD *pdwPercent,
+        QWORD *pqwBytesDownloaded,
+        QWORD *pcnsDownload);
+
+    HRESULT (STDMETHODCALLTYPE *GetSaveAsProgress)(
+        IWMReaderAdvanced6* This,
+        DWORD *pdwPercent);
+
+    HRESULT (STDMETHODCALLTYPE *SaveFileAs)(
+        IWMReaderAdvanced6* This,
+        const WCHAR *pwszFilename);
+
+    HRESULT (STDMETHODCALLTYPE *GetProtocolName)(
+        IWMReaderAdvanced6* This,
+        WCHAR *pwszProtocol,
+        DWORD *pcchProtocol);
+
+    HRESULT (STDMETHODCALLTYPE *StartAtMarker)(
+        IWMReaderAdvanced6* This,
+        WORD wMarkerIndex,
+        QWORD cnsDuration,
+        float fRate,
+        void *pvContext);
+
+    HRESULT (STDMETHODCALLTYPE *GetOutputSetting)(
+        IWMReaderAdvanced6* This,
+        DWORD dwOutputNum,
+        LPCWSTR pszName,
+        WMT_ATTR_DATATYPE *pType,
+        BYTE *pValue,
+        WORD *pcbLength);
+
+    HRESULT (STDMETHODCALLTYPE *SetOutputSetting)(
+        IWMReaderAdvanced6* This,
+        DWORD dwOutputNum,
+        LPCWSTR pszName,
+        WMT_ATTR_DATATYPE Type,
+        const BYTE *pValue,
+        WORD cbLength);
+
+    HRESULT (STDMETHODCALLTYPE *Preroll)(
+        IWMReaderAdvanced6* This,
+        QWORD cnsStart,
+        QWORD cnsDuration,
+        float fRate);
+
+    HRESULT (STDMETHODCALLTYPE *SetLogClientID)(
+        IWMReaderAdvanced6* This,
+        WINBOOL fLogClientID);
+
+    HRESULT (STDMETHODCALLTYPE *GetLogClientID)(
+        IWMReaderAdvanced6* This,
+        WINBOOL *pfLogClientID);
+
+    HRESULT (STDMETHODCALLTYPE *StopBuffering)(
+        IWMReaderAdvanced6* This);
+
+    HRESULT (STDMETHODCALLTYPE *OpenStream)(
+        IWMReaderAdvanced6* This,
+        IStream *pStream,
+        IWMReaderCallback *pCallback,
+        void *pvContext);
+
+    /*** IWMReaderAdvanced3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *StopNetStreaming)(
+        IWMReaderAdvanced6* This);
+
+    HRESULT (STDMETHODCALLTYPE *StartAtPosition)(
+        IWMReaderAdvanced6* This,
+        WORD wStreamNum,
+        void *pvOffsetStart,
+        void *pvDuration,
+        WMT_OFFSET_FORMAT dwOffsetFormat,
+        float fRate,
+        void *pvContext);
+
+    /*** IWMReaderAdvanced4 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetLanguageCount)(
+        IWMReaderAdvanced6* This,
+        DWORD dwOutputNum,
+        WORD *pwLanguageCount);
+
+    HRESULT (STDMETHODCALLTYPE *GetLanguage)(
+        IWMReaderAdvanced6* This,
+        DWORD dwOutputNum,
+        WORD wLanguage,
+        WCHAR *pwszLanguageString,
+        WORD *pcchLanguageStringLength);
+
+    HRESULT (STDMETHODCALLTYPE *GetMaxSpeedFactor)(
+        IWMReaderAdvanced6* This,
+        double *pdblFactor);
+
+    HRESULT (STDMETHODCALLTYPE *IsUsingFastCache)(
+        IWMReaderAdvanced6* This,
+        WINBOOL *pfUsingFastCache);
+
+    HRESULT (STDMETHODCALLTYPE *AddLogParam)(
+        IWMReaderAdvanced6* This,
+        LPCWSTR wszNameSpace,
+        LPCWSTR wszName,
+        LPCWSTR wszValue);
+
+    HRESULT (STDMETHODCALLTYPE *SendLogParams)(
+        IWMReaderAdvanced6* This);
+
+    HRESULT (STDMETHODCALLTYPE *CanSaveFileAs)(
+        IWMReaderAdvanced6* This,
+        WINBOOL *pfCanSave);
+
+    HRESULT (STDMETHODCALLTYPE *CancelSaveFileAs)(
+        IWMReaderAdvanced6* This);
+
+    HRESULT (STDMETHODCALLTYPE *GetURL)(
+        IWMReaderAdvanced6* This,
+        WCHAR *pwszURL,
+        DWORD *pcchURL);
+
+    /*** IWMReaderAdvanced5 methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetPlayerHook)(
+        IWMReaderAdvanced6* This,
+        DWORD dwOutputNum,
+        IWMPlayerHook *pHook);
+
+    /*** IWMReaderAdvanced6 methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetProtectStreamSamples)(
+        IWMReaderAdvanced6* This,
+        BYTE *pbCertificate,
+        DWORD cbCertificate,
+        DWORD dwCertificateType,
+        DWORD dwFlags,
+        BYTE *pbInitializationVector,
+        DWORD *pcbInitializationVector);
+
+    END_INTERFACE
+} IWMReaderAdvanced6Vtbl;
+interface IWMReaderAdvanced6 {
+    CONST_VTBL IWMReaderAdvanced6Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMReaderAdvanced6_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMReaderAdvanced6_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMReaderAdvanced6_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMReaderAdvanced methods ***/
+#define IWMReaderAdvanced6_SetUserProvidedClock(This,fUserClock) (This)->lpVtbl->SetUserProvidedClock(This,fUserClock)
+#define IWMReaderAdvanced6_GetUserProvidedClock(This,pfUserClock) (This)->lpVtbl->GetUserProvidedClock(This,pfUserClock)
+#define IWMReaderAdvanced6_DeliverTime(This,cnsTime) (This)->lpVtbl->DeliverTime(This,cnsTime)
+#define IWMReaderAdvanced6_SetManualStreamSelection(This,fSelection) (This)->lpVtbl->SetManualStreamSelection(This,fSelection)
+#define IWMReaderAdvanced6_GetManualStreamSelection(This,pfSelection) (This)->lpVtbl->GetManualStreamSelection(This,pfSelection)
+#define IWMReaderAdvanced6_SetStreamsSelected(This,cStreamCount,pwStreamNumbers,pSelections) (This)->lpVtbl->SetStreamsSelected(This,cStreamCount,pwStreamNumbers,pSelections)
+#define IWMReaderAdvanced6_GetStreamSelected(This,wStreamNum,pSelection) (This)->lpVtbl->GetStreamSelected(This,wStreamNum,pSelection)
+#define IWMReaderAdvanced6_SetReceiveSelectionCallbacks(This,fGetCallbacks) (This)->lpVtbl->SetReceiveSelectionCallbacks(This,fGetCallbacks)
+#define IWMReaderAdvanced6_GetReceiveSelectionCallbacks(This,pfGetCallbacks) (This)->lpVtbl->GetReceiveSelectionCallbacks(This,pfGetCallbacks)
+#define IWMReaderAdvanced6_SetReceiveStreamSamples(This,wStreamNum,fReceiveStreamSamples) (This)->lpVtbl->SetReceiveStreamSamples(This,wStreamNum,fReceiveStreamSamples)
+#define IWMReaderAdvanced6_GetReceiveStreamSamples(This,wStreamNum,pfReceiveStreamSamples) (This)->lpVtbl->GetReceiveStreamSamples(This,wStreamNum,pfReceiveStreamSamples)
+#define IWMReaderAdvanced6_SetAllocateForOutput(This,dwOutputNum,fAllocate) (This)->lpVtbl->SetAllocateForOutput(This,dwOutputNum,fAllocate)
+#define IWMReaderAdvanced6_GetAllocateForOutput(This,dwOutputNum,pfAllocate) (This)->lpVtbl->GetAllocateForOutput(This,dwOutputNum,pfAllocate)
+#define IWMReaderAdvanced6_SetAllocateForStream(This,wStreamNum,fAllocate) (This)->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate)
+#define IWMReaderAdvanced6_GetAllocateForStream(This,dwSreamNum,pfAllocate) (This)->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate)
+#define IWMReaderAdvanced6_GetStatistics(This,pStatistics) (This)->lpVtbl->GetStatistics(This,pStatistics)
+#define IWMReaderAdvanced6_SetClientInfo(This,pClientInfo) (This)->lpVtbl->SetClientInfo(This,pClientInfo)
+#define IWMReaderAdvanced6_GetMaxOutputSampleSize(This,dwOutput,pcbMax) (This)->lpVtbl->GetMaxOutputSampleSize(This,dwOutput,pcbMax)
+#define IWMReaderAdvanced6_GetMaxStreamSampleSize(This,wStream,pcbMax) (This)->lpVtbl->GetMaxStreamSampleSize(This,wStream,pcbMax)
+#define IWMReaderAdvanced6_NotifyLateDelivery(This,cnsLateness) (This)->lpVtbl->NotifyLateDelivery(This,cnsLateness)
+/*** IWMReaderAdvanced2 methods ***/
+#define IWMReaderAdvanced6_SetPlayMode(This,Mode) (This)->lpVtbl->SetPlayMode(This,Mode)
+#define IWMReaderAdvanced6_GetPlayMode(This,pMode) (This)->lpVtbl->GetPlayMode(This,pMode)
+#define IWMReaderAdvanced6_GetBufferProgress(This,pdwPercent,pcnsBuffering) (This)->lpVtbl->GetBufferProgress(This,pdwPercent,pcnsBuffering)
+#define IWMReaderAdvanced6_GetDownloadProgress(This,pdwPercent,pqwBytesDownloaded,pcnsDownload) (This)->lpVtbl->GetDownloadProgress(This,pdwPercent,pqwBytesDownloaded,pcnsDownload)
+#define IWMReaderAdvanced6_GetSaveAsProgress(This,pdwPercent) (This)->lpVtbl->GetSaveAsProgress(This,pdwPercent)
+#define IWMReaderAdvanced6_SaveFileAs(This,pwszFilename) (This)->lpVtbl->SaveFileAs(This,pwszFilename)
+#define IWMReaderAdvanced6_GetProtocolName(This,pwszProtocol,pcchProtocol) (This)->lpVtbl->GetProtocolName(This,pwszProtocol,pcchProtocol)
+#define IWMReaderAdvanced6_StartAtMarker(This,wMarkerIndex,cnsDuration,fRate,pvContext) (This)->lpVtbl->StartAtMarker(This,wMarkerIndex,cnsDuration,fRate,pvContext)
+#define IWMReaderAdvanced6_GetOutputSetting(This,dwOutputNum,pszName,pType,pValue,pcbLength) (This)->lpVtbl->GetOutputSetting(This,dwOutputNum,pszName,pType,pValue,pcbLength)
+#define IWMReaderAdvanced6_SetOutputSetting(This,dwOutputNum,pszName,Type,pValue,cbLength) (This)->lpVtbl->SetOutputSetting(This,dwOutputNum,pszName,Type,pValue,cbLength)
+#define IWMReaderAdvanced6_Preroll(This,cnsStart,cnsDuration,fRate) (This)->lpVtbl->Preroll(This,cnsStart,cnsDuration,fRate)
+#define IWMReaderAdvanced6_SetLogClientID(This,fLogClientID) (This)->lpVtbl->SetLogClientID(This,fLogClientID)
+#define IWMReaderAdvanced6_GetLogClientID(This,pfLogClientID) (This)->lpVtbl->GetLogClientID(This,pfLogClientID)
+#define IWMReaderAdvanced6_StopBuffering(This) (This)->lpVtbl->StopBuffering(This)
+#define IWMReaderAdvanced6_OpenStream(This,pStream,pCallback,pvContext) (This)->lpVtbl->OpenStream(This,pStream,pCallback,pvContext)
+/*** IWMReaderAdvanced3 methods ***/
+#define IWMReaderAdvanced6_StopNetStreaming(This) (This)->lpVtbl->StopNetStreaming(This)
+#define IWMReaderAdvanced6_StartAtPosition(This,wStreamNum,pvOffsetStart,pvDuration,dwOffsetFormat,fRate,pvContext) (This)->lpVtbl->StartAtPosition(This,wStreamNum,pvOffsetStart,pvDuration,dwOffsetFormat,fRate,pvContext)
+/*** IWMReaderAdvanced4 methods ***/
+#define IWMReaderAdvanced6_GetLanguageCount(This,dwOutputNum,pwLanguageCount) (This)->lpVtbl->GetLanguageCount(This,dwOutputNum,pwLanguageCount)
+#define IWMReaderAdvanced6_GetLanguage(This,dwOutputNum,wLanguage,pwszLanguageString,pcchLanguageStringLength) (This)->lpVtbl->GetLanguage(This,dwOutputNum,wLanguage,pwszLanguageString,pcchLanguageStringLength)
+#define IWMReaderAdvanced6_GetMaxSpeedFactor(This,pdblFactor) (This)->lpVtbl->GetMaxSpeedFactor(This,pdblFactor)
+#define IWMReaderAdvanced6_IsUsingFastCache(This,pfUsingFastCache) (This)->lpVtbl->IsUsingFastCache(This,pfUsingFastCache)
+#define IWMReaderAdvanced6_AddLogParam(This,wszNameSpace,wszName,wszValue) (This)->lpVtbl->AddLogParam(This,wszNameSpace,wszName,wszValue)
+#define IWMReaderAdvanced6_SendLogParams(This) (This)->lpVtbl->SendLogParams(This)
+#define IWMReaderAdvanced6_CanSaveFileAs(This,pfCanSave) (This)->lpVtbl->CanSaveFileAs(This,pfCanSave)
+#define IWMReaderAdvanced6_CancelSaveFileAs(This) (This)->lpVtbl->CancelSaveFileAs(This)
+#define IWMReaderAdvanced6_GetURL(This,pwszURL,pcchURL) (This)->lpVtbl->GetURL(This,pwszURL,pcchURL)
+/*** IWMReaderAdvanced5 methods ***/
+#define IWMReaderAdvanced6_SetPlayerHook(This,dwOutputNum,pHook) (This)->lpVtbl->SetPlayerHook(This,dwOutputNum,pHook)
+/*** IWMReaderAdvanced6 methods ***/
+#define IWMReaderAdvanced6_SetProtectStreamSamples(This,pbCertificate,cbCertificate,dwCertificateType,dwFlags,pbInitializationVector,pcbInitializationVector) (This)->lpVtbl->SetProtectStreamSamples(This,pbCertificate,cbCertificate,dwCertificateType,dwFlags,pbInitializationVector,pcbInitializationVector)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced6_QueryInterface(IWMReaderAdvanced6* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMReaderAdvanced6_AddRef(IWMReaderAdvanced6* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMReaderAdvanced6_Release(IWMReaderAdvanced6* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMReaderAdvanced methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced6_SetUserProvidedClock(IWMReaderAdvanced6* This,WINBOOL fUserClock) {
+    return This->lpVtbl->SetUserProvidedClock(This,fUserClock);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetUserProvidedClock(IWMReaderAdvanced6* This,WINBOOL *pfUserClock) {
+    return This->lpVtbl->GetUserProvidedClock(This,pfUserClock);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_DeliverTime(IWMReaderAdvanced6* This,QWORD cnsTime) {
+    return This->lpVtbl->DeliverTime(This,cnsTime);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_SetManualStreamSelection(IWMReaderAdvanced6* This,WINBOOL fSelection) {
+    return This->lpVtbl->SetManualStreamSelection(This,fSelection);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetManualStreamSelection(IWMReaderAdvanced6* This,WINBOOL *pfSelection) {
+    return This->lpVtbl->GetManualStreamSelection(This,pfSelection);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_SetStreamsSelected(IWMReaderAdvanced6* This,WORD cStreamCount,WORD *pwStreamNumbers,WMT_STREAM_SELECTION *pSelections) {
+    return This->lpVtbl->SetStreamsSelected(This,cStreamCount,pwStreamNumbers,pSelections);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetStreamSelected(IWMReaderAdvanced6* This,WORD wStreamNum,WMT_STREAM_SELECTION *pSelection) {
+    return This->lpVtbl->GetStreamSelected(This,wStreamNum,pSelection);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_SetReceiveSelectionCallbacks(IWMReaderAdvanced6* This,WINBOOL fGetCallbacks) {
+    return This->lpVtbl->SetReceiveSelectionCallbacks(This,fGetCallbacks);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetReceiveSelectionCallbacks(IWMReaderAdvanced6* This,WINBOOL *pfGetCallbacks) {
+    return This->lpVtbl->GetReceiveSelectionCallbacks(This,pfGetCallbacks);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_SetReceiveStreamSamples(IWMReaderAdvanced6* This,WORD wStreamNum,WINBOOL fReceiveStreamSamples) {
+    return This->lpVtbl->SetReceiveStreamSamples(This,wStreamNum,fReceiveStreamSamples);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetReceiveStreamSamples(IWMReaderAdvanced6* This,WORD wStreamNum,WINBOOL *pfReceiveStreamSamples) {
+    return This->lpVtbl->GetReceiveStreamSamples(This,wStreamNum,pfReceiveStreamSamples);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_SetAllocateForOutput(IWMReaderAdvanced6* This,DWORD dwOutputNum,WINBOOL fAllocate) {
+    return This->lpVtbl->SetAllocateForOutput(This,dwOutputNum,fAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetAllocateForOutput(IWMReaderAdvanced6* This,DWORD dwOutputNum,WINBOOL *pfAllocate) {
+    return This->lpVtbl->GetAllocateForOutput(This,dwOutputNum,pfAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_SetAllocateForStream(IWMReaderAdvanced6* This,WORD wStreamNum,WINBOOL fAllocate) {
+    return This->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetAllocateForStream(IWMReaderAdvanced6* This,WORD dwSreamNum,WINBOOL *pfAllocate) {
+    return This->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetStatistics(IWMReaderAdvanced6* This,WM_READER_STATISTICS *pStatistics) {
+    return This->lpVtbl->GetStatistics(This,pStatistics);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_SetClientInfo(IWMReaderAdvanced6* This,WM_READER_CLIENTINFO *pClientInfo) {
+    return This->lpVtbl->SetClientInfo(This,pClientInfo);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetMaxOutputSampleSize(IWMReaderAdvanced6* This,DWORD dwOutput,DWORD *pcbMax) {
+    return This->lpVtbl->GetMaxOutputSampleSize(This,dwOutput,pcbMax);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetMaxStreamSampleSize(IWMReaderAdvanced6* This,WORD wStream,DWORD *pcbMax) {
+    return This->lpVtbl->GetMaxStreamSampleSize(This,wStream,pcbMax);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_NotifyLateDelivery(IWMReaderAdvanced6* This,QWORD cnsLateness) {
+    return This->lpVtbl->NotifyLateDelivery(This,cnsLateness);
+}
+/*** IWMReaderAdvanced2 methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced6_SetPlayMode(IWMReaderAdvanced6* This,WMT_PLAY_MODE Mode) {
+    return This->lpVtbl->SetPlayMode(This,Mode);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetPlayMode(IWMReaderAdvanced6* This,WMT_PLAY_MODE *pMode) {
+    return This->lpVtbl->GetPlayMode(This,pMode);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetBufferProgress(IWMReaderAdvanced6* This,DWORD *pdwPercent,QWORD *pcnsBuffering) {
+    return This->lpVtbl->GetBufferProgress(This,pdwPercent,pcnsBuffering);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetDownloadProgress(IWMReaderAdvanced6* This,DWORD *pdwPercent,QWORD *pqwBytesDownloaded,QWORD *pcnsDownload) {
+    return This->lpVtbl->GetDownloadProgress(This,pdwPercent,pqwBytesDownloaded,pcnsDownload);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetSaveAsProgress(IWMReaderAdvanced6* This,DWORD *pdwPercent) {
+    return This->lpVtbl->GetSaveAsProgress(This,pdwPercent);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_SaveFileAs(IWMReaderAdvanced6* This,const WCHAR *pwszFilename) {
+    return This->lpVtbl->SaveFileAs(This,pwszFilename);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetProtocolName(IWMReaderAdvanced6* This,WCHAR *pwszProtocol,DWORD *pcchProtocol) {
+    return This->lpVtbl->GetProtocolName(This,pwszProtocol,pcchProtocol);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_StartAtMarker(IWMReaderAdvanced6* This,WORD wMarkerIndex,QWORD cnsDuration,float fRate,void *pvContext) {
+    return This->lpVtbl->StartAtMarker(This,wMarkerIndex,cnsDuration,fRate,pvContext);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetOutputSetting(IWMReaderAdvanced6* This,DWORD dwOutputNum,LPCWSTR pszName,WMT_ATTR_DATATYPE *pType,BYTE *pValue,WORD *pcbLength) {
+    return This->lpVtbl->GetOutputSetting(This,dwOutputNum,pszName,pType,pValue,pcbLength);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_SetOutputSetting(IWMReaderAdvanced6* This,DWORD dwOutputNum,LPCWSTR pszName,WMT_ATTR_DATATYPE Type,const BYTE *pValue,WORD cbLength) {
+    return This->lpVtbl->SetOutputSetting(This,dwOutputNum,pszName,Type,pValue,cbLength);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_Preroll(IWMReaderAdvanced6* This,QWORD cnsStart,QWORD cnsDuration,float fRate) {
+    return This->lpVtbl->Preroll(This,cnsStart,cnsDuration,fRate);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_SetLogClientID(IWMReaderAdvanced6* This,WINBOOL fLogClientID) {
+    return This->lpVtbl->SetLogClientID(This,fLogClientID);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetLogClientID(IWMReaderAdvanced6* This,WINBOOL *pfLogClientID) {
+    return This->lpVtbl->GetLogClientID(This,pfLogClientID);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_StopBuffering(IWMReaderAdvanced6* This) {
+    return This->lpVtbl->StopBuffering(This);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_OpenStream(IWMReaderAdvanced6* This,IStream *pStream,IWMReaderCallback *pCallback,void *pvContext) {
+    return This->lpVtbl->OpenStream(This,pStream,pCallback,pvContext);
+}
+/*** IWMReaderAdvanced3 methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced6_StopNetStreaming(IWMReaderAdvanced6* This) {
+    return This->lpVtbl->StopNetStreaming(This);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_StartAtPosition(IWMReaderAdvanced6* This,WORD wStreamNum,void *pvOffsetStart,void *pvDuration,WMT_OFFSET_FORMAT dwOffsetFormat,float fRate,void *pvContext) {
+    return This->lpVtbl->StartAtPosition(This,wStreamNum,pvOffsetStart,pvDuration,dwOffsetFormat,fRate,pvContext);
+}
+/*** IWMReaderAdvanced4 methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetLanguageCount(IWMReaderAdvanced6* This,DWORD dwOutputNum,WORD *pwLanguageCount) {
+    return This->lpVtbl->GetLanguageCount(This,dwOutputNum,pwLanguageCount);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetLanguage(IWMReaderAdvanced6* This,DWORD dwOutputNum,WORD wLanguage,WCHAR *pwszLanguageString,WORD *pcchLanguageStringLength) {
+    return This->lpVtbl->GetLanguage(This,dwOutputNum,wLanguage,pwszLanguageString,pcchLanguageStringLength);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetMaxSpeedFactor(IWMReaderAdvanced6* This,double *pdblFactor) {
+    return This->lpVtbl->GetMaxSpeedFactor(This,pdblFactor);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_IsUsingFastCache(IWMReaderAdvanced6* This,WINBOOL *pfUsingFastCache) {
+    return This->lpVtbl->IsUsingFastCache(This,pfUsingFastCache);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_AddLogParam(IWMReaderAdvanced6* This,LPCWSTR wszNameSpace,LPCWSTR wszName,LPCWSTR wszValue) {
+    return This->lpVtbl->AddLogParam(This,wszNameSpace,wszName,wszValue);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_SendLogParams(IWMReaderAdvanced6* This) {
+    return This->lpVtbl->SendLogParams(This);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_CanSaveFileAs(IWMReaderAdvanced6* This,WINBOOL *pfCanSave) {
+    return This->lpVtbl->CanSaveFileAs(This,pfCanSave);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_CancelSaveFileAs(IWMReaderAdvanced6* This) {
+    return This->lpVtbl->CancelSaveFileAs(This);
+}
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetURL(IWMReaderAdvanced6* This,WCHAR *pwszURL,DWORD *pcchURL) {
+    return This->lpVtbl->GetURL(This,pwszURL,pcchURL);
+}
+/*** IWMReaderAdvanced5 methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced6_SetPlayerHook(IWMReaderAdvanced6* This,DWORD dwOutputNum,IWMPlayerHook *pHook) {
+    return This->lpVtbl->SetPlayerHook(This,dwOutputNum,pHook);
+}
+/*** IWMReaderAdvanced6 methods ***/
+static FORCEINLINE HRESULT IWMReaderAdvanced6_SetProtectStreamSamples(IWMReaderAdvanced6* This,BYTE *pbCertificate,DWORD cbCertificate,DWORD dwCertificateType,DWORD dwFlags,BYTE *pbInitializationVector,DWORD *pcbInitializationVector) {
+    return This->lpVtbl->SetProtectStreamSamples(This,pbCertificate,cbCertificate,dwCertificateType,dwFlags,pbInitializationVector,pcbInitializationVector);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMReaderAdvanced6_SetProtectStreamSamples_Proxy(
+    IWMReaderAdvanced6* This,
+    BYTE *pbCertificate,
+    DWORD cbCertificate,
+    DWORD dwCertificateType,
+    DWORD dwFlags,
+    BYTE *pbInitializationVector,
+    DWORD *pcbInitializationVector);
+void __RPC_STUB IWMReaderAdvanced6_SetProtectStreamSamples_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMReaderAdvanced6_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
  * IWMSyncReader interface
  */
 #ifndef __IWMSyncReader_INTERFACE_DEFINED__
@@ -4206,6 +7468,7 @@ void __RPC_STUB IWMWriterAdvanced3_SetNonBlocking_Stub(
 #endif  /* __IWMWriterAdvanced3_INTERFACE_DEFINED__ */
 
 HRESULT WINAPI WMCreateWriter(IUnknown*,IWMWriter**);
+HRESULT WINAPI WMCreateReader(IUnknown*,DWORD,IWMReader**);
 EXTERN_GUID(WMMEDIASUBTYPE_Base,   0x00000000,0x0000,0x0010,0x80,0x00,0x00,0xaa,0x00,0x38,0x9b,0x71);
 EXTERN_GUID(WMMEDIATYPE_Video,     0x73646976,0x0000,0x0010,0x80,0x00,0x00,0xaa,0x00,0x38,0x9b,0x71);
 EXTERN_GUID(WMMEDIASUBTYPE_RGB1,   0xe436eb78,0x524f,0x11ce,0x9f,0x53,0x00,0x20,0xaf,0x0b,0xa7,0x70);
