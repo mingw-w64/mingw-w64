@@ -1299,7 +1299,7 @@ void __pformat_emit_float( int sign, char *value, int len, __pformat_t *stream )
      * reserve space in the output field, for the required number of
      * decimal digits to be placed before the decimal point...
      */
-    if( stream->width > len )
+    if( stream->width >= len)
       /*
        * adjusting as appropriate, when width is sufficient...
        */
