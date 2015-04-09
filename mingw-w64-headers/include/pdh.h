@@ -581,7 +581,7 @@ PDH_STATUS PdhValidatePathExA(
   LPCSTR szFullPathBuffer
 );
 
-PDH_STATUS PdhValidatePathExA(
+PDH_STATUS PdhValidatePathExW(
   PDH_HLOG hDataSource,
   LPCWSTR szFullPathBuffer
 );
