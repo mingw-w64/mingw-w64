@@ -5149,7 +5149,8 @@ typedef struct tagTVDISPINFOEXW {
 #define LIF_URL 0x8
 
 #define LIS_FOCUSED 0x1
-#define LIS_ENABLED 0x2#define LIS_VISITED 0x4
+#define LIS_ENABLED 0x2
+#define LIS_VISITED 0x4
 #if NTDDI_VERSION >= 0x06000000
 #define LIS_HOTTRACK 0x8
 #define LIS_DEFAULTCOLORS 0x10
