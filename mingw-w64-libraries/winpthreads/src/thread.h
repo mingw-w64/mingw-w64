@@ -29,6 +29,7 @@
 
 #define LIFE_THREAD 0xBAB1F00D
 #define DEAD_THREAD 0xDEADBEEF
+#define EXCEPTION_SET_THREAD_NAME ((DWORD) 0x406D1388)
 
 typedef struct _pthread_v _pthread_v;
 struct _pthread_v
@@ -48,6 +49,7 @@ struct _pthread_v
     unsigned int keymax;
     void **keyval;
     unsigned char *keyval_set;
+    char *thread_name;
     pthread_spinlock_t spin_keys;
     DWORD tid;
     int rwlc;

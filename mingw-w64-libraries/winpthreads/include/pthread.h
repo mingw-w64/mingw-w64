@@ -314,6 +314,9 @@ int       WINPTHREAD_API pthread_create_wrapper(void *args);
 int       WINPTHREAD_API pthread_create(pthread_t *th, const pthread_attr_t *attr, void *(* func)(void *), void *arg);
 int       WINPTHREAD_API pthread_join(pthread_t t, void **res);
 int       WINPTHREAD_API pthread_detach(pthread_t t);
+int       WINPTHREAD_API pthread_setname_np(pthread_t thread, const char *name);
+int       WINPTHREAD_API pthread_getname_np(pthread_t thread, char *name, size_t len);
+
 
 int WINPTHREAD_API pthread_rwlock_init(pthread_rwlock_t *rwlock_, const pthread_rwlockattr_t *attr);
 int WINPTHREAD_API pthread_rwlock_wrlock(pthread_rwlock_t *l);

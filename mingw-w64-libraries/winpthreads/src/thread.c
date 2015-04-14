@@ -21,6 +21,7 @@
 */
 
 #include <windows.h>
+#include <strsafe.h>
 #include <stdio.h>
 #include <malloc.h>
 #include <signal.h>
@@ -51,6 +52,60 @@ static __pthread_idlist *idList = NULL;
 static size_t idListCnt = 0;
 static size_t idListMax = 0;
 static pthread_t idListNextId = 0;
+
+#if !defined(_MSC_VER) || defined (USE_VEH_FOR_MSC_SETTHREADNAME)
+static void *SetThreadName_VEH_handle = NULL;
+
+static LONG __stdcall
+SetThreadName_VEH (PEXCEPTION_POINTERS ExceptionInfo)
+{
+  if (ExceptionInfo->ExceptionRecord != NULL &&
+      ExceptionInfo->ExceptionRecord->ExceptionCode == EXCEPTION_SET_THREAD_NAME)
+    return EXCEPTION_CONTINUE_EXECUTION;
+
+  return EXCEPTION_CONTINUE_SEARCH;
+}
+#endif
+
+typedef struct _THREADNAME_INFO
+{
+  DWORD  dwType;	/* must be 0x1000 */
+  LPCSTR szName;	/* pointer to name (in user addr space) */
+  DWORD  dwThreadID;	/* thread ID (-1=caller thread) */
+  DWORD  dwFlags;	/* reserved for future use, must be zero */
+} THREADNAME_INFO;
+
+static void
+SetThreadName (DWORD dwThreadID, LPCSTR szThreadName)
+{
+   THREADNAME_INFO info;
+   DWORD infosize;
+
+   info.dwType = 0x1000;
+   info.szName = szThreadName;
+   info.dwThreadID = dwThreadID;
+   info.dwFlags = 0;
+
+   infosize = sizeof (info) / sizeof (DWORD);
+
+#if defined(_MSC_VER) && !defined (USE_VEH_FOR_MSC_SETTHREADNAME)
+   __try
+     {
+       RaiseException (EXCEPTION_SET_THREAD_NAME, 0, infosize, (DWORD *) &info);
+     }
+   __except (EXCEPTION_EXECUTE_HANDLER)
+     {
+     }
+#else
+   /* Without a debugger we *must* have an exception handler,
+    * otherwise raising an exception will crash the process.
+    */
+   if ((!IsDebuggerPresent ()) && (SetThreadName_VEH_handle == NULL))
+     return;
+
+   RaiseException (EXCEPTION_SET_THREAD_NAME, 0, infosize, (DWORD *) &info);
+#endif
+}
 
 /* Search the list idList for an element with identifier ID.  If
    found, its associated _pthread_v pointer is returned, otherwise
@@ -234,6 +289,8 @@ push_pthread_mem (_pthread_v *sv)
     free (sv->keyval);
   if (sv->keyval_set)
     free (sv->keyval_set);
+  if (sv->thread_name)
+    free (sv->thread_name);
   memset (sv, 0, sizeof(struct _pthread_v));
   if (pthr_last == NULL)
     pthr_root = pthr_last = sv;
@@ -326,7 +383,21 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 
   if (dwReason == DLL_PROCESS_DETACH)
     {
+#if !defined(_MSC_VER) || defined (USE_VEH_FOR_MSC_SETTHREADNAME)
+      if (lpreserved == NULL && SetThreadName_VEH_handle != NULL)
+        {
+          RemoveVectoredExceptionHandler (SetThreadName_VEH_handle);
+          SetThreadName_VEH_handle = NULL;
+        }
+#endif
       free_pthread_mem ();
+    }
+  else if (dwReason == DLL_PROCESS_ATTACH)
+    {
+#if !defined(_MSC_VER) || defined (USE_VEH_FOR_MSC_SETTHREADNAME)
+      SetThreadName_VEH_handle = AddVectoredExceptionHandler (1, &SetThreadName_VEH);
+      /* Can't do anything on error anyway, check for NULL later */
+#endif
     }
   else if (dwReason == DLL_THREAD_DETACH)
     {
@@ -1667,3 +1738,61 @@ pthread_setconcurrency (int new_level)
   return 0;
 }
 
+int
+pthread_setname_np (pthread_t thread, const char *name)
+{
+  struct _pthread_v *tv;
+  char *stored_name;
+
+  if (name == NULL)
+    return EINVAL;
+
+  tv = __pth_gpointer_locked (thread);
+  if (!tv || thread != tv->x || tv->in_cancel || tv->ended || tv->h == NULL
+      || tv->h == INVALID_HANDLE_VALUE)
+    return ESRCH;
+
+  stored_name = strdup (name);
+  if (stored_name == NULL)
+    return ENOMEM;
+
+  if (tv->thread_name != NULL)
+    free (tv->thread_name);
+
+  tv->thread_name = stored_name;
+  SetThreadName (tv->tid, name);
+  return 0;
+}
+
+int
+pthread_getname_np (pthread_t thread, char *name, size_t len)
+{
+  HRESULT result;
+  struct _pthread_v *tv;
+
+  if (name == NULL)
+    return EINVAL;
+
+  tv = __pth_gpointer_locked (thread);
+  if (!tv || thread != tv->x || tv->in_cancel || tv->ended || tv->h == NULL
+      || tv->h == INVALID_HANDLE_VALUE)
+    return ESRCH;
+
+  if (len < 1)
+    return ERANGE;
+
+  if (tv->thread_name == NULL)
+    {
+      name[0] = '\0';
+      return 0;
+    }
+
+  if (strlen (tv->thread_name) >= len)
+    return ERANGE;
+
+  result = StringCchCopyNA (name, len, tv->thread_name, len - 1);
+  if (SUCCEEDED (result))
+    return 0;
+
+  return ERANGE;
+}
