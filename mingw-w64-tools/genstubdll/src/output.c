@@ -139,7 +139,7 @@ outputSyms (void)
       fprintf (fp,"\t.globl __imp_%s\n", l->sym);
       fprintf (fp, "\t.align 8\n");
       fprintf (fp, "__imp_%s:\n", l->sym);
-      fprintf (fp, "\t.quad %\n", (l->libsym[0] != 0 ? l->libsym : "0"));
+      fprintf (fp, "\t.quad %s\n", (l->libsym[0] != 0 ? l->libsym : "0"));
       fprintf (fp, "\t.section .rdata, \"dr\"\n");
       fprintf (fp, "__imp_%s_name:\n", l->sym);
       fprintf (fp, "\t.ascii \"%s\"\n", l->sym);
@@ -152,7 +152,9 @@ outputSyms (void)
       fprintf (fp, "\t.align 4\n");
       fprintf (fp,"\t.globl __imp__%s\n", l->sym);
       fprintf (fp, "__imp__%s:\n", l->sym);
-      fprintf (fp, "\t.long _%s\n", (l->libsym[0] != 0 ? l->libsym : "0"));
+      fprintf (fp, "\t.long %s%s\n",
+	       (l->libsym[0] != 0 ? "_" : ""),
+	       (l->libsym[0] != 0 ? l->libsym : "0"));
       fprintf (fp, "\t.section .rdata, \"dr\"\n");
       fprintf (fp, "__imp__%s_name:\n", l->sym);
       fprintf (fp, "\t.ascii \"%s\"\n", l->sym);
