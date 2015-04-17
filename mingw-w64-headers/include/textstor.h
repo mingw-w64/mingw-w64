@@ -91,6 +91,10 @@ extern "C" {
 
 #define TS_ST_CORRECTION (0x1)
 
+#define GXFPF_ROUND_NEAREST (0x1)
+
+#define GXFPF_NEAREST (0x2)
+
 typedef enum __WIDL_textstor_generated_name_00000002 {
     TS_AE_NONE = 0,
     TS_AE_START = 1,
