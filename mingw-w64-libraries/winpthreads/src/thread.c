@@ -23,6 +23,7 @@
 #include <windows.h>
 #include <strsafe.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <malloc.h>
 #include <signal.h>
 #include "pthread.h"
@@ -374,6 +375,38 @@ free_pthread_mem (void)
   pthread_mutex_unlock (&mtx_pthr_locked);
 }
 
+static void
+replace_spin_keys (pthread_spinlock_t *old, pthread_spinlock_t new)
+{
+  if (old == NULL)
+    return;
+
+  if (EPERM == pthread_spin_destroy (old))
+    {
+#define THREADERR "Error cleaning up spin_keys for thread "
+#define THREADERR_LEN ((sizeof (THREADERR) / sizeof (*THREADERR)) - 1)
+#define THREADID_LEN THREADERR_LEN + 66 + 1 + 1
+      int i;
+      char thread_id[THREADID_LEN] = THREADERR;
+      _ultoa ((unsigned long) GetCurrentThreadId (), &thread_id[THREADERR_LEN], 10);
+      for (i = THREADERR_LEN; thread_id[i] != '\0' && i < THREADID_LEN - 1; i++)
+        {
+        }
+      if (i < THREADID_LEN - 1)
+        {
+          thread_id[i] = '\n';
+          thread_id[i + 1] = '\0';
+        }
+#undef THREADERR
+#undef THREADERR_LEN
+#undef THREADID_LEN
+      OutputDebugStringA (thread_id);
+      abort ();
+    }
+
+  *old = new;
+}
+
 /* Hook for TLS-based deregistration/registration of thread.  */
 static BOOL WINAPI
 __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
@@ -415,7 +448,7 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	      t->h = NULL;
 	    }
 	  pthread_mutex_destroy (&t->p_clock);
-	  t->spin_keys = new_spin_keys;
+	  replace_spin_keys (&t->spin_keys, new_spin_keys);
 	  push_pthread_mem (t);
 	  t = NULL;
 	  TlsSetValue (_pthread_tls, t);
@@ -434,14 +467,14 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 		CloseHandle (t->h);
 	      t->h = NULL;
 	      pthread_mutex_destroy(&t->p_clock);
-	      t->spin_keys = new_spin_keys;
+	      replace_spin_keys (&t->spin_keys, new_spin_keys);
 	      push_pthread_mem (t);
 	      t = NULL;
 	      TlsSetValue (_pthread_tls, t);
 	      return TRUE;
 	    }
 	  pthread_mutex_destroy(&t->p_clock);
-	  t->spin_keys = new_spin_keys;
+	  replace_spin_keys (&t->spin_keys, new_spin_keys);
 	}
       else if (t)
 	{
@@ -449,7 +482,7 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 	    CloseHandle (t->evStart);
 	  t->evStart = NULL;
 	  pthread_mutex_destroy (&t->p_clock);
-	  t->spin_keys = new_spin_keys;
+	  replace_spin_keys (&t->spin_keys, new_spin_keys);
 	}
     }
   return TRUE;
@@ -963,7 +996,7 @@ __pthread_self_lite (void)
   t->tid = GetCurrentThreadId();
   t->evStart = CreateEvent (NULL, 1, 0, NULL);
   t->p_clock = PTHREAD_MUTEX_INITIALIZER;
-  t->spin_keys = new_spin_keys;
+  replace_spin_keys (&t->spin_keys, new_spin_keys);
   t->sched_pol = SCHED_OTHER;
   t->h = NULL; //GetCurrentThread();
   if (!DuplicateHandle(GetCurrentProcess(), GetCurrentThread(), GetCurrentProcess(), &t->h, 0, FALSE, DUPLICATE_SAME_ACCESS))
@@ -1521,7 +1554,7 @@ pthread_create (pthread_t *th, const pthread_attr_t *attr, void *(* func)(void *
   while (++redo <= 4);
 
   tv->p_clock = PTHREAD_MUTEX_INITIALIZER;
-  tv->spin_keys = new_spin_keys;
+  replace_spin_keys (&tv->spin_keys, new_spin_keys);
   tv->valid = LIFE_THREAD;
   tv->sched.sched_priority = THREAD_PRIORITY_NORMAL;
   tv->sched_pol = SCHED_OTHER;
@@ -1559,7 +1592,7 @@ pthread_create (pthread_t *th, const pthread_attr_t *attr, void *(* func)(void *
       if (tv->evStart)
 	CloseHandle (tv->evStart);
       pthread_mutex_destroy (&tv->p_clock);
-      tv->spin_keys = new_spin_keys;
+      replace_spin_keys (&tv->spin_keys, new_spin_keys);
       tv->evStart = NULL;
       tv->h = 0;
       if (th)
@@ -1621,7 +1654,7 @@ pthread_join (pthread_t t, void **res)
   if (res)
     *res = tv->ret_arg;
   pthread_mutex_destroy (&tv->p_clock);
-  tv->spin_keys = new_spin_keys;
+  replace_spin_keys (&tv->spin_keys, new_spin_keys);
   push_pthread_mem (tv);
 
   return 0;
@@ -1671,7 +1704,7 @@ _pthread_tryjoin (pthread_t t, void **res)
   if (res)
     *res = tv->ret_arg;
   pthread_mutex_destroy (&tv->p_clock);
-  tv->spin_keys = new_spin_keys;
+  replace_spin_keys (&tv->spin_keys, new_spin_keys);
 
   push_pthread_mem (tv);
 
@@ -1714,7 +1747,7 @@ pthread_detach (pthread_t t)
 	    CloseHandle (tv->evStart);
 	  tv->evStart = NULL;
 	  pthread_mutex_destroy (&tv->p_clock);
-	  tv->spin_keys = new_spin_keys;
+	  replace_spin_keys (&tv->spin_keys, new_spin_keys);
 	  push_pthread_mem (tv);
 	}
     }
