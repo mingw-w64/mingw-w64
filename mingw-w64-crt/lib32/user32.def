@@ -1,6 +1,9 @@
 LIBRARY USER32.dll
 EXPORTS
+;ord_1500@16 @1500
+;ord_1501@4 @1501
 ActivateKeyboardLayout@8
+AddClipboardFormatListener@4
 AdjustWindowRect@12
 AdjustWindowRectEx@16
 AlignRects@16
@@ -24,12 +27,14 @@ BroadcastSystemMessageW@20
 BuildReasonArray@12
 CalcChildScroll@8
 CalcMenuBar@20
+CalculatePopupWindowPosition@20
 CallMsgFilter@8
 CallMsgFilterA@8
 CallMsgFilterW@8
 CallNextHookEx@16
 CallWindowProcA@20
 CallWindowProcW@20
+CancelShutdown@0
 CascadeChildWindows@8
 CascadeWindows@20
 ChangeClipboardChain@8
@@ -39,11 +44,20 @@ ChangeDisplaySettingsExW@20
 ChangeDisplaySettingsW@8
 ChangeMenuA@20
 ChangeMenuW@20
+ChangeWindowMessageFilter@8
+ChangeWindowMessageFilterEx@16
 CharLowerA@4
 CharLowerBuffA@8
 CharLowerBuffW@8
 CharLowerW@4
 CharNextA@4
+;ord_1550@12 @1550
+;ord_1551@8 @1551
+;ord_1552@8 @1552
+;ord_1553@12 @1553
+;ord_1554@8 @1554
+;ord_1555@16 @1555
+;ord_1556@4 @1556
 CharNextExA@12
 CharNextW@4
 CharPrevA@8
@@ -57,10 +71,12 @@ CharUpperA@4
 CharUpperBuffA@8
 CharUpperBuffW@8
 CharUpperW@4
+CheckDesktopByThreadId@4
 CheckDlgButton@12
 CheckMenuItem@12
 CheckMenuRadioItem@20
 CheckRadioButton@16
+CheckWindowThreadDesktop@8
 ChildWindowFromPoint@12
 ChildWindowFromPointEx@16
 CliImmSetHotKey@16
@@ -73,6 +89,8 @@ CloseGestureInfoHandle@4
 CloseTouchInputHandle@4
 CloseWindow@4
 CloseWindowStation@4
+ConsoleControl@12
+ControlMagnification@8
 CopyAcceleratorTableA@12
 CopyAcceleratorTableW@12
 CopyIcon@4
@@ -84,6 +102,8 @@ CreateAcceleratorTableW@8
 CreateCaret@16
 CreateCursor@28
 CreateDesktopA@24
+CreateDesktopExA@32
+CreateDesktopExW@32
 CreateDesktopW@24
 CreateDialogIndirectParamA@20
 CreateDialogIndirectParamAorW@24
@@ -157,7 +177,7 @@ DestroyIcon@4
 DestroyMenu@4
 DestroyReasons@4
 DestroyWindow@4
-DeviceEventWorker@20
+DeviceEventWorker@24 ; No documentation whatsoever, ReactOS has a stub with @20 - https://www.reactos.org/archives/public/ros-diffs/2011-February/040308.html
 DialogBoxIndirectParamA@20
 DialogBoxIndirectParamAorW@24
 DialogBoxIndirectParamW@20
@@ -166,6 +186,8 @@ DialogBoxParamW@20
 DisableProcessWindowsGhosting@0
 DispatchMessageA@4
 DispatchMessageW@4
+DisplayConfigGetDeviceInfo@4
+DisplayConfigSetDeviceInfo@4
 DisplayExitWindowsWarnings@4
 DlgDirListA@20
 DlgDirListComboBoxA@20
@@ -175,6 +197,8 @@ DlgDirSelectComboBoxExA@16
 DlgDirSelectComboBoxExW@16
 DlgDirSelectExA@16
 DlgDirSelectExW@16
+DoSoundConnect@0
+DoSoundDisconnect@0
 DragDetect@12
 DragObject@20
 DrawAnimatedRects@16
@@ -195,6 +219,9 @@ DrawTextA@20
 DrawTextExA@24
 DrawTextExW@24
 DrawTextW@20
+DwmGetDxSharedSurface@24
+DwmStartRedirection@4
+DwmStopRedirection@0
 EditWndProc@16
 EmptyClipboard@0
 EnableMenuItem@12
@@ -238,13 +265,14 @@ FlashWindow@8
 FlashWindowEx@4
 FrameRect@12
 FreeDDElParam@8
+FrostCrashedWindow@8
 GetActiveWindow@0
 GetAltTabInfo@20
 GetAltTabInfoA@20
 GetAltTabInfoW@20
 GetAncestor@8
 GetAppCompatFlags2@4
-GetAppCompatFlags@4
+GetAppCompatFlags@8 ; ReactOS has @4 version http://doxygen.reactos.org/d9/d71/undocuser_8h_a9b76cdc68c523a061c86a40367049ed2.html
 GetAsyncKeyState@4
 GetCapture@0
 GetCaretBlinkTime@0
@@ -275,6 +303,7 @@ GetDC@4
 GetDCEx@12
 GetDesktopWindow@0
 GetDialogBaseUnits@0
+GetDisplayConfigBufferSizes@12
 GetDlgCtrlID@4
 GetDlgItem@8
 GetDlgItemInt@16
@@ -283,13 +312,16 @@ GetDlgItemTextW@16
 GetDoubleClickTime@0
 GetFocus@0
 GetForegroundWindow@0
+GetGUIThreadInfo@8
 GetGestureConfig@24
 GetGestureExtraArgs@12
 GetGestureInfo@8
-GetGUIThreadInfo@8
 GetGuiResources@8
 GetIconInfo@8
+GetIconInfoExA@8
+GetIconInfoExW@8
 GetInputDesktop@0
+GetInputLocaleInfo@8
 GetInputState@0
 GetInternalWindowPos@12
 GetKBCodePage@0
@@ -306,6 +338,9 @@ GetLastActivePopup@4
 GetLastInputInfo@4
 GetLayeredWindowAttributes@16
 GetListBoxInfo@4
+GetMagnificationDesktopColorEffect@4
+GetMagnificationDesktopMagnification@12
+GetMagnificationLensCtxInformation@16
 GetMenu@4
 GetMenuBarInfo@16
 GetMenuCheckMarkDimensions@0
@@ -332,6 +367,7 @@ GetNextDlgGroupItem@12
 GetNextDlgTabItem@12
 GetOpenClipboardWindow@0
 GetParent@4
+GetPhysicalCursorPos@4
 GetPriorityClipboardFormat@8
 GetProcessDefaultLayout@4
 GetProcessWindowStation@0
@@ -351,6 +387,7 @@ GetScrollBarInfo@12
 GetScrollInfo@12
 GetScrollPos@8
 GetScrollRange@16
+GetSendMessageReceiver@4
 GetShellWindow@0
 GetSubMenu@8
 GetSysColor@4
@@ -362,20 +399,26 @@ GetTabbedTextExtentW@20
 GetTaskmanWindow@0
 GetThreadDesktop@4
 GetTitleBarInfo@8
+GetTopLevelWindow@4
 GetTopWindow@4
 GetTouchInputInfo@16
 GetUpdateRect@12
 GetUpdateRgn@12
+GetUpdatedClipboardFormats@12
 GetUserObjectInformationA@20
 GetUserObjectInformationW@20
 GetUserObjectSecurity@20
 GetWinStationInfo@4
 GetWindow@8
+GetWindowCompositionAttribute@8
+GetWindowCompositionInfo@8
 GetWindowContextHelpId@4
 GetWindowDC@4
+GetWindowDisplayAffinity@8
 GetWindowInfo@8
 GetWindowLongA@8
 GetWindowLongW@8
+GetWindowMinimizeRect@8
 GetWindowModuleFileName@12
 GetWindowModuleFileNameA@12
 GetWindowModuleFileNameW@12
@@ -383,16 +426,19 @@ GetWindowPlacement@8
 GetWindowRect@8
 GetWindowRgn@8
 GetWindowRgnBox@8
+GetWindowRgnEx@12
 GetWindowTextA@12
 GetWindowTextLengthA@4
 GetWindowTextLengthW@4
 GetWindowTextW@12
 GetWindowThreadProcessId@8
 GetWindowWord@8
+GhostWindowFromHungWindow@4
 GrayStringA@36
 GrayStringW@36
 HideCaret@4
 HiliteMenuItem@16
+HungWindowFromGhostWindow@4
 ImpersonateDdeClientWindow@8
 InSendMessage@0
 InSendMessageEx@4
@@ -403,6 +449,7 @@ InsertMenuA@20
 InsertMenuItemA@16
 InsertMenuItemW@16
 InsertMenuW@20
+InternalGetWindowIcon@8
 InternalGetWindowText@12
 IntersectRect@12
 InvalidateRect@12
@@ -427,14 +474,18 @@ IsHungAppWindow@4
 IsIconic@4
 IsMenu@4
 IsProcess16Bit@0
+IsProcessDPIAware@0
 IsRectEmpty@4
-IsTouchWindow@8
 IsSETEnabled@0
 IsServerSideWindow@4
+IsThreadDesktopComposited@0
+IsTopLevelWindow@4
+IsTouchWindow@8
 IsWinEventHookInstalled@4
 IsWindow@4
 IsWindowEnabled@4
 IsWindowInDestroy@4
+IsWindowRedirectedForPrint@4
 IsWindowUnicode@4
 IsWindowVisible@4
 IsWow64Message@0
@@ -448,8 +499,12 @@ LoadBitmapW@8
 LoadCursorA@8
 LoadCursorFromFileA@4
 LoadCursorFromFileW@4
+;ord_2000@0 @2000
+;ord_2001@4 @2001
+;ord_2002@4 @2002
 LoadCursorW@8
 LoadIconA@8
+;ord_2005@4 @2005
 LoadIconW@8
 LoadImageA@24
 LoadImageW@24
@@ -468,6 +523,7 @@ LockSetForegroundWindow@4
 LockWindowStation@4
 LockWindowUpdate@4
 LockWorkStation@0
+LogicalToPhysicalPoint@8
 LookupIconIdFromDirectory@8
 LookupIconIdFromDirectoryEx@20
 MBToWCSEx@24
@@ -498,6 +554,7 @@ MonitorFromWindow@8
 MoveWindow@24
 MsgWaitForMultipleObjects@20
 MsgWaitForMultipleObjectsEx@20
+NotifyOverlayWindow@8
 NotifyWinEvent@16
 OemKeyScan@4
 OemToCharA@8
@@ -510,13 +567,16 @@ OpenDesktopA@16
 OpenDesktopW@16
 OpenIcon@4
 OpenInputDesktop@12
+OpenThreadDesktop@16
 OpenWindowStationA@12
 OpenWindowStationW@12
 PackDDElParam@12
 PaintDesktop@4
 PaintMenuBar@24
+PaintMonitor@12
 PeekMessageA@20
 PeekMessageW@20
+PhysicalToLogicalPoint@8
 PostMessageA@16
 PostMessageW@16
 PostQuitMessage@4
@@ -529,7 +589,9 @@ PrivateExtractIconsA@32
 PrivateExtractIconsW@32
 PrivateSetDbgTag@8
 PrivateSetRipFlags@8
+PrivateRegisterICSProc@4
 PtInRect@12
+QueryDisplayConfig@24
 QuerySendMessage@4
 QueryUserCounters@20
 RealChildWindowFromPoint@12
@@ -548,21 +610,27 @@ RegisterClipboardFormatA@4
 RegisterClipboardFormatW@4
 RegisterDeviceNotificationA@12
 RegisterDeviceNotificationW@12
+RegisterErrorReportingDialog@8
+RegisterFrostWindow@8
+RegisterGhostWindow@8
 RegisterHotKey@16
 RegisterPowerSettingNotification@12
 RegisterLogonProcess@8
 RegisterMessagePumpHook@4
+RegisterPowerSettingNotification@12
 RegisterRawInputDevices@12
-RegisterTouchWindow@8
 RegisterServicesProcess@4
+RegisterSessionPort@8
 RegisterShellHookWindow@4
 RegisterSystemThread@8
 RegisterTasklist@4
+RegisterTouchWindow@8
 RegisterUserApiHook@4 ; Prototype changed in 2003 - https://www.reactos.org/wiki/Techwiki:RegisterUserApiHook
 RegisterWindowMessageA@4
 RegisterWindowMessageW@4
 ReleaseCapture@0
 ReleaseDC@8
+RemoveClipboardFormatListener@4
 RemoveMenu@12
 RemovePropA@8
 RemovePropW@8
@@ -600,6 +668,7 @@ SetCursorContents@8
 SetCursorPos@8
 SetDebugErrorLevel@4
 SetDeskWallpaper@4
+SetDisplayConfig@20
 SetDlgItemInt@16
 SetDlgItemTextA@12
 SetDlgItemTextW@12
@@ -612,6 +681,9 @@ SetKeyboardState@4
 SetLastErrorEx@8
 SetLayeredWindowAttributes@16
 SetLogonNotifyWindow@4
+SetMagnificationDesktopColorEffect@4
+SetMagnificationDesktopMagnification@16
+SetMagnificationLensCtxInformation@16
 SetMenu@8
 SetMenuContextHelpId@8
 SetMenuDefaultItem@12
@@ -621,7 +693,10 @@ SetMenuItemInfoA@16
 SetMenuItemInfoW@16
 SetMessageExtraInfo@4
 SetMessageQueue@4
+SetMirrorRendering@8
 SetParent@8
+SetPhysicalCursorPos@8
+SetProcessDPIAware@0
 SetProcessDefaultLayout@4
 SetProcessWindowStation@4
 SetProgmanWindow@4
@@ -646,12 +721,15 @@ SetUserObjectInformationA@16
 SetUserObjectInformationW@16
 SetUserObjectSecurity@12
 SetWinEventHook@28
+SetWindowCompositionAttribute@8
 SetWindowContextHelpId@8
+SetWindowDisplayAffinity@8
 SetWindowLongA@12
 SetWindowLongW@12
 SetWindowPlacement@8
 SetWindowPos@28
 SetWindowRgn@12
+SetWindowRgnEx@12
 SetWindowStationUser@16
 SetWindowTextA@8
 SetWindowTextW@8
@@ -660,17 +738,31 @@ SetWindowsHookA@8
 SetWindowsHookExA@16
 SetWindowsHookExW@16
 SetWindowsHookW@8
+SfmDxBindSwapChain@12
+SfmDxGetSwapChainStats@8
+SfmDxOpenSwapChain@16
+SfmDxQuerySwapChainBindingStatus@12
+SfmDxReleaseSwapChain@8
+SfmDxReportPendingBindingsToDwm@0
+SfmDxSetSwapChainBindingStatus@8
+SfmDxSetSwapChainStats@8
 ShowCaret@4
 ShowCursor@4
 ShowOwnedPopups@8
 ShowScrollBar@12
 ShowStartGlass@4
+ShowSystemCursor@4
 ShowWindow@8
 ShowWindowAsync@8
+ShutdownBlockReasonCreate@8
+ShutdownBlockReasonDestroy@4
+ShutdownBlockReasonQuery@12
 SoftModalMessageBox@4
+SoundSentry@0
 SubtractRect@12
 SwapMouseButton@4
 SwitchDesktop@4
+SwitchDesktopWithFade@8
 SwitchToThisWindow@8
 SystemParametersInfoA@16
 SystemParametersInfoW@16
@@ -702,14 +794,16 @@ UnregisterClassA@8
 UnregisterClassW@8
 UnregisterDeviceNotification@4
 UnregisterHotKey@8
-UnregisterPowerSettingNotification@4
-UnregisterTouchWindow@4
 UnregisterMessagePumpHook@0
+UnregisterPowerSettingNotification@4
+UnregisterSessionPort@0
+UnregisterTouchWindow@4
 UnregisterUserApiHook@0
 UpdateLayeredWindow@36
 UpdateLayeredWindowIndirect@8
-UpdatePerUserSystemParameters@8
+UpdatePerUserSystemParameters@4 ; Undocumented, seems to apply certain registry settings to desktop, etc. ReactOS has @8 version - http://doxygen.reactos.org/d0/d92/win32ss_2user_2user32_2misc_2misc_8c_a1ff565f0af6bac6dce604f9f4473fe79.html ;  @4 is rumored to be without the first DWORD
 UpdateWindow@4
+UpdateWindowTransform@12
 User32InitializeImmEntryTable@4
 UserClientDllInitialize@12
 UserHandleGrantAccess@12
@@ -733,10 +827,17 @@ Win32PoolAllocationStats@24
 WinHelpA@16
 WinHelpW@16
 WindowFromDC@4
+WindowFromPhysicalPoint@8
 WindowFromPoint@8
+_UserTestTokenForInteractive@8
+gSharedInfo DATA
+gapfnScSendMessage DATA
 keybd_event@16
 mouse_event@20
 wsprintfA
 wsprintfW
 wvsprintfA@12
 wvsprintfW@12
+;ord_2500@16 @2500
+;ord_2501@12 @2501
+;ord_2502@8 @2502
