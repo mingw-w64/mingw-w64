@@ -44,6 +44,17 @@ extern "C" {
 typedef DWORD CURSOR_ID;
 typedef USHORT SYSTEM_EVENT;
 typedef DWORD TABLET_CONTEXT_ID;
+#ifndef _XFORM_
+#define _XFORM_
+typedef struct tagXFORM {
+    float eM11;
+    float eM12;
+    float eM21;
+    float eM22;
+    float eDx;
+    float eDy;
+} XFORM;
+#endif
 /* Begin additional prototypes for all interfaces */
 
 

@@ -107,6 +107,7 @@ IDL_SRCS = \
   include/mmdeviceapi.idl \
   include/mscoree.idl \
   include/msctf.idl \
+  include/msinkaut.idl \
   include/mshtml.idl \
   include/mshtmhst.idl \
   include/msopc.idl \
