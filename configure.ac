@@ -53,30 +53,41 @@ AC_MSG_RESULT([$with_crt])
 AC_MSG_CHECKING([whether to build the optional libraries])
 AC_ARG_WITH([libraries],
   [AS_HELP_STRING([--with-libraries=ARG],
-    [Build the extra mingw-w64 libs, where ARG is one of libmangle, pseh, or all])],
+    [Build the extra mingw-w64 libs, where ARG is one of libmangle, pseh, winpthreads, or all])],
   [],
   [with_libraries=no])
 AS_CASE([$with_libraries],
   [yes|all],[
-    with_libraries="libmangle,pseh"
+    with_libraries="libmangle,pseh,winpthreads"
+    with_libraries_winpthreads=yes
     with_libraries_mangle=yes
     with_libraries_pseh=yes],
   [libmangle],[
     with_libraries="libmangle"
+    with_libraries_winpthreads=no
     with_libraries_mangle=yes
     with_libraries_pseh=no],
   [pseh],[
     with_libraries="pseh"
+    with_libraries_winpthreads=no
     with_libraries_mangle=no
     with_libraries_pseh=yes],
+  [winpthreads],[
+    with_libraries="winpthreads"
+    with_libraries_winpthreads=yes
+    with_libraries_mangle=no
+    with_libraries_pseh=no],
   [no],[
+    with_libraries_winpthreads=no
     with_libraries_mangle=no
     with_libraries_pseh=no],
   [MW64_OPTION_ERROR([with-libraries])])
 AM_CONDITIONAL([LIBRARIES_MANGLE],[test "x$with_libraries_mangle" = xyes])
 AM_CONDITIONAL([LIBRARIES_PSEH],[test "x$with_libraries_pseh" = xyes])
+AM_CONDITIONAL([LIBRARIES_WINPTHREADS],[test "x$with_libraries_winpthreads" = xyes])
 AM_COND_IF([LIBRARIES_MANGLE],[AC_CONFIG_SUBDIRS([mingw-w64-libraries/libmangle])])
 AM_COND_IF([LIBRARIES_PSEH],[AC_CONFIG_SUBDIRS([mingw-w64-libraries/pseh])])
+AM_COND_IF([LIBRARIES_WINPTHREADS],[AC_CONFIG_SUBDIRS([mingw-w64-libraries/winpthreads])])
 AC_MSG_RESULT([$with_libraries])
 
 AC_MSG_CHECKING([whether to build the optional tools])
