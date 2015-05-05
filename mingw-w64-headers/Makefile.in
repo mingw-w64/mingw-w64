@@ -307,6 +307,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/downloadmgr.idl \
 @HAVE_WIDL_TRUE@  include/dxva2api.idl \
 @HAVE_WIDL_TRUE@  include/endpointvolume.idl \
+@HAVE_WIDL_TRUE@  include/exdisp.idl \
 @HAVE_WIDL_TRUE@  include/filter.idl \
 @HAVE_WIDL_TRUE@  include/fsrm.idl \
 @HAVE_WIDL_TRUE@  include/fsrmenums.idl \
