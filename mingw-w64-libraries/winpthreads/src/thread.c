@@ -1514,6 +1514,9 @@ pthread_create_wrapper (void *args)
     {
       pthread_mutex_unlock (&tv->p_clock);
       pthread_mutex_destroy (&tv->p_clock);
+      /* Reinitialise p_clock, since there may be attempts at
+         destroying it again in __dyn_tls_thread later on. */
+      tv->p_clock = PTHREAD_MUTEX_INITIALIZER;
       tv->ended = 1;
     }
   while (pthread_mutex_unlock (&mtx_pthr_locked) == 0)

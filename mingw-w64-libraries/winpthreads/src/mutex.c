@@ -1,5 +1,6 @@
 /*
    Copyright (c) 2011, 2014 mingw-w64 project
+   Copyright (c) 2015 Intel Corporation
 
    Permission is hereby granted, free of charge, to any person obtaining a
    copy of this software and associated documentation files (the "Software"),
@@ -21,215 +22,160 @@
 */
 
 #include <windows.h>
-#include <winternl.h>
 #include <stdio.h>
 #include <malloc.h>
+#include <stdbool.h>
 #include "pthread.h"
-#include "ref.h"
-#include "mutex.h"
 #include "misc.h"
 
-extern int do_sema_b_wait_intern (HANDLE sema, int nointerrupt, DWORD timeout);
-static WINPTHREADS_ATTRIBUTE((noinline)) int mutex_static_init(pthread_mutex_t *m);
-static WINPTHREADS_ATTRIBUTE((noinline)) int _mutex_trylock(pthread_mutex_t *m);
+typedef enum {
+  Unlocked,        /* Not locked. */
+  Locked,          /* Locked but without waiters. */
+  Waiting,         /* Locked, may have waiters. */
+} mutex_state_t;
 
-static pthread_spinlock_t mutex_global = PTHREAD_SPINLOCK_INITIALIZER;
-static pthread_spinlock_t mutex_global_static = PTHREAD_SPINLOCK_INITIALIZER;
+typedef enum {
+  Normal,
+  Errorcheck,
+  Recursive,
+} mutex_type_t;
 
-static WINPTHREADS_ATTRIBUTE((noinline)) int
-mutex_unref (pthread_mutex_t *m, int r)
-{
-  mutex_t *m_ = (mutex_t *)*m;
-  pthread_spin_lock (&mutex_global);
-#ifdef WINPTHREAD_DBG
-  assert((m_->valid == LIFE_MUTEX) && (m_->busy > 0));
-#endif
-  if (m_->valid == LIFE_MUTEX && m_->busy > 0)
-    m_->busy -= 1;
-  pthread_spin_unlock (&mutex_global);
-  return r;
+/* The heap-allocated part of a mutex. */
+typedef struct {
+  mutex_state_t state;
+  mutex_type_t type;
+  HANDLE event;       /* Auto-reset event, or NULL if not yet allocated. */
+  unsigned rec_lock;  /* For recursive mutexes, the number of times the
+                         mutex has been locked in excess by the same thread. */
+  volatile DWORD owner;  /* For recursive and error-checking mutexes, the
+                            ID of the owning thread if the mutex is locked. */
+} mutex_impl_t;
+
+/* Whether a mutex is still a static initializer (not a pointer to
+   a mutex_impl_t). */
+static bool
+is_static_initializer(pthread_mutex_t m)
+{ 
+  return (uintptr_t)m >= (uintptr_t)-3;
 }
 
-/* Set the mutex to busy in a thread-safe way */
-/* A busy mutex can't be destroyed */
-static WINPTHREADS_ATTRIBUTE((noinline)) int
-mutex_ref (pthread_mutex_t *m)
+/* Create and return the implementation part of a mutex from a static
+   initialiser. Return NULL on out-of-memory error. */
+static WINPTHREADS_ATTRIBUTE((noinline)) mutex_impl_t *
+mutex_impl_init(pthread_mutex_t *m, mutex_impl_t *mi)
 {
-  int r = 0;
-
-  pthread_spin_lock (&mutex_global);
-
-  if (!m || !*m)
-  {
-    pthread_spin_unlock (&mutex_global);
-    return EINVAL;
-  }
-
-  if (STATIC_INITIALIZER(*m))
-  {
-    pthread_spin_unlock (&mutex_global);
-    r = mutex_static_init (m);
-    pthread_spin_lock (&mutex_global);
-
-    if (r != 0 && r != EBUSY)
-    {
-      pthread_spin_unlock (&mutex_global);
-      return r;
-    }
-  }
-  
-  r = 0;
-  
-  if (!m || !*m || ((mutex_t *)*m)->valid != LIFE_MUTEX) 
-    r = EINVAL;
-  else
-    ((mutex_t *)*m)->busy += 1;
-
-  pthread_spin_unlock (&mutex_global);
-
-  return r;
-}
-
-/* An unlock can simply fail with EPERM instead of auto-init (can't be owned) */
-static WINPTHREADS_ATTRIBUTE((noinline)) int
-mutex_ref_unlock (pthread_mutex_t *m)
-{
-  int r = 0;
-  mutex_t *m_ = (mutex_t *)*m;
-
-  pthread_spin_lock (&mutex_global);
-
-  if (!m || !*m || ((mutex_t *)*m)->valid != LIFE_MUTEX) 
-    r = EINVAL;
-  else if (STATIC_INITIALIZER(*m) || !COND_LOCKED(m_))
-    r = EPERM;
-  else
-    ((mutex_t *)*m)->busy ++;
-
-  pthread_spin_unlock (&mutex_global);
-
-  return r;
-}
-
-/* doesn't lock the mutex but set it to invalid in a thread-safe way */
-/* A busy mutex can't be destroyed -> EBUSY */
-static WINPTHREADS_ATTRIBUTE((noinline)) int
-mutex_ref_destroy (pthread_mutex_t *m, pthread_mutex_t *mDestroy)
-{
-  pthread_mutex_t mx;
-  mutex_t *m_;
-  int r = 0;
-
-  if (!m || !*m)
-    return EINVAL;
-
-  *mDestroy = NULL;
-  /* also considered as busy, any concurrent access prevents destruction: */
-  mx = *m;
-  r = pthread_mutex_trylock (&mx);
-  if (r)
-    return r;
-
-  pthread_spin_lock (&mutex_global);
-
-  if (!*m)
-    r = EINVAL;
-  else
-  {
-    m_ = (mutex_t *)*m;
-    if (STATIC_INITIALIZER(*m))
-      *m = NULL;
-    else  if (m_->valid != LIFE_MUTEX)
-      r = EINVAL;
-    else if (m_->busy)
-      r = 0xbeef;
-    else
-    {
-      *mDestroy = *m;
-      *m = NULL;
-    }
-  }
-
-  if (r)
-    {
-      pthread_spin_unlock (&mutex_global);
-      pthread_mutex_unlock (&mx);
-    }
-  return r;
-}
-
-static WINPTHREADS_ATTRIBUTE((noinline)) int
-mutex_ref_init (pthread_mutex_t *m)
-{
-    int r = 0;
-
-    pthread_spin_lock (&mutex_global);
-    
-    if (!m)  r = EINVAL;
-
-    if (r) 
-      pthread_spin_unlock (&mutex_global);
-    return r;
-}
-
-#ifdef WINPTHREAD_DBG
-static int print_state = 1;
-
-void mutex_print_set (int state)
-{
-    print_state = state;
-}
-
-void mutex_print (volatile pthread_mutex_t *m, char *txt)
-{
-  if (!print_state) 
-    return;
-  mutex_t *m_ = (mutex_t *)*m;
-  if (m_ == NULL) {
-    printf("M%p %d %s\n",*m,(int)GetCurrentThreadId(),txt);
+  mutex_impl_t *new_mi = malloc(sizeof(mutex_impl_t));
+  if (new_mi == NULL)
+    return NULL;
+  new_mi->state = Unlocked;
+  new_mi->type = (mi == PTHREAD_RECURSIVE_MUTEX_INITIALIZER ? Recursive
+                  : mi == PTHREAD_ERRORCHECK_MUTEX_INITIALIZER ? Errorcheck
+                  : Normal);
+  new_mi->event = NULL;
+  new_mi->rec_lock = 0;
+  new_mi->owner = (DWORD)-1;
+  if (__sync_bool_compare_and_swap(m, mi, new_mi)) {
+    return new_mi;
   } else {
-    printf("M%p %d V=%0X B=%d t=%d o=%d C=%d R=%d H=%p %s\n",
-            *m, 
-            (int)GetCurrentThreadId(), 
-            (int)m_->valid, 
-            (int)m_->busy,
-            m_->type,
-            (int)GET_OWNER(m_),(int)(m_->count),(int)GET_RCNT(m_),GET_HANDLE(m_),txt);
+    /* Someone created the struct before us. */
+    free(new_mi);
+    return *m;
   }
 }
-#endif
 
-static WINPTHREADS_ATTRIBUTE((noinline)) int
-mutex_static_init (pthread_mutex_t *m)
+#define likely(cond) __builtin_expect((cond) != 0, 1)
+#define unlikely(cond) __builtin_expect((cond) != 0, 0)
+
+/* Return the implementation part of a mutex, creating it if necessary.
+   Return NULL on out-of-memory error. */
+static inline mutex_impl_t *
+mutex_impl(pthread_mutex_t *m)
 {
-  static pthread_mutexattr_t mxattr_recursive = PTHREAD_MUTEX_RECURSIVE;
-  static pthread_mutexattr_t mxattr_errorcheck = PTHREAD_MUTEX_ERRORCHECK;
-
-  int r;
-
-  pthread_spin_lock (&mutex_global_static);
-  if (!STATIC_INITIALIZER(*m))
-      /* Assume someone crept in between: */
-      r = 0;
-  else
-  {
-    if (*m == PTHREAD_MUTEX_INITIALIZER)
-      r = pthread_mutex_init (m, NULL);
-    else if (*m == PTHREAD_RECURSIVE_MUTEX_INITIALIZER)
-      r = pthread_mutex_init (m, &mxattr_recursive);
-    else if (*m == PTHREAD_ERRORCHECK_MUTEX_INITIALIZER)
-      r = pthread_mutex_init (m, &mxattr_errorcheck);
-    else if (*m == NULL)
-      r = EINVAL;
-    else
-      r = pthread_mutex_init (m, NULL);
+  mutex_impl_t *mi = *m;
+  if (is_static_initializer(mi)) {
+    return mutex_impl_init(m, mi);
+  } else {
+    /* mi cannot be null here; avoid a test in the fast path. */
+    if (mi == NULL)
+      __builtin_unreachable();
+    return mi;
   }
-  
-  pthread_spin_unlock (&mutex_global_static);
-  return r;
 }
 
-static int pthread_mutex_lock_intern(pthread_mutex_t *m, DWORD timeout);
+/* Lock a mutex. Give up after 'timeout' ms (with ETIMEDOUT),
+   or never if timeout=INFINITE. */
+static inline int
+pthread_mutex_lock_intern (pthread_mutex_t *m, DWORD timeout)
+{
+  mutex_impl_t *mi = mutex_impl(m);
+  if (mi == NULL)
+    return ENOMEM;
+
+  mutex_state_t old_state = __sync_lock_test_and_set(&mi->state, Locked);
+  if (unlikely(old_state != Unlocked)) {
+    /* The mutex is already locked. */
+
+    if (mi->type != Normal) {
+      /* Recursive or Errorcheck */
+      if (mi->owner == GetCurrentThreadId()) {
+        /* FIXME: A recursive mutex should not need two atomic ops when locking
+           recursively.  We could rewrite by doing compare-and-swap instead of
+           test-and-set the first time, but it would lead to more code
+           duplication and add a conditional branch to the critical path. */
+        __sync_bool_compare_and_swap(&mi->state, Locked, old_state);
+        if (mi->type == Recursive) {
+          mi->rec_lock++;
+          return 0;
+        } else {
+          /* type == Errorcheck */
+          return EDEADLK;
+        }
+      }
+    }
+
+    /* Make sure there is an event object on which to wait. */
+    if (mi->event == NULL) {
+      /* Make an auto-reset event object. */
+      HANDLE ev = CreateEvent(NULL, false, false, NULL);
+      if (ev == NULL) {
+        switch (GetLastError()) {
+        case ERROR_ACCESS_DENIED:
+          return EPERM;
+        default:
+          return ENOMEM;    /* Probably accurate enough. */
+        }
+      }
+      if (!__sync_bool_compare_and_swap(&mi->event, NULL, ev)) {
+        /* Someone created the event before us. */
+        CloseHandle(ev);
+      }
+    }
+
+    /* At this point, mi->event is non-NULL. */
+
+    while (__sync_lock_test_and_set(&mi->state, Waiting) != Unlocked) {
+      /* For timed locking attempts, it is possible (although unlikely)
+         that we are woken up but someone else grabs the lock before us,
+         and we have to go back to sleep again. In that case, the total
+         wait may be longer than expected. */
+
+      unsigned r = WaitForSingleObject(mi->event, timeout);
+      switch (r) {
+      case WAIT_TIMEOUT:
+        return ETIMEDOUT;
+      case WAIT_OBJECT_0:
+        break;
+      default:
+        return EINVAL;
+      }
+    }
+  }
+
+  if (mi->type != Normal)
+    mi->owner = GetCurrentThreadId();
+
+  return 0;
+}
 
 int
 pthread_mutex_lock (pthread_mutex_t *m)
@@ -237,252 +183,105 @@ pthread_mutex_lock (pthread_mutex_t *m)
   return pthread_mutex_lock_intern (m, INFINITE);
 }
 
-static int
-pthread_mutex_lock_intern (pthread_mutex_t *m, DWORD timeout)
-{
-  mutex_t *_m;
-  int r;
-  HANDLE h;
-
-  r = mutex_ref (m);
-  if (r)
-    return r;
-
-  _m = (mutex_t *) *m;
-  if (_m->type != PTHREAD_MUTEX_NORMAL)
-  {
-    if (COND_LOCKED(_m))
-    {
-      if (COND_OWNER(_m))
-      {
-	    if (_m->type == PTHREAD_MUTEX_RECURSIVE)
-	    {
-	      InterlockedIncrement(&_m->count);
-	      return mutex_unref(m,0);
-	    }
-
-	    return mutex_unref(m, EDEADLK);
-      }
-    }
-  }
-  
-  h = _m->h;
-  mutex_unref (m, 0);
-
-  r = do_sema_b_wait_intern (h, 1, timeout);
-
-  if (r != 0)
-    return r;
-
-  r = mutex_ref (m);
-  if (r)
-    return r;
-
-  _m->count = 1;
-  SET_OWNER(_m);
-
-  return mutex_unref (m, r);
-}
-
 int pthread_mutex_timedlock(pthread_mutex_t *m, const struct timespec *ts)
 {
-  unsigned long long t, ct;
-  int r;
-  mutex_t *_m;
-
-  if (!ts) 
-    return pthread_mutex_lock(m);
-    
-  r = mutex_ref(m);
-  if (r) 
-    return r;
-
-  /* Try to lock it without waiting */
-  r = _mutex_trylock (m);
-  if (r != EBUSY) 
-    return mutex_unref(m,r);
-    
-  _m = (mutex_t *)*m;
-  if (_m->type != PTHREAD_MUTEX_NORMAL && COND_LOCKED(_m) && COND_OWNER(_m))
-    return mutex_unref(m,EDEADLK);
-  
-  ct = _pthread_time_in_ms();
-  t = _pthread_time_in_ms_from_timespec(ts);
-  mutex_unref(m,r);
-  r = pthread_mutex_lock_intern(m, (ct > t ? 0 : (t - ct)));
-  return  r;
+  unsigned long long patience;
+  if (ts != NULL) {
+    unsigned long long end = _pthread_time_in_ms_from_timespec(ts);
+    unsigned long long now = _pthread_time_in_ms();
+    patience = end > now ? end - now : 0;
+    if (patience > 0xffffffff)
+      patience = INFINITE;
+  } else {
+    patience = INFINITE;
+  }
+  return pthread_mutex_lock_intern(m, patience);
 }
 
 int pthread_mutex_unlock(pthread_mutex_t *m)
 {    
-  mutex_t *_m;
-  int r = mutex_ref_unlock(m);
-  
-  if(r) {
-    return r;
-  }
+  /* Here m might an initialiser of an error-checking or recursive mutex, in
+     which case the behaviour is well-defined, so we can't skip this check. */
+  mutex_impl_t *mi = mutex_impl(m);
+  if (mi == NULL)
+    return ENOMEM;
 
-  _m = (mutex_t *)*m;
-
-  if (_m->type == PTHREAD_MUTEX_NORMAL)
-  {
-    if (!COND_LOCKED(_m))
-      {
-		  return mutex_unref(m, EPERM);
-      }
-  }
-  else if (!COND_LOCKED(_m) || !COND_OWNER(_m)) {
-    return mutex_unref(m,EPERM);
-  }
-  
-  if (_m->type == PTHREAD_MUTEX_RECURSIVE)
-  {
-    if(InterlockedDecrement(&_m->count)) {
-	  return mutex_unref(m,0);
-	}
-  }
-  UNSET_OWNER(_m);
-
-  if (_m->h != NULL && !ReleaseSemaphore(_m->h, 1, NULL)) {
-  	SET_OWNER(_m);
-    /* restore our own bookkeeping */
-    return mutex_unref(m,EPERM);
-  }
-
-  return mutex_unref(m,0);
-}
-
-static WINPTHREADS_ATTRIBUTE((noinline)) int
-_mutex_trylock(pthread_mutex_t *m)
-{
-  int r = 0;
-  mutex_t *_m = (mutex_t *)*m;
-  
-  if (_m->type != PTHREAD_MUTEX_NORMAL)
-  {
-    if (COND_LOCKED(_m))
-    {
-      if (_m->type == PTHREAD_MUTEX_RECURSIVE && COND_OWNER(_m))
-	  {
-	    InterlockedIncrement(&_m->count);
-	    return 0;
-	  }
-	
-	  return EBUSY;
+  if (unlikely(mi->type != Normal)) {
+    if (mi->state == Unlocked)
+      return EINVAL;
+    if (mi->owner != GetCurrentThreadId())
+      return EPERM;
+    if (mi->rec_lock > 0) {
+      mi->rec_lock--;
+      return 0;
     }
-  } else if (COND_LOCKED(_m))
-    return EBUSY;
-    
-  r = do_sema_b_wait_intern (_m->h, 1, 0);
-  
-  if (r == ETIMEDOUT) 
-    r = EBUSY;
-  else if (!r)
-  {
-    _m->count = 1;
-    SET_OWNER(_m);
+    mi->owner = (DWORD)-1;
   }
-  
-  return r;
+  if (unlikely(__sync_lock_test_and_set(&mi->state, Unlocked) == Waiting)) {
+    if (!SetEvent(mi->event))
+      return EPERM;
+  }
+  return 0;
 }
 
 int pthread_mutex_trylock(pthread_mutex_t *m)
 {
-  int r = mutex_ref(m);
-  if(r) 
-    return r;
+  mutex_impl_t *mi = mutex_impl(m);
+  if (mi == NULL)
+    return ENOMEM;
 
-  return mutex_unref(m,_mutex_trylock(m));
+  if (__sync_bool_compare_and_swap(&mi->state, Unlocked, Locked)) {
+    if (mi->type != Normal)
+      mi->owner = GetCurrentThreadId();
+    return 0;
+  } else {
+    if (mi->type == Recursive && mi->owner == GetCurrentThreadId()) {
+      mi->rec_lock++;
+      return 0;
+    }
+    return EBUSY;
+  }
 }
 
 int
 pthread_mutex_init (pthread_mutex_t *m, const pthread_mutexattr_t *a)
 {
-  mutex_t *_m;
+  pthread_mutex_t init = PTHREAD_MUTEX_INITIALIZER;
+  if (a != NULL) {
+    int pshared;
+    if (pthread_mutexattr_getpshared(a, &pshared) == 0
+        && pshared == PTHREAD_PROCESS_SHARED)
+      return ENOSYS;
 
-  int r = mutex_ref_init (m);
-  if (r) 
-    return r;
-
-  if (!(_m = (pthread_mutex_t)calloc(1,sizeof(*_m))))
-    {
-      pthread_spin_unlock (&mutex_global);
-      return ENOMEM;
-    }
-
-  _m->type = PTHREAD_MUTEX_DEFAULT;
-  _m->count = 0;
-  _m->busy = 0;
-
-  if (a)
-  {
-    int share = PTHREAD_PROCESS_PRIVATE;
-    r = pthread_mutexattr_gettype (a, &_m->type);
-    if (!r)
-      r = pthread_mutexattr_getpshared(a, &share);
-    
-    if (!r && share == PTHREAD_PROCESS_SHARED)
-      r = ENOSYS;
-  }
-  
-  if (!r)
-  {
-    if ((_m->h = CreateSemaphore(NULL, 1, 0x7fffffff, NULL)) == NULL)
-    {
-      switch (GetLastError()) {
-        case ERROR_ACCESS_DENIED:
-          r = EPERM;
-            break;
-        default: /* We assume this, to keep it simple: */
-            r = ENOMEM;
+    int type;
+    if (pthread_mutexattr_gettype(a, &type) == 0) {
+      switch (type) {
+      case PTHREAD_MUTEX_ERRORCHECK:
+        init = PTHREAD_ERRORCHECK_MUTEX_INITIALIZER;
+        break;
+      case PTHREAD_MUTEX_RECURSIVE:
+        init = PTHREAD_RECURSIVE_MUTEX_INITIALIZER;
+        break;
+      default:
+        init = PTHREAD_MUTEX_INITIALIZER;
+        break;
       }
     }
-  } 
-  
-  if (r)
-  {
-    _m->valid = DEAD_MUTEX;
-    free(_m);
-    *m = NULL;
-    pthread_spin_unlock (&mutex_global);
-    return r;
   }
-
-  _m->valid = LIFE_MUTEX;
-  *m = _m;
-  pthread_spin_unlock (&mutex_global);
-
+  *m = init;
   return 0;
 }
 
 int pthread_mutex_destroy (pthread_mutex_t *m)
 {
-  mutex_t *_m;
-  pthread_mutex_t mDestroy;
-  int r;
-  
-  while ((r = mutex_ref_destroy (m, &mDestroy)) == 0xbeef)
-    Sleep (0);
-  if (r)
-    return r;
-
-  if (!mDestroy)
-  {
-    pthread_spin_unlock (&mutex_global);
-    return 0; /* destroyed a (still) static initialized mutex */
+  mutex_impl_t *mi = *m;
+  if (!is_static_initializer(mi)) {
+    if (mi->event != NULL)
+      CloseHandle(mi->event);
+    free(mi);
+    /* Sabotage attempts to re-use the mutex before initialising it again. */
+    *m = NULL;
   }
-
-  /* now the mutex is invalid, and no one can touch it */
-  _m = (mutex_t *)mDestroy;
-
-  CloseHandle (_m->h);
-  _m->valid = DEAD_MUTEX;
-  _m->type  = 0;
-  _m->count = 0;
-  _m->busy = 0;
-  free (mDestroy);
-  *m = NULL;
-  pthread_spin_unlock (&mutex_global);
 
   return 0;
 }
