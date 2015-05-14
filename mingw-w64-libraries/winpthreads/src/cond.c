@@ -32,7 +32,6 @@
 #include "pthread_time.h"
 #include "ref.h"
 #include "cond.h"
-#include "mutex.h"
 #include "thread.h"
 #include "misc.h"
 #include "winpthread_internal.h"

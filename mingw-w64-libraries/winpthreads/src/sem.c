@@ -28,7 +28,6 @@
 #include "misc.h"
 #include "semaphore.h"
 #include "sem.h"
-#include "mutex.h"
 #include "ref.h"
 
 int do_sema_b_wait_intern (HANDLE sema, int nointerrupt, DWORD timeout);
