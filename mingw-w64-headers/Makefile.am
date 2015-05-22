@@ -36,6 +36,7 @@ dist-hook:
 	find $(distdir) -name ".svn" -type d -delete
 
 EXTRA_HEADERS = \
+  include/*.c \
   include/*.dlg \
   include/*.h \
   include/*.h16 \

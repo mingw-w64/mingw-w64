@@ -262,6 +262,7 @@ CLEANFILES = $(nodist_sdkshead_HEADERS)
 DISTCHECK_CONFIGURE_FLAGS = --enable-crt --enable-sdk=all --enable-idl
 EXTRA_DIST = $(srcdir)/ChangeLog.* include crt direct-x ddk
 EXTRA_HEADERS = \
+  include/*.c \
   include/*.dlg \
   include/*.h \
   include/*.h16 \
