@@ -114,3 +114,5 @@ Str_GetPtrA@12
 Str_GetPtrW@12
 Str_SetPtrA@8
 Str_SetPtrW@8
+TaskDialog@32
+TaskDialogIndirect@16

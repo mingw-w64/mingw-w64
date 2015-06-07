@@ -115,3 +115,5 @@ EnumMRUListW
 SetWindowSubclass
 RemoveWindowSubclass
 DefSubclassProc
+TaskDialog
+TaskDialogIndirect
