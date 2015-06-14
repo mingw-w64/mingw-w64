@@ -46,5 +46,5 @@
 
 double log2(double x)
 {
-    return softmath_log(x) / 0.69314718246459960938d;
+    return softmath_log(x) / 0.69314718246459960938;
 }
