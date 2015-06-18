@@ -169,7 +169,6 @@ extern "C" {
   _CRTIMP int __cdecl _swscanf_l(const wchar_t *_Src,const wchar_t *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _snwscanf_l(const wchar_t *_Src,size_t _MaxCount,const wchar_t *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _wscanf_l(const wchar_t *_Format,_locale_t _Locale,...);
-  _CRTIMP errno_t __cdecl _wfopen_s(FILE ** _File,const wchar_t *_Filename,const wchar_t *_Mode);
 #endif
 #endif
 
