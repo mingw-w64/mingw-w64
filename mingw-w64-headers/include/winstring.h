@@ -11,7 +11,9 @@
 #include <rpc.h>
 #include <hstring.h>
 
-#if _WIN32_WINNT >= _WIN32_WINNT_WIN8
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 void __RPC_USER HSTRING_UserFree(unsigned long *pFlags, HSTRING *ppidl);
 
@@ -31,7 +33,9 @@ unsigned long __RPC_USER HSTRING_UserSize64(unsigned long *pFlags, unsigned long
 unsigned char* __RPC_USER HSTRING_UserUnmarshal64(unsigned long *pFlags, unsigned char *pBuffer, HSTRING *ppidl);
 #endif
 
-/* */
+#ifdef __cplusplus
+}
+#endif
 
 HRESULT WINAPI WindowsCompareStringOrdinal(HSTRING string1, HSTRING string2, INT32 *result);
 
@@ -73,5 +77,4 @@ HRESULT WINAPI WindowsTrimStringEnd(HSTRING string, HSTRING trimString, HSTRING 
 
 HRESULT WINAPI WindowsTrimStringStart(HSTRING string, HSTRING trimString, HSTRING *newString);
 
-#endif
 #endif
