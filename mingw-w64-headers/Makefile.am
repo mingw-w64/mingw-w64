@@ -146,6 +146,7 @@ IDL_SRCS = \
   include/textstor.idl \
   include/uiautomationclient.idl \
   include/uiautomationcore.idl \
+  include/uiviewsettingsinterop.idl \
   include/unknwn.idl \
   include/unknwnbase.idl \
   include/urlmon.idl \

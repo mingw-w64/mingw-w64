@@ -370,6 +370,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/textstor.idl \
 @HAVE_WIDL_TRUE@  include/uiautomationclient.idl \
 @HAVE_WIDL_TRUE@  include/uiautomationcore.idl \
+@HAVE_WIDL_TRUE@  include/uiviewsettingsinterop.idl \
 @HAVE_WIDL_TRUE@  include/unknwn.idl \
 @HAVE_WIDL_TRUE@  include/unknwnbase.idl \
 @HAVE_WIDL_TRUE@  include/urlmon.idl \
