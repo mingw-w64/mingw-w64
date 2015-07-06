@@ -13,8 +13,6 @@
 #include <inspectable.h>
 #include <activation.h>
 
-#if _WIN32_WINNT >= _WIN32_WINNT_WIN8
-
 typedef enum RO_INIT_TYPE {
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
   RO_INIT_SINGLETHREADED = 0,
@@ -51,20 +49,21 @@ HRESULT WINAPI RoUnregisterForApartmentShutdown (APARTMENT_SHUTDOWN_REGISTRATION
 
 HRESULT WINAPI RoGetApartmentIdentifier (UINT64 *apartmentId);
 
-#endif
-
 #ifdef __cplusplus
 
 namespace Windows {
   namespace Foundation {
     __inline HRESULT Initalize (RO_INIT_TYPE it
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
-	 = 0
+	 = RO_INIT_SINGLETHREADED
 #endif
     ) { return RoInitialize (it); }
     __inline void Uninitialize ()
     { RoUninitialize (); }
 
+    template<class T> __inline HRESULT GetActivationFactory(HSTRING classid, T **factory) {
+      return RoGetActivationFactory(classid, IID_INS_ARGS(factory));
+    }
   }
 }
 
@@ -73,11 +72,15 @@ namespace ABI {
     namespace Foundation {
       __inline HRESULT Initialze (RO_INIT_TYPE it
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
-	= 0
+	= RO_INIT_SINGLETHREADED
 #endif
       ) { return RoInitialize (it); }
       __inline void Uninitialize ()
       { RoUninitialize (); }
+    }
+
+    template<class T> __inline HRESULT GetActivationFactory(HSTRING classid, T **factory) {
+      return RoGetActivationFactory(classid, IID_INS_ARGS(factory));
     }
   }
 }
