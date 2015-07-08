@@ -97,6 +97,7 @@ src_libdmoguids=libsrc/dmoguids.c
 src_libdxerr8=libsrc/dxerr8.c libsrc/dxerr8w.c
 src_libdxerr9=libsrc/dxerr9.c libsrc/dxerr9w.c
 src_libmfuuid=libsrc/mfuuid.c
+src_libamstrmid=libsrc/amstrmid.c
 src_libwbemuuid=libsrc/wbemuuid.c
 src_libwmcodecdspuuid=libsrc/wmcodecdspuuid.c
 src_libwindowscodecs=libsrc/windowscodecs.c
@@ -484,6 +485,10 @@ lib32_LIBRARIES += lib32/libmfuuid.a
 lib32_libmfuuid_a_SOURCES = $(src_libmfuuid)
 lib32_libmfuuid_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
 
+lib32_LIBRARIES += lib32/libamstrmid.a
+lib32_libamstrmid_a_SOURCES = $(src_libamstrmid)
+lib32_libamstrmid_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
+
 lib32_LIBRARIES += lib32/libwmcodecdspuuid.a
 lib32_libwmcodecdspuuid_a_SOURCES = $(src_libwmcodecdspuuid)
 lib32_libwmcodecdspuuid_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
@@ -732,6 +737,10 @@ lib64_libdxerr9_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 lib64_LIBRARIES += lib64/libmfuuid.a
 lib64_libmfuuid_a_SOURCES = $(src_libmfuuid)
 lib64_libmfuuid_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
+
+lib64_LIBRARIES += lib64/libamstrmid.a
+lib64_libamstrmid_a_SOURCES = $(src_libamstrmid)
+lib64_libamstrmid_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 
 lib64_LIBRARIES += lib64/libwmcodecdspuuid.a
 lib64_libwmcodecdspuuid_a_SOURCES = $(src_libwmcodecdspuuid)
@@ -1247,6 +1256,10 @@ libarm32_libdxerr9_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 libarm32_LIBRARIES += libarm32/libmfuuid.a
 libarm32_libmfuuid_a_SOURCES = $(src_libmfuuid)
 libarm32_libmfuuid_a_CPPFLAGS = $(CPPFLAGSARM32) $(sysincludes)
+
+libarm32_LIBRARIES += libarm32/libamstrmid.a
+libarm32_libamstrmid_a_SOURCES = $(src_libamstrmid)
+libarm32_libamstrmid_a_CPPFLAGS = $(CPPFLAGSARM32) $(sysincludes)
 
 libarm32_LIBRARIES += libarm32/libwmcodecdspuuid.a
 libarm32_libwmcodecdspuuid_a_SOURCES = $(src_libwmcodecdspuuid)
