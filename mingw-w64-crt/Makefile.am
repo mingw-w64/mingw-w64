@@ -1115,8 +1115,7 @@ lib64_DATA = \
   lib64/libxaudio2_8.a      lib64/libd3dcompiler_46.a lib64/libd3dcsx_46.a \
   lib64/libd3d11.a          lib64/libd3dcompiler_47.a \
   lib64/libwinhttp.a \
-  lib64/libapi-ms-win-core-winrt-string-l1-1-0.a \
-  lib64/libapi-ms-win-core-winrt-l1-1-0.a
+  lib64/libruntimeobject.a
 
 if !W32API
 lib64_DATA += lib64/libmsvcp60.a lib64/libmsvcr80.a lib64/libmsvcr90.a lib64/libmsvcr100.a lib64/libmsvcr90d.a lib64/libmsvcr110.a lib64/libmsvcr120.a lib64/libmsvcr120d.a lib64/libcrtdll.a

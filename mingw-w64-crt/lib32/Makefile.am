@@ -4,8 +4,6 @@ lib32_DATA += %reldir%/libactiveds.a
 lib32_DATA += %reldir%/libadsldpc.a
 lib32_DATA += %reldir%/libadvapi32.a
 lib32_DATA += %reldir%/libapcups.a
-lib32_DATA += %reldir%/libapi-ms-win-core-winrt-l1-1-0.a
-lib32_DATA += %reldir%/libapi-ms-win-core-winrt-string-l1-1-0.a
 lib32_DATA += %reldir%/libauthz.a
 lib32_DATA += %reldir%/libavicap32.a
 lib32_DATA += %reldir%/libavifil32.a
@@ -328,4 +326,5 @@ lib32_DATA += %reldir%/libxinput1_2.a
 lib32_DATA += %reldir%/libxinput1_3.a
 lib32_DATA += %reldir%/libxinput1_4.a
 lib32_DATA += %reldir%/libxinput9_1_0.a
+lib32_DATA += %reldir%/libruntimeobject.a
 
