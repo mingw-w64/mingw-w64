@@ -33,10 +33,6 @@ unsigned long __RPC_USER HSTRING_UserSize64(unsigned long *pFlags, unsigned long
 unsigned char* __RPC_USER HSTRING_UserUnmarshal64(unsigned long *pFlags, unsigned char *pBuffer, HSTRING *ppidl);
 #endif
 
-#ifdef __cplusplus
-}
-#endif
-
 HRESULT WINAPI WindowsCompareStringOrdinal(HSTRING string1, HSTRING string2, INT32 *result);
 
 HRESULT WINAPI WindowsConcatString(HSTRING string1, HSTRING string2, HSTRING *newString);
@@ -76,5 +72,9 @@ HRESULT WINAPI WindowsSubstringWithSpecifiedLength(HSTRING string, UINT32 startI
 HRESULT WINAPI WindowsTrimStringEnd(HSTRING string, HSTRING trimString, HSTRING *newString);
 
 HRESULT WINAPI WindowsTrimStringStart(HSTRING string, HSTRING trimString, HSTRING *newString);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

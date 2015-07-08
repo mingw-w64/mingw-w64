@@ -24,7 +24,9 @@ typedef struct { } *RO_REGISTRATION_COOKIE;
 
 typedef HRESULT (WINAPI *PFNGETACTIVATIONFACTORY)(HSTRING, IActivationFactory **);
 
-/* */
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 HRESULT WINAPI RoActivateInstance(HSTRING activatableClassId, IInspectable **instance);
 
@@ -50,6 +52,7 @@ HRESULT WINAPI RoUnregisterForApartmentShutdown (APARTMENT_SHUTDOWN_REGISTRATION
 HRESULT WINAPI RoGetApartmentIdentifier (UINT64 *apartmentId);
 
 #ifdef __cplusplus
+} /* extern "C" */
 
 namespace Windows {
   namespace Foundation {
