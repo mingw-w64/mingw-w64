@@ -607,6 +607,114 @@ typedef struct CMSH264DecoderMFT CMSH264DecoderMFT;
 #endif /* defined __cplusplus */
 #endif /* defined __CMSH264DecoderMFT_FWD_DEFINED__ */
 
+#ifndef __CMSH264EncoderMFT_FWD_DEFINED__
+#define __CMSH264EncoderMFT_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class CMSH264EncoderMFT CMSH264EncoderMFT;
+#else
+typedef struct CMSH264EncoderMFT CMSH264EncoderMFT;
+#endif /* defined __cplusplus */
+#endif /* defined __CMSH264EncoderMFT_FWD_DEFINED__ */
+
+#ifndef __CMSH264RemuxMFT_FWD_DEFINED__
+#define __CMSH264RemuxMFT_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class CMSH264RemuxMFT CMSH264RemuxMFT;
+#else
+typedef struct CMSH264RemuxMFT CMSH264RemuxMFT;
+#endif /* defined __cplusplus */
+#endif /* defined __CMSH264RemuxMFT_FWD_DEFINED__ */
+
+#ifndef __CMSAACDecMFT_FWD_DEFINED__
+#define __CMSAACDecMFT_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class CMSAACDecMFT CMSAACDecMFT;
+#else
+typedef struct CMSAACDecMFT CMSAACDecMFT;
+#endif /* defined __cplusplus */
+#endif /* defined __CMSAACDecMFT_FWD_DEFINED__ */
+
+#ifndef __AACMFTEncoder_FWD_DEFINED__
+#define __AACMFTEncoder_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class AACMFTEncoder AACMFTEncoder;
+#else
+typedef struct AACMFTEncoder AACMFTEncoder;
+#endif /* defined __cplusplus */
+#endif /* defined __AACMFTEncoder_FWD_DEFINED__ */
+
+#ifndef __CMSDDPlusDecMFT_FWD_DEFINED__
+#define __CMSDDPlusDecMFT_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class CMSDDPlusDecMFT CMSDDPlusDecMFT;
+#else
+typedef struct CMSDDPlusDecMFT CMSDDPlusDecMFT;
+#endif /* defined __cplusplus */
+#endif /* defined __CMSDDPlusDecMFT_FWD_DEFINED__ */
+
+#ifndef __CMPEG2VideoEncoderMFT_FWD_DEFINED__
+#define __CMPEG2VideoEncoderMFT_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class CMPEG2VideoEncoderMFT CMPEG2VideoEncoderMFT;
+#else
+typedef struct CMPEG2VideoEncoderMFT CMPEG2VideoEncoderMFT;
+#endif /* defined __cplusplus */
+#endif /* defined __CMPEG2VideoEncoderMFT_FWD_DEFINED__ */
+
+#ifndef __CMPEG2AudioEncoderMFT_FWD_DEFINED__
+#define __CMPEG2AudioEncoderMFT_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class CMPEG2AudioEncoderMFT CMPEG2AudioEncoderMFT;
+#else
+typedef struct CMPEG2AudioEncoderMFT CMPEG2AudioEncoderMFT;
+#endif /* defined __cplusplus */
+#endif /* defined __CMPEG2AudioEncoderMFT_FWD_DEFINED__ */
+
+#ifndef __CMSMPEGDecoderMFT_FWD_DEFINED__
+#define __CMSMPEGDecoderMFT_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class CMSMPEGDecoderMFT CMSMPEGDecoderMFT;
+#else
+typedef struct CMSMPEGDecoderMFT CMSMPEGDecoderMFT;
+#endif /* defined __cplusplus */
+#endif /* defined __CMSMPEGDecoderMFT_FWD_DEFINED__ */
+
+#ifndef __CMSMPEGAudDecMFT_FWD_DEFINED__
+#define __CMSMPEGAudDecMFT_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class CMSMPEGAudDecMFT CMSMPEGAudDecMFT;
+#else
+typedef struct CMSMPEGAudDecMFT CMSMPEGAudDecMFT;
+#endif /* defined __cplusplus */
+#endif /* defined __CMSMPEGAudDecMFT_FWD_DEFINED__ */
+
+#ifndef __CMSDolbyDigitalEncMFT_FWD_DEFINED__
+#define __CMSDolbyDigitalEncMFT_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class CMSDolbyDigitalEncMFT CMSDolbyDigitalEncMFT;
+#else
+typedef struct CMSDolbyDigitalEncMFT CMSDolbyDigitalEncMFT;
+#endif /* defined __cplusplus */
+#endif /* defined __CMSDolbyDigitalEncMFT_FWD_DEFINED__ */
+
+#ifndef __MP3ACMCodecWrapper_FWD_DEFINED__
+#define __MP3ACMCodecWrapper_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class MP3ACMCodecWrapper MP3ACMCodecWrapper;
+#else
+typedef struct MP3ACMCodecWrapper MP3ACMCodecWrapper;
+#endif /* defined __cplusplus */
+#endif /* defined __MP3ACMCodecWrapper_FWD_DEFINED__ */
+
+#ifndef __CMSVideoDSPMFT_FWD_DEFINED__
+#define __CMSVideoDSPMFT_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class CMSVideoDSPMFT CMSVideoDSPMFT;
+#else
+typedef struct CMSVideoDSPMFT CMSVideoDSPMFT;
+#endif /* defined __cplusplus */
+#endif /* defined __CMSVideoDSPMFT_FWD_DEFINED__ */
+
 /* Headers for imported files */
 
 #include <mediaobj.h>
@@ -1550,6 +1658,162 @@ DEFINE_GUID(CLSID_CMSH264DecoderMFT, 0x62ce7e72, 0x4c71, 0x4d20, 0xb1,0x5d, 0x45
 class DECLSPEC_UUID("62ce7e72-4c71-4d20-b15d-452831a87d9d") CMSH264DecoderMFT;
 #ifdef __CRT_UUID_DECL
 __CRT_UUID_DECL(CMSH264DecoderMFT, 0x62ce7e72, 0x4c71, 0x4d20, 0xb1,0x5d, 0x45,0x28,0x31,0xa8,0x7d,0x9d)
+#endif
+#endif
+
+/*****************************************************************************
+ * CMSH264EncoderMFT coclass
+ */
+
+DEFINE_GUID(CLSID_CMSH264EncoderMFT, 0x6ca50344, 0x051a, 0x4ded, 0x97,0x79, 0xa4,0x33,0x05,0x16,0x5e,0x35);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("6ca50344-051a-4ded-9779-a43305165e35") CMSH264EncoderMFT;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(CMSH264EncoderMFT, 0x6ca50344, 0x051a, 0x4ded, 0x97,0x79, 0xa4,0x33,0x05,0x16,0x5e,0x35)
+#endif
+#endif
+
+/*****************************************************************************
+ * CMSH264RemuxMFT coclass
+ */
+
+DEFINE_GUID(CLSID_CMSH264RemuxMFT, 0x05a47ebb, 0x8bf0, 0x4cbf, 0xad,0x2f, 0x3b,0x71,0xd7,0x58,0x66,0xf5);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("05a47ebb-8bf0-4cbf-ad2f-3b71d75866f5") CMSH264RemuxMFT;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(CMSH264RemuxMFT, 0x05a47ebb, 0x8bf0, 0x4cbf, 0xad,0x2f, 0x3b,0x71,0xd7,0x58,0x66,0xf5)
+#endif
+#endif
+
+/*****************************************************************************
+ * CMSAACDecMFT coclass
+ */
+
+DEFINE_GUID(CLSID_CMSAACDecMFT, 0x32d186a7, 0x218f, 0x4c75, 0x88,0x76, 0xdd,0x77,0x27,0x3a,0x89,0x99);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("32d186a7-218f-4c75-8876-dd77273a8999") CMSAACDecMFT;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(CMSAACDecMFT, 0x32d186a7, 0x218f, 0x4c75, 0x88,0x76, 0xdd,0x77,0x27,0x3a,0x89,0x99)
+#endif
+#endif
+
+/*****************************************************************************
+ * AACMFTEncoder coclass
+ */
+
+DEFINE_GUID(CLSID_AACMFTEncoder, 0x93af0c51, 0x2275, 0x45d2, 0xa3,0x5b, 0xf2,0xba,0x21,0xca,0xed,0x00);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("93af0c51-2275-45d2-a35b-f2ba21caed00") AACMFTEncoder;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(AACMFTEncoder, 0x93af0c51, 0x2275, 0x45d2, 0xa3,0x5b, 0xf2,0xba,0x21,0xca,0xed,0x00)
+#endif
+#endif
+
+/*****************************************************************************
+ * CMSDDPlusDecMFT coclass
+ */
+
+DEFINE_GUID(CLSID_CMSDDPlusDecMFT, 0x177c0afe, 0x900b, 0x48d4, 0x9e,0x4c, 0x57,0xad,0xd2,0x50,0xb3,0xd4);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("177c0afe-900b-48d4-9e4c-57add250b3d4") CMSDDPlusDecMFT;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(CMSDDPlusDecMFT, 0x177c0afe, 0x900b, 0x48d4, 0x9e,0x4c, 0x57,0xad,0xd2,0x50,0xb3,0xd4)
+#endif
+#endif
+
+/*****************************************************************************
+ * CMPEG2VideoEncoderMFT coclass
+ */
+
+DEFINE_GUID(CLSID_CMPEG2VideoEncoderMFT, 0xe6335f02, 0x80b7, 0x4dc4, 0xad,0xfa, 0xdf,0xe7,0x21,0x0d,0x20,0xd5);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("e6335f02-80b7-4dc4-adfa-dfe7210d20d5") CMPEG2VideoEncoderMFT;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(CMPEG2VideoEncoderMFT, 0xe6335f02, 0x80b7, 0x4dc4, 0xad,0xfa, 0xdf,0xe7,0x21,0x0d,0x20,0xd5)
+#endif
+#endif
+
+/*****************************************************************************
+ * CMPEG2AudioEncoderMFT coclass
+ */
+
+DEFINE_GUID(CLSID_CMPEG2AudioEncoderMFT, 0x46a4dd5c, 0x73f8, 0x4304, 0x94,0xdf, 0x30,0x8f,0x76,0x09,0x74,0xf4);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("46a4dd5c-73f8-4304-94df-308f760974f4") CMPEG2AudioEncoderMFT;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(CMPEG2AudioEncoderMFT, 0x46a4dd5c, 0x73f8, 0x4304, 0x94,0xdf, 0x30,0x8f,0x76,0x09,0x74,0xf4)
+#endif
+#endif
+
+/*****************************************************************************
+ * CMSMPEGDecoderMFT coclass
+ */
+
+DEFINE_GUID(CLSID_CMSMPEGDecoderMFT, 0x2d709e52, 0x123f, 0x49b5, 0x9c,0xbc, 0x9a,0xf5,0xcd,0xe2,0x8f,0xb9);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("2d709e52-123f-49b5-9cbc-9af5cde28fb9") CMSMPEGDecoderMFT;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(CMSMPEGDecoderMFT, 0x2d709e52, 0x123f, 0x49b5, 0x9c,0xbc, 0x9a,0xf5,0xcd,0xe2,0x8f,0xb9)
+#endif
+#endif
+
+/*****************************************************************************
+ * CMSMPEGAudDecMFT coclass
+ */
+
+DEFINE_GUID(CLSID_CMSMPEGAudDecMFT, 0x70707b39, 0xb2ca, 0x4015, 0xab,0xea, 0xf8,0x44,0x7d,0x22,0xd8,0x8b);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("70707b39-b2ca-4015-abea-f8447d22d88b") CMSMPEGAudDecMFT;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(CMSMPEGAudDecMFT, 0x70707b39, 0xb2ca, 0x4015, 0xab,0xea, 0xf8,0x44,0x7d,0x22,0xd8,0x8b)
+#endif
+#endif
+
+/*****************************************************************************
+ * CMSDolbyDigitalEncMFT coclass
+ */
+
+DEFINE_GUID(CLSID_CMSDolbyDigitalEncMFT, 0xac3315c9, 0xf481, 0x45d7, 0x82,0x6c, 0x0b,0x40,0x6c,0x1f,0x64,0xb8);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("ac3315c9-f481-45d7-826c-0b406c1f64b8") CMSDolbyDigitalEncMFT;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(CMSDolbyDigitalEncMFT, 0xac3315c9, 0xf481, 0x45d7, 0x82,0x6c, 0x0b,0x40,0x6c,0x1f,0x64,0xb8)
+#endif
+#endif
+
+/*****************************************************************************
+ * MP3ACMCodecWrapper coclass
+ */
+
+DEFINE_GUID(CLSID_MP3ACMCodecWrapper, 0x11103421, 0x354c, 0x4cca, 0xa7,0xa3, 0x1a,0xff,0x9a,0x5b,0x67,0x01);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("11103421-354c-4cca-a7a3-1aff9a5b6701") MP3ACMCodecWrapper;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(MP3ACMCodecWrapper, 0x11103421, 0x354c, 0x4cca, 0xa7,0xa3, 0x1a,0xff,0x9a,0x5b,0x67,0x01)
+#endif
+#endif
+
+/*****************************************************************************
+ * CMSVideoDSPMFT coclass
+ */
+
+DEFINE_GUID(CLSID_CMSVideoDSPMFT, 0x51571744, 0x7fe4, 0x4ff2, 0xa4,0x98, 0x2d,0xc3,0x4f,0xf7,0x4f,0x1b);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("51571744-7fe4-4ff2-a498-2dc34ff74f1b") CMSVideoDSPMFT;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(CMSVideoDSPMFT, 0x51571744, 0x7fe4, 0x4ff2, 0xa4,0x98, 0x2d,0xc3,0x4f,0xf7,0x4f,0x1b)
 #endif
 #endif
 

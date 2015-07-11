@@ -350,3 +350,63 @@ coclass CMSAC3Enc {}
     uuid(62ce7e72-4c71-4d20-b15d-452831a87d9d)
 ]
 coclass CMSH264DecoderMFT {}
+
+[
+    uuid(6ca50344-051a-4ded-9779-a43305165e35)
+]
+coclass CMSH264EncoderMFT {}
+
+[
+    uuid(05a47ebb-8Bf0-4cbf-ad2f-3b71d75866f5)
+]
+coclass CMSH264RemuxMFT {}
+
+[
+    uuid(32d186a7-218f-4c75-8876-dd77273a8999)
+]
+coclass CMSAACDecMFT {}
+
+[
+    uuid(93af0c51-2275-45d2-a35b-f2ba21caed00)
+]
+coclass AACMFTEncoder {}
+
+[
+    uuid(177c0afe-900b-48d4-9e4c-57add250b3d4)
+]
+coclass CMSDDPlusDecMFT {}
+
+[
+    uuid(e6335f02-80b7-4dc4-adfa-dfe7210d20d5)
+]
+coclass CMPEG2VideoEncoderMFT {}
+
+[
+    uuid(46a4dd5c-73f8-4304-94df-308f760974f4)
+]
+coclass CMPEG2AudioEncoderMFT {}
+
+[
+    uuid(2d709e52-123f-49b5-9cbc-9af5cde28fb9)
+]
+coclass CMSMPEGDecoderMFT {}
+
+[
+    uuid(70707b39-b2ca-4015-abea-f8447d22d88B)
+]
+coclass CMSMPEGAudDecMFT {}
+
+[
+    uuid(ac3315c9-f481-45d7-826C-0b406c1f64b8)
+]
+coclass CMSDolbyDigitalEncMFT {}
+
+[
+    uuid(11103421-354c-4cca-a7a3-1aff9a5b6701)
+]
+coclass MP3ACMCodecWrapper {}
+
+[
+    uuid(51571744-7fe4-4ff2-a498-2dc34ff74f1b)
+]
+coclass CMSVideoDSPMFT {}
