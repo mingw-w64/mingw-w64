@@ -85,7 +85,8 @@ am_widl_OBJECTS = src/widl-client.$(OBJEXT) src/widl-expr.$(OBJEXT) \
 	src/widl-typetree.$(OBJEXT) src/widl-utils.$(OBJEXT) \
 	src/widl-widl.$(OBJEXT) src/widl-write_msft.$(OBJEXT) \
 	src/wpp/widl-ppl.yy.$(OBJEXT) src/wpp/widl-ppy.tab.$(OBJEXT) \
-	src/wpp/widl-preproc.$(OBJEXT) src/wpp/widl-wpp.$(OBJEXT)
+	src/wpp/widl-preproc.$(OBJEXT) src/wpp/widl-wpp.$(OBJEXT) \
+	src/widl-pathtools.$(OBJEXT)
 widl_OBJECTS = $(am_widl_OBJECTS)
 widl_LDADD = $(LDADD)
 widl_LINK = $(CCLD) $(widl_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
@@ -262,6 +263,7 @@ widl_SOURCES = src/widl.h \
   src/wpp/ppy.tab.c \
   src/wpp/preproc.c \
   src/wpp/wpp.c \
+  src/pathtools.c \
   include/pshpack1.h \
   include/pshpack2.h \
   include/winbase.h \
@@ -280,10 +282,11 @@ widl_SOURCES = src/widl.h \
   include/pshpack4.h \
   include/winnt.h \
   include/winnls.h \
+  include/pathtools.h \
   include/winnt.rh
 
-widl_CPPFLAGS = -I$(top_srcdir)/include -DDEFAULT_INCLUDE_DIR=\"$(includedir)/../$(target)/include\"
-widl_CFLAGS = -O3 -g -Wall -Wformat -Wpacked -Wmissing-declarations -Wimplicit-function-declaration -Wmissing-prototypes -Wstrict-aliasing=2
+widl_CPPFLAGS = -I$(top_srcdir)/include -DDEFAULT_INCLUDE_DIR=\"$(includedir)/../$(target)/include\" -DDEFAULT_BINDIR=\"$(bindir)\"
+widl_CFLAGS = -Wall -Wformat -Wpacked -Wmissing-declarations -Wimplicit-function-declaration -Wmissing-prototypes -Wstrict-aliasing=2
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host) --target=$(target)
 all: all-am
 
@@ -440,6 +443,8 @@ src/wpp/widl-preproc.$(OBJEXT): src/wpp/$(am__dirstamp) \
 	src/wpp/$(DEPDIR)/$(am__dirstamp)
 src/wpp/widl-wpp.$(OBJEXT): src/wpp/$(am__dirstamp) \
 	src/wpp/$(DEPDIR)/$(am__dirstamp)
+src/widl-pathtools.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 widl$(EXEEXT): $(widl_OBJECTS) $(widl_DEPENDENCIES) $(EXTRA_widl_DEPENDENCIES) 
 	@rm -f widl$(EXEEXT)
 	$(widl_LINK) $(widl_OBJECTS) $(widl_LDADD) $(LIBS)
@@ -459,6 +464,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-header.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-parser.tab.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-parser.yy.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-pathtools.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-proxy.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-register.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-server.Po@am__quote@
@@ -799,6 +805,20 @@ src/wpp/widl-wpp.obj: src/wpp/wpp.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/wpp/wpp.c' object='src/wpp/widl-wpp.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/wpp/widl-wpp.obj `if test -f 'src/wpp/wpp.c'; then $(CYGPATH_W) 'src/wpp/wpp.c'; else $(CYGPATH_W) '$(srcdir)/src/wpp/wpp.c'; fi`
+
+src/widl-pathtools.o: src/pathtools.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-pathtools.o -MD -MP -MF src/$(DEPDIR)/widl-pathtools.Tpo -c -o src/widl-pathtools.o `test -f 'src/pathtools.c' || echo '$(srcdir)/'`src/pathtools.c
+@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-pathtools.Tpo src/$(DEPDIR)/widl-pathtools.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/pathtools.c' object='src/widl-pathtools.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-pathtools.o `test -f 'src/pathtools.c' || echo '$(srcdir)/'`src/pathtools.c
+
+src/widl-pathtools.obj: src/pathtools.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/widl-pathtools.obj -MD -MP -MF src/$(DEPDIR)/widl-pathtools.Tpo -c -o src/widl-pathtools.obj `if test -f 'src/pathtools.c'; then $(CYGPATH_W) 'src/pathtools.c'; else $(CYGPATH_W) '$(srcdir)/src/pathtools.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) src/$(DEPDIR)/widl-pathtools.Tpo src/$(DEPDIR)/widl-pathtools.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/pathtools.c' object='src/widl-pathtools.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/widl-pathtools.obj `if test -f 'src/pathtools.c'; then $(CYGPATH_W) 'src/pathtools.c'; else $(CYGPATH_W) '$(srcdir)/src/pathtools.c'; fi`
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \

@@ -36,6 +36,7 @@ widl_SOURCES = src/widl.h \
   src/wpp/ppy.tab.c \
   src/wpp/preproc.c \
   src/wpp/wpp.c \
+  src/pathtools.c \
   include/pshpack1.h \
   include/pshpack2.h \
   include/winbase.h \
@@ -54,9 +55,10 @@ widl_SOURCES = src/widl.h \
   include/pshpack4.h \
   include/winnt.h \
   include/winnls.h \
+  include/pathtools.h \
   include/winnt.rh
 
-widl_CPPFLAGS = -I$(top_srcdir)/include -DDEFAULT_INCLUDE_DIR=\"$(includedir)/../$(target)/include\"
-widl_CFLAGS = -O3 -g -Wall -Wformat -Wpacked -Wmissing-declarations -Wimplicit-function-declaration -Wmissing-prototypes -Wstrict-aliasing=2
+widl_CPPFLAGS = -I$(top_srcdir)/include -DDEFAULT_INCLUDE_DIR=\"$(includedir)/../$(target)/include\" -DDEFAULT_BINDIR=\"$(bindir)\"
+widl_CFLAGS = -Wall -Wformat -Wpacked -Wmissing-declarations -Wimplicit-function-declaration -Wmissing-prototypes -Wstrict-aliasing=2
 
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host) --target=$(target)
