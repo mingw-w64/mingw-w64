@@ -599,6 +599,8 @@ SECHEAD_LIST
 SYSHEAD_LIST
 MINGWHELPERHEAD_LIST
 GLHEAD_LIST
+WRLWRAPPERSHEAD_LIST
+WRLHEAD_LIST
 GDIPLUSHEAD_LIST
 BASEHEAD_LIST
 ENABLE_CRT_FALSE
@@ -2610,8 +2612,12 @@ if test "x$enable_crt" = xyes; then :
 
 fi
 GDIPLUSHEAD_LIST=$srcdir/include/gdiplus/*.h
+WRLHEAD_LIST=$srcdir/include/wrl/*.h
+WRLWRAPPERSHEAD_LIST=$srcdir/include/wrl/wrappers/*.h
 GLHEAD_LIST=$srcdir/include/GL/*.h
 MINGWHELPERHEAD_LIST=$srcdir/include/psdk_inc/*.h
+
+
 
 
 

@@ -76,10 +76,14 @@ AS_VAR_IF([enable_crt],[yes],[
   SECSYSHEAD_LIST=$srcdir/crt/sec_api/sys/*.h
 ])
 GDIPLUSHEAD_LIST=$srcdir/include/gdiplus/*.h
+WRLHEAD_LIST=$srcdir/include/wrl/*.h
+WRLWRAPPERSHEAD_LIST=$srcdir/include/wrl/wrappers/*.h
 GLHEAD_LIST=$srcdir/include/GL/*.h
 MINGWHELPERHEAD_LIST=$srcdir/include/psdk_inc/*.h
 AC_SUBST([BASEHEAD_LIST])
 AC_SUBST([GDIPLUSHEAD_LIST])
+AC_SUBST([WRLHEAD_LIST])
+AC_SUBST([WRLWRAPPERSHEAD_LIST])
 AC_SUBST([GLHEAD_LIST])
 AC_SUBST([MINGWHELPERHEAD_LIST])
 AC_SUBST([SYSHEAD_LIST])

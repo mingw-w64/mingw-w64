@@ -5,6 +5,8 @@ secheaddir = $(baseheaddir)/sec_api
 secsysheaddir = $(baseheaddir)/sec_api/sys
 glheaddir = $(baseheaddir)/GL
 gdiplusheaddir = $(baseheaddir)/gdiplus
+wrlheaddir = $(baseheaddir)/wrl
+wrlwrappersheaddir = $(baseheaddir)/wrl/wrappers
 mingwhelperheaddir = $(baseheaddir)/psdk_inc
 sdksheaddir = $(baseheaddir)/sdks
 
@@ -14,6 +16,8 @@ sechead_HEADERS = @SECHEAD_LIST@
 secsyshead_HEADERS = @SECSYSHEAD_LIST@
 glhead_HEADERS = @GLHEAD_LIST@
 gdiplushead_HEADERS = @GDIPLUSHEAD_LIST@
+wrlhead_HEADERS = @WRLHEAD_LIST@
+wrlwrappershead_HEADERS = @WRLWRAPPERSHEAD_LIST@
 mingwhelperhead_HEADERS = @MINGWHELPERHEAD_LIST@
 nodist_sdkshead_HEADERS = _mingw_directx.h _mingw_ddk.h
 noinst_HEADERS = crt/sdks/_mingw_directx.h.in crt/sdks/_mingw_ddk.h.in
@@ -47,6 +51,8 @@ EXTRA_HEADERS = \
   include/GL/*.h \
   include/psdk_inc/*.h \
   include/gdiplus/*.h \
+  include/wrl/*.h \
+  include/wrl/wrappers/*.h \
   crt/*.h \
   crt/*.inl \
   crt/sys/*.h \
