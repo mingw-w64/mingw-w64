@@ -9,4 +9,14 @@
 
 #include <windows.h>
 
+namespace Microsoft {
+    namespace WRL {
+        namespace Details {
+            inline void DECLSPEC_NORETURN RaiseException(HRESULT hr, DWORD flags = EXCEPTION_NONCONTINUABLE) throw() {
+                ::RaiseException(static_cast<DWORD>(hr), flags, 0, NULL);
+            }
+        }
+    }
+}
+
 #endif
