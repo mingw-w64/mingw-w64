@@ -16,6 +16,8 @@
 extern "C" {
 #endif
 
+#ifndef __CYGWIN__
+
 #define _ftcscat _tcscat
 #define _ftcschr _tcschr
 #define _ftcscpy _tcscpy
@@ -79,6 +81,8 @@ extern "C" {
 
 #define _WConst_return _CONST_RETURN
 
+#endif /* __CYGWIN__ */
+
 #ifdef _UNICODE
 
 #ifdef __cplusplus
@@ -91,11 +95,15 @@ extern "C" {
 extern "C" {
 #endif
 
+#ifndef __CYGWIN__
+
 #ifndef _WCTYPE_T_DEFINED
 #define _WCTYPE_T_DEFINED
   typedef unsigned short wint_t;
   typedef unsigned short wctype_t;
 #endif
+
+#endif /* __CYGWIN__ */
 
 #ifndef __TCHAR_DEFINED
 #define __TCHAR_DEFINED
@@ -117,6 +125,8 @@ extern "C" {
 #define _TEOF WEOF
 
 #define __T(x) L##x
+
+#ifndef __CYGWIN__
 
 #define _tmain wmain
 #define _tWinMain wWinMain
@@ -470,6 +480,8 @@ extern "C" {
 #define _ttelldir	_wtelldir
 #define _tseekdir	_wseekdir
 
+#endif /* __CYGWIN__ */
+
 #else
 
 #ifdef __cplusplus
@@ -485,6 +497,8 @@ extern "C" {
 #define _TEOF EOF
 
 #define __T(x) x
+
+#ifndef __CYGWIN__
 
 #define _tmain main
 #define _tWinMain WinMain
@@ -733,11 +747,15 @@ extern "C" {
 
 #define _tsetlocale setlocale
 
+#endif /* __CYGWIN__ */
+
 #ifdef _MBCS
 
 #ifdef __cplusplus
 }
 #endif
+
+#ifndef __CYGWIN__
 
 #include <mbstring.h>
 
@@ -939,6 +957,9 @@ extern "C" {
 #define _istlead _ismbblead
 #define _istleadbyte isleadbyte
 #define _istleadbyte_l _isleadbyte_l
+
+#endif /* __CYGWIN__ */
+
 #else
 
 #ifndef __TCHAR_DEFINED
@@ -957,6 +978,8 @@ extern "C" {
   typedef unsigned char TBYTE,*PTBYTE;
 #endif
 #endif
+
+#ifndef __CYGWIN__
 
 #define _tcschr strchr
 #define _tcscspn strcspn
@@ -1096,6 +1119,8 @@ extern "C" {
 #endif
 #endif
 
+#endif /* __CYGWIN__ */
+
 #define _T(x) __T(x)
 #define _TEXT(x) __T(x)
 
@@ -1103,5 +1128,7 @@ extern "C" {
 }
 #endif
 
+#ifndef __CYGWIN__
 #include <sec_api/tchar_s.h>
+#endif /* __CYGWIN__ */
 #endif
