@@ -15,6 +15,14 @@ namespace Microsoft {
             inline void DECLSPEC_NORETURN RaiseException(HRESULT hr, DWORD flags = EXCEPTION_NONCONTINUABLE) throw() {
                 ::RaiseException(static_cast<DWORD>(hr), flags, 0, NULL);
             }
+
+            template <bool b, typename T = void>
+            struct EnableIf {};
+
+            template <typename T>
+            struct EnableIf<true, T> {
+                typedef T type;
+            };
         }
     }
 }
