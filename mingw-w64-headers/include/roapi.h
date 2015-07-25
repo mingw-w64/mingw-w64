@@ -56,7 +56,7 @@ HRESULT WINAPI RoGetApartmentIdentifier (UINT64 *apartmentId);
 
 namespace Windows {
   namespace Foundation {
-    __inline HRESULT Initalize (RO_INIT_TYPE it
+    __inline HRESULT Initialize (RO_INIT_TYPE it
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 	 = RO_INIT_SINGLETHREADED
 #endif
