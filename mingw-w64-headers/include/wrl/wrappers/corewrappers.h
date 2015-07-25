@@ -92,6 +92,24 @@ namespace Microsoft {
                 HSTRING_HEADER header_;
                 HSTRING hstr_;
             };
+
+            class RoInitializeWrapper {
+            public:
+                RoInitializeWrapper(RO_INIT_TYPE flags) {
+                    hres = ::Windows::Foundation::Initialize(flags);
+                }
+
+                ~RoInitializeWrapper() {
+                    if(SUCCEEDED(hres))
+                        ::Windows::Foundation::Uninitialize();
+                }
+
+                operator HRESULT() {
+                    return hres;
+                }
+            private:
+                HRESULT hres;
+            };
         }
     }
 }
