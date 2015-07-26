@@ -106,6 +106,7 @@ src_libksuser=libsrc/ksuser.c
 src_libksguid=libsrc/ksuser.c
 src_liblargeint=libsrc/largeint.c
 src_liblocationapi=libsrc/locationapi.c
+src_libsapi=libsrc/sapi.c
 src_libsensorsapi=libsrc/sensorsapi.c
 src_libportabledeviceguids=libsrc/portabledeviceguids.c
 
@@ -519,6 +520,10 @@ lib32_LIBRARIES += lib32/liblocationapi.a
 lib32_liblocationapi_a_SOURCES = $(src_liblocationapi)
 lib32_liblocationapi_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 
+lib32_LIBRARIES += lib32/libsapi.a
+lib32_libsapi_a_SOURCES = $(src_libsapi)
+lib32_libsapi_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
+
 lib32_LIBRARIES += lib32/libsensorsapi.a
 lib32_libsensorsapi_a_SOURCES = $(src_libsensorsapi)
 lib32_libsensorsapi_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
@@ -762,6 +767,10 @@ lib64_libdxguid_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 lib64_LIBRARIES += lib64/liblocationapi.a
 lib64_liblocationapi_a_SOURCES = $(src_liblocationapi)
 lib64_liblocationapi_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
+
+lib64_LIBRARIES += lib64/libsapi.a
+lib64_libsapi_a_SOURCES = $(src_libsapi)
+lib64_libsapi_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 
 lib64_LIBRARIES += lib64/libsensorsapi.a
 lib64_libsensorsapi_a_SOURCES = $(src_libsensorsapi)
@@ -1293,6 +1302,10 @@ libarm32_liblocationapi_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 libarm32_LIBRARIES += libarm32/libsensorsapi.a
 libarm32_libsensorsapi_a_SOURCES = $(src_libsensorsapi)
 libarm32_libsensorsapi_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
+
+libarm32_LIBRARIES += libarm32/libsapi.a
+libarm32_libsapi_a_SOURCES = $(src_libsapi)
+libarm32_libsapi_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 
 libarm32_LIBRARIES += libarm32/libportabledeviceguids.a
 libarm32_libportabledeviceguids_a_SOURCES = $(src_libportabledeviceguids)
