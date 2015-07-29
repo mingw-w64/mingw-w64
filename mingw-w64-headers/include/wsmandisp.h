@@ -253,9 +253,9 @@ MIDL_INTERFACE("190d8637-5cd3-496d-ad24-69636bb5a3b5")
 IWSMan : public IDispatch
 {
     virtual HRESULT STDMETHODCALLTYPE CreateSession(
-        BSTR connection = L"",
-        LONG flags = 0,
-        IDispatch *connectionOptions = 0,
+        BSTR connection,
+        LONG flags,
+        IDispatch *connectionOptions,
         IDispatch **session) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE CreateConnectionOptions(
@@ -451,7 +451,7 @@ MIDL_INTERFACE("2d53bdaa-798e-49e6-a1aa-74d01256f411")
 IWSManEx : public IWSMan
 {
     virtual HRESULT STDMETHODCALLTYPE CreateResourceLocator(
-        BSTR strResourceLocator = L"",
+        BSTR strResourceLocator,
         IDispatch **newResourceLocator) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SessionFlagUTF8(
@@ -2452,19 +2452,19 @@ IWSManSession : public IDispatch
 {
     virtual HRESULT STDMETHODCALLTYPE Get(
         VARIANT resourceUri,
-        LONG flags = 0,
+        LONG flags,
         BSTR *resource) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Put(
         VARIANT resourceUri,
         BSTR resource,
-        LONG flags = 0,
+        LONG flags,
         BSTR *resultResource) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Create(
         VARIANT resourceUri,
         BSTR resource,
-        LONG flags = 0,
+        LONG flags,
         BSTR *newUri) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Delete(
@@ -2475,18 +2475,18 @@ IWSManSession : public IDispatch
         BSTR actionUri,
         VARIANT resourceUri,
         BSTR parameters,
-        LONG flags = 0,
+        LONG flags,
         BSTR *result) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Enumerate(
         VARIANT resourceUri,
-        BSTR filter = L"",
-        BSTR dialect = L"",
-        LONG flags = 0,
+        BSTR filter,
+        BSTR dialect,
+        LONG flags,
         IDispatch **resultSet) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Identify(
-        LONG flags = 0,
+        LONG flags,
         BSTR *result) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE get_Error(
@@ -3441,7 +3441,7 @@ IWSManInternal : public IDispatch
     virtual HRESULT STDMETHODCALLTYPE ConfigSDDL(
         IDispatch *session,
         VARIANT resourceUri,
-        LONG flags = 0,
+        LONG flags,
         BSTR *resource) = 0;
 
 };

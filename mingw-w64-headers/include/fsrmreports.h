@@ -634,7 +634,7 @@ IFsrmFileManagementJobManager : public IDispatch
         SAFEARRAY **descriptions) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE EnumFileManagementJobs(
-        FsrmEnumOptions options = FsrmEnumOptions_None,
+        FsrmEnumOptions options,
         IFsrmCollection **fileManagementJobs) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE CreateFileManagementJob(
@@ -1086,7 +1086,7 @@ MIDL_INTERFACE("27b899fe-6ffa-4481-a184-d3daade8a02b")
 IFsrmReportManager : public IDispatch
 {
     virtual HRESULT STDMETHODCALLTYPE EnumReportJobs(
-        FsrmEnumOptions options = FsrmEnumOptions_None,
+        FsrmEnumOptions options,
         IFsrmCollection **reportJobs) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE CreateReportJob(

@@ -183,18 +183,18 @@ IFsrmQuotaManager : public IDispatch
         IFsrmQuota **quota) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE EnumQuotas(
-        BSTR path = L"",
-        FsrmEnumOptions options = FsrmEnumOptions_None,
+        BSTR path,
+        FsrmEnumOptions options,
         IFsrmCommittableCollection **quotas) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE EnumAutoApplyQuotas(
-        BSTR path = L"",
-        FsrmEnumOptions options = FsrmEnumOptions_None,
+        BSTR path,
+        FsrmEnumOptions options,
         IFsrmCommittableCollection **quotas) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE EnumEffectiveQuotas(
         BSTR path,
-        FsrmEnumOptions options = FsrmEnumOptions_None,
+        FsrmEnumOptions options,
         IFsrmCommittableCollection **quotas) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Scan(
@@ -536,20 +536,20 @@ IFsrmQuotaTemplateManager : public IDispatch
         IFsrmQuotaTemplate **quotaTemplate) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetTemplate(
-        BSTR name = L"",
+        BSTR name,
         IFsrmQuotaTemplate **quotaTemplate) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE EnumTemplates(
-        FsrmEnumOptions options = FsrmEnumOptions_None,
+        FsrmEnumOptions options,
         IFsrmCommittableCollection **quotaTemplates) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE ExportTemplates(
-        VARIANT *quotaTemplateNamesArray = 0,
+        VARIANT *quotaTemplateNamesArray,
         BSTR *serializedQuotaTemplates) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE ImportTemplates(
         BSTR serializedQuotaTemplates,
-        VARIANT *quotaTemplateNamesArray = 0,
+        VARIANT *quotaTemplateNamesArray,
         IFsrmCommittableCollection **quotaTemplates) = 0;
 
 };
@@ -2529,7 +2529,7 @@ IFsrmQuotaManagerEx : public IFsrmQuotaManager
 {
     virtual HRESULT STDMETHODCALLTYPE IsAffectedByQuota(
         BSTR path,
-        FsrmEnumOptions options = FsrmEnumOptions_None,
+        FsrmEnumOptions options,
         VARIANT_BOOL *affected) = 0;
 
 };

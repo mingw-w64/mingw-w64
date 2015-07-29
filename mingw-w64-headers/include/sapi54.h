@@ -13228,7 +13228,7 @@ ISpeechObjectToken : public IDispatch
         ISpeechObjectTokenCategory **Category) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetDescription(
-        LONG Locale = 0,
+        LONG Locale,
         BSTR *Description) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SetId(
@@ -13241,8 +13241,8 @@ ISpeechObjectToken : public IDispatch
         BSTR *AttributeValue) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE CreateInstance(
-        IUnknown *pUnkOuter = 0,
-        SpeechTokenContext ClsContext = STCAll,
+        IUnknown *pUnkOuter,
+        SpeechTokenContext ClsContext,
         IUnknown **Object) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Remove(
@@ -13262,8 +13262,8 @@ ISpeechObjectToken : public IDispatch
 
     virtual HRESULT STDMETHODCALLTYPE IsUISupported(
         const BSTR TypeOfUI,
-        const VARIANT *ExtraData = 0,
-        IUnknown *Object = 0,
+        const VARIANT *ExtraData,
+        IUnknown *Object,
         VARIANT_BOOL *Supported) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE DisplayUI(
@@ -13825,12 +13825,12 @@ ISpeechObjectTokenCategory : public IDispatch
         VARIANT_BOOL CreateIfNotExist = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetDataKey(
-        SpeechDataKeyLocation Location = SDKLDefaultLocation,
+        SpeechDataKeyLocation Location,
         ISpeechDataKey **DataKey) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE EnumerateTokens(
-        BSTR RequiredAttributes = L"",
-        BSTR OptionalAttributes = L"",
+        BSTR RequiredAttributes,
+        BSTR OptionalAttributes,
         ISpeechObjectTokens **Tokens) = 0;
 
 };
@@ -14518,7 +14518,7 @@ ISpeechBaseStream : public IDispatch
 
     virtual HRESULT STDMETHODCALLTYPE Seek(
         VARIANT Position,
-        SpeechStreamSeekPositionType Origin = SSSPTRelativeToStart,
+        SpeechStreamSeekPositionType Origin,
         VARIANT *NewPosition) = 0;
 
 };
@@ -16867,12 +16867,12 @@ ISpeechVoice : public IDispatch
 
     virtual HRESULT STDMETHODCALLTYPE Speak(
         BSTR Text,
-        SpeechVoiceSpeakFlags Flags = SPF_DEFAULT,
+        SpeechVoiceSpeakFlags Flags,
         LONG *StreamNumber) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SpeakStream(
         ISpeechBaseStream *Stream,
-        SpeechVoiceSpeakFlags Flags = SPF_DEFAULT,
+        SpeechVoiceSpeakFlags Flags,
         LONG *StreamNumber) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Pause(
@@ -16887,13 +16887,13 @@ ISpeechVoice : public IDispatch
         LONG *NumSkipped) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetVoices(
-        BSTR RequiredAttributes = L"",
-        BSTR OptionalAttributes = L"",
+        BSTR RequiredAttributes,
+        BSTR OptionalAttributes,
         ISpeechObjectTokens **ObjectTokens) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetAudioOutputs(
-        BSTR RequiredAttributes = L"",
-        BSTR OptionalAttributes = L"",
+        BSTR RequiredAttributes,
+        BSTR OptionalAttributes,
         ISpeechObjectTokens **ObjectTokens) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE WaitUntilDone(
@@ -16905,7 +16905,7 @@ ISpeechVoice : public IDispatch
 
     virtual HRESULT STDMETHODCALLTYPE IsUISupported(
         const BSTR TypeOfUI,
-        const VARIANT *ExtraData = 0,
+        const VARIANT *ExtraData,
         VARIANT_BOOL *Supported) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE DisplayUI(
@@ -18585,7 +18585,7 @@ ISpeechRecognizer : public IDispatch
 
     virtual HRESULT STDMETHODCALLTYPE IsUISupported(
         const BSTR TypeOfUI,
-        const VARIANT *ExtraData = 0,
+        const VARIANT *ExtraData,
         VARIANT_BOOL *Supported) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE DisplayUI(
@@ -18595,18 +18595,18 @@ ISpeechRecognizer : public IDispatch
         const VARIANT *ExtraData = 0) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetRecognizers(
-        BSTR RequiredAttributes = L"",
-        BSTR OptionalAttributes = L"",
+        BSTR RequiredAttributes,
+        BSTR OptionalAttributes,
         ISpeechObjectTokens **ObjectTokens) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetAudioInputs(
-        BSTR RequiredAttributes = L"",
-        BSTR OptionalAttributes = L"",
+        BSTR RequiredAttributes,
+        BSTR OptionalAttributes,
         ISpeechObjectTokens **ObjectTokens) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetProfiles(
-        BSTR RequiredAttributes = L"",
-        BSTR OptionalAttributes = L"",
+        BSTR RequiredAttributes,
+        BSTR OptionalAttributes,
         ISpeechObjectTokens **ObjectTokens) = 0;
 
 };
@@ -19473,7 +19473,7 @@ ISpeechRecoContext : public IDispatch
         ) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE CreateGrammar(
-        VARIANT GrammarId = 0,
+        VARIANT GrammarId,
         ISpeechRecoGrammar **Grammar) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE CreateResultFromMemory(
@@ -20904,7 +20904,7 @@ ISpeechGrammarRules : public IDispatch
     virtual HRESULT STDMETHODCALLTYPE Add(
         BSTR RuleName,
         SpeechRuleAttributes Attributes,
-        LONG RuleId = 0,
+        LONG RuleId,
         ISpeechGrammarRule **Rule) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Commit(
@@ -22144,19 +22144,19 @@ ISpeechRecoResult : public IDispatch
 
     virtual HRESULT STDMETHODCALLTYPE Alternates(
         LONG RequestCount,
-        LONG StartElement = 0,
-        LONG Elements = SPPR_ALL_ELEMENTS,
+        LONG StartElement,
+        LONG Elements,
         ISpeechPhraseAlternates **Alternates) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Audio(
-        LONG StartElement = 0,
-        LONG Elements = SPPR_ALL_ELEMENTS,
+        LONG StartElement,
+        LONG Elements,
         ISpeechMemoryStream **Stream) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SpeakAudio(
-        LONG StartElement = 0,
-        LONG Elements = SPPR_ALL_ELEMENTS,
-        SpeechVoiceSpeakFlags Flags = SPF_DEFAULT,
+        LONG StartElement,
+        LONG Elements,
+        SpeechVoiceSpeakFlags Flags,
         LONG *StreamNumber) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SaveToMemory(
@@ -22957,19 +22957,19 @@ ISpeechRecoResultDispatch : public IDispatch
 
     virtual HRESULT STDMETHODCALLTYPE Alternates(
         LONG RequestCount,
-        LONG StartElement = 0,
-        LONG Elements = SPPR_ALL_ELEMENTS,
+        LONG StartElement,
+        LONG Elements,
         ISpeechPhraseAlternates **Alternates) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE Audio(
-        LONG StartElement = 0,
-        LONG Elements = SPPR_ALL_ELEMENTS,
+        LONG StartElement,
+        LONG Elements,
         ISpeechMemoryStream **Stream) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SpeakAudio(
-        LONG StartElement = 0,
-        LONG Elements = SPPR_ALL_ELEMENTS,
-        SpeechVoiceSpeakFlags Flags = SPF_DEFAULT,
+        LONG StartElement,
+        LONG Elements,
+        SpeechVoiceSpeakFlags Flags,
         LONG *StreamNumber) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE SaveToMemory(
@@ -24091,15 +24091,15 @@ ISpeechPhraseInfo : public IDispatch
         VARIANT *PhraseBlock) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetText(
-        LONG StartElement = 0,
-        LONG Elements = SPPR_ALL_ELEMENTS,
-        VARIANT_BOOL UseReplacements = -1,
+        LONG StartElement,
+        LONG Elements,
+        VARIANT_BOOL UseReplacements,
         BSTR *Text) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetDisplayAttributes(
-        LONG StartElement = 0,
-        LONG Elements = SPPR_ALL_ELEMENTS,
-        VARIANT_BOOL UseReplacements = -1,
+        LONG StartElement,
+        LONG Elements,
+        VARIANT_BOOL UseReplacements,
         SpeechDisplayAttributes *DisplayAttributes) = 0;
 
 };
@@ -26450,8 +26450,8 @@ ISpeechLexicon : public IDispatch
         LONG *GenerationId) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetWords(
-        SpeechLexiconType Flags = eLEXTYPE_USER | eLEXTYPE_APP,
-        LONG *GenerationID = 0,
+        SpeechLexiconType Flags,
+        LONG *GenerationID,
         ISpeechLexiconWords **Words) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE AddPronunciation(
@@ -26480,8 +26480,8 @@ ISpeechLexicon : public IDispatch
 
     virtual HRESULT STDMETHODCALLTYPE GetPronunciations(
         BSTR bstrWord,
-        SpeechLanguageId LangId = 0,
-        SpeechLexiconType TypeFlags = eLEXTYPE_USER | eLEXTYPE_APP,
+        SpeechLanguageId LangId,
+        SpeechLexiconType TypeFlags,
         ISpeechLexiconPronunciations **ppPronunciations) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetGenerationChange(

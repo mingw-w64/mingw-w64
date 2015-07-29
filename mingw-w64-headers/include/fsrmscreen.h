@@ -169,16 +169,16 @@ IFsrmFileGroupManager : public IDispatch
         IFsrmFileGroup **fileGroup) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE EnumFileGroups(
-        FsrmEnumOptions options = FsrmEnumOptions_None,
+        FsrmEnumOptions options,
         IFsrmCommittableCollection **fileGroups) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE ExportFileGroups(
-        VARIANT *fileGroupNamesArray = 0,
+        VARIANT *fileGroupNamesArray,
         BSTR *serializedFileGroups) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE ImportFileGroups(
         BSTR serializedFileGroups,
-        VARIANT *fileGroupNamesArray = 0,
+        VARIANT *fileGroupNamesArray,
         IFsrmCommittableCollection **fileGroups) = 0;
 
 };
@@ -399,8 +399,8 @@ IFsrmFileScreenManager : public IDispatch
         IFsrmFileScreen **fileScreen) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE EnumFileScreens(
-        BSTR path = L"",
-        FsrmEnumOptions options = FsrmEnumOptions_None,
+        BSTR path,
+        FsrmEnumOptions options,
         IFsrmCommittableCollection **fileScreens) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE CreateFileScreenException(
@@ -412,8 +412,8 @@ IFsrmFileScreenManager : public IDispatch
         IFsrmFileScreenException **fileScreenException) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE EnumFileScreenExceptions(
-        BSTR path = L"",
-        FsrmEnumOptions options = FsrmEnumOptions_None,
+        BSTR path,
+        FsrmEnumOptions options,
         IFsrmCommittableCollection **fileScreenExceptions) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE CreateFileScreenCollection(
@@ -700,16 +700,16 @@ IFsrmFileScreenTemplateManager : public IDispatch
         IFsrmFileScreenTemplate **fileScreenTemplate) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE EnumTemplates(
-        FsrmEnumOptions options = FsrmEnumOptions_None,
+        FsrmEnumOptions options,
         IFsrmCommittableCollection **fileScreenTemplates) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE ExportTemplates(
-        VARIANT *fileScreenTemplateNamesArray = 0,
+        VARIANT *fileScreenTemplateNamesArray,
         BSTR *serializedFileScreenTemplates) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE ImportTemplates(
         BSTR serializedFileScreenTemplates,
-        VARIANT *fileScreenTemplateNamesArray = 0,
+        VARIANT *fileScreenTemplateNamesArray,
         IFsrmCommittableCollection **fileScreenTemplates) = 0;
 
 };

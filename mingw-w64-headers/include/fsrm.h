@@ -471,8 +471,8 @@ IFsrmAccessDeniedRemediationClient : public IDispatch
         BSTR accessPath,
         AdrClientErrorType errorType,
         LONG flags,
-        BSTR windowTitle = L"",
-        BSTR windowMessage = L"",
+        BSTR windowTitle,
+        BSTR windowMessage,
         LONG *result) = 0;
 
 };
@@ -2116,8 +2116,8 @@ IFsrmExportImport : public IDispatch
 
     virtual HRESULT STDMETHODCALLTYPE ImportFileGroups(
         BSTR filePath,
-        VARIANT *fileGroupNamesSafeArray = 0,
-        BSTR remoteHost = L"",
+        VARIANT *fileGroupNamesSafeArray,
+        BSTR remoteHost,
         IFsrmCommittableCollection **fileGroups) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE ExportFileScreenTemplates(
@@ -2127,8 +2127,8 @@ IFsrmExportImport : public IDispatch
 
     virtual HRESULT STDMETHODCALLTYPE ImportFileScreenTemplates(
         BSTR filePath,
-        VARIANT *templateNamesSafeArray = 0,
-        BSTR remoteHost = L"",
+        VARIANT *templateNamesSafeArray,
+        BSTR remoteHost,
         IFsrmCommittableCollection **templates) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE ExportQuotaTemplates(
@@ -2138,8 +2138,8 @@ IFsrmExportImport : public IDispatch
 
     virtual HRESULT STDMETHODCALLTYPE ImportQuotaTemplates(
         BSTR filePath,
-        VARIANT *templateNamesSafeArray = 0,
-        BSTR remoteHost = L"",
+        VARIANT *templateNamesSafeArray,
+        BSTR remoteHost,
         IFsrmCommittableCollection **templates) = 0;
 
 };
