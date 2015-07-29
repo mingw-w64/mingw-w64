@@ -292,6 +292,11 @@ typedef interface IAMFilterMiscFlags IAMFilterMiscFlags;
 typedef interface IAMGraphBuilderCallback IAMGraphBuilderCallback;
 #endif
 
+#ifndef __IAMVfwCaptureDialogs_FWD_DEFINED__
+#define __IAMVfwCaptureDialogs_FWD_DEFINED__
+typedef interface IAMVfwCaptureDialogs IAMVfwCaptureDialogs;
+#endif
+
 /* Headers for imported files */
 
 #include <unknwn.h>
@@ -10335,6 +10340,140 @@ void __RPC_STUB IAMGraphBuilderCallback_CreatedFilter_Stub(
 
 #endif  /* __IAMGraphBuilderCallback_INTERFACE_DEFINED__ */
 
+/*****************************************************************************
+ * IAMVfwCaptureDialogs interface
+ */
+#ifndef __IAMVfwCaptureDialogs_INTERFACE_DEFINED__
+#define __IAMVfwCaptureDialogs_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IAMVfwCaptureDialogs, 0xd8d715a0, 0x6e5e, 0x11d0, 0xb3,0xf0, 0x00,0xaa,0x00,0x37,0x61,0xc5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("d8d715a0-6e5e-11d0-b3f0-00aa003761c5")
+IAMVfwCaptureDialogs : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE HasDialog(
+        int dialog) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ShowDialog(
+        int dialog,
+        HWND hwnd) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SendDriverMessage(
+        int dialog,
+        int msg,
+        LONG data1,
+        LONG data2) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAMVfwCaptureDialogs, 0xd8d715a0, 0x6e5e, 0x11d0, 0xb3,0xf0, 0x00,0xaa,0x00,0x37,0x61,0xc5)
+#endif
+#else
+typedef struct IAMVfwCaptureDialogsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IAMVfwCaptureDialogs* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IAMVfwCaptureDialogs* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IAMVfwCaptureDialogs* This);
+
+    /*** IAMVfwCaptureDialogs methods ***/
+    HRESULT (STDMETHODCALLTYPE *HasDialog)(
+        IAMVfwCaptureDialogs* This,
+        int dialog);
+
+    HRESULT (STDMETHODCALLTYPE *ShowDialog)(
+        IAMVfwCaptureDialogs* This,
+        int dialog,
+        HWND hwnd);
+
+    HRESULT (STDMETHODCALLTYPE *SendDriverMessage)(
+        IAMVfwCaptureDialogs* This,
+        int dialog,
+        int msg,
+        LONG data1,
+        LONG data2);
+
+    END_INTERFACE
+} IAMVfwCaptureDialogsVtbl;
+interface IAMVfwCaptureDialogs {
+    CONST_VTBL IAMVfwCaptureDialogsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IAMVfwCaptureDialogs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAMVfwCaptureDialogs_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAMVfwCaptureDialogs_Release(This) (This)->lpVtbl->Release(This)
+/*** IAMVfwCaptureDialogs methods ***/
+#define IAMVfwCaptureDialogs_HasDialog(This,dialog) (This)->lpVtbl->HasDialog(This,dialog)
+#define IAMVfwCaptureDialogs_ShowDialog(This,dialog,hwnd) (This)->lpVtbl->ShowDialog(This,dialog,hwnd)
+#define IAMVfwCaptureDialogs_SendDriverMessage(This,dialog,msg,data1,data2) (This)->lpVtbl->SendDriverMessage(This,dialog,msg,data1,data2)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAMVfwCaptureDialogs_QueryInterface(IAMVfwCaptureDialogs* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAMVfwCaptureDialogs_AddRef(IAMVfwCaptureDialogs* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAMVfwCaptureDialogs_Release(IAMVfwCaptureDialogs* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAMVfwCaptureDialogs methods ***/
+static FORCEINLINE HRESULT IAMVfwCaptureDialogs_HasDialog(IAMVfwCaptureDialogs* This,int dialog) {
+    return This->lpVtbl->HasDialog(This,dialog);
+}
+static FORCEINLINE HRESULT IAMVfwCaptureDialogs_ShowDialog(IAMVfwCaptureDialogs* This,int dialog,HWND hwnd) {
+    return This->lpVtbl->ShowDialog(This,dialog,hwnd);
+}
+static FORCEINLINE HRESULT IAMVfwCaptureDialogs_SendDriverMessage(IAMVfwCaptureDialogs* This,int dialog,int msg,LONG data1,LONG data2) {
+    return This->lpVtbl->SendDriverMessage(This,dialog,msg,data1,data2);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IAMVfwCaptureDialogs_HasDialog_Proxy(
+    IAMVfwCaptureDialogs* This,
+    int dialog);
+void __RPC_STUB IAMVfwCaptureDialogs_HasDialog_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMVfwCaptureDialogs_ShowDialog_Proxy(
+    IAMVfwCaptureDialogs* This,
+    int dialog,
+    HWND hwnd);
+void __RPC_STUB IAMVfwCaptureDialogs_ShowDialog_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMVfwCaptureDialogs_SendDriverMessage_Proxy(
+    IAMVfwCaptureDialogs* This,
+    int dialog,
+    int msg,
+    LONG data1,
+    LONG data2);
+void __RPC_STUB IAMVfwCaptureDialogs_SendDriverMessage_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IAMVfwCaptureDialogs_INTERFACE_DEFINED__ */
+
 #ifndef __IReferenceClock2_FWD_DEFINED__
 #define __IReferenceClock2_FWD_DEFINED__
 typedef struct IReferenceClock2 IReferenceClock2;
@@ -10347,11 +10486,6 @@ typedef struct IDistributorNotify IDistributorNotify;
 #ifndef __IAMVideoCompression_FWD_DEFINED__
 #define __IAMVideoCompression_FWD_DEFINED__
 typedef struct IAMVideoCompression IAMVideoCompression;
-#endif
-
-#ifndef __IAMVfwCaptureDialogs_FWD_DEFINED__
-#define __IAMVfwCaptureDialogs_FWD_DEFINED__
-typedef struct IAMVfwCaptureDialogs IAMVfwCaptureDialogs;
 #endif
 
 #ifndef __IAMVfwCompressDialogs_FWD_DEFINED__
@@ -10949,49 +11083,6 @@ typedef struct IAMPluginControl IAMPluginControl;
   typedef enum __MIDL___MIDL_itf_strmif_0168_0002 {
     VfwCompressDialog_Config = 0x1,VfwCompressDialog_About = 0x2,VfwCompressDialog_QueryConfig = 0x4,VfwCompressDialog_QueryAbout = 0x8
   } VfwCompressDialogs;
-
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0168_v0_0_c_ifspec;
-  extern RPC_IF_HANDLE __MIDL_itf_strmif_0168_v0_0_s_ifspec;
-#ifndef __IAMVfwCaptureDialogs_INTERFACE_DEFINED__
-#define __IAMVfwCaptureDialogs_INTERFACE_DEFINED__
-  EXTERN_C const IID IID_IAMVfwCaptureDialogs;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-  struct IAMVfwCaptureDialogs : public IUnknown {
-  public:
-    virtual HRESULT WINAPI HasDialog(int iDialog) = 0;
-    virtual HRESULT WINAPI ShowDialog(int iDialog,HWND hwnd) = 0;
-    virtual HRESULT WINAPI SendDriverMessage(int iDialog,int uMsg,LONG dw1,LONG dw2) = 0;
-  };
-#else
-  typedef struct IAMVfwCaptureDialogsVtbl {
-    BEGIN_INTERFACE
-      HRESULT (WINAPI *QueryInterface)(IAMVfwCaptureDialogs *This,REFIID riid,void **ppvObject);
-      ULONG (WINAPI *AddRef)(IAMVfwCaptureDialogs *This);
-      ULONG (WINAPI *Release)(IAMVfwCaptureDialogs *This);
-      HRESULT (WINAPI *HasDialog)(IAMVfwCaptureDialogs *This,int iDialog);
-      HRESULT (WINAPI *ShowDialog)(IAMVfwCaptureDialogs *This,int iDialog,HWND hwnd);
-      HRESULT (WINAPI *SendDriverMessage)(IAMVfwCaptureDialogs *This,int iDialog,int uMsg,LONG dw1,LONG dw2);
-    END_INTERFACE
-  } IAMVfwCaptureDialogsVtbl;
-  struct IAMVfwCaptureDialogs {
-    CONST_VTBL struct IAMVfwCaptureDialogsVtbl *lpVtbl;
-  };
-#ifdef COBJMACROS
-#define IAMVfwCaptureDialogs_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IAMVfwCaptureDialogs_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IAMVfwCaptureDialogs_Release(This) (This)->lpVtbl->Release(This)
-#define IAMVfwCaptureDialogs_HasDialog(This,iDialog) (This)->lpVtbl->HasDialog(This,iDialog)
-#define IAMVfwCaptureDialogs_ShowDialog(This,iDialog,hwnd) (This)->lpVtbl->ShowDialog(This,iDialog,hwnd)
-#define IAMVfwCaptureDialogs_SendDriverMessage(This,iDialog,uMsg,dw1,dw2) (This)->lpVtbl->SendDriverMessage(This,iDialog,uMsg,dw1,dw2)
-#endif
-#endif
-  HRESULT WINAPI IAMVfwCaptureDialogs_HasDialog_Proxy(IAMVfwCaptureDialogs *This,int iDialog);
-  void __RPC_STUB IAMVfwCaptureDialogs_HasDialog_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMVfwCaptureDialogs_ShowDialog_Proxy(IAMVfwCaptureDialogs *This,int iDialog,HWND hwnd);
-  void __RPC_STUB IAMVfwCaptureDialogs_ShowDialog_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-  HRESULT WINAPI IAMVfwCaptureDialogs_SendDriverMessage_Proxy(IAMVfwCaptureDialogs *This,int iDialog,int uMsg,LONG dw1,LONG dw2);
-  void __RPC_STUB IAMVfwCaptureDialogs_SendDriverMessage_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
 
 #ifndef __IAMVfwCompressDialogs_INTERFACE_DEFINED__
 #define __IAMVfwCompressDialogs_INTERFACE_DEFINED__
