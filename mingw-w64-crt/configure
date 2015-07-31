@@ -644,8 +644,10 @@ DELAY_IMPORT_LIBS_FALSE
 DELAY_IMPORT_LIBS_TRUE
 PRIVATE_EXPORTS_FALSE
 PRIVATE_EXPORTS_TRUE
-LIB32SUFFIXDIR
-LIB64SUFFIXDIR
+LIBARM32SUFFIXDIR
+LIBARM64SUFFIXDIR
+LIBX8632SUFFIXDIR
+LIBX8664SUFFIXDIR
 LIBARM32_FALSE
 LIBARM32_TRUE
 LIB64_FALSE
@@ -5423,29 +5425,53 @@ fi
 case $host_cpu in #(
   x86_64) :
 
-    lib64suffx=lib
-    lib32suffx=lib32 ;; #(
+    libx8664suffx=lib
+    libx8632suffx=lib32
+    libarm64suffx=libarm64
+    libarm32suffx=libarm32 ;; #(
   i*86) :
 
-    lib64suffx=lib64
-    lib32suffx=lib ;; #(
+    libx8664suffx=lib64
+    libx8632suffx=lib
+    libarm64suffx=libarm64
+    libarm32suffx=libarm32 ;; #(
+  aarch64*) :
+
+    libx8664suffx=libx8664
+    libx8632suffx=libx8632
+    libarm64suffx=lib
+    libarm32suffx=lib32 ;; #(
+  armv7*) :
+
+    libx8664suffx=libx8664
+    libx8632suffx=libx8632
+    libarm64suffx=lib64
+    libarm32suffx=lib ;; #(
   *) :
 
-    lib64suffx=lib64
-    lib32suffx=lib32
+    libx8664suffx=libx8664
+    libx8632suffx=libx8632
+    libarm64suffx=libarm64
+    libarm32suffx=libarm32
  ;;
 esac
 
 if test "x$enable_w32api" = xyes; then :
 
-  lib64suffx=$lib64suffx/w32api
-  lib32suffx=$lib32suffx/w32api
+  libx8664suffx=$libx8664suffx/w32api
+  libx8632suffx=$libx8632suffx/w32api
+  libarm64suffx=$libarm64suffx/w32api
+  libarm32suffx=$libarm32suffx/w32api
 
 fi
 
-LIB64SUFFIXDIR=$lib64suffx
+LIBX8664SUFFIXDIR=$libx8664suffx
 
-LIB32SUFFIXDIR=$lib32suffx
+LIBX8632SUFFIXDIR=$libx8632suffx
+
+LIBARM64SUFFIXDIR=$libarm64suffx
+
+LIBARM32SUFFIXDIR=$libarm32suffx
 
 
 # Checks for features.

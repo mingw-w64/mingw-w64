@@ -121,23 +121,43 @@ AS_VAR_IF([enable_libarm32],[yes],[
 
 AS_CASE([$host_cpu],
   [x86_64],[
-    lib64suffx=lib
-    lib32suffx=lib32],
+    libx8664suffx=lib
+    libx8632suffx=lib32
+    libarm64suffx=libarm64
+    libarm32suffx=libarm32],
   [i*86],[
-    lib64suffx=lib64
-    lib32suffx=lib],
+    libx8664suffx=lib64
+    libx8632suffx=lib
+    libarm64suffx=libarm64
+    libarm32suffx=libarm32],
+  [aarch64*],[
+    libx8664suffx=libx8664
+    libx8632suffx=libx8632
+    libarm64suffx=lib
+    libarm32suffx=lib32],
+  [armv7*],[
+    libx8664suffx=libx8664
+    libx8632suffx=libx8632
+    libarm64suffx=lib64
+    libarm32suffx=lib],
   [
-    lib64suffx=lib64
-    lib32suffx=lib32]
+    libx8664suffx=libx8664
+    libx8632suffx=libx8632
+    libarm64suffx=libarm64
+    libarm32suffx=libarm32]
 )
 
 AS_VAR_IF([enable_w32api],[yes],[
-  lib64suffx=$lib64suffx/w32api
-  lib32suffx=$lib32suffx/w32api
+  libx8664suffx=$libx8664suffx/w32api
+  libx8632suffx=$libx8632suffx/w32api
+  libarm64suffx=$libarm64suffx/w32api
+  libarm32suffx=$libarm32suffx/w32api
 ])
 
-AC_SUBST([LIB64SUFFIXDIR],[$lib64suffx])
-AC_SUBST([LIB32SUFFIXDIR],[$lib32suffx])
+AC_SUBST([LIBX8664SUFFIXDIR],[$libx8664suffx])
+AC_SUBST([LIBX8632SUFFIXDIR],[$libx8632suffx])
+AC_SUBST([LIBARM64SUFFIXDIR],[$libarm64suffx])
+AC_SUBST([LIBARM32SUFFIXDIR],[$libarm32suffx])
 
 # Checks for features.
 

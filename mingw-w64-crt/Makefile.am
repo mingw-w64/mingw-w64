@@ -395,7 +395,7 @@ if LIB32
 # Compiling 32-bit runtime
 #
 
-lib32dir=$(prefix)/@LIB32SUFFIXDIR@
+lib32dir=$(prefix)/@LIBX8632SUFFIXDIR@
 crt32dir=$(lib32dir)
 winrt32dir=$(lib32dir)
 dx32dir=$(lib32dir)
@@ -660,7 +660,7 @@ if LIB64
 # Compiling 64-bit runtime
 # #######################################################################
 
-lib64dir=$(prefix)/@LIB64SUFFIXDIR@
+lib64dir=$(prefix)/@LIBX8664SUFFIXDIR@
 crt64dir=$(lib64dir)
 winrt64dir=$(lib64dir)
 dx64dir=$(lib64dir)
