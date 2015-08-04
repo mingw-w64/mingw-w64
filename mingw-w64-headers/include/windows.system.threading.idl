@@ -4,6 +4,10 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+#ifdef __WIDL__
+#pragma winrt ns_prefix
+#endif
+
 import "inspectable.idl";
 import "windows.foundation.idl";
 
