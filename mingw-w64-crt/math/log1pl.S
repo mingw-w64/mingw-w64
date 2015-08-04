@@ -7,16 +7,25 @@
 
 	.file	"log1pl.S"
 	.text
+	/* The fyl2xp1 can only be used for values in
+	   -1 + sqrt(2) / 2 <= x <= 1 - sqrt(2) / 2
+	   0.29 is a safe value.
+	 */
+
+	/* Only gcc understands the .tfloat type
+	   The series of .long below represents
+	   limit:	.tfloat 0.29
+	 */
+	.align 16
+limit:
+	.long 2920577761
+	.long 2491081031
+	.long 16381
 #ifdef _WIN64
 	.align 8
 #else
 	.align 4
 #endif
-	/* The fyl2xp1 can only be used for values in
-	   -1 + sqrt(2) / 2 <= x <= 1 - sqrt(2) / 2
-	   0.29 is a safe value.
-	 */
-limit:	.tfloat 0.29
 	/* Please note:	 we use a double value here.  Since 1.0 has
 	   an exact representation this does not effect the accuracy
 	   but it helps to optimize the code.  */
