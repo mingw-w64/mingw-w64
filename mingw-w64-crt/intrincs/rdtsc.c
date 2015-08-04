@@ -4,6 +4,9 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
+#ifdef __clang__
+#define __IA32INTRIN_H
+#endif
 #include <intrin.h>
 
 unsigned __int64 __rdtsc(void)
