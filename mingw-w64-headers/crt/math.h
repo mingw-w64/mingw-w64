@@ -207,7 +207,7 @@ extern "C" {
 #if !defined (__ia64__)
   __CRT_INLINE float __cdecl fabsf (float x)
   {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__arm__)
     return __builtin_fabsf (x);
 #else
     float res = 0.0F;
@@ -218,14 +218,18 @@ extern "C" {
 
   __CRT_INLINE long double __cdecl fabsl (long double x)
   {
+#ifdef __arm__
+    return __builtin_fabsl (x);
+#else
     long double res = 0.0l;
     __asm__ __volatile__ ("fabs;" : "=t" (res) : "0" (x));
     return res;
+#endif
   }
 
   __CRT_INLINE double __cdecl fabs (double x)
   {
-#ifdef __x86_64__
+#if defined(__x86_64__) || defined(__arm__)
     return __builtin_fabs (x);
 #else
     double res = 0.0;
