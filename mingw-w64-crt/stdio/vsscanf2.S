@@ -9,6 +9,9 @@
 #define FWD __MINGW_USYMBOL(__ms_vsscanf)
 
 	.file   "vsscanf2.S"
+#if defined(_ARM_) || defined(__arm__)
+        .thumb
+#endif
 	.text
         .p2align 4,,15
         .globl  FCT
@@ -23,6 +26,7 @@ FCT:
 #if defined(_AMD64_) || defined(__x86_64__) || defined(_X86_) || defined(__i386__)
         jmp     FWD
 #elif defined(_ARM_) || defined(__arm__)
+        .thumb_func
         b       FWD
 #endif
 #ifdef _WIN64
