@@ -44,7 +44,7 @@ int fesetenv (const fenv_t * envp)
   else if (envp == FE_PC53_ENV)
    /*
     * MS _fpreset() does same *except* it sets control word
-    * to 0x27f (53-bit precison).
+    * to 0x27f (53-bit precision).
     * We force calling _fpreset in msvcrt.dll
     */
 
