@@ -14,6 +14,8 @@ typedef DWORD D3DFORMAT;
 typedef DWORD D3DPOOL;
 cpp_quote("#endif")
 
+interface IDirectXVideoDecoderService;
+
 cpp_quote("#ifndef __REFERENCE_TIME_DEFINED")
 cpp_quote("#define __REFERENCE_TIME_DEFINED")
 cpp_quote("typedef LONGLONG REFERENCE_TIME;")
@@ -29,9 +31,6 @@ cpp_quote("#define DXVA2_E_NOT_INITIALIZED     MAKE_HRESULT(1, 4, 4096)")
 cpp_quote("#define DXVA2_E_NEW_VIDEO_DEVICE    MAKE_HRESULT(1, 4, 4097)")
 cpp_quote("#define DXVA2_E_VIDEO_DEVICE_LOCKED MAKE_HRESULT(1, 4, 4098)")
 cpp_quote("#define DXVA2_E_NOT_AVAILABLE       MAKE_HRESULT(1, 4, 4099)")
-cpp_quote("")
-cpp_quote("DEFINE_GUID(IID_IDirectXVideoDecoderService, 0xfc51a551, 0xd5e7, 0x11d9, 0xaf,0x55,0x00,0x05,0x4e,0x43,0xff,0x02);")
-cpp_quote("DEFINE_GUID(IID_IDirectXVideoAccelerationService, 0xfc51a550, 0xd5e7, 0x11d9, 0xaf,0x55,0x00,0x05,0x4e,0x43,0xff,0x02);")
 cpp_quote("")
 cpp_quote("DEFINE_GUID(DXVA2_ModeMPEG2_MoComp, 0xe6a9f44b, 0x61b0,0x4563, 0x9e,0xa4,0x63,0xd2,0xa3,0xc6,0xfe,0x66);")
 cpp_quote("DEFINE_GUID(DXVA2_ModeMPEG2_IDCT, 0xbf22ad00, 0x03ea,0x4690, 0x80,0x77,0x47,0x33,0x46,0x20,0x9b,0x7e);")
@@ -51,8 +50,6 @@ cpp_quote("DEFINE_GUID(DXVA2_ModeVC1_A, 0x1b81beA0, 0xa0c7,0x11d3, 0xb9,0x84,0x0
 cpp_quote("DEFINE_GUID(DXVA2_ModeVC1_B, 0x1b81beA1, 0xa0c7,0x11d3, 0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);")
 cpp_quote("DEFINE_GUID(DXVA2_ModeVC1_C, 0x1b81beA2, 0xa0c7,0x11d3, 0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);")
 cpp_quote("DEFINE_GUID(DXVA2_ModeVC1_D, 0x1b81beA3, 0xa0c7,0x11d3, 0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);")
-cpp_quote("")
-cpp_quote("typedef struct IDirectXVideoDecoderService IDirectXVideoDecoderService;")
 cpp_quote("")
 cpp_quote("typedef enum _DXVA2_SampleFormat {")
 cpp_quote("  DXVA2_SampleFormatMask                  = 0x00FF,")
@@ -158,70 +155,70 @@ cpp_quote("  UCHAR Cb;")
 cpp_quote("  UCHAR Y;")
 cpp_quote("  UCHAR Alpha;")
 cpp_quote("} DXVA2_AYUVSample8;")
-cpp_quote("")
-cpp_quote("typedef struct _DXVA2_ConfigPictureDecode {")
-cpp_quote("  GUID   guidConfigBitstreamEncryption;")
-cpp_quote("  GUID   guidConfigMBcontrolEncryption;")
-cpp_quote("  GUID   guidConfigResidDiffEncryption;")
-cpp_quote("  UINT   ConfigBitstreamRaw;")
-cpp_quote("  UINT   ConfigMBcontrolRasterOrder;")
-cpp_quote("  UINT   ConfigResidDiffHost;")
-cpp_quote("  UINT   ConfigSpatialResid8;")
-cpp_quote("  UINT   ConfigResid8Subtraction;")
-cpp_quote("  UINT   ConfigSpatialHost8or9Clipping;")
-cpp_quote("  UINT   ConfigSpatialResidInterleaved;")
-cpp_quote("  UINT   ConfigIntraResidUnsigned;")
-cpp_quote("  UINT   ConfigResidDiffAccelerator;")
-cpp_quote("  UINT   ConfigHostInverseScan;")
-cpp_quote("  UINT   ConfigSpecificIDCT;")
-cpp_quote("  UINT   Config4GroupedCoefs;")
-cpp_quote("  USHORT ConfigMinRenderTargetBuffCount;")
-cpp_quote("  USHORT ConfigDecoderSpecific;")
-cpp_quote("} DXVA2_ConfigPictureDecode;")
-cpp_quote("")
-cpp_quote("typedef struct _DXVA2_DecodeBufferDesc {")
-cpp_quote("  DWORD CompressedBufferType;")
-cpp_quote("  UINT  BufferIndex;")
-cpp_quote("  UINT  DataOffset;")
-cpp_quote("  UINT  DataSize;")
-cpp_quote("  UINT  FirstMBaddress;")
-cpp_quote("  UINT  NumMBsInBuffer;")
-cpp_quote("  UINT  Width;")
-cpp_quote("  UINT  Height;")
-cpp_quote("  UINT  Stride;")
-cpp_quote("  UINT  ReservedBits;")
-cpp_quote("  PVOID pvPVPState;")
-cpp_quote("} DXVA2_DecodeBufferDesc;")
-cpp_quote("")
-cpp_quote("typedef struct _DXVA2_DecodeExtensionData {")
-cpp_quote("  UINT  Function;")
-cpp_quote("  PVOID pPrivateInputData;")
-cpp_quote("  UINT  PrivateInputDataSize;")
-cpp_quote("  PVOID pPrivateOutputData;")
-cpp_quote("  UINT  PrivateOutputDataSize;")
-cpp_quote("} DXVA2_DecodeExtensionData;")
-cpp_quote("")
-cpp_quote("typedef struct _DXVA2_DecodeExecuteParams {")
-cpp_quote("  UINT                      NumCompBuffers;")
-cpp_quote("  DXVA2_DecodeBufferDesc    *pCompressedBuffers;")
-cpp_quote("  DXVA2_DecodeExtensionData *pExtensionData;")
-cpp_quote("} DXVA2_DecodeExecuteParams;")
-cpp_quote("")
-cpp_quote("typedef struct {")
-cpp_quote("  __C89_NAMELESS union {")
-cpp_quote("    __C89_NAMELESS struct {")
-cpp_quote("      UINT SampleFormat            :8;")
-cpp_quote("      UINT VideoChromaSubsampling  :4;")
-cpp_quote("      UINT NominalRange            :3;")
-cpp_quote("      UINT VideoTransferMatrix     :3;")
-cpp_quote("      UINT VideoLighting           :4;")
-cpp_quote("      UINT VideoPrimaries          :5;")
-cpp_quote("      UINT VideoTransferFunction   :5;")
-cpp_quote("    } DUMMYSTRUCTNAME;")
-cpp_quote("    UINT   value;")
-cpp_quote("  } DUMMYUNIONNAME;")
-cpp_quote("} DXVA2_ExtendedFormat;")
-cpp_quote("")
+
+typedef struct _DXVA2_ConfigPictureDecode {
+  GUID   guidConfigBitstreamEncryption;
+  GUID   guidConfigMBcontrolEncryption;
+  GUID   guidConfigResidDiffEncryption;
+  UINT   ConfigBitstreamRaw;
+  UINT   ConfigMBcontrolRasterOrder;
+  UINT   ConfigResidDiffHost;
+  UINT   ConfigSpatialResid8;
+  UINT   ConfigResid8Subtraction;
+  UINT   ConfigSpatialHost8or9Clipping;
+  UINT   ConfigSpatialResidInterleaved;
+  UINT   ConfigIntraResidUnsigned;
+  UINT   ConfigResidDiffAccelerator;
+  UINT   ConfigHostInverseScan;
+  UINT   ConfigSpecificIDCT;
+  UINT   Config4GroupedCoefs;
+  USHORT ConfigMinRenderTargetBuffCount;
+  USHORT ConfigDecoderSpecific;
+} DXVA2_ConfigPictureDecode;
+
+typedef struct _DXVA2_DecodeBufferDesc {
+  DWORD CompressedBufferType;
+  UINT  BufferIndex;
+  UINT  DataOffset;
+  UINT  DataSize;
+  UINT  FirstMBaddress;
+  UINT  NumMBsInBuffer;
+  UINT  Width;
+  UINT  Height;
+  UINT  Stride;
+  UINT  ReservedBits;
+  PVOID pvPVPState;
+} DXVA2_DecodeBufferDesc;
+
+typedef struct _DXVA2_DecodeExtensionData {
+  UINT  Function;
+  PVOID pPrivateInputData;
+  UINT  PrivateInputDataSize;
+  PVOID pPrivateOutputData;
+  UINT  PrivateOutputDataSize;
+} DXVA2_DecodeExtensionData;
+
+typedef struct _DXVA2_DecodeExecuteParams {
+  UINT                      NumCompBuffers;
+  DXVA2_DecodeBufferDesc    *pCompressedBuffers;
+  DXVA2_DecodeExtensionData *pExtensionData;
+} DXVA2_DecodeExecuteParams;
+
+typedef struct _DXVA2_ExtendedFormat {
+  union {
+    struct {
+      UINT SampleFormat            :8;
+      UINT VideoChromaSubsampling  :4;
+      UINT NominalRange            :3;
+      UINT VideoTransferMatrix     :3;
+      UINT VideoLighting           :4;
+      UINT VideoPrimaries          :5;
+      UINT VideoTransferFunction   :5;
+    };
+    UINT   value;
+  };
+} DXVA2_ExtendedFormat;
+
 cpp_quote("typedef struct _DXVA2_Fixed32 {")
 cpp_quote("  __C89_NAMELESS union {")
 cpp_quote("    __C89_NAMELESS struct {")
@@ -237,12 +234,12 @@ cpp_quote("  DXVA2_Fixed32 Level;")
 cpp_quote("  DXVA2_Fixed32 Threshold;")
 cpp_quote("  DXVA2_Fixed32 Radius;")
 cpp_quote("} DXVA2_FilterValues;")
-cpp_quote("")
-cpp_quote("typedef struct _DXVA2_Frequency {")
-cpp_quote("  UINT Numerator;")
-cpp_quote("  UINT Denominator;")
-cpp_quote("} DXVA2_Frequency;")
-cpp_quote("")
+
+typedef struct _DXVA2_Frequency {
+  UINT Numerator;
+  UINT Denominator;
+} DXVA2_Frequency;
+
 cpp_quote("typedef struct _DXVA2_ProcAmpValues {")
 cpp_quote("  DXVA2_Fixed32 Brightness;")
 cpp_quote("  DXVA2_Fixed32 Contrast;")
@@ -256,20 +253,18 @@ cpp_quote("  DXVA2_Fixed32 MaxValue;")
 cpp_quote("  DXVA2_Fixed32 DefaultValue;")
 cpp_quote("  DXVA2_Fixed32 StepSize;")
 cpp_quote("} DXVA2_ValueRange;")
-cpp_quote("")
-cpp_quote("#ifdef _D3D9_H_")
-cpp_quote("typedef struct _DXVA2_VideoDesc {")
-cpp_quote("  UINT                 SampleWidth;")
-cpp_quote("  UINT                 SampleHeight;")
-cpp_quote("  DXVA2_ExtendedFormat SampleFormat;")
-cpp_quote("  D3DFORMAT            Format;")
-cpp_quote("  DXVA2_Frequency      InputSampleFreq;")
-cpp_quote("  DXVA2_Frequency      OutputFrameFreq;")
-cpp_quote("  UINT                 UABProtectionLevel;")
-cpp_quote("  UINT                 Reserved;")
-cpp_quote("} DXVA2_VideoDesc;")
-cpp_quote("#endif")
-cpp_quote("")
+
+typedef struct _DXVA2_VideoDesc {
+  UINT                 SampleWidth;
+  UINT                 SampleHeight;
+  DXVA2_ExtendedFormat SampleFormat;
+  D3DFORMAT            Format;
+  DXVA2_Frequency      InputSampleFreq;
+  DXVA2_Frequency      OutputFrameFreq;
+  UINT                 UABProtectionLevel;
+  UINT                 Reserved;
+} DXVA2_VideoDesc;
+
 cpp_quote("/* DeviceCaps")
 cpp_quote("DXVA2_VPDev_EmulatedDXVA1")
 cpp_quote("DXVA2_VPDev_HardwareDevice")
@@ -412,8 +407,9 @@ cpp_quote("  f32.Value    = ((ULONG) (f * (1 << 16))) >> 16;")
 cpp_quote("  f32.Fraction = ((ULONG) (f * (1 << 16))) & 0xFFFF;")
 cpp_quote("  return f32;")
 cpp_quote("}")
-cpp_quote("")
+
 cpp_quote("#ifdef _D3D9_H_")
+
 cpp_quote("HRESULT WINAPI DXVA2CreateDirect3DDeviceManager9(UINT *pResetToken,IDirect3DDeviceManager9 **ppDXVAManager);")
 cpp_quote("HRESULT WINAPI DXVA2CreateVideoService(IDirect3DDevice9 *pDD,REFIID riid,void **ppService);")
 
@@ -433,94 +429,56 @@ interface IDirect3DDeviceManager9 : IUnknown
     HRESULT GetVideoService([in] HANDLE hDevice, [in] REFIID riid, [out] void **ppService);
 }
 
-cpp_quote("#undef  INTERFACE")
-cpp_quote("#define INTERFACE IDirectXVideoDecoder")
-cpp_quote("DECLARE_INTERFACE_(IDirectXVideoDecoder,IUnknown)")
-cpp_quote("{")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("")
-cpp_quote("    /* IUnknown methods */")
-cpp_quote("    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;")
-cpp_quote("    STDMETHOD_(ULONG, AddRef)(THIS) PURE;")
-cpp_quote("    STDMETHOD_(ULONG, Release)(THIS) PURE;")
-cpp_quote("")
-cpp_quote("    /* IDirectXVideoDecoder methods */")
-cpp_quote("    STDMETHOD_(HRESULT,GetVideoDecoderService)(THIS_ IDirectXVideoDecoderService **ppAccelServices) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,GetCreationParameters)(THIS_ GUID *pDeviceGuid,DXVA2_VideoDesc *pVideoDesc,DXVA2_ConfigPictureDecode *pConfig,IDirect3DSurface9 ***pppDecoderRenderTargets,UINT *pNumSurfaces) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,GetBuffer)(THIS_ UINT BufferType,void **ppBuffer,UINT *pBufferSize) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,ReleaseBuffer)(THIS_ UINT BufferType) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,BeginFrame)(THIS_ IDirect3DSurface9 *pRenderTarget,void *pvPVPData) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,EndFrame)(THIS_ HANDLE *pHandleComplete) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,Execute)(THIS_ const DXVA2_DecodeExecuteParams *pExecuteParams) PURE;")
-cpp_quote("")
-cpp_quote("    END_INTERFACE")
-cpp_quote("};")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IDirectXVideoDecoder_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IDirectXVideoDecoder_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IDirectXVideoDecoder_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IDirectXVideoDecoder_GetVideoDecoderService(This,ppAccelServices) (This)->lpVtbl->GetVideoDecoderService(This,ppAccelServices)")
-cpp_quote("#define IDirectXVideoDecoder_GetCreationParameters(This,pDeviceGuid,pVideoDesc,pConfig,pppDecoderRenderTargets,pNumSurfaces) (This)->lpVtbl->GetCreationParameters(This,pDeviceGuid,pVideoDesc,pConfig,pppDecoderRenderTargets,pNumSurfaces)")
-cpp_quote("#define IDirectXVideoDecoder_GetBuffer(This,BufferType,ppBuffer,pBufferSize) (This)->lpVtbl->GetBuffer(This,BufferType,ppBuffer,pBufferSize)")
-cpp_quote("#define IDirectXVideoDecoder_ReleaseBuffer(This,BufferType) (This)->lpVtbl->ReleaseBuffer(This,BufferType)")
-cpp_quote("#define IDirectXVideoDecoder_BeginFrame(This,pRenderTarget,pvPVPData) (This)->lpVtbl->BeginFrame(This,pRenderTarget,pvPVPData)")
-cpp_quote("#define IDirectXVideoDecoder_EndFrame(This,pHandleComplete) (This)->lpVtbl->EndFrame(This,pHandleComplete)")
-cpp_quote("#define IDirectXVideoDecoder_Execute(This,pExecuteParams) (This)->lpVtbl->Execute(This,pExecuteParams)")
-cpp_quote("#endif /*COBJMACROS*/")
-cpp_quote("")
-cpp_quote("#undef  INTERFACE")
-cpp_quote("#define INTERFACE IDirectXVideoAccelerationService")
-cpp_quote("DECLARE_INTERFACE_(IDirectXVideoAccelerationService,IUnknown)")
-cpp_quote("{")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("")
-cpp_quote("    /* IUnknown methods */")
-cpp_quote("    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;")
-cpp_quote("    STDMETHOD_(ULONG, AddRef)(THIS) PURE;")
-cpp_quote("    STDMETHOD_(ULONG, Release)(THIS) PURE;")
-cpp_quote("")
-cpp_quote("    /* IDirectXVideoAccelerationService methods */")
-cpp_quote("    STDMETHOD_(HRESULT,CreateSurface)(THIS_ UINT Width,UINT Height,UINT BackBuffers,D3DFORMAT Format,D3DPOOL Pool,DWORD Usage,DWORD DxvaType,IDirect3DSurface9 **ppSurface,HANDLE *pSharedHandle) PURE;")
-cpp_quote("")
-cpp_quote("    END_INTERFACE")
-cpp_quote("};")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IDirectXVideoAccelerationService_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IDirectXVideoAccelerationService_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IDirectXVideoAccelerationService_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IDirectXVideoAccelerationService_CreateSurface(This,Width,Height,BackBuffers,Format,Pool,Usage,DxvaType,ppSurface,pSharedHandle) (This)->lpVtbl->CreateSurface(This,Width,Height,BackBuffers,Format,Pool,Usage,DxvaType,ppSurface,pSharedHandle)")
-cpp_quote("#endif /*COBJMACROS*/")
-cpp_quote("")
-cpp_quote("#undef  INTERFACE")
-cpp_quote("#define INTERFACE IDirectXVideoDecoderService")
-cpp_quote("DECLARE_INTERFACE_(IDirectXVideoDecoderService,IDirectXVideoAccelerationService)")
-cpp_quote("{")
-cpp_quote("    BEGIN_INTERFACE")
-cpp_quote("")
-cpp_quote("    /* IUnknown methods */")
-cpp_quote("    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;")
-cpp_quote("    STDMETHOD_(ULONG, AddRef)(THIS) PURE;")
-cpp_quote("    STDMETHOD_(ULONG, Release)(THIS) PURE;")
-cpp_quote("")
-cpp_quote("    /* IDirectXVideoAccelerationService methods */")
-cpp_quote("    STDMETHOD_(HRESULT,CreateSurface)(THIS_ UINT Width,UINT Height,UINT BackBuffers,D3DFORMAT Format,D3DPOOL Pool,DWORD Usage,DWORD DxvaType,IDirect3DSurface9 **ppSurface,HANDLE *pSharedHandle) PURE;")
-cpp_quote("    ")
-cpp_quote("    /* IDirectXVideoDecoderService methods */")
-cpp_quote("    STDMETHOD_(HRESULT,GetDecoderDeviceGuids)(THIS_ UINT *Count,GUID **pGuids) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,GetDecoderRenderTargets)(THIS_ REFGUID Guid,UINT *pCount,D3DFORMAT **pFormats) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,GetDecoderConfigurations)(THIS_ REFGUID Guid,const DXVA2_VideoDesc *pVideoDesc,IUnknown *pReserved,UINT *pCount,DXVA2_ConfigPictureDecode **ppConfigs) PURE;")
-cpp_quote("    STDMETHOD_(HRESULT,CreateVideoDecoder)(THIS_ REFGUID Guid,const DXVA2_VideoDesc *pVideoDesc,DXVA2_ConfigPictureDecode *pConfig,IDirect3DSurface9 **ppDecoderRenderTargets,UINT NumSurfaces,IDirectXVideoDecoder **ppDecode) PURE;")
-cpp_quote("")
-cpp_quote("    END_INTERFACE")
-cpp_quote("};")
-cpp_quote("#endif")
-cpp_quote("#ifdef COBJMACROS")
-cpp_quote("#define IDirectXVideoDecoderService_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)")
-cpp_quote("#define IDirectXVideoDecoderService_AddRef(This) (This)->lpVtbl->AddRef(This)")
-cpp_quote("#define IDirectXVideoDecoderService_Release(This) (This)->lpVtbl->Release(This)")
-cpp_quote("#define IDirectXVideoDecoderService_CreateSurface(This,Width,Height,BackBuffers,Format,Pool,Usage,DxvaType,ppSurface,pSharedHandle) (This)->lpVtbl->CreateSurface(This,Width,Height,BackBuffers,Format,Pool,Usage,DxvaType,ppSurface,pSharedHandle)")
-cpp_quote("#define IDirectXVideoDecoderService_GetDecoderDeviceGuids(This,Count,pGuids) (This)->lpVtbl->GetDecoderDeviceGuids(This,Count,pGuids)")
-cpp_quote("#define IDirectXVideoDecoderService_GetDecoderRenderTargets(This,Guid,pCount,pFormats) (This)->lpVtbl->GetDecoderRenderTargets(This,Guid,pCount,pFormats)")
-cpp_quote("#define IDirectXVideoDecoderService_GetDecoderConfigurations(This,Guid,pVideoDesc,pReserved,pCount,ppConfigs) (This)->lpVtbl->GetDecoderConfigurations(This,Guid,pVideoDesc,pReserved,pCount,ppConfigs)")
-cpp_quote("#define IDirectXVideoDecoderService_CreateVideoDecoder(This,Guid,pVideoDesc,pConfig,ppDecoderRenderTargets,NumSurfaces,ppDecode) (This)->lpVtbl->CreateVideoDecoder(This,Guid,pVideoDesc,pConfig,ppDecoderRenderTargets,NumSurfaces,ppDecode)")
-cpp_quote("#endif /*COBJMACROS*/")
+[
+    object,
+    uuid(f2b0810a-fd00-43c9-918c-df94e2d8ef7d),
+    local
+]
+interface IDirectXVideoDecoder : IUnknown
+{
+    HRESULT GetVideoDecoderService([out] IDirectXVideoDecoderService **ppService);
+    HRESULT GetCreationParameters([out] GUID *pDeviceGuid, [out] DXVA2_VideoDesc *pVideoDesc,
+            [out] DXVA2_ConfigPictureDecode *pConfig,
+            [out, unique, size_is(*pNumSurfaces)] IDirect3DSurface9 ***pDecoderRenderTargets,
+            [out] UINT *pNumSurfaces);
+
+    HRESULT GetBuffer([in] UINT BufferType, [out] void **ppBuffer, [out] UINT *pBufferSize);
+    HRESULT ReleaseBuffer([in] UINT BufferType);
+    HRESULT BeginFrame([in] IDirect3DSurface9 *pRenderTarget, [in] void *pvPVPData);
+    HRESULT EndFrame([out] HANDLE *pHandleComplete);
+    HRESULT Execute([in] const DXVA2_DecodeExecuteParams *pExecuteParams);
+}
+
+[
+    object,
+    uuid(fc51a550-d5e7-11d9-af55-00054e43ff02),
+    local
+]
+interface IDirectXVideoAccelerationService : IUnknown
+{
+    HRESULT CreateSurface([in] UINT Width, [in] UINT Height, [in] UINT BackBuffers, [in] D3DFORMAT Format,
+            [in] D3DPOOL Pool, [in] DWORD Usage, [in] DWORD DxvaType, [out, size_is(BackBuffers+1)] IDirect3DSurface9 **ppSurface,
+            [in, out] HANDLE *pSharedHandle);
+}
+
+[
+    object,
+    uuid(fc51a551-d5e7-11d9-af55-00054e43ff02),
+    local
+]
+interface IDirectXVideoDecoderService : IDirectXVideoAccelerationService
+{
+    HRESULT GetDecoderDeviceGuids([out] UINT *pCount, [out, unique, size_is(*pCount)] GUID **pGuids);
+
+    HRESULT GetDecoderRenderTargets([in] REFGUID Guid, [out] UINT *pCount, [out, unique, size_is(*pCount)] D3DFORMAT **pFormats);
+
+    HRESULT GetDecoderConfigurations([in] REFGUID Guid, [in] const DXVA2_VideoDesc *pVideoDesc, [in] void *pReserved,
+            [out] UINT *pCount, [out, unique, size_is(*pCount)] DXVA2_ConfigPictureDecode **ppConfigs);
+
+    HRESULT CreateVideoDecoder([in] REFGUID Guid, [in] const DXVA2_VideoDesc *pVideoDesc,
+            [in] const DXVA2_ConfigPictureDecode *pConfig,
+            [in, size_is(NumRenderTargets)] IDirect3DSurface9 **ppDecoderRenderTargets,
+            [in] UINT NumRenderTargets, [out] IDirectXVideoDecoder **ppDecode);
+}
+
+cpp_quote("#endif /* _D3D9_H_ */")

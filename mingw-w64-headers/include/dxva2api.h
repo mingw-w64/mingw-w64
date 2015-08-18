@@ -22,6 +22,21 @@
 typedef interface IDirect3DDeviceManager9 IDirect3DDeviceManager9;
 #endif
 
+#ifndef __IDirectXVideoDecoder_FWD_DEFINED__
+#define __IDirectXVideoDecoder_FWD_DEFINED__
+typedef interface IDirectXVideoDecoder IDirectXVideoDecoder;
+#endif
+
+#ifndef __IDirectXVideoAccelerationService_FWD_DEFINED__
+#define __IDirectXVideoAccelerationService_FWD_DEFINED__
+typedef interface IDirectXVideoAccelerationService IDirectXVideoAccelerationService;
+#endif
+
+#ifndef __IDirectXVideoDecoderService_FWD_DEFINED__
+#define __IDirectXVideoDecoderService_FWD_DEFINED__
+typedef interface IDirectXVideoDecoderService IDirectXVideoDecoderService;
+#endif
+
 /* Headers for imported files */
 
 #include <unknwn.h>
@@ -36,6 +51,11 @@ typedef DWORD IDirect3DSurface9;
 typedef DWORD D3DFORMAT;
 typedef DWORD D3DPOOL;
 #endif
+#ifndef __IDirectXVideoDecoderService_FWD_DEFINED__
+#define __IDirectXVideoDecoderService_FWD_DEFINED__
+typedef interface IDirectXVideoDecoderService IDirectXVideoDecoderService;
+#endif
+
 #ifndef __REFERENCE_TIME_DEFINED
 #define __REFERENCE_TIME_DEFINED
 typedef LONGLONG REFERENCE_TIME;
@@ -50,9 +70,6 @@ typedef LONGLONG REFERENCE_TIME;
 #define DXVA2_E_NEW_VIDEO_DEVICE    MAKE_HRESULT(1, 4, 4097)
 #define DXVA2_E_VIDEO_DEVICE_LOCKED MAKE_HRESULT(1, 4, 4098)
 #define DXVA2_E_NOT_AVAILABLE       MAKE_HRESULT(1, 4, 4099)
-
-DEFINE_GUID(IID_IDirectXVideoDecoderService, 0xfc51a551, 0xd5e7, 0x11d9, 0xaf,0x55,0x00,0x05,0x4e,0x43,0xff,0x02);
-DEFINE_GUID(IID_IDirectXVideoAccelerationService, 0xfc51a550, 0xd5e7, 0x11d9, 0xaf,0x55,0x00,0x05,0x4e,0x43,0xff,0x02);
 
 DEFINE_GUID(DXVA2_ModeMPEG2_MoComp, 0xe6a9f44b, 0x61b0,0x4563, 0x9e,0xa4,0x63,0xd2,0xa3,0xc6,0xfe,0x66);
 DEFINE_GUID(DXVA2_ModeMPEG2_IDCT, 0xbf22ad00, 0x03ea,0x4690, 0x80,0x77,0x47,0x33,0x46,0x20,0x9b,0x7e);
@@ -72,8 +89,6 @@ DEFINE_GUID(DXVA2_ModeVC1_A, 0x1b81beA0, 0xa0c7,0x11d3, 0xb9,0x84,0x00,0xc0,0x4f
 DEFINE_GUID(DXVA2_ModeVC1_B, 0x1b81beA1, 0xa0c7,0x11d3, 0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);
 DEFINE_GUID(DXVA2_ModeVC1_C, 0x1b81beA2, 0xa0c7,0x11d3, 0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);
 DEFINE_GUID(DXVA2_ModeVC1_D, 0x1b81beA3, 0xa0c7,0x11d3, 0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);
-
-typedef struct IDirectXVideoDecoderService IDirectXVideoDecoderService;
 
 typedef enum _DXVA2_SampleFormat {
   DXVA2_SampleFormatMask                  = 0x00FF,
@@ -179,70 +194,64 @@ typedef struct _DXVA2_AYUVSample8 {
   UCHAR Y;
   UCHAR Alpha;
 } DXVA2_AYUVSample8;
-
 typedef struct _DXVA2_ConfigPictureDecode {
-  GUID   guidConfigBitstreamEncryption;
-  GUID   guidConfigMBcontrolEncryption;
-  GUID   guidConfigResidDiffEncryption;
-  UINT   ConfigBitstreamRaw;
-  UINT   ConfigMBcontrolRasterOrder;
-  UINT   ConfigResidDiffHost;
-  UINT   ConfigSpatialResid8;
-  UINT   ConfigResid8Subtraction;
-  UINT   ConfigSpatialHost8or9Clipping;
-  UINT   ConfigSpatialResidInterleaved;
-  UINT   ConfigIntraResidUnsigned;
-  UINT   ConfigResidDiffAccelerator;
-  UINT   ConfigHostInverseScan;
-  UINT   ConfigSpecificIDCT;
-  UINT   Config4GroupedCoefs;
-  USHORT ConfigMinRenderTargetBuffCount;
-  USHORT ConfigDecoderSpecific;
+    GUID guidConfigBitstreamEncryption;
+    GUID guidConfigMBcontrolEncryption;
+    GUID guidConfigResidDiffEncryption;
+    UINT ConfigBitstreamRaw;
+    UINT ConfigMBcontrolRasterOrder;
+    UINT ConfigResidDiffHost;
+    UINT ConfigSpatialResid8;
+    UINT ConfigResid8Subtraction;
+    UINT ConfigSpatialHost8or9Clipping;
+    UINT ConfigSpatialResidInterleaved;
+    UINT ConfigIntraResidUnsigned;
+    UINT ConfigResidDiffAccelerator;
+    UINT ConfigHostInverseScan;
+    UINT ConfigSpecificIDCT;
+    UINT Config4GroupedCoefs;
+    USHORT ConfigMinRenderTargetBuffCount;
+    USHORT ConfigDecoderSpecific;
 } DXVA2_ConfigPictureDecode;
-
 typedef struct _DXVA2_DecodeBufferDesc {
-  DWORD CompressedBufferType;
-  UINT  BufferIndex;
-  UINT  DataOffset;
-  UINT  DataSize;
-  UINT  FirstMBaddress;
-  UINT  NumMBsInBuffer;
-  UINT  Width;
-  UINT  Height;
-  UINT  Stride;
-  UINT  ReservedBits;
-  PVOID pvPVPState;
+    DWORD CompressedBufferType;
+    UINT BufferIndex;
+    UINT DataOffset;
+    UINT DataSize;
+    UINT FirstMBaddress;
+    UINT NumMBsInBuffer;
+    UINT Width;
+    UINT Height;
+    UINT Stride;
+    UINT ReservedBits;
+    PVOID pvPVPState;
 } DXVA2_DecodeBufferDesc;
-
 typedef struct _DXVA2_DecodeExtensionData {
-  UINT  Function;
-  PVOID pPrivateInputData;
-  UINT  PrivateInputDataSize;
-  PVOID pPrivateOutputData;
-  UINT  PrivateOutputDataSize;
+    UINT Function;
+    PVOID pPrivateInputData;
+    UINT PrivateInputDataSize;
+    PVOID pPrivateOutputData;
+    UINT PrivateOutputDataSize;
 } DXVA2_DecodeExtensionData;
-
 typedef struct _DXVA2_DecodeExecuteParams {
-  UINT                      NumCompBuffers;
-  DXVA2_DecodeBufferDesc    *pCompressedBuffers;
-  DXVA2_DecodeExtensionData *pExtensionData;
+    UINT NumCompBuffers;
+    DXVA2_DecodeBufferDesc *pCompressedBuffers;
+    DXVA2_DecodeExtensionData *pExtensionData;
 } DXVA2_DecodeExecuteParams;
-
-typedef struct {
-  __C89_NAMELESS union {
-    __C89_NAMELESS struct {
-      UINT SampleFormat            :8;
-      UINT VideoChromaSubsampling  :4;
-      UINT NominalRange            :3;
-      UINT VideoTransferMatrix     :3;
-      UINT VideoLighting           :4;
-      UINT VideoPrimaries          :5;
-      UINT VideoTransferFunction   :5;
-    } DUMMYSTRUCTNAME;
-    UINT   value;
-  } DUMMYUNIONNAME;
+typedef struct _DXVA2_ExtendedFormat {
+    __C89_NAMELESS union {
+        __C89_NAMELESS struct {
+            UINT SampleFormat : 8;
+            UINT VideoChromaSubsampling : 4;
+            UINT NominalRange : 3;
+            UINT VideoTransferMatrix : 3;
+            UINT VideoLighting : 4;
+            UINT VideoPrimaries : 5;
+            UINT VideoTransferFunction : 5;
+        } __C89_NAMELESSSTRUCTNAME;
+        UINT value;
+    } __C89_NAMELESSUNIONNAME;
 } DXVA2_ExtendedFormat;
-
 typedef struct _DXVA2_Fixed32 {
   __C89_NAMELESS union {
     __C89_NAMELESS struct {
@@ -258,12 +267,10 @@ typedef struct _DXVA2_FilterValues {
   DXVA2_Fixed32 Threshold;
   DXVA2_Fixed32 Radius;
 } DXVA2_FilterValues;
-
 typedef struct _DXVA2_Frequency {
-  UINT Numerator;
-  UINT Denominator;
+    UINT Numerator;
+    UINT Denominator;
 } DXVA2_Frequency;
-
 typedef struct _DXVA2_ProcAmpValues {
   DXVA2_Fixed32 Brightness;
   DXVA2_Fixed32 Contrast;
@@ -277,20 +284,16 @@ typedef struct _DXVA2_ValueRange {
   DXVA2_Fixed32 DefaultValue;
   DXVA2_Fixed32 StepSize;
 } DXVA2_ValueRange;
-
-#ifdef _D3D9_H_
 typedef struct _DXVA2_VideoDesc {
-  UINT                 SampleWidth;
-  UINT                 SampleHeight;
-  DXVA2_ExtendedFormat SampleFormat;
-  D3DFORMAT            Format;
-  DXVA2_Frequency      InputSampleFreq;
-  DXVA2_Frequency      OutputFrameFreq;
-  UINT                 UABProtectionLevel;
-  UINT                 Reserved;
+    UINT SampleWidth;
+    UINT SampleHeight;
+    DXVA2_ExtendedFormat SampleFormat;
+    D3DFORMAT Format;
+    DXVA2_Frequency InputSampleFreq;
+    DXVA2_Frequency OutputFrameFreq;
+    UINT UABProtectionLevel;
+    UINT Reserved;
 } DXVA2_VideoDesc;
-#endif
-
 /* DeviceCaps
 DXVA2_VPDev_EmulatedDXVA1
 DXVA2_VPDev_HardwareDevice
@@ -433,7 +436,6 @@ __forceinline DXVA2_Fixed32 DXVA2FloatToFixed (const float f) {
   f32.Fraction = ((ULONG) (f * (1 << 16))) & 0xFFFF;
   return f32;
 }
-
 #ifdef _D3D9_H_
 HRESULT WINAPI DXVA2CreateDirect3DDeviceManager9(UINT *pResetToken,IDirect3DDeviceManager9 **ppDXVAManager);
 HRESULT WINAPI DXVA2CreateVideoService(IDirect3DDevice9 *pDD,REFIID riid,void **ppService);
@@ -653,97 +655,530 @@ void __RPC_STUB IDirect3DDeviceManager9_GetVideoService_Stub(
 
 #endif  /* __IDirect3DDeviceManager9_INTERFACE_DEFINED__ */
 
-#undef  INTERFACE
-#define INTERFACE IDirectXVideoDecoder
-DECLARE_INTERFACE_(IDirectXVideoDecoder,IUnknown)
+/*****************************************************************************
+ * IDirectXVideoDecoder interface
+ */
+#ifndef __IDirectXVideoDecoder_INTERFACE_DEFINED__
+#define __IDirectXVideoDecoder_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IDirectXVideoDecoder, 0xf2b0810a, 0xfd00, 0x43c9, 0x91,0x8c, 0xdf,0x94,0xe2,0xd8,0xef,0x7d);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("f2b0810a-fd00-43c9-918c-df94e2d8ef7d")
+IDirectXVideoDecoder : public IUnknown
 {
+    virtual HRESULT STDMETHODCALLTYPE GetVideoDecoderService(
+        IDirectXVideoDecoderService **ppService) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCreationParameters(
+        GUID *pDeviceGuid,
+        DXVA2_VideoDesc *pVideoDesc,
+        DXVA2_ConfigPictureDecode *pConfig,
+        IDirect3DSurface9 ***pDecoderRenderTargets,
+        UINT *pNumSurfaces) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetBuffer(
+        UINT BufferType,
+        void **ppBuffer,
+        UINT *pBufferSize) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ReleaseBuffer(
+        UINT BufferType) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE BeginFrame(
+        IDirect3DSurface9 *pRenderTarget,
+        void *pvPVPData) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EndFrame(
+        HANDLE *pHandleComplete) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Execute(
+        const DXVA2_DecodeExecuteParams *pExecuteParams) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDirectXVideoDecoder, 0xf2b0810a, 0xfd00, 0x43c9, 0x91,0x8c, 0xdf,0x94,0xe2,0xd8,0xef,0x7d)
+#endif
+#else
+typedef struct IDirectXVideoDecoderVtbl {
     BEGIN_INTERFACE
 
-    /* IUnknown methods */
-    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
-    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
-    STDMETHOD_(ULONG, Release)(THIS) PURE;
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IDirectXVideoDecoder* This,
+        REFIID riid,
+        void **ppvObject);
 
-    /* IDirectXVideoDecoder methods */
-    STDMETHOD_(HRESULT,GetVideoDecoderService)(THIS_ IDirectXVideoDecoderService **ppAccelServices) PURE;
-    STDMETHOD_(HRESULT,GetCreationParameters)(THIS_ GUID *pDeviceGuid,DXVA2_VideoDesc *pVideoDesc,DXVA2_ConfigPictureDecode *pConfig,IDirect3DSurface9 ***pppDecoderRenderTargets,UINT *pNumSurfaces) PURE;
-    STDMETHOD_(HRESULT,GetBuffer)(THIS_ UINT BufferType,void **ppBuffer,UINT *pBufferSize) PURE;
-    STDMETHOD_(HRESULT,ReleaseBuffer)(THIS_ UINT BufferType) PURE;
-    STDMETHOD_(HRESULT,BeginFrame)(THIS_ IDirect3DSurface9 *pRenderTarget,void *pvPVPData) PURE;
-    STDMETHOD_(HRESULT,EndFrame)(THIS_ HANDLE *pHandleComplete) PURE;
-    STDMETHOD_(HRESULT,Execute)(THIS_ const DXVA2_DecodeExecuteParams *pExecuteParams) PURE;
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IDirectXVideoDecoder* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IDirectXVideoDecoder* This);
+
+    /*** IDirectXVideoDecoder methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetVideoDecoderService)(
+        IDirectXVideoDecoder* This,
+        IDirectXVideoDecoderService **ppService);
+
+    HRESULT (STDMETHODCALLTYPE *GetCreationParameters)(
+        IDirectXVideoDecoder* This,
+        GUID *pDeviceGuid,
+        DXVA2_VideoDesc *pVideoDesc,
+        DXVA2_ConfigPictureDecode *pConfig,
+        IDirect3DSurface9 ***pDecoderRenderTargets,
+        UINT *pNumSurfaces);
+
+    HRESULT (STDMETHODCALLTYPE *GetBuffer)(
+        IDirectXVideoDecoder* This,
+        UINT BufferType,
+        void **ppBuffer,
+        UINT *pBufferSize);
+
+    HRESULT (STDMETHODCALLTYPE *ReleaseBuffer)(
+        IDirectXVideoDecoder* This,
+        UINT BufferType);
+
+    HRESULT (STDMETHODCALLTYPE *BeginFrame)(
+        IDirectXVideoDecoder* This,
+        IDirect3DSurface9 *pRenderTarget,
+        void *pvPVPData);
+
+    HRESULT (STDMETHODCALLTYPE *EndFrame)(
+        IDirectXVideoDecoder* This,
+        HANDLE *pHandleComplete);
+
+    HRESULT (STDMETHODCALLTYPE *Execute)(
+        IDirectXVideoDecoder* This,
+        const DXVA2_DecodeExecuteParams *pExecuteParams);
 
     END_INTERFACE
+} IDirectXVideoDecoderVtbl;
+interface IDirectXVideoDecoder {
+    CONST_VTBL IDirectXVideoDecoderVtbl* lpVtbl;
 };
+
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
 #define IDirectXVideoDecoder_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDirectXVideoDecoder_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IDirectXVideoDecoder_Release(This) (This)->lpVtbl->Release(This)
-#define IDirectXVideoDecoder_GetVideoDecoderService(This,ppAccelServices) (This)->lpVtbl->GetVideoDecoderService(This,ppAccelServices)
-#define IDirectXVideoDecoder_GetCreationParameters(This,pDeviceGuid,pVideoDesc,pConfig,pppDecoderRenderTargets,pNumSurfaces) (This)->lpVtbl->GetCreationParameters(This,pDeviceGuid,pVideoDesc,pConfig,pppDecoderRenderTargets,pNumSurfaces)
+/*** IDirectXVideoDecoder methods ***/
+#define IDirectXVideoDecoder_GetVideoDecoderService(This,ppService) (This)->lpVtbl->GetVideoDecoderService(This,ppService)
+#define IDirectXVideoDecoder_GetCreationParameters(This,pDeviceGuid,pVideoDesc,pConfig,pDecoderRenderTargets,pNumSurfaces) (This)->lpVtbl->GetCreationParameters(This,pDeviceGuid,pVideoDesc,pConfig,pDecoderRenderTargets,pNumSurfaces)
 #define IDirectXVideoDecoder_GetBuffer(This,BufferType,ppBuffer,pBufferSize) (This)->lpVtbl->GetBuffer(This,BufferType,ppBuffer,pBufferSize)
 #define IDirectXVideoDecoder_ReleaseBuffer(This,BufferType) (This)->lpVtbl->ReleaseBuffer(This,BufferType)
 #define IDirectXVideoDecoder_BeginFrame(This,pRenderTarget,pvPVPData) (This)->lpVtbl->BeginFrame(This,pRenderTarget,pvPVPData)
 #define IDirectXVideoDecoder_EndFrame(This,pHandleComplete) (This)->lpVtbl->EndFrame(This,pHandleComplete)
 #define IDirectXVideoDecoder_Execute(This,pExecuteParams) (This)->lpVtbl->Execute(This,pExecuteParams)
-#endif /*COBJMACROS*/
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDirectXVideoDecoder_QueryInterface(IDirectXVideoDecoder* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDirectXVideoDecoder_AddRef(IDirectXVideoDecoder* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDirectXVideoDecoder_Release(IDirectXVideoDecoder* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDirectXVideoDecoder methods ***/
+static FORCEINLINE HRESULT IDirectXVideoDecoder_GetVideoDecoderService(IDirectXVideoDecoder* This,IDirectXVideoDecoderService **ppService) {
+    return This->lpVtbl->GetVideoDecoderService(This,ppService);
+}
+static FORCEINLINE HRESULT IDirectXVideoDecoder_GetCreationParameters(IDirectXVideoDecoder* This,GUID *pDeviceGuid,DXVA2_VideoDesc *pVideoDesc,DXVA2_ConfigPictureDecode *pConfig,IDirect3DSurface9 ***pDecoderRenderTargets,UINT *pNumSurfaces) {
+    return This->lpVtbl->GetCreationParameters(This,pDeviceGuid,pVideoDesc,pConfig,pDecoderRenderTargets,pNumSurfaces);
+}
+static FORCEINLINE HRESULT IDirectXVideoDecoder_GetBuffer(IDirectXVideoDecoder* This,UINT BufferType,void **ppBuffer,UINT *pBufferSize) {
+    return This->lpVtbl->GetBuffer(This,BufferType,ppBuffer,pBufferSize);
+}
+static FORCEINLINE HRESULT IDirectXVideoDecoder_ReleaseBuffer(IDirectXVideoDecoder* This,UINT BufferType) {
+    return This->lpVtbl->ReleaseBuffer(This,BufferType);
+}
+static FORCEINLINE HRESULT IDirectXVideoDecoder_BeginFrame(IDirectXVideoDecoder* This,IDirect3DSurface9 *pRenderTarget,void *pvPVPData) {
+    return This->lpVtbl->BeginFrame(This,pRenderTarget,pvPVPData);
+}
+static FORCEINLINE HRESULT IDirectXVideoDecoder_EndFrame(IDirectXVideoDecoder* This,HANDLE *pHandleComplete) {
+    return This->lpVtbl->EndFrame(This,pHandleComplete);
+}
+static FORCEINLINE HRESULT IDirectXVideoDecoder_Execute(IDirectXVideoDecoder* This,const DXVA2_DecodeExecuteParams *pExecuteParams) {
+    return This->lpVtbl->Execute(This,pExecuteParams);
+}
+#endif
+#endif
 
-#undef  INTERFACE
-#define INTERFACE IDirectXVideoAccelerationService
-DECLARE_INTERFACE_(IDirectXVideoAccelerationService,IUnknown)
+#endif
+
+HRESULT STDMETHODCALLTYPE IDirectXVideoDecoder_GetVideoDecoderService_Proxy(
+    IDirectXVideoDecoder* This,
+    IDirectXVideoDecoderService **ppService);
+void __RPC_STUB IDirectXVideoDecoder_GetVideoDecoderService_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDirectXVideoDecoder_GetCreationParameters_Proxy(
+    IDirectXVideoDecoder* This,
+    GUID *pDeviceGuid,
+    DXVA2_VideoDesc *pVideoDesc,
+    DXVA2_ConfigPictureDecode *pConfig,
+    IDirect3DSurface9 ***pDecoderRenderTargets,
+    UINT *pNumSurfaces);
+void __RPC_STUB IDirectXVideoDecoder_GetCreationParameters_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDirectXVideoDecoder_GetBuffer_Proxy(
+    IDirectXVideoDecoder* This,
+    UINT BufferType,
+    void **ppBuffer,
+    UINT *pBufferSize);
+void __RPC_STUB IDirectXVideoDecoder_GetBuffer_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDirectXVideoDecoder_ReleaseBuffer_Proxy(
+    IDirectXVideoDecoder* This,
+    UINT BufferType);
+void __RPC_STUB IDirectXVideoDecoder_ReleaseBuffer_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDirectXVideoDecoder_BeginFrame_Proxy(
+    IDirectXVideoDecoder* This,
+    IDirect3DSurface9 *pRenderTarget,
+    void *pvPVPData);
+void __RPC_STUB IDirectXVideoDecoder_BeginFrame_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDirectXVideoDecoder_EndFrame_Proxy(
+    IDirectXVideoDecoder* This,
+    HANDLE *pHandleComplete);
+void __RPC_STUB IDirectXVideoDecoder_EndFrame_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDirectXVideoDecoder_Execute_Proxy(
+    IDirectXVideoDecoder* This,
+    const DXVA2_DecodeExecuteParams *pExecuteParams);
+void __RPC_STUB IDirectXVideoDecoder_Execute_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IDirectXVideoDecoder_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IDirectXVideoAccelerationService interface
+ */
+#ifndef __IDirectXVideoAccelerationService_INTERFACE_DEFINED__
+#define __IDirectXVideoAccelerationService_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IDirectXVideoAccelerationService, 0xfc51a550, 0xd5e7, 0x11d9, 0xaf,0x55, 0x00,0x05,0x4e,0x43,0xff,0x02);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("fc51a550-d5e7-11d9-af55-00054e43ff02")
+IDirectXVideoAccelerationService : public IUnknown
 {
+    virtual HRESULT STDMETHODCALLTYPE CreateSurface(
+        UINT Width,
+        UINT Height,
+        UINT BackBuffers,
+        D3DFORMAT Format,
+        D3DPOOL Pool,
+        DWORD Usage,
+        DWORD DxvaType,
+        IDirect3DSurface9 **ppSurface,
+        HANDLE *pSharedHandle) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDirectXVideoAccelerationService, 0xfc51a550, 0xd5e7, 0x11d9, 0xaf,0x55, 0x00,0x05,0x4e,0x43,0xff,0x02)
+#endif
+#else
+typedef struct IDirectXVideoAccelerationServiceVtbl {
     BEGIN_INTERFACE
 
-    /* IUnknown methods */
-    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
-    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
-    STDMETHOD_(ULONG, Release)(THIS) PURE;
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IDirectXVideoAccelerationService* This,
+        REFIID riid,
+        void **ppvObject);
 
-    /* IDirectXVideoAccelerationService methods */
-    STDMETHOD_(HRESULT,CreateSurface)(THIS_ UINT Width,UINT Height,UINT BackBuffers,D3DFORMAT Format,D3DPOOL Pool,DWORD Usage,DWORD DxvaType,IDirect3DSurface9 **ppSurface,HANDLE *pSharedHandle) PURE;
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IDirectXVideoAccelerationService* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IDirectXVideoAccelerationService* This);
+
+    /*** IDirectXVideoAccelerationService methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateSurface)(
+        IDirectXVideoAccelerationService* This,
+        UINT Width,
+        UINT Height,
+        UINT BackBuffers,
+        D3DFORMAT Format,
+        D3DPOOL Pool,
+        DWORD Usage,
+        DWORD DxvaType,
+        IDirect3DSurface9 **ppSurface,
+        HANDLE *pSharedHandle);
 
     END_INTERFACE
+} IDirectXVideoAccelerationServiceVtbl;
+interface IDirectXVideoAccelerationService {
+    CONST_VTBL IDirectXVideoAccelerationServiceVtbl* lpVtbl;
 };
+
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
 #define IDirectXVideoAccelerationService_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDirectXVideoAccelerationService_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IDirectXVideoAccelerationService_Release(This) (This)->lpVtbl->Release(This)
+/*** IDirectXVideoAccelerationService methods ***/
 #define IDirectXVideoAccelerationService_CreateSurface(This,Width,Height,BackBuffers,Format,Pool,Usage,DxvaType,ppSurface,pSharedHandle) (This)->lpVtbl->CreateSurface(This,Width,Height,BackBuffers,Format,Pool,Usage,DxvaType,ppSurface,pSharedHandle)
-#endif /*COBJMACROS*/
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDirectXVideoAccelerationService_QueryInterface(IDirectXVideoAccelerationService* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDirectXVideoAccelerationService_AddRef(IDirectXVideoAccelerationService* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDirectXVideoAccelerationService_Release(IDirectXVideoAccelerationService* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDirectXVideoAccelerationService methods ***/
+static FORCEINLINE HRESULT IDirectXVideoAccelerationService_CreateSurface(IDirectXVideoAccelerationService* This,UINT Width,UINT Height,UINT BackBuffers,D3DFORMAT Format,D3DPOOL Pool,DWORD Usage,DWORD DxvaType,IDirect3DSurface9 **ppSurface,HANDLE *pSharedHandle) {
+    return This->lpVtbl->CreateSurface(This,Width,Height,BackBuffers,Format,Pool,Usage,DxvaType,ppSurface,pSharedHandle);
+}
+#endif
+#endif
 
-#undef  INTERFACE
-#define INTERFACE IDirectXVideoDecoderService
-DECLARE_INTERFACE_(IDirectXVideoDecoderService,IDirectXVideoAccelerationService)
+#endif
+
+HRESULT STDMETHODCALLTYPE IDirectXVideoAccelerationService_CreateSurface_Proxy(
+    IDirectXVideoAccelerationService* This,
+    UINT Width,
+    UINT Height,
+    UINT BackBuffers,
+    D3DFORMAT Format,
+    D3DPOOL Pool,
+    DWORD Usage,
+    DWORD DxvaType,
+    IDirect3DSurface9 **ppSurface,
+    HANDLE *pSharedHandle);
+void __RPC_STUB IDirectXVideoAccelerationService_CreateSurface_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IDirectXVideoAccelerationService_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IDirectXVideoDecoderService interface
+ */
+#ifndef __IDirectXVideoDecoderService_INTERFACE_DEFINED__
+#define __IDirectXVideoDecoderService_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IDirectXVideoDecoderService, 0xfc51a551, 0xd5e7, 0x11d9, 0xaf,0x55, 0x00,0x05,0x4e,0x43,0xff,0x02);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("fc51a551-d5e7-11d9-af55-00054e43ff02")
+IDirectXVideoDecoderService : public IDirectXVideoAccelerationService
 {
+    virtual HRESULT STDMETHODCALLTYPE GetDecoderDeviceGuids(
+        UINT *pCount,
+        GUID **pGuids) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDecoderRenderTargets(
+        REFGUID Guid,
+        UINT *pCount,
+        D3DFORMAT **pFormats) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDecoderConfigurations(
+        REFGUID Guid,
+        const DXVA2_VideoDesc *pVideoDesc,
+        void *pReserved,
+        UINT *pCount,
+        DXVA2_ConfigPictureDecode **ppConfigs) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateVideoDecoder(
+        REFGUID Guid,
+        const DXVA2_VideoDesc *pVideoDesc,
+        const DXVA2_ConfigPictureDecode *pConfig,
+        IDirect3DSurface9 **ppDecoderRenderTargets,
+        UINT NumRenderTargets,
+        IDirectXVideoDecoder **ppDecode) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDirectXVideoDecoderService, 0xfc51a551, 0xd5e7, 0x11d9, 0xaf,0x55, 0x00,0x05,0x4e,0x43,0xff,0x02)
+#endif
+#else
+typedef struct IDirectXVideoDecoderServiceVtbl {
     BEGIN_INTERFACE
 
-    /* IUnknown methods */
-    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
-    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
-    STDMETHOD_(ULONG, Release)(THIS) PURE;
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IDirectXVideoDecoderService* This,
+        REFIID riid,
+        void **ppvObject);
 
-    /* IDirectXVideoAccelerationService methods */
-    STDMETHOD_(HRESULT,CreateSurface)(THIS_ UINT Width,UINT Height,UINT BackBuffers,D3DFORMAT Format,D3DPOOL Pool,DWORD Usage,DWORD DxvaType,IDirect3DSurface9 **ppSurface,HANDLE *pSharedHandle) PURE;
-    
-    /* IDirectXVideoDecoderService methods */
-    STDMETHOD_(HRESULT,GetDecoderDeviceGuids)(THIS_ UINT *Count,GUID **pGuids) PURE;
-    STDMETHOD_(HRESULT,GetDecoderRenderTargets)(THIS_ REFGUID Guid,UINT *pCount,D3DFORMAT **pFormats) PURE;
-    STDMETHOD_(HRESULT,GetDecoderConfigurations)(THIS_ REFGUID Guid,const DXVA2_VideoDesc *pVideoDesc,IUnknown *pReserved,UINT *pCount,DXVA2_ConfigPictureDecode **ppConfigs) PURE;
-    STDMETHOD_(HRESULT,CreateVideoDecoder)(THIS_ REFGUID Guid,const DXVA2_VideoDesc *pVideoDesc,DXVA2_ConfigPictureDecode *pConfig,IDirect3DSurface9 **ppDecoderRenderTargets,UINT NumSurfaces,IDirectXVideoDecoder **ppDecode) PURE;
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IDirectXVideoDecoderService* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IDirectXVideoDecoderService* This);
+
+    /*** IDirectXVideoAccelerationService methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateSurface)(
+        IDirectXVideoDecoderService* This,
+        UINT Width,
+        UINT Height,
+        UINT BackBuffers,
+        D3DFORMAT Format,
+        D3DPOOL Pool,
+        DWORD Usage,
+        DWORD DxvaType,
+        IDirect3DSurface9 **ppSurface,
+        HANDLE *pSharedHandle);
+
+    /*** IDirectXVideoDecoderService methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetDecoderDeviceGuids)(
+        IDirectXVideoDecoderService* This,
+        UINT *pCount,
+        GUID **pGuids);
+
+    HRESULT (STDMETHODCALLTYPE *GetDecoderRenderTargets)(
+        IDirectXVideoDecoderService* This,
+        REFGUID Guid,
+        UINT *pCount,
+        D3DFORMAT **pFormats);
+
+    HRESULT (STDMETHODCALLTYPE *GetDecoderConfigurations)(
+        IDirectXVideoDecoderService* This,
+        REFGUID Guid,
+        const DXVA2_VideoDesc *pVideoDesc,
+        void *pReserved,
+        UINT *pCount,
+        DXVA2_ConfigPictureDecode **ppConfigs);
+
+    HRESULT (STDMETHODCALLTYPE *CreateVideoDecoder)(
+        IDirectXVideoDecoderService* This,
+        REFGUID Guid,
+        const DXVA2_VideoDesc *pVideoDesc,
+        const DXVA2_ConfigPictureDecode *pConfig,
+        IDirect3DSurface9 **ppDecoderRenderTargets,
+        UINT NumRenderTargets,
+        IDirectXVideoDecoder **ppDecode);
 
     END_INTERFACE
+} IDirectXVideoDecoderServiceVtbl;
+interface IDirectXVideoDecoderService {
+    CONST_VTBL IDirectXVideoDecoderServiceVtbl* lpVtbl;
 };
-#endif
+
 #ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
 #define IDirectXVideoDecoderService_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDirectXVideoDecoderService_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IDirectXVideoDecoderService_Release(This) (This)->lpVtbl->Release(This)
+/*** IDirectXVideoAccelerationService methods ***/
 #define IDirectXVideoDecoderService_CreateSurface(This,Width,Height,BackBuffers,Format,Pool,Usage,DxvaType,ppSurface,pSharedHandle) (This)->lpVtbl->CreateSurface(This,Width,Height,BackBuffers,Format,Pool,Usage,DxvaType,ppSurface,pSharedHandle)
-#define IDirectXVideoDecoderService_GetDecoderDeviceGuids(This,Count,pGuids) (This)->lpVtbl->GetDecoderDeviceGuids(This,Count,pGuids)
+/*** IDirectXVideoDecoderService methods ***/
+#define IDirectXVideoDecoderService_GetDecoderDeviceGuids(This,pCount,pGuids) (This)->lpVtbl->GetDecoderDeviceGuids(This,pCount,pGuids)
 #define IDirectXVideoDecoderService_GetDecoderRenderTargets(This,Guid,pCount,pFormats) (This)->lpVtbl->GetDecoderRenderTargets(This,Guid,pCount,pFormats)
 #define IDirectXVideoDecoderService_GetDecoderConfigurations(This,Guid,pVideoDesc,pReserved,pCount,ppConfigs) (This)->lpVtbl->GetDecoderConfigurations(This,Guid,pVideoDesc,pReserved,pCount,ppConfigs)
-#define IDirectXVideoDecoderService_CreateVideoDecoder(This,Guid,pVideoDesc,pConfig,ppDecoderRenderTargets,NumSurfaces,ppDecode) (This)->lpVtbl->CreateVideoDecoder(This,Guid,pVideoDesc,pConfig,ppDecoderRenderTargets,NumSurfaces,ppDecode)
-#endif /*COBJMACROS*/
+#define IDirectXVideoDecoderService_CreateVideoDecoder(This,Guid,pVideoDesc,pConfig,ppDecoderRenderTargets,NumRenderTargets,ppDecode) (This)->lpVtbl->CreateVideoDecoder(This,Guid,pVideoDesc,pConfig,ppDecoderRenderTargets,NumRenderTargets,ppDecode)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDirectXVideoDecoderService_QueryInterface(IDirectXVideoDecoderService* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDirectXVideoDecoderService_AddRef(IDirectXVideoDecoderService* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDirectXVideoDecoderService_Release(IDirectXVideoDecoderService* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDirectXVideoAccelerationService methods ***/
+static FORCEINLINE HRESULT IDirectXVideoDecoderService_CreateSurface(IDirectXVideoDecoderService* This,UINT Width,UINT Height,UINT BackBuffers,D3DFORMAT Format,D3DPOOL Pool,DWORD Usage,DWORD DxvaType,IDirect3DSurface9 **ppSurface,HANDLE *pSharedHandle) {
+    return This->lpVtbl->CreateSurface(This,Width,Height,BackBuffers,Format,Pool,Usage,DxvaType,ppSurface,pSharedHandle);
+}
+/*** IDirectXVideoDecoderService methods ***/
+static FORCEINLINE HRESULT IDirectXVideoDecoderService_GetDecoderDeviceGuids(IDirectXVideoDecoderService* This,UINT *pCount,GUID **pGuids) {
+    return This->lpVtbl->GetDecoderDeviceGuids(This,pCount,pGuids);
+}
+static FORCEINLINE HRESULT IDirectXVideoDecoderService_GetDecoderRenderTargets(IDirectXVideoDecoderService* This,REFGUID Guid,UINT *pCount,D3DFORMAT **pFormats) {
+    return This->lpVtbl->GetDecoderRenderTargets(This,Guid,pCount,pFormats);
+}
+static FORCEINLINE HRESULT IDirectXVideoDecoderService_GetDecoderConfigurations(IDirectXVideoDecoderService* This,REFGUID Guid,const DXVA2_VideoDesc *pVideoDesc,void *pReserved,UINT *pCount,DXVA2_ConfigPictureDecode **ppConfigs) {
+    return This->lpVtbl->GetDecoderConfigurations(This,Guid,pVideoDesc,pReserved,pCount,ppConfigs);
+}
+static FORCEINLINE HRESULT IDirectXVideoDecoderService_CreateVideoDecoder(IDirectXVideoDecoderService* This,REFGUID Guid,const DXVA2_VideoDesc *pVideoDesc,const DXVA2_ConfigPictureDecode *pConfig,IDirect3DSurface9 **ppDecoderRenderTargets,UINT NumRenderTargets,IDirectXVideoDecoder **ppDecode) {
+    return This->lpVtbl->CreateVideoDecoder(This,Guid,pVideoDesc,pConfig,ppDecoderRenderTargets,NumRenderTargets,ppDecode);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IDirectXVideoDecoderService_GetDecoderDeviceGuids_Proxy(
+    IDirectXVideoDecoderService* This,
+    UINT *pCount,
+    GUID **pGuids);
+void __RPC_STUB IDirectXVideoDecoderService_GetDecoderDeviceGuids_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDirectXVideoDecoderService_GetDecoderRenderTargets_Proxy(
+    IDirectXVideoDecoderService* This,
+    REFGUID Guid,
+    UINT *pCount,
+    D3DFORMAT **pFormats);
+void __RPC_STUB IDirectXVideoDecoderService_GetDecoderRenderTargets_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDirectXVideoDecoderService_GetDecoderConfigurations_Proxy(
+    IDirectXVideoDecoderService* This,
+    REFGUID Guid,
+    const DXVA2_VideoDesc *pVideoDesc,
+    void *pReserved,
+    UINT *pCount,
+    DXVA2_ConfigPictureDecode **ppConfigs);
+void __RPC_STUB IDirectXVideoDecoderService_GetDecoderConfigurations_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDirectXVideoDecoderService_CreateVideoDecoder_Proxy(
+    IDirectXVideoDecoderService* This,
+    REFGUID Guid,
+    const DXVA2_VideoDesc *pVideoDesc,
+    const DXVA2_ConfigPictureDecode *pConfig,
+    IDirect3DSurface9 **ppDecoderRenderTargets,
+    UINT NumRenderTargets,
+    IDirectXVideoDecoder **ppDecode);
+void __RPC_STUB IDirectXVideoDecoderService_CreateVideoDecoder_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IDirectXVideoDecoderService_INTERFACE_DEFINED__ */
+
+#endif /* _D3D9_H_ */
 /* Begin additional prototypes for all interfaces */
 
 
