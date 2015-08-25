@@ -944,6 +944,7 @@ PostQueuedCompletionStatus
 PowerClearRequest
 PowerCreateRequest
 PowerSetRequest
+PrefetchVirtualMemory
 PrepareTape
 PrivCopyFileExW
 PrivMoveFileIdentityW
