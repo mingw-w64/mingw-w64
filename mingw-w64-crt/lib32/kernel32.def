@@ -900,7 +900,7 @@ PeekNamedPipe@24
 PostQueuedCompletionStatus@16
 PowerClearRequest@8
 PowerCreateRequest@4
-PostQueuedCompletionStatus@16
+PowerSetRequest@8
 PrefetchVirtualMemory@16
 PrepareTape@12
 PrivCopyFileExW@24
