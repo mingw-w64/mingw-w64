@@ -26,6 +26,15 @@ extern "C" {
     SIZE_T NumberOfBytes;
   } WIN32_MEMORY_RANGE_ENTRY, *PWIN32_MEMORY_RANGE_ENTRY;
 #endif
+
+#if _WIN32_WINNT >= 0x0603
+  typedef enum _OFFER_PRIORITY {
+    VmOfferPriorityVeryLow = 1,
+    VmOfferPriorityLow,
+    VmOfferPriorityBelowNormal,
+    VmOfferPriorityNormal
+  } OFFER_PRIORITY;
+#endif
 #endif
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
@@ -91,6 +100,11 @@ extern "C" {
 #if _WIN32_WINNT >= 0x0602
   WINBASEAPI WINBOOL WINAPI PrefetchVirtualMemory (HANDLE hProcess, ULONG_PTR NumberOfEntries, PWIN32_MEMORY_RANGE_ENTRY VirtualAddresses, ULONG Flags);
   WINBASEAPI WINBOOL WINAPI UnmapViewOfFileEx (PVOID BaseAddress, ULONG UnmapFlags);
+#endif
+#if _WIN32_WINNT >= 0x0603
+  WINBASEAPI DWORD WINAPI DiscardVirtualMemory (PVOID VirtualAddress, SIZE_T Size);
+  WINBASEAPI DWORD WINAPI OfferVirtualMemory (PVOID VirtualAddress, SIZE_T Size, OFFER_PRIORITY Priority);
+  WINBASEAPI DWORD WINAPI ReclaimVirtualMemory (PVOID VirtualAddress, SIZE_T Size);
 #endif
 #endif
 

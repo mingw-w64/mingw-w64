@@ -240,6 +240,7 @@ DeviceIoControl
 DisableThreadLibraryCalls
 DisableThreadProfiling
 DisassociateCurrentThreadFromCallback
+DiscardVirtualMemory
 DisconnectNamedPipe
 DnsHostnameToComputerNameA
 DnsHostnameToComputerNameW
@@ -911,6 +912,7 @@ NlsWriteEtwEvent
 NormalizeString
 NotifyMountMgr
 NotifyUILanguageChange
+OfferVirtualMemory
 OpenConsoleW
 OpenDataFile
 OpenEventA
@@ -980,6 +982,7 @@ QueueUserWorkItem
 RaiseException
 RaiseFailFastException
 ReOpenFile
+ReclaimVirtualMemory
 ReadConsoleA
 ReadConsoleInputA
 ReadConsoleInputExA

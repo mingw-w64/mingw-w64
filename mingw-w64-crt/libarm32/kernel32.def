@@ -282,6 +282,7 @@ DeviceIoControl
 DisableThreadLibraryCalls
 DisableThreadProfiling
 DisassociateCurrentThreadFromCallback
+DiscardVirtualMemory
 DisconnectNamedPipe
 DnsHostnameToComputerNameA
 DnsHostnameToComputerNameExW
@@ -985,6 +986,7 @@ NotifyMountMgr
 NotifyUILanguageChange
 NtVdm64CreateProcessInternalW
 OOBEComplete
+OfferVirtualMemory
 OpenConsoleW
 OpenConsoleWStub
 OpenEventA
@@ -1085,6 +1087,7 @@ RaiseException
 RaiseFailFastException
 RaiseInvalid16BitExeError
 ReOpenFile
+ReclaimVirtualMemory
 ReadConsoleA
 ReadConsoleInputA
 ReadConsoleInputExA
