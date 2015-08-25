@@ -1995,15 +1995,15 @@ __buildmemorybarrier()
 
 #define DbgRaiseAssertionFailure __int2c
 
-  __CRT_INLINE struct _TEB *NtCurrentTeb(void)
+  FORCEINLINE struct _TEB *NtCurrentTeb(void)
   {
     return (struct _TEB *)__readfsdword(PcTeb);
   }
-  __CRT_INLINE PVOID GetCurrentFiber(void)
+  FORCEINLINE PVOID GetCurrentFiber(void)
   {
     return(PVOID)__readfsdword(0x10);
   }
-  __CRT_INLINE PVOID GetFiberData(void)
+  FORCEINLINE PVOID GetFiberData(void)
   {
       return *(PVOID *)GetCurrentFiber();
   }
