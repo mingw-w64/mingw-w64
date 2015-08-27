@@ -20,7 +20,7 @@
 
 #define MIN_DIMENSION				1
 
-#ifdef __midl
+#if defined(__midl) || defined(__WIDL__)
 #define V1_ENUM [v1_enum]
 #else
 #define V1_ENUM
@@ -189,6 +189,24 @@ typedef V1_ENUM enum ComponentCategory {
   CategoryText,
   CategoryData,
 } ComponentCategory;
+
+typedef V1_ENUM enum ApplicationTypeType {
+  SCTE28_ConditionalAccess = 0,
+  SCTE28_POD_Host_Binding_Information,
+  SCTE28_IPService,
+  SCTE28_NetworkInterface_SCTE55_2,
+  SCTE28_NetworkInterface_SCTE55_1,
+  SCTE28_CopyProtection,
+  SCTE28_Diagnostic,
+  SCTE28_Undesignated,
+  SCTE28_Reserved,
+} ApplicationTypeType;
+
+typedef struct _BDA_SIGNAL_TIMEOUTS {
+  ULONG ulCarrierTimeoutMs;
+  ULONG ulScanningTimeoutMs;
+  ULONG ulTuningTimeoutMs;
+} BDA_SIGNAL_TIMEOUTS, *PBDA_SIGNAL_TIMEOUTS;
 
 typedef enum ComponentStatus {
   StatusActive,
@@ -390,7 +408,7 @@ typedef enum _BDA_Comp_Flags {
   BDACOMP_INCLUDE_LOCATOR_IN_TR   = 0x00000002 
 } BDA_Comp_Flags;
 
-#if (_WIN32_WINNT >= 0x0601)
+#if (_WIN32_WINNT >= 0x0601) || defined(__WIDL__)
 
 typedef enum _BDA_CONDITIONALACCESS_MMICLOSEREASON {
   CONDITIONALACCESS_UNSPECIFIED                 = 0,

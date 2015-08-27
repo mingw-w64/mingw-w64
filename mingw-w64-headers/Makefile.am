@@ -76,6 +76,7 @@ IDL_SRCS = \
   include/audioclient.idl \
   include/audioendpoints.idl \
   include/audiopolicy.idl \
+  include/bdaiface.idl \
   include/comadmin.idl \
   include/commoncontrols.idl \
   include/control.idl \
@@ -138,6 +139,7 @@ IDL_SRCS = \
   include/portabledevicetypes.idl \
   include/propidl.idl \
   include/propsys.idl \
+  include/regbag.idl \
   include/sapi51.idl \
   include/sapi53.idl \
   include/sapi54.idl \
@@ -150,6 +152,7 @@ IDL_SRCS = \
   include/structuredquerycondition.idl \
   include/tpcshrd.idl \
   include/textstor.idl \
+  include/tuner.idl \
   include/uiautomationclient.idl \
   include/uiautomationcore.idl \
   include/uiviewsettingsinterop.idl \
