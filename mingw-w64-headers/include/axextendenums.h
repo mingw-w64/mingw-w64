@@ -40,7 +40,11 @@ typedef
   AnalogVideoMask_MCE_SECAM = AnalogVideo_SECAM_B | AnalogVideo_SECAM_D | AnalogVideo_SECAM_G | AnalogVideo_SECAM_H | AnalogVideo_SECAM_K | AnalogVideo_SECAM_K1 | AnalogVideo_SECAM_L | AnalogVideo_SECAM_L1
 } AnalogVideoStandard;
 
-typedef enum tagTunerInputType {
+typedef
+#ifdef __WIDL__
+  [v1_enum]
+#endif
+enum tagTunerInputType {
   TunerInputCable,
   TunerInputAntenna
 } TunerInputType;
