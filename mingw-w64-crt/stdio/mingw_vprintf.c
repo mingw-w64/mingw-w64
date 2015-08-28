@@ -48,5 +48,11 @@ int __cdecl __vprintf (const APICHAR *, va_list) __MINGW_NOTHROW;
 
 int __cdecl __vprintf(const APICHAR *fmt, va_list argv)
 {
-  return __pformat( PFORMAT_TO_FILE | PFORMAT_NOLIMIT, stdout, 0, fmt, argv );
+  register int retval;
+
+  _lock_file( stdout );
+  retval = __pformat( PFORMAT_TO_FILE | PFORMAT_NOLIMIT, stdout, 0, fmt, argv );
+  _unlock_file( stdout );
+
+  return retval;
 }

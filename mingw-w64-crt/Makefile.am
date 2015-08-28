@@ -196,7 +196,8 @@ src_msvcrt=\
   secapi/strerror_s.c \
   secapi/vsprintf_s.c \
   secapi/wmemcpy_s.c \
-  secapi/wmemmove_s.c
+  secapi/wmemmove_s.c \
+  stdio/mingw_lock.c
 
 src_msvcrt32=\
   $(src_msvcrt) \

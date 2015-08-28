@@ -50,7 +50,9 @@ int __cdecl __printf(const APICHAR *fmt, ...)
 {
   register int retval;
   va_list argv; va_start( argv, fmt );
+  _lock_file( stdout );
   retval = __pformat( PFORMAT_TO_FILE | PFORMAT_NOLIMIT, stdout, 0, fmt, argv );
+  _unlock_file( stdout );
   va_end( argv );
   return retval;
 }

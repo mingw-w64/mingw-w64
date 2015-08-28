@@ -50,7 +50,9 @@ int __cdecl __fprintf(FILE *stream, const APICHAR *fmt, ...)
 {
   register int retval;
   va_list argv; va_start( argv, fmt );
+  _lock_file( stream );
   retval = __pformat( PFORMAT_TO_FILE | PFORMAT_NOLIMIT, stream, 0, fmt, argv );
+  _unlock_file( stream );
   va_end( argv );
   return retval;
 }
