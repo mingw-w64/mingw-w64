@@ -816,6 +816,9 @@ inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) { return (ENUMTYPE &)(((i
 #define PRODUCT_CORE                              0x65
 #define PRODUCT_PROFESSIONAL_WMC                  0x67
 #define PRODUCT_MOBILE_CORE                       0x68
+#define PRODUCT_EDUCATION                         0x79
+#define PRODUCT_EDUCATION_N                       0x7a
+#define PRODUCT_MOBILE_ENTERPRISE                 0x85
 
 #define PRODUCT_UNLICENSED                        0xabcdabcd
 
