@@ -6,12 +6,22 @@
 #ifndef _INC_ESENT
 #define _INC_ESENT
 
+#include <_mingw_unicode.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
+#ifndef JET_VERSION
+# ifdef WINVER
+#  define JET_VERSION WINVER
+# else
+#  define JET_VERSION 0x0a00
+# endif
+#endif
+
 #ifndef JET_API
-#define JET_API WINAPI
+#define JET_API __stdcall
 #endif
 
 #if defined(_WIN64)
@@ -57,7 +67,7 @@ typedef enum _JET_COLTYP {
   JET_coltypLongBinary,
   JET_coltypLongText,
   JET_coltypSLV,
-#if (_WIN32_WINNT >= 0x0600)
+#if (JET_VERSION >= 0x0600)
   JET_coltypUnsignedLong,
   JET_coltypLongLong,
   JET_coltypGUID,
@@ -465,6 +475,71 @@ typedef enum _JET_SNT {
 
 #define JET_BASE_NAME_LENGTH 3
 #define JET_MAX_COMPUTERNAME_LENGTH 15
+
+#define JET_bitDbReadOnly  0x00000001
+#define JET_bitDbExclusive  0x00000002
+#define JET_bitDbDeleteCorruptIndexes  0x00000010
+#if (JET_VERSION >= 0x0502)
+#define JET_bitDbDeleteUnicodeIndexes  0x00000400
+#endif
+#if (JET_VERSION >= 0x0501)
+#define JET_bitDbUpgrade  0x00000200
+#endif
+#if (JET_VERSION >= 0x0601)
+#define JET_bitDbEnableBackgroundMaintenance  0x00000800
+#endif
+#if (JET_VERSION >= 0x0602)
+#define JET_bitDbPurgeCacheOnAttach  0x00001000
+#endif
+
+#define JET_bitTableDenyWrite  0x00000001
+#define JET_bitTableDenyRead  0x00000002
+#define JET_bitTableReadOnly  0x00000004
+#define JET_bitTableUpdatable  0x00000008
+#define JET_bitTablePermitDDL  0x00000010
+#define JET_bitTableNoCache  0x00000020
+#define JET_bitTablePreread  0x00000040
+#define JET_bitTableOpportuneRead  0x00000080
+#define JET_bitTableSequential  0x00008000
+#define JET_bitTableClassMask  0x000f0000
+#define JET_bitTableClassNone  0x00000000
+#define JET_bitTableClass1  0x00010000
+#define JET_bitTableClass2  0x00020000
+#define JET_bitTableClass3  0x00030000
+#define JET_bitTableClass4  0x00040000
+#define JET_bitTableClass5  0x00050000
+#define JET_bitTableClass6  0x00060000
+#define JET_bitTableClass7  0x00070000
+#define JET_bitTableClass8  0x00080000
+#define JET_bitTableClass9  0x00090000
+#define JET_bitTableClass10  0x000a0000
+#define JET_bitTableClass11  0x000b0000
+#define JET_bitTableClass12  0x000c0000
+#define JET_bitTableClass13  0x000d0000
+#define JET_bitTableClass14  0x000e0000
+#define JET_bitTableClass15  0x000f0000
+
+#define JET_ColInfo  0u
+#define JET_ColInfoList  1u
+#define JET_ColInfoSysTabCursor  3u
+#define JET_ColInfoBase  4u
+#define JET_ColInfoListCompact  5u
+#if (JET_VERSION >= 0x0501)
+#define JET_ColInfoByColid  6u
+#define JET_ColInfoListSortColumnid  7u
+#endif
+#if (JET_VERSION >= 0x0600)
+#define JET_ColInfoBaseByColid  8u
+#define JET_ColInfoGrbitNonDerivedColumnsOnly  0x80000000
+#define JET_ColInfoGrbitMinimalInfo  0x40000000
+#define JET_ColInfoGrbitSortByColumnid  0x20000000
+#endif
+
+#define JET_MoveFirst  (0x80000000)
+#define JET_MovePrevious  (-1)
+#define JET_MoveNext  (+1)
+#define JET_MoveLast  (0x7fffffff)
+
 #define JET_cbBookmarkMost 256
 #if UNICODE
 #define JET_cbNameMost 128
@@ -477,24 +552,219 @@ typedef enum _JET_SNT {
 #define JET_cbColumnMost 255
 #define JET_cbLVDefaultValueMost 255
 #define JET_cbKeyMost 255
-#if (_WIN32_WINNT >= 0x0600)
+#if (JET_VERSION >= 0x0600)
 #define JET_cbKeyMost2KBytePage 500
 #define JET_cbKeyMost4KBytePage 1000
 #define JET_cbKeyMost8KBytePage 2000
 #define JET_cbKeyMostMin 255
 #define JET_ccolKeyMost 12
-#endif /*(_WIN32_WINNT >= 0x0600)*/
+#endif /*(JET_VERSION >= 0x0600)*/
 #define JET_cbLimitKeyMost 256
 #define JET_cbPrimaryKeyMost 255
 #define JET_cbSecondaryKeyMost 255
-#if (_WIN32_WINNT == 0x500)
+#if (JET_VERSION == 0x500)
 #define JET_ccolMost 0x00007ffe
 #else
 #define JET_ccolMost 0x0000fee0
-#endif /*(_WIN32_WINNT == 0x500)*/
+#endif /*(JET_VERSION == 0x500)*/
 #define JET_ccolFixedMost 0x0000007f
 #define JET_ccolVarMost 0x00000080
 #define JET_ccolTaggedMost ( JET_ccolMost - 0x000000ff ) /*64993*/
+
+#define JET_DbInfoFilename  0
+#define JET_DbInfoConnect  1
+#define JET_DbInfoCountry  2
+#define JET_DbInfoLCID  3
+#define JET_DbInfoLangid  3
+#define JET_DbInfoCp  4
+#define JET_DbInfoCollate  5
+#define JET_DbInfoOptions  6
+#define JET_DbInfoTransactions  7
+#define JET_DbInfoVersion  8
+#define JET_DbInfoIsam  9
+#define JET_DbInfoFilesize  10
+#define JET_DbInfoSpaceOwned  11
+#define JET_DbInfoSpaceAvailable  12
+#define JET_DbInfoUpgrade  13
+#define JET_DbInfoMisc  14
+#define JET_DbInfoDBInUse  15
+#define JET_DbInfoPageSize  17
+#define JET_DbInfoFileType  19
+#define JET_DbInfoFilesizeOnDisk  21
+
+#define JET_paramSystemPath  0
+#define JET_paramTempPath  1
+#define JET_paramLogFilePath  2
+#define JET_paramBaseName  3
+#define JET_paramEventSource  4
+#define JET_paramMaxSessions  5
+#define JET_paramMaxOpenTables  6
+#define JET_paramPreferredMaxOpenTables  7
+#if (JET_VERSION >= 0x0600)
+#define JET_paramCachedClosedTables  125
+#endif
+#define JET_paramMaxCursors  8
+#define JET_paramMaxVerPages  9
+#define JET_paramPreferredVerPages  63
+#if (JET_VERSION >= 0x0501)
+#define JET_paramGlobalMinVerPages  81
+#define JET_paramVersionStoreTaskQueueMax  105
+#endif
+#define JET_paramMaxTemporaryTables  10
+#define JET_paramLogFileSize  11
+#define JET_paramLogBuffers  12
+#define JET_paramWaitLogFlush  13
+#define JET_paramLogCheckpointPeriod  14
+#define JET_paramLogWaitingUserMax  15
+#define JET_paramCommitDefault  16
+#define JET_paramCircularLog  17
+#define JET_paramDbExtensionSize  18
+#define JET_paramPageTempDBMin  19
+#define JET_paramPageFragment  20
+#if (JET_VERSION >= 0x0600)
+#define JET_paramEnableFileCache  126
+#define JET_paramVerPageSize  128
+#define JET_paramConfiguration  129
+#define JET_paramEnableAdvanced  130
+#define JET_paramMaxColtyp  131
+#endif
+#define JET_paramBatchIOBufferMax  22
+#define JET_paramCacheSize  41
+#define JET_paramCacheSizeMin  60
+#define JET_paramCacheSizeMax  23
+#define JET_paramCheckpointDepthMax  24
+#define JET_paramLRUKCorrInterval  25
+#define JET_paramLRUKHistoryMax  26
+#define JET_paramLRUKPolicy  27
+#define JET_paramLRUKTimeout  28
+#define JET_paramLRUKTrxCorrInterval  29
+#define JET_paramOutstandingIOMax  30
+#define JET_paramStartFlushThreshold  31
+#define JET_paramStopFlushThreshold  32
+#if (JET_VERSION >= 0x0600)
+#define JET_paramEnableViewCache  127
+#define JET_paramCheckpointIOMax  135
+#define JET_paramTableClass1Name  137
+#define JET_paramTableClass2Name  138
+#define JET_paramTableClass3Name  139
+#define JET_paramTableClass4Name  140
+#define JET_paramTableClass5Name  141
+#define JET_paramTableClass6Name  142
+#define JET_paramTableClass7Name  143
+#define JET_paramTableClass8Name  144
+#define JET_paramTableClass9Name  145
+#define JET_paramTableClass10Name  146
+#define JET_paramTableClass11Name  147
+#define JET_paramTableClass12Name  148
+#define JET_paramTableClass13Name  149
+#define JET_paramTableClass14Name  150
+#define JET_paramTableClass15Name  151
+#endif
+#define JET_paramIOPriority  152
+#define JET_paramRecovery  34
+#define JET_paramEnableOnlineDefrag  35
+#define JET_paramCheckFormatWhenOpenFail 44
+#define JET_paramEnableTempTableVersioning  46
+#define JET_paramIgnoreLogVersion  47
+#define JET_paramDeleteOldLogs  48
+#define JET_paramEventSourceKey  49
+#define JET_paramNoInformationEvent  50
+#if (JET_VERSION >= 0x0501)
+#define JET_paramEventLoggingLevel  51
+#define JET_paramDeleteOutOfRangeLogs 52
+#define JET_paramAccessDeniedRetryPeriod  53
+#endif
+#define JET_paramEnableIndexChecking  45
+#if (JET_VERSION >= 0x0502)
+#define JET_paramEnableIndexCleanup  54
+#endif
+#define JET_paramDatabasePageSize  64
+#if (JET_VERSION >= 0x0501)
+#define JET_paramDisableCallbacks  65
+#endif
+#if (JET_VERSION >= 0x0501)
+#define JET_paramLogFileCreateAsynch  69
+#endif
+#define JET_paramErrorToString  70
+#if (JET_VERSION >= 0x0501)
+#define JET_paramZeroDatabaseDuringBackup  71
+#endif
+#define JET_paramUnicodeIndexDefault  72
+#if (JET_VERSION >= 0x0501)
+#define JET_paramRuntimeCallback  73
+#endif
+#define JET_paramCleanupMismatchedLogFiles  77
+#if (JET_VERSION >= 0x0501)
+#define JET_paramRecordUpgradeDirtyLevel  78
+#define JET_paramOSSnapshotTimeout  82
+#endif
+#define JET_paramExceptionAction  98
+#define JET_paramEventLogCache  99
+#if (JET_VERSION >= 0x0501)
+#define JET_paramCreatePathIfNotExist  100
+#define JET_paramPageHintCacheSize  101
+#define JET_paramOneDatabasePerSession  102
+#define JET_paramMaxInstances  104
+#define JET_paramDisablePerfmon  107
+#define JET_paramIndexTuplesLengthMin  110
+#define JET_paramIndexTuplesLengthMax  111
+#define JET_paramIndexTuplesToIndexMax  112
+#endif
+#if (JET_VERSION >= 0x0502)
+#define JET_paramAlternateDatabaseRecoveryPath  113
+#endif
+#if (JET_VERSION >= 0x0600)
+#define JET_paramIndexTupleIncrement  132
+#define JET_paramIndexTupleStart  133
+#define JET_paramKeyMost  134
+#define JET_paramLegacyFileNames  136
+#define JET_paramEnablePersistedCallbacks  156
+#endif
+#if (JET_VERSION >= 0x0601)
+#define JET_paramWaypointLatency  153
+#define JET_paramDefragmentSequentialBTrees  160
+#define JET_paramDefragmentSequentialBTreesDensityCheckFrequency  161
+#define JET_paramIOThrottlingTimeQuanta  162
+#define JET_paramLVChunkSizeMost  163
+#define JET_paramMaxCoalesceReadSize  164
+#define JET_paramMaxCoalesceWriteSize  165
+#define JET_paramMaxCoalesceReadGapSize  166
+#define JET_paramMaxCoalesceWriteGapSize  167
+#define JET_paramEnableDBScanInRecovery  169
+#define JET_paramDbScanThrottle  170
+#define JET_paramDbScanIntervalMinSec  171
+#define JET_paramDbScanIntervalMaxSec  172
+#endif
+#if (JET_VERSION >= 0x0602)
+#define JET_paramCachePriority  177
+#define JET_paramMaxTransactionSize  178
+#define JET_paramPrereadIOMax  179
+#define JET_paramEnableDBScanSerialization  180
+#define JET_paramHungIOThreshold  181
+#define JET_paramHungIOActions  182
+#define JET_paramMinDataForXpress  183
+#endif
+#if (JET_VERSION >= 0x0603)
+#define JET_paramEnableShrinkDatabase  184
+#endif
+#if (JET_VERSION >= 0x0602)
+#define JET_paramProcessFriendlyName  186
+#define JET_paramDurableCommitCallback  187
+#endif
+#if (JET_VERSION >= 0x0603)
+#define JET_paramEnableSqm  188
+#endif
+#if (JET_VERSION >= 0x0a00)
+#define JET_paramConfigStoreSpec  189
+#endif
+#define JET_paramMaxValueInvalid  193
+#define JET_sesparamCommitDefault  4097
+#if (JET_VERSION >= 0x0a00)
+#define JET_sesparamTransactionLevel  4099
+#define JET_sesparamOperationContext  4100
+#define JET_sesparamCorrelationID  4101
+#define JET_sesparamMaxValueInvalid  4102
+#endif
 
 typedef unsigned __LONG32 JET_COLUMNID;
 typedef double JET_DATESERIAL;
@@ -915,7 +1185,7 @@ typedef struct _JET_OBJECTLIST {
   JET_COLUMNID columnidcPage;
 } JET_OBJECTLIST;
 
-#if (_WIN32_WINNT >= 0x0600)
+#if (JET_VERSION >= 0x0600)
 typedef struct tagJET_OPENTEMPORARYTABLE {
   unsigned __LONG32 cbStruct;
   const JET_COLUMNDEF* prgcolumndef;
@@ -927,7 +1197,7 @@ typedef struct tagJET_OPENTEMPORARYTABLE {
   unsigned __LONG32 cbVarSegMac;
   JET_TABLEID tableid;
 } JET_OPENTEMPORARYTABLE;
-#endif /*(_WIN32_WINNT >= 0x0600)*/
+#endif /*(JET_VERSION >= 0x0600)*/
 
 typedef struct _JET_RECORDLIST{
   unsigned __LONG32 cbStruct;
@@ -943,7 +1213,7 @@ typedef struct _JET_RECPOS {
   unsigned __LONG32 centriesTotal;
 } JET_RECPOS;
 
-#if (_WIN32_WINNT >= 0x0600)
+#if (JET_VERSION >= 0x0600)
 typedef struct _JET_RECSIZE {
   unsigned __int64 cbData;
   unsigned __int64 cbLongValueData;
@@ -954,7 +1224,7 @@ typedef struct _JET_RECSIZE {
   unsigned __int64 cLongValues;
   unsigned __int64 cMultiValues;
 } JET_RECSIZE;
-#endif /*(_WIN32_WINNT >= 0x0600)*/
+#endif /*(JET_VERSION >= 0x0600)*/
 
 typedef struct _JET_RETINFO {
   unsigned __LONG32 cbStruct;
@@ -1122,7 +1392,7 @@ typedef struct tagJET_TABLECREATE2_W {
 
 #define JET_TABLECREATE2 __MINGW_NAME_AW(JET_TABLECREATE2_)
 
-#if (_WIN32_WINNT >= 0x0600)
+#if (JET_VERSION >= 0x0600)
 typedef struct _JET_THREADSTATS {
   unsigned __LONG32 cbStruct;
   unsigned __LONG32 cPageReferenced;
@@ -1134,7 +1404,7 @@ typedef struct _JET_THREADSTATS {
   unsigned __LONG32 cbLogRecord;
 } JET_THREADSTATS;
 
-#endif /*(_WIN32_WINNT >= 0x0600)*/
+#endif /*(JET_VERSION >= 0x0600)*/
 
 typedef struct tag_JET_USERDEFINEDDEFAULT_A {
   char* szCallback;
@@ -1273,6 +1543,8 @@ JET_ERR JET_API JetBeginSessionW(
   JET_PCWSTR szUserName,
   JET_PCWSTR szPassword
 );
+
+#define JetBeginSession __MINGW_NAME_AW(JetBeginSession)
 
 JET_ERR JET_API JetBeginTransaction(
   JET_SESID sesid
@@ -1899,14 +2171,14 @@ JET_ERR JET_API JetGetInstanceInfoW(
 
 #define JetGetInstanceInfo __MINGW_NAME_AW(JetGetInstanceInfo)
 
-#if (_WIN32_WINNT >= 0x0600)
+#if (JET_VERSION >= 0x0600)
 JET_ERR JET_API JetGetInstanceMiscInfo(
   JET_INSTANCE instance,
   void* pvResult,
   unsigned __LONG32 cbMax,
   unsigned __LONG32 InfoLevel
 );
-#endif /*(_WIN32_WINNT >= 0x0600)*/
+#endif /*(JET_VERSION >= 0x0600)*/
 
 JET_ERR JET_API JetGetLock(
   JET_SESID sesid,
@@ -2000,14 +2272,14 @@ JET_ERR JET_API JetGetRecordPosition(
   unsigned __LONG32 cbRecpos
 );
 
-#if (_WIN32_WINNT >= 0x0600)
+#if (JET_VERSION >= 0x0600)
 JET_ERR JET_API JetGetRecordSize(
   JET_SESID sesid,
   JET_TABLEID tableid,
   JET_RECSIZE* precsize,
   const JET_GRBIT grbit
 );
-#endif /* (_WIN32_WINNT >= 0x0600) */
+#endif /* (JET_VERSION >= 0x0600) */
 
 JET_ERR JET_API JetGetSecondaryIndexBookmark(
   JET_SESID sesid,
@@ -2174,7 +2446,7 @@ JET_ERR JET_API JetInit2(
   JET_GRBIT grbit
 );
 
-#if (_WIN32_WINNT >= 0x0600)
+#if (JET_VERSION >= 0x0600)
 JET_ERR JET_API JetInit3A(
   JET_INSTANCE* pinstance,
   JET_RSTINFO_A* prstInfo,
@@ -2188,7 +2460,7 @@ JET_ERR JET_API JetInit3W(
 );
 
 #define JetInit3 __MINGW_NAME_AW(JetInit3)
-#endif /*(_WIN32_WINNT >= 0x0600)*/
+#endif /*(JET_VERSION >= 0x0600)*/
 
 JET_ERR JET_API JetIntersectIndexes(
   JET_SESID sesid,
@@ -2326,12 +2598,12 @@ JET_ERR JET_API JetOSSnapshotAbort(
   const JET_GRBIT grbit
 );
 
-#if (_WIN32_WINNT >= 0x0600)
+#if (JET_VERSION >= 0x0600)
 JET_ERR JET_API JetOSSnapshotEnd(
   const JET_OSSNAPID snapId,
   const JET_GRBIT grbit
 );
-#endif /*(_WIN32_WINNT >= 0x0600)*/
+#endif /*(JET_VERSION >= 0x0600)*/
 
 JET_ERR JET_API JetOSSnapshotFreezeA(
   const JET_OSSNAPID snapId,
@@ -2349,7 +2621,7 @@ JET_ERR JET_API JetOSSnapshotFreezeW(
 
 #define JetOSSnapshotFreeze __MINGW_NAME_AW(JetOSSnapshotFreeze)
 
-#if (_WIN32_WINNT >= 0x0600)
+#if (JET_VERSION >= 0x0600)
 JET_ERR JET_API JetOSSnapshotGetFreezeInfoA(
   const JET_OSSNAPID snapId,
   unsigned __LONG32* pcInstanceInfo,
@@ -2364,27 +2636,27 @@ JET_ERR JET_API JetOSSnapshotGetFreezeInfoW(
   const JET_GRBIT grbit
 );
 #define JetOSSnapshotGetFreezeInfo __MINGW_NAME_AW(JetOSSnapshotGetFreezeInfo)
-#endif /*(_WIN32_WINNT >= 0x0600)*/
+#endif /*(JET_VERSION >= 0x0600)*/
 
 JET_ERR JET_API JetOSSnapshotPrepare(
   JET_OSSNAPID* psnapId,
   const JET_GRBIT grbit
 );
 
-#if (_WIN32_WINNT >= 0x0600)
+#if (JET_VERSION >= 0x0600)
 JET_ERR JET_API JetOSSnapshotPrepareInstance(
   JET_OSSNAPID snapId,
   JET_INSTANCE instance,
   const JET_GRBIT grbit
 );
-#endif /*(_WIN32_WINNT >= 0x0600)*/
+#endif /*(JET_VERSION >= 0x0600)*/
 
 JET_ERR JET_API JetOSSnapshotThaw(
   const JET_OSSNAPID snapId,
   const JET_GRBIT grbit
 );
 
-#if (_WIN32_WINNT >= 0x0600)
+#if (JET_VERSION >= 0x0600)
 JET_ERR JET_API JetOSSnapshotTruncateLog(
   const JET_OSSNAPID snapId,
   const JET_GRBIT grbit
@@ -2395,7 +2667,7 @@ JET_ERR JET_API JetOSSnapshotTruncateLogInstance(
   JET_INSTANCE instance,
   const JET_GRBIT grbit
 );
-#endif /*(_WIN32_WINNT >= 0x0600)*/
+#endif /*(JET_VERSION >= 0x0600)*/
 
 JET_ERR JET_API JetPrepareUpdate(
   JET_SESID sesid,
