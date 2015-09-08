@@ -28,3 +28,6 @@
 
 #define __deref_out_ecount(Size)
 
+#define __drv_aliasesMem
+#define __drv_allocatesMem(kind)
+#define __drv_freesMem(kind)
