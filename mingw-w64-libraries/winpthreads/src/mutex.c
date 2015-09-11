@@ -55,8 +55,13 @@ typedef struct {
    a mutex_impl_t). */
 static bool
 is_static_initializer(pthread_mutex_t m)
-{ 
-  return (uintptr_t)m >= (uintptr_t)-3;
+{
+  /* Treat 0 as a static initializer as well (for normal mutexes),
+     to tolerate sloppy code in libgomp. (We should rather fix that code!) */
+  intptr_t v = (intptr_t)m;
+  return v >= -3 && v <= 0;
+/* Should be simple:
+  return (uintptr_t)m >= (uintptr_t)-3; */
 }
 
 /* Create and return the implementation part of a mutex from a static
