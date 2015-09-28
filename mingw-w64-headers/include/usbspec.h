@@ -213,6 +213,7 @@ typedef struct _USB_BOS_DESCRIPTOR {
 #define USB_DEVICE_CAPABILITY_USB20_EXTENSION 0x02
 #define USB_DEVICE_CAPABILITY_SUPERSPEED_USB 0x03
 #define USB_DEVICE_CAPABILITY_CONTAINER_ID 0x04
+#define USB_DEVICE_CAPABILITY_BILLBOARD 0x0D
 
 typedef struct _USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
   UCHAR bLength;
@@ -399,7 +400,8 @@ typedef struct _USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
     } Bulk;
     struct {
       UCHAR Mult:2;
-      UCHAR Reserved2:6;
+      UCHAR Reserved2:5;
+      UCHAR SspCompanion:1;
     } Isochronous;
   } bmAttributes;
   USHORT wBytesPerInterval;
@@ -632,6 +634,37 @@ typedef struct _USB_INTERFACE_POWER_DESCRIPTOR {
   USHORT TransitionTimeFromD2;
   USHORT TransitionTimeFromD3;
 } USB_INTERFACE_POWER_DESCRIPTOR,*PUSB_INTERFACE_POWER_DESCRIPTOR;
+
+typedef struct _USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
+  UCHAR bLength;
+  UCHAR bDescriptorType;
+  UCHAR bDevCapabilityType;
+  UCHAR iAddtionalInfoURL;
+  UCHAR bNumberOfAlternateModes;
+  UCHAR bPreferredAlternateMode;
+  union {
+    USHORT AsUshort;
+    struct {
+      USHORT VConnPowerNeededForFullFunctionality:3;
+      USHORT Reserved:12;
+      USHORT NoVconnPowerRequired:1;
+    };
+  } VconnPower;
+  UCHAR bmConfigured[32];
+  ULONG bReserved;
+  struct {
+    USHORT wSVID;
+    UCHAR bAlternateMode;
+    UCHAR iAlternateModeSetting;
+  } AlternateMode[1];
+} USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR,*PUSB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR;
+
+typedef struct _USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
+  UCHAR bLength;
+  UCHAR bDescriptorType;
+  USHORT wReserved;
+  ULONG dwBytesPerInterval;
+} USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR,*PUSB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR;
 
 #include <poppack.h>
 
