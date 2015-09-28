@@ -279,6 +279,8 @@ extern "C" {
 #define SAL__control_entrypoint(category)
 #define SAL__data_entrypoint(category)
 
+#define __encoded_pointer
+
 #ifndef __fallthrough
 #define __fallthrough
 #endif

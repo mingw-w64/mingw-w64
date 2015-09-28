@@ -94,6 +94,7 @@
 #define _Outptr_opt_result_bytebuffer_(s)
 #define _Outptr_result_buffer_to_(s, c)
 #define _Outptr_result_bytebuffer_to_(s, c)
+#define _Outptr_result_bytebuffer_maybenull_(s)
 #define _Outptr_opt_result_buffer_to_(s, c)
 #define _Outptr_opt_result_bytebuffer_to_(s, c)
 #define _Result_nullonfailure_
@@ -181,7 +182,31 @@
 #define _Post_readable_byte_size_(s)
 #define _Post_writable_byte_size_(s)
 
+/* Field properties */
+#define _Field_size_(s)
+#define _Field_size_full_(s)
+#define _Field_size_full_opt_(s)
+#define _Field_size_opt_(s)
+#define _Field_size_part_(s, c)
+#define _Field_size_part_opt_(s, c)
+#define _Field_size_bytes_(size)
+#define _Field_size_bytes_full_(size)
+#define _Field_size_bytes_full_opt_(s)
+#define _Field_size_bytes_opt_(s)
+#define _Field_size_bytes_part_(s, c)
+#define _Field_size_bytes_part_opt_(s, c)
+#define _Field_z_
+#define _Field_range_(min, max)
+
+/* Structural annotations */
+#define _At_(e, a)
+#define _At_buffer_(e, i, c, a)
+#define _Group_(a)
+#define _When_(e, a)
+
+/* Analysis */
 #define _Analysis_assume_(expr)
+#define _Analysis_assume_nullterminated_(expr)
 
 #endif
 
