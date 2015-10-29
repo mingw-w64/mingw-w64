@@ -986,37 +986,45 @@ short _InterlockedCompareExchange16(short volatile *Destination, short ExChange,
 
 #if __INTRINSIC_PROLOG(_InterlockedExchangeAdd)
 __LONG32 _InterlockedExchangeAdd(__LONG32 volatile *Addend, __LONG32 Value);
+#ifndef __clang__
 __INTRINSICS_USEINLINE 
 __LONG32 _InterlockedExchangeAdd(__LONG32 volatile *Addend, __LONG32 Value) {
     return __sync_fetch_and_add(Addend, Value);
 }
+#endif
 #define __INTRINSIC_DEFINED__InterlockedExchangeAdd
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_InterlockedCompareExchange)
 __LONG32 _InterlockedCompareExchange(__LONG32 volatile *Destination, __LONG32 ExChange, __LONG32 Comperand);
+#ifndef __clang__
 __INTRINSICS_USEINLINE 
 __LONG32 _InterlockedCompareExchange(__LONG32 volatile *Destination, __LONG32 ExChange, __LONG32 Comperand) {
     return __sync_val_compare_and_swap(Destination, Comperand, ExChange);
 }
+#endif
 #define __INTRINSIC_DEFINED__InterlockedCompareExchange
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_InterlockedIncrement)
 __LONG32 _InterlockedIncrement(__LONG32 volatile *Addend);
+#ifndef __clang__
 __INTRINSICS_USEINLINE 
 __LONG32 _InterlockedIncrement(__LONG32 volatile *Addend) {
    return __sync_add_and_fetch(Addend, 1);
 }
+#endif
 #define __INTRINSIC_DEFINED__InterlockedIncrement
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_InterlockedDecrement)
 __LONG32 _InterlockedDecrement(__LONG32 volatile *Addend);
+#ifndef __clang__
 __INTRINSICS_USEINLINE 
 __LONG32 _InterlockedDecrement(__LONG32 volatile *Addend) {
    return __sync_sub_and_fetch(Addend, 1);
 }
+#endif
 #define __INTRINSIC_DEFINED__InterlockedDecrement
 #endif /* __INTRINSIC_PROLOG */
 
@@ -1040,10 +1048,12 @@ __int64 _InterlockedAdd64(__int64 volatile *Addend, __int64 Value) {
 
 #if __INTRINSIC_PROLOG(_InterlockedExchange)
 __LONG32 _InterlockedExchange(__LONG32 volatile *Target, __LONG32 Value);
+#ifndef __clang__
 __INTRINSICS_USEINLINE 
 __LONG32 _InterlockedExchange(__LONG32 volatile *Target, __LONG32 Value) {
     return __sync_lock_test_and_set(Target, Value);
 }
+#endif
 #define __INTRINSIC_DEFINED__InterlockedExchange
 #endif /* __INTRINSIC_PROLOG */
 
@@ -1058,19 +1068,23 @@ __int64 _InterlockedCompareExchange64(__int64 volatile *Destination, __int64 ExC
 
 #if __INTRINSIC_PROLOG(_InterlockedCompareExchangePointer)
 void *_InterlockedCompareExchangePointer(void * volatile *Destination, void *ExChange, void *Comperand);
+#ifndef __clang__
 __INTRINSICS_USEINLINE 
 void *_InterlockedCompareExchangePointer(void *volatile *Destination, void *ExChange, void *Comperand) {
     return __sync_val_compare_and_swap(Destination, Comperand, ExChange);
 }
+#endif
 #define __INTRINSIC_DEFINED__InterlockedCompareExchangePointer
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_InterlockedExchangePointer)
 void *_InterlockedExchangePointer(void *volatile *Target,void *Value);
+#ifndef __clang__
 __INTRINSICS_USEINLINE 
 void *_InterlockedExchangePointer(void *volatile *Target,void *Value) {
     return __sync_lock_test_and_set(Target, Value);
 }
+#endif
 #define __INTRINSIC_DEFINED__InterlockedExchangePointer
 #endif /* __INTRINSIC_PROLOG */
 
