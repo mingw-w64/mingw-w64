@@ -143,7 +143,6 @@
 #define _Deref_in_range_(low, hi)
 #define _Deref_out_range_(low, hi)
 #define _Deref_inout_range_(low, hi)
-#define _Field_range_(low, hi)
 #define _Pre_equal_to_(expr)
 #define _Post_equal_to_(expr)
 #define _Struct_size_bytes_(size)
