@@ -20,8 +20,15 @@
 #define S_OK ((HRESULT)0)
 #endif
 
-/** The builtins we use were added in GCC 5. */
-#if __GNUC__ >= 5
+#ifdef __clang__
+#if __has_builtin(__builtin_add_overflow)
+#define __MINGW_INTSAFE_WORKS
+#endif
+#elif __GNUC__ >= 5
+#define __MINGW_INTSAFE_WORKS
+#endif
+
+#ifdef __MINGW_INTSAFE_WORKS
 
 #ifndef __MINGW_INTSAFE_API
 #define __MINGW_INTSAFE_API FORCEINLINE
