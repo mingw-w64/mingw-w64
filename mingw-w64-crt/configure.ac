@@ -161,6 +161,19 @@ AC_SUBST([LIBARM32SUFFIXDIR],[$libarm32suffx])
 
 # Checks for features.
 
+AC_MSG_CHECKING([whether to use genlib])
+AC_ARG_WITH([genlib],
+  [AS_HELP_STRING([--with-genlib=PATH],
+    [Whether to build import libraries via the genlib tool (default: no)])],
+  [],
+  [with_genlib=no])
+AS_CASE([$with_genlib],
+  [yes],[AC_CHECK_TOOL([GENLIB], [genlib], [:])],
+  [no],[],
+  [AS_VAR_SET([GENLIB], [$with_genlib])])
+AM_CONDITIONAL([WITH_GENLIB], [AS_VAR_TEST_SET([GENLIB])])
+AC_MSG_RESULT([$with_genlib])
+
 AC_MSG_CHECKING([whether to enable globbing])
 AC_ARG_ENABLE([wildcard],
   [AS_HELP_STRING([--enable-wildcard],
