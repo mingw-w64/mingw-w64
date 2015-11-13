@@ -20,7 +20,7 @@
   About:
 
   1. does not need an assembler (its standalone)
-  2. just needs to have a def file and arch you want to create the lib 
+  2. just needs to have a def file and arch you want to create the lib
 
   ALPHA VERSION
 
@@ -36,7 +36,7 @@
   version 1.1: added support for long names members (i.e dll's longer then 15 characters)
 
   IN PROGRESS: Alias support
-       
+
   TODO: DATA type support in .def
 */
 
@@ -178,7 +178,7 @@ int main(int argc, char *argv[])
 
   time_now = time(NULL);
 
-  while((optc = getopt_long_only(argc, argv, ":a:o:v", long_options, &opti)) != EOF) {
+  while((optc = getopt_long_only(argc, argv, ":a:o:V", long_options, &opti)) != EOF) {
     switch(optc) {
     case 'a':
       arch_name = xstrdup(optarg);
@@ -189,7 +189,7 @@ int main(int argc, char *argv[])
     case 'd':
       dll_name = xstrdup(optarg);
       break;
-    case 'v':
+    case 'V':
       printf("%s", version_string);
       return 0;
     default:
@@ -205,7 +205,7 @@ int main(int argc, char *argv[])
 
   if(arch_name == NULL) {
     printf("Please set the Arch");
-    return 1; 
+    return 1;
   }
 
   if(set_machine(arch_name) < 0) {
@@ -295,7 +295,7 @@ static inline uint32_t SYMBOLTABLE(export_type *exp)
     stsize += (strlen(lexp->name)*2) + 8;
   //__IMPORT_DESCRIPTOR_user32. +21
   //__NULL_IMPORT_DESCRIPTOR. +25
-  //Xuser32_NULL_THUNK_DATA. +17 +1 at start for \x7f  
+  //Xuser32_NULL_THUNK_DATA. +17 +1 at start for \x7f
   stsize += (strlen(base_name)*2) + 21 + 25 + 17 + 1;
   return stsize;
 }
@@ -405,7 +405,7 @@ dump_lib (char *fnoutput)
 
   uint32_t size3even = 0;
   uint32_t sizeam3 = 20 + 40*2 + 16 + (18*2) + 4 + strlen(base_name) + 18;
-  
+
   // dont forget to handle odd obj
   if (sizeam3 % 2 != 0)
     size3even++;
@@ -496,8 +496,8 @@ dump_lib (char *fnoutput)
 
   fprintf (fp,"@comp.id");
   //TODO: CHECK WHAT THIS MEANS ??? WHICH ONE ??
-  //fprintf (fp,"%c%c%c%c",'\x7d','\x79','\xdd','\x00'); // CHECK LATER  
-  fprintf (fp,"%c%c%c%c",'\xb4','\x9c','\xef','\x00'); // CHECK LATER  
+  //fprintf (fp,"%c%c%c%c",'\x7d','\x79','\xdd','\x00'); // CHECK LATER
+  fprintf (fp,"%c%c%c%c",'\xb4','\x9c','\xef','\x00'); // CHECK LATER
   fprintf (fp,"%c%c%c%c",'\xff','\xff','\x00','\x00');
   fprintf (fp,"%c%c",'\x03','\x00');
 
@@ -547,7 +547,7 @@ dump_lib (char *fnoutput)
   fwrite (&idaddr, sizeof(uint32_t), 1, fp);
   fprintf (fp,"__IMPORT_DESCRIPTOR_%s%c", base_name, '\x00');
   fprintf (fp,"__NULL_IMPORT_DESCRIPTOR%c", '\x00');
-  fprintf (fp,"\x7f%s_NULL_THUNK_DATA%c", base_name, '\x00'); 
+  fprintf (fp,"\x7f%s_NULL_THUNK_DATA%c", base_name, '\x00');
 
   // ARCHIVE MEMBER 2 (.idata3)
   dump_iamh(fp, sizeam2, dll_name);
@@ -562,7 +562,7 @@ dump_lib (char *fnoutput)
 
   fprintf (fp,"@comp.id");
   //TODO: CHECK WHAT THIS MEANS ???
-  fprintf (fp,"%c%c%c%c",'\xb4','\x9c','\xef','\x00'); // CHECK LATER  
+  fprintf (fp,"%c%c%c%c",'\xb4','\x9c','\xef','\x00'); // CHECK LATER
   fprintf (fp,"%c%c%c%c",'\xff','\xff','\x00','\x00');
   fprintf (fp,"%c%c",'\x03','\x00');
 
@@ -594,7 +594,7 @@ dump_lib (char *fnoutput)
 
   fprintf (fp,"@comp.id");
   //TODO: CHECK WHAT THIS MEANS ???
-  fprintf (fp,"%c%c%c%c",'\xb4','\x9c','\xef','\x00'); // CHECK LATER  
+  fprintf (fp,"%c%c%c%c",'\xb4','\x9c','\xef','\x00'); // CHECK LATER
   fprintf (fp,"%c%c%c%c",'\xff','\xff','\x00','\x00');
   fprintf (fp,"%c%c",'\x03','\x00');
 
@@ -605,11 +605,11 @@ dump_lib (char *fnoutput)
   fprintf (fp,"%c%c%c%c",'\x02','\x00','\x00','\x00');
   fprintf (fp,"%c%c",'\x02','\x00');
 
-  fprintf (fp,"%c%c%c%c",'\x1c','\x00','\x00','\x00'); 
+  fprintf (fp,"%c%c%c%c",'\x1c','\x00','\x00','\x00');
   fprintf (fp,"\x7f%s_NULL_THUNK_DATA%c", base_name, '\x00');
 
   if(size3even)
-    fprintf (fp,"%c",'\x0A');    
+    fprintf (fp,"%c",'\x0A');
 
   /* SHORT IMPORT LIBRARY ARCHIVE MEMBERS */
   i = 0;
@@ -629,7 +629,7 @@ dump_ialnm (FILE *fp)
   // If dllname+1 is an odd number append 0A to close
   if (strlen(dll_name) % 2 == 0)
       fprintf (fp,"\x0A");
-  
+
 }
 
 /* dump image file header */
@@ -828,7 +828,7 @@ dump_iamh (FILE *fp, uint32_t size, char *name)
   {
     if(name[1] == '/')
     {
-      fprintf (fp,"//              "); // 2F 2F 20++    
+      fprintf (fp,"//              "); // 2F 2F 20++
     }
     else if(strlen(dll_name) > 15)
     {
@@ -899,7 +899,7 @@ dump_ialm2 (FILE *fp, uint32_t id, uint32_t nid, uint32_t ntd)
 {
   export_type *exp;
   uint32_t i;
-  uint16_t dummy = 0x0000; 
+  uint16_t dummy = 0x0000;
   uint32_t d_nmembers = d_nfuncs + 3;
   uint32_t d_nsymbols = (d_nfuncs*2) + 3;
 
@@ -933,7 +933,7 @@ dump_ialm2 (FILE *fp, uint32_t id, uint32_t nid, uint32_t ntd)
   /* SYMBOL TABLE */
   fprintf (fp,"__IMPORT_DESCRIPTOR_%s%c", base_name, '\x00');
   fprintf (fp,"__NULL_IMPORT_DESCRIPTOR%c", '\x00');
-  fprintf (fp,"\x7f%s_NULL_THUNK_DATA%c", base_name, '\x00'); 
+  fprintf (fp,"\x7f%s_NULL_THUNK_DATA%c", base_name, '\x00');
   for (exp = d_exports; exp; exp = exp->next)
   {
     fprintf (fp,"%s%c",exp->name,'\x00');
@@ -947,9 +947,9 @@ dump_ialm2 (FILE *fp, uint32_t id, uint32_t nid, uint32_t ntd)
 static void
 dump_slif (FILE *fp, export_type *exp, uint16_t count)
 {
-  uint16_t dummy1 = 0x0000; 
+  uint16_t dummy1 = 0x0000;
   uint16_t dummy2 = 0xffff;
-  uint32_t d_imp_size = strlen(exp->name) + strlen(dll_name) + 2; 
+  uint32_t d_imp_size = strlen(exp->name) + strlen(dll_name) + 2;
   uint32_t oddname = 0;
   // dont forget to handle odd obj
   if (d_imp_size % 2 != 0)
