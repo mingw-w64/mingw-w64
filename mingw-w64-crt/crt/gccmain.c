@@ -9,8 +9,15 @@
 #include <setjmp.h>
 
 typedef void (*func_ptr) (void);
-extern func_ptr __CTOR_LIST__[];
-extern func_ptr __DTOR_LIST__[];
+#define STATIC static
+
+STATIC func_ptr __MINGW_CTOR_LIST__[1]
+  __attribute__ ((__used__, section(".ctors"), aligned(sizeof(func_ptr))))
+  = { (func_ptr) (-1) };
+
+STATIC func_ptr __MINGW_DTOR_LIST__[1]
+  __attribute__((section(".dtors"), aligned(sizeof(func_ptr))))
+  = { (func_ptr) (-1) };
 
 void __do_global_dtors (void);
 void __do_global_ctors (void);
@@ -19,7 +26,7 @@ void __main (void);
 void
 __do_global_dtors (void)
 {
-  static func_ptr *p = __DTOR_LIST__ + 1;
+  static func_ptr *p = __MINGW_DTOR_LIST__ + 1;
 
   while (*p)
     {
@@ -31,17 +38,17 @@ __do_global_dtors (void)
 void
 __do_global_ctors (void)
 {
-  unsigned long nptrs = (unsigned long) (ptrdiff_t) __CTOR_LIST__[0];
+  unsigned long nptrs = (unsigned long) (ptrdiff_t) __MINGW_CTOR_LIST__[0];
   unsigned long i;
 
   if (nptrs == (unsigned long) -1)
     {
-      for (nptrs = 0; __CTOR_LIST__[nptrs + 1] != 0; nptrs++);
+      for (nptrs = 0; __MINGW_CTOR_LIST__[nptrs + 1] != 0; nptrs++);
     }
 
   for (i = nptrs; i >= 1; i--)
     {
-      __CTOR_LIST__[i] ();
+      __MINGW_CTOR_LIST__[i] ();
     }
 
   atexit (__do_global_dtors);
