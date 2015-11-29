@@ -36,48 +36,9 @@
 #define __MINGW32_MAJOR_VERSION 3
 #define __MINGW32_MINOR_VERSION 11
 
-#ifdef _WIN64
-   /* MS does not prefix symbols by underscores for 64-bit.  */
-#  ifndef __MINGW_USE_UNDERSCORE_PREFIX
-     /* As we have to support older gcc version, which are using underscores
-      as symbol prefix for x64, we have to check here for the user label
-      prefix defined by gcc. */
-#    ifdef __USER_LABEL_PREFIX__
-#      pragma push_macro ("_")
-#      undef _
-#      define _ 1
-#      if (__USER_LABEL_PREFIX__ + 0) != 0
-#        define __MINGW_USE_UNDERSCORE_PREFIX 1
-#      else
-#        define __MINGW_USE_UNDERSCORE_PREFIX 0
-#      endif
-#      undef _
-#      pragma pop_macro ("_")
-#    else /* ! __USER_LABEL_PREFIX__ */
-#      define __MINGW_USE_UNDERSCORE_PREFIX 0
-#    endif /* __USER_LABEL_PREFIX__ */
-#  endif
-#else /* ! ifdef _WIN64 */
-   /* For 32-bits we have always to prefix by underscore.  */
-#  undef __MINGW_USE_UNDERSCORE_PREFIX
-#  define __MINGW_USE_UNDERSCORE_PREFIX 1
-#endif /* ifdef _WIN64 */
-
-#if __MINGW_USE_UNDERSCORE_PREFIX == 0
-#  define __MINGW_IMP_SYMBOL(sym) __imp_##sym
-#  define __MINGW_IMP_LSYMBOL(sym) __imp_##sym
-#  define __MINGW_USYMBOL(sym) sym
-#  define __MINGW_LSYMBOL(sym) _##sym
-#else /* ! if __MINGW_USE_UNDERSCORE_PREFIX == 0 */
-#  define __MINGW_IMP_SYMBOL(sym) _imp__##sym
-#  define __MINGW_IMP_LSYMBOL(sym) __imp__##sym
-#  define __MINGW_USYMBOL(sym) _##sym
-#  define __MINGW_LSYMBOL(sym) sym
-#endif /* if __MINGW_USE_UNDERSCORE_PREFIX == 0 */
-
 /* Set VC specific compiler target macros.  */
 #if defined(__x86_64) && defined(_X86_)
-#  undef _X86_	/* _X86_ is not for __x86_64 */
+#  undef _X86_  /* _X86_ is not for __x86_64 */
 #endif
 
 #if defined(_X86_) && !defined(_M_IX86) && !defined(_M_IA64) \
@@ -104,12 +65,57 @@
 #  define _M_IA64 100
 #endif
 
-#if defined(__arm__) && !defined(_M_ARM)
+#if defined(__arm__) && !defined(_M_ARM) && !defined(_M_ARMT) \
+   && !defined(_M_THUMB)
 #  define _M_ARM 100
+#  define _M_ARMT 100
+#  define _M_THUMB 100
 #  ifndef _ARM_
 #    define _ARM_ 1
 #  endif
+#  ifndef _M_ARM_NT
+#    define _M_ARM_NT 1
+#  endif
 #endif
+
+#ifndef _X86_
+   /* MS does not prefix symbols by underscores for 64-bit.  */
+#  ifndef __MINGW_USE_UNDERSCORE_PREFIX
+     /* As we have to support older gcc version, which are using underscores
+      as symbol prefix for x64, we have to check here for the user label
+      prefix defined by gcc. */
+#    ifdef __USER_LABEL_PREFIX__
+#      pragma push_macro ("_")
+#      undef _
+#      define _ 1
+#      if (__USER_LABEL_PREFIX__ + 0) != 0
+#        define __MINGW_USE_UNDERSCORE_PREFIX 1
+#      else
+#        define __MINGW_USE_UNDERSCORE_PREFIX 0
+#      endif
+#      undef _
+#      pragma pop_macro ("_")
+#    else /* ! __USER_LABEL_PREFIX__ */
+#      define __MINGW_USE_UNDERSCORE_PREFIX 0
+#    endif /* __USER_LABEL_PREFIX__ */
+#  endif
+#else /* ! ifndef _X86_ */
+   /* For x86 we have always to prefix by underscore.  */
+#  undef __MINGW_USE_UNDERSCORE_PREFIX
+#  define __MINGW_USE_UNDERSCORE_PREFIX 1
+#endif /* ifndef _X86_ */
+
+#if __MINGW_USE_UNDERSCORE_PREFIX == 0
+#  define __MINGW_IMP_SYMBOL(sym) __imp_##sym
+#  define __MINGW_IMP_LSYMBOL(sym) __imp_##sym
+#  define __MINGW_USYMBOL(sym) sym
+#  define __MINGW_LSYMBOL(sym) _##sym
+#else /* ! if __MINGW_USE_UNDERSCORE_PREFIX == 0 */
+#  define __MINGW_IMP_SYMBOL(sym) _imp__##sym
+#  define __MINGW_IMP_LSYMBOL(sym) __imp__##sym
+#  define __MINGW_USYMBOL(sym) _##sym
+#  define __MINGW_LSYMBOL(sym) sym
+#endif /* if __MINGW_USE_UNDERSCORE_PREFIX == 0 */
 
 #ifndef __PTRDIFF_TYPE__
 #  ifdef _WIN64
