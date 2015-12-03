@@ -191,6 +191,9 @@ src_msvcrt=\
   secapi/_vcprintf_s_l.c \
   secapi/_vcwprintf_s.c \
   secapi/_vcwprintf_s_l.c \
+  secapi/_vscprintf_p.c \
+  secapi/_vscwprintf_p.c \
+  secapi/_vswprintf_p.c \
   secapi/_waccess_s.c \
   secapi/_wasctime_s.c \
   secapi/_wctime32_s.c \
