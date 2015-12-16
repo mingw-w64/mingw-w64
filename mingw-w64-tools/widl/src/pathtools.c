@@ -21,6 +21,8 @@
 #endif
 #include <unistd.h>
 
+#include "utils.h"
+
 /* If you don't define this, then get_executable_path()
    can only use argv[0] which will often not work well */
 #define IMPLEMENT_SYS_GET_EXECUTABLE_PATH
@@ -181,7 +183,7 @@ simplify_path(char * path)
   size_t tok_size;
   size_t in_size = strlen (path);
   int it_ended_with_a_slash = (path[in_size - 1] == '/') ? 1 : 0;
-  char * result = path;
+  char * result = xmalloc (in_size+1);
   sanitise_path(result);
   char * result_p = result;
 
@@ -260,6 +262,8 @@ simplify_path(char * path)
     }
   }
   *result_p = '\0';
+  strcpy(result, path);
+  free(result);
 }
 
 /* Returns actual_to by calculating the relative path from -> to and
