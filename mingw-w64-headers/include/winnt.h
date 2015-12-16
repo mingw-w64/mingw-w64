@@ -8367,6 +8367,10 @@ typedef DWORD (WINAPI *PRTL_RUN_ONCE_INIT_FN)(PRTL_RUN_ONCE, PVOID, PVOID *);
     struct _TEB *NtCurrentTeb (VOID);
     PVOID GetCurrentFiber (VOID);
     PVOID GetFiberData (VOID);
+    FORCEINLINE struct _TEB *NtCurrentTeb(VOID) { struct _TEB *teb;
+    __asm ("mrc p15, 0, %0, c13, c0, 2" : "=r" (teb));
+    return teb; }
+    FORCEINLINE PVOID GetCurrentFiber(VOID) { return (PVOID)(((PNT_TIB)NtCurrentTeb())->FiberData); }
     FORCEINLINE PVOID GetFiberData (VOID) { return *(PVOID *)GetCurrentFiber (); }
 #endif /* arm */
 
