@@ -14,6 +14,12 @@ enum DWRITE_OUTLINE_THRESHOLD {
     DWRITE_OUTLINE_THRESHOLD_ALIASED
 };
 
+enum DWRITE_TEXT_ANTIALIAS_MODE
+{
+    DWRITE_TEXT_ANTIALIAS_MODE_CLEARTYPE,
+    DWRITE_TEXT_ANTIALIAS_MODE_GRAYSCALE
+};
+
 struct DWRITE_CARET_METRICS {
     INT16 slopeRise;
     INT16 slopeRun;
@@ -144,5 +150,183 @@ DECLARE_INTERFACE_(IDWriteFontFace1, IDWriteFontFace)
 
 __CRT_UUID_DECL(IDWriteFontFace1, 0xa71efdb4,0x9fdb,0x4838,0xad,0x90,0xcf,0xc3,0xbe,0x8c,0x3d,0xaf);
 
+#undef  INTERFACE
+#define INTERFACE IDWriteRenderingParams1
+DECLARE_INTERFACE_(IDWriteRenderingParams1,IDWriteRenderingParams)
+{
+    BEGIN_INTERFACE
+
+#ifndef __cplusplus
+    /* IUnknown methods */
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+
+    /* IDWriteRenderingParams methods */
+    STDMETHOD_(FLOAT, GetGamma)(THIS) PURE;
+    STDMETHOD_(FLOAT, GetEnhancedContrast)(THIS) PURE;
+    STDMETHOD_(FLOAT, GetClearTypeLevel)(THIS) PURE;
+    STDMETHOD_(DWRITE_PIXEL_GEOMETRY, GetPixelGeometry)(THIS) PURE;
+    STDMETHOD_(DWRITE_RENDERING_MODE, GetRenderingMode)(THIS) PURE;
+#endif
+
+    /* IDWriteRenderingParams1 methods */
+    STDMETHOD_(FLOAT, GetGrayscaleEnhancedContrast)(THIS) PURE;
+
+    END_INTERFACE
+};
+
+__CRT_UUID_DECL(IDWriteRenderingParams1, 0x94413cf4,0xa6fc,0x4248,0x8b,0x50,0x66,0x74,0x34,0x8f,0xca,0xd3)
+
+#undef  INTERFACE
+#define INTERFACE IDWriteFactory1
+DECLARE_INTERFACE_(IDWriteFactory1,IDWriteFactory)
+{
+    BEGIN_INTERFACE
+
+#ifndef __cplusplus
+    /* IUnknown methods */
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+
+    /* IDWriteFactory methods */
+    STDMETHOD(GetSystemFontCollection)(THIS_
+        IDWriteFontCollection **fontCollection,
+        WINBOOL checkForUpdates __MINGW_DEF_ARG_VAL(FALSE)) PURE;
+
+    STDMETHOD(CreateCustomFontCollection)(THIS_
+        IDWriteFontCollectionLoader *collectionLoader,
+        void const *collectionKey,
+        UINT32 collectionKeySize,
+        IDWriteFontCollection **fontCollection) PURE;
+
+    STDMETHOD(RegisterFontCollectionLoader)(THIS_
+        IDWriteFontCollectionLoader *fontCollectionLoader) PURE;
+
+    STDMETHOD(UnregisterFontCollectionLoader)(THIS_
+        IDWriteFontCollectionLoader *fontCollectionLoader) PURE;
+
+    STDMETHOD(CreateFontFileReference)(THIS_
+        WCHAR const *filePath,
+        FILETIME const *lastWriteTime,
+        IDWriteFontFile **fontFile) PURE;
+
+    STDMETHOD(CreateCustomFontFileReference)(THIS_
+        void const *fontFileReferenceKey,
+        UINT32 fontFileReferenceKeySize,
+        IDWriteFontFileLoader *fontFileLoader,
+        IDWriteFontFile **fontFile) PURE;
+
+    STDMETHOD(CreateFontFace)(THIS_
+        DWRITE_FONT_FACE_TYPE fontFaceType,
+        UINT32 numberOfFiles,
+        IDWriteFontFile *const *fontFiles,
+        UINT32 faceIndex,
+        DWRITE_FONT_SIMULATIONS fontFaceSimulationFlags,
+        IDWriteFontFace **fontFace) PURE;
+
+    STDMETHOD(CreateRenderingParams)(THIS_
+        IDWriteRenderingParams **renderingParams) PURE;
+
+    STDMETHOD(CreateMonitorRenderingParams)(THIS_
+        HMONITOR monitor,
+        IDWriteRenderingParams **renderingParams) PURE;
+
+    STDMETHOD(CreateCustomRenderingParams)(THIS_
+        FLOAT gamma,
+        FLOAT enhancedContrast,
+        FLOAT clearTypeLevel,
+        DWRITE_PIXEL_GEOMETRY pixelGeometry,
+        DWRITE_RENDERING_MODE renderingMode,
+        IDWriteRenderingParams **renderingParams) PURE;
+
+    STDMETHOD(RegisterFontFileLoader)(THIS_
+        IDWriteFontFileLoader *fontFileLoader) PURE;
+
+    STDMETHOD(UnregisterFontFileLoader)(THIS_
+        IDWriteFontFileLoader *fontFileLoader) PURE;
+
+    STDMETHOD(CreateTextFormat)(THIS_
+        WCHAR const *fontFamilyName,
+        IDWriteFontCollection *fontCollection,
+        DWRITE_FONT_WEIGHT fontWeight,
+        DWRITE_FONT_STYLE fontStyle,
+        DWRITE_FONT_STRETCH fontStretch,
+        FLOAT fontSize,
+        WCHAR const *localeName,
+        IDWriteTextFormat **textFormat) PURE;
+
+    STDMETHOD(CreateTypography)(THIS_
+        IDWriteTypography **typography) PURE;
+
+    STDMETHOD(GetGdiInterop)(THIS_
+        IDWriteGdiInterop **gdiInterop) PURE;
+
+    STDMETHOD(CreateTextLayout)(THIS_
+        WCHAR const *string,
+        UINT32 stringLength,
+        IDWriteTextFormat *textFormat,
+        FLOAT maxWidth,
+        FLOAT maxHeight,
+        IDWriteTextLayout **textLayout) PURE;
+
+    STDMETHOD(CreateGdiCompatibleTextLayout)(THIS_
+        WCHAR const *string,
+        UINT32 stringLength,
+        IDWriteTextFormat *textFormat,
+        FLOAT layoutWidth,
+        FLOAT layoutHeight,
+        FLOAT pixelsPerDip,
+        DWRITE_MATRIX const *transform,
+        WINBOOL useGdiNatural,
+        IDWriteTextLayout **textLayout) PURE;
+
+    STDMETHOD(CreateEllipsisTrimmingSign)(THIS_
+        IDWriteTextFormat *textFormat,
+        IDWriteInlineObject **trimmingSign) PURE;
+
+    STDMETHOD(CreateTextAnalyzer)(THIS_
+        IDWriteTextAnalyzer **textAnalyzer) PURE;
+
+    STDMETHOD(CreateNumberSubstitution)(THIS_
+        DWRITE_NUMBER_SUBSTITUTION_METHOD substitutionMethod,
+        WCHAR const *localeName,
+        WINBOOL ignoreUserOverride,
+        IDWriteNumberSubstitution **numberSubstitution) PURE;
+
+    STDMETHOD(CreateGlyphRunAnalysis)(THIS_
+        DWRITE_GLYPH_RUN const *glyphRun,
+        FLOAT pixelsPerDip,
+        DWRITE_MATRIX const *transform,
+        DWRITE_RENDERING_MODE renderingMode,
+        DWRITE_MEASURING_MODE measuringMode,
+        FLOAT baselineOriginX,
+        FLOAT baselineOriginY,
+        IDWriteGlyphRunAnalysis **glyphRunAnalysis) PURE;
+#endif
+
+    /* IDWriteFactory1 methods */
+    STDMETHOD(GetEudcFontCollection)(THIS_
+        IDWriteFontCollection **fontCollection,
+        BOOL checkForUpdates __MINGW_DEF_ARG_VAL(FALSE)) PURE;
+
+    STDMETHOD(CreateCustomRenderingParams)(THIS_
+        FLOAT gamma,
+        FLOAT enhancedContrast,
+        FLOAT enhancedContrastGrayscale,
+        FLOAT clearTypeLevel,
+        DWRITE_PIXEL_GEOMETRY pixelGeometry,
+        DWRITE_RENDERING_MODE renderingMode,
+        IDWriteRenderingParams1 **renderingParams) PURE;
+
+#ifdef __cplusplus
+    using IDWriteFactory::CreateCustomRenderingParams;
+#endif
+
+    END_INTERFACE
+};
+
+__CRT_UUID_DECL(IDWriteFactory1, 0x30572f99,0xdac6,0x41db,0xa1,0x6e,0x04,0x86,0x30,0x7e,0x60,0x6a)
 
 #endif /* DWRITE_1_H_INCLUDED */
