@@ -85,7 +85,7 @@ size_t wcsrtombs (char *dst, const wchar_t **src, size_t len,
   else
     {
       char byte_bucket [MB_LEN_MAX];
-      while (n < len)
+      while (1)
 	{
 	  if ((ret = __wcrtomb_cp (&byte_bucket[0], *pwc, cp, mb_max)) <= 0)
 	    return (size_t) -1;
