@@ -32,6 +32,11 @@ typedef interface IEnumTfFunctionProviders IEnumTfFunctionProviders;
 typedef interface ITfThreadMgr ITfThreadMgr;
 #endif
 
+#ifndef __ITfThreadMgrEx_FWD_DEFINED__
+#define __ITfThreadMgrEx_FWD_DEFINED__
+typedef interface ITfThreadMgrEx ITfThreadMgrEx;
+#endif
+
 #ifndef __ITfCompositionView_FWD_DEFINED__
 #define __ITfCompositionView_FWD_DEFINED__
 typedef interface ITfCompositionView ITfCompositionView;
@@ -265,6 +270,21 @@ typedef interface IEnumTfContexts IEnumTfContexts;
 #ifndef __IEnumTfDocumentMgrs_FWD_DEFINED__
 #define __IEnumTfDocumentMgrs_FWD_DEFINED__
 typedef interface IEnumTfDocumentMgrs IEnumTfDocumentMgrs;
+#endif
+
+#ifndef __ITfUIElement_FWD_DEFINED__
+#define __ITfUIElement_FWD_DEFINED__
+typedef interface ITfUIElement ITfUIElement;
+#endif
+
+#ifndef __IEnumTfUIElements_FWD_DEFINED__
+#define __IEnumTfUIElements_FWD_DEFINED__
+typedef interface IEnumTfUIElements IEnumTfUIElements;
+#endif
+
+#ifndef __ITfUIElementMgr_FWD_DEFINED__
+#define __ITfUIElementMgr_FWD_DEFINED__
+typedef interface ITfUIElementMgr ITfUIElementMgr;
 #endif
 
 #ifndef __ITfSourceSingle_FWD_DEFINED__
@@ -997,6 +1017,205 @@ void __RPC_STUB ITfThreadMgr_GetGlobalCompartment_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __ITfThreadMgr_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITfThreadMgrEx interface
+ */
+#ifndef __ITfThreadMgrEx_INTERFACE_DEFINED__
+#define __ITfThreadMgrEx_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ITfThreadMgrEx, 0x3e90ade3, 0x7594, 0x4cb0, 0xbb,0x58, 0x69,0x62,0x8f,0x5f,0x45,0x8c);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("3e90ade3-7594-4cb0-bb58-69628f5f458c")
+ITfThreadMgrEx : public ITfThreadMgr
+{
+    virtual HRESULT STDMETHODCALLTYPE ActivateEx(
+        TfClientId *id,
+        DWORD flags) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetActiveFlags(
+        DWORD *flags) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITfThreadMgrEx, 0x3e90ade3, 0x7594, 0x4cb0, 0xbb,0x58, 0x69,0x62,0x8f,0x5f,0x45,0x8c)
+#endif
+#else
+typedef struct ITfThreadMgrExVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITfThreadMgrEx* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITfThreadMgrEx* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITfThreadMgrEx* This);
+
+    /*** ITfThreadMgr methods ***/
+    HRESULT (STDMETHODCALLTYPE *Activate)(
+        ITfThreadMgrEx* This,
+        TfClientId *ptid);
+
+    HRESULT (STDMETHODCALLTYPE *Deactivate)(
+        ITfThreadMgrEx* This);
+
+    HRESULT (STDMETHODCALLTYPE *CreateDocumentMgr)(
+        ITfThreadMgrEx* This,
+        ITfDocumentMgr **ppdim);
+
+    HRESULT (STDMETHODCALLTYPE *EnumDocumentMgrs)(
+        ITfThreadMgrEx* This,
+        IEnumTfDocumentMgrs **ppEnum);
+
+    HRESULT (STDMETHODCALLTYPE *GetFocus)(
+        ITfThreadMgrEx* This,
+        ITfDocumentMgr **ppdimFocus);
+
+    HRESULT (STDMETHODCALLTYPE *SetFocus)(
+        ITfThreadMgrEx* This,
+        ITfDocumentMgr *pdimFocus);
+
+    HRESULT (STDMETHODCALLTYPE *AssociateFocus)(
+        ITfThreadMgrEx* This,
+        HWND hwnd,
+        ITfDocumentMgr *pdimNew,
+        ITfDocumentMgr **ppdimPrev);
+
+    HRESULT (STDMETHODCALLTYPE *IsThreadFocus)(
+        ITfThreadMgrEx* This,
+        WINBOOL *pfThreadFocus);
+
+    HRESULT (STDMETHODCALLTYPE *GetFunctionProvider)(
+        ITfThreadMgrEx* This,
+        REFCLSID clsid,
+        ITfFunctionProvider **ppFuncProv);
+
+    HRESULT (STDMETHODCALLTYPE *EnumFunctionProviders)(
+        ITfThreadMgrEx* This,
+        IEnumTfFunctionProviders **ppEnum);
+
+    HRESULT (STDMETHODCALLTYPE *GetGlobalCompartment)(
+        ITfThreadMgrEx* This,
+        ITfCompartmentMgr **ppCompMgr);
+
+    /*** ITfThreadMgrEx methods ***/
+    HRESULT (STDMETHODCALLTYPE *ActivateEx)(
+        ITfThreadMgrEx* This,
+        TfClientId *id,
+        DWORD flags);
+
+    HRESULT (STDMETHODCALLTYPE *GetActiveFlags)(
+        ITfThreadMgrEx* This,
+        DWORD *flags);
+
+    END_INTERFACE
+} ITfThreadMgrExVtbl;
+interface ITfThreadMgrEx {
+    CONST_VTBL ITfThreadMgrExVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITfThreadMgrEx_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITfThreadMgrEx_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITfThreadMgrEx_Release(This) (This)->lpVtbl->Release(This)
+/*** ITfThreadMgr methods ***/
+#define ITfThreadMgrEx_Activate(This,ptid) (This)->lpVtbl->Activate(This,ptid)
+#define ITfThreadMgrEx_Deactivate(This) (This)->lpVtbl->Deactivate(This)
+#define ITfThreadMgrEx_CreateDocumentMgr(This,ppdim) (This)->lpVtbl->CreateDocumentMgr(This,ppdim)
+#define ITfThreadMgrEx_EnumDocumentMgrs(This,ppEnum) (This)->lpVtbl->EnumDocumentMgrs(This,ppEnum)
+#define ITfThreadMgrEx_GetFocus(This,ppdimFocus) (This)->lpVtbl->GetFocus(This,ppdimFocus)
+#define ITfThreadMgrEx_SetFocus(This,pdimFocus) (This)->lpVtbl->SetFocus(This,pdimFocus)
+#define ITfThreadMgrEx_AssociateFocus(This,hwnd,pdimNew,ppdimPrev) (This)->lpVtbl->AssociateFocus(This,hwnd,pdimNew,ppdimPrev)
+#define ITfThreadMgrEx_IsThreadFocus(This,pfThreadFocus) (This)->lpVtbl->IsThreadFocus(This,pfThreadFocus)
+#define ITfThreadMgrEx_GetFunctionProvider(This,clsid,ppFuncProv) (This)->lpVtbl->GetFunctionProvider(This,clsid,ppFuncProv)
+#define ITfThreadMgrEx_EnumFunctionProviders(This,ppEnum) (This)->lpVtbl->EnumFunctionProviders(This,ppEnum)
+#define ITfThreadMgrEx_GetGlobalCompartment(This,ppCompMgr) (This)->lpVtbl->GetGlobalCompartment(This,ppCompMgr)
+/*** ITfThreadMgrEx methods ***/
+#define ITfThreadMgrEx_ActivateEx(This,id,flags) (This)->lpVtbl->ActivateEx(This,id,flags)
+#define ITfThreadMgrEx_GetActiveFlags(This,flags) (This)->lpVtbl->GetActiveFlags(This,flags)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfThreadMgrEx_QueryInterface(ITfThreadMgrEx* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfThreadMgrEx_AddRef(ITfThreadMgrEx* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfThreadMgrEx_Release(ITfThreadMgrEx* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfThreadMgr methods ***/
+static FORCEINLINE HRESULT ITfThreadMgrEx_Activate(ITfThreadMgrEx* This,TfClientId *ptid) {
+    return This->lpVtbl->Activate(This,ptid);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_Deactivate(ITfThreadMgrEx* This) {
+    return This->lpVtbl->Deactivate(This);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_CreateDocumentMgr(ITfThreadMgrEx* This,ITfDocumentMgr **ppdim) {
+    return This->lpVtbl->CreateDocumentMgr(This,ppdim);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_EnumDocumentMgrs(ITfThreadMgrEx* This,IEnumTfDocumentMgrs **ppEnum) {
+    return This->lpVtbl->EnumDocumentMgrs(This,ppEnum);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_GetFocus(ITfThreadMgrEx* This,ITfDocumentMgr **ppdimFocus) {
+    return This->lpVtbl->GetFocus(This,ppdimFocus);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_SetFocus(ITfThreadMgrEx* This,ITfDocumentMgr *pdimFocus) {
+    return This->lpVtbl->SetFocus(This,pdimFocus);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_AssociateFocus(ITfThreadMgrEx* This,HWND hwnd,ITfDocumentMgr *pdimNew,ITfDocumentMgr **ppdimPrev) {
+    return This->lpVtbl->AssociateFocus(This,hwnd,pdimNew,ppdimPrev);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_IsThreadFocus(ITfThreadMgrEx* This,WINBOOL *pfThreadFocus) {
+    return This->lpVtbl->IsThreadFocus(This,pfThreadFocus);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_GetFunctionProvider(ITfThreadMgrEx* This,REFCLSID clsid,ITfFunctionProvider **ppFuncProv) {
+    return This->lpVtbl->GetFunctionProvider(This,clsid,ppFuncProv);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_EnumFunctionProviders(ITfThreadMgrEx* This,IEnumTfFunctionProviders **ppEnum) {
+    return This->lpVtbl->EnumFunctionProviders(This,ppEnum);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_GetGlobalCompartment(ITfThreadMgrEx* This,ITfCompartmentMgr **ppCompMgr) {
+    return This->lpVtbl->GetGlobalCompartment(This,ppCompMgr);
+}
+/*** ITfThreadMgrEx methods ***/
+static FORCEINLINE HRESULT ITfThreadMgrEx_ActivateEx(ITfThreadMgrEx* This,TfClientId *id,DWORD flags) {
+    return This->lpVtbl->ActivateEx(This,id,flags);
+}
+static FORCEINLINE HRESULT ITfThreadMgrEx_GetActiveFlags(ITfThreadMgrEx* This,DWORD *flags) {
+    return This->lpVtbl->GetActiveFlags(This,flags);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ITfThreadMgrEx_ActivateEx_Proxy(
+    ITfThreadMgrEx* This,
+    TfClientId *id,
+    DWORD flags);
+void __RPC_STUB ITfThreadMgrEx_ActivateEx_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfThreadMgrEx_GetActiveFlags_Proxy(
+    ITfThreadMgrEx* This,
+    DWORD *flags);
+void __RPC_STUB ITfThreadMgrEx_GetActiveFlags_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ITfThreadMgrEx_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * ITfCompositionView interface
@@ -9611,6 +9830,461 @@ void __RPC_STUB IEnumTfDocumentMgrs_Skip_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __IEnumTfDocumentMgrs_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITfUIElement interface
+ */
+#ifndef __ITfUIElement_INTERFACE_DEFINED__
+#define __ITfUIElement_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ITfUIElement, 0xea1ea137, 0x19df, 0x11d7, 0xa6,0xd2, 0x00,0x06,0x5b,0x84,0x43,0x5c);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("ea1ea137-19df-11d7-a6d2-00065b84435c")
+ITfUIElement : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetDescription(
+        BSTR *description) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetGUID(
+        GUID *guid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Show(
+        WINBOOL show) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IsShown(
+        WINBOOL *show) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITfUIElement, 0xea1ea137, 0x19df, 0x11d7, 0xa6,0xd2, 0x00,0x06,0x5b,0x84,0x43,0x5c)
+#endif
+#else
+typedef struct ITfUIElementVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITfUIElement* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITfUIElement* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITfUIElement* This);
+
+    /*** ITfUIElement methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetDescription)(
+        ITfUIElement* This,
+        BSTR *description);
+
+    HRESULT (STDMETHODCALLTYPE *GetGUID)(
+        ITfUIElement* This,
+        GUID *guid);
+
+    HRESULT (STDMETHODCALLTYPE *Show)(
+        ITfUIElement* This,
+        WINBOOL show);
+
+    HRESULT (STDMETHODCALLTYPE *IsShown)(
+        ITfUIElement* This,
+        WINBOOL *show);
+
+    END_INTERFACE
+} ITfUIElementVtbl;
+interface ITfUIElement {
+    CONST_VTBL ITfUIElementVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITfUIElement_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITfUIElement_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITfUIElement_Release(This) (This)->lpVtbl->Release(This)
+/*** ITfUIElement methods ***/
+#define ITfUIElement_GetDescription(This,description) (This)->lpVtbl->GetDescription(This,description)
+#define ITfUIElement_GetGUID(This,guid) (This)->lpVtbl->GetGUID(This,guid)
+#define ITfUIElement_Show(This,show) (This)->lpVtbl->Show(This,show)
+#define ITfUIElement_IsShown(This,show) (This)->lpVtbl->IsShown(This,show)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfUIElement_QueryInterface(ITfUIElement* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfUIElement_AddRef(ITfUIElement* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfUIElement_Release(ITfUIElement* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfUIElement methods ***/
+static FORCEINLINE HRESULT ITfUIElement_GetDescription(ITfUIElement* This,BSTR *description) {
+    return This->lpVtbl->GetDescription(This,description);
+}
+static FORCEINLINE HRESULT ITfUIElement_GetGUID(ITfUIElement* This,GUID *guid) {
+    return This->lpVtbl->GetGUID(This,guid);
+}
+static FORCEINLINE HRESULT ITfUIElement_Show(ITfUIElement* This,WINBOOL show) {
+    return This->lpVtbl->Show(This,show);
+}
+static FORCEINLINE HRESULT ITfUIElement_IsShown(ITfUIElement* This,WINBOOL *show) {
+    return This->lpVtbl->IsShown(This,show);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ITfUIElement_GetDescription_Proxy(
+    ITfUIElement* This,
+    BSTR *description);
+void __RPC_STUB ITfUIElement_GetDescription_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfUIElement_GetGUID_Proxy(
+    ITfUIElement* This,
+    GUID *guid);
+void __RPC_STUB ITfUIElement_GetGUID_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfUIElement_Show_Proxy(
+    ITfUIElement* This,
+    WINBOOL show);
+void __RPC_STUB ITfUIElement_Show_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfUIElement_IsShown_Proxy(
+    ITfUIElement* This,
+    WINBOOL *show);
+void __RPC_STUB ITfUIElement_IsShown_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ITfUIElement_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IEnumTfUIElements interface
+ */
+#ifndef __IEnumTfUIElements_INTERFACE_DEFINED__
+#define __IEnumTfUIElements_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IEnumTfUIElements, 0x887aa91e, 0xacba, 0x4931, 0x84,0xda, 0x3c,0x52,0x08,0xcf,0x54,0x3f);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("887aa91e-acba-4931-84da-3c5208cf543f")
+IEnumTfUIElements : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Clone(
+        IEnumTfUIElements **enum_elements) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Next(
+        ULONG count,
+        ITfUIElement **element,
+        ULONG fetched) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Reset(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Skip(
+        ULONG count) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IEnumTfUIElements, 0x887aa91e, 0xacba, 0x4931, 0x84,0xda, 0x3c,0x52,0x08,0xcf,0x54,0x3f)
+#endif
+#else
+typedef struct IEnumTfUIElementsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IEnumTfUIElements* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IEnumTfUIElements* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IEnumTfUIElements* This);
+
+    /*** IEnumTfUIElements methods ***/
+    HRESULT (STDMETHODCALLTYPE *Clone)(
+        IEnumTfUIElements* This,
+        IEnumTfUIElements **enum_elements);
+
+    HRESULT (STDMETHODCALLTYPE *Next)(
+        IEnumTfUIElements* This,
+        ULONG count,
+        ITfUIElement **element,
+        ULONG fetched);
+
+    HRESULT (STDMETHODCALLTYPE *Reset)(
+        IEnumTfUIElements* This);
+
+    HRESULT (STDMETHODCALLTYPE *Skip)(
+        IEnumTfUIElements* This,
+        ULONG count);
+
+    END_INTERFACE
+} IEnumTfUIElementsVtbl;
+interface IEnumTfUIElements {
+    CONST_VTBL IEnumTfUIElementsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IEnumTfUIElements_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IEnumTfUIElements_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IEnumTfUIElements_Release(This) (This)->lpVtbl->Release(This)
+/*** IEnumTfUIElements methods ***/
+#define IEnumTfUIElements_Clone(This,enum_elements) (This)->lpVtbl->Clone(This,enum_elements)
+#define IEnumTfUIElements_Next(This,count,element,fetched) (This)->lpVtbl->Next(This,count,element,fetched)
+#define IEnumTfUIElements_Reset(This) (This)->lpVtbl->Reset(This)
+#define IEnumTfUIElements_Skip(This,count) (This)->lpVtbl->Skip(This,count)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IEnumTfUIElements_QueryInterface(IEnumTfUIElements* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IEnumTfUIElements_AddRef(IEnumTfUIElements* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IEnumTfUIElements_Release(IEnumTfUIElements* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IEnumTfUIElements methods ***/
+static FORCEINLINE HRESULT IEnumTfUIElements_Clone(IEnumTfUIElements* This,IEnumTfUIElements **enum_elements) {
+    return This->lpVtbl->Clone(This,enum_elements);
+}
+static FORCEINLINE HRESULT IEnumTfUIElements_Next(IEnumTfUIElements* This,ULONG count,ITfUIElement **element,ULONG fetched) {
+    return This->lpVtbl->Next(This,count,element,fetched);
+}
+static FORCEINLINE HRESULT IEnumTfUIElements_Reset(IEnumTfUIElements* This) {
+    return This->lpVtbl->Reset(This);
+}
+static FORCEINLINE HRESULT IEnumTfUIElements_Skip(IEnumTfUIElements* This,ULONG count) {
+    return This->lpVtbl->Skip(This,count);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IEnumTfUIElements_Clone_Proxy(
+    IEnumTfUIElements* This,
+    IEnumTfUIElements **enum_elements);
+void __RPC_STUB IEnumTfUIElements_Clone_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumTfUIElements_Next_Proxy(
+    IEnumTfUIElements* This,
+    ULONG count,
+    ITfUIElement **element,
+    ULONG fetched);
+void __RPC_STUB IEnumTfUIElements_Next_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumTfUIElements_Reset_Proxy(
+    IEnumTfUIElements* This);
+void __RPC_STUB IEnumTfUIElements_Reset_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IEnumTfUIElements_Skip_Proxy(
+    IEnumTfUIElements* This,
+    ULONG count);
+void __RPC_STUB IEnumTfUIElements_Skip_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IEnumTfUIElements_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITfUIElementMgr interface
+ */
+#ifndef __ITfUIElementMgr_INTERFACE_DEFINED__
+#define __ITfUIElementMgr_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ITfUIElementMgr, 0xea1ea135, 0x19df, 0x11d7, 0xa6,0xd2, 0x00,0x06,0x5b,0x84,0x43,0x5c);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("ea1ea135-19df-11d7-a6d2-00065b84435c")
+ITfUIElementMgr : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE BeginUIElement(
+        ITfUIElement *element,
+        WINBOOL *show,
+        DWORD *id) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE UpdateUIElement(
+        DWORD id) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EndUIElement(
+        DWORD id) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetUIElement(
+        DWORD id,
+        ITfUIElement **element) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EnumUIElements(
+        IEnumTfUIElements **enum_elements) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITfUIElementMgr, 0xea1ea135, 0x19df, 0x11d7, 0xa6,0xd2, 0x00,0x06,0x5b,0x84,0x43,0x5c)
+#endif
+#else
+typedef struct ITfUIElementMgrVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITfUIElementMgr* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITfUIElementMgr* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITfUIElementMgr* This);
+
+    /*** ITfUIElementMgr methods ***/
+    HRESULT (STDMETHODCALLTYPE *BeginUIElement)(
+        ITfUIElementMgr* This,
+        ITfUIElement *element,
+        WINBOOL *show,
+        DWORD *id);
+
+    HRESULT (STDMETHODCALLTYPE *UpdateUIElement)(
+        ITfUIElementMgr* This,
+        DWORD id);
+
+    HRESULT (STDMETHODCALLTYPE *EndUIElement)(
+        ITfUIElementMgr* This,
+        DWORD id);
+
+    HRESULT (STDMETHODCALLTYPE *GetUIElement)(
+        ITfUIElementMgr* This,
+        DWORD id,
+        ITfUIElement **element);
+
+    HRESULT (STDMETHODCALLTYPE *EnumUIElements)(
+        ITfUIElementMgr* This,
+        IEnumTfUIElements **enum_elements);
+
+    END_INTERFACE
+} ITfUIElementMgrVtbl;
+interface ITfUIElementMgr {
+    CONST_VTBL ITfUIElementMgrVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITfUIElementMgr_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITfUIElementMgr_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITfUIElementMgr_Release(This) (This)->lpVtbl->Release(This)
+/*** ITfUIElementMgr methods ***/
+#define ITfUIElementMgr_BeginUIElement(This,element,show,id) (This)->lpVtbl->BeginUIElement(This,element,show,id)
+#define ITfUIElementMgr_UpdateUIElement(This,id) (This)->lpVtbl->UpdateUIElement(This,id)
+#define ITfUIElementMgr_EndUIElement(This,id) (This)->lpVtbl->EndUIElement(This,id)
+#define ITfUIElementMgr_GetUIElement(This,id,element) (This)->lpVtbl->GetUIElement(This,id,element)
+#define ITfUIElementMgr_EnumUIElements(This,enum_elements) (This)->lpVtbl->EnumUIElements(This,enum_elements)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfUIElementMgr_QueryInterface(ITfUIElementMgr* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfUIElementMgr_AddRef(ITfUIElementMgr* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfUIElementMgr_Release(ITfUIElementMgr* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfUIElementMgr methods ***/
+static FORCEINLINE HRESULT ITfUIElementMgr_BeginUIElement(ITfUIElementMgr* This,ITfUIElement *element,WINBOOL *show,DWORD *id) {
+    return This->lpVtbl->BeginUIElement(This,element,show,id);
+}
+static FORCEINLINE HRESULT ITfUIElementMgr_UpdateUIElement(ITfUIElementMgr* This,DWORD id) {
+    return This->lpVtbl->UpdateUIElement(This,id);
+}
+static FORCEINLINE HRESULT ITfUIElementMgr_EndUIElement(ITfUIElementMgr* This,DWORD id) {
+    return This->lpVtbl->EndUIElement(This,id);
+}
+static FORCEINLINE HRESULT ITfUIElementMgr_GetUIElement(ITfUIElementMgr* This,DWORD id,ITfUIElement **element) {
+    return This->lpVtbl->GetUIElement(This,id,element);
+}
+static FORCEINLINE HRESULT ITfUIElementMgr_EnumUIElements(ITfUIElementMgr* This,IEnumTfUIElements **enum_elements) {
+    return This->lpVtbl->EnumUIElements(This,enum_elements);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ITfUIElementMgr_BeginUIElement_Proxy(
+    ITfUIElementMgr* This,
+    ITfUIElement *element,
+    WINBOOL *show,
+    DWORD *id);
+void __RPC_STUB ITfUIElementMgr_BeginUIElement_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfUIElementMgr_UpdateUIElement_Proxy(
+    ITfUIElementMgr* This,
+    DWORD id);
+void __RPC_STUB ITfUIElementMgr_UpdateUIElement_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfUIElementMgr_EndUIElement_Proxy(
+    ITfUIElementMgr* This,
+    DWORD id);
+void __RPC_STUB ITfUIElementMgr_EndUIElement_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfUIElementMgr_GetUIElement_Proxy(
+    ITfUIElementMgr* This,
+    DWORD id,
+    ITfUIElement **element);
+void __RPC_STUB ITfUIElementMgr_GetUIElement_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITfUIElementMgr_EnumUIElements_Proxy(
+    ITfUIElementMgr* This,
+    IEnumTfUIElements **enum_elements);
+void __RPC_STUB ITfUIElementMgr_EnumUIElements_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ITfUIElementMgr_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * ITfSourceSingle interface
