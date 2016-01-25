@@ -212,6 +212,11 @@ typedef interface ID3D11VideoProcessorOutputView ID3D11VideoProcessorOutputView;
 typedef interface ID3D11VideoDevice ID3D11VideoDevice;
 #endif
 
+#ifndef __ID3D11VideoContext_FWD_DEFINED__
+#define __ID3D11VideoContext_FWD_DEFINED__
+typedef interface ID3D11VideoContext ID3D11VideoContext;
+#endif
+
 #ifndef __ID3D11Device_FWD_DEFINED__
 #define __ID3D11Device_FWD_DEFINED__
 typedef interface ID3D11Device ID3D11Device;
@@ -232,6 +237,26 @@ typedef D3D_PRIMITIVE D3D11_PRIMITIVE;
 typedef D3D_PRIMITIVE_TOPOLOGY D3D11_PRIMITIVE_TOPOLOGY;
 typedef D3D_SRV_DIMENSION D3D11_SRV_DIMENSION;
 typedef RECT D3D11_RECT;
+#ifndef __ID3D11Device_FWD_DEFINED__
+#define __ID3D11Device_FWD_DEFINED__
+typedef interface ID3D11Device ID3D11Device;
+#endif
+
+#ifndef __ID3D11ClassLinkage_FWD_DEFINED__
+#define __ID3D11ClassLinkage_FWD_DEFINED__
+typedef interface ID3D11ClassLinkage ID3D11ClassLinkage;
+#endif
+
+#ifndef __ID3D11Resource_FWD_DEFINED__
+#define __ID3D11Resource_FWD_DEFINED__
+typedef interface ID3D11Resource ID3D11Resource;
+#endif
+
+#ifndef __ID3D11VideoProcessorInputView_FWD_DEFINED__
+#define __ID3D11VideoProcessorInputView_FWD_DEFINED__
+typedef interface ID3D11VideoProcessorInputView ID3D11VideoProcessorInputView;
+#endif
+
 #define D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT (14)
 
 #define D3D11_COMMONSHADER_CONSTANT_BUFFER_COMPONENTS (4)
@@ -369,6 +394,8 @@ typedef RECT D3D11_RECT;
 #define D3D11_SHADER_MINOR_VERSION (0)
 
 #define D3D11_VS_OUTPUT_REGISTER_COUNT (32)
+
+#define D3D11_OMAC_SIZE (16)
 
 #define D3D11_PS_CS_UAV_REGISTER_COMPONENTS (1)
 
@@ -545,6 +572,49 @@ typedef enum D3D11_BLEND_OP {
     D3D11_BLEND_OP_MIN = 4,
     D3D11_BLEND_OP_MAX = 5
 } D3D11_BLEND_OP;
+typedef enum D3D11_VIDEO_DECODER_BUFFER_TYPE {
+    D3D11_VIDEO_DECODER_BUFFER_PICTURE_PARAMETERS = 0,
+    D3D11_VIDEO_DECODER_BUFFER_MACROBLOCK_CONTROL = 1,
+    D3D11_VIDEO_DECODER_BUFFER_RESIDUAL_DIFFERENCE = 2,
+    D3D11_VIDEO_DECODER_BUFFER_DEBLOCKING_CONTROL = 3,
+    D3D11_VIDEO_DECODER_BUFFER_INVERSE_QUANTIZATION_MATRIX = 4,
+    D3D11_VIDEO_DECODER_BUFFER_SLICE_CONTROL = 5,
+    D3D11_VIDEO_DECODER_BUFFER_BITSTREAM = 6,
+    D3D11_VIDEO_DECODER_BUFFER_MOTION_VECTOR = 7,
+    D3D11_VIDEO_DECODER_BUFFER_FILM_GRAIN = 8
+} D3D11_VIDEO_DECODER_BUFFER_TYPE;
+typedef enum D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE {
+    D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE_OPAQUE = 0,
+    D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE_BACKGROUND = 1,
+    D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE_DESTINATION = 2,
+    D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE_SOURCE_STREAM = 3
+} D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE;
+typedef enum D3D11_VIDEO_PROCESSOR_OUTPUT_RATE {
+    D3D11_VIDEO_PROCESSOR_OUTPUT_RATE_NORMAL = 0,
+    D3D11_VIDEO_PROCESSOR_OUTPUT_RATE_HALF = 1,
+    D3D11_VIDEO_PROCESSOR_OUTPUT_RATE_CUSTOM = 2
+} D3D11_VIDEO_PROCESSOR_OUTPUT_RATE;
+typedef enum D3D11_VIDEO_PROCESSOR_STEREO_FORMAT {
+    D3D11_VIDEO_PROCESSOR_STEREO_FORMAT_MONO = 0,
+    D3D11_VIDEO_PROCESSOR_STEREO_FORMAT_HORIZONTAL = 1,
+    D3D11_VIDEO_PROCESSOR_STEREO_FORMAT_VERTICAL = 2,
+    D3D11_VIDEO_PROCESSOR_STEREO_FORMAT_SEPARATE = 3,
+    D3D11_VIDEO_PROCESSOR_STEREO_FORMAT_MONO_OFFSET = 4,
+    D3D11_VIDEO_PROCESSOR_STEREO_FORMAT_ROW_INTERLEAVED = 5,
+    D3D11_VIDEO_PROCESSOR_STEREO_FORMAT_COLUMN_INTERLEAVED = 6,
+    D3D11_VIDEO_PROCESSOR_STEREO_FORMAT_CHECKERBOARD = 7
+} D3D11_VIDEO_PROCESSOR_STEREO_FORMAT;
+typedef enum D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE {
+    D3D11_VIDEO_PROCESSOR_STEREO_FLIP_NONE = 0,
+    D3D11_VIDEO_PROCESSOR_STEREO_FLIP_FRAME0 = 1,
+    D3D11_VIDEO_PROCESSOR_STEREO_FLIP_FRAME1 = 2
+} D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE;
+typedef enum D3D11_VIDEO_PROCESSOR_ROTATION {
+    D3D11_VIDEO_PROCESSOR_ROTATION_IDENTITY = 0,
+    D3D11_VIDEO_PROCESSOR_ROTATION_90 = 1,
+    D3D11_VIDEO_PROCESSOR_ROTATION_180 = 2,
+    D3D11_VIDEO_PROCESSOR_ROTATION_270 = 3
+} D3D11_VIDEO_PROCESSOR_ROTATION;
 typedef struct D3D11_BOX {
     UINT left;
     UINT top;
@@ -1222,6 +1292,70 @@ typedef struct D3D11_RENDER_TARGET_VIEW_DESC {
         D3D11_TEX3D_RTV Texture3D;
     } __C89_NAMELESSUNIONNAME;
 } D3D11_RENDER_TARGET_VIEW_DESC;
+#if !defined(D3D11_NO_HELPERS) && defined(__cplusplus)
+struct CD3D11_RENDER_TARGET_VIEW_DESC : public D3D11_RENDER_TARGET_VIEW_DESC {
+    CD3D11_RENDER_TARGET_VIEW_DESC() {}
+    explicit CD3D11_RENDER_TARGET_VIEW_DESC(D3D11_RTV_DIMENSION dim, DXGI_FORMAT format = DXGI_FORMAT_UNKNOWN,
+            UINT mip_slice = 0, UINT first_slice = 0, UINT array_size = -1) {
+        Format = format;
+        ViewDimension = dim;
+        switch(dim) {
+        case D3D11_RTV_DIMENSION_BUFFER:
+            Buffer.FirstElement = mip_slice;
+            Buffer.NumElements = first_slice;
+            break;
+        case D3D11_RTV_DIMENSION_TEXTURE1D:
+            Texture1D.MipSlice = mip_slice;
+            break;
+        case D3D11_RTV_DIMENSION_TEXTURE1DARRAY:
+            Texture1DArray.MipSlice = mip_slice;
+            Texture1DArray.FirstArraySlice = first_slice;
+            Texture1DArray.ArraySize = array_size;
+            break;
+        case D3D11_RTV_DIMENSION_TEXTURE2D:
+            Texture2D.MipSlice = mip_slice;
+            break;
+        case D3D11_RTV_DIMENSION_TEXTURE2DARRAY:
+            Texture2DArray.MipSlice = mip_slice;
+            Texture2DArray.FirstArraySlice = first_slice;
+            Texture2DArray.ArraySize = array_size;
+            break;
+        case D3D11_RTV_DIMENSION_TEXTURE2DMSARRAY:
+            Texture2DMSArray.FirstArraySlice = first_slice;
+            Texture2DMSArray.ArraySize = array_size;
+            break;
+        case D3D11_RTV_DIMENSION_TEXTURE3D:
+            Texture3D.MipSlice = mip_slice;
+            Texture3D.FirstWSlice = first_slice;
+            Texture3D.WSize = array_size;
+            break;
+        default:
+            break;
+        }
+    }
+    explicit CD3D11_RENDER_TARGET_VIEW_DESC(ID3D11Buffer*, DXGI_FORMAT format, UINT first_elem,
+            UINT elem_cnt) {
+        Format = format;
+        ViewDimension = D3D11_RTV_DIMENSION_BUFFER;
+        Buffer.FirstElement = first_elem;
+        Buffer.NumElements = elem_cnt;
+    }
+    explicit CD3D11_RENDER_TARGET_VIEW_DESC(ID3D11Texture1D *texture, D3D11_RTV_DIMENSION dim,
+            DXGI_FORMAT format = DXGI_FORMAT_UNKNOWN, UINT mip_slice = 0, UINT first_slice = 0,
+            UINT array_size = -1);
+    explicit CD3D11_RENDER_TARGET_VIEW_DESC(ID3D11Texture2D *texture, D3D11_RTV_DIMENSION dim,
+            DXGI_FORMAT format = DXGI_FORMAT_UNKNOWN, UINT mip_slice = 0, UINT first_slice = 0,
+            UINT array_size = -1);
+    explicit CD3D11_RENDER_TARGET_VIEW_DESC(ID3D11Texture3D *texture, DXGI_FORMAT format = DXGI_FORMAT_UNKNOWN,
+            UINT mip_slice = 0, UINT first_w_slice = 0, UINT w_slice = -1 );
+    ~CD3D11_RENDER_TARGET_VIEW_DESC() {}
+    explicit CD3D11_RENDER_TARGET_VIEW_DESC(const D3D11_RENDER_TARGET_VIEW_DESC &other)
+        : D3D11_RENDER_TARGET_VIEW_DESC(other) {}
+    operator const D3D11_RENDER_TARGET_VIEW_DESC&() const {
+        return *this;
+    }
+};
+#endif
 typedef struct D3D11_SAMPLER_DESC {
     D3D11_FILTER Filter;
     D3D11_TEXTURE_ADDRESS_MODE AddressU;
@@ -1293,6 +1427,84 @@ typedef struct D3D11_SHADER_RESOURCE_VIEW_DESC {
         D3D11_BUFFEREX_SRV BufferEx;
     } __C89_NAMELESSUNIONNAME;
 } D3D11_SHADER_RESOURCE_VIEW_DESC;
+#if !defined(D3D11_NO_HELPERS) && defined( __cplusplus )
+struct CD3D11_SHADER_RESOURCE_VIEW_DESC : public D3D11_SHADER_RESOURCE_VIEW_DESC {
+    CD3D11_SHADER_RESOURCE_VIEW_DESC() {}
+    explicit CD3D11_SHADER_RESOURCE_VIEW_DESC(D3D11_SRV_DIMENSION dim,
+            DXGI_FORMAT format = DXGI_FORMAT_UNKNOWN, UINT most_detailed_mip = 0,
+            UINT mip_levels = -1, UINT first_slice = 0, UINT array_size = -1, UINT flags = 0) {
+        Format = format;
+        ViewDimension = dim;
+        switch(ViewDimension) {
+        case D3D11_SRV_DIMENSION_BUFFER:
+            Buffer.FirstElement = most_detailed_mip;
+            Buffer.NumElements = mip_levels;
+            break;
+        case D3D11_SRV_DIMENSION_TEXTURE1D:
+            Texture1D.MostDetailedMip = most_detailed_mip;
+            Texture1D.MipLevels = mip_levels;
+            break;
+        case D3D11_SRV_DIMENSION_TEXTURE1DARRAY:
+            Texture1DArray.MostDetailedMip = most_detailed_mip;
+            Texture1DArray.MipLevels = mip_levels;
+            Texture1DArray.FirstArraySlice = first_slice;
+            Texture1DArray.ArraySize = array_size;
+            break;
+        case D3D11_SRV_DIMENSION_TEXTURE2D:
+            Texture2D.MostDetailedMip = most_detailed_mip;
+            Texture2D.MipLevels = mip_levels;
+            break;
+        case D3D11_SRV_DIMENSION_TEXTURE2DARRAY:
+            Texture2DArray.MostDetailedMip = most_detailed_mip;
+            Texture2DArray.MipLevels = mip_levels;
+            Texture2DArray.FirstArraySlice = first_slice;
+            Texture2DArray.ArraySize = array_size;
+            break;
+        case D3D11_SRV_DIMENSION_TEXTURE2DMSARRAY:
+            Texture2DMSArray.FirstArraySlice = first_slice;
+            Texture2DMSArray.ArraySize = array_size;
+            break;
+        case D3D11_SRV_DIMENSION_TEXTURE3D:
+            Texture3D.MostDetailedMip = most_detailed_mip;
+            Texture3D.MipLevels = mip_levels;
+            break;
+        case D3D11_SRV_DIMENSION_TEXTURECUBE:
+            TextureCube.MostDetailedMip = most_detailed_mip;
+            TextureCube.MipLevels = mip_levels;
+            break;
+        case D3D11_SRV_DIMENSION_TEXTURECUBEARRAY:
+            TextureCubeArray.MostDetailedMip = most_detailed_mip;
+            TextureCubeArray.MipLevels = mip_levels;
+            TextureCubeArray.First2DArrayFace = first_slice;
+            TextureCubeArray.NumCubes = array_size;
+            break;
+        case D3D11_SRV_DIMENSION_BUFFEREX:
+            BufferEx.FirstElement = most_detailed_mip;
+            BufferEx.NumElements = mip_levels;
+            BufferEx.Flags = flags;
+            break;
+        default:
+            break;
+        }
+    }
+    explicit CD3D11_SHADER_RESOURCE_VIEW_DESC(ID3D11Buffer*, DXGI_FORMAT format, UINT first_elem,
+            UINT elem_cnt, UINT flags = 0);
+    explicit CD3D11_SHADER_RESOURCE_VIEW_DESC(ID3D11Texture1D *texture, D3D11_SRV_DIMENSION dim,
+            DXGI_FORMAT format = DXGI_FORMAT_UNKNOWN, UINT most_detailed_mip = 0, UINT mip_levels = -1,
+            UINT first_slice = 0, UINT array_size = -1 );
+    explicit CD3D11_SHADER_RESOURCE_VIEW_DESC(ID3D11Texture2D *texture, D3D11_SRV_DIMENSION dim,
+            DXGI_FORMAT format = DXGI_FORMAT_UNKNOWN, UINT most_detailed_mip = 0, UINT mip_levels = -1,
+            UINT first_slice = 0, UINT array_size = -1 );
+    explicit CD3D11_SHADER_RESOURCE_VIEW_DESC(ID3D11Texture3D *texture, DXGI_FORMAT format = DXGI_FORMAT_UNKNOWN,
+            UINT most_detailed_mip = 0, UINT mip_levels = -1 );
+    ~CD3D11_SHADER_RESOURCE_VIEW_DESC() {}
+    explicit CD3D11_SHADER_RESOURCE_VIEW_DESC(const D3D11_SHADER_RESOURCE_VIEW_DESC &other)
+        : D3D11_SHADER_RESOURCE_VIEW_DESC(other) {}
+    operator const D3D11_SHADER_RESOURCE_VIEW_DESC&() const {
+        return *this;
+    }
+};
+#endif
 typedef struct D3D11_TEXTURE1D_DESC {
     UINT Width;
     UINT MipLevels;
@@ -1495,16 +1707,85 @@ typedef struct D3D11_VIDEO_CONTENT_PROTECTION_CAPS {
     UINT BlockAlignmentSize;
     ULONGLONG ProtectedMemorySize;
 } D3D11_VIDEO_CONTENT_PROTECTION_CAPS;
-#ifndef __ID3D11Device_FWD_DEFINED__
-#define __ID3D11Device_FWD_DEFINED__
-typedef interface ID3D11Device ID3D11Device;
-#endif
-
-#ifndef __ID3D11ClassLinkage_FWD_DEFINED__
-#define __ID3D11ClassLinkage_FWD_DEFINED__
-typedef interface ID3D11ClassLinkage ID3D11ClassLinkage;
-#endif
-
+typedef struct D3D11_ENCRYPTED_BLOCK_INFO {
+    UINT NumEncryptedBytesAtBeginning;
+    UINT NumBytesInSkipPattern;
+    UINT NumBytesInEncryptPattern;
+} D3D11_ENCRYPTED_BLOCK_INFO;
+typedef struct D3D11_VIDEO_DECODER_BUFFER_DESC {
+    D3D11_VIDEO_DECODER_BUFFER_TYPE BufferType;
+    UINT BufferIndex;
+    UINT DataOffset;
+    UINT DataSize;
+    UINT FirstMBaddress;
+    UINT NumMBsInBuffer;
+    UINT Width;
+    UINT Height;
+    UINT Stride;
+    UINT ReservedBits;
+    void *pIV;
+    UINT IVSize;
+    WINBOOL PartialEncryption;
+    D3D11_ENCRYPTED_BLOCK_INFO EncryptedBlockInfo;
+} D3D11_VIDEO_DECODER_BUFFER_DESC;
+typedef struct D3D11_VIDEO_DECODER_EXTENSION {
+    UINT Function;
+    void *pPrivateInputData;
+    UINT PrivateInputDataSize;
+    void *pPrivateOutputData;
+    UINT PrivateOutputDataSize;
+    UINT ResourceCount;
+    ID3D11Resource **ppResourceList;
+} D3D11_VIDEO_DECODER_EXTENSION;
+typedef struct D3D11_VIDEO_COLOR_YCbCrA {
+    float Y;
+    float Cb;
+    float Cr;
+    float A;
+} D3D11_VIDEO_COLOR_YCbCrA;
+typedef struct D3D11_VIDEO_COLOR_RGBA {
+    float R;
+    float G;
+    float B;
+    float A;
+} D3D11_VIDEO_COLOR_RGBA;
+typedef struct D3D11_VIDEO_COLOR {
+    __C89_NAMELESS union {
+        D3D11_VIDEO_COLOR_YCbCrA YCbCr;
+        D3D11_VIDEO_COLOR_RGBA RGBA;
+    } __C89_NAMELESSUNIONNAME;
+} D3D11_VIDEO_COLOR;
+typedef struct D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
+    UINT Usage : 1;
+    UINT RGB_Range : 1;
+    UINT YCbCr_Matrix : 1;
+    UINT YCbCr_xvYCC : 1;
+    UINT Nominal_Range : 2;
+    UINT Reserved : 26;
+} D3D11_VIDEO_PROCESSOR_COLOR_SPACE;
+typedef struct D3D11_VIDEO_PROCESSOR_STREAM {
+    WINBOOL Enable;
+    UINT OutputIndex;
+    UINT InputFrameOrField;
+    UINT PastFrames;
+    UINT FutureFrames;
+    ID3D11VideoProcessorInputView **ppPastSurfaces;
+    ID3D11VideoProcessorInputView *pInputSurface;
+    ID3D11VideoProcessorInputView **ppFutureSurfaces;
+    ID3D11VideoProcessorInputView **ppPastSurfacesRight;
+    ID3D11VideoProcessorInputView *pInputSurfaceRight;
+    ID3D11VideoProcessorInputView **ppFutureSurfacesRight;
+} D3D11_VIDEO_PROCESSOR_STREAM;
+typedef struct D3D11_OMAC {
+    BYTE Omac[16];
+} D3D11_OMAC;
+typedef struct D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {
+    D3D11_OMAC omac;
+    GUID ConfigureType;
+    HANDLE hChannel;
+    UINT SequenceNumber;
+    HRESULT ReturnCode;
+} D3D11_AUTHENTICATED_CONFIGURE_OUTPUT;
 /*****************************************************************************
  * ID3D11DeviceChild interface
  */
@@ -9784,6 +10065,1699 @@ void __RPC_STUB ID3D11VideoDevice_SetPrivateDataInterface_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __ID3D11VideoDevice_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ID3D11VideoContext interface
+ */
+#ifndef __ID3D11VideoContext_INTERFACE_DEFINED__
+#define __ID3D11VideoContext_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3D11VideoContext, 0x61f21c45, 0x3c0e, 0x4a74, 0x9c,0xea, 0x67,0x10,0x0d,0x9a,0xd5,0xe4);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("61f21c45-3c0e-4a74-9cea-67100d9ad5e4")
+ID3D11VideoContext : public ID3D11DeviceChild
+{
+    virtual HRESULT STDMETHODCALLTYPE GetDecoderBuffer(
+        ID3D11VideoDecoder *decoder,
+        D3D11_VIDEO_DECODER_BUFFER_TYPE type,
+        UINT *buffer_size,
+        void **buffer) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ReleaseDecoderBuffer(
+        ID3D11VideoDecoder *decoder,
+        D3D11_VIDEO_DECODER_BUFFER_TYPE type) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE DecoderBeginFrame(
+        ID3D11VideoDecoder *decoder,
+        ID3D11VideoDecoderOutputView *view,
+        UINT key_size,
+        const void *key) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE DecoderEndFrame(
+        ID3D11VideoDecoder *decoder) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SubmitDecoderBuffers(
+        ID3D11VideoDecoder *decoder,
+        UINT buffers_count,
+        const D3D11_VIDEO_DECODER_BUFFER_DESC *buffer_desc) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE DecoderExtension(
+        ID3D11VideoDecoder *decoder,
+        const D3D11_VIDEO_DECODER_EXTENSION *extension) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorSetOutputTargetRect(
+        ID3D11VideoProcessor *processor,
+        WINBOOL enable,
+        const RECT *rect) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorSetOutputBackgroundColor(
+        ID3D11VideoProcessor *processor,
+        WINBOOL y_cb_cr,
+        const D3D11_VIDEO_COLOR *color) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorSetOutputColorSpace(
+        ID3D11VideoProcessor *processor,
+        const D3D11_VIDEO_PROCESSOR_COLOR_SPACE *color_space) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorSetOutputAlphaFillMode(
+        ID3D11VideoProcessor *processor,
+        D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE alpha_fill_mode,
+        UINT stream_idx) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorSetOutputConstriction(
+        ID3D11VideoProcessor *processor,
+        WINBOOL enable,
+        SIZE size) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorSetOutputStereoMode(
+        ID3D11VideoProcessor *processor,
+        WINBOOL enable) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE VideoProcessorSetOutputExtension(
+        ID3D11VideoProcessor *processor,
+        const GUID *guid,
+        UINT data_size,
+        void *data) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorGetOutputTargetRect(
+        ID3D11VideoProcessor *processor,
+        WINBOOL *enabled,
+        RECT *rect) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorGetOutputBackgroundColor(
+        ID3D11VideoProcessor *processor,
+        WINBOOL *y_cb_cr,
+        D3D11_VIDEO_COLOR *color) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorGetOutputColorSpace(
+        ID3D11VideoProcessor *processor,
+        D3D11_VIDEO_PROCESSOR_COLOR_SPACE *color_space) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorGetOutputAlphaFillMode(
+        ID3D11VideoProcessor *processor,
+        D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE *alpha_fill_mode,
+        UINT *stream_idx) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorGetOutputConstriction(
+        ID3D11VideoProcessor *processor,
+        WINBOOL *enabled,
+        SIZE *size) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorGetOutputStereoMode(
+        ID3D11VideoProcessor *processor,
+        WINBOOL *enabled) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE VideoProcessorGetOutputExtension(
+        ID3D11VideoProcessor *processor,
+        const GUID *guid,
+        UINT data_size,
+        void *data) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorSetStreamFrameFormat(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        D3D11_VIDEO_FRAME_FORMAT format) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorSetStreamColorSpace(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        const D3D11_VIDEO_PROCESSOR_COLOR_SPACE *color_space) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorSetStreamOutputRate(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        D3D11_VIDEO_PROCESSOR_OUTPUT_RATE rate,
+        WINBOOL repeat,
+        const DXGI_RATIONAL *custom_rate) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorSetStreamSourceRect(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL enable,
+        const RECT *rect) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorSetStreamDestRect(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL enable,
+        const RECT *rect) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorSetStreamAlpha(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL enable,
+        float alpha) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorSetStreamPalette(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        UINT entry_count,
+        const UINT *entries) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorSetStreamPixelAspectRatio(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL enable,
+        const DXGI_RATIONAL *src_aspect_ratio,
+        const DXGI_RATIONAL *dst_aspect_ratio) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorSetStreamLumaKey(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL enable,
+        float lower,
+        float upper) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorSetStreamStereoFormat(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL enable,
+        D3D11_VIDEO_PROCESSOR_STEREO_FORMAT format,
+        WINBOOL left_view_frame0,
+        WINBOOL base_view_frame0,
+        D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE flip_mode,
+        int mono_offset) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorSetStreamAutoProcessingMode(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL enable) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorSetStreamFilter(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        D3D11_VIDEO_PROCESSOR_FILTER filter,
+        WINBOOL enable,
+        int level) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE VideoProcessorSetStreamExtension(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        const GUID *guid,
+        UINT data_size,
+        void *data) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorGetStreamFrameFormat(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        D3D11_VIDEO_FRAME_FORMAT *format) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorGetStreamColorSpace(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        D3D11_VIDEO_PROCESSOR_COLOR_SPACE *color_space) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorGetStreamOutputRate(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        D3D11_VIDEO_PROCESSOR_OUTPUT_RATE *rate,
+        WINBOOL *repeat,
+        DXGI_RATIONAL *custom_rate) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorGetStreamSourceRect(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL *enabled,
+        RECT *rect) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorGetStreamDestRect(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL *enabled,
+        RECT *rect) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorGetStreamAlpha(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL *enabled,
+        float *alpha) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorGetStreamPalette(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        UINT entry_count,
+        UINT *entries) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorGetStreamPixelAspectRatio(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL *enabled,
+        DXGI_RATIONAL *src_aspect_ratio,
+        DXGI_RATIONAL *dst_aspect_ratio) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorGetStreamLumaKey(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL *enabled,
+        float *lower,
+        float *upper) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorGetStreamStereoFormat(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL *enabled,
+        D3D11_VIDEO_PROCESSOR_STEREO_FORMAT *format,
+        WINBOOL *left_view_frame0,
+        WINBOOL *base_view_frame0,
+        D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE *flip_mode,
+        int *mono_offset) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorGetStreamAutoProcessingMode(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL *enabled) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorGetStreamFilter(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        D3D11_VIDEO_PROCESSOR_FILTER filter,
+        WINBOOL *enabled,
+        int *level) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE VideoProcessorGetStreamExtension(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        const GUID *guid,
+        UINT data_size,
+        void *data) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE VideoProcessorBlt(
+        ID3D11VideoProcessor *processor,
+        ID3D11VideoProcessorOutputView *view,
+        UINT frame_idx,
+        UINT stream_count,
+        const D3D11_VIDEO_PROCESSOR_STREAM *streams) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE NegotiateCryptoSessionKeyExchange(
+        ID3D11CryptoSession *session,
+        UINT data_size,
+        void *data) = 0;
+
+    virtual void STDMETHODCALLTYPE EncryptionBlt(
+        ID3D11CryptoSession *session,
+        ID3D11Texture2D *src_surface,
+        ID3D11Texture2D *dst_surface,
+        UINT iv_size,
+        void *iv) = 0;
+
+    virtual void STDMETHODCALLTYPE DecryptionBlt(
+        ID3D11CryptoSession *session,
+        ID3D11Texture2D *src_surface,
+        ID3D11Texture2D *dst_surface,
+        D3D11_ENCRYPTED_BLOCK_INFO *block_info,
+        UINT key_size,
+        const void *key,
+        UINT iv_size,
+        void *iv) = 0;
+
+    virtual void STDMETHODCALLTYPE StartSessionKeyRefresh(
+        ID3D11CryptoSession *session,
+        UINT random_number_size,
+        void *random_number) = 0;
+
+    virtual void STDMETHODCALLTYPE FinishSessionKeyRefresh(
+        ID3D11CryptoSession *session) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetEncryptionBltKey(
+        ID3D11CryptoSession *session,
+        UINT key_size,
+        void *key) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE NegotiateAuthenticatedChannelKeyExchange(
+        ID3D11AuthenticatedChannel *channel,
+        UINT data_size,
+        void *data) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE QueryAuthenticatedChannel(
+        ID3D11AuthenticatedChannel *channel,
+        UINT input_size,
+        const void *input,
+        UINT output_size,
+        void *output) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ConfigureAuthenticatedChannel(
+        ID3D11AuthenticatedChannel *channel,
+        UINT input_size,
+        const void *input,
+        D3D11_AUTHENTICATED_CONFIGURE_OUTPUT *output) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorSetStreamRotation(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL enable,
+        D3D11_VIDEO_PROCESSOR_ROTATION rotation) = 0;
+
+    virtual void STDMETHODCALLTYPE VideoProcessorGetStreamRotation(
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL *enable,
+        D3D11_VIDEO_PROCESSOR_ROTATION *rotation) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3D11VideoContext, 0x61f21c45, 0x3c0e, 0x4a74, 0x9c,0xea, 0x67,0x10,0x0d,0x9a,0xd5,0xe4)
+#endif
+#else
+typedef struct ID3D11VideoContextVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3D11VideoContext* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3D11VideoContext* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3D11VideoContext* This);
+
+    /*** ID3D11DeviceChild methods ***/
+    void (STDMETHODCALLTYPE *GetDevice)(
+        ID3D11VideoContext* This,
+        ID3D11Device **ppDevice);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        ID3D11VideoContext* This,
+        REFGUID guid,
+        UINT *pDataSize,
+        void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        ID3D11VideoContext* This,
+        REFGUID guid,
+        UINT DataSize,
+        const void *pData);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        ID3D11VideoContext* This,
+        REFGUID guid,
+        const IUnknown *pData);
+
+    /*** ID3D11VideoContext methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetDecoderBuffer)(
+        ID3D11VideoContext* This,
+        ID3D11VideoDecoder *decoder,
+        D3D11_VIDEO_DECODER_BUFFER_TYPE type,
+        UINT *buffer_size,
+        void **buffer);
+
+    HRESULT (STDMETHODCALLTYPE *ReleaseDecoderBuffer)(
+        ID3D11VideoContext* This,
+        ID3D11VideoDecoder *decoder,
+        D3D11_VIDEO_DECODER_BUFFER_TYPE type);
+
+    HRESULT (STDMETHODCALLTYPE *DecoderBeginFrame)(
+        ID3D11VideoContext* This,
+        ID3D11VideoDecoder *decoder,
+        ID3D11VideoDecoderOutputView *view,
+        UINT key_size,
+        const void *key);
+
+    HRESULT (STDMETHODCALLTYPE *DecoderEndFrame)(
+        ID3D11VideoContext* This,
+        ID3D11VideoDecoder *decoder);
+
+    HRESULT (STDMETHODCALLTYPE *SubmitDecoderBuffers)(
+        ID3D11VideoContext* This,
+        ID3D11VideoDecoder *decoder,
+        UINT buffers_count,
+        const D3D11_VIDEO_DECODER_BUFFER_DESC *buffer_desc);
+
+    HRESULT (STDMETHODCALLTYPE *DecoderExtension)(
+        ID3D11VideoContext* This,
+        ID3D11VideoDecoder *decoder,
+        const D3D11_VIDEO_DECODER_EXTENSION *extension);
+
+    void (STDMETHODCALLTYPE *VideoProcessorSetOutputTargetRect)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        WINBOOL enable,
+        const RECT *rect);
+
+    void (STDMETHODCALLTYPE *VideoProcessorSetOutputBackgroundColor)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        WINBOOL y_cb_cr,
+        const D3D11_VIDEO_COLOR *color);
+
+    void (STDMETHODCALLTYPE *VideoProcessorSetOutputColorSpace)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        const D3D11_VIDEO_PROCESSOR_COLOR_SPACE *color_space);
+
+    void (STDMETHODCALLTYPE *VideoProcessorSetOutputAlphaFillMode)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE alpha_fill_mode,
+        UINT stream_idx);
+
+    void (STDMETHODCALLTYPE *VideoProcessorSetOutputConstriction)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        WINBOOL enable,
+        SIZE size);
+
+    void (STDMETHODCALLTYPE *VideoProcessorSetOutputStereoMode)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        WINBOOL enable);
+
+    HRESULT (STDMETHODCALLTYPE *VideoProcessorSetOutputExtension)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        const GUID *guid,
+        UINT data_size,
+        void *data);
+
+    void (STDMETHODCALLTYPE *VideoProcessorGetOutputTargetRect)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        WINBOOL *enabled,
+        RECT *rect);
+
+    void (STDMETHODCALLTYPE *VideoProcessorGetOutputBackgroundColor)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        WINBOOL *y_cb_cr,
+        D3D11_VIDEO_COLOR *color);
+
+    void (STDMETHODCALLTYPE *VideoProcessorGetOutputColorSpace)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        D3D11_VIDEO_PROCESSOR_COLOR_SPACE *color_space);
+
+    void (STDMETHODCALLTYPE *VideoProcessorGetOutputAlphaFillMode)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE *alpha_fill_mode,
+        UINT *stream_idx);
+
+    void (STDMETHODCALLTYPE *VideoProcessorGetOutputConstriction)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        WINBOOL *enabled,
+        SIZE *size);
+
+    void (STDMETHODCALLTYPE *VideoProcessorGetOutputStereoMode)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        WINBOOL *enabled);
+
+    HRESULT (STDMETHODCALLTYPE *VideoProcessorGetOutputExtension)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        const GUID *guid,
+        UINT data_size,
+        void *data);
+
+    void (STDMETHODCALLTYPE *VideoProcessorSetStreamFrameFormat)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        D3D11_VIDEO_FRAME_FORMAT format);
+
+    void (STDMETHODCALLTYPE *VideoProcessorSetStreamColorSpace)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        const D3D11_VIDEO_PROCESSOR_COLOR_SPACE *color_space);
+
+    void (STDMETHODCALLTYPE *VideoProcessorSetStreamOutputRate)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        D3D11_VIDEO_PROCESSOR_OUTPUT_RATE rate,
+        WINBOOL repeat,
+        const DXGI_RATIONAL *custom_rate);
+
+    void (STDMETHODCALLTYPE *VideoProcessorSetStreamSourceRect)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL enable,
+        const RECT *rect);
+
+    void (STDMETHODCALLTYPE *VideoProcessorSetStreamDestRect)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL enable,
+        const RECT *rect);
+
+    void (STDMETHODCALLTYPE *VideoProcessorSetStreamAlpha)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL enable,
+        float alpha);
+
+    void (STDMETHODCALLTYPE *VideoProcessorSetStreamPalette)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        UINT entry_count,
+        const UINT *entries);
+
+    void (STDMETHODCALLTYPE *VideoProcessorSetStreamPixelAspectRatio)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL enable,
+        const DXGI_RATIONAL *src_aspect_ratio,
+        const DXGI_RATIONAL *dst_aspect_ratio);
+
+    void (STDMETHODCALLTYPE *VideoProcessorSetStreamLumaKey)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL enable,
+        float lower,
+        float upper);
+
+    void (STDMETHODCALLTYPE *VideoProcessorSetStreamStereoFormat)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL enable,
+        D3D11_VIDEO_PROCESSOR_STEREO_FORMAT format,
+        WINBOOL left_view_frame0,
+        WINBOOL base_view_frame0,
+        D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE flip_mode,
+        int mono_offset);
+
+    void (STDMETHODCALLTYPE *VideoProcessorSetStreamAutoProcessingMode)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL enable);
+
+    void (STDMETHODCALLTYPE *VideoProcessorSetStreamFilter)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        D3D11_VIDEO_PROCESSOR_FILTER filter,
+        WINBOOL enable,
+        int level);
+
+    HRESULT (STDMETHODCALLTYPE *VideoProcessorSetStreamExtension)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        const GUID *guid,
+        UINT data_size,
+        void *data);
+
+    void (STDMETHODCALLTYPE *VideoProcessorGetStreamFrameFormat)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        D3D11_VIDEO_FRAME_FORMAT *format);
+
+    void (STDMETHODCALLTYPE *VideoProcessorGetStreamColorSpace)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        D3D11_VIDEO_PROCESSOR_COLOR_SPACE *color_space);
+
+    void (STDMETHODCALLTYPE *VideoProcessorGetStreamOutputRate)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        D3D11_VIDEO_PROCESSOR_OUTPUT_RATE *rate,
+        WINBOOL *repeat,
+        DXGI_RATIONAL *custom_rate);
+
+    void (STDMETHODCALLTYPE *VideoProcessorGetStreamSourceRect)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL *enabled,
+        RECT *rect);
+
+    void (STDMETHODCALLTYPE *VideoProcessorGetStreamDestRect)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL *enabled,
+        RECT *rect);
+
+    void (STDMETHODCALLTYPE *VideoProcessorGetStreamAlpha)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL *enabled,
+        float *alpha);
+
+    void (STDMETHODCALLTYPE *VideoProcessorGetStreamPalette)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        UINT entry_count,
+        UINT *entries);
+
+    void (STDMETHODCALLTYPE *VideoProcessorGetStreamPixelAspectRatio)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL *enabled,
+        DXGI_RATIONAL *src_aspect_ratio,
+        DXGI_RATIONAL *dst_aspect_ratio);
+
+    void (STDMETHODCALLTYPE *VideoProcessorGetStreamLumaKey)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL *enabled,
+        float *lower,
+        float *upper);
+
+    void (STDMETHODCALLTYPE *VideoProcessorGetStreamStereoFormat)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL *enabled,
+        D3D11_VIDEO_PROCESSOR_STEREO_FORMAT *format,
+        WINBOOL *left_view_frame0,
+        WINBOOL *base_view_frame0,
+        D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE *flip_mode,
+        int *mono_offset);
+
+    void (STDMETHODCALLTYPE *VideoProcessorGetStreamAutoProcessingMode)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL *enabled);
+
+    void (STDMETHODCALLTYPE *VideoProcessorGetStreamFilter)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        D3D11_VIDEO_PROCESSOR_FILTER filter,
+        WINBOOL *enabled,
+        int *level);
+
+    HRESULT (STDMETHODCALLTYPE *VideoProcessorGetStreamExtension)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        const GUID *guid,
+        UINT data_size,
+        void *data);
+
+    HRESULT (STDMETHODCALLTYPE *VideoProcessorBlt)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        ID3D11VideoProcessorOutputView *view,
+        UINT frame_idx,
+        UINT stream_count,
+        const D3D11_VIDEO_PROCESSOR_STREAM *streams);
+
+    HRESULT (STDMETHODCALLTYPE *NegotiateCryptoSessionKeyExchange)(
+        ID3D11VideoContext* This,
+        ID3D11CryptoSession *session,
+        UINT data_size,
+        void *data);
+
+    void (STDMETHODCALLTYPE *EncryptionBlt)(
+        ID3D11VideoContext* This,
+        ID3D11CryptoSession *session,
+        ID3D11Texture2D *src_surface,
+        ID3D11Texture2D *dst_surface,
+        UINT iv_size,
+        void *iv);
+
+    void (STDMETHODCALLTYPE *DecryptionBlt)(
+        ID3D11VideoContext* This,
+        ID3D11CryptoSession *session,
+        ID3D11Texture2D *src_surface,
+        ID3D11Texture2D *dst_surface,
+        D3D11_ENCRYPTED_BLOCK_INFO *block_info,
+        UINT key_size,
+        const void *key,
+        UINT iv_size,
+        void *iv);
+
+    void (STDMETHODCALLTYPE *StartSessionKeyRefresh)(
+        ID3D11VideoContext* This,
+        ID3D11CryptoSession *session,
+        UINT random_number_size,
+        void *random_number);
+
+    void (STDMETHODCALLTYPE *FinishSessionKeyRefresh)(
+        ID3D11VideoContext* This,
+        ID3D11CryptoSession *session);
+
+    HRESULT (STDMETHODCALLTYPE *GetEncryptionBltKey)(
+        ID3D11VideoContext* This,
+        ID3D11CryptoSession *session,
+        UINT key_size,
+        void *key);
+
+    HRESULT (STDMETHODCALLTYPE *NegotiateAuthenticatedChannelKeyExchange)(
+        ID3D11VideoContext* This,
+        ID3D11AuthenticatedChannel *channel,
+        UINT data_size,
+        void *data);
+
+    HRESULT (STDMETHODCALLTYPE *QueryAuthenticatedChannel)(
+        ID3D11VideoContext* This,
+        ID3D11AuthenticatedChannel *channel,
+        UINT input_size,
+        const void *input,
+        UINT output_size,
+        void *output);
+
+    HRESULT (STDMETHODCALLTYPE *ConfigureAuthenticatedChannel)(
+        ID3D11VideoContext* This,
+        ID3D11AuthenticatedChannel *channel,
+        UINT input_size,
+        const void *input,
+        D3D11_AUTHENTICATED_CONFIGURE_OUTPUT *output);
+
+    void (STDMETHODCALLTYPE *VideoProcessorSetStreamRotation)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL enable,
+        D3D11_VIDEO_PROCESSOR_ROTATION rotation);
+
+    void (STDMETHODCALLTYPE *VideoProcessorGetStreamRotation)(
+        ID3D11VideoContext* This,
+        ID3D11VideoProcessor *processor,
+        UINT stream_idx,
+        WINBOOL *enable,
+        D3D11_VIDEO_PROCESSOR_ROTATION *rotation);
+
+    END_INTERFACE
+} ID3D11VideoContextVtbl;
+interface ID3D11VideoContext {
+    CONST_VTBL ID3D11VideoContextVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3D11VideoContext_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3D11VideoContext_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3D11VideoContext_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3D11DeviceChild methods ***/
+#define ID3D11VideoContext_GetDevice(This,ppDevice) (This)->lpVtbl->GetDevice(This,ppDevice)
+#define ID3D11VideoContext_GetPrivateData(This,guid,pDataSize,pData) (This)->lpVtbl->GetPrivateData(This,guid,pDataSize,pData)
+#define ID3D11VideoContext_SetPrivateData(This,guid,DataSize,pData) (This)->lpVtbl->SetPrivateData(This,guid,DataSize,pData)
+#define ID3D11VideoContext_SetPrivateDataInterface(This,guid,pData) (This)->lpVtbl->SetPrivateDataInterface(This,guid,pData)
+/*** ID3D11VideoContext methods ***/
+#define ID3D11VideoContext_GetDecoderBuffer(This,decoder,type,buffer_size,buffer) (This)->lpVtbl->GetDecoderBuffer(This,decoder,type,buffer_size,buffer)
+#define ID3D11VideoContext_ReleaseDecoderBuffer(This,decoder,type) (This)->lpVtbl->ReleaseDecoderBuffer(This,decoder,type)
+#define ID3D11VideoContext_DecoderBeginFrame(This,decoder,view,key_size,key) (This)->lpVtbl->DecoderBeginFrame(This,decoder,view,key_size,key)
+#define ID3D11VideoContext_DecoderEndFrame(This,decoder) (This)->lpVtbl->DecoderEndFrame(This,decoder)
+#define ID3D11VideoContext_SubmitDecoderBuffers(This,decoder,buffers_count,buffer_desc) (This)->lpVtbl->SubmitDecoderBuffers(This,decoder,buffers_count,buffer_desc)
+#define ID3D11VideoContext_DecoderExtension(This,decoder,extension) (This)->lpVtbl->DecoderExtension(This,decoder,extension)
+#define ID3D11VideoContext_VideoProcessorSetOutputTargetRect(This,processor,enable,rect) (This)->lpVtbl->VideoProcessorSetOutputTargetRect(This,processor,enable,rect)
+#define ID3D11VideoContext_VideoProcessorSetOutputBackgroundColor(This,processor,y_cb_cr,color) (This)->lpVtbl->VideoProcessorSetOutputBackgroundColor(This,processor,y_cb_cr,color)
+#define ID3D11VideoContext_VideoProcessorSetOutputColorSpace(This,processor,color_space) (This)->lpVtbl->VideoProcessorSetOutputColorSpace(This,processor,color_space)
+#define ID3D11VideoContext_VideoProcessorSetOutputAlphaFillMode(This,processor,alpha_fill_mode,stream_idx) (This)->lpVtbl->VideoProcessorSetOutputAlphaFillMode(This,processor,alpha_fill_mode,stream_idx)
+#define ID3D11VideoContext_VideoProcessorSetOutputConstriction(This,processor,enable,size) (This)->lpVtbl->VideoProcessorSetOutputConstriction(This,processor,enable,size)
+#define ID3D11VideoContext_VideoProcessorSetOutputStereoMode(This,processor,enable) (This)->lpVtbl->VideoProcessorSetOutputStereoMode(This,processor,enable)
+#define ID3D11VideoContext_VideoProcessorSetOutputExtension(This,processor,guid,data_size,data) (This)->lpVtbl->VideoProcessorSetOutputExtension(This,processor,guid,data_size,data)
+#define ID3D11VideoContext_VideoProcessorGetOutputTargetRect(This,processor,enabled,rect) (This)->lpVtbl->VideoProcessorGetOutputTargetRect(This,processor,enabled,rect)
+#define ID3D11VideoContext_VideoProcessorGetOutputBackgroundColor(This,processor,y_cb_cr,color) (This)->lpVtbl->VideoProcessorGetOutputBackgroundColor(This,processor,y_cb_cr,color)
+#define ID3D11VideoContext_VideoProcessorGetOutputColorSpace(This,processor,color_space) (This)->lpVtbl->VideoProcessorGetOutputColorSpace(This,processor,color_space)
+#define ID3D11VideoContext_VideoProcessorGetOutputAlphaFillMode(This,processor,alpha_fill_mode,stream_idx) (This)->lpVtbl->VideoProcessorGetOutputAlphaFillMode(This,processor,alpha_fill_mode,stream_idx)
+#define ID3D11VideoContext_VideoProcessorGetOutputConstriction(This,processor,enabled,size) (This)->lpVtbl->VideoProcessorGetOutputConstriction(This,processor,enabled,size)
+#define ID3D11VideoContext_VideoProcessorGetOutputStereoMode(This,processor,enabled) (This)->lpVtbl->VideoProcessorGetOutputStereoMode(This,processor,enabled)
+#define ID3D11VideoContext_VideoProcessorGetOutputExtension(This,processor,guid,data_size,data) (This)->lpVtbl->VideoProcessorGetOutputExtension(This,processor,guid,data_size,data)
+#define ID3D11VideoContext_VideoProcessorSetStreamFrameFormat(This,processor,stream_idx,format) (This)->lpVtbl->VideoProcessorSetStreamFrameFormat(This,processor,stream_idx,format)
+#define ID3D11VideoContext_VideoProcessorSetStreamColorSpace(This,processor,stream_idx,color_space) (This)->lpVtbl->VideoProcessorSetStreamColorSpace(This,processor,stream_idx,color_space)
+#define ID3D11VideoContext_VideoProcessorSetStreamOutputRate(This,processor,stream_idx,rate,repeat,custom_rate) (This)->lpVtbl->VideoProcessorSetStreamOutputRate(This,processor,stream_idx,rate,repeat,custom_rate)
+#define ID3D11VideoContext_VideoProcessorSetStreamSourceRect(This,processor,stream_idx,enable,rect) (This)->lpVtbl->VideoProcessorSetStreamSourceRect(This,processor,stream_idx,enable,rect)
+#define ID3D11VideoContext_VideoProcessorSetStreamDestRect(This,processor,stream_idx,enable,rect) (This)->lpVtbl->VideoProcessorSetStreamDestRect(This,processor,stream_idx,enable,rect)
+#define ID3D11VideoContext_VideoProcessorSetStreamAlpha(This,processor,stream_idx,enable,alpha) (This)->lpVtbl->VideoProcessorSetStreamAlpha(This,processor,stream_idx,enable,alpha)
+#define ID3D11VideoContext_VideoProcessorSetStreamPalette(This,processor,stream_idx,entry_count,entries) (This)->lpVtbl->VideoProcessorSetStreamPalette(This,processor,stream_idx,entry_count,entries)
+#define ID3D11VideoContext_VideoProcessorSetStreamPixelAspectRatio(This,processor,stream_idx,enable,src_aspect_ratio,dst_aspect_ratio) (This)->lpVtbl->VideoProcessorSetStreamPixelAspectRatio(This,processor,stream_idx,enable,src_aspect_ratio,dst_aspect_ratio)
+#define ID3D11VideoContext_VideoProcessorSetStreamLumaKey(This,processor,stream_idx,enable,lower,upper) (This)->lpVtbl->VideoProcessorSetStreamLumaKey(This,processor,stream_idx,enable,lower,upper)
+#define ID3D11VideoContext_VideoProcessorSetStreamStereoFormat(This,processor,stream_idx,enable,format,left_view_frame0,base_view_frame0,flip_mode,mono_offset) (This)->lpVtbl->VideoProcessorSetStreamStereoFormat(This,processor,stream_idx,enable,format,left_view_frame0,base_view_frame0,flip_mode,mono_offset)
+#define ID3D11VideoContext_VideoProcessorSetStreamAutoProcessingMode(This,processor,stream_idx,enable) (This)->lpVtbl->VideoProcessorSetStreamAutoProcessingMode(This,processor,stream_idx,enable)
+#define ID3D11VideoContext_VideoProcessorSetStreamFilter(This,processor,stream_idx,filter,enable,level) (This)->lpVtbl->VideoProcessorSetStreamFilter(This,processor,stream_idx,filter,enable,level)
+#define ID3D11VideoContext_VideoProcessorSetStreamExtension(This,processor,stream_idx,guid,data_size,data) (This)->lpVtbl->VideoProcessorSetStreamExtension(This,processor,stream_idx,guid,data_size,data)
+#define ID3D11VideoContext_VideoProcessorGetStreamFrameFormat(This,processor,stream_idx,format) (This)->lpVtbl->VideoProcessorGetStreamFrameFormat(This,processor,stream_idx,format)
+#define ID3D11VideoContext_VideoProcessorGetStreamColorSpace(This,processor,stream_idx,color_space) (This)->lpVtbl->VideoProcessorGetStreamColorSpace(This,processor,stream_idx,color_space)
+#define ID3D11VideoContext_VideoProcessorGetStreamOutputRate(This,processor,stream_idx,rate,repeat,custom_rate) (This)->lpVtbl->VideoProcessorGetStreamOutputRate(This,processor,stream_idx,rate,repeat,custom_rate)
+#define ID3D11VideoContext_VideoProcessorGetStreamSourceRect(This,processor,stream_idx,enabled,rect) (This)->lpVtbl->VideoProcessorGetStreamSourceRect(This,processor,stream_idx,enabled,rect)
+#define ID3D11VideoContext_VideoProcessorGetStreamDestRect(This,processor,stream_idx,enabled,rect) (This)->lpVtbl->VideoProcessorGetStreamDestRect(This,processor,stream_idx,enabled,rect)
+#define ID3D11VideoContext_VideoProcessorGetStreamAlpha(This,processor,stream_idx,enabled,alpha) (This)->lpVtbl->VideoProcessorGetStreamAlpha(This,processor,stream_idx,enabled,alpha)
+#define ID3D11VideoContext_VideoProcessorGetStreamPalette(This,processor,stream_idx,entry_count,entries) (This)->lpVtbl->VideoProcessorGetStreamPalette(This,processor,stream_idx,entry_count,entries)
+#define ID3D11VideoContext_VideoProcessorGetStreamPixelAspectRatio(This,processor,stream_idx,enabled,src_aspect_ratio,dst_aspect_ratio) (This)->lpVtbl->VideoProcessorGetStreamPixelAspectRatio(This,processor,stream_idx,enabled,src_aspect_ratio,dst_aspect_ratio)
+#define ID3D11VideoContext_VideoProcessorGetStreamLumaKey(This,processor,stream_idx,enabled,lower,upper) (This)->lpVtbl->VideoProcessorGetStreamLumaKey(This,processor,stream_idx,enabled,lower,upper)
+#define ID3D11VideoContext_VideoProcessorGetStreamStereoFormat(This,processor,stream_idx,enabled,format,left_view_frame0,base_view_frame0,flip_mode,mono_offset) (This)->lpVtbl->VideoProcessorGetStreamStereoFormat(This,processor,stream_idx,enabled,format,left_view_frame0,base_view_frame0,flip_mode,mono_offset)
+#define ID3D11VideoContext_VideoProcessorGetStreamAutoProcessingMode(This,processor,stream_idx,enabled) (This)->lpVtbl->VideoProcessorGetStreamAutoProcessingMode(This,processor,stream_idx,enabled)
+#define ID3D11VideoContext_VideoProcessorGetStreamFilter(This,processor,stream_idx,filter,enabled,level) (This)->lpVtbl->VideoProcessorGetStreamFilter(This,processor,stream_idx,filter,enabled,level)
+#define ID3D11VideoContext_VideoProcessorGetStreamExtension(This,processor,stream_idx,guid,data_size,data) (This)->lpVtbl->VideoProcessorGetStreamExtension(This,processor,stream_idx,guid,data_size,data)
+#define ID3D11VideoContext_VideoProcessorBlt(This,processor,view,frame_idx,stream_count,streams) (This)->lpVtbl->VideoProcessorBlt(This,processor,view,frame_idx,stream_count,streams)
+#define ID3D11VideoContext_NegotiateCryptoSessionKeyExchange(This,session,data_size,data) (This)->lpVtbl->NegotiateCryptoSessionKeyExchange(This,session,data_size,data)
+#define ID3D11VideoContext_EncryptionBlt(This,session,src_surface,dst_surface,iv_size,iv) (This)->lpVtbl->EncryptionBlt(This,session,src_surface,dst_surface,iv_size,iv)
+#define ID3D11VideoContext_DecryptionBlt(This,session,src_surface,dst_surface,block_info,key_size,key,iv_size,iv) (This)->lpVtbl->DecryptionBlt(This,session,src_surface,dst_surface,block_info,key_size,key,iv_size,iv)
+#define ID3D11VideoContext_StartSessionKeyRefresh(This,session,random_number_size,random_number) (This)->lpVtbl->StartSessionKeyRefresh(This,session,random_number_size,random_number)
+#define ID3D11VideoContext_FinishSessionKeyRefresh(This,session) (This)->lpVtbl->FinishSessionKeyRefresh(This,session)
+#define ID3D11VideoContext_GetEncryptionBltKey(This,session,key_size,key) (This)->lpVtbl->GetEncryptionBltKey(This,session,key_size,key)
+#define ID3D11VideoContext_NegotiateAuthenticatedChannelKeyExchange(This,channel,data_size,data) (This)->lpVtbl->NegotiateAuthenticatedChannelKeyExchange(This,channel,data_size,data)
+#define ID3D11VideoContext_QueryAuthenticatedChannel(This,channel,input_size,input,output_size,output) (This)->lpVtbl->QueryAuthenticatedChannel(This,channel,input_size,input,output_size,output)
+#define ID3D11VideoContext_ConfigureAuthenticatedChannel(This,channel,input_size,input,output) (This)->lpVtbl->ConfigureAuthenticatedChannel(This,channel,input_size,input,output)
+#define ID3D11VideoContext_VideoProcessorSetStreamRotation(This,processor,stream_idx,enable,rotation) (This)->lpVtbl->VideoProcessorSetStreamRotation(This,processor,stream_idx,enable,rotation)
+#define ID3D11VideoContext_VideoProcessorGetStreamRotation(This,processor,stream_idx,enable,rotation) (This)->lpVtbl->VideoProcessorGetStreamRotation(This,processor,stream_idx,enable,rotation)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3D11VideoContext_QueryInterface(ID3D11VideoContext* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3D11VideoContext_AddRef(ID3D11VideoContext* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3D11VideoContext_Release(ID3D11VideoContext* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3D11DeviceChild methods ***/
+static FORCEINLINE void ID3D11VideoContext_GetDevice(ID3D11VideoContext* This,ID3D11Device **ppDevice) {
+    This->lpVtbl->GetDevice(This,ppDevice);
+}
+static FORCEINLINE HRESULT ID3D11VideoContext_GetPrivateData(ID3D11VideoContext* This,REFGUID guid,UINT *pDataSize,void *pData) {
+    return This->lpVtbl->GetPrivateData(This,guid,pDataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11VideoContext_SetPrivateData(ID3D11VideoContext* This,REFGUID guid,UINT DataSize,const void *pData) {
+    return This->lpVtbl->SetPrivateData(This,guid,DataSize,pData);
+}
+static FORCEINLINE HRESULT ID3D11VideoContext_SetPrivateDataInterface(ID3D11VideoContext* This,REFGUID guid,const IUnknown *pData) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,pData);
+}
+/*** ID3D11VideoContext methods ***/
+static FORCEINLINE HRESULT ID3D11VideoContext_GetDecoderBuffer(ID3D11VideoContext* This,ID3D11VideoDecoder *decoder,D3D11_VIDEO_DECODER_BUFFER_TYPE type,UINT *buffer_size,void **buffer) {
+    return This->lpVtbl->GetDecoderBuffer(This,decoder,type,buffer_size,buffer);
+}
+static FORCEINLINE HRESULT ID3D11VideoContext_ReleaseDecoderBuffer(ID3D11VideoContext* This,ID3D11VideoDecoder *decoder,D3D11_VIDEO_DECODER_BUFFER_TYPE type) {
+    return This->lpVtbl->ReleaseDecoderBuffer(This,decoder,type);
+}
+static FORCEINLINE HRESULT ID3D11VideoContext_DecoderBeginFrame(ID3D11VideoContext* This,ID3D11VideoDecoder *decoder,ID3D11VideoDecoderOutputView *view,UINT key_size,const void *key) {
+    return This->lpVtbl->DecoderBeginFrame(This,decoder,view,key_size,key);
+}
+static FORCEINLINE HRESULT ID3D11VideoContext_DecoderEndFrame(ID3D11VideoContext* This,ID3D11VideoDecoder *decoder) {
+    return This->lpVtbl->DecoderEndFrame(This,decoder);
+}
+static FORCEINLINE HRESULT ID3D11VideoContext_SubmitDecoderBuffers(ID3D11VideoContext* This,ID3D11VideoDecoder *decoder,UINT buffers_count,const D3D11_VIDEO_DECODER_BUFFER_DESC *buffer_desc) {
+    return This->lpVtbl->SubmitDecoderBuffers(This,decoder,buffers_count,buffer_desc);
+}
+static FORCEINLINE HRESULT ID3D11VideoContext_DecoderExtension(ID3D11VideoContext* This,ID3D11VideoDecoder *decoder,const D3D11_VIDEO_DECODER_EXTENSION *extension) {
+    return This->lpVtbl->DecoderExtension(This,decoder,extension);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorSetOutputTargetRect(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,WINBOOL enable,const RECT *rect) {
+    This->lpVtbl->VideoProcessorSetOutputTargetRect(This,processor,enable,rect);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorSetOutputBackgroundColor(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,WINBOOL y_cb_cr,const D3D11_VIDEO_COLOR *color) {
+    This->lpVtbl->VideoProcessorSetOutputBackgroundColor(This,processor,y_cb_cr,color);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorSetOutputColorSpace(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,const D3D11_VIDEO_PROCESSOR_COLOR_SPACE *color_space) {
+    This->lpVtbl->VideoProcessorSetOutputColorSpace(This,processor,color_space);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorSetOutputAlphaFillMode(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE alpha_fill_mode,UINT stream_idx) {
+    This->lpVtbl->VideoProcessorSetOutputAlphaFillMode(This,processor,alpha_fill_mode,stream_idx);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorSetOutputConstriction(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,WINBOOL enable,SIZE size) {
+    This->lpVtbl->VideoProcessorSetOutputConstriction(This,processor,enable,size);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorSetOutputStereoMode(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,WINBOOL enable) {
+    This->lpVtbl->VideoProcessorSetOutputStereoMode(This,processor,enable);
+}
+static FORCEINLINE HRESULT ID3D11VideoContext_VideoProcessorSetOutputExtension(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,const GUID *guid,UINT data_size,void *data) {
+    return This->lpVtbl->VideoProcessorSetOutputExtension(This,processor,guid,data_size,data);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorGetOutputTargetRect(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,WINBOOL *enabled,RECT *rect) {
+    This->lpVtbl->VideoProcessorGetOutputTargetRect(This,processor,enabled,rect);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorGetOutputBackgroundColor(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,WINBOOL *y_cb_cr,D3D11_VIDEO_COLOR *color) {
+    This->lpVtbl->VideoProcessorGetOutputBackgroundColor(This,processor,y_cb_cr,color);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorGetOutputColorSpace(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,D3D11_VIDEO_PROCESSOR_COLOR_SPACE *color_space) {
+    This->lpVtbl->VideoProcessorGetOutputColorSpace(This,processor,color_space);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorGetOutputAlphaFillMode(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE *alpha_fill_mode,UINT *stream_idx) {
+    This->lpVtbl->VideoProcessorGetOutputAlphaFillMode(This,processor,alpha_fill_mode,stream_idx);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorGetOutputConstriction(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,WINBOOL *enabled,SIZE *size) {
+    This->lpVtbl->VideoProcessorGetOutputConstriction(This,processor,enabled,size);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorGetOutputStereoMode(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,WINBOOL *enabled) {
+    This->lpVtbl->VideoProcessorGetOutputStereoMode(This,processor,enabled);
+}
+static FORCEINLINE HRESULT ID3D11VideoContext_VideoProcessorGetOutputExtension(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,const GUID *guid,UINT data_size,void *data) {
+    return This->lpVtbl->VideoProcessorGetOutputExtension(This,processor,guid,data_size,data);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorSetStreamFrameFormat(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,D3D11_VIDEO_FRAME_FORMAT format) {
+    This->lpVtbl->VideoProcessorSetStreamFrameFormat(This,processor,stream_idx,format);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorSetStreamColorSpace(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,const D3D11_VIDEO_PROCESSOR_COLOR_SPACE *color_space) {
+    This->lpVtbl->VideoProcessorSetStreamColorSpace(This,processor,stream_idx,color_space);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorSetStreamOutputRate(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,D3D11_VIDEO_PROCESSOR_OUTPUT_RATE rate,WINBOOL repeat,const DXGI_RATIONAL *custom_rate) {
+    This->lpVtbl->VideoProcessorSetStreamOutputRate(This,processor,stream_idx,rate,repeat,custom_rate);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorSetStreamSourceRect(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,WINBOOL enable,const RECT *rect) {
+    This->lpVtbl->VideoProcessorSetStreamSourceRect(This,processor,stream_idx,enable,rect);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorSetStreamDestRect(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,WINBOOL enable,const RECT *rect) {
+    This->lpVtbl->VideoProcessorSetStreamDestRect(This,processor,stream_idx,enable,rect);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorSetStreamAlpha(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,WINBOOL enable,float alpha) {
+    This->lpVtbl->VideoProcessorSetStreamAlpha(This,processor,stream_idx,enable,alpha);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorSetStreamPalette(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,UINT entry_count,const UINT *entries) {
+    This->lpVtbl->VideoProcessorSetStreamPalette(This,processor,stream_idx,entry_count,entries);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorSetStreamPixelAspectRatio(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,WINBOOL enable,const DXGI_RATIONAL *src_aspect_ratio,const DXGI_RATIONAL *dst_aspect_ratio) {
+    This->lpVtbl->VideoProcessorSetStreamPixelAspectRatio(This,processor,stream_idx,enable,src_aspect_ratio,dst_aspect_ratio);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorSetStreamLumaKey(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,WINBOOL enable,float lower,float upper) {
+    This->lpVtbl->VideoProcessorSetStreamLumaKey(This,processor,stream_idx,enable,lower,upper);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorSetStreamStereoFormat(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,WINBOOL enable,D3D11_VIDEO_PROCESSOR_STEREO_FORMAT format,WINBOOL left_view_frame0,WINBOOL base_view_frame0,D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE flip_mode,int mono_offset) {
+    This->lpVtbl->VideoProcessorSetStreamStereoFormat(This,processor,stream_idx,enable,format,left_view_frame0,base_view_frame0,flip_mode,mono_offset);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorSetStreamAutoProcessingMode(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,WINBOOL enable) {
+    This->lpVtbl->VideoProcessorSetStreamAutoProcessingMode(This,processor,stream_idx,enable);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorSetStreamFilter(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,D3D11_VIDEO_PROCESSOR_FILTER filter,WINBOOL enable,int level) {
+    This->lpVtbl->VideoProcessorSetStreamFilter(This,processor,stream_idx,filter,enable,level);
+}
+static FORCEINLINE HRESULT ID3D11VideoContext_VideoProcessorSetStreamExtension(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,const GUID *guid,UINT data_size,void *data) {
+    return This->lpVtbl->VideoProcessorSetStreamExtension(This,processor,stream_idx,guid,data_size,data);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorGetStreamFrameFormat(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,D3D11_VIDEO_FRAME_FORMAT *format) {
+    This->lpVtbl->VideoProcessorGetStreamFrameFormat(This,processor,stream_idx,format);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorGetStreamColorSpace(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,D3D11_VIDEO_PROCESSOR_COLOR_SPACE *color_space) {
+    This->lpVtbl->VideoProcessorGetStreamColorSpace(This,processor,stream_idx,color_space);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorGetStreamOutputRate(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,D3D11_VIDEO_PROCESSOR_OUTPUT_RATE *rate,WINBOOL *repeat,DXGI_RATIONAL *custom_rate) {
+    This->lpVtbl->VideoProcessorGetStreamOutputRate(This,processor,stream_idx,rate,repeat,custom_rate);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorGetStreamSourceRect(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,WINBOOL *enabled,RECT *rect) {
+    This->lpVtbl->VideoProcessorGetStreamSourceRect(This,processor,stream_idx,enabled,rect);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorGetStreamDestRect(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,WINBOOL *enabled,RECT *rect) {
+    This->lpVtbl->VideoProcessorGetStreamDestRect(This,processor,stream_idx,enabled,rect);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorGetStreamAlpha(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,WINBOOL *enabled,float *alpha) {
+    This->lpVtbl->VideoProcessorGetStreamAlpha(This,processor,stream_idx,enabled,alpha);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorGetStreamPalette(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,UINT entry_count,UINT *entries) {
+    This->lpVtbl->VideoProcessorGetStreamPalette(This,processor,stream_idx,entry_count,entries);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorGetStreamPixelAspectRatio(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,WINBOOL *enabled,DXGI_RATIONAL *src_aspect_ratio,DXGI_RATIONAL *dst_aspect_ratio) {
+    This->lpVtbl->VideoProcessorGetStreamPixelAspectRatio(This,processor,stream_idx,enabled,src_aspect_ratio,dst_aspect_ratio);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorGetStreamLumaKey(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,WINBOOL *enabled,float *lower,float *upper) {
+    This->lpVtbl->VideoProcessorGetStreamLumaKey(This,processor,stream_idx,enabled,lower,upper);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorGetStreamStereoFormat(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,WINBOOL *enabled,D3D11_VIDEO_PROCESSOR_STEREO_FORMAT *format,WINBOOL *left_view_frame0,WINBOOL *base_view_frame0,D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE *flip_mode,int *mono_offset) {
+    This->lpVtbl->VideoProcessorGetStreamStereoFormat(This,processor,stream_idx,enabled,format,left_view_frame0,base_view_frame0,flip_mode,mono_offset);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorGetStreamAutoProcessingMode(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,WINBOOL *enabled) {
+    This->lpVtbl->VideoProcessorGetStreamAutoProcessingMode(This,processor,stream_idx,enabled);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorGetStreamFilter(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,D3D11_VIDEO_PROCESSOR_FILTER filter,WINBOOL *enabled,int *level) {
+    This->lpVtbl->VideoProcessorGetStreamFilter(This,processor,stream_idx,filter,enabled,level);
+}
+static FORCEINLINE HRESULT ID3D11VideoContext_VideoProcessorGetStreamExtension(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,const GUID *guid,UINT data_size,void *data) {
+    return This->lpVtbl->VideoProcessorGetStreamExtension(This,processor,stream_idx,guid,data_size,data);
+}
+static FORCEINLINE HRESULT ID3D11VideoContext_VideoProcessorBlt(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,ID3D11VideoProcessorOutputView *view,UINT frame_idx,UINT stream_count,const D3D11_VIDEO_PROCESSOR_STREAM *streams) {
+    return This->lpVtbl->VideoProcessorBlt(This,processor,view,frame_idx,stream_count,streams);
+}
+static FORCEINLINE HRESULT ID3D11VideoContext_NegotiateCryptoSessionKeyExchange(ID3D11VideoContext* This,ID3D11CryptoSession *session,UINT data_size,void *data) {
+    return This->lpVtbl->NegotiateCryptoSessionKeyExchange(This,session,data_size,data);
+}
+static FORCEINLINE void ID3D11VideoContext_EncryptionBlt(ID3D11VideoContext* This,ID3D11CryptoSession *session,ID3D11Texture2D *src_surface,ID3D11Texture2D *dst_surface,UINT iv_size,void *iv) {
+    This->lpVtbl->EncryptionBlt(This,session,src_surface,dst_surface,iv_size,iv);
+}
+static FORCEINLINE void ID3D11VideoContext_DecryptionBlt(ID3D11VideoContext* This,ID3D11CryptoSession *session,ID3D11Texture2D *src_surface,ID3D11Texture2D *dst_surface,D3D11_ENCRYPTED_BLOCK_INFO *block_info,UINT key_size,const void *key,UINT iv_size,void *iv) {
+    This->lpVtbl->DecryptionBlt(This,session,src_surface,dst_surface,block_info,key_size,key,iv_size,iv);
+}
+static FORCEINLINE void ID3D11VideoContext_StartSessionKeyRefresh(ID3D11VideoContext* This,ID3D11CryptoSession *session,UINT random_number_size,void *random_number) {
+    This->lpVtbl->StartSessionKeyRefresh(This,session,random_number_size,random_number);
+}
+static FORCEINLINE void ID3D11VideoContext_FinishSessionKeyRefresh(ID3D11VideoContext* This,ID3D11CryptoSession *session) {
+    This->lpVtbl->FinishSessionKeyRefresh(This,session);
+}
+static FORCEINLINE HRESULT ID3D11VideoContext_GetEncryptionBltKey(ID3D11VideoContext* This,ID3D11CryptoSession *session,UINT key_size,void *key) {
+    return This->lpVtbl->GetEncryptionBltKey(This,session,key_size,key);
+}
+static FORCEINLINE HRESULT ID3D11VideoContext_NegotiateAuthenticatedChannelKeyExchange(ID3D11VideoContext* This,ID3D11AuthenticatedChannel *channel,UINT data_size,void *data) {
+    return This->lpVtbl->NegotiateAuthenticatedChannelKeyExchange(This,channel,data_size,data);
+}
+static FORCEINLINE HRESULT ID3D11VideoContext_QueryAuthenticatedChannel(ID3D11VideoContext* This,ID3D11AuthenticatedChannel *channel,UINT input_size,const void *input,UINT output_size,void *output) {
+    return This->lpVtbl->QueryAuthenticatedChannel(This,channel,input_size,input,output_size,output);
+}
+static FORCEINLINE HRESULT ID3D11VideoContext_ConfigureAuthenticatedChannel(ID3D11VideoContext* This,ID3D11AuthenticatedChannel *channel,UINT input_size,const void *input,D3D11_AUTHENTICATED_CONFIGURE_OUTPUT *output) {
+    return This->lpVtbl->ConfigureAuthenticatedChannel(This,channel,input_size,input,output);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorSetStreamRotation(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,WINBOOL enable,D3D11_VIDEO_PROCESSOR_ROTATION rotation) {
+    This->lpVtbl->VideoProcessorSetStreamRotation(This,processor,stream_idx,enable,rotation);
+}
+static FORCEINLINE void ID3D11VideoContext_VideoProcessorGetStreamRotation(ID3D11VideoContext* This,ID3D11VideoProcessor *processor,UINT stream_idx,WINBOOL *enable,D3D11_VIDEO_PROCESSOR_ROTATION *rotation) {
+    This->lpVtbl->VideoProcessorGetStreamRotation(This,processor,stream_idx,enable,rotation);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ID3D11VideoContext_GetDecoderBuffer_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoDecoder *decoder,
+    D3D11_VIDEO_DECODER_BUFFER_TYPE type,
+    UINT *buffer_size,
+    void **buffer);
+void __RPC_STUB ID3D11VideoContext_GetDecoderBuffer_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11VideoContext_ReleaseDecoderBuffer_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoDecoder *decoder,
+    D3D11_VIDEO_DECODER_BUFFER_TYPE type);
+void __RPC_STUB ID3D11VideoContext_ReleaseDecoderBuffer_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11VideoContext_DecoderBeginFrame_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoDecoder *decoder,
+    ID3D11VideoDecoderOutputView *view,
+    UINT key_size,
+    const void *key);
+void __RPC_STUB ID3D11VideoContext_DecoderBeginFrame_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11VideoContext_DecoderEndFrame_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoDecoder *decoder);
+void __RPC_STUB ID3D11VideoContext_DecoderEndFrame_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11VideoContext_SubmitDecoderBuffers_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoDecoder *decoder,
+    UINT buffers_count,
+    const D3D11_VIDEO_DECODER_BUFFER_DESC *buffer_desc);
+void __RPC_STUB ID3D11VideoContext_SubmitDecoderBuffers_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11VideoContext_DecoderExtension_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoDecoder *decoder,
+    const D3D11_VIDEO_DECODER_EXTENSION *extension);
+void __RPC_STUB ID3D11VideoContext_DecoderExtension_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorSetOutputTargetRect_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    WINBOOL enable,
+    const RECT *rect);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorSetOutputTargetRect_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorSetOutputBackgroundColor_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    WINBOOL y_cb_cr,
+    const D3D11_VIDEO_COLOR *color);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorSetOutputBackgroundColor_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorSetOutputColorSpace_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    const D3D11_VIDEO_PROCESSOR_COLOR_SPACE *color_space);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorSetOutputColorSpace_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorSetOutputAlphaFillMode_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE alpha_fill_mode,
+    UINT stream_idx);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorSetOutputAlphaFillMode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorSetOutputConstriction_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    WINBOOL enable,
+    SIZE size);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorSetOutputConstriction_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorSetOutputStereoMode_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    WINBOOL enable);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorSetOutputStereoMode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorSetOutputExtension_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    const GUID *guid,
+    UINT data_size,
+    void *data);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorSetOutputExtension_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorGetOutputTargetRect_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    WINBOOL *enabled,
+    RECT *rect);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorGetOutputTargetRect_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorGetOutputBackgroundColor_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    WINBOOL *y_cb_cr,
+    D3D11_VIDEO_COLOR *color);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorGetOutputBackgroundColor_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorGetOutputColorSpace_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    D3D11_VIDEO_PROCESSOR_COLOR_SPACE *color_space);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorGetOutputColorSpace_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorGetOutputAlphaFillMode_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE *alpha_fill_mode,
+    UINT *stream_idx);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorGetOutputAlphaFillMode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorGetOutputConstriction_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    WINBOOL *enabled,
+    SIZE *size);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorGetOutputConstriction_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorGetOutputStereoMode_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    WINBOOL *enabled);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorGetOutputStereoMode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorGetOutputExtension_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    const GUID *guid,
+    UINT data_size,
+    void *data);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorGetOutputExtension_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorSetStreamFrameFormat_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    D3D11_VIDEO_FRAME_FORMAT format);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorSetStreamFrameFormat_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorSetStreamColorSpace_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    const D3D11_VIDEO_PROCESSOR_COLOR_SPACE *color_space);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorSetStreamColorSpace_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorSetStreamOutputRate_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    D3D11_VIDEO_PROCESSOR_OUTPUT_RATE rate,
+    WINBOOL repeat,
+    const DXGI_RATIONAL *custom_rate);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorSetStreamOutputRate_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorSetStreamSourceRect_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    WINBOOL enable,
+    const RECT *rect);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorSetStreamSourceRect_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorSetStreamDestRect_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    WINBOOL enable,
+    const RECT *rect);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorSetStreamDestRect_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorSetStreamAlpha_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    WINBOOL enable,
+    float alpha);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorSetStreamAlpha_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorSetStreamPalette_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    UINT entry_count,
+    const UINT *entries);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorSetStreamPalette_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorSetStreamPixelAspectRatio_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    WINBOOL enable,
+    const DXGI_RATIONAL *src_aspect_ratio,
+    const DXGI_RATIONAL *dst_aspect_ratio);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorSetStreamPixelAspectRatio_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorSetStreamLumaKey_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    WINBOOL enable,
+    float lower,
+    float upper);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorSetStreamLumaKey_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorSetStreamStereoFormat_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    WINBOOL enable,
+    D3D11_VIDEO_PROCESSOR_STEREO_FORMAT format,
+    WINBOOL left_view_frame0,
+    WINBOOL base_view_frame0,
+    D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE flip_mode,
+    int mono_offset);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorSetStreamStereoFormat_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorSetStreamAutoProcessingMode_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    WINBOOL enable);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorSetStreamAutoProcessingMode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorSetStreamFilter_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    D3D11_VIDEO_PROCESSOR_FILTER filter,
+    WINBOOL enable,
+    int level);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorSetStreamFilter_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorSetStreamExtension_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    const GUID *guid,
+    UINT data_size,
+    void *data);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorSetStreamExtension_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorGetStreamFrameFormat_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    D3D11_VIDEO_FRAME_FORMAT *format);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorGetStreamFrameFormat_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorGetStreamColorSpace_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    D3D11_VIDEO_PROCESSOR_COLOR_SPACE *color_space);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorGetStreamColorSpace_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorGetStreamOutputRate_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    D3D11_VIDEO_PROCESSOR_OUTPUT_RATE *rate,
+    WINBOOL *repeat,
+    DXGI_RATIONAL *custom_rate);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorGetStreamOutputRate_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorGetStreamSourceRect_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    WINBOOL *enabled,
+    RECT *rect);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorGetStreamSourceRect_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorGetStreamDestRect_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    WINBOOL *enabled,
+    RECT *rect);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorGetStreamDestRect_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorGetStreamAlpha_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    WINBOOL *enabled,
+    float *alpha);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorGetStreamAlpha_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorGetStreamPalette_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    UINT entry_count,
+    UINT *entries);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorGetStreamPalette_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorGetStreamPixelAspectRatio_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    WINBOOL *enabled,
+    DXGI_RATIONAL *src_aspect_ratio,
+    DXGI_RATIONAL *dst_aspect_ratio);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorGetStreamPixelAspectRatio_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorGetStreamLumaKey_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    WINBOOL *enabled,
+    float *lower,
+    float *upper);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorGetStreamLumaKey_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorGetStreamStereoFormat_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    WINBOOL *enabled,
+    D3D11_VIDEO_PROCESSOR_STEREO_FORMAT *format,
+    WINBOOL *left_view_frame0,
+    WINBOOL *base_view_frame0,
+    D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE *flip_mode,
+    int *mono_offset);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorGetStreamStereoFormat_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorGetStreamAutoProcessingMode_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    WINBOOL *enabled);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorGetStreamAutoProcessingMode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorGetStreamFilter_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    D3D11_VIDEO_PROCESSOR_FILTER filter,
+    WINBOOL *enabled,
+    int *level);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorGetStreamFilter_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorGetStreamExtension_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    const GUID *guid,
+    UINT data_size,
+    void *data);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorGetStreamExtension_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorBlt_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    ID3D11VideoProcessorOutputView *view,
+    UINT frame_idx,
+    UINT stream_count,
+    const D3D11_VIDEO_PROCESSOR_STREAM *streams);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorBlt_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11VideoContext_NegotiateCryptoSessionKeyExchange_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11CryptoSession *session,
+    UINT data_size,
+    void *data);
+void __RPC_STUB ID3D11VideoContext_NegotiateCryptoSessionKeyExchange_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_EncryptionBlt_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11CryptoSession *session,
+    ID3D11Texture2D *src_surface,
+    ID3D11Texture2D *dst_surface,
+    UINT iv_size,
+    void *iv);
+void __RPC_STUB ID3D11VideoContext_EncryptionBlt_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_DecryptionBlt_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11CryptoSession *session,
+    ID3D11Texture2D *src_surface,
+    ID3D11Texture2D *dst_surface,
+    D3D11_ENCRYPTED_BLOCK_INFO *block_info,
+    UINT key_size,
+    const void *key,
+    UINT iv_size,
+    void *iv);
+void __RPC_STUB ID3D11VideoContext_DecryptionBlt_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_StartSessionKeyRefresh_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11CryptoSession *session,
+    UINT random_number_size,
+    void *random_number);
+void __RPC_STUB ID3D11VideoContext_StartSessionKeyRefresh_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_FinishSessionKeyRefresh_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11CryptoSession *session);
+void __RPC_STUB ID3D11VideoContext_FinishSessionKeyRefresh_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11VideoContext_GetEncryptionBltKey_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11CryptoSession *session,
+    UINT key_size,
+    void *key);
+void __RPC_STUB ID3D11VideoContext_GetEncryptionBltKey_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11VideoContext_NegotiateAuthenticatedChannelKeyExchange_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11AuthenticatedChannel *channel,
+    UINT data_size,
+    void *data);
+void __RPC_STUB ID3D11VideoContext_NegotiateAuthenticatedChannelKeyExchange_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11VideoContext_QueryAuthenticatedChannel_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11AuthenticatedChannel *channel,
+    UINT input_size,
+    const void *input,
+    UINT output_size,
+    void *output);
+void __RPC_STUB ID3D11VideoContext_QueryAuthenticatedChannel_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ID3D11VideoContext_ConfigureAuthenticatedChannel_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11AuthenticatedChannel *channel,
+    UINT input_size,
+    const void *input,
+    D3D11_AUTHENTICATED_CONFIGURE_OUTPUT *output);
+void __RPC_STUB ID3D11VideoContext_ConfigureAuthenticatedChannel_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorSetStreamRotation_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    WINBOOL enable,
+    D3D11_VIDEO_PROCESSOR_ROTATION rotation);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorSetStreamRotation_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE ID3D11VideoContext_VideoProcessorGetStreamRotation_Proxy(
+    ID3D11VideoContext* This,
+    ID3D11VideoProcessor *processor,
+    UINT stream_idx,
+    WINBOOL *enable,
+    D3D11_VIDEO_PROCESSOR_ROTATION *rotation);
+void __RPC_STUB ID3D11VideoContext_VideoProcessorGetStreamRotation_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ID3D11VideoContext_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * ID3D11Device interface
