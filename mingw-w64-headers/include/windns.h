@@ -758,7 +758,11 @@ extern "C" {
 
 #define DnsFreeRecordListDeep DnsFreeRecordList
 
+#if(_WIN32_WINNT >= 0x0501)
+  #define DnsRecordListFree(p,t)  DnsFree(p,DnsFreeRecordList)
+#else
   VOID WINAPI DnsRecordListFree(PDNS_RECORD pRecordList,DNS_FREE_TYPE FreeType);
+#endif /* _WIN32_WINNT >= 0x0501 */
 
 #define DNS_QUERY_STANDARD 0x00000000
 #define DNS_QUERY_ACCEPT_TRUNCATED_RESPONSE 0x00000001
