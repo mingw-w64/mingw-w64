@@ -221,19 +221,20 @@ src_msvcrt32=\
 src_libmingwex=\
   crt/dllentry.c        crt/dllmain.c \
   \
-  complex/_cabs.c  complex/cabs.c     complex/cabsf.c    complex/cabsl.c   complex/cacos.c    complex/cacosf.c   complex/cacosl.c \
-  complex/carg.c     complex/cargf.c    complex/cargl.c   complex/casin.c    complex/casinf.c   complex/casinl.c \
-  complex/catan.c    complex/catanf.c   complex/catanl.c  complex/ccos.c     complex/ccosf.c    complex/ccosl.c  \
-  complex/cexp.c     complex/cexpf.c    complex/cexpl.c   complex/cimag.c    complex/cimagf.c   complex/cimagl.c \
-  complex/clog.c     complex/clogf.c    complex/clogl.c   complex/conj.c     complex/conjf.c    complex/conjl.c  \
-  complex/cpow.c     complex/cpowf.c    complex/cpowl.c   complex/cproj.c    complex/cprojf.c   complex/cprojl.c \
-  complex/creal.c    complex/crealf.c   complex/creall.c  complex/csin.c     complex/csinf.c    complex/csinl.c  \
-  complex/csqrt.c    complex/csqrtf.c   complex/csqrtl.c  complex/ctan.c     complex/ctanf.c    complex/ctanl.c  \
-  complex/cabs.def.h    complex/cacos.def.h  complex/cacosh.def.h  complex/carg.def.h          complex/casin.def.h \
-  complex/casinh.def.h  complex/catan.def.h  complex/catanh.def.h  complex/ccos.def.h          complex/ccosh.def.h \
-  complex/cexp.def.h    complex/cimag.def.h  complex/clog.def.h    complex/complex_internal.h  complex/conj.def.h  \
-  complex/cpow.def.h    complex/cproj.def.h  complex/creal.def.h   complex/csin.def.h          complex/csinh.def.h \
-  complex/csqrt.def.h   complex/ctan.def.h   complex/ctanh.def.h   \
+  complex/_cabs.c    complex/cabs.c   complex/cabsf.c   complex/cabsl.c   complex/cacos.c   complex/cacosf.c   \
+  complex/cacosl.c   complex/carg.c   complex/cargf.c   complex/cargl.c   complex/casin.c   complex/casinf.c   \
+  complex/casinl.c   complex/catan.c  complex/catanf.c  complex/catanl.c  complex/ccos.c    complex/ccosf.c    \
+  complex/ccosl.c    complex/cexp.c   complex/cexpf.c   complex/cexpl.c   complex/cimag.c   complex/cimagf.c   \
+  complex/cimagl.c   complex/clog.c   complex/clogf.c   complex/clogl.c   complex/clog10.c  complex/clog10f.c  \
+  complex/clog10l.c  complex/conj.c   complex/conjf.c   complex/conjl.c   complex/cpow.c    complex/cpowf.c    \
+  complex/cpowl.c    complex/cproj.c  complex/cprojf.c  complex/cprojl.c  complex/creal.c   complex/crealf.c   \
+  complex/creall.c   complex/csin.c   complex/csinf.c   complex/csinl.c   complex/csqrt.c   complex/csqrtf.c   \
+  complex/csqrtl.c   complex/ctan.c   complex/ctanf.c   complex/ctanl.c   \
+  complex/cabs.def.h    complex/cacos.def.h  complex/cacosh.def.h  complex/carg.def.h    complex/casin.def.h         \
+  complex/casinh.def.h  complex/catan.def.h  complex/catanh.def.h  complex/ccos.def.h    complex/ccosh.def.h         \
+  complex/cexp.def.h    complex/cimag.def.h  complex/clog.def.h    complex/clog10.def.h  complex/complex_internal.h  \
+  complex/conj.def.h    complex/cpow.def.h   complex/cproj.def.h   complex/creal.def.h   complex/csin.def.h          \
+  complex/csinh.def.h   complex/csqrt.def.h  complex/ctan.def.h    complex/ctanh.def.h   \
   \
   gdtoa/gd_arith.h  gdtoa/gd_qnan.h  gdtoa/gdtoa.h  gdtoa/gdtoaimp.h \
   gdtoa/arithchk.c  gdtoa/dmisc.c    gdtoa/dtoa.c   gdtoa/g_dfmt.c   gdtoa/gdtoa.c      gdtoa/gethex.c     \
