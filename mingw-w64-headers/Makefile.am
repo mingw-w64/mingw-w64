@@ -82,6 +82,7 @@ IDL_SRCS = \
   include/control.idl \
   include/ctfutb.idl \
   include/dbgprop.idl \
+  include/dcompanimation.idl \
   include/dimm.idl \
   include/dispex.idl \
   include/docobj.idl \
