@@ -19,7 +19,7 @@ _stub (char *_DstBuf, size_t _Size, const char *_Format, va_list _ArgList)
   if (f == _stub)
     {
 	f = (int __cdecl (*)(char *, size_t, const char *, va_list))
-	    GetProcAddress (__mingw_get_msvcrt_handle (), "vprintf_s");
+	    GetProcAddress (__mingw_get_msvcrt_handle (), "vsprintf_s");
 	if (!f)
 	  f = _int_vsprintf_s;
 	__MINGW_IMP_SYMBOL(vsprintf_s) = f;
