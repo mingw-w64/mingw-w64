@@ -213,6 +213,11 @@ release_ptrs (struct gcollect **pt, wchar_t **wbuf)
   struct gcollect *pf;
   size_t cnt;
 
+  if (wbuf)
+    {
+      free (*wbuf);
+      *wbuf = NULL;
+    }
   if (!pt || (pf = *pt) == NULL)
     return;
   while (pf != NULL)
@@ -227,11 +232,6 @@ release_ptrs (struct gcollect **pt, wchar_t **wbuf)
       free (pf_sv);
     }
   *pt = NULL;
-  if (wbuf)
-    {
-      free (*wbuf);
-      *wbuf = NULL;
-    }
 }
 
 static int
