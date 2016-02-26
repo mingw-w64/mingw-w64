@@ -23,6 +23,7 @@
 #include <objbase.h>
 #include <_mingw_dxhelper.h>
 
+#define DIRECTINPUT_HEADER_VERSION	0x0800
 #ifndef DIRECTINPUT_VERSION
 #define DIRECTINPUT_VERSION	0x0800
 #endif
