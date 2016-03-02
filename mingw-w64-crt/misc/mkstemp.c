@@ -48,7 +48,7 @@ int __cdecl mkstemp (char *template_name)
             template_name[j] = letters[rand () % 62];
         }
         fd = _sopen(template_name,
-                _O_RDWR | _O_CREAT | _O_EXCL | _O_TEMPORARY | _O_BINARY,
+                _O_RDWR | _O_CREAT | _O_EXCL | _O_BINARY,
                 _SH_DENYRW, _S_IREAD | _S_IWRITE);
         if (fd != -1) return fd;
         if (fd == -1 && errno != EEXIST) return -1;
