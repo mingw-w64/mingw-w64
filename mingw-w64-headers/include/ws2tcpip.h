@@ -221,6 +221,9 @@ typedef ADDRINFOA ADDRINFO,*LPADDRINFO;
 #define AI_FQDN                     0x00020000
 #define AI_FILESERVER               0x00040000
 #endif
+#if (_WIN32_WINNT >= 0x0602)
+#define AI_DISABLE_IDN_ENCODING     0x00080000
+#endif
 
 #ifdef __cplusplus
 extern "C" {
