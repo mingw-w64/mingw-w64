@@ -1448,9 +1448,11 @@ __buildreadseg(__readfsword, unsigned short, "fs", "w")
 
 #if __INTRINSIC_PROLOG(__readfsdword)
 unsigned __LONG32 __readfsdword(unsigned __LONG32 Offset);
+#if !__has_builtin(__readfsdword)
 __INTRINSICS_USEINLINE
 __buildreadseg(__readfsdword, unsigned __LONG32, "fs", "l")
 #define __INTRINSIC_DEFINED___readfsdword
+#endif
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__writefsbyte)
