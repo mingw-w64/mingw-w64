@@ -29,7 +29,6 @@ typedef void (__cdecl *_PVFI)(int);
 #endif
 
 extern WINBOOL __mingw_TLScallback (HANDLE hDllHandle, DWORD reason, LPVOID reserved);
-extern void __cdecl __MINGW_NOTHROW _fpreset (void);
 
 #define FUNCS_PER_NODE 30
 
@@ -96,7 +95,6 @@ __dyn_tls_init (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
       return TRUE;
     }
 
-  _fpreset();
   ps = (uintptr_t) &__xd_a;
   ps += sizeof (uintptr_t);
   for ( ; ps != (uintptr_t) &__xd_z; ps += sizeof (uintptr_t))
