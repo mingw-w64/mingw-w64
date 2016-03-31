@@ -416,8 +416,6 @@ crt32dir=$(lib32dir)
 winrt32dir=$(lib32dir)
 dx32dir=$(lib32dir)
 
-winrt32_DATA = $(winrtlibs)
-
 if !W32API
 crt32_DATA = \
   lib32/crt1.o    lib32/crt2.o     lib32/crt1u.o   lib32/crt2u.o    lib32/dllcrt1.o    lib32/dllcrt2.o \
@@ -1204,8 +1202,6 @@ libarm32dir=$(prefix)/@LIBARM32SUFFIXDIR@
 crt32dir=$(libarm32dir)
 winrt32dir=$(libarm32dir)
 dx32dir=$(libarm32dir)
-
-winrt32_DATA = $(winrtlibs)
 
 if !W32API
 crt32_DATA = \
