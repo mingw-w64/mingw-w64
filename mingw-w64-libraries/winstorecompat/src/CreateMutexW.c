@@ -37,4 +37,8 @@ HANDLE WINAPI CreateMutexW(LPSECURITY_ATTRIBUTES lpMutexAttributes, BOOL bInitia
     return CreateMutexExW(lpMutexAttributes, lpName, flags, EVENT_ALL_ACCESS);
 }
 
+#ifndef _WIN64
 HANDLE (WINAPI *__MINGW_IMP_SYMBOL(CreateMutexW))(LPSECURITY_ATTRIBUTES lpMutexAttributes, BOOL bInitialOwner, LPCWSTR lpName) asm("__imp__CreateMutexW@12") = CreateMutexW;
+#else
+HANDLE (WINAPI *__MINGW_IMP_SYMBOL(CreateMutexW))(LPSECURITY_ATTRIBUTES lpMutexAttributes, BOOL bInitialOwner, LPCWSTR lpName) asm("__imp_CreateMutexW") = CreateMutexW;
+#endif

@@ -47,4 +47,8 @@ HANDLE WINAPI CreateFileW(LPCWSTR lpFileName,
     return CreateFile2(lpFileName, dwDesiredAccess, dwShareMode, dwCreationDisposition, &createExParams);
 }
 
+#ifndef _WIN64
 HANDLE (WINAPI *__MINGW_IMP_SYMBOL(CreateFileW))(LPCWSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode,  LPSECURITY_ATTRIBUTES lpSecurityAttributes, DWORD dwCreationDisposition, DWORD dwFlagsAndAttributes, HANDLE hTemplateFile) asm("__imp__CreateFileW@28") = CreateFileW;
+#else
+HANDLE (WINAPI *__MINGW_IMP_SYMBOL(CreateFileW))(LPCWSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode,  LPSECURITY_ATTRIBUTES lpSecurityAttributes, DWORD dwCreationDisposition, DWORD dwFlagsAndAttributes, HANDLE hTemplateFile) asm("__imp_CreateFileW") = CreateFileW;
+#endif

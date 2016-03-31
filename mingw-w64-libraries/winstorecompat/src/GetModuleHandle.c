@@ -56,5 +56,10 @@ HMODULE WINAPI GetModuleHandleW(LPCWSTR lpModuleName)
     return NULL;
 }
 
+#ifndef _WIN64
 HMODULE (WINAPI *__MINGW_IMP_SYMBOL(GetModuleHandleA))(LPCSTR) asm("__imp__GetModuleHandleA@4") = GetModuleHandleA;
 HMODULE (WINAPI *__MINGW_IMP_SYMBOL(GetModuleHandleW))(LPCWSTR) asm("__imp__GetModuleHandleW@4") = GetModuleHandleW;
+#else
+HMODULE (WINAPI *__MINGW_IMP_SYMBOL(GetModuleHandleA))(LPCSTR) asm("__imp_GetModuleHandleA") = GetModuleHandleA;
+HMODULE (WINAPI *__MINGW_IMP_SYMBOL(GetModuleHandleW))(LPCWSTR) asm("__imp_GetModuleHandleW") = GetModuleHandleW;
+#endif

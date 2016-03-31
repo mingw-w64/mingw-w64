@@ -41,4 +41,8 @@ DWORD WINAPI GetFileAttributesW(LPCWSTR lpFileName)
         return INVALID_FILE_ATTRIBUTES;
 }
 
+#ifndef _WIN64
 DWORD (WINAPI *__MINGW_IMP_SYMBOL(GetFileAttributesW))(LPCWSTR lpFileName) asm("__imp__GetFileAttributesW@4") = GetFileAttributesW;
+#else
+DWORD (WINAPI *__MINGW_IMP_SYMBOL(GetFileAttributesW))(LPCWSTR lpFileName) asm("__imp_GetFileAttributesW") = GetFileAttributesW;
+#endif
