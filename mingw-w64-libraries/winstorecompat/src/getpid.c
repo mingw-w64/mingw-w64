@@ -33,4 +33,8 @@ int getpid(void)
     return GetCurrentProcessId();
 }
 
+#ifndef _WIN64
 int (*__MINGW_IMP_SYMBOL(getpid))(void) asm("__imp__getpid") = getpid;
+#else
+int (*__MINGW_IMP_SYMBOL(getpid))(void) asm("__imp_getpid") = getpid;
+#endif

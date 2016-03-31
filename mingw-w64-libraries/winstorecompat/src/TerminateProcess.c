@@ -41,4 +41,8 @@ BOOL WINAPI TerminateProcess(HANDLE hProcess, UINT uExitCode)
     }
 }
 
+#ifndef _WIN64
 BOOL (WINAPI *__MINGW_IMP_SYMBOL(TerminateProcess))(HANDLE, UINT) asm("__imp__TerminateProcess@8") = TerminateProcess;
+#else
+BOOL (WINAPI *__MINGW_IMP_SYMBOL(TerminateProcess))(HANDLE, UINT) asm("__imp_TerminateProcess") = TerminateProcess;
+#endif

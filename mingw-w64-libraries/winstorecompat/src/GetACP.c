@@ -34,4 +34,8 @@ UINT WINAPI GetACP(void)
     return CP_UTF8; /* utf-8 */
 }
 
+#ifndef _WIN64
 UINT (WINAPI *__MINGW_IMP_SYMBOL(GetACP))(void) asm("__imp__GetACP@0") = GetACP;
+#else
+UINT (WINAPI *__MINGW_IMP_SYMBOL(GetACP))(void) asm("__imp_GetACP") = GetACP;
+#endif

@@ -32,4 +32,8 @@ char *getenv(const char *name)
     return NULL;
 }
 
+#ifndef _WIN64
 char *(*__MINGW_IMP_SYMBOL(getenv))(const char *) asm("__imp__getenv") = getenv;
+#else
+char *(*__MINGW_IMP_SYMBOL(getenv))(const char *) asm("__imp_getenv") = getenv;
+#endif

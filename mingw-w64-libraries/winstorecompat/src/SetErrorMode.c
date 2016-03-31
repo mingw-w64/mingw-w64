@@ -35,4 +35,8 @@ UINT WINAPI SetErrorMode(UINT uMode)
     return InterlockedExchange(&oldMode, (LONG)uMode);
 }
 
+#ifndef _WIN64
 UINT (WINAPI *__MINGW_IMP_SYMBOL(SetErrorMode))(UINT uMode) asm("__imp__SetErrorMode@4") = SetErrorMode;
+#else
+UINT (WINAPI *__MINGW_IMP_SYMBOL(SetErrorMode))(UINT uMode) asm("__imp_SetErrorMode") = SetErrorMode;
+#endif

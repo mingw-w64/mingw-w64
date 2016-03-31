@@ -59,5 +59,9 @@ HRESULT WINAPI CoCreateInstance(REFCLSID rclsid,
     }
 }
 
+#ifndef _WIN64
 HRESULT (WINAPI *__MINGW_IMP_SYMBOL(CoCreateInstance))(REFCLSID rclsid,  LPUNKNOWN pUnkOuter, DWORD dwClsContext, REFIID riid, LPVOID *ppv) asm("__imp__CoCreateInstance@20") = CoCreateInstance;
+#else
+HRESULT (WINAPI *__MINGW_IMP_SYMBOL(CoCreateInstance))(REFCLSID rclsid,  LPUNKNOWN pUnkOuter, DWORD dwClsContext, REFIID riid, LPVOID *ppv) asm("__imp_CoCreateInstance") = CoCreateInstance;
+#endif
 
