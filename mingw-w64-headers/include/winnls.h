@@ -903,6 +903,7 @@ extern "C" {
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) || defined(WINSTORECOMPAT)
   WINBASEAPI UINT WINAPI GetACP (void);
+  WINBASEAPI WINBOOL WINAPI IsDBCSLeadByteEx (UINT CodePage, BYTE TestChar);
 #endif
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
@@ -913,7 +914,6 @@ extern "C" {
   WINBASEAPI int WINAPI GetLocaleInfoW (LCID Locale, LCTYPE LCType, LPWSTR lpLCData, int cchData);
   WINBASEAPI int WINAPI GetLocaleInfoA (LCID Locale, LCTYPE LCType, LPSTR lpLCData, int cchData);
   WINBASEAPI WINBOOL WINAPI IsDBCSLeadByte (BYTE TestChar);
-  WINBASEAPI WINBOOL WINAPI IsDBCSLeadByteEx (UINT CodePage, BYTE TestChar);
   WINBASEAPI int WINAPI GetNumberFormatA (LCID Locale, DWORD dwFlags, LPCSTR lpValue, CONST NUMBERFMTA *lpFormat, LPSTR lpNumberStr, int cchNumber);
   WINBASEAPI int WINAPI GetNumberFormatW (LCID Locale, DWORD dwFlags, LPCWSTR lpValue, CONST NUMBERFMTW *lpFormat, LPWSTR lpNumberStr, int cchNumber);
   WINBASEAPI int WINAPI GetCurrencyFormatA (LCID Locale, DWORD dwFlags, LPCSTR lpValue, CONST CURRENCYFMTA *lpFormat, LPSTR lpCurrencyStr, int cchCurrency);

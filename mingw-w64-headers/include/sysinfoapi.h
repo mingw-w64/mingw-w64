@@ -109,6 +109,8 @@ extern "C" {
 #ifdef UNICODE
 #define SetComputerNameEx SetComputerNameExW
 #endif
+#elif defined(WINSTORECOMPAT)
+  WINBASEAPI DWORD WINAPI GetTickCount (VOID);
 #endif
 
 #ifdef __cplusplus

@@ -127,6 +127,10 @@ extern "C" {
 #define EnumResourceNamesEx __MINGW_NAME_AW(EnumResourceNamesEx)
 #define EnumResourceTypesEx __MINGW_NAME_AW(EnumResourceTypesEx)
 #endif
+#elif defined(WINSTORECOMPAT)
+WINBASEAPI HMODULE WINAPI GetModuleHandleA (LPCSTR lpModuleName);
+WINBASEAPI HMODULE WINAPI GetModuleHandleW (LPCWSTR lpModuleName);
+#define GetModuleHandle __MINGW_NAME_AW(GetModuleHandle)
 #endif
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)

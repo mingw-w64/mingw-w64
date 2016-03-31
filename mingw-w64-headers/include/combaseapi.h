@@ -255,6 +255,8 @@ WINOLEAPI CoRevertToSelf (void);
 WINOLEAPI CoQueryAuthenticationServices (DWORD *pcAuthSvc, SOLE_AUTHENTICATION_SERVICE **asAuthSvc);
 WINOLEAPI CoCreateInstance (REFCLSID rclsid, LPUNKNOWN pUnkOuter, DWORD dwClsContext, REFIID riid, LPVOID *ppv);
 WINOLEAPI CoCreateInstanceEx (REFCLSID Clsid, IUnknown *punkOuter, DWORD dwClsCtx, COSERVERINFO *pServerInfo, DWORD dwCount, MULTI_QI *pResults);
+#elif defined(WINSTORECOMPAT)
+WINOLEAPI CoCreateInstance (REFCLSID rclsid, LPUNKNOWN pUnkOuter, DWORD dwClsContext, REFIID riid, LPVOID *ppv);
 #endif
 
 #if WINAPI_FAMILY == WINAPI_FAMILY_APP
