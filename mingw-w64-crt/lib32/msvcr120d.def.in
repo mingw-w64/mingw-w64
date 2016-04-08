@@ -1048,10 +1048,12 @@ _filelengthi64
 _fileno
 _findclose
 _findfirst32
+_findfirst == _findfirst32
 _findfirst32i64
 _findfirst64
 _findfirst64i32
 _findnext32
+_findnext == _findnext32
 _findnext32i64
 _findnext64
 _findnext64i32
@@ -1087,6 +1089,8 @@ _fstat32
 _fstat32i64
 _fstat64
 _fstat64i32
+_fstat == _fstat32
+_fstati64 == _fstat32i64
 _ftell_nolock
 _ftelli64
 _ftelli64_nolock
@@ -1153,6 +1157,7 @@ _getws
 _getws_s
 _global_unwind2
 _gmtime32
+gmtime == _gmtime32
 _gmtime32_s
 _gmtime64
 _gmtime64_s
@@ -1300,6 +1305,7 @@ _loaddll
 _local_unwind2
 _local_unwind4
 _localtime32
+localtime == _localtime32
 _localtime32_s
 _localtime64
 _localtime64_s
@@ -1582,6 +1588,8 @@ _stat32
 _stat32i64
 _stat64
 _stat64i32
+_stat == _stat32
+_stati64 == _stat32i64
 _statusfp
 _statusfp2
 _strcoll_l
@@ -1648,6 +1656,7 @@ _tempnam
 _tempnam_dbg
 _time32
 _time64
+time == _time32
 _tolower
 _tolower_l
 _toupper
@@ -1812,10 +1821,12 @@ _wfdopen
 _wfindfirst32
 _wfindfirst32i64
 _wfindfirst64
+_wfindfirst == _wfindfirst32
 _wfindfirst64i32
 _wfindnext32
 _wfindnext32i64
 _wfindnext64
+_wfindnext == _wfindnext32
 _wfindnext64i32
 _wfopen
 _wfopen_s
@@ -1870,6 +1881,8 @@ _wstat32
 _wstat32i64
 _wstat64
 _wstat64i32
+_wstat == _wstat32
+_wstati64 == _wstat32i64
 _wstrdate
 _wstrdate_s
 _wstrtime
@@ -2298,6 +2311,10 @@ vfwscanf
 vfwscanf_s
 vprintf
 vprintf_s
+vsnprintf == _vsnprintf
+snprintf == _snprintf
+snwprintf == _snwprintf
+vsnwprintf == _vsnwprintf
 vscanf
 vscanf_s
 vsprintf
