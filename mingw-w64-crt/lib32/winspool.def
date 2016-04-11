@@ -133,3 +133,4 @@ StartDocPrinterW@12
 StartPagePrinter@4
 WaitForPrinterChange@8
 WritePrinter@16
+XcvDataW@32
