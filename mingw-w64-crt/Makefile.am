@@ -403,9 +403,6 @@ src_intrincs32=\
 # these only go into the ARM32 version:
 src_intrincsarm32=
 
-winrtlibs=\
-  winrt/libruntimeobject.a
-
 if LIB32
 #########
 # Compiling 32-bit runtime
@@ -640,6 +637,11 @@ lib32/libvfw32.a: lib32/vfw32.mri lib32/libmsvfw32.a lib32/libavifil32.a lib32/l
 	$(AR) -M < $<
 	$(RANLIB) $@
 
+lib32/libruntimeobject.a: lib32/runtimeobject.mri lib32/libapi-ms-win-core-winrt-string-l1-1-0.a lib32/libapi-ms-win-core-winrt-l1-1-0.a
+	rm -f $@
+	$(AR) -M < $<
+	$(RANLIB) $@
+
 dx32_DATA =
 dx32_DATA += lib32/libxinput.a
 dx32_DATA += lib32/libxapofx.a
@@ -682,8 +684,6 @@ lib64dir=$(prefix)/@LIBX8664SUFFIXDIR@
 crt64dir=$(lib64dir)
 winrt64dir=$(lib64dir)
 dx64dir=$(lib64dir)
-
-winrt64_DATA = $(winrtlibs)
 
 if !W32API
 crt64_DATA = \
@@ -1168,6 +1168,11 @@ lib64/libvfw32.a: lib64/vfw32.mri lib64/libmsvfw32.a lib64/libavifil32.a lib64/l
 	$(AR) -M < $<
 	$(RANLIB) $@
 
+lib64/libruntimeobject.a: lib64/runtimeobject.mri lib64/libapi-ms-win-core-winrt-string-l1-1-0.a lib64/libapi-ms-win-core-winrt-l1-1-0.a
+	rm -f $@
+	$(AR) -M < $<
+	$(RANLIB) $@
+
 dx64_DATA =
 dx64_DATA += lib64/libxinput.a
 dx64_DATA += lib64/libxapofx.a
@@ -1470,7 +1475,6 @@ EXTRA_DIST += revstamp.h \
   $(top_srcdir)/lib32/*.def.in \
   $(top_srcdir)/lib64/*.def.in \
   $(top_srcdir)/def-include/*.def.in \
-  $(top_srcdir)/$(winrtlibs) \
   crt/binmode.c \
   crt/crtbegin.c \
   crt/crtdll.c \
