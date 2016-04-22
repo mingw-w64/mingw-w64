@@ -461,11 +461,11 @@ extern "C" {
   } ConnectModeEnum;
   typedef DECLSPEC_UUID ("00000570-0000-0010-8000-00AA006D2EA4")
   enum RecordCreateOptionsEnum { adCreateCollection = 0x2000,
-    adCreateStructDoc = 0x80000000,
-    adCreateNonCollection = 0,
-    adOpenIfExists = 0x2000000,
-    adCreateOverwrite = 0x4000000,
-    adFailIfNotExists = -1
+    adCreateStructDoc = (int) 0x80000000,
+    adCreateNonCollection = (int) 0,
+    adOpenIfExists = (int) 0x2000000,
+    adCreateOverwrite = (int) 0x4000000,
+    adFailIfNotExists = (int) -1
   } RecordCreateOptionsEnum;
   typedef DECLSPEC_UUID ("00000571-0000-0010-8000-00AA006D2EA4")
   enum RecordOpenOptionsEnum { adOpenRecordUnspecified = -1,
