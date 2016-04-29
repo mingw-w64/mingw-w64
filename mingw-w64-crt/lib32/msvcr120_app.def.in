@@ -1042,6 +1042,7 @@ _vscwprintf_p
 _vscwprintf_p_l
 _vsnprintf
 vsnprintf == _vsnprintf
+snprintf == _snprintf
 _vsnprintf_c
 _vsnprintf_c_l
 _vsnprintf_l
