@@ -88,7 +88,6 @@ extern "C" {
   WINBASEAPI WINBOOL WINAPI UnlockFile (HANDLE hFile, DWORD dwFileOffsetLow, DWORD dwFileOffsetHigh, DWORD nNumberOfBytesToUnlockLow, DWORD nNumberOfBytesToUnlockHigh);
   WINBASEAPI WINBOOL WINAPI WriteFileEx (HANDLE hFile, LPCVOID lpBuffer, DWORD nNumberOfBytesToWrite, LPOVERLAPPED lpOverlapped, LPOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine);
   WINBASEAPI WINBOOL WINAPI WriteFileGather (HANDLE hFile, FILE_SEGMENT_ELEMENT aSegmentArray[], DWORD nNumberOfBytesToWrite, LPDWORD lpReserved, LPOVERLAPPED lpOverlapped);
-  WINBASEAPI DWORD WINAPI GetTempPathW (DWORD nBufferLength, LPWSTR lpBuffer);
   WINBASEAPI WINBOOL WINAPI GetVolumeNameForVolumeMountPointW (LPCWSTR lpszVolumeMountPoint, LPWSTR lpszVolumeName, DWORD cchBufferLength);
   WINBASEAPI WINBOOL WINAPI GetVolumePathNamesForVolumeNameW (LPCWSTR lpszVolumeName, LPWCH lpszVolumePathNames, DWORD cchBufferLength, PDWORD lpcchReturnLength);
 
@@ -104,7 +103,6 @@ extern "C" {
 #define GetVolumeInformation GetVolumeInformationW
 #define GetVolumePathName GetVolumePathNameW
 #define QueryDosDevice QueryDosDeviceW
-#define GetTempPath GetTempPathW
 #define GetVolumeNameForVolumeMountPoint GetVolumeNameForVolumeMountPointW
 #define GetVolumePathNamesForVolumeName GetVolumePathNamesForVolumeNameW
 #endif
@@ -163,6 +161,7 @@ extern "C" {
   WINBASEAPI DWORD WINAPI GetFileType (HANDLE hFile);
   WINBASEAPI WINBOOL WINAPI GetFileAttributesExA (LPCSTR lpFileName, GET_FILEEX_INFO_LEVELS fInfoLevelId, LPVOID lpFileInformation);
   WINBASEAPI WINBOOL WINAPI GetFileAttributesExW (LPCWSTR lpFileName, GET_FILEEX_INFO_LEVELS fInfoLevelId, LPVOID lpFileInformation);
+  WINBASEAPI DWORD WINAPI GetTempPathW (DWORD nBufferLength, LPWSTR lpBuffer);
   WINBASEAPI WINBOOL WINAPI LockFileEx (HANDLE hFile, DWORD dwFlags, DWORD dwReserved, DWORD nNumberOfBytesToLockLow, DWORD nNumberOfBytesToLockHigh, LPOVERLAPPED lpOverlapped);
   WINBASEAPI WINBOOL WINAPI ReadFile (HANDLE hFile, LPVOID lpBuffer, DWORD nNumberOfBytesToRead, LPDWORD lpNumberOfBytesRead, LPOVERLAPPED lpOverlapped);
   WINBASEAPI WINBOOL WINAPI RemoveDirectoryA (LPCSTR lpPathName);
@@ -182,6 +181,9 @@ extern "C" {
 #define GetFileAttributesEx __MINGW_NAME_AW(GetFileAttributesEx)
 #define RemoveDirectory __MINGW_NAME_AW(RemoveDirectory)
 #define SetFileAttributes __MINGW_NAME_AW(SetFileAttributes)
+#ifdef UNICODE
+#define GetTempPath GetTempPathW
+#endif
 
 #if _WIN32_WINNT >= 0x0600
   WINBASEAPI WINBOOL WINAPI SetFileInformationByHandle (HANDLE hFile, FILE_INFO_BY_HANDLE_CLASS FileInformationClass, LPVOID lpFileInformation, DWORD dwBufferSize);
