@@ -27,8 +27,10 @@ extern "C" {
   _CRTIMP errno_t __cdecl _strncat_s_l(char *_Dst,size_t _DstSizeInChars,const char *_Src,size_t _MaxCount,_locale_t _Locale);
   _CRTIMP errno_t __cdecl strcpy_s(char *_Dst, rsize_t _SizeInBytes, const char *_Src);
   __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_1(errno_t, strcpy_s, char, _Dest, const char *, _Source)
-  _CRTIMP errno_t __cdecl strncpy_s(char *_Dst,size_t _DstSizeInChars,const char *_Src,size_t _MaxCount);
-  _CRTIMP errno_t __cdecl _strncpy_s_l(char *_Dst,size_t _DstSizeInChars,const char *_Src,size_t _MaxCount,_locale_t _Locale);
+  _CRTIMP errno_t __cdecl strncpy_s(char *_Dst, size_t _DstSizeInChars, const char *_Src, size_t _MaxCount);
+  __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_2(errno_t, strncpy_s, char, _Dest, const char *, _Source, size_t, _MaxCount)
+  _CRTIMP errno_t __cdecl _strncpy_s_l(char *_Dst, size_t _DstSizeInChars, const char *_Src, size_t _MaxCount, _locale_t _Locale);
+  __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_3(errno_t, _strncpy_s_l, char, _Dest, const char *, _Source, size_t, _MaxCount, _locale_t, _Locale);
   _CRTIMP char *__cdecl strtok_s(char *_Str,const char *_Delim,char **_Context);
   _CRTIMP char *__cdecl _strtok_s_l(char *_Str,const char *_Delim,char **_Context,_locale_t _Locale);
   _CRTIMP errno_t __cdecl strcat_s(char *_Dst, rsize_t _SizeInBytes, const char * _Src);
@@ -54,8 +56,10 @@ extern "C" {
 
   _CRTIMP errno_t __cdecl wcsncat_s(wchar_t *_Dst,size_t _DstSizeInChars,const wchar_t *_Src,size_t _MaxCount);
   _CRTIMP errno_t __cdecl _wcsncat_s_l(wchar_t *_Dst,size_t _DstSizeInChars,const wchar_t *_Src,size_t _MaxCount,_locale_t _Locale);
-  _CRTIMP errno_t __cdecl wcsncpy_s(wchar_t *_Dst,size_t _DstSizeInChars,const wchar_t *_Src,size_t _MaxCount);
-  _CRTIMP errno_t __cdecl _wcsncpy_s_l(wchar_t *_Dst,size_t _DstSizeInChars,const wchar_t *_Src,size_t _MaxCount,_locale_t _Locale);
+  _CRTIMP errno_t __cdecl wcsncpy_s(wchar_t *_Dst, size_t _DstSizeInChars, const wchar_t *_Src, size_t _MaxCount);
+  __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_2(errno_t, wcsncpy_s, wchar_t, _Dest, const wchar_t *, _Source, size_t, _MaxCount);
+  _CRTIMP errno_t __cdecl _wcsncpy_s_l(wchar_t *_Dst, size_t _DstSizeInChars, const wchar_t *_Src, size_t _MaxCount, _locale_t _Locale);
+  __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_3(errno_t, _wcsncpy_s_l, wchar_t, _Dest, const wchar_t *, _Source, size_t, _MaxCount, _locale_t, _Locale);
   _CRTIMP wchar_t *__cdecl _wcstok_s_l(wchar_t *_Str,const wchar_t *_Delim,wchar_t **_Context,_locale_t _Locale);
   _CRTIMP errno_t __cdecl _wcsset_s_l(wchar_t *_Str,size_t _SizeInChars,unsigned int _Val,_locale_t _Locale);
   _CRTIMP errno_t __cdecl _wcsnset_s_l(wchar_t *_Str,size_t _SizeInChars,unsigned int _Val, size_t _Count,_locale_t _Locale);
