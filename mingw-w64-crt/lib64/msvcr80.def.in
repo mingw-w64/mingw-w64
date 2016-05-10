@@ -713,6 +713,7 @@ fseek
 fsetpos
 ftell
 fwprintf
+__ms_fwprintf == fwprintf
 fwrite
 fwscanf
 getc

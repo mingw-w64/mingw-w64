@@ -1803,6 +1803,7 @@ fseek
 fsetpos
 ftell
 fwprintf
+__ms_fwprintf == fwprintf
 fwprintf_s
 fwrite
 fwscanf
