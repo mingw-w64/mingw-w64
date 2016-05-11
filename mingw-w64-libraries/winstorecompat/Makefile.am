@@ -35,4 +35,5 @@ libwinstorecompat_a_SOURCES = \
   src/Tls.c \
   src/SHGetFolderPathW.c \
   src/QueueTimer.c \
+  src/Crypto.c \
   $(NULL)
