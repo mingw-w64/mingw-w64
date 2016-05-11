@@ -15,8 +15,6 @@
 extern "C" {
 #endif
 
-#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
-
 #ifndef _HRESULT_DEFINED
 #define _HRESULT_DEFINED
   typedef LONG HRESULT;
@@ -492,6 +490,8 @@ extern "C" {
 #define PROV_REPLACE_OWF 23
 #define PROV_RSA_AES 24
 
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
+
 #define MS_DEF_PROV __MINGW_NAME_UAW(MS_DEF_PROV)
 #define MS_ENHANCED_PROV __MINGW_NAME_UAW(MS_ENHANCED_PROV)
 #define MS_STRONG_PROV __MINGW_NAME_UAW(MS_STRONG_PROV)
@@ -758,12 +758,10 @@ extern "C" {
 #endif
 
 #ifndef _DDK_DRIVER_
-#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
   typedef ULONG_PTR HCRYPTPROV_OR_NCRYPT_KEY_HANDLE;
   typedef ULONG_PTR HCRYPTPROV_LEGACY;
 
 #include <bcrypt.h>
-#endif
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
 #include <ncrypt.h>
@@ -975,7 +973,6 @@ extern "C" {
   typedef const CERT_EXTENSION *PCCERT_EXTENSION;
 #endif
 
-#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
   typedef struct _CRYPT_ATTRIBUTE_TYPE_VALUE {
     LPSTR pszObjId;
     CRYPT_OBJID_BLOB Value;
@@ -1100,7 +1097,6 @@ extern "C" {
     DWORD dwValueType;
     CERT_RDN_VALUE_BLOB Value;
   } CERT_NAME_VALUE,*PCERT_NAME_VALUE;
-#endif
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
   typedef struct _CERT_PUBLIC_KEY_INFO {
@@ -1173,7 +1169,6 @@ extern "C" {
   } CERT_INFO,*PCERT_INFO;
 #endif
 
-#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 #define CERT_V1 0
 #define CERT_V2 1
 #define CERT_V3 2
@@ -3133,6 +3128,8 @@ extern "C" {
   typedef WINBOOL (WINAPI *PFN_CMSG_EXPORT_ENCRYPT_KEY) (HCRYPTPROV hCryptProv, HCRYPTKEY hEncryptKey, PCERT_PUBLIC_KEY_INFO pPublicKeyInfo, PBYTE pbData, PDWORD pcbData);
   typedef WINBOOL (WINAPI *PFN_CMSG_IMPORT_ENCRYPT_KEY) (HCRYPTPROV hCryptProv, DWORD dwKeySpec, PCRYPT_ALGORITHM_IDENTIFIER paiEncrypt, PCRYPT_ALGORITHM_IDENTIFIER paiPubKey, PBYTE pbEncodedKey, DWORD cbEncodedKey, HCRYPTKEY *phEncryptKey);
 
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
+
 #define CMSG_DEFAULT_INSTALLABLE_FUNC_OID ((LPCSTR) 1)
 
   typedef struct _CMSG_CONTENT_ENCRYPT_INFO {
@@ -3262,8 +3259,8 @@ extern "C" {
   typedef WINBOOL (WINAPI *PFN_CMSG_CNG_IMPORT_KEY_TRANS) (PCMSG_CNG_CONTENT_DECRYPT_INFO pCNGContentDecryptInfo, PCMSG_CTRL_KEY_TRANS_DECRYPT_PARA pKeyTransDecryptPara, DWORD dwFlags, void *pvReserved);
   typedef WINBOOL (WINAPI *PFN_CMSG_CNG_IMPORT_KEY_AGREE) (PCMSG_CNG_CONTENT_DECRYPT_INFO pCNGContentDecryptInfo, PCMSG_CTRL_KEY_AGREE_DECRYPT_PARA pKeyAgreeDecryptPara, DWORD dwFlags, void *pvReserved);
   typedef WINBOOL (WINAPI *PFN_CMSG_CNG_IMPORT_CONTENT_ENCRYPT_KEY) (PCMSG_CNG_CONTENT_DECRYPT_INFO pCNGContentDecryptInfo, DWORD dwFlags, void *pvReserved);
-#endif
 
+#endif
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
   typedef void *HCERTSTORE;
 
@@ -3278,7 +3275,6 @@ extern "C" {
   typedef const CERT_CONTEXT *PCCERT_CONTEXT;
 #endif
 
-#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
   typedef struct _CRL_CONTEXT {
     DWORD dwCertEncodingType;
     BYTE *pbCrlEncoded;
@@ -3661,7 +3657,7 @@ extern "C" {
 
 #define CERT_LDAP_STORE_UNBIND_FLAG 0x80000
 
-  WINIMPM HCERTSTORE WINAPI CertOpenStore (LPCSTR lpszStoreProvider, DWORD dwEncodingType, HCRYPTPROV_LEGACY hCryptProv, DWORD dwFlags, const void *pvPara);
+WINIMPM HCERTSTORE WINAPI CertOpenStore (LPCSTR lpszStoreProvider, DWORD dwEncodingType, HCRYPTPROV_LEGACY hCryptProv, DWORD dwFlags, const void *pvPara);
 
   typedef void *HCERTSTOREPROV;
 
@@ -3893,16 +3889,20 @@ extern "C" {
 #define CTL_ANY_SUBJECT_TYPE 1
 #define CTL_CERT_SUBJECT_TYPE 2
 
+  WINIMPM PCCRL_CONTEXT WINAPI CertEnumCRLsInStore (HCERTSTORE hCertStore, PCCRL_CONTEXT pPrevCrlContext);
+  WINIMPM WINBOOL WINAPI CertDeleteCRLFromStore (PCCRL_CONTEXT pCrlContext);
+  WINIMPM PCCRL_CONTEXT WINAPI CertDuplicateCRLContext (PCCRL_CONTEXT pCrlContext);
+  WINIMPM PCCRL_CONTEXT WINAPI CertFindCRLInStore (HCERTSTORE hCertStore, DWORD dwCertEncodingType, DWORD dwFindFlags, DWORD dwFindType, const void *pvFindPara, PCCRL_CONTEXT pPrevCrlContext);
+  WINIMPM WINBOOL WINAPI CertFreeCRLContext (PCCRL_CONTEXT pCrlContext);
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
+
   WINIMPM WINBOOL WINAPI CertGetCertificateContextProperty (PCCERT_CONTEXT pCertContext, DWORD dwPropId, void *pvData, DWORD *pcbData);
   WINIMPM DWORD WINAPI CertEnumCertificateContextProperties (PCCERT_CONTEXT pCertContext, DWORD dwPropId);
   WINIMPM WINBOOL WINAPI CertCreateCTLEntryFromCertificateContextProperties (PCCERT_CONTEXT pCertContext, DWORD cOptAttr, PCRYPT_ATTRIBUTE rgOptAttr, DWORD dwFlags, void *pvReserved, PCTL_ENTRY pCtlEntry, DWORD *pcbCtlEntry);
   WINIMPM WINBOOL WINAPI CertSetCertificateContextPropertiesFromCTLEntry (PCCERT_CONTEXT pCertContext, PCTL_ENTRY pCtlEntry, DWORD dwFlags);
   WINIMPM PCCRL_CONTEXT WINAPI CertGetCRLFromStore (HCERTSTORE hCertStore, PCCERT_CONTEXT pIssuerContext, PCCRL_CONTEXT pPrevCrlContext, DWORD *pdwFlags);
-  WINIMPM PCCRL_CONTEXT WINAPI CertEnumCRLsInStore (HCERTSTORE hCertStore, PCCRL_CONTEXT pPrevCrlContext);
-  WINIMPM PCCRL_CONTEXT WINAPI CertFindCRLInStore (HCERTSTORE hCertStore, DWORD dwCertEncodingType, DWORD dwFindFlags, DWORD dwFindType, const void *pvFindPara, PCCRL_CONTEXT pPrevCrlContext);
-  WINIMPM PCCRL_CONTEXT WINAPI CertDuplicateCRLContext (PCCRL_CONTEXT pCrlContext);
   WINIMPM PCCRL_CONTEXT WINAPI CertCreateCRLContext (DWORD dwCertEncodingType, const BYTE *pbCrlEncoded, DWORD cbCrlEncoded);
-  WINIMPM WINBOOL WINAPI CertFreeCRLContext (PCCRL_CONTEXT pCrlContext);
   WINIMPM WINBOOL WINAPI CertSetCRLContextProperty (PCCRL_CONTEXT pCrlContext, DWORD dwPropId, DWORD dwFlags, const void *pvData);
   WINIMPM WINBOOL WINAPI CertGetCRLContextProperty (PCCRL_CONTEXT pCrlContext, DWORD dwPropId, void *pvData, DWORD *pcbData);
   WINIMPM DWORD WINAPI CertEnumCRLContextProperties (PCCRL_CONTEXT pCrlContext, DWORD dwPropId);
@@ -3914,7 +3914,6 @@ extern "C" {
   WINIMPM WINBOOL WINAPI CertDeleteCertificateFromStore (PCCERT_CONTEXT pCertContext);
   WINIMPM WINBOOL WINAPI CertAddEncodedCRLToStore (HCERTSTORE hCertStore, DWORD dwCertEncodingType, const BYTE *pbCrlEncoded, DWORD cbCrlEncoded, DWORD dwAddDisposition, PCCRL_CONTEXT *ppCrlContext);
   WINIMPM WINBOOL WINAPI CertAddCRLContextToStore (HCERTSTORE hCertStore, PCCRL_CONTEXT pCrlContext, DWORD dwAddDisposition, PCCRL_CONTEXT *ppStoreContext);
-  WINIMPM WINBOOL WINAPI CertDeleteCRLFromStore (PCCRL_CONTEXT pCrlContext);
   WINIMPM WINBOOL WINAPI CertSerializeCertificateStoreElement (PCCERT_CONTEXT pCertContext, DWORD dwFlags, BYTE *pbElement, DWORD *pcbElement);
   WINIMPM WINBOOL WINAPI CertSerializeCRLStoreElement (PCCRL_CONTEXT pCrlContext, DWORD dwFlags, BYTE *pbElement, DWORD *pcbElement);
   WINIMPM PCCTL_CONTEXT WINAPI CertDuplicateCTLContext (PCCTL_CONTEXT pCtlContext);
