@@ -885,6 +885,7 @@ MapUserPhysicalPagesScatter
 MapViewOfFile
 MapViewOfFileEx
 MapViewOfFileExNuma
+MapViewOfFileFromApp
 Module32First
 Module32FirstW
 Module32Next

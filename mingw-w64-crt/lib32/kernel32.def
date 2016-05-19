@@ -847,6 +847,7 @@ MapViewOfFile@20
 MapViewOfFileEx@24
 MapViewOfFileExNuma@28
 MapViewOfFileVlm@28
+MapViewOfFileFromApp@20
 Module32First@8
 Module32FirstW@8
 Module32Next@8
