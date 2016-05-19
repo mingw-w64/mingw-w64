@@ -150,6 +150,7 @@ CreateFileMappingA@24
 CreateFileMappingNumaA@28
 CreateFileMappingNumaW@28
 CreateFileMappingW@24
+CreateFileMappingFromApp@24
 CreateFileTransactedA@40
 CreateFileTransactedW@40
 CreateFileW@28

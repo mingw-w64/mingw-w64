@@ -151,6 +151,7 @@ CreateFileMappingA
 CreateFileMappingNumaA
 CreateFileMappingNumaW
 CreateFileMappingW
+CreateFileMappingFromApp
 CreateFileTransactedA
 CreateFileTransactedW
 CreateFileW
