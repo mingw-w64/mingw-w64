@@ -1426,9 +1426,15 @@ libarm32/libvfw32.a: libarm32/vfw32.mri libarm32/libmsvfw32.a libarm32/libavifil
 	$(AR) -M < $<
 	$(RANLIB) $@
 
+libarm32/libruntimeobject.a: libarm32/runtimeobject.mri libarm32/libapi-ms-win-core-winrt-string-l1-1-0.a libarm32/libapi-ms-win-core-winrt-l1-1-0.a
+	rm -f $@
+	$(AR) -M < $<
+	$(RANLIB) $@
+
 dx32_DATA =
 dx32_DATA += libarm32/libxinput.a
 dx32_DATA += libarm32/libd3dcompiler.a
+libarm32_DATA += libarm32/libruntimeobject.a
 
 libarm32/libxinput.a: libarm32/xinput1_4.def
 	$(DTDEFARM32) $<
