@@ -348,7 +348,7 @@ src_libmingwex32=\
 
 # these only go into the ARM32 version:
 src_libmingwexarm32=\
-  math/softmath/e_fmod.c    math/softmath/e_fmodf.c   math/softmath/e_powf.c    \
+  math/softmath/e_fmod.c    math/softmath/e_fmodf.c   math/softmath/e_powf.c    math/softmath/e_pow.c \
   math/softmath/acosf.c     math/softmath/acosh.c     math/softmath/acosl.c     math/softmath/acoshf.c    math/softmath/acoshl.c    \
   math/softmath/asinf.c     math/softmath/asinh.c     math/softmath/asinl.c     math/softmath/asinhf.c    math/softmath/asinhl.c    \
   math/softmath/atan2f.c    math/softmath/atan2l.c    math/softmath/atanf.c     math/softmath/atanh.c     math/softmath/atanl.c     \
