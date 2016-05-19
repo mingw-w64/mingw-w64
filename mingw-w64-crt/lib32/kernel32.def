@@ -1213,6 +1213,7 @@ VirtualAlloc@16
 VirtualAllocEx@20
 VirtualAllocExNuma@24
 VirtualAllocVlm@24
+VirtualAllocFromApp@16
 VirtualBufferExceptionHandler@12
 VirtualFree@12
 VirtualFreeEx@16

@@ -1321,6 +1321,7 @@ VerifyVersionInfoW
 VirtualAlloc
 VirtualAllocEx
 VirtualAllocExNuma
+VirtualAllocFromApp
 VirtualFree
 VirtualFreeEx
 VirtualLock
