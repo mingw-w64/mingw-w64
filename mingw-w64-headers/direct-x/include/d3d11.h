@@ -381,6 +381,10 @@ typedef interface ID3D11VideoProcessorInputView ID3D11VideoProcessorInputView;
 
 #define D3D11_VIEWPORT_AND_SCISSORRECT_OBJECT_COUNT_PER_PIPELINE (16)
 
+#define D3D11_KEEP_RENDER_TARGETS_AND_DEPTH_STENCIL (0xffffffff)
+
+#define D3D11_KEEP_UNORDERED_ACCESS_VIEWS (0xffffffff)
+
 #define D3D11_SHADER_MAJOR_VERSION (5)
 
 #define D3D11_SHADER_MAX_INSTANCES (65535)
@@ -884,6 +888,20 @@ typedef struct D3D11_QUERY_DESC {
     D3D11_QUERY Query;
     UINT MiscFlags;
 } D3D11_QUERY_DESC;
+#if !defined(D3D11_NO_HELPERS) && defined(__cplusplus)
+struct CD3D11_QUERY_DESC : public D3D11_QUERY_DESC {
+    CD3D11_QUERY_DESC() {}
+    ~CD3D11_QUERY_DESC() {}
+    explicit CD3D11_QUERY_DESC(const D3D11_QUERY_DESC &other) : D3D11_QUERY_DESC(other) {}
+    explicit CD3D11_QUERY_DESC(D3D11_QUERY query, UINT misc_flags = 0) {
+        Query = query;
+        MiscFlags = misc_flags;
+    }
+    operator const D3D11_QUERY_DESC&() const {
+        return *this;
+    }
+};
+#endif
 typedef struct D3D11_RASTERIZER_DESC {
     D3D11_FILL_MODE FillMode;
     D3D11_CULL_MODE CullMode;
