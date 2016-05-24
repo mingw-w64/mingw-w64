@@ -41,6 +41,55 @@ typedef struct MediaDet MediaDet;
 #endif /* defined __cplusplus */
 #endif /* defined __MediaDet_FWD_DEFINED__ */
 
+#ifndef __IMediaLocator_FWD_DEFINED__
+#define __IMediaLocator_FWD_DEFINED__
+typedef interface IMediaLocator IMediaLocator;
+#endif
+
+#ifndef __IPropertySetter_FWD_DEFINED__
+#define __IPropertySetter_FWD_DEFINED__
+typedef interface IPropertySetter IPropertySetter;
+#endif
+
+#ifndef __IAMErrorLog_FWD_DEFINED__
+#define __IAMErrorLog_FWD_DEFINED__
+typedef interface IAMErrorLog IAMErrorLog;
+#endif
+
+#ifndef __IAMSetErrorLog_FWD_DEFINED__
+#define __IAMSetErrorLog_FWD_DEFINED__
+typedef interface IAMSetErrorLog IAMSetErrorLog;
+#endif
+
+#ifndef __IAMTimeline_FWD_DEFINED__
+#define __IAMTimeline_FWD_DEFINED__
+typedef interface IAMTimeline IAMTimeline;
+#endif
+
+#ifndef __AMTimeline_FWD_DEFINED__
+#define __AMTimeline_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class AMTimeline AMTimeline;
+#else
+typedef struct AMTimeline AMTimeline;
+#endif /* defined __cplusplus */
+#endif /* defined __AMTimeline_FWD_DEFINED__ */
+
+#ifndef __IAMTimelineGroup_FWD_DEFINED__
+#define __IAMTimelineGroup_FWD_DEFINED__
+typedef interface IAMTimelineGroup IAMTimelineGroup;
+#endif
+
+#ifndef __IAMTimelineObj_FWD_DEFINED__
+#define __IAMTimelineObj_FWD_DEFINED__
+typedef interface IAMTimelineObj IAMTimelineObj;
+#endif
+
+#ifndef __IAMTimelineSrc_FWD_DEFINED__
+#define __IAMTimelineSrc_FWD_DEFINED__
+typedef interface IAMTimelineSrc IAMTimelineSrc;
+#endif
+
 /* Headers for imported files */
 
 #include <oaidl.h>
@@ -771,6 +820,3062 @@ __CRT_UUID_DECL(MediaDet, 0x65bd0711, 0x24d2, 0x4ff7, 0x93,0x24, 0xed,0x2e,0x5d,
 #endif
 #endif
 
+/*****************************************************************************
+ * IMediaLocator interface
+ */
+#ifndef __IMediaLocator_INTERFACE_DEFINED__
+#define __IMediaLocator_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IMediaLocator, 0x288581e0, 0x66ce, 0x11d2, 0x91,0x8f, 0x00,0xc0,0xdf,0x10,0xd4,0x34);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("288581e0-66ce-11d2-918f-00c0df10d434")
+IMediaLocator : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE FindMediaFile(
+        BSTR input,
+        BSTR filter,
+        BSTR *output,
+        LONG flags) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddFoundLocation(
+        BSTR dir) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IMediaLocator, 0x288581e0, 0x66ce, 0x11d2, 0x91,0x8f, 0x00,0xc0,0xdf,0x10,0xd4,0x34)
+#endif
+#else
+typedef struct IMediaLocatorVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IMediaLocator* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IMediaLocator* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IMediaLocator* This);
+
+    /*** IMediaLocator methods ***/
+    HRESULT (STDMETHODCALLTYPE *FindMediaFile)(
+        IMediaLocator* This,
+        BSTR input,
+        BSTR filter,
+        BSTR *output,
+        LONG flags);
+
+    HRESULT (STDMETHODCALLTYPE *AddFoundLocation)(
+        IMediaLocator* This,
+        BSTR dir);
+
+    END_INTERFACE
+} IMediaLocatorVtbl;
+interface IMediaLocator {
+    CONST_VTBL IMediaLocatorVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IMediaLocator_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IMediaLocator_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IMediaLocator_Release(This) (This)->lpVtbl->Release(This)
+/*** IMediaLocator methods ***/
+#define IMediaLocator_FindMediaFile(This,input,filter,output,flags) (This)->lpVtbl->FindMediaFile(This,input,filter,output,flags)
+#define IMediaLocator_AddFoundLocation(This,dir) (This)->lpVtbl->AddFoundLocation(This,dir)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IMediaLocator_QueryInterface(IMediaLocator* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IMediaLocator_AddRef(IMediaLocator* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IMediaLocator_Release(IMediaLocator* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IMediaLocator methods ***/
+static FORCEINLINE HRESULT IMediaLocator_FindMediaFile(IMediaLocator* This,BSTR input,BSTR filter,BSTR *output,LONG flags) {
+    return This->lpVtbl->FindMediaFile(This,input,filter,output,flags);
+}
+static FORCEINLINE HRESULT IMediaLocator_AddFoundLocation(IMediaLocator* This,BSTR dir) {
+    return This->lpVtbl->AddFoundLocation(This,dir);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IMediaLocator_FindMediaFile_Proxy(
+    IMediaLocator* This,
+    BSTR input,
+    BSTR filter,
+    BSTR *output,
+    LONG flags);
+void __RPC_STUB IMediaLocator_FindMediaFile_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IMediaLocator_AddFoundLocation_Proxy(
+    IMediaLocator* This,
+    BSTR dir);
+void __RPC_STUB IMediaLocator_AddFoundLocation_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IMediaLocator_INTERFACE_DEFINED__ */
+
+typedef struct __WIDL_qedit_generated_name_0000001E {
+    BSTR name;
+    DISPID dispID;
+    LONG nValues;
+} DEXTER_PARAM;
+typedef struct __WIDL_qedit_generated_name_0000001F {
+    VARIANT v;
+    REFERENCE_TIME rt;
+    DWORD dwInterp;
+} DEXTER_VALUE;
+/*****************************************************************************
+ * IPropertySetter interface
+ */
+#ifndef __IPropertySetter_INTERFACE_DEFINED__
+#define __IPropertySetter_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IPropertySetter, 0xae9472bd, 0xb0c3, 0x11d2, 0x8d,0x24, 0x00,0xa0,0xc9,0x44,0x1e,0x20);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("ae9472bd-b0c3-11d2-8d24-00a0c9441e20")
+IPropertySetter : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE LoadXML(
+        IUnknown *pxml) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE PrintXML(
+        char *xml,
+        int size,
+        int *printed,
+        int indent) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CloneProps(
+        IPropertySetter **setter,
+        REFERENCE_TIME start,
+        REFERENCE_TIME stop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddProp(
+        DEXTER_PARAM param,
+        DEXTER_VALUE *value) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetProps(
+        LONG *params,
+        DEXTER_PARAM **param,
+        DEXTER_VALUE **value) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FreeProps(
+        LONG params,
+        DEXTER_PARAM *param,
+        DEXTER_VALUE *value) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ClearProps(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SaveToBlob(
+        LONG *size,
+        BYTE **blob) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE LoadFromBlob(
+        LONG size,
+        BYTE *blob) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetProps(
+        IUnknown *target,
+        REFERENCE_TIME now) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IPropertySetter, 0xae9472bd, 0xb0c3, 0x11d2, 0x8d,0x24, 0x00,0xa0,0xc9,0x44,0x1e,0x20)
+#endif
+#else
+typedef struct IPropertySetterVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IPropertySetter* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IPropertySetter* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IPropertySetter* This);
+
+    /*** IPropertySetter methods ***/
+    HRESULT (STDMETHODCALLTYPE *LoadXML)(
+        IPropertySetter* This,
+        IUnknown *pxml);
+
+    HRESULT (STDMETHODCALLTYPE *PrintXML)(
+        IPropertySetter* This,
+        char *xml,
+        int size,
+        int *printed,
+        int indent);
+
+    HRESULT (STDMETHODCALLTYPE *CloneProps)(
+        IPropertySetter* This,
+        IPropertySetter **setter,
+        REFERENCE_TIME start,
+        REFERENCE_TIME stop);
+
+    HRESULT (STDMETHODCALLTYPE *AddProp)(
+        IPropertySetter* This,
+        DEXTER_PARAM param,
+        DEXTER_VALUE *value);
+
+    HRESULT (STDMETHODCALLTYPE *GetProps)(
+        IPropertySetter* This,
+        LONG *params,
+        DEXTER_PARAM **param,
+        DEXTER_VALUE **value);
+
+    HRESULT (STDMETHODCALLTYPE *FreeProps)(
+        IPropertySetter* This,
+        LONG params,
+        DEXTER_PARAM *param,
+        DEXTER_VALUE *value);
+
+    HRESULT (STDMETHODCALLTYPE *ClearProps)(
+        IPropertySetter* This);
+
+    HRESULT (STDMETHODCALLTYPE *SaveToBlob)(
+        IPropertySetter* This,
+        LONG *size,
+        BYTE **blob);
+
+    HRESULT (STDMETHODCALLTYPE *LoadFromBlob)(
+        IPropertySetter* This,
+        LONG size,
+        BYTE *blob);
+
+    HRESULT (STDMETHODCALLTYPE *SetProps)(
+        IPropertySetter* This,
+        IUnknown *target,
+        REFERENCE_TIME now);
+
+    END_INTERFACE
+} IPropertySetterVtbl;
+interface IPropertySetter {
+    CONST_VTBL IPropertySetterVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IPropertySetter_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IPropertySetter_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IPropertySetter_Release(This) (This)->lpVtbl->Release(This)
+/*** IPropertySetter methods ***/
+#define IPropertySetter_LoadXML(This,pxml) (This)->lpVtbl->LoadXML(This,pxml)
+#define IPropertySetter_PrintXML(This,xml,size,printed,indent) (This)->lpVtbl->PrintXML(This,xml,size,printed,indent)
+#define IPropertySetter_CloneProps(This,setter,start,stop) (This)->lpVtbl->CloneProps(This,setter,start,stop)
+#define IPropertySetter_AddProp(This,param,value) (This)->lpVtbl->AddProp(This,param,value)
+#define IPropertySetter_GetProps(This,params,param,value) (This)->lpVtbl->GetProps(This,params,param,value)
+#define IPropertySetter_FreeProps(This,params,param,value) (This)->lpVtbl->FreeProps(This,params,param,value)
+#define IPropertySetter_ClearProps(This) (This)->lpVtbl->ClearProps(This)
+#define IPropertySetter_SaveToBlob(This,size,blob) (This)->lpVtbl->SaveToBlob(This,size,blob)
+#define IPropertySetter_LoadFromBlob(This,size,blob) (This)->lpVtbl->LoadFromBlob(This,size,blob)
+#define IPropertySetter_SetProps(This,target,now) (This)->lpVtbl->SetProps(This,target,now)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IPropertySetter_QueryInterface(IPropertySetter* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IPropertySetter_AddRef(IPropertySetter* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IPropertySetter_Release(IPropertySetter* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IPropertySetter methods ***/
+static FORCEINLINE HRESULT IPropertySetter_LoadXML(IPropertySetter* This,IUnknown *pxml) {
+    return This->lpVtbl->LoadXML(This,pxml);
+}
+static FORCEINLINE HRESULT IPropertySetter_PrintXML(IPropertySetter* This,char *xml,int size,int *printed,int indent) {
+    return This->lpVtbl->PrintXML(This,xml,size,printed,indent);
+}
+static FORCEINLINE HRESULT IPropertySetter_CloneProps(IPropertySetter* This,IPropertySetter **setter,REFERENCE_TIME start,REFERENCE_TIME stop) {
+    return This->lpVtbl->CloneProps(This,setter,start,stop);
+}
+static FORCEINLINE HRESULT IPropertySetter_AddProp(IPropertySetter* This,DEXTER_PARAM param,DEXTER_VALUE *value) {
+    return This->lpVtbl->AddProp(This,param,value);
+}
+static FORCEINLINE HRESULT IPropertySetter_GetProps(IPropertySetter* This,LONG *params,DEXTER_PARAM **param,DEXTER_VALUE **value) {
+    return This->lpVtbl->GetProps(This,params,param,value);
+}
+static FORCEINLINE HRESULT IPropertySetter_FreeProps(IPropertySetter* This,LONG params,DEXTER_PARAM *param,DEXTER_VALUE *value) {
+    return This->lpVtbl->FreeProps(This,params,param,value);
+}
+static FORCEINLINE HRESULT IPropertySetter_ClearProps(IPropertySetter* This) {
+    return This->lpVtbl->ClearProps(This);
+}
+static FORCEINLINE HRESULT IPropertySetter_SaveToBlob(IPropertySetter* This,LONG *size,BYTE **blob) {
+    return This->lpVtbl->SaveToBlob(This,size,blob);
+}
+static FORCEINLINE HRESULT IPropertySetter_LoadFromBlob(IPropertySetter* This,LONG size,BYTE *blob) {
+    return This->lpVtbl->LoadFromBlob(This,size,blob);
+}
+static FORCEINLINE HRESULT IPropertySetter_SetProps(IPropertySetter* This,IUnknown *target,REFERENCE_TIME now) {
+    return This->lpVtbl->SetProps(This,target,now);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IPropertySetter_LoadXML_Proxy(
+    IPropertySetter* This,
+    IUnknown *pxml);
+void __RPC_STUB IPropertySetter_LoadXML_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPropertySetter_PrintXML_Proxy(
+    IPropertySetter* This,
+    char *xml,
+    int size,
+    int *printed,
+    int indent);
+void __RPC_STUB IPropertySetter_PrintXML_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPropertySetter_CloneProps_Proxy(
+    IPropertySetter* This,
+    IPropertySetter **setter,
+    REFERENCE_TIME start,
+    REFERENCE_TIME stop);
+void __RPC_STUB IPropertySetter_CloneProps_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPropertySetter_AddProp_Proxy(
+    IPropertySetter* This,
+    DEXTER_PARAM param,
+    DEXTER_VALUE *value);
+void __RPC_STUB IPropertySetter_AddProp_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPropertySetter_GetProps_Proxy(
+    IPropertySetter* This,
+    LONG *params,
+    DEXTER_PARAM **param,
+    DEXTER_VALUE **value);
+void __RPC_STUB IPropertySetter_GetProps_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPropertySetter_FreeProps_Proxy(
+    IPropertySetter* This,
+    LONG params,
+    DEXTER_PARAM *param,
+    DEXTER_VALUE *value);
+void __RPC_STUB IPropertySetter_FreeProps_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPropertySetter_ClearProps_Proxy(
+    IPropertySetter* This);
+void __RPC_STUB IPropertySetter_ClearProps_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPropertySetter_SaveToBlob_Proxy(
+    IPropertySetter* This,
+    LONG *size,
+    BYTE **blob);
+void __RPC_STUB IPropertySetter_SaveToBlob_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPropertySetter_LoadFromBlob_Proxy(
+    IPropertySetter* This,
+    LONG size,
+    BYTE *blob);
+void __RPC_STUB IPropertySetter_LoadFromBlob_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IPropertySetter_SetProps_Proxy(
+    IPropertySetter* This,
+    IUnknown *target,
+    REFERENCE_TIME now);
+void __RPC_STUB IPropertySetter_SetProps_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IPropertySetter_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAMErrorLog interface
+ */
+#ifndef __IAMErrorLog_INTERFACE_DEFINED__
+#define __IAMErrorLog_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IAMErrorLog, 0xe43e73a2, 0x0efa, 0x11d3, 0x96,0x01, 0x00,0xa0,0xc9,0x44,0x1e,0x20);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("e43e73a2-0efa-11d3-9601-00a0c9441e20")
+IAMErrorLog : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE LogError(
+        LONG severity,
+        BSTR error_str,
+        LONG error_code,
+        LONG hresult,
+        VARIANT *extra) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAMErrorLog, 0xe43e73a2, 0x0efa, 0x11d3, 0x96,0x01, 0x00,0xa0,0xc9,0x44,0x1e,0x20)
+#endif
+#else
+typedef struct IAMErrorLogVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IAMErrorLog* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IAMErrorLog* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IAMErrorLog* This);
+
+    /*** IAMErrorLog methods ***/
+    HRESULT (STDMETHODCALLTYPE *LogError)(
+        IAMErrorLog* This,
+        LONG severity,
+        BSTR error_str,
+        LONG error_code,
+        LONG hresult,
+        VARIANT *extra);
+
+    END_INTERFACE
+} IAMErrorLogVtbl;
+interface IAMErrorLog {
+    CONST_VTBL IAMErrorLogVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IAMErrorLog_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAMErrorLog_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAMErrorLog_Release(This) (This)->lpVtbl->Release(This)
+/*** IAMErrorLog methods ***/
+#define IAMErrorLog_LogError(This,severity,error_str,error_code,hresult,extra) (This)->lpVtbl->LogError(This,severity,error_str,error_code,hresult,extra)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAMErrorLog_QueryInterface(IAMErrorLog* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAMErrorLog_AddRef(IAMErrorLog* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAMErrorLog_Release(IAMErrorLog* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAMErrorLog methods ***/
+static FORCEINLINE HRESULT IAMErrorLog_LogError(IAMErrorLog* This,LONG severity,BSTR error_str,LONG error_code,LONG hresult,VARIANT *extra) {
+    return This->lpVtbl->LogError(This,severity,error_str,error_code,hresult,extra);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IAMErrorLog_LogError_Proxy(
+    IAMErrorLog* This,
+    LONG severity,
+    BSTR error_str,
+    LONG error_code,
+    LONG hresult,
+    VARIANT *extra);
+void __RPC_STUB IAMErrorLog_LogError_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IAMErrorLog_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAMSetErrorLog interface
+ */
+#ifndef __IAMSetErrorLog_INTERFACE_DEFINED__
+#define __IAMSetErrorLog_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IAMSetErrorLog, 0x963566da, 0xbe21, 0x4eaf, 0x88,0xe9, 0x35,0x70,0x4f,0x8f,0x52,0xa1);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("963566da-be21-4eaf-88e9-35704f8f52a1")
+IAMSetErrorLog : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE get_ErrorLog(
+        IAMErrorLog **log) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_ErrorLog(
+        IAMErrorLog *log) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAMSetErrorLog, 0x963566da, 0xbe21, 0x4eaf, 0x88,0xe9, 0x35,0x70,0x4f,0x8f,0x52,0xa1)
+#endif
+#else
+typedef struct IAMSetErrorLogVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IAMSetErrorLog* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IAMSetErrorLog* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IAMSetErrorLog* This);
+
+    /*** IAMSetErrorLog methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_ErrorLog)(
+        IAMSetErrorLog* This,
+        IAMErrorLog **log);
+
+    HRESULT (STDMETHODCALLTYPE *put_ErrorLog)(
+        IAMSetErrorLog* This,
+        IAMErrorLog *log);
+
+    END_INTERFACE
+} IAMSetErrorLogVtbl;
+interface IAMSetErrorLog {
+    CONST_VTBL IAMSetErrorLogVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IAMSetErrorLog_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAMSetErrorLog_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAMSetErrorLog_Release(This) (This)->lpVtbl->Release(This)
+/*** IAMSetErrorLog methods ***/
+#define IAMSetErrorLog_get_ErrorLog(This,log) (This)->lpVtbl->get_ErrorLog(This,log)
+#define IAMSetErrorLog_put_ErrorLog(This,log) (This)->lpVtbl->put_ErrorLog(This,log)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAMSetErrorLog_QueryInterface(IAMSetErrorLog* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAMSetErrorLog_AddRef(IAMSetErrorLog* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAMSetErrorLog_Release(IAMSetErrorLog* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAMSetErrorLog methods ***/
+static FORCEINLINE HRESULT IAMSetErrorLog_get_ErrorLog(IAMSetErrorLog* This,IAMErrorLog **log) {
+    return This->lpVtbl->get_ErrorLog(This,log);
+}
+static FORCEINLINE HRESULT IAMSetErrorLog_put_ErrorLog(IAMSetErrorLog* This,IAMErrorLog *log) {
+    return This->lpVtbl->put_ErrorLog(This,log);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IAMSetErrorLog_get_ErrorLog_Proxy(
+    IAMSetErrorLog* This,
+    IAMErrorLog **log);
+void __RPC_STUB IAMSetErrorLog_get_ErrorLog_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMSetErrorLog_put_ErrorLog_Proxy(
+    IAMSetErrorLog* This,
+    IAMErrorLog *log);
+void __RPC_STUB IAMSetErrorLog_put_ErrorLog_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IAMSetErrorLog_INTERFACE_DEFINED__ */
+
+#ifndef __IAMTimeline_FWD_DEFINED__
+#define __IAMTimeline_FWD_DEFINED__
+typedef interface IAMTimeline IAMTimeline;
+#endif
+
+#ifndef __IAMTimelineGroup_FWD_DEFINED__
+#define __IAMTimelineGroup_FWD_DEFINED__
+typedef interface IAMTimelineGroup IAMTimelineGroup;
+#endif
+
+#ifndef __IAMTimelineObj_FWD_DEFINED__
+#define __IAMTimelineObj_FWD_DEFINED__
+typedef interface IAMTimelineObj IAMTimelineObj;
+#endif
+
+#ifndef __IAMTimelineSrc_FWD_DEFINED__
+#define __IAMTimelineSrc_FWD_DEFINED__
+typedef interface IAMTimelineSrc IAMTimelineSrc;
+#endif
+
+typedef enum __WIDL_qedit_generated_name_00000020 {
+    TIMELINE_MAJOR_TYPE_COMPOSITE = 1,
+    TIMELINE_MAJOR_TYPE_TRACK = 2,
+    TIMELINE_MAJOR_TYPE_SOURCE = 4,
+    TIMELINE_MAJOR_TYPE_TRANSITION = 8,
+    TIMELINE_MAJOR_TYPE_EFFECT = 16,
+    TIMELINE_MAJOR_TYPE_GROUP = 128
+} TIMELINE_MAJOR_TYPE;
+/*****************************************************************************
+ * IAMTimeline interface
+ */
+#ifndef __IAMTimeline_INTERFACE_DEFINED__
+#define __IAMTimeline_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IAMTimeline, 0x78530b74, 0x61f9, 0x11d2, 0x8c,0xad, 0x00,0xa0,0x24,0x58,0x09,0x02);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("78530b74-61f9-11d2-8cad-00a024580902")
+IAMTimeline : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE CreateEmptyNode(
+        IAMTimelineObj **obj,
+        TIMELINE_MAJOR_TYPE type) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddGroup(
+        IAMTimelineObj *group) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemGroupFromList(
+        IAMTimelineObj *group) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetGroup(
+        IAMTimelineObj **group,
+        LONG index) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetGroupCount(
+        LONG *count) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ClearAllGroups(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetInsertMode(
+        LONG *mode) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetInsertMode(
+        LONG mode) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EnableTransitions(
+        WINBOOL enabled) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE TransitionsEnabled(
+        WINBOOL *enabled) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EnableEffects(
+        WINBOOL enabled) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EffectsEnabled(
+        WINBOOL *enabled) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetInterestRange(
+        REFERENCE_TIME start,
+        REFERENCE_TIME stop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDuration(
+        REFERENCE_TIME *duration) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDuration2(
+        double *duration) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetDefaultFPS(
+        double fps) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDefaultFPS(
+        double *fps) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IsDirty(
+        WINBOOL *dirty) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDirtyRange(
+        REFERENCE_TIME *start,
+        REFERENCE_TIME *stop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCountOfType(
+        LONG group,
+        LONG *value,
+        LONG *value_with_comps,
+        TIMELINE_MAJOR_TYPE type) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ValidateSourceNames(
+        LONG flags,
+        IMediaLocator *override,
+        LONG_PTR notify_event) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetDefaultTransition(
+        GUID *guid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDefaultTransition(
+        GUID *guid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetDefaultEffect(
+        GUID *guid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDefaultEffect(
+        GUID *guid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetDefaultTransitionB(
+        BSTR guidb) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDefaultTransitionB(
+        BSTR *guidb) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetDefaultEffectB(
+        BSTR guidb) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDefaultEffectB(
+        BSTR *guidb) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAMTimeline, 0x78530b74, 0x61f9, 0x11d2, 0x8c,0xad, 0x00,0xa0,0x24,0x58,0x09,0x02)
+#endif
+#else
+typedef struct IAMTimelineVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IAMTimeline* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IAMTimeline* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IAMTimeline* This);
+
+    /*** IAMTimeline methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateEmptyNode)(
+        IAMTimeline* This,
+        IAMTimelineObj **obj,
+        TIMELINE_MAJOR_TYPE type);
+
+    HRESULT (STDMETHODCALLTYPE *AddGroup)(
+        IAMTimeline* This,
+        IAMTimelineObj *group);
+
+    HRESULT (STDMETHODCALLTYPE *RemGroupFromList)(
+        IAMTimeline* This,
+        IAMTimelineObj *group);
+
+    HRESULT (STDMETHODCALLTYPE *GetGroup)(
+        IAMTimeline* This,
+        IAMTimelineObj **group,
+        LONG index);
+
+    HRESULT (STDMETHODCALLTYPE *GetGroupCount)(
+        IAMTimeline* This,
+        LONG *count);
+
+    HRESULT (STDMETHODCALLTYPE *ClearAllGroups)(
+        IAMTimeline* This);
+
+    HRESULT (STDMETHODCALLTYPE *GetInsertMode)(
+        IAMTimeline* This,
+        LONG *mode);
+
+    HRESULT (STDMETHODCALLTYPE *SetInsertMode)(
+        IAMTimeline* This,
+        LONG mode);
+
+    HRESULT (STDMETHODCALLTYPE *EnableTransitions)(
+        IAMTimeline* This,
+        WINBOOL enabled);
+
+    HRESULT (STDMETHODCALLTYPE *TransitionsEnabled)(
+        IAMTimeline* This,
+        WINBOOL *enabled);
+
+    HRESULT (STDMETHODCALLTYPE *EnableEffects)(
+        IAMTimeline* This,
+        WINBOOL enabled);
+
+    HRESULT (STDMETHODCALLTYPE *EffectsEnabled)(
+        IAMTimeline* This,
+        WINBOOL *enabled);
+
+    HRESULT (STDMETHODCALLTYPE *SetInterestRange)(
+        IAMTimeline* This,
+        REFERENCE_TIME start,
+        REFERENCE_TIME stop);
+
+    HRESULT (STDMETHODCALLTYPE *GetDuration)(
+        IAMTimeline* This,
+        REFERENCE_TIME *duration);
+
+    HRESULT (STDMETHODCALLTYPE *GetDuration2)(
+        IAMTimeline* This,
+        double *duration);
+
+    HRESULT (STDMETHODCALLTYPE *SetDefaultFPS)(
+        IAMTimeline* This,
+        double fps);
+
+    HRESULT (STDMETHODCALLTYPE *GetDefaultFPS)(
+        IAMTimeline* This,
+        double *fps);
+
+    HRESULT (STDMETHODCALLTYPE *IsDirty)(
+        IAMTimeline* This,
+        WINBOOL *dirty);
+
+    HRESULT (STDMETHODCALLTYPE *GetDirtyRange)(
+        IAMTimeline* This,
+        REFERENCE_TIME *start,
+        REFERENCE_TIME *stop);
+
+    HRESULT (STDMETHODCALLTYPE *GetCountOfType)(
+        IAMTimeline* This,
+        LONG group,
+        LONG *value,
+        LONG *value_with_comps,
+        TIMELINE_MAJOR_TYPE type);
+
+    HRESULT (STDMETHODCALLTYPE *ValidateSourceNames)(
+        IAMTimeline* This,
+        LONG flags,
+        IMediaLocator *override,
+        LONG_PTR notify_event);
+
+    HRESULT (STDMETHODCALLTYPE *SetDefaultTransition)(
+        IAMTimeline* This,
+        GUID *guid);
+
+    HRESULT (STDMETHODCALLTYPE *GetDefaultTransition)(
+        IAMTimeline* This,
+        GUID *guid);
+
+    HRESULT (STDMETHODCALLTYPE *SetDefaultEffect)(
+        IAMTimeline* This,
+        GUID *guid);
+
+    HRESULT (STDMETHODCALLTYPE *GetDefaultEffect)(
+        IAMTimeline* This,
+        GUID *guid);
+
+    HRESULT (STDMETHODCALLTYPE *SetDefaultTransitionB)(
+        IAMTimeline* This,
+        BSTR guidb);
+
+    HRESULT (STDMETHODCALLTYPE *GetDefaultTransitionB)(
+        IAMTimeline* This,
+        BSTR *guidb);
+
+    HRESULT (STDMETHODCALLTYPE *SetDefaultEffectB)(
+        IAMTimeline* This,
+        BSTR guidb);
+
+    HRESULT (STDMETHODCALLTYPE *GetDefaultEffectB)(
+        IAMTimeline* This,
+        BSTR *guidb);
+
+    END_INTERFACE
+} IAMTimelineVtbl;
+interface IAMTimeline {
+    CONST_VTBL IAMTimelineVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IAMTimeline_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAMTimeline_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAMTimeline_Release(This) (This)->lpVtbl->Release(This)
+/*** IAMTimeline methods ***/
+#define IAMTimeline_CreateEmptyNode(This,obj,type) (This)->lpVtbl->CreateEmptyNode(This,obj,type)
+#define IAMTimeline_AddGroup(This,group) (This)->lpVtbl->AddGroup(This,group)
+#define IAMTimeline_RemGroupFromList(This,group) (This)->lpVtbl->RemGroupFromList(This,group)
+#define IAMTimeline_GetGroup(This,group,index) (This)->lpVtbl->GetGroup(This,group,index)
+#define IAMTimeline_GetGroupCount(This,count) (This)->lpVtbl->GetGroupCount(This,count)
+#define IAMTimeline_ClearAllGroups(This) (This)->lpVtbl->ClearAllGroups(This)
+#define IAMTimeline_GetInsertMode(This,mode) (This)->lpVtbl->GetInsertMode(This,mode)
+#define IAMTimeline_SetInsertMode(This,mode) (This)->lpVtbl->SetInsertMode(This,mode)
+#define IAMTimeline_EnableTransitions(This,enabled) (This)->lpVtbl->EnableTransitions(This,enabled)
+#define IAMTimeline_TransitionsEnabled(This,enabled) (This)->lpVtbl->TransitionsEnabled(This,enabled)
+#define IAMTimeline_EnableEffects(This,enabled) (This)->lpVtbl->EnableEffects(This,enabled)
+#define IAMTimeline_EffectsEnabled(This,enabled) (This)->lpVtbl->EffectsEnabled(This,enabled)
+#define IAMTimeline_SetInterestRange(This,start,stop) (This)->lpVtbl->SetInterestRange(This,start,stop)
+#define IAMTimeline_GetDuration(This,duration) (This)->lpVtbl->GetDuration(This,duration)
+#define IAMTimeline_GetDuration2(This,duration) (This)->lpVtbl->GetDuration2(This,duration)
+#define IAMTimeline_SetDefaultFPS(This,fps) (This)->lpVtbl->SetDefaultFPS(This,fps)
+#define IAMTimeline_GetDefaultFPS(This,fps) (This)->lpVtbl->GetDefaultFPS(This,fps)
+#define IAMTimeline_IsDirty(This,dirty) (This)->lpVtbl->IsDirty(This,dirty)
+#define IAMTimeline_GetDirtyRange(This,start,stop) (This)->lpVtbl->GetDirtyRange(This,start,stop)
+#define IAMTimeline_GetCountOfType(This,group,value,value_with_comps,type) (This)->lpVtbl->GetCountOfType(This,group,value,value_with_comps,type)
+#define IAMTimeline_ValidateSourceNames(This,flags,override,notify_event) (This)->lpVtbl->ValidateSourceNames(This,flags,override,notify_event)
+#define IAMTimeline_SetDefaultTransition(This,guid) (This)->lpVtbl->SetDefaultTransition(This,guid)
+#define IAMTimeline_GetDefaultTransition(This,guid) (This)->lpVtbl->GetDefaultTransition(This,guid)
+#define IAMTimeline_SetDefaultEffect(This,guid) (This)->lpVtbl->SetDefaultEffect(This,guid)
+#define IAMTimeline_GetDefaultEffect(This,guid) (This)->lpVtbl->GetDefaultEffect(This,guid)
+#define IAMTimeline_SetDefaultTransitionB(This,guidb) (This)->lpVtbl->SetDefaultTransitionB(This,guidb)
+#define IAMTimeline_GetDefaultTransitionB(This,guidb) (This)->lpVtbl->GetDefaultTransitionB(This,guidb)
+#define IAMTimeline_SetDefaultEffectB(This,guidb) (This)->lpVtbl->SetDefaultEffectB(This,guidb)
+#define IAMTimeline_GetDefaultEffectB(This,guidb) (This)->lpVtbl->GetDefaultEffectB(This,guidb)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAMTimeline_QueryInterface(IAMTimeline* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAMTimeline_AddRef(IAMTimeline* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAMTimeline_Release(IAMTimeline* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAMTimeline methods ***/
+static FORCEINLINE HRESULT IAMTimeline_CreateEmptyNode(IAMTimeline* This,IAMTimelineObj **obj,TIMELINE_MAJOR_TYPE type) {
+    return This->lpVtbl->CreateEmptyNode(This,obj,type);
+}
+static FORCEINLINE HRESULT IAMTimeline_AddGroup(IAMTimeline* This,IAMTimelineObj *group) {
+    return This->lpVtbl->AddGroup(This,group);
+}
+static FORCEINLINE HRESULT IAMTimeline_RemGroupFromList(IAMTimeline* This,IAMTimelineObj *group) {
+    return This->lpVtbl->RemGroupFromList(This,group);
+}
+static FORCEINLINE HRESULT IAMTimeline_GetGroup(IAMTimeline* This,IAMTimelineObj **group,LONG index) {
+    return This->lpVtbl->GetGroup(This,group,index);
+}
+static FORCEINLINE HRESULT IAMTimeline_GetGroupCount(IAMTimeline* This,LONG *count) {
+    return This->lpVtbl->GetGroupCount(This,count);
+}
+static FORCEINLINE HRESULT IAMTimeline_ClearAllGroups(IAMTimeline* This) {
+    return This->lpVtbl->ClearAllGroups(This);
+}
+static FORCEINLINE HRESULT IAMTimeline_GetInsertMode(IAMTimeline* This,LONG *mode) {
+    return This->lpVtbl->GetInsertMode(This,mode);
+}
+static FORCEINLINE HRESULT IAMTimeline_SetInsertMode(IAMTimeline* This,LONG mode) {
+    return This->lpVtbl->SetInsertMode(This,mode);
+}
+static FORCEINLINE HRESULT IAMTimeline_EnableTransitions(IAMTimeline* This,WINBOOL enabled) {
+    return This->lpVtbl->EnableTransitions(This,enabled);
+}
+static FORCEINLINE HRESULT IAMTimeline_TransitionsEnabled(IAMTimeline* This,WINBOOL *enabled) {
+    return This->lpVtbl->TransitionsEnabled(This,enabled);
+}
+static FORCEINLINE HRESULT IAMTimeline_EnableEffects(IAMTimeline* This,WINBOOL enabled) {
+    return This->lpVtbl->EnableEffects(This,enabled);
+}
+static FORCEINLINE HRESULT IAMTimeline_EffectsEnabled(IAMTimeline* This,WINBOOL *enabled) {
+    return This->lpVtbl->EffectsEnabled(This,enabled);
+}
+static FORCEINLINE HRESULT IAMTimeline_SetInterestRange(IAMTimeline* This,REFERENCE_TIME start,REFERENCE_TIME stop) {
+    return This->lpVtbl->SetInterestRange(This,start,stop);
+}
+static FORCEINLINE HRESULT IAMTimeline_GetDuration(IAMTimeline* This,REFERENCE_TIME *duration) {
+    return This->lpVtbl->GetDuration(This,duration);
+}
+static FORCEINLINE HRESULT IAMTimeline_GetDuration2(IAMTimeline* This,double *duration) {
+    return This->lpVtbl->GetDuration2(This,duration);
+}
+static FORCEINLINE HRESULT IAMTimeline_SetDefaultFPS(IAMTimeline* This,double fps) {
+    return This->lpVtbl->SetDefaultFPS(This,fps);
+}
+static FORCEINLINE HRESULT IAMTimeline_GetDefaultFPS(IAMTimeline* This,double *fps) {
+    return This->lpVtbl->GetDefaultFPS(This,fps);
+}
+static FORCEINLINE HRESULT IAMTimeline_IsDirty(IAMTimeline* This,WINBOOL *dirty) {
+    return This->lpVtbl->IsDirty(This,dirty);
+}
+static FORCEINLINE HRESULT IAMTimeline_GetDirtyRange(IAMTimeline* This,REFERENCE_TIME *start,REFERENCE_TIME *stop) {
+    return This->lpVtbl->GetDirtyRange(This,start,stop);
+}
+static FORCEINLINE HRESULT IAMTimeline_GetCountOfType(IAMTimeline* This,LONG group,LONG *value,LONG *value_with_comps,TIMELINE_MAJOR_TYPE type) {
+    return This->lpVtbl->GetCountOfType(This,group,value,value_with_comps,type);
+}
+static FORCEINLINE HRESULT IAMTimeline_ValidateSourceNames(IAMTimeline* This,LONG flags,IMediaLocator *override,LONG_PTR notify_event) {
+    return This->lpVtbl->ValidateSourceNames(This,flags,override,notify_event);
+}
+static FORCEINLINE HRESULT IAMTimeline_SetDefaultTransition(IAMTimeline* This,GUID *guid) {
+    return This->lpVtbl->SetDefaultTransition(This,guid);
+}
+static FORCEINLINE HRESULT IAMTimeline_GetDefaultTransition(IAMTimeline* This,GUID *guid) {
+    return This->lpVtbl->GetDefaultTransition(This,guid);
+}
+static FORCEINLINE HRESULT IAMTimeline_SetDefaultEffect(IAMTimeline* This,GUID *guid) {
+    return This->lpVtbl->SetDefaultEffect(This,guid);
+}
+static FORCEINLINE HRESULT IAMTimeline_GetDefaultEffect(IAMTimeline* This,GUID *guid) {
+    return This->lpVtbl->GetDefaultEffect(This,guid);
+}
+static FORCEINLINE HRESULT IAMTimeline_SetDefaultTransitionB(IAMTimeline* This,BSTR guidb) {
+    return This->lpVtbl->SetDefaultTransitionB(This,guidb);
+}
+static FORCEINLINE HRESULT IAMTimeline_GetDefaultTransitionB(IAMTimeline* This,BSTR *guidb) {
+    return This->lpVtbl->GetDefaultTransitionB(This,guidb);
+}
+static FORCEINLINE HRESULT IAMTimeline_SetDefaultEffectB(IAMTimeline* This,BSTR guidb) {
+    return This->lpVtbl->SetDefaultEffectB(This,guidb);
+}
+static FORCEINLINE HRESULT IAMTimeline_GetDefaultEffectB(IAMTimeline* This,BSTR *guidb) {
+    return This->lpVtbl->GetDefaultEffectB(This,guidb);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IAMTimeline_CreateEmptyNode_Proxy(
+    IAMTimeline* This,
+    IAMTimelineObj **obj,
+    TIMELINE_MAJOR_TYPE type);
+void __RPC_STUB IAMTimeline_CreateEmptyNode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_AddGroup_Proxy(
+    IAMTimeline* This,
+    IAMTimelineObj *group);
+void __RPC_STUB IAMTimeline_AddGroup_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_RemGroupFromList_Proxy(
+    IAMTimeline* This,
+    IAMTimelineObj *group);
+void __RPC_STUB IAMTimeline_RemGroupFromList_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_GetGroup_Proxy(
+    IAMTimeline* This,
+    IAMTimelineObj **group,
+    LONG index);
+void __RPC_STUB IAMTimeline_GetGroup_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_GetGroupCount_Proxy(
+    IAMTimeline* This,
+    LONG *count);
+void __RPC_STUB IAMTimeline_GetGroupCount_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_ClearAllGroups_Proxy(
+    IAMTimeline* This);
+void __RPC_STUB IAMTimeline_ClearAllGroups_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_GetInsertMode_Proxy(
+    IAMTimeline* This,
+    LONG *mode);
+void __RPC_STUB IAMTimeline_GetInsertMode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_SetInsertMode_Proxy(
+    IAMTimeline* This,
+    LONG mode);
+void __RPC_STUB IAMTimeline_SetInsertMode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_EnableTransitions_Proxy(
+    IAMTimeline* This,
+    WINBOOL enabled);
+void __RPC_STUB IAMTimeline_EnableTransitions_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_TransitionsEnabled_Proxy(
+    IAMTimeline* This,
+    WINBOOL *enabled);
+void __RPC_STUB IAMTimeline_TransitionsEnabled_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_EnableEffects_Proxy(
+    IAMTimeline* This,
+    WINBOOL enabled);
+void __RPC_STUB IAMTimeline_EnableEffects_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_EffectsEnabled_Proxy(
+    IAMTimeline* This,
+    WINBOOL *enabled);
+void __RPC_STUB IAMTimeline_EffectsEnabled_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_SetInterestRange_Proxy(
+    IAMTimeline* This,
+    REFERENCE_TIME start,
+    REFERENCE_TIME stop);
+void __RPC_STUB IAMTimeline_SetInterestRange_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_GetDuration_Proxy(
+    IAMTimeline* This,
+    REFERENCE_TIME *duration);
+void __RPC_STUB IAMTimeline_GetDuration_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_GetDuration2_Proxy(
+    IAMTimeline* This,
+    double *duration);
+void __RPC_STUB IAMTimeline_GetDuration2_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_SetDefaultFPS_Proxy(
+    IAMTimeline* This,
+    double fps);
+void __RPC_STUB IAMTimeline_SetDefaultFPS_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_GetDefaultFPS_Proxy(
+    IAMTimeline* This,
+    double *fps);
+void __RPC_STUB IAMTimeline_GetDefaultFPS_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_IsDirty_Proxy(
+    IAMTimeline* This,
+    WINBOOL *dirty);
+void __RPC_STUB IAMTimeline_IsDirty_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_GetDirtyRange_Proxy(
+    IAMTimeline* This,
+    REFERENCE_TIME *start,
+    REFERENCE_TIME *stop);
+void __RPC_STUB IAMTimeline_GetDirtyRange_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_GetCountOfType_Proxy(
+    IAMTimeline* This,
+    LONG group,
+    LONG *value,
+    LONG *value_with_comps,
+    TIMELINE_MAJOR_TYPE type);
+void __RPC_STUB IAMTimeline_GetCountOfType_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_ValidateSourceNames_Proxy(
+    IAMTimeline* This,
+    LONG flags,
+    IMediaLocator *override,
+    LONG_PTR notify_event);
+void __RPC_STUB IAMTimeline_ValidateSourceNames_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_SetDefaultTransition_Proxy(
+    IAMTimeline* This,
+    GUID *guid);
+void __RPC_STUB IAMTimeline_SetDefaultTransition_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_GetDefaultTransition_Proxy(
+    IAMTimeline* This,
+    GUID *guid);
+void __RPC_STUB IAMTimeline_GetDefaultTransition_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_SetDefaultEffect_Proxy(
+    IAMTimeline* This,
+    GUID *guid);
+void __RPC_STUB IAMTimeline_SetDefaultEffect_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_GetDefaultEffect_Proxy(
+    IAMTimeline* This,
+    GUID *guid);
+void __RPC_STUB IAMTimeline_GetDefaultEffect_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_SetDefaultTransitionB_Proxy(
+    IAMTimeline* This,
+    BSTR guidb);
+void __RPC_STUB IAMTimeline_SetDefaultTransitionB_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_GetDefaultTransitionB_Proxy(
+    IAMTimeline* This,
+    BSTR *guidb);
+void __RPC_STUB IAMTimeline_GetDefaultTransitionB_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_SetDefaultEffectB_Proxy(
+    IAMTimeline* This,
+    BSTR guidb);
+void __RPC_STUB IAMTimeline_SetDefaultEffectB_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimeline_GetDefaultEffectB_Proxy(
+    IAMTimeline* This,
+    BSTR *guidb);
+void __RPC_STUB IAMTimeline_GetDefaultEffectB_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IAMTimeline_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * AMTimeline coclass
+ */
+
+DEFINE_GUID(CLSID_AMTimeline, 0x78530b75, 0x61f9, 0x11d2, 0x8c,0xad, 0x00,0xa0,0x24,0x58,0x09,0x02);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("78530b75-61f9-11d2-8cad-00a024580902") AMTimeline;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(AMTimeline, 0x78530b75, 0x61f9, 0x11d2, 0x8c,0xad, 0x00,0xa0,0x24,0x58,0x09,0x02)
+#endif
+#endif
+
+/*****************************************************************************
+ * IAMTimelineGroup interface
+ */
+#ifndef __IAMTimelineGroup_INTERFACE_DEFINED__
+#define __IAMTimelineGroup_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IAMTimelineGroup, 0x9eed4f00, 0xb8a6, 0x11d2, 0x80,0x23, 0x00,0xc0,0xdf,0x10,0xd4,0x34);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("9eed4f00-b8a6-11d2-8023-00c0df10d434")
+IAMTimelineGroup : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE SetTimeline(
+        IAMTimeline *timeline) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetTimeline(
+        IAMTimeline **timeline) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPriority(
+        LONG *priority) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMediaType(
+        AM_MEDIA_TYPE *a) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetMediaType(
+        AM_MEDIA_TYPE *a) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetOutputFPS(
+        double fps) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetOutputFPS(
+        double *fps) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetGroupName(
+        BSTR name) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetGroupName(
+        BSTR *name) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetPreviewMode(
+        WINBOOL preview) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPreviewMode(
+        WINBOOL *preview) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetMediaTypeForVB(
+        LONG type) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetOutputBuffering(
+        int *buffer) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetOutputBuffering(
+        int buffer) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetSmartRecompressFormat(
+        LONG *format) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetSmartRecompressFormat(
+        LONG **format) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IsSmartRecompressFormatSet(
+        WINBOOL *set) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IsRecompressFormatDirty(
+        WINBOOL *dirty) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ClearRecompressFormatDirty(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetRecompFormatFromSource(
+        IAMTimelineSrc *source) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAMTimelineGroup, 0x9eed4f00, 0xb8a6, 0x11d2, 0x80,0x23, 0x00,0xc0,0xdf,0x10,0xd4,0x34)
+#endif
+#else
+typedef struct IAMTimelineGroupVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IAMTimelineGroup* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IAMTimelineGroup* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IAMTimelineGroup* This);
+
+    /*** IAMTimelineGroup methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetTimeline)(
+        IAMTimelineGroup* This,
+        IAMTimeline *timeline);
+
+    HRESULT (STDMETHODCALLTYPE *GetTimeline)(
+        IAMTimelineGroup* This,
+        IAMTimeline **timeline);
+
+    HRESULT (STDMETHODCALLTYPE *GetPriority)(
+        IAMTimelineGroup* This,
+        LONG *priority);
+
+    HRESULT (STDMETHODCALLTYPE *GetMediaType)(
+        IAMTimelineGroup* This,
+        AM_MEDIA_TYPE *a);
+
+    HRESULT (STDMETHODCALLTYPE *SetMediaType)(
+        IAMTimelineGroup* This,
+        AM_MEDIA_TYPE *a);
+
+    HRESULT (STDMETHODCALLTYPE *SetOutputFPS)(
+        IAMTimelineGroup* This,
+        double fps);
+
+    HRESULT (STDMETHODCALLTYPE *GetOutputFPS)(
+        IAMTimelineGroup* This,
+        double *fps);
+
+    HRESULT (STDMETHODCALLTYPE *SetGroupName)(
+        IAMTimelineGroup* This,
+        BSTR name);
+
+    HRESULT (STDMETHODCALLTYPE *GetGroupName)(
+        IAMTimelineGroup* This,
+        BSTR *name);
+
+    HRESULT (STDMETHODCALLTYPE *SetPreviewMode)(
+        IAMTimelineGroup* This,
+        WINBOOL preview);
+
+    HRESULT (STDMETHODCALLTYPE *GetPreviewMode)(
+        IAMTimelineGroup* This,
+        WINBOOL *preview);
+
+    HRESULT (STDMETHODCALLTYPE *SetMediaTypeForVB)(
+        IAMTimelineGroup* This,
+        LONG type);
+
+    HRESULT (STDMETHODCALLTYPE *GetOutputBuffering)(
+        IAMTimelineGroup* This,
+        int *buffer);
+
+    HRESULT (STDMETHODCALLTYPE *SetOutputBuffering)(
+        IAMTimelineGroup* This,
+        int buffer);
+
+    HRESULT (STDMETHODCALLTYPE *SetSmartRecompressFormat)(
+        IAMTimelineGroup* This,
+        LONG *format);
+
+    HRESULT (STDMETHODCALLTYPE *GetSmartRecompressFormat)(
+        IAMTimelineGroup* This,
+        LONG **format);
+
+    HRESULT (STDMETHODCALLTYPE *IsSmartRecompressFormatSet)(
+        IAMTimelineGroup* This,
+        WINBOOL *set);
+
+    HRESULT (STDMETHODCALLTYPE *IsRecompressFormatDirty)(
+        IAMTimelineGroup* This,
+        WINBOOL *dirty);
+
+    HRESULT (STDMETHODCALLTYPE *ClearRecompressFormatDirty)(
+        IAMTimelineGroup* This);
+
+    HRESULT (STDMETHODCALLTYPE *SetRecompFormatFromSource)(
+        IAMTimelineGroup* This,
+        IAMTimelineSrc *source);
+
+    END_INTERFACE
+} IAMTimelineGroupVtbl;
+interface IAMTimelineGroup {
+    CONST_VTBL IAMTimelineGroupVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IAMTimelineGroup_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAMTimelineGroup_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAMTimelineGroup_Release(This) (This)->lpVtbl->Release(This)
+/*** IAMTimelineGroup methods ***/
+#define IAMTimelineGroup_SetTimeline(This,timeline) (This)->lpVtbl->SetTimeline(This,timeline)
+#define IAMTimelineGroup_GetTimeline(This,timeline) (This)->lpVtbl->GetTimeline(This,timeline)
+#define IAMTimelineGroup_GetPriority(This,priority) (This)->lpVtbl->GetPriority(This,priority)
+#define IAMTimelineGroup_GetMediaType(This,a) (This)->lpVtbl->GetMediaType(This,a)
+#define IAMTimelineGroup_SetMediaType(This,a) (This)->lpVtbl->SetMediaType(This,a)
+#define IAMTimelineGroup_SetOutputFPS(This,fps) (This)->lpVtbl->SetOutputFPS(This,fps)
+#define IAMTimelineGroup_GetOutputFPS(This,fps) (This)->lpVtbl->GetOutputFPS(This,fps)
+#define IAMTimelineGroup_SetGroupName(This,name) (This)->lpVtbl->SetGroupName(This,name)
+#define IAMTimelineGroup_GetGroupName(This,name) (This)->lpVtbl->GetGroupName(This,name)
+#define IAMTimelineGroup_SetPreviewMode(This,preview) (This)->lpVtbl->SetPreviewMode(This,preview)
+#define IAMTimelineGroup_GetPreviewMode(This,preview) (This)->lpVtbl->GetPreviewMode(This,preview)
+#define IAMTimelineGroup_SetMediaTypeForVB(This,type) (This)->lpVtbl->SetMediaTypeForVB(This,type)
+#define IAMTimelineGroup_GetOutputBuffering(This,buffer) (This)->lpVtbl->GetOutputBuffering(This,buffer)
+#define IAMTimelineGroup_SetOutputBuffering(This,buffer) (This)->lpVtbl->SetOutputBuffering(This,buffer)
+#define IAMTimelineGroup_SetSmartRecompressFormat(This,format) (This)->lpVtbl->SetSmartRecompressFormat(This,format)
+#define IAMTimelineGroup_GetSmartRecompressFormat(This,format) (This)->lpVtbl->GetSmartRecompressFormat(This,format)
+#define IAMTimelineGroup_IsSmartRecompressFormatSet(This,set) (This)->lpVtbl->IsSmartRecompressFormatSet(This,set)
+#define IAMTimelineGroup_IsRecompressFormatDirty(This,dirty) (This)->lpVtbl->IsRecompressFormatDirty(This,dirty)
+#define IAMTimelineGroup_ClearRecompressFormatDirty(This) (This)->lpVtbl->ClearRecompressFormatDirty(This)
+#define IAMTimelineGroup_SetRecompFormatFromSource(This,source) (This)->lpVtbl->SetRecompFormatFromSource(This,source)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAMTimelineGroup_QueryInterface(IAMTimelineGroup* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAMTimelineGroup_AddRef(IAMTimelineGroup* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAMTimelineGroup_Release(IAMTimelineGroup* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAMTimelineGroup methods ***/
+static FORCEINLINE HRESULT IAMTimelineGroup_SetTimeline(IAMTimelineGroup* This,IAMTimeline *timeline) {
+    return This->lpVtbl->SetTimeline(This,timeline);
+}
+static FORCEINLINE HRESULT IAMTimelineGroup_GetTimeline(IAMTimelineGroup* This,IAMTimeline **timeline) {
+    return This->lpVtbl->GetTimeline(This,timeline);
+}
+static FORCEINLINE HRESULT IAMTimelineGroup_GetPriority(IAMTimelineGroup* This,LONG *priority) {
+    return This->lpVtbl->GetPriority(This,priority);
+}
+static FORCEINLINE HRESULT IAMTimelineGroup_GetMediaType(IAMTimelineGroup* This,AM_MEDIA_TYPE *a) {
+    return This->lpVtbl->GetMediaType(This,a);
+}
+static FORCEINLINE HRESULT IAMTimelineGroup_SetMediaType(IAMTimelineGroup* This,AM_MEDIA_TYPE *a) {
+    return This->lpVtbl->SetMediaType(This,a);
+}
+static FORCEINLINE HRESULT IAMTimelineGroup_SetOutputFPS(IAMTimelineGroup* This,double fps) {
+    return This->lpVtbl->SetOutputFPS(This,fps);
+}
+static FORCEINLINE HRESULT IAMTimelineGroup_GetOutputFPS(IAMTimelineGroup* This,double *fps) {
+    return This->lpVtbl->GetOutputFPS(This,fps);
+}
+static FORCEINLINE HRESULT IAMTimelineGroup_SetGroupName(IAMTimelineGroup* This,BSTR name) {
+    return This->lpVtbl->SetGroupName(This,name);
+}
+static FORCEINLINE HRESULT IAMTimelineGroup_GetGroupName(IAMTimelineGroup* This,BSTR *name) {
+    return This->lpVtbl->GetGroupName(This,name);
+}
+static FORCEINLINE HRESULT IAMTimelineGroup_SetPreviewMode(IAMTimelineGroup* This,WINBOOL preview) {
+    return This->lpVtbl->SetPreviewMode(This,preview);
+}
+static FORCEINLINE HRESULT IAMTimelineGroup_GetPreviewMode(IAMTimelineGroup* This,WINBOOL *preview) {
+    return This->lpVtbl->GetPreviewMode(This,preview);
+}
+static FORCEINLINE HRESULT IAMTimelineGroup_SetMediaTypeForVB(IAMTimelineGroup* This,LONG type) {
+    return This->lpVtbl->SetMediaTypeForVB(This,type);
+}
+static FORCEINLINE HRESULT IAMTimelineGroup_GetOutputBuffering(IAMTimelineGroup* This,int *buffer) {
+    return This->lpVtbl->GetOutputBuffering(This,buffer);
+}
+static FORCEINLINE HRESULT IAMTimelineGroup_SetOutputBuffering(IAMTimelineGroup* This,int buffer) {
+    return This->lpVtbl->SetOutputBuffering(This,buffer);
+}
+static FORCEINLINE HRESULT IAMTimelineGroup_SetSmartRecompressFormat(IAMTimelineGroup* This,LONG *format) {
+    return This->lpVtbl->SetSmartRecompressFormat(This,format);
+}
+static FORCEINLINE HRESULT IAMTimelineGroup_GetSmartRecompressFormat(IAMTimelineGroup* This,LONG **format) {
+    return This->lpVtbl->GetSmartRecompressFormat(This,format);
+}
+static FORCEINLINE HRESULT IAMTimelineGroup_IsSmartRecompressFormatSet(IAMTimelineGroup* This,WINBOOL *set) {
+    return This->lpVtbl->IsSmartRecompressFormatSet(This,set);
+}
+static FORCEINLINE HRESULT IAMTimelineGroup_IsRecompressFormatDirty(IAMTimelineGroup* This,WINBOOL *dirty) {
+    return This->lpVtbl->IsRecompressFormatDirty(This,dirty);
+}
+static FORCEINLINE HRESULT IAMTimelineGroup_ClearRecompressFormatDirty(IAMTimelineGroup* This) {
+    return This->lpVtbl->ClearRecompressFormatDirty(This);
+}
+static FORCEINLINE HRESULT IAMTimelineGroup_SetRecompFormatFromSource(IAMTimelineGroup* This,IAMTimelineSrc *source) {
+    return This->lpVtbl->SetRecompFormatFromSource(This,source);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IAMTimelineGroup_SetTimeline_Proxy(
+    IAMTimelineGroup* This,
+    IAMTimeline *timeline);
+void __RPC_STUB IAMTimelineGroup_SetTimeline_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineGroup_GetTimeline_Proxy(
+    IAMTimelineGroup* This,
+    IAMTimeline **timeline);
+void __RPC_STUB IAMTimelineGroup_GetTimeline_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineGroup_GetPriority_Proxy(
+    IAMTimelineGroup* This,
+    LONG *priority);
+void __RPC_STUB IAMTimelineGroup_GetPriority_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineGroup_GetMediaType_Proxy(
+    IAMTimelineGroup* This,
+    AM_MEDIA_TYPE *a);
+void __RPC_STUB IAMTimelineGroup_GetMediaType_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineGroup_SetMediaType_Proxy(
+    IAMTimelineGroup* This,
+    AM_MEDIA_TYPE *a);
+void __RPC_STUB IAMTimelineGroup_SetMediaType_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineGroup_SetOutputFPS_Proxy(
+    IAMTimelineGroup* This,
+    double fps);
+void __RPC_STUB IAMTimelineGroup_SetOutputFPS_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineGroup_GetOutputFPS_Proxy(
+    IAMTimelineGroup* This,
+    double *fps);
+void __RPC_STUB IAMTimelineGroup_GetOutputFPS_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineGroup_SetGroupName_Proxy(
+    IAMTimelineGroup* This,
+    BSTR name);
+void __RPC_STUB IAMTimelineGroup_SetGroupName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineGroup_GetGroupName_Proxy(
+    IAMTimelineGroup* This,
+    BSTR *name);
+void __RPC_STUB IAMTimelineGroup_GetGroupName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineGroup_SetPreviewMode_Proxy(
+    IAMTimelineGroup* This,
+    WINBOOL preview);
+void __RPC_STUB IAMTimelineGroup_SetPreviewMode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineGroup_GetPreviewMode_Proxy(
+    IAMTimelineGroup* This,
+    WINBOOL *preview);
+void __RPC_STUB IAMTimelineGroup_GetPreviewMode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineGroup_SetMediaTypeForVB_Proxy(
+    IAMTimelineGroup* This,
+    LONG type);
+void __RPC_STUB IAMTimelineGroup_SetMediaTypeForVB_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineGroup_GetOutputBuffering_Proxy(
+    IAMTimelineGroup* This,
+    int *buffer);
+void __RPC_STUB IAMTimelineGroup_GetOutputBuffering_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineGroup_SetOutputBuffering_Proxy(
+    IAMTimelineGroup* This,
+    int buffer);
+void __RPC_STUB IAMTimelineGroup_SetOutputBuffering_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineGroup_SetSmartRecompressFormat_Proxy(
+    IAMTimelineGroup* This,
+    LONG *format);
+void __RPC_STUB IAMTimelineGroup_SetSmartRecompressFormat_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineGroup_GetSmartRecompressFormat_Proxy(
+    IAMTimelineGroup* This,
+    LONG **format);
+void __RPC_STUB IAMTimelineGroup_GetSmartRecompressFormat_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineGroup_IsSmartRecompressFormatSet_Proxy(
+    IAMTimelineGroup* This,
+    WINBOOL *set);
+void __RPC_STUB IAMTimelineGroup_IsSmartRecompressFormatSet_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineGroup_IsRecompressFormatDirty_Proxy(
+    IAMTimelineGroup* This,
+    WINBOOL *dirty);
+void __RPC_STUB IAMTimelineGroup_IsRecompressFormatDirty_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineGroup_ClearRecompressFormatDirty_Proxy(
+    IAMTimelineGroup* This);
+void __RPC_STUB IAMTimelineGroup_ClearRecompressFormatDirty_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineGroup_SetRecompFormatFromSource_Proxy(
+    IAMTimelineGroup* This,
+    IAMTimelineSrc *source);
+void __RPC_STUB IAMTimelineGroup_SetRecompFormatFromSource_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IAMTimelineGroup_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAMTimelineObj interface
+ */
+#ifndef __IAMTimelineObj_INTERFACE_DEFINED__
+#define __IAMTimelineObj_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IAMTimelineObj, 0x78530b77, 0x61f9, 0x11d2, 0x8c,0xad, 0x00,0xa0,0x24,0x58,0x09,0x02);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("78530b77-61f9-11d2-8cad-00a024580902")
+IAMTimelineObj : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetStartStop(
+        REFERENCE_TIME *start,
+        REFERENCE_TIME *stop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetStartStop2(
+        REFTIME *start,
+        REFTIME *stop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FixTimes(
+        REFERENCE_TIME *start,
+        REFERENCE_TIME *stop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FixTimes2(
+        REFTIME *start,
+        REFTIME *stop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetStartStop(
+        REFERENCE_TIME start,
+        REFERENCE_TIME stop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetStartStop2(
+        REFTIME start,
+        REFTIME stop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPropertySetter(
+        IPropertySetter **setter) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetPropertySetter(
+        IPropertySetter *setter) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetSubObject(
+        IUnknown **obj) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetSubObject(
+        IUnknown *obj) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetSubObjectGUID(
+        GUID guid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetSubObjectGUIDB(
+        BSTR guidb) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetSubObjectGUID(
+        GUID *guid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetSubObjectGUIDB(
+        BSTR *guidb) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetSubObjectLoaded(
+        WINBOOL *loaded) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetTimelineType(
+        TIMELINE_MAJOR_TYPE *type) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetTimelineType(
+        TIMELINE_MAJOR_TYPE type) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetUserID(
+        LONG *id) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetUserID(
+        LONG id) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetGenID(
+        LONG *id) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetUserName(
+        BSTR *name) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetUserName(
+        BSTR name) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetUserData(
+        BYTE *data,
+        LONG *size) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetUserData(
+        BYTE *data,
+        LONG size) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMuted(
+        WINBOOL *muted) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetMuted(
+        WINBOOL muted) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetLocked(
+        WINBOOL *locked) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetLocked(
+        WINBOOL locked) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDirtyRange(
+        REFERENCE_TIME *start,
+        REFERENCE_TIME *stop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDirtyRange2(
+        REFTIME *start,
+        REFTIME *stop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetDirtyRange(
+        REFERENCE_TIME start,
+        REFERENCE_TIME stop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetDirtyRange2(
+        REFTIME start,
+        REFTIME stop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ClearDirty(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Remove(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveAll(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetTimelineNoRef(
+        IAMTimeline **timeline) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetGroupIBelongTo(
+        IAMTimelineGroup **group) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetEmbedDepth(
+        LONG *depth) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAMTimelineObj, 0x78530b77, 0x61f9, 0x11d2, 0x8c,0xad, 0x00,0xa0,0x24,0x58,0x09,0x02)
+#endif
+#else
+typedef struct IAMTimelineObjVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IAMTimelineObj* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IAMTimelineObj* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IAMTimelineObj* This);
+
+    /*** IAMTimelineObj methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetStartStop)(
+        IAMTimelineObj* This,
+        REFERENCE_TIME *start,
+        REFERENCE_TIME *stop);
+
+    HRESULT (STDMETHODCALLTYPE *GetStartStop2)(
+        IAMTimelineObj* This,
+        REFTIME *start,
+        REFTIME *stop);
+
+    HRESULT (STDMETHODCALLTYPE *FixTimes)(
+        IAMTimelineObj* This,
+        REFERENCE_TIME *start,
+        REFERENCE_TIME *stop);
+
+    HRESULT (STDMETHODCALLTYPE *FixTimes2)(
+        IAMTimelineObj* This,
+        REFTIME *start,
+        REFTIME *stop);
+
+    HRESULT (STDMETHODCALLTYPE *SetStartStop)(
+        IAMTimelineObj* This,
+        REFERENCE_TIME start,
+        REFERENCE_TIME stop);
+
+    HRESULT (STDMETHODCALLTYPE *SetStartStop2)(
+        IAMTimelineObj* This,
+        REFTIME start,
+        REFTIME stop);
+
+    HRESULT (STDMETHODCALLTYPE *GetPropertySetter)(
+        IAMTimelineObj* This,
+        IPropertySetter **setter);
+
+    HRESULT (STDMETHODCALLTYPE *SetPropertySetter)(
+        IAMTimelineObj* This,
+        IPropertySetter *setter);
+
+    HRESULT (STDMETHODCALLTYPE *GetSubObject)(
+        IAMTimelineObj* This,
+        IUnknown **obj);
+
+    HRESULT (STDMETHODCALLTYPE *SetSubObject)(
+        IAMTimelineObj* This,
+        IUnknown *obj);
+
+    HRESULT (STDMETHODCALLTYPE *SetSubObjectGUID)(
+        IAMTimelineObj* This,
+        GUID guid);
+
+    HRESULT (STDMETHODCALLTYPE *SetSubObjectGUIDB)(
+        IAMTimelineObj* This,
+        BSTR guidb);
+
+    HRESULT (STDMETHODCALLTYPE *GetSubObjectGUID)(
+        IAMTimelineObj* This,
+        GUID *guid);
+
+    HRESULT (STDMETHODCALLTYPE *GetSubObjectGUIDB)(
+        IAMTimelineObj* This,
+        BSTR *guidb);
+
+    HRESULT (STDMETHODCALLTYPE *GetSubObjectLoaded)(
+        IAMTimelineObj* This,
+        WINBOOL *loaded);
+
+    HRESULT (STDMETHODCALLTYPE *GetTimelineType)(
+        IAMTimelineObj* This,
+        TIMELINE_MAJOR_TYPE *type);
+
+    HRESULT (STDMETHODCALLTYPE *SetTimelineType)(
+        IAMTimelineObj* This,
+        TIMELINE_MAJOR_TYPE type);
+
+    HRESULT (STDMETHODCALLTYPE *GetUserID)(
+        IAMTimelineObj* This,
+        LONG *id);
+
+    HRESULT (STDMETHODCALLTYPE *SetUserID)(
+        IAMTimelineObj* This,
+        LONG id);
+
+    HRESULT (STDMETHODCALLTYPE *GetGenID)(
+        IAMTimelineObj* This,
+        LONG *id);
+
+    HRESULT (STDMETHODCALLTYPE *GetUserName)(
+        IAMTimelineObj* This,
+        BSTR *name);
+
+    HRESULT (STDMETHODCALLTYPE *SetUserName)(
+        IAMTimelineObj* This,
+        BSTR name);
+
+    HRESULT (STDMETHODCALLTYPE *GetUserData)(
+        IAMTimelineObj* This,
+        BYTE *data,
+        LONG *size);
+
+    HRESULT (STDMETHODCALLTYPE *SetUserData)(
+        IAMTimelineObj* This,
+        BYTE *data,
+        LONG size);
+
+    HRESULT (STDMETHODCALLTYPE *GetMuted)(
+        IAMTimelineObj* This,
+        WINBOOL *muted);
+
+    HRESULT (STDMETHODCALLTYPE *SetMuted)(
+        IAMTimelineObj* This,
+        WINBOOL muted);
+
+    HRESULT (STDMETHODCALLTYPE *GetLocked)(
+        IAMTimelineObj* This,
+        WINBOOL *locked);
+
+    HRESULT (STDMETHODCALLTYPE *SetLocked)(
+        IAMTimelineObj* This,
+        WINBOOL locked);
+
+    HRESULT (STDMETHODCALLTYPE *GetDirtyRange)(
+        IAMTimelineObj* This,
+        REFERENCE_TIME *start,
+        REFERENCE_TIME *stop);
+
+    HRESULT (STDMETHODCALLTYPE *GetDirtyRange2)(
+        IAMTimelineObj* This,
+        REFTIME *start,
+        REFTIME *stop);
+
+    HRESULT (STDMETHODCALLTYPE *SetDirtyRange)(
+        IAMTimelineObj* This,
+        REFERENCE_TIME start,
+        REFERENCE_TIME stop);
+
+    HRESULT (STDMETHODCALLTYPE *SetDirtyRange2)(
+        IAMTimelineObj* This,
+        REFTIME start,
+        REFTIME stop);
+
+    HRESULT (STDMETHODCALLTYPE *ClearDirty)(
+        IAMTimelineObj* This);
+
+    HRESULT (STDMETHODCALLTYPE *Remove)(
+        IAMTimelineObj* This);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveAll)(
+        IAMTimelineObj* This);
+
+    HRESULT (STDMETHODCALLTYPE *GetTimelineNoRef)(
+        IAMTimelineObj* This,
+        IAMTimeline **timeline);
+
+    HRESULT (STDMETHODCALLTYPE *GetGroupIBelongTo)(
+        IAMTimelineObj* This,
+        IAMTimelineGroup **group);
+
+    HRESULT (STDMETHODCALLTYPE *GetEmbedDepth)(
+        IAMTimelineObj* This,
+        LONG *depth);
+
+    END_INTERFACE
+} IAMTimelineObjVtbl;
+interface IAMTimelineObj {
+    CONST_VTBL IAMTimelineObjVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IAMTimelineObj_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAMTimelineObj_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAMTimelineObj_Release(This) (This)->lpVtbl->Release(This)
+/*** IAMTimelineObj methods ***/
+#define IAMTimelineObj_GetStartStop(This,start,stop) (This)->lpVtbl->GetStartStop(This,start,stop)
+#define IAMTimelineObj_GetStartStop2(This,start,stop) (This)->lpVtbl->GetStartStop2(This,start,stop)
+#define IAMTimelineObj_FixTimes(This,start,stop) (This)->lpVtbl->FixTimes(This,start,stop)
+#define IAMTimelineObj_FixTimes2(This,start,stop) (This)->lpVtbl->FixTimes2(This,start,stop)
+#define IAMTimelineObj_SetStartStop(This,start,stop) (This)->lpVtbl->SetStartStop(This,start,stop)
+#define IAMTimelineObj_SetStartStop2(This,start,stop) (This)->lpVtbl->SetStartStop2(This,start,stop)
+#define IAMTimelineObj_GetPropertySetter(This,setter) (This)->lpVtbl->GetPropertySetter(This,setter)
+#define IAMTimelineObj_SetPropertySetter(This,setter) (This)->lpVtbl->SetPropertySetter(This,setter)
+#define IAMTimelineObj_GetSubObject(This,obj) (This)->lpVtbl->GetSubObject(This,obj)
+#define IAMTimelineObj_SetSubObject(This,obj) (This)->lpVtbl->SetSubObject(This,obj)
+#define IAMTimelineObj_SetSubObjectGUID(This,guid) (This)->lpVtbl->SetSubObjectGUID(This,guid)
+#define IAMTimelineObj_SetSubObjectGUIDB(This,guidb) (This)->lpVtbl->SetSubObjectGUIDB(This,guidb)
+#define IAMTimelineObj_GetSubObjectGUID(This,guid) (This)->lpVtbl->GetSubObjectGUID(This,guid)
+#define IAMTimelineObj_GetSubObjectGUIDB(This,guidb) (This)->lpVtbl->GetSubObjectGUIDB(This,guidb)
+#define IAMTimelineObj_GetSubObjectLoaded(This,loaded) (This)->lpVtbl->GetSubObjectLoaded(This,loaded)
+#define IAMTimelineObj_GetTimelineType(This,type) (This)->lpVtbl->GetTimelineType(This,type)
+#define IAMTimelineObj_SetTimelineType(This,type) (This)->lpVtbl->SetTimelineType(This,type)
+#define IAMTimelineObj_GetUserID(This,id) (This)->lpVtbl->GetUserID(This,id)
+#define IAMTimelineObj_SetUserID(This,id) (This)->lpVtbl->SetUserID(This,id)
+#define IAMTimelineObj_GetGenID(This,id) (This)->lpVtbl->GetGenID(This,id)
+#define IAMTimelineObj_GetUserName(This,name) (This)->lpVtbl->GetUserName(This,name)
+#define IAMTimelineObj_SetUserName(This,name) (This)->lpVtbl->SetUserName(This,name)
+#define IAMTimelineObj_GetUserData(This,data,size) (This)->lpVtbl->GetUserData(This,data,size)
+#define IAMTimelineObj_SetUserData(This,data,size) (This)->lpVtbl->SetUserData(This,data,size)
+#define IAMTimelineObj_GetMuted(This,muted) (This)->lpVtbl->GetMuted(This,muted)
+#define IAMTimelineObj_SetMuted(This,muted) (This)->lpVtbl->SetMuted(This,muted)
+#define IAMTimelineObj_GetLocked(This,locked) (This)->lpVtbl->GetLocked(This,locked)
+#define IAMTimelineObj_SetLocked(This,locked) (This)->lpVtbl->SetLocked(This,locked)
+#define IAMTimelineObj_GetDirtyRange(This,start,stop) (This)->lpVtbl->GetDirtyRange(This,start,stop)
+#define IAMTimelineObj_GetDirtyRange2(This,start,stop) (This)->lpVtbl->GetDirtyRange2(This,start,stop)
+#define IAMTimelineObj_SetDirtyRange(This,start,stop) (This)->lpVtbl->SetDirtyRange(This,start,stop)
+#define IAMTimelineObj_SetDirtyRange2(This,start,stop) (This)->lpVtbl->SetDirtyRange2(This,start,stop)
+#define IAMTimelineObj_ClearDirty(This) (This)->lpVtbl->ClearDirty(This)
+#define IAMTimelineObj_Remove(This) (This)->lpVtbl->Remove(This)
+#define IAMTimelineObj_RemoveAll(This) (This)->lpVtbl->RemoveAll(This)
+#define IAMTimelineObj_GetTimelineNoRef(This,timeline) (This)->lpVtbl->GetTimelineNoRef(This,timeline)
+#define IAMTimelineObj_GetGroupIBelongTo(This,group) (This)->lpVtbl->GetGroupIBelongTo(This,group)
+#define IAMTimelineObj_GetEmbedDepth(This,depth) (This)->lpVtbl->GetEmbedDepth(This,depth)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAMTimelineObj_QueryInterface(IAMTimelineObj* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAMTimelineObj_AddRef(IAMTimelineObj* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAMTimelineObj_Release(IAMTimelineObj* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAMTimelineObj methods ***/
+static FORCEINLINE HRESULT IAMTimelineObj_GetStartStop(IAMTimelineObj* This,REFERENCE_TIME *start,REFERENCE_TIME *stop) {
+    return This->lpVtbl->GetStartStop(This,start,stop);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_GetStartStop2(IAMTimelineObj* This,REFTIME *start,REFTIME *stop) {
+    return This->lpVtbl->GetStartStop2(This,start,stop);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_FixTimes(IAMTimelineObj* This,REFERENCE_TIME *start,REFERENCE_TIME *stop) {
+    return This->lpVtbl->FixTimes(This,start,stop);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_FixTimes2(IAMTimelineObj* This,REFTIME *start,REFTIME *stop) {
+    return This->lpVtbl->FixTimes2(This,start,stop);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_SetStartStop(IAMTimelineObj* This,REFERENCE_TIME start,REFERENCE_TIME stop) {
+    return This->lpVtbl->SetStartStop(This,start,stop);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_SetStartStop2(IAMTimelineObj* This,REFTIME start,REFTIME stop) {
+    return This->lpVtbl->SetStartStop2(This,start,stop);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_GetPropertySetter(IAMTimelineObj* This,IPropertySetter **setter) {
+    return This->lpVtbl->GetPropertySetter(This,setter);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_SetPropertySetter(IAMTimelineObj* This,IPropertySetter *setter) {
+    return This->lpVtbl->SetPropertySetter(This,setter);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_GetSubObject(IAMTimelineObj* This,IUnknown **obj) {
+    return This->lpVtbl->GetSubObject(This,obj);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_SetSubObject(IAMTimelineObj* This,IUnknown *obj) {
+    return This->lpVtbl->SetSubObject(This,obj);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_SetSubObjectGUID(IAMTimelineObj* This,GUID guid) {
+    return This->lpVtbl->SetSubObjectGUID(This,guid);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_SetSubObjectGUIDB(IAMTimelineObj* This,BSTR guidb) {
+    return This->lpVtbl->SetSubObjectGUIDB(This,guidb);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_GetSubObjectGUID(IAMTimelineObj* This,GUID *guid) {
+    return This->lpVtbl->GetSubObjectGUID(This,guid);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_GetSubObjectGUIDB(IAMTimelineObj* This,BSTR *guidb) {
+    return This->lpVtbl->GetSubObjectGUIDB(This,guidb);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_GetSubObjectLoaded(IAMTimelineObj* This,WINBOOL *loaded) {
+    return This->lpVtbl->GetSubObjectLoaded(This,loaded);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_GetTimelineType(IAMTimelineObj* This,TIMELINE_MAJOR_TYPE *type) {
+    return This->lpVtbl->GetTimelineType(This,type);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_SetTimelineType(IAMTimelineObj* This,TIMELINE_MAJOR_TYPE type) {
+    return This->lpVtbl->SetTimelineType(This,type);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_GetUserID(IAMTimelineObj* This,LONG *id) {
+    return This->lpVtbl->GetUserID(This,id);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_SetUserID(IAMTimelineObj* This,LONG id) {
+    return This->lpVtbl->SetUserID(This,id);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_GetGenID(IAMTimelineObj* This,LONG *id) {
+    return This->lpVtbl->GetGenID(This,id);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_GetUserName(IAMTimelineObj* This,BSTR *name) {
+    return This->lpVtbl->GetUserName(This,name);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_SetUserName(IAMTimelineObj* This,BSTR name) {
+    return This->lpVtbl->SetUserName(This,name);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_GetUserData(IAMTimelineObj* This,BYTE *data,LONG *size) {
+    return This->lpVtbl->GetUserData(This,data,size);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_SetUserData(IAMTimelineObj* This,BYTE *data,LONG size) {
+    return This->lpVtbl->SetUserData(This,data,size);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_GetMuted(IAMTimelineObj* This,WINBOOL *muted) {
+    return This->lpVtbl->GetMuted(This,muted);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_SetMuted(IAMTimelineObj* This,WINBOOL muted) {
+    return This->lpVtbl->SetMuted(This,muted);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_GetLocked(IAMTimelineObj* This,WINBOOL *locked) {
+    return This->lpVtbl->GetLocked(This,locked);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_SetLocked(IAMTimelineObj* This,WINBOOL locked) {
+    return This->lpVtbl->SetLocked(This,locked);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_GetDirtyRange(IAMTimelineObj* This,REFERENCE_TIME *start,REFERENCE_TIME *stop) {
+    return This->lpVtbl->GetDirtyRange(This,start,stop);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_GetDirtyRange2(IAMTimelineObj* This,REFTIME *start,REFTIME *stop) {
+    return This->lpVtbl->GetDirtyRange2(This,start,stop);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_SetDirtyRange(IAMTimelineObj* This,REFERENCE_TIME start,REFERENCE_TIME stop) {
+    return This->lpVtbl->SetDirtyRange(This,start,stop);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_SetDirtyRange2(IAMTimelineObj* This,REFTIME start,REFTIME stop) {
+    return This->lpVtbl->SetDirtyRange2(This,start,stop);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_ClearDirty(IAMTimelineObj* This) {
+    return This->lpVtbl->ClearDirty(This);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_Remove(IAMTimelineObj* This) {
+    return This->lpVtbl->Remove(This);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_RemoveAll(IAMTimelineObj* This) {
+    return This->lpVtbl->RemoveAll(This);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_GetTimelineNoRef(IAMTimelineObj* This,IAMTimeline **timeline) {
+    return This->lpVtbl->GetTimelineNoRef(This,timeline);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_GetGroupIBelongTo(IAMTimelineObj* This,IAMTimelineGroup **group) {
+    return This->lpVtbl->GetGroupIBelongTo(This,group);
+}
+static FORCEINLINE HRESULT IAMTimelineObj_GetEmbedDepth(IAMTimelineObj* This,LONG *depth) {
+    return This->lpVtbl->GetEmbedDepth(This,depth);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_GetStartStop_Proxy(
+    IAMTimelineObj* This,
+    REFERENCE_TIME *start,
+    REFERENCE_TIME *stop);
+void __RPC_STUB IAMTimelineObj_GetStartStop_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_GetStartStop2_Proxy(
+    IAMTimelineObj* This,
+    REFTIME *start,
+    REFTIME *stop);
+void __RPC_STUB IAMTimelineObj_GetStartStop2_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_FixTimes_Proxy(
+    IAMTimelineObj* This,
+    REFERENCE_TIME *start,
+    REFERENCE_TIME *stop);
+void __RPC_STUB IAMTimelineObj_FixTimes_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_FixTimes2_Proxy(
+    IAMTimelineObj* This,
+    REFTIME *start,
+    REFTIME *stop);
+void __RPC_STUB IAMTimelineObj_FixTimes2_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_SetStartStop_Proxy(
+    IAMTimelineObj* This,
+    REFERENCE_TIME start,
+    REFERENCE_TIME stop);
+void __RPC_STUB IAMTimelineObj_SetStartStop_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_SetStartStop2_Proxy(
+    IAMTimelineObj* This,
+    REFTIME start,
+    REFTIME stop);
+void __RPC_STUB IAMTimelineObj_SetStartStop2_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_GetPropertySetter_Proxy(
+    IAMTimelineObj* This,
+    IPropertySetter **setter);
+void __RPC_STUB IAMTimelineObj_GetPropertySetter_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_SetPropertySetter_Proxy(
+    IAMTimelineObj* This,
+    IPropertySetter *setter);
+void __RPC_STUB IAMTimelineObj_SetPropertySetter_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_GetSubObject_Proxy(
+    IAMTimelineObj* This,
+    IUnknown **obj);
+void __RPC_STUB IAMTimelineObj_GetSubObject_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_SetSubObject_Proxy(
+    IAMTimelineObj* This,
+    IUnknown *obj);
+void __RPC_STUB IAMTimelineObj_SetSubObject_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_SetSubObjectGUID_Proxy(
+    IAMTimelineObj* This,
+    GUID guid);
+void __RPC_STUB IAMTimelineObj_SetSubObjectGUID_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_SetSubObjectGUIDB_Proxy(
+    IAMTimelineObj* This,
+    BSTR guidb);
+void __RPC_STUB IAMTimelineObj_SetSubObjectGUIDB_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_GetSubObjectGUID_Proxy(
+    IAMTimelineObj* This,
+    GUID *guid);
+void __RPC_STUB IAMTimelineObj_GetSubObjectGUID_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_GetSubObjectGUIDB_Proxy(
+    IAMTimelineObj* This,
+    BSTR *guidb);
+void __RPC_STUB IAMTimelineObj_GetSubObjectGUIDB_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_GetSubObjectLoaded_Proxy(
+    IAMTimelineObj* This,
+    WINBOOL *loaded);
+void __RPC_STUB IAMTimelineObj_GetSubObjectLoaded_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_GetTimelineType_Proxy(
+    IAMTimelineObj* This,
+    TIMELINE_MAJOR_TYPE *type);
+void __RPC_STUB IAMTimelineObj_GetTimelineType_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_SetTimelineType_Proxy(
+    IAMTimelineObj* This,
+    TIMELINE_MAJOR_TYPE type);
+void __RPC_STUB IAMTimelineObj_SetTimelineType_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_GetUserID_Proxy(
+    IAMTimelineObj* This,
+    LONG *id);
+void __RPC_STUB IAMTimelineObj_GetUserID_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_SetUserID_Proxy(
+    IAMTimelineObj* This,
+    LONG id);
+void __RPC_STUB IAMTimelineObj_SetUserID_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_GetGenID_Proxy(
+    IAMTimelineObj* This,
+    LONG *id);
+void __RPC_STUB IAMTimelineObj_GetGenID_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_GetUserName_Proxy(
+    IAMTimelineObj* This,
+    BSTR *name);
+void __RPC_STUB IAMTimelineObj_GetUserName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_SetUserName_Proxy(
+    IAMTimelineObj* This,
+    BSTR name);
+void __RPC_STUB IAMTimelineObj_SetUserName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_GetUserData_Proxy(
+    IAMTimelineObj* This,
+    BYTE *data,
+    LONG *size);
+void __RPC_STUB IAMTimelineObj_GetUserData_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_SetUserData_Proxy(
+    IAMTimelineObj* This,
+    BYTE *data,
+    LONG size);
+void __RPC_STUB IAMTimelineObj_SetUserData_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_GetMuted_Proxy(
+    IAMTimelineObj* This,
+    WINBOOL *muted);
+void __RPC_STUB IAMTimelineObj_GetMuted_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_SetMuted_Proxy(
+    IAMTimelineObj* This,
+    WINBOOL muted);
+void __RPC_STUB IAMTimelineObj_SetMuted_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_GetLocked_Proxy(
+    IAMTimelineObj* This,
+    WINBOOL *locked);
+void __RPC_STUB IAMTimelineObj_GetLocked_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_SetLocked_Proxy(
+    IAMTimelineObj* This,
+    WINBOOL locked);
+void __RPC_STUB IAMTimelineObj_SetLocked_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_GetDirtyRange_Proxy(
+    IAMTimelineObj* This,
+    REFERENCE_TIME *start,
+    REFERENCE_TIME *stop);
+void __RPC_STUB IAMTimelineObj_GetDirtyRange_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_GetDirtyRange2_Proxy(
+    IAMTimelineObj* This,
+    REFTIME *start,
+    REFTIME *stop);
+void __RPC_STUB IAMTimelineObj_GetDirtyRange2_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_SetDirtyRange_Proxy(
+    IAMTimelineObj* This,
+    REFERENCE_TIME start,
+    REFERENCE_TIME stop);
+void __RPC_STUB IAMTimelineObj_SetDirtyRange_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_SetDirtyRange2_Proxy(
+    IAMTimelineObj* This,
+    REFTIME start,
+    REFTIME stop);
+void __RPC_STUB IAMTimelineObj_SetDirtyRange2_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_ClearDirty_Proxy(
+    IAMTimelineObj* This);
+void __RPC_STUB IAMTimelineObj_ClearDirty_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_Remove_Proxy(
+    IAMTimelineObj* This);
+void __RPC_STUB IAMTimelineObj_Remove_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_RemoveAll_Proxy(
+    IAMTimelineObj* This);
+void __RPC_STUB IAMTimelineObj_RemoveAll_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_GetTimelineNoRef_Proxy(
+    IAMTimelineObj* This,
+    IAMTimeline **timeline);
+void __RPC_STUB IAMTimelineObj_GetTimelineNoRef_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_GetGroupIBelongTo_Proxy(
+    IAMTimelineObj* This,
+    IAMTimelineGroup **group);
+void __RPC_STUB IAMTimelineObj_GetGroupIBelongTo_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineObj_GetEmbedDepth_Proxy(
+    IAMTimelineObj* This,
+    LONG *depth);
+void __RPC_STUB IAMTimelineObj_GetEmbedDepth_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IAMTimelineObj_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAMTimelineSrc interface
+ */
+#ifndef __IAMTimelineSrc_INTERFACE_DEFINED__
+#define __IAMTimelineSrc_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IAMTimelineSrc, 0x78530b79, 0x61f9, 0x11d2, 0x8c,0xad, 0x00,0xa0,0x24,0x58,0x09,0x02);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("78530b79-61f9-11d2-8cad-00a024580902")
+IAMTimelineSrc : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetMediaTimes(
+        REFERENCE_TIME *start,
+        REFERENCE_TIME *stop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMediaTimes2(
+        REFTIME *start,
+        REFTIME *stop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ModifyStopTime(
+        REFERENCE_TIME stop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ModifyStopTime2(
+        REFTIME stop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FixMediaTimes(
+        REFERENCE_TIME *start,
+        REFERENCE_TIME *stop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FixMediaTimes2(
+        REFTIME *start,
+        REFTIME *stop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetMediaTimes(
+        REFERENCE_TIME Start,
+        REFERENCE_TIME Stop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetMediaTimes2(
+        REFTIME Start,
+        REFTIME Stop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetMediaLength(
+        REFERENCE_TIME length) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetMediaLength2(
+        REFTIME length) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMediaLength(
+        REFERENCE_TIME *length) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMediaLength2(
+        REFTIME *length) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMediaName(
+        BSTR *name) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetMediaName(
+        BSTR name) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SpliceWithNext(
+        IAMTimelineObj *next) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetStreamNumber(
+        LONG *num) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetStreamNumber(
+        LONG num) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IsNormalRate(
+        WINBOOL *normal) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDefaultFPS(
+        double *fps) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetDefaultFPS(
+        double fps) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetStretchMode(
+        int *mode) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetStretchMode(
+        int mode) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAMTimelineSrc, 0x78530b79, 0x61f9, 0x11d2, 0x8c,0xad, 0x00,0xa0,0x24,0x58,0x09,0x02)
+#endif
+#else
+typedef struct IAMTimelineSrcVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IAMTimelineSrc* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IAMTimelineSrc* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IAMTimelineSrc* This);
+
+    /*** IAMTimelineSrc methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetMediaTimes)(
+        IAMTimelineSrc* This,
+        REFERENCE_TIME *start,
+        REFERENCE_TIME *stop);
+
+    HRESULT (STDMETHODCALLTYPE *GetMediaTimes2)(
+        IAMTimelineSrc* This,
+        REFTIME *start,
+        REFTIME *stop);
+
+    HRESULT (STDMETHODCALLTYPE *ModifyStopTime)(
+        IAMTimelineSrc* This,
+        REFERENCE_TIME stop);
+
+    HRESULT (STDMETHODCALLTYPE *ModifyStopTime2)(
+        IAMTimelineSrc* This,
+        REFTIME stop);
+
+    HRESULT (STDMETHODCALLTYPE *FixMediaTimes)(
+        IAMTimelineSrc* This,
+        REFERENCE_TIME *start,
+        REFERENCE_TIME *stop);
+
+    HRESULT (STDMETHODCALLTYPE *FixMediaTimes2)(
+        IAMTimelineSrc* This,
+        REFTIME *start,
+        REFTIME *stop);
+
+    HRESULT (STDMETHODCALLTYPE *SetMediaTimes)(
+        IAMTimelineSrc* This,
+        REFERENCE_TIME Start,
+        REFERENCE_TIME Stop);
+
+    HRESULT (STDMETHODCALLTYPE *SetMediaTimes2)(
+        IAMTimelineSrc* This,
+        REFTIME Start,
+        REFTIME Stop);
+
+    HRESULT (STDMETHODCALLTYPE *SetMediaLength)(
+        IAMTimelineSrc* This,
+        REFERENCE_TIME length);
+
+    HRESULT (STDMETHODCALLTYPE *SetMediaLength2)(
+        IAMTimelineSrc* This,
+        REFTIME length);
+
+    HRESULT (STDMETHODCALLTYPE *GetMediaLength)(
+        IAMTimelineSrc* This,
+        REFERENCE_TIME *length);
+
+    HRESULT (STDMETHODCALLTYPE *GetMediaLength2)(
+        IAMTimelineSrc* This,
+        REFTIME *length);
+
+    HRESULT (STDMETHODCALLTYPE *GetMediaName)(
+        IAMTimelineSrc* This,
+        BSTR *name);
+
+    HRESULT (STDMETHODCALLTYPE *SetMediaName)(
+        IAMTimelineSrc* This,
+        BSTR name);
+
+    HRESULT (STDMETHODCALLTYPE *SpliceWithNext)(
+        IAMTimelineSrc* This,
+        IAMTimelineObj *next);
+
+    HRESULT (STDMETHODCALLTYPE *GetStreamNumber)(
+        IAMTimelineSrc* This,
+        LONG *num);
+
+    HRESULT (STDMETHODCALLTYPE *SetStreamNumber)(
+        IAMTimelineSrc* This,
+        LONG num);
+
+    HRESULT (STDMETHODCALLTYPE *IsNormalRate)(
+        IAMTimelineSrc* This,
+        WINBOOL *normal);
+
+    HRESULT (STDMETHODCALLTYPE *GetDefaultFPS)(
+        IAMTimelineSrc* This,
+        double *fps);
+
+    HRESULT (STDMETHODCALLTYPE *SetDefaultFPS)(
+        IAMTimelineSrc* This,
+        double fps);
+
+    HRESULT (STDMETHODCALLTYPE *GetStretchMode)(
+        IAMTimelineSrc* This,
+        int *mode);
+
+    HRESULT (STDMETHODCALLTYPE *SetStretchMode)(
+        IAMTimelineSrc* This,
+        int mode);
+
+    END_INTERFACE
+} IAMTimelineSrcVtbl;
+interface IAMTimelineSrc {
+    CONST_VTBL IAMTimelineSrcVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IAMTimelineSrc_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAMTimelineSrc_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAMTimelineSrc_Release(This) (This)->lpVtbl->Release(This)
+/*** IAMTimelineSrc methods ***/
+#define IAMTimelineSrc_GetMediaTimes(This,start,stop) (This)->lpVtbl->GetMediaTimes(This,start,stop)
+#define IAMTimelineSrc_GetMediaTimes2(This,start,stop) (This)->lpVtbl->GetMediaTimes2(This,start,stop)
+#define IAMTimelineSrc_ModifyStopTime(This,stop) (This)->lpVtbl->ModifyStopTime(This,stop)
+#define IAMTimelineSrc_ModifyStopTime2(This,stop) (This)->lpVtbl->ModifyStopTime2(This,stop)
+#define IAMTimelineSrc_FixMediaTimes(This,start,stop) (This)->lpVtbl->FixMediaTimes(This,start,stop)
+#define IAMTimelineSrc_FixMediaTimes2(This,start,stop) (This)->lpVtbl->FixMediaTimes2(This,start,stop)
+#define IAMTimelineSrc_SetMediaTimes(This,Start,Stop) (This)->lpVtbl->SetMediaTimes(This,Start,Stop)
+#define IAMTimelineSrc_SetMediaTimes2(This,Start,Stop) (This)->lpVtbl->SetMediaTimes2(This,Start,Stop)
+#define IAMTimelineSrc_SetMediaLength(This,length) (This)->lpVtbl->SetMediaLength(This,length)
+#define IAMTimelineSrc_SetMediaLength2(This,length) (This)->lpVtbl->SetMediaLength2(This,length)
+#define IAMTimelineSrc_GetMediaLength(This,length) (This)->lpVtbl->GetMediaLength(This,length)
+#define IAMTimelineSrc_GetMediaLength2(This,length) (This)->lpVtbl->GetMediaLength2(This,length)
+#define IAMTimelineSrc_GetMediaName(This,name) (This)->lpVtbl->GetMediaName(This,name)
+#define IAMTimelineSrc_SetMediaName(This,name) (This)->lpVtbl->SetMediaName(This,name)
+#define IAMTimelineSrc_SpliceWithNext(This,next) (This)->lpVtbl->SpliceWithNext(This,next)
+#define IAMTimelineSrc_GetStreamNumber(This,num) (This)->lpVtbl->GetStreamNumber(This,num)
+#define IAMTimelineSrc_SetStreamNumber(This,num) (This)->lpVtbl->SetStreamNumber(This,num)
+#define IAMTimelineSrc_IsNormalRate(This,normal) (This)->lpVtbl->IsNormalRate(This,normal)
+#define IAMTimelineSrc_GetDefaultFPS(This,fps) (This)->lpVtbl->GetDefaultFPS(This,fps)
+#define IAMTimelineSrc_SetDefaultFPS(This,fps) (This)->lpVtbl->SetDefaultFPS(This,fps)
+#define IAMTimelineSrc_GetStretchMode(This,mode) (This)->lpVtbl->GetStretchMode(This,mode)
+#define IAMTimelineSrc_SetStretchMode(This,mode) (This)->lpVtbl->SetStretchMode(This,mode)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAMTimelineSrc_QueryInterface(IAMTimelineSrc* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAMTimelineSrc_AddRef(IAMTimelineSrc* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAMTimelineSrc_Release(IAMTimelineSrc* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAMTimelineSrc methods ***/
+static FORCEINLINE HRESULT IAMTimelineSrc_GetMediaTimes(IAMTimelineSrc* This,REFERENCE_TIME *start,REFERENCE_TIME *stop) {
+    return This->lpVtbl->GetMediaTimes(This,start,stop);
+}
+static FORCEINLINE HRESULT IAMTimelineSrc_GetMediaTimes2(IAMTimelineSrc* This,REFTIME *start,REFTIME *stop) {
+    return This->lpVtbl->GetMediaTimes2(This,start,stop);
+}
+static FORCEINLINE HRESULT IAMTimelineSrc_ModifyStopTime(IAMTimelineSrc* This,REFERENCE_TIME stop) {
+    return This->lpVtbl->ModifyStopTime(This,stop);
+}
+static FORCEINLINE HRESULT IAMTimelineSrc_ModifyStopTime2(IAMTimelineSrc* This,REFTIME stop) {
+    return This->lpVtbl->ModifyStopTime2(This,stop);
+}
+static FORCEINLINE HRESULT IAMTimelineSrc_FixMediaTimes(IAMTimelineSrc* This,REFERENCE_TIME *start,REFERENCE_TIME *stop) {
+    return This->lpVtbl->FixMediaTimes(This,start,stop);
+}
+static FORCEINLINE HRESULT IAMTimelineSrc_FixMediaTimes2(IAMTimelineSrc* This,REFTIME *start,REFTIME *stop) {
+    return This->lpVtbl->FixMediaTimes2(This,start,stop);
+}
+static FORCEINLINE HRESULT IAMTimelineSrc_SetMediaTimes(IAMTimelineSrc* This,REFERENCE_TIME Start,REFERENCE_TIME Stop) {
+    return This->lpVtbl->SetMediaTimes(This,Start,Stop);
+}
+static FORCEINLINE HRESULT IAMTimelineSrc_SetMediaTimes2(IAMTimelineSrc* This,REFTIME Start,REFTIME Stop) {
+    return This->lpVtbl->SetMediaTimes2(This,Start,Stop);
+}
+static FORCEINLINE HRESULT IAMTimelineSrc_SetMediaLength(IAMTimelineSrc* This,REFERENCE_TIME length) {
+    return This->lpVtbl->SetMediaLength(This,length);
+}
+static FORCEINLINE HRESULT IAMTimelineSrc_SetMediaLength2(IAMTimelineSrc* This,REFTIME length) {
+    return This->lpVtbl->SetMediaLength2(This,length);
+}
+static FORCEINLINE HRESULT IAMTimelineSrc_GetMediaLength(IAMTimelineSrc* This,REFERENCE_TIME *length) {
+    return This->lpVtbl->GetMediaLength(This,length);
+}
+static FORCEINLINE HRESULT IAMTimelineSrc_GetMediaLength2(IAMTimelineSrc* This,REFTIME *length) {
+    return This->lpVtbl->GetMediaLength2(This,length);
+}
+static FORCEINLINE HRESULT IAMTimelineSrc_GetMediaName(IAMTimelineSrc* This,BSTR *name) {
+    return This->lpVtbl->GetMediaName(This,name);
+}
+static FORCEINLINE HRESULT IAMTimelineSrc_SetMediaName(IAMTimelineSrc* This,BSTR name) {
+    return This->lpVtbl->SetMediaName(This,name);
+}
+static FORCEINLINE HRESULT IAMTimelineSrc_SpliceWithNext(IAMTimelineSrc* This,IAMTimelineObj *next) {
+    return This->lpVtbl->SpliceWithNext(This,next);
+}
+static FORCEINLINE HRESULT IAMTimelineSrc_GetStreamNumber(IAMTimelineSrc* This,LONG *num) {
+    return This->lpVtbl->GetStreamNumber(This,num);
+}
+static FORCEINLINE HRESULT IAMTimelineSrc_SetStreamNumber(IAMTimelineSrc* This,LONG num) {
+    return This->lpVtbl->SetStreamNumber(This,num);
+}
+static FORCEINLINE HRESULT IAMTimelineSrc_IsNormalRate(IAMTimelineSrc* This,WINBOOL *normal) {
+    return This->lpVtbl->IsNormalRate(This,normal);
+}
+static FORCEINLINE HRESULT IAMTimelineSrc_GetDefaultFPS(IAMTimelineSrc* This,double *fps) {
+    return This->lpVtbl->GetDefaultFPS(This,fps);
+}
+static FORCEINLINE HRESULT IAMTimelineSrc_SetDefaultFPS(IAMTimelineSrc* This,double fps) {
+    return This->lpVtbl->SetDefaultFPS(This,fps);
+}
+static FORCEINLINE HRESULT IAMTimelineSrc_GetStretchMode(IAMTimelineSrc* This,int *mode) {
+    return This->lpVtbl->GetStretchMode(This,mode);
+}
+static FORCEINLINE HRESULT IAMTimelineSrc_SetStretchMode(IAMTimelineSrc* This,int mode) {
+    return This->lpVtbl->SetStretchMode(This,mode);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_GetMediaTimes_Proxy(
+    IAMTimelineSrc* This,
+    REFERENCE_TIME *start,
+    REFERENCE_TIME *stop);
+void __RPC_STUB IAMTimelineSrc_GetMediaTimes_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_GetMediaTimes2_Proxy(
+    IAMTimelineSrc* This,
+    REFTIME *start,
+    REFTIME *stop);
+void __RPC_STUB IAMTimelineSrc_GetMediaTimes2_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_ModifyStopTime_Proxy(
+    IAMTimelineSrc* This,
+    REFERENCE_TIME stop);
+void __RPC_STUB IAMTimelineSrc_ModifyStopTime_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_ModifyStopTime2_Proxy(
+    IAMTimelineSrc* This,
+    REFTIME stop);
+void __RPC_STUB IAMTimelineSrc_ModifyStopTime2_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_FixMediaTimes_Proxy(
+    IAMTimelineSrc* This,
+    REFERENCE_TIME *start,
+    REFERENCE_TIME *stop);
+void __RPC_STUB IAMTimelineSrc_FixMediaTimes_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_FixMediaTimes2_Proxy(
+    IAMTimelineSrc* This,
+    REFTIME *start,
+    REFTIME *stop);
+void __RPC_STUB IAMTimelineSrc_FixMediaTimes2_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_SetMediaTimes_Proxy(
+    IAMTimelineSrc* This,
+    REFERENCE_TIME Start,
+    REFERENCE_TIME Stop);
+void __RPC_STUB IAMTimelineSrc_SetMediaTimes_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_SetMediaTimes2_Proxy(
+    IAMTimelineSrc* This,
+    REFTIME Start,
+    REFTIME Stop);
+void __RPC_STUB IAMTimelineSrc_SetMediaTimes2_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_SetMediaLength_Proxy(
+    IAMTimelineSrc* This,
+    REFERENCE_TIME length);
+void __RPC_STUB IAMTimelineSrc_SetMediaLength_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_SetMediaLength2_Proxy(
+    IAMTimelineSrc* This,
+    REFTIME length);
+void __RPC_STUB IAMTimelineSrc_SetMediaLength2_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_GetMediaLength_Proxy(
+    IAMTimelineSrc* This,
+    REFERENCE_TIME *length);
+void __RPC_STUB IAMTimelineSrc_GetMediaLength_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_GetMediaLength2_Proxy(
+    IAMTimelineSrc* This,
+    REFTIME *length);
+void __RPC_STUB IAMTimelineSrc_GetMediaLength2_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_GetMediaName_Proxy(
+    IAMTimelineSrc* This,
+    BSTR *name);
+void __RPC_STUB IAMTimelineSrc_GetMediaName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_SetMediaName_Proxy(
+    IAMTimelineSrc* This,
+    BSTR name);
+void __RPC_STUB IAMTimelineSrc_SetMediaName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_SpliceWithNext_Proxy(
+    IAMTimelineSrc* This,
+    IAMTimelineObj *next);
+void __RPC_STUB IAMTimelineSrc_SpliceWithNext_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_GetStreamNumber_Proxy(
+    IAMTimelineSrc* This,
+    LONG *num);
+void __RPC_STUB IAMTimelineSrc_GetStreamNumber_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_SetStreamNumber_Proxy(
+    IAMTimelineSrc* This,
+    LONG num);
+void __RPC_STUB IAMTimelineSrc_SetStreamNumber_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_IsNormalRate_Proxy(
+    IAMTimelineSrc* This,
+    WINBOOL *normal);
+void __RPC_STUB IAMTimelineSrc_IsNormalRate_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_GetDefaultFPS_Proxy(
+    IAMTimelineSrc* This,
+    double *fps);
+void __RPC_STUB IAMTimelineSrc_GetDefaultFPS_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_SetDefaultFPS_Proxy(
+    IAMTimelineSrc* This,
+    double fps);
+void __RPC_STUB IAMTimelineSrc_SetDefaultFPS_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_GetStretchMode_Proxy(
+    IAMTimelineSrc* This,
+    int *mode);
+void __RPC_STUB IAMTimelineSrc_GetStretchMode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMTimelineSrc_SetStretchMode_Proxy(
+    IAMTimelineSrc* This,
+    int mode);
+void __RPC_STUB IAMTimelineSrc_SetStretchMode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IAMTimelineSrc_INTERFACE_DEFINED__ */
+
 enum {
     E_NOTINTREE = 0x80040400,
     E_RENDER_ENGINE_IS_BROKEN = 0x80040401,
@@ -786,6 +3891,10 @@ ULONG           __RPC_USER BSTR_UserSize     (ULONG *, ULONG, BSTR *);
 unsigned char * __RPC_USER BSTR_UserMarshal  (ULONG *, unsigned char *, BSTR *);
 unsigned char * __RPC_USER BSTR_UserUnmarshal(ULONG *, unsigned char *, BSTR *);
 void            __RPC_USER BSTR_UserFree     (ULONG *, BSTR *);
+ULONG           __RPC_USER VARIANT_UserSize     (ULONG *, ULONG, VARIANT *);
+unsigned char * __RPC_USER VARIANT_UserMarshal  (ULONG *, unsigned char *, VARIANT *);
+unsigned char * __RPC_USER VARIANT_UserUnmarshal(ULONG *, unsigned char *, VARIANT *);
+void            __RPC_USER VARIANT_UserFree     (ULONG *, VARIANT *);
 
 /* End additional prototypes */
 
