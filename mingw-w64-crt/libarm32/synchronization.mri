@@ -1,0 +1,4 @@
+CREATE libarm32/libsynchronization.a
+ADDLIB libarm32/libapi-ms-win-core-synch-l1-2-0.a
+SAVE
+END

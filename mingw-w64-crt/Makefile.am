@@ -642,6 +642,11 @@ lib32/libruntimeobject.a: lib32/runtimeobject.mri lib32/libapi-ms-win-core-winrt
 	$(AR) -M < $<
 	$(RANLIB) $@
 
+lib32/libsynchronization.a: lib32/synchronization.mri lib32/libapi-ms-win-core-synch-l1-2-0.a
+	rm -f $@
+	$(AR) -M < $<
+	$(RANLIB) $@
+
 dx32_DATA =
 dx32_DATA += lib32/libxinput.a
 dx32_DATA += lib32/libxapofx.a
@@ -1145,7 +1150,8 @@ lib64_DATA = \
   lib64/libxaudio2_8.a      lib64/libd3dcompiler_46.a lib64/libd3dcsx_46.a \
   lib64/libd3d11.a          lib64/libd3dcompiler_47.a \
   lib64/libwinhttp.a \
-  lib64/libruntimeobject.a
+  lib64/libruntimeobject.a \
+  lib64/libsynchronization.a
 
 if !W32API
 lib64_DATA += lib64/libmsvcp60.a lib64/libmsvcr80.a lib64/libmsvcr90.a lib64/libmsvcr100.a lib64/libmsvcr90d.a \
@@ -1169,6 +1175,11 @@ lib64/libvfw32.a: lib64/vfw32.mri lib64/libmsvfw32.a lib64/libavifil32.a lib64/l
 	$(RANLIB) $@
 
 lib64/libruntimeobject.a: lib64/runtimeobject.mri lib64/libapi-ms-win-core-winrt-string-l1-1-0.a lib64/libapi-ms-win-core-winrt-l1-1-0.a
+	rm -f $@
+	$(AR) -M < $<
+	$(RANLIB) $@
+
+lib64/libsynchronization.a: lib64/synchronization.mri lib64/libapi-ms-win-core-synch-l1-2-0.a
 	rm -f $@
 	$(AR) -M < $<
 	$(RANLIB) $@
@@ -1431,10 +1442,15 @@ libarm32/libruntimeobject.a: libarm32/runtimeobject.mri libarm32/libapi-ms-win-c
 	$(AR) -M < $<
 	$(RANLIB) $@
 
+libarm32/libsynchronization.a: libarm32/synchronization.mri libarm32/libapi-ms-win-core-synch-l1-2-0.a
+	rm -f $@
+	$(AR) -M < $<
+	$(RANLIB) $@
+
 dx32_DATA =
 dx32_DATA += libarm32/libxinput.a
 dx32_DATA += libarm32/libd3dcompiler.a
-libarm32_DATA += libarm32/libruntimeobject.a
+libarm32_DATA += libarm32/libruntimeobject.a libarm32/libsynchronization.a
 
 libarm32/libxinput.a: libarm32/xinput1_4.def
 	$(DTDEFARM32) $<

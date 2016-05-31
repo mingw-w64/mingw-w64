@@ -1464,7 +1464,10 @@ WaitForThreadpoolWaitCallbacks
 WaitForThreadpoolWorkCallbacks
 WaitNamedPipeA
 WaitNamedPipeW
+WaitOnAddress
 WakeAllConditionVariable
+WakeByAddressSingle
+WakeByAddressAll
 WakeConditionVariable
 WerGetFlags
 WerRegisterFile
