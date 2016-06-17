@@ -428,20 +428,7 @@ typedef long double double_t;
               FP_INFINITE : FP_NAN);
     return FP_NORMAL;
 #elif defined(__arm__) || defined(_ARM_)
-    __mingw_fp_types_t hlp;
-    unsigned int l, h;
-
-    hlp.d = &x;
-    h = hlp.ldt->lh.high;
-    l = hlp.ldt->lh.low | (h & 0xfffff);
-    h &= 0x7ff00000;
-    if ((h | l) == 0)
-      return FP_ZERO;
-    if (!h)
-      return FP_SUBNORMAL;
-    if (h == 0x7ff00000)
-      return (l ? FP_NAN : FP_INFINITE);
-    return FP_NORMAL;
+    __fpclassify(x);
 #elif defined(__i386__) || defined(_X86_)
     unsigned short sw;
     __asm__ __volatile__ ("fxam; fstsw %%ax;" : "=a" (sw): "t" (x));
@@ -588,15 +575,7 @@ __mingw_choose_expr (                                         \
     signexp = 0xfffe - signexp;
     return (int) ((unsigned int) signexp) >> 16;
 #elif defined(__arm__) || defined(_ARM_)
-    __mingw_fp_types_t hlp;
-    int l, h;
-
-    hlp.d = &_x;
-    l = hlp.dt->lh.low;
-    h = hlp.dt->lh.high & 0x7fffffff;
-    h |= (unsigned int) (l | -l) >> 31;
-    h = 0x7ff00000 - h;
-    return (int) ((unsigned int) h) >> 31;
+    __isnan(_x);
 #elif defined(__i386__) || defined(_X86_)
     unsigned short sw;
     __asm__ __volatile__ ("fxam;"
@@ -660,10 +639,7 @@ __mingw_choose_expr (                                         \
     ld.ld = &x;
     return ((ld.ldt->lh.sign_exponent & 0x8000) != 0);
 #elif defined(__arm__) || defined(_ARM_)
-    __mingw_fp_types_t hlp;
-
-    hlp.d = &x;
-    return ((hlp.dt->lh.high & 0x80000000) != 0);
+    __signbit(x);
 #elif defined(__i386__) || defined(_X86_)
     unsigned short stw;
     __asm__ __volatile__ ("fxam; fstsw %%ax;": "=a" (stw) : "t" (x));
