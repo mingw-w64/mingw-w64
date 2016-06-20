@@ -8,8 +8,6 @@
 
 #include <winapifamily.h>
 
-#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -18,6 +16,10 @@ extern "C" {
 #include <ipexport.h>
 #include <iptypes.h>
 #include <tcpestats.h>
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) || _WIN32_WINNT >= 0x0A00
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 
   DWORD WINAPI GetNumberOfInterfaces (PDWORD pdwNumIf);
   DWORD WINAPI GetIfEntry (PMIB_IFROW pIfRow);
@@ -93,6 +95,8 @@ extern "C" {
   DWORD WINAPI GetNetworkParams (PFIXED_INFO pFixedInfo, PULONG pOutBufLen);
   ULONG WINAPI GetAdaptersInfo (PIP_ADAPTER_INFO AdapterInfo, PULONG SizePointer);
   PIP_ADAPTER_ORDER_MAP WINAPI GetAdapterOrderMap (VOID);
+
+#endif /* WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) */
 
 #ifdef _WINSOCK2API_
   ULONG WINAPI GetAdaptersAddresses (ULONG Family, ULONG Flags, PVOID Reserved, PIP_ADAPTER_ADDRESSES AdapterAddresses, PULONG SizePointer);
@@ -170,9 +174,10 @@ extern "C" {
 #include <netioapi.h>
 #endif
 
+#endif /* WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) || _WIN32_WINNT >= 0x0A00 */
+
 #ifdef __cplusplus
 }
 #endif
 
-#endif
 #endif

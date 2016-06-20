@@ -9,6 +9,10 @@
 #include <lmcons.h>
 #include <ras.h>
 
+#include <winapifamily.h>
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -990,5 +994,7 @@ DWORD APIENTRY MprAdminServerSetInfoEx(
 #ifdef __cplusplus
 }
 #endif
+
+#endif /* WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) */
 
 #endif /* __ROUTING_MPRADMIN_H__ */

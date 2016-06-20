@@ -7,7 +7,7 @@
 #define _NLDEF_
 #include <winapifamily.h>
 
-#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) || _WIN32_WINNT >= 0x0A00
 
 typedef enum {
   NldsInvalid,
