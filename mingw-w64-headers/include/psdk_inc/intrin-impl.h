@@ -81,6 +81,7 @@ __INTRINSICS_USEINLINE
 #endif
 
 /* Clang has support for MSVC builtins, GCC doesn't */
+#pragma push_macro("__has_builtin")
 #ifndef __has_builtin
   #define __has_builtin(x) 0
 #endif
@@ -1553,5 +1554,7 @@ __build_writecr(__writecr8, unsigned __LONG32, "8")
 #undef __FLAGSET
 #undef __FLAGCLOBBER1
 #undef __FLAGCLOBBER2
+
+#pragma pop_macro("__has_builtin")
 
 #endif /* __MINGW_INTRIN_INLINE */
