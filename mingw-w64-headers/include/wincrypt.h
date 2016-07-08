@@ -3897,10 +3897,13 @@ WINIMPM HCERTSTORE WINAPI CertOpenStore (LPCSTR lpszStoreProvider, DWORD dwEncod
   WINIMPM PCCRL_CONTEXT WINAPI CertFindCRLInStore (HCERTSTORE hCertStore, DWORD dwCertEncodingType, DWORD dwFindFlags, DWORD dwFindType, const void *pvFindPara, PCCRL_CONTEXT pPrevCrlContext);
   WINIMPM WINBOOL WINAPI CertFreeCRLContext (PCCRL_CONTEXT pCrlContext);
 
-#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
-
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) || _WIN32_WINNT >= 0x0A00
   WINIMPM WINBOOL WINAPI CertGetCertificateContextProperty (PCCERT_CONTEXT pCertContext, DWORD dwPropId, void *pvData, DWORD *pcbData);
   WINIMPM DWORD WINAPI CertEnumCertificateContextProperties (PCCERT_CONTEXT pCertContext, DWORD dwPropId);
+  WINIMPM WINBOOL WINAPI CertDeleteCertificateFromStore (PCCERT_CONTEXT pCertContext);
+#endif
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
   WINIMPM WINBOOL WINAPI CertCreateCTLEntryFromCertificateContextProperties (PCCERT_CONTEXT pCertContext, DWORD cOptAttr, PCRYPT_ATTRIBUTE rgOptAttr, DWORD dwFlags, void *pvReserved, PCTL_ENTRY pCtlEntry, DWORD *pcbCtlEntry);
   WINIMPM WINBOOL WINAPI CertSetCertificateContextPropertiesFromCTLEntry (PCCERT_CONTEXT pCertContext, PCTL_ENTRY pCtlEntry, DWORD dwFlags);
   WINIMPM PCCRL_CONTEXT WINAPI CertGetCRLFromStore (HCERTSTORE hCertStore, PCCERT_CONTEXT pIssuerContext, PCCRL_CONTEXT pPrevCrlContext, DWORD *pdwFlags);
@@ -3913,7 +3916,6 @@ WINIMPM HCERTSTORE WINAPI CertOpenStore (LPCSTR lpszStoreProvider, DWORD dwEncod
   WINIMPM WINBOOL WINAPI CertAddEncodedCertificateToStore (HCERTSTORE hCertStore, DWORD dwCertEncodingType, const BYTE *pbCertEncoded, DWORD cbCertEncoded, DWORD dwAddDisposition, PCCERT_CONTEXT *ppCertContext);
   WINIMPM WINBOOL WINAPI CertAddCertificateContextToStore (HCERTSTORE hCertStore, PCCERT_CONTEXT pCertContext, DWORD dwAddDisposition, PCCERT_CONTEXT *ppStoreContext);
   WINIMPM WINBOOL WINAPI CertAddSerializedElementToStore (HCERTSTORE hCertStore, const BYTE *pbElement, DWORD cbElement, DWORD dwAddDisposition, DWORD dwFlags, DWORD dwContextTypeFlags, DWORD *pdwContextType, const void **ppvContext);
-  WINIMPM WINBOOL WINAPI CertDeleteCertificateFromStore (PCCERT_CONTEXT pCertContext);
   WINIMPM WINBOOL WINAPI CertAddEncodedCRLToStore (HCERTSTORE hCertStore, DWORD dwCertEncodingType, const BYTE *pbCrlEncoded, DWORD cbCrlEncoded, DWORD dwAddDisposition, PCCRL_CONTEXT *ppCrlContext);
   WINIMPM WINBOOL WINAPI CertAddCRLContextToStore (HCERTSTORE hCertStore, PCCRL_CONTEXT pCrlContext, DWORD dwAddDisposition, PCCRL_CONTEXT *ppStoreContext);
   WINIMPM WINBOOL WINAPI CertSerializeCertificateStoreElement (PCCERT_CONTEXT pCertContext, DWORD dwFlags, BYTE *pbElement, DWORD *pcbElement);
@@ -5199,7 +5201,13 @@ WINIMPM HCERTSTORE WINAPI CertOpenStore (LPCSTR lpszStoreProvider, DWORD dwEncod
     ULONG cbSalt;
   } CRYPT_PKCS12_PBE_PARAMS;
 
+#endif
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) || _WIN32_WINNT >= 0x0A00
   WINIMPM HCERTSTORE WINAPI PFXImportCertStore (CRYPT_DATA_BLOB *pPFX, LPCWSTR szPassword, DWORD dwFlags);
+#endif
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 
 #define PKCS12_IMPORT_SILENT 0x40
 #define CRYPT_USER_KEYSET 0x1000
