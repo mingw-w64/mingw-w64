@@ -1121,7 +1121,7 @@ lib64_DATA = \
   lib64/libtdh.a        lib64/libtxfw32.a     lib64/libwlanui.a      lib64/libwlanapi.a     lib64/libwlanutil.a      \
   lib64/libwer.a        lib64/libndis.a       lib64/libd2d1.a        lib64/libwdscsl.a      lib64/libpcwum.a         \
   lib64/libwdscore.a    lib64/libcryptsp.a    lib64/libwdsclient.a   lib64/libwdsupgcompl.a lib64/libwdsclientapi.a  \
-  lib64/libwdsutil.a    lib64/libwdsimage.a      \
+  lib64/libwdsutil.a    lib64/libwdsimage.a   lib64/libvirtdisk.a    \
   \
   lib64/libcryptxml.a   lib64/libsspicli.a    \
   \
