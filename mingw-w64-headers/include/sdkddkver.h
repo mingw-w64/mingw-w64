@@ -22,6 +22,8 @@
 #define _WIN32_WINNT_WIN7		0x0601
 #define _WIN32_WINNT_WIN8		0x0602
 #define _WIN32_WINNT_WINBLUE            0x0603
+#define _WIN32_WINNT_WINTHRESHOLD       0x0A00
+#define _WIN32_WINNT_WIN10              0x0A00
 
 /* _WIN32_IE */
 #define _WIN32_IE_IE20			0x0200
