@@ -428,7 +428,7 @@ typedef long double double_t;
               FP_INFINITE : FP_NAN);
     return FP_NORMAL;
 #elif defined(__arm__) || defined(_ARM_)
-    __fpclassify(x);
+    return __fpclassify(x);
 #elif defined(__i386__) || defined(_X86_)
     unsigned short sw;
     __asm__ __volatile__ ("fxam; fstsw %%ax;" : "=a" (sw): "t" (x));
