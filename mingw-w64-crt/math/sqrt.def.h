@@ -50,10 +50,8 @@
  * asm ("fsqrts %[dst], %[src];\n" : [dst] "=w" (res) : [src] "w" (x));
  */
 __FLT_TYPE __fsqrt_internal( __FLT_TYPE x );
-asm(".def __fsqrt_internal; .scl 2; .type 32; .endef\n"
-    "\t.text\n"
+asm("\t.text\n"
     "\t.align 4\n"
-    "\t.globl __fsqrt_internal\n"
     "__fsqrt_internal:\n"
 #if _NEW_COMPLEX_FLOAT
     "\t" "fsqrts s0, s0\n"
