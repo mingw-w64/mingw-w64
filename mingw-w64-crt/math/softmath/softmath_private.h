@@ -61,6 +61,9 @@ static inline double softmath_log(double x)
     else if (x < 0.0001)
         aprox = 32768;
 
+    if (aprox < 30)
+        aprox = 30;
+
     for(n = 0; n < aprox; n++)
     {
         result += bsd__ieee754_pow((x - 1.0) / (x + 1.0), 2 * n + 1) * (1.0 / (2.0 * n + 1.0));
@@ -81,6 +84,9 @@ static inline float softmath_logf(float x)
         return -HUGE_VALF;
     else if (x < 0.0001)
         aprox = 32768;
+
+    if (aprox < 30)
+        aprox = 30;
 
     for(n = 0; n < aprox; n++)
     {
