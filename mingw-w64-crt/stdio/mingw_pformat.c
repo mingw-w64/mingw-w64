@@ -1111,9 +1111,32 @@ char *__pformat_cvt( int mode, __pformat_fpreg_t x, int nd, int *dp, int *sign )
   int k; unsigned int e = 0; char *ep;
   static FPI fpi = { 64, 1-16383-64+1, 32766-16383-64+1, FPI_Round_near, 0, 14 /* Int_max */ };
  
+  if( sizeof( double ) == sizeof( long double ) )
+  {
+    /* The caller has written into x.__pformat_fpreg_ldouble_t, which
+     * actually isn't laid out in the way the rest of the union expects it.
+     */
+    int exp = (x.__pformat_fpreg_mantissa >> 52) & 0x7ff;
+    unsigned long long mant = x.__pformat_fpreg_mantissa & 0x000fffffffffffffULL;
+    int integer = exp ? 1 : 0;
+    int signbit = x.__pformat_fpreg_mantissa >> 63;
+
+    k = __fpclassify( x.__pformat_fpreg_double_t );
+
+    if (exp == 0x7ff)
+      exp = 0x7fff;
+    else if (exp != 0)
+      exp = exp - 1023 + 16383;
+    x.__pformat_fpreg_mantissa = (mant << 11) | ((unsigned long long)integer << 63);
+    x.__pformat_fpreg_exponent = exp | (signbit << 15);
+  }
+  else
+    k = __fpclassifyl( x.__pformat_fpreg_ldouble_t );
+
+
   /* Classify the argument into an appropriate `__gdtoa()' category...
    */
-  if( (k = __fpclassifyl( x.__pformat_fpreg_ldouble_t )) & FP_NAN )
+  if( k & FP_NAN )
     /*
      * identifying infinities or not-a-number...
      */
