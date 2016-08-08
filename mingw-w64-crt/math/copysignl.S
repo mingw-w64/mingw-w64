@@ -38,10 +38,12 @@ __MINGW_USYMBOL(copysignl):
 	bmi	1f /* jump if d1 is negative */
 	fcmpzd	d0
 	fmstat
+	it mi
 	vnegmi.f64	d0, d0 /* negate d0 if it is negative */
 	bx	lr
 	1: fcmpzd	d0
 	fmstat
+	it pl
 	vnegpl.f64	d0, d0 /* negate d0 if it is positive */
 	bx	lr
 #elif defined(_X86_) || defined(__i386__)
