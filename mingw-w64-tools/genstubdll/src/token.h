@@ -1,7 +1,7 @@
 /*
     genstubdll - Generate stub-library acting like an import-library
                  using .def file syntax.
-    Copyright (C) 2014  mingw-w64 project
+    Copyright (C) 2014-2016  mingw-w64 project
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
