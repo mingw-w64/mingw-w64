@@ -70,4 +70,4 @@ typedef struct FLICK_POINT {
 }
 #endif
 #endif /*(_WIN32_WINNT >= 0x0600)*/
-#endif _INC_TABFLICKS
+#endif /* _INC_TABFLICKS */

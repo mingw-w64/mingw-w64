@@ -92,6 +92,6 @@ HRESULT WDSMCSAPI WdsTransportServerTrace(
 
 #ifdef __cplusplus
 }
-#endi
+#endif
 #endif /*(_WIN32_WINNT >= 0x0600)*/
 #endif /*_INC_WDSTPDI*/
