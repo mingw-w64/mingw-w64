@@ -40,7 +40,7 @@
 #define SPCAT_RECOPROFILES L"HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\RecoProfiles"
 
 #define SPMMSYS_AUDIO_IN_TOKEN_ID L"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioInput\\TokenEnums\\MMAudioIn\\"
-#define SPMMSYS_AUDIO_OUT_TOKEN_ID L"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioOutput\\TokenEnums\\MMAudioOut\\\"
+#define SPMMSYS_AUDIO_OUT_TOKEN_ID L"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioOutput\\TokenEnums\\MMAudioOut\\"
 #define SPCURRENT_USER_LEXICON_TOKEN_ID L"HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\CurrentUserLexicon"
 
 #define SPTOKENVALUE_CLSID L"CLSID"
