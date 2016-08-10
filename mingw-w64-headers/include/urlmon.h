@@ -298,8 +298,6 @@ extern "C" {
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 
-#pragma comment(lib,"uuid.lib")
-
 #include <winapifamily.h>
 
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
