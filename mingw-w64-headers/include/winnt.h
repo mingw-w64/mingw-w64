@@ -1745,10 +1745,10 @@ extern "C" {
 
 #define OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME "OutOfProcessFunctionTableCallback"
 
-#define UNW_FLAG_NHANDLER   0x00
-#define UNW_FLAG_EHANDLER   0x01
-#define UNW_FLAG_UHANDLER   0x02
-#define UNW_FLAG_CHAININFO  0x04
+#define UNW_FLAG_NHANDLER   0x0
+#define UNW_FLAG_EHANDLER   0x1
+#define UNW_FLAG_UHANDLER   0x2
+#define UNW_FLAG_CHAININFO  0x4
 
 #endif /* end of _AMD64_ */
 
