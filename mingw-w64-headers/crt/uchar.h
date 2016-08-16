@@ -35,8 +35,13 @@ typedef uint_least16_t char16_t;
 typedef uint_least32_t char32_t;
 #endif
 
+#ifndef __STDC_UTF_16__
 #define __STDC_UTF_16__ 1
+#endif
+
+#ifndef __STDC_UTF_32__
 #define __STDC_UTF_32__ 1
+#endif
 
 #ifdef __cplusplus
 extern "C" {
