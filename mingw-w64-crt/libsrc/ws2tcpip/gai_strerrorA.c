@@ -3,6 +3,7 @@
 #endif
 #undef  __CRT__NO_INLINE
 #define __CRT__NO_INLINE
+#include <stdlib.h>
 #include <winsock2.h>
 #include <ws2tcpip.h>
 

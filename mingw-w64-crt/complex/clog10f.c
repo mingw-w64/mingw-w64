@@ -44,5 +44,6 @@
 
 /* Float version of the functions.  */
 #define  _NEW_COMPLEX_FLOAT 1
+#define _GNU_SOURCE
 #include "complex_internal.h"
 #include "clog10.def.h"

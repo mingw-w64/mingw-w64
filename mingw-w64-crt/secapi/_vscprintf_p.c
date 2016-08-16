@@ -1,4 +1,5 @@
 #define _vscprintf_p SAVE__vscprintf_p
+#define MINGW_HAS_SECURE_API 1
 #include <stdio.h>
 #undef _vscprintf_p
 
