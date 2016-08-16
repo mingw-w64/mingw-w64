@@ -2481,7 +2481,7 @@ IWMReaderAdvanced : public IUnknown
         WINBOOL fAllocate) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetAllocateForStream(
-        WORD dwSreamNum,
+        WORD dwStreamNum,
         WINBOOL *pfAllocate) = 0;
 
     virtual HRESULT STDMETHODCALLTYPE GetStatistics(
@@ -2588,7 +2588,7 @@ typedef struct IWMReaderAdvancedVtbl {
 
     HRESULT (STDMETHODCALLTYPE *GetAllocateForStream)(
         IWMReaderAdvanced* This,
-        WORD dwSreamNum,
+        WORD dwStreamNum,
         WINBOOL *pfAllocate);
 
     HRESULT (STDMETHODCALLTYPE *GetStatistics)(
@@ -2640,7 +2640,7 @@ interface IWMReaderAdvanced {
 #define IWMReaderAdvanced_SetAllocateForOutput(This,dwOutputNum,fAllocate) (This)->lpVtbl->SetAllocateForOutput(This,dwOutputNum,fAllocate)
 #define IWMReaderAdvanced_GetAllocateForOutput(This,dwOutputNum,pfAllocate) (This)->lpVtbl->GetAllocateForOutput(This,dwOutputNum,pfAllocate)
 #define IWMReaderAdvanced_SetAllocateForStream(This,wStreamNum,fAllocate) (This)->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate)
-#define IWMReaderAdvanced_GetAllocateForStream(This,dwSreamNum,pfAllocate) (This)->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate)
+#define IWMReaderAdvanced_GetAllocateForStream(This,dwStreamNum,pfAllocate) (This)->lpVtbl->GetAllocateForStream(This,dwStreamNum,pfAllocate)
 #define IWMReaderAdvanced_GetStatistics(This,pStatistics) (This)->lpVtbl->GetStatistics(This,pStatistics)
 #define IWMReaderAdvanced_SetClientInfo(This,pClientInfo) (This)->lpVtbl->SetClientInfo(This,pClientInfo)
 #define IWMReaderAdvanced_GetMaxOutputSampleSize(This,dwOutput,pcbMax) (This)->lpVtbl->GetMaxOutputSampleSize(This,dwOutput,pcbMax)
@@ -2700,8 +2700,8 @@ static FORCEINLINE HRESULT IWMReaderAdvanced_GetAllocateForOutput(IWMReaderAdvan
 static FORCEINLINE HRESULT IWMReaderAdvanced_SetAllocateForStream(IWMReaderAdvanced* This,WORD wStreamNum,WINBOOL fAllocate) {
     return This->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate);
 }
-static FORCEINLINE HRESULT IWMReaderAdvanced_GetAllocateForStream(IWMReaderAdvanced* This,WORD dwSreamNum,WINBOOL *pfAllocate) {
-    return This->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate);
+static FORCEINLINE HRESULT IWMReaderAdvanced_GetAllocateForStream(IWMReaderAdvanced* This,WORD dwStreamNum,WINBOOL *pfAllocate) {
+    return This->lpVtbl->GetAllocateForStream(This,dwStreamNum,pfAllocate);
 }
 static FORCEINLINE HRESULT IWMReaderAdvanced_GetStatistics(IWMReaderAdvanced* This,WM_READER_STATISTICS *pStatistics) {
     return This->lpVtbl->GetStatistics(This,pStatistics);
@@ -2845,7 +2845,7 @@ void __RPC_STUB IWMReaderAdvanced_SetAllocateForStream_Stub(
     DWORD* pdwStubPhase);
 HRESULT STDMETHODCALLTYPE IWMReaderAdvanced_GetAllocateForStream_Proxy(
     IWMReaderAdvanced* This,
-    WORD dwSreamNum,
+    WORD dwStreamNum,
     WINBOOL *pfAllocate);
 void __RPC_STUB IWMReaderAdvanced_GetAllocateForStream_Stub(
     IRpcStubBuffer* This,
@@ -3059,7 +3059,7 @@ typedef struct IWMReaderAdvanced2Vtbl {
 
     HRESULT (STDMETHODCALLTYPE *GetAllocateForStream)(
         IWMReaderAdvanced2* This,
-        WORD dwSreamNum,
+        WORD dwStreamNum,
         WINBOOL *pfAllocate);
 
     HRESULT (STDMETHODCALLTYPE *GetStatistics)(
@@ -3190,7 +3190,7 @@ interface IWMReaderAdvanced2 {
 #define IWMReaderAdvanced2_SetAllocateForOutput(This,dwOutputNum,fAllocate) (This)->lpVtbl->SetAllocateForOutput(This,dwOutputNum,fAllocate)
 #define IWMReaderAdvanced2_GetAllocateForOutput(This,dwOutputNum,pfAllocate) (This)->lpVtbl->GetAllocateForOutput(This,dwOutputNum,pfAllocate)
 #define IWMReaderAdvanced2_SetAllocateForStream(This,wStreamNum,fAllocate) (This)->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate)
-#define IWMReaderAdvanced2_GetAllocateForStream(This,dwSreamNum,pfAllocate) (This)->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate)
+#define IWMReaderAdvanced2_GetAllocateForStream(This,dwStreamNum,pfAllocate) (This)->lpVtbl->GetAllocateForStream(This,dwStreamNum,pfAllocate)
 #define IWMReaderAdvanced2_GetStatistics(This,pStatistics) (This)->lpVtbl->GetStatistics(This,pStatistics)
 #define IWMReaderAdvanced2_SetClientInfo(This,pClientInfo) (This)->lpVtbl->SetClientInfo(This,pClientInfo)
 #define IWMReaderAdvanced2_GetMaxOutputSampleSize(This,dwOutput,pcbMax) (This)->lpVtbl->GetMaxOutputSampleSize(This,dwOutput,pcbMax)
@@ -3266,8 +3266,8 @@ static FORCEINLINE HRESULT IWMReaderAdvanced2_GetAllocateForOutput(IWMReaderAdva
 static FORCEINLINE HRESULT IWMReaderAdvanced2_SetAllocateForStream(IWMReaderAdvanced2* This,WORD wStreamNum,WINBOOL fAllocate) {
     return This->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate);
 }
-static FORCEINLINE HRESULT IWMReaderAdvanced2_GetAllocateForStream(IWMReaderAdvanced2* This,WORD dwSreamNum,WINBOOL *pfAllocate) {
-    return This->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate);
+static FORCEINLINE HRESULT IWMReaderAdvanced2_GetAllocateForStream(IWMReaderAdvanced2* This,WORD dwStreamNum,WINBOOL *pfAllocate) {
+    return This->lpVtbl->GetAllocateForStream(This,dwStreamNum,pfAllocate);
 }
 static FORCEINLINE HRESULT IWMReaderAdvanced2_GetStatistics(IWMReaderAdvanced2* This,WM_READER_STATISTICS *pStatistics) {
     return This->lpVtbl->GetStatistics(This,pStatistics);
@@ -3585,7 +3585,7 @@ typedef struct IWMReaderAdvanced3Vtbl {
 
     HRESULT (STDMETHODCALLTYPE *GetAllocateForStream)(
         IWMReaderAdvanced3* This,
-        WORD dwSreamNum,
+        WORD dwStreamNum,
         WINBOOL *pfAllocate);
 
     HRESULT (STDMETHODCALLTYPE *GetStatistics)(
@@ -3729,7 +3729,7 @@ interface IWMReaderAdvanced3 {
 #define IWMReaderAdvanced3_SetAllocateForOutput(This,dwOutputNum,fAllocate) (This)->lpVtbl->SetAllocateForOutput(This,dwOutputNum,fAllocate)
 #define IWMReaderAdvanced3_GetAllocateForOutput(This,dwOutputNum,pfAllocate) (This)->lpVtbl->GetAllocateForOutput(This,dwOutputNum,pfAllocate)
 #define IWMReaderAdvanced3_SetAllocateForStream(This,wStreamNum,fAllocate) (This)->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate)
-#define IWMReaderAdvanced3_GetAllocateForStream(This,dwSreamNum,pfAllocate) (This)->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate)
+#define IWMReaderAdvanced3_GetAllocateForStream(This,dwStreamNum,pfAllocate) (This)->lpVtbl->GetAllocateForStream(This,dwStreamNum,pfAllocate)
 #define IWMReaderAdvanced3_GetStatistics(This,pStatistics) (This)->lpVtbl->GetStatistics(This,pStatistics)
 #define IWMReaderAdvanced3_SetClientInfo(This,pClientInfo) (This)->lpVtbl->SetClientInfo(This,pClientInfo)
 #define IWMReaderAdvanced3_GetMaxOutputSampleSize(This,dwOutput,pcbMax) (This)->lpVtbl->GetMaxOutputSampleSize(This,dwOutput,pcbMax)
@@ -3808,8 +3808,8 @@ static FORCEINLINE HRESULT IWMReaderAdvanced3_GetAllocateForOutput(IWMReaderAdva
 static FORCEINLINE HRESULT IWMReaderAdvanced3_SetAllocateForStream(IWMReaderAdvanced3* This,WORD wStreamNum,WINBOOL fAllocate) {
     return This->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate);
 }
-static FORCEINLINE HRESULT IWMReaderAdvanced3_GetAllocateForStream(IWMReaderAdvanced3* This,WORD dwSreamNum,WINBOOL *pfAllocate) {
-    return This->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate);
+static FORCEINLINE HRESULT IWMReaderAdvanced3_GetAllocateForStream(IWMReaderAdvanced3* This,WORD dwStreamNum,WINBOOL *pfAllocate) {
+    return This->lpVtbl->GetAllocateForStream(This,dwStreamNum,pfAllocate);
 }
 static FORCEINLINE HRESULT IWMReaderAdvanced3_GetStatistics(IWMReaderAdvanced3* This,WM_READER_STATISTICS *pStatistics) {
     return This->lpVtbl->GetStatistics(This,pStatistics);
@@ -4039,7 +4039,7 @@ typedef struct IWMReaderAdvanced4Vtbl {
 
     HRESULT (STDMETHODCALLTYPE *GetAllocateForStream)(
         IWMReaderAdvanced4* This,
-        WORD dwSreamNum,
+        WORD dwStreamNum,
         WINBOOL *pfAllocate);
 
     HRESULT (STDMETHODCALLTYPE *GetStatistics)(
@@ -4225,7 +4225,7 @@ interface IWMReaderAdvanced4 {
 #define IWMReaderAdvanced4_SetAllocateForOutput(This,dwOutputNum,fAllocate) (This)->lpVtbl->SetAllocateForOutput(This,dwOutputNum,fAllocate)
 #define IWMReaderAdvanced4_GetAllocateForOutput(This,dwOutputNum,pfAllocate) (This)->lpVtbl->GetAllocateForOutput(This,dwOutputNum,pfAllocate)
 #define IWMReaderAdvanced4_SetAllocateForStream(This,wStreamNum,fAllocate) (This)->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate)
-#define IWMReaderAdvanced4_GetAllocateForStream(This,dwSreamNum,pfAllocate) (This)->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate)
+#define IWMReaderAdvanced4_GetAllocateForStream(This,dwStreamNum,pfAllocate) (This)->lpVtbl->GetAllocateForStream(This,dwStreamNum,pfAllocate)
 #define IWMReaderAdvanced4_GetStatistics(This,pStatistics) (This)->lpVtbl->GetStatistics(This,pStatistics)
 #define IWMReaderAdvanced4_SetClientInfo(This,pClientInfo) (This)->lpVtbl->SetClientInfo(This,pClientInfo)
 #define IWMReaderAdvanced4_GetMaxOutputSampleSize(This,dwOutput,pcbMax) (This)->lpVtbl->GetMaxOutputSampleSize(This,dwOutput,pcbMax)
@@ -4314,8 +4314,8 @@ static FORCEINLINE HRESULT IWMReaderAdvanced4_GetAllocateForOutput(IWMReaderAdva
 static FORCEINLINE HRESULT IWMReaderAdvanced4_SetAllocateForStream(IWMReaderAdvanced4* This,WORD wStreamNum,WINBOOL fAllocate) {
     return This->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate);
 }
-static FORCEINLINE HRESULT IWMReaderAdvanced4_GetAllocateForStream(IWMReaderAdvanced4* This,WORD dwSreamNum,WINBOOL *pfAllocate) {
-    return This->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate);
+static FORCEINLINE HRESULT IWMReaderAdvanced4_GetAllocateForStream(IWMReaderAdvanced4* This,WORD dwStreamNum,WINBOOL *pfAllocate) {
+    return This->lpVtbl->GetAllocateForStream(This,dwStreamNum,pfAllocate);
 }
 static FORCEINLINE HRESULT IWMReaderAdvanced4_GetStatistics(IWMReaderAdvanced4* This,WM_READER_STATISTICS *pStatistics) {
     return This->lpVtbl->GetStatistics(This,pStatistics);
@@ -4600,7 +4600,7 @@ typedef struct IWMReaderAdvanced5Vtbl {
 
     HRESULT (STDMETHODCALLTYPE *GetAllocateForStream)(
         IWMReaderAdvanced5* This,
-        WORD dwSreamNum,
+        WORD dwStreamNum,
         WINBOOL *pfAllocate);
 
     HRESULT (STDMETHODCALLTYPE *GetStatistics)(
@@ -4792,7 +4792,7 @@ interface IWMReaderAdvanced5 {
 #define IWMReaderAdvanced5_SetAllocateForOutput(This,dwOutputNum,fAllocate) (This)->lpVtbl->SetAllocateForOutput(This,dwOutputNum,fAllocate)
 #define IWMReaderAdvanced5_GetAllocateForOutput(This,dwOutputNum,pfAllocate) (This)->lpVtbl->GetAllocateForOutput(This,dwOutputNum,pfAllocate)
 #define IWMReaderAdvanced5_SetAllocateForStream(This,wStreamNum,fAllocate) (This)->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate)
-#define IWMReaderAdvanced5_GetAllocateForStream(This,dwSreamNum,pfAllocate) (This)->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate)
+#define IWMReaderAdvanced5_GetAllocateForStream(This,dwStreamNum,pfAllocate) (This)->lpVtbl->GetAllocateForStream(This,dwStreamNum,pfAllocate)
 #define IWMReaderAdvanced5_GetStatistics(This,pStatistics) (This)->lpVtbl->GetStatistics(This,pStatistics)
 #define IWMReaderAdvanced5_SetClientInfo(This,pClientInfo) (This)->lpVtbl->SetClientInfo(This,pClientInfo)
 #define IWMReaderAdvanced5_GetMaxOutputSampleSize(This,dwOutput,pcbMax) (This)->lpVtbl->GetMaxOutputSampleSize(This,dwOutput,pcbMax)
@@ -4883,8 +4883,8 @@ static FORCEINLINE HRESULT IWMReaderAdvanced5_GetAllocateForOutput(IWMReaderAdva
 static FORCEINLINE HRESULT IWMReaderAdvanced5_SetAllocateForStream(IWMReaderAdvanced5* This,WORD wStreamNum,WINBOOL fAllocate) {
     return This->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate);
 }
-static FORCEINLINE HRESULT IWMReaderAdvanced5_GetAllocateForStream(IWMReaderAdvanced5* This,WORD dwSreamNum,WINBOOL *pfAllocate) {
-    return This->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate);
+static FORCEINLINE HRESULT IWMReaderAdvanced5_GetAllocateForStream(IWMReaderAdvanced5* This,WORD dwStreamNum,WINBOOL *pfAllocate) {
+    return This->lpVtbl->GetAllocateForStream(This,dwStreamNum,pfAllocate);
 }
 static FORCEINLINE HRESULT IWMReaderAdvanced5_GetStatistics(IWMReaderAdvanced5* This,WM_READER_STATISTICS *pStatistics) {
     return This->lpVtbl->GetStatistics(This,pStatistics);
@@ -5109,7 +5109,7 @@ typedef struct IWMReaderAdvanced6Vtbl {
 
     HRESULT (STDMETHODCALLTYPE *GetAllocateForStream)(
         IWMReaderAdvanced6* This,
-        WORD dwSreamNum,
+        WORD dwStreamNum,
         WINBOOL *pfAllocate);
 
     HRESULT (STDMETHODCALLTYPE *GetStatistics)(
@@ -5311,7 +5311,7 @@ interface IWMReaderAdvanced6 {
 #define IWMReaderAdvanced6_SetAllocateForOutput(This,dwOutputNum,fAllocate) (This)->lpVtbl->SetAllocateForOutput(This,dwOutputNum,fAllocate)
 #define IWMReaderAdvanced6_GetAllocateForOutput(This,dwOutputNum,pfAllocate) (This)->lpVtbl->GetAllocateForOutput(This,dwOutputNum,pfAllocate)
 #define IWMReaderAdvanced6_SetAllocateForStream(This,wStreamNum,fAllocate) (This)->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate)
-#define IWMReaderAdvanced6_GetAllocateForStream(This,dwSreamNum,pfAllocate) (This)->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate)
+#define IWMReaderAdvanced6_GetAllocateForStream(This,dwStreamNum,pfAllocate) (This)->lpVtbl->GetAllocateForStream(This,dwStreamNum,pfAllocate)
 #define IWMReaderAdvanced6_GetStatistics(This,pStatistics) (This)->lpVtbl->GetStatistics(This,pStatistics)
 #define IWMReaderAdvanced6_SetClientInfo(This,pClientInfo) (This)->lpVtbl->SetClientInfo(This,pClientInfo)
 #define IWMReaderAdvanced6_GetMaxOutputSampleSize(This,dwOutput,pcbMax) (This)->lpVtbl->GetMaxOutputSampleSize(This,dwOutput,pcbMax)
@@ -5404,8 +5404,8 @@ static FORCEINLINE HRESULT IWMReaderAdvanced6_GetAllocateForOutput(IWMReaderAdva
 static FORCEINLINE HRESULT IWMReaderAdvanced6_SetAllocateForStream(IWMReaderAdvanced6* This,WORD wStreamNum,WINBOOL fAllocate) {
     return This->lpVtbl->SetAllocateForStream(This,wStreamNum,fAllocate);
 }
-static FORCEINLINE HRESULT IWMReaderAdvanced6_GetAllocateForStream(IWMReaderAdvanced6* This,WORD dwSreamNum,WINBOOL *pfAllocate) {
-    return This->lpVtbl->GetAllocateForStream(This,dwSreamNum,pfAllocate);
+static FORCEINLINE HRESULT IWMReaderAdvanced6_GetAllocateForStream(IWMReaderAdvanced6* This,WORD dwStreamNum,WINBOOL *pfAllocate) {
+    return This->lpVtbl->GetAllocateForStream(This,dwStreamNum,pfAllocate);
 }
 static FORCEINLINE HRESULT IWMReaderAdvanced6_GetStatistics(IWMReaderAdvanced6* This,WM_READER_STATISTICS *pStatistics) {
     return This->lpVtbl->GetStatistics(This,pStatistics);

@@ -67,6 +67,11 @@ typedef interface IEnumTfProperties IEnumTfProperties;
 typedef interface ITfRangeBackup ITfRangeBackup;
 #endif
 
+#ifndef __ITextStoreACPServices_FWD_DEFINED__
+#define __ITextStoreACPServices_FWD_DEFINED__
+typedef interface ITextStoreACPServices ITextStoreACPServices;
+#endif
+
 #ifndef __ITfContext_FWD_DEFINED__
 #define __ITfContext_FWD_DEFINED__
 typedef interface ITfContext ITfContext;
@@ -317,6 +322,11 @@ typedef interface ITfMouseTracker ITfMouseTracker;
 typedef interface ITfMouseTrackerACP ITfMouseTrackerACP;
 #endif
 
+#ifndef __ITfTransitoryExtensionSink_FWD_DEFINED__
+#define __ITfTransitoryExtensionSink_FWD_DEFINED__
+typedef interface ITfTransitoryExtensionSink ITfTransitoryExtensionSink;
+#endif
+
 /* Headers for imported files */
 
 #include <oaidl.h>
@@ -436,6 +446,16 @@ typedef interface ITfCompositionView ITfCompositionView;
 #ifndef __ITfKeyEventSink_FWD_DEFINED__
 #define __ITfKeyEventSink_FWD_DEFINED__
 typedef interface ITfKeyEventSink ITfKeyEventSink;
+#endif
+
+#ifndef __ITfPersistentPropertyLoaderACP_FWD_DEFINED__
+#define __ITfPersistentPropertyLoaderACP_FWD_DEFINED__
+typedef interface ITfPersistentPropertyLoaderACP ITfPersistentPropertyLoaderACP;
+#endif
+
+#ifndef __ITfRangeACP_FWD_DEFINED__
+#define __ITfRangeACP_FWD_DEFINED__
+typedef interface ITfRangeACP ITfRangeACP;
 #endif
 
 #if 0
@@ -2048,6 +2068,171 @@ void __RPC_STUB ITfRangeBackup_Restore_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __ITfRangeBackup_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITextStoreACPServices interface
+ */
+#ifndef __ITextStoreACPServices_INTERFACE_DEFINED__
+#define __ITextStoreACPServices_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ITextStoreACPServices, 0xaa80e901, 0x2021, 0x11d2, 0x93,0xe0, 0x00,0x60,0xb0,0x67,0xb8,0x6e);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("aa80e901-2021-11d2-93e0-0060b067b86e")
+ITextStoreACPServices : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Serialize(
+        ITfProperty *prop,
+        ITfRange *range,
+        TF_PERSISTENT_PROPERTY_HEADER_ACP *header,
+        IStream *stream) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Unserialize(
+        ITfProperty *prop,
+        const TF_PERSISTENT_PROPERTY_HEADER_ACP *header,
+        IStream *stream,
+        ITfPersistentPropertyLoaderACP *loader) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ForceLoadProperty(
+        ITfProperty *prop) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateRange(
+        LONG start,
+        LONG end,
+        ITfRangeACP **range) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITextStoreACPServices, 0xaa80e901, 0x2021, 0x11d2, 0x93,0xe0, 0x00,0x60,0xb0,0x67,0xb8,0x6e)
+#endif
+#else
+typedef struct ITextStoreACPServicesVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITextStoreACPServices* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITextStoreACPServices* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITextStoreACPServices* This);
+
+    /*** ITextStoreACPServices methods ***/
+    HRESULT (STDMETHODCALLTYPE *Serialize)(
+        ITextStoreACPServices* This,
+        ITfProperty *prop,
+        ITfRange *range,
+        TF_PERSISTENT_PROPERTY_HEADER_ACP *header,
+        IStream *stream);
+
+    HRESULT (STDMETHODCALLTYPE *Unserialize)(
+        ITextStoreACPServices* This,
+        ITfProperty *prop,
+        const TF_PERSISTENT_PROPERTY_HEADER_ACP *header,
+        IStream *stream,
+        ITfPersistentPropertyLoaderACP *loader);
+
+    HRESULT (STDMETHODCALLTYPE *ForceLoadProperty)(
+        ITextStoreACPServices* This,
+        ITfProperty *prop);
+
+    HRESULT (STDMETHODCALLTYPE *CreateRange)(
+        ITextStoreACPServices* This,
+        LONG start,
+        LONG end,
+        ITfRangeACP **range);
+
+    END_INTERFACE
+} ITextStoreACPServicesVtbl;
+interface ITextStoreACPServices {
+    CONST_VTBL ITextStoreACPServicesVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITextStoreACPServices_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITextStoreACPServices_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITextStoreACPServices_Release(This) (This)->lpVtbl->Release(This)
+/*** ITextStoreACPServices methods ***/
+#define ITextStoreACPServices_Serialize(This,prop,range,header,stream) (This)->lpVtbl->Serialize(This,prop,range,header,stream)
+#define ITextStoreACPServices_Unserialize(This,prop,header,stream,loader) (This)->lpVtbl->Unserialize(This,prop,header,stream,loader)
+#define ITextStoreACPServices_ForceLoadProperty(This,prop) (This)->lpVtbl->ForceLoadProperty(This,prop)
+#define ITextStoreACPServices_CreateRange(This,start,end,range) (This)->lpVtbl->CreateRange(This,start,end,range)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITextStoreACPServices_QueryInterface(ITextStoreACPServices* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITextStoreACPServices_AddRef(ITextStoreACPServices* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITextStoreACPServices_Release(ITextStoreACPServices* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITextStoreACPServices methods ***/
+static FORCEINLINE HRESULT ITextStoreACPServices_Serialize(ITextStoreACPServices* This,ITfProperty *prop,ITfRange *range,TF_PERSISTENT_PROPERTY_HEADER_ACP *header,IStream *stream) {
+    return This->lpVtbl->Serialize(This,prop,range,header,stream);
+}
+static FORCEINLINE HRESULT ITextStoreACPServices_Unserialize(ITextStoreACPServices* This,ITfProperty *prop,const TF_PERSISTENT_PROPERTY_HEADER_ACP *header,IStream *stream,ITfPersistentPropertyLoaderACP *loader) {
+    return This->lpVtbl->Unserialize(This,prop,header,stream,loader);
+}
+static FORCEINLINE HRESULT ITextStoreACPServices_ForceLoadProperty(ITextStoreACPServices* This,ITfProperty *prop) {
+    return This->lpVtbl->ForceLoadProperty(This,prop);
+}
+static FORCEINLINE HRESULT ITextStoreACPServices_CreateRange(ITextStoreACPServices* This,LONG start,LONG end,ITfRangeACP **range) {
+    return This->lpVtbl->CreateRange(This,start,end,range);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ITextStoreACPServices_Serialize_Proxy(
+    ITextStoreACPServices* This,
+    ITfProperty *prop,
+    ITfRange *range,
+    TF_PERSISTENT_PROPERTY_HEADER_ACP *header,
+    IStream *stream);
+void __RPC_STUB ITextStoreACPServices_Serialize_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITextStoreACPServices_Unserialize_Proxy(
+    ITextStoreACPServices* This,
+    ITfProperty *prop,
+    const TF_PERSISTENT_PROPERTY_HEADER_ACP *header,
+    IStream *stream,
+    ITfPersistentPropertyLoaderACP *loader);
+void __RPC_STUB ITextStoreACPServices_Unserialize_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITextStoreACPServices_ForceLoadProperty_Proxy(
+    ITextStoreACPServices* This,
+    ITfProperty *prop);
+void __RPC_STUB ITextStoreACPServices_ForceLoadProperty_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE ITextStoreACPServices_CreateRange_Proxy(
+    ITextStoreACPServices* This,
+    LONG start,
+    LONG end,
+    ITfRangeACP **range);
+void __RPC_STUB ITextStoreACPServices_CreateRange_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ITextStoreACPServices_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * ITfContext interface
@@ -10909,6 +11094,102 @@ void __RPC_STUB ITfMouseTrackerACP_UnadviseMouseSink_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __ITfMouseTrackerACP_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITfTransitoryExtensionSink interface
+ */
+#ifndef __ITfTransitoryExtensionSink_INTERFACE_DEFINED__
+#define __ITfTransitoryExtensionSink_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ITfTransitoryExtensionSink, 0xa615096f, 0x1c57, 0x4813, 0x8a,0x15, 0x55,0xee,0x6e,0x5a,0x83,0x9c);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("a615096f-1c57-4813-8a15-55ee6e5a839c")
+ITfTransitoryExtensionSink : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE OnTransitoryExtensionUpdated(
+        ITfContext *pic,
+        TfEditCookie ecReadOnly,
+        ITfRange *pResultRange,
+        ITfRange *pCompositionRange,
+        WINBOOL *pfDeleteResultRange) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITfTransitoryExtensionSink, 0xa615096f, 0x1c57, 0x4813, 0x8a,0x15, 0x55,0xee,0x6e,0x5a,0x83,0x9c)
+#endif
+#else
+typedef struct ITfTransitoryExtensionSinkVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITfTransitoryExtensionSink* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITfTransitoryExtensionSink* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITfTransitoryExtensionSink* This);
+
+    /*** ITfTransitoryExtensionSink methods ***/
+    HRESULT (STDMETHODCALLTYPE *OnTransitoryExtensionUpdated)(
+        ITfTransitoryExtensionSink* This,
+        ITfContext *pic,
+        TfEditCookie ecReadOnly,
+        ITfRange *pResultRange,
+        ITfRange *pCompositionRange,
+        WINBOOL *pfDeleteResultRange);
+
+    END_INTERFACE
+} ITfTransitoryExtensionSinkVtbl;
+interface ITfTransitoryExtensionSink {
+    CONST_VTBL ITfTransitoryExtensionSinkVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITfTransitoryExtensionSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITfTransitoryExtensionSink_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITfTransitoryExtensionSink_Release(This) (This)->lpVtbl->Release(This)
+/*** ITfTransitoryExtensionSink methods ***/
+#define ITfTransitoryExtensionSink_OnTransitoryExtensionUpdated(This,pic,ecReadOnly,pResultRange,pCompositionRange,pfDeleteResultRange) (This)->lpVtbl->OnTransitoryExtensionUpdated(This,pic,ecReadOnly,pResultRange,pCompositionRange,pfDeleteResultRange)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfTransitoryExtensionSink_QueryInterface(ITfTransitoryExtensionSink* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfTransitoryExtensionSink_AddRef(ITfTransitoryExtensionSink* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfTransitoryExtensionSink_Release(ITfTransitoryExtensionSink* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfTransitoryExtensionSink methods ***/
+static FORCEINLINE HRESULT ITfTransitoryExtensionSink_OnTransitoryExtensionUpdated(ITfTransitoryExtensionSink* This,ITfContext *pic,TfEditCookie ecReadOnly,ITfRange *pResultRange,ITfRange *pCompositionRange,WINBOOL *pfDeleteResultRange) {
+    return This->lpVtbl->OnTransitoryExtensionUpdated(This,pic,ecReadOnly,pResultRange,pCompositionRange,pfDeleteResultRange);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE ITfTransitoryExtensionSink_OnTransitoryExtensionUpdated_Proxy(
+    ITfTransitoryExtensionSink* This,
+    ITfContext *pic,
+    TfEditCookie ecReadOnly,
+    ITfRange *pResultRange,
+    ITfRange *pCompositionRange,
+    WINBOOL *pfDeleteResultRange);
+void __RPC_STUB ITfTransitoryExtensionSink_OnTransitoryExtensionUpdated_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __ITfTransitoryExtensionSink_INTERFACE_DEFINED__ */
 
 /* Begin additional prototypes for all interfaces */
 

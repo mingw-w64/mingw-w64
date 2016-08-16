@@ -1482,6 +1482,8 @@ STDAPI CreateXmlWriter(REFIID riid, void **ppvObject, IMalloc *pMalloc);
 typedef IUnknown IXmlWriterOutput;
 STDAPI CreateXmlWriterOutputWithEncodingName(IUnknown *stream, IMalloc *pMalloc,
                                              LPCWSTR encoding, IXmlWriterOutput **output);
+STDAPI CreateXmlWriterOutputWithEncodingCodePage(IUnknown *stream, IMalloc *pMalloc,
+    UINT codepage, IXmlWriterOutput **output);
 /* Begin additional prototypes for all interfaces */
 
 
