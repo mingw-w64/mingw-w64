@@ -496,6 +496,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  direct-x/include/austream.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/d3d10.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/d3d10_1.idl \
+@HAVE_WIDL_TRUE@  direct-x/include/d3d10sdklayers.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/d3d11.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/d3d11_1.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/d3d11sdklayers.idl \
