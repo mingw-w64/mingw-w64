@@ -694,14 +694,14 @@ typedef struct _GROUP_AFFINITY {
 #define MAXUCHAR  0xff
 #define MAXUSHORT 0xffff
 #define MAXULONG  0xffffffff
-#define MAXLONGLONG (0x7fffffffffffffffLL)
+#define MAXLONGLONG (0x7fffffffffffffffll)
 
 /* Multiplication and Shift Operations */
-#define Int32x32To64(a,b) ((LONGLONG)(a)*(LONGLONG)(b))
-#define UInt32x32To64(a,b) ((ULONGLONG)(a)*(ULONGLONG)(b))
-#define Int64ShllMod32(a,b) ((ULONGLONG)(a)<<(b))
-#define Int64ShraMod32(a,b) ((LONGLONG)(a)>>(b))
-#define Int64ShrlMod32(a,b) ((ULONGLONG)(a)>>(b))
+#define Int32x32To64(a, b) (((LONGLONG) ((LONG) (a))) * ((LONGLONG) ((LONG) (b))))
+#define UInt32x32To64(a, b) (((ULONGLONG) ((unsigned int) (a))) *((ULONGLONG) ((unsigned int) (b))))
+#define Int64ShllMod32(a, b) (((ULONGLONG) (a)) << (b))
+#define Int64ShraMod32(a, b) (((LONGLONG) (a)) >> (b))
+#define Int64ShrlMod32(a, b) (((ULONGLONG) (a)) >> (b))
 
 /* C_ASSERT Definition */
 #define C_ASSERT(expr) extern char (*c_assert(void)) [(expr) ? 1 : -1]

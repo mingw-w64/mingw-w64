@@ -78,9 +78,9 @@
 #endif
 
 #define IFACEMETHOD(method) /*override*/ STDMETHOD (method)
-#define IFACEMETHOD_(type, method) /*override*/ STDMETHOD_ (type, method)
+#define IFACEMETHOD_(type, method) /*override*/ STDMETHOD_(type, method)
 #define IFACEMETHODV(method) /*override*/ STDMETHODV (method)
-#define IFACEMETHODV_(type, method) /*override*/ STDMETHODV_ (type, method)
+#define IFACEMETHODV_(type, method) /*override*/ STDMETHODV_(type, method)
 
 #include <guiddef.h>
 

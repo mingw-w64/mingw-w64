@@ -190,7 +190,7 @@
 #define EXONE (0x3fff)
 
 
-#define  mtherr(x,y)
+#define mtherr(fname, code)
 
 
 extern long double strtold (const char * __restrict__ s, char ** __restrict__ se);
@@ -293,7 +293,7 @@ static __inline__ void __eshdn6(register short unsigned int *x);
  */
 #define XPD 0,
 /* #define XPD */
-#define NANS
+#define NANS 1
 
 /* NaN's require infinity support. */
 #ifdef NANS

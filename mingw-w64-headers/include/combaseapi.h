@@ -63,7 +63,7 @@
 #define DECLARE_INTERFACE_IID_(iface, baseiface, iid) interface DECLSPEC_UUID (iid) DECLSPEC_NOVTABLE iface : public baseiface
 
 #define IFACEMETHOD(method) STDMETHOD (method)
-#define IFACEMETHOD_(type, method) STDMETHOD_(type, method)
+#define IFACEMETHOD_(type, method) /*override*/ STDMETHOD_(type, method)
 #define IFACEMETHODV(method) STDMETHODV (method)
 #define IFACEMETHODV_(type, method) STDMETHODV_(type, method)
 
@@ -92,9 +92,9 @@ extern "C++" {
 #define STDMETHODV_(type, method) type (STDMETHODVCALLTYPE *method)
 
 #define IFACEMETHOD(method) STDMETHOD (method)
-#define IFACEMETHOD_(type, method) STDMETHOD_ (type, method)
+#define IFACEMETHOD_(type, method) /*override*/ STDMETHOD_(type, method)
 #define IFACEMETHODV(method) STDMETHODV (method)
-#define IFACEMETHODV_(type, method) STDMETHODV_ (type, method)
+#define IFACEMETHODV_(type, method) /*override*/ STDMETHODV_(type, method)
 
 #ifndef BEGIN_INTERFACE
 #define BEGIN_INTERFACE
