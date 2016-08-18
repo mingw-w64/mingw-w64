@@ -281,7 +281,7 @@ do_entity (ctx_t *ctx, dir_data_t *dir, const char *name, size_t namlen)
 
 
 static int
-do_dir (ctx_t *ctx, struct stat *st, dir_data_t *old_dir)
+do_dir (ctx_t *ctx, struct stat *st, __UNUSED_PARAM(dir_data_t *old_dir))
 {
   dir_data_t dir;
   struct dirent *d;
@@ -375,7 +375,7 @@ free_objs (node_t *r)
 }
 
 static int
-do_it (const char *dir, int is_nftw, void *fcb, int descriptors, int flags)
+do_it (const char *dir, __UNUSED_PARAM(int is_nftw), void *fcb, int descriptors, int flags)
 {
   struct ctx_t ctx;
   struct stat st;
