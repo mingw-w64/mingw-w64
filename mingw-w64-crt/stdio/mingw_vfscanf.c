@@ -1043,7 +1043,7 @@ __mingw_sformat (_IFP *s, const char *format, va_list argp)
 
 		  if (width > 0)
 		    width = remain;
-		    --wbuf_cur_sz;
+		  --wbuf_cur_sz;
 		}
 	      wbuf = resize_wbuf (wbuf_cur_sz, &wbuf_max_sz, wbuf);
 	      wbuf[wbuf_cur_sz++] = c;
