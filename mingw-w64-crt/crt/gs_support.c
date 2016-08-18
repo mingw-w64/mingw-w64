@@ -99,6 +99,7 @@ __security_init_cookie (void)
 
 __declspec(noreturn) void __cdecl __report_gsfailure (ULONG_PTR);
 
+#define UNUSED_PARAM(x) { x = x; }
 __declspec(noreturn) void __cdecl
 __report_gsfailure (ULONG_PTR StackCookie)
 {
@@ -139,6 +140,7 @@ __report_gsfailure (ULONG_PTR StackCookie)
   GS_ContextRecord.Ecx = StackCookie;
 #elif defined(__arm__) || defined(_ARM_)
   GS_ExceptionRecord.ExceptionAddress = (PVOID) GS_ContextRecord.Pc;
+  UNUSED_PARAM(StackCookie);
 #endif /* _WIN64 */
   GS_ExceptionRecord.ExceptionCode = STATUS_STACK_BUFFER_OVERRUN;
   GS_ExceptionRecord.ExceptionFlags = EXCEPTION_NONCONTINUABLE;
