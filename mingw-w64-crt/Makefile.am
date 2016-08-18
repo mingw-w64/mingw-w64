@@ -330,6 +330,7 @@ src_libmingwex32=\
   math/sinf.c               math/sinl.c               math/sinl_internal.S      math/tanf.c               math/tanl.S
 
 # these only go into the ARM32 version:
+if ENABLE_SOFTMATH
 src_libmingwexarm32=\
   math/softmath/e_fmod.c    math/softmath/e_fmodf.c   math/softmath/e_powf.c    math/softmath/e_pow.c \
   math/softmath/acosf.c     math/softmath/acosh.c     math/softmath/acosl.c     math/softmath/acoshf.c    math/softmath/acoshl.c    \
@@ -347,6 +348,11 @@ src_libmingwexarm32=\
   math/softmath/remquo.c    math/softmath/remquof.c   math/softmath/remquol.c   math/softmath/scalbn.c    math/softmath/scalbnf.c   \
   math/softmath/scalbnl.c   math/softmath/sin.c       math/softmath/sincos.c    math/softmath/sincosf.c   math/softmath/sincosl.c   \
   math/softmath/sinf.c      math/softmath/sinl.c      math/softmath/tanf.c      math/softmath/tanl.c
+else
+src_libmingwexarm32=\
+  math/arm/exp2.c           math/arm/log2.c           math/arm/scalbn.c
+endif
+
 
 
 # These intrinsics are target independent:

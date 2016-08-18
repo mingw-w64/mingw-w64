@@ -65,3 +65,6 @@
 
 /* Build DFP support */
 #undef __ENABLE_REGISTEREDPRINTF
+
+/* Build softmath routines */
+#undef __ENABLE_SOFTMATH

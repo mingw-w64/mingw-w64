@@ -634,6 +634,8 @@ EGREP
 GREP
 ENABLE_TESTS_UNICODE_FALSE
 ENABLE_TESTS_UNICODE_TRUE
+ENABLE_SOFTMATH_FALSE
+ENABLE_SOFTMATH_TRUE
 ENABLE_REGISTEREDPRINTF_FALSE
 ENABLE_REGISTEREDPRINTF_TRUE
 ENABLE_PRINTF128_FALSE
@@ -1445,8 +1447,8 @@ Optional Features:
                           Enable creation of delay-import libraries
   --enable-experimental   Enable experimental features, valid options are
                           comma separated combination of all, dfp, printf128,
-                          registeredprintf. Refer to experimental.txt for
-                          descriptions.
+                          registeredprintf, softmath. Refer to
+                          experimental.txt for descriptions.
   --enable-tests-unicode  Enable the unicode testsuite without testing the
                           compiler for support.
   --enable-warnings[=0-5] Enable compile time warnings [default=3]
@@ -5696,6 +5698,7 @@ fi
 enable_dfp=no
 enable_printf128=no
 enable_registeredprintf=no
+enable_softmath=no
 experiment_list=$($AWK 'BEGIN{OFS=" "; len = split(ARGV[1],str,","); for(; len != 0; len--) print str[len] }' "$experimental_features")
 
 for arg in $experiment_list
@@ -5707,12 +5710,14 @@ case $arg in #(
     enable_printf128=yes ;; #(
   registeredprintf) :
     enable_registeredprintf=yes ;; #(
+  softmath) :
+    enable_softmath=yes ;; #(
   all) :
-    enable_dfp=yes; enable_printf128=yes; enable_registeredprintf=yes;  ;; #(
+    enable_dfp=yes; enable_printf128=yes; enable_registeredprintf=yes; enable_softmath=yes;  ;; #(
   yes) :
-    enable_dfp=yes; enable_printf128=yes; enable_registeredprintf=yes;  ;; #(
+    enable_dfp=yes; enable_printf128=yes; enable_registeredprintf=yes; enable_softmath=yes;  ;; #(
   no) :
-    enable_dfp=no; enable_printf128=no; enable_registeredprintf=no;  ;; #(
+    enable_dfp=no; enable_printf128=no; enable_registeredprintf=no; enable_softmath=no;  ;; #(
   *) :
     as_fn_error $? "Unknown option \"$experiment\"" "$LINENO" 5
  ;;
@@ -5745,6 +5750,14 @@ else
   ENABLE_REGISTEREDPRINTF_FALSE=
 fi
 
+ if  test "$enable_softmath" = "yes" ; then
+  ENABLE_SOFTMATH_TRUE=
+  ENABLE_SOFTMATH_FALSE='#'
+else
+  ENABLE_SOFTMATH_TRUE='#'
+  ENABLE_SOFTMATH_FALSE=
+fi
+
 if test -z "$ENABLE_DFP_TRUE"; then :
 
 $as_echo "#define __ENABLE_DFP 1" >>confdefs.h
@@ -5758,6 +5771,11 @@ fi
 if test -z "$ENABLE_REGISTEREDPRINTF_TRUE"; then :
 
 $as_echo "#define __ENABLE_REGISTEREDPRINTF 1" >>confdefs.h
+
+fi
+if test -z "$ENABLE_SOFTMATH_TRUE"; then :
+
+$as_echo "#define __ENABLE_SOFTMATH 1" >>confdefs.h
 
 fi
 
@@ -6332,6 +6350,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ENABLE_REGISTEREDPRINTF_TRUE}" && test -z "${ENABLE_REGISTEREDPRINTF_FALSE}"; then
   as_fn_error $? "conditional \"ENABLE_REGISTEREDPRINTF\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${ENABLE_SOFTMATH_TRUE}" && test -z "${ENABLE_SOFTMATH_FALSE}"; then
+  as_fn_error $? "conditional \"ENABLE_SOFTMATH\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ENABLE_TESTS_UNICODE_TRUE}" && test -z "${ENABLE_TESTS_UNICODE_FALSE}"; then
@@ -7700,6 +7722,8 @@ $as_echo "$as_me:   DFP printf...........: $enable_dfp" >&6;}
 $as_echo "$as_me:   128-bit printf.......: $enable_printf128" >&6;}
 { $as_echo "$as_me:${as_lineno-$LINENO}:   Custom printf........: $enable_registeredprintf" >&5
 $as_echo "$as_me:   Custom printf........: $enable_registeredprintf" >&6;}
+{ $as_echo "$as_me:${as_lineno-$LINENO}:   Softhmath............: $enable_softmath" >&5
+$as_echo "$as_me:   Softhmath............: $enable_softmath" >&6;}
 { $as_echo "$as_me:${as_lineno-$LINENO}: " >&5
 $as_echo "$as_me: " >&6;}
 
