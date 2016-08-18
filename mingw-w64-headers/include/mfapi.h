@@ -329,6 +329,12 @@ extern "C" {
   DEFINE_MEDIATYPE_GUID (MFVideoFormat_RGB555, D3DFMT_X1R5G5B5);
   DEFINE_MEDIATYPE_GUID (MFVideoFormat_RGB565, D3DFMT_R5G6B5);
   DEFINE_MEDIATYPE_GUID (MFVideoFormat_RGB8, D3DFMT_P8);
+
+#ifdef __GNUC__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wmultichar"
+#endif
+
   DEFINE_MEDIATYPE_GUID (MFVideoFormat_AI44, FCC ('AI44'));
   DEFINE_MEDIATYPE_GUID (MFVideoFormat_AYUV, FCC ('AYUV'));
   DEFINE_MEDIATYPE_GUID (MFVideoFormat_YUY2, FCC ('YUY2'));
@@ -382,6 +388,10 @@ extern "C" {
   DEFINE_MEDIATYPE_GUID (MFVideoFormat_VP90, FCC ('VP90'));
 #if WINVER >= 0x0602
   DEFINE_MEDIATYPE_GUID (MFVideoFormat_H263, FCC ('H263'));
+#endif
+
+#ifdef __GNUC__
+#pragma GCC diagnostic pop
 #endif
 
 #ifdef LOCAL_D3DFMT_DEFINES
