@@ -256,6 +256,11 @@ int fscanf(FILE *__stream, const char *__format, ...)
 }
 
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
+#ifdef __GNUC__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wshadow"
+#endif
+
 __mingw_ovr
 __attribute__((__format__ (gnu_scanf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
 int vsscanf (const char *__source, const char *__format, __builtin_va_list __local_argv)
@@ -276,6 +281,10 @@ int vfscanf (FILE *__stream,  const char *__format, __builtin_va_list __local_ar
 {
   return __mingw_vfscanf( __stream, __format, __local_argv );
 }
+
+#ifdef __GNUC__
+#pragma GCC diagnostic pop
+#endif
 #endif /* __NO_ISOCEXT */
 
 
@@ -399,6 +408,11 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
   int __cdecl asprintf(char ** __restrict__ ret,const char * __restrict__ format,...) __attribute__ ((format (__MINGW_PRINTF_FORMAT, 2, 3)));
 #endif /*_GNU_SOURCE*/
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
+#ifdef __GNUC__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wshadow"
+#endif
+
   __attribute__((__format__ (ms_scanf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
   int __cdecl __ms_vscanf(const char * __restrict__ Format, va_list argp);
   __attribute__((__format__ (ms_scanf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
@@ -425,6 +439,10 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
   {
     return __ms_vscanf (__format, __local_argv);
   }
+
+#ifdef __GNUC__
+#pragma GCC diagnostic pop
+#endif
 
 #endif /* __NO_ISOCEXT */
 #endif /* __USE_MINGW_ANSI_STDIO */
@@ -545,6 +563,12 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
 #if !defined (__USE_MINGW_ANSI_STDIO) || __USE_MINGW_ANSI_STDIO == 0
 /* this is here to deal with software defining
  * vsnprintf as _vsnprintf, eg. libxml2.  */
+
+#ifdef __GNUC__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wshadow"
+#endif
+
 #pragma push_macro("snprintf")
 #pragma push_macro("vsnprintf")
 # undef snprintf
@@ -578,6 +602,9 @@ int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict_
 
 #pragma pop_macro ("vsnprintf")
 #pragma pop_macro ("snprintf")
+#ifdef __GNUC__
+#pragma GCC diagnostic pop
+#endif
 #endif
 
   _CRTIMP int __cdecl _vscprintf(const char * __restrict__ _Format,va_list _ArgList);
