@@ -40,6 +40,13 @@ __MINGW_USYMBOL(floorl):
 	fstpt	(%rcx)
 	ret
 #elif defined(_ARM_) || defined(__arm__)
+	vmov	r2, r3, d0
+	lsr		r3, r3, #20
+	bic		r3, r3, #0x800
+	movw	r2, #0x7ff
+	cmp		r2, r3 /* Check for INF/NAN, just return the input in those cases */
+	it		eq
+	bxeq	lr
 	vmrs	r1, fpscr
 	bic		r0, r1, #0x00c00000
 	orr		r0, r0, #0x00800000 /* Round towards Minus Infinity */
