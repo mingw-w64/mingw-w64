@@ -77,13 +77,13 @@
 
 /* FIXME: The following belongs in values.h, but current MinGW
  * has nothing useful there!  OTOH, values.h is not a standard
- * header, and it's use may be considered obsolete; perhaps it
+ * header, and its use may be considered obsolete; perhaps it
  * is better to just keep these definitions here.
  */
 
 #include <pshpack1.h>
 /* workaround gcc bug */
-#ifdef __GNUC__
+#if defined(__GNUC__) && !defined(__clang__)
 #define ATTRIB_GCC_STRUCT __attribute__((gcc_struct))
 #else
 #define ATTRIB_GCC_STRUCT
