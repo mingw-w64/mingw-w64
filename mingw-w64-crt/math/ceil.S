@@ -10,7 +10,7 @@
 	.align 4
 	.globl __MINGW_USYMBOL(ceil)
 	.def	__MINGW_USYMBOL(ceil);	.scl	2;	.type	32;	.endef
-#ifdef _WIN64
+#ifdef __x86_64__
 	.seh_proc	__MINGW_USYMBOL(ceil)
 #endif
 

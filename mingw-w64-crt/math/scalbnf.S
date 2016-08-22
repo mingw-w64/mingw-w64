@@ -7,7 +7,7 @@
 
 	.file	"scalbnf.S"
 	.text
-#ifdef _WIN64
+#ifdef __x86_64__
 	.align 8
 #else
 	.align 4
@@ -15,7 +15,7 @@
 .globl __MINGW_USYMBOL(scalbnf)
 	.def	__MINGW_USYMBOL(scalbnf);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(scalbnf):
-#ifdef _WIN64
+#ifdef __x86_64__
 	subq	$24, %rsp
 	movq	%rdx,(%rsp)
 	fildl	(%rsp)

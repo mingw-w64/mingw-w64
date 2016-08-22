@@ -11,7 +11,7 @@
 	.globl __MINGW_USYMBOL(trunc)
         .def    __MINGW_USYMBOL(trunc);  .scl    2;      .type   32;     .endef
 
-#ifdef _WIN64
+#ifdef __x86_64__
 	.seh_proc __MINGW_USYMBOL(trunc)
 #endif
 __MINGW_USYMBOL(trunc):

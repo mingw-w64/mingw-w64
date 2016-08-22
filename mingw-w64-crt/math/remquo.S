@@ -7,14 +7,14 @@
 
 	.file	"remquo.S"
         .text
-#ifdef _WIN64
+#ifdef __x86_64__
 	.align 8
 #else
 	.align 4
 #endif
 .globl __MINGW_USYMBOL(remquo)
 __MINGW_USYMBOL(remquo):
-#ifdef _WIN64
+#ifdef __x86_64__
 	movsd	%xmm1,-16(%rsp)
 	fldl	-16(%rsp)
 	movsd	%xmm0,-16(%rsp)

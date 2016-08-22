@@ -7,7 +7,7 @@
 
 	.file	"log10l.S"
 	.text
-#ifdef _WIN64
+#ifdef __x86_64__
 	.align 8
 #else
 	.align 4
@@ -19,7 +19,7 @@ one:	.double 1.0
 limit:	.double 0.29
 
 	.text
-#ifdef _WIN64
+#ifdef __x86_64__
 	.align 8
 #else
 	.align 4
@@ -27,7 +27,7 @@ limit:	.double 0.29
 .globl __MINGW_USYMBOL(log10l)
 	.def	__MINGW_USYMBOL(log10l);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(log10l):
-#ifdef _WIN64
+#ifdef __x86_64__
 	fldlg2			// log10(2)
 	fldt	(%rdx)		// x : log10(2)
 	fxam

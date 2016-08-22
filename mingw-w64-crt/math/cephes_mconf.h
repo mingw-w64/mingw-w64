@@ -11,7 +11,7 @@
 #define VOLATILE
 #define mtherr(fname, code)
 #define XPD 0,
-#ifdef _WIN64
+#ifdef __x86_64__
 #define XPD_SHORT 0, 0,
 #define XPD_LONG 0,
 #else

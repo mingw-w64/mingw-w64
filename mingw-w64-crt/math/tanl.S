@@ -7,7 +7,7 @@
 
 	.file	"tanl.S"
 	.text
-#ifdef _WIN64
+#ifdef __x86_64__
 	.align 8
 #else
 	.align 4
@@ -15,7 +15,7 @@
 .globl __MINGW_USYMBOL(tanl)
 	.def	__MINGW_USYMBOL(tanl);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(tanl):
-#ifdef _WIN64
+#ifdef __x86_64__
 	fldt	(%rdx)
 	fptan
 	fnstsw	%ax

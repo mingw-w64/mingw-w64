@@ -7,7 +7,7 @@
 
 	.file	"nearbyintl.S"
 	.text
-#ifdef _WIN64
+#ifdef __x86_64__
 	.align 8
 #else
 	.align 4

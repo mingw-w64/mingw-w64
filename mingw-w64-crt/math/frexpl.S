@@ -10,14 +10,14 @@
  * It returns an integer power of two to expnt and the significand
  * between 0.5 and 1 to y.  Thus  x = y * 2**expn.
  */ 
-#ifdef _WIN64
+#ifdef __x86_64__
 	.align 8
 #else
 	.align 2
 #endif
 .globl __MINGW_USYMBOL(frexpl)
 __MINGW_USYMBOL(frexpl):
-#ifdef _WIN64
+#ifdef __x86_64__
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp

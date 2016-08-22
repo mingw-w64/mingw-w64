@@ -10,7 +10,7 @@
 	.p2align 4,,15
 	.globl __MINGW_USYMBOL(floor)
 	.def	__MINGW_USYMBOL(floor);	.scl	2;	.type	32;	.endef
-#ifdef _WIN64
+#ifdef __x86_64__
 	.seh_proc __MINGW_USYMBOL(floor)
 #endif
 __MINGW_USYMBOL(floor):
