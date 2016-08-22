@@ -297,6 +297,16 @@ typedef interface IAMGraphBuilderCallback IAMGraphBuilderCallback;
 typedef interface IAMVfwCaptureDialogs IAMVfwCaptureDialogs;
 #endif
 
+#ifndef __IAMAsyncReaderTimestampScaling_FWD_DEFINED__
+#define __IAMAsyncReaderTimestampScaling_FWD_DEFINED__
+typedef interface IAMAsyncReaderTimestampScaling IAMAsyncReaderTimestampScaling;
+#endif
+
+#ifndef __IAMPluginControl_FWD_DEFINED__
+#define __IAMPluginControl_FWD_DEFINED__
+typedef interface IAMPluginControl IAMPluginControl;
+#endif
+
 /* Headers for imported files */
 
 #include <unknwn.h>
@@ -10515,6 +10525,327 @@ void __RPC_STUB IAMVfwCaptureDialogs_SendDriverMessage_Stub(
 
 #endif  /* __IAMVfwCaptureDialogs_INTERFACE_DEFINED__ */
 
+#if (_WIN32_WINNT >= 0x0601)
+/*****************************************************************************
+ * IAMAsyncReaderTimestampScaling interface
+ */
+#ifndef __IAMAsyncReaderTimestampScaling_INTERFACE_DEFINED__
+#define __IAMAsyncReaderTimestampScaling_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IAMAsyncReaderTimestampScaling, 0xcf7b26fc, 0x9a00, 0x485b, 0x81,0x47, 0x3e,0x78,0x9d,0x5e,0x8f,0x67);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("cf7b26fc-9a00-485b-8147-3e789d5e8f67")
+IAMAsyncReaderTimestampScaling : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetTimestampMode(
+        WINBOOL *pfRaw) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetTimestampMode(
+        WINBOOL fRaw) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAMAsyncReaderTimestampScaling, 0xcf7b26fc, 0x9a00, 0x485b, 0x81,0x47, 0x3e,0x78,0x9d,0x5e,0x8f,0x67)
+#endif
+#else
+typedef struct IAMAsyncReaderTimestampScalingVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IAMAsyncReaderTimestampScaling* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IAMAsyncReaderTimestampScaling* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IAMAsyncReaderTimestampScaling* This);
+
+    /*** IAMAsyncReaderTimestampScaling methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTimestampMode)(
+        IAMAsyncReaderTimestampScaling* This,
+        WINBOOL *pfRaw);
+
+    HRESULT (STDMETHODCALLTYPE *SetTimestampMode)(
+        IAMAsyncReaderTimestampScaling* This,
+        WINBOOL fRaw);
+
+    END_INTERFACE
+} IAMAsyncReaderTimestampScalingVtbl;
+interface IAMAsyncReaderTimestampScaling {
+    CONST_VTBL IAMAsyncReaderTimestampScalingVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IAMAsyncReaderTimestampScaling_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAMAsyncReaderTimestampScaling_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAMAsyncReaderTimestampScaling_Release(This) (This)->lpVtbl->Release(This)
+/*** IAMAsyncReaderTimestampScaling methods ***/
+#define IAMAsyncReaderTimestampScaling_GetTimestampMode(This,pfRaw) (This)->lpVtbl->GetTimestampMode(This,pfRaw)
+#define IAMAsyncReaderTimestampScaling_SetTimestampMode(This,fRaw) (This)->lpVtbl->SetTimestampMode(This,fRaw)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAMAsyncReaderTimestampScaling_QueryInterface(IAMAsyncReaderTimestampScaling* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAMAsyncReaderTimestampScaling_AddRef(IAMAsyncReaderTimestampScaling* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAMAsyncReaderTimestampScaling_Release(IAMAsyncReaderTimestampScaling* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAMAsyncReaderTimestampScaling methods ***/
+static FORCEINLINE HRESULT IAMAsyncReaderTimestampScaling_GetTimestampMode(IAMAsyncReaderTimestampScaling* This,WINBOOL *pfRaw) {
+    return This->lpVtbl->GetTimestampMode(This,pfRaw);
+}
+static FORCEINLINE HRESULT IAMAsyncReaderTimestampScaling_SetTimestampMode(IAMAsyncReaderTimestampScaling* This,WINBOOL fRaw) {
+    return This->lpVtbl->SetTimestampMode(This,fRaw);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IAMAsyncReaderTimestampScaling_GetTimestampMode_Proxy(
+    IAMAsyncReaderTimestampScaling* This,
+    WINBOOL *pfRaw);
+void __RPC_STUB IAMAsyncReaderTimestampScaling_GetTimestampMode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMAsyncReaderTimestampScaling_SetTimestampMode_Proxy(
+    IAMAsyncReaderTimestampScaling* This,
+    WINBOOL fRaw);
+void __RPC_STUB IAMAsyncReaderTimestampScaling_SetTimestampMode_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IAMAsyncReaderTimestampScaling_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAMPluginControl interface
+ */
+#ifndef __IAMPluginControl_INTERFACE_DEFINED__
+#define __IAMPluginControl_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IAMPluginControl, 0x0e26a181, 0xf40c, 0x4635, 0x87,0x86, 0x97,0x62,0x84,0xb5,0x29,0x81);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("0e26a181-f40c-4635-8786-976284b52981")
+IAMPluginControl : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetPreferredClsid(
+        REFGUID subType,
+        CLSID *clsid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPreferredClsidByIndex(
+        DWORD index,
+        GUID *subType,
+        CLSID *clsid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetPreferredClsid(
+        REFGUID subType,
+        const CLSID *clsid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IsDisabled(
+        REFCLSID clsid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDisabledByIndex(
+        DWORD index,
+        CLSID *clsid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetDisabled(
+        REFCLSID clsid,
+        WINBOOL disabled) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE IsLegacyDisabled(
+        LPCWSTR dllName) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAMPluginControl, 0x0e26a181, 0xf40c, 0x4635, 0x87,0x86, 0x97,0x62,0x84,0xb5,0x29,0x81)
+#endif
+#else
+typedef struct IAMPluginControlVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IAMPluginControl* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IAMPluginControl* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IAMPluginControl* This);
+
+    /*** IAMPluginControl methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetPreferredClsid)(
+        IAMPluginControl* This,
+        REFGUID subType,
+        CLSID *clsid);
+
+    HRESULT (STDMETHODCALLTYPE *GetPreferredClsidByIndex)(
+        IAMPluginControl* This,
+        DWORD index,
+        GUID *subType,
+        CLSID *clsid);
+
+    HRESULT (STDMETHODCALLTYPE *SetPreferredClsid)(
+        IAMPluginControl* This,
+        REFGUID subType,
+        const CLSID *clsid);
+
+    HRESULT (STDMETHODCALLTYPE *IsDisabled)(
+        IAMPluginControl* This,
+        REFCLSID clsid);
+
+    HRESULT (STDMETHODCALLTYPE *GetDisabledByIndex)(
+        IAMPluginControl* This,
+        DWORD index,
+        CLSID *clsid);
+
+    HRESULT (STDMETHODCALLTYPE *SetDisabled)(
+        IAMPluginControl* This,
+        REFCLSID clsid,
+        WINBOOL disabled);
+
+    HRESULT (STDMETHODCALLTYPE *IsLegacyDisabled)(
+        IAMPluginControl* This,
+        LPCWSTR dllName);
+
+    END_INTERFACE
+} IAMPluginControlVtbl;
+interface IAMPluginControl {
+    CONST_VTBL IAMPluginControlVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IAMPluginControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAMPluginControl_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAMPluginControl_Release(This) (This)->lpVtbl->Release(This)
+/*** IAMPluginControl methods ***/
+#define IAMPluginControl_GetPreferredClsid(This,subType,clsid) (This)->lpVtbl->GetPreferredClsid(This,subType,clsid)
+#define IAMPluginControl_GetPreferredClsidByIndex(This,index,subType,clsid) (This)->lpVtbl->GetPreferredClsidByIndex(This,index,subType,clsid)
+#define IAMPluginControl_SetPreferredClsid(This,subType,clsid) (This)->lpVtbl->SetPreferredClsid(This,subType,clsid)
+#define IAMPluginControl_IsDisabled(This,clsid) (This)->lpVtbl->IsDisabled(This,clsid)
+#define IAMPluginControl_GetDisabledByIndex(This,index,clsid) (This)->lpVtbl->GetDisabledByIndex(This,index,clsid)
+#define IAMPluginControl_SetDisabled(This,clsid,disabled) (This)->lpVtbl->SetDisabled(This,clsid,disabled)
+#define IAMPluginControl_IsLegacyDisabled(This,dllName) (This)->lpVtbl->IsLegacyDisabled(This,dllName)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAMPluginControl_QueryInterface(IAMPluginControl* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAMPluginControl_AddRef(IAMPluginControl* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAMPluginControl_Release(IAMPluginControl* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAMPluginControl methods ***/
+static FORCEINLINE HRESULT IAMPluginControl_GetPreferredClsid(IAMPluginControl* This,REFGUID subType,CLSID *clsid) {
+    return This->lpVtbl->GetPreferredClsid(This,subType,clsid);
+}
+static FORCEINLINE HRESULT IAMPluginControl_GetPreferredClsidByIndex(IAMPluginControl* This,DWORD index,GUID *subType,CLSID *clsid) {
+    return This->lpVtbl->GetPreferredClsidByIndex(This,index,subType,clsid);
+}
+static FORCEINLINE HRESULT IAMPluginControl_SetPreferredClsid(IAMPluginControl* This,REFGUID subType,const CLSID *clsid) {
+    return This->lpVtbl->SetPreferredClsid(This,subType,clsid);
+}
+static FORCEINLINE HRESULT IAMPluginControl_IsDisabled(IAMPluginControl* This,REFCLSID clsid) {
+    return This->lpVtbl->IsDisabled(This,clsid);
+}
+static FORCEINLINE HRESULT IAMPluginControl_GetDisabledByIndex(IAMPluginControl* This,DWORD index,CLSID *clsid) {
+    return This->lpVtbl->GetDisabledByIndex(This,index,clsid);
+}
+static FORCEINLINE HRESULT IAMPluginControl_SetDisabled(IAMPluginControl* This,REFCLSID clsid,WINBOOL disabled) {
+    return This->lpVtbl->SetDisabled(This,clsid,disabled);
+}
+static FORCEINLINE HRESULT IAMPluginControl_IsLegacyDisabled(IAMPluginControl* This,LPCWSTR dllName) {
+    return This->lpVtbl->IsLegacyDisabled(This,dllName);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IAMPluginControl_GetPreferredClsid_Proxy(
+    IAMPluginControl* This,
+    REFGUID subType,
+    CLSID *clsid);
+void __RPC_STUB IAMPluginControl_GetPreferredClsid_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMPluginControl_GetPreferredClsidByIndex_Proxy(
+    IAMPluginControl* This,
+    DWORD index,
+    GUID *subType,
+    CLSID *clsid);
+void __RPC_STUB IAMPluginControl_GetPreferredClsidByIndex_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMPluginControl_SetPreferredClsid_Proxy(
+    IAMPluginControl* This,
+    REFGUID subType,
+    const CLSID *clsid);
+void __RPC_STUB IAMPluginControl_SetPreferredClsid_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMPluginControl_IsDisabled_Proxy(
+    IAMPluginControl* This,
+    REFCLSID clsid);
+void __RPC_STUB IAMPluginControl_IsDisabled_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMPluginControl_GetDisabledByIndex_Proxy(
+    IAMPluginControl* This,
+    DWORD index,
+    CLSID *clsid);
+void __RPC_STUB IAMPluginControl_GetDisabledByIndex_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMPluginControl_SetDisabled_Proxy(
+    IAMPluginControl* This,
+    REFCLSID clsid,
+    WINBOOL disabled);
+void __RPC_STUB IAMPluginControl_SetDisabled_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IAMPluginControl_IsLegacyDisabled_Proxy(
+    IAMPluginControl* This,
+    LPCWSTR dllName);
+void __RPC_STUB IAMPluginControl_IsLegacyDisabled_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IAMPluginControl_INTERFACE_DEFINED__ */
+
+#endif /*(_WIN32_WINNT >= 0x0601)*/
 #ifndef __IReferenceClock2_FWD_DEFINED__
 #define __IReferenceClock2_FWD_DEFINED__
 typedef struct IReferenceClock2 IReferenceClock2;
@@ -16495,79 +16826,6 @@ __CRT_UUID_DECL(IMpeg2Demultiplexer,0x436eee9c,0x264f,0x4242,0x90,0xe1,0x4e,0x33
   HRESULT WINAPI IVPManager_GetVideoPortIndex_Proxy(IVPManager *This,DWORD *pdwVideoPortIndex);
   void __RPC_STUB IVPManager_GetVideoPortIndex_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
-
-#if (_WIN32_WINNT >= 0x0601)
-#undef  INTERFACE
-#define INTERFACE IAMAsyncReaderTimestampScaling
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IAMAsyncReaderTimestampScaling,IUnknown)
-{
-    BEGIN_INTERFACE
-
-    /* IUnknown methods */
-    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
-    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
-    STDMETHOD_(ULONG, Release)(THIS) PURE;
-
-    /* IAMAsyncReaderTimestampScaling methods */
-    STDMETHOD_(HRESULT,GetTimestampMode)(THIS_ WINBOOL *pfRaw) PURE;
-    STDMETHOD_(HRESULT,SetTimestampMode)(THIS_ WINBOOL fRaw) PURE;
-
-    END_INTERFACE
-};
-#ifdef COBJMACROS
-#define IAMAsyncReaderTimestampScaling_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IAMAsyncReaderTimestampScaling_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IAMAsyncReaderTimestampScaling_Release(This) (This)->lpVtbl->Release(This)
-#define IAMAsyncReaderTimestampScaling_GetTimestampMode(This,pfRaw) (This)->lpVtbl->GetTimestampMode(This,pfRaw)
-#define IAMAsyncReaderTimestampScaling_SetTimestampMode(This,fRaw) (This)->lpVtbl->SetTimestampMode(This,fRaw)
-#endif /*COBJMACROS*/
-
-#undef  INTERFACE
-#define INTERFACE IAMPluginControl
-#ifdef __GNUC__
-#warning COM interfaces layout in this header has not been verified.
-#warning COM interfaces with incorrect layout may not work at all.
-__MINGW_BROKEN_INTERFACE(INTERFACE)
-#endif
-DECLARE_INTERFACE_(IAMPluginControl,IUnknown)
-{
-    BEGIN_INTERFACE
-
-    /* IUnknown methods */
-    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
-    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
-    STDMETHOD_(ULONG, Release)(THIS) PURE;
-
-    /* IAMPluginControl methods */
-    STDMETHOD_(HRESULT,GetDisabledByIndex)(THIS_ DWORD index,CLSID *clsid) PURE;
-    STDMETHOD_(HRESULT,GetPreferredClsid)(THIS_ REFGUID subType,CLSID *clsid) PURE;
-    STDMETHOD_(HRESULT,GetPreferredClsidByIndex)(THIS_ DWORD index,GUID *subType,CLSID *clsid) PURE;
-    STDMETHOD_(HRESULT,IsDisabled)(THIS_ REFCLSID clsid) PURE;
-    STDMETHOD_(HRESULT,IsLegacyDisabled)(THIS_ LPCWSTR dllName) PURE;
-    STDMETHOD_(HRESULT,SetDisabled)(THIS_ REFCLSID clsid,BOOL disabled) PURE;
-    STDMETHOD_(HRESULT,SetPreferredClsid)(THIS_ REFGUID subType,const CLSID *clsid) PURE;
-
-    END_INTERFACE
-};
-#ifdef COBJMACROS
-#define IAMPluginControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define IAMPluginControl_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define IAMPluginControl_Release(This) (This)->lpVtbl->Release(This)
-#define IAMPluginControl_GetDisabledByIndex(This,index,clsid) (This)->lpVtbl->GetDisabledByIndex(This,index,clsid)
-#define IAMPluginControl_GetPreferredClsid(This,subType,clsid) (This)->lpVtbl->GetPreferredClsid(This,subType,clsid)
-#define IAMPluginControl_GetPreferredClsidByIndex(This,index,subType,clsid) (This)->lpVtbl->GetPreferredClsidByIndex(This,index,subType,clsid)
-#define IAMPluginControl_IsDisabled(This,clsid) (This)->lpVtbl->IsDisabled(This,clsid)
-#define IAMPluginControl_IsLegacyDisabled(This,dllName) (This)->lpVtbl->IsLegacyDisabled(This,dllName)
-#define IAMPluginControl_SetDisabled(This,clsid,disabled) (This)->lpVtbl->SetDisabled(This,clsid,disabled)
-#define IAMPluginControl_SetPreferredClsid(This,subType,clsid) (This)->lpVtbl->SetPreferredClsid(This,subType,clsid)
-#endif /*COBJMACROS*/
-
-#endif /*(_WIN32_WINNT >= 0x0601)*/
 
   extern RPC_IF_HANDLE __MIDL_itf_strmif_0413_v0_0_c_ifspec;
   extern RPC_IF_HANDLE __MIDL_itf_strmif_0413_v0_0_s_ifspec;
