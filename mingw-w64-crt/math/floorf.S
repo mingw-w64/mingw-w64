@@ -38,7 +38,7 @@ __MINGW_USYMBOL(floorf):
 	bic		r0, r1, #0x00c00000
 	orr		r0, r0, #0x00800000 /* Round towards Minus Infinity */
 	vmsr	fpscr, r0
-	vcvt.s32.f32	s0, s0
+	vcvtr.s32.f32	s0, s0
 	vcvt.f32.s32	s0, s0
 	vmsr	fpscr, r1
 	bx	lr
