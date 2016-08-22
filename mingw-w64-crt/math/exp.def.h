@@ -55,7 +55,7 @@ __expl_internal (long double x)
   asm ("fldl2e\n\t"             /* 1  log2(e)         */
        "fmul %%st(1),%%st\n\t"  /* 1  x log2(e)       */
 
-#ifdef _WIN64
+#ifdef __x86_64__
     "subq $8, %%rsp\n"
     "fnstcw 4(%%rsp)\n"
     "movzwl 4(%%rsp), %%eax\n"

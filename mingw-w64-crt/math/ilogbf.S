@@ -10,11 +10,11 @@
 	.p2align 4,,15
 .globl __MINGW_USYMBOL(ilogbf)
 	.def	__MINGW_USYMBOL(ilogbf);	.scl	2;	.type	32;	.endef
-#ifdef _WIN64
+#ifdef __x86_64__
 	.seh_proc __MINGW_USYMBOL(ilogbf)
 #endif
 __MINGW_USYMBOL(ilogbf):
-#ifdef _WIN64
+#ifdef __x86_64__
 /* generated code for:
 int
 ilogbf (float x)

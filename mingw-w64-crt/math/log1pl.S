@@ -21,7 +21,7 @@ limit:
 	.long 2920577761
 	.long 2491081031
 	.long 16381
-#ifdef _WIN64
+#ifdef __x86_64__
 	.align 8
 #else
 	.align 4
@@ -38,7 +38,7 @@ one:	.double 1.0
 .globl __MINGW_USYMBOL(log1pl)
 	.def	__MINGW_USYMBOL(log1pl);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(log1pl):
-#ifdef _WIN64
+#ifdef __x86_64__
 	fldln2
 	fldt	(%rdx)
 	fxam

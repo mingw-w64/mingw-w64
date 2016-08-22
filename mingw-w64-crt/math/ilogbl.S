@@ -7,7 +7,7 @@
 
 	.file	"ilogbl.S"
 	.text
-#ifdef _WIN64
+#ifdef __x86_64__
 	.align 8
 #else
 	.align 4
@@ -15,7 +15,7 @@
 .globl __MINGW_USYMBOL(ilogbl)
 	.def	__MINGW_USYMBOL(ilogbl);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(ilogbl):
-#ifdef _WIN64
+#ifdef __x86_64__
 	fldt	(%rcx)
 	fxam			/* Is NaN or +-Inf?  */
 	fstsw   %ax

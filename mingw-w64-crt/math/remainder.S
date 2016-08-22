@@ -7,7 +7,7 @@
 
 	.file	"remainder.S"
 	.text
-#ifdef _WIN64
+#ifdef __x86_64__
 	.align 8
 #else
 	.align 4
@@ -15,7 +15,7 @@
 .globl __MINGW_USYMBOL(remainder)
 	.def	__MINGW_USYMBOL(remainder);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(remainder):
-#ifdef _WIN64
+#ifdef __x86_64__
 	movsd	%xmm0,-16(%rsp)
 	movsd	%xmm1,-32(%rsp)
 	fldl	-32(%rsp)

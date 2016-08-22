@@ -7,7 +7,7 @@
 
 	.file	"log1pf.S"
 	.text
-#ifdef _WIN64
+#ifdef __x86_64__
 	.align 8
 #else
 	.align 4
@@ -25,7 +25,7 @@ one:	.float 1.0
 .globl __MINGW_USYMBOL(log1pf)
 	.def	__MINGW_USYMBOL(log1pf);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(log1pf):
-#ifdef _WIN64
+#ifdef __x86_64__
 	movss	%xmm0,-12(%rsp)
 	fldln2
 	flds	-12(%rsp)

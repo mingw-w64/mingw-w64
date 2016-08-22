@@ -7,14 +7,14 @@
 
 	.file	"remquol.S"
         .text
-#ifdef _WIN64
+#ifdef __x86_64__
 	.align 8
 #else
 	.align 4
 #endif
 .globl __MINGW_USYMBOL(remquol)
 __MINGW_USYMBOL(remquol):
-#ifdef _WIN64
+#ifdef __x86_64__
  	pushq	%rcx
         fldt (%r8)
         fldt (%rdx)

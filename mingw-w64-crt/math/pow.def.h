@@ -81,7 +81,7 @@ internal_modf (__FLT_TYPE value, __FLT_TYPE *iptr)
   __FLT_TYPE int_part = (__FLT_TYPE) 0.0;
   /* truncate */ 
   /* truncate */
-#ifdef _WIN64
+#ifdef __x86_64__
   asm ("pushq %%rax\n\tsubq $8, %%rsp\n"
     "fnstcw 4(%%rsp)\n"
     "movzwl 4(%%rsp), %%eax\n"

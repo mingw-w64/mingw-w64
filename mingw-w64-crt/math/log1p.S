@@ -7,7 +7,7 @@
 
 	.file	"log1p.S"
 	.text
-#ifdef _WIN64
+#ifdef __x86_64__
 	.align 8
 #else
 	.align 4
@@ -25,7 +25,7 @@ one:	.double 1.0
 .globl __MINGW_USYMBOL(log1p) 
 	.def	__MINGW_USYMBOL(log1p);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(log1p):
-#ifdef _WIN64
+#ifdef __x86_64__
 	movsd	%xmm0,-16(%rsp)
 	fldln2
 	fldl	-16(%rsp)

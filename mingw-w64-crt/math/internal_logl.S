@@ -7,7 +7,7 @@
 
 	.file	"internal_logl.S"
 	.text
-#ifdef _WIN64
+#ifdef __x86_64__
 	.align 8
 #else
 	.align 4
@@ -21,7 +21,7 @@ limit:	.double 0.29
 .globl __MINGW_USYMBOL(__logl_internal)
 	.def	__MINGW_USYMBOL(__logl_internal);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(__logl_internal):
-#ifdef _WIN64
+#ifdef __x86_64__
 	fldln2			// log(2)
 	fldt	(%rdx)		// x : log(2)
 	fld	%st		// x : x : log(2)

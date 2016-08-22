@@ -7,7 +7,7 @@
 
 	.file	"log2f.S"
 	.text
-#ifdef _WIN64
+#ifdef __x86_64__
 	.align 8
 #else
 	.align 4
@@ -21,7 +21,7 @@ limit:	.double 0.29
 .globl __MINGW_USYMBOL(log2f)
 	.def	__MINGW_USYMBOL(log2f);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(log2f):
-#ifdef _WIN64
+#ifdef __x86_64__
 	movss	%xmm0,-12(%rsp)
 	fldl	one(%rip)
 	flds	-12(%rsp)		// x : 1
