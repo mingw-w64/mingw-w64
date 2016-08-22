@@ -143,6 +143,14 @@ interface IMFTransform : IUnknown
                                   [out] DWORD *pdwStatus);
 }
 
+/* In gcc, declaring something 'extern' and then initializing it
+   generates a warning.  */
+cpp_quote("#ifdef __GNUC__")
+cpp_quote("#undef EXTERN_C")
+cpp_quote("#define EXTERN_C")
+cpp_quote("#endif")
+cpp_quote("")
+
 cpp_quote("EXTERN_C const DECLSPEC_SELECTANY PROPERTYKEY MFPKEY_CLSID = {{0xc57a84c0,0x1a80,0x40a3,{0x97,0xb5,0x92,0x72,0xa4,0x3,0xc8,0xae}}, 0x01};")
 cpp_quote("EXTERN_C const DECLSPEC_SELECTANY PROPERTYKEY MFPKEY_CATEGORY = {{0xc57a84c0,0x1a80,0x40a3,{0x97,0xb5,0x92,0x72,0xa4,0x3,0xc8,0xae}}, 0x02 };")
 cpp_quote("EXTERN_C const DECLSPEC_SELECTANY PROPERTYKEY MFPKEY_EXATTRIBUTE_SUPPORTED = {{0x456fe843,0x3c87,0x40c0,{0x94,0x9d,0x14,0x9,0xc9,0x7d,0xab,0x2c}}, 0x01};")
