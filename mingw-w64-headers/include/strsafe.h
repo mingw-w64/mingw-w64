@@ -83,8 +83,12 @@ typedef __LONG32 HRESULT;
 
 #ifndef __CRT_STRSAFE_IMPL
 #define STRSAFEAPI _STRSAFE_EXTERN_C __inline HRESULT WINAPI
+/* Variadic functions can't be __stdcall.  */
+#define STRSAFEAPIV _STRSAFE_EXTERN_C __inline HRESULT
 #else
 #define STRSAFEAPI HRESULT WINAPI
+/* Variadic functions can't be __stdcall.  */
+#define STRSAFEAPIV HRESULT
 #endif
 
 #ifndef __CRT_STRSAFE_IMPL
@@ -522,13 +526,13 @@ STRSAFEAPI StringCbVPrintfW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR
 }
 #endif /* !__STRSAFE__NO_INLINE */
 
-STRSAFEAPI StringCchPrintfA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszFormat,...);
-STRSAFEAPI StringCchPrintfW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszFormat,...);
+STRSAFEAPIV StringCchPrintfA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszFormat,...);
+STRSAFEAPIV StringCchPrintfW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszFormat,...);
 
 #define StringCchPrintf __MINGW_NAME_AW(StringCchPrintf)
 
 #ifndef __STRSAFE__NO_INLINE
-STRSAFEAPI StringCchPrintfA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszFormat,...) {
+STRSAFEAPIV StringCchPrintfA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR pszFormat,...) {
   HRESULT hr;
   va_list argList;
   if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
@@ -538,7 +542,7 @@ STRSAFEAPI StringCchPrintfA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPCSTR 
   return hr;
 }
 
-STRSAFEAPI StringCchPrintfW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszFormat,...) {
+STRSAFEAPIV StringCchPrintfW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWSTR pszFormat,...) {
   HRESULT hr;
   va_list argList;
   if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
@@ -549,13 +553,13 @@ STRSAFEAPI StringCchPrintfW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPCWST
 }
 #endif /* !__STRSAFE__NO_INLINE */
 
-STRSAFEAPI StringCbPrintfA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszFormat,...);
-STRSAFEAPI StringCbPrintfW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszFormat,...);
+STRSAFEAPIV StringCbPrintfA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszFormat,...);
+STRSAFEAPIV StringCbPrintfW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszFormat,...);
 
 #define StringCbPrintf __MINGW_NAME_AW(StringCbPrintf)
 
 #ifndef __STRSAFE__NO_INLINE
-STRSAFEAPI StringCbPrintfA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszFormat,...) {
+STRSAFEAPIV StringCbPrintfA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR pszFormat,...) {
   HRESULT hr;
   va_list argList;
   if(cbDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
@@ -565,7 +569,7 @@ STRSAFEAPI StringCbPrintfA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPCSTR ps
   return hr;
 }
 
-STRSAFEAPI StringCbPrintfW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszFormat,...) {
+STRSAFEAPIV StringCbPrintfW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR pszFormat,...) {
   HRESULT hr;
   va_list argList;
   size_t cchDest = cbDest / sizeof(wchar_t);
@@ -577,13 +581,13 @@ STRSAFEAPI StringCbPrintfW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPCWSTR 
 }
 #endif /* !__STRSAFE__NO_INLINE */
 
-STRSAFEAPI StringCchPrintfExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCSTR pszFormat,...);
-STRSAFEAPI StringCchPrintfExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCWSTR pszFormat,...);
+STRSAFEAPIV StringCchPrintfExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCSTR pszFormat,...);
+STRSAFEAPIV StringCchPrintfExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCWSTR pszFormat,...);
 
 #define StringCchPrintfEx __MINGW_NAME_AW(StringCchPrintfEx)
 
 #ifndef __STRSAFE__NO_INLINE
-STRSAFEAPI StringCchPrintfExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCSTR pszFormat,...) {
+STRSAFEAPIV StringCchPrintfExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCSTR pszFormat,...) {
   HRESULT hr;
   va_list argList;
   if(cchDest > STRSAFE_MAX_CCH) return STRSAFE_E_INVALID_PARAMETER;
@@ -593,7 +597,7 @@ STRSAFEAPI StringCchPrintfExA(STRSAFE_LPSTR pszDest,size_t cchDest,STRSAFE_LPSTR
   return hr;
 }
 
-STRSAFEAPI StringCchPrintfExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCWSTR pszFormat,...) {
+STRSAFEAPIV StringCchPrintfExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcchRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCWSTR pszFormat,...) {
   HRESULT hr;
   size_t cbDest = cchDest * sizeof(wchar_t);
   va_list argList;
@@ -605,13 +609,13 @@ STRSAFEAPI StringCchPrintfExW(STRSAFE_LPWSTR pszDest,size_t cchDest,STRSAFE_LPWS
 }
 #endif /* !__STRSAFE__NO_INLINE */
 
-STRSAFEAPI StringCbPrintfExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCSTR pszFormat,...);
-STRSAFEAPI StringCbPrintfExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCWSTR pszFormat,...);
+STRSAFEAPIV StringCbPrintfExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCSTR pszFormat,...);
+STRSAFEAPIV StringCbPrintfExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCWSTR pszFormat,...);
 
 #define StringCbPrintfEx __MINGW_NAME_AW(StringCbPrintfEx)
 
 #ifndef __STRSAFE__NO_INLINE
-STRSAFEAPI StringCbPrintfExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCSTR pszFormat,...) {
+STRSAFEAPIV StringCbPrintfExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCSTR pszFormat,...) {
   HRESULT hr;
   size_t cchDest;
   size_t cchRemaining = 0;
@@ -631,7 +635,7 @@ STRSAFEAPI StringCbPrintfExA(STRSAFE_LPSTR pszDest,size_t cbDest,STRSAFE_LPSTR *
   return hr;
 }
 
-STRSAFEAPI StringCbPrintfExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCWSTR pszFormat,...) {
+STRSAFEAPIV StringCbPrintfExW(STRSAFE_LPWSTR pszDest,size_t cbDest,STRSAFE_LPWSTR *ppszDestEnd,size_t *pcbRemaining,unsigned __LONG32 dwFlags,STRSAFE_LPCWSTR pszFormat,...) {
   HRESULT hr;
   size_t cchDest;
   size_t cchRemaining = 0;
