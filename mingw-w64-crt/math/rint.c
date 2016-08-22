@@ -23,6 +23,8 @@ double rint (double x) {
 #if defined(_AMD64_) || defined(__x86_64__) || defined(_X86_) || defined(__i386__)
   __asm__ __volatile__ ("frndint;" : "=t" (retval) : "0" (x));
 #elif defined(__arm__) || defined(_ARM_)
+    if (isnan(x) || isinf(x))
+        return x;
     retval = __rint_internal(x);
 #endif
   return retval;
