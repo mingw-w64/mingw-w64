@@ -61,6 +61,12 @@ __INTRINSICS_USEINLINE
 
 #ifdef __MINGW_INTRIN_INLINE
 
+/* Clang has support for MSVC builtins, GCC doesn't */
+#pragma push_macro("__has_builtin")
+#ifndef __has_builtin
+  #define __has_builtin(x) 0
+#endif
+
 /* These macros are used by the routines below.  While this file may be included 
    multiple times, these macros only need to be defined once. */
 #ifndef _INTRIN_MAC_
@@ -78,12 +84,6 @@ __INTRINSICS_USEINLINE
 #define __FLAGSET
 #define __FLAGCLOBBER1
 #define __FLAGCLOBBER2
-#endif
-
-/* Clang has support for MSVC builtins, GCC doesn't */
-#pragma push_macro("__has_builtin")
-#ifndef __has_builtin
-  #define __has_builtin(x) 0
 #endif
 
 /* This macro is used by __stosb, __stosw, __stosd, __stosq */
