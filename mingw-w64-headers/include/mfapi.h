@@ -71,9 +71,9 @@ extern "C" {
 #endif
     );
 
-  STDAPI MFShutdown ();
-  STDAPI MFLockPlatform ();
-  STDAPI MFUnlockPlatform ();
+  STDAPI MFShutdown (void);
+  STDAPI MFLockPlatform (void);
+  STDAPI MFUnlockPlatform (void);
   STDAPI MFPutWorkItem2 (DWORD dwQueue, LONG Priority, IMFAsyncCallback *pCallback, IUnknown *pState);
   STDAPI MFPutWorkItemEx2 (DWORD dwQueue, LONG Priority, IMFAsyncResult *pResult);
   STDAPI MFPutWaitingWorkItem (HANDLE hEvent, LONG Priority, IMFAsyncResult *pResult, MFWORKITEM_KEY *pKey);
@@ -124,7 +124,7 @@ extern "C" {
   STDAPI MFGetWorkQueueMMCSSClass (DWORD dwWorkQueueId, LPWSTR pwszClass, DWORD *pcchClass);
   STDAPI MFGetWorkQueueMMCSSTaskId (DWORD dwWorkQueueId, LPDWORD pdwTaskId);
   STDAPI MFRegisterPlatformWithMMCSS (PCWSTR wszClass, DWORD *pdwTaskId, LONG lPriority);
-  STDAPI MFUnregisterPlatformFromMMCSS ();
+  STDAPI MFUnregisterPlatformFromMMCSS (void);
   STDAPI MFGetWorkQueueMMCSSPriority (DWORD dwWorkQueueId, LONG *lPriority);
   STDAPI MFCreateFile (MF_FILE_ACCESSMODE AccessMode, MF_FILE_OPENMODE OpenMode, MF_FILE_FLAGS fFlags, LPCWSTR pwszFileURL, IMFByteStream **ppIByteStream);
   STDAPI MFCreateTempFile (MF_FILE_ACCESSMODE AccessMode, MF_FILE_OPENMODE OpenMode, MF_FILE_FLAGS fFlags, IMFByteStream **ppIByteStream);
@@ -148,7 +148,7 @@ extern "C" {
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
   STDAPI MFLockDXGIDeviceManager (UINT *pResetToken, IMFDXGIDeviceManager **ppManager);
-  STDAPI MFUnlockDXGIDeviceManager ();
+  STDAPI MFUnlockDXGIDeviceManager (void);
   STDAPI MFCreateDXGISurfaceBuffer (REFIID riid, IUnknown *punkSurface, UINT uSubresourceIndex, WINBOOL fBottomUpWhenLinear, IMFMediaBuffer **ppBuffer);
   STDAPI MFCreateVideoSampleAllocatorEx (REFIID riid, void **ppSampleAllocator);
   STDAPI MFCreateDXGIDeviceManager (UINT *resetToken, IMFDXGIDeviceManager **ppDeviceManager);

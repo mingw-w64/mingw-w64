@@ -137,7 +137,7 @@ extern "C" {
   RPCRTAPI void *RPC_ENTRY I_RpcAllocate(unsigned int Size);
   RPCRTAPI void RPC_ENTRY I_RpcFree(void *Object);
   RPCRTAPI void RPC_ENTRY I_RpcPauseExecution(unsigned __LONG32 Milliseconds);
-  RPCRTAPI RPC_STATUS RPC_ENTRY I_RpcGetExtendedError();
+  RPCRTAPI RPC_STATUS RPC_ENTRY I_RpcGetExtendedError(void);
 
   typedef void (__RPC_API *PRPC_RUNDOWN)(void *AssociationContext);
 
@@ -193,7 +193,7 @@ extern "C" {
 #define RPC_P_ADDR_FORMAT_TCP_IPV6 2
 
   RPCRTAPI RPC_STATUS RPC_ENTRY I_RpcServerInqLocalConnAddress(RPC_BINDING_HANDLE Binding,void *Buffer,unsigned __LONG32 *BufferSize,unsigned __LONG32 *AddressFormat);
-  RPCRTAPI void RPC_ENTRY I_RpcSessionStrictContextHandle();
+  RPCRTAPI void RPC_ENTRY I_RpcSessionStrictContextHandle(void);
   RPCRTAPI RPC_STATUS RPC_ENTRY I_RpcTurnOnEEInfoPropagation(void);
   RPCRTAPI RPC_STATUS RPC_ENTRY I_RpcConnectionInqSockBuffSize(unsigned __LONG32 *RecvBuffSize,unsigned __LONG32 *SendBuffSize);
   RPCRTAPI RPC_STATUS RPC_ENTRY I_RpcConnectionSetSockBuffSize(unsigned __LONG32 RecvBuffSize,unsigned __LONG32 SendBuffSize);
