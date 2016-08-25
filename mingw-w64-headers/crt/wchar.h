@@ -913,12 +913,17 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
 #define _WTIME_DEFINED
 
   _CRTIMP wchar_t *__cdecl _wasctime(const struct tm *_Tm);
+  _CRTIMP errno_t __cdecl _wasctime_s (wchar_t *_Buf,size_t _SizeInWords,const struct tm *_Tm);
   wchar_t *__cdecl _wctime32(const __time32_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP errno_t __cdecl _wctime32_s (wchar_t *_Buf,size_t _SizeInWords,const __time32_t *_Time);
   size_t __cdecl wcsftime(wchar_t * __restrict__ _Buf,size_t _SizeInWords,const wchar_t * __restrict__ _Format,const struct tm * __restrict__ _Tm);
   _CRTIMP size_t __cdecl _wcsftime_l(wchar_t * __restrict__ _Buf,size_t _SizeInWords,const wchar_t * __restrict__ _Format,const struct tm * __restrict__ _Tm,_locale_t _Locale);
   _CRTIMP wchar_t *__cdecl _wstrdate(wchar_t *_Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP errno_t __cdecl _wstrdate_s (wchar_t *_Buf,size_t _SizeInWords);
   _CRTIMP wchar_t *__cdecl _wstrtime(wchar_t *_Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP errno_t __cdecl _wstrtime_s (wchar_t *_Buf,size_t _SizeInWords);
   _CRTIMP wchar_t *__cdecl _wctime64(const __time64_t *_Time) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+  _CRTIMP errno_t __cdecl _wctime64_s (wchar_t *_Buf,size_t _SizeInWords,const __time64_t *_Time);
 
 #if !defined (RC_INVOKED) && !defined (_INC_WTIME_INL)
 #define _INC_WTIME_INL
@@ -931,6 +936,19 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
 #endif
 #endif /* __CRT__NO_INLINE */
 #endif
+
+#if !defined (RC_INVOKED) && !defined (_INC_WTIME_S_INL)
+#define _INC_WTIME_S_INL
+  errno_t __cdecl _wctime_s(wchar_t *, size_t, const time_t *);
+#ifndef __CRT__NO_INLINE
+#ifndef _USE_32BIT_TIME_T
+  __CRT_INLINE errno_t __cdecl _wctime_s (wchar_t *_Buffer,size_t _SizeInWords,const time_t *_Time) { return _wctime64_s (_Buffer,_SizeInWords,_Time); }
+#else
+  __CRT_INLINE errno_t __cdecl _wctime_s (wchar_t *_Buffer,size_t _SizeInWords,const time_t *_Time) { return _wctime32_s (_Buffer,_SizeInWords,_Time); }
+#endif /* _USE_32BIT_TIME_T */
+#endif  /* __CRT__NO_INLINE */
+#endif /* !defined (RC_INVOKED) && !defined (_INC_WTIME_S_INL) */
+
 #endif
 
   typedef int mbstate_t;
