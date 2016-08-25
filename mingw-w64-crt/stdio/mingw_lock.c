@@ -1,3 +1,4 @@
+#define _CRTIMP
 #include <stdio.h>
 #include <synchapi.h>
 #include "internal.h"
