@@ -1,8 +1,8 @@
-double _difftime64(unsigned long long _Time1,unsigned long long _Time2);
+#include <time.h>
 
-double _difftime64(unsigned long long _Time1,unsigned long long _Time2)
+double __cdecl _difftime64(__time64_t _Time1,__time64_t _Time2)
 {
-  unsigned long long r = _Time1 - _Time2;
+  __time64_t r = _Time1 - _Time2;
   if (r > _Time1)
     return -((double) (_Time2 - _Time1));
   return (double) r;
