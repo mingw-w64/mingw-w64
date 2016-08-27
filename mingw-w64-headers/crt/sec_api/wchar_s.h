@@ -10,25 +10,34 @@
 
 #if defined(MINGW_HAS_SECURE_API)
 
+#if defined(__LIBMSVCRT__)
+/* When building mingw-w64, this should be blank.  */
+#define _SECIMP
+#else
+#ifndef _SECIMP
+#define _SECIMP __declspec(dllimport)
+#endif /* _SECIMP */
+#endif /* defined(_CRTBLD) || defined(__LIBMSVCRT__) */
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 #ifndef _WIO_S_DEFINED
 #define _WIO_S_DEFINED
-  _CRTIMP errno_t __cdecl _waccess_s (const wchar_t *_Filename,int _AccessMode);
-  errno_t __cdecl _wmktemp_s (wchar_t *_TemplateName,size_t _SizeInWords);
+  _SECIMP errno_t __cdecl _waccess_s (const wchar_t *_Filename,int _AccessMode);
+  _SECIMP errno_t __cdecl _wmktemp_s (wchar_t *_TemplateName,size_t _SizeInWords);
 #endif
 
 #ifndef _WCONIO_S_DEFINED
 #define _WCONIO_S_DEFINED
-  errno_t __cdecl _cgetws_s (wchar_t *_Buffer,size_t _SizeInWords,size_t *_SizeRead);
-  int __cdecl _cwprintf_s (const wchar_t *_Format,...);
+  _SECIMP errno_t __cdecl _cgetws_s (wchar_t *_Buffer,size_t _SizeInWords,size_t *_SizeRead);
+  _SECIMP int __cdecl _cwprintf_s (const wchar_t *_Format,...);
   _CRTIMP int __cdecl _cwscanf_s(const wchar_t *_Format,...);
   _CRTIMP int __cdecl _cwscanf_s_l(const wchar_t *_Format,_locale_t _Locale,...);
-  int __cdecl _vcwprintf_s (const wchar_t *_Format,va_list _ArgList);
-  int __cdecl _cwprintf_s_l (const wchar_t *_Format,_locale_t _Locale,...);
-  int __cdecl _vcwprintf_s_l (const wchar_t *_Format,_locale_t _Locale,va_list _ArgList);
+  _SECIMP int __cdecl _vcwprintf_s (const wchar_t *_Format,va_list _ArgList);
+  _SECIMP int __cdecl _cwprintf_s_l (const wchar_t *_Format,_locale_t _Locale,...);
+  _SECIMP int __cdecl _vcwprintf_s_l (const wchar_t *_Format,_locale_t _Locale,va_list _ArgList);
 #endif
 
 #ifndef _WSTDIO_S_DEFINED
@@ -138,11 +147,11 @@ extern "C" {
 
 #ifndef _WTIME_S_DEFINED
 #define _WTIME_S_DEFINED
-  errno_t __cdecl _wasctime_s (wchar_t *_Buf,size_t _SizeInWords,const struct tm *_Tm);
-  errno_t __cdecl _wctime32_s (wchar_t *_Buf,size_t _SizeInWords,const __time32_t *_Time);
-  errno_t __cdecl _wstrdate_s (wchar_t *_Buf,size_t _SizeInWords);
-  errno_t __cdecl _wstrtime_s (wchar_t *_Buf,size_t _SizeInWords);
-  errno_t __cdecl _wctime64_s (wchar_t *_Buf,size_t _SizeInWords,const __time64_t *_Time);
+  _SECIMP errno_t __cdecl _wasctime_s (wchar_t *_Buf,size_t _SizeInWords,const struct tm *_Tm);
+  _SECIMP errno_t __cdecl _wctime32_s (wchar_t *_Buf,size_t _SizeInWords,const __time32_t *_Time);
+  _SECIMP errno_t __cdecl _wstrdate_s (wchar_t *_Buf,size_t _SizeInWords);
+  _SECIMP errno_t __cdecl _wstrtime_s (wchar_t *_Buf,size_t _SizeInWords);
+  _SECIMP errno_t __cdecl _wctime64_s (wchar_t *_Buf,size_t _SizeInWords,const __time64_t *_Time);
 
 #if !defined (RC_INVOKED) && !defined (_INC_WTIME_S_INL)
 #define _INC_WTIME_S_INL
@@ -162,8 +171,9 @@ __CRT_INLINE errno_t __cdecl _wctime_s(wchar_t *_Buffer,size_t _SizeInWords,cons
   _CRTIMP errno_t __cdecl wcsrtombs_s(size_t *_Retval,char *_Dst,size_t _SizeInBytes,const wchar_t **_Src,size_t _Size,mbstate_t *_State);
   __DEFINE_CPP_OVERLOAD_SECURE_FUNC_1_3(errno_t,wcsrtombs_s,size_t,_Retval,char,_Dst,const wchar_t**,_Src,size_t,_Size,mbstate_t,_State)
 
-  _CRTIMP errno_t __cdecl wmemcpy_s (wchar_t *_dest,size_t _numberOfElements,const wchar_t *_src,size_t _count);
-  _CRTIMP errno_t __cdecl wmemmove_s(wchar_t *_dest,size_t _numberOfElements,const wchar_t *_src,size_t _count);
+  _SECIMP errno_t __cdecl wmemcpy_s (wchar_t *_dest,size_t _numberOfElements,const wchar_t *_src,size_t _count);
+  _SECIMP errno_t __cdecl wmemmove_s(wchar_t *_dest,size_t _numberOfElements,const wchar_t *_src,size_t _count);
+
 
 #ifdef __cplusplus
 }

@@ -13,6 +13,15 @@
 #define __USE_MINGW_STRTOX 1
 #endif
 
+#if defined(__LIBMSVCRT__)
+/* When building mingw-w64, this should be blank.  */
+#define _SECIMP
+#else
+#ifndef _SECIMP
+#define _SECIMP __declspec(dllimport)
+#endif /* _SECIMP */
+#endif /* defined(_CRTBLD) || defined(__LIBMSVCRT__) */
+
 #pragma pack(push,_CRT_PACKING)
 
 #ifdef __cplusplus
@@ -388,7 +397,7 @@ extern "C" {
   #endif
 #endif
 #ifdef _CRT_RAND_S
-  _CRTIMP errno_t __cdecl rand_s(unsigned int *randomValue);
+  _SECIMP errno_t __cdecl rand_s(unsigned int *randomValue);
 #endif
 
 #if defined(__USE_MINGW_STRTOX)
