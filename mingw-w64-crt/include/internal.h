@@ -28,7 +28,7 @@ extern "C" {
 #if defined (SPECIAL_CRTEXE) && (defined (_DLL) || defined (__GNUC__))
   extern int _commode;
 #else
-  _CRTIMP extern int _commode;
+  __declspec(dllimport) extern int _commode;
 #endif
 
 #define __IOINFO_TM_ANSI 0
