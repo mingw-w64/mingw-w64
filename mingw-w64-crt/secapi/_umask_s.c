@@ -2,9 +2,8 @@
 #include <malloc.h>
 #include <errno.h>
 #include <msvcrt.h>
+#include <io.h>
 
-int __cdecl _umask (int);
-errno_t __cdecl _umask_s (int, int *);
 static errno_t __cdecl _int_umask_s (int, int *);
 static errno_t __cdecl _stub (int, int *);
 

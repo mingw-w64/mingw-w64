@@ -1,9 +1,9 @@
+#define MINGW_HAS_SECURE_API 1
 #include <windows.h>
 #include <malloc.h>
 #include <errno.h>
 #include <msvcrt.h>
 
-errno_t __cdecl memmove_s (void *, size_t, const void *, size_t);
 static errno_t __cdecl _int_memmove_s (void *, size_t, const void *, size_t);
 static errno_t __cdecl _stub (void *, size_t, const void *, size_t);
 

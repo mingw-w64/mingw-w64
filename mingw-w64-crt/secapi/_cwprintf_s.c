@@ -1,10 +1,9 @@
+#define MINGW_HAS_SECURE_API 1
 #include <windows.h>
 #include <malloc.h>
 #include <errno.h>
 #include <msvcrt.h>
-
-int __cdecl _cwprintf_s (const wchar_t *,...);
-int __cdecl _vcwprintf_s (const wchar_t *,va_list);
+#include <sec_api/conio_s.h>
 
 int __cdecl (*__MINGW_IMP_SYMBOL(_cwprintf_s))(const wchar_t *,...) = 
  _cwprintf_s;

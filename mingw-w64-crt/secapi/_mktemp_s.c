@@ -2,10 +2,8 @@
 #include <malloc.h>
 #include <errno.h>
 #include <msvcrt.h>
+#include <io.h>
 
-size_t __cdecl strnlen (const char *, size_t);
-char * __cdecl _mktemp (char *);
-errno_t __cdecl _mktemp_s (char *, size_t);
 static errno_t __cdecl _int_mktemp_s (char *, size_t);
 static errno_t __cdecl _stub (char *, size_t);
 

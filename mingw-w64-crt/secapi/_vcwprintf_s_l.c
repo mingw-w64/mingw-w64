@@ -1,10 +1,10 @@
+#define MINGW_HAS_SECURE_API 1
 #include <windows.h>
 #include <malloc.h>
 #include <errno.h>
 #include <msvcrt.h>
+#include <sec_api/wchar_s.h>
 
-int __cdecl _vcwprintf_l (const wchar_t *, _locale_t, va_list);
-int __cdecl _vcwprintf_s_l (const wchar_t *, _locale_t, va_list);
 static int __cdecl _int_vcwprintf_s_l (const wchar_t *, _locale_t, va_list);
 static int __cdecl _stub (const wchar_t *, _locale_t, va_list);
 

@@ -1,9 +1,6 @@
-#define _vswprintf_p SAVE__vswprintf_p
 #define MINGW_HAS_SECURE_API 1
-#include <stdio.h>
-#undef _vswprintf_p
+#include <sec_api/stdio_s.h>
 
-int __cdecl _vswprintf_p(wchar_t *_DstBuf, size_t _MaxCount, const wchar_t *_Format, va_list _ArgList);
 int __cdecl _vswprintf_p(wchar_t *_DstBuf, size_t _MaxCount, const wchar_t *_Format, va_list _ArgList)
 {
     return _vswprintf_p_l(_DstBuf, _MaxCount, _Format, NULL, _ArgList);

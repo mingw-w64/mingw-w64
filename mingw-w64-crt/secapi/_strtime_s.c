@@ -1,9 +1,9 @@
 #include <windows.h>
 #include <malloc.h>
+#include <time.h>
 #include <errno.h>
 #include <msvcrt.h>
 
-errno_t __cdecl _strtime_s (char *, size_t);
 static errno_t __cdecl _int_strtime_s (char *, size_t);
 static errno_t __cdecl _stub (char *, size_t);
 

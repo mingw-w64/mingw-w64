@@ -2,9 +2,8 @@
 #include <malloc.h>
 #include <errno.h>
 #include <msvcrt.h>
+#include <io.h>
 
-int __cdecl _access (const char *, int);
-errno_t __cdecl _access_s (const char *, int);
 static errno_t __cdecl _int_access_s (const char *, int);
 static errno_t __cdecl _stub (const char *, int);
 

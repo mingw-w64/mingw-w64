@@ -4,9 +4,6 @@
 #include <errno.h>
 #include <msvcrt.h>
 
-errno_t __cdecl _localtime64_s (struct tm *, const __time64_t *);
-errno_t __cdecl _wasctime_s (wchar_t *, size_t, const struct tm *);
-errno_t __cdecl _wctime64_s (wchar_t *, size_t, const __time64_t *);
 static errno_t __cdecl _int_wctime64_s (wchar_t *, size_t, const __time64_t *);
 static errno_t __cdecl _stub (wchar_t *, size_t, const __time64_t *);
 

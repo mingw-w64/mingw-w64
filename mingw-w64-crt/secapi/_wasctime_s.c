@@ -4,8 +4,6 @@
 #include <errno.h>
 #include <msvcrt.h>
 
-errno_t __cdecl _wasctime_s (wchar_t *, size_t, const struct tm *);
-/* wchar_t * __cdecl _wasctime (const struct tm *); */
 static errno_t __cdecl _int_wasctime_s (wchar_t *, size_t, const struct tm *);
 static errno_t __cdecl _stub (wchar_t *, size_t, const struct tm *);
 

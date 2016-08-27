@@ -4,8 +4,6 @@
 #include <errno.h>
 #include <msvcrt.h>
 
-/* struct tm * __cdecl _localtime32 (const __time32_t *); */
-errno_t __cdecl _localtime32_s (struct tm *, const __time32_t *);
 static errno_t __cdecl _int_localtime32_s (struct tm *, const __time32_t *);
 static errno_t __cdecl _stub (struct tm *, const __time32_t *);
 

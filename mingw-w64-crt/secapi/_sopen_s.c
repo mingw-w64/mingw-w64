@@ -3,7 +3,6 @@
 #include <errno.h>
 #include <msvcrt.h>
 
-errno_t __cdecl _sopen_s(int *, const char *, int, int, int);
 static errno_t __cdecl _int_sopen_s(int *, const char *, int, int, int);
 static errno_t __cdecl _stub(int *, const char *, int, int, int);
 

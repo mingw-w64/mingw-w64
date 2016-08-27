@@ -1,9 +1,10 @@
+#define MINGW_HAS_SECURE_API 1
 #include <windows.h>
 #include <malloc.h>
 #include <errno.h>
 #include <msvcrt.h>
+#include <sec_api/wchar_s.h>
 
-errno_t __cdecl wmemcpy_s (wchar_t *, size_t, const wchar_t *, size_t);
 static errno_t __cdecl _int_wmemcpy_s (wchar_t *, size_t, const wchar_t *, size_t);
 static errno_t __cdecl _stub (wchar_t *, size_t, const wchar_t *, size_t);
 

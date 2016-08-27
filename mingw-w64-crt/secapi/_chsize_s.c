@@ -2,9 +2,8 @@
 #include <malloc.h>
 #include <errno.h>
 #include <msvcrt.h>
+#include <io.h>
 
-int __cdecl _chsize (int, long);
-errno_t __cdecl _chsize_s (int, long long);
 static errno_t __cdecl _int_chsize_s (int, long long);
 static errno_t __cdecl _stub (int, long long);
 

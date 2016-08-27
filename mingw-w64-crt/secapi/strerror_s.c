@@ -1,11 +1,10 @@
+#define MINGW_HAS_SECURE_API 1
 #include <windows.h>
 #include <malloc.h>
 #include <errno.h>
 #include <msvcrt.h>
+#include <sec_api/stdio_s.h>
 
-char * __cdecl strerror (int);
-errno_t __cdecl strerror_s (char *, size_t, int);
-int __cdecl sprintf_s (char *, size_t, const char *, ...);
 static errno_t __cdecl _int_strerror_s (char *, size_t, int);
 static errno_t __cdecl _stub (char *, size_t, int);
 
