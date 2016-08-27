@@ -10,6 +10,15 @@
 
 #if defined(MINGW_HAS_SECURE_API)
 
+#if defined(__LIBMSVCRT__)
+/* When building mingw-w64, this should be blank.  */
+#define _SECIMP
+#else
+#ifndef _SECIMP
+#define _SECIMP __declspec(dllimport)
+#endif /* _SECIMP */
+#endif /* defined(_CRTBLD) || defined(__LIBMSVCRT__) */
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -42,10 +51,10 @@ extern "C" {
   _CRTIMP int __cdecl _vsnprintf_s(char *_DstBuf,size_t _DstSize,size_t _MaxCount,const char *_Format,va_list _ArgList);
   __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_3(int,_vsnprintf_s,char,_DstBuf,size_t,_MaxCount,const char*,_Format,va_list,_ArgList)
 
-  int __cdecl vsprintf_s(char *_DstBuf,size_t _Size,const char *_Format,va_list _ArgList);
+  _SECIMP int __cdecl vsprintf_s(char *_DstBuf,size_t _Size,const char *_Format,va_list _ArgList);
   __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_2(int, vsprintf_s, char, _DstBuf, const char*, _Format, va_list, _ArgList)
 
-  int __cdecl sprintf_s(char *_DstBuf,size_t _DstSize,const char *_Format,...);
+  _SECIMP int __cdecl sprintf_s(char *_DstBuf,size_t _DstSize,const char *_Format,...);
   __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_1_ARGLIST(int,sprintf_s,vsprintf_s,char,_DstBuf,const char*,_Format)
 
   _CRTIMP int __cdecl _snprintf_s(char *_DstBuf,size_t _DstSize,size_t _MaxCount,const char *_Format,...);
@@ -58,7 +67,7 @@ extern "C" {
   _CRTIMP int __cdecl _vprintf_p(const char *_Format,va_list _ArgList);
   _CRTIMP int __cdecl _vsprintf_p(char *_Dst,size_t _MaxCount,const char *_Format,va_list _ArgList);
   _CRTIMP int __cdecl _scprintf_p(const char *_Format,...);
-  _CRTIMP int __cdecl _vscprintf_p(const char *_Format,va_list _ArgList);
+  _SECIMP int __cdecl _vscprintf_p(const char *_Format,va_list _ArgList);
   _CRTIMP int __cdecl _printf_l(const char *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _printf_p_l(const char *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _vprintf_l(const char *_Format,_locale_t _Locale,va_list _ArgList);
@@ -145,9 +154,9 @@ extern "C" {
   _CRTIMP int __cdecl _vfwprintf_p(FILE *_File,const wchar_t *_Format,va_list _ArgList);
   _CRTIMP int __cdecl _vwprintf_p(const wchar_t *_Format,va_list _ArgList);
   _CRTIMP int __cdecl _swprintf_p(wchar_t *_DstBuf,size_t _MaxCount,const wchar_t *_Format,...);
-  _CRTIMP int __cdecl _vswprintf_p(wchar_t *_DstBuf,size_t _MaxCount,const wchar_t *_Format,va_list _ArgList);
+  _SECIMP int __cdecl _vswprintf_p(wchar_t *_DstBuf,size_t _MaxCount,const wchar_t *_Format,va_list _ArgList);
   _CRTIMP int __cdecl _scwprintf_p(const wchar_t *_Format,...);
-  _CRTIMP int __cdecl _vscwprintf_p(const wchar_t *_Format,va_list _ArgList);
+  _SECIMP int __cdecl _vscwprintf_p(const wchar_t *_Format,va_list _ArgList);
   _CRTIMP int __cdecl _wprintf_l(const wchar_t *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _wprintf_p_l(const wchar_t *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _vwprintf_l(const wchar_t *_Format,_locale_t _Locale,va_list _ArgList);
