@@ -152,8 +152,8 @@ extern "C" {
   extern char *_sys_errlist[];
   extern int _sys_nerr;
 #else
-  extern _CRTIMP char *_sys_errlist[1];
-  extern _CRTIMP int _sys_nerr;
+  extern __declspec(dllimport) char *_sys_errlist[1];
+  extern __declspec(dllimport) int _sys_nerr;
 #endif
 #if (defined(_X86_) && !defined(__x86_64))
   _CRTIMP int *__cdecl __p___argc(void);

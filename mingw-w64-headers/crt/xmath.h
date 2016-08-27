@@ -86,23 +86,23 @@ _CRTIMP short __cdecl _Dscale(double *,long);
 _CRTIMP short __cdecl _Dunscale(short *,double *);
 _CRTIMP double __cdecl _Poly(double,const double *,int);
 
-extern _CRTIMP _Dconst _Eps,_Rteps;
-extern _CRTIMP double _Xbig;
+extern __declspec(dllimport) _Dconst _Eps,_Rteps;
+extern __declspec(dllimport) double _Xbig;
 
 _CRTIMP short __cdecl _FDnorm(unsigned short *);
 _CRTIMP short __cdecl _FDscale(float *,long);
 _CRTIMP short __cdecl _FDunscale(short *,float *);
 
-extern _CRTIMP _Dconst _FEps,_FRteps;
-extern _CRTIMP float _FXbig;
+extern __declspec(dllimport) _Dconst _FEps,_FRteps;
+extern __declspec(dllimport) float _FXbig;
 
 _CRTIMP short __cdecl _LDnorm(unsigned short *);
 _CRTIMP short __cdecl _LDscale(long double *,long);
 _CRTIMP short __cdecl _LDunscale(short *,long double *);
 _CRTIMP long double __cdecl _LPoly(long double,const long double *,int);
 
-extern _CRTIMP _Dconst _LEps,_LRteps;
-extern _CRTIMP long double _LXbig;
+extern __declspec(dllimport) _Dconst _LEps,_LRteps;
+extern __declspec(dllimport) long double _LXbig;
 _END_C_LIB_DECL
 _C_STD_END
 #endif
