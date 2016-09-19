@@ -145,7 +145,7 @@ interface IMFTransform : IUnknown
 
 /* In gcc, declaring something 'extern' and then initializing it
    generates a warning.  */
-cpp_quote("#ifdef __GNUC__")
+cpp_quote("#if defined(__GNUC__) && !defined(__cplusplus)")
 cpp_quote("#undef EXTERN_C")
 cpp_quote("#define EXTERN_C")
 cpp_quote("#endif")
