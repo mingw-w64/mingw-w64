@@ -701,7 +701,7 @@ void __RPC_STUB IMFTransform_ProcessMessage_Stub(
 
 #endif  /* __IMFTransform_INTERFACE_DEFINED__ */
 
-#ifdef __GNUC__
+#if defined(__GNUC__) && !defined(__cplusplus)
 #undef EXTERN_C
 #define EXTERN_C
 #endif
