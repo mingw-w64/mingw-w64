@@ -178,6 +178,46 @@ errno_t __cdecl _get_errno(int *_Value);
 #define EPROTONOSUPPORT 135
 #endif
 
+#ifndef EBADMSG
+#define EBADMSG 104
+#endif
+
+#ifndef EIDRM
+#define EIDRM 111
+#endif
+
+#ifndef ENODATA
+#define ENODATA 120
+#endif
+
+#ifndef ENOLINK
+#define ENOLINK 121
+#endif
+
+#ifndef ENOMSG
+#define ENOMSG 122
+#endif
+
+#ifndef ENOSR
+#define ENOSR 124
+#endif
+
+#ifndef ENOSTR
+#define ENOSTR 125
+#endif
+
+#ifndef ENOTRECOVERABLE
+#define ENOTRECOVERABLE 127
+#endif
+
+#ifndef ETIME
+#define ETIME 137
+#endif
+
+#ifndef ETXTBSY
+#define ETXTBSY 139
+#endif
+
 /* Defined as WSAETIMEDOUT.  */
 #ifndef ETIMEDOUT
 #define ETIMEDOUT 138
