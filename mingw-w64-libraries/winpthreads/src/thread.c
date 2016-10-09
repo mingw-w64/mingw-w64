@@ -1691,12 +1691,12 @@ _pthread_tryjoin (pthread_t t, void **res)
     }
   if(tv->ended == 0 && WaitForSingleObject(tv->h, 0))
     {
-      if (tv->ended == 0);
+      if (tv->ended == 0)
         {
-	  pthread_mutex_unlock (&mtx_pthr_locked);
-	  /* pthread_testcancel (); */
-	  return EBUSY;
-	}
+	      pthread_mutex_unlock (&mtx_pthr_locked);
+	      /* pthread_testcancel (); */
+	      return EBUSY;
+	    }
     }
   CloseHandle (tv->h);
   if (tv->evStart)
