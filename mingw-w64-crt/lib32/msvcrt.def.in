@@ -343,6 +343,8 @@ _mbsupr
 _memccpy
 _memicmp
 _mkdir
+_mkgmtime
+_mkgmtime32
 _mktemp
 _msize
 _nextafter
