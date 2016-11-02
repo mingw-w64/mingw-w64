@@ -364,4 +364,132 @@ DECLARE_INTERFACE_(IDWriteFactory2,IDWriteFactory1)
 
 __CRT_UUID_DECL(IDWriteFactory2, 0x0439fc60,0xca44,0x4994,0x8d,0xee,0x3a,0x9a,0xf7,0xb7,0x32,0xec)
 
+#undef  INTERFACE
+#define INTERFACE IDWriteFontFace2
+DECLARE_INTERFACE_(IDWriteFontFace2,IDWriteFontFace1)
+{
+    BEGIN_INTERFACE
+
+#ifndef __cplusplus
+    /* IUnknown methods */
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+
+    /* IDWriteFontFace methods */
+    STDMETHOD_(DWRITE_FONT_FACE_TYPE, GetType)(THIS) PURE;
+
+    STDMETHOD(GetFiles)(THIS_
+        UINT32 *numberOfFiles,
+        IDWriteFontFile **fontFiles) PURE;
+
+    STDMETHOD_(UINT32, GetIndex)(THIS) PURE;
+    STDMETHOD_(DWRITE_FONT_SIMULATIONS, GetSimulations)(THIS) PURE;
+    STDMETHOD_(WINBOOL, IsSymbolFont)(THIS) PURE;
+
+    STDMETHOD_(void, GetMetrics)(THIS_
+        DWRITE_FONT_METRICS *fontFaceMetrics) PURE;
+
+    STDMETHOD_(UINT16, GetGlyphCount)(THIS) PURE;
+
+    STDMETHOD(GetDesignGlyphMetrics)(THIS_
+        UINT16 const *glyphIndices,
+        UINT32 glyphCount,
+        DWRITE_GLYPH_METRICS *glyphMetrics,
+        WINBOOL isSideways __MINGW_DEF_ARG_VAL(FALSE)) PURE;
+
+    STDMETHOD(GetGlyphIndices)(THIS_
+        UINT32 const *codePoints,
+        UINT32 codePointCount,
+        UINT16 *glyphIndices) PURE;
+
+    STDMETHOD(TryGetFontTable)(THIS_
+        UINT32 openTypeTableTag,
+        const void **tableData,
+        UINT32 *tableSize,
+        void **tableContext,
+        WINBOOL *exists) PURE;
+
+    STDMETHOD_(void, ReleaseFontTable)(THIS_
+        void *tableContext) PURE;
+
+    STDMETHOD(GetGlyphRunOutline)(THIS_
+        FLOAT emSize,
+        UINT16 const *glyphIndices,
+        FLOAT const *glyphAdvances,
+        DWRITE_GLYPH_OFFSET const *glyphOffsets,
+        UINT32 glyphCount,
+        WINBOOL isSideways,
+        WINBOOL isRightToLeft,
+        IDWriteGeometrySink *geometrySink) PURE;
+
+    STDMETHOD(GetRecommendedRenderingMode)(THIS_
+        FLOAT emSize,
+        FLOAT pixelsPerDip,
+        DWRITE_MEASURING_MODE measuringMode,
+        IDWriteRenderingParams *renderingParams,
+        DWRITE_RENDERING_MODE *renderingMode) PURE;
+
+    STDMETHOD(GetGdiCompatibleMetrics)(THIS_
+        FLOAT emSize,
+        FLOAT pixelsPerDip,
+        DWRITE_MATRIX const *transform,
+        DWRITE_FONT_METRICS *fontFaceMetrics) PURE;
+
+    STDMETHOD(GetGdiCompatibleGlyphMetrics)(THIS_
+        FLOAT emSize,
+        FLOAT pixelsPerDip,
+        DWRITE_MATRIX const *transform,
+        WINBOOL useGdiNatural,
+        UINT16 const *glyphIndices,
+        UINT32 glyphCount,
+        DWRITE_GLYPH_METRICS *glyphMetrics,
+        WINBOOL isSideways __MINGW_DEF_ARG_VAL(FALSE)) PURE;
+
+    /* IDWriteFontFace1 methods */
+    STDMETHOD_(void, GetMetrics)(THIS_ DWRITE_FONT_METRICS*) PURE;
+    STDMETHOD(GetGdiCompatibleMetrics)(THIS_ FLOAT,FLOAT,DWRITE_MATRIX const*,DWRITE_FONT_METRICS1*) PURE;
+    STDMETHOD_(void, GetCaretMetrics)(THIS_ DWRITE_CARET_METRICS*) PURE;
+    STDMETHOD(GetUnicodeRanges)(THIS_ UINT32, DWRITE_UNICODE_RANGE*,UINT32*) PURE;
+    STDMETHOD_(BOOL, IsMonospacedFont)(THIS) PURE;
+    STDMETHOD(GetDesignGlyphAdvances)(THIS_ UINT32,UINT16 const*,INT32*,BOOL isSideways __MINGW_DEF_ARG_VAL(FALSE)) PURE;
+    STDMETHOD(GetGdiCompatibleGlyphAdvances)(THIS_ FLOAT,FLOAT,DWRITE_MATRIX const*,BOOL,BOOL,UINT32,
+            UINT16 const*,INT32*) PURE;
+    STDMETHOD(GetKerningPairAdjustments)(THIS_ UINT32,UINT16 const*,INT32*) PURE;
+    STDMETHOD_(BOOL, HasKerningPairs)(THIS);
+    STDMETHOD(GetRecommendedRenderingMode)(FLOAT,FLOAT,FLOAT,DWRITE_MATRIX const*,BOOL,
+            DWRITE_OUTLINE_THRESHOLD,DWRITE_MEASURING_MODE,DWRITE_RENDERING_MODE*) PURE;
+    STDMETHOD(GetVerticalGlyphVariants)(THIS_ UINT32,UINT16 const*,UINT16*);
+    STDMETHOD_(BOOL, HasVerticalGlyphVariants)(THIS);
+#endif
+
+    /* IDWriteFontFace2 methods */
+    STDMETHOD_(BOOL, IsColorFont)(THIS) PURE;
+    STDMETHOD_(UINT32, GetColorPaletteCount)(THIS) PURE;
+    STDMETHOD_(UINT32, GetPaletteEntryCount)(THIS) PURE;
+        STDMETHOD(GetPaletteEntries)(THIS_
+        UINT32 colorPaletteIndex,
+        UINT32 firstEntryIndex,
+        UINT32 entryCount,
+        DWRITE_COLOR_F* paletteEntries
+        ) PURE;
+
+    STDMETHOD(GetRecommendedRenderingMode)(THIS_
+        FLOAT fontEmSize,
+        FLOAT dpiX,
+        FLOAT dpiY,
+        DWRITE_MATRIX const* transform,
+        BOOL isSideways,
+        DWRITE_OUTLINE_THRESHOLD outlineThreshold,
+        DWRITE_MEASURING_MODE measuringMode,
+        IDWriteRenderingParams* renderingParams,
+        DWRITE_RENDERING_MODE* renderingMode,
+        DWRITE_GRID_FIT_MODE* gridFitMode
+        ) PURE;
+
+    END_INTERFACE
+};
+
+__CRT_UUID_DECL(IDWriteFontFace2, 0xd8b768ff,0x64bc,0x4e66,0x98,0x2b,0xec,0x8e,0x87,0xf6,0x93,0xf7)
+
 #endif /* DWRITE_2_H_INCLUDED */
