@@ -329,4 +329,57 @@ DECLARE_INTERFACE_(IDWriteFactory1,IDWriteFactory)
 
 __CRT_UUID_DECL(IDWriteFactory1, 0x30572f99,0xdac6,0x41db,0xa1,0x6e,0x04,0x86,0x30,0x7e,0x60,0x6a)
 
+#undef  INTERFACE
+#define INTERFACE IDWriteBitmapRenderTarget1
+DECLARE_INTERFACE_(IDWriteBitmapRenderTarget1,IDWriteBitmapRenderTarget)
+{
+    BEGIN_INTERFACE
+
+#ifndef __cplusplus
+    /* IUnknown methods */
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+
+    /* IDWriteBitmapRenderTarget methods */
+    STDMETHOD(DrawGlyphRun)(THIS_
+        FLOAT baselineOriginX,
+        FLOAT baselineOriginY,
+        DWRITE_MEASURING_MODE measuringMode,
+        DWRITE_GLYPH_RUN const *glyphRun,
+        IDWriteRenderingParams *renderingParams,
+        COLORREF textColor,
+        RECT *blackBoxRect __MINGW_DEF_ARG_VAL(NULL)) PURE;
+
+    STDMETHOD_(HDC, GetMemoryDC)(THIS) PURE;
+    STDMETHOD_(FLOAT, GetPixelsPerDip)(THIS) PURE;
+
+    STDMETHOD(SetPixelsPerDip)(THIS_
+        FLOAT pixelsPerDip) PURE;
+
+    STDMETHOD(GetCurrentTransform)(THIS_
+        DWRITE_MATRIX* transform) PURE;
+
+    STDMETHOD(SetCurrentTransform)(THIS_
+        DWRITE_MATRIX const *transform) PURE;
+
+    STDMETHOD(GetSize)(THIS_
+        SIZE *size) PURE;
+
+    STDMETHOD(Resize)(THIS_
+        UINT32 width,
+        UINT32 height) PURE;
+
+#endif
+
+    STDMETHOD_(DWRITE_TEXT_ANTIALIAS_MODE, GetTextAntialiasMode)(THIS) PURE;
+
+    STDMETHOD(SetTextAntialiasMode)(THIS_
+        DWRITE_TEXT_ANTIALIAS_MODE antialiasMode) PURE;
+
+    END_INTERFACE
+};
+
+__CRT_UUID_DECL(IDWriteBitmapRenderTarget1, 0x791e8298,0x3ef3,0x4230,0x98,0x80,0xc9,0xbd,0xec,0xc4,0x20,0x64)
+
 #endif /* DWRITE_1_H_INCLUDED */
