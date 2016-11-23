@@ -180,6 +180,7 @@ CreateProcessInternalA@48
 CreateProcessInternalW@48
 CreateProcessW@40
 CreateRemoteThread@28
+CreateRemoteThreadEx@32
 CreateSemaphoreA@16
 CreateSemaphoreExA@24
 CreateSemaphoreExW@24
