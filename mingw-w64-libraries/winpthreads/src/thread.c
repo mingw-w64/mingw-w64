@@ -296,7 +296,10 @@ push_pthread_mem (_pthread_v *sv)
   if (pthr_last == NULL)
     pthr_root = pthr_last = sv;
   else
+  {
     pthr_last->next = sv;
+    pthr_last = sv;
+  }
   pthread_mutex_unlock (&mtx_pthr_locked);
 }
 
