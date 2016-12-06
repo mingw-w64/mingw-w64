@@ -5439,9 +5439,7 @@ WINIMPM HCERTSTORE WINAPI CertOpenStore (LPCSTR lpszStoreProvider, DWORD dwEncod
 }
 #endif
 
-#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 #ifndef _WINCRYPT_NO_DPAPI
 #include <dpapi.h>
-#endif
 #endif
 #endif
