@@ -14,7 +14,7 @@
 extern "C" {
 #endif
 
-#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) || _WIN32_WINNT >= _WIN32_WINNT_WIN10
 
 #define CRYPTPROTECT_DEFAULT_PROVIDER { 0xdf9d8cd0, 0x1501, 0x11d1,{ 0x8c, 0x7a, 0x00, 0xc0, 0x4f, 0xc2, 0x97, 0xeb } }
 
@@ -40,12 +40,6 @@ extern "C" {
 
 #define CRYPTPROTECT_FIRST_RESERVED_FLAGVAL 0x0fffffff
 #define CRYPTPROTECT_LAST_RESERVED_FLAGVAL 0xffffffff
-
-#define CRYPTPROTECTMEMORY_BLOCK_SIZE 16
-
-#define CRYPTPROTECTMEMORY_SAME_PROCESS 0x0
-#define CRYPTPROTECTMEMORY_CROSS_PROCESS 0x1
-#define CRYPTPROTECTMEMORY_SAME_LOGON 0x2
 
 #ifndef CRYPTO_BLOBS_DEFINED
 #define CRYPTO_BLOBS_DEFINED
@@ -77,8 +71,7 @@ extern "C" {
 
   DPAPI_IMP WINBOOL WINAPI CryptProtectData (DATA_BLOB *pDataIn, LPCWSTR szDataDescr, DATA_BLOB *pOptionalEntropy, PVOID pvReserved, CRYPTPROTECT_PROMPTSTRUCT *pPromptStruct, DWORD dwFlags, DATA_BLOB *pDataOut);
   DPAPI_IMP WINBOOL WINAPI CryptUnprotectData (DATA_BLOB *pDataIn, LPWSTR *ppszDataDescr, DATA_BLOB *pOptionalEntropy, PVOID pvReserved, CRYPTPROTECT_PROMPTSTRUCT *pPromptStruct, DWORD dwFlags, DATA_BLOB *pDataOut);
-  DPAPI_IMP WINBOOL WINAPI CryptProtectMemory (LPVOID pDataIn, DWORD cbDataIn, DWORD dwFlags);
-  DPAPI_IMP WINBOOL WINAPI CryptUnprotectMemory (LPVOID pDataIn, DWORD cbDataIn, DWORD dwFlags);
+
 #if NTDDI_VERSION >= 0x06020000
   WINBOOL WINAPI CryptProtectDataNoUI (DATA_BLOB *pDataIn, LPCWSTR szDataDescr, DATA_BLOB *pOptionalEntropy, PVOID pvReserved, CRYPTPROTECT_PROMPTSTRUCT *pPromptStruct, DWORD dwFlags, const BYTE *pbOptionalPassword, DWORD cbOptionalPassword, DATA_BLOB *pDataOut);
   WINBOOL WINAPI CryptUnprotectDataNoUI (DATA_BLOB *pDataIn, LPWSTR *ppszDataDescr, DATA_BLOB *pOptionalEntropy, PVOID pvReserved, CRYPTPROTECT_PROMPTSTRUCT *pPromptStruct, DWORD dwFlags, const BYTE *pbOptionalPassword, DWORD cbOptionalPassword, DATA_BLOB *pDataOut);
@@ -86,6 +79,19 @@ extern "C" {
 #if NTDDI_VERSION >= 0x06000000
   DPAPI_IMP WINBOOL WINAPI CryptUpdateProtectedState (PSID pOldSid, LPCWSTR pwszOldPassword, DWORD dwFlags, DWORD *pdwSuccessCount, DWORD *pdwFailureCount);
 #endif
+
+#endif
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
+
+#define CRYPTPROTECTMEMORY_BLOCK_SIZE 16
+
+#define CRYPTPROTECTMEMORY_SAME_PROCESS 0x0
+#define CRYPTPROTECTMEMORY_CROSS_PROCESS 0x1
+#define CRYPTPROTECTMEMORY_SAME_LOGON 0x2
+
+DPAPI_IMP WINBOOL WINAPI CryptProtectMemory (LPVOID pDataIn, DWORD cbDataIn, DWORD dwFlags);
+DPAPI_IMP WINBOOL WINAPI CryptUnprotectMemory (LPVOID pDataIn, DWORD cbDataIn, DWORD dwFlags);
 
 #endif
 
