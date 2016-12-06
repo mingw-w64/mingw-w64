@@ -45,7 +45,7 @@ WINBOOL WINAPI DeleteTimerQueueTimer (HANDLE TimerQueue, HANDLE Timer, HANDLE Co
     return 0;
 }
 
-#ifndef _WIN64
+#ifdef _X86_
 WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(CreateTimerQueueTimer)) (PHANDLE phNewTimer, HANDLE TimerQueue, WAITORTIMERCALLBACK Callback, PVOID Parameter, DWORD DueTime, DWORD Period, ULONG Flags) asm("__imp__CreateTimerQueueTimer@28") = CreateTimerQueueTimer;
 WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(DeleteTimerQueueTimer)) (HANDLE TimerQueue, HANDLE Timer, HANDLE CompletionEvent) asm("__imp__DeleteTimerQueueTimer@12") = DeleteTimerQueueTimer;
 #else

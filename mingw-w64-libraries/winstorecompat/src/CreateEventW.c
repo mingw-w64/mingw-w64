@@ -39,7 +39,7 @@ HANDLE WINAPI CreateEventW(LPSECURITY_ATTRIBUTES lpEventAttributes, BOOL bManual
     return CreateEventExW(lpEventAttributes, lpName, flags, EVENT_ALL_ACCESS);
 }
 
-#ifndef _WIN64
+#ifdef _X86_
 HANDLE (WINAPI *__MINGW_IMP_SYMBOL(CreateEventW))(LPSECURITY_ATTRIBUTES lpEventAttributes, BOOL bManualReset, BOOL bInitialState, LPCWSTR lpName) asm("__imp__CreateEventW@16") = CreateEventW;
 #else
 HANDLE (WINAPI *__MINGW_IMP_SYMBOL(CreateEventW))(LPSECURITY_ATTRIBUTES lpEventAttributes, BOOL bManualReset, BOOL bInitialState, LPCWSTR lpName) asm("__imp_CreateEventW") = CreateEventW;

@@ -100,7 +100,7 @@ BOOL WINAPI CryptGenRandom(HCRYPTPROV phProv, DWORD dwLen, BYTE *pbBuffer)
     return TRUE;
 }
 
-#ifndef _WIN64
+#ifdef _X86_
 BOOL (WINAPI *__MINGW_IMP_SYMBOL(CryptAcquireContextW))(HCRYPTPROV*, LPCTSTR, LPCTSTR, DWORD, DWORD) asm("__imp__CryptAcquireContextW@20") = CryptAcquireContextW;
 BOOL (WINAPI *__MINGW_IMP_SYMBOL(CryptAcquireContextA))(HCRYPTPROV*, LPCTSTR, LPCTSTR, DWORD, DWORD) asm("__imp__CryptAcquireContextA@20") = CryptAcquireContextA;
 BOOL (WINAPI *__MINGW_IMP_SYMBOL(CryptReleaseContext))(HCRYPTPROV, DWORD) asm("__imp__CryptReleaseContext@8") = CryptReleaseContext;

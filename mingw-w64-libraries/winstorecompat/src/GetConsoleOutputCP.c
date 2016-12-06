@@ -31,7 +31,7 @@ UINT GetConsoleOutputCP(void)
     return CP_UTF8;
 }
 
-#ifndef _WIN64
+#ifdef _X86_
 UINT (*__MINGW_IMP_SYMBOL(GetConsoleOutputCP))(void) asm("__imp__GetConsoleOutputCP") = GetConsoleOutputCP;
 #else
 UINT (*__MINGW_IMP_SYMBOL(GetConsoleOutputCP))(void) asm("__imp_GetConsoleOutputCP") = GetConsoleOutputCP;

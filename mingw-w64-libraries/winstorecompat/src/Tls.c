@@ -65,7 +65,7 @@ DWORD WINAPI TlsAlloc (void)
     return FlsAlloc (__ic_fls_free);
 }
 
-#ifndef _WIN64
+#ifdef _X86_
 DWORD (WINAPI *__MINGW_IMP_SYMBOL(TlsAlloc))(void) asm("__imp__TlsAlloc@0") = TlsAlloc;
 WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(TlsFree))(DWORD) asm("__imp__TlsFree@4") = TlsFree;
 WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(TlsSetValue))(DWORD, LPVOID) asm("__imp__TlsSetValue@8") = TlsSetValue;

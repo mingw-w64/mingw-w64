@@ -56,7 +56,7 @@ DWORD WINAPI SetFilePointer(HANDLE hFile, LONG lDistanceToMove, PLONG lpDistance
     return newpos.u.LowPart;
 }
 
-#ifndef _WIN64
+#ifdef _X86_
 DWORD (WINAPI *__MINGW_IMP_SYMBOL(SetFilePointer))(HANDLE hFile, LONG lDistanceToMove, PLONG lpDistanceToMoveHigh, DWORD dwMoveMethod) asm("__imp__SetFilePointer@16") = SetFilePointer;
 #else
 DWORD (WINAPI *__MINGW_IMP_SYMBOL(SetFilePointer))(HANDLE hFile, LONG lDistanceToMove, PLONG lpDistanceToMoveHigh, DWORD dwMoveMethod) asm("__imp_SetFilePointer") = SetFilePointer;

@@ -34,7 +34,7 @@ VOID WINAPI Sleep(DWORD dwMilliseconds)
     WaitForSingleObjectEx(GetCurrentThread(), dwMilliseconds, FALSE);
 }
 
-#ifndef _WIN64
+#ifdef _X86_
 VOID (WINAPI *__MINGW_IMP_SYMBOL(Sleep))(DWORD dwMilliseconds) asm("__imp__Sleep@4") = Sleep;
 #else
 VOID (WINAPI *__MINGW_IMP_SYMBOL(Sleep))(DWORD dwMilliseconds) asm("__imp_Sleep") = Sleep;

@@ -48,7 +48,7 @@ DWORD WINAPI GetFileSize(HANDLE hFile, LPDWORD lpFileSizeHigh)
     return dwRet;
 }
 
-#ifndef _WIN64
+#ifdef _X86_
 DWORD (WINAPI *__MINGW_IMP_SYMBOL(GetFileSize))(HANDLE hFile, LPDWORD lpFileSizeHigh) asm("__imp__GetFileSize@8") = GetFileSize;
 #else
 DWORD (WINAPI *__MINGW_IMP_SYMBOL(GetFileSize))(HANDLE hFile, LPDWORD lpFileSizeHigh) asm("__imp_GetFileSize") = GetFileSize;
