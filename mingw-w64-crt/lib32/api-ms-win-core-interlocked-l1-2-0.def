@@ -1,0 +1,16 @@
+LIBRARY api-ms-win-core-interlocked-l1-2-0
+
+EXPORTS
+
+InitializeSListHead@4=api-ms-win-core-interlocked-l1-2-0._InitializeSListHead@4
+InterlockedCompareExchange@12=api-ms-win-core-interlocked-l1-2-0._InterlockedCompareExchange@12
+InterlockedCompareExchange64@20=api-ms-win-core-interlocked-l1-2-0._InterlockedCompareExchange64@20
+InterlockedDecrement@4=api-ms-win-core-interlocked-l1-2-0._InterlockedDecrement@4
+InterlockedExchange@8=api-ms-win-core-interlocked-l1-2-0._InterlockedExchange@8
+InterlockedExchangeAdd@8=api-ms-win-core-interlocked-l1-2-0._InterlockedExchangeAdd@8
+InterlockedFlushSList@4=api-ms-win-core-interlocked-l1-2-0._InterlockedFlushSList@4
+InterlockedIncrement@4=api-ms-win-core-interlocked-l1-2-0._InterlockedIncrement@4
+InterlockedPopEntrySList@4=api-ms-win-core-interlocked-l1-2-0._InterlockedPopEntrySList@4
+InterlockedPushEntrySList@8=api-ms-win-core-interlocked-l1-2-0._InterlockedPushEntrySList@8
+InterlockedPushListSListEx@16=api-ms-win-core-interlocked-l1-2-0._InterlockedPushListSListEx@16
+QueryDepthSList@4=api-ms-win-core-interlocked-l1-2-0._QueryDepthSList@4

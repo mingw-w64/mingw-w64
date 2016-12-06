@@ -1,0 +1,5 @@
+LIBRARY api-ms-win-core-heap-obsolete-l1-1-0
+
+EXPORTS
+
+GlobalReAlloc@12=api-ms-win-core-heap-obsolete-l1-1-0._GlobalReAlloc@12

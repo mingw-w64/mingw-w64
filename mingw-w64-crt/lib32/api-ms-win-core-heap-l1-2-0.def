@@ -1,0 +1,13 @@
+LIBRARY api-ms-win-core-heap-l1-2-0
+
+EXPORTS
+
+GetProcessHeap@0=api-ms-win-core-heap-l1-2-0._GetProcessHeap@0
+HeapAlloc@12=api-ms-win-core-heap-l1-2-0._HeapAlloc@12
+HeapCompact@8=api-ms-win-core-heap-l1-2-0._HeapCompact@8
+HeapCreate@12=api-ms-win-core-heap-l1-2-0._HeapCreate@12
+HeapDestroy@4=api-ms-win-core-heap-l1-2-0._HeapDestroy@4
+HeapFree@12=api-ms-win-core-heap-l1-2-0._HeapFree@12
+HeapReAlloc@16=api-ms-win-core-heap-l1-2-0._HeapReAlloc@16
+HeapSetInformation@16=api-ms-win-core-heap-l1-2-0._HeapSetInformation@16
+HeapSize@12=api-ms-win-core-heap-l1-2-0._HeapSize@12

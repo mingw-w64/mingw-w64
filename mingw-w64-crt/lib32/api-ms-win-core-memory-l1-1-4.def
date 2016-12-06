@@ -1,0 +1,7 @@
+LIBRARY api-ms-win-core-memory-l1-1-4
+
+EXPORTS
+
+OpenFileMappingFromApp@12=api-ms-win-core-memory-l1-1-4._OpenFileMappingFromApp@12
+VirtualAllocFromApp@16=api-ms-win-core-memory-l1-1-4._VirtualAllocFromApp@16
+VirtualProtectFromApp@16=api-ms-win-core-memory-l1-1-4._VirtualProtectFromApp@16

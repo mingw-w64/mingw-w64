@@ -1,9 +1,13 @@
-LIBRARY "api-ms-win-core-winrt-l1-1-0.dll"
+LIBRARY api-ms-win-core-winrt-l1-1-0
+
 EXPORTS
-RoActivateInstance@8
-RoGetActivationFactory@12
-RoGetApartmentIdentifier@4
-RoInitialize@4
-RoRegisterActivationFactories@16
-RoRevokeActivationFactories@4
-RoUninitialize
+
+RoActivateInstance@8=api-ms-win-core-winrt-l1-1-0._RoActivateInstance@8
+RoGetActivationFactory@12=api-ms-win-core-winrt-l1-1-0._RoGetActivationFactory@12
+RoGetApartmentIdentifier@4=api-ms-win-core-winrt-l1-1-0._RoGetApartmentIdentifier@4
+RoInitialize@4=api-ms-win-core-winrt-l1-1-0._RoInitialize@4
+RoRegisterActivationFactories@16=api-ms-win-core-winrt-l1-1-0._RoRegisterActivationFactories@16
+RoRegisterForApartmentShutdown@12=api-ms-win-core-winrt-l1-1-0._RoRegisterForApartmentShutdown@12
+RoRevokeActivationFactories@4=api-ms-win-core-winrt-l1-1-0._RoRevokeActivationFactories@4
+RoUninitialize@0=api-ms-win-core-winrt-l1-1-0._RoUninitialize@0
+RoUnregisterForApartmentShutdown@4=api-ms-win-core-winrt-l1-1-0._RoUnregisterForApartmentShutdown@4

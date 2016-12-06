@@ -1,0 +1,8 @@
+LIBRARY api-ms-win-core-processenvironment-l1-2-0
+
+EXPORTS
+
+GetCommandLineA@0=api-ms-win-core-processenvironment-l1-2-0._GetCommandLineA@0
+GetCommandLineW@0=api-ms-win-core-processenvironment-l1-2-0._GetCommandLineW@0
+GetCurrentDirectoryW@8=api-ms-win-core-processenvironment-l1-2-0._GetCurrentDirectoryW@8
+SetCurrentDirectoryW@4=api-ms-win-core-processenvironment-l1-2-0._SetCurrentDirectoryW@4

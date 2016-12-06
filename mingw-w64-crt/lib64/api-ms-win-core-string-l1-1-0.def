@@ -1,0 +1,10 @@
+LIBRARY api-ms-win-core-string-l1-1-0
+
+EXPORTS
+
+CompareStringEx=api-ms-win-core-string-l1-1-0.CompareStringEx
+CompareStringOrdinal=api-ms-win-core-string-l1-1-0.CompareStringOrdinal
+GetStringTypeExW=api-ms-win-core-string-l1-1-0.GetStringTypeExW
+GetStringTypeW=api-ms-win-core-string-l1-1-0.GetStringTypeW
+MultiByteToWideChar=api-ms-win-core-string-l1-1-0.MultiByteToWideChar
+WideCharToMultiByte=api-ms-win-core-string-l1-1-0.WideCharToMultiByte

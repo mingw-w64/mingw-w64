@@ -1,0 +1,5 @@
+LIBRARY api-ms-win-core-errorhandling-l1-1-3
+
+EXPORTS
+
+RaiseFailFastException@12=api-ms-win-core-errorhandling-l1-1-3._RaiseFailFastException@12

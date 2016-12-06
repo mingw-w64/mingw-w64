@@ -1,0 +1,7 @@
+LIBRARY api-ms-win-core-delayload-l1-1-1
+
+EXPORTS
+
+DelayLoadFailureHook@8=api-ms-win-core-delayload-l1-1-1._DelayLoadFailureHook@8
+ResolveDelayLoadedAPI@24=api-ms-win-core-delayload-l1-1-1._ResolveDelayLoadedAPI@24
+ResolveDelayLoadsFromDll@12=api-ms-win-core-delayload-l1-1-1._ResolveDelayLoadsFromDll@12

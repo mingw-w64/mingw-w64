@@ -1,0 +1,7 @@
+LIBRARY api-ms-win-core-handle-l1-1-0
+
+EXPORTS
+
+CloseHandle=api-ms-win-core-handle-l1-1-0.CloseHandle
+CompareObjectHandles=api-ms-win-core-handle-l1-1-0.CompareObjectHandles
+DuplicateHandle=api-ms-win-core-handle-l1-1-0.DuplicateHandle

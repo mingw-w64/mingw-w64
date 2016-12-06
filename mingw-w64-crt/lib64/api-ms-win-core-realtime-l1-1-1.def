@@ -1,0 +1,7 @@
+LIBRARY api-ms-win-core-realtime-l1-1-1
+
+EXPORTS
+
+QueryInterruptTime=api-ms-win-core-realtime-l1-1-1.QueryInterruptTime
+QueryInterruptTimePrecise=api-ms-win-core-realtime-l1-1-1.QueryInterruptTimePrecise
+QueryUnbiasedInterruptTimePrecise=api-ms-win-core-realtime-l1-1-1.QueryUnbiasedInterruptTimePrecise

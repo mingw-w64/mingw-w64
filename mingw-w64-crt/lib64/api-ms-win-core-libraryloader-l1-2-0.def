@@ -1,0 +1,11 @@
+LIBRARY api-ms-win-core-libraryloader-l1-2-0
+
+EXPORTS
+
+DisableThreadLibraryCalls=api-ms-win-core-libraryloader-l1-2-0.DisableThreadLibraryCalls
+FindStringOrdinal=api-ms-win-core-libraryloader-l1-2-0.FindStringOrdinal
+FreeLibrary=api-ms-win-core-libraryloader-l1-2-0.FreeLibrary
+FreeLibraryAndExitThread=api-ms-win-core-libraryloader-l1-2-0.FreeLibraryAndExitThread
+GetModuleFileNameA=api-ms-win-core-libraryloader-l1-2-0.GetModuleFileNameA
+GetModuleFileNameW=api-ms-win-core-libraryloader-l1-2-0.GetModuleFileNameW
+GetProcAddress=api-ms-win-core-libraryloader-l1-2-0.GetProcAddress

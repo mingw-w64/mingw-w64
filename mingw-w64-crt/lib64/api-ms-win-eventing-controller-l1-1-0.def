@@ -1,0 +1,8 @@
+LIBRARY api-ms-win-eventing-controller-l1-1-0
+
+EXPORTS
+
+ControlTraceW=api-ms-win-eventing-controller-l1-1-0.ControlTraceW
+EnableTraceEx2=api-ms-win-eventing-controller-l1-1-0.EnableTraceEx2
+StartTraceW=api-ms-win-eventing-controller-l1-1-0.StartTraceW
+StopTraceW=api-ms-win-eventing-controller-l1-1-0.StopTraceW

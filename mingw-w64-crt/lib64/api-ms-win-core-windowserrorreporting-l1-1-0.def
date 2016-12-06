@@ -1,0 +1,8 @@
+LIBRARY api-ms-win-core-windowserrorreporting-l1-1-0
+
+EXPORTS
+
+WerRegisterFile=api-ms-win-core-windowserrorreporting-l1-1-0.WerRegisterFile
+WerRegisterMemoryBlock=api-ms-win-core-windowserrorreporting-l1-1-0.WerRegisterMemoryBlock
+WerUnregisterFile=api-ms-win-core-windowserrorreporting-l1-1-0.WerUnregisterFile
+WerUnregisterMemoryBlock=api-ms-win-core-windowserrorreporting-l1-1-0.WerUnregisterMemoryBlock

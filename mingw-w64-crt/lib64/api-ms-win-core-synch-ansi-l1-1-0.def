@@ -1,0 +1,7 @@
+LIBRARY api-ms-win-core-synch-ansi-l1-1-0
+
+EXPORTS
+
+CreateSemaphoreA=api-ms-win-core-synch-ansi-l1-1-0.CreateSemaphoreA
+CreateSemaphoreExA=api-ms-win-core-synch-ansi-l1-1-0.CreateSemaphoreExA
+OpenMutexA=api-ms-win-core-synch-ansi-l1-1-0.OpenMutexA

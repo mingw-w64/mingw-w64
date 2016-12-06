@@ -1,0 +1,7 @@
+LIBRARY api-ms-win-ro-typeresolution-l1-1-0
+
+EXPORTS
+
+RoGetMetaDataFile=api-ms-win-ro-typeresolution-l1-1-0.RoGetMetaDataFile
+RoParseTypeName=api-ms-win-ro-typeresolution-l1-1-0.RoParseTypeName
+RoResolveNamespace=api-ms-win-ro-typeresolution-l1-1-0.RoResolveNamespace

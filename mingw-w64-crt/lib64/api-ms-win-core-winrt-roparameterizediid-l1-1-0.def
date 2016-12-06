@@ -1,0 +1,7 @@
+LIBRARY api-ms-win-core-winrt-roparameterizediid-l1-1-0
+
+EXPORTS
+
+RoFreeParameterizedTypeExtra=api-ms-win-core-winrt-roparameterizediid-l1-1-0.RoFreeParameterizedTypeExtra
+RoGetParameterizedTypeInstanceIID=api-ms-win-core-winrt-roparameterizediid-l1-1-0.RoGetParameterizedTypeInstanceIID
+RoParameterizedTypeExtraGetTypeSignature=api-ms-win-core-winrt-roparameterizediid-l1-1-0.RoParameterizedTypeExtraGetTypeSignature

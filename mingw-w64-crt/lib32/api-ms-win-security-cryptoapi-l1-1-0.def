@@ -1,0 +1,5 @@
+LIBRARY api-ms-win-security-cryptoapi-l1-1-0
+
+EXPORTS
+
+CryptReleaseContext@8=api-ms-win-security-cryptoapi-l1-1-0._CryptReleaseContext@8

@@ -1,0 +1,9 @@
+LIBRARY api-ms-win-core-heap-l2-1-0
+
+EXPORTS
+
+GlobalAlloc@8=api-ms-win-core-heap-l2-1-0._GlobalAlloc@8
+GlobalFree@4=api-ms-win-core-heap-l2-1-0._GlobalFree@4
+LocalAlloc@8=api-ms-win-core-heap-l2-1-0._LocalAlloc@8
+LocalFree@4=api-ms-win-core-heap-l2-1-0._LocalFree@4
+LocalReAlloc@12=api-ms-win-core-heap-l2-1-0._LocalReAlloc@12

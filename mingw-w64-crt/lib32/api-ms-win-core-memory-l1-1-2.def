@@ -1,0 +1,16 @@
+LIBRARY api-ms-win-core-memory-l1-1-2
+
+EXPORTS
+
+CreateFileMappingFromApp@24=api-ms-win-core-memory-l1-1-2._CreateFileMappingFromApp@24
+DiscardVirtualMemory@8=api-ms-win-core-memory-l1-1-2._DiscardVirtualMemory@8
+FlushViewOfFile@8=api-ms-win-core-memory-l1-1-2._FlushViewOfFile@8
+GetWriteWatch@24=api-ms-win-core-memory-l1-1-2._GetWriteWatch@24
+MapViewOfFileFromApp@20=api-ms-win-core-memory-l1-1-2._MapViewOfFileFromApp@20
+OfferVirtualMemory@12=api-ms-win-core-memory-l1-1-2._OfferVirtualMemory@12
+ReclaimVirtualMemory@8=api-ms-win-core-memory-l1-1-2._ReclaimVirtualMemory@8
+ResetWriteWatch@8=api-ms-win-core-memory-l1-1-2._ResetWriteWatch@8
+UnmapViewOfFile@4=api-ms-win-core-memory-l1-1-2._UnmapViewOfFile@4
+UnmapViewOfFileEx@8=api-ms-win-core-memory-l1-1-2._UnmapViewOfFileEx@8
+VirtualFree@12=api-ms-win-core-memory-l1-1-2._VirtualFree@12
+VirtualQuery@12=api-ms-win-core-memory-l1-1-2._VirtualQuery@12

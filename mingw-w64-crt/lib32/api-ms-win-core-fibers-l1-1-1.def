@@ -1,0 +1,9 @@
+LIBRARY api-ms-win-core-fibers-l1-1-1
+
+EXPORTS
+
+FlsAlloc@4=api-ms-win-core-fibers-l1-1-1._FlsAlloc@4
+FlsFree@4=api-ms-win-core-fibers-l1-1-1._FlsFree@4
+FlsGetValue@4=api-ms-win-core-fibers-l1-1-1._FlsGetValue@4
+FlsSetValue@8=api-ms-win-core-fibers-l1-1-1._FlsSetValue@8
+IsThreadAFiber@0=api-ms-win-core-fibers-l1-1-1._IsThreadAFiber@0

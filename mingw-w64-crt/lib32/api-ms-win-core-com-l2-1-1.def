@@ -1,0 +1,25 @@
+LIBRARY api-ms-win-core-com-l2-1-1
+
+EXPORTS
+
+CreateILockBytesOnHGlobal@12=api-ms-win-core-com-l2-1-1._CreateILockBytesOnHGlobal@12
+FmtIdToPropStgName@8=api-ms-win-core-com-l2-1-1._FmtIdToPropStgName@8
+GetConvertStg@4=api-ms-win-core-com-l2-1-1._GetConvertStg@4
+GetHGlobalFromILockBytes@8=api-ms-win-core-com-l2-1-1._GetHGlobalFromILockBytes@8
+PropStgNameToFmtId@8=api-ms-win-core-com-l2-1-1._PropStgNameToFmtId@8
+ReadClassStg@8=api-ms-win-core-com-l2-1-1._ReadClassStg@8
+ReadClassStm@8=api-ms-win-core-com-l2-1-1._ReadClassStm@8
+StgCreateDocfile@16=api-ms-win-core-com-l2-1-1._StgCreateDocfile@16
+StgCreateDocfileOnILockBytes@16=api-ms-win-core-com-l2-1-1._StgCreateDocfileOnILockBytes@16
+StgCreatePropSetStg@12=api-ms-win-core-com-l2-1-1._StgCreatePropSetStg@12
+StgCreatePropStg@24=api-ms-win-core-com-l2-1-1._StgCreatePropStg@24
+StgCreateStorageEx@32=api-ms-win-core-com-l2-1-1._StgCreateStorageEx@32
+StgIsStorageFile@4=api-ms-win-core-com-l2-1-1._StgIsStorageFile@4
+StgIsStorageILockBytes@4=api-ms-win-core-com-l2-1-1._StgIsStorageILockBytes@4
+StgOpenPropStg@20=api-ms-win-core-com-l2-1-1._StgOpenPropStg@20
+StgOpenStorage@24=api-ms-win-core-com-l2-1-1._StgOpenStorage@24
+StgOpenStorageEx@32=api-ms-win-core-com-l2-1-1._StgOpenStorageEx@32
+StgOpenStorageOnILockBytes@24=api-ms-win-core-com-l2-1-1._StgOpenStorageOnILockBytes@24
+StgSetTimes@16=api-ms-win-core-com-l2-1-1._StgSetTimes@16
+WriteClassStg@8=api-ms-win-core-com-l2-1-1._WriteClassStg@8
+WriteClassStm@8=api-ms-win-core-com-l2-1-1._WriteClassStm@8

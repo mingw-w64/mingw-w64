@@ -1,0 +1,15 @@
+LIBRARY api-ms-win-core-timezone-l1-1-0
+
+EXPORTS
+
+EnumDynamicTimeZoneInformation@8=api-ms-win-core-timezone-l1-1-0._EnumDynamicTimeZoneInformation@8
+FileTimeToSystemTime@8=api-ms-win-core-timezone-l1-1-0._FileTimeToSystemTime@8
+GetDynamicTimeZoneInformation@4=api-ms-win-core-timezone-l1-1-0._GetDynamicTimeZoneInformation@4
+GetDynamicTimeZoneInformationEffectiveYears@12=api-ms-win-core-timezone-l1-1-0._GetDynamicTimeZoneInformationEffectiveYears@12
+GetTimeZoneInformation@4=api-ms-win-core-timezone-l1-1-0._GetTimeZoneInformation@4
+GetTimeZoneInformationForYear@12=api-ms-win-core-timezone-l1-1-0._GetTimeZoneInformationForYear@12
+SystemTimeToFileTime@8=api-ms-win-core-timezone-l1-1-0._SystemTimeToFileTime@8
+SystemTimeToTzSpecificLocalTime@12=api-ms-win-core-timezone-l1-1-0._SystemTimeToTzSpecificLocalTime@12
+SystemTimeToTzSpecificLocalTimeEx@12=api-ms-win-core-timezone-l1-1-0._SystemTimeToTzSpecificLocalTimeEx@12
+TzSpecificLocalTimeToSystemTime@12=api-ms-win-core-timezone-l1-1-0._TzSpecificLocalTimeToSystemTime@12
+TzSpecificLocalTimeToSystemTimeEx@12=api-ms-win-core-timezone-l1-1-0._TzSpecificLocalTimeToSystemTimeEx@12

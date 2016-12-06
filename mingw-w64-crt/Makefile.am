@@ -635,6 +635,33 @@ lib32/libsynchronization.a: lib32/synchronization.mri lib32/libapi-ms-win-core-s
 	$(AR) -M < $<
 	$(RANLIB) $@
 
+lib32/libwindowsapp.a: lib32/windowsapp.mri lib32/libapi-ms-win-core-com-l1-1-1.a lib32/libapi-ms-win-core-com-l2-1-1.a lib32/libapi-ms-win-core-com-midlproxystub-l1-1-0.a \
+					lib32/libapi-ms-win-core-datetime-l1-1-1.a lib32/libapi-ms-win-core-datetime-l1-1-2.a lib32/libapi-ms-win-core-debug-l1-1-1.a \
+					lib32/libapi-ms-win-core-delayload-l1-1-1.a lib32/libapi-ms-win-core-errorhandling-l1-1-1.a lib32/libapi-ms-win-core-errorhandling-l1-1-3.a \
+					lib32/libapi-ms-win-core-featurestaging-l1-1-0.a lib32/libapi-ms-win-core-fibers-l1-1-1.a lib32/libapi-ms-win-core-fibers-l2-1-1.a \
+					lib32/libapi-ms-win-core-file-ansi-l2-1-0.a lib32/libapi-ms-win-core-file-l1-2-1.a lib32/libapi-ms-win-core-file-l2-1-1.a \
+					lib32/libapi-ms-win-core-handle-l1-1-0.a lib32/libapi-ms-win-core-heap-l1-2-0.a lib32/libapi-ms-win-core-heap-l2-1-0.a \
+					lib32/libapi-ms-win-core-heap-obsolete-l1-1-0.a lib32/libapi-ms-win-core-interlocked-l1-2-0.a lib32/libapi-ms-win-core-io-l1-1-1.a \
+					lib32/libapi-ms-win-core-kernel32-legacy-l1-1-1.a lib32/libapi-ms-win-core-largeinteger-l1-1-0.a lib32/libapi-ms-win-core-libraryloader-l1-2-0.a \
+					lib32/libapi-ms-win-core-libraryloader-l2-1-0.a lib32/libapi-ms-win-core-localization-ansi-l1-1-0.a lib32/libapi-ms-win-core-localization-l1-2-1.a \
+					lib32/libapi-ms-win-core-localization-l1-2-2.a lib32/libapi-ms-win-core-localization-l2-1-0.a lib32/libapi-ms-win-core-memory-l1-1-2.a \
+					lib32/libapi-ms-win-core-memory-l1-1-4.a lib32/libapi-ms-win-core-normalization-l1-1-0.a lib32/libapi-ms-win-core-processenvironment-l1-2-0.a \
+					lib32/libapi-ms-win-core-processthreads-l1-1-2.a lib32/libapi-ms-win-core-processthreads-l1-1-3.a lib32/libapi-ms-win-core-profile-l1-1-0.a \
+					lib32/libapi-ms-win-core-psapi-l1-1-0.a lib32/libapi-ms-win-core-realtime-l1-1-0.a lib32/libapi-ms-win-core-realtime-l1-1-1.a \
+					lib32/libapi-ms-win-core-rtlsupport-l1-2-0.a lib32/libapi-ms-win-core-slapi-l1-1-0.a lib32/libapi-ms-win-core-string-l1-1-0.a \
+					lib32/libapi-ms-win-core-synch-ansi-l1-1-0.a lib32/libapi-ms-win-core-synch-l1-2-0.a lib32/libapi-ms-win-core-synch-l1-2-1.a \
+					lib32/libapi-ms-win-core-sysinfo-l1-2-1.a lib32/libapi-ms-win-core-sysinfo-l1-2-3.a lib32/libapi-ms-win-core-threadpool-l1-2-0.a \
+					lib32/libapi-ms-win-core-timezone-l1-1-0.a lib32/libapi-ms-win-core-util-l1-1-0.a lib32/libapi-ms-win-core-windowsceip-l1-1-0.a \
+					lib32/libapi-ms-win-core-windowserrorreporting-l1-1-0.a lib32/libapi-ms-win-core-winrt-error-l1-1-1.a lib32/libapi-ms-win-core-winrt-l1-1-0.a \
+					lib32/libapi-ms-win-core-winrt-registration-l1-1-0.a lib32/libapi-ms-win-core-winrt-robuffer-l1-1-0.a lib32/libapi-ms-win-core-winrt-roparameterizediid-l1-1-0.a \
+					lib32/libapi-ms-win-core-winrt-string-l1-1-0.a lib32/libapi-ms-win-core-xstate-l2-1-0.a lib32/libapi-ms-win-eventing-classicprovider-l1-1-0.a \
+					lib32/libapi-ms-win-eventing-consumer-l1-1-0.a lib32/libapi-ms-win-eventing-controller-l1-1-0.a lib32/libapi-ms-win-eventing-legacy-l1-1-0.a \
+					lib32/libapi-ms-win-eventing-provider-l1-1-0.a lib32/libapi-ms-win-gaming-tcui-l1-1-2.a lib32/libapi-ms-win-ro-typeresolution-l1-1-0.a \
+					lib32/libapi-ms-win-security-base-l1-2-1.a lib32/libapi-ms-win-security-cryptoapi-l1-1-0.a lib32/libapi-ms-win-shcore-stream-winrt-l1-1-0.a
+	rm -f $@
+	$(AR) -M < $<
+	$(RANLIB) $@
+
 dx32_DATA =
 dx32_DATA += lib32/libxinput.a
 dx32_DATA += lib32/libxapofx.a
@@ -1138,7 +1165,8 @@ lib64_DATA = \
   lib64/libd3d11.a          lib64/libd3dcompiler_47.a \
   lib64/libwinhttp.a \
   lib64/libruntimeobject.a \
-  lib64/libsynchronization.a
+  lib64/libsynchronization.a \
+  lib64/libwindowsapp.a
 
 if !W32API
 lib64_DATA += lib64/libmsvcp60.a lib64/libmsvcr80.a lib64/libmsvcr90.a lib64/libmsvcr100.a lib64/libmsvcr90d.a \
@@ -1167,6 +1195,33 @@ lib64/libruntimeobject.a: lib64/runtimeobject.mri lib64/libapi-ms-win-core-winrt
 	$(RANLIB) $@
 
 lib64/libsynchronization.a: lib64/synchronization.mri lib64/libapi-ms-win-core-synch-l1-2-0.a
+	rm -f $@
+	$(AR) -M < $<
+	$(RANLIB) $@
+
+lib64/libwindowsapp.a: lib64/windowsapp.mri lib64/libapi-ms-win-core-com-l1-1-1.a lib64/libapi-ms-win-core-com-l2-1-1.a \
+	lib64/libapi-ms-win-core-com-midlproxystub-l1-1-0.a lib64/libapi-ms-win-core-datetime-l1-1-1.a lib64/libapi-ms-win-core-datetime-l1-1-2.a \
+	lib64/libapi-ms-win-core-debug-l1-1-1.a lib64/libapi-ms-win-core-delayload-l1-1-1.a lib64/libapi-ms-win-core-errorhandling-l1-1-1.a \
+	lib64/libapi-ms-win-core-errorhandling-l1-1-3.a lib64/libapi-ms-win-core-fibers-l1-1-1.a lib64/libapi-ms-win-core-fibers-l2-1-1.a \
+	lib64/libapi-ms-win-core-file-ansi-l2-1-0.a lib64/libapi-ms-win-core-file-l1-2-1.a lib64/libapi-ms-win-core-file-l2-1-1.a \
+	lib64/libapi-ms-win-core-handle-l1-1-0.a lib64/libapi-ms-win-core-heap-l1-2-0.a lib64/libapi-ms-win-core-interlocked-l1-2-0.a \
+	lib64/libapi-ms-win-core-io-l1-1-1.a lib64/libapi-ms-win-core-kernel32-legacy-l1-1-1.a lib64/libapi-ms-win-core-largeinteger-l1-1-0.a \
+	lib64/libapi-ms-win-core-libraryloader-l1-2-0.a lib64/libapi-ms-win-core-libraryloader-l2-1-0.a lib64/libapi-ms-win-core-localization-ansi-l1-1-0.a \
+	lib64/libapi-ms-win-core-localization-l1-2-1.a lib64/libapi-ms-win-core-localization-l1-2-2.a lib64/libapi-ms-win-core-localization-l2-1-0.a \
+	lib64/libapi-ms-win-core-memory-l1-1-2.a lib64/libapi-ms-win-core-memory-l1-1-3.a lib64/libapi-ms-win-core-normalization-l1-1-0.a \
+	lib64/libapi-ms-win-core-processenvironment-l1-2-0.a lib64/libapi-ms-win-core-processthreads-l1-1-2.a lib64/libapi-ms-win-core-processthreads-l1-1-3.a \
+	lib64/libapi-ms-win-core-profile-l1-1-0.a lib64/libapi-ms-win-core-realtime-l1-1-0.a lib64/libapi-ms-win-core-realtime-l1-1-1.a \
+	lib64/libapi-ms-win-core-rtlsupport-l1-2-0.a lib64/libapi-ms-win-core-string-l1-1-0.a lib64/libapi-ms-win-core-synch-ansi-l1-1-0.a \
+	lib64/libapi-ms-win-core-synch-l1-2-0.a lib64/libapi-ms-win-core-synch-l1-2-1.a lib64/libapi-ms-win-core-sysinfo-l1-2-1.a \
+	lib64/libapi-ms-win-core-sysinfo-l1-2-3.a lib64/libapi-ms-win-core-threadpool-l1-2-0.a lib64/libapi-ms-win-core-timezone-l1-1-0.a \
+	lib64/libapi-ms-win-core-util-l1-1-0.a lib64/libapi-ms-win-core-windowsceip-l1-1-0.a lib64/libapi-ms-win-core-windowserrorreporting-l1-1-0.a \
+	lib64/libapi-ms-win-core-winrt-error-l1-1-1.a lib64/libapi-ms-win-core-winrt-l1-1-0.a lib64/libapi-ms-win-core-winrt-registration-l1-1-0.a \
+	lib64/libapi-ms-win-core-winrt-robuffer-l1-1-0.a lib64/libapi-ms-win-core-winrt-roparameterizediid-l1-1-0.a lib64/libapi-ms-win-core-winrt-string-l1-1-0.a \
+	lib64/libapi-ms-win-core-xstate-l2-1-0.a lib64/libapi-ms-win-eventing-classicprovider-l1-1-0.a lib64/libapi-ms-win-eventing-consumer-l1-1-0.a \
+	lib64/libapi-ms-win-eventing-controller-l1-1-0.a lib64/libapi-ms-win-eventing-legacy-l1-1-0.a lib64/libapi-ms-win-eventing-provider-l1-1-0.a \
+	lib64/libapi-ms-win-gaming-tcui-l1-1-0.a lib64/libapi-ms-win-ro-typeresolution-l1-1-0.a lib64/libapi-ms-win-security-cryptoapi-l1-1-0.a \
+	lib64/libapi-ms-win-shcore-stream-winrt-l1-1-0.a
+
 	rm -f $@
 	$(AR) -M < $<
 	$(RANLIB) $@

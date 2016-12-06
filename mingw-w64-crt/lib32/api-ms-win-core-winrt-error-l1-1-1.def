@@ -1,0 +1,16 @@
+LIBRARY api-ms-win-core-winrt-error-l1-1-1
+
+EXPORTS
+
+GetRestrictedErrorInfo@4=api-ms-win-core-winrt-error-l1-1-1._GetRestrictedErrorInfo@4
+RoCaptureErrorContext@4=api-ms-win-core-winrt-error-l1-1-1._RoCaptureErrorContext@4
+RoFailFastWithErrorContext@4=api-ms-win-core-winrt-error-l1-1-1._RoFailFastWithErrorContext@4
+RoGetErrorReportingFlags@4=api-ms-win-core-winrt-error-l1-1-1._RoGetErrorReportingFlags@4
+RoOriginateError@8=api-ms-win-core-winrt-error-l1-1-1._RoOriginateError@8
+RoOriginateErrorW@12=api-ms-win-core-winrt-error-l1-1-1._RoOriginateErrorW@12
+RoOriginateLanguageException@12=api-ms-win-core-winrt-error-l1-1-1._RoOriginateLanguageException@12
+RoReportUnhandledError@4=api-ms-win-core-winrt-error-l1-1-1._RoReportUnhandledError@4
+RoSetErrorReportingFlags@4=api-ms-win-core-winrt-error-l1-1-1._RoSetErrorReportingFlags@4
+RoTransformError@12=api-ms-win-core-winrt-error-l1-1-1._RoTransformError@12
+RoTransformErrorW@16=api-ms-win-core-winrt-error-l1-1-1._RoTransformErrorW@16
+SetRestrictedErrorInfo@4=api-ms-win-core-winrt-error-l1-1-1._SetRestrictedErrorInfo@4

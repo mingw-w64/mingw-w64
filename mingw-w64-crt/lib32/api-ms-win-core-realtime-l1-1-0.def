@@ -1,0 +1,5 @@
+LIBRARY api-ms-win-core-realtime-l1-1-0
+
+EXPORTS
+
+QueryUnbiasedInterruptTime@4=api-ms-win-core-realtime-l1-1-0._QueryUnbiasedInterruptTime@4

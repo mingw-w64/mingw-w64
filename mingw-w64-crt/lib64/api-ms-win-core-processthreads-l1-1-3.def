@@ -1,0 +1,12 @@
+LIBRARY api-ms-win-core-processthreads-l1-1-3
+
+EXPORTS
+
+GetProcessDefaultCpuSets=api-ms-win-core-processthreads-l1-1-3.GetProcessDefaultCpuSets
+GetProcessInformation=api-ms-win-core-processthreads-l1-1-3.GetProcessInformation
+GetSystemCpuSetInformation=api-ms-win-core-processthreads-l1-1-3.GetSystemCpuSetInformation
+GetThreadSelectedCpuSets=api-ms-win-core-processthreads-l1-1-3.GetThreadSelectedCpuSets
+SetProcessDefaultCpuSets=api-ms-win-core-processthreads-l1-1-3.SetProcessDefaultCpuSets
+SetProcessInformation=api-ms-win-core-processthreads-l1-1-3.SetProcessInformation
+SetThreadIdealProcessor=api-ms-win-core-processthreads-l1-1-3.SetThreadIdealProcessor
+SetThreadSelectedCpuSets=api-ms-win-core-processthreads-l1-1-3.SetThreadSelectedCpuSets

@@ -1,0 +1,14 @@
+LIBRARY api-ms-win-core-sysinfo-l1-2-1
+
+EXPORTS
+
+GetLocalTime@4=api-ms-win-core-sysinfo-l1-2-1._GetLocalTime@4
+GetLogicalProcessorInformation@8=api-ms-win-core-sysinfo-l1-2-1._GetLogicalProcessorInformation@8
+GetLogicalProcessorInformationEx@12=api-ms-win-core-sysinfo-l1-2-1._GetLogicalProcessorInformationEx@12
+GetNativeSystemInfo@4=api-ms-win-core-sysinfo-l1-2-1._GetNativeSystemInfo@4
+GetSystemInfo@4=api-ms-win-core-sysinfo-l1-2-1._GetSystemInfo@4
+GetSystemTime@4=api-ms-win-core-sysinfo-l1-2-1._GetSystemTime@4
+GetSystemTimeAsFileTime@4=api-ms-win-core-sysinfo-l1-2-1._GetSystemTimeAsFileTime@4
+GetSystemTimePreciseAsFileTime@4=api-ms-win-core-sysinfo-l1-2-1._GetSystemTimePreciseAsFileTime@4
+GetTickCount64@0=api-ms-win-core-sysinfo-l1-2-1._GetTickCount64@0
+GlobalMemoryStatusEx@4=api-ms-win-core-sysinfo-l1-2-1._GlobalMemoryStatusEx@4

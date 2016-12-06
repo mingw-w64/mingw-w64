@@ -1,0 +1,11 @@
+LIBRARY api-ms-win-gaming-tcui-l1-1-0
+
+EXPORTS
+
+ProcessPendingGameUI=api-ms-win-gaming-tcui-l1-1-0.ProcessPendingGameUI
+ShowChangeFriendRelationshipUI=api-ms-win-gaming-tcui-l1-1-0.ShowChangeFriendRelationshipUI
+ShowGameInviteUI=api-ms-win-gaming-tcui-l1-1-0.ShowGameInviteUI
+ShowPlayerPickerUI=api-ms-win-gaming-tcui-l1-1-0.ShowPlayerPickerUI
+ShowProfileCardUI=api-ms-win-gaming-tcui-l1-1-0.ShowProfileCardUI
+ShowTitleAchievementsUI=api-ms-win-gaming-tcui-l1-1-0.ShowTitleAchievementsUI
+TryCancelPendingGameUI=api-ms-win-gaming-tcui-l1-1-0.TryCancelPendingGameUI

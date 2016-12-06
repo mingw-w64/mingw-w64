@@ -1,0 +1,7 @@
+LIBRARY api-ms-win-core-rtlsupport-l1-2-0
+
+EXPORTS
+
+RtlCaptureStackBackTrace@16=api-ms-win-core-rtlsupport-l1-2-0._RtlCaptureStackBackTrace@16
+RtlPcToFileHeader@8=api-ms-win-core-rtlsupport-l1-2-0._RtlPcToFileHeader@8
+RtlUnwind@16=api-ms-win-core-rtlsupport-l1-2-0._RtlUnwind@16

@@ -1,0 +1,8 @@
+LIBRARY api-ms-win-eventing-legacy-l1-1-0
+
+EXPORTS
+
+EnableTrace=api-ms-win-eventing-legacy-l1-1-0.EnableTrace
+EnableTraceEx=api-ms-win-eventing-legacy-l1-1-0.EnableTraceEx
+FlushTraceW=api-ms-win-eventing-legacy-l1-1-0.FlushTraceW
+QueryTraceW=api-ms-win-eventing-legacy-l1-1-0.QueryTraceW

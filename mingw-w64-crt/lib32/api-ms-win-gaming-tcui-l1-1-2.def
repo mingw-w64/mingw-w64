@@ -1,0 +1,20 @@
+LIBRARY api-ms-win-gaming-tcui-l1-1-2
+
+EXPORTS
+
+CheckGamingPrivilegeSilently@16=api-ms-win-gaming-tcui-l1-1-2._CheckGamingPrivilegeSilently@16
+CheckGamingPrivilegeSilentlyForUser@20=api-ms-win-gaming-tcui-l1-1-2._CheckGamingPrivilegeSilentlyForUser@20
+CheckGamingPrivilegeWithUI@24=api-ms-win-gaming-tcui-l1-1-2._CheckGamingPrivilegeWithUI@24
+CheckGamingPrivilegeWithUIForUser@28=api-ms-win-gaming-tcui-l1-1-2._CheckGamingPrivilegeWithUIForUser@28
+ProcessPendingGameUI@4=api-ms-win-gaming-tcui-l1-1-2._ProcessPendingGameUI@4
+ShowChangeFriendRelationshipUI@12=api-ms-win-gaming-tcui-l1-1-2._ShowChangeFriendRelationshipUI@12
+ShowChangeFriendRelationshipUIForUser@16=api-ms-win-gaming-tcui-l1-1-2._ShowChangeFriendRelationshipUIForUser@16
+ShowGameInviteUI@24=api-ms-win-gaming-tcui-l1-1-2._ShowGameInviteUI@24
+ShowGameInviteUIForUser@28=api-ms-win-gaming-tcui-l1-1-2._ShowGameInviteUIForUser@28
+ShowPlayerPickerUI@36=api-ms-win-gaming-tcui-l1-1-2._ShowPlayerPickerUI@36
+ShowPlayerPickerUIForUser@40=api-ms-win-gaming-tcui-l1-1-2._ShowPlayerPickerUIForUser@40
+ShowProfileCardUI@12=api-ms-win-gaming-tcui-l1-1-2._ShowProfileCardUI@12
+ShowProfileCardUIForUser@16=api-ms-win-gaming-tcui-l1-1-2._ShowProfileCardUIForUser@16
+ShowTitleAchievementsUI@12=api-ms-win-gaming-tcui-l1-1-2._ShowTitleAchievementsUI@12
+ShowTitleAchievementsUIForUser@16=api-ms-win-gaming-tcui-l1-1-2._ShowTitleAchievementsUIForUser@16
+TryCancelPendingGameUI@0=api-ms-win-gaming-tcui-l1-1-2._TryCancelPendingGameUI@0

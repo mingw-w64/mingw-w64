@@ -1,0 +1,8 @@
+LIBRARY api-ms-win-core-file-l2-1-1
+
+EXPORTS
+
+CopyFile2@12=api-ms-win-core-file-l2-1-1._CopyFile2@12
+GetFileInformationByHandleEx@16=api-ms-win-core-file-l2-1-1._GetFileInformationByHandleEx@16
+MoveFileExW@12=api-ms-win-core-file-l2-1-1._MoveFileExW@12
+ReplaceFileW@24=api-ms-win-core-file-l2-1-1._ReplaceFileW@24

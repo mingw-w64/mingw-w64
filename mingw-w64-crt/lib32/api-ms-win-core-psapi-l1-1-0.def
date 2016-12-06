@@ -1,0 +1,6 @@
+LIBRARY api-ms-win-core-psapi-l1-1-0
+
+EXPORTS
+
+K32GetModuleInformation@16=api-ms-win-core-psapi-l1-1-0._K32GetModuleInformation@16
+K32GetProcessMemoryInfo@12=api-ms-win-core-psapi-l1-1-0._K32GetProcessMemoryInfo@12

@@ -1,0 +1,7 @@
+LIBRARY api-ms-win-core-debug-l1-1-1
+
+EXPORTS
+
+IsDebuggerPresent=api-ms-win-core-debug-l1-1-1.IsDebuggerPresent
+OutputDebugStringA=api-ms-win-core-debug-l1-1-1.OutputDebugStringA
+OutputDebugStringW=api-ms-win-core-debug-l1-1-1.OutputDebugStringW

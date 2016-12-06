@@ -1,0 +1,6 @@
+LIBRARY api-ms-win-core-synch-l1-2-1
+
+EXPORTS
+
+CreateSemaphoreW@16=api-ms-win-core-synch-l1-2-1._CreateSemaphoreW@16
+WaitForMultipleObjects@16=api-ms-win-core-synch-l1-2-1._WaitForMultipleObjects@16

@@ -1,0 +1,12 @@
+LIBRARY api-ms-win-eventing-provider-l1-1-0
+
+EXPORTS
+
+EventActivityIdControl=api-ms-win-eventing-provider-l1-1-0.EventActivityIdControl
+EventRegister=api-ms-win-eventing-provider-l1-1-0.EventRegister
+EventSetInformation=api-ms-win-eventing-provider-l1-1-0.EventSetInformation
+EventUnregister=api-ms-win-eventing-provider-l1-1-0.EventUnregister
+EventWrite=api-ms-win-eventing-provider-l1-1-0.EventWrite
+EventWriteEx=api-ms-win-eventing-provider-l1-1-0.EventWriteEx
+EventWriteString=api-ms-win-eventing-provider-l1-1-0.EventWriteString
+EventWriteTransfer=api-ms-win-eventing-provider-l1-1-0.EventWriteTransfer

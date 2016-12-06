@@ -1,0 +1,24 @@
+LIBRARY api-ms-win-core-processthreads-l1-1-2
+
+EXPORTS
+
+CreateThread=api-ms-win-core-processthreads-l1-1-2.CreateThread
+ExitThread=api-ms-win-core-processthreads-l1-1-2.ExitThread
+FlushProcessWriteBuffers=api-ms-win-core-processthreads-l1-1-2.FlushProcessWriteBuffers
+GetCurrentProcess=api-ms-win-core-processthreads-l1-1-2.GetCurrentProcess
+GetCurrentProcessId=api-ms-win-core-processthreads-l1-1-2.GetCurrentProcessId
+GetCurrentThread=api-ms-win-core-processthreads-l1-1-2.GetCurrentThread
+GetCurrentThreadId=api-ms-win-core-processthreads-l1-1-2.GetCurrentThreadId
+GetExitCodeThread=api-ms-win-core-processthreads-l1-1-2.GetExitCodeThread
+GetThreadContext=api-ms-win-core-processthreads-l1-1-2.GetThreadContext
+GetThreadId=api-ms-win-core-processthreads-l1-1-2.GetThreadId
+GetThreadPriority=api-ms-win-core-processthreads-l1-1-2.GetThreadPriority
+IsProcessorFeaturePresent=api-ms-win-core-processthreads-l1-1-2.IsProcessorFeaturePresent
+OpenProcess=api-ms-win-core-processthreads-l1-1-2.OpenProcess
+QueueUserAPC=api-ms-win-core-processthreads-l1-1-2.QueueUserAPC
+ResumeThread=api-ms-win-core-processthreads-l1-1-2.ResumeThread
+SetThreadIdealProcessorEx=api-ms-win-core-processthreads-l1-1-2.SetThreadIdealProcessorEx
+SetThreadPriority=api-ms-win-core-processthreads-l1-1-2.SetThreadPriority
+SuspendThread=api-ms-win-core-processthreads-l1-1-2.SuspendThread
+SwitchToThread=api-ms-win-core-processthreads-l1-1-2.SwitchToThread
+TerminateProcess=api-ms-win-core-processthreads-l1-1-2.TerminateProcess

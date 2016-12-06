@@ -1,0 +1,6 @@
+LIBRARY api-ms-win-core-winrt-registration-l1-1-0
+
+EXPORTS
+
+RoGetActivatableClassRegistration@8=api-ms-win-core-winrt-registration-l1-1-0._RoGetActivatableClassRegistration@8
+RoGetServerActivatableClasses@12=api-ms-win-core-winrt-registration-l1-1-0._RoGetServerActivatableClasses@12

@@ -1,0 +1,25 @@
+LIBRARY api-ms-win-core-localization-l1-2-1
+
+EXPORTS
+
+EnumSystemGeoID@12=api-ms-win-core-localization-l1-2-1._EnumSystemGeoID@12
+EnumSystemLocalesEx@16=api-ms-win-core-localization-l1-2-1._EnumSystemLocalesEx@16
+FindNLSStringEx@40=api-ms-win-core-localization-l1-2-1._FindNLSStringEx@40
+FormatMessageA@28=api-ms-win-core-localization-l1-2-1._FormatMessageA@28
+FormatMessageW@28=api-ms-win-core-localization-l1-2-1._FormatMessageW@28
+GetCalendarInfoEx@28=api-ms-win-core-localization-l1-2-1._GetCalendarInfoEx@28
+GetCPInfo@8=api-ms-win-core-localization-l1-2-1._GetCPInfo@8
+GetCPInfoExW@12=api-ms-win-core-localization-l1-2-1._GetCPInfoExW@12
+GetGeoInfoW@20=api-ms-win-core-localization-l1-2-1._GetGeoInfoW@20
+GetLocaleInfoEx@16=api-ms-win-core-localization-l1-2-1._GetLocaleInfoEx@16
+GetNLSVersionEx@12=api-ms-win-core-localization-l1-2-1._GetNLSVersionEx@12
+GetUserDefaultLocaleName@8=api-ms-win-core-localization-l1-2-1._GetUserDefaultLocaleName@8
+GetUserGeoID@4=api-ms-win-core-localization-l1-2-1._GetUserGeoID@4
+IdnToAscii@20=api-ms-win-core-localization-l1-2-1._IdnToAscii@20
+IdnToUnicode@20=api-ms-win-core-localization-l1-2-1._IdnToUnicode@20
+IsValidCodePage@4=api-ms-win-core-localization-l1-2-1._IsValidCodePage@4
+IsValidLocaleName@4=api-ms-win-core-localization-l1-2-1._IsValidLocaleName@4
+IsValidNLSVersion@12=api-ms-win-core-localization-l1-2-1._IsValidNLSVersion@12
+LCMapStringEx@36=api-ms-win-core-localization-l1-2-1._LCMapStringEx@36
+LocaleNameToLCID@8=api-ms-win-core-localization-l1-2-1._LocaleNameToLCID@8
+ResolveLocaleName@12=api-ms-win-core-localization-l1-2-1._ResolveLocaleName@12
