@@ -37,4 +37,5 @@ libwinstorecompat_a_SOURCES = \
   src/QueueTimer.c \
   src/Crypto.c \
   src/GetStartupInfo.c \
+  src/GetConsoleOutputCP.c \
   $(NULL)
