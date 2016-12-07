@@ -57,6 +57,8 @@ void __cdecl _lock_file( FILE *pf )
         EnterCriticalSection( &(((_FILEX *)pf)->lock) );
 }
 
+void *__MINGW_IMP_SYMBOL(_lock_file) = _lock_file;
+
 
 /***
 * _unlock_file - Unlock a FILE
@@ -96,3 +98,5 @@ void __cdecl _unlock_file( FILE *pf )
          */
         LeaveCriticalSection( &(((_FILEX *)pf)->lock) );
 }
+
+void *__MINGW_IMP_SYMBOL(_unlock_file) = _unlock_file;
