@@ -203,7 +203,7 @@ THEMEAPI GetThemeBool(HTHEME hTheme,int iPartId,int iStateId,int iPropId,WINBOOL
 THEMEAPI GetThemeInt(HTHEME hTheme,int iPartId,int iStateId,int iPropId,int *piVal);
 THEMEAPI GetThemeEnumValue(HTHEME hTheme,int iPartId,int iStateId,int iPropId,int *piVal);
 THEMEAPI GetThemePosition(HTHEME hTheme,int iPartId,int iStateId,int iPropId,POINT *pPoint);
-THEMEAPI GetThemeFont(HTHEME hTheme,HDC hdc,int iPartId,int iStateId,int iPropId,LOGFONT *pFont);
+THEMEAPI GetThemeFont(HTHEME hTheme,HDC hdc,int iPartId,int iStateId,int iPropId,LOGFONTW *pFont);
 THEMEAPI GetThemeRect(HTHEME hTheme,int iPartId,int iStateId,int iPropId,RECT *pRect);
 
 typedef struct _MARGINS {
