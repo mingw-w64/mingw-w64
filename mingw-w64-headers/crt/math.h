@@ -353,16 +353,16 @@ _CRTIMP double __cdecl scalb (double, long);
 #ifdef __GNUC__
 #define HUGE_VALF	__builtin_huge_valf()
 #define HUGE_VALL	__builtin_huge_vall()
-#define INFINITY	__builtin_inf()
-#define NAN		__builtin_nan("")
+#define INFINITY	__builtin_inff()
+#define NAN		__builtin_nanf("")
 #else
 extern const float __INFF;
 #define HUGE_VALF __INFF
 extern const long double  __INFL;
 #define HUGE_VALL __INFL
 #define INFINITY HUGE_VALF
-extern const double __QNAN;
-#define NAN __QNAN
+extern const double __QNANF;
+#define NAN __QNANF
 #endif /* __GNUC__ */
 
 /* Use the compiler's builtin define for FLT_EVAL_METHOD to
