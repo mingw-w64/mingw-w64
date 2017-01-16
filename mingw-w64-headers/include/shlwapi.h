@@ -932,6 +932,8 @@ extern "C" {
   LWSTDAPI_(WINBOOL) IsInternetESCEnabled();
 #endif
 
+LWSTDAPI_(IStream *) SHCreateMemStream(const BYTE *pInit, _In_ UINT cbInit);
+
 #ifdef __cplusplus
 }
 #endif
