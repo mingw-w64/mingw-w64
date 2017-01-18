@@ -46,6 +46,7 @@ extern "C" {
   extern const CLSID CLSID_StaticDib;
   extern const CLSID CID_CDfsVolume;
   extern const CLSID CLSID_DCOMAccessControl;
+  extern const CLSID CLSID_GlobalOptions;
   extern const CLSID CLSID_StdGlobalInterfaceTable;
   extern const CLSID CLSID_ComBinding;
   extern const CLSID CLSID_StdEvent;
