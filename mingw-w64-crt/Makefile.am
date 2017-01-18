@@ -227,7 +227,6 @@ src_libmingwex=\
   \
   math/_chgsignl.S      math/ceil.S        math/ceilf.S          math/ceill.S         math/copysignl.S     \
   math/floor.S          math/floorf.S      math/floorl.S         \
-  math/fma.S            math/fmaf.S        \
   math/nearbyint.S      math/nearbyintf.S  math/nearbyintl.S     \
   math/trunc.S          math/truncf.S      \
   math/cbrt.c           \
@@ -235,7 +234,8 @@ src_libmingwex=\
   math/coshf.c          math/coshl.c       math/erfl.c           \
   math/expf.c           \
   math/fabs.c           math/fabsf.c       math/fabsl.c          math/fdim.c          math/fdimf.c         math/fdiml.c         \
-  math/fmal.c           math/fmax.c        math/fmaxf.c          math/fmaxl.c         math/fmin.c          math/fminf.c         \
+  math/fma.c            math/fmaf.c        math/fmal.c           \
+  math/fmax.c           math/fmaxf.c       math/fmaxl.c          math/fmin.c          math/fminf.c         \
   math/fminl.c          math/fp_consts.c   math/fp_constsf.c     \
   math/fp_constsl.c     math/fpclassify.c  math/fpclassifyf.c    math/fpclassifyl.c   math/frexpf.c        \
   math/hypotf.c         math/hypot.c  math/hypotl.c      math/isnan.c          math/isnanf.c        math/isnanl.c        \
