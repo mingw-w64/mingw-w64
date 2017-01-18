@@ -1211,6 +1211,10 @@ extern _variant_t vtMissing;
 
 #pragma pop_macro("new")
 
+/* We use _com_issue_error here, but we only provide its inline version in comdef.h,
+ * so we need to make sure that it's included as well. */
+#include <comdef.h>
+
 #endif /* __cplusplus */
 
 #endif
