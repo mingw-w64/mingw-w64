@@ -88,7 +88,7 @@ namespace Microsoft {
             }
 
             template<class U>
-            ComPtr(const ComPtr<U> &other) throw() : ptr_(other.ptr_) {
+            ComPtr(const ComPtr<U> &other) throw() : ptr_(other.Get()) {
                 InternalAddRef();
             }
 
@@ -98,9 +98,7 @@ namespace Microsoft {
             }
 
             template<class U>
-            ComPtr(ComPtr<U>&& other) throw() : ptr_(other.ptr_) {
-                other.ptr_ = nullptr;
-            }
+            ComPtr(ComPtr<U>&& other) throw() : ptr_(other.Detach()) {}
 
             ~ComPtr() throw() {
                 InternalRelease();
