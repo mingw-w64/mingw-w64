@@ -43,6 +43,13 @@ namespace D2D1 {
         return r;
     }
 
+    D2D1FORCEINLINE D2D1_BITMAP_BRUSH_PROPERTIES1 BitmapBrushProperties1(D2D1_EXTEND_MODE extendmodeX = D2D1_EXTEND_MODE_CLAMP,
+            D2D1_EXTEND_MODE extendmodeY = D2D1_EXTEND_MODE_CLAMP,
+            D2D1_INTERPOLATION_MODE interpolationMode = D2D1_INTERPOLATION_MODE_LINEAR) {
+        D2D1_BITMAP_BRUSH_PROPERTIES1 r = {extendmodeX, extendmodeY, interpolationMode};
+        return r;
+    }
+
     class Matrix5x4F : public D2D1_MATRIX_5X4_F {
     public:
         inline Matrix5x4F(
