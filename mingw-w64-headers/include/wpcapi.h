@@ -42,6 +42,15 @@ typedef interface IWindowsParentalControlsCore IWindowsParentalControlsCore;
 typedef interface IWindowsParentalControls IWindowsParentalControls;
 #endif
 
+#ifndef __WindowsParentalControls_FWD_DEFINED__
+#define __WindowsParentalControls_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class WindowsParentalControls WindowsParentalControls;
+#else
+typedef struct WindowsParentalControls WindowsParentalControls;
+#endif /* defined __cplusplus */
+#endif /* defined __WindowsParentalControls_FWD_DEFINED__ */
+
 /* Headers for imported files */
 
 #include <oaidl.h>
@@ -719,6 +728,19 @@ void __RPC_STUB IWindowsParentalControls_GetGamesSettings_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __IWindowsParentalControls_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * WindowsParentalControls coclass
+ */
+
+DEFINE_GUID(CLSID_WindowsParentalControls, 0xe77cc89b, 0x7401, 0x4c04, 0x8c,0xed, 0x14,0x9d,0xb3,0x5a,0xdd,0x04);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("e77cc89b-7401-4c04-8ced-149db35add04") WindowsParentalControls;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(WindowsParentalControls, 0xe77cc89b, 0x7401, 0x4c04, 0x8c,0xed, 0x14,0x9d,0xb3,0x5a,0xdd,0x04)
+#endif
+#endif
 
 /* Begin additional prototypes for all interfaces */
 
