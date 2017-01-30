@@ -12,6 +12,44 @@
 extern "C" {
 #endif
 
+#ifndef PSAPI_VERSION
+#if NTDDI_VERSION >= NTDDI_WIN7
+#define PSAPI_VERSION 2
+#else
+#define PSAPI_VERSION 1
+#endif
+#endif
+
+#if PSAPI_VERSION > 1
+#define EnumProcesses               K32EnumProcesses
+#define EnumProcessModules          K32EnumProcessModules
+#define EnumProcessModulesEx        K32EnumProcessModulesEx
+#define GetModuleBaseNameA          K32GetModuleBaseNameA
+#define GetModuleBaseNameW          K32GetModuleBaseNameW
+#define GetModuleFileNameExA        K32GetModuleFileNameExA
+#define GetModuleFileNameExW        K32GetModuleFileNameExW
+#define GetModuleInformation        K32GetModuleInformation
+#define EmptyWorkingSet             K32EmptyWorkingSet
+#define QueryWorkingSet             K32QueryWorkingSet
+#define QueryWorkingSetEx           K32QueryWorkingSetEx
+#define InitializeProcessForWsWatch K32InitializeProcessForWsWatch
+#define GetWsChanges                K32GetWsChanges
+#define GetWsChangesEx              K32GetWsChangesEx
+#define GetMappedFileNameW          K32GetMappedFileNameW
+#define GetMappedFileNameA          K32GetMappedFileNameA
+#define EnumDeviceDrivers           K32EnumDeviceDrivers
+#define GetDeviceDriverBaseNameA    K32GetDeviceDriverBaseNameA
+#define GetDeviceDriverBaseNameW    K32GetDeviceDriverBaseNameW
+#define GetDeviceDriverFileNameA    K32GetDeviceDriverFileNameA
+#define GetDeviceDriverFileNameW    K32GetDeviceDriverFileNameW
+#define GetProcessMemoryInfo        K32GetProcessMemoryInfo
+#define GetPerformanceInfo          K32GetPerformanceInfo
+#define EnumPageFilesW              K32EnumPageFilesW
+#define EnumPageFilesA              K32EnumPageFilesA
+#define GetProcessImageFileNameA    K32GetProcessImageFileNameA
+#define GetProcessImageFileNameW    K32GetProcessImageFileNameW
+#endif
+
 #define GetModuleBaseName __MINGW_NAME_AW(GetModuleBaseName)
 #define GetModuleFileNameEx __MINGW_NAME_AW(GetModuleFileNameEx)
 #define GetMappedFileName __MINGW_NAME_AW(GetMappedFileName)
