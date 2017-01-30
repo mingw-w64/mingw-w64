@@ -22,6 +22,11 @@
 #include <shtypes.h>
 #include <shlwapi.h>
 
+#if !defined (_NTDEF_) && !defined (_NTSTATUS_PSDK)
+#define _NTSTATUS_PSDK
+typedef LONG NTSTATUS, *PNTSTATUS;
+#endif
+
 enum tagPROPVAR_CHANGE_FLAGS
 {
     PVCHF_DEFAULT           = 0x00000000,
