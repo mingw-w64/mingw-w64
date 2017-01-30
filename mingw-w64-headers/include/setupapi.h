@@ -23,8 +23,9 @@
 typedef GUID *LPGUID;
 #endif
 
+/* FIXME: #include <spapidef.h> */
 #include <commctrl.h>
-#include <oledlg.h>
+#include <devpropdef.h>
 
 #ifdef _WIN64
 #include <pshpack8.h>
