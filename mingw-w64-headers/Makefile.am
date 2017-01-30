@@ -34,7 +34,7 @@ CLEANFILES = $(nodist_sdkshead_HEADERS)
 
 DISTCHECK_CONFIGURE_FLAGS = --enable-crt --enable-sdk=all --enable-idl
 
-EXTRA_DIST = $(srcdir)/ChangeLog.* include crt direct-x ddk
+EXTRA_DIST = $(srcdir)/ChangeLog.* include crt direct-x ddk tlb
 
 dist-hook:
 	find $(distdir) -name ".svn" -type d -delete
@@ -60,7 +60,8 @@ EXTRA_HEADERS = \
   crt/sec_api/sys/*.h \
   direct-x/include/*.h \
   direct-x/include/*.idl \
-  ddk/include/ddk/*.h
+  ddk/include/ddk/*.h \
+  tlb/*.tlb
 
 if HAVE_WIDL
 
@@ -213,10 +214,16 @@ IDL_SRCS = \
   direct-x/include/qnetwork.idl \
   direct-x/include/vmr9.idl
 
-BUILT_SOURCES = $(IDL_SRCS:.idl=.h)
+TLB_SRCS = \
+  tlb/stdole2.idl
+
+BUILT_SOURCES = $(IDL_SRCS:.idl=.h) $(TLB_SRCS:.idl=.tlb)
 
 .idl.h: crt/_mingw.h
 	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -I$(srcdir)/direct-x/include -Icrt -I$(srcdir)/crt -h -o $@ $<
+
+.idl.tlb:
+	$(WIDL) -I$(srcdir)/include -t -o $@ $<
 
 endif
 

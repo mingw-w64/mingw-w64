@@ -136,7 +136,7 @@ AC_ARG_ENABLE([idl],
     [enable_idl=no])
 AC_MSG_RESULT([$enable_idl])
 AS_VAR_IF([enable_idl],[yes],
-    [IDLHEAD_LIST=$srcdir/include/*.idl],
+    [IDLHEAD_LIST=$srcdir/include/*.idl" "$srcdir/tlb/*.tlb],
     [IDLHEAD_LIST=""])
 AC_SUBST([IDLHEAD_LIST])
 

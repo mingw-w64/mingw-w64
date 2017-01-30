@@ -2787,7 +2787,7 @@ fi
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_idl" >&5
 $as_echo "$enable_idl" >&6; }
 if test "x$enable_idl" = xyes; then :
-  IDLHEAD_LIST=$srcdir/include/*.idl
+  IDLHEAD_LIST=$srcdir/include/*.idl" "$srcdir/tlb/*.tlb
 else
   IDLHEAD_LIST=""
 fi

@@ -339,7 +339,7 @@ dxhead_HEADERS = @DXHEAD_LIST@
 idlhead_HEADERS = @IDLHEAD_LIST@
 CLEANFILES = $(nodist_sdkshead_HEADERS)
 DISTCHECK_CONFIGURE_FLAGS = --enable-crt --enable-sdk=all --enable-idl
-EXTRA_DIST = $(srcdir)/ChangeLog.* include crt direct-x ddk
+EXTRA_DIST = $(srcdir)/ChangeLog.* include crt direct-x ddk tlb
 EXTRA_HEADERS = \
   include/*.c \
   include/*.dlg \
@@ -361,7 +361,8 @@ EXTRA_HEADERS = \
   crt/sec_api/sys/*.h \
   direct-x/include/*.h \
   direct-x/include/*.idl \
-  ddk/include/ddk/*.h
+  ddk/include/ddk/*.h \
+  tlb/*.tlb
 
 @HAVE_WIDL_TRUE@IDL_SRCS = \
 @HAVE_WIDL_TRUE@  include/activation.idl \
@@ -512,12 +513,15 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  direct-x/include/qnetwork.idl \
 @HAVE_WIDL_TRUE@  direct-x/include/vmr9.idl
 
-@HAVE_WIDL_TRUE@BUILT_SOURCES = $(IDL_SRCS:.idl=.h)
+@HAVE_WIDL_TRUE@TLB_SRCS = \
+@HAVE_WIDL_TRUE@  tlb/stdole2.idl
+
+@HAVE_WIDL_TRUE@BUILT_SOURCES = $(IDL_SRCS:.idl=.h) $(TLB_SRCS:.idl=.tlb)
 all: $(BUILT_SOURCES) config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
 .SUFFIXES:
-.SUFFIXES: .h .idl
+.SUFFIXES: .h .idl .tlb
 am--refresh: Makefile
 	@:
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__configure_deps)
@@ -1227,6 +1231,9 @@ dist-hook:
 
 @HAVE_WIDL_TRUE@.idl.h: crt/_mingw.h
 @HAVE_WIDL_TRUE@	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -I$(srcdir)/direct-x/include -Icrt -I$(srcdir)/crt -h -o $@ $<
+
+@HAVE_WIDL_TRUE@.idl.tlb:
+@HAVE_WIDL_TRUE@	$(WIDL) -I$(srcdir)/include -t -o $@ $<
 
 _mingw_directx.h: $(srcdir)/crt/sdks/_mingw_directx.h.in
 	$(SED) s/MINGW_HAS_DX$$/@MINGW_HAS_DX@/ $< > $@
