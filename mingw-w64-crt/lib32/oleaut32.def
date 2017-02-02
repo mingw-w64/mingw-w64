@@ -346,7 +346,7 @@ GetRecordInfoFromGuids@24
 GetRecordInfoFromTypeInfo@8
 SetVarConversionLocaleSetting@4
 GetVarConversionLocaleSetting@4
-SetOaNoCache@0
+SetOaNoCache
 VarCyMulI8@20
 VarDateFromUdate@12
 VarUdateFromDate@16
