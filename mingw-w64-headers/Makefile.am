@@ -152,6 +152,7 @@ IDL_SRCS = \
   include/shtypes.idl \
   include/strmif.idl \
   include/structuredquerycondition.idl \
+  include/taskschd.idl \
   include/tpcshrd.idl \
   include/textstor.idl \
   include/tuner.idl \
