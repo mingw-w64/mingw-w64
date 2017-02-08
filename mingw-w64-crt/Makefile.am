@@ -563,7 +563,6 @@ lib32_libws2_32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 lib32_LIBRARIES += lib32/libtaskschd.a
 lib32_libtaskschd_a_SOURCES = $(src_libtaskschd)
 lib32_libtaskschd_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
-lib32_libtaskschd_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 
 if !W32API
 lib32_LIBRARIES += lib32/libdelayimp.a
@@ -863,7 +862,6 @@ lib64_libws2_32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 lib64_LIBRARIES += lib64/libtaskschd.a
 lib64_libtaskschd_a_SOURCES = $(src_libtaskschd)
 lib64_libtaskschd_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
-lib64_libtaskschd_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 
 if !W32API
 lib64_LIBRARIES += lib64/libdelayimp.a
