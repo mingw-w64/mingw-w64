@@ -102,6 +102,7 @@ src_liblocationapi=libsrc/locationapi.c
 src_libsapi=libsrc/sapi.c
 src_libsensorsapi=libsrc/sensorsapi.c
 src_libportabledeviceguids=libsrc/portabledeviceguids.c
+src_libtaskschd=libsrc/taskschd.c
 
 src_libmingw32=include/oscalls.h include/internal.h include/sect_attribs.h \
   crt/atonexit.c      crt/crt0_c.c         crt/dll_argv.c  crt/gccmain.c     crt/natstart.c  crt/pseudo-reloc-list.c  crt/wildcard.c \
@@ -559,6 +560,11 @@ lib32_libws2_32_a_SOURCES = $(src_libws2_32)
 lib32_libws2_32_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 lib32_libws2_32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 
+lib32_LIBRARIES += lib32/libtaskschd.a
+lib32_libtaskschd_a_SOURCES = $(src_libtaskschd)
+lib32_libtaskschd_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
+lib32_libtaskschd_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
+
 if !W32API
 lib32_LIBRARIES += lib32/libdelayimp.a
 lib32_libdelayimp_a_SOURCES =
@@ -853,6 +859,11 @@ lib64_LIBRARIES += lib64/libws2_32.a
 lib64_libws2_32_a_SOURCES = $(src_libws2_32)
 lib64_libws2_32_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 lib64_libws2_32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
+
+lib64_LIBRARIES += lib64/libtaskschd.a
+lib64_libtaskschd_a_SOURCES = $(src_libtaskschd)
+lib64_libtaskschd_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
+lib64_libtaskschd_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
 
 if !W32API
 lib64_LIBRARIES += lib64/libdelayimp.a
