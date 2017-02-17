@@ -71,8 +71,15 @@ __FLT_ABI (sqrt) (__FLT_TYPE x)
       if (x_class == FP_ZERO)
 	return __FLT_CST (-0.0);
 
-      __FLT_RPT_DOMAIN ("sqrt", x, 0.0, x);
-      return x;
+      if (x_class == FP_NAN)
+        {
+          __FLT_RPT_DOMAIN ("sqrt", x, 0.0, x);
+          return x;
+        }
+
+      res = -__FLT_NAN;
+      __FLT_RPT_DOMAIN ("sqrt", x, 0.0, res);
+      return res;
     }
   else if (x_class == FP_ZERO)
     return __FLT_CST (0.0);
