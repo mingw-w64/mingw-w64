@@ -23,14 +23,6 @@ import "dxgitype.h";
 const UINT _FACDXGI = 0x87a;
 
 cpp_quote("#define MAKE_DXGI_STATUS(x)                         MAKE_HRESULT(0, _FACDXGI, x)")
-cpp_quote("#define DXGI_STATUS_OCCLUDED                        MAKE_DXGI_STATUS(1)")
-cpp_quote("#define DXGI_STATUS_CLIPPED                         MAKE_DXGI_STATUS(2)")
-cpp_quote("#define DXGI_STATUS_NO_REDIRECTION                  MAKE_DXGI_STATUS(4)")
-cpp_quote("#define DXGI_STATUS_NO_DESKTOP_ACCESS               MAKE_DXGI_STATUS(5)")
-cpp_quote("#define DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE    MAKE_DXGI_STATUS(6)")
-cpp_quote("#define DXGI_STATUS_MODE_CHANGED                    MAKE_DXGI_STATUS(7)")
-cpp_quote("#define DXGI_STATUS_MODE_CHANGE_IN_PROGRESS         MAKE_DXGI_STATUS(8)")
-
 cpp_quote("#define MAKE_DXGI_HRESULT(x)                        MAKE_HRESULT(1, _FACDXGI, x)")
 
 cpp_quote("#if 0")
