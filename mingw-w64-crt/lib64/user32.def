@@ -44,6 +44,8 @@ ChangeDisplaySettingsExW
 ChangeDisplaySettingsW
 ChangeMenuA
 ChangeMenuW
+ChangeWindowMessageFilter
+ChangeWindowMessageFilterEx
 CharLowerA
 CharLowerBuffA
 CharLowerBuffW
