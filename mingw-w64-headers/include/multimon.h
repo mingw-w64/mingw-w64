@@ -127,7 +127,7 @@ extern "C" {
   WINBOOL IsPlatformNT() {
     OSVERSIONINFOA oi = { 0 };
 
-    oi.dwOSVersionInfoSize = sizeof (osvi);
+    oi.dwOSVersionInfoSize = sizeof (oi);
     GetVersionExA ((OSVERSIONINFOA *) &oi);
     return (oi.dwPlatformId == VER_PLATFORM_WIN32_NT);
   }
