@@ -234,7 +234,7 @@ extern "C" {
   WINBOOL WINAPI xGetMonitorInfo (HMONITOR hmon, LPMONITORINFO pmi) {
     RECT r;
     WINBOOL f;
-    union { LPMONITORINFO mi; MONITORINFOEX ex; } c;
+    union { LPMONITORINFO mi; LPMONITORINFOEX ex; } c;
 
     c.mi = pmi;
     if (InitMultipleMonitorStubs ()) {
