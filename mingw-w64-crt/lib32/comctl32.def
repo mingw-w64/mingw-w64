@@ -99,6 +99,7 @@ InitCommonControls@0
 InitCommonControlsEx@4
 InitMUILanguage@4
 LBItemFromPt@16
+LoadIconMetric@16
 MakeDragList@4
 MenuHelp@28
 PropertySheet@4

@@ -84,6 +84,7 @@ ImageList_Write
 InitCommonControlsEx
 InitMUILanguage
 InitializeFlatSB
+LoadIconMetric
 PropertySheet
 PropertySheetA
 PropertySheetW
