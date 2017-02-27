@@ -835,6 +835,9 @@ typedef struct D3D11_FEATURE_DATA_THREADING {
     WINBOOL DriverConcurrentCreates;
     WINBOOL DriverCommandLists;
 } D3D11_FEATURE_DATA_THREADING;
+typedef struct D3D11_FEATURE_DATA_DOUBLES {
+    WINBOOL DoublePrecisionFloatShaderOps;
+} D3D11_FEATURE_DATA_DOUBLES;
 typedef struct D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
     WINBOOL ComputeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x;
 } D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS;

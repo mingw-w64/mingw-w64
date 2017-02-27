@@ -100,13 +100,6 @@ extern "C" {
 #define _FACDXGI (0x87a)
 
 #define MAKE_DXGI_STATUS(x)                         MAKE_HRESULT(0, _FACDXGI, x)
-#define DXGI_STATUS_OCCLUDED                        MAKE_DXGI_STATUS(1)
-#define DXGI_STATUS_CLIPPED                         MAKE_DXGI_STATUS(2)
-#define DXGI_STATUS_NO_REDIRECTION                  MAKE_DXGI_STATUS(4)
-#define DXGI_STATUS_NO_DESKTOP_ACCESS               MAKE_DXGI_STATUS(5)
-#define DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE    MAKE_DXGI_STATUS(6)
-#define DXGI_STATUS_MODE_CHANGED                    MAKE_DXGI_STATUS(7)
-#define DXGI_STATUS_MODE_CHANGE_IN_PROGRESS         MAKE_DXGI_STATUS(8)
 #define MAKE_DXGI_HRESULT(x)                        MAKE_HRESULT(1, _FACDXGI, x)
 #if 0
 typedef HANDLE HMONITOR;
