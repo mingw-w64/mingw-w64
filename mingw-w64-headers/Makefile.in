@@ -402,6 +402,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/fusion.idl \
 @HAVE_WIDL_TRUE@  include/fwptypes.idl \
 @HAVE_WIDL_TRUE@  include/hstring.idl \
+@HAVE_WIDL_TRUE@  include/icftypes.idl \
 @HAVE_WIDL_TRUE@  include/icodecapi.idl \
 @HAVE_WIDL_TRUE@  include/iketypes.idl \
 @HAVE_WIDL_TRUE@  include/inputscope.idl \
@@ -432,6 +433,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/napsystemhealthagent.idl \
 @HAVE_WIDL_TRUE@  include/napsystemhealthvalidator.idl \
 @HAVE_WIDL_TRUE@  include/naptypes.idl \
+@HAVE_WIDL_TRUE@  include/netfw.idl \
 @HAVE_WIDL_TRUE@  include/objectarray.idl \
 @HAVE_WIDL_TRUE@  include/objidl.idl \
 @HAVE_WIDL_TRUE@  include/objidlbase.idl \

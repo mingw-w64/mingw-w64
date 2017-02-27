@@ -103,6 +103,7 @@ IDL_SRCS = \
   include/fusion.idl \
   include/fwptypes.idl \
   include/hstring.idl \
+  include/icftypes.idl \
   include/icodecapi.idl \
   include/iketypes.idl \
   include/inputscope.idl \
@@ -133,6 +134,7 @@ IDL_SRCS = \
   include/napsystemhealthagent.idl \
   include/napsystemhealthvalidator.idl \
   include/naptypes.idl \
+  include/netfw.idl \
   include/objectarray.idl \
   include/objidl.idl \
   include/objidlbase.idl \
