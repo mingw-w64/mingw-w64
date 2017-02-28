@@ -19,7 +19,6 @@
 #ifndef __DSOUND_INCLUDED__
 #define __DSOUND_INCLUDED__
 
-#include <_mingw_dxhelper.h>
 #ifndef DIRECTSOUND_VERSION
 #define DIRECTSOUND_VERSION 0x0900
 #endif
@@ -27,6 +26,7 @@
 #define COM_NO_WINDOWS_H
 #include <objbase.h>
 #include <float.h>
+#include <_mingw_dxhelper.h>
 
 #ifdef __cplusplus
 extern "C" {
