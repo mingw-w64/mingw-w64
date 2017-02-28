@@ -255,6 +255,8 @@ typedef struct _WTSINFOW {
   DWORD                  SessionId;
   DWORD                  IncomingBytes;
   DWORD                  OutgoingBytes;
+  DWORD                  IncomingFrames;
+  DWORD                  OutgoingFrames;
   DWORD                  IncomingCompressedBytes;
   DWORD                  OutgoingCompressedBytes;
   WCHAR                  WinStationName[WINSTATIONNAME_LENGTH];
@@ -272,6 +274,8 @@ typedef struct _WTSINFOA {
   DWORD                  SessionId;
   DWORD                  IncomingBytes;
   DWORD                  OutgoingBytes;
+  DWORD                  IncomingFrames;
+  DWORD                  OutgoingFrames;
   DWORD                  IncomingCompressedBytes;
   DWORD                  OutgoingCompressedBytes;
   CHAR                   WinStationName[WINSTATIONNAME_LENGTH];
