@@ -15,11 +15,12 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 #ifdef CONFIG_H
 #include <config.h>
 #endif
 
-#ifndef HAVE_STRLWER
+#ifndef HAVE_STRLWR
 
 #include <ctype.h>
 #include "compat_string.h"
@@ -33,4 +34,4 @@ char *strlwr(char *s) {
 	return s;
 }
 
-#endif /* HAVE_STRLWER */
+#endif /* HAVE_STRLWR */
