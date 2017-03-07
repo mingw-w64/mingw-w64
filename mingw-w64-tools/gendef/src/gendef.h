@@ -325,4 +325,6 @@ typedef struct sAddresses {
   uint32_t idx;
 } sAddresses;
 
+#pragma pack()
+
 #endif
