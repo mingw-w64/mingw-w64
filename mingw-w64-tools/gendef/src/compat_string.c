@@ -2,7 +2,7 @@
 #include <config.h>
 #endif
 
-#ifndef HAVE_STRLWER
+#ifndef HAVE_STRLWR
 
 #include <ctype.h>
 #include "compat_string.h"
@@ -16,4 +16,4 @@ char *strlwr(char *s) {
 	return s;
 }
 
-#endif /* HAVE_STRLWER */
+#endif /* HAVE_STRLWR */
