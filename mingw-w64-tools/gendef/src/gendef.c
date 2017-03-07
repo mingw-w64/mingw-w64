@@ -248,6 +248,7 @@ int main(int argc,char **argv)
       free(opt);
       opt = next;
     }
+  imp32_free ();
   return 0;
 }
 
