@@ -8,7 +8,7 @@
 #include "compat_string.h"
 
 char *strlwr(char *s) {
-	while(*s != '\x0') {
+	while (*s != '\0') {
 		*s = tolower(*s);
 		s++;
 	}
