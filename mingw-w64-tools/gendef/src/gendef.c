@@ -204,7 +204,7 @@ show_usage (void)
 int main(int argc,char **argv)
 {
   int i;
-  Gendefopts *opt;
+  Gendefopts *opt, *next;
 
   if (argc < 2)
   {
@@ -242,10 +242,11 @@ int main(int argc,char **argv)
 	  free (gDta);
 	  gDta = NULL;
 	}
+      next = opt->next;
       free(opt->fninput);
       free(opt->fnoutput);
       free(opt);
-      opt = opt->next;
+      opt = next;
     }
   return 0;
 }
