@@ -15,6 +15,24 @@ AC_CANONICAL_HOST
 # Checks for programs.
 AC_PROG_CC
 
+# Checks for header files.
+AC_CHECK_HEADERS([inttypes.h memory.h stdint.h stdlib.h string.h])
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_TYPE_INT32_T
+AC_TYPE_SIZE_T
+AC_TYPE_UINT16_T
+AC_TYPE_UINT32_T
+AC_TYPE_UINT64_T
+AC_TYPE_UINT8_T
+
+# Checks for library functions.
+# Disabled due the fact that once the autoconf detects that malloc
+# is not available, it places in config.h the define of malloc as
+# rpl_malloc. By this linkage could fail on cross-compiles.
+#AC_FUNC_MALLOC
+AC_CHECK_FUNCS([memset strdup strrchr strlwr])
+
 # Checks for libraries.
 AC_MSG_CHECKING([whether to build gendef with libmangle])
 AC_ARG_WITH([mangle],
@@ -42,24 +60,6 @@ AS_VAR_IF([with_mangle_result],[yes],[
 
 AC_SUBST([GENDEF_CPPFLAGS],[$extra_cppflags])
 AC_SUBST([GENDEF_LDFLAGS],[$extra_ldflags])
-
-# Checks for header files.
-AC_CHECK_HEADERS([inttypes.h memory.h stdint.h stdlib.h string.h])
-
-# Checks for typedefs, structures, and compiler characteristics.
-AC_TYPE_INT32_T
-AC_TYPE_SIZE_T
-AC_TYPE_UINT16_T
-AC_TYPE_UINT32_T
-AC_TYPE_UINT64_T
-AC_TYPE_UINT8_T
-
-# Checks for library functions.
-# Disabled due the fact that once the autoconf detects that malloc
-# is not available, it places in config.h the define of malloc as
-# rpl_malloc. By this linkage could fail on cross-compiles.
-#AC_FUNC_MALLOC
-AC_CHECK_FUNCS([memset strdup strrchr strlwr])
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
