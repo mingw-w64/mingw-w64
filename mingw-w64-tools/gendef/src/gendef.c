@@ -432,7 +432,7 @@ static void *
 map_va (uint32_t va)
 {
   PIMAGE_SECTION_HEADER sec;
-  uint32_t sec_cnt,i;
+  uint32_t sec_cnt,sz,i;
   char *dptr;
 
   if (gPEDta)
@@ -447,7 +447,9 @@ map_va (uint32_t va)
     }
   for (i = 0;i < sec_cnt;i++)
     {
-      if (va >= sec[i].VirtualAddress && va < (sec[i].VirtualAddress+sec[i].Misc.VirtualSize))
+      sz = sec[i].Misc.VirtualSize;
+      if (!sz) sz = sec[i].SizeOfRawData;
+      if (va >= sec[i].VirtualAddress && va < (sec[i].VirtualAddress+sz))
         {
           dptr = (char *) &gDta[va-sec[i].VirtualAddress+sec[i].PointerToRawData];
           return (void *)dptr;
