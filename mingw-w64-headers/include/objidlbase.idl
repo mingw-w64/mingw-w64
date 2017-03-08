@@ -70,6 +70,12 @@ cpp_quote("")
 [local, object, uuid (94ea2b94-e9cc-49e0-c0ff-ee64ca8f5b90)]
 interface IAgileObject : IUnknown {
 }
+
+[local, object, uuid(c03f6a43-65a4-9818-987e-e0b810d2a6f2), pointer_default(unique)]
+interface IAgileReference : IUnknown
+{
+   HRESULT Resolve([in] REFIID riid, [out, retval, iid_is(riid)] void **ppv);
+}
 cpp_quote("#endif")
 
 cpp_quote("")

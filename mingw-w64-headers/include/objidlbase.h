@@ -32,6 +32,11 @@ typedef interface INoMarshal INoMarshal;
 typedef interface IAgileObject IAgileObject;
 #endif
 
+#ifndef __IAgileReference_FWD_DEFINED__
+#define __IAgileReference_FWD_DEFINED__
+typedef interface IAgileReference IAgileReference;
+#endif
+
 #ifndef __IMarshal2_FWD_DEFINED__
 #define __IMarshal2_FWD_DEFINED__
 typedef interface IMarshal2 IMarshal2;
@@ -707,6 +712,93 @@ static FORCEINLINE ULONG IAgileObject_Release(IAgileObject* This) {
 
 
 #endif  /* __IAgileObject_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IAgileReference interface
+ */
+#ifndef __IAgileReference_INTERFACE_DEFINED__
+#define __IAgileReference_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IAgileReference, 0xc03f6a43, 0x65a4, 0x9818, 0x98,0x7e, 0xe0,0xb8,0x10,0xd2,0xa6,0xf2);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("c03f6a43-65a4-9818-987e-e0b810d2a6f2")
+IAgileReference : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE Resolve(
+        REFIID riid,
+        void **ppv) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IAgileReference, 0xc03f6a43, 0x65a4, 0x9818, 0x98,0x7e, 0xe0,0xb8,0x10,0xd2,0xa6,0xf2)
+#endif
+#else
+typedef struct IAgileReferenceVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IAgileReference* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IAgileReference* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IAgileReference* This);
+
+    /*** IAgileReference methods ***/
+    HRESULT (STDMETHODCALLTYPE *Resolve)(
+        IAgileReference* This,
+        REFIID riid,
+        void **ppv);
+
+    END_INTERFACE
+} IAgileReferenceVtbl;
+interface IAgileReference {
+    CONST_VTBL IAgileReferenceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IAgileReference_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IAgileReference_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IAgileReference_Release(This) (This)->lpVtbl->Release(This)
+/*** IAgileReference methods ***/
+#define IAgileReference_Resolve(This,riid,ppv) (This)->lpVtbl->Resolve(This,riid,ppv)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IAgileReference_QueryInterface(IAgileReference* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IAgileReference_AddRef(IAgileReference* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IAgileReference_Release(IAgileReference* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IAgileReference methods ***/
+static FORCEINLINE HRESULT IAgileReference_Resolve(IAgileReference* This,REFIID riid,void **ppv) {
+    return This->lpVtbl->Resolve(This,riid,ppv);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IAgileReference_Resolve_Proxy(
+    IAgileReference* This,
+    REFIID riid,
+    void **ppv);
+void __RPC_STUB IAgileReference_Resolve_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IAgileReference_INTERFACE_DEFINED__ */
 
 #endif
 
