@@ -370,8 +370,8 @@ WINADVAPI LONG WINAPI RegSetKeyValueA(
 
 WINADVAPI LONG WINAPI RegSetKeyValueW(
   HKEY hKey,
-  LPCSTR lpSubKey,
-  LPCSTR lpValueName,
+  LPCWSTR lpSubKey,
+  LPCWSTR lpValueName,
   DWORD dwType,
   LPCVOID lpData,
   DWORD cbData
