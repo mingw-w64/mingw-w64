@@ -87,12 +87,12 @@ SetThreadName (DWORD dwThreadID, LPCSTR szThreadName)
    info.dwThreadID = dwThreadID;
    info.dwFlags = 0;
 
-   infosize = sizeof (info) / sizeof (DWORD);
+   infosize = sizeof (info) / sizeof (ULONG_PTR);
 
 #if defined(_MSC_VER) && !defined (USE_VEH_FOR_MSC_SETTHREADNAME)
    __try
      {
-       RaiseException (EXCEPTION_SET_THREAD_NAME, 0, infosize, (DWORD *) &info);
+       RaiseException (EXCEPTION_SET_THREAD_NAME, 0, infosize, (ULONG_PTR *)&info);
      }
    __except (EXCEPTION_EXECUTE_HANDLER)
      {
@@ -104,7 +104,7 @@ SetThreadName (DWORD dwThreadID, LPCSTR szThreadName)
    if ((!IsDebuggerPresent ()) && (SetThreadName_VEH_handle == NULL))
      return;
 
-   RaiseException (EXCEPTION_SET_THREAD_NAME, 0, infosize, (DWORD *) &info);
+   RaiseException (EXCEPTION_SET_THREAD_NAME, 0, infosize, (ULONG_PTR *) &info);
 #endif
 }
 
