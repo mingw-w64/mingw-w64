@@ -555,36 +555,15 @@ extern "C" {
 #define PdhVerifySQLDB __MINGW_NAME_AW(PdhVerifySQLDB)
 
 #if (_WIN32_WINNT >= 0x0600)
-PDH_FUNCTION PdhAddEnglishCounterA(
-  PDH_HQUERY hQuery,
-  LPCSTR szFullCounterPath,
-  DWORD_PTR dwUserData,
-  PDH_HCOUNTER *phCounter
-);
-
-PDH_FUNCTION PdhAddEnglishCounterW(
-  PDH_HQUERY hQuery,
-  LPCWSTR szFullCounterPath,
-  DWORD_PTR dwUserData,
-  PDH_HCOUNTER *phCounter
-);
+PDH_FUNCTION PdhAddEnglishCounterW(PDH_HQUERY hQuery,LPCWSTR szFullCounterPath,DWORD_PTR dwUserData,PDH_HCOUNTER *phCounter);
+PDH_FUNCTION PdhAddEnglishCounterA(PDH_HQUERY hQuery,LPCSTR szFullCounterPath,DWORD_PTR dwUserData,PDH_HCOUNTER *phCounter);
 
 #define PdhAddEnglishCounter __MINGW_NAME_AW(PdhAddEnglishCounter)
 
-PDH_FUNCTION PdhCollectQueryDataWithTime(
-  PDH_HQUERY hQuery,
-  LONGLONG *pllTimeStamp
-);
+PDH_FUNCTION PdhCollectQueryDataWithTime(PDH_HQUERY hQuery,LONGLONG *pllTimeStamp);
 
-PDH_FUNCTION PdhValidatePathExA(
-  PDH_HLOG hDataSource,
-  LPCSTR szFullPathBuffer
-);
-
-PDH_FUNCTION PdhValidatePathExW(
-  PDH_HLOG hDataSource,
-  LPCWSTR szFullPathBuffer
-);
+PDH_FUNCTION PdhValidatePathExW(PDH_HLOG hDataSource,LPCWSTR szFullPathBuffer);
+PDH_FUNCTION PdhValidatePathExA(PDH_HLOG hDataSource,LPCSTR szFullPathBuffer);
 
 #define PdhValidatePathEx __MINGW_NAME_AW(PdhValidatePathEx)
 
