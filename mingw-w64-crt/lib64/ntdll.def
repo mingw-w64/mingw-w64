@@ -1936,14 +1936,14 @@ _wtoi
 _wtoi64
 _wtol
 abs
-atan
+atan DATA
 atoi
 atol
 bsearch
 ceil
-cos
-fabs
-floor
+cos DATA
+fabs DATA
+floor DATA
 isalnum
 isalpha
 iscntrl
