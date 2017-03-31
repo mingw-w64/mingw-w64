@@ -266,7 +266,7 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 
 #ifndef __nothrow
 #ifdef __cplusplus
-#define __nothrow __declspec(nothrow)
+#define __nothrow __MINGW_NOTHROW
 #else
 #define __nothrow
 #endif
