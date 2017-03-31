@@ -37,7 +37,7 @@ extern "C" {
 
 #pragma push_macro("abort")
 #undef abort
-  void __cdecl __declspec(noreturn) abort(void);
+  void __cdecl __MINGW_ATTRIB_NORETURN abort(void);
 #pragma pop_macro("abort")
 
 #endif /* _CRT_TERMINATE_DEFINED */
