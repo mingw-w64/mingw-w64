@@ -81,7 +81,7 @@ typedef __LONG32 HRESULT;
 #endif
 #endif
 
-#ifndef __CRT_STRSAFE_IMPL
+#if !defined(__CRT__NO_INLINE) && !defined(__CRT_STRSAFE_IMPL)
 #define STRSAFEAPI _STRSAFE_EXTERN_C __inline HRESULT WINAPI
 /* Variadic functions can't be __stdcall.  */
 #define STRSAFEAPIV _STRSAFE_EXTERN_C __inline HRESULT
@@ -91,7 +91,7 @@ typedef __LONG32 HRESULT;
 #define STRSAFEAPIV HRESULT
 #endif
 
-#ifndef __CRT_STRSAFE_IMPL
+#if !defined(__CRT__NO_INLINE) && !defined(__CRT_STRSAFE_IMPL)
 #define STRSAFE_INLINE_API _STRSAFE_EXTERN_C __CRT_INLINE HRESULT WINAPI
 #else
 #define STRSAFE_INLINE_API HRESULT WINAPI
