@@ -1253,6 +1253,7 @@ __MINGW_EXTENSION __INTRINSICS_USEINLINE
 __int64 _InterlockedCompareExchange64(__int64 volatile *Destination, __int64 ExChange, __int64 Comperand) {
     return __sync_val_compare_and_swap(Destination, Comperand, ExChange);
 }
+#endif
 #define __INTRINSIC_DEFINED__InterlockedCompareExchange64
 #endif /* __INTRINSIC_PROLOG */
 
@@ -1685,7 +1686,6 @@ __INTRINSICS_USEINLINE
 __buildreadseg(__readfsdword, unsigned __LONG32, "fs", "l")
 #endif
 #define __INTRINSIC_DEFINED___readfsdword
-#endif
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(__writefsbyte)
