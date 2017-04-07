@@ -2911,7 +2911,20 @@ __buildmemorybarrier()
       WinAccountCloneableControllersSid = 100,
       WinBuiltinAccessControlAssistanceOperatorsSid = 101,
       WinBuiltinRemoteManagementUsersSid = 102, WinAuthenticationAuthorityAssertedSid = 103,
-      WinAuthenticationServiceAssertedSid = 104
+      WinAuthenticationServiceAssertedSid = 104,
+      WinLocalAccountSid = 105,
+      WinLocalAccountAndAdministratorSid = 106,
+      WinAccountProtectedUsersSid = 107,
+      WinCapabilityAppointmentsSid = 108,
+      WinCapabilityContactsSid = 109,
+      WinAccountDefaultSystemManagedSid = 110,
+      WinBuiltinDefaultSystemManagedGroupSid = 111,
+      WinBuiltinStorageReplicaAdminsSid = 112,
+      WinAccountKeyAdminsSid = 113,
+      WinAccountEnterpriseKeyAdminsSid = 114,
+      WinAuthenticationKeyTrustSid = 115,
+      WinAuthenticationKeyPropertyMFASid = 116,
+      WinAuthenticationKeyPropertyAttestationSid = 117
 } WELL_KNOWN_SID_TYPE;
 
 #define SYSTEM_LUID { 0x3e7, 0x0 }
