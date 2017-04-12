@@ -63,6 +63,14 @@ typedef struct _WINUSB_PIPE_INFORMATION {
   UCHAR Interval;
 } WINUSB_PIPE_INFORMATION, *PWINUSB_PIPE_INFORMATION;
 
+typedef struct _WINUSB_PIPE_INFORMATION_EX {
+  USBD_PIPE_TYPE PipeType;
+  UCHAR PipeId;
+  USHORT MaximumPacketSize;
+  UCHAR Interval;
+  ULONG MaximumBytesPerInterval;
+} WINUSB_PIPE_INFORMATION_EX, *PWINUSB_PIPE_INFORMATION_EX;
+
 /* constants for WinUsb_Get/SetPipePolicy.  */
 #define SHORT_PACKET_TERMINATE 0x01
 #define AUTO_CLEAR_STALL       0x02
