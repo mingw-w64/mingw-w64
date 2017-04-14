@@ -4,11 +4,14 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
-#ifdef __clang__
-#define __IA32INTRIN_H
-#endif
 #include <intrin.h>
 
+/* Clang has support for MSVC builtins, GCC doesn't */
+#ifndef __has_builtin
+  #define __has_builtin(x) 0
+#endif
+
+#if !__has_builtin(__rdtsc)
 unsigned __int64 __rdtsc(void)
 {
 #ifdef _WIN64
@@ -21,4 +24,4 @@ unsigned __int64 __rdtsc(void)
           : "=a" (val1), "=d" (val2));
       return ((unsigned __int64)val1) | (((unsigned __int64)val2) << 32);
 }
-
+#endif
