@@ -58,7 +58,8 @@ __extension__ template<typename T> const GUID &__mingw_uuidof();
 #define DEFINE_GUID(name,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8) const GUID DECLSPEC_SELECTANY name = { l, w1, w2, { b1, b2, b3, b4, b5, b6, b7, b8 } }
 #endif
 #else
-#define DEFINE_GUID(name,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8) EXTERN_C const GUID DECLSPEC_SELECTANY name
+/* __declspec(selectany) must be applied to initialized objects on GCC 5 hence must not be used here. */
+#define DEFINE_GUID(name,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8) EXTERN_C const GUID name
 #endif
 
 #define DEFINE_OLEGUID(name, l, w1, w2) DEFINE_GUID (name, l, w1, w2, 0xc0, 0, 0, 0, 0, 0, 0, 0x46)
