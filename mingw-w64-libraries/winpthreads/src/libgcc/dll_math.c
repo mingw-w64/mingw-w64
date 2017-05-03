@@ -120,6 +120,7 @@ u_quad_t	__qdivrem(u_quad_t u, u_quad_t v, u_quad_t *rem);
 u_quad_t	__udivdi3(u_quad_t a, u_quad_t b);
 u_quad_t	__umoddi3(u_quad_t a, u_quad_t b);
 int		__ucmpdi2(u_quad_t a, u_quad_t b);
+quad_t	__divmoddi4(quad_t a, quad_t b, quad_t *rem);
 
 #endif /* !_LIBKERN_QUAD_H_ */
 
@@ -546,6 +547,32 @@ __umoddi3(a, b)
 	(void)__qdivrem(a, b, &r);
 	return (r);
 }
+
+/*
+ * Divide two signed quads.
+ * This function is new in GCC 7.
+ */
+quad_t
+__divmoddi4(a, b, rem)
+	quad_t a, b, *rem;
+{
+	u_quad_t ua, ub, uq, ur;
+	int negq, negr;
+
+	if (a < 0)
+		ua = -(u_quad_t)a, negq = 1, negr = 1;
+	else
+		ua = a, negq = 0, negr = 0;
+	if (b < 0)
+		ub = -(u_quad_t)b, negq ^= 1;
+	else
+		ub = b;
+	uq = __qdivrem(ua, ub, &ur);
+	if (rem)
+		*rem = (negr ? -ur : ur);
+	return (negq ? -uq : uq);
+}
+
 #else
 static int __attribute__((unused)) dummy;
 #endif /*deined (_X86_) && !defined (__x86_64__)*/
