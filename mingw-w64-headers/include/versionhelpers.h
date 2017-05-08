@@ -70,6 +70,14 @@ VERSIONHELPERAPI IsWindows8Point1OrGreater(void) {
     return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WINBLUE), LOBYTE(_WIN32_WINNT_WINBLUE), 0);
 }
 
+VERSIONHELPERAPI IsWindowsThresholdOrGreater(void) {
+    return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WINTHRESHOLD), LOBYTE(_WIN32_WINNT_WINBLUE), 0);
+}
+
+VERSIONHELPERAPI IsWindows10OrGreater(void) {
+    return IsWindowsThresholdOrGreater();
+}
+
 VERSIONHELPERAPI IsWindowsServer(void) {
     OSVERSIONINFOEXW vi = {sizeof(vi),0,0,0,0,{0},0,0,0,VER_NT_WORKSTATION};
     return !VerifyVersionInfoW(&vi, VER_PRODUCT_TYPE, VerSetConditionMask(0, VER_PRODUCT_TYPE, VER_EQUAL));
