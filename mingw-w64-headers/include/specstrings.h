@@ -328,3 +328,5 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
+
+#include <driverspecs.h>
