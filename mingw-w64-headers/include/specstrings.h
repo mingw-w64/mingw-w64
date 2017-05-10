@@ -3,6 +3,10 @@
  * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
+
+#ifndef SPECSTRINGS_H
+#define SPECSTRINGS_H
+
 #define __specstrings
 
 #include <sal.h>
@@ -330,3 +334,5 @@ extern "C" {
 #endif
 
 #include <driverspecs.h>
+
+#endif
