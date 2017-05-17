@@ -37,6 +37,16 @@ typedef interface IWMStreamList IWMStreamList;
 typedef interface IWMMutualExclusion IWMMutualExclusion;
 #endif
 
+#ifndef __IWMBandwidthSharing_FWD_DEFINED__
+#define __IWMBandwidthSharing_FWD_DEFINED__
+typedef interface IWMBandwidthSharing IWMBandwidthSharing;
+#endif
+
+#ifndef __IWMStreamPrioritization_FWD_DEFINED__
+#define __IWMStreamPrioritization_FWD_DEFINED__
+typedef interface IWMStreamPrioritization IWMStreamPrioritization;
+#endif
+
 #ifndef __IWMStreamConfig_FWD_DEFINED__
 #define __IWMStreamConfig_FWD_DEFINED__
 typedef interface IWMStreamConfig IWMStreamConfig;
@@ -45,6 +55,16 @@ typedef interface IWMStreamConfig IWMStreamConfig;
 #ifndef __IWMProfile_FWD_DEFINED__
 #define __IWMProfile_FWD_DEFINED__
 typedef interface IWMProfile IWMProfile;
+#endif
+
+#ifndef __IWMProfile2_FWD_DEFINED__
+#define __IWMProfile2_FWD_DEFINED__
+typedef interface IWMProfile2 IWMProfile2;
+#endif
+
+#ifndef __IWMProfile3_FWD_DEFINED__
+#define __IWMProfile3_FWD_DEFINED__
+typedef interface IWMProfile3 IWMProfile3;
 #endif
 
 #ifndef __IWMProfileManager_FWD_DEFINED__
@@ -142,16 +162,86 @@ typedef interface IWMWriterAdvanced2 IWMWriterAdvanced2;
 typedef interface IWMWriterAdvanced3 IWMWriterAdvanced3;
 #endif
 
+#ifndef __IWMHeaderInfo_FWD_DEFINED__
+#define __IWMHeaderInfo_FWD_DEFINED__
+typedef interface IWMHeaderInfo IWMHeaderInfo;
+#endif
+
+#ifndef __IWMHeaderInfo2_FWD_DEFINED__
+#define __IWMHeaderInfo2_FWD_DEFINED__
+typedef interface IWMHeaderInfo2 IWMHeaderInfo2;
+#endif
+
+#ifndef __IWMHeaderInfo3_FWD_DEFINED__
+#define __IWMHeaderInfo3_FWD_DEFINED__
+typedef interface IWMHeaderInfo3 IWMHeaderInfo3;
+#endif
+
+#ifndef __IWMReaderNetworkConfig_FWD_DEFINED__
+#define __IWMReaderNetworkConfig_FWD_DEFINED__
+typedef interface IWMReaderNetworkConfig IWMReaderNetworkConfig;
+#endif
+
+#ifndef __IWMReaderNetworkConfig2_FWD_DEFINED__
+#define __IWMReaderNetworkConfig2_FWD_DEFINED__
+typedef interface IWMReaderNetworkConfig2 IWMReaderNetworkConfig2;
+#endif
+
+#ifndef __IWMReaderStreamClock_FWD_DEFINED__
+#define __IWMReaderStreamClock_FWD_DEFINED__
+typedef interface IWMReaderStreamClock IWMReaderStreamClock;
+#endif
+
+#ifndef __IWMPacketSize_FWD_DEFINED__
+#define __IWMPacketSize_FWD_DEFINED__
+typedef interface IWMPacketSize IWMPacketSize;
+#endif
+
+#ifndef __IWMPacketSize2_FWD_DEFINED__
+#define __IWMPacketSize2_FWD_DEFINED__
+typedef interface IWMPacketSize2 IWMPacketSize2;
+#endif
+
+#ifndef __IWMDRMReader_FWD_DEFINED__
+#define __IWMDRMReader_FWD_DEFINED__
+typedef interface IWMDRMReader IWMDRMReader;
+#endif
+
+#ifndef __IWMDRMReader2_FWD_DEFINED__
+#define __IWMDRMReader2_FWD_DEFINED__
+typedef interface IWMDRMReader2 IWMDRMReader2;
+#endif
+
+#ifndef __IWMDRMReader3_FWD_DEFINED__
+#define __IWMDRMReader3_FWD_DEFINED__
+typedef interface IWMDRMReader3 IWMDRMReader3;
+#endif
+
+#ifndef __IWMReaderAccelerator_FWD_DEFINED__
+#define __IWMReaderAccelerator_FWD_DEFINED__
+typedef interface IWMReaderAccelerator IWMReaderAccelerator;
+#endif
+
+#ifndef __IWMReaderTimecode_FWD_DEFINED__
+#define __IWMReaderTimecode_FWD_DEFINED__
+typedef interface IWMReaderTimecode IWMReaderTimecode;
+#endif
+
+#ifndef __IWMReaderTypeNegotiation_FWD_DEFINED__
+#define __IWMReaderTypeNegotiation_FWD_DEFINED__
+typedef interface IWMReaderTypeNegotiation IWMReaderTypeNegotiation;
+#endif
+
 /* Headers for imported files */
 
 #include <oaidl.h>
 #include <wmsbuffer.h>
+#include <drmexternals.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-typedef UINT64 QWORD;
 typedef struct _WMMediaType {
     GUID majortype;
     GUID subtype;
@@ -291,6 +381,30 @@ typedef enum tagWMT_OFFSET_FORMAT {
     WMT_OFFSET_FORMAT_TIMECODE = 3,
     WMT_OFFSET_FORMAT_100NS_APPROXIMATE = 4
 } WMT_OFFSET_FORMAT;
+typedef enum WMT_CODEC_INFO_TYPE {
+    WMT_CODECINFO_AUDIO = 0,
+    WMT_CODECINFO_VIDEO = 1,
+    WMT_CODECINFO_UNKNOWN = 0xffffffff
+} WMT_CODEC_INFO_TYPE;
+typedef enum WMT_PROXY_SETTINGS {
+    WMT_PROXY_SETTING_NONE = 0,
+    WMT_PROXY_SETTING_MANUAL = 1,
+    WMT_PROXY_SETTING_AUTO = 2,
+    WMT_PROXY_SETTING_BROWSER = 3,
+    WMT_PROXY_SETTING_MAX = 4
+} WMT_PROXY_SETTINGS;
+typedef enum tagWMT_STORAGE_FORMAT {
+    WMT_Storage_Format_MP3 = 0,
+    WMT_Storage_Format_V1 = 1
+} WMT_STORAGE_FORMAT;
+typedef struct _WMStreamPrioritizationRecord {
+    WORD wStreamNumber;
+    WINBOOL fMandatory;
+} WM_STREAM_PRIORITY_RECORD;
+typedef struct _WM_PORT_NUMBER_RANGE {
+    WORD wPortBegin;
+    WORD wPortEnd;
+} WM_PORT_NUMBER_RANGE;
 typedef LPCWSTR LPCWSTR_WMSDK_TYPE_SAFE;
 /*****************************************************************************
  * IWMStatusCallback interface
@@ -757,6 +871,290 @@ void __RPC_STUB IWMMutualExclusion_SetType_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __IWMMutualExclusion_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMBandwidthSharing interface
+ */
+#ifndef __IWMBandwidthSharing_INTERFACE_DEFINED__
+#define __IWMBandwidthSharing_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMBandwidthSharing, 0xad694af1, 0xf8d9, 0x42f8, 0xbc,0x47, 0x70,0x31,0x1b,0x0c,0x4f,0x9e);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("ad694af1-f8d9-42f8-bc47-70311b0c4f9e")
+IWMBandwidthSharing : public IWMStreamList
+{
+    virtual HRESULT STDMETHODCALLTYPE GetType(
+        GUID *guid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetType(
+        REFGUID guid) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetBandwidth(
+        DWORD *bitrate,
+        DWORD *buffer) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetBandwidth(
+        DWORD bitrate,
+        DWORD buffer) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMBandwidthSharing, 0xad694af1, 0xf8d9, 0x42f8, 0xbc,0x47, 0x70,0x31,0x1b,0x0c,0x4f,0x9e)
+#endif
+#else
+typedef struct IWMBandwidthSharingVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMBandwidthSharing* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMBandwidthSharing* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMBandwidthSharing* This);
+
+    /*** IWMStreamList methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetStreams)(
+        IWMBandwidthSharing* This,
+        WORD *pwStreamNumArray,
+        WORD *pcStreams);
+
+    HRESULT (STDMETHODCALLTYPE *AddStream)(
+        IWMBandwidthSharing* This,
+        WORD wStreamNum);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveStream)(
+        IWMBandwidthSharing* This,
+        WORD wStreamNum);
+
+    /*** IWMBandwidthSharing methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetType)(
+        IWMBandwidthSharing* This,
+        GUID *guid);
+
+    HRESULT (STDMETHODCALLTYPE *SetType)(
+        IWMBandwidthSharing* This,
+        REFGUID guid);
+
+    HRESULT (STDMETHODCALLTYPE *GetBandwidth)(
+        IWMBandwidthSharing* This,
+        DWORD *bitrate,
+        DWORD *buffer);
+
+    HRESULT (STDMETHODCALLTYPE *SetBandwidth)(
+        IWMBandwidthSharing* This,
+        DWORD bitrate,
+        DWORD buffer);
+
+    END_INTERFACE
+} IWMBandwidthSharingVtbl;
+interface IWMBandwidthSharing {
+    CONST_VTBL IWMBandwidthSharingVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMBandwidthSharing_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMBandwidthSharing_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMBandwidthSharing_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMStreamList methods ***/
+#define IWMBandwidthSharing_GetStreams(This,pwStreamNumArray,pcStreams) (This)->lpVtbl->GetStreams(This,pwStreamNumArray,pcStreams)
+#define IWMBandwidthSharing_AddStream(This,wStreamNum) (This)->lpVtbl->AddStream(This,wStreamNum)
+#define IWMBandwidthSharing_RemoveStream(This,wStreamNum) (This)->lpVtbl->RemoveStream(This,wStreamNum)
+/*** IWMBandwidthSharing methods ***/
+#define IWMBandwidthSharing_GetType(This,guid) (This)->lpVtbl->GetType(This,guid)
+#define IWMBandwidthSharing_SetType(This,guid) (This)->lpVtbl->SetType(This,guid)
+#define IWMBandwidthSharing_GetBandwidth(This,bitrate,buffer) (This)->lpVtbl->GetBandwidth(This,bitrate,buffer)
+#define IWMBandwidthSharing_SetBandwidth(This,bitrate,buffer) (This)->lpVtbl->SetBandwidth(This,bitrate,buffer)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMBandwidthSharing_QueryInterface(IWMBandwidthSharing* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMBandwidthSharing_AddRef(IWMBandwidthSharing* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMBandwidthSharing_Release(IWMBandwidthSharing* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMStreamList methods ***/
+static FORCEINLINE HRESULT IWMBandwidthSharing_GetStreams(IWMBandwidthSharing* This,WORD *pwStreamNumArray,WORD *pcStreams) {
+    return This->lpVtbl->GetStreams(This,pwStreamNumArray,pcStreams);
+}
+static FORCEINLINE HRESULT IWMBandwidthSharing_AddStream(IWMBandwidthSharing* This,WORD wStreamNum) {
+    return This->lpVtbl->AddStream(This,wStreamNum);
+}
+static FORCEINLINE HRESULT IWMBandwidthSharing_RemoveStream(IWMBandwidthSharing* This,WORD wStreamNum) {
+    return This->lpVtbl->RemoveStream(This,wStreamNum);
+}
+/*** IWMBandwidthSharing methods ***/
+static FORCEINLINE HRESULT IWMBandwidthSharing_GetType(IWMBandwidthSharing* This,GUID *guid) {
+    return This->lpVtbl->GetType(This,guid);
+}
+static FORCEINLINE HRESULT IWMBandwidthSharing_SetType(IWMBandwidthSharing* This,REFGUID guid) {
+    return This->lpVtbl->SetType(This,guid);
+}
+static FORCEINLINE HRESULT IWMBandwidthSharing_GetBandwidth(IWMBandwidthSharing* This,DWORD *bitrate,DWORD *buffer) {
+    return This->lpVtbl->GetBandwidth(This,bitrate,buffer);
+}
+static FORCEINLINE HRESULT IWMBandwidthSharing_SetBandwidth(IWMBandwidthSharing* This,DWORD bitrate,DWORD buffer) {
+    return This->lpVtbl->SetBandwidth(This,bitrate,buffer);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMBandwidthSharing_GetType_Proxy(
+    IWMBandwidthSharing* This,
+    GUID *guid);
+void __RPC_STUB IWMBandwidthSharing_GetType_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMBandwidthSharing_SetType_Proxy(
+    IWMBandwidthSharing* This,
+    REFGUID guid);
+void __RPC_STUB IWMBandwidthSharing_SetType_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMBandwidthSharing_GetBandwidth_Proxy(
+    IWMBandwidthSharing* This,
+    DWORD *bitrate,
+    DWORD *buffer);
+void __RPC_STUB IWMBandwidthSharing_GetBandwidth_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMBandwidthSharing_SetBandwidth_Proxy(
+    IWMBandwidthSharing* This,
+    DWORD bitrate,
+    DWORD buffer);
+void __RPC_STUB IWMBandwidthSharing_SetBandwidth_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMBandwidthSharing_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMStreamPrioritization interface
+ */
+#ifndef __IWMStreamPrioritization_INTERFACE_DEFINED__
+#define __IWMStreamPrioritization_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMStreamPrioritization, 0x8c1c6090, 0xf9a8, 0x4748, 0x8e,0xc3, 0xdd,0x11,0x08,0xba,0x1e,0x77);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("8c1c6090-f9a8-4748-8ec3-dd1108ba1e77")
+IWMStreamPrioritization : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetPriorityRecords(
+        WM_STREAM_PRIORITY_RECORD *array,
+        WORD *records) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetPriorityRecords(
+        WM_STREAM_PRIORITY_RECORD *array,
+        WORD records) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMStreamPrioritization, 0x8c1c6090, 0xf9a8, 0x4748, 0x8e,0xc3, 0xdd,0x11,0x08,0xba,0x1e,0x77)
+#endif
+#else
+typedef struct IWMStreamPrioritizationVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMStreamPrioritization* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMStreamPrioritization* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMStreamPrioritization* This);
+
+    /*** IWMStreamPrioritization methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetPriorityRecords)(
+        IWMStreamPrioritization* This,
+        WM_STREAM_PRIORITY_RECORD *array,
+        WORD *records);
+
+    HRESULT (STDMETHODCALLTYPE *SetPriorityRecords)(
+        IWMStreamPrioritization* This,
+        WM_STREAM_PRIORITY_RECORD *array,
+        WORD records);
+
+    END_INTERFACE
+} IWMStreamPrioritizationVtbl;
+interface IWMStreamPrioritization {
+    CONST_VTBL IWMStreamPrioritizationVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMStreamPrioritization_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMStreamPrioritization_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMStreamPrioritization_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMStreamPrioritization methods ***/
+#define IWMStreamPrioritization_GetPriorityRecords(This,array,records) (This)->lpVtbl->GetPriorityRecords(This,array,records)
+#define IWMStreamPrioritization_SetPriorityRecords(This,array,records) (This)->lpVtbl->SetPriorityRecords(This,array,records)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMStreamPrioritization_QueryInterface(IWMStreamPrioritization* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMStreamPrioritization_AddRef(IWMStreamPrioritization* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMStreamPrioritization_Release(IWMStreamPrioritization* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMStreamPrioritization methods ***/
+static FORCEINLINE HRESULT IWMStreamPrioritization_GetPriorityRecords(IWMStreamPrioritization* This,WM_STREAM_PRIORITY_RECORD *array,WORD *records) {
+    return This->lpVtbl->GetPriorityRecords(This,array,records);
+}
+static FORCEINLINE HRESULT IWMStreamPrioritization_SetPriorityRecords(IWMStreamPrioritization* This,WM_STREAM_PRIORITY_RECORD *array,WORD records) {
+    return This->lpVtbl->SetPriorityRecords(This,array,records);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMStreamPrioritization_GetPriorityRecords_Proxy(
+    IWMStreamPrioritization* This,
+    WM_STREAM_PRIORITY_RECORD *array,
+    WORD *records);
+void __RPC_STUB IWMStreamPrioritization_GetPriorityRecords_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMStreamPrioritization_SetPriorityRecords_Proxy(
+    IWMStreamPrioritization* This,
+    WM_STREAM_PRIORITY_RECORD *array,
+    WORD records);
+void __RPC_STUB IWMStreamPrioritization_SetPriorityRecords_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMStreamPrioritization_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IWMStreamConfig interface
@@ -1462,6 +1860,704 @@ void __RPC_STUB IWMProfile_CreateNewMutualExclusion_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __IWMProfile_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMProfile2 interface
+ */
+#ifndef __IWMProfile2_INTERFACE_DEFINED__
+#define __IWMProfile2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMProfile2, 0x07e72d33, 0xd94e, 0x4be7, 0x88,0x43, 0x60,0xae,0x5f,0xf7,0xe5,0xf5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("07e72d33-d94e-4be7-8843-60ae5ff7e5f5")
+IWMProfile2 : public IWMProfile
+{
+    virtual HRESULT STDMETHODCALLTYPE GetProfileID(
+        GUID *guid) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMProfile2, 0x07e72d33, 0xd94e, 0x4be7, 0x88,0x43, 0x60,0xae,0x5f,0xf7,0xe5,0xf5)
+#endif
+#else
+typedef struct IWMProfile2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMProfile2* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMProfile2* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMProfile2* This);
+
+    /*** IWMProfile methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetVersion)(
+        IWMProfile2* This,
+        WMT_VERSION *pdwVersion);
+
+    HRESULT (STDMETHODCALLTYPE *GetName)(
+        IWMProfile2* This,
+        WCHAR *pwszName,
+        DWORD *pcchName);
+
+    HRESULT (STDMETHODCALLTYPE *SetName)(
+        IWMProfile2* This,
+        const WCHAR *pwszName);
+
+    HRESULT (STDMETHODCALLTYPE *GetDescription)(
+        IWMProfile2* This,
+        WCHAR *pwszDescription,
+        DWORD *pcchDescription);
+
+    HRESULT (STDMETHODCALLTYPE *SetDescription)(
+        IWMProfile2* This,
+        const WCHAR *pwszDescription);
+
+    HRESULT (STDMETHODCALLTYPE *GetStreamCount)(
+        IWMProfile2* This,
+        DWORD *pcStreams);
+
+    HRESULT (STDMETHODCALLTYPE *GetStream)(
+        IWMProfile2* This,
+        DWORD dwStreamIndex,
+        IWMStreamConfig **ppConfig);
+
+    HRESULT (STDMETHODCALLTYPE *GetStreamByNumber)(
+        IWMProfile2* This,
+        WORD wStreamNum,
+        IWMStreamConfig **ppConfig);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveStream)(
+        IWMProfile2* This,
+        IWMStreamConfig *pConfig);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveStreamByNumber)(
+        IWMProfile2* This,
+        WORD wStreamNum);
+
+    HRESULT (STDMETHODCALLTYPE *AddStream)(
+        IWMProfile2* This,
+        IWMStreamConfig *pConfig);
+
+    HRESULT (STDMETHODCALLTYPE *ReconfigStream)(
+        IWMProfile2* This,
+        IWMStreamConfig *pConfig);
+
+    HRESULT (STDMETHODCALLTYPE *CreateNewStream)(
+        IWMProfile2* This,
+        REFGUID guidStreamType,
+        IWMStreamConfig **ppConfig);
+
+    HRESULT (STDMETHODCALLTYPE *GetMutualExclusionCount)(
+        IWMProfile2* This,
+        DWORD *pcME);
+
+    HRESULT (STDMETHODCALLTYPE *GetMutualExclusion)(
+        IWMProfile2* This,
+        DWORD dwMEIndex,
+        IWMMutualExclusion **ppME);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveMutualExclusion)(
+        IWMProfile2* This,
+        IWMMutualExclusion *pME);
+
+    HRESULT (STDMETHODCALLTYPE *AddMutualExclusion)(
+        IWMProfile2* This,
+        IWMMutualExclusion *pME);
+
+    HRESULT (STDMETHODCALLTYPE *CreateNewMutualExclusion)(
+        IWMProfile2* This,
+        IWMMutualExclusion **ppME);
+
+    /*** IWMProfile2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetProfileID)(
+        IWMProfile2* This,
+        GUID *guid);
+
+    END_INTERFACE
+} IWMProfile2Vtbl;
+interface IWMProfile2 {
+    CONST_VTBL IWMProfile2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMProfile2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMProfile2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMProfile2_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMProfile methods ***/
+#define IWMProfile2_GetVersion(This,pdwVersion) (This)->lpVtbl->GetVersion(This,pdwVersion)
+#define IWMProfile2_GetName(This,pwszName,pcchName) (This)->lpVtbl->GetName(This,pwszName,pcchName)
+#define IWMProfile2_SetName(This,pwszName) (This)->lpVtbl->SetName(This,pwszName)
+#define IWMProfile2_GetDescription(This,pwszDescription,pcchDescription) (This)->lpVtbl->GetDescription(This,pwszDescription,pcchDescription)
+#define IWMProfile2_SetDescription(This,pwszDescription) (This)->lpVtbl->SetDescription(This,pwszDescription)
+#define IWMProfile2_GetStreamCount(This,pcStreams) (This)->lpVtbl->GetStreamCount(This,pcStreams)
+#define IWMProfile2_GetStream(This,dwStreamIndex,ppConfig) (This)->lpVtbl->GetStream(This,dwStreamIndex,ppConfig)
+#define IWMProfile2_GetStreamByNumber(This,wStreamNum,ppConfig) (This)->lpVtbl->GetStreamByNumber(This,wStreamNum,ppConfig)
+#define IWMProfile2_RemoveStream(This,pConfig) (This)->lpVtbl->RemoveStream(This,pConfig)
+#define IWMProfile2_RemoveStreamByNumber(This,wStreamNum) (This)->lpVtbl->RemoveStreamByNumber(This,wStreamNum)
+#define IWMProfile2_AddStream(This,pConfig) (This)->lpVtbl->AddStream(This,pConfig)
+#define IWMProfile2_ReconfigStream(This,pConfig) (This)->lpVtbl->ReconfigStream(This,pConfig)
+#define IWMProfile2_CreateNewStream(This,guidStreamType,ppConfig) (This)->lpVtbl->CreateNewStream(This,guidStreamType,ppConfig)
+#define IWMProfile2_GetMutualExclusionCount(This,pcME) (This)->lpVtbl->GetMutualExclusionCount(This,pcME)
+#define IWMProfile2_GetMutualExclusion(This,dwMEIndex,ppME) (This)->lpVtbl->GetMutualExclusion(This,dwMEIndex,ppME)
+#define IWMProfile2_RemoveMutualExclusion(This,pME) (This)->lpVtbl->RemoveMutualExclusion(This,pME)
+#define IWMProfile2_AddMutualExclusion(This,pME) (This)->lpVtbl->AddMutualExclusion(This,pME)
+#define IWMProfile2_CreateNewMutualExclusion(This,ppME) (This)->lpVtbl->CreateNewMutualExclusion(This,ppME)
+/*** IWMProfile2 methods ***/
+#define IWMProfile2_GetProfileID(This,guid) (This)->lpVtbl->GetProfileID(This,guid)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMProfile2_QueryInterface(IWMProfile2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMProfile2_AddRef(IWMProfile2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMProfile2_Release(IWMProfile2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMProfile methods ***/
+static FORCEINLINE HRESULT IWMProfile2_GetVersion(IWMProfile2* This,WMT_VERSION *pdwVersion) {
+    return This->lpVtbl->GetVersion(This,pdwVersion);
+}
+static FORCEINLINE HRESULT IWMProfile2_GetName(IWMProfile2* This,WCHAR *pwszName,DWORD *pcchName) {
+    return This->lpVtbl->GetName(This,pwszName,pcchName);
+}
+static FORCEINLINE HRESULT IWMProfile2_SetName(IWMProfile2* This,const WCHAR *pwszName) {
+    return This->lpVtbl->SetName(This,pwszName);
+}
+static FORCEINLINE HRESULT IWMProfile2_GetDescription(IWMProfile2* This,WCHAR *pwszDescription,DWORD *pcchDescription) {
+    return This->lpVtbl->GetDescription(This,pwszDescription,pcchDescription);
+}
+static FORCEINLINE HRESULT IWMProfile2_SetDescription(IWMProfile2* This,const WCHAR *pwszDescription) {
+    return This->lpVtbl->SetDescription(This,pwszDescription);
+}
+static FORCEINLINE HRESULT IWMProfile2_GetStreamCount(IWMProfile2* This,DWORD *pcStreams) {
+    return This->lpVtbl->GetStreamCount(This,pcStreams);
+}
+static FORCEINLINE HRESULT IWMProfile2_GetStream(IWMProfile2* This,DWORD dwStreamIndex,IWMStreamConfig **ppConfig) {
+    return This->lpVtbl->GetStream(This,dwStreamIndex,ppConfig);
+}
+static FORCEINLINE HRESULT IWMProfile2_GetStreamByNumber(IWMProfile2* This,WORD wStreamNum,IWMStreamConfig **ppConfig) {
+    return This->lpVtbl->GetStreamByNumber(This,wStreamNum,ppConfig);
+}
+static FORCEINLINE HRESULT IWMProfile2_RemoveStream(IWMProfile2* This,IWMStreamConfig *pConfig) {
+    return This->lpVtbl->RemoveStream(This,pConfig);
+}
+static FORCEINLINE HRESULT IWMProfile2_RemoveStreamByNumber(IWMProfile2* This,WORD wStreamNum) {
+    return This->lpVtbl->RemoveStreamByNumber(This,wStreamNum);
+}
+static FORCEINLINE HRESULT IWMProfile2_AddStream(IWMProfile2* This,IWMStreamConfig *pConfig) {
+    return This->lpVtbl->AddStream(This,pConfig);
+}
+static FORCEINLINE HRESULT IWMProfile2_ReconfigStream(IWMProfile2* This,IWMStreamConfig *pConfig) {
+    return This->lpVtbl->ReconfigStream(This,pConfig);
+}
+static FORCEINLINE HRESULT IWMProfile2_CreateNewStream(IWMProfile2* This,REFGUID guidStreamType,IWMStreamConfig **ppConfig) {
+    return This->lpVtbl->CreateNewStream(This,guidStreamType,ppConfig);
+}
+static FORCEINLINE HRESULT IWMProfile2_GetMutualExclusionCount(IWMProfile2* This,DWORD *pcME) {
+    return This->lpVtbl->GetMutualExclusionCount(This,pcME);
+}
+static FORCEINLINE HRESULT IWMProfile2_GetMutualExclusion(IWMProfile2* This,DWORD dwMEIndex,IWMMutualExclusion **ppME) {
+    return This->lpVtbl->GetMutualExclusion(This,dwMEIndex,ppME);
+}
+static FORCEINLINE HRESULT IWMProfile2_RemoveMutualExclusion(IWMProfile2* This,IWMMutualExclusion *pME) {
+    return This->lpVtbl->RemoveMutualExclusion(This,pME);
+}
+static FORCEINLINE HRESULT IWMProfile2_AddMutualExclusion(IWMProfile2* This,IWMMutualExclusion *pME) {
+    return This->lpVtbl->AddMutualExclusion(This,pME);
+}
+static FORCEINLINE HRESULT IWMProfile2_CreateNewMutualExclusion(IWMProfile2* This,IWMMutualExclusion **ppME) {
+    return This->lpVtbl->CreateNewMutualExclusion(This,ppME);
+}
+/*** IWMProfile2 methods ***/
+static FORCEINLINE HRESULT IWMProfile2_GetProfileID(IWMProfile2* This,GUID *guid) {
+    return This->lpVtbl->GetProfileID(This,guid);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMProfile2_GetProfileID_Proxy(
+    IWMProfile2* This,
+    GUID *guid);
+void __RPC_STUB IWMProfile2_GetProfileID_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMProfile2_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMProfile3 interface
+ */
+#ifndef __IWMProfile3_INTERFACE_DEFINED__
+#define __IWMProfile3_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMProfile3, 0x00ef96cc, 0xa461, 0x4546, 0x8b,0xcd, 0xc9,0xa2,0x8f,0x0e,0x06,0xf5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("00ef96cc-a461-4546-8bcd-c9a28f0e06f5")
+IWMProfile3 : public IWMProfile2
+{
+    virtual HRESULT STDMETHODCALLTYPE GetStorageFormat(
+        WMT_STORAGE_FORMAT *storage) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetStorageFormat(
+        WMT_STORAGE_FORMAT storage) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetBandwidthSharingCount(
+        DWORD *count) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetBandwidthSharing(
+        DWORD index,
+        IWMBandwidthSharing **bandwidth) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveBandwidthSharing(
+        IWMBandwidthSharing *bandwidth) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddBandwidthSharing(
+        IWMBandwidthSharing *bandwidth) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateNewBandwidthSharing(
+        IWMBandwidthSharing **bandwidth) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetStreamPrioritization(
+        IWMStreamPrioritization **stream) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetStreamPrioritization(
+        IWMStreamPrioritization *stream) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveStreamPrioritization(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateNewStreamPrioritization(
+        IWMStreamPrioritization **stream) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetExpectedPacketCount(
+        QWORD duration,
+        QWORD *packets) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMProfile3, 0x00ef96cc, 0xa461, 0x4546, 0x8b,0xcd, 0xc9,0xa2,0x8f,0x0e,0x06,0xf5)
+#endif
+#else
+typedef struct IWMProfile3Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMProfile3* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMProfile3* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMProfile3* This);
+
+    /*** IWMProfile methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetVersion)(
+        IWMProfile3* This,
+        WMT_VERSION *pdwVersion);
+
+    HRESULT (STDMETHODCALLTYPE *GetName)(
+        IWMProfile3* This,
+        WCHAR *pwszName,
+        DWORD *pcchName);
+
+    HRESULT (STDMETHODCALLTYPE *SetName)(
+        IWMProfile3* This,
+        const WCHAR *pwszName);
+
+    HRESULT (STDMETHODCALLTYPE *GetDescription)(
+        IWMProfile3* This,
+        WCHAR *pwszDescription,
+        DWORD *pcchDescription);
+
+    HRESULT (STDMETHODCALLTYPE *SetDescription)(
+        IWMProfile3* This,
+        const WCHAR *pwszDescription);
+
+    HRESULT (STDMETHODCALLTYPE *GetStreamCount)(
+        IWMProfile3* This,
+        DWORD *pcStreams);
+
+    HRESULT (STDMETHODCALLTYPE *GetStream)(
+        IWMProfile3* This,
+        DWORD dwStreamIndex,
+        IWMStreamConfig **ppConfig);
+
+    HRESULT (STDMETHODCALLTYPE *GetStreamByNumber)(
+        IWMProfile3* This,
+        WORD wStreamNum,
+        IWMStreamConfig **ppConfig);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveStream)(
+        IWMProfile3* This,
+        IWMStreamConfig *pConfig);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveStreamByNumber)(
+        IWMProfile3* This,
+        WORD wStreamNum);
+
+    HRESULT (STDMETHODCALLTYPE *AddStream)(
+        IWMProfile3* This,
+        IWMStreamConfig *pConfig);
+
+    HRESULT (STDMETHODCALLTYPE *ReconfigStream)(
+        IWMProfile3* This,
+        IWMStreamConfig *pConfig);
+
+    HRESULT (STDMETHODCALLTYPE *CreateNewStream)(
+        IWMProfile3* This,
+        REFGUID guidStreamType,
+        IWMStreamConfig **ppConfig);
+
+    HRESULT (STDMETHODCALLTYPE *GetMutualExclusionCount)(
+        IWMProfile3* This,
+        DWORD *pcME);
+
+    HRESULT (STDMETHODCALLTYPE *GetMutualExclusion)(
+        IWMProfile3* This,
+        DWORD dwMEIndex,
+        IWMMutualExclusion **ppME);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveMutualExclusion)(
+        IWMProfile3* This,
+        IWMMutualExclusion *pME);
+
+    HRESULT (STDMETHODCALLTYPE *AddMutualExclusion)(
+        IWMProfile3* This,
+        IWMMutualExclusion *pME);
+
+    HRESULT (STDMETHODCALLTYPE *CreateNewMutualExclusion)(
+        IWMProfile3* This,
+        IWMMutualExclusion **ppME);
+
+    /*** IWMProfile2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetProfileID)(
+        IWMProfile3* This,
+        GUID *guid);
+
+    /*** IWMProfile3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetStorageFormat)(
+        IWMProfile3* This,
+        WMT_STORAGE_FORMAT *storage);
+
+    HRESULT (STDMETHODCALLTYPE *SetStorageFormat)(
+        IWMProfile3* This,
+        WMT_STORAGE_FORMAT storage);
+
+    HRESULT (STDMETHODCALLTYPE *GetBandwidthSharingCount)(
+        IWMProfile3* This,
+        DWORD *count);
+
+    HRESULT (STDMETHODCALLTYPE *GetBandwidthSharing)(
+        IWMProfile3* This,
+        DWORD index,
+        IWMBandwidthSharing **bandwidth);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveBandwidthSharing)(
+        IWMProfile3* This,
+        IWMBandwidthSharing *bandwidth);
+
+    HRESULT (STDMETHODCALLTYPE *AddBandwidthSharing)(
+        IWMProfile3* This,
+        IWMBandwidthSharing *bandwidth);
+
+    HRESULT (STDMETHODCALLTYPE *CreateNewBandwidthSharing)(
+        IWMProfile3* This,
+        IWMBandwidthSharing **bandwidth);
+
+    HRESULT (STDMETHODCALLTYPE *GetStreamPrioritization)(
+        IWMProfile3* This,
+        IWMStreamPrioritization **stream);
+
+    HRESULT (STDMETHODCALLTYPE *SetStreamPrioritization)(
+        IWMProfile3* This,
+        IWMStreamPrioritization *stream);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveStreamPrioritization)(
+        IWMProfile3* This);
+
+    HRESULT (STDMETHODCALLTYPE *CreateNewStreamPrioritization)(
+        IWMProfile3* This,
+        IWMStreamPrioritization **stream);
+
+    HRESULT (STDMETHODCALLTYPE *GetExpectedPacketCount)(
+        IWMProfile3* This,
+        QWORD duration,
+        QWORD *packets);
+
+    END_INTERFACE
+} IWMProfile3Vtbl;
+interface IWMProfile3 {
+    CONST_VTBL IWMProfile3Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMProfile3_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMProfile3_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMProfile3_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMProfile methods ***/
+#define IWMProfile3_GetVersion(This,pdwVersion) (This)->lpVtbl->GetVersion(This,pdwVersion)
+#define IWMProfile3_GetName(This,pwszName,pcchName) (This)->lpVtbl->GetName(This,pwszName,pcchName)
+#define IWMProfile3_SetName(This,pwszName) (This)->lpVtbl->SetName(This,pwszName)
+#define IWMProfile3_GetDescription(This,pwszDescription,pcchDescription) (This)->lpVtbl->GetDescription(This,pwszDescription,pcchDescription)
+#define IWMProfile3_SetDescription(This,pwszDescription) (This)->lpVtbl->SetDescription(This,pwszDescription)
+#define IWMProfile3_GetStreamCount(This,pcStreams) (This)->lpVtbl->GetStreamCount(This,pcStreams)
+#define IWMProfile3_GetStream(This,dwStreamIndex,ppConfig) (This)->lpVtbl->GetStream(This,dwStreamIndex,ppConfig)
+#define IWMProfile3_GetStreamByNumber(This,wStreamNum,ppConfig) (This)->lpVtbl->GetStreamByNumber(This,wStreamNum,ppConfig)
+#define IWMProfile3_RemoveStream(This,pConfig) (This)->lpVtbl->RemoveStream(This,pConfig)
+#define IWMProfile3_RemoveStreamByNumber(This,wStreamNum) (This)->lpVtbl->RemoveStreamByNumber(This,wStreamNum)
+#define IWMProfile3_AddStream(This,pConfig) (This)->lpVtbl->AddStream(This,pConfig)
+#define IWMProfile3_ReconfigStream(This,pConfig) (This)->lpVtbl->ReconfigStream(This,pConfig)
+#define IWMProfile3_CreateNewStream(This,guidStreamType,ppConfig) (This)->lpVtbl->CreateNewStream(This,guidStreamType,ppConfig)
+#define IWMProfile3_GetMutualExclusionCount(This,pcME) (This)->lpVtbl->GetMutualExclusionCount(This,pcME)
+#define IWMProfile3_GetMutualExclusion(This,dwMEIndex,ppME) (This)->lpVtbl->GetMutualExclusion(This,dwMEIndex,ppME)
+#define IWMProfile3_RemoveMutualExclusion(This,pME) (This)->lpVtbl->RemoveMutualExclusion(This,pME)
+#define IWMProfile3_AddMutualExclusion(This,pME) (This)->lpVtbl->AddMutualExclusion(This,pME)
+#define IWMProfile3_CreateNewMutualExclusion(This,ppME) (This)->lpVtbl->CreateNewMutualExclusion(This,ppME)
+/*** IWMProfile2 methods ***/
+#define IWMProfile3_GetProfileID(This,guid) (This)->lpVtbl->GetProfileID(This,guid)
+/*** IWMProfile3 methods ***/
+#define IWMProfile3_GetStorageFormat(This,storage) (This)->lpVtbl->GetStorageFormat(This,storage)
+#define IWMProfile3_SetStorageFormat(This,storage) (This)->lpVtbl->SetStorageFormat(This,storage)
+#define IWMProfile3_GetBandwidthSharingCount(This,count) (This)->lpVtbl->GetBandwidthSharingCount(This,count)
+#define IWMProfile3_GetBandwidthSharing(This,index,bandwidth) (This)->lpVtbl->GetBandwidthSharing(This,index,bandwidth)
+#define IWMProfile3_RemoveBandwidthSharing(This,bandwidth) (This)->lpVtbl->RemoveBandwidthSharing(This,bandwidth)
+#define IWMProfile3_AddBandwidthSharing(This,bandwidth) (This)->lpVtbl->AddBandwidthSharing(This,bandwidth)
+#define IWMProfile3_CreateNewBandwidthSharing(This,bandwidth) (This)->lpVtbl->CreateNewBandwidthSharing(This,bandwidth)
+#define IWMProfile3_GetStreamPrioritization(This,stream) (This)->lpVtbl->GetStreamPrioritization(This,stream)
+#define IWMProfile3_SetStreamPrioritization(This,stream) (This)->lpVtbl->SetStreamPrioritization(This,stream)
+#define IWMProfile3_RemoveStreamPrioritization(This) (This)->lpVtbl->RemoveStreamPrioritization(This)
+#define IWMProfile3_CreateNewStreamPrioritization(This,stream) (This)->lpVtbl->CreateNewStreamPrioritization(This,stream)
+#define IWMProfile3_GetExpectedPacketCount(This,duration,packets) (This)->lpVtbl->GetExpectedPacketCount(This,duration,packets)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMProfile3_QueryInterface(IWMProfile3* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMProfile3_AddRef(IWMProfile3* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMProfile3_Release(IWMProfile3* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMProfile methods ***/
+static FORCEINLINE HRESULT IWMProfile3_GetVersion(IWMProfile3* This,WMT_VERSION *pdwVersion) {
+    return This->lpVtbl->GetVersion(This,pdwVersion);
+}
+static FORCEINLINE HRESULT IWMProfile3_GetName(IWMProfile3* This,WCHAR *pwszName,DWORD *pcchName) {
+    return This->lpVtbl->GetName(This,pwszName,pcchName);
+}
+static FORCEINLINE HRESULT IWMProfile3_SetName(IWMProfile3* This,const WCHAR *pwszName) {
+    return This->lpVtbl->SetName(This,pwszName);
+}
+static FORCEINLINE HRESULT IWMProfile3_GetDescription(IWMProfile3* This,WCHAR *pwszDescription,DWORD *pcchDescription) {
+    return This->lpVtbl->GetDescription(This,pwszDescription,pcchDescription);
+}
+static FORCEINLINE HRESULT IWMProfile3_SetDescription(IWMProfile3* This,const WCHAR *pwszDescription) {
+    return This->lpVtbl->SetDescription(This,pwszDescription);
+}
+static FORCEINLINE HRESULT IWMProfile3_GetStreamCount(IWMProfile3* This,DWORD *pcStreams) {
+    return This->lpVtbl->GetStreamCount(This,pcStreams);
+}
+static FORCEINLINE HRESULT IWMProfile3_GetStream(IWMProfile3* This,DWORD dwStreamIndex,IWMStreamConfig **ppConfig) {
+    return This->lpVtbl->GetStream(This,dwStreamIndex,ppConfig);
+}
+static FORCEINLINE HRESULT IWMProfile3_GetStreamByNumber(IWMProfile3* This,WORD wStreamNum,IWMStreamConfig **ppConfig) {
+    return This->lpVtbl->GetStreamByNumber(This,wStreamNum,ppConfig);
+}
+static FORCEINLINE HRESULT IWMProfile3_RemoveStream(IWMProfile3* This,IWMStreamConfig *pConfig) {
+    return This->lpVtbl->RemoveStream(This,pConfig);
+}
+static FORCEINLINE HRESULT IWMProfile3_RemoveStreamByNumber(IWMProfile3* This,WORD wStreamNum) {
+    return This->lpVtbl->RemoveStreamByNumber(This,wStreamNum);
+}
+static FORCEINLINE HRESULT IWMProfile3_AddStream(IWMProfile3* This,IWMStreamConfig *pConfig) {
+    return This->lpVtbl->AddStream(This,pConfig);
+}
+static FORCEINLINE HRESULT IWMProfile3_ReconfigStream(IWMProfile3* This,IWMStreamConfig *pConfig) {
+    return This->lpVtbl->ReconfigStream(This,pConfig);
+}
+static FORCEINLINE HRESULT IWMProfile3_CreateNewStream(IWMProfile3* This,REFGUID guidStreamType,IWMStreamConfig **ppConfig) {
+    return This->lpVtbl->CreateNewStream(This,guidStreamType,ppConfig);
+}
+static FORCEINLINE HRESULT IWMProfile3_GetMutualExclusionCount(IWMProfile3* This,DWORD *pcME) {
+    return This->lpVtbl->GetMutualExclusionCount(This,pcME);
+}
+static FORCEINLINE HRESULT IWMProfile3_GetMutualExclusion(IWMProfile3* This,DWORD dwMEIndex,IWMMutualExclusion **ppME) {
+    return This->lpVtbl->GetMutualExclusion(This,dwMEIndex,ppME);
+}
+static FORCEINLINE HRESULT IWMProfile3_RemoveMutualExclusion(IWMProfile3* This,IWMMutualExclusion *pME) {
+    return This->lpVtbl->RemoveMutualExclusion(This,pME);
+}
+static FORCEINLINE HRESULT IWMProfile3_AddMutualExclusion(IWMProfile3* This,IWMMutualExclusion *pME) {
+    return This->lpVtbl->AddMutualExclusion(This,pME);
+}
+static FORCEINLINE HRESULT IWMProfile3_CreateNewMutualExclusion(IWMProfile3* This,IWMMutualExclusion **ppME) {
+    return This->lpVtbl->CreateNewMutualExclusion(This,ppME);
+}
+/*** IWMProfile2 methods ***/
+static FORCEINLINE HRESULT IWMProfile3_GetProfileID(IWMProfile3* This,GUID *guid) {
+    return This->lpVtbl->GetProfileID(This,guid);
+}
+/*** IWMProfile3 methods ***/
+static FORCEINLINE HRESULT IWMProfile3_GetStorageFormat(IWMProfile3* This,WMT_STORAGE_FORMAT *storage) {
+    return This->lpVtbl->GetStorageFormat(This,storage);
+}
+static FORCEINLINE HRESULT IWMProfile3_SetStorageFormat(IWMProfile3* This,WMT_STORAGE_FORMAT storage) {
+    return This->lpVtbl->SetStorageFormat(This,storage);
+}
+static FORCEINLINE HRESULT IWMProfile3_GetBandwidthSharingCount(IWMProfile3* This,DWORD *count) {
+    return This->lpVtbl->GetBandwidthSharingCount(This,count);
+}
+static FORCEINLINE HRESULT IWMProfile3_GetBandwidthSharing(IWMProfile3* This,DWORD index,IWMBandwidthSharing **bandwidth) {
+    return This->lpVtbl->GetBandwidthSharing(This,index,bandwidth);
+}
+static FORCEINLINE HRESULT IWMProfile3_RemoveBandwidthSharing(IWMProfile3* This,IWMBandwidthSharing *bandwidth) {
+    return This->lpVtbl->RemoveBandwidthSharing(This,bandwidth);
+}
+static FORCEINLINE HRESULT IWMProfile3_AddBandwidthSharing(IWMProfile3* This,IWMBandwidthSharing *bandwidth) {
+    return This->lpVtbl->AddBandwidthSharing(This,bandwidth);
+}
+static FORCEINLINE HRESULT IWMProfile3_CreateNewBandwidthSharing(IWMProfile3* This,IWMBandwidthSharing **bandwidth) {
+    return This->lpVtbl->CreateNewBandwidthSharing(This,bandwidth);
+}
+static FORCEINLINE HRESULT IWMProfile3_GetStreamPrioritization(IWMProfile3* This,IWMStreamPrioritization **stream) {
+    return This->lpVtbl->GetStreamPrioritization(This,stream);
+}
+static FORCEINLINE HRESULT IWMProfile3_SetStreamPrioritization(IWMProfile3* This,IWMStreamPrioritization *stream) {
+    return This->lpVtbl->SetStreamPrioritization(This,stream);
+}
+static FORCEINLINE HRESULT IWMProfile3_RemoveStreamPrioritization(IWMProfile3* This) {
+    return This->lpVtbl->RemoveStreamPrioritization(This);
+}
+static FORCEINLINE HRESULT IWMProfile3_CreateNewStreamPrioritization(IWMProfile3* This,IWMStreamPrioritization **stream) {
+    return This->lpVtbl->CreateNewStreamPrioritization(This,stream);
+}
+static FORCEINLINE HRESULT IWMProfile3_GetExpectedPacketCount(IWMProfile3* This,QWORD duration,QWORD *packets) {
+    return This->lpVtbl->GetExpectedPacketCount(This,duration,packets);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMProfile3_GetStorageFormat_Proxy(
+    IWMProfile3* This,
+    WMT_STORAGE_FORMAT *storage);
+void __RPC_STUB IWMProfile3_GetStorageFormat_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile3_SetStorageFormat_Proxy(
+    IWMProfile3* This,
+    WMT_STORAGE_FORMAT storage);
+void __RPC_STUB IWMProfile3_SetStorageFormat_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile3_GetBandwidthSharingCount_Proxy(
+    IWMProfile3* This,
+    DWORD *count);
+void __RPC_STUB IWMProfile3_GetBandwidthSharingCount_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile3_GetBandwidthSharing_Proxy(
+    IWMProfile3* This,
+    DWORD index,
+    IWMBandwidthSharing **bandwidth);
+void __RPC_STUB IWMProfile3_GetBandwidthSharing_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile3_RemoveBandwidthSharing_Proxy(
+    IWMProfile3* This,
+    IWMBandwidthSharing *bandwidth);
+void __RPC_STUB IWMProfile3_RemoveBandwidthSharing_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile3_AddBandwidthSharing_Proxy(
+    IWMProfile3* This,
+    IWMBandwidthSharing *bandwidth);
+void __RPC_STUB IWMProfile3_AddBandwidthSharing_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile3_CreateNewBandwidthSharing_Proxy(
+    IWMProfile3* This,
+    IWMBandwidthSharing **bandwidth);
+void __RPC_STUB IWMProfile3_CreateNewBandwidthSharing_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile3_GetStreamPrioritization_Proxy(
+    IWMProfile3* This,
+    IWMStreamPrioritization **stream);
+void __RPC_STUB IWMProfile3_GetStreamPrioritization_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile3_SetStreamPrioritization_Proxy(
+    IWMProfile3* This,
+    IWMStreamPrioritization *stream);
+void __RPC_STUB IWMProfile3_SetStreamPrioritization_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile3_RemoveStreamPrioritization_Proxy(
+    IWMProfile3* This);
+void __RPC_STUB IWMProfile3_RemoveStreamPrioritization_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile3_CreateNewStreamPrioritization_Proxy(
+    IWMProfile3* This,
+    IWMStreamPrioritization **stream);
+void __RPC_STUB IWMProfile3_CreateNewStreamPrioritization_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMProfile3_GetExpectedPacketCount_Proxy(
+    IWMProfile3* This,
+    QWORD duration,
+    QWORD *packets);
+void __RPC_STUB IWMProfile3_GetExpectedPacketCount_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMProfile3_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IWMProfileManager interface
@@ -7466,6 +8562,3704 @@ void __RPC_STUB IWMWriterAdvanced3_SetNonBlocking_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __IWMWriterAdvanced3_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMHeaderInfo interface
+ */
+#ifndef __IWMHeaderInfo_INTERFACE_DEFINED__
+#define __IWMHeaderInfo_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMHeaderInfo, 0x96406bda, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("96406bda-2b2b-11d3-b36b-00c04f6108ff")
+IWMHeaderInfo : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetAttributeCount(
+        WORD stream_num,
+        WORD *attributes) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetAttributeByIndex(
+        WORD index,
+        WORD *stream_num,
+        WCHAR *name,
+        WORD *name_len,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        WORD *length) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetAttributeByName(
+        WORD *stream_num,
+        LPCWSTR name,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        WORD *length) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetAttribute(
+        WORD stream_num,
+        LPCWSTR name,
+        WMT_ATTR_DATATYPE type,
+        const BYTE *value,
+        WORD length) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMarkerCount(
+        WORD *markers) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMarker(
+        WORD index,
+        WCHAR *marker_name,
+        WORD *marker_len,
+        QWORD *marker_time) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddMarker(
+        LPCWSTR_WMSDK_TYPE_SAFE marker_name,
+        QWORD marker_time) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveMarker(
+        WORD index) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetScriptCount(
+        WORD *scripts) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetScript(
+        WORD index,
+        WCHAR *type,
+        WORD *type_len,
+        WCHAR *command,
+        WORD *command_len,
+        QWORD *script_time) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddScript(
+        LPCWSTR_WMSDK_TYPE_SAFE type,
+        LPCWSTR_WMSDK_TYPE_SAFE command,
+        QWORD script_time) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE RemoveScript(
+        WORD index) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMHeaderInfo, 0x96406bda, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff)
+#endif
+#else
+typedef struct IWMHeaderInfoVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMHeaderInfo* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMHeaderInfo* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMHeaderInfo* This);
+
+    /*** IWMHeaderInfo methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetAttributeCount)(
+        IWMHeaderInfo* This,
+        WORD stream_num,
+        WORD *attributes);
+
+    HRESULT (STDMETHODCALLTYPE *GetAttributeByIndex)(
+        IWMHeaderInfo* This,
+        WORD index,
+        WORD *stream_num,
+        WCHAR *name,
+        WORD *name_len,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        WORD *length);
+
+    HRESULT (STDMETHODCALLTYPE *GetAttributeByName)(
+        IWMHeaderInfo* This,
+        WORD *stream_num,
+        LPCWSTR name,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        WORD *length);
+
+    HRESULT (STDMETHODCALLTYPE *SetAttribute)(
+        IWMHeaderInfo* This,
+        WORD stream_num,
+        LPCWSTR name,
+        WMT_ATTR_DATATYPE type,
+        const BYTE *value,
+        WORD length);
+
+    HRESULT (STDMETHODCALLTYPE *GetMarkerCount)(
+        IWMHeaderInfo* This,
+        WORD *markers);
+
+    HRESULT (STDMETHODCALLTYPE *GetMarker)(
+        IWMHeaderInfo* This,
+        WORD index,
+        WCHAR *marker_name,
+        WORD *marker_len,
+        QWORD *marker_time);
+
+    HRESULT (STDMETHODCALLTYPE *AddMarker)(
+        IWMHeaderInfo* This,
+        LPCWSTR_WMSDK_TYPE_SAFE marker_name,
+        QWORD marker_time);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveMarker)(
+        IWMHeaderInfo* This,
+        WORD index);
+
+    HRESULT (STDMETHODCALLTYPE *GetScriptCount)(
+        IWMHeaderInfo* This,
+        WORD *scripts);
+
+    HRESULT (STDMETHODCALLTYPE *GetScript)(
+        IWMHeaderInfo* This,
+        WORD index,
+        WCHAR *type,
+        WORD *type_len,
+        WCHAR *command,
+        WORD *command_len,
+        QWORD *script_time);
+
+    HRESULT (STDMETHODCALLTYPE *AddScript)(
+        IWMHeaderInfo* This,
+        LPCWSTR_WMSDK_TYPE_SAFE type,
+        LPCWSTR_WMSDK_TYPE_SAFE command,
+        QWORD script_time);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveScript)(
+        IWMHeaderInfo* This,
+        WORD index);
+
+    END_INTERFACE
+} IWMHeaderInfoVtbl;
+interface IWMHeaderInfo {
+    CONST_VTBL IWMHeaderInfoVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMHeaderInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMHeaderInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMHeaderInfo_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMHeaderInfo methods ***/
+#define IWMHeaderInfo_GetAttributeCount(This,stream_num,attributes) (This)->lpVtbl->GetAttributeCount(This,stream_num,attributes)
+#define IWMHeaderInfo_GetAttributeByIndex(This,index,stream_num,name,name_len,type,value,length) (This)->lpVtbl->GetAttributeByIndex(This,index,stream_num,name,name_len,type,value,length)
+#define IWMHeaderInfo_GetAttributeByName(This,stream_num,name,type,value,length) (This)->lpVtbl->GetAttributeByName(This,stream_num,name,type,value,length)
+#define IWMHeaderInfo_SetAttribute(This,stream_num,name,type,value,length) (This)->lpVtbl->SetAttribute(This,stream_num,name,type,value,length)
+#define IWMHeaderInfo_GetMarkerCount(This,markers) (This)->lpVtbl->GetMarkerCount(This,markers)
+#define IWMHeaderInfo_GetMarker(This,index,marker_name,marker_len,marker_time) (This)->lpVtbl->GetMarker(This,index,marker_name,marker_len,marker_time)
+#define IWMHeaderInfo_AddMarker(This,marker_name,marker_time) (This)->lpVtbl->AddMarker(This,marker_name,marker_time)
+#define IWMHeaderInfo_RemoveMarker(This,index) (This)->lpVtbl->RemoveMarker(This,index)
+#define IWMHeaderInfo_GetScriptCount(This,scripts) (This)->lpVtbl->GetScriptCount(This,scripts)
+#define IWMHeaderInfo_GetScript(This,index,type,type_len,command,command_len,script_time) (This)->lpVtbl->GetScript(This,index,type,type_len,command,command_len,script_time)
+#define IWMHeaderInfo_AddScript(This,type,command,script_time) (This)->lpVtbl->AddScript(This,type,command,script_time)
+#define IWMHeaderInfo_RemoveScript(This,index) (This)->lpVtbl->RemoveScript(This,index)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMHeaderInfo_QueryInterface(IWMHeaderInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMHeaderInfo_AddRef(IWMHeaderInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMHeaderInfo_Release(IWMHeaderInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMHeaderInfo methods ***/
+static FORCEINLINE HRESULT IWMHeaderInfo_GetAttributeCount(IWMHeaderInfo* This,WORD stream_num,WORD *attributes) {
+    return This->lpVtbl->GetAttributeCount(This,stream_num,attributes);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo_GetAttributeByIndex(IWMHeaderInfo* This,WORD index,WORD *stream_num,WCHAR *name,WORD *name_len,WMT_ATTR_DATATYPE *type,BYTE *value,WORD *length) {
+    return This->lpVtbl->GetAttributeByIndex(This,index,stream_num,name,name_len,type,value,length);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo_GetAttributeByName(IWMHeaderInfo* This,WORD *stream_num,LPCWSTR name,WMT_ATTR_DATATYPE *type,BYTE *value,WORD *length) {
+    return This->lpVtbl->GetAttributeByName(This,stream_num,name,type,value,length);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo_SetAttribute(IWMHeaderInfo* This,WORD stream_num,LPCWSTR name,WMT_ATTR_DATATYPE type,const BYTE *value,WORD length) {
+    return This->lpVtbl->SetAttribute(This,stream_num,name,type,value,length);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo_GetMarkerCount(IWMHeaderInfo* This,WORD *markers) {
+    return This->lpVtbl->GetMarkerCount(This,markers);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo_GetMarker(IWMHeaderInfo* This,WORD index,WCHAR *marker_name,WORD *marker_len,QWORD *marker_time) {
+    return This->lpVtbl->GetMarker(This,index,marker_name,marker_len,marker_time);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo_AddMarker(IWMHeaderInfo* This,LPCWSTR_WMSDK_TYPE_SAFE marker_name,QWORD marker_time) {
+    return This->lpVtbl->AddMarker(This,marker_name,marker_time);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo_RemoveMarker(IWMHeaderInfo* This,WORD index) {
+    return This->lpVtbl->RemoveMarker(This,index);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo_GetScriptCount(IWMHeaderInfo* This,WORD *scripts) {
+    return This->lpVtbl->GetScriptCount(This,scripts);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo_GetScript(IWMHeaderInfo* This,WORD index,WCHAR *type,WORD *type_len,WCHAR *command,WORD *command_len,QWORD *script_time) {
+    return This->lpVtbl->GetScript(This,index,type,type_len,command,command_len,script_time);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo_AddScript(IWMHeaderInfo* This,LPCWSTR_WMSDK_TYPE_SAFE type,LPCWSTR_WMSDK_TYPE_SAFE command,QWORD script_time) {
+    return This->lpVtbl->AddScript(This,type,command,script_time);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo_RemoveScript(IWMHeaderInfo* This,WORD index) {
+    return This->lpVtbl->RemoveScript(This,index);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMHeaderInfo_GetAttributeCount_Proxy(
+    IWMHeaderInfo* This,
+    WORD stream_num,
+    WORD *attributes);
+void __RPC_STUB IWMHeaderInfo_GetAttributeCount_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMHeaderInfo_GetAttributeByIndex_Proxy(
+    IWMHeaderInfo* This,
+    WORD index,
+    WORD *stream_num,
+    WCHAR *name,
+    WORD *name_len,
+    WMT_ATTR_DATATYPE *type,
+    BYTE *value,
+    WORD *length);
+void __RPC_STUB IWMHeaderInfo_GetAttributeByIndex_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMHeaderInfo_GetAttributeByName_Proxy(
+    IWMHeaderInfo* This,
+    WORD *stream_num,
+    LPCWSTR name,
+    WMT_ATTR_DATATYPE *type,
+    BYTE *value,
+    WORD *length);
+void __RPC_STUB IWMHeaderInfo_GetAttributeByName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMHeaderInfo_SetAttribute_Proxy(
+    IWMHeaderInfo* This,
+    WORD stream_num,
+    LPCWSTR name,
+    WMT_ATTR_DATATYPE type,
+    const BYTE *value,
+    WORD length);
+void __RPC_STUB IWMHeaderInfo_SetAttribute_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMHeaderInfo_GetMarkerCount_Proxy(
+    IWMHeaderInfo* This,
+    WORD *markers);
+void __RPC_STUB IWMHeaderInfo_GetMarkerCount_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMHeaderInfo_GetMarker_Proxy(
+    IWMHeaderInfo* This,
+    WORD index,
+    WCHAR *marker_name,
+    WORD *marker_len,
+    QWORD *marker_time);
+void __RPC_STUB IWMHeaderInfo_GetMarker_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMHeaderInfo_AddMarker_Proxy(
+    IWMHeaderInfo* This,
+    LPCWSTR_WMSDK_TYPE_SAFE marker_name,
+    QWORD marker_time);
+void __RPC_STUB IWMHeaderInfo_AddMarker_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMHeaderInfo_RemoveMarker_Proxy(
+    IWMHeaderInfo* This,
+    WORD index);
+void __RPC_STUB IWMHeaderInfo_RemoveMarker_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMHeaderInfo_GetScriptCount_Proxy(
+    IWMHeaderInfo* This,
+    WORD *scripts);
+void __RPC_STUB IWMHeaderInfo_GetScriptCount_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMHeaderInfo_GetScript_Proxy(
+    IWMHeaderInfo* This,
+    WORD index,
+    WCHAR *type,
+    WORD *type_len,
+    WCHAR *command,
+    WORD *command_len,
+    QWORD *script_time);
+void __RPC_STUB IWMHeaderInfo_GetScript_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMHeaderInfo_AddScript_Proxy(
+    IWMHeaderInfo* This,
+    LPCWSTR_WMSDK_TYPE_SAFE type,
+    LPCWSTR_WMSDK_TYPE_SAFE command,
+    QWORD script_time);
+void __RPC_STUB IWMHeaderInfo_AddScript_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMHeaderInfo_RemoveScript_Proxy(
+    IWMHeaderInfo* This,
+    WORD index);
+void __RPC_STUB IWMHeaderInfo_RemoveScript_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMHeaderInfo_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMHeaderInfo2 interface
+ */
+#ifndef __IWMHeaderInfo2_INTERFACE_DEFINED__
+#define __IWMHeaderInfo2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMHeaderInfo2, 0x15cf9781, 0x454e, 0x482e, 0xb3,0x93, 0x85,0xfa,0xe4,0x87,0xa8,0x10);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("15cf9781-454e-482e-b393-85fae487a810")
+IWMHeaderInfo2 : public IWMHeaderInfo
+{
+    virtual HRESULT STDMETHODCALLTYPE GetCodecInfoCount(
+        DWORD *codec_infos) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCodecInfo(
+        DWORD index,
+        WORD *name_len,
+        WCHAR *name,
+        WORD *description_len,
+        WCHAR *description,
+        WMT_CODEC_INFO_TYPE *codec_type,
+        WORD *codec_info_cnt,
+        BYTE *codec_info) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMHeaderInfo2, 0x15cf9781, 0x454e, 0x482e, 0xb3,0x93, 0x85,0xfa,0xe4,0x87,0xa8,0x10)
+#endif
+#else
+typedef struct IWMHeaderInfo2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMHeaderInfo2* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMHeaderInfo2* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMHeaderInfo2* This);
+
+    /*** IWMHeaderInfo methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetAttributeCount)(
+        IWMHeaderInfo2* This,
+        WORD stream_num,
+        WORD *attributes);
+
+    HRESULT (STDMETHODCALLTYPE *GetAttributeByIndex)(
+        IWMHeaderInfo2* This,
+        WORD index,
+        WORD *stream_num,
+        WCHAR *name,
+        WORD *name_len,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        WORD *length);
+
+    HRESULT (STDMETHODCALLTYPE *GetAttributeByName)(
+        IWMHeaderInfo2* This,
+        WORD *stream_num,
+        LPCWSTR name,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        WORD *length);
+
+    HRESULT (STDMETHODCALLTYPE *SetAttribute)(
+        IWMHeaderInfo2* This,
+        WORD stream_num,
+        LPCWSTR name,
+        WMT_ATTR_DATATYPE type,
+        const BYTE *value,
+        WORD length);
+
+    HRESULT (STDMETHODCALLTYPE *GetMarkerCount)(
+        IWMHeaderInfo2* This,
+        WORD *markers);
+
+    HRESULT (STDMETHODCALLTYPE *GetMarker)(
+        IWMHeaderInfo2* This,
+        WORD index,
+        WCHAR *marker_name,
+        WORD *marker_len,
+        QWORD *marker_time);
+
+    HRESULT (STDMETHODCALLTYPE *AddMarker)(
+        IWMHeaderInfo2* This,
+        LPCWSTR_WMSDK_TYPE_SAFE marker_name,
+        QWORD marker_time);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveMarker)(
+        IWMHeaderInfo2* This,
+        WORD index);
+
+    HRESULT (STDMETHODCALLTYPE *GetScriptCount)(
+        IWMHeaderInfo2* This,
+        WORD *scripts);
+
+    HRESULT (STDMETHODCALLTYPE *GetScript)(
+        IWMHeaderInfo2* This,
+        WORD index,
+        WCHAR *type,
+        WORD *type_len,
+        WCHAR *command,
+        WORD *command_len,
+        QWORD *script_time);
+
+    HRESULT (STDMETHODCALLTYPE *AddScript)(
+        IWMHeaderInfo2* This,
+        LPCWSTR_WMSDK_TYPE_SAFE type,
+        LPCWSTR_WMSDK_TYPE_SAFE command,
+        QWORD script_time);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveScript)(
+        IWMHeaderInfo2* This,
+        WORD index);
+
+    /*** IWMHeaderInfo2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetCodecInfoCount)(
+        IWMHeaderInfo2* This,
+        DWORD *codec_infos);
+
+    HRESULT (STDMETHODCALLTYPE *GetCodecInfo)(
+        IWMHeaderInfo2* This,
+        DWORD index,
+        WORD *name_len,
+        WCHAR *name,
+        WORD *description_len,
+        WCHAR *description,
+        WMT_CODEC_INFO_TYPE *codec_type,
+        WORD *codec_info_cnt,
+        BYTE *codec_info);
+
+    END_INTERFACE
+} IWMHeaderInfo2Vtbl;
+interface IWMHeaderInfo2 {
+    CONST_VTBL IWMHeaderInfo2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMHeaderInfo2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMHeaderInfo2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMHeaderInfo2_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMHeaderInfo methods ***/
+#define IWMHeaderInfo2_GetAttributeCount(This,stream_num,attributes) (This)->lpVtbl->GetAttributeCount(This,stream_num,attributes)
+#define IWMHeaderInfo2_GetAttributeByIndex(This,index,stream_num,name,name_len,type,value,length) (This)->lpVtbl->GetAttributeByIndex(This,index,stream_num,name,name_len,type,value,length)
+#define IWMHeaderInfo2_GetAttributeByName(This,stream_num,name,type,value,length) (This)->lpVtbl->GetAttributeByName(This,stream_num,name,type,value,length)
+#define IWMHeaderInfo2_SetAttribute(This,stream_num,name,type,value,length) (This)->lpVtbl->SetAttribute(This,stream_num,name,type,value,length)
+#define IWMHeaderInfo2_GetMarkerCount(This,markers) (This)->lpVtbl->GetMarkerCount(This,markers)
+#define IWMHeaderInfo2_GetMarker(This,index,marker_name,marker_len,marker_time) (This)->lpVtbl->GetMarker(This,index,marker_name,marker_len,marker_time)
+#define IWMHeaderInfo2_AddMarker(This,marker_name,marker_time) (This)->lpVtbl->AddMarker(This,marker_name,marker_time)
+#define IWMHeaderInfo2_RemoveMarker(This,index) (This)->lpVtbl->RemoveMarker(This,index)
+#define IWMHeaderInfo2_GetScriptCount(This,scripts) (This)->lpVtbl->GetScriptCount(This,scripts)
+#define IWMHeaderInfo2_GetScript(This,index,type,type_len,command,command_len,script_time) (This)->lpVtbl->GetScript(This,index,type,type_len,command,command_len,script_time)
+#define IWMHeaderInfo2_AddScript(This,type,command,script_time) (This)->lpVtbl->AddScript(This,type,command,script_time)
+#define IWMHeaderInfo2_RemoveScript(This,index) (This)->lpVtbl->RemoveScript(This,index)
+/*** IWMHeaderInfo2 methods ***/
+#define IWMHeaderInfo2_GetCodecInfoCount(This,codec_infos) (This)->lpVtbl->GetCodecInfoCount(This,codec_infos)
+#define IWMHeaderInfo2_GetCodecInfo(This,index,name_len,name,description_len,description,codec_type,codec_info_cnt,codec_info) (This)->lpVtbl->GetCodecInfo(This,index,name_len,name,description_len,description,codec_type,codec_info_cnt,codec_info)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMHeaderInfo2_QueryInterface(IWMHeaderInfo2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMHeaderInfo2_AddRef(IWMHeaderInfo2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMHeaderInfo2_Release(IWMHeaderInfo2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMHeaderInfo methods ***/
+static FORCEINLINE HRESULT IWMHeaderInfo2_GetAttributeCount(IWMHeaderInfo2* This,WORD stream_num,WORD *attributes) {
+    return This->lpVtbl->GetAttributeCount(This,stream_num,attributes);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo2_GetAttributeByIndex(IWMHeaderInfo2* This,WORD index,WORD *stream_num,WCHAR *name,WORD *name_len,WMT_ATTR_DATATYPE *type,BYTE *value,WORD *length) {
+    return This->lpVtbl->GetAttributeByIndex(This,index,stream_num,name,name_len,type,value,length);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo2_GetAttributeByName(IWMHeaderInfo2* This,WORD *stream_num,LPCWSTR name,WMT_ATTR_DATATYPE *type,BYTE *value,WORD *length) {
+    return This->lpVtbl->GetAttributeByName(This,stream_num,name,type,value,length);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo2_SetAttribute(IWMHeaderInfo2* This,WORD stream_num,LPCWSTR name,WMT_ATTR_DATATYPE type,const BYTE *value,WORD length) {
+    return This->lpVtbl->SetAttribute(This,stream_num,name,type,value,length);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo2_GetMarkerCount(IWMHeaderInfo2* This,WORD *markers) {
+    return This->lpVtbl->GetMarkerCount(This,markers);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo2_GetMarker(IWMHeaderInfo2* This,WORD index,WCHAR *marker_name,WORD *marker_len,QWORD *marker_time) {
+    return This->lpVtbl->GetMarker(This,index,marker_name,marker_len,marker_time);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo2_AddMarker(IWMHeaderInfo2* This,LPCWSTR_WMSDK_TYPE_SAFE marker_name,QWORD marker_time) {
+    return This->lpVtbl->AddMarker(This,marker_name,marker_time);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo2_RemoveMarker(IWMHeaderInfo2* This,WORD index) {
+    return This->lpVtbl->RemoveMarker(This,index);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo2_GetScriptCount(IWMHeaderInfo2* This,WORD *scripts) {
+    return This->lpVtbl->GetScriptCount(This,scripts);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo2_GetScript(IWMHeaderInfo2* This,WORD index,WCHAR *type,WORD *type_len,WCHAR *command,WORD *command_len,QWORD *script_time) {
+    return This->lpVtbl->GetScript(This,index,type,type_len,command,command_len,script_time);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo2_AddScript(IWMHeaderInfo2* This,LPCWSTR_WMSDK_TYPE_SAFE type,LPCWSTR_WMSDK_TYPE_SAFE command,QWORD script_time) {
+    return This->lpVtbl->AddScript(This,type,command,script_time);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo2_RemoveScript(IWMHeaderInfo2* This,WORD index) {
+    return This->lpVtbl->RemoveScript(This,index);
+}
+/*** IWMHeaderInfo2 methods ***/
+static FORCEINLINE HRESULT IWMHeaderInfo2_GetCodecInfoCount(IWMHeaderInfo2* This,DWORD *codec_infos) {
+    return This->lpVtbl->GetCodecInfoCount(This,codec_infos);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo2_GetCodecInfo(IWMHeaderInfo2* This,DWORD index,WORD *name_len,WCHAR *name,WORD *description_len,WCHAR *description,WMT_CODEC_INFO_TYPE *codec_type,WORD *codec_info_cnt,BYTE *codec_info) {
+    return This->lpVtbl->GetCodecInfo(This,index,name_len,name,description_len,description,codec_type,codec_info_cnt,codec_info);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMHeaderInfo2_GetCodecInfoCount_Proxy(
+    IWMHeaderInfo2* This,
+    DWORD *codec_infos);
+void __RPC_STUB IWMHeaderInfo2_GetCodecInfoCount_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMHeaderInfo2_GetCodecInfo_Proxy(
+    IWMHeaderInfo2* This,
+    DWORD index,
+    WORD *name_len,
+    WCHAR *name,
+    WORD *description_len,
+    WCHAR *description,
+    WMT_CODEC_INFO_TYPE *codec_type,
+    WORD *codec_info_cnt,
+    BYTE *codec_info);
+void __RPC_STUB IWMHeaderInfo2_GetCodecInfo_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMHeaderInfo2_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMHeaderInfo3 interface
+ */
+#ifndef __IWMHeaderInfo3_INTERFACE_DEFINED__
+#define __IWMHeaderInfo3_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMHeaderInfo3, 0x15cc68e3, 0x27cc, 0x4ecd, 0xb2,0x22, 0x3f,0x5d,0x02,0xd8,0x0b,0xd5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("15cc68e3-27cc-4ecd-b222-3f5d02d80bd5")
+IWMHeaderInfo3 : public IWMHeaderInfo2
+{
+    virtual HRESULT STDMETHODCALLTYPE GetAttributeCountEx(
+        WORD stream_num,
+        WORD *attributes) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetAttributeIndices(
+        WORD stream_num,
+        LPCWSTR name,
+        WORD *lang_index,
+        WORD *indices,
+        WORD *count) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetAttributeByIndexEx(
+        WORD stream_num,
+        WORD index,
+        LPWSTR name,
+        WORD *name_len,
+        WMT_ATTR_DATATYPE *type,
+        WORD *lang_index,
+        BYTE *value,
+        DWORD *data_len) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ModifyAttribute(
+        WORD stream_num,
+        WORD index,
+        WMT_ATTR_DATATYPE type,
+        WORD lang_index,
+        const BYTE *value,
+        DWORD length) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddAttribute(
+        WORD stream_num,
+        LPCWSTR name,
+        WORD *index,
+        WMT_ATTR_DATATYPE type,
+        WORD lang_index,
+        const BYTE *value,
+        DWORD length) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE DeleteAttribute(
+        WORD stream_num,
+        WORD index) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddCodecInfo(
+        LPCWSTR_WMSDK_TYPE_SAFE name,
+        LPCWSTR_WMSDK_TYPE_SAFE description,
+        WMT_CODEC_INFO_TYPE codec_type,
+        WORD codec_info_cnt,
+        BYTE *codec_info) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMHeaderInfo3, 0x15cc68e3, 0x27cc, 0x4ecd, 0xb2,0x22, 0x3f,0x5d,0x02,0xd8,0x0b,0xd5)
+#endif
+#else
+typedef struct IWMHeaderInfo3Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMHeaderInfo3* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMHeaderInfo3* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMHeaderInfo3* This);
+
+    /*** IWMHeaderInfo methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetAttributeCount)(
+        IWMHeaderInfo3* This,
+        WORD stream_num,
+        WORD *attributes);
+
+    HRESULT (STDMETHODCALLTYPE *GetAttributeByIndex)(
+        IWMHeaderInfo3* This,
+        WORD index,
+        WORD *stream_num,
+        WCHAR *name,
+        WORD *name_len,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        WORD *length);
+
+    HRESULT (STDMETHODCALLTYPE *GetAttributeByName)(
+        IWMHeaderInfo3* This,
+        WORD *stream_num,
+        LPCWSTR name,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        WORD *length);
+
+    HRESULT (STDMETHODCALLTYPE *SetAttribute)(
+        IWMHeaderInfo3* This,
+        WORD stream_num,
+        LPCWSTR name,
+        WMT_ATTR_DATATYPE type,
+        const BYTE *value,
+        WORD length);
+
+    HRESULT (STDMETHODCALLTYPE *GetMarkerCount)(
+        IWMHeaderInfo3* This,
+        WORD *markers);
+
+    HRESULT (STDMETHODCALLTYPE *GetMarker)(
+        IWMHeaderInfo3* This,
+        WORD index,
+        WCHAR *marker_name,
+        WORD *marker_len,
+        QWORD *marker_time);
+
+    HRESULT (STDMETHODCALLTYPE *AddMarker)(
+        IWMHeaderInfo3* This,
+        LPCWSTR_WMSDK_TYPE_SAFE marker_name,
+        QWORD marker_time);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveMarker)(
+        IWMHeaderInfo3* This,
+        WORD index);
+
+    HRESULT (STDMETHODCALLTYPE *GetScriptCount)(
+        IWMHeaderInfo3* This,
+        WORD *scripts);
+
+    HRESULT (STDMETHODCALLTYPE *GetScript)(
+        IWMHeaderInfo3* This,
+        WORD index,
+        WCHAR *type,
+        WORD *type_len,
+        WCHAR *command,
+        WORD *command_len,
+        QWORD *script_time);
+
+    HRESULT (STDMETHODCALLTYPE *AddScript)(
+        IWMHeaderInfo3* This,
+        LPCWSTR_WMSDK_TYPE_SAFE type,
+        LPCWSTR_WMSDK_TYPE_SAFE command,
+        QWORD script_time);
+
+    HRESULT (STDMETHODCALLTYPE *RemoveScript)(
+        IWMHeaderInfo3* This,
+        WORD index);
+
+    /*** IWMHeaderInfo2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetCodecInfoCount)(
+        IWMHeaderInfo3* This,
+        DWORD *codec_infos);
+
+    HRESULT (STDMETHODCALLTYPE *GetCodecInfo)(
+        IWMHeaderInfo3* This,
+        DWORD index,
+        WORD *name_len,
+        WCHAR *name,
+        WORD *description_len,
+        WCHAR *description,
+        WMT_CODEC_INFO_TYPE *codec_type,
+        WORD *codec_info_cnt,
+        BYTE *codec_info);
+
+    /*** IWMHeaderInfo3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetAttributeCountEx)(
+        IWMHeaderInfo3* This,
+        WORD stream_num,
+        WORD *attributes);
+
+    HRESULT (STDMETHODCALLTYPE *GetAttributeIndices)(
+        IWMHeaderInfo3* This,
+        WORD stream_num,
+        LPCWSTR name,
+        WORD *lang_index,
+        WORD *indices,
+        WORD *count);
+
+    HRESULT (STDMETHODCALLTYPE *GetAttributeByIndexEx)(
+        IWMHeaderInfo3* This,
+        WORD stream_num,
+        WORD index,
+        LPWSTR name,
+        WORD *name_len,
+        WMT_ATTR_DATATYPE *type,
+        WORD *lang_index,
+        BYTE *value,
+        DWORD *data_len);
+
+    HRESULT (STDMETHODCALLTYPE *ModifyAttribute)(
+        IWMHeaderInfo3* This,
+        WORD stream_num,
+        WORD index,
+        WMT_ATTR_DATATYPE type,
+        WORD lang_index,
+        const BYTE *value,
+        DWORD length);
+
+    HRESULT (STDMETHODCALLTYPE *AddAttribute)(
+        IWMHeaderInfo3* This,
+        WORD stream_num,
+        LPCWSTR name,
+        WORD *index,
+        WMT_ATTR_DATATYPE type,
+        WORD lang_index,
+        const BYTE *value,
+        DWORD length);
+
+    HRESULT (STDMETHODCALLTYPE *DeleteAttribute)(
+        IWMHeaderInfo3* This,
+        WORD stream_num,
+        WORD index);
+
+    HRESULT (STDMETHODCALLTYPE *AddCodecInfo)(
+        IWMHeaderInfo3* This,
+        LPCWSTR_WMSDK_TYPE_SAFE name,
+        LPCWSTR_WMSDK_TYPE_SAFE description,
+        WMT_CODEC_INFO_TYPE codec_type,
+        WORD codec_info_cnt,
+        BYTE *codec_info);
+
+    END_INTERFACE
+} IWMHeaderInfo3Vtbl;
+interface IWMHeaderInfo3 {
+    CONST_VTBL IWMHeaderInfo3Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMHeaderInfo3_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMHeaderInfo3_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMHeaderInfo3_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMHeaderInfo methods ***/
+#define IWMHeaderInfo3_GetAttributeCount(This,stream_num,attributes) (This)->lpVtbl->GetAttributeCount(This,stream_num,attributes)
+#define IWMHeaderInfo3_GetAttributeByIndex(This,index,stream_num,name,name_len,type,value,length) (This)->lpVtbl->GetAttributeByIndex(This,index,stream_num,name,name_len,type,value,length)
+#define IWMHeaderInfo3_GetAttributeByName(This,stream_num,name,type,value,length) (This)->lpVtbl->GetAttributeByName(This,stream_num,name,type,value,length)
+#define IWMHeaderInfo3_SetAttribute(This,stream_num,name,type,value,length) (This)->lpVtbl->SetAttribute(This,stream_num,name,type,value,length)
+#define IWMHeaderInfo3_GetMarkerCount(This,markers) (This)->lpVtbl->GetMarkerCount(This,markers)
+#define IWMHeaderInfo3_GetMarker(This,index,marker_name,marker_len,marker_time) (This)->lpVtbl->GetMarker(This,index,marker_name,marker_len,marker_time)
+#define IWMHeaderInfo3_AddMarker(This,marker_name,marker_time) (This)->lpVtbl->AddMarker(This,marker_name,marker_time)
+#define IWMHeaderInfo3_RemoveMarker(This,index) (This)->lpVtbl->RemoveMarker(This,index)
+#define IWMHeaderInfo3_GetScriptCount(This,scripts) (This)->lpVtbl->GetScriptCount(This,scripts)
+#define IWMHeaderInfo3_GetScript(This,index,type,type_len,command,command_len,script_time) (This)->lpVtbl->GetScript(This,index,type,type_len,command,command_len,script_time)
+#define IWMHeaderInfo3_AddScript(This,type,command,script_time) (This)->lpVtbl->AddScript(This,type,command,script_time)
+#define IWMHeaderInfo3_RemoveScript(This,index) (This)->lpVtbl->RemoveScript(This,index)
+/*** IWMHeaderInfo2 methods ***/
+#define IWMHeaderInfo3_GetCodecInfoCount(This,codec_infos) (This)->lpVtbl->GetCodecInfoCount(This,codec_infos)
+#define IWMHeaderInfo3_GetCodecInfo(This,index,name_len,name,description_len,description,codec_type,codec_info_cnt,codec_info) (This)->lpVtbl->GetCodecInfo(This,index,name_len,name,description_len,description,codec_type,codec_info_cnt,codec_info)
+/*** IWMHeaderInfo3 methods ***/
+#define IWMHeaderInfo3_GetAttributeCountEx(This,stream_num,attributes) (This)->lpVtbl->GetAttributeCountEx(This,stream_num,attributes)
+#define IWMHeaderInfo3_GetAttributeIndices(This,stream_num,name,lang_index,indices,count) (This)->lpVtbl->GetAttributeIndices(This,stream_num,name,lang_index,indices,count)
+#define IWMHeaderInfo3_GetAttributeByIndexEx(This,stream_num,index,name,name_len,type,lang_index,value,data_len) (This)->lpVtbl->GetAttributeByIndexEx(This,stream_num,index,name,name_len,type,lang_index,value,data_len)
+#define IWMHeaderInfo3_ModifyAttribute(This,stream_num,index,type,lang_index,value,length) (This)->lpVtbl->ModifyAttribute(This,stream_num,index,type,lang_index,value,length)
+#define IWMHeaderInfo3_AddAttribute(This,stream_num,name,index,type,lang_index,value,length) (This)->lpVtbl->AddAttribute(This,stream_num,name,index,type,lang_index,value,length)
+#define IWMHeaderInfo3_DeleteAttribute(This,stream_num,index) (This)->lpVtbl->DeleteAttribute(This,stream_num,index)
+#define IWMHeaderInfo3_AddCodecInfo(This,name,description,codec_type,codec_info_cnt,codec_info) (This)->lpVtbl->AddCodecInfo(This,name,description,codec_type,codec_info_cnt,codec_info)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMHeaderInfo3_QueryInterface(IWMHeaderInfo3* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMHeaderInfo3_AddRef(IWMHeaderInfo3* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMHeaderInfo3_Release(IWMHeaderInfo3* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMHeaderInfo methods ***/
+static FORCEINLINE HRESULT IWMHeaderInfo3_GetAttributeCount(IWMHeaderInfo3* This,WORD stream_num,WORD *attributes) {
+    return This->lpVtbl->GetAttributeCount(This,stream_num,attributes);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo3_GetAttributeByIndex(IWMHeaderInfo3* This,WORD index,WORD *stream_num,WCHAR *name,WORD *name_len,WMT_ATTR_DATATYPE *type,BYTE *value,WORD *length) {
+    return This->lpVtbl->GetAttributeByIndex(This,index,stream_num,name,name_len,type,value,length);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo3_GetAttributeByName(IWMHeaderInfo3* This,WORD *stream_num,LPCWSTR name,WMT_ATTR_DATATYPE *type,BYTE *value,WORD *length) {
+    return This->lpVtbl->GetAttributeByName(This,stream_num,name,type,value,length);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo3_SetAttribute(IWMHeaderInfo3* This,WORD stream_num,LPCWSTR name,WMT_ATTR_DATATYPE type,const BYTE *value,WORD length) {
+    return This->lpVtbl->SetAttribute(This,stream_num,name,type,value,length);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo3_GetMarkerCount(IWMHeaderInfo3* This,WORD *markers) {
+    return This->lpVtbl->GetMarkerCount(This,markers);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo3_GetMarker(IWMHeaderInfo3* This,WORD index,WCHAR *marker_name,WORD *marker_len,QWORD *marker_time) {
+    return This->lpVtbl->GetMarker(This,index,marker_name,marker_len,marker_time);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo3_AddMarker(IWMHeaderInfo3* This,LPCWSTR_WMSDK_TYPE_SAFE marker_name,QWORD marker_time) {
+    return This->lpVtbl->AddMarker(This,marker_name,marker_time);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo3_RemoveMarker(IWMHeaderInfo3* This,WORD index) {
+    return This->lpVtbl->RemoveMarker(This,index);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo3_GetScriptCount(IWMHeaderInfo3* This,WORD *scripts) {
+    return This->lpVtbl->GetScriptCount(This,scripts);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo3_GetScript(IWMHeaderInfo3* This,WORD index,WCHAR *type,WORD *type_len,WCHAR *command,WORD *command_len,QWORD *script_time) {
+    return This->lpVtbl->GetScript(This,index,type,type_len,command,command_len,script_time);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo3_AddScript(IWMHeaderInfo3* This,LPCWSTR_WMSDK_TYPE_SAFE type,LPCWSTR_WMSDK_TYPE_SAFE command,QWORD script_time) {
+    return This->lpVtbl->AddScript(This,type,command,script_time);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo3_RemoveScript(IWMHeaderInfo3* This,WORD index) {
+    return This->lpVtbl->RemoveScript(This,index);
+}
+/*** IWMHeaderInfo2 methods ***/
+static FORCEINLINE HRESULT IWMHeaderInfo3_GetCodecInfoCount(IWMHeaderInfo3* This,DWORD *codec_infos) {
+    return This->lpVtbl->GetCodecInfoCount(This,codec_infos);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo3_GetCodecInfo(IWMHeaderInfo3* This,DWORD index,WORD *name_len,WCHAR *name,WORD *description_len,WCHAR *description,WMT_CODEC_INFO_TYPE *codec_type,WORD *codec_info_cnt,BYTE *codec_info) {
+    return This->lpVtbl->GetCodecInfo(This,index,name_len,name,description_len,description,codec_type,codec_info_cnt,codec_info);
+}
+/*** IWMHeaderInfo3 methods ***/
+static FORCEINLINE HRESULT IWMHeaderInfo3_GetAttributeCountEx(IWMHeaderInfo3* This,WORD stream_num,WORD *attributes) {
+    return This->lpVtbl->GetAttributeCountEx(This,stream_num,attributes);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo3_GetAttributeIndices(IWMHeaderInfo3* This,WORD stream_num,LPCWSTR name,WORD *lang_index,WORD *indices,WORD *count) {
+    return This->lpVtbl->GetAttributeIndices(This,stream_num,name,lang_index,indices,count);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo3_GetAttributeByIndexEx(IWMHeaderInfo3* This,WORD stream_num,WORD index,LPWSTR name,WORD *name_len,WMT_ATTR_DATATYPE *type,WORD *lang_index,BYTE *value,DWORD *data_len) {
+    return This->lpVtbl->GetAttributeByIndexEx(This,stream_num,index,name,name_len,type,lang_index,value,data_len);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo3_ModifyAttribute(IWMHeaderInfo3* This,WORD stream_num,WORD index,WMT_ATTR_DATATYPE type,WORD lang_index,const BYTE *value,DWORD length) {
+    return This->lpVtbl->ModifyAttribute(This,stream_num,index,type,lang_index,value,length);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo3_AddAttribute(IWMHeaderInfo3* This,WORD stream_num,LPCWSTR name,WORD *index,WMT_ATTR_DATATYPE type,WORD lang_index,const BYTE *value,DWORD length) {
+    return This->lpVtbl->AddAttribute(This,stream_num,name,index,type,lang_index,value,length);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo3_DeleteAttribute(IWMHeaderInfo3* This,WORD stream_num,WORD index) {
+    return This->lpVtbl->DeleteAttribute(This,stream_num,index);
+}
+static FORCEINLINE HRESULT IWMHeaderInfo3_AddCodecInfo(IWMHeaderInfo3* This,LPCWSTR_WMSDK_TYPE_SAFE name,LPCWSTR_WMSDK_TYPE_SAFE description,WMT_CODEC_INFO_TYPE codec_type,WORD codec_info_cnt,BYTE *codec_info) {
+    return This->lpVtbl->AddCodecInfo(This,name,description,codec_type,codec_info_cnt,codec_info);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMHeaderInfo3_GetAttributeCountEx_Proxy(
+    IWMHeaderInfo3* This,
+    WORD stream_num,
+    WORD *attributes);
+void __RPC_STUB IWMHeaderInfo3_GetAttributeCountEx_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMHeaderInfo3_GetAttributeIndices_Proxy(
+    IWMHeaderInfo3* This,
+    WORD stream_num,
+    LPCWSTR name,
+    WORD *lang_index,
+    WORD *indices,
+    WORD *count);
+void __RPC_STUB IWMHeaderInfo3_GetAttributeIndices_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMHeaderInfo3_GetAttributeByIndexEx_Proxy(
+    IWMHeaderInfo3* This,
+    WORD stream_num,
+    WORD index,
+    LPWSTR name,
+    WORD *name_len,
+    WMT_ATTR_DATATYPE *type,
+    WORD *lang_index,
+    BYTE *value,
+    DWORD *data_len);
+void __RPC_STUB IWMHeaderInfo3_GetAttributeByIndexEx_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMHeaderInfo3_ModifyAttribute_Proxy(
+    IWMHeaderInfo3* This,
+    WORD stream_num,
+    WORD index,
+    WMT_ATTR_DATATYPE type,
+    WORD lang_index,
+    const BYTE *value,
+    DWORD length);
+void __RPC_STUB IWMHeaderInfo3_ModifyAttribute_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMHeaderInfo3_AddAttribute_Proxy(
+    IWMHeaderInfo3* This,
+    WORD stream_num,
+    LPCWSTR name,
+    WORD *index,
+    WMT_ATTR_DATATYPE type,
+    WORD lang_index,
+    const BYTE *value,
+    DWORD length);
+void __RPC_STUB IWMHeaderInfo3_AddAttribute_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMHeaderInfo3_DeleteAttribute_Proxy(
+    IWMHeaderInfo3* This,
+    WORD stream_num,
+    WORD index);
+void __RPC_STUB IWMHeaderInfo3_DeleteAttribute_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMHeaderInfo3_AddCodecInfo_Proxy(
+    IWMHeaderInfo3* This,
+    LPCWSTR_WMSDK_TYPE_SAFE name,
+    LPCWSTR_WMSDK_TYPE_SAFE description,
+    WMT_CODEC_INFO_TYPE codec_type,
+    WORD codec_info_cnt,
+    BYTE *codec_info);
+void __RPC_STUB IWMHeaderInfo3_AddCodecInfo_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMHeaderInfo3_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMReaderNetworkConfig interface
+ */
+#ifndef __IWMReaderNetworkConfig_INTERFACE_DEFINED__
+#define __IWMReaderNetworkConfig_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMReaderNetworkConfig, 0x96406bec, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("96406bec-2b2b-11d3-b36b-00c04f6108ff")
+IWMReaderNetworkConfig : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetBufferingTime(
+        QWORD *buffering_time) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetBufferingTime(
+        QWORD buffering_time) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetUDPPortRanges(
+        WM_PORT_NUMBER_RANGE *array,
+        DWORD *ranges) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetUDPPortRanges(
+        WM_PORT_NUMBER_RANGE *array,
+        DWORD ranges) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetProxySettings(
+        const WCHAR *protocol,
+        WMT_PROXY_SETTINGS *proxy) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetProxySettings(
+        LPCWSTR protocol,
+        WMT_PROXY_SETTINGS proxy) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetProxyHostName(
+        const WCHAR *protocol,
+        WCHAR *hostname,
+        DWORD *size) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetProxyHostName(
+        const WCHAR *protocol,
+        const WCHAR *hostname) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetProxyPort(
+        const WCHAR *protocol,
+        DWORD *port) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetProxyPort(
+        const WCHAR *protocol,
+        DWORD port) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetProxyExceptionList(
+        const WCHAR *protocol,
+        WCHAR *exceptions,
+        DWORD *count) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetProxyExceptionList(
+        const WCHAR *protocol,
+        const WCHAR *exceptions) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetProxyBypassForLocal(
+        const WCHAR *protocol,
+        WINBOOL *bypass) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetProxyBypassForLocal(
+        const WCHAR *protocol,
+        WINBOOL bypass) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetForceRerunAutoProxyDetection(
+        WINBOOL *detection) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetForceRerunAutoProxyDetection(
+        WINBOOL detection) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetEnableMulticast(
+        WINBOOL *multicast) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetEnableMulticast(
+        WINBOOL multicast) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetEnableHTTP(
+        WINBOOL *enable) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetEnableHTTP(
+        WINBOOL enable) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetEnableUDP(
+        WINBOOL *enable) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetEnableUDP(
+        WINBOOL enable) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetEnableTCP(
+        WINBOOL *enable) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetEnableTCP(
+        WINBOOL enable) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ResetProtocolRollover(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetConnectionBandwidth(
+        DWORD *bandwidth) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetConnectionBandwidth(
+        DWORD bandwidth) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetNumProtocolsSupported(
+        DWORD *protocols) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetSupportedProtocolName(
+        DWORD protocol_num,
+        WCHAR *protocol,
+        DWORD *size) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddLoggingUrl(
+        const WCHAR *url) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetLoggingUrl(
+        DWORD index,
+        WCHAR *url,
+        DWORD *size) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetLoggingUrlCount(
+        DWORD *count) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ResetLoggingUrlList(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMReaderNetworkConfig, 0x96406bec, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff)
+#endif
+#else
+typedef struct IWMReaderNetworkConfigVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMReaderNetworkConfig* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMReaderNetworkConfig* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMReaderNetworkConfig* This);
+
+    /*** IWMReaderNetworkConfig methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetBufferingTime)(
+        IWMReaderNetworkConfig* This,
+        QWORD *buffering_time);
+
+    HRESULT (STDMETHODCALLTYPE *SetBufferingTime)(
+        IWMReaderNetworkConfig* This,
+        QWORD buffering_time);
+
+    HRESULT (STDMETHODCALLTYPE *GetUDPPortRanges)(
+        IWMReaderNetworkConfig* This,
+        WM_PORT_NUMBER_RANGE *array,
+        DWORD *ranges);
+
+    HRESULT (STDMETHODCALLTYPE *SetUDPPortRanges)(
+        IWMReaderNetworkConfig* This,
+        WM_PORT_NUMBER_RANGE *array,
+        DWORD ranges);
+
+    HRESULT (STDMETHODCALLTYPE *GetProxySettings)(
+        IWMReaderNetworkConfig* This,
+        const WCHAR *protocol,
+        WMT_PROXY_SETTINGS *proxy);
+
+    HRESULT (STDMETHODCALLTYPE *SetProxySettings)(
+        IWMReaderNetworkConfig* This,
+        LPCWSTR protocol,
+        WMT_PROXY_SETTINGS proxy);
+
+    HRESULT (STDMETHODCALLTYPE *GetProxyHostName)(
+        IWMReaderNetworkConfig* This,
+        const WCHAR *protocol,
+        WCHAR *hostname,
+        DWORD *size);
+
+    HRESULT (STDMETHODCALLTYPE *SetProxyHostName)(
+        IWMReaderNetworkConfig* This,
+        const WCHAR *protocol,
+        const WCHAR *hostname);
+
+    HRESULT (STDMETHODCALLTYPE *GetProxyPort)(
+        IWMReaderNetworkConfig* This,
+        const WCHAR *protocol,
+        DWORD *port);
+
+    HRESULT (STDMETHODCALLTYPE *SetProxyPort)(
+        IWMReaderNetworkConfig* This,
+        const WCHAR *protocol,
+        DWORD port);
+
+    HRESULT (STDMETHODCALLTYPE *GetProxyExceptionList)(
+        IWMReaderNetworkConfig* This,
+        const WCHAR *protocol,
+        WCHAR *exceptions,
+        DWORD *count);
+
+    HRESULT (STDMETHODCALLTYPE *SetProxyExceptionList)(
+        IWMReaderNetworkConfig* This,
+        const WCHAR *protocol,
+        const WCHAR *exceptions);
+
+    HRESULT (STDMETHODCALLTYPE *GetProxyBypassForLocal)(
+        IWMReaderNetworkConfig* This,
+        const WCHAR *protocol,
+        WINBOOL *bypass);
+
+    HRESULT (STDMETHODCALLTYPE *SetProxyBypassForLocal)(
+        IWMReaderNetworkConfig* This,
+        const WCHAR *protocol,
+        WINBOOL bypass);
+
+    HRESULT (STDMETHODCALLTYPE *GetForceRerunAutoProxyDetection)(
+        IWMReaderNetworkConfig* This,
+        WINBOOL *detection);
+
+    HRESULT (STDMETHODCALLTYPE *SetForceRerunAutoProxyDetection)(
+        IWMReaderNetworkConfig* This,
+        WINBOOL detection);
+
+    HRESULT (STDMETHODCALLTYPE *GetEnableMulticast)(
+        IWMReaderNetworkConfig* This,
+        WINBOOL *multicast);
+
+    HRESULT (STDMETHODCALLTYPE *SetEnableMulticast)(
+        IWMReaderNetworkConfig* This,
+        WINBOOL multicast);
+
+    HRESULT (STDMETHODCALLTYPE *GetEnableHTTP)(
+        IWMReaderNetworkConfig* This,
+        WINBOOL *enable);
+
+    HRESULT (STDMETHODCALLTYPE *SetEnableHTTP)(
+        IWMReaderNetworkConfig* This,
+        WINBOOL enable);
+
+    HRESULT (STDMETHODCALLTYPE *GetEnableUDP)(
+        IWMReaderNetworkConfig* This,
+        WINBOOL *enable);
+
+    HRESULT (STDMETHODCALLTYPE *SetEnableUDP)(
+        IWMReaderNetworkConfig* This,
+        WINBOOL enable);
+
+    HRESULT (STDMETHODCALLTYPE *GetEnableTCP)(
+        IWMReaderNetworkConfig* This,
+        WINBOOL *enable);
+
+    HRESULT (STDMETHODCALLTYPE *SetEnableTCP)(
+        IWMReaderNetworkConfig* This,
+        WINBOOL enable);
+
+    HRESULT (STDMETHODCALLTYPE *ResetProtocolRollover)(
+        IWMReaderNetworkConfig* This);
+
+    HRESULT (STDMETHODCALLTYPE *GetConnectionBandwidth)(
+        IWMReaderNetworkConfig* This,
+        DWORD *bandwidth);
+
+    HRESULT (STDMETHODCALLTYPE *SetConnectionBandwidth)(
+        IWMReaderNetworkConfig* This,
+        DWORD bandwidth);
+
+    HRESULT (STDMETHODCALLTYPE *GetNumProtocolsSupported)(
+        IWMReaderNetworkConfig* This,
+        DWORD *protocols);
+
+    HRESULT (STDMETHODCALLTYPE *GetSupportedProtocolName)(
+        IWMReaderNetworkConfig* This,
+        DWORD protocol_num,
+        WCHAR *protocol,
+        DWORD *size);
+
+    HRESULT (STDMETHODCALLTYPE *AddLoggingUrl)(
+        IWMReaderNetworkConfig* This,
+        const WCHAR *url);
+
+    HRESULT (STDMETHODCALLTYPE *GetLoggingUrl)(
+        IWMReaderNetworkConfig* This,
+        DWORD index,
+        WCHAR *url,
+        DWORD *size);
+
+    HRESULT (STDMETHODCALLTYPE *GetLoggingUrlCount)(
+        IWMReaderNetworkConfig* This,
+        DWORD *count);
+
+    HRESULT (STDMETHODCALLTYPE *ResetLoggingUrlList)(
+        IWMReaderNetworkConfig* This);
+
+    END_INTERFACE
+} IWMReaderNetworkConfigVtbl;
+interface IWMReaderNetworkConfig {
+    CONST_VTBL IWMReaderNetworkConfigVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMReaderNetworkConfig_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMReaderNetworkConfig_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMReaderNetworkConfig_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMReaderNetworkConfig methods ***/
+#define IWMReaderNetworkConfig_GetBufferingTime(This,buffering_time) (This)->lpVtbl->GetBufferingTime(This,buffering_time)
+#define IWMReaderNetworkConfig_SetBufferingTime(This,buffering_time) (This)->lpVtbl->SetBufferingTime(This,buffering_time)
+#define IWMReaderNetworkConfig_GetUDPPortRanges(This,array,ranges) (This)->lpVtbl->GetUDPPortRanges(This,array,ranges)
+#define IWMReaderNetworkConfig_SetUDPPortRanges(This,array,ranges) (This)->lpVtbl->SetUDPPortRanges(This,array,ranges)
+#define IWMReaderNetworkConfig_GetProxySettings(This,protocol,proxy) (This)->lpVtbl->GetProxySettings(This,protocol,proxy)
+#define IWMReaderNetworkConfig_SetProxySettings(This,protocol,proxy) (This)->lpVtbl->SetProxySettings(This,protocol,proxy)
+#define IWMReaderNetworkConfig_GetProxyHostName(This,protocol,hostname,size) (This)->lpVtbl->GetProxyHostName(This,protocol,hostname,size)
+#define IWMReaderNetworkConfig_SetProxyHostName(This,protocol,hostname) (This)->lpVtbl->SetProxyHostName(This,protocol,hostname)
+#define IWMReaderNetworkConfig_GetProxyPort(This,protocol,port) (This)->lpVtbl->GetProxyPort(This,protocol,port)
+#define IWMReaderNetworkConfig_SetProxyPort(This,protocol,port) (This)->lpVtbl->SetProxyPort(This,protocol,port)
+#define IWMReaderNetworkConfig_GetProxyExceptionList(This,protocol,exceptions,count) (This)->lpVtbl->GetProxyExceptionList(This,protocol,exceptions,count)
+#define IWMReaderNetworkConfig_SetProxyExceptionList(This,protocol,exceptions) (This)->lpVtbl->SetProxyExceptionList(This,protocol,exceptions)
+#define IWMReaderNetworkConfig_GetProxyBypassForLocal(This,protocol,bypass) (This)->lpVtbl->GetProxyBypassForLocal(This,protocol,bypass)
+#define IWMReaderNetworkConfig_SetProxyBypassForLocal(This,protocol,bypass) (This)->lpVtbl->SetProxyBypassForLocal(This,protocol,bypass)
+#define IWMReaderNetworkConfig_GetForceRerunAutoProxyDetection(This,detection) (This)->lpVtbl->GetForceRerunAutoProxyDetection(This,detection)
+#define IWMReaderNetworkConfig_SetForceRerunAutoProxyDetection(This,detection) (This)->lpVtbl->SetForceRerunAutoProxyDetection(This,detection)
+#define IWMReaderNetworkConfig_GetEnableMulticast(This,multicast) (This)->lpVtbl->GetEnableMulticast(This,multicast)
+#define IWMReaderNetworkConfig_SetEnableMulticast(This,multicast) (This)->lpVtbl->SetEnableMulticast(This,multicast)
+#define IWMReaderNetworkConfig_GetEnableHTTP(This,enable) (This)->lpVtbl->GetEnableHTTP(This,enable)
+#define IWMReaderNetworkConfig_SetEnableHTTP(This,enable) (This)->lpVtbl->SetEnableHTTP(This,enable)
+#define IWMReaderNetworkConfig_GetEnableUDP(This,enable) (This)->lpVtbl->GetEnableUDP(This,enable)
+#define IWMReaderNetworkConfig_SetEnableUDP(This,enable) (This)->lpVtbl->SetEnableUDP(This,enable)
+#define IWMReaderNetworkConfig_GetEnableTCP(This,enable) (This)->lpVtbl->GetEnableTCP(This,enable)
+#define IWMReaderNetworkConfig_SetEnableTCP(This,enable) (This)->lpVtbl->SetEnableTCP(This,enable)
+#define IWMReaderNetworkConfig_ResetProtocolRollover(This) (This)->lpVtbl->ResetProtocolRollover(This)
+#define IWMReaderNetworkConfig_GetConnectionBandwidth(This,bandwidth) (This)->lpVtbl->GetConnectionBandwidth(This,bandwidth)
+#define IWMReaderNetworkConfig_SetConnectionBandwidth(This,bandwidth) (This)->lpVtbl->SetConnectionBandwidth(This,bandwidth)
+#define IWMReaderNetworkConfig_GetNumProtocolsSupported(This,protocols) (This)->lpVtbl->GetNumProtocolsSupported(This,protocols)
+#define IWMReaderNetworkConfig_GetSupportedProtocolName(This,protocol_num,protocol,size) (This)->lpVtbl->GetSupportedProtocolName(This,protocol_num,protocol,size)
+#define IWMReaderNetworkConfig_AddLoggingUrl(This,url) (This)->lpVtbl->AddLoggingUrl(This,url)
+#define IWMReaderNetworkConfig_GetLoggingUrl(This,index,url,size) (This)->lpVtbl->GetLoggingUrl(This,index,url,size)
+#define IWMReaderNetworkConfig_GetLoggingUrlCount(This,count) (This)->lpVtbl->GetLoggingUrlCount(This,count)
+#define IWMReaderNetworkConfig_ResetLoggingUrlList(This) (This)->lpVtbl->ResetLoggingUrlList(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_QueryInterface(IWMReaderNetworkConfig* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMReaderNetworkConfig_AddRef(IWMReaderNetworkConfig* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMReaderNetworkConfig_Release(IWMReaderNetworkConfig* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMReaderNetworkConfig methods ***/
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_GetBufferingTime(IWMReaderNetworkConfig* This,QWORD *buffering_time) {
+    return This->lpVtbl->GetBufferingTime(This,buffering_time);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_SetBufferingTime(IWMReaderNetworkConfig* This,QWORD buffering_time) {
+    return This->lpVtbl->SetBufferingTime(This,buffering_time);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_GetUDPPortRanges(IWMReaderNetworkConfig* This,WM_PORT_NUMBER_RANGE *array,DWORD *ranges) {
+    return This->lpVtbl->GetUDPPortRanges(This,array,ranges);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_SetUDPPortRanges(IWMReaderNetworkConfig* This,WM_PORT_NUMBER_RANGE *array,DWORD ranges) {
+    return This->lpVtbl->SetUDPPortRanges(This,array,ranges);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_GetProxySettings(IWMReaderNetworkConfig* This,const WCHAR *protocol,WMT_PROXY_SETTINGS *proxy) {
+    return This->lpVtbl->GetProxySettings(This,protocol,proxy);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_SetProxySettings(IWMReaderNetworkConfig* This,LPCWSTR protocol,WMT_PROXY_SETTINGS proxy) {
+    return This->lpVtbl->SetProxySettings(This,protocol,proxy);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_GetProxyHostName(IWMReaderNetworkConfig* This,const WCHAR *protocol,WCHAR *hostname,DWORD *size) {
+    return This->lpVtbl->GetProxyHostName(This,protocol,hostname,size);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_SetProxyHostName(IWMReaderNetworkConfig* This,const WCHAR *protocol,const WCHAR *hostname) {
+    return This->lpVtbl->SetProxyHostName(This,protocol,hostname);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_GetProxyPort(IWMReaderNetworkConfig* This,const WCHAR *protocol,DWORD *port) {
+    return This->lpVtbl->GetProxyPort(This,protocol,port);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_SetProxyPort(IWMReaderNetworkConfig* This,const WCHAR *protocol,DWORD port) {
+    return This->lpVtbl->SetProxyPort(This,protocol,port);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_GetProxyExceptionList(IWMReaderNetworkConfig* This,const WCHAR *protocol,WCHAR *exceptions,DWORD *count) {
+    return This->lpVtbl->GetProxyExceptionList(This,protocol,exceptions,count);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_SetProxyExceptionList(IWMReaderNetworkConfig* This,const WCHAR *protocol,const WCHAR *exceptions) {
+    return This->lpVtbl->SetProxyExceptionList(This,protocol,exceptions);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_GetProxyBypassForLocal(IWMReaderNetworkConfig* This,const WCHAR *protocol,WINBOOL *bypass) {
+    return This->lpVtbl->GetProxyBypassForLocal(This,protocol,bypass);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_SetProxyBypassForLocal(IWMReaderNetworkConfig* This,const WCHAR *protocol,WINBOOL bypass) {
+    return This->lpVtbl->SetProxyBypassForLocal(This,protocol,bypass);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_GetForceRerunAutoProxyDetection(IWMReaderNetworkConfig* This,WINBOOL *detection) {
+    return This->lpVtbl->GetForceRerunAutoProxyDetection(This,detection);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_SetForceRerunAutoProxyDetection(IWMReaderNetworkConfig* This,WINBOOL detection) {
+    return This->lpVtbl->SetForceRerunAutoProxyDetection(This,detection);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_GetEnableMulticast(IWMReaderNetworkConfig* This,WINBOOL *multicast) {
+    return This->lpVtbl->GetEnableMulticast(This,multicast);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_SetEnableMulticast(IWMReaderNetworkConfig* This,WINBOOL multicast) {
+    return This->lpVtbl->SetEnableMulticast(This,multicast);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_GetEnableHTTP(IWMReaderNetworkConfig* This,WINBOOL *enable) {
+    return This->lpVtbl->GetEnableHTTP(This,enable);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_SetEnableHTTP(IWMReaderNetworkConfig* This,WINBOOL enable) {
+    return This->lpVtbl->SetEnableHTTP(This,enable);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_GetEnableUDP(IWMReaderNetworkConfig* This,WINBOOL *enable) {
+    return This->lpVtbl->GetEnableUDP(This,enable);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_SetEnableUDP(IWMReaderNetworkConfig* This,WINBOOL enable) {
+    return This->lpVtbl->SetEnableUDP(This,enable);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_GetEnableTCP(IWMReaderNetworkConfig* This,WINBOOL *enable) {
+    return This->lpVtbl->GetEnableTCP(This,enable);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_SetEnableTCP(IWMReaderNetworkConfig* This,WINBOOL enable) {
+    return This->lpVtbl->SetEnableTCP(This,enable);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_ResetProtocolRollover(IWMReaderNetworkConfig* This) {
+    return This->lpVtbl->ResetProtocolRollover(This);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_GetConnectionBandwidth(IWMReaderNetworkConfig* This,DWORD *bandwidth) {
+    return This->lpVtbl->GetConnectionBandwidth(This,bandwidth);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_SetConnectionBandwidth(IWMReaderNetworkConfig* This,DWORD bandwidth) {
+    return This->lpVtbl->SetConnectionBandwidth(This,bandwidth);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_GetNumProtocolsSupported(IWMReaderNetworkConfig* This,DWORD *protocols) {
+    return This->lpVtbl->GetNumProtocolsSupported(This,protocols);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_GetSupportedProtocolName(IWMReaderNetworkConfig* This,DWORD protocol_num,WCHAR *protocol,DWORD *size) {
+    return This->lpVtbl->GetSupportedProtocolName(This,protocol_num,protocol,size);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_AddLoggingUrl(IWMReaderNetworkConfig* This,const WCHAR *url) {
+    return This->lpVtbl->AddLoggingUrl(This,url);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_GetLoggingUrl(IWMReaderNetworkConfig* This,DWORD index,WCHAR *url,DWORD *size) {
+    return This->lpVtbl->GetLoggingUrl(This,index,url,size);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_GetLoggingUrlCount(IWMReaderNetworkConfig* This,DWORD *count) {
+    return This->lpVtbl->GetLoggingUrlCount(This,count);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig_ResetLoggingUrlList(IWMReaderNetworkConfig* This) {
+    return This->lpVtbl->ResetLoggingUrlList(This);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_GetBufferingTime_Proxy(
+    IWMReaderNetworkConfig* This,
+    QWORD *buffering_time);
+void __RPC_STUB IWMReaderNetworkConfig_GetBufferingTime_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_SetBufferingTime_Proxy(
+    IWMReaderNetworkConfig* This,
+    QWORD buffering_time);
+void __RPC_STUB IWMReaderNetworkConfig_SetBufferingTime_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_GetUDPPortRanges_Proxy(
+    IWMReaderNetworkConfig* This,
+    WM_PORT_NUMBER_RANGE *array,
+    DWORD *ranges);
+void __RPC_STUB IWMReaderNetworkConfig_GetUDPPortRanges_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_SetUDPPortRanges_Proxy(
+    IWMReaderNetworkConfig* This,
+    WM_PORT_NUMBER_RANGE *array,
+    DWORD ranges);
+void __RPC_STUB IWMReaderNetworkConfig_SetUDPPortRanges_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_GetProxySettings_Proxy(
+    IWMReaderNetworkConfig* This,
+    const WCHAR *protocol,
+    WMT_PROXY_SETTINGS *proxy);
+void __RPC_STUB IWMReaderNetworkConfig_GetProxySettings_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_SetProxySettings_Proxy(
+    IWMReaderNetworkConfig* This,
+    LPCWSTR protocol,
+    WMT_PROXY_SETTINGS proxy);
+void __RPC_STUB IWMReaderNetworkConfig_SetProxySettings_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_GetProxyHostName_Proxy(
+    IWMReaderNetworkConfig* This,
+    const WCHAR *protocol,
+    WCHAR *hostname,
+    DWORD *size);
+void __RPC_STUB IWMReaderNetworkConfig_GetProxyHostName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_SetProxyHostName_Proxy(
+    IWMReaderNetworkConfig* This,
+    const WCHAR *protocol,
+    const WCHAR *hostname);
+void __RPC_STUB IWMReaderNetworkConfig_SetProxyHostName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_GetProxyPort_Proxy(
+    IWMReaderNetworkConfig* This,
+    const WCHAR *protocol,
+    DWORD *port);
+void __RPC_STUB IWMReaderNetworkConfig_GetProxyPort_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_SetProxyPort_Proxy(
+    IWMReaderNetworkConfig* This,
+    const WCHAR *protocol,
+    DWORD port);
+void __RPC_STUB IWMReaderNetworkConfig_SetProxyPort_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_GetProxyExceptionList_Proxy(
+    IWMReaderNetworkConfig* This,
+    const WCHAR *protocol,
+    WCHAR *exceptions,
+    DWORD *count);
+void __RPC_STUB IWMReaderNetworkConfig_GetProxyExceptionList_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_SetProxyExceptionList_Proxy(
+    IWMReaderNetworkConfig* This,
+    const WCHAR *protocol,
+    const WCHAR *exceptions);
+void __RPC_STUB IWMReaderNetworkConfig_SetProxyExceptionList_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_GetProxyBypassForLocal_Proxy(
+    IWMReaderNetworkConfig* This,
+    const WCHAR *protocol,
+    WINBOOL *bypass);
+void __RPC_STUB IWMReaderNetworkConfig_GetProxyBypassForLocal_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_SetProxyBypassForLocal_Proxy(
+    IWMReaderNetworkConfig* This,
+    const WCHAR *protocol,
+    WINBOOL bypass);
+void __RPC_STUB IWMReaderNetworkConfig_SetProxyBypassForLocal_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_GetForceRerunAutoProxyDetection_Proxy(
+    IWMReaderNetworkConfig* This,
+    WINBOOL *detection);
+void __RPC_STUB IWMReaderNetworkConfig_GetForceRerunAutoProxyDetection_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_SetForceRerunAutoProxyDetection_Proxy(
+    IWMReaderNetworkConfig* This,
+    WINBOOL detection);
+void __RPC_STUB IWMReaderNetworkConfig_SetForceRerunAutoProxyDetection_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_GetEnableMulticast_Proxy(
+    IWMReaderNetworkConfig* This,
+    WINBOOL *multicast);
+void __RPC_STUB IWMReaderNetworkConfig_GetEnableMulticast_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_SetEnableMulticast_Proxy(
+    IWMReaderNetworkConfig* This,
+    WINBOOL multicast);
+void __RPC_STUB IWMReaderNetworkConfig_SetEnableMulticast_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_GetEnableHTTP_Proxy(
+    IWMReaderNetworkConfig* This,
+    WINBOOL *enable);
+void __RPC_STUB IWMReaderNetworkConfig_GetEnableHTTP_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_SetEnableHTTP_Proxy(
+    IWMReaderNetworkConfig* This,
+    WINBOOL enable);
+void __RPC_STUB IWMReaderNetworkConfig_SetEnableHTTP_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_GetEnableUDP_Proxy(
+    IWMReaderNetworkConfig* This,
+    WINBOOL *enable);
+void __RPC_STUB IWMReaderNetworkConfig_GetEnableUDP_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_SetEnableUDP_Proxy(
+    IWMReaderNetworkConfig* This,
+    WINBOOL enable);
+void __RPC_STUB IWMReaderNetworkConfig_SetEnableUDP_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_GetEnableTCP_Proxy(
+    IWMReaderNetworkConfig* This,
+    WINBOOL *enable);
+void __RPC_STUB IWMReaderNetworkConfig_GetEnableTCP_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_SetEnableTCP_Proxy(
+    IWMReaderNetworkConfig* This,
+    WINBOOL enable);
+void __RPC_STUB IWMReaderNetworkConfig_SetEnableTCP_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_ResetProtocolRollover_Proxy(
+    IWMReaderNetworkConfig* This);
+void __RPC_STUB IWMReaderNetworkConfig_ResetProtocolRollover_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_GetConnectionBandwidth_Proxy(
+    IWMReaderNetworkConfig* This,
+    DWORD *bandwidth);
+void __RPC_STUB IWMReaderNetworkConfig_GetConnectionBandwidth_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_SetConnectionBandwidth_Proxy(
+    IWMReaderNetworkConfig* This,
+    DWORD bandwidth);
+void __RPC_STUB IWMReaderNetworkConfig_SetConnectionBandwidth_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_GetNumProtocolsSupported_Proxy(
+    IWMReaderNetworkConfig* This,
+    DWORD *protocols);
+void __RPC_STUB IWMReaderNetworkConfig_GetNumProtocolsSupported_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_GetSupportedProtocolName_Proxy(
+    IWMReaderNetworkConfig* This,
+    DWORD protocol_num,
+    WCHAR *protocol,
+    DWORD *size);
+void __RPC_STUB IWMReaderNetworkConfig_GetSupportedProtocolName_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_AddLoggingUrl_Proxy(
+    IWMReaderNetworkConfig* This,
+    const WCHAR *url);
+void __RPC_STUB IWMReaderNetworkConfig_AddLoggingUrl_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_GetLoggingUrl_Proxy(
+    IWMReaderNetworkConfig* This,
+    DWORD index,
+    WCHAR *url,
+    DWORD *size);
+void __RPC_STUB IWMReaderNetworkConfig_GetLoggingUrl_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_GetLoggingUrlCount_Proxy(
+    IWMReaderNetworkConfig* This,
+    DWORD *count);
+void __RPC_STUB IWMReaderNetworkConfig_GetLoggingUrlCount_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig_ResetLoggingUrlList_Proxy(
+    IWMReaderNetworkConfig* This);
+void __RPC_STUB IWMReaderNetworkConfig_ResetLoggingUrlList_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMReaderNetworkConfig_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMReaderNetworkConfig2 interface
+ */
+#ifndef __IWMReaderNetworkConfig2_INTERFACE_DEFINED__
+#define __IWMReaderNetworkConfig2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMReaderNetworkConfig2, 0xd979a853, 0x042b, 0x4050, 0x83,0x87, 0xc9,0x39,0xdb,0x22,0x01,0x3f);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("d979a853-042b-4050-8387-c939db22013f")
+IWMReaderNetworkConfig2 : public IWMReaderNetworkConfig
+{
+    virtual HRESULT STDMETHODCALLTYPE GetEnableContentCaching(
+        WINBOOL *enable) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetEnableContentCaching(
+        WINBOOL enable) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetEnableFastCache(
+        WINBOOL *enable) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetEnableFastCache(
+        WINBOOL enable) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetAcceleratedStreamingDuration(
+        QWORD *duration) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetAcceleratedStreamingDuration(
+        QWORD duration) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetAutoReconnectLimit(
+        DWORD *limit) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetAutoReconnectLimit(
+        DWORD limit) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetEnableResends(
+        WINBOOL *enable) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetEnableResends(
+        WINBOOL enable) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetEnableThinning(
+        WINBOOL *enable) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetEnableThinning(
+        WINBOOL enable) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetMaxNetPacketSize(
+        DWORD *packet_size) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMReaderNetworkConfig2, 0xd979a853, 0x042b, 0x4050, 0x83,0x87, 0xc9,0x39,0xdb,0x22,0x01,0x3f)
+#endif
+#else
+typedef struct IWMReaderNetworkConfig2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMReaderNetworkConfig2* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMReaderNetworkConfig2* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMReaderNetworkConfig2* This);
+
+    /*** IWMReaderNetworkConfig methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetBufferingTime)(
+        IWMReaderNetworkConfig2* This,
+        QWORD *buffering_time);
+
+    HRESULT (STDMETHODCALLTYPE *SetBufferingTime)(
+        IWMReaderNetworkConfig2* This,
+        QWORD buffering_time);
+
+    HRESULT (STDMETHODCALLTYPE *GetUDPPortRanges)(
+        IWMReaderNetworkConfig2* This,
+        WM_PORT_NUMBER_RANGE *array,
+        DWORD *ranges);
+
+    HRESULT (STDMETHODCALLTYPE *SetUDPPortRanges)(
+        IWMReaderNetworkConfig2* This,
+        WM_PORT_NUMBER_RANGE *array,
+        DWORD ranges);
+
+    HRESULT (STDMETHODCALLTYPE *GetProxySettings)(
+        IWMReaderNetworkConfig2* This,
+        const WCHAR *protocol,
+        WMT_PROXY_SETTINGS *proxy);
+
+    HRESULT (STDMETHODCALLTYPE *SetProxySettings)(
+        IWMReaderNetworkConfig2* This,
+        LPCWSTR protocol,
+        WMT_PROXY_SETTINGS proxy);
+
+    HRESULT (STDMETHODCALLTYPE *GetProxyHostName)(
+        IWMReaderNetworkConfig2* This,
+        const WCHAR *protocol,
+        WCHAR *hostname,
+        DWORD *size);
+
+    HRESULT (STDMETHODCALLTYPE *SetProxyHostName)(
+        IWMReaderNetworkConfig2* This,
+        const WCHAR *protocol,
+        const WCHAR *hostname);
+
+    HRESULT (STDMETHODCALLTYPE *GetProxyPort)(
+        IWMReaderNetworkConfig2* This,
+        const WCHAR *protocol,
+        DWORD *port);
+
+    HRESULT (STDMETHODCALLTYPE *SetProxyPort)(
+        IWMReaderNetworkConfig2* This,
+        const WCHAR *protocol,
+        DWORD port);
+
+    HRESULT (STDMETHODCALLTYPE *GetProxyExceptionList)(
+        IWMReaderNetworkConfig2* This,
+        const WCHAR *protocol,
+        WCHAR *exceptions,
+        DWORD *count);
+
+    HRESULT (STDMETHODCALLTYPE *SetProxyExceptionList)(
+        IWMReaderNetworkConfig2* This,
+        const WCHAR *protocol,
+        const WCHAR *exceptions);
+
+    HRESULT (STDMETHODCALLTYPE *GetProxyBypassForLocal)(
+        IWMReaderNetworkConfig2* This,
+        const WCHAR *protocol,
+        WINBOOL *bypass);
+
+    HRESULT (STDMETHODCALLTYPE *SetProxyBypassForLocal)(
+        IWMReaderNetworkConfig2* This,
+        const WCHAR *protocol,
+        WINBOOL bypass);
+
+    HRESULT (STDMETHODCALLTYPE *GetForceRerunAutoProxyDetection)(
+        IWMReaderNetworkConfig2* This,
+        WINBOOL *detection);
+
+    HRESULT (STDMETHODCALLTYPE *SetForceRerunAutoProxyDetection)(
+        IWMReaderNetworkConfig2* This,
+        WINBOOL detection);
+
+    HRESULT (STDMETHODCALLTYPE *GetEnableMulticast)(
+        IWMReaderNetworkConfig2* This,
+        WINBOOL *multicast);
+
+    HRESULT (STDMETHODCALLTYPE *SetEnableMulticast)(
+        IWMReaderNetworkConfig2* This,
+        WINBOOL multicast);
+
+    HRESULT (STDMETHODCALLTYPE *GetEnableHTTP)(
+        IWMReaderNetworkConfig2* This,
+        WINBOOL *enable);
+
+    HRESULT (STDMETHODCALLTYPE *SetEnableHTTP)(
+        IWMReaderNetworkConfig2* This,
+        WINBOOL enable);
+
+    HRESULT (STDMETHODCALLTYPE *GetEnableUDP)(
+        IWMReaderNetworkConfig2* This,
+        WINBOOL *enable);
+
+    HRESULT (STDMETHODCALLTYPE *SetEnableUDP)(
+        IWMReaderNetworkConfig2* This,
+        WINBOOL enable);
+
+    HRESULT (STDMETHODCALLTYPE *GetEnableTCP)(
+        IWMReaderNetworkConfig2* This,
+        WINBOOL *enable);
+
+    HRESULT (STDMETHODCALLTYPE *SetEnableTCP)(
+        IWMReaderNetworkConfig2* This,
+        WINBOOL enable);
+
+    HRESULT (STDMETHODCALLTYPE *ResetProtocolRollover)(
+        IWMReaderNetworkConfig2* This);
+
+    HRESULT (STDMETHODCALLTYPE *GetConnectionBandwidth)(
+        IWMReaderNetworkConfig2* This,
+        DWORD *bandwidth);
+
+    HRESULT (STDMETHODCALLTYPE *SetConnectionBandwidth)(
+        IWMReaderNetworkConfig2* This,
+        DWORD bandwidth);
+
+    HRESULT (STDMETHODCALLTYPE *GetNumProtocolsSupported)(
+        IWMReaderNetworkConfig2* This,
+        DWORD *protocols);
+
+    HRESULT (STDMETHODCALLTYPE *GetSupportedProtocolName)(
+        IWMReaderNetworkConfig2* This,
+        DWORD protocol_num,
+        WCHAR *protocol,
+        DWORD *size);
+
+    HRESULT (STDMETHODCALLTYPE *AddLoggingUrl)(
+        IWMReaderNetworkConfig2* This,
+        const WCHAR *url);
+
+    HRESULT (STDMETHODCALLTYPE *GetLoggingUrl)(
+        IWMReaderNetworkConfig2* This,
+        DWORD index,
+        WCHAR *url,
+        DWORD *size);
+
+    HRESULT (STDMETHODCALLTYPE *GetLoggingUrlCount)(
+        IWMReaderNetworkConfig2* This,
+        DWORD *count);
+
+    HRESULT (STDMETHODCALLTYPE *ResetLoggingUrlList)(
+        IWMReaderNetworkConfig2* This);
+
+    /*** IWMReaderNetworkConfig2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetEnableContentCaching)(
+        IWMReaderNetworkConfig2* This,
+        WINBOOL *enable);
+
+    HRESULT (STDMETHODCALLTYPE *SetEnableContentCaching)(
+        IWMReaderNetworkConfig2* This,
+        WINBOOL enable);
+
+    HRESULT (STDMETHODCALLTYPE *GetEnableFastCache)(
+        IWMReaderNetworkConfig2* This,
+        WINBOOL *enable);
+
+    HRESULT (STDMETHODCALLTYPE *SetEnableFastCache)(
+        IWMReaderNetworkConfig2* This,
+        WINBOOL enable);
+
+    HRESULT (STDMETHODCALLTYPE *GetAcceleratedStreamingDuration)(
+        IWMReaderNetworkConfig2* This,
+        QWORD *duration);
+
+    HRESULT (STDMETHODCALLTYPE *SetAcceleratedStreamingDuration)(
+        IWMReaderNetworkConfig2* This,
+        QWORD duration);
+
+    HRESULT (STDMETHODCALLTYPE *GetAutoReconnectLimit)(
+        IWMReaderNetworkConfig2* This,
+        DWORD *limit);
+
+    HRESULT (STDMETHODCALLTYPE *SetAutoReconnectLimit)(
+        IWMReaderNetworkConfig2* This,
+        DWORD limit);
+
+    HRESULT (STDMETHODCALLTYPE *GetEnableResends)(
+        IWMReaderNetworkConfig2* This,
+        WINBOOL *enable);
+
+    HRESULT (STDMETHODCALLTYPE *SetEnableResends)(
+        IWMReaderNetworkConfig2* This,
+        WINBOOL enable);
+
+    HRESULT (STDMETHODCALLTYPE *GetEnableThinning)(
+        IWMReaderNetworkConfig2* This,
+        WINBOOL *enable);
+
+    HRESULT (STDMETHODCALLTYPE *SetEnableThinning)(
+        IWMReaderNetworkConfig2* This,
+        WINBOOL enable);
+
+    HRESULT (STDMETHODCALLTYPE *GetMaxNetPacketSize)(
+        IWMReaderNetworkConfig2* This,
+        DWORD *packet_size);
+
+    END_INTERFACE
+} IWMReaderNetworkConfig2Vtbl;
+interface IWMReaderNetworkConfig2 {
+    CONST_VTBL IWMReaderNetworkConfig2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMReaderNetworkConfig2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMReaderNetworkConfig2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMReaderNetworkConfig2_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMReaderNetworkConfig methods ***/
+#define IWMReaderNetworkConfig2_GetBufferingTime(This,buffering_time) (This)->lpVtbl->GetBufferingTime(This,buffering_time)
+#define IWMReaderNetworkConfig2_SetBufferingTime(This,buffering_time) (This)->lpVtbl->SetBufferingTime(This,buffering_time)
+#define IWMReaderNetworkConfig2_GetUDPPortRanges(This,array,ranges) (This)->lpVtbl->GetUDPPortRanges(This,array,ranges)
+#define IWMReaderNetworkConfig2_SetUDPPortRanges(This,array,ranges) (This)->lpVtbl->SetUDPPortRanges(This,array,ranges)
+#define IWMReaderNetworkConfig2_GetProxySettings(This,protocol,proxy) (This)->lpVtbl->GetProxySettings(This,protocol,proxy)
+#define IWMReaderNetworkConfig2_SetProxySettings(This,protocol,proxy) (This)->lpVtbl->SetProxySettings(This,protocol,proxy)
+#define IWMReaderNetworkConfig2_GetProxyHostName(This,protocol,hostname,size) (This)->lpVtbl->GetProxyHostName(This,protocol,hostname,size)
+#define IWMReaderNetworkConfig2_SetProxyHostName(This,protocol,hostname) (This)->lpVtbl->SetProxyHostName(This,protocol,hostname)
+#define IWMReaderNetworkConfig2_GetProxyPort(This,protocol,port) (This)->lpVtbl->GetProxyPort(This,protocol,port)
+#define IWMReaderNetworkConfig2_SetProxyPort(This,protocol,port) (This)->lpVtbl->SetProxyPort(This,protocol,port)
+#define IWMReaderNetworkConfig2_GetProxyExceptionList(This,protocol,exceptions,count) (This)->lpVtbl->GetProxyExceptionList(This,protocol,exceptions,count)
+#define IWMReaderNetworkConfig2_SetProxyExceptionList(This,protocol,exceptions) (This)->lpVtbl->SetProxyExceptionList(This,protocol,exceptions)
+#define IWMReaderNetworkConfig2_GetProxyBypassForLocal(This,protocol,bypass) (This)->lpVtbl->GetProxyBypassForLocal(This,protocol,bypass)
+#define IWMReaderNetworkConfig2_SetProxyBypassForLocal(This,protocol,bypass) (This)->lpVtbl->SetProxyBypassForLocal(This,protocol,bypass)
+#define IWMReaderNetworkConfig2_GetForceRerunAutoProxyDetection(This,detection) (This)->lpVtbl->GetForceRerunAutoProxyDetection(This,detection)
+#define IWMReaderNetworkConfig2_SetForceRerunAutoProxyDetection(This,detection) (This)->lpVtbl->SetForceRerunAutoProxyDetection(This,detection)
+#define IWMReaderNetworkConfig2_GetEnableMulticast(This,multicast) (This)->lpVtbl->GetEnableMulticast(This,multicast)
+#define IWMReaderNetworkConfig2_SetEnableMulticast(This,multicast) (This)->lpVtbl->SetEnableMulticast(This,multicast)
+#define IWMReaderNetworkConfig2_GetEnableHTTP(This,enable) (This)->lpVtbl->GetEnableHTTP(This,enable)
+#define IWMReaderNetworkConfig2_SetEnableHTTP(This,enable) (This)->lpVtbl->SetEnableHTTP(This,enable)
+#define IWMReaderNetworkConfig2_GetEnableUDP(This,enable) (This)->lpVtbl->GetEnableUDP(This,enable)
+#define IWMReaderNetworkConfig2_SetEnableUDP(This,enable) (This)->lpVtbl->SetEnableUDP(This,enable)
+#define IWMReaderNetworkConfig2_GetEnableTCP(This,enable) (This)->lpVtbl->GetEnableTCP(This,enable)
+#define IWMReaderNetworkConfig2_SetEnableTCP(This,enable) (This)->lpVtbl->SetEnableTCP(This,enable)
+#define IWMReaderNetworkConfig2_ResetProtocolRollover(This) (This)->lpVtbl->ResetProtocolRollover(This)
+#define IWMReaderNetworkConfig2_GetConnectionBandwidth(This,bandwidth) (This)->lpVtbl->GetConnectionBandwidth(This,bandwidth)
+#define IWMReaderNetworkConfig2_SetConnectionBandwidth(This,bandwidth) (This)->lpVtbl->SetConnectionBandwidth(This,bandwidth)
+#define IWMReaderNetworkConfig2_GetNumProtocolsSupported(This,protocols) (This)->lpVtbl->GetNumProtocolsSupported(This,protocols)
+#define IWMReaderNetworkConfig2_GetSupportedProtocolName(This,protocol_num,protocol,size) (This)->lpVtbl->GetSupportedProtocolName(This,protocol_num,protocol,size)
+#define IWMReaderNetworkConfig2_AddLoggingUrl(This,url) (This)->lpVtbl->AddLoggingUrl(This,url)
+#define IWMReaderNetworkConfig2_GetLoggingUrl(This,index,url,size) (This)->lpVtbl->GetLoggingUrl(This,index,url,size)
+#define IWMReaderNetworkConfig2_GetLoggingUrlCount(This,count) (This)->lpVtbl->GetLoggingUrlCount(This,count)
+#define IWMReaderNetworkConfig2_ResetLoggingUrlList(This) (This)->lpVtbl->ResetLoggingUrlList(This)
+/*** IWMReaderNetworkConfig2 methods ***/
+#define IWMReaderNetworkConfig2_GetEnableContentCaching(This,enable) (This)->lpVtbl->GetEnableContentCaching(This,enable)
+#define IWMReaderNetworkConfig2_SetEnableContentCaching(This,enable) (This)->lpVtbl->SetEnableContentCaching(This,enable)
+#define IWMReaderNetworkConfig2_GetEnableFastCache(This,enable) (This)->lpVtbl->GetEnableFastCache(This,enable)
+#define IWMReaderNetworkConfig2_SetEnableFastCache(This,enable) (This)->lpVtbl->SetEnableFastCache(This,enable)
+#define IWMReaderNetworkConfig2_GetAcceleratedStreamingDuration(This,duration) (This)->lpVtbl->GetAcceleratedStreamingDuration(This,duration)
+#define IWMReaderNetworkConfig2_SetAcceleratedStreamingDuration(This,duration) (This)->lpVtbl->SetAcceleratedStreamingDuration(This,duration)
+#define IWMReaderNetworkConfig2_GetAutoReconnectLimit(This,limit) (This)->lpVtbl->GetAutoReconnectLimit(This,limit)
+#define IWMReaderNetworkConfig2_SetAutoReconnectLimit(This,limit) (This)->lpVtbl->SetAutoReconnectLimit(This,limit)
+#define IWMReaderNetworkConfig2_GetEnableResends(This,enable) (This)->lpVtbl->GetEnableResends(This,enable)
+#define IWMReaderNetworkConfig2_SetEnableResends(This,enable) (This)->lpVtbl->SetEnableResends(This,enable)
+#define IWMReaderNetworkConfig2_GetEnableThinning(This,enable) (This)->lpVtbl->GetEnableThinning(This,enable)
+#define IWMReaderNetworkConfig2_SetEnableThinning(This,enable) (This)->lpVtbl->SetEnableThinning(This,enable)
+#define IWMReaderNetworkConfig2_GetMaxNetPacketSize(This,packet_size) (This)->lpVtbl->GetMaxNetPacketSize(This,packet_size)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_QueryInterface(IWMReaderNetworkConfig2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMReaderNetworkConfig2_AddRef(IWMReaderNetworkConfig2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMReaderNetworkConfig2_Release(IWMReaderNetworkConfig2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMReaderNetworkConfig methods ***/
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetBufferingTime(IWMReaderNetworkConfig2* This,QWORD *buffering_time) {
+    return This->lpVtbl->GetBufferingTime(This,buffering_time);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_SetBufferingTime(IWMReaderNetworkConfig2* This,QWORD buffering_time) {
+    return This->lpVtbl->SetBufferingTime(This,buffering_time);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetUDPPortRanges(IWMReaderNetworkConfig2* This,WM_PORT_NUMBER_RANGE *array,DWORD *ranges) {
+    return This->lpVtbl->GetUDPPortRanges(This,array,ranges);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_SetUDPPortRanges(IWMReaderNetworkConfig2* This,WM_PORT_NUMBER_RANGE *array,DWORD ranges) {
+    return This->lpVtbl->SetUDPPortRanges(This,array,ranges);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetProxySettings(IWMReaderNetworkConfig2* This,const WCHAR *protocol,WMT_PROXY_SETTINGS *proxy) {
+    return This->lpVtbl->GetProxySettings(This,protocol,proxy);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_SetProxySettings(IWMReaderNetworkConfig2* This,LPCWSTR protocol,WMT_PROXY_SETTINGS proxy) {
+    return This->lpVtbl->SetProxySettings(This,protocol,proxy);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetProxyHostName(IWMReaderNetworkConfig2* This,const WCHAR *protocol,WCHAR *hostname,DWORD *size) {
+    return This->lpVtbl->GetProxyHostName(This,protocol,hostname,size);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_SetProxyHostName(IWMReaderNetworkConfig2* This,const WCHAR *protocol,const WCHAR *hostname) {
+    return This->lpVtbl->SetProxyHostName(This,protocol,hostname);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetProxyPort(IWMReaderNetworkConfig2* This,const WCHAR *protocol,DWORD *port) {
+    return This->lpVtbl->GetProxyPort(This,protocol,port);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_SetProxyPort(IWMReaderNetworkConfig2* This,const WCHAR *protocol,DWORD port) {
+    return This->lpVtbl->SetProxyPort(This,protocol,port);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetProxyExceptionList(IWMReaderNetworkConfig2* This,const WCHAR *protocol,WCHAR *exceptions,DWORD *count) {
+    return This->lpVtbl->GetProxyExceptionList(This,protocol,exceptions,count);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_SetProxyExceptionList(IWMReaderNetworkConfig2* This,const WCHAR *protocol,const WCHAR *exceptions) {
+    return This->lpVtbl->SetProxyExceptionList(This,protocol,exceptions);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetProxyBypassForLocal(IWMReaderNetworkConfig2* This,const WCHAR *protocol,WINBOOL *bypass) {
+    return This->lpVtbl->GetProxyBypassForLocal(This,protocol,bypass);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_SetProxyBypassForLocal(IWMReaderNetworkConfig2* This,const WCHAR *protocol,WINBOOL bypass) {
+    return This->lpVtbl->SetProxyBypassForLocal(This,protocol,bypass);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetForceRerunAutoProxyDetection(IWMReaderNetworkConfig2* This,WINBOOL *detection) {
+    return This->lpVtbl->GetForceRerunAutoProxyDetection(This,detection);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_SetForceRerunAutoProxyDetection(IWMReaderNetworkConfig2* This,WINBOOL detection) {
+    return This->lpVtbl->SetForceRerunAutoProxyDetection(This,detection);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetEnableMulticast(IWMReaderNetworkConfig2* This,WINBOOL *multicast) {
+    return This->lpVtbl->GetEnableMulticast(This,multicast);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_SetEnableMulticast(IWMReaderNetworkConfig2* This,WINBOOL multicast) {
+    return This->lpVtbl->SetEnableMulticast(This,multicast);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetEnableHTTP(IWMReaderNetworkConfig2* This,WINBOOL *enable) {
+    return This->lpVtbl->GetEnableHTTP(This,enable);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_SetEnableHTTP(IWMReaderNetworkConfig2* This,WINBOOL enable) {
+    return This->lpVtbl->SetEnableHTTP(This,enable);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetEnableUDP(IWMReaderNetworkConfig2* This,WINBOOL *enable) {
+    return This->lpVtbl->GetEnableUDP(This,enable);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_SetEnableUDP(IWMReaderNetworkConfig2* This,WINBOOL enable) {
+    return This->lpVtbl->SetEnableUDP(This,enable);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetEnableTCP(IWMReaderNetworkConfig2* This,WINBOOL *enable) {
+    return This->lpVtbl->GetEnableTCP(This,enable);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_SetEnableTCP(IWMReaderNetworkConfig2* This,WINBOOL enable) {
+    return This->lpVtbl->SetEnableTCP(This,enable);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_ResetProtocolRollover(IWMReaderNetworkConfig2* This) {
+    return This->lpVtbl->ResetProtocolRollover(This);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetConnectionBandwidth(IWMReaderNetworkConfig2* This,DWORD *bandwidth) {
+    return This->lpVtbl->GetConnectionBandwidth(This,bandwidth);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_SetConnectionBandwidth(IWMReaderNetworkConfig2* This,DWORD bandwidth) {
+    return This->lpVtbl->SetConnectionBandwidth(This,bandwidth);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetNumProtocolsSupported(IWMReaderNetworkConfig2* This,DWORD *protocols) {
+    return This->lpVtbl->GetNumProtocolsSupported(This,protocols);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetSupportedProtocolName(IWMReaderNetworkConfig2* This,DWORD protocol_num,WCHAR *protocol,DWORD *size) {
+    return This->lpVtbl->GetSupportedProtocolName(This,protocol_num,protocol,size);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_AddLoggingUrl(IWMReaderNetworkConfig2* This,const WCHAR *url) {
+    return This->lpVtbl->AddLoggingUrl(This,url);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetLoggingUrl(IWMReaderNetworkConfig2* This,DWORD index,WCHAR *url,DWORD *size) {
+    return This->lpVtbl->GetLoggingUrl(This,index,url,size);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetLoggingUrlCount(IWMReaderNetworkConfig2* This,DWORD *count) {
+    return This->lpVtbl->GetLoggingUrlCount(This,count);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_ResetLoggingUrlList(IWMReaderNetworkConfig2* This) {
+    return This->lpVtbl->ResetLoggingUrlList(This);
+}
+/*** IWMReaderNetworkConfig2 methods ***/
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetEnableContentCaching(IWMReaderNetworkConfig2* This,WINBOOL *enable) {
+    return This->lpVtbl->GetEnableContentCaching(This,enable);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_SetEnableContentCaching(IWMReaderNetworkConfig2* This,WINBOOL enable) {
+    return This->lpVtbl->SetEnableContentCaching(This,enable);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetEnableFastCache(IWMReaderNetworkConfig2* This,WINBOOL *enable) {
+    return This->lpVtbl->GetEnableFastCache(This,enable);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_SetEnableFastCache(IWMReaderNetworkConfig2* This,WINBOOL enable) {
+    return This->lpVtbl->SetEnableFastCache(This,enable);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetAcceleratedStreamingDuration(IWMReaderNetworkConfig2* This,QWORD *duration) {
+    return This->lpVtbl->GetAcceleratedStreamingDuration(This,duration);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_SetAcceleratedStreamingDuration(IWMReaderNetworkConfig2* This,QWORD duration) {
+    return This->lpVtbl->SetAcceleratedStreamingDuration(This,duration);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetAutoReconnectLimit(IWMReaderNetworkConfig2* This,DWORD *limit) {
+    return This->lpVtbl->GetAutoReconnectLimit(This,limit);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_SetAutoReconnectLimit(IWMReaderNetworkConfig2* This,DWORD limit) {
+    return This->lpVtbl->SetAutoReconnectLimit(This,limit);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetEnableResends(IWMReaderNetworkConfig2* This,WINBOOL *enable) {
+    return This->lpVtbl->GetEnableResends(This,enable);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_SetEnableResends(IWMReaderNetworkConfig2* This,WINBOOL enable) {
+    return This->lpVtbl->SetEnableResends(This,enable);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetEnableThinning(IWMReaderNetworkConfig2* This,WINBOOL *enable) {
+    return This->lpVtbl->GetEnableThinning(This,enable);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_SetEnableThinning(IWMReaderNetworkConfig2* This,WINBOOL enable) {
+    return This->lpVtbl->SetEnableThinning(This,enable);
+}
+static FORCEINLINE HRESULT IWMReaderNetworkConfig2_GetMaxNetPacketSize(IWMReaderNetworkConfig2* This,DWORD *packet_size) {
+    return This->lpVtbl->GetMaxNetPacketSize(This,packet_size);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig2_GetEnableContentCaching_Proxy(
+    IWMReaderNetworkConfig2* This,
+    WINBOOL *enable);
+void __RPC_STUB IWMReaderNetworkConfig2_GetEnableContentCaching_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig2_SetEnableContentCaching_Proxy(
+    IWMReaderNetworkConfig2* This,
+    WINBOOL enable);
+void __RPC_STUB IWMReaderNetworkConfig2_SetEnableContentCaching_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig2_GetEnableFastCache_Proxy(
+    IWMReaderNetworkConfig2* This,
+    WINBOOL *enable);
+void __RPC_STUB IWMReaderNetworkConfig2_GetEnableFastCache_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig2_SetEnableFastCache_Proxy(
+    IWMReaderNetworkConfig2* This,
+    WINBOOL enable);
+void __RPC_STUB IWMReaderNetworkConfig2_SetEnableFastCache_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig2_GetAcceleratedStreamingDuration_Proxy(
+    IWMReaderNetworkConfig2* This,
+    QWORD *duration);
+void __RPC_STUB IWMReaderNetworkConfig2_GetAcceleratedStreamingDuration_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig2_SetAcceleratedStreamingDuration_Proxy(
+    IWMReaderNetworkConfig2* This,
+    QWORD duration);
+void __RPC_STUB IWMReaderNetworkConfig2_SetAcceleratedStreamingDuration_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig2_GetAutoReconnectLimit_Proxy(
+    IWMReaderNetworkConfig2* This,
+    DWORD *limit);
+void __RPC_STUB IWMReaderNetworkConfig2_GetAutoReconnectLimit_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig2_SetAutoReconnectLimit_Proxy(
+    IWMReaderNetworkConfig2* This,
+    DWORD limit);
+void __RPC_STUB IWMReaderNetworkConfig2_SetAutoReconnectLimit_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig2_GetEnableResends_Proxy(
+    IWMReaderNetworkConfig2* This,
+    WINBOOL *enable);
+void __RPC_STUB IWMReaderNetworkConfig2_GetEnableResends_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig2_SetEnableResends_Proxy(
+    IWMReaderNetworkConfig2* This,
+    WINBOOL enable);
+void __RPC_STUB IWMReaderNetworkConfig2_SetEnableResends_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig2_GetEnableThinning_Proxy(
+    IWMReaderNetworkConfig2* This,
+    WINBOOL *enable);
+void __RPC_STUB IWMReaderNetworkConfig2_GetEnableThinning_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig2_SetEnableThinning_Proxy(
+    IWMReaderNetworkConfig2* This,
+    WINBOOL enable);
+void __RPC_STUB IWMReaderNetworkConfig2_SetEnableThinning_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderNetworkConfig2_GetMaxNetPacketSize_Proxy(
+    IWMReaderNetworkConfig2* This,
+    DWORD *packet_size);
+void __RPC_STUB IWMReaderNetworkConfig2_GetMaxNetPacketSize_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMReaderNetworkConfig2_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMReaderStreamClock interface
+ */
+#ifndef __IWMReaderStreamClock_INTERFACE_DEFINED__
+#define __IWMReaderStreamClock_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMReaderStreamClock, 0x96406bed, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("96406bed-2b2b-11d3-b36b-00c04f6108ff")
+IWMReaderStreamClock : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetTime(
+        QWORD *now) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetTimer(
+        QWORD when,
+        void *param,
+        DWORD *id) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE KillTimer(
+        DWORD id) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMReaderStreamClock, 0x96406bed, 0x2b2b, 0x11d3, 0xb3,0x6b, 0x00,0xc0,0x4f,0x61,0x08,0xff)
+#endif
+#else
+typedef struct IWMReaderStreamClockVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMReaderStreamClock* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMReaderStreamClock* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMReaderStreamClock* This);
+
+    /*** IWMReaderStreamClock methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTime)(
+        IWMReaderStreamClock* This,
+        QWORD *now);
+
+    HRESULT (STDMETHODCALLTYPE *SetTimer)(
+        IWMReaderStreamClock* This,
+        QWORD when,
+        void *param,
+        DWORD *id);
+
+    HRESULT (STDMETHODCALLTYPE *KillTimer)(
+        IWMReaderStreamClock* This,
+        DWORD id);
+
+    END_INTERFACE
+} IWMReaderStreamClockVtbl;
+interface IWMReaderStreamClock {
+    CONST_VTBL IWMReaderStreamClockVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMReaderStreamClock_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMReaderStreamClock_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMReaderStreamClock_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMReaderStreamClock methods ***/
+#define IWMReaderStreamClock_GetTime(This,now) (This)->lpVtbl->GetTime(This,now)
+#define IWMReaderStreamClock_SetTimer(This,when,param,id) (This)->lpVtbl->SetTimer(This,when,param,id)
+#define IWMReaderStreamClock_KillTimer(This,id) (This)->lpVtbl->KillTimer(This,id)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMReaderStreamClock_QueryInterface(IWMReaderStreamClock* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMReaderStreamClock_AddRef(IWMReaderStreamClock* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMReaderStreamClock_Release(IWMReaderStreamClock* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMReaderStreamClock methods ***/
+static FORCEINLINE HRESULT IWMReaderStreamClock_GetTime(IWMReaderStreamClock* This,QWORD *now) {
+    return This->lpVtbl->GetTime(This,now);
+}
+static FORCEINLINE HRESULT IWMReaderStreamClock_SetTimer(IWMReaderStreamClock* This,QWORD when,void *param,DWORD *id) {
+    return This->lpVtbl->SetTimer(This,when,param,id);
+}
+static FORCEINLINE HRESULT IWMReaderStreamClock_KillTimer(IWMReaderStreamClock* This,DWORD id) {
+    return This->lpVtbl->KillTimer(This,id);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMReaderStreamClock_GetTime_Proxy(
+    IWMReaderStreamClock* This,
+    QWORD *now);
+void __RPC_STUB IWMReaderStreamClock_GetTime_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderStreamClock_SetTimer_Proxy(
+    IWMReaderStreamClock* This,
+    QWORD when,
+    void *param,
+    DWORD *id);
+void __RPC_STUB IWMReaderStreamClock_SetTimer_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderStreamClock_KillTimer_Proxy(
+    IWMReaderStreamClock* This,
+    DWORD id);
+void __RPC_STUB IWMReaderStreamClock_KillTimer_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMReaderStreamClock_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMPacketSize interface
+ */
+#ifndef __IWMPacketSize_INTERFACE_DEFINED__
+#define __IWMPacketSize_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMPacketSize, 0xcdfb97ab, 0x188f, 0x40b3, 0xb6,0x43, 0x5b,0x79,0x03,0x97,0x5c,0x59);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("cdfb97ab-188f-40b3-b643-5b7903975c59")
+IWMPacketSize : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetMaxPacketSize(
+        DWORD *size) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetMaxPacketSize(
+        DWORD size) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMPacketSize, 0xcdfb97ab, 0x188f, 0x40b3, 0xb6,0x43, 0x5b,0x79,0x03,0x97,0x5c,0x59)
+#endif
+#else
+typedef struct IWMPacketSizeVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMPacketSize* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMPacketSize* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMPacketSize* This);
+
+    /*** IWMPacketSize methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetMaxPacketSize)(
+        IWMPacketSize* This,
+        DWORD *size);
+
+    HRESULT (STDMETHODCALLTYPE *SetMaxPacketSize)(
+        IWMPacketSize* This,
+        DWORD size);
+
+    END_INTERFACE
+} IWMPacketSizeVtbl;
+interface IWMPacketSize {
+    CONST_VTBL IWMPacketSizeVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMPacketSize_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMPacketSize_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMPacketSize_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMPacketSize methods ***/
+#define IWMPacketSize_GetMaxPacketSize(This,size) (This)->lpVtbl->GetMaxPacketSize(This,size)
+#define IWMPacketSize_SetMaxPacketSize(This,size) (This)->lpVtbl->SetMaxPacketSize(This,size)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMPacketSize_QueryInterface(IWMPacketSize* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMPacketSize_AddRef(IWMPacketSize* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMPacketSize_Release(IWMPacketSize* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMPacketSize methods ***/
+static FORCEINLINE HRESULT IWMPacketSize_GetMaxPacketSize(IWMPacketSize* This,DWORD *size) {
+    return This->lpVtbl->GetMaxPacketSize(This,size);
+}
+static FORCEINLINE HRESULT IWMPacketSize_SetMaxPacketSize(IWMPacketSize* This,DWORD size) {
+    return This->lpVtbl->SetMaxPacketSize(This,size);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMPacketSize_GetMaxPacketSize_Proxy(
+    IWMPacketSize* This,
+    DWORD *size);
+void __RPC_STUB IWMPacketSize_GetMaxPacketSize_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMPacketSize_SetMaxPacketSize_Proxy(
+    IWMPacketSize* This,
+    DWORD size);
+void __RPC_STUB IWMPacketSize_SetMaxPacketSize_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMPacketSize_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMPacketSize2 interface
+ */
+#ifndef __IWMPacketSize2_INTERFACE_DEFINED__
+#define __IWMPacketSize2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMPacketSize2, 0x8bfc2b9e, 0xb646, 0x4233, 0xa8,0x77, 0x1c,0x6a,0x07,0x96,0x69,0xdc);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("8bfc2b9e-b646-4233-a877-1c6a079669dc")
+IWMPacketSize2 : public IWMPacketSize
+{
+    virtual HRESULT STDMETHODCALLTYPE GetMinPacketSize(
+        DWORD *size) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetMinPacketSize(
+        DWORD size) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMPacketSize2, 0x8bfc2b9e, 0xb646, 0x4233, 0xa8,0x77, 0x1c,0x6a,0x07,0x96,0x69,0xdc)
+#endif
+#else
+typedef struct IWMPacketSize2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMPacketSize2* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMPacketSize2* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMPacketSize2* This);
+
+    /*** IWMPacketSize methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetMaxPacketSize)(
+        IWMPacketSize2* This,
+        DWORD *size);
+
+    HRESULT (STDMETHODCALLTYPE *SetMaxPacketSize)(
+        IWMPacketSize2* This,
+        DWORD size);
+
+    /*** IWMPacketSize2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetMinPacketSize)(
+        IWMPacketSize2* This,
+        DWORD *size);
+
+    HRESULT (STDMETHODCALLTYPE *SetMinPacketSize)(
+        IWMPacketSize2* This,
+        DWORD size);
+
+    END_INTERFACE
+} IWMPacketSize2Vtbl;
+interface IWMPacketSize2 {
+    CONST_VTBL IWMPacketSize2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMPacketSize2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMPacketSize2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMPacketSize2_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMPacketSize methods ***/
+#define IWMPacketSize2_GetMaxPacketSize(This,size) (This)->lpVtbl->GetMaxPacketSize(This,size)
+#define IWMPacketSize2_SetMaxPacketSize(This,size) (This)->lpVtbl->SetMaxPacketSize(This,size)
+/*** IWMPacketSize2 methods ***/
+#define IWMPacketSize2_GetMinPacketSize(This,size) (This)->lpVtbl->GetMinPacketSize(This,size)
+#define IWMPacketSize2_SetMinPacketSize(This,size) (This)->lpVtbl->SetMinPacketSize(This,size)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMPacketSize2_QueryInterface(IWMPacketSize2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMPacketSize2_AddRef(IWMPacketSize2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMPacketSize2_Release(IWMPacketSize2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMPacketSize methods ***/
+static FORCEINLINE HRESULT IWMPacketSize2_GetMaxPacketSize(IWMPacketSize2* This,DWORD *size) {
+    return This->lpVtbl->GetMaxPacketSize(This,size);
+}
+static FORCEINLINE HRESULT IWMPacketSize2_SetMaxPacketSize(IWMPacketSize2* This,DWORD size) {
+    return This->lpVtbl->SetMaxPacketSize(This,size);
+}
+/*** IWMPacketSize2 methods ***/
+static FORCEINLINE HRESULT IWMPacketSize2_GetMinPacketSize(IWMPacketSize2* This,DWORD *size) {
+    return This->lpVtbl->GetMinPacketSize(This,size);
+}
+static FORCEINLINE HRESULT IWMPacketSize2_SetMinPacketSize(IWMPacketSize2* This,DWORD size) {
+    return This->lpVtbl->SetMinPacketSize(This,size);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMPacketSize2_GetMinPacketSize_Proxy(
+    IWMPacketSize2* This,
+    DWORD *size);
+void __RPC_STUB IWMPacketSize2_GetMinPacketSize_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMPacketSize2_SetMinPacketSize_Proxy(
+    IWMPacketSize2* This,
+    DWORD size);
+void __RPC_STUB IWMPacketSize2_SetMinPacketSize_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMPacketSize2_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMDRMReader interface
+ */
+#ifndef __IWMDRMReader_INTERFACE_DEFINED__
+#define __IWMDRMReader_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMDRMReader, 0xd2827540, 0x3ee7, 0x432c, 0xb1,0x4c, 0xdc,0x17,0xf0,0x85,0xd3,0xb3);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("d2827540-3ee7-432c-b14c-dc17f085d3b3")
+IWMDRMReader : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE AcquireLicense(
+        DWORD flags) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CancelLicenseAcquisition(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Individualize(
+        DWORD flags) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CancelIndividualization(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE MonitorLicenseAcquisition(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CancelMonitorLicenseAcquisition(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetDRMProperty(
+        const WCHAR *name,
+        WMT_ATTR_DATATYPE type,
+        const BYTE *value,
+        WORD length) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDRMProperty(
+        const WCHAR *name,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        WORD *length) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMDRMReader, 0xd2827540, 0x3ee7, 0x432c, 0xb1,0x4c, 0xdc,0x17,0xf0,0x85,0xd3,0xb3)
+#endif
+#else
+typedef struct IWMDRMReaderVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMDRMReader* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMDRMReader* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMDRMReader* This);
+
+    /*** IWMDRMReader methods ***/
+    HRESULT (STDMETHODCALLTYPE *AcquireLicense)(
+        IWMDRMReader* This,
+        DWORD flags);
+
+    HRESULT (STDMETHODCALLTYPE *CancelLicenseAcquisition)(
+        IWMDRMReader* This);
+
+    HRESULT (STDMETHODCALLTYPE *Individualize)(
+        IWMDRMReader* This,
+        DWORD flags);
+
+    HRESULT (STDMETHODCALLTYPE *CancelIndividualization)(
+        IWMDRMReader* This);
+
+    HRESULT (STDMETHODCALLTYPE *MonitorLicenseAcquisition)(
+        IWMDRMReader* This);
+
+    HRESULT (STDMETHODCALLTYPE *CancelMonitorLicenseAcquisition)(
+        IWMDRMReader* This);
+
+    HRESULT (STDMETHODCALLTYPE *SetDRMProperty)(
+        IWMDRMReader* This,
+        const WCHAR *name,
+        WMT_ATTR_DATATYPE type,
+        const BYTE *value,
+        WORD length);
+
+    HRESULT (STDMETHODCALLTYPE *GetDRMProperty)(
+        IWMDRMReader* This,
+        const WCHAR *name,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        WORD *length);
+
+    END_INTERFACE
+} IWMDRMReaderVtbl;
+interface IWMDRMReader {
+    CONST_VTBL IWMDRMReaderVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMDRMReader_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMDRMReader_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMDRMReader_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMDRMReader methods ***/
+#define IWMDRMReader_AcquireLicense(This,flags) (This)->lpVtbl->AcquireLicense(This,flags)
+#define IWMDRMReader_CancelLicenseAcquisition(This) (This)->lpVtbl->CancelLicenseAcquisition(This)
+#define IWMDRMReader_Individualize(This,flags) (This)->lpVtbl->Individualize(This,flags)
+#define IWMDRMReader_CancelIndividualization(This) (This)->lpVtbl->CancelIndividualization(This)
+#define IWMDRMReader_MonitorLicenseAcquisition(This) (This)->lpVtbl->MonitorLicenseAcquisition(This)
+#define IWMDRMReader_CancelMonitorLicenseAcquisition(This) (This)->lpVtbl->CancelMonitorLicenseAcquisition(This)
+#define IWMDRMReader_SetDRMProperty(This,name,type,value,length) (This)->lpVtbl->SetDRMProperty(This,name,type,value,length)
+#define IWMDRMReader_GetDRMProperty(This,name,type,value,length) (This)->lpVtbl->GetDRMProperty(This,name,type,value,length)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMDRMReader_QueryInterface(IWMDRMReader* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMDRMReader_AddRef(IWMDRMReader* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMDRMReader_Release(IWMDRMReader* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMDRMReader methods ***/
+static FORCEINLINE HRESULT IWMDRMReader_AcquireLicense(IWMDRMReader* This,DWORD flags) {
+    return This->lpVtbl->AcquireLicense(This,flags);
+}
+static FORCEINLINE HRESULT IWMDRMReader_CancelLicenseAcquisition(IWMDRMReader* This) {
+    return This->lpVtbl->CancelLicenseAcquisition(This);
+}
+static FORCEINLINE HRESULT IWMDRMReader_Individualize(IWMDRMReader* This,DWORD flags) {
+    return This->lpVtbl->Individualize(This,flags);
+}
+static FORCEINLINE HRESULT IWMDRMReader_CancelIndividualization(IWMDRMReader* This) {
+    return This->lpVtbl->CancelIndividualization(This);
+}
+static FORCEINLINE HRESULT IWMDRMReader_MonitorLicenseAcquisition(IWMDRMReader* This) {
+    return This->lpVtbl->MonitorLicenseAcquisition(This);
+}
+static FORCEINLINE HRESULT IWMDRMReader_CancelMonitorLicenseAcquisition(IWMDRMReader* This) {
+    return This->lpVtbl->CancelMonitorLicenseAcquisition(This);
+}
+static FORCEINLINE HRESULT IWMDRMReader_SetDRMProperty(IWMDRMReader* This,const WCHAR *name,WMT_ATTR_DATATYPE type,const BYTE *value,WORD length) {
+    return This->lpVtbl->SetDRMProperty(This,name,type,value,length);
+}
+static FORCEINLINE HRESULT IWMDRMReader_GetDRMProperty(IWMDRMReader* This,const WCHAR *name,WMT_ATTR_DATATYPE *type,BYTE *value,WORD *length) {
+    return This->lpVtbl->GetDRMProperty(This,name,type,value,length);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMDRMReader_AcquireLicense_Proxy(
+    IWMDRMReader* This,
+    DWORD flags);
+void __RPC_STUB IWMDRMReader_AcquireLicense_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMDRMReader_CancelLicenseAcquisition_Proxy(
+    IWMDRMReader* This);
+void __RPC_STUB IWMDRMReader_CancelLicenseAcquisition_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMDRMReader_Individualize_Proxy(
+    IWMDRMReader* This,
+    DWORD flags);
+void __RPC_STUB IWMDRMReader_Individualize_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMDRMReader_CancelIndividualization_Proxy(
+    IWMDRMReader* This);
+void __RPC_STUB IWMDRMReader_CancelIndividualization_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMDRMReader_MonitorLicenseAcquisition_Proxy(
+    IWMDRMReader* This);
+void __RPC_STUB IWMDRMReader_MonitorLicenseAcquisition_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMDRMReader_CancelMonitorLicenseAcquisition_Proxy(
+    IWMDRMReader* This);
+void __RPC_STUB IWMDRMReader_CancelMonitorLicenseAcquisition_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMDRMReader_SetDRMProperty_Proxy(
+    IWMDRMReader* This,
+    const WCHAR *name,
+    WMT_ATTR_DATATYPE type,
+    const BYTE *value,
+    WORD length);
+void __RPC_STUB IWMDRMReader_SetDRMProperty_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMDRMReader_GetDRMProperty_Proxy(
+    IWMDRMReader* This,
+    const WCHAR *name,
+    WMT_ATTR_DATATYPE *type,
+    BYTE *value,
+    WORD *length);
+void __RPC_STUB IWMDRMReader_GetDRMProperty_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMDRMReader_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMDRMReader2 interface
+ */
+#ifndef __IWMDRMReader2_INTERFACE_DEFINED__
+#define __IWMDRMReader2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMDRMReader2, 0xbefe7a75, 0x9f1d, 0x4075, 0xb9,0xd9, 0xa3,0xc3,0x7b,0xda,0x49,0xa0);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("befe7a75-9f1d-4075-b9d9-a3c37bda49a0")
+IWMDRMReader2 : public IWMDRMReader
+{
+    virtual HRESULT STDMETHODCALLTYPE SetEvaluateOutputLevelLicenses(
+        WINBOOL evaluate) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPlayOutputLevels(
+        DRM_PLAY_OPL *play,
+        DWORD *length,
+        DWORD *level) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCopyOutputLevels(
+        DRM_COPY_OPL *copy,
+        DWORD *length,
+        DWORD *level) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE TryNextLicense(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMDRMReader2, 0xbefe7a75, 0x9f1d, 0x4075, 0xb9,0xd9, 0xa3,0xc3,0x7b,0xda,0x49,0xa0)
+#endif
+#else
+typedef struct IWMDRMReader2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMDRMReader2* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMDRMReader2* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMDRMReader2* This);
+
+    /*** IWMDRMReader methods ***/
+    HRESULT (STDMETHODCALLTYPE *AcquireLicense)(
+        IWMDRMReader2* This,
+        DWORD flags);
+
+    HRESULT (STDMETHODCALLTYPE *CancelLicenseAcquisition)(
+        IWMDRMReader2* This);
+
+    HRESULT (STDMETHODCALLTYPE *Individualize)(
+        IWMDRMReader2* This,
+        DWORD flags);
+
+    HRESULT (STDMETHODCALLTYPE *CancelIndividualization)(
+        IWMDRMReader2* This);
+
+    HRESULT (STDMETHODCALLTYPE *MonitorLicenseAcquisition)(
+        IWMDRMReader2* This);
+
+    HRESULT (STDMETHODCALLTYPE *CancelMonitorLicenseAcquisition)(
+        IWMDRMReader2* This);
+
+    HRESULT (STDMETHODCALLTYPE *SetDRMProperty)(
+        IWMDRMReader2* This,
+        const WCHAR *name,
+        WMT_ATTR_DATATYPE type,
+        const BYTE *value,
+        WORD length);
+
+    HRESULT (STDMETHODCALLTYPE *GetDRMProperty)(
+        IWMDRMReader2* This,
+        const WCHAR *name,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        WORD *length);
+
+    /*** IWMDRMReader2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetEvaluateOutputLevelLicenses)(
+        IWMDRMReader2* This,
+        WINBOOL evaluate);
+
+    HRESULT (STDMETHODCALLTYPE *GetPlayOutputLevels)(
+        IWMDRMReader2* This,
+        DRM_PLAY_OPL *play,
+        DWORD *length,
+        DWORD *level);
+
+    HRESULT (STDMETHODCALLTYPE *GetCopyOutputLevels)(
+        IWMDRMReader2* This,
+        DRM_COPY_OPL *copy,
+        DWORD *length,
+        DWORD *level);
+
+    HRESULT (STDMETHODCALLTYPE *TryNextLicense)(
+        IWMDRMReader2* This);
+
+    END_INTERFACE
+} IWMDRMReader2Vtbl;
+interface IWMDRMReader2 {
+    CONST_VTBL IWMDRMReader2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMDRMReader2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMDRMReader2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMDRMReader2_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMDRMReader methods ***/
+#define IWMDRMReader2_AcquireLicense(This,flags) (This)->lpVtbl->AcquireLicense(This,flags)
+#define IWMDRMReader2_CancelLicenseAcquisition(This) (This)->lpVtbl->CancelLicenseAcquisition(This)
+#define IWMDRMReader2_Individualize(This,flags) (This)->lpVtbl->Individualize(This,flags)
+#define IWMDRMReader2_CancelIndividualization(This) (This)->lpVtbl->CancelIndividualization(This)
+#define IWMDRMReader2_MonitorLicenseAcquisition(This) (This)->lpVtbl->MonitorLicenseAcquisition(This)
+#define IWMDRMReader2_CancelMonitorLicenseAcquisition(This) (This)->lpVtbl->CancelMonitorLicenseAcquisition(This)
+#define IWMDRMReader2_SetDRMProperty(This,name,type,value,length) (This)->lpVtbl->SetDRMProperty(This,name,type,value,length)
+#define IWMDRMReader2_GetDRMProperty(This,name,type,value,length) (This)->lpVtbl->GetDRMProperty(This,name,type,value,length)
+/*** IWMDRMReader2 methods ***/
+#define IWMDRMReader2_SetEvaluateOutputLevelLicenses(This,evaluate) (This)->lpVtbl->SetEvaluateOutputLevelLicenses(This,evaluate)
+#define IWMDRMReader2_GetPlayOutputLevels(This,play,length,level) (This)->lpVtbl->GetPlayOutputLevels(This,play,length,level)
+#define IWMDRMReader2_GetCopyOutputLevels(This,copy,length,level) (This)->lpVtbl->GetCopyOutputLevels(This,copy,length,level)
+#define IWMDRMReader2_TryNextLicense(This) (This)->lpVtbl->TryNextLicense(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMDRMReader2_QueryInterface(IWMDRMReader2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMDRMReader2_AddRef(IWMDRMReader2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMDRMReader2_Release(IWMDRMReader2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMDRMReader methods ***/
+static FORCEINLINE HRESULT IWMDRMReader2_AcquireLicense(IWMDRMReader2* This,DWORD flags) {
+    return This->lpVtbl->AcquireLicense(This,flags);
+}
+static FORCEINLINE HRESULT IWMDRMReader2_CancelLicenseAcquisition(IWMDRMReader2* This) {
+    return This->lpVtbl->CancelLicenseAcquisition(This);
+}
+static FORCEINLINE HRESULT IWMDRMReader2_Individualize(IWMDRMReader2* This,DWORD flags) {
+    return This->lpVtbl->Individualize(This,flags);
+}
+static FORCEINLINE HRESULT IWMDRMReader2_CancelIndividualization(IWMDRMReader2* This) {
+    return This->lpVtbl->CancelIndividualization(This);
+}
+static FORCEINLINE HRESULT IWMDRMReader2_MonitorLicenseAcquisition(IWMDRMReader2* This) {
+    return This->lpVtbl->MonitorLicenseAcquisition(This);
+}
+static FORCEINLINE HRESULT IWMDRMReader2_CancelMonitorLicenseAcquisition(IWMDRMReader2* This) {
+    return This->lpVtbl->CancelMonitorLicenseAcquisition(This);
+}
+static FORCEINLINE HRESULT IWMDRMReader2_SetDRMProperty(IWMDRMReader2* This,const WCHAR *name,WMT_ATTR_DATATYPE type,const BYTE *value,WORD length) {
+    return This->lpVtbl->SetDRMProperty(This,name,type,value,length);
+}
+static FORCEINLINE HRESULT IWMDRMReader2_GetDRMProperty(IWMDRMReader2* This,const WCHAR *name,WMT_ATTR_DATATYPE *type,BYTE *value,WORD *length) {
+    return This->lpVtbl->GetDRMProperty(This,name,type,value,length);
+}
+/*** IWMDRMReader2 methods ***/
+static FORCEINLINE HRESULT IWMDRMReader2_SetEvaluateOutputLevelLicenses(IWMDRMReader2* This,WINBOOL evaluate) {
+    return This->lpVtbl->SetEvaluateOutputLevelLicenses(This,evaluate);
+}
+static FORCEINLINE HRESULT IWMDRMReader2_GetPlayOutputLevels(IWMDRMReader2* This,DRM_PLAY_OPL *play,DWORD *length,DWORD *level) {
+    return This->lpVtbl->GetPlayOutputLevels(This,play,length,level);
+}
+static FORCEINLINE HRESULT IWMDRMReader2_GetCopyOutputLevels(IWMDRMReader2* This,DRM_COPY_OPL *copy,DWORD *length,DWORD *level) {
+    return This->lpVtbl->GetCopyOutputLevels(This,copy,length,level);
+}
+static FORCEINLINE HRESULT IWMDRMReader2_TryNextLicense(IWMDRMReader2* This) {
+    return This->lpVtbl->TryNextLicense(This);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMDRMReader2_SetEvaluateOutputLevelLicenses_Proxy(
+    IWMDRMReader2* This,
+    WINBOOL evaluate);
+void __RPC_STUB IWMDRMReader2_SetEvaluateOutputLevelLicenses_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMDRMReader2_GetPlayOutputLevels_Proxy(
+    IWMDRMReader2* This,
+    DRM_PLAY_OPL *play,
+    DWORD *length,
+    DWORD *level);
+void __RPC_STUB IWMDRMReader2_GetPlayOutputLevels_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMDRMReader2_GetCopyOutputLevels_Proxy(
+    IWMDRMReader2* This,
+    DRM_COPY_OPL *copy,
+    DWORD *length,
+    DWORD *level);
+void __RPC_STUB IWMDRMReader2_GetCopyOutputLevels_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMDRMReader2_TryNextLicense_Proxy(
+    IWMDRMReader2* This);
+void __RPC_STUB IWMDRMReader2_TryNextLicense_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMDRMReader2_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMDRMReader3 interface
+ */
+#ifndef __IWMDRMReader3_INTERFACE_DEFINED__
+#define __IWMDRMReader3_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMDRMReader3, 0xe08672de, 0xf1e7, 0x4ff4, 0xa0,0xa3, 0xfc,0x4b,0x08,0xe4,0xca,0xf8);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("e08672de-f1e7-4ff4-a0a3-fc4b08e4caf8")
+IWMDRMReader3 : public IWMDRMReader2
+{
+    virtual HRESULT STDMETHODCALLTYPE GetInclusionList(
+        GUID **guids,
+        DWORD *count) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMDRMReader3, 0xe08672de, 0xf1e7, 0x4ff4, 0xa0,0xa3, 0xfc,0x4b,0x08,0xe4,0xca,0xf8)
+#endif
+#else
+typedef struct IWMDRMReader3Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMDRMReader3* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMDRMReader3* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMDRMReader3* This);
+
+    /*** IWMDRMReader methods ***/
+    HRESULT (STDMETHODCALLTYPE *AcquireLicense)(
+        IWMDRMReader3* This,
+        DWORD flags);
+
+    HRESULT (STDMETHODCALLTYPE *CancelLicenseAcquisition)(
+        IWMDRMReader3* This);
+
+    HRESULT (STDMETHODCALLTYPE *Individualize)(
+        IWMDRMReader3* This,
+        DWORD flags);
+
+    HRESULT (STDMETHODCALLTYPE *CancelIndividualization)(
+        IWMDRMReader3* This);
+
+    HRESULT (STDMETHODCALLTYPE *MonitorLicenseAcquisition)(
+        IWMDRMReader3* This);
+
+    HRESULT (STDMETHODCALLTYPE *CancelMonitorLicenseAcquisition)(
+        IWMDRMReader3* This);
+
+    HRESULT (STDMETHODCALLTYPE *SetDRMProperty)(
+        IWMDRMReader3* This,
+        const WCHAR *name,
+        WMT_ATTR_DATATYPE type,
+        const BYTE *value,
+        WORD length);
+
+    HRESULT (STDMETHODCALLTYPE *GetDRMProperty)(
+        IWMDRMReader3* This,
+        const WCHAR *name,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        WORD *length);
+
+    /*** IWMDRMReader2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetEvaluateOutputLevelLicenses)(
+        IWMDRMReader3* This,
+        WINBOOL evaluate);
+
+    HRESULT (STDMETHODCALLTYPE *GetPlayOutputLevels)(
+        IWMDRMReader3* This,
+        DRM_PLAY_OPL *play,
+        DWORD *length,
+        DWORD *level);
+
+    HRESULT (STDMETHODCALLTYPE *GetCopyOutputLevels)(
+        IWMDRMReader3* This,
+        DRM_COPY_OPL *copy,
+        DWORD *length,
+        DWORD *level);
+
+    HRESULT (STDMETHODCALLTYPE *TryNextLicense)(
+        IWMDRMReader3* This);
+
+    /*** IWMDRMReader3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetInclusionList)(
+        IWMDRMReader3* This,
+        GUID **guids,
+        DWORD *count);
+
+    END_INTERFACE
+} IWMDRMReader3Vtbl;
+interface IWMDRMReader3 {
+    CONST_VTBL IWMDRMReader3Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMDRMReader3_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMDRMReader3_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMDRMReader3_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMDRMReader methods ***/
+#define IWMDRMReader3_AcquireLicense(This,flags) (This)->lpVtbl->AcquireLicense(This,flags)
+#define IWMDRMReader3_CancelLicenseAcquisition(This) (This)->lpVtbl->CancelLicenseAcquisition(This)
+#define IWMDRMReader3_Individualize(This,flags) (This)->lpVtbl->Individualize(This,flags)
+#define IWMDRMReader3_CancelIndividualization(This) (This)->lpVtbl->CancelIndividualization(This)
+#define IWMDRMReader3_MonitorLicenseAcquisition(This) (This)->lpVtbl->MonitorLicenseAcquisition(This)
+#define IWMDRMReader3_CancelMonitorLicenseAcquisition(This) (This)->lpVtbl->CancelMonitorLicenseAcquisition(This)
+#define IWMDRMReader3_SetDRMProperty(This,name,type,value,length) (This)->lpVtbl->SetDRMProperty(This,name,type,value,length)
+#define IWMDRMReader3_GetDRMProperty(This,name,type,value,length) (This)->lpVtbl->GetDRMProperty(This,name,type,value,length)
+/*** IWMDRMReader2 methods ***/
+#define IWMDRMReader3_SetEvaluateOutputLevelLicenses(This,evaluate) (This)->lpVtbl->SetEvaluateOutputLevelLicenses(This,evaluate)
+#define IWMDRMReader3_GetPlayOutputLevels(This,play,length,level) (This)->lpVtbl->GetPlayOutputLevels(This,play,length,level)
+#define IWMDRMReader3_GetCopyOutputLevels(This,copy,length,level) (This)->lpVtbl->GetCopyOutputLevels(This,copy,length,level)
+#define IWMDRMReader3_TryNextLicense(This) (This)->lpVtbl->TryNextLicense(This)
+/*** IWMDRMReader3 methods ***/
+#define IWMDRMReader3_GetInclusionList(This,guids,count) (This)->lpVtbl->GetInclusionList(This,guids,count)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMDRMReader3_QueryInterface(IWMDRMReader3* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMDRMReader3_AddRef(IWMDRMReader3* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMDRMReader3_Release(IWMDRMReader3* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMDRMReader methods ***/
+static FORCEINLINE HRESULT IWMDRMReader3_AcquireLicense(IWMDRMReader3* This,DWORD flags) {
+    return This->lpVtbl->AcquireLicense(This,flags);
+}
+static FORCEINLINE HRESULT IWMDRMReader3_CancelLicenseAcquisition(IWMDRMReader3* This) {
+    return This->lpVtbl->CancelLicenseAcquisition(This);
+}
+static FORCEINLINE HRESULT IWMDRMReader3_Individualize(IWMDRMReader3* This,DWORD flags) {
+    return This->lpVtbl->Individualize(This,flags);
+}
+static FORCEINLINE HRESULT IWMDRMReader3_CancelIndividualization(IWMDRMReader3* This) {
+    return This->lpVtbl->CancelIndividualization(This);
+}
+static FORCEINLINE HRESULT IWMDRMReader3_MonitorLicenseAcquisition(IWMDRMReader3* This) {
+    return This->lpVtbl->MonitorLicenseAcquisition(This);
+}
+static FORCEINLINE HRESULT IWMDRMReader3_CancelMonitorLicenseAcquisition(IWMDRMReader3* This) {
+    return This->lpVtbl->CancelMonitorLicenseAcquisition(This);
+}
+static FORCEINLINE HRESULT IWMDRMReader3_SetDRMProperty(IWMDRMReader3* This,const WCHAR *name,WMT_ATTR_DATATYPE type,const BYTE *value,WORD length) {
+    return This->lpVtbl->SetDRMProperty(This,name,type,value,length);
+}
+static FORCEINLINE HRESULT IWMDRMReader3_GetDRMProperty(IWMDRMReader3* This,const WCHAR *name,WMT_ATTR_DATATYPE *type,BYTE *value,WORD *length) {
+    return This->lpVtbl->GetDRMProperty(This,name,type,value,length);
+}
+/*** IWMDRMReader2 methods ***/
+static FORCEINLINE HRESULT IWMDRMReader3_SetEvaluateOutputLevelLicenses(IWMDRMReader3* This,WINBOOL evaluate) {
+    return This->lpVtbl->SetEvaluateOutputLevelLicenses(This,evaluate);
+}
+static FORCEINLINE HRESULT IWMDRMReader3_GetPlayOutputLevels(IWMDRMReader3* This,DRM_PLAY_OPL *play,DWORD *length,DWORD *level) {
+    return This->lpVtbl->GetPlayOutputLevels(This,play,length,level);
+}
+static FORCEINLINE HRESULT IWMDRMReader3_GetCopyOutputLevels(IWMDRMReader3* This,DRM_COPY_OPL *copy,DWORD *length,DWORD *level) {
+    return This->lpVtbl->GetCopyOutputLevels(This,copy,length,level);
+}
+static FORCEINLINE HRESULT IWMDRMReader3_TryNextLicense(IWMDRMReader3* This) {
+    return This->lpVtbl->TryNextLicense(This);
+}
+/*** IWMDRMReader3 methods ***/
+static FORCEINLINE HRESULT IWMDRMReader3_GetInclusionList(IWMDRMReader3* This,GUID **guids,DWORD *count) {
+    return This->lpVtbl->GetInclusionList(This,guids,count);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMDRMReader3_GetInclusionList_Proxy(
+    IWMDRMReader3* This,
+    GUID **guids,
+    DWORD *count);
+void __RPC_STUB IWMDRMReader3_GetInclusionList_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMDRMReader3_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMReaderAccelerator interface
+ */
+#ifndef __IWMReaderAccelerator_INTERFACE_DEFINED__
+#define __IWMReaderAccelerator_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMReaderAccelerator, 0xbddc4d08, 0x944d, 0x4d52, 0xa6,0x12, 0x46,0xc3,0xfd,0xa0,0x7d,0xd4);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("bddc4d08-944d-4d52-a612-46c3fda07dd4")
+IWMReaderAccelerator : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetCodecInterface(
+        DWORD output,
+        REFIID riid,
+        void **codec) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Notify(
+        DWORD output,
+        WM_MEDIA_TYPE *subtype) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMReaderAccelerator, 0xbddc4d08, 0x944d, 0x4d52, 0xa6,0x12, 0x46,0xc3,0xfd,0xa0,0x7d,0xd4)
+#endif
+#else
+typedef struct IWMReaderAcceleratorVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMReaderAccelerator* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMReaderAccelerator* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMReaderAccelerator* This);
+
+    /*** IWMReaderAccelerator methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetCodecInterface)(
+        IWMReaderAccelerator* This,
+        DWORD output,
+        REFIID riid,
+        void **codec);
+
+    HRESULT (STDMETHODCALLTYPE *Notify)(
+        IWMReaderAccelerator* This,
+        DWORD output,
+        WM_MEDIA_TYPE *subtype);
+
+    END_INTERFACE
+} IWMReaderAcceleratorVtbl;
+interface IWMReaderAccelerator {
+    CONST_VTBL IWMReaderAcceleratorVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMReaderAccelerator_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMReaderAccelerator_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMReaderAccelerator_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMReaderAccelerator methods ***/
+#define IWMReaderAccelerator_GetCodecInterface(This,output,riid,codec) (This)->lpVtbl->GetCodecInterface(This,output,riid,codec)
+#define IWMReaderAccelerator_Notify(This,output,subtype) (This)->lpVtbl->Notify(This,output,subtype)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMReaderAccelerator_QueryInterface(IWMReaderAccelerator* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMReaderAccelerator_AddRef(IWMReaderAccelerator* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMReaderAccelerator_Release(IWMReaderAccelerator* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMReaderAccelerator methods ***/
+static FORCEINLINE HRESULT IWMReaderAccelerator_GetCodecInterface(IWMReaderAccelerator* This,DWORD output,REFIID riid,void **codec) {
+    return This->lpVtbl->GetCodecInterface(This,output,riid,codec);
+}
+static FORCEINLINE HRESULT IWMReaderAccelerator_Notify(IWMReaderAccelerator* This,DWORD output,WM_MEDIA_TYPE *subtype) {
+    return This->lpVtbl->Notify(This,output,subtype);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMReaderAccelerator_GetCodecInterface_Proxy(
+    IWMReaderAccelerator* This,
+    DWORD output,
+    REFIID riid,
+    void **codec);
+void __RPC_STUB IWMReaderAccelerator_GetCodecInterface_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderAccelerator_Notify_Proxy(
+    IWMReaderAccelerator* This,
+    DWORD output,
+    WM_MEDIA_TYPE *subtype);
+void __RPC_STUB IWMReaderAccelerator_Notify_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMReaderAccelerator_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMReaderTimecode interface
+ */
+#ifndef __IWMReaderTimecode_INTERFACE_DEFINED__
+#define __IWMReaderTimecode_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMReaderTimecode, 0xf369e2f0, 0xe081, 0x4fe6, 0x84,0x50, 0xb8,0x10,0xb2,0xf4,0x10,0xd1);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("f369e2f0-e081-4fe6-8450-b810b2f410d1")
+IWMReaderTimecode : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetTimecodeRangeCount(
+        WORD num,
+        WORD *count) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetTimecodeRangeBounds(
+        WORD stream,
+        WORD range,
+        DWORD *start_timecode,
+        DWORD *end_timecode) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMReaderTimecode, 0xf369e2f0, 0xe081, 0x4fe6, 0x84,0x50, 0xb8,0x10,0xb2,0xf4,0x10,0xd1)
+#endif
+#else
+typedef struct IWMReaderTimecodeVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMReaderTimecode* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMReaderTimecode* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMReaderTimecode* This);
+
+    /*** IWMReaderTimecode methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTimecodeRangeCount)(
+        IWMReaderTimecode* This,
+        WORD num,
+        WORD *count);
+
+    HRESULT (STDMETHODCALLTYPE *GetTimecodeRangeBounds)(
+        IWMReaderTimecode* This,
+        WORD stream,
+        WORD range,
+        DWORD *start_timecode,
+        DWORD *end_timecode);
+
+    END_INTERFACE
+} IWMReaderTimecodeVtbl;
+interface IWMReaderTimecode {
+    CONST_VTBL IWMReaderTimecodeVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMReaderTimecode_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMReaderTimecode_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMReaderTimecode_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMReaderTimecode methods ***/
+#define IWMReaderTimecode_GetTimecodeRangeCount(This,num,count) (This)->lpVtbl->GetTimecodeRangeCount(This,num,count)
+#define IWMReaderTimecode_GetTimecodeRangeBounds(This,stream,range,start_timecode,end_timecode) (This)->lpVtbl->GetTimecodeRangeBounds(This,stream,range,start_timecode,end_timecode)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMReaderTimecode_QueryInterface(IWMReaderTimecode* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMReaderTimecode_AddRef(IWMReaderTimecode* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMReaderTimecode_Release(IWMReaderTimecode* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMReaderTimecode methods ***/
+static FORCEINLINE HRESULT IWMReaderTimecode_GetTimecodeRangeCount(IWMReaderTimecode* This,WORD num,WORD *count) {
+    return This->lpVtbl->GetTimecodeRangeCount(This,num,count);
+}
+static FORCEINLINE HRESULT IWMReaderTimecode_GetTimecodeRangeBounds(IWMReaderTimecode* This,WORD stream,WORD range,DWORD *start_timecode,DWORD *end_timecode) {
+    return This->lpVtbl->GetTimecodeRangeBounds(This,stream,range,start_timecode,end_timecode);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMReaderTimecode_GetTimecodeRangeCount_Proxy(
+    IWMReaderTimecode* This,
+    WORD num,
+    WORD *count);
+void __RPC_STUB IWMReaderTimecode_GetTimecodeRangeCount_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderTimecode_GetTimecodeRangeBounds_Proxy(
+    IWMReaderTimecode* This,
+    WORD stream,
+    WORD range,
+    DWORD *start_timecode,
+    DWORD *end_timecode);
+void __RPC_STUB IWMReaderTimecode_GetTimecodeRangeBounds_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMReaderTimecode_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMReaderTypeNegotiation interface
+ */
+#ifndef __IWMReaderTypeNegotiation_INTERFACE_DEFINED__
+#define __IWMReaderTypeNegotiation_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMReaderTypeNegotiation, 0xfdbe5592, 0x81a1, 0x41ea, 0x93,0xbd, 0x73,0x5c,0xad,0x1a,0xdc,0x05);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("fdbe5592-81a1-41ea-93bd-735cad1adc05")
+IWMReaderTypeNegotiation : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE TryOutputProps(
+        DWORD output,
+        IWMOutputMediaProps *props) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMReaderTypeNegotiation, 0xfdbe5592, 0x81a1, 0x41ea, 0x93,0xbd, 0x73,0x5c,0xad,0x1a,0xdc,0x05)
+#endif
+#else
+typedef struct IWMReaderTypeNegotiationVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMReaderTypeNegotiation* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMReaderTypeNegotiation* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMReaderTypeNegotiation* This);
+
+    /*** IWMReaderTypeNegotiation methods ***/
+    HRESULT (STDMETHODCALLTYPE *TryOutputProps)(
+        IWMReaderTypeNegotiation* This,
+        DWORD output,
+        IWMOutputMediaProps *props);
+
+    END_INTERFACE
+} IWMReaderTypeNegotiationVtbl;
+interface IWMReaderTypeNegotiation {
+    CONST_VTBL IWMReaderTypeNegotiationVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMReaderTypeNegotiation_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMReaderTypeNegotiation_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMReaderTypeNegotiation_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMReaderTypeNegotiation methods ***/
+#define IWMReaderTypeNegotiation_TryOutputProps(This,output,props) (This)->lpVtbl->TryOutputProps(This,output,props)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMReaderTypeNegotiation_QueryInterface(IWMReaderTypeNegotiation* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMReaderTypeNegotiation_AddRef(IWMReaderTypeNegotiation* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMReaderTypeNegotiation_Release(IWMReaderTypeNegotiation* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMReaderTypeNegotiation methods ***/
+static FORCEINLINE HRESULT IWMReaderTypeNegotiation_TryOutputProps(IWMReaderTypeNegotiation* This,DWORD output,IWMOutputMediaProps *props) {
+    return This->lpVtbl->TryOutputProps(This,output,props);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMReaderTypeNegotiation_TryOutputProps_Proxy(
+    IWMReaderTypeNegotiation* This,
+    DWORD output,
+    IWMOutputMediaProps *props);
+void __RPC_STUB IWMReaderTypeNegotiation_TryOutputProps_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMReaderTypeNegotiation_INTERFACE_DEFINED__ */
 
 HRESULT WINAPI WMCreateWriter(IUnknown*,IWMWriter**);
 HRESULT WINAPI WMCreateReader(IUnknown*,DWORD,IWMReader**);

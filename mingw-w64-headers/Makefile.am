@@ -91,6 +91,7 @@ IDL_SRCS = \
   include/documenttarget.idl \
   include/devicetopology.idl \
   include/downloadmgr.idl \
+  include/drmexternals.idl \
   include/dxva2api.idl \
   include/endpointvolume.idl \
   include/exdisp.idl \
@@ -188,6 +189,7 @@ IDL_SRCS = \
   include/windows.storage.streams.idl \
   include/windows.system.threading.idl \
   include/wmcodecdsp.idl \
+  include/wmdrmsdk.idl \
   include/wpcapi.idl \
   include/wtypes.idl \
   include/xmllite.idl \

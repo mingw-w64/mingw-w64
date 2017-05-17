@@ -390,6 +390,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/documenttarget.idl \
 @HAVE_WIDL_TRUE@  include/devicetopology.idl \
 @HAVE_WIDL_TRUE@  include/downloadmgr.idl \
+@HAVE_WIDL_TRUE@  include/drmexternals.idl \
 @HAVE_WIDL_TRUE@  include/dxva2api.idl \
 @HAVE_WIDL_TRUE@  include/endpointvolume.idl \
 @HAVE_WIDL_TRUE@  include/exdisp.idl \
@@ -487,6 +488,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/windows.storage.streams.idl \
 @HAVE_WIDL_TRUE@  include/windows.system.threading.idl \
 @HAVE_WIDL_TRUE@  include/wmcodecdsp.idl \
+@HAVE_WIDL_TRUE@  include/wmdrmsdk.idl \
 @HAVE_WIDL_TRUE@  include/wpcapi.idl \
 @HAVE_WIDL_TRUE@  include/wtypes.idl \
 @HAVE_WIDL_TRUE@  include/xmllite.idl \
