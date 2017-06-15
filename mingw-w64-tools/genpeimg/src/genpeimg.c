@@ -28,7 +28,7 @@ unsigned short mask_pe_opt_hdr_dll_chara = 0xffff;
 int dump_information = 0;
 static char *file_name = NULL;
 
-static void
+static void __attribute__((noreturn))
 show_usage (void)
 {
   fprintf (stderr, "genpeimg [options] files...\n");
@@ -204,6 +204,7 @@ pass_args (int argc, char **argv)
 	case 'h':
 	  if (h[2] == 0)
 	    show_usage ();
+	  /* fallthru */
 	default:
 error_point:
 	  fprintf (stderr, "Unknown option ,%s'\n", h);
