@@ -220,6 +220,7 @@ IDL_SRCS = \
   direct-x/include/vmr9.idl
 
 TLB_SRCS = \
+  tlb/oleacc.idl \
   tlb/stdole2.idl
 
 BUILT_SOURCES = $(IDL_SRCS:.idl=.h) $(TLB_SRCS:.idl=.tlb)

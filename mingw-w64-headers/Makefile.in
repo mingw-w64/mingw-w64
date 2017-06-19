@@ -519,6 +519,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  direct-x/include/vmr9.idl
 
 @HAVE_WIDL_TRUE@TLB_SRCS = \
+@HAVE_WIDL_TRUE@  tlb/oleacc.idl \
 @HAVE_WIDL_TRUE@  tlb/stdole2.idl
 
 @HAVE_WIDL_TRUE@BUILT_SOURCES = $(IDL_SRCS:.idl=.h) $(TLB_SRCS:.idl=.tlb)
