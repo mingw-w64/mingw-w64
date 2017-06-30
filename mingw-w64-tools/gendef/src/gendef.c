@@ -658,7 +658,10 @@ dump_def (void)
       if (exp->name[0] == 0)
         fprintf (fp, "ord_%u", (unsigned int) exp->ord);
       else
-        fprintf (fp, "%s", exp->name);
+        {
+          const char *quote = strchr (exp->name, '.') ? "\"" : "";
+          fprintf (fp, "%s%s%s", quote, exp->name, quote);
+        }
       if (exp->name[0] == '?' && exp->name[1] == '?')
         {
           if (!strncmp (exp->name, "??_7", 4))
