@@ -203,6 +203,15 @@
 #define _Group_(a)
 #define _When_(e, a)
 
+/* printf/scanf annotations */
+#define _Printf_format_string_
+#define _Scanf_format_string_
+#define _Scanf_s_format_string_
+#define _Format_string_impl_(kind,where)
+#define _Printf_format_string_params_(x)
+#define _Scanf_format_string_params_(x)
+#define _Scanf_s_format_string_params_(x)
+
 /* Analysis */
 #define _Analysis_assume_(expr)
 #define _Analysis_assume_nullterminated_(expr)
