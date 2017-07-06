@@ -1005,6 +1005,7 @@ ReleaseSRWLockExclusive@4
 ReleaseSRWLockShared@4
 ReleaseSemaphore@12
 ReleaseSemaphoreWhenCallbackReturns@12
+ResolveLocaleName@12
 RemoveDirectoryA@4
 RemoveDirectoryTransactedA@8
 RemoveDirectoryTransactedW@8
