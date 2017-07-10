@@ -1420,6 +1420,56 @@ typedef struct D3D11_DEPTH_STENCIL_DESC {
     D3D11_DEPTH_STENCILOP_DESC FrontFace;
     D3D11_DEPTH_STENCILOP_DESC BackFace;
 } D3D11_DEPTH_STENCIL_DESC;
+#if !defined( D3D11_NO_HELPERS ) && defined( __cplusplus )
+struct CD3D11_DEPTH_STENCIL_DESC : public D3D11_DEPTH_STENCIL_DESC {
+    CD3D11_DEPTH_STENCIL_DESC() {}
+    explicit CD3D11_DEPTH_STENCIL_DESC(const D3D11_DEPTH_STENCIL_DESC &other) : D3D11_DEPTH_STENCIL_DESC(other) {}
+    explicit CD3D11_DEPTH_STENCIL_DESC(CD3D11_DEFAULT) {
+        const D3D11_DEPTH_STENCILOP_DESC default_op =
+            {D3D11_STENCIL_OP_KEEP, D3D11_STENCIL_OP_KEEP, D3D11_STENCIL_OP_KEEP, D3D11_COMPARISON_ALWAYS};
+        DepthEnable = TRUE;
+        DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;
+        DepthFunc = D3D11_COMPARISON_LESS;
+        StencilEnable = FALSE;
+        StencilReadMask = D3D11_DEFAULT_STENCIL_READ_MASK;
+        StencilWriteMask = D3D11_DEFAULT_STENCIL_WRITE_MASK;
+        FrontFace = default_op;
+        BackFace = default_op;
+    }
+    explicit CD3D11_DEPTH_STENCIL_DESC(
+            WINBOOL depth_enable,
+            D3D11_DEPTH_WRITE_MASK depth_write_mask,
+            D3D11_COMPARISON_FUNC depth_func,
+            WINBOOL stencil_enable,
+            UINT8 stencil_read_mask,
+            UINT8 stencil_write_mask,
+            D3D11_STENCIL_OP front_stencil_fail_op,
+            D3D11_STENCIL_OP front_stencil_depth_fail_op,
+            D3D11_STENCIL_OP front_stencil_pass_op,
+            D3D11_COMPARISON_FUNC front_stencil_func,
+            D3D11_STENCIL_OP back_stencil_fail_op,
+            D3D11_STENCIL_OP back_stencil_depth_fail_op,
+            D3D11_STENCIL_OP back_stencil_pass_op,
+            D3D11_COMPARISON_FUNC back_stencil_func) {
+        DepthEnable = depth_enable;
+        DepthWriteMask = depth_write_mask;
+        DepthFunc = depth_func;
+        StencilEnable = stencil_enable;
+        StencilReadMask = stencil_read_mask;
+        StencilWriteMask = stencil_write_mask;
+        FrontFace.StencilFailOp = front_stencil_fail_op;
+        FrontFace.StencilDepthFailOp = front_stencil_depth_fail_op;
+        FrontFace.StencilPassOp = front_stencil_pass_op;
+        FrontFace.StencilFunc = front_stencil_func;
+        BackFace.StencilFailOp = back_stencil_fail_op;
+        BackFace.StencilDepthFailOp = back_stencil_depth_fail_op;
+        BackFace.StencilPassOp = back_stencil_pass_op;
+        BackFace.StencilFunc = back_stencil_func;
+    }
+    ~CD3D11_DEPTH_STENCIL_DESC() {}
+    operator const D3D11_DEPTH_STENCIL_DESC&() const { return *this; }
+};
+#endif
 typedef struct D3D11_RENDER_TARGET_VIEW_DESC {
     DXGI_FORMAT Format;
     D3D11_RTV_DIMENSION ViewDimension;

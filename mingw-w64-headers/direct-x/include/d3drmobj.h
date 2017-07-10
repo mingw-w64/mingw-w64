@@ -2336,7 +2336,7 @@ DECLARE_INTERFACE_(IDirect3DRMFace,IDirect3DRMObject)
 #define IDirect3DRMFace_GetVertexCount(p)                 (p)->lpVtbl->GetVertexCount(p)
 #define IDirect3DRMFace_GetVertexIndex(p,a)               (p)->lpVtbl->GetVertexIndex(p,a)
 #define IDirect3DRMFace_GetTextureCoordinateIndex(p,a)    (p)->lpVtbl->GetTextureCoordinateIndex(p,a)
-#define IDirect3DRMFace_GetColor(p,a)                     (p)->lpVtbl->GetColor(p,a)
+#define IDirect3DRMFace_GetColor(p)                       (p)->lpVtbl->GetColor(p)
 #else
 /*** IUnknown methods ***/
 #define IDirect3DRMFace_QueryInterface(p,a,b)             (p)->QueryInterface(a,b)
@@ -2369,7 +2369,7 @@ DECLARE_INTERFACE_(IDirect3DRMFace,IDirect3DRMObject)
 #define IDirect3DRMFace_GetVertexCount(p)                 (p)->GetVertexCount()
 #define IDirect3DRMFace_GetVertexIndex(p,a)               (p)->GetVertexIndex(a)
 #define IDirect3DRMFace_GetTextureCoordinateIndex(p,a)    (p)->GetTextureCoordinateIndex(a)
-#define IDirect3DRMFace_GetColor(p,a)                     (p)->GetColor(a)
+#define IDirect3DRMFace_GetColor(p)                       (p)->GetColor()
 #endif
 
 /*****************************************************************************
@@ -2446,7 +2446,7 @@ DECLARE_INTERFACE_(IDirect3DRMFace2,IDirect3DRMObject)
 #define IDirect3DRMFace2_GetVertexCount(p)                 (p)->lpVtbl->GetVertexCount(p)
 #define IDirect3DRMFace2_GetVertexIndex(p,a)               (p)->lpVtbl->GetVertexIndex(p,a)
 #define IDirect3DRMFace2_GetTextureCoordinateIndex(p,a)    (p)->lpVtbl->GetTextureCoordinateIndex(p,a)
-#define IDirect3DRMFace2_GetColor(p,a)                     (p)->lpVtbl->GetColor(p,a)
+#define IDirect3DRMFace2_GetColor(p)                       (p)->lpVtbl->GetColor(p)
 #else
 /*** IUnknown methods ***/
 #define IDirect3DRMFace2_QueryInterface(p,a,b)             (p)->QueryInterface(a,b)
@@ -2479,7 +2479,7 @@ DECLARE_INTERFACE_(IDirect3DRMFace2,IDirect3DRMObject)
 #define IDirect3DRMFace2_GetVertexCount(p)                 (p)->GetVertexCount()
 #define IDirect3DRMFace2_GetVertexIndex(p,a)               (p)->GetVertexIndex(a)
 #define IDirect3DRMFace2_GetTextureCoordinateIndex(p,a)    (p)->GetTextureCoordinateIndex(a)
-#define IDirect3DRMFace2_GetColor(p,a)                     (p)->GetColor(a)
+#define IDirect3DRMFace2_GetColor(p)                       (p)->GetColor()
 #endif
 
 /*****************************************************************************

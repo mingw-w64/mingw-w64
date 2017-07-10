@@ -52,6 +52,7 @@ HRESULT WINAPI UiaGetReservedMixedAttributeValue(IUnknown **value);
 HRESULT WINAPI UiaGetReservedNotSupportedValue(IUnknown **value);
 int WINAPI UiaLookupId(enum AutomationIdentifierType type, const GUID *guid);
 WINBOOL WINAPI UiaPatternRelease(HUIAPATTERNOBJECT hobj);
+HRESULT WINAPI UiaRaiseAutomationEvent(IRawElementProviderSimple *provider, EVENTID id);
 LRESULT WINAPI UiaReturnRawElementProvider(HWND hwnd, WPARAM wParam, LPARAM lParam, IRawElementProviderSimple *elprov);
 WINBOOL WINAPI UiaTextRangeRelease(HUIATEXTRANGE hobj);
 

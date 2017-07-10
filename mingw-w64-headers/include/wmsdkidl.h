@@ -232,6 +232,16 @@ typedef interface IWMReaderTimecode IWMReaderTimecode;
 typedef interface IWMReaderTypeNegotiation IWMReaderTypeNegotiation;
 #endif
 
+#ifndef __IWMLanguageList_FWD_DEFINED__
+#define __IWMLanguageList_FWD_DEFINED__
+typedef interface IWMLanguageList IWMLanguageList;
+#endif
+
+#ifndef __IWMReaderPlaylistBurn_FWD_DEFINED__
+#define __IWMReaderPlaylistBurn_FWD_DEFINED__
+typedef interface IWMReaderPlaylistBurn IWMReaderPlaylistBurn;
+#endif
+
 /* Headers for imported files */
 
 #include <oaidl.h>
@@ -12260,6 +12270,288 @@ void __RPC_STUB IWMReaderTypeNegotiation_TryOutputProps_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __IWMReaderTypeNegotiation_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMLanguageList interface
+ */
+#ifndef __IWMLanguageList_INTERFACE_DEFINED__
+#define __IWMLanguageList_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMLanguageList, 0xdf683f00, 0x2d49, 0x4d8e, 0x92,0xb7, 0xfb,0x19,0xf6,0xa0,0xdc,0x57);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("df683f00-2d49-4d8e-92b7-fb19f6a0dc57")
+IWMLanguageList : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetLanguageCount(
+        WORD *count) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetLanguageDetails(
+        WORD index,
+        WCHAR *language,
+        WORD *length) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AddLanguageByRFC1766String(
+        LPCWSTR_WMSDK_TYPE_SAFE language,
+        WORD *index) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMLanguageList, 0xdf683f00, 0x2d49, 0x4d8e, 0x92,0xb7, 0xfb,0x19,0xf6,0xa0,0xdc,0x57)
+#endif
+#else
+typedef struct IWMLanguageListVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMLanguageList* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMLanguageList* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMLanguageList* This);
+
+    /*** IWMLanguageList methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetLanguageCount)(
+        IWMLanguageList* This,
+        WORD *count);
+
+    HRESULT (STDMETHODCALLTYPE *GetLanguageDetails)(
+        IWMLanguageList* This,
+        WORD index,
+        WCHAR *language,
+        WORD *length);
+
+    HRESULT (STDMETHODCALLTYPE *AddLanguageByRFC1766String)(
+        IWMLanguageList* This,
+        LPCWSTR_WMSDK_TYPE_SAFE language,
+        WORD *index);
+
+    END_INTERFACE
+} IWMLanguageListVtbl;
+interface IWMLanguageList {
+    CONST_VTBL IWMLanguageListVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMLanguageList_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMLanguageList_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMLanguageList_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMLanguageList methods ***/
+#define IWMLanguageList_GetLanguageCount(This,count) (This)->lpVtbl->GetLanguageCount(This,count)
+#define IWMLanguageList_GetLanguageDetails(This,index,language,length) (This)->lpVtbl->GetLanguageDetails(This,index,language,length)
+#define IWMLanguageList_AddLanguageByRFC1766String(This,language,index) (This)->lpVtbl->AddLanguageByRFC1766String(This,language,index)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMLanguageList_QueryInterface(IWMLanguageList* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMLanguageList_AddRef(IWMLanguageList* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMLanguageList_Release(IWMLanguageList* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMLanguageList methods ***/
+static FORCEINLINE HRESULT IWMLanguageList_GetLanguageCount(IWMLanguageList* This,WORD *count) {
+    return This->lpVtbl->GetLanguageCount(This,count);
+}
+static FORCEINLINE HRESULT IWMLanguageList_GetLanguageDetails(IWMLanguageList* This,WORD index,WCHAR *language,WORD *length) {
+    return This->lpVtbl->GetLanguageDetails(This,index,language,length);
+}
+static FORCEINLINE HRESULT IWMLanguageList_AddLanguageByRFC1766String(IWMLanguageList* This,LPCWSTR_WMSDK_TYPE_SAFE language,WORD *index) {
+    return This->lpVtbl->AddLanguageByRFC1766String(This,language,index);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMLanguageList_GetLanguageCount_Proxy(
+    IWMLanguageList* This,
+    WORD *count);
+void __RPC_STUB IWMLanguageList_GetLanguageCount_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMLanguageList_GetLanguageDetails_Proxy(
+    IWMLanguageList* This,
+    WORD index,
+    WCHAR *language,
+    WORD *length);
+void __RPC_STUB IWMLanguageList_GetLanguageDetails_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMLanguageList_AddLanguageByRFC1766String_Proxy(
+    IWMLanguageList* This,
+    LPCWSTR_WMSDK_TYPE_SAFE language,
+    WORD *index);
+void __RPC_STUB IWMLanguageList_AddLanguageByRFC1766String_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMLanguageList_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMReaderPlaylistBurn interface
+ */
+#ifndef __IWMReaderPlaylistBurn_INTERFACE_DEFINED__
+#define __IWMReaderPlaylistBurn_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMReaderPlaylistBurn, 0xf28c0300, 0x9baa, 0x4477, 0xa8,0x46, 0x17,0x44,0xd9,0xcb,0xf5,0x33);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("f28c0300-9baa-4477-a846-1744d9cbf533")
+IWMReaderPlaylistBurn : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE InitPlaylistBurn(
+        DWORD count,
+        LPCWSTR_WMSDK_TYPE_SAFE *filenames,
+        IWMStatusCallback *callback,
+        void *context) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetInitResults(
+        DWORD count,
+        HRESULT *stat) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Cancel(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EndPlaylistBurn(
+        HRESULT result) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMReaderPlaylistBurn, 0xf28c0300, 0x9baa, 0x4477, 0xa8,0x46, 0x17,0x44,0xd9,0xcb,0xf5,0x33)
+#endif
+#else
+typedef struct IWMReaderPlaylistBurnVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMReaderPlaylistBurn* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMReaderPlaylistBurn* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMReaderPlaylistBurn* This);
+
+    /*** IWMReaderPlaylistBurn methods ***/
+    HRESULT (STDMETHODCALLTYPE *InitPlaylistBurn)(
+        IWMReaderPlaylistBurn* This,
+        DWORD count,
+        LPCWSTR_WMSDK_TYPE_SAFE *filenames,
+        IWMStatusCallback *callback,
+        void *context);
+
+    HRESULT (STDMETHODCALLTYPE *GetInitResults)(
+        IWMReaderPlaylistBurn* This,
+        DWORD count,
+        HRESULT *stat);
+
+    HRESULT (STDMETHODCALLTYPE *Cancel)(
+        IWMReaderPlaylistBurn* This);
+
+    HRESULT (STDMETHODCALLTYPE *EndPlaylistBurn)(
+        IWMReaderPlaylistBurn* This,
+        HRESULT result);
+
+    END_INTERFACE
+} IWMReaderPlaylistBurnVtbl;
+interface IWMReaderPlaylistBurn {
+    CONST_VTBL IWMReaderPlaylistBurnVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMReaderPlaylistBurn_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMReaderPlaylistBurn_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMReaderPlaylistBurn_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMReaderPlaylistBurn methods ***/
+#define IWMReaderPlaylistBurn_InitPlaylistBurn(This,count,filenames,callback,context) (This)->lpVtbl->InitPlaylistBurn(This,count,filenames,callback,context)
+#define IWMReaderPlaylistBurn_GetInitResults(This,count,stat) (This)->lpVtbl->GetInitResults(This,count,stat)
+#define IWMReaderPlaylistBurn_Cancel(This) (This)->lpVtbl->Cancel(This)
+#define IWMReaderPlaylistBurn_EndPlaylistBurn(This,result) (This)->lpVtbl->EndPlaylistBurn(This,result)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMReaderPlaylistBurn_QueryInterface(IWMReaderPlaylistBurn* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMReaderPlaylistBurn_AddRef(IWMReaderPlaylistBurn* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMReaderPlaylistBurn_Release(IWMReaderPlaylistBurn* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMReaderPlaylistBurn methods ***/
+static FORCEINLINE HRESULT IWMReaderPlaylistBurn_InitPlaylistBurn(IWMReaderPlaylistBurn* This,DWORD count,LPCWSTR_WMSDK_TYPE_SAFE *filenames,IWMStatusCallback *callback,void *context) {
+    return This->lpVtbl->InitPlaylistBurn(This,count,filenames,callback,context);
+}
+static FORCEINLINE HRESULT IWMReaderPlaylistBurn_GetInitResults(IWMReaderPlaylistBurn* This,DWORD count,HRESULT *stat) {
+    return This->lpVtbl->GetInitResults(This,count,stat);
+}
+static FORCEINLINE HRESULT IWMReaderPlaylistBurn_Cancel(IWMReaderPlaylistBurn* This) {
+    return This->lpVtbl->Cancel(This);
+}
+static FORCEINLINE HRESULT IWMReaderPlaylistBurn_EndPlaylistBurn(IWMReaderPlaylistBurn* This,HRESULT result) {
+    return This->lpVtbl->EndPlaylistBurn(This,result);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IWMReaderPlaylistBurn_InitPlaylistBurn_Proxy(
+    IWMReaderPlaylistBurn* This,
+    DWORD count,
+    LPCWSTR_WMSDK_TYPE_SAFE *filenames,
+    IWMStatusCallback *callback,
+    void *context);
+void __RPC_STUB IWMReaderPlaylistBurn_InitPlaylistBurn_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderPlaylistBurn_GetInitResults_Proxy(
+    IWMReaderPlaylistBurn* This,
+    DWORD count,
+    HRESULT *stat);
+void __RPC_STUB IWMReaderPlaylistBurn_GetInitResults_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderPlaylistBurn_Cancel_Proxy(
+    IWMReaderPlaylistBurn* This);
+void __RPC_STUB IWMReaderPlaylistBurn_Cancel_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IWMReaderPlaylistBurn_EndPlaylistBurn_Proxy(
+    IWMReaderPlaylistBurn* This,
+    HRESULT result);
+void __RPC_STUB IWMReaderPlaylistBurn_EndPlaylistBurn_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IWMReaderPlaylistBurn_INTERFACE_DEFINED__ */
 
 HRESULT WINAPI WMCreateWriter(IUnknown*,IWMWriter**);
 HRESULT WINAPI WMCreateReader(IUnknown*,DWORD,IWMReader**);
