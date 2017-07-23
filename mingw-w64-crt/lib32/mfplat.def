@@ -118,6 +118,7 @@ MFShutdown@0
 MFStartup@8
 MFStreamDescriptorProtectMediaType@8
 MFTEnum@40
+MFTEnumEx@36
 MFTGetInfo@40
 MFTRegister@60
 MFTUnregister@16
