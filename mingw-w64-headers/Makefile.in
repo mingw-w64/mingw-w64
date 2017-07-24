@@ -458,6 +458,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/tpcshrd.idl \
 @HAVE_WIDL_TRUE@  include/textstor.idl \
 @HAVE_WIDL_TRUE@  include/tuner.idl \
+@HAVE_WIDL_TRUE@  include/uianimation.idl \
 @HAVE_WIDL_TRUE@  include/uiautomationclient.idl \
 @HAVE_WIDL_TRUE@  include/uiautomationcore.idl \
 @HAVE_WIDL_TRUE@  include/uiviewsettingsinterop.idl \

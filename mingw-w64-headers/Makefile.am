@@ -159,6 +159,7 @@ IDL_SRCS = \
   include/tpcshrd.idl \
   include/textstor.idl \
   include/tuner.idl \
+  include/uianimation.idl \
   include/uiautomationclient.idl \
   include/uiautomationcore.idl \
   include/uiviewsettingsinterop.idl \
