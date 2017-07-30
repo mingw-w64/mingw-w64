@@ -351,7 +351,7 @@ src_libmingwexarm32=\
   math/softmath/sinf.c      math/softmath/sinl.c      math/softmath/tanf.c      math/softmath/tanl.c
 else
 src_libmingwexarm32=\
-  math/arm/exp2.c           math/arm/log2.c           math/arm/scalbn.c
+  math/arm/exp2.c           math/arm/log2.c           math/arm/scalbn.c         math/arm/sincos.c
 endif
 
 
