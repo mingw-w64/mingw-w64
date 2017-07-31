@@ -26,7 +26,7 @@ extern wchar_t *** __MINGW_IMP_SYMBOL(__winitenv);
 #define __winitenv (* __MINGW_IMP_SYMBOL(__winitenv))
 #endif
 
-#if !defined(__initenv) && !defined(__arm__)
+#if !defined(__initenv) && !defined(__arm__) && !defined(__aarch64__)
 extern char *** __MINGW_IMP_SYMBOL(__initenv);
 #define __initenv (* __MINGW_IMP_SYMBOL(__initenv))
 #endif
@@ -328,7 +328,7 @@ __tmainCRTStartup (void)
        gcc inserts this call automatically for a function called main, but not for wmain.  */
     mainret = wmain (argc, argv, envp);
 #else
-#ifndef __arm__
+#if !defined(__arm__) && !defined(__aarch64__)
     __initenv = envp;
 #endif
     mainret = main (argc, argv, envp);
