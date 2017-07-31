@@ -30,7 +30,7 @@ int __signbitl (long double x) {
     __mingw_fp_types_t ld;
     ld.ld = &x;
     return ((ld.ldt->lh.sign_exponent & 0x8000) != 0);
-#elif defined(__arm__) || defined(_ARM_)
+#elif defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
     return __signbit(x);
 #elif defined(__i386__) || defined(_X86_)
   unsigned short sw;

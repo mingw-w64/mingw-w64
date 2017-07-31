@@ -16,7 +16,7 @@ typedef union __mingw_dbl_type_t {
 
 int __signbit (double x)
 {
-#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
     __mingw_dbl_type_t hlp;
     
     hlp.x = x;

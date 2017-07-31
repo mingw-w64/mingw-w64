@@ -207,7 +207,7 @@ extern "C" {
 #if !defined (__ia64__)
   __CRT_INLINE float __cdecl fabsf (float x)
   {
-#if defined(__x86_64__) || defined(__arm__)
+#if defined(__x86_64__) || defined(__arm__) || defined(__aarch64__)
     return __builtin_fabsf (x);
 #else
     float res = 0.0F;
@@ -218,7 +218,7 @@ extern "C" {
 
   __CRT_INLINE long double __cdecl fabsl (long double x)
   {
-#ifdef __arm__
+#if defined(__arm__) || defined(__aarch64__)
     return __builtin_fabsl (x);
 #else
     long double res = 0.0l;
@@ -229,7 +229,7 @@ extern "C" {
 
   __CRT_INLINE double __cdecl fabs (double x)
   {
-#if defined(__x86_64__) || defined(__arm__)
+#if defined(__x86_64__) || defined(__arm__) || defined(__aarch64__)
     return __builtin_fabs (x);
 #else
     double res = 0.0;
@@ -427,7 +427,7 @@ typedef long double double_t;
       return (((hlp.ldt->lh.high & 0x7fffffff) | hlp.ldt->lh.low) == 0 ?
               FP_INFINITE : FP_NAN);
     return FP_NORMAL;
-#elif defined(__arm__) || defined(_ARM_)
+#elif defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
     return __fpclassify(x);
 #elif defined(__i386__) || defined(_X86_)
     unsigned short sw;
@@ -436,7 +436,7 @@ typedef long double double_t;
 #endif
   }
   __CRT_INLINE int __cdecl __fpclassify (double x) {
-#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
     __mingw_fp_types_t hlp;
     unsigned int l, h;
 
@@ -458,7 +458,7 @@ typedef long double double_t;
 #endif
   }
   __CRT_INLINE int __cdecl __fpclassifyf (float x) {
-#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
     __mingw_fp_types_t hlp;
 
     hlp.f = &x;
@@ -524,7 +524,7 @@ __mingw_choose_expr (                                         \
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl __isnan (double _x)
   {
-#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
     __mingw_fp_types_t hlp;
     int l, h;
 
@@ -545,7 +545,7 @@ __mingw_choose_expr (                                         \
 
   __CRT_INLINE int __cdecl __isnanf (float _x)
   {
-#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
     __mingw_fp_types_t hlp;
     int i;
     
@@ -574,7 +574,7 @@ __mingw_choose_expr (                                         \
     signexp |= (unsigned int) (xx | (-xx)) >> 31;
     signexp = 0xfffe - signexp;
     return (int) ((unsigned int) signexp) >> 16;
-#elif defined(__arm__) || defined(_ARM_)
+#elif defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
     return __isnan(_x);
 #elif defined(__i386__) || defined(_X86_)
     unsigned short sw;
@@ -609,7 +609,7 @@ __mingw_choose_expr (                                         \
   extern int __cdecl __signbitl (long double);
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl __signbit (double x) {
-#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
     __mingw_fp_types_t hlp;
 
     hlp.d = &x;
@@ -622,7 +622,7 @@ __mingw_choose_expr (                                         \
   }
 
   __CRT_INLINE int __cdecl __signbitf (float x) {
-#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
     __mingw_fp_types_t hlp;
     hlp.f = &x;
     return ((hlp.ft->val & 0x80000000) != 0);
@@ -638,7 +638,7 @@ __mingw_choose_expr (                                         \
     __mingw_fp_types_t ld;
     ld.ld = &x;
     return ((ld.ldt->lh.sign_exponent & 0x8000) != 0);
-#elif defined(__arm__) || defined(_ARM_)
+#elif defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
     return __signbit(x);
 #elif defined(__i386__) || defined(_X86_)
     unsigned short stw;
@@ -788,7 +788,7 @@ __mingw_choose_expr (                                         \
 #if 0 /*defined(__GNUC__) && defined(__FAST_MATH__)*/
   __CRT_INLINE double __cdecl logb (double x)
   {
-#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
   __mingw_fp_types_t hlp;
   int lx, hx;
 
@@ -812,7 +812,7 @@ __mingw_choose_expr (                                         \
 
   __CRT_INLINE float __cdecl logbf (float x)
   {
-#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_)
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
     int v;
     __mingw_fp_types_t hlp;
 
@@ -835,7 +835,7 @@ __mingw_choose_expr (                                         \
 
   __CRT_INLINE long double __cdecl logbl (long double x)
   {
-#if defined(__arm__) || defined(_ARM_)
+#if defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
   __mingw_fp_types_t hlp;
   int lx, hx;
 
