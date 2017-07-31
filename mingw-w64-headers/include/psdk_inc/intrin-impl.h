@@ -152,6 +152,24 @@ __INTRINSICS_USEINLINE
       : "memory", "cc"); \
    return (old >> Offset) & 1; \
 }
+#elif defined(__aarch64__) || defined(_ARM64_)
+#define __buildbittesti(x, y, z, a, b) unsigned char x(b y *Base, y Offset) \
+{ \
+   unsigned int old, tmp1, tmp2; \
+   unsigned int bit = 1 << Offset; \
+   __asm__ __volatile__ ("dmb	sy\n\t" \
+        "1: ldxr	%w[old], %[Base]\n\t" \
+        "mov	%w[tmp1], %w[old]\n\t" \
+        z "	%w[tmp1], %w[tmp1], %w[bit]\n\t" \
+        "stxr	%w[tmp2], %w[tmp1], %[Base]\n\t" \
+        "cmp	%w[tmp2], #0\n\t" \
+        "b.ne	1b\n\t" \
+        "dmb	sy" \
+      : [old] "=&r" (old), [tmp1] "=&r" (tmp1), [tmp2] "=&r" (tmp2), [Base] "+m" (*Base) \
+      : [bit] a "r" (bit) \
+      : "memory", "cc"); \
+   return (old >> Offset) & 1; \
+}
 #endif /* defined(__x86_64__) || defined(_AMD64_) || defined(__i386__) || defined(_X86_) */
 
 /* This macro is used by YieldProcessor when compiling x86 w/o SSE2.
@@ -1069,6 +1087,133 @@ __buildbittesti(InterlockedBitTestAndComplement, __LONG32, "eor", /* unused para
 
 #endif /* defined(__arm__) || defined(_ARM_) */
 
+#if defined(__aarch64__) || defined(_ARM64_)
+
+#if __INTRINSIC_PROLOG(_interlockedbittestandset)
+unsigned char _interlockedbittestandset(__LONG32 *a, __LONG32 b);
+#if !__has_builtin(_interlockedbittestandset)
+__INTRINSICS_USEINLINE 
+__buildbittesti(_interlockedbittestandset, __LONG32, "orr", /* unused param */, /* unused param */)
+#endif
+#define __INTRINSIC_DEFINED__interlockedbittestandset
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_interlockedbittestandreset)
+unsigned char _interlockedbittestandreset(__LONG32 *a, __LONG32 b);
+__INTRINSICS_USEINLINE 
+#if !__has_builtin(_interlockedbittestandreset)
+__buildbittesti(_interlockedbittestandreset, __LONG32, "bic", /* unused param */, /* unused param */)
+#endif
+#define __INTRINSIC_DEFINED__interlockedbittestandreset
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_interlockedbittestandcomplement)
+unsigned char _interlockedbittestandcomplement(__LONG32 *a, __LONG32 b);
+#if !__has_builtin(_interlockedbittestandcomplement)
+__INTRINSICS_USEINLINE 
+__buildbittesti(_interlockedbittestandcomplement, __LONG32, "eor", /* unused param */, /* unused param */)
+#endif
+#define __INTRINSIC_DEFINED__interlockedbittestandcomplement
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(InterlockedBitTestAndSet)
+unsigned char InterlockedBitTestAndSet(volatile __LONG32 *a, __LONG32 b);
+#if !__has_builtin(InterlockedBitTestAndSet)
+__INTRINSICS_USEINLINE 
+__buildbittesti(InterlockedBitTestAndSet, __LONG32, "orr", /* unused param */, volatile)
+#endif
+#define __INTRINSIC_DEFINED_InterlockedBitTestAndSet
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(InterlockedBitTestAndReset)
+unsigned char InterlockedBitTestAndReset(volatile __LONG32 *a, __LONG32 b);
+#if !__has_builtin(InterlockedBitTestAndReset)
+__INTRINSICS_USEINLINE 
+__buildbittesti(InterlockedBitTestAndReset, __LONG32, "bic", /* unused param */, volatile)
+#endif
+#define __INTRINSIC_DEFINED_InterlockedBitTestAndReset
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(InterlockedBitTestAndComplement)
+unsigned char InterlockedBitTestAndComplement(volatile __LONG32 *a, __LONG32 b);
+#if !__has_builtin(InterlockedBitTestAndComplement)
+__INTRINSICS_USEINLINE 
+__buildbittesti(InterlockedBitTestAndComplement, __LONG32, "eor", /* unused param */, volatile)
+#endif
+#define __INTRINSIC_DEFINED_InterlockedBitTestAndComplement
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_InterlockedAnd64)
+__MINGW_EXTENSION __int64 _InterlockedAnd64(__int64 volatile *, __int64);
+#if !__has_builtin(_InterlockedAnd64)
+__INTRINSICS_USEINLINE 
+__buildlogicali(_InterlockedAnd64, __int64, and)
+#endif
+#define __INTRINSIC_DEFINED__InterlockedAnd64
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_InterlockedOr64)
+__MINGW_EXTENSION __int64 _InterlockedOr64(__int64 volatile *, __int64);
+#if !__has_builtin(_InterlockedOr64)
+__INTRINSICS_USEINLINE 
+__buildlogicali(_InterlockedOr64, __int64, or)
+#endif
+#define __INTRINSIC_DEFINED__InterlockedOr64
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_InterlockedXor64)
+__MINGW_EXTENSION __int64 _InterlockedXor64(__int64 volatile *, __int64);
+#if !__has_builtin(_InterlockedXor64)
+__INTRINSICS_USEINLINE 
+__buildlogicali(_InterlockedXor64, __int64, xor)
+#endif
+#define __INTRINSIC_DEFINED__InterlockedXor64
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_InterlockedIncrement64)
+__MINGW_EXTENSION __int64 _InterlockedIncrement64(__int64 volatile *Addend);
+#if !__has_builtin(_InterlockedIncrement64)
+__MINGW_EXTENSION __INTRINSICS_USEINLINE 
+__int64 _InterlockedIncrement64(__int64 volatile *Addend) {
+    return __sync_add_and_fetch(Addend, 1);
+}
+#endif
+#define __INTRINSIC_DEFINED__InterlockedIncrement64
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_InterlockedDecrement64)
+__MINGW_EXTENSION __int64 _InterlockedDecrement64(__int64 volatile *Addend);
+#if !__has_builtin(_InterlockedDecrement64)
+__MINGW_EXTENSION __INTRINSICS_USEINLINE 
+__int64 _InterlockedDecrement64(__int64 volatile *Addend) {
+    return __sync_sub_and_fetch(Addend, 1);
+}
+#endif
+#define __INTRINSIC_DEFINED__InterlockedDecrement64
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_InterlockedExchange64)
+__MINGW_EXTENSION __int64 _InterlockedExchange64(__int64 volatile *Target, __int64 Value);
+#if !__has_builtin(_InterlockedExchange64)
+__MINGW_EXTENSION __INTRINSICS_USEINLINE 
+__int64 _InterlockedExchange64(__int64 volatile *Target, __int64 Value) {
+    return __sync_lock_test_and_set(Target, Value);
+}
+#endif
+#define __INTRINSIC_DEFINED__InterlockedExchange64
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_InterlockedExchangeAdd64)
+__MINGW_EXTENSION __int64 _InterlockedExchangeAdd64(__int64 volatile *Addend, __int64 Value);
+#if !__has_builtin(_InterlockedExchangeAdd64)
+__MINGW_EXTENSION __INTRINSICS_USEINLINE 
+__int64 _InterlockedExchangeAdd64(__int64 volatile *Addend, __int64 Value) {
+    return __sync_fetch_and_add(Addend, Value);
+}
+#endif
+#define __INTRINSIC_DEFINED__InterlockedExchangeAdd64
+#endif /* __INTRINSIC_PROLOG */
+#endif /* defined(__aarch64__) || define(_ARM64_) */
 /* ***************************************************** */
 
 #if defined(__x86_64__) || defined(_AMD64_) || defined(__i386__) || defined(_X86_) || defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
