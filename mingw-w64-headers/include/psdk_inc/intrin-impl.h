@@ -1071,7 +1071,7 @@ __buildbittesti(InterlockedBitTestAndComplement, __LONG32, "eor", /* unused para
 
 /* ***************************************************** */
 
-#if defined(__x86_64__) || defined(_AMD64_) || defined(__i386__) || defined(_X86_) || defined(__arm__) || defined(_ARM_)
+#if defined(__x86_64__) || defined(_AMD64_) || defined(__i386__) || defined(_X86_) || defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
 
 #if __INTRINSIC_PROLOG(__popcnt16)
 unsigned short __popcnt16(unsigned short);
@@ -1279,7 +1279,7 @@ void *_InterlockedExchangePointer(void *volatile *Target,void *Value) {
 #define __INTRINSIC_DEFINED__InterlockedExchangePointer
 #endif /* __INTRINSIC_PROLOG */
 
-#endif /* defined(__x86_64__) || defined(_AMD64_) || defined(__i386__) || defined(_X86_) || defined(__arm__) || defined(_ARM_) */
+#endif /* defined(__x86_64__) || defined(_AMD64_) || defined(__i386__) || defined(_X86_) || defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_) */
 
 #if defined(__x86_64__) || defined(_AMD64_) || defined(__i386__) || defined(_X86_)
 
