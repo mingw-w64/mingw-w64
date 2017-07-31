@@ -14,7 +14,7 @@ extern "C" {
 #endif
 
 #if !defined (NOWINBASEINTERLOCK) && !defined (_NTOS_)
-#if !defined (__x86_64__) && !defined (__ia64__) && !defined (__arm__)
+#if !defined (__x86_64__) && !defined (__ia64__) && !defined (__arm__) && !defined (__aarch64__)
   WINBASEAPI LONG WINAPI InterlockedIncrement (LONG volatile *lpAddend);
   WINBASEAPI LONG WINAPI InterlockedDecrement (LONG volatile *lpAddend);
   WINBASEAPI LONG WINAPI InterlockedExchange (LONG volatile *Target, LONG Value);
