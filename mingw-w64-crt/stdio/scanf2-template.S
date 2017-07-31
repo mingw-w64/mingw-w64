@@ -11,11 +11,11 @@
         .p2align 4,,15
         .globl  FCT
         .def    FCT;    .scl    2;      .type   32;     .endef
-#ifdef _WIN64
+#ifdef __x86_64__
         .seh_proc       FCT
 #endif
 FCT:
-#ifdef _WIN64
+#ifdef __x64_86__
         .seh_endprologue
 #endif
 #if defined(_AMD64_) || defined(__x86_64__) || defined(_X86_) || defined(__i386__)
@@ -26,7 +26,7 @@ FCT:
 #elif defined(_ARM64_) || defined(__aarch64__)
         b       FWD
 #endif
-#ifdef _WIN64
+#ifdef __x86_64__
         .seh_endproc
 #endif
         .def    FWD;  .scl    2;      .type   32;     .endef
