@@ -7,9 +7,9 @@
 #include <fenv.h>
 #include <float.h>
 
-#if !(defined(_ARM_) || defined(__arm__))
+#if !(defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__))
 extern int __mingw_has_sse (void);
-#endif /* !(defined(_ARM_) || defined(__arm__)) */
+#endif /* !(defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__)) */
 
 /* 7.6.4.3
    The fesetenv function establishes the floating-point environment
@@ -32,6 +32,14 @@ int fesetenv (const fenv_t * envp)
     _fpreset();
   else
     __asm__ volatile ("fmxr FPSCR, %0" : : "r" (*envp));
+#elif defined(_ARM64_) || defined(__aarch64__)
+  if (envp == FE_DFL_ENV) {
+    /* Use the choice made at app startup */
+    _fpreset();
+  } else {
+    unsigned __int64 fpcr = envp->__cw;
+    __asm__ volatile ("msr fpcr, %0" : : "r" (fpcr));
+  }
 #else
   if (envp == FE_PC64_ENV)
    /*
@@ -70,6 +78,6 @@ int fesetenv (const fenv_t * envp)
         __asm__ volatile ("ldmxcsr %0" : : "m" (*&_mxcsr));
     }
 
-#endif /* defined(_ARM_) || defined(__arm__) */
+#endif /* defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__) */
   return 0;
 }

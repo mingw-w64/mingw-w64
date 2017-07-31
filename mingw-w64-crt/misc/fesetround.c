@@ -5,9 +5,9 @@
  */
 #include <fenv.h>
 
-#if !(defined(_ARM_) || defined(__arm__))
+#if !(defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__))
 int __mingw_has_sse (void);
-#endif /* !(defined(_ARM_) || defined(__arm__)) */
+#endif /* !(defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__)) */
 
  /* 7.6.3.2
     The fesetround function establishes the rounding direction
@@ -25,6 +25,14 @@ int fesetround (int mode)
   _env.__cw &= ~(FE_TONEAREST | FE_DOWNWARD |  FE_UPWARD | FE_TOWARDZERO);
   _env.__cw |= mode;
   __asm__ volatile ("fmxr FPSCR, %0" : : "r" (_env));
+#elif defined(_ARM64_) || defined(__aarch64__)
+  unsigned __int64 fpcr;
+  if ((mode & ~(FE_TONEAREST | FE_DOWNWARD | FE_UPWARD | FE_TOWARDZERO)) != 0)
+    return -1;
+  __asm__ volatile ("mrs %0, fpcr" : "=r" (fpcr));
+  fpcr &= ~(FE_TONEAREST | FE_DOWNWARD |  FE_UPWARD | FE_TOWARDZERO);
+  fpcr |= mode;
+  __asm__ volatile ("msr fpcr, %0" : : "r" (fpcr));
 #else
   unsigned short _cw;
   if ((mode & ~(FE_TONEAREST | FE_DOWNWARD | FE_UPWARD | FE_TOWARDZERO))
@@ -44,6 +52,6 @@ int fesetround (int mode)
       mxcsr |= mode << 3;
       __asm__ volatile ("ldmxcsr %0" : : "m" (*&mxcsr));
     }
-#endif /* defined(_ARM_) || defined(__arm__) */
+#endif /* defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__) */
   return 0;
 }
