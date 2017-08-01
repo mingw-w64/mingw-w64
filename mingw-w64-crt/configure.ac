@@ -119,6 +119,26 @@ AS_VAR_IF([enable_libarm32],[yes],[
   AS_IF([AS_VAR_TEST_SET([LIB32]) || AS_VAR_TEST_SET([LIB64])],
     [AC_MSG_WARN([Building the runtime to use libarm32 with lib32 or lib64 is unsupported.])])])
 
+AC_MSG_CHECKING([whether to build the WinARM64 libraries])
+AC_ARG_ENABLE([libarm64],
+  [AS_HELP_STRING([--enable-libarm64],
+    [Build the WinARM64 libraries])],
+  [],
+  [AS_CASE([$host_cpu],
+    [aarch64*],[enable_libarm64=yes],
+    [*],[enable_libarm64=no])
+  ])
+AC_MSG_RESULT([$enable_libarm64])
+AS_CASE([$enable_libarm64],
+  [no],[],
+  [yes],[AS_VAR_SET([LIBARM64])],
+  [AC_MSG_ERROR([invalid argument.  Must be either yes or no.])])
+AM_CONDITIONAL([LIBARM64], [AS_VAR_TEST_SET([LIBARM64])])
+
+AS_VAR_IF([enable_libarm64],[yes],[
+  AS_IF([AS_VAR_TEST_SET([LIB32]) || AS_VAR_TEST_SET([LIB64]) || AS_VAR_TEST_SET([LIBARM32])],
+    [AC_MSG_WARN([Building the runtime to use libarm64 with lib32, lib64 or libarm32 is unsupported.])])])
+
 AS_CASE([$host_cpu],
   [x86_64],[
     libx8664suffx=lib
@@ -342,6 +362,7 @@ AC_MSG_NOTICE([])
 AC_MSG_NOTICE([Configuration Options Summary:])
 AC_MSG_NOTICE([])
 AC_MSG_NOTICE([  WinARM32 runtime.....: $enable_libarm32])
+AC_MSG_NOTICE([  WinARM64 runtime.....: $enable_libarm64])
 AC_MSG_NOTICE([  Win32 runtime........: $enable_lib32])
 AC_MSG_NOTICE([  Win64 runtime........: $enable_lib64])
 AC_MSG_NOTICE([  C Warning Flags......: $ADD_C_ONLY_WARNING_FLAGS])

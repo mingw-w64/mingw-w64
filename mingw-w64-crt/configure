@@ -653,6 +653,8 @@ LIBARM32SUFFIXDIR
 LIBARM64SUFFIXDIR
 LIBX8632SUFFIXDIR
 LIBX8664SUFFIXDIR
+LIBARM64_FALSE
+LIBARM64_TRUE
 LIBARM32_FALSE
 LIBARM32_TRUE
 LIB64_FALSE
@@ -786,6 +788,7 @@ enable_w32api
 enable_lib32
 enable_lib64
 enable_libarm32
+enable_libarm64
 with_genlib
 enable_wildcard
 enable_private_exports
@@ -1440,6 +1443,7 @@ Optional Features:
   --enable-lib32          Build the Win32 libraries
   --enable-lib64          Build the Win64 libraries
   --enable-libarm32       Build the WinARM32 libraries
+  --enable-libarm64       Build the WinARM64 libraries
   --enable-wildcard       Enable command line globbing
   --enable-private-exports
                           Enable exporting private internal functions
@@ -5431,6 +5435,50 @@ $as_echo "$as_me: WARNING: Building the runtime to use libarm32 with lib32 or li
 fi
 fi
 
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to build the WinARM64 libraries" >&5
+$as_echo_n "checking whether to build the WinARM64 libraries... " >&6; }
+# Check whether --enable-libarm64 was given.
+if test "${enable_libarm64+set}" = set; then :
+  enableval=$enable_libarm64;
+else
+  case $host_cpu in #(
+  aarch64*) :
+    enable_libarm64=yes ;; #(
+  *) :
+    enable_libarm64=no ;; #(
+  *) :
+     ;;
+esac
+
+fi
+
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_libarm64" >&5
+$as_echo "$enable_libarm64" >&6; }
+case $enable_libarm64 in #(
+  no) :
+     ;; #(
+  yes) :
+    LIBARM64= ;; #(
+  *) :
+    as_fn_error $? "invalid argument.  Must be either yes or no." "$LINENO" 5 ;;
+esac
+ if ${LIBARM64+:} false; then
+  LIBARM64_TRUE=
+  LIBARM64_FALSE='#'
+else
+  LIBARM64_TRUE='#'
+  LIBARM64_FALSE=
+fi
+
+
+if test "x$enable_libarm64" = xyes; then :
+
+  if ${LIB32+:} false || ${LIB64+:} false || ${LIBARM32+:} false; then :
+  { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: Building the runtime to use libarm64 with lib32, lib64 or libarm32 is unsupported." >&5
+$as_echo "$as_me: WARNING: Building the runtime to use libarm64 with lib32, lib64 or libarm32 is unsupported." >&2;}
+fi
+fi
+
 case $host_cpu in #(
   x86_64) :
 
@@ -6327,6 +6375,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${LIBARM32_TRUE}" && test -z "${LIBARM32_FALSE}"; then
   as_fn_error $? "conditional \"LIBARM32\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${LIBARM64_TRUE}" && test -z "${LIBARM64_FALSE}"; then
+  as_fn_error $? "conditional \"LIBARM64\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${WITH_GENLIB_TRUE}" && test -z "${WITH_GENLIB_FALSE}"; then
@@ -7705,6 +7757,8 @@ $as_echo "$as_me: Configuration Options Summary:" >&6;}
 $as_echo "$as_me: " >&6;}
 { $as_echo "$as_me:${as_lineno-$LINENO}:   WinARM32 runtime.....: $enable_libarm32" >&5
 $as_echo "$as_me:   WinARM32 runtime.....: $enable_libarm32" >&6;}
+{ $as_echo "$as_me:${as_lineno-$LINENO}:   WinARM64 runtime.....: $enable_libarm64" >&5
+$as_echo "$as_me:   WinARM64 runtime.....: $enable_libarm64" >&6;}
 { $as_echo "$as_me:${as_lineno-$LINENO}:   Win32 runtime........: $enable_lib32" >&5
 $as_echo "$as_me:   Win32 runtime........: $enable_lib32" >&6;}
 { $as_echo "$as_me:${as_lineno-$LINENO}:   Win64 runtime........: $enable_lib64" >&5

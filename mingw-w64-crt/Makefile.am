@@ -28,17 +28,21 @@ CPPFLAGS64=-m64
 if WITH_GENLIB
   AM_DLLTOOLFLAGS=-o $@
   DLLTOOLFLAGSARM32=-a arm
+  DLLTOOLFLAGSARM64=
   DLLTOOLFLAGS32=-a x86
   DLLTOOLFLAGS64=-a x86_64
   DTDEFARM32=$(GENLIB) $(DLLTOOLFLAGSARM32) $(AM_DLLTOOLFLAGS)
+  DTDEFARM64=$(GENLIB) $(DLLTOOLFLAGSARM64) $(AM_DLLTOOLFLAGS)
   DTDEF32=$(GENLIB) $(DLLTOOLFLAGS32) $(AM_DLLTOOLFLAGS)
   DTDEF64=$(GENLIB) $(DLLTOOLFLAGS64) $(AM_DLLTOOLFLAGS)
 else
   AM_DLLTOOLFLAGS=-k --as=$(AS) --output-lib $@
   DLLTOOLFLAGSARM32=-m arm
+  DLLTOOLFLAGSARM64=-m arm64
   DLLTOOLFLAGS32=--as-flags=--32 -m i386
   DLLTOOLFLAGS64=--as-flags=--64 -m i386:x86-64
   DTDEFARM32=$(DLLTOOL) $(DLLTOOLFLAGSARM32) $(AM_DLLTOOLFLAGS) --input-def
+  DTDEFARM64=$(DLLTOOL) $(DLLTOOLFLAGSARM64) $(AM_DLLTOOLFLAGS) --input-def
   DTDEF32=$(DLLTOOL) $(DLLTOOLFLAGS32) $(AM_DLLTOOLFLAGS) --input-def
   DTDEF64=$(DLLTOOL) $(DLLTOOLFLAGS64) $(AM_DLLTOOLFLAGS) --input-def
 endif
@@ -46,9 +50,11 @@ if DELAY_IMPORT_LIBS
   AM_DLLTOOLFLAGS += --output-delaylib $@.delayimp.a
 endif
 DTLIBARM32=$(DTDEFARM32) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
+DTLIBARM64=$(DTDEFARM64) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
 DTLIB32=$(DTDEF32) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
 DTLIB64=$(DTDEF64) $(top_srcdir)/`echo $@ | $(SED) 's|/lib|/|;s|\.a|.def|'`
 LDFLAGSARM32= -L$(top_builddir)/libarm32
+LDFLAGSARM64= -L$(top_builddir)/libarm64
 LDFLAGS32=-m32 -L$(top_builddir)/lib32
 LDFLAGS64=-m64 -L$(top_builddir)/lib64
 extra_include=-I$(top_srcdir)/include
@@ -346,6 +352,8 @@ src_libmingwexarm32+=\
   math/arm/exp2.c           math/arm/log2.c           math/arm/scalbn.c         math/arm/sincos.c
 endif
 
+# these only go into the ARM64 version:
+src_libmingwexarm64=
 
 
 # These intrinsics are target independent:
@@ -384,6 +392,9 @@ src_intrincs32=\
 
 # these only go into the ARM32 version:
 src_intrincsarm32=
+
+# these only go into the ARM64 version:
+src_intrincsarm64=
 
 if LIB32
 #########
@@ -1249,6 +1260,256 @@ endif
 # End ARM 32-bit runtime
 # ##########
 
+if LIBARM64
+#########
+# Compiling ARM 64-bit runtime
+#
+
+libarm64dir=$(prefix)/@LIBARM64SUFFIXDIR@
+crt64dir=$(libarm64dir)
+winrt64dir=$(libarm64dir)
+dx64dir=$(libarm64dir)
+
+if !W32API
+crt64_DATA = \
+  libarm64/crt1.o    libarm64/crt2.o     libarm64/crt1u.o   libarm64/crt2u.o    libarm64/dllcrt1.o    libarm64/dllcrt2.o \
+  libarm64/CRT_fp8.o libarm64/CRT_fp10.o libarm64/txtmode.o libarm64/binmode.o  libarm64/crtbegin.o   libarm64/crtend.o \
+  libarm64/gcrt0.o   libarm64/gcrt1.o    libarm64/gcrt2.o   libarm64/CRT_glob.o libarm64/CRT_noglob.o
+else
+crt64_DATA =
+endif
+
+COMPILE64=$(COMPILE) $(CPPFLAGSARM64) $(extra_include) -D_SYSCRT=1 -DCRTDLL=1
+libarm64/crt1.o: crt/crtexe.c
+	$(COMPILE64) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
+libarm64/crt2.o: crt/crtexe.c
+	$(COMPILE64) -c $< -o $@ -U__CRTDLL__ -D__MSVCRT__
+libarm64/crt1u.o: crt/ucrtexe.c
+	$(COMPILE64) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
+libarm64/crt2u.o: crt/ucrtexe.c
+	$(COMPILE64) -c $< -o $@ -U__CRTDLL__ -D__MSVCRT__
+libarm64/dllcrt1.o: crt/crtdll.c
+	$(COMPILE64) -c $< -o $@ -D__CRTDLL__ -U__MSVCRT__
+libarm64/dllcrt2.o: crt/crtdll.c
+	$(COMPILE64) -c $< -o $@ -U__CRTDLL__ -D__MSVCRT__
+
+libarm64/gcrt0.o: profile/gcrt0.c
+	$(COMPILE) $(CPPFLAGSARM64) -c $< -o $@
+libarm64/gcrt1.o: profile/gcrt0.c
+	$(COMPILE) $(CPPFLAGSARM64) -c $< -o $@ -U__MSVCRT__
+libarm64/gcrt2.o: profile/gcrt0.c
+	$(COMPILE) $(CPPFLAGSARM64) -c $< -o $@ -D__MSVCRT__
+
+libarm64/%.o: crt/%.c
+	$(COMPILE) $(CPPFLAGSARM64) -c $< -o $@
+
+# These source files aren't compiled in to any library yet.  I'm not sure how / where to do so.
+# The source files that I did compile somewhere I just guessed at anyway.
+#
+
+temp= \
+dxerr.c \
+test.c
+
+libarm64_LIBRARIES = libarm64/libkernel32.a
+libarm64_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincsarm64) lib-common/kernel32.def.in
+libarm64_libkernel32_a_AR = $(DTDEFARM64) libarm64/kernel32.def && $(AR) $(ARFLAGS)
+libarm64_libkernel32_a_CPPFLAGS=$(CPPFLAGSARM64) $(extra_include) $(AM_CPPFLAGS)
+EXTRA_libarm64_libkernel32_a_DEPENDENCIES=libarm64/kernel32.def
+
+if !W32API
+libarm64_LIBRARIES += libarm64/libmsvcrt.a
+libarm64_libmsvcrt_a_SOURCES = $(src_msvcrt32) lib-common/msvcrt.def.in
+libarm64_libmsvcrt_a_AR = $(DTDEFARM64) libarm64/msvcrt.def && $(AR) $(ARFLAGS)
+libarm64_libmsvcrt_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
+EXTRA_libarm64_libmsvcrt_a_DEPENDENCIES=libarm64/msvcrt.def
+endif
+
+libarm64_LIBRARIES += libarm64/libshell32.a
+libarm64_libshell32_a_SOURCES = $(src_libshell32)
+libarm64_libshell32_a_AR = $(DTDEFARM64) $(top_srcdir)/lib-common/shell32.def && $(AR) $(ARFLAGS)
+libarm64_libshell32_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libdmoguids.a
+libarm64_libdmoguids_a_SOURCES = $(src_libdmoguids)
+libarm64_libdmoguids_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libdxerr8.a
+libarm64_libdxerr8_a_SOURCES = $(src_libdxerr8)
+libarm64_libdxerr8_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libdxerr9.a
+libarm64_libdxerr9_a_SOURCES = $(src_libdxerr9)
+libarm64_libdxerr9_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libmfuuid.a
+libarm64_libmfuuid_a_SOURCES = $(src_libmfuuid)
+libarm64_libmfuuid_a_CPPFLAGS = $(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libamstrmid.a
+libarm64_libamstrmid_a_SOURCES = $(src_libamstrmid)
+libarm64_libamstrmid_a_CPPFLAGS = $(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libwmcodecdspuuid.a
+libarm64_libwmcodecdspuuid_a_SOURCES = $(src_libwmcodecdspuuid)
+libarm64_libwmcodecdspuuid_a_CPPFLAGS = $(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libwindowscodecs.a
+libarm64_libwindowscodecs_a_SOURCES = $(src_libwindowscodecs)
+libarm64_libwindowscodecs_a_CPPFLAGS = $(CPPFLAGSARM64) $(sysincludes)
+libarm64_libwindowscodecs_a_AR = $(DTDEFARM64) $(top_srcdir)/lib-common/windowscodecs.def && $(AR) $(ARFLAGS)
+
+libarm64_LIBRARIES += libarm64/libwbemuuid.a
+libarm64_libwbemuuid_a_SOURCES = $(src_libwbemuuid)
+libarm64_libwbemuuid_a_CPPFLAGS = $(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libdxguid.a
+libarm64_libdxguid_a_SOURCES = $(src_libdxguid)
+libarm64_libdxguid_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libksuser.a
+libarm64_libksuser_a_SOURCES = $(src_libksuser)
+libarm64_libksuser_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+libarm64_libksuser_a_AR = $(DTDEFARM64) $(top_srcdir)/lib-common/ksuser.def && $(AR) $(ARFLAGS)
+
+libarm64_LIBRARIES += libarm64/libksguid.a
+libarm64_libksguid_a_SOURCES = $(src_libksguid)
+libarm64_libksguid_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/liblocationapi.a
+libarm64_liblocationapi_a_SOURCES = $(src_liblocationapi)
+libarm64_liblocationapi_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libsensorsapi.a
+libarm64_libsensorsapi_a_SOURCES = $(src_libsensorsapi)
+libarm64_libsensorsapi_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libsapi.a
+libarm64_libsapi_a_SOURCES = $(src_libsapi)
+libarm64_libsapi_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libportabledeviceguids.a
+libarm64_libportabledeviceguids_a_SOURCES = $(src_libportabledeviceguids)
+libarm64_libportabledeviceguids_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libscrnsave.a
+libarm64_libscrnsave_a_SOURCES = $(src_libscrnsave)
+libarm64_libscrnsave_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libscrnsavw.a
+libarm64_libscrnsavw_a_SOURCES = $(src_libscrnsavw)
+libarm64_libscrnsavw_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+libarm64_libscrnsavw_a_CFLAGS = -DUNICODE
+
+libarm64_LIBRARIES += libarm64/libstrmiids.a
+libarm64_libstrmiids_a_SOURCES = $(src_libstrmiids)
+libarm64_libstrmiids_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libuuid.a
+libarm64_libuuid_a_SOURCES = $(src_libuuid)
+libarm64_libuuid_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libgdiplus.a
+libarm64_libgdiplus_a_SOURCES = $(src_libgdiplus)
+libarm64_libgdiplus_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+libarm64_libgdiplus_a_AR = $(DTDEFARM64) $(top_srcdir)/lib-common/gdiplus.def && $(AR) $(ARFLAGS)
+
+libarm64_LIBRARIES += libarm64/libws2_32.a
+libarm64_libws2_32_a_SOURCES = $(src_libws2_32) lib-common/libws2_32.def.in
+libarm64_libws2_32_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+libarm64_libws2_32_a_AR = $(DTDEFARM64) libarm64/ws2_32.def && $(AR) $(ARFLAGS)
+EXTRA_libarm64_libws2_32_a_DEPENDENCIES=libarm64/ws2_32.def
+
+if !W32API
+libarm64_LIBRARIES += libarm64/libdelayimp.a
+libarm64_libdelayimp_a_SOURCES =
+
+libarm64_LIBRARIES += libarm64/libm.a
+nodist_libarm64_libm_a_SOURCES = $(src_libm)
+libarm64_libm_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+
+#libarm64_LIBRARIES += libarm64/libgmon.a
+#libarm64_libgmon_a_SOURCES = profile/mcount.c \
+#  profile/profil.h profile/profil.c        \
+#  profile/gmon.h   profile/gmon.c \
+#  profile/mcountFunc.S
+#libarm64_libgmon_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/liblargeint.a
+libarm64_liblargeint_a_SOURCES = $(src_liblargeint)
+libarm64_liblargeint_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libmingw32.a
+libarm64_libmingw32_a_CPPFLAGS=$(CPPFLAGSARM64) -D_SYSCRT=1 -DCRTDLL=1 $(extra_include) $(AM_CPPFLAGS)
+libarm64_libmingw32_a_SOURCES = $(src_libmingw32)
+
+libarm64_LIBRARIES += libarm64/libmingwex.a
+libarm64_libmingwex_a_CPPFLAGS=$(CPPFLAGSARM64) $(extra_include) $(AM_CPPFLAGS)
+libarm64_libmingwex_a_SOURCES = $(src_libmingwex) $(src_libmingwexarm64) $(src_dfp_math)
+
+libarm64_LIBRARIES += libarm64/libmoldname.a
+libarm64_libmoldname_a_CPPFLAGS=$(CPPFLAGSARM64) $(extra_include) $(AM_CPPFLAGS)
+libarm64_libmoldname_a_SOURCES = $(src_libm)
+
+libarm64_LIBRARIES += libarm64/libmingwthrd.a
+libarm64_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
+libarm64_libmingwthrd_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+
+processed_defs += libarm64/msvcrt.def \
+				  libarm64/advapi32.def libarm64/clbcatq.def libarm64/kernel32.def libarm64/ole32.def libarm64/user32.def \
+				  libarm64/ws2_32.def
+
+endif
+
+include libarm64/Makefile.am
+
+if !W32API
+#libarm64_DATA += libarm64/libmsvcp60.a libarm64/libmsvcr110.a
+endif
+
+libarm64/libcrtdll.a libarm64/libmsvcr80.a: libarm64/lib%.a: libarm64/%.def
+	$(DTDEFARM64) $< --dllname $*.dll
+
+libarm64/lib%.a: libarm64/%.def
+	$(DTDEFARM64) $<
+
+libarm64/lib%.a: lib-common/%.def
+	$(DTDEFARM64) $<
+
+# libvfw32.a contains import stubs for 3 dll's.  Using an MRI script
+# seems to be the simplest way to combine them into one archive.
+# NB: With older dlltool, the object file members will not have unique
+# names.
+# TODO: These libraries files aren't yet built for arm64.
+libarm64/libvfw32.a: libarm64/vfw32.mri libarm64/libmsvfw32.a libarm64/libavifil32.a libarm64/libavicap32.a
+	rm -f $@
+	$(AR) -M < $<
+	$(RANLIB) $@
+
+libarm64/libruntimeobject.a: libarm64/runtimeobject.mri libarm64/libapi-ms-win-core-winrt-string-l1-1-0.a libarm64/libapi-ms-win-core-winrt-l1-1-0.a
+	rm -f $@
+	$(AR) -M < $<
+	$(RANLIB) $@
+
+libarm64/libsynchronization.a: libarm64/synchronization.mri libarm64/libapi-ms-win-core-synch-l1-2-0.a
+	rm -f $@
+	$(AR) -M < $<
+	$(RANLIB) $@
+
+dx64_DATA =
+dx64_DATA += libarm64/libxinput.a
+dx64_DATA += libarm64/libd3dcompiler.a
+#libarm64_DATA += libarm64/libruntimeobject.a libarm64/libsynchronization.a
+
+libarm64/libxinput.a: lib-common/xinput1_4.def
+	$(DTDEFARM64) $<
+libarm64/libd3dcompiler.a: lib-common/d3dcompiler_47.def
+	$(DTDEFARM64) $<
+
+endif
+# End ARM 64-bit runtime
+# ##########
+
 %.def: %.def.in
 	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include > $@
 
@@ -1260,6 +1521,9 @@ lib64/%.def: lib-common/%.def.in
 
 libarm32/%.def: lib-common/%.def.in
 	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include -DDEF_ARM32 > $@
+
+libarm64/%.def: lib-common/%.def.in
+	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include -DDEF_ARM64 > $@
 
 # Don't compile these, but install as is:
 #
