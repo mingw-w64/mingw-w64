@@ -21,7 +21,8 @@ int __ms_vswscanf(const wchar_t * __restrict__ s, const wchar_t * __restrict__ f
 
 #if defined(_AMD64_) || defined(__x86_64__) || \
   defined(_X86_) || defined(__i386__) || \
-  defined(_ARM_) || defined(__arm__)
+  defined(_ARM_) || defined(__arm__) || \
+  defined(_ARM64_) || defined(__aarch64__)
   ret = __ms_vswscanf_internal (s, format, arg, swscanf);
 #else
 #error "unknown platform"

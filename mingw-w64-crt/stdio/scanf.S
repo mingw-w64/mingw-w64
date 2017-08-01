@@ -197,4 +197,36 @@ __argtos:
     add     sp, sp, #128
     pop     {r4-r7, pc}
 
+#elif defined (__aarch64__)
+
+    .text
+    .align 2
+    .globl __argtos
+
+__argtos:
+    stp     x29, x30, [sp, #-16]!
+    mov     x29, sp
+    sub     sp, sp, #256
+    mov     x9, sp
+    mov     x10, x2
+    mov     x11, x3
+
+    ldr     x2, [x10], #8
+    ldr     x3, [x10], #8
+    ldr     x4, [x10], #8
+    ldr     x5, [x10], #8
+    ldr     x6, [x10], #8
+    ldr     x7, [x10], #8
+
+    mov     x12, #240
+1:  ldr     x13, [x10], #8
+    str     x13, [x9], #8
+    subs    x12, x12, #8
+    b.ne    1b
+
+    blr     x11
+    mov     sp, x29
+    ldp     x29, x30, [sp], #16
+    ret
+
 #endif

@@ -23,6 +23,8 @@ FCT:
 #elif defined(_ARM_) || defined(__arm__)
         .thumb_func
         b       FWD
+#elif defined(_ARM64_) || defined(__aarch64__)
+        b       FWD
 #endif
 #ifdef _WIN64
         .seh_endproc

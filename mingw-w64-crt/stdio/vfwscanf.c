@@ -21,7 +21,8 @@ int __ms_vfwscanf (FILE * __restrict__ stream,
 
 #if defined(_AMD64_) || defined(__x86_64__) || \
   defined(_X86_) || defined(__i386__) || \
-  defined(_ARM_) || defined(__arm__)
+  defined(_ARM_) || defined(__arm__) || \
+  defined (_ARM64_) || defined (__aarch64__)
   ret = __ms_vfwscanf_internal (stream, format, arg, fwscanf);
 #else
 #error "unknown platform"
