@@ -16,6 +16,11 @@ long lrint (double x)
     "vcvtr.s32.f64    %[tmp], %[src]\n\t"
     "fmrs             %[dst], %[tmp]\n\t"
     : [dst] "=r" (retval), [tmp] "=t" (temp) : [src] "w" (x));
+#elif defined(__aarch64__) || defined(_ARM64_)
+  __asm__ __volatile__ (
+    "frintx %d1, %d1\n\t"
+    "fcvtzs %w0, %d1\n\t"
+    : "=r" (retval), "+w" (x));
 #endif
   return retval;
 }

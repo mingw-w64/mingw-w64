@@ -17,6 +17,18 @@ float fmaf(float x, float y, float z){
   return z;
 }
 
+#elif defined(_ARM64_) || defined(__aarch64__)
+
+/* Use hardware FMA on ARM64. */
+float fmaf(float x, float y, float z){
+  __asm__ (
+    "fmadd %s0, %s1, %s2, %s0 \n"
+    : "+w"(z)
+    : "w"(x), "w"(y)
+  );
+  return z;
+}
+
 #else
 
 long double fmal(long double x, long double y, long double z);

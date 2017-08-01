@@ -16,6 +16,8 @@ float rintf (float x) {
     "vcvtr.s32.f32    %[dst], %[src]\n\t"
     "vcvt.f32.s32     %[dst], %[dst]\n\t"
     : [dst] "=t" (retval) : [src] "w" (x));
+#elif defined(__aarch64__) || defined(_ARM64_)
+  __asm__ __volatile__ ("frintx %s0, %s1\n\t" : "=w" (retval) : "w" (x));
 #endif
   return retval;
 }

@@ -15,6 +15,11 @@ long lrintf (float x)
     "vcvtr.s32.f32    %[src], %[src]\n\t"
     "fmrs             %[dst], %[src]\n\t"
     : [dst] "=r" (retval), [src] "+w" (x));
+#elif defined(__aarch64__) || defined(_ARM64_)
+  __asm__ __volatile__ (
+    "frintx %s1, %s1\n\t"
+    "fcvtzs %w0, %s1\n\t"
+    : "=r" (retval), "+w" (x));
 #endif
   return retval;
 }

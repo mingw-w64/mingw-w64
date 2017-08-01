@@ -17,6 +17,8 @@ double rint (double x) {
     "vcvtr.s32.f64    %[tmp], %[src]\n\t"
     "vcvt.f64.s32     %[dst], %[tmp]\n\t"
     : [dst] "=w" (retval), [tmp] "=t" (temp) : [src] "w" (x));
+#elif defined(__aarch64__) || defined(_ARM64_)
+  __asm__ __volatile__ ("frintx %d0, %d1\n\t" : "=w" (retval) : "w" (x));
 #endif
   return retval;
 }

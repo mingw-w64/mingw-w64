@@ -353,7 +353,11 @@ src_libmingwexarm32+=\
 endif
 
 # these only go into the ARM64 version:
-src_libmingwexarm64=
+src_libmingwexarm64=\
+  math/arm64/_chgsignl.S    math/arm64/ceil.S         math/arm64/ceilf.S        math/arm64/ceill.S        math/arm64/copysignl.c    \
+  math/arm64/exp2.c         math/arm64/floor.S        math/arm64/floorf.S       math/arm64/floorl.S       math/arm64/log2.c         \
+  math/arm64/nearbyint.S    math/arm64/nearbyintf.S   math/arm64/nearbyintl.S   math/arm64/scalbn.c       math/arm64/sincos.c       \
+  math/arm64/trunc.S        math/arm64/truncf.S
 
 
 # These intrinsics are target independent:

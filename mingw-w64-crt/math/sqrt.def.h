@@ -77,6 +77,12 @@ __FLT_ABI (sqrt) (__FLT_TYPE x)
 #else
   asm ("fsqrtd %[dst], %[src];\n" : [dst] "=w" (res) : [src] "w" (x));
 #endif
+#elif defined(__aarch64__) || defined(_ARM64_)
+#if _NEW_COMPLEX_FLOAT
+  asm ("fsqrt %s[dst], %s[src]\n" : [dst] "=w" (res) : [src] "w" (x));
+#else
+  asm ("fsqrt %d[dst], %d[src]\n" : [dst] "=w" (res) : [src] "w" (x));
+#endif
 #elif defined(_X86_) || defined(__i386__) || defined(_AMD64_) || defined(__x86_64__)
   asm ("fsqrt" : "=t" (res) : "0" (x));
 #else

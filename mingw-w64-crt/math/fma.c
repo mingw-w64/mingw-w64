@@ -17,6 +17,18 @@ double fma(double x, double y, double z){
   return z;
 }
 
+#elif defined(_ARM64_) || defined(__aarch64__)
+
+/* Use hardware FMA on ARM64. */
+double fma(double x, double y, double z){
+  __asm__ (
+    "fmadd %d0, %d1, %d2, %d0 \n"
+    : "+w"(z)
+    : "w"(x), "w"(y)
+  );
+  return z;
+}
+
 #else
 
 long double fmal(long double x, long double y, long double z);
