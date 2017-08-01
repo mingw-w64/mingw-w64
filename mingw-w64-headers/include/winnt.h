@@ -28,21 +28,28 @@ extern "C" {
 #endif
 
 #if defined(__x86_64) && \
-  !(defined(_X86_) || defined(__i386__) || defined(_IA64_) || defined (__arm__))
+  !(defined(_X86_) || defined(__i386__) || defined(_IA64_) || defined (__arm__) || defined(__aarch64__))
 #if !defined(_AMD64_)
 #define _AMD64_
 #endif
 #endif /* _AMD64_ */
 
 #if defined(__arm__) && \
-  !(defined(_X86_) || defined(__x86_64) || defined(_AMD64_) || defined (__ia64__))
+  !(defined(_X86_) || defined(__x86_64) || defined(_AMD64_) || defined (__ia64__) || defined(__aarch64__))
 #if !defined(_ARM_)
 #define _ARM_
 #endif
 #endif /* _ARM_ */
 
+#if defined(__aarch64__) && \
+  !(defined(_X86_) || defined(__x86_64) || defined(_AMD64_) || defined (__ia64__) || defined(__arm__))
+#if !defined(_ARM64_)
+#define _ARM64_
+#endif
+#endif /* _ARM64_ */
+
 #if defined(__ia64__) && \
-  !(defined(_X86_) || defined(__x86_64) || defined(_AMD64_) || defined (__arm__))
+  !(defined(_X86_) || defined(__x86_64) || defined(_AMD64_) || defined (__arm__) || defined(__aarch64__))
 #if !defined(_IA64_)
 #define _IA64_
 #endif
@@ -94,7 +101,7 @@ extern "C" {
 
 #undef  UNALIGNED	/* avoid redefinition warnings vs _mingw.h */
 #undef  UNALIGNED64
-#if defined (__ia64__) || defined (__x86_64__) || defined (__arm__)
+#if defined (__ia64__) || defined (__x86_64__) || defined (__arm__) || defined(__aarch64__)
 #define ALIGNMENT_MACHINE
 #define UNALIGNED __unaligned
 #if defined (_WIN64)
@@ -124,7 +131,7 @@ extern "C" {
 
 #if defined (__x86_64__) || defined (__i386__)
 #define PROBE_ALIGNMENT(_s) TYPE_ALIGNMENT (DWORD)
-#elif defined (__ia64__) || defined (__arm__)
+#elif defined (__ia64__) || defined (__arm__) || defined(__aarch64__)
 #define PROBE_ALIGNMENT(_s) (TYPE_ALIGNMENT (_s) > TYPE_ALIGNMENT (DWORD) ? TYPE_ALIGNMENT (_s) : TYPE_ALIGNMENT (DWORD))
 #elif !defined (RC_INVOKED) && !defined (__WIDL__)
 #error No supported target architecture.
@@ -143,7 +150,7 @@ extern "C" {
 #include <basetsd.h>
 
 #ifndef DECLSPEC_IMPORT
-#if (defined (__i386__) || defined (__ia64__) || defined (__x86_64__) || defined (__arm__)) && !defined (__WIDL__)
+#if (defined (__i386__) || defined (__ia64__) || defined (__x86_64__) || defined (__arm__) || defined(__aarch64__)) && !defined (__WIDL__)
 #define DECLSPEC_IMPORT __declspec (dllimport)
 #else
 #define DECLSPEC_IMPORT
@@ -258,7 +265,7 @@ extern "C" {
 #endif
 #endif /* FASTCALL */
 
-#if defined(_ARM_)
+#if defined(_ARM_) || defined(_ARM64_)
 #define NTAPI
 #else
 #define NTAPI __stdcall

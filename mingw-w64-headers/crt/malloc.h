@@ -136,7 +136,7 @@ void * __mingw_aligned_realloc (void *_Memory, size_t _Size, size_t _Offset);
 
 #if defined(_ARM_) || (defined(_X86_) && !defined(__x86_64))
 #define _ALLOCA_S_MARKER_SIZE 8
-#elif defined(__ia64__) || defined(__x86_64)
+#elif defined(__ia64__) || defined(__x86_64) || defined(__aarch64__)
 #define _ALLOCA_S_MARKER_SIZE 16
 #endif
 
