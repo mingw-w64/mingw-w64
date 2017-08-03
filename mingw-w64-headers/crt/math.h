@@ -575,7 +575,7 @@ __mingw_choose_expr (                                         \
     signexp = 0xfffe - signexp;
     return (int) ((unsigned int) signexp) >> 16;
 #elif defined(__arm__) || defined(_ARM_)
-    __isnan(_x);
+    return __isnan(_x);
 #elif defined(__i386__) || defined(_X86_)
     unsigned short sw;
     __asm__ __volatile__ ("fxam;"
@@ -639,7 +639,7 @@ __mingw_choose_expr (                                         \
     ld.ld = &x;
     return ((ld.ldt->lh.sign_exponent & 0x8000) != 0);
 #elif defined(__arm__) || defined(_ARM_)
-    __signbit(x);
+    return __signbit(x);
 #elif defined(__i386__) || defined(_X86_)
     unsigned short stw;
     __asm__ __volatile__ ("fxam; fstsw %%ax;": "=a" (stw) : "t" (x));
