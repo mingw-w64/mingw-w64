@@ -19,11 +19,9 @@ extern int __ms_vsscanf_internal (
 
 #elif defined (__arm__) || defined (_ARM_)
 
-#define QUOTE_(x) #x
-#define QUOTE(x) QUOTE_(x)
-
 int __ms_vsscanf_internal (const char * __restrict__,
-  const char * __restrict__, va_list);
+  const char * __restrict__, va_list,
+  int (*func)(const char * __restrict__,  const char * __restrict__, ...));
 asm("\t.text\n"
     "\t.align 2\n"
     "\t.thumb_func\n"
@@ -31,6 +29,7 @@ asm("\t.text\n"
     "__ms_vsscanf_internal:\n\t"
     "push {r4-r7, lr}\n\t"
     "sub sp, sp, #128\n\t"
+    "mov r12, r3\n\t"
     "mov r4, sp\n\t"
 
     "ldr r5, [r2], #4\n\t"
@@ -44,7 +43,7 @@ asm("\t.text\n"
 
     "mov r2, r5\n\t"
     "mov r3, r6\n\t"
-    "bl " QUOTE(__MINGW_USYMBOL(sscanf)) "\n\t"
+    "blx r12\n\t"
     "add sp, sp, #128\n\t"
     "pop {r4-r7, pc}");
 
@@ -56,10 +55,9 @@ int __ms_vsscanf (const char * __restrict__ s,
   int ret;
 
 #if defined(_AMD64_) || defined(__x86_64__) || \
-  defined(_X86_) || defined(__i386__)
+  defined(_X86_) || defined(__i386__) || \
+  defined(_ARM_) || defined(__arm__)
   ret = __ms_vsscanf_internal (s, format, arg, sscanf);
-#elif defined (_ARM_) || defined (__arm__)
-  ret = __ms_vsscanf_internal (s, format, arg);
 #else
 #error "unknown platform"
 #endif
