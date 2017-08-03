@@ -4,7 +4,7 @@
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
 
-/* vsscanf, vswscanf, vfscanf, and vfwscanf all come here for i386.
+/* vsscanf, vswscanf, vfscanf, and vfwscanf all come here for i386 and arm.
 
    The goal of this routine is to turn a call to v*scanf into a call to
    s*scanf.  This is needed because mingw-w64 uses msvcr100.dll, which doesn't
@@ -168,5 +168,33 @@ __argtos:
     leave
 
     ret
+
+#elif defined (__arm__)
+
+    .text
+    .align 2
+    .thumb_func
+    .globl __argtos
+
+__argtos:
+    push    {r4-r7, lr}
+    sub     sp, sp, #128
+    mov     r12, r3
+    mov     r4, sp
+
+    ldr     r5, [r2], #4
+    ldr     r6, [r2], #4
+
+    mov     r3, #116
+1:  ldr     r7, [r2], #4
+    str     r7, [r4], #4
+    subs    r3, r3, #4
+    bne     1b
+
+    mov     r2, r5
+    mov     r3, r6
+    blx     r12
+    add     sp, sp, #128
+    pop     {r4-r7, pc}
 
 #endif
