@@ -5,6 +5,9 @@
 ;
 LIBRARY "msvcrt.dll"
 EXPORTS
+
+#include "msvcrt-common.def.in"
+
 ??0__non_rtti_object@@QAA@ABV0@@Z
 ??0__non_rtti_object@@QAA@PBD@Z
 ??0bad_cast@@AAA@PBQBD@Z

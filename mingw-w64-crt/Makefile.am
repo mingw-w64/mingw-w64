@@ -1326,8 +1326,8 @@ libarm32_libkernel32_a_CPPFLAGS=$(CPPFLAGSARM32) $(extra_include) $(AM_CPPFLAGS)
 
 if !W32API
 libarm32_LIBRARIES += libarm32/libmsvcrt.a
-libarm32_libmsvcrt_a_SOURCES = $(src_msvcrt32)
-libarm32_libmsvcrt_a_AR = $(DTLIBARM32) && $(AR) $(ARFLAGS)
+libarm32_libmsvcrt_a_SOURCES = $(src_msvcrt32) libarm32/msvcrt.def.in
+libarm32_libmsvcrt_a_AR = $(DTDEFARM32) libarm32/msvcrt.def && $(AR) $(ARFLAGS)
 libarm32_libmsvcrt_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 EXTRA_libarm32_libmsvcrt_a_DEPENDENCIES=libarm32/msvcrt.def
 endif
