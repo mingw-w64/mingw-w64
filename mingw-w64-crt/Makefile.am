@@ -1560,7 +1560,8 @@ EXTRA_DIST += revstamp.h \
   crt/ucrtexe.c \
   profile/gcrt0.c \
   profile/COPYING \
-  profile/CYGWIN_LICENSE
+  profile/CYGWIN_LICENSE \
+  stdio/scanf2-template.S
 
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host_triplet) $(withsys)
 

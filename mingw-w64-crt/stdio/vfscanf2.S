@@ -9,27 +9,4 @@
 #define FWD __MINGW_USYMBOL(__ms_vfscanf)
 
 	.file   "vfscanf2.S"
-#if defined(_ARM_) || defined(__arm__)
-        .thumb
-#endif
-	.text
-        .p2align 4,,15
-        .globl  FCT
-        .def    FCT;    .scl    2;      .type   32;     .endef
-#ifdef _WIN64
-        .seh_proc       FCT
-#endif
-FCT:
-#ifdef _WIN64
-        .seh_endprologue
-#endif
-#if defined(_AMD64_) || defined(__x86_64__) || defined(_X86_) || defined(__i386__)
-        jmp     FWD
-#elif defined(_ARM_) || defined(__arm__)
-        .thumb_func
-        b       FWD
-#endif
-#ifdef _WIN64
-        .seh_endproc
-#endif
-	.def    FWD;  .scl    2;      .type   32;     .endef
+#include "scanf2-template.S"
