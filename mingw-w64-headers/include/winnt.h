@@ -1948,6 +1948,103 @@ extern "C" {
 #endif /* _ARM_ */
 
 
+#ifdef _ARM64_
+
+#if defined(__aarch64__) && !defined(RC_INVOKED)
+
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
+#define BitTest _bittest
+#define BitTestAndComplement _bittestandcomplement
+#define BitTestAndSet _bittestandset
+#define BitTestAndReset _bittestandreset
+
+#define BitScanForward _BitScanForward
+#define BitScanReverse _BitScanReverse
+
+#define InterlockedIncrement16 _InterlockedIncrement16
+#define InterlockedDecrement16 _InterlockedDecrement16
+#define InterlockedCompareExchange16 _InterlockedCompareExchange16
+
+#define InterlockedAnd _InterlockedAnd
+#define InterlockedOr _InterlockedOr
+#define InterlockedXor _InterlockedXor
+#define InterlockedIncrement _InterlockedIncrement
+#define InterlockedIncrementAcquire InterlockedIncrement
+#define InterlockedIncrementRelease InterlockedIncrement
+#define InterlockedDecrement _InterlockedDecrement
+#define InterlockedDecrementAcquire InterlockedDecrement
+#define InterlockedDecrementRelease InterlockedDecrement
+#define InterlockedAdd _InterlockedAdd
+#define InterlockedExchange _InterlockedExchange
+#define InterlockedExchangeAdd _InterlockedExchangeAdd
+#define InterlockedCompareExchange _InterlockedCompareExchange
+#define InterlockedCompareExchangeAcquire InterlockedCompareExchange
+#define InterlockedCompareExchangeRelease InterlockedCompareExchange
+
+#define InterlockedAnd64 _InterlockedAnd64
+#define InterlockedAndAffinity InterlockedAnd64
+#define InterlockedOr64 _InterlockedOr64
+#define InterlockedOrAffinity InterlockedOr64
+#define InterlockedXor64 _InterlockedXor64
+#define InterlockedIncrement64 _InterlockedIncrement64
+#define InterlockedDecrement64 _InterlockedDecrement64
+#define InterlockedAdd64 _InterlockedAdd64
+#define InterlockedExchange64 _InterlockedExchange64
+#define InterlockedExchangeAcquire64 InterlockedExchange64
+#define InterlockedExchangeAdd64 _InterlockedExchangeAdd64
+#define InterlockedCompareExchange64 _InterlockedCompareExchange64
+#define InterlockedCompareExchangeAcquire64 InterlockedCompareExchange64
+#define InterlockedCompareExchangeRelease64 InterlockedCompareExchange64
+
+#define InterlockedExchangePointer _InterlockedExchangePointer
+#define InterlockedCompareExchangePointer _InterlockedCompareExchangePointer
+#define InterlockedCompareExchangePointerAcquire _InterlockedCompareExchangePointer
+#define InterlockedCompareExchangePointerRelease _InterlockedCompareExchangePointer
+
+#ifdef __cplusplus
+  }
+#endif
+#endif /* defined(__aarch64__) && !defined(RC_INVOKED) */
+
+#define EXCEPTION_READ_FAULT    0
+#define EXCEPTION_WRITE_FAULT   1
+#define EXCEPTION_EXECUTE_FAULT 8
+
+#if !defined(RC_INVOKED)
+
+// TODO: #define CONTEXT_*
+
+#endif /* !defined(RC_INVOKED) */
+
+  typedef struct _CONTEXT {
+    // TODO
+  } CONTEXT, *PCONTEXT;
+
+//  typedef struct _IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY RUNTIME_FUNCTION, *PRUNTIME_FUNCTION;
+//  typedef PRUNTIME_FUNCTION (*PGET_RUNTIME_FUNCTION_CALLBACK)(DWORD64 ControlPc,PVOID Context);
+
+// TODO: #define UNW_*
+
+  typedef struct _UNWIND_HISTORY_TABLE_ENTRY {
+    // TODO
+  } UNWIND_HISTORY_TABLE_ENTRY, *PUNWIND_HISTORY_TABLE_ENTRY;
+
+  typedef struct _UNWIND_HISTORY_TABLE {
+    // TODO
+  } UNWIND_HISTORY_TABLE, *PUNWIND_HISTORY_TABLE;
+
+  typedef struct _KNONVOLATILE_CONTEXT_POINTERS {
+    // TODO
+  } KNONVOLATILE_CONTEXT_POINTERS, *PKNONVOLATILE_CONTEXT_POINTERS;
+
+#define OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME "OutOfProcessFunctionTableCallback"
+
+#endif /* _ARM64_ */
+
+
 #ifdef _X86_
 
 #if defined(__i386__) && !defined(__x86_64) && !defined(RC_INVOKED)
