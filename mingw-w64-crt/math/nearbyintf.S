@@ -35,7 +35,7 @@ __MINGW_USYMBOL(nearbyintf):
 	ret
 #elif defined(_ARM_) || defined(__arm__)
 	vmrs	r1, fpscr
-	vcvt.s32.f32	s0, s0
+	vcvtr.s32.f32	s0, s0
 	vcvt.f32.s32	s0, s0
 	vmsr	fpscr, r1
 	bx	lr
