@@ -162,6 +162,11 @@ extern "C" {
     unsigned long long D[8];
   } _JUMP_BUFFER;
 
+#else
+
+#define _JBLEN 1
+#define _JBTYPE int
+
 #endif
 
 #ifndef _JMP_BUF_DEFINED
