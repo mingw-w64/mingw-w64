@@ -34,6 +34,13 @@ __MINGW_USYMBOL(nearbyint):
 	movsd	-16(%rsp),%xmm0
 	ret
 #elif defined(_ARM_) || defined(__arm__)
+	vmov	r2, r3, d0
+	lsr		r3, r3, #20
+	bic		r3, r3, #0x800
+	movw	r2, #0x7ff
+	cmp		r2, r3 /* Check for INF/NAN, just return the input in those cases */
+	it		eq
+	bxeq	lr
 	vmrs	r1, fpscr
 	vcvtr.s32.f64	s0, d0
 	vcvt.f64.s32	d0, s0
