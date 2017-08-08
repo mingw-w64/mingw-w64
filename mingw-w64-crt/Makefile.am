@@ -319,7 +319,7 @@ src_libmingwex64=$(src_libmingwex_x86)
 
 # these only go into the ARM32 version:
 src_libmingwexarm32=\
-  math/arm/_chgsignl.S      math/arm/ceil.S           math/arm/ceilf.S          math/arm/ceill.S          math/arm/copysignl.S      \
+  math/arm/_chgsignl.S      math/arm/ceil.S           math/arm/ceilf.S          math/arm/ceill.S          math/arm/copysignl.c      \
   math/arm/floor.S          math/arm/floorf.S         math/arm/floorl.S         math/arm/nearbyint.S      math/arm/nearbyintf.S     \
   math/arm/nearbyintl.S     math/arm/trunc.S          math/arm/truncf.S
 
