@@ -226,10 +226,6 @@ src_libmingwex=\
   gdtoa/misc.c      gdtoa/qnan.c     gdtoa/smisc.c  gdtoa/strtodg.c  gdtoa/strtodnrp.c  gdtoa/strtof.c     \
   gdtoa/strtopx.c   gdtoa/sum.c      gdtoa/ulp.c    \
   \
-  math/_chgsignl.S      math/ceil.S        math/ceilf.S          math/ceill.S         math/copysignl.S     \
-  math/floor.S          math/floorf.S      math/floorl.S         \
-  math/nearbyint.S      math/nearbyintf.S  math/nearbyintl.S     \
-  math/trunc.S          math/truncf.S      \
   math/cbrt.c           \
   math/cbrtf.c          math/cbrtl.c       math/cephes_emath.c   math/copysign.c      math/copysignf.c     \
   math/coshf.c          math/coshl.c       math/erfl.c           \
@@ -297,30 +293,38 @@ src_libmingwex=\
 
 # these go into both 32 and 64 bit x86 versions:
 src_libmingwex_x86=\
-  math/x86/acosf.c          math/x86/acosh.c          math/x86/acosl.c          math/x86/acosh.def.h      math/x86/acoshf.c         \
-  math/x86/acoshl.c         math/x86/asinf.c          math/x86/asinh.c          math/x86/asinl.c          math/x86/asinhf.c         \
-  math/x86/asinhl.c         math/x86/atan2f.c         math/x86/atan2.c          math/x86/atan2l.c         math/x86/atanf.c          \
-  math/x86/atanh.c          math/x86/atanl.c          math/x86/atanhf.c         math/x86/atanhl.c         math/x86/cos.c            \
+  math/x86/_chgsignl.S      math/x86/acosf.c          math/x86/acosh.c          math/x86/acosl.c          math/x86/acosh.def.h      \
+  math/x86/acoshf.c         math/x86/acoshl.c         math/x86/asinf.c          math/x86/asinh.c          math/x86/asinl.c          \
+  math/x86/asinhf.c         math/x86/asinhl.c         math/x86/atan2f.c         math/x86/atan2.c          math/x86/atan2l.c         \
+  math/x86/atanf.c          math/x86/atanh.c          math/x86/atanl.c          math/x86/atanhf.c         math/x86/atanhl.c         \
+  math/x86/ceil.S           math/x86/ceilf.S          math/x86/ceill.S          math/x86/copysignl.S      math/x86/cos.c            \
   math/x86/cos.def.h        math/x86/cosf.c           math/x86/cosl.c           math/x86/cosl_internal.S  math/x86/cossin.c         \
   math/x86/exp.c            math/x86/exp.def.h        math/x86/expl.c           math/x86/exp2.S           math/x86/exp2f.S          \
   math/x86/exp2l.S          math/x86/expm1.c          math/x86/expm1.def.h      math/x86/expm1f.c         math/x86/expm1l.c         \
-  math/x86/fastmath.h       math/x86/fmod.c           math/x86/fmodf.c          math/x86/fmodl.c          math/x86/frexpl.S         \
-  math/x86/fucom.c          math/x86/ilogb.S          math/x86/ilogbf.S         math/x86/ilogbl.S         math/x86/internal_logl.S  \
-  math/x86/ldexp.c          math/x86/ldexpl.c         math/x86/log.c            math/x86/log.def.h        math/x86/log10l.S         \
-  math/x86/log1p.S          math/x86/log1pf.S         math/x86/log1pl.S         math/x86/log2.S           math/x86/log2f.S          \
-  math/x86/log2l.S          math/x86/logb.c           math/x86/logbf.c          math/x86/logbl.c          math/x86/logl.c           \
-  math/x86/pow.c            math/x86/pow.def.h        math/x86/powl.c           math/x86/remainder.S      math/x86/remainderf.S     \
-  math/x86/remainderl.S     math/x86/remquo.S         math/x86/remquof.S        math/x86/remquol.S        math/x86/scalbn.S         \
-  math/x86/scalbnf.S        math/x86/scalbnl.S        math/x86/sin.c            math/x86/sin.def.h        math/x86/sinf.c           \
-  math/x86/sinl.c           math/x86/sinl_internal.S  math/x86/tanf.c           math/x86/tanl.S
+  math/x86/fastmath.h       math/x86/floor.S          math/x86/floorf.S         math/x86/floorl.S         math/x86/fmod.c           \
+  math/x86/fmodf.c          math/x86/fmodl.c          math/x86/frexpl.S         math/x86/fucom.c          math/x86/ilogb.S          \
+  math/x86/ilogbf.S         math/x86/ilogbl.S         math/x86/internal_logl.S  math/x86/ldexp.c          math/x86/ldexpl.c         \
+  math/x86/log.c            math/x86/log.def.h        math/x86/log10l.S         math/x86/log1p.S          math/x86/log1pf.S         \
+  math/x86/log1pl.S         math/x86/log2.S           math/x86/log2f.S          math/x86/log2l.S          math/x86/logb.c           \
+  math/x86/logbf.c          math/x86/logbl.c          math/x86/logl.c           math/x86/nearbyint.S      math/x86/nearbyintf.S     \
+  math/x86/nearbyintl.S     math/x86/pow.c            math/x86/pow.def.h        math/x86/powl.c           math/x86/remainder.S      \
+  math/x86/remainderf.S     math/x86/remainderl.S     math/x86/remquo.S         math/x86/remquof.S        math/x86/remquol.S        \
+  math/x86/scalbn.S         math/x86/scalbnf.S        math/x86/scalbnl.S        math/x86/sin.c            math/x86/sin.def.h        \
+  math/x86/sinf.c           math/x86/sinl.c           math/x86/sinl_internal.S  math/x86/tanf.c           math/x86/tanl.S           \
+  math/x86/trunc.S          math/x86/truncf.S
 
 
 src_libmingwex32=$(src_libmingwex_x86)
 src_libmingwex64=$(src_libmingwex_x86)
 
 # these only go into the ARM32 version:
-if ENABLE_SOFTMATH
 src_libmingwexarm32=\
+  math/arm/_chgsignl.S      math/arm/ceil.S           math/arm/ceilf.S          math/arm/ceill.S          math/arm/copysignl.S      \
+  math/arm/floor.S          math/arm/floorf.S         math/arm/floorl.S         math/arm/nearbyint.S      math/arm/nearbyintf.S     \
+  math/arm/nearbyintl.S     math/arm/trunc.S          math/arm/truncf.S
+
+if ENABLE_SOFTMATH
+src_libmingwexarm32+=\
   math/softmath/e_fmod.c    math/softmath/e_fmodf.c   math/softmath/e_powf.c    math/softmath/e_pow.c \
   math/softmath/acosf.c     math/softmath/acosh.c     math/softmath/acosl.c     math/softmath/acoshf.c    math/softmath/acoshl.c    \
   math/softmath/asinf.c     math/softmath/asinh.c     math/softmath/asinl.c     math/softmath/asinhf.c    math/softmath/asinhl.c    \
@@ -338,7 +342,7 @@ src_libmingwexarm32=\
   math/softmath/scalbnl.c   math/softmath/sin.c       math/softmath/sincos.c    math/softmath/sincosf.c   math/softmath/sincosl.c   \
   math/softmath/sinf.c      math/softmath/sinl.c      math/softmath/tanf.c      math/softmath/tanl.c
 else
-src_libmingwexarm32=\
+src_libmingwexarm32+=\
   math/arm/exp2.c           math/arm/log2.c           math/arm/scalbn.c         math/arm/sincos.c
 endif
 
