@@ -296,25 +296,8 @@ src_libmingwex=\
   stdio/vscanf.c           stdio/vsnprintf.c         stdio/vsnprintf_s.c      stdio/vsnwprintf.c        stdio/vsscanf.c         \
   stdio/vswscanf.c         stdio/vwscanf.c           stdio/wtoll.c            stdio/mingw_asprintf.c    stdio/mingw_vasprintf.c
 
-# these only go into the 64 bit version:
-src_libmingwex64=\
-  math/acosf.c              math/acosh.c              math/acosl.c              math/acoshf.c             math/acoshl.c             \
-  math/asinf.c              math/asinh.c              math/asinl.c              math/asinhf.c             math/asinhl.c             \
-  math/atan2f.c           math/atan2.c math/atan2l.c             math/atanf.c              math/atanh.c              math/atanl.c              \
-  math/atanhf.c             math/atanhl.c             math/cos.c                math/cosf.c               math/cosl.c               \
-  math/cosl_internal.S      math/cossin.c             math/exp.c                math/expl.c               math/exp2.S               \
-  math/exp2f.S              math/exp2l.S              math/expm1.c              math/expm1f.c             math/expm1l.c             \
-  math/fmod.c               math/fmodf.c              math/fmodl.c              math/frexpl.S             math/fucom.c              \
-  math/ilogb.S              math/ilogbf.S             math/ilogbl.S             math/internal_logl.S      math/ldexp.c              \
-  math/ldexpl.c             math/log.c                math/log10l.S             math/log1p.S              math/log1pf.S             \
-  math/log1pl.S             math/log2.S               math/log2f.S              math/log2l.S              math/logb.c               \
-  math/logbf.c              math/logbl.c              math/logl.c               math/pow.c                math/powl.c               \
-  math/remainder.S          math/remainderf.S         math/remainderl.S         math/remquo.S             math/remquof.S            \
-  math/remquol.S            math/scalbn.S             math/scalbnf.S            math/scalbnl.S            math/sin.c                \
-  math/sinf.c               math/sinl.c               math/sinl_internal.S      math/tanf.c               math/tanl.S
-
-# these only go into the 32 bit version:
-src_libmingwex32=\
+# these go into both 32 and 64 bit x86 versions:
+src_libmingwex_x86=\
   math/acosf.c              math/acosh.c              math/acosl.c              math/acoshf.c             math/acoshl.c             \
   math/asinf.c              math/asinh.c              math/asinl.c              math/asinhf.c             math/asinhl.c             \
   math/atan2f.c             math/atan2.c  math/atan2l.c             math/atanf.c              math/atanh.c              math/atanl.c              \
@@ -329,6 +312,9 @@ src_libmingwex32=\
   math/remainder.S          math/remainderf.S         math/remainderl.S         math/remquo.S             math/remquof.S            \
   math/remquol.S            math/scalbn.S             math/scalbnf.S            math/scalbnl.S            math/sin.c                \
   math/sinf.c               math/sinl.c               math/sinl_internal.S      math/tanf.c               math/tanl.S
+
+src_libmingwex32=$(src_libmingwex_x86)
+src_libmingwex64=$(src_libmingwex_x86)
 
 # these only go into the ARM32 version:
 if ENABLE_SOFTMATH
