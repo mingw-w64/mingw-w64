@@ -18,6 +18,7 @@ __mingw_wcstof (const wchar_t * __restrict__ _Str, wchar_t ** __restrict__ _EndP
   r = __mingw_strtof (n, &ep);  
   if (ep != NULL)
   {
+    *ep = 0;
     l2 = MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, n, -1, NULL, 0);
     if (l2 > 0)
       l2 -= 1; /* Remove zero terminator from length.  */
