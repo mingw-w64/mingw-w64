@@ -87,7 +87,7 @@ int __asctoe64(const char * __restrict__ ss, short unsigned int * __restrict__ y
 
   /* Copy the input string. */
   c = strlen (ss) + 2;
-  lstr = (char *) malloc (c);
+  lstr = (char *) alloca (c);
   s = (char *) ss;
   while( isspace ((int)(unsigned char)*s)) /* skip leading spaces */
     {
@@ -375,6 +375,7 @@ aexit:
 
   if (prec || valid_lead_string)
     return (lenldstr + (s - lstr));
+
   return 0;
 }
 
