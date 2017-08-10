@@ -260,7 +260,6 @@ libarm32_DATA += %reldir%/libesent.a
 libarm32_DATA += %reldir%/libesentprf.a
 libarm32_DATA += %reldir%/libeventaggregation.a
 libarm32_DATA += %reldir%/libevr.a
-libarm32_DATA += %reldir%/libf3ahvoas.a
 libarm32_DATA += %reldir%/libfaultrep.a
 libarm32_DATA += %reldir%/libfdeploy.a
 libarm32_DATA += %reldir%/libfdphost.a
