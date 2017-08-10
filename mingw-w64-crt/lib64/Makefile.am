@@ -275,7 +275,6 @@ lib64_DATA += %reldir%/libgpedit.a
 lib64_DATA += %reldir%/libgpkcsp.a
 lib64_DATA += %reldir%/libgptext.a
 lib64_DATA += %reldir%/libguitrn.a
-lib64_DATA += %reldir%/libgzip.a
 lib64_DATA += %reldir%/libh323msp.a
 lib64_DATA += %reldir%/libhal.a
 lib64_DATA += %reldir%/libhbaapi.a
