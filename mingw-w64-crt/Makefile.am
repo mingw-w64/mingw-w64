@@ -910,6 +910,9 @@ lib64/libcrtdll.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
 lib64/lib%.a: lib64/%.def
 	$(DTDEF64) $<
 
+lib64/lib%.a: lib-common/%.def
+	$(DTDEF64) $<
+
 # libvfw32.a contains import stubs for 3 dll's.  Using an MRI script
 # seems to be the simplest way to combine them into one archive.
 # NB: With older dlltool, the object file members will not have unique
@@ -1199,6 +1202,9 @@ libarm32/libcrtdll.a libarm32/libmsvcr80.a: libarm32/lib%.a: libarm32/%.def
 libarm32/lib%.a: libarm32/%.def
 	$(DTDEFARM32) $<
 
+libarm32/lib%.a: lib-common/%.def
+	$(DTDEFARM32) $<
+
 # libvfw32.a contains import stubs for 3 dll's.  Using an MRI script
 # seems to be the simplest way to combine them into one archive.
 # NB: With older dlltool, the object file members will not have unique
@@ -1261,6 +1267,7 @@ CLEANFILES = $(BUILT_SOURCES) $(crt64_DATA) $(lib64_DATA) $(crt32_DATA) $(lib32_
 
 EXTRA_DIST = $(srcdir)/ChangeLog.*
 EXTRA_DIST += revstamp.h \
+  $(top_srcdir)/lib-common/*.def \
   $(top_srcdir)/lib32/*.def \
   $(top_srcdir)/lib64/*.def \
   $(top_srcdir)/libarm32/*.def \
