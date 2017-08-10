@@ -119,7 +119,6 @@ lib32_DATA += %reldir%/libdwrite.a
 lib32_DATA += %reldir%/libdxapi.a
 lib32_DATA += %reldir%/libdxgi.a
 lib32_DATA += %reldir%/libdxva2.a
-lib32_DATA += %reldir%/libeapp3hst.a
 lib32_DATA += %reldir%/libeappcfg.a
 lib32_DATA += %reldir%/libeappgnui.a
 lib32_DATA += %reldir%/libeapphost.a
