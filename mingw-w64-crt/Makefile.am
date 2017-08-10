@@ -1244,6 +1244,15 @@ endif
 %.def: %.def.in
 	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include > $@
 
+lib32/%.def: lib-common/%.def.in
+	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include -DDEF_I386 > $@
+
+lib64/%.def: lib-common/%.def.in
+	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include -DDEF_X64 > $@
+
+libarm32/%.def: lib-common/%.def.in
+	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include -DDEF_ARM32 > $@
+
 # Don't compile these, but install as is:
 #
 libsrcdir=$(includedir)
@@ -1277,6 +1286,7 @@ EXTRA_DIST += revstamp.h \
   $(top_srcdir)/lib32/*.mri \
   $(top_srcdir)/lib64/*.mri \
   $(top_srcdir)/libarm32/*.mri \
+  $(top_srcdir)/lib-common/*.def.in \
   $(top_srcdir)/lib32/*.def.in \
   $(top_srcdir)/lib64/*.def.in \
   $(top_srcdir)/libarm32/*.def.in \
