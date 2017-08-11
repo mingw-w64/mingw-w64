@@ -850,9 +850,10 @@ lib64_libgdiplus_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 lib64_libgdiplus_a_AR = $(DTDEF64) $(top_srcdir)/lib-common/gdiplus.def && $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libws2_32.a
-lib64_libws2_32_a_SOURCES = $(src_libws2_32)
+lib64_libws2_32_a_SOURCES = $(src_libws2_32) lib-common/ws2_32.def.in
 lib64_libws2_32_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
-lib64_libws2_32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
+lib64_libws2_32_a_AR = $(DTDEF64) lib64/ws2_32.def && $(AR) $(ARFLAGS)
+EXTRA_lib64_libws2_32_a_DEPENDENCIES=lib64/ws2_32.def
 
 lib64_LIBRARIES += lib64/libtaskschd.a
 lib64_libtaskschd_a_SOURCES = $(src_libtaskschd)
@@ -897,7 +898,7 @@ processed_defs += lib64/msvcrt.def lib64/msvcr80.def lib64/msvcr90.def lib64/msv
 				  lib64/msvcr100.def lib64/msvcr110.def lib64/msvcr120.def lib64/msvcr120d.def \
 				  lib64/msvcr120_app.def lib64/msvcp120_app.def \
 				  lib64/advapi32.def lib64/clbcatq.def lib64/kernel32.def lib64/ole32.def \
-				  lib64/user32.def
+				  lib64/user32.def lib64/ws2_32.def
 
 endif
 
@@ -1152,9 +1153,10 @@ libarm32_libgdiplus_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 libarm32_libgdiplus_a_AR = $(DTDEFARM32) $(top_srcdir)/lib-common/gdiplus.def && $(AR) $(ARFLAGS)
 
 libarm32_LIBRARIES += libarm32/libws2_32.a
-libarm32_libws2_32_a_SOURCES = $(src_libws2_32)
+libarm32_libws2_32_a_SOURCES = $(src_libws2_32) lib-common/libws2_32.def.in
 libarm32_libws2_32_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
-libarm32_libws2_32_a_AR = $(DTLIBARM32) && $(AR) $(ARFLAGS)
+libarm32_libws2_32_a_AR = $(DTDEFARM32) libarm32/ws2_32.def && $(AR) $(ARFLAGS)
+EXTRA_libarm32_libws2_32_a_DEPENDENCIES=libarm32/ws2_32.def
 
 if !W32API
 libarm32_LIBRARIES += libarm32/libdelayimp.a
@@ -1192,7 +1194,8 @@ libarm32_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
 libarm32_libmingwthrd_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 
 processed_defs += libarm32/msvcrt.def libarm32/msvcr80.def libarm32/msvcr90.def libarm32/msvcr90d.def libarm32/msvcr100.def libarm32/msvcr110.def \
-				  libarm32/advapi32.def libarm32/clbcatq.def libarm32/kernel32.def libarm32/ole32.def libarm32/user32.def
+				  libarm32/advapi32.def libarm32/clbcatq.def libarm32/kernel32.def libarm32/ole32.def libarm32/user32.def \
+				  libarm32/ws2_32.def
 
 endif
 
