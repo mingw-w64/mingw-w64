@@ -753,7 +753,7 @@ endif
 lib64_LIBRARIES += lib64/libshell32.a
 lib64_libshell32_a_SOURCES = $(src_libshell32)
 lib64_libshell32_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
-lib64_libshell32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
+lib64_libshell32_a_AR = $(DTDEF64) $(top_srcdir)/lib-common/shell32.def && $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libdinput.a
 lib64_libdinput_a_SOURCES = $(src_libdinput)
@@ -1063,7 +1063,7 @@ endif
 
 libarm32_LIBRARIES += libarm32/libshell32.a
 libarm32_libshell32_a_SOURCES = $(src_libshell32)
-libarm32_libshell32_a_AR = $(DTLIBARM32) && $(AR) $(ARFLAGS)
+libarm32_libshell32_a_AR = $(DTDEFARM32) $(top_srcdir)/lib-common/shell32.def && $(AR) $(ARFLAGS)
 libarm32_libshell32_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 
 libarm32_LIBRARIES += libarm32/libdmoguids.a
