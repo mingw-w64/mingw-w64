@@ -844,7 +844,7 @@ lib64_libuuid_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 lib64_LIBRARIES += lib64/libgdiplus.a
 lib64_libgdiplus_a_SOURCES = $(src_libgdiplus)
 lib64_libgdiplus_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
-lib64_libgdiplus_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
+lib64_libgdiplus_a_AR = $(DTDEF64) $(top_srcdir)/lib-common/gdiplus.def && $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libws2_32.a
 lib64_libws2_32_a_SOURCES = $(src_libws2_32)
@@ -1142,7 +1142,7 @@ libarm32_libuuid_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 libarm32_LIBRARIES += libarm32/libgdiplus.a
 libarm32_libgdiplus_a_SOURCES = $(src_libgdiplus)
 libarm32_libgdiplus_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
-libarm32_libgdiplus_a_AR = $(DTLIBARM32) && $(AR) $(ARFLAGS)
+libarm32_libgdiplus_a_AR = $(DTDEFARM32) $(top_srcdir)/lib-common/gdiplus.def && $(AR) $(ARFLAGS)
 
 libarm32_LIBRARIES += libarm32/libws2_32.a
 libarm32_libws2_32_a_SOURCES = $(src_libws2_32)
@@ -1229,7 +1229,7 @@ dx32_DATA += libarm32/libxinput.a
 dx32_DATA += libarm32/libd3dcompiler.a
 libarm32_DATA += libarm32/libruntimeobject.a libarm32/libsynchronization.a
 
-libarm32/libxinput.a: libarm32/xinput1_4.def
+libarm32/libxinput.a: lib-common/xinput1_4.def
 	$(DTDEFARM32) $<
 libarm32/libd3dcompiler.a: lib-common/d3dcompiler_47.def
 	$(DTDEFARM32) $<
