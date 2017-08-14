@@ -818,7 +818,7 @@ lib64_libportabledeviceguids_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 lib64_LIBRARIES += lib64/libksuser.a
 lib64_libksuser_a_SOURCES = $(src_libksuser)
 lib64_libksuser_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
-lib64_libksuser_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
+lib64_libksuser_a_AR = $(DTDEF64) $(top_srcdir)/lib-common/ksuser.def && $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libksguid.a
 lib64_libksguid_a_SOURCES = $(src_libksguid)
@@ -1100,7 +1100,7 @@ libarm32_libdxguid_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 libarm32_LIBRARIES += libarm32/libksuser.a
 libarm32_libksuser_a_SOURCES = $(src_libksuser)
 libarm32_libksuser_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
-libarm32_libksuser_a_AR = $(DTLIBARM32) && $(AR) $(ARFLAGS)
+libarm32_libksuser_a_AR = $(DTDEFARM32) $(top_srcdir)/lib-common/ksuser.def && $(AR) $(ARFLAGS)
 
 libarm32_LIBRARIES += libarm32/libksguid.a
 libarm32_libksguid_a_SOURCES = $(src_libksguid)
