@@ -1231,7 +1231,7 @@ libarm32_DATA += libarm32/libruntimeobject.a libarm32/libsynchronization.a
 
 libarm32/libxinput.a: libarm32/xinput1_4.def
 	$(DTDEFARM32) $<
-libarm32/libd3dcompiler.a: libarm32/d3dcompiler_47.def
+libarm32/libd3dcompiler.a: lib-common/d3dcompiler_47.def
 	$(DTDEFARM32) $<
 
 endif
