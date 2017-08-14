@@ -12,7 +12,6 @@ lib64_DATA += %reldir%/libadsldpc.a
 lib64_DATA += %reldir%/libadvapi32.a
 lib64_DATA += %reldir%/libadvpack.a
 lib64_DATA += %reldir%/libagentanm.a
-lib64_DATA += %reldir%/libagrmco64.a
 lib64_DATA += %reldir%/libakscoinst.a
 lib64_DATA += %reldir%/libalrsvc.a
 lib64_DATA += %reldir%/libapcups.a
