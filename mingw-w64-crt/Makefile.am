@@ -737,9 +737,10 @@ lib64/%.o: crt/%.c
 	$(COMPILE) $(CPPFLAGS64) -c $< -o $@
 
 lib64_LIBRARIES = lib64/libkernel32.a
-lib64_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincs64)
+lib64_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincs64) lib-common/kernel32.def.in
 lib64_libkernel32_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include) $(AM_CPPFLAGS)
-lib64_libkernel32_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
+lib64_libkernel32_a_AR = $(DTDEF64) lib64/kernel32.def && $(AR) $(ARFLAGS)
+EXTRA_lib64_libkernel32_a_DEPENDENCIES=lib64/kernel32.def
 
 if !W32API
 lib64_LIBRARIES += lib64/libmsvcrt.a
@@ -895,7 +896,7 @@ lib64_libmingwthrd_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 processed_defs += lib64/msvcrt.def lib64/msvcr80.def lib64/msvcr90.def lib64/msvcr90d.def \
 				  lib64/msvcr100.def lib64/msvcr110.def lib64/msvcr120.def lib64/msvcr120d.def \
 				  lib64/msvcr120_app.def lib64/msvcp120_app.def \
-				  lib64/advapi32.def lib64/clbcatq.def
+				  lib64/advapi32.def lib64/clbcatq.def lib64/kernel32.def
 
 endif
 
@@ -1047,9 +1048,10 @@ dxerr.c \
 test.c
 
 libarm32_LIBRARIES = libarm32/libkernel32.a
-libarm32_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincsarm32)
-libarm32_libkernel32_a_AR = $(DTLIBARM32) && $(AR) $(ARFLAGS)
+libarm32_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincsarm32) lib-common/kernel32.def.in
+libarm32_libkernel32_a_AR = $(DTDEFARM32) libarm32/kernel32.def && $(AR) $(ARFLAGS)
 libarm32_libkernel32_a_CPPFLAGS=$(CPPFLAGSARM32) $(extra_include) $(AM_CPPFLAGS)
+EXTRA_libarm32_libkernel32_a_DEPENDENCIES=libarm32/kernel32.def
 
 if !W32API
 libarm32_LIBRARIES += libarm32/libmsvcrt.a
@@ -1189,7 +1191,7 @@ libarm32_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
 libarm32_libmingwthrd_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 
 processed_defs += libarm32/msvcrt.def libarm32/msvcr80.def libarm32/msvcr90.def libarm32/msvcr90d.def libarm32/msvcr100.def libarm32/msvcr110.def \
-				  libarm32/advapi32.def libarm32/clbcatq.def
+				  libarm32/advapi32.def libarm32/clbcatq.def libarm32/kernel32.def
 
 endif
 
