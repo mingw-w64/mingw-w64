@@ -269,7 +269,6 @@ lib32_DATA += %reldir%/libvirtdisk.a
 lib32_DATA += %reldir%/libvfw32.a
 lib32_DATA += %reldir%/libvss_ps.a
 lib32_DATA += %reldir%/libvssapi.a
-lib32_DATA += %reldir%/libvsstrace.a
 lib32_DATA += %reldir%/libwdsclient.a
 lib32_DATA += %reldir%/libwdsclientapi.a
 lib32_DATA += %reldir%/libwdscore.a
