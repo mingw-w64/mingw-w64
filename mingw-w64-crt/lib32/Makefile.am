@@ -284,7 +284,6 @@ lib32_DATA += %reldir%/libwevtfwd.a
 lib32_DATA += %reldir%/libwiadss.a
 lib32_DATA += %reldir%/libwin32k.a
 lib32_DATA += %reldir%/libwin32spl.a
-lib32_DATA += %reldir%/libwindowscodecs.a
 lib32_DATA += %reldir%/libwinhttp.a
 lib32_DATA += %reldir%/libwininet.a
 lib32_DATA += %reldir%/libwinmm.a

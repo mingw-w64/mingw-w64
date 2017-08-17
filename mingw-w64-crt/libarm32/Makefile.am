@@ -886,7 +886,6 @@ libarm32_DATA += %reldir%/libwimgapi.a
 libarm32_DATA += %reldir%/libwinbici.a
 libarm32_DATA += %reldir%/libwinbio.a
 libarm32_DATA += %reldir%/libwinbrand.a
-libarm32_DATA += %reldir%/libwindowscodecs.a
 libarm32_DATA += %reldir%/libwindowscodecsext.a
 libarm32_DATA += %reldir%/libwindows.data.pdf.a
 libarm32_DATA += %reldir%/libwindows.globalization.fontgroups.a

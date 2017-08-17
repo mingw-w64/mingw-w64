@@ -491,6 +491,7 @@ lib32_libwmcodecdspuuid_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
 lib32_LIBRARIES += lib32/libwindowscodecs.a
 lib32_libwindowscodecs_a_SOURCES = $(src_libwindowscodecs)
 lib32_libwindowscodecs_a_CPPFLAGS = $(CPPFLAGS32) $(sysincludes)
+lib32_libwindowscodecs_a_AR = $(DTDEF32) $(top_srcdir)/lib32/windowscodecs.def && $(AR) $(ARFLAGS)
 
 lib32_LIBRARIES += lib32/libwbemuuid.a
 lib32_libwbemuuid_a_SOURCES = $(src_libwbemuuid)
@@ -790,6 +791,7 @@ lib64_libwmcodecdspuuid_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
 lib64_LIBRARIES += lib64/libwindowscodecs.a
 lib64_libwindowscodecs_a_SOURCES = $(src_libwindowscodecs)
 lib64_libwindowscodecs_a_CPPFLAGS = $(CPPFLAGS64) $(sysincludes)
+lib64_libwindowscodecs_a_AR = $(DTDEF64) $(top_srcdir)/lib-common/windowscodecs.def && $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libwbemuuid.a
 lib64_libwbemuuid_a_SOURCES = $(src_libwbemuuid)
@@ -1088,6 +1090,7 @@ libarm32_libwmcodecdspuuid_a_CPPFLAGS = $(CPPFLAGSARM32) $(sysincludes)
 libarm32_LIBRARIES += libarm32/libwindowscodecs.a
 libarm32_libwindowscodecs_a_SOURCES = $(src_libwindowscodecs)
 libarm32_libwindowscodecs_a_CPPFLAGS = $(CPPFLAGSARM32) $(sysincludes)
+libarm32_libwindowscodecs_a_AR = $(DTDEFARM32) $(top_srcdir)/lib-common/windowscodecs.def && $(AR) $(ARFLAGS)
 
 libarm32_LIBRARIES += libarm32/libwbemuuid.a
 libarm32_libwbemuuid_a_SOURCES = $(src_libwbemuuid)
