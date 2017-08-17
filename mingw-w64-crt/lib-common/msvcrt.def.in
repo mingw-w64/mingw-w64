@@ -4,6 +4,25 @@ EXPORTS
 #include "func.def.in"
 #include "msvcrt-common.def.in"
 
+#ifdef DEF_I386
+_CIacos
+_CIasin
+_CIatan
+_CIatan2
+_CIcos
+_CIcosh
+_CIexp
+_CIfmod
+_CIlog
+_CIlog10
+_CIpow
+_CIsin
+_CIsinh
+_CIsqrt
+_CItan
+_CItanh
+#endif
+
 #ifdef DEF_X64
 $I10_OUTPUT
 ; public: __cdecl __non_rtti_object::__non_rtti_object(class __non_rtti_object const & __ptr64) __ptr64
@@ -208,6 +227,7 @@ _CrtSetReportHook
 _CrtSetReportHook2
 _CrtSetReportMode
 _CxxThrowException
+F_I386(_EH_prolog)
 _Getdays
 _Getmonths
 _Gettnames
@@ -221,8 +241,16 @@ _XcptFilter
 __AdjustPointer
 __C_specific_handler
 __CppXcptFilter
+__CxxCallUnwindDtor
+__CxxCallUnwindVecDtor
+__CxxDetectRethrow
+__CxxExceptionFilter
 __CxxFrameHandler
 __CxxFrameHandler3
+F_I386(__CxxLongjmpUnwind)
+__CxxQueryExceptionSize
+__CxxRegisterExceptionObject
+__CxxUnregisterExceptionObject
 __DestructExceptionObject
 __RTCastToVoid
 __RTDynamicCast
@@ -237,6 +265,7 @@ ___unguarded_readlc_active_add_func
 __argc DATA
 __argv DATA
 __badioinfo DATA
+F_I386(__buffer_overrun)
 __crtCompareStringA
 __crtCompareStringW
 __crtGetLocaleInfoW
@@ -254,23 +283,56 @@ __iob_func
 __isascii
 __iscsym
 __iscsymf
+__lc_clike
 __lc_codepage DATA
 __lc_collate_cp DATA
 __jump_unwind
 __lc_handle DATA
 __lconv_init
 __mb_cur_max DATA
+__p___argc
+__p___argv
+__p___initenv
+__p___mb_cur_max
+__p___wargv
+__p___winitenv
+__p__acmdln
+__p__amblksiz
+__p__commode
+__p__daylight
+__p__dstbias
+__p__environ
+__p__fileinfo
+__p__fmode
+__p__iob
+__p__mbcasemap
+__p__mbctype
+__p__osver
+__p__pctype
+__p__pgmptr
+__p__pwctype
+__p__timezone
+__p__tzname
+__p__wcmdln
+__p__wenviron
+__p__winmajor
+__p__winminor
+__p__winver
+__p__wpgmptr
 __pctype_func
 __pioinfo DATA
 __pwctype_func
 __pxcptinfoptrs
+__security_error_handler
 __set_app_type
+__set_buffer_overrun_handler
 __setlc_active DATA
 __setusermatherr
 __strncnt
 __threadhandle
 __threadid
 __toascii
+__uncaught_exception
 __unDName
 __unDNameEx
 __unguarded_readlc_active DATA
@@ -280,10 +342,27 @@ __wcserror_s
 __wcsncnt
 __wgetmainargs
 F_X86_ANY(__winitenv DATA)
+_abnormal_termination
 _abs64
 _access
 ; _access_s Replaced by emu
 _acmdln DATA
+#ifdef DEF_I386
+_adj_fdiv_m16i
+_adj_fdiv_m32
+_adj_fdiv_m32i
+_adj_fdiv_m64
+_adj_fdiv_r
+_adj_fdivr_m16i
+_adj_fdivr_m32
+_adj_fdivr_m32i
+_adj_fdivr_m64
+_adj_fpatan
+_adj_fprem
+_adj_fprem1
+_adj_fptan
+_adjust_fdiv DATA
+#endif
 _aexit_rtn DATA
 _aligned_free
 _aligned_free_dbg
@@ -324,6 +403,7 @@ _chdrive
 _chgsign
 _chgsignf
 _chmod
+_chkesp
 _chsize
 ; _chsize_s replaced by emu
 _chvalidator
@@ -345,6 +425,7 @@ _cprintf_p_l
 ; _cprintf_s_l likewise.
 _cputs
 _cputws
+_CRT_RTC_INIT
 _creat
 _create_locale
 _crtAssertBusy
@@ -358,7 +439,7 @@ _ctime32
 ; _ctime32_s replaced by emu
 _ctime64
 ; _ctime64_s replaced by emu
-_ctype
+_ctypea DATA
 _cwait
 _cwprintf
 _cwprintf_l
@@ -383,6 +464,8 @@ _endthreadex
 F_X86_ANY(_environ DATA)
 _eof
 _errno
+F_I386(_except_handler2)
+F_I386(_except_handler3)
 _execl
 _execle
 _execlp
@@ -407,20 +490,24 @@ _filelengthi64
 _fileno
 _findclose
 _findfirst
+F_I386(_findfirst32 == _findfirst)
 _findfirst64
 _findfirsti64
-_findfirst64i32 == _findfirst
+F_I386(_findfirst32i64 == _findfirsti64)
+F_X64(_findfirst64i32 == _findfirst)
 _findnext
+F_I386(_findnext32 == _findnext)
 _findnext64
 _findnexti64
-_findnext64i32 == _findnext
+F_I386(_findnext32i64 == _findnexti64)
+F_X64(_findnext64i32 == _findnext)
 _finite
-_finitef
+F_NON_I386(_finitef)
 _flsbuf
 _flushall
 _fmode DATA
 _fpclass
-_fpclassf
+F_NON_I386(_fpclassf)
 _fpieee_flt
 _fpreset DATA
 _fprintf_l
@@ -438,6 +525,7 @@ _free_locale
 _fseeki64
 _fsopen
 _fstat
+_fstat32 == _fstat
 _fstat64
 _fstati64
 _fstat64i32 == _fstat
@@ -446,7 +534,8 @@ _ftime32
 _ftime32_s
 _ftime64
 _ftime64_s
-_ftime_s == _ftime64_s
+F_I386(_ftime_s == _ftime32_s)
+F_X64(_ftime_s == _ftime64_s)
 _fullpath
 _fullpath_dbg
 _futime
@@ -487,6 +576,7 @@ _getw
 _getwch
 _getwche
 _getws
+F_I386(_global_unwind2)
 _gmtime32
 ; _gmtime32_s replaced by emu
 _gmtime64
@@ -505,6 +595,9 @@ _i64tow
 _i64tow_s
 _initterm
 _initterm_e
+F_I386(_inp)
+F_I386(_inpd)
+F_I386(_inpw)
 _invalid_parameter
 _iob DATA
 _isalnum_l
@@ -605,6 +698,7 @@ _lfind
 _loaddll
 _lfind_s
 F_X64(_local_unwind)
+F_I386(_local_unwind2)
 _localtime32
 ; _localtime32_s replaced by emu
 _localtime64
@@ -612,7 +706,8 @@ _localtime64
 _lock
 _locking
 _logb
-_logbf
+F_NON_I386(_logbf)
+F_I386(_longjmpex)
 _lrotl
 _lrotr
 _lsearch
@@ -785,6 +880,9 @@ _open
 _open_osfhandle
 _osplatform DATA
 _osver DATA
+F_I386(_outp)
+F_I386(_outpd)
+F_I386(_outpw)
 _pclose
 _pctype DATA
 _pgmptr DATA
@@ -811,6 +909,12 @@ _rotl
 _rotl64
 _rotr
 _rotr64
+#ifdef DEF_I386
+_safe_fdiv
+_safe_fdivr
+_safe_fprem
+_safe_fprem1
+#endif
 _scalb
 F_X64(_scalbf)
 _scanf_l
@@ -823,16 +927,22 @@ _scwprintf_l
 _scwprintf_p_l
 _searchenv
 _searchenv_s
+F_I386(_seh_longjmp_unwind)
 _set_controlfp
 _set_doserrno
 _set_errno
 _set_error_mode
 _set_fileinfo
 _set_fmode
+; Does not seem to present even on Win7 msvcrt
+;_set_purecall_handler
 _set_sbh_threshold
 ; _set_output_format provided by emu
+_set_SSE2_enable
+_set_security_error_handler
 _seterrormode
 _setjmp
+F_I386(_setjmp3)
 _setjmpex
 _setmaxstdio
 _setmbcp
@@ -878,6 +988,7 @@ _sscanf_s_l
 _stat
 _stat64
 _stati64
+_stat32 == _stat
 _stat64i32 == _stat
 _statusfp
 _strcmpi
@@ -1068,7 +1179,7 @@ _wcsupr_s
 _wcsupr_s_l
 _wcsxfrm_l
 _wctime
-_wctime32
+_wctime32 F_I386(== _wctime)
 ; _wctime32_s replaced by emu
 _wctime64
 ; _wctime64_s replaced by emu
@@ -1086,13 +1197,17 @@ _wexecvp
 _wexecvpe
 _wfdopen
 _wfindfirst
+F_I386(_wfindfirst32 == _wfindfirst)
 _wfindfirst64
 _wfindfirsti64
-_wfindfirst64i32 == _wfindfirst
+F_I386(_wfindfirst32i64 == _wfindfirsti64)
+F_X64(_wfindfirst64i32 == _wfindfirst)
 _wfindnext
+F_I386(_wfindnext32 == _wfindnext)
 _wfindnext64
 _wfindnexti64
-_wfindnext64i32 == _wfindnext
+F_I386(_wfindnext32i64 == _wfindnexti64)
+F_X64(_wfindnext64i32 == _wfindnext)
 _wfopen
 _wfopen_s
 _wfreopen
@@ -1148,6 +1263,7 @@ _wsplitpath_s
 _wstat
 _wstat64
 _wstati64
+_wstat32 == _wstat
 _wstat64i32 == _wstat
 _wstrdate
 ; _wstrdate_s replaced by emu
@@ -1176,15 +1292,15 @@ _yn
 abort
 abs
 acos
-acosf F_X86_ANY(DATA)
+F_NON_I386(acosf F_X86_ANY(DATA))
 asctime
 ; asctime_s replaced by emu
 asin
-asinf F_X86_ANY(DATA)
+F_NON_I386(asinf F_X86_ANY(DATA))
 atan
 atan2 F_X86_ANY(DATA)
-atan2f F_X86_ANY(DATA)
-atanf F_X86_ANY(DATA)
+F_NON_I386(atan2f F_X86_ANY(DATA))
+F_NON_I386(atanf F_X86_ANY(DATA))
 atexit DATA
 atof
 atoi
@@ -1199,17 +1315,18 @@ clearerr
 clearerr_s
 clock
 cos F_X86_ANY(DATA)
-cosf F_X86_ANY(DATA)
+F_NON_I386(cosf F_X86_ANY(DATA))
 cosh
-coshf DATA
+F_NON_I386(coshf DATA)
 ctime
+_ctime32 == ctime
 difftime
 div
 exit
 exp F_X86_ANY(DATA)
-expf F_X86_ANY(DATA)
+F_NON_I386(expf F_X86_ANY(DATA))
 fabs DATA
-fabsf
+F_NON_I386(fabsf)
 fclose
 feof
 ferror
@@ -1220,9 +1337,9 @@ fgets
 fgetwc
 fgetws
 floor DATA
-floorf DATA
+F_NON_I386(floorf DATA)
 fmod F_X86_ANY(DATA)
-fmodf F_X86_ANY(DATA)
+F_NON_I386(fmodf F_X86_ANY(DATA))
 fopen
 fopen_s
 fprintf
@@ -1256,6 +1373,7 @@ gets
 getwc
 getwchar
 gmtime
+_gmtime32 == gmtime
 is_wctype
 isalnum
 isalpha
@@ -1287,10 +1405,11 @@ ldexp F_X86_ANY(DATA)
 ldiv
 localeconv
 localtime
+_localtime32 == localtime
 log F_X86_ANY(DATA)
 log10
-log10f F_X86_ANY(DATA)
-logf F_X86_ANY(DATA)
+F_NON_I386(log10f F_X86_ANY(DATA))
+F_NON_I386(logf F_X86_ANY(DATA))
 longjmp
 malloc
 mblen
@@ -1310,11 +1429,12 @@ memmove
 ; memmove_s replaced by emu
 memset
 mktime
+_mktime32 == mktime
 modf DATA
-modff DATA
+F_NON_I386(modff DATA)
 perror
 pow F_X86_ANY(DATA)
-powf F_X86_ANY(DATA)
+F_NON_I386(powf F_X86_ANY(DATA))
 printf
 printf_s
 putc
@@ -1339,14 +1459,14 @@ setlocale
 setvbuf
 signal
 sin F_X86_ANY(DATA)
-sinf F_X86_ANY(DATA)
+F_NON_I386(sinf F_X86_ANY(DATA))
 ; if we implement sinh, we can set it DATA only.
 sinh
-sinhf DATA
+F_NON_I386(sinhf DATA)
 sprintf
 ; sprintf_s replaced by emu
 sqrt DATA
-sqrtf DATA
+F_NON_I386(sqrtf DATA)
 srand
 sscanf
 sscanf_s
@@ -1384,11 +1504,11 @@ swscanf
 swscanf_s
 system
 tan
-tanf F_X86_ANY(DATA)
+F_NON_I386(tanf F_X86_ANY(DATA))
 ; if we implement tanh, we can set it to DATA only.
 tanh
-tanhf
-time == _time64
+F_NON_I386(tanhf)
+time F_NON_I386(== _time64)
 tmpfile
 tmpfile_s
 tmpnam

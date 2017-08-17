@@ -443,7 +443,7 @@ lib32_libkernel32_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
 
 if !W32API
 lib32_LIBRARIES += lib32/libmsvcrt.a
-lib32_libmsvcrt_a_SOURCES = $(src_msvcrt32) lib32/msvcrt.def.in
+lib32_libmsvcrt_a_SOURCES = $(src_msvcrt32) lib-common/msvcrt.def.in
 lib32_libmsvcrt_a_AR = $(DTDEF32) lib32/msvcrt.def && $(AR) $(ARFLAGS)
 lib32_libmsvcrt_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 EXTRA_lib32_libmsvcrt_a_DEPENDENCIES=lib32/msvcrt.def
