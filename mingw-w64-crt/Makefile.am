@@ -1239,7 +1239,7 @@ endif
 # ##########
 
 %.def: %.def.in
-	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -I$(top_srcdir)/def-include | $(SED) 's/^#/;/' > $@
+	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include > $@
 
 # Don't compile these, but install as is:
 #
