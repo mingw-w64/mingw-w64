@@ -28,6 +28,23 @@ __do_global_dtors (void)
     }
 }
 
+#ifdef __clang__
+extern func_ptr __CTOR_END__[];
+extern func_ptr __DTOR_END__[];
+
+void __do_global_ctors (void)
+{
+  static func_ptr *p = __CTOR_END__ - 1;
+  while (*p != (func_ptr) -1) {
+    (*(p))();
+    p--;
+  }
+  atexit (__do_global_dtors);
+}
+
+#else
+// old method that iterates the list twice because old linker scripts do not have __CTOR_END__
+
 void
 __do_global_ctors (void)
 {
@@ -46,6 +63,8 @@ __do_global_ctors (void)
 
   atexit (__do_global_dtors);
 }
+
+#endif
 
 static int initialized = 0;
 
