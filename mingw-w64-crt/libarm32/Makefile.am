@@ -295,6 +295,7 @@ libarm32_DATA += %reldir%/libhttpprxm.a
 libarm32_DATA += %reldir%/libhttpprxp.a
 libarm32_DATA += %reldir%/libhtui.a
 libarm32_DATA += %reldir%/libiashlpr.a
+libarm32_DATA += %reldir%/libiassam.a
 libarm32_DATA += %reldir%/libiassvcs.a
 libarm32_DATA += %reldir%/libicfupgd.a
 libarm32_DATA += %reldir%/libicm32.a
