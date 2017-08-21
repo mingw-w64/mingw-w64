@@ -203,6 +203,9 @@ src_msvcrt=\
   secapi/wmemmove_s.c \
   stdio/mingw_lock.c
 
+src_ucrtbase=\
+  crt/ucrtbase_compat.c
+
 src_msvcrt32=\
   $(src_msvcrt) \
   misc/lc_locale_func.c
@@ -617,8 +620,13 @@ include lib32/Makefile.am
 if !W32API
 lib32_DATA += lib32/libglut.a lib32/libmsvcp60.a lib32/libmsvcr80.a lib32/libmsvcr90.a lib32/libmsvcr90d.a lib32/libmsvcr100.a \
 			  lib32/libmsvcr110.a lib32/libmsvcr120.a lib32/libmsvcr120d.a lib32/libcrtdll.a \
-			  lib32/libmsvcr120_app.a lib32/libmsvcp120_app.a lib32/libucrtbase.a
+			  lib32/libmsvcr120_app.a lib32/libmsvcp120_app.a
 
+lib32_LIBRARIES += lib32/libucrtbase.a
+lib32_libucrtbase_a_SOURCES = $(src_ucrtbase) lib-common/ucrtbase.def.in
+lib32_libucrtbase_a_AR = $(DTDEF32) lib32/ucrtbase.def && $(AR) $(ARFLAGS)
+lib32_libucrtbase_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
+EXTRA_lib32_libucrtbase_a_DEPENDENCIES=lib32/ucrtbase.def
 endif
 
 # combine these two rules with the ones for lib64
@@ -922,7 +930,13 @@ include lib64/Makefile.am
 if !W32API
 lib64_DATA += lib64/libmsvcp60.a lib64/libmsvcr80.a lib64/libmsvcr90.a lib64/libmsvcr100.a lib64/libmsvcr90d.a \
 			  lib64/libmsvcr110.a lib64/libmsvcr120.a lib64/libmsvcr120d.a lib64/libcrtdll.a \
-			  lib64/libmsvcr120_app.a lib64/libmsvcp120_app.a lib64/libucrtbase.a
+			  lib64/libmsvcr120_app.a lib64/libmsvcp120_app.a
+
+lib64_LIBRARIES += lib64/libucrtbase.a
+lib64_libucrtbase_a_SOURCES = $(src_ucrtbase) lib-common/ucrtbase.def.in
+lib64_libucrtbase_a_AR = $(DTDEF64) lib64/ucrtbase.def && $(AR) $(ARFLAGS)
+lib64_libucrtbase_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
+EXTRA_lib64_libucrtbase_a_DEPENDENCIES=lib64/ucrtbase.def
 endif
 
 lib64/libcrtdll.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
@@ -1217,7 +1231,13 @@ endif
 include libarm32/Makefile.am
 
 if !W32API
-libarm32_DATA += libarm32/libmsvcp60.a libarm32/libmsvcr110.a libarm32/libucrtbase.a
+libarm32_DATA += libarm32/libmsvcp60.a libarm32/libmsvcr110.a
+
+libarm32_LIBRARIES += libarm32/libucrtbase.a
+libarm32_libucrtbase_a_SOURCES = $(src_ucrtbase) lib-common/ucrtbase.def.in
+libarm32_libucrtbase_a_AR = $(DTDEFARM32) libarm32/ucrtbase.def && $(AR) $(ARFLAGS)
+libarm32_libucrtbase_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
+EXTRA_libarm32_libucrtbase_a_DEPENDENCIES=libarm32/ucrtbase.def
 endif
 
 # combine these two rules with the ones for lib64
@@ -1468,7 +1488,11 @@ endif
 include libarm64/Makefile.am
 
 if !W32API
-libarm64_DATA += libarm64/libucrtbase.a
+libarm64_LIBRARIES += libarm64/libucrtbase.a
+libarm64_libucrtbase_a_SOURCES = $(src_ucrtbase) lib-common/ucrtbase.def.in
+libarm64_libucrtbase_a_AR = $(DTDEFARM64) libarm64/ucrtbase.def && $(AR) $(ARFLAGS)
+libarm64_libucrtbase_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
+EXTRA_libarm64_libucrtbase_a_DEPENDENCIES=libarm64/ucrtbase.def
 endif
 
 libarm64/libcrtdll.a libarm64/libmsvcr80.a: libarm64/lib%.a: libarm64/%.def

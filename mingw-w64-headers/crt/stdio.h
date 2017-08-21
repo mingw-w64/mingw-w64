@@ -444,7 +444,7 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wshadow"
 #endif
-  __mingw_ovr
+  __mingw_static_ovr
   __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
   int __cdecl fprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,...)
   {
@@ -478,7 +478,7 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
     return ret;
   }
 
-  __mingw_ovr
+  __mingw_static_ovr
   __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
   int __cdecl vfprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,va_list _ArgList)
   {
@@ -1116,7 +1116,7 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
     return __stdio_common_vfwscanf(UCRTBASE_SCANF_DEFAULT_WIDE, stdin, __format, NULL, __local_argv);
   }
 
-  __mingw_ovr
+  __mingw_static_ovr
   int __cdecl fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...)
   {
     __builtin_va_list ap;
@@ -1220,7 +1220,7 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
     __builtin_va_end(ap);
     return ret;
   }
-  __mingw_ovr
+  __mingw_static_ovr
   int __cdecl _snwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN
   {
     __builtin_va_list ap;

@@ -709,7 +709,7 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
     return __stdio_common_vfwscanf(UCRTBASE_SCANF_DEFAULT_WIDE, stdin, __format, NULL, __local_argv);
   }
 
-  __mingw_ovr
+  __mingw_static_ovr
   int __cdecl fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...)
   {
     __builtin_va_list ap;
@@ -814,7 +814,7 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
     __builtin_va_end(ap);
     return ret;
   }
-  __mingw_ovr
+  __mingw_static_ovr
   int __cdecl _snwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN
   {
     __builtin_va_list ap;

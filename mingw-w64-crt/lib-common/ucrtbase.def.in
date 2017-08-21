@@ -2126,7 +2126,8 @@ _write
 _wrmdir
 _wsearchenv
 _wsearchenv_s
-_wsetlocale
+; This is wrapped in the libmingwex compat code.
+;_wsetlocale
 _wsopen
 _wsopen_dispatch
 _wsopen_s
@@ -2351,7 +2352,8 @@ frexp
 fseek
 fsetpos
 ftell
-fwrite
+; This is wrapped in the libmingwex compat code.
+;fwrite
 getc
 getchar
 getenv
@@ -2504,7 +2506,8 @@ set_terminate
 set_unexpected
 setbuf
 setjmp
-setlocale
+; This is wrapped in the libmingwex compat code.
+;setlocale
 setvbuf
 signal
 sin F_X86_ANY(DATA)
