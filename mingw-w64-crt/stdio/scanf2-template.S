@@ -15,7 +15,7 @@
         .seh_proc       FCT
 #endif
 FCT:
-#ifdef __x64_86__
+#ifdef __x86_64__
         .seh_endprologue
 #endif
 #if defined(_AMD64_) || defined(__x86_64__) || defined(_X86_) || defined(__i386__)
