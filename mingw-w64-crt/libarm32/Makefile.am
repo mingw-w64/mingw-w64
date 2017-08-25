@@ -916,6 +916,7 @@ libarm32_DATA += %reldir%/libwinscard.a
 libarm32_DATA += %reldir%/libwinsetupui.a
 libarm32_DATA += %reldir%/libwinshfhc.a
 libarm32_DATA += %reldir%/libwinsku.a
+libarm32_DATA += %reldir%/libwinspool.a
 libarm32_DATA += %reldir%/libwinsrpc.a
 libarm32_DATA += %reldir%/libwinsrv.a
 libarm32_DATA += %reldir%/libwinsta.a
