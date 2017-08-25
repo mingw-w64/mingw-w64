@@ -118,11 +118,11 @@ extern "C" {
 
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE PUWSTR_C ua_wcschr(PCUWSTR String,WCHAR Character) {
-    if(WSTR_ALIGNED(String)) return wcschr((PCWSTR)String,Character);
+    if(WSTR_ALIGNED(String)) return (PUWSTR_C)wcschr((PCWSTR)String,Character);
     return (PUWSTR_C)uaw_wcschr(String,Character);
   }
   __CRT_INLINE PUWSTR_C ua_wcsrchr(PCUWSTR String,WCHAR Character) {
-    if(WSTR_ALIGNED(String)) return wcsrchr((PCWSTR)String,Character);
+    if(WSTR_ALIGNED(String)) return (PUWSTR_C)wcsrchr((PCWSTR)String,Character);
     return (PUWSTR_C)uaw_wcsrchr(String,Character);
   }
 #if defined(__cplusplus) && defined(_WConst_Return)
