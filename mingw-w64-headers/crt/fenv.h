@@ -60,21 +60,7 @@
 
 #ifndef RC_INVOKED
 
-#if defined(_ARM_) || defined(__arm__)
-
-/* Type representing exception flags. */
-typedef unsigned int fexcept_t;
-
-/* Type representing floating-point environment.  */
-typedef struct
-{
-    unsigned int __cw;
-} fenv_t;
-
-/* If the default argument is used we use this value.  */
-#define FE_DFL_ENV  ((const fenv_t *) -1l)
-
-#elif defined(_ARM64_) || defined(__aarch64__)
+#if defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__)
 
 /* Type representing exception flags. */
 typedef unsigned int fexcept_t;
