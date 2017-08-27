@@ -913,7 +913,7 @@ processed_defs += lib64/msvcrt.def lib64/msvcr80.def lib64/msvcr90.def lib64/msv
 				  lib64/msvcr100.def lib64/msvcr110.def lib64/msvcr120.def lib64/msvcr120d.def \
 				  lib64/msvcr120_app.def lib64/msvcp120_app.def \
 				  lib64/advapi32.def lib64/clbcatq.def lib64/kernel32.def lib64/ole32.def \
-				  lib64/user32.def lib64/ws2_32.def
+				  lib64/oleaut32.def lib64/user32.def lib64/ws2_32.def
 
 endif
 
@@ -1209,8 +1209,8 @@ libarm32_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
 libarm32_libmingwthrd_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 
 processed_defs += libarm32/msvcrt.def libarm32/msvcr80.def libarm32/msvcr90.def libarm32/msvcr90d.def libarm32/msvcr100.def libarm32/msvcr110.def \
-				  libarm32/advapi32.def libarm32/clbcatq.def libarm32/kernel32.def libarm32/ole32.def libarm32/user32.def \
-				  libarm32/ws2_32.def
+				  libarm32/advapi32.def libarm32/clbcatq.def libarm32/kernel32.def libarm32/ole32.def libarm32/oleaut32.def \
+				  libarm32/user32.def libarm32/ws2_32.def
 
 endif
 
@@ -1460,8 +1460,8 @@ libarm64_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
 libarm64_libmingwthrd_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 
 processed_defs += libarm64/msvcrt.def \
-				  libarm64/advapi32.def libarm64/clbcatq.def libarm64/kernel32.def libarm64/ole32.def libarm64/user32.def \
-				  libarm64/ws2_32.def
+				  libarm64/advapi32.def libarm64/clbcatq.def libarm64/kernel32.def libarm64/ole32.def libarm64/oleaut32.def \
+				  libarm64/user32.def libarm64/ws2_32.def
 
 endif
 
