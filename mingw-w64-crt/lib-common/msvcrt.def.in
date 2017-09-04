@@ -1481,7 +1481,6 @@ strcspn
 strerror
 ; strerror_s replaced by emu
 strftime
-_strftime_l
 strlen
 strncat
 strncat_s
