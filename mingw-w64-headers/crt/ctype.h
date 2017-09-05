@@ -25,7 +25,11 @@ extern "C" {
 #ifdef _MSVCRT_
 #define __pctype_func()	(_pctype)
 #else
+#if __MSVCRT_VERSION__ >= 0x1400
+  _CRTIMP unsigned short* __pctype_func(void);
+#else
 #define __pctype_func()	(* __MINGW_IMP_SYMBOL(_pctype))
+#endif
 #endif
 #endif
 
@@ -33,8 +37,12 @@ extern "C" {
 #ifdef _MSVCRT_
   extern unsigned short *_pctype;
 #else
+#if __MSVCRT_VERSION__ >= 0x1400
+#define _pctype (__pctype_func())
+#else
   extern unsigned short ** __MINGW_IMP_SYMBOL(_pctype);
 #define _pctype (* __MINGW_IMP_SYMBOL(_pctype))
+#endif
 #endif
 #endif
 

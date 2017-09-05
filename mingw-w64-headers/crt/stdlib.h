@@ -425,7 +425,8 @@ float __cdecl __MINGW_NOTHROW strtof(const char * __restrict__ _Str,char ** __re
   /* libmingwex.a provides a c99-compliant strtod() exported as __strtod() */
   extern double __cdecl __MINGW_NOTHROW
   __strtod (const char * __restrict__ , char ** __restrict__);
-#if !defined(__USE_MINGW_STRTOX)
+// The ucrtbase version of strtod is C99 compliant, so we don't need to redirect it to the mingw version.
+#if !defined(__USE_MINGW_STRTOX) && __MSVCRT_VERSION__ < 0x1400
 #define strtod __strtod
 #endif /* !defined(__USE_MINGW_STRTOX) */
 #endif /* __NO_ISOCEXT */
