@@ -2,4 +2,4 @@ LIBRARY api-ms-win-core-winrt-robuffer-l1-1-0
 
 EXPORTS
 
-RoGetBufferMarshaler@4=api-ms-win-core-winrt-robuffer-l1-1-0._RoGetBufferMarshaler@4
+RoGetBufferMarshaler@4

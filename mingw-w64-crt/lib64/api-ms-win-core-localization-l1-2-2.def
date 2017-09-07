@@ -2,5 +2,5 @@ LIBRARY api-ms-win-core-localization-l1-2-2
 
 EXPORTS
 
-GetSystemDefaultLocaleName=api-ms-win-core-localization-l1-2-2.GetSystemDefaultLocaleName
-LCIDToLocaleName=api-ms-win-core-localization-l1-2-2.LCIDToLocaleName
+GetSystemDefaultLocaleName
+LCIDToLocaleName

@@ -2,5 +2,5 @@ LIBRARY api-ms-win-core-util-l1-1-0
 
 EXPORTS
 
-DecodePointer=api-ms-win-core-util-l1-1-0.DecodePointer
-EncodePointer=api-ms-win-core-util-l1-1-0.EncodePointer
+DecodePointer
+EncodePointer

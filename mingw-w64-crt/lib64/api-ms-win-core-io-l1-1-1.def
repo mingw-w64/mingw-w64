@@ -2,5 +2,5 @@ LIBRARY api-ms-win-core-io-l1-1-1
 
 EXPORTS
 
-CancelIoEx=api-ms-win-core-io-l1-1-1.CancelIoEx
-GetOverlappedResultEx=api-ms-win-core-io-l1-1-1.GetOverlappedResultEx
+CancelIoEx
+GetOverlappedResultEx

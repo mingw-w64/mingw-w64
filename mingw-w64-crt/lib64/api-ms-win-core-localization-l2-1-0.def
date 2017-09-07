@@ -2,9 +2,9 @@ LIBRARY api-ms-win-core-localization-l2-1-0
 
 EXPORTS
 
-EnumCalendarInfoExEx=api-ms-win-core-localization-l2-1-0.EnumCalendarInfoExEx
-EnumDateFormatsExEx=api-ms-win-core-localization-l2-1-0.EnumDateFormatsExEx
-EnumSystemCodePagesW=api-ms-win-core-localization-l2-1-0.EnumSystemCodePagesW
-EnumTimeFormatsEx=api-ms-win-core-localization-l2-1-0.EnumTimeFormatsEx
-GetCurrencyFormatEx=api-ms-win-core-localization-l2-1-0.GetCurrencyFormatEx
-GetNumberFormatEx=api-ms-win-core-localization-l2-1-0.GetNumberFormatEx
+EnumCalendarInfoExEx
+EnumDateFormatsExEx
+EnumSystemCodePagesW
+EnumTimeFormatsEx
+GetCurrencyFormatEx
+GetNumberFormatEx

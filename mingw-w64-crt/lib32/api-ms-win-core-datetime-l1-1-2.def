@@ -2,4 +2,4 @@ LIBRARY api-ms-win-core-datetime-l1-1-2
 
 EXPORTS
 
-GetDurationFormatEx@32=api-ms-win-core-datetime-l1-1-2._GetDurationFormatEx@32
+GetDurationFormatEx@32

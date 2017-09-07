@@ -2,5 +2,5 @@ LIBRARY api-ms-win-core-datetime-l1-1-1
 
 EXPORTS
 
-GetDateFormatEx=api-ms-win-core-datetime-l1-1-1.GetDateFormatEx
-GetTimeFormatEx=api-ms-win-core-datetime-l1-1-1.GetTimeFormatEx
+GetDateFormatEx
+GetTimeFormatEx
