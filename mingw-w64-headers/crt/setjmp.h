@@ -178,14 +178,14 @@ void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp (void);
 
 #ifndef USE_NO_MINGW_SETJMP_TWO_ARGS
 #  ifndef _INC_SETJMPEX
-#    ifdef _WIN64
+#    if defined(_X86_) || defined(__i386__)
+#      define setjmp(BUF) _setjmp3((BUF), NULL)
+#    else
 #     if (__MINGW_GCC_VERSION < 40702)
 #      define setjmp(BUF) _setjmp((BUF), mingw_getsp())
 #     else
 #      define setjmp(BUF) _setjmp((BUF), __builtin_frame_address (0))
 #     endif
-#    else
-#      define setjmp(BUF) _setjmp3((BUF), NULL)
 #    endif
   int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp(jmp_buf _Buf, void *_Ctx);
   int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp3(jmp_buf _Buf, void *_Ctx);
