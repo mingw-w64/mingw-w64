@@ -24,6 +24,9 @@ __MINGW_USYMBOL(mingw_getsp):
 #elif defined(_ARM_) || defined(__arm__)
 	mov	r0, sp
 	bx	lr
+#elif defined(_ARM64_) || defined(__aarch64__)
+	mov	x0, sp
+	ret
 #endif
 
 /* On ARM:
@@ -33,7 +36,7 @@ __MINGW_USYMBOL(mingw_getsp):
   ldr pc, [pc, ip]
   1: .long __imp_longjmp - (1b + 4)
 */
-#if !(defined(_ARM_) || defined(__arm__))
+#if !(defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__))
 	.globl __MINGW_USYMBOL(longjmp)
 	.def	__MINGW_USYMBOL(longjmp);	.scl	2;	.type	32;	.endef
 __MINGW_USYMBOL(longjmp):
