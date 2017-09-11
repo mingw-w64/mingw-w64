@@ -47,6 +47,9 @@
 #define _Out_writes_to_ptr_z(p)
 
 /* Optional pointer parameters */
+#define __in_opt
+#define __out_opt
+#define __inout_opt
 #define _In_opt_
 #define _Out_opt_
 #define _Inout_opt_
