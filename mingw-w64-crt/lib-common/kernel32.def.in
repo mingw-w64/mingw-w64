@@ -1586,8 +1586,7 @@ ZombifyActCtx
 ZombifyActCtxWorker
 __C_specific_handler
 F_ARM_ANY(__chkstk)
-;__misaligned_access
-__jump_unwind
+F_X64(__misaligned_access)
 _hread
 _hwrite
 _lclose
@@ -1615,11 +1614,6 @@ lstrcpynW
 lstrlen
 lstrlenA
 lstrlenW
-timeBeginPeriod
-timeEndPeriod
-timeGetDevCaps
-timeGetSystemTime
-timeGetTime
 uaw_lstrcmpW
 uaw_lstrcmpiW
 uaw_lstrlenW
