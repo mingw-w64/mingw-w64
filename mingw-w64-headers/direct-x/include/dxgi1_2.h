@@ -17,6 +17,16 @@
 
 /* Forward declarations */
 
+#ifndef __IDXGIOutputDuplication_FWD_DEFINED__
+#define __IDXGIOutputDuplication_FWD_DEFINED__
+typedef interface IDXGIOutputDuplication IDXGIOutputDuplication;
+#endif
+
+#ifndef __IDXGIDisplayControl_FWD_DEFINED__
+#define __IDXGIDisplayControl_FWD_DEFINED__
+typedef interface IDXGIDisplayControl IDXGIDisplayControl;
+#endif
+
 #ifndef __IDXGIDevice2_FWD_DEFINED__
 #define __IDXGIDevice2_FWD_DEFINED__
 typedef interface IDXGIDevice2 IDXGIDevice2;
@@ -35,6 +45,11 @@ typedef interface IDXGIFactory2 IDXGIFactory2;
 #ifndef __IDXGIAdapter2_FWD_DEFINED__
 #define __IDXGIAdapter2_FWD_DEFINED__
 typedef interface IDXGIAdapter2 IDXGIAdapter2;
+#endif
+
+#ifndef __IDXGIOutput1_FWD_DEFINED__
+#define __IDXGIOutput1_FWD_DEFINED__
+typedef interface IDXGIOutput1 IDXGIOutput1;
 #endif
 
 /* Headers for imported files */
@@ -57,6 +72,432 @@ typedef enum DXGI_ALPHA_MODE {
     DXGI_ALPHA_MODE_IGNORE = 3,
     DXGI_ALPHA_MODE_FORCE_DWORD = 0xffffffff
 } DXGI_ALPHA_MODE;
+typedef struct DXGI_OUTDUPL_MOVE_RECT {
+    POINT SourcePoint;
+    RECT DestinationRect;
+} DXGI_OUTDUPL_MOVE_RECT;
+typedef struct DXGI_OUTDUPL_DESC {
+    DXGI_MODE_DESC ModeDesc;
+    DXGI_MODE_ROTATION Rotation;
+    WINBOOL DesktopImageInSystemMemory;
+} DXGI_OUTDUPL_DESC;
+typedef struct DXGI_OUTDUPL_POINTER_POSITION {
+    POINT Position;
+    WINBOOL Visible;
+} DXGI_OUTDUPL_POINTER_POSITION;
+typedef enum DXGI_OUTDUPL_POINTER_SHAPE_TYPE {
+    DXGI_OUTDUPL_POINTER_SHAPE_TYPE_MONOCHROME = 0x1,
+    DXGI_OUTDUPL_POINTER_SHAPE_TYPE_COLOR = 0x2,
+    DXGI_OUTDUPL_POINTER_SHAPE_TYPE_MASKED_COLOR = 0x4
+} DXGI_OUTDUPL_POINTER_SHAPE_TYPE;
+typedef struct DXGI_OUTDUPL_POINTER_SHAPE_INFO {
+    UINT Type;
+    UINT Width;
+    UINT Height;
+    UINT Pitch;
+    POINT HotSpot;
+} DXGI_OUTDUPL_POINTER_SHAPE_INFO;
+typedef struct DXGI_OUTDUPL_FRAME_INFO {
+    LARGE_INTEGER LastPresentTime;
+    LARGE_INTEGER LastMouseUpdateTime;
+    UINT AccumulatedFrames;
+    WINBOOL RectsCoalesced;
+    WINBOOL ProtectedContentMaskedOut;
+    DXGI_OUTDUPL_POINTER_POSITION PointerPosition;
+    UINT TotalMetadataBufferSize;
+    UINT PointerShapeBufferSize;
+} DXGI_OUTDUPL_FRAME_INFO;
+typedef struct DXGI_MODE_DESC1 {
+    UINT Width;
+    UINT Height;
+    DXGI_RATIONAL RefreshRate;
+    DXGI_FORMAT Format;
+    DXGI_MODE_SCANLINE_ORDER ScanlineOrdering;
+    DXGI_MODE_SCALING Scaling;
+    WINBOOL Stereo;
+} DXGI_MODE_DESC1;
+/*****************************************************************************
+ * IDXGIOutputDuplication interface
+ */
+#ifndef __IDXGIOutputDuplication_INTERFACE_DEFINED__
+#define __IDXGIOutputDuplication_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IDXGIOutputDuplication, 0x191cfac3, 0xa341, 0x470d, 0xb2,0x6e, 0xa8,0x64,0xf4,0x28,0x31,0x9c);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("191cfac3-a341-470d-b26e-a864f428319c")
+IDXGIOutputDuplication : public IDXGIObject
+{
+    virtual void STDMETHODCALLTYPE GetDesc(
+        DXGI_OUTDUPL_DESC *desc) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE AcquireNextFrame(
+        UINT timeout_in_milliseconds,
+        DXGI_OUTDUPL_FRAME_INFO *frame_info,
+        IDXGIResource **desktop_resource) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFrameDirtyRects(
+        UINT dirty_rects_buffer_size,
+        RECT *dirty_rects_buffer,
+        UINT *dirty_rects_buffer_size_required) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFrameMoveRects(
+        UINT move_rects_buffer_size,
+        DXGI_OUTDUPL_MOVE_RECT *move_rect_buffer,
+        UINT *move_rects_buffer_size_required) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFramePointerShape(
+        UINT pointer_shape_buffer_size,
+        void *pointer_shape_buffer,
+        UINT *pointer_shape_buffer_size_required,
+        DXGI_OUTDUPL_POINTER_SHAPE_INFO *pointer_shape_info) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE MapDesktopSurface(
+        DXGI_MAPPED_RECT *locked_rect) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE UnMapDesktopSurface(
+        ) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE ReleaseFrame(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDXGIOutputDuplication, 0x191cfac3, 0xa341, 0x470d, 0xb2,0x6e, 0xa8,0x64,0xf4,0x28,0x31,0x9c)
+#endif
+#else
+typedef struct IDXGIOutputDuplicationVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IDXGIOutputDuplication* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IDXGIOutputDuplication* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IDXGIOutputDuplication* This);
+
+    /*** IDXGIObject methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        IDXGIOutputDuplication* This,
+        REFGUID guid,
+        UINT data_size,
+        const void *data);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        IDXGIOutputDuplication* This,
+        REFGUID guid,
+        const IUnknown *object);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        IDXGIOutputDuplication* This,
+        REFGUID guid,
+        UINT *data_size,
+        void *data);
+
+    HRESULT (STDMETHODCALLTYPE *GetParent)(
+        IDXGIOutputDuplication* This,
+        REFIID riid,
+        void **parent);
+
+    /*** IDXGIOutputDuplication methods ***/
+    void (STDMETHODCALLTYPE *GetDesc)(
+        IDXGIOutputDuplication* This,
+        DXGI_OUTDUPL_DESC *desc);
+
+    HRESULT (STDMETHODCALLTYPE *AcquireNextFrame)(
+        IDXGIOutputDuplication* This,
+        UINT timeout_in_milliseconds,
+        DXGI_OUTDUPL_FRAME_INFO *frame_info,
+        IDXGIResource **desktop_resource);
+
+    HRESULT (STDMETHODCALLTYPE *GetFrameDirtyRects)(
+        IDXGIOutputDuplication* This,
+        UINT dirty_rects_buffer_size,
+        RECT *dirty_rects_buffer,
+        UINT *dirty_rects_buffer_size_required);
+
+    HRESULT (STDMETHODCALLTYPE *GetFrameMoveRects)(
+        IDXGIOutputDuplication* This,
+        UINT move_rects_buffer_size,
+        DXGI_OUTDUPL_MOVE_RECT *move_rect_buffer,
+        UINT *move_rects_buffer_size_required);
+
+    HRESULT (STDMETHODCALLTYPE *GetFramePointerShape)(
+        IDXGIOutputDuplication* This,
+        UINT pointer_shape_buffer_size,
+        void *pointer_shape_buffer,
+        UINT *pointer_shape_buffer_size_required,
+        DXGI_OUTDUPL_POINTER_SHAPE_INFO *pointer_shape_info);
+
+    HRESULT (STDMETHODCALLTYPE *MapDesktopSurface)(
+        IDXGIOutputDuplication* This,
+        DXGI_MAPPED_RECT *locked_rect);
+
+    HRESULT (STDMETHODCALLTYPE *UnMapDesktopSurface)(
+        IDXGIOutputDuplication* This);
+
+    HRESULT (STDMETHODCALLTYPE *ReleaseFrame)(
+        IDXGIOutputDuplication* This);
+
+    END_INTERFACE
+} IDXGIOutputDuplicationVtbl;
+interface IDXGIOutputDuplication {
+    CONST_VTBL IDXGIOutputDuplicationVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IDXGIOutputDuplication_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDXGIOutputDuplication_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDXGIOutputDuplication_Release(This) (This)->lpVtbl->Release(This)
+/*** IDXGIObject methods ***/
+#define IDXGIOutputDuplication_SetPrivateData(This,guid,data_size,data) (This)->lpVtbl->SetPrivateData(This,guid,data_size,data)
+#define IDXGIOutputDuplication_SetPrivateDataInterface(This,guid,object) (This)->lpVtbl->SetPrivateDataInterface(This,guid,object)
+#define IDXGIOutputDuplication_GetPrivateData(This,guid,data_size,data) (This)->lpVtbl->GetPrivateData(This,guid,data_size,data)
+#define IDXGIOutputDuplication_GetParent(This,riid,parent) (This)->lpVtbl->GetParent(This,riid,parent)
+/*** IDXGIOutputDuplication methods ***/
+#define IDXGIOutputDuplication_GetDesc(This,desc) (This)->lpVtbl->GetDesc(This,desc)
+#define IDXGIOutputDuplication_AcquireNextFrame(This,timeout_in_milliseconds,frame_info,desktop_resource) (This)->lpVtbl->AcquireNextFrame(This,timeout_in_milliseconds,frame_info,desktop_resource)
+#define IDXGIOutputDuplication_GetFrameDirtyRects(This,dirty_rects_buffer_size,dirty_rects_buffer,dirty_rects_buffer_size_required) (This)->lpVtbl->GetFrameDirtyRects(This,dirty_rects_buffer_size,dirty_rects_buffer,dirty_rects_buffer_size_required)
+#define IDXGIOutputDuplication_GetFrameMoveRects(This,move_rects_buffer_size,move_rect_buffer,move_rects_buffer_size_required) (This)->lpVtbl->GetFrameMoveRects(This,move_rects_buffer_size,move_rect_buffer,move_rects_buffer_size_required)
+#define IDXGIOutputDuplication_GetFramePointerShape(This,pointer_shape_buffer_size,pointer_shape_buffer,pointer_shape_buffer_size_required,pointer_shape_info) (This)->lpVtbl->GetFramePointerShape(This,pointer_shape_buffer_size,pointer_shape_buffer,pointer_shape_buffer_size_required,pointer_shape_info)
+#define IDXGIOutputDuplication_MapDesktopSurface(This,locked_rect) (This)->lpVtbl->MapDesktopSurface(This,locked_rect)
+#define IDXGIOutputDuplication_UnMapDesktopSurface(This) (This)->lpVtbl->UnMapDesktopSurface(This)
+#define IDXGIOutputDuplication_ReleaseFrame(This) (This)->lpVtbl->ReleaseFrame(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDXGIOutputDuplication_QueryInterface(IDXGIOutputDuplication* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDXGIOutputDuplication_AddRef(IDXGIOutputDuplication* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDXGIOutputDuplication_Release(IDXGIOutputDuplication* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDXGIObject methods ***/
+static FORCEINLINE HRESULT IDXGIOutputDuplication_SetPrivateData(IDXGIOutputDuplication* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIOutputDuplication_SetPrivateDataInterface(IDXGIOutputDuplication* This,REFGUID guid,const IUnknown *object) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,object);
+}
+static FORCEINLINE HRESULT IDXGIOutputDuplication_GetPrivateData(IDXGIOutputDuplication* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIOutputDuplication_GetParent(IDXGIOutputDuplication* This,REFIID riid,void **parent) {
+    return This->lpVtbl->GetParent(This,riid,parent);
+}
+/*** IDXGIOutputDuplication methods ***/
+static FORCEINLINE void IDXGIOutputDuplication_GetDesc(IDXGIOutputDuplication* This,DXGI_OUTDUPL_DESC *desc) {
+    This->lpVtbl->GetDesc(This,desc);
+}
+static FORCEINLINE HRESULT IDXGIOutputDuplication_AcquireNextFrame(IDXGIOutputDuplication* This,UINT timeout_in_milliseconds,DXGI_OUTDUPL_FRAME_INFO *frame_info,IDXGIResource **desktop_resource) {
+    return This->lpVtbl->AcquireNextFrame(This,timeout_in_milliseconds,frame_info,desktop_resource);
+}
+static FORCEINLINE HRESULT IDXGIOutputDuplication_GetFrameDirtyRects(IDXGIOutputDuplication* This,UINT dirty_rects_buffer_size,RECT *dirty_rects_buffer,UINT *dirty_rects_buffer_size_required) {
+    return This->lpVtbl->GetFrameDirtyRects(This,dirty_rects_buffer_size,dirty_rects_buffer,dirty_rects_buffer_size_required);
+}
+static FORCEINLINE HRESULT IDXGIOutputDuplication_GetFrameMoveRects(IDXGIOutputDuplication* This,UINT move_rects_buffer_size,DXGI_OUTDUPL_MOVE_RECT *move_rect_buffer,UINT *move_rects_buffer_size_required) {
+    return This->lpVtbl->GetFrameMoveRects(This,move_rects_buffer_size,move_rect_buffer,move_rects_buffer_size_required);
+}
+static FORCEINLINE HRESULT IDXGIOutputDuplication_GetFramePointerShape(IDXGIOutputDuplication* This,UINT pointer_shape_buffer_size,void *pointer_shape_buffer,UINT *pointer_shape_buffer_size_required,DXGI_OUTDUPL_POINTER_SHAPE_INFO *pointer_shape_info) {
+    return This->lpVtbl->GetFramePointerShape(This,pointer_shape_buffer_size,pointer_shape_buffer,pointer_shape_buffer_size_required,pointer_shape_info);
+}
+static FORCEINLINE HRESULT IDXGIOutputDuplication_MapDesktopSurface(IDXGIOutputDuplication* This,DXGI_MAPPED_RECT *locked_rect) {
+    return This->lpVtbl->MapDesktopSurface(This,locked_rect);
+}
+static FORCEINLINE HRESULT IDXGIOutputDuplication_UnMapDesktopSurface(IDXGIOutputDuplication* This) {
+    return This->lpVtbl->UnMapDesktopSurface(This);
+}
+static FORCEINLINE HRESULT IDXGIOutputDuplication_ReleaseFrame(IDXGIOutputDuplication* This) {
+    return This->lpVtbl->ReleaseFrame(This);
+}
+#endif
+#endif
+
+#endif
+
+void STDMETHODCALLTYPE IDXGIOutputDuplication_GetDesc_Proxy(
+    IDXGIOutputDuplication* This,
+    DXGI_OUTDUPL_DESC *desc);
+void __RPC_STUB IDXGIOutputDuplication_GetDesc_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIOutputDuplication_AcquireNextFrame_Proxy(
+    IDXGIOutputDuplication* This,
+    UINT timeout_in_milliseconds,
+    DXGI_OUTDUPL_FRAME_INFO *frame_info,
+    IDXGIResource **desktop_resource);
+void __RPC_STUB IDXGIOutputDuplication_AcquireNextFrame_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIOutputDuplication_GetFrameDirtyRects_Proxy(
+    IDXGIOutputDuplication* This,
+    UINT dirty_rects_buffer_size,
+    RECT *dirty_rects_buffer,
+    UINT *dirty_rects_buffer_size_required);
+void __RPC_STUB IDXGIOutputDuplication_GetFrameDirtyRects_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIOutputDuplication_GetFrameMoveRects_Proxy(
+    IDXGIOutputDuplication* This,
+    UINT move_rects_buffer_size,
+    DXGI_OUTDUPL_MOVE_RECT *move_rect_buffer,
+    UINT *move_rects_buffer_size_required);
+void __RPC_STUB IDXGIOutputDuplication_GetFrameMoveRects_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIOutputDuplication_GetFramePointerShape_Proxy(
+    IDXGIOutputDuplication* This,
+    UINT pointer_shape_buffer_size,
+    void *pointer_shape_buffer,
+    UINT *pointer_shape_buffer_size_required,
+    DXGI_OUTDUPL_POINTER_SHAPE_INFO *pointer_shape_info);
+void __RPC_STUB IDXGIOutputDuplication_GetFramePointerShape_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIOutputDuplication_MapDesktopSurface_Proxy(
+    IDXGIOutputDuplication* This,
+    DXGI_MAPPED_RECT *locked_rect);
+void __RPC_STUB IDXGIOutputDuplication_MapDesktopSurface_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIOutputDuplication_UnMapDesktopSurface_Proxy(
+    IDXGIOutputDuplication* This);
+void __RPC_STUB IDXGIOutputDuplication_UnMapDesktopSurface_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIOutputDuplication_ReleaseFrame_Proxy(
+    IDXGIOutputDuplication* This);
+void __RPC_STUB IDXGIOutputDuplication_ReleaseFrame_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IDXGIOutputDuplication_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IDXGIDisplayControl interface
+ */
+#ifndef __IDXGIDisplayControl_INTERFACE_DEFINED__
+#define __IDXGIDisplayControl_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IDXGIDisplayControl, 0xea9dbf1a, 0xc88e, 0x4486, 0x85,0x4a, 0x98,0xaa,0x01,0x38,0xf3,0x0c);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("ea9dbf1a-c88e-4486-854a-98aa0138f30c")
+IDXGIDisplayControl : public IUnknown
+{
+    virtual WINBOOL STDMETHODCALLTYPE IsStereoEnabled(
+        ) = 0;
+
+    virtual void STDMETHODCALLTYPE SetStereoEnabled(
+        WINBOOL enabled) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDXGIDisplayControl, 0xea9dbf1a, 0xc88e, 0x4486, 0x85,0x4a, 0x98,0xaa,0x01,0x38,0xf3,0x0c)
+#endif
+#else
+typedef struct IDXGIDisplayControlVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IDXGIDisplayControl* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IDXGIDisplayControl* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IDXGIDisplayControl* This);
+
+    /*** IDXGIDisplayControl methods ***/
+    WINBOOL (STDMETHODCALLTYPE *IsStereoEnabled)(
+        IDXGIDisplayControl* This);
+
+    void (STDMETHODCALLTYPE *SetStereoEnabled)(
+        IDXGIDisplayControl* This,
+        WINBOOL enabled);
+
+    END_INTERFACE
+} IDXGIDisplayControlVtbl;
+interface IDXGIDisplayControl {
+    CONST_VTBL IDXGIDisplayControlVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IDXGIDisplayControl_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDXGIDisplayControl_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDXGIDisplayControl_Release(This) (This)->lpVtbl->Release(This)
+/*** IDXGIDisplayControl methods ***/
+#define IDXGIDisplayControl_IsStereoEnabled(This) (This)->lpVtbl->IsStereoEnabled(This)
+#define IDXGIDisplayControl_SetStereoEnabled(This,enabled) (This)->lpVtbl->SetStereoEnabled(This,enabled)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDXGIDisplayControl_QueryInterface(IDXGIDisplayControl* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDXGIDisplayControl_AddRef(IDXGIDisplayControl* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDXGIDisplayControl_Release(IDXGIDisplayControl* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDXGIDisplayControl methods ***/
+static FORCEINLINE WINBOOL IDXGIDisplayControl_IsStereoEnabled(IDXGIDisplayControl* This) {
+    return This->lpVtbl->IsStereoEnabled(This);
+}
+static FORCEINLINE void IDXGIDisplayControl_SetStereoEnabled(IDXGIDisplayControl* This,WINBOOL enabled) {
+    This->lpVtbl->SetStereoEnabled(This,enabled);
+}
+#endif
+#endif
+
+#endif
+
+WINBOOL STDMETHODCALLTYPE IDXGIDisplayControl_IsStereoEnabled_Proxy(
+    IDXGIDisplayControl* This);
+void __RPC_STUB IDXGIDisplayControl_IsStereoEnabled_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+void STDMETHODCALLTYPE IDXGIDisplayControl_SetStereoEnabled_Proxy(
+    IDXGIDisplayControl* This,
+    WINBOOL enabled);
+void __RPC_STUB IDXGIDisplayControl_SetStereoEnabled_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IDXGIDisplayControl_INTERFACE_DEFINED__ */
+
 /*****************************************************************************
  * IDXGIDevice2 interface
  */
@@ -1384,6 +1825,309 @@ void __RPC_STUB IDXGIAdapter2_GetDesc2_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __IDXGIAdapter2_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IDXGIOutput1 interface
+ */
+#ifndef __IDXGIOutput1_INTERFACE_DEFINED__
+#define __IDXGIOutput1_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IDXGIOutput1, 0x00cddea8, 0x939b, 0x4b83, 0xa3,0x40, 0xa6,0x85,0x22,0x66,0x66,0xcc);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("00cddea8-939b-4b83-a340-a685226666cc")
+IDXGIOutput1 : public IDXGIOutput
+{
+    virtual HRESULT STDMETHODCALLTYPE GetDisplayModeList1(
+        DXGI_FORMAT enum_format,
+        UINT flags,
+        UINT *num_modes,
+        DXGI_MODE_DESC1 *desc) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE FindClosestMatchingMode1(
+        const DXGI_MODE_DESC1 *mode_to_match,
+        DXGI_MODE_DESC1 *closest_match,
+        IUnknown *concerned_device) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetDisplaySurfaceData1(
+        IDXGIResource *destination) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE DuplicateOutput(
+        IUnknown *device,
+        IDXGIOutputDuplication **output_duplication) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDXGIOutput1, 0x00cddea8, 0x939b, 0x4b83, 0xa3,0x40, 0xa6,0x85,0x22,0x66,0x66,0xcc)
+#endif
+#else
+typedef struct IDXGIOutput1Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IDXGIOutput1* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IDXGIOutput1* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IDXGIOutput1* This);
+
+    /*** IDXGIObject methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        IDXGIOutput1* This,
+        REFGUID guid,
+        UINT data_size,
+        const void *data);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        IDXGIOutput1* This,
+        REFGUID guid,
+        const IUnknown *object);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        IDXGIOutput1* This,
+        REFGUID guid,
+        UINT *data_size,
+        void *data);
+
+    HRESULT (STDMETHODCALLTYPE *GetParent)(
+        IDXGIOutput1* This,
+        REFIID riid,
+        void **parent);
+
+    /*** IDXGIOutput methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetDesc)(
+        IDXGIOutput1* This,
+        DXGI_OUTPUT_DESC *desc);
+
+    HRESULT (STDMETHODCALLTYPE *GetDisplayModeList)(
+        IDXGIOutput1* This,
+        DXGI_FORMAT format,
+        UINT flags,
+        UINT *mode_count,
+        DXGI_MODE_DESC *desc);
+
+    HRESULT (STDMETHODCALLTYPE *FindClosestMatchingMode)(
+        IDXGIOutput1* This,
+        const DXGI_MODE_DESC *mode,
+        DXGI_MODE_DESC *closest_match,
+        IUnknown *device);
+
+    HRESULT (STDMETHODCALLTYPE *WaitForVBlank)(
+        IDXGIOutput1* This);
+
+    HRESULT (STDMETHODCALLTYPE *TakeOwnership)(
+        IDXGIOutput1* This,
+        IUnknown *device,
+        WINBOOL exclusive);
+
+    void (STDMETHODCALLTYPE *ReleaseOwnership)(
+        IDXGIOutput1* This);
+
+    HRESULT (STDMETHODCALLTYPE *GetGammaControlCapabilities)(
+        IDXGIOutput1* This,
+        DXGI_GAMMA_CONTROL_CAPABILITIES *gamma_caps);
+
+    HRESULT (STDMETHODCALLTYPE *SetGammaControl)(
+        IDXGIOutput1* This,
+        const DXGI_GAMMA_CONTROL *gamma_control);
+
+    HRESULT (STDMETHODCALLTYPE *GetGammaControl)(
+        IDXGIOutput1* This,
+        DXGI_GAMMA_CONTROL *gamma_control);
+
+    HRESULT (STDMETHODCALLTYPE *SetDisplaySurface)(
+        IDXGIOutput1* This,
+        IDXGISurface *surface);
+
+    HRESULT (STDMETHODCALLTYPE *GetDisplaySurfaceData)(
+        IDXGIOutput1* This,
+        IDXGISurface *surface);
+
+    HRESULT (STDMETHODCALLTYPE *GetFrameStatistics)(
+        IDXGIOutput1* This,
+        DXGI_FRAME_STATISTICS *stats);
+
+    /*** IDXGIOutput1 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetDisplayModeList1)(
+        IDXGIOutput1* This,
+        DXGI_FORMAT enum_format,
+        UINT flags,
+        UINT *num_modes,
+        DXGI_MODE_DESC1 *desc);
+
+    HRESULT (STDMETHODCALLTYPE *FindClosestMatchingMode1)(
+        IDXGIOutput1* This,
+        const DXGI_MODE_DESC1 *mode_to_match,
+        DXGI_MODE_DESC1 *closest_match,
+        IUnknown *concerned_device);
+
+    HRESULT (STDMETHODCALLTYPE *GetDisplaySurfaceData1)(
+        IDXGIOutput1* This,
+        IDXGIResource *destination);
+
+    HRESULT (STDMETHODCALLTYPE *DuplicateOutput)(
+        IDXGIOutput1* This,
+        IUnknown *device,
+        IDXGIOutputDuplication **output_duplication);
+
+    END_INTERFACE
+} IDXGIOutput1Vtbl;
+interface IDXGIOutput1 {
+    CONST_VTBL IDXGIOutput1Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IDXGIOutput1_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDXGIOutput1_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDXGIOutput1_Release(This) (This)->lpVtbl->Release(This)
+/*** IDXGIObject methods ***/
+#define IDXGIOutput1_SetPrivateData(This,guid,data_size,data) (This)->lpVtbl->SetPrivateData(This,guid,data_size,data)
+#define IDXGIOutput1_SetPrivateDataInterface(This,guid,object) (This)->lpVtbl->SetPrivateDataInterface(This,guid,object)
+#define IDXGIOutput1_GetPrivateData(This,guid,data_size,data) (This)->lpVtbl->GetPrivateData(This,guid,data_size,data)
+#define IDXGIOutput1_GetParent(This,riid,parent) (This)->lpVtbl->GetParent(This,riid,parent)
+/*** IDXGIOutput methods ***/
+#define IDXGIOutput1_GetDesc(This,desc) (This)->lpVtbl->GetDesc(This,desc)
+#define IDXGIOutput1_GetDisplayModeList(This,format,flags,mode_count,desc) (This)->lpVtbl->GetDisplayModeList(This,format,flags,mode_count,desc)
+#define IDXGIOutput1_FindClosestMatchingMode(This,mode,closest_match,device) (This)->lpVtbl->FindClosestMatchingMode(This,mode,closest_match,device)
+#define IDXGIOutput1_WaitForVBlank(This) (This)->lpVtbl->WaitForVBlank(This)
+#define IDXGIOutput1_TakeOwnership(This,device,exclusive) (This)->lpVtbl->TakeOwnership(This,device,exclusive)
+#define IDXGIOutput1_ReleaseOwnership(This) (This)->lpVtbl->ReleaseOwnership(This)
+#define IDXGIOutput1_GetGammaControlCapabilities(This,gamma_caps) (This)->lpVtbl->GetGammaControlCapabilities(This,gamma_caps)
+#define IDXGIOutput1_SetGammaControl(This,gamma_control) (This)->lpVtbl->SetGammaControl(This,gamma_control)
+#define IDXGIOutput1_GetGammaControl(This,gamma_control) (This)->lpVtbl->GetGammaControl(This,gamma_control)
+#define IDXGIOutput1_SetDisplaySurface(This,surface) (This)->lpVtbl->SetDisplaySurface(This,surface)
+#define IDXGIOutput1_GetDisplaySurfaceData(This,surface) (This)->lpVtbl->GetDisplaySurfaceData(This,surface)
+#define IDXGIOutput1_GetFrameStatistics(This,stats) (This)->lpVtbl->GetFrameStatistics(This,stats)
+/*** IDXGIOutput1 methods ***/
+#define IDXGIOutput1_GetDisplayModeList1(This,enum_format,flags,num_modes,desc) (This)->lpVtbl->GetDisplayModeList1(This,enum_format,flags,num_modes,desc)
+#define IDXGIOutput1_FindClosestMatchingMode1(This,mode_to_match,closest_match,concerned_device) (This)->lpVtbl->FindClosestMatchingMode1(This,mode_to_match,closest_match,concerned_device)
+#define IDXGIOutput1_GetDisplaySurfaceData1(This,destination) (This)->lpVtbl->GetDisplaySurfaceData1(This,destination)
+#define IDXGIOutput1_DuplicateOutput(This,device,output_duplication) (This)->lpVtbl->DuplicateOutput(This,device,output_duplication)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDXGIOutput1_QueryInterface(IDXGIOutput1* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDXGIOutput1_AddRef(IDXGIOutput1* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDXGIOutput1_Release(IDXGIOutput1* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDXGIObject methods ***/
+static FORCEINLINE HRESULT IDXGIOutput1_SetPrivateData(IDXGIOutput1* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIOutput1_SetPrivateDataInterface(IDXGIOutput1* This,REFGUID guid,const IUnknown *object) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,object);
+}
+static FORCEINLINE HRESULT IDXGIOutput1_GetPrivateData(IDXGIOutput1* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIOutput1_GetParent(IDXGIOutput1* This,REFIID riid,void **parent) {
+    return This->lpVtbl->GetParent(This,riid,parent);
+}
+/*** IDXGIOutput methods ***/
+static FORCEINLINE HRESULT IDXGIOutput1_GetDesc(IDXGIOutput1* This,DXGI_OUTPUT_DESC *desc) {
+    return This->lpVtbl->GetDesc(This,desc);
+}
+static FORCEINLINE HRESULT IDXGIOutput1_GetDisplayModeList(IDXGIOutput1* This,DXGI_FORMAT format,UINT flags,UINT *mode_count,DXGI_MODE_DESC *desc) {
+    return This->lpVtbl->GetDisplayModeList(This,format,flags,mode_count,desc);
+}
+static FORCEINLINE HRESULT IDXGIOutput1_FindClosestMatchingMode(IDXGIOutput1* This,const DXGI_MODE_DESC *mode,DXGI_MODE_DESC *closest_match,IUnknown *device) {
+    return This->lpVtbl->FindClosestMatchingMode(This,mode,closest_match,device);
+}
+static FORCEINLINE HRESULT IDXGIOutput1_WaitForVBlank(IDXGIOutput1* This) {
+    return This->lpVtbl->WaitForVBlank(This);
+}
+static FORCEINLINE HRESULT IDXGIOutput1_TakeOwnership(IDXGIOutput1* This,IUnknown *device,WINBOOL exclusive) {
+    return This->lpVtbl->TakeOwnership(This,device,exclusive);
+}
+static FORCEINLINE void IDXGIOutput1_ReleaseOwnership(IDXGIOutput1* This) {
+    This->lpVtbl->ReleaseOwnership(This);
+}
+static FORCEINLINE HRESULT IDXGIOutput1_GetGammaControlCapabilities(IDXGIOutput1* This,DXGI_GAMMA_CONTROL_CAPABILITIES *gamma_caps) {
+    return This->lpVtbl->GetGammaControlCapabilities(This,gamma_caps);
+}
+static FORCEINLINE HRESULT IDXGIOutput1_SetGammaControl(IDXGIOutput1* This,const DXGI_GAMMA_CONTROL *gamma_control) {
+    return This->lpVtbl->SetGammaControl(This,gamma_control);
+}
+static FORCEINLINE HRESULT IDXGIOutput1_GetGammaControl(IDXGIOutput1* This,DXGI_GAMMA_CONTROL *gamma_control) {
+    return This->lpVtbl->GetGammaControl(This,gamma_control);
+}
+static FORCEINLINE HRESULT IDXGIOutput1_SetDisplaySurface(IDXGIOutput1* This,IDXGISurface *surface) {
+    return This->lpVtbl->SetDisplaySurface(This,surface);
+}
+static FORCEINLINE HRESULT IDXGIOutput1_GetDisplaySurfaceData(IDXGIOutput1* This,IDXGISurface *surface) {
+    return This->lpVtbl->GetDisplaySurfaceData(This,surface);
+}
+static FORCEINLINE HRESULT IDXGIOutput1_GetFrameStatistics(IDXGIOutput1* This,DXGI_FRAME_STATISTICS *stats) {
+    return This->lpVtbl->GetFrameStatistics(This,stats);
+}
+/*** IDXGIOutput1 methods ***/
+static FORCEINLINE HRESULT IDXGIOutput1_GetDisplayModeList1(IDXGIOutput1* This,DXGI_FORMAT enum_format,UINT flags,UINT *num_modes,DXGI_MODE_DESC1 *desc) {
+    return This->lpVtbl->GetDisplayModeList1(This,enum_format,flags,num_modes,desc);
+}
+static FORCEINLINE HRESULT IDXGIOutput1_FindClosestMatchingMode1(IDXGIOutput1* This,const DXGI_MODE_DESC1 *mode_to_match,DXGI_MODE_DESC1 *closest_match,IUnknown *concerned_device) {
+    return This->lpVtbl->FindClosestMatchingMode1(This,mode_to_match,closest_match,concerned_device);
+}
+static FORCEINLINE HRESULT IDXGIOutput1_GetDisplaySurfaceData1(IDXGIOutput1* This,IDXGIResource *destination) {
+    return This->lpVtbl->GetDisplaySurfaceData1(This,destination);
+}
+static FORCEINLINE HRESULT IDXGIOutput1_DuplicateOutput(IDXGIOutput1* This,IUnknown *device,IDXGIOutputDuplication **output_duplication) {
+    return This->lpVtbl->DuplicateOutput(This,device,output_duplication);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IDXGIOutput1_GetDisplayModeList1_Proxy(
+    IDXGIOutput1* This,
+    DXGI_FORMAT enum_format,
+    UINT flags,
+    UINT *num_modes,
+    DXGI_MODE_DESC1 *desc);
+void __RPC_STUB IDXGIOutput1_GetDisplayModeList1_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIOutput1_FindClosestMatchingMode1_Proxy(
+    IDXGIOutput1* This,
+    const DXGI_MODE_DESC1 *mode_to_match,
+    DXGI_MODE_DESC1 *closest_match,
+    IUnknown *concerned_device);
+void __RPC_STUB IDXGIOutput1_FindClosestMatchingMode1_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIOutput1_GetDisplaySurfaceData1_Proxy(
+    IDXGIOutput1* This,
+    IDXGIResource *destination);
+void __RPC_STUB IDXGIOutput1_GetDisplaySurfaceData1_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIOutput1_DuplicateOutput_Proxy(
+    IDXGIOutput1* This,
+    IUnknown *device,
+    IDXGIOutputDuplication **output_duplication);
+void __RPC_STUB IDXGIOutput1_DuplicateOutput_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IDXGIOutput1_INTERFACE_DEFINED__ */
 
 /* Begin additional prototypes for all interfaces */
 
