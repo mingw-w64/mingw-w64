@@ -151,9 +151,7 @@ char ** __MINGW_IMP_SYMBOL(_wcmdln);
 // to work properly with ucrtbase.dll.
 #define _EXIT_LOCK1 8
 
-static int compat_inited;
 static CRITICAL_SECTION exit_lock;
-static size_t (*real_fwrite)(const void *restrict, size_t, size_t, FILE *restrict);
 static char * (*real_setlocale)(int, const char*);
 static wchar_t * (*real__wsetlocale)(int, const wchar_t*);
 static int local__mb_cur_max;
@@ -164,14 +162,11 @@ static void __cdecl free_locks(void)
   DeleteCriticalSection(&exit_lock);
 }
 
-static void __cdecl init_compat(void)
+static void __cdecl init_compat_dtor(void)
 {
   HANDLE ucrt;
-  if (compat_inited)
-    return;
 
   ucrt = GetModuleHandle("ucrtbase.dll");
-  real_fwrite = (size_t (*)(const void *restrict, size_t, size_t, FILE *restrict)) GetProcAddress(ucrt, "fwrite");
   real_setlocale = (char * (*)(int, const char*)) GetProcAddress(ucrt, "setlocale");
   real__wsetlocale = (wchar_t * (*)(int, const wchar_t*)) GetProcAddress(ucrt, "_wsetlocale");
 
@@ -179,16 +174,6 @@ static void __cdecl init_compat(void)
 
   local__mb_cur_max = ___mb_cur_max_func();
 
-  compat_inited = 1;
-}
-
-static void __cdecl init_compat_dtor(void)
-{
-  init_compat();
-  // atexit requires parts for this is inited at .CRT$XIAA, but we might need
-  // the compat init for fwrite (fprintf with a constant string) already in
-  // _pei386_runtime_relocator which for DLLs is run before the constructors
-  // in .CRT$XIAA.
   atexit(free_locks);
 }
 
@@ -203,8 +188,6 @@ _CRTALLOC(".CRT$XID") _PVFV mingw_ucrtbase_compat_init = init_compat_dtor;
 char * __cdecl setlocale(int _Category, const char *_Locale)
 {
   char *ret;
-  if (!compat_inited)
-    init_compat();
   ret = real_setlocale(_Category, _Locale);
   local__mb_cur_max = ___mb_cur_max_func();
   return ret;
@@ -213,8 +196,6 @@ char * __cdecl setlocale(int _Category, const char *_Locale)
 wchar_t * __cdecl _wsetlocale(int _Category, const wchar_t *_Locale)
 {
   wchar_t *ret;
-  if (!compat_inited)
-    init_compat();
   ret = real__wsetlocale(_Category, _Locale);
   local__mb_cur_max = ___mb_cur_max_func();
   return ret;
@@ -256,8 +237,6 @@ FILE *__cdecl __iob_func(void)
 // files.
 int __cdecl vfprintf(FILE *ptr, const char *fmt, va_list ap)
 {
-  if (!compat_inited)
-    init_compat();
   if (ptr != &local_iob[2])
     abort();
   return real_vfprintf(stderr, fmt, ap);
@@ -267,8 +246,6 @@ int __cdecl fprintf(FILE *ptr, const char *fmt, ...)
 {
   va_list ap;
   int ret;
-  if (!compat_inited)
-    init_compat();
   if (ptr != &local_iob[2])
     abort();
   va_start(ap, fmt);
@@ -282,8 +259,6 @@ int __cdecl fwprintf(FILE *ptr, const wchar_t *fmt, ...)
 {
   va_list ap;
   int ret;
-  if (!compat_inited)
-    init_compat();
   if (ptr != &local_iob[2])
     abort();
   va_start(ap, fmt);
@@ -300,21 +275,6 @@ int __cdecl _snwprintf(wchar_t * restrict _Dest, size_t _Count, const wchar_t * 
   ret = vsnwprintf(_Dest, _Count, _Format, ap);
   va_end(ap);
   return ret;
-}
-
-// fprintf calls with a constant value can be rewritten to fwrite,
-// but we need to catch any case of passing the compat dummy stderr
-// before we call the real fwrite.
-// Normally, init_compat is called via the CRTALLOC array, but if
-// _pei386_runtime_relocator fails and tries to print to stderr,
-// we can end up here before those constructors have been run.
-size_t __cdecl fwrite(const void *restrict ptr, size_t size, size_t nitems, FILE *restrict stream)
-{
-  if (!compat_inited)
-    init_compat();
-  if (stream == &local_iob[2])
-    stream = stderr;
-  return real_fwrite(ptr, size, nitems, stream);
 }
 
 // This is called for wchar cases with __USE_MINGW_ANSI_STDIO enabled (where the
