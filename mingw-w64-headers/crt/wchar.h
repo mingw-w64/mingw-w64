@@ -544,11 +544,7 @@ int wscanf(const wchar_t *__format, ...)
 {
   register int __retval;
   __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-#if __MSVCRT_VERSION__ >= 0x1400
   __retval = __mingw_vfwscanf( stdin, __format, __local_argv );
-#else
-  __retval = __mingw_vwscanf( __format, __local_argv );
-#endif
   __builtin_va_end( __local_argv );
   return __retval;
 }
@@ -576,11 +572,7 @@ __mingw_ovr
 /* __attribute__((__format__ (gnu_wscanf, 1, 0))) */ __MINGW_ATTRIB_NONNULL(1)
 int vwscanf(const wchar_t *__format,  __builtin_va_list __local_argv)
 {
-#if __MSVCRT_VERSION__ >= 0x1400
   return __mingw_vfwscanf( stdin, __format, __local_argv );
-#else
-  return __mingw_vwscanf( __format, __local_argv );
-#endif
 }
 
 __mingw_ovr
@@ -610,11 +602,7 @@ int wprintf (const wchar_t *__format, ...)
 {
   register int __retval;
   __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-#if __MSVCRT_VERSION__ >= 0x1400
   __retval = __mingw_vfwprintf( stdout, __format, __local_argv );
-#else
-  __retval = __mingw_vwprintf( __format, __local_argv );
-#endif
   __builtin_va_end( __local_argv );
   return __retval;
 }
@@ -630,11 +618,7 @@ __mingw_ovr
 /* __attribute__((__format__ (gnu_wprintf, 1, 0))) */ __MINGW_ATTRIB_NONNULL(1)
 int vwprintf (const wchar_t *__format, __builtin_va_list __local_argv)
 {
-#if __MSVCRT_VERSION__ >= 0x1400
   return __mingw_vfwprintf( stdout, __format, __local_argv );
-#else
-  return __mingw_vwprintf( __format, __local_argv );
-#endif
 }
 
 /*#ifndef __NO_ISOCEXT */  /* externs in libmingwex.a */
