@@ -21,9 +21,9 @@
 typedef HANDLE HTHEME;
 
 #if (NTDDI_VERSION >= NTDDI_WIN7)
-WINBOOL WINAPI BeginPanningFeedback(HWND hwnd);
-WINBOOL WINAPI UpdatePanningFeedback(HWND hwnd,LONG lTotalOverpanOffsetX,LONG lTotalOverpanOffsetY,WINBOOL fInInertia);
-WINBOOL WINAPI EndPanningFeedback(HWND hwnd,WINBOOL fAnimateBack);
+THEMEAPI_(WINBOOL) BeginPanningFeedback(HWND hwnd);
+THEMEAPI_(WINBOOL) UpdatePanningFeedback(HWND hwnd,LONG lTotalOverpanOffsetX,LONG lTotalOverpanOffsetY,WINBOOL fInInertia);
+THEMEAPI_(WINBOOL) EndPanningFeedback(HWND hwnd,WINBOOL fAnimateBack);
 #endif
 
 #if _WIN32_WINNT >= 0x0600
