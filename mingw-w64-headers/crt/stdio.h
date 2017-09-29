@@ -809,12 +809,6 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
     __builtin_va_end(ap);
     return ret;
   }
-
-  __mingw_ovr
-  int __cdecl _vscprintf(const char * __restrict__ _Format,va_list _ArgList)
-  {
-    return __stdio_common_vsprintf(UCRTBASE_PRINTF_STANDARD_SNPRINTF_BEHAVIOUR, NULL, 0, _Format, NULL, _ArgList);
-  }
 #ifdef __GNUC__
 #pragma GCC diagnostic pop
 #endif
@@ -864,8 +858,16 @@ int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict_
 #ifdef __GNUC__
 #pragma GCC diagnostic pop
 #endif
-#endif
+#endif /* __MSVCRT_VERSION__ >= 0x1400 */
+#endif /* __USE_MINGW_ANSI_STDIO */
 
+#if __MSVCRT_VERSION__ >= 0x1400
+  __mingw_ovr
+  int __cdecl _vscprintf(const char * __restrict__ _Format,va_list _ArgList)
+  {
+    return __stdio_common_vsprintf(UCRTBASE_PRINTF_STANDARD_SNPRINTF_BEHAVIOUR, NULL, 0, _Format, NULL, _ArgList);
+  }
+#else
   _CRTIMP int __cdecl _vscprintf(const char * __restrict__ _Format,va_list _ArgList);
 #endif /* __MSVCRT_VERSION__ >= 0x1400 */
 
