@@ -155,6 +155,7 @@ src_libws2_32=libsrc/ws2_32.c \
 
 src_msvcrt=\
   misc/_configthreadlocale.c \
+  misc/_get_current_locale.c \
   misc/invalid_parameter_handler.c \
   misc/output_format.c \
   misc/purecall.c \
