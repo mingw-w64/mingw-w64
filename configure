@@ -592,6 +592,8 @@ TOOLS_GENIDL_FALSE
 TOOLS_GENIDL_TRUE
 TOOLS_GENDEF_FALSE
 TOOLS_GENDEF_TRUE
+LIBRARIES_WINPTHREADS_FALSE
+LIBRARIES_WINPTHREADS_TRUE
 LIBRARIES_PSEH_FALSE
 LIBRARIES_PSEH_TRUE
 LIBRARIES_MANGLE_FALSE
@@ -694,6 +696,7 @@ ac_subdirs_all='mingw-w64-headers
 mingw-w64-crt
 mingw-w64-libraries/libmangle
 mingw-w64-libraries/pseh
+mingw-w64-libraries/winpthreads
 mingw-w64-tools/gendef
 mingw-w64-tools/genidl'
 
@@ -1325,7 +1328,7 @@ Optional Packages:
   --without-headers       Skip building the mingw-w64 headers
   --without-crt           Skip building the mingw-w64 crt
   --with-libraries=ARG    Build the extra mingw-w64 libs, where ARG is one of
-                          libmangle, pseh, or all
+                          libmangle, pseh, winpthreads, or all
   --with-tools=ARG        Build the extra mingw-w64 tools, where ARG is one of
                           gendef, genidl, or all
 
@@ -2552,21 +2555,31 @@ fi
 case $with_libraries in #(
   yes|all) :
 
-    with_libraries="libmangle,pseh"
+    with_libraries="libmangle,pseh,winpthreads"
+    with_libraries_winpthreads=yes
     with_libraries_mangle=yes
     with_libraries_pseh=yes ;; #(
   libmangle) :
 
     with_libraries="libmangle"
+    with_libraries_winpthreads=no
     with_libraries_mangle=yes
     with_libraries_pseh=no ;; #(
   pseh) :
 
     with_libraries="pseh"
+    with_libraries_winpthreads=no
     with_libraries_mangle=no
     with_libraries_pseh=yes ;; #(
+  winpthreads) :
+
+    with_libraries="winpthreads"
+    with_libraries_winpthreads=yes
+    with_libraries_mangle=no
+    with_libraries_pseh=no ;; #(
   no) :
 
+    with_libraries_winpthreads=no
     with_libraries_mangle=no
     with_libraries_pseh=no ;; #(
   *) :
@@ -2588,12 +2601,24 @@ else
   LIBRARIES_PSEH_FALSE=
 fi
 
+ if test "x$with_libraries_winpthreads" = xyes; then
+  LIBRARIES_WINPTHREADS_TRUE=
+  LIBRARIES_WINPTHREADS_FALSE='#'
+else
+  LIBRARIES_WINPTHREADS_TRUE='#'
+  LIBRARIES_WINPTHREADS_FALSE=
+fi
+
 if test -z "$LIBRARIES_MANGLE_TRUE"; then :
   subdirs="$subdirs mingw-w64-libraries/libmangle"
 
 fi
 if test -z "$LIBRARIES_PSEH_TRUE"; then :
   subdirs="$subdirs mingw-w64-libraries/pseh"
+
+fi
+if test -z "$LIBRARIES_WINPTHREADS_TRUE"; then :
+  subdirs="$subdirs mingw-w64-libraries/winpthreads"
 
 fi
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $with_libraries" >&5
@@ -2797,6 +2822,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${LIBRARIES_PSEH_TRUE}" && test -z "${LIBRARIES_PSEH_FALSE}"; then
   as_fn_error $? "conditional \"LIBRARIES_PSEH\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${LIBRARIES_WINPTHREADS_TRUE}" && test -z "${LIBRARIES_WINPTHREADS_FALSE}"; then
+  as_fn_error $? "conditional \"LIBRARIES_WINPTHREADS\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${TOOLS_GENDEF_TRUE}" && test -z "${TOOLS_GENDEF_FALSE}"; then
