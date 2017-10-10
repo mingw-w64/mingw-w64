@@ -207,12 +207,19 @@ IDL_SRCS = \
   direct-x/include/d3d10sdklayers.idl \
   direct-x/include/d3d11.idl \
   direct-x/include/d3d11_1.idl \
+  direct-x/include/d3d11_2.idl \
+  direct-x/include/d3d11_3.idl \
+  direct-x/include/d3d11_4.idl \
   direct-x/include/d3d11sdklayers.idl \
   direct-x/include/d3dcommon.idl \
   direct-x/include/ddstream.idl \
   direct-x/include/dmodshow.idl \
   direct-x/include/dxgi.idl \
   direct-x/include/dxgi1_2.idl \
+  direct-x/include/dxgi1_3.idl \
+  direct-x/include/dxgi1_4.idl \
+  direct-x/include/dxgi1_5.idl \
+  direct-x/include/dxgi1_6.idl \
   direct-x/include/dxgicommon.idl \
   direct-x/include/dxgiformat.idl \
   direct-x/include/dxgitype.idl \
