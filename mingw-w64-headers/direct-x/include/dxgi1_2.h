@@ -22,6 +22,16 @@
 typedef interface IDXGIOutputDuplication IDXGIOutputDuplication;
 #endif
 
+#ifndef __IDXGISurface2_FWD_DEFINED__
+#define __IDXGISurface2_FWD_DEFINED__
+typedef interface IDXGISurface2 IDXGISurface2;
+#endif
+
+#ifndef __IDXGIResource1_FWD_DEFINED__
+#define __IDXGIResource1_FWD_DEFINED__
+typedef interface IDXGIResource1 IDXGIResource1;
+#endif
+
 #ifndef __IDXGIDisplayControl_FWD_DEFINED__
 #define __IDXGIDisplayControl_FWD_DEFINED__
 typedef interface IDXGIDisplayControl IDXGIDisplayControl;
@@ -59,6 +69,14 @@ typedef interface IDXGIOutput1 IDXGIOutput1;
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#define DXGI_ENUM_MODES_STEREO (0x4)
+
+#define DXGI_ENUM_MODES_DISABLED_STEREO (0x8)
+
+#define DXGI_SHARED_RESOURCE_READ (0x80000000)
+
+#define DXGI_SHARED_RESOURCE_WRITE (0x1)
 
 typedef enum _DXGI_OFFER_RESOURCE_PRIORITY {
     DXGI_OFFER_RESOURCE_PRIORITY_LOW = 1,
@@ -396,6 +414,399 @@ void __RPC_STUB IDXGIOutputDuplication_ReleaseFrame_Stub(
     DWORD* pdwStubPhase);
 
 #endif  /* __IDXGIOutputDuplication_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IDXGISurface2 interface
+ */
+#ifndef __IDXGISurface2_INTERFACE_DEFINED__
+#define __IDXGISurface2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IDXGISurface2, 0xaba496dd, 0xb617, 0x4cb8, 0xa8,0x66, 0xbc,0x44,0xd7,0xeb,0x1f,0xa2);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("aba496dd-b617-4cb8-a866-bc44d7eb1fa2")
+IDXGISurface2 : public IDXGISurface1
+{
+    virtual HRESULT STDMETHODCALLTYPE GetResource(
+        REFIID iid,
+        void **parent_resource,
+        UINT *subresource_idx) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDXGISurface2, 0xaba496dd, 0xb617, 0x4cb8, 0xa8,0x66, 0xbc,0x44,0xd7,0xeb,0x1f,0xa2)
+#endif
+#else
+typedef struct IDXGISurface2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IDXGISurface2* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IDXGISurface2* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IDXGISurface2* This);
+
+    /*** IDXGIObject methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        IDXGISurface2* This,
+        REFGUID guid,
+        UINT data_size,
+        const void *data);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        IDXGISurface2* This,
+        REFGUID guid,
+        const IUnknown *object);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        IDXGISurface2* This,
+        REFGUID guid,
+        UINT *data_size,
+        void *data);
+
+    HRESULT (STDMETHODCALLTYPE *GetParent)(
+        IDXGISurface2* This,
+        REFIID riid,
+        void **parent);
+
+    /*** IDXGIDeviceSubObject methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetDevice)(
+        IDXGISurface2* This,
+        REFIID riid,
+        void **device);
+
+    /*** IDXGISurface methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetDesc)(
+        IDXGISurface2* This,
+        DXGI_SURFACE_DESC *desc);
+
+    HRESULT (STDMETHODCALLTYPE *Map)(
+        IDXGISurface2* This,
+        DXGI_MAPPED_RECT *mapped_rect,
+        UINT flags);
+
+    HRESULT (STDMETHODCALLTYPE *Unmap)(
+        IDXGISurface2* This);
+
+    /*** IDXGISurface1 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetDC)(
+        IDXGISurface2* This,
+        WINBOOL discard,
+        HDC *hdc);
+
+    HRESULT (STDMETHODCALLTYPE *ReleaseDC)(
+        IDXGISurface2* This,
+        RECT *dirty_rect);
+
+    /*** IDXGISurface2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetResource)(
+        IDXGISurface2* This,
+        REFIID iid,
+        void **parent_resource,
+        UINT *subresource_idx);
+
+    END_INTERFACE
+} IDXGISurface2Vtbl;
+interface IDXGISurface2 {
+    CONST_VTBL IDXGISurface2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IDXGISurface2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDXGISurface2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDXGISurface2_Release(This) (This)->lpVtbl->Release(This)
+/*** IDXGIObject methods ***/
+#define IDXGISurface2_SetPrivateData(This,guid,data_size,data) (This)->lpVtbl->SetPrivateData(This,guid,data_size,data)
+#define IDXGISurface2_SetPrivateDataInterface(This,guid,object) (This)->lpVtbl->SetPrivateDataInterface(This,guid,object)
+#define IDXGISurface2_GetPrivateData(This,guid,data_size,data) (This)->lpVtbl->GetPrivateData(This,guid,data_size,data)
+#define IDXGISurface2_GetParent(This,riid,parent) (This)->lpVtbl->GetParent(This,riid,parent)
+/*** IDXGIDeviceSubObject methods ***/
+#define IDXGISurface2_GetDevice(This,riid,device) (This)->lpVtbl->GetDevice(This,riid,device)
+/*** IDXGISurface methods ***/
+#define IDXGISurface2_GetDesc(This,desc) (This)->lpVtbl->GetDesc(This,desc)
+#define IDXGISurface2_Map(This,mapped_rect,flags) (This)->lpVtbl->Map(This,mapped_rect,flags)
+#define IDXGISurface2_Unmap(This) (This)->lpVtbl->Unmap(This)
+/*** IDXGISurface1 methods ***/
+#define IDXGISurface2_GetDC(This,discard,hdc) (This)->lpVtbl->GetDC(This,discard,hdc)
+#define IDXGISurface2_ReleaseDC(This,dirty_rect) (This)->lpVtbl->ReleaseDC(This,dirty_rect)
+/*** IDXGISurface2 methods ***/
+#define IDXGISurface2_GetResource(This,iid,parent_resource,subresource_idx) (This)->lpVtbl->GetResource(This,iid,parent_resource,subresource_idx)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDXGISurface2_QueryInterface(IDXGISurface2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDXGISurface2_AddRef(IDXGISurface2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDXGISurface2_Release(IDXGISurface2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDXGIObject methods ***/
+static FORCEINLINE HRESULT IDXGISurface2_SetPrivateData(IDXGISurface2* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGISurface2_SetPrivateDataInterface(IDXGISurface2* This,REFGUID guid,const IUnknown *object) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,object);
+}
+static FORCEINLINE HRESULT IDXGISurface2_GetPrivateData(IDXGISurface2* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGISurface2_GetParent(IDXGISurface2* This,REFIID riid,void **parent) {
+    return This->lpVtbl->GetParent(This,riid,parent);
+}
+/*** IDXGIDeviceSubObject methods ***/
+static FORCEINLINE HRESULT IDXGISurface2_GetDevice(IDXGISurface2* This,REFIID riid,void **device) {
+    return This->lpVtbl->GetDevice(This,riid,device);
+}
+/*** IDXGISurface methods ***/
+static FORCEINLINE HRESULT IDXGISurface2_GetDesc(IDXGISurface2* This,DXGI_SURFACE_DESC *desc) {
+    return This->lpVtbl->GetDesc(This,desc);
+}
+static FORCEINLINE HRESULT IDXGISurface2_Map(IDXGISurface2* This,DXGI_MAPPED_RECT *mapped_rect,UINT flags) {
+    return This->lpVtbl->Map(This,mapped_rect,flags);
+}
+static FORCEINLINE HRESULT IDXGISurface2_Unmap(IDXGISurface2* This) {
+    return This->lpVtbl->Unmap(This);
+}
+/*** IDXGISurface1 methods ***/
+static FORCEINLINE HRESULT IDXGISurface2_GetDC(IDXGISurface2* This,WINBOOL discard,HDC *hdc) {
+    return This->lpVtbl->GetDC(This,discard,hdc);
+}
+static FORCEINLINE HRESULT IDXGISurface2_ReleaseDC(IDXGISurface2* This,RECT *dirty_rect) {
+    return This->lpVtbl->ReleaseDC(This,dirty_rect);
+}
+/*** IDXGISurface2 methods ***/
+static FORCEINLINE HRESULT IDXGISurface2_GetResource(IDXGISurface2* This,REFIID iid,void **parent_resource,UINT *subresource_idx) {
+    return This->lpVtbl->GetResource(This,iid,parent_resource,subresource_idx);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IDXGISurface2_GetResource_Proxy(
+    IDXGISurface2* This,
+    REFIID iid,
+    void **parent_resource,
+    UINT *subresource_idx);
+void __RPC_STUB IDXGISurface2_GetResource_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IDXGISurface2_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IDXGIResource1 interface
+ */
+#ifndef __IDXGIResource1_INTERFACE_DEFINED__
+#define __IDXGIResource1_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IDXGIResource1, 0x30961379, 0x4609, 0x4a41, 0x99,0x8e, 0x54,0xfe,0x56,0x7e,0xe0,0xc1);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("30961379-4609-4a41-998e-54fe567ee0c1")
+IDXGIResource1 : public IDXGIResource
+{
+    virtual HRESULT STDMETHODCALLTYPE CreateSubresourceSurface(
+        UINT index,
+        IDXGISurface2 **surface) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CreateSharedHandle(
+        const SECURITY_ATTRIBUTES *attributes,
+        DWORD access,
+        const WCHAR *name,
+        HANDLE *handle) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IDXGIResource1, 0x30961379, 0x4609, 0x4a41, 0x99,0x8e, 0x54,0xfe,0x56,0x7e,0xe0,0xc1)
+#endif
+#else
+typedef struct IDXGIResource1Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IDXGIResource1* This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IDXGIResource1* This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IDXGIResource1* This);
+
+    /*** IDXGIObject methods ***/
+    HRESULT (STDMETHODCALLTYPE *SetPrivateData)(
+        IDXGIResource1* This,
+        REFGUID guid,
+        UINT data_size,
+        const void *data);
+
+    HRESULT (STDMETHODCALLTYPE *SetPrivateDataInterface)(
+        IDXGIResource1* This,
+        REFGUID guid,
+        const IUnknown *object);
+
+    HRESULT (STDMETHODCALLTYPE *GetPrivateData)(
+        IDXGIResource1* This,
+        REFGUID guid,
+        UINT *data_size,
+        void *data);
+
+    HRESULT (STDMETHODCALLTYPE *GetParent)(
+        IDXGIResource1* This,
+        REFIID riid,
+        void **parent);
+
+    /*** IDXGIDeviceSubObject methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetDevice)(
+        IDXGIResource1* This,
+        REFIID riid,
+        void **device);
+
+    /*** IDXGIResource methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetSharedHandle)(
+        IDXGIResource1* This,
+        HANDLE *pSharedHandle);
+
+    HRESULT (STDMETHODCALLTYPE *GetUsage)(
+        IDXGIResource1* This,
+        DXGI_USAGE *pUsage);
+
+    HRESULT (STDMETHODCALLTYPE *SetEvictionPriority)(
+        IDXGIResource1* This,
+        UINT EvictionPriority);
+
+    HRESULT (STDMETHODCALLTYPE *GetEvictionPriority)(
+        IDXGIResource1* This,
+        UINT *pEvictionPriority);
+
+    /*** IDXGIResource1 methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateSubresourceSurface)(
+        IDXGIResource1* This,
+        UINT index,
+        IDXGISurface2 **surface);
+
+    HRESULT (STDMETHODCALLTYPE *CreateSharedHandle)(
+        IDXGIResource1* This,
+        const SECURITY_ATTRIBUTES *attributes,
+        DWORD access,
+        const WCHAR *name,
+        HANDLE *handle);
+
+    END_INTERFACE
+} IDXGIResource1Vtbl;
+interface IDXGIResource1 {
+    CONST_VTBL IDXGIResource1Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IDXGIResource1_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IDXGIResource1_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IDXGIResource1_Release(This) (This)->lpVtbl->Release(This)
+/*** IDXGIObject methods ***/
+#define IDXGIResource1_SetPrivateData(This,guid,data_size,data) (This)->lpVtbl->SetPrivateData(This,guid,data_size,data)
+#define IDXGIResource1_SetPrivateDataInterface(This,guid,object) (This)->lpVtbl->SetPrivateDataInterface(This,guid,object)
+#define IDXGIResource1_GetPrivateData(This,guid,data_size,data) (This)->lpVtbl->GetPrivateData(This,guid,data_size,data)
+#define IDXGIResource1_GetParent(This,riid,parent) (This)->lpVtbl->GetParent(This,riid,parent)
+/*** IDXGIDeviceSubObject methods ***/
+#define IDXGIResource1_GetDevice(This,riid,device) (This)->lpVtbl->GetDevice(This,riid,device)
+/*** IDXGIResource methods ***/
+#define IDXGIResource1_GetSharedHandle(This,pSharedHandle) (This)->lpVtbl->GetSharedHandle(This,pSharedHandle)
+#define IDXGIResource1_GetUsage(This,pUsage) (This)->lpVtbl->GetUsage(This,pUsage)
+#define IDXGIResource1_SetEvictionPriority(This,EvictionPriority) (This)->lpVtbl->SetEvictionPriority(This,EvictionPriority)
+#define IDXGIResource1_GetEvictionPriority(This,pEvictionPriority) (This)->lpVtbl->GetEvictionPriority(This,pEvictionPriority)
+/*** IDXGIResource1 methods ***/
+#define IDXGIResource1_CreateSubresourceSurface(This,index,surface) (This)->lpVtbl->CreateSubresourceSurface(This,index,surface)
+#define IDXGIResource1_CreateSharedHandle(This,attributes,access,name,handle) (This)->lpVtbl->CreateSharedHandle(This,attributes,access,name,handle)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IDXGIResource1_QueryInterface(IDXGIResource1* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IDXGIResource1_AddRef(IDXGIResource1* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IDXGIResource1_Release(IDXGIResource1* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDXGIObject methods ***/
+static FORCEINLINE HRESULT IDXGIResource1_SetPrivateData(IDXGIResource1* This,REFGUID guid,UINT data_size,const void *data) {
+    return This->lpVtbl->SetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIResource1_SetPrivateDataInterface(IDXGIResource1* This,REFGUID guid,const IUnknown *object) {
+    return This->lpVtbl->SetPrivateDataInterface(This,guid,object);
+}
+static FORCEINLINE HRESULT IDXGIResource1_GetPrivateData(IDXGIResource1* This,REFGUID guid,UINT *data_size,void *data) {
+    return This->lpVtbl->GetPrivateData(This,guid,data_size,data);
+}
+static FORCEINLINE HRESULT IDXGIResource1_GetParent(IDXGIResource1* This,REFIID riid,void **parent) {
+    return This->lpVtbl->GetParent(This,riid,parent);
+}
+/*** IDXGIDeviceSubObject methods ***/
+static FORCEINLINE HRESULT IDXGIResource1_GetDevice(IDXGIResource1* This,REFIID riid,void **device) {
+    return This->lpVtbl->GetDevice(This,riid,device);
+}
+/*** IDXGIResource methods ***/
+static FORCEINLINE HRESULT IDXGIResource1_GetSharedHandle(IDXGIResource1* This,HANDLE *pSharedHandle) {
+    return This->lpVtbl->GetSharedHandle(This,pSharedHandle);
+}
+static FORCEINLINE HRESULT IDXGIResource1_GetUsage(IDXGIResource1* This,DXGI_USAGE *pUsage) {
+    return This->lpVtbl->GetUsage(This,pUsage);
+}
+static FORCEINLINE HRESULT IDXGIResource1_SetEvictionPriority(IDXGIResource1* This,UINT EvictionPriority) {
+    return This->lpVtbl->SetEvictionPriority(This,EvictionPriority);
+}
+static FORCEINLINE HRESULT IDXGIResource1_GetEvictionPriority(IDXGIResource1* This,UINT *pEvictionPriority) {
+    return This->lpVtbl->GetEvictionPriority(This,pEvictionPriority);
+}
+/*** IDXGIResource1 methods ***/
+static FORCEINLINE HRESULT IDXGIResource1_CreateSubresourceSurface(IDXGIResource1* This,UINT index,IDXGISurface2 **surface) {
+    return This->lpVtbl->CreateSubresourceSurface(This,index,surface);
+}
+static FORCEINLINE HRESULT IDXGIResource1_CreateSharedHandle(IDXGIResource1* This,const SECURITY_ATTRIBUTES *attributes,DWORD access,const WCHAR *name,HANDLE *handle) {
+    return This->lpVtbl->CreateSharedHandle(This,attributes,access,name,handle);
+}
+#endif
+#endif
+
+#endif
+
+HRESULT STDMETHODCALLTYPE IDXGIResource1_CreateSubresourceSurface_Proxy(
+    IDXGIResource1* This,
+    UINT index,
+    IDXGISurface2 **surface);
+void __RPC_STUB IDXGIResource1_CreateSubresourceSurface_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+HRESULT STDMETHODCALLTYPE IDXGIResource1_CreateSharedHandle_Proxy(
+    IDXGIResource1* This,
+    const SECURITY_ATTRIBUTES *attributes,
+    DWORD access,
+    const WCHAR *name,
+    HANDLE *handle);
+void __RPC_STUB IDXGIResource1_CreateSharedHandle_Stub(
+    IRpcStubBuffer* This,
+    IRpcChannelBuffer* pRpcChannelBuffer,
+    PRPC_MESSAGE pRpcMessage,
+    DWORD* pdwStubPhase);
+
+#endif  /* __IDXGIResource1_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * IDXGIDisplayControl interface

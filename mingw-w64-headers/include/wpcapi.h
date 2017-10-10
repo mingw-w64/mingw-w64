@@ -610,9 +610,9 @@ void __RPC_STUB IWindowsParentalControlsCore_GetWebFilterInfo_Stub(
 #ifndef __IWindowsParentalControls_INTERFACE_DEFINED__
 #define __IWindowsParentalControls_INTERFACE_DEFINED__
 
-DEFINE_GUID(IID_IWindowsParentalControls, 0x4ff40a0f, 0x3f3b, 0x4d7c, 0xa4,0x1b, 0x4f,0x39,0xd7,0xb4,0x4d,0x05);
+DEFINE_GUID(IID_IWindowsParentalControls, 0x28b4d88b, 0xe072, 0x49e6, 0x80,0x4d, 0x26,0xed,0xbe,0x21,0xa7,0xb9);
 #if defined(__cplusplus) && !defined(CINTERFACE)
-MIDL_INTERFACE("4ff40a0f-3f3b-4d7c-a41b-4f39d7b44d05")
+MIDL_INTERFACE("28b4d88b-e072-49e6-804d-26edbe21a7b9")
 IWindowsParentalControls : public IWindowsParentalControlsCore
 {
     virtual HRESULT STDMETHODCALLTYPE GetGamesSettings(
@@ -621,7 +621,7 @@ IWindowsParentalControls : public IWindowsParentalControlsCore
 
 };
 #ifdef __CRT_UUID_DECL
-__CRT_UUID_DECL(IWindowsParentalControls, 0x4ff40a0f, 0x3f3b, 0x4d7c, 0xa4,0x1b, 0x4f,0x39,0xd7,0xb4,0x4d,0x05)
+__CRT_UUID_DECL(IWindowsParentalControls, 0x28b4d88b, 0xe072, 0x49e6, 0x80,0x4d, 0x26,0xed,0xbe,0x21,0xa7,0xb9)
 #endif
 #else
 typedef struct IWindowsParentalControlsVtbl {

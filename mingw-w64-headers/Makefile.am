@@ -213,6 +213,9 @@ IDL_SRCS = \
   direct-x/include/dmodshow.idl \
   direct-x/include/dxgi.idl \
   direct-x/include/dxgi1_2.idl \
+  direct-x/include/dxgicommon.idl \
+  direct-x/include/dxgiformat.idl \
+  direct-x/include/dxgitype.idl \
   direct-x/include/mediaobj.idl \
   direct-x/include/medparam.idl \
   direct-x/include/mmstream.idl \
