@@ -534,8 +534,13 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 extern "C" {
 #endif
 
+
+#ifndef __has_builtin
+  #define __has_builtin(x) 0
+#endif
+
 #ifdef __MINGW_INTRIN_INLINE
-#if !defined (__clang__)
+#if !defined (__clang__) || !__has_builtin(__debugbreak)
 void __cdecl __debugbreak(void);
 __MINGW_INTRIN_INLINE void __cdecl __debugbreak(void)
 {
