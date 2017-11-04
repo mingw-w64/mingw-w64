@@ -53,39 +53,20 @@ AC_MSG_RESULT([$with_crt])
 AC_MSG_CHECKING([whether to build the optional libraries])
 AC_ARG_WITH([libraries],
   [AS_HELP_STRING([--with-libraries=ARG],
-    [Build the extra mingw-w64 libs, where ARG is one of libmangle, pseh, winpthreads, or all])],
+    [Build the extra mingw-w64 libs, where ARG is comma separated list of libmangle, pseh, winpthreads, or all])],
   [],
   [with_libraries=no])
-AS_CASE([$with_libraries],
-  [yes|all],[
-    with_libraries="libmangle,winpthreads"
-    with_libraries_winpthreads=yes
-    with_libraries_mangle=yes
-    AS_CASE([$host_cpu],
-      [i?86], [
-        with_libraries="$with_libraries,pseh"
-        with_libraries_pseh=yes
-      ])],
-  [libmangle],[
-    with_libraries="libmangle"
-    with_libraries_winpthreads=no
-    with_libraries_mangle=yes
-    with_libraries_pseh=no],
-  [pseh],[
-    with_libraries="pseh"
-    with_libraries_winpthreads=no
-    with_libraries_mangle=no
-    with_libraries_pseh=yes],
-  [winpthreads],[
-    with_libraries="winpthreads"
-    with_libraries_winpthreads=yes
-    with_libraries_mangle=no
-    with_libraries_pseh=no],
-  [no],[
-    with_libraries_winpthreads=no
-    with_libraries_mangle=no
-    with_libraries_pseh=no],
-  [MW64_OPTION_ERROR([with-libraries])])
+libraries="winpthreads mangle"
+AS_CASE([$host_cpu],
+  [i?86], [
+    libraries="$libraries pseh"
+  ])
+for l in $libraries; do
+  res=`echo "$with_libraries" | grep $l > /dev/null && echo yes || echo no`
+  AS_CASE([$with_libraries],
+    [all|yes],[res=yes])
+    AS_VAR_COPY([with_libraries_$l], [res])
+done
 AM_CONDITIONAL([LIBRARIES_MANGLE],[test "x$with_libraries_mangle" = xyes])
 AM_CONDITIONAL([LIBRARIES_PSEH],[test "x$with_libraries_pseh" = xyes])
 AM_CONDITIONAL([LIBRARIES_WINPTHREADS],[test "x$with_libraries_winpthreads" = xyes])
@@ -97,26 +78,15 @@ AC_MSG_RESULT([$with_libraries])
 AC_MSG_CHECKING([whether to build the optional tools])
 AC_ARG_WITH([tools],
   [AS_HELP_STRING([--with-tools=ARG],
-    [Build the extra mingw-w64 tools, where ARG is one of gendef, genidl, or all])],
+    [Build the extra mingw-w64 tools, where ARG is comma separated list of gendef, genidl, or all])],
   [],
   [with_tools=no])
-AS_CASE([$with_tools],
-  [yes|all],[
-    with_tools="gendef,genidl"
-    with_tools_gendef=yes
-    with_tools_genidl=yes],
-  [gendef],[
-    with_tools="gendef"
-    with_tools_gendef=yes
-    with_tools_genidl=no],
-  [genidl],[
-    with_tools="genidl"
-    with_tools_gendef=no
-    with_tools_genidl=yes],
-  [no],[
-    with_tools_gendef=no
-    with_tools_genidl=no],
-  [MW64_OPTION_ERROR([with-tools])])
+for t in gendef genidl; do
+  res=`echo "${with_tools}" | grep $t > /dev/null && echo yes || echo no`
+  AS_CASE([$with_tools],
+    [all|yes],[res=yes])
+    AS_VAR_COPY([with_tools_$t], [res])
+done
 AM_CONDITIONAL([TOOLS_GENDEF],[test "x$with_tools_gendef" = xyes])
 AM_CONDITIONAL([TOOLS_GENIDL],[test "x$with_tools_genidl" = xyes])
 AM_COND_IF([TOOLS_GENDEF],[AC_CONFIG_SUBDIRS([mingw-w64-tools/gendef])])
