@@ -58,10 +58,14 @@ AC_ARG_WITH([libraries],
   [with_libraries=no])
 AS_CASE([$with_libraries],
   [yes|all],[
-    with_libraries="libmangle,pseh,winpthreads"
+    with_libraries="libmangle,winpthreads"
     with_libraries_winpthreads=yes
     with_libraries_mangle=yes
-    with_libraries_pseh=yes],
+    AS_CASE([$host_cpu],
+      [i?86], [
+        with_libraries="$with_libraries,pseh"
+        with_libraries_pseh=yes
+      ])],
   [libmangle],[
     with_libraries="libmangle"
     with_libraries_winpthreads=no
