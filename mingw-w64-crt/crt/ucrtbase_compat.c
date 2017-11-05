@@ -9,6 +9,7 @@
 #pragma GCC diagnostic ignored "-Winline"
 #endif
 
+#undef __MSVCRT_VERSION__
 #define __MSVCRT_VERSION__ 0x1400
 
 #define vfprintf real_vfprintf

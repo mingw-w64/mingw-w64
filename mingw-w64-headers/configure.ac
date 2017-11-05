@@ -162,6 +162,39 @@ AC_MSG_RESULT([$with_default_win32_winnt])
 AS_VAR_SET([DEFAULT_WIN32_WINNT],[$with_default_win32_winnt])
 AC_SUBST([DEFAULT_WIN32_WINNT])
 
+AC_MSG_CHECKING([default msvcrt])
+AC_ARG_WITH([default-msvcrt],
+  [AS_HELP_STRING([--with-default-msvcrt=LIB],
+    [Default msvcrt to target (default: msvcrt)])],
+  [],
+  [with_default_msvcrt=msvcrt])
+case $with_default_msvcrt in
+msvcr80*)
+  default_msvcrt_version=0x800
+  ;;
+msvcr90*)
+  default_msvcrt_version=0x900
+  ;;
+msvcr100*)
+  default_msvcrt_version=0x1000
+  ;;
+msvcr110*)
+  default_msvcrt_version=0x1100
+  ;;
+msvcr120*)
+  default_msvcrt_version=0x1200
+  ;;
+ucrt*)
+  default_msvcrt_version=0x1400
+  ;;
+msvcrt|*)
+  default_msvcrt_version=0x700
+  ;;
+esac
+AC_MSG_RESULT([$with_default_msvcrt ($default_msvcrt_version)])
+AS_VAR_SET([DEFAULT_MSVCRT_VERSION],[$default_msvcrt_version])
+AC_SUBST([DEFAULT_MSVCRT_VERSION])
+
 # Checks for typedefs, structures, and compiler characteristics.
 
 # Checks for library functions.
