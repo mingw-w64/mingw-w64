@@ -2352,8 +2352,7 @@ frexp
 fseek
 fsetpos
 ftell
-; This is wrapped in the libmingwex compat code.
-;fwrite
+fwrite
 getc
 getchar
 getenv
