@@ -1,4 +1,3 @@
-libarm64_DATA =
 libarm64_DATA += %reldir%/libacledit.a
 libarm64_DATA += %reldir%/libactiveds.a
 libarm64_DATA += %reldir%/libadvapi32.a

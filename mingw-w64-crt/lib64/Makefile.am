@@ -1,4 +1,3 @@
-lib64_DATA =
 lib64_DATA += %reldir%/libwinusb.a
 lib64_DATA += %reldir%/libavrt.a
 lib64_DATA += %reldir%/libacledit.a

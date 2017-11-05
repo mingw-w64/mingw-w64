@@ -1,4 +1,3 @@
-lib32_DATA =
 lib32_DATA += %reldir%/libaclui.a
 lib32_DATA += %reldir%/libactiveds.a
 lib32_DATA += %reldir%/libadsldpc.a

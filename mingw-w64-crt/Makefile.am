@@ -480,12 +480,17 @@ lib32_libkernel32_a_SOURCES = $(src_intrincs) $(src_intrincs32)
 lib32_libkernel32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 lib32_libkernel32_a_CPPFLAGS=$(CPPFLAGS32) $(extra_include) $(AM_CPPFLAGS)
 
+lib32_DATA =
 if !W32API
-lib32_LIBRARIES += lib32/libmsvcrt.a
-lib32_libmsvcrt_a_SOURCES = $(src_msvcrt32) lib-common/msvcrt.def.in
-lib32_libmsvcrt_a_AR = $(DTDEF32) lib32/msvcrt.def && $(AR) $(ARFLAGS)
-lib32_libmsvcrt_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
-EXTRA_lib32_libmsvcrt_a_DEPENDENCIES=lib32/msvcrt.def
+lib32_DATA += lib32/libmsvcrt.a
+lib32/libmsvcrt.a: lib32/@MSVCRT_LIB@
+	cp $< $@
+
+lib32_LIBRARIES += lib32/libmsvcrt-os.a
+lib32_libmsvcrt_os_a_SOURCES = $(src_msvcrt32) lib-common/msvcrt.def.in
+lib32_libmsvcrt_os_a_AR = $(DTDEF32) lib32/msvcrt.def && $(AR) $(ARFLAGS)
+lib32_libmsvcrt_os_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
+EXTRA_lib32_libmsvcrt_os_a_DEPENDENCIES=lib32/msvcrt.def
 endif
 
 lib32_LIBRARIES += lib32/libshell32.a
@@ -832,12 +837,17 @@ lib64_libkernel32_a_CPPFLAGS=$(CPPFLAGS64) $(extra_include) $(AM_CPPFLAGS)
 lib64_libkernel32_a_AR = $(DTDEF64) lib64/kernel32.def && $(AR) $(ARFLAGS)
 EXTRA_lib64_libkernel32_a_DEPENDENCIES=lib64/kernel32.def
 
+lib64_DATA =
 if !W32API
-lib64_LIBRARIES += lib64/libmsvcrt.a
-lib64_libmsvcrt_a_SOURCES = $(src_msvcrt64) lib-common/msvcrt.def.in
-lib64_libmsvcrt_a_AR = $(DTDEF64) lib64/msvcrt.def && $(AR) $(ARFLAGS)
-lib64_libmsvcrt_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
-EXTRA_lib64_libmsvcrt_a_DEPENDENCIES=lib64/msvcrt.def
+lib64_DATA += lib64/libmsvcrt.a
+lib64/libmsvcrt.a: lib64/@MSVCRT_LIB@
+	cp $< $@
+
+lib64_LIBRARIES += lib64/libmsvcrt-os.a
+lib64_libmsvcrt_os_a_SOURCES = $(src_msvcrt64) lib-common/msvcrt.def.in
+lib64_libmsvcrt_os_a_AR = $(DTDEF64) lib64/msvcrt.def && $(AR) $(ARFLAGS)
+lib64_libmsvcrt_os_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
+EXTRA_lib64_libmsvcrt_os_a_DEPENDENCIES=lib64/msvcrt.def
 endif
 
 lib64_LIBRARIES += lib64/libshell32.a
@@ -1199,12 +1209,17 @@ libarm32_libkernel32_a_AR = $(DTDEFARM32) libarm32/kernel32.def && $(AR) $(ARFLA
 libarm32_libkernel32_a_CPPFLAGS=$(CPPFLAGSARM32) $(extra_include) $(AM_CPPFLAGS)
 EXTRA_libarm32_libkernel32_a_DEPENDENCIES=libarm32/kernel32.def
 
+libarm32_DATA =
 if !W32API
-libarm32_LIBRARIES += libarm32/libmsvcrt.a
-libarm32_libmsvcrt_a_SOURCES = $(src_msvcrtarm32) lib-common/msvcrt.def.in
-libarm32_libmsvcrt_a_AR = $(DTDEFARM32) libarm32/msvcrt.def && $(AR) $(ARFLAGS)
-libarm32_libmsvcrt_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
-EXTRA_libarm32_libmsvcrt_a_DEPENDENCIES=libarm32/msvcrt.def
+libarm32_DATA += libarm32/libmsvcrt.a
+libarm32/libmsvcrt.a: libarm32/@MSVCRT_LIB@
+	cp $< $@
+
+libarm32_LIBRARIES += libarm32/libmsvcrt-os.a
+libarm32_libmsvcrt_os_a_SOURCES = $(src_msvcrtarm32) lib-common/msvcrt.def.in
+libarm32_libmsvcrt_os_a_AR = $(DTDEFARM32) libarm32/msvcrt.def && $(AR) $(ARFLAGS)
+libarm32_libmsvcrt_os_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
+EXTRA_libarm32_libmsvcrt_os_a_DEPENDENCIES=libarm32/msvcrt.def
 endif
 
 libarm32_LIBRARIES += libarm32/libshell32.a
@@ -1456,12 +1471,17 @@ libarm64_libkernel32_a_AR = $(DTDEFARM64) libarm64/kernel32.def && $(AR) $(ARFLA
 libarm64_libkernel32_a_CPPFLAGS=$(CPPFLAGSARM64) $(extra_include) $(AM_CPPFLAGS)
 EXTRA_libarm64_libkernel32_a_DEPENDENCIES=libarm64/kernel32.def
 
+libarm64_DATA =
 if !W32API
-libarm64_LIBRARIES += libarm64/libmsvcrt.a
-libarm64_libmsvcrt_a_SOURCES = $(src_msvcrtarm64) lib-common/msvcrt.def.in
-libarm64_libmsvcrt_a_AR = $(DTDEFARM64) libarm64/msvcrt.def && $(AR) $(ARFLAGS)
-libarm64_libmsvcrt_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
-EXTRA_libarm64_libmsvcrt_a_DEPENDENCIES=libarm64/msvcrt.def
+libarm64_DATA += libarm64/libmsvcrt.a
+libarm64/libmsvcrt.a: libarm64/@MSVCRT_LIB@
+	cp $< $@
+
+libarm64_LIBRARIES += libarm64/libmsvcrt-os.a
+libarm64_libmsvcrt_os_a_SOURCES = $(src_msvcrtarm64) lib-common/msvcrt.def.in
+libarm64_libmsvcrt_os_a_AR = $(DTDEFARM64) libarm64/msvcrt.def && $(AR) $(ARFLAGS)
+libarm64_libmsvcrt_os_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
+EXTRA_libarm64_libmsvcrt_os_a_DEPENDENCIES=libarm64/msvcrt.def
 endif
 
 libarm64_LIBRARIES += libarm64/libshell32.a

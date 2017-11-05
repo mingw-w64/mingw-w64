@@ -233,6 +233,19 @@ AS_CASE([$enable_delay_import_libs],
 AM_CONDITIONAL([DELAY_IMPORT_LIBS],[test $enable_delay_import_libs = yes])
 AC_MSG_RESULT([$enable_delay_import_libs])
 
+AC_MSG_CHECKING([what to provide as libmsvcrt.a])
+AC_ARG_WITH([default-msvcrt],
+  [AS_HELP_STRING([--with-default-msvcrt=LIB],
+    [Lib to provide as libmsvcrt.a (default: msvcrt-os)])],
+  [],
+  [with_default_msvcrt=msvcrt-os])
+if test "$with_default_msvcrt" = "msvcrt"; then
+  with_default_msvcrt=msvcrt-os
+fi
+AC_MSG_RESULT([$with_default_msvcrt])
+AS_VAR_SET([MSVCRT_LIB],[lib${with_default_msvcrt}.a])
+AC_SUBST([MSVCRT_LIB])
+
 AC_MSG_CHECKING([whether to enable experimental features])
 AC_ARG_ENABLE([experimental],
   [AS_HELP_STRING([--enable-experimental],
@@ -368,6 +381,7 @@ AC_MSG_NOTICE([  Win64 runtime........: $enable_lib64])
 AC_MSG_NOTICE([  C Warning Flags......: $ADD_C_ONLY_WARNING_FLAGS])
 AC_MSG_NOTICE([  C++ Warning Flags....: $ADD_CXX_ONLY_WARNING_FLAGS])
 AC_MSG_NOTICE([  Common Warning Flags.: $ADD_C_CXX_WARNING_FLAGS])
+AC_MSG_NOTICE([  Default msvcrt.......: $with_default_msvcrt])
 AC_MSG_NOTICE([])
 AC_MSG_NOTICE([  DFP printf...........: $enable_dfp])
 AC_MSG_NOTICE([  128-bit printf.......: $enable_printf128])

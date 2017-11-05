@@ -1,4 +1,3 @@
-libarm32_DATA =
 libarm32_DATA += %reldir%/libacledit.a
 libarm32_DATA += %reldir%/libaclui.a
 libarm32_DATA += %reldir%/libacppage.a
