@@ -1327,10 +1327,11 @@ Optional Packages:
   --without-PACKAGE       do not use PACKAGE (same as --with-PACKAGE=no)
   --without-headers       Skip building the mingw-w64 headers
   --without-crt           Skip building the mingw-w64 crt
-  --with-libraries=ARG    Build the extra mingw-w64 libs, where ARG is one of
-                          libmangle, pseh, winpthreads, or all
-  --with-tools=ARG        Build the extra mingw-w64 tools, where ARG is one of
-                          gendef, genidl, or all
+  --with-libraries=ARG    Build the extra mingw-w64 libs, where ARG is comma
+                          separated list of libmangle, pseh, winpthreads, or
+                          all
+  --with-tools=ARG        Build the extra mingw-w64 tools, where ARG is comma
+                          separated list of gendef, genidl, or all
 
 Report bugs to <mingw-w64-public@lists.sourceforge.net>.
 _ACEOF
@@ -2552,39 +2553,25 @@ else
   with_libraries=no
 fi
 
-case $with_libraries in #(
-  yes|all) :
+libraries="winpthreads mangle"
+case $host_cpu in #(
+  i?86) :
 
-    with_libraries="libmangle,pseh,winpthreads"
-    with_libraries_winpthreads=yes
-    with_libraries_mangle=yes
-    with_libraries_pseh=yes ;; #(
-  libmangle) :
-
-    with_libraries="libmangle"
-    with_libraries_winpthreads=no
-    with_libraries_mangle=yes
-    with_libraries_pseh=no ;; #(
-  pseh) :
-
-    with_libraries="pseh"
-    with_libraries_winpthreads=no
-    with_libraries_mangle=no
-    with_libraries_pseh=yes ;; #(
-  winpthreads) :
-
-    with_libraries="winpthreads"
-    with_libraries_winpthreads=yes
-    with_libraries_mangle=no
-    with_libraries_pseh=no ;; #(
-  no) :
-
-    with_libraries_winpthreads=no
-    with_libraries_mangle=no
-    with_libraries_pseh=no ;; #(
+    libraries="$libraries pseh"
+   ;; #(
   *) :
-    as_fn_error $? "Invalid argument to --with-libraries: $with_libraries" "$LINENO" 5 ;;
+     ;;
 esac
+for l in $libraries; do
+  res=`echo "$with_libraries" | grep $l > /dev/null && echo yes || echo no`
+  case $with_libraries in #(
+  all|yes) :
+    res=yes ;; #(
+  *) :
+     ;;
+esac
+    eval with_libraries_$l=\$res
+done
  if test "x$with_libraries_mangle" = xyes; then
   LIBRARIES_MANGLE_TRUE=
   LIBRARIES_MANGLE_FALSE='#'
@@ -2634,29 +2621,16 @@ else
   with_tools=no
 fi
 
-case $with_tools in #(
-  yes|all) :
-
-    with_tools="gendef,genidl"
-    with_tools_gendef=yes
-    with_tools_genidl=yes ;; #(
-  gendef) :
-
-    with_tools="gendef"
-    with_tools_gendef=yes
-    with_tools_genidl=no ;; #(
-  genidl) :
-
-    with_tools="genidl"
-    with_tools_gendef=no
-    with_tools_genidl=yes ;; #(
-  no) :
-
-    with_tools_gendef=no
-    with_tools_genidl=no ;; #(
+for t in gendef genidl; do
+  res=`echo "${with_tools}" | grep $t > /dev/null && echo yes || echo no`
+  case $with_tools in #(
+  all|yes) :
+    res=yes ;; #(
   *) :
-    as_fn_error $? "Invalid argument to --with-tools: $with_tools" "$LINENO" 5 ;;
+     ;;
 esac
+    eval with_tools_$t=\$res
+done
  if test "x$with_tools_gendef" = xyes; then
   TOOLS_GENDEF_TRUE=
   TOOLS_GENDEF_FALSE='#'
