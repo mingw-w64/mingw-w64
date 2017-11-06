@@ -115,7 +115,7 @@ extern "C" {
 #define __mb_cur_max	(* __MINGW_IMP_SYMBOL(__mb_cur_max))
 #endif
 #endif
-#define ___mb_cur_max_func() (__mb_cur_max)
+_CRTIMP int __cdecl ___mb_cur_max_func(void);
 #endif
 
 #define __max(a,b) (((a) > (b)) ? (a) : (b))
