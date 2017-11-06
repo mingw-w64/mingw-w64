@@ -161,10 +161,18 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
   extern char *_sys_errlist[];
   extern int _sys_nerr;
 #else
+#if __MSVCRT_VERSION__ >= 0x1400
+  _CRTIMP char **__cdecl __sys_errlist(void);
+  _CRTIMP int *__cdecl __sys_nerr(void);
+#define _sys_nerr (*__sys_nerr())
+#define _sys_errlist __sys_errlist();
+#else
   extern __declspec(dllimport) char *_sys_errlist[1];
   extern __declspec(dllimport) int _sys_nerr;
+#endif /* __MSVCRT_VERSION__ < 0x1400 */
 #endif
-#if (defined(_X86_) && !defined(__x86_64))
+
+#if (defined(_X86_) && !defined(__x86_64)) || (__MSVCRT_VERSION__ >= 0x1400)
   _CRTIMP int *__cdecl __p___argc(void);
   _CRTIMP char ***__cdecl __p___argv(void);
   _CRTIMP wchar_t ***__cdecl __p___wargv(void);
@@ -172,6 +180,7 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
   _CRTIMP wchar_t ***__cdecl __p__wenviron(void);
   _CRTIMP char **__cdecl __p__pgmptr(void);
   _CRTIMP wchar_t **__cdecl __p__wpgmptr(void);
+  _CRTIMP int *__cdecl __p__fmode(void);
 #endif
 
   errno_t __cdecl _get_pgmptr(char **_Value);
@@ -231,7 +240,40 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
   extern unsigned int _winminor;
 #endif
 
-#else /* _MSVCRT_ */
+#elif __MSVCRT_VERSION__ >= 0x1400
+
+#ifndef __argc
+#define __argc (* __p___argc())
+#endif
+#ifndef __argv
+#define __argv (* __p___argv())
+#endif
+#ifndef __wargv
+#define __wargv (* __p___wargv())
+#endif
+
+#ifndef _POSIX_
+#ifndef _environ
+#define _environ (* __p__environ())
+#endif
+
+#ifndef _wenviron
+#define _wenviron (* __p__wenviron())
+#endif
+#endif /* !_POSIX_ */
+
+#ifndef _pgmptr
+#define _pgmptr (* __p__pgmptr())
+#endif
+
+#ifndef _wpgmptr
+#define _wpgmptr (* __p__wpgmptr())
+#endif
+#ifndef _fmode
+#define _fmode (* __p__fmode())
+#endif
+
+#else /* __MSVCRT_VERSION__ >= 0x1400 */
 
 #ifndef __argc
   extern int * __MINGW_IMP_SYMBOL(__argc);
@@ -297,7 +339,7 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #define _winminor (* __MINGW_IMP_SYMBOL(_winminor))
 #endif
 
-#endif /* !_MSVCRT_ */
+#endif /* !_MSVCRT_ && __MSVCRT_VERSION__ < 0x1400 */
 
   errno_t __cdecl _get_osplatform(unsigned int *_Value);
   errno_t __cdecl _get_osver(unsigned int *_Value);
