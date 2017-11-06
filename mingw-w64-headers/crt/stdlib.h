@@ -198,9 +198,7 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #endif
 #endif
 
-#ifdef _POSIX_
-  extern char **environ;
-#else
+#ifndef _POSIX_
 #ifndef _environ
 #ifdef _MSVCRT_
   extern char **_environ;
@@ -218,7 +216,7 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #define _wenviron (* __MINGW_IMP_SYMBOL(_wenviron))
 #endif
 #endif
-#endif
+#endif /* !_POSIX_ */
 #ifndef _pgmptr
 #ifdef _MSVCRT_
   extern char *_pgmptr;
