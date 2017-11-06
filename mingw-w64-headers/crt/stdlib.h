@@ -173,124 +173,131 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
   _CRTIMP char **__cdecl __p__pgmptr(void);
   _CRTIMP wchar_t **__cdecl __p__wpgmptr(void);
 #endif
-#ifndef __argc
+
+  errno_t __cdecl _get_pgmptr(char **_Value);
+  errno_t __cdecl _get_wpgmptr(wchar_t **_Value);
+  _CRTIMP errno_t __cdecl _set_fmode(int _Mode);
+  _CRTIMP errno_t __cdecl _get_fmode(int *_PMode);
+
 #ifdef _MSVCRT_
+
+#ifndef __argc
   extern int __argc;
-#else
-  extern int * __MINGW_IMP_SYMBOL(__argc);
-#define __argc (* __MINGW_IMP_SYMBOL(__argc))
-#endif
 #endif
 #ifndef __argv
-#ifdef _MSVCRT_
   extern char **__argv;
-#else
-  extern char *** __MINGW_IMP_SYMBOL(__argv);
-#define __argv	(* __MINGW_IMP_SYMBOL(__argv))
-#endif
 #endif
 #ifndef __wargv
-#ifdef _MSVCRT_
   extern wchar_t **__wargv;
-#else
-  extern wchar_t *** __MINGW_IMP_SYMBOL(__wargv);
-#define __wargv (* __MINGW_IMP_SYMBOL(__wargv))
-#endif
 #endif
 
 #ifndef _POSIX_
 #ifndef _environ
-#ifdef _MSVCRT_
   extern char **_environ;
-#else
-  extern char *** __MINGW_IMP_SYMBOL(_environ);
-#define _environ (* __MINGW_IMP_SYMBOL(_environ))
 #endif
-#endif
-
 #ifndef _wenviron
-#ifdef _MSVCRT_
   extern wchar_t **_wenviron;
-#else
-  extern wchar_t *** __MINGW_IMP_SYMBOL(_wenviron);
-#define _wenviron (* __MINGW_IMP_SYMBOL(_wenviron))
-#endif
 #endif
 #endif /* !_POSIX_ */
+
 #ifndef _pgmptr
-#ifdef _MSVCRT_
   extern char *_pgmptr;
-#else
-  extern char ** __MINGW_IMP_SYMBOL(_pgmptr);
-#define _pgmptr	(* __MINGW_IMP_SYMBOL(_pgmptr))
-#endif
 #endif
 
 #ifndef _wpgmptr
-#ifdef _MSVCRT_
   extern wchar_t *_wpgmptr;
-#else
-  extern wchar_t ** __MINGW_IMP_SYMBOL(_wpgmptr);
-#define _wpgmptr (* __MINGW_IMP_SYMBOL(_wpgmptr))
 #endif
-#endif
-  errno_t __cdecl _get_pgmptr(char **_Value);
-  errno_t __cdecl _get_wpgmptr(wchar_t **_Value);
 #ifndef _fmode
-#ifdef _MSVCRT_
   extern int _fmode;
-#else
-  extern int * __MINGW_IMP_SYMBOL(_fmode);
-#define _fmode	(* __MINGW_IMP_SYMBOL(_fmode))
 #endif
-#endif
-  _CRTIMP errno_t __cdecl _set_fmode(int _Mode);
-  _CRTIMP errno_t __cdecl _get_fmode(int *_PMode);
 
 #ifndef _osplatform
-#ifdef _MSVCRT_
   extern unsigned int _osplatform;
-#else
-  extern unsigned int * __MINGW_IMP_SYMBOL(_osplatform);
-#define _osplatform (* __MINGW_IMP_SYMBOL(_osplatform))
-#endif
 #endif
 
 #ifndef _osver
-#ifdef _MSVCRT_
   extern unsigned int _osver;
-#else
-  extern unsigned int * __MINGW_IMP_SYMBOL(_osver);
-#define _osver	(* __MINGW_IMP_SYMBOL(_osver))
-#endif
 #endif
 
 #ifndef _winver
-#ifdef _MSVCRT_
   extern unsigned int _winver;
-#else
-  extern unsigned int * __MINGW_IMP_SYMBOL(_winver);
-#define _winver	(* __MINGW_IMP_SYMBOL(_winver))
-#endif
 #endif
 
 #ifndef _winmajor
-#ifdef _MSVCRT_
   extern unsigned int _winmajor;
-#else
-  extern unsigned int * __MINGW_IMP_SYMBOL(_winmajor);
-#define _winmajor (* __MINGW_IMP_SYMBOL(_winmajor))
-#endif
 #endif
 
 #ifndef _winminor
-#ifdef _MSVCRT_
   extern unsigned int _winminor;
-#else
+#endif
+
+#else /* _MSVCRT_ */
+
+#ifndef __argc
+  extern int * __MINGW_IMP_SYMBOL(__argc);
+#define __argc (* __MINGW_IMP_SYMBOL(__argc))
+#endif
+#ifndef __argv
+  extern char *** __MINGW_IMP_SYMBOL(__argv);
+#define __argv	(* __MINGW_IMP_SYMBOL(__argv))
+#endif
+#ifndef __wargv
+  extern wchar_t *** __MINGW_IMP_SYMBOL(__wargv);
+#define __wargv (* __MINGW_IMP_SYMBOL(__wargv))
+#endif
+
+#ifndef _POSIX_
+#ifndef _environ
+  extern char *** __MINGW_IMP_SYMBOL(_environ);
+#define _environ (* __MINGW_IMP_SYMBOL(_environ))
+#endif
+
+#ifndef _wenviron
+  extern wchar_t *** __MINGW_IMP_SYMBOL(_wenviron);
+#define _wenviron (* __MINGW_IMP_SYMBOL(_wenviron))
+#endif
+#endif /* !_POSIX_ */
+
+#ifndef _pgmptr
+  extern char ** __MINGW_IMP_SYMBOL(_pgmptr);
+#define _pgmptr	(* __MINGW_IMP_SYMBOL(_pgmptr))
+#endif
+
+#ifndef _wpgmptr
+  extern wchar_t ** __MINGW_IMP_SYMBOL(_wpgmptr);
+#define _wpgmptr (* __MINGW_IMP_SYMBOL(_wpgmptr))
+#endif
+#ifndef _fmode
+  extern int * __MINGW_IMP_SYMBOL(_fmode);
+#define _fmode	(* __MINGW_IMP_SYMBOL(_fmode))
+#endif
+
+#ifndef _osplatform
+  extern unsigned int * __MINGW_IMP_SYMBOL(_osplatform);
+#define _osplatform (* __MINGW_IMP_SYMBOL(_osplatform))
+#endif
+
+#ifndef _osver
+  extern unsigned int * __MINGW_IMP_SYMBOL(_osver);
+#define _osver	(* __MINGW_IMP_SYMBOL(_osver))
+#endif
+
+#ifndef _winver
+  extern unsigned int * __MINGW_IMP_SYMBOL(_winver);
+#define _winver	(* __MINGW_IMP_SYMBOL(_winver))
+#endif
+
+#ifndef _winmajor
+  extern unsigned int * __MINGW_IMP_SYMBOL(_winmajor);
+#define _winmajor (* __MINGW_IMP_SYMBOL(_winmajor))
+#endif
+
+#ifndef _winminor
   extern unsigned int * __MINGW_IMP_SYMBOL(_winminor);
 #define _winminor (* __MINGW_IMP_SYMBOL(_winminor))
 #endif
-#endif
+
+#endif /* !_MSVCRT_ */
 
   errno_t __cdecl _get_osplatform(unsigned int *_Value);
   errno_t __cdecl _get_osver(unsigned int *_Value);
