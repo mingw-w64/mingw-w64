@@ -516,25 +516,27 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
   }
 #ifdef _GNU_SOURCE
   __mingw_ovr
-  int __cdecl vasprintf(char ** __restrict__ ret,const char * __restrict__ format,va_list ap)  __attribute__ ((format (__MINGW_PRINTF_FORMAT, 2, 0)))
+  __attribute__ ((__format__ (__MINGW_PRINTF_FORMAT, 2, 0)))
+  int __cdecl vasprintf(char ** __restrict__ _Ret,const char * __restrict__ _Format,va_list _Args)
   {
-    int len = __stdio_common_vsprintf(UCRTBASE_PRINTF_STANDARD_SNPRINTF_BEHAVIOUR, NULL, 0, format, NULL, ap);
-    if (len < 0)
-      return len;
-    *ret = malloc(len + 1);
-    if (!*ret)
+    int _Len = __stdio_common_vsprintf(UCRTBASE_PRINTF_STANDARD_SNPRINTF_BEHAVIOUR, NULL, 0, _Format, NULL, _Args);
+    if (_Len < 0)
+      return _Len;
+    *_Ret = malloc(_Len + 1);
+    if (!*_Ret)
       return -1;
-    return __stdio_common_vsprintf(UCRTBASE_PRINTF_STANDARD_SNPRINTF_BEHAVIOUR, *ret, len + 1, format, NULL, ap);
+    return __stdio_common_vsprintf(UCRTBASE_PRINTF_STANDARD_SNPRINTF_BEHAVIOUR, *_Ret, _Len + 1, _Format, NULL, _Args);
   }
   __mingw_ovr
-  int __cdecl asprintf(char ** __restrict__ ret,const char * __restrict__ format,...) __attribute__ ((format (__MINGW_PRINTF_FORMAT, 2, 3)))
+  __attribute__ ((__format__ (__MINGW_PRINTF_FORMAT, 2, 3)))
+  int __cdecl asprintf(char ** __restrict__ _Ret,const char * __restrict__ _Format,...)
   {
-    __builtin_va_list ap;
-    int ret;
-    __builtin_va_start(ap, _Format);
-    ret = vasprintf(ret, format, ap);
-    __builtin_va_end(ap);
-    return ret;
+    __builtin_va_list _Args;
+    int _N;
+    __builtin_va_start(_Args, _Format);
+    _N = vasprintf(_Ret, _Format, _Args);
+    __builtin_va_end(_Args);
+    return _N;
   }
 #endif /*_GNU_SOURCE*/
 
