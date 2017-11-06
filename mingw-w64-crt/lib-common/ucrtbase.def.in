@@ -2126,8 +2126,7 @@ _write
 _wrmdir
 _wsearchenv
 _wsearchenv_s
-; This is wrapped in the libmingwex compat code.
-;_wsetlocale
+_wsetlocale
 _wsopen
 _wsopen_dispatch
 _wsopen_s
@@ -2505,8 +2504,7 @@ set_terminate
 set_unexpected
 setbuf
 setjmp
-; This is wrapped in the libmingwex compat code.
-;setlocale
+setlocale
 setvbuf
 signal
 sin F_X86_ANY(DATA)

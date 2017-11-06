@@ -19,12 +19,10 @@
 #define __wgetmainargs crtimp___wgetmainargs
 #define _amsg_exit crtimp__amsg_exit
 #define _get_output_format crtimp__get_output_format
-#define _wsetlocale crtimp__wsetlocale
 
 #include <internal.h>
 #include <sect_attribs.h>
 #include <stdio.h>
-#include <locale.h>
 
 #undef vfprintf
 #undef fprintf
@@ -34,10 +32,8 @@
 #undef __wgetmainargs
 #undef _amsg_exit
 #undef _get_output_format
-#undef _wsetlocale
 
 #undef __iob_func
-#undef ___mb_cur_max_func
 
 
 // Declarations of non-static functions implemented within this file (that aren't
@@ -47,7 +43,6 @@ int __cdecl __getmainargs(int * _Argc, char *** _Argv, char ***_Env, int _DoWild
 int __cdecl __wgetmainargs(int * _Argc, wchar_t *** _Argv, wchar_t ***_Env, int _DoWildCard, _startupinfo *_StartInfo);
 void __cdecl _amsg_exit(int ret);
 unsigned int __cdecl _get_output_format(void);
-wchar_t * __cdecl _wsetlocale(int _Category, const wchar_t *_Locale);
 
 void __cdecl _lock(int _File);
 void __cdecl _unlock(int _File);
@@ -71,7 +66,6 @@ _CRTIMP char** __cdecl __p__acmdln(void);
 _CRTIMP wchar_t** __cdecl __p__wcmdln(void);
 
 _CRTIMP int __cdecl _crt_atexit(_onexit_t func);
-_CRTIMP int __cdecl ___mb_cur_max_func(void);
 
 _CRTIMP int __cdecl _initialize_narrow_environment(void);
 _CRTIMP int __cdecl _initialize_wide_environment(void);
@@ -152,10 +146,6 @@ char ** __MINGW_IMP_SYMBOL(_wcmdln);
 #define _EXIT_LOCK1 8
 
 static CRITICAL_SECTION exit_lock;
-static char * (*real_setlocale)(int, const char*);
-static wchar_t * (*real__wsetlocale)(int, const wchar_t*);
-static int local__mb_cur_max;
-int * __MINGW_IMP_SYMBOL(__mb_cur_max) = &local__mb_cur_max;
 
 static void __cdecl free_locks(void)
 {
@@ -164,42 +154,13 @@ static void __cdecl free_locks(void)
 
 static void __cdecl init_compat_dtor(void)
 {
-  HANDLE ucrt;
-
-  ucrt = GetModuleHandle("ucrtbase.dll");
-  real_setlocale = (char * (*)(int, const char*)) GetProcAddress(ucrt, "setlocale");
-  real__wsetlocale = (wchar_t * (*)(int, const wchar_t*)) GetProcAddress(ucrt, "_wsetlocale");
-
   InitializeCriticalSection(&exit_lock);
-
-  local__mb_cur_max = ___mb_cur_max_func();
 
   atexit(free_locks);
 }
 
 _CRTALLOC(".CRT$XID") _PVFV mingw_ucrtbase_compat_init = init_compat_dtor;
 
-
-// Intercept any calls to setlocale, that could change the return value of
-// ___mb_cur_max_func(), and update the __mb_cur_max variable accordingly.
-// If stdlib.h and ctype.h were to be updated to actually call the real
-// ___mb_cur_max_func() function (which exists in all(?) versions of msvcrt.dll)
-// instead of reading the __mb_cur_max extern variable, we could avoid all this.
-char * __cdecl setlocale(int _Category, const char *_Locale)
-{
-  char *ret;
-  ret = real_setlocale(_Category, _Locale);
-  local__mb_cur_max = ___mb_cur_max_func();
-  return ret;
-}
-
-wchar_t * __cdecl _wsetlocale(int _Category, const wchar_t *_Locale)
-{
-  wchar_t *ret;
-  ret = real__wsetlocale(_Category, _Locale);
-  local__mb_cur_max = ___mb_cur_max_func();
-  return ret;
-}
 
 // This is the only lock that will be used (from atonexit.c). The _lock_file and
 // _unlock_file fallback wrappers in stdio/mingw_lock.c are only linked in libmsvcrt.a,
