@@ -2,6 +2,7 @@ LIBRARY "ucrtbase.dll"
 EXPORTS
 
 #include "func.def.in"
+#define UCRTBASE
 #include "msvcrt-common.def.in"
 
 #ifdef DEF_I386
@@ -2422,7 +2423,7 @@ logb
 logbf
 logbl
 F_NON_I386(logf F_X86_ANY(DATA))
-longjmp
+longjmp F_X86_ANY(DATA)
 lrint
 lrintf
 lrintl
