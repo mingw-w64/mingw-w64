@@ -2003,7 +2003,8 @@ _toupper
 _toupper_l
 _towlower_l
 _towupper_l
-_tzset
+; This is wrapped in the compat code.
+_tzset DATA
 _ui64toa
 _ui64toa_s
 _ui64tow

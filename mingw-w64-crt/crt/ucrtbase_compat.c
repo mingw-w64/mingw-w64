@@ -22,6 +22,7 @@
 #include <internal.h>
 #include <sect_attribs.h>
 #include <stdio.h>
+#include <time.h>
 
 #undef fwprintf
 #undef _snwprintf
@@ -154,6 +155,28 @@ static void __cdecl init_compat_dtor(void)
 
 _CRTALLOC(".CRT$XID") _PVFV mingw_ucrtbase_compat_init = init_compat_dtor;
 
+
+// These are required to provide the unrepfixed data symbols "timezone"
+// and "tzname"; we can't remap "timezone" via a define due to clashes
+// with e.g. "struct timezone".
+typedef void __cdecl (*_tzset_func)(void);
+extern _tzset_func __MINGW_IMP_SYMBOL(_tzset);
+
+static long local_timezone;
+char** __MINGW_IMP_SYMBOL(tzname);
+long * __MINGW_IMP_SYMBOL(timezone) = &local_timezone;
+
+void __cdecl _tzset(void)
+{
+  __MINGW_IMP_SYMBOL(_tzset)();
+  __MINGW_IMP_SYMBOL(tzname) = _tzname;
+  local_timezone = _timezone;
+}
+
+void __cdecl tzset(void)
+{
+  _tzset();
+}
 
 // This is the only lock that will be used (from atonexit.c). The _lock_file and
 // _unlock_file fallback wrappers in stdio/mingw_lock.c are only linked in libmsvcrt.a,

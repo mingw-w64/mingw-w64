@@ -153,7 +153,10 @@ extern "C" {
   void __cdecl tzset(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 #if !defined (_POSIX_)
-  _CRTIMP void __cdecl _tzset(void);
+#if __MSVCRT_VERSION__ < 0x1400
+  _CRTIMP
+#endif
+  void __cdecl _tzset(void);
 #endif
 
   double __cdecl _difftime64(__time64_t _Time1,__time64_t _Time2);
@@ -264,9 +267,19 @@ __forceinline errno_t __cdecl ctime_s(char *_Buf,size_t _SizeInBytes,const time_
 #if !defined(NO_OLDNAMES) || defined(_POSIX)
 #define CLK_TCK CLOCKS_PER_SEC
 
+#if __MSVCRT_VERSION__ >= 0x1400
+#define __MINGW_ATTRIB_DEPRECATED_UCRT \
+    __MINGW_ATTRIB_DEPRECATED_MSG( \
+        "Only provided for source compatibility; this variable might " \
+        "not always be accurate when linking to ucrtbase.dll.")
+#define daylight (_daylight)
+#else
+#define __MINGW_ATTRIB_DEPRECATED_UCRT
   _CRTIMP extern int daylight;
-  _CRTIMP extern long timezone;
-  _CRTIMP extern char *tzname[2];
+#endif
+
+  _CRTIMP extern long timezone __MINGW_ATTRIB_DEPRECATED_UCRT;
+  _CRTIMP extern char *tzname[2] __MINGW_ATTRIB_DEPRECATED_UCRT;
   void __cdecl tzset(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 
