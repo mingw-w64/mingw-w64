@@ -78,6 +78,10 @@
 #  endif
 #endif
 
+#if defined(__aarch64__) && !defined(_M_ARM64)
+#  define _M_ARM64 1
+#endif
+
 #ifndef _X86_
    /* MS does not prefix symbols by underscores for 64-bit.  */
 #  ifndef __MINGW_USE_UNDERSCORE_PREFIX
