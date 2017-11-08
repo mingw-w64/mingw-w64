@@ -631,11 +631,6 @@ lib32_libucrtbase_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sy
 EXTRA_lib32_libucrtbase_a_DEPENDENCIES=lib32/ucrtbase.def
 endif
 
-# combine these two rules with the ones for lib64
-# Use two patterns, one for 32/64 in lib32/ and lib64/
-lib32/libcrtdll.a lib32/libmsvcr80.a: lib32/lib%.a: lib32/%.def
-	$(DTDEF32) $< --dllname $*.dll
-
 lib32/lib%.a: lib32/%.def
 	$(DTDEF32) $<
 
@@ -942,9 +937,6 @@ lib64_libucrtbase_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sy
 EXTRA_lib64_libucrtbase_a_DEPENDENCIES=lib64/ucrtbase.def
 endif
 
-lib64/libcrtdll.a lib64/libmsvcr80.a: lib64/lib%.a: lib64/%.def
-	$(DTDEF64) $< --dllname $*.dll
-
 lib64/lib%.a: lib64/%.def
 	$(DTDEF64) $<
 
@@ -1244,11 +1236,6 @@ libarm32_libucrtbase_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include
 EXTRA_libarm32_libucrtbase_a_DEPENDENCIES=libarm32/ucrtbase.def
 endif
 
-# combine these two rules with the ones for lib64
-# Use two patterns, one for 32/64 in libarm32/ and lib64/
-libarm32/libcrtdll.a libarm32/libmsvcr80.a: libarm32/lib%.a: libarm32/%.def
-	$(DTDEFARM32) $< --dllname $*.dll
-
 libarm32/lib%.a: libarm32/%.def
 	$(DTDEFARM32) $<
 
@@ -1499,9 +1486,6 @@ libarm64_libucrtbase_a_AR = $(DTDEFARM64) libarm64/ucrtbase.def && $(AR) $(ARFLA
 libarm64_libucrtbase_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 EXTRA_libarm64_libucrtbase_a_DEPENDENCIES=libarm64/ucrtbase.def
 endif
-
-libarm64/libcrtdll.a libarm64/libmsvcr80.a: libarm64/lib%.a: libarm64/%.def
-	$(DTDEFARM64) $< --dllname $*.dll
 
 libarm64/lib%.a: libarm64/%.def
 	$(DTDEFARM64) $<

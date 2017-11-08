@@ -172,6 +172,7 @@
 ;    _wtoi
 ;    _wtol
 ;
+LIBRARY "crtdll.dll"
 EXPORTS
 _CIacos
 _CIasin

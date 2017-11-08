@@ -1,3 +1,4 @@
+LIBRARY "msvcr80.dll"
 EXPORTS
 
 #include "msvcrt-common.def.in"
