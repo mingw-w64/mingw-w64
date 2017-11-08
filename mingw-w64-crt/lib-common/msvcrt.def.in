@@ -289,6 +289,7 @@ __lc_collate_cp DATA
 __lc_handle DATA
 __lconv_init
 __mb_cur_max DATA
+#ifdef DEF_I386
 __p___argc
 __p___argv
 __p___initenv
@@ -318,6 +319,7 @@ __p__winmajor
 __p__winminor
 __p__winver
 __p__wpgmptr
+#endif
 __pctype_func
 __pioinfo DATA
 __pwctype_func
