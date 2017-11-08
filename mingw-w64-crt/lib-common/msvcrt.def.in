@@ -366,15 +366,15 @@ _adjust_fdiv DATA
 #endif
 _aexit_rtn DATA
 _aligned_free
-_aligned_free_dbg
+F_ARM_ANY(_aligned_free_dbg)
 _aligned_malloc
-_aligned_malloc_dbg
+F_ARM_ANY(_aligned_malloc_dbg)
 _aligned_offset_malloc
-_aligned_offset_malloc_dbg
+F_ARM_ANY(_aligned_offset_malloc_dbg)
 _aligned_offset_realloc
-_aligned_offset_realloc_dbg
+F_ARM_ANY(_aligned_offset_realloc_dbg)
 _aligned_realloc
-_aligned_realloc_dbg
+F_ARM_ANY(_aligned_realloc_dbg)
 _amsg_exit
 _assert DATA
 _atodbl
@@ -393,7 +393,7 @@ _beginthreadex
 _c_exit
 _cabs DATA
 _callnewh
-_calloc_dbg
+F_ARM_ANY(_calloc_dbg)
 _cexit
 _cgets
 ; _cgets_s replaced by emu
@@ -478,7 +478,7 @@ _execvp
 _execvpe
 _exit
 _expand
-_expand_dbg
+F_ARM_ANY(_expand_dbg)
 _fcloseall
 _fcvt
 _fcvt_s
@@ -519,7 +519,7 @@ _fprintf_p_l
 _fprintf_s_l
 _fputchar
 _fputwchar
-_free_dbg
+F_ARM_ANY(_free_dbg)
 _free_locale
 F_ARM_ANY(_freea)
 F_NON_I386(_fscanf_l)
@@ -540,7 +540,7 @@ F_I386(_ftime_s == _ftime32_s)
 F_X64(_ftime_s == _ftime64_s)
 F_I386(_ftol)
 _fullpath
-_fullpath_dbg
+F_ARM_ANY(_fullpath_dbg)
 _futime
 F_ARM_ANY(_futime32)
 _futime64
@@ -723,7 +723,7 @@ _ltow
 F_NON_I386(_ltow_s)
 _makepath
 _makepath_s
-_malloc_dbg
+F_ARM_ANY(_malloc_dbg)
 _mbbtombc
 _mbbtombc_l
 _mbbtype
@@ -877,7 +877,7 @@ F_I386(_mktime32 == mktime)
 F_ARM_ANY(_mktime32)
 _mktime64
 _msize
-_msize_dbg
+F_ARM_ANY(_msize_dbg)
 _nextafter
 F_X64(_nextafterf)
 _onexit F_I386(DATA)
@@ -906,7 +906,7 @@ _putwch
 _putws
 _pwctype DATA
 _read
-_realloc_dbg
+F_ARM_ANY(_realloc_dbg)
 _resetstkoflw
 _rmdir
 _rmtmp
@@ -1001,7 +1001,7 @@ _strcoll_l
 _strdate
 ; _strdate_s replaced by emu
 _strdup
-_strdup_dbg
+F_ARM_ANY(_strdup_dbg)
 _strerror
 _strerror_s
 _stricmp
@@ -1050,7 +1050,7 @@ _sys_nerr DATA
 _tell
 _telli64
 _tempnam
-_tempnam_dbg
+F_ARM_ANY(_tempnam_dbg)
 F_I386(_time32 == time)
 F_ARM_ANY(_time32)
 _time64
@@ -1145,7 +1145,7 @@ _wcmdln DATA
 _wcreat
 _wcscoll_l
 _wcsdup
-_wcsdup_dbg
+F_ARM_ANY(_wcsdup_dbg)
 _wcserror
 _wcserror_s
 _wcsftime_l
@@ -1219,7 +1219,7 @@ _wfreopen
 _wfreopen_s
 _wfsopen
 _wfullpath
-_wfullpath_dbg
+F_ARM_ANY(_wfullpath_dbg)
 _wgetcwd
 _wgetdcwd
 _wgetenv
@@ -1276,7 +1276,7 @@ _wstrtime
 ; _wstrtime_s replaced by emu
 _wsystem
 _wtempnam
-_wtempnam_dbg
+F_ARM_ANY(_wtempnam_dbg)
 _wtmpnam
 _wtmpnam_s
 _wtof
@@ -1417,7 +1417,7 @@ malloc
 mblen
 F_ARM_ANY(mbrlen)
 F_ARM_ANY(mbrtowc)
-mbsdup_dbg
+F_ARM_ANY(mbsdup_dbg)
 F_ARM_ANY(mbsrtowcs)
 mbsrtowcs_s
 mbstowcs
