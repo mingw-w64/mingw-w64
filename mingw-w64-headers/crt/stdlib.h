@@ -172,9 +172,11 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #endif /* __MSVCRT_VERSION__ < 0x1400 */
 #endif
 
+  // We have a fallback definition of __p___argv for msvcrt versions that
+  // lack it.
+  _CRTIMP char ***__cdecl __p___argv(void);
 #if (defined(_X86_) && !defined(__x86_64)) || (__MSVCRT_VERSION__ >= 0x1400)
   _CRTIMP int *__cdecl __p___argc(void);
-  _CRTIMP char ***__cdecl __p___argv(void);
   _CRTIMP wchar_t ***__cdecl __p___wargv(void);
   _CRTIMP char ***__cdecl __p__environ(void);
   _CRTIMP wchar_t ***__cdecl __p__wenviron(void);
@@ -281,7 +283,7 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #endif
 #ifndef __argv
   extern char *** __MINGW_IMP_SYMBOL(__argv);
-#define __argv	(* __MINGW_IMP_SYMBOL(__argv))
+#define __argv	(* __p___argv())
 #endif
 #ifndef __wargv
   extern wchar_t *** __MINGW_IMP_SYMBOL(__wargv);
