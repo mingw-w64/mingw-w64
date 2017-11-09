@@ -617,7 +617,6 @@ lib32_liblargeint_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
 
 lib32_LIBRARIES += lib32/libmingw32.a
 lib32_libmingw32_a_CPPFLAGS=$(CPPFLAGS32) -D_SYSCRT=1 -DCRTDLL=1 $(extra_include) $(AM_CPPFLAGS)
-lib32_libmingw32_a_CFLAGS=-fno-builtin-fprintf $(AM_CFLAGS)
 lib32_libmingw32_a_SOURCES = $(src_libmingw32)
 
 lib32_LIBRARIES += lib32/libmingwex.a
@@ -971,7 +970,6 @@ lib64_liblargeint_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
 
 lib64_LIBRARIES += lib64/libmingw32.a
 lib64_libmingw32_a_CPPFLAGS=$(CPPFLAGS64) -D_SYSCRT=1 -DCRTDLL=1 $(extra_include) $(AM_CPPFLAGS)
-lib64_libmingw32_a_CFLAGS=-fno-builtin-fprintf $(AM_CFLAGS)
 lib64_libmingw32_a_SOURCES = $(src_libmingw32)
 
 lib64_LIBRARIES += lib64/libmingwex.a
@@ -1325,7 +1323,6 @@ libarm32_liblargeint_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 
 libarm32_LIBRARIES += libarm32/libmingw32.a
 libarm32_libmingw32_a_CPPFLAGS=$(CPPFLAGSARM32) -D_SYSCRT=1 -DCRTDLL=1 $(extra_include) $(AM_CPPFLAGS)
-libarm32_libmingw32_a_CFLAGS=-fno-builtin-fprintf $(AM_CFLAGS)
 libarm32_libmingw32_a_SOURCES = $(src_libmingw32)
 
 libarm32_LIBRARIES += libarm32/libmingwex.a
@@ -1583,7 +1580,6 @@ libarm64_liblargeint_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
 
 libarm64_LIBRARIES += libarm64/libmingw32.a
 libarm64_libmingw32_a_CPPFLAGS=$(CPPFLAGSARM64) -D_SYSCRT=1 -DCRTDLL=1 $(extra_include) $(AM_CPPFLAGS)
-libarm64_libmingw32_a_CFLAGS=-fno-builtin-fprintf $(AM_CFLAGS)
 libarm64_libmingw32_a_SOURCES = $(src_libmingw32)
 
 libarm64_LIBRARIES += libarm64/libmingwex.a
