@@ -33,7 +33,6 @@
 #undef _amsg_exit
 #undef _get_output_format
 
-#undef __iob_func
 
 
 // Declarations of non-static functions implemented within this file (that aren't
@@ -50,7 +49,6 @@ _onexit_t __dllonexit(_onexit_t func, _PVFV** begin, _PVFV** end);
 
 int fprintf(FILE* ptr, const char* fmt, ...);
 int vfprintf(FILE* ptr, const char* fmt, va_list ap);
-FILE *__cdecl __iob_func(void);
 int __cdecl fwprintf(FILE *ptr, const wchar_t *fmt, ...);
 int __cdecl _snwprintf(wchar_t * restrict _Dest, size_t _Count, const wchar_t * restrict _Format, ...);
 
@@ -177,40 +175,20 @@ void __cdecl _unlock(int _File)
     LeaveCriticalSection(&exit_lock);
 }
 
-// Dummy iob array for the cases in CRT startup objects and libmingwex that link
-// directly to legacy-msvcrt style stdio - this is only meant to support use with
-// stderr below.
-// Since this array is an array of concrete FILE structs (not FILE pointers),
-// we can't easily make this a proper alias for the real FILE objects within
-// ucrtbase.dll (we'd need to sync the FILE struct content back and forth
-// after each operation). Instead use this as a dummy, and check that FILE pointers
-// are equal to &local_iob[2], indicating stderr.
-static FILE local_iob[3];
-FILE (* __MINGW_IMP_SYMBOL(_iob))[] = &local_iob;
-
-FILE *__cdecl __iob_func(void)
-{
-  return local_iob;
-}
-
 // This is only supposed to handle the stray calls to
 // fprintf(stderr,) within libmingwex and the CRT startup
 // files.
 int __cdecl vfprintf(FILE *ptr, const char *fmt, va_list ap)
 {
-  if (ptr != &local_iob[2])
-    abort();
-  return real_vfprintf(stderr, fmt, ap);
+  return real_vfprintf(ptr, fmt, ap);
 }
 
 int __cdecl fprintf(FILE *ptr, const char *fmt, ...)
 {
   va_list ap;
   int ret;
-  if (ptr != &local_iob[2])
-    abort();
   va_start(ap, fmt);
-  ret = real_vfprintf(stderr, fmt, ap);
+  ret = real_vfprintf(ptr, fmt, ap);
   va_end(ap);
   return ret;
 }
@@ -220,10 +198,8 @@ int __cdecl fwprintf(FILE *ptr, const wchar_t *fmt, ...)
 {
   va_list ap;
   int ret;
-  if (ptr != &local_iob[2])
-    abort();
   va_start(ap, fmt);
-  ret = vfwprintf(stderr, fmt, ap);
+  ret = vfwprintf(ptr, fmt, ap);
   va_end(ap);
   return ret;
 }

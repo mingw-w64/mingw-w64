@@ -52,9 +52,7 @@ extern "C" {
 #define _FILE_DEFINED
 #endif
 
-#if __MSVCRT_VERSION__ >= 0x1400
 _CRTIMP FILE *__cdecl __acrt_iob_func(unsigned index);
-#else
 #ifndef _STDIO_DEFINED
 #ifdef _WIN64
   _CRTIMP FILE *__cdecl __iob_func(void);
@@ -71,18 +69,11 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 
 #define _iob __iob_func()
 #endif
-#endif
 
 #ifndef _STDSTREAM_DEFINED
-#if __MSVCRT_VERSION__ >= 0x1400
 #define stdin (__acrt_iob_func(0))
 #define stdout (__acrt_iob_func(1))
 #define stderr (__acrt_iob_func(2))
-#else
-#define stdin (&__iob_func()[0])
-#define stdout (&__iob_func()[1])
-#define stderr (&__iob_func()[2])
-#endif
 #define _STDSTREAM_DEFINED
 #endif
 

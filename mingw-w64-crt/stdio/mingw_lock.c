@@ -39,12 +39,12 @@ void __cdecl _lock_file( FILE *pf )
      * The way the FILE (pointed to by pf) is locked depends on whether
      * it is part of _iob[] or not
      */
-    if ( (pf >= (&__iob_func()[0])) && (pf <= (&__iob_func()[_IOB_ENTRIES-1])) )
+    if ( (pf >= __acrt_iob_func(0)) && (pf <= __acrt_iob_func(_IOB_ENTRIES-1)) )
     {
         /*
          * FILE lies in _iob[] so the lock lies in _locktable[].
          */
-        _lock( _STREAM_LOCKS + (int)(pf - (&__iob_func()[0])) );
+        _lock( _STREAM_LOCKS + (int)(pf - __acrt_iob_func(0)) );
         /* We set _IOLOCKED to indicate we locked the stream */
         pf->_flag |= _IOLOCKED;
     }
@@ -81,14 +81,14 @@ void __cdecl _unlock_file( FILE *pf )
      * The way the FILE (pointed to by pf) is unlocked depends on whether
      * it is part of _iob[] or not
      */
-    if ( (pf >= (&__iob_func()[0])) && (pf <= (&__iob_func()[_IOB_ENTRIES-1])) )
+    if ( (pf >= __acrt_iob_func(0)) && (pf <= __acrt_iob_func(_IOB_ENTRIES-1)) )
     {
         /*
          * FILE lies in _iob[] so the lock lies in _locktable[].
          * We reset _IOLOCKED to indicate we unlock the stream.
          */
         pf->_flag &= ~_IOLOCKED;
-        _unlock( _STREAM_LOCKS + (int)(pf - (&__iob_func()[0])) );
+        _unlock( _STREAM_LOCKS + (int)(pf - __acrt_iob_func(0)) );
     }
     else
         /*
