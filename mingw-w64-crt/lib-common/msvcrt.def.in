@@ -492,17 +492,17 @@ _filelengthi64
 _fileno
 _findclose
 _findfirst
-F_I386(_findfirst32 == _findfirst)
+F32(_findfirst32 == _findfirst)
 _findfirst64
 _findfirsti64
-F_I386(_findfirst32i64 == _findfirsti64)
-F_X64(_findfirst64i32 == _findfirst)
+F32(_findfirst32i64 == _findfirsti64)
+F64(_findfirst64i32 == _findfirst)
 _findnext
-F_I386(_findnext32 == _findnext)
+F32(_findnext32 == _findnext)
 _findnext64
 _findnexti64
-F_I386(_findnext32i64 == _findnexti64)
-F_X64(_findnext64i32 == _findnext)
+F32(_findnext32i64 == _findnexti64)
+F64(_findnext64i32 == _findnext)
 _finite
 F_NON_I386(_finitef)
 _flsbuf
@@ -527,17 +527,17 @@ F_NON_I386(_fscanf_s_l)
 F_ARM_ANY(_fseeki64)
 _fsopen
 _fstat
-F_I386(_fstat32 == _fstat)
+F32(_fstat32 == _fstat)
 _fstat64
 _fstati64
-F_X64(_fstat64i32 == _fstat)
+F64(_fstat64i32 == _fstat)
 _ftime
 F_ARM_ANY(_ftime32)
 _ftime32_s
 _ftime64
 _ftime64_s
-F_I386(_ftime_s == _ftime32_s)
-F_X64(_ftime_s == _ftime64_s)
+F32(_ftime_s == _ftime32_s)
+F64(_ftime_s == _ftime64_s)
 F_I386(_ftol)
 _fullpath
 F_ARM_ANY(_fullpath_dbg)
@@ -993,8 +993,8 @@ _sscanf_s_l
 _stat
 _stat64
 _stati64
-F_I386(_stat32 == _stat)
-F_X64(_stat64i32 == _stat)
+F32(_stat32 == _stat)
+F64(_stat64i32 == _stat)
 _statusfp
 _strcmpi
 _strcoll_l
@@ -1202,17 +1202,17 @@ _wexecvp
 _wexecvpe
 _wfdopen
 _wfindfirst
-F_I386(_wfindfirst32 == _wfindfirst)
+F32(_wfindfirst32 == _wfindfirst)
 _wfindfirst64
 _wfindfirsti64
-F_I386(_wfindfirst32i64 == _wfindfirsti64)
-F_X64(_wfindfirst64i32 == _wfindfirst)
+F32(_wfindfirst32i64 == _wfindfirsti64)
+F64(_wfindfirst64i32 == _wfindfirst)
 _wfindnext
-F_I386(_wfindnext32 == _wfindnext)
+F32(_wfindnext32 == _wfindnext)
 _wfindnext64
 _wfindnexti64
-F_I386(_wfindnext32i64 == _wfindnexti64)
-F_X64(_wfindnext64i32 == _wfindnext)
+F32(_wfindnext32i64 == _wfindnexti64)
+F64(_wfindnext64i32 == _wfindnext)
 _wfopen
 _wfopen_s
 _wfreopen
@@ -1268,8 +1268,8 @@ _wsplitpath_s
 _wstat
 _wstat64
 _wstati64
-F_I386(_wstat32 == _wstat)
-F_X64(_wstat64i32 == _wstat)
+F32(_wstat32 == _wstat)
+F64(_wstat64i32 == _wstat)
 _wstrdate
 ; _wstrdate_s replaced by emu
 _wstrtime
