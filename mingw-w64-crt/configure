@@ -642,6 +642,7 @@ ENABLE_PRINTF128_FALSE
 ENABLE_PRINTF128_TRUE
 ENABLE_DFP_FALSE
 ENABLE_DFP_TRUE
+MSVCRT_LIB
 DELAY_IMPORT_LIBS_FALSE
 DELAY_IMPORT_LIBS_TRUE
 PRIVATE_EXPORTS_FALSE
@@ -793,6 +794,7 @@ with_genlib
 enable_wildcard
 enable_private_exports
 enable_delay_import_libs
+with_default_msvcrt
 enable_experimental
 enable_tests_unicode
 enable_warnings
@@ -1464,6 +1466,8 @@ Optional Packages:
                           prefix)
   --with-genlib=PATH      Whether to build import libraries via the genlib
                           tool (default: no)
+  --with-default-msvcrt=LIB
+                          Lib to provide as libmsvcrt.a (default: msvcrt-os)
 
 Some influential environment variables:
   CC          C compiler command
@@ -5734,6 +5738,24 @@ fi
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_delay_import_libs" >&5
 $as_echo "$enable_delay_import_libs" >&6; }
 
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking what to provide as libmsvcrt.a" >&5
+$as_echo_n "checking what to provide as libmsvcrt.a... " >&6; }
+
+# Check whether --with-default-msvcrt was given.
+if test "${with_default_msvcrt+set}" = set; then :
+  withval=$with_default_msvcrt;
+else
+  with_default_msvcrt=msvcrt-os
+fi
+
+if test "$with_default_msvcrt" = "msvcrt"; then
+  with_default_msvcrt=msvcrt-os
+fi
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $with_default_msvcrt" >&5
+$as_echo "$with_default_msvcrt" >&6; }
+MSVCRT_LIB=lib${with_default_msvcrt}.a
+
+
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to enable experimental features" >&5
 $as_echo_n "checking whether to enable experimental features... " >&6; }
 # Check whether --enable-experimental was given.
@@ -7769,6 +7791,8 @@ $as_echo "$as_me:   C Warning Flags......: $ADD_C_ONLY_WARNING_FLAGS" >&6;}
 $as_echo "$as_me:   C++ Warning Flags....: $ADD_CXX_ONLY_WARNING_FLAGS" >&6;}
 { $as_echo "$as_me:${as_lineno-$LINENO}:   Common Warning Flags.: $ADD_C_CXX_WARNING_FLAGS" >&5
 $as_echo "$as_me:   Common Warning Flags.: $ADD_C_CXX_WARNING_FLAGS" >&6;}
+{ $as_echo "$as_me:${as_lineno-$LINENO}:   Default msvcrt.......: $with_default_msvcrt" >&5
+$as_echo "$as_me:   Default msvcrt.......: $with_default_msvcrt" >&6;}
 { $as_echo "$as_me:${as_lineno-$LINENO}: " >&5
 $as_echo "$as_me: " >&6;}
 { $as_echo "$as_me:${as_lineno-$LINENO}:   DFP printf...........: $enable_dfp" >&5
