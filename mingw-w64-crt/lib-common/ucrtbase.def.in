@@ -327,10 +327,12 @@ _filelength
 _filelengthi64
 _fileno
 _findclose
+_findfirst == _findfirst32
 _findfirst32
 _findfirst32i64
 _findfirst64
 _findfirst64i32
+_findnext == _findnext32
 _findnext32
 _findnext32i64
 _findnext64
