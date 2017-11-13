@@ -1457,7 +1457,7 @@ pthread_setcanceltype (int type, int *oldtype)
   return 0;
 }
 
-#if defined(__i686__)
+#if defined(__i386__)
 /* Align ESP on 16-byte boundaries. */
 #  if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 2)
 __attribute__((force_align_arg_pointer))
