@@ -364,6 +364,7 @@ _fstat64i32
 _ftell_nolock
 _ftelli64
 _ftelli64_nolock
+_ftime == _ftime32
 _ftime32
 _ftime32_s
 _ftime64
