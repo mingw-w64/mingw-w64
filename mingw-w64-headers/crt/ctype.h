@@ -199,8 +199,10 @@ int __cdecl iswblank(wint_t _C);
   extern int __mb_cur_max;
 #define __mb_cur_max	__mb_cur_max
 #else
+#if __MSVCRT_VERSION__ < 0x1400
   extern int * __MINGW_IMP_SYMBOL(__mb_cur_max);
-#define __mb_cur_max	(* __MINGW_IMP_SYMBOL(__mb_cur_max))
+#endif
+#define __mb_cur_max	(___mb_cur_max_func())
 #endif
 #endif
 _CRTIMP int __cdecl ___mb_cur_max_func(void);
