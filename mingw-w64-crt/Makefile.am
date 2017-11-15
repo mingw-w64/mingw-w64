@@ -209,7 +209,16 @@ src_msvcrt=\
   stdio/mingw_lock.c
 
 src_ucrtbase=\
-  crt/ucrtbase_compat.c
+  crt/ucrtbase_compat.c \
+  stdio/ucrt_fprintf.c \
+  stdio/ucrt_printf.c \
+  stdio/ucrt_snprintf.c \
+  stdio/ucrt_sprintf.c \
+  stdio/ucrt__vsnprintf.c \
+  stdio/ucrt_vfprintf.c \
+  stdio/ucrt_vprintf.c \
+  stdio/ucrt_vsnprintf.c \
+  stdio/ucrt_vsprintf.c
 
 src_msvcrt32=\
   $(src_msvcrt) \

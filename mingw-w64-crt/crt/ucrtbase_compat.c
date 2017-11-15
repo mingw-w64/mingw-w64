@@ -12,8 +12,6 @@
 #undef __MSVCRT_VERSION__
 #define __MSVCRT_VERSION__ 0x1400
 
-#define vfprintf real_vfprintf
-#define fprintf real_fprintf
 #define fwprintf real_fwprintf
 #define _snwprintf real__snwprintf
 #define __getmainargs crtimp___getmainargs
@@ -25,8 +23,6 @@
 #include <sect_attribs.h>
 #include <stdio.h>
 
-#undef vfprintf
-#undef fprintf
 #undef fwprintf
 #undef _snwprintf
 #undef __getmainargs
@@ -48,8 +44,6 @@ void __cdecl _lock(int _File);
 void __cdecl _unlock(int _File);
 _onexit_t __dllonexit(_onexit_t func, _PVFV** begin, _PVFV** end);
 
-int fprintf(FILE* ptr, const char* fmt, ...);
-int vfprintf(FILE* ptr, const char* fmt, va_list ap);
 int __cdecl fwprintf(FILE *ptr, const wchar_t *fmt, ...);
 int __cdecl _snwprintf(wchar_t * restrict _Dest, size_t _Count, const wchar_t * restrict _Format, ...);
 
@@ -119,7 +113,7 @@ _onexit_t __dllonexit(_onexit_t func, _PVFV** begin, _PVFV** end)
 }
 
 void __cdecl _amsg_exit(int ret) {
-  real_fprintf(stderr, "runtime error %d\n", ret);
+  fprintf(stderr, "runtime error %d\n", ret);
 }
 
 unsigned int __cdecl _get_output_format(void)
@@ -174,24 +168,6 @@ void __cdecl _unlock(int _File)
 {
   if (_File == _EXIT_LOCK1)
     LeaveCriticalSection(&exit_lock);
-}
-
-// This is only supposed to handle the stray calls to
-// fprintf(stderr,) within libmingwex and the CRT startup
-// files.
-int __cdecl vfprintf(FILE *ptr, const char *fmt, va_list ap)
-{
-  return real_vfprintf(ptr, fmt, ap);
-}
-
-int __cdecl fprintf(FILE *ptr, const char *fmt, ...)
-{
-  va_list ap;
-  int ret;
-  va_start(ap, fmt);
-  ret = real_vfprintf(ptr, fmt, ap);
-  va_end(ap);
-  return ret;
 }
 
 // assert (in wassert.c) produces references to these two functions
