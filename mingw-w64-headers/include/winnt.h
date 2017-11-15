@@ -2060,9 +2060,45 @@ extern "C" {
 #define BitScanForward _BitScanForward
 #define BitScanReverse _BitScanReverse
 
+#define InterlockedIncrement16 _InterlockedIncrement16
+#define InterlockedDecrement16 _InterlockedDecrement16
 #define InterlockedCompareExchange16 _InterlockedCompareExchange16
+
+#define InterlockedAnd _InterlockedAnd
+#define InterlockedOr _InterlockedOr
+#define InterlockedXor _InterlockedXor
+#define InterlockedIncrement _InterlockedIncrement
+#define InterlockedIncrementAcquire InterlockedIncrement
+#define InterlockedIncrementRelease InterlockedIncrement
+#define InterlockedDecrement _InterlockedDecrement
+#define InterlockedDecrementAcquire InterlockedDecrement
+#define InterlockedDecrementRelease InterlockedDecrement
 #define InterlockedAdd _InterlockedAdd
+#define InterlockedExchange _InterlockedExchange
+#define InterlockedExchangeAdd _InterlockedExchangeAdd
+#define InterlockedCompareExchange _InterlockedCompareExchange
+#define InterlockedCompareExchangeAcquire InterlockedCompareExchange
+#define InterlockedCompareExchangeRelease InterlockedCompareExchange
+
+#define InterlockedAnd64 _InterlockedAnd64
+#define InterlockedAndAffinity InterlockedAnd64
+#define InterlockedOr64 _InterlockedOr64
+#define InterlockedOrAffinity InterlockedOr64
+#define InterlockedXor64 _InterlockedXor64
+#define InterlockedIncrement64 _InterlockedIncrement64
+#define InterlockedDecrement64 _InterlockedDecrement64
 #define InterlockedAdd64 _InterlockedAdd64
+#define InterlockedExchange64 _InterlockedExchange64
+#define InterlockedExchangeAcquire64 InterlockedExchange64
+#define InterlockedExchangeAdd64 _InterlockedExchangeAdd64
+#define InterlockedCompareExchange64 _InterlockedCompareExchange64
+#define InterlockedCompareExchangeAcquire64 InterlockedCompareExchange64
+#define InterlockedCompareExchangeRelease64 InterlockedCompareExchange64
+
+#define InterlockedExchangePointer _InterlockedExchangePointer
+#define InterlockedCompareExchangePointer(Destination, ExChange, Comperand) (PVOID) (LONG_PTR)InterlockedCompareExchange ((LONG volatile *) (Destination),(LONG) (LONG_PTR) (ExChange),(LONG) (LONG_PTR) (Comperand))
+#define InterlockedCompareExchangePointerAcquire InterlockedCompareExchangePointer
+#define InterlockedCompareExchangePointerRelease InterlockedCompareExchangePointer
 
 #ifdef _PREFIX_
     /* BYTE __readfsbyte(DWORD Offset); moved to psdk_inc/intrin-impl.h */
