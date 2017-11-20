@@ -11,8 +11,9 @@
 #define __MINGW64_STRINGIFY(x) \
   __STRINGIFY(x)
 
-#define __MINGW64_VERSION_MAJOR 5
+#define __MINGW64_VERSION_MAJOR 6
 #define __MINGW64_VERSION_MINOR 0
+#define __MINGW64_VERSION_BUGFIX 0
 
 /* This macro holds an monotonic increasing value, which indicates
    a specific fix/patch is present on trunk.  This value isn't related to
@@ -25,7 +26,9 @@
 #define __MINGW64_VERSION_STR	\
   __MINGW64_STRINGIFY(__MINGW64_VERSION_MAJOR) \
   "." \
-  __MINGW64_STRINGIFY(__MINGW64_VERSION_MINOR)
+  __MINGW64_STRINGIFY(__MINGW64_VERSION_MINOR) \
+  "." \
+  __MINGW64_STRINGIFY(__MINGW64_VERSION_BUGFIX)
 
 #define __MINGW64_VERSION_STATE "alpha"
 
