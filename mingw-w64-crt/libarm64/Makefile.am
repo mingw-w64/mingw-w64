@@ -228,6 +228,7 @@ libarm64_DATA += %reldir%/libserwvdrv.a
 #libarm64_DATA += %reldir%/libshell32.a    # Handled by custom rule
 libarm64_DATA += %reldir%/libshfolder.a
 libarm64_DATA += %reldir%/libshimgvw.a
+libarm64_DATA += %reldir%/libshlwapi.a
 libarm64_DATA += %reldir%/libshsvcs.a
 libarm64_DATA += %reldir%/libsisbkup.a
 libarm64_DATA += %reldir%/libslcext.a
