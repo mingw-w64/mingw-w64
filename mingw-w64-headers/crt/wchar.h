@@ -507,6 +507,10 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #undef __mingw_ovr
 #if defined (__GNUC__)
 #define __mingw_ovr static __attribute__ ((__unused__)) __inline__ __cdecl
+#ifdef __mingw_static_ovr
+#undef __mingw_static_ovr
+#define __mingw_static_ovr __mingw_ovr
+#endif
 #elif defined(__cplusplus)
 #define __mingw_ovr inline __cdecl
 #else
