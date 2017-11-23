@@ -153,7 +153,7 @@ static void __cdecl init_compat_dtor(void)
   atexit(free_locks);
 }
 
-_CRTALLOC(".CRT$XID") _PVFV mingw_ucrtbase_compat_init = init_compat_dtor;
+static _CRTALLOC(".CRT$XID") __attribute__((__used__)) _PVFV mingw_ucrtbase_compat_init = init_compat_dtor;
 
 
 // These are required to provide the unrepfixed data symbols "timezone"
@@ -226,6 +226,19 @@ int __cdecl __ms_fwprintf(FILE *file, const wchar_t *fmt, ...)
   va_end(ap);
   return ret;
 }
+
+// Dummy/unused __imp_ wrappers, to make GNU ld not autoexport these symbols.
+int __cdecl (*__MINGW_IMP_SYMBOL(__getmainargs))(int *, char ***, char ***, int, _startupinfo *) = __getmainargs;
+int __cdecl (*__MINGW_IMP_SYMBOL(__wgetmainargs))(int *, wchar_t ***, wchar_t ***, int, _startupinfo *) = __wgetmainargs;
+_onexit_t __cdecl (*__MINGW_IMP_SYMBOL(__dllonexit))(_onexit_t, _PVFV**, _PVFV**) = __dllonexit;
+void __cdecl (*__MINGW_IMP_SYMBOL(_amsg_exit))(int) = _amsg_exit;
+unsigned int __cdecl (*__MINGW_IMP_SYMBOL(_get_output_format))(void) = _get_output_format;
+void __cdecl (*__MINGW_IMP_SYMBOL(tzset))(void) = tzset;
+void __cdecl (*__MINGW_IMP_SYMBOL(_lock))(int) = _lock;
+void __cdecl (*__MINGW_IMP_SYMBOL(_unlock))(int) = _unlock;
+int __cdecl (*__MINGW_IMP_SYMBOL(fwprintf))(FILE *, const wchar_t *, ...) = fwprintf;
+int __cdecl (*__MINGW_IMP_SYMBOL(_snwprintf))(wchar_t *restrict, size_t, const wchar_t *restrict, ...) = _snwprintf;
+int __cdecl (*__MINGW_IMP_SYMBOL(__ms_fwprintf))(FILE *, const wchar_t *, ...) = __ms_fwprintf;
 #ifdef __GNUC__
 #pragma GCC diagnostic pop
 #endif

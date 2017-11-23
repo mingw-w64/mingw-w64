@@ -17,3 +17,4 @@ int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict_
   __builtin_va_end(ap);
   return ret;
 }
+int __cdecl (*__MINGW_IMP_SYMBOL(snprintf))(char *__restrict__, size_t, const char *__restrict__, ...) = snprintf;
