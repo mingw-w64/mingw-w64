@@ -17,4 +17,4 @@ int __cdecl sprintf(char * __restrict__ _Dest,const char * __restrict__ _Format,
   __builtin_va_end(ap);
   return ret;
 }
-int __cdecl (*__MINGW_IMP_SYMBOL(snprintf))(char *__restrict__, const char *__restrict__, ...) = sprintf;
+int __cdecl (*__MINGW_IMP_SYMBOL(sprintf))(char *__restrict__, const char *__restrict__, ...) = sprintf;
