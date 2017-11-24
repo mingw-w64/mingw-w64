@@ -119,18 +119,6 @@ extern char *** __MINGW_IMP_SYMBOL(__initenv);
 #define __initenv (* __MINGW_IMP_SYMBOL(__initenv))
 #endif
 
-#ifndef _acmdln
-extern char ** __MINGW_IMP_SYMBOL(_acmdln);
-#define _acmdln (* __MINGW_IMP_SYMBOL(_acmdln))
-/*  _CRTIMP extern char *_acmdln; */
-#endif
-
-#ifndef _wcmdln
-extern char ** __MINGW_IMP_SYMBOL(_wcmdln);
-#define _wcmdln (* __MINGW_IMP_SYMBOL(_wcmdln))
-/*  __CRTIMP extern wchar_t *_wcmdln; */
-#endif
-
   _CRTIMP void __cdecl _amsg_exit(int);
 
   int __CRTDECL _setargv(void);

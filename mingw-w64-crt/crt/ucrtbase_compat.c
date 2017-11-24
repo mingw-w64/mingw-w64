@@ -56,8 +56,6 @@ _CRTIMP char*** __cdecl __p___argv(void);
 _CRTIMP wchar_t*** __cdecl __p___wargv(void);
 _CRTIMP char*** __cdecl __p__environ(void);
 _CRTIMP wchar_t*** __cdecl __p__wenviron(void);
-_CRTIMP char** __cdecl __p__acmdln(void);
-_CRTIMP wchar_t** __cdecl __p__wcmdln(void);
 
 _CRTIMP int __cdecl _crt_atexit(_onexit_t func);
 
@@ -77,7 +75,6 @@ int __cdecl __getmainargs(int * _Argc, char *** _Argv, char ***_Env, int _DoWild
   *_Argv = *__p___argv();
   *_Env = *__p__environ();
   __set_app_type(_StartInfo->newmode);
-  __MINGW_IMP_SYMBOL(_acmdln) = __p__acmdln();
   return 0;
 }
 
@@ -89,7 +86,6 @@ int __cdecl __wgetmainargs(int * _Argc, wchar_t *** _Argv, wchar_t ***_Env, int 
   *_Argv = *__p___wargv();
   *_Env = *__p__wenviron();
   __set_app_type(_StartInfo->newmode);
-  __MINGW_IMP_SYMBOL(_wcmdln) = (char**) __p__wcmdln();
   return 0;
 }
 
@@ -128,10 +124,6 @@ static int local_fmode;
 char *** __MINGW_IMP_SYMBOL(__initenv) = &local__initenv;
 wchar_t *** __MINGW_IMP_SYMBOL(__winitenv) = &local__winitenv;
 int * __MINGW_IMP_SYMBOL(_fmode) = &local_fmode;
-
-char ** __MINGW_IMP_SYMBOL(_acmdln);
-char ** __MINGW_IMP_SYMBOL(_wcmdln);
-
 
 
 // The parts below are mostly ugly workarounds, necessary to appease code
