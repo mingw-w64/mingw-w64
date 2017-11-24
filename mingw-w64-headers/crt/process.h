@@ -7,6 +7,7 @@
 #define _INC_PROCESS
 
 #include <crtdefs.h>
+#include <corecrt_startup.h>
 
 /* Includes a definition of _pid_t and pid_t */
 #include <sys/types.h>
