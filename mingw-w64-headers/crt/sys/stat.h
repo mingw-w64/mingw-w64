@@ -171,9 +171,20 @@ extern "C" {
 #endif
 
 #if !defined (RC_INVOKED) && !defined (NO_OLDNAMES)
-int __cdecl stat(const char *_Filename,struct stat *_Stat);
 int __cdecl fstat(int _Desc,struct stat *_Stat);
+#if __MSVCRT_VERSION__ >= 0x1400
+  __mingw_ovr int __cdecl stat(const char *_Filename,struct stat *_Stat)
+  {
+    return _stat(_Filename, (struct _stat *)_Stat);
+  }
+  __mingw_ovr int __cdecl wstat(const wchar_t *_Filename,struct stat *_Stat)
+  {
+    return _wstat(_Filename, (struct _stat *)_Stat);
+  }
+#else
+int __cdecl stat(const char *_Filename,struct stat *_Stat);
 int __cdecl wstat(const wchar_t *_Filename,struct stat *_Stat);
+#endif
 
 #ifndef __CRT__NO_INLINE
 #ifdef _USE_32BIT_TIME_T
