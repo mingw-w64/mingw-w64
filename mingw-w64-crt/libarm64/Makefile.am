@@ -113,6 +113,7 @@ libarm64_DATA += %reldir%/libinetcomm.a
 libarm64_DATA += %reldir%/libinetmib1.a
 libarm64_DATA += %reldir%/libinput.a
 libarm64_DATA += %reldir%/libinseng.a
+libarm64_DATA += %reldir%/libiphlpapi.a
 libarm64_DATA += %reldir%/libipnathlp.a
 libarm64_DATA += %reldir%/libjsproxy.a
 libarm64_DATA += %reldir%/libkdcom.a
