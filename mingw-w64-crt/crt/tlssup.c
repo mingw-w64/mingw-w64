@@ -44,13 +44,13 @@ ULONG _tls_index = 0;
    We use here pointer-types for start/end so that tls-data remains
    aligned on pointer-size-width.  This seems to be required for
    pe-loader. */
-_CRTALLOC(".tls$AAA") char *_tls_start = NULL;
+_CRTALLOC(".tls") char *_tls_start = NULL;
 _CRTALLOC(".tls$ZZZ") char *_tls_end = NULL;
 
 _CRTALLOC(".CRT$XLA") PIMAGE_TLS_CALLBACK __xl_a = 0;
 _CRTALLOC(".CRT$XLZ") PIMAGE_TLS_CALLBACK __xl_z = 0;
 
-_CRTALLOC(".tls") const IMAGE_TLS_DIRECTORY _tls_used = {
+const IMAGE_TLS_DIRECTORY _tls_used = {
   (ULONG_PTR) &_tls_start, (ULONG_PTR) &_tls_end,
   (ULONG_PTR) &_tls_index, (ULONG_PTR) (&__xl_a+1),
   (ULONG) 0, (ULONG) 0
