@@ -202,7 +202,14 @@ extern "C" {
 
 void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp (void);
 
-#if !defined(USE_NO_MINGW_SETJMP_TWO_ARGS) && __MSVCRT_VERSION__ < 0x1400
+#if !defined(USE_NO_MINGW_SETJMP_TWO_ARGS)
+#  if __MSVCRT_VERSION__ >= 0x1400
+#    ifdef _WIN64
+#      define _setjmp __intrinsic_setjmpex
+#    else
+#      define _setjmp __intrinsic_setjmp
+#    endif
+#  endif
 #  ifndef _INC_SETJMPEX
 #    if defined(_X86_) || defined(__i386__)
 #      define setjmp(BUF) _setjmp3((BUF), NULL)
@@ -234,7 +241,7 @@ void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp (void);
 
 #else
 
-#  if !defined(_INC_SETJMPEX) && __MSVCRT_VERSION__ < 0x1400
+#  if !defined(_INC_SETJMPEX)
 #    define setjmp _setjmp
 #  endif
 

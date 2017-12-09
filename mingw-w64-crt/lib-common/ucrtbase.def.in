@@ -105,7 +105,7 @@ __initialize_lconv_for_unsigned_char
 __lconv_init == __initialize_lconv_for_unsigned_char
 __intrinsic_abnormal_termination
 __intrinsic_setjmp
-__intrinsic_setjmpex
+F64(__intrinsic_setjmpex)
 __isascii
 __iscsym
 __iscsymf
@@ -2508,7 +2508,7 @@ scalbnl
 set_terminate
 set_unexpected
 setbuf
-setjmp
+F_X64(setjmp)
 setlocale
 setvbuf
 signal
