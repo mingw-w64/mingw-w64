@@ -83,6 +83,9 @@
 
 #if defined(__aarch64__) && !defined(_M_ARM64)
 #  define _M_ARM64 1
+#  ifndef _ARM64_
+#    define _ARM64_ 1
+#  endif
 #endif
 
 #ifndef _X86_
