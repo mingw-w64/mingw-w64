@@ -167,7 +167,7 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
   _CRTIMP char **__cdecl __sys_errlist(void);
   _CRTIMP int *__cdecl __sys_nerr(void);
 #define _sys_nerr (*__sys_nerr())
-#define _sys_errlist __sys_errlist();
+#define _sys_errlist (__sys_errlist())
 #else
   extern __declspec(dllimport) char *_sys_errlist[1];
   extern __declspec(dllimport) int _sys_nerr;
