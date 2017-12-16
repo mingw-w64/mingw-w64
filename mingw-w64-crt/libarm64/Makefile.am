@@ -271,6 +271,7 @@ libarm64_DATA += %reldir%/libwinhttp.a
 libarm64_DATA += %reldir%/libwininet.a
 libarm64_DATA += %reldir%/libwinmm.a
 libarm64_DATA += %reldir%/libwinrnr.a
+libarm64_DATA += %reldir%/libwinscard.a
 libarm64_DATA += %reldir%/libwinspool.a
 libarm64_DATA += %reldir%/libwinsrv.a
 libarm64_DATA += %reldir%/libwinusb.a
