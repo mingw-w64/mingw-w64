@@ -174,9 +174,10 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #endif /* __MSVCRT_VERSION__ < 0x1400 */
 #endif
 
-  // We have a fallback definition of __p___argv for msvcrt versions that
-  // lack it.
+  /* We have a fallback definition of __p___argv and __p__fmode for
+     msvcrt versions that lack it. */
   _CRTIMP char ***__cdecl __p___argv(void);
+  _CRTIMP int *__cdecl __p__fmode(void);
 #if (defined(_X86_) && !defined(__x86_64)) || (__MSVCRT_VERSION__ >= 0x1400)
   _CRTIMP int *__cdecl __p___argc(void);
   _CRTIMP wchar_t ***__cdecl __p___wargv(void);
@@ -184,13 +185,16 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
   _CRTIMP wchar_t ***__cdecl __p__wenviron(void);
   _CRTIMP char **__cdecl __p__pgmptr(void);
   _CRTIMP wchar_t **__cdecl __p__wpgmptr(void);
-  _CRTIMP int *__cdecl __p__fmode(void);
 #endif
 
   errno_t __cdecl _get_pgmptr(char **_Value);
   errno_t __cdecl _get_wpgmptr(wchar_t **_Value);
   _CRTIMP errno_t __cdecl _set_fmode(int _Mode);
   _CRTIMP errno_t __cdecl _get_fmode(int *_PMode);
+
+#ifndef _fmode
+#define _fmode (* __p__fmode())
+#endif
 
 #ifdef _MSVCRT_
 
@@ -219,9 +223,6 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 
 #ifndef _wpgmptr
   extern wchar_t *_wpgmptr;
-#endif
-#ifndef _fmode
-  extern int _fmode;
 #endif
 
 #ifndef _osplatform
@@ -273,9 +274,6 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #ifndef _wpgmptr
 #define _wpgmptr (* __p__wpgmptr())
 #endif
-#ifndef _fmode
-#define _fmode (* __p__fmode())
-#endif
 
 #else /* __MSVCRT_VERSION__ >= 0x1400 */
 
@@ -312,10 +310,6 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #ifndef _wpgmptr
   extern wchar_t ** __MINGW_IMP_SYMBOL(_wpgmptr);
 #define _wpgmptr (* __MINGW_IMP_SYMBOL(_wpgmptr))
-#endif
-#ifndef _fmode
-  extern int * __MINGW_IMP_SYMBOL(_fmode);
-#define _fmode	(* __MINGW_IMP_SYMBOL(_fmode))
 #endif
 
 #ifndef _osplatform

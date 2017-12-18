@@ -139,7 +139,7 @@ pre_c_init (void)
     __set_app_type (_CONSOLE_APP);
   __onexitbegin = __onexitend = (_PVFV *) _encode_pointer ((_PVFV *)(-1));
 
-  * __MINGW_IMP_SYMBOL(_fmode) = _fmode;
+  * __p__fmode() = _fmode;
   * __MINGW_IMP_SYMBOL(_commode) = _commode;
 
 #ifdef WPRFLAG

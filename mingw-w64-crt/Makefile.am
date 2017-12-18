@@ -228,24 +228,28 @@ src_msvcrt64=\
   $(src_msvcrt) \
   misc/__p___argv.c \
   misc/__p__acmdln.c \
+  misc/__p__fmode.c \
   misc/__p__wcmdln.c
 
 src_msvcrtarm32=\
   $(src_msvcrt) \
   misc/__p___argv.c \
   misc/__p__acmdln.c \
+  misc/__p__fmode.c \
   misc/__p__wcmdln.c
 
 src_msvcrtarm64=\
   $(src_msvcrt) \
   misc/__p___argv.c \
   misc/__p__acmdln.c \
+  misc/__p__fmode.c \
   misc/__p__wcmdln.c
 
 src_msvcr80_64=\
   $(src_msvcrt_common) \
   misc/__p___argv.c \
   misc/__p__acmdln.c \
+  misc/__p__fmode.c \
   misc/__p__wcmdln.c
 
 # These mingwex sources are target independent:

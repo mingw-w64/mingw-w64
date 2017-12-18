@@ -120,10 +120,8 @@ unsigned int __cdecl _get_output_format(void)
 
 static char ** local__initenv;
 static wchar_t ** local__winitenv;
-static int local_fmode;
 char *** __MINGW_IMP_SYMBOL(__initenv) = &local__initenv;
 wchar_t *** __MINGW_IMP_SYMBOL(__winitenv) = &local__winitenv;
-int * __MINGW_IMP_SYMBOL(_fmode) = &local_fmode;
 
 
 // The parts below are mostly ugly workarounds, necessary to appease code
