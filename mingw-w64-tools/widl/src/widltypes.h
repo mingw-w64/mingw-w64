@@ -51,6 +51,7 @@ typedef struct _user_type_t context_handle_t;
 typedef struct _user_type_t generic_handle_t;
 typedef struct _type_list_t type_list_t;
 typedef struct _statement_t statement_t;
+typedef struct _warning_t warning_t;
 
 typedef struct list attr_list_t;
 typedef struct list str_list_t;
@@ -63,6 +64,7 @@ typedef struct list user_type_list_t;
 typedef struct list context_handle_list_t;
 typedef struct list generic_handle_list_t;
 typedef struct list statement_list_t;
+typedef struct list warning_list_t;
 
 enum attr_type
 {
@@ -382,6 +384,16 @@ struct bitfield_details
   const expr_t *bits;
 };
 
+#define HASHMAX 64
+
+struct namespace {
+    const char *name;
+    struct namespace *parent;
+    struct list entry;
+    struct list children;
+    struct rtype *type_hash[HASHMAX];
+};
+
 enum type_type
 {
     TYPE_VOID,
@@ -402,6 +414,7 @@ enum type_type
 
 struct _type_t {
   const char *name;
+  struct namespace *namespace;
   enum type_type type_type;
   attr_list_t *attrs;
   union
@@ -417,6 +430,7 @@ struct _type_t {
     struct pointer_details pointer;
     struct bitfield_details bitfield;
   } details;
+  const char *c_name;
   type_t *orig;                   /* dup'd types */
   unsigned int typestring_offset;
   unsigned int ptrdesc;           /* used for complex structs */
@@ -526,6 +540,11 @@ struct _statement_t {
     } u;
 };
 
+struct _warning_t {
+    int num;
+    struct list entry;
+};
+
 typedef enum {
     SYS_WIN16,
     SYS_WIN32,
@@ -549,16 +568,18 @@ void clear_all_offsets(void);
 #define tsUNION  3
 
 var_t *find_const(const char *name, int f);
-type_t *find_type(const char *name, int t);
+type_t *find_type(const char *name, struct namespace *namespace, int t);
 type_t *make_type(enum type_type type);
-type_t *get_type(enum type_type type, char *name, int t);
-type_t *reg_type(type_t *type, const char *name, int t);
+type_t *get_type(enum type_type type, char *name, struct namespace *namespace, int t);
+type_t *reg_type(type_t *type, const char *name, struct namespace *namespace, int t);
 void add_incomplete(type_t *t);
 
 var_t *make_var(char *name);
 var_list_t *append_var(var_list_t *list, var_t *var);
 
 void init_loc_info(loc_info_t *);
+
+char *format_namespace(struct namespace *namespace, const char *prefix, const char *separator, const char *suffix);
 
 static inline var_list_t *type_get_function_args(const type_t *func_type)
 {
@@ -587,6 +608,11 @@ static inline int statements_has_func(const statement_list_t *stmts)
     break;
   }
   return has_func;
+}
+
+static inline int is_global_namespace(const struct namespace *namespace)
+{
+    return !namespace->name;
 }
 
 #endif

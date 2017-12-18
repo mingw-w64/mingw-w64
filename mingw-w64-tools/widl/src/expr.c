@@ -222,8 +222,8 @@ expr_t *make_exprt(enum expr_type type, var_t *var, expr_t *expr)
             e->is_const = TRUE;
             if (is_signed_integer_type(tref))
             {
-                cast_mask = (1 << (cast_type_bits - 1)) - 1;
-                if (expr->cval & (1 << (cast_type_bits - 1)))
+                cast_mask = (1u << (cast_type_bits - 1)) - 1;
+                if (expr->cval & (1u << (cast_type_bits - 1)))
                     e->cval = -((-expr->cval) & cast_mask);
                 else
                     e->cval = expr->cval & cast_mask;
@@ -231,8 +231,8 @@ expr_t *make_exprt(enum expr_type type, var_t *var, expr_t *expr)
             else
             {
                 /* calculate ((1 << cast_type_bits) - 1) avoiding overflow */
-                cast_mask = ((1 << (cast_type_bits - 1)) - 1) |
-                            1 << (cast_type_bits - 1);
+                cast_mask = ((1u << (cast_type_bits - 1)) - 1) |
+                            1u << (cast_type_bits - 1);
                 e->cval = expr->cval & cast_mask;
             }
         }
@@ -571,7 +571,7 @@ static struct expression_type resolve_expression(const struct expr_loc *expr_loc
             error_loc_info(&expr_loc->v->loc_info, "address-of operator applied to non-variable type in expression%s%s\n",
                            expr_loc->attr ? " for attribute " : "",
                            expr_loc->attr ? expr_loc->attr : "");
-            result.is_variable = FALSE;
+        result.is_variable = FALSE;
         result.is_temporary = TRUE;
         result.type = type_new_pointer(RPC_FC_UP, result.type, NULL);
         break;
@@ -757,13 +757,13 @@ void write_expr(FILE *h, const expr_t *e, int brackets,
         break;
     case EXPR_CAST:
         fprintf(h, "(");
-        write_type_decl(h, e->u.tref, NULL, "");
+        write_type_decl(h, e->u.tref, NULL);
         fprintf(h, ")");
         write_expr(h, e->ref, 1, toplevel, toplevel_prefix, cont_type, local_var_prefix);
         break;
     case EXPR_SIZEOF:
         fprintf(h, "sizeof(");
-        write_type_decl(h, e->u.tref, NULL, "");
+        write_type_decl(h, e->u.tref, NULL);
         fprintf(h, ")");
         break;
     case EXPR_SHL:

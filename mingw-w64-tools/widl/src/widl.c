@@ -42,7 +42,6 @@
 #include "parser.h"
 #include "wine/wpp.h"
 #include "header.h"
-#include "pathtools.h"
 
 /* future options to reserve characters for: */
 /* A = ACF input filename */
@@ -73,7 +72,8 @@ static const char usage[] =
 "   --prefix-client=p  Prefix names of client stubs with 'p'\n"
 "   --prefix-server=p  Prefix names of server functions with 'p'\n"
 "   -r                 Generate registration script\n"
-"   --rt               Enable WinRT's language extensions for IDL\n"
+"   --winrt            Enable Windows Runtime mode\n"
+"   --ns_prefix        Prefix namespaces with ABI namespace\n"
 "   -s                 Generate server stub\n"
 "   -t                 Generate typelib\n"
 "   -u                 Generate interface identifiers file\n"
@@ -115,7 +115,8 @@ int do_win32 = 1;
 int do_win64 = 1;
 int win32_packing = 8;
 int win64_packing = 8;
-int do_rt_extension = 0;
+int winrt_mode = 0;
+int use_abi_namespace = 0;
 static enum stub_mode stub_mode = MODE_Os;
 
 char *input_name;
@@ -142,7 +143,7 @@ int line_number = 1;
 
 static FILE *idfile;
 
-unsigned int pointer_size = sizeof(void*);
+unsigned int pointer_size = 0;
 syskind_t typelib_kind = sizeof(void*) == 8 ? SYS_WIN64 : SYS_WIN32;
 
 time_t now;
@@ -156,6 +157,7 @@ enum {
     PREFIX_CLIENT_OPTION,
     PREFIX_SERVER_OPTION,
     PRINT_HELP,
+    RT_NS_PREFIX,
     RT_OPTION,
     WIN32_OPTION,
     WIN64_OPTION,
@@ -171,12 +173,13 @@ static const struct option long_options[] = {
     { "dlldata-only", 0, NULL, DLLDATA_ONLY_OPTION },
     { "help", 0, NULL, PRINT_HELP },
     { "local-stubs", 1, NULL, LOCAL_STUBS_OPTION },
+    { "ns_prefix", 0, NULL, RT_NS_PREFIX },
     { "oldnames", 0, NULL, OLDNAMES_OPTION },
     { "output", 0, NULL, 'o' },
     { "prefix-all", 1, NULL, PREFIX_ALL_OPTION },
     { "prefix-client", 1, NULL, PREFIX_CLIENT_OPTION },
     { "prefix-server", 1, NULL, PREFIX_SERVER_OPTION },
-    { "rt", 0, NULL, RT_OPTION },
+    { "winrt", 0, NULL, RT_OPTION },
     { "win32", 0, NULL, WIN32_OPTION },
     { "win64", 0, NULL, WIN64_OPTION },
     { "win32-align", 1, NULL, WIN32_ALIGN_OPTION },
@@ -541,7 +544,6 @@ int main(int argc,char *argv[])
   int opti = 0;
   char *output_name = NULL;
 
-
   signal( SIGTERM, exit_on_signal );
   signal( SIGINT, exit_on_signal );
 #ifdef SIGHUP
@@ -580,7 +582,10 @@ int main(int argc,char *argv[])
       fprintf(stderr, "%s", usage);
       return 0;
     case RT_OPTION:
-      do_rt_extension = 1;
+      winrt_mode = 1;
+      break;
+    case RT_NS_PREFIX:
+      use_abi_namespace = 1;
       break;
     case WIN32_OPTION:
       do_win32 = 1;
@@ -697,17 +702,7 @@ int main(int argc,char *argv[])
   }
 
 #ifdef DEFAULT_INCLUDE_DIR
-  char exe_path[PATH_MAX];
-  get_executable_path (argv[0], &exe_path[0], sizeof (exe_path) / sizeof (exe_path[0]));
-  char * rel_to_includedir = get_relative_path (DEFAULT_BINDIR, DEFAULT_INCLUDE_DIR);
-  if (strrchr (exe_path, '/') != NULL) {
-     strrchr (exe_path, '/')[1] = '\0';
-  }
-  char relocated_default_include_dir[PATH_MAX];
-  strcpy (relocated_default_include_dir, exe_path);
-  strcat (relocated_default_include_dir, rel_to_includedir);
-  simplify_path (&relocated_default_include_dir[0]);
-  wpp_add_include_path(relocated_default_include_dir);
+  wpp_add_include_path(DEFAULT_INCLUDE_DIR);
 #endif
 
   /* if nothing specified, try to guess output type from the output file name */

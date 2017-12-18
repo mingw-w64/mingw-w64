@@ -37,7 +37,7 @@ extern "C" {
 
 /* Calling conventions definitions */
 
-#if (defined(__x86_64__) || defined(__powerpc64__) || defined(__sparc64__) || defined(__aarch64__)) && !defined(_WIN64)
+#if (defined(__x86_64__) || defined(__powerpc64__) || defined(__aarch64__)) && !defined(_WIN64)
 #define _WIN64
 #endif
 
@@ -64,7 +64,13 @@ extern "C" {
 #   error You need to define __stdcall for your compiler
 #  endif
 # elif defined(__x86_64__) && defined (__GNUC__)
-#  define __stdcall __attribute__((ms_abi))
+#  if (__GNUC__ > 5) || ((__GNUC__ == 5) && (__GNUC_MINOR__ >= 3))
+#   define __stdcall __attribute__((ms_abi)) __attribute__((__force_align_arg_pointer__))
+#  else
+#   define __stdcall __attribute__((ms_abi))
+#  endif
+# elif defined(__arm__) && defined (__GNUC__) && !defined(__SOFTFP__)
+#   define __stdcall __attribute__((pcs("aapcs-vfp")))
 # else  /* __i386__ */
 #  define __stdcall
 # endif  /* __i386__ */
@@ -78,7 +84,13 @@ extern "C" {
 #   define __cdecl __attribute__((__cdecl__))
 #  endif
 # elif defined(__x86_64__) && defined (__GNUC__)
-#  define __cdecl __attribute__((ms_abi))
+#  if (__GNUC__ > 5) || ((__GNUC__ == 5) && (__GNUC_MINOR__ >= 3))
+#   define __cdecl __attribute__((ms_abi)) __attribute__((__force_align_arg_pointer__))
+#  else
+#   define __cdecl __attribute__((ms_abi))
+#  endif
+# elif defined(__arm__) && defined (__GNUC__) && !defined(__SOFTFP__)
+#   define __cdecl __attribute__((pcs("aapcs-vfp")))
 # elif !defined(_MSC_VER)
 #  define __cdecl
 # endif
@@ -89,11 +101,23 @@ extern "C" {
 #  define __ms_va_list __builtin_ms_va_list
 #  define __ms_va_start(list,arg) __builtin_ms_va_start(list,arg)
 #  define __ms_va_end(list) __builtin_ms_va_end(list)
+#  define __ms_va_copy(dest,src) __builtin_ms_va_copy(dest,src)
 # else
 #  define __ms_va_list va_list
 #  define __ms_va_start(list,arg) va_start(list,arg)
 #  define __ms_va_end(list) va_end(list)
+#  ifdef va_copy
+#   define __ms_va_copy(dest,src) va_copy(dest,src)
+#  else
+#   define __ms_va_copy(dest,src) ((dest) = (src))
+#  endif
 # endif
+#endif
+
+#if defined(__arm__) && defined (__GNUC__) && !defined(__SOFTFP__)
+# define WINAPIV __attribute__((pcs("aapcs")))
+#else
+# define WINAPIV __cdecl
 #endif
 
 #ifdef __WINESRC__
@@ -165,9 +189,8 @@ extern "C" {
 #define PASCAL      __stdcall
 #define CDECL       __cdecl
 #define _CDECL      __cdecl
-#define WINAPIV     __cdecl
 #define APIENTRY    WINAPI
-#define CONST       const
+#define CONST       __ONLY_IN_WINELIB(const)
 
 /* Misc. constants. */
 

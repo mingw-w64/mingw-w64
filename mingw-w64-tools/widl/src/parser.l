@@ -76,6 +76,8 @@ static int cbufalloc = 0;
 static int kw_token(const char *kw);
 static int attr_token(const char *kw);
 
+static warning_list_t *disabled_warnings = NULL;
+
 #define MAX_IMPORT_DEPTH 10
 struct {
   YY_BUFFER_STATE state;
@@ -89,17 +91,6 @@ int import_stack_ptr = 0;
  * on overflow */
 static unsigned int xstrtoul(const char *nptr, char **endptr, int base)
 {
-#if defined(__MINGW32__) || defined(_MSC_VER)
-  /* Long might be not wide enough for LLP64 target, so we want to use
-     double-precision here instead.  */
-  unsigned long long val;
-
-  errno = 0;
-  val = strtoull (nptr, endptr, base);
-  if ((val == ULONG_LONG_MAX && errno == ERANGE) || ((unsigned int)val != val))
-    error_loc("integer constant %s is too large\n", nptr);
-  return (unsigned int) val;
-#else
     unsigned long val;
 
     errno = 0;
@@ -107,7 +98,6 @@ static unsigned int xstrtoul(const char *nptr, char **endptr, int base)
     if ((val == ULONG_MAX && errno == ERANGE) || ((unsigned int)val != val))
         error_loc("integer constant %s is too large\n", nptr);
     return val;
-#endif
 }
 
 UUID *parse_uuid(const char *u)
@@ -159,7 +149,24 @@ UUID *parse_uuid(const char *u)
                             input_name = xstrdup(fname);
                         }
 <PP_PRAGMA>midl_echo[^\n]*  yyless(9); yy_pop_state(); return tCPPQUOTE;
+<PP_PRAGMA>winrt[^\n]*  {
+                            if(import_stack_ptr) {
+                                if(!winrt_mode)
+                                    error_loc("winrt IDL file imported in non-winrt mode\n");
+                            }else {
+                                const char *ptr = yytext+5;
+
+                                winrt_mode = TRUE;
+
+                                while(isspace(*ptr))
+                                    ptr++;
+                                if(!strncmp(ptr, "ns_prefix", 9) && (!*(ptr += 9) || isspace(*ptr)))
+                                    use_abi_namespace = TRUE;
+                            }
+                            yy_pop_state();
+                        }
 <PP_PRAGMA>[^\n]*       parser_lval.str = xstrdup(yytext); yy_pop_state(); return aPRAGMA;
+<INITIAL>^{ws}*midl_pragma{ws}+warning return tPRAGMA_WARNING;
 <INITIAL,ATTR>\"	yy_push_state(QUOTE); cbufidx = 0;
 <QUOTE>\"		{
 				yy_pop_state();
@@ -431,7 +438,7 @@ static int kw_token(const char *kw)
 	struct keyword key, *kwp;
 	key.kw = kw;
 	kwp = bsearch(&key, keywords, NKEYWORDS, sizeof(keywords[0]), kw_cmp_func);
-	if (kwp && (do_rt_extension || kwp->token != tNAMESPACE)) {
+	if (kwp && (winrt_mode || kwp->token != tNAMESPACE)) {
 		parser_lval.str = xstrdup(kwp->kw);
 		return kwp->token;
 	}
@@ -550,4 +557,62 @@ void abort_import(void)
 
 	for (ptr=0; ptr<import_stack_ptr; ptr++)
 		unlink(import_stack[ptr].temp_name);
+}
+
+static void warning_disable(int warning)
+{
+    warning_t *warning_entry;
+    LIST_FOR_EACH_ENTRY(warning_entry, disabled_warnings, warning_t, entry)
+        if(warning_entry->num == warning)
+            return;
+    warning_entry = xmalloc( sizeof(*warning_entry) );
+    warning_entry->num = warning;
+    list_add_tail(disabled_warnings, &warning_entry->entry);
+}
+
+static void warning_enable(int warning)
+{
+    warning_t *warning_entry;
+    LIST_FOR_EACH_ENTRY(warning_entry, disabled_warnings, warning_t, entry)
+        if(warning_entry->num == warning)
+        {
+            list_remove(&warning_entry->entry);
+            free(warning_entry);
+            break;
+        }
+}
+
+int do_warning(char *toggle, warning_list_t *wnum)
+{
+    warning_t *warning, *next;
+    int ret = 1;
+    if(!disabled_warnings)
+    {
+        disabled_warnings = xmalloc( sizeof(*disabled_warnings) );
+        list_init( disabled_warnings );
+    }
+
+    if(!strcmp(toggle, "disable"))
+        LIST_FOR_EACH_ENTRY(warning, wnum, warning_t, entry)
+            warning_disable(warning->num);
+    else if(!strcmp(toggle, "enable"))
+        LIST_FOR_EACH_ENTRY(warning, wnum, warning_t, entry)
+            warning_enable(warning->num);
+    else
+        ret = 0;
+
+    LIST_FOR_EACH_ENTRY_SAFE(warning, next, wnum, warning_t, entry)
+        free(warning);
+    return ret;
+}
+
+int is_warning_enabled(int warning)
+{
+    warning_t *warning_entry;
+    if(!disabled_warnings)
+        return 1;
+    LIST_FOR_EACH_ENTRY(warning_entry, disabled_warnings, warning_t, entry)
+        if(warning_entry->num == warning)
+            return 0;
+    return 1;
 }

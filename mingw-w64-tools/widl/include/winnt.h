@@ -148,13 +148,13 @@ extern "C" {
 # define DECLSPEC_EXPORT __declspec(dllexport)
 #elif defined(__MINGW32__)
 # define DECLSPEC_EXPORT __attribute__((dllexport))
-#elif defined(__GNUC__) && ((__GNUC__ > 3) || ((__GNUC__ == 3) && (__GNUC_MINOR__ >= 3)))
+#elif defined(__GNUC__) && ((__GNUC__ > 3) || ((__GNUC__ == 3) && (__GNUC_MINOR__ >= 3))) && !defined(__sun)
 # define DECLSPEC_EXPORT __attribute__((visibility ("default")))
 #else
 # define DECLSPEC_EXPORT
 #endif
 
-#if defined(__MSC_VER) || defined(__MINGW32__) || defined(__CYGWIN__)
+#if defined(_MSC_VER) || defined(__MINGW32__) || defined(__CYGWIN__) || defined(__sun)
 # define DECLSPEC_HIDDEN
 #elif defined(__GNUC__) && ((__GNUC__ > 3) || ((__GNUC__ == 3) && (__GNUC_MINOR__ >= 3)))
 # define DECLSPEC_HIDDEN __attribute__((visibility ("hidden")))
@@ -622,6 +622,8 @@ typedef DWORD FLONG;
 #define DBG_TERMINATE_THREAD        ((DWORD) 0x40010003)
 #define DBG_TERMINATE_PROCESS       ((DWORD) 0x40010004)
 #define DBG_CONTROL_C               ((DWORD) 0x40010005)
+#define DBG_PRINTEXCEPTION_C        ((DWORD) 0x40010006)
+#define DBG_RIPEXCEPTION            ((DWORD) 0x40010007)
 #define DBG_CONTROL_BREAK           ((DWORD) 0x40010008)
 #define DBG_COMMAND_EXCEPTION       ((DWORD) 0x40010009)
 #define DBG_EXCEPTION_NOT_HANDLED   ((DWORD) 0x80010001)
@@ -649,6 +651,8 @@ typedef DWORD FLONG;
 #define PROCESSOR_ARCHITECTURE_MSIL     8
 #define PROCESSOR_ARCHITECTURE_AMD64    9
 #define PROCESSOR_ARCHITECTURE_IA32_ON_WIN64    10
+#define PROCESSOR_ARCHITECTURE_NEUTRAL          11
+#define PROCESSOR_ARCHITECTURE_ARM64            12
 #define PROCESSOR_ARCHITECTURE_UNKNOWN	0xFFFF
 
 /* dwProcessorType */
@@ -724,14 +728,18 @@ typedef struct _MEMORY_BASIC_INFORMATION
 
 #define SEC_FILE                0x00800000
 #define SEC_IMAGE               0x01000000
+#define SEC_PROTECTED_IMAGE     0x02000000
 #define SEC_RESERVE             0x04000000
 #define SEC_COMMIT              0x08000000
 #define SEC_NOCACHE             0x10000000
+#define SEC_WRITECOMBINE        0x40000000
 #define SEC_LARGE_PAGES         0x80000000
+#define SEC_IMAGE_NO_EXECUTE    (SEC_IMAGE | SEC_NOCACHE)
 #define MEM_IMAGE               SEC_IMAGE
 
 #define WRITE_WATCH_FLAG_RESET  0x00000001
 
+#define AT_ROUND_TO_PAGE        0x40000000
 
 #define MINCHAR       0x80
 #define MAXCHAR       0x7f
@@ -742,6 +750,7 @@ typedef struct _MEMORY_BASIC_INFORMATION
 #define MAXBYTE       0xff
 #define MAXWORD       0xffff
 #define MAXDWORD      0xffffffff
+#define MAXLONGLONG   (((LONGLONG)0x7fffffff << 32) | 0xffffffff)
 
 #define UNICODE_STRING_MAX_CHARS 32767
 
@@ -864,6 +873,15 @@ typedef enum _HEAP_INFORMATION_CLASS {
 #define PF_SECOND_LEVEL_ADDRESS_TRANSLATION     20
 #define PF_VIRT_FIRMWARE_ENABLED                21
 #define PF_RDWRFSGSBASE_AVAILABLE               22
+#define PF_FASTFAIL_AVAILABLE                   23
+#define PF_ARM_DIVIDE_INSTRUCTION_AVAILABLE     24
+#define PF_ARM_64BIT_LOADSTORE_ATOMIC           25
+#define PF_ARM_EXTERNAL_CACHE_AVAILABLE         26
+#define PF_ARM_FMAC_INSTRUCTIONS_AVAILABLE      27
+#define PF_RDRAND_INSTRUCTION_AVAILABLE         28
+#define PF_ARM_V8_INSTRUCTIONS_AVAILABLE        29
+#define PF_ARM_V8_CRYPTO_INSTRUCTIONS_AVAILABLE 30
+#define PF_ARM_V8_CRC32_INSTRUCTIONS_AVAILABLE  31
 
 
 /* Execution state flags */
@@ -1186,8 +1204,11 @@ typedef struct _KNONVOLATILE_CONTEXT_POINTERS
     } DUMMYUNIONNAME2;
 } KNONVOLATILE_CONTEXT_POINTERS, *PKNONVOLATILE_CONTEXT_POINTERS;
 
+typedef PRUNTIME_FUNCTION (CALLBACK *PGET_RUNTIME_FUNCTION_CALLBACK)(DWORD64,PVOID);
+
 BOOLEAN CDECL            RtlAddFunctionTable(RUNTIME_FUNCTION*,DWORD,DWORD64);
 BOOLEAN CDECL            RtlDeleteFunctionTable(RUNTIME_FUNCTION*);
+BOOLEAN CDECL            RtlInstallFunctionTableCallback(DWORD64,DWORD64,DWORD,PGET_RUNTIME_FUNCTION_CALLBACK,PVOID,PCWSTR);
 PRUNTIME_FUNCTION WINAPI RtlLookupFunctionEntry(DWORD64,DWORD64*,UNWIND_HISTORY_TABLE*);
 PVOID WINAPI             RtlVirtualUnwind(ULONG,ULONG64,ULONG64,RUNTIME_FUNCTION*,CONTEXT*,PVOID*,ULONG64*,KNONVOLATILE_CONTEXT_POINTERS*);
 
@@ -1627,6 +1648,9 @@ typedef struct _CONTEXT
 #define EXCEPTION_WRITE_FAULT   1
 #define EXCEPTION_EXECUTE_FAULT 8
 
+#define ARM_MAX_BREAKPOINTS     8
+#define ARM_MAX_WATCHPOINTS     1
+
 typedef struct _RUNTIME_FUNCTION
 {
     DWORD BeginAddress;
@@ -1666,46 +1690,49 @@ typedef struct _UNWIND_HISTORY_TABLE
     UNWIND_HISTORY_TABLE_ENTRY Entry[UNWIND_HISTORY_TABLE_SIZE];
 } UNWIND_HISTORY_TABLE, *PUNWIND_HISTORY_TABLE;
 
-typedef struct _CONTEXT {
-	/* The flags values within this flag control the contents of
-	   a CONTEXT record.
+typedef struct _NEON128
+{
+    ULONGLONG Low;
+    LONGLONG High;
+} NEON128, *PNEON128;
 
-	   If the context record is used as an input parameter, then
-	   for each portion of the context record controlled by a flag
-	   whose value is set, it is assumed that that portion of the
-	   context record contains valid context. If the context record
-	   is being used to modify a thread's context, then only that
-	   portion of the threads context will be modified.
-
-	   If the context record is used as an IN OUT parameter to capture
-	   the context of a thread, then only those portions of the thread's
-	   context corresponding to set flags will be returned.
-
-	   The context record is never used as an OUT only parameter. */
-
-	ULONG ContextFlags;
-
-	/* This section is specified/returned if the ContextFlags word contains
-	   the flag CONTEXT_INTEGER. */
-	ULONG R0;
-	ULONG R1;
-	ULONG R2;
-	ULONG R3;
-	ULONG R4;
-	ULONG R5;
-	ULONG R6;
-	ULONG R7;
-	ULONG R8;
-	ULONG R9;
-	ULONG R10;
-	ULONG Fp;
-	ULONG Ip;
-
-	/* These are selected by CONTEXT_CONTROL */
-	ULONG Sp;
-	ULONG Lr;
-	ULONG Pc;
-	ULONG Cpsr;
+typedef struct _CONTEXT
+{
+    ULONG ContextFlags;             /* 000 */
+    /* CONTEXT_INTEGER */
+    ULONG R0;                       /* 004 */
+    ULONG R1;                       /* 008 */
+    ULONG R2;                       /* 00c */
+    ULONG R3;                       /* 010 */
+    ULONG R4;                       /* 014 */
+    ULONG R5;                       /* 018 */
+    ULONG R6;                       /* 01c */
+    ULONG R7;                       /* 020 */
+    ULONG R8;                       /* 024 */
+    ULONG R9;                       /* 028 */
+    ULONG R10;                      /* 02c */
+    ULONG R11;                      /* 030 */
+    ULONG R12;                      /* 034 */
+    /* CONTEXT_CONTROL */
+    ULONG Sp;                       /* 038 */
+    ULONG Lr;                       /* 03c */
+    ULONG Pc;                       /* 040 */
+    ULONG Cpsr;                     /* 044 */
+    /* CONTEXT_FLOATING_POINT */
+    ULONG Fpscr;                    /* 048 */
+    ULONG Padding;                  /* 04c */
+    union
+    {
+        NEON128 Q[16];
+        ULONGLONG D[32];
+        ULONG S[32];
+    } DUMMYUNIONNAME;               /* 050 */
+    /* CONTEXT_DEBUG_REGISTERS */
+    ULONG Bvr[ARM_MAX_BREAKPOINTS]; /* 150 */
+    ULONG Bcr[ARM_MAX_BREAKPOINTS]; /* 170 */
+    ULONG Wvr[ARM_MAX_WATCHPOINTS]; /* 190 */
+    ULONG Wcr[ARM_MAX_WATCHPOINTS]; /* 194 */
+    ULONG Padding2[2];              /* 198 */
 } CONTEXT;
 
 BOOLEAN CDECL            RtlAddFunctionTable(RUNTIME_FUNCTION*,DWORD,DWORD);
@@ -1723,7 +1750,7 @@ PRUNTIME_FUNCTION WINAPI RtlLookupFunctionEntry(ULONG_PTR,DWORD*,UNWIND_HISTORY_
  *
  */
 
-#define CONTEXT_ARM64           0x2000000
+#define CONTEXT_ARM64           0x400000
 #define CONTEXT_CONTROL         (CONTEXT_ARM64 | 0x00000001)
 #define CONTEXT_INTEGER         (CONTEXT_ARM64 | 0x00000002)
 #define CONTEXT_FLOATING_POINT  (CONTEXT_ARM64 | 0x00000004)
@@ -1735,50 +1762,116 @@ PRUNTIME_FUNCTION WINAPI RtlLookupFunctionEntry(ULONG_PTR,DWORD*,UNWIND_HISTORY_
 #define EXCEPTION_WRITE_FAULT   1
 #define EXCEPTION_EXECUTE_FAULT 8
 
-typedef struct _CONTEXT {
-    ULONG ContextFlags;
+#define ARM64_MAX_BREAKPOINTS   8
+#define ARM64_MAX_WATCHPOINTS   2
 
-    /* This section is specified/returned if the ContextFlags word contains
-       the flag CONTEXT_INTEGER. */
-    ULONGLONG X0;
-    ULONGLONG X1;
-    ULONGLONG X2;
-    ULONGLONG X3;
-    ULONGLONG X4;
-    ULONGLONG X5;
-    ULONGLONG X6;
-    ULONGLONG X7;
-    ULONGLONG X8;
-    ULONGLONG X9;
-    ULONGLONG X10;
-    ULONGLONG X11;
-    ULONGLONG X12;
-    ULONGLONG X13;
-    ULONGLONG X14;
-    ULONGLONG X15;
-    ULONGLONG X16;
-    ULONGLONG X17;
-    ULONGLONG X18;
-    ULONGLONG X19;
-    ULONGLONG X20;
-    ULONGLONG X21;
-    ULONGLONG X22;
-    ULONGLONG X23;
-    ULONGLONG X24;
-    ULONGLONG X25;
-    ULONGLONG X26;
-    ULONGLONG X27;
-    ULONGLONG X28;
-    ULONGLONG X29;
-    ULONGLONG X30;
+typedef struct _RUNTIME_FUNCTION
+{
+    DWORD BeginAddress;
+    union
+    {
+        DWORD UnwindData;
+        struct
+        {
+            DWORD Flag : 2;
+            DWORD FunctionLength : 11;
+            DWORD RegF : 3;
+            DWORD RegI : 4;
+            DWORD H : 1;
+            DWORD CR : 2;
+            DWORD FrameSize : 9;
+        } DUMMYSTRUCTNAME;
+    } DUMMYUNIONNAME;
+} RUNTIME_FUNCTION, *PRUNTIME_FUNCTION;
 
-    /* These are selected by CONTEXT_CONTROL */
-    ULONGLONG Sp;
-    ULONGLONG Pc;
-    ULONGLONG PState;
+#define UNWIND_HISTORY_TABLE_SIZE 12
 
-    /* These are selected by CONTEXT_FLOATING_POINT */
-    /* FIXME */
+typedef struct _UNWIND_HISTORY_TABLE_ENTRY
+{
+    DWORD64 ImageBase;
+    PRUNTIME_FUNCTION FunctionEntry;
+} UNWIND_HISTORY_TABLE_ENTRY, *PUNWIND_HISTORY_TABLE_ENTRY;
+
+typedef struct _UNWIND_HISTORY_TABLE
+{
+    DWORD   Count;
+    BYTE    LocalHint;
+    BYTE    GlobalHint;
+    BYTE    Search;
+    BYTE    Once;
+    DWORD64 LowAddress;
+    DWORD64 HighAddress;
+    UNWIND_HISTORY_TABLE_ENTRY Entry[UNWIND_HISTORY_TABLE_SIZE];
+} UNWIND_HISTORY_TABLE, *PUNWIND_HISTORY_TABLE;
+
+typedef union _NEON128
+{
+    struct
+    {
+        ULONGLONG Low;
+        LONGLONG High;
+    } DUMMYSTRUCTNAME;
+    double D[2];
+    float S[4];
+    WORD  H[8];
+    BYTE  B[16];
+} NEON128, *PNEON128;
+
+typedef struct _CONTEXT
+{
+    ULONG ContextFlags;                 /* 000 */
+    /* CONTEXT_INTEGER */
+    ULONG Cpsr;                         /* 004 */
+    union
+    {
+        struct
+        {
+            DWORD64 X0;                 /* 008 */
+            DWORD64 X1;                 /* 010 */
+            DWORD64 X2;                 /* 018 */
+            DWORD64 X3;                 /* 020 */
+            DWORD64 X4;                 /* 028 */
+            DWORD64 X5;                 /* 030 */
+            DWORD64 X6;                 /* 038 */
+            DWORD64 X7;                 /* 040 */
+            DWORD64 X8;                 /* 048 */
+            DWORD64 X9;                 /* 050 */
+            DWORD64 X10;                /* 058 */
+            DWORD64 X11;                /* 060 */
+            DWORD64 X12;                /* 068 */
+            DWORD64 X13;                /* 070 */
+            DWORD64 X14;                /* 078 */
+            DWORD64 X15;                /* 080 */
+            DWORD64 X16;                /* 088 */
+            DWORD64 X17;                /* 090 */
+            DWORD64 X18;                /* 098 */
+            DWORD64 X19;                /* 0a0 */
+            DWORD64 X20;                /* 0a8 */
+            DWORD64 X21;                /* 0b0 */
+            DWORD64 X22;                /* 0b8 */
+            DWORD64 X23;                /* 0c0 */
+            DWORD64 X24;                /* 0c8 */
+            DWORD64 X25;                /* 0d0 */
+            DWORD64 X26;                /* 0d8 */
+            DWORD64 X27;                /* 0e0 */
+            DWORD64 X28;                /* 0e8 */
+        } DUMMYSTRUCTNAME;
+        DWORD64 X[29];                  /* 008 */
+    } DUMMYUNIONNAME;
+    /* CONTEXT_CONTROL */
+    DWORD64 Fp;                         /* 0f0 */
+    DWORD64 Lr;                         /* 0f8 */
+    DWORD64 Sp;                         /* 100 */
+    DWORD64 Pc;                         /* 108 */
+    /* CONTEXT_FLOATING_POINT */
+    NEON128 V[32];                      /* 110 */
+    DWORD Fpcr;                         /* 310 */
+    DWORD Fpsr;                         /* 314 */
+    /* CONTEXT_DEBUG_REGISTERS */
+    DWORD Bcr[ARM64_MAX_BREAKPOINTS];   /* 318 */
+    DWORD64 Bvr[ARM64_MAX_BREAKPOINTS]; /* 338 */
+    DWORD Wcr[ARM64_MAX_WATCHPOINTS];   /* 378 */
+    DWORD64 Wvr[ARM64_MAX_WATCHPOINTS]; /* 380 */
 } CONTEXT;
 
 #endif /* __aarch64__ */
@@ -2085,6 +2178,8 @@ NTSYSAPI void WINAPI RtlCaptureContext(CONTEXT*);
 #define PRODUCT_SB_SOLUTION_SERVER_EM                   0x00000036
 #define PRODUCT_SERVER_FOR_SB_SOLUTIONS_EM              0x00000037
 #define PRODUCT_SOLUTION_EMBEDDEDSERVER                 0x00000038
+#define PRODUCT_SOLUTION_EMBEDDEDSERVER_CORE            0x00000039
+#define PRODUCT_PROFESSIONAL_EMBEDDED                   0x0000003A
 #define PRODUCT_ESSENTIALBUSINESS_SERVER_MGMT           0x0000003B
 #define PRODUCT_ESSENTIALBUSINESS_SERVER_ADDL           0x0000003C
 #define PRODUCT_ESSENTIALBUSINESS_SERVER_MGMTSVC        0x0000003D
@@ -2104,14 +2199,50 @@ NTSYSAPI void WINAPI RtlCaptureContext(CONTEXT*);
 #define PRODUCT_STANDARD_EVALUATION_SERVER              0x0000004F
 #define PRODUCT_DATACENTER_EVALUATION_SERVER            0x00000050
 #define PRODUCT_ENTERPRISE_N_EVALUATION                 0x00000054
+#define PRODUCT_EMBEDDED_AUTOMOTIVE                     0x00000055
+#define PRODUCT_EMBEDDED_INDUSTRY_A                     0x00000056
+#define PRODUCT_THINPC                                  0x00000057
+#define PRODUCT_EMBEDDED_A                              0x00000058
+#define PRODUCT_EMBEDDED_INDUSTRY                       0x00000059
+#define PRODUCT_EMBEDDED_E                              0x0000005A
+#define PRODUCT_EMBEDDED_INDUSTRY_E                     0x0000005B
+#define PRODUCT_EMBEDDED_INDUSTRY_A_E                   0x0000005C
 #define PRODUCT_STORAGE_WORKGROUP_EVALUATION_SERVER     0x0000005F
 #define PRODUCT_STORAGE_STANDARD_EVALUATION_SERVER      0x00000060
 #define PRODUCT_CORE_ARM                                0x00000061
 #define PRODUCT_CORE_N                                  0x00000062
 #define PRODUCT_CORE_COUNTRYSPECIFIC                    0x00000063
+#define PRODUCT_CORE_SINGLELANGUAGE                     0x00000064
 #define PRODUCT_CORE_LANGUAGESPECIFIC                   0x00000064
 #define PRODUCT_CORE                                    0x00000065
 #define PRODUCT_PROFESSIONAL_WMC                        0x00000067
+#define PRODUCT_MOBILE_CORE                             0x00000068
+#define PRODUCT_EMBEDDED_INDUSTRY_EVAL                  0x00000069
+#define PRODUCT_EMBEDDED_INDUSTRY_E_EVAL                0x0000006A
+#define PRODUCT_EMBEDDED_EVAL                           0x0000006B
+#define PRODUCT_EMBEDDED_E_EVAL                         0x0000006C
+#define PRODUCT_NANO_SERVER                             0x0000006D
+#define PRODUCT_CLOUD_STORAGE_SERVER                    0x0000006E
+#define PRODUCT_CORE_CONNECTED                          0x0000006F
+#define PRODUCT_PROFESSIONAL_STUDENT                    0x00000070
+#define PRODUCT_CORE_CONNECTED_N                        0x00000071
+#define PRODUCT_PROFESSIONAL_STUDENT_N                  0x00000072
+#define PRODUCT_CORE_CONNECTED_SINGLELANGUAGE           0x00000073
+#define PRODUCT_CORE_CONNECTED_COUNTRYSPECIFIC          0x00000074
+#define PRODUCT_CONNECTED_CAR                           0x00000075
+#define PRODUCT_INDUSTRY_HANDHELD                       0x00000076
+#define PRODUCT_PPI_PRO                                 0x00000077
+#define PRODUCT_ARM64_SERVER                            0x00000078
+#define PRODUCT_EDUCATION                               0x00000079
+#define PRODUCT_EDUCATION_N                             0x0000007A
+#define PRODUCT_IOTUAP                                  0x0000007B
+#define PRODUCT_CLOUD_HOST_INFRASTRUCTURE_SERVER        0x0000007C
+#define PRODUCT_ENTERPRISE_S                            0x0000007D
+#define PRODUCT_ENTERPRISE_S_N                          0x0000007E
+#define PRODUCT_PROFESSIONAL_S                          0x0000007F
+#define PRODUCT_PROFESSIONAL_S_N                        0x00000080
+#define PRODUCT_ENTERPRISE_S_EVALUATION                 0x00000081
+#define PRODUCT_ENTERPRISE_S_N_EVALUATION               0x00000082
 #define PRODUCT_UNLICENSED                              0xABCDABCD
 
 
@@ -2278,6 +2409,12 @@ static FORCEINLINE struct _TEB * WINAPI NtCurrentTeb(void)
     struct _TEB *teb;
     __asm__(".byte 0x65\n\tmovq (0x30),%0" : "=r" (teb));
     return teb;
+}
+#elif defined(__x86_64__) && defined(_MSC_VER)
+#pragma intrinsic(__readgsqword)
+static FORCEINLINE struct _TEB * WINAPI NtCurrentTeb(void)
+{
+    return (struct _TEB *)__readgsqword(FIELD_OFFSET(NT_TIB, Self));
 }
 #else
 extern struct _TEB * WINAPI NtCurrentTeb(void);
@@ -2460,6 +2597,7 @@ typedef struct _IMAGE_VXD_HEADER {
 #define	IMAGE_FILE_MACHINE_ARM		0x01c0
 #define	IMAGE_FILE_MACHINE_THUMB	0x01c2
 #define	IMAGE_FILE_MACHINE_ARMNT	0x01c4
+#define	IMAGE_FILE_MACHINE_ARM64	0xaa64
 #define	IMAGE_FILE_MACHINE_AM33		0x01d3
 #define	IMAGE_FILE_MACHINE_POWERPC	0x01f0
 #define	IMAGE_FILE_MACHINE_POWERPCFP	0x01f1
@@ -2475,9 +2613,6 @@ typedef struct _IMAGE_VXD_HEADER {
 #define	IMAGE_FILE_MACHINE_AMD64	0x8664
 #define	IMAGE_FILE_MACHINE_M32R		0x9041
 #define	IMAGE_FILE_MACHINE_CEE		0xc0ee
-
-/* Wine extension */
-#define	IMAGE_FILE_MACHINE_ARM64	0x01c5
 
 #define	IMAGE_SIZEOF_FILE_HEADER		20
 #define IMAGE_SIZEOF_ROM_OPTIONAL_HEADER	56
@@ -3052,6 +3187,28 @@ typedef struct _IMAGE_RELOCATION
 
 #define IMAGE_SIZEOF_RELOCATION 10
 
+typedef struct _IMAGE_DELAYLOAD_DESCRIPTOR
+{
+    union
+    {
+        DWORD AllAttributes;
+        struct
+        {
+            DWORD RvaBased:1;
+            DWORD ReservedAttributes:31;
+        } DUMMYSTRUCTNAME;
+    } Attributes;
+
+    DWORD DllNameRVA;
+    DWORD ModuleHandleRVA;
+    DWORD ImportAddressTableRVA;
+    DWORD ImportNameTableRVA;
+    DWORD BoundImportAddressTableRVA;
+    DWORD UnloadInformationTableRVA;
+    DWORD TimeDateStamp;
+} IMAGE_DELAYLOAD_DESCRIPTOR, *PIMAGE_DELAYLOAD_DESCRIPTOR;
+typedef const IMAGE_DELAYLOAD_DESCRIPTOR *PCIMAGE_DELAYLOAD_DESCRIPTOR;
+
 /* generic relocation types */
 #define IMAGE_REL_BASED_ABSOLUTE 		0
 #define IMAGE_REL_BASED_HIGH			1
@@ -3197,6 +3354,23 @@ typedef struct _IMAGE_RELOCATION
 #define IMAGE_REL_ARM_BRANCH20T	0x0012
 #define IMAGE_REL_ARM_BRANCH24T	0x0014
 #define IMAGE_REL_ARM_BLX23T		0x0015
+
+/* ARM64 relocation types */
+#define IMAGE_REL_ARM64_ABSOLUTE        0x0000
+#define IMAGE_REL_ARM64_ADDR32          0x0001
+#define IMAGE_REL_ARM64_ADDR32NB        0x0002
+#define IMAGE_REL_ARM64_BRANCH26        0x0003
+#define IMAGE_REL_ARM64_PAGEBASE_REL21  0x0004
+#define IMAGE_REL_ARM64_REL21           0x0005
+#define IMAGE_REL_ARM64_PAGEOFFSET_12A  0x0006
+#define IMAGE_REL_ARM64_PAGEOFFSET_12L  0x0007
+#define IMAGE_REL_ARM64_SECREL          0x0008
+#define IMAGE_REL_ARM64_SECREL_LOW12A   0x0009
+#define IMAGE_REL_ARM64_SECREL_HIGH12A  0x000A
+#define IMAGE_REL_ARM64_SECREL_LOW12L   0x000B
+#define IMAGE_REL_ARM64_TOKEN           0x000C
+#define IMAGE_REL_ARM64_SECTION         0x000D
+#define IMAGE_REL_ARM64_ADDR64          0x000E
 
 /* IA64 relocation types */
 #define IMAGE_REL_IA64_ABSOLUTE		0x0000
@@ -3439,6 +3613,10 @@ typedef struct _IMAGE_DEBUG_DIRECTORY {
 #define IMAGE_DEBUG_TYPE_BORLAND        9
 #define IMAGE_DEBUG_TYPE_RESERVED10    10
 #define IMAGE_DEBUG_TYPE_CLSID         11
+#define IMAGE_DEBUG_TYPE_VC_FEATURE    12
+#define IMAGE_DEBUG_TYPE_POGO          13
+#define IMAGE_DEBUG_TYPE_ILTCG         14
+#define IMAGE_DEBUG_TYPE_MPX           15
 
 typedef enum ReplacesCorHdrNumericDefines
 {
@@ -3446,6 +3624,7 @@ typedef enum ReplacesCorHdrNumericDefines
     COMIMAGE_FLAGS_32BITREQUIRED    = 0x00000002,
     COMIMAGE_FLAGS_IL_LIBRARY       = 0x00000004,
     COMIMAGE_FLAGS_STRONGNAMESIGNED = 0x00000008,
+    COMIMAGE_FLAGS_NATIVE_ENTRYPOINT= 0x00000010,
     COMIMAGE_FLAGS_TRACKDEBUGDATA   = 0x00010000,
 
     COR_VERSION_MAJOR_V2       = 2,
@@ -3523,7 +3702,30 @@ typedef struct _FPO_DATA {
   WORD  cbFrame  : 2;
 } FPO_DATA, *PFPO_DATA;
 
-typedef struct _IMAGE_LOAD_CONFIG_DIRECTORY {
+typedef struct _IMAGE_LOAD_CONFIG_DIRECTORY64 {
+  DWORD     Size;
+  DWORD     TimeDateStamp;
+  WORD      MajorVersion;
+  WORD      MinorVersion;
+  DWORD     GlobalFlagsClear;
+  DWORD     GlobalFlagsSet;
+  DWORD     CriticalSectionDefaultTimeout;
+  ULONGLONG DeCommitFreeBlockThreshold;
+  ULONGLONG DeCommitTotalFreeThreshold;
+  ULONGLONG LockPrefixTable;
+  ULONGLONG MaximumAllocationSize;
+  ULONGLONG VirtualMemoryThreshold;
+  ULONGLONG ProcessAffinityMask;
+  DWORD     ProcessHeapFlags;
+  WORD      CSDVersion;
+  WORD      Reserved1;
+  ULONGLONG EditList;
+  ULONGLONG SecurityCookie;
+  ULONGLONG SEHandlerTable;
+  ULONGLONG SEHandlerCount;
+} IMAGE_LOAD_CONFIG_DIRECTORY64, *PIMAGE_LOAD_CONFIG_DIRECTORY64;
+
+typedef struct _IMAGE_LOAD_CONFIG_DIRECTORY32 {
   DWORD Size;
   DWORD TimeDateStamp;
   WORD  MajorVersion;
@@ -3544,7 +3746,15 @@ typedef struct _IMAGE_LOAD_CONFIG_DIRECTORY {
   DWORD SecurityCookie;
   DWORD SEHandlerTable;
   DWORD SEHandlerCount;
-} IMAGE_LOAD_CONFIG_DIRECTORY, *PIMAGE_LOAD_CONFIG_DIRECTORY;
+} IMAGE_LOAD_CONFIG_DIRECTORY32, *PIMAGE_LOAD_CONFIG_DIRECTORY32;
+
+#ifdef _WIN64
+typedef IMAGE_LOAD_CONFIG_DIRECTORY64   IMAGE_LOAD_CONFIG_DIRECTORY;
+typedef PIMAGE_LOAD_CONFIG_DIRECTORY64  PIMAGE_LOAD_CONFIG_DIRECTORY;
+#else
+typedef IMAGE_LOAD_CONFIG_DIRECTORY32   IMAGE_LOAD_CONFIG_DIRECTORY;
+typedef PIMAGE_LOAD_CONFIG_DIRECTORY32  PIMAGE_LOAD_CONFIG_DIRECTORY;
+#endif
 
 typedef struct _IMAGE_FUNCTION_ENTRY {
   DWORD StartingAddress;
@@ -3655,6 +3865,19 @@ typedef enum _TOKEN_INFORMATION_CLASS {
   TokenUIAccess,
   TokenMandatoryPolicy,
   TokenLogonSid,
+  TokenIsAppContainer,
+  TokenCapabilities,
+  TokenAppContainerSid,
+  TokenAppContainerNumber,
+  TokenUserClaimAttributes,
+  TokenDeviceClaimAttributes,
+  TokenRestrictedUserClaimAttributes,
+  TokenRestrictedDeviceClaimAttributes,
+  TokenDeviceGroups,
+  TokenRestrictedDeviceGroups,
+  TokenSecurityAttributes,
+  TokenIsRestricted,
+  TokenProcessTrustLevel,
   MaxTokenInfoClass
 } TOKEN_INFORMATION_CLASS;
 
@@ -3769,35 +3992,129 @@ typedef struct _ACL_SIZE_INFORMATION
 /*
  * Privilege Names
  */
-#define SE_CREATE_TOKEN_NAME		TEXT("SeCreateTokenPrivilege")
-#define SE_ASSIGNPRIMARYTOKEN_NAME	TEXT("SeAssignPrimaryTokenPrivilege")
-#define SE_LOCK_MEMORY_NAME		TEXT("SeLockMemoryPrivilege")
-#define SE_INCREASE_QUOTA_NAME		TEXT("SeIncreaseQuotaPrivilege")
-#define SE_UNSOLICITED_INPUT_NAME	TEXT("SeUnsolicitedInputPrivilege")
-#define SE_MACHINE_ACCOUNT_NAME 	TEXT("SeMachineAccountPrivilege")
-#define SE_TCB_NAME			TEXT("SeTcbPrivilege")
-#define SE_SECURITY_NAME		TEXT("SeSecurityPrivilege")
-#define SE_TAKE_OWNERSHIP_NAME		TEXT("SeTakeOwnershipPrivilege")
-#define SE_LOAD_DRIVER_NAME		TEXT("SeLoadDriverPrivilege")
-#define SE_SYSTEM_PROFILE_NAME		TEXT("SeSystemProfilePrivilege")
-#define SE_SYSTEMTIME_NAME		TEXT("SeSystemtimePrivilege")
-#define SE_PROF_SINGLE_PROCESS_NAME	TEXT("SeProfileSingleProcessPrivilege")
-#define SE_INC_BASE_PRIORITY_NAME	TEXT("SeIncreaseBasePriorityPrivilege")
-#define SE_CREATE_PAGEFILE_NAME 	TEXT("SeCreatePagefilePrivilege")
-#define SE_CREATE_PERMANENT_NAME	TEXT("SeCreatePermanentPrivilege")
-#define SE_BACKUP_NAME 			TEXT("SeBackupPrivilege")
-#define SE_RESTORE_NAME			TEXT("SeRestorePrivilege")
-#define SE_SHUTDOWN_NAME		TEXT("SeShutdownPrivilege")
-#define SE_DEBUG_NAME			TEXT("SeDebugPrivilege")
-#define SE_AUDIT_NAME			TEXT("SeAuditPrivilege")
-#define SE_SYSTEM_ENVIRONMENT_NAME	TEXT("SeSystemEnvironmentPrivilege")
-#define SE_CHANGE_NOTIFY_NAME		TEXT("SeChangeNotifyPrivilege")
-#define SE_REMOTE_SHUTDOWN_NAME		TEXT("SeRemoteShutdownPrivilege")
-#define SE_UNDOCK_NAME                  TEXT("SeUndockPrivilege")
-#define SE_ENABLE_DELEGATION_NAME       TEXT("SeEnableDelegationPrivilege")
-#define SE_MANAGE_VOLUME_NAME           TEXT("SeManageVolumePrivilege")
-#define SE_IMPERSONATE_NAME             TEXT("SeImpersonatePrivilege")
-#define SE_CREATE_GLOBAL_NAME           TEXT("SeCreateGlobalPrivilege")
+#ifdef UNICODE
+#if defined(_MSC_VER)
+#define SE_CREATE_TOKEN_NAME            L"SeCreateTokenPrivilege"
+#define SE_ASSIGNPRIMARYTOKEN_NAME      L"SeAssignPrimaryTokenPrivilege"
+#define SE_LOCK_MEMORY_NAME             L"SeLockMemoryPrivilege"
+#define SE_INCREASE_QUOTA_NAME          L"SeIncreaseQuotaPrivilege"
+#define SE_UNSOLICITED_INPUT_NAME       L"SeUnsolicitedInputPrivilege"
+#define SE_MACHINE_ACCOUNT_NAME         L"SeMachineAccountPrivilege"
+#define SE_TCB_NAME                     L"SeTcbPrivilege"
+#define SE_SECURITY_NAME                L"SeSecurityPrivilege"
+#define SE_TAKE_OWNERSHIP_NAME          L"SeTakeOwnershipPrivilege"
+#define SE_LOAD_DRIVER_NAME             L"SeLoadDriverPrivilege"
+#define SE_SYSTEM_PROFILE_NAME          L"SeSystemProfilePrivilege"
+#define SE_SYSTEMTIME_NAME              L"SeSystemtimePrivilege"
+#define SE_PROF_SINGLE_PROCESS_NAME     L"SeProfileSingleProcessPrivilege"
+#define SE_INC_BASE_PRIORITY_NAME       L"SeIncreaseBasePriorityPrivilege"
+#define SE_CREATE_PAGEFILE_NAME         L"SeCreatePagefilePrivilege"
+#define SE_CREATE_PERMANENT_NAME        L"SeCreatePermanentPrivilege"
+#define SE_BACKUP_NAME                  L"SeBackupPrivilege"
+#define SE_RESTORE_NAME                 L"SeRestorePrivilege"
+#define SE_SHUTDOWN_NAME                L"SeShutdownPrivilege"
+#define SE_DEBUG_NAME                   L"SeDebugPrivilege"
+#define SE_AUDIT_NAME                   L"SeAuditPrivilege"
+#define SE_SYSTEM_ENVIRONMENT_NAME      L"SeSystemEnvironmentPrivilege"
+#define SE_CHANGE_NOTIFY_NAME           L"SeChangeNotifyPrivilege"
+#define SE_REMOTE_SHUTDOWN_NAME         L"SeRemoteShutdownPrivilege"
+#define SE_UNDOCK_NAME                  L"SeUndockPrivilege"
+#define SE_ENABLE_DELEGATION_NAME       L"SeEnableDelegationPrivilege"
+#define SE_MANAGE_VOLUME_NAME           L"SeManageVolumePrivilege"
+#define SE_IMPERSONATE_NAME             L"SeImpersonatePrivilege"
+#define SE_CREATE_GLOBAL_NAME           L"SeCreateGlobalPrivilege"
+#elif defined(__GNUC__)
+#define SE_CREATE_TOKEN_NAME (const WCHAR []){ 'S','e','C','r','e','a','t','e','T','o','k','e','n','P','r','i','v','i','l','e','g','e',0 }
+#define SE_ASSIGNPRIMARYTOKEN_NAME (const WCHAR []){ 'S','e','A','s','s','i','g','n','P','r','i','m','a','r','y','T','o','k','e','n','P','r','i','v','i','l','e','g','e',0 }
+#define SE_LOCK_MEMORY_NAME (const WCHAR []){ 'S','e','L','o','c','k','M','e','m','o','r','y','P','r','i','v','i','l','e','g','e',0 }
+#define SE_INCREASE_QUOTA_NAME (const WCHAR []){ 'S','e','I','n','c','r','e','a','s','e','Q','u','o','t','a','P','r','i','v','i','l','e','g','e',0 }
+#define SE_UNSOLICITED_INPUT_NAME (const WCHAR []){ 'S','e','U','n','s','o','l','i','c','i','t','e','d','I','n','p','u','t','P','r','i','v','i','l','e','g','e',0 }
+#define SE_MACHINE_ACCOUNT_NAME (const WCHAR []){ 'S','e','M','a','c','h','i','n','e','A','c','c','o','u','n','t','P','r','i','v','i','l','e','g','e',0 }
+#define SE_TCB_NAME (const WCHAR []){ 'S','e','T','c','b','P','r','i','v','i','l','e','g','e',0 }
+#define SE_SECURITY_NAME (const WCHAR []){ 'S','e','S','e','c','u','r','i','t','y','P','r','i','v','i','l','e','g','e',0 }
+#define SE_TAKE_OWNERSHIP_NAME (const WCHAR []){ 'S','e','T','a','k','e','O','w','n','e','r','s','h','i','p','P','r','i','v','i','l','e','g','e',0 }
+#define SE_LOAD_DRIVER_NAME (const WCHAR []){ 'S','e','L','o','a','d','D','r','i','v','e','r','P','r','i','v','i','l','e','g','e',0 }
+#define SE_SYSTEM_PROFILE_NAME (const WCHAR []){ 'S','e','S','y','s','t','e','m','P','r','o','f','i','l','e','P','r','i','v','i','l','e','g','e',0 }
+#define SE_SYSTEMTIME_NAME (const WCHAR []){ 'S','e','S','y','s','t','e','m','t','i','m','e','P','r','i','v','i','l','e','g','e',0 }
+#define SE_PROF_SINGLE_PROCESS_NAME (const WCHAR []){ 'S','e','P','r','o','f','i','l','e','S','i','n','g','l','e','P','r','o','c','e','s','s','P','r','i','v','i','l','e','g','e',0 }
+#define SE_INC_BASE_PRIORITY_NAME (const WCHAR []){ 'S','e','I','n','c','r','e','a','s','e','B','a','s','e','P','r','i','o','r','i','t','y','P','r','i','v','i','l','e','g','e',0 }
+#define SE_CREATE_PAGEFILE_NAME (const WCHAR []){ 'S','e','C','r','e','a','t','e','P','a','g','e','f','i','l','e','P','r','i','v','i','l','e','g','e',0 }
+#define SE_CREATE_PERMANENT_NAME (const WCHAR []){ 'S','e','C','r','e','a','t','e','P','e','r','m','a','n','e','n','t','P','r','i','v','i','l','e','g','e',0 }
+#define SE_BACKUP_NAME (const WCHAR []){ 'S','e','B','a','c','k','u','p','P','r','i','v','i','l','e','g','e',0 }
+#define SE_RESTORE_NAME (const WCHAR []){ 'S','e','R','e','s','t','o','r','e','P','r','i','v','i','l','e','g','e',0 }
+#define SE_SHUTDOWN_NAME (const WCHAR []){ 'S','e','S','h','u','t','d','o','w','n','P','r','i','v','i','l','e','g','e',0 }
+#define SE_DEBUG_NAME (const WCHAR []){ 'S','e','D','e','b','u','g','P','r','i','v','i','l','e','g','e',0 }
+#define SE_AUDIT_NAME (const WCHAR []){ 'S','e','A','u','d','i','t','P','r','i','v','i','l','e','g','e',0 }
+#define SE_SYSTEM_ENVIRONMENT_NAME (const WCHAR []){ 'S','e','S','y','s','t','e','m','E','n','v','i','r','o','n','m','e','n','t','P','r','i','v','i','l','e','g','e',0 }
+#define SE_CHANGE_NOTIFY_NAME (const WCHAR []){ 'S','e','C','h','a','n','g','e','N','o','t','i','f','y','P','r','i','v','i','l','e','g','e',0 }
+#define SE_REMOTE_SHUTDOWN_NAME (const WCHAR []){ 'S','e','R','e','m','o','t','e','S','h','u','t','d','o','w','n','P','r','i','v','i','l','e','g','e',0 }
+#define SE_UNDOCK_NAME (const WCHAR []){ 'S','e','U','n','d','o','c','k','P','r','i','v','i','l','e','g','e',0 }
+#define SE_ENABLE_DELEGATION_NAME (const WCHAR []){ 'S','e','E','n','a','b','l','e','D','e','l','e','g','a','t','i','o','n','P','r','i','v','i','l','e','g','e',0 }
+#define SE_MANAGE_VOLUME_NAME (const WCHAR []){ 'S','e','M','a','n','a','g','e','V','o','l','u','m','e','P','r','i','v','i','l','e','g','e',0 }
+#define SE_IMPERSONATE_NAME (const WCHAR []){ 'S','e','I','m','p','e','r','s','o','n','a','t','e','P','r','i','v','i','l','e','g','e',0 }
+#define SE_CREATE_GLOBAL_NAME (const WCHAR []){ 'S','e','C','r','e','a','t','e','G','l','o','b','a','l','P','r','i','v','i','l','e','g','e',0 }
+#else /* _MSC_VER/__GNUC__ */
+static const WCHAR SE_CREATE_TOKEN_NAME[] = { 'S','e','C','r','e','a','t','e','T','o','k','e','n','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_ASSIGNPRIMARYTOKEN_NAME[] = { 'S','e','A','s','s','i','g','n','P','r','i','m','a','r','y','T','o','k','e','n','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_LOCK_MEMORY_NAME[] = { 'S','e','L','o','c','k','M','e','m','o','r','y','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_INCREASE_QUOTA_NAME[] = { 'S','e','I','n','c','r','e','a','s','e','Q','u','o','t','a','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_UNSOLICITED_INPUT_NAME[] = { 'S','e','U','n','s','o','l','i','c','i','t','e','d','I','n','p','u','t','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_MACHINE_ACCOUNT_NAME[] = { 'S','e','M','a','c','h','i','n','e','A','c','c','o','u','n','t','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_TCB_NAME[] = { 'S','e','T','c','b','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_SECURITY_NAME[] = { 'S','e','S','e','c','u','r','i','t','y','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_TAKE_OWNERSHIP_NAME[] = { 'S','e','T','a','k','e','O','w','n','e','r','s','h','i','p','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_LOAD_DRIVER_NAME[] = { 'S','e','L','o','a','d','D','r','i','v','e','r','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_SYSTEM_PROFILE_NAME[] = { 'S','e','S','y','s','t','e','m','P','r','o','f','i','l','e','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_SYSTEMTIME_NAME[] = { 'S','e','S','y','s','t','e','m','t','i','m','e','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_PROF_SINGLE_PROCESS_NAME[] = { 'S','e','P','r','o','f','i','l','e','S','i','n','g','l','e','P','r','o','c','e','s','s','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_INC_BASE_PRIORITY_NAME[] = { 'S','e','I','n','c','r','e','a','s','e','B','a','s','e','P','r','i','o','r','i','t','y','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_CREATE_PAGEFILE_NAME[] = { 'S','e','C','r','e','a','t','e','P','a','g','e','f','i','l','e','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_CREATE_PERMANENT_NAME[] = { 'S','e','C','r','e','a','t','e','P','e','r','m','a','n','e','n','t','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_BACKUP_NAME[] = { 'S','e','B','a','c','k','u','p','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_RESTORE_NAME[] = { 'S','e','R','e','s','t','o','r','e','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_SHUTDOWN_NAME[] = { 'S','e','S','h','u','t','d','o','w','n','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_DEBUG_NAME[] = { 'S','e','D','e','b','u','g','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_AUDIT_NAME[] = { 'S','e','A','u','d','i','t','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_SYSTEM_ENVIRONMENT_NAME[] = { 'S','e','S','y','s','t','e','m','E','n','v','i','r','o','n','m','e','n','t','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_CHANGE_NOTIFY_NAME[] = { 'S','e','C','h','a','n','g','e','N','o','t','i','f','y','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_REMOTE_SHUTDOWN_NAME[] = { 'S','e','R','e','m','o','t','e','S','h','u','t','d','o','w','n','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_UNDOCK_NAME[] = { 'S','e','U','n','d','o','c','k','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_ENABLE_DELEGATION_NAME[] = { 'S','e','E','n','a','b','l','e','D','e','l','e','g','a','t','i','o','n','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_MANAGE_VOLUME_NAME[] = { 'S','e','M','a','n','a','g','e','V','o','l','u','m','e','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_IMPERSONATE_NAME[] = { 'S','e','I','m','p','e','r','s','o','n','a','t','e','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_CREATE_GLOBAL_NAME[] = { 'S','e','C','r','e','a','t','e','G','l','o','b','a','l','P','r','i','v','i','l','e','g','e',0 };
+#endif
+#else /* UNICODE */
+#define SE_CREATE_TOKEN_NAME            "SeCreateTokenPrivilege"
+#define SE_ASSIGNPRIMARYTOKEN_NAME      "SeAssignPrimaryTokenPrivilege"
+#define SE_LOCK_MEMORY_NAME             "SeLockMemoryPrivilege"
+#define SE_INCREASE_QUOTA_NAME          "SeIncreaseQuotaPrivilege"
+#define SE_UNSOLICITED_INPUT_NAME       "SeUnsolicitedInputPrivilege"
+#define SE_MACHINE_ACCOUNT_NAME         "SeMachineAccountPrivilege"
+#define SE_TCB_NAME                     "SeTcbPrivilege"
+#define SE_SECURITY_NAME                "SeSecurityPrivilege"
+#define SE_TAKE_OWNERSHIP_NAME          "SeTakeOwnershipPrivilege"
+#define SE_LOAD_DRIVER_NAME             "SeLoadDriverPrivilege"
+#define SE_SYSTEM_PROFILE_NAME          "SeSystemProfilePrivilege"
+#define SE_SYSTEMTIME_NAME              "SeSystemtimePrivilege"
+#define SE_PROF_SINGLE_PROCESS_NAME     "SeProfileSingleProcessPrivilege"
+#define SE_INC_BASE_PRIORITY_NAME       "SeIncreaseBasePriorityPrivilege"
+#define SE_CREATE_PAGEFILE_NAME         "SeCreatePagefilePrivilege"
+#define SE_CREATE_PERMANENT_NAME        "SeCreatePermanentPrivilege"
+#define SE_BACKUP_NAME                  "SeBackupPrivilege"
+#define SE_RESTORE_NAME                 "SeRestorePrivilege"
+#define SE_SHUTDOWN_NAME                "SeShutdownPrivilege"
+#define SE_DEBUG_NAME                   "SeDebugPrivilege"
+#define SE_AUDIT_NAME                   "SeAuditPrivilege"
+#define SE_SYSTEM_ENVIRONMENT_NAME      "SeSystemEnvironmentPrivilege"
+#define SE_CHANGE_NOTIFY_NAME           "SeChangeNotifyPrivilege"
+#define SE_REMOTE_SHUTDOWN_NAME         "SeRemoteShutdownPrivilege"
+#define SE_UNDOCK_NAME                  "SeUndockPrivilege"
+#define SE_ENABLE_DELEGATION_NAME       "SeEnableDelegationPrivilege"
+#define SE_MANAGE_VOLUME_NAME           "SeManageVolumePrivilege"
+#define SE_IMPERSONATE_NAME             "SeImpersonatePrivilege"
+#define SE_CREATE_GLOBAL_NAME           "SeCreateGlobalPrivilege"
+#endif
 
 #define SE_GROUP_MANDATORY          0x00000001
 #define SE_GROUP_ENABLED_BY_DEFAULT 0x00000002
@@ -3940,6 +4257,18 @@ typedef struct _SID_AND_ATTRIBUTES {
 #define DOMAIN_GROUP_RID_ENTERPRISE_ADMINS      __MSABI_LONG(0x00000207)
 #define DOMAIN_GROUP_RID_POLICY_ADMINS          __MSABI_LONG(0x00000208)
 
+#define SECURITY_APP_PACKAGE_AUTHORITY {0,0,0,0,0,15}
+#define SECURITY_APP_PACKAGE_BASE_RID           __MSABI_LONG(0x000000002)
+#define SECURITY_BUILTIN_APP_PACKAGE_RID_COUNT  __MSABI_LONG(0x000000002)
+#define SECURITY_APP_PACKAGE_RID_COUNT          __MSABI_LONG(0x000000008)
+#define SECURITY_CAPABILITY_BASE_RID            __MSABI_LONG(0x000000003)
+#define SECURITY_CAPABILITY_APP_RID             __MSABI_LONG(0x000000400)
+#define SECURITY_BUILTIN_CAPABILITY_RID_COUNT   __MSABI_LONG(0x000000002)
+#define SECURITY_CAPABILITY_RID_COUNT           __MSABI_LONG(0x000000005)
+#define SECURITY_PARENT_PACKAGE_RID_COUNT       SECURITY_APP_PACKAGE_RID_COUNT
+#define SECURITY_CHILD_PACKAGE_RID_COUNT        __MSABI_LONG(0x00000000c)
+#define SECURITY_BUILTIN_PACKAGE_ANY_PACKAGE    __MSABI_LONG(0x000000001)
+
 #define SECURITY_MANDATORY_LABEL_AUTHORITY {0,0,0,0,0,16}
 #define SECURITY_MANDATORY_UNTRUSTED_RID        __MSABI_LONG(0x00000000)
 #define SECURITY_MANDATORY_LOW_RID              __MSABI_LONG(0x00001000)
@@ -4060,6 +4389,31 @@ typedef enum {
     WinLocalLogonSid                            = 80,
     WinConsoleLogonSid                          = 81,
     WinThisOrganizationCertificateSid           = 82,
+    WinApplicationPackageAuthoritySid           = 83,
+    WinBuiltinAnyPackageSid                     = 84,
+    WinCapabilityInternetClientSid              = 85,
+    WinCapabilityInternetClientServerSid        = 86,
+    WinCapabilityPrivateNetworkClientServerSid  = 87,
+    WinCapabilityPicturesLibrarySid             = 88,
+    WinCapabilityVideosLibrarySid               = 89,
+    WinCapabilityMusicLibrarySid                = 90,
+    WinCapabilityDocumentsLibrarySid            = 91,
+    WinCapabilitySharedUserCertificatesSid      = 92,
+    WinCapabilityEnterpriseAuthenticationSid    = 93,
+    WinCapabilityRemovableStorageSid            = 94,
+    WinBuiltinRDSRemoteAccessServersSid         = 95,
+    WinBuiltinRDSEndpointServersSid             = 96,
+    WinBuiltinRDSManagementServersSid           = 97,
+    WinUserModeDriversSid                       = 98,
+    WinBuiltinHyperVAdminsSid                   = 99,
+    WinAccountCloneableControllersSid           = 100,
+    WinBuiltinAccessControlAssistanceOperatorsSid = 101,
+    WinBuiltinRemoteManagementUsersSid          = 102,
+    WinAuthenticationAuthorityAssertedSid       = 103,
+    WinAuthenticationServiceAssertedSid         = 104,
+    WinLocalAccountSid                          = 105,
+    WinLocalAccountAndAdministratorSid          = 106,
+    WinAccountProtectedUsersSid                 = 107,
 } WELL_KNOWN_SID_TYPE;
 
 /*
@@ -4286,6 +4640,10 @@ typedef struct _TOKEN_MANDATORY_LABEL {
   SID_AND_ATTRIBUTES Label;
 } TOKEN_MANDATORY_LABEL, * PTOKEN_MANDATORY_LABEL;
 
+typedef struct _TOKEN_APPCONTAINER_INFORMATION {
+  PSID TokenAppContainer;
+} TOKEN_APPCONTAINER_INFORMATION, * PTOKEN_APPCONTAINER_INFORMATION;
+
 /*
  *	ACLs of NT
  */
@@ -4302,6 +4660,7 @@ typedef struct _ACE_HEADER {
 #define	ACCESS_DENIED_ACE_TYPE		1
 #define	SYSTEM_AUDIT_ACE_TYPE		2
 #define	SYSTEM_ALARM_ACE_TYPE		3
+#define SYSTEM_MANDATORY_LABEL_ACE_TYPE 0x11
 
 /* inherit AceFlags */
 #define	OBJECT_INHERIT_ACE		0x01
@@ -4345,6 +4704,16 @@ typedef struct _SYSTEM_ALARM_ACE {
 	DWORD		Mask;
 	DWORD		SidStart;
 } SYSTEM_ALARM_ACE,*PSYSTEM_ALARM_ACE;
+
+typedef struct _SYSTEM_MANDATORY_LABEL_ACE {
+    ACE_HEADER  Header;
+    ACCESS_MASK Mask;
+    DWORD       SidStart;
+} SYSTEM_MANDATORY_LABEL_ACE,*PSYSTEM_MANDATORY_LABEL_ACE;
+
+#define SYSTEM_MANDATORY_LABEL_NO_WRITE_UP      0x1
+#define SYSTEM_MANDATORY_LABEL_NO_READ_UP       0x2
+#define SYSTEM_MANDATORY_LABEL_NO_EXECUTE_UP    0x4
 
 typedef enum tagSID_NAME_USE {
 	SidTypeUser = 1,
@@ -4391,6 +4760,7 @@ typedef enum tagSID_NAME_USE {
 #define EVENT_MODIFY_STATE         0x0002
 #define EVENT_ALL_ACCESS           (STANDARD_RIGHTS_REQUIRED|SYNCHRONIZE|0x3)
 
+#define SEMAPHORE_QUERY_STATE      0x0001
 #define SEMAPHORE_MODIFY_STATE     0x0002
 #define SEMAPHORE_ALL_ACCESS       (STANDARD_RIGHTS_REQUIRED|SYNCHRONIZE|0x3)
 
@@ -4408,30 +4778,34 @@ typedef enum tagSID_NAME_USE {
 #define TIMER_MODIFY_STATE         0x0002
 #define TIMER_ALL_ACCESS           (STANDARD_RIGHTS_REQUIRED|SYNCHRONIZE|0x3)
 
-#define PROCESS_TERMINATE          0x0001
-#define PROCESS_CREATE_THREAD      0x0002
-#define PROCESS_VM_OPERATION       0x0008
-#define PROCESS_VM_READ            0x0010
-#define PROCESS_VM_WRITE           0x0020
-#define PROCESS_DUP_HANDLE         0x0040
-#define PROCESS_CREATE_PROCESS     0x0080
-#define PROCESS_SET_QUOTA          0x0100
-#define PROCESS_SET_INFORMATION    0x0200
-#define PROCESS_QUERY_INFORMATION  0x0400
-#define PROCESS_SUSPEND_RESUME     0x0800
+#define PROCESS_TERMINATE                 0x0001
+#define PROCESS_CREATE_THREAD             0x0002
+#define PROCESS_VM_OPERATION              0x0008
+#define PROCESS_VM_READ                   0x0010
+#define PROCESS_VM_WRITE                  0x0020
+#define PROCESS_DUP_HANDLE                0x0040
+#define PROCESS_CREATE_PROCESS            0x0080
+#define PROCESS_SET_QUOTA                 0x0100
+#define PROCESS_SET_INFORMATION           0x0200
+#define PROCESS_QUERY_INFORMATION         0x0400
+#define PROCESS_SUSPEND_RESUME            0x0800
 #define PROCESS_QUERY_LIMITED_INFORMATION 0x1000
-#define PROCESS_ALL_ACCESS         (STANDARD_RIGHTS_REQUIRED|SYNCHRONIZE|0xfff)
+#define PROCESS_SET_LIMITED_INFORMATION   0x2000
+#define PROCESS_ALL_ACCESS         (STANDARD_RIGHTS_REQUIRED|SYNCHRONIZE|0xffff)
 
-#define THREAD_TERMINATE           0x0001
-#define THREAD_SUSPEND_RESUME      0x0002
-#define THREAD_GET_CONTEXT         0x0008
-#define THREAD_SET_CONTEXT         0x0010
-#define THREAD_SET_INFORMATION     0x0020
-#define THREAD_QUERY_INFORMATION   0x0040
-#define THREAD_SET_THREAD_TOKEN    0x0080
-#define THREAD_IMPERSONATE         0x0100
-#define THREAD_DIRECT_IMPERSONATION 0x0200
-#define THREAD_ALL_ACCESS          (STANDARD_RIGHTS_REQUIRED|SYNCHRONIZE|0x3ff)
+#define THREAD_TERMINATE                  0x0001
+#define THREAD_SUSPEND_RESUME             0x0002
+#define THREAD_GET_CONTEXT                0x0008
+#define THREAD_SET_CONTEXT                0x0010
+#define THREAD_SET_INFORMATION            0x0020
+#define THREAD_QUERY_INFORMATION          0x0040
+#define THREAD_SET_THREAD_TOKEN           0x0080
+#define THREAD_IMPERSONATE                0x0100
+#define THREAD_DIRECT_IMPERSONATION       0x0200
+#define THREAD_SET_LIMITED_INFORMATION    0x0400
+#define THREAD_QUERY_LIMITED_INFORMATION  0x0800
+#define THREAD_RESUME                     0x1000
+#define THREAD_ALL_ACCESS          (STANDARD_RIGHTS_REQUIRED|SYNCHRONIZE|0xffff)
 
 #define THREAD_BASE_PRIORITY_LOWRT  15
 #define THREAD_BASE_PRIORITY_MAX    2
@@ -4524,10 +4898,15 @@ typedef struct _QUOTA_LIMITS_EX {
 #define FILE_ATTRIBUTE_OFFLINE             0x00001000
 #define FILE_ATTRIBUTE_NOT_CONTENT_INDEXED 0x00002000
 #define FILE_ATTRIBUTE_ENCRYPTED           0x00004000
+#define FILE_ATTRIBUTE_INTEGRITY_STREAM    0x00008000
+#define FILE_ATTRIBUTE_VIRTUAL             0x00010000
+#define FILE_ATTRIBUTE_NO_SCRUB_DATA       0x00020000
+#define FILE_ATTRIBUTE_EA                  0x00040000
 
 /* File notification flags */
 #define FILE_NOTIFY_CHANGE_FILE_NAME    0x00000001
 #define FILE_NOTIFY_CHANGE_DIR_NAME     0x00000002
+#define FILE_NOTIFY_CHANGE_NAME         0x00000003
 #define FILE_NOTIFY_CHANGE_ATTRIBUTES   0x00000004
 #define FILE_NOTIFY_CHANGE_SIZE         0x00000008
 #define FILE_NOTIFY_CHANGE_LAST_WRITE   0x00000010
@@ -4547,6 +4926,9 @@ typedef struct _QUOTA_LIMITS_EX {
 #define FILE_ACTION_ADDED_STREAM        0x00000006
 #define FILE_ACTION_REMOVED_STREAM      0x00000007
 #define FILE_ACTION_MODIFIED_STREAM     0x00000008
+#define FILE_ACTION_REMOVED_BY_DELETE   0x00000009
+#define FILE_ACTION_ID_NOT_TUNNELLED          0x0000000a
+#define FILE_ACTION_TUNNELLED_ID_COLLISION    0x0000000b
 
 #define FILE_CASE_SENSITIVE_SEARCH      0x00000001
 #define FILE_CASE_PRESERVED_NAMES       0x00000002
@@ -4556,11 +4938,21 @@ typedef struct _QUOTA_LIMITS_EX {
 #define FILE_VOLUME_QUOTAS              0x00000020
 #define FILE_SUPPORTS_SPARSE_FILES      0x00000040
 #define FILE_SUPPORTS_REPARSE_POINTS    0x00000080
+#define FILE_SUPPORTS_REMOTE_STORAGE    0x00000100
 #define FILE_VOLUME_IS_COMPRESSED       0x00008000
 #define FILE_SUPPORTS_OBJECT_IDS        0x00010000
 #define FILE_SUPPORTS_ENCRYPTION        0x00020000
 #define FILE_NAMED_STREAMS              0x00040000
 #define FILE_READ_ONLY_VOLUME           0x00080000
+#define FILE_SEQUENTIAL_WRITE_ONCE      0x00100000
+#define FILE_SUPPORTS_TRANSACTIONS           0x00200000
+#define FILE_SUPPORTS_HARD_LINKS             0x00400000
+#define FILE_SUPPORTS_EXTENDED_ATTRIBUTES    0x00800000
+#define FILE_SUPPORTS_OPEN_BY_FILE_ID        0x01000000
+#define FILE_SUPPORTS_USN_JOURNAL            0x02000000
+#define FILE_SUPPORTS_INTEGRITY_STREAMS      0x04000000
+#define FILE_SUPPORTS_BLOCK_REFCOUNTING      0x08000000
+#define FILE_SUPPORTS_SPARSE_VDL             0x10000000
 
 /* File alignments (NT) */
 #define	FILE_BYTE_ALIGNMENT		0x00000000
@@ -4573,6 +4965,12 @@ typedef struct _QUOTA_LIMITS_EX {
 #define	FILE_128_BYTE_ALIGNMENT		0x0000007f
 #define	FILE_256_BYTE_ALIGNMENT		0x000000ff
 #define	FILE_512_BYTE_ALIGNMENT		0x000001ff
+
+#define COMPRESSION_FORMAT_NONE         0
+#define COMPRESSION_FORMAT_DEFAULT      1
+#define COMPRESSION_FORMAT_LZNT1        2
+#define COMPRESSION_ENGINE_STANDARD     0
+#define COMPRESSION_ENGINE_MAXIMUM      256
 
 #define MAILSLOT_NO_MESSAGE             ((DWORD)-1)
 #define MAILSLOT_WAIT_FOREVER           ((DWORD)-1)
@@ -4620,6 +5018,19 @@ typedef enum _POWER_ACTION {
 	PowerActionWarmEject
 } POWER_ACTION,
 *PPOWER_ACTION;
+
+typedef enum _POWER_PLATFORM_ROLE {
+    PlatformRoleUnspecified,
+    PlatformRoleDesktop,
+    PlatformRoleMobile,
+    PlatformRoleWorkstation,
+    PlatformRoleEnterpriseServer,
+    PlatformRoleSOHOServer,
+    PlatformRoleAppliancePC,
+    PlatformRolePerformanceServer,
+    PlatformRoleSlate,
+    PlatformRoleMaximum
+} POWER_PLATFORM_ROLE, *PPOWER_PLATFORM_ROLE;
 
 typedef enum _SYSTEM_POWER_STATE {
 	PowerSystemUnspecified = 0,
@@ -4933,23 +5344,24 @@ typedef struct _TAPE_GET_MEDIA_PARAMETERS {
 /* ----------------------------- begin registry ----------------------------- */
 
 /* Registry security values */
-#define OWNER_SECURITY_INFORMATION	0x00000001
-#define GROUP_SECURITY_INFORMATION	0x00000002
-#define DACL_SECURITY_INFORMATION	0x00000004
-#define SACL_SECURITY_INFORMATION	0x00000008
+#define OWNER_SECURITY_INFORMATION      0x00000001
+#define GROUP_SECURITY_INFORMATION      0x00000002
+#define DACL_SECURITY_INFORMATION       0x00000004
+#define SACL_SECURITY_INFORMATION       0x00000008
+#define LABEL_SECURITY_INFORMATION      0x00000010
 
-#define REG_OPTION_RESERVED		0x00000000
-#define REG_OPTION_NON_VOLATILE		0x00000000
-#define REG_OPTION_VOLATILE		0x00000001
-#define REG_OPTION_CREATE_LINK		0x00000002
-#define REG_OPTION_BACKUP_RESTORE	0x00000004 /* FIXME */
-#define REG_OPTION_OPEN_LINK		0x00000008
-#define REG_LEGAL_OPTION	       (REG_OPTION_RESERVED|  \
-					REG_OPTION_NON_VOLATILE|  \
-					REG_OPTION_VOLATILE|  \
-					REG_OPTION_CREATE_LINK|  \
-					REG_OPTION_BACKUP_RESTORE|  \
-					REG_OPTION_OPEN_LINK)
+#define REG_OPTION_RESERVED             0x00000000
+#define REG_OPTION_NON_VOLATILE         0x00000000
+#define REG_OPTION_VOLATILE             0x00000001
+#define REG_OPTION_CREATE_LINK          0x00000002
+#define REG_OPTION_BACKUP_RESTORE       0x00000004 /* FIXME */
+#define REG_OPTION_OPEN_LINK            0x00000008
+#define REG_LEGAL_OPTION               (REG_OPTION_RESERVED | \
+                                        REG_OPTION_NON_VOLATILE | \
+                                        REG_OPTION_VOLATILE | \
+                                        REG_OPTION_CREATE_LINK | \
+                                        REG_OPTION_BACKUP_RESTORE | \
+                                        REG_OPTION_OPEN_LINK)
 
 
 #define REG_CREATED_NEW_KEY	0x00000001
@@ -5097,6 +5509,14 @@ typedef enum _CM_ERROR_CONTROL_TYPE
 #define RtlFillMemory(Destination, Length, Fill) memset((Destination),(Fill),(Length))
 #define RtlZeroMemory(Destination, Length) memset((Destination),0,(Length))
 
+static FORCEINLINE void *RtlSecureZeroMemory(void *buffer, SIZE_T length)
+{
+    volatile char *ptr = (volatile char *)buffer;
+
+    while (length--) *ptr++ = 0;
+    return buffer;
+}
+
 #include <guiddef.h>
 
 typedef struct _OBJECT_TYPE_LIST {
@@ -5163,7 +5583,7 @@ typedef DWORD WINAPI RTL_RUN_ONCE_INIT_FN(PRTL_RUN_ONCE, PVOID, PVOID*);
 typedef RTL_RUN_ONCE_INIT_FN *PRTL_RUN_ONCE_INIT_FN;
 NTSYSAPI VOID WINAPI RtlRunOnceInitialize(PRTL_RUN_ONCE);
 NTSYSAPI DWORD WINAPI RtlRunOnceExecuteOnce(PRTL_RUN_ONCE,PRTL_RUN_ONCE_INIT_FN,PVOID,PVOID*);
-NTSYSAPI DWORD WINAPI RtlRunOnceBeginInitialize(PRTL_RUN_ONCE, DWORD, PBOOL, PVOID*);
+NTSYSAPI DWORD WINAPI RtlRunOnceBeginInitialize(PRTL_RUN_ONCE, DWORD, PVOID*);
 NTSYSAPI DWORD WINAPI RtlRunOnceComplete(PRTL_RUN_ONCE, DWORD, PVOID);
 
 #include <pshpack8.h>
@@ -5372,6 +5792,100 @@ typedef enum _JOBOBJECTINFOCLASS
     MaxJobObjectInfoClass
 } JOBOBJECTINFOCLASS;
 
+typedef struct _JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
+    LARGE_INTEGER TotalUserTime;
+    LARGE_INTEGER TotalKernelTime;
+    LARGE_INTEGER ThisPeriodTotalUserTime;
+    LARGE_INTEGER ThisPeriodTotalKernelTime;
+    DWORD         TotalPageFaultCount;
+    DWORD         TotalProcesses;
+    DWORD         ActiveProcesses;
+    DWORD         TotalTerminatedProcesses;
+} JOBOBJECT_BASIC_ACCOUNTING_INFORMATION, *PJOBOBJECT_BASIC_ACCOUNTING_INFORMATION;
+
+typedef struct _JOBOBJECT_BASIC_LIMIT_INFORMATION {
+    LARGE_INTEGER PerProcessUserTimeLimit;
+    LARGE_INTEGER PerJobUserTimeLimit;
+    DWORD         LimitFlags;
+    SIZE_T        MinimumWorkingSetSize;
+    SIZE_T        MaximumWorkingSetSize;
+    DWORD         ActiveProcessLimit;
+    ULONG_PTR     Affinity;
+    DWORD         PriorityClass;
+    DWORD         SchedulingClass;
+} JOBOBJECT_BASIC_LIMIT_INFORMATION, *PJOBOBJECT_BASIC_LIMIT_INFORMATION;
+
+typedef struct _JOBOBJECT_BASIC_PROCESS_ID_LIST {
+    DWORD     NumberOfAssignedProcesses;
+    DWORD     NumberOfProcessIdsInList;
+    ULONG_PTR ProcessIdList[1];
+} JOBOBJECT_BASIC_PROCESS_ID_LIST, *PJOBOBJECT_BASIC_PROCESS_ID_LIST;
+
+typedef struct _JOBOBJECT_BASIC_UI_RESTRICTIONS {
+    DWORD UIRestrictionsClass;
+} JOBOBJECT_BASIC_UI_RESTRICTIONS, *PJOBOBJECT_BASIC_UI_RESTRICTIONS;
+
+typedef struct _JOBOBJECT_SECURITY_LIMIT_INFORMATION {
+    DWORD             SecurityLimitFlags;
+    HANDLE            JobToken;
+    PTOKEN_GROUPS     SidsToDisable;
+    PTOKEN_PRIVILEGES PrivilegesToDelete;
+    PTOKEN_GROUPS     RestrictedSids;
+} JOBOBJECT_SECURITY_LIMIT_INFORMATION, *PJOBOBJECT_SECURITY_LIMIT_INFORMATION;
+
+typedef struct _JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
+    DWORD EndOfJobTimeAction;
+} JOBOBJECT_END_OF_JOB_TIME_INFORMATION, PJOBOBJECT_END_OF_JOB_TIME_INFORMATION;
+
+typedef struct _JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
+    PVOID  CompletionKey;
+    HANDLE CompletionPort;
+} JOBOBJECT_ASSOCIATE_COMPLETION_PORT, *PJOBOBJECT_ASSOCIATE_COMPLETION_PORT;
+
+#define JOB_OBJECT_MSG_END_OF_JOB_TIME              1
+#define JOB_OBJECT_MSG_END_OF_PROCESS_TIME          2
+#define JOB_OBJECT_MSG_ACTIVE_PROCESS_LIMIT         3
+#define JOB_OBJECT_MSG_ACTIVE_PROCESS_ZERO          4
+#define JOB_OBJECT_MSG_NEW_PROCESS                  6
+#define JOB_OBJECT_MSG_EXIT_PROCESS                 7
+#define JOB_OBJECT_MSG_ABNORMAL_EXIT_PROCESS        8
+#define JOB_OBJECT_MSG_PROCESS_MEMORY_LIMIT         9
+#define JOB_OBJECT_MSG_JOB_MEMORY_LIMIT             10
+
+typedef struct JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
+    JOBOBJECT_BASIC_ACCOUNTING_INFORMATION BasicInfo;
+    IO_COUNTERS                            IoInfo;
+} JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION, *PJOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION;
+
+typedef struct _JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
+    JOBOBJECT_BASIC_LIMIT_INFORMATION BasicLimitInformation;
+    IO_COUNTERS                       IoInfo;
+    SIZE_T                            ProcessMemoryLimit;
+    SIZE_T                            JobMemoryLimit;
+    SIZE_T                            PeakProcessMemoryUsed;
+    SIZE_T                            PeakJobMemoryUsed;
+} JOBOBJECT_EXTENDED_LIMIT_INFORMATION, *PJOBOBJECT_EXTENDED_LIMIT_INFORMATION;
+
+#define JOB_OBJECT_LIMIT_WORKINGSET                 0x00000001
+#define JOB_OBJECT_LIMIT_PROCESS_TIME               0x00000002
+#define JOB_OBJECT_LIMIT_JOB_TIME                   0x00000004
+#define JOB_OBJECT_LIMIT_ACTIVE_PROCESS             0x00000008
+#define JOB_OBJECT_LIMIT_AFFINITY                   0x00000010
+#define JOB_OBJECT_LIMIT_PRIORITY_CLASS             0x00000020
+#define JOB_OBJECT_LIMIT_PRESERVE_JOB_TIME          0x00000040
+#define JOB_OBJECT_LIMIT_SCHEDULING_CLASS           0x00000080
+#define JOB_OBJECT_LIMIT_PROCESS_MEMORY             0x00000100
+#define JOB_OBJECT_LIMIT_JOB_MEMORY                 0x00000200
+#define JOB_OBJECT_LIMIT_DIE_ON_UNHANDLED_EXCEPTION 0x00000400
+#define JOB_OBJECT_LIMIT_BREAKAWAY_OK               0x00000800
+#define JOB_OBJECT_LIMIT_SILENT_BREAKAWAY_OK        0x00001000
+#define JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE          0x00002000
+#define JOB_OBJECT_LIMIT_SUBSET_AFFINITY            0x00004000
+
+#define JOB_OBJECT_LIMIT_VALID_FLAGS                0x0007ffff
+#define JOB_OBJECT_BASIC_LIMIT_VALID_FLAGS          0x000000ff
+#define JOB_OBJECT_EXTENDED_LIMIT_VALID_FLAGS       0x00007fff
+
 typedef enum _LOGICAL_PROCESSOR_RELATIONSHIP
 {
     RelationProcessorCore    = 0,
@@ -5424,11 +5938,11 @@ typedef struct _PROCESSOR_NUMBER
 typedef struct _PROCESSOR_RELATIONSHIP
 {
     BYTE Flags;
-    BYTE Reserved[21];
+    BYTE EfficiencyClass;
+    BYTE Reserved[20];
     WORD GroupCount;
     GROUP_AFFINITY GroupMask[ANYSIZE_ARRAY];
 } PROCESSOR_RELATIONSHIP, *PPROCESSOR_RELATIONSHIP;
-
 
 typedef struct _NUMA_NODE_RELATIONSHIP
 {
@@ -5442,6 +5956,7 @@ typedef struct _CACHE_RELATIONSHIP
     BYTE Level;
     BYTE Associativity;
     WORD LineSize;
+    DWORD CacheSize;
     PROCESSOR_CACHE_TYPE Type;
     BYTE Reserved[20];
     GROUP_AFFINITY GroupMask;
@@ -5486,6 +6001,94 @@ typedef struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX
         GROUP_RELATIONSHIP Group;
     } DUMMYUNIONNAME;
 } SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX, *PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX;
+
+/* Threadpool things */
+typedef DWORD TP_VERSION,*PTP_VERSION;
+
+typedef struct _TP_CALLBACK_INSTANCE TP_CALLBACK_INSTANCE,*PTP_CALLBACK_INSTANCE;
+
+typedef VOID (CALLBACK *PTP_SIMPLE_CALLBACK)(PTP_CALLBACK_INSTANCE,PVOID);
+
+typedef struct _TP_POOL TP_POOL,*PTP_POOL;
+
+typedef enum _TP_CALLBACK_PRIORITY
+{
+	TP_CALLBACK_PRIORITY_HIGH,
+	TP_CALLBACK_PRIORITY_NORMAL,
+	TP_CALLBACK_PRIORITY_LOW,
+	TP_CALLBACK_PRIORITY_INVALID,
+	TP_CALLBACK_PRIORITY_COUNT = TP_CALLBACK_PRIORITY_INVALID
+} TP_CALLBACK_PRIORITY;
+
+typedef struct _TP_POOL_STACK_INFORMATION
+{
+	SIZE_T StackReserve;
+	SIZE_T StackCommit;
+} TP_POOL_STACK_INFORMATION,*PTP_POOL_STACK_INFORMATION;
+
+typedef struct _TP_CLEANUP_GROUP TP_CLEANUP_GROUP,*PTP_CLEANUP_GROUP;
+
+typedef VOID (CALLBACK *PTP_CLEANUP_GROUP_CANCEL_CALLBACK)(PVOID,PVOID);
+
+typedef struct _TP_CALLBACK_ENVIRON_V1
+{
+	TP_VERSION Version;
+	PTP_POOL Pool;
+	PTP_CLEANUP_GROUP CleanupGroup;
+	PTP_CLEANUP_GROUP_CANCEL_CALLBACK CleanupGroupCancelCallback;
+	PVOID RaceDll;
+	struct _ACTIVATION_CONTEXT* ActivationContext;
+	PTP_SIMPLE_CALLBACK FinalizationCallback;
+	union
+	{
+		DWORD Flags;
+		struct
+		{
+			DWORD LongFunction:1;
+			DWORD Persistent:1;
+			DWORD Private:30;
+		} s;
+	} u;
+} TP_CALLBACK_ENVIRON_V1;
+
+typedef struct _TP_CALLBACK_ENVIRON_V3
+{
+    TP_VERSION Version;
+    PTP_POOL Pool;
+    PTP_CLEANUP_GROUP CleanupGroup;
+    PTP_CLEANUP_GROUP_CANCEL_CALLBACK CleanupGroupCancelCallback;
+    PVOID RaceDll;
+    struct _ACTIVATION_CONTEXT *ActivationContext;
+    PTP_SIMPLE_CALLBACK FinalizationCallback;
+    union
+    {
+        DWORD Flags;
+        struct
+        {
+            DWORD LongFunction:1;
+            DWORD Persistent:1;
+            DWORD Private:30;
+        } s;
+    } u;
+    TP_CALLBACK_PRIORITY CallbackPriority;
+    DWORD Size;
+} TP_CALLBACK_ENVIRON_V3;
+
+typedef struct _TP_WORK TP_WORK, *PTP_WORK;
+typedef struct _TP_TIMER TP_TIMER, *PTP_TIMER;
+
+typedef DWORD TP_WAIT_RESULT;
+typedef struct _TP_WAIT TP_WAIT, *PTP_WAIT;
+
+typedef struct _TP_IO TP_IO, *PTP_IO;
+
+typedef TP_CALLBACK_ENVIRON_V1 TP_CALLBACK_ENVIRON, *PTP_CALLBACK_ENVIRON;
+
+typedef VOID (CALLBACK *PTP_WORK_CALLBACK)(PTP_CALLBACK_INSTANCE,PVOID,PTP_WORK);
+typedef VOID (CALLBACK *PTP_TIMER_CALLBACK)(PTP_CALLBACK_INSTANCE,PVOID,PTP_TIMER);
+typedef VOID (CALLBACK *PTP_WAIT_CALLBACK)(PTP_CALLBACK_INSTANCE,PVOID,PTP_WAIT,TP_WAIT_RESULT);
+typedef VOID (CALLBACK *PTP_WIN32_IO_CALLBACK)(PTP_CALLBACK_INSTANCE,PVOID,PVOID,ULONG,ULONG_PTR,PTP_IO);
+
 
 NTSYSAPI BOOLEAN NTAPI RtlGetProductInfo(DWORD,DWORD,DWORD,DWORD,PDWORD);
 
