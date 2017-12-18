@@ -542,12 +542,13 @@ extern "C" {
 #endif
 
 
-#ifndef __has_builtin
-  #define __has_builtin(x) 0
-#endif
-
 #ifdef __MINGW_INTRIN_INLINE
-#if !defined (__clang__) || !__has_builtin(__debugbreak)
+#ifdef __has_builtin
+#define __MINGW_DEBUGBREAK_IMPL !__has_builtin(__debugbreak)
+#else
+#define __MINGW_DEBUGBREAK_IMPL 1
+#endif
+#if __MINGW_DEBUGBREAK_IMPL == 1
 void __cdecl __debugbreak(void);
 __MINGW_INTRIN_INLINE void __cdecl __debugbreak(void)
 {
