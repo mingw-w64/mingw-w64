@@ -98,7 +98,9 @@ ADD_UNDERSCORE(tzset)
 ADD_UNDERSCORE(umask)
 ADD_UNDERSCORE(ungetch)
 ADD_UNDERSCORE(unlink)
+#ifndef UCRTBASE
 ADD_UNDERSCORE(utime)
+#endif
 ADD_UNDERSCORE(wcsdup)
 ADD_UNDERSCORE(wcsicmp)
 ADD_UNDERSCORE(wcsicoll)

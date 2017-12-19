@@ -371,6 +371,7 @@ _ftime64
 _ftime64_s
 F_I386(_ftol)
 _fullpath
+_futime == _futime32
 _futime32
 _futime64
 _fwrite_nolock
@@ -2025,6 +2026,7 @@ _unlink
 _unloaddll
 _unlock_file
 _unlock_locales
+_utime == _utime32
 _utime32
 _utime64
 _waccess
@@ -2168,6 +2170,7 @@ _wtol_l
 _wtoll
 _wtoll_l
 _wunlink
+_wutime == _wutime32
 _wutime32
 _wutime64
 _y0
@@ -2579,6 +2582,7 @@ truncl
 unexpected
 ungetc
 ungetwc
+utime == _utime32
 wcrtomb
 wcrtomb_s
 wcscat
