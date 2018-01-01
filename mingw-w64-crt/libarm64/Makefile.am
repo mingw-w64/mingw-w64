@@ -259,6 +259,7 @@ libarm64_DATA += %reldir%/liburl.a
 libarm64_DATA += %reldir%/libuser32.a
 libarm64_DATA += %reldir%/libusp10.a
 libarm64_DATA += %reldir%/libutildll.a
+libarm64_DATA += %reldir%/libversion.a
 libarm64_DATA += %reldir%/libvirtdisk.a
 libarm64_DATA += %reldir%/libw32time.a
 libarm64_DATA += %reldir%/libw32topl.a
