@@ -74,6 +74,7 @@ libarm64_DATA += %reldir%/libdssec.a
 libarm64_DATA += %reldir%/libdssenh.a
 libarm64_DATA += %reldir%/libdsuiext.a
 libarm64_DATA += %reldir%/libduser.a
+libarm64_DATA += %reldir%/libdwmapi.a
 libarm64_DATA += %reldir%/libdwrite.a
 libarm64_DATA += %reldir%/libdxgi.a
 libarm64_DATA += %reldir%/libdxva2.a
