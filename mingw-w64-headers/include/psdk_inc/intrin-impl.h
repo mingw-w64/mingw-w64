@@ -119,13 +119,12 @@ __INTRINSICS_USEINLINE
    _interlockedbittestandset, _interlockedbittestandreset, _interlockedbittestandcomplement
    _interlockedbittestandset64, _interlockedbittestandreset64, _interlockedbittestandcomplement64 */
 
-/* Parameters: (FunctionName, DataType, AsmCode, OffsetConstraint, Volatile)
+/* Parameters: (FunctionName, DataType, AsmCode, OffsetConstraint)
    FunctionName: Any valid function name
    DataType: __LONG32 or __int64
-   OffsetConstraint: either "I" for 32bit data types or "J" for 64.
-   Volatile: either volatile or blank. */
+   OffsetConstraint: either "I" for 32bit data types or "J" for 64. */
 #if defined(__x86_64__) || defined(_AMD64_) || defined(__i386__) || defined(_X86_)
-#define __buildbittesti(x, y, z, a, b) unsigned char x(y *Base, b Offset) \
+#define __buildbittesti(x, y, z, a) unsigned char x(y volatile *Base, y Offset) \
 { \
    unsigned char old; \
    __asm__ __volatile__ (z \
@@ -135,7 +134,7 @@ __INTRINSICS_USEINLINE
    return old; \
 }
 #elif defined(__arm__) || defined(_ARM_)
-#define __buildbittesti(x, y, z, a, b) unsigned char x(b y *Base, y Offset) \
+#define __buildbittesti(x, y, z, a) unsigned char x(y volatile *Base, y Offset) \
 { \
    unsigned int old, tmp1, tmp2; \
    unsigned int bit = 1 << Offset; \
@@ -153,7 +152,7 @@ __INTRINSICS_USEINLINE
    return (old >> Offset) & 1; \
 }
 #elif defined(__aarch64__) || defined(_ARM64_)
-#define __buildbittesti(x, y, z, a, b) unsigned char x(b y *Base, y Offset) \
+#define __buildbittesti(x, y, z, a, b) unsigned char x(y volatile *Base, y Offset) \
 { \
    unsigned int old, tmp1, tmp2; \
    unsigned int bit = 1 << Offset; \
@@ -615,28 +614,28 @@ __buildstos(__stosq, unsigned __int64, "q|q")
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_interlockedbittestandset64)
-__MINGW_EXTENSION unsigned char _interlockedbittestandset64(__int64 *a, __int64 b);
+__MINGW_EXTENSION unsigned char _interlockedbittestandset64(__int64 volatile *a, __int64 b);
 #if !__has_builtin(_interlockedbittestandset64)
 __INTRINSICS_USEINLINE 
-__buildbittesti(_interlockedbittestandset64, __int64, "lock bts{q %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "J", __int64)
+__buildbittesti(_interlockedbittestandset64, __int64, "lock bts{q %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "J")
 #endif
 #define __INTRINSIC_DEFINED__interlockedbittestandset64
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_interlockedbittestandreset64)
-__MINGW_EXTENSION unsigned char _interlockedbittestandreset64(__int64 *a, __int64 b);
+__MINGW_EXTENSION unsigned char _interlockedbittestandreset64(__int64 volatile *a, __int64 b);
 #if !__has_builtin(_interlockedbittestandreset64)
 __INTRINSICS_USEINLINE 
-__buildbittesti(_interlockedbittestandreset64, __int64, "lock btr{q %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "J", __int64)
+__buildbittesti(_interlockedbittestandreset64, __int64, "lock btr{q %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "J")
 #endif
 #define __INTRINSIC_DEFINED__interlockedbittestandreset64
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_interlockedbittestandcomplement64)
-__MINGW_EXTENSION unsigned char _interlockedbittestandcomplement64(__int64 *a, __int64 b);
+__MINGW_EXTENSION unsigned char _interlockedbittestandcomplement64(__int64 volatile *a, __int64 b);
 #if !__has_builtin(_interlockedbittestandcomplement64)
 __INTRINSICS_USEINLINE 
-__buildbittesti(_interlockedbittestandcomplement64, __int64, "lock btc{q %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "J", __int64)
+__buildbittesti(_interlockedbittestandcomplement64, __int64, "lock btc{q %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "J")
 #endif
 #define __INTRINSIC_DEFINED__interlockedbittestandcomplement64
 #endif /* __INTRINSIC_PROLOG */
@@ -645,7 +644,7 @@ __buildbittesti(_interlockedbittestandcomplement64, __int64, "lock btc{q %[Offse
 __MINGW_EXTENSION unsigned char InterlockedBitTestAndSet64(volatile __int64 *a, __int64 b);
 #if !__has_builtin(InterlockedBitTestAndSet64)
 __INTRINSICS_USEINLINE 
-__buildbittesti(InterlockedBitTestAndSet64, volatile __int64, "lock bts{q %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "J", __int64)
+__buildbittesti(InterlockedBitTestAndSet64, __int64, "lock bts{q %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "J")
 #endif
 #define __INTRINSIC_DEFINED_InterlockedBitTestAndSet64
 #endif /* __INTRINSIC_PROLOG */
@@ -654,7 +653,7 @@ __buildbittesti(InterlockedBitTestAndSet64, volatile __int64, "lock bts{q %[Offs
 __MINGW_EXTENSION unsigned char InterlockedBitTestAndReset64(volatile __int64 *a, __int64 b);
 #if !__has_builtin(InterlockedBitTestAndReset64)
 __INTRINSICS_USEINLINE 
-__buildbittesti(InterlockedBitTestAndReset64, volatile __int64, "lock btr{q %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "J", __int64)
+__buildbittesti(InterlockedBitTestAndReset64, __int64, "lock btr{q %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "J")
 #endif
 #define __INTRINSIC_DEFINED_InterlockedBitTestAndReset64
 #endif /* __INTRINSIC_PROLOG */
@@ -663,7 +662,7 @@ __buildbittesti(InterlockedBitTestAndReset64, volatile __int64, "lock btr{q %[Of
 __MINGW_EXTENSION unsigned char InterlockedBitTestAndComplement64(volatile __int64 *a, __int64 b);
 #if !__has_builtin(InterlockedBitTestAndComplement64)
 __INTRINSICS_USEINLINE 
-__buildbittesti(InterlockedBitTestAndComplement64, volatile __int64, "lock btc{q %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "J", __int64)
+__buildbittesti(InterlockedBitTestAndComplement64, __int64, "lock btc{q %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "J")
 #endif
 #define __INTRINSIC_DEFINED_InterlockedBitTestAndComplement64
 #endif /* __INTRINSIC_PROLOG */
@@ -1032,28 +1031,28 @@ unsigned __int64 __shiftright128 (unsigned __int64  LowPart, unsigned __int64 Hi
 #if defined(__arm__) || defined(_ARM_)
 
 #if __INTRINSIC_PROLOG(_interlockedbittestandset)
-unsigned char _interlockedbittestandset(__LONG32 *a, __LONG32 b);
+unsigned char _interlockedbittestandset(__LONG32 volatile *a, __LONG32 b);
 #if !__has_builtin(_interlockedbittestandset)
 __INTRINSICS_USEINLINE 
-__buildbittesti(_interlockedbittestandset, __LONG32, "orr", /* unused param */, /* unused param */)
+__buildbittesti(_interlockedbittestandset, __LONG32, "orr", /* unused param */)
 #endif
 #define __INTRINSIC_DEFINED__interlockedbittestandset
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_interlockedbittestandreset)
-unsigned char _interlockedbittestandreset(__LONG32 *a, __LONG32 b);
+unsigned char _interlockedbittestandreset(__LONG32 volatile *a, __LONG32 b);
 __INTRINSICS_USEINLINE 
 #if !__has_builtin(_interlockedbittestandreset)
-__buildbittesti(_interlockedbittestandreset, __LONG32, "bic", /* unused param */, /* unused param */)
+__buildbittesti(_interlockedbittestandreset, __LONG32, "bic", /* unused param */)
 #endif
 #define __INTRINSIC_DEFINED__interlockedbittestandreset
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_interlockedbittestandcomplement)
-unsigned char _interlockedbittestandcomplement(__LONG32 *a, __LONG32 b);
+unsigned char _interlockedbittestandcomplement(__LONG32 volatile *a, __LONG32 b);
 #if !__has_builtin(_interlockedbittestandcomplement)
 __INTRINSICS_USEINLINE 
-__buildbittesti(_interlockedbittestandcomplement, __LONG32, "eor", /* unused param */, /* unused param */)
+__buildbittesti(_interlockedbittestandcomplement, __LONG32, "eor", /* unused param */)
 #endif
 #define __INTRINSIC_DEFINED__interlockedbittestandcomplement
 #endif /* __INTRINSIC_PROLOG */
@@ -1062,7 +1061,7 @@ __buildbittesti(_interlockedbittestandcomplement, __LONG32, "eor", /* unused par
 unsigned char InterlockedBitTestAndSet(volatile __LONG32 *a, __LONG32 b);
 #if !__has_builtin(InterlockedBitTestAndSet)
 __INTRINSICS_USEINLINE 
-__buildbittesti(InterlockedBitTestAndSet, __LONG32, "orr", /* unused param */, volatile)
+__buildbittesti(InterlockedBitTestAndSet, __LONG32, "orr", /* unused param */)
 #endif
 #define __INTRINSIC_DEFINED_InterlockedBitTestAndSet
 #endif /* __INTRINSIC_PROLOG */
@@ -1071,7 +1070,7 @@ __buildbittesti(InterlockedBitTestAndSet, __LONG32, "orr", /* unused param */, v
 unsigned char InterlockedBitTestAndReset(volatile __LONG32 *a, __LONG32 b);
 #if !__has_builtin(InterlockedBitTestAndReset)
 __INTRINSICS_USEINLINE 
-__buildbittesti(InterlockedBitTestAndReset, __LONG32, "bic", /* unused param */, volatile)
+__buildbittesti(InterlockedBitTestAndReset, __LONG32, "bic", /* unused param */)
 #endif
 #define __INTRINSIC_DEFINED_InterlockedBitTestAndReset
 #endif /* __INTRINSIC_PROLOG */
@@ -1080,7 +1079,7 @@ __buildbittesti(InterlockedBitTestAndReset, __LONG32, "bic", /* unused param */,
 unsigned char InterlockedBitTestAndComplement(volatile __LONG32 *a, __LONG32 b);
 #if !__has_builtin(InterlockedBitTestAndComplement)
 __INTRINSICS_USEINLINE 
-__buildbittesti(InterlockedBitTestAndComplement, __LONG32, "eor", /* unused param */, volatile)
+__buildbittesti(InterlockedBitTestAndComplement, __LONG32, "eor", /* unused param */)
 #endif
 #define __INTRINSIC_DEFINED_InterlockedBitTestAndComplement
 #endif /* __INTRINSIC_PROLOG */
@@ -1090,28 +1089,28 @@ __buildbittesti(InterlockedBitTestAndComplement, __LONG32, "eor", /* unused para
 #if defined(__aarch64__) || defined(_ARM64_)
 
 #if __INTRINSIC_PROLOG(_interlockedbittestandset)
-unsigned char _interlockedbittestandset(__LONG32 *a, __LONG32 b);
+unsigned char _interlockedbittestandset(__LONG32 volatile *a, __LONG32 b);
 #if !__has_builtin(_interlockedbittestandset)
 __INTRINSICS_USEINLINE 
-__buildbittesti(_interlockedbittestandset, __LONG32, "orr", /* unused param */, /* unused param */)
+__buildbittesti(_interlockedbittestandset, __LONG32, "orr", /* unused param */)
 #endif
 #define __INTRINSIC_DEFINED__interlockedbittestandset
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_interlockedbittestandreset)
-unsigned char _interlockedbittestandreset(__LONG32 *a, __LONG32 b);
+unsigned char _interlockedbittestandreset(__LONG32 volatile *a, __LONG32 b);
 __INTRINSICS_USEINLINE 
 #if !__has_builtin(_interlockedbittestandreset)
-__buildbittesti(_interlockedbittestandreset, __LONG32, "bic", /* unused param */, /* unused param */)
+__buildbittesti(_interlockedbittestandreset, __LONG32, "bic", /* unused param */)
 #endif
 #define __INTRINSIC_DEFINED__interlockedbittestandreset
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_interlockedbittestandcomplement)
-unsigned char _interlockedbittestandcomplement(__LONG32 *a, __LONG32 b);
+unsigned char _interlockedbittestandcomplement(__LONG32 volatile *a, __LONG32 b);
 #if !__has_builtin(_interlockedbittestandcomplement)
 __INTRINSICS_USEINLINE 
-__buildbittesti(_interlockedbittestandcomplement, __LONG32, "eor", /* unused param */, /* unused param */)
+__buildbittesti(_interlockedbittestandcomplement, __LONG32, "eor", /* unused param */)
 #endif
 #define __INTRINSIC_DEFINED__interlockedbittestandcomplement
 #endif /* __INTRINSIC_PROLOG */
@@ -1120,7 +1119,7 @@ __buildbittesti(_interlockedbittestandcomplement, __LONG32, "eor", /* unused par
 unsigned char InterlockedBitTestAndSet(volatile __LONG32 *a, __LONG32 b);
 #if !__has_builtin(InterlockedBitTestAndSet)
 __INTRINSICS_USEINLINE 
-__buildbittesti(InterlockedBitTestAndSet, __LONG32, "orr", /* unused param */, volatile)
+__buildbittesti(InterlockedBitTestAndSet, __LONG32, "orr", /* unused param */)
 #endif
 #define __INTRINSIC_DEFINED_InterlockedBitTestAndSet
 #endif /* __INTRINSIC_PROLOG */
@@ -1129,7 +1128,7 @@ __buildbittesti(InterlockedBitTestAndSet, __LONG32, "orr", /* unused param */, v
 unsigned char InterlockedBitTestAndReset(volatile __LONG32 *a, __LONG32 b);
 #if !__has_builtin(InterlockedBitTestAndReset)
 __INTRINSICS_USEINLINE 
-__buildbittesti(InterlockedBitTestAndReset, __LONG32, "bic", /* unused param */, volatile)
+__buildbittesti(InterlockedBitTestAndReset, __LONG32, "bic", /* unused param */)
 #endif
 #define __INTRINSIC_DEFINED_InterlockedBitTestAndReset
 #endif /* __INTRINSIC_PROLOG */
@@ -1138,7 +1137,7 @@ __buildbittesti(InterlockedBitTestAndReset, __LONG32, "bic", /* unused param */,
 unsigned char InterlockedBitTestAndComplement(volatile __LONG32 *a, __LONG32 b);
 #if !__has_builtin(InterlockedBitTestAndComplement)
 __INTRINSICS_USEINLINE 
-__buildbittesti(InterlockedBitTestAndComplement, __LONG32, "eor", /* unused param */, volatile)
+__buildbittesti(InterlockedBitTestAndComplement, __LONG32, "eor", /* unused param */)
 #endif
 #define __INTRINSIC_DEFINED_InterlockedBitTestAndComplement
 #endif /* __INTRINSIC_PROLOG */
@@ -1467,28 +1466,28 @@ __buildstos(__stosd, unsigned __LONG32, "l|d")
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_interlockedbittestandset)
-unsigned char _interlockedbittestandset(__LONG32 *a, __LONG32 b);
+unsigned char _interlockedbittestandset(__LONG32 volatile *a, __LONG32 b);
 #if !__has_builtin(_interlockedbittestandset)
 __INTRINSICS_USEINLINE
-__buildbittesti(_interlockedbittestandset, __LONG32, "lock bts{l %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "I", __LONG32)
+__buildbittesti(_interlockedbittestandset, __LONG32, "lock bts{l %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "I")
 #endif
 #define __INTRINSIC_DEFINED__interlockedbittestandset
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_interlockedbittestandreset)
-unsigned char _interlockedbittestandreset(__LONG32 *a, __LONG32 b);
+unsigned char _interlockedbittestandreset(__LONG32 volatile *a, __LONG32 b);
 #if !__has_builtin(_interlockedbittestandreset)
 __INTRINSICS_USEINLINE
-__buildbittesti(_interlockedbittestandreset, __LONG32, "lock btr{l %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "I", __LONG32)
+__buildbittesti(_interlockedbittestandreset, __LONG32, "lock btr{l %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "I")
 #endif
 #define __INTRINSIC_DEFINED__interlockedbittestandreset
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_interlockedbittestandcomplement)
-unsigned char _interlockedbittestandcomplement(__LONG32 *a, __LONG32 b);
+unsigned char _interlockedbittestandcomplement(__LONG32 volatile *a, __LONG32 b);
 #if !__has_builtin(_interlockedbittestandcomplement)
 __INTRINSICS_USEINLINE
-__buildbittesti(_interlockedbittestandcomplement, __LONG32, "lock btc{l %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "I", __LONG32)
+__buildbittesti(_interlockedbittestandcomplement, __LONG32, "lock btc{l %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "I")
 #endif
 #define __INTRINSIC_DEFINED__interlockedbittestandcomplement
 #endif /* __INTRINSIC_PROLOG */
@@ -1497,7 +1496,7 @@ __buildbittesti(_interlockedbittestandcomplement, __LONG32, "lock btc{l %[Offset
 unsigned char InterlockedBitTestAndSet(volatile __LONG32 *a, __LONG32 b);
 #if !__has_builtin(InterlockedBitTestAndSet)
 __INTRINSICS_USEINLINE
-__buildbittesti(InterlockedBitTestAndSet, volatile __LONG32, "lock bts{l %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "I", __LONG32)
+__buildbittesti(InterlockedBitTestAndSet, __LONG32, "lock bts{l %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "I")
 #endif
 #define __INTRINSIC_DEFINED_InterlockedBitTestAndSet
 #endif /* __INTRINSIC_PROLOG */
@@ -1506,7 +1505,7 @@ __buildbittesti(InterlockedBitTestAndSet, volatile __LONG32, "lock bts{l %[Offse
 unsigned char InterlockedBitTestAndReset(volatile __LONG32 *a, __LONG32 b);
 #if !__has_builtin(InterlockedBitTestAndReset)
 __INTRINSICS_USEINLINE
-__buildbittesti(InterlockedBitTestAndReset, volatile __LONG32, "lock btr{l %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "I", __LONG32)
+__buildbittesti(InterlockedBitTestAndReset, __LONG32, "lock btr{l %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "I")
 #endif
 #define __INTRINSIC_DEFINED_InterlockedBitTestAndReset
 #endif /* __INTRINSIC_PROLOG */
@@ -1515,7 +1514,7 @@ __buildbittesti(InterlockedBitTestAndReset, volatile __LONG32, "lock btr{l %[Off
 unsigned char InterlockedBitTestAndComplement(volatile __LONG32 *a, __LONG32 b);
 #if !__has_builtin(InterlockedBitTestAndComplement)
 __INTRINSICS_USEINLINE
-__buildbittesti(InterlockedBitTestAndComplement, volatile __LONG32, "lock btc{l %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "I", __LONG32)
+__buildbittesti(InterlockedBitTestAndComplement, __LONG32, "lock btc{l %[Offset],%[Base] | %[Base],%[Offset]}" __FLAGSET, "I")
 #endif
 #define __INTRINSIC_DEFINED_InterlockedBitTestAndComplement
 #endif /* __INTRINSIC_PROLOG */
