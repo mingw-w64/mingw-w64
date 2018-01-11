@@ -23,7 +23,6 @@
 #include <sect_attribs.h>
 #include <stdio.h>
 #include <time.h>
-#include <corecrt_startup.h>
 
 #undef fwprintf
 #undef _snwprintf
@@ -41,10 +40,6 @@ int __cdecl __getmainargs(int * _Argc, char *** _Argv, char ***_Env, int _DoWild
 int __cdecl __wgetmainargs(int * _Argc, wchar_t *** _Argv, wchar_t ***_Env, int _DoWildCard, _startupinfo *_StartInfo);
 void __cdecl _amsg_exit(int ret);
 unsigned int __cdecl _get_output_format(void);
-
-void __cdecl _lock(int _File);
-void __cdecl _unlock(int _File);
-_onexit_t __dllonexit(_onexit_t func, _PVFV** begin, _PVFV** end);
 
 int __cdecl fwprintf(FILE *ptr, const wchar_t *fmt, ...);
 int __cdecl _snwprintf(wchar_t * restrict _Dest, size_t _Count, const wchar_t * restrict _Format, ...);
@@ -97,19 +92,6 @@ _onexit_t __cdecl _onexit(_onexit_t func)
 
 _onexit_t __cdecl (*__MINGW_IMP_SYMBOL(_onexit))(_onexit_t func) = _onexit;
 
-_onexit_t __dllonexit(_onexit_t func, _PVFV** begin, _PVFV** end)
-{
-  int len = *end - *begin;
-  _PVFV* ret = realloc(*begin, (len + 1) * sizeof(**begin));
-  if (ret == NULL)
-    return NULL;
-  len++;
-  *begin = ret;
-  *end = *begin + len;
-  (*begin)[len - 1] = (_PVFV) func;
-  return func;
-}
-
 void __cdecl _amsg_exit(int ret) {
   fprintf(stderr, "runtime error %d\n", ret);
 }
@@ -123,28 +105,6 @@ static char ** local__initenv;
 static wchar_t ** local__winitenv;
 char *** __MINGW_IMP_SYMBOL(__initenv) = &local__initenv;
 wchar_t *** __MINGW_IMP_SYMBOL(__winitenv) = &local__winitenv;
-
-
-// The parts below are mostly ugly workarounds, necessary to appease code
-// within libmingwex and CRT startup routines built for legacy msvcrt.dll
-// to work properly with ucrtbase.dll.
-#define _EXIT_LOCK1 8
-
-static CRITICAL_SECTION exit_lock;
-
-static void __cdecl free_locks(void)
-{
-  DeleteCriticalSection(&exit_lock);
-}
-
-static void __cdecl init_compat_dtor(void)
-{
-  InitializeCriticalSection(&exit_lock);
-
-  atexit(free_locks);
-}
-
-static _CRTALLOC(".CRT$XID") __attribute__((__used__)) _PVFV mingw_ucrtbase_compat_init = init_compat_dtor;
 
 
 // These are required to provide the unrepfixed data symbols "timezone"
@@ -167,21 +127,6 @@ void __cdecl _tzset(void)
 void __cdecl tzset(void)
 {
   _tzset();
-}
-
-// This is the only lock that will be used (from atonexit.c). The _lock_file and
-// _unlock_file fallback wrappers in stdio/mingw_lock.c are only linked in libmsvcrt.a,
-// not when targeting a known newer version.
-void __cdecl _lock(int _File)
-{
-  if (_File == _EXIT_LOCK1)
-    EnterCriticalSection(&exit_lock);
-}
-
-void __cdecl _unlock(int _File)
-{
-  if (_File == _EXIT_LOCK1)
-    LeaveCriticalSection(&exit_lock);
 }
 
 // assert (in wassert.c) produces references to these two functions
@@ -221,12 +166,9 @@ int __cdecl __ms_fwprintf(FILE *file, const wchar_t *fmt, ...)
 // Dummy/unused __imp_ wrappers, to make GNU ld not autoexport these symbols.
 int __cdecl (*__MINGW_IMP_SYMBOL(__getmainargs))(int *, char ***, char ***, int, _startupinfo *) = __getmainargs;
 int __cdecl (*__MINGW_IMP_SYMBOL(__wgetmainargs))(int *, wchar_t ***, wchar_t ***, int, _startupinfo *) = __wgetmainargs;
-_onexit_t __cdecl (*__MINGW_IMP_SYMBOL(__dllonexit))(_onexit_t, _PVFV**, _PVFV**) = __dllonexit;
 void __cdecl (*__MINGW_IMP_SYMBOL(_amsg_exit))(int) = _amsg_exit;
 unsigned int __cdecl (*__MINGW_IMP_SYMBOL(_get_output_format))(void) = _get_output_format;
 void __cdecl (*__MINGW_IMP_SYMBOL(tzset))(void) = tzset;
-void __cdecl (*__MINGW_IMP_SYMBOL(_lock))(int) = _lock;
-void __cdecl (*__MINGW_IMP_SYMBOL(_unlock))(int) = _unlock;
 int __cdecl (*__MINGW_IMP_SYMBOL(fwprintf))(FILE *, const wchar_t *, ...) = fwprintf;
 int __cdecl (*__MINGW_IMP_SYMBOL(_snwprintf))(wchar_t *restrict, size_t, const wchar_t *restrict, ...) = _snwprintf;
 int __cdecl (*__MINGW_IMP_SYMBOL(__ms_fwprintf))(FILE *, const wchar_t *, ...) = __ms_fwprintf;
