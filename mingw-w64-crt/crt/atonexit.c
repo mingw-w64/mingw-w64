@@ -15,6 +15,7 @@
 #include <crtdefs.h>
 #include <limits.h>
 #include <windows.h>
+#include <corecrt_startup.h>
 
 #define _EXIT_LOCK1 8
 

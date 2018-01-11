@@ -23,6 +23,7 @@
 #include <sect_attribs.h>
 #include <stdio.h>
 #include <time.h>
+#include <corecrt_startup.h>
 
 #undef fwprintf
 #undef _snwprintf

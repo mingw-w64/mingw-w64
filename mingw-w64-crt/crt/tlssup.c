@@ -20,13 +20,7 @@
 #include <stdio.h>
 #include <memory.h>
 #include <malloc.h>
-
-#ifndef __INTERNAL_FUNC_DEFINED
-#define __INTERNAL_FUNC_DEFINED
-typedef void (__cdecl *_PVFV)(void);
-typedef int (__cdecl *_PIFV)(void);
-typedef void (__cdecl *_PVFI)(int);
-#endif
+#include <corecrt_startup.h>
 
 extern WINBOOL __mingw_TLScallback (HANDLE hDllHandle, DWORD reason, LPVOID reserved);
 

@@ -17,6 +17,10 @@ _CRTIMP char **__cdecl __p__acmdln(void);
 _CRTIMP wchar_t **__cdecl __p__wcmdln(void);
 #define _wcmdln (*__p__wcmdln())
 
+typedef void (__cdecl *_PVFV)(void);
+typedef int (__cdecl *_PIFV)(void);
+typedef void (__cdecl *_PVFI)(int);
+
 #ifdef __cplusplus
 }
 #endif
