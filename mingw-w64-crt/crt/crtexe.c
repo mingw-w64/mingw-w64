@@ -70,9 +70,6 @@ __attribute__ (( __section__ (".dtors.99999"), __used__ , aligned(sizeof(void *)
 /* TLS initialization hook.  */
 extern const PIMAGE_TLS_CALLBACK __dyn_tls_init_callback;
 
-extern _PVFV *__onexitbegin;
-extern _PVFV *__onexitend;
-
 extern int mingw_app_type;
 
 HINSTANCE __mingw_winmain_hInstance;
@@ -137,7 +134,6 @@ pre_c_init (void)
     __set_app_type(_GUI_APP);
   else
     __set_app_type (_CONSOLE_APP);
-  __onexitbegin = __onexitend = (_PVFV *) _encode_pointer ((_PVFV *)(-1));
 
   * __p__fmode() = _fmode;
   * __MINGW_IMP_SYMBOL(_commode) = _commode;
@@ -435,3 +431,8 @@ static void duplicate_ppstrings (int ac, char ***av)
 	*av = n;
 }
 #endif
+
+int __cdecl atexit (_PVFV func)
+{
+    return _onexit((_onexit_t)func) ? 0 : -1;
+}
