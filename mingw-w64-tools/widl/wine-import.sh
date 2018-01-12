@@ -9,7 +9,7 @@ if test -z $WINE_DIR; then
 	exit 1
 fi
 
-for f in client.c expr.c expr.h hash.c hash.h header.c header.h libloaderapi.h parser.h parser.l parser.tab.c parser.tab.h parser.y \
+for f in client.c expr.c expr.h hash.c hash.h header.c header.h parser.h parser.l parser.tab.c parser.tab.h parser.y \
 	parser.yy.c proxy.c register.c server.c typegen.c typegen.h typelib.c typelib.h typelib_struct.h typetree.c typetree.h \
 	utils.c utils.h widl.c widl.h widltypes.h write_msft.c
 do
