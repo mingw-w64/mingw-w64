@@ -5,7 +5,7 @@ set -e
 WINE_DIR=$1
 
 if test -z $WINE_DIR; then
-	echo "Usage: wine-impot.sh wine_dir"
+	echo "Usage: wine-import.sh wine_dir"
 	exit 1
 fi
 
