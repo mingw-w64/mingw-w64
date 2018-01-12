@@ -46,5 +46,9 @@ do
 done
 
 sed s/Wine/WIDL/ < $WINE_DIR/VERSION >VERSION
+for f in patches/*
+do
+	patch -p3 < $f
+done
 autoconf
 
