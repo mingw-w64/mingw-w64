@@ -1377,7 +1377,7 @@ pthread_attr_getscope (const pthread_attr_t *a, int *flag)
 }
 
 int
-pthread_attr_getstackaddr (pthread_attr_t *attr, void **stack)
+pthread_attr_getstackaddr (const pthread_attr_t *attr, void **stack)
 {
   *stack = attr->stack;
   return 0;

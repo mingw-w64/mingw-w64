@@ -78,7 +78,7 @@ int pthread_attr_setschedpolicy (pthread_attr_t *attr, int pol)
   return 0;
 }
 
-int pthread_attr_getschedpolicy (pthread_attr_t *attr, int *pol)
+int pthread_attr_getschedpolicy (const pthread_attr_t *attr, int *pol)
 {
   if (!attr || !pol)
     return EINVAL;
