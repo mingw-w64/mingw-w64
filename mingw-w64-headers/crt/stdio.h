@@ -217,15 +217,24 @@ extern
   int __cdecl __stdio_common_vfscanf(unsigned __int64 options, FILE *file, const char *format, _locale_t locale, va_list valist);
 #endif
 
+#undef __MINGW_PRINTF_FORMAT
+#undef __MINGW_SCANF_FORMAT
+
+#if defined(__clang__)
+#define __MINGW_PRINTF_FORMAT printf
+#define __MINGW_SCANF_FORMAT  scanf
+#elif defined(__USE_MINGW_ANSI_STDIO)
+#define __MINGW_PRINTF_FORMAT gnu_printf
+#define __MINGW_SCANF_FORMAT  gnu_scanf
+#else
+#define __MINGW_PRINTF_FORMAT ms_printf
+#define __MINGW_SCANF_FORMAT  ms_scanf
+#endif
 
 #if __USE_MINGW_ANSI_STDIO
 /*
  * User has expressed a preference for C99 conformance...
  */
-#undef __MINGW_PRINTF_FORMAT
-#undef __MINGW_SCANF_FORMAT
-#define __MINGW_PRINTF_FORMAT gnu_printf
-#define __MINGW_SCANF_FORMAT  gnu_scanf
 
 #ifdef _GNU_SOURCE
 __mingw_ovr
@@ -404,10 +413,6 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
 
 #else /* !__USE_MINGW_ANSI_STDIO */
 
-#undef __MINGW_PRINTF_FORMAT
-#undef __MINGW_SCANF_FORMAT
-#define __MINGW_PRINTF_FORMAT ms_printf
-#define __MINGW_SCANF_FORMAT  ms_scanf
 #undef __builtin_vsnprintf
 #undef __builtin_vsprintf
 
