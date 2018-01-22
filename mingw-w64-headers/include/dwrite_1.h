@@ -47,6 +47,59 @@ struct DWRITE_FONT_METRICS1 : public DWRITE_FONT_METRICS {
     BOOL hasTypographicMetrics;
 };
 
+union DWRITE_PANOSE {
+    UINT8 values[10];
+    UINT8 familyKind;
+    struct {
+        UINT8 familyKind;
+        UINT8 serifStyle;
+        UINT8 weight;
+        UINT8 proportion;
+        UINT8 contrast;
+        UINT8 strokeVariation;
+        UINT8 armStyle;
+        UINT8 letterform;
+        UINT8 midline;
+        UINT8 xHeight;
+    } text;
+    struct {
+        UINT8 familyKind;
+        UINT8 toolKind;
+        UINT8 weight;
+        UINT8 spacing;
+        UINT8 aspectRatio;
+        UINT8 contrast;
+        UINT8 scriptTopology;
+        UINT8 scriptForm;
+        UINT8 finials;
+        UINT8 xAscent;
+    } script;
+    struct {
+        UINT8 familyKind;
+        UINT8 decorativeClass;
+        UINT8 weight;
+        UINT8 aspect;
+        UINT8 contrast;
+        UINT8 serifVariant;
+        UINT8 fill;
+        UINT8 lining;
+        UINT8 decorativeTopology;
+        UINT8 characterRange;
+    } decorative;
+    struct {
+        UINT8 familyKind;
+        UINT8 symbolKind;
+        UINT8 weight;
+        UINT8 spacing;
+        UINT8 aspectRatioAndContrast;
+        UINT8 aspectRatio94;
+        UINT8 aspectRatio119;
+        UINT8 aspectRatio157;
+        UINT8 aspectRatio163;
+        UINT8 aspectRatio211;
+    } symbol;
+};
+
 #undef  INTERFACE
 #define INTERFACE IDWriteFontCollection
 DECLARE_INTERFACE_(IDWriteFontFace1, IDWriteFontFace)
