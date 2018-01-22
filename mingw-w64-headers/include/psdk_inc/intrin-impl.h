@@ -152,7 +152,7 @@ __INTRINSICS_USEINLINE
    return (old >> Offset) & 1; \
 }
 #elif defined(__aarch64__) || defined(_ARM64_)
-#define __buildbittesti(x, y, z, a, b) unsigned char x(y volatile *Base, y Offset) \
+#define __buildbittesti(x, y, z, a) unsigned char x(y volatile *Base, y Offset) \
 { \
    unsigned int old, tmp1, tmp2; \
    unsigned int bit = 1 << Offset; \
