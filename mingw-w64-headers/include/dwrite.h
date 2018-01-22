@@ -17,6 +17,10 @@
 
 #include <unknwn.h>
 
+#ifndef DWRITE_DECLARE_INTERFACE
+#define DWRITE_DECLARE_INTERFACE(iid) DECLSPEC_UUID(iid) DECLSPEC_NOVTABLE
+#endif
+
 #ifndef __IDWriteBitmapRenderTarget_FWD_DEFINED__
 #define __IDWriteBitmapRenderTarget_FWD_DEFINED__
 typedef struct IDWriteBitmapRenderTarget IDWriteBitmapRenderTarget;
