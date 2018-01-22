@@ -1775,6 +1775,7 @@ __buildmov(__movsd, unsigned __LONG32, "d")
 #define __INTRINSIC_DEFINED___movsd
 #endif /* __INTRINSIC_PROLOG */
 
+#if !defined(__GNUC__) || __GNUC__ < 8 /* GCC 8 has already defined _xgetbv */
 /* NOTE: This should be in immintrin.h */
 #if __INTRINSIC_PROLOG(_xgetbv)
 unsigned __int64 _xgetbv(unsigned int);
@@ -1798,6 +1799,7 @@ unsigned __int64 _xgetbv(unsigned int index)
 #endif
 #define __INTRINSIC_DEFINED__xgetbv
 #endif /* __INTRINSIC_PROLOG */
+#endif /* __GNUC__ < 8 */
 
 #endif /* defined(__x86_64__) || defined(_AMD64_) || defined(__i386__) || defined(_X86_) */
 
