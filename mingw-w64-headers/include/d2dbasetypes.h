@@ -67,8 +67,6 @@ struct D2D_POINT_2F {
   FLOAT y;
 };
 
-typedef POINT D2D_POINT_2L;
-
 struct D2D_POINT_2U {
   UINT32 x;
   UINT32 y;
@@ -95,11 +93,6 @@ struct D2D_SIZE_F {
   FLOAT height;
 };
 
-struct D2D_SIZE_U {
-  UINT32 width;
-  UINT32 height;
-};
-
 typedef D2D_COLOR_F D2D1_COLOR_F;
 
 typedef struct D2D_POINT_2F D2D1_POINT_2F;
@@ -111,8 +104,6 @@ typedef struct D2D_RECT_F D2D1_RECT_F;
 typedef struct D2D_RECT_U D2D1_RECT_U;
 
 typedef struct D2D_SIZE_F D2D1_SIZE_F;
-
-typedef struct D2D_SIZE_U D2D1_SIZE_U;
 
 typedef struct D2D_VECTOR_2F {
     FLOAT x;
