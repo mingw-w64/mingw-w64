@@ -4082,57 +4082,57 @@ __buildmemorybarrier()
 
     typedef struct _PROCESS_MITIGATION_ASLR_POLICY {
       __C89_NAMELESS union {
-	DWORD Flags;
-	__C89_NAMELESS struct {
-	  DWORD EnableBottomUpRandomization : 1;
-	  DWORD EnableForceRelocateImages : 1;
-	  DWORD EnableHighEntropy : 1;
-	  DWORD DisallowStrippedImages : 1;
-	  DWORD ReservedFlags : 28;
-	};
+        DWORD Flags;
+        __C89_NAMELESS struct {
+          DWORD EnableBottomUpRandomization : 1;
+          DWORD EnableForceRelocateImages : 1;
+          DWORD EnableHighEntropy : 1;
+          DWORD DisallowStrippedImages : 1;
+          DWORD ReservedFlags : 28;
+        };
       };
     } PROCESS_MITIGATION_ASLR_POLICY,*PPROCESS_MITIGATION_ASLR_POLICY;
 
     typedef struct _PROCESS_MITIGATION_DEP_POLICY {
       __C89_NAMELESS union {
-	DWORD Flags;
-	__C89_NAMELESS struct {
-	  DWORD Enable : 1;
-	  DWORD DisableAtlThunkEmulation : 1;
-	  DWORD ReservedFlags : 30;
-	};
+        DWORD Flags;
+        __C89_NAMELESS struct {
+          DWORD Enable : 1;
+          DWORD DisableAtlThunkEmulation : 1;
+          DWORD ReservedFlags : 30;
+        };
       };
       BOOLEAN Permanent;
     } PROCESS_MITIGATION_DEP_POLICY,*PPROCESS_MITIGATION_DEP_POLICY;
 
     typedef struct _PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
       __C89_NAMELESS union {
-	DWORD Flags;
-	__C89_NAMELESS struct {
-	  DWORD RaiseExceptionOnInvalidHandleReference : 1;
-	  DWORD HandleExceptionsPermanentlyEnabled : 1;
-	  DWORD ReservedFlags : 30;
-	};
+        DWORD Flags;
+        __C89_NAMELESS struct {
+          DWORD RaiseExceptionOnInvalidHandleReference : 1;
+          DWORD HandleExceptionsPermanentlyEnabled : 1;
+          DWORD ReservedFlags : 30;
+        };
       };
     } PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY,*PPROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY;
 
     typedef struct _PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
       __C89_NAMELESS union {
-	DWORD Flags;
-	__C89_NAMELESS struct {
-	  DWORD DisallowWin32kSystemCalls : 1;
-	  DWORD ReservedFlags : 31;
-	};
+        DWORD Flags;
+        __C89_NAMELESS struct {
+          DWORD DisallowWin32kSystemCalls : 1;
+          DWORD ReservedFlags : 31;
+        };
       };
     } PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY,*PPROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY;
 
     typedef struct _PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
       __C89_NAMELESS union {
-	DWORD Flags;
-	__C89_NAMELESS struct {
-	  DWORD DisableExtensionPoints : 1;
-	  DWORD ReservedFlags : 31;
-	};
+        DWORD Flags;
+        __C89_NAMELESS struct {
+          DWORD DisableExtensionPoints : 1;
+          DWORD ReservedFlags : 31;
+        };
       };
     } PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY,*PPROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY;
 
