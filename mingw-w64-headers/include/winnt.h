@@ -4072,11 +4072,15 @@ __buildmemorybarrier()
     typedef enum _PROCESS_MITIGATION_POLICY {
       ProcessDEPPolicy,
       ProcessASLRPolicy,
-      ProcessReserved1MitigationPolicy,
+      ProcessDynamicCodePolicy,
       ProcessStrictHandleCheckPolicy,
       ProcessSystemCallDisablePolicy,
       ProcessMitigationOptionsMask,
       ProcessExtensionPointDisablePolicy,
+      ProcessControlFlowGuardPolicy,
+      ProcessSignaturePolicy,
+      ProcessFontDisablePolicy,
+      ProcessImageLoadPolicy,
       MaxProcessMitigationPolicy
     } PROCESS_MITIGATION_POLICY,*PPROCESS_MITIGATION_POLICY;
 
@@ -4135,6 +4139,65 @@ __buildmemorybarrier()
         };
       };
     } PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY,*PPROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY;
+
+    typedef struct _PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
+      __C89_NAMELESS union {
+        DWORD  Flags;
+        __C89_NAMELESS struct {
+          DWORD EnableControlFlowGuard  :1;
+          DWORD EnableExportSuppression  :1;
+          DWORD StrictMode  :1;
+          DWORD ReservedFlags  :29;
+        };
+      };
+    } PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY, *PPROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY;
+
+    typedef struct _PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
+      __C89_NAMELESS union {
+        DWORD  Flags;
+        __C89_NAMELESS struct {
+          DWORD MicrosoftSignedOnly  :1;
+          DWORD StoreSignedOnly  :1;
+          DWORD MitigationOptIn  :1;
+          DWORD ReservedFlags  :29;
+        };
+      };
+    } PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY, *PPROCESS_MITIGATION_BINARY_SIGNATURE_POLICY;
+
+    typedef struct _PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
+      __C89_NAMELESS union {
+        DWORD  Flags;
+        __C89_NAMELESS struct {
+          DWORD ProhibitDynamicCode  :1;
+          DWORD AllowThreadOptOut  :1;
+          DWORD AllowRemoteDowngrade  :1;
+          DWORD ReservedFlags  :30;
+        };
+      };
+    } PROCESS_MITIGATION_DYNAMIC_CODE_POLICY, *PPROCESS_MITIGATION_DYNAMIC_CODE_POLICY;
+
+    typedef struct _PROCESS_MITIGATION_FONT_DISABLE_POLICY {
+      __C89_NAMELESS union {
+        DWORD  Flags;
+        __C89_NAMELESS struct {
+          DWORD DisableNonSystemFonts  :1;
+          DWORD AuditNonSystemFontLoading  :1;
+          DWORD ReservedFlags  :30;
+        };
+      };
+    } PROCESS_MITIGATION_FONT_DISABLE_POLICY, *PPROCESS_MITIGATION_FONT_DISABLE_POLICY;
+
+    typedef struct _PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
+      __C89_NAMELESS union {
+        DWORD  Flags;
+        __C89_NAMELESS struct {
+          DWORD NoRemoteImages  :1;
+          DWORD NoLowMandatoryLabelImages  :1;
+          DWORD PreferSystem32Images  :1;
+          DWORD ReservedFlags  :29;
+        };
+      };
+    } PROCESS_MITIGATION_IMAGE_LOAD_POLICY, *PPROCESS_MITIGATION_IMAGE_LOAD_POLICY;
 
     typedef struct _JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
       LARGE_INTEGER TotalUserTime;
