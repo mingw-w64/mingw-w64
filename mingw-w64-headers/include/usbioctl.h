@@ -15,6 +15,7 @@
 #ifndef __USBIOCTL_H__
 #define __USBIOCTL_H__
 
+#include <minwindef.h>
 #include <winapifamily.h>
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
@@ -251,7 +252,7 @@ typedef struct _USB_NODE_CONNECTION_INFORMATION_EX {
   USB_CONNECTION_STATUS ConnectionStatus;
   USB_PIPE_INFO PipeList[0];
 } USB_NODE_CONNECTION_INFORMATION_EX,*PUSB_NODE_CONNECTION_INFORMATION_EX;
-;
+
 #if _WIN32_WINNT >= 0x0600
 typedef union _USB_HUB_CAP_FLAGS {
   ULONG ul;
