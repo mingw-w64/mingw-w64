@@ -1935,6 +1935,12 @@ static FORCEINLINE HRESULT IDXGIOutput3_CheckOverlaySupport(IDXGIOutput3* This,D
 
 #endif  /* __IDXGIOutput3_INTERFACE_DEFINED__ */
 
+#define DXGI_CREATE_FACTORY_DEBUG (0x1)
+
+HRESULT __stdcall  CreateDXGIFactory2(UINT flags,REFIID iid,void **factory);
+
+HRESULT __stdcall  DXGIGetDebugInterface1(UINT flags,REFIID iid,void **debug);
+
 /* Begin additional prototypes for all interfaces */
 
 
