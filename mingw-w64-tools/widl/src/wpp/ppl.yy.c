@@ -1,8 +1,8 @@
-#line 2 "ppl.yy.c"
+#line 1 "ppl.yy.c"
 #include "config.h"
 #include "wine/port.h"
 
-#line 6 "ppl.yy.c"
+#line 5 "ppl.yy.c"
 
 #define  YY_INT_ALIGNED short int
 
@@ -10,11 +10,17 @@
 
 #define yy_create_buffer ppy__create_buffer
 #define yy_delete_buffer ppy__delete_buffer
-#define yy_flex_debug ppy__flex_debug
+#define yy_scan_buffer ppy__scan_buffer
+#define yy_scan_string ppy__scan_string
+#define yy_scan_bytes ppy__scan_bytes
 #define yy_init_buffer ppy__init_buffer
 #define yy_flush_buffer ppy__flush_buffer
 #define yy_load_buffer_state ppy__load_buffer_state
 #define yy_switch_to_buffer ppy__switch_to_buffer
+#define yypush_buffer_state ppy_push_buffer_state
+#define yypop_buffer_state ppy_pop_buffer_state
+#define yyensure_buffer_stack ppy_ensure_buffer_stack
+#define yy_flex_debug ppy__flex_debug
 #define yyin ppy_in
 #define yyleng ppy_leng
 #define yylex ppy_lex
@@ -30,9 +36,243 @@
 #define FLEX_SCANNER
 #define YY_FLEX_MAJOR_VERSION 2
 #define YY_FLEX_MINOR_VERSION 6
-#define YY_FLEX_SUBMINOR_VERSION 1
+#define YY_FLEX_SUBMINOR_VERSION 4
 #if YY_FLEX_SUBMINOR_VERSION > 0
 #define FLEX_BETA
+#endif
+
+#ifdef yy_create_buffer
+#define ppy__create_buffer_ALREADY_DEFINED
+#else
+#define yy_create_buffer ppy__create_buffer
+#endif
+
+#ifdef yy_delete_buffer
+#define ppy__delete_buffer_ALREADY_DEFINED
+#else
+#define yy_delete_buffer ppy__delete_buffer
+#endif
+
+#ifdef yy_scan_buffer
+#define ppy__scan_buffer_ALREADY_DEFINED
+#else
+#define yy_scan_buffer ppy__scan_buffer
+#endif
+
+#ifdef yy_scan_string
+#define ppy__scan_string_ALREADY_DEFINED
+#else
+#define yy_scan_string ppy__scan_string
+#endif
+
+#ifdef yy_scan_bytes
+#define ppy__scan_bytes_ALREADY_DEFINED
+#else
+#define yy_scan_bytes ppy__scan_bytes
+#endif
+
+#ifdef yy_init_buffer
+#define ppy__init_buffer_ALREADY_DEFINED
+#else
+#define yy_init_buffer ppy__init_buffer
+#endif
+
+#ifdef yy_flush_buffer
+#define ppy__flush_buffer_ALREADY_DEFINED
+#else
+#define yy_flush_buffer ppy__flush_buffer
+#endif
+
+#ifdef yy_load_buffer_state
+#define ppy__load_buffer_state_ALREADY_DEFINED
+#else
+#define yy_load_buffer_state ppy__load_buffer_state
+#endif
+
+#ifdef yy_switch_to_buffer
+#define ppy__switch_to_buffer_ALREADY_DEFINED
+#else
+#define yy_switch_to_buffer ppy__switch_to_buffer
+#endif
+
+#ifdef yypush_buffer_state
+#define ppy_push_buffer_state_ALREADY_DEFINED
+#else
+#define yypush_buffer_state ppy_push_buffer_state
+#endif
+
+#ifdef yypop_buffer_state
+#define ppy_pop_buffer_state_ALREADY_DEFINED
+#else
+#define yypop_buffer_state ppy_pop_buffer_state
+#endif
+
+#ifdef yyensure_buffer_stack
+#define ppy_ensure_buffer_stack_ALREADY_DEFINED
+#else
+#define yyensure_buffer_stack ppy_ensure_buffer_stack
+#endif
+
+#ifdef yylex
+#define ppy_lex_ALREADY_DEFINED
+#else
+#define yylex ppy_lex
+#endif
+
+#ifdef yyrestart
+#define ppy_restart_ALREADY_DEFINED
+#else
+#define yyrestart ppy_restart
+#endif
+
+#ifdef yylex_init
+#define ppy_lex_init_ALREADY_DEFINED
+#else
+#define yylex_init ppy_lex_init
+#endif
+
+#ifdef yylex_init_extra
+#define ppy_lex_init_extra_ALREADY_DEFINED
+#else
+#define yylex_init_extra ppy_lex_init_extra
+#endif
+
+#ifdef yylex_destroy
+#define ppy_lex_destroy_ALREADY_DEFINED
+#else
+#define yylex_destroy ppy_lex_destroy
+#endif
+
+#ifdef yyget_debug
+#define ppy_get_debug_ALREADY_DEFINED
+#else
+#define yyget_debug ppy_get_debug
+#endif
+
+#ifdef yyset_debug
+#define ppy_set_debug_ALREADY_DEFINED
+#else
+#define yyset_debug ppy_set_debug
+#endif
+
+#ifdef yyget_extra
+#define ppy_get_extra_ALREADY_DEFINED
+#else
+#define yyget_extra ppy_get_extra
+#endif
+
+#ifdef yyset_extra
+#define ppy_set_extra_ALREADY_DEFINED
+#else
+#define yyset_extra ppy_set_extra
+#endif
+
+#ifdef yyget_in
+#define ppy_get_in_ALREADY_DEFINED
+#else
+#define yyget_in ppy_get_in
+#endif
+
+#ifdef yyset_in
+#define ppy_set_in_ALREADY_DEFINED
+#else
+#define yyset_in ppy_set_in
+#endif
+
+#ifdef yyget_out
+#define ppy_get_out_ALREADY_DEFINED
+#else
+#define yyget_out ppy_get_out
+#endif
+
+#ifdef yyset_out
+#define ppy_set_out_ALREADY_DEFINED
+#else
+#define yyset_out ppy_set_out
+#endif
+
+#ifdef yyget_leng
+#define ppy_get_leng_ALREADY_DEFINED
+#else
+#define yyget_leng ppy_get_leng
+#endif
+
+#ifdef yyget_text
+#define ppy_get_text_ALREADY_DEFINED
+#else
+#define yyget_text ppy_get_text
+#endif
+
+#ifdef yyget_lineno
+#define ppy_get_lineno_ALREADY_DEFINED
+#else
+#define yyget_lineno ppy_get_lineno
+#endif
+
+#ifdef yyset_lineno
+#define ppy_set_lineno_ALREADY_DEFINED
+#else
+#define yyset_lineno ppy_set_lineno
+#endif
+
+#ifdef yywrap
+#define ppy_wrap_ALREADY_DEFINED
+#else
+#define yywrap ppy_wrap
+#endif
+
+#ifdef yyalloc
+#define ppy_alloc_ALREADY_DEFINED
+#else
+#define yyalloc ppy_alloc
+#endif
+
+#ifdef yyrealloc
+#define ppy_realloc_ALREADY_DEFINED
+#else
+#define yyrealloc ppy_realloc
+#endif
+
+#ifdef yyfree
+#define ppy_free_ALREADY_DEFINED
+#else
+#define yyfree ppy_free
+#endif
+
+#ifdef yytext
+#define ppy_text_ALREADY_DEFINED
+#else
+#define yytext ppy_text
+#endif
+
+#ifdef yyleng
+#define ppy_leng_ALREADY_DEFINED
+#else
+#define yyleng ppy_leng
+#endif
+
+#ifdef yyin
+#define ppy_in_ALREADY_DEFINED
+#else
+#define yyin ppy_in
+#endif
+
+#ifdef yyout
+#define ppy_out_ALREADY_DEFINED
+#else
+#define yyout ppy_out
+#endif
+
+#ifdef yy_flex_debug
+#define ppy__flex_debug_ALREADY_DEFINED
+#else
+#define yy_flex_debug ppy__flex_debug
+#endif
+
+#ifdef yylineno
+#define ppy_lineno_ALREADY_DEFINED
+#else
+#define yylineno ppy_lineno
 #endif
 
 /* First, we deal with  platform-specific or compiler-specific issues. */
@@ -105,9 +345,15 @@ typedef unsigned int flex_uint32_t;
 #define UINT32_MAX             (4294967295U)
 #endif
 
+#ifndef SIZE_MAX
+#define SIZE_MAX               (~(size_t)0)
+#endif
+
 #endif /* ! C99 */
 
 #endif /* ! FLEXINT_H */
+
+/* begin standard C++ headers. */
 
 /* TODO: this is always defined, so inline it */
 #define yyconst const
@@ -121,32 +367,26 @@ typedef unsigned int flex_uint32_t;
 /* Returned upon end-of-file. */
 #define YY_NULL 0
 
-/* Promotes a possibly negative, possibly signed char to an unsigned
- * integer for use as an array index.  If the signed char is negative,
- * we want to instead treat it as an 8-bit unsigned char, hence the
- * double cast.
+/* Promotes a possibly negative, possibly signed char to an
+ *   integer in range [0..255] for use as an array index.
  */
-#define YY_SC_TO_UI(c) ((unsigned int) (unsigned char) c)
+#define YY_SC_TO_UI(c) ((YY_CHAR) (c))
 
 /* Enter a start condition.  This macro really ought to take a parameter,
  * but we do it the disgusting crufty way forced on us by the ()-less
  * definition of BEGIN.
  */
 #define BEGIN (yy_start) = 1 + 2 *
-
 /* Translate the current start state into a value that can be later handed
  * to BEGIN to return to the state.  The YYSTATE alias is for lex
  * compatibility.
  */
 #define YY_START (((yy_start) - 1) / 2)
 #define YYSTATE YY_START
-
 /* Action number for EOF rule of a given start state. */
 #define YY_STATE_EOF(state) (YY_END_OF_BUFFER + state + 1)
-
 /* Special action meaning "start processing a new file". */
-#define YY_NEW_FILE ppy_restart(ppy_in  )
-
+#define YY_NEW_FILE yyrestart( yyin  )
 #define YY_END_OF_BUFFER_CHAR 0
 
 /* Size of default input buffer. */
@@ -176,14 +416,14 @@ typedef struct yy_buffer_state *YY_BUFFER_STATE;
 typedef size_t yy_size_t;
 #endif
 
-extern int ppy_leng;
+extern int yyleng;
 
-extern FILE *ppy_in, *ppy_out;
+extern FILE *yyin, *yyout;
 
 #define EOB_ACT_CONTINUE_SCAN 0
 #define EOB_ACT_END_OF_FILE 1
 #define EOB_ACT_LAST_MATCH 2
-
+    
     #define YY_LESS_LINENO(n)
     #define YY_LINENO_REWIND_TO(ptr)
     
@@ -191,16 +431,15 @@ extern FILE *ppy_in, *ppy_out;
 #define yyless(n) \
 	do \
 		{ \
-		/* Undo effects of setting up ppy_text. */ \
+		/* Undo effects of setting up yytext. */ \
         int yyless_macro_arg = (n); \
         YY_LESS_LINENO(yyless_macro_arg);\
 		*yy_cp = (yy_hold_char); \
 		YY_RESTORE_YY_MORE_OFFSET \
 		(yy_c_buf_p) = yy_cp = yy_bp + yyless_macro_arg - YY_MORE_ADJ; \
-		YY_DO_BEFORE_ACTION; /* set up ppy_text again */ \
+		YY_DO_BEFORE_ACTION; /* set up yytext again */ \
 		} \
 	while ( 0 )
-
 #define unput(c) yyunput( c, (yytext_ptr)  )
 
 #ifndef YY_STRUCT_YY_BUFFER_STATE
@@ -243,7 +482,7 @@ struct yy_buffer_state
 
     int yy_bs_lineno; /**< The line count. */
     int yy_bs_column; /**< The column count. */
-    
+
 	/* Whether to try to fill the input buffer when we reach the
 	 * end of it.
 	 */
@@ -260,8 +499,8 @@ struct yy_buffer_state
 	 * possible backing-up.
 	 *
 	 * When we actually see the EOF, we change the status to "new"
-	 * (via ppy_restart()), so that the user can continue scanning by
-	 * just pointing ppy_in at a new input file.
+	 * (via yyrestart()), so that the user can continue scanning by
+	 * just pointing yyin at a new input file.
 	 */
 #define YY_BUFFER_EOF_PENDING 2
 
@@ -282,106 +521,98 @@ static YY_BUFFER_STATE * yy_buffer_stack = NULL; /**< Stack as an array. */
 #define YY_CURRENT_BUFFER ( (yy_buffer_stack) \
                           ? (yy_buffer_stack)[(yy_buffer_stack_top)] \
                           : NULL)
-
 /* Same as previous macro, but useful when we know that the buffer stack is not
  * NULL or when we need an lvalue. For internal use only.
  */
 #define YY_CURRENT_BUFFER_LVALUE (yy_buffer_stack)[(yy_buffer_stack_top)]
 
-/* yy_hold_char holds the character lost when ppy_text is formed. */
+/* yy_hold_char holds the character lost when yytext is formed. */
 static char yy_hold_char;
 static int yy_n_chars;		/* number of characters read into yy_ch_buf */
-int ppy_leng;
+int yyleng;
 
 /* Points to current character in buffer. */
 static char *yy_c_buf_p = NULL;
 static int yy_init = 0;		/* whether we need to initialize */
 static int yy_start = 0;	/* start state number */
 
-/* Flag which is used to allow ppy_wrap()'s to do buffer switches
- * instead of setting up a fresh ppy_in.  A bit of a hack ...
+/* Flag which is used to allow yywrap()'s to do buffer switches
+ * instead of setting up a fresh yyin.  A bit of a hack ...
  */
 static int yy_did_buffer_switch_on_eof;
 
-void ppy_restart (FILE *input_file  );
-void ppy__switch_to_buffer (YY_BUFFER_STATE new_buffer  );
-YY_BUFFER_STATE ppy__create_buffer (FILE *file,int size  );
-void ppy__delete_buffer (YY_BUFFER_STATE b  );
-void ppy__flush_buffer (YY_BUFFER_STATE b  );
-void ppy_push_buffer_state (YY_BUFFER_STATE new_buffer  );
-void ppy_pop_buffer_state (void );
+void yyrestart ( FILE *input_file  );
+void yy_switch_to_buffer ( YY_BUFFER_STATE new_buffer  );
+YY_BUFFER_STATE yy_create_buffer ( FILE *file, int size  );
+void yy_delete_buffer ( YY_BUFFER_STATE b  );
+void yy_flush_buffer ( YY_BUFFER_STATE b  );
+void yypush_buffer_state ( YY_BUFFER_STATE new_buffer  );
+void yypop_buffer_state ( void );
 
-static void ppy_ensure_buffer_stack (void );
-static void ppy__load_buffer_state (void );
-static void ppy__init_buffer (YY_BUFFER_STATE b,FILE *file  );
+static void yyensure_buffer_stack ( void );
+static void yy_load_buffer_state ( void );
+static void yy_init_buffer ( YY_BUFFER_STATE b, FILE *file  );
+#define YY_FLUSH_BUFFER yy_flush_buffer( YY_CURRENT_BUFFER )
 
-#define YY_FLUSH_BUFFER ppy__flush_buffer(YY_CURRENT_BUFFER )
+YY_BUFFER_STATE yy_scan_buffer ( char *base, yy_size_t size  );
+YY_BUFFER_STATE yy_scan_string ( const char *yy_str  );
+YY_BUFFER_STATE yy_scan_bytes ( const char *bytes, int len  );
 
-YY_BUFFER_STATE ppy__scan_buffer (char *base,yy_size_t size  );
-YY_BUFFER_STATE ppy__scan_string (yyconst char *yy_str  );
-YY_BUFFER_STATE ppy__scan_bytes (yyconst char *bytes,int len  );
+void *yyalloc ( yy_size_t  );
+void *yyrealloc ( void *, yy_size_t  );
+void yyfree ( void *  );
 
-void *ppy_alloc (yy_size_t  );
-void *ppy_realloc (void *,yy_size_t  );
-void ppy_free (void *  );
-
-#define yy_new_buffer ppy__create_buffer
-
+#define yy_new_buffer yy_create_buffer
 #define yy_set_interactive(is_interactive) \
 	{ \
 	if ( ! YY_CURRENT_BUFFER ){ \
-        ppy_ensure_buffer_stack (); \
+        yyensure_buffer_stack (); \
 		YY_CURRENT_BUFFER_LVALUE =    \
-            ppy__create_buffer(ppy_in,YY_BUF_SIZE ); \
+            yy_create_buffer( yyin, YY_BUF_SIZE ); \
 	} \
 	YY_CURRENT_BUFFER_LVALUE->yy_is_interactive = is_interactive; \
 	}
-
 #define yy_set_bol(at_bol) \
 	{ \
 	if ( ! YY_CURRENT_BUFFER ){\
-        ppy_ensure_buffer_stack (); \
+        yyensure_buffer_stack (); \
 		YY_CURRENT_BUFFER_LVALUE =    \
-            ppy__create_buffer(ppy_in,YY_BUF_SIZE ); \
+            yy_create_buffer( yyin, YY_BUF_SIZE ); \
 	} \
 	YY_CURRENT_BUFFER_LVALUE->yy_at_bol = at_bol; \
 	}
-
 #define YY_AT_BOL() (YY_CURRENT_BUFFER_LVALUE->yy_at_bol)
 
 /* Begin user sect3 */
+typedef flex_uint8_t YY_CHAR;
 
-typedef unsigned char YY_CHAR;
-
-FILE *ppy_in = NULL, *ppy_out = NULL;
+FILE *yyin = NULL, *yyout = NULL;
 
 typedef int yy_state_type;
 
-extern int ppy_lineno;
+extern int yylineno;
+int yylineno = 1;
 
-int ppy_lineno = 1;
-
-extern char *ppy_text;
+extern char *yytext;
 #ifdef yytext_ptr
 #undef yytext_ptr
 #endif
-#define yytext_ptr ppy_text
+#define yytext_ptr yytext
 
-static yy_state_type yy_get_previous_state (void );
-static yy_state_type yy_try_NUL_trans (yy_state_type current_state  );
-static int yy_get_next_buffer (void );
-static void yynoreturn yy_fatal_error (yyconst char* msg  );
+static yy_state_type yy_get_previous_state ( void );
+static yy_state_type yy_try_NUL_trans ( yy_state_type current_state  );
+static int yy_get_next_buffer ( void );
+static void yynoreturn yy_fatal_error ( const char* msg  );
 
 /* Done after the current pattern has been matched and before the
- * corresponding action - sets up ppy_text.
+ * corresponding action - sets up yytext.
  */
 #define YY_DO_BEFORE_ACTION \
 	(yytext_ptr) = yy_bp; \
-	ppy_leng = (int) (yy_cp - yy_bp); \
+	yyleng = (int) (yy_cp - yy_bp); \
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-
 #define YY_NUM_RULES 143
 #define YY_END_OF_BUFFER 144
 /* This struct is not used in this scanner,
@@ -391,7 +622,7 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static yyconst flex_int16_t yy_accept[416] =
+static const flex_int16_t yy_accept[416] =
     {   0,
         0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
         0,    0,    0,    0,  117,  117,    0,    0,    0,    0,
@@ -441,7 +672,7 @@ static yyconst flex_int16_t yy_accept[416] =
         5,   38,    2,    5,    0
     } ;
 
-static yyconst YY_CHAR yy_ec[256] =
+static const YY_CHAR yy_ec[256] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    2,    3,
         2,    2,    4,    1,    1,    1,    1,    1,    1,    1,
@@ -473,7 +704,7 @@ static yyconst YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static yyconst YY_CHAR yy_meta[50] =
+static const YY_CHAR yy_meta[50] =
     {   0,
         1,    2,    3,    2,    1,    4,    5,    1,    6,    7,
         8,    9,    8,   10,   11,   12,   12,   12,    1,    1,
@@ -482,7 +713,7 @@ static yyconst YY_CHAR yy_meta[50] =
        15,   15,   15,   15,   15,   15,   15,   15,    1
     } ;
 
-static yyconst flex_uint16_t yy_base[460] =
+static const flex_int16_t yy_base[460] =
     {   0,
         0,   48,   55,    0,  102,  103,  130,    0,  177,  178,
       179,  182,  186,  187,  104,  107,  214,    0,  261,  262,
@@ -536,7 +767,7 @@ static yyconst flex_uint16_t yy_base[460] =
      1758, 1775, 1792, 1800, 1817, 1834, 1851, 1056, 1868
     } ;
 
-static yyconst flex_int16_t yy_def[460] =
+static const flex_int16_t yy_def[460] =
     {   0,
       415,    1,  415,    3,  416,  416,  415,    7,  417,  417,
       418,  418,  419,  419,  420,  420,  415,   17,  421,  421,
@@ -590,7 +821,7 @@ static yyconst flex_int16_t yy_def[460] =
       415,  415,  415,  415,  415,  415,  415,  415,  415
     } ;
 
-static yyconst flex_uint16_t yy_nxt[1936] =
+static const flex_int16_t yy_nxt[1936] =
     {   0,
        46,   47,   48,   47,   46,   49,   50,   46,   51,   46,
        46,   46,   46,   46,   52,   46,   46,   46,   46,   46,
@@ -807,7 +1038,7 @@ static yyconst flex_uint16_t yy_nxt[1936] =
       415,  415,  415,  415,  415
     } ;
 
-static yyconst flex_int16_t yy_chk[1936] =
+static const flex_int16_t yy_chk[1936] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -1027,8 +1258,8 @@ static yyconst flex_int16_t yy_chk[1936] =
 static yy_state_type yy_last_accepting_state;
 static char *yy_last_accepting_cpos;
 
-extern int ppy__flex_debug;
-int ppy__flex_debug = 0;
+extern int yy_flex_debug;
+int yy_flex_debug = 0;
 
 /* The intent behind this definition is that it'll catch
  * any uses of REJECT which flex missed.
@@ -1037,7 +1268,7 @@ int ppy__flex_debug = 0;
 #define yymore() yymore_used_but_not_detected
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
-char *ppy_text;
+char *yytext;
 #line 1 "ppl.l"
 /* -*-C-*-
  * Wrc preprocessor lexical analysis
@@ -1382,12 +1613,13 @@ void pp_writestring(const char *format, ...)
 	wpp_callbacks->write(buffer, len);
 }
 
+#line 1616 "ppl.yy.c"
 /*
  **************************************************************************
  * The scanner starts here
  **************************************************************************
  */
-#line 1391 "ppl.yy.c"
+#line 1622 "ppl.yy.c"
 
 #define INITIAL 0
 #define pp_pp 1
@@ -1424,36 +1656,36 @@ void pp_writestring(const char *format, ...)
 #define YY_EXTRA_TYPE void *
 #endif
 
-static int yy_init_globals (void );
+static int yy_init_globals ( void );
 
 /* Accessor methods to globals.
    These are made visible to non-reentrant scanners for convenience. */
 
-int ppy_lex_destroy (void );
+int yylex_destroy ( void );
 
-int ppy_get_debug (void );
+int yyget_debug ( void );
 
-void ppy_set_debug (int debug_flag  );
+void yyset_debug ( int debug_flag  );
 
-YY_EXTRA_TYPE ppy_get_extra (void );
+YY_EXTRA_TYPE yyget_extra ( void );
 
-void ppy_set_extra (YY_EXTRA_TYPE user_defined  );
+void yyset_extra ( YY_EXTRA_TYPE user_defined  );
 
-FILE *ppy_get_in (void );
+FILE *yyget_in ( void );
 
-void ppy_set_in  (FILE * _in_str  );
+void yyset_in  ( FILE * _in_str  );
 
-FILE *ppy_get_out (void );
+FILE *yyget_out ( void );
 
-void ppy_set_out  (FILE * _out_str  );
+void yyset_out  ( FILE * _out_str  );
 
-			int ppy_get_leng (void );
+			int yyget_leng ( void );
 
-char *ppy_get_text (void );
+char *yyget_text ( void );
 
-int ppy_get_lineno (void );
+int yyget_lineno ( void );
 
-void ppy_set_lineno (int _line_number  );
+void yyset_lineno ( int _line_number  );
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -1461,9 +1693,9 @@ void ppy_set_lineno (int _line_number  );
 
 #ifndef YY_SKIP_YYWRAP
 #ifdef __cplusplus
-extern "C" int ppy_wrap (void );
+extern "C" int yywrap ( void );
 #else
-extern int ppy_wrap (void );
+extern int yywrap ( void );
 #endif
 #endif
 
@@ -1472,19 +1704,18 @@ extern int ppy_wrap (void );
 #endif
 
 #ifndef yytext_ptr
-static void yy_flex_strncpy (char *,yyconst char *,int );
+static void yy_flex_strncpy ( char *, const char *, int );
 #endif
 
 #ifdef YY_NEED_STRLEN
-static int yy_flex_strlen (yyconst char * );
+static int yy_flex_strlen ( const char * );
 #endif
 
 #ifndef YY_NO_INPUT
-
 #ifdef __cplusplus
-static int yyinput (void );
+static int yyinput ( void );
 #else
-static int input (void );
+static int input ( void );
 #endif
 
 #endif
@@ -1493,11 +1724,11 @@ static int input (void );
         static int yy_start_stack_depth = 0;
         static int *yy_start_stack = NULL;
     
-    static void yy_push_state (int _new_state );
+    static void yy_push_state ( int _new_state );
     
-    static void yy_pop_state (void );
+    static void yy_pop_state ( void );
     
-    static int yy_top_state (void );
+    static int yy_top_state ( void );
     
 /* Amount of stuff to slurp up with each read. */
 #ifndef YY_READ_BUF_SIZE
@@ -1514,7 +1745,7 @@ static int input (void );
 /* This used to be an fputs(), but since the string might contain NUL's,
  * we now use fwrite().
  */
-#define ECHO do { if (fwrite( ppy_text, (size_t) ppy_leng, 1, ppy_out )) {} } while (0)
+#define ECHO do { if (fwrite( yytext, (size_t) yyleng, 1, yyout )) {} } while (0)
 #endif
 
 /* Gets input and stuffs it into "buf".  number of characters read, or YY_NULL,
@@ -1525,20 +1756,20 @@ static int input (void );
 	if ( YY_CURRENT_BUFFER_LVALUE->yy_is_interactive ) \
 		{ \
 		int c = '*'; \
-		size_t n; \
+		int n; \
 		for ( n = 0; n < max_size && \
-			     (c = getc( ppy_in )) != EOF && c != '\n'; ++n ) \
+			     (c = getc( yyin )) != EOF && c != '\n'; ++n ) \
 			buf[n] = (char) c; \
 		if ( c == '\n' ) \
 			buf[n++] = (char) c; \
-		if ( c == EOF && ferror( ppy_in ) ) \
+		if ( c == EOF && ferror( yyin ) ) \
 			YY_FATAL_ERROR( "input in flex scanner failed" ); \
 		result = n; \
 		} \
 	else \
 		{ \
 		errno=0; \
-		while ( (result = (int) fread(buf, 1, max_size, ppy_in))==0 && ferror(ppy_in)) \
+		while ( (result = (int) fread(buf, 1, (yy_size_t) max_size, yyin)) == 0 && ferror(yyin)) \
 			{ \
 			if( errno != EINTR) \
 				{ \
@@ -1546,7 +1777,7 @@ static int input (void );
 				break; \
 				} \
 			errno=0; \
-			clearerr(ppy_in); \
+			clearerr(yyin); \
 			} \
 		}\
 \
@@ -1579,12 +1810,12 @@ static int input (void );
 #ifndef YY_DECL
 #define YY_DECL_IS_OURS 1
 
-extern int ppy_lex (void);
+extern int yylex (void);
 
-#define YY_DECL int ppy_lex (void)
+#define YY_DECL int yylex (void)
 #endif /* !YY_DECL */
 
-/* Code executed at the beginning of each rule, after ppy_text and ppy_leng
+/* Code executed at the beginning of each rule, after yytext and yyleng
  * have been set up.
  */
 #ifndef YY_USER_ACTION
@@ -1597,9 +1828,9 @@ extern int ppy_lex (void);
 #endif
 
 #define YY_RULE_SETUP \
-	if ( ppy_leng > 0 ) \
+	if ( yyleng > 0 ) \
 		YY_CURRENT_BUFFER_LVALUE->yy_at_bol = \
-				(ppy_text[ppy_leng - 1] == '\n'); \
+				(yytext[yyleng - 1] == '\n'); \
 	YY_USER_ACTION
 
 /** The main scanner function which does all the work.
@@ -1621,24 +1852,25 @@ YY_DECL
 		if ( ! (yy_start) )
 			(yy_start) = 1;	/* first start state */
 
-		if ( ! ppy_in )
-			ppy_in = stdin;
+		if ( ! yyin )
+			yyin = stdin;
 
-		if ( ! ppy_out )
-			ppy_out = stdout;
+		if ( ! yyout )
+			yyout = stdout;
 
 		if ( ! YY_CURRENT_BUFFER ) {
-			ppy_ensure_buffer_stack ();
+			yyensure_buffer_stack ();
 			YY_CURRENT_BUFFER_LVALUE =
-				ppy__create_buffer(ppy_in,YY_BUF_SIZE );
+				yy_create_buffer( yyin, YY_BUF_SIZE );
 		}
 
-		ppy__load_buffer_state( );
+		yy_load_buffer_state(  );
 		}
 
 	{
 #line 366 "ppl.l"
 
+#line 368 "ppl.l"
 	/*
 	 * Catch line-continuations.
 	 * Note: Gcc keeps the line-continuations in, for example, strings
@@ -1651,13 +1883,13 @@ YY_DECL
 	/*
 	 * Detect the leading # of a preprocessor directive.
 	 */
-#line 1655 "ppl.yy.c"
+#line 1886 "ppl.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
 		yy_cp = (yy_c_buf_p);
 
-		/* Support of ppy_text. */
+		/* Support of yytext. */
 		*yy_cp = (yy_hold_char);
 
 		/* yy_bp points to the position in yy_ch_buf of the start of
@@ -1680,9 +1912,9 @@ yy_match:
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
 				if ( yy_current_state >= 416 )
-					yy_c = yy_meta[(unsigned int) yy_c];
+					yy_c = yy_meta[yy_c];
 				}
-			yy_current_state = yy_nxt[yy_base[yy_current_state] + (flex_int16_t) yy_c];
+			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
 		while ( yy_current_state != 415 );
@@ -1707,7 +1939,7 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 379 "ppl.l"
+#line 380 "ppl.l"
 pp_incl_state.seen_junk++; yy_push_state(pp_pp);
 	YY_BREAK
 /*
@@ -1715,104 +1947,104 @@ pp_incl_state.seen_junk++; yy_push_state(pp_pp);
 	 */
 case 2:
 YY_RULE_SETUP
-#line 384 "ppl.l"
+#line 385 "ppl.l"
 if(yy_top_state() != pp_ignore) {yy_pp_state(pp_inc); return tINCLUDE;} else {yy_pp_state(pp_eol);}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 385 "ppl.l"
+#line 386 "ppl.l"
 yy_pp_state(yy_current_state() != pp_ignore ? pp_def : pp_eol);
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 386 "ppl.l"
+#line 387 "ppl.l"
 yy_pp_state(pp_eol);	if(yy_top_state() != pp_ignore) return tERROR;
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 387 "ppl.l"
+#line 388 "ppl.l"
 yy_pp_state(pp_eol);	if(yy_top_state() != pp_ignore) return tWARNING;
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 388 "ppl.l"
+#line 389 "ppl.l"
 yy_pp_state(pp_eol);	if(yy_top_state() != pp_ignore) return tPRAGMA;
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 389 "ppl.l"
+#line 390 "ppl.l"
 yy_pp_state(pp_eol);	if(yy_top_state() != pp_ignore) return tPPIDENT;
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 390 "ppl.l"
+#line 391 "ppl.l"
 if(yy_top_state() != pp_ignore) {yy_pp_state(pp_ifd); return tUNDEF;} else {yy_pp_state(pp_eol);}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 391 "ppl.l"
+#line 392 "ppl.l"
 yy_pp_state(pp_ifd);	return tIFDEF;
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 392 "ppl.l"
+#line 393 "ppl.l"
 pp_incl_state.seen_junk--; yy_pp_state(pp_ifd);	return tIFNDEF;
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 393 "ppl.l"
+#line 394 "ppl.l"
 yy_pp_state(pp_if);	return tIF;
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 394 "ppl.l"
+#line 395 "ppl.l"
 yy_pp_state(pp_if);	return tELIF;
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 395 "ppl.l"
+#line 396 "ppl.l"
 yy_pp_state(pp_endif);  return tELSE;
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 396 "ppl.l"
+#line 397 "ppl.l"
 yy_pp_state(pp_endif);  return tENDIF;
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 397 "ppl.l"
+#line 398 "ppl.l"
 if(yy_top_state() != pp_ignore) {yy_pp_state(pp_line); return tLINE;} else {yy_pp_state(pp_eol);}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 398 "ppl.l"
+#line 399 "ppl.l"
 if(yy_top_state() != pp_ignore) {yy_pp_state(pp_line); return tGCCLINE;} else {yy_pp_state(pp_eol);}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 399 "ppl.l"
+#line 400 "ppl.l"
 ppy_error("Invalid preprocessor token '%s'", ppy_text);
 	YY_BREAK
 case 18:
 /* rule 18 can match eol */
 YY_RULE_SETUP
-#line 400 "ppl.l"
+#line 401 "ppl.l"
 newline(1); yy_pop_state(); return tNL;	/* This could be the null-token */
 	YY_BREAK
 case 19:
 /* rule 19 can match eol */
 YY_RULE_SETUP
-#line 401 "ppl.l"
+#line 402 "ppl.l"
 newline(0);
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 402 "ppl.l"
+#line 403 "ppl.l"
 ppy_error("Preprocessor junk '%s'", ppy_text);
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 403 "ppl.l"
+#line 404 "ppl.l"
 return *ppy_text;
 	YY_BREAK
 /*
@@ -1820,39 +2052,39 @@ return *ppy_text;
 	 */
 case 22:
 YY_RULE_SETUP
-#line 408 "ppl.l"
+#line 409 "ppl.l"
 return make_number(10, &ppy_lval, ppy_text, ppy_leng);
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 409 "ppl.l"
+#line 410 "ppl.l"
 new_string(); add_string(ppy_text, ppy_leng); yy_push_state(pp_iqs);
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 410 "ppl.l"
+#line 411 "ppl.l"
 new_string(); add_string(ppy_text, ppy_leng); yy_push_state(pp_dqs);
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 411 "ppl.l"
+#line 412 "ppl.l"
 ;
 	YY_BREAK
 case 26:
 /* rule 26 can match eol */
 YY_RULE_SETUP
-#line 412 "ppl.l"
+#line 413 "ppl.l"
 newline(1); yy_pop_state(); return tNL;
 	YY_BREAK
 case 27:
 /* rule 27 can match eol */
 YY_RULE_SETUP
-#line 413 "ppl.l"
+#line 414 "ppl.l"
 newline(0);
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 414 "ppl.l"
+#line 415 "ppl.l"
 ppy_error(yy_current_state() == pp_inc ? "Trailing junk in #include" : "Trailing junk in #line");
 	YY_BREAK
 /*
@@ -1860,24 +2092,24 @@ ppy_error(yy_current_state() == pp_inc ? "Trailing junk in #include" : "Trailing
 	 */
 case 29:
 YY_RULE_SETUP
-#line 419 "ppl.l"
+#line 420 "ppl.l"
 ;
 	YY_BREAK
 case 30:
 /* rule 30 can match eol */
 YY_RULE_SETUP
-#line 420 "ppl.l"
+#line 421 "ppl.l"
 newline(1);
 	YY_BREAK
 case 31:
 /* rule 31 can match eol */
 YY_RULE_SETUP
-#line 421 "ppl.l"
+#line 422 "ppl.l"
 newline(0);
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 422 "ppl.l"
+#line 423 "ppl.l"
 ;
 	YY_BREAK
 /*
@@ -1888,109 +2120,109 @@ YY_RULE_SETUP
 	 */
 case 33:
 YY_RULE_SETUP
-#line 431 "ppl.l"
+#line 432 "ppl.l"
 return make_number(8, &ppy_lval, ppy_text, ppy_leng);
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 432 "ppl.l"
+#line 433 "ppl.l"
 ppy_error("Invalid octal digit");
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 433 "ppl.l"
+#line 434 "ppl.l"
 return make_number(10, &ppy_lval, ppy_text, ppy_leng);
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 434 "ppl.l"
+#line 435 "ppl.l"
 return make_number(16, &ppy_lval, ppy_text, ppy_leng);
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 435 "ppl.l"
+#line 436 "ppl.l"
 ppy_error("Invalid hex number");
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 436 "ppl.l"
+#line 437 "ppl.l"
 yy_push_state(pp_defined); return tDEFINED;
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 437 "ppl.l"
+#line 438 "ppl.l"
 return tLSHIFT;
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 438 "ppl.l"
+#line 439 "ppl.l"
 return tRSHIFT;
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 439 "ppl.l"
+#line 440 "ppl.l"
 return tLOGAND;
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 440 "ppl.l"
+#line 441 "ppl.l"
 return tLOGOR;
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 441 "ppl.l"
+#line 442 "ppl.l"
 return tEQ;
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 442 "ppl.l"
+#line 443 "ppl.l"
 return tNE;
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 443 "ppl.l"
+#line 444 "ppl.l"
 return tLTE;
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 444 "ppl.l"
+#line 445 "ppl.l"
 return tGTE;
 	YY_BREAK
 case 47:
 /* rule 47 can match eol */
 YY_RULE_SETUP
-#line 445 "ppl.l"
+#line 446 "ppl.l"
 newline(1); yy_pop_state(); return tNL;
 	YY_BREAK
 case 48:
 /* rule 48 can match eol */
 YY_RULE_SETUP
-#line 446 "ppl.l"
+#line 447 "ppl.l"
 newline(0);
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 447 "ppl.l"
+#line 448 "ppl.l"
 ppy_error("Junk in conditional expression");
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 448 "ppl.l"
+#line 449 "ppl.l"
 ;
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 449 "ppl.l"
+#line 450 "ppl.l"
 new_string(); add_string(ppy_text, ppy_leng); yy_push_state(pp_sqs);
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 450 "ppl.l"
+#line 451 "ppl.l"
 ppy_error("String constants not allowed in conditionals");
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 451 "ppl.l"
+#line 452 "ppl.l"
 return *ppy_text;
 	YY_BREAK
 /*
@@ -1999,29 +2231,29 @@ return *ppy_text;
 	 */
 case 54:
 YY_RULE_SETUP
-#line 457 "ppl.l"
+#line 458 "ppl.l"
 ppy_lval.cptr = pp_xstrdup(ppy_text); return tIDENT;
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 458 "ppl.l"
+#line 459 "ppl.l"
 ;
 	YY_BREAK
 case 56:
 /* rule 56 can match eol */
 YY_RULE_SETUP
-#line 459 "ppl.l"
+#line 460 "ppl.l"
 newline(1); yy_pop_state(); return tNL;
 	YY_BREAK
 case 57:
 /* rule 57 can match eol */
 YY_RULE_SETUP
-#line 460 "ppl.l"
+#line 461 "ppl.l"
 newline(0);
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 461 "ppl.l"
+#line 462 "ppl.l"
 ppy_error("Identifier expected");
 	YY_BREAK
 /*
@@ -2029,24 +2261,24 @@ ppy_error("Identifier expected");
 	 */
 case 59:
 YY_RULE_SETUP
-#line 466 "ppl.l"
+#line 467 "ppl.l"
 ;
 	YY_BREAK
 case 60:
 /* rule 60 can match eol */
 YY_RULE_SETUP
-#line 467 "ppl.l"
+#line 468 "ppl.l"
 newline(1); yy_pop_state(); return tNL;
 	YY_BREAK
 case 61:
 /* rule 61 can match eol */
 YY_RULE_SETUP
-#line 468 "ppl.l"
+#line 469 "ppl.l"
 newline(0);
 	YY_BREAK
 case 62:
 YY_RULE_SETUP
-#line 469 "ppl.l"
+#line 470 "ppl.l"
 ppy_error("Garbage after #else or #endif.");
 	YY_BREAK
 /*
@@ -2056,29 +2288,29 @@ ppy_error("Garbage after #else or #endif.");
 	 */
 case 63:
 YY_RULE_SETUP
-#line 476 "ppl.l"
+#line 477 "ppl.l"
 yy_pop_state(); ppy_lval.cptr = pp_xstrdup(ppy_text); return tIDENT;
 	YY_BREAK
 case 64:
 YY_RULE_SETUP
-#line 477 "ppl.l"
+#line 478 "ppl.l"
 ;
 	YY_BREAK
 case 65:
 YY_RULE_SETUP
-#line 478 "ppl.l"
+#line 479 "ppl.l"
 return *ppy_text;
 	YY_BREAK
 case 66:
 /* rule 66 can match eol */
 YY_RULE_SETUP
-#line 479 "ppl.l"
+#line 480 "ppl.l"
 newline(0);
 	YY_BREAK
 case 67:
 /* rule 67 can match eol */
 YY_RULE_SETUP
-#line 480 "ppl.l"
+#line 481 "ppl.l"
 ppy_error("Identifier expected");
 	YY_BREAK
 /*
@@ -2089,30 +2321,30 @@ ppy_error("Identifier expected");
 	 */
 case 68:
 YY_RULE_SETUP
-#line 488 "ppl.l"
+#line 489 "ppl.l"
 if(yy_top_state() != pp_ignore) { ppy_lval.cptr = pp_xstrdup(ppy_text); return tLITERAL; }
 	YY_BREAK
 case 69:
 YY_RULE_SETUP
-#line 489 "ppl.l"
+#line 490 "ppl.l"
 if(yy_top_state() != pp_ignore) { ppy_lval.cptr = pp_xstrdup(ppy_text); return tLITERAL; }
 	YY_BREAK
 case 70:
 /* rule 70 can match eol */
 YY_RULE_SETUP
-#line 490 "ppl.l"
+#line 491 "ppl.l"
 if(yy_top_state() != pp_ignore) { ppy_lval.cptr = pp_xstrdup(ppy_text); return tLITERAL; }
 	YY_BREAK
 case 71:
 /* rule 71 can match eol */
 YY_RULE_SETUP
-#line 491 "ppl.l"
+#line 492 "ppl.l"
 newline(1); yy_pop_state(); if(yy_current_state() != pp_ignore) { return tNL; }
 	YY_BREAK
 case 72:
 /* rule 72 can match eol */
 YY_RULE_SETUP
-#line 492 "ppl.l"
+#line 493 "ppl.l"
 newline(0);
 	YY_BREAK
 /*
@@ -2120,29 +2352,29 @@ newline(0);
 	 */
 case 73:
 YY_RULE_SETUP
-#line 497 "ppl.l"
+#line 498 "ppl.l"
 ppy_lval.cptr = pp_xstrdup(ppy_text); if(ppy_lval.cptr) ppy_lval.cptr[ppy_leng-1] = '\0'; yy_pp_state(pp_macro);  return tMACRO;
 	YY_BREAK
 case 74:
 YY_RULE_SETUP
-#line 498 "ppl.l"
+#line 499 "ppl.l"
 ppy_lval.cptr = pp_xstrdup(ppy_text); yy_pp_state(pp_define); return tDEFINE;
 	YY_BREAK
 case 75:
 YY_RULE_SETUP
-#line 499 "ppl.l"
+#line 500 "ppl.l"
 ;
 	YY_BREAK
 case 76:
 /* rule 76 can match eol */
 YY_RULE_SETUP
-#line 500 "ppl.l"
+#line 501 "ppl.l"
 newline(0);
 	YY_BREAK
 case 77:
 /* rule 77 can match eol */
 YY_RULE_SETUP
-#line 501 "ppl.l"
+#line 502 "ppl.l"
 perror("Identifier expected");
 	YY_BREAK
 /*
@@ -2150,41 +2382,41 @@ perror("Identifier expected");
 	 */
 case 78:
 YY_RULE_SETUP
-#line 506 "ppl.l"
+#line 507 "ppl.l"
 ppy_lval.cptr = pp_xstrdup(ppy_text); return tLITERAL;
 	YY_BREAK
 case 79:
 /* rule 79 can match eol */
 YY_RULE_SETUP
-#line 507 "ppl.l"
+#line 508 "ppl.l"
 ppy_lval.cptr = pp_xstrdup(ppy_text); return tLITERAL;
 	YY_BREAK
 case 80:
 /* rule 80 can match eol */
 YY_RULE_SETUP
-#line 508 "ppl.l"
+#line 509 "ppl.l"
 newline(0); ppy_lval.cptr = pp_xstrdup(" "); return tLITERAL;
 	YY_BREAK
 case 81:
 /* rule 81 can match eol */
 YY_RULE_SETUP
-#line 509 "ppl.l"
+#line 510 "ppl.l"
 newline(0);
 	YY_BREAK
 case 82:
 /* rule 82 can match eol */
 YY_RULE_SETUP
-#line 510 "ppl.l"
+#line 511 "ppl.l"
 newline(1); yy_pop_state(); return tNL;
 	YY_BREAK
 case 83:
 YY_RULE_SETUP
-#line 511 "ppl.l"
+#line 512 "ppl.l"
 new_string(); add_string(ppy_text, ppy_leng); yy_push_state(pp_sqs);
 	YY_BREAK
 case 84:
 YY_RULE_SETUP
-#line 512 "ppl.l"
+#line 513 "ppl.l"
 new_string(); add_string(ppy_text, ppy_leng); yy_push_state(pp_dqs);
 	YY_BREAK
 /*
@@ -2192,39 +2424,39 @@ new_string(); add_string(ppy_text, ppy_leng); yy_push_state(pp_dqs);
 	 */
 case 85:
 YY_RULE_SETUP
-#line 517 "ppl.l"
+#line 518 "ppl.l"
 yy_pp_state(pp_mbody); return tMACROEND;
 	YY_BREAK
 case 86:
 YY_RULE_SETUP
-#line 518 "ppl.l"
+#line 519 "ppl.l"
 ;
 	YY_BREAK
 case 87:
 YY_RULE_SETUP
-#line 519 "ppl.l"
+#line 520 "ppl.l"
 ppy_lval.cptr = pp_xstrdup(ppy_text); return tIDENT;
 	YY_BREAK
 case 88:
 YY_RULE_SETUP
-#line 520 "ppl.l"
+#line 521 "ppl.l"
 return ',';
 	YY_BREAK
 case 89:
 YY_RULE_SETUP
-#line 521 "ppl.l"
+#line 522 "ppl.l"
 return tELIPSIS;
 	YY_BREAK
 case 90:
 /* rule 90 can match eol */
 YY_RULE_SETUP
-#line 522 "ppl.l"
+#line 523 "ppl.l"
 ppy_error("Argument identifier expected");
 	YY_BREAK
 case 91:
 /* rule 91 can match eol */
 YY_RULE_SETUP
-#line 523 "ppl.l"
+#line 524 "ppl.l"
 newline(0);
 	YY_BREAK
 /*
@@ -2232,60 +2464,60 @@ newline(0);
 	 */
 case 92:
 YY_RULE_SETUP
-#line 528 "ppl.l"
+#line 529 "ppl.l"
 ppy_lval.cptr = pp_xstrdup(ppy_text); return tLITERAL;
 	YY_BREAK
 case 93:
 YY_RULE_SETUP
-#line 529 "ppl.l"
+#line 530 "ppl.l"
 ppy_lval.cptr = pp_xstrdup(ppy_text); return tIDENT;
 	YY_BREAK
 case 94:
 YY_RULE_SETUP
-#line 530 "ppl.l"
+#line 531 "ppl.l"
 return tCONCAT;
 	YY_BREAK
 case 95:
 YY_RULE_SETUP
-#line 531 "ppl.l"
+#line 532 "ppl.l"
 return tSTRINGIZE;
 	YY_BREAK
 case 96:
 YY_RULE_SETUP
-#line 532 "ppl.l"
+#line 533 "ppl.l"
 ppy_lval.cptr = pp_xstrdup(ppy_text); return tLITERAL;
 	YY_BREAK
 case 97:
 YY_RULE_SETUP
-#line 533 "ppl.l"
+#line 534 "ppl.l"
 ppy_lval.cptr = pp_xstrdup(ppy_text); return tLITERAL;
 	YY_BREAK
 case 98:
 /* rule 98 can match eol */
 YY_RULE_SETUP
-#line 534 "ppl.l"
+#line 535 "ppl.l"
 newline(0); ppy_lval.cptr = pp_xstrdup(" "); return tLITERAL;
 	YY_BREAK
 case 99:
 /* rule 99 can match eol */
 YY_RULE_SETUP
-#line 535 "ppl.l"
+#line 536 "ppl.l"
 newline(0);
 	YY_BREAK
 case 100:
 /* rule 100 can match eol */
 YY_RULE_SETUP
-#line 536 "ppl.l"
+#line 537 "ppl.l"
 newline(1); yy_pop_state(); return tNL;
 	YY_BREAK
 case 101:
 YY_RULE_SETUP
-#line 537 "ppl.l"
+#line 538 "ppl.l"
 new_string(); add_string(ppy_text, ppy_leng); yy_push_state(pp_sqs);
 	YY_BREAK
 case 102:
 YY_RULE_SETUP
-#line 538 "ppl.l"
+#line 539 "ppl.l"
 new_string(); add_string(ppy_text, ppy_leng); yy_push_state(pp_dqs);
 	YY_BREAK
 /*
@@ -2298,17 +2530,17 @@ new_string(); add_string(ppy_text, ppy_leng); yy_push_state(pp_dqs);
 	 * a false alarm. We just continue with a nose-bleed...
 	 */
 case 103:
-*yy_cp = (yy_hold_char); /* undo effects of setting up ppy_text */
+*yy_cp = (yy_hold_char); /* undo effects of setting up yytext */
 (yy_c_buf_p) = yy_cp -= 1;
-YY_DO_BEFORE_ACTION; /* set up ppy_text again */
+YY_DO_BEFORE_ACTION; /* set up yytext again */
 YY_RULE_SETUP
-#line 549 "ppl.l"
+#line 550 "ppl.l"
 yy_pp_state(pp_macscan);
 	YY_BREAK
 case 104:
 /* rule 104 can match eol */
 YY_RULE_SETUP
-#line 550 "ppl.l"
+#line 551 "ppl.l"
 {
 		if(yy_top_state() != pp_macscan)
 			newline(0);
@@ -2317,12 +2549,12 @@ YY_RULE_SETUP
 case 105:
 /* rule 105 can match eol */
 YY_RULE_SETUP
-#line 554 "ppl.l"
+#line 555 "ppl.l"
 newline(0);
 	YY_BREAK
 case 106:
 YY_RULE_SETUP
-#line 555 "ppl.l"
+#line 556 "ppl.l"
 {
 		macexpstackentry_t *mac = pop_macro();
 		yy_pop_state();
@@ -2337,7 +2569,7 @@ YY_RULE_SETUP
 	 */
 case 107:
 YY_RULE_SETUP
-#line 567 "ppl.l"
+#line 568 "ppl.l"
 {
 		if(++MACROPARENTHESES() > 1)
 			add_text_to_macro(ppy_text, ppy_leng);
@@ -2345,7 +2577,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 108:
 YY_RULE_SETUP
-#line 571 "ppl.l"
+#line 572 "ppl.l"
 {
 		if(--MACROPARENTHESES() == 0)
 		{
@@ -2358,7 +2590,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 109:
 YY_RULE_SETUP
-#line 580 "ppl.l"
+#line 581 "ppl.l"
 {
 		if(MACROPARENTHESES() > 1)
 			add_text_to_macro(ppy_text, ppy_leng);
@@ -2368,34 +2600,34 @@ YY_RULE_SETUP
 	YY_BREAK
 case 110:
 YY_RULE_SETUP
-#line 586 "ppl.l"
+#line 587 "ppl.l"
 new_string(); add_string(ppy_text, ppy_leng); yy_push_state(pp_dqs);
 	YY_BREAK
 case 111:
 YY_RULE_SETUP
-#line 587 "ppl.l"
+#line 588 "ppl.l"
 new_string(); add_string(ppy_text, ppy_leng); yy_push_state(pp_sqs);
 	YY_BREAK
 case 112:
 YY_RULE_SETUP
-#line 588 "ppl.l"
+#line 589 "ppl.l"
 yy_push_state(pp_comment); add_text_to_macro(" ", 1);
 	YY_BREAK
 case 113:
 /* rule 113 can match eol */
 YY_RULE_SETUP
-#line 589 "ppl.l"
+#line 590 "ppl.l"
 pp_status.line_number++; pp_status.char_number = 1; add_text_to_macro(ppy_text, ppy_leng);
 	YY_BREAK
 case 114:
 YY_RULE_SETUP
-#line 590 "ppl.l"
+#line 591 "ppl.l"
 add_text_to_macro(ppy_text, ppy_leng);
 	YY_BREAK
 case 115:
 /* rule 115 can match eol */
 YY_RULE_SETUP
-#line 591 "ppl.l"
+#line 592 "ppl.l"
 newline(0);
 	YY_BREAK
 /*
@@ -2403,23 +2635,23 @@ newline(0);
 	 */
 case 116:
 YY_RULE_SETUP
-#line 596 "ppl.l"
+#line 597 "ppl.l"
 yy_push_state(pp_comment);
 	YY_BREAK
 case 117:
 YY_RULE_SETUP
-#line 597 "ppl.l"
+#line 598 "ppl.l"
 ;
 	YY_BREAK
 case 118:
 /* rule 118 can match eol */
 YY_RULE_SETUP
-#line 598 "ppl.l"
+#line 599 "ppl.l"
 newline(0);
 	YY_BREAK
 case 119:
 YY_RULE_SETUP
-#line 599 "ppl.l"
+#line 600 "ppl.l"
 yy_pop_state();
 	YY_BREAK
 /*
@@ -2427,7 +2659,7 @@ yy_pop_state();
 	 */
 case 120:
 YY_RULE_SETUP
-#line 604 "ppl.l"
+#line 605 "ppl.l"
 {
 		if(ppy_text[ppy_leng-1] == '\\')
 			ppy_warning("C++ style comment ends with an escaped newline (escape ignored)");
@@ -2438,22 +2670,22 @@ YY_RULE_SETUP
 	 */
 case 121:
 YY_RULE_SETUP
-#line 612 "ppl.l"
+#line 613 "ppl.l"
 pp_incl_state.seen_junk++; new_string(); add_string(ppy_text, ppy_leng); yy_push_state(pp_dqs);
 	YY_BREAK
 case 122:
 YY_RULE_SETUP
-#line 613 "ppl.l"
+#line 614 "ppl.l"
 pp_incl_state.seen_junk++; new_string(); add_string(ppy_text, ppy_leng); yy_push_state(pp_sqs);
 	YY_BREAK
 case 123:
 YY_RULE_SETUP
-#line 614 "ppl.l"
+#line 615 "ppl.l"
 add_string(ppy_text, ppy_leng);
 	YY_BREAK
 case 124:
 YY_RULE_SETUP
-#line 615 "ppl.l"
+#line 616 "ppl.l"
 {
 		add_string(ppy_text, ppy_leng);
 		yy_pop_state();
@@ -2477,12 +2709,12 @@ YY_RULE_SETUP
 	YY_BREAK
 case 125:
 YY_RULE_SETUP
-#line 635 "ppl.l"
+#line 636 "ppl.l"
 add_string(ppy_text, ppy_leng);
 	YY_BREAK
 case 126:
 YY_RULE_SETUP
-#line 636 "ppl.l"
+#line 637 "ppl.l"
 {
 		add_string(ppy_text, ppy_leng);
 		yy_pop_state();
@@ -2500,12 +2732,12 @@ YY_RULE_SETUP
 	YY_BREAK
 case 127:
 YY_RULE_SETUP
-#line 650 "ppl.l"
+#line 651 "ppl.l"
 add_string(ppy_text, ppy_leng);
 	YY_BREAK
 case 128:
 YY_RULE_SETUP
-#line 651 "ppl.l"
+#line 652 "ppl.l"
 {
 		add_string(ppy_text, ppy_leng);
 		yy_pop_state();
@@ -2516,7 +2748,7 @@ YY_RULE_SETUP
 case 129:
 /* rule 129 can match eol */
 YY_RULE_SETUP
-#line 657 "ppl.l"
+#line 658 "ppl.l"
 {
 		/*
 		 * This is tricky; we need to remove the line-continuation
@@ -2544,13 +2776,13 @@ YY_RULE_SETUP
 	YY_BREAK
 case 130:
 YY_RULE_SETUP
-#line 681 "ppl.l"
+#line 682 "ppl.l"
 add_string(ppy_text, ppy_leng);
 	YY_BREAK
 case 131:
 /* rule 131 can match eol */
 YY_RULE_SETUP
-#line 682 "ppl.l"
+#line 683 "ppl.l"
 {
 		newline(1);
 		add_string(ppy_text, ppy_leng);
@@ -2562,7 +2794,7 @@ YY_RULE_SETUP
 	 */
 case 132:
 YY_RULE_SETUP
-#line 691 "ppl.l"
+#line 692 "ppl.l"
 {
 		pp_entry_t *ppp;
 		pp_incl_state.seen_junk++;
@@ -2611,29 +2843,29 @@ YY_RULE_SETUP
 	 */
 case 133:
 YY_RULE_SETUP
-#line 737 "ppl.l"
+#line 738 "ppl.l"
 pp_incl_state.seen_junk++; put_buffer(ppy_text, ppy_leng);
 	YY_BREAK
 case 134:
 YY_RULE_SETUP
-#line 738 "ppl.l"
+#line 739 "ppl.l"
 put_buffer(ppy_text, ppy_leng);
 	YY_BREAK
 case 135:
 /* rule 135 can match eol */
 YY_RULE_SETUP
-#line 739 "ppl.l"
+#line 740 "ppl.l"
 newline(1);
 	YY_BREAK
 case 136:
 /* rule 136 can match eol */
 YY_RULE_SETUP
-#line 740 "ppl.l"
+#line 741 "ppl.l"
 newline(0);
 	YY_BREAK
 case 137:
 YY_RULE_SETUP
-#line 741 "ppl.l"
+#line 742 "ppl.l"
 pp_incl_state.seen_junk++; put_buffer(ppy_text, ppy_leng);
 	YY_BREAK
 /*
@@ -2643,12 +2875,12 @@ pp_incl_state.seen_junk++; put_buffer(ppy_text, ppy_leng);
 case 138:
 /* rule 138 can match eol */
 YY_RULE_SETUP
-#line 747 "ppl.l"
+#line 748 "ppl.l"
 put_buffer(ppy_text, ppy_leng);
 	YY_BREAK
 case 139:
 YY_RULE_SETUP
-#line 749 "ppl.l"
+#line 750 "ppl.l"
 {
 		ppy_lval.cptr=pp_xstrdup(ppy_text);
         	yy_pop_state();
@@ -2657,12 +2889,12 @@ YY_RULE_SETUP
 	YY_BREAK
 case 140:
 YY_RULE_SETUP
-#line 755 "ppl.l"
+#line 756 "ppl.l"
 ;
 	YY_BREAK
 case 141:
 YY_RULE_SETUP
-#line 757 "ppl.l"
+#line 758 "ppl.l"
 {
 		new_string(); add_string(ppy_text,ppy_leng);yy_push_state(pp_dqs);
 	}
@@ -2673,7 +2905,7 @@ YY_RULE_SETUP
 	 */
 case 142:
 YY_RULE_SETUP
-#line 765 "ppl.l"
+#line 766 "ppl.l"
 pp_incl_state.seen_junk++; ppy_warning("Unmatched text '%c' (0x%02x); please report\n", isprint(*ppy_text & 0xff) ? *ppy_text : ' ', *ppy_text);
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
@@ -2698,7 +2930,7 @@ case YY_STATE_EOF(pp_line):
 case YY_STATE_EOF(pp_defined):
 case YY_STATE_EOF(pp_ignore):
 case YY_STATE_EOF(RCINCL):
-#line 767 "ppl.l"
+#line 768 "ppl.l"
 {
 		YY_BUFFER_STATE b = YY_CURRENT_BUFFER;
 		bufferstackentry_t *bep = pop_buffer();
@@ -2726,10 +2958,10 @@ case YY_STATE_EOF(RCINCL):
 	YY_BREAK
 case 143:
 YY_RULE_SETUP
-#line 792 "ppl.l"
+#line 793 "ppl.l"
 ECHO;
 	YY_BREAK
-#line 2733 "ppl.yy.c"
+#line 2964 "ppl.yy.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -2744,15 +2976,15 @@ ECHO;
 			{
 			/* We're scanning a new file or input source.  It's
 			 * possible that this happened because the user
-			 * just pointed ppy_in at a new source and called
-			 * ppy_lex().  If so, then we have to assure
+			 * just pointed yyin at a new source and called
+			 * yylex().  If so, then we have to assure
 			 * consistency between YY_CURRENT_BUFFER and our
 			 * globals.  Here is the right place to do so, because
 			 * this is the first action (other than possibly a
 			 * back-up) that will match for the new input source.
 			 */
 			(yy_n_chars) = YY_CURRENT_BUFFER_LVALUE->yy_n_chars;
-			YY_CURRENT_BUFFER_LVALUE->yy_input_file = ppy_in;
+			YY_CURRENT_BUFFER_LVALUE->yy_input_file = yyin;
 			YY_CURRENT_BUFFER_LVALUE->yy_buffer_status = YY_BUFFER_NORMAL;
 			}
 
@@ -2806,11 +3038,11 @@ ECHO;
 				{
 				(yy_did_buffer_switch_on_eof) = 0;
 
-				if ( ppy_wrap( ) )
+				if ( yywrap(  ) )
 					{
 					/* Note: because we've taken care in
 					 * yy_get_next_buffer() to have set up
-					 * ppy_text, we can now set up
+					 * yytext, we can now set up
 					 * yy_c_buf_p so that if some total
 					 * hoser (like flex itself) wants to
 					 * call the scanner after we return the
@@ -2860,7 +3092,7 @@ ECHO;
 	} /* end of action switch */
 		} /* end of scanning one token */
 	} /* end of user's declarations */
-} /* end of ppy_lex */
+} /* end of yylex */
 
 /* yy_get_next_buffer - try to read in a new buffer
  *
@@ -2873,7 +3105,7 @@ static int yy_get_next_buffer (void)
 {
     	char *dest = YY_CURRENT_BUFFER_LVALUE->yy_ch_buf;
 	char *source = (yytext_ptr);
-	yy_size_t number_to_move, i;
+	int number_to_move, i;
 	int ret_val;
 
 	if ( (yy_c_buf_p) > &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[(yy_n_chars) + 1] )
@@ -2902,7 +3134,7 @@ static int yy_get_next_buffer (void)
 	/* Try to read more data. */
 
 	/* First move last chars to start of buffer. */
-	number_to_move = (yy_size_t) ((yy_c_buf_p) - (yytext_ptr)) - 1;
+	number_to_move = (int) ((yy_c_buf_p) - (yytext_ptr) - 1);
 
 	for ( i = 0; i < number_to_move; ++i )
 		*(dest++) = *(source++);
@@ -2938,7 +3170,8 @@ static int yy_get_next_buffer (void)
 
 				b->yy_ch_buf = (char *)
 					/* Include room in for 2 EOB chars. */
-					ppy_realloc((void *) b->yy_ch_buf,b->yy_buf_size + 2  );
+					yyrealloc( (void *) b->yy_ch_buf,
+							 (yy_size_t) (b->yy_buf_size + 2)  );
 				}
 			else
 				/* Can't grow it, we don't own it. */
@@ -2970,7 +3203,7 @@ static int yy_get_next_buffer (void)
 		if ( number_to_move == YY_MORE_ADJ )
 			{
 			ret_val = EOB_ACT_END_OF_FILE;
-			ppy_restart(ppy_in  );
+			yyrestart( yyin  );
 			}
 
 		else
@@ -2984,12 +3217,15 @@ static int yy_get_next_buffer (void)
 	else
 		ret_val = EOB_ACT_CONTINUE_SCAN;
 
-	if ((int) ((yy_n_chars) + number_to_move) > YY_CURRENT_BUFFER_LVALUE->yy_buf_size) {
+	if (((yy_n_chars) + number_to_move) > YY_CURRENT_BUFFER_LVALUE->yy_buf_size) {
 		/* Extend the array by 50%, plus the number we really need. */
 		int new_size = (yy_n_chars) + number_to_move + ((yy_n_chars) >> 1);
-		YY_CURRENT_BUFFER_LVALUE->yy_ch_buf = (char *) ppy_realloc((void *) YY_CURRENT_BUFFER_LVALUE->yy_ch_buf,new_size  );
+		YY_CURRENT_BUFFER_LVALUE->yy_ch_buf = (char *) yyrealloc(
+			(void *) YY_CURRENT_BUFFER_LVALUE->yy_ch_buf, (yy_size_t) new_size  );
 		if ( ! YY_CURRENT_BUFFER_LVALUE->yy_ch_buf )
 			YY_FATAL_ERROR( "out of dynamic memory in yy_get_next_buffer()" );
+		/* "- 2" to take care of EOB's */
+		YY_CURRENT_BUFFER_LVALUE->yy_buf_size = (int) (new_size - 2);
 	}
 
 	(yy_n_chars) += number_to_move;
@@ -3023,9 +3259,9 @@ static int yy_get_next_buffer (void)
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
 			if ( yy_current_state >= 416 )
-				yy_c = yy_meta[(unsigned int) yy_c];
+				yy_c = yy_meta[yy_c];
 			}
-		yy_current_state = yy_nxt[yy_base[yy_current_state] + (flex_int16_t) yy_c];
+		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 		}
 
 	return yy_current_state;
@@ -3051,9 +3287,9 @@ static int yy_get_next_buffer (void)
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
 		if ( yy_current_state >= 416 )
-			yy_c = yy_meta[(unsigned int) yy_c];
+			yy_c = yy_meta[yy_c];
 		}
-	yy_current_state = yy_nxt[yy_base[yy_current_state] + (flex_int16_t) yy_c];
+	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 	yy_is_jam = (yy_current_state == 415);
 
 		return yy_is_jam ? 0 : yy_current_state;
@@ -3087,7 +3323,7 @@ static int yy_get_next_buffer (void)
 
 		else
 			{ /* need more input */
-			int offset = (yy_c_buf_p) - (yytext_ptr);
+			int offset = (int) ((yy_c_buf_p) - (yytext_ptr));
 			++(yy_c_buf_p);
 
 			switch ( yy_get_next_buffer(  ) )
@@ -3104,13 +3340,13 @@ static int yy_get_next_buffer (void)
 					 */
 
 					/* Reset buffer status. */
-					ppy_restart(ppy_in );
+					yyrestart( yyin );
 
 					/*FALLTHROUGH*/
 
 				case EOB_ACT_END_OF_FILE:
 					{
-					if ( ppy_wrap( ) )
+					if ( yywrap(  ) )
 						return 0;
 
 					if ( ! (yy_did_buffer_switch_on_eof) )
@@ -3130,7 +3366,7 @@ static int yy_get_next_buffer (void)
 		}
 
 	c = *(unsigned char *) (yy_c_buf_p);	/* cast for 8-bit char's */
-	*(yy_c_buf_p) = '\0';	/* preserve ppy_text */
+	*(yy_c_buf_p) = '\0';	/* preserve yytext */
 	(yy_hold_char) = *++(yy_c_buf_p);
 
 	YY_CURRENT_BUFFER_LVALUE->yy_at_bol = (c == '\n');
@@ -3144,32 +3380,32 @@ static int yy_get_next_buffer (void)
  * 
  * @note This function does not reset the start condition to @c INITIAL .
  */
-    void ppy_restart  (FILE * input_file )
+    void yyrestart  (FILE * input_file )
 {
     
 	if ( ! YY_CURRENT_BUFFER ){
-        ppy_ensure_buffer_stack ();
+        yyensure_buffer_stack ();
 		YY_CURRENT_BUFFER_LVALUE =
-            ppy__create_buffer(ppy_in,YY_BUF_SIZE );
+            yy_create_buffer( yyin, YY_BUF_SIZE );
 	}
 
-	ppy__init_buffer(YY_CURRENT_BUFFER,input_file );
-	ppy__load_buffer_state( );
+	yy_init_buffer( YY_CURRENT_BUFFER, input_file );
+	yy_load_buffer_state(  );
 }
 
 /** Switch to a different input buffer.
  * @param new_buffer The new input buffer.
  * 
  */
-    void ppy__switch_to_buffer  (YY_BUFFER_STATE  new_buffer )
+    void yy_switch_to_buffer  (YY_BUFFER_STATE  new_buffer )
 {
     
 	/* TODO. We should be able to replace this entire function body
 	 * with
-	 *		ppy_pop_buffer_state();
-	 *		ppy_push_buffer_state(new_buffer);
+	 *		yypop_buffer_state();
+	 *		yypush_buffer_state(new_buffer);
      */
-	ppy_ensure_buffer_stack ();
+	yyensure_buffer_stack ();
 	if ( YY_CURRENT_BUFFER == new_buffer )
 		return;
 
@@ -3182,21 +3418,21 @@ static int yy_get_next_buffer (void)
 		}
 
 	YY_CURRENT_BUFFER_LVALUE = new_buffer;
-	ppy__load_buffer_state( );
+	yy_load_buffer_state(  );
 
 	/* We don't actually know whether we did this switch during
-	 * EOF (ppy_wrap()) processing, but the only time this flag
-	 * is looked at is after ppy_wrap() is called, so it's safe
+	 * EOF (yywrap()) processing, but the only time this flag
+	 * is looked at is after yywrap() is called, so it's safe
 	 * to go ahead and always set it.
 	 */
 	(yy_did_buffer_switch_on_eof) = 1;
 }
 
-static void ppy__load_buffer_state  (void)
+static void yy_load_buffer_state  (void)
 {
     	(yy_n_chars) = YY_CURRENT_BUFFER_LVALUE->yy_n_chars;
 	(yytext_ptr) = (yy_c_buf_p) = YY_CURRENT_BUFFER_LVALUE->yy_buf_pos;
-	ppy_in = YY_CURRENT_BUFFER_LVALUE->yy_input_file;
+	yyin = YY_CURRENT_BUFFER_LVALUE->yy_input_file;
 	(yy_hold_char) = *(yy_c_buf_p);
 }
 
@@ -3206,35 +3442,35 @@ static void ppy__load_buffer_state  (void)
  * 
  * @return the allocated buffer state.
  */
-    YY_BUFFER_STATE ppy__create_buffer  (FILE * file, int  size )
+    YY_BUFFER_STATE yy_create_buffer  (FILE * file, int  size )
 {
 	YY_BUFFER_STATE b;
     
-	b = (YY_BUFFER_STATE) ppy_alloc(sizeof( struct yy_buffer_state )  );
+	b = (YY_BUFFER_STATE) yyalloc( sizeof( struct yy_buffer_state )  );
 	if ( ! b )
-		YY_FATAL_ERROR( "out of dynamic memory in ppy__create_buffer()" );
+		YY_FATAL_ERROR( "out of dynamic memory in yy_create_buffer()" );
 
-	b->yy_buf_size = (yy_size_t)size;
+	b->yy_buf_size = size;
 
 	/* yy_ch_buf has to be 2 characters longer than the size given because
 	 * we need to put in 2 end-of-buffer characters.
 	 */
-	b->yy_ch_buf = (char *) ppy_alloc(b->yy_buf_size + 2  );
+	b->yy_ch_buf = (char *) yyalloc( (yy_size_t) (b->yy_buf_size + 2)  );
 	if ( ! b->yy_ch_buf )
-		YY_FATAL_ERROR( "out of dynamic memory in ppy__create_buffer()" );
+		YY_FATAL_ERROR( "out of dynamic memory in yy_create_buffer()" );
 
 	b->yy_is_our_buffer = 1;
 
-	ppy__init_buffer(b,file );
+	yy_init_buffer( b, file );
 
 	return b;
 }
 
 /** Destroy the buffer.
- * @param b a buffer created with ppy__create_buffer()
+ * @param b a buffer created with yy_create_buffer()
  * 
  */
-    void ppy__delete_buffer (YY_BUFFER_STATE  b )
+    void yy_delete_buffer (YY_BUFFER_STATE  b )
 {
     
 	if ( ! b )
@@ -3244,27 +3480,27 @@ static void ppy__load_buffer_state  (void)
 		YY_CURRENT_BUFFER_LVALUE = (YY_BUFFER_STATE) 0;
 
 	if ( b->yy_is_our_buffer )
-		ppy_free((void *) b->yy_ch_buf  );
+		yyfree( (void *) b->yy_ch_buf  );
 
-	ppy_free((void *) b  );
+	yyfree( (void *) b  );
 }
 
 /* Initializes or reinitializes a buffer.
  * This function is sometimes called more than once on the same buffer,
- * such as during a ppy_restart() or at EOF.
+ * such as during a yyrestart() or at EOF.
  */
-    static void ppy__init_buffer  (YY_BUFFER_STATE  b, FILE * file )
+    static void yy_init_buffer  (YY_BUFFER_STATE  b, FILE * file )
 
 {
 	int oerrno = errno;
     
-	ppy__flush_buffer(b );
+	yy_flush_buffer( b );
 
 	b->yy_input_file = file;
 	b->yy_fill_buffer = 1;
 
-    /* If b is the current buffer, then ppy__init_buffer was _probably_
-     * called from ppy_restart() or through yy_get_next_buffer.
+    /* If b is the current buffer, then yy_init_buffer was _probably_
+     * called from yyrestart() or through yy_get_next_buffer.
      * In that case, we don't want to reset the lineno or column.
      */
     if (b != YY_CURRENT_BUFFER){
@@ -3281,7 +3517,7 @@ static void ppy__load_buffer_state  (void)
  * @param b the buffer state to be flushed, usually @c YY_CURRENT_BUFFER.
  * 
  */
-    void ppy__flush_buffer (YY_BUFFER_STATE  b )
+    void yy_flush_buffer (YY_BUFFER_STATE  b )
 {
     	if ( ! b )
 		return;
@@ -3301,7 +3537,7 @@ static void ppy__load_buffer_state  (void)
 	b->yy_buffer_status = YY_BUFFER_NEW;
 
 	if ( b == YY_CURRENT_BUFFER )
-		ppy__load_buffer_state( );
+		yy_load_buffer_state(  );
 }
 
 /** Pushes the new state onto the stack. The new state becomes
@@ -3310,14 +3546,14 @@ static void ppy__load_buffer_state  (void)
  *  @param new_buffer The new state.
  *  
  */
-void ppy_push_buffer_state (YY_BUFFER_STATE new_buffer )
+void yypush_buffer_state (YY_BUFFER_STATE new_buffer )
 {
     	if (new_buffer == NULL)
 		return;
 
-	ppy_ensure_buffer_stack();
+	yyensure_buffer_stack();
 
-	/* This block is copied from ppy__switch_to_buffer. */
+	/* This block is copied from yy_switch_to_buffer. */
 	if ( YY_CURRENT_BUFFER )
 		{
 		/* Flush out information for old buffer. */
@@ -3331,8 +3567,8 @@ void ppy_push_buffer_state (YY_BUFFER_STATE new_buffer )
 		(yy_buffer_stack_top)++;
 	YY_CURRENT_BUFFER_LVALUE = new_buffer;
 
-	/* copied from ppy__switch_to_buffer. */
-	ppy__load_buffer_state( );
+	/* copied from yy_switch_to_buffer. */
+	yy_load_buffer_state(  );
 	(yy_did_buffer_switch_on_eof) = 1;
 }
 
@@ -3340,18 +3576,18 @@ void ppy_push_buffer_state (YY_BUFFER_STATE new_buffer )
  *  The next element becomes the new top.
  *  
  */
-void ppy_pop_buffer_state (void)
+void yypop_buffer_state (void)
 {
     	if (!YY_CURRENT_BUFFER)
 		return;
 
-	ppy__delete_buffer(YY_CURRENT_BUFFER );
+	yy_delete_buffer(YY_CURRENT_BUFFER );
 	YY_CURRENT_BUFFER_LVALUE = NULL;
 	if ((yy_buffer_stack_top) > 0)
 		--(yy_buffer_stack_top);
 
 	if (YY_CURRENT_BUFFER) {
-		ppy__load_buffer_state( );
+		yy_load_buffer_state(  );
 		(yy_did_buffer_switch_on_eof) = 1;
 	}
 }
@@ -3359,9 +3595,9 @@ void ppy_pop_buffer_state (void)
 /* Allocates the stack if it does not exist.
  *  Guarantees space for at least one push.
  */
-static void ppy_ensure_buffer_stack (void)
+static void yyensure_buffer_stack (void)
 {
-	int num_to_alloc;
+	yy_size_t num_to_alloc;
     
 	if (!(yy_buffer_stack)) {
 
@@ -3370,14 +3606,14 @@ static void ppy_ensure_buffer_stack (void)
 		 * immediate realloc on the next call.
          */
       num_to_alloc = 1; /* After all that talk, this was set to 1 anyways... */
-		(yy_buffer_stack) = (struct yy_buffer_state**)ppy_alloc
+		(yy_buffer_stack) = (struct yy_buffer_state**)yyalloc
 								(num_to_alloc * sizeof(struct yy_buffer_state*)
 								);
 		if ( ! (yy_buffer_stack) )
-			YY_FATAL_ERROR( "out of dynamic memory in ppy_ensure_buffer_stack()" );
-								  
+			YY_FATAL_ERROR( "out of dynamic memory in yyensure_buffer_stack()" );
+
 		memset((yy_buffer_stack), 0, num_to_alloc * sizeof(struct yy_buffer_state*));
-				
+
 		(yy_buffer_stack_max) = num_to_alloc;
 		(yy_buffer_stack_top) = 0;
 		return;
@@ -3389,12 +3625,12 @@ static void ppy_ensure_buffer_stack (void)
 		yy_size_t grow_size = 8 /* arbitrary grow size */;
 
 		num_to_alloc = (yy_buffer_stack_max) + grow_size;
-		(yy_buffer_stack) = (struct yy_buffer_state**)ppy_realloc
+		(yy_buffer_stack) = (struct yy_buffer_state**)yyrealloc
 								((yy_buffer_stack),
 								num_to_alloc * sizeof(struct yy_buffer_state*)
 								);
 		if ( ! (yy_buffer_stack) )
-			YY_FATAL_ERROR( "out of dynamic memory in ppy_ensure_buffer_stack()" );
+			YY_FATAL_ERROR( "out of dynamic memory in yyensure_buffer_stack()" );
 
 		/* zero only the new slots.*/
 		memset((yy_buffer_stack) + (yy_buffer_stack_max), 0, grow_size * sizeof(struct yy_buffer_state*));
@@ -3406,9 +3642,9 @@ static void ppy_ensure_buffer_stack (void)
  * @param base the character buffer
  * @param size the size in bytes of the character buffer
  * 
- * @return the newly allocated buffer state object. 
+ * @return the newly allocated buffer state object.
  */
-YY_BUFFER_STATE ppy__scan_buffer  (char * base, yy_size_t  size )
+YY_BUFFER_STATE yy_scan_buffer  (char * base, yy_size_t  size )
 {
 	YY_BUFFER_STATE b;
     
@@ -3418,11 +3654,11 @@ YY_BUFFER_STATE ppy__scan_buffer  (char * base, yy_size_t  size )
 		/* They forgot to leave room for the EOB's. */
 		return NULL;
 
-	b = (YY_BUFFER_STATE) ppy_alloc(sizeof( struct yy_buffer_state )  );
+	b = (YY_BUFFER_STATE) yyalloc( sizeof( struct yy_buffer_state )  );
 	if ( ! b )
-		YY_FATAL_ERROR( "out of dynamic memory in ppy__scan_buffer()" );
+		YY_FATAL_ERROR( "out of dynamic memory in yy_scan_buffer()" );
 
-	b->yy_buf_size = size - 2;	/* "- 2" to take care of EOB's */
+	b->yy_buf_size = (int) (size - 2);	/* "- 2" to take care of EOB's */
 	b->yy_buf_pos = b->yy_ch_buf = base;
 	b->yy_is_our_buffer = 0;
 	b->yy_input_file = NULL;
@@ -3432,53 +3668,53 @@ YY_BUFFER_STATE ppy__scan_buffer  (char * base, yy_size_t  size )
 	b->yy_fill_buffer = 0;
 	b->yy_buffer_status = YY_BUFFER_NEW;
 
-	ppy__switch_to_buffer(b  );
+	yy_switch_to_buffer( b  );
 
 	return b;
 }
 
-/** Setup the input buffer state to scan a string. The next call to ppy_lex() will
+/** Setup the input buffer state to scan a string. The next call to yylex() will
  * scan from a @e copy of @a str.
  * @param yystr a NUL-terminated string to scan
  * 
  * @return the newly allocated buffer state object.
  * @note If you want to scan bytes that may contain NUL values, then use
- *       ppy__scan_bytes() instead.
+ *       yy_scan_bytes() instead.
  */
-YY_BUFFER_STATE ppy__scan_string (yyconst char * yystr )
+YY_BUFFER_STATE yy_scan_string (const char * yystr )
 {
     
-	return ppy__scan_bytes(yystr,(int) strlen(yystr) );
+	return yy_scan_bytes( yystr, (int) strlen(yystr) );
 }
 
-/** Setup the input buffer state to scan the given bytes. The next call to ppy_lex() will
+/** Setup the input buffer state to scan the given bytes. The next call to yylex() will
  * scan from a @e copy of @a bytes.
  * @param yybytes the byte buffer to scan
  * @param _yybytes_len the number of bytes in the buffer pointed to by @a bytes.
  * 
  * @return the newly allocated buffer state object.
  */
-YY_BUFFER_STATE ppy__scan_bytes  (yyconst char * yybytes, int  _yybytes_len )
+YY_BUFFER_STATE yy_scan_bytes  (const char * yybytes, int  _yybytes_len )
 {
 	YY_BUFFER_STATE b;
 	char *buf;
 	yy_size_t n;
-	yy_size_t i;
+	int i;
     
 	/* Get memory for full buffer, including space for trailing EOB's. */
-	n = (yy_size_t) _yybytes_len + 2;
-	buf = (char *) ppy_alloc(n  );
+	n = (yy_size_t) (_yybytes_len + 2);
+	buf = (char *) yyalloc( n  );
 	if ( ! buf )
-		YY_FATAL_ERROR( "out of dynamic memory in ppy__scan_bytes()" );
+		YY_FATAL_ERROR( "out of dynamic memory in yy_scan_bytes()" );
 
 	for ( i = 0; i < _yybytes_len; ++i )
 		buf[i] = yybytes[i];
 
 	buf[_yybytes_len] = buf[_yybytes_len+1] = YY_END_OF_BUFFER_CHAR;
 
-	b = ppy__scan_buffer(buf,n );
+	b = yy_scan_buffer( buf, n );
 	if ( ! b )
-		YY_FATAL_ERROR( "bad buffer in ppy__scan_bytes()" );
+		YY_FATAL_ERROR( "bad buffer in yy_scan_bytes()" );
 
 	/* It's okay to grow etc. this buffer, and we should throw it
 	 * away when we're done.
@@ -3498,10 +3734,11 @@ YY_BUFFER_STATE ppy__scan_bytes  (yyconst char * yybytes, int  _yybytes_len )
 		new_size = (yy_size_t) (yy_start_stack_depth) * sizeof( int );
 
 		if ( ! (yy_start_stack) )
-			(yy_start_stack) = (int *) ppy_alloc(new_size  );
+			(yy_start_stack) = (int *) yyalloc( new_size  );
 
 		else
-			(yy_start_stack) = (int *) ppy_realloc((void *) (yy_start_stack),new_size  );
+			(yy_start_stack) = (int *) yyrealloc(
+					(void *) (yy_start_stack), new_size  );
 
 		if ( ! (yy_start_stack) )
 			YY_FATAL_ERROR( "out of memory expanding start-condition stack" );
@@ -3529,9 +3766,9 @@ YY_BUFFER_STATE ppy__scan_bytes  (yyconst char * yybytes, int  _yybytes_len )
 #define YY_EXIT_FAILURE 2
 #endif
 
-static void yynoreturn yy_fatal_error (yyconst char* msg )
+static void yynoreturn yy_fatal_error (const char* msg )
 {
-			(void) fprintf( stderr, "%s\n", msg );
+			fprintf( stderr, "%s\n", msg );
 	exit( YY_EXIT_FAILURE );
 }
 
@@ -3541,14 +3778,14 @@ static void yynoreturn yy_fatal_error (yyconst char* msg )
 #define yyless(n) \
 	do \
 		{ \
-		/* Undo effects of setting up ppy_text. */ \
+		/* Undo effects of setting up yytext. */ \
         int yyless_macro_arg = (n); \
         YY_LESS_LINENO(yyless_macro_arg);\
-		ppy_text[ppy_leng] = (yy_hold_char); \
-		(yy_c_buf_p) = ppy_text + yyless_macro_arg; \
+		yytext[yyleng] = (yy_hold_char); \
+		(yy_c_buf_p) = yytext + yyless_macro_arg; \
 		(yy_hold_char) = *(yy_c_buf_p); \
 		*(yy_c_buf_p) = '\0'; \
-		ppy_leng = yyless_macro_arg; \
+		yyleng = yyless_macro_arg; \
 		} \
 	while ( 0 )
 
@@ -3557,85 +3794,85 @@ static void yynoreturn yy_fatal_error (yyconst char* msg )
 /** Get the current line number.
  * 
  */
-int ppy_get_lineno  (void)
+int yyget_lineno  (void)
 {
-        
-    return ppy_lineno;
+    
+    return yylineno;
 }
 
 /** Get the input stream.
  * 
  */
-FILE *ppy_get_in  (void)
+FILE *yyget_in  (void)
 {
-        return ppy_in;
+        return yyin;
 }
 
 /** Get the output stream.
  * 
  */
-FILE *ppy_get_out  (void)
+FILE *yyget_out  (void)
 {
-        return ppy_out;
+        return yyout;
 }
 
 /** Get the length of the current token.
  * 
  */
-int ppy_get_leng  (void)
+int yyget_leng  (void)
 {
-        return ppy_leng;
+        return yyleng;
 }
 
 /** Get the current token.
  * 
  */
 
-char *ppy_get_text  (void)
+char *yyget_text  (void)
 {
-        return ppy_text;
+        return yytext;
 }
 
 /** Set the current line number.
  * @param _line_number line number
  * 
  */
-void ppy_set_lineno (int  _line_number )
+void yyset_lineno (int  _line_number )
 {
     
-    ppy_lineno = _line_number;
+    yylineno = _line_number;
 }
 
 /** Set the input stream. This does not discard the current
  * input buffer.
  * @param _in_str A readable stream.
  * 
- * @see ppy__switch_to_buffer
+ * @see yy_switch_to_buffer
  */
-void ppy_set_in (FILE *  _in_str )
+void yyset_in (FILE *  _in_str )
 {
-        ppy_in = _in_str ;
+        yyin = _in_str ;
 }
 
-void ppy_set_out (FILE *  _out_str )
+void yyset_out (FILE *  _out_str )
 {
-        ppy_out = _out_str ;
+        yyout = _out_str ;
 }
 
-int ppy_get_debug  (void)
+int yyget_debug  (void)
 {
-        return ppy__flex_debug;
+        return yy_flex_debug;
 }
 
-void ppy_set_debug (int  _bdebug )
+void yyset_debug (int  _bdebug )
 {
-        ppy__flex_debug = _bdebug ;
+        yy_flex_debug = _bdebug ;
 }
 
 static int yy_init_globals (void)
 {
         /* Initialization is the same as for the non-reentrant scanner.
-     * This function is called from ppy_lex_destroy(), so don't allocate here.
+     * This function is called from yylex_destroy(), so don't allocate here.
      */
 
     (yy_buffer_stack) = NULL;
@@ -3651,40 +3888,40 @@ static int yy_init_globals (void)
 
 /* Defined in main.c */
 #ifdef YY_STDINIT
-    ppy_in = stdin;
-    ppy_out = stdout;
+    yyin = stdin;
+    yyout = stdout;
 #else
-    ppy_in = NULL;
-    ppy_out = NULL;
+    yyin = NULL;
+    yyout = NULL;
 #endif
 
     /* For future reference: Set errno on error, since we are called by
-     * ppy_lex_init()
+     * yylex_init()
      */
     return 0;
 }
 
-/* ppy_lex_destroy is for both reentrant and non-reentrant scanners. */
-int ppy_lex_destroy  (void)
+/* yylex_destroy is for both reentrant and non-reentrant scanners. */
+int yylex_destroy  (void)
 {
     
     /* Pop the buffer stack, destroying each element. */
 	while(YY_CURRENT_BUFFER){
-		ppy__delete_buffer(YY_CURRENT_BUFFER  );
+		yy_delete_buffer( YY_CURRENT_BUFFER  );
 		YY_CURRENT_BUFFER_LVALUE = NULL;
-		ppy_pop_buffer_state();
+		yypop_buffer_state();
 	}
 
 	/* Destroy the stack itself. */
-	ppy_free((yy_buffer_stack) );
+	yyfree((yy_buffer_stack) );
 	(yy_buffer_stack) = NULL;
 
     /* Destroy the start condition stack. */
-        ppy_free((yy_start_stack)  );
+        yyfree( (yy_start_stack)  );
         (yy_start_stack) = NULL;
 
     /* Reset the globals. This is important in a non-reentrant scanner so the next time
-     * ppy_lex() is called, initialization will occur. */
+     * yylex() is called, initialization will occur. */
     yy_init_globals( );
 
     return 0;
@@ -3695,7 +3932,7 @@ int ppy_lex_destroy  (void)
  */
 
 #ifndef yytext_ptr
-static void yy_flex_strncpy (char* s1, yyconst char * s2, int n )
+static void yy_flex_strncpy (char* s1, const char * s2, int n )
 {
 		
 	int i;
@@ -3705,7 +3942,7 @@ static void yy_flex_strncpy (char* s1, yyconst char * s2, int n )
 #endif
 
 #ifdef YY_NEED_STRLEN
-static int yy_flex_strlen (yyconst char * s )
+static int yy_flex_strlen (const char * s )
 {
 	int n;
 	for ( n = 0; s[n]; ++n )
@@ -3715,12 +3952,12 @@ static int yy_flex_strlen (yyconst char * s )
 }
 #endif
 
-void *ppy_alloc (yy_size_t  size )
+void *yyalloc (yy_size_t  size )
 {
 			return malloc(size);
 }
 
-void *ppy_realloc  (void * ptr, yy_size_t  size )
+void *yyrealloc  (void * ptr, yy_size_t  size )
 {
 		
 	/* The cast to (char *) in the following accommodates both
@@ -3733,15 +3970,14 @@ void *ppy_realloc  (void * ptr, yy_size_t  size )
 	return realloc(ptr, size);
 }
 
-void ppy_free (void * ptr )
+void yyfree (void * ptr )
 {
-			free( (char *) ptr );	/* see ppy_realloc() for (char *) cast */
+			free( (char *) ptr );	/* see yyrealloc() for (char *) cast */
 }
 
 #define YYTABLES_NAME "yytables"
 
-#line 792 "ppl.l"
-
+#line 793 "ppl.l"
 
 /*
  **************************************************************************
@@ -3954,7 +4190,7 @@ static void expand_special(pp_entry_t *ppp)
 	if(buf && buf[0])
 	{
 		push_buffer(ppp, NULL, NULL, 0);
-		ppy__scan_string(buf);
+		yy_scan_string(buf);
 	}
 }
 
@@ -3972,7 +4208,7 @@ static void expand_define(pp_entry_t *ppp)
 	if(ppp->subst.text && ppp->subst.text[0])
 	{
 		push_buffer(ppp, NULL, NULL, 0);
-		ppy__scan_string(ppp->subst.text);
+		yy_scan_string(ppp->subst.text);
 	}
 }
 
@@ -4170,8 +4406,8 @@ static void expand_macro(macexpstackentry_t *mep)
 		if(pp_flex_debug)
 			fprintf(stderr, "expand_text: '%s'\n", curdef_text + n);
 		push_buffer(ppp, NULL, NULL, 0);
-		/*ppy__scan_bytes(curdef_text + n,k - n);*/
-		ppy__scan_string(curdef_text + n);
+		/*yy_scan_bytes(curdef_text + n, k - n);*/
+		yy_scan_string(curdef_text + n);
 	}
 }
 
@@ -4483,7 +4719,7 @@ static void macro_add_arg(int last)
 	{
 		yy_push_state(pp_macexp);
 		push_buffer(NULL, NULL, NULL, last ? 2 : 1);
-		ppy__scan_string(mep->args[mep->nargs-1]);
+		yy_scan_string(mep->args[mep->nargs-1]);
 		/*mep->bufferstackidx = bufferstackidx;	 But not nested! */
 	}
 }
