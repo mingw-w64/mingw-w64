@@ -79,7 +79,9 @@ ADD_UNDERSCORE(spawnve)
 ADD_UNDERSCORE(spawnvp)
 ADD_UNDERSCORE(spawnvpe)
 ;stat)
+#ifndef UCRTBASE
 ADD_UNDERSCORE(strcmpi)
+#endif
 ADD_UNDERSCORE(strdup)
 ADD_UNDERSCORE(stricmp)
 ADD_UNDERSCORE(stricoll)
