@@ -349,7 +349,7 @@ _mkdir
 _mktemp
 _msize
 _nextafter
-_onexit DATA
+_onexit
 _open
 _open_osfhandle
 _osver DATA

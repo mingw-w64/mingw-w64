@@ -880,7 +880,7 @@ _msize
 F_ARM_ANY(_msize_dbg)
 _nextafter
 F_X64(_nextafterf)
-_onexit F_I386(DATA)
+_onexit
 _open
 _open_osfhandle
 _osplatform DATA
