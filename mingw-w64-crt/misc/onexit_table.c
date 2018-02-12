@@ -54,10 +54,14 @@ int __cdecl _register_onexit_function(_onexit_table_t *table, _onexit_t func)
 
 int __cdecl _execute_onexit_table(_onexit_table_t *table)
 {
-    _PVFV *first = table->_first;
-    _PVFV *last = table->_last;
+    _PVFV *first, *last;
 
+    _lock(_EXIT_LOCK1);
+    first = table->_first;
+    last = table->_last;
     _initialize_onexit_table(table);
+    _unlock(_EXIT_LOCK1);
+
     if (!first) return 0;
 
     while (--last >= first)
