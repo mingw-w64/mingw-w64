@@ -71,7 +71,7 @@ VERSIONHELPERAPI IsWindows8Point1OrGreater(void) {
 }
 
 VERSIONHELPERAPI IsWindowsThresholdOrGreater(void) {
-    return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WINTHRESHOLD), LOBYTE(_WIN32_WINNT_WINBLUE), 0);
+    return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WINTHRESHOLD), LOBYTE(_WIN32_WINNT_WINTHRESHOLD), 0);
 }
 
 VERSIONHELPERAPI IsWindows10OrGreater(void) {
