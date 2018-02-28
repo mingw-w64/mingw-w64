@@ -475,6 +475,11 @@ typedef struct __WIDL_uianimation_generated_name_0000000E {
     int _;
 } *UI_ANIMATION_KEYFRAME;
 
+#define UI_ANIMATION_KEYFRAME_STORYBOARD_START ( ( UI_ANIMATION_KEYFRAME )-1 )
+#define UI_ANIMATION_REPEAT_INDEFINITELY ( -1 )
+#define UI_ANIMATION_REPEAT_INDEFINITELY_CONCLUDE_AT_END ( UI_ANIMATION_REPEAT_INDEFINITELY )
+#define UI_ANIMATION_REPEAT_INDEFINITELY_CONCLUDE_AT_START ( -2 )
+
 DEFINE_GUID(LIBID_uianimation, 0x44ca24db, 0x1a92, 0x4149, 0xba,0xb5, 0xfb,0x14,0xd6,0x4b,0x40,0x1e);
 
 /*****************************************************************************
