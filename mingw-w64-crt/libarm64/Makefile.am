@@ -174,6 +174,7 @@ libarm64_DATA += %reldir%/libnetutils.a
 libarm64_DATA += %reldir%/libnormaliz.a
 libarm64_DATA += %reldir%/libntdsapi.a
 libarm64_DATA += %reldir%/liboccache.a
+libarm64_DATA += %reldir%/libodbc32.a
 libarm64_DATA += %reldir%/libodbccp32.a
 libarm64_DATA += %reldir%/libole32.a
 libarm64_DATA += %reldir%/liboleacc.a
