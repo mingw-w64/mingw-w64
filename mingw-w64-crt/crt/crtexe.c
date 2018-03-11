@@ -221,6 +221,11 @@ int mainCRTStartup (void)
 }
 
 static
+#if defined(__i386__) || defined(_X86_)
+/* We need to make sure that we align the stack to 16 bytes for the sake of SSE
+   opts in main or in functions called main.  */
+__attribute__((force_align_arg_pointer))
+#endif
 __declspec(noinline) int
 __tmainCRTStartup (void)
 {
@@ -228,17 +233,6 @@ __tmainCRTStartup (void)
   STARTUPINFO StartupInfo;
   WINBOOL inDoubleQuote = FALSE;
   memset (&StartupInfo, 0, sizeof (STARTUPINFO));
-
-#if defined(__i386__) || defined(_X86_)
-  /* We need to make sure that this function is build with frame-pointer
-     and that we align the stack to 16 bytes for the sake of SSE ops in main
-     or in functions inlined into main.  */
-  lpszCommandLine = (_TCHAR *) alloca (32);
-  memset (lpszCommandLine, 0xcc, 32);
-#ifdef __GNUC__
-  asm  __volatile__  ("andl $-16, %%esp" : : : "%esp");
-#endif
-#endif /* defined(__i386__) || defined(_X86_) */
 
   if (mingw_app_type)
     GetStartupInfo (&StartupInfo);
