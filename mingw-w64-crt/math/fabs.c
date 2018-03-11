@@ -14,7 +14,7 @@ fabs (double x)
 #elif defined(__i386__) || defined(_X86_)
   double res = 0.0;
 
-  asm ("fabs;" : "=t" (res) : "0" (x));
+  asm volatile ("fabs;" : "=t" (res) : "0" (x));
   return res;
 #endif /* defined(__x86_64__) || defined(_AMD64_) || defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_) */
 }

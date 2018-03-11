@@ -29,7 +29,8 @@ logbf (float x)
     return (float) (v - 127);
 #else
   float res = 0.0F;
-  asm ("fxtract\n\t"
+  asm volatile (
+       "fxtract\n\t"
        "fstp	%%st" : "=t" (res) : "0" (x));
   return res;
 #endif

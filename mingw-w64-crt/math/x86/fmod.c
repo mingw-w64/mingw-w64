@@ -10,7 +10,8 @@ fmod (double x, double y)
 {
   double res = 0.0;
 
-  asm ("1:\tfprem\n\t"
+  asm volatile (
+       "1:\tfprem\n\t"
        "fstsw   %%ax\n\t"
        "sahf\n\t"
        "jp      1b\n\t"

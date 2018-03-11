@@ -18,7 +18,8 @@ fmodf (float x, float y)
 {
   float res = 0.0F;
 
-  asm ("1:\tfprem\n\t"
+  asm volatile (
+       "1:\tfprem\n\t"
        "fstsw   %%ax\n\t"
        "sahf\n\t"
        "jp      1b\n\t"
