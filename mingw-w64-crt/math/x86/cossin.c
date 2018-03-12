@@ -25,7 +25,7 @@ void sincos (double __x, double *p_sin, double *p_cos)
     "jnz       2b\n\t"
     "fstp      %%st(1)\n\t"
     "fsincos\n\t"
-    "1:" : "=t" (c), "=u" (s) : "0" (__x));
+    "1:" : "=t" (c), "=u" (s) : "0" (__x) : "eax");
   *p_sin = (double) s;
   *p_cos = (double) c;
 }
@@ -47,7 +47,7 @@ void sincosf (float __x, float *p_sin, float *p_cos)
     "jnz       2b\n\t"
     "fstp      %%st(1)\n\t"
     "fsincos\n\t"
-    "1:" : "=t" (c), "=u" (s) : "0" (__x));
+    "1:" : "=t" (c), "=u" (s) : "0" (__x) : "eax");
   *p_sin = (float) s;
   *p_cos = (float) c;
 }
@@ -69,7 +69,7 @@ void sincosl (long double __x, long double *p_sin, long double *p_cos)
     "jnz       2b\n\t"
     "fstp      %%st(1)\n\t"
     "fsincos\n\t"
-    "1:" : "=t" (c), "=u" (s) : "0" (__x));
+    "1:" : "=t" (c), "=u" (s) : "0" (__x) : "eax");
   *p_sin = s;
   *p_cos = c;
 }
