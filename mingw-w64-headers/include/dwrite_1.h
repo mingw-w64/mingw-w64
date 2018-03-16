@@ -14,6 +14,27 @@ enum DWRITE_OUTLINE_THRESHOLD {
     DWRITE_OUTLINE_THRESHOLD_ALIASED
 };
 
+enum DWRITE_BASELINE
+{
+    DWRITE_BASELINE_DEFAULT,
+    DWRITE_BASELINE_ROMAN,
+    DWRITE_BASELINE_CENTRAL,
+    DWRITE_BASELINE_MATH,
+    DWRITE_BASELINE_HANGING,
+    DWRITE_BASELINE_IDEOGRAPHIC_BOTTOM,
+    DWRITE_BASELINE_IDEOGRAPHIC_TOP,
+    DWRITE_BASELINE_MINIMUM,
+    DWRITE_BASELINE_MAXIMUM,
+};
+
+enum DWRITE_GLYPH_ORIENTATION_ANGLE
+{
+    DWRITE_GLYPH_ORIENTATION_ANGLE_0_DEGREES,
+    DWRITE_GLYPH_ORIENTATION_ANGLE_90_DEGREES,
+    DWRITE_GLYPH_ORIENTATION_ANGLE_180_DEGREES,
+    DWRITE_GLYPH_ORIENTATION_ANGLE_270_DEGREES,
+};
+
 enum DWRITE_TEXT_ANTIALIAS_MODE
 {
     DWRITE_TEXT_ANTIALIAS_MODE_CLEARTYPE,
@@ -45,6 +66,36 @@ struct DWRITE_FONT_METRICS1 : public DWRITE_FONT_METRICS {
     INT16 superscriptSizeX;
     INT16 superscriptSizeY;
     BOOL hasTypographicMetrics;
+};
+
+struct DWRITE_SCRIPT_PROPERTIES
+{
+    UINT32 isoScriptCode;
+    UINT32 isoScriptNumber;
+    UINT32 clusterLookahead;
+    UINT32 justificationCharacter;
+    UINT32 restrictCaretToClusters      : 1;
+    UINT32 usesWordDividers             : 1;
+    UINT32 isDiscreteWriting            : 1;
+    UINT32 isBlockWriting               : 1;
+    UINT32 isDistributedWithinCluster   : 1;
+    UINT32 isConnectedWriting           : 1;
+    UINT32 isCursiveWriting             : 1;
+    UINT32 reserved                     : 25;
+};
+
+struct DWRITE_JUSTIFICATION_OPPORTUNITY
+{
+    FLOAT expansionMinimum;
+    FLOAT expansionMaximum;
+    FLOAT compressionMaximum;
+    UINT32 expansionPriority         : 8;
+    UINT32 compressionPriority       : 8;
+    UINT32 allowResidualExpansion    : 1;
+    UINT32 allowResidualCompression  : 1;
+    UINT32 applyToLeadingEdge        : 1;
+    UINT32 applyToTrailingEdge       : 1;
+    UINT32 reserved                  : 12;
 };
 
 union DWRITE_PANOSE {
@@ -230,6 +281,209 @@ DECLARE_INTERFACE_(IDWriteRenderingParams1,IDWriteRenderingParams)
 };
 
 __CRT_UUID_DECL(IDWriteRenderingParams1, 0x94413cf4,0xa6fc,0x4248,0x8b,0x50,0x66,0x74,0x34,0x8f,0xca,0xd3)
+
+interface IDWriteTextAnalysisSource1;
+interface IDWriteTextAnalysisSink1;
+interface IDWriteRenderingParams1;
+
+#undef  INTERFACE
+#define INTERFACE IDWriteTextAnalyzer1
+DECLARE_INTERFACE_(IDWriteTextAnalyzer1,IDWriteTextAnalyzer)
+{
+    BEGIN_INTERFACE
+
+#ifndef __cplusplus
+    /* IUnknown methods */
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+
+    /* IDWriteTextAnalyzer methods */
+    STDMETHOD(AnalyzeScript)(THIS_
+        IDWriteTextAnalysisSource* analysisSource,
+        UINT32 textPosition,
+        UINT32 textLength,
+        IDWriteTextAnalysisSink *analysisSink) PURE;
+
+    STDMETHOD(AnalyzeBidi)(THIS_
+        IDWriteTextAnalysisSource *analysisSource,
+        UINT32 textPosition,
+        UINT32 textLength,
+        IDWriteTextAnalysisSink *analysisSink) PURE;
+
+    STDMETHOD(AnalyzeNumberSubstitution)(THIS_
+        IDWriteTextAnalysisSource *analysisSource,
+        UINT32 textPosition,
+        UINT32 textLength,
+        IDWriteTextAnalysisSink *analysisSink) PURE;
+
+    STDMETHOD(AnalyzeLineBreakpoints)(THIS_
+        IDWriteTextAnalysisSource *analysisSource,
+        UINT32 textPosition,
+        UINT32 textLength,
+        IDWriteTextAnalysisSink *analysisSink) PURE;
+
+    STDMETHOD(GetGlyphs)(THIS_
+        WCHAR const *textString,
+        UINT32 textLength,
+        IDWriteFontFace *fontFace,
+        WINBOOL isSideways,
+        WINBOOL isRightToLeft,
+        DWRITE_SCRIPT_ANALYSIS const *scriptAnalysis,
+        WCHAR const *localeName,
+        IDWriteNumberSubstitution *numberSubstitution,
+        DWRITE_TYPOGRAPHIC_FEATURES const **features,
+        UINT32 const *featureRangeLengths,
+        UINT32 featureRanges,
+        UINT32 maxGlyphCount,
+        UINT16 *clusterMap,
+        DWRITE_SHAPING_TEXT_PROPERTIES *textProps,
+        UINT16 *glyphIndices,
+        DWRITE_SHAPING_GLYPH_PROPERTIES *glyphProps,
+        UINT32 *actualGlyphCount) PURE;
+
+    STDMETHOD(GetGlyphPlacements)(THIS_
+        WCHAR const *textString,
+        UINT16 const *clusterMap,
+        DWRITE_SHAPING_TEXT_PROPERTIES *textProps,
+        UINT32 textLength,
+        UINT16 const *glyphIndices,
+        DWRITE_SHAPING_GLYPH_PROPERTIES const *glyphProps,
+        UINT32 glyphCount,
+        IDWriteFontFace *fontFace,
+        FLOAT fontEmSize,
+        WINBOOL isSideways,
+        WINBOOL isRightToLeft,
+        DWRITE_SCRIPT_ANALYSIS const *scriptAnalysis,
+        WCHAR const *localeName,
+        DWRITE_TYPOGRAPHIC_FEATURES const **features,
+        UINT32 const *featureRangeLengths,
+        UINT32 featureRanges,
+        FLOAT *glyphAdvances,
+        DWRITE_GLYPH_OFFSET *glyphOffsets) PURE;
+
+    STDMETHOD(GetGdiCompatibleGlyphPlacements)(THIS_
+        WCHAR const *textString,
+        UINT16 const *clusterMap,
+        DWRITE_SHAPING_TEXT_PROPERTIES *textProps,
+        UINT32 textLength,
+        UINT16 const *glyphIndices,
+        DWRITE_SHAPING_GLYPH_PROPERTIES const *glyphProps,
+        UINT32 glyphCount,
+        IDWriteFontFace *fontFace,
+        FLOAT fontEmSize,
+        FLOAT pixelsPerDip,
+        DWRITE_MATRIX const *transform,
+        WINBOOL useGdiNatural,
+        WINBOOL isSideways,
+        WINBOOL isRightToLeft,
+        DWRITE_SCRIPT_ANALYSIS const* scriptAnalysis,
+        WCHAR const *localeName,
+        DWRITE_TYPOGRAPHIC_FEATURES const **features,
+        UINT32 const *featureRangeLengths,
+        UINT32 featureRanges,
+        FLOAT *glyphAdvances,
+        DWRITE_GLYPH_OFFSET *glyphOffsets) PURE;
+#endif
+
+    /* IDWriteTextAnalyzer1 methods */
+    STDMETHOD(ApplyCharacterSpacing)(THIS_
+        FLOAT leadingSpacing,
+        FLOAT trailingSpacing,
+        FLOAT minimumAdvanceWidth,
+        UINT32 textLength,
+        UINT32 glyphCount,
+        UINT16 const* clusterMap,
+        FLOAT const* glyphAdvances,
+        DWRITE_GLYPH_OFFSET const* glyphOffsets,
+        DWRITE_SHAPING_GLYPH_PROPERTIES const* glyphProperties,
+        FLOAT* modifiedGlyphAdvances,
+        DWRITE_GLYPH_OFFSET* modifiedGlyphOffsets) PURE;
+
+    STDMETHOD(GetBaseline)(THIS_
+        IDWriteFontFace* fontFace,
+        DWRITE_BASELINE baseline,
+        BOOL isVertical,
+        BOOL isSimulationAllowed,
+        DWRITE_SCRIPT_ANALYSIS scriptAnalysis,
+        WCHAR const* localeName,
+        INT32* baselineCoordinate,
+        BOOL* exists
+        ) PURE;
+
+    STDMETHOD(AnalyzeVerticalGlyphOrientation)(
+        IDWriteTextAnalysisSource1* analysisSource,
+        UINT32 textPosition,
+        UINT32 textLength,
+        IDWriteTextAnalysisSink1* analysisSink
+        ) PURE;
+
+    STDMETHOD(GetGlyphOrientationTransform)(
+        DWRITE_GLYPH_ORIENTATION_ANGLE glyphOrientationAngle,
+        BOOL isSideways,
+        DWRITE_MATRIX* transform
+        ) PURE;
+
+    STDMETHOD(GetScriptProperties)(
+        DWRITE_SCRIPT_ANALYSIS scriptAnalysis,
+        DWRITE_SCRIPT_PROPERTIES* scriptProperties
+        ) PURE;
+
+    STDMETHOD(GetTextComplexity)(
+        WCHAR const* textString,
+        UINT32 textLength,
+        IDWriteFontFace* fontFace,
+        BOOL* isTextSimple,
+        UINT32* textLengthRead,
+        UINT16* glyphIndices
+        ) PURE;
+
+    STDMETHOD(GetJustificationOpportunities)(
+        IDWriteFontFace* fontFace,
+        FLOAT fontEmSize,
+        DWRITE_SCRIPT_ANALYSIS scriptAnalysis,
+        UINT32 textLength,
+        UINT32 glyphCount,
+        WCHAR const* textString,
+        UINT16 const* clusterMap,
+        DWRITE_SHAPING_GLYPH_PROPERTIES const* glyphProperties,
+        DWRITE_JUSTIFICATION_OPPORTUNITY* justificationOpportunities
+        ) PURE;
+
+    STDMETHOD(JustifyGlyphAdvances)(
+        FLOAT lineWidth,
+        UINT32 glyphCount,
+        DWRITE_JUSTIFICATION_OPPORTUNITY const* justificationOpportunities,
+        FLOAT const* glyphAdvances,
+        DWRITE_GLYPH_OFFSET const* glyphOffsets,
+        FLOAT* justifiedGlyphAdvances,
+        DWRITE_GLYPH_OFFSET* justifiedGlyphOffsets
+        ) PURE;
+
+    STDMETHOD(GetJustifiedGlyphs)(
+        IDWriteFontFace* fontFace,
+        FLOAT fontEmSize,
+        DWRITE_SCRIPT_ANALYSIS scriptAnalysis,
+        UINT32 textLength,
+        UINT32 glyphCount,
+        UINT32 maxGlyphCount,
+        UINT16 const* clusterMap,
+        UINT16 const* glyphIndices,
+        FLOAT const* glyphAdvances,
+        FLOAT const* justifiedGlyphAdvances,
+        DWRITE_GLYPH_OFFSET const* justifiedGlyphOffsets,
+        DWRITE_SHAPING_GLYPH_PROPERTIES const* glyphProperties,
+        UINT32* actualGlyphCount,
+        UINT16* modifiedClusterMap,
+        UINT16* modifiedGlyphIndices,
+        FLOAT* modifiedGlyphAdvances,
+        DWRITE_GLYPH_OFFSET* modifiedGlyphOffsets
+        ) PURE;
+
+    END_INTERFACE
+};
+
+__CRT_UUID_DECL(IDWriteTextAnalyzer1, 0x80dad800,0xe21f,0x4e83,0x4e,0xce,0xbf,0xcc,0xe5,0x00,0xdb,0x7c);
 
 #undef  INTERFACE
 #define INTERFACE IDWriteFactory1
