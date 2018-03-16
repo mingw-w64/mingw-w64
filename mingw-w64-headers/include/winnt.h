@@ -1555,6 +1555,7 @@ extern "C" {
 # if defined(__cplusplus)
 }
 # endif
+#include <emmintrin.h>
 
 #define FastFence __faststorefence
 #define LoadFence _mm_lfence
@@ -2225,6 +2226,7 @@ extern "C" {
 #if defined(__i386__) && !defined(__x86_64)
 
 #ifdef __SSE2__
+#include <emmintrin.h>
 #define YieldProcessor _mm_pause
 #define MemoryBarrier _mm_mfence
 #else
