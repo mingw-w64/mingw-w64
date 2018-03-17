@@ -2042,30 +2042,111 @@ extern "C" {
 
 #if !defined(RC_INVOKED)
 
-// TODO: #define CONTEXT_*
+#define CONTEXT_ARM64           0x400000
+#define CONTEXT_CONTROL         (CONTEXT_ARM64 | 0x00000001)
+#define CONTEXT_INTEGER         (CONTEXT_ARM64 | 0x00000002)
+#define CONTEXT_FLOATING_POINT  (CONTEXT_ARM64 | 0x00000004)
+#define CONTEXT_DEBUG_REGISTERS (CONTEXT_ARM64 | 0x00000008)
+
+#define CONTEXT_FULL (CONTEXT_CONTROL | CONTEXT_INTEGER)
+#define CONTEXT_ALL  (CONTEXT_CONTROL | CONTEXT_INTEGER | CONTEXT_FLOATING_POINT | CONTEXT_DEBUG_REGISTERS)
+
+#define EXCEPTION_READ_FAULT    0
+#define EXCEPTION_WRITE_FAULT   1
+#define EXCEPTION_EXECUTE_FAULT 8
+
+#define ARM64_MAX_BREAKPOINTS   8
+#define ARM64_MAX_WATCHPOINTS   2
 
 #endif /* !defined(RC_INVOKED) */
 
+  typedef union _NEON128 {
+    struct
+    {
+        ULONGLONG Low;
+        LONGLONG High;
+    } DUMMYSTRUCTNAME;
+    double D[2];
+    float S[4];
+    WORD  H[8];
+    BYTE  B[16];
+  } NEON128, *PNEON128;
+
   typedef struct _CONTEXT {
-    // TODO
+    ULONG ContextFlags;                 /* 000 */
+    /* CONTEXT_INTEGER */
+    ULONG Cpsr;                         /* 004 */
+    union
+    {
+        struct
+        {
+            DWORD64 X0;                 /* 008 */
+            DWORD64 X1;                 /* 010 */
+            DWORD64 X2;                 /* 018 */
+            DWORD64 X3;                 /* 020 */
+            DWORD64 X4;                 /* 028 */
+            DWORD64 X5;                 /* 030 */
+            DWORD64 X6;                 /* 038 */
+            DWORD64 X7;                 /* 040 */
+            DWORD64 X8;                 /* 048 */
+            DWORD64 X9;                 /* 050 */
+            DWORD64 X10;                /* 058 */
+            DWORD64 X11;                /* 060 */
+            DWORD64 X12;                /* 068 */
+            DWORD64 X13;                /* 070 */
+            DWORD64 X14;                /* 078 */
+            DWORD64 X15;                /* 080 */
+            DWORD64 X16;                /* 088 */
+            DWORD64 X17;                /* 090 */
+            DWORD64 X18;                /* 098 */
+            DWORD64 X19;                /* 0a0 */
+            DWORD64 X20;                /* 0a8 */
+            DWORD64 X21;                /* 0b0 */
+            DWORD64 X22;                /* 0b8 */
+            DWORD64 X23;                /* 0c0 */
+            DWORD64 X24;                /* 0c8 */
+            DWORD64 X25;                /* 0d0 */
+            DWORD64 X26;                /* 0d8 */
+            DWORD64 X27;                /* 0e0 */
+            DWORD64 X28;                /* 0e8 */
+            DWORD64 Fp;                 /* 0f0 */
+            DWORD64 Lr;                 /* 0f8 */
+        } DUMMYSTRUCTNAME;
+        DWORD64 X[31];                  /* 008 */
+    } DUMMYUNIONNAME;
+    /* CONTEXT_CONTROL */
+    DWORD64 Sp;                         /* 100 */
+    DWORD64 Pc;                         /* 108 */
+    /* CONTEXT_FLOATING_POINT */
+    NEON128 V[32];                      /* 110 */
+    DWORD Fpcr;                         /* 310 */
+    DWORD Fpsr;                         /* 314 */
+    /* CONTEXT_DEBUG_REGISTERS */
+    DWORD Bcr[ARM64_MAX_BREAKPOINTS];   /* 318 */
+    DWORD64 Bvr[ARM64_MAX_BREAKPOINTS]; /* 338 */
+    DWORD Wcr[ARM64_MAX_WATCHPOINTS];   /* 378 */
+    DWORD64 Wvr[ARM64_MAX_WATCHPOINTS]; /* 380 */
   } CONTEXT, *PCONTEXT;
 
-//  typedef struct _IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY RUNTIME_FUNCTION, *PRUNTIME_FUNCTION;
-//  typedef PRUNTIME_FUNCTION (*PGET_RUNTIME_FUNCTION_CALLBACK)(DWORD64 ControlPc,PVOID Context);
+  typedef struct _IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY RUNTIME_FUNCTION, *PRUNTIME_FUNCTION;
 
-// TODO: #define UNW_*
+#define UNWIND_HISTORY_TABLE_SIZE 12
 
   typedef struct _UNWIND_HISTORY_TABLE_ENTRY {
-    // TODO
+    DWORD64 ImageBase;
+    PRUNTIME_FUNCTION FunctionEntry;
   } UNWIND_HISTORY_TABLE_ENTRY, *PUNWIND_HISTORY_TABLE_ENTRY;
 
   typedef struct _UNWIND_HISTORY_TABLE {
-    // TODO
+    DWORD   Count;
+    BYTE    LocalHint;
+    BYTE    GlobalHint;
+    BYTE    Search;
+    BYTE    Once;
+    DWORD64 LowAddress;
+    DWORD64 HighAddress;
+    UNWIND_HISTORY_TABLE_ENTRY Entry[UNWIND_HISTORY_TABLE_SIZE];
   } UNWIND_HISTORY_TABLE, *PUNWIND_HISTORY_TABLE;
-
-  typedef struct _KNONVOLATILE_CONTEXT_POINTERS {
-    // TODO
-  } KNONVOLATILE_CONTEXT_POINTERS, *PKNONVOLATILE_CONTEXT_POINTERS;
 
 #define OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME "OutOfProcessFunctionTableCallback"
 
@@ -7144,6 +7225,22 @@ __buildmemorybarrier()
 	} DUMMYSTRUCTNAME;
       } DUMMYUNIONNAME;
     } IMAGE_ARM_RUNTIME_FUNCTION_ENTRY,*PIMAGE_ARM_RUNTIME_FUNCTION_ENTRY;
+
+    typedef struct _IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
+      DWORD BeginAddress;
+      __C89_NAMELESS union {
+	DWORD UnwindData;
+	__C89_NAMELESS struct {
+	  DWORD Flag : 2;
+	  DWORD FunctionLength : 11;
+	  DWORD RegF : 3;
+	  DWORD RegI : 4;
+	  DWORD H : 1;
+	  DWORD CR : 2;
+	  DWORD FrameSize : 9;
+	} DUMMYSTRUCTNAME;
+      } DUMMYUNIONNAME;
+    } IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY,*PIMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
 
     typedef struct _IMAGE_RUNTIME_FUNCTION_ENTRY {
       DWORD BeginAddress;
