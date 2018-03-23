@@ -241,7 +241,7 @@ __mingw_ovr
 __attribute__ ((__format__ (gnu_printf, 2, 3))) __attribute__((nonnull (1,2)))
 int asprintf(char **__ret, const char *__format, ...)
 {
-  register int __retval;
+  int __retval;
   __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
   __retval = __mingw_vasprintf( __ret, __format, __local_argv );
   __builtin_va_end( __local_argv );
@@ -266,7 +266,7 @@ __mingw_ovr
 __attribute__((__format__ (gnu_scanf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
 int sscanf(const char *__source, const char *__format, ...)
 {
-  register int __retval;
+  int __retval;
   __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
   __retval = __mingw_vsscanf( __source, __format, __local_argv );
   __builtin_va_end( __local_argv );
@@ -277,7 +277,7 @@ __mingw_ovr
 __attribute__((__format__ (gnu_scanf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
 int scanf(const char *__format, ...)
 {
-  register int __retval;
+  int __retval;
   __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
   __retval = __mingw_vfscanf( stdin, __format, __local_argv );
   __builtin_va_end( __local_argv );
@@ -288,7 +288,7 @@ __mingw_ovr
 __attribute__((__format__ (gnu_scanf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
 int fscanf(FILE *__stream, const char *__format, ...)
 {
-  register int __retval;
+  int __retval;
   __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
   __retval = __mingw_vfscanf( __stream, __format, __local_argv );
   __builtin_va_end( __local_argv );
@@ -333,7 +333,7 @@ __mingw_ovr
 __attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
 int fprintf (FILE *__stream, const char *__format, ...)
 {
-  register int __retval;
+  int __retval;
   __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
   __retval = __mingw_vfprintf( __stream, __format, __local_argv );
   __builtin_va_end( __local_argv );
@@ -344,7 +344,7 @@ __mingw_ovr
 __attribute__((__format__ (gnu_printf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
 int printf (const char *__format, ...)
 {
-  register int __retval;
+  int __retval;
   __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
   __retval = __mingw_vfprintf( stdout, __format, __local_argv );
   __builtin_va_end( __local_argv );
@@ -355,7 +355,7 @@ __mingw_ovr
 __attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
 int sprintf (char *__stream, const char *__format, ...)
 {
-  register int __retval;
+  int __retval;
   __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
   __retval = __mingw_vsprintf( __stream, __format, __local_argv );
   __builtin_va_end( __local_argv );
@@ -387,7 +387,7 @@ __mingw_ovr
 __attribute__((__format__ (gnu_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
 int snprintf (char *__stream, size_t __n, const char *__format, ...)
 {
-  register int __retval;
+  int __retval;
   __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
   __retval = __mingw_vsnprintf( __stream, __n, __format, __local_argv );
   __builtin_va_end( __local_argv );
@@ -785,7 +785,7 @@ __mingw_ovr
 __attribute__((__format__ (ms_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
 int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, ...)
 {
-  register int __retval;
+  int __retval;
   __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
   __retval = __ms_vsnprintf (__stream, __n, __format, __local_argv);
   __builtin_va_end( __local_argv );
@@ -863,7 +863,7 @@ __mingw_ovr
 /* __attribute__((__format__ (gnu_wscanf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
 int swscanf(const wchar_t *__source, const wchar_t *__format, ...)
 {
-  register int __retval;
+  int __retval;
   __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
   __retval = __mingw_vswscanf( __source, __format, __local_argv );
   __builtin_va_end( __local_argv );
@@ -874,7 +874,7 @@ __mingw_ovr
 /* __attribute__((__format__ (gnu_wscanf, 1, 2))) */ __MINGW_ATTRIB_NONNULL(1)
 int wscanf(const wchar_t *__format, ...)
 {
-  register int __retval;
+  int __retval;
   __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
   __retval = __mingw_vfwscanf( stdin, __format, __local_argv );
   __builtin_va_end( __local_argv );
@@ -885,7 +885,7 @@ __mingw_ovr
 /* __attribute__((__format__ (gnu_wscanf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
 int fwscanf(FILE *__stream, const wchar_t *__format, ...)
 {
-  register int __retval;
+  int __retval;
   __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
   __retval = __mingw_vfwscanf( __stream, __format, __local_argv );
   __builtin_va_end( __local_argv );
@@ -921,7 +921,7 @@ __mingw_ovr
 /* __attribute__((__format__ (gnu_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
 int fwprintf (FILE *__stream, const wchar_t *__format, ...)
 {
-  register int __retval;
+  int __retval;
   __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
   __retval = __mingw_vfwprintf( __stream, __format, __local_argv );
   __builtin_va_end( __local_argv );
@@ -932,7 +932,7 @@ __mingw_ovr
 /* __attribute__((__format__ (gnu_wprintf, 1, 2))) */ __MINGW_ATTRIB_NONNULL(1)
 int wprintf (const wchar_t *__format, ...)
 {
-  register int __retval;
+  int __retval;
   __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
   __retval = __mingw_vfwprintf( stdout, __format, __local_argv );
   __builtin_va_end( __local_argv );
@@ -958,7 +958,7 @@ __mingw_ovr
 /* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
 int snwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, ...)
 {
-  register int __retval;
+  int __retval;
   __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
   __retval = __mingw_vsnwprintf( __stream, __n, __format, __local_argv );
   __builtin_va_end( __local_argv );
