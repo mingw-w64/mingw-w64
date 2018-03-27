@@ -129,6 +129,8 @@
 #define NTDDI_WIN7			0x06010000
 #define NTDDI_WIN8                      0x06020000
 #define NTDDI_WINBLUE                   0x06030000
+#define NTDDI_WINTHRESHOLD              0x0A000000
+#define NTDDI_WIN10                     0x0A000000
 
 /* Version Fields in NTDDI_VERSION */
 #define OSVERSION_MASK			0xFFFF0000U
