@@ -1330,6 +1330,9 @@ extern "C" {
 #define WM_WTSSESSION_CHANGE 0x02B1
 #define WM_TABLET_FIRST 0x02c0
 #define WM_TABLET_LAST 0x02df
+#if WINVER >= 0x0601
+#define WM_DPICHANGED 0x02e0
+#endif
 #define WM_CUT 0x0300
 #define WM_COPY 0x0301
 #define WM_PASTE 0x0302
@@ -3633,6 +3636,10 @@ extern "C" {
   WINUSERAPI WINBOOL WINAPI LogicalToPhysicalPoint (HWND hWnd, LPPOINT lpPoint);
   WINUSERAPI WINBOOL WINAPI PhysicalToLogicalPoint (HWND hWnd, LPPOINT lpPoint);
   WINUSERAPI HWND WINAPI WindowFromPhysicalPoint (POINT Point);
+#endif
+#if WINVER >= 0x0603
+  WINUSERAPI WINBOOL WINAPI LogicalToPhysicalPointForPerMonitorDPI (HWND hwnd, LPPOINT lpPoint);
+  WINUSERAPI WINBOOL WINAPI PhysicalToLogicalPointForPerMonitorDPI (HWND hwnd, LPPOINT lpPoint);
 #endif
 #endif
 
