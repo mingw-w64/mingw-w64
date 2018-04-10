@@ -7,6 +7,7 @@
 #define _WINREG_
 
 #include <_mingw_unicode.h>
+#include <winapifamily.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -109,6 +110,8 @@ extern "C" {
 #endif
 
 #define WIN31_CLASS NULL
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 
 #define RegConnectRegistry __MINGW_NAME_AW(RegConnectRegistry)
 #define RegConnectRegistryEx __MINGW_NAME_AW(RegConnectRegistryEx)
@@ -407,6 +410,8 @@ WINADVAPI DWORD WINAPI InitiateShutdownW(
 #define InitiateShutdown __MINGW_NAME_AW(InitiateShutdown)
 
 #endif /* (_WIN32_WINNT >= 0x0600) */
+
+#endif /* WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) */
 
 #ifdef __cplusplus
 }

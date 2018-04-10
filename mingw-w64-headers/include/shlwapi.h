@@ -7,8 +7,11 @@
 #define _INC_SHLWAPI
 
 #include <_mingw_unicode.h>
+#include <winapifamily.h>
 
 #ifndef NOSHLWAPI
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 
 #include <objbase.h>
 #include <shtypes.h>
@@ -939,5 +942,6 @@ LWSTDAPI_(IStream *) SHCreateMemStream(const BYTE *pInit, _In_ UINT cbInit);
 #endif
 
 #include <poppack.h>
+#endif
 #endif
 #endif
