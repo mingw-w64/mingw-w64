@@ -213,6 +213,10 @@ void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp (void);
 #  ifndef _INC_SETJMPEX
 #    if defined(_X86_) || defined(__i386__)
 #      define setjmp(BUF) _setjmp3((BUF), NULL)
+#    elif defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__)
+#      define setjmp(BUF) __mingw_setjmp((BUF))
+#      define longjmp __mingw_longjmp
+  int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) __mingw_setjmp(jmp_buf _Buf);
 #    else
 #     if (__MINGW_GCC_VERSION < 40702)
 #      define setjmp(BUF) _setjmp((BUF), mingw_getsp())
