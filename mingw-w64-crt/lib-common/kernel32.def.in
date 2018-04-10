@@ -1585,7 +1585,7 @@ WriteTapemark
 ZombifyActCtx
 ZombifyActCtxWorker
 __C_specific_handler
-F_ARM_ANY(__chkstk)
+F_ARM32(__chkstk)
 F_X64(__misaligned_access)
 _hread
 _hwrite
