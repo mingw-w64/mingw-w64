@@ -121,6 +121,7 @@ WINBOOL     WINAPI InternetQueryFortezzaStatus(DWORD*,DWORD_PTR);
 WINBOOL     WINAPI IsUrlCacheEntryExpiredA(LPCSTR,DWORD,FILETIME*);
 WINBOOL     WINAPI IsUrlCacheEntryExpiredW(LPCWSTR,DWORD,FILETIME*);
 #define     IsUrlCacheEntryExpired __MINGW_NAME_AW(IsUrlCacheEntryExpired)
+DWORD       WINAPI ParseX509EncodedCertificateForListBoxEntry(LPBYTE,DWORD,LPSTR,LPDWORD);
 WINBOOL     WINAPI SetUrlCacheConfigInfoA(LPINTERNET_CACHE_CONFIG_INFOA,DWORD);
 WINBOOL     WINAPI SetUrlCacheConfigInfoW(LPINTERNET_CACHE_CONFIG_INFOW,DWORD);
 #define     SetUrlCacheConfigInfo __MINGW_NAME_AW(SetUrlCacheConfigInfo)

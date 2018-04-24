@@ -257,6 +257,14 @@ interface ITfKeyEventSink;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __ITfKeyTraceEventSink_FWD_DEFINED__
+#define __ITfKeyTraceEventSink_FWD_DEFINED__
+typedef interface ITfKeyTraceEventSink ITfKeyTraceEventSink;
+#ifdef __cplusplus
+interface ITfKeyTraceEventSink;
+#endif /* __cplusplus */
+#endif
+
 #ifndef __ITfMessagePump_FWD_DEFINED__
 #define __ITfMessagePump_FWD_DEFINED__
 typedef interface ITfMessagePump ITfMessagePump;
@@ -5024,6 +5032,98 @@ static FORCEINLINE HRESULT ITfKeyEventSink_OnPreservedKey(ITfKeyEventSink* This,
 
 
 #endif  /* __ITfKeyEventSink_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * ITfKeyTraceEventSink interface
+ */
+#ifndef __ITfKeyTraceEventSink_INTERFACE_DEFINED__
+#define __ITfKeyTraceEventSink_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ITfKeyTraceEventSink, 0x1cd4c13b, 0x1c36, 0x4191, 0xa7,0x0a, 0x7f,0x3e,0x61,0x1f,0x36,0x7d);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("1cd4c13b-1c36-4191-a70a-7f3e611f367d")
+ITfKeyTraceEventSink : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE OnKeyTraceDown(
+        WPARAM wParam,
+        LPARAM lParam) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE OnKeyTraceUp(
+        WPARAM wParam,
+        LPARAM lParam) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ITfKeyTraceEventSink, 0x1cd4c13b, 0x1c36, 0x4191, 0xa7,0x0a, 0x7f,0x3e,0x61,0x1f,0x36,0x7d)
+#endif
+#else
+typedef struct ITfKeyTraceEventSinkVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ITfKeyTraceEventSink *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ITfKeyTraceEventSink *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ITfKeyTraceEventSink *This);
+
+    /*** ITfKeyTraceEventSink methods ***/
+    HRESULT (STDMETHODCALLTYPE *OnKeyTraceDown)(
+        ITfKeyTraceEventSink *This,
+        WPARAM wParam,
+        LPARAM lParam);
+
+    HRESULT (STDMETHODCALLTYPE *OnKeyTraceUp)(
+        ITfKeyTraceEventSink *This,
+        WPARAM wParam,
+        LPARAM lParam);
+
+    END_INTERFACE
+} ITfKeyTraceEventSinkVtbl;
+
+interface ITfKeyTraceEventSink {
+    CONST_VTBL ITfKeyTraceEventSinkVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ITfKeyTraceEventSink_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ITfKeyTraceEventSink_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ITfKeyTraceEventSink_Release(This) (This)->lpVtbl->Release(This)
+/*** ITfKeyTraceEventSink methods ***/
+#define ITfKeyTraceEventSink_OnKeyTraceDown(This,wParam,lParam) (This)->lpVtbl->OnKeyTraceDown(This,wParam,lParam)
+#define ITfKeyTraceEventSink_OnKeyTraceUp(This,wParam,lParam) (This)->lpVtbl->OnKeyTraceUp(This,wParam,lParam)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ITfKeyTraceEventSink_QueryInterface(ITfKeyTraceEventSink* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ITfKeyTraceEventSink_AddRef(ITfKeyTraceEventSink* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ITfKeyTraceEventSink_Release(ITfKeyTraceEventSink* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ITfKeyTraceEventSink methods ***/
+static FORCEINLINE HRESULT ITfKeyTraceEventSink_OnKeyTraceDown(ITfKeyTraceEventSink* This,WPARAM wParam,LPARAM lParam) {
+    return This->lpVtbl->OnKeyTraceDown(This,wParam,lParam);
+}
+static FORCEINLINE HRESULT ITfKeyTraceEventSink_OnKeyTraceUp(ITfKeyTraceEventSink* This,WPARAM wParam,LPARAM lParam) {
+    return This->lpVtbl->OnKeyTraceUp(This,wParam,lParam);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ITfKeyTraceEventSink_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * ITfMessagePump interface

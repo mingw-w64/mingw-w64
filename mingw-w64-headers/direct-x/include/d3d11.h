@@ -392,6 +392,8 @@ interface ID3D11VideoProcessorInputView;
 #endif /* __cplusplus */
 #endif
 
+#ifndef _D3D11_CONSTANTS
+#define _D3D11_CONSTANTS
 #define D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT (14)
 
 #define D3D11_COMMONSHADER_CONSTANT_BUFFER_COMPONENTS (4)
@@ -783,6 +785,17 @@ interface ID3D11VideoProcessorInputView;
 
 #define D3D11_STANDARD_VERTEX_TOTAL_COMPONENT_COUNT (64)
 
+#endif
+#ifndef _D3D11_1_CONSTANTS
+#define _D3D11_1_CONSTANTS
+#define D3D11_1_UAV_SLOT_COUNT (64)
+
+#endif
+#ifndef _D3D11_2_CONSTANTS
+#define _D3D11_2_CONSTANTS
+#define D3D11_2_TILED_RESOURCE_TILE_SIZE_IN_BYTES (0x10000)
+
+#endif
 #if !defined(D3D11_NO_HELPERS) && defined(__cplusplus)
 struct CD3D11_DEFAULT {};
 extern const DECLSPEC_SELECTANY CD3D11_DEFAULT D3D11_DEFAULT;
@@ -1641,7 +1654,9 @@ struct CD3D11_BLEND_DESC : public D3D11_BLEND_DESC {
     explicit CD3D11_BLEND_DESC(CD3D11_DEFAULT) {
         AlphaToCoverageEnable = FALSE;
         IndependentBlendEnable = FALSE;
-        for(D3D11_RENDER_TARGET_BLEND_DESC *target; target < RenderTarget+D3D11_SIMULTANEOUS_RENDER_TARGET_COUNT; target++) {
+        for(D3D11_RENDER_TARGET_BLEND_DESC *target = RenderTarget;
+                target < RenderTarget + D3D11_SIMULTANEOUS_RENDER_TARGET_COUNT;
+                target++) {
             target->BlendEnable = FALSE;
             target->SrcBlend = target->SrcBlendAlpha = D3D11_BLEND_ONE;
             target->DestBlend = target->DestBlendAlpha = D3D11_BLEND_ZERO;
