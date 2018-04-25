@@ -506,7 +506,7 @@ MD4Init
 MD4Update
 MD5Final
 MD5Init
-MD5Update DATA
+MD5Update
 MIDL_user_free_Ext
 MSChapSrvChangePassword
 MSChapSrvChangePassword2
