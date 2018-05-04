@@ -1237,8 +1237,12 @@ pthread_cancel (pthread_t t)
 	  GetThreadContext(tv->h, &ctxt);
 #ifdef _M_X64
 	  ctxt.Rip = (uintptr_t) _pthread_invoke_cancel;
-#else
+#elif defined(_M_IX86)
 	  ctxt.Eip = (uintptr_t) _pthread_invoke_cancel;
+#elif defined(_M_ARM) || defined(_M_ARM64)
+	  ctxt.Pc = (uintptr_t) _pthread_invoke_cancel;
+#else
+#error Unsupported architecture
 #endif
 	  SetThreadContext (tv->h, &ctxt);
 
