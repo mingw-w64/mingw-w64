@@ -182,61 +182,6 @@ typedef union ATTRIB_GCC_STRUCT __uI128 {
  */
 #define PFORMAT_INFNAN      -32768
 
-#ifdef _WIN32
-/*
- * The Microsoft standard for printing `%e' format exponents is
- * with a minimum of three digits, unless explicitly set otherwise,
- * by a prior invocation of the `_set_output_format()' function.
- *
- * The following macro allows us to replicate this behaviour.
- */
-# define PFORMAT_MINEXP    __pformat_exponent_digits()
- /*
-  * However, this feature is unsupported for versions of the
-  * MSVC runtime library prior to msvcr80.dll, and by default,
-  * MinGW uses an earlier version, (equivalent to msvcr60.dll),
-  * for which `_TWO_DIGIT_EXPONENT' will be undefined.
-  */
-# ifndef _TWO_DIGIT_EXPONENT
- /*
-  * This hack works around the lack of the `_set_output_format()'
-  * feature, when supporting versions of the MSVC runtime library
-  * prior to msvcr80.dll; it simply enforces Microsoft's original
-  * convention, for all cases where the feature is unsupported.
-  */
-#  define _get_output_format()  0
-#  define _TWO_DIGIT_EXPONENT   1
-# endif
-/*
- * Irrespective of the MSVCRT version supported, *we* will add
- * an additional capability, through the following inline function,
- * which will allow the user to choose his own preferred default
- * for `PRINTF_EXPONENT_DIGITS', through the simple expedient
- * of defining it as an environment variable.
- */
-static
-int __pformat_exponent_digits( void )
-{
-  /* Calling getenv is expensive; only do it once and cache the result. */
-  static int two_exp_digits_env = -1;
-  if (two_exp_digits_env == -1) {
-    const char *exponent_digits_env = getenv( "PRINTF_EXPONENT_DIGITS" );
-    two_exp_digits_env = exponent_digits_env != NULL
-                         && (unsigned)(*exponent_digits_env - '0') < 3;
-  }
-  return (two_exp_digits_env || (_get_output_format() & _TWO_DIGIT_EXPONENT))
-         ? 2
-         : 3
-         ;
-}
-#else
-/*
- * When we don't care to mimic Microsoft's standard behaviour,
- * we adopt the C99/POSIX standard of two digit exponents.
- */
-# define PFORMAT_MINEXP         2
-#endif
-
 typedef union
 {
   /* A data type agnostic representation,
@@ -1578,9 +1523,11 @@ void __pformat_emit_efloat( int sign, char *value, int e, __pformat_t *stream )
     exp_width++;
 
   /* Ensure that this is at least as many as the standard requirement.
+   * The C99 standard requires the expenent to contain at least two
+   * digits, unless specified explicitly otherwise.
    */
   if (stream->expmin == -1)
-    stream->expmin = PFORMAT_MINEXP;
+    stream->expmin = 2;
   if( exp_width < stream->expmin )
     exp_width = stream->expmin;
 
