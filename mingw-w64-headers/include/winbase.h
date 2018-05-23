@@ -932,7 +932,7 @@ extern "C" {
   SHORT __cdecl InterlockedOr16(SHORT volatile *Destination, SHORT Value);
   SHORT __cdecl InterlockedXor16(SHORT volatile *Destination, SHORT Value);
 
-#elif (defined (__arm__) || defined (__aarch64__)) && !defined (RC_INVOKED)
+#elif defined (__aarch64__) && !defined (RC_INVOKED)
 #define InterlockedAnd _InterlockedAnd
 #define InterlockedOr _InterlockedOr
 #define InterlockedXor _InterlockedXor
