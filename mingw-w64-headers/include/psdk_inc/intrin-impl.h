@@ -1084,6 +1084,36 @@ __buildbittesti(InterlockedBitTestAndComplement, __LONG32, "eor", /* unused para
 #define __INTRINSIC_DEFINED_InterlockedBitTestAndComplement
 #endif /* __INTRINSIC_PROLOG */
 
+#if __INTRINSIC_PROLOG(_BitScanForward)
+__MINGW_EXTENSION unsigned char _BitScanForward(unsigned __LONG32 *Index, unsigned __LONG32 Mask);
+#if !__has_builtin(_BitScanForward)
+__MINGW_EXTENSION __INTRINSICS_USEINLINE
+unsigned char _BitScanForward(unsigned __LONG32 *Index, unsigned __LONG32 Mask)
+{
+    if (Mask == 0)
+        return 0;
+    *Index = __builtin_ctz(Mask);
+    return 1;
+}
+#endif
+#define __INTRINSIC_DEFINED__BitScanForward
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_BitScanReverse)
+__MINGW_EXTENSION unsigned char _BitScanReverse(unsigned __LONG32 *Index, unsigned __LONG32 Mask);
+#if !__has_builtin(_BitScanReverse)
+__MINGW_EXTENSION __INTRINSICS_USEINLINE
+unsigned char _BitScanReverse(unsigned __LONG32 *Index, unsigned __LONG32 Mask)
+{
+    if (Mask == 0)
+        return 0;
+    *Index = 31 - __builtin_clz(Mask);
+    return 1;
+}
+#endif
+#define __INTRINSIC_DEFINED__BitScanReverse
+#endif /* __INTRINSIC_PROLOG */
+
 #endif /* defined(__arm__) || defined(_ARM_) */
 
 #if defined(__aarch64__) || defined(_ARM64_)
@@ -1212,6 +1242,67 @@ __int64 _InterlockedExchangeAdd64(__int64 volatile *Addend, __int64 Value) {
 #endif
 #define __INTRINSIC_DEFINED__InterlockedExchangeAdd64
 #endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_BitScanForward)
+__MINGW_EXTENSION unsigned char _BitScanForward(unsigned __LONG32 *Index, unsigned __LONG32 Mask);
+#if !__has_builtin(_BitScanForward)
+__MINGW_EXTENSION __INTRINSICS_USEINLINE
+unsigned char _BitScanForward(unsigned __LONG32 *Index, unsigned __LONG32 Mask)
+{
+    if (Mask == 0)
+        return 0;
+    *Index = __builtin_ctz(Mask);
+    return 1;
+}
+#endif
+#define __INTRINSIC_DEFINED__BitScanForward
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_BitScanReverse)
+__MINGW_EXTENSION unsigned char _BitScanReverse(unsigned __LONG32 *Index, unsigned __LONG32 Mask);
+#if !__has_builtin(_BitScanReverse)
+__MINGW_EXTENSION __INTRINSICS_USEINLINE
+unsigned char _BitScanReverse(unsigned __LONG32 *Index, unsigned __LONG32 Mask)
+{
+    if (Mask == 0)
+        return 0;
+    *Index = 31 - __builtin_clz(Mask);
+    return 1;
+}
+#endif
+#define __INTRINSIC_DEFINED__BitScanReverse
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_BitScanForward64)
+__MINGW_EXTENSION unsigned char _BitScanForward64(unsigned __LONG32 *Index, unsigned __int64 Mask);
+#if !__has_builtin(_BitScanForward64)
+__MINGW_EXTENSION __INTRINSICS_USEINLINE
+unsigned char _BitScanForward64(unsigned __LONG32 *Index, unsigned __int64 Mask)
+{
+    if (Mask == 0)
+        return 0;
+    *Index = __builtin_ctzll(Mask);
+    return 1;
+}
+#endif
+#define __INTRINSIC_DEFINED__BitScanForward64
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_BitScanReverse64)
+__MINGW_EXTENSION unsigned char _BitScanReverse64(unsigned __LONG32 *Index, unsigned __int64 Mask);
+#if !__has_builtin(_BitScanReverse64)
+__MINGW_EXTENSION __INTRINSICS_USEINLINE
+unsigned char _BitScanReverse64(unsigned __LONG32 *Index, unsigned __int64 Mask)
+{
+    if (Mask == 0)
+        return 0;
+    *Index = 63 - __builtin_clzll(Mask);
+    return 1;
+}
+#endif
+#define __INTRINSIC_DEFINED__BitScanReverse64
+#endif /* __INTRINSIC_PROLOG */
+
 #endif /* defined(__aarch64__) || define(_ARM64_) */
 /* ***************************************************** */
 

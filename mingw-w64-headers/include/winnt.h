@@ -1991,6 +1991,8 @@ extern "C" {
 
 #define BitScanForward _BitScanForward
 #define BitScanReverse _BitScanReverse
+#define BitScanForward64 _BitScanForward64
+#define BitScanReverse64 _BitScanReverse64
 
 #define InterlockedIncrement16 _InterlockedIncrement16
 #define InterlockedDecrement16 _InterlockedDecrement16
