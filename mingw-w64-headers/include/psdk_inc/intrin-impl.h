@@ -169,6 +169,24 @@ __INTRINSICS_USEINLINE
       : "memory", "cc"); \
    return (old >> Offset) & 1; \
 }
+#define __buildbittesti64(x, y, z, a) unsigned char x(y volatile *Base, y Offset) \
+{ \
+   unsigned __int64 old, tmp1; \
+   unsigned int tmp2; \
+   unsigned __int64 bit = 1ULL << Offset; \
+   __asm__ __volatile__ ("dmb	sy\n\t" \
+        "1: ldxr	%[old], %[Base]\n\t" \
+        "mov	%[tmp1], %[old]\n\t" \
+        z "	%[tmp1], %[tmp1], %[bit]\n\t" \
+        "stxr	%w[tmp2], %[tmp1], %[Base]\n\t" \
+        "cmp	%w[tmp2], #0\n\t" \
+        "b.ne	1b\n\t" \
+        "dmb	sy" \
+      : [old] "=&r" (old), [tmp1] "=&r" (tmp1), [tmp2] "=&r" (tmp2), [Base] "+m" (*Base) \
+      : [bit] a "r" (bit) \
+      : "memory", "cc"); \
+   return (old >> Offset) & 1; \
+}
 #endif /* defined(__x86_64__) || defined(_AMD64_) || defined(__i386__) || defined(_X86_) */
 
 /* This macro is used by YieldProcessor when compiling x86 w/o SSE2.
@@ -1170,6 +1188,60 @@ __INTRINSICS_USEINLINE
 __buildbittesti(InterlockedBitTestAndComplement, __LONG32, "eor", /* unused param */)
 #endif
 #define __INTRINSIC_DEFINED_InterlockedBitTestAndComplement
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_interlockedbittestandset64)
+unsigned char _interlockedbittestandset64(__int64 volatile *a, __int64 b);
+#if !__has_builtin(_interlockedbittestandset64)
+__INTRINSICS_USEINLINE
+__buildbittesti64(_interlockedbittestandset64, __int64, "orr", /* unused param */)
+#endif
+#define __INTRINSIC_DEFINED__interlockedbittestandset64
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_interlockedbittestandreset64)
+unsigned char _interlockedbittestandreset64(__int64 volatile *a, __int64 b);
+__INTRINSICS_USEINLINE
+#if !__has_builtin(_interlockedbittestandreset64)
+__buildbittesti64(_interlockedbittestandreset64, __int64, "bic", /* unused param */)
+#endif
+#define __INTRINSIC_DEFINED__interlockedbittestandreset64
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(_interlockedbittestandcomplement64)
+unsigned char _interlockedbittestandcomplement64(__int64 volatile *a, __int64 b);
+#if !__has_builtin(_interlockedbittestandcomplement64)
+__INTRINSICS_USEINLINE
+__buildbittesti64(_interlockedbittestandcomplement64, __int64, "eor", /* unused param */)
+#endif
+#define __INTRINSIC_DEFINED__interlockedbittestandcomplement64
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(InterlockedBitTestAndSet64)
+unsigned char InterlockedBitTestAndSet64(volatile __int64 *a, __int64 b);
+#if !__has_builtin(InterlockedBitTestAndSet64)
+__INTRINSICS_USEINLINE
+__buildbittesti64(InterlockedBitTestAndSet64, __int64, "orr", /* unused param */)
+#endif
+#define __INTRINSIC_DEFINED_InterlockedBitTestAndSet64
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(InterlockedBitTestAndReset64)
+unsigned char InterlockedBitTestAndReset64(volatile __int64 *a, __int64 b);
+#if !__has_builtin(InterlockedBitTestAndReset64)
+__INTRINSICS_USEINLINE
+__buildbittesti64(InterlockedBitTestAndReset64, __int64, "bic", /* unused param */)
+#endif
+#define __INTRINSIC_DEFINED_InterlockedBitTestAndReset64
+#endif /* __INTRINSIC_PROLOG */
+
+#if __INTRINSIC_PROLOG(InterlockedBitTestAndComplement64)
+unsigned char InterlockedBitTestAndComplement64(volatile __int64 *a, __int64 b);
+#if !__has_builtin(InterlockedBitTestAndComplement64)
+__INTRINSICS_USEINLINE
+__buildbittesti64(InterlockedBitTestAndComplement64, __int64, "eor", /* unused param */)
+#endif
+#define __INTRINSIC_DEFINED_InterlockedBitTestAndComplement64
 #endif /* __INTRINSIC_PROLOG */
 
 #if __INTRINSIC_PROLOG(_InterlockedAnd64)
