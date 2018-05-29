@@ -291,6 +291,7 @@ libarm64_DATA += %reldir%/libwmiprop.a
 libarm64_DATA += %reldir%/libwpd_ci.a
 #libarm64_DATA += %reldir%/libws2_32.a      # Handled by custom rule
 libarm64_DATA += %reldir%/libws2help.a
+libarm64_DATA += %reldir%/libwscapi.a
 libarm64_DATA += %reldir%/libwscsvc.a
 libarm64_DATA += %reldir%/libwshbth.a
 libarm64_DATA += %reldir%/libwsock32.a

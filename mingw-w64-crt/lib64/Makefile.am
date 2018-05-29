@@ -787,3 +787,4 @@ lib64_DATA += %reldir%/libwinhttp.a
 lib64_DATA += %reldir%/libruntimeobject.a
 lib64_DATA += %reldir%/libsynchronization.a
 lib64_DATA += %reldir%/libwindowsapp.a
+lib64_DATA += %reldir%/libwscapi.a
