@@ -975,21 +975,23 @@ typedef union _CDB {
     UCHAR CMSF:1;
     UCHAR ExpectedSectorType:3;
     UCHAR Lun:3;
+    struct _LBA {
+      UCHAR StartingBlockAddress[4];
+      UCHAR PlayLength[4];
+    };
+    struct _MSF {
+      UCHAR Reserved1;
+      UCHAR StartingM;
+      UCHAR StartingS;
+      UCHAR StartingF;
+      UCHAR EndingM;
+      UCHAR EndingS;
+      UCHAR EndingF;
+      UCHAR Reserved2;
+    };
     _ANONYMOUS_UNION union {
-      struct _LBA {
-        UCHAR StartingBlockAddress[4];
-        UCHAR PlayLength[4];
-      } LBA;
-      struct _MSF {
-        UCHAR Reserved1;
-        UCHAR StartingM;
-        UCHAR StartingS;
-        UCHAR StartingF;
-        UCHAR EndingM;
-        UCHAR EndingS;
-        UCHAR EndingF;
-        UCHAR Reserved2;
-      } MSF;
+      struct _LBA LBA;
+      struct _MSF MSF;
     } DUMMYUNIONNAME;
     UCHAR Audio:1;
     UCHAR Composite:1;
