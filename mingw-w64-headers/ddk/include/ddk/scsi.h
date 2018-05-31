@@ -746,7 +746,7 @@ typedef union _CDB {
     UCHAR Flag:1;
     UCHAR Reserved:4;
     UCHAR VendorUnique:2;
-  } CDB6GENERIC, *PCDB6GENERIC;
+  } CDB6GENERIC;
   struct _CDB6READWRITE {
     UCHAR OperationCode;
     UCHAR LogicalBlockMsb1:5;
@@ -755,7 +755,7 @@ typedef union _CDB {
     UCHAR LogicalBlockLsb;
     UCHAR TransferBlocks;
     UCHAR Control;
-  } CDB6READWRITE, *PCDB6READWRITE;
+  } CDB6READWRITE;
   struct _CDB6INQUIRY {
     UCHAR OperationCode;
     UCHAR Reserved1:5;
@@ -764,7 +764,7 @@ typedef union _CDB {
     UCHAR IReserved;
     UCHAR AllocationLength;
     UCHAR Control;
-  } CDB6INQUIRY, *PCDB6INQUIRY;
+  } CDB6INQUIRY;
   struct _CDB6INQUIRY3 {
     UCHAR OperationCode;
     UCHAR EnableVitalProductData:1;
@@ -774,7 +774,7 @@ typedef union _CDB {
     UCHAR Reserved2;
     UCHAR AllocationLength;
     UCHAR Control;
-  } CDB6INQUIRY3, *PCDB6INQUIRY3;
+  } CDB6INQUIRY3;
   struct _CDB6VERIFY {
     UCHAR OperationCode;
     UCHAR Fixed:1;
@@ -784,7 +784,7 @@ typedef union _CDB {
     UCHAR LogicalUnitNumber:3;
     UCHAR VerificationLength[3];
     UCHAR Control;
-  } CDB6VERIFY, *PCDB6VERIFY;
+  } CDB6VERIFY;
   struct _CDB6FORMAT {
     UCHAR OperationCode;
     UCHAR FormatControl:5;
@@ -793,7 +793,7 @@ typedef union _CDB {
     UCHAR InterleaveMsb;
     UCHAR InterleaveLsb;
     UCHAR FReserved2;
-  } CDB6FORMAT, *PCDB6FORMAT;
+  } CDB6FORMAT;
   struct _CDB10 {
     UCHAR OperationCode;
     UCHAR RelativeAddress:1;
@@ -809,7 +809,7 @@ typedef union _CDB {
     UCHAR TransferBlocksMsb;
     UCHAR TransferBlocksLsb;
     UCHAR Control;
-  } CDB10, *PCDB10;
+  } CDB10;
   struct _CDB12 {
     UCHAR OperationCode;
     UCHAR RelativeAddress:1;
@@ -821,7 +821,7 @@ typedef union _CDB {
     UCHAR TransferLength[4];
     UCHAR Reserved2;
     UCHAR Control;
-  } CDB12, *PCDB12;
+  } CDB12;
   struct _CDB16 {
      UCHAR OperationCode;
      UCHAR Reserved1:3;
@@ -832,7 +832,7 @@ typedef union _CDB {
      UCHAR TransferLength[4];
      UCHAR Reserved2;
      UCHAR Control;
-  } CDB16, *PCDB16;
+  } CDB16;
   struct _PAUSE_RESUME {
     UCHAR OperationCode;
     UCHAR Reserved1:5;
@@ -840,7 +840,7 @@ typedef union _CDB {
     UCHAR Reserved2[6];
     UCHAR Action;
     UCHAR Control;
-  } PAUSE_RESUME, *PPAUSE_RESUME;
+  } PAUSE_RESUME;
   struct _READ_TOC {
     UCHAR OperationCode;
     UCHAR Reserved0:1;
@@ -854,7 +854,7 @@ typedef union _CDB {
     UCHAR AllocationLength[2];
     UCHAR Control:6;
     UCHAR Format:2;
-  } READ_TOC, *PREAD_TOC;
+  } READ_TOC;
   struct _READ_DISK_INFORMATION {
     UCHAR OperationCode;
     UCHAR Reserved1:5;
@@ -862,7 +862,7 @@ typedef union _CDB {
     UCHAR Reserved2[5];
     UCHAR AllocationLength[2];
     UCHAR Control;
-  } READ_DISK_INFORMATION, *PREAD_DISK_INFORMATION;
+  } READ_DISK_INFORMATION;
   struct _READ_TRACK_INFORMATION {
     UCHAR OperationCode;
     UCHAR Track:1;
@@ -873,13 +873,13 @@ typedef union _CDB {
     UCHAR Reserved3;
     UCHAR AllocationLength[2];
     UCHAR Control;
-  } READ_TRACK_INFORMATION, *PREAD_TRACK_INFORMATION;
+  } READ_TRACK_INFORMATION;
   struct _RESERVE_TRACK_RZONE {
     UCHAR OperationCode;
     UCHAR Reserved1[4];
     UCHAR ReservationSize[4];
     UCHAR Control;
-  } RESERVE_TRACK_RZONE, *PRESERVE_TRACK_RZONE;
+  } RESERVE_TRACK_RZONE;
   struct _SEND_OPC_INFORMATION {
     UCHAR OperationCode;
     UCHAR DoOpc:1;
@@ -890,7 +890,7 @@ typedef union _CDB {
     UCHAR Reserved3[4];
     UCHAR ParameterListLength[2];
     UCHAR Reserved4;
-  } SEND_OPC_INFORMATION, *PSEND_OPC_INFORMATION;
+  } SEND_OPC_INFORMATION;
   struct _REPAIR_TRACK {
     UCHAR OperationCode;
     UCHAR Immediate:1;
@@ -899,7 +899,7 @@ typedef union _CDB {
     UCHAR TrackNumber[2];
     UCHAR Reserved3[3];
     UCHAR Control;
-  } REPAIR_TRACK, *PREPAIR_TRACK;
+  } REPAIR_TRACK;
   struct _CLOSE_TRACK {
     UCHAR OperationCode;
     UCHAR Immediate:1;
@@ -911,7 +911,7 @@ typedef union _CDB {
     UCHAR TrackNumber[2];
     UCHAR Reserved4[3];
     UCHAR Control;
-  } CLOSE_TRACK, *PCLOSE_TRACK;
+  } CLOSE_TRACK;
   struct _READ_BUFFER_CAPACITY {
     UCHAR OperationCode;
     UCHAR BlockInfo:1;
@@ -919,13 +919,13 @@ typedef union _CDB {
     UCHAR Reserved2[5];
     UCHAR AllocationLength[2];
     UCHAR Control;
-  } READ_BUFFER_CAPACITY, *PREAD_BUFFER_CAPACITY;
+  } READ_BUFFER_CAPACITY;
   struct _SEND_CUE_SHEET {
     UCHAR OperationCode;
     UCHAR Reserved[5];
     UCHAR CueSheetSize[3];
     UCHAR Control;
-  } SEND_CUE_SHEET, *PSEND_CUE_SHEET;
+  } SEND_CUE_SHEET;
   struct _READ_HEADER {
     UCHAR OperationCode;
     UCHAR Reserved1:1;
@@ -936,7 +936,7 @@ typedef union _CDB {
     UCHAR Reserved3;
     UCHAR AllocationLength[2];
     UCHAR Control;
-  } READ_HEADER, *PREAD_HEADER;
+  } READ_HEADER;
   struct _PLAY_AUDIO {
     UCHAR OperationCode;
     UCHAR Reserved1:5;
@@ -945,7 +945,7 @@ typedef union _CDB {
     UCHAR Reserved2;
     UCHAR PlayLength[2];
     UCHAR Control;
-  } PLAY_AUDIO, *PPLAY_AUDIO;
+  } PLAY_AUDIO;
   struct _PLAY_AUDIO_MSF {
     UCHAR OperationCode;
     UCHAR Reserved1:5;
@@ -958,7 +958,7 @@ typedef union _CDB {
     UCHAR EndingS;
     UCHAR EndingF;
     UCHAR Control;
-  } PLAY_AUDIO_MSF, *PPLAY_AUDIO_MSF;
+  } PLAY_AUDIO_MSF;
   struct _BLANK_MEDIA {
     UCHAR OperationCode;
     UCHAR BlankType:3;
@@ -968,7 +968,7 @@ typedef union _CDB {
     UCHAR AddressOrTrack[4];
     UCHAR Reserved3[5];
     UCHAR Control;
-  } BLANK_MEDIA, *PBLANK_MEDIA;
+  } BLANK_MEDIA;
   struct _PLAY_CD {
     UCHAR OperationCode;
     UCHAR Reserved1:1;
@@ -1000,7 +1000,7 @@ typedef union _CDB {
     UCHAR Reserved2:3;
     UCHAR Speed:1;
     UCHAR Control;
-  } PLAY_CD, *PPLAY_CD;
+  } PLAY_CD;
   struct _SCAN_CD {
     UCHAR OperationCode;
     UCHAR RelativeAddress:1;
@@ -1013,14 +1013,14 @@ typedef union _CDB {
     UCHAR Type:2;
     UCHAR Reserved4;
     UCHAR Control;
-  } SCAN_CD, *PSCAN_CD;
+  } SCAN_CD;
   struct _STOP_PLAY_SCAN {
     UCHAR OperationCode;
     UCHAR Reserved1:5;
     UCHAR Lun:3;
     UCHAR Reserved2[7];
     UCHAR Control;
-  } STOP_PLAY_SCAN, *PSTOP_PLAY_SCAN;
+  } STOP_PLAY_SCAN;
   struct _SUBCHANNEL {
     UCHAR OperationCode;
     UCHAR Reserved0:1;
@@ -1035,7 +1035,7 @@ typedef union _CDB {
     UCHAR TrackNumber;
     UCHAR AllocationLength[2];
     UCHAR Control;
-  } SUBCHANNEL, *PSUBCHANNEL;
+  } SUBCHANNEL;
   struct _READ_CD {
     UCHAR OperationCode;
     UCHAR RelativeAddress:1;
@@ -1053,7 +1053,7 @@ typedef union _CDB {
     UCHAR SubChannelSelection:3;
     UCHAR Reserved3:5;
     UCHAR Control;
-  } READ_CD, *PREAD_CD;
+  } READ_CD;
   struct _READ_CD_MSF {
     UCHAR OperationCode;
     UCHAR RelativeAddress:1;
@@ -1077,7 +1077,7 @@ typedef union _CDB {
     UCHAR SubChannelSelection:3;
     UCHAR Reserved5:5;
     UCHAR Control;
-  } READ_CD_MSF, *PREAD_CD_MSF;
+  } READ_CD_MSF;
   struct _PLXTR_READ_CDDA {
     UCHAR OperationCode;
     UCHAR Reserved0:5;
@@ -1092,7 +1092,7 @@ typedef union _CDB {
     UCHAR TransferBlockByte3;
     UCHAR SubCode;
     UCHAR Control;
-  } PLXTR_READ_CDDA, *PPLXTR_READ_CDDA;
+  } PLXTR_READ_CDDA;
   struct _NEC_READ_CDDA {
     UCHAR OperationCode;
     UCHAR Reserved0;
@@ -1104,7 +1104,7 @@ typedef union _CDB {
     UCHAR TransferBlockByte0;
     UCHAR TransferBlockByte1;
     UCHAR Control;
-  } NEC_READ_CDDA, *PNEC_READ_CDDA;
+  } NEC_READ_CDDA;
   struct _MODE_SENSE {
     UCHAR OperationCode;
     UCHAR Reserved1:3;
@@ -1116,7 +1116,7 @@ typedef union _CDB {
     UCHAR Reserved3;
     UCHAR AllocationLength;
     UCHAR Control;
-  } MODE_SENSE, *PMODE_SENSE;
+  } MODE_SENSE;
   struct _MODE_SENSE10 {
     UCHAR OperationCode;
     UCHAR Reserved1:3;
@@ -1128,7 +1128,7 @@ typedef union _CDB {
     UCHAR Reserved3[4];
     UCHAR AllocationLength[2];
     UCHAR Control;
-  } MODE_SENSE10, *PMODE_SENSE10;
+  } MODE_SENSE10;
   struct _MODE_SELECT {
     UCHAR OperationCode;
     UCHAR SPBit:1;
@@ -1138,7 +1138,7 @@ typedef union _CDB {
     UCHAR Reserved2[2];
     UCHAR ParameterListLength;
     UCHAR Control;
-  } MODE_SELECT, *PMODE_SELECT;
+  } MODE_SELECT;
   struct _MODE_SELECT10 {
     UCHAR OperationCode;
     UCHAR SPBit:1;
@@ -1148,7 +1148,7 @@ typedef union _CDB {
     UCHAR Reserved2[5];
     UCHAR ParameterListLength[2];
     UCHAR Control;
-  } MODE_SELECT10, *PMODE_SELECT10;
+  } MODE_SELECT10;
   struct _LOCATE {
     UCHAR OperationCode;
     UCHAR Immediate:1;
@@ -1161,7 +1161,7 @@ typedef union _CDB {
     UCHAR Reserved4;
     UCHAR Partition;
     UCHAR Control;
-  } LOCATE, *PLOCATE;
+  } LOCATE;
   struct _LOGSENSE {
     UCHAR OperationCode;
     UCHAR SPBit:1;
@@ -1175,7 +1175,7 @@ typedef union _CDB {
     UCHAR ParameterPointer[2];
     UCHAR AllocationLength[2];
     UCHAR Control;
-  } LOGSENSE, *PLOGSENSE;
+  } LOGSENSE;
   struct _LOGSELECT {
     UCHAR OperationCode;
     UCHAR SPBit:1;
@@ -1187,14 +1187,14 @@ typedef union _CDB {
     UCHAR Reserved2[4];
     UCHAR ParameterListLength[2];
     UCHAR Control;
-  } LOGSELECT, *PLOGSELECT;
+  } LOGSELECT;
   struct _PRINT {
     UCHAR OperationCode;
     UCHAR Reserved:5;
     UCHAR LogicalUnitNumber:3;
     UCHAR TransferLength[3];
     UCHAR Control;
-  } PRINT, *PPRINT;
+  } PRINT;
   struct _SEEK {
     UCHAR OperationCode;
     UCHAR Reserved1:5;
@@ -1202,7 +1202,7 @@ typedef union _CDB {
     UCHAR LogicalBlockAddress[4];
     UCHAR Reserved2[3];
     UCHAR Control;
-  } SEEK, *PSEEK;
+  } SEEK;
   struct _ERASE {
     UCHAR OperationCode;
     UCHAR Long:1;
@@ -1211,7 +1211,7 @@ typedef union _CDB {
     UCHAR LogicalUnitNumber:3;
     UCHAR Reserved2[3];
     UCHAR Control;
-  } ERASE, *PERASE;
+  } ERASE;
   struct _START_STOP {
     UCHAR OperationCode;
     UCHAR Immediate:1;
@@ -1222,7 +1222,7 @@ typedef union _CDB {
     UCHAR LoadEject:1;
     UCHAR Reserved3:6;
     UCHAR Control;
-  } START_STOP, *PSTART_STOP;
+  } START_STOP;
   struct _MEDIA_REMOVAL {
     UCHAR OperationCode;
     UCHAR Reserved1:5;
@@ -1232,7 +1232,7 @@ typedef union _CDB {
     UCHAR Persistant:1;
     UCHAR Reserved3:6;
     UCHAR Control;
-  } MEDIA_REMOVAL, *PMEDIA_REMOVAL;
+  } MEDIA_REMOVAL;
   struct _SEEK_BLOCK {
     UCHAR OperationCode;
     UCHAR Immediate:1;
@@ -1242,7 +1242,7 @@ typedef union _CDB {
     UCHAR Flag:1;
     UCHAR Reserved2:4;
     UCHAR VendorUnique:2;
-  } SEEK_BLOCK, *PSEEK_BLOCK;
+  } SEEK_BLOCK;
   struct _REQUEST_BLOCK_ADDRESS {
     UCHAR OperationCode;
     UCHAR Reserved1[3];
@@ -1251,7 +1251,7 @@ typedef union _CDB {
     UCHAR Flag:1;
     UCHAR Reserved2:4;
     UCHAR VendorUnique:2;
-  } REQUEST_BLOCK_ADDRESS, *PREQUEST_BLOCK_ADDRESS;
+  } REQUEST_BLOCK_ADDRESS;
   struct _PARTITION {
     UCHAR OperationCode;
     UCHAR Immediate:1;
@@ -1259,7 +1259,7 @@ typedef union _CDB {
     UCHAR PartitionSelect:6;
     UCHAR Reserved1[3];
     UCHAR Control;
-  } PARTITION, *PPARTITION;
+  } PARTITION;
   struct _WRITE_TAPE_MARKS {
     UCHAR OperationCode;
     UCHAR Immediate:1;
@@ -1268,7 +1268,7 @@ typedef union _CDB {
     UCHAR LogicalUnitNumber:3;
     UCHAR TransferLength[3];
     UCHAR Control;
-  } WRITE_TAPE_MARKS, *PWRITE_TAPE_MARKS;
+  } WRITE_TAPE_MARKS;
   struct _SPACE_TAPE_MARKS {
     UCHAR OperationCode;
     UCHAR Code:3;
@@ -1286,7 +1286,7 @@ typedef union _CDB {
       UCHAR VendorUnique:2;
     } Fields;
   } Byte6;
-  } SPACE_TAPE_MARKS, *PSPACE_TAPE_MARKS;
+  } SPACE_TAPE_MARKS;
   struct _READ_POSITION {
     UCHAR Operation;
     UCHAR BlockType:1;
@@ -1294,7 +1294,7 @@ typedef union _CDB {
     UCHAR Lun:3;
     UCHAR Reserved2[7];
     UCHAR Control;
-  } READ_POSITION, *PREAD_POSITION;
+  } READ_POSITION;
   struct _CDB6READWRITETAPE {
     UCHAR OperationCode;
     UCHAR VendorSpecific:5;
@@ -1306,7 +1306,7 @@ typedef union _CDB {
     UCHAR Flag:1;
     UCHAR Reserved1:4;
     UCHAR VendorUnique:2;
-  } CDB6READWRITETAPE, *PCDB6READWRITETAPE;
+  } CDB6READWRITETAPE;
   struct _INIT_ELEMENT_STATUS {
     UCHAR OperationCode;
     UCHAR Reserved1:5;
@@ -1314,7 +1314,7 @@ typedef union _CDB {
     UCHAR Reserved2[3];
     UCHAR Reserved3:7;
     UCHAR NoBarCode:1;
-  } INIT_ELEMENT_STATUS, *PINIT_ELEMENT_STATUS;
+  } INIT_ELEMENT_STATUS;
   struct _INITIALIZE_ELEMENT_RANGE {
     UCHAR OperationCode;
     UCHAR Range:1;
@@ -1326,7 +1326,7 @@ typedef union _CDB {
     UCHAR Reserved3;
     UCHAR Reserved4:7;
     UCHAR NoBarCode:1;
-  } INITIALIZE_ELEMENT_RANGE, *PINITIALIZE_ELEMENT_RANGE;
+  } INITIALIZE_ELEMENT_RANGE;
   struct _POSITION_TO_ELEMENT {
     UCHAR OperationCode;
     UCHAR Reserved1:5;
@@ -1337,7 +1337,7 @@ typedef union _CDB {
     UCHAR Flip:1;
     UCHAR Reserved3:7;
     UCHAR Control;
-  } POSITION_TO_ELEMENT, *PPOSITION_TO_ELEMENT;
+  } POSITION_TO_ELEMENT;
   struct _MOVE_MEDIUM {
     UCHAR OperationCode;
     UCHAR Reserved1:5;
@@ -1349,7 +1349,7 @@ typedef union _CDB {
     UCHAR Flip:1;
     UCHAR Reserved3:7;
     UCHAR Control;
-  } MOVE_MEDIUM, *PMOVE_MEDIUM;
+  } MOVE_MEDIUM;
   struct _EXCHANGE_MEDIUM {
     UCHAR OperationCode;
     UCHAR Reserved1:5;
@@ -1362,7 +1362,7 @@ typedef union _CDB {
     UCHAR Flip2:1;
     UCHAR Reserved3:6;
     UCHAR Control;
-  } EXCHANGE_MEDIUM, *PEXCHANGE_MEDIUM;
+  } EXCHANGE_MEDIUM;
   struct _READ_ELEMENT_STATUS {
     UCHAR OperationCode;
     UCHAR ElementType:4;
@@ -1374,7 +1374,7 @@ typedef union _CDB {
     UCHAR AllocationLength[3];
     UCHAR Reserved2;
     UCHAR Control;
-  } READ_ELEMENT_STATUS, *PREAD_ELEMENT_STATUS;
+  } READ_ELEMENT_STATUS;
   struct _SEND_VOLUME_TAG {
     UCHAR OperationCode;
     UCHAR ElementType:4;
@@ -1388,7 +1388,7 @@ typedef union _CDB {
     UCHAR ParameterListLength[2];
     UCHAR Reserved5;
     UCHAR Control;
-  } SEND_VOLUME_TAG, *PSEND_VOLUME_TAG;
+  } SEND_VOLUME_TAG;
   struct _REQUEST_VOLUME_ELEMENT_ADDRESS {
     UCHAR OperationCode;
     UCHAR ElementType:4;
@@ -1400,7 +1400,7 @@ typedef union _CDB {
     UCHAR AllocationLength[3];
     UCHAR Reserved2;
     UCHAR Control;
-  } REQUEST_VOLUME_ELEMENT_ADDRESS, *PREQUEST_VOLUME_ELEMENT_ADDRESS;
+  } REQUEST_VOLUME_ELEMENT_ADDRESS;
   struct _LOAD_UNLOAD {
     UCHAR OperationCode;
     UCHAR Immediate:1;
@@ -1413,7 +1413,7 @@ typedef union _CDB {
     UCHAR Reserved4[3];
     UCHAR Slot;
     UCHAR Reserved5[3];
-  } LOAD_UNLOAD, *PLOAD_UNLOAD;
+  } LOAD_UNLOAD;
   struct _MECH_STATUS {
     UCHAR OperationCode;
     UCHAR Reserved:5;
@@ -1422,7 +1422,7 @@ typedef union _CDB {
     UCHAR AllocationLength[2];
     UCHAR Reserved2[1];
     UCHAR Control;
-  } MECH_STATUS, *PMECH_STATUS;
+  } MECH_STATUS;
   struct _SYNCHRONIZE_CACHE10 {
     UCHAR OperationCode;
     UCHAR RelAddr:1;
@@ -1433,7 +1433,7 @@ typedef union _CDB {
     UCHAR Reserved2;
     UCHAR BlockCount[2];
     UCHAR Control;
-  } SYNCHRONIZE_CACHE10, *PSYNCHRONIZE_CACHE10;
+  } SYNCHRONIZE_CACHE10;
   struct _GET_EVENT_STATUS_NOTIFICATION {
     UCHAR OperationCode;
     UCHAR Immediate:1;
@@ -1444,7 +1444,7 @@ typedef union _CDB {
     UCHAR Reserved3[2];
     UCHAR EventListLength[2];
     UCHAR Control;
-  } GET_EVENT_STATUS_NOTIFICATION, *PGET_EVENT_STATUS_NOTIFICATION;
+  } GET_EVENT_STATUS_NOTIFICATION;
   struct _GET_PERFORMANCE {
     UCHAR OperationCode;
     UCHAR Except:2;
@@ -1468,7 +1468,7 @@ typedef union _CDB {
     UCHAR Reserved3:6;
     UCHAR AGID:2;
     UCHAR Control;
-  } READ_DVD_STRUCTURE, *PREAD_DVD_STRUCTURE;
+  } READ_DVD_STRUCTURE;
   struct _SET_STREAMING {
     UCHAR OperationCode;
     UCHAR Reserved[8];
@@ -1484,7 +1484,7 @@ typedef union _CDB {
     UCHAR ParameterListLength[2];
     UCHAR Reserved3;
     UCHAR Control;
-  } SEND_DVD_STRUCTURE, *PSEND_DVD_STRUCTURE;
+  } SEND_DVD_STRUCTURE;
   struct _SEND_KEY {
     UCHAR OperationCode;
     UCHAR Reserved1:5;
@@ -1494,7 +1494,7 @@ typedef union _CDB {
     UCHAR KeyFormat:6;
     UCHAR AGID:2;
     UCHAR Control;
-  } SEND_KEY, *PSEND_KEY;
+  } SEND_KEY;
   struct _REPORT_KEY {
     UCHAR OperationCode;
     UCHAR Reserved1:5;
@@ -1505,7 +1505,7 @@ typedef union _CDB {
     UCHAR KeyFormat:6;
     UCHAR AGID:2;
     UCHAR Control;
-  } REPORT_KEY, *PREPORT_KEY;
+  } REPORT_KEY;
   struct _SET_READ_AHEAD {
     UCHAR OperationCode;
     UCHAR Reserved1:5;
@@ -1514,7 +1514,7 @@ typedef union _CDB {
     UCHAR ReadAheadLBA[4];
     UCHAR Reserved2;
     UCHAR Control;
-  } SET_READ_AHEAD, *PSET_READ_AHEAD;
+  } SET_READ_AHEAD;
   struct _READ_FORMATTED_CAPACITIES {
     UCHAR OperationCode;
     UCHAR Reserved1:5;
@@ -1522,14 +1522,14 @@ typedef union _CDB {
     UCHAR Reserved2[5];
     UCHAR AllocationLength[2];
     UCHAR Control;
-  } READ_FORMATTED_CAPACITIES, *PREAD_FORMATTED_CAPACITIES;
+  } READ_FORMATTED_CAPACITIES;
   struct _REPORT_LUNS {
     UCHAR OperationCode;
     UCHAR Reserved1[5];
     UCHAR AllocationLength[4];
     UCHAR Reserved2[1];
     UCHAR Control;
-  } REPORT_LUNS, *PREPORT_LUNS;
+  } REPORT_LUNS;
   struct _PERSISTENT_RESERVE_IN {
     UCHAR OperationCode;
     UCHAR ServiceAction:5;
@@ -1537,7 +1537,7 @@ typedef union _CDB {
     UCHAR Reserved2[5];
     UCHAR AllocationLength[2];
     UCHAR Control;
-  } PERSISTENT_RESERVE_IN, *PPERSISTENT_RESERVE_IN;
+  } PERSISTENT_RESERVE_IN;
   struct _PERSISTENT_RESERVE_OUT {
     UCHAR OperationCode;
     UCHAR ServiceAction:5;
@@ -1547,7 +1547,7 @@ typedef union _CDB {
     UCHAR Reserved2[4];
     UCHAR ParameterListLength[2];
     UCHAR Control;
-  } PERSISTENT_RESERVE_OUT, *PPERSISTENT_RESERVE_OUT;
+  } PERSISTENT_RESERVE_OUT;
   struct _GET_CONFIGURATION {
     UCHAR OperationCode;
     UCHAR RequestType:1;
@@ -1556,7 +1556,7 @@ typedef union _CDB {
     UCHAR Reserved2[3];
     UCHAR AllocationLength[2];
     UCHAR Control;
-  } GET_CONFIGURATION, *PGET_CONFIGURATION;
+  } GET_CONFIGURATION;
   struct _SET_CD_SPEED {
     UCHAR OperationCode;
     _ANONYMOUS_UNION union {
@@ -1570,7 +1570,7 @@ typedef union _CDB {
     UCHAR WriteSpeed[2];
     UCHAR Reserved2[5];
     UCHAR Control;
-  } SET_CD_SPEED, *PSET_CD_SPEED;
+  } SET_CD_SPEED;
   struct _READ12 {
     UCHAR OperationCode;
     UCHAR RelativeAddress:1;
