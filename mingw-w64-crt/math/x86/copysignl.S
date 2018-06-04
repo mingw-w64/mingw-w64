@@ -26,7 +26,7 @@ __MINGW_USYMBOL(copysignl):
 	movq	%rax, (%rcx)
 	movq	8(%rdx), %rax
 	movq	8(%r8), %rdx
-	andq	$0x777f, %rax
+	andq	$0x7fff, %rax
 	andq	$0x8000, %rdx
 	orq	%rdx, %rax
 	movq	%rax, 8(%rcx)
