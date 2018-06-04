@@ -313,6 +313,16 @@ enum _DMO_INPLACE_PROCESS_FLAGS {
     DMO_INPLACE_NORMAL = 0x0,
     DMO_INPLACE_ZERO = 0x1
 };
+enum _DMO_SET_TYPE_FLAGS {
+    DMO_SET_TYPEF_TEST_ONLY = 0x1,
+    DMO_SET_TYPEF_CLEAR = 0x2
+};
+enum _DMO_OUTPUT_DATA_BUFFERF_FLAGS {
+    DMO_OUTPUT_DATA_BUFFERF_SYNCPOINT = 0x1,
+    DMO_OUTPUT_DATA_BUFFERF_TIME = 0x2,
+    DMO_OUTPUT_DATA_BUFFERF_TIMELENGTH = 0x4,
+    DMO_OUTPUT_DATA_BUFFERF_INCOMPLETE = 0x1000000
+};
 /*****************************************************************************
  * IMediaObject interface
  */

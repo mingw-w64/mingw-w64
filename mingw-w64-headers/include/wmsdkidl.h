@@ -105,6 +105,38 @@ interface IWMProfileManager;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __IWMProfileManager2_FWD_DEFINED__
+#define __IWMProfileManager2_FWD_DEFINED__
+typedef interface IWMProfileManager2 IWMProfileManager2;
+#ifdef __cplusplus
+interface IWMProfileManager2;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IWMCodecInfo_FWD_DEFINED__
+#define __IWMCodecInfo_FWD_DEFINED__
+typedef interface IWMCodecInfo IWMCodecInfo;
+#ifdef __cplusplus
+interface IWMCodecInfo;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IWMCodecInfo2_FWD_DEFINED__
+#define __IWMCodecInfo2_FWD_DEFINED__
+typedef interface IWMCodecInfo2 IWMCodecInfo2;
+#ifdef __cplusplus
+interface IWMCodecInfo2;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IWMCodecInfo3_FWD_DEFINED__
+#define __IWMCodecInfo3_FWD_DEFINED__
+typedef interface IWMCodecInfo3 IWMCodecInfo3;
+#ifdef __cplusplus
+interface IWMCodecInfo3;
+#endif /* __cplusplus */
+#endif
+
 #ifndef __IWMMediaProps_FWD_DEFINED__
 #define __IWMMediaProps_FWD_DEFINED__
 typedef interface IWMMediaProps IWMMediaProps;
@@ -374,6 +406,22 @@ interface IWMLanguageList;
 typedef interface IWMReaderPlaylistBurn IWMReaderPlaylistBurn;
 #ifdef __cplusplus
 interface IWMReaderPlaylistBurn;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IWMPropertyVault_FWD_DEFINED__
+#define __IWMPropertyVault_FWD_DEFINED__
+typedef interface IWMPropertyVault IWMPropertyVault;
+#ifdef __cplusplus
+interface IWMPropertyVault;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IWMWriterPreprocess_FWD_DEFINED__
+#define __IWMWriterPreprocess_FWD_DEFINED__
+typedef interface IWMWriterPreprocess IWMWriterPreprocess;
+#ifdef __cplusplus
+interface IWMWriterPreprocess;
 #endif /* __cplusplus */
 #endif
 
@@ -2395,7 +2443,614 @@ static FORCEINLINE HRESULT IWMProfileManager_LoadSystemProfile(IWMProfileManager
 
 #endif  /* __IWMProfileManager_INTERFACE_DEFINED__ */
 
+/*****************************************************************************
+ * IWMProfileManager2 interface
+ */
+#ifndef __IWMProfileManager2_INTERFACE_DEFINED__
+#define __IWMProfileManager2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMProfileManager2, 0x7a924e51, 0x73c1, 0x494d, 0x80,0x19, 0x23,0xd3,0x7e,0xd9,0xb8,0x9a);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("7a924e51-73c1-494d-8019-23d37ed9b89a")
+IWMProfileManager2 : public IWMProfileManager
+{
+    virtual HRESULT STDMETHODCALLTYPE GetSystemProfileVersion(
+        WMT_VERSION *version) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetSystemProfileVersion(
+        WMT_VERSION version) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMProfileManager2, 0x7a924e51, 0x73c1, 0x494d, 0x80,0x19, 0x23,0xd3,0x7e,0xd9,0xb8,0x9a)
+#endif
+#else
+typedef struct IWMProfileManager2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMProfileManager2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMProfileManager2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMProfileManager2 *This);
+
+    /*** IWMProfileManager methods ***/
+    HRESULT (STDMETHODCALLTYPE *CreateEmptyProfile)(
+        IWMProfileManager2 *This,
+        WMT_VERSION dwVersion,
+        IWMProfile **ppProfile);
+
+    HRESULT (STDMETHODCALLTYPE *LoadProfileByID)(
+        IWMProfileManager2 *This,
+        REFGUID guidProfile,
+        IWMProfile **ppProfile);
+
+    HRESULT (STDMETHODCALLTYPE *LoadProfileByData)(
+        IWMProfileManager2 *This,
+        const WCHAR *pwszProfile,
+        IWMProfile **ppProfile);
+
+    HRESULT (STDMETHODCALLTYPE *SaveProfile)(
+        IWMProfileManager2 *This,
+        IWMProfile *pIWMProfile,
+        WCHAR *pwszProfile,
+        DWORD *pdwLength);
+
+    HRESULT (STDMETHODCALLTYPE *GetSystemProfileCount)(
+        IWMProfileManager2 *This,
+        DWORD *pcProfiles);
+
+    HRESULT (STDMETHODCALLTYPE *LoadSystemProfile)(
+        IWMProfileManager2 *This,
+        DWORD dwProfileIndex,
+        IWMProfile **ppProfile);
+
+    /*** IWMProfileManager2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetSystemProfileVersion)(
+        IWMProfileManager2 *This,
+        WMT_VERSION *version);
+
+    HRESULT (STDMETHODCALLTYPE *SetSystemProfileVersion)(
+        IWMProfileManager2 *This,
+        WMT_VERSION version);
+
+    END_INTERFACE
+} IWMProfileManager2Vtbl;
+
+interface IWMProfileManager2 {
+    CONST_VTBL IWMProfileManager2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMProfileManager2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMProfileManager2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMProfileManager2_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMProfileManager methods ***/
+#define IWMProfileManager2_CreateEmptyProfile(This,dwVersion,ppProfile) (This)->lpVtbl->CreateEmptyProfile(This,dwVersion,ppProfile)
+#define IWMProfileManager2_LoadProfileByID(This,guidProfile,ppProfile) (This)->lpVtbl->LoadProfileByID(This,guidProfile,ppProfile)
+#define IWMProfileManager2_LoadProfileByData(This,pwszProfile,ppProfile) (This)->lpVtbl->LoadProfileByData(This,pwszProfile,ppProfile)
+#define IWMProfileManager2_SaveProfile(This,pIWMProfile,pwszProfile,pdwLength) (This)->lpVtbl->SaveProfile(This,pIWMProfile,pwszProfile,pdwLength)
+#define IWMProfileManager2_GetSystemProfileCount(This,pcProfiles) (This)->lpVtbl->GetSystemProfileCount(This,pcProfiles)
+#define IWMProfileManager2_LoadSystemProfile(This,dwProfileIndex,ppProfile) (This)->lpVtbl->LoadSystemProfile(This,dwProfileIndex,ppProfile)
+/*** IWMProfileManager2 methods ***/
+#define IWMProfileManager2_GetSystemProfileVersion(This,version) (This)->lpVtbl->GetSystemProfileVersion(This,version)
+#define IWMProfileManager2_SetSystemProfileVersion(This,version) (This)->lpVtbl->SetSystemProfileVersion(This,version)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMProfileManager2_QueryInterface(IWMProfileManager2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMProfileManager2_AddRef(IWMProfileManager2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMProfileManager2_Release(IWMProfileManager2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMProfileManager methods ***/
+static FORCEINLINE HRESULT IWMProfileManager2_CreateEmptyProfile(IWMProfileManager2* This,WMT_VERSION dwVersion,IWMProfile **ppProfile) {
+    return This->lpVtbl->CreateEmptyProfile(This,dwVersion,ppProfile);
+}
+static FORCEINLINE HRESULT IWMProfileManager2_LoadProfileByID(IWMProfileManager2* This,REFGUID guidProfile,IWMProfile **ppProfile) {
+    return This->lpVtbl->LoadProfileByID(This,guidProfile,ppProfile);
+}
+static FORCEINLINE HRESULT IWMProfileManager2_LoadProfileByData(IWMProfileManager2* This,const WCHAR *pwszProfile,IWMProfile **ppProfile) {
+    return This->lpVtbl->LoadProfileByData(This,pwszProfile,ppProfile);
+}
+static FORCEINLINE HRESULT IWMProfileManager2_SaveProfile(IWMProfileManager2* This,IWMProfile *pIWMProfile,WCHAR *pwszProfile,DWORD *pdwLength) {
+    return This->lpVtbl->SaveProfile(This,pIWMProfile,pwszProfile,pdwLength);
+}
+static FORCEINLINE HRESULT IWMProfileManager2_GetSystemProfileCount(IWMProfileManager2* This,DWORD *pcProfiles) {
+    return This->lpVtbl->GetSystemProfileCount(This,pcProfiles);
+}
+static FORCEINLINE HRESULT IWMProfileManager2_LoadSystemProfile(IWMProfileManager2* This,DWORD dwProfileIndex,IWMProfile **ppProfile) {
+    return This->lpVtbl->LoadSystemProfile(This,dwProfileIndex,ppProfile);
+}
+/*** IWMProfileManager2 methods ***/
+static FORCEINLINE HRESULT IWMProfileManager2_GetSystemProfileVersion(IWMProfileManager2* This,WMT_VERSION *version) {
+    return This->lpVtbl->GetSystemProfileVersion(This,version);
+}
+static FORCEINLINE HRESULT IWMProfileManager2_SetSystemProfileVersion(IWMProfileManager2* This,WMT_VERSION version) {
+    return This->lpVtbl->SetSystemProfileVersion(This,version);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IWMProfileManager2_INTERFACE_DEFINED__ */
+
 HRESULT WINAPI WMCreateProfileManager(IWMProfileManager**);
+/*****************************************************************************
+ * IWMCodecInfo interface
+ */
+#ifndef __IWMCodecInfo_INTERFACE_DEFINED__
+#define __IWMCodecInfo_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMCodecInfo, 0xa970f41e, 0x34de, 0x4a98, 0xb3,0xba, 0xe4,0xb3,0xca,0x75,0x28,0xf0);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("a970f41e-34de-4a98-b3ba-e4b3ca7528f0")
+IWMCodecInfo : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetCodecInfoCount(
+        REFGUID guid,
+        DWORD *count) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCodecFormatCount(
+        REFGUID guid,
+        DWORD codecindex,
+        DWORD *formatcount) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCodecFormat(
+        REFGUID guid,
+        DWORD codecindex,
+        DWORD formatindex,
+        IWMStreamConfig **streamconfig) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMCodecInfo, 0xa970f41e, 0x34de, 0x4a98, 0xb3,0xba, 0xe4,0xb3,0xca,0x75,0x28,0xf0)
+#endif
+#else
+typedef struct IWMCodecInfoVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMCodecInfo *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMCodecInfo *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMCodecInfo *This);
+
+    /*** IWMCodecInfo methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetCodecInfoCount)(
+        IWMCodecInfo *This,
+        REFGUID guid,
+        DWORD *count);
+
+    HRESULT (STDMETHODCALLTYPE *GetCodecFormatCount)(
+        IWMCodecInfo *This,
+        REFGUID guid,
+        DWORD codecindex,
+        DWORD *formatcount);
+
+    HRESULT (STDMETHODCALLTYPE *GetCodecFormat)(
+        IWMCodecInfo *This,
+        REFGUID guid,
+        DWORD codecindex,
+        DWORD formatindex,
+        IWMStreamConfig **streamconfig);
+
+    END_INTERFACE
+} IWMCodecInfoVtbl;
+
+interface IWMCodecInfo {
+    CONST_VTBL IWMCodecInfoVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMCodecInfo_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMCodecInfo_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMCodecInfo_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMCodecInfo methods ***/
+#define IWMCodecInfo_GetCodecInfoCount(This,guid,count) (This)->lpVtbl->GetCodecInfoCount(This,guid,count)
+#define IWMCodecInfo_GetCodecFormatCount(This,guid,codecindex,formatcount) (This)->lpVtbl->GetCodecFormatCount(This,guid,codecindex,formatcount)
+#define IWMCodecInfo_GetCodecFormat(This,guid,codecindex,formatindex,streamconfig) (This)->lpVtbl->GetCodecFormat(This,guid,codecindex,formatindex,streamconfig)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMCodecInfo_QueryInterface(IWMCodecInfo* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMCodecInfo_AddRef(IWMCodecInfo* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMCodecInfo_Release(IWMCodecInfo* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMCodecInfo methods ***/
+static FORCEINLINE HRESULT IWMCodecInfo_GetCodecInfoCount(IWMCodecInfo* This,REFGUID guid,DWORD *count) {
+    return This->lpVtbl->GetCodecInfoCount(This,guid,count);
+}
+static FORCEINLINE HRESULT IWMCodecInfo_GetCodecFormatCount(IWMCodecInfo* This,REFGUID guid,DWORD codecindex,DWORD *formatcount) {
+    return This->lpVtbl->GetCodecFormatCount(This,guid,codecindex,formatcount);
+}
+static FORCEINLINE HRESULT IWMCodecInfo_GetCodecFormat(IWMCodecInfo* This,REFGUID guid,DWORD codecindex,DWORD formatindex,IWMStreamConfig **streamconfig) {
+    return This->lpVtbl->GetCodecFormat(This,guid,codecindex,formatindex,streamconfig);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IWMCodecInfo_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMCodecInfo2 interface
+ */
+#ifndef __IWMCodecInfo2_INTERFACE_DEFINED__
+#define __IWMCodecInfo2_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMCodecInfo2, 0xaa65e273, 0xb686, 0x4056, 0x91,0xec, 0xdd,0x76,0x8d,0x4d,0xf7,0x10);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("aa65e273-b686-4056-91ec-dd768d4df710")
+IWMCodecInfo2 : public IWMCodecInfo
+{
+    virtual HRESULT STDMETHODCALLTYPE GetCodecName(
+        REFGUID guid,
+        DWORD codecindex,
+        WCHAR *name,
+        DWORD *namesize) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCodecFormatDesc(
+        REFGUID guid,
+        DWORD codecindex,
+        DWORD formatindex,
+        IWMStreamConfig **streamconfig,
+        WCHAR *description,
+        DWORD *descrsize) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMCodecInfo2, 0xaa65e273, 0xb686, 0x4056, 0x91,0xec, 0xdd,0x76,0x8d,0x4d,0xf7,0x10)
+#endif
+#else
+typedef struct IWMCodecInfo2Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMCodecInfo2 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMCodecInfo2 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMCodecInfo2 *This);
+
+    /*** IWMCodecInfo methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetCodecInfoCount)(
+        IWMCodecInfo2 *This,
+        REFGUID guid,
+        DWORD *count);
+
+    HRESULT (STDMETHODCALLTYPE *GetCodecFormatCount)(
+        IWMCodecInfo2 *This,
+        REFGUID guid,
+        DWORD codecindex,
+        DWORD *formatcount);
+
+    HRESULT (STDMETHODCALLTYPE *GetCodecFormat)(
+        IWMCodecInfo2 *This,
+        REFGUID guid,
+        DWORD codecindex,
+        DWORD formatindex,
+        IWMStreamConfig **streamconfig);
+
+    /*** IWMCodecInfo2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetCodecName)(
+        IWMCodecInfo2 *This,
+        REFGUID guid,
+        DWORD codecindex,
+        WCHAR *name,
+        DWORD *namesize);
+
+    HRESULT (STDMETHODCALLTYPE *GetCodecFormatDesc)(
+        IWMCodecInfo2 *This,
+        REFGUID guid,
+        DWORD codecindex,
+        DWORD formatindex,
+        IWMStreamConfig **streamconfig,
+        WCHAR *description,
+        DWORD *descrsize);
+
+    END_INTERFACE
+} IWMCodecInfo2Vtbl;
+
+interface IWMCodecInfo2 {
+    CONST_VTBL IWMCodecInfo2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMCodecInfo2_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMCodecInfo2_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMCodecInfo2_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMCodecInfo methods ***/
+#define IWMCodecInfo2_GetCodecInfoCount(This,guid,count) (This)->lpVtbl->GetCodecInfoCount(This,guid,count)
+#define IWMCodecInfo2_GetCodecFormatCount(This,guid,codecindex,formatcount) (This)->lpVtbl->GetCodecFormatCount(This,guid,codecindex,formatcount)
+#define IWMCodecInfo2_GetCodecFormat(This,guid,codecindex,formatindex,streamconfig) (This)->lpVtbl->GetCodecFormat(This,guid,codecindex,formatindex,streamconfig)
+/*** IWMCodecInfo2 methods ***/
+#define IWMCodecInfo2_GetCodecName(This,guid,codecindex,name,namesize) (This)->lpVtbl->GetCodecName(This,guid,codecindex,name,namesize)
+#define IWMCodecInfo2_GetCodecFormatDesc(This,guid,codecindex,formatindex,streamconfig,description,descrsize) (This)->lpVtbl->GetCodecFormatDesc(This,guid,codecindex,formatindex,streamconfig,description,descrsize)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMCodecInfo2_QueryInterface(IWMCodecInfo2* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMCodecInfo2_AddRef(IWMCodecInfo2* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMCodecInfo2_Release(IWMCodecInfo2* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMCodecInfo methods ***/
+static FORCEINLINE HRESULT IWMCodecInfo2_GetCodecInfoCount(IWMCodecInfo2* This,REFGUID guid,DWORD *count) {
+    return This->lpVtbl->GetCodecInfoCount(This,guid,count);
+}
+static FORCEINLINE HRESULT IWMCodecInfo2_GetCodecFormatCount(IWMCodecInfo2* This,REFGUID guid,DWORD codecindex,DWORD *formatcount) {
+    return This->lpVtbl->GetCodecFormatCount(This,guid,codecindex,formatcount);
+}
+static FORCEINLINE HRESULT IWMCodecInfo2_GetCodecFormat(IWMCodecInfo2* This,REFGUID guid,DWORD codecindex,DWORD formatindex,IWMStreamConfig **streamconfig) {
+    return This->lpVtbl->GetCodecFormat(This,guid,codecindex,formatindex,streamconfig);
+}
+/*** IWMCodecInfo2 methods ***/
+static FORCEINLINE HRESULT IWMCodecInfo2_GetCodecName(IWMCodecInfo2* This,REFGUID guid,DWORD codecindex,WCHAR *name,DWORD *namesize) {
+    return This->lpVtbl->GetCodecName(This,guid,codecindex,name,namesize);
+}
+static FORCEINLINE HRESULT IWMCodecInfo2_GetCodecFormatDesc(IWMCodecInfo2* This,REFGUID guid,DWORD codecindex,DWORD formatindex,IWMStreamConfig **streamconfig,WCHAR *description,DWORD *descrsize) {
+    return This->lpVtbl->GetCodecFormatDesc(This,guid,codecindex,formatindex,streamconfig,description,descrsize);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IWMCodecInfo2_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMCodecInfo3 interface
+ */
+#ifndef __IWMCodecInfo3_INTERFACE_DEFINED__
+#define __IWMCodecInfo3_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMCodecInfo3, 0x7e51f487, 0x4d93, 0x4f98, 0x8a,0xb4, 0x27,0xd0,0x56,0x5a,0xdc,0x51);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("7e51f487-4d93-4f98-8ab4-27d0565adc51")
+IWMCodecInfo3 : public IWMCodecInfo2
+{
+    virtual HRESULT STDMETHODCALLTYPE GetCodecFormatProp(
+        REFGUID guid,
+        DWORD codecindex,
+        DWORD formatindex,
+        const WCHAR *name,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        DWORD *size) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCodecProp(
+        REFGUID guid,
+        DWORD codecindex,
+        const WCHAR *name,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        DWORD *size) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetCodecEnumerationSetting(
+        REFGUID guid,
+        DWORD codecindex,
+        const WCHAR *name,
+        WMT_ATTR_DATATYPE type,
+        const BYTE *value,
+        DWORD size) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetCodecEnumerationSetting(
+        REFGUID guid,
+        DWORD codecindex,
+        const WCHAR *name,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        DWORD *size) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMCodecInfo3, 0x7e51f487, 0x4d93, 0x4f98, 0x8a,0xb4, 0x27,0xd0,0x56,0x5a,0xdc,0x51)
+#endif
+#else
+typedef struct IWMCodecInfo3Vtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMCodecInfo3 *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMCodecInfo3 *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMCodecInfo3 *This);
+
+    /*** IWMCodecInfo methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetCodecInfoCount)(
+        IWMCodecInfo3 *This,
+        REFGUID guid,
+        DWORD *count);
+
+    HRESULT (STDMETHODCALLTYPE *GetCodecFormatCount)(
+        IWMCodecInfo3 *This,
+        REFGUID guid,
+        DWORD codecindex,
+        DWORD *formatcount);
+
+    HRESULT (STDMETHODCALLTYPE *GetCodecFormat)(
+        IWMCodecInfo3 *This,
+        REFGUID guid,
+        DWORD codecindex,
+        DWORD formatindex,
+        IWMStreamConfig **streamconfig);
+
+    /*** IWMCodecInfo2 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetCodecName)(
+        IWMCodecInfo3 *This,
+        REFGUID guid,
+        DWORD codecindex,
+        WCHAR *name,
+        DWORD *namesize);
+
+    HRESULT (STDMETHODCALLTYPE *GetCodecFormatDesc)(
+        IWMCodecInfo3 *This,
+        REFGUID guid,
+        DWORD codecindex,
+        DWORD formatindex,
+        IWMStreamConfig **streamconfig,
+        WCHAR *description,
+        DWORD *descrsize);
+
+    /*** IWMCodecInfo3 methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetCodecFormatProp)(
+        IWMCodecInfo3 *This,
+        REFGUID guid,
+        DWORD codecindex,
+        DWORD formatindex,
+        const WCHAR *name,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        DWORD *size);
+
+    HRESULT (STDMETHODCALLTYPE *GetCodecProp)(
+        IWMCodecInfo3 *This,
+        REFGUID guid,
+        DWORD codecindex,
+        const WCHAR *name,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        DWORD *size);
+
+    HRESULT (STDMETHODCALLTYPE *SetCodecEnumerationSetting)(
+        IWMCodecInfo3 *This,
+        REFGUID guid,
+        DWORD codecindex,
+        const WCHAR *name,
+        WMT_ATTR_DATATYPE type,
+        const BYTE *value,
+        DWORD size);
+
+    HRESULT (STDMETHODCALLTYPE *GetCodecEnumerationSetting)(
+        IWMCodecInfo3 *This,
+        REFGUID guid,
+        DWORD codecindex,
+        const WCHAR *name,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        DWORD *size);
+
+    END_INTERFACE
+} IWMCodecInfo3Vtbl;
+
+interface IWMCodecInfo3 {
+    CONST_VTBL IWMCodecInfo3Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMCodecInfo3_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMCodecInfo3_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMCodecInfo3_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMCodecInfo methods ***/
+#define IWMCodecInfo3_GetCodecInfoCount(This,guid,count) (This)->lpVtbl->GetCodecInfoCount(This,guid,count)
+#define IWMCodecInfo3_GetCodecFormatCount(This,guid,codecindex,formatcount) (This)->lpVtbl->GetCodecFormatCount(This,guid,codecindex,formatcount)
+#define IWMCodecInfo3_GetCodecFormat(This,guid,codecindex,formatindex,streamconfig) (This)->lpVtbl->GetCodecFormat(This,guid,codecindex,formatindex,streamconfig)
+/*** IWMCodecInfo2 methods ***/
+#define IWMCodecInfo3_GetCodecName(This,guid,codecindex,name,namesize) (This)->lpVtbl->GetCodecName(This,guid,codecindex,name,namesize)
+#define IWMCodecInfo3_GetCodecFormatDesc(This,guid,codecindex,formatindex,streamconfig,description,descrsize) (This)->lpVtbl->GetCodecFormatDesc(This,guid,codecindex,formatindex,streamconfig,description,descrsize)
+/*** IWMCodecInfo3 methods ***/
+#define IWMCodecInfo3_GetCodecFormatProp(This,guid,codecindex,formatindex,name,type,value,size) (This)->lpVtbl->GetCodecFormatProp(This,guid,codecindex,formatindex,name,type,value,size)
+#define IWMCodecInfo3_GetCodecProp(This,guid,codecindex,name,type,value,size) (This)->lpVtbl->GetCodecProp(This,guid,codecindex,name,type,value,size)
+#define IWMCodecInfo3_SetCodecEnumerationSetting(This,guid,codecindex,name,type,value,size) (This)->lpVtbl->SetCodecEnumerationSetting(This,guid,codecindex,name,type,value,size)
+#define IWMCodecInfo3_GetCodecEnumerationSetting(This,guid,codecindex,name,type,value,size) (This)->lpVtbl->GetCodecEnumerationSetting(This,guid,codecindex,name,type,value,size)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMCodecInfo3_QueryInterface(IWMCodecInfo3* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMCodecInfo3_AddRef(IWMCodecInfo3* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMCodecInfo3_Release(IWMCodecInfo3* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMCodecInfo methods ***/
+static FORCEINLINE HRESULT IWMCodecInfo3_GetCodecInfoCount(IWMCodecInfo3* This,REFGUID guid,DWORD *count) {
+    return This->lpVtbl->GetCodecInfoCount(This,guid,count);
+}
+static FORCEINLINE HRESULT IWMCodecInfo3_GetCodecFormatCount(IWMCodecInfo3* This,REFGUID guid,DWORD codecindex,DWORD *formatcount) {
+    return This->lpVtbl->GetCodecFormatCount(This,guid,codecindex,formatcount);
+}
+static FORCEINLINE HRESULT IWMCodecInfo3_GetCodecFormat(IWMCodecInfo3* This,REFGUID guid,DWORD codecindex,DWORD formatindex,IWMStreamConfig **streamconfig) {
+    return This->lpVtbl->GetCodecFormat(This,guid,codecindex,formatindex,streamconfig);
+}
+/*** IWMCodecInfo2 methods ***/
+static FORCEINLINE HRESULT IWMCodecInfo3_GetCodecName(IWMCodecInfo3* This,REFGUID guid,DWORD codecindex,WCHAR *name,DWORD *namesize) {
+    return This->lpVtbl->GetCodecName(This,guid,codecindex,name,namesize);
+}
+static FORCEINLINE HRESULT IWMCodecInfo3_GetCodecFormatDesc(IWMCodecInfo3* This,REFGUID guid,DWORD codecindex,DWORD formatindex,IWMStreamConfig **streamconfig,WCHAR *description,DWORD *descrsize) {
+    return This->lpVtbl->GetCodecFormatDesc(This,guid,codecindex,formatindex,streamconfig,description,descrsize);
+}
+/*** IWMCodecInfo3 methods ***/
+static FORCEINLINE HRESULT IWMCodecInfo3_GetCodecFormatProp(IWMCodecInfo3* This,REFGUID guid,DWORD codecindex,DWORD formatindex,const WCHAR *name,WMT_ATTR_DATATYPE *type,BYTE *value,DWORD *size) {
+    return This->lpVtbl->GetCodecFormatProp(This,guid,codecindex,formatindex,name,type,value,size);
+}
+static FORCEINLINE HRESULT IWMCodecInfo3_GetCodecProp(IWMCodecInfo3* This,REFGUID guid,DWORD codecindex,const WCHAR *name,WMT_ATTR_DATATYPE *type,BYTE *value,DWORD *size) {
+    return This->lpVtbl->GetCodecProp(This,guid,codecindex,name,type,value,size);
+}
+static FORCEINLINE HRESULT IWMCodecInfo3_SetCodecEnumerationSetting(IWMCodecInfo3* This,REFGUID guid,DWORD codecindex,const WCHAR *name,WMT_ATTR_DATATYPE type,const BYTE *value,DWORD size) {
+    return This->lpVtbl->SetCodecEnumerationSetting(This,guid,codecindex,name,type,value,size);
+}
+static FORCEINLINE HRESULT IWMCodecInfo3_GetCodecEnumerationSetting(IWMCodecInfo3* This,REFGUID guid,DWORD codecindex,const WCHAR *name,WMT_ATTR_DATATYPE *type,BYTE *value,DWORD *size) {
+    return This->lpVtbl->GetCodecEnumerationSetting(This,guid,codecindex,name,type,value,size);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IWMCodecInfo3_INTERFACE_DEFINED__ */
+
+static const WCHAR g_wszNumPasses[] = {'_','P','A','S','S','E','S','U','S','E','D',0};
+static const WCHAR g_wszVBREnabled[] = {'_','V','B','R','E','N','A','B','L','E','D',0};
 /*****************************************************************************
  * IWMMediaProps interface
  */
@@ -10229,6 +10884,298 @@ static FORCEINLINE HRESULT IWMReaderPlaylistBurn_EndPlaylistBurn(IWMReaderPlayli
 
 
 #endif  /* __IWMReaderPlaylistBurn_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMPropertyVault interface
+ */
+#ifndef __IWMPropertyVault_INTERFACE_DEFINED__
+#define __IWMPropertyVault_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMPropertyVault, 0x72995a79, 0x5090, 0x42a4, 0x9c,0x8c, 0xd9,0xd0,0xb6,0xd3,0x4b,0xe5);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("72995a79-5090-42a4-9c8c-d9d0b6d34be5")
+IWMPropertyVault : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetPropertyCount(
+        DWORD *count) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPropertyByName(
+        const WCHAR *name,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        DWORD *size) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetProperty(
+        const WCHAR *name,
+        WMT_ATTR_DATATYPE type,
+        BYTE *value,
+        DWORD size) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetPropertyByIndex(
+        DWORD index,
+        WCHAR *name,
+        DWORD *length,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        DWORD *size) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CopyPropertiesFrom(
+        IWMPropertyVault *vault) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Clear(
+        ) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMPropertyVault, 0x72995a79, 0x5090, 0x42a4, 0x9c,0x8c, 0xd9,0xd0,0xb6,0xd3,0x4b,0xe5)
+#endif
+#else
+typedef struct IWMPropertyVaultVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMPropertyVault *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMPropertyVault *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMPropertyVault *This);
+
+    /*** IWMPropertyVault methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetPropertyCount)(
+        IWMPropertyVault *This,
+        DWORD *count);
+
+    HRESULT (STDMETHODCALLTYPE *GetPropertyByName)(
+        IWMPropertyVault *This,
+        const WCHAR *name,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        DWORD *size);
+
+    HRESULT (STDMETHODCALLTYPE *SetProperty)(
+        IWMPropertyVault *This,
+        const WCHAR *name,
+        WMT_ATTR_DATATYPE type,
+        BYTE *value,
+        DWORD size);
+
+    HRESULT (STDMETHODCALLTYPE *GetPropertyByIndex)(
+        IWMPropertyVault *This,
+        DWORD index,
+        WCHAR *name,
+        DWORD *length,
+        WMT_ATTR_DATATYPE *type,
+        BYTE *value,
+        DWORD *size);
+
+    HRESULT (STDMETHODCALLTYPE *CopyPropertiesFrom)(
+        IWMPropertyVault *This,
+        IWMPropertyVault *vault);
+
+    HRESULT (STDMETHODCALLTYPE *Clear)(
+        IWMPropertyVault *This);
+
+    END_INTERFACE
+} IWMPropertyVaultVtbl;
+
+interface IWMPropertyVault {
+    CONST_VTBL IWMPropertyVaultVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMPropertyVault_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMPropertyVault_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMPropertyVault_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMPropertyVault methods ***/
+#define IWMPropertyVault_GetPropertyCount(This,count) (This)->lpVtbl->GetPropertyCount(This,count)
+#define IWMPropertyVault_GetPropertyByName(This,name,type,value,size) (This)->lpVtbl->GetPropertyByName(This,name,type,value,size)
+#define IWMPropertyVault_SetProperty(This,name,type,value,size) (This)->lpVtbl->SetProperty(This,name,type,value,size)
+#define IWMPropertyVault_GetPropertyByIndex(This,index,name,length,type,value,size) (This)->lpVtbl->GetPropertyByIndex(This,index,name,length,type,value,size)
+#define IWMPropertyVault_CopyPropertiesFrom(This,vault) (This)->lpVtbl->CopyPropertiesFrom(This,vault)
+#define IWMPropertyVault_Clear(This) (This)->lpVtbl->Clear(This)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMPropertyVault_QueryInterface(IWMPropertyVault* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMPropertyVault_AddRef(IWMPropertyVault* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMPropertyVault_Release(IWMPropertyVault* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMPropertyVault methods ***/
+static FORCEINLINE HRESULT IWMPropertyVault_GetPropertyCount(IWMPropertyVault* This,DWORD *count) {
+    return This->lpVtbl->GetPropertyCount(This,count);
+}
+static FORCEINLINE HRESULT IWMPropertyVault_GetPropertyByName(IWMPropertyVault* This,const WCHAR *name,WMT_ATTR_DATATYPE *type,BYTE *value,DWORD *size) {
+    return This->lpVtbl->GetPropertyByName(This,name,type,value,size);
+}
+static FORCEINLINE HRESULT IWMPropertyVault_SetProperty(IWMPropertyVault* This,const WCHAR *name,WMT_ATTR_DATATYPE type,BYTE *value,DWORD size) {
+    return This->lpVtbl->SetProperty(This,name,type,value,size);
+}
+static FORCEINLINE HRESULT IWMPropertyVault_GetPropertyByIndex(IWMPropertyVault* This,DWORD index,WCHAR *name,DWORD *length,WMT_ATTR_DATATYPE *type,BYTE *value,DWORD *size) {
+    return This->lpVtbl->GetPropertyByIndex(This,index,name,length,type,value,size);
+}
+static FORCEINLINE HRESULT IWMPropertyVault_CopyPropertiesFrom(IWMPropertyVault* This,IWMPropertyVault *vault) {
+    return This->lpVtbl->CopyPropertiesFrom(This,vault);
+}
+static FORCEINLINE HRESULT IWMPropertyVault_Clear(IWMPropertyVault* This) {
+    return This->lpVtbl->Clear(This);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IWMPropertyVault_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWMWriterPreprocess interface
+ */
+#ifndef __IWMWriterPreprocess_INTERFACE_DEFINED__
+#define __IWMWriterPreprocess_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWMWriterPreprocess, 0xfc54a285, 0x38c4, 0x45b5, 0xaa,0x23, 0x85,0xb9,0xf7,0xcb,0x42,0x4b);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("fc54a285-38c4-45b5-aa23-85b9f7cb424b")
+IWMWriterPreprocess : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetMaxPreprocessingPasses(
+        DWORD input,
+        DWORD flags,
+        DWORD *passes) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE SetNumPreprocessingPasses(
+        DWORD input,
+        DWORD flags,
+        DWORD passes) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE BeginPreprocessingPass(
+        DWORD input,
+        DWORD flags) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE PreprocessSample(
+        DWORD input,
+        QWORD sample_time,
+        DWORD flags,
+        INSSBuffer *sample) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE EndPreprocessingPass(
+        DWORD input,
+        DWORD flags) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWMWriterPreprocess, 0xfc54a285, 0x38c4, 0x45b5, 0xaa,0x23, 0x85,0xb9,0xf7,0xcb,0x42,0x4b)
+#endif
+#else
+typedef struct IWMWriterPreprocessVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWMWriterPreprocess *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWMWriterPreprocess *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWMWriterPreprocess *This);
+
+    /*** IWMWriterPreprocess methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetMaxPreprocessingPasses)(
+        IWMWriterPreprocess *This,
+        DWORD input,
+        DWORD flags,
+        DWORD *passes);
+
+    HRESULT (STDMETHODCALLTYPE *SetNumPreprocessingPasses)(
+        IWMWriterPreprocess *This,
+        DWORD input,
+        DWORD flags,
+        DWORD passes);
+
+    HRESULT (STDMETHODCALLTYPE *BeginPreprocessingPass)(
+        IWMWriterPreprocess *This,
+        DWORD input,
+        DWORD flags);
+
+    HRESULT (STDMETHODCALLTYPE *PreprocessSample)(
+        IWMWriterPreprocess *This,
+        DWORD input,
+        QWORD sample_time,
+        DWORD flags,
+        INSSBuffer *sample);
+
+    HRESULT (STDMETHODCALLTYPE *EndPreprocessingPass)(
+        IWMWriterPreprocess *This,
+        DWORD input,
+        DWORD flags);
+
+    END_INTERFACE
+} IWMWriterPreprocessVtbl;
+
+interface IWMWriterPreprocess {
+    CONST_VTBL IWMWriterPreprocessVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWMWriterPreprocess_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWMWriterPreprocess_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWMWriterPreprocess_Release(This) (This)->lpVtbl->Release(This)
+/*** IWMWriterPreprocess methods ***/
+#define IWMWriterPreprocess_GetMaxPreprocessingPasses(This,input,flags,passes) (This)->lpVtbl->GetMaxPreprocessingPasses(This,input,flags,passes)
+#define IWMWriterPreprocess_SetNumPreprocessingPasses(This,input,flags,passes) (This)->lpVtbl->SetNumPreprocessingPasses(This,input,flags,passes)
+#define IWMWriterPreprocess_BeginPreprocessingPass(This,input,flags) (This)->lpVtbl->BeginPreprocessingPass(This,input,flags)
+#define IWMWriterPreprocess_PreprocessSample(This,input,sample_time,flags,sample) (This)->lpVtbl->PreprocessSample(This,input,sample_time,flags,sample)
+#define IWMWriterPreprocess_EndPreprocessingPass(This,input,flags) (This)->lpVtbl->EndPreprocessingPass(This,input,flags)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWMWriterPreprocess_QueryInterface(IWMWriterPreprocess* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWMWriterPreprocess_AddRef(IWMWriterPreprocess* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWMWriterPreprocess_Release(IWMWriterPreprocess* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWMWriterPreprocess methods ***/
+static FORCEINLINE HRESULT IWMWriterPreprocess_GetMaxPreprocessingPasses(IWMWriterPreprocess* This,DWORD input,DWORD flags,DWORD *passes) {
+    return This->lpVtbl->GetMaxPreprocessingPasses(This,input,flags,passes);
+}
+static FORCEINLINE HRESULT IWMWriterPreprocess_SetNumPreprocessingPasses(IWMWriterPreprocess* This,DWORD input,DWORD flags,DWORD passes) {
+    return This->lpVtbl->SetNumPreprocessingPasses(This,input,flags,passes);
+}
+static FORCEINLINE HRESULT IWMWriterPreprocess_BeginPreprocessingPass(IWMWriterPreprocess* This,DWORD input,DWORD flags) {
+    return This->lpVtbl->BeginPreprocessingPass(This,input,flags);
+}
+static FORCEINLINE HRESULT IWMWriterPreprocess_PreprocessSample(IWMWriterPreprocess* This,DWORD input,QWORD sample_time,DWORD flags,INSSBuffer *sample) {
+    return This->lpVtbl->PreprocessSample(This,input,sample_time,flags,sample);
+}
+static FORCEINLINE HRESULT IWMWriterPreprocess_EndPreprocessingPass(IWMWriterPreprocess* This,DWORD input,DWORD flags) {
+    return This->lpVtbl->EndPreprocessingPass(This,input,flags);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IWMWriterPreprocess_INTERFACE_DEFINED__ */
 
 HRESULT WINAPI WMCreateWriter(IUnknown*,IWMWriter**);
 HRESULT WINAPI WMCreateReader(IUnknown*,DWORD,IWMReader**);
