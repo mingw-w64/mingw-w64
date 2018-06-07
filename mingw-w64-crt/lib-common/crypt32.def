@@ -96,6 +96,7 @@ CertGetValidUsages
 CertIsRDNAttrsInCertificateName
 CertIsStrongHashToSign
 CertIsValidCRLForCertificate
+CertIsWeakHash
 CertNameToStrA
 CertNameToStrW
 CertOIDToAlgId
@@ -245,7 +246,10 @@ CryptVerifyMessageHash
 CryptVerifyMessageSignature
 CryptVerifyMessageSignatureWithKey
 CryptVerifyTimeStampSignature
+I_CertChainEngineIsDisallowedCertificate
 I_CertDiagControl
+I_CertFinishSslHandshake
+I_CertProcessSslHandshake
 I_CertProtectFunction
 I_CertSrvProtectFunction
 I_CertSyncStore
@@ -274,6 +278,7 @@ I_CryptGetLruEntryData
 I_CryptGetLruEntryIdentifier
 I_CryptGetOssGlobal
 I_CryptGetTls
+I_CryptAllocTlsEx
 I_CryptInsertLruEntry
 I_CryptInstallAsn1Module
 I_CryptInstallOssGlobal

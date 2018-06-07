@@ -5,21 +5,26 @@
 ;
 LIBRARY "CRYPT32.dll"
 EXPORTS
-ord_1001@4 @1001
-ord_1002 @1002
-ord_1003 @1003
-ord_1004 @1004
-ord_1005 @1005
-ord_1006 @1006
-ord_1007 @1007
-ord_1008 @1008
-ord_1009 @1009
-ord_1010 @1010
-ord_1011 @1011
-ChainWlxLogoffEvent@4
-CloseCertPerformanceData
-CollectCertPerformanceData@16
-OpenCertPerformanceData@4
+CryptAcquireContextU@20
+CryptEnumProvidersU@24
+CryptObjectLocatorFree@4
+CryptObjectLocatorGet@12
+CryptObjectLocatorGetContent@4
+CryptObjectLocatorGetUpdated@4
+CryptObjectLocatorInitialize@20
+CryptObjectLocatorIsChanged@4
+CryptObjectLocatorRelease@8
+CryptSetProviderU@8
+CryptSignHashU@24
+CryptVerifySignatureU@24
+I_PFXImportCertStoreEx@20
+RegCreateKeyExU@36
+RegDeleteValueU@8
+RegEnumValueU@32
+RegOpenKeyExU@20
+RegQueryInfoKeyU@48
+RegQueryValueExU@24
+RegSetValueExU@24
 CertAddCRLContextToStore@16
 CertAddCRLLinkToStore@16
 CertAddCTLContextToStore@16
@@ -32,9 +37,12 @@ CertAddEncodedCertificateToStore@24
 CertAddEncodedCertificateToSystemStoreA@12
 CertAddEncodedCertificateToSystemStoreW@12
 CertAddEnhancedKeyUsageIdentifier@8
+CertAddRefServerOcspResponse@4
+CertAddRefServerOcspResponseContext@4
 CertAddSerializedElementToStore@32
 CertAddStoreToCollection@16
 CertAlgIdToOID@4
+CertCloseServerOcspResponse@8
 CertCloseStore@8
 CertCompareCertificate@12
 CertCompareCertificateName@12
@@ -80,7 +88,9 @@ CertFreeCRLContext@4
 CertFreeCTLContext@4
 CertFreeCertificateChain@4
 CertFreeCertificateChainEngine@4
+CertFreeCertificateChainList@4
 CertFreeCertificateContext@4
+CertFreeServerOcspResponseContext@4
 CertGetCRLContextProperty@16
 CertGetCRLFromStore@16
 CertGetCTLContextProperty@16
@@ -92,14 +102,18 @@ CertGetIssuerCertificateFromStore@16
 CertGetNameStringA@24
 CertGetNameStringW@24
 CertGetPublicKeyLength@8
+CertGetServerOcspResponseContext@12
 CertGetStoreProperty@16
 CertGetSubjectCertificateFromStore@12
 CertGetValidUsages@20
 CertIsRDNAttrsInCertificateName@16
+CertIsStrongHashToSign@12
 CertIsValidCRLForCertificate@16
+CertIsWeakHash@24
 CertNameToStrA@20
 CertNameToStrW@20
 CertOIDToAlgId@4
+CertOpenServerOcspResponse@12
 CertOpenStore@20
 CertOpenSystemStoreA@8
 CertOpenSystemStoreW@8
@@ -110,7 +124,9 @@ CertRegisterSystemStore@16
 CertRemoveEnhancedKeyUsageIdentifier@8
 CertRemoveStoreFromCollection@8
 CertResyncCertificateChainEngine@4
+CertRetrieveLogoOrBiometricInfo@36
 CertSaveStore@24
+CertSelectCertificateChains@32
 CertSerializeCRLStoreElement@16
 CertSerializeCTLStoreElement@16
 CertSerializeCertificateStoreElement@16
@@ -134,7 +150,6 @@ CertVerifyTimeValidity@8
 CertVerifyValidityNesting@8
 CreateFileU@28
 CryptAcquireCertificatePrivateKey@24
-CryptAcquireContextU@20
 CryptBinaryToStringA@20
 CryptBinaryToStringW@20
 CryptCloseAsyncHandle@4
@@ -151,10 +166,10 @@ CryptEncryptMessage@28
 CryptEnumKeyIdentifierProperties@28
 CryptEnumOIDFunction@24
 CryptEnumOIDInfo@16
-CryptEnumProvidersU@24
 CryptExportPKCS8@28
 CryptExportPublicKeyInfo@20
 CryptExportPublicKeyInfoEx@32
+CryptExportPublicKeyInfoFromBCryptKeyHandle@28
 CryptFindCertificateKeyProvInfo@12
 CryptFindLocalizedName@4
 CryptFindOIDInfo@12
@@ -163,19 +178,19 @@ CryptFreeOIDFunctionAddress@8
 CryptGetAsyncParam@16
 CryptGetDefaultOIDDllList@16
 CryptGetDefaultOIDFunctionAddress@24
-CryptGetDefaultProviderA@20
-CryptGetDefaultProviderW@20
 CryptGetKeyIdentifierProperty@28
 CryptGetMessageCertificates@20
 CryptGetMessageSignerCount@12
 CryptGetOIDFunctionAddress@24
 CryptGetOIDFunctionValue@28
+CryptHashCertificate2@28
 CryptHashCertificate@28
 CryptHashMessage@36
 CryptHashPublicKeyInfo@28
 CryptHashToBeSigned@24
 CryptImportPKCS8@36
 CryptImportPublicKeyInfo@16
+CryptImportPublicKeyInfoEx2@20
 CryptImportPublicKeyInfoEx@28
 CryptInitOIDFunctionSet@8
 CryptInstallDefaultContext@24
@@ -200,12 +215,16 @@ CryptMsgUpdate@16
 CryptMsgVerifyCountersignatureEncoded@28
 CryptMsgVerifyCountersignatureEncodedEx@40
 CryptProtectData@28
+CryptProtectMemory@12
 CryptQueryObject@44
 CryptRegisterDefaultOIDFunction@16
 CryptRegisterOIDFunction@20
 CryptRegisterOIDInfo@8
+CryptRetrieveTimeStamp@40
 CryptSIPAddProvider@4
 CryptSIPCreateIndirectData@12
+CryptSIPGetCaps@8
+CryptSIPGetSealedDigest@20
 CryptSIPGetSignedDataMsg@20
 CryptSIPLoad@12
 CryptSIPPutSignedDataMsg@20
@@ -217,20 +236,20 @@ CryptSIPVerifyIndirectData@8
 CryptSetAsyncParam@16
 CryptSetKeyIdentifierProperty@24
 CryptSetOIDFunctionValue@28
-CryptSetProviderU@8
 CryptSignAndEncodeCertificate@36
 CryptSignAndEncryptMessage@32
 CryptSignCertificate@36
-CryptSignHashU@24
 CryptSignMessage@28
 CryptSignMessageWithKey@20
 CryptStringToBinaryA@28
 CryptStringToBinaryW@28
 CryptUninstallDefaultContext@12
 CryptUnprotectData@28
+CryptUnprotectMemory@12
 CryptUnregisterDefaultOIDFunction@12
 CryptUnregisterOIDFunction@12
 CryptUnregisterOIDInfo@4
+CryptUpdateProtectedState@20
 CryptVerifyCertificateSignature@20
 CryptVerifyCertificateSignatureEx@32
 CryptVerifyDetachedMessageHash@32
@@ -238,14 +257,19 @@ CryptVerifyDetachedMessageSignature@32
 CryptVerifyMessageHash@28
 CryptVerifyMessageSignature@28
 CryptVerifyMessageSignatureWithKey@24
-CryptVerifySignatureU@24
+CryptVerifyTimeStampSignature@32
+I_CertChainEngineIsDisallowedCertificate@8
+I_CertDiagControl@12
+I_CertFinishSslHandshake@16
+I_CertProcessSslHandshake@24
 I_CertProtectFunction@28
 I_CertSrvProtectFunction@40
 I_CertSyncStore@8
 I_CertUpdateStore@16
-I_CryptAddRefLruEntry
+I_CryptAddRefLruEntry@4
 I_CryptAddSmartCardCertToStore@20
-I_CryptAllocTls
+I_CryptAllocTls@0
+I_CryptAllocTlsEx@4
 I_CryptCreateLruCache@8
 I_CryptCreateLruEntry@16
 I_CryptDetachTls@4
@@ -254,7 +278,7 @@ I_CryptEnableLruOfEntries@8
 I_CryptEnumMatchingLruEntries@4
 I_CryptFindLruEntry@8
 I_CryptFindLruEntryData@12
-I_CryptFindSmartCardCertInStore@4
+I_CryptFindSmartCardCertInStore@16
 I_CryptFlushLruCache@12
 I_CryptFreeLruCache@12
 I_CryptFreeTls@8
@@ -280,19 +304,11 @@ I_CryptUninstallAsn1Module@4
 I_CryptUninstallOssGlobal@4
 I_CryptUnregisterSmartCardStore@4
 I_CryptWalkAllLruCacheEntries@12
+PFXExportCertStore2@16
 PFXExportCertStore@16
 PFXExportCertStoreEx@20
 PFXImportCertStore@12
 PFXIsPFXBlob@4
 PFXVerifyPassword@12
 RegCreateHKCUKeyExU@36
-RegCreateKeyExU@36
-RegDeleteValueU@8
-RegEnumValueU@32
 RegOpenHKCUKeyExU@20
-RegOpenKeyExU@20
-RegQueryInfoKeyU@48
-RegQueryValueExU@24
-RegSetValueExU@24
-
- 	  	 
