@@ -16,6 +16,7 @@
 */
 
 #include	<inttypes.h>
+#include	<stdlib.h>
 
 imaxdiv_t
 imaxdiv(intmax_t numer, intmax_t denom)
@@ -26,5 +27,5 @@ imaxdiv(intmax_t numer, intmax_t denom)
   return result;
 }
 
-long long __attribute__ ((alias ("imaxdiv")))
+lldiv_t __attribute__ ((alias ("imaxdiv")))
 lldiv (long long, long long); 
