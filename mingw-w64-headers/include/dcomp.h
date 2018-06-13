@@ -220,6 +220,29 @@ DECLARE_INTERFACE_IID_(IDCompositionRectangleClip,IDCompositionClip,"9842ad7d-d9
 };
 
 #undef INTERFACE
+#define INTERFACE IDCompositionVisual
+DECLARE_INTERFACE_IID_(IDCompositionVisual,IUnknown,"4d93059d-097b-4651-9a60-f0f25116e2f3")
+{
+    STDMETHOD(SetOffsetX)(THIS_ float) PURE;
+    STDMETHOD(SetOffsetX)(THIS_ IDCompositionAnimation*) PURE;
+    STDMETHOD(SetOffsetY)(THIS_ float) PURE;
+    STDMETHOD(SetOffsetY)(THIS_ IDCompositionAnimation*) PURE;
+    STDMETHOD(SetTransform)(THIS_ const D2D_MATRIX_3X2_F&) PURE;
+    STDMETHOD(SetTransform)(THIS_ IDCompositionTransform*) PURE;
+    STDMETHOD(SetTransformParent)(THIS_ IDCompositionVisual*) PURE;
+    STDMETHOD(SetEffect)(THIS_ IDCompositionEffect*) PURE;
+    STDMETHOD(SetBitmapInterpolationMode)(THIS_ DCOMPOSITION_BITMAP_INTERPOLATION_MODE) PURE;
+    STDMETHOD(SetBorderMode)(THIS_ DCOMPOSITION_BORDER_MODE) PURE;
+    STDMETHOD(SetClip)(THIS_ const D2D_RECT_F&) PURE;
+    STDMETHOD(SetClip)(THIS_ IDCompositionClip*) PURE;
+    STDMETHOD(SetContent)(THIS_ IUnknown*) PURE;
+    STDMETHOD(AddVisual)(THIS_ IDCompositionVisual*,BOOL,IDCompositionVisual*) PURE;
+    STDMETHOD(RemoveVisual)(THIS_ IDCompositionVisual*) PURE;
+    STDMETHOD(RemoveAllVisuals)(THIS_) PURE;
+    STDMETHOD(SetCompositeMode)(THIS_ DCOMPOSITION_COMPOSITE_MODE) PURE;
+};
+
+#undef INTERFACE
 #define INTERFACE IDCompositionTarget
 DECLARE_INTERFACE_IID_(IDCompositionTarget,IUnknown,"eacdd04c-117e-4e17-88f4-d1b12b0e3d89")
 {
@@ -259,29 +282,6 @@ DECLARE_INTERFACE_IID_(IDCompositionDevice,IUnknown,"c37ea93a-e7aa-450d-b16f-974
 #ifdef __CRT_UUID_DECL
 __CRT_UUID_DECL(IDCompositionDevice,0xc37ea93a,0xe7aa,0x450d,0xb1,0x6f,0x97,0x46,0xcb,0x04,0x07,0xf3);
 #endif
-
-#undef INTERFACE
-#define INTERFACE IDCompositionVisual
-DECLARE_INTERFACE_IID_(IDCompositionVisual,IUnknown,"4d93059d-097b-4651-9a60-f0f25116e2f3")
-{
-    STDMETHOD(SetOffsetX)(THIS_ float) PURE;
-    STDMETHOD(SetOffsetX)(THIS_ IDCompositionAnimation*) PURE;
-    STDMETHOD(SetOffsetY)(THIS_ float) PURE;
-    STDMETHOD(SetOffsetY)(THIS_ IDCompositionAnimation*) PURE;
-    STDMETHOD(SetTransform)(THIS_ const D2D_MATRIX_3X2_F&) PURE;
-    STDMETHOD(SetTransform)(THIS_ IDCompositionTransform*) PURE;
-    STDMETHOD(SetTransformParent)(THIS_ IDCompositionVisual*) PURE;
-    STDMETHOD(SetEffect)(THIS_ IDCompositionEffect*) PURE;
-    STDMETHOD(SetBitmapInterpolationMode)(THIS_ DCOMPOSITION_BITMAP_INTERPOLATION_MODE) PURE;
-    STDMETHOD(SetBorderMode)(THIS_ DCOMPOSITION_BORDER_MODE) PURE;
-    STDMETHOD(SetClip)(THIS_ const D2D_RECT_F&) PURE;
-    STDMETHOD(SetClip)(THIS_ IDCompositionClip*) PURE;
-    STDMETHOD(SetContent)(THIS_ IUnknown*) PURE;
-    STDMETHOD(AddVisual)(THIS_ IDCompositionVisual*,BOOL,IDCompositionVisual*) PURE;
-    STDMETHOD(RemoveVisual)(THIS_ IDCompositionVisual*) PURE;
-    STDMETHOD(RemoveAllVisuals)(THIS_) PURE;
-    STDMETHOD(SetCompositeMode)(THIS_ DCOMPOSITION_COMPOSITE_MODE) PURE;
-};
 
 #endif
 #endif /* _DCOMP_H_ */
