@@ -293,7 +293,7 @@ get_executable_path(char const * argv0, char * result, ssize_t max_size)
     uint32_t bufsize = (uint32_t)max_size;
     if (_NSGetExecutablePath(system_result, &bufsize) == 0)
     {
-      system_result_size = (ssize_t)bufsize;
+      system_result_size = strlen (system_result);
     }
 #elif defined(_WIN32)
     unsigned long bufsize = (unsigned long)max_size;
