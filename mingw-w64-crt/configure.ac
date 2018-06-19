@@ -249,7 +249,7 @@ AC_SUBST([MSVCRT_LIB])
 AC_MSG_CHECKING([whether to enable experimental features])
 AC_ARG_ENABLE([experimental],
   [AS_HELP_STRING([--enable-experimental],
-    [Enable experimental features, valid options are comma separated combination of all, dfp, printf128, registeredprintf, softmath. Refer to experimental.txt for descriptions.])],
+    [Enable experimental features, valid options are comma separated combination of all, dfp, printf128, registeredprintf, softmath.])],
     [experimental_features=$enable_experimental],
     [experimental_features="no"])
 
