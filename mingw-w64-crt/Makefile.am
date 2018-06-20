@@ -216,6 +216,7 @@ src_ucrtbase=\
   stdio/ucrt_snprintf.c \
   stdio/ucrt_sprintf.c \
   stdio/ucrt__vsnprintf.c \
+  stdio/ucrt__vsnwprintf.c \
   stdio/ucrt_vfprintf.c \
   stdio/ucrt_vprintf.c \
   stdio/ucrt_vsnprintf.c \
