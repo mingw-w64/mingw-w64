@@ -1183,8 +1183,8 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
   __mingw_ovr
   int __cdecl _vscwprintf(const wchar_t * __restrict__ _Format, va_list _ArgList)
   {
-      int r = __stdio_common_vswprintf(UCRTBASE_PRINTF_STANDARD_SNPRINTF_BEHAVIOUR, NULL, 0, _Format, NULL, _ArgList);
-      return r < 0 ? -1 : r;
+      int _Result = __stdio_common_vswprintf(UCRTBASE_PRINTF_STANDARD_SNPRINTF_BEHAVIOUR, NULL, 0, _Format, NULL, _ArgList);
+      return _Result < 0 ? -1 : _Result;
   }
 #else
   _CRTIMP int __cdecl _scwprintf(const wchar_t * __restrict__ _Format,...);
