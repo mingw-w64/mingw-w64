@@ -1,0 +1,369 @@
+LIBRARY api-ms-win-crt-math-l1-1-0
+
+EXPORTS
+
+#include "func.def.in"
+
+#ifdef DEF_I386
+_CIacos
+_CIasin
+_CIatan
+_CIatan2
+_CIcos
+_CIcosh
+_CIexp
+_CIfmod
+_CIlog
+_CIlog10
+_CIpow
+_CIsin
+_CIsinh
+_CIsqrt
+_CItan
+_CItanh
+#endif
+_Cbuild
+_Cmulcc
+_Cmulcr
+_FCbuild
+_FCmulcc
+_FCmulcr
+_LCbuild
+_LCmulcc
+_LCmulcr
+#ifdef DEF_I386
+__libm_sse2_acos
+__libm_sse2_acosf
+__libm_sse2_asin
+__libm_sse2_asinf
+__libm_sse2_atan
+__libm_sse2_atan2
+__libm_sse2_atanf
+__libm_sse2_cos
+__libm_sse2_cosf
+__libm_sse2_exp
+__libm_sse2_expf
+__libm_sse2_log
+__libm_sse2_log10
+__libm_sse2_log10f
+__libm_sse2_logf
+__libm_sse2_pow
+__libm_sse2_powf
+__libm_sse2_sin
+__libm_sse2_sinf
+__libm_sse2_tan
+__libm_sse2_tanf
+#endif
+__setusermatherr
+; DATA set manually
+_cabs DATA
+_chgsign
+chgsign == _chgsign
+_chgsignf
+_copysign
+_copysignf
+_d_int
+_dclass
+_dexp
+_dlog
+_dnorm
+_dpcomp
+_dpoly
+_dscale
+_dsign
+_dsin
+_dtest
+_dunscale
+_except1
+_fd_int
+_fdclass
+_fdexp
+_fdlog
+_fdnorm
+_fdopen
+fdopen == _fdopen
+_fdpcomp
+_fdpoly
+_fdscale
+_fdsign
+_fdsin
+_fdtest
+_fdunscale
+_finite
+finite == _finite
+F_NON_I386(_finitef)
+_fpclass
+fpclass == _fpclass
+_fpclassf
+F_I386(_ftol)
+_get_FMA3_enable
+_hypot
+hypot == _hypot
+_hypotf
+_isnan
+F_X64(_isnanf)
+_j0
+j0 == _j0
+_j1
+j1 == _j1
+_jn
+jn == _jn
+_ld_int
+_ldclass
+_ldexp
+_ldlog
+_ldpcomp
+_ldpoly
+_ldscale
+_ldsign
+_ldsin
+_ldtest
+_ldunscale
+#ifdef DEF_I386
+_libm_sse2_acos_precise
+_libm_sse2_asin_precise
+_libm_sse2_atan_precise
+_libm_sse2_cos_precise
+_libm_sse2_exp_precise
+_libm_sse2_log10_precise
+_libm_sse2_log_precise
+_libm_sse2_pow_precise
+_libm_sse2_sin_precise
+_libm_sse2_sqrt_precise
+_libm_sse2_tan_precise
+#endif
+_logb
+F_NON_I386(_logbf)
+_nextafter
+nextafter == _nextafter
+F_X64(_nextafterf)
+_scalb
+F_X64(_scalbf)
+F64(_set_FMA3_enable)
+F_I386(_set_SSE2_enable)
+_y0
+y0 == _y0
+_y1
+y1 == _y1
+_yn
+yn == _yn
+acos
+F_NON_I386(acosf F_X86_ANY(DATA))
+acosh
+acoshf
+acoshl
+asin
+F_NON_I386(asinf F_X86_ANY(DATA))
+asinh
+asinhf
+asinhl
+atan
+atan2 F_X86_ANY(DATA)
+F_NON_I386(atan2f F_X86_ANY(DATA))
+F_NON_I386(atanf F_X86_ANY(DATA))
+atanh
+atanhf
+atanhl
+cabs
+cabsf
+cabsl
+cacos
+cacosf
+cacosh
+cacoshf
+cacoshl
+cacosl
+carg
+cargf
+cargl
+casin
+casinf
+casinh
+casinhf
+casinhl
+casinl
+catan
+catanf
+catanh
+catanhf
+catanhl
+catanl
+cbrt
+cbrtf
+cbrtl
+ccos
+ccosf
+ccosh
+ccoshf
+ccoshl
+ccosl
+ceil DATA
+F_NON_I386(ceilf DATA)
+cexp
+cexpf
+cexpl
+cimag
+cimagf
+cimagl
+clog
+clog10
+clog10f
+clog10l
+clogf
+clogl
+conj
+conjf
+conjl
+copysign
+copysignf
+copysignl
+cos F_X86_ANY(DATA)
+F_NON_I386(cosf F_X86_ANY(DATA))
+cosh
+F_NON_I386(coshf DATA)
+cpow
+cpowf
+cpowl
+cproj
+cprojf
+cprojl
+creal
+crealf
+creall
+csin
+csinf
+csinh
+csinhf
+csinhl
+csinl
+csqrt
+csqrtf
+csqrtl
+ctan
+ctanf
+ctanh
+ctanhf
+ctanhl
+ctanl
+erf
+erfc
+erfcf
+erfcl
+erff
+erfl
+exp F_X86_ANY(DATA)
+exp2
+exp2f
+exp2l
+F_NON_I386(expf F_X86_ANY(DATA))
+expm1
+expm1f
+expm1l
+fabs DATA
+F_ARM_ANY(fabsf)
+fdim
+fdimf
+fdiml
+floor DATA
+F_NON_I386(floorf DATA)
+fma
+fmaf
+fmal
+fmax
+fmaxf
+fmaxl
+fmin
+fminf
+fminl
+fmod F_X86_ANY(DATA)
+F_NON_I386(fmodf F_X86_ANY(DATA))
+; If we implement frexp, we can set it to DATA only.
+frexp
+hypot
+ilogb
+ilogbf
+ilogbl
+ldexp F_X86_ANY(DATA)
+lgamma
+lgammaf
+lgammal
+llrint
+llrintf
+llrintl
+llround
+llroundf
+llroundl
+log F_X86_ANY(DATA)
+log10
+F_NON_I386(log10f F_X86_ANY(DATA))
+log1p
+log1pf
+log1pl
+log2
+log2f
+log2l
+logb
+logbf
+logbl
+F_NON_I386(logf F_X86_ANY(DATA))
+lrint
+lrintf
+lrintl
+lround
+lroundf
+lroundl
+modf DATA
+F_NON_I386(modff DATA)
+nan
+nanf
+nanl
+nearbyint
+nearbyintf
+nearbyintl
+nextafter
+nextafterf
+nextafterl
+nexttoward
+nexttowardf
+nexttowardl
+norm
+normf
+norml
+pow F_X86_ANY(DATA)
+F_NON_I386(powf F_X86_ANY(DATA))
+remainder
+remainderf
+remainderl
+remquo
+remquof
+remquol
+rint
+rintf
+rintl
+round
+roundf
+roundl
+scalbln
+scalblnf
+scalblnl
+scalbn
+scalbnf
+scalbnl
+sin F_X86_ANY(DATA)
+F_NON_I386(sinf F_X86_ANY(DATA))
+; if we implement sinh, we can set it DATA only.
+sinh
+F_NON_I386(sinhf DATA)
+sqrt DATA
+F_NON_I386(sqrtf DATA)
+tan
+F_NON_I386(tanf F_X86_ANY(DATA))
+; if we implement tanh, we can set it to DATA only.
+tanh
+F_NON_I386(tanhf)
+tgamma
+tgammaf
+tgammal
+trunc
+truncf
+truncl
