@@ -55,7 +55,9 @@ float wcstof (const wchar_t * __restrict__ wcs, wchar_t ** __restrict__ wcse)
     {
       /* Make sure temp mbstring cs has 0 at cse.  */ 
       *cse = '\0';
-      i = _mbslen ((unsigned char*) cs); /* Number of chars, not bytes */
+      i = MultiByteToWideChar (cp, MB_ERR_INVALID_CHARS, cs, -1, NULL, 0);
+      if (i > 0)
+        i -= 1; /* Remove zero terminator from length.  */
       *wcse = (wchar_t *) wcs + i;
     }
   free (cs);
