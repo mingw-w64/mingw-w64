@@ -154,7 +154,8 @@ am_libwinstorecompat_a_OBJECTS = src/_wassert.$(OBJEXT) \
 	src/GetFileSize.$(OBJEXT) src/Tls.$(OBJEXT) \
 	src/SHGetFolderPathW.$(OBJEXT) src/QueueTimer.$(OBJEXT) \
 	src/Crypto.$(OBJEXT) src/GetStartupInfo.$(OBJEXT) \
-	src/GetConsoleOutputCP.$(OBJEXT)
+	src/GetConsoleOutputCP.$(OBJEXT) \
+	src/EnumProcessModules.$(OBJEXT)
 libwinstorecompat_a_OBJECTS = $(am_libwinstorecompat_a_OBJECTS)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
@@ -361,6 +362,7 @@ libwinstorecompat_a_SOURCES = \
   src/Crypto.c \
   src/GetStartupInfo.c \
   src/GetConsoleOutputCP.c \
+  src/EnumProcessModules.c \
   $(NULL)
 
 all: all-am
@@ -501,6 +503,8 @@ src/GetStartupInfo.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/GetConsoleOutputCP.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/EnumProcessModules.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 
 libwinstorecompat.a: $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_DEPENDENCIES) $(EXTRA_libwinstorecompat_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libwinstorecompat.a
@@ -519,6 +523,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/CreateMutexW.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/CreateSemaphoreW.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/Crypto.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/EnumProcessModules.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetACP.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetConsoleOutputCP.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetFileAttributes.Po@am__quote@
