@@ -155,7 +155,9 @@ am_libwinstorecompat_a_OBJECTS = src/_wassert.$(OBJEXT) \
 	src/SHGetFolderPathW.$(OBJEXT) src/QueueTimer.$(OBJEXT) \
 	src/Crypto.$(OBJEXT) src/GetStartupInfo.$(OBJEXT) \
 	src/GetConsoleOutputCP.$(OBJEXT) \
-	src/EnumProcessModules.$(OBJEXT)
+	src/EnumProcessModules.$(OBJEXT) \
+	src/RtlAddFunctionTable.$(OBJEXT) \
+	src/RtlCaptureContext.$(OBJEXT) src/RtlVirtualUnwind.$(OBJEXT)
 libwinstorecompat_a_OBJECTS = $(am_libwinstorecompat_a_OBJECTS)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
@@ -363,6 +365,9 @@ libwinstorecompat_a_SOURCES = \
   src/GetStartupInfo.c \
   src/GetConsoleOutputCP.c \
   src/EnumProcessModules.c \
+  src/RtlAddFunctionTable.c \
+  src/RtlCaptureContext.c \
+  src/RtlVirtualUnwind.c \
   $(NULL)
 
 all: all-am
@@ -505,6 +510,12 @@ src/GetConsoleOutputCP.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/EnumProcessModules.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/RtlAddFunctionTable.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
+src/RtlCaptureContext.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
+src/RtlVirtualUnwind.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 
 libwinstorecompat.a: $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_DEPENDENCIES) $(EXTRA_libwinstorecompat_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libwinstorecompat.a
@@ -537,6 +548,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/LocalAlloc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/LocalFree.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/QueueTimer.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/RtlAddFunctionTable.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/RtlCaptureContext.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/RtlVirtualUnwind.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/SHGetFolderPathW.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/SetErrorMode.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/SetFilePointer.Po@am__quote@
