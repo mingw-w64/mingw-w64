@@ -38,4 +38,5 @@ libwinstorecompat_a_SOURCES = \
   src/Crypto.c \
   src/GetStartupInfo.c \
   src/GetConsoleOutputCP.c \
+  src/EnumProcessModules.c \
   $(NULL)
