@@ -39,4 +39,7 @@ libwinstorecompat_a_SOURCES = \
   src/GetStartupInfo.c \
   src/GetConsoleOutputCP.c \
   src/EnumProcessModules.c \
+  src/RtlAddFunctionTable.c \
+  src/RtlCaptureContext.c \
+  src/RtlVirtualUnwind.c \
   $(NULL)
