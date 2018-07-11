@@ -45,12 +45,15 @@ WINBOOL WINAPI EnumProcessModules(HANDLE hProcess, HMODULE *lphModule, DWORD cb,
     PLIST_ENTRY listHead = &ldr->InMemoryOrderModuleList;
     PLIST_ENTRY entry = listHead->Flink;
     int n = 0;
-    while (entry != listHead && cb >= sizeof(HMODULE)) {
+    while (entry != listHead) {
         PLDR_DATA_TABLE_ENTRY dataEntry =
             (PLDR_DATA_TABLE_ENTRY)((BYTE*)entry -
                                     offsetof(LDR_DATA_TABLE_ENTRY, InMemoryOrderLinks));
-        mods[n++] = dataEntry->DllBase;
-        cb -= sizeof(HMODULE);
+        if (cb >= sizeof(HMODULE)) {
+            lphModule[n] = dataEntry->DllBase;
+            cb -= sizeof(HMODULE);
+        }
+        n++;
         entry = entry->Flink;
     }
     *lpcbNeeded = sizeof(HMODULE) * n;
