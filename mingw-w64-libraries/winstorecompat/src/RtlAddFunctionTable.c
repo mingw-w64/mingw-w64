@@ -26,13 +26,12 @@
 #include <windows.h>
 #undef RtlAddFunctionTable
 
+#ifndef _X86_
+
 BOOLEAN __cdecl RtlAddFunctionTable(PRUNTIME_FUNCTION FunctionTable, DWORD EntryCount, DWORD64 BaseAddress)
 {
     return FALSE;
 }
 
-#ifdef _X86_
-BOOLEAN (NTAPI *__MINGW_IMP_SYMBOL(RtlAddFunctionTable))(PRUNTIME_FUNCTION FunctionTable, DWORD EntryCount, DWORD64 BaseAddress) asm("__imp__RtlAddFunctionTable") = RtlAddFunctionTable;
-#else
 BOOLEAN (NTAPI *__MINGW_IMP_SYMBOL(RtlAddFunctionTable))(PRUNTIME_FUNCTION FunctionTable, DWORD EntryCount, DWORD64 BaseAddress) asm("__imp_RtlAddFunctionTable") = RtlAddFunctionTable;
 #endif
