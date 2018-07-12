@@ -415,8 +415,9 @@ typedef __WCHAR_TYPE__ wchar_t;
 
 #if (defined (__STDC_VERSION__) && __STDC_VERSION__ >= 201112L) \
   || (defined(__cplusplus) && __cplusplus >= 201103L)
-#ifndef _GCC_MAX_ALIGN_T
+#if !defined(_GCC_MAX_ALIGN_T) && !defined(__CLANG_MAX_ALIGN_T_DEFINED)
 #define _GCC_MAX_ALIGN_T
+#define __CLANG_MAX_ALIGN_T_DEFINED
 /* Type whose alignment is supported in every context and is at least
    as great as that of any standard type not using alignment
    specifiers.  */
