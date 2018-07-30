@@ -504,6 +504,7 @@ typedef struct DWRITE_HIT_TEST_METRICS {
   FLOAT   height;
   UINT32  bidiLevel;
   WINBOOL isText;
+  WINBOOL isTrimmed;
 } DWRITE_HIT_TEST_METRICS;
 
 typedef struct DWRITE_INLINE_OBJECT_METRICS {
