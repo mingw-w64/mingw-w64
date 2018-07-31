@@ -55,6 +55,9 @@ extern "C" {
 
 #endif /* _CRT_TERMINATE_DEFINED */
 
+  typedef void (__stdcall *_tls_callback_type)(void*,unsigned long,void*);
+  _CRTIMP void __cdecl _register_thread_local_exe_atexit_callback(_tls_callback_type callback);
+
   void __cdecl __MINGW_NOTHROW _cexit(void);
   void __cdecl __MINGW_NOTHROW _c_exit(void);
   _CRTIMP int __cdecl _getpid(void);

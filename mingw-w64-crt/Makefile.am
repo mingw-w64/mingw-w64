@@ -157,6 +157,7 @@ src_libws2_32=libsrc/ws2_32.c \
 
 src_msvcrt_common=\
   misc/onexit_table.c \
+  misc/register_tls_atexit.c \
   stdio/acrt_iob_func.c
 
 src_msvcrt=\
