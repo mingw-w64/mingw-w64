@@ -430,3 +430,5 @@ int __cdecl atexit (_PVFV func)
 {
     return _onexit((_onexit_t)func) ? 0 : -1;
 }
+
+char __mingw_module_is_dll = 0;
