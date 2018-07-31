@@ -131,6 +131,11 @@
 #define NTDDI_WINBLUE                   0x06030000
 #define NTDDI_WINTHRESHOLD              0x0A000000
 #define NTDDI_WIN10                     0x0A000000
+#define NTDDI_WIN10_TH2                 0x0A000001
+#define NTDDI_WIN10_RS1                 0x0A000002
+#define NTDDI_WIN10_RS2                 0x0A000003
+#define NTDDI_WIN10_RS3                 0x0A000004
+
 
 /* Version Fields in NTDDI_VERSION */
 #define OSVERSION_MASK			0xFFFF0000U
