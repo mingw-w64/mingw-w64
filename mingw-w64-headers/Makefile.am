@@ -94,6 +94,7 @@ IDL_SRCS = \
   include/drmexternals.idl \
   include/dxva2api.idl \
   include/endpointvolume.idl \
+  include/evr.idl \
   include/exdisp.idl \
   include/filter.idl \
   include/fsrm.idl \
