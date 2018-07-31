@@ -418,6 +418,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/mediaobj.idl \
 @HAVE_WIDL_TRUE@  include/mfidl.idl \
 @HAVE_WIDL_TRUE@  include/mfobjects.idl \
+@HAVE_WIDL_TRUE@  include/mfplay.idl \
 @HAVE_WIDL_TRUE@  include/mfreadwrite.idl \
 @HAVE_WIDL_TRUE@  include/mftransform.idl \
 @HAVE_WIDL_TRUE@  include/mmdeviceapi.idl \

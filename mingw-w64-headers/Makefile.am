@@ -117,6 +117,7 @@ IDL_SRCS = \
   include/mediaobj.idl \
   include/mfidl.idl \
   include/mfobjects.idl \
+  include/mfplay.idl \
   include/mfreadwrite.idl \
   include/mftransform.idl \
   include/mmdeviceapi.idl \
