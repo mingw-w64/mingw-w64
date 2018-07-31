@@ -119,7 +119,7 @@ src_libmingw32=include/oscalls.h include/internal.h include/sect_attribs.h \
   crt/mingw_custom.c  crt/mingw_helpers.c  \
   crt/pseudo-reloc.c  crt/udll_argv.c      \
   crt/xtxtmode.c      crt/crt_handler.c    \
-  crt/tlsthrd.c       crt/tlsmthread.c     crt/tlsmcrt.c
+  crt/tlsthrd.c       crt/tlsmthread.c     crt/tlsmcrt.c   crt/cxa_atexit.c
 
 src_libscrnsave=libsrc/scrnsave.c
 src_libscrnsavw=libsrc/scrnsave.c
