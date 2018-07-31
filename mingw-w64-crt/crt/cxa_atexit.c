@@ -14,6 +14,7 @@
 #include <assert.h>
 #include <stdio.h>
 #include <corecrt_startup.h>
+#include <process.h>
 
 
 typedef void (__thiscall * dtor_fn)(void*);
@@ -28,6 +29,7 @@ struct dtor_obj {
 };
 
 HANDLE __dso_handle;
+extern char __mingw_module_is_dll;
 
 static CRITICAL_SECTION lock;
 static int inited = 0;
@@ -81,6 +83,18 @@ static void WINAPI tls_callback(HANDLE hDllHandle, DWORD dwReason, LPVOID __UNUS
     if (inited == 0) {
       InitializeCriticalSection(&lock);
       __dso_handle = hDllHandle;
+      /*
+       * We can only call _register_thread_local_exe_atexit_callback once
+       * in a process; if we call it a second time the process terminates.
+       * When DLLs are unloaded, this callback is invoked before we run the
+       * _onexit tables, but for exes, we need to ask this to be called before
+       * all other registered atexit functions.
+       * Since we are registered as a normal TLS callback, we will be called
+       * another time later as well, but that doesn't matter, it's safe to
+       * invoke this with DLL_PROCESS_DETACH twice.
+       */
+      if (!__mingw_module_is_dll)
+        _register_thread_local_exe_atexit_callback(tls_callback);
     }
     inited = 1;
     break;
