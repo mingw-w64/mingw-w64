@@ -255,6 +255,19 @@ interface IMFByteStreamBuffering : IUnknown
     HRESULT StopBuffering();
 }
 
+[
+    object,
+    uuid(F6696E82-74F7-4f3d-A178-8A5E09C3659F),
+]
+interface IMFClockStateSink : IUnknown
+{
+    HRESULT OnClockStart([in] MFTIME hnsSystemTime,[in] LONGLONG llClockStartOffset);
+    HRESULT OnClockStop([in] MFTIME hnsSystemTime);
+    HRESULT OnClockPause([in] MFTIME hnsSystemTime);
+    HRESULT OnClockRestart([in] MFTIME hnsSystemTime);
+    HRESULT OnClockSetRate([in] MFTIME hnsSystemTime, [in] float flRate);
+}
+
 cpp_quote("HRESULT WINAPI MFRequireProtectedEnvironment(IMFPresentationDescriptor *pPresentationDescriptor);")
 cpp_quote("HRESULT WINAPI MFSerializePresentationDescriptor(IMFPresentationDescriptor *pPD,DWORD *pcbData,BYTE **ppbData);")
 
@@ -649,3 +662,13 @@ cpp_quote("HRESULT WINAPI MFEnumDeviceSources(IMFAttributes *pAttributes,IMFActi
 cpp_quote("HRESULT WINAPI MFGetTopoNodeCurrentType(IMFTopologyNode *pNode,DWORD dwStreamIndex,WINBOOL fOutput,IMFMediaType **ppType);")
 cpp_quote("HRESULT WINAPI MFTranscodeGetAudioOutputAvailableTypes(REFGUID guidSubType,DWORD dwMFTFlags,IMFAttributes *pCodecConfig,IMFCollection **ppAvailableTypes);")
 cpp_quote("#endif")
+
+cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_FRIENDLY_NAME, 0x60d0e559,0x52f8,0x4fa2,0xbb,0xce,0xac,0xdb,0x34,0xa8,0xec,0x1);")
+cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_MEDIA_TYPE, 0x56a819ca,0xc78,0x4de4,0xa0,0xa7,0x3d,0xda,0xba,0xf,0x24,0xd4);")
+cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_ENDPOINT_ID, 0x30da9258,0xfeb9,0x47a7,0xa4,0x53,0x76,0x3a,0x7a,0x8e,0x1c,0x5f);")
+cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_ROLE, 0xbc9d118e,0x8c67,0x4a18,0x85,0xd4,0x12,0xd3,0x0,0x40,0x5,0x52);")
+cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_CATEGORY, 0x77f0ae69,0xc3bd,0x4509,0x94,0x1d,0x46,0x7e,0x4d,0x24,0x89,0x9e);")
+cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_HW_SOURCE, 0xde7046ba,0x54d6,0x4487,0xa2,0xa4,0xec,0x7c,0xd,0x1b,0xd1,0x63);")
+cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_MAX_BUFFERS, 0x7dd9b730,0x4f2d,0x41d5,0x8f,0x95,0xc,0xc9,0xa9,0x12,0xba,0x26);")
+cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_SYMBOLIC_LINK, 0x58f0aad8,0x22bf,0x4f8a,0xbb,0x3d,0xd2,0xc4,0x97,0x8c,0x6e,0x2f);")
+cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_GUID, 0xc60ac5fe,0x252a,0x478f,0xa0,0xef,0xbc,0x8f,0xa5,0xf7,0xca,0xd3);")
