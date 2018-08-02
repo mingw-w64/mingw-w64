@@ -940,6 +940,7 @@ static inline HRESULT HRESULT_FROM_WIN32(unsigned int x)
 #define ERROR_WRONG_COMPARTMENT                            1468
 #define ERROR_AUTHIP_FAILURE                               1469
 #define ERROR_NO_NVRAM_RESOURCES                           1470
+#define ERROR_NOT_GUI_PROCESS                              1471
 #define ERROR_EVENTLOG_FILE_CORRUPT                        1500
 #define ERROR_EVENTLOG_CANT_START                          1501
 #define ERROR_LOG_FILE_FULL                                1502
