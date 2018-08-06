@@ -57,6 +57,7 @@ libarm64_DATA += %reldir%/libdevmgr.a
 libarm64_DATA += %reldir%/libdevobj.a
 libarm64_DATA += %reldir%/libdevrtl.a
 libarm64_DATA += %reldir%/libdfscli.a
+libarm64_DATA += %reldir%/libdhcpcsvc.a
 libarm64_DATA += %reldir%/libdhcpsapi.a
 libarm64_DATA += %reldir%/libdimsroam.a
 libarm64_DATA += %reldir%/libdiskcopy.a
