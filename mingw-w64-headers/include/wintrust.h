@@ -86,6 +86,8 @@ extern "C"
     GUID *pgKnownSubject;
   } WINTRUST_FILE_INFO,*PWINTRUST_FILE_INFO;
 
+  typedef HANDLE HCATADMIN;
+
   typedef struct WINTRUST_CATALOG_INFO_ {
     DWORD cbStruct;
     DWORD dwCatalogVersion;
@@ -96,6 +98,9 @@ extern "C"
     BYTE *pbCalculatedFileHash;
     DWORD cbCalculatedFileHash;
     PCCTL_CONTEXT pcCatalogContext;
+#if (NTDDI_VERSION >= NTDDI_WIN8)
+    HCATADMIN hCatAdmin;
+#endif
   } WINTRUST_CATALOG_INFO,*PWINTRUST_CATALOG_INFO;
 
   typedef struct WINTRUST_BLOB_INFO_ {
