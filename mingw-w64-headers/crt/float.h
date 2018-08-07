@@ -24,7 +24,7 @@
     || (defined(__clang__) && defined(__clang_major__))
 #if (__GNUC__ < 4  || (__GNUC__ == 4 && __GNUC_MINOR__ < 6)) \
     || (__clang_major__ >=3)
-#if !defined(_FLOAT_H___) && !defined(__FLOAT_H)
+#if !defined(_FLOAT_H___) && !defined(__FLOAT_H) && !defined(__CLANG_FLOAT_H)
 #include_next <float.h>
 #endif
 #elif !defined (_FLOAT_H___)
