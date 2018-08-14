@@ -137,6 +137,22 @@ interface INetFwMgr;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __INetFwProduct_FWD_DEFINED__
+#define __INetFwProduct_FWD_DEFINED__
+typedef interface INetFwProduct INetFwProduct;
+#ifdef __cplusplus
+interface INetFwProduct;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __INetFwProducts_FWD_DEFINED__
+#define __INetFwProducts_FWD_DEFINED__
+typedef interface INetFwProducts INetFwProducts;
+#ifdef __cplusplus
+interface INetFwProducts;
+#endif /* __cplusplus */
+#endif
+
 #ifndef __NetFwOpenPort_FWD_DEFINED__
 #define __NetFwOpenPort_FWD_DEFINED__
 #ifdef __cplusplus
@@ -172,6 +188,33 @@ typedef class NetFwPolicy2 NetFwPolicy2;
 typedef struct NetFwPolicy2 NetFwPolicy2;
 #endif /* defined __cplusplus */
 #endif /* defined __NetFwPolicy2_FWD_DEFINED__ */
+
+#ifndef __NetFwRule_FWD_DEFINED__
+#define __NetFwRule_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class NetFwRule NetFwRule;
+#else
+typedef struct NetFwRule NetFwRule;
+#endif /* defined __cplusplus */
+#endif /* defined __NetFwRule_FWD_DEFINED__ */
+
+#ifndef __NetFwProduct_FWD_DEFINED__
+#define __NetFwProduct_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class NetFwProduct NetFwProduct;
+#else
+typedef struct NetFwProduct NetFwProduct;
+#endif /* defined __cplusplus */
+#endif /* defined __NetFwProduct_FWD_DEFINED__ */
+
+#ifndef __NetFwProducts_FWD_DEFINED__
+#define __NetFwProducts_FWD_DEFINED__
+#ifdef __cplusplus
+typedef class NetFwProducts NetFwProducts;
+#else
+typedef struct NetFwProducts NetFwProducts;
+#endif /* defined __cplusplus */
+#endif /* defined __NetFwProducts_FWD_DEFINED__ */
 
 /* Headers for imported files */
 
@@ -3809,6 +3852,337 @@ static FORCEINLINE HRESULT INetFwMgr_IsIcmpTypeAllowed(INetFwMgr* This,NET_FW_IP
 
 #endif  /* __INetFwMgr_INTERFACE_DEFINED__ */
 
+/*****************************************************************************
+ * INetFwProduct interface
+ */
+#ifndef __INetFwProduct_INTERFACE_DEFINED__
+#define __INetFwProduct_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_INetFwProduct, 0x71881699, 0x18f4, 0x458b, 0xb8,0x92, 0x3f,0xfc,0xe5,0xe0,0x7f,0x75);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("71881699-18f4-458b-b892-3ffce5e07f75")
+INetFwProduct : public IDispatch
+{
+    virtual HRESULT STDMETHODCALLTYPE get_RuleCategories(
+        VARIANT *ruleCategories) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_RuleCategories(
+        VARIANT ruleCategories) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_DisplayName(
+        BSTR *displayName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE put_DisplayName(
+        BSTR displayName) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get_PathToSignedProductExe(
+        BSTR *path) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(INetFwProduct, 0x71881699, 0x18f4, 0x458b, 0xb8,0x92, 0x3f,0xfc,0xe5,0xe0,0x7f,0x75)
+#endif
+#else
+typedef struct INetFwProductVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        INetFwProduct *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        INetFwProduct *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        INetFwProduct *This);
+
+    /*** IDispatch methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount)(
+        INetFwProduct *This,
+        UINT *pctinfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfo)(
+        INetFwProduct *This,
+        UINT iTInfo,
+        LCID lcid,
+        ITypeInfo **ppTInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetIDsOfNames)(
+        INetFwProduct *This,
+        REFIID riid,
+        LPOLESTR *rgszNames,
+        UINT cNames,
+        LCID lcid,
+        DISPID *rgDispId);
+
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        INetFwProduct *This,
+        DISPID dispIdMember,
+        REFIID riid,
+        LCID lcid,
+        WORD wFlags,
+        DISPPARAMS *pDispParams,
+        VARIANT *pVarResult,
+        EXCEPINFO *pExcepInfo,
+        UINT *puArgErr);
+
+    /*** INetFwProduct methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_RuleCategories)(
+        INetFwProduct *This,
+        VARIANT *ruleCategories);
+
+    HRESULT (STDMETHODCALLTYPE *put_RuleCategories)(
+        INetFwProduct *This,
+        VARIANT ruleCategories);
+
+    HRESULT (STDMETHODCALLTYPE *get_DisplayName)(
+        INetFwProduct *This,
+        BSTR *displayName);
+
+    HRESULT (STDMETHODCALLTYPE *put_DisplayName)(
+        INetFwProduct *This,
+        BSTR displayName);
+
+    HRESULT (STDMETHODCALLTYPE *get_PathToSignedProductExe)(
+        INetFwProduct *This,
+        BSTR *path);
+
+    END_INTERFACE
+} INetFwProductVtbl;
+
+interface INetFwProduct {
+    CONST_VTBL INetFwProductVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define INetFwProduct_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define INetFwProduct_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define INetFwProduct_Release(This) (This)->lpVtbl->Release(This)
+/*** IDispatch methods ***/
+#define INetFwProduct_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
+#define INetFwProduct_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
+#define INetFwProduct_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
+#define INetFwProduct_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
+/*** INetFwProduct methods ***/
+#define INetFwProduct_get_RuleCategories(This,ruleCategories) (This)->lpVtbl->get_RuleCategories(This,ruleCategories)
+#define INetFwProduct_put_RuleCategories(This,ruleCategories) (This)->lpVtbl->put_RuleCategories(This,ruleCategories)
+#define INetFwProduct_get_DisplayName(This,displayName) (This)->lpVtbl->get_DisplayName(This,displayName)
+#define INetFwProduct_put_DisplayName(This,displayName) (This)->lpVtbl->put_DisplayName(This,displayName)
+#define INetFwProduct_get_PathToSignedProductExe(This,path) (This)->lpVtbl->get_PathToSignedProductExe(This,path)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT INetFwProduct_QueryInterface(INetFwProduct* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG INetFwProduct_AddRef(INetFwProduct* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG INetFwProduct_Release(INetFwProduct* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static FORCEINLINE HRESULT INetFwProduct_GetTypeInfoCount(INetFwProduct* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static FORCEINLINE HRESULT INetFwProduct_GetTypeInfo(INetFwProduct* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static FORCEINLINE HRESULT INetFwProduct_GetIDsOfNames(INetFwProduct* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static FORCEINLINE HRESULT INetFwProduct_Invoke(INetFwProduct* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+/*** INetFwProduct methods ***/
+static FORCEINLINE HRESULT INetFwProduct_get_RuleCategories(INetFwProduct* This,VARIANT *ruleCategories) {
+    return This->lpVtbl->get_RuleCategories(This,ruleCategories);
+}
+static FORCEINLINE HRESULT INetFwProduct_put_RuleCategories(INetFwProduct* This,VARIANT ruleCategories) {
+    return This->lpVtbl->put_RuleCategories(This,ruleCategories);
+}
+static FORCEINLINE HRESULT INetFwProduct_get_DisplayName(INetFwProduct* This,BSTR *displayName) {
+    return This->lpVtbl->get_DisplayName(This,displayName);
+}
+static FORCEINLINE HRESULT INetFwProduct_put_DisplayName(INetFwProduct* This,BSTR displayName) {
+    return This->lpVtbl->put_DisplayName(This,displayName);
+}
+static FORCEINLINE HRESULT INetFwProduct_get_PathToSignedProductExe(INetFwProduct* This,BSTR *path) {
+    return This->lpVtbl->get_PathToSignedProductExe(This,path);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __INetFwProduct_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * INetFwProducts interface
+ */
+#ifndef __INetFwProducts_INTERFACE_DEFINED__
+#define __INetFwProducts_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_INetFwProducts, 0x39eb36e0, 0x2097, 0x40bd, 0x8a,0xf2, 0x63,0xa1,0x3b,0x52,0x53,0x62);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("39eb36e0-2097-40bd-8af2-63a13b525362")
+INetFwProducts : public IDispatch
+{
+    virtual HRESULT STDMETHODCALLTYPE get_Count(
+        LONG *count) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Register(
+        INetFwProduct *product,
+        IUnknown **registration) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE Item(
+        LONG index,
+        INetFwProduct **product) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE get__NewEnum(
+        IUnknown **newEnum) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(INetFwProducts, 0x39eb36e0, 0x2097, 0x40bd, 0x8a,0xf2, 0x63,0xa1,0x3b,0x52,0x53,0x62)
+#endif
+#else
+typedef struct INetFwProductsVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        INetFwProducts *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        INetFwProducts *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        INetFwProducts *This);
+
+    /*** IDispatch methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfoCount)(
+        INetFwProducts *This,
+        UINT *pctinfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetTypeInfo)(
+        INetFwProducts *This,
+        UINT iTInfo,
+        LCID lcid,
+        ITypeInfo **ppTInfo);
+
+    HRESULT (STDMETHODCALLTYPE *GetIDsOfNames)(
+        INetFwProducts *This,
+        REFIID riid,
+        LPOLESTR *rgszNames,
+        UINT cNames,
+        LCID lcid,
+        DISPID *rgDispId);
+
+    HRESULT (STDMETHODCALLTYPE *Invoke)(
+        INetFwProducts *This,
+        DISPID dispIdMember,
+        REFIID riid,
+        LCID lcid,
+        WORD wFlags,
+        DISPPARAMS *pDispParams,
+        VARIANT *pVarResult,
+        EXCEPINFO *pExcepInfo,
+        UINT *puArgErr);
+
+    /*** INetFwProducts methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Count)(
+        INetFwProducts *This,
+        LONG *count);
+
+    HRESULT (STDMETHODCALLTYPE *Register)(
+        INetFwProducts *This,
+        INetFwProduct *product,
+        IUnknown **registration);
+
+    HRESULT (STDMETHODCALLTYPE *Item)(
+        INetFwProducts *This,
+        LONG index,
+        INetFwProduct **product);
+
+    HRESULT (STDMETHODCALLTYPE *get__NewEnum)(
+        INetFwProducts *This,
+        IUnknown **newEnum);
+
+    END_INTERFACE
+} INetFwProductsVtbl;
+
+interface INetFwProducts {
+    CONST_VTBL INetFwProductsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define INetFwProducts_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define INetFwProducts_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define INetFwProducts_Release(This) (This)->lpVtbl->Release(This)
+/*** IDispatch methods ***/
+#define INetFwProducts_GetTypeInfoCount(This,pctinfo) (This)->lpVtbl->GetTypeInfoCount(This,pctinfo)
+#define INetFwProducts_GetTypeInfo(This,iTInfo,lcid,ppTInfo) (This)->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo)
+#define INetFwProducts_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) (This)->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)
+#define INetFwProducts_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) (This)->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)
+/*** INetFwProducts methods ***/
+#define INetFwProducts_get_Count(This,count) (This)->lpVtbl->get_Count(This,count)
+#define INetFwProducts_Register(This,product,registration) (This)->lpVtbl->Register(This,product,registration)
+#define INetFwProducts_Item(This,index,product) (This)->lpVtbl->Item(This,index,product)
+#define INetFwProducts_get__NewEnum(This,newEnum) (This)->lpVtbl->get__NewEnum(This,newEnum)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT INetFwProducts_QueryInterface(INetFwProducts* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG INetFwProducts_AddRef(INetFwProducts* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG INetFwProducts_Release(INetFwProducts* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IDispatch methods ***/
+static FORCEINLINE HRESULT INetFwProducts_GetTypeInfoCount(INetFwProducts* This,UINT *pctinfo) {
+    return This->lpVtbl->GetTypeInfoCount(This,pctinfo);
+}
+static FORCEINLINE HRESULT INetFwProducts_GetTypeInfo(INetFwProducts* This,UINT iTInfo,LCID lcid,ITypeInfo **ppTInfo) {
+    return This->lpVtbl->GetTypeInfo(This,iTInfo,lcid,ppTInfo);
+}
+static FORCEINLINE HRESULT INetFwProducts_GetIDsOfNames(INetFwProducts* This,REFIID riid,LPOLESTR *rgszNames,UINT cNames,LCID lcid,DISPID *rgDispId) {
+    return This->lpVtbl->GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId);
+}
+static FORCEINLINE HRESULT INetFwProducts_Invoke(INetFwProducts* This,DISPID dispIdMember,REFIID riid,LCID lcid,WORD wFlags,DISPPARAMS *pDispParams,VARIANT *pVarResult,EXCEPINFO *pExcepInfo,UINT *puArgErr) {
+    return This->lpVtbl->Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr);
+}
+/*** INetFwProducts methods ***/
+static FORCEINLINE HRESULT INetFwProducts_get_Count(INetFwProducts* This,LONG *count) {
+    return This->lpVtbl->get_Count(This,count);
+}
+static FORCEINLINE HRESULT INetFwProducts_Register(INetFwProducts* This,INetFwProduct *product,IUnknown **registration) {
+    return This->lpVtbl->Register(This,product,registration);
+}
+static FORCEINLINE HRESULT INetFwProducts_Item(INetFwProducts* This,LONG index,INetFwProduct **product) {
+    return This->lpVtbl->Item(This,index,product);
+}
+static FORCEINLINE HRESULT INetFwProducts_get__NewEnum(INetFwProducts* This,IUnknown **newEnum) {
+    return This->lpVtbl->get__NewEnum(This,newEnum);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __INetFwProducts_INTERFACE_DEFINED__ */
+
 
 DEFINE_GUID(LIBID_NetFwPublicTypeLib, 0xdb4f3345, 0x3ef8, 0x45ed, 0xb9,0x76, 0x25,0xa6,0xd3,0xb8,0x1b,0x71);
 
@@ -3957,6 +4331,45 @@ DEFINE_GUID(CLSID_NetFwPolicy2, 0xe2b3c97f, 0x6ae1, 0x41ac, 0x81,0x7a, 0xf6,0xf9
 class DECLSPEC_UUID("e2b3c97f-6ae1-41ac-817a-f6f92166d7dd") NetFwPolicy2;
 #ifdef __CRT_UUID_DECL
 __CRT_UUID_DECL(NetFwPolicy2, 0xe2b3c97f, 0x6ae1, 0x41ac, 0x81,0x7a, 0xf6,0xf9,0x21,0x66,0xd7,0xdd)
+#endif
+#endif
+
+/*****************************************************************************
+ * NetFwRule coclass
+ */
+
+DEFINE_GUID(CLSID_NetFwRule, 0x2c5bc43e, 0x3369, 0x4c33, 0xab,0x0c, 0xbe,0x94,0x69,0x67,0x7a,0xf4);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("2c5bc43e-3369-4c33-ab0c-be9469677af4") NetFwRule;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(NetFwRule, 0x2c5bc43e, 0x3369, 0x4c33, 0xab,0x0c, 0xbe,0x94,0x69,0x67,0x7a,0xf4)
+#endif
+#endif
+
+/*****************************************************************************
+ * NetFwProduct coclass
+ */
+
+DEFINE_GUID(CLSID_NetFwProduct, 0x9d745ed8, 0xc514, 0x4d1d, 0xbf,0x42, 0x75,0x1f,0xed,0x2d,0x5a,0xc7);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("9d745ed8-c514-4d1d-bf42-751fed2d5ac7") NetFwProduct;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(NetFwProduct, 0x9d745ed8, 0xc514, 0x4d1d, 0xbf,0x42, 0x75,0x1f,0xed,0x2d,0x5a,0xc7)
+#endif
+#endif
+
+/*****************************************************************************
+ * NetFwProducts coclass
+ */
+
+DEFINE_GUID(CLSID_NetFwProducts, 0xcc19079b, 0x8272, 0x4d73, 0xbb,0x70, 0xcd,0xb5,0x33,0x52,0x7b,0x61);
+
+#ifdef __cplusplus
+class DECLSPEC_UUID("cc19079b-8272-4d73-bb70-cdb533527b61") NetFwProducts;
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(NetFwProducts, 0xcc19079b, 0x8272, 0x4d73, 0xbb,0x70, 0xcd,0xb5,0x33,0x52,0x7b,0x61)
 #endif
 #endif
 
