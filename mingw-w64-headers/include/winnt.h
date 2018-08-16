@@ -2152,6 +2152,11 @@ extern "C" {
   } CONTEXT, *PCONTEXT;
 
   typedef struct _IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY RUNTIME_FUNCTION, *PRUNTIME_FUNCTION;
+  typedef PRUNTIME_FUNCTION (*PGET_RUNTIME_FUNCTION_CALLBACK)(DWORD64 ControlPc,PVOID Context);
+
+#define UNW_FLAG_NHANDLER   0x0
+#define UNW_FLAG_EHANDLER   0x1
+#define UNW_FLAG_UHANDLER   0x2
 
 #define UNWIND_HISTORY_TABLE_SIZE 12
 
@@ -2170,6 +2175,49 @@ extern "C" {
     DWORD64 HighAddress;
     UNWIND_HISTORY_TABLE_ENTRY Entry[UNWIND_HISTORY_TABLE_SIZE];
   } UNWIND_HISTORY_TABLE, *PUNWIND_HISTORY_TABLE;
+
+  struct _DISPATCHER_CONTEXT;
+  typedef struct _DISPATCHER_CONTEXT DISPATCHER_CONTEXT;
+  typedef struct _DISPATCHER_CONTEXT *PDISPATCHER_CONTEXT;
+
+  struct _DISPATCHER_CONTEXT {
+    ULONG_PTR ControlPc;
+    ULONG_PTR ImageBase;
+    PRUNTIME_FUNCTION FunctionEntry;
+    ULONG_PTR EstablisherFrame;
+    ULONG_PTR TargetPc;
+    PCONTEXT ContextRecord;
+    PEXCEPTION_ROUTINE LanguageHandler;
+    PVOID HandlerData;
+    PUNWIND_HISTORY_TABLE HistoryTable;
+    ULONG ScopeIndex;
+    BOOLEAN ControlPcIsUnwound;
+    PBYTE NonVolatileRegisters;
+  };
+
+  typedef struct _KNONVOLATILE_CONTEXT_POINTERS {
+    PDWORD64 X19;
+    PDWORD64 X20;
+    PDWORD64 X21;
+    PDWORD64 X22;
+    PDWORD64 X23;
+    PDWORD64 X24;
+    PDWORD64 X25;
+    PDWORD64 X26;
+    PDWORD64 X27;
+    PDWORD64 X28;
+    PDWORD64 Fp;
+    PDWORD64 Lr;
+
+    PDWORD64 D8;
+    PDWORD64 D9;
+    PDWORD64 D10;
+    PDWORD64 D11;
+    PDWORD64 D12;
+    PDWORD64 D13;
+    PDWORD64 D14;
+    PDWORD64 D15;
+  } KNONVOLATILE_CONTEXT_POINTERS, *PKNONVOLATILE_CONTEXT_POINTERS;
 
 #define OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME "OutOfProcessFunctionTableCallback"
 
@@ -7509,6 +7557,16 @@ __buildmemorybarrier()
     NTSYSAPI VOID __cdecl RtlRestoreContext (PCONTEXT ContextRecord, struct _EXCEPTION_RECORD *ExceptionRecord);
     NTSYSAPI PEXCEPTION_ROUTINE NTAPI RtlVirtualUnwind (DWORD HandlerType, DWORD ImageBase, DWORD ControlPc, PRUNTIME_FUNCTION FunctionEntry, PCONTEXT ContextRecord, PVOID *HandlerData, PDWORD EstablisherFrame, PKNONVOLATILE_CONTEXT_POINTERS ContextPointers);
 #endif
+#if defined (__aarch64__)
+    NTSYSAPI DWORD NTAPI RtlAddGrowableFunctionTable (PVOID *DynamicTable, PRUNTIME_FUNCTION FunctionTable, DWORD EntryCount, DWORD MaximumEntryCount, ULONG_PTR RangeBase, ULONG_PTR RangeEnd);
+    NTSYSAPI VOID NTAPI RtlGrowFunctionTable (PVOID DynamicTable, DWORD NewEntryCount);
+    NTSYSAPI VOID NTAPI RtlDeleteGrowableFunctionTable (PVOID DynamicTable);
+    NTSYSAPI BOOLEAN __cdecl RtlAddFunctionTable (PRUNTIME_FUNCTION FunctionTable, DWORD EntryCount, ULONG_PTR BaseAddress);
+    NTSYSAPI BOOLEAN __cdecl RtlDeleteFunctionTable (PRUNTIME_FUNCTION FunctionTable);
+    NTSYSAPI BOOLEAN __cdecl RtlInstallFunctionTableCallback (ULONG_PTR TableIdentifier, ULONG_PTR BaseAddress, DWORD Length, PGET_RUNTIME_FUNCTION_CALLBACK Callback, PVOID Context, PCWSTR OutOfProcessCallbackDll);
+    NTSYSAPI VOID __cdecl RtlRestoreContext (PCONTEXT ContextRecord, struct _EXCEPTION_RECORD *ExceptionRecord);
+    NTSYSAPI PEXCEPTION_ROUTINE NTAPI RtlVirtualUnwind (DWORD HandlerType, ULONG_PTR ImageBase, ULONG_PTR ControlPc, PRUNTIME_FUNCTION FunctionEntry, PCONTEXT ContextRecord, PVOID *HandlerData, PULONG_PTR EstablisherFrame, PKNONVOLATILE_CONTEXT_POINTERS ContextPointers);
+#endif
 #if defined (__ia64__)
     NTSYSAPI BOOLEAN NTAPI RtlAddFunctionTable (PRUNTIME_FUNCTION FunctionTable, DWORD EntryCount, ULONGLONG BaseAddress, ULONGLONG TargetGp);
     NTSYSAPI BOOLEAN NTAPI RtlDeleteFunctionTable (PRUNTIME_FUNCTION FunctionTable);
@@ -7528,6 +7586,10 @@ __buildmemorybarrier()
 #endif
 #if defined (__arm__)
     NTSYSAPI PRUNTIME_FUNCTION NTAPI RtlLookupFunctionEntry (ULONG_PTR ControlPc, PDWORD ImageBase, PUNWIND_HISTORY_TABLE HistoryTable);
+    NTSYSAPI VOID NTAPI RtlUnwindEx (PVOID TargetFrame, PVOID TargetIp, PEXCEPTION_RECORD ExceptionRecord, PVOID ReturnValue, PCONTEXT ContextRecord, PUNWIND_HISTORY_TABLE HistoryTable);
+#endif
+#if defined (__aarch64__)
+    NTSYSAPI PRUNTIME_FUNCTION NTAPI RtlLookupFunctionEntry (ULONG_PTR ControlPc, PULONG_PTR ImageBase, PUNWIND_HISTORY_TABLE HistoryTable);
     NTSYSAPI VOID NTAPI RtlUnwindEx (PVOID TargetFrame, PVOID TargetIp, PEXCEPTION_RECORD ExceptionRecord, PVOID ReturnValue, PCONTEXT ContextRecord, PUNWIND_HISTORY_TABLE HistoryTable);
 #endif
 #if defined (__ia64__)
