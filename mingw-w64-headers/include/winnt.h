@@ -1888,7 +1888,7 @@ extern "C" {
     LONGLONG High;
   } NEON128, *PNEON128;
 
-  typedef struct _CONTEXT {
+  typedef struct DECLSPEC_ALIGN(8) _CONTEXT {
     DWORD ContextFlags;
 
     DWORD R0;
@@ -2075,7 +2075,7 @@ extern "C" {
     BYTE  B[16];
   } NEON128, *PNEON128;
 
-  typedef struct _CONTEXT {
+  typedef struct DECLSPEC_ALIGN(16) _CONTEXT {
     ULONG ContextFlags;                 /* 000 */
     /* CONTEXT_INTEGER */
     ULONG Cpsr;                         /* 004 */
