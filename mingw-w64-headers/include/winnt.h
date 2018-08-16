@@ -2761,7 +2761,10 @@ __buildmemorybarrier()
 
   typedef struct _UNWIND_HISTORY_TABLE {
     ULONG Count;
-    UCHAR Search;
+    BYTE  LocalHint;
+    BYTE  GlobalHint;
+    BYTE  Search;
+    BYTE  Once;
     ULONG64 LowAddress;
     ULONG64 HighAddress;
     UNWIND_HISTORY_TABLE_ENTRY Entry[UNWIND_HISTORY_TABLE_SIZE];
