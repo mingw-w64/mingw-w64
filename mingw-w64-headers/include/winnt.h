@@ -1951,6 +1951,26 @@ extern "C" {
     UNWIND_HISTORY_TABLE_ENTRY Entry[UNWIND_HISTORY_TABLE_SIZE];
   } UNWIND_HISTORY_TABLE, *PUNWIND_HISTORY_TABLE;
 
+  struct _DISPATCHER_CONTEXT;
+  typedef struct _DISPATCHER_CONTEXT DISPATCHER_CONTEXT;
+  typedef struct _DISPATCHER_CONTEXT *PDISPATCHER_CONTEXT;
+
+  struct _DISPATCHER_CONTEXT {
+    ULONG ControlPc;
+    ULONG ImageBase;
+    PRUNTIME_FUNCTION FunctionEntry;
+    ULONG EstablisherFrame;
+    ULONG TargetPc;
+    PCONTEXT ContextRecord;
+    PEXCEPTION_ROUTINE LanguageHandler;
+    PVOID HandlerData;
+    PUNWIND_HISTORY_TABLE HistoryTable;
+    ULONG ScopeIndex;
+    BOOLEAN ControlPcIsUnwound;
+    PBYTE NonVolatileRegisters;
+    ULONG VirtualVfpHead;
+  };
+
   typedef struct _KNONVOLATILE_CONTEXT_POINTERS {
     PDWORD R4;
     PDWORD R5;
