@@ -518,6 +518,22 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
 /* Macros for __uuidof template-based emulation */
 #if defined(__cplusplus) && (USE___UUIDOF == 0)
 
+#if __cpp_constexpr >= 200704l && __cpp_inline_variables >= 201606L
+#define __CRT_UUID_DECL(type,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8)    \
+    extern "C++" {                                               \
+    template<> struct __mingw_uuidof_s<type> {                   \
+        static constexpr IID __uuid_inst = {                     \
+            l,w1,w2, {b1,b2,b3,b4,b5,b6,b7,b8}                   \
+        };                                                       \
+    };                                                           \
+    template<> constexpr const GUID &__mingw_uuidof<type>() {    \
+        return __mingw_uuidof_s<type>::__uuid_inst;              \
+    }                                                            \
+    template<> constexpr const GUID &__mingw_uuidof<type*>() {   \
+        return  __mingw_uuidof_s<type>::__uuid_inst;             \
+    }                                                            \
+    }
+#else
 #define __CRT_UUID_DECL(type,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8)           \
     extern "C++" {                                                      \
     template<> inline const GUID &__mingw_uuidof<type>() {              \
@@ -528,6 +544,7 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
         return __mingw_uuidof<type>();                                  \
     }                                                                   \
     }
+#endif
 
 #define __uuidof(type) __mingw_uuidof<__typeof(type)>()
 
