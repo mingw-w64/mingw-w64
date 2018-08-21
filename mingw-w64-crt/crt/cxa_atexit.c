@@ -78,6 +78,13 @@ int __cxa_thread_atexit(dtor_fn dtor, void *obj, void *dso) {
   return 0;
 }
 
+static void WINAPI tls_atexit_callback(HANDLE __UNUSED_PARAM(hDllHandle), DWORD dwReason, LPVOID __UNUSED_PARAM(lpReserved)) {
+  if (dwReason == DLL_PROCESS_DETACH) {
+    run_dtor_list(&tls_dtors);
+    run_dtor_list(&global_dtors);
+  }
+}
+
 static void WINAPI tls_callback(HANDLE hDllHandle, DWORD dwReason, LPVOID __UNUSED_PARAM(lpReserved)) {
   switch (dwReason) {
   case DLL_PROCESS_ATTACH:
@@ -95,7 +102,7 @@ static void WINAPI tls_callback(HANDLE hDllHandle, DWORD dwReason, LPVOID __UNUS
        * invoke this with DLL_PROCESS_DETACH twice.
        */
       if (!__mingw_module_is_dll)
-        _register_thread_local_exe_atexit_callback(tls_callback);
+        _register_thread_local_exe_atexit_callback(tls_atexit_callback);
     }
     inited = 1;
     break;
@@ -112,9 +119,22 @@ static void WINAPI tls_callback(HANDLE hDllHandle, DWORD dwReason, LPVOID __UNUS
      * users shouldn't assume it and we don't attempt to do anything potentially
      * risky about it. TL;DR, threads with pending TLS destructors for a DLL
      * need to be joined before unloading the DLL.
+     *
+     * This gets called both when exiting cleanly (via exit or returning from
+     * main, or when a DLL is unloaded), and when exiting bypassing some of
+     * the cleanup, by calling _exit or ExitProcess. In the latter cases,
+     * destructors (both TLS and global) in loaded DLLs still get called,
+     * but only TLS destructors get called for the main executable, global
+     * variables' destructors don't run. (This matches what MSVC does with
+     * a dynamically linked CRT.)
      */
     run_dtor_list(&tls_dtors);
-    run_dtor_list(&global_dtors);
+    if (__mingw_module_is_dll) {
+      /* For DLLs, run dtors when detached. For EXEs, run dtors via the
+       * thread local atexit callback, to make sure they don't run when
+       * exiting the process with _exit or ExitProcess. */
+      run_dtor_list(&global_dtors);
+    }
     if (inited == 1) {
       inited = 0;
       DeleteCriticalSection(&lock);
