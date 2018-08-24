@@ -4,3 +4,4 @@
 
 #include <initguid.h>
 #include <amaudio.h>
+#include <evr.h>
