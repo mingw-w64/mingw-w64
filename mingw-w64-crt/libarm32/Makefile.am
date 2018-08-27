@@ -376,6 +376,7 @@ libarm32_DATA += %reldir%/libmfplay.a
 libarm32_DATA += %reldir%/libmfreadwrite.a
 libarm32_DATA += %reldir%/libmfsrcsnk.a
 libarm32_DATA += %reldir%/libmftranscode.a
+libarm32_DATA += %reldir%/libmincore.a
 libarm32_DATA += %reldir%/libmgmtapi.a
 libarm32_DATA += %reldir%/libmibincodec.a
 libarm32_DATA += %reldir%/libmicrosoft.management.infrastructure.native.unmanaged.a

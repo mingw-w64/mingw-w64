@@ -1831,6 +1831,73 @@ endif
 # End ARM 64-bit runtime
 # ##########
 
+%/libmincore.a: lib-common/mincore.mri \
+		%/libapi-ms-win-core-com-l1-1-1.a \
+		%/libapi-ms-win-core-com-midlproxystub-l1-1-0.a \
+		%/libapi-ms-win-core-datetime-l1-1-1.a \
+		%/libapi-ms-win-core-datetime-l1-1-2.a \
+		%/libapi-ms-win-core-debug-l1-1-1.a \
+		%/libapi-ms-win-core-delayload-l1-1-1.a \
+		%/libapi-ms-win-core-errorhandling-l1-1-1.a \
+		%/libapi-ms-win-core-errorhandling-l1-1-3.a \
+		%/libapi-ms-win-core-fibers-l1-1-1.a \
+		%/libapi-ms-win-core-file-l1-2-1.a \
+		%/libapi-ms-win-core-file-l2-1-1.a \
+		%/libapi-ms-win-core-handle-l1-1-0.a \
+		%/libapi-ms-win-core-interlocked-l1-2-0.a \
+		%/libapi-ms-win-core-io-l1-1-1.a \
+		%/libapi-ms-win-core-libraryloader-l1-2-0.a \
+		%/libapi-ms-win-core-libraryloader-l2-1-0.a \
+		%/libapi-ms-win-core-localization-l1-2-1.a \
+		%/libapi-ms-win-core-localization-l1-2-2.a \
+		%/libapi-ms-win-core-localization-l2-1-0.a \
+		%/libapi-ms-win-core-memory-l1-1-2.a \
+		%/libapi-ms-win-core-memory-l1-1-3.a \
+		%/libapi-ms-win-core-processenvironment-l1-2-0.a \
+		%/libapi-ms-win-core-processthreads-l1-1-2.a \
+		%/libapi-ms-win-core-processthreads-l1-1-3.a \
+		%/libapi-ms-win-core-profile-l1-1-0.a \
+		%/libapi-ms-win-core-realtime-l1-1-0.a \
+		%/libapi-ms-win-core-realtime-l1-1-1.a \
+		%/libapi-ms-win-core-rtlsupport-l1-2-0.a \
+		%/libapi-ms-win-core-string-l1-1-0.a \
+		%/libapi-ms-win-core-synch-l1-2-0.a \
+		%/libapi-ms-win-core-synch-l1-2-1.a \
+		%/libapi-ms-win-core-sysinfo-l1-2-1.a \
+		%/libapi-ms-win-core-sysinfo-l1-2-3.a \
+		%/libapi-ms-win-core-threadpool-l1-2-0.a \
+		%/libapi-ms-win-core-timezone-l1-1-0.a \
+		%/libapi-ms-win-core-util-l1-1-0.a \
+		%/libapi-ms-win-core-version-l1-1-1.a \
+		%/libapi-ms-win-core-winrt-error-l1-1-1.a \
+		%/libapi-ms-win-core-winrt-l1-1-0.a \
+		%/libapi-ms-win-core-winrt-string-l1-1-0.a \
+		%/libapi-ms-win-core-xstate-l2-1-0.a \
+		%/libapi-ms-win-eventing-classicprovider-l1-1-0.a \
+		%/libapi-ms-win-eventing-consumer-l1-1-0.a \
+		%/libapi-ms-win-eventing-controller-l1-1-0.a \
+		%/libapi-ms-win-eventing-provider-l1-1-0.a \
+		%/libauthz.a \
+		%/libbcrypt.a \
+		%/libcabinet.a \
+		%/libcrypt32.a \
+		%/libcryptnet.a \
+		%/libdnsapi.a \
+		%/libiphlpapi.a \
+		%/libmpr.a \
+		%/libmswsock.a \
+		%/libncrypt.a \
+		%/liboleaut32.a \
+		%/librpcrt4.a \
+		%/libsspicli.a \
+		%/libuserenv.a \
+		%/libwinhttp.a \
+		%/libwldap32.a \
+		%/libws2_32.a
+	rm -f $@
+	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(RANLIB) $@
+
 %.def: %.def.in
 	$(MKDIR_P) $(@D) && $(CPP) -x c $< -Wp,-w -undef -P -I$(top_srcdir)/def-include > $@
 

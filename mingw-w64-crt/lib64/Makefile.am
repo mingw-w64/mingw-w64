@@ -287,6 +287,7 @@ lib64_DATA += %reldir%/libmgmtapi.a
 lib64_DATA += %reldir%/libmidimap.a
 lib64_DATA += %reldir%/libmigism.a
 lib64_DATA += %reldir%/libmiglibnt.a
+lib64_DATA += %reldir%/libmincore.a
 lib64_DATA += %reldir%/libmlang.a
 lib64_DATA += %reldir%/libmll_hp.a
 lib64_DATA += %reldir%/libmll_mtf.a
