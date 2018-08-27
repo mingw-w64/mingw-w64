@@ -23,33 +23,48 @@ __do_global_dtors (void)
 
   while (*p)
     {
-      /* If the linker provided its own __DTOR_LIST__ in addition to the
-       * one we provide, we'd end up with the first pointer here being
-       * a (func_ptr)-1 sentinel. */
-      if (*p != (func_ptr) -1)
-        (*(p)) ();
+      (*(p)) ();
       p++;
     }
 }
 
+#ifdef __clang__
 extern func_ptr __CTOR_END__[];
 extern func_ptr __DTOR_END__[];
 
 void __do_global_ctors (void)
 {
   static func_ptr *p = __CTOR_END__ - 1;
-  /* If the linker provided its own __CTOR_LIST__ in addition to the one
-   * we provide, we'd actually stop at __CTOR_LIST__+1, but that's no problem
-   * for this function. */
   while (*p != (func_ptr) -1) {
-    /* In case there's an extra null pointer at the end before __CTOR_END__,
-     * check the pointer value before calling it. */
-    if (*p)
-      (*(p))();
+    (*(p))();
     p--;
   }
   atexit (__do_global_dtors);
 }
+
+#else
+// old method that iterates the list twice because old linker scripts do not have __CTOR_END__
+
+void
+__do_global_ctors (void)
+{
+  unsigned long nptrs = (unsigned long) (ptrdiff_t) __CTOR_LIST__[0];
+  unsigned long i;
+
+  if (nptrs == (unsigned long) -1)
+    {
+      for (nptrs = 0; __CTOR_LIST__[nptrs + 1] != 0; nptrs++);
+    }
+
+  for (i = nptrs; i >= 1; i--)
+    {
+      __CTOR_LIST__[i] ();
+    }
+
+  atexit (__do_global_dtors);
+}
+
+#endif
 
 static int initialized = 0;
 
