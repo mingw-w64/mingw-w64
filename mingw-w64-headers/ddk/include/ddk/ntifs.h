@@ -94,7 +94,8 @@ typedef enum _SID_NAME_USE {
   SidTypeInvalid,
   SidTypeUnknown,
   SidTypeComputer,
-  SidTypeLabel
+  SidTypeLabel,
+  SidTypeLogonSession
 } SID_NAME_USE, *PSID_NAME_USE;
 
 typedef struct _SID_AND_ATTRIBUTES {

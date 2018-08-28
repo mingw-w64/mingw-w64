@@ -2943,7 +2943,7 @@ __buildmemorybarrier()
 #define SID_HASH_SIZE 32
 
     typedef enum _SID_NAME_USE {
-      SidTypeUser = 1,SidTypeGroup,SidTypeDomain,SidTypeAlias,SidTypeWellKnownGroup,SidTypeDeletedAccount,SidTypeInvalid,SidTypeUnknown,SidTypeComputer,SidTypeLabel
+      SidTypeUser = 1,SidTypeGroup,SidTypeDomain,SidTypeAlias,SidTypeWellKnownGroup,SidTypeDeletedAccount,SidTypeInvalid,SidTypeUnknown,SidTypeComputer,SidTypeLabel,SidTypeLogonSession
     } SID_NAME_USE,*PSID_NAME_USE;
 
     typedef struct _SID_AND_ATTRIBUTES {
