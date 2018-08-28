@@ -301,44 +301,6 @@ AC_ARG_ENABLE([tests-unicode],
 AM_CONDITIONAL([ENABLE_TESTS_UNICODE],[test x$enable_tests_unicode = xyes])
 AC_MSG_RESULT([$enable_tests_unicode])
 
-AC_MSG_CHECKING([whether the linker provides __CTOR_LIST__])
-saved_LDFLAGS="$LDFLAGS"
-LDFLAGS="$LDFLAGS -nostdlib"
-# Note that binutils 2.30 is broken with respect to __CTOR_LIST__ (the change
-# was reverted for 2.31); it does provide __CTOR_LIST__ automatically only if
-# necessary. But as long as there's no other definition of it, a fallback
-# __CTOR_LIST__ gets pulled in from libgcc, and this fallback is only a dummy
-# to prevent linker errors (in general) and isn't assigned to the right
-# sections. Therefore, it'd be better to test whether we can/should provide
-# our own __CTOR_LIST__.
-
-# But we can't test whether we can provide our own __CTOR_LIST__ with binutils
-# ld either; even if our test provides its own symbol __CTOR_LIST__, ld will
-# include it but silently use its own provided __CTOR_LIST__ instead, and
-# won't error out. For actual real use, that'd mean a stray broken pointer in
-# the .ctors section.
-
-# This test uses both mainCRTStartup and main functions, to let lld deduce
-# entry point and subsystem automatically without having to manually specify,
-# anything. And as long as main() is provided, we need to implicitly provide
-# __main as well, since the compiler injects a call to it.
-AC_LINK_IFELSE([AC_LANG_SOURCE([[
-#include <stdint.h>
-extern const void * __CTOR_LIST__;
-void __main(void) {
-}
-int main(void) {
-  return (int)(intptr_t)__CTOR_LIST__;
-}
-int mainCRTStartup(void) {
-  return main();
-}
-]])],
-[AC_DEFINE([HAVE_CTOR_LIST],[1],[Whether the linker provides __CTOR_LIST__])
-AC_MSG_RESULT(yes)],
-[AC_MSG_RESULT(no)])
-LDFLAGS="$saved_LDFLAGS"
-
 # Checks for libraries.
 
 # Checks for header files.

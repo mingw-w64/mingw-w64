@@ -8,10 +8,6 @@
 #include <stdlib.h>
 #include <setjmp.h>
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
-
 typedef void (*func_ptr) (void);
 extern func_ptr __CTOR_LIST__[];
 extern func_ptr __DTOR_LIST__[];
@@ -32,9 +28,7 @@ __do_global_dtors (void)
     }
 }
 
-#ifndef HAVE_CTOR_LIST
-// If the linker didn't provide __CTOR_LIST__, we provided it ourselves,
-// and then we also know we have __CTOR_END__ available.
+#ifdef __clang__
 extern func_ptr __CTOR_END__[];
 extern func_ptr __DTOR_END__[];
 

@@ -10,10 +10,6 @@
 #define _DLL
 #endif
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
-
 #include <oscalls.h>
 #include <internal.h>
 #include <stdlib.h>
@@ -44,7 +40,7 @@ extern _CRTALLOC(".CRT$XIZ") _PIFV __xi_z[];
 extern _CRTALLOC(".CRT$XCA") _PVFV __xc_a[];
 extern _CRTALLOC(".CRT$XCZ") _PVFV __xc_z[];
 
-#ifndef HAVE_CTOR_LIST
+#ifdef __clang__
 __attribute__ (( __section__ (".ctors"), __used__ , aligned(sizeof(void *)))) const void * __CTOR_LIST__ = (void *) -1;
 __attribute__ (( __section__ (".dtors"), __used__ , aligned(sizeof(void *)))) const void * __DTOR_LIST__ = (void *) -1;
 __attribute__ (( __section__ (".ctors.99999"), __used__ , aligned(sizeof(void *)))) const void * __CTOR_END__ = (void *) 0;
