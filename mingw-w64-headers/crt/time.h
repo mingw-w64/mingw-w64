@@ -272,12 +272,11 @@ __forceinline errno_t __cdecl ctime_s(char *_Buf,size_t _SizeInBytes,const time_
     __MINGW_ATTRIB_DEPRECATED_MSG( \
         "Only provided for source compatibility; this variable might " \
         "not always be accurate when linking to ucrtbase.dll.")
-#define daylight (_daylight)
 #else
 #define __MINGW_ATTRIB_DEPRECATED_UCRT
-  _CRTIMP extern int daylight;
 #endif
 
+  _CRTIMP extern int daylight __MINGW_ATTRIB_DEPRECATED_UCRT;
   _CRTIMP extern long timezone __MINGW_ATTRIB_DEPRECATED_UCRT;
   _CRTIMP extern char *tzname[2] __MINGW_ATTRIB_DEPRECATED_UCRT;
   void __cdecl tzset(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;

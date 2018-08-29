@@ -119,8 +119,10 @@ static char initial_tzname0[] = "PST";
 static char initial_tzname1[] = "PDT";
 static char *initial_tznames[] = { initial_tzname0, initial_tzname1 };
 static long initial_timezone = 28800;
+static int initial_daylight = 1;
 char** __MINGW_IMP_SYMBOL(tzname) = initial_tznames;
 long * __MINGW_IMP_SYMBOL(timezone) = &initial_timezone;
+int * __MINGW_IMP_SYMBOL(daylight) = &initial_daylight;
 
 void __cdecl _tzset(void)
 {
@@ -129,6 +131,7 @@ void __cdecl _tzset(void)
   // From this point, the exposed values should stay in sync.
   __MINGW_IMP_SYMBOL(tzname) = _tzname;
   __MINGW_IMP_SYMBOL(timezone) = __timezone();
+  __MINGW_IMP_SYMBOL(daylight) = __daylight();
 }
 
 void __cdecl tzset(void)
