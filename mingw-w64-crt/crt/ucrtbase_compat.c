@@ -113,15 +113,22 @@ wchar_t *** __MINGW_IMP_SYMBOL(__winitenv) = &local__winitenv;
 typedef void __cdecl (*_tzset_func)(void);
 extern _tzset_func __MINGW_IMP_SYMBOL(_tzset);
 
-static long local_timezone;
-char** __MINGW_IMP_SYMBOL(tzname);
-long * __MINGW_IMP_SYMBOL(timezone) = &local_timezone;
+// Default initial values until _tzset has been called; these are the same
+// as the initial values in msvcrt/ucrtbase.
+static char initial_tzname0[] = "PST";
+static char initial_tzname1[] = "PDT";
+static char *initial_tznames[] = { initial_tzname0, initial_tzname1 };
+static long initial_timezone = 28800;
+char** __MINGW_IMP_SYMBOL(tzname) = initial_tznames;
+long * __MINGW_IMP_SYMBOL(timezone) = &initial_timezone;
 
 void __cdecl _tzset(void)
 {
   __MINGW_IMP_SYMBOL(_tzset)();
+  // Redirect the __imp_ pointers to the actual data provided by the UCRT.
+  // From this point, the exposed values should stay in sync.
   __MINGW_IMP_SYMBOL(tzname) = _tzname;
-  local_timezone = _timezone;
+  __MINGW_IMP_SYMBOL(timezone) = __timezone();
 }
 
 void __cdecl tzset(void)
