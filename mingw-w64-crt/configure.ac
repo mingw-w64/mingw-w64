@@ -305,14 +305,6 @@ AC_MSG_CHECKING([whether the linker provides __CTOR_LIST__])
 saved_LDFLAGS="$LDFLAGS"
 saved_ac_no_link="$ac_no_link"
 LDFLAGS="$LDFLAGS -nostdlib"
-# Force ac_no_link to "no". When bootstrapping an environment, autoconf will
-# earlier conclude that linking isn't possible (since -lmingw32 etc are
-# missing), and set ac_no_link=yes. This forbids us from doing a test with
-# AC_LINK_IFELSE here, even though we are knowingly setting -nostdlib, to
-# make this specific testcase work even though the normally linked libraries
-# aren't available yet. Override this variable to allow us to perform the link
-# test.
-ac_no_link=no
 # Note that binutils 2.30 is broken with respect to __CTOR_LIST__ (the change
 # was reverted for 2.31); it does provide __CTOR_LIST__ automatically only if
 # necessary. But as long as there's no other definition of it, a fallback
@@ -331,7 +323,22 @@ ac_no_link=no
 # entry point and subsystem automatically without having to manually specify,
 # anything. And as long as main() is provided, we need to implicitly provide
 # __main as well, since the compiler injects a call to it.
-AC_LINK_IFELSE([AC_LANG_SOURCE([[
+
+# Run this test manually instead of wrapping it in AC_LINK_IFELSE; when
+# bootstrapping an environment, an earlier linking test will have failed,
+# which both causes autoconf to refuse to run any linker test at all,
+# and even if $ac_no_link is overridden, the linker test iteslf will explicitly
+# check that the linker actually produced output in the given output file.
+# If $ac_exeext is empty, as it is when the earlier linker test failed, gcc
+# will behave differently depending on version. If run with "gcc conftest.c
+# -o conftest", old versions will produce explicitly a file named "conftest",
+# while modern GCC versions will produce "conftest.exe". AC_LINK_IFELSE will
+# explicitly look for the output file named "conftest$ac_exeext", which isn't
+# found, and the test fails even though linking succeeded.
+#
+# Therefore, just do a manual test; run the linking command and check the return
+# code whether it was successful or not.
+cat <<_ACEOF >conftest.$ac_ext
 #include <stdint.h>
 extern const void * __CTOR_LIST__;
 void __main(void) {
@@ -342,12 +349,16 @@ int main(void) {
 int mainCRTStartup(void) {
   return main();
 }
-]])],
-[AC_DEFINE([HAVE_CTOR_LIST],[1],[Whether the linker provides __CTOR_LIST__])
-AC_MSG_RESULT(yes)],
-[AC_MSG_RESULT(no)])
+_ACEOF
+
+echo "$as_me:$LINENO: $CC conftest.$ac_ext $LDFLAGS -o conftest$ac_exeext" >&AS_MESSAGE_LOG_FD
+if $CC conftest.$ac_ext $LDFLAGS -o conftest$ac_exeext >&AS_MESSAGE_LOG_FD 2>&1; then
+  AC_DEFINE([HAVE_CTOR_LIST],[1],[Whether the linker provides __CTOR_LIST__])
+  AC_MSG_RESULT(yes)
+else
+  AC_MSG_RESULT(no)
+fi
 LDFLAGS="$saved_LDFLAGS"
-ac_no_link="$saved_ac_no_link"
 
 # Checks for libraries.
 
