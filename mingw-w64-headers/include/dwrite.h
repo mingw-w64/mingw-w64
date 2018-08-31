@@ -2259,9 +2259,9 @@ DECLARE_INTERFACE_(IDWriteTypography,IUnknown)
 #endif
 
     /* IDWriteTypography methods */
-    STDMETHOD_(HRESULT,AddFontFeature)(THIS_ DWRITE_FONT_FEATURE  fontFeature) PURE;
-    STDMETHOD_(HRESULT,GetFontFeature)(THIS_ UINT32  fontFeatureIndex,DWRITE_FONT_FEATURE * fontFeature) PURE;
+    STDMETHOD(AddFontFeature)(THIS_ DWRITE_FONT_FEATURE fontFeature) PURE;
     STDMETHOD_(UINT32,GetFontFeatureCount)(THIS) PURE;
+    STDMETHOD(GetFontFeature)(THIS_ UINT32 fontFeatureIndex, DWRITE_FONT_FEATURE *fontFeature) PURE;
 
     END_INTERFACE
 };
@@ -2270,8 +2270,8 @@ DECLARE_INTERFACE_(IDWriteTypography,IUnknown)
 #define IDWriteTypography_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IDWriteTypography_Release(This) (This)->lpVtbl->Release(This)
 #define IDWriteTypography_AddFontFeature(This,fontFeature) (This)->lpVtbl->AddFontFeature(This,fontFeature)
-#define IDWriteTypography_GetFontFeature(This,fontFeatureIndex,fontFeature) (This)->lpVtbl->GetFontFeature(This,fontFeatureIndex,fontFeature)
 #define IDWriteTypography_GetFontFeatureCount() (This)->lpVtbl->GetFontFeatureCount(This)
+#define IDWriteTypography_GetFontFeature(This,fontFeatureIndex,fontFeature) (This)->lpVtbl->GetFontFeature(This,fontFeatureIndex,fontFeature)
 #endif /*COBJMACROS*/
 
 #ifdef __cplusplus
@@ -2312,8 +2312,8 @@ __CRT_UUID_DECL(IDWriteTextFormat, 0x9c906818,0x31d7,0x4fd3,0xa1,0x51,0x7c,0x5e,
 __CRT_UUID_DECL(IDWriteTextLayout, 0x53737037,0x6d14,0x410b,0x9b,0xfe,0x0b,0x18,0x2b,0xb7,0x09,0x61);
 __CRT_UUID_DECL(IDWriteFontFileEnumerator, 0x72755049,0x5ff7,0x435d,0x83,0x48,0x4b,0xe9,0x7c,0xfa,0x6c,0x7c);
 __CRT_UUID_DECL(IDWriteFontCollectionLoader, 0xcca920e4,0x52f0,0x492b,0xbf,0xa8,0x29,0xc7,0x2e,0xe0,0xa4,0x68);
+__CRT_UUID_DECL(IDWriteTypography, 0x55f1112b,0x1dc2,0x4b3c,0x95,0x41,0xf4,0x68,0x94,0xed,0x85,0xb6);
 
 #define IDWriteLocalFontFileLoader __MINGW_POISON_NAME(IDWriteLocalFontFileLoader)
-#define IDWriteTypography __MINGW_POISON_NAME(IDWriteTypography)
 
 #endif /* __INC_DWRITE__ */
