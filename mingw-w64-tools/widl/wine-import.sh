@@ -30,12 +30,12 @@ do
 	fi
 done
 
-for f in basetsd.h guiddef.h poppack.h pshpack1.h pshpack2.h pshpack4.h pshpack8.h winbase.h windef.h winerror.h winnls.h winnt.h winnt.rh
+for f in basetsd.h guiddef.h ndrtypes.h poppack.h pshpack1.h pshpack2.h pshpack4.h pshpack8.h winbase.h windef.h winerror.h winnls.h winnt.h winnt.rh
 do
 	cp $WINE_DIR/include/$f include
 done
 
-for f in list.h rpcfc.h wpp.h
+for f in list.h wpp.h
 do
 	cp $WINE_DIR/include/wine/$f include/wine
 done

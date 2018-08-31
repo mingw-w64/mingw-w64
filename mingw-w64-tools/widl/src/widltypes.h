@@ -24,7 +24,7 @@
 #include <stdarg.h>
 #include <assert.h>
 #include "guiddef.h"
-#include "wine/rpcfc.h"
+#include "ndrtypes.h"
 #include "wine/list.h"
 
 #ifndef UUID_DEFINED
@@ -343,6 +343,7 @@ struct iface_details
   var_list_t *disp_methods;
   var_list_t *disp_props;
   struct _type_t *inherit;
+  struct _type_t *disp_inherit;
 };
 
 struct module_details

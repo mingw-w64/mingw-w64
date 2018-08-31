@@ -759,6 +759,10 @@ typedef struct _MEMORY_BASIC_INFORMATION
 #define CONTAINING_RECORD(address, type, field) \
   ((type *)((PCHAR)(address) - offsetof(type, field)))
 
+#ifdef __WINESRC__
+# define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
+#endif
+
 /* Types */
 
 typedef struct _LIST_ENTRY {
@@ -995,7 +999,7 @@ typedef struct _LDT_ENTRY {
             unsigned    BaseHi : 8;
         } Bits;
     } HighWord;
-} LDT_ENTRY, *PLDT_ENTRY;
+} LDT_ENTRY, *PLDT_ENTRY, WOW64_LDT_ENTRY, *PWOW64_LDT_ENTRY;
 
 /* x86-64 context definitions */
 #if defined(__x86_64__)
@@ -1850,12 +1854,12 @@ typedef struct _CONTEXT
             DWORD64 X26;                /* 0d8 */
             DWORD64 X27;                /* 0e0 */
             DWORD64 X28;                /* 0e8 */
+            DWORD64 Fp;                 /* 0f0 */
+            DWORD64 Lr;                 /* 0f8 */
         } DUMMYSTRUCTNAME;
-        DWORD64 X[29];                  /* 008 */
+        DWORD64 X[31];                  /* 008 */
     } DUMMYUNIONNAME;
     /* CONTEXT_CONTROL */
-    DWORD64 Fp;                         /* 0f0 */
-    DWORD64 Lr;                         /* 0f8 */
     DWORD64 Sp;                         /* 100 */
     DWORD64 Pc;                         /* 108 */
     /* CONTEXT_FLOATING_POINT */
@@ -2111,6 +2115,74 @@ typedef struct _STACK_FRAME_HEADER
 typedef CONTEXT *PCONTEXT;
 
 NTSYSAPI void WINAPI RtlCaptureContext(CONTEXT*);
+
+#define WOW64_CONTEXT_i386 0x00010000
+#define WOW64_CONTEXT_i486 0x00010000
+#define WOW64_CONTEXT_CONTROL (WOW64_CONTEXT_i386 | __MSABI_LONG(0x00000001))
+#define WOW64_CONTEXT_INTEGER (WOW64_CONTEXT_i386 | __MSABI_LONG(0x00000002))
+#define WOW64_CONTEXT_SEGMENTS (WOW64_CONTEXT_i386 | __MSABI_LONG(0x00000004))
+#define WOW64_CONTEXT_FLOATING_POINT (WOW64_CONTEXT_i386 | __MSABI_LONG(0x00000008))
+#define WOW64_CONTEXT_DEBUG_REGISTERS (WOW64_CONTEXT_i386 | __MSABI_LONG(0x00000010))
+#define WOW64_CONTEXT_EXTENDED_REGISTERS (WOW64_CONTEXT_i386 | __MSABI_LONG(0x00000020))
+#define WOW64_CONTEXT_FULL (WOW64_CONTEXT_CONTROL | WOW64_CONTEXT_INTEGER | WOW64_CONTEXT_SEGMENTS)
+#define WOW64_CONTEXT_ALL (WOW64_CONTEXT_CONTROL | WOW64_CONTEXT_INTEGER | \
+                           WOW64_CONTEXT_SEGMENTS | WOW64_CONTEXT_FLOATING_POINT | \
+                           WOW64_CONTEXT_DEBUG_REGISTERS | WOW64_CONTEXT_EXTENDED_REGISTERS)
+
+#define WOW64_CONTEXT_XSTATE (WOW64_CONTEXT_i386 | __MSABI_LONG(0x00000040))
+
+#define WOW64_CONTEXT_EXCEPTION_ACTIVE      0x08000000
+#define WOW64_CONTEXT_SERVICE_ACTIVE        0x10000000
+#define WOW64_CONTEXT_EXCEPTION_REQUEST     0x40000000
+#define WOW64_CONTEXT_EXCEPTION_REPORTING   0x80000000
+
+#define WOW64_SIZE_OF_80387_REGISTERS 80
+#define WOW64_MAXIMUM_SUPPORTED_EXTENSION 512
+
+typedef struct _WOW64_FLOATING_SAVE_AREA
+{
+    DWORD   ControlWord;
+    DWORD   StatusWord;
+    DWORD   TagWord;
+    DWORD   ErrorOffset;
+    DWORD   ErrorSelector;
+    DWORD   DataOffset;
+    DWORD   DataSelector;
+    BYTE    RegisterArea[WOW64_SIZE_OF_80387_REGISTERS];
+    DWORD   Cr0NpxState;
+} WOW64_FLOATING_SAVE_AREA, *PWOW64_FLOATING_SAVE_AREA;
+
+#include "pshpack4.h"
+typedef struct _WOW64_CONTEXT
+{
+    DWORD ContextFlags;
+    DWORD Dr0;
+    DWORD Dr1;
+    DWORD Dr2;
+    DWORD Dr3;
+    DWORD Dr6;
+    DWORD Dr7;
+    WOW64_FLOATING_SAVE_AREA FloatSave;
+    DWORD SegGs;
+    DWORD SegFs;
+    DWORD SegEs;
+    DWORD SegDs;
+    DWORD Edi;
+    DWORD Esi;
+    DWORD Ebx;
+    DWORD Edx;
+    DWORD Ecx;
+    DWORD Eax;
+    DWORD Ebp;
+    DWORD Eip;
+    DWORD SegCs;
+    DWORD EFlags;
+    DWORD Esp;
+    DWORD SegSs;
+    BYTE ExtendedRegisters[WOW64_MAXIMUM_SUPPORTED_EXTENSION];
+} WOW64_CONTEXT, *PWOW64_CONTEXT;
+#include "poppack.h"
+
 
 /*
  * Product types
@@ -2423,6 +2495,58 @@ extern struct _TEB * WINAPI NtCurrentTeb(void);
 #define GetFiberData()     (*(void **)GetCurrentFiber())
 
 #define TLS_MINIMUM_AVAILABLE 64
+
+#define MAXIMUM_REPARSE_DATA_BUFFER_SIZE    (16 * 1024)
+
+#define IO_REPARSE_TAG_RESERVED_ZERO    0
+#define IO_REPARSE_TAG_RESERVED_ONE     1
+#define IO_REPARSE_TAG_RESERVED_TWO     2
+
+#define IO_REPARSE_TAG_RESERVED_RANGE IO_REPARSE_TAG_RESERVED_TWO
+
+#define IO_REPARSE_TAG_MOUNT_POINT      __MSABI_LONG(0xA0000003)
+#define IO_REPARSE_TAG_HSM              __MSABI_LONG(0xC0000004)
+#define IO_REPARSE_TAG_DRIVE_EXTENDER   __MSABI_LONG(0x80000005)
+#define IO_REPARSE_TAG_HSM2             __MSABI_LONG(0x80000006)
+#define IO_REPARSE_TAG_SIS              __MSABI_LONG(0x80000007)
+#define IO_REPARSE_TAG_WIM              __MSABI_LONG(0x80000008)
+#define IO_REPARSE_TAG_CSV              __MSABI_LONG(0x80000009)
+#define IO_REPARSE_TAG_DFS              __MSABI_LONG(0x8000000A)
+#define IO_REPARSE_TAG_FILTER_MANAGER   __MSABI_LONG(0x8000000B)
+#define IO_REPARSE_TAG_SYMLINK          __MSABI_LONG(0xA000000C)
+#define IO_REPARSE_TAG_IIS_CACHE        __MSABI_LONG(0xA0000010)
+#define IO_REPARSE_TAG_DFSR             __MSABI_LONG(0x80000012)
+#define IO_REPARSE_TAG_DEDUP            __MSABI_LONG(0x80000013)
+#define IO_REPARSE_TAG_NFS              __MSABI_LONG(0x80000014)
+#define IO_REPARSE_TAG_FILE_PLACEHOLDER __MSABI_LONG(0x80000015)
+#define IO_REPARSE_TAG_WOF              __MSABI_LONG(0x80000017)
+#define IO_REPARSE_TAG_WCI              __MSABI_LONG(0x80000018)
+#define IO_REPARSE_TAG_WCI_1            __MSABI_LONG(0x90001018)
+#define IO_REPARSE_TAG_GLOBAL_REPARSE   __MSABI_LONG(0xA0000019)
+#define IO_REPARSE_TAG_CLOUD            __MSABI_LONG(0x9000001A)
+#define IO_REPARSE_TAG_CLOUD_1          __MSABI_LONG(0x9000101A)
+#define IO_REPARSE_TAG_CLOUD_2          __MSABI_LONG(0x9000201A)
+#define IO_REPARSE_TAG_CLOUD_3          __MSABI_LONG(0x9000301A)
+#define IO_REPARSE_TAG_CLOUD_4          __MSABI_LONG(0x9000401A)
+#define IO_REPARSE_TAG_CLOUD_5          __MSABI_LONG(0x9000501A)
+#define IO_REPARSE_TAG_CLOUD_6          __MSABI_LONG(0x9000601A)
+#define IO_REPARSE_TAG_CLOUD_7          __MSABI_LONG(0x9000701A)
+#define IO_REPARSE_TAG_CLOUD_8          __MSABI_LONG(0x9000801A)
+#define IO_REPARSE_TAG_CLOUD_9          __MSABI_LONG(0x9000901A)
+#define IO_REPARSE_TAG_CLOUD_A          __MSABI_LONG(0x9000A01A)
+#define IO_REPARSE_TAG_CLOUD_B          __MSABI_LONG(0x9000B01A)
+#define IO_REPARSE_TAG_CLOUD_C          __MSABI_LONG(0x9000C01A)
+#define IO_REPARSE_TAG_CLOUD_D          __MSABI_LONG(0x9000D01A)
+#define IO_REPARSE_TAG_CLOUD_E          __MSABI_LONG(0x9000E01A)
+#define IO_REPARSE_TAG_CLOUD_F          __MSABI_LONG(0x9000F01A)
+#define IO_REPARSE_TAG_CLOUD_MASK       __MSABI_LONG(0x0000F000)
+#define IO_REPARSE_TAG_APPEXECLINK      __MSABI_LONG(0x8000001B)
+#define IO_REPARSE_TAG_GVFS             __MSABI_LONG(0x9000001C)
+#define IO_REPARSE_TAG_STORAGE_SYNC     __MSABI_LONG(0x8000001E)
+#define IO_REPARSE_TAG_WCI_TOMBSTONE    __MSABI_LONG(0xA000001F)
+#define IO_REPARSE_TAG_UNHANDLED        __MSABI_LONG(0x80000020)
+#define IO_REPARSE_TAG_ONEDRIVE         __MSABI_LONG(0x80000021)
+#define IO_REPARSE_TAG_GVFS_TOMBSTONE   __MSABI_LONG(0xA0000022)
 
 /*
  * File formats definitions
@@ -3621,10 +3745,11 @@ typedef enum ReplacesCorHdrNumericDefines
     COMIMAGE_FLAGS_STRONGNAMESIGNED = 0x00000008,
     COMIMAGE_FLAGS_NATIVE_ENTRYPOINT= 0x00000010,
     COMIMAGE_FLAGS_TRACKDEBUGDATA   = 0x00010000,
+    COMIMAGE_FLAGS_32BITPREFERRED   = 0x00020000,
 
     COR_VERSION_MAJOR_V2       = 2,
     COR_VERSION_MAJOR          = COR_VERSION_MAJOR_V2,
-    COR_VERSION_MINOR          = 0,
+    COR_VERSION_MINOR          = 5,
     COR_DELETED_NAME_LENGTH    = 8,
     COR_VTABLEGAP_NAME_LENGTH  = 8,
 
@@ -5367,6 +5492,7 @@ typedef struct _TAPE_GET_MEDIA_PARAMETERS {
 #define REG_NOTIFY_CHANGE_ATTRIBUTES 0x02
 #define REG_NOTIFY_CHANGE_LAST_SET   0x04
 #define REG_NOTIFY_CHANGE_SECURITY   0x08
+#define REG_NOTIFY_THREAD_AGNOSTIC   0x10000000
 
 #define KEY_QUERY_VALUE		0x00000001
 #define KEY_SET_VALUE		0x00000002
@@ -5746,15 +5872,50 @@ typedef struct _ASSEMBLY_FILE_DETAILED_INFORMATION {
 
 typedef const ASSEMBLY_FILE_DETAILED_INFORMATION *PCASSEMBLY_FILE_DETAILED_INFORMATION;
 
+typedef enum {
+    ACTCX_COMPATIBILITY_ELEMENT_TYPE_UNKNOWN = 0,
+    ACTCX_COMPATIBILITY_ELEMENT_TYPE_OS
+} ACTCTX_COMPATIBILITY_ELEMENT_TYPE;
+
+typedef struct _COMPATIBILITY_CONTEXT_ELEMENT {
+    GUID Id;
+    ACTCTX_COMPATIBILITY_ELEMENT_TYPE Type;
+} COMPATIBILITY_CONTEXT_ELEMENT, *PCOMPATIBILITY_CONTEXT_ELEMENT;
+
+#if !defined(__WINESRC__) && (defined(_MSC_EXTENSIONS) || ((defined(__GNUC__) && __GNUC__ >= 3)))
+typedef struct _ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
+    DWORD ElementCount;
+    COMPATIBILITY_CONTEXT_ELEMENT Elements[];
+} ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION, *PACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION;
+#endif
+
+typedef enum {
+    ACTCTX_RUN_LEVEL_UNSPECIFIED = 0,
+    ACTCTX_RUN_LEVEL_AS_INVOKER,
+    ACTCTX_RUN_LEVEL_HIGHEST_AVAILABLE,
+    ACTCTX_RUN_LEVEL_REQUIRE_ADMIN,
+    ACTCTX_RUN_LEVEL_NUMBERS
+} ACTCTX_REQUESTED_RUN_LEVEL;
+
+typedef struct _ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
+    DWORD ulFlags;
+    ACTCTX_REQUESTED_RUN_LEVEL RunLevel;
+    DWORD UiAccess;
+} ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION, *PACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION;
+
+typedef const struct _ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION *PCACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION;
+
 typedef enum _ACTIVATION_CONTEXT_INFO_CLASS {
     ActivationContextBasicInformation                       = 1,
     ActivationContextDetailedInformation                    = 2,
     AssemblyDetailedInformationInActivationContext          = 3,
     FileInformationInAssemblyOfAssemblyInActivationContext  = 4,
+    RunlevelInformationInActivationContext                  = 5,
+    CompatibilityInformationInActivationContext             = 6,
+    ActivationContextManifestResourceName                   = 7,
     MaxActivationContextInfoClass,
-
-    AssemblyDetailedInformationInActivationContxt          = 3,
-    FileInformationInAssemblyOfAssemblyInActivationContxt  = 4
+    AssemblyDetailedInformationInActivationContxt           = AssemblyDetailedInformationInActivationContext,
+    FileInformationInAssemblyOfAssemblyInActivationContxt   = FileInformationInAssemblyOfAssemblyInActivationContext
 } ACTIVATION_CONTEXT_INFO_CLASS;
 
 #define ACTIVATION_CONTEXT_PATH_TYPE_NONE         1
@@ -5771,6 +5932,8 @@ typedef enum _ACTIVATION_CONTEXT_INFO_CLASS {
 #define ACTIVATION_CONTEXT_SECTION_COM_PROGID_REDIRECTION        7
 #define ACTIVATION_CONTEXT_SECTION_GLOBAL_OBJECT_RENAME_TABLE    8
 #define ACTIVATION_CONTEXT_SECTION_CLR_SURROGATES                9
+#define ACTIVATION_CONTEXT_SECTION_APPLICATION_SETTINGS          10
+#define ACTIVATION_CONTEXT_SECTION_COMPATIBILITY_INFO            11
 
 typedef enum _JOBOBJECTINFOCLASS
 {
@@ -5890,6 +6053,8 @@ typedef enum _LOGICAL_PROCESSOR_RELATIONSHIP
     RelationGroup            = 4,
     RelationAll              = 0xffff
 } LOGICAL_PROCESSOR_RELATIONSHIP;
+
+#define LTP_PC_SMT 0x1
 
 typedef enum _PROCESSOR_CACHE_TYPE
 {
@@ -6086,6 +6251,47 @@ typedef VOID (CALLBACK *PTP_WIN32_IO_CALLBACK)(PTP_CALLBACK_INSTANCE,PVOID,PVOID
 
 
 NTSYSAPI BOOLEAN NTAPI RtlGetProductInfo(DWORD,DWORD,DWORD,DWORD,PDWORD);
+
+typedef enum _RTL_UMS_THREAD_INFO_CLASS
+{
+    UmsThreadInvalidInfoClass,
+    UmsThreadUserContext,
+    UmsThreadPriority,
+    UmsThreadAffinity,
+    UmsThreadTeb,
+    UmsThreadIsSuspended,
+    UmsThreadIsTerminated,
+    UmsThreadMaxInfoClass
+} RTL_UMS_THREAD_INFO_CLASS, *PRTL_UMS_THREAD_INFO_CLASS;
+
+typedef enum _RTL_UMS_SCHEDULER_REASON
+{
+    UmsSchedulerStartup,
+    UmsSchedulerThreadBlocked,
+    UmsSchedulerThreadYield,
+} RTL_UMS_SCHEDULER_REASON, *PRTL_UMS_SCHEDULER_REASON;
+
+typedef void (CALLBACK *PRTL_UMS_SCHEDULER_ENTRY_POINT)(RTL_UMS_SCHEDULER_REASON,ULONG_PTR,PVOID);
+
+typedef enum _PROCESS_MITIGATION_POLICY
+{
+    ProcessDEPPolicy,
+    ProcessASLRPolicy,
+    ProcessDynamicCodePolicy,
+    ProcessStrictHandleCheckPolicy,
+    ProcessSystemCallDisablePolicy,
+    ProcessMitigationOptionsMask,
+    ProcessExtensionPointDisablePolicy,
+    ProcessControlFlowGuardPolicy,
+    ProcessSignaturePolicy,
+    ProcessFontDisablePolicy,
+    ProcessImageLoadPolicy,
+    ProcessSystemCallFilterPolicy,
+    ProcessPayloadRestrictionPolicy,
+    ProcessChildProcessPolicy,
+    ProcessSideChannelIsolationPolicy,
+    MaxProcessMitigationPolicy
+} PROCESS_MITIGATION_POLICY, *PPROCESS_MITIGATION_POLICY;
 
 #ifdef __cplusplus
 }
