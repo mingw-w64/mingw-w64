@@ -8,13 +8,6 @@
 
 #define DWRITEAPI DECLSPEC_IMPORT
 
-#ifdef __MINGW_USE_BROKEN_INTERFACE
-#define __MINGW_POISON_NAME(__IFACE) __IFACE
-#else
-#define __MINGW_POISON_NAME(__IFACE)\
-  __IFACE##_layout_has_not_been_verified_and_its_declaration_is_most_likely_incorrect
-#endif
-
 #include <unknwn.h>
 
 #ifndef DWRITE_DECLARE_INTERFACE
@@ -1426,7 +1419,7 @@ DECLARE_INTERFACE_(IDWriteInlineObject,IUnknown)
 
 #undef  INTERFACE
 #define INTERFACE IDWriteLocalFontFileLoader
-DECLARE_INTERFACE_(IDWriteLocalFontFileLoader,IUnknown)
+DECLARE_INTERFACE_(IDWriteLocalFontFileLoader,IDWriteFontFileLoader)
 {
     BEGIN_INTERFACE
 
@@ -1435,12 +1428,15 @@ DECLARE_INTERFACE_(IDWriteLocalFontFileLoader,IUnknown)
     STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
     STDMETHOD_(ULONG, AddRef)(THIS) PURE;
     STDMETHOD_(ULONG, Release)(THIS) PURE;
+
+    /* IDWriteFontFileLoader methods */
+    STDMETHOD(CreateStreamFromKey(THIS_ const void *fontFileReferenceKey,UINT32 fontFileReferenceKeySize,IDWriteFontFileStream **fileStream) PURE;
 #endif
 
     /* IDWriteLocalFontFileLoader methods */
-    STDMETHOD_(HRESULT,GetFilePathLengthFromKey)(THIS_ const void *fontFileReferenceKey,UINT32 fontFileReferenceKeySize,UINT32 *filePathLength) PURE;
-    STDMETHOD_(HRESULT,GetFilePathFromKey)(THIS_ const void *fontFileReferenceKey,UINT32 fontFileReferenceKeySize,WCHAR *filePath,UINT32 filePathSize) PURE;
-    STDMETHOD_(HRESULT,GetLastWriteTimeFromKey)(THIS_ const void *fontFileReferenceKey,UINT32 fontFileReferenceKeySize,FILETIME *lastWriteTime) PURE;
+    STDMETHOD(GetFilePathLengthFromKey)(THIS_ const void *fontFileReferenceKey,UINT32 fontFileReferenceKeySize,UINT32 *filePathLength) PURE;
+    STDMETHOD(GetFilePathFromKey)(THIS_ const void *fontFileReferenceKey,UINT32 fontFileReferenceKeySize,WCHAR *filePath,UINT32 filePathSize) PURE;
+    STDMETHOD(GetLastWriteTimeFromKey)(THIS_ const void *fontFileReferenceKey,UINT32 fontFileReferenceKeySize,FILETIME *lastWriteTime) PURE;
 
     END_INTERFACE
 };
@@ -1448,6 +1444,7 @@ DECLARE_INTERFACE_(IDWriteLocalFontFileLoader,IUnknown)
 #define IDWriteLocalFontFileLoader_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
 #define IDWriteLocalFontFileLoader_AddRef(This) (This)->lpVtbl->AddRef(This)
 #define IDWriteLocalFontFileLoader_Release(This) (This)->lpVtbl->Release(This)
+#define IDWriteLocalFontFileLoader_CreateStreamFromKey(This,fontFileReferenceKey,fontFileReferenceKeySize,fileStream) (This)->lpVtbl->CreateStreamFromKey(This,fontFileReferenceKey,fontFileReferenceKeySize,fileStream)
 #define IDWriteLocalFontFileLoader_GetFilePathLengthFromKey(This,fontFileReferenceKey,fontFileReferenceKeySize,filePathLength) (This)->lpVtbl->GetFilePathLengthFromKey(This,fontFileReferenceKey,fontFileReferenceKeySize,filePathLength)
 #define IDWriteLocalFontFileLoader_GetFilePathFromKey(This,fontFileReferenceKey,fontFileReferenceKeySize,filePath,filePathSize) (This)->lpVtbl->GetFilePathFromKey(This,fontFileReferenceKey,fontFileReferenceKeySize,filePath,filePathSize)
 #define IDWriteLocalFontFileLoader_GetLastWriteTimeFromKey(This,fontFileReferenceKey,fontFileReferenceKeySize,lastWriteTime) (This)->lpVtbl->GetLastWriteTimeFromKey(This,fontFileReferenceKey,fontFileReferenceKeySize,lastWriteTime)
@@ -2313,7 +2310,6 @@ __CRT_UUID_DECL(IDWriteTextLayout, 0x53737037,0x6d14,0x410b,0x9b,0xfe,0x0b,0x18,
 __CRT_UUID_DECL(IDWriteFontFileEnumerator, 0x72755049,0x5ff7,0x435d,0x83,0x48,0x4b,0xe9,0x7c,0xfa,0x6c,0x7c);
 __CRT_UUID_DECL(IDWriteFontCollectionLoader, 0xcca920e4,0x52f0,0x492b,0xbf,0xa8,0x29,0xc7,0x2e,0xe0,0xa4,0x68);
 __CRT_UUID_DECL(IDWriteTypography, 0x55f1112b,0x1dc2,0x4b3c,0x95,0x41,0xf4,0x68,0x94,0xed,0x85,0xb6);
-
-#define IDWriteLocalFontFileLoader __MINGW_POISON_NAME(IDWriteLocalFontFileLoader)
+__CRT_UUID_DECL(IDWriteLocalFontFileLoader,0xb2d9f3ec,0xc9fe,0x4a11,0xa2,0xec,0xd8,0x62,0x08,0xf7,0xc0,0xa2);
 
 #endif /* __INC_DWRITE__ */
