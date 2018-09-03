@@ -7042,7 +7042,7 @@ __buildmemorybarrier()
 
     typedef struct _IMAGE_IMPORT_BY_NAME {
       WORD Hint;
-      BYTE Name[1];
+      CHAR Name[1];
     } IMAGE_IMPORT_BY_NAME,*PIMAGE_IMPORT_BY_NAME;
 
 #include "pshpack8.h"
