@@ -969,6 +969,15 @@ extern "C" {
   LONG64 InterlockedCompareExchange64 (LONG64 volatile *Destination, LONG64 ExChange, LONG64 Comperand);
 #else
 #if !defined (__WIDL__) && defined (__MINGW_INTRIN_INLINE)
+
+/* Clang has support for some MSVC builtins if building with -fms-extensions,
+ * GCC doesn't. */
+#pragma push_macro("__has_builtin")
+#ifndef __has_builtin
+  #define __has_builtin(x) 0
+#endif
+
+#if !__has_builtin(_InterlockedAnd64)
   FORCEINLINE LONGLONG InterlockedAnd64 (LONGLONG volatile *Destination, LONGLONG Value) {
     LONGLONG Old;
 
@@ -977,7 +986,9 @@ extern "C" {
     } while (InterlockedCompareExchange64 (Destination, Old &Value, Old) != Old);
     return Old;
   }
+#endif
 
+#if !__has_builtin(_InterlockedOr64)
   FORCEINLINE LONGLONG InterlockedOr64 (LONGLONG volatile *Destination, LONGLONG Value) {
     LONGLONG Old;
 
@@ -986,7 +997,9 @@ extern "C" {
     } while (InterlockedCompareExchange64 (Destination, Old | Value, Old) != Old);
     return Old;
   }
+#endif
 
+#if !__has_builtin(_InterlockedXor64)
   FORCEINLINE LONGLONG InterlockedXor64 (LONGLONG volatile *Destination, LONGLONG Value) {
     LONGLONG Old;
 
@@ -995,7 +1008,9 @@ extern "C" {
     } while (InterlockedCompareExchange64 (Destination, Old ^ Value, Old) != Old);
     return Old;
   }
+#endif
 
+#if !__has_builtin(_InterlockedIncrement64)
   FORCEINLINE LONGLONG InterlockedIncrement64 (LONGLONG volatile *Addend) {
     LONGLONG Old;
 
@@ -1004,7 +1019,9 @@ extern "C" {
     } while (InterlockedCompareExchange64 (Addend, Old + 1, Old) != Old);
     return Old + 1;
   }
+#endif
 
+#if !__has_builtin(_InterlockedDecrement64)
   FORCEINLINE LONGLONG InterlockedDecrement64 (LONGLONG volatile *Addend) {
     LONGLONG Old;
 
@@ -1013,7 +1030,9 @@ extern "C" {
     } while (InterlockedCompareExchange64 (Addend, Old - 1, Old) != Old);
     return Old - 1;
   }
+#endif
 
+#if !__has_builtin(_InterlockedExchange64)
   FORCEINLINE LONGLONG InterlockedExchange64 (LONGLONG volatile *Target, LONGLONG Value) {
     LONGLONG Old;
 
@@ -1022,7 +1041,9 @@ extern "C" {
     } while (InterlockedCompareExchange64 (Target, Value, Old) != Old);
     return Old;
   }
+#endif
 
+#if !__has_builtin(_InterlockedExchangeAdd64)
   FORCEINLINE LONGLONG InterlockedExchangeAdd64 (LONGLONG volatile *Addend, LONGLONG Value) {
     LONGLONG Old;
 
@@ -1031,6 +1052,10 @@ extern "C" {
     } while (InterlockedCompareExchange64 (Addend, Old + Value, Old) != Old);
     return Old;
   }
+#endif
+
+#pragma pop_macro("__has_builtin")
+
 #endif
 
 #ifdef __cplusplus
