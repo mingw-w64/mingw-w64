@@ -1,0 +1,4 @@
+CREATE libsynchronization.a
+ADDLIB libapi-ms-win-core-synch-l1-2-0.a
+SAVE
+END

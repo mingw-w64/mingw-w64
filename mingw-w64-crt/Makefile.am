@@ -758,11 +758,6 @@ lib32/libvfw32.a: lib32/vfw32.mri lib32/libmsvfw32.a lib32/libavifil32.a lib32/l
 	$(AR) -M < $<
 	$(RANLIB) $@
 
-lib32/libsynchronization.a: lib32/synchronization.mri lib32/libapi-ms-win-core-synch-l1-2-0.a
-	rm -f $@
-	$(AR) -M < $<
-	$(RANLIB) $@
-
 lib32/libwindowsapp.a: lib32/windowsapp.mri lib32/libapi-ms-win-core-com-l1-1-1.a lib32/libapi-ms-win-core-com-l2-1-1.a lib32/libapi-ms-win-core-com-midlproxystub-l1-1-0.a \
 					lib32/libapi-ms-win-core-datetime-l1-1-1.a lib32/libapi-ms-win-core-datetime-l1-1-2.a lib32/libapi-ms-win-core-debug-l1-1-1.a \
 					lib32/libapi-ms-win-core-delayload-l1-1-1.a lib32/libapi-ms-win-core-errorhandling-l1-1-1.a lib32/libapi-ms-win-core-errorhandling-l1-1-3.a \
@@ -1136,11 +1131,6 @@ lib64/libvfw32.a: lib64/vfw32.mri lib64/libmsvfw32.a lib64/libavifil32.a lib64/l
 	$(AR) -M < $<
 	$(RANLIB) $@
 
-lib64/libsynchronization.a: lib64/synchronization.mri lib64/libapi-ms-win-core-synch-l1-2-0.a
-	rm -f $@
-	$(AR) -M < $<
-	$(RANLIB) $@
-
 lib64/libwindowsapp.a: lib64/windowsapp.mri lib64/libapi-ms-win-core-com-l1-1-1.a lib64/libapi-ms-win-core-com-l2-1-1.a \
 	lib64/libapi-ms-win-core-com-midlproxystub-l1-1-0.a lib64/libapi-ms-win-core-datetime-l1-1-1.a lib64/libapi-ms-win-core-datetime-l1-1-2.a \
 	lib64/libapi-ms-win-core-debug-l1-1-1.a lib64/libapi-ms-win-core-delayload-l1-1-1.a lib64/libapi-ms-win-core-errorhandling-l1-1-1.a \
@@ -1458,11 +1448,6 @@ libarm32/libvfw32.a: libarm32/vfw32.mri libarm32/libmsvfw32.a libarm32/libavifil
 	$(AR) -M < $<
 	$(RANLIB) $@
 
-libarm32/libsynchronization.a: libarm32/synchronization.mri libarm32/libapi-ms-win-core-synch-l1-2-0.a
-	rm -f $@
-	$(AR) -M < $<
-	$(RANLIB) $@
-
 libarm32/libwindowsapp.a: libarm32/windowsapp.mri libarm32/libapi-ms-win-core-com-l1-1-1.a libarm32/libapi-ms-win-core-com-l2-1-1.a \
 	libarm32/libapi-ms-win-core-com-midlproxystub-l1-1-0.a libarm32/libapi-ms-win-core-datetime-l1-1-1.a libarm32/libapi-ms-win-core-datetime-l1-1-2.a \
 	libarm32/libapi-ms-win-core-debug-l1-1-1.a libarm32/libapi-ms-win-core-delayload-l1-1-1.a libarm32/libapi-ms-win-core-errorhandling-l1-1-1.a \
@@ -1755,11 +1740,6 @@ libarm64/libvfw32.a: libarm64/vfw32.mri libarm64/libmsvfw32.a libarm64/libavifil
 	$(AR) -M < $<
 	$(RANLIB) $@
 
-libarm64/libsynchronization.a: libarm64/synchronization.mri libarm64/libapi-ms-win-core-synch-l1-2-0.a
-	rm -f $@
-	$(AR) -M < $<
-	$(RANLIB) $@
-
 libarm64/libwindowsapp.a: libarm64/windowsapp.mri libarm64/libapi-ms-win-core-com-l1-1-1.a libarm64/libapi-ms-win-core-com-l2-1-1.a \
 	libarm64/libapi-ms-win-core-com-midlproxystub-l1-1-0.a libarm64/libapi-ms-win-core-datetime-l1-1-1.a libarm64/libapi-ms-win-core-datetime-l1-1-2.a \
 	libarm64/libapi-ms-win-core-debug-l1-1-1.a libarm64/libapi-ms-win-core-delayload-l1-1-1.a libarm64/libapi-ms-win-core-errorhandling-l1-1-1.a \
@@ -1881,6 +1861,12 @@ endif
 %/libruntimeobject.a: lib-common/runtimeobject.mri \
 		%/libapi-ms-win-core-winrt-string-l1-1-0.a \
 		%/libapi-ms-win-core-winrt-l1-1-0.a
+	rm -f $@
+	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(RANLIB) $@
+
+%/libsynchronization.a: lib-common/synchronization.mri \
+		%/libapi-ms-win-core-synch-l1-2-0.a
 	rm -f $@
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(RANLIB) $@
