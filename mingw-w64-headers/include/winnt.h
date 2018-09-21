@@ -4979,8 +4979,7 @@ __buildmemorybarrier()
 #define FILE_SUPPORTS_INTEGRITY_STREAMS 0x04000000
 
     typedef struct FILE_ID_128 {
-      ULONGLONG LowPart;
-      ULONGLONG HighPart;
+      BYTE Identifier[16];
     } FILE_ID_128, *PFILE_ID_128;
 
     typedef struct _FILE_NOTIFY_INFORMATION {
