@@ -1623,10 +1623,6 @@ libarm64/lib%.a: libarm64/%.def
 libarm64/lib%.a: lib-common/%.def
 	$(DTDEFARM64) $<
 
-	rm -f $@
-	$(AR) -M < $<
-	$(RANLIB) $@
-
 libarm64/libucrt.a: libarm64/ucrt.mri libarm64/libucrt_extra.a \
 		libarm64/libapi-ms-win-crt-conio-l1-1-0.a libarm64/libapi-ms-win-crt-convert-l1-1-0.a libarm64/libapi-ms-win-crt-environment-l1-1-0.a \
 		libarm64/libapi-ms-win-crt-filesystem-l1-1-0.a libarm64/libapi-ms-win-crt-heap-l1-1-0.a libarm64/libapi-ms-win-crt-locale-l1-1-0.a \
