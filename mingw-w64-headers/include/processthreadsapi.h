@@ -147,6 +147,19 @@ WINBASEAPI WINBOOL WINAPI TerminateProcess (HANDLE hProcess, UINT uExitCode);
   WINBASEAPI VOID WINAPI GetCurrentThreadStackLimits (PULONG_PTR LowLimit, PULONG_PTR HighLimit);
   WINBASEAPI WINBOOL WINAPI SetProcessMitigationPolicy (PROCESS_MITIGATION_POLICY MitigationPolicy, PVOID lpBuffer, SIZE_T dwLength);
   WINBASEAPI WINBOOL WINAPI GetProcessMitigationPolicy (HANDLE hProcess, PROCESS_MITIGATION_POLICY MitigationPolicy, PVOID lpBuffer, SIZE_T dwLength);
+
+  FORCEINLINE HANDLE GetCurrentProcessToken (VOID)
+  {
+    return (HANDLE)(LONG_PTR) (-4);
+  }
+  FORCEINLINE HANDLE GetCurrentThreadToken (VOID)
+  {
+    return (HANDLE)(LONG_PTR) (-5);
+  }
+  FORCEINLINE HANDLE GetCurrentThreadEffectiveToken (VOID)
+  {
+    return (HANDLE)(LONG_PTR) (-6);
+  }
 #endif
 
 #endif
