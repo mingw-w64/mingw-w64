@@ -16,6 +16,16 @@ AM_MAINTAINER_MODE
 
 AC_ARG_PROGRAM
 
+AC_MSG_CHECKING([for widl includedir])
+AC_ARG_WITH([widl-includedir],
+  [AS_HELP_STRING([--with-widl-includedir=DIR],
+    [Make widl look for includes in this directory, relative to the bin directory (default: <includedir>/../<target>/include)])],
+  [],
+  [with_widl_includedir="\$(includedir)/../\$(target)/include"])
+AC_MSG_RESULT([$with_widl_includedir])
+AS_VAR_SET([WIDL_INCLUDEDIR],[$with_widl_includedir])
+AC_SUBST([WIDL_INCLUDEDIR])
+
 # Checks for programs.
 AC_PROG_CC
 
