@@ -646,6 +646,7 @@ CPPFLAGS
 LDFLAGS
 CFLAGS
 CC
+WIDL_INCLUDEDIR
 MAINT
 MAINTAINER_MODE_FALSE
 MAINTAINER_MODE_TRUE
@@ -731,6 +732,7 @@ ac_user_opts='
 enable_option_checking
 enable_silent_rules
 enable_maintainer_mode
+with_widl_includedir
 enable_dependency_tracking
 '
       ac_precious_vars='build_alias
@@ -1370,6 +1372,14 @@ Optional Features:
                           do not reject slow dependency extractors
   --disable-dependency-tracking
                           speeds up one-time build
+
+Optional Packages:
+  --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
+  --without-PACKAGE       do not use PACKAGE (same as --with-PACKAGE=no)
+  --with-widl-includedir=DIR
+                          Make widl look for includes in this directory,
+                          relative to the bin directory (default:
+                          <includedir>/../<target>/include)
 
 Some influential environment variables:
   CC          C compiler command
@@ -3095,6 +3105,21 @@ fi
 
 
 
+
+
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for widl includedir" >&5
+$as_echo_n "checking for widl includedir... " >&6; }
+
+# Check whether --with-widl-includedir was given.
+if test "${with_widl_includedir+set}" = set; then :
+  withval=$with_widl_includedir;
+else
+  with_widl_includedir="\$(includedir)/../\$(target)/include"
+fi
+
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $with_widl_includedir" >&5
+$as_echo "$with_widl_includedir" >&6; }
+WIDL_INCLUDEDIR=$with_widl_includedir
 
 
 # Checks for programs.
