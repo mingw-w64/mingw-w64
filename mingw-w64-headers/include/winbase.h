@@ -1598,6 +1598,24 @@ extern "C" {
 #if _WIN32_WINNT >= 0x0602
     ,ProcThreadAttributeSecurityCapabilities = 9
 #endif
+    ,ProcThreadAttributeProtectionLevel = 11
+#if _WIN32_WINNT >= 0x0603
+#endif
+#if _WIN32_WINNT >= 0x0A00
+    ,ProcThreadAttributeJobList = 13
+    ,ProcThreadAttributeChildProcessPolicy = 14
+    ,ProcThreadAttributeAllApplicationPackagesPolicy = 15
+    ,ProcThreadAttributeWin32kFilter = 16
+#endif
+#if NTDDI_VERSION >= 0x0A000002
+    ,ProcThreadAttributeSafeOpenPromptOriginClaim = 17
+#endif
+#if NTDDI_VERSION >= 0x0A000003
+    ,ProcThreadAttributeDesktopAppPolicy = 18
+#endif
+#if NTDDI_VERSION >= 0x0A000006
+    ,ProcThreadAttributePseudoConsole = 22
+#endif
   } PROC_THREAD_ATTRIBUTE_NUM;
 #endif
 
@@ -1613,7 +1631,22 @@ extern "C" {
 #define PROC_THREAD_ATTRIBUTE_IDEAL_PROCESSOR ProcThreadAttributeValue (ProcThreadAttributeIdealProcessor, TRUE, TRUE, FALSE)
 #define PROC_THREAD_ATTRIBUTE_UMS_THREAD ProcThreadAttributeValue (ProcThreadAttributeUmsThread, TRUE, TRUE, FALSE)
 #define PROC_THREAD_ATTRIBUTE_MITIGATION_POLICY ProcThreadAttributeValue (ProcThreadAttributeMitigationPolicy, FALSE, TRUE, FALSE)
+#endif
 
+#if _WIN32_WINNT >= 0x0602
+#define PROC_THREAD_ATTRIBUTE_SECURITY_CAPABILITIES ProcThreadAttributeValue (ProcThreadAttributeSecurityCapabilities, FALSE, TRUE, FALSE)
+#endif
+
+#define PROC_THREAD_ATTRIBUTE_PROTECTION_LEVEL ProcThreadAttributeValue (ProcThreadAttributeProtectionLevel, FALSE, TRUE, FALSE)
+
+#if _WIN32_WINNT >= 0x0603
+#endif
+
+#if NTDDI_VERSION >= 0x0A000006
+#define PROC_THREAD_ATTRIBUTE_PSEUDOCONSOLE ProcThreadAttributeValue (ProcThreadAttributePseudoConsole, FALSE, TRUE, FALSE)
+#endif
+
+#if _WIN32_WINNT >= 0x0601
 #define PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE 0x01
 #define PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE 0x02
 #define PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE 0x04
