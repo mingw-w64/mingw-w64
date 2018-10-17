@@ -161,8 +161,7 @@ int __cdecl _snwprintf(wchar_t * restrict _Dest, size_t _Count, const wchar_t * 
 }
 
 // This is called for wchar cases with __USE_MINGW_ANSI_STDIO enabled (where the
-// char case just uses fputc). The FILE* is a valid file here, shouldn't be our
-// dummy stderr.
+// char case just uses fputc).
 int __cdecl __ms_fwprintf(FILE *file, const wchar_t *fmt, ...)
 {
   va_list ap;
