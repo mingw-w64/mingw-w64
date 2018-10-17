@@ -215,7 +215,9 @@ src_msvcrt=\
 src_ucrtbase=\
   crt/ucrtbase_compat.c \
   stdio/ucrt_fprintf.c \
+  stdio/ucrt_fwprintf.c \
   stdio/ucrt_printf.c \
+  stdio/ucrt__snwprintf.c \
   stdio/ucrt_snprintf.c \
   stdio/ucrt_sprintf.c \
   stdio/ucrt__vsnprintf.c \

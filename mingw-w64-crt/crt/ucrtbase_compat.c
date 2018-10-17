@@ -12,8 +12,6 @@
 #undef __MSVCRT_VERSION__
 #define __MSVCRT_VERSION__ 0x1400
 
-#define fwprintf real_fwprintf
-#define _snwprintf real__snwprintf
 #define __getmainargs crtimp___getmainargs
 #define __wgetmainargs crtimp___wgetmainargs
 #define _amsg_exit crtimp__amsg_exit
@@ -24,8 +22,6 @@
 #include <stdio.h>
 #include <time.h>
 
-#undef fwprintf
-#undef _snwprintf
 #undef __getmainargs
 #undef __wgetmainargs
 #undef _amsg_exit
@@ -40,9 +36,6 @@ int __cdecl __getmainargs(int * _Argc, char *** _Argv, char ***_Env, int _DoWild
 int __cdecl __wgetmainargs(int * _Argc, wchar_t *** _Argv, wchar_t ***_Env, int _DoWildCard, _startupinfo *_StartInfo);
 void __cdecl _amsg_exit(int ret);
 unsigned int __cdecl _get_output_format(void);
-
-int __cdecl fwprintf(FILE *ptr, const wchar_t *fmt, ...);
-int __cdecl _snwprintf(wchar_t * restrict _Dest, size_t _Count, const wchar_t * restrict _Format, ...);
 
 int __cdecl __ms_fwprintf(FILE *, const wchar_t *, ...);
 
@@ -139,27 +132,6 @@ void __cdecl tzset(void)
   _tzset();
 }
 
-// assert (in wassert.c) produces references to these two functions
-int __cdecl fwprintf(FILE *ptr, const wchar_t *fmt, ...)
-{
-  va_list ap;
-  int ret;
-  va_start(ap, fmt);
-  ret = vfwprintf(ptr, fmt, ap);
-  va_end(ap);
-  return ret;
-}
-
-int __cdecl _snwprintf(wchar_t * restrict _Dest, size_t _Count, const wchar_t * restrict _Format, ...)
-{
-  va_list ap;
-  int ret;
-  va_start(ap, _Format);
-  ret = vsnwprintf(_Dest, _Count, _Format, ap);
-  va_end(ap);
-  return ret;
-}
-
 // This is called for wchar cases with __USE_MINGW_ANSI_STDIO enabled (where the
 // char case just uses fputc).
 int __cdecl __ms_fwprintf(FILE *file, const wchar_t *fmt, ...)
@@ -178,8 +150,6 @@ int __cdecl (*__MINGW_IMP_SYMBOL(__wgetmainargs))(int *, wchar_t ***, wchar_t **
 void __cdecl (*__MINGW_IMP_SYMBOL(_amsg_exit))(int) = _amsg_exit;
 unsigned int __cdecl (*__MINGW_IMP_SYMBOL(_get_output_format))(void) = _get_output_format;
 void __cdecl (*__MINGW_IMP_SYMBOL(tzset))(void) = tzset;
-int __cdecl (*__MINGW_IMP_SYMBOL(fwprintf))(FILE *, const wchar_t *, ...) = fwprintf;
-int __cdecl (*__MINGW_IMP_SYMBOL(_snwprintf))(wchar_t *restrict, size_t, const wchar_t *restrict, ...) = _snwprintf;
 int __cdecl (*__MINGW_IMP_SYMBOL(__ms_fwprintf))(FILE *, const wchar_t *, ...) = __ms_fwprintf;
 #ifdef __GNUC__
 #pragma GCC diagnostic pop
