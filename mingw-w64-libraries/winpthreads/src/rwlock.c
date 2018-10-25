@@ -81,18 +81,18 @@ static WINPTHREADS_ATTRIBUTE((noinline)) int rwl_ref_destroy(pthread_rwlock_t *r
 {
     int r = 0;
 
-    *rDestroy = NULL;
+    *rDestroy = (pthread_rwlock_t)NULL;
     pthread_spin_lock(&rwl_global);
     
     if (!rwl || !*rwl) r = EINVAL;
     else {
         rwlock_t *r_ = (rwlock_t *)*rwl;
-        if (STATIC_RWL_INITIALIZER(*rwl)) *rwl = NULL;
+        if (STATIC_RWL_INITIALIZER(*rwl)) *rwl = (pthread_rwlock_t)NULL;
         else if (r_->valid != LIFE_RWLOCK) r = EINVAL;
         else if (r_->busy) r = EBUSY;
         else {
             *rDestroy = *rwl;
-            *rwl = NULL;
+            *rwl = (pthread_rwlock_t)NULL;
         }
     }
 
@@ -136,10 +136,10 @@ void rwl_print(volatile pthread_rwlock_t *rwl, char *txt)
     if (!print_state) return;
     rwlock_t *r = (rwlock_t *)*rwl;
     if (r == NULL) {
-        printf("RWL%p %d %s\n",*rwl,(int)GetCurrentThreadId(),txt);
+        printf("RWL%p %d %s\n",(void *)*rwl,(int)GetCurrentThreadId(),txt);
     } else {
         printf("RWL%p %d V=%0X B=%d r=%ld w=%ld L=%p %s\n",
-            *rwl, 
+            (void *)*rwl,
             (int)GetCurrentThreadId(), 
             (int)r->valid, 
             (int)r->busy,
@@ -172,8 +172,8 @@ int pthread_rwlock_init (pthread_rwlock_t *rwlock_, const pthread_rwlockattr_t *
 
     if(!rwlock_)
       return EINVAL;
-    *rwlock_ = NULL;
-    if ((rwlock = (pthread_rwlock_t)calloc(1, sizeof(*rwlock))) == NULL)
+    *rwlock_ = (pthread_rwlock_t)NULL;
+    if ((rwlock = calloc(1, sizeof(*rwlock))) == NULL)
       return ENOMEM; 
     rwlock->valid = DEAD_RWLOCK;
 
@@ -197,7 +197,7 @@ int pthread_rwlock_init (pthread_rwlock_t *rwlock_, const pthread_rwlockattr_t *
       return r;
     }
     rwlock->valid = LIFE_RWLOCK;
-    *rwlock_ = rwlock;
+    *rwlock_ = (pthread_rwlock_t)rwlock;
     return r;
 } 
 
@@ -239,7 +239,7 @@ int pthread_rwlock_destroy (pthread_rwlock_t *rwlock_)
     r2 = pthread_mutex_destroy(&rwlock->mcomplete);
     if (!r) r = r2;
     rwlock->valid  = DEAD_RWLOCK;
-    free(rDestroy);
+    free((void *)rDestroy);
     return 0;
 } 
 

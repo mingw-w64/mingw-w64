@@ -265,20 +265,20 @@ int WINPTHREAD_API pthread_attr_setschedpolicy (pthread_attr_t *attr, int pol);
 int WINPTHREAD_API pthread_attr_getschedpolicy (const pthread_attr_t *attr, int *pol);
 
 /* synchronization objects */
-typedef void	*pthread_spinlock_t;
-typedef void	*pthread_mutex_t;
-typedef void	*pthread_cond_t;
-typedef void	*pthread_rwlock_t;
+typedef intptr_t pthread_spinlock_t;
+typedef intptr_t pthread_mutex_t;
+typedef intptr_t pthread_cond_t;
+typedef intptr_t pthread_rwlock_t;
 typedef void	*pthread_barrier_t;
 
 #define PTHREAD_MUTEX_NORMAL 0
 #define PTHREAD_MUTEX_ERRORCHECK 1
 #define PTHREAD_MUTEX_RECURSIVE 2
 
-#define GENERIC_INITIALIZER				((void *) (size_t) -1)
-#define GENERIC_ERRORCHECK_INITIALIZER			((void *) (size_t) -2)
-#define GENERIC_RECURSIVE_INITIALIZER			((void *) (size_t) -3)
-#define GENERIC_NORMAL_INITIALIZER			((void *) (size_t) -1)
+#define GENERIC_INITIALIZER				-1
+#define GENERIC_ERRORCHECK_INITIALIZER			-2
+#define GENERIC_RECURSIVE_INITIALIZER			-3
+#define GENERIC_NORMAL_INITIALIZER			-1
 #define PTHREAD_MUTEX_INITIALIZER			(pthread_mutex_t)GENERIC_INITIALIZER
 #define PTHREAD_RECURSIVE_MUTEX_INITIALIZER		(pthread_mutex_t)GENERIC_RECURSIVE_INITIALIZER
 #define PTHREAD_ERRORCHECK_MUTEX_INITIALIZER		(pthread_mutex_t)GENERIC_ERRORCHECK_INITIALIZER

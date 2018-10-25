@@ -67,10 +67,10 @@ void cond_print(volatile pthread_cond_t *c, char *txt)
     if (!print_state) return;
     cond_t *c_ = (cond_t *)*c;
     if (c_ == NULL) {
-        fprintf(fo,"C%p %d %s\n",*c,(int)GetCurrentThreadId(),txt);
+        fprintf(fo,"C%p %d %s\n",(void *)*c,(int)GetCurrentThreadId(),txt);
     } else {
         fprintf(fo,"C%p %d V=%0X w=%ld %s\n",
-            *c, 
+            (void *)*c,
             (int)GetCurrentThreadId(), 
             (int)c_->valid, 
             c_->waiters_count_,
@@ -202,7 +202,7 @@ pthread_cond_init (pthread_cond_t *c, const pthread_condattr_t *a)
   if (a && *a == PTHREAD_PROCESS_SHARED)
     return ENOSYS;
 
-  if ( !(_c = (pthread_cond_t)calloc(1,sizeof(*_c))) ) {
+  if ( !(_c = calloc(1,sizeof(*_c))) ) {
       return ENOMEM; 
   }
   _c->valid  = DEAD_COND;
@@ -236,10 +236,10 @@ pthread_cond_init (pthread_cond_t *c, const pthread_condattr_t *a)
   if (!r)
     {
       _c->valid = LIFE_COND;
-      *c = _c;
+      *c = (pthread_cond_t)_c;
     }
   else
-    *c = NULL;
+    *c = (pthread_cond_t)NULL;
   return r;
 }
 
@@ -255,7 +255,7 @@ pthread_cond_destroy (pthread_cond_t *c)
       pthread_spin_lock (&cond_locked);
       if (*c == PTHREAD_COND_INITIALIZER)
       {
-	*c = NULL;
+	*c = (pthread_cond_t)NULL;
 	r = 0;
       }
       else
@@ -279,7 +279,7 @@ pthread_cond_destroy (pthread_cond_t *c)
       LeaveCriticalSection(&_c->waiters_count_lock_);
       return r;
     }
-  *c = NULL;
+  *c = (pthread_cond_t)NULL;
   do_sema_b_release (_c->sema_b, 1,&_c->waiters_b_lock_,&_c->value_b);
 
   if (!CloseHandle (_c->sema_q) && !r)
@@ -419,7 +419,7 @@ pthread_cond_wait (pthread_cond_t *c, pthread_mutex_t *external_mutex)
 
   /* pthread_testcancel(); */
 
-  if (!c || *c == NULL)
+  if (!c || *c == (pthread_cond_t)NULL)
     return EINVAL;
   _c = (cond_t *)*c;
   if (*c == PTHREAD_COND_INITIALIZER)

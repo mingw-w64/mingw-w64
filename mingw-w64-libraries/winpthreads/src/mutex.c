@@ -73,18 +73,18 @@ mutex_impl_init(pthread_mutex_t *m, mutex_impl_t *mi)
   if (new_mi == NULL)
     return NULL;
   new_mi->state = Unlocked;
-  new_mi->type = (mi == PTHREAD_RECURSIVE_MUTEX_INITIALIZER ? Recursive
-                  : mi == PTHREAD_ERRORCHECK_MUTEX_INITIALIZER ? Errorcheck
+  new_mi->type = (mi == (void *)PTHREAD_RECURSIVE_MUTEX_INITIALIZER ? Recursive
+                  : mi == (void *)PTHREAD_ERRORCHECK_MUTEX_INITIALIZER ? Errorcheck
                   : Normal);
   new_mi->event = NULL;
   new_mi->rec_lock = 0;
   new_mi->owner = (DWORD)-1;
-  if (__sync_bool_compare_and_swap(m, mi, new_mi)) {
+  if (__sync_bool_compare_and_swap(m, (pthread_mutex_t)mi, (pthread_mutex_t)new_mi)) {
     return new_mi;
   } else {
     /* Someone created the struct before us. */
     free(new_mi);
-    return *m;
+    return (mutex_impl_t *)*m;
   }
 }
 
@@ -96,8 +96,8 @@ mutex_impl_init(pthread_mutex_t *m, mutex_impl_t *mi)
 static inline mutex_impl_t *
 mutex_impl(pthread_mutex_t *m)
 {
-  mutex_impl_t *mi = *m;
-  if (is_static_initializer(mi)) {
+  mutex_impl_t *mi = (mutex_impl_t *)*m;
+  if (is_static_initializer((pthread_mutex_t)mi)) {
     return mutex_impl_init(m, mi);
   } else {
     /* mi cannot be null here; avoid a test in the fast path. */
@@ -279,13 +279,13 @@ pthread_mutex_init (pthread_mutex_t *m, const pthread_mutexattr_t *a)
 
 int pthread_mutex_destroy (pthread_mutex_t *m)
 {
-  mutex_impl_t *mi = *m;
-  if (!is_static_initializer(mi)) {
+  mutex_impl_t *mi = (mutex_impl_t *)*m;
+  if (!is_static_initializer((pthread_mutex_t)mi)) {
     if (mi->event != NULL)
       CloseHandle(mi->event);
     free(mi);
     /* Sabotage attempts to re-use the mutex before initialising it again. */
-    *m = NULL;
+    *m = (pthread_mutex_t)NULL;
   }
 
   return 0;
