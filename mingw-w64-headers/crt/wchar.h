@@ -7,7 +7,6 @@
 #define _INC_WCHAR
 
 #include <crtdefs.h>
-#include <_mingw_print_push.h>
 
 #if defined (__USE_MINGW_ANSI_STDIO) && ((__USE_MINGW_ANSI_STDIO + 0) != 0) && !defined (__USE_MINGW_STRTOX)
 #define __USE_MINGW_STRTOX 1
@@ -1522,8 +1521,6 @@ void __cdecl __mingw_str_free(void *ptr);
 #pragma pack(pop)
 
 #include <sec_api/wchar_s.h>
-
-#include <_mingw_print_pop.h>
 
 #endif /* _INC_WCHAR */
 

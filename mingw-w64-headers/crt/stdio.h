@@ -8,8 +8,6 @@
 
 #include <crtdefs.h>
 
-#include <_mingw_print_push.h>
-
 #pragma pack(push,_CRT_PACKING)
 
 #ifdef __cplusplus
@@ -1398,7 +1396,5 @@ void __cdecl __mingw_str_free(void *ptr);
 #pragma pack(pop)
 
 #include <sec_api/stdio_s.h>
-
-#include <_mingw_print_pop.h>
 
 #endif
