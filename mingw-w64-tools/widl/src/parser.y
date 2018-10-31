@@ -72,7 +72,7 @@ static attr_t *make_attr(enum attr_type type);
 static attr_t *make_attrv(enum attr_type type, unsigned int val);
 static attr_t *make_attrp(enum attr_type type, void *val);
 static expr_list_t *append_expr(expr_list_t *list, expr_t *expr);
-static array_dims_t *append_array(array_dims_t *list, expr_t *expr);
+static type_t *append_array(type_t *chain, expr_t *expr);
 static var_t *declare_var(attr_list_t *attrs, decl_spec_t *decl_spec, const declarator_t *decl, int top);
 static var_list_t *set_var_types(attr_list_t *attrs, decl_spec_t *decl_spec, declarator_list_t *decls);
 static ifref_list_t *append_ifref(ifref_list_t *list, ifref_t *iface);
@@ -82,7 +82,7 @@ static declarator_list_t *append_declarator(declarator_list_t *list, declarator_
 static declarator_t *make_declarator(var_t *var);
 static type_t *make_safearray(type_t *type);
 static typelib_t *make_library(const char *name, const attr_list_t *attrs);
-static type_t *append_ptrchain_type(type_t *ptrchain, type_t *type);
+static type_t *append_chain_type(type_t *chain, type_t *type);
 static warning_list_t *append_warning(warning_list_t *, int);
 
 static type_t *reg_typedefs(decl_spec_t *decl_spec, var_list_t *names, attr_list_t *attrs);
@@ -134,6 +134,8 @@ static struct namespace global_namespace = {
 
 static struct namespace *current_namespace = &global_namespace;
 
+static typelib_t *current_typelib;
+
 %}
 %union {
 	attr_t *attr;
@@ -141,7 +143,6 @@ static struct namespace *current_namespace = &global_namespace;
 	str_list_t *str_list;
 	expr_t *expr;
 	expr_list_t *expr_list;
-	array_dims_t *array_dims;
 	type_t *type;
 	var_t *var;
 	var_list_t *var_list;
@@ -327,6 +328,7 @@ input:   gbl_statements				{ fix_incomplete();
 						  write_client($1);
 						  write_server($1);
 						  write_regscript($1);
+						  write_typelib_regscript($1);
 						  write_dlldata($1);
 						  write_local_stubs($1);
 						}
@@ -425,21 +427,18 @@ import: import_start imp_statements aEOF	{ $$ = $1->name;
 	;
 
 importlib: tIMPORTLIB '(' aSTRING ')'
-	   semicolon_opt			{ $$ = $3; if(!parse_only) add_importlib($3); }
+	   semicolon_opt			{ $$ = $3; if(!parse_only) add_importlib($3, current_typelib); }
 	;
 
 libraryhdr: tLIBRARY aIDENTIFIER		{ $$ = $2; }
 	|   tLIBRARY aKNOWNTYPE			{ $$ = $2; }
 	;
 library_start: attributes libraryhdr '{'	{ $$ = make_library($2, check_library_attrs($2, $1));
-						  if (!parse_only) start_typelib($$);
+						  if (!parse_only && do_typelib) current_typelib = $$;
 						}
 	;
 librarydef: library_start imp_statements '}'
-	    semicolon_opt			{ $$ = $1;
-						  $$->stmts = $2;
-						  if (!parse_only) end_typelib();
-						}
+	    semicolon_opt			{ $$ = $1; $$->stmts = $2; }
 	;
 
 m_args:						{ $$ = NULL; }
@@ -468,8 +467,8 @@ arg:	  attributes decl_spec m_any_declarator	{ if ($2->stgclass != STG_NONE && $
 	;
 
 array:	  '[' expr ']'				{ $$ = $2;
-						  if (!$$->is_const)
-						      error_loc("array dimension is not an integer constant\n");
+						  if (!$$->is_const || $$->cval <= 0)
+						      error_loc("array dimension is not a positive integer constant\n");
 						}
 	| '[' '*' ']'				{ $$ = make_expr(EXPR_VOID); }
 	| '[' ']'				{ $$ = make_expr(EXPR_VOID); }
@@ -977,7 +976,7 @@ decl_spec_no_type:
 
 declarator:
 	  '*' m_type_qual_list declarator %prec PPTR
-						{ $$ = $3; $$->type = append_ptrchain_type($$->type, type_new_pointer(pointer_default, NULL, $2)); }
+						{ $$ = $3; $$->type = append_chain_type($$->type, type_new_pointer(pointer_default, NULL, $2)); }
 	| callconv declarator			{ $$ = $2; if ($$->func_type) $$->func_type->attrs = append_attr($$->func_type->attrs, make_attrp(ATTR_CALLCONV, $1));
 						           else if ($$->type) $$->type->attrs = append_attr($$->type->attrs, make_attrp(ATTR_CALLCONV, $1)); }
 	| direct_declarator
@@ -986,9 +985,9 @@ declarator:
 direct_declarator:
 	  ident					{ $$ = make_declarator($1); }
 	| '(' declarator ')'			{ $$ = $2; }
-	| direct_declarator array		{ $$ = $1; $$->array = append_array($$->array, $2); }
+	| direct_declarator array		{ $$ = $1; $$->type = append_array($$->type, $2); }
 	| direct_declarator '(' m_args ')'	{ $$ = $1;
-						  $$->func_type = append_ptrchain_type($$->type, type_new_function($3));
+						  $$->func_type = append_chain_type($$->type, type_new_function($3));
 						  $$->type = NULL;
 						}
 	;
@@ -996,7 +995,7 @@ direct_declarator:
 /* abstract declarator */
 abstract_declarator:
 	  '*' m_type_qual_list m_abstract_declarator %prec PPTR
-						{ $$ = $3; $$->type = append_ptrchain_type($$->type, type_new_pointer(pointer_default, NULL, $2)); }
+						{ $$ = $3; $$->type = append_chain_type($$->type, type_new_pointer(pointer_default, NULL, $2)); }
 	| callconv m_abstract_declarator	{ $$ = $2; if ($$->func_type) $$->func_type->attrs = append_attr($$->func_type->attrs, make_attrp(ATTR_CALLCONV, $1));
 						           else if ($$->type) $$->type->attrs = append_attr($$->type->attrs, make_attrp(ATTR_CALLCONV, $1)); }
 	| abstract_direct_declarator
@@ -1005,7 +1004,7 @@ abstract_declarator:
 /* abstract declarator without accepting direct declarator */
 abstract_declarator_no_direct:
 	  '*' m_type_qual_list m_any_declarator %prec PPTR
-						{ $$ = $3; $$->type = append_ptrchain_type($$->type, type_new_pointer(pointer_default, NULL, $2)); }
+						{ $$ = $3; $$->type = append_chain_type($$->type, type_new_pointer(pointer_default, NULL, $2)); }
 	| callconv m_any_declarator		{ $$ = $2; if ($$->func_type) $$->func_type->attrs = append_attr($$->func_type->attrs, make_attrp(ATTR_CALLCONV, $1));
 						           else if ($$->type) $$->type->attrs = append_attr($$->type->attrs, make_attrp(ATTR_CALLCONV, $1)); }
 	;
@@ -1018,16 +1017,16 @@ m_abstract_declarator: 				{ $$ = make_declarator(NULL); }
 /* abstract direct declarator */
 abstract_direct_declarator:
 	  '(' abstract_declarator_no_direct ')'	{ $$ = $2; }
-	| abstract_direct_declarator array	{ $$ = $1; $$->array = append_array($$->array, $2); }
-	| array					{ $$ = make_declarator(NULL); $$->array = append_array($$->array, $1); }
+	| abstract_direct_declarator array	{ $$ = $1; $$->type = append_array($$->type, $2); }
+	| array					{ $$ = make_declarator(NULL); $$->type = append_array($$->type, $1); }
 	| '(' m_args ')'
 						{ $$ = make_declarator(NULL);
-						  $$->func_type = append_ptrchain_type($$->type, type_new_function($2));
+						  $$->func_type = append_chain_type($$->type, type_new_function($2));
 						  $$->type = NULL;
 						}
 	| abstract_direct_declarator '(' m_args ')'
 						{ $$ = $1;
-						  $$->func_type = append_ptrchain_type($$->type, type_new_function($3));
+						  $$->func_type = append_chain_type($$->type, type_new_function($3));
 						  $$->type = NULL;
 						}
 	;
@@ -1035,7 +1034,7 @@ abstract_direct_declarator:
 /* abstract or non-abstract declarator */
 any_declarator:
 	  '*' m_type_qual_list m_any_declarator %prec PPTR
-						{ $$ = $3; $$->type = append_ptrchain_type($$->type, type_new_pointer(pointer_default, NULL, $2)); }
+						{ $$ = $3; $$->type = append_chain_type($$->type, type_new_pointer(pointer_default, NULL, $2)); }
 	| callconv m_any_declarator		{ $$ = $2; $$->type->attrs = append_attr($$->type->attrs, make_attrp(ATTR_CALLCONV, $1)); }
 	| any_direct_declarator
 	;
@@ -1043,7 +1042,7 @@ any_declarator:
 /* abstract or non-abstract declarator without accepting direct declarator */
 any_declarator_no_direct:
 	  '*' m_type_qual_list m_any_declarator %prec PPTR
-						{ $$ = $3; $$->type = append_ptrchain_type($$->type, type_new_pointer(pointer_default, NULL, $2)); }
+						{ $$ = $3; $$->type = append_chain_type($$->type, type_new_pointer(pointer_default, NULL, $2)); }
 	| callconv m_any_declarator		{ $$ = $2; $$->type->attrs = append_attr($$->type->attrs, make_attrp(ATTR_CALLCONV, $1)); }
 	;
 
@@ -1058,16 +1057,16 @@ m_any_declarator: 				{ $$ = make_declarator(NULL); }
 any_direct_declarator:
 	  ident					{ $$ = make_declarator($1); }
 	| '(' any_declarator_no_direct ')'	{ $$ = $2; }
-	| any_direct_declarator array		{ $$ = $1; $$->array = append_array($$->array, $2); }
-	| array					{ $$ = make_declarator(NULL); $$->array = append_array($$->array, $1); }
+	| any_direct_declarator array		{ $$ = $1; $$->type = append_array($$->type, $2); }
+	| array					{ $$ = make_declarator(NULL); $$->type = append_array($$->type, $1); }
 	| '(' m_args ')'
 						{ $$ = make_declarator(NULL);
-						  $$->func_type = append_ptrchain_type($$->type, type_new_function($2));
+						  $$->func_type = append_chain_type($$->type, type_new_function($2));
 						  $$->type = NULL;
 						}
 	| any_direct_declarator '(' m_args ')'
 						{ $$ = $1;
-						  $$->func_type = append_ptrchain_type($$->type, type_new_function($3));
+						  $$->func_type = append_chain_type($$->type, type_new_function($3));
 						  $$->type = NULL;
 						}
 	;
@@ -1341,16 +1340,19 @@ static expr_list_t *append_expr(expr_list_t *list, expr_t *expr)
     return list;
 }
 
-static array_dims_t *append_array(array_dims_t *list, expr_t *expr)
+static type_t *append_array(type_t *chain, expr_t *expr)
 {
-    if (!expr) return list;
-    if (!list)
-    {
-        list = xmalloc( sizeof(*list) );
-        list_init( list );
-    }
-    list_add_tail( list, &expr->entry );
-    return list;
+    type_t *array;
+
+    if (!expr)
+        return chain;
+
+    /* An array is always a reference pointer unless explicitly marked otherwise
+     * (regardless of what the default pointer attribute is). */
+    array = type_new_array(NULL, NULL, FALSE, expr->is_const ? expr->cval : 0,
+            expr->is_const ? NULL : expr, NULL, FC_RP);
+
+    return append_chain_type(chain, array);
 }
 
 static struct list type_pool = LIST_INIT(type_pool);
@@ -1423,16 +1425,32 @@ static int is_allowed_range_type(const type_t *type)
     }
 }
 
-static type_t *append_ptrchain_type(type_t *ptrchain, type_t *type)
+static type_t *get_array_or_ptr_ref(type_t *type)
 {
-  type_t *ptrchain_type;
-  if (!ptrchain)
-    return type;
-  for (ptrchain_type = ptrchain; type_pointer_get_ref(ptrchain_type); ptrchain_type = type_pointer_get_ref(ptrchain_type))
-    ;
-  assert(ptrchain_type->type_type == TYPE_POINTER);
-  ptrchain_type->details.pointer.ref = type;
-  return ptrchain;
+    if (is_ptr(type))
+        return type_pointer_get_ref(type);
+    else if (is_array(type))
+        return type_array_get_element(type);
+    return NULL;
+}
+
+static type_t *append_chain_type(type_t *chain, type_t *type)
+{
+    type_t *chain_type;
+
+    if (!chain)
+        return type;
+    for (chain_type = chain; get_array_or_ptr_ref(chain_type); chain_type = get_array_or_ptr_ref(chain_type))
+        ;
+
+    if (is_ptr(chain_type))
+        chain_type->details.pointer.ref = type;
+    else if (is_array(chain_type))
+        chain_type->details.array.elem = type;
+    else
+        assert(0);
+
+    return chain;
 }
 
 static warning_list_t *append_warning(warning_list_t *list, int num)
@@ -1456,10 +1474,8 @@ static var_t *declare_var(attr_list_t *attrs, decl_spec_t *decl_spec, const decl
   var_t *v = decl->var;
   expr_list_t *sizes = get_attrp(attrs, ATTR_SIZEIS);
   expr_list_t *lengs = get_attrp(attrs, ATTR_LENGTHIS);
-  int sizeless;
   expr_t *dim;
   type_t **ptype;
-  array_dims_t *arr = decl ? decl->array : NULL;
   type_t *func_type = decl ? decl->func_type : NULL;
   type_t *type = decl_spec->type;
 
@@ -1478,13 +1494,13 @@ static var_t *declare_var(attr_list_t *attrs, decl_spec_t *decl_spec, const decl
   }
 
   /* add type onto the end of the pointers in pident->type */
-  v->type = append_ptrchain_type(decl ? decl->type : NULL, type);
+  v->type = append_chain_type(decl ? decl->type : NULL, type);
   v->stgclass = decl_spec->stgclass;
   v->attrs = attrs;
 
   /* check for pointer attribute being applied to non-pointer, non-array
    * type */
-  if (!arr)
+  if (!is_array(v->type))
   {
     int ptr_attr = get_attrv(v->attrs, ATTR_POINTERTYPE);
     const type_t *ptr = NULL;
@@ -1523,12 +1539,19 @@ static var_t *declare_var(attr_list_t *attrs, decl_spec_t *decl_spec, const decl
   {
     type_t *t = type;
 
-    if (!is_ptr(v->type) && !arr)
+    if (!is_ptr(v->type) && !is_array(v->type))
       error_loc("'%s': [string] attribute applied to non-pointer, non-array type\n",
                 v->name);
 
-    while (is_ptr(t))
-      t = type_pointer_get_ref(t);
+    for (;;)
+    {
+        if (is_ptr(t))
+            t = type_pointer_get_ref(t);
+        else if (is_array(t))
+            t = type_array_get_element(t);
+        else
+            break;
+    }
 
     if (type_get_type(t) != TYPE_BASIC &&
         (get_basic_fc(t) != FC_CHAR &&
@@ -1549,36 +1572,6 @@ static var_t *declare_var(attr_list_t *attrs, decl_spec_t *decl_spec, const decl
   if (is_attr(v->attrs, ATTR_RANGE) && !is_allowed_range_type(v->type))
     error_loc("'%s': [range] attribute applied to non-integer type\n",
               v->name);
-
-  ptype = &v->type;
-  sizeless = FALSE;
-  if (arr) LIST_FOR_EACH_ENTRY_REV(dim, arr, expr_t, entry)
-  {
-    if (sizeless)
-      error_loc("%s: only the first array dimension can be unspecified\n", v->name);
-
-    if (dim->is_const)
-    {
-      if (dim->cval <= 0)
-        error_loc("%s: array dimension must be positive\n", v->name);
-
-      /* FIXME: should use a type_memsize that allows us to pass in a pointer size */
-      if (0)
-      {
-        unsigned int size = type_memsize(v->type);
-
-        if (0xffffffffu / size < dim->cval)
-          error_loc("%s: total array size is too large\n", v->name);
-      }
-    }
-    else
-      sizeless = TRUE;
-
-    *ptype = type_new_array(NULL, *ptype, FALSE,
-                            dim->is_const ? dim->cval : 0,
-                            dim->is_const ? NULL : dim, NULL,
-                            pointer_default);
-  }
 
   ptype = &v->type;
   if (sizes) LIST_FOR_EACH_ENTRY(dim, sizes, expr_t, entry)
@@ -1756,7 +1749,6 @@ static declarator_t *make_declarator(var_t *var)
   d->var = var ? var : make_var(NULL);
   d->type = NULL;
   d->func_type = NULL;
-  d->array = NULL;
   d->bits = NULL;
   return d;
 }

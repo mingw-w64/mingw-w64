@@ -1113,7 +1113,7 @@ static int encode_var(
 
 	    if (target_type & 0x80000000) {
 		mix_field = ((target_type >> 16) & 0x3fff) | VT_BYREF;
-	    } else if (is_array(ref)) {
+	    } else if (get_type_vt(ref) == VT_SAFEARRAY) {
 		type_t *element_type = type_alias_get_aliasee(type_array_get_element(ref));
 		mix_field = get_type_vt(element_type) | VT_ARRAY | VT_BYREF;
 	    } else {
@@ -2333,6 +2333,7 @@ static void add_type_typeinfo(msft_typelib_t *typelib, type_t *type)
         break;
     case TYPE_BASIC:
     case TYPE_POINTER:
+    case TYPE_ARRAY:
         break;
     default:
         error("add_entry: unhandled type 0x%x for %s\n",
@@ -2635,7 +2636,6 @@ static void save_all_changes(msft_typelib_t *typelib)
             sprintf( typelib_id, "#%d", expr->cval );
         add_output_to_resources( "TYPELIB", typelib_id );
         output_typelib_regscript( typelib->typelib );
-        flush_output_resources( typelib_name );
     }
     else flush_output_buffer( typelib_name );
 }

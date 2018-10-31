@@ -30,7 +30,7 @@ do
 	fi
 done
 
-for f in basetsd.h guiddef.h ndrtypes.h poppack.h pshpack1.h pshpack2.h pshpack4.h pshpack8.h winbase.h windef.h winerror.h winnls.h winnt.h winnt.rh
+for f in basetsd.h guiddef.h ndrtypes.h poppack.h pshpack1.h pshpack2.h pshpack4.h pshpack8.h winbase.h windef.h winerror.h winnls.h winnt.h winnt.rh synchapi.h
 do
 	cp $WINE_DIR/include/$f include
 done
