@@ -8,7 +8,7 @@
 
 #include <crtdefs.h>
 
-#if defined (__USE_MINGW_ANSI_STDIO) && ((__USE_MINGW_ANSI_STDIO + 0) != 0) && !defined (__USE_MINGW_STRTOX)
+#if __USE_MINGW_ANSI_STDIO && !defined (__USE_MINGW_STRTOX)
 #define __USE_MINGW_STRTOX 1
 #endif
 
@@ -808,7 +808,7 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
     return __stdio_common_vswprintf(UCRTBASE_PRINTF_DEFAULT_WIDE | UCRTBASE_PRINTF_LEGACY_VSPRINTF_NULL_TERMINATION, _Dest, _Count, _Format, NULL, _Args);
   }
 
-#if !defined (__USE_MINGW_ANSI_STDIO) || __USE_MINGW_ANSI_STDIO == 0
+#if __USE_MINGW_ANSI_STDIO == 0
   __mingw_ovr
   int snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...)
   {
@@ -836,7 +836,7 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
 
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
 
-#if !defined (__USE_MINGW_ANSI_STDIO) || __USE_MINGW_ANSI_STDIO == 0
+#if __USE_MINGW_ANSI_STDIO == 0
 #pragma push_macro("snwprintf")
 #pragma push_macro("vsnwprintf")
 # undef snwprintf
