@@ -442,7 +442,7 @@ typedef struct tagLC_ID {
 #ifndef _THREADLOCALEINFO
 #define _THREADLOCALEINFO
 typedef struct threadlocaleinfostruct {
-#ifdef __MSVCRT_VERSION__ >= 0x1400
+#if __MSVCRT_VERSION__ >= 0x1400
   const unsigned short *_locale_pctype;
   int _locale_mb_cur_max;
   unsigned int _locale_lc_codepage;

@@ -209,7 +209,7 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #endif
 
 #define __chvalidchk(a,b) (__PCTYPE_FUNC[(unsigned char)(a)] & (b))
-#ifdef __MSVCRT_VERSION__ >= 0x1400
+#if __MSVCRT_VERSION__ >= 0x1400
 #define _chvalidchk_l(_Char,_Flag,_Locale) (!_Locale ? __chvalidchk(_Char,_Flag) : ((_locale_t)_Locale)->locinfo->_locale_pctype[(unsigned char)(_Char)] & (_Flag))
 #define _ischartype_l(_Char,_Flag,_Locale) (((_Locale)!=NULL && (((_locale_t)(_Locale))->locinfo->_locale_mb_cur_max) > 1) ? _isctype_l(_Char,(_Flag),_Locale) : _chvalidchk_l(_Char,_Flag,_Locale))
 #else
