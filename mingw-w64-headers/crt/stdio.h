@@ -221,7 +221,7 @@ extern
 #if defined(__clang__)
 #define __MINGW_PRINTF_FORMAT printf
 #define __MINGW_SCANF_FORMAT  scanf
-#elif __USE_MINGW_ANSI_STDIO
+#elif __MSVCRT_VERSION__ >= 0x1400 || __USE_MINGW_ANSI_STDIO
 #define __MINGW_PRINTF_FORMAT gnu_printf
 #define __MINGW_SCANF_FORMAT  gnu_scanf
 #else
