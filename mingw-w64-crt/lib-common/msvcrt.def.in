@@ -532,7 +532,8 @@ _fstat64
 _fstati64
 F64(_fstat64i32 == _fstat)
 _ftime
-F_ARM_ANY(_ftime32)
+F_I386(_ftime32 == _ftime)
+F_NON_I386(_ftime32)
 _ftime32_s
 _ftime64
 _ftime64_s
