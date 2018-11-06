@@ -73,6 +73,7 @@ static const char usage[] =
 "   --prefix-client=p  Prefix names of client stubs with 'p'\n"
 "   --prefix-server=p  Prefix names of server functions with 'p'\n"
 "   -r                 Generate registration script\n"
+"   -robust            Ignored, present for midl compatibility\n"
 "   --winrt            Enable Windows Runtime mode\n"
 "   --ns_prefix        Prefix namespaces with ABI namespace\n"
 "   -s                 Generate server stub\n"
@@ -164,7 +165,8 @@ enum {
     WIN64_OPTION,
     WIN32_ALIGN_OPTION,
     WIN64_ALIGN_OPTION,
-    APP_CONFIG_OPTION
+    APP_CONFIG_OPTION,
+    ROBUST_OPTION
 };
 
 static const char short_options[] =
@@ -180,6 +182,7 @@ static const struct option long_options[] = {
     { "prefix-all", 1, NULL, PREFIX_ALL_OPTION },
     { "prefix-client", 1, NULL, PREFIX_CLIENT_OPTION },
     { "prefix-server", 1, NULL, PREFIX_SERVER_OPTION },
+    { "robust", 0, NULL, ROBUST_OPTION },
     { "winrt", 0, NULL, RT_OPTION },
     { "win32", 0, NULL, WIN32_OPTION },
     { "win64", 0, NULL, WIN64_OPTION },
@@ -609,6 +612,9 @@ int main(int argc,char *argv[])
     case APP_CONFIG_OPTION:
       /* widl does not distinguish between app_mode and default mode,
          but we ignore this option for midl compatibility */
+        break;
+    case ROBUST_OPTION:
+        /* FIXME: Support robust option */
         break;
     case 'b':
       set_target( optarg );

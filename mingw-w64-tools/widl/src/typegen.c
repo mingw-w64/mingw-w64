@@ -208,7 +208,8 @@ unsigned char get_basic_fc(const type_t *type)
     {
     case TYPE_BASIC_INT8: return (sign <= 0 ? FC_SMALL : FC_USMALL);
     case TYPE_BASIC_INT16: return (sign <= 0 ? FC_SHORT : FC_USHORT);
-    case TYPE_BASIC_INT32: return (sign <= 0 ? FC_LONG : FC_ULONG);
+    case TYPE_BASIC_INT32:
+    case TYPE_BASIC_LONG: return (sign <= 0 ? FC_LONG : FC_ULONG);
     case TYPE_BASIC_INT64: return FC_HYPER;
     case TYPE_BASIC_INT: return (sign <= 0 ? FC_LONG : FC_ULONG);
     case TYPE_BASIC_INT3264: return (sign <= 0 ? FC_INT3264 : FC_UINT3264);
@@ -234,6 +235,7 @@ static unsigned char get_basic_fc_signed(const type_t *type)
     case TYPE_BASIC_INT64: return FC_HYPER;
     case TYPE_BASIC_INT: return FC_LONG;
     case TYPE_BASIC_INT3264: return FC_INT3264;
+    case TYPE_BASIC_LONG: return FC_LONG;
     case TYPE_BASIC_BYTE: return FC_BYTE;
     case TYPE_BASIC_CHAR: return FC_CHAR;
     case TYPE_BASIC_WCHAR: return FC_WCHAR;
@@ -2093,8 +2095,32 @@ static unsigned int write_nonsimple_pointer(FILE *file, const attr_list_t *attrs
     out_attr = is_attr(attrs, ATTR_OUT);
     if (!in_attr && !out_attr) in_attr = 1;
 
-    if (out_attr && !in_attr && pointer_type == FC_RP)
-        flags |= FC_ALLOCED_ON_STACK;
+    if (!is_interpreted_func(current_iface, current_func))
+    {
+        if (out_attr && !in_attr && pointer_type == FC_RP)
+            flags |= FC_ALLOCED_ON_STACK;
+    }
+    else if (get_stub_mode() == MODE_Oif)
+    {
+        if (context == TYPE_CONTEXT_TOPLEVELPARAM && is_ptr(type) && pointer_type == FC_RP)
+        {
+            switch (typegen_detect_type(type_pointer_get_ref(type), NULL, TDT_ALL_TYPES))
+            {
+            case TGT_STRING:
+            case TGT_POINTER:
+            case TGT_CTXT_HANDLE:
+            case TGT_CTXT_HANDLE_POINTER:
+                flags |= FC_ALLOCED_ON_STACK;
+                break;
+            case TGT_IFACE_POINTER:
+                if (in_attr && out_attr)
+                    flags |= FC_ALLOCED_ON_STACK;
+                break;
+            default:
+                break;
+            }
+        }
+    }
 
     if (is_ptr(type))
     {
@@ -2145,8 +2171,16 @@ static unsigned int write_simple_pointer(FILE *file, const attr_list_t *attrs,
     else
         fc = get_basic_fc(ref);
 
-    if (out_attr && !in_attr)
-        flags |= FC_ALLOCED_ON_STACK;
+    if (!is_interpreted_func(current_iface, current_func))
+    {
+        if (out_attr && !in_attr && pointer_fc == FC_RP)
+            flags |= FC_ALLOCED_ON_STACK;
+    }
+    else if (get_stub_mode() == MODE_Oif)
+    {
+        if (context == TYPE_CONTEXT_TOPLEVELPARAM && fc == FC_ENUM16 && pointer_fc == FC_RP)
+            flags |= FC_ALLOCED_ON_STACK;
+    }
 
     print_file(file, 2, "0x%02x, 0x%x,\t/* %s %s[simple_pointer] */\n",
                pointer_fc, flags, string_of_type(pointer_fc),
