@@ -1730,6 +1730,7 @@ endif
 	$(RANLIB) $@
 
 %/libwindowsapp.a: lib-common/windowsapp.mri \
+		%/libgamemode.a \
 		%/libapi-ms-win-core-com-l1-1-1.a \
 		%/libapi-ms-win-core-com-l2-1-1.a \
 		%/libapi-ms-win-core-com-midlproxystub-l1-1-0.a \
