@@ -716,6 +716,47 @@ void check_for_additional_prototype_types(const var_list_t *list)
   }
 }
 
+static int write_serialize_function_decl(FILE *header, const type_t *type)
+{
+    write_serialize_functions(header, type, NULL);
+    return 1;
+}
+
+static int serializable_exists(FILE *header, const type_t *type)
+{
+    return 0;
+}
+
+static int for_each_serializable(const statement_list_t *stmts, FILE *header,
+                                 int (*proc)(FILE*, const type_t*))
+{
+    statement_t *stmt, *iface_stmt;
+    statement_list_t *iface_stmts;
+    const type_list_t *type_entry;
+
+    if (stmts) LIST_FOR_EACH_ENTRY( stmt, stmts, statement_t, entry )
+    {
+        if (stmt->type != STMT_TYPE || type_get_type(stmt->u.type) != TYPE_INTERFACE)
+            continue;
+
+        iface_stmts = type_iface_get_stmts(stmt->u.type);
+        if (iface_stmts) LIST_FOR_EACH_ENTRY( iface_stmt, iface_stmts, statement_t, entry )
+        {
+            if (iface_stmt->type != STMT_TYPEDEF) continue;
+            for (type_entry = iface_stmt->u.type_list; type_entry; type_entry = type_entry->next)
+            {
+                if (!is_attr(type_entry->type->attrs, ATTR_ENCODE)
+                    && !is_attr(type_entry->type->attrs, ATTR_DECODE))
+                    continue;
+                if (!proc(header, type_entry->type))
+                    return 0;
+            }
+        }
+    }
+
+    return 1;
+}
+
 static void write_user_types(FILE *header)
 {
   user_type_t *ut;
@@ -1611,8 +1652,13 @@ static void write_forward_decls(FILE *header, const statement_list_t *stmts)
       case STMT_TYPE:
         if (type_get_type(stmt->u.type) == TYPE_INTERFACE)
         {
-          if (is_object(stmt->u.type) || is_attr(stmt->u.type->attrs, ATTR_DISPINTERFACE))
-            write_forward(header, stmt->u.type);
+          type_t *iface = stmt->u.type;
+          if (is_object(iface) || is_attr(iface->attrs, ATTR_DISPINTERFACE))
+          {
+            write_forward(header, iface);
+            if (iface->details.iface->async_iface)
+              write_forward(header, iface->details.iface->async_iface);
+          }
         }
         else if (type_get_type(stmt->u.type) == TYPE_COCLASS)
           write_coclass_forward(header, stmt->u.type);
@@ -1647,12 +1693,18 @@ static void write_header_stmts(FILE *header, const statement_list_t *stmts, cons
         if (type_get_type(stmt->u.type) == TYPE_INTERFACE)
         {
           type_t *iface = stmt->u.type;
+          type_t *async_iface = iface->details.iface->async_iface;
           if (is_object(iface)) is_object_interface++;
           if (is_attr(stmt->u.type->attrs, ATTR_DISPINTERFACE) || is_object(stmt->u.type))
           {
             write_com_interface_start(header, iface);
             write_header_stmts(header, type_iface_get_stmts(iface), stmt->u.type, TRUE);
             write_com_interface_end(header, iface);
+            if (async_iface)
+            {
+              write_com_interface_start(header, async_iface);
+              write_com_interface_end(header, async_iface);
+            }
           }
           else
           {
@@ -1737,7 +1789,10 @@ void write_header(const statement_list_t *stmts)
   fprintf(header, "#endif\n\n");
 
   fprintf(header, "#include <rpc.h>\n" );
-  fprintf(header, "#include <rpcndr.h>\n\n" );
+  fprintf(header, "#include <rpcndr.h>\n" );
+  if (!for_each_serializable(stmts, NULL, serializable_exists))
+    fprintf(header, "#include <midles.h>\n" );
+  fprintf(header, "\n" );
 
   fprintf(header, "#ifndef COM_NO_WINDOWS_H\n");
   fprintf(header, "#include <windows.h>\n");
@@ -1759,6 +1814,7 @@ void write_header(const statement_list_t *stmts)
 
   fprintf(header, "/* Begin additional prototypes for all interfaces */\n");
   fprintf(header, "\n");
+  for_each_serializable(stmts, header, write_serialize_function_decl);
   write_user_types(header);
   write_generic_handle_routines(header);
   write_context_handle_rundowns(header);

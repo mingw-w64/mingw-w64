@@ -1381,6 +1381,7 @@ static void write_proc_func_header( FILE *file, int indent, const type_t *iface,
 
         if (is_attr( func->attrs, ATTR_NOTIFY )) ext_flags |= 0x08;  /* HasNotify */
         if (is_attr( func->attrs, ATTR_NOTIFYFLAG )) ext_flags |= 0x10;  /* HasNotify2 */
+        if (iface == iface->details.iface->async_iface) oi2_flags |= 0x20;
 
         size = get_function_buffer_size( func, PASS_IN );
         print_file( file, indent, "NdrFcShort(0x%x),\t/* client buffer = %u */\n", size, size );
@@ -1465,27 +1466,36 @@ static void write_procformatstring_func( FILE *file, int indent, const type_t *i
     }
 }
 
-static void write_procformatstring_stmts(FILE *file, int indent, const statement_list_t *stmts,
-                                         type_pred_t pred, unsigned int *offset)
+static void for_each_iface(const statement_list_t *stmts,
+                           void (*proc)(type_t *iface, FILE *file, int indent, unsigned int *offset),
+                           type_pred_t pred, FILE *file, int indent, unsigned int *offset)
 {
     const statement_t *stmt;
+    type_t *iface;
+
     if (stmts) LIST_FOR_EACH_ENTRY( stmt, stmts, const statement_t, entry )
     {
-        if (stmt->type == STMT_TYPE && type_get_type(stmt->u.type) == TYPE_INTERFACE)
-        {
-            const statement_t *stmt_func;
-            const type_t *iface = stmt->u.type;
-            const type_t *parent = type_iface_get_inherit( iface );
-            int count = parent ? count_methods( parent ) : 0;
+        if (stmt->type != STMT_TYPE || type_get_type(stmt->u.type) != TYPE_INTERFACE)
+            continue;
+        iface = stmt->u.type;
+        if (!pred(iface)) continue;
+        proc(iface, file, indent, offset);
+        if (iface->details.iface->async_iface)
+            proc(iface->details.iface->async_iface, file, indent, offset);
+    }
+}
 
-            if (!pred(iface)) continue;
-            STATEMENTS_FOR_EACH_FUNC(stmt_func, type_iface_get_stmts(iface))
-            {
-                var_t *func = stmt_func->u.var;
-                if (is_local(func->attrs)) continue;
-                write_procformatstring_func( file, indent, iface, func, offset, count++ );
-            }
-        }
+static void write_iface_procformatstring(type_t *iface, FILE *file, int indent, unsigned int *offset)
+{
+    const statement_t *stmt;
+    const type_t *parent = type_iface_get_inherit( iface );
+    int count = parent ? count_methods( parent ) : 0;
+
+    STATEMENTS_FOR_EACH_FUNC(stmt, type_iface_get_stmts(iface))
+    {
+        var_t *func = stmt->u.var;
+        if (is_local(func->attrs)) continue;
+        write_procformatstring_func( file, indent, iface, func, offset, count++ );
     }
 }
 
@@ -1501,7 +1511,7 @@ void write_procformatstring(FILE *file, const statement_list_t *stmts, type_pred
     print_file(file, indent, "{\n");
     indent++;
 
-    write_procformatstring_stmts(file, indent, stmts, pred, &offset);
+    for_each_iface(stmts, write_iface_procformatstring, pred, file, indent, &offset);
 
     print_file(file, indent, "0x0\n");
     indent--;
@@ -3668,52 +3678,64 @@ static int write_embedded_types(FILE *file, const attr_list_t *attrs, type_t *ty
     return write_type_tfs(file, 2, attrs, type, name, write_ptr ? TYPE_CONTEXT_CONTAINER : TYPE_CONTEXT_CONTAINER_NO_POINTERS, tfsoff);
 }
 
-static unsigned int process_tfs_stmts(FILE *file, const statement_list_t *stmts,
-                                      type_pred_t pred, unsigned int *typeformat_offset)
+static void process_tfs_iface(type_t *iface, FILE *file, int indent, unsigned int *offset)
 {
-    var_t *var;
+    const statement_list_t *stmts = type_iface_get_stmts(iface);
     const statement_t *stmt;
+    var_t *var;
 
-    if (stmts) LIST_FOR_EACH_ENTRY( stmt, stmts, const statement_t, entry )
+    current_iface = iface;
+    if (stmts) LIST_FOR_EACH_ENTRY( stmt, stmts, statement_t, entry )
     {
-        const type_t *iface;
-        const statement_t *stmt_func;
-
-        if (stmt->type != STMT_TYPE || type_get_type(stmt->u.type) != TYPE_INTERFACE)
-            continue;
-
-        iface = stmt->u.type;
-        if (!pred(iface))
-            continue;
-
-        current_iface = iface;
-        STATEMENTS_FOR_EACH_FUNC( stmt_func, type_iface_get_stmts(iface) )
+        switch(stmt->type)
         {
-            const var_t *func = stmt_func->u.var;
+        case STMT_DECLARATION:
+        {
+            const var_t *func = stmt->u.var;
+
+            if(stmt->u.var->stgclass != STG_NONE
+               || type_get_type_detect_alias(stmt->u.var->type) != TYPE_FUNCTION)
+                continue;
+
             current_func = func;
             if (is_local(func->attrs)) continue;
 
             var = type_function_get_retval(func->type);
             if (!is_void(var->type))
                 var->typestring_offset = write_type_tfs( file, 2, func->attrs, var->type, func->name,
-                                                         TYPE_CONTEXT_PARAM, typeformat_offset);
+                                                         TYPE_CONTEXT_PARAM, offset);
 
             if (type_get_function_args(func->type))
                 LIST_FOR_EACH_ENTRY( var, type_get_function_args(func->type), var_t, entry )
                     var->typestring_offset = write_type_tfs( file, 2, var->attrs, var->type, var->name,
-                                                             TYPE_CONTEXT_TOPLEVELPARAM,
-                                                             typeformat_offset );
+                                                             TYPE_CONTEXT_TOPLEVELPARAM, offset );
+            break;
+
+        }
+        case STMT_TYPEDEF:
+        {
+            const type_list_t *type_entry;
+            for (type_entry = stmt->u.type_list; type_entry; type_entry = type_entry->next)
+            {
+                if (is_attr(type_entry->type->attrs, ATTR_ENCODE)
+                    || is_attr(type_entry->type->attrs, ATTR_DECODE))
+                    type_entry->type->typestring_offset = write_type_tfs( file, 2,
+                            type_entry->type->attrs, type_entry->type, type_entry->type->name,
+                            TYPE_CONTEXT_CONTAINER, offset);
+            }
+            break;
+        }
+        default:
+            break;
         }
     }
-
-    return *typeformat_offset + 1;
 }
 
 static unsigned int process_tfs(FILE *file, const statement_list_t *stmts, type_pred_t pred)
 {
     unsigned int typeformat_offset = 2;
-
-    return process_tfs_stmts(file, stmts, pred, &typeformat_offset);
+    for_each_iface(stmts, process_tfs_iface, pred, file, 0, &typeformat_offset);
+    return typeformat_offset + 1;
 }
 
 
@@ -4547,30 +4569,21 @@ unsigned int get_size_procformatstring_func(const type_t *iface, const var_t *fu
     return offset;
 }
 
-unsigned int get_size_procformatstring(const statement_list_t *stmts, type_pred_t pred)
+static void get_size_procformatstring_iface(type_t *iface, FILE *file, int indent, unsigned int *size)
 {
     const statement_t *stmt;
-    unsigned int size = 1;
-
-    if (stmts) LIST_FOR_EACH_ENTRY( stmt, stmts, const statement_t, entry )
+    STATEMENTS_FOR_EACH_FUNC( stmt, type_iface_get_stmts(iface) )
     {
-        const type_t *iface;
-        const statement_t *stmt_func;
-
-        if (stmt->type != STMT_TYPE || type_get_type(stmt->u.type) != TYPE_INTERFACE)
-            continue;
-
-        iface = stmt->u.type;
-        if (!pred(iface))
-            continue;
-
-        STATEMENTS_FOR_EACH_FUNC( stmt_func, type_iface_get_stmts(iface) )
-        {
-            const var_t *func = stmt_func->u.var;
-            if (!is_local(func->attrs))
-                size += get_size_procformatstring_func( iface, func );
-        }
+        const var_t *func = stmt->u.var;
+        if (!is_local(func->attrs))
+            *size += get_size_procformatstring_func( iface, func );
     }
+}
+
+unsigned int get_size_procformatstring(const statement_list_t *stmts, type_pred_t pred)
+{
+    unsigned int size = 1;
+    for_each_iface(stmts, get_size_procformatstring_iface, pred, NULL, 0, &size);
     return size;
 }
 
