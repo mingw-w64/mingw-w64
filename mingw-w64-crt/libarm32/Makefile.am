@@ -500,6 +500,7 @@ libarm32_DATA += %reldir%/libnshwfp.a
 libarm32_DATA += %reldir%/libnsi.a
 libarm32_DATA += %reldir%/libnsisvc.a
 libarm32_DATA += %reldir%/libntdll.a
+libarm32_DATA += %reldir%/libntdllcrt.a
 libarm32_DATA += %reldir%/libntdsapi.a
 libarm32_DATA += %reldir%/libntlanman.a
 libarm32_DATA += %reldir%/libntmarta.a

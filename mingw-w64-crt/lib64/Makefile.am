@@ -390,6 +390,7 @@ lib64_DATA += %reldir%/libnntpapi.a
 lib64_DATA += %reldir%/libnpptools.a
 lib64_DATA += %reldir%/libnshipsec.a
 lib64_DATA += %reldir%/libntdll.a
+lib64_DATA += %reldir%/libntdllcrt.a
 lib64_DATA += %reldir%/libntdsapi.a
 lib64_DATA += %reldir%/libntdsbcli.a
 lib64_DATA += %reldir%/libntlanman.a

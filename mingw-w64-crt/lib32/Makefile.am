@@ -191,6 +191,7 @@ lib32_DATA += %reldir%/libnetutils.a
 lib32_DATA += %reldir%/libnewdev.a
 lib32_DATA += %reldir%/libnormaliz.a
 lib32_DATA += %reldir%/libntdll.a
+lib32_DATA += %reldir%/libntdllcrt.a
 lib32_DATA += %reldir%/libntdsapi.a
 lib32_DATA += %reldir%/libntmsapi.a
 lib32_DATA += %reldir%/libntoskrnl.a
