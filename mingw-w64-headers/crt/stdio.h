@@ -609,10 +609,9 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
 
   /* Shouldn't be any fseeko32 in glibc, 32bit to 64bit casting should be fine */
   /* int fseeko32(FILE* stream, _off_t offset, int whence);*/ /* fseeko32 redirects to fseeko64 */
-#if __MSVCRT_VERSION__ >= 0x1400
-  // Mark these as _CRTIMP to avoid trying to link in the mingwex versions.
   _CRTIMP int __cdecl _fseeki64(FILE *_File,__int64 _Offset,int _Origin);
   _CRTIMP __int64 __cdecl _ftelli64(FILE *_File);
+#if __MSVCRT_VERSION__ >= 0x1400
   __mingw_static_ovr int fseeko(FILE *_File, _off_t _Offset, int _Origin) {
     return fseek(_File, _Offset, _Origin);
   }
@@ -626,8 +625,6 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
     return _ftelli64(_File);
   }
 #else
-  __MINGW_EXTENSION int __cdecl _fseeki64(FILE *_File,__int64 _Offset,int _Origin);
-  __MINGW_EXTENSION __int64 __cdecl _ftelli64(FILE *_File);
   int fseeko64(FILE* stream, _off64_t offset, int whence);
   int fseeko(FILE* stream, _off_t offset, int whence);
   /* Returns truncated 64bit off_t */
