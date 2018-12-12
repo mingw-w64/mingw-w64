@@ -42,4 +42,5 @@ libwinstorecompat_a_SOURCES = \
   src/RtlAddFunctionTable.c \
   src/RtlCaptureContext.c \
   src/RtlVirtualUnwind.c \
+  src/RtlRestoreContext.c \
   $(NULL)
