@@ -1583,7 +1583,8 @@ WriteProfileStringW
 WriteTapemark
 ZombifyActCtx
 ZombifyActCtxWorker
-__C_specific_handler
+F_X64(__C_specific_handler)
+F_ARM32(__C_specific_handler)
 F_ARM32(__chkstk)
 F_X64(__misaligned_access)
 _hread

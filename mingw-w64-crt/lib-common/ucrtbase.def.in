@@ -58,7 +58,7 @@ _Wcsftime
 __AdjustPointer
 __BuildCatchObject
 __BuildCatchObjectHelper
-F_X64(__C_specific_handler)
+F_NON_I386(__C_specific_handler)
 __CxxDetectRethrow
 __CxxExceptionFilter
 __CxxFrameHandler
