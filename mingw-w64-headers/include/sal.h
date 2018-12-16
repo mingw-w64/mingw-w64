@@ -227,14 +227,42 @@
 #define __out
 #endif
 
+#define __bcount(size)
+#define __ecount(size)
+
 #define __in_bcount(size)
+#define __in_bcount_nz(size)
+#define __in_bcount_z(size)
 #define __in_ecount(size)
+#define __in_ecount_nz(size)
+#define __in_ecount_z(size)
 
 #define __out_bcount(size)
+#define __out_bcount_nz(size)
+#define __out_bcount_z(size)
+#define __out_bcount_full(size)
+#define __out_bcount_full_z(size)
 #define __out_bcount_part(size, length)
+#define __out_bcount_part_z(size, length)
 #define __out_ecount(size)
+#define __out_ecount_nz(size)
+#define __out_ecount_z(size)
+#define __out_ecount_full(size)
+#define __out_ecount_full_z(size)
+#define __out_ecount_part(size, length)
+#define __out_ecount_part_z(size, length)
 
 #define __inout
+#define __inout_bcount(size)
+#define __inout_bcount_nz(size)
+#define __inout_bcount_z(size)
+#define __inout_bcount_full(size)
+#define __inout_bcount_part(size, length)
+#define __inout_ecount(size)
+#define __inout_ecount_nz(size)
+#define __inout_ecount_z(size)
+#define __inout_ecount_full(size)
+#define __inout_ecount_part(size, length)
 
 #define __deref_out_ecount(size)
 
