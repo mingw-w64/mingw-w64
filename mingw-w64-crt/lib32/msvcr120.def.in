@@ -1042,6 +1042,7 @@ _ftime32
 _ftime32_s
 _ftime64
 _ftime64_s
+_ftime == _ftime32
 _ftol
 _fullpath
 _futime32
