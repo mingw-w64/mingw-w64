@@ -365,9 +365,7 @@ unsigned int alarm(unsigned int seconds);
 /*  Old versions of MSVCRT access() just ignored X_OK, while the version
     shipped with Vista, returns an error code.  This will restore the
     old behaviour  */
-static inline int __mingw_access (const char *__fname, int __mode) {
-  return  _access (__fname, __mode & ~X_OK);
-}
+int __cdecl __mingw_access (const char *__fname, int __mode);
 
 #define access(__f,__m)  __mingw_access (__f, __m)
 #endif
