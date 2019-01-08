@@ -1453,8 +1453,7 @@ Optional Features:
                           Enable creation of delay-import libraries
   --enable-experimental   Enable experimental features, valid options are
                           comma separated combination of all, dfp, printf128,
-                          registeredprintf, softmath. Refer to
-                          experimental.txt for descriptions.
+                          registeredprintf, softmath.
   --enable-tests-unicode  Enable the unicode testsuite without testing the
                           compiler for support.
   --enable-warnings[=0-5] Enable compile time warnings [default=3]
