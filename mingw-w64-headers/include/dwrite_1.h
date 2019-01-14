@@ -486,6 +486,232 @@ DECLARE_INTERFACE_(IDWriteTextAnalyzer1,IDWriteTextAnalyzer)
 __CRT_UUID_DECL(IDWriteTextAnalyzer1, 0x80dad800,0xe21f,0x4e83,0x4e,0xce,0xbf,0xcc,0xe5,0x00,0xdb,0x7c);
 
 #undef  INTERFACE
+#define INTERFACE IDWriteTextLayout1
+DECLARE_INTERFACE_(IDWriteTextLayout1,IDWriteTextLayout)
+{
+    BEGIN_INTERFACE
+
+#ifndef __cplusplus
+    /* IUnknown methods */
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+
+    /* IDWriteTextFormat methods */
+    STDMETHOD(SetTextAlignment)(THIS_
+            DWRITE_TEXT_ALIGNMENT textAlignment) PURE;
+    STDMETHOD(SetParagraphAlignment)(THIS_
+            DWRITE_PARAGRAPH_ALIGNMENT paragraphAlignment) PURE;
+    STDMETHOD(SetWordWrapping)(THIS_
+            DWRITE_WORD_WRAPPING wordWrapping) PURE;
+    STDMETHOD(SetReadingDirection)(THIS_
+            DWRITE_READING_DIRECTION readingDirection) PURE;
+    STDMETHOD(SetFlowDirection)(THIS_
+            DWRITE_FLOW_DIRECTION flowDirection) PURE;
+    STDMETHOD(SetIncrementalTabStop)(THIS_
+            FLOAT incrementalTabStop) PURE;
+    STDMETHOD(SetTrimming)(THIS_
+            DWRITE_TRIMMING const *trimmingOptions,
+            IDWriteInlineObject *trimmingSign) PURE;
+    STDMETHOD(SetLineSpacing)(THIS_
+            DWRITE_LINE_SPACING_METHOD lineSpacingMethod,
+            FLOAT lineSpacing,
+            FLOAT baseline) PURE;
+    STDMETHOD_(DWRITE_TEXT_ALIGNMENT, GetTextAlignment)(THIS) PURE;
+    STDMETHOD_(DWRITE_PARAGRAPH_ALIGNMENT, GetParagraphAlignment)(THIS) PURE;
+    STDMETHOD_(DWRITE_WORD_WRAPPING, GetWordWrapping)(THIS) PURE;
+    STDMETHOD_(DWRITE_READING_DIRECTION, GetReadingDirection)(THIS) PURE;
+    STDMETHOD_(DWRITE_FLOW_DIRECTION, GetFlowDirection)(THIS) PURE;
+    STDMETHOD_(FLOAT, GetIncrementalTabStop)(THIS) PURE;
+    STDMETHOD(GetTrimming)(THIS_
+            DWRITE_TRIMMING* trimmingOptions,
+            IDWriteInlineObject **trimmingSign) PURE;
+    STDMETHOD(GetLineSpacing)(THIS_
+            DWRITE_LINE_SPACING_METHOD *lineSpacingMethod,
+            FLOAT *lineSpacing,
+            FLOAT *baseline) PURE;
+    STDMETHOD(GetFontCollection)(THIS_
+            IDWriteFontCollection **fontCollection) PURE;
+    STDMETHOD_(UINT32, GetFontFamilyNameLength)(THIS) PURE;
+    STDMETHOD(GetFontFamilyName)(THIS_
+            WCHAR *fontFamilyName,
+            UINT32 nameSize) PURE;
+    STDMETHOD_(DWRITE_FONT_WEIGHT, GetFontWeight)(THIS) PURE;
+    STDMETHOD_(DWRITE_FONT_STYLE, GetFontStyle)(THIS) PURE;
+    STDMETHOD_(DWRITE_FONT_STRETCH, GetFontStretch)(THIS) PURE;
+    STDMETHOD_(FLOAT, GetFontSize)(THIS) PURE;
+    STDMETHOD_(UINT32, GetLocaleNameLength)(THIS) PURE;
+    STDMETHOD(GetLocaleName)(THIS_
+            WCHAR *localeName,
+            UINT32 nameSize) PURE;
+
+    /* IDWriteTextLayout methods */
+    STDMETHOD(SetMaxWidth)(THIS_
+            FLOAT maxWidth) PURE;
+    STDMETHOD(SetMaxHeight)(THIS_
+            FLOAT maxHeight) PURE;
+    STDMETHOD(SetFontCollection)(THIS_
+            IDWriteFontCollection *fontCollection,
+            DWRITE_TEXT_RANGE textRange) PURE;
+    STDMETHOD(SetFontFamilyName)(THIS_
+            WCHAR const *fontFamilyName,
+            DWRITE_TEXT_RANGE textRange) PURE;
+    STDMETHOD(SetFontWeight)(THIS_
+            DWRITE_FONT_WEIGHT fontWeight,
+            DWRITE_TEXT_RANGE textRange) PURE;
+    STDMETHOD(SetFontStyle)(THIS_
+            DWRITE_FONT_STYLE fontStyle,
+            DWRITE_TEXT_RANGE textRange) PURE;
+    STDMETHOD(SetFontStretch)(THIS_
+            DWRITE_FONT_STRETCH fontStretch,
+            DWRITE_TEXT_RANGE textRange) PURE;
+    STDMETHOD(SetFontSize)(THIS_
+            FLOAT fontSize,
+            DWRITE_TEXT_RANGE textRange) PURE;
+    STDMETHOD(SetUnderline)(THIS_
+            WINBOOL hasUnderline,
+            DWRITE_TEXT_RANGE textRange) PURE;
+    STDMETHOD(SetStrikethrough)(THIS_
+            WINBOOL hasStrikethrough,
+            DWRITE_TEXT_RANGE textRange) PURE;
+    STDMETHOD(SetDrawingEffect)(THIS_
+            IUnknown *drawingEffect,
+            DWRITE_TEXT_RANGE textRange) PURE;
+    STDMETHOD(SetInlineObject)(THIS_
+            IDWriteInlineObject *inlineObject,
+            DWRITE_TEXT_RANGE textRange) PURE;
+    STDMETHOD(SetTypography)(THIS_
+            IDWriteTypography *typography,
+            DWRITE_TEXT_RANGE textRange) PURE;
+    STDMETHOD(SetLocaleName)(THIS_
+            WCHAR const *localeName,
+            DWRITE_TEXT_RANGE textRange) PURE;
+    STDMETHOD_(FLOAT, GetMaxWidth)(THIS) PURE;
+    STDMETHOD_(FLOAT, GetMaxHeight)(THIS) PURE;
+    STDMETHOD(GetFontCollection)(THIS_
+            UINT32 currentPosition,
+            IDWriteFontCollection** fontCollection,
+            DWRITE_TEXT_RANGE *textRange __MINGW_DEF_ARG_VAL(NULL)) PURE;
+    STDMETHOD(GetFontFamilyNameLength)(THIS_
+            UINT32 currentPosition,
+            UINT32 *nameLength,
+            DWRITE_TEXT_RANGE *textRange __MINGW_DEF_ARG_VAL(NULL)) PURE;
+    STDMETHOD(GetFontFamilyName)(THIS_
+            UINT32 currentPosition,
+            WCHAR *fontFamilyName,
+            UINT32 nameSize,
+            DWRITE_TEXT_RANGE *textRange __MINGW_DEF_ARG_VAL(NULL)) PURE;
+    STDMETHOD(GetFontWeight)(THIS_
+            UINT32 currentPosition,
+            DWRITE_FONT_WEIGHT *fontWeight,
+            DWRITE_TEXT_RANGE* textRange __MINGW_DEF_ARG_VAL(NULL)) PURE;
+    STDMETHOD(GetFontStyle)(THIS_
+            UINT32 currentPosition,
+            DWRITE_FONT_STYLE *fontStyle,
+            DWRITE_TEXT_RANGE *textRange __MINGW_DEF_ARG_VAL(NULL)) PURE;
+    STDMETHOD(GetFontStretch)(THIS_
+            UINT32 currentPosition,
+            DWRITE_FONT_STRETCH* fontStretch,
+            DWRITE_TEXT_RANGE *textRange __MINGW_DEF_ARG_VAL(NULL)) PURE;
+    STDMETHOD(GetFontSize)(THIS_
+            UINT32 currentPosition,
+            FLOAT *fontSize,
+            DWRITE_TEXT_RANGE *textRange __MINGW_DEF_ARG_VAL(NULL)) PURE;
+    STDMETHOD(GetUnderline)(THIS_
+            UINT32 currentPosition,
+            WINBOOL *hasUnderline,
+            DWRITE_TEXT_RANGE *textRange __MINGW_DEF_ARG_VAL(NULL)) PURE;
+    STDMETHOD(GetStrikethrough)(THIS_
+            UINT32 currentPosition,
+            WINBOOL *hasStrikethrough,
+            DWRITE_TEXT_RANGE *textRange __MINGW_DEF_ARG_VAL(NULL)) PURE;
+    STDMETHOD(GetDrawingEffect)(THIS_
+            UINT32 currentPosition,
+            IUnknown **drawingEffect,
+            DWRITE_TEXT_RANGE *textRange __MINGW_DEF_ARG_VAL(NULL)) PURE;
+    STDMETHOD(GetInlineObject)(THIS_
+            UINT32 currentPosition,
+            IDWriteInlineObject **inlineObject,
+            DWRITE_TEXT_RANGE *textRange __MINGW_DEF_ARG_VAL(NULL)) PURE;
+    STDMETHOD(GetTypography)(THIS_
+            UINT32 currentPosition,
+            IDWriteTypography **typography,
+            DWRITE_TEXT_RANGE *textRange __MINGW_DEF_ARG_VAL(NULL)) PURE;
+    STDMETHOD(GetLocaleNameLength)(THIS_
+            UINT32 currentPosition,
+            UINT32 *nameLength,
+            DWRITE_TEXT_RANGE *textRange __MINGW_DEF_ARG_VAL(NULL)) PURE;
+    STDMETHOD(GetLocaleName)(THIS_
+            UINT32 currentPosition,
+            WCHAR *localeName,
+            UINT32 nameSize,
+            DWRITE_TEXT_RANGE *textRange __MINGW_DEF_ARG_VAL(NULL)) PURE;
+    STDMETHOD(Draw)(THIS_
+            void *clientDrawingContext,
+            IDWriteTextRenderer *renderer,
+            FLOAT originX,
+            FLOAT originY) PURE;
+    STDMETHOD(GetLineMetrics)(THIS_
+            DWRITE_LINE_METRICS *lineMetrics,
+            UINT32 maxLineCount,
+            UINT32 *actualLineCount) PURE;
+    STDMETHOD(GetMetrics)(THIS_
+            DWRITE_TEXT_METRICS *textMetrics) PURE;
+    STDMETHOD(GetOverhangMetrics)(THIS_
+            DWRITE_OVERHANG_METRICS *overhangs) PURE;
+    STDMETHOD(GetClusterMetrics)(THIS_
+            DWRITE_CLUSTER_METRICS *clusterMetrics,
+            UINT32 maxClusterCount,
+            UINT32 *actualClusterCount) PURE;
+    STDMETHOD(DetermineMinWidth)(THIS_
+            FLOAT *minWidth) PURE;
+    STDMETHOD(HitTestPoint)(THIS_
+            FLOAT pointX,
+            FLOAT pointY,
+            WINBOOL *isTrailingHit,
+            WINBOOL *isInside,
+            DWRITE_HIT_TEST_METRICS *hitTestMetrics) PURE;
+    STDMETHOD(HitTestTextPosition)(THIS_
+            UINT32 textPosition,
+            WINBOOL isTrailingHit,
+            FLOAT *pointX,
+            FLOAT *pointY,
+            DWRITE_HIT_TEST_METRICS *hitTestMetrics) PURE;
+    STDMETHOD(HitTestTextRange)(THIS_
+            UINT32 textPosition,
+            UINT32 textLength,
+            FLOAT originX,
+            FLOAT originY,
+            DWRITE_HIT_TEST_METRICS *hitTestMetrics,
+            UINT32 maxHitTestMetricsCount,
+            UINT32 *actualHitTestMetricsCount) PURE;
+#endif
+
+    /* IDWriteTextLayout1 methods */
+    STDMETHOD(SetPairKerning)(THIS_
+            WINBOOL isPairKerningEnabled,
+            DWRITE_TEXT_RANGE textRange) PURE;
+    STDMETHOD(GetPairKerning)(THIS_
+            UINT32 position,
+            WINBOOL *isPairKerningEnabled,
+            DWRITE_TEXT_RANGE *textRange __MINGW_DEF_ARG_VAL(NULL)) PURE;
+    STDMETHOD(SetCharacterSpacing)(THIS_
+            FLOAT leadingSpacing,
+            FLOAT trailingSpacing,
+            FLOAT minimumAdvance,
+            DWRITE_TEXT_RANGE textRange) PURE;
+    STDMETHOD(GetCharacterSpacing)(THIS_
+            FLOAT *leadingSpacing,
+            FLOAT *trailingSpacing,
+            FLOAT *minimumAdvance,
+            DWRITE_TEXT_RANGE *textRange __MINGW_DEF_ARG_VAL(NULL)) PURE;
+
+    END_INTERFACE
+};
+
+__CRT_UUID_DECL(IDWriteTextLayout1, 0x9064d822,0x80a7,0x465c,0xa9,0x86,0xdf,0x65,0xf7,0x8b,0x8f,0xeb)
+
+#undef  INTERFACE
 #define INTERFACE IDWriteFactory1
 DECLARE_INTERFACE_(IDWriteFactory1,IDWriteFactory)
 {
