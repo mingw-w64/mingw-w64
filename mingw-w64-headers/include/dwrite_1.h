@@ -152,7 +152,65 @@ union DWRITE_PANOSE {
 };
 
 #undef  INTERFACE
-#define INTERFACE IDWriteFontCollection
+#define INTERFACE IDWriteFont1
+DECLARE_INTERFACE_(IDWriteFont1,IDWriteFont)
+{
+    BEGIN_INTERFACE
+
+#ifndef __cplusplus
+    /* IUnknown methods */
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+
+    /* IDWriteFont methods */
+    STDMETHOD(GetFontFamily)(THIS_
+        IDWriteFontFamily **fontFamily) PURE;
+
+    STDMETHOD_(DWRITE_FONT_WEIGHT, GetWeight)(THIS) PURE;
+    STDMETHOD_(DWRITE_FONT_STRETCH, GetStretch)(THIS) PURE;
+    STDMETHOD_(DWRITE_FONT_STYLE, GetStyle)(THIS) PURE;
+    STDMETHOD_(WINBOOL, IsSymbolFont)(THIS) PURE;
+
+    STDMETHOD(GetFaceNames)(THIS_
+        IDWriteLocalizedStrings **names) PURE;
+
+    STDMETHOD(GetInformationalStrings)(THIS_
+        DWRITE_INFORMATIONAL_STRING_ID informationalStringID,
+        IDWriteLocalizedStrings **informationalStrings,
+        WINBOOL *exists) PURE;
+
+    STDMETHOD_(DWRITE_FONT_SIMULATIONS, GetSimulations)(THIS) PURE;
+
+    STDMETHOD_(void, GetMetrics)(THIS_
+        DWRITE_FONT_METRICS *fontMetrics) PURE;
+
+    STDMETHOD(HasCharacter)(THIS_
+        UINT32 unicodeValue,
+        WINBOOL *exists) PURE;
+
+    STDMETHOD(CreateFontFace)(THIS_
+        IDWriteFontFace **fontFace) PURE;
+#endif
+
+    STDMETHOD_(void, GetMetrics)(THIS_
+        DWRITE_FONT_METRICS1 *fontMetrics) PURE;
+
+    STDMETHOD_(void, GetPanose)(THIS_
+        DWRITE_PANOSE *panose) PURE;
+
+    STDMETHOD(GetUnicodeRanges)(THIS_
+        UINT32 maxCount,
+        DWRITE_UNICODE_RANGE *ranges,
+        UINT32 *actualCount) PURE;
+
+    END_INTERFACE
+};
+
+__CRT_UUID_DECL(IDWriteFont1, 0xacd16696,0x8c14,0x4f5d,0x87,0x7e,0xfe,0x3f,0xc1,0xd3,0x27,0x38);
+
+#undef  INTERFACE
+#define INTERFACE IDWriteFontFace1
 DECLARE_INTERFACE_(IDWriteFontFace1, IDWriteFontFace)
 {
     BEGIN_INTERFACE
@@ -282,9 +340,101 @@ DECLARE_INTERFACE_(IDWriteRenderingParams1,IDWriteRenderingParams)
 
 __CRT_UUID_DECL(IDWriteRenderingParams1, 0x94413cf4,0xa6fc,0x4248,0x8b,0x50,0x66,0x74,0x34,0x8f,0xca,0xd3)
 
-interface IDWriteTextAnalysisSource1;
-interface IDWriteTextAnalysisSink1;
-interface IDWriteRenderingParams1;
+#undef  INTERFACE
+#define INTERFACE IDWriteTextAnalysisSource1
+DECLARE_INTERFACE_(IDWriteTextAnalysisSource1,IDWriteTextAnalysisSource)
+{
+    BEGIN_INTERFACE
+
+#ifndef __cplusplus
+    /* IUnknown methods */
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+
+    /* IDWriteTextAnalysisSource methods */
+    STDMETHOD(GetTextAtPosition)(THIS_
+        UINT32 textPosition,
+        WCHAR const **textString,
+        UINT32 *textLength) PURE;
+
+    STDMETHOD(GetTextBeforePosition)(THIS_
+        UINT32 textPosition,
+        WCHAR const **textString,
+        UINT32 *textLength) PURE;
+
+    STDMETHOD_(DWRITE_READING_DIRECTION, GetParagraphReadingDirection)(THIS) PURE;
+
+    STDMETHOD(GetLocaleName)(THIS_
+        UINT32 textPosition,
+        UINT32 *textLength,
+        WCHAR const **localeName) PURE;
+
+    STDMETHOD(GetNumberSubstitution)(THIS_
+        UINT32 textPosition,
+        UINT32 *textLength,
+        IDWriteNumberSubstitution **numberSubstitution) PURE;
+#endif
+
+    STDMETHOD(GetVerticalGlyphOrientation)(THIS_
+        UINT32 textPosition,
+        UINT32 *textLength,
+        DWRITE_VERTICAL_GLYPH_ORIENTATION *orientation,
+        UINT8 *bidiLevel) PURE;
+
+    END_INTERFACE
+};
+
+__CRT_UUID_DECL(IDWriteTextAnalysisSource1, 0x639cfad8,0x0fb4,0x4b21,0xa5,0x8a,0x06,0x79,0x20,0x12,0x00,0x09);
+
+#undef  INTERFACE
+#define INTERFACE IDWriteTextAnalysisSink1
+DECLARE_INTERFACE_(IDWriteTextAnalysisSink1,IDWriteTextAnalysisSink)
+{
+    BEGIN_INTERFACE
+
+#ifndef __cplusplus
+    /* IUnknown methods */
+    STDMETHOD(QueryInterface)(THIS_ REFIID riid, void **ppvObject) PURE;
+    STDMETHOD_(ULONG, AddRef)(THIS) PURE;
+    STDMETHOD_(ULONG, Release)(THIS) PURE;
+
+    /* IDWriteTextAnalysisSink methods */
+    STDMETHOD(SetScriptAnalysis)(THIS_
+            UINT32 textPosition,
+            UINT32 textLength,
+            DWRITE_SCRIPT_ANALYSIS const *scriptAnalysis) PURE;
+
+    STDMETHOD(SetLineBreakpoints)(THIS_
+            UINT32 textPosition,
+            UINT32 textLength,
+            DWRITE_LINE_BREAKPOINT const *lineBreakpoints) PURE;
+
+    STDMETHOD(SetBidiLevel)(THIS_
+            UINT32 textPosition,
+            UINT32 textLength,
+            UINT8 explicitLevel,
+            UINT8 resolvedLevel) PURE;
+
+    STDMETHOD(SetNumberSubstitution)(THIS_
+            UINT32 textPosition,
+            UINT32 textLength,
+            IDWriteNumberSubstitution *numberSubstitution) PURE;
+#endif
+
+    /* IDWriteTextAnalysisSink1 methods */
+    STDMETHOD(SetGlyphOrientation)(THIS_
+            UINT32 textPosition,
+            UINT32 textLength,
+            DWRITE_GLYPH_ORIENTATION_ANGLE angle,
+            UINT8 adjustedBidilevel,
+            WINBOOL isSideways,
+            WINBOOL isRtl); PURE;
+
+    END_INTERFACE
+};
+
+__CRT_UUID_DECL(IDWriteTextAnalysisSink1, 0xb0d941a0,0x85e7,0x4d8b,0x9f,0xd3,0x5c,0xed,0x99,0x34,0x48,0x2a);
 
 #undef  INTERFACE
 #define INTERFACE IDWriteTextAnalyzer1
