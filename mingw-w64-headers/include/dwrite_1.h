@@ -41,6 +41,12 @@ enum DWRITE_TEXT_ANTIALIAS_MODE
     DWRITE_TEXT_ANTIALIAS_MODE_GRAYSCALE
 };
 
+enum DWRITE_VERTICAL_GLYPH_ORIENTATION
+{
+    DWRITE_VERTICAL_GLYPH_ORIENTATION_DEFAULT,
+    DWRITE_VERTICAL_GLYPH_ORIENTATION_STACKED
+};
+
 struct DWRITE_CARET_METRICS {
     INT16 slopeRise;
     INT16 slopeRun;
@@ -429,7 +435,7 @@ DECLARE_INTERFACE_(IDWriteTextAnalysisSink1,IDWriteTextAnalysisSink)
             DWRITE_GLYPH_ORIENTATION_ANGLE angle,
             UINT8 adjustedBidilevel,
             WINBOOL isSideways,
-            WINBOOL isRtl); PURE;
+            WINBOOL isRtl) PURE;
 
     END_INTERFACE
 };
