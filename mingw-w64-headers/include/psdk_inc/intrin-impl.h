@@ -1938,7 +1938,9 @@ __buildmov(__movsd, unsigned __LONG32, "d")
 #define __INTRINSIC_DEFINED___movsd
 #endif /* __INTRINSIC_PROLOG */
 
-#if !defined(__GNUC__) || __GNUC__ < 8 /* GCC 8 has already defined _xgetbv */
+/* GCC 8 has already defined _xgetbv, Clang 9 has _xgetbv defined as a macro
+ * redirecting to the __builtin_ia32_xgetbv builtin. */
+#if (!defined(__GNUC__) || __GNUC__ < 8) && !defined(_xgetbv)
 /* NOTE: This should be in immintrin.h */
 #if __INTRINSIC_PROLOG(_xgetbv)
 unsigned __int64 _xgetbv(unsigned int);
