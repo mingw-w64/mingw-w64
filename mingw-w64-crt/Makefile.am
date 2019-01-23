@@ -111,6 +111,7 @@ src_libsapi=libsrc/sapi.c
 src_libsensorsapi=libsrc/sensorsapi.c
 src_libportabledeviceguids=libsrc/portabledeviceguids.c
 src_libtaskschd=libsrc/taskschd.c
+src_libntoskrnl=libsrc/memcmp.c
 
 src_libmingw32=include/oscalls.h include/internal.h include/sect_attribs.h \
   crt/crt0_c.c        crt/dll_argv.c  crt/gccmain.c     crt/natstart.c  crt/pseudo-reloc-list.c  crt/wildcard.c \
@@ -631,6 +632,11 @@ lib32_libws2_32_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 lib32_LIBRARIES += lib32/libtaskschd.a
 lib32_libtaskschd_a_SOURCES = $(src_libtaskschd)
 lib32_libtaskschd_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
+
+lib32_LIBRARIES += lib32/libntoskrnl.a
+lib32_libntoskrnl_a_SOURCES = $(src_libntoskrnl)
+lib32_libntoskrnl_a_CPPFLAGS=$(CPPFLAGS32) $(sysincludes)
+lib32_libntoskrnl_a_AR = $(DTLIB32) && $(AR) $(ARFLAGS)
 
 if !W32API
 lib32_LIBRARIES += lib32/libdelayimp.a
