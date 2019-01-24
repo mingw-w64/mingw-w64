@@ -58,7 +58,23 @@ struct DWRITE_UNICODE_RANGE {
     UINT32 last;
 };
 
-struct DWRITE_FONT_METRICS1 : public DWRITE_FONT_METRICS {
+struct DWRITE_FONT_METRICS1
+#ifdef __cplusplus
+    : public DWRITE_FONT_METRICS
+#endif
+{
+#ifndef __cplusplus
+    UINT16 designUnitsPerEm;
+    UINT16 ascent;
+    UINT16 descent;
+    INT16 lineGap;
+    UINT16 capHeight;
+    UINT16 xHeight;
+    INT16 underlinePosition;
+    UINT16 underlineThickness;
+    INT16 strikethroughPosition;
+    UINT16 strikethroughThickness;
+#endif
     INT16 glyphBoxLeft;
     INT16 glyphBoxTop;
     INT16 glyphBoxRight;
@@ -71,7 +87,7 @@ struct DWRITE_FONT_METRICS1 : public DWRITE_FONT_METRICS {
     INT16 superscriptPositionY;
     INT16 superscriptSizeX;
     INT16 superscriptSizeY;
-    BOOL hasTypographicMetrics;
+    WINBOOL hasTypographicMetrics;
 };
 
 struct DWRITE_SCRIPT_PROPERTIES
