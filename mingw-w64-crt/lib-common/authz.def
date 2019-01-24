@@ -60,6 +60,8 @@ AuthziModifyAuditEvent
 AuthziModifyAuditEvent2
 AuthziModifyAuditEventType
 AuthziModifyAuditQueue
+AuthziQueryAuditPolicy
+AuthziSetAuditPolicy
 AuthziModifySecurityAttributes
 AuthziQuerySecurityAttributes
 AuthziSourceAudit

@@ -7,6 +7,7 @@ libarm64_DATA += %reldir%/libappmgr.a
 libarm64_DATA += %reldir%/libasycfilt.a
 libarm64_DATA += %reldir%/libatl.a
 libarm64_DATA += %reldir%/libaudiosrv.a
+libarm64_DATA += %reldir%/libauthz.a
 libarm64_DATA += %reldir%/libavrt.a
 libarm64_DATA += %reldir%/libazroles.a
 libarm64_DATA += %reldir%/libbasesrv.a
