@@ -162,6 +162,7 @@ libarm64_DATA += %reldir%/libmssign32.a
 libarm64_DATA += %reldir%/libmssip32.a
 libarm64_DATA += %reldir%/libmstask.a
 libarm64_DATA += %reldir%/libmsv1_0.a
+libarm64_DATA += %reldir%/libmswsock.a
 libarm64_DATA += %reldir%/libmsyuv.a
 libarm64_DATA += %reldir%/libmtxdm.a
 libarm64_DATA += %reldir%/libmydocs.a
