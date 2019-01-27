@@ -6,3 +6,4 @@ ControlTraceW
 EnableTraceEx2
 StartTraceW
 StopTraceW
+TraceQueryInformation
