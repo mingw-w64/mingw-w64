@@ -319,7 +319,6 @@ WCHAR *gai_strerrorW(int);
 #define PADDRINFOEX __MINGW_NAME_AW(PADDRINFOEX)
 #define GetAddrInfoEx __MINGW_NAME_AW(GetAddrInfoEx)
 #define SetAddrInfoEx __MINGW_NAME_AW(SetAddrInfoEx)
-#define FreeAddrInfoEx __MINGW_NAME_AW(FreeAddrInfoEx)
 
   typedef struct addrinfoExA {
     int                ai_flags;
@@ -373,8 +372,13 @@ WINSOCK_API_LINKAGE int WSAAPI SetAddrInfoExW(PCWSTR pName,PCWSTR pServiceName,S
 					      LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine,
 					      LPHANDLE lpNameHandle);
 
-WINSOCK_API_LINKAGE void WSAAPI FreeAddrInfoExA(PADDRINFOEXA pAddrInfo);
+WINSOCK_API_LINKAGE void WSAAPI FreeAddrInfoEx(PADDRINFOEXA pAddrInfo);
 WINSOCK_API_LINKAGE void WSAAPI FreeAddrInfoExW(PADDRINFOEXW pAddrInfo);
+
+#define FreeAddrInfoExA FreeAddrInfoEx
+#ifdef UNICODE
+#  define FreeAddrInfoEx FreeAddrInfoExW
+#endif  /* UNICODE */
 
 #if INCL_WINSOCK_API_TYPEDEFS
 #define LPFN_GETADDRINFOEX __MINGW_NAME_AW(LPFN_GETADDRINFOEX)
