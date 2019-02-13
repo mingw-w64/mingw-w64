@@ -53,6 +53,7 @@ libarm64_DATA += %reldir%/libdbgeng.a
 libarm64_DATA += %reldir%/libdbghelp.a
 libarm64_DATA += %reldir%/libdbnetlib.a
 libarm64_DATA += %reldir%/libdbnmpntw.a
+libarm64_DATA += %reldir%/libdcomp.a
 libarm64_DATA += %reldir%/libddraw.a
 libarm64_DATA += %reldir%/libdevmgr.a
 libarm64_DATA += %reldir%/libdevobj.a

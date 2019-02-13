@@ -94,6 +94,7 @@ lib64_DATA += %reldir%/libdbghelp.a
 lib64_DATA += %reldir%/libdbnetlib.a
 lib64_DATA += %reldir%/libdbnmpntw.a
 lib64_DATA += %reldir%/libdciman32.a
+lib64_DATA += %reldir%/libdcomp.a
 lib64_DATA += %reldir%/libddraw.a
 lib64_DATA += %reldir%/libdevmgr.a
 lib64_DATA += %reldir%/libdevobj.a

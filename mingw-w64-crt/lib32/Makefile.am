@@ -92,6 +92,7 @@ lib32_DATA += %reldir%/libdavclnt.a
 lib32_DATA += %reldir%/libdavhlpr.a
 lib32_DATA += %reldir%/libdbgeng.a
 lib32_DATA += %reldir%/libdbghelp.a
+lib32_DATA += %reldir%/libdcomp.a
 lib32_DATA += %reldir%/libddraw.a
 lib32_DATA += %reldir%/libdevmgr.a
 lib32_DATA += %reldir%/libdevobj.a
