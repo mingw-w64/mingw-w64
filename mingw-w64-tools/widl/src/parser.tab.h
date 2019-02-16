@@ -1,4 +1,4 @@
-/* A Bison parser, made by GNU Bison 3.0.5.  */
+/* A Bison parser, made by GNU Bison 3.1.  */
 
 /* Bison interface for Yacc-like parsers in C
 
@@ -239,7 +239,7 @@ extern int parser_debug;
 
 union YYSTYPE
 {
-#line 142 "parser.y" /* yacc.c:1910  */
+#line 142 "parser.y" /* yacc.c:1913  */
 
 	attr_t *attr;
 	attr_list_t *attr_list;
@@ -267,7 +267,7 @@ union YYSTYPE
 	struct _decl_spec_t *declspec;
 	enum storage_class stgclass;
 
-#line 271 "parser.tab.h" /* yacc.c:1910  */
+#line 271 "parser.tab.h" /* yacc.c:1913  */
 };
 
 typedef union YYSTYPE YYSTYPE;
