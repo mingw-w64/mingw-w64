@@ -66,8 +66,7 @@ int fesetenv (const fenv_t * envp)
     {
       fenv_t env = *envp;
       int _mxcsr;
-      __asm__ ("fnstenv %0\n"
-           "stmxcsr %1" : "=m" (*&env), "=m" (*&_mxcsr));
+      __asm__ ("stmxcsr %0" : "=m" (*&_mxcsr));
       /*_mxcsr = ((int)envp->__unused0 << 16) | (int)envp->__unused1; *//* mxcsr low and high */
       env.__unused0 = 0xffff;
       env.__unused1 = 0xffff;
