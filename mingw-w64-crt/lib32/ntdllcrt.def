@@ -29,8 +29,12 @@ _aulldvrm@16
 _aullrem@16
 _aullshr
 ;_chkstk
+_errno
+_except_handler4_common
 _fltused DATA
 _ftol
+_ftol2
+_ftol2_sse
 _i64toa
 _i64toa_s
 _i64tow
@@ -40,6 +44,7 @@ _itoa_s
 _itow
 _itow_s
 _lfind
+_local_unwind4
 _ltoa
 _ltoa_s
 _ltow
@@ -58,10 +63,12 @@ _splitpath_s
 _strcmpi
 _stricmp
 _strlwr
+_strlwr_s
 _strnicmp
 _strnset_s
 _strset_s
 _strupr
+_strupr_s
 _swprintf
 _tolower
 _toupper
@@ -73,6 +80,7 @@ _ultoa
 _ultoa_s
 _ultow
 _ultow_s
+_vscprintf
 _vscwprintf
 _vsnprintf
 _vsnprintf_s
@@ -81,11 +89,14 @@ _vsnwprintf_s
 _vswprintf
 _wcsicmp
 _wcslwr
+_wcslwr_s
 _wcsnicmp
 _wcsnset_s
 _wcsset_s
+_wcstoi64
 _wcstoui64
 _wcsupr
+_wcsupr_s
 _wmakepath_s
 _wsplitpath_s
 _wtoi
@@ -93,9 +104,11 @@ _wtoi64
 _wtol
 abs
 atan DATA
+atan2
 atoi
 atol
 bsearch
+bsearch_s
 ceil
 cos DATA
 fabs DATA
@@ -110,10 +123,14 @@ isprint
 ispunct
 isspace
 isupper
+iswalnum
 iswalpha
+iswascii
 iswctype
 iswdigit
+iswgraph
 iswlower
+iswprint
 iswspace
 iswxdigit
 isxdigit
@@ -129,6 +146,7 @@ memmove_s
 memset
 pow
 qsort
+qsort_s
 sin
 sprintf
 sprintf_s
@@ -187,6 +205,7 @@ wcspbrk
 wcsrchr
 wcsspn
 wcsstr
+wcstok_s
 wcstol
 wcstombs
 wcstoul

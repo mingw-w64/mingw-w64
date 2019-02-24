@@ -24,6 +24,7 @@ _itoa_s
 _itow
 _itow_s
 _lfind
+_local_unwind
 _ltoa
 _ltoa_s
 _ltow
@@ -59,6 +60,7 @@ _ultoa
 _ultoa_s
 _ultow
 _ultow_s
+_vscprintf
 _vscwprintf
 _vsnprintf
 _vsnprintf_s
@@ -82,9 +84,11 @@ _wtoi64
 _wtol
 abs
 atan
+atan2
 atoi
 atol
 bsearch
+bsearch_s
 ceil
 cos
 fabs
