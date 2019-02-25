@@ -65,16 +65,17 @@ int fesetenv (const fenv_t * envp)
   else
     {
       fenv_t env = *envp;
+      int has_sse = __mingw_has_sse ();
       int _mxcsr;
-      __asm__ ("fnstenv %0\n"
-           "stmxcsr %1" : "=m" (*&env), "=m" (*&_mxcsr));
       /*_mxcsr = ((int)envp->__unused0 << 16) | (int)envp->__unused1; *//* mxcsr low and high */
+      if (has_sse)
+        __asm__ ("stmxcsr %0" : "=m" (*&_mxcsr));
       env.__unused0 = 0xffff;
       env.__unused1 = 0xffff;
       __asm__ volatile ("fldenv %0" : : "m" (env)
 			: "st", "st(1)", "st(2)", "st(3)", "st(4)",
 			"st(5)", "st(6)", "st(7)");
-      if (__mingw_has_sse ())
+      if (has_sse)
         __asm__ volatile ("ldmxcsr %0" : : "m" (*&_mxcsr));
     }
 
