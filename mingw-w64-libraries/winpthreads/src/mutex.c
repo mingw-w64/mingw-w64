@@ -164,7 +164,7 @@ pthread_mutex_lock_intern (pthread_mutex_t *m, DWORD timeout)
          and we have to go back to sleep again. In that case, the total
          wait may be longer than expected. */
 
-      unsigned r = WaitForSingleObject(mi->event, timeout);
+      unsigned r = _pthread_wait_for_single_object(mi->event, timeout);
       switch (r) {
       case WAIT_TIMEOUT:
         return ETIMEDOUT;

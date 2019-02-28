@@ -103,5 +103,7 @@ static WINPTHREADS_INLINE unsigned long dwMilliSecs(unsigned long long ms)
 unsigned long long _pthread_time_in_ms(void);
 unsigned long long _pthread_time_in_ms_from_timespec(const struct timespec *ts);
 unsigned long long _pthread_rel_time_in_ms(const struct timespec *ts);
+unsigned long _pthread_wait_for_single_object (void *handle, unsigned long timeout);
+unsigned long _pthread_wait_for_multiple_objects (unsigned long count, void **handles, unsigned int all, unsigned long timeout);
 
 #endif
