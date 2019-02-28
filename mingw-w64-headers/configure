@@ -590,7 +590,6 @@ ac_subst_vars='LTLIBOBJS
 LIBOBJS
 DEFAULT_MSVCRT_VERSION
 DEFAULT_WIN32_WINNT
-MINGW_HAS_SECURE_API
 IDLHEAD_LIST
 MINGW_HAS_DDK
 DDKHEAD_LIST
@@ -699,7 +698,6 @@ enable_w32api
 enable_crt
 enable_sdk
 enable_idl
-enable_secure_api
 with_default_win32_winnt
 with_default_msvcrt
 '
@@ -1337,7 +1335,6 @@ Optional Features:
   --enable-sdk=ARG        Add the desired SDK, where ARG can be one of ddk,
                           directx, no or all. Default is all.
   --enable-idl            Enable installing idl files
-  --enable-secure-api     Expose secure API prototypes
 
 Optional Packages:
   --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
@@ -2798,24 +2795,6 @@ if test "x$enable_idl" = xyes; then :
   IDLHEAD_LIST=$srcdir/include/*.idl" "$srcdir/tlb/*.tlb
 else
   IDLHEAD_LIST=""
-fi
-
-
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to enable the secure API" >&5
-$as_echo_n "checking whether to enable the secure API... " >&6; }
-# Check whether --enable-secure-api was given.
-if test "${enable_secure_api+set}" = set; then :
-  enableval=$enable_secure_api;
-else
-  enable_secure_api=no
-fi
-
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $enable_secure_api" >&5
-$as_echo "$enable_secure_api" >&6; }
-if test "x$enable_secure_api" = xyes; then :
-  MINGW_HAS_SECURE_API="#define MINGW_HAS_SECURE_API 1"
-else
-  MINGW_HAS_SECURE_API=""
 fi
 
 

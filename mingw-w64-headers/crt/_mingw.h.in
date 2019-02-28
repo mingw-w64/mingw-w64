@@ -7,8 +7,6 @@
 #ifndef _INC__MINGW_H
 #define _INC__MINGW_H
 
-@MINGW_HAS_SECURE_API@
-
 #include "_mingw_mac.h"
 #include "_mingw_secapi.h"
 
@@ -595,10 +593,13 @@ const char *__mingw_get_crt_info (void);
 #ifndef MINGW_SDK_INIT
 #define MINGW_SDK_INIT
 
-#ifdef MINGW_HAS_SECURE_API
+/* for backward compatibility */
+#ifndef MINGW_HAS_SECURE_API
+#define MINGW_HAS_SECURE_API 1
+#ednif
+
 #define __STDC_SECURE_LIB__ 200411L
 #define __GOT_SECURE_LIB__ __STDC_SECURE_LIB__
-#endif
 
 #ifndef __WIDL__
 #include "sdks/_mingw_directx.h"

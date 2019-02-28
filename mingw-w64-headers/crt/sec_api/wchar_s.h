@@ -8,8 +8,6 @@
 
 #include <wchar.h>
 
-#if defined(MINGW_HAS_SECURE_API)
-
 #if defined(__LIBMSVCRT__)
 /* When building mingw-w64, this should be blank.  */
 #define _SECIMP
@@ -372,5 +370,4 @@ __CRT_INLINE errno_t __cdecl _wctime_s(wchar_t *_Buffer,size_t _SizeInWords,cons
 }
 #endif
 
-#endif
 #endif

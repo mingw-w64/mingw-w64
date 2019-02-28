@@ -140,18 +140,6 @@ AS_VAR_IF([enable_idl],[yes],
     [IDLHEAD_LIST=""])
 AC_SUBST([IDLHEAD_LIST])
 
-AC_MSG_CHECKING([whether to enable the secure API])
-AC_ARG_ENABLE([secure-api],
-  [AS_HELP_STRING([--enable-secure-api],
-    [Expose secure API prototypes])],
-  [],
-  [enable_secure_api=no])
-AC_MSG_RESULT([$enable_secure_api])
-AS_VAR_IF([enable_secure_api],[yes],
-  [MINGW_HAS_SECURE_API="#define MINGW_HAS_SECURE_API 1"],
-  [MINGW_HAS_SECURE_API=""])
-AC_SUBST([MINGW_HAS_SECURE_API])
-
 AC_MSG_CHECKING([default _WIN32_WINNT version])
 AC_ARG_WITH([default-win32-winnt],
   [AS_HELP_STRING([--with-default-win32-winnt=VER],
