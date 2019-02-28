@@ -6,7 +6,8 @@
 #ifndef _INC_WCHAR
 #define _INC_WCHAR
 
-#include <crtdefs.h>
+#include <corecrt.h>
+#include <corecrt_wstdlib.h>
 
 #if __USE_MINGW_ANSI_STDIO && !defined (__USE_MINGW_STRTOX)
 #define __USE_MINGW_STRTOX 1

@@ -6,7 +6,8 @@
 #ifndef _INC_STDLIB
 #define _INC_STDLIB
 
-#include <crtdefs.h>
+#include <corecrt.h>
+#include <corecrt_wstdlib.h>
 #include <limits.h>
 
 #if __USE_MINGW_ANSI_STDIO && !defined (__USE_MINGW_STRTOX)
