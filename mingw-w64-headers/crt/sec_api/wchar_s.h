@@ -266,8 +266,6 @@ extern "C" {
   __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_0(errno_t,_wtmpnam_s,wchar_t,_DstBuf)
 #endif /* _WSTDIO_S_DEFINED */
 
-#ifndef _POSIX_
-
 #ifndef _WSTRING_S_DEFINED
 #define _WSTRING_S_DEFINED
   _CRTIMP wchar_t *__cdecl wcstok_s(wchar_t *_Str,const wchar_t *_Delim,wchar_t **_Context);
