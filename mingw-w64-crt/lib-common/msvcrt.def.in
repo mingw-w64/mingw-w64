@@ -869,9 +869,8 @@ _memicmp
 _memicmp_l
 _mkdir
 _mkgmtime
-F_I386(_mkgmtime32)
-F_ARM_ANY(_mkgmtime32)
-F_NON_I386(_mkgmtime64)
+_mkgmtime32
+_mkgmtime64
 _mktemp
 ; _mktemp_s replaced by emu
 F_I386(_mktime32 == mktime)
