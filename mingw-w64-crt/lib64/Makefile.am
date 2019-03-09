@@ -348,6 +348,7 @@ lib64_DATA += %reldir%/libmsobmain.a
 lib64_DATA += %reldir%/libmsoeacct.a
 lib64_DATA += %reldir%/libmsoe.a
 lib64_DATA += %reldir%/libmsoert2.a
+lib64_DATA += %reldir%/libmsoledbsql.a
 lib64_DATA += %reldir%/libmspatcha.a
 lib64_DATA += %reldir%/libmsports.a
 lib64_DATA += %reldir%/libmsrating.a

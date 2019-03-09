@@ -178,6 +178,7 @@ lib32_DATA += %reldir%/libmshtml.a
 lib32_DATA += %reldir%/libmshtmled.a
 lib32_DATA += %reldir%/libmsi.a
 lib32_DATA += %reldir%/libmsimg32.a
+lib32_DATA += %reldir%/libmsoledbsql.a
 lib32_DATA += %reldir%/libmstask.a
 #lib32_DATA += %reldir%/libmsvcp60.a     # Specialized for W32API conditional
 lib32_DATA += %reldir%/libmsvfw32.a
