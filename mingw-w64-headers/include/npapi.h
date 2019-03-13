@@ -19,8 +19,8 @@ typedef DWORD (WINAPI *PF_NPGetConnection)(LPWSTR lpLocalName,LPWSTR lpRemoteNam
 typedef DWORD (WINAPI *PF_NPGetConnection3)(LPCWSTR lpLocalName,DWORD dwLevel,LPVOID lpBuffer,LPDWORD lpBufferSize);
 typedef DWORD (WINAPI *PF_NPGetConnectionPerformance)(LPCWSTR lpRemoteName,LPNETCONNECTINFOSTRUCT lpNetConnectInfo);
 typedef DWORD (WINAPI *PF_NPGetUniversalName)(LPWSTR lpLocalPath,DWORD dwInfoLevel,LPVOID lpBuffer,LPDWORD lpnBufferSize);
-typedef DWORD (WINAPI *PF_NPOpenEnum) (DWORD dwScope,DWORD dwType,DWORD dwUsage,LPNETRESOURCEW lpNetResource,LPHANDLE lphEnum);
-typedef DWORD (WINAPI *PF_NPEnumResource) (HANDLE hEnum,LPDWORD lpcCount,LPVOID lpBuffer,LPDWORD lpBufferSize);
+typedef DWORD (WINAPI *PF_NPOpenEnum)(DWORD dwScope,DWORD dwType,DWORD dwUsage,LPNETRESOURCEW lpNetResource,LPHANDLE lphEnum);
+typedef DWORD (WINAPI *PF_NPEnumResource)(HANDLE hEnum,LPDWORD lpcCount,LPVOID lpBuffer,LPDWORD lpBufferSize);
 
 DWORD WINAPI NPAddConnection(LPNETRESOURCEW lpNetResource,LPWSTR lpPassword,LPWSTR lpUserName);
 DWORD WINAPI NPAddConnection3(HWND hwndOwner,LPNETRESOURCEW lpNetResource,LPTSTR lpPassword,LPTSTR lpUserName,DWORD dwFlags);
@@ -29,11 +29,11 @@ DWORD WINAPI NPGetConnection(LPWSTR lpLocalName,LPWSTR lpRemoteName,LPDWORD lpnB
 DWORD WINAPI NPGetConnection3(LPCWSTR lpLocalName,DWORD dwLevel,LPVOID lpBuffer,LPDWORD lpBufferSize);
 DWORD WINAPI NPGetConnectionPerformance(LPCWSTR lpRemoteName,LPNETCONNECTINFOSTRUCT lpNetConnectInfo);
 DWORD WINAPI NPGetUniversalName(LPWSTR lpLocalPath,DWORD dwInfoLevel,LPVOID lpBuffer,LPDWORD lpBufferSize);
-DWORD WINAPI NPOpenEnum (DWORD dwScope,DWORD dwType,DWORD dwUsage,LPNETRESOURCEW lpNetResource,LPHANDLE lphEnum);
-DWORD WINAPI NPEnumResource (HANDLE hEnum,LPDWORD lpcCount,LPVOID lpBuffer,LPDWORD lpBufferSize);
-DWORD WINAPI NPCloseEnum (HANDLE hEnum);
+DWORD WINAPI NPOpenEnum(DWORD dwScope,DWORD dwType,DWORD dwUsage,LPNETRESOURCEW lpNetResource,LPHANDLE lphEnum);
+DWORD WINAPI NPEnumResource(HANDLE hEnum,LPDWORD lpcCount,LPVOID lpBuffer,LPDWORD lpBufferSize);
+DWORD WINAPI NPCloseEnum(HANDLE hEnum);
 
-typedef DWORD (*PF_NPCloseEnum) (HANDLE hEnum);
+typedef DWORD (*PF_NPCloseEnum)(HANDLE hEnum);
 
 #define WNNC_SPEC_VERSION 0x00000001
 #define WNNC_SPEC_VERSION51 0x00050001
