@@ -302,6 +302,7 @@ libarm64_DATA += %reldir%/libws2help.a
 libarm64_DATA += %reldir%/libwscapi.a
 libarm64_DATA += %reldir%/libwscsvc.a
 libarm64_DATA += %reldir%/libwshbth.a
+libarm64_DATA += %reldir%/libwslapi.a
 libarm64_DATA += %reldir%/libwsock32.a
 libarm64_DATA += %reldir%/libwtsapi32.a
 libarm64_DATA += %reldir%/libxaudio2_8.a
