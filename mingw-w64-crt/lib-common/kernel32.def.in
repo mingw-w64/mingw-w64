@@ -1675,11 +1675,17 @@ lstrcpynW
 lstrlen
 lstrlenA
 lstrlenW
-timeBeginPeriod
-timeEndPeriod
-timeGetDevCaps
-timeGetSystemTime
-timeGetTime
+;
+; MSDN says these functions are exported
+; from winmm.dll. Commented out for
+; compatibility with older versions of
+; Windows.
+;
+;timeBeginPeriod
+;timeEndPeriod
+;timeGetDevCaps
+;timeGetSystemTime
+;timeGetTime
 uaw_lstrcmpW
 uaw_lstrcmpiW
 uaw_lstrlenW
