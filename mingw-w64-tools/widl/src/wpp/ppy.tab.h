@@ -1,4 +1,4 @@
-/* A Bison parser, made by GNU Bison 3.0.5.  */
+/* A Bison parser, made by GNU Bison 3.1.  */
 
 /* Bison interface for Yacc-like parsers in C
 
@@ -96,21 +96,21 @@ extern int ppy_debug;
 
 union YYSTYPE
 {
-#line 126 "ppy.y" /* yacc.c:1910  */
+#line 126 "ppy.y" /* yacc.c:1913  */
 
 	int		sint;
 	unsigned int	uint;
 	long		slong;
 	unsigned long	ulong;
-	wrc_sll_t	sll;
-	wrc_ull_t	ull;
+	__int64		sll;
+	unsigned __int64 ull;
 	int		*iptr;
 	char		*cptr;
 	cval_t		cval;
 	marg_t		*marg;
 	mtext_t		*mtext;
 
-#line 114 "ppy.tab.h" /* yacc.c:1910  */
+#line 114 "ppy.tab.h" /* yacc.c:1913  */
 };
 
 typedef union YYSTYPE YYSTYPE;
