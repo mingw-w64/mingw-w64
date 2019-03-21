@@ -190,6 +190,7 @@ IDL_SRCS = \
   include/windows.security.cryptography.idl \
   include/windows.storage.idl \
   include/windows.storage.streams.idl \
+  include/windows.system.idl \
   include/windows.system.threading.idl \
   include/wmcodecdsp.idl \
   include/wmdrmsdk.idl \
