@@ -430,7 +430,7 @@ _cwscanf
 _cwscanf_l
 _cwscanf_s
 _cwscanf_s_l
-_decode_pointer DATA
+_decode_pointer
 _difftime32
 _difftime64
 _dosmaperr
@@ -440,7 +440,7 @@ _dup2
 _dupenv_s
 _ecvt
 _ecvt_s
-_encode_pointer DATA
+_encode_pointer
 _encoded_null
 _endthread
 _endthreadex
