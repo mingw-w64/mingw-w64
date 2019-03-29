@@ -192,7 +192,7 @@ _aligned_offset_malloc
 _aligned_offset_realloc
 _aligned_realloc
 _amsg_exit
-_assert DATA
+_assert
 _atodbl
 _atoi64
 _atoldbl

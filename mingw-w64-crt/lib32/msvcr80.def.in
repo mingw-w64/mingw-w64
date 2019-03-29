@@ -111,7 +111,7 @@ _adj_fptan
 _adjust_fdiv DATA
 _aexit_rtn DATA
 _amsg_exit
-_assert DATA
+_assert
 _atodbl
 _atoi64
 _atoldbl

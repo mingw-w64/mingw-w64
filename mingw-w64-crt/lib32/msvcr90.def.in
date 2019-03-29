@@ -356,7 +356,7 @@ _aligned_offset_recalloc
 _aligned_realloc
 _aligned_recalloc
 _amsg_exit
-_assert DATA
+_assert
 _atodbl
 _atodbl_l
 _atof_l

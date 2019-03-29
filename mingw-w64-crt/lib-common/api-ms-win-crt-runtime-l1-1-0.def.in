@@ -24,7 +24,7 @@ __threadid
 __wcserror
 __wcserror_s
 ; DATA set manually
-_assert DATA
+_assert
 _beginthread
 _beginthreadex
 _c_exit

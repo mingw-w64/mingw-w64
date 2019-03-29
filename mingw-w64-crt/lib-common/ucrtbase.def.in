@@ -203,7 +203,7 @@ _aligned_offset_recalloc
 _aligned_realloc
 _aligned_recalloc
 ; DATA set manually
-_assert DATA
+_assert
 _atodbl
 _atodbl_l
 _atof_l

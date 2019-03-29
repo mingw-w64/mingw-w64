@@ -349,7 +349,7 @@ _aligned_realloc_dbg
 _aligned_recalloc
 _aligned_recalloc_dbg
 _amsg_exit
-_assert DATA
+_assert
 _atodbl
 _atodbl_l
 _atof_l
