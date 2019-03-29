@@ -557,6 +557,7 @@ vsnprintf == _vsnprintf
 _vsnwprintf
 _waccess
 _wasctime
+_wassert
 _wchdir
 _wchmod
 _wcmdln DATA

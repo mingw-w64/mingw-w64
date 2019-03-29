@@ -800,6 +800,7 @@ _strtoui64
 _ungetwch
 _vscprintf
 _vscwprintf
+_wassert
 _wcserror
 _wcstoi64
 _wcstoui64

@@ -231,7 +231,8 @@ src_ucrtbase=\
 
 src_msvcrt32=\
   $(src_msvcrt) \
-  misc/lc_locale_func.c
+  misc/lc_locale_func.c \
+  misc/wassert.c
 
 src_msvcrt64=\
   $(src_msvcrt) \
@@ -327,7 +328,7 @@ src_libmingwex=\
   misc/spawnve.c         misc/spawnvp.c             misc/spawnvpe.c         misc/strnlen.c               misc/strsafe.c         \
   misc/strtoimax.c       misc/strtold.c             misc/strtoumax.c        misc/tdelete.c               misc/tfind.c           \
   misc/tsearch.c         misc/twalk.c               misc/uchar_c16rtomb.c   misc/uchar_c32rtomb.c        misc/uchar_mbrtoc16.c  \
-  misc/uchar_mbrtoc32.c  misc/wassert.c             misc/wcrtomb.c          misc/wcsnlen.c               misc/wcstof.c          \
+  misc/uchar_mbrtoc32.c  misc/wcrtomb.c             misc/wcsnlen.c          misc/wcstof.c          \
   misc/wcstoimax.c       misc/wcstold.c             misc/wcstoumax.c        misc/wctob.c                 misc/wctrans.c         \
   misc/wctype.c          misc/wdirent.c             misc/winbs_uint64.c     misc/winbs_ulong.c           misc/winbs_ushort.c    \
   misc/wmemchr.c         misc/wmemcmp.c             misc/wmemcpy.c          misc/wmemmove.c              misc/wmempcpy.c        \

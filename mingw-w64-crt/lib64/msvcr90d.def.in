@@ -1146,7 +1146,7 @@ _waccess
 _waccess_s
 _wasctime
 _wasctime_s
-_wassert DATA
+_wassert
 _wchdir
 _wchmod
 _wcmdln DATA

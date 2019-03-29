@@ -1138,7 +1138,7 @@ _waccess
 ; _waccess_s Replaced by emu
 _wasctime
 ; _wasctime_s Replaced by emu
-F_ARM_ANY(_wassert)
+F_NON_I386(_wassert)
 _wchdir
 _wchmod
 _wcmdln DATA
