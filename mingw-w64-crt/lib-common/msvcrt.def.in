@@ -226,7 +226,8 @@ _CrtSetReportHook
 _CrtSetReportHook2
 _CrtSetReportMode
 #endif
-_CxxThrowException
+F_I386(_CxxThrowException@8)
+F_NON_I386(_CxxThrowException)
 F_I386(_EH_prolog)
 _Getdays
 _Getmonths

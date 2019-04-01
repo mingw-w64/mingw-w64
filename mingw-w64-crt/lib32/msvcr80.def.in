@@ -19,7 +19,7 @@ _CIsinh
 _CIsqrt
 _CItan
 _CItanh
-_CxxThrowException
+_CxxThrowException@8
 _EH_prolog
 _Getdays
 _Getmonths
