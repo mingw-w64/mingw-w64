@@ -217,18 +217,20 @@ void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp (void);
 #      define setjmp(BUF) __mingw_setjmp((BUF))
 #      define longjmp __mingw_longjmp
   int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) __mingw_setjmp(jmp_buf _Buf);
-#    else
+#    elif defined(__SEH__)
 #     if (__MINGW_GCC_VERSION < 40702)
 #      define setjmp(BUF) _setjmp((BUF), mingw_getsp())
 #     else
 #      define setjmp(BUF) _setjmp((BUF), __builtin_frame_address (0))
 #     endif
+#    else
+#     define setjmp(BUF) _setjmp((BUF), NULL)
 #    endif
   int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp(jmp_buf _Buf, void *_Ctx);
   int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) _setjmp3(jmp_buf _Buf, void *_Ctx);
 #  else
 #    undef setjmp
-#    ifdef _WIN64
+#    ifdef __SEH__
 #     if (__MINGW_GCC_VERSION < 40702)
 #      define setjmp(BUF) _setjmpex((BUF), mingw_getsp())
 #      define setjmpex(BUF) _setjmpex((BUF), mingw_getsp())
