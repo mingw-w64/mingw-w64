@@ -544,7 +544,8 @@ F_I386(_ftol)
 _fullpath
 F_ARM_ANY(_fullpath_dbg)
 _futime
-F_ARM_ANY(_futime32)
+F_I386(_futime32 == _futime)
+F_NON_I386(_futime32)
 _futime64
 _fwprintf_l
 _fwprintf_p
