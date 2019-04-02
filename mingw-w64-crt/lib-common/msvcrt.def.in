@@ -1079,7 +1079,8 @@ _unlink
 F_X86_ANY(_unloaddll)
 _unlock
 _utime
-F_ARM_ANY(_utime32)
+F_I386(_utime32 == _utime)
+F_NON_I386(_utime32)
 _utime64
 _vcprintf
 _vcprintf_l
@@ -1291,7 +1292,8 @@ _wtol
 _wtol_l
 _wunlink
 _wutime
-F_ARM_ANY(_wutime32)
+F_I386(_wutime32 == _wutime)
+F_NON_I386(_wutime32)
 _wutime64
 _y0
 _y1
