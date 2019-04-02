@@ -131,6 +131,8 @@ ADD_UNDERSCORE(hypot)
 ;logb
 ADD_UNDERSCORE(nextafter)
 
+longjmp
+
 #ifndef UCRTBASE
 _daylight DATA
 _timezone DATA
@@ -140,6 +142,4 @@ ADD_UNDERSCORE(timezone)
 ADD_UNDERSCORE(tzname)
 
 ADD_UNDERSCORE(vsnprintf_s)
-
-longjmp DATA
 #endif

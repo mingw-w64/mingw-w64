@@ -599,7 +599,7 @@ localtime DATA
 ;_localtime32 = localtime
 log
 log10
-longjmp DATA
+longjmp
 malloc
 mblen
 mbstowcs

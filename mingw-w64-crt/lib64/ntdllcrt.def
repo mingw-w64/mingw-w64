@@ -118,7 +118,7 @@ iswxdigit
 isxdigit
 labs
 log
-longjmp DATA
+longjmp
 mbstowcs
 memchr
 memcmp

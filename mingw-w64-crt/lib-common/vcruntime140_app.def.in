@@ -80,7 +80,7 @@ F_I386(_seh_longjmp_unwind@4)
 _set_purecall_handler
 _set_se_translator
 F_I386(_setjmp3)
-longjmp F_X86_ANY(DATA)
+longjmp
 memchr
 memcmp
 memcpy

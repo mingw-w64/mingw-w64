@@ -1414,7 +1414,6 @@ log F_X86_ANY(DATA)
 log10
 F_NON_I386(log10f F_X86_ANY(DATA))
 F_NON_I386(logf F_X86_ANY(DATA))
-F_ARM_ANY(longjmp)
 malloc
 mblen
 F_ARM_ANY(mbrlen)

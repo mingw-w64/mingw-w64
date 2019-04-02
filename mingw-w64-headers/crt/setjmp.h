@@ -200,6 +200,8 @@ extern "C" {
 #define _JMP_BUF_DEFINED
 #endif
 
+_CRTIMP __MINGW_ATTRIB_NORETURN __attribute__ ((__nothrow__)) void __cdecl longjmp(jmp_buf _Buf,int _Value);
+
 void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp (void);
 
 #if !defined(USE_NO_MINGW_SETJMP_TWO_ARGS)
@@ -217,6 +219,7 @@ void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp (void);
 #      define setjmp(BUF) __mingw_setjmp((BUF))
 #      define longjmp __mingw_longjmp
   int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) __mingw_setjmp(jmp_buf _Buf);
+  __MINGW_ATTRIB_NORETURN __attribute__ ((__nothrow__)) void __mingw_longjmp(jmp_buf _Buf,int _Value);
 #    elif defined(__SEH__)
 #     if (__MINGW_GCC_VERSION < 40702)
 #      define setjmp(BUF) _setjmp((BUF), mingw_getsp())
@@ -253,9 +256,6 @@ void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp (void);
 
   int __cdecl __attribute__ ((__nothrow__,__returns_twice__)) setjmp(jmp_buf _Buf);
 #endif
-
-  __MINGW_ATTRIB_NORETURN __attribute__ ((__nothrow__)) void __cdecl ms_longjmp(jmp_buf _Buf,int _Value)/* throw(...)*/;
-  __MINGW_ATTRIB_NORETURN __attribute__ ((__nothrow__)) void __cdecl longjmp(jmp_buf _Buf,int _Value);
 
 #ifdef __cplusplus
 }
