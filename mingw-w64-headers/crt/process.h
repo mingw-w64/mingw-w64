@@ -190,10 +190,10 @@ extern "C" {
   intptr_t __cdecl execvp(const char *_Filename,char *const _ArgList[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   intptr_t __cdecl execvpe(const char *_Filename,char *const _ArgList[],char *const _Env[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
-  intptr_t __cdecl spawnv(int,const char *_Filename,char *const _ArgList[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-  intptr_t __cdecl spawnve(int,const char *_Filename,char *const _ArgList[],char *const _Env[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-  intptr_t __cdecl spawnvp(int,const char *_Filename,char *const _ArgList[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-  intptr_t __cdecl spawnvpe(int,const char *_Filename,char *const _ArgList[],char *const _Env[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  _CRTIMP intptr_t __cdecl spawnv(int,const char *_Filename,char *const _ArgList[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  _CRTIMP intptr_t __cdecl spawnve(int,const char *_Filename,char *const _ArgList[],char *const _Env[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  _CRTIMP intptr_t __cdecl spawnvp(int,const char *_Filename,char *const _ArgList[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  _CRTIMP intptr_t __cdecl spawnvpe(int,const char *_Filename,char *const _ArgList[],char *const _Env[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 
 #ifdef __cplusplus
