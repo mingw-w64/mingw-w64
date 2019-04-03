@@ -180,15 +180,15 @@ extern "C" {
      stupid warnings, define them in POSIX way.  This is save, because those
      methods do not return in success case, so that the return value is not
      really dependent to its scalar width.  */
-  int __cdecl execv(const char *_Filename,char *const _ArgList[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-  int __cdecl execve(const char *_Filename,char *const _ArgList[],char *const _Env[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-  int __cdecl execvp(const char *_Filename,char *const _ArgList[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-  int __cdecl execvpe(const char *_Filename,char *const _ArgList[],char *const _Env[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  _CRTIMP int __cdecl execv(const char *_Filename,char *const _ArgList[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  _CRTIMP int __cdecl execve(const char *_Filename,char *const _ArgList[],char *const _Env[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  _CRTIMP int __cdecl execvp(const char *_Filename,char *const _ArgList[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  _CRTIMP int __cdecl execvpe(const char *_Filename,char *const _ArgList[],char *const _Env[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #else
-  intptr_t __cdecl execv(const char *_Filename,char *const _ArgList[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-  intptr_t __cdecl execve(const char *_Filename,char *const _ArgList[],char *const _Env[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-  intptr_t __cdecl execvp(const char *_Filename,char *const _ArgList[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-  intptr_t __cdecl execvpe(const char *_Filename,char *const _ArgList[],char *const _Env[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  _CRTIMP intptr_t __cdecl execv(const char *_Filename,char *const _ArgList[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  _CRTIMP intptr_t __cdecl execve(const char *_Filename,char *const _ArgList[],char *const _Env[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  _CRTIMP intptr_t __cdecl execvp(const char *_Filename,char *const _ArgList[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+  _CRTIMP intptr_t __cdecl execvpe(const char *_Filename,char *const _ArgList[],char *const _Env[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
   _CRTIMP intptr_t __cdecl spawnv(int,const char *_Filename,char *const _ArgList[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   _CRTIMP intptr_t __cdecl spawnve(int,const char *_Filename,char *const _ArgList[],char *const _Env[]) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
