@@ -119,6 +119,7 @@ src_libmingw32=include/oscalls.h include/internal.h include/sect_attribs.h \
   crt/cinitexe.c      crt/crt0_w.c         crt/merr.c      crt/pesect.c      crt/udllargc.c  crt/xthdloc.c            crt/CRT_fp10.c \
   crt/mingw_custom.c  crt/mingw_helpers.c  \
   crt/pseudo-reloc.c  crt/udll_argv.c      \
+  crt/usermatherr.c   \
   crt/xtxtmode.c      crt/crt_handler.c    \
   crt/tlsthrd.c       crt/tlsmthread.c     crt/tlsmcrt.c   crt/cxa_atexit.c
 
