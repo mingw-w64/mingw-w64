@@ -215,39 +215,28 @@ extern "C" {
 
 #ifndef RC_INVOKED
 
-#if __MSVCRT_VERSION__ >= 0x1400
-#define __TIME_INLINE __mingw_static_ovr
-#else
-#define __TIME_INLINE __CRT_INLINE
-#endif
-#if !defined(_USE_32BIT_TIME_T)
-__TIME_INLINE double __cdecl difftime(time_t _Time1,time_t _Time2)
-  { return _difftime64(_Time1,_Time2); }
-__TIME_INLINE char *__cdecl ctime(const time_t *_Time) { return _ctime64(_Time); }
-__TIME_INLINE struct tm *__cdecl gmtime(const time_t *_Time) { return _gmtime64(_Time); }
-__TIME_INLINE struct tm *__cdecl localtime(const time_t *_Time) { return _localtime64(_Time); }
-__TIME_INLINE time_t __cdecl mktime(struct tm *_Tm) { return _mktime64(_Tm); }
-__TIME_INLINE time_t __cdecl _mkgmtime(struct tm *_Tm) { return _mkgmtime64(_Tm); }
-__TIME_INLINE time_t __cdecl time(time_t *_Time) { return _time64(_Time); }
-#else
-__TIME_INLINE double __cdecl difftime(time_t _Time1,time_t _Time2)
-  { return _difftime32(_Time1,_Time2); }
-__TIME_INLINE char *__cdecl ctime(const time_t *_Time) { return _ctime32(_Time); }
-__TIME_INLINE struct tm *__cdecl localtime(const time_t *_Time) { return _localtime32(_Time); }
-__TIME_INLINE time_t __cdecl mktime(struct tm *_Tm) { return _mktime32(_Tm); }
-__TIME_INLINE struct tm *__cdecl gmtime(const time_t *_Time) { return _gmtime32(_Time); }
-__TIME_INLINE time_t __cdecl _mkgmtime(struct tm *_Tm) { return _mkgmtime32(_Tm); }
-__TIME_INLINE time_t __cdecl time(time_t *_Time) { return _time32(_Time); }
-#endif /* !_USE_32BIT_TIME_T */
-
 #ifdef _USE_32BIT_TIME_T
+__forceinline time_t __cdecl time(time_t *_Time) { return _time32(_Time); }
+__forceinline double __cdecl difftime(time_t _Time1,time_t _Time2)  { return _difftime32(_Time1,_Time2); }
+__forceinline struct tm *__cdecl localtime(const time_t *_Time) { return _localtime32(_Time); }
 __forceinline errno_t __cdecl localtime_s(struct tm *_Tm,const time_t *_Time) { return _localtime32_s(_Tm,_Time); }
+__forceinline struct tm *__cdecl gmtime(const time_t *_Time) { return _gmtime32(_Time); }
 __forceinline errno_t __cdecl gmtime_s(struct tm *_Tm, const time_t *_Time)   { return _gmtime32_s(_Tm, _Time); }
+__forceinline char *__cdecl ctime(const time_t *_Time) { return _ctime32(_Time); }
 __forceinline errno_t __cdecl ctime_s(char *_Buf,size_t _SizeInBytes,const time_t *_Time) { return _ctime32_s(_Buf,_SizeInBytes,_Time); }
+__forceinline time_t __cdecl mktime(struct tm *_Tm) { return _mktime32(_Tm); }
+__forceinline time_t __cdecl _mkgmtime(struct tm *_Tm) { return _mkgmtime32(_Tm); }
 #else
+__forceinline time_t __cdecl time(time_t *_Time) { return _time64(_Time); }
+__forceinline double __cdecl difftime(time_t _Time1,time_t _Time2) { return _difftime64(_Time1,_Time2); }
+__forceinline struct tm *__cdecl localtime(const time_t *_Time) { return _localtime64(_Time); }
 __forceinline errno_t __cdecl localtime_s(struct tm *_Tm,const time_t *_Time) { return _localtime64_s(_Tm,_Time); }
+__forceinline struct tm *__cdecl gmtime(const time_t *_Time) { return _gmtime64(_Time); }
 __forceinline errno_t __cdecl gmtime_s(struct tm *_Tm, const time_t *_Time) { return _gmtime64_s(_Tm, _Time); }
+__forceinline char *__cdecl ctime(const time_t *_Time) { return _ctime64(_Time); }
 __forceinline errno_t __cdecl ctime_s(char *_Buf,size_t _SizeInBytes,const time_t *_Time) { return _ctime64_s(_Buf,_SizeInBytes,_Time); }
+__forceinline time_t __cdecl mktime(struct tm *_Tm) { return _mktime64(_Tm); }
+__forceinline time_t __cdecl _mkgmtime(struct tm *_Tm) { return _mkgmtime64(_Tm); }
 #endif
 
 #endif /* !RC_INVOKED */
