@@ -431,8 +431,8 @@ _cwscanf_l
 _cwscanf_s
 _cwscanf_s_l
 _decode_pointer DATA
-_difftime32 DATA
-_difftime64 DATA
+_difftime32
+_difftime64
 _dosmaperr
 _dstbias DATA
 _dup

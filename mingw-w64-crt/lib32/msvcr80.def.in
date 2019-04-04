@@ -141,6 +141,8 @@ _creat
 _cscanf
 _ctype DATA
 _cwait
+_difftime32
+_difftime64
 _dstbias DATA
 _dup
 _dup2

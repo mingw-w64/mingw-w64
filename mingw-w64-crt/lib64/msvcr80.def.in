@@ -231,6 +231,8 @@ _ctype
 _cwait
 _cwprintf
 _cwscanf
+_difftime32
+_difftime64
 _dstbias DATA
 _dup
 _dup2

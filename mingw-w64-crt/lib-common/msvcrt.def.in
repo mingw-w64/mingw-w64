@@ -456,8 +456,8 @@ _cwscanf_s
 _cwscanf_s_l
 _dstbias DATA
 F_ARM_ANY(_daylight DATA)
-F_ARM_ANY(_difftime32)
-F_ARM_ANY(_difftime64)
+_difftime32 F_I386(== difftime)
+_difftime64
 _dup
 _dup2
 _ecvt
