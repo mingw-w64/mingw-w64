@@ -143,6 +143,14 @@ typedef __time64_t time_t;
 #define _CRT_SECURE_CPP_NOTHROW throw()
 #endif
 
+#ifndef __CRTDECL
+#if !defined(__cplusplus) && defined(__GNUC__)
+#define __CRTDECL __cdecl __attribute__ ((__unused__))
+#else
+#define __CRTDECL __cdecl
+#endif
+#endif
+
 #if defined(__cplusplus) && _CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES
 
 #define __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_0(__ret,__func,__dsttype,__dst) \

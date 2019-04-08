@@ -216,27 +216,27 @@ extern "C" {
 #ifndef RC_INVOKED
 
 #ifdef _USE_32BIT_TIME_T
-__forceinline time_t __cdecl time(time_t *_Time) { return _time32(_Time); }
-__forceinline double __cdecl difftime(time_t _Time1,time_t _Time2)  { return _difftime32(_Time1,_Time2); }
-__forceinline struct tm *__cdecl localtime(const time_t *_Time) { return _localtime32(_Time); }
-__forceinline errno_t __cdecl localtime_s(struct tm *_Tm,const time_t *_Time) { return _localtime32_s(_Tm,_Time); }
-__forceinline struct tm *__cdecl gmtime(const time_t *_Time) { return _gmtime32(_Time); }
-__forceinline errno_t __cdecl gmtime_s(struct tm *_Tm, const time_t *_Time)   { return _gmtime32_s(_Tm, _Time); }
-__forceinline char *__cdecl ctime(const time_t *_Time) { return _ctime32(_Time); }
-__forceinline errno_t __cdecl ctime_s(char *_Buf,size_t _SizeInBytes,const time_t *_Time) { return _ctime32_s(_Buf,_SizeInBytes,_Time); }
-__forceinline time_t __cdecl mktime(struct tm *_Tm) { return _mktime32(_Tm); }
-__forceinline time_t __cdecl _mkgmtime(struct tm *_Tm) { return _mkgmtime32(_Tm); }
+static __inline time_t __CRTDECL time(time_t *_Time) { return _time32(_Time); }
+static __inline double __CRTDECL difftime(time_t _Time1,time_t _Time2)  { return _difftime32(_Time1,_Time2); }
+static __inline struct tm *__CRTDECL localtime(const time_t *_Time) { return _localtime32(_Time); }
+static __inline errno_t __CRTDECL localtime_s(struct tm *_Tm,const time_t *_Time) { return _localtime32_s(_Tm,_Time); }
+static __inline struct tm *__CRTDECL gmtime(const time_t *_Time) { return _gmtime32(_Time); }
+static __inline errno_t __CRTDECL gmtime_s(struct tm *_Tm, const time_t *_Time)   { return _gmtime32_s(_Tm, _Time); }
+static __inline char *__CRTDECL ctime(const time_t *_Time) { return _ctime32(_Time); }
+static __inline errno_t __CRTDECL ctime_s(char *_Buf,size_t _SizeInBytes,const time_t *_Time) { return _ctime32_s(_Buf,_SizeInBytes,_Time); }
+static __inline time_t __CRTDECL mktime(struct tm *_Tm) { return _mktime32(_Tm); }
+static __inline time_t __CRTDECL _mkgmtime(struct tm *_Tm) { return _mkgmtime32(_Tm); }
 #else
-__forceinline time_t __cdecl time(time_t *_Time) { return _time64(_Time); }
-__forceinline double __cdecl difftime(time_t _Time1,time_t _Time2) { return _difftime64(_Time1,_Time2); }
-__forceinline struct tm *__cdecl localtime(const time_t *_Time) { return _localtime64(_Time); }
-__forceinline errno_t __cdecl localtime_s(struct tm *_Tm,const time_t *_Time) { return _localtime64_s(_Tm,_Time); }
-__forceinline struct tm *__cdecl gmtime(const time_t *_Time) { return _gmtime64(_Time); }
-__forceinline errno_t __cdecl gmtime_s(struct tm *_Tm, const time_t *_Time) { return _gmtime64_s(_Tm, _Time); }
-__forceinline char *__cdecl ctime(const time_t *_Time) { return _ctime64(_Time); }
-__forceinline errno_t __cdecl ctime_s(char *_Buf,size_t _SizeInBytes,const time_t *_Time) { return _ctime64_s(_Buf,_SizeInBytes,_Time); }
-__forceinline time_t __cdecl mktime(struct tm *_Tm) { return _mktime64(_Tm); }
-__forceinline time_t __cdecl _mkgmtime(struct tm *_Tm) { return _mkgmtime64(_Tm); }
+static __inline time_t __CRTDECL time(time_t *_Time) { return _time64(_Time); }
+static __inline double __CRTDECL difftime(time_t _Time1,time_t _Time2) { return _difftime64(_Time1,_Time2); }
+static __inline struct tm *__CRTDECL localtime(const time_t *_Time) { return _localtime64(_Time); }
+static __inline errno_t __CRTDECL localtime_s(struct tm *_Tm,const time_t *_Time) { return _localtime64_s(_Tm,_Time); }
+static __inline struct tm *__CRTDECL gmtime(const time_t *_Time) { return _gmtime64(_Time); }
+static __inline errno_t __CRTDECL gmtime_s(struct tm *_Tm, const time_t *_Time) { return _gmtime64_s(_Tm, _Time); }
+static __inline char *__CRTDECL ctime(const time_t *_Time) { return _ctime64(_Time); }
+static __inline errno_t __CRTDECL ctime_s(char *_Buf,size_t _SizeInBytes,const time_t *_Time) { return _ctime64_s(_Buf,_SizeInBytes,_Time); }
+static __inline time_t __CRTDECL mktime(struct tm *_Tm) { return _mktime64(_Tm); }
+static __inline time_t __CRTDECL _mkgmtime(struct tm *_Tm) { return _mkgmtime64(_Tm); }
 #endif
 
 #endif /* !RC_INVOKED */
@@ -282,16 +282,16 @@ struct timezone {
 #endif
 
 #ifdef _POSIX_THREAD_SAFE_FUNCTIONS
-__forceinline struct tm *__cdecl localtime_r(const time_t *_Time, struct tm *_Tm) {
+static __inline struct tm *__CRTDECL localtime_r(const time_t *_Time, struct tm *_Tm) {
   return localtime_s(_Tm, _Time) ? NULL : _Tm;
 }
-__forceinline struct tm *__cdecl gmtime_r(const time_t *_Time, struct tm *_Tm) {
+static __inline struct tm *__CRTDECL gmtime_r(const time_t *_Time, struct tm *_Tm) {
   return gmtime_s(_Tm, _Time) ? NULL : _Tm;
 }
-__forceinline char *__cdecl ctime_r(const time_t *_Time, char *_Str) {
+static __inline char *__CRTDECL ctime_r(const time_t *_Time, char *_Str) {
   return ctime_s(_Str, 0x7fffffff, _Time) ? NULL : _Str;
 }
-__forceinline char *__cdecl asctime_r(const struct tm *_Tm, char * _Str) {
+static __inline char *__CRTDECL asctime_r(const struct tm *_Tm, char * _Str) {
   return asctime_s(_Str, 0x7fffffff, _Tm) ? NULL : _Str;
 }
 #endif
