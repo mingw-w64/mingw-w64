@@ -292,6 +292,31 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
 #endif
 
 #ifndef _POSIX_
+#if (defined(_ARM_) || defined(__arm__) || defined(_ARM64_) || defined(__aarch64__)) && (__MSVCRT_VERSION__ == 0x700)
+  /* The plain msvcrt.dll for arm/aarch64 lacks _environ/_wenviron */
+  _CRTIMP void __cdecl _get_environ(char ***);
+  _CRTIMP void __cdecl _get_wenviron(wchar_t ***);
+
+  static __inline char **__get_environ_ptr(void) {
+    char **__ptr;
+    _get_environ(&__ptr);
+    return __ptr;
+  }
+
+  static __inline wchar_t **__get_wenviron_ptr(void) {
+    wchar_t **__ptr;
+    _get_wenviron(&__ptr);
+    return __ptr;
+  }
+
+#ifndef _environ
+#define _environ (__get_environ_ptr())
+#endif
+
+#ifndef _wenviron
+#define _wenviron (__get_wenviron_ptr())
+#endif
+#else /* ARM/ARM64 && __MSVCRT_VERSION__ == 0x700 */
 #ifndef _environ
   extern char *** __MINGW_IMP_SYMBOL(_environ);
 #define _environ (* __MINGW_IMP_SYMBOL(_environ))
@@ -301,6 +326,7 @@ _CRTIMP int __cdecl ___mb_cur_max_func(void);
   extern wchar_t *** __MINGW_IMP_SYMBOL(_wenviron);
 #define _wenviron (* __MINGW_IMP_SYMBOL(_wenviron))
 #endif
+#endif /* !ARM/ARM64 || __MSVCRT_VERSION__ != 0x700 */
 #endif /* !_POSIX_ */
 
 #ifndef _pgmptr
