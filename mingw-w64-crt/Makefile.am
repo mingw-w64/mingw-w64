@@ -249,8 +249,31 @@ src_msvcrtarm32=\
   misc/__p__fmode.c \
   misc/__p__wcmdln.c
 
+if !ENABLE_SOFTMATH
+src_msvcrtarm32+=\
+  math/arm/exp2.c \
+  math/arm/nearbyint.S \
+  math/arm/nearbyintf.S \
+  math/arm/nearbyintl.S \
+  math/arm/trunc.S \
+  math/arm/truncf.S \
+  math/arm-common/copysignl.c \
+  math/arm-common/log2.c \
+  math/arm-common/scalbn.c
+endif
+
 src_msvcrtarm64=\
   $(src_msvcrt) \
+  math/arm-common/copysignl.c \
+  math/arm-common/log2.c \
+  math/arm-common/scalbn.c \
+  math/arm64/exp2.S \
+  math/arm64/exp2f.S \
+  math/arm64/nearbyint.S \
+  math/arm64/nearbyintf.S \
+  math/arm64/nearbyintl.S \
+  math/arm64/trunc.S \
+  math/arm64/truncf.S \
   misc/__p___argv.c \
   misc/__p__acmdln.c \
   misc/__p__fmode.c \
@@ -383,9 +406,7 @@ src_libmingwex64=$(src_libmingwex_x86)
 
 # these only go into the ARM32 version:
 src_libmingwexarm32=\
-  math/arm/_chgsignl.S      math/arm/ceil.S           math/arm/ceilf.S          math/arm/ceill.S          math/arm-common/copysignl.c \
-  math/arm/floor.S          math/arm/floorf.S         math/arm/floorl.S         math/arm/nearbyint.S      math/arm/nearbyintf.S     \
-  math/arm/nearbyintl.S     math/arm/trunc.S          math/arm/truncf.S
+  math/arm/_chgsignl.S
 
 if ENABLE_SOFTMATH
 src_libmingwexarm32+=\
@@ -407,16 +428,12 @@ src_libmingwexarm32+=\
   math/softmath/sinf.c      math/softmath/sinl.c      math/softmath/tanf.c      math/softmath/tanl.c
 else
 src_libmingwexarm32+=\
-  math/arm/exp2.c           math/arm-common/ldexpl.c  math/arm-common/log2.c    math/arm-common/scalbn.c  math/arm-common/sincos.c
+  math/arm-common/ldexpl.c  math/arm-common/sincos.c
 endif
 
 # these only go into the ARM64 version:
 src_libmingwexarm64=\
-  math/arm64/_chgsignl.S    math/arm64/ceil.S         math/arm64/ceilf.S        math/arm64/ceill.S        math/arm-common/copysignl.c \
-  math/arm64/exp2.S         math/arm64/exp2f.S        math/arm64/floor.S        math/arm64/floorf.S       math/arm64/floorl.S       \
-  math/arm-common/ldexpl.c \
-  math/arm-common/log2.c    math/arm64/nearbyint.S    math/arm64/nearbyintf.S   math/arm64/nearbyintl.S   math/arm-common/scalbn.c  \
-  math/arm-common/sincos.c  math/arm64/trunc.S        math/arm64/truncf.S
+  math/arm64/_chgsignl.S    math/arm-common/ldexpl.c  math/arm-common/sincos.c
 
 
 # These intrinsics are target independent:

@@ -2241,8 +2241,9 @@ ccosh
 ccoshf
 ccoshl
 ccosl
-ceil DATA
-F_NON_I386(ceilf DATA)
+ceil F_X86_ANY(DATA)
+F_NON_I386(ceilf F_X86_ANY(DATA))
+F_ARM_ANY(ceill == ceil)
 cexp
 cexpf
 cexpl
@@ -2331,8 +2332,9 @@ fgetpos
 fgets
 fgetwc
 fgetws
-floor DATA
-F_NON_I386(floorf DATA)
+floor F_X86_ANY(DATA)
+F_NON_I386(floorf F_X86_ANY(DATA))
+F_ARM_ANY(floorl == floor)
 fma
 fmaf
 fmal

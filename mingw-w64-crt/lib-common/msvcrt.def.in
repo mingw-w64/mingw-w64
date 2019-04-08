@@ -1316,8 +1316,9 @@ bsearch
 bsearch_s
 F_ARM_ANY(btowc)
 calloc
-ceil DATA
-F_NON_I386(ceilf DATA)
+ceil F_X86_ANY(DATA)
+F_NON_I386(ceilf F_X86_ANY(DATA))
+F_ARM_ANY(ceill == ceil)
 clearerr
 clearerr_s
 clock
@@ -1342,8 +1343,9 @@ fgetpos
 fgets
 fgetwc
 fgetws
-floor DATA
-F_NON_I386(floorf DATA)
+floor F_X86_ANY(DATA)
+F_NON_I386(floorf F_X86_ANY(DATA))
+F_ARM_ANY(floorl == floor)
 fmod F_X86_ANY(DATA)
 F_NON_I386(fmodf F_X86_ANY(DATA))
 fopen
