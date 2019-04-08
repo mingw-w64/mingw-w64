@@ -24,3 +24,22 @@ long double scalbnl(long double x, int exp)
 #error Not supported on your platform yet
 #endif
 }
+
+double scalbln(double x, long exp)
+{
+    return x * exp2(exp);
+}
+
+float scalblnf(float x, long exp)
+{
+    return x * exp2f(exp);
+}
+
+long double scalblnl(long double x, long exp)
+{
+#if defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
+    return scalbln(x, exp);
+#else
+#error Not supported on your platform yet
+#endif
+}
