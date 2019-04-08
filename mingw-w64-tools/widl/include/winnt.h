@@ -1745,8 +1745,11 @@ typedef struct _CONTEXT
     ULONG Padding2[2];              /* 198 */
 } CONTEXT;
 
+typedef PRUNTIME_FUNCTION (CALLBACK *PGET_RUNTIME_FUNCTION_CALLBACK)(DWORD,PVOID);
+
 BOOLEAN CDECL            RtlAddFunctionTable(RUNTIME_FUNCTION*,DWORD,DWORD);
 BOOLEAN CDECL            RtlDeleteFunctionTable(RUNTIME_FUNCTION*);
+BOOLEAN CDECL            RtlInstallFunctionTableCallback(DWORD,DWORD,DWORD,PGET_RUNTIME_FUNCTION_CALLBACK,PVOID,PCWSTR);
 PRUNTIME_FUNCTION WINAPI RtlLookupFunctionEntry(ULONG_PTR,DWORD*,UNWIND_HISTORY_TABLE*);
 
 #endif /* __arm__ */
@@ -1878,8 +1881,11 @@ typedef struct _CONTEXT
     DWORD64 Wvr[ARM64_MAX_WATCHPOINTS]; /* 380 */
 } CONTEXT;
 
+typedef PRUNTIME_FUNCTION (CALLBACK *PGET_RUNTIME_FUNCTION_CALLBACK)(DWORD64,PVOID);
+
 BOOLEAN CDECL            RtlAddFunctionTable(RUNTIME_FUNCTION*,DWORD,ULONG_PTR);
 BOOLEAN CDECL            RtlDeleteFunctionTable(RUNTIME_FUNCTION*);
+BOOLEAN CDECL            RtlInstallFunctionTableCallback(ULONG_PTR,ULONG_PTR,DWORD,PGET_RUNTIME_FUNCTION_CALLBACK,PVOID,PCWSTR);
 
 #endif /* __aarch64__ */
 
@@ -2412,6 +2418,27 @@ typedef struct _EXCEPTION_RECORD
     DWORD    NumberParameters;
     ULONG_PTR ExceptionInformation[EXCEPTION_MAXIMUM_PARAMETERS];
 } EXCEPTION_RECORD, *PEXCEPTION_RECORD;
+
+typedef struct _EXCEPTION_RECORD32
+{
+    DWORD ExceptionCode;
+    DWORD ExceptionFlags;
+    DWORD ExceptionRecord;
+    DWORD ExceptionAddress;
+    DWORD NumberParameters;
+    DWORD ExceptionInformation[EXCEPTION_MAXIMUM_PARAMETERS];
+} EXCEPTION_RECORD32, *PEXCEPTION_RECORD32;
+
+typedef struct _EXCEPTION_RECORD64
+{
+    DWORD    ExceptionCode;
+    DWORD    ExceptionFlags;
+    DWORD64  ExceptionRecord;
+    DWORD64  ExceptionAddress;
+    DWORD    NumberParameters;
+    DWORD    __unusedAlignment;
+    DWORD64  ExceptionInformation[EXCEPTION_MAXIMUM_PARAMETERS];
+} EXCEPTION_RECORD64, *PEXCEPTION_RECORD64;
 
 /*
  * The exception pointers structure passed to exception filters
