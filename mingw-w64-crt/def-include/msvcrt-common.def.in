@@ -1,3 +1,5 @@
+#include "func.def.in"
+
 #define ADD_UNDERSCORE(symbol) symbol == _ ## symbol
 #define ADD_DOUBLE_UNDERSCORE(symbol) symbol == __ ## symbol
 
@@ -44,7 +46,7 @@ ADD_UNDERSCORE(gcvt)
 ADD_UNDERSCORE(getch)
 ADD_UNDERSCORE(getche)
 ADD_UNDERSCORE(getcwd)
-ADD_UNDERSCORE(getpid)
+F_X86_ANY(ADD_UNDERSCORE(getpid))
 ADD_UNDERSCORE(getw)
 ADD_UNDERSCORE(heapwalk)
 ADD_UNDERSCORE(isatty)
