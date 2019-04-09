@@ -1670,6 +1670,7 @@ endif
 		%/libapi-ms-win-core-errorhandling-l1-1-3.a \
 		%/libapi-ms-win-core-fibers-l1-1-1.a \
 		%/libapi-ms-win-core-file-l1-2-1.a \
+		%/libapi-ms-win-core-file-l2-1-0.a \
 		%/libapi-ms-win-core-file-l2-1-1.a \
 		%/libapi-ms-win-core-handle-l1-1-0.a \
 		%/libapi-ms-win-core-interlocked-l1-2-0.a \
@@ -1762,6 +1763,7 @@ endif
 		%/libapi-ms-win-core-fibers-l2-1-1.a \
 		%/libapi-ms-win-core-file-ansi-l2-1-0.a \
 		%/libapi-ms-win-core-file-l1-2-1.a \
+		%/libapi-ms-win-core-file-l2-1-0.a \
 		%/libapi-ms-win-core-file-l2-1-1.a \
 		%/libapi-ms-win-core-handle-l1-1-0.a \
 		%/libapi-ms-win-core-heap-l1-2-0.a \
