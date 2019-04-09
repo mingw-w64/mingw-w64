@@ -246,7 +246,7 @@ F_I386(__CxxCallUnwindDtor)
 F_I386(__CxxCallUnwindVecDtor)
 F_I386(__CxxDetectRethrow)
 F_I386(__CxxExceptionFilter)
-__CxxFrameHandler
+F_X86_ANY(__CxxFrameHandler)
 F_ARM_ANY(__CxxFrameHandler3)
 F_I386(__CxxLongjmpUnwind)
 F_I386(__CxxQueryExceptionSize)
@@ -261,8 +261,8 @@ F_NON_I386(___lc_codepage_func)
 ___lc_collate_cp_func
 ___lc_handle_func
 ___mb_cur_max_func
-___setlc_active_func
-___unguarded_readlc_active_add_func
+F_X86_ANY(___setlc_active_func)
+F_X86_ANY(___unguarded_readlc_active_add_func)
 __argc DATA
 __argv DATA
 __badioinfo DATA
@@ -285,8 +285,8 @@ __isascii
 __iscsym
 __iscsymf
 F_I386(__lc_clike)
-__lc_codepage DATA
-__lc_collate_cp DATA
+F_X86_ANY(__lc_codepage DATA)
+F_X86_ANY(__lc_collate_cp DATA)
 __lc_handle DATA
 __lconv_init
 __mb_cur_max DATA
@@ -328,16 +328,16 @@ __pxcptinfoptrs
 F_I386(__security_error_handler)
 __set_app_type
 F_I386(__set_buffer_overrun_handler)
-__setlc_active DATA
+F_X86_ANY(__setlc_active DATA)
 __setusermatherr
 F_ARM_ANY(__strncnt)
-__threadhandle
-__threadid
+F_X86_ANY(__threadhandle)
+F_X86_ANY(__threadid)
 __toascii
 __uncaught_exception
 __unDName
 __unDNameEx
-__unguarded_readlc_active DATA
+F_X86_ANY(__unguarded_readlc_active DATA)
 __wargv DATA
 __wcserror
 F_NON_I386(__wcserror_s)
@@ -388,7 +388,7 @@ _atoi_l
 _atol_l
 _atoldbl
 F_NON_I386(_atoldbl_l)
-_beep
+F_X86_ANY(_beep)
 _beginthread
 _beginthreadex
 _c_exit
@@ -454,7 +454,7 @@ _cwscanf
 _cwscanf_l
 _cwscanf_s
 _cwscanf_s_l
-_dstbias DATA
+F_X86_ANY(_dstbias DATA)
 F_ARM_ANY(_daylight DATA)
 _difftime32 F_I386(== difftime)
 _difftime64
@@ -561,10 +561,10 @@ F_ARM_ANY(_get_environ)
 F_ARM_ANY(_get_errno)
 F_ARM_ANY(_get_fileinfo)
 F_ARM_ANY(_get_fmode)
-_get_heap_handle
+F_X86_ANY(_get_heap_handle)
 _get_osfhandle
 ;_get_output_format provided by emu
-_get_sbh_threshold
+F_X86_ANY(_get_sbh_threshold)
 F_ARM_ANY(_get_wenviron)
 _getch
 _getche
@@ -573,25 +573,25 @@ _getdcwd
 _getdiskfree
 _getdllprocaddr
 _getdrive
-_getdrives
+F_X86_ANY(_getdrives)
 _getmaxstdio
 _getmbcp
-_getpid
-_getsystime
+F_X86_ANY(_getpid)
+F_X86_ANY(_getsystime)
 _getw
 _getwch
 _getwche
-_getws
+F_X86_ANY(_getws)
 F_I386(_global_unwind2)
 _gmtime32 F_I386(== gmtime)
 ; _gmtime32_s replaced by emu
 _gmtime64
 ; _gmtime64_s replaced by emu
-_heapadd
+F_X86_ANY(_heapadd)
 _heapchk
 _heapmin
-_heapset
-_heapused
+F_X86_ANY(_heapset)
+F_X86_ANY(_heapused)
 _heapwalk
 _hypot
 F_NON_I386(_hypotf)
@@ -701,7 +701,7 @@ _j1
 _jn
 _kbhit
 _lfind
-_loaddll
+F_X86_ANY(_loaddll)
 F_NON_I386(_lfind_s)
 F_X64(_local_unwind)
 F_I386(_local_unwind2)
@@ -885,7 +885,7 @@ F_X64(_nextafterf)
 _onexit
 _open
 _open_osfhandle
-_osplatform DATA
+F_X86_ANY(_osplatform DATA)
 _osver DATA
 F_I386(_outp)
 F_I386(_outpd)
@@ -943,19 +943,19 @@ F_ARM_ANY(_set_fileinfo)
 F_ARM_ANY(_set_fmode)
 ; Does not seem to present even on Win7 msvcrt
 ;_set_purecall_handler
-_set_sbh_threshold
+F_X86_ANY(_set_sbh_threshold)
 ; _set_output_format provided by emu
 F_I386(_set_SSE2_enable)
 F_I386(_set_security_error_handler)
-_seterrormode
+F_X86_ANY(_seterrormode)
 _setjmp
 F_I386(_setjmp3)
 F_NON_I386(_setjmpex)
-_setmaxstdio
+F_X86_ANY(_setmaxstdio)
 _setmbcp
 _setmode
-_setsystime
-_sleep
+F_X86_ANY(_setsystime)
+F_X86_ANY(_sleep)
 _snprintf
 _snprintf_c
 _snprintf_c_l
@@ -1076,7 +1076,7 @@ _umask
 _ungetch
 _ungetwch
 _unlink
-_unloaddll
+F_X86_ANY(_unloaddll)
 _unlock
 _utime
 F_ARM_ANY(_utime32)
@@ -1229,7 +1229,7 @@ _wgetenv_s
 _winmajor DATA
 _winminor DATA
 _winput_s
-_winver DATA
+F_X86_ANY(_winver DATA)
 _wmakepath
 _wmakepath_s
 _wmkdir
@@ -1378,7 +1378,7 @@ getc
 getchar
 getenv
 getenv_s
-gets
+F_X86_ANY(gets)
 getwc
 getwchar
 gmtime
