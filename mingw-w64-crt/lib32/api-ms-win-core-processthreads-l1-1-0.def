@@ -1,0 +1,18 @@
+LIBRARY api-ms-win-core-processthreads-l1-1-0
+
+EXPORTS
+
+CreateProcessA@40
+CreateProcessW@40
+GetExitCodeProcess@8
+GetPriorityClass@4
+GetProcessId@4
+GetProcessTimes@20
+GetThreadPriorityBoost@8
+OpenProcessToken@12
+OpenThread@12
+OpenThreadToken@16
+SetPriorityClass@8
+SetThreadPriorityBoost@8
+SetThreadToken@8
+ExitProcess@4
