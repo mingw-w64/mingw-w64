@@ -259,6 +259,12 @@ src_msvcrtarm32+=\
   math/arm/truncf.S \
   math/arm-common/copysignl.c \
   math/arm-common/log2.c \
+  math/arm-common/remainder.c \
+  math/arm-common/remainderf.c \
+  math/arm-common/remainderl.c \
+  math/arm-common/remquo.c \
+  math/arm-common/remquof.c \
+  math/arm-common/remquol.c \
   math/arm-common/scalbn.c
 endif
 
@@ -266,6 +272,12 @@ src_msvcrtarm64=\
   $(src_msvcrt) \
   math/arm-common/copysignl.c \
   math/arm-common/log2.c \
+  math/arm-common/remainder.c \
+  math/arm-common/remainderf.c \
+  math/arm-common/remainderl.c \
+  math/arm-common/remquo.c \
+  math/arm-common/remquof.c \
+  math/arm-common/remquol.c \
   math/arm-common/scalbn.c \
   math/arm64/exp2.S \
   math/arm64/exp2f.S \
