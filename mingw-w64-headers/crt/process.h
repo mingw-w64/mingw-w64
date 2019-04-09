@@ -60,7 +60,9 @@ extern "C" {
 
   void __cdecl __MINGW_NOTHROW _cexit(void);
   void __cdecl __MINGW_NOTHROW _c_exit(void);
+#if !(defined(__arm__) || defined(__aarch64__)) || __MSVCRT_VERSION__ > 0x700
   _CRTIMP int __cdecl _getpid(void);
+#endif
   _CRTIMP intptr_t __cdecl _cwait(int *_TermStat,intptr_t _ProcHandle,int _Action);
   _CRTIMP intptr_t __cdecl _execl(const char *_Filename,const char *_ArgList,...);
   _CRTIMP intptr_t __cdecl _execle(const char *_Filename,const char *_ArgList,...);
@@ -173,7 +175,9 @@ extern "C" {
   intptr_t __cdecl spawnlpe(int,const char *_Filename,const char *_ArgList,...) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #ifndef _CRT_GETPID_DEFINED
 #define _CRT_GETPID_DEFINED  /* Also in unistd.h */
+#if !(defined(__arm__) || defined(__aarch64__)) || __MSVCRT_VERSION__ > 0x700
   int __cdecl getpid(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+#endif
 #endif
 #ifdef __GNUC__
   /* Those methods are predefined by gcc builtins to return int. So to prevent
