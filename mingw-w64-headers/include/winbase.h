@@ -2058,58 +2058,58 @@ extern "C" {
     DWORD dwPadding;
     union {
       struct {
-	DWORD dwStreamNumber;
-	DWORD dwReserved;
-	HANDLE hSourceFile;
-	HANDLE hDestinationFile;
-	ULARGE_INTEGER uliChunkNumber;
-	ULARGE_INTEGER uliChunkSize;
-	ULARGE_INTEGER uliStreamSize;
-	ULARGE_INTEGER uliTotalFileSize;
+    DWORD dwStreamNumber;
+    DWORD dwReserved;
+    HANDLE hSourceFile;
+    HANDLE hDestinationFile;
+    ULARGE_INTEGER uliChunkNumber;
+    ULARGE_INTEGER uliChunkSize;
+    ULARGE_INTEGER uliStreamSize;
+    ULARGE_INTEGER uliTotalFileSize;
       } ChunkStarted;
       struct {
-	DWORD dwStreamNumber;
-	DWORD dwFlags;
-	HANDLE hSourceFile;
-	HANDLE hDestinationFile;
-	ULARGE_INTEGER uliChunkNumber;
-	ULARGE_INTEGER uliChunkSize;
-	ULARGE_INTEGER uliStreamSize;
-	ULARGE_INTEGER uliStreamBytesTransferred;
-	ULARGE_INTEGER uliTotalFileSize;
-	ULARGE_INTEGER uliTotalBytesTransferred;
+    DWORD dwStreamNumber;
+    DWORD dwFlags;
+    HANDLE hSourceFile;
+    HANDLE hDestinationFile;
+    ULARGE_INTEGER uliChunkNumber;
+    ULARGE_INTEGER uliChunkSize;
+    ULARGE_INTEGER uliStreamSize;
+    ULARGE_INTEGER uliStreamBytesTransferred;
+    ULARGE_INTEGER uliTotalFileSize;
+    ULARGE_INTEGER uliTotalBytesTransferred;
       } ChunkFinished;
       struct {
-	DWORD dwStreamNumber;
-	DWORD dwReserved;
-	HANDLE hSourceFile;
-	HANDLE hDestinationFile;
-	ULARGE_INTEGER uliStreamSize;
-	ULARGE_INTEGER uliTotalFileSize;
+    DWORD dwStreamNumber;
+    DWORD dwReserved;
+    HANDLE hSourceFile;
+    HANDLE hDestinationFile;
+    ULARGE_INTEGER uliStreamSize;
+    ULARGE_INTEGER uliTotalFileSize;
       } StreamStarted;
       struct {
-	DWORD dwStreamNumber;
-	DWORD dwReserved;
-	HANDLE hSourceFile;
-	HANDLE hDestinationFile;
-	ULARGE_INTEGER uliStreamSize;
-	ULARGE_INTEGER uliStreamBytesTransferred;
-	ULARGE_INTEGER uliTotalFileSize;
-	ULARGE_INTEGER uliTotalBytesTransferred;
+    DWORD dwStreamNumber;
+    DWORD dwReserved;
+    HANDLE hSourceFile;
+    HANDLE hDestinationFile;
+    ULARGE_INTEGER uliStreamSize;
+    ULARGE_INTEGER uliStreamBytesTransferred;
+    ULARGE_INTEGER uliTotalFileSize;
+    ULARGE_INTEGER uliTotalBytesTransferred;
       } StreamFinished;
       struct {
-	DWORD dwReserved;
+    DWORD dwReserved;
       } PollContinue;
       struct {
-	COPYFILE2_COPY_PHASE CopyPhase;
-	DWORD dwStreamNumber;
-	HRESULT hrFailure;
-	DWORD dwReserved;
-	ULARGE_INTEGER uliChunkNumber;
-	ULARGE_INTEGER uliStreamSize;
-	ULARGE_INTEGER uliStreamBytesTransferred;
-	ULARGE_INTEGER uliTotalFileSize;
-	ULARGE_INTEGER uliTotalBytesTransferred;
+    COPYFILE2_COPY_PHASE CopyPhase;
+    DWORD dwStreamNumber;
+    HRESULT hrFailure;
+    DWORD dwReserved;
+    ULARGE_INTEGER uliChunkNumber;
+    ULARGE_INTEGER uliStreamSize;
+    ULARGE_INTEGER uliStreamBytesTransferred;
+    ULARGE_INTEGER uliTotalFileSize;
+    ULARGE_INTEGER uliTotalBytesTransferred;
       } Error;
     } Info;
   } COPYFILE2_MESSAGE;
@@ -2969,13 +2969,13 @@ extern "C" {
 #else
     union {
       struct {
-	struct {
-	  ULONG Capabilities;
-	} Server;
-	struct {
-	  ULONG Capabilities;
-	  ULONG CachingFlags;
-	} Share;
+    struct {
+      ULONG Capabilities;
+    } Server;
+    struct {
+      ULONG Capabilities;
+      ULONG CachingFlags;
+    } Share;
       } Smb2;
       ULONG Reserved[16];
     } ProtocolSpecific;
