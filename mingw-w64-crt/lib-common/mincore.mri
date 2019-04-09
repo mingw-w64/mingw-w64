@@ -52,9 +52,11 @@ ADDLIB libapi-ms-win-core-memory-l1-1-2.a
 ADDLIB libapi-ms-win-core-memory-l1-1-3.a
 ; FIXME libapi-ms-win-core-memory-l1-1-4.a
 ; FIXME libapi-ms-win-core-memory-l1-1-5.a
-; FIXME libapi-ms-win-core-namedpipe-l1-1-0.a
-; FIXME libapi-ms-win-core-namedpipe-l1-2-1.a
-; FIXME libapi-ms-win-core-namedpipe-l1-2-2.a
+ADDLIB libapi-ms-win-core-namedpipe-ansi-l1-1-0.a
+ADDLIB libapi-ms-win-core-namedpipe-ansi-l1-1-1.a
+ADDLIB libapi-ms-win-core-namedpipe-l1-1-0.a
+ADDLIB libapi-ms-win-core-namedpipe-l1-2-1.a
+ADDLIB libapi-ms-win-core-namedpipe-l1-2-2.a
 ; FIXME libapi-ms-win-core-namespace-l1-1-0.a
 ; FIXME libapi-ms-win-core-path-l1-1-0.a
 ADDLIB libapi-ms-win-core-processenvironment-l1-1-0.a

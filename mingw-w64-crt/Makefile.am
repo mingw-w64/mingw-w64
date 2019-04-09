@@ -1681,6 +1681,11 @@ endif
 		%/libapi-ms-win-core-localization-l2-1-0.a \
 		%/libapi-ms-win-core-memory-l1-1-2.a \
 		%/libapi-ms-win-core-memory-l1-1-3.a \
+		%/libapi-ms-win-core-namedpipe-ansi-l1-1-0.a \
+		%/libapi-ms-win-core-namedpipe-ansi-l1-1-1.a \
+		%/libapi-ms-win-core-namedpipe-l1-1-0.a \
+		%/libapi-ms-win-core-namedpipe-l1-2-1.a \
+		%/libapi-ms-win-core-namedpipe-l1-2-2.a \
 		%/libapi-ms-win-core-processenvironment-l1-1-0.a \
 		%/libapi-ms-win-core-processenvironment-l1-2-0.a \
 		%/libapi-ms-win-core-processthreads-l1-1-0.a \
@@ -1762,6 +1767,7 @@ endif
 		%/libapi-ms-win-core-heap-l1-2-0.a \
 		%/libapi-ms-win-core-interlocked-l1-2-0.a \
 		%/libapi-ms-win-core-io-l1-1-1.a \
+		%/libapi-ms-win-core-kernel32-legacy-l1-1-0.a \
 		%/libapi-ms-win-core-kernel32-legacy-l1-1-1.a \
 		%/libapi-ms-win-core-largeinteger-l1-1-0.a \
 		%/libapi-ms-win-core-libraryloader-l1-2-0.a \
@@ -1772,6 +1778,11 @@ endif
 		%/libapi-ms-win-core-localization-l2-1-0.a \
 		%/libapi-ms-win-core-memory-l1-1-2.a \
 		%/libapi-ms-win-core-memory-l1-1-3.a \
+		%/libapi-ms-win-core-namedpipe-ansi-l1-1-0.a \
+		%/libapi-ms-win-core-namedpipe-ansi-l1-1-1.a \
+		%/libapi-ms-win-core-namedpipe-l1-1-0.a \
+		%/libapi-ms-win-core-namedpipe-l1-2-1.a \
+		%/libapi-ms-win-core-namedpipe-l1-2-2.a \
 		%/libapi-ms-win-core-normalization-l1-1-0.a \
 		%/libapi-ms-win-core-processenvironment-l1-1-0.a \
 		%/libapi-ms-win-core-processenvironment-l1-2-0.a \

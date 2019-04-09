@@ -1,0 +1,13 @@
+LIBRARY api-ms-win-core-namedpipe-l1-1-0
+
+EXPORTS
+
+ConnectNamedPipe
+CreateNamedPipeW
+CreatePipe
+DisconnectNamedPipe
+GetNamedPipeClientComputerNameW
+PeekNamedPipe
+SetNamedPipeHandleState
+TransactNamedPipe
+WaitNamedPipeW
