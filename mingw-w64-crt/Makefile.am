@@ -1681,6 +1681,7 @@ endif
 		%/libapi-ms-win-core-localization-l2-1-0.a \
 		%/libapi-ms-win-core-memory-l1-1-2.a \
 		%/libapi-ms-win-core-memory-l1-1-3.a \
+		%/libapi-ms-win-core-processenvironment-l1-1-0.a \
 		%/libapi-ms-win-core-processenvironment-l1-2-0.a \
 		%/libapi-ms-win-core-processthreads-l1-1-0.a \
 		%/libapi-ms-win-core-processthreads-l1-1-1.a \
@@ -1772,6 +1773,7 @@ endif
 		%/libapi-ms-win-core-memory-l1-1-2.a \
 		%/libapi-ms-win-core-memory-l1-1-3.a \
 		%/libapi-ms-win-core-normalization-l1-1-0.a \
+		%/libapi-ms-win-core-processenvironment-l1-1-0.a \
 		%/libapi-ms-win-core-processenvironment-l1-2-0.a \
 		%/libapi-ms-win-core-processthreads-l1-1-0.a \
 		%/libapi-ms-win-core-processthreads-l1-1-1.a \
