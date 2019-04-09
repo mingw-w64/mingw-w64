@@ -6,20 +6,20 @@
 
 #include <math.h>
 
-double log2(double x)
+double scalbn(double x, int exp)
 {
-    return log(x) / 0.69314718246459960938;
+    return x * exp2(exp);
 }
 
-float log2f(float x)
+float scalbnf(float x, int exp)
 {
-    return logf(x) / 0.69314718246459960938f;
+    return x * exp2f(exp);
 }
 
-long double log2l(long double x)
+long double scalbnl(long double x, int exp)
 {
-#if defined(__aarch64__) || defined(_ARM64_)
-    return log2(x);
+#if defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
+    return scalbn(x, exp);
 #else
 #error Not supported on your platform yet
 #endif

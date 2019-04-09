@@ -20,7 +20,7 @@ void sincosf (float __x, float *p_sin, float *p_cos)
 
 void sincosl (long double __x, long double *p_sin, long double *p_cos)
 {
-#if defined(__arm__) || defined(_ARM_)
+#if defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
   *p_sin = sin(__x);
   *p_cos = cos(__x);
 #else

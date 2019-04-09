@@ -6,20 +6,10 @@
 
 #include <math.h>
 
-double scalbn(double x, int exp)
+long double ldexpl(long double x, int n)
 {
-    return x * exp2(exp);
-}
-
-float scalbnf(float x, int exp)
-{
-    return x * exp2f(exp);
-}
-
-long double scalbnl(long double x, int exp)
-{
-#if defined(__aarch64__) || defined(_ARM64_)
-    return scalbn(x, exp);
+#if defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
+    return ldexp(x, n);
 #else
 #error Not supported on your platform yet
 #endif

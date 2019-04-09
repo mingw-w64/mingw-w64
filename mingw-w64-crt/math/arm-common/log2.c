@@ -6,10 +6,20 @@
 
 #include <math.h>
 
-long double ldexpl(long double x, int n)
+double log2(double x)
 {
-#if defined(__arm__) || defined(_ARM_)
-    return ldexp(x, n);
+    return log(x) / 0.69314718246459960938;
+}
+
+float log2f(float x)
+{
+    return logf(x) / 0.69314718246459960938f;
+}
+
+long double log2l(long double x)
+{
+#if defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
+    return log2(x);
 #else
 #error Not supported on your platform yet
 #endif
