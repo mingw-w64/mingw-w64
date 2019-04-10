@@ -36,3 +36,15 @@ SetFilePointerEx
 SetFileTime
 UnlockFileEx
 WriteFile
+FileTimeToLocalFileTime
+FindFirstFileA
+FindFirstFileW
+GetDiskFreeSpaceA
+GetFileAttributesA
+GetFileAttributesW
+GetFinalPathNameByHandleA
+GetFinalPathNameByHandleW
+LocalFileTimeToFileTime
+ReadFileEx
+SetFilePointer
+WriteFileEx
