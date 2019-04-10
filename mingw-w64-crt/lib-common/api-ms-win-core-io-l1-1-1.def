@@ -4,3 +4,9 @@ EXPORTS
 
 CancelIoEx
 GetOverlappedResultEx
+CancelIo
+CreateIoCompletionPort
+GetOverlappedResult
+GetQueuedCompletionStatus
+GetQueuedCompletionStatusEx
+PostQueuedCompletionStatus
