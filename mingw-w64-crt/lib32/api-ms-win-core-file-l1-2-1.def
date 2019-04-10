@@ -2,7 +2,6 @@ LIBRARY api-ms-win-core-file-l1-2-1
 
 EXPORTS
 
-CompareFileTime@8
 CreateDirectoryA@8
 CreateDirectoryW@8
 CreateFile2@20
