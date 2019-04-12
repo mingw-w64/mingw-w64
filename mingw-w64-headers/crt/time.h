@@ -282,16 +282,16 @@ struct timezone {
 #endif
 
 #ifdef _POSIX_THREAD_SAFE_FUNCTIONS
-static __inline struct tm *__CRTDECL localtime_r(const time_t *_Time, struct tm *_Tm) {
+__forceinline struct tm *__CRTDECL localtime_r(const time_t *_Time, struct tm *_Tm) {
   return localtime_s(_Tm, _Time) ? NULL : _Tm;
 }
-static __inline struct tm *__CRTDECL gmtime_r(const time_t *_Time, struct tm *_Tm) {
+__forceinline struct tm *__CRTDECL gmtime_r(const time_t *_Time, struct tm *_Tm) {
   return gmtime_s(_Tm, _Time) ? NULL : _Tm;
 }
-static __inline char *__CRTDECL ctime_r(const time_t *_Time, char *_Str) {
+__forceinline char *__CRTDECL ctime_r(const time_t *_Time, char *_Str) {
   return ctime_s(_Str, 0x7fffffff, _Time) ? NULL : _Str;
 }
-static __inline char *__CRTDECL asctime_r(const struct tm *_Tm, char * _Str) {
+__forceinline char *__CRTDECL asctime_r(const struct tm *_Tm, char * _Str) {
   return asctime_s(_Str, 0x7fffffff, _Tm) ? NULL : _Str;
 }
 #endif
