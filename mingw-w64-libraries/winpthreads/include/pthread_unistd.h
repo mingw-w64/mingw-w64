@@ -129,26 +129,6 @@
 #undef _POSIX_BARRIERS
 #define _POSIX_BARRIERS 200112L
 
-/* _SC_THREAD_SAFE_FUNCTIONS
-  Affected functions are
-
-  readdir_r(),
-  getgrgid_r(),
-  getgrnam_r(),
-  getpwnam_r(),
-  getpwuid_r(),
-  flockfile(),
-  ftrylockfile(),
-  funlockfile(),
-  getc_unlocked(),
-  getchar_unlocked(),
-  putc_unlocked(),
-  putchar_unlocked(),
-  strerror_r(),
-*/
-#undef _POSIX_THREAD_SAFE_FUNCTIONS
-#define _POSIX_THREAD_SAFE_FUNCTIONS 200112L
-
 /* _SC_TIMEOUTS
   The functions
 
