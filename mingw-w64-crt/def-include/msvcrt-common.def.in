@@ -46,7 +46,13 @@ ADD_UNDERSCORE(gcvt)
 ADD_UNDERSCORE(getch)
 ADD_UNDERSCORE(getche)
 ADD_UNDERSCORE(getcwd)
+#ifdef UCRTBASE
+; ucrtbase.dll has got _getpid for all archs
+ADD_UNDERSCORE(getpid)
+#else
+; msvcrt.dll for arm/arm64 lacks _getpid
 F_X86_ANY(ADD_UNDERSCORE(getpid))
+#endif
 ADD_UNDERSCORE(getw)
 ADD_UNDERSCORE(heapwalk)
 ADD_UNDERSCORE(isatty)
