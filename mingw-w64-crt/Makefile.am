@@ -247,7 +247,8 @@ src_msvcrtarm32=\
   misc/__p___argv.c \
   misc/__p__acmdln.c \
   misc/__p__fmode.c \
-  misc/__p__wcmdln.c
+  misc/__p__wcmdln.c \
+  misc/_getpid.c
 
 if !ENABLE_SOFTMATH
 src_msvcrtarm32+=\
@@ -289,7 +290,8 @@ src_msvcrtarm64=\
   misc/__p___argv.c \
   misc/__p__acmdln.c \
   misc/__p__fmode.c \
-  misc/__p__wcmdln.c
+  misc/__p__wcmdln.c \
+  misc/_getpid.c
 
 src_msvcr80_64=\
   $(src_msvcrt_common) \
