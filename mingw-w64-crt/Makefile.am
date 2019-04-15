@@ -258,6 +258,15 @@ src_msvcrtarm32+=\
   math/arm/nearbyintl.S \
   math/arm/trunc.S \
   math/arm/truncf.S \
+  math/arm-common/acosh.c \
+  math/arm-common/acoshf.c \
+  math/arm-common/acoshl.c \
+  math/arm-common/asinh.c \
+  math/arm-common/asinhf.c \
+  math/arm-common/asinhl.c \
+  math/arm-common/atanh.c \
+  math/arm-common/atanhf.c \
+  math/arm-common/atanhl.c \
   math/arm-common/copysignl.c \
   math/arm-common/expm1.c \
   math/arm-common/expm1f.c \
@@ -277,6 +286,15 @@ endif
 
 src_msvcrtarm64=\
   $(src_msvcrt) \
+  math/arm-common/acosh.c \
+  math/arm-common/acoshf.c \
+  math/arm-common/acoshl.c \
+  math/arm-common/asinh.c \
+  math/arm-common/asinhf.c \
+  math/arm-common/asinhl.c \
+  math/arm-common/atanh.c \
+  math/arm-common/atanhf.c \
+  math/arm-common/atanhl.c \
   math/arm-common/copysignl.c \
   math/arm-common/expm1.c \
   math/arm-common/expm1f.c \
