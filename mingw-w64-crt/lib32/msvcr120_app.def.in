@@ -6,6 +6,7 @@
 LIBRARY "msvcr120_app.dll"
 EXPORTS
 
+#define NO_GETPID_ALIAS
 #include "msvcrt-common.def.in"
 
 ??0?$_SpinWait@$00@details@Concurrency@@QAE@P6AXXZ@Z ; has WINAPI (@4)

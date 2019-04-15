@@ -49,7 +49,7 @@ ADD_UNDERSCORE(getcwd)
 #ifdef UCRTBASE
 ; ucrtbase.dll has got _getpid for all archs
 ADD_UNDERSCORE(getpid)
-#else
+#elif !defined(NO_GETPID_ALIAS)
 ; msvcrt.dll for arm/arm64 lacks _getpid
 F_X86_ANY(ADD_UNDERSCORE(getpid))
 #endif

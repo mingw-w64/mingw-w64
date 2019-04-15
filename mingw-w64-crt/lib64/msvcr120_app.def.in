@@ -6,6 +6,7 @@
 LIBRARY "msvcr120_app.dll"
 EXPORTS
 
+#define NO_GETPID_ALIAS
 #include "msvcrt-common.def.in"
 
 $I10_OUTPUT
