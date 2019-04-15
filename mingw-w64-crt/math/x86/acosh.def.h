@@ -57,8 +57,7 @@ __FLT_ABI(acosh) (__FLT_TYPE x)
     }
   else if (x_class == FP_INFINITE)
     {
-      __FLT_RPT_DOMAIN ("acosh", x, 0.0, __FLT_NAN);
-      return __FLT_NAN;
+      return INFINITY;
     }
 
   if (x > __FLT_CST(0x1p32))
