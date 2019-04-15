@@ -300,6 +300,10 @@ src_msvcr80_64=\
   misc/__p__fmode.c \
   misc/__p__wcmdln.c
 
+src_msvcr120_app=\
+  $(src_msvcrt_common) \
+  misc/_getpid.c
+
 # These mingwex sources are target independent:
 src_libmingwex=\
   crt/dllentry.c        crt/dllmain.c \
@@ -767,7 +771,7 @@ lib32_libmsvcr120d_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(s
 EXTRA_lib32_libmsvcr120d_a_DEPENDENCIES=lib32/msvcr120d.def
 
 lib32_LIBRARIES += lib32/libmsvcr120_app.a
-lib32_libmsvcr120_app_a_SOURCES = $(src_msvcrt_common) lib32/msvcr120_app.def.in
+lib32_libmsvcr120_app_a_SOURCES = $(src_msvcr120_app) lib32/msvcr120_app.def.in
 lib32_libmsvcr120_app_a_AR = $(DTDEF32) lib32/msvcr120_app.def && $(AR) $(ARFLAGS)
 lib32_libmsvcr120_app_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 EXTRA_lib32_libmsvcr120_app_a_DEPENDENCIES=lib32/msvcr120_app.def
@@ -1104,7 +1108,7 @@ lib64_libmsvcr120d_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(s
 EXTRA_lib64_libmsvcr120d_a_DEPENDENCIES=lib64/msvcr120d.def
 
 lib64_LIBRARIES += lib64/libmsvcr120_app.a
-lib64_libmsvcr120_app_a_SOURCES = $(src_msvcrt_common) lib64/msvcr120_app.def.in
+lib64_libmsvcr120_app_a_SOURCES = $(src_msvcr120_app) lib64/msvcr120_app.def.in
 lib64_libmsvcr120_app_a_AR = $(DTDEF64) lib64/msvcr120_app.def && $(AR) $(ARFLAGS)
 lib64_libmsvcr120_app_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 EXTRA_lib64_libmsvcr120_app_a_DEPENDENCIES=lib64/msvcr120_app.def
