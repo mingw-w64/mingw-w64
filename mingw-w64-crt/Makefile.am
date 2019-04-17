@@ -1728,6 +1728,7 @@ endif
 		%/libapi-ms-win-core-com-l1-1-1.a \
 		%/libapi-ms-win-core-com-midlproxystub-l1-1-0.a \
 		%/libapi-ms-win-core-console-l1-1-0.a \
+		%/libapi-ms-win-core-datetime-l1-1-0.a \
 		%/libapi-ms-win-core-datetime-l1-1-1.a \
 		%/libapi-ms-win-core-datetime-l1-1-2.a \
 		%/libapi-ms-win-core-debug-l1-1-1.a \
@@ -1823,6 +1824,7 @@ endif
 		%/libapi-ms-win-core-com-l2-1-1.a \
 		%/libapi-ms-win-core-com-midlproxystub-l1-1-0.a \
 		%/libapi-ms-win-core-console-l1-1-0.a \
+		%/libapi-ms-win-core-datetime-l1-1-0.a \
 		%/libapi-ms-win-core-datetime-l1-1-1.a \
 		%/libapi-ms-win-core-datetime-l1-1-2.a \
 		%/libapi-ms-win-core-debug-l1-1-1.a \
