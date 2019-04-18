@@ -2478,6 +2478,7 @@ norml
 perror
 pow F_X86_ANY(DATA)
 F_NON_I386(powf F_X86_ANY(DATA))
+F_ARM_ANY(powl == pow)
 putc
 putchar
 puts
