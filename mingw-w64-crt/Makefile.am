@@ -232,6 +232,7 @@ src_ucrtbase=\
 
 src_msvcrt32=\
   $(src_msvcrt) \
+  math/x86/_copysignf.c \
   misc/lc_locale_func.c \
   misc/wassert.c
 
