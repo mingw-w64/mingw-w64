@@ -272,6 +272,9 @@ src_msvcrtarm32+=\
   math/arm-common/expm1.c \
   math/arm-common/expm1f.c \
   math/arm-common/expm1l.c \
+  math/arm-common/ilogb.c \
+  math/arm-common/ilogbf.c \
+  math/arm-common/ilogbl.c \
   math/arm-common/log1p.c \
   math/arm-common/log1pf.c \
   math/arm-common/log1pl.c \
@@ -300,6 +303,9 @@ src_msvcrtarm64=\
   math/arm-common/expm1.c \
   math/arm-common/expm1f.c \
   math/arm-common/expm1l.c \
+  math/arm-common/ilogb.c \
+  math/arm-common/ilogbf.c \
+  math/arm-common/ilogbl.c \
   math/arm-common/log1p.c \
   math/arm-common/log1pf.c \
   math/arm-common/log1pl.c \
