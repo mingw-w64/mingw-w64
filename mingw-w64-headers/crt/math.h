@@ -799,8 +799,10 @@ __mingw_choose_expr (                                         \
     return -1.0 / fabs (x);
   if (hx >= 0x7ff00000)
     return x * x;
-  if ((hx >>= 20) == 0) /* IEEE 754 logb */
-    return -1022.0;
+  if ((hx >>= 20) == 0) {
+    unsigned long long mantissa = hlp.dt->val & 0xfffffffffffffULL;
+    return -1023.0 - (__builtin_clzll(mantissa) - 12);
+  }
   return (double) (hx - 1023);
 #elif defined(__i386__) || defined(_X86_)
     double res = 0.0;
@@ -822,8 +824,8 @@ __mingw_choose_expr (                                         \
       return (float)-1.0 / fabsf (x);
     if (v >= 0x7f800000)
     return x * x;
-  if ((v >>= 23) == 0) /* IEEE 754 logb */
-    return -126.0;
+    if ((v >>= 23) == 0)
+      return -127.0 - (__builtin_clzl(hlp.ft->val & 0x7fffff) - 9);
   return (float) (v - 127);
 #elif defined(__i386__) || defined(_X86_)
     float res = 0.0F;
@@ -846,8 +848,10 @@ __mingw_choose_expr (                                         \
     return -1.0 / fabs (x);
   if (hx >= 0x7ff00000)
     return x * x;
-  if ((hx >>= 20) == 0) /* IEEE 754 logb */
-    return -1022.0;
+  if ((hx >>= 20) == 0) {
+    unsigned long long mantissa = hlp.dt->val & 0xfffffffffffffULL;
+    return -1023.0 - (__builtin_clzll(mantissa) - 12);
+  }
   return (double) (hx - 1023);
 #elif defined(__x86_64__) || defined(_AMD64_) || defined(__i386__) || defined(_X86_)
     long double res = 0.0l;
