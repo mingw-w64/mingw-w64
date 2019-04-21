@@ -744,7 +744,7 @@ __mingw_choose_expr (                                         \
 
 /* 7.12.6.5 */
 #define FP_ILOGB0 ((int)0x80000000)
-#define FP_ILOGBNAN ((int)0x80000000)
+#define FP_ILOGBNAN ((int)0x7fffffff)
   extern int __cdecl ilogb (double);
   extern int __cdecl ilogbf (float);
   extern int __cdecl ilogbl (long double);
