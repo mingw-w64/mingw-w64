@@ -441,8 +441,8 @@ typedef long double double_t;
     unsigned int l, h;
 
     hlp.d = &x;
-    h = hlp.ldt->lh.high;
-    l = hlp.ldt->lh.low | (h & 0xfffff);
+    h = hlp.dt->lh.high;
+    l = hlp.dt->lh.low | (h & 0xfffff);
     h &= 0x7ff00000;
     if ((h | l) == 0)
       return FP_ZERO;
