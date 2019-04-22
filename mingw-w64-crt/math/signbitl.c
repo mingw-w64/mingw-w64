@@ -3,26 +3,9 @@
  * No warranty is given; refer to the file DISCLAIMER within this package.
  */
 
-typedef union __mingw_ldbl_type_t
-{
-  long double x;
-  __extension__ struct {
-    unsigned int low, high;
-    int sign_exponent : 16;
-    int res1 : 16;
-    int res0 : 32;
-  } lh;
-} __mingw_ldbl_type_t;
-
-typedef union __mingw_fp_types_t
-{
-  long double *ld;
-  __mingw_ldbl_type_t *ldt;
-} __mingw_fp_types_t;
+#include <math.h>
 
 #define __FP_SIGNBIT  0x0200
-extern int __signbit (double x);
-int __signbitl (long double x);
 
 
 int __signbitl (long double x) {
