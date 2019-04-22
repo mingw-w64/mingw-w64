@@ -447,8 +447,8 @@ WINSOCK_API_LINKAGE int WSAAPI WSASetSocketSecurity(
 
 #define InetNtopA inet_ntop
 
-WINSOCK_API_LINKAGE LPCWSTR WSAAPI InetNtopW(INT Family, PCVOID pAddr, LPWSTR pStringBuf, size_t StringBufSIze);
-WINSOCK_API_LINKAGE LPCSTR WSAAPI InetNtopA(INT Family, PCVOID pAddr, LPSTR pStringBuf, size_t StringBufSize);
+WINSOCK_API_LINKAGE LPCWSTR WSAAPI InetNtopW(INT Family, LPCVOID pAddr, LPWSTR pStringBuf, size_t StringBufSIze);
+WINSOCK_API_LINKAGE LPCSTR WSAAPI InetNtopA(INT Family, LPCVOID pAddr, LPSTR pStringBuf, size_t StringBufSize);
 
 #define InetNtop __MINGW_NAME_AW(InetNtop)
 
