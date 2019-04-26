@@ -488,7 +488,9 @@ pthread_cond_timedwait_impl (pthread_cond_t *c, pthread_mutex_t *external_mutex,
   r = do_sema_b_wait (_c->sema_b, 0, INFINITE,&_c->waiters_b_lock_,&_c->value_b);
   if (r != 0)
     return r;
+  EnterCriticalSection (&_c->waiters_count_lock_);
   _c->waiters_count_++;
+  LeaveCriticalSection(&_c->waiters_count_lock_);
   r = do_sema_b_release (_c->sema_b, 1,&_c->waiters_b_lock_,&_c->value_b);
   if (r != 0)
     return r;
