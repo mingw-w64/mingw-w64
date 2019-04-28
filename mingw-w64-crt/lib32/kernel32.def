@@ -1061,7 +1061,8 @@ OpenPackageInfoByFullName@12
 OpenPrivateNamespaceA@8
 OpenPrivateNamespaceW@8
 OpenProcess@12
-OpenProcessToken@12
+; MSDN says OpenProcessToken is from Advapi32.dll, not Kernel32.dll
+; OpenProcessToken@12
 OpenProfileUserMapping@0
 OpenSemaphoreA@12
 OpenSemaphoreW@12
