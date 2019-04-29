@@ -15,6 +15,10 @@
 #pragma pack(push,_CRT_PACKING)
 #endif
 
+#if !defined(_UCRT) && (__MSVCRT_VERSION__ >= 0x1400)
+#define _UCRT
+#endif
+
 #ifdef __ERRCODE_DEFINED_MS
 /* #define __ERRCODE_DEFINED_MS */
 typedef int errcode;

@@ -222,7 +222,11 @@ limitations in handling dllimport attribute.  */
 
 #ifndef __MSVCRT_VERSION__
 /*  High byte is the major version, low byte is the minor. */
-# define __MSVCRT_VERSION__ @DEFAULT_MSVCRT_VERSION@
+# ifndef _UCRT
+#  define __MSVCRT_VERSION__ @DEFAULT_MSVCRT_VERSION@
+# else
+#  define __MSVCRT_VERSION__ 0x1400
+# endif
 #endif
 
 
