@@ -109,7 +109,7 @@ extern "C" {
 
 #define CLOCKS_PER_SEC 1000
 
-#if __MSVCRT_VERSION__ >= 0x1400
+#ifdef _UCRT
   _CRTIMP int *__cdecl __daylight(void);
   _CRTIMP long *__cdecl __dstbias(void);
   _CRTIMP long *__cdecl __timezone(void);
@@ -153,7 +153,7 @@ extern "C" {
   void __cdecl tzset(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #endif
 #if !defined (_POSIX_)
-#if __MSVCRT_VERSION__ < 0x1400
+#ifndef _UCRT
   _CRTIMP
 #endif
   void __cdecl _tzset(void);
@@ -244,7 +244,7 @@ static __inline time_t __CRTDECL _mkgmtime(struct tm *_Tm) { return _mkgmtime64(
 #if !defined(NO_OLDNAMES) || defined(_POSIX)
 #define CLK_TCK CLOCKS_PER_SEC
 
-#if __MSVCRT_VERSION__ >= 0x1400
+#ifdef _UCRT
 #define __MINGW_ATTRIB_DEPRECATED_UCRT \
     __MINGW_ATTRIB_DEPRECATED_MSG( \
         "Only provided for source compatibility; this variable might " \

@@ -205,7 +205,7 @@ _CRTIMP __MINGW_ATTRIB_NORETURN __attribute__ ((__nothrow__)) void __cdecl longj
 void * __cdecl __attribute__ ((__nothrow__)) mingw_getsp (void);
 
 #if !defined(USE_NO_MINGW_SETJMP_TWO_ARGS)
-#  if __MSVCRT_VERSION__ >= 0x1400
+#  ifdef _UCRT
 #    ifdef _WIN64
 #      define _setjmp __intrinsic_setjmpex
 #    else

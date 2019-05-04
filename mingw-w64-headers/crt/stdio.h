@@ -134,7 +134,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 
 #define _TWO_DIGIT_EXPONENT 0x1
 
-#if !defined(_UCRTBASE_STDIO_DEFINED) && __MSVCRT_VERSION__ >= 0x1400
+#if !defined(_UCRTBASE_STDIO_DEFINED) && defined(_UCRT)
 #define _UCRTBASE_STDIO_DEFINED
 
 #define UCRTBASE_PRINTF_LEGACY_VSPRINTF_NULL_TERMINATION (0x0001)
@@ -208,7 +208,7 @@ extern
   __attribute__((__format__ (gnu_printf, 2, 0))) __attribute__((nonnull (1,2)))
   int __cdecl __mingw_vasprintf(char ** __restrict__ , const char * __restrict__ , va_list) __MINGW_NOTHROW;
 
-#if __MSVCRT_VERSION__ >= 0x1400
+#ifdef _UCRT
   int __cdecl __stdio_common_vsprintf(unsigned __int64 options, char *str, size_t len, const char *format, _locale_t locale, va_list valist);
   int __cdecl __stdio_common_vfprintf(unsigned __int64 options, FILE *file, const char *format, _locale_t locale, va_list valist);
   int __cdecl __stdio_common_vsscanf(unsigned __int64 options, const char *input, size_t length, const char *format, _locale_t locale, va_list valist);
@@ -221,7 +221,7 @@ extern
 #if defined(__clang__)
 #define __MINGW_PRINTF_FORMAT printf
 #define __MINGW_SCANF_FORMAT  scanf
-#elif __MSVCRT_VERSION__ >= 0x1400 || __USE_MINGW_ANSI_STDIO
+#elif defined(_UCRT) || __USE_MINGW_ANSI_STDIO
 #define __MINGW_PRINTF_FORMAT gnu_printf
 #define __MINGW_SCANF_FORMAT  gnu_scanf
 #else
@@ -417,7 +417,7 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
 /*
  * Default configuration: simply direct all calls to MSVCRT...
  */
-#if __MSVCRT_VERSION__ >= 0x1400
+#ifdef _UCRT
 #ifdef __GNUC__
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wshadow"
@@ -563,7 +563,7 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
 #endif
 
 #endif /* __NO_ISOCEXT */
-#endif /* __MSVCRT_VERSION__ >= 0x1400 */
+#endif /* _UCRT */
 #endif /* __USE_MINGW_ANSI_STDIO */
 
   _CRTIMP int __cdecl _filbuf(FILE *_File);
@@ -611,7 +611,7 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
   /* int fseeko32(FILE* stream, _off_t offset, int whence);*/ /* fseeko32 redirects to fseeko64 */
   _CRTIMP int __cdecl _fseeki64(FILE *_File,__int64 _Offset,int _Origin);
   _CRTIMP __int64 __cdecl _ftelli64(FILE *_File);
-#if __MSVCRT_VERSION__ >= 0x1400
+#ifdef _UCRT
   __mingw_static_ovr int fseeko(FILE *_File, _off_t _Offset, int _Origin) {
     return fseek(_File, _Offset, _Origin);
   }
@@ -682,7 +682,7 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
   _CRTIMP unsigned int __cdecl _set_output_format(unsigned int _Format);
   _CRTIMP unsigned int __cdecl _get_output_format(void);
   int __cdecl setvbuf(FILE * __restrict__ _File,char * __restrict__ _Buf,int _Mode,size_t _Size);
-#if __MSVCRT_VERSION__ >= 0x1400
+#ifdef _UCRT
   __mingw_ovr
   int __cdecl _scprintf(const char * __restrict__ _Format,...)
   {
@@ -711,7 +711,7 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
   char *__cdecl tmpnam(char *_Buffer);
   int __cdecl ungetc(int _Ch,FILE *_File);
 
-#if __MSVCRT_VERSION__ >= 0x1400
+#ifdef _UCRT
   __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
   int __cdecl _vsnprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   __mingw_ovr
@@ -734,7 +734,7 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
 
 #if __USE_MINGW_ANSI_STDIO == 0
 
-#if __MSVCRT_VERSION__ >= 0x1400
+#ifdef _UCRT
 #ifdef __GNUC__
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wshadow"
@@ -793,10 +793,10 @@ int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict_
 #ifdef __GNUC__
 #pragma GCC diagnostic pop
 #endif
-#endif /* __MSVCRT_VERSION__ >= 0x1400 */
+#endif /* _UCRT */
 #endif /* __USE_MINGW_ANSI_STDIO */
 
-#if __MSVCRT_VERSION__ >= 0x1400
+#ifdef _UCRT
   __mingw_ovr
   int __cdecl _vscprintf(const char * __restrict__ _Format,va_list _ArgList)
   {
@@ -804,7 +804,7 @@ int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict_
   }
 #else
   _CRTIMP int __cdecl _vscprintf(const char * __restrict__ _Format,va_list _ArgList);
-#endif /* __MSVCRT_VERSION__ >= 0x1400 */
+#endif /* _UCRT */
 
   _CRTIMP int __cdecl _set_printf_count_output(int _Value);
   _CRTIMP int __cdecl _get_printf_count_output(void);
@@ -842,7 +842,7 @@ int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict_
 /* __attribute__((__format__ (gnu_wprintf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
   int __cdecl __mingw_vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list);
 
-#if __MSVCRT_VERSION__ >= 0x1400
+#ifdef _UCRT
   int __cdecl __stdio_common_vswprintf(unsigned __int64 options, wchar_t *str, size_t len, const wchar_t *format, _locale_t locale, va_list valist);
   int __cdecl __stdio_common_vfwprintf(unsigned __int64 options, FILE *file, const wchar_t *format, _locale_t locale, va_list valist);
   int __cdecl __stdio_common_vswscanf(unsigned __int64 options, const wchar_t *input, size_t length, const wchar_t *format, _locale_t locale, va_list valist);
@@ -970,7 +970,7 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
 
 #else /* !__USE_MINGW_ANSI_STDIO */
 
-#if __MSVCRT_VERSION__ >= 0x1400
+#ifdef _UCRT
   __mingw_ovr
   int __cdecl fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN
   {
@@ -1087,7 +1087,7 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
   int __cdecl wprintf(const wchar_t * __restrict__ _Format,...);
   int __cdecl vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
   int __cdecl vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
-#endif /* __MSVCRT_VERSION__ >= 0x1400 */
+#endif /* _UCRT */
 #endif /* __USE_MINGW_ANSI_STDIO */
 
 #ifndef WEOF
@@ -1114,7 +1114,7 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
   _CRTIMP wchar_t *__cdecl _getws(wchar_t *_String) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _CRTIMP int __cdecl _putws(const wchar_t *_Str);
 
-#if __MSVCRT_VERSION__ >= 0x1400
+#ifdef _UCRT
   __mingw_ovr
   int __cdecl _scwprintf(const wchar_t * __restrict__ _Format,...)
   {
@@ -1216,7 +1216,7 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
 #endif /* ! __NO_ISOCEXT */
   _CRTIMP int __cdecl _swprintf(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,...);
   _CRTIMP int __cdecl _vswprintf(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,va_list _Args);
-#endif /* __MSVCRT_VERSION__ >= 0x1400 */
+#endif /* _UCRT */
 
 #ifndef RC_INVOKED
 #include <swprintf.inl>
@@ -1269,7 +1269,7 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
 #define _STDIO_DEFINED
 #endif
 
-#if __MSVCRT_VERSION__ >= 0x1400
+#ifdef _UCRT
   _CRTIMP int __cdecl _fgetc_nolock(FILE *_File);
   _CRTIMP int __cdecl _fputc_nolock(int _Char, FILE *_File);
   _CRTIMP int __cdecl _getc_nolock(FILE *_File);

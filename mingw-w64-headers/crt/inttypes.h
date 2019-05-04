@@ -29,7 +29,7 @@ typedef struct {
  * The non-standard I64 length specifier causes warning in GCC,
  * but understood by MS runtime functions.
  */
-#if __MSVCRT_VERSION__ >= 0x1400 || __USE_MINGW_ANSI_STDIO
+#if defined(_UCRT) || __USE_MINGW_ANSI_STDIO
 #define PRId64 "lld"
 #define PRIi64 "lli"
 #define PRIo64 "llo"
