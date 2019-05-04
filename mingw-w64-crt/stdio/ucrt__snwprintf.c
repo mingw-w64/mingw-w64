@@ -14,7 +14,7 @@
 #endif
 
 #undef __MSVCRT_VERSION__
-#define __MSVCRT_VERSION__ 0x1400
+#define _UCRT
 
 #define _snwprintf real__snwprintf
 

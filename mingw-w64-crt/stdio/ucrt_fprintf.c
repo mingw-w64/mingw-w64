@@ -5,7 +5,7 @@
  */
 
 #undef __MSVCRT_VERSION__
-#define __MSVCRT_VERSION__ 0x1400
+#define _UCRT
 #include <stdio.h>
 
 int __cdecl fprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,...)

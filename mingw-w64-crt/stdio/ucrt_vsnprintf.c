@@ -5,7 +5,7 @@
  */
 
 #undef __MSVCRT_VERSION__
-#define __MSVCRT_VERSION__ 0x1400
+#define _UCRT
 #include <stdio.h>
 
 int vsnprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, va_list __local_argv)

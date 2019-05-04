@@ -10,7 +10,7 @@
 #endif
 
 #undef __MSVCRT_VERSION__
-#define __MSVCRT_VERSION__ 0x1400
+#define _UCRT
 
 #define __getmainargs crtimp___getmainargs
 #define __wgetmainargs crtimp___wgetmainargs

@@ -5,7 +5,7 @@
  */
 
 #undef __MSVCRT_VERSION__
-#define __MSVCRT_VERSION__ 0x1400
+#define _UCRT
 #include <stdio.h>
 
 int __cdecl _vsnprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN
