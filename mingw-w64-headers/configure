@@ -2831,16 +2831,16 @@ msvcr90*)
   default_msvcrt_version=0x900
   ;;
 msvcr100*)
-  default_msvcrt_version=0x1000
+  default_msvcrt_version=0xA00
   ;;
 msvcr110*)
-  default_msvcrt_version=0x1100
+  default_msvcrt_version=0xB00
   ;;
 msvcr120*)
-  default_msvcrt_version=0x1200
+  default_msvcrt_version=0xC00
   ;;
 ucrt*)
-  default_msvcrt_version=0x1400
+  default_msvcrt_version=0xE00
   ;;
 msvcrt|*)
   default_msvcrt_version=0x700
