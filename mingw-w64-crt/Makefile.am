@@ -1416,7 +1416,7 @@ libarm32_LIBRARIES += libarm32/libmingwthrd.a
 libarm32_libmingwthrd_a_SOURCES = $(src_libmingwthrd)
 libarm32_libmingwthrd_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 
-processed_defs += libarm32/msvcrt.def libarm32/msvcr80.def libarm32/msvcr90.def libarm32/msvcr90d.def libarm32/msvcr100.def libarm32/msvcr110.def libarm32/ucrtbase.def \
+processed_defs += libarm32/msvcrt.def libarm32/msvcr80.def libarm32/msvcr90.def libarm32/msvcr90d.def libarm32/msvcr100.def libarm32/msvcr110.def libarm32/msvcr120_app.def libarm32/ucrtbase.def \
 				  libarm32/advapi32.def libarm32/clbcatq.def libarm32/kernel32.def libarm32/ole32.def libarm32/oleaut32.def \
 				  libarm32/user32.def libarm32/ws2_32.def \
 				  libarm32/api-ms-win-crt-math-l1-1-0.def libarm32/api-ms-win-crt-private-l1-1-0.def libarm32/api-ms-win-crt-runtime-l1-1-0.def \
@@ -1433,6 +1433,12 @@ libarm32_LIBRARIES += libarm32/libmsvcr110.a
 libarm32_libmsvcr110_a_SOURCES = $(src_msvcrt_common)
 libarm32_libmsvcr110_a_AR = $(DTDEFARM32) $(top_srcdir)/libarm32/msvcr110.def && $(AR) $(ARFLAGS)
 libarm32_libmsvcr110_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
+
+libarm32_LIBRARIES += libarm32/libmsvcr120_app.a
+libarm32_libmsvcr120_app_a_SOURCES = $(src_msvcr120_app) libarm32/msvcr120_app.def.in
+libarm32_libmsvcr120_app_a_AR = $(DTDEFARM32) libarm32/msvcr120_app.def && $(AR) $(ARFLAGS)
+libarm32_libmsvcr120_app_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
+EXTRA_libarm32_libmsvcr120_app_a_DEPENDENCIES=libarm32/msvcr120_app.def
 
 libarm32_LIBRARIES += libarm32/libucrtbase.a
 libarm32_libucrtbase_a_SOURCES = $(src_ucrtbase) lib-common/ucrtbase.def.in
