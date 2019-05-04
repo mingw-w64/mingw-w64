@@ -341,6 +341,7 @@ src_msvcr80_64=\
 
 src_msvcr120_app=\
   $(src_msvcrt_common) \
+  misc/__set_app_type.c \
   misc/_getpid.c
 
 # These mingwex sources are target independent:

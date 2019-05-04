@@ -879,7 +879,6 @@ _seh_longjmp_unwind4@4
 _seh_longjmp_unwind@4
 _set_SSE2_enable
 _set_abort_behavior
-__set_app_type ; Dummy implementation
 _set_controlfp
 _set_doserrno
 _set_errno
