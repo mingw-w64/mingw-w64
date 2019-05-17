@@ -599,6 +599,7 @@ SECSYSHEAD_LIST
 SECHEAD_LIST
 SYSHEAD_LIST
 MINGWHELPERHEAD_LIST
+KHRHEAD_LIST
 GLHEAD_LIST
 WRLWRAPPERSHEAD_LIST
 WRLHEAD_LIST
@@ -2713,7 +2714,9 @@ GDIPLUSHEAD_LIST=$srcdir/include/gdiplus/*.h
 WRLHEAD_LIST=$srcdir/include/wrl/*.h
 WRLWRAPPERSHEAD_LIST=$srcdir/include/wrl/wrappers/*.h
 GLHEAD_LIST=$srcdir/include/GL/*.h
+KHRHEAD_LIST=$srcdir/include/KHR/*.h
 MINGWHELPERHEAD_LIST=$srcdir/include/psdk_inc/*.h
+
 
 
 
