@@ -1204,17 +1204,6 @@ extern "C" {
   WINBASEAPI WINBOOL WINAPI SetThreadInformation (HANDLE hThread, THREAD_INFORMATION_CLASS ThreadInformationClass, LPVOID ThreadInformation, DWORD ThreadInformationSize);
   WINBASEAPI WINBOOL WINAPI GetProcessInformation (HANDLE hProcess, PROCESS_INFORMATION_CLASS ProcessInformationClass, LPVOID ProcessInformation, DWORD ProcessInformationSize);
   WINBASEAPI WINBOOL WINAPI SetProcessInformation (HANDLE hProcess, PROCESS_INFORMATION_CLASS ProcessInformationClass, LPVOID ProcessInformation, DWORD ProcessInformationSize);
-
-#define MEMORY_PRIORITY_LOWEST 0
-#define MEMORY_PRIORITY_VERY_LOW 1
-#define MEMORY_PRIORITY_LOW 2
-#define MEMORY_PRIORITY_MEDIUM 3
-#define MEMORY_PRIORITY_BELOW_NORMAL 4
-#define MEMORY_PRIORITY_NORMAL 5
-
-  typedef struct _MEMORY_PRIORITY_INFORMATION {
-    ULONG MemoryPriority;
-  } MEMORY_PRIORITY_INFORMATION,*PMEMORY_PRIORITY_INFORMATION;
 #endif
 
 #if _WIN32_WINNT >= 0x0600
