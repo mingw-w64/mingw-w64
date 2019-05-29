@@ -1779,6 +1779,7 @@ endif
 		%/libapi-ms-win-core-processthreads-l1-1-1.a \
 		%/libapi-ms-win-core-processthreads-l1-1-2.a \
 		%/libapi-ms-win-core-processthreads-l1-1-3.a \
+		%/libapi-ms-win-core-psapi-ansi-l1-1-0.a \
 		%/libapi-ms-win-core-profile-l1-1-0.a \
 		%/libapi-ms-win-core-realtime-l1-1-0.a \
 		%/libapi-ms-win-core-realtime-l1-1-1.a \
@@ -1882,6 +1883,7 @@ endif
 		%/libapi-ms-win-core-processthreads-l1-1-1.a \
 		%/libapi-ms-win-core-processthreads-l1-1-2.a \
 		%/libapi-ms-win-core-processthreads-l1-1-3.a \
+		%/libapi-ms-win-core-psapi-ansi-l1-1-0.a \
 		%/libapi-ms-win-core-profile-l1-1-0.a \
 		%/libapi-ms-win-core-realtime-l1-1-0.a \
 		%/libapi-ms-win-core-realtime-l1-1-1.a \
