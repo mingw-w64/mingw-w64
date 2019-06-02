@@ -53,7 +53,7 @@ func_file_conv ()
 	  MINGW*)
 	    file_conv=mingw
 	    ;;
-	  CYGWIN*)
+	  CYGWIN*|MSYS*)
 	    file_conv=cygwin
 	    ;;
 	  *)
@@ -65,7 +65,7 @@ func_file_conv ()
 	mingw)
 	  file=`cmd //C echo "$file " | sed -e 's/"\(.*\) " *$/\1/'`
 	  ;;
-	cygwin)
+	cygwin|msys)
 	  file=`cygpath -m "$file" || echo "$file"`
 	  ;;
 	wine)
