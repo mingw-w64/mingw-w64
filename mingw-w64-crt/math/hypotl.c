@@ -38,7 +38,7 @@ hypotl (long double x, long double y)
     {
       /* Annex F.9.4.3, hypot returns +infinity if
          either component is an infinity, even when the
-         other compoent is NaN.  */
+         other component is NaN.  */
       return (isinf(xx) || isinf(yy)) ? INFINITY : NAN;
     }
 
