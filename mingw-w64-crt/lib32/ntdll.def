@@ -244,6 +244,7 @@ NtAlertThreadByThreadId@4
 NtAllocateLocallyUniqueId@4
 NtAllocateReserveObject@12
 NtAllocateUserPhysicalPages@12
+NtAllocateUserPhysicalPagesEx@20
 NtAllocateUuids@16
 NtAllocateVirtualMemory@24
 NtAllocateVirtualMemoryEx@28
@@ -1059,6 +1060,7 @@ RtlFreeMemoryBlockLookaside@8
 RtlFreeOemString@4
 RtlFreeSid@4
 RtlFreeThreadActivationContextStack@0
+RtlFreeUTF8String@4
 RtlFreeUnicodeString@4
 RtlFreeUserStack@4
 RtlFreeUserThreadStack@8
@@ -1104,6 +1106,7 @@ RtlGetLastWin32Error@0
 RtlGetLengthWithoutLastFullDosOrNtPathElement@12
 RtlGetLengthWithoutTrailingPathSeperators@12
 RtlGetLocaleFileMappingAddress@12
+RtlGetLongestNtPathLength@0
 RtlGetMultiTimePrecise@12
 RtlGetLongestNtPathLength@0
 RtlGetNativeSystemInformation@16
@@ -1168,6 +1171,8 @@ RtlInitOutOfProcessMemoryStream@4
 RtlInitString@8
 RtlInitStringEx@8
 RtlInitStrongEnumerationHashTable@8
+RtlInitUTF8String@8
+RtlInitUTF8StringEx@8
 RtlInitUnicodeString@8
 RtlInitUnicodeStringEx@8
 RtlInitWeakEnumerationHashTable@8
@@ -1260,6 +1265,7 @@ RtlIsValidHandle@8
 RtlIsValidIndexHandle@12
 RtlIsValidLocaleName@8
 RtlIsValidProcessTrustLabelSid@4
+RtlIsZeroMemory@8
 RtlKnownExceptionFilter@4
 RtlLCIDToCultureName@8
 RtlLargeIntegerAdd@16
@@ -1313,6 +1319,7 @@ RtlNewSecurityObject@24
 RtlNewSecurityObjectEx@32
 RtlNewSecurityObjectWithMultipleInheritance@36
 RtlNormalizeProcessParams@4
+RtlNormalizeSecurityDescriptor@20
 RtlNormalizeString@20
 RtlNtPathNameToDosPathName@16
 RtlNtStatusToDosError@4
@@ -1426,6 +1433,7 @@ RtlResetRtlTranslations@4
 RtlRestoreBootStatusDefaults@4
 RtlRestoreLastWin32Error@4
 RtlRestoreSystemBootStatusDefaults@0
+RtlRestoreThreadPreferredUILanguages@4
 RtlRetrieveNtUserPfn@12
 RtlRevertMemoryStream@4
 RtlRunDecodeUnicodeString@8
@@ -1482,6 +1490,7 @@ RtlSetThreadErrorMode@8
 RtlSetThreadIsCritical@0
 RtlSetThreadPlaceholderCompatibilityMode@4
 RtlSetThreadPoolStartFunc@8
+RtlSetThreadPreferredUILanguages2@16
 RtlSetThreadPreferredUILanguages@12
 RtlSetThreadSubProcessTag@4
 RtlSetThreadWorkOnBehalfTicket@4
@@ -1535,6 +1544,7 @@ RtlTryAcquireSRWLockExclusive@4
 RtlTryAcquireSRWLockShared@4
 RtlTryConvertSRWLockSharedToExclusiveOrRelease@4
 RtlTryEnterCriticalSection@4
+RtlUTF8StringToUnicodeString@12
 RtlUTF8ToUnicodeN@20
 RtlUdiv128@28
 RtlUnhandledExceptionFilter2@8
@@ -1545,6 +1555,7 @@ RtlUnicodeStringToCountedOemString@12
 RtlUnicodeStringToInteger@12
 RtlUnicodeStringToOemSize@4
 RtlUnicodeStringToOemString@12
+RtlUnicodeStringToUTF8String@12
 RtlUnicodeToCustomCPN@24
 RtlUnicodeToMultiByteN@20
 RtlUnicodeToMultiByteSize@12
@@ -1793,6 +1804,7 @@ ZwAlertThreadByThreadId@4
 ZwAllocateLocallyUniqueId@4
 ZwAllocateReserveObject@12
 ZwAllocateUserPhysicalPages@12
+ZwAllocateUserPhysicalPagesEx@20
 ZwAllocateUuids@16
 ZwAllocateVirtualMemory@24
 ZwAllocateVirtualMemoryEx@28

@@ -226,6 +226,7 @@ NtAlertThreadByThreadId
 NtAllocateLocallyUniqueId
 NtAllocateReserveObject
 NtAllocateUserPhysicalPages
+NtAllocateUserPhysicalPagesEx
 NtAllocateUuids
 NtAllocateVirtualMemory
 NtAllocateVirtualMemoryEx
@@ -751,6 +752,7 @@ RtlAppxIsFileOwnedByTrustedInstaller
 RtlAreAllAccessesGranted
 RtlAreAnyAccessesGranted
 RtlAreBitsClear
+RtlAreBitsClearEx
 RtlAreBitsSet
 RtlAreLongPathsEnabled
 RtlAssert
@@ -776,8 +778,11 @@ RtlCheckTokenMembership
 RtlCheckTokenMembershipEx
 RtlCleanUpTEBLangLists
 RtlClearAllBits
+RtlClearAllBitsEx
 RtlClearBit
+RtlClearBitEx
 RtlClearBits
+RtlClearBitsEx
 RtlClearThreadWorkOnBehalfTicket
 RtlCloneMemoryStream
 RtlCloneUserProcess
@@ -975,6 +980,7 @@ RtlFindActivationContextSectionString
 RtlFindCharInUnicodeString
 RtlFindClearBits
 RtlFindClearBitsAndSet
+RtlFindClearBitsEx
 RtlFindClearRuns
 RtlFindClosestEncodableLength
 RtlFindExportedRoutineByName
@@ -986,6 +992,8 @@ RtlFindMostSignificantBit
 RtlFindNextForwardRunClear
 RtlFindSetBits
 RtlFindSetBitsAndClear
+RtlFindSetBitsAndClearEx
+RtlFindSetBitsEx
 RtlFindUnicodeSubstring
 RtlFirstEntrySList
 RtlFirstFreeAce
@@ -1009,6 +1017,7 @@ RtlFreeNonVolatileToken
 RtlFreeOemString
 RtlFreeSid
 RtlFreeThreadActivationContextStack
+RtlFreeUTF8String
 RtlFreeUnicodeString
 RtlFreeUserStack
 RtlGUIDFromString
@@ -1116,6 +1125,8 @@ RtlInitOutOfProcessMemoryStream
 RtlInitString
 RtlInitStringEx
 RtlInitStrongEnumerationHashTable
+RtlInitUTF8String
+RtlInitUTF8StringEx
 RtlInitUnicodeString
 RtlInitUnicodeStringEx
 RtlInitWeakEnumerationHashTable
@@ -1207,6 +1218,7 @@ RtlIsValidHandle
 RtlIsValidIndexHandle
 RtlIsValidLocaleName
 RtlIsValidProcessTrustLabelSid
+RtlIsZeroMemory
 RtlKnownExceptionFilter
 RtlLCIDToCultureName
 RtlLargeIntegerToChar
@@ -1254,6 +1266,7 @@ RtlNewSecurityObject
 RtlNewSecurityObjectEx
 RtlNewSecurityObjectWithMultipleInheritance
 RtlNormalizeProcessParams
+RtlNormalizeSecurityDescriptor
 RtlNormalizeString
 RtlNtPathNameToDosPathName
 RtlNtStatusToDosError
@@ -1262,8 +1275,10 @@ RtlNtdllName
 RtlNumberGenericTableElements
 RtlNumberGenericTableElementsAvl
 RtlNumberOfClearBits
+RtlNumberOfClearBitsEx
 RtlNumberOfClearBitsInRange
 RtlNumberOfSetBits
+RtlNumberOfSetBitsEx
 RtlNumberOfSetBitsInRange
 RtlNumberOfSetBitsUlongPtr
 RtlOemStringToUnicodeSize
@@ -1370,6 +1385,7 @@ RtlRestoreBootStatusDefaults
 RtlRestoreContext
 RtlRestoreLastWin32Error
 RtlRestoreSystemBootStatusDefaults
+RtlRestoreThreadPreferredUILanguages
 RtlRetrieveNtUserPfn
 RtlRevertMemoryStream
 RtlRunDecodeUnicodeString
@@ -1385,9 +1401,12 @@ RtlSelfRelativeToAbsoluteSD
 RtlSelfRelativeToAbsoluteSD2
 RtlSendMsgToSm
 RtlSetAllBits
+RtlSetAllBitsEx
 RtlSetAttributesSecurityDescriptor
 RtlSetBit
+RtlSetBitEx
 RtlSetBits
+RtlSetBitsEx
 RtlSetControlSecurityDescriptor
 RtlSetCriticalSectionSpinCount
 RtlSetCurrentDirectory_U
@@ -1427,6 +1446,7 @@ RtlSetThreadIsCritical
 RtlSetThreadPlaceholderCompatibilityMode
 RtlSetThreadPoolStartFunc
 RtlSetThreadPreferredUILanguages
+RtlSetThreadPreferredUILanguages2
 RtlSetThreadSubProcessTag
 RtlSetThreadWorkOnBehalfTicket
 RtlSetTimeZoneInformation
@@ -1478,6 +1498,7 @@ RtlTryAcquireSRWLockExclusive
 RtlTryAcquireSRWLockShared
 RtlTryConvertSRWLockSharedToExclusiveOrRelease
 RtlTryEnterCriticalSection
+RtlUTF8StringToUnicodeString
 RtlUTF8ToUnicodeN
 RtlUdiv128
 RtlUlongByteSwap
@@ -1490,6 +1511,7 @@ RtlUnicodeStringToCountedOemString
 RtlUnicodeStringToInteger
 RtlUnicodeStringToOemSize
 RtlUnicodeStringToOemString
+RtlUnicodeStringToUTF8String
 RtlUnicodeToCustomCPN
 RtlUnicodeToMultiByteN
 RtlUnicodeToMultiByteSize
@@ -1748,6 +1770,7 @@ ZwAlertThreadByThreadId
 ZwAllocateLocallyUniqueId
 ZwAllocateReserveObject
 ZwAllocateUserPhysicalPages
+ZwAllocateUserPhysicalPagesEx
 ZwAllocateUuids
 ZwAllocateVirtualMemory
 ZwAllocateVirtualMemoryEx
