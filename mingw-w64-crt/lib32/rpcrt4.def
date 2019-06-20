@@ -180,8 +180,8 @@ NDRSContextUnmarshall@8
 NDRSContextUnmarshallEx@12
 NDRcopy@12
 NdrAllocate@8
-NdrAsyncClientCall@0
-NdrAsyncClientCall2@0
+NdrAsyncClientCall
+NdrAsyncClientCall2
 NdrAsyncServerCall@4
 NdrByteCountPointerBufferSize@12
 NdrByteCountPointerFree@12
@@ -190,9 +190,9 @@ NdrByteCountPointerUnmarshall@16
 NdrCStdStubBuffer2_Release@8
 NdrCStdStubBuffer_Release@8
 NdrClearOutParameters@12
-NdrClientCall@0
-NdrClientCall2@0
-NdrClientCall4@0
+NdrClientCall
+NdrClientCall2
+NdrClientCall4
 NdrClientContextMarshall@12
 NdrClientContextUnmarshall@12
 NdrClientInitialize@16
@@ -239,8 +239,8 @@ NdrCorrelationFree@4
 NdrCorrelationInitialize@16
 NdrCorrelationPass@4
 NdrCreateServerInterfaceFromStub@8
-NdrDcomAsyncClientCall@0
-NdrDcomAsyncClientCall2@0
+NdrDcomAsyncClientCall
+NdrDcomAsyncClientCall2
 NdrDcomAsyncStubCall@16
 NdrDllCanUnloadNow@4
 NdrDllGetClassObject@24
@@ -284,9 +284,9 @@ NdrInterfacePointerMarshall@12
 NdrInterfacePointerMemorySize@8
 NdrInterfacePointerUnmarshall@16
 NdrMapCommAndFaultStatus@16
-NdrMesProcEncodeDecode@0
-NdrMesProcEncodeDecode2@0
-NdrMesProcEncodeDecode4@0
+NdrMesProcEncodeDecode
+NdrMesProcEncodeDecode2
+NdrMesProcEncodeDecode4
 NdrMesSimpleTypeAlignSize@4
 NdrMesSimpleTypeDecode@12
 NdrMesSimpleTypeEncode@16
