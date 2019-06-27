@@ -5,29 +5,12 @@
 ;
 LIBRARY "WININET.dll"
 EXPORTS
-ord_101 @101
-ord_102 @102
-ord_103 @103
-ord_104 @104
-ord_105 @105
 DispatchAPICall
 AppCacheCheckManifest
-ord_108 @108
-ord_109 @109
-ord_110 @110
-ord_111 @111
-ord_112 @112
 AppCacheCloseHandle
 AppCacheDeleteGroup
 AppCacheDeleteIEGroup
-ord_116 @116
-ord_117 @117
-ord_118 @118
 AppCacheDuplicateHandle
-ord_120 @120
-ord_121 @121
-ord_122 @122
-ord_123 @123
 AppCacheFinalize
 AppCacheFreeDownloadList
 AppCacheFreeGroupList
@@ -245,7 +228,6 @@ InternetSetStatusCallbackW
 InternetShowSecurityInfoByURL
 InternetShowSecurityInfoByURLA
 InternetShowSecurityInfoByURLW
-ord_346 @346
 InternetTimeFromSystemTime
 InternetTimeFromSystemTimeA
 InternetTimeFromSystemTimeW
@@ -300,22 +282,12 @@ UrlCacheFindNextEntry
 UrlCacheFreeEntryInfo
 UrlCacheGetContentPaths
 UrlCacheGetEntryInfo
-ord_401 @401
-ord_402 @402
-ord_403 @403
 UrlCacheGetGlobalLimit
 UrlCacheReadEntryStream
 UrlCacheReloadSettings
 UrlCacheRetrieveEntryFile
 UrlCacheRetrieveEntryStream
 UrlCacheSetGlobalLimit
-ord_410 @410
-ord_411 @411
 UrlCacheUpdateEntryExtraData
-ord_413 @413
 UrlZonesDetach
 _GetFileExtensionFromUrl
-ord_420 @420
-ord_421 @421
-ord_422 @422
-ord_423 @423
