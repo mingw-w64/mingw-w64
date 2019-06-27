@@ -8,6 +8,7 @@ EXPORTS
 DispatchAPICall
 AppCacheCheckManifest
 AppCacheCloseHandle
+AppCacheCreateAndCommitFile
 AppCacheDeleteGroup
 AppCacheDeleteIEGroup
 AppCacheDuplicateHandle
@@ -116,6 +117,8 @@ HttpEndRequestA
 HttpEndRequestW
 HttpGetServerCredentials
 HttpGetTunnelSocket
+HttpIndicatePageLoadComplete
+HttpIsHostHstsEnabled
 HttpOpenDependencyHandle
 HttpOpenRequestA
 HttpOpenRequestW
@@ -154,6 +157,7 @@ InternetConfirmZoneCrossingA
 InternetConfirmZoneCrossingW
 InternetConnectA
 InternetConnectW
+InternetConvertUrlFromWireToWideChar
 InternetCrackUrlA
 InternetCrackUrlW
 InternetCreateUrlA
@@ -280,13 +284,16 @@ UrlCacheCreateContainer
 UrlCacheFindFirstEntry
 UrlCacheFindNextEntry
 UrlCacheFreeEntryInfo
+UrlCacheFreeGlobalSpace
 UrlCacheGetContentPaths
 UrlCacheGetEntryInfo
+UrlCacheGetGlobalCacheSize
 UrlCacheGetGlobalLimit
 UrlCacheReadEntryStream
 UrlCacheReloadSettings
 UrlCacheRetrieveEntryFile
 UrlCacheRetrieveEntryStream
+UrlCacheServer
 UrlCacheSetGlobalLimit
 UrlCacheUpdateEntryExtraData
 UrlZonesDetach
