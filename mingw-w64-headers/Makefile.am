@@ -140,6 +140,7 @@ IDL_SRCS = \
   include/napsystemhealthvalidator.idl \
   include/naptypes.idl \
   include/netfw.idl \
+  include/netlistmgr.idl \
   include/objectarray.idl \
   include/objidl.idl \
   include/objidlbase.idl \

@@ -70,6 +70,7 @@ for f in \
 	mscoree \
 	msctf \
 	netfw \
+	netlistmgr \
 	objectarray \
 	optary \
 	taskschd \

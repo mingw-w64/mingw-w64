@@ -442,6 +442,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/napsystemhealthvalidator.idl \
 @HAVE_WIDL_TRUE@  include/naptypes.idl \
 @HAVE_WIDL_TRUE@  include/netfw.idl \
+@HAVE_WIDL_TRUE@  include/netlistmgr.idl \
 @HAVE_WIDL_TRUE@  include/objectarray.idl \
 @HAVE_WIDL_TRUE@  include/objidl.idl \
 @HAVE_WIDL_TRUE@  include/objidlbase.idl \
