@@ -9,7 +9,7 @@
 
 #include <winapifamily.h>
 
-#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
 
 #include <minwindef.h>
 #include <specstrings.h>
