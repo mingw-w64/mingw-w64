@@ -160,7 +160,8 @@ src_libws2_32=libsrc/ws2_32.c \
 src_msvcrt_common=\
   misc/onexit_table.c \
   misc/register_tls_atexit.c \
-  stdio/acrt_iob_func.c
+  stdio/acrt_iob_func.c \
+  math/frexp.c
 
 src_msvcrt=\
   $(src_msvcrt_common) \
@@ -378,7 +379,7 @@ src_libmingwex=\
   math/fma.c            math/fmaf.c        math/fmal.c           \
   math/fmax.c           math/fmaxf.c       math/fmaxl.c          math/fmin.c          math/fminf.c         \
   math/fminl.c          math/fp_consts.c   math/fp_constsf.c     \
-  math/fp_constsl.c     math/fpclassify.c  math/fpclassifyf.c    math/fpclassifyl.c   math/frexpf.c        \
+  math/fp_constsl.c     math/fpclassify.c  math/fpclassifyf.c    math/fpclassifyl.c   math/frexpf.c        math/frexpl.c \
   math/hypotf.c         math/hypot.c  math/hypotl.c      math/isnan.c          math/isnanf.c        math/isnanl.c        \
   math/ldexpf.c         math/lgamma.c      math/lgammaf.c        math/lgammal.c       math/llrint.c        \
   math/signgam.c \
@@ -448,7 +449,7 @@ src_libmingwex_x86=\
   math/x86/exp.c            math/x86/exp.def.h        math/x86/expl.c           math/x86/exp2.S           math/x86/exp2f.S          \
   math/x86/exp2l.S          math/x86/expm1.c          math/x86/expm1.def.h      math/x86/expm1f.c         math/x86/expm1l.c         \
   math/x86/fastmath.h       math/x86/floor.S          math/x86/floorf.S         math/x86/floorl.S         math/x86/fmod.c           \
-  math/x86/fmodf.c          math/x86/fmodl.c          math/x86/frexpl.S         math/x86/fucom.c          math/x86/ilogb.S          \
+  math/x86/fmodf.c          math/x86/fmodl.c          math/x86/fucom.c          math/x86/ilogb.S          \
   math/x86/ilogbf.S         math/x86/ilogbl.S         math/x86/internal_logl.S  math/x86/ldexp.c          math/x86/ldexpl.c         \
   math/x86/log.c            math/x86/log.def.h        math/x86/log10l.S         math/x86/log1p.S          math/x86/log1pf.S         \
   math/x86/log1pl.S         math/x86/log2.S           math/x86/log2f.S          math/x86/log2l.S          math/x86/logb.c           \

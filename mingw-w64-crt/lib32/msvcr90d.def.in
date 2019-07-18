@@ -1423,8 +1423,7 @@ fread_s
 free
 freopen
 freopen_s
-; If we implement frexp too, we can set it to DATA only.
-frexp
+frexp DATA
 fscanf
 fscanf_s
 fseek

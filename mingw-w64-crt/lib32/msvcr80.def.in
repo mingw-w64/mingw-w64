@@ -583,8 +583,7 @@ fputws
 fread
 free
 freopen
-; If we implement frexp, we can set it to DATA only.
-frexp
+frexp DATA
 fscanf
 fseek
 fsetpos

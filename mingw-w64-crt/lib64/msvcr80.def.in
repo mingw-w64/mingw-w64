@@ -711,7 +711,7 @@ fputws
 fread
 free
 freopen
-frexp
+frexp DATA
 fscanf
 fseek
 fsetpos

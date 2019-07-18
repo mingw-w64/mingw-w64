@@ -1962,7 +1962,7 @@ fread_s
 free
 freopen
 freopen_s
-frexp
+frexp DATA
 fscanf
 fscanf_s
 fseek

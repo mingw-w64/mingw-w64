@@ -2358,7 +2358,6 @@ fread_s
 free
 freopen
 freopen_s
-; If we implement frexp, we can set it to DATA only.
 frexp
 fseek
 fsetpos
