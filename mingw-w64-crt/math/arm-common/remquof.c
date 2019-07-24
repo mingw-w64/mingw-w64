@@ -9,6 +9,10 @@
 
 float remquof(float x, float y, int *quo)
 {
+  if (isnan(x))
+    return x;
+  if (isnan(y))
+    return y;
   if (isinf(x) || y == 0)
     return NAN;
   float div = x/y;

@@ -9,6 +9,10 @@
 
 double remquo(double x, double y, int *quo)
 {
+  if (isnan(x))
+    return x;
+  if (isnan(y))
+    return y;
   if (isinf(x) || y == 0)
     return NAN;
   double div = x/y;
