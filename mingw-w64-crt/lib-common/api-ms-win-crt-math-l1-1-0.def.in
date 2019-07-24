@@ -152,13 +152,13 @@ F_NON_I386(acosf F_X86_ANY(DATA))
 F_ARM_ANY(acosl == acos)
 acosh
 acoshf
-acoshl
+acoshl F_X86_ANY(DATA)
 asin
 F_NON_I386(asinf F_X86_ANY(DATA))
 F_ARM_ANY(asinl == asin)
 asinh
 asinhf
-asinhl
+asinhl F_X86_ANY(DATA)
 atan
 atan2 F_X86_ANY(DATA)
 F_NON_I386(atan2f F_X86_ANY(DATA))
@@ -167,7 +167,7 @@ F_NON_I386(atanf F_X86_ANY(DATA))
 F_ARM_ANY(atanl == atan)
 atanh
 atanhf
-atanhl
+atanhl F_X86_ANY(DATA)
 cabs
 cabsf
 cabsl
@@ -194,7 +194,7 @@ catanhl
 catanl
 cbrt
 cbrtf
-cbrtl
+cbrtl F_X86_ANY(DATA)
 ccos
 ccosf
 ccosh
@@ -221,7 +221,7 @@ conjf
 conjl
 copysign
 copysignf
-copysignl
+copysignl F_X86_ANY(DATA)
 cos F_X86_ANY(DATA)
 F_NON_I386(cosf F_X86_ANY(DATA))
 F_ARM_ANY(cosl == cos)
@@ -254,35 +254,35 @@ ctanl
 erf
 erfc
 erfcf
-erfcl
+erfcl F_X86_ANY(DATA)
 erff
-erfl
+erfl F_X86_ANY(DATA)
 exp F_X86_ANY(DATA)
 exp2
 exp2f
-exp2l
+exp2l F_X86_ANY(DATA)
 F_NON_I386(expf F_X86_ANY(DATA))
 F_ARM_ANY(expl == exp)
 expm1
 expm1f
-expm1l
+expm1l F_X86_ANY(DATA)
 fabs DATA
 F_ARM_ANY(fabsf)
 fdim
 fdimf
-fdiml
+fdiml F_X86_ANY(DATA)
 floor F_X86_ANY(DATA)
 F_NON_I386(floorf F_X86_ANY(DATA))
 F_ARM_ANY(floorl == floor)
 fma
 fmaf
-fmal
+fmal F_X86_ANY(DATA)
 fmax
 fmaxf
-fmaxl
+fmaxl F_X86_ANY(DATA)
 fmin
 fminf
-fminl
+fminl F_X86_ANY(DATA)k
 fmod F_X86_ANY(DATA)
 F_NON_I386(fmodf F_X86_ANY(DATA))
 F_ARM_ANY(fmodl == fmod)
@@ -290,7 +290,7 @@ frexp
 hypot
 ilogb
 ilogbf
-ilogbl
+ilogbl F_X86_ANY(DATA)
 ldexp F_X86_ANY(DATA)
 ; The UCRT lgamma functions don't set/provide the signgam variable like
 ; the mingw ones do. Therefore prefer the libmingwex version instead.
@@ -299,31 +299,31 @@ lgammaf DATA
 lgammal DATA
 llrint
 llrintf
-llrintl
+llrintl F_X86_ANY(DATA)
 llround
 llroundf
-llroundl
+llroundl F_X86_ANY(DATA)
 log F_X86_ANY(DATA)
 log10
 F_NON_I386(log10f F_X86_ANY(DATA))
 F_ARM_ANY(log10l == log10)
 log1p
 log1pf
-log1pl
+log1pl F_X86_ANY(DATA)
 log2
 log2f
-log2l
+log2l F_X86_ANY(DATA)
 logb
 logbf
-logbl
+logbl F_X86_ANY(DATA)
 F_NON_I386(logf F_X86_ANY(DATA))
 F_ARM_ANY(logl == log)
 lrint
 lrintf
-lrintl
+lrintl F_X86_ANY(DATA)
 lround
 lroundf
-lroundl
+lroundl F_X86_ANY(DATA)
 modf DATA
 F_NON_I386(modff DATA)
 nan
@@ -331,13 +331,15 @@ nanf
 nanl
 nearbyint
 nearbyintf
-nearbyintl
+nearbyintl F_X86_ANY(DATA)
 nextafter
 nextafterf
-nextafterl
-nexttoward
-nexttowardf
-nexttowardl
+nextafterl F_X86_ANY(DATA)
+; All of the nexttoward functions take the second parameter as long doubke,
+; making them unusable for x86.
+nexttoward F_X86_ANY(DATA)
+nexttowardf F_X86_ANY(DATA)
+nexttowardl F_X86_ANY(DATA)
 norm
 normf
 norml
@@ -346,22 +348,22 @@ F_NON_I386(powf F_X86_ANY(DATA))
 F_ARM_ANY(powl == pow)
 remainder
 remainderf
-remainderl
+remainderl F_X86_ANY(DATA)
 remquo
 remquof
-remquol
+remquol F_X86_ANY(DATA)
 rint
 rintf
-rintl
+rintl F_X86_ANY(DATA)
 round
 roundf
-roundl
+roundl F_X86_ANY(DATA)
 scalbln
 scalblnf
-scalblnl
+scalblnl F_X86_ANY(DATA)
 scalbn
 scalbnf
-scalbnl
+scalbnl F_X86_ANY(DATA)
 sin F_X86_ANY(DATA)
 F_NON_I386(sinf F_X86_ANY(DATA))
 F_ARM_ANY(sinl == sin)
@@ -378,7 +380,7 @@ tanh
 F_NON_I386(tanhf)
 tgamma
 tgammaf
-tgammal
+tgammal F_X86_ANY(DATA)
 trunc
 truncf
-truncl
+truncl F_X86_ANY(DATA)
