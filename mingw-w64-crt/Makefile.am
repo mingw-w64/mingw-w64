@@ -813,7 +813,7 @@ lib32_libmsvcr120d_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(s
 EXTRA_lib32_libmsvcr120d_a_DEPENDENCIES=lib32/msvcr120d.def
 
 lib32_LIBRARIES += lib32/libmsvcr120_app.a
-lib32_libmsvcr120_app_a_SOURCES = $(src_msvcr120_app) lib32/msvcr120_app.def.in
+lib32_libmsvcr120_app_a_SOURCES = $(src_msvcr120_app) lib-common/msvcr120_app.def.in
 lib32_libmsvcr120_app_a_AR = $(DTDEF32) lib32/msvcr120_app.def && $(AR) $(ARFLAGS)
 lib32_libmsvcr120_app_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 EXTRA_lib32_libmsvcr120_app_a_DEPENDENCIES=lib32/msvcr120_app.def
@@ -1150,7 +1150,7 @@ lib64_libmsvcr120d_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(s
 EXTRA_lib64_libmsvcr120d_a_DEPENDENCIES=lib64/msvcr120d.def
 
 lib64_LIBRARIES += lib64/libmsvcr120_app.a
-lib64_libmsvcr120_app_a_SOURCES = $(src_msvcr120_app) lib64/msvcr120_app.def.in
+lib64_libmsvcr120_app_a_SOURCES = $(src_msvcr120_app) lib-common/msvcr120_app.def.in
 lib64_libmsvcr120_app_a_AR = $(DTDEF64) lib64/msvcr120_app.def && $(AR) $(ARFLAGS)
 lib64_libmsvcr120_app_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 EXTRA_lib64_libmsvcr120_app_a_DEPENDENCIES=lib64/msvcr120_app.def
@@ -1437,7 +1437,7 @@ libarm32_libmsvcr110_a_AR = $(DTDEFARM32) $(top_srcdir)/libarm32/msvcr110.def &&
 libarm32_libmsvcr110_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 
 libarm32_LIBRARIES += libarm32/libmsvcr120_app.a
-libarm32_libmsvcr120_app_a_SOURCES = $(src_msvcr120_app) libarm32/msvcr120_app.def.in
+libarm32_libmsvcr120_app_a_SOURCES = $(src_msvcr120_app) lib-common/msvcr120_app.def.in
 libarm32_libmsvcr120_app_a_AR = $(DTDEFARM32) libarm32/msvcr120_app.def && $(AR) $(ARFLAGS)
 libarm32_libmsvcr120_app_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 EXTRA_libarm32_libmsvcr120_app_a_DEPENDENCIES=libarm32/msvcr120_app.def
