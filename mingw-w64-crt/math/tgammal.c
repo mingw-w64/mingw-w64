@@ -5,6 +5,14 @@
  */
 #include "cephes_mconf.h"
 
+#if defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
+double tgamma(double x);
+
+long double tgammal(long double x)
+{
+	return tgamma(x);
+}
+#else
 /*
 gamma(x+2)  = gamma(x+2) P(x)/Q(x)
 0 <= x <= 1
@@ -393,4 +401,4 @@ long double tgammal(long double x)
 	int local_sgngaml = 0;
 	return (__tgammal_r(x, &local_sgngaml));
 }
-
+#endif

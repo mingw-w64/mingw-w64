@@ -5,6 +5,15 @@
  */
 #include "cephes_mconf.h"
 
+#if defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
+double lgamma(double x);
+
+long double lgammal(long double x)
+{
+	return lgamma(x);
+}
+#else
+
 #if UNK
 static uLD S[9] = {
   { { -1.193945051381510095614E-3L } },
@@ -334,4 +343,4 @@ long double lgammal(long double x)
 {
 	return (__lgammal_r (x, &signgam));
 }
-
+#endif

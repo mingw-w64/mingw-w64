@@ -108,6 +108,17 @@ Copyright 1984, 1995 by Stephen L. Moshier
 
 long double erfl(long double x);
 
+#if defined(__arm__) || defined(_ARM_) || defined(__aarch64__) || defined(_ARM64_)
+long double erfcl(long double x)
+{
+	return erfc(x);
+}
+
+long double erfl(long double x)
+{
+	return erf(x);
+}
+#else
 /* erfc(x) = exp(-x^2) P(1/x)/Q(1/x)
    1/8 <= 1/x <= 1
    Peak relative error 5.8e-21  */
@@ -301,3 +312,4 @@ long double erfl(long double x)
 	y = x * polevll(z, T, 6) / p1evll(z, U, 6);
 	return (y);
 }
+#endif
