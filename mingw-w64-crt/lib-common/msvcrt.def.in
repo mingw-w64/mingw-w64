@@ -1309,14 +1309,18 @@ abort
 abs
 acos
 F_NON_I386(acosf F_X86_ANY(DATA))
+F_ARM_ANY(acosl == acos)
 asctime
 ; asctime_s replaced by emu
 asin
 F_NON_I386(asinf F_X86_ANY(DATA))
+F_ARM_ANY(asinl == asin)
 atan
 atan2 F_X86_ANY(DATA)
 F_NON_I386(atan2f F_X86_ANY(DATA))
+F_ARM_ANY(atan2l == atan2)
 F_NON_I386(atanf F_X86_ANY(DATA))
+F_ARM_ANY(atanl == atan)
 atexit DATA
 atof
 atoi
@@ -1333,6 +1337,7 @@ clearerr_s
 clock
 cos F_X86_ANY(DATA)
 F_NON_I386(cosf F_X86_ANY(DATA))
+F_ARM_ANY(cosl == cos)
 cosh
 F_NON_I386(coshf DATA)
 ctime
@@ -1341,6 +1346,7 @@ div
 exit
 exp F_X86_ANY(DATA)
 F_NON_I386(expf F_X86_ANY(DATA))
+F_ARM_ANY(expl == exp)
 fabs DATA
 F_ARM_ANY(fabsf)
 fclose
@@ -1424,7 +1430,9 @@ localtime
 log F_X86_ANY(DATA)
 log10
 F_NON_I386(log10f F_X86_ANY(DATA))
+F_ARM_ANY(log10l == log10)
 F_NON_I386(logf F_X86_ANY(DATA))
+F_ARM_ANY(logl == log)
 malloc
 mblen
 F_ARM_ANY(mbrlen)
@@ -1474,6 +1482,7 @@ setvbuf
 signal
 sin F_X86_ANY(DATA)
 F_NON_I386(sinf F_X86_ANY(DATA))
+F_ARM_ANY(sinl == sin)
 ; if we implement sinh, we can set it DATA only.
 sinh
 F_NON_I386(sinhf DATA)
@@ -1519,6 +1528,7 @@ swscanf_s
 system
 tan
 F_NON_I386(tanf F_X86_ANY(DATA))
+F_ARM_ANY(tanl == tan)
 ; if we implement tanh, we can set it to DATA only.
 tanh
 F_ARM_ANY(tanhf)

@@ -2181,6 +2181,7 @@ abort
 abs
 acos
 F_NON_I386(acosf F_X86_ANY(DATA))
+F_ARM_ANY(acosl == acos)
 acosh
 acoshf
 acoshl
@@ -2188,13 +2189,16 @@ asctime
 asctime_s
 asin
 F_NON_I386(asinf F_X86_ANY(DATA))
+F_ARM_ANY(asinl == asin)
 asinh
 asinhf
 asinhl
 atan
 atan2 F_X86_ANY(DATA)
 F_NON_I386(atan2f F_X86_ANY(DATA))
+F_ARM_ANY(atan2l == atan2)
 F_NON_I386(atanf F_X86_ANY(DATA))
+F_ARM_ANY(atanl == atan)
 atanh
 atanhf
 atanhl
@@ -2267,6 +2271,7 @@ copysignf
 copysignl
 cos F_X86_ANY(DATA)
 F_NON_I386(cosf F_X86_ANY(DATA))
+F_ARM_ANY(cosl == cos)
 cosh
 F_NON_I386(coshf DATA)
 cpow
@@ -2306,6 +2311,7 @@ exp2
 exp2f
 exp2l
 F_NON_I386(expf F_X86_ANY(DATA))
+F_ARM_ANY(expl == exp)
 expm1
 expm1f
 expm1l
@@ -2423,6 +2429,7 @@ localeconv
 log F_X86_ANY(DATA)
 log10
 F_NON_I386(log10f F_X86_ANY(DATA))
+F_ARM_ANY(log10l == log10)
 log1p
 log1pf
 log1pl
@@ -2433,6 +2440,7 @@ logb
 logbf
 logbl
 F_NON_I386(logf F_X86_ANY(DATA))
+F_ARM_ANY(logl == log)
 lrint
 lrintf
 lrintl
@@ -2520,6 +2528,7 @@ setvbuf
 signal
 sin F_X86_ANY(DATA)
 F_NON_I386(sinf F_X86_ANY(DATA))
+F_ARM_ANY(sinl == sin)
 ; if we implement sinh, we can set it DATA only.
 sinh
 F_NON_I386(sinhf DATA)
@@ -2564,6 +2573,7 @@ strxfrm
 system
 tan
 F_NON_I386(tanf F_X86_ANY(DATA))
+F_ARM_ANY(tanl == tan)
 ; if we implement tanh, we can set it to DATA only.
 tanh
 F_NON_I386(tanhf)
