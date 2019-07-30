@@ -282,6 +282,12 @@ src_msvcrtarm32+=\
   math/arm-common/log1pf.c \
   math/arm-common/log1pl.c \
   math/arm-common/log2.c \
+  math/arm-common/logb.c \
+  math/arm-common/logbf.c \
+  math/arm-common/logbl.c \
+  math/arm-common/pow.c \
+  math/arm-common/powf.c \
+  math/arm-common/powl.c \
   math/arm-common/remainder.c \
   math/arm-common/remainderf.c \
   math/arm-common/remainderl.c \
@@ -313,6 +319,12 @@ src_msvcrtarm64=\
   math/arm-common/log1pf.c \
   math/arm-common/log1pl.c \
   math/arm-common/log2.c \
+  math/arm-common/logb.c \
+  math/arm-common/logbf.c \
+  math/arm-common/logbl.c \
+  math/arm-common/pow.c \
+  math/arm-common/powf.c \
+  math/arm-common/powl.c \
   math/arm-common/remainder.c \
   math/arm-common/remainderf.c \
   math/arm-common/remainderl.c \

@@ -716,10 +716,7 @@ _localtime64
 _lock
 _locking
 _logb
-F_ARM_ANY(logb == _logb)
-F_ARM_ANY(logbl == _logb)
 F_NON_I386(_logbf)
-F_ARM_ANY(logbf == _logbf)
 F_I386(_longjmpex)
 _lrotl
 _lrotr
@@ -1454,9 +1451,8 @@ mktime
 modf DATA
 F_NON_I386(modff DATA)
 perror
-pow F_X86_ANY(DATA)
-F_NON_I386(powf F_X86_ANY(DATA))
-F_ARM_ANY(powl == pow)
+pow DATA
+F_NON_I386(powf DATA)
 printf
 printf_s
 putc
