@@ -292,9 +292,11 @@ ilogb
 ilogbf
 ilogbl
 ldexp F_X86_ANY(DATA)
-lgamma
-lgammaf
-lgammal
+; The UCRT lgamma functions don't set/provide the signgam variable like
+; the mingw ones do. Therefore prefer the libmingwex version instead.
+lgamma DATA
+lgammaf DATA
+lgammal DATA
 llrint
 llrintf
 llrintl
