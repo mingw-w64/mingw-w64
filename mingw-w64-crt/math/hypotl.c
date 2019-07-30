@@ -23,7 +23,6 @@ Direct inquiries to 30 Frost Street, Cambridge, MA 02140
    by scalbnl to avoid duplicated range checks.
 */
 
-extern long double __INFL;
 #define PRECL 32
 
 long double
@@ -73,7 +72,7 @@ hypotl (long double x, long double y)
     if (exx > LDBL_MAX_EXP)
     {
       errno = ERANGE; 
-      return __INFL;
+      return INFINITY;
     }
   if (exx < LDBL_MIN_EXP)
     return 0.0L;
