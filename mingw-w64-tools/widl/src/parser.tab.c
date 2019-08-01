@@ -5323,7 +5323,7 @@ void init_types(void)
   decl_builtin_basic("double", TYPE_BASIC_DOUBLE);
   decl_builtin_basic("error_status_t", TYPE_BASIC_ERROR_STATUS_T);
   decl_builtin_basic("handle_t", TYPE_BASIC_HANDLE);
-  decl_builtin_alias("boolean", type_new_basic(TYPE_BASIC_BYTE));
+  decl_builtin_alias("boolean", type_new_basic(TYPE_BASIC_CHAR));
 }
 
 static str_list_t *append_str(str_list_t *list, char *str)
@@ -5747,7 +5747,7 @@ static var_t *declare_var(attr_list_t *attrs, decl_spec_t *decl_spec, const decl
         else
           *ptype = type_new_array((*ptype)->name,
                                   type_array_get_element(*ptype), FALSE,
-                                  0, dim, NULL, 0);
+                                  0, dim, NULL, FC_RP);
       }
       else if (is_ptr(*ptype))
         *ptype = type_new_array((*ptype)->name, type_pointer_get_ref(*ptype), TRUE,
