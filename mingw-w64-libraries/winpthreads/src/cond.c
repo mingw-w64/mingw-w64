@@ -431,10 +431,20 @@ pthread_cond_wait (pthread_cond_t *c, pthread_mutex_t *external_mutex)
   } else if (_c->valid != (unsigned int)LIFE_COND)
     return EINVAL;
 
+tryagain:
   r = do_sema_b_wait (_c->sema_b, 0, INFINITE,&_c->waiters_b_lock_,&_c->value_b);
   if (r != 0)
     return r;
-  EnterCriticalSection (&_c->waiters_count_lock_);
+
+  if (!TryEnterCriticalSection (&_c->waiters_count_lock_))
+  {
+    r = do_sema_b_release (_c->sema_b, 1,&_c->waiters_b_lock_,&_c->value_b);
+    if (r != 0)
+      return r;
+    sched_yield();
+    goto tryagain;
+  }
+
   _c->waiters_count_++;
   LeaveCriticalSection(&_c->waiters_count_lock_);
   r = do_sema_b_release (_c->sema_b, 1,&_c->waiters_b_lock_,&_c->value_b);
@@ -485,10 +495,20 @@ pthread_cond_timedwait_impl (pthread_cond_t *c, pthread_mutex_t *external_mutex,
     dwr = dwMilliSecs(_pthread_time_in_ms_from_timespec(t));
   }
 
+tryagain:
   r = do_sema_b_wait (_c->sema_b, 0, INFINITE,&_c->waiters_b_lock_,&_c->value_b);
   if (r != 0)
     return r;
-  EnterCriticalSection (&_c->waiters_count_lock_);
+
+  if (!TryEnterCriticalSection (&_c->waiters_count_lock_))
+  {
+    r = do_sema_b_release (_c->sema_b, 1,&_c->waiters_b_lock_,&_c->value_b);
+    if (r != 0)
+      return r;
+    sched_yield();
+    goto tryagain;
+  }
+
   _c->waiters_count_++;
   LeaveCriticalSection(&_c->waiters_count_lock_);
   r = do_sema_b_release (_c->sema_b, 1,&_c->waiters_b_lock_,&_c->value_b);
