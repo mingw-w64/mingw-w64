@@ -8,6 +8,7 @@ EXPORTS
 AsyncGetClassBits@44
 AsyncInstallDistributionUnit@36
 BindAsyncMoniker@20
+CAuthenticateHostUI_CreateInstance@12
 CDLGetLongPathNameA@12
 CDLGetLongPathNameW@12
 CORPolicyProvider@4
@@ -21,6 +22,8 @@ CoInternetCompareUrl@12
 CoInternetCreateSecurityManager@12
 CoInternetCreateZoneManager@12
 CoInternetFeatureSettingsChanged
+CoInternetGetMobileBrowserAppCompatMode@4
+CoInternetGetMobileBrowserForceDesktopMode@4
 CoInternetGetProtocolFlags@12
 CoInternetGetSecurityUrl@16
 CoInternetGetSecurityUrlEx@16
@@ -33,6 +36,8 @@ CoInternetParseIUri@28
 CoInternetParseUrl@28
 CoInternetQueryInfo@28
 CoInternetSetFeatureEnabled@12
+CoInternetSetMobileBrowserAppCompatMode@4
+CoInternetSetMobileBrowserForceDesktopMode@4
 CompareSecurityIds@20
 CompatFlagsFromClsid@12
 CopyBindInfo@8
@@ -50,6 +55,7 @@ CreateUriPriv@32
 CreateUriWithFragment@20
 Extract@8
 FaultInIEFeature@16
+FileBearsMarkOfTheWeb@8
 FindMediaType@8
 FindMediaTypeClass@16
 FindMimeFromData@32
@@ -67,12 +73,14 @@ GetPropertyFromName@8
 GetPropertyName@4
 GetSoftwareUpdateInfo@8
 GetUrlmonThreadNotificationHwnd@0
+GetZoneFromAlternateDataStreamEx@8
 HlinkGoBack@4
 HlinkGoForward@4
 HlinkNavigateMoniker@8
 HlinkNavigateString@8
 HlinkSimpleNavigateToMoniker@32
 HlinkSimpleNavigateToString@32
+IEGetUserPrivateNamespaceName@0
 IEDllLoader@8
 IEInstallScope@4
 IntlPercentEncodeNormalize@16
@@ -93,10 +101,13 @@ RegisterBindStatusCallback@16
 RegisterFormatEnumerator@12
 RegisterMediaTypeClass@20
 RegisterMediaTypes@12
+RegisterWebPlatformPermanentSecurityManager@4
 ReleaseBindInfo@4
 ResetUrlmonLanguageData@0
+RestrictHTTP2@4
 RevokeBindStatusCallback@8
 RevokeFormatEnumerator@8
+SetAccessForIEAppContainer@12
 SetSoftwareUpdateAdvertisementState@16
 ShouldDisplayPunycodeForUri@4
 ShouldShowIntranetWarningSecband@4
@@ -113,9 +124,11 @@ URLOpenPullStreamA@16
 URLOpenPullStreamW@16
 URLOpenStreamA@16
 URLOpenStreamW@16
+UnregisterWebPlatformPermanentSecurityManager@0
 UrlMkBuildVersion
 UrlMkGetSessionOption@20
 UrlMkSetSessionOption@16
+UrlmonCleanupCurrentThread@0
 WriteHitLogging@4
 ZonesReInit@4
 IECompatLogCSSFix@12
