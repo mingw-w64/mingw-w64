@@ -265,6 +265,7 @@ libarm64_DATA += %reldir%/libunimdmat.a
 libarm64_DATA += %reldir%/libuniplat.a
 libarm64_DATA += %reldir%/libupnp.a
 libarm64_DATA += %reldir%/liburl.a
+libarm64_DATA += %reldir%/liburlmon.a
 libarm64_DATA += %reldir%/libuser32.a
 libarm64_DATA += %reldir%/libuserenv.a
 libarm64_DATA += %reldir%/libusp10.a
