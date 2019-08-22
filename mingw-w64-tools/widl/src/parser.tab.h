@@ -239,7 +239,7 @@ extern int parser_debug;
 
 union YYSTYPE
 {
-#line 142 "parser.y" /* yacc.c:1913  */
+#line 129 "parser.y" /* yacc.c:1913  */
 
 	attr_t *attr;
 	attr_list_t *attr_list;
@@ -261,13 +261,14 @@ union YYSTYPE
 	UUID *uuid;
 	unsigned int num;
 	double dbl;
-	interface_info_t ifinfo;
 	typelib_t *typelib;
 	struct _import_t *import;
 	struct _decl_spec_t *declspec;
 	enum storage_class stgclass;
+	enum type_qualifier type_qualifier;
+	enum function_specifier function_specifier;
 
-#line 271 "parser.tab.h" /* yacc.c:1913  */
+#line 272 "parser.tab.h" /* yacc.c:1913  */
 };
 
 typedef union YYSTYPE YYSTYPE;

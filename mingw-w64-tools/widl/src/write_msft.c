@@ -763,6 +763,7 @@ static void add_enum_typeinfo(msft_typelib_t *typelib, type_t *enumeration);
 static void add_union_typeinfo(msft_typelib_t *typelib, type_t *tunion);
 static void add_coclass_typeinfo(msft_typelib_t *typelib, type_t *cls);
 static void add_dispinterface_typeinfo(msft_typelib_t *typelib, type_t *dispinterface);
+static void add_typedef_typeinfo(msft_typelib_t *typelib, type_t *dispinterface);
 
 
 /****************************************************************************
@@ -862,8 +863,8 @@ static int encode_type(
     case VT_PTR:
       {
         int next_vt;
-        for(next_vt = 0; is_ptr(type); type = type_pointer_get_ref(type)) {
-            next_vt = get_type_vt(type_pointer_get_ref(type));
+        for(next_vt = 0; is_ptr(type); type = type_pointer_get_ref_type(type)) {
+            next_vt = get_type_vt(type_pointer_get_ref_type(type));
             if (next_vt != 0)
                 break;
         }
@@ -871,7 +872,7 @@ static int encode_type(
         if (next_vt == 0)
             next_vt = VT_VOID;
 
-        encode_type(typelib, next_vt, type_pointer_get_ref(type),
+        encode_type(typelib, next_vt, type_pointer_get_ref_type(type),
                     &target_type, &child_size);
         /* these types already have an implicit pointer, so we don't need to
          * add another */
@@ -912,10 +913,10 @@ static int encode_type(
 
     case VT_SAFEARRAY:
 	{
-	type_t *element_type = type_alias_get_aliasee(type_array_get_element(type));
+	type_t *element_type = type_alias_get_aliasee_type(type_array_get_element_type(type));
 	int next_vt = get_type_vt(element_type);
 
-	encode_type(typelib, next_vt, type_alias_get_aliasee(type_array_get_element(type)),
+	encode_type(typelib, next_vt, type_alias_get_aliasee_type(type_array_get_element_type(type)),
         &target_type, &child_size);
 
 	for (typeoffset = 0; typeoffset < typelib->typelib_segdir[MSFT_SEG_TYPEDESC].length; typeoffset += 8) {
@@ -966,16 +967,30 @@ static int encode_type(
         }
         else
         {
-            /* typedef'd types without public attribute aren't included in the typelib */
-            while (type_is_alias(type) && !is_attr(type->attrs, ATTR_PUBLIC))
-                type = type_alias_get_aliasee(type);
+            /* Typedefs without the [public] attribute aren't included in the
+             * typelib, unless the aliasee is an anonymous UDT or the typedef
+             * is wire-marshalled. In the latter case the wire-marshal type,
+             * which may be a non-public alias, is used instead. */
+            while (type_is_alias(type))
+            {
+                if (is_attr(type->attrs, ATTR_WIREMARSHAL))
+                {
+                    type = get_attrp(type->attrs, ATTR_WIREMARSHAL);
+                    break;
+                }
+                else if (!is_attr(type->attrs, ATTR_PUBLIC))
+                    type = type_alias_get_aliasee_type(type);
+                else
+                    break;
+            }
 
             chat("encode_type: VT_USERDEFINED - adding new type %s, real type %d\n",
                  type->name, type_get_type(type));
 
-            switch (type_get_type(type))
+            switch (type_get_type_detect_alias(type))
             {
             case TYPE_STRUCT:
+            case TYPE_ENCAPSULATED_UNION:
                 add_structure_typeinfo(typelib, type);
                 break;
             case TYPE_INTERFACE:
@@ -989,6 +1004,9 @@ static int encode_type(
                 break;
             case TYPE_COCLASS:
                 add_coclass_typeinfo(typelib, type);
+                break;
+            case TYPE_ALIAS:
+                add_typedef_typeinfo(typelib, type);
                 break;
             default:
                 error("encode_type: VT_USERDEFINED - unhandled type %d\n",
@@ -1056,7 +1074,7 @@ static int encode_var(
         num_dims = 0;
         for (atype = type;
              is_array(atype) && !type_array_is_decl_as_ptr(atype);
-             atype = type_array_get_element(atype))
+             atype = type_array_get_element_type(atype))
             ++num_dims;
 
         chat("array with %d dimensions\n", num_dims);
@@ -1071,7 +1089,7 @@ static int encode_var(
         arraydata += 2;
         for (atype = type;
              is_array(atype) && !type_array_is_decl_as_ptr(atype);
-             atype = type_array_get_element(atype))
+             atype = type_array_get_element_type(atype))
         {
             arraydata[0] = type_array_get_dim(atype);
             arraydata[1] = 0;
@@ -1093,7 +1111,7 @@ static int encode_var(
     vt = get_type_vt(type);
     if (vt == VT_PTR) {
         type_t *ref = is_ptr(type) ?
-            type_pointer_get_ref(type) : type_array_get_element(type);
+            type_pointer_get_ref_type(type) : type_array_get_element_type(type);
         int skip_ptr = encode_var(typelib, ref, var, &target_type, &child_size);
 
         if(skip_ptr == 2) {
@@ -1114,7 +1132,7 @@ static int encode_var(
 	    if (target_type & 0x80000000) {
 		mix_field = ((target_type >> 16) & 0x3fff) | VT_BYREF;
 	    } else if (get_type_vt(ref) == VT_SAFEARRAY) {
-		type_t *element_type = type_alias_get_aliasee(type_array_get_element(ref));
+		type_t *element_type = type_alias_get_aliasee_type(type_array_get_element_type(ref));
 		mix_field = get_type_vt(element_type) | VT_ARRAY | VT_BYREF;
 	    } else {
 		typedata = (void *)&typelib->typelib_segment_data[MSFT_SEG_TYPEDESC][target_type];
@@ -1204,7 +1222,7 @@ static void write_default_value(msft_typelib_t *typelib, type_t *type, expr_t *e
     if (type_get_type(type) == TYPE_ENUM) {
         vt = VT_I4;
     } else if (is_ptr(type)) {
-        vt = get_type_vt(type_pointer_get_ref(type));
+        vt = get_type_vt(type_pointer_get_ref_type(type));
         if (vt == VT_USERDEFINED)
             vt = VT_I4;
         if (expr->cval)
@@ -1301,8 +1319,8 @@ static HRESULT add_func_desc(msft_typeinfo_t* typeinfo, var_t *func, int index)
         return S_FALSE;
     }
 
-    if (type_get_function_args(func->type))
-      LIST_FOR_EACH_ENTRY( arg, type_get_function_args(func->type), var_t, entry )
+    if (type_function_get_args(func->declspec.type))
+      LIST_FOR_EACH_ENTRY( arg, type_function_get_args(func->declspec.type), var_t, entry )
       {
         num_params++;
         if (arg->attrs) LIST_FOR_EACH_ENTRY( attr, arg->attrs, const attr_t, entry ) {
@@ -1444,7 +1462,7 @@ static HRESULT add_func_desc(msft_typeinfo_t* typeinfo, var_t *func, int index)
 
     /* fill out the basic type information */
     typedata[0] = typedata_size | (index << 16);
-    encode_var(typeinfo->typelib, type_function_get_rettype(func->type), func,
+    encode_var(typeinfo->typelib, type_function_get_rettype(func->declspec.type), func,
         &typedata[1], &decoded_size);
     typedata[2] = funcflags;
     typedata[3] = ((52 /*sizeof(FUNCDESC)*/ + decoded_size) << 16) | typeinfo->typeinfo->cbSizeVft;
@@ -1471,10 +1489,10 @@ static HRESULT add_func_desc(msft_typeinfo_t* typeinfo, var_t *func, int index)
         warning("unknown number of optional attrs\n");
     }
 
-    if (type_get_function_args(func->type))
+    if (type_function_get_args(func->declspec.type))
     {
       i = 0;
-      LIST_FOR_EACH_ENTRY( arg, type_get_function_args(func->type), var_t, entry )
+      LIST_FOR_EACH_ENTRY( arg, type_function_get_args(func->declspec.type), var_t, entry )
       {
         int paramflags = 0;
         int *paramdata = typedata + 6 + extra_attr + (num_defaults ? num_params : 0) + i * 3;
@@ -1482,13 +1500,13 @@ static HRESULT add_func_desc(msft_typeinfo_t* typeinfo, var_t *func, int index)
 
         if(defaultdata) *defaultdata = -1;
 
-	encode_var(typeinfo->typelib, arg->type, arg, paramdata, &decoded_size);
+	    encode_var(typeinfo->typelib, arg->declspec.type, arg, paramdata, &decoded_size);
         if (arg->attrs) LIST_FOR_EACH_ENTRY( attr, arg->attrs, const attr_t, entry ) {
             switch(attr->type) {
             case ATTR_DEFAULTVALUE:
               {
                 paramflags |= 0x30; /* PARAMFLAG_FHASDEFAULT | PARAMFLAG_FOPT */
-                write_default_value(typeinfo->typelib, arg->type, (expr_t *)attr->u.pval, defaultdata);
+                write_default_value(typeinfo->typelib, arg->declspec.type, (expr_t *)attr->u.pval, defaultdata);
                 break;
               }
             case ATTR_IN:
@@ -1572,10 +1590,10 @@ static HRESULT add_func_desc(msft_typeinfo_t* typeinfo, var_t *func, int index)
     if(typeinfo->typekind == TKIND_MODULE)
         namedata[9] |= 0x20;
 
-    if (type_get_function_args(func->type))
+    if (type_function_get_args(func->declspec.type))
     {
         i = 0;
-        LIST_FOR_EACH_ENTRY( arg, type_get_function_args(func->type), var_t, entry )
+        LIST_FOR_EACH_ENTRY( arg, type_function_get_args(func->declspec.type), var_t, entry )
         {
             /* don't give the last arg of a [propput*] func a name */
             if(i != num_params - 1 || (invokekind != 0x4 /* INVOKE_PROPERTYPUT */ && invokekind != 0x8 /* INVOKE_PROPERTYPUTREF */))
@@ -1697,8 +1715,8 @@ static HRESULT add_var_desc(msft_typeinfo_t *typeinfo, UINT index, var_t* var)
     typeinfo->var_offsets[var_num] = offset;
 
     /* figure out type widths and whatnot */
-    var_datawidth = type_memsize_and_alignment(var->type, &var_alignment);
-    encode_var(typeinfo->typelib, var->type, var, &typedata[1], &var_type_size);
+    var_datawidth = type_memsize_and_alignment(var->declspec.type, &var_alignment);
+    encode_var(typeinfo->typelib, var->declspec.type, var, &typedata[1], &var_type_size);
 
     /* pad out starting position to data width */
     typeinfo->datawidth += var_alignment - 1;
@@ -2119,6 +2137,7 @@ static void add_interface_typeinfo(msft_typelib_t *typelib, type_t *interface)
 
 static void add_structure_typeinfo(msft_typelib_t *typelib, type_t *structure)
 {
+    var_list_t *fields;
     int idx = 0;
     var_t *cur;
     msft_typeinfo_t *msft_typeinfo;
@@ -2130,9 +2149,16 @@ static void add_structure_typeinfo(msft_typelib_t *typelib, type_t *structure)
     msft_typeinfo = create_msft_typeinfo(typelib, TKIND_RECORD, structure->name, structure->attrs);
     msft_typeinfo->typeinfo->size = 0;
 
-    if (type_struct_get_fields(structure))
-        LIST_FOR_EACH_ENTRY( cur, type_struct_get_fields(structure), var_t, entry )
+    if (type_get_type(structure) == TYPE_STRUCT)
+        fields = type_struct_get_fields(structure);
+    else
+        fields = type_encapsulated_union_get_fields(structure);
+
+    if (fields)
+    {
+        LIST_FOR_EACH_ENTRY( cur, fields, var_t, entry )
             add_var_desc(msft_typeinfo, idx++, cur);
+    }
 }
 
 static void add_enum_typeinfo(msft_typelib_t *typelib, type_t *enumeration)
@@ -2181,7 +2207,7 @@ static void add_typedef_typeinfo(msft_typelib_t *typelib, type_t *tdef)
     if (-1 < tdef->typelib_idx)
         return;
 
-    type = type_alias_get_aliasee(tdef);
+    type = type_alias_get_aliasee_type(tdef);
 
     if (!type->name || strcmp(tdef->name, type->name) != 0)
     {
@@ -2320,6 +2346,7 @@ static void add_type_typeinfo(msft_typelib_t *typelib, type_t *type)
         add_interface_typeinfo(typelib, type);
         break;
     case TYPE_STRUCT:
+    case TYPE_ENCAPSULATED_UNION:
         add_structure_typeinfo(typelib, type);
         break;
     case TYPE_ENUM:
@@ -2364,7 +2391,7 @@ static void add_entry(msft_typelib_t *typelib, const statement_t *stmt)
             if (is_attr(type_entry->type->attrs, ATTR_PUBLIC))
                 add_typedef_typeinfo(typelib, type_entry->type);
             else
-                add_type_typeinfo(typelib, type_alias_get_aliasee(type_entry->type));
+                add_type_typeinfo(typelib, type_alias_get_aliasee_type(type_entry->type));
         }
         break;
     }
