@@ -127,6 +127,9 @@
 #  define __MINGW_LSYMBOL(sym) sym
 #endif /* if __MINGW_USE_UNDERSCORE_PREFIX == 0 */
 
+#define __MINGW_ASM_CALL(func) __asm__(__MINGW64_STRINGIFY(__MINGW_USYMBOL(func)))
+#define __MINGW_ASM_CRT_CALL(func) __asm__(__STRINGIFY(func))
+
 #ifndef __PTRDIFF_TYPE__
 #  ifdef _WIN64
 #    define __PTRDIFF_TYPE__ long long int
@@ -290,6 +293,57 @@
 #  define __mingw_ovr static __cdecl
 #  define __mingw_static_ovr __mingw_ovr
 #endif /* __cplusplus */
+
+#if __MINGW_GNUC_PREREQ(4, 3) && !defined(__clang__)
+#  define __mingw_attribute_artificial \
+     __attribute__((__artificial__))
+#  define __mingw_va_arg_pack_ovr __mingw_ovr \
+     __attribute__((__always_inline__,  __gnu_inline__)) \
+     __mingw_attribute_artificial
+#else
+#  define __mingw_attribute_artificial
+#  undef __mingw_va_arg_pack_ovr
+#endif
+
+#if _FORTIFY_SOURCE > 0 && __OPTIMIZE__ > 0 && __MINGW_GNUC_PREREQ(4, 1)
+#  if _FORTIFY_SOURCE > 1
+#    define __MINGW_FORTIFY_LEVEL 2
+#  else
+#    define __MINGW_FORTIFY_LEVEL 1
+#  endif
+#else
+#  define __MINGW_FORTIFY_LEVEL 0
+#endif
+
+#if __MINGW_FORTIFY_LEVEL > 0
+   /* Calling an function with __attribute__((__warning__("...")))
+      from a system include __inline__ function does not print
+      a warning unless caller has __attribute__((__artificial__)). */
+#  define __mingw_bos_declare \
+     void __cdecl __chk_fail(void) __attribute__((__noreturn__)); \
+     void __cdecl __mingw_chk_fail_warn(void) __MINGW_ASM_CALL(__chk_fail) \
+     __attribute__((__noreturn__)) \
+     __attribute__((__warning__("Buffer overflow detected")))
+#  define __mingw_bos(p) \
+     __builtin_object_size((p), (__MINGW_FORTIFY_LEVEL > 1))
+#  define __mingw_bos_known(p) \
+     (__mingw_bos(p) != (size_t)-1)
+#  define __mingw_bos_cond_chk(c) \
+     (__builtin_expect((c), 1) ? (void)0 : __chk_fail())
+#  define __mingw_bos_ptr_chk(p, n) \
+     __mingw_bos_cond_chk(!__mingw_bos_known(p) || __mingw_bos(p) >= (size_t)(n))
+#  define __mingw_bos_ptr_chk_warn(p, n) \
+     (__mingw_bos_known(p) && __builtin_constant_p((n)) && __mingw_bos(p) < (size_t)(n) \
+     ? __mingw_chk_fail_warn() : __mingw_bos_ptr_chk(p, n))
+#  define __mingw_bos_ovr __mingw_ovr \
+     __attribute__((__always_inline__, __gnu_inline__)) \
+     __mingw_attribute_artificial
+#  define __mingw_bos_extern_ovr extern __inline__ __cdecl \
+     __attribute__((__always_inline__, __gnu_inline__)) \
+     __mingw_attribute_artificial
+#else
+#  define __mingw_bos_ovr __mingw_ovr
+#endif /* __MINGW_FORTIFY_LEVEL > 0 */
 
 /* Enable workaround for ABI incompatibility on affected platforms */
 #ifndef WIDL_EXPLICIT_AGGREGATE_RETURNS
