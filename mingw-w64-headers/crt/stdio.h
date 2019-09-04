@@ -789,7 +789,8 @@ int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_li
 #if __MINGW_FORTIFY_LEVEL > 0
 
 char * __cdecl __gets_chk(char *, size_t);
-char * __cdecl __mingw_call_gets(char *) __MINGW_ASM_CALL(gets);
+char * __cdecl __mingw_call_gets_warn(char *) __MINGW_ASM_CALL(gets)
+  __attribute__((__warning__("Using gets() is always unsafe - use fgets() instead")));
 char * __cdecl __mingw_call_fgets(char * __restrict__, int, FILE * __restrict__) __MINGW_ASM_CALL(fgets);
 size_t __cdecl __mingw_call_fread(void * __restrict__, size_t, size_t, FILE * __restrict__) __MINGW_ASM_CALL(fread);
 char * __cdecl __mingw_call_tmpnam(char *) __MINGW_ASM_CALL(tmpnam);
@@ -799,7 +800,7 @@ char * gets(char * __dst)
 {
   if (__mingw_bos_known(__dst))
     return __gets_chk(__dst, __mingw_bos(__dst));
-  return __mingw_call_gets(__dst);
+  return __mingw_call_gets_warn(__dst);
 }
 
 __mingw_bos_extern_ovr
