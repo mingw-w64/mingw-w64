@@ -370,6 +370,26 @@ int __cdecl __mingw_access (const char *__fname, int __mode);
 #define access(__f,__m)  __mingw_access (__f, __m)
 #endif
 
+#if __MINGW_FORTIFY_LEVEL > 0
+
+_CRTIMP int __cdecl __mingw_call__read(int, void *, unsigned int) __MINGW_ASM_CRT_CALL(_read);
+
+__mingw_bos_extern_ovr
+int _read(int __fh, void * __dst, unsigned int __n)
+{
+  __mingw_bos_ptr_chk_warn(__dst, __n);
+  return __mingw_call__read(__fh, __dst, __n);
+}
+
+#ifndef NO_OLDNAMES
+__mingw_bos_extern_ovr
+int read(int __fh, void * __dst, unsigned int __n)
+{
+  return _read(__fh, __dst, __n);
+}
+#endif
+
+#endif /* __MINGW_FORTIFY_LEVEL > 0 */
 
 #ifdef __cplusplus
 }
