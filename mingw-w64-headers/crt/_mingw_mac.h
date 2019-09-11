@@ -335,21 +335,12 @@
 #  define __mingw_bos_ptr_chk_warn(p, n) \
      (__mingw_bos_known(p) && __builtin_constant_p((n)) && __mingw_bos(p) < (size_t)(n) \
      ? __mingw_chk_fail_warn() : __mingw_bos_ptr_chk(p, n))
-#  ifdef __cplusplus
-#    define __mingw_bos_ovr __mingw_ovr \
-       __attribute__((__always_inline__)) \
-       __mingw_attribute_artificial
-#    define __mingw_bos_extern_ovr extern __inline__ __cdecl \
-       __attribute__((__always_inline__)) \
-       __mingw_attribute_artificial
-#  else
-#    define __mingw_bos_ovr __mingw_ovr \
-       __attribute__((__always_inline__, __gnu_inline__)) \
-       __mingw_attribute_artificial
-#    define __mingw_bos_extern_ovr extern __inline__ __cdecl \
-       __attribute__((__always_inline__, __gnu_inline__)) \
-       __mingw_attribute_artificial
-#  endif
+#  define __mingw_bos_ovr __mingw_ovr \
+     __attribute__((__always_inline__)) \
+     __mingw_attribute_artificial
+#  define __mingw_bos_extern_ovr extern __inline__ __cdecl \
+     __attribute__((__always_inline__, __gnu_inline__)) \
+     __mingw_attribute_artificial
 #else
 #  define __mingw_bos_ovr __mingw_ovr
 #endif /* __MINGW_FORTIFY_LEVEL > 0 */
