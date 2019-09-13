@@ -297,12 +297,8 @@
 #if __MINGW_GNUC_PREREQ(4, 3) && !defined(__clang__)
 #  define __mingw_attribute_artificial \
      __attribute__((__artificial__))
-#  define __mingw_va_arg_pack_ovr __mingw_ovr \
-     __attribute__((__always_inline__,  __gnu_inline__)) \
-     __mingw_attribute_artificial
 #else
 #  define __mingw_attribute_artificial
-#  undef __mingw_va_arg_pack_ovr
 #endif
 
 #if _FORTIFY_SOURCE > 0 && __OPTIMIZE__ > 0 && __MINGW_GNUC_PREREQ(4, 1)
@@ -344,6 +340,12 @@
 #else
 #  define __mingw_bos_ovr __mingw_ovr
 #endif /* __MINGW_FORTIFY_LEVEL > 0 */
+
+#if __MINGW_FORTIFY_LEVEL > 0 && __MINGW_GNUC_PREREQ(4, 3) && !defined(__clang__)
+#  define __MINGW_FORTIFY_VA_ARG 1
+#else
+#  define __MINGW_FORTIFY_VA_ARG 0
+#endif
 
 /* Enable workaround for ABI incompatibility on affected platforms */
 #ifndef WIDL_EXPLICIT_AGGREGATE_RETURNS

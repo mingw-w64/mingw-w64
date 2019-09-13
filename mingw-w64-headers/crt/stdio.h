@@ -354,24 +354,22 @@ int printf (const char *__format, ...)
   return __retval;
 }
 
-#ifdef __mingw_va_arg_pack_ovr
+#if __MINGW_FORTIFY_VA_ARG
 
-__mingw_va_arg_pack_ovr
+__mingw_bos_ovr
 __attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
 int sprintf (char *__stream, const char *__format, ...)
 {
-#if __MINGW_FORTIFY_LEVEL > 0
   if (__mingw_bos_known(__stream)) {
     int __retval = __mingw_snprintf( __stream, __mingw_bos(__stream), __format, __builtin_va_arg_pack() );
     if (__retval >= 0)
       __mingw_bos_ptr_chk(__stream, (size_t)__retval + 1);
     return __retval;
   }
-#endif
   return __mingw_sprintf( __stream, __format, __builtin_va_arg_pack() );
 }
 
-#else /* !__mingw_va_arg_pack_ovr */
+#else /* !__MINGW_FORTIFY_VA_ARG */
 
 __mingw_ovr
 __attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
@@ -384,7 +382,7 @@ int sprintf (char *__stream, const char *__format, ...)
   return __retval;
 }
 
-#endif /* __mingw_va_arg_pack_ovr */
+#endif /* __MINGW_FORTIFY_VA_ARG */
 
 __mingw_ovr
 __attribute__((__format__ (gnu_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
@@ -416,19 +414,17 @@ int vsprintf (char *__stream, const char *__format, __builtin_va_list __local_ar
 }
 /* #ifndef __NO_ISOCEXT */  /* externs in libmingwex.a */
 
-#ifdef __mingw_va_arg_pack_ovr
+#if __MINGW_FORTIFY_VA_ARG
 
-__mingw_va_arg_pack_ovr
+__mingw_bos_ovr
 __attribute__((__format__ (gnu_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
 int snprintf (char *__stream, size_t __n, const char *__format, ...)
 {
-#if __MINGW_FORTIFY_LEVEL > 0
   __mingw_bos_ptr_chk_warn(__stream, __n);
-#endif
   return __mingw_snprintf( __stream, __n, __format, __builtin_va_arg_pack() );
 }
 
-#else /* !__mingw_va_arg_pack_ovr */
+#else /* !__MINGW_FORTIFY_VA_ARG */
 
 __mingw_ovr
 __attribute__((__format__ (gnu_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
@@ -441,7 +437,7 @@ int snprintf (char *__stream, size_t __n, const char *__format, ...)
   return __retval;
 }
 
-#endif /* __mingw_va_arg_pack_ovr */
+#endif /* __MINGW_FORTIFY_VA_ARG */
 
 __mingw_bos_ovr
 __attribute__((__format__ (gnu_printf, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
@@ -873,19 +869,17 @@ char * tmpnam(char * __dst)
   int __cdecl __ms_snprintf(char * __restrict__ s, size_t n, const char * __restrict__  format, ...);
 
 #ifndef __NO_ISOCEXT
-#ifdef __mingw_va_arg_pack_ovr
+#if __MINGW_FORTIFY_VA_ARG
 
-__mingw_va_arg_pack_ovr
+__mingw_bos_ovr
 __attribute__((__format__ (ms_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
 int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, ...)
 {
-#if __MINGW_FORTIFY_LEVEL > 0
   __mingw_bos_ptr_chk_warn(__stream, __n);
-#endif
   return __ms_snprintf(__stream, __n, __format, __builtin_va_arg_pack());
 }
 
-#else /* !__mingw_va_arg_pack_ovr */
+#else /* !__MINGW_FORTIFY_VA_ARG */
 
 __mingw_ovr
 __attribute__((__format__ (ms_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
@@ -898,13 +892,12 @@ int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict_
   return __retval;
 }
 
-#endif /* !__mingw_va_arg_pack_ovr */
+#endif /* !__MINGW_FORTIFY_VA_ARG */
 #endif /* !__NO_ISOCEXT */
 
-#if __MINGW_FORTIFY_LEVEL > 0
+#if __MINGW_FORTIFY_VA_ARG
 
 int __cdecl __mingw_call_ms_sprintf(char * __restrict__, const char * __restrict__, ...) __MINGW_ASM_CALL(sprintf);
-int __cdecl __mingw_call_ms_vsprintf(char * __restrict__, const char * __restrict__, va_list) __MINGW_ASM_CALL(vsprintf);
 
 __mingw_bos_extern_ovr
 __attribute__((__format__ (ms_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
@@ -918,6 +911,12 @@ int sprintf (char * __restrict__ __stream, const char * __restrict__ __format, .
   }
   return __mingw_call_ms_sprintf( __stream, __format, __builtin_va_arg_pack() );
 }
+
+#endif /* __MINGW_FORTIFY_VA_ARG */
+
+#if __MINGW_FORTIFY_LEVEL > 0
+
+int __cdecl __mingw_call_ms_vsprintf(char * __restrict__, const char * __restrict__, va_list) __MINGW_ASM_CALL(vsprintf);
 
 __mingw_bos_extern_ovr
 __attribute__((__format__ (ms_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
@@ -1096,19 +1095,17 @@ int vwprintf (const wchar_t *__format, __builtin_va_list __local_argv)
 
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
 
-#ifdef __mingw_va_arg_pack_ovr
+#if __MINGW_FORTIFY_VA_ARG
 
-__mingw_va_arg_pack_ovr
+__mingw_bos_ovr
 /* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
 int snwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, ...)
 {
-#if __MINGW_FORTIFY_LEVEL > 0
   __mingw_bos_ptr_chk_warn(__stream, __n * sizeof(wchar_t));
-#endif
   return __mingw_snwprintf( __stream, __n, __format, __builtin_va_arg_pack() );
 }
 
-#else /* !__mingw_va_arg_pack_ovr */
+#else /* !__MINGW_FORTIFY_VA_ARG */
 
 __mingw_ovr
 /* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
@@ -1121,7 +1118,7 @@ int snwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, ...)
   return __retval;
 }
 
-#endif /* __mingw_va_arg_pack_ovr */
+#endif /* __MINGW_FORTIFY_VA_ARG */
 
 __mingw_bos_ovr
 /* __attribute__((__format__ (gnu_wprintf, 3, 0))) */ __MINGW_ATTRIB_NONNULL(3)
