@@ -341,7 +341,11 @@
 #  define __mingw_bos_ovr __mingw_ovr
 #endif /* __MINGW_FORTIFY_LEVEL > 0 */
 
-#if __MINGW_FORTIFY_LEVEL > 0 && __MINGW_GNUC_PREREQ(4, 3) && !defined(__clang__)
+/* If _FORTIFY_SOURCE is enabled, some inline functions may use
+   __builtin_va_arg_pack().  GCC may report an error if the address
+   of such a function is used.  Set _FORTIFY_VA_ARG=0 in this case.  */
+#if __MINGW_FORTIFY_LEVEL > 0 && __MINGW_GNUC_PREREQ(4, 3) && !defined(__clang__) \
+    && (!defined(_FORTIFY_VA_ARG) || _FORTIFY_VA_ARG > 0)
 #  define __MINGW_FORTIFY_VA_ARG 1
 #else
 #  define __MINGW_FORTIFY_VA_ARG 0
