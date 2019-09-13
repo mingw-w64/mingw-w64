@@ -264,7 +264,7 @@ F_ARM_ANY(expl == exp)
 expm1
 expm1f
 expm1l F_X86_ANY(DATA)
-fabs DATA
+fabs
 F_ARM_ANY(fabsf)
 fdim
 fdimf
@@ -322,7 +322,7 @@ lrintl F_X86_ANY(DATA)
 lround
 lroundf
 lroundl F_X86_ANY(DATA)
-modf DATA
+modf
 F_NON_I386(modff DATA)
 nan
 nanf
@@ -368,7 +368,7 @@ F_ARM_ANY(sinl == sin)
 ; if we implement sinh, we can set it DATA only.
 sinh
 F_NON_I386(sinhf DATA)
-sqrt DATA
+sqrt
 F_NON_I386(sqrtf DATA)
 tan
 F_NON_I386(tanf F_X86_ANY(DATA))

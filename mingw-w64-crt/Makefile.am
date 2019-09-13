@@ -173,7 +173,25 @@ src_msvcrt_common=\
   stdio/strtof.c \
   stdio/snprintf_alias.c \
   stdio/vsnprintf_alias.c \
-  math/frexp.c
+  math/cbrt.c math/cbrtf.c \
+  math/copysign.c math/copysignf.c \
+  math/fabs.c \
+  math/fdim.c math/fdimf.c \
+  math/fma.c math/fmaf.c \
+  math/fmax.c math/fmaxf.c \
+  math/fmin.c math/fminf.c \
+  math/frexp.c \
+  math/hypot.c \
+  math/llrint.c math/llrintf.c \
+  math/llround.c math/llroundf.c \
+  math/lrint.c math/lrintf.c \
+  math/lround.c math/lroundf.c \
+  math/modf.c \
+  math/nextafterf.c \
+  math/round.c math/roundf.c \
+  math/s_erf.c math/sf_erf.c \
+  math/sqrt.c \
+  math/tgamma.c math/tgammaf.c
 
 src_msvcrt=\
   misc/_configthreadlocale.c \
@@ -539,28 +557,18 @@ src_libmingwex=\
   gdtoa/misc.c      gdtoa/qnan.c     gdtoa/smisc.c  gdtoa/strtodg.c  gdtoa/strtodnrp.c  gdtoa/strtof.c     \
   gdtoa/strtopx.c   gdtoa/sum.c      gdtoa/ulp.c    \
   \
-  math/cbrt.c           \
-  math/cbrtf.c          math/cbrtl.c       math/copysign.c      math/copysignf.c     \
-  math/coshf.c          math/coshl.c       math/erfl.c           \
-  math/expf.c           \
-  math/fabs.c           math/fabsf.c       math/fabsl.c          math/fdim.c          math/fdimf.c         math/fdiml.c         \
-  math/fma.c            math/fmaf.c        math/fmal.c           \
-  math/fmax.c           math/fmaxf.c       math/fmaxl.c          math/fmin.c          math/fminf.c         \
-  math/fminl.c          math/fp_consts.c   math/fp_constsf.c     \
+  math/cbrtl.c          math/coshf.c       math/coshl.c          math/erfl.c          \
+  math/expf.c           math/fabsf.c       math/fabsl.c          math/fdiml.c         math/fmal.c          \
+  math/fmaxl.c          math/fminl.c       math/fp_consts.c      math/fp_constsf.c    \
   math/fp_constsl.c     math/fpclassify.c  math/fpclassifyf.c    math/fpclassifyl.c   math/frexpf.c        math/frexpl.c \
-  math/hypotf.c         math/hypot.c  math/hypotl.c      math/isnan.c          math/isnanf.c        math/isnanl.c        \
-  math/ldexpf.c         math/lgamma.c      math/lgammaf.c        math/lgammal.c       math/llrint.c        \
-  math/signgam.c \
-  math/llrintf.c        math/llrintl.c     math/llround.c        math/llroundf.c      math/llroundl.c      \
-  math/log10f.c         math/logf.c        \
-  math/lrint.c          math/lrintf.c      math/lrintl.c         math/lround.c        math/lroundf.c       math/lroundl.c       \
-  math/modf.c           math/modff.c       math/modfl.c          math/nextafterf.c    math/nextafterl.c    math/nexttoward.c    \
+  math/hypotf.c         math/hypotl.c      math/isnan.c          math/isnanf.c        math/isnanl.c        \
+  math/ldexpf.c         math/lgamma.c      math/lgammaf.c        math/lgammal.c       math/llrintl.c       \
+  math/llroundl.c       math/log10f.c      math/logf.c           math/lrintl.c        math/lroundl.c       \
+  math/modff.c          math/modfl.c       math/nextafterl.c     math/nexttoward.c    \
   math/nexttowardf.c    math/powf.c        math/powi.c           math/powif.c         math/powil.c         \
-  math/rintl.c          math/round.c       math/roundf.c         \
-  math/roundl.c         math/s_erf.c       math/sf_erf.c         math/signbit.c       math/signbitf.c      math/signbitl.c      \
-  math/sinhf.c          math/sinhl.c       math/sqrt.c           \
-  math/sqrtf.c          math/sqrtl.c       math/tanhf.c          math/tanhl.c         math/tgamma.c        \
-  math/tgammaf.c        math/tgammal.c     math/truncl.c         \
+  math/rintl.c          math/roundl.c      math/signbit.c        math/signbitf.c      math/signbitl.c      \
+  math/signgam.c        math/sinhf.c       math/sinhl.c          math/sqrtf.c         math/sqrtl.c         \
+  math/tanhf.c          math/tanhl.c       math/tgammal.c        math/truncl.c        \
   math/powi.def.h       math/sqrt.def.h       \
   math/cephes_mconf.h   math/fp_consts.h   \
   \
