@@ -206,7 +206,21 @@ src_msvcrt_common_add_x86_64=\
   $(src_msvcrt_common_add_x86)
 
 # Arch specific files included in all libmsvcr*.a on arm
-src_msvcrt_common_add_arm=
+src_msvcrt_common_add_arm=\
+  math/cbrtl.c \
+  math/erfl.c \
+  math/fdiml.c \
+  math/fmal.c \
+  math/fmaxl.c \
+  math/fminl.c \
+  math/llrintl.c \
+  math/llroundl.c \
+  math/lrintl.c \
+  math/lroundl.c \
+  math/rintl.c \
+  math/roundl.c \
+  math/tgammal.c \
+  math/truncl.c
 
 # Arch specific files included in all libmsvcr*.a on arm32
 src_msvcrt_common_add_arm32=\
@@ -623,18 +637,16 @@ src_libmingwex=\
   gdtoa/misc.c      gdtoa/qnan.c     gdtoa/smisc.c  gdtoa/strtodg.c  gdtoa/strtodnrp.c  gdtoa/strtof.c     \
   gdtoa/strtopx.c   gdtoa/sum.c      gdtoa/ulp.c    \
   \
-  math/cbrtl.c          math/coshf.c       math/coshl.c          math/erfl.c          \
-  math/expf.c           math/fabsf.c       math/fabsl.c          math/fdiml.c         math/fmal.c          \
-  math/fmaxl.c          math/fminl.c       math/fp_consts.c      math/fp_constsf.c    \
+  math/coshf.c          math/coshl.c       math/expf.c           math/fabsf.c         \
+  math/fabsl.c          math/fp_consts.c   math/fp_constsf.c     \
   math/fp_constsl.c     math/fpclassify.c  math/fpclassifyf.c    math/fpclassifyl.c   math/frexpf.c        math/frexpl.c \
   math/hypotf.c         math/hypotl.c      math/isnan.c          math/isnanf.c        math/isnanl.c        \
-  math/ldexpf.c         math/lgamma.c      math/lgammaf.c        math/lgammal.c       math/llrintl.c       \
-  math/llroundl.c       math/log10f.c      math/logf.c           math/lrintl.c        math/lroundl.c       \
+  math/ldexpf.c         math/lgamma.c      math/lgammaf.c        math/lgammal.c       math/log10f.c        math/logf.c \
   math/modff.c          math/modfl.c       math/nextafterl.c     math/nexttoward.c    \
   math/nexttowardf.c    math/powf.c        math/powi.c           math/powif.c         math/powil.c         \
-  math/rintl.c          math/roundl.c      math/signbit.c        math/signbitf.c      math/signbitl.c      \
+  math/signbit.c        math/signbitf.c    math/signbitl.c       \
   math/signgam.c        math/sinhf.c       math/sinhl.c          math/sqrtf.c         math/sqrtl.c         \
-  math/tanhf.c          math/tanhl.c       math/tgammal.c        math/truncl.c        \
+  math/tanhf.c          math/tanhl.c       \
   math/powi.def.h       math/sqrt.def.h       \
   math/cephes_mconf.h   math/fp_consts.h   \
   \
@@ -695,6 +707,9 @@ endif
 
 # these go into both 32 and 64 bit x86 versions:
 src_libmingwex_x86=\
+  math/cbrtl.c              math/erfl.c               math/fdiml.c              math/fmal.c               math/fmaxl.c              \
+  math/fminl.c              math/llrintl.c            math/llroundl.c           math/lrintl.c             math/lroundl.c            \
+  math/rintl.c              math/roundl.c             math/tgammal.c            math/truncl.c             \
   math/x86/_chgsignl.S      math/x86/acosf.c          math/x86/acosh.c          math/x86/acosl.c          math/x86/acosh.def.h      \
   math/x86/acoshf.c         math/x86/acoshl.c         math/x86/asinf.c          math/x86/asinh.c          math/x86/asinl.c          \
   math/x86/asinhf.c         math/x86/asinhl.c         math/x86/atan2f.c         math/x86/atan2.c          math/x86/atan2l.c         \
