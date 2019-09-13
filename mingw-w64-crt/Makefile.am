@@ -157,6 +157,7 @@ src_libws2_32=libsrc/ws2_32.c \
   libsrc/wspiapi/WspiapiLoad.c               libsrc/wspiapi/WspiapiGetAddrInfo.c       libsrc/wspiapi/WspiapiGetNameInfo.c        \
   libsrc/wspiapi/WspiapiFreeAddrInfo.c
 
+# Files included in all libmsvcr*.a
 src_msvcrt_common=\
   misc/mbrtowc.c \
   misc/mbsinit.c \
@@ -193,6 +194,49 @@ src_msvcrt_common=\
   math/sqrt.c \
   math/tgamma.c math/tgammaf.c
 
+# Arch specific files included in all libmsvcr*.a on x86
+src_msvcrt_common_add_x86=
+
+# Arch specific files included in all libmsvcr*.a on x86_32
+src_msvcrt_common_add_x86_32=\
+  $(src_msvcrt_common_add_x86)
+
+# Arch specific files included in all libmsvcr*.a on x86_64
+src_msvcrt_common_add_x86_64=\
+  $(src_msvcrt_common_add_x86)
+
+# Arch specific files included in all libmsvcr*.a on arm
+src_msvcrt_common_add_arm=
+
+# Arch specific files included in all libmsvcr*.a on arm32
+src_msvcrt_common_add_arm32=\
+  $(src_msvcrt_common_add_arm)
+
+# Arch specific files included in all libmsvcr*.a on arm64
+src_msvcrt_common_add_arm64=\
+  $(src_msvcrt_common_add_arm)
+
+# Files included in all libmsvcr*.a on x86_32
+src_msvcrt_common32=\
+  $(src_msvcrt_common) \
+  $(src_msvcrt_common_add_x86_32)
+
+# Files included in all libmsvcr*.a on x86_64
+src_msvcrt_common64=\
+  $(src_msvcrt_common) \
+  $(src_msvcrt_common_add_x86_64)
+
+# Files included in all libmsvcr*.a on arm32
+src_msvcrt_commonarm32=\
+  $(src_msvcrt_common) \
+  $(src_msvcrt_common_add_arm32)
+
+# Files included in all libmsvcr*.a on arm64
+src_msvcrt_commonarm64=\
+  $(src_msvcrt_common) \
+  $(src_msvcrt_common_add_arm64)
+
+# Files included in libmsvcrt-os.a (for msvcrt.dll) on all archs
 src_msvcrt=\
   misc/_configthreadlocale.c \
   misc/imaxdiv.c \
@@ -245,6 +289,7 @@ src_msvcrt=\
   stdio/fseeki64.c \
   stdio/mingw_lock.c
 
+# Files included in libucrt*.a
 src_ucrtbase=\
   crt/ucrtbase_compat.c \
   math/_huge.c \
@@ -270,6 +315,7 @@ src_ucrtbase=\
   stdio/ucrt_vsprintf.c \
   stdio/ucrt_vsscanf.c
 
+# Files included in libucrtapp.a
 src_ucrtapp=\
   crt/__C_specific_handler.c \
   misc/longjmp.S \
@@ -287,6 +333,23 @@ src_ucrtapp=\
   string/wcsrchr.c \
   string/wcsstr.c
 
+# Files included in libucrt*.a on x86_32
+src_ucrtbase32=\
+  $(src_ucrtbase)
+
+# Files included in libucrt*.a on x86_64
+src_ucrtbase64=\
+  $(src_ucrtbase)
+
+# Files included in libucrt*.a on arm32
+src_ucrtbasearm32=\
+  $(src_ucrtbase)
+
+# Files included in libucrt*.a on arm64
+src_ucrtbasearm64=\
+  $(src_ucrtbase)
+
+# Files included in libmsvcrt-os.a (for msvcrt.dll) on x86_32
 src_msvcrt32=\
   $(src_msvcrt) \
   math/x86/_copysignf.c \
@@ -301,6 +364,7 @@ src_msvcrt32=\
   stdio/_scprintf.c \
   stdio/_vscprintf.c
 
+# Files included in libmsvcrt-os.a (for msvcrt.dll) on x86_64
 src_msvcrt64=\
   $(src_msvcrt) \
   misc/__p___argv.c \
@@ -313,6 +377,7 @@ src_msvcrt64=\
   misc/_get_current_locale.c \
   misc/seterrno.c
 
+# Files included in libmsvcrt-os.a (for msvcrt.dll) on arm32
 src_msvcrtarm32=\
   $(src_msvcrt) \
   misc/__p___argv.c \
@@ -369,6 +434,7 @@ src_msvcrtarm32+=\
   math/arm-common/scalbn.c
 endif
 
+# Files included in libmsvcrt-os.a (for msvcrt.dll) on arm64
 src_msvcrtarm64=\
   $(src_msvcrt) \
   math/arm-common/acosh.c \
@@ -1048,7 +1114,7 @@ lib32_libmsvcrt20_extra_a_SOURCES = $(src_msvcrt20)
 lib32_libmsvcrt20_extra_a_CPPFLAGS = $(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib32_libmsvcrt40_extra_a_SOURCES = $(src_msvcrt40)
 lib32_libmsvcrt40_extra_a_CPPFLAGS = $(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
-lib32_libmsvcrt_common_a_SOURCES = $(src_msvcrt_common)
+lib32_libmsvcrt_common_a_SOURCES = $(src_msvcrt_common32)
 lib32_libmsvcrt_common_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib32_libmsvcrt_extra_a_SOURCES = $(src_msvcrt32)
 lib32_libmsvcrt_extra_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ -D__LIBMSVCRT_OS__ $(extra_include) $(sysincludes)
@@ -1062,7 +1128,7 @@ lib32_libmsvcr90_extra_a_SOURCES = $(src_msvcr90)
 lib32_libmsvcr90_extra_a_CPPFLAGS = $(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib32_libmsvcr120_app_extra_a_SOURCES = $(src_msvcr120_app)
 lib32_libmsvcr120_app_extra_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
-lib32_libucrt_extra_a_SOURCES = $(src_ucrtbase)
+lib32_libucrt_extra_a_SOURCES = $(src_ucrtbase32)
 lib32_libucrt_extra_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib32_libucrtapp_extra_a_SOURCES = $(src_ucrtapp)
 lib32_libucrtapp_extra_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
@@ -1392,7 +1458,7 @@ lib64/libucrtbase.a: lib-common/ucrtbase.mri lib64/libucrtbase_def.a lib64/libuc
 
 lib64_DATA += lib64/libucrt.a lib64/libucrtapp.a
 noinst_LIBRARIES += lib64/libmsvcrt_common.a lib64/libmsvcrt_extra.a lib64/libmsvcr80_extra.a lib64/libmsvcr90_extra.a lib64/libmsvcr120_app_extra.a lib64/libucrt_extra.a lib64/libucrtapp_extra.a
-lib64_libmsvcrt_common_a_SOURCES = $(src_msvcrt_common)
+lib64_libmsvcrt_common_a_SOURCES = $(src_msvcrt_common64)
 lib64_libmsvcrt_common_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib64_libmsvcrt_extra_a_SOURCES = $(src_msvcrt64)
 lib64_libmsvcrt_extra_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ -D__LIBMSVCRT_OS__ $(extra_include) $(sysincludes)
@@ -1402,7 +1468,7 @@ lib64_libmsvcr90_extra_a_SOURCES = $(src_msvcr90)
 lib64_libmsvcr90_extra_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib64_libmsvcr120_app_extra_a_SOURCES = $(src_msvcr120_app)
 lib64_libmsvcr120_app_extra_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
-lib64_libucrt_extra_a_SOURCES = $(src_ucrtbase)
+lib64_libucrt_extra_a_SOURCES = $(src_ucrtbase64)
 lib64_libucrt_extra_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 lib64_libucrtapp_extra_a_SOURCES = $(src_ucrtapp)
 lib64_libucrtapp_extra_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
@@ -1710,13 +1776,13 @@ libarm32/libucrtbase.a: lib-common/ucrtbase.mri libarm32/libucrtbase_def.a libar
 
 libarm32_DATA += libarm32/libucrt.a libarm32/libucrtapp.a
 noinst_LIBRARIES += libarm32/libmsvcrt_common.a libarm32/libmsvcrt_extra.a libarm32/libmsvcr120_app_extra.a libarm32/libucrt_extra.a libarm32/libucrtapp_extra.a
-libarm32_libmsvcrt_common_a_SOURCES = $(src_msvcrt_common)
+libarm32_libmsvcrt_common_a_SOURCES = $(src_msvcrt_commonarm32)
 libarm32_libmsvcrt_common_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 libarm32_libmsvcrt_extra_a_SOURCES = $(src_msvcrtarm32)
 libarm32_libmsvcrt_extra_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ -D__LIBMSVCRT_OS__ $(extra_include) $(sysincludes)
 libarm32_libmsvcr120_app_extra_a_SOURCES = $(src_msvcr120_app)
 libarm32_libmsvcr120_app_extra_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
-libarm32_libucrt_extra_a_SOURCES = $(src_ucrtbase)
+libarm32_libucrt_extra_a_SOURCES = $(src_ucrtbasearm32)
 libarm32_libucrt_extra_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 libarm32_libucrtapp_extra_a_SOURCES = $(src_ucrtapp)
 libarm32_libucrtapp_extra_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
@@ -1994,11 +2060,11 @@ libarm64/libucrtbase.a: lib-common/ucrtbase.mri libarm64/libucrtbase_def.a libar
 
 libarm64_DATA += libarm64/libucrt.a libarm64/libucrtapp.a
 noinst_LIBRARIES += libarm64/libmsvcrt_common.a libarm64/libmsvcrt_extra.a libarm64/libucrt_extra.a libarm64/libucrtapp_extra.a
-libarm64_libmsvcrt_common_a_SOURCES = $(src_msvcrt_common)
+libarm64_libmsvcrt_common_a_SOURCES = $(src_msvcrt_commonarm64)
 libarm64_libmsvcrt_common_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 libarm64_libmsvcrt_extra_a_SOURCES = $(src_msvcrtarm64)
 libarm64_libmsvcrt_extra_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ -D__LIBMSVCRT_OS__ $(extra_include) $(sysincludes)
-libarm64_libucrt_extra_a_SOURCES = $(src_ucrtbase)
+libarm64_libucrt_extra_a_SOURCES = $(src_ucrtbasearm64)
 libarm64_libucrt_extra_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 libarm64_libucrtapp_extra_a_SOURCES = $(src_ucrtapp)
 libarm64_libucrtapp_extra_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
