@@ -2194,7 +2194,7 @@ asinh
 asinhf
 asinhl F_X86_ANY(DATA)
 atan
-atan2 F_X86_ANY(DATA)
+atan2
 F_NON_I386(atan2f F_X86_ANY(DATA))
 F_ARM_ANY(atan2l == atan2)
 F_NON_I386(atanf F_X86_ANY(DATA))
@@ -2245,7 +2245,7 @@ ccosh
 ccoshf
 ccoshl
 ccosl
-ceil F_X86_ANY(DATA)
+ceil
 F_NON_I386(ceilf F_X86_ANY(DATA))
 F_ARM_ANY(ceill == ceil)
 cexp
@@ -2269,7 +2269,7 @@ conjl
 copysign
 copysignf
 copysignl F_X86_ANY(DATA)
-cos F_X86_ANY(DATA)
+cos
 F_NON_I386(cosf F_X86_ANY(DATA))
 F_ARM_ANY(cosl == cos)
 cosh
@@ -2306,7 +2306,7 @@ erfcl F_X86_ANY(DATA)
 erff
 erfl F_X86_ANY(DATA)
 exit
-exp F_X86_ANY(DATA)
+exp
 exp2
 exp2f
 exp2l F_X86_ANY(DATA)
@@ -2341,7 +2341,7 @@ fgetpos
 fgets
 fgetwc
 fgetws
-floor F_X86_ANY(DATA)
+floor
 F_NON_I386(floorf F_X86_ANY(DATA))
 F_ARM_ANY(floorl == floor)
 fma
@@ -2353,7 +2353,7 @@ fmaxl F_X86_ANY(DATA)
 fmin
 fminf
 fminl F_X86_ANY(DATA)
-fmod F_X86_ANY(DATA)
+fmod
 F_NON_I386(fmodf F_X86_ANY(DATA))
 F_ARM_ANY(fmodl == fmod)
 fopen
@@ -2415,7 +2415,7 @@ iswupper
 iswxdigit
 isxdigit
 labs
-ldexp F_X86_ANY(DATA)
+ldexp
 ldiv
 ; The UCRT lgamma functions don't set/provide the signgam variable like
 ; the mingw ones do. Therefore prefer the libmingwex version instead.
@@ -2431,7 +2431,7 @@ llround
 llroundf
 llroundl F_X86_ANY(DATA)
 localeconv
-log F_X86_ANY(DATA)
+log
 log10
 F_NON_I386(log10f F_X86_ANY(DATA))
 F_ARM_ANY(log10l == log10)
@@ -2491,7 +2491,7 @@ norm
 normf
 norml
 perror
-pow F_X86_ANY(DATA)
+pow
 F_NON_I386(powf F_X86_ANY(DATA))
 F_ARM_ANY(powl == pow)
 putc
@@ -2534,7 +2534,7 @@ F_X64(setjmp)
 setlocale
 setvbuf
 signal
-sin F_X86_ANY(DATA)
+sin
 F_NON_I386(sinf F_X86_ANY(DATA))
 F_ARM_ANY(sinl == sin)
 ; if we implement sinh, we can set it DATA only.
