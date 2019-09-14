@@ -176,6 +176,8 @@ src_msvcrt_common=\
   stdio/vsnprintf_alias.c \
   math/cbrt.c math/cbrtf.c \
   math/copysign.c math/copysignf.c \
+  math/coshf.c \
+  math/expf.c \
   math/fabs.c math/fabsf.c \
   math/fdim.c math/fdimf.c \
   math/fma.c math/fmaf.c \
@@ -185,14 +187,19 @@ src_msvcrt_common=\
   math/hypot.c \
   math/llrint.c math/llrintf.c \
   math/llround.c math/llroundf.c \
+  math/log10f.c \
+  math/logf.c \
   math/lrint.c math/lrintf.c \
   math/lround.c math/lroundf.c \
-  math/modf.c \
+  math/modf.c math/modff.c \
   math/nextafterf.c \
   math/nexttowardf.c \
+  math/powf.c \
   math/round.c math/roundf.c \
   math/s_erf.c math/sf_erf.c \
-  math/sqrt.c \
+  math/sinhf.c \
+  math/sqrt.c math/sqrtf.c \
+  math/tanhf.c \
   math/tgamma.c math/tgammaf.c
 
 # Arch specific files included in all libmsvcr*.a on x86
@@ -389,6 +396,15 @@ src_ucrtbase32=\
   $(src_ucrtbase) \
   math/fabsf.c \
   math/nexttowardf.c \
+  math/coshf.c \
+  math/expf.c \
+  math/log10f.c \
+  math/logf.c \
+  math/modff.c \
+  math/powf.c \
+  math/sinhf.c \
+  math/sqrtf.c \
+  math/tanhf.c \
   math/x86/acosf.c \
   math/x86/asinf.c \
   math/x86/atan2f.c \
@@ -688,17 +704,17 @@ src_libmingwex=\
   gdtoa/misc.c      gdtoa/qnan.c     gdtoa/smisc.c  gdtoa/strtodg.c  gdtoa/strtodnrp.c  gdtoa/strtof.c     \
   gdtoa/strtopx.c   gdtoa/sum.c      gdtoa/ulp.c    \
   \
-  math/coshf.c          math/coshl.c       math/expf.c          \
+  math/coshl.c       \
   math/fabsl.c          math/fp_consts.c   math/fp_constsf.c     \
   math/fp_constsl.c     math/fpclassify.c  math/fpclassifyf.c    math/fpclassifyl.c   math/frexpf.c        math/frexpl.c \
   math/hypotf.c         math/hypotl.c      math/isnan.c          math/isnanf.c        math/isnanl.c        \
-  math/ldexpf.c         math/lgamma.c      math/lgammaf.c        math/lgammal.c       math/log10f.c        math/logf.c \
-  math/modff.c          math/modfl.c       math/nextafterl.c     math/nexttoward.c    \
-  math/powf.c           math/powi.c        math/powif.c          math/powil.c         \
+  math/ldexpf.c         math/lgamma.c      math/lgammaf.c        math/lgammal.c       \
+  math/modfl.c          math/nextafterl.c  math/nexttoward.c     \
+  math/powi.c           math/powif.c       math/powil.c          \
   math/signbit.c        math/signbitf.c    math/signbitl.c       \
-  math/signgam.c        math/sinhf.c       math/sinhl.c          math/sqrtf.c         math/sqrtl.c         \
-  math/tanhf.c          math/tanhl.c       \
-  math/powi.def.h       math/sqrt.def.h       \
+  math/signgam.c        \
+  math/sinhl.c          math/sqrtl.c       math/tanhl.c          \
+  math/powi.def.h       math/sqrt.def.h    \
   math/cephes_mconf.h   math/fp_consts.h   \
   \
   misc/mb_wc_common.h \
