@@ -2180,7 +2180,7 @@ _yn
 abort
 abs
 acos
-F_NON_I386(acosf F_X86_ANY(DATA))
+F_NON_I386(acosf)
 F_ARM_ANY(acosl == acos)
 acosh
 acoshf
@@ -2188,16 +2188,16 @@ acoshl F_X86_ANY(DATA)
 asctime
 asctime_s
 asin
-F_NON_I386(asinf F_X86_ANY(DATA))
+F_NON_I386(asinf)
 F_ARM_ANY(asinl == asin)
 asinh
 asinhf
 asinhl F_X86_ANY(DATA)
 atan
 atan2
-F_NON_I386(atan2f F_X86_ANY(DATA))
+F_NON_I386(atan2f)
 F_ARM_ANY(atan2l == atan2)
-F_NON_I386(atanf F_X86_ANY(DATA))
+F_NON_I386(atanf)
 F_ARM_ANY(atanl == atan)
 atanh
 atanhf
@@ -2246,7 +2246,7 @@ ccoshf
 ccoshl
 ccosl
 ceil
-F_NON_I386(ceilf F_X86_ANY(DATA))
+F_NON_I386(ceilf)
 F_ARM_ANY(ceill == ceil)
 cexp
 cexpf
@@ -2270,7 +2270,7 @@ copysign
 copysignf
 copysignl F_X86_ANY(DATA)
 cos
-F_NON_I386(cosf F_X86_ANY(DATA))
+F_NON_I386(cosf)
 F_ARM_ANY(cosl == cos)
 cosh
 F_NON_I386(coshf DATA)
@@ -2342,7 +2342,7 @@ fgets
 fgetwc
 fgetws
 floor
-F_NON_I386(floorf F_X86_ANY(DATA))
+F_NON_I386(floorf)
 F_ARM_ANY(floorl == floor)
 fma
 fmaf
@@ -2354,7 +2354,7 @@ fmin
 fminf
 fminl F_X86_ANY(DATA)
 fmod
-F_NON_I386(fmodf F_X86_ANY(DATA))
+F_NON_I386(fmodf)
 F_ARM_ANY(fmodl == fmod)
 fopen
 fopen_s
@@ -2535,7 +2535,7 @@ setlocale
 setvbuf
 signal
 sin
-F_NON_I386(sinf F_X86_ANY(DATA))
+F_NON_I386(sinf)
 F_ARM_ANY(sinl == sin)
 ; if we implement sinh, we can set it DATA only.
 sinh
@@ -2581,7 +2581,7 @@ strtoumax
 strxfrm
 system
 tan
-F_NON_I386(tanf F_X86_ANY(DATA))
+F_NON_I386(tanf)
 F_ARM_ANY(tanl == tan)
 ; if we implement tanh, we can set it to DATA only.
 tanh

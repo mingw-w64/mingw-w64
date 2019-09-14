@@ -220,7 +220,18 @@ src_msvcrt_common_add_x86=\
   math/x86/rint.c math/x86/rintf.c \
   math/x86/scalbn.S math/x86/scalbnf.S \
   math/x86/sin.c \
-  math/x86/trunc.S math/x86/truncf.S
+  math/x86/trunc.S math/x86/truncf.S \
+  \
+  math/x86/acosf.c \
+  math/x86/asinf.c \
+  math/x86/atan2f.c \
+  math/x86/atanf.c \
+  math/x86/ceilf.S \
+  math/x86/cosf.c \
+  math/x86/floorf.S \
+  math/x86/fmodf.c \
+  math/x86/sinf.c \
+  math/x86/tanf.c
 
 # Arch specific files included in all libmsvcr*.a on x86_32
 src_msvcrt_common_add_x86_32=\
@@ -374,7 +385,17 @@ src_ucrtapp=\
 
 # Files included in libucrt*.a on x86_32
 src_ucrtbase32=\
-  $(src_ucrtbase)
+  $(src_ucrtbase) \
+  math/x86/acosf.c \
+  math/x86/asinf.c \
+  math/x86/atan2f.c \
+  math/x86/atanf.c \
+  math/x86/ceilf.S \
+  math/x86/cosf.c \
+  math/x86/floorf.S \
+  math/x86/fmodf.c \
+  math/x86/sinf.c \
+  math/x86/tanf.c
 
 # Files included in libucrt*.a on x86_64
 src_ucrtbase64=\
@@ -735,19 +756,19 @@ src_libmingwex_x86=\
   math/cbrtl.c              math/erfl.c               math/fdiml.c              math/fmal.c               math/fmaxl.c              \
   math/fminl.c              math/llrintl.c            math/llroundl.c           math/lrintl.c             math/lroundl.c            \
   math/rintl.c              math/roundl.c             math/tgammal.c            math/truncl.c             \
-  math/x86/_chgsignl.S      math/x86/acosf.c          math/x86/acosh.def.h      math/x86/acoshl.c         math/x86/acosl.c          \
-  math/x86/asinf.c          math/x86/asinhl.c         math/x86/asinl.c          math/x86/atan2f.c         math/x86/atan2l.c         \
-  math/x86/atanf.c          math/x86/atanhl.c         math/x86/atanl.c          \
-  math/x86/ceilf.S          math/x86/ceill.S          math/x86/copysignl.S      \
-  math/x86/cos.def.h        math/x86/cosf.c           math/x86/cosl.c           math/x86/cosl_internal.S  math/x86/cossin.c         \
+  math/x86/_chgsignl.S      math/x86/acosh.def.h      math/x86/acoshl.c         math/x86/acosl.c          \
+  math/x86/asinhl.c         math/x86/asinl.c          math/x86/atan2l.c         \
+  math/x86/atanhl.c         math/x86/atanl.c          \
+  math/x86/ceill.S          math/x86/copysignl.S      \
+  math/x86/cos.def.h        math/x86/cosl.c           math/x86/cosl_internal.S  math/x86/cossin.c         \
   math/x86/exp2l.S          math/x86/exp.def.h        math/x86/expl.c           math/x86/expm1.def.h      math/x86/expm1l.c         \
-  math/x86/fastmath.h       math/x86/floorf.S         math/x86/floorl.S         \
-  math/x86/fmodf.c          math/x86/fmodl.c          math/x86/fucom.c          \
+  math/x86/fastmath.h       math/x86/floorl.S         \
+  math/x86/fmodl.c          math/x86/fucom.c          \
   math/x86/ilogbl.S         math/x86/internal_logl.S  math/x86/ldexpl.c         \
   math/x86/log.def.h        math/x86/log10l.S         math/x86/log1pl.S         math/x86/log2l.S          \
   math/x86/logbl.c          math/x86/logl.c           math/x86/nearbyintl.S     math/x86/pow.def.h        math/x86/powl.c           \
   math/x86/remainderl.S     math/x86/remquol.S        math/x86/scalbnl.S        math/x86/sin.def.h        \
-  math/x86/sinf.c           math/x86/sinl.c           math/x86/sinl_internal.S  math/x86/tanf.c           math/x86/tanl.S
+  math/x86/sinl.c           math/x86/sinl_internal.S  math/x86/tanl.S
 
 
 src_libmingwex32=$(src_libmingwex_x86)
