@@ -176,7 +176,7 @@ src_msvcrt_common=\
   stdio/vsnprintf_alias.c \
   math/cbrt.c math/cbrtf.c \
   math/copysign.c math/copysignf.c \
-  math/fabs.c \
+  math/fabs.c math/fabsf.c \
   math/fdim.c math/fdimf.c \
   math/fma.c math/fmaf.c \
   math/fmax.c math/fmaxf.c \
@@ -189,6 +189,7 @@ src_msvcrt_common=\
   math/lround.c math/lroundf.c \
   math/modf.c \
   math/nextafterf.c \
+  math/nexttowardf.c \
   math/round.c math/roundf.c \
   math/s_erf.c math/sf_erf.c \
   math/sqrt.c \
@@ -386,6 +387,8 @@ src_ucrtapp=\
 # Files included in libucrt*.a on x86_32
 src_ucrtbase32=\
   $(src_ucrtbase) \
+  math/fabsf.c \
+  math/nexttowardf.c \
   math/x86/acosf.c \
   math/x86/asinf.c \
   math/x86/atan2f.c \
@@ -399,7 +402,9 @@ src_ucrtbase32=\
 
 # Files included in libucrt*.a on x86_64
 src_ucrtbase64=\
-  $(src_ucrtbase)
+  $(src_ucrtbase) \
+  math/fabsf.c \
+  math/nexttowardf.c
 
 # Files included in libucrt*.a on arm32
 src_ucrtbasearm32=\
@@ -683,13 +688,13 @@ src_libmingwex=\
   gdtoa/misc.c      gdtoa/qnan.c     gdtoa/smisc.c  gdtoa/strtodg.c  gdtoa/strtodnrp.c  gdtoa/strtof.c     \
   gdtoa/strtopx.c   gdtoa/sum.c      gdtoa/ulp.c    \
   \
-  math/coshf.c          math/coshl.c       math/expf.c           math/fabsf.c         \
+  math/coshf.c          math/coshl.c       math/expf.c          \
   math/fabsl.c          math/fp_consts.c   math/fp_constsf.c     \
   math/fp_constsl.c     math/fpclassify.c  math/fpclassifyf.c    math/fpclassifyl.c   math/frexpf.c        math/frexpl.c \
   math/hypotf.c         math/hypotl.c      math/isnan.c          math/isnanf.c        math/isnanl.c        \
   math/ldexpf.c         math/lgamma.c      math/lgammaf.c        math/lgammal.c       math/log10f.c        math/logf.c \
   math/modff.c          math/modfl.c       math/nextafterl.c     math/nexttoward.c    \
-  math/nexttowardf.c    math/powf.c        math/powi.c           math/powif.c         math/powil.c         \
+  math/powf.c           math/powi.c        math/powif.c          math/powil.c         \
   math/signbit.c        math/signbitf.c    math/signbitl.c       \
   math/signgam.c        math/sinhf.c       math/sinhl.c          math/sqrtf.c         math/sqrtl.c         \
   math/tanhf.c          math/tanhl.c       \
