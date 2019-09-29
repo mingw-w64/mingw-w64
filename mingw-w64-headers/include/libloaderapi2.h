@@ -18,7 +18,7 @@ extern "C" {
 #if (_WIN32_WINNT >= 0x0602)
 
   WINBASEAPI HMODULE WINAPI LoadPackagedLibrary(LPCWSTR lpwLibFileName, DWORD Reserved);
-  WINBASEAPI BOOL WINAPI QueryOptionalDelayLoadedAPI(HMODULE hParentModule, LPCSTR lpDllName, LPCSTR lpProcName, DWORD Reserved);
+  WINBASEAPI WINBOOL WINAPI QueryOptionalDelayLoadedAPI(HMODULE hParentModule, LPCSTR lpDllName, LPCSTR lpProcName, DWORD Reserved);
 
 #endif
 #endif
