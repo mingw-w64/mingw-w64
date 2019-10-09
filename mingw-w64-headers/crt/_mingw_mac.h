@@ -320,17 +320,17 @@
      void __cdecl __mingw_chk_fail_warn(void) __MINGW_ASM_CALL(__chk_fail) \
      __attribute__((__noreturn__)) \
      __attribute__((__warning__("Buffer overflow detected")))
-#  define __mingw_bos(p) \
-     __builtin_object_size((p), (__MINGW_FORTIFY_LEVEL > 1))
+#  define __mingw_bos(p, maxtype) \
+     __builtin_object_size((p), ((maxtype) > 0) && (__MINGW_FORTIFY_LEVEL > 1))
 #  define __mingw_bos_known(p) \
-     (__mingw_bos(p) != (size_t)-1)
+     (__mingw_bos(p, 0) != (size_t)-1)
 #  define __mingw_bos_cond_chk(c) \
      (__builtin_expect((c), 1) ? (void)0 : __chk_fail())
-#  define __mingw_bos_ptr_chk(p, n) \
-     __mingw_bos_cond_chk(!__mingw_bos_known(p) || __mingw_bos(p) >= (size_t)(n))
-#  define __mingw_bos_ptr_chk_warn(p, n) \
-     (__mingw_bos_known(p) && __builtin_constant_p((n)) && __mingw_bos(p) < (size_t)(n) \
-     ? __mingw_chk_fail_warn() : __mingw_bos_ptr_chk(p, n))
+#  define __mingw_bos_ptr_chk(p, n, maxtype) \
+     __mingw_bos_cond_chk(!__mingw_bos_known(p) || __mingw_bos(p, maxtype) >= (size_t)(n))
+#  define __mingw_bos_ptr_chk_warn(p, n, maxtype) \
+     (__mingw_bos_known(p) && __builtin_constant_p((n)) && __mingw_bos(p, maxtype) < (size_t)(n) \
+     ? __mingw_chk_fail_warn() : __mingw_bos_ptr_chk(p, n, maxtype))
 #  define __mingw_bos_ovr __mingw_ovr \
      __attribute__((__always_inline__)) \
      __mingw_attribute_artificial

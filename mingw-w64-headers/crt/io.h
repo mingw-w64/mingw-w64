@@ -377,7 +377,7 @@ _CRTIMP int __cdecl __mingw_call__read(int, void *, unsigned int) __MINGW_ASM_CR
 __mingw_bos_extern_ovr
 int _read(int __fh, void * __dst, unsigned int __n)
 {
-  __mingw_bos_ptr_chk_warn(__dst, __n);
+  __mingw_bos_ptr_chk_warn(__dst, __n, 1);
   return __mingw_call__read(__fh, __dst, __n);
 }
 
