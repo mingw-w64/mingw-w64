@@ -809,7 +809,7 @@ char * fgets(char * __restrict__ __dst, int __n, FILE * __restrict__ __f)
 __mingw_bos_extern_ovr
 size_t fread(void * __restrict__ __dst, size_t __sz, size_t __n, FILE * __restrict__ __f)
 {
-  __mingw_bos_ptr_chk_warn(__dst, __sz * __n, 1);
+  __mingw_bos_ptr_chk_warn(__dst, __sz * __n, 0);
   return __mingw_call_fread(__dst, __sz, __n, __f);
 }
 
