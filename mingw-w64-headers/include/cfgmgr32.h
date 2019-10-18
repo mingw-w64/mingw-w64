@@ -10,6 +10,7 @@
 #include <cfg.h>
 #include <guiddef.h>
 #include <apisetcconv.h>
+#include <devpropdef.h>
 
 #ifdef __cplusplus
 extern "C" {
