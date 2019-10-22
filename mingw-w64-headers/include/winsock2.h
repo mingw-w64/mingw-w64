@@ -88,10 +88,15 @@ extern "C" {
 #define IPPROTO_IGMP 2
 #define IPPROTO_GGP 3
 #define IPPROTO_IPV4 4
+#define IPPROTO_ST 5
 #define IPPROTO_TCP 6
+#define IPPROTO_CBT 7
+#define IPPROTO_EGP 8
+#define IPPROTO_IGP 9
 #define IPPROTO_PUP 12
 #define IPPROTO_UDP 17
 #define IPPROTO_IDP 22
+#define IPPROTO_RDP 27
 #define IPPROTO_IPV6 41
 #define IPPROTO_ROUTING 43
 #define IPPROTO_FRAGMENT 44
@@ -102,6 +107,10 @@ extern "C" {
 #define IPPROTO_DSTOPTS 60
 #define IPPROTO_ND 77
 #define IPPROTO_ICLFXBM 78
+#define IPPROTO_PIM 103
+#define IPPROTO_PGM 113
+#define IPPROTO_L2TP 115
+#define IPPROTO_SCTP 132
 
 #define IPPROTO_RAW 255
 #define IPPROTO_MAX 256
