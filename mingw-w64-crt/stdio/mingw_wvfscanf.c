@@ -104,13 +104,19 @@ get_va_nth (va_list argp, unsigned int n)
 }
 
 static void
-optimize_alloc (int do_realloc, char **p, size_t sz, size_t need_sz, size_t typ_sz)
+optimize_alloc (char **p, char *end, size_t alloc_sz)
 {
+  size_t need_sz;
   char *h;
 
-  if (!do_realloc || sz == need_sz || !p || *p == NULL)
+  if (!p || !*p)
     return;
-  if ((h = (char *) realloc (*p, need_sz * typ_sz)) != NULL)
+
+  need_sz = end - *p;
+  if (need_sz == alloc_sz)
+    return;
+
+  if ((h = (char *) realloc (*p, need_sz)) != NULL)
     *p = h;
 }
 
@@ -629,7 +635,7 @@ __mingw_swformat (_IFP *s, const wchar_t *format, va_list argp)
 
 	  if ((flags & IS_SUPPRESSED) == 0)
 	    {
-	      optimize_alloc ((flags & IS_ALLOC_USED) != 0, pstr, str_sz, (str - *pstr), sizeof (char));
+	      optimize_alloc (pstr, str, str_sz);
 	      pstr = NULL;
 	      ++rval;
 	    }
@@ -708,7 +714,7 @@ __mingw_swformat (_IFP *s, const wchar_t *format, va_list argp)
 
 	  if ((flags & IS_SUPPRESSED) == 0)
 	    {
-	      optimize_alloc ((flags & IS_ALLOC_USED) != 0, pstr, str_sz, (wstr - (wchar_t *) *pstr), sizeof (wchar_t));
+	      optimize_alloc (pstr, (char *) wstr, str_sz * sizeof (wchar_t));
 	      pstr = NULL;
 	      ++rval;
 	    }
@@ -824,7 +830,7 @@ __mingw_swformat (_IFP *s, const wchar_t *format, va_list argp)
 	      }
 	      *str++ = 0;
 
-	      optimize_alloc ((flags & IS_ALLOC_USED) != 0, pstr, str_sz, (str - *pstr), sizeof (char));
+	      optimize_alloc (pstr, str, str_sz);
 	      pstr = NULL;
 	      ++rval;
 	    }
@@ -903,7 +909,7 @@ __mingw_swformat (_IFP *s, const wchar_t *format, va_list argp)
 	    {
 	      *wstr++ = 0;
 
-	      optimize_alloc ((flags & IS_ALLOC_USED) != 0, pstr, str_sz, (wstr - (wchar_t *) *pstr), sizeof (wchar_t));
+	      optimize_alloc (pstr, (char *) wstr, str_sz * sizeof (wchar_t));
 	      pstr = NULL;
 	      ++rval;
 	    }
@@ -1449,7 +1455,7 @@ __mingw_swformat (_IFP *s, const wchar_t *format, va_list argp)
 		{
 		  *wstr++ = 0;
 
-		  optimize_alloc ((flags & IS_ALLOC_USED) != 0, pstr, str_sz, (wstr - (wchar_t *) *pstr), sizeof (wchar_t));
+		  optimize_alloc (pstr, (char *) wstr, str_sz * sizeof (wchar_t));
 		  pstr = NULL;
 		  ++rval;
 		}
@@ -1581,7 +1587,7 @@ __mingw_swformat (_IFP *s, const wchar_t *format, va_list argp)
 		  }
 		  *str++ = 0;
 
-		  optimize_alloc ((flags & IS_ALLOC_USED) != 0, pstr, str_sz, (str - *pstr), sizeof (char));
+		  optimize_alloc (pstr, str, str_sz);
 		  pstr = NULL;
 		  ++rval;
 		}
