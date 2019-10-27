@@ -240,6 +240,7 @@ lib32_DATA += %reldir%/libscsiport.a
 lib32_DATA += %reldir%/libsecur32.a
 lib32_DATA += %reldir%/libsecurity.a
 lib32_DATA += %reldir%/libsetupapi.a
+lib32_DATA += %reldir%/libshcore.a
 #lib32_DATA += %reldir%/libshell32.a    # Handled by custom rule
 lib32_DATA += %reldir%/libshfolder.a
 lib32_DATA += %reldir%/libshlwapi.a

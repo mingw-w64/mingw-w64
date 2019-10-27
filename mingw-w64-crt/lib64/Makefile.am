@@ -519,6 +519,7 @@ lib64_DATA += %reldir%/libsfc.a
 lib64_DATA += %reldir%/libsfcfiles.a
 lib64_DATA += %reldir%/libsfc_os.a
 lib64_DATA += %reldir%/libsfmapi.a
+lib64_DATA += %reldir%/libshcore.a
 lib64_DATA += %reldir%/libshdocvw.a
 lib64_DATA += %reldir%/libshfolder.a
 lib64_DATA += %reldir%/libshimeng.a
