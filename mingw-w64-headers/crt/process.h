@@ -29,9 +29,12 @@ extern "C" {
 #define _WAIT_GRANDCHILD 1
 #endif
 
-  _CRTIMP uintptr_t __cdecl _beginthread(void (__cdecl *_StartAddress) (void *),unsigned _StackSize,void *_ArgList);
+  typedef void (__cdecl *_beginthread_proc_type)(void *);
+  typedef unsigned (__stdcall *_beginthreadex_proc_type)(void *);
+
+  _CRTIMP uintptr_t __cdecl _beginthread(_beginthread_proc_type _StartAddress,unsigned _StackSize,void *_ArgList);
   _CRTIMP void __cdecl _endthread(void) __MINGW_ATTRIB_NORETURN;
-  _CRTIMP uintptr_t __cdecl _beginthreadex(void *_Security,unsigned _StackSize,unsigned (__stdcall *_StartAddress) (void *),void *_ArgList,unsigned _InitFlag,unsigned *_ThrdAddr);
+  _CRTIMP uintptr_t __cdecl _beginthreadex(void *_Security,unsigned _StackSize,_beginthreadex_proc_type _StartAddress,void *_ArgList,unsigned _InitFlag,unsigned *_ThrdAddr);
   _CRTIMP void __cdecl _endthreadex(unsigned _Retval) __MINGW_ATTRIB_NORETURN;
 
 #ifndef _CRT_TERMINATE_DEFINED
