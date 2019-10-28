@@ -1414,7 +1414,15 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
 
 #endif
 
+#if defined(_UCRT) || defined(__LARGE_MBSTATE_T)
+  typedef struct _Mbstatet {
+    unsigned long _Wchar;
+    unsigned short _Byte, _State;
+  } _Mbstatet;
+  typedef _Mbstatet mbstate_t;
+#else
   typedef int mbstate_t;
+#endif
   typedef wchar_t _Wint_t;
 
   wint_t __cdecl btowc(int);
@@ -1433,7 +1441,12 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
   wchar_t * __cdecl wmempcpy (wchar_t *_Dst, const wchar_t *_Src, size_t _Size);
   wchar_t *__cdecl wmemmove(wchar_t *s1, const wchar_t *s2, size_t n) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   int __cdecl fwide(FILE *stream,int mode);
+#if defined(_UCRT) || defined(__LARGE_MBSTATE_T)
+  /* With UCRT, mbsinit is only available as inline. */
+  __mingw_static_ovr int __cdecl mbsinit(const mbstate_t *_P) { return (!_P || _P->_Wchar == 0); }
+#else
   int __cdecl mbsinit(const mbstate_t *ps);
+#endif
   __MINGW_EXTENSION long long __cdecl wcstoll(const wchar_t * __restrict__ nptr,wchar_t ** __restrict__ endptr, int base);
   __MINGW_EXTENSION unsigned long long __cdecl wcstoull(const wchar_t * __restrict__ nptr,wchar_t ** __restrict__ endptr, int base);
 #endif /* __NO_ISOCEXT */
@@ -1442,7 +1455,9 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
   void *__cdecl memcpy(void * __restrict__ _Dst,const void * __restrict__ _Src,size_t _MaxCount) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #ifndef __CRT__NO_INLINE
   __CRT_INLINE int __cdecl fwide(FILE *_F,int _M) { (void)_F; return (_M); }
+#if !defined(_UCRT) && !defined(__LARGE_MBSTATE_T)
   __CRT_INLINE int __cdecl mbsinit(const mbstate_t *_P) { return (!_P || *_P==0); }
+#endif
   __CRT_INLINE _CONST_RETURN wchar_t *__cdecl wmemchr(const wchar_t *_S,wchar_t _C,size_t _N) {
     if (_S) {
       for ( ; 0 < _N; ++_S, --_N)
