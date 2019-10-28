@@ -433,7 +433,7 @@ _cputs
 _cputws
 F_I386(_CRT_RTC_INIT)
 _creat
-_create_locale
+F_ARM_ANY(_create_locale)
 F_ARM32(_crtAssertBusy)
 F_ARM32(_crtBreakAlloc)
 F_ARM32(_crtDbgFlag)
@@ -525,7 +525,7 @@ _fprintf_s_l
 _fputchar
 _fputwchar
 F_ARM_ANY(_free_dbg)
-_free_locale
+F_ARM_ANY(_free_locale)
 F_ARM_ANY(_freea)
 F_NON_I386(_fscanf_l)
 F_NON_I386(_fscanf_s_l)

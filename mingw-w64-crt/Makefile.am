@@ -166,7 +166,6 @@ src_msvcrt_common=\
 src_msvcrt=\
   $(src_msvcrt_common) \
   misc/_configthreadlocale.c \
-  misc/_get_current_locale.c \
   misc/invalid_parameter_handler.c \
   misc/output_format.c \
   misc/purecall.c \
@@ -235,6 +234,9 @@ src_msvcrt32=\
   $(src_msvcrt) \
   math/x86/_copysignf.c \
   misc/___mb_cur_max_func.c \
+  misc/_create_locale.c \
+  misc/_free_locale.c \
+  misc/_get_current_locale.c \
   misc/lc_locale_func.c \
   misc/wassert.c
 
@@ -243,7 +245,10 @@ src_msvcrt64=\
   misc/__p___argv.c \
   misc/__p__acmdln.c \
   misc/__p__fmode.c \
-  misc/__p__wcmdln.c
+  misc/__p__wcmdln.c \
+  misc/_create_locale.c \
+  misc/_free_locale.c \
+  misc/_get_current_locale.c
 
 src_msvcrtarm32=\
   $(src_msvcrt) \
