@@ -7,6 +7,7 @@
 #include "internal.h"
 
 void __cdecl __set_app_type (int type) {
+  (void)type;
 }
 
 void (__cdecl *__MINGW_IMP_SYMBOL(__set_app_type))(int) = __set_app_type;
