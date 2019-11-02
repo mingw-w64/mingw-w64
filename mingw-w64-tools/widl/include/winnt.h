@@ -76,6 +76,16 @@ extern "C" {
 # endif
 #endif
 
+#ifndef DECLSPEC_NOTHROW
+# if defined(_MSC_VER) && (_MSC_VER >= 1200) && !defined(MIDL_PASS)
+#  define DECLSPEC_NOTHROW __declspec(nothrow)
+# elif defined(__GNUC__)
+#  define DECLSPEC_NOTHROW __attribute__((nothrow))
+# else
+#  define DECLSPEC_NOTHROW
+# endif
+#endif
+
 #ifndef DECLSPEC_CACHEALIGN
 # define DECLSPEC_CACHEALIGN DECLSPEC_ALIGN(128)
 #endif
@@ -163,7 +173,11 @@ extern "C" {
 # define DECLSPEC_HIDDEN
 #endif
 
-#if defined(__GNUC__) && ((__GNUC__ > 4) || ((__GNUC__ == 4) && (__GNUC_MINOR__ >= 6))) && (defined(__i386__) || defined(__x86_64__))
+#ifndef __has_attribute
+# define __has_attribute(x) 0
+#endif
+
+#if ((defined(__GNUC__) && ((__GNUC__ > 4) || ((__GNUC__ == 4) && (__GNUC_MINOR__ >= 6)))) || __has_attribute(ms_hook_prologue)) && (defined(__i386__) || defined(__x86_64__))
 #define DECLSPEC_HOTPATCH __attribute__((__ms_hook_prologue__))
 #else
 #define DECLSPEC_HOTPATCH
@@ -5603,7 +5617,8 @@ typedef struct {
 	BOOLEAN BatteryPresent;
 	BOOLEAN Charging;
 	BOOLEAN Discharging;
-	BOOLEAN Spare1[4];
+	BOOLEAN Spare1[3];
+	BYTE Tag;
 	ULONG MaxCapacity;
 	ULONG RemainingCapacity;
 	ULONG Rate;
@@ -6602,7 +6617,6 @@ typedef TP_CALLBACK_ENVIRON_V1 TP_CALLBACK_ENVIRON, *PTP_CALLBACK_ENVIRON;
 typedef VOID (CALLBACK *PTP_WORK_CALLBACK)(PTP_CALLBACK_INSTANCE,PVOID,PTP_WORK);
 typedef VOID (CALLBACK *PTP_TIMER_CALLBACK)(PTP_CALLBACK_INSTANCE,PVOID,PTP_TIMER);
 typedef VOID (CALLBACK *PTP_WAIT_CALLBACK)(PTP_CALLBACK_INSTANCE,PVOID,PTP_WAIT,TP_WAIT_RESULT);
-typedef VOID (CALLBACK *PTP_WIN32_IO_CALLBACK)(PTP_CALLBACK_INSTANCE,PVOID,PVOID,ULONG,ULONG_PTR,PTP_IO);
 
 
 NTSYSAPI BOOLEAN NTAPI RtlGetProductInfo(DWORD,DWORD,DWORD,DWORD,PDWORD);

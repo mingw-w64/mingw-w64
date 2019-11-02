@@ -3611,7 +3611,8 @@ static unsigned int write_type_tfs(FILE *file, const attr_list_t *attrs,
         {
             int ptr_type;
             ptr_type = get_pointer_fc_context(type, attrs, context);
-            if (ptr_type != FC_RP || type_array_is_decl_as_ptr(type))
+            if (type_array_is_decl_as_ptr(type)
+                    || (ptr_type != FC_RP && context == TYPE_CONTEXT_TOPLEVELPARAM))
             {
                 unsigned int absoff = type->typestring_offset;
                 short reloff = absoff - (*typeformat_offset + 2);
@@ -3864,16 +3865,13 @@ static unsigned int get_required_buffer_size_type(
         }
 
     case TGT_ARRAY:
-        if (get_pointer_fc(type, attrs, toplevel_param) == FC_RP)
+        switch (get_array_fc(type))
         {
-            switch (get_array_fc(type))
-            {
-            case FC_SMFARRAY:
-            case FC_LGFARRAY:
-                return type_array_get_dim(type) *
-                    get_required_buffer_size_type(type_array_get_element_type(type), name,
-                                                  NULL, FALSE, alignment);
-            }
+        case FC_SMFARRAY:
+        case FC_LGFARRAY:
+            return type_array_get_dim(type) *
+                get_required_buffer_size_type(type_array_get_element_type(type), name,
+                                              NULL, FALSE, alignment);
         }
         break;
 
