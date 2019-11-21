@@ -121,7 +121,7 @@ extern "C" {
     return _Ret;
   }
 
-  // There is no _vsnscanf_s_l nor _vsnscanf_s
+  /* There is no _vsnscanf_s_l nor _vsnscanf_s */
   __mingw_ovr int __cdecl _snscanf_s_l(const char *_Src, size_t _MaxCount, const char *_Format, _locale_t _Locale, ...)
   {
     __builtin_va_list _ArgList;
@@ -141,7 +141,7 @@ extern "C" {
     return _Ret;
   }
 
-  // There is no _vsnscanf_l
+  /* There is no _vsnscanf_l */
   __mingw_ovr int __cdecl _snscanf_l(const char *_Src, size_t _MaxCount, const char *_Format, _locale_t _Locale, ...)
   {
     __builtin_va_list _ArgList;

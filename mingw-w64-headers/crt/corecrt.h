@@ -16,7 +16,7 @@
 #endif
 
 #if !defined(_UCRT) && ((__MSVCRT_VERSION__ >= 0x1400) || (__MSVCRT_VERSION__ >= 0xE00 && __MSVCRT_VERSION__ < 0x1000))
-// Allow both 0x1400 and 0xE00 to identify UCRT
+/* Allow both 0x1400 and 0xE00 to identify UCRT */
 #define _UCRT
 #endif
 

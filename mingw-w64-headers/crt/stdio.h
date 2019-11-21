@@ -147,8 +147,8 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #define UCRTBASE_SCANF_LEGACY_WIDE_SPECIFIERS            (0x0002)
 #define UCRTBASE_SCANF_LEGACY_MSVCRT_COMPATIBILITY       (0x0004)
 
-// Default wide printfs and scanfs to the legacy wide mode. Only code built
-// with -D__USE_MINGW_ANSI_STDIO=1 will expect the standard behaviour.
+/* Default wide printfs and scanfs to the legacy wide mode. Only code built
+ * with -D__USE_MINGW_ANSI_STDIO=1 will expect the standard behaviour. */
 #ifndef UCRTBASE_PRINTF_DEFAULT_WIDE
 #define UCRTBASE_PRINTF_DEFAULT_WIDE UCRTBASE_PRINTF_LEGACY_WIDE_SPECIFIERS
 #endif
