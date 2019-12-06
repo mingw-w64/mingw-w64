@@ -272,8 +272,8 @@ src_msvcrtarm32+=\
   math/arm/nearbyint.S \
   math/arm/nearbyintf.S \
   math/arm/nearbyintl.S \
-  math/arm/trunc.S \
-  math/arm/truncf.S \
+  math/arm/s_trunc.c \
+  math/arm/s_truncf.c \
   math/arm-common/acosh.c \
   math/arm-common/acoshf.c \
   math/arm-common/acoshl.c \
