@@ -10,7 +10,7 @@
 */
 
 #include "softmath_private.h"
-#include <inttypes.h>
+#include "../bsd_private_base.h"
 
 static const float
     bp[]   = {1.0, 1.5,},
@@ -45,24 +45,3 @@ static const float
     ivln2  =  1.4426950216e+00, /* 0x3fb8aa3b =1/ln2 */
     ivln2_h=  1.4426879883e+00, /* 0x3fb8aa00 =16b 1/ln2*/
     ivln2_l=  7.0526075433e-06; /* 0x36eca570 =1/ln2 tail*/
-
-typedef unsigned int u_int32_t;
-
-typedef union {
-    float value;
-    u_int32_t word;
-} ieee_float_shape_type;
-
-#define GET_FLOAT_WORD(i,d) do \
-{ \
-    ieee_float_shape_type gf_u; \
-    gf_u.value = (d); \
-    (i) = gf_u.word; \
-} while(0)
-
-#define SET_FLOAT_WORD(d,i) do \
-{ \
-    ieee_float_shape_type gf_u; \
-    gf_u.word = (i); \
-    (d) = gf_u.value; \
-} while(0)
