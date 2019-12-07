@@ -303,9 +303,9 @@ src_msvcrtarm32+=\
   math/arm-common/remainder.c \
   math/arm-common/remainderf.c \
   math/arm-common/remainderl.c \
-  math/arm-common/remquo.c \
-  math/arm-common/remquof.c \
   math/arm-common/remquol.c \
+  math/arm-common/s_remquo.c \
+  math/arm-common/s_remquof.c \
   math/arm-common/scalbn.c
 endif
 
@@ -340,9 +340,9 @@ src_msvcrtarm64=\
   math/arm-common/remainder.c \
   math/arm-common/remainderf.c \
   math/arm-common/remainderl.c \
-  math/arm-common/remquo.c \
-  math/arm-common/remquof.c \
   math/arm-common/remquol.c \
+  math/arm-common/s_remquo.c \
+  math/arm-common/s_remquof.c \
   math/arm-common/scalbn.c \
   math/arm64/exp2.S \
   math/arm64/exp2f.S \
