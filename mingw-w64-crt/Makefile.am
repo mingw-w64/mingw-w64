@@ -412,7 +412,7 @@ src_libmingwex=\
   math/lrint.c          math/lrintf.c      math/lrintl.c         math/lround.c        math/lroundf.c       math/lroundl.c       \
   math/modf.c           math/modff.c       math/modfl.c          math/nextafterf.c    math/nextafterl.c    math/nexttoward.c    \
   math/nexttowardf.c    math/powf.c        math/powi.c           math/powif.c         math/powil.c         \
-  math/rint.c           math/rintf.c       math/rintl.c          math/round.c         math/roundf.c        \
+  math/rintl.c          math/round.c       math/roundf.c         \
   math/roundl.c         math/s_erf.c       math/sf_erf.c         math/signbit.c       math/signbitf.c      math/signbitl.c      \
   math/sinhf.c          math/sinhl.c       math/sqrt.c           \
   math/sqrtf.c          math/sqrtl.c       math/tanhf.c          math/tanhl.c         math/tgamma.c        \
@@ -480,6 +480,7 @@ src_libmingwex_x86=\
   math/x86/logbf.c          math/x86/logbl.c          math/x86/logl.c           math/x86/nearbyint.S      math/x86/nearbyintf.S     \
   math/x86/nearbyintl.S     math/x86/pow.c            math/x86/pow.def.h        math/x86/powl.c           math/x86/remainder.S      \
   math/x86/remainderf.S     math/x86/remainderl.S     math/x86/remquo.S         math/x86/remquof.S        math/x86/remquol.S        \
+  math/x86/rint.c           math/x86/rintf.c          \
   math/x86/scalbn.S         math/x86/scalbnf.S        math/x86/scalbnl.S        math/x86/sin.c            math/x86/sin.def.h        \
   math/x86/sinf.c           math/x86/sinl.c           math/x86/sinl_internal.S  math/x86/tanf.c           math/x86/tanl.S           \
   math/x86/trunc.S          math/x86/truncf.S
@@ -490,7 +491,8 @@ src_libmingwex64=$(src_libmingwex_x86)
 
 # these only go into the ARM32 version:
 src_libmingwexarm32=\
-  math/arm/_chgsignl.S
+  math/arm/_chgsignl.S \
+  math/arm/s_rint.c         math/arm/s_rintf.c
 
 if ENABLE_SOFTMATH
 src_libmingwexarm32+=\
@@ -517,7 +519,9 @@ endif
 
 # these only go into the ARM64 version:
 src_libmingwexarm64=\
-  math/arm64/_chgsignl.S    math/arm-common/ldexpl.c  math/arm-common/sincos.c
+  math/arm64/_chgsignl.S \
+  math/arm64/rint.c         math/arm64/rintf.c \
+  math/arm-common/ldexpl.c  math/arm-common/sincos.c
 
 
 # These intrinsics are target independent:
