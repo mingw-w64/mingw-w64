@@ -13,7 +13,7 @@
 
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 
-#include <WinHvPlatformDefs.h>
+#include <winhvplatformdefs.h>
 
 typedef union WHV_EMULATOR_STATUS {
     __C89_NAMELESS struct {

@@ -13,7 +13,7 @@
 
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 
-#include <WinHvPlatformDefs.h>
+#include <winhvplatformdefs.h>
 
 #ifdef __cplusplus
 extern "C" {

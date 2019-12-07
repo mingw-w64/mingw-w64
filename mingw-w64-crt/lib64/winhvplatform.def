@@ -1,4 +1,4 @@
-LIBRARY "WinHvPlatform.dll"
+LIBRARY "winhvplatform.dll"
 EXPORTS
 WHvCancelRunVirtualProcessor
 WHvCreatePartition

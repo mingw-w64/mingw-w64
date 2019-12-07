@@ -1,4 +1,4 @@
-LIBRARY "WinHvEmulation.dll"
+LIBRARY "winhvemulation.dll"
 EXPORTS
 WHvEmulatorCreateEmulator
 WHvEmulatorDestroyEmulator
