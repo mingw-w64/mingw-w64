@@ -284,6 +284,7 @@ lib32_DATA += %reldir%/libwdsimage.a
 lib32_DATA += %reldir%/libwdstptc.a
 lib32_DATA += %reldir%/libwdsupgcompl.a
 lib32_DATA += %reldir%/libwdsutil.a
+lib32_DATA += %reldir%/libwebsocket.a
 lib32_DATA += %reldir%/libwecapi.a
 lib32_DATA += %reldir%/libwer.a
 lib32_DATA += %reldir%/libwevtapi.a

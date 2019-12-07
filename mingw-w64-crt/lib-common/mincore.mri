@@ -163,7 +163,7 @@ ADDLIB librpcrt4.a
 ; FIXME libsrvcli.a
 ADDLIB libsspicli.a
 ADDLIB libuserenv.a
-; FIXME libwebsocket.a
+ADDLIB libwebsocket.a
 ADDLIB libwinhttp.a
 ; FIXME libwkscli.a
 ADDLIB libwldap32.a

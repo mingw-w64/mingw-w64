@@ -616,6 +616,7 @@ lib64_DATA += %reldir%/libwdmaud.a
 lib64_DATA += %reldir%/libwebcheck.a
 lib64_DATA += %reldir%/libwebclnt.a
 lib64_DATA += %reldir%/libwebhits.a
+lib64_DATA += %reldir%/libwebsocket.a
 lib64_DATA += %reldir%/libwiadss.a
 lib64_DATA += %reldir%/libwiarpc.a
 lib64_DATA += %reldir%/libwiaservc.a
