@@ -36,6 +36,7 @@ lib32_DATA += %reldir%/libd3d8.a
 lib32_DATA += %reldir%/libd3d9.a
 lib32_DATA += %reldir%/libd3d10.a
 lib32_DATA += %reldir%/libd3d11.a
+lib32_DATA += %reldir%/libd3d12.a
 lib32_DATA += %reldir%/libd3dcompiler_33.a
 lib32_DATA += %reldir%/libd3dcompiler_34.a
 lib32_DATA += %reldir%/libd3dcompiler_35.a
