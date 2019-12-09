@@ -5,9 +5,9 @@
  */
 
 typedef void (__thiscall * dtor_fn)(void*);
-int __cxa_atexit(dtor_fn dtor, void *obj, void *dso);
-int __mingw_cxa_atexit(dtor_fn dtor, void *obj, void *dso);
+int __cxa_thread_atexit(dtor_fn dtor, void *obj, void *dso);
+int __mingw_cxa_thread_atexit(dtor_fn dtor, void *obj, void *dso);
 
-int __cxa_atexit(dtor_fn dtor, void *obj, void *dso) {
-  return __mingw_cxa_atexit(dtor, obj, dso);
+int __cxa_thread_atexit(dtor_fn dtor, void *obj, void *dso) {
+  return __mingw_cxa_thread_atexit(dtor, obj, dso);
 }
