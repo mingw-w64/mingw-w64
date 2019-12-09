@@ -46,6 +46,7 @@ libarm64_DATA += %reldir%/libcscapi.a
 libarm64_DATA += %reldir%/libd2d1.a
 libarm64_DATA += %reldir%/libd3d11.a
 libarm64_DATA += %reldir%/libd3d9.a
+libarm64_DATA += %reldir%/libd3d10.a
 libarm64_DATA += %reldir%/libd3dcompiler_47.a
 libarm64_DATA += %reldir%/libdavclnt.a
 libarm64_DATA += %reldir%/libdavhlpr.a

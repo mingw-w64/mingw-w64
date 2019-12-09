@@ -87,6 +87,7 @@ lib64_DATA += %reldir%/libcscui.a
 lib64_DATA += %reldir%/libcsrsrv.a
 lib64_DATA += %reldir%/libd3d8thk.a
 lib64_DATA += %reldir%/libd3d9.a
+lib64_DATA += %reldir%/libd3d10.a
 lib64_DATA += %reldir%/libd3dxof.a
 lib64_DATA += %reldir%/libdavclnt.a
 lib64_DATA += %reldir%/libdbgeng.a
