@@ -5,6 +5,7 @@
 ;
 LIBRARY "d3d11.dll"
 EXPORTS
+D3D11CreateDeviceForD3D12
 D3DKMTCloseAdapter
 D3DKMTDestroyAllocation
 D3DKMTDestroyContext
@@ -18,12 +19,15 @@ D3DKMTWaitForSynchronizationObject
 EnableFeatureLevelUpgrade
 OpenAdapter10
 OpenAdapter10_2
+CreateDirect3D11DeviceFromDXGIDevice
+CreateDirect3D11SurfaceFromDXGISurface
 D3D11CoreCreateDevice
 D3D11CoreCreateLayeredDevice
 D3D11CoreGetLayeredDeviceSize
 D3D11CoreRegisterLayers
 D3D11CreateDevice
 D3D11CreateDeviceAndSwapChain
+D3D11On12CreateDevice
 D3DKMTCreateAllocation
 D3DKMTCreateContext
 D3DKMTCreateDevice

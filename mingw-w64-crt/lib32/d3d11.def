@@ -5,11 +5,13 @@
 ;
 LIBRARY "d3d11.dll"
 EXPORTS
+D3D11CreateDeviceForD3D12@36
 D3DKMTCloseAdapter@4
 D3DKMTDestroyAllocation@4
 D3DKMTDestroyContext@4
 D3DKMTDestroyDevice@4
 D3DKMTDestroySynchronizationObject@4
+D3DKMTPresent@4
 D3DKMTQueryAdapterInfo@4
 D3DKMTSetDisplayPrivateDriverFormat@4
 D3DKMTSignalSynchronizationObject@4
@@ -18,12 +20,15 @@ D3DKMTWaitForSynchronizationObject@4
 EnableFeatureLevelUpgrade
 OpenAdapter10@4
 OpenAdapter10_2@4
+CreateDirect3D11DeviceFromDXGIDevice@8
+CreateDirect3D11SurfaceFromDXGISurface@8
 D3D11CoreCreateDevice@40
 D3D11CoreCreateLayeredDevice@20
 D3D11CoreGetLayeredDeviceSize@8
 D3D11CoreRegisterLayers@8
 D3D11CreateDevice@40
 D3D11CreateDeviceAndSwapChain@48
+D3D11On12CreateDevice@40
 D3DKMTCreateAllocation@4
 D3DKMTCreateContext@4
 D3DKMTCreateDevice@4
