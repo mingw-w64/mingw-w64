@@ -41,7 +41,7 @@ AM_CONDITIONAL([HAVE_WIDL],[AS_VAR_TEST_SET([WIDL])])
 
 BASEHEAD_LIST="crt/_bsd_types.h crt/_cygwin.h crt/_mingw.h crt/_mingw_mac.h crt/_mingw_secapi.h crt/_mingw_unicode.h crt/_timeval.h crt/crtdefs.h crt/corecrt.h crt/excpt.h crt/intrin.h crt/vadefs.h crt/tchar.h "$srcdir/include/*.h
 SECHEAD_LIST="$srcdir/crt/sec_api/stralign_s.h"
-for i in c dlg h16 hxx rh ver; do
+for i in c inl dlg h16 hxx rh ver; do
   BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/include/*.$i
 done
 #FIXME: Add in base directx
@@ -113,7 +113,6 @@ AS_CASE([$enable_sdk],
 AC_MSG_RESULT([$enable_sdk])
 
 AS_VAR_IF([enable_directx],[yes],[
-    DXHEAD_LIST=$srcdir/direct-x/include/*.[[hi]]*
     MINGW_HAS_DX=1
   ],[
     MINGW_HAS_DX=0

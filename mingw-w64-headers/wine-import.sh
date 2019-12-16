@@ -44,74 +44,33 @@ import_idl() {
 
 # headers
 for f in \
-	corerror.h \
-	mscat.h \
-	propkey.h \
-	propkeydef.h \
-	rpcsal.h \
-	t2embapi.h \
-	uiautomation.h \
-	uiautomationcoreapi.h \
-	winhttp.h \
-	winineti.h; do
-    import_header $f include
-done
-
-# IDLs
-for f in \
-	ctfutb \
-	devicetopology \
-	downloadmgr \
-	drmexternals \
-	endpointvolume \
-	fusion \
-	icftypes \
-	mmdeviceapi \
-	mscoree \
-	msctf \
-	netfw \
-	netlistmgr \
-	objectarray \
-	optary \
-	taskschd \
-	uiautomationclient \
-	uiautomationcore \
-	urlhist \
-	wmdrmsdk \
-	wmsbuffer \
-	wmsdkidl \
-	wpcapi \
-	xmllite; do
-    import_idl $f.idl include
-done
-
-# DirectX headers
-for f in \
 	amaudio.h \
 	audevcod.h \
-	d3d.h \
+	corerror.h \
 	d3d10_1shader.h \
 	d3d10effect.h \
 	d3d10misc.h \
 	d3d10shader.h \
 	d3d11shader.h \
-	d3d8.h \
 	d3d8caps.h \
+	d3d8.h \
 	d3d8types.h \
-	d3d9.h \
 	d3d9caps.h \
+	d3d9.h \
 	d3d9types.h \
 	d3dcaps.h \
 	d3dcompiler.h \
+	d3d.h \
 	d3dhal.h \
-	d3drm.h \
 	d3drmdef.h \
+	d3drm.h \
 	d3drmobj.h \
 	d3dtypes.h \
-	d3dx9.h \
+	d3dvec.inl \
 	d3dx9anim.h \
 	d3dx9core.h \
 	d3dx9effect.h \
+	d3dx9.h \
 	d3dx9math.h \
 	d3dx9math.inl \
 	d3dx9mesh.h \
@@ -119,7 +78,6 @@ for f in \
 	d3dx9shape.h \
 	d3dx9tex.h \
 	d3dx9xof.h \
-	d3dvec.inl \
 	dls1.h \
 	dls2.h \
 	dmerror.h \
@@ -133,10 +91,10 @@ for f in \
 	dmusici.h \
 	dmusics.h \
 	dpaddr.h \
-	dplay.h \
 	dplay8.h \
-	dplobby.h \
+	dplay.h \
 	dplobby8.h \
+	dplobby.h \
 	dpnathlp.h \
 	dshow.h \
 	dvdmedia.h \
@@ -147,16 +105,26 @@ for f in \
 	errors.h \
 	evcode.h \
 	mediaerr.h \
+	mscat.h \
+	propkeydef.h \
+	propkey.h \
+	rpcsal.h \
+	t2embapi.h \
+	uiautomationcoreapi.h \
+	uiautomation.h \
 	vfwmsgs.h \
-	xinput.h; do
-    import_header $f direct-x/include
+	winhttp.h \
+	winineti.h \
+        xinput.h; do
+    import_header $f include
 done
 
-# DirectX IDLs
+# IDLs
 for f in \
 	amstream \
 	amvideo \
 	austream \
+	ctfutb \
 	d3d10 \
 	d3d10_1 \
 	d3d10sdklayers \
@@ -168,19 +136,41 @@ for f in \
 	d3d11sdklayers \
 	d3dcommon \
 	ddstream \
+	devicetopology \
+	downloadmgr \
+	drmexternals \
 	dxgi \
 	dxgi1_2 \
 	dxgi1_3 \
 	dxgi1_4 \
 	dxgi1_5 \
 	dxgi1_6 \
-	mediaobj \
 	dxgicommon \
 	dxgiformat \
 	dxgitype \
+	endpointvolume \
+	fusion \
+	icftypes \
+	mediaobj \
+	mmdeviceapi \
 	mmstream \
-	qedit; do
-    import_idl $f.idl direct-x/include
+	mscoree \
+	msctf \
+	netfw \
+	netlistmgr \
+	objectarray \
+	optary \
+	qedit \
+	taskschd \
+	uiautomationclient \
+	uiautomationcore \
+	urlhist \
+	wmdrmsdk \
+	wmsbuffer \
+	wmsdkidl \
+	wpcapi \
+	xmllite; do
+    import_idl $f.idl include
 done
 
 echo Import complete. You need to update headers generated from IDL files now:

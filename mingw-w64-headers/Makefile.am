@@ -48,6 +48,7 @@ EXTRA_HEADERS = \
   include/*.h16 \
   include/*.hxx \
   include/*.idl \
+  include/*.inl \
   include/*.rh \
   include/*.ver \
   include/GL/*.h \
@@ -76,24 +77,48 @@ IDL_SRCS = \
   include/activscp.idl \
   include/adhoc.idl \
   include/alg.idl \
+  include/amstream.idl \
+  include/amvideo.idl \
   include/audioclient.idl \
   include/audioendpoints.idl \
   include/audiopolicy.idl \
+  include/austream.idl \
   include/bdaiface.idl \
   include/comadmin.idl \
   include/commoncontrols.idl \
   include/control.idl \
   include/ctfutb.idl \
+  include/d3d10.idl \
+  include/d3d10_1.idl \
+  include/d3d10sdklayers.idl \
+  include/d3d11.idl \
+  include/d3d11_1.idl \
+  include/d3d11_2.idl \
+  include/d3d11_3.idl \
+  include/d3d11_4.idl \
+  include/d3d11sdklayers.idl \
+  include/d3dcommon.idl \
   include/dbgprop.idl \
   include/dcompanimation.idl \
+  include/ddstream.idl \
   include/dimm.idl \
   include/dispex.idl \
+  include/dmodshow.idl \
   include/docobj.idl \
   include/docobjectservice.idl \
   include/documenttarget.idl \
   include/devicetopology.idl \
   include/downloadmgr.idl \
   include/drmexternals.idl \
+  include/dxgi.idl \
+  include/dxgi1_2.idl \
+  include/dxgi1_3.idl \
+  include/dxgi1_4.idl \
+  include/dxgi1_5.idl \
+  include/dxgi1_6.idl \
+  include/dxgicommon.idl \
+  include/dxgiformat.idl \
+  include/dxgitype.idl \
   include/dxva2api.idl \
   include/endpointvolume.idl \
   include/evr.idl \
@@ -177,6 +202,12 @@ IDL_SRCS = \
   include/wbemprov.idl \
   include/wbemtran.idl \
   include/wdstptmgmt.idl \
+  include/mediaobj.idl \
+  include/medparam.idl \
+  include/mmstream.idl \
+  include/qedit.idl \
+  include/qnetwork.idl \
+  include/vmr9.idl \
   include/wincodec.idl \
   include/wmcontainer.idl \
   include/wmsbuffer.idl \
@@ -204,37 +235,7 @@ IDL_SRCS = \
   include/xpsobjectmodel_1.idl \
   include/xpsrassvc.idl \
   include/xpsobjectmodel.idl \
-  include/xpsprint.idl \
-  direct-x/include/amstream.idl \
-  direct-x/include/amvideo.idl \
-  direct-x/include/austream.idl \
-  direct-x/include/d3d10.idl \
-  direct-x/include/d3d10_1.idl \
-  direct-x/include/d3d10sdklayers.idl \
-  direct-x/include/d3d11.idl \
-  direct-x/include/d3d11_1.idl \
-  direct-x/include/d3d11_2.idl \
-  direct-x/include/d3d11_3.idl \
-  direct-x/include/d3d11_4.idl \
-  direct-x/include/d3d11sdklayers.idl \
-  direct-x/include/d3dcommon.idl \
-  direct-x/include/ddstream.idl \
-  direct-x/include/dmodshow.idl \
-  direct-x/include/dxgi.idl \
-  direct-x/include/dxgi1_2.idl \
-  direct-x/include/dxgi1_3.idl \
-  direct-x/include/dxgi1_4.idl \
-  direct-x/include/dxgi1_5.idl \
-  direct-x/include/dxgi1_6.idl \
-  direct-x/include/dxgicommon.idl \
-  direct-x/include/dxgiformat.idl \
-  direct-x/include/dxgitype.idl \
-  direct-x/include/mediaobj.idl \
-  direct-x/include/medparam.idl \
-  direct-x/include/mmstream.idl \
-  direct-x/include/qedit.idl \
-  direct-x/include/qnetwork.idl \
-  direct-x/include/vmr9.idl
+  include/xpsprint.idl
 
 TLB_SRCS = \
   tlb/oleacc.idl \
