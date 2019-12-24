@@ -1849,6 +1849,7 @@ endif
 		%/libuserenv.a \
 		%/libwinhttp.a \
 		%/libwldap32.a \
+		%/libwebsocket.a \
 		%/libws2_32.a
 	rm -f $@
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
