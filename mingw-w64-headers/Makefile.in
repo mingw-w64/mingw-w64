@@ -345,7 +345,7 @@ dxhead_HEADERS = @DXHEAD_LIST@
 idlhead_HEADERS = @IDLHEAD_LIST@
 CLEANFILES = $(nodist_sdkshead_HEADERS)
 DISTCHECK_CONFIGURE_FLAGS = --enable-crt --enable-sdk=all --enable-idl
-EXTRA_DIST = $(srcdir)/ChangeLog.* include crt direct-x ddk tlb
+EXTRA_DIST = $(srcdir)/ChangeLog.* include crt ddk tlb
 EXTRA_HEADERS = \
   include/*.c \
   include/*.dlg \
@@ -366,8 +366,6 @@ EXTRA_HEADERS = \
   crt/sys/*.h \
   crt/sec_api/*.h \
   crt/sec_api/sys/*.h \
-  direct-x/include/*.h \
-  direct-x/include/*.idl \
   ddk/include/ddk/*.h \
   tlb/*.tlb
 
@@ -1285,7 +1283,7 @@ dist-hook:
 	find $(distdir) -name ".svn" -type d -delete
 
 @HAVE_WIDL_TRUE@.idl.h: crt/_mingw.h
-@HAVE_WIDL_TRUE@	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -I$(srcdir)/direct-x/include -Icrt -I$(srcdir)/crt -h -o $@ $<
+@HAVE_WIDL_TRUE@	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -Icrt -I$(srcdir)/crt -h -o $@ $<
 
 @HAVE_WIDL_TRUE@.idl.tlb:
 @HAVE_WIDL_TRUE@	$(WIDL) -I$(srcdir)/include -t -o $@ $<
