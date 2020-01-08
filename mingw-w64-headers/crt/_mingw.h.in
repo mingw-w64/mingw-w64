@@ -606,7 +606,6 @@ const char *__mingw_get_crt_info (void);
 #define __GOT_SECURE_LIB__ __STDC_SECURE_LIB__
 
 #ifndef __WIDL__
-#include "sdks/_mingw_directx.h"
 #include "sdks/_mingw_ddk.h"
 #endif
 

@@ -21,8 +21,8 @@ gdiplushead_HEADERS = @GDIPLUSHEAD_LIST@
 wrlhead_HEADERS = @WRLHEAD_LIST@
 wrlwrappershead_HEADERS = @WRLWRAPPERSHEAD_LIST@
 mingwhelperhead_HEADERS = @MINGWHELPERHEAD_LIST@
-nodist_sdkshead_HEADERS = _mingw_directx.h _mingw_ddk.h
-noinst_HEADERS = crt/sdks/_mingw_directx.h.in crt/sdks/_mingw_ddk.h.in
+nodist_sdkshead_HEADERS = _mingw_ddk.h
+noinst_HEADERS = crt/sdks/_mingw_ddk.h.in
 
 ddkheaddir = $(baseheaddir)/ddk
 dxheaddir = $(baseheaddir)
@@ -252,9 +252,6 @@ BUILT_SOURCES = $(IDL_SRCS:.idl=.h) $(TLB_SRCS:.idl=.tlb)
 	$(WIDL) -I$(srcdir)/include -t -o $@ $<
 
 endif
-
-_mingw_directx.h: $(srcdir)/crt/sdks/_mingw_directx.h.in
-	$(SED) s/MINGW_HAS_DX$$/@MINGW_HAS_DX@/ $< > $@
 
 _mingw_ddk.h: $(srcdir)/crt/sdks/_mingw_ddk.h.in
 	$(SED) s/MINGW_HAS_DDK$$/@MINGW_HAS_DDK@/ $< > $@
