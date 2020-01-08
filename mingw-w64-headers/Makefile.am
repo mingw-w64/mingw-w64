@@ -117,6 +117,7 @@ IDL_SRCS = \
   include/dxgi1_5.idl \
   include/dxgi1_6.idl \
   include/dxgicommon.idl \
+  include/dxgidebug.idl \
   include/dxgiformat.idl \
   include/dxgitype.idl \
   include/dxva2api.idl \

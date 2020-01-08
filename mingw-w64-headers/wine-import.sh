@@ -146,6 +146,7 @@ for f in \
 	dxgi1_5 \
 	dxgi1_6 \
 	dxgicommon \
+	dxgidebug \
 	dxgiformat \
 	dxgitype \
 	endpointvolume \

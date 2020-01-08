@@ -420,6 +420,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/dxgi1_5.idl \
 @HAVE_WIDL_TRUE@  include/dxgi1_6.idl \
 @HAVE_WIDL_TRUE@  include/dxgicommon.idl \
+@HAVE_WIDL_TRUE@  include/dxgidebug.idl \
 @HAVE_WIDL_TRUE@  include/dxgiformat.idl \
 @HAVE_WIDL_TRUE@  include/dxgitype.idl \
 @HAVE_WIDL_TRUE@  include/dxva2api.idl \
