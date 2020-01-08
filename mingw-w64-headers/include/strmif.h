@@ -12556,20 +12556,7 @@ __CRT_UUID_DECL(IMpeg2Demultiplexer,0x436eee9c,0x264f,0x4242,0x90,0xe1,0x4e,0x33
   void __RPC_STUB IAMDecoderCaps_GetDecoderCaps_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
 #endif
 
-#ifdef MINGW_HAS_DDRAW_H
 #include <ddraw.h>
-#else
-  typedef void *IDirectDraw;
-  typedef void *IDirectDrawSurface;
-  typedef void *LPDIRECTDRAWSURFACE7;
-  typedef void *LPDIRECTDRAW7;
-  typedef void *LPDDPIXELFORMAT;
-  typedef struct DDCOLORKEY {
-    DWORD dw1;
-    DWORD dw2;
-  } DDCOLORKEY;
-  typedef DDCOLORKEY *LPDDCOLORKEY;
-#endif
 
   typedef enum tagDVD_DOMAIN {
     DVD_DOMAIN_FirstPlay = 1,
@@ -14130,10 +14117,6 @@ __CRT_UUID_DECL(IMpeg2Demultiplexer,0x436eee9c,0x264f,0x4242,0x90,0xe1,0x4e,0x33
   void __RPC_STUB IFilterChain_StopChain_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
   HRESULT WINAPI IFilterChain_RemoveChain_Proxy(IFilterChain *This,IBaseFilter *pStartFilter,IBaseFilter *pEndFilter);
   void __RPC_STUB IFilterChain_RemoveChain_Stub(IRpcStubBuffer *This,IRpcChannelBuffer *_pRpcChannelBuffer,PRPC_MESSAGE _pRpcMessage,DWORD *_pdwStubPhase);
-#endif
-
-#ifdef MINGW_HAS_DDRAW_H
-#include <ddraw.h>
 #endif
 
   typedef enum __MIDL___MIDL_itf_strmif_0397_0002 {
