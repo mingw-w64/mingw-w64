@@ -490,8 +490,9 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/strmif.idl \
 @HAVE_WIDL_TRUE@  include/structuredquerycondition.idl \
 @HAVE_WIDL_TRUE@  include/taskschd.idl \
-@HAVE_WIDL_TRUE@  include/tpcshrd.idl \
 @HAVE_WIDL_TRUE@  include/textstor.idl \
+@HAVE_WIDL_TRUE@  include/thumbcache.idl \
+@HAVE_WIDL_TRUE@  include/tpcshrd.idl \
 @HAVE_WIDL_TRUE@  include/tuner.idl \
 @HAVE_WIDL_TRUE@  include/uianimation.idl \
 @HAVE_WIDL_TRUE@  include/uiautomationclient.idl \

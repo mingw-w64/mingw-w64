@@ -163,6 +163,7 @@ for f in \
 	optary \
 	qedit \
 	taskschd \
+	thumbcache \
 	uiautomationclient \
 	uiautomationcore \
 	urlhist \

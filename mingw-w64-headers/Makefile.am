@@ -187,8 +187,9 @@ IDL_SRCS = \
   include/strmif.idl \
   include/structuredquerycondition.idl \
   include/taskschd.idl \
-  include/tpcshrd.idl \
   include/textstor.idl \
+  include/thumbcache.idl \
+  include/tpcshrd.idl \
   include/tuner.idl \
   include/uianimation.idl \
   include/uiautomationclient.idl \
