@@ -25,11 +25,9 @@ nodist_sdkshead_HEADERS = _mingw_ddk.h
 noinst_HEADERS = crt/sdks/_mingw_ddk.h.in
 
 ddkheaddir = $(baseheaddir)/ddk
-dxheaddir = $(baseheaddir)
 idlheaddir = $(baseheaddir)
 
 ddkhead_HEADERS = @DDKHEAD_LIST@
-dxhead_HEADERS = @DXHEAD_LIST@
 idlhead_HEADERS = @IDLHEAD_LIST@
 
 CLEANFILES = $(nodist_sdkshead_HEADERS)

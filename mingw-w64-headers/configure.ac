@@ -44,7 +44,6 @@ SECHEAD_LIST="$srcdir/crt/sec_api/stralign_s.h"
 for i in c inl dlg h16 hxx rh ver; do
   BASEHEAD_LIST="$BASEHEAD_LIST "$srcdir/include/*.$i
 done
-#FIXME: Add in base directx
 
 AC_MSG_CHECKING([whether to build a w32api package for Cygwin])
 AC_ARG_ENABLE([w32api],
@@ -95,30 +94,21 @@ AC_SUBST([SECSYSHEAD_LIST])
 AC_MSG_CHECKING([for optional sdk headers])
 AC_ARG_ENABLE([sdk],
   [AS_HELP_STRING([--enable-sdk=ARG],
-    [Add the desired SDK, where ARG can be one of ddk, directx, no or all.  Default is all.])],
+    [Add the desired SDK, where ARG can be one of ddk, no or all.  Default is all.])],
   [],
   [AS_VAR_SET([enable_sdk],[all])])
 
 AS_CASE([$enable_sdk],
   [all|yes],[
-    AS_VAR_SET([enable_sdk],[ddk,directx])
-    AS_VAR_SET([enable_ddk],[yes])
-    AS_VAR_SET([enable_directx],[yes])],
+    AS_VAR_SET([enable_sdk],[ddk])
+    AS_VAR_SET([enable_ddk],[yes])],
   [ddk],[
     AS_VAR_SET([enable_ddk],[yes])],
   [directx],[
-    AS_VAR_SET([enable_directx],[yes])],
+    AC_MSG_WARN([Deprecated option: directx.  directx headers are always enabled.])],
   [no],[],
-  [AC_MSG_ERROR([Invalid option: $enable_sdk.  Please choose one of ddk, directx, no or all.])])
+  [AC_MSG_ERROR([Invalid option: $enable_sdk.  Please choose one of ddk, no or all.])])
 AC_MSG_RESULT([$enable_sdk])
-
-AS_VAR_IF([enable_directx],[yes],[
-    MINGW_HAS_DX=1
-  ],[
-    MINGW_HAS_DX=0
-  ])
-AC_SUBST([DXHEAD_LIST])
-AC_SUBST([MINGW_HAS_DX])
 
 AS_VAR_IF([enable_ddk],[yes],[
     DDKHEAD_LIST=$srcdir/ddk/include/ddk/*.h
