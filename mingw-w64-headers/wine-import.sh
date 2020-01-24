@@ -176,7 +176,5 @@ for f in \
 done
 
 echo Import complete. You need to update headers generated from IDL files now:
-echo $ ./configure --with-widl --host=i686-w64-mingw32
-echo $ make
-echo $ make distclean
+echo '$ ./configure --with-widl --host=i686-w64-mingw32 && make && make distclean'
 
