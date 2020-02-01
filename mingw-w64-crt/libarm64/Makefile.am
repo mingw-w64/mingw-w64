@@ -221,6 +221,7 @@ libarm64_DATA += %reldir%/librpcns4.a
 libarm64_DATA += %reldir%/librpcrt4.a
 libarm64_DATA += %reldir%/librpcss.a
 libarm64_DATA += %reldir%/librsaenh.a
+libarm64_DATA += %reldir%/librstrtmgr.a
 libarm64_DATA += %reldir%/librtutils.a
 libarm64_DATA += %reldir%/libruntimeobject.a
 libarm64_DATA += %reldir%/libsamcli.a
