@@ -107,7 +107,6 @@ libarm32_DATA += %reldir%/libconnectedaccountstate.a
 libarm32_DATA += %reldir%/libconsole.a
 libarm32_DATA += %reldir%/libcredssp.a
 libarm32_DATA += %reldir%/libcredui.a
-#libarm32_DATA += %reldir%/libcrtdll.a     # Specialized for W32API conditional
 libarm32_DATA += %reldir%/libcrypt32.a
 libarm32_DATA += %reldir%/libcryptbase.a
 libarm32_DATA += %reldir%/libcryptcatsvc.a
