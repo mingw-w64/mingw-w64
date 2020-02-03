@@ -980,12 +980,12 @@ lib64_libshell32_a_AR = $(DTDEF64) $(top_srcdir)/lib-common/shell32.def && $(AR)
 lib64_LIBRARIES += lib64/libdinput.a
 lib64_libdinput_a_SOURCES = $(src_libdinput)
 lib64_libdinput_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
-lib64_libdinput_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
+lib64_libdinput_a_AR = $(DTDEF64) $(top_srcdir)/lib-common/dinput.def && $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libdinput8.a
 lib64_libdinput8_a_SOURCES = $(src_libdinput8)
 lib64_libdinput8_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
-lib64_libdinput8_a_AR = $(DTLIB64) && $(AR) $(ARFLAGS)
+lib64_libdinput8_a_AR = $(DTDEF64) $(top_srcdir)/lib-common/dinput8.def && $(AR) $(ARFLAGS)
 
 lib64_LIBRARIES += lib64/libdmoguids.a
 lib64_libdmoguids_a_SOURCES = $(src_libdmoguids)
@@ -1322,6 +1322,16 @@ libarm32_libshell32_a_SOURCES = $(src_libshell32)
 libarm32_libshell32_a_AR = $(DTDEFARM32) $(top_srcdir)/lib-common/shell32.def && $(AR) $(ARFLAGS)
 libarm32_libshell32_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
 
+libarm32_LIBRARIES += libarm32/libdinput.a
+libarm32_libdinput_a_SOURCES = $(src_libdinput)
+libarm32_libdinput_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
+libarm32_libdinput_a_AR = $(DTDEFARM32) $(top_srcdir)/lib-common/dinput.def && $(AR) $(ARFLAGS)
+
+libarm32_LIBRARIES += libarm32/libdinput8.a
+libarm32_libdinput8_a_SOURCES = $(src_libdinput8)
+libarm32_libdinput8_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
+libarm32_libdinput8_a_AR = $(DTDEFARM32) $(top_srcdir)/lib-common/dinput8.def && $(AR) $(ARFLAGS)
+
 libarm32_LIBRARIES += libarm32/libdmoguids.a
 libarm32_libdmoguids_a_SOURCES = $(src_libdmoguids)
 libarm32_libdmoguids_a_CPPFLAGS=$(CPPFLAGSARM32) $(sysincludes)
@@ -1590,6 +1600,16 @@ libarm64_LIBRARIES += libarm64/libshell32.a
 libarm64_libshell32_a_SOURCES = $(src_libshell32)
 libarm64_libshell32_a_AR = $(DTDEFARM64) $(top_srcdir)/lib-common/shell32.def && $(AR) $(ARFLAGS)
 libarm64_libshell32_a_CPPFLAGS=$(CPPFLAGSARM64) $(sysincludes)
+
+libarm64_LIBRARIES += libarm64/libdinput.a
+libarm64_libdinput_a_SOURCES = $(src_libdinput)
+libarm64_libdinput_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
+libarm64_libdinput_a_AR = $(DTDEFARM64) $(top_srcdir)/lib-common/dinput.def && $(AR) $(ARFLAGS)
+
+libarm64_LIBRARIES += libarm64/libdinput8.a
+libarm64_libdinput8_a_SOURCES = $(src_libdinput8)
+libarm64_libdinput8_a_CPPFLAGS=$(CPPFLAGS64) $(sysincludes)
+libarm64_libdinput8_a_AR = $(DTDEFARM64) $(top_srcdir)/lib-common/dinput8.def && $(AR) $(ARFLAGS)
 
 libarm64_LIBRARIES += libarm64/libdmoguids.a
 libarm64_libdmoguids_a_SOURCES = $(src_libdmoguids)
