@@ -241,6 +241,7 @@ libarm64_DATA += %reldir%/libsensapi.a
 libarm64_DATA += %reldir%/libsens.a
 libarm64_DATA += %reldir%/libserialui.a
 libarm64_DATA += %reldir%/libserwvdrv.a
+libarm64_DATA += %reldir%/libsetupapi.a
 libarm64_DATA += %reldir%/libshcore.a
 #libarm64_DATA += %reldir%/libshell32.a    # Handled by custom rule
 libarm64_DATA += %reldir%/libshfolder.a
