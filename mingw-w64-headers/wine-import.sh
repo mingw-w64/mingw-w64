@@ -149,6 +149,7 @@ for f in \
 	dxgidebug \
 	dxgiformat \
 	dxgitype \
+	dxva2api \
 	endpointvolume \
 	fusion \
 	icftypes \
