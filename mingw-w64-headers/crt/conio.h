@@ -7,6 +7,7 @@
 #define _INC_CONIO
 
 #include <crtdefs.h>
+#include <stddef.h>
 
 #if !defined(_UCRTBASE_STDIO_DEFINED) && defined(_UCRT)
 #define _UCRTBASE_STDIO_DEFINED
