@@ -1546,8 +1546,6 @@ vfwprintf
 vfwprintf_s
 vprintf
 vprintf_s
-vsnprintf == _vsnprintf
-snprintf == _snprintf
 vsprintf
 ; vsprintf_s replaced by emu
 vswprintf

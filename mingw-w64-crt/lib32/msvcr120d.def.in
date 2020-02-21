@@ -2313,8 +2313,6 @@ vfwscanf
 vfwscanf_s
 vprintf
 vprintf_s
-vsnprintf == _vsnprintf
-snprintf == _snprintf
 snwprintf == _snwprintf
 vsnwprintf == _vsnwprintf
 vscanf

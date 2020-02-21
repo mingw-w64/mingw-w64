@@ -445,7 +445,6 @@ _unloaddll
 _unlock
 _utime
 _vsnprintf
-vsnprintf == _vsnprintf
 _vsnwprintf
 _waccess
 _wasctime
