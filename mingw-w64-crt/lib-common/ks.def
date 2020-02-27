@@ -30,6 +30,7 @@ KoCreateInstance
 KoDeviceInitialize
 KoDriverInitialize
 KoRelease
+KsAcquireCachedMdl
 KsAcquireControl
 KsAcquireDevice
 KsAcquireDeviceSecurityLock
@@ -73,6 +74,7 @@ KsDereferenceBusObject
 KsDereferenceSoftwareBusObject
 KsDeviceGetBusData
 KsDeviceRegisterAdapterObject
+KsDeviceRegisterThermalDispatch
 KsDeviceSetBusData
 KsDisableEvent
 KsDiscardEvent
@@ -115,6 +117,7 @@ KsGenerateDataEvent
 KsGenerateEvent
 KsGenerateEventList
 KsGenerateEvents
+KsGenerateThermalEvent
 KsGetBusEnumIdentifier
 KsGetBusEnumParentFDOFromChildPDO
 KsGetBusEnumPnpDeviceObject
@@ -136,9 +139,11 @@ KsGetPinFromIrp
 KsHandleSizedListQuery
 KsIncrementCountedWorker
 KsInitializeDevice
+KsInitializeDeviceProfile
 KsInitializeDriver
 KsInstallBusEnumInterface
 KsIsBusEnumChildDevice
+KsIsCurrentProcessFrameServer
 KsLoadResource
 KsMapModuleName
 KsMergeAutomationTables
@@ -146,6 +151,7 @@ KsMethodHandler
 KsMethodHandlerWithAllocator
 KsMoveIrpsOnCancelableQueue
 KsNullDriverUnload
+KsPersistDeviceProfile
 KsPinAcquireProcessingMutex
 KsPinAttachAndGate
 KsPinAttachOrGate
@@ -177,6 +183,7 @@ KsProbeStreamIrp
 KsProcessPinUpdate
 KsPropertyHandler
 KsPropertyHandlerWithAllocator
+KsPublishDeviceProfile
 KsQueryDevicePnpObject
 KsQueryInformationFile
 KsQueryObjectAccessMask
@@ -190,6 +197,7 @@ KsRegisterAggregatedClientUnknown
 KsRegisterCountedWorker
 KsRegisterFilterWithNoKSPins
 KsRegisterWorker
+KsReleaseCachedMdl
 KsReleaseControl
 KsReleaseDevice
 KsReleaseDeviceSecurityLock
@@ -227,6 +235,7 @@ KsTerminateDevice
 KsTopologyPropertyHandler
 KsUnregisterWorker
 KsUnserializeObjectPropertiesFromRegistry
+KsUpdateCameraStreamingConsent
 KsValidateAllocatorCreateRequest
 KsValidateAllocatorFramingEx
 KsValidateClockCreateRequest
