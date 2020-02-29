@@ -12,11 +12,7 @@
 #define PATHTOOLS_H
 
 #include <unistd.h>
-#if defined(__APPLE__)
 #include <stdlib.h>
-#else
-#include <malloc.h>
-#endif
 #include <stdio.h>
 
 char * malloc_copy_string(char const * original);

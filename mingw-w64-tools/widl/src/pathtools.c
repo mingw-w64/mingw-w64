@@ -8,11 +8,7 @@
   .email: <mingw.android@gmail.com>.
  */
 
-#if defined(__APPLE__)
 #include <stdlib.h>
-#else
-#include <malloc.h>
-#endif
 #include <limits.h>
 #include <stdio.h>
 #include <string.h>
