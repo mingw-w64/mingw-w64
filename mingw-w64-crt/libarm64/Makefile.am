@@ -128,6 +128,7 @@ libarm64_DATA += %reldir%/libkdcom.a
 #libarm64_DATA += %reldir%/libkernel32.a  # Handled by custom rule
 libarm64_DATA += %reldir%/libkeymgr.a
 libarm64_DATA += %reldir%/libks.a
+libarm64_DATA += %reldir%/libksecdd.a
 #libarm64_DATA += %reldir%/libksuser.a    # Handled by custom rule
 libarm64_DATA += %reldir%/libktmw32.a
 libarm64_DATA += %reldir%/liblinkinfo.a

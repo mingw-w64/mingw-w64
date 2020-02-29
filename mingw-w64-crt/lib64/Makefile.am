@@ -265,6 +265,7 @@ lib64_DATA += %reldir%/libkerberos.a
 #lib64_DATA += %reldir%/libkernel32.a  # Handled by custom rule
 lib64_DATA += %reldir%/libkeymgr.a
 lib64_DATA += %reldir%/libks.a
+lib64_DATA += %reldir%/libksecdd.a
 #lib64_DATA += %reldir%/libksuser.a    # Handled by custom rule
 lib64_DATA += %reldir%/liblinkinfo.a
 lib64_DATA += %reldir%/liblmmib2.a

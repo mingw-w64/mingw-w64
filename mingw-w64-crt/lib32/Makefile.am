@@ -155,6 +155,7 @@ lib32_DATA += %reldir%/libiphlpapi.a
 lib32_DATA += %reldir%/libiscsidsc.a
 #lib32_DATA += %reldir%/libkernel32.a  # Handled by custom rule
 lib32_DATA += %reldir%/libks.a
+lib32_DATA += %reldir%/libksecdd.a
 lib32_DATA += %reldir%/libksproxy.a
 #lib32_DATA += %reldir%/libksuser.a    # Handled by custom rule
 lib32_DATA += %reldir%/libktmw32.a
