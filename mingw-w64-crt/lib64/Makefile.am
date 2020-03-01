@@ -391,6 +391,7 @@ lib64_DATA += %reldir%/libndisnpp.a
 lib64_DATA += %reldir%/libnetapi32.a
 lib64_DATA += %reldir%/libnetcfgx.a
 lib64_DATA += %reldir%/libnetid.a
+lib64_DATA += %reldir%/libnetio.a
 lib64_DATA += %reldir%/libnetlogon.a
 lib64_DATA += %reldir%/libnetman.a
 lib64_DATA += %reldir%/libnetoc.a

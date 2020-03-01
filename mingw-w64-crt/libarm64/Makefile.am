@@ -181,6 +181,7 @@ libarm64_DATA += %reldir%/libnddeapi.a
 libarm64_DATA += %reldir%/libndfapi.a
 libarm64_DATA += %reldir%/libnetapi32.a
 libarm64_DATA += %reldir%/libnetid.a
+libarm64_DATA += %reldir%/libnetio.a
 libarm64_DATA += %reldir%/libnetshell.a
 libarm64_DATA += %reldir%/libnetutils.a
 libarm64_DATA += %reldir%/libnormaliz.a

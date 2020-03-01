@@ -192,6 +192,7 @@ lib32_DATA += %reldir%/libnddeapi.a
 lib32_DATA += %reldir%/libndfapi.a
 lib32_DATA += %reldir%/libndis.a
 lib32_DATA += %reldir%/libnetapi32.a
+lib32_DATA += %reldir%/libnetio.a
 lib32_DATA += %reldir%/libnetjoin.a
 lib32_DATA += %reldir%/libnetutils.a
 lib32_DATA += %reldir%/libnewdev.a
