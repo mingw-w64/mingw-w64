@@ -387,6 +387,7 @@ lib64_DATA += %reldir%/libncobjapi.a
 lib64_DATA += %reldir%/libncxpnt.a
 lib64_DATA += %reldir%/libnddeapi.a
 lib64_DATA += %reldir%/libnddenb32.a
+lib64_DATA += %reldir%/libndis.a
 lib64_DATA += %reldir%/libndisnpp.a
 lib64_DATA += %reldir%/libnetapi32.a
 lib64_DATA += %reldir%/libnetcfgx.a

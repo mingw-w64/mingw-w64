@@ -473,6 +473,7 @@ libarm32_DATA += %reldir%/libncsi.a
 libarm32_DATA += %reldir%/libncuprov.a
 libarm32_DATA += %reldir%/libnddeapi.a
 libarm32_DATA += %reldir%/libndfapi.a
+libarm32_DATA += %reldir%/libndis.a
 libarm32_DATA += %reldir%/libnduprov.a
 libarm32_DATA += %reldir%/libnegoexts.a
 libarm32_DATA += %reldir%/libnetapi32.a

@@ -179,6 +179,7 @@ libarm64_DATA += %reldir%/libncobjapi.a
 libarm64_DATA += %reldir%/libncrypt.a
 libarm64_DATA += %reldir%/libnddeapi.a
 libarm64_DATA += %reldir%/libndfapi.a
+libarm64_DATA += %reldir%/libndis.a
 libarm64_DATA += %reldir%/libnetapi32.a
 libarm64_DATA += %reldir%/libnetid.a
 libarm64_DATA += %reldir%/libnetio.a
