@@ -168,6 +168,7 @@ for f in \
 	uiautomationclient \
 	uiautomationcore \
 	urlhist \
+	vmr9 \
 	wmdrmsdk \
 	wmsbuffer \
 	wmsdkidl \
