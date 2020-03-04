@@ -417,6 +417,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/dxgiformat.idl \
 @HAVE_WIDL_TRUE@  include/dxgitype.idl \
 @HAVE_WIDL_TRUE@  include/dxva2api.idl \
+@HAVE_WIDL_TRUE@  include/dxvahd.idl \
 @HAVE_WIDL_TRUE@  include/endpointvolume.idl \
 @HAVE_WIDL_TRUE@  include/evr.idl \
 @HAVE_WIDL_TRUE@  include/exdisp.idl \

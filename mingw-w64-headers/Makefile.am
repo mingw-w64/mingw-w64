@@ -117,6 +117,7 @@ IDL_SRCS = \
   include/dxgiformat.idl \
   include/dxgitype.idl \
   include/dxva2api.idl \
+  include/dxvahd.idl \
   include/endpointvolume.idl \
   include/evr.idl \
   include/exdisp.idl \
