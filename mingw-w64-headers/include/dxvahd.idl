@@ -396,14 +396,14 @@ cpp_quote("#endif")
 ]
 interface IDXVAHD_Device : IUnknown
 {
-    HRESULT CreateVideoProcessor(const GUID *pVPGuid,IDXVAHD_VideoProcessor **ppVideoProcessor);
     HRESULT CreateVideoSurface(UINT Width,UINT Height,D3DFORMAT Format,D3DPOOL Pool,DWORD Usage,DXVAHD_SURFACE_TYPE Type,UINT NumSurfaces,IDirect3DSurface9 **ppSurfaces,HANDLE *pSharedHandle);
+    HRESULT GetVideoProcessorDeviceCaps(DXVAHD_VPDEVCAPS *pCaps);
+    HRESULT GetVideoProcessorOutputFormats(UINT Count,D3DFORMAT *pFormats);
+    HRESULT GetVideoProcessorInputFormats(UINT Count,D3DFORMAT *pFormats);
     HRESULT GetVideoProcessorCaps(UINT Count,DXVAHD_VPCAPS *pCaps);
     HRESULT GetVideoProcessorCustomRates(const GUID *pVPGuid,UINT Count,DXVAHD_CUSTOM_RATE_DATA *pRates);
-    HRESULT GetVideoProcessorDeviceCaps(DXVAHD_VPDEVCAPS *pCaps);
     HRESULT GetVideoProcessorFilterRange(DXVAHD_FILTER Filter,DXVAHD_FILTER_RANGE_DATA *pRange);
-    HRESULT GetVideoProcessorInputFormats(UINT Count,D3DFORMAT *pFormats);
-    HRESULT GetVideoProcessorOutputFormats(UINT Count,D3DFORMAT *pFormats);
+    HRESULT CreateVideoProcessor(const GUID *pVPGuid,IDXVAHD_VideoProcessor **ppVideoProcessor);
 };
 
 cpp_quote("#ifdef __GNUC__")
@@ -417,10 +417,10 @@ cpp_quote("#endif")
 ]
 interface IDXVAHD_VideoProcessor : IUnknown
 {
-    HRESULT GetVideoProcessBltState(DXVAHD_BLT_STATE State,UINT DataSize,void *pData);
-    HRESULT GetVideoProcessStreamState(UINT StreamNumber,DXVAHD_STREAM_STATE State,UINT DataSize,void *pData);
     HRESULT SetVideoProcessBltState(DXVAHD_BLT_STATE State,UINT DataSize,const void *pData);
+    HRESULT GetVideoProcessBltState(DXVAHD_BLT_STATE State,UINT DataSize,void *pData);
     HRESULT SetVideoProcessStreamState(UINT StreamNumber,DXVAHD_STREAM_STATE State,UINT DataSize,const void *pData);
+    HRESULT GetVideoProcessStreamState(UINT StreamNumber,DXVAHD_STREAM_STATE State,UINT DataSize,void *pData);
     HRESULT VideoProcessBltHD(IDirect3DSurface9 *pOutputSurface,UINT OutputFrame,UINT StreamCount,const DXVAHD_STREAM_DATA *pStreams);
 };
 
