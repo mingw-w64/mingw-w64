@@ -42,6 +42,9 @@ interface IDXVAHD_VideoProcessor;
 extern "C" {
 #endif
 
+#include <winapifamily.h>
+
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 
 #if (_WIN32_WINNT >= 0x0601)
 #if 0
@@ -735,6 +738,7 @@ static FORCEINLINE HRESULT IDXVAHD_VideoProcessor_VideoProcessBltHD(IDXVAHD_Vide
 #endif  /* __IDXVAHD_VideoProcessor_INTERFACE_DEFINED__ */
 
 #endif /*(_WIN32_WINNT >= 0x0601)*/
+#endif /*WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)*/
 /* Begin additional prototypes for all interfaces */
 
 
