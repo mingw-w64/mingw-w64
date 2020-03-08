@@ -92,6 +92,7 @@ libarm64_DATA += %reldir%/libeappprxy.a
 libarm64_DATA += %reldir%/libefsadu.a
 libarm64_DATA += %reldir%/libelscore.a
 libarm64_DATA += %reldir%/libesentprf.a
+libarm64_DATA += %reldir%/libevr.a
 libarm64_DATA += %reldir%/libfdeploy.a
 libarm64_DATA += %reldir%/libfeclient.a
 libarm64_DATA += %reldir%/libfilemgmt.a
