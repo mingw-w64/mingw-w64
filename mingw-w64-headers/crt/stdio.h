@@ -6,7 +6,7 @@
 #ifndef _INC_STDIO
 #define _INC_STDIO
 
-#include <crtdefs.h>
+#include <corecrt_stdio_config.h>
 
 #pragma pack(push,_CRT_PACKING)
 
