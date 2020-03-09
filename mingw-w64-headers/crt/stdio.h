@@ -1306,7 +1306,8 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
   __mingw_ovr
   int __cdecl vsnwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, va_list arg)
   {
-    return __stdio_common_vswprintf(UCRTBASE_PRINTF_DEFAULT_WIDE | UCRTBASE_PRINTF_STANDARD_SNPRINTF_BEHAVIOUR, s, n, format, NULL, arg);
+    int __ret = __stdio_common_vswprintf(UCRTBASE_PRINTF_DEFAULT_WIDE, s, n, format, NULL, arg);
+    return __ret < 0 ? -1 : __ret;
   }
 #endif
 
