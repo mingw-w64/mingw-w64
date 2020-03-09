@@ -941,15 +941,7 @@ int vsprintf (char * __restrict__ __stream, const char * __restrict__ __format, 
 #endif /* _UCRT */
 #endif /* __USE_MINGW_ANSI_STDIO */
 
-#ifdef _UCRT
-  __mingw_ovr
-  int __cdecl _vscprintf(const char * __restrict__ _Format,va_list _ArgList)
-  {
-    return __stdio_common_vsprintf(UCRTBASE_PRINTF_STANDARD_SNPRINTF_BEHAVIOUR, NULL, 0, _Format, NULL, _ArgList);
-  }
-#else
   _CRTIMP int __cdecl _vscprintf(const char * __restrict__ _Format,va_list _ArgList);
-#endif /* _UCRT */
 
   _CRTIMP int __cdecl _set_printf_count_output(int _Value);
   _CRTIMP int __cdecl _get_printf_count_output(void);
