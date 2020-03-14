@@ -19,6 +19,7 @@ libarm64_DATA += %reldir%/libbthci.a
 libarm64_DATA += %reldir%/libcabinet.a
 libarm64_DATA += %reldir%/libcabview.a
 libarm64_DATA += %reldir%/libcfgbkend.a
+libarm64_DATA += %reldir%/libcfgmgr32.a
 libarm64_DATA += %reldir%/libclbcatq.a
 libarm64_DATA += %reldir%/libclb.a
 libarm64_DATA += %reldir%/libcliconfg.a
