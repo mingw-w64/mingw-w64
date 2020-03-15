@@ -170,7 +170,9 @@ src_msvcrt_common=\
   misc/wcrtomb.c \
   stdio/acrt_iob_func.c \
   stdio/snprintf.c \
+  stdio/snprintf_alias.c \
   stdio/vsnprintf.c \
+  stdio/vsnprintf_alias.c \
   math/frexp.c
 
 src_msvcrt=\

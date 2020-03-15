@@ -3,19 +3,8 @@
  * This file is part of the mingw-w64 runtime package.
  * No warranty is given; refer to the file DISCLAIMER.PD within this package.
  */
-
-#include <_mingw.h>
 #include <stdarg.h>
-#include <stddef.h>
-
-/* Intentionally not including stdio.h, as it unconditionally defines the
- * snprintf inline, and it can't be renamed with "#define snprintf othername"
- * either, as stdio.h contains "#undef snprintf". */
-
-_CRTIMP int __cdecl _vscprintf(const char * __restrict__ _Format,va_list _ArgList);
-_CRTIMP int __cdecl _vsnprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,va_list _Args);
-
-int __cdecl __ms_snprintf(char* buffer, size_t n, const char *format, ...);
+#include <stdio.h>
 
 int __cdecl __ms_snprintf(char* buffer, size_t n, const char *format, ...)
 {
@@ -47,5 +36,3 @@ int __cdecl __ms_snprintf(char* buffer, size_t n, const char *format, ...)
   va_end(argptr);
   return retval;
 }
-
-int __attribute__ ((alias ("__ms_snprintf"))) __cdecl snprintf(char*, size_t, const char *, ...);
