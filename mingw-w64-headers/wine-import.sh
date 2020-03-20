@@ -102,6 +102,7 @@ for f in \
 	dxerr8.h \
 	dxerr9.h \
 	dxfile.h \
+	dxva.h \
 	errors.h \
 	evcode.h \
 	mediaerr.h \
