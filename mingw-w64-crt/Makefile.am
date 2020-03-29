@@ -525,14 +525,15 @@ src_libmingwexarm32+=\
   math/softmath/sinf.c      math/softmath/sinl.c      math/softmath/tanf.c      math/softmath/tanl.c
 else
 src_libmingwexarm32+=\
-  math/arm-common/ldexpl.c  math/arm-common/sincos.c
+  math/arm-common/ldexpl.c  math/arm/sincos.S         math/arm/sincosf.S
 endif
 
 # these only go into the ARM64 version:
 src_libmingwexarm64=\
   math/arm64/_chgsignl.S \
   math/arm64/rint.c         math/arm64/rintf.c \
-  math/arm-common/ldexpl.c  math/arm-common/sincos.c
+  math/arm64/sincos.S       math/arm64/sincosf.S \
+  math/arm-common/ldexpl.c
 
 
 # These intrinsics are target independent:
