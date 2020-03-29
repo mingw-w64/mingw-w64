@@ -276,7 +276,8 @@ src_msvcrtarm32=\
 
 if !ENABLE_SOFTMATH
 src_msvcrtarm32+=\
-  math/arm/exp2.c \
+  math/arm/exp2.S \
+  math/arm/exp2f.S \
   math/arm/nearbyint.S \
   math/arm/nearbyintf.S \
   math/arm/nearbyintl.S \
