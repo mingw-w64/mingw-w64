@@ -461,6 +461,7 @@ lib64_DATA += %reldir%/libpolstore.a
 lib64_DATA += %reldir%/libpowrprof.a
 lib64_DATA += %reldir%/libprintui.a
 lib64_DATA += %reldir%/libprofmap.a
+lib64_DATA += %reldir%/libpropsys.a
 lib64_DATA += %reldir%/libPS5UI.a
 lib64_DATA += %reldir%/libpsapi.a
 lib64_DATA += %reldir%/libpsbase.a

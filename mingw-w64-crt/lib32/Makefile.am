@@ -222,6 +222,7 @@ lib32_DATA += %reldir%/libpdhui.a
 lib32_DATA += %reldir%/libpenwin32.a
 lib32_DATA += %reldir%/libpkpd32.a
 lib32_DATA += %reldir%/libpowrprof.a
+lib32_DATA += %reldir%/libpropsys.a
 lib32_DATA += %reldir%/libpsapi.a
 lib32_DATA += %reldir%/libquartz.a
 lib32_DATA += %reldir%/libqutil.a
