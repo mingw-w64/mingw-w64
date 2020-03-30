@@ -50,7 +50,7 @@ extern void _fpreset (void);
 #define SPACECHAR _T(' ')
 #define DQUOTECHAR _T('\"')
 
-extern int * __MINGW_IMP_SYMBOL(_commode);
+int *__cdecl __p__commode(void);
 
 #undef _fmode
 extern int _fmode;
@@ -142,7 +142,7 @@ pre_c_init (void)
     __set_app_type (_CONSOLE_APP);
 
   * __p__fmode() = _fmode;
-  * __MINGW_IMP_SYMBOL(_commode) = _commode;
+  * __p__commode() = _commode;
 
 #ifdef WPRFLAG
   _wsetargv();
