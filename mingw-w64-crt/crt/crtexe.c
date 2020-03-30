@@ -50,7 +50,6 @@ extern void _fpreset (void);
 #define SPACECHAR _T(' ')
 #define DQUOTECHAR _T('\"')
 
-extern int * __MINGW_IMP_SYMBOL(_fmode);
 extern int * __MINGW_IMP_SYMBOL(_commode);
 
 #undef _fmode
