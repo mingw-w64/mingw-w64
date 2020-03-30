@@ -54,8 +54,7 @@ extern int * __MINGW_IMP_SYMBOL(_commode);
 
 #undef _fmode
 extern int _fmode;
-extern int * __MINGW_IMP_SYMBOL(_commode);
-#define _commode (* __MINGW_IMP_SYMBOL(_commode))
+extern int _commode;
 extern int _dowildcard;
 
 extern _CRTIMP void __cdecl _initterm(_PVFV *, _PVFV *);
