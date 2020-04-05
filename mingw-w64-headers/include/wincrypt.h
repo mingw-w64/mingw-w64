@@ -5588,7 +5588,7 @@ WINIMPM HCERTSTORE WINAPI CertOpenStore (LPCSTR lpszStoreProvider, DWORD dwEncod
     DWORD dwErrorLevel;
     DWORD dwErrorCategory;
     DWORD dwReserved;
-    WCHAR wszErrorText[SSL_F12_ERROR_TEXT_LENGTH];  // Localized
+    WCHAR wszErrorText[SSL_F12_ERROR_TEXT_LENGTH];  /* Localized  */
   } SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS, *PSSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS;
 
 #define CERT_CHAIN_POLICY_SSL_F12_SUCCESS_LEVEL 0
