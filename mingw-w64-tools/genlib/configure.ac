@@ -15,6 +15,14 @@ AC_CANONICAL_HOST
 # Checks for programs.
 AC_PROG_CC
 
+# Checks for library functions.
+# Disabled due the fact that once the autoconf detects that malloc
+# is not available, it places in config.h the define of malloc as
+# rpl_malloc. By this linkage could fail on cross-compiles.
+#AC_FUNC_MALLOC
+AC_CHECK_FUNCS([memset strdup strrchr strlwr])
+AC_CHECK_LIB([m], [floor])
+
 # Checks for libraries.
 AC_MSG_CHECKING([whether to build genlib with libmangle])
 AC_ARG_WITH([mangle],
@@ -53,14 +61,6 @@ AC_TYPE_UINT16_T
 AC_TYPE_UINT32_T
 AC_TYPE_UINT64_T
 AC_TYPE_UINT8_T
-
-# Checks for library functions.
-# Disabled due the fact that once the autoconf detects that malloc
-# is not available, it places in config.h the define of malloc as
-# rpl_malloc. By this linkage could fail on cross-compiles.
-#AC_FUNC_MALLOC
-AC_CHECK_FUNCS([memset strdup strrchr strlwr])
-AC_CHECK_LIB([m], [floor])
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
