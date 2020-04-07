@@ -61,6 +61,16 @@
     eAVEncH264VProfile_Extended   = 88 
   };
 
+  enum eAVEncCommonRateControlMode {
+    eAVEncCommonRateControlMode_CBR                = 0,
+    eAVEncCommonRateControlMode_PeakConstrainedVBR = 1,
+    eAVEncCommonRateControlMode_UnconstrainedVBR   = 2,
+    eAVEncCommonRateControlMode_Quality            = 3,
+    eAVEncCommonRateControlMode_LowDelayVBR        = 4,
+    eAVEncCommonRateControlMode_GlobalVBR          = 5,
+    eAVEncCommonRateControlMode_GlobalLowDelayVBR  = 6
+  };
+
 #define STATIC_CODECAPI_AVDecVideoThumbnailGenerationMode  0x2efd8eee,0x1150,0x4328,0x9c,0xf5,0x66,0xdc,0xe9,0x33,0xfc,0xf4
 DEFINE_CODECAPI_GUID(AVDecVideoThumbnailGenerationMode, "2efd8eee-1150-4328-9cf5-66dce933fcf4", 0x2efd8eee,
                      0x1150,0x4328,0x9c,0xf5,0x66,0xdc,0xe9,0x33,0xfc,0xf4)
@@ -125,6 +135,30 @@ DEFINE_CODECAPI_GUID(AVDecSoftwareDynamicFormatChange, "862e2f0a-507b-47ff-af47-
 DEFINE_CODECAPI_GUID(AVDecDisableVideoPostProcessing, "f8749193-667a-4f2c-a9e8-5d4af924f08f",
                      0xf8749193,0x667a,0x4f2c,0xa9,0xe8,0x5d,0x4a,0xf9,0x24,0xf0,0x8f);
 
+#define STATIC_CODECAPI_AVEncCommonMeanBitRate  0xf7222374,0x2144,0x4815,0xb5,0x50,0xa3,0x7f,0x8e,0x12,0xee,0x52
+DEFINE_CODECAPI_GUID(AVEncCommonMeanBitRate, "f7222374-2144-4815-b550-a37f8e12ee52",
+                     0xf7222374,0x2144,0x4815,0xb5,0x50,0xa3,0x7f,0x8e,0x12,0xee,0x52)
+
+#define STATIC_CODECAPI_AVEncCommonQuality  0xfcbf57a3,0x7ea5,0x4b0c,0x96,0x44,0x69,0xb4,0x0c,0x39,0xc3,0x91
+DEFINE_CODECAPI_GUID(AVEncCommonQuality, "fcbf57a3-7ea5-4b0c-9644-69b40c39c391",
+                     0xfcbf57a3,0x7ea5,0x4b0c,0x96,0x44,0x69,0xb4,0x0c,0x39,0xc3,0x91)
+
+#define STATIC_CODECAPI_AVEncCommonRateControlMode  0x1c0608e9,0x370c,0x4710,0x8a,0x58,0xcb,0x61,0x81,0xc4,0x24,0x23
+DEFINE_CODECAPI_GUID(AVEncCommonRateControlMode, "1c0608e9-370c-4710-8a58-cb6181c42423",
+                     0x1c0608e9,0x370c,0x4710,0x8a,0x58,0xcb,0x61,0x81,0xc4,0x24,0x23)
+
+#define STATIC_CODECAPI_AVEncVideoForceKeyFrame  0x398c1b98,0x8353,0x475a,0x9e,0xf2,0x8f,0x26,0x5d,0x26,0x3,0x45
+DEFINE_CODECAPI_GUID(AVEncVideoForceKeyFrame, "398c1b98-8353-475a-9ef2-8f265d260345",
+                     0x398c1b98,0x8353,0x475a,0x9e,0xf2,0x8f,0x26,0x5d,0x26,0x3,0x45)
+
+#define STATIC_CODECAPI_AVEncMPVDefaultBPictureCount  0x8d390aac,0xdc5c,0x4200,0xb5,0x7f,0x81,0x4d,0x04,0xba,0xba,0xb2
+DEFINE_CODECAPI_GUID(AVEncMPVDefaultBPictureCount, "8d390aac-dc5c-4200-b57f-814d04babab2",
+                     0x8d390aac,0xdc5c,0x4200,0xb5,0x7f,0x81,0x4d,0x04,0xba,0xba,0xb2)
+
+#define STATIC_CODECAPI_AVEncH264CABACEnable  0xee6cad62,0xd305,0x4248,0xa5,0xe,0xe1,0xb2,0x55,0xf7,0xca,0xf8
+DEFINE_CODECAPI_GUID(AVEncH264CABACEnable, "ee6cad62-d305-4248-a50e-e1b255f7caf8",
+                     0xee6cad62,0xd305,0x4248,0xa5,0xe,0xe1,0xb2,0x55,0xf7,0xca,0xf8)
+
 #ifndef UUID_GEN
 
 #define CODECAPI_AVDecVideoThumbnailGenerationMode  DEFINE_CODECAPI_GUIDNAMED(AVDecVideoThumbnailGenerationMode)
@@ -143,6 +177,13 @@ DEFINE_CODECAPI_GUID(AVDecDisableVideoPostProcessing, "f8749193-667a-4f2c-a9e8-5
 #define CODECAPI_AVDecNumWorkerThreads              DEFINE_CODECAPI_GUIDNAMED(AVDecNumWorkerThreads)
 #define CODECAPI_AVDecSoftwareDynamicFormatChange   DEFINE_CODECAPI_GUIDNAMED(AVDecSoftwareDynamicFormatChange)
 #define CODECAPI_AVDecDisableVideoPostProcessing    DEFINE_CODECAPI_GUIDNAMED(AVDecDisableVideoPostProcessing)
+#define CODECAPI_AVEncCommonMeanBitRate             DEFINE_CODECAPI_GUIDNAMED(AVEncCommonMeanBitRate)
+#define CODECAPI_AVEncCommonQuality                 DEFINE_CODECAPI_GUIDNAMED(AVEncCommonQuality)
+#define CODECAPI_AVEncCommonRateControlMode         DEFINE_CODECAPI_GUIDNAMED(AVEncCommonRateControlMode)
+#define CODECAPI_AVEncVideoForceKeyFrame            DEFINE_CODECAPI_GUIDNAMED(AVEncVideoForceKeyFrame)
+#define CODECAPI_AVEncMPVDefaultBPictureCount       DEFINE_CODECAPI_GUIDNAMED(AVEncMPVDefaultBPictureCount)
+#define CODECAPI_AVEncMPVDefaultBPictureCount       DEFINE_CODECAPI_GUIDNAMED(AVEncMPVDefaultBPictureCount)
+#define CODECAPI_AVEncH264CABACEnable               DEFINE_CODECAPI_GUIDNAMED(AVEncH264CABACEnable)
 
 #endif
 
