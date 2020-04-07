@@ -582,7 +582,6 @@ enum {
   MEAudioSessionDisconnected = 320,
   MEAudioSessionExclusiveModeOverride = 321,
   MESinkV1Anchor = MEAudioSessionExclusiveModeOverride,
-#if WINVER >= 0x0602
   MECaptureAudioSessionVolumeChanged = 322,
   MECaptureAudioSessionDeviceRemoved = 323,
   MECaptureAudioSessionFormatChanged = 324,
@@ -590,7 +589,6 @@ enum {
   MECaptureAudioSessionExclusiveModeOverride = 326,
   MECaptureAudioSessionServerShutdown = 327,
   MESinkV2Anchor = MECaptureAudioSessionServerShutdown,
-#endif
   METrustUnknown = 400,
   MEPolicyChanged = 401,
   MEContentProtectionMessage = 402,
@@ -607,18 +605,14 @@ enum {
   MEWMDRMLicenseStoreCleaned = 515,
   MEWMDRMRevocationDownloadCompleted = 516,
   MEWMDRMV1Anchor = MEWMDRMRevocationDownloadCompleted,
-#if WINVER >= 0x0601
   METransformUnknown = 600,
   METransformNeedInput,
   METransformHaveOutput,
   METransformDrainComplete,
   METransformMarker,
-#endif
-#if WINVER >= 0x0602
   MEByteStreamCharacteristicsChanged = 700,
   MEVideoCaptureDeviceRemoved = 800,
   MEVideoCaptureDevicePreempted = 801,
-#endif
   MEReservedMax = 10000
 };
 
