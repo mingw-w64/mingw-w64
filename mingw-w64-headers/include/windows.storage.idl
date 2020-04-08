@@ -158,6 +158,11 @@ namespace Windows {
       HRESULT RoamingStorageQuota(UINT64* value);
     }
 
+    [uuid(9E65CD69-0BA3-4E32-BE29-B02DE6607638)]
+    interface IApplicationData2 : IInspectable {
+      [propget] HRESULT LocalCacheFolder(IStorageFolder** value);
+    }
+
     [uuid(5612147B-E843-45E3-94D8-06169E3C8E17)]
     interface IApplicationDataStatics : IInspectable {
       [propget] HRESULT Current(IApplicationData** data);
