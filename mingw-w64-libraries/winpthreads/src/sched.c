@@ -95,12 +95,7 @@ static int pthread_check(pthread_t t)
   pv = __pth_gpointer_locked (t);
   if (pv->ended == 0)
     return 0;
-  if (!(pv->h) || pv->h == INVALID_HANDLE_VALUE)
-  {
-        return ESRCH;
-  }
-  else if (!GetHandleInformation(pv->h, &dwFlags))
-        return ESRCH;
+  CHECK_OBJECT(pv, ESRCH);
   return 0;
 }
 
