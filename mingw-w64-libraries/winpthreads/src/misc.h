@@ -62,6 +62,11 @@ typedef long long LONGBAG;
 typedef long LONGBAG;
 #endif
 
+#if !WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+#undef GetHandleInformation
+#define GetHandleInformation(h,f)  (1)
+#endif
+
 #define CHECK_HANDLE(h) { DWORD dwFlags; \
     if (!(h) || ((h) == INVALID_HANDLE_VALUE) || !GetHandleInformation((h), &dwFlags)) \
     return EINVAL; }
