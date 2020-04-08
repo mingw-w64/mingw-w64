@@ -54,7 +54,11 @@ static size_t idListCnt = 0;
 static size_t idListMax = 0;
 static pthread_t idListNextId = 0;
 
-#if !defined(_MSC_VER) || defined (USE_VEH_FOR_MSC_SETTHREADNAME)
+#if !defined(_MSC_VER)
+#define USE_VEH_FOR_MSC_SETTHREADNAME
+#endif
+
+#if defined(USE_VEH_FOR_MSC_SETTHREADNAME)
 static void *SetThreadName_VEH_handle = NULL;
 
 static LONG __stdcall
@@ -419,7 +423,7 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
 
   if (dwReason == DLL_PROCESS_DETACH)
     {
-#if !defined(_MSC_VER) || defined (USE_VEH_FOR_MSC_SETTHREADNAME)
+#if defined(USE_VEH_FOR_MSC_SETTHREADNAME)
       if (lpreserved == NULL && SetThreadName_VEH_handle != NULL)
         {
           RemoveVectoredExceptionHandler (SetThreadName_VEH_handle);
@@ -430,7 +434,7 @@ __dyn_tls_pthread (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
     }
   else if (dwReason == DLL_PROCESS_ATTACH)
     {
-#if !defined(_MSC_VER) || defined (USE_VEH_FOR_MSC_SETTHREADNAME)
+#if defined(USE_VEH_FOR_MSC_SETTHREADNAME)
       SetThreadName_VEH_handle = AddVectoredExceptionHandler (1, &SetThreadName_VEH);
       /* Can't do anything on error anyway, check for NULL later */
 #endif
