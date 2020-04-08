@@ -1256,7 +1256,9 @@ pthread_cancel (pthread_t t)
 #else
 #error Unsupported architecture
 #endif
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 	  SetThreadContext (tv->h, &ctxt);
+#endif
 
 	  /* Also try deferred Cancelling */
 	  tv->cancelled = 1;
