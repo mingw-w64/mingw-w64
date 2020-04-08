@@ -93,13 +93,13 @@ static int pthread_check(pthread_t t)
   if (!t)
     return ESRCH;
   pv = __pth_gpointer_locked (t);
+  if (pv->ended == 0)
+    return 0;
   if (!(pv->h) || pv->h == INVALID_HANDLE_VALUE)
   {
-  	if (pv->ended == 0)
-  	  return 0;
         return ESRCH;
   }
-  else if ((!GetHandleInformation(pv->h, &dwFlags) && pv->ended))
+  else if (!GetHandleInformation(pv->h, &dwFlags))
         return ESRCH;
   return 0;
 }
