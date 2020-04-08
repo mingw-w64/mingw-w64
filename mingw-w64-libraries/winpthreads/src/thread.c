@@ -57,6 +57,10 @@ static pthread_t idListNextId = 0;
 #if !defined(_MSC_VER)
 #define USE_VEH_FOR_MSC_SETTHREADNAME
 #endif
+#if !WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+/* forbidden RemoveVectoredExceptionHandler/AddVectoredExceptionHandler APIs */
+#undef USE_VEH_FOR_MSC_SETTHREADNAME
+#endif
 
 #if defined(USE_VEH_FOR_MSC_SETTHREADNAME)
 static void *SetThreadName_VEH_handle = NULL;
@@ -105,7 +109,11 @@ SetThreadName (DWORD dwThreadID, LPCSTR szThreadName)
    /* Without a debugger we *must* have an exception handler,
     * otherwise raising an exception will crash the process.
     */
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
    if ((!IsDebuggerPresent ()) && (SetThreadName_VEH_handle == NULL))
+#else
+   if (!IsDebuggerPresent ())
+#endif
      return;
 
    RaiseException (EXCEPTION_SET_THREAD_NAME, 0, infosize, (ULONG_PTR *) &info);
