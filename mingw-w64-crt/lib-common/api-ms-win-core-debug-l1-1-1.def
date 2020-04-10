@@ -2,6 +2,12 @@ LIBRARY api-ms-win-core-debug-l1-1-1
 
 EXPORTS
 
+CheckRemoteDebuggerPresent
+ContinueDebugEvent
+DebugActiveProcess
+DebugActiveProcessStop
+DebugBreak
 IsDebuggerPresent
 OutputDebugStringA
 OutputDebugStringW
+WaitForDebugEvent

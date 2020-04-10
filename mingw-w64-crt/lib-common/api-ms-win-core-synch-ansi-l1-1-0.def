@@ -4,4 +4,7 @@ EXPORTS
 
 CreateSemaphoreA
 CreateSemaphoreExA
+CreateWaitableTimerA
+CreateWaitableTimerExA
 OpenMutexA
+OpenWaitableTimerA

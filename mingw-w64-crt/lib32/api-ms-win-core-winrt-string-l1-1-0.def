@@ -3,9 +3,13 @@ LIBRARY api-ms-win-core-winrt-string-l1-1-0
 EXPORTS
 
 HSTRING_UserFree@8
+HSTRING_UserFree64
 HSTRING_UserMarshal@12
+HSTRING_UserMarshal64
 HSTRING_UserSize@12
+HSTRING_UserSize64
 HSTRING_UserUnmarshal@12
+HSTRING_UserUnmarshal64
 WindowsCompareStringOrdinal@12
 WindowsConcatString@12
 WindowsCreateString@12

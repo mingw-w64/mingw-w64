@@ -4,4 +4,6 @@ EXPORTS
 
 QueryInterruptTime
 QueryInterruptTimePrecise
+QueryThreadCycleTime
+QueryUnbiasedInterruptTime
 QueryUnbiasedInterruptTimePrecise

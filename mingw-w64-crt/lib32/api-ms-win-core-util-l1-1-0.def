@@ -2,5 +2,6 @@ LIBRARY api-ms-win-core-util-l1-1-0
 
 EXPORTS
 
+Beep@8
 DecodePointer@4
 EncodePointer@4

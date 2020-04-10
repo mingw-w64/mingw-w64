@@ -7,5 +7,7 @@ RoGetActivationFactory
 RoGetApartmentIdentifier
 RoInitialize
 RoRegisterActivationFactories
+RoRegisterForApartmentShutdown
 RoRevokeActivationFactories
 RoUninitialize
+RoUnregisterForApartmentShutdown

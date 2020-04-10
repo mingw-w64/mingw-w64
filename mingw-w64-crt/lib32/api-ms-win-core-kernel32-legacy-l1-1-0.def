@@ -2,4 +2,37 @@ LIBRARY api-ms-win-core-kernel32-legacy-l1-1-0
 
 EXPORTS
 
+CopyFileA@12
+CopyFileW@12
+CreateFileMappingA@24
 CreateNamedPipeA@32
+CreateSemaphoreW@16
+DosDateTimeToFileTime@12
+FatalAppExitA@8
+FatalAppExitW@8
+FileTimeToDosDateTime@12
+FindResourceA@12
+FindResourceW@12
+GetComputerNameA@8
+GetComputerNameW@8
+GetConsoleWindow@0
+GetDurationFormatEx@32
+GetShortPathNameA@12
+GetStartupInfoA@4
+GetStringTypeExA@20
+GetSystemPowerStatus@4
+GetTempPathA@8
+GlobalMemoryStatus@4
+LoadLibraryA@4
+LoadLibraryW@4
+MoveFileA@8
+MoveFileExA@12
+MoveFileW@8
+MulDiv@12
+RaiseFailFastException@12
+RegisterWaitForSingleObject@24
+SetConsoleTitleA@4
+SetFileCompletionNotificationModes@8
+SetVolumeLabelW@8
+UnregisterWait@4
+WaitForMultipleObjects@16

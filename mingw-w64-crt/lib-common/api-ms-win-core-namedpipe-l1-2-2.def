@@ -3,3 +3,15 @@ LIBRARY api-ms-win-core-namedpipe-l1-2-2
 EXPORTS
 
 CallNamedPipeW
+ConnectNamedPipe
+CreateNamedPipeW
+CreatePipe
+DisconnectNamedPipe
+GetNamedPipeClientComputerNameW
+GetNamedPipeHandleStateW
+GetNamedPipeInfo
+ImpersonateNamedPipeClient
+PeekNamedPipe
+SetNamedPipeHandleState
+TransactNamedPipe
+WaitNamedPipeW

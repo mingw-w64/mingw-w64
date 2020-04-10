@@ -4,6 +4,7 @@ EXPORTS
 
 AcquireSRWLockExclusive
 AcquireSRWLockShared
+CancelWaitableTimer
 CreateEventA
 CreateEventExA
 CreateEventExW
@@ -13,6 +14,7 @@ CreateMutexExA
 CreateMutexExW
 CreateMutexW
 CreateSemaphoreExW
+CreateWaitableTimerExW
 DeleteCriticalSection
 EnterCriticalSection
 InitializeConditionVariable
@@ -29,6 +31,7 @@ OpenEventA
 OpenEventW
 OpenMutexW
 OpenSemaphoreW
+OpenWaitableTimerW
 ReleaseMutex
 ReleaseSemaphore
 ReleaseSRWLockExclusive
@@ -36,6 +39,9 @@ ReleaseSRWLockShared
 ResetEvent
 SetCriticalSectionSpinCount
 SetEvent
+SetWaitableTimer
+SetWaitableTimerEx
+SignalObjectAndWait
 Sleep
 SleepConditionVariableCS
 SleepConditionVariableSRW

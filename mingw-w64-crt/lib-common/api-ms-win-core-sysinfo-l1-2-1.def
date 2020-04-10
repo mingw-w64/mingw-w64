@@ -2,10 +2,31 @@ LIBRARY api-ms-win-core-sysinfo-l1-2-1
 
 EXPORTS
 
+EnumSystemFirmwareTables
+GetComputerNameExA
+GetComputerNameExW
 GetLocalTime
+GetLogicalProcessorInformation
+GetLogicalProcessorInformationEx
 GetNativeSystemInfo
+GetPhysicallyInstalledSystemMemory
+GetProductInfo
+GetSystemDirectoryA
+GetSystemDirectoryW
+GetSystemFirmwareTable
 GetSystemInfo
 GetSystemTime
+GetSystemTimeAdjustment
 GetSystemTimeAsFileTime
 GetSystemTimePreciseAsFileTime
+GetTickCount
 GetTickCount64
+GetVersion
+GetVersionExA
+GetVersionExW
+GetWindowsDirectoryA
+GetWindowsDirectoryW
+GlobalMemoryStatusEx
+SetLocalTime
+SetSystemTime
+VerSetConditionMask

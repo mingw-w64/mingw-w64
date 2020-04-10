@@ -2,4 +2,5 @@ LIBRARY api-ms-win-core-realtime-l1-1-0
 
 EXPORTS
 
+QueryThreadCycleTime
 QueryUnbiasedInterruptTime

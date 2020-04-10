@@ -5,6 +5,7 @@ EXPORTS
 CancelIo@4
 CancelIoEx@8
 CreateIoCompletionPort@16
+DeviceIoControl@32
 GetOverlappedResult@16
 GetOverlappedResultEx@20
 GetQueuedCompletionStatus@20

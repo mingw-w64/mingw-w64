@@ -4,6 +4,7 @@ EXPORTS
 
 ControlTraceW
 EnableTraceEx2
+EnumerateTraceGuidsEx
 StartTraceW
 StopTraceW
 TraceQueryInformation

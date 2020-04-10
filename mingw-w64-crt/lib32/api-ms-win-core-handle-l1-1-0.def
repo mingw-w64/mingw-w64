@@ -5,3 +5,5 @@ EXPORTS
 CloseHandle@4
 CompareObjectHandles@8
 DuplicateHandle@28
+GetHandleInformation@8
+SetHandleInformation@12

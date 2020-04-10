@@ -2,8 +2,11 @@ LIBRARY api-ms-win-core-rtlsupport-l1-2-0
 
 EXPORTS
 
+RtlCaptureContext
 RtlCaptureStackBackTrace
 RtlLookupFunctionEntry
 RtlPcToFileHeader
+RtlRaiseException
 RtlUnwind
 RtlUnwindEx
+RtlVirtualUnwind

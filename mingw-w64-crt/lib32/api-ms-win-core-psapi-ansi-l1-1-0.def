@@ -4,3 +4,4 @@ EXPORTS
 
 K32GetModuleBaseNameA@16
 K32GetModuleFileNameExA@16
+QueryFullProcessImageNameA@16

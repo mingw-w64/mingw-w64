@@ -4,6 +4,8 @@ EXPORTS
 
 CompareStringEx
 CompareStringOrdinal
+CompareStringW
+FoldStringW
 GetStringTypeExW
 GetStringTypeW
 MultiByteToWideChar
