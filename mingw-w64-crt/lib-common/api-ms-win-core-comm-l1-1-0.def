@@ -1,5 +1,7 @@
-LIBRARY "api-ms-win-core-comm-l1-1-0.dll"
+LIBRARY api-ms-win-core-comm-l1-1-0
+
 EXPORTS
+
 ClearCommBreak
 ClearCommError
 EscapeCommFunction

@@ -1,5 +1,7 @@
-LIBRARY "api-ms-win-core-console-l1-1-0.dll"
+LIBRARY api-ms-win-core-console-l1-1-0
+
 EXPORTS
+
 AllocConsole@0
 GetConsoleCP@0
 GetConsoleMode@8

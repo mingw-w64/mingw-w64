@@ -1,5 +1,7 @@
-LIBRARY "api-ms-win-core-synch-l1-2-0.dll"
+LIBRARY api-ms-win-core-synch-l1-2-0
+
 EXPORTS
+
 AcquireSRWLockExclusive
 AcquireSRWLockShared
 CreateEventA
@@ -49,4 +51,3 @@ WakeAllConditionVariable
 WakeByAddressAll
 WakeByAddressSingle
 WakeConditionVariable
-

@@ -1,5 +1,7 @@
-LIBRARY "api-ms-win-core-winrt-string-l1-1-0.dll"
+LIBRARY api-ms-win-core-winrt-string-l1-1-0
+
 EXPORTS
+
 HSTRING_UserFree
 HSTRING_UserFree64
 HSTRING_UserMarshal
