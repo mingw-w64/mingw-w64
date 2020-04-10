@@ -2,14 +2,6 @@ LIBRARY api-ms-win-crt-time-l1-1-0
 
 EXPORTS
 
-_Getdays
-_Getmonths
-_Gettnames
-_Strftime
-_W_Getdays
-_W_Getmonths
-_W_Gettnames
-_Wcsftime
 __daylight
 __dstbias
 __timezone
@@ -33,6 +25,9 @@ _get_dstbias
 _get_timezone
 _get_tzname
 _getsystime
+_Getdays
+_Getmonths
+_Gettnames
 _gmtime32
 _gmtime32_s
 _gmtime64
@@ -48,6 +43,7 @@ _mktime64
 _setsystime
 _strdate
 _strdate_s
+_Strftime
 _strftime_l
 _strtime
 _strtime_s
@@ -61,8 +57,12 @@ _utime == _utime32
 utime == _utime32
 _utime32
 _utime64
+_W_Getdays
+_W_Getmonths
+_W_Gettnames
 _wasctime
 _wasctime_s
+_Wcsftime
 _wcsftime_l
 _wctime32
 _wctime32_s

@@ -4,6 +4,7 @@ EXPORTS
 
 CreateProcessA
 CreateProcessW
+ExitProcess
 GetExitCodeProcess
 GetPriorityClass
 GetProcessId
@@ -15,4 +16,3 @@ OpenThreadToken
 SetPriorityClass
 SetThreadPriorityBoost
 SetThreadToken
-ExitProcess
