@@ -238,11 +238,15 @@ typedef enum _MFVideoTransferFunction {
   MFVideoTransFunc_240M = 6,
   MFVideoTransFunc_sRGB = 7,
   MFVideoTransFunc_28 = 8,
-#if WINVER >= 0x0601
   MFVideoTransFunc_Log_100 = 9,
   MFVideoTransFunc_Log_316 = 10,
   MFVideoTransFunc_709_sym = 11,
-#endif
+  MFVideoTransFunc_2020_const = 12,
+  MFVideoTransFunc_2020 = 13,
+  MFVideoTransFunc_26 = 14,
+  MFVideoTransFunc_2084 = 15,
+  MFVideoTransFunc_HLG = 16,
+  MFVideoTransFunc_10_rel = 17,
   MFVideoTransFunc_Last,
   MFVideoTransFunc_ForceDWORD = 0x7fffffff
 } MFVideoTransferFunction;
@@ -258,6 +262,10 @@ typedef enum _MFVideoPrimaries {
   MFVideoPrimaries_SMPTE240M = 6,
   MFVideoPrimaries_EBU3213 = 7,
   MFVideoPrimaries_SMPTE_C = 8,
+  MFVideoPrimaries_BT2020 = 9,
+  MFVideoPrimaries_XYZ = 10,
+  MFVideoPrimaries_DCI_P3 = 11,
+  MFVideoPrimaries_ACES = 12,
   MFVideoPrimaries_Last,
   MFVideoPrimaries_ForceDWORD = 0x7fffffff
 } MFVideoPrimaries;
@@ -312,9 +320,7 @@ typedef enum _MFNominalRange {
   MFNominalRange_0_255 = 1,
   MFNominalRange_16_235 = 2,
   MFNominalRange_48_208 = 3,
-#if WINVER >= 0x0601
   MFNominalRange_64_127 = 4,
-#endif
   MFNominalRange_Last,
   MFNominalRange_ForceDWORD = 0x7fffffff
 } MFNominalRange;
@@ -610,9 +616,14 @@ enum {
   METransformHaveOutput,
   METransformDrainComplete,
   METransformMarker,
+  METransformInputStreamStateChanged,
   MEByteStreamCharacteristicsChanged = 700,
   MEVideoCaptureDeviceRemoved = 800,
   MEVideoCaptureDevicePreempted = 801,
+  MEStreamSinkFormatInvalidated = 802,
+  MEEncodingParameters = 803,
+  MEContentProtectionMetadata = 900,
+  MEDeviceThermalStateChanged = 950,
   MEReservedMax = 10000
 };
 
@@ -743,10 +754,8 @@ typedef enum {
 cpp_quote("")
 typedef enum {
   MF_FILEFLAGS_NONE = 0x00000000,
-  MF_FILEFLAGS_NOBUFFERING = 0x00000001
-#if WINVER >= 0x0601
-  , MF_FILEFLAGS_ALLOW_WRITE_SHARING = 0x00000002
-#endif
+  MF_FILEFLAGS_NOBUFFERING = 0x00000001,
+  MF_FILEFLAGS_ALLOW_WRITE_SHARING = 0x00000002
 } MF_FILE_FLAGS;
 cpp_quote("#endif")
 cpp_quote("")
@@ -814,7 +823,8 @@ cpp_quote("")
 typedef enum MF_PLUGIN_CONTROL_POLICY {
   MF_PLUGIN_CONTROL_POLICY_USE_ALL_PLUGINS = 0,
   MF_PLUGIN_CONTROL_POLICY_USE_APPROVED_PLUGINS = 1,
-  MF_PLUGIN_CONTROL_POLICY_USE_WEB_PLUGINS = 2
+  MF_PLUGIN_CONTROL_POLICY_USE_WEB_PLUGINS = 2,
+  MF_PLUGIN_CONTROL_POLICY_USE_WEB_PLUGINS_EDGEMODE = 3
 } MF_PLUGIN_CONTROL_POLICY;
 
 cpp_quote("")
@@ -835,6 +845,46 @@ interface IMFDXGIDeviceManager : IUnknown {
   HRESULT TestDevice (HANDLE hDevice);
   HRESULT UnlockDevice (HANDLE hDevice, WINBOOL fSaveState);
 }
+
+cpp_quote("")
+typedef enum _MF_STREAM_STATE {
+  MF_STREAM_STATE_STOPPED = 0,
+  MF_STREAM_STATE_PAUSED,
+  MF_STREAM_STATE_RUNNING
+} MF_STREAM_STATE;
+
 cpp_quote("#endif")
 cpp_quote("")
+cpp_quote("#endif")
+
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+cpp_quote("#if NTDDI_VERSION >= NTDDI_WIN10_RS2")
+
+cpp_quote("")
+[object, local, uuid(ce8bd576-e440-43b3-be34-1e53f565f7e8), helpstring("IMFMuxStreamAttributesManager Interface"), pointer_default(unique)]
+interface IMFMuxStreamAttributesManager : IUnknown {
+  HRESULT GetStreamCount (DWORD *pdwMuxStreamCount);
+  HRESULT GetAttributes (DWORD dwMuxStreamIndex, IMFAttributes **ppStreamAttributes);
+}
+
+cpp_quote("")
+[object, local, uuid(505a2c72-42f7-4690-aeab-8f513d0ffdb8), helpstring("IMFMuxStreamMediaTypeManager Interface"), pointer_default(unique)]
+interface IMFMuxStreamMediaTypeManager : IUnknown {
+  HRESULT GetStreamCount (DWORD *pdwMuxStreamCount);
+  HRESULT GetMediaType (DWORD dwMuxStreamIndex, IMFMediaType **ppMediaType);
+  HRESULT GetStreamConfigurationCount (DWORD *pdwCount);
+  HRESULT AddStreamConfiguration (ULONGLONG ullStreamMask);
+  HRESULT RemoveStreamConfiguration (ULONGLONG ullStreamMask);
+  HRESULT GetStreamConfiguration (DWORD ulIndex, ULONGLONG *pullStreamMask);
+}
+
+cpp_quote("")
+[object, local, uuid(74abbc19-b1cc-4e41-bb8b-9d9b86a8f6ca), helpstring("IMFMuxStreamSampleManager Interface"), pointer_default(unique)]
+interface IMFMuxStreamSampleManager : IUnknown {
+  HRESULT GetStreamCount (DWORD *pdwMuxStreamCount);
+  HRESULT GetSample (DWORD dwMuxStreamIndex, IMFSample **ppSample);
+  ULONGLONG GetStreamConfiguration ();
+}
+
+cpp_quote("#endif")
 cpp_quote("#endif")
