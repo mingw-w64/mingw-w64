@@ -271,64 +271,72 @@ interface IMFClockStateSink : IUnknown
 cpp_quote("HRESULT WINAPI MFRequireProtectedEnvironment(IMFPresentationDescriptor *pPresentationDescriptor);")
 cpp_quote("HRESULT WINAPI MFSerializePresentationDescriptor(IMFPresentationDescriptor *pPD,DWORD *pcbData,BYTE **ppbData);")
 
-cpp_quote("typedef DWORD MFSequencerElementId; /*Unknown type*/")
-cpp_quote("")
-cpp_quote("typedef enum MFCLOCK_CHARACTERISTICS_FLAGS {")
-cpp_quote("  MFCLOCK_CHARACTERISTICS_FLAG_FREQUENCY_10MHZ   = 0x2,")
-cpp_quote("  MFCLOCK_CHARACTERISTICS_FLAG_ALWAYS_RUNNING    = 0x4,")
-cpp_quote("  MFCLOCK_CHARACTERISTICS_FLAG_IS_SYSTEM_CLOCK   = 0x8")
-cpp_quote("} MFCLOCK_CHARACTERISTICS_FLAGS;")
-cpp_quote("")
+typedef DWORD MFSequencerElementId;
+
+typedef enum _MFCLOCK_CHARACTERISTICS_FLAGS
+{
+    MFCLOCK_CHARACTERISTICS_FLAG_FREQUENCY_10MHZ   = 0x2,
+    MFCLOCK_CHARACTERISTICS_FLAG_ALWAYS_RUNNING    = 0x4,
+    MFCLOCK_CHARACTERISTICS_FLAG_IS_SYSTEM_CLOCK   = 0x8
+} MFCLOCK_CHARACTERISTICS_FLAGS;
+
 cpp_quote("#if (WINVER >= 0x0601)")
-cpp_quote("")
-cpp_quote("typedef enum _MF_QUALITY_ADVISE_FLAGS {")
-cpp_quote("  MF_QUALITY_CANNOT_KEEP_UP   = 0x1")
-cpp_quote("} MF_QUALITY_ADVISE_FLAGS;")
-cpp_quote("")
+
+typedef enum _MF_QUALITY_ADVISE_FLAGS
+{
+    MF_QUALITY_CANNOT_KEEP_UP = 0x1
+} MF_QUALITY_ADVISE_FLAGS;
+
 cpp_quote("#endif /*(WINVER >= 0x0601)*/")
-cpp_quote("")
-cpp_quote("typedef enum _MF_QUALITY_DROP_MODE {")
-cpp_quote("  MF_DROP_MODE_NONE   = 0x0,")
-cpp_quote("  MF_DROP_MODE_1      = 0x1,")
-cpp_quote("  MF_DROP_MODE_2      = 0x2,")
-cpp_quote("  MF_DROP_MODE_3      = 0x3,")
-cpp_quote("  MF_DROP_MODE_4      = 0x4,")
-cpp_quote("  MF_DROP_MODE_5      = 0x5,")
-cpp_quote("  MF_NUM_DROP_MODES   = 0x6")
-cpp_quote("} MF_QUALITY_DROP_MODE;")
-cpp_quote("")
-cpp_quote("typedef enum _MF_QUALITY_LEVEL {")
-cpp_quote("  MF_QUALITY_NORMAL           = 0x0,")
-cpp_quote("  MF_QUALITY_NORMAL_MINUS_1   = 0x1,")
-cpp_quote("  MF_QUALITY_NORMAL_MINUS_2   = 0x2,")
-cpp_quote("  MF_QUALITY_NORMAL_MINUS_3   = 0x3,")
-cpp_quote("  MF_QUALITY_NORMAL_MINUS_4   = 0x4,")
-cpp_quote("  MF_QUALITY_NORMAL_MINUS_5   = 0x5,")
-cpp_quote("  MF_NUM_QUALITY_LEVELS       = 0x6")
-cpp_quote("} MF_QUALITY_LEVEL;")
-cpp_quote("")
+
+typedef enum _MF_QUALITY_DROP_MODE
+{
+    MF_DROP_MODE_NONE = 0x0,
+    MF_DROP_MODE_1    = 0x1,
+    MF_DROP_MODE_2    = 0x2,
+    MF_DROP_MODE_3    = 0x3,
+    MF_DROP_MODE_4    = 0x4,
+    MF_DROP_MODE_5    = 0x5,
+    MF_NUM_DROP_MODES = 0x6
+} MF_QUALITY_DROP_MODE;
+
+typedef enum _MF_QUALITY_LEVEL
+{
+    MF_QUALITY_NORMAL         = 0x0,
+    MF_QUALITY_NORMAL_MINUS_1 = 0x1,
+    MF_QUALITY_NORMAL_MINUS_2 = 0x2,
+    MF_QUALITY_NORMAL_MINUS_3 = 0x3,
+    MF_QUALITY_NORMAL_MINUS_4 = 0x4,
+    MF_QUALITY_NORMAL_MINUS_5 = 0x5,
+    MF_NUM_QUALITY_LEVELS     = 0x6
+} MF_QUALITY_LEVEL;
+
 cpp_quote("typedef enum MF_SOURCE_READER_CONTROL_FLAG {")
 cpp_quote("  MF_SOURCE_READER_CONTROLF_DRAIN   = 0x00000001")
 cpp_quote("} MF_SOURCE_READER_CONTROL_FLAG;")
 cpp_quote("")
-cpp_quote("typedef enum _MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS {")
-cpp_quote("  MF_TOPOLOGY_RESOLUTION_SUCCEEDED              = 0x00000000,")
-cpp_quote("  MF_OPTIONAL_NODE_REJECTED_MEDIA_TYPE          = 0x00000001,")
-cpp_quote("  MF_OPTIONAL_NODE_REJECTED_PROTECTED_PROCESS   = 0x00000002")
-cpp_quote("} MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS;")
-cpp_quote("")
-cpp_quote("typedef enum _MF_TOPONODE_DRAIN_MODE {")
-cpp_quote("  MF_TOPONODE_DRAIN_DEFAULT,")
-cpp_quote("  MF_TOPONODE_DRAIN_ALWAYS,")
-cpp_quote("  MF_TOPONODE_DRAIN_NEVER")
-cpp_quote("} MF_TOPONODE_DRAIN_MODE;")
-cpp_quote("")
-cpp_quote("typedef enum _MF_TOPONODE_FLUSH_MODE {")
-cpp_quote("  MF_TOPONODE_FLUSH_ALWAYS,")
-cpp_quote("  MF_TOPONODE_FLUSH_SEEK,")
-cpp_quote("  MF_TOPONODE_FLUSH_NEVER")
-cpp_quote("} MF_TOPONODE_FLUSH_MODE;")
-cpp_quote("")
+
+typedef enum _MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS
+{
+    MF_TOPOLOGY_RESOLUTION_SUCCEEDED            = 0x00000000,
+    MF_OPTIONAL_NODE_REJECTED_MEDIA_TYPE        = 0x00000001,
+    MF_OPTIONAL_NODE_REJECTED_PROTECTED_PROCESS = 0x00000002
+} MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS;
+
+typedef enum _MF_TOPONODE_DRAIN_MODE
+{
+    MF_TOPONODE_DRAIN_DEFAULT,
+    MF_TOPONODE_DRAIN_ALWAYS,
+    MF_TOPONODE_DRAIN_NEVER
+} MF_TOPONODE_DRAIN_MODE;
+
+typedef enum _MF_TOPONODE_FLUSH_MODE
+{
+    MF_TOPONODE_FLUSH_ALWAYS,
+    MF_TOPONODE_FLUSH_SEEK,
+    MF_TOPONODE_FLUSH_NEVER
+} MF_TOPONODE_FLUSH_MODE;
+
 cpp_quote("#if (WINVER >= 0x0601)")
 cpp_quote("")
 cpp_quote("typedef enum _MF_TRANSCODE_TOPOLOGY_MODE_FLAGS {")
@@ -337,140 +345,155 @@ cpp_quote("  MF_TRANSCODE_TOPOLOGYMODE_HARDWARE_ALLOWED   = 1")
 cpp_quote("} MF_TRANSCODE_TOPOLOGYMODE_FLAGS;")
 cpp_quote("")
 cpp_quote("#endif")
-cpp_quote("")
-cpp_quote("typedef enum  {")
-cpp_quote("  MF_LICENSE_URL_UNTRUSTED,")
-cpp_quote("  MF_LICENSE_URL_TRUSTED,")
-cpp_quote("  MF_LICENSE_URL_TAMPERED")
-cpp_quote("} MF_URL_TRUST_STATUS;")
-cpp_quote("")
+
+typedef enum
+{
+    MF_LICENSE_URL_UNTRUSTED,
+    MF_LICENSE_URL_TRUSTED,
+    MF_LICENSE_URL_TAMPERED
+} MF_URL_TRUST_STATUS;
+
 cpp_quote("typedef enum MFASF_INDEXERFLAGS {")
 cpp_quote("  MFASF_INDEXER_WRITE_NEW_INDEX            = 0x00000001,")
 cpp_quote("  MFASF_INDEXER_READ_FOR_REVERSEPLAYBACK   = 0x00000004,")
 cpp_quote("  MFASF_INDEXER_WRITE_FOR_LIVEREAD         = 0x00000008")
 cpp_quote("} MFASF_INDEXERFLAGS;")
-cpp_quote("")
-cpp_quote("typedef enum _MFCLOCK_RELATIONAL_FLAGS {")
-cpp_quote("  MFCLOCK_RELATIONAL_FLAG_JITTER_NEVER_AHEAD   = 0x1")
-cpp_quote("} MFCLOCK_RELATIONAL_FLAGS;")
-cpp_quote("")
-cpp_quote("typedef enum _MFMEDIASOURCE_CHARACTERISTICS {")
-cpp_quote("  MFMEDIASOURCE_IS_LIVE                      = 0x1,")
-cpp_quote("  MFMEDIASOURCE_CAN_SEEK                     = 0x2,")
-cpp_quote("  MFMEDIASOURCE_CAN_PAUSE                    = 0x4,")
-cpp_quote("  MFMEDIASOURCE_HAS_SLOW_SEEK                = 0x8,")
-cpp_quote("  MFMEDIASOURCE_HAS_MULTIPLE_PRESENTATIONS   = 0x10,")
-cpp_quote("  MFMEDIASOURCE_CAN_SKIPFORWARD              = 0x20,")
-cpp_quote("  MFMEDIASOURCE_CAN_SKIPBACKWARD             = 0x40")
-cpp_quote("} MFMEDIASOURCE_CHARACTERISTICS;")
-cpp_quote("")
-cpp_quote("typedef enum _MFNET_PROXYSETTINGS {")
-cpp_quote("  MFNET_PROXYSETTING_NONE      = 0,")
-cpp_quote("  MFNET_PROXYSETTING_MANUAL    = 1,")
-cpp_quote("  MFNET_PROXYSETTING_AUTO      = 2,")
-cpp_quote("  MFNET_PROXYSETTING_BROWSER   = 3")
-cpp_quote("} MFNET_PROXYSETTINGS;")
-cpp_quote("")
-cpp_quote("typedef enum _MFNetAuthenticationFlags {")
-cpp_quote("  MFNET_AUTHENTICATION_PROXY            = 0x00000001,")
-cpp_quote("  MFNET_AUTHENTICATION_CLEAR_TEXT       = 0x00000002,")
-cpp_quote("  MFNET_AUTHENTICATION_LOGGED_ON_USER")
-cpp_quote("} MFNetAuthenticationFlags;")
-cpp_quote("")
-cpp_quote("typedef enum _MFNetCredentialOptions {")
-cpp_quote("  MFNET_CREDENTIAL_SAVE               = 0x00000001,")
-cpp_quote("  MFNET_CREDENTIAL_DONT_CACHE         = 0x00000002,")
-cpp_quote("  MFNET_CREDENTIAL_ALLOW_CLEAR_TEXT   = 0x00000004")
-cpp_quote("} MFNetCredentialOptions;")
-cpp_quote("")
-cpp_quote("typedef enum _MFNetCredentialRequirements {")
-cpp_quote("  REQUIRE_PROMPT          = 0x00000001,")
-cpp_quote("  REQUIRE_SAVE_SELECTED   = 0x00000002")
-cpp_quote("} MFNetCredentialRequirements;")
-cpp_quote("")
-cpp_quote("typedef enum _MFNETSOURCE_CACHE_STATE {")
-cpp_quote("  MFNETSOURCE_CACHE_UNAVAILABLE,")
-cpp_quote("  MFNETSOURCE_CACHE_ACTIVE_WRITING,")
-cpp_quote("  MFNETSOURCE_CACHE_ACTIVE_COMPLETE")
-cpp_quote("} MFNETSOURCE_CACHE_STATE;")
-cpp_quote("")
-cpp_quote("typedef enum _MFNETSOURCE_PROTOCOL_TYPE {")
-cpp_quote("  MFNETSOURCE_UNDEFINED   = 0x0,")
-cpp_quote("  MFNETSOURCE_HTTP        = 0x1,")
-cpp_quote("  MFNETSOURCE_RTSP        = 0x2,")
-cpp_quote("  MFNETSOURCE_FILE        = 0x3,")
-cpp_quote("  MFNETSOURCE_MULTICAST   = 0x4")
-cpp_quote("} MFNETSOURCE_PROTOCOL_TYPE;")
-cpp_quote("")
-cpp_quote("typedef enum _MFNETSOURCE_STATISTICS_IDS {")
-cpp_quote("  MFNETSOURCE_RECVPACKETS_ID                = 0,")
-cpp_quote("  MFNETSOURCE_LOSTPACKETS_ID,")
-cpp_quote("  MFNETSOURCE_RESENDSREQUESTED_ID,")
-cpp_quote("  MFNETSOURCE_RESENDSRECEIVED_ID,")
-cpp_quote("  MFNETSOURCE_RECOVEREDBYECCPACKETS_ID,")
-cpp_quote("  MFNETSOURCE_RECOVEREDBYRTXPACKETS_ID,")
-cpp_quote("  MFNETSOURCE_OUTPACKETS_ID,")
-cpp_quote("  MFNETSOURCE_RECVRATE_ID,")
-cpp_quote("  MFNETSOURCE_AVGBANDWIDTHBPS_ID,")
-cpp_quote("  MFNETSOURCE_BYTESRECEIVED_ID,")
-cpp_quote("  MFNETSOURCE_PROTOCOL_ID,")
-cpp_quote("  MFNETSOURCE_TRANSPORT_ID,")
-cpp_quote("  MFNETSOURCE_CACHE_STATE_ID,")
-cpp_quote("  MFNETSOURCE_LINKBANDWIDTH_ID,")
-cpp_quote("  MFNETSOURCE_CONTENTBITRATE_ID,")
-cpp_quote("  MFNETSOURCE_SPEEDFACTOR_ID,")
-cpp_quote("  MFNETSOURCE_BUFFERSIZE_ID,")
-cpp_quote("  MFNETSOURCE_BUFFERPROGRESS_ID,")
-cpp_quote("  MFNETSOURCE_LASTBWSWITCHTS_ID,")
-cpp_quote("  MFNETSOURCE_SEEKRANGESTART_ID,")
-cpp_quote("  MFNETSOURCE_SEEKRANGEEND_ID,")
-cpp_quote("  MFNETSOURCE_BUFFERINGCOUNT_ID,")
-cpp_quote("  MFNETSOURCE_INCORRECTLYSIGNEDPACKETS_ID,")
-cpp_quote("  MFNETSOURCE_SIGNEDSESSION_ID,")
-cpp_quote("  MFNETSOURCE_MAXBITRATE_ID,")
-cpp_quote("  MFNETSOURCE_RECEPTION_QUALITY_ID,")
-cpp_quote("  MFNETSOURCE_RECOVEREDPACKETS_ID,")
-cpp_quote("  MFNETSOURCE_VBR_ID,")
-cpp_quote("  MFNETSOURCE_DOWNLOADPROGRESS_ID")
-cpp_quote("} MFNETSOURCE_STATISTICS_IDS;")
-cpp_quote("")
-cpp_quote("typedef enum _MFNETSOURCE_TRANSPORT_TYPE {")
-cpp_quote("  MFNETSOURCE_UDP,")
-cpp_quote("  MFNETSOURCE_TCP")
-cpp_quote("} MFNETSOURCE_TRANSPORT_TYPE;")
-cpp_quote("")
-cpp_quote("typedef enum MF_OBJECT_TYPE {")
-cpp_quote("  MF_OBJECT_MEDIASOURCE,")
-cpp_quote("  MF_OBJECT_BYTESTREAM,")
-cpp_quote("  MF_OBJECT_INVALID")
-cpp_quote("} MF_OBJECT_TYPE;")
-cpp_quote("")
-cpp_quote("typedef enum _MFPOLICYMANAGER_ACTION {")
-cpp_quote("  PEACTION_NO          = 0,")
-cpp_quote("  PEACTION_PLAY        = 1,")
-cpp_quote("  PEACTION_COPY        = 2,")
-cpp_quote("  PEACTION_EXPORT      = 3,")
-cpp_quote("  PEACTION_EXTRACT     = 4,")
-cpp_quote("  PEACTION_RESERVED1   = 5,")
-cpp_quote("  PEACTION_RESERVED2   = 6,")
-cpp_quote("  PEACTION_RESERVED3   = 7,")
-cpp_quote("  PEACTION_LAST        = 7")
-cpp_quote("} MFPOLICYMANAGER_ACTION;")
-cpp_quote("")
-cpp_quote("typedef enum _MFRATE_DIRECTION {")
-cpp_quote("  MFRATE_FORWARD,")
-cpp_quote("  MFRATE_REVERSE")
-cpp_quote("} MFRATE_DIRECTION;")
-cpp_quote("")
-cpp_quote("typedef enum _MFSequencerTopologyFlags {")
-cpp_quote("  SequencerTopologyFlags_Last   = 0x00000001")
-cpp_quote("} MFSequencerTopologyFlags;")
-cpp_quote("")
-cpp_quote("typedef enum _MFSHUTDOWN_STATUS {")
-cpp_quote("  MFSHUTDOWN_INITIATED,")
-cpp_quote("  MFSHUTDOWN_COMPLETED")
-cpp_quote("} MFSHUTDOWN_STATUS;")
-cpp_quote("")
+
+typedef enum _MFCLOCK_RELATIONAL_FLAGS
+{
+    MFCLOCK_RELATIONAL_FLAG_JITTER_NEVER_AHEAD = 0x1
+} MFCLOCK_RELATIONAL_FLAGS;
+
+typedef enum _MFMEDIASOURCE_CHARACTERISTICS
+{
+    MFMEDIASOURCE_IS_LIVE                    = 0x1,
+    MFMEDIASOURCE_CAN_SEEK                   = 0x2,
+    MFMEDIASOURCE_CAN_PAUSE                  = 0x4,
+    MFMEDIASOURCE_HAS_SLOW_SEEK              = 0x8,
+    MFMEDIASOURCE_HAS_MULTIPLE_PRESENTATIONS = 0x10,
+    MFMEDIASOURCE_CAN_SKIPFORWARD            = 0x20,
+    MFMEDIASOURCE_CAN_SKIPBACKWARD           = 0x40
+} MFMEDIASOURCE_CHARACTERISTICS;
+
+typedef enum _MFNET_PROXYSETTINGS
+{
+    MFNET_PROXYSETTING_NONE    = 0,
+    MFNET_PROXYSETTING_MANUAL  = 1,
+    MFNET_PROXYSETTING_AUTO    = 2,
+    MFNET_PROXYSETTING_BROWSER = 3
+} MFNET_PROXYSETTINGS;
+
+typedef enum _MFNetAuthenticationFlags
+{
+    MFNET_AUTHENTICATION_PROXY          = 0x00000001,
+    MFNET_AUTHENTICATION_CLEAR_TEXT     = 0x00000002,
+    MFNET_AUTHENTICATION_LOGGED_ON_USER = 0x00000004
+} MFNetAuthenticationFlags;
+
+typedef enum _MFNetCredentialOptions
+{
+    MFNET_CREDENTIAL_SAVE             = 0x00000001,
+    MFNET_CREDENTIAL_DONT_CACHE       = 0x00000002,
+    MFNET_CREDENTIAL_ALLOW_CLEAR_TEXT = 0x00000004
+} MFNetCredentialOptions;
+
+typedef enum _MFNetCredentialRequirements {
+    REQUIRE_PROMPT        = 0x00000001,
+    REQUIRE_SAVE_SELECTED = 0x00000002
+} MFNetCredentialRequirements;
+
+typedef enum _MFNETSOURCE_CACHE_STATE
+{
+    MFNETSOURCE_CACHE_UNAVAILABLE,
+    MFNETSOURCE_CACHE_ACTIVE_WRITING,
+    MFNETSOURCE_CACHE_ACTIVE_COMPLETE
+} MFNETSOURCE_CACHE_STATE;
+
+typedef enum _MFNETSOURCE_PROTOCOL_TYPE
+{
+    MFNETSOURCE_UNDEFINED = 0x0,
+    MFNETSOURCE_HTTP      = 0x1,
+    MFNETSOURCE_RTSP      = 0x2,
+    MFNETSOURCE_FILE      = 0x3,
+    MFNETSOURCE_MULTICAST = 0x4
+} MFNETSOURCE_PROTOCOL_TYPE;
+
+typedef enum _MFNETSOURCE_STATISTICS_IDS
+{
+    MFNETSOURCE_RECVPACKETS_ID = 0,
+    MFNETSOURCE_LOSTPACKETS_ID,
+    MFNETSOURCE_RESENDSREQUESTED_ID,
+    MFNETSOURCE_RESENDSRECEIVED_ID,
+    MFNETSOURCE_RECOVEREDBYECCPACKETS_ID,
+    MFNETSOURCE_RECOVEREDBYRTXPACKETS_ID,
+    MFNETSOURCE_OUTPACKETS_ID,
+    MFNETSOURCE_RECVRATE_ID,
+    MFNETSOURCE_AVGBANDWIDTHBPS_ID,
+    MFNETSOURCE_BYTESRECEIVED_ID,
+    MFNETSOURCE_PROTOCOL_ID,
+    MFNETSOURCE_TRANSPORT_ID,
+    MFNETSOURCE_CACHE_STATE_ID,
+    MFNETSOURCE_LINKBANDWIDTH_ID,
+    MFNETSOURCE_CONTENTBITRATE_ID,
+    MFNETSOURCE_SPEEDFACTOR_ID,
+    MFNETSOURCE_BUFFERSIZE_ID,
+    MFNETSOURCE_BUFFERPROGRESS_ID,
+    MFNETSOURCE_LASTBWSWITCHTS_ID,
+    MFNETSOURCE_SEEKRANGESTART_ID,
+    MFNETSOURCE_SEEKRANGEEND_ID,
+    MFNETSOURCE_BUFFERINGCOUNT_ID,
+    MFNETSOURCE_INCORRECTLYSIGNEDPACKETS_ID,
+    MFNETSOURCE_SIGNEDSESSION_ID,
+    MFNETSOURCE_MAXBITRATE_ID,
+    MFNETSOURCE_RECEPTION_QUALITY_ID,
+    MFNETSOURCE_RECOVEREDPACKETS_ID,
+    MFNETSOURCE_VBR_ID,
+    MFNETSOURCE_DOWNLOADPROGRESS_ID
+} MFNETSOURCE_STATISTICS_IDS;
+
+typedef enum _MFNETSOURCE_TRANSPORT_TYPE
+{
+    MFNETSOURCE_UDP,
+    MFNETSOURCE_TCP
+} MFNETSOURCE_TRANSPORT_TYPE;
+
+typedef enum MF_OBJECT_TYPE
+{
+    MF_OBJECT_MEDIASOURCE,
+    MF_OBJECT_BYTESTREAM,
+    MF_OBJECT_INVALID
+} MF_OBJECT_TYPE;
+
+typedef enum _MFPOLICYMANAGER_ACTION
+{
+    PEACTION_NO        = 0,
+    PEACTION_PLAY      = 1,
+    PEACTION_COPY      = 2,
+    PEACTION_EXPORT    = 3,
+    PEACTION_EXTRACT   = 4,
+    PEACTION_RESERVED1 = 5,
+    PEACTION_RESERVED2 = 6,
+    PEACTION_RESERVED3 = 7,
+    PEACTION_LAST      = 7
+} MFPOLICYMANAGER_ACTION;
+
+typedef enum _MFRATE_DIRECTION
+{
+    MFRATE_FORWARD,
+    MFRATE_REVERSE
+} MFRATE_DIRECTION;
+
+typedef enum _MFSequencerTopologyFlags
+{
+    SequencerTopologyFlags_Last = 0x00000001
+} MFSequencerTopologyFlags;
+
+typedef enum _MFSHUTDOWN_STATUS
+{
+    MFSHUTDOWN_INITIATED,
+    MFSHUTDOWN_COMPLETED
+} MFSHUTDOWN_STATUS;
+
 cpp_quote("typedef enum _MFSINK_WMDRMACTION {")
 cpp_quote("  MFSINK_WMDRMACTION_UNDEFINED    = 0,")
 cpp_quote("  MFSINK_WMDRMACTION_ENCODE       = 1,")
@@ -478,44 +501,49 @@ cpp_quote("  MFSINK_WMDRMACTION_TRANSCODE    = 2,")
 cpp_quote("  MFSINK_WMDRMACTION_TRANSCRYPT   = 3,")
 cpp_quote("  MFSINK_WMDRMACTION_LAST         = 3")
 cpp_quote("} MFSINK_WMDRMACTION;")
-cpp_quote("")
-cpp_quote("typedef enum MFSTREAMSINK_MARKER_TYPE {")
-cpp_quote("  MFSTREAMSINK_MARKER_DEFAULT,")
-cpp_quote("  MFSTREAMSINK_MARKER_ENDOFSEGMENT,")
-cpp_quote("  MFSTREAMSINK_MARKER_TICK,")
-cpp_quote("  MFSTREAMSINK_MARKER_EVENT")
-cpp_quote("} MFSTREAMSINK_MARKER_TYPE;")
-cpp_quote("")
-cpp_quote("typedef enum MFTIMER_FLAGS {")
-cpp_quote("  MFTIMER_RELATIVE   = 0x00000001")
-cpp_quote("} MFTIMER_FLAGS;")
-cpp_quote("")
+
+typedef enum MFSTREAMSINK_MARKER_TYPE
+{
+    MFSTREAMSINK_MARKER_DEFAULT,
+    MFSTREAMSINK_MARKER_ENDOFSEGMENT,
+    MFSTREAMSINK_MARKER_TICK,
+    MFSTREAMSINK_MARKER_EVENT
+} MFSTREAMSINK_MARKER_TYPE;
+
+typedef enum MFTIMER_FLAGS
+{
+    MFTIMER_RELATIVE = 0x00000001
+} MFTIMER_FLAGS;
+
 cpp_quote("#if (WINVER >= 0x0601)")
-cpp_quote("")
-cpp_quote("typedef enum MFTOPLOGY_DXVA_MODE {")
-cpp_quote("  MFTOPOLOGY_DXVA_DEFAULT   = 0,")
-cpp_quote("  MFTOPOLOGY_DXVA_NONE      = 1,")
-cpp_quote("  MFTOPOLOGY_DXVA_FULL      = 2")
-cpp_quote("} MFTOPOLOGY_DXVA_MODE;")
-cpp_quote("")
-cpp_quote("typedef enum MFTOPOLOGY_HARDWARE_MODE {")
-cpp_quote("  MFTOPOLOGY_HWMODE_SOFTWARE_ONLY   = 0,")
-cpp_quote("  MFTOPOLOGY_HWMODE_USE_HARDWARE    = 1")
-cpp_quote("} MFTOPOLOGY_HARDWARE_MODE;")
-cpp_quote("")
-cpp_quote("typedef struct _MFT_REGISTRATION_INFO {")
-cpp_quote("  CLSID                  clsid;")
-cpp_quote("  GUID                   guidCategory;")
-cpp_quote("  UINT32                 uiFlags;")
-cpp_quote("  LPCWSTR                pszName;")
-cpp_quote("  DWORD                  cInTypes;")
-cpp_quote("  MFT_REGISTER_TYPE_INFO *pInTypes;")
-cpp_quote("  DWORD                  cOutTypes;")
-cpp_quote("  MFT_REGISTER_TYPE_INFO *pOutTypes;")
-cpp_quote("} MFT_REGISTRATION_INFO;")
-cpp_quote("")
+
+typedef enum MFTOPOLOGY_DXVA_MODE
+{
+    MFTOPOLOGY_DXVA_DEFAULT = 0,
+    MFTOPOLOGY_DXVA_NONE    = 1,
+    MFTOPOLOGY_DXVA_FULL    = 2
+} MFTOPOLOGY_DXVA_MODE;
+
+typedef enum MFTOPOLOGY_HARDWARE_MODE
+{
+    MFTOPOLOGY_HWMODE_SOFTWARE_ONLY = 0,
+    MFTOPOLOGY_HWMODE_USE_HARDWARE  = 1
+} MFTOPOLOGY_HARDWARE_MODE;
+
+typedef struct _MFT_REGISTRATION_INFO
+{
+    CLSID clsid;
+    GUID guidCategory;
+    UINT32 uiFlags;
+    LPCWSTR pszName;
+    DWORD cInTypes;
+    [size_is(cInTypes)] MFT_REGISTER_TYPE_INFO *pInTypes;
+    DWORD cOutTypes;
+    [size_is(cOutTypes)] MFT_REGISTER_TYPE_INFO *pOutTypes;
+} MFT_REGISTRATION_INFO;
+
 cpp_quote("#endif /*(WINVER >= 0x0601)*/")
-cpp_quote("")
+
 cpp_quote("typedef struct _ASFFlatPicture {")
 cpp_quote("  BYTE  bPictureType;")
 cpp_quote("  DWORD dwDataLen;")
@@ -526,42 +554,46 @@ cpp_quote("  BYTE  bTimeStampFormat;")
 cpp_quote("  BYTE  bContentType;")
 cpp_quote("  DWORD dwLyricsLen;")
 cpp_quote("} ASF_FLAT_SYNCHRONISED_LYRICS;")
-cpp_quote("")
-cpp_quote("typedef enum SAMPLE_PROTECTION_VERSION {")
-cpp_quote("  SAMPLE_PROTECTION_VERSION_NO           = 0,")
-cpp_quote("  SAMPLE_PROTECTION_VERSION_BASIC_LOKI   = 1,")
-cpp_quote("  SAMPLE_PROTECTION_VERSION_SCATTER      = 2,")
-cpp_quote("  SAMPLE_PROTECTION_VERSION_RC4          = 3")
-cpp_quote("} SAMPLE_PROTECTION_VERSION;")
-cpp_quote("")
-cpp_quote("typedef struct _MFINPUTTRUSTAUTHORITY_ACTION {")
-cpp_quote("  MFPOLICYMANAGER_ACTION Action;")
-cpp_quote("  BYTE                   *pbTicket;")
-cpp_quote("  DWORD                  cbTicket;")
-cpp_quote("} MFINPUTTRUSTAUTHORITY_ACCESS_ACTION;")
-cpp_quote("")
-cpp_quote("typedef struct _MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {")
-cpp_quote("  DWORD                               dwSize;")
-cpp_quote("  DWORD                               dwVer;")
-cpp_quote("  DWORD                               cbSignatureOffset;")
-cpp_quote("  DWORD                               cbSignatureSize;")
-cpp_quote("  DWORD                               cbExtensionOffset;")
-cpp_quote("  DWORD                               cbExtensionSize;")
-cpp_quote("  DWORD                               cActions;")
-cpp_quote("  MFINPUTTRUSTAUTHORITY_ACCESS_ACTION rgOutputActions[1];")
-cpp_quote("} MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS;")
-cpp_quote("")
-cpp_quote("typedef struct _MFNetCredentialManagerGetParam {")
-cpp_quote("  HRESULT hrOp;")
-cpp_quote("  WINBOOL    fAllowLoggedOnUser;")
-cpp_quote("  WINBOOL    fClearTextPackage;")
-cpp_quote("  LPCWSTR pszUrl;")
-cpp_quote("  LPCWSTR pszSite;")
-cpp_quote("  LPCWSTR pszRealm;")
-cpp_quote("  LPCWSTR pszPackage;")
-cpp_quote("  LONG    nRetries;")
-cpp_quote("} MFNetCredentialManagerGetParam;")
-cpp_quote("")
+
+typedef enum SAMPLE_PROTECTION_VERSION
+{
+    SAMPLE_PROTECTION_VERSION_NO         = 0,
+    SAMPLE_PROTECTION_VERSION_BASIC_LOKI = 1,
+    SAMPLE_PROTECTION_VERSION_SCATTER    = 2,
+    SAMPLE_PROTECTION_VERSION_RC4        = 3
+} SAMPLE_PROTECTION_VERSION;
+
+typedef struct _MFINPUTTRUSTAUTHORITY_ACTION
+{
+    MFPOLICYMANAGER_ACTION Action;
+    BYTE                   *pbTicket;
+    DWORD                  cbTicket;
+} MFINPUTTRUSTAUTHORITY_ACCESS_ACTION;
+
+typedef struct _MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS
+{
+    DWORD                               dwSize;
+    DWORD                               dwVer;
+    DWORD                               cbSignatureOffset;
+    DWORD                               cbSignatureSize;
+    DWORD                               cbExtensionOffset;
+    DWORD                               cbExtensionSize;
+    DWORD                               cActions;
+    MFINPUTTRUSTAUTHORITY_ACCESS_ACTION rgOutputActions[1];
+} MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS;
+
+typedef struct _MFNetCredentialManagerGetParam
+{
+    HRESULT hrOp;
+    WINBOOL fAllowLoggedOnUser;
+    WINBOOL fClearTextPackage;
+    LPCWSTR pszUrl;
+    LPCWSTR pszSite;
+    LPCWSTR pszRealm;
+    LPCWSTR pszPackage;
+    LONG    nRetries;
+} MFNetCredentialManagerGetParam;
+
 cpp_quote("#define MF_1_BYTE_ALIGNMENT     0x00000000")
 cpp_quote("#define MF_2_BYTE_ALIGNMENT     0x00000001")
 cpp_quote("#define MF_4_BYTE_ALIGNMENT     0x00000003")
@@ -579,13 +611,16 @@ cpp_quote("#define MEDIASINK_RATELESS                      0x00000004")
 cpp_quote("#define MEDIASINK_CLOCK_REQUIRED                0x00000008")
 cpp_quote("#define MEDIASINK_CAN_PREROLL                   0x00000010")
 cpp_quote("#define MEDIASINK_REQUIRE_REFERENCE_MEDIATYPE   0x00000020")
-cpp_quote("")
-cpp_quote("#define MF_RESOLUTION_MEDIASOURCE                                           0x00000001")
-cpp_quote("#define MF_RESOLUTION_BYTESTREAM                                            0x00000002")
-cpp_quote("#define MF_RESOLUTION_CONTENT_DOES_NOT_HAVE_TO_MATCH_EXTENSION_OR_MIME_TYPE 0x00000010")
-cpp_quote("#define MF_RESOLUTION_KEEP_BYTE_STREAM_ALIVE_ON_FAIL                        0x00000020")
-cpp_quote("#define MF_RESOLUTION_READ                                                  0x00010000")
-cpp_quote("#define MF_RESOLUTION_WRITE                                                 0x00020000")
+
+enum
+{
+    MF_RESOLUTION_MEDIASOURCE                                           = 0x00000001,
+    MF_RESOLUTION_BYTESTREAM                                            = 0x00000002,
+    MF_RESOLUTION_CONTENT_DOES_NOT_HAVE_TO_MATCH_EXTENSION_OR_MIME_TYPE = 0x00000010,
+    MF_RESOLUTION_KEEP_BYTE_STREAM_ALIVE_ON_FAIL                        = 0x00000020,
+    MF_RESOLUTION_READ                                                  = 0x00010000,
+    MF_RESOLUTION_WRITE                                                 = 0x00020000
+};
 
 /* FIXME: Properly declare followinf interfaces: */
 interface IMFMediaSink;
