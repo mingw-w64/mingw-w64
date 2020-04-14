@@ -105,6 +105,7 @@ for f in \
 	dxva.h \
 	errors.h \
 	evcode.h \
+	exdispid.h \
 	mediaerr.h \
 	mscat.h \
 	propkeydef.h \
@@ -152,6 +153,7 @@ for f in \
 	dxgitype \
 	dxva2api \
 	endpointvolume \
+        exdisp \
 	fusion \
 	icftypes \
 	mediaobj \
@@ -164,6 +166,7 @@ for f in \
 	objectarray \
 	optary \
 	qedit \
+        spatialaudioclient \
 	taskschd \
 	thumbcache \
 	uiautomationclient \
