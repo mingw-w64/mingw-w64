@@ -871,16 +871,10 @@ typedef struct _TRACE_PERIODIC_CAPTURE_STATE_INFO {
   EXTERN_C ULONG WMIAPI TraceEvent (TRACEHANDLE TraceHandle, PEVENT_TRACE_HEADER EventTrace);
   EXTERN_C ULONG WMIAPI TraceEventInstance (TRACEHANDLE TraceHandle, PEVENT_INSTANCE_HEADER EventTrace, PEVENT_INSTANCE_INFO InstInfo, PEVENT_INSTANCE_INFO ParentInstInfo);
   EXTERN_C ULONG WMIAPI EnumerateTraceGuids (PTRACE_GUID_PROPERTIES *GuidPropertiesArray, ULONG PropertyArrayCount, PULONG GuidCount);
-  EXTERN_C TRACEHANDLE WMIAPI OpenTraceW (PEVENT_TRACE_LOGFILEW Logfile);
   EXTERN_C ULONG WMIAPI SetTraceCallback (LPCGUID pGuid, PEVENT_CALLBACK EventCallback);
   EXTERN_C ULONG WMIAPI RemoveTraceCallback (LPCGUID pGuid);
   EXTERN_C ULONG TraceMessageVa (TRACEHANDLE LoggerHandle, ULONG MessageFlags, LPCGUID MessageGuid, USHORT MessageNumber, va_list MessageArgList);
-#if WINVER >= 0x0600
-  EXTERN_C ULONG WMIAPI EnableTraceEx (LPCGUID ProviderId, LPCGUID SourceId, TRACEHANDLE TraceHandle, ULONG IsEnabled, UCHAR Level, ULONGLONG MatchAnyKeyword, ULONGLONG MatchAllKeyword, ULONG EnableProperty, PEVENT_FILTER_DESCRIPTOR EnableFilterDesc);
-  EXTERN_C ULONG WMIAPI EnumerateTraceGuidsEx (TRACE_QUERY_INFO_CLASS TraceQueryInfoClass, PVOID InBuffer, ULONG InBufferSize, PVOID OutBuffer, ULONG OutBufferSize, PULONG ReturnLength);
-#endif
 #if WINVER >= 0x0601
-  EXTERN_C ULONG WMIAPI EnableTraceEx2 (TRACEHANDLE TraceHandle, LPCGUID ProviderId, ULONG ControlCode, UCHAR Level, ULONGLONG MatchAnyKeyword, ULONGLONG MatchAllKeyword, ULONG Timeout, PENABLE_TRACE_PARAMETERS EnableParameters);
   EXTERN_C ULONG WMIAPI TraceSetInformation (TRACEHANDLE SessionHandle, TRACE_INFO_CLASS InformationClass, PVOID TraceInformation, ULONG InformationLength);
 #endif
 #if WINVER >= 0x0602
@@ -902,6 +896,15 @@ typedef struct _ETW_TRACE_PARTITION_INFORMATION {
     ULONG PartitionType;
 } ETW_TRACE_PARTITION_INFORMATION, *PETW_TRACE_PARTITION_INFORMATION;
 
+  EXTERN_C TRACEHANDLE WMIAPI OpenTraceW (PEVENT_TRACE_LOGFILEW Logfile);
+#if WINVER >= 0x0600
+  EXTERN_C ULONG WMIAPI EnableTraceEx (LPCGUID ProviderId, LPCGUID SourceId, TRACEHANDLE TraceHandle, ULONG IsEnabled, UCHAR Level, ULONGLONG MatchAnyKeyword, ULONGLONG MatchAllKeyword, ULONG EnableProperty, PEVENT_FILTER_DESCRIPTOR EnableFilterDesc);
+  EXTERN_C ULONG WMIAPI EnumerateTraceGuidsEx (TRACE_QUERY_INFO_CLASS TraceQueryInfoClass, PVOID InBuffer, ULONG InBufferSize, PVOID OutBuffer, ULONG OutBufferSize, PULONG ReturnLength);
+#endif
+#if WINVER >= 0x0601
+  EXTERN_C ULONG WMIAPI EnableTraceEx2 (TRACEHANDLE TraceHandle, LPCGUID ProviderId, ULONG ControlCode, UCHAR Level, ULONGLONG MatchAnyKeyword, ULONGLONG MatchAllKeyword, ULONG Timeout, PENABLE_TRACE_PARAMETERS EnableParameters);
+#endif
+  EXTERN_C ULONG WMIAPI StartTraceA (PTRACEHANDLE TraceHandle, LPCSTR InstanceName, PEVENT_TRACE_PROPERTIES Properties);
   EXTERN_C ULONG WMIAPI StartTraceW (PTRACEHANDLE TraceHandle, LPCWSTR InstanceName, PEVENT_TRACE_PROPERTIES Properties);
   EXTERN_C ULONG WMIAPI StopTraceW (TRACEHANDLE TraceHandle, LPCWSTR InstanceName, PEVENT_TRACE_PROPERTIES Properties);
   EXTERN_C ULONG WMIAPI QueryTraceW (TRACEHANDLE TraceHandle, LPCWSTR InstanceName, PEVENT_TRACE_PROPERTIES Properties);
