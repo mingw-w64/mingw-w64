@@ -1171,6 +1171,11 @@ extern "C" {
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
   WINBASEAPI VOID WINAPI RaiseFailFastException (PEXCEPTION_RECORD pExceptionRecord, PCONTEXT pContextRecord, DWORD dwFlags);
   WINBASEAPI DWORD WINAPI SetThreadIdealProcessor (HANDLE hThread, DWORD dwIdealProcessor);
+  WINBASEAPI LPVOID WINAPI CreateFiberEx (SIZE_T dwStackCommitSize, SIZE_T dwStackReserveSize, DWORD dwFlags, LPFIBER_START_ROUTINE lpStartAddress, LPVOID lpParameter);
+  WINBASEAPI VOID WINAPI DeleteFiber (LPVOID lpFiber);
+  WINBASEAPI VOID WINAPI SwitchToFiber (LPVOID lpFiber);
+  WINBASEAPI WINBOOL WINAPI ConvertFiberToThread (VOID);
+  WINBASEAPI LPVOID WINAPI ConvertThreadToFiberEx (LPVOID lpParameter, DWORD dwFlags);
 #endif
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
@@ -1178,12 +1183,7 @@ extern "C" {
 #define FIBER_FLAG_FLOAT_SWITCH 0x1
 
   WINBASEAPI LPVOID WINAPI CreateFiber (SIZE_T dwStackSize, LPFIBER_START_ROUTINE lpStartAddress, LPVOID lpParameter);
-  WINBASEAPI LPVOID WINAPI CreateFiberEx (SIZE_T dwStackCommitSize, SIZE_T dwStackReserveSize, DWORD dwFlags, LPFIBER_START_ROUTINE lpStartAddress, LPVOID lpParameter);
-  WINBASEAPI VOID WINAPI DeleteFiber (LPVOID lpFiber);
   WINBASEAPI LPVOID WINAPI ConvertThreadToFiber (LPVOID lpParameter);
-  WINBASEAPI LPVOID WINAPI ConvertThreadToFiberEx (LPVOID lpParameter, DWORD dwFlags);
-  WINBASEAPI WINBOOL WINAPI ConvertFiberToThread (VOID);
-  WINBASEAPI VOID WINAPI SwitchToFiber (LPVOID lpFiber);
   WINBASEAPI DWORD_PTR WINAPI SetThreadAffinityMask (HANDLE hThread, DWORD_PTR dwThreadAffinityMask);
 
   /* TODO: Add RTL_UMS... to winnt.h header and add UMS-base API.  */
