@@ -1004,7 +1004,6 @@ extern "C" {
   WINBASEAPI LANGID WINAPI GetSystemDefaultUILanguage (void);
   WINBASEAPI LANGID WINAPI GetUserDefaultUILanguage (void);
   WINBASEAPI LANGID WINAPI GetSystemDefaultLangID (void);
-  WINBASEAPI LANGID WINAPI GetUserDefaultLangID (void);
   WINBASEAPI LCID WINAPI GetSystemDefaultLCID (void);
   WINBASEAPI LCID WINAPI GetUserDefaultLCID (void);
   WINBASEAPI LANGID WINAPI SetThreadUILanguage (LANGID LangId);
@@ -1048,6 +1047,7 @@ extern "C" {
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
   WINBASEAPI WINBOOL WINAPI EnumSystemCodePagesA (CODEPAGE_ENUMPROCA lpCodePageEnumProc, DWORD dwFlags);
   WINBASEAPI WINBOOL WINAPI EnumSystemCodePagesW (CODEPAGE_ENUMPROCW lpCodePageEnumProc, DWORD dwFlags);
+  WINBASEAPI LANGID WINAPI GetUserDefaultLangID (void);
 
 #define EnumSystemCodePages __MINGW_NAME_AW(EnumSystemCodePages)
 
