@@ -15,6 +15,7 @@ extern "C" {
 #endif
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
+  WINBASEAPI VOID WINAPI DebugBreak (VOID);
   WINBASEAPI WINBOOL WINAPI IsDebuggerPresent (VOID);
   WINBASEAPI VOID WINAPI OutputDebugStringA (LPCSTR lpOutputString);
   WINBASEAPI VOID WINAPI OutputDebugStringW (LPCWSTR lpOutputString);
@@ -23,7 +24,6 @@ extern "C" {
 #endif
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
-  WINBASEAPI VOID WINAPI DebugBreak (VOID);
   WINBASEAPI WINBOOL APIENTRY ContinueDebugEvent (DWORD dwProcessId, DWORD dwThreadId, DWORD dwContinueStatus);
   WINBASEAPI WINBOOL APIENTRY WaitForDebugEvent (LPDEBUG_EVENT lpDebugEvent, DWORD dwMilliseconds);
   WINBASEAPI WINBOOL APIENTRY DebugActiveProcess (DWORD dwProcessId);
