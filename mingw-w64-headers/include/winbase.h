@@ -1194,16 +1194,9 @@ extern "C" {
     ThreadInformationClassMax
   } THREAD_INFORMATION_CLASS;
 
-  typedef enum _PROCESS_INFORMATION_CLASS {
-    ProcessMemoryPriority,
-    ProcessInformationClassMax
-  } PROCESS_INFORMATION_CLASS;
-
 #if _WIN32_WINNT >= 0x0602
   WINBASEAPI WINBOOL WINAPI GetThreadInformation (HANDLE hThread, THREAD_INFORMATION_CLASS ThreadInformationClass, LPVOID ThreadInformation, DWORD ThreadInformationSize);
   WINBASEAPI WINBOOL WINAPI SetThreadInformation (HANDLE hThread, THREAD_INFORMATION_CLASS ThreadInformationClass, LPVOID ThreadInformation, DWORD ThreadInformationSize);
-  WINBASEAPI WINBOOL WINAPI GetProcessInformation (HANDLE hProcess, PROCESS_INFORMATION_CLASS ProcessInformationClass, LPVOID ProcessInformation, DWORD ProcessInformationSize);
-  WINBASEAPI WINBOOL WINAPI SetProcessInformation (HANDLE hProcess, PROCESS_INFORMATION_CLASS ProcessInformationClass, LPVOID ProcessInformation, DWORD ProcessInformationSize);
 #endif
 
 #if _WIN32_WINNT >= 0x0600
@@ -1214,8 +1207,6 @@ extern "C" {
   WINBASEAPI WINBOOL WINAPI GetProcessDEPPolicy (HANDLE hProcess, LPDWORD lpFlags, PBOOL lpPermanent);
 #endif
 
-  WINBASEAPI WINBOOL WINAPI SetProcessPriorityBoost (HANDLE hProcess, WINBOOL bDisablePriorityBoost);
-  WINBASEAPI WINBOOL WINAPI GetProcessPriorityBoost (HANDLE hProcess, PBOOL pDisablePriorityBoost);
   WINBASEAPI WINBOOL WINAPI RequestWakeupLatency (LATENCY_TIME latency);
   WINBASEAPI WINBOOL WINAPI IsSystemResumeAutomatic (VOID);
   WINBASEAPI WINBOOL WINAPI GetThreadIOPendingFlag (HANDLE hThread, PBOOL lpIOIsPending);
@@ -1355,6 +1346,8 @@ extern "C" {
 #endif
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
+  WINBASEAPI WINBOOL WINAPI GetProcessPriorityBoost (HANDLE hProcess, PBOOL pDisablePriorityBoost);
+  WINBASEAPI WINBOOL WINAPI SetProcessPriorityBoost (HANDLE hProcess, WINBOOL bDisablePriorityBoost);
   WINBASEAPI int WINAPI MulDiv (int nNumber, int nNumerator, int nDenominator);
 
 #ifndef __WIDL__
@@ -1557,7 +1550,14 @@ extern "C" {
 #endif
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP) && _WIN32_WINNT >= 0x0602
+  typedef enum _PROCESS_INFORMATION_CLASS {
+    ProcessMemoryPriority,
+    ProcessInformationClassMax
+  } PROCESS_INFORMATION_CLASS;
+
   WINBASEAPI HMODULE WINAPI LoadPackagedLibrary (LPCWSTR lpwLibFileName, DWORD Reserved);
+  WINBASEAPI WINBOOL WINAPI GetProcessInformation (HANDLE hProcess, PROCESS_INFORMATION_CLASS ProcessInformationClass, LPVOID ProcessInformation, DWORD ProcessInformationSize);
+  WINBASEAPI WINBOOL WINAPI SetProcessInformation (HANDLE hProcess, PROCESS_INFORMATION_CLASS ProcessInformationClass, LPVOID ProcessInformation, DWORD ProcessInformationSize);
 #endif
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
