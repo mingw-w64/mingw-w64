@@ -1178,6 +1178,14 @@ extern "C" {
   WINBASEAPI LPVOID WINAPI ConvertThreadToFiberEx (LPVOID lpParameter, DWORD dwFlags);
 #endif
 
+#if _WIN32_WINNT >= 0x0602
+  typedef enum _THREAD_INFORMATION_CLASS {
+    ThreadMemoryPriority,
+    ThreadAbsoluteCpuPriority,
+    ThreadInformationClassMax
+  } THREAD_INFORMATION_CLASS;
+#endif
+
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 
 #define FIBER_FLAG_FLOAT_SWITCH 0x1
@@ -1188,15 +1196,8 @@ extern "C" {
 
   /* TODO: Add RTL_UMS... to winnt.h header and add UMS-base API.  */
 
-  typedef enum _THREAD_INFORMATION_CLASS {
-    ThreadMemoryPriority,
-    ThreadAbsoluteCpuPriority,
-    ThreadInformationClassMax
-  } THREAD_INFORMATION_CLASS;
-
 #if _WIN32_WINNT >= 0x0602
   WINBASEAPI WINBOOL WINAPI GetThreadInformation (HANDLE hThread, THREAD_INFORMATION_CLASS ThreadInformationClass, LPVOID ThreadInformation, DWORD ThreadInformationSize);
-  WINBASEAPI WINBOOL WINAPI SetThreadInformation (HANDLE hThread, THREAD_INFORMATION_CLASS ThreadInformationClass, LPVOID ThreadInformation, DWORD ThreadInformationSize);
 #endif
 
 #if _WIN32_WINNT >= 0x0600
@@ -1219,6 +1220,12 @@ extern "C" {
   WINBASEAPI HANDLE WINAPI PowerCreateRequest (PREASON_CONTEXT Context);
   WINBASEAPI WINBOOL WINAPI PowerSetRequest (HANDLE PowerRequest, POWER_REQUEST_TYPE RequestType);
   WINBASEAPI WINBOOL WINAPI PowerClearRequest (HANDLE PowerRequest, POWER_REQUEST_TYPE RequestType);
+#endif
+#endif
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
+#if _WIN32_WINNT >= 0x0602
+  WINBASEAPI WINBOOL WINAPI SetThreadInformation (HANDLE hThread, THREAD_INFORMATION_CLASS ThreadInformationClass, LPVOID ThreadInformation, DWORD ThreadInformationSize);
 #endif
 #endif
 
