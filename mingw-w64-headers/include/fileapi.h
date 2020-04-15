@@ -27,11 +27,9 @@ extern "C" {
 #endif
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) || _WIN32_WINNT >= _WIN32_WINNT_WIN10
-WINBASEAPI HANDLE WINAPI CreateFileW (LPCWSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode, LPSECURITY_ATTRIBUTES lpSecurityAttributes, DWORD dwCreationDisposition, DWORD dwFlagsAndAttributes, HANDLE hTemplateFile);
 #define CreateFile __MINGW_NAME_AW(CreateFile)
 WINBASEAPI DWORD WINAPI GetFileAttributesW (LPCWSTR lpFileName);
 #define GetFileAttributes __MINGW_NAME_AW(GetFileAttributes)
-WINBASEAPI DWORD WINAPI GetFileSize (HANDLE hFile, LPDWORD lpFileSizeHigh);
 WINBASEAPI DWORD WINAPI SetFilePointer (HANDLE hFile, LONG lDistanceToMove, PLONG lpDistanceToMoveHigh, DWORD dwMoveMethod);
 #endif
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
@@ -50,6 +48,8 @@ WINBASEAPI DWORD WINAPI SetFilePointer (HANDLE hFile, LONG lDistanceToMove, PLON
     *LPBY_HANDLE_FILE_INFORMATION;
 
   WINBASEAPI HANDLE WINAPI CreateFileA (LPCSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode, LPSECURITY_ATTRIBUTES lpSecurityAttributes, DWORD dwCreationDisposition, DWORD dwFlagsAndAttributes, HANDLE hTemplateFile);
+  WINBASEAPI HANDLE WINAPI CreateFileW (LPCWSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode, LPSECURITY_ATTRIBUTES lpSecurityAttributes, DWORD dwCreationDisposition, DWORD dwFlagsAndAttributes, HANDLE hTemplateFile);
+  WINBASEAPI DWORD WINAPI GetFileSize (HANDLE hFile, LPDWORD lpFileSizeHigh);
   WINBASEAPI WINBOOL WINAPI DefineDosDeviceW (DWORD dwFlags, LPCWSTR lpDeviceName, LPCWSTR lpTargetPath);
   WINBASEAPI WINBOOL WINAPI FindCloseChangeNotification (HANDLE hChangeHandle);
   WINBASEAPI HANDLE WINAPI FindFirstChangeNotificationA (LPCSTR lpPathName, WINBOOL bWatchSubtree, DWORD dwNotifyFilter);
