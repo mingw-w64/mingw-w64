@@ -26,15 +26,6 @@ extern "C" {
     SIZE_T NumberOfBytes;
   } WIN32_MEMORY_RANGE_ENTRY, *PWIN32_MEMORY_RANGE_ENTRY;
 #endif
-
-#if _WIN32_WINNT >= _WIN32_WINNT_WINBLUE
-  typedef enum _OFFER_PRIORITY {
-    VmOfferPriorityVeryLow = 1,
-    VmOfferPriorityLow,
-    VmOfferPriorityBelowNormal,
-    VmOfferPriorityNormal
-  } OFFER_PRIORITY;
-#endif
 #endif
 
 #if (WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP) && _WIN32_WINNT >= _WIN32_WINNT_WIN10) || WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
@@ -89,7 +80,6 @@ extern "C" {
 
   WINBASEAPI LPVOID WINAPI VirtualAlloc (LPVOID lpAddress, SIZE_T dwSize, DWORD flAllocationType, DWORD flProtect);
   WINBASEAPI LPVOID WINAPI VirtualAllocEx (HANDLE hProcess, LPVOID lpAddress, SIZE_T dwSize, DWORD flAllocationType, DWORD flProtect);
-  WINBASEAPI WINBOOL WINAPI VirtualFreeEx (HANDLE hProcess, LPVOID lpAddress, SIZE_T dwSize, DWORD dwFreeType);
   WINBASEAPI WINBOOL WINAPI VirtualProtectEx (HANDLE hProcess, LPVOID lpAddress, SIZE_T dwSize, DWORD flNewProtect, PDWORD lpflOldProtect);
   WINBASEAPI SIZE_T WINAPI VirtualQueryEx (HANDLE hProcess, LPCVOID lpAddress, PMEMORY_BASIC_INFORMATION lpBuffer, SIZE_T dwLength);
   WINBASEAPI WINBOOL WINAPI ReadProcessMemory (HANDLE hProcess, LPCVOID lpBaseAddress, LPVOID lpBuffer, SIZE_T nSize, SIZE_T *lpNumberOfBytesRead);
@@ -98,13 +88,8 @@ extern "C" {
   WINBASEAPI HANDLE WINAPI OpenFileMappingW (DWORD dwDesiredAccess, WINBOOL bInheritHandle, LPCWSTR lpName);
   WINBASEAPI LPVOID WINAPI MapViewOfFile (HANDLE hFileMappingObject, DWORD dwDesiredAccess, DWORD dwFileOffsetHigh, DWORD dwFileOffsetLow, SIZE_T dwNumberOfBytesToMap);
   WINBASEAPI LPVOID WINAPI MapViewOfFileEx (HANDLE hFileMappingObject, DWORD dwDesiredAccess, DWORD dwFileOffsetHigh, DWORD dwFileOffsetLow, SIZE_T dwNumberOfBytesToMap, LPVOID lpBaseAddress);
-  WINBASEAPI SIZE_T WINAPI GetLargePageMinimum (VOID);
-  WINBASEAPI WINBOOL WINAPI GetProcessWorkingSetSizeEx (HANDLE hProcess, PSIZE_T lpMinimumWorkingSetSize, PSIZE_T lpMaximumWorkingSetSize, PDWORD Flags);
-  WINBASEAPI WINBOOL WINAPI SetProcessWorkingSetSizeEx (HANDLE hProcess, SIZE_T dwMinimumWorkingSetSize, SIZE_T dwMaximumWorkingSetSize, DWORD Flags);
   WINBASEAPI WINBOOL WINAPI VirtualLock (LPVOID lpAddress, SIZE_T dwSize);
   WINBASEAPI WINBOOL WINAPI VirtualUnlock (LPVOID lpAddress, SIZE_T dwSize);
-  WINBASEAPI UINT WINAPI GetWriteWatch (DWORD dwFlags, PVOID lpBaseAddress, SIZE_T dwRegionSize, PVOID *lpAddresses, ULONG_PTR *lpdwCount, LPDWORD lpdwGranularity);
-  WINBASEAPI UINT WINAPI ResetWriteWatch (LPVOID lpBaseAddress, SIZE_T dwRegionSize);
   WINBASEAPI HANDLE WINAPI CreateMemoryResourceNotification (MEMORY_RESOURCE_NOTIFICATION_TYPE NotificationType);
   WINBASEAPI WINBOOL WINAPI QueryMemoryResourceNotification (HANDLE ResourceNotificationHandle, PBOOL ResourceState);
   WINBASEAPI WINBOOL WINAPI GetSystemFileCacheSize (PSIZE_T lpMinimumFileCacheSize, PSIZE_T lpMaximumFileCacheSize, PDWORD lpFlags);
@@ -138,13 +123,6 @@ extern "C" {
   typedef BAD_MEMORY_CALLBACK_ROUTINE *PBAD_MEMORY_CALLBACK_ROUTINE;
   WINBASEAPI PVOID WINAPI RegisterBadMemoryNotification(PBAD_MEMORY_CALLBACK_ROUTINE Callback);
   WINBASEAPI WINBOOL WINAPI UnregisterBadMemoryNotification(PVOID RegistrationHandle);
-  WINBASEAPI WINBOOL WINAPI UnmapViewOfFileEx (PVOID BaseAddress, ULONG UnmapFlags);
-#endif
-
-#if _WIN32_WINNT >= _WIN32_WINNT_WINBLUE
-  WINBASEAPI DWORD WINAPI DiscardVirtualMemory (PVOID VirtualAddress, SIZE_T Size);
-  WINBASEAPI DWORD WINAPI OfferVirtualMemory (PVOID VirtualAddress, SIZE_T Size, OFFER_PRIORITY Priority);
-  WINBASEAPI DWORD WINAPI ReclaimVirtualMemory (PVOID VirtualAddress, SIZE_T Size);
 #endif
 
 #if NTDDI_VERSION >= NTDDI_WIN10_RS1
@@ -190,6 +168,33 @@ extern "C" {
 #endif
 
 #endif /* WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) */
+  
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
+  WINBASEAPI SIZE_T WINAPI GetLargePageMinimum (VOID);
+  WINBASEAPI WINBOOL WINAPI GetProcessWorkingSetSizeEx (HANDLE hProcess, PSIZE_T lpMinimumWorkingSetSize, PSIZE_T lpMaximumWorkingSetSize, PDWORD Flags);
+  WINBASEAPI WINBOOL WINAPI SetProcessWorkingSetSizeEx (HANDLE hProcess, SIZE_T dwMinimumWorkingSetSize, SIZE_T dwMaximumWorkingSetSize, DWORD Flags);
+  WINBASEAPI UINT WINAPI GetWriteWatch (DWORD dwFlags, PVOID lpBaseAddress, SIZE_T dwRegionSize, PVOID *lpAddresses, ULONG_PTR *lpdwCount, LPDWORD lpdwGranularity);
+  WINBASEAPI UINT WINAPI ResetWriteWatch (LPVOID lpBaseAddress, SIZE_T dwRegionSize);
+  WINBASEAPI WINBOOL WINAPI VirtualFreeEx (HANDLE hProcess, LPVOID lpAddress, SIZE_T dwSize, DWORD dwFreeType);
+
+#if _WIN32_WINNT >= _WIN32_WINNT_WINBLUE
+  typedef enum _OFFER_PRIORITY {
+    VmOfferPriorityVeryLow = 1,
+    VmOfferPriorityLow,
+    VmOfferPriorityBelowNormal,
+    VmOfferPriorityNormal
+  } OFFER_PRIORITY;
+
+  WINBASEAPI DWORD WINAPI DiscardVirtualMemory (PVOID VirtualAddress, SIZE_T Size);
+  WINBASEAPI DWORD WINAPI OfferVirtualMemory (PVOID VirtualAddress, SIZE_T Size, OFFER_PRIORITY Priority);
+  WINBASEAPI DWORD WINAPI ReclaimVirtualMemory (PVOID VirtualAddress, SIZE_T Size);
+#endif
+
+#if _WIN32_WINNT >= _WIN32_WINNT_WIN8
+  WINBASEAPI WINBOOL WINAPI UnmapViewOfFileEx (PVOID BaseAddress, ULONG UnmapFlags);
+#endif
+#endif /* WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP) */
+
 
 #ifdef __cplusplus
 }
