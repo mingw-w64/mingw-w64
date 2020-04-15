@@ -2230,8 +2230,6 @@ extern "C" {
   WINBASEAPI WINBOOL WINAPI SetFileBandwidthReservation (HANDLE hFile, DWORD nPeriodMilliseconds, DWORD nBytesPerPeriod, WINBOOL bDiscardable, LPDWORD lpTransferSize, LPDWORD lpNumOutstandingRequests);
   WINBASEAPI WINBOOL WINAPI GetFileBandwidthReservation (HANDLE hFile, LPDWORD lpPeriodMilliseconds, LPDWORD lpBytesPerPeriod, LPBOOL pDiscardable, LPDWORD lpTransferSize, LPDWORD lpNumOutstandingRequests);
 #endif
-  WINBASEAPI WINBOOL WINAPI SetVolumeLabelA (LPCSTR lpRootPathName, LPCSTR lpVolumeName);
-  WINBASEAPI WINBOOL WINAPI SetVolumeLabelW (LPCWSTR lpRootPathName, LPCWSTR lpVolumeName);
   WINBASEAPI VOID WINAPI SetFileApisToOEM (VOID);
   WINBASEAPI VOID WINAPI SetFileApisToANSI (VOID);
   WINBASEAPI WINBOOL WINAPI AreFileApisANSI (VOID);
@@ -2260,7 +2258,6 @@ extern "C" {
 #endif
 
 #define GetNamedPipeHandleState __MINGW_NAME_AW(GetNamedPipeHandleState)
-#define SetVolumeLabel __MINGW_NAME_AW(SetVolumeLabel)
 #define ClearEventLog __MINGW_NAME_AW(ClearEventLog)
 #define BackupEventLog __MINGW_NAME_AW(BackupEventLog)
 #define OpenEventLog __MINGW_NAME_AW(OpenEventLog)
@@ -2414,8 +2411,6 @@ extern "C" {
 
 #define MAX_COMPUTERNAME_LENGTH 15
 
-  WINBASEAPI WINBOOL WINAPI GetComputerNameA (LPSTR lpBuffer, LPDWORD nSize);
-  WINBASEAPI WINBOOL WINAPI GetComputerNameW (LPWSTR lpBuffer, LPDWORD nSize);
   WINBASEAPI WINBOOL WINAPI SetComputerNameA (LPCSTR lpComputerName);
   WINBASEAPI WINBOOL WINAPI SetComputerNameW (LPCWSTR lpComputerName);
   WINBASEAPI WINBOOL WINAPI SetComputerNameExA (COMPUTER_NAME_FORMAT NameType, LPCTSTR lpBuffer);
@@ -2428,7 +2423,6 @@ extern "C" {
 #define SetComputerNameEx SetComputerNameExA
 #endif
 
-#define GetComputerName __MINGW_NAME_AW(GetComputerName)
 #define SetComputerName __MINGW_NAME_AW(SetComputerName)
 #define DnsHostnameToComputerName __MINGW_NAME_AW(DnsHostnameToComputerName)
 #define GetUserName __MINGW_NAME_AW(GetUserName)
@@ -2526,6 +2520,15 @@ extern "C" {
 #define GetCurrentHwProfile __MINGW_NAME_AW(GetCurrentHwProfile)
 
 #define VerifyVersionInfo __MINGW_NAME_AW(VerifyVersionInfo)
+#endif
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
+  WINBASEAPI WINBOOL WINAPI SetVolumeLabelA (LPCSTR lpRootPathName, LPCSTR lpVolumeName);
+  WINBASEAPI WINBOOL WINAPI SetVolumeLabelW (LPCWSTR lpRootPathName, LPCWSTR lpVolumeName);
+#define SetVolumeLabel __MINGW_NAME_AW(SetVolumeLabel)
+  WINBASEAPI WINBOOL WINAPI GetComputerNameA (LPSTR lpBuffer, LPDWORD nSize);
+  WINBASEAPI WINBOOL WINAPI GetComputerNameW (LPWSTR lpBuffer, LPDWORD nSize);
+#define GetComputerName __MINGW_NAME_AW(GetComputerName)
 #endif
 
 #include <winerror.h>
