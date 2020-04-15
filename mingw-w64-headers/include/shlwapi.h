@@ -935,7 +935,7 @@ typedef const QITAB *LPCQITAB;
 #define CTF_WAIT_ALLOWCOM 0x00000040
 
   LWSTDAPI_(WINBOOL) SHCreateThread(LPTHREAD_START_ROUTINE pfnThreadProc,void *pData,DWORD dwFlags,LPTHREAD_START_ROUTINE pfnCallback);
-  LWSTDAPI SHReleaseThreadRef();
+  LWSTDAPI SHReleaseThreadRef(void);
 
 #ifndef NO_SHLWAPI_GDI
   LWSTDAPI_(HPALETTE) SHCreateShellPalette(HDC hdc);
@@ -974,7 +974,7 @@ typedef const QITAB *LPCQITAB;
   STDAPI DllInstall(WINBOOL bInstall,LPCWSTR pszCmdLine);
 
 #if (_WIN32_IE >= 0x0602)
-  LWSTDAPI_(WINBOOL) IsInternetESCEnabled();
+  LWSTDAPI_(WINBOOL) IsInternetESCEnabled(void);
 #endif
 
 LWSTDAPI_(IStream *) SHCreateMemStream(const BYTE *pInit, _In_ UINT cbInit);
