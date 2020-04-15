@@ -1224,6 +1224,12 @@ extern "C" {
 #endif
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
+#if _WIN32_WINNT >= 0x0600
+#define FILE_SKIP_COMPLETION_PORT_ON_SUCCESS 0x1
+#define FILE_SKIP_SET_EVENT_ON_HANDLE 0x2
+
+  WINBASEAPI WINBOOL WINAPI SetFileCompletionNotificationModes (HANDLE FileHandle, UCHAR Flags);
+#endif
 #if _WIN32_WINNT >= 0x0602
   WINBASEAPI WINBOOL WINAPI SetThreadInformation (HANDLE hThread, THREAD_INFORMATION_CLASS ThreadInformationClass, LPVOID ThreadInformation, DWORD ThreadInformationSize);
 #endif
@@ -1243,10 +1249,6 @@ extern "C" {
 #define HasOverlappedIoCompleted(lpOverlapped) (((DWORD) (lpOverlapped)->Internal) != STATUS_PENDING)
 
 #if _WIN32_WINNT >= 0x0600
-#define FILE_SKIP_COMPLETION_PORT_ON_SUCCESS 0x1
-#define FILE_SKIP_SET_EVENT_ON_HANDLE 0x2
-
-  WINBASEAPI WINBOOL WINAPI SetFileCompletionNotificationModes (HANDLE FileHandle, UCHAR Flags);
   WINBASEAPI WINBOOL WINAPI SetFileIoOverlappedRange (HANDLE FileHandle, PUCHAR OverlappedRangeStart, ULONG Length);
 #endif
 
