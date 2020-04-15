@@ -777,8 +777,10 @@ extern "C" {
   WINIMPM WINBOOL WINAPI CryptAcquireContextA (HCRYPTPROV *phProv, LPCSTR szContainer, LPCSTR szProvider, DWORD dwProvType, DWORD dwFlags);
   WINIMPM WINBOOL WINAPI CryptAcquireContextW (HCRYPTPROV *phProv, LPCWSTR szContainer, LPCWSTR szProvider, DWORD dwProvType, DWORD dwFlags);
 #define CryptAcquireContext __MINGW_NAME_AW(CryptAcquireContext)
-  WINIMPM WINBOOL WINAPI CryptReleaseContext (HCRYPTPROV hProv, DWORD dwFlags);
   WINIMPM WINBOOL WINAPI CryptGenRandom (HCRYPTPROV hProv, DWORD dwLen, BYTE *pbBuffer);
+#endif
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
+  WINIMPM WINBOOL WINAPI CryptReleaseContext (HCRYPTPROV hProv, DWORD dwFlags);
 #endif
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
   typedef struct _CMS_DH_KEY_INFO {
