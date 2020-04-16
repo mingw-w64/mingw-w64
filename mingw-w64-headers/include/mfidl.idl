@@ -311,11 +311,6 @@ typedef enum _MF_QUALITY_LEVEL
     MF_NUM_QUALITY_LEVELS     = 0x6
 } MF_QUALITY_LEVEL;
 
-cpp_quote("typedef enum MF_SOURCE_READER_CONTROL_FLAG {")
-cpp_quote("  MF_SOURCE_READER_CONTROLF_DRAIN   = 0x00000001")
-cpp_quote("} MF_SOURCE_READER_CONTROL_FLAG;")
-cpp_quote("")
-
 typedef enum _MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS
 {
     MF_TOPOLOGY_RESOLUTION_SUCCEEDED            = 0x00000000,
@@ -338,12 +333,13 @@ typedef enum _MF_TOPONODE_FLUSH_MODE
 } MF_TOPONODE_FLUSH_MODE;
 
 cpp_quote("#if (WINVER >= 0x0601)")
-cpp_quote("")
-cpp_quote("typedef enum _MF_TRANSCODE_TOPOLOGY_MODE_FLAGS {")
-cpp_quote("  MF_TRANSCODE_TOPOLOGYMODE_SOFTWARE_ONLY      = 0,")
-cpp_quote("  MF_TRANSCODE_TOPOLOGYMODE_HARDWARE_ALLOWED   = 1")
-cpp_quote("} MF_TRANSCODE_TOPOLOGYMODE_FLAGS;")
-cpp_quote("")
+
+typedef enum _MF_TRANSCODE_TOPOLOGY_MODE_FLAGS
+{
+  MF_TRANSCODE_TOPOLOGYMODE_SOFTWARE_ONLY    = 0,
+  MF_TRANSCODE_TOPOLOGYMODE_HARDWARE_ALLOWED = 1
+} MF_TRANSCODE_TOPOLOGYMODE_FLAGS;
+
 cpp_quote("#endif")
 
 typedef enum
@@ -352,12 +348,6 @@ typedef enum
     MF_LICENSE_URL_TRUSTED,
     MF_LICENSE_URL_TAMPERED
 } MF_URL_TRUST_STATUS;
-
-cpp_quote("typedef enum MFASF_INDEXERFLAGS {")
-cpp_quote("  MFASF_INDEXER_WRITE_NEW_INDEX            = 0x00000001,")
-cpp_quote("  MFASF_INDEXER_READ_FOR_REVERSEPLAYBACK   = 0x00000004,")
-cpp_quote("  MFASF_INDEXER_WRITE_FOR_LIVEREAD         = 0x00000008")
-cpp_quote("} MFASF_INDEXERFLAGS;")
 
 typedef enum _MFCLOCK_RELATIONAL_FLAGS
 {
@@ -494,14 +484,6 @@ typedef enum _MFSHUTDOWN_STATUS
     MFSHUTDOWN_COMPLETED
 } MFSHUTDOWN_STATUS;
 
-cpp_quote("typedef enum _MFSINK_WMDRMACTION {")
-cpp_quote("  MFSINK_WMDRMACTION_UNDEFINED    = 0,")
-cpp_quote("  MFSINK_WMDRMACTION_ENCODE       = 1,")
-cpp_quote("  MFSINK_WMDRMACTION_TRANSCODE    = 2,")
-cpp_quote("  MFSINK_WMDRMACTION_TRANSCRYPT   = 3,")
-cpp_quote("  MFSINK_WMDRMACTION_LAST         = 3")
-cpp_quote("} MFSINK_WMDRMACTION;")
-
 typedef enum MFSTREAMSINK_MARKER_TYPE
 {
     MFSTREAMSINK_MARKER_DEFAULT,
@@ -594,17 +576,6 @@ typedef struct _MFNetCredentialManagerGetParam
     LONG    nRetries;
 } MFNetCredentialManagerGetParam;
 
-cpp_quote("#define MF_1_BYTE_ALIGNMENT     0x00000000")
-cpp_quote("#define MF_2_BYTE_ALIGNMENT     0x00000001")
-cpp_quote("#define MF_4_BYTE_ALIGNMENT     0x00000003")
-cpp_quote("#define MF_8_BYTE_ALIGNMENT     0x00000007")
-cpp_quote("#define MF_16_BYTE_ALIGNMENT    0x0000000F")
-cpp_quote("#define MF_32_BYTE_ALIGNMENT    0x0000001F")
-cpp_quote("#define MF_64_BYTE_ALIGNMENT    0x0000003F")
-cpp_quote("#define MF_128_BYTE_ALIGNMENT   0x0000007F")
-cpp_quote("#define MF_256_BYTE_ALIGNMENT   0x000000FF")
-cpp_quote("#define MF_512_BYTE_ALIGNMENT   0x000001FF")
-cpp_quote("")
 cpp_quote("#define MEDIASINK_FIXED_STREAMS                 0x00000001")
 cpp_quote("#define MEDIASINK_CANNOT_MATCH_CLOCK            0x00000002")
 cpp_quote("#define MEDIASINK_RATELESS                      0x00000004")
