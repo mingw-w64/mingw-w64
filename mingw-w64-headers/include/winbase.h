@@ -2473,18 +2473,7 @@ extern "C" {
 #ifndef __WIDL__
   /* Add Tp... API to winnt.h header and Threadpool-base-API. */
 
-  WINBASEAPI HANDLE WINAPI CreatePrivateNamespaceA (LPSECURITY_ATTRIBUTES lpPrivateNamespaceAttributes, LPVOID lpBoundaryDescriptor, LPCSTR lpAliasPrefix);
-  WINBASEAPI HANDLE WINAPI OpenPrivateNamespaceA (LPVOID lpBoundaryDescriptor, LPCSTR lpAliasPrefix);
-  WINBASEAPI HANDLE APIENTRY CreateBoundaryDescriptorA (LPCSTR Name, ULONG Flags);
   WINBASEAPI WINBOOL WINAPI AddIntegrityLabelToBoundaryDescriptor (HANDLE *BoundaryDescriptor, PSID IntegrityLabel);
-
-#ifndef UNICODE
-#define CreatePrivateNamespace __MINGW_NAME_AW(CreatePrivateNamespace)
-#endif
-#define OpenPrivateNamespace __MINGW_NAME_AW(OpenPrivateNamespace)
-#ifndef UNICODE
-#define CreateBoundaryDescriptor __MINGW_NAME_AW(CreateBoundaryDescriptor)
-#endif
 
 #endif
 
@@ -2524,6 +2513,17 @@ extern "C" {
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
   WINBASEAPI WINBOOL WINAPI SetVolumeLabelA (LPCSTR lpRootPathName, LPCSTR lpVolumeName);
+  WINBASEAPI HANDLE WINAPI CreatePrivateNamespaceA (LPSECURITY_ATTRIBUTES lpPrivateNamespaceAttributes, LPVOID lpBoundaryDescriptor, LPCSTR lpAliasPrefix);
+  WINBASEAPI HANDLE WINAPI OpenPrivateNamespaceA (LPVOID lpBoundaryDescriptor, LPCSTR lpAliasPrefix);
+  WINBASEAPI HANDLE APIENTRY CreateBoundaryDescriptorA (LPCSTR Name, ULONG Flags);
+#ifndef UNICODE
+#define CreatePrivateNamespace __MINGW_NAME_AW(CreatePrivateNamespace)
+#endif
+#define OpenPrivateNamespace __MINGW_NAME_AW(OpenPrivateNamespace)
+#ifndef UNICODE
+#define CreateBoundaryDescriptor __MINGW_NAME_AW(CreateBoundaryDescriptor)
+#endif
+
   WINBASEAPI WINBOOL WINAPI SetVolumeLabelW (LPCWSTR lpRootPathName, LPCWSTR lpVolumeName);
 #define SetVolumeLabel __MINGW_NAME_AW(SetVolumeLabel)
   WINBASEAPI WINBOOL WINAPI GetComputerNameA (LPSTR lpBuffer, LPDWORD nSize);
