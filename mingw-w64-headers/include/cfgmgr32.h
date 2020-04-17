@@ -16,6 +16,13 @@
 extern "C" {
 #endif
 
+  typedef DWORD RETURN_TYPE;
+  typedef RETURN_TYPE CONFIGRET;
+  typedef CHAR *DEVNODEID_A,*DEVINSTID_A;
+  typedef WCHAR *DEVNODEID_W,*DEVINSTID_W;
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
+
   typedef CONST VOID *PCVOID;
 
 #define MAX_DEVICE_ID_LEN 200
@@ -40,12 +47,8 @@ extern "C" {
   typedef DWORDLONG *PDWORDLONG;
 #endif
 
-  typedef DWORD RETURN_TYPE;
-  typedef RETURN_TYPE CONFIGRET;
   typedef DWORD DEVNODE,DEVINST;
   typedef DEVNODE *PDEVNODE,*PDEVINST;
-  typedef CHAR *DEVNODEID_A,*DEVINSTID_A;
-  typedef WCHAR *DEVNODEID_W,*DEVINSTID_W;
 
   __MINGW_TYPEDEF_UAW(DEVNODEID)
   __MINGW_TYPEDEF_UAW(DEVINSTID)
@@ -712,9 +715,7 @@ extern "C" {
 #define CM_Get_HW_Prof_Flags_Ex __MINGW_NAME_AW(CM_Get_HW_Prof_Flags_Ex)
 #define CM_Get_Device_Interface_Alias __MINGW_NAME_AW(CM_Get_Device_Interface_Alias)
 #define CM_Get_Device_Interface_Alias_Ex __MINGW_NAME_AW(CM_Get_Device_Interface_Alias_Ex)
-#define CM_Get_Device_Interface_List __MINGW_NAME_AW(CM_Get_Device_Interface_List)
 #define CM_Get_Device_Interface_List_Ex __MINGW_NAME_AW(CM_Get_Device_Interface_List_Ex)
-#define CM_Get_Device_Interface_List_Size __MINGW_NAME_AW(CM_Get_Device_Interface_List_Size)
 #define CM_Get_Device_Interface_List_Size_Ex __MINGW_NAME_AW(CM_Get_Device_Interface_List_Size_Ex)
 #define CM_Locate_DevNode __MINGW_NAME_AW(CM_Locate_DevNode)
 #define CM_Locate_DevInst __MINGW_NAME_AW(CM_Locate_DevNode)
@@ -860,12 +861,8 @@ extern "C" {
   CMAPI CONFIGRET WINAPI CM_Get_Device_Interface_AliasW(LPCWSTR pszDeviceInterface,LPGUID AliasInterfaceGuid,LPWSTR pszAliasDeviceInterface,PULONG pulLength,ULONG ulFlags);
   CMAPI CONFIGRET WINAPI CM_Get_Device_Interface_Alias_ExA(LPCSTR pszDeviceInterface,LPGUID AliasInterfaceGuid,LPSTR pszAliasDeviceInterface,PULONG pulLength,ULONG ulFlags,HMACHINE hMachine);
   CMAPI CONFIGRET WINAPI CM_Get_Device_Interface_Alias_ExW(LPCWSTR pszDeviceInterface,LPGUID AliasInterfaceGuid,LPWSTR pszAliasDeviceInterface,PULONG pulLength,ULONG ulFlags,HMACHINE hMachine);
-  CMAPI CONFIGRET WINAPI CM_Get_Device_Interface_ListA(LPGUID InterfaceClassGuid,DEVINSTID_A pDeviceID,PCHAR Buffer,ULONG BufferLen,ULONG ulFlags);
-  CMAPI CONFIGRET WINAPI CM_Get_Device_Interface_ListW(LPGUID InterfaceClassGuid,DEVINSTID_W pDeviceID,PWCHAR Buffer,ULONG BufferLen,ULONG ulFlags);
   CMAPI CONFIGRET WINAPI CM_Get_Device_Interface_List_ExA(LPGUID InterfaceClassGuid,DEVINSTID_A pDeviceID,PCHAR Buffer,ULONG BufferLen,ULONG ulFlags,HMACHINE hMachine);
   CMAPI CONFIGRET WINAPI CM_Get_Device_Interface_List_ExW(LPGUID InterfaceClassGuid,DEVINSTID_W pDeviceID,PWCHAR Buffer,ULONG BufferLen,ULONG ulFlags,HMACHINE hMachine);
-  CMAPI CONFIGRET WINAPI CM_Get_Device_Interface_List_SizeA(PULONG pulLen,LPGUID InterfaceClassGuid,DEVINSTID_A pDeviceID,ULONG ulFlags);
-  CMAPI CONFIGRET WINAPI CM_Get_Device_Interface_List_SizeW(PULONG pulLen,LPGUID InterfaceClassGuid,DEVINSTID_W pDeviceID,ULONG ulFlags);
   CMAPI CONFIGRET WINAPI CM_Get_Device_Interface_List_Size_ExA(PULONG pulLen,LPGUID InterfaceClassGuid,DEVINSTID_A pDeviceID,ULONG ulFlags,HMACHINE hMachine);
   CMAPI CONFIGRET WINAPI CM_Get_Device_Interface_List_Size_ExW(PULONG pulLen,LPGUID InterfaceClassGuid,DEVINSTID_W pDeviceID,ULONG ulFlags,HMACHINE hMachine);
   CMAPI CONFIGRET WINAPI CM_Get_Log_Conf_Priority(LOG_CONF lcLogConf,PPRIORITY pPriority,ULONG ulFlags);
@@ -1052,6 +1049,18 @@ extern "C" {
 #define CR_INVALID_INDEX (0x0000003A)
 #define CR_INVALID_STRUCTURE_SIZE (0x0000003B)
 #define NUM_CR_RESULTS (0x0000003C)
+
+#endif /* WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) */
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
+#define CM_Get_Device_Interface_List __MINGW_NAME_AW(CM_Get_Device_Interface_List)
+#define CM_Get_Device_Interface_List_Size __MINGW_NAME_AW(CM_Get_Device_Interface_List_Size)
+
+  CMAPI CONFIGRET WINAPI CM_Get_Device_Interface_ListA(LPGUID InterfaceClassGuid,DEVINSTID_A pDeviceID,PCHAR Buffer,ULONG BufferLen,ULONG ulFlags);
+  CMAPI CONFIGRET WINAPI CM_Get_Device_Interface_ListW(LPGUID InterfaceClassGuid,DEVINSTID_W pDeviceID,PWCHAR Buffer,ULONG BufferLen,ULONG ulFlags);
+  CMAPI CONFIGRET WINAPI CM_Get_Device_Interface_List_SizeA(PULONG pulLen,LPGUID InterfaceClassGuid,DEVINSTID_A pDeviceID,ULONG ulFlags);
+  CMAPI CONFIGRET WINAPI CM_Get_Device_Interface_List_SizeW(PULONG pulLen,LPGUID InterfaceClassGuid,DEVINSTID_W pDeviceID,ULONG ulFlags);
+#endif
 
 #ifdef __cplusplus
 }
