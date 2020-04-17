@@ -1,0 +1,13 @@
+LIBRARY api-ms-win-core-file-l2-1-2
+
+EXPORTS
+
+CopyFile2
+CopyFileExW
+CopyFileW
+CreateHardLinkW
+CreateSymbolicLinkW
+GetFileInformationByHandleEx
+MoveFileExW
+ReadDirectoryChangesW
+ReplaceFileW
