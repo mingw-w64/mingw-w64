@@ -2608,7 +2608,6 @@ extern "C" {
   WINBASEAPI WINBOOL WINAPI FindVolumeMountPointClose (HANDLE hFindVolumeMountPoint);
   WINBASEAPI WINBOOL WINAPI SetVolumeMountPointA (LPCSTR lpszVolumeMountPoint, LPCSTR lpszVolumeName);
   WINBASEAPI WINBOOL WINAPI SetVolumeMountPointW (LPCWSTR lpszVolumeMountPoint, LPCWSTR lpszVolumeName);
-  WINBASEAPI WINBOOL WINAPI DeleteVolumeMountPointA (LPCSTR lpszVolumeMountPoint);
   WINBASEAPI WINBOOL WINAPI GetVolumeNameForVolumeMountPointA (LPCSTR lpszVolumeMountPoint, LPSTR lpszVolumeName, DWORD cchBufferLength);
   WINBASEAPI WINBOOL WINAPI GetVolumePathNameA (LPCSTR lpszFileName, LPSTR lpszVolumePathName, DWORD cchBufferLength);
   WINBASEAPI WINBOOL WINAPI GetVolumePathNamesForVolumeNameA (LPCSTR lpszVolumeName, LPCH lpszVolumePathNames, DWORD cchBufferLength, PDWORD lpcchReturnLength);
@@ -2619,7 +2618,6 @@ extern "C" {
 #ifndef UNICODE
 #define FindFirstVolume FindFirstVolumeA
 #define FindNextVolume FindNextVolumeA
-#define DeleteVolumeMountPoint DeleteVolumeMountPointA
 #define GetVolumeNameForVolumeMountPoint GetVolumeNameForVolumeMountPointA
 #define GetVolumePathName GetVolumePathNameA
 #define GetVolumePathNamesForVolumeName GetVolumePathNamesForVolumeNameA
@@ -2797,6 +2795,14 @@ extern "C" {
   WINBASEAPI VOID WINAPI ApplicationRecoveryFinished (WINBOOL bSuccess);
 #endif
 #endif
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
+  WINBASEAPI WINBOOL WINAPI DeleteVolumeMountPointA (LPCSTR lpszVolumeMountPoint);
+#ifndef UNICODE
+#define DeleteVolumeMountPoint DeleteVolumeMountPointA
+#endif
+#endif /* WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP) */
+
 
 #if _WIN32_WINNT >= 0x0600
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
