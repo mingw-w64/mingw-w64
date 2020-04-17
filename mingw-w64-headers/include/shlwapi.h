@@ -11,16 +11,8 @@
 
 #ifndef NOSHLWAPI
 
-#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
-
 #include <objbase.h>
 #include <shtypes.h>
-
-#ifndef _WINRESRC_
-#ifndef _WIN32_IE
-#define _WIN32_IE 0x0601
-#endif
-#endif
 
 #ifndef WINSHLWAPI
 #if !defined(_SHLWAPI_)
@@ -33,6 +25,14 @@
 #define LWSTDAPI_(type) STDAPI_(type)
 #define LWSTDAPIV STDAPIV
 #define LWSTDAPIV_(type) STDAPIV_(type)
+#endif
+#endif
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
+
+#ifndef _WINRESRC_
+#ifndef _WIN32_IE
+#define _WIN32_IE 0x0601
 #endif
 #endif
 
@@ -828,16 +828,6 @@ extern "C" {
 #endif
 #endif
 
-#ifndef NO_SHLWAPI_HTTP
-#if (_WIN32_IE >= 0x0603)
-
-#define GetAcceptLanguages __MINGW_NAME_AW(GetAcceptLanguages)
-
-  LWSTDAPI GetAcceptLanguagesA(LPSTR psz,DWORD *pcch);
-  LWSTDAPI GetAcceptLanguagesW(LPWSTR psz,DWORD *pcch);
-#endif
-#endif
-
 #if (_WIN32_IE >= 0x0601)
 #define SHGVSPB_PERUSER 0x00000001
 #define SHGVSPB_ALLUSERS 0x00000002
@@ -985,5 +975,19 @@ LWSTDAPI_(IStream *) SHCreateMemStream(const BYTE *pInit, _In_ UINT cbInit);
 
 #include <poppack.h>
 #endif
+
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
+#ifndef NO_SHLWAPI_HTTP
+#if (_WIN32_IE >= 0x0603)
+
+#define GetAcceptLanguages __MINGW_NAME_AW(GetAcceptLanguages)
+
+  LWSTDAPI GetAcceptLanguagesA(LPSTR psz,DWORD *pcch);
+  LWSTDAPI GetAcceptLanguagesW(LPWSTR psz,DWORD *pcch);
 #endif
 #endif
+
+#endif /* WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP) */
+
+#endif /* !NOSHLWAPI */
+#endif /* _INC_SHLWAPI */
