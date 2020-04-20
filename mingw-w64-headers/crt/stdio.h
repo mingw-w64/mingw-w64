@@ -1510,6 +1510,7 @@ void __cdecl __mingw_str_free(void *ptr);
 
 #endif /* __MINGW_MBWC_CONVERT_DEFINED */
 
+#ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
 #ifndef _WSPAWN_DEFINED
 #define _WSPAWN_DEFINED
   _CRTIMP intptr_t __cdecl _wspawnl(int _Mode,const wchar_t *_Filename,const wchar_t *_ArgList,...);
@@ -1541,6 +1542,7 @@ void __cdecl __mingw_str_free(void *ptr);
   _CRTIMP intptr_t __cdecl _spawnvp(int _Mode,const char *_Filename,const char *const *_ArgList);
   _CRTIMP intptr_t __cdecl _spawnvpe(int _Mode,const char *_Filename,const char *const *_ArgList,const char *const *_Env);
 #endif
+#endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
 
 #ifdef __cplusplus
 }

@@ -341,6 +341,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   _CRTIMP wchar_t *__cdecl _wsetlocale(int _Category,const wchar_t *_Locale);
 #endif
 
+#ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
 #ifndef _WEXEC_DEFINED
 #define _WEXEC_DEFINED
   _CRTIMP intptr_t __cdecl _wexecl(const wchar_t *_Filename,const wchar_t *_ArgList,...);
@@ -369,6 +370,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #define _CRT_WSYSTEM_DEFINED
   _CRTIMP int __cdecl _wsystem(const wchar_t *_Command);
 #endif
+#endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
 
 #ifndef _WCTYPE_INLINE_DEFINED
 #undef _CRT_WCTYPE_NOINLINE
