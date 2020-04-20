@@ -132,9 +132,11 @@ extern "C" {
 #endif
   extern uintptr_t __security_cookie;
 
+#ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
   intptr_t __cdecl _loaddll(char *_Filename);
   int __cdecl _unloaddll(intptr_t _Handle);
   int (__cdecl *__cdecl _getdllprocaddr(intptr_t _Handle,char *_ProcedureName,intptr_t _Ordinal))(void);
+#endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
 
 #ifdef _DECL_DLLMAIN
 #ifdef _WINDOWS_
