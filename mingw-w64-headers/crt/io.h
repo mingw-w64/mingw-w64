@@ -205,7 +205,9 @@ _CRTIMP char* __cdecl _getcwd (char*, int);
   _off64_t lseek64(int fd,_off64_t offset, int whence);
   _CRTIMP char *__cdecl _mktemp(char *_TemplateName) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   _SECIMP errno_t __cdecl _mktemp_s (char *_TemplateName,size_t _Size);
+#ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
   _CRTIMP int __cdecl _pipe(int *_PtHandles,unsigned int _PipeSize,int _TextMode);
+#endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
   _CRTIMP int __cdecl _read(int _FileHandle,void *_DstBuf,unsigned int _MaxCharCount);
 
 #ifndef _CRT_DIRECTORY_DEFINED
