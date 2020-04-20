@@ -64,8 +64,8 @@ extern "C" {
   void __cdecl __MINGW_NOTHROW _cexit(void);
   void __cdecl __MINGW_NOTHROW _c_exit(void);
   _CRTIMP int __cdecl _getpid(void);
-  _CRTIMP intptr_t __cdecl _cwait(int *_TermStat,intptr_t _ProcHandle,int _Action);
 #ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
+  _CRTIMP intptr_t __cdecl _cwait(int *_TermStat,intptr_t _ProcHandle,int _Action);
   _CRTIMP intptr_t __cdecl _execl(const char *_Filename,const char *_ArgList,...);
   _CRTIMP intptr_t __cdecl _execle(const char *_Filename,const char *_ArgList,...);
   _CRTIMP intptr_t __cdecl _execlp(const char *_Filename,const char *_ArgList,...);
@@ -160,8 +160,8 @@ extern "C" {
 #define WAIT_CHILD _WAIT_CHILD
 #define WAIT_GRANDCHILD _WAIT_GRANDCHILD
 
-  intptr_t __cdecl cwait(int *_TermStat,intptr_t _ProcHandle,int _Action) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
+  intptr_t __cdecl cwait(int *_TermStat,intptr_t _ProcHandle,int _Action) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #ifdef __GNUC__
   int __cdecl execl(const char *_Filename,const char *_ArgList,...) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   int __cdecl execle(const char *_Filename,const char *_ArgList,...) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
