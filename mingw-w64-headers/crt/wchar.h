@@ -194,7 +194,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #ifndef _CRT_WCTYPEDATA_DEFINED
 #define _CRT_WCTYPEDATA_DEFINED
 #ifndef _CTYPE_DISABLE_MACROS
-#ifndef _wctype
+#if !defined(_wctype) && defined(_CRT_USE_WINAPI_FAMILY_DESKTOP_APP)
 #ifdef _MSVCRT_
   extern unsigned short *_wctype;
 #else
@@ -403,7 +403,7 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
 #define _iswprint_l(_c,_p) (_iswctype_l(_c,_BLANK|_PUNCT|_ALPHA|_DIGIT,_p))
 #define _iswgraph_l(_c,_p) (_iswctype_l(_c,_PUNCT|_ALPHA|_DIGIT,_p))
 #define _iswcntrl_l(_c,_p) (_iswctype_l(_c,_CONTROL,_p))
-#ifndef _CTYPE_DISABLE_MACROS
+#if !defined(_CTYPE_DISABLE_MACROS) && defined(_CRT_USE_WINAPI_FAMILY_DESKTOP_APP)
 #define isleadbyte(_c) (__PCTYPE_FUNC[(unsigned char)(_c)] & _LEADBYTE)
 #endif
 #endif
