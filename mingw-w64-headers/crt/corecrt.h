@@ -491,6 +491,17 @@ typedef struct threadlocaleinfostruct {
 #define __crt_typefix(ctype)
 #endif
 
+#ifndef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
+#ifdef WINAPI_FAMILY
+#include <winapifamily.h>
+#if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
+#define _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
+#endif
+#else /* !WINAPI_FAMILY */
+#define _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
+#endif /* !WINAPI_FAMILY */
+#endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
+
 #ifndef __WIDL__
 #pragma pack(pop)
 #endif
