@@ -200,7 +200,7 @@ int WinMainCRTStartup (void)
 
 int mainCRTStartup (void);
 
-#ifdef _WIN64
+#if defined(__x86_64__) && !defined(__SEH__)
 int __mingw_init_ehandler (void);
 #endif
 
@@ -282,7 +282,7 @@ __tmainCRTStartup (void)
     
     _pei386_runtime_relocator ();
     __mingw_oldexcpt_handler = SetUnhandledExceptionFilter (_gnu_exception_handler);
-#ifdef __x86_64__
+#if defined(__x86_64__) && !defined(__SEH__)
     __mingw_init_ehandler ();
 #endif
     _set_invalid_parameter_handler (__mingw_invalidParameterHandler);
