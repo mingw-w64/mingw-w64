@@ -189,7 +189,6 @@ int WinMainCRTStartup (void)
     );
 #endif
   mingw_app_type = 1;
-  __security_init_cookie ();
   ret = __tmainCRTStartup ();
 #ifdef SEH_INLINE_ASM
   asm ("\tnop\n"
@@ -217,7 +216,6 @@ int mainCRTStartup (void)
     );
 #endif
   mingw_app_type = 0;
-  __security_init_cookie ();
   ret = __tmainCRTStartup ();
 #ifdef SEH_INLINE_ASM
   asm ("\tnop\n"

@@ -122,16 +122,6 @@ extern "C" {
 #endif
 #endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
 
-  void __cdecl __security_init_cookie(void);
-#if (defined(_X86_) && !defined(__x86_64))
-  void __fastcall __security_check_cookie(uintptr_t _StackCookie);
-  __MINGW_ATTRIB_NORETURN void __cdecl __report_gsfailure(void);
-#else
-  void __cdecl __security_check_cookie(uintptr_t _StackCookie);
-  __MINGW_ATTRIB_NORETURN void __cdecl __report_gsfailure(uintptr_t _StackCookie);
-#endif
-  extern uintptr_t __security_cookie;
-
 #ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
   intptr_t __cdecl _loaddll(char *_Filename);
   int __cdecl _unloaddll(intptr_t _Handle);

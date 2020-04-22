@@ -158,7 +158,6 @@ DllMainCRTStartup (HANDLE hDllHandle, DWORD dwReason, LPVOID lpreserved)
   mingw_app_type = 0;
   if (dwReason == DLL_PROCESS_ATTACH)
     {
-      __security_init_cookie ();
 #if defined(__x86_64__) && !defined(__SEH__)
       __mingw_init_ehandler ();
 #endif
