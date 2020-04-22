@@ -302,7 +302,6 @@ pdfdir = @pdfdir@
 prefix = @prefix@
 program_transform_name = @program_transform_name@
 psdir = @psdir@
-runstatedir = @runstatedir@
 sbindir = @sbindir@
 sharedstatedir = @sharedstatedir@
 srcdir = @srcdir@
@@ -495,6 +494,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/unknwn.idl \
 @HAVE_WIDL_TRUE@  include/unknwnbase.idl \
 @HAVE_WIDL_TRUE@  include/urlmon.idl \
+@HAVE_WIDL_TRUE@  include/vss.idl \
 @HAVE_WIDL_TRUE@  include/wbemads.idl \
 @HAVE_WIDL_TRUE@  include/wbemcli.idl \
 @HAVE_WIDL_TRUE@  include/wbemdisp.idl \
