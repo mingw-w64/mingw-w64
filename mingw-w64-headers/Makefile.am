@@ -195,6 +195,7 @@ IDL_SRCS = \
   include/unknwn.idl \
   include/unknwnbase.idl \
   include/urlmon.idl \
+  include/vss.idl \
   include/wbemads.idl \
   include/wbemcli.idl \
   include/wbemdisp.idl \
