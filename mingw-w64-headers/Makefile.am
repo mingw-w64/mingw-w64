@@ -181,6 +181,7 @@ IDL_SRCS = \
   include/shldisp.idl \
   include/shobjidl.idl \
   include/shtypes.idl \
+  include/spatialaudioclient.idl \
   include/strmif.idl \
   include/structuredquerycondition.idl \
   include/taskschd.idl \
