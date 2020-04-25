@@ -173,6 +173,7 @@ for f in \
 	uiautomationcore \
 	urlhist \
 	vmr9 \
+	wincodec \
 	wmdrmsdk \
 	wmsbuffer \
 	wmsdkidl \
