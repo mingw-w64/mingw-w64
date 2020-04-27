@@ -97,6 +97,7 @@ IDL_SRCS = \
   include/dbgprop.idl \
   include/dcompanimation.idl \
   include/ddstream.idl \
+  include/dinputd.idl \
   include/dimm.idl \
   include/dispex.idl \
   include/dmodshow.idl \
