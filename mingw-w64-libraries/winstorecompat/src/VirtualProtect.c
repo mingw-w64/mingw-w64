@@ -30,8 +30,17 @@
 
 BOOL WINAPI VirtualProtect(LPVOID lpAddress, SIZE_T dwSize, DWORD flNewProtect, PDWORD lpflOldProtect)
 {
+#if _WIN32_WINNT >= _WIN32_WINNT_WIN10
+    ULONG OldProtection;
+    BOOL res = VirtualProtectFromApp(lpAddress, dwSize, flNewProtect,
+                                     lpflOldProtect ? &OldProtection : NULL);
+    if (lpflOldProtect)
+        *lpflOldProtect = OldProtection;
+    return res;
+#else /* _WIN32_WINNT < _WIN32_WINNT_WIN10 */
     SetLastError(ERROR_ACCESS_DENIED);
     return FALSE;
+#endif /* _WIN32_WINNT < _WIN32_WINNT_WIN10 */
 }
 
 #ifdef _X86_
