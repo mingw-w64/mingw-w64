@@ -302,7 +302,6 @@ pdfdir = @pdfdir@
 prefix = @prefix@
 program_transform_name = @program_transform_name@
 psdir = @psdir@
-runstatedir = @runstatedir@
 sbindir = @sbindir@
 sharedstatedir = @sharedstatedir@
 srcdir = @srcdir@
@@ -397,6 +396,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/dbgprop.idl \
 @HAVE_WIDL_TRUE@  include/dcompanimation.idl \
 @HAVE_WIDL_TRUE@  include/ddstream.idl \
+@HAVE_WIDL_TRUE@  include/dinputd.idl \
 @HAVE_WIDL_TRUE@  include/dimm.idl \
 @HAVE_WIDL_TRUE@  include/dispex.idl \
 @HAVE_WIDL_TRUE@  include/dmodshow.idl \
