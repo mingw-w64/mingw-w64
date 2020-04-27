@@ -41,4 +41,5 @@ libwinstorecompat_a_SOURCES = \
   src/RtlCaptureContext.c \
   src/RtlVirtualUnwind.c \
   src/RtlRestoreContext.c \
+  src/GetUserName.c \
   $(NULL)
