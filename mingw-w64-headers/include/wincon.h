@@ -14,6 +14,9 @@
 extern "C" {
 #endif
 
+#define CONSOLE_REAL_OUTPUT_HANDLE (LongToHandle(-2))
+#define CONSOLE_REAL_INPUT_HANDLE (LongToHandle(-3))
+
   typedef struct _COORD {
     SHORT X;
     SHORT Y;
@@ -53,6 +56,7 @@ extern "C" {
 #define NLS_HIRAGANA 0x40000
 #define NLS_ROMAN 0x400000
 #define NLS_IME_CONVERSION 0x800000
+#define ALTNUMPAD_BIT 0x4000000
 #define NLS_IME_DISABLE 0x20000000
 
   typedef struct _MOUSE_EVENT_RECORD {
@@ -294,6 +298,22 @@ extern "C" {
   WINBASEAPI DWORD WINAPI GetConsoleAliasExesA(LPSTR ExeNameBuffer,DWORD ExeNameBufferLength);
   WINBASEAPI DWORD WINAPI GetConsoleAliasExesW(LPWSTR ExeNameBuffer,DWORD ExeNameBufferLength);
 
+WINBASEAPI VOID WINAPI ExpungeConsoleCommandHistoryA(LPSTR ExeName);
+WINBASEAPI VOID WINAPI ExpungeConsoleCommandHistoryW(LPWSTR ExeName);
+#define ExpungeConsoleCommandHistory __MINGW_NAME_AW(ExpungeConsoleCommandHistory)
+
+WINBASEAPI WINBOOL WINAPI SetConsoleNumberOfCommandsA(DWORD Number, LPSTR ExeName);
+WINBASEAPI WINBOOL WINAPI SetConsoleNumberOfCommandsW(DWORD Number, LPWSTR ExeName);
+#define SetConsoleNumberOfCommands __MINGW_NAME_AW(SetConsoleNumberOfCommands)
+
+WINBASEAPI DWORD WINAPI GetConsoleCommandHistoryLengthA(LPSTR ExeName);
+WINBASEAPI DWORD WINAPI GetConsoleCommandHistoryLengthW(LPWSTR ExeName);
+#define GetConsoleCommandHistoryLength __MINGW_NAME_AW(GetConsoleCommandHistoryLength)
+
+WINBASEAPI DWORD WINAPI GetConsoleCommandHistoryA(LPSTR Commands, DWORD CommandBufferLength, LPSTR ExeName);
+WINBASEAPI DWORD WINAPI GetConsoleCommandHistoryW(LPWSTR Commands, DWORD CommandBufferLength, LPWSTR ExeName);
+#define GetConsoleCommandHistory __MINGW_NAME_AW(GetConsoleCommandHistory)
+
 #ifndef LF_FACESIZE
 #define LF_FACESIZE 32
 #endif
@@ -306,6 +326,8 @@ typedef struct _CONSOLE_FONT_INFOEX {
   UINT  FontWeight;
   WCHAR FaceName[LF_FACESIZE];
 } CONSOLE_FONT_INFOEX, *PCONSOLE_FONT_INFOEX;
+
+#define HISTORY_NO_DUP_FLAG 0x1
 
 typedef struct _CONSOLE_HISTORY_INFO {
   UINT  cbSize;
