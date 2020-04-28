@@ -23,6 +23,9 @@ extern "C" {
 
 #ifndef _STDIO_S_DEFINED
 #define _STDIO_S_DEFINED
+  #define L_tmpnam_s L_tmpnam
+  #define TMP_MAX_S TMP_MAX
+
   _CRTIMP errno_t __cdecl clearerr_s(FILE *_File);
 
   size_t __cdecl fread_s(void *_DstBuf,size_t _DstSize,size_t _ElementSize,size_t _Count,FILE *_File);
