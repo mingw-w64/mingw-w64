@@ -96,6 +96,7 @@ for f in \
 	dplobby8.h \
 	dplobby.h \
 	dpnathlp.h \
+	dsconf.h \
 	dshow.h \
 	dvdmedia.h \
 	dxdiag.h \
