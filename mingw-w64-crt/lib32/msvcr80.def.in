@@ -277,6 +277,7 @@ _lfind
 _loaddll
 _local_unwind2
 _lock
+_lock_file
 _locking
 _logb
 _longjmpex
@@ -382,6 +383,7 @@ _scalb
 _searchenv
 _seh_longjmp_unwind
 _set_error_mode
+_set_invalid_parameter_handler
 _set_sbh_threshold
 _seterrormode
 _setjmp
@@ -443,6 +445,7 @@ _ungetch
 _unlink
 _unloaddll
 _unlock
+_unlock_file
 _utime
 _vsnprintf
 _vsnwprintf

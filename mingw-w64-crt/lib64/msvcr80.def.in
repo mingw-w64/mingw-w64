@@ -373,6 +373,7 @@ _local_unwind
 _localtime64
 localtime == _localtime64
 _lock
+_lock_file
 _locking
 _logb
 _logbf
@@ -482,6 +483,7 @@ _scprintf
 _scwprintf
 _searchenv
 _set_error_mode
+_set_invalid_parameter_handler
 _set_sbh_threshold
 _seterrormode
 _setjmp
@@ -550,6 +552,7 @@ _ungetwch
 _unlink
 _unloaddll
 _unlock
+_unlock_file
 _utime
 _utime64
 _vscprintf
