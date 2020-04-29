@@ -421,8 +421,8 @@ typedef int __int128 __attribute__ ((__mode__ (TI)));
  * printf ll modifier (unsupported by msvcrt.dll) is required by C99 and C++11 standards. */
 #if (defined (_POSIX) || defined (_POSIX_SOURCE) || defined (_POSIX_C_SOURCE) \
      || defined (_ISOC99_SOURCE) \
-     || (defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L && !defined(_UCRT)) \
-     || (defined (__cplusplus) && __cplusplus >= 201103L && !defined(_UCRT)) \
+     || (defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L && __MSVCRT_VERSION__ < 0xE00) \
+     || (defined (__cplusplus) && __cplusplus >= 201103L && __MSVCRT_VERSION__ < 0xE00) \
      || defined (_XOPEN_SOURCE) || defined (_XOPEN_SOURCE_EXTENDED) \
      || defined (_GNU_SOURCE) \
      || defined (_SVID_SOURCE)) \
