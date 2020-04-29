@@ -63,8 +63,8 @@ extern "C" {
 
   void __cdecl __MINGW_NOTHROW _cexit(void);
   void __cdecl __MINGW_NOTHROW _c_exit(void);
-  _CRTIMP int __cdecl _getpid(void);
 #ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
+  _CRTIMP int __cdecl _getpid(void);
   _CRTIMP intptr_t __cdecl _cwait(int *_TermStat,intptr_t _ProcHandle,int _Action);
   _CRTIMP intptr_t __cdecl _execl(const char *_Filename,const char *_ArgList,...);
   _CRTIMP intptr_t __cdecl _execle(const char *_Filename,const char *_ArgList,...);
