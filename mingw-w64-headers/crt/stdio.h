@@ -234,7 +234,7 @@ extern
 #define __MINGW_SCANF_FORMAT  ms_scanf
 #endif
 
-#if __USE_MINGW_ANSI_STDIO
+#if __USE_MINGW_ANSI_STDIO && !defined(_CRTBLD)
 /*
  * User has expressed a preference for C99 conformance...
  */
@@ -988,7 +988,7 @@ int vsprintf (char * __restrict__ __stream, const char * __restrict__ __format, 
   int __cdecl __stdio_common_vfwscanf(unsigned __int64 options, FILE *file, const wchar_t *format, _locale_t locale, va_list valist);
 #endif
 
-#if __USE_MINGW_ANSI_STDIO
+#if __USE_MINGW_ANSI_STDIO && !defined(_CRTBLD)
 /*
  * User has expressed a preference for C99 conformance...
  */
