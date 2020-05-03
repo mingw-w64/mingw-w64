@@ -188,6 +188,8 @@ IDL_SRCS = \
   include/taskschd.idl \
   include/textstor.idl \
   include/thumbcache.idl \
+  include/tlbref.idl \
+  include/tlogstg.idl \
   include/tpcshrd.idl \
   include/tuner.idl \
   include/uianimation.idl \
@@ -196,6 +198,7 @@ IDL_SRCS = \
   include/uiviewsettingsinterop.idl \
   include/unknwn.idl \
   include/unknwnbase.idl \
+  include/urlhist.idl \
   include/urlmon.idl \
   include/vss.idl \
   include/wbemads.idl \
