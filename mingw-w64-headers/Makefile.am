@@ -107,6 +107,7 @@ IDL_SRCS = \
   include/devicetopology.idl \
   include/downloadmgr.idl \
   include/drmexternals.idl \
+  include/dvdif.idl \
   include/dxgi.idl \
   include/dxgi1_2.idl \
   include/dxgi1_3.idl \

@@ -142,6 +142,7 @@ for f in \
 	devicetopology \
 	downloadmgr \
 	drmexternals \
+	dvdif \
 	dxgi \
 	dxgi1_2 \
 	dxgi1_3 \

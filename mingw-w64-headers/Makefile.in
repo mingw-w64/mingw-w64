@@ -302,6 +302,7 @@ pdfdir = @pdfdir@
 prefix = @prefix@
 program_transform_name = @program_transform_name@
 psdir = @psdir@
+runstatedir = @runstatedir@
 sbindir = @sbindir@
 sharedstatedir = @sharedstatedir@
 srcdir = @srcdir@
@@ -406,6 +407,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/devicetopology.idl \
 @HAVE_WIDL_TRUE@  include/downloadmgr.idl \
 @HAVE_WIDL_TRUE@  include/drmexternals.idl \
+@HAVE_WIDL_TRUE@  include/dvdif.idl \
 @HAVE_WIDL_TRUE@  include/dxgi.idl \
 @HAVE_WIDL_TRUE@  include/dxgi1_2.idl \
 @HAVE_WIDL_TRUE@  include/dxgi1_3.idl \
