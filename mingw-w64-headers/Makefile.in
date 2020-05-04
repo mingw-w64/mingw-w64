@@ -487,6 +487,8 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/taskschd.idl \
 @HAVE_WIDL_TRUE@  include/textstor.idl \
 @HAVE_WIDL_TRUE@  include/thumbcache.idl \
+@HAVE_WIDL_TRUE@  include/tlbref.idl \
+@HAVE_WIDL_TRUE@  include/tlogstg.idl \
 @HAVE_WIDL_TRUE@  include/tpcshrd.idl \
 @HAVE_WIDL_TRUE@  include/tuner.idl \
 @HAVE_WIDL_TRUE@  include/uianimation.idl \
@@ -495,6 +497,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/uiviewsettingsinterop.idl \
 @HAVE_WIDL_TRUE@  include/unknwn.idl \
 @HAVE_WIDL_TRUE@  include/unknwnbase.idl \
+@HAVE_WIDL_TRUE@  include/urlhist.idl \
 @HAVE_WIDL_TRUE@  include/urlmon.idl \
 @HAVE_WIDL_TRUE@  include/vss.idl \
 @HAVE_WIDL_TRUE@  include/wbemads.idl \
