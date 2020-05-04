@@ -215,6 +215,7 @@ IDL_SRCS = \
   include/qnetwork.idl \
   include/vmr9.idl \
   include/wincodec.idl \
+  include/wincodecsdk.idl \
   include/wmcontainer.idl \
   include/wmsbuffer.idl \
   include/wmsdkidl.idl \

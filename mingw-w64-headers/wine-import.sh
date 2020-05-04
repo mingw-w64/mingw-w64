@@ -176,6 +176,7 @@ for f in \
 	urlhist \
 	vmr9 \
 	wincodec \
+	wincodecsdk \
 	wmdrmsdk \
 	wmsbuffer \
 	wmsdkidl \
