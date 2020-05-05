@@ -2318,6 +2318,11 @@ IVMRImageCompositor9 : public IUnknown
     virtual HRESULT STDMETHODCALLTYPE TermCompositionDevice(
         IUnknown *d3ddev) = 0;
 
+    virtual HRESULT STDMETHODCALLTYPE SetStreamMediaType(
+        DWORD stream,
+        AM_MEDIA_TYPE *mt,
+        WINBOOL texture) = 0;
+
     virtual HRESULT STDMETHODCALLTYPE CompositeImage(
         IUnknown *d3ddev,
         IDirect3DSurface9 *d3dtarget,
@@ -2357,6 +2362,12 @@ typedef struct IVMRImageCompositor9Vtbl {
         IVMRImageCompositor9 *This,
         IUnknown *d3ddev);
 
+    HRESULT (STDMETHODCALLTYPE *SetStreamMediaType)(
+        IVMRImageCompositor9 *This,
+        DWORD stream,
+        AM_MEDIA_TYPE *mt,
+        WINBOOL texture);
+
     HRESULT (STDMETHODCALLTYPE *CompositeImage)(
         IVMRImageCompositor9 *This,
         IUnknown *d3ddev,
@@ -2384,6 +2395,7 @@ interface IVMRImageCompositor9 {
 /*** IVMRImageCompositor9 methods ***/
 #define IVMRImageCompositor9_InitCompositionDevice(This,d3ddev) (This)->lpVtbl->InitCompositionDevice(This,d3ddev)
 #define IVMRImageCompositor9_TermCompositionDevice(This,d3ddev) (This)->lpVtbl->TermCompositionDevice(This,d3ddev)
+#define IVMRImageCompositor9_SetStreamMediaType(This,stream,mt,texture) (This)->lpVtbl->SetStreamMediaType(This,stream,mt,texture)
 #define IVMRImageCompositor9_CompositeImage(This,d3ddev,d3dtarget,mttarget,start,stop,back,info,streams) (This)->lpVtbl->CompositeImage(This,d3ddev,d3dtarget,mttarget,start,stop,back,info,streams)
 #else
 /*** IUnknown methods ***/
@@ -2402,6 +2414,9 @@ static FORCEINLINE HRESULT IVMRImageCompositor9_InitCompositionDevice(IVMRImageC
 }
 static FORCEINLINE HRESULT IVMRImageCompositor9_TermCompositionDevice(IVMRImageCompositor9* This,IUnknown *d3ddev) {
     return This->lpVtbl->TermCompositionDevice(This,d3ddev);
+}
+static FORCEINLINE HRESULT IVMRImageCompositor9_SetStreamMediaType(IVMRImageCompositor9* This,DWORD stream,AM_MEDIA_TYPE *mt,WINBOOL texture) {
+    return This->lpVtbl->SetStreamMediaType(This,stream,mt,texture);
 }
 static FORCEINLINE HRESULT IVMRImageCompositor9_CompositeImage(IVMRImageCompositor9* This,IUnknown *d3ddev,IDirect3DSurface9 *d3dtarget,AM_MEDIA_TYPE *mttarget,REFERENCE_TIME start,REFERENCE_TIME stop,D3DCOLOR back,VMR9VideoStreamInfo *info,UINT streams) {
     return This->lpVtbl->CompositeImage(This,d3ddev,d3dtarget,mttarget,start,stop,back,info,streams);

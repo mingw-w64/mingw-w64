@@ -250,11 +250,28 @@ interface IWICEnumMetadataItem;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __IWICDdsDecoder_FWD_DEFINED__
+#define __IWICDdsDecoder_FWD_DEFINED__
+typedef interface IWICDdsDecoder IWICDdsDecoder;
+#ifdef __cplusplus
+interface IWICDdsDecoder;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IWICDdsFrameDecode_FWD_DEFINED__
+#define __IWICDdsFrameDecode_FWD_DEFINED__
+typedef interface IWICDdsFrameDecode IWICDdsFrameDecode;
+#ifdef __cplusplus
+interface IWICDdsFrameDecode;
+#endif /* __cplusplus */
+#endif
+
 /* Headers for imported files */
 
 #include <wtypes.h>
 #include <propidl.h>
 #include <ocidl.h>
+#include <dxgiformat.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -412,6 +429,21 @@ typedef enum WICSectionAccessLevel {
     WICSectionAccessLevelReadWrite = 0x3,
     WICSectionAccessLevel_FORCE_DWORD = 0x7fffffff
 } WICSectionAccessLevel;
+typedef enum WICDdsDimension {
+    WICDdsTexture1D = 0x0,
+    WICDdsTexture2D = 0x1,
+    WICDdsTexture3D = 0x2,
+    WICDdsTextureCube = 0x3,
+    WICDDSTEXTURE_FORCE_DWORD = 0x7fffffff
+} WICDdsDimension;
+typedef enum WICDdsAlphaMode {
+    WICDdsAlphaModeUnknown = 0x0,
+    WICDdsAlphaModeStraight = 0x1,
+    WICDdsAlphaModePremultiplied = 0x2,
+    WICDdsAlphaModeOpaque = 0x3,
+    WICDdsAlphaModeCustom = 0x4,
+    WICDDSALPHAMODE_FORCE_DWORD = 0x7fffffff
+} WICDdsAlphaMode;
 typedef GUID WICPixelFormatGUID;
 typedef REFGUID REFWICPixelFormatGUID;
 DEFINE_GUID(GUID_WICPixelFormatDontCare, 0x6fddc324,0x4e03,0x4bfe,0xb1,0x85,0x3d,0x77,0x76,0x8d,0xc9,0x00);
@@ -530,6 +562,22 @@ typedef struct WICImageParameters {
     UINT32 PixelWidth;
     UINT32 PixelHeight;
 } WICImageParameters;
+typedef struct WICDdsParameters {
+    UINT Width;
+    UINT Height;
+    UINT Depth;
+    UINT MipLevels;
+    UINT ArraySize;
+    DXGI_FORMAT DxgiFormat;
+    WICDdsDimension Dimension;
+    WICDdsAlphaMode AlphaMode;
+} WICDdsParameters;
+typedef struct WICDdsFormatInfo {
+    DXGI_FORMAT DxgiFormat;
+    UINT BytesPerBlock;
+    UINT BlockWidth;
+    UINT BlockHeight;
+} WICDdsFormatInfo;
 typedef UINT32 WICColor;
 #ifndef __ID2D1Device_FWD_DEFINED__
 #define __ID2D1Device_FWD_DEFINED__
@@ -5836,6 +5884,207 @@ static FORCEINLINE HRESULT IWICEnumMetadataItem_Clone(IWICEnumMetadataItem* This
 
 
 #endif  /* __IWICEnumMetadataItem_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWICDdsDecoder interface
+ */
+#ifndef __IWICDdsDecoder_INTERFACE_DEFINED__
+#define __IWICDdsDecoder_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWICDdsDecoder, 0x409cd537, 0x8532, 0x40cb, 0x97,0x74, 0xe2,0xfe,0xb2,0xdf,0x4e,0x9c);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("409cd537-8532-40cb-9774-e2feb2df4e9c")
+IWICDdsDecoder : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetParameters(
+        WICDdsParameters *parameters) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFrame(
+        UINT arrayIndex,
+        UINT mipLevel,
+        UINT sliceIndex,
+        IWICBitmapFrameDecode **bitmapFrame) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICDdsDecoder, 0x409cd537, 0x8532, 0x40cb, 0x97,0x74, 0xe2,0xfe,0xb2,0xdf,0x4e,0x9c)
+#endif
+#else
+typedef struct IWICDdsDecoderVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWICDdsDecoder *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWICDdsDecoder *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWICDdsDecoder *This);
+
+    /*** IWICDdsDecoder methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetParameters)(
+        IWICDdsDecoder *This,
+        WICDdsParameters *parameters);
+
+    HRESULT (STDMETHODCALLTYPE *GetFrame)(
+        IWICDdsDecoder *This,
+        UINT arrayIndex,
+        UINT mipLevel,
+        UINT sliceIndex,
+        IWICBitmapFrameDecode **bitmapFrame);
+
+    END_INTERFACE
+} IWICDdsDecoderVtbl;
+
+interface IWICDdsDecoder {
+    CONST_VTBL IWICDdsDecoderVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWICDdsDecoder_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWICDdsDecoder_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWICDdsDecoder_Release(This) (This)->lpVtbl->Release(This)
+/*** IWICDdsDecoder methods ***/
+#define IWICDdsDecoder_GetParameters(This,parameters) (This)->lpVtbl->GetParameters(This,parameters)
+#define IWICDdsDecoder_GetFrame(This,arrayIndex,mipLevel,sliceIndex,bitmapFrame) (This)->lpVtbl->GetFrame(This,arrayIndex,mipLevel,sliceIndex,bitmapFrame)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICDdsDecoder_QueryInterface(IWICDdsDecoder* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICDdsDecoder_AddRef(IWICDdsDecoder* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICDdsDecoder_Release(IWICDdsDecoder* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICDdsDecoder methods ***/
+static FORCEINLINE HRESULT IWICDdsDecoder_GetParameters(IWICDdsDecoder* This,WICDdsParameters *parameters) {
+    return This->lpVtbl->GetParameters(This,parameters);
+}
+static FORCEINLINE HRESULT IWICDdsDecoder_GetFrame(IWICDdsDecoder* This,UINT arrayIndex,UINT mipLevel,UINT sliceIndex,IWICBitmapFrameDecode **bitmapFrame) {
+    return This->lpVtbl->GetFrame(This,arrayIndex,mipLevel,sliceIndex,bitmapFrame);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IWICDdsDecoder_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IWICDdsFrameDecode interface
+ */
+#ifndef __IWICDdsFrameDecode_INTERFACE_DEFINED__
+#define __IWICDdsFrameDecode_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IWICDdsFrameDecode, 0x3d4c0c61, 0x18a4, 0x41e4, 0xbd,0x80, 0x48,0x1a,0x4f,0xc9,0xf4,0x64);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("3d4c0c61-18a4-41e4-bd80-481a4fc9f464")
+IWICDdsFrameDecode : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetSizeInBlocks(
+        UINT *widthInBlocks,
+        UINT *heightInBlocks) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE GetFormatInfo(
+        WICDdsFormatInfo *formatInfo) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE CopyBlocks(
+        const WICRect *boundsInBlocks,
+        UINT stride,
+        UINT bufferSize,
+        BYTE *buffer) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IWICDdsFrameDecode, 0x3d4c0c61, 0x18a4, 0x41e4, 0xbd,0x80, 0x48,0x1a,0x4f,0xc9,0xf4,0x64)
+#endif
+#else
+typedef struct IWICDdsFrameDecodeVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IWICDdsFrameDecode *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IWICDdsFrameDecode *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IWICDdsFrameDecode *This);
+
+    /*** IWICDdsFrameDecode methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetSizeInBlocks)(
+        IWICDdsFrameDecode *This,
+        UINT *widthInBlocks,
+        UINT *heightInBlocks);
+
+    HRESULT (STDMETHODCALLTYPE *GetFormatInfo)(
+        IWICDdsFrameDecode *This,
+        WICDdsFormatInfo *formatInfo);
+
+    HRESULT (STDMETHODCALLTYPE *CopyBlocks)(
+        IWICDdsFrameDecode *This,
+        const WICRect *boundsInBlocks,
+        UINT stride,
+        UINT bufferSize,
+        BYTE *buffer);
+
+    END_INTERFACE
+} IWICDdsFrameDecodeVtbl;
+
+interface IWICDdsFrameDecode {
+    CONST_VTBL IWICDdsFrameDecodeVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IWICDdsFrameDecode_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IWICDdsFrameDecode_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IWICDdsFrameDecode_Release(This) (This)->lpVtbl->Release(This)
+/*** IWICDdsFrameDecode methods ***/
+#define IWICDdsFrameDecode_GetSizeInBlocks(This,widthInBlocks,heightInBlocks) (This)->lpVtbl->GetSizeInBlocks(This,widthInBlocks,heightInBlocks)
+#define IWICDdsFrameDecode_GetFormatInfo(This,formatInfo) (This)->lpVtbl->GetFormatInfo(This,formatInfo)
+#define IWICDdsFrameDecode_CopyBlocks(This,boundsInBlocks,stride,bufferSize,buffer) (This)->lpVtbl->CopyBlocks(This,boundsInBlocks,stride,bufferSize,buffer)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IWICDdsFrameDecode_QueryInterface(IWICDdsFrameDecode* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IWICDdsFrameDecode_AddRef(IWICDdsFrameDecode* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IWICDdsFrameDecode_Release(IWICDdsFrameDecode* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IWICDdsFrameDecode methods ***/
+static FORCEINLINE HRESULT IWICDdsFrameDecode_GetSizeInBlocks(IWICDdsFrameDecode* This,UINT *widthInBlocks,UINT *heightInBlocks) {
+    return This->lpVtbl->GetSizeInBlocks(This,widthInBlocks,heightInBlocks);
+}
+static FORCEINLINE HRESULT IWICDdsFrameDecode_GetFormatInfo(IWICDdsFrameDecode* This,WICDdsFormatInfo *formatInfo) {
+    return This->lpVtbl->GetFormatInfo(This,formatInfo);
+}
+static FORCEINLINE HRESULT IWICDdsFrameDecode_CopyBlocks(IWICDdsFrameDecode* This,const WICRect *boundsInBlocks,UINT stride,UINT bufferSize,BYTE *buffer) {
+    return This->lpVtbl->CopyBlocks(This,boundsInBlocks,stride,bufferSize,buffer);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IWICDdsFrameDecode_INTERFACE_DEFINED__ */
 
 HRESULT WINAPI WICConvertBitmapSource(REFWICPixelFormatGUID dstFormat, IWICBitmapSource *pISrc, IWICBitmapSource **ppIDst);
 HRESULT WINAPI WICCreateBitmapFromSection(UINT width, UINT height, REFWICPixelFormatGUID format, HANDLE section, UINT stride, UINT offset, IWICBitmap **bitmap);
