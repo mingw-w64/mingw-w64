@@ -156,7 +156,7 @@ am_libwinstorecompat_a_OBJECTS = src/beginthread.$(OBJEXT) \
 	src/EnumProcessModules.$(OBJEXT) \
 	src/RtlAddFunctionTable.$(OBJEXT) \
 	src/RtlCaptureContext.$(OBJEXT) src/RtlVirtualUnwind.$(OBJEXT) \
-	src/RtlRestoreContext.$(OBJEXT)
+	src/RtlRestoreContext.$(OBJEXT) src/GetUserName.$(OBJEXT)
 libwinstorecompat_a_OBJECTS = $(am_libwinstorecompat_a_OBJECTS)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
@@ -366,6 +366,7 @@ libwinstorecompat_a_SOURCES = \
   src/RtlCaptureContext.c \
   src/RtlVirtualUnwind.c \
   src/RtlRestoreContext.c \
+  src/GetUserName.c \
   $(NULL)
 
 all: all-am
@@ -512,6 +513,8 @@ src/RtlVirtualUnwind.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/RtlRestoreContext.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/GetUserName.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 
 libwinstorecompat.a: $(libwinstorecompat_a_OBJECTS) $(libwinstorecompat_a_DEPENDENCIES) $(EXTRA_libwinstorecompat_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libwinstorecompat.a
@@ -538,6 +541,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetModuleHandle.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetStartupInfo.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetTickCount.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/GetUserName.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/InitializeCriticalSection.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/IsDBCSLeadByteEx.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/LoadLibraryW.Po@am__quote@
