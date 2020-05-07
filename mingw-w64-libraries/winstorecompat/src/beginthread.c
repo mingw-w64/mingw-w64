@@ -49,6 +49,6 @@ void __cdecl _endthreadex(unsigned _Retval)
 uintptr_t (__cdecl *__MINGW_IMP_SYMBOL(_beginthreadex))(void*, unsigned, unsigned (__stdcall *)(void *), void *,unsigned, unsigned*) __asm__("__imp___beginthreadex") = _beginthreadex;
 void (__cdecl *__MINGW_IMP_SYMBOL(_endthreadex))(unsigned) __asm__("__imp___endthreadex") = _endthreadex;
 #else
-void (__cdecl *__MINGW_IMP_SYMBOL(_beginthreadex))(void*, unsigned, unsigned (__stdcall *)(void *), void *,unsigned, unsigned*) __asm__("__imp__beginthreadex") = _beginthreadex;
+uintptr_t (__cdecl *__MINGW_IMP_SYMBOL(_beginthreadex))(void*, unsigned, unsigned (__stdcall *)(void *), void *,unsigned, unsigned*) __asm__("__imp__beginthreadex") = _beginthreadex;
 void (__cdecl *__MINGW_IMP_SYMBOL(_endthreadex))(unsigned) __asm__("__imp__endthreadex") = _endthreadex;
 #endif
