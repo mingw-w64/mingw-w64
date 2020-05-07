@@ -999,7 +999,57 @@ interface ID2D1Factory1 : public ID2D1Factory
 #else
 
 typedef interface ID2D1Factory1 ID2D1Factory1;
-/* FIXME: Add full C declaration */
+
+typedef struct ID2D1Factory1Vtbl {
+    ID2D1FactoryVtbl Base;
+
+    STDMETHOD(CreateDevice)(ID2D1Factory1 *This, IDXGIDevice *dxgiDevice,
+            ID2D1Device **d2dDevice) PURE;
+    STDMETHOD(CreateStrokeStyle)(ID2D1Factory1 *This,
+            CONST D2D1_STROKE_STYLE_PROPERTIES1 *strokeStyleProperties,
+            CONST FLOAT *dashes, UINT32 dashesCount,
+            ID2D1StrokeStyle1 **strokeStyle) PURE;
+    STDMETHOD(CreatePathGeometry)(ID2D1Factory1 *This,
+            ID2D1PathGeometry1 **pathGeometry) PURE;
+    STDMETHOD(CreateDrawingStateBlock)(ID2D1Factory1 *This,
+            CONST D2D1_DRAWING_STATE_DESCRIPTION1 *drawingStateDescription,
+            IDWriteRenderingParams *textRenderingParams,
+            ID2D1DrawingStateBlock1 **drawingStateBlock) PURE;
+    STDMETHOD(CreateGdiMetafile)(ID2D1Factory1 *This, IStream *metafileStream,
+            ID2D1GdiMetafile **metafile) PURE;
+    STDMETHOD(RegisterEffectFromStream)(ID2D1Factory1 *This, REFCLSID classId,
+            IStream *propertyXml, CONST D2D1_PROPERTY_BINDING *bindings,
+            UINT32 bindingsCount,
+            CONST PD2D1_EFFECT_FACTORY effectFactory) PURE;
+    STDMETHOD(RegisterEffectFromString)(ID2D1Factory1 *This,
+            REFCLSID classId, PCWSTR propertyXml,
+            CONST D2D1_PROPERTY_BINDING *bindings, UINT32 bindingsCount,
+            CONST PD2D1_EFFECT_FACTORY effectFactory) PURE;
+    STDMETHOD(UnregisterEffect)(ID2D1Factory1 *This, REFCLSID classId) PURE;
+    STDMETHOD(GetRegisteredEffects)(ID2D1Factory1 *This, CLSID *effects,
+            UINT32 effectsCount, UINT32 *effectsReturned,
+            UINT32 *effectsRegistered) PURE;
+    STDMETHOD(GetEffectProperties)(ID2D1Factory1 *This, REFCLSID effectId,
+            ID2D1Properties **properties) PURE;
+} ID2D1Factory1Vtbl;
+
+interface ID2D1Factory1 {
+    const ID2D1Factory1Vtbl *lpVtbl;
+};
+
+#define ID2D1Factory1_QueryInterface(this,A,B) (this)->lpVtbl->Base.Base.QueryInterface((IUnknown *)(this),A,B)
+#define ID2D1Factory1_AddRef(this) (this)->lpVtbl->Base.Base.AddRef((IUnknown *)(this))
+#define ID2D1Factory1_Release(this) (this)->lpVtbl->Base.Base.Release((IUnknown *)(this))
+#define ID2D1Factory1_CreateDevice(this,A,B) (this)->lpVtbl->CreateDevice(this,A,B)
+#define ID2D1Factory1_CreateStrokeStyle(this,A,B,C,D) (this)->lpVtbl->CreateStrokeStyle(this,A,B,C,D)
+#define ID2D1Factory1_CreatePathGeometry(this,A) (this)->lpVbtl->CreatePathGeometry(this,A)
+#define ID2D1Factory1_CreateDrawingStateBlock(this,A,B, C) (this)->lpVtbl->CreateDrawingStateBlock(this,A,B,C)
+#define ID2D1Factory1_CreateGdiMetafile(this,A,B) (this)->lpVtbl->CreateGdiMetafile(this,A,B)
+#define ID2D1Factory1_RegisterEffectFromStream(this,A,B,C,D,E) (this)->lpVtbl->RegisterEffectFromStream(this,A,B,C,D,E)
+#define ID2D1Factory1_RegisterEffectFromString(this,A,B,C,D,E) (this)->lpVtbl->RegisterEffectFromString(this,A,B,C,D,E)
+#define ID2D1Factory1_UnregisterEffect(this,A) (this)->lpVtbl->UnregisterEffect(this,A)
+#define ID2D1Factory1_GetRegisteredEffects(this,A,B,C,D) (this)->lpVtbl->GetRegisteredEffects(this,A,B,C,D)
+#define ID2D1Factory1_GetEffectProperties(this,A,B) (this)->lpVtbl->GetEffectProperties(this,A,B)
 
 #endif
 
