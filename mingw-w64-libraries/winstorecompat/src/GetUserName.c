@@ -55,9 +55,9 @@ WINBOOL WINAPI GetUserNameW(LPWSTR lpBuffer, LPDWORD pcbBuffer)
 }
 
 #ifdef _X86_
-WINBOOL(*__MINGW_IMP_SYMBOL(GetUserNameA))(LPSTR lpBuffer, LPDWORD pcbBuffer) __asm__("__imp__GetUserNameA@8") = GetUserNameA;
-WINBOOL(*__MINGW_IMP_SYMBOL(GetUserNameW))(LPWSTR lpBuffer, LPDWORD pcbBuffer) __asm__("__imp__GetUserNameW@8") = GetUserNameW;
+WINBOOL(WINAPI *__MINGW_IMP_SYMBOL(GetUserNameA))(LPSTR lpBuffer, LPDWORD pcbBuffer) __asm__("__imp__GetUserNameA@8") = GetUserNameA;
+WINBOOL(WINAPI *__MINGW_IMP_SYMBOL(GetUserNameW))(LPWSTR lpBuffer, LPDWORD pcbBuffer) __asm__("__imp__GetUserNameW@8") = GetUserNameW;
 #else
-WINBOOL(*__MINGW_IMP_SYMBOL(GetUserNameA))(LPSTR lpBuffer, LPDWORD pcbBuffer) __asm__("__imp_GetUserNameA") = GetUserNameA;
-WINBOOL(*__MINGW_IMP_SYMBOL(GetUserNameW))(LPWSTR lpBuffer, LPDWORD pcbBuffer) __asm__("__imp_GetUserNameW") = GetUserNameW;
+WINBOOL(WINAPI *__MINGW_IMP_SYMBOL(GetUserNameA))(LPSTR lpBuffer, LPDWORD pcbBuffer) __asm__("__imp_GetUserNameA") = GetUserNameA;
+WINBOOL(WINAPI *__MINGW_IMP_SYMBOL(GetUserNameW))(LPWSTR lpBuffer, LPDWORD pcbBuffer) __asm__("__imp_GetUserNameW") = GetUserNameW;
 #endif
