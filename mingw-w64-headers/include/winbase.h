@@ -1524,6 +1524,7 @@ extern "C" {
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP) || defined(WINSTORECOMPAT)
 #define LoadLibrary __MINGW_NAME_AW(LoadLibrary)
   WINBASEAPI HMODULE WINAPI LoadLibraryW (LPCWSTR lpLibFileName);
+  WINBASEAPI HMODULE WINAPI LoadLibraryA (LPCSTR lpLibFileName);
 #endif
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
   WINBASEAPI HANDLE WINAPI OpenMutexA (DWORD dwDesiredAccess, WINBOOL bInheritHandle, LPCSTR lpName);
@@ -1537,7 +1538,6 @@ extern "C" {
 #endif
   WINBASEAPI HANDLE WINAPI OpenFileMappingA (DWORD dwDesiredAccess, WINBOOL bInheritHandle, LPCSTR lpName);
   WINBASEAPI DWORD WINAPI GetLogicalDriveStringsA (DWORD nBufferLength, LPSTR lpBuffer);
-  WINBASEAPI HMODULE WINAPI LoadLibraryA (LPCSTR lpLibFileName);
 
 #ifndef UNICODE
 #define OpenMutex OpenMutexA
@@ -1549,7 +1549,6 @@ extern "C" {
 #endif
 
 #define CreateWaitableTimer __MINGW_NAME_AW(CreateWaitableTimer)
-#define LoadLibrary __MINGW_NAME_AW(LoadLibrary)
 
 #if _WIN32_WINNT >= 0x0600
 #ifndef UNICODE
