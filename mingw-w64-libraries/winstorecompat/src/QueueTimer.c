@@ -46,9 +46,9 @@ WINBOOL WINAPI DeleteTimerQueueTimer (HANDLE TimerQueue, HANDLE Timer, HANDLE Co
 }
 
 #ifdef _X86_
-WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(CreateTimerQueueTimer)) (PHANDLE phNewTimer, HANDLE TimerQueue, WAITORTIMERCALLBACK Callback, PVOID Parameter, DWORD DueTime, DWORD Period, ULONG Flags) asm("__imp__CreateTimerQueueTimer@28") = CreateTimerQueueTimer;
-WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(DeleteTimerQueueTimer)) (HANDLE TimerQueue, HANDLE Timer, HANDLE CompletionEvent) asm("__imp__DeleteTimerQueueTimer@12") = DeleteTimerQueueTimer;
+WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(CreateTimerQueueTimer)) (PHANDLE phNewTimer, HANDLE TimerQueue, WAITORTIMERCALLBACK Callback, PVOID Parameter, DWORD DueTime, DWORD Period, ULONG Flags) __asm__("__imp__CreateTimerQueueTimer@28") = CreateTimerQueueTimer;
+WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(DeleteTimerQueueTimer)) (HANDLE TimerQueue, HANDLE Timer, HANDLE CompletionEvent) __asm__("__imp__DeleteTimerQueueTimer@12") = DeleteTimerQueueTimer;
 #else
-WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(CreateTimerQueueTimer)) (PHANDLE phNewTimer, HANDLE TimerQueue, WAITORTIMERCALLBACK Callback, PVOID Parameter, DWORD DueTime, DWORD Period, ULONG Flags) asm("__imp_CreateTimerQueueTimer") = CreateTimerQueueTimer;
-WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(DeleteTimerQueueTimer)) (HANDLE TimerQueue, HANDLE Timer, HANDLE CompletionEvent) asm("__imp_DeleteTimerQueueTimer") = DeleteTimerQueueTimer;
+WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(CreateTimerQueueTimer)) (PHANDLE phNewTimer, HANDLE TimerQueue, WAITORTIMERCALLBACK Callback, PVOID Parameter, DWORD DueTime, DWORD Period, ULONG Flags) __asm__("__imp_CreateTimerQueueTimer") = CreateTimerQueueTimer;
+WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(DeleteTimerQueueTimer)) (HANDLE TimerQueue, HANDLE Timer, HANDLE CompletionEvent) __asm__("__imp_DeleteTimerQueueTimer") = DeleteTimerQueueTimer;
 #endif

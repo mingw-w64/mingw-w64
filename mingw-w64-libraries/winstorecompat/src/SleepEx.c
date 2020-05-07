@@ -39,7 +39,7 @@ DWORD WINAPI SleepEx(DWORD dwMilliseconds, BOOL bAlertable)
 }
 
 #ifdef _X86_
-DWORD (WINAPI *__MINGW_IMP_SYMBOL(SleepEx))(DWORD dwMilliseconds, BOOL bAlertable) asm("__imp__SleepEx@8") = SleepEx;
+DWORD (WINAPI *__MINGW_IMP_SYMBOL(SleepEx))(DWORD dwMilliseconds, BOOL bAlertable) __asm__("__imp__SleepEx@8") = SleepEx;
 #else
-DWORD (WINAPI *__MINGW_IMP_SYMBOL(SleepEx))(DWORD dwMilliseconds, BOOL bAlertable) asm("__imp_SleepEx") = SleepEx;
+DWORD (WINAPI *__MINGW_IMP_SYMBOL(SleepEx))(DWORD dwMilliseconds, BOOL bAlertable) __asm__("__imp_SleepEx") = SleepEx;
 #endif

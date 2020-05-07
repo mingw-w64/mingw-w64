@@ -35,7 +35,7 @@ HRESULT WINAPI SHGetFolderPathW(HWND hwnd,int csidl,HANDLE hToken,DWORD dwFlags,
 }
 
 #ifdef _X86_
-HRESULT (WINAPI *__MINGW_IMP_SYMBOL(SHGetFolderPathW))(HWND hwnd,int csidl,HANDLE hToken,DWORD dwFlags,LPWSTR pszPath) asm("__imp__SHGetFolderPathW@20") = SHGetFolderPathW;
+HRESULT (WINAPI *__MINGW_IMP_SYMBOL(SHGetFolderPathW))(HWND hwnd,int csidl,HANDLE hToken,DWORD dwFlags,LPWSTR pszPath) __asm__("__imp__SHGetFolderPathW@20") = SHGetFolderPathW;
 #else
-HRESULT (WINAPI *__MINGW_IMP_SYMBOL(SHGetFolderPathW))(HWND hwnd,int csidl,HANDLE hToken,DWORD dwFlags,LPWSTR pszPath) asm("__imp_SHGetFolderPathW") = SHGetFolderPathW;
+HRESULT (WINAPI *__MINGW_IMP_SYMBOL(SHGetFolderPathW))(HWND hwnd,int csidl,HANDLE hToken,DWORD dwFlags,LPWSTR pszPath) __asm__("__imp_SHGetFolderPathW") = SHGetFolderPathW;
 #endif

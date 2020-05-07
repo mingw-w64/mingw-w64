@@ -66,9 +66,9 @@ WINBOOL WINAPI K32EnumProcessModules(HANDLE hProcess, HMODULE *lphModule, DWORD 
 }
 
 #ifdef _X86_
-WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(EnumProcessModules))(HANDLE hProcess, HMODULE *lphModule, DWORD cb, LPDWORD lpcbNeeded) asm("__imp__EnumProcessModules@16") = EnumProcessModules;
-WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(K32EnumProcessModules))(HANDLE hProcess, HMODULE *lphModule, DWORD cb, LPDWORD lpcbNeeded) asm("__imp__K32EnumProcessModules@16") = K32EnumProcessModules;
+WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(EnumProcessModules))(HANDLE hProcess, HMODULE *lphModule, DWORD cb, LPDWORD lpcbNeeded) __asm__("__imp__EnumProcessModules@16") = EnumProcessModules;
+WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(K32EnumProcessModules))(HANDLE hProcess, HMODULE *lphModule, DWORD cb, LPDWORD lpcbNeeded) __asm__("__imp__K32EnumProcessModules@16") = K32EnumProcessModules;
 #else
-WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(EnumProcessModules))(HANDLE hProcess, HMODULE *lphModule, DWORD cb, LPDWORD lpcbNeeded) asm("__imp_EnumProcessModules") = EnumProcessModules;
-WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(K32EnumProcessModules))(HANDLE hProcess, HMODULE *lphModule, DWORD cb, LPDWORD lpcbNeeded) asm("__imp_K32EnumProcessModules") = K32EnumProcessModules;
+WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(EnumProcessModules))(HANDLE hProcess, HMODULE *lphModule, DWORD cb, LPDWORD lpcbNeeded) __asm__("__imp_EnumProcessModules") = EnumProcessModules;
+WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(K32EnumProcessModules))(HANDLE hProcess, HMODULE *lphModule, DWORD cb, LPDWORD lpcbNeeded) __asm__("__imp_K32EnumProcessModules") = K32EnumProcessModules;
 #endif

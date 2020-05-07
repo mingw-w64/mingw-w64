@@ -35,9 +35,9 @@ VOID WINAPI GetStartupInfo( LPSTARTUPINFO lpStartupInfo )
 }
 
 #ifdef _X86_
-VOID (WINAPI *__MINGW_IMP_SYMBOL(GetStartupInfoA))(LPSTARTUPINFO) asm("__imp__GetStartupInfoA@4") = GetStartupInfo;
-VOID (WINAPI *__MINGW_IMP_SYMBOL(GetStartupInfoW))(LPSTARTUPINFO) asm("__imp__GetStartupInfoW@4") = GetStartupInfo;
+VOID (WINAPI *__MINGW_IMP_SYMBOL(GetStartupInfoA))(LPSTARTUPINFO) __asm__("__imp__GetStartupInfoA@4") = GetStartupInfo;
+VOID (WINAPI *__MINGW_IMP_SYMBOL(GetStartupInfoW))(LPSTARTUPINFO) __asm__("__imp__GetStartupInfoW@4") = GetStartupInfo;
 #else
-VOID (WINAPI *__MINGW_IMP_SYMBOL(GetStartupInfoA))(LPSTARTUPINFO) asm("__imp_GetStartupInfoA") = GetStartupInfo;
-VOID (WINAPI *__MINGW_IMP_SYMBOL(GetStartupInfoW))(LPSTARTUPINFO) asm("__imp_GetStartupInfoW") = GetStartupInfo;
+VOID (WINAPI *__MINGW_IMP_SYMBOL(GetStartupInfoA))(LPSTARTUPINFO) __asm__("__imp_GetStartupInfoA") = GetStartupInfo;
+VOID (WINAPI *__MINGW_IMP_SYMBOL(GetStartupInfoW))(LPSTARTUPINFO) __asm__("__imp_GetStartupInfoW") = GetStartupInfo;
 #endif

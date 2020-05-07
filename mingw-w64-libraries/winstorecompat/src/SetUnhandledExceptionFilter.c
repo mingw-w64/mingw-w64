@@ -40,7 +40,7 @@ LPTOP_LEVEL_EXCEPTION_FILTER WINAPI SetUnhandledExceptionFilter(LPTOP_LEVEL_EXCE
 }
 
 #ifdef _X86_
-LPTOP_LEVEL_EXCEPTION_FILTER (WINAPI *__MINGW_IMP_SYMBOL(SetUnhandledExceptionFilter))(LPTOP_LEVEL_EXCEPTION_FILTER) asm("__imp__SetUnhandledExceptionFilter@4") = SetUnhandledExceptionFilter;
+LPTOP_LEVEL_EXCEPTION_FILTER (WINAPI *__MINGW_IMP_SYMBOL(SetUnhandledExceptionFilter))(LPTOP_LEVEL_EXCEPTION_FILTER) __asm__("__imp__SetUnhandledExceptionFilter@4") = SetUnhandledExceptionFilter;
 #else
-LPTOP_LEVEL_EXCEPTION_FILTER (WINAPI *__MINGW_IMP_SYMBOL(SetUnhandledExceptionFilter))(LPTOP_LEVEL_EXCEPTION_FILTER) asm("__imp_SetUnhandledExceptionFilter") = SetUnhandledExceptionFilter;
+LPTOP_LEVEL_EXCEPTION_FILTER (WINAPI *__MINGW_IMP_SYMBOL(SetUnhandledExceptionFilter))(LPTOP_LEVEL_EXCEPTION_FILTER) __asm__("__imp_SetUnhandledExceptionFilter") = SetUnhandledExceptionFilter;
 #endif

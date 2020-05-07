@@ -36,7 +36,7 @@ UINT WINAPI SetErrorMode(UINT uMode)
 }
 
 #ifdef _X86_
-UINT (WINAPI *__MINGW_IMP_SYMBOL(SetErrorMode))(UINT uMode) asm("__imp__SetErrorMode@4") = SetErrorMode;
+UINT (WINAPI *__MINGW_IMP_SYMBOL(SetErrorMode))(UINT uMode) __asm__("__imp__SetErrorMode@4") = SetErrorMode;
 #else
-UINT (WINAPI *__MINGW_IMP_SYMBOL(SetErrorMode))(UINT uMode) asm("__imp_SetErrorMode") = SetErrorMode;
+UINT (WINAPI *__MINGW_IMP_SYMBOL(SetErrorMode))(UINT uMode) __asm__("__imp_SetErrorMode") = SetErrorMode;
 #endif

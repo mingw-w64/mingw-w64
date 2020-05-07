@@ -32,7 +32,7 @@ UINT GetConsoleOutputCP(void)
 }
 
 #ifdef _X86_
-UINT (*__MINGW_IMP_SYMBOL(GetConsoleOutputCP))(void) asm("__imp__GetConsoleOutputCP") = GetConsoleOutputCP;
+UINT (*__MINGW_IMP_SYMBOL(GetConsoleOutputCP))(void) __asm__("__imp__GetConsoleOutputCP") = GetConsoleOutputCP;
 #else
-UINT (*__MINGW_IMP_SYMBOL(GetConsoleOutputCP))(void) asm("__imp_GetConsoleOutputCP") = GetConsoleOutputCP;
+UINT (*__MINGW_IMP_SYMBOL(GetConsoleOutputCP))(void) __asm__("__imp_GetConsoleOutputCP") = GetConsoleOutputCP;
 #endif

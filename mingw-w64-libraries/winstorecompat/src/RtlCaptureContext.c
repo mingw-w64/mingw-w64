@@ -33,7 +33,7 @@ VOID NTAPI RtlCaptureContext(PCONTEXT ContextRecord)
 }
 
 #ifdef _X86_
-VOID (NTAPI *__MINGW_IMP_SYMBOL(RtlCaptureContext))(PCONTEXT ContextRecord) asm("__imp__RtlCaptureContext@4") = RtlCaptureContext;
+VOID (NTAPI *__MINGW_IMP_SYMBOL(RtlCaptureContext))(PCONTEXT ContextRecord) __asm__("__imp__RtlCaptureContext@4") = RtlCaptureContext;
 #else
-VOID (NTAPI *__MINGW_IMP_SYMBOL(RtlCaptureContext))(PCONTEXT ContextRecord) asm("__imp_RtlCaptureContext") = RtlCaptureContext;
+VOID (NTAPI *__MINGW_IMP_SYMBOL(RtlCaptureContext))(PCONTEXT ContextRecord) __asm__("__imp_RtlCaptureContext") = RtlCaptureContext;
 #endif

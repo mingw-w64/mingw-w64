@@ -35,7 +35,7 @@ LONG WINAPI UnhandledExceptionFilter(struct _EXCEPTION_POINTERS *ExceptionInfo)
 }
 
 #ifdef _X86_
-LONG (WINAPI *__MINGW_IMP_SYMBOL(UnhandledExceptionFilter))(struct _EXCEPTION_POINTERS *) asm("__imp__UnhandledExceptionFilter@4") = UnhandledExceptionFilter;
+LONG (WINAPI *__MINGW_IMP_SYMBOL(UnhandledExceptionFilter))(struct _EXCEPTION_POINTERS *) __asm__("__imp__UnhandledExceptionFilter@4") = UnhandledExceptionFilter;
 #else
-LONG (WINAPI *__MINGW_IMP_SYMBOL(UnhandledExceptionFilter))(struct _EXCEPTION_POINTERS *) asm("__imp_UnhandledExceptionFilter") = UnhandledExceptionFilter;
+LONG (WINAPI *__MINGW_IMP_SYMBOL(UnhandledExceptionFilter))(struct _EXCEPTION_POINTERS *) __asm__("__imp_UnhandledExceptionFilter") = UnhandledExceptionFilter;
 #endif

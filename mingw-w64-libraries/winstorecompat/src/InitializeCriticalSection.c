@@ -37,7 +37,7 @@ void WINAPI InitializeCriticalSection(LPCRITICAL_SECTION lpCriticalSection)
 }
 
 #ifdef _X86_
-void (WINAPI *__MINGW_IMP_SYMBOL(InitializeCriticalSection))(LPCRITICAL_SECTION lpCriticalSection) asm("__imp__InitializeCriticalSection@4") = InitializeCriticalSection;
+void (WINAPI *__MINGW_IMP_SYMBOL(InitializeCriticalSection))(LPCRITICAL_SECTION lpCriticalSection) __asm__("__imp__InitializeCriticalSection@4") = InitializeCriticalSection;
 #else
-void (WINAPI *__MINGW_IMP_SYMBOL(InitializeCriticalSection))(LPCRITICAL_SECTION lpCriticalSection) asm("__imp_InitializeCriticalSection") = InitializeCriticalSection;
+void (WINAPI *__MINGW_IMP_SYMBOL(InitializeCriticalSection))(LPCRITICAL_SECTION lpCriticalSection) __asm__("__imp_InitializeCriticalSection") = InitializeCriticalSection;
 #endif

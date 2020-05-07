@@ -33,7 +33,7 @@ char *getenv(const char *name)
 }
 
 #ifdef _X86_
-char *(*__MINGW_IMP_SYMBOL(getenv))(const char *) asm("__imp__getenv") = getenv;
+char *(*__MINGW_IMP_SYMBOL(getenv))(const char *) __asm__("__imp__getenv") = getenv;
 #else
-char *(*__MINGW_IMP_SYMBOL(getenv))(const char *) asm("__imp_getenv") = getenv;
+char *(*__MINGW_IMP_SYMBOL(getenv))(const char *) __asm__("__imp_getenv") = getenv;
 #endif

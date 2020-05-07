@@ -101,13 +101,13 @@ BOOL WINAPI CryptGenRandom(HCRYPTPROV phProv, DWORD dwLen, BYTE *pbBuffer)
 }
 
 #ifdef _X86_
-BOOL (WINAPI *__MINGW_IMP_SYMBOL(CryptAcquireContextW))(HCRYPTPROV*, LPCTSTR, LPCTSTR, DWORD, DWORD) asm("__imp__CryptAcquireContextW@20") = CryptAcquireContextW;
-BOOL (WINAPI *__MINGW_IMP_SYMBOL(CryptAcquireContextA))(HCRYPTPROV*, LPCTSTR, LPCTSTR, DWORD, DWORD) asm("__imp__CryptAcquireContextA@20") = CryptAcquireContextA;
-BOOL (WINAPI *__MINGW_IMP_SYMBOL(CryptReleaseContext))(HCRYPTPROV, DWORD) asm("__imp__CryptReleaseContext@8") = CryptReleaseContext;
-BOOL (WINAPI *__MINGW_IMP_SYMBOL(CryptGenRandom))(HCRYPTPROV, DWORD, BYTE*) asm("__imp__CryptGenRandom@12") = CryptGenRandom;
+BOOL (WINAPI *__MINGW_IMP_SYMBOL(CryptAcquireContextW))(HCRYPTPROV*, LPCTSTR, LPCTSTR, DWORD, DWORD) __asm__("__imp__CryptAcquireContextW@20") = CryptAcquireContextW;
+BOOL (WINAPI *__MINGW_IMP_SYMBOL(CryptAcquireContextA))(HCRYPTPROV*, LPCTSTR, LPCTSTR, DWORD, DWORD) __asm__("__imp__CryptAcquireContextA@20") = CryptAcquireContextA;
+BOOL (WINAPI *__MINGW_IMP_SYMBOL(CryptReleaseContext))(HCRYPTPROV, DWORD) __asm__("__imp__CryptReleaseContext@8") = CryptReleaseContext;
+BOOL (WINAPI *__MINGW_IMP_SYMBOL(CryptGenRandom))(HCRYPTPROV, DWORD, BYTE*) __asm__("__imp__CryptGenRandom@12") = CryptGenRandom;
 #else
-BOOL (WINAPI *__MINGW_IMP_SYMBOL(CryptAcquireContextW))(HCRYPTPROV*, LPCTSTR, LPCTSTR, DWORD, DWORD) asm("__imp_CryptAcquireContextW") = CryptAcquireContextW;
-BOOL (WINAPI *__MINGW_IMP_SYMBOL(CryptAcquireContextA))(HCRYPTPROV*, LPCTSTR, LPCTSTR, DWORD, DWORD) asm("__imp_CryptAcquireContextA") = CryptAcquireContextA;
-BOOL (WINAPI *__MINGW_IMP_SYMBOL(CryptReleaseContext))(HCRYPTPROV, DWORD) asm("__imp_CryptReleaseContext") = CryptReleaseContext;
-BOOL (WINAPI *__MINGW_IMP_SYMBOL(CryptGenRandom))(HCRYPTPROV, DWORD, BYTE*) asm("__imp_CryptGenRandom") = CryptGenRandom;
+BOOL (WINAPI *__MINGW_IMP_SYMBOL(CryptAcquireContextW))(HCRYPTPROV*, LPCTSTR, LPCTSTR, DWORD, DWORD) __asm__("__imp_CryptAcquireContextW") = CryptAcquireContextW;
+BOOL (WINAPI *__MINGW_IMP_SYMBOL(CryptAcquireContextA))(HCRYPTPROV*, LPCTSTR, LPCTSTR, DWORD, DWORD) __asm__("__imp_CryptAcquireContextA") = CryptAcquireContextA;
+BOOL (WINAPI *__MINGW_IMP_SYMBOL(CryptReleaseContext))(HCRYPTPROV, DWORD) __asm__("__imp_CryptReleaseContext") = CryptReleaseContext;
+BOOL (WINAPI *__MINGW_IMP_SYMBOL(CryptGenRandom))(HCRYPTPROV, DWORD, BYTE*) __asm__("__imp_CryptGenRandom") = CryptGenRandom;
 #endif

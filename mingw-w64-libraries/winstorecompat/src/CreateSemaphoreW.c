@@ -40,9 +40,9 @@ HANDLE WINAPI CreateSemaphoreW(LPSECURITY_ATTRIBUTES lpSemaphoreAttributes,
 }
 
 #ifdef _X86_
-HANDLE (WINAPI *__MINGW_IMP_SYMBOL(CreateSemaphoreW))(LPSECURITY_ATTRIBUTES lpSemaphoreAttributes, LONG lInitialCount, LONG lMaximumCount, LPCWSTR lpName) asm("__imp__CreateSemaphoreW@16") = CreateSemaphoreW;
+HANDLE (WINAPI *__MINGW_IMP_SYMBOL(CreateSemaphoreW))(LPSECURITY_ATTRIBUTES lpSemaphoreAttributes, LONG lInitialCount, LONG lMaximumCount, LPCWSTR lpName) __asm__("__imp__CreateSemaphoreW@16") = CreateSemaphoreW;
 #else
-HANDLE (WINAPI *__MINGW_IMP_SYMBOL(CreateSemaphoreW))(LPSECURITY_ATTRIBUTES lpSemaphoreAttributes, LONG lInitialCount, LONG lMaximumCount, LPCWSTR lpName) asm("__imp_CreateSemaphoreW") = CreateSemaphoreW;
+HANDLE (WINAPI *__MINGW_IMP_SYMBOL(CreateSemaphoreW))(LPSECURITY_ATTRIBUTES lpSemaphoreAttributes, LONG lInitialCount, LONG lMaximumCount, LPCWSTR lpName) __asm__("__imp_CreateSemaphoreW") = CreateSemaphoreW;
 #endif
 
 /*
@@ -65,7 +65,7 @@ HANDLE WINAPI CreateSemaphoreA(LPSECURITY_ATTRIBUTES lpSemaphoreAttributes,
 }
 
 #ifdef _X86_
-HANDLE (WINAPI *__MINGW_IMP_SYMBOL(CreateSemaphoreA))(LPSECURITY_ATTRIBUTES lpSemaphoreAttributes, LONG lInitialCount, LONG lMaximumCount, LPCSTR lpName) asm("__imp__CreateSemaphoreA@16") = CreateSemaphoreA;
+HANDLE (WINAPI *__MINGW_IMP_SYMBOL(CreateSemaphoreA))(LPSECURITY_ATTRIBUTES lpSemaphoreAttributes, LONG lInitialCount, LONG lMaximumCount, LPCSTR lpName) __asm__("__imp__CreateSemaphoreA@16") = CreateSemaphoreA;
 #else
-HANDLE (WINAPI *__MINGW_IMP_SYMBOL(CreateSemaphoreA))(LPSECURITY_ATTRIBUTES lpSemaphoreAttributes, LONG lInitialCount, LONG lMaximumCount, LPCSTR lpName) asm("__imp_CreateSemaphoreA") = CreateSemaphoreA;
+HANDLE (WINAPI *__MINGW_IMP_SYMBOL(CreateSemaphoreA))(LPSECURITY_ATTRIBUTES lpSemaphoreAttributes, LONG lInitialCount, LONG lMaximumCount, LPCSTR lpName) __asm__("__imp_CreateSemaphoreA") = CreateSemaphoreA;
 #endif

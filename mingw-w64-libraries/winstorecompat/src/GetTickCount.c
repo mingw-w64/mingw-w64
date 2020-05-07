@@ -35,7 +35,7 @@ DWORD WINAPI GetTickCount(void)
 }
 
 #ifdef _X86_
-DWORD (WINAPI *__MINGW_IMP_SYMBOL(GetTickCount))(void) asm("__imp__GetTickCount@0") = GetTickCount;
+DWORD (WINAPI *__MINGW_IMP_SYMBOL(GetTickCount))(void) __asm__("__imp__GetTickCount@0") = GetTickCount;
 #else
-DWORD (WINAPI *__MINGW_IMP_SYMBOL(GetTickCount))(void) asm("__imp_GetTickCount") = GetTickCount;
+DWORD (WINAPI *__MINGW_IMP_SYMBOL(GetTickCount))(void) __asm__("__imp_GetTickCount") = GetTickCount;
 #endif

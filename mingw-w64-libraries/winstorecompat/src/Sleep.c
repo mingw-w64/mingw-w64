@@ -35,7 +35,7 @@ VOID WINAPI Sleep(DWORD dwMilliseconds)
 }
 
 #ifdef _X86_
-VOID (WINAPI *__MINGW_IMP_SYMBOL(Sleep))(DWORD dwMilliseconds) asm("__imp__Sleep@4") = Sleep;
+VOID (WINAPI *__MINGW_IMP_SYMBOL(Sleep))(DWORD dwMilliseconds) __asm__("__imp__Sleep@4") = Sleep;
 #else
-VOID (WINAPI *__MINGW_IMP_SYMBOL(Sleep))(DWORD dwMilliseconds) asm("__imp_Sleep") = Sleep;
+VOID (WINAPI *__MINGW_IMP_SYMBOL(Sleep))(DWORD dwMilliseconds) __asm__("__imp_Sleep") = Sleep;
 #endif

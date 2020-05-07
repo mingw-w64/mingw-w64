@@ -33,5 +33,5 @@ BOOLEAN __cdecl RtlAddFunctionTable(PRUNTIME_FUNCTION FunctionTable, DWORD Entry
     return FALSE;
 }
 
-BOOLEAN (NTAPI *__MINGW_IMP_SYMBOL(RtlAddFunctionTable))(PRUNTIME_FUNCTION FunctionTable, DWORD EntryCount, DWORD64 BaseAddress) asm("__imp_RtlAddFunctionTable") = RtlAddFunctionTable;
+BOOLEAN (NTAPI *__MINGW_IMP_SYMBOL(RtlAddFunctionTable))(PRUNTIME_FUNCTION FunctionTable, DWORD EntryCount, DWORD64 BaseAddress) __asm__("__imp_RtlAddFunctionTable") = RtlAddFunctionTable;
 #endif

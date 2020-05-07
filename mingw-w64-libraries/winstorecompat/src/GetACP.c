@@ -35,7 +35,7 @@ UINT WINAPI GetACP(void)
 }
 
 #ifdef _X86_
-UINT (WINAPI *__MINGW_IMP_SYMBOL(GetACP))(void) asm("__imp__GetACP@0") = GetACP;
+UINT (WINAPI *__MINGW_IMP_SYMBOL(GetACP))(void) __asm__("__imp__GetACP@0") = GetACP;
 #else
-UINT (WINAPI *__MINGW_IMP_SYMBOL(GetACP))(void) asm("__imp_GetACP") = GetACP;
+UINT (WINAPI *__MINGW_IMP_SYMBOL(GetACP))(void) __asm__("__imp_GetACP") = GetACP;
 #endif

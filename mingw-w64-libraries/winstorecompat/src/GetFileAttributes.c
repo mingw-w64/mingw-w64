@@ -42,7 +42,7 @@ DWORD WINAPI GetFileAttributesW(LPCWSTR lpFileName)
 }
 
 #ifdef _X86_
-DWORD (WINAPI *__MINGW_IMP_SYMBOL(GetFileAttributesW))(LPCWSTR lpFileName) asm("__imp__GetFileAttributesW@4") = GetFileAttributesW;
+DWORD (WINAPI *__MINGW_IMP_SYMBOL(GetFileAttributesW))(LPCWSTR lpFileName) __asm__("__imp__GetFileAttributesW@4") = GetFileAttributesW;
 #else
-DWORD (WINAPI *__MINGW_IMP_SYMBOL(GetFileAttributesW))(LPCWSTR lpFileName) asm("__imp_GetFileAttributesW") = GetFileAttributesW;
+DWORD (WINAPI *__MINGW_IMP_SYMBOL(GetFileAttributesW))(LPCWSTR lpFileName) __asm__("__imp_GetFileAttributesW") = GetFileAttributesW;
 #endif

@@ -39,7 +39,7 @@ HLOCAL WINAPI LocalAlloc(UINT uFlags, SIZE_T uBytes)
 }
 
 #ifdef _X86_
-HLOCAL (WINAPI *__MINGW_IMP_SYMBOL(LocalAlloc))(UINT uFlags, SIZE_T uByte) asm("__imp__LocalAlloc@8") = LocalAlloc;
+HLOCAL (WINAPI *__MINGW_IMP_SYMBOL(LocalAlloc))(UINT uFlags, SIZE_T uByte) __asm__("__imp__LocalAlloc@8") = LocalAlloc;
 #else
-HLOCAL (WINAPI *__MINGW_IMP_SYMBOL(LocalAlloc))(UINT uFlags, SIZE_T uByte) asm("__imp_LocalAlloc") = LocalAlloc;
+HLOCAL (WINAPI *__MINGW_IMP_SYMBOL(LocalAlloc))(UINT uFlags, SIZE_T uByte) __asm__("__imp_LocalAlloc") = LocalAlloc;
 #endif

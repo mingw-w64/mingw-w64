@@ -66,13 +66,13 @@ DWORD WINAPI TlsAlloc (void)
 }
 
 #ifdef _X86_
-DWORD (WINAPI *__MINGW_IMP_SYMBOL(TlsAlloc))(void) asm("__imp__TlsAlloc@0") = TlsAlloc;
-WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(TlsFree))(DWORD) asm("__imp__TlsFree@4") = TlsFree;
-WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(TlsSetValue))(DWORD, LPVOID) asm("__imp__TlsSetValue@8") = TlsSetValue;
-LPVOID (WINAPI *__MINGW_IMP_SYMBOL(TlsGetValue))(DWORD) asm("__imp__TlsGetValue@4") = TlsGetValue;
+DWORD (WINAPI *__MINGW_IMP_SYMBOL(TlsAlloc))(void) __asm__("__imp__TlsAlloc@0") = TlsAlloc;
+WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(TlsFree))(DWORD) __asm__("__imp__TlsFree@4") = TlsFree;
+WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(TlsSetValue))(DWORD, LPVOID) __asm__("__imp__TlsSetValue@8") = TlsSetValue;
+LPVOID (WINAPI *__MINGW_IMP_SYMBOL(TlsGetValue))(DWORD) __asm__("__imp__TlsGetValue@4") = TlsGetValue;
 #else
-DWORD (WINAPI *__MINGW_IMP_SYMBOL(TlsAlloc))(void) asm("__imp_TlsAlloc") = TlsAlloc;
-WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(TlsFree))(DWORD) asm("__imp_TlsFree") = TlsFree;
-WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(TlsSetValue))(DWORD, LPVOID) asm("__imp_TlsSetValue") = TlsSetValue;
-LPVOID (WINAPI *__MINGW_IMP_SYMBOL(TlsGetValue))(DWORD) asm("__imp_TlsGetValue") = TlsGetValue;
+DWORD (WINAPI *__MINGW_IMP_SYMBOL(TlsAlloc))(void) __asm__("__imp_TlsAlloc") = TlsAlloc;
+WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(TlsFree))(DWORD) __asm__("__imp_TlsFree") = TlsFree;
+WINBOOL (WINAPI *__MINGW_IMP_SYMBOL(TlsSetValue))(DWORD, LPVOID) __asm__("__imp_TlsSetValue") = TlsSetValue;
+LPVOID (WINAPI *__MINGW_IMP_SYMBOL(TlsGetValue))(DWORD) __asm__("__imp_TlsGetValue") = TlsGetValue;
 #endif

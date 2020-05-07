@@ -38,5 +38,5 @@ PEXCEPTION_ROUTINE NTAPI RtlVirtualUnwind(DWORD HandlerType, DWORD64 ImageBase,
     return NULL;
 }
 
-PEXCEPTION_ROUTINE (NTAPI *__MINGW_IMP_SYMBOL(RtlVirtualUnwind))(DWORD HandlerType, DWORD64 ImageBase, DWORD64 ControlPc, PRUNTIME_FUNCTION FunctionEntry, PCONTEXT ContextRecord, PVOID *HandlerData, PDWORD64 EstablisherFrame, PKNONVOLATILE_CONTEXT_POINTERS ContextPointers) asm("__imp_RtlVirtualUnwind") = RtlVirtualUnwind;
+PEXCEPTION_ROUTINE (NTAPI *__MINGW_IMP_SYMBOL(RtlVirtualUnwind))(DWORD HandlerType, DWORD64 ImageBase, DWORD64 ControlPc, PRUNTIME_FUNCTION FunctionEntry, PCONTEXT ContextRecord, PVOID *HandlerData, PDWORD64 EstablisherFrame, PKNONVOLATILE_CONTEXT_POINTERS ContextPointers) __asm__("__imp_RtlVirtualUnwind") = RtlVirtualUnwind;
 #endif

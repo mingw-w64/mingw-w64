@@ -35,8 +35,8 @@ VOID NTAPI RtlRestoreContext(PCONTEXT ContextRecord,
 }
 
 #ifdef _X86_
-VOID (NTAPI *__MINGW_IMP_SYMBOL(RtlRestoreContext))(PCONTEXT ContextRecord, struct _EXCEPTION_RECORD *ExceptionRecord) asm("__imp__RtlRestoreContext@8") = RtlRestoreContext;
+VOID (NTAPI *__MINGW_IMP_SYMBOL(RtlRestoreContext))(PCONTEXT ContextRecord, struct _EXCEPTION_RECORD *ExceptionRecord) __asm__("__imp__RtlRestoreContext@8") = RtlRestoreContext;
 #else
-VOID (NTAPI *__MINGW_IMP_SYMBOL(RtlRestoreContext))(PCONTEXT ContextRecord, struct _EXCEPTION_RECORD *ExceptionRecord) asm("__imp_RtlRestoreContext") = RtlRestoreContext;
+VOID (NTAPI *__MINGW_IMP_SYMBOL(RtlRestoreContext))(PCONTEXT ContextRecord, struct _EXCEPTION_RECORD *ExceptionRecord) __asm__("__imp_RtlRestoreContext") = RtlRestoreContext;
 #endif
 
