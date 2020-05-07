@@ -1430,7 +1430,7 @@ DECLARE_INTERFACE_(IDWriteLocalFontFileLoader,IDWriteFontFileLoader)
     STDMETHOD_(ULONG, Release)(THIS) PURE;
 
     /* IDWriteFontFileLoader methods */
-    STDMETHOD(CreateStreamFromKey(THIS_ const void *fontFileReferenceKey,UINT32 fontFileReferenceKeySize,IDWriteFontFileStream **fileStream) PURE;
+    STDMETHOD(CreateStreamFromKey)(THIS_ const void *fontFileReferenceKey,UINT32 fontFileReferenceKeySize,IDWriteFontFileStream **fileStream) PURE;
 #endif
 
     /* IDWriteLocalFontFileLoader methods */
