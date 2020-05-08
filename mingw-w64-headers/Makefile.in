@@ -302,7 +302,6 @@ pdfdir = @pdfdir@
 prefix = @prefix@
 program_transform_name = @program_transform_name@
 psdir = @psdir@
-runstatedir = @runstatedir@
 sbindir = @sbindir@
 sharedstatedir = @sharedstatedir@
 srcdir = @srcdir@
@@ -464,6 +463,8 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/napsystemhealthagent.idl \
 @HAVE_WIDL_TRUE@  include/napsystemhealthvalidator.idl \
 @HAVE_WIDL_TRUE@  include/naptypes.idl \
+@HAVE_WIDL_TRUE@  include/netcfgn.idl \
+@HAVE_WIDL_TRUE@  include/netcfgx.idl \
 @HAVE_WIDL_TRUE@  include/netfw.idl \
 @HAVE_WIDL_TRUE@  include/netlistmgr.idl \
 @HAVE_WIDL_TRUE@  include/objectarray.idl \
