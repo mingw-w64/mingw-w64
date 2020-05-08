@@ -164,6 +164,7 @@ IDL_SRCS = \
   include/napsystemhealthagent.idl \
   include/napsystemhealthvalidator.idl \
   include/naptypes.idl \
+  include/netcfgx.idl \
   include/netfw.idl \
   include/netlistmgr.idl \
   include/objectarray.idl \
