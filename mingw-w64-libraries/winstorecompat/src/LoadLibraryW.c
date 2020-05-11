@@ -22,7 +22,9 @@
     DEALINGS IN THE SOFTWARE.
 */
 
+#ifndef _WIN32_WINNT
 #define _WIN32_WINNT 0x602 /* LoadPackagedLibrary is Win8 APP Family */
+#endif
 
 #define LoadLibraryW __LoadLibraryW
 #define LoadLibraryA __LoadLibraryA

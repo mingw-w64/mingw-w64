@@ -22,7 +22,9 @@
     DEALINGS IN THE SOFTWARE.
 */
 
+#ifndef _WIN32_WINNT
 #define _WIN32_WINNT 0x501
+#endif
 
 #define _beginthreadex ___beginthreadex
 #define _endthreadex ___endthreadex

@@ -22,7 +22,9 @@
     DEALINGS IN THE SOFTWARE.
 */
 
+#ifndef _WIN32_WINNT
 #define _WIN32_WINNT 0x600 /* GetFileInformationByHandleEx is Vista+ */
+#endif
 
 #define GetFileSize __GetFileSize
 #include <windef.h>

@@ -22,7 +22,9 @@
     DEALINGS IN THE SOFTWARE.
 */
 
+#ifndef _WIN32_WINNT
 #define _WIN32_WINNT 0x602 /* CreateFile2 is Win8 APP Family */
+#endif
 
 #define CreateFileW __CreateFileW
 #include <windef.h>

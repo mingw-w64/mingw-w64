@@ -22,7 +22,9 @@
     DEALINGS IN THE SOFTWARE.
 */
 
+#ifndef _WIN32_WINNT
 #define _WIN32_WINNT 0x602
+#endif
 
 #define CryptAcquireContextW __CryptAcquireContextW
 #define CryptAcquireContextA __CryptAcquireContextA
