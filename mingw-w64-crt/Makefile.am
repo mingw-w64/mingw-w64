@@ -1813,7 +1813,7 @@ endif
 		%/libapi-ms-win-core-console-l1-2-0.a \
 		%/libapi-ms-win-core-console-l2-1-0.a \
 		%/libapi-ms-win-core-console-l2-2-0.a \
-		%/libapi-ms-win-core-console-l2-3-0.a \
+		%/libapi-ms-win-core-console-l3-2-0.a \
 		%/libapi-ms-win-core-datetime-l1-1-0.a \
 		%/libapi-ms-win-core-datetime-l1-1-1.a \
 		%/libapi-ms-win-core-datetime-l1-1-2.a \
