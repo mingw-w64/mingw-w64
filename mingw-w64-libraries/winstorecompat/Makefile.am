@@ -43,6 +43,7 @@ libwinstorecompat_a_SOURCES = \
   src/RtlVirtualUnwind.c \
   src/RtlRestoreContext.c \
   src/GetUserName.c \
+  src/getpid.c \
   $(NULL)
 
 libwindowsappcompat_a_SOURCES = \
@@ -64,5 +65,6 @@ libwindowsappcompat_a_SOURCES = \
   src/RtlVirtualUnwind.c \
   src/RtlRestoreContext.c \
   src/GetUserName.c \
+  src/getpid.c \
   $(NULL)
 libwindowsappcompat_a_CFLAGS = $(AM_CFLAGS) -D_WIN32_WINNT=_WIN32_WINNT_WIN10

@@ -152,6 +152,12 @@ extern "C" {
 #define WAIT_CHILD _WAIT_CHILD
 #define WAIT_GRANDCHILD _WAIT_GRANDCHILD
 
+#if defined(_CRT_USE_WINAPI_FAMILY_DESKTOP_APP) || defined(WINSTORECOMPAT)
+#ifndef _CRT_GETPID_DEFINED
+#define _CRT_GETPID_DEFINED  /* Also in unistd.h */
+  int __cdecl getpid(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+#endif
+#endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP || WINSTORECOMPAT */
 #ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
   intptr_t __cdecl cwait(int *_TermStat,intptr_t _ProcHandle,int _Action) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
 #ifdef __GNUC__
@@ -169,10 +175,6 @@ extern "C" {
   intptr_t __cdecl spawnle(int,const char *_Filename,const char *_ArgList,...) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   intptr_t __cdecl spawnlp(int,const char *_Filename,const char *_ArgList,...) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
   intptr_t __cdecl spawnlpe(int,const char *_Filename,const char *_ArgList,...) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-#ifndef _CRT_GETPID_DEFINED
-#define _CRT_GETPID_DEFINED  /* Also in unistd.h */
-  int __cdecl getpid(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-#endif
 #ifdef __GNUC__
   /* Those methods are predefined by gcc builtins to return int. So to prevent
      stupid warnings, define them in POSIX way.  This is save, because those
