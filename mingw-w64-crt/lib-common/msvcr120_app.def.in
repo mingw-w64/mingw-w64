@@ -2197,6 +2197,7 @@ F_NON_I386(fmodf)
 fopen
 fopen_s
 fprintf
+__ms_fprintf == fprintf
 fprintf_s
 fputc
 fputs
@@ -2209,6 +2210,7 @@ freopen
 freopen_s
 frexp DATA
 fscanf
+__ms_fscanf == fscanf
 fscanf_s
 fseek
 fsetpos
@@ -2218,6 +2220,7 @@ __ms_fwprintf == fwprintf
 fwprintf_s
 fwrite
 fwscanf
+__ms_fwscanf == fwscanf
 fwscanf_s
 getc
 getchar
@@ -2344,6 +2347,7 @@ perror
 pow
 F_NON_I386(powf)
 printf
+__ms_printf == printf
 printf_s
 putc
 putchar
@@ -2380,6 +2384,7 @@ scalbnf
 scalbnl
 #endif
 scanf
+__ms_scanf == scanf
 scanf_s
 setbuf
 F_NON_I386(setjmp)
@@ -2391,11 +2396,13 @@ F_NON_I386(sinf)
 sinh
 F_NON_I386(sinhf)
 sprintf
+__ms_sprintf == sprintf
 sprintf_s
 sqrt
 F_NON_I386(sqrtf)
 srand
 sscanf
+__ms_sscanf == sscanf
 sscanf_s
 strcat
 strcat_s
@@ -2434,6 +2441,7 @@ strxfrm
 F_ARM32(swprintf)
 swprintf_s
 swscanf
+__ms_swscanf == swscanf
 swscanf_s
 F_ARM32(system)
 tan
@@ -2460,18 +2468,22 @@ ungetc
 ungetwc
 F_ARM32(utime)
 vfprintf
+__ms_vfprintf == vfprintf
 vfprintf_s
 F_X86_ANY(vfscanf)
 F_X86_ANY(vfscanf_s)
 vfwprintf
+__ms_vfwprintf == vfwprintf
 vfwprintf_s
 F_X86_ANY(vfwscanf)
 F_X86_ANY(vfwscanf_s)
 vprintf
+__ms_vprintf == vprintf
 vprintf_s
 F_X86_ANY(vscanf)
 F_X86_ANY(vscanf_s)
 vsprintf
+__ms_vsprintf == vsprintf
 vsprintf_s
 F_X86_ANY(vsscanf)
 F_X86_ANY(vsscanf_s)
@@ -2480,6 +2492,7 @@ vswprintf_s
 F_X86_ANY(vswscanf)
 F_X86_ANY(vswscanf_s)
 vwprintf
+__ms_vwprintf == vwprintf
 vwprintf_s
 F_X86_ANY(vwscanf)
 F_X86_ANY(vwscanf_s)
@@ -2529,6 +2542,8 @@ F_X86_ANY(wctype)
 F_X86_ANY(wmemcpy_s)
 F_X86_ANY(wmemmove_s)
 wprintf
+__ms_wprintf == wprintf
 wprintf_s
 wscanf
+__ms_wscanf == wscanf
 wscanf_s

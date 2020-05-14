@@ -1839,6 +1839,7 @@ fmod DATA
 fopen
 fopen_s
 fprintf
+__ms_fprintf == fprintf
 fprintf_s
 fputc
 fputs
@@ -1851,6 +1852,7 @@ freopen
 freopen_s
 frexp DATA
 fscanf
+__ms_fscanf == fscanf
 fscanf_s
 fseek
 fsetpos
@@ -1860,6 +1862,7 @@ __ms_fwprintf == fwprintf
 fwprintf_s
 fwrite
 fwscanf
+__ms_fwscanf == fwscanf
 fwscanf_s
 getc
 getchar
@@ -1924,6 +1927,7 @@ modf DATA
 perror
 pow DATA
 printf
+__ms_printf == printf
 printf_s
 putc
 putchar
@@ -1940,6 +1944,7 @@ remove
 rename
 rewind
 scanf
+__ms_scanf == scanf
 scanf_s
 setbuf
 setlocale
@@ -1949,10 +1954,12 @@ sin DATA
 ; If we implement sinh, we can set it to DATA only.
 sinh
 sprintf
+__ms_sprintf == sprintf
 sprintf_s
 sqrt DATA
 srand
 sscanf
+__ms_sscanf == sscanf
 sscanf_s
 strcat
 strcat_s
@@ -1984,6 +1991,7 @@ strtoul
 strxfrm
 swprintf_s
 swscanf
+__ms_swscanf == swscanf
 swscanf_s
 system
 tan
@@ -2000,15 +2008,20 @@ towupper
 ungetc
 ungetwc
 vfprintf
+__ms_vfprintf == vfprintf
 vfprintf_s
 vfwprintf
+__ms_vfwprintf == vfwprintf
 vfwprintf_s
 vprintf
+__ms_vprintf == vprintf
 vprintf_s
 vsprintf
+__ms_vsprintf == vsprintf
 vsprintf_s
 vswprintf_s
 vwprintf
+__ms_vwprintf == vwprintf
 vwprintf_s
 wcrtomb
 wcrtomb_s
@@ -2048,6 +2061,8 @@ wctomb_s
 wmemcpy_s
 wmemmove_s
 wprintf
+__ms_wprintf == wprintf
 wprintf_s
 wscanf
+__ms_wscanf == wscanf
 wscanf_s

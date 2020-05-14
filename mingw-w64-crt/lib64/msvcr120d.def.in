@@ -2014,6 +2014,7 @@ fmodf
 fopen
 fopen_s
 fprintf
+__ms_fprintf == fprintf
 fprintf_s
 fputc
 fputs
@@ -2026,6 +2027,7 @@ freopen
 freopen_s
 frexp DATA
 fscanf
+__ms_fscanf == fscanf
 fscanf_s
 fseek
 fsetpos
@@ -2035,6 +2037,7 @@ __ms_fwprintf == fwprintf
 fwprintf_s
 fwrite
 fwscanf
+__ms_fwscanf == fwscanf
 fwscanf_s
 getc
 getchar
@@ -2147,6 +2150,7 @@ perror
 pow
 powf
 printf
+__ms_printf == printf
 printf_s
 putc
 putchar
@@ -2181,6 +2185,7 @@ scalbn
 scalbnf
 scalbnl
 scanf
+__ms_scanf == scanf
 scanf_s
 setbuf
 setjmp
@@ -2192,11 +2197,13 @@ sinf
 sinh
 sinhf
 sprintf
+__ms_sprintf == sprintf
 sprintf_s
 sqrt
 sqrtf
 srand
 sscanf
+__ms_sscanf == sscanf
 sscanf_s
 strcat
 strcat_s
@@ -2234,6 +2241,7 @@ strtoumax
 strxfrm
 swprintf_s
 swscanf
+__ms_swscanf == swscanf
 swscanf_s
 system
 tan
@@ -2258,18 +2266,22 @@ truncl
 ungetc
 ungetwc
 vfprintf
+__ms_vfprintf == vfprintf
 vfprintf_s
 vfscanf
 vfscanf_s
 vfwprintf
+__ms_vfwprintf == vfwprintf
 vfwprintf_s
 vfwscanf
 vfwscanf_s
 vprintf
+__ms_vprintf == vprintf
 vprintf_s
 vscanf
 vscanf_s
 vsprintf
+__ms_vsprintf == vsprintf
 vsprintf_s
 vsscanf
 vsscanf_s
@@ -2277,6 +2289,7 @@ vswprintf_s
 vswscanf
 vswscanf_s
 vwprintf
+__ms_vwprintf == vwprintf
 vwprintf_s
 vwscanf
 vwscanf_s
@@ -2326,7 +2339,9 @@ wctype
 wmemcpy_s
 wmemmove_s
 wprintf
+__ms_wprintf == wprintf
 wprintf_s
 wscanf
+__ms_wscanf == wscanf
 wscanf_s
 

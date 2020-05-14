@@ -578,6 +578,7 @@ floor DATA
 fmod DATA
 fopen
 fprintf
+__ms_fprintf == fprintf
 fputc
 fputs
 fputwc
@@ -587,6 +588,7 @@ free
 freopen
 frexp DATA
 fscanf
+__ms_fscanf == fscanf
 fseek
 fsetpos
 ftell
@@ -594,6 +596,7 @@ fwprintf
 __ms_fwprintf == fwprintf
 fwrite
 fwscanf
+__ms_fwscanf == fwscanf
 getc
 getchar
 getenv
@@ -652,6 +655,7 @@ modf DATA
 perror
 pow DATA
 printf
+__ms_printf == printf
 putc
 putchar
 puts
@@ -667,6 +671,7 @@ remove
 rename
 rewind
 scanf
+__ms_scanf == scanf
 setbuf
 setlocale
 setvbuf
@@ -675,9 +680,11 @@ sin DATA
 ; If we impelement sinh, we can set it to DATA only.
 sinh
 sprintf
+__ms_sprintf == sprintf
 sqrt DATA
 srand
 sscanf
+__ms_sscanf == sscanf
 strcat
 strchr
 strcmp
@@ -700,7 +707,9 @@ strtol
 strtoul
 strxfrm
 swprintf
+__ms_swprintf == swprintf
 swscanf
+__ms_swscanf == swscanf
 system
 tan
 ; If we implement tanh, we can set it to DATA only.
@@ -716,11 +725,17 @@ towupper
 ungetc
 ungetwc
 vfprintf
+__ms_vfprintf == vfprintf
 vfwprintf
+__ms_vfwprintf == vfwprintf
 vprintf
+__ms_vprintf == vprintf
 vsprintf
+__ms_vsprintf == vsprintf
 vswprintf
+__ms_vswprintf == vswprintf
 vwprintf
+__ms_vwprintf == vwprintf
 wcscat
 wcschr
 wcscmp
@@ -744,7 +759,9 @@ wcstoul
 wcsxfrm
 wctomb
 wprintf
+__ms_wprintf == wprintf
 wscanf
+__ms_wscanf == wscanf
 ; msvcrt.dll(version 6.10) and later
 __lc_collate_cp	DATA
 __p__mbcasemap
