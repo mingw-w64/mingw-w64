@@ -1263,6 +1263,9 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
   int __cdecl swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
   int __cdecl wscanf(const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
 #ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
+  int __cdecl __ms_vwscanf (const wchar_t * __restrict__ , va_list);
+  int __cdecl __ms_vfwscanf (FILE * __restrict__ ,const wchar_t * __restrict__ ,va_list);
+  int __cdecl __ms_vswscanf (const wchar_t * __restrict__ ,const wchar_t * __restrict__ ,va_list);
 
   __mingw_ovr
   __MINGW_ATTRIB_NONNULL(2)
