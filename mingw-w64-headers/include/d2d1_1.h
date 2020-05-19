@@ -1014,7 +1014,29 @@ interface ID2D1Device : public ID2D1Resource
 #else
 
 typedef interface ID2D1Device ID2D1Device;
-/* FIXME: Add full C declaration */
+
+typedef struct ID2D1DeviceVtbl {
+    struct ID2D1ResourceVtbl Base;
+
+    STDMETHOD(CreateDeviceContext)(ID2D1Device *This,
+        D2D1_DEVICE_CONTEXT_OPTIONS options,
+        ID2D1DeviceContext **deviceContext) PURE;
+    STDMETHOD(CreatePrintControl)(ID2D1Device *This,
+        IWICImagingFactory *wicFactory,
+        IPrintDocumentPackageTarget *documentTarget,
+        CONST D2D1_PRINT_CONTROL_PROPERTIES *printControlProperties,
+        ID2D1PrintControl **printControl) PURE;
+    STDMETHOD_(void, SetMaximumTextureMemory)(ID2D1Device *This,
+        UINT64 maximumInBytes) PURE;
+    STDMETHOD_(UINT64, GetMaximumTextureMemory)(ID2D1Device *This) PURE;
+    STDMETHOD_(void, ClearResources)(ID2D1Device *This,
+        UINT32 millisecondsSinceUse) PURE;
+}
+ID2D1DeviceVtbl;
+
+interface ID2D1Device {
+    const ID2D1DeviceVtbl *lpVtbl;
+};
 
 #endif
 
