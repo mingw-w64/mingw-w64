@@ -388,11 +388,7 @@ extern "C" {
 
 /* Compile time assertion */
 
-#if defined(_MSC_VER)
-# define C_ASSERT(e) typedef char __C_ASSERT__[(e)?1:-1]
-#else
-# define C_ASSERT(e) extern void __C_ASSERT__(int [(e)?1:-1])
-#endif
+#define C_ASSERT(e) extern void __C_ASSERT__(int [(e)?1:-1])
 
 /* Eliminate Microsoft C/C++ compiler warning 4715 */
 #if defined(_MSC_VER) && (_MSC_VER > 1200)
@@ -456,18 +452,21 @@ typedef VOID           *PVOID64;
 typedef BYTE            BOOLEAN,    *PBOOLEAN;
 typedef char            CHAR,       *PCHAR;
 typedef short           SHORT,      *PSHORT;
-#ifdef _MSC_VER
+#ifdef WINE_USE_LONG
 typedef long            LONG,       *PLONG;
 #else
 typedef int             LONG,       *PLONG;
 #endif
 
 /* Some systems might have wchar_t, but we really need 16 bit characters */
-#ifdef WINE_UNICODE_NATIVE
-typedef wchar_t         WCHAR,      *PWCHAR;
+#if defined(WINE_UNICODE_NATIVE)
+typedef wchar_t         WCHAR;
+#elif defined(WINE_UNICODE_CHAR16)
+typedef char16_t        WCHAR;
 #else
-typedef unsigned short  WCHAR,      *PWCHAR;
+typedef unsigned short  WCHAR;
 #endif
+typedef WCHAR          *PWCHAR;
 
 typedef ULONG           UCSCHAR;
 #define MIN_UCSCHAR                 (0)
@@ -607,10 +606,13 @@ typedef DWORD FLONG;
 #define STATUS_TIMEOUT                   ((DWORD) 0x00000102)
 #define STATUS_PENDING                   ((DWORD) 0x00000103)
 #define STATUS_SEGMENT_NOTIFICATION      ((DWORD) 0x40000005)
+#define STATUS_FATAL_APP_EXIT            ((DWORD) 0x40000015)
 #define STATUS_GUARD_PAGE_VIOLATION      ((DWORD) 0x80000001)
 #define STATUS_DATATYPE_MISALIGNMENT     ((DWORD) 0x80000002)
 #define STATUS_BREAKPOINT                ((DWORD) 0x80000003)
 #define STATUS_SINGLE_STEP               ((DWORD) 0x80000004)
+#define STATUS_LONGJUMP                  ((DWORD) 0x80000026)
+#define STATUS_UNWIND_CONSOLIDATE        ((DWORD) 0x80000029)
 #define STATUS_ACCESS_VIOLATION          ((DWORD) 0xC0000005)
 #define STATUS_IN_PAGE_ERROR             ((DWORD) 0xC0000006)
 #define STATUS_INVALID_HANDLE            ((DWORD) 0xC0000008)
@@ -630,16 +632,25 @@ typedef DWORD FLONG;
 #define STATUS_INTEGER_OVERFLOW          ((DWORD) 0xC0000095)
 #define STATUS_PRIVILEGED_INSTRUCTION    ((DWORD) 0xC0000096)
 #define STATUS_STACK_OVERFLOW            ((DWORD) 0xC00000FD)
+#define STATUS_DLL_NOT_FOUND             ((DWORD) 0xC0000135)
+#define STATUS_ORDINAL_NOT_FOUND         ((DWORD) 0xC0000138)
+#define STATUS_ENTRYPOINT_NOT_FOUND      ((DWORD) 0xC0000139)
 #define STATUS_CONTROL_C_EXIT            ((DWORD) 0xC000013A)
+#define STATUS_DLL_INIT_FAILED           ((DWORD) 0xC0000142)
 #define STATUS_FLOAT_MULTIPLE_FAULTS     ((DWORD) 0xC00002B4)
 #define STATUS_FLOAT_MULTIPLE_TRAPS      ((DWORD) 0xC00002B5)
 #define STATUS_REG_NAT_CONSUMPTION       ((DWORD) 0xC00002C9)
+#define STATUS_HEAP_CORRUPTION           ((DWORD) 0xC0000374)
+#define STATUS_STACK_BUFFER_OVERRUN      ((DWORD) 0xC0000409)
+#define STATUS_INVALID_CRUNTIME_PARAMETER ((DWORD) 0xC0000417)
+#define STATUS_ASSERTION_FAILURE         ((DWORD) 0xC0000420)
 #define STATUS_SXS_EARLY_DEACTIVATION    ((DWORD) 0xC015000F)
 #define STATUS_SXS_INVALID_DEACTIVATION  ((DWORD) 0xC0150010)
 
 /* status values for ContinueDebugEvent */
 #define DBG_EXCEPTION_HANDLED       ((DWORD) 0x00010001)
 #define DBG_CONTINUE                ((DWORD) 0x00010002)
+#define DBG_REPLY_LATER             ((DWORD) 0x40010001)
 #define DBG_TERMINATE_THREAD        ((DWORD) 0x40010003)
 #define DBG_TERMINATE_PROCESS       ((DWORD) 0x40010004)
 #define DBG_CONTROL_C               ((DWORD) 0x40010005)
@@ -647,6 +658,7 @@ typedef DWORD FLONG;
 #define DBG_RIPEXCEPTION            ((DWORD) 0x40010007)
 #define DBG_CONTROL_BREAK           ((DWORD) 0x40010008)
 #define DBG_COMMAND_EXCEPTION       ((DWORD) 0x40010009)
+#define DBG_PRINTEXCEPTION_WIDE_C   ((DWORD) 0x4001000A)
 #define DBG_EXCEPTION_NOT_HANDLED   ((DWORD) 0x80010001)
 
 #endif /* WIN32_NO_STATUS */
@@ -784,6 +796,7 @@ typedef struct _MEMORY_BASIC_INFORMATION
 #define CONTAINING_RECORD(address, type, field) \
   ((type *)((PCHAR)(address) - offsetof(type, field)))
 
+#define ARRAYSIZE(x) (sizeof(x) / sizeof((x)[0]))
 #ifdef __WINESRC__
 # define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
 #endif
@@ -2651,6 +2664,7 @@ static FORCEINLINE struct _TEB * WINAPI NtCurrentTeb(void)
     return teb;
 }
 #elif defined(__x86_64__) && defined(_MSC_VER)
+unsigned __int64 __readgsqword(unsigned long);
 #pragma intrinsic(__readgsqword)
 static FORCEINLINE struct _TEB * WINAPI NtCurrentTeb(void)
 {
@@ -3804,33 +3818,17 @@ typedef struct _IMAGE_RESOURCE_DIRECTORY {
 typedef struct _IMAGE_RESOURCE_DIRECTORY_ENTRY {
 	union {
 		struct {
-#ifdef BITFIELDS_BIGENDIAN
-			unsigned NameIsString:1;
-			unsigned NameOffset:31;
-#else
 			unsigned NameOffset:31;
 			unsigned NameIsString:1;
-#endif
 		} DUMMYSTRUCTNAME;
 		DWORD   Name;
-#ifdef WORDS_BIGENDIAN
-		WORD    __pad;
 		WORD    Id;
-#else
-		WORD    Id;
-		WORD    __pad;
-#endif
 	} DUMMYUNIONNAME;
 	union {
 		DWORD   OffsetToData;
 		struct {
-#ifdef BITFIELDS_BIGENDIAN
-			unsigned DataIsDirectory:1;
-			unsigned OffsetToDirectory:31;
-#else
 			unsigned OffsetToDirectory:31;
 			unsigned DataIsDirectory:1;
-#endif
 		} DUMMYSTRUCTNAME2;
 	} DUMMYUNIONNAME2;
 } IMAGE_RESOURCE_DIRECTORY_ENTRY,*PIMAGE_RESOURCE_DIRECTORY_ENTRY;
@@ -4324,6 +4322,12 @@ typedef struct _ACL_SIZE_INFORMATION
 #define SE_MANAGE_VOLUME_NAME           L"SeManageVolumePrivilege"
 #define SE_IMPERSONATE_NAME             L"SeImpersonatePrivilege"
 #define SE_CREATE_GLOBAL_NAME           L"SeCreateGlobalPrivilege"
+#define SE_TRUSTED_CREDMAN_ACCESS_NAME  L"SeTrustedCredManAccessPrivilege"
+#define SE_RELABEL_NAME                 L"SeRelabelPrivilege"
+#define SE_INC_WORKING_SET_NAME         L"SeIncreaseWorkingSetPrivilege"
+#define SE_TIME_ZONE_NAME               L"SeTimeZonePrivilege"
+#define SE_CREATE_SYMBOLIC_LINK_NAME    L"SeCreateSymbolicLinkPrivilege"
+#define SE_DELEGATE_SESSION_USER_IMPERSONATE_NAME L"SeDelegateSessionUserImpersonatePrivilege"
 #else /* _MSC_VER/__MINGW32__ */
 static const WCHAR SE_CREATE_TOKEN_NAME[] = { 'S','e','C','r','e','a','t','e','T','o','k','e','n','P','r','i','v','i','l','e','g','e',0 };
 static const WCHAR SE_ASSIGNPRIMARYTOKEN_NAME[] = { 'S','e','A','s','s','i','g','n','P','r','i','m','a','r','y','T','o','k','e','n','P','r','i','v','i','l','e','g','e',0 };
@@ -4354,6 +4358,12 @@ static const WCHAR SE_ENABLE_DELEGATION_NAME[] = { 'S','e','E','n','a','b','l','
 static const WCHAR SE_MANAGE_VOLUME_NAME[] = { 'S','e','M','a','n','a','g','e','V','o','l','u','m','e','P','r','i','v','i','l','e','g','e',0 };
 static const WCHAR SE_IMPERSONATE_NAME[] = { 'S','e','I','m','p','e','r','s','o','n','a','t','e','P','r','i','v','i','l','e','g','e',0 };
 static const WCHAR SE_CREATE_GLOBAL_NAME[] = { 'S','e','C','r','e','a','t','e','G','l','o','b','a','l','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_TRUSTED_CREDMAN_ACCESS_NAME[] = { 'S','e','T','r','u','s','t','e','d','C','r','e','d','M','a','n','A','c','c','e','s','s','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_RELABEL_NAME[] = { 'S','e','R','e','l','a','b','e','l','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_INC_WORKING_SET_NAME[] = { 'S','e','I','n','c','r','e','a','s','e','W','o','r','k','i','n','g','S','e','t','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_TIME_ZONE_NAME[] = { 'S','e','T','i','m','e','Z','o','n','e','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_CREATE_SYMBOLIC_LINK_NAME[] = { 'S','e','C','r','e','a','t','e','S','y','m','b','o','l','i','c','L','i','n','k','P','r','i','v','i','l','e','g','e',0 };
+static const WCHAR SE_DELEGATE_SESSION_USER_IMPERSONATE_NAME[] = { 'S','e','D','e','l','e','g','a','t','e','S','e','s','s','i','o','n','U','s','e','r','I','m','p','e','r','s','o','n','a','t','e','P','r','i','v','i','l','e','g','e',0 };
 #endif
 #else /* UNICODE */
 #define SE_CREATE_TOKEN_NAME            "SeCreateTokenPrivilege"
@@ -4385,6 +4395,12 @@ static const WCHAR SE_CREATE_GLOBAL_NAME[] = { 'S','e','C','r','e','a','t','e','
 #define SE_MANAGE_VOLUME_NAME           "SeManageVolumePrivilege"
 #define SE_IMPERSONATE_NAME             "SeImpersonatePrivilege"
 #define SE_CREATE_GLOBAL_NAME           "SeCreateGlobalPrivilege"
+#define SE_TRUSTED_CREDMAN_ACCESS_NAME  "SeTrustedCredManAccessPrivilege"
+#define SE_RELABEL_NAME                 "SeRelabelPrivilege"
+#define SE_INC_WORKING_SET_NAME         "SeIncreaseWorkingSetPrivilege"
+#define SE_TIME_ZONE_NAME               "SeTimeZonePrivilege"
+#define SE_CREATE_SYMBOLIC_LINK_NAME    "SeCreateSymbolicLinkPrivilege"
+#define SE_DELEGATE_SESSION_USER_IMPERSONATE_NAME "SeDelegateSessionUserImpersonatePrivilege"
 #endif
 
 #define SE_GROUP_MANDATORY          0x00000001
@@ -5046,7 +5062,10 @@ typedef struct _ACE_HEADER {
 #define	SYSTEM_AUDIT_CALLBACK_OBJECT_ACE_TYPE 0xf
 #define	SYSTEM_ALARM_CALLBACK_OBJECT_ACE_TYPE 0x10
 #define SYSTEM_MANDATORY_LABEL_ACE_TYPE 0x11
-#define	ACCESS_MAX_MS_V5_ACE_TYPE	0x11
+#define SYSTEM_RESOURCE_ATTRIBUTE_ACE_TYPE  0x12
+#define SYSTEM_SCOPED_POLICY_ID_ACE_TYPE    0x13
+#define SYSTEM_PROCESS_TRUST_LABEL_ACE_TYPE 0x14
+#define ACCESS_MAX_MS_V5_ACE_TYPE           0x14
 
 /* inherit AceFlags */
 #define	OBJECT_INHERIT_ACE		0x01
@@ -5308,6 +5327,15 @@ typedef struct _QUOTA_LIMITS {
 #define QUOTA_LIMITS_HARDWS_MIN_DISABLE 0x00000002
 #define QUOTA_LIMITS_HARDWS_MAX_ENABLE  0x00000004
 #define QUOTA_LIMITS_HARDWS_MAX_DISABLE 0x00000008
+#define QUOTA_LIMITS_USE_DEFAULT_LIMITS 0x00000010
+
+typedef union _RATE_QUOTA_LIMIT {
+    DWORD RateData;
+    struct {
+        DWORD RatePercent:7;
+        DWORD Reserved0:25;
+    } DUMMYSTRUCTNAME;
+} RATE_QUOTA_LIMIT, *PRATE_QUOTA_LIMIT;
 
 typedef struct _QUOTA_LIMITS_EX {
     SIZE_T PagedPoolLimit;
@@ -5316,12 +5344,12 @@ typedef struct _QUOTA_LIMITS_EX {
     SIZE_T MaximumWorkingSetSize;
     SIZE_T PagefileLimit;
     LARGE_INTEGER TimeLimit;
-    SIZE_T Reserved1;
+    SIZE_T WorkingSetLimit;
     SIZE_T Reserved2;
     SIZE_T Reserved3;
     SIZE_T Reserved4;
     DWORD Flags;
-    DWORD Reserved5;
+    RATE_QUOTA_LIMIT CpuRateLimit;
 } QUOTA_LIMITS_EX, *PQUOTA_LIMITS_EX;
 
 #define SECTION_QUERY              0x0001
@@ -5436,6 +5464,8 @@ typedef struct _QUOTA_LIMITS_EX {
 #define FILE_SUPPORTS_INTEGRITY_STREAMS      0x04000000
 #define FILE_SUPPORTS_BLOCK_REFCOUNTING      0x08000000
 #define FILE_SUPPORTS_SPARSE_VDL             0x10000000
+#define FILE_DAX_VOLUME                      0x20000000
+#define FILE_SUPPORTS_GHOSTING               0x40000000
 
 /* File alignments (NT) */
 #define	FILE_BYTE_ALIGNMENT		0x00000000
@@ -6249,8 +6279,10 @@ typedef struct _ASSEMBLY_FILE_DETAILED_INFORMATION {
 typedef const ASSEMBLY_FILE_DETAILED_INFORMATION *PCASSEMBLY_FILE_DETAILED_INFORMATION;
 
 typedef enum {
-    ACTCX_COMPATIBILITY_ELEMENT_TYPE_UNKNOWN = 0,
-    ACTCX_COMPATIBILITY_ELEMENT_TYPE_OS
+    ACTCTX_COMPATIBILITY_ELEMENT_TYPE_UNKNOWN = 0,
+    ACTCTX_COMPATIBILITY_ELEMENT_TYPE_OS,
+    ACTCTX_COMPATIBILITY_ELEMENT_TYPE_MITIGATION,
+    ACTCTX_COMPATIBILITY_ELEMENT_TYPE_MAXVERSIONTESTED
 } ACTCTX_COMPATIBILITY_ELEMENT_TYPE;
 
 typedef struct _COMPATIBILITY_CONTEXT_ELEMENT {

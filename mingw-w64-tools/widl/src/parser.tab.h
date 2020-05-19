@@ -1,8 +1,9 @@
-/* A Bison parser, made by GNU Bison 3.1.  */
+/* A Bison parser, made by GNU Bison 3.5.4.  */
 
 /* Bison interface for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2015, 2018 Free Software Foundation, Inc.
+   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2020 Free Software Foundation,
+   Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -29,6 +30,9 @@
 
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
+
+/* Undocumented macros, especially those whose name start with YY_,
+   are private implementation details.  Do not rely on them.  */
 
 #ifndef YY_PARSER_PARSER_TAB_H_INCLUDED
 # define YY_PARSER_PARSER_TAB_H_INCLUDED
@@ -236,10 +240,9 @@ extern int parser_debug;
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-
 union YYSTYPE
 {
-#line 129 "parser.y" /* yacc.c:1913  */
+#line 129 "parser.y"
 
 	attr_t *attr;
 	attr_list_t *attr_list;
@@ -268,9 +271,9 @@ union YYSTYPE
 	enum type_qualifier type_qualifier;
 	enum function_specifier function_specifier;
 
-#line 272 "parser.tab.h" /* yacc.c:1913  */
-};
+#line 275 "parser.tab.h"
 
+};
 typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1

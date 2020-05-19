@@ -151,6 +151,7 @@ static char *idfile_name;
 char *temp_name;
 const char *prefix_client = "";
 const char *prefix_server = "";
+static const char *includedir;
 
 int line_number = 1;
 
@@ -573,6 +574,27 @@ void write_id_data(const statement_list_t *stmts)
   fclose(idfile);
 }
 
+static void init_argv0_dir( const char *argv0 )
+{
+#ifndef _WIN32
+    char *p, *dir;
+
+#if defined(__linux__) || defined(__FreeBSD_kernel__) || defined(__NetBSD__)
+    dir = realpath( "/proc/self/exe", NULL );
+#elif defined (__FreeBSD__) || defined(__DragonFly__)
+    dir = realpath( "/proc/curproc/file", NULL );
+#else
+    dir = realpath( argv0, NULL );
+#endif
+    if (!dir) return;
+    if (!(p = strrchr( dir, '/' ))) return;
+    if (p == dir) p++;
+    *p = 0;
+    includedir = strmake( "%s/%s", dir, BIN_TO_INCLUDEDIR );
+    free( dir );
+#endif
+}
+
 int main(int argc,char *argv[])
 {
   int i, optc;
@@ -586,6 +608,7 @@ int main(int argc,char *argv[])
 #ifdef SIGHUP
   signal( SIGHUP, exit_on_signal );
 #endif
+  init_argv0_dir( argv[0] );
 
   now = time(NULL);
 
