@@ -58,7 +58,7 @@ widl_SOURCES = src/widl.h \
   include/pathtools.h \
   include/winnt.rh
 
-widl_CPPFLAGS = -I$(top_srcdir)/include -DINCLUDEDIR=\""@WIDL_INCLUDEDIR@"\" -DDEFAULT_BINDIR=\""$(bindir)"\"
+widl_CPPFLAGS = -I$(top_srcdir)/include -DINCLUDEDIR=\""@WIDL_INCLUDEDIR@"\" -DBIN_TO_INCLUDEDIR=\""@BIN_TO_INCLUDEDIR@"\"
 widl_CFLAGS = -O3 -g -Wall -Wformat -Wpacked -Wmissing-declarations -Wimplicit-function-declaration -Wmissing-prototypes -Wstrict-aliasing=2
 
 DISTCHECK_CONFIGURE_FLAGS = --host=$(host) --target=$(target)

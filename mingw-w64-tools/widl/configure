@@ -645,6 +645,7 @@ CPPFLAGS
 LDFLAGS
 CFLAGS
 CC
+BIN_TO_INCLUDEDIR
 WIDL_INCLUDEDIR
 MAINT
 MAINTAINER_MODE_FALSE
@@ -707,6 +708,7 @@ infodir
 docdir
 oldincludedir
 includedir
+runstatedir
 localstatedir
 sharedstatedir
 sysconfdir
@@ -782,6 +784,7 @@ datadir='${datarootdir}'
 sysconfdir='${prefix}/etc'
 sharedstatedir='${prefix}/com'
 localstatedir='${prefix}/var'
+runstatedir='${localstatedir}/run'
 includedir='${prefix}/include'
 oldincludedir='/usr/include'
 docdir='${datarootdir}/doc/${PACKAGE_TARNAME}'
@@ -1034,6 +1037,15 @@ do
   | -silent | --silent | --silen | --sile | --sil)
     silent=yes ;;
 
+  -runstatedir | --runstatedir | --runstatedi | --runstated \
+  | --runstate | --runstat | --runsta | --runst | --runs \
+  | --run | --ru | --r)
+    ac_prev=runstatedir ;;
+  -runstatedir=* | --runstatedir=* | --runstatedi=* | --runstated=* \
+  | --runstate=* | --runstat=* | --runsta=* | --runst=* | --runs=* \
+  | --run=* | --ru=* | --r=*)
+    runstatedir=$ac_optarg ;;
+
   -sbindir | --sbindir | --sbindi | --sbind | --sbin | --sbi | --sb)
     ac_prev=sbindir ;;
   -sbindir=* | --sbindir=* | --sbindi=* | --sbind=* | --sbin=* \
@@ -1171,7 +1183,7 @@ fi
 for ac_var in	exec_prefix prefix bindir sbindir libexecdir datarootdir \
 		datadir sysconfdir sharedstatedir localstatedir includedir \
 		oldincludedir docdir infodir htmldir dvidir pdfdir psdir \
-		libdir localedir mandir
+		libdir localedir mandir runstatedir
 do
   eval ac_val=\$$ac_var
   # Remove trailing slashes.
@@ -1324,6 +1336,7 @@ Fine tuning of the installation directories:
   --sysconfdir=DIR        read-only single-machine data [PREFIX/etc]
   --sharedstatedir=DIR    modifiable architecture-independent data [PREFIX/com]
   --localstatedir=DIR     modifiable single-machine data [PREFIX/var]
+  --runstatedir=DIR       modifiable per-process data [LOCALSTATEDIR/run]
   --libdir=DIR            object code libraries [EPREFIX/lib]
   --includedir=DIR        C header files [PREFIX/include]
   --oldincludedir=DIR     C header files for non-gcc [/usr/include]
@@ -1379,7 +1392,7 @@ Optional Packages:
   --with-widl-includedir=DIR
                           Make widl look for includes in this directory,
                           relative to the bin directory (default:
-                          <includedir>/../<target>/include)
+                          <prefix>/<target>/include)
 
 Some influential environment variables:
   CC          C compiler command
@@ -2388,6 +2401,7 @@ ac_configure="$SHELL $ac_aux_dir/configure"  # Please don't use this var.
 
 
 
+
 ac_config_headers="$ac_config_headers include/config.h"
 
 
@@ -3107,6 +3121,9 @@ fi
 
 
 
+install_prefix=$(echo $prefix | sed "s,NONE,$ac_default_prefix,")
+install_bindir=$(echo $bindir | sed "s,\${exec_prefix},$(echo $install_prefix | sed s/,/\\\\,/),")
+
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for widl includedir" >&5
 $as_echo_n "checking for widl includedir... " >&6; }
 
@@ -3114,12 +3131,39 @@ $as_echo_n "checking for widl includedir... " >&6; }
 if test "${with_widl_includedir+set}" = set; then :
   withval=$with_widl_includedir;
 else
-  with_widl_includedir="\$(includedir)/../\$(target)/include"
+  with_widl_includedir="$install_prefix/$target/include"
 fi
 
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $with_widl_includedir" >&5
 $as_echo "$with_widl_includedir" >&6; }
 WIDL_INCLUDEDIR=$with_widl_includedir
+
+
+_lcl_common_prefix=''
+_lcl_second_prefix_match=''
+while test "$_lcl_second_prefix_match" != 0; do
+  _lcl_first_prefix=`expr "x$install_bindir" : "x\($_lcl_common_prefix/*[^/]*\)"`
+  _lcl_second_prefix_match=`expr "x$with_widl_includedir" : "x$_lcl_first_prefix"`
+  if test "$_lcl_second_prefix_match" != 0; then
+    if test "$_lcl_first_prefix" != "$_lcl_common_prefix"; then
+      _lcl_common_prefix="$_lcl_first_prefix"
+    else
+      _lcl_second_prefix_match=0
+    fi
+  fi
+done
+_lcl_first_suffix=`expr "x$install_bindir" : "x$_lcl_common_prefix/*\(.*\)"`
+_lcl_first_rel=''
+_lcl_tmp='xxx'
+while test "$_lcl_tmp" != ''; do
+  _lcl_tmp=`expr "x$_lcl_first_suffix" : "x[^/]*/*\(.*\)"`
+  if test "$_lcl_first_suffix" != ''; then
+     _lcl_first_suffix="$_lcl_tmp"
+     _lcl_first_rel="../$_lcl_first_rel"
+  fi
+done
+_lcl_second_suffix=`expr "x$with_widl_includedir" : "x$_lcl_common_prefix/*\(.*\)"`
+BIN_TO_INCLUDEDIR="$_lcl_first_rel$_lcl_second_suffix"
 
 
 # Checks for programs.
@@ -6297,7 +6341,9 @@ $as_echo X/"$am_mf" |
     { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
 $as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
 as_fn_error $? "Something went wrong bootstrapping makefile fragments
-    for automatic dependency tracking.  Try re-running configure with the
+    for automatic dependency tracking.  If GNU make was not used, consider
+    re-running the configure script with MAKE=\"gmake\" (or whatever is
+    necessary).  You can also try re-running configure with the
     '--disable-dependency-tracking' option to at least be able to build
     the package (albeit without support for automatic dependency tracking).
 See \`config.log' for more details" "$LINENO" 5; }

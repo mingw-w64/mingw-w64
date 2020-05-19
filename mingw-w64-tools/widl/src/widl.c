@@ -752,15 +752,10 @@ int main(int argc,char *argv[])
   {
       char exe_path[PATH_MAX];
       get_executable_path (argv[0], &exe_path[0], sizeof (exe_path) / sizeof (exe_path[0]));
-      char * rel_to_includedir = get_relative_path (DEFAULT_BINDIR, INCLUDEDIR);
       if (strrchr (exe_path, '/') != NULL) {
           strrchr (exe_path, '/')[1] = '\0';
       }
-      char relocated_default_include_dir[PATH_MAX];
-      strcpy (relocated_default_include_dir, exe_path);
-      strcat (relocated_default_include_dir, rel_to_includedir);
-      simplify_path (&relocated_default_include_dir[0]);
-      wpp_add_include_path(relocated_default_include_dir);
+      wpp_add_include_path(strmake("%s%s/%s", sysroot, exe_path, BIN_TO_INCLUDEDIR));
   }
 
   switch (target_cpu)

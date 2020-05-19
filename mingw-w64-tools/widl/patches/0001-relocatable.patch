@@ -1,5 +1,5 @@
 diff --git a/mingw-w64-tools/widl/src/widl.c b/mingw-w64-tools/widl/src/widl.c
-index aa669713..6a5ca69f 100644
+index aa669713..35d37d9b 100644
 --- a/mingw-w64-tools/widl/src/widl.c
 +++ b/mingw-w64-tools/widl/src/widl.c
 @@ -42,6 +42,7 @@
@@ -10,7 +10,7 @@ index aa669713..6a5ca69f 100644
  
  static const char usage[] =
  "Usage: widl [options...] infile.idl\n"
-@@ -749,14 +750,17 @@ int main(int argc,char *argv[])
+@@ -749,14 +750,12 @@ int main(int argc,char *argv[])
  
    if (stdinc)
    {
@@ -23,15 +23,10 @@ index aa669713..6a5ca69f 100644
 -          wpp_add_include_path( strmake( "%s%s/wine/windows", sysroot, incl_dirs[i] ));
 +      char exe_path[PATH_MAX];
 +      get_executable_path (argv[0], &exe_path[0], sizeof (exe_path) / sizeof (exe_path[0]));
-+      char * rel_to_includedir = get_relative_path (DEFAULT_BINDIR, INCLUDEDIR);
 +      if (strrchr (exe_path, '/') != NULL) {
 +          strrchr (exe_path, '/')[1] = '\0';
        }
-+      char relocated_default_include_dir[PATH_MAX];
-+      strcpy (relocated_default_include_dir, exe_path);
-+      strcat (relocated_default_include_dir, rel_to_includedir);
-+      simplify_path (&relocated_default_include_dir[0]);
-+      wpp_add_include_path(relocated_default_include_dir);
++      wpp_add_include_path(strmake("%s%s/%s", sysroot, exe_path, BIN_TO_INCLUDEDIR));
    }
  
    switch (target_cpu)
