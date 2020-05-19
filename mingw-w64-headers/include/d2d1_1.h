@@ -864,7 +864,130 @@ interface ID2D1DeviceContext : public ID2D1RenderTarget
 #else
 
 typedef interface ID2D1DeviceContext ID2D1DeviceContext;
-/* FIXME: Add full C declaration */
+
+typedef struct ID2D1DeviceContextVtbl {
+    struct ID2D1RenderTargetVtbl Base;
+
+    STDMETHOD(CreateBitmap)(ID2D1DeviceContext *This, D2D1_SIZE_U size,
+        CONST void *sourceData, UINT32 pitch,
+        CONST D2D1_BITMAP_PROPERTIES1 *bitmapProperties,
+        ID2D1Bitmap1 **bitmap) PURE;
+
+    STDMETHOD(CreateBitmapFromWicBitmap)(ID2D1DeviceContext *This,
+        IWICBitmapSource *wicBitmapSource,
+        CONST D2D1_BITMAP_PROPERTIES1 *bitmapProperties,
+        ID2D1Bitmap1 **bitmap) PURE;
+
+    STDMETHOD(CreateColorContext)(ID2D1DeviceContext *This,
+        D2D1_COLOR_SPACE space, CONST BYTE *profile, UINT32 profileSize,
+        ID2D1ColorContext **colorContext) PURE;
+    STDMETHOD(CreateColorContextFromFilename)(ID2D1DeviceContext *This,
+        PCWSTR filename, ID2D1ColorContext **colorContext) PURE;
+    STDMETHOD(CreateColorContextFromWicColorContext)(ID2D1DeviceContext *This,
+        IWICColorContext *wicColorContext,
+        ID2D1ColorContext **colorContext) PURE;
+    STDMETHOD(CreateBitmapFromDxgiSurface)(ID2D1DeviceContext *This,
+        IDXGISurface *surface, CONST D2D1_BITMAP_PROPERTIES1 *bitmapProperties,
+        ID2D1Bitmap1 **bitmap) PURE;
+    STDMETHOD(CreateEffect)(ID2D1DeviceContext *This, REFCLSID effectId,
+        ID2D1Effect **effect) PURE;
+
+    STDMETHOD(CreateGradientStopCollection)(ID2D1DeviceContext *This,
+        CONST D2D1_GRADIENT_STOP *straightAlphaGradientStops,
+        UINT32 straightAlphaGradientStopsCount,
+        D2D1_COLOR_SPACE preInterpolationSpace,
+        D2D1_COLOR_SPACE postInterpolationSpace,
+        D2D1_BUFFER_PRECISION bufferPrecision,
+        D2D1_EXTEND_MODE extendMode,
+        D2D1_COLOR_INTERPOLATION_MODE colorInterpolationMode,
+        ID2D1GradientStopCollection1 **gradientStopCollection1) PURE;
+
+    STDMETHOD(CreateImageBrush)(ID2D1DeviceContext *This,
+        struct ID2D1Image *image,
+        CONST D2D1_IMAGE_BRUSH_PROPERTIES *imageBrushProperties,
+        CONST D2D1_BRUSH_PROPERTIES *brushProperties,
+        ID2D1ImageBrush **imageBrush) PURE;
+
+    STDMETHOD(CreateBitmapBrush)(ID2D1DeviceContext *This, ID2D1Bitmap *bitmap,
+        CONST D2D1_BITMAP_BRUSH_PROPERTIES1 *bitmapBrushProperties,
+        CONST D2D1_BRUSH_PROPERTIES *brushProperties,
+        ID2D1BitmapBrush1 **bitmapBrush) PURE;
+
+    STDMETHOD(CreateCommandList)(ID2D1DeviceContext *This,
+        ID2D1CommandList **commandList) PURE;
+    STDMETHOD_(BOOL, IsDxgiFormatSupported)(ID2D1DeviceContext *This,
+        DXGI_FORMAT format) PURE;
+    STDMETHOD_(BOOL, IsBufferPrecisionSupported)(ID2D1DeviceContext *This,
+        D2D1_BUFFER_PRECISION bufferPrecision) PURE;
+    STDMETHOD(GetImageLocalBounds)(ID2D1DeviceContext *This,
+        struct ID2D1Image *image, D2D1_RECT_F *localBounds) PURE;
+    STDMETHOD(GetImageWorldBounds)(ID2D1DeviceContext *This,
+        struct ID2D1Image *image, D2D1_RECT_F *worldBounds) PURE;
+    STDMETHOD(GetGlyphRunWorldBounds)(ID2D1DeviceContext *This,
+        D2D1_POINT_2F baselineOrigin, CONST DWRITE_GLYPH_RUN *glyphRun,
+        DWRITE_MEASURING_MODE measuringMode, D2D1_RECT_F *bounds) PURE;
+    STDMETHOD_(void, GetDevice)(ID2D1DeviceContext *This,
+        ID2D1Device **device) PURE;
+    STDMETHOD_(void, SetTarget)(ID2D1DeviceContext *This,
+        struct ID2D1Image *image) PURE;
+    STDMETHOD_(void, GetTarget)(ID2D1DeviceContext *This,
+        struct ID2D1Image **image) PURE;
+    STDMETHOD_(void, SetRenderingControls)(ID2D1DeviceContext *This,
+        CONST D2D1_RENDERING_CONTROLS *renderingControls) PURE;
+    STDMETHOD_(void, GetRenderingControls)(ID2D1DeviceContext *This,
+        D2D1_RENDERING_CONTROLS *renderingControls) PURE;
+    STDMETHOD_(void, SetPrimitiveBlend)(ID2D1DeviceContext *This,
+        D2D1_PRIMITIVE_BLEND primitiveBlend) PURE;
+    STDMETHOD_(D2D1_PRIMITIVE_BLEND, GetPrimitiveBlend)(ID2D1DeviceContext *This) PURE;
+    STDMETHOD_(void, SetUnitMode)(ID2D1DeviceContext *This,
+        D2D1_UNIT_MODE unitMode) PURE;
+    STDMETHOD_(D2D1_UNIT_MODE, GetUnitMode)(ID2D1DeviceContext *This) PURE;
+
+    STDMETHOD_(void, DrawGlyphRun)(ID2D1DeviceContext *This,
+        D2D1_POINT_2F baselineOrigin, CONST DWRITE_GLYPH_RUN *glyphRun,
+        CONST DWRITE_GLYPH_RUN_DESCRIPTION *glyphRunDescription,
+        ID2D1Brush *foregroundBrush, DWRITE_MEASURING_MODE measuringMode) PURE;
+
+    STDMETHOD_(void, DrawImage)(ID2D1DeviceContext *This,
+        struct ID2D1Image *image, CONST D2D1_POINT_2F *targetOffset,
+        CONST D2D1_RECT_F *imageRectangle,
+        D2D1_INTERPOLATION_MODE interpolationMode,
+        D2D1_COMPOSITE_MODE compositeMode) PURE;
+    STDMETHOD_(void, DrawGdiMetafile)(ID2D1DeviceContext *This,
+        ID2D1GdiMetafile *gdiMetafile, CONST D2D1_POINT_2F *targetOffset) PURE;
+
+    STDMETHOD_(void, DrawBitmap)(ID2D1DeviceContext *This,
+        ID2D1Bitmap *bitmap, CONST D2D1_RECT_F *destinationRectangle,
+        FLOAT opacity, D2D1_INTERPOLATION_MODE interpolationMode,
+        CONST D2D1_RECT_F *sourceRectangle,
+        CONST D2D1_MATRIX_4X4_F *perspectiveTransform) PURE;
+
+    STDMETHOD_(void, PushLayer)(ID2D1DeviceContext *This,
+        CONST D2D1_LAYER_PARAMETERS1 *layerParameters, ID2D1Layer *layer) PURE;
+
+    STDMETHOD(InvalidateEffectInputRectangle)(ID2D1DeviceContext *This,
+        ID2D1Effect *effect, UINT32 input,
+        CONST D2D1_RECT_F *inputRectangle) PURE;
+    STDMETHOD(GetEffectInvalidRectangleCount)(ID2D1DeviceContext *This,
+        ID2D1Effect *effect, UINT32 *rectangleCount) PURE;
+    STDMETHOD(GetEffectInvalidRectangles)(ID2D1DeviceContext *This,
+        ID2D1Effect *effect, D2D1_RECT_F *rectangles,
+        UINT32 rectanglesCount) PURE;
+    STDMETHOD(GetEffectRequiredInputRectangles)(ID2D1DeviceContext *This,
+        ID2D1Effect *renderEffect, CONST D2D1_RECT_F *renderImageRectangle,
+        CONST D2D1_EFFECT_INPUT_DESCRIPTION *inputDescriptions,
+        D2D1_RECT_F *requiredInputRects, UINT32 inputCount) PURE;
+
+    STDMETHOD_(void, FillOpacityMask)(ID2D1DeviceContext *This,
+        ID2D1Bitmap *opacityMask, ID2D1Brush *brush,
+        CONST D2D1_RECT_F *destinationRectangle,
+        CONST D2D1_RECT_F *sourceRectangle) PURE;
+}
+ID2D1DeviceContextVtbl;
+
+interface ID2D1DeviceContext {
+    const ID2D1DeviceContextVtbl *lpVtbl;
+};
 
 #endif
 
