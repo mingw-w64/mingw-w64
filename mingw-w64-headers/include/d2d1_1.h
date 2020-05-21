@@ -564,8 +564,21 @@ interface ID2D1Bitmap1 : public ID2D1Bitmap
 #else
 
 typedef interface ID2D1Bitmap1 ID2D1Bitmap1;
-/* FIXME: Add full C declaration */
 
+typedef struct ID2D1Bitmap1Vtbl {
+    ID2D1BitmapVtbl Base;
+
+    STDMETHOD_(void, GetColorContext)(ID2D1Bitmap1 *This, ID2D1ColorContext **colorContext) PURE;
+    STDMETHOD_(D2D1_BITMAP_OPTIONS, GetOptions)(ID2D1Bitmap1 *This) PURE;
+    STDMETHOD(GetSurface)(ID2D1Bitmap1 *This, IDXGISurface **dxgiSurface) PURE;
+    STDMETHOD(Map)(ID2D1Bitmap1 *This, D2D1_MAP_OPTIONS options, D2D1_MAPPED_RECT *mappedRect) PURE;
+    STDMETHOD(Unmap)(ID2D1Bitmap1 *This) PURE;
+}
+ID2D1Bitmap1Vtbl;
+
+interface ID2D1Bitmap1 {
+    const ID2D1Bitmap1Vtbl *lpVtbl;
+};
 #endif
 
 DEFINE_GUID(IID_ID2D1Bitmap1, 0xa898a84c,0x3873,0x4588,0xb0,0x8b,0xeb,0xbf,0x97,0x8d,0xf0,0x41);
