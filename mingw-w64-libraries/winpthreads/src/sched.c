@@ -89,7 +89,7 @@ int pthread_attr_getschedpolicy (const pthread_attr_t *attr, int *pol)
 static int pthread_check(pthread_t t)
 {
   struct _pthread_v *pv;
-  DWORD dwFlags;
+
   if (!t)
     return ESRCH;
   pv = __pth_gpointer_locked (t);
