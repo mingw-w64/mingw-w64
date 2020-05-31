@@ -3,16 +3,18 @@ LIBRARY api-ms-win-core-winrt-error-l1-1-1
 EXPORTS
 
 GetRestrictedErrorInfo@4
-IsErrorPropagationEnabled
+IsErrorPropagationEnabled@0
 RoCaptureErrorContext@4
-RoClearError
+RoClearError@0
 RoFailFastWithErrorContext@4
 RoGetErrorReportingFlags@4
-RoGetMatchingRestrictedErrorInfo
+RoGetMatchingRestrictedErrorInfo@8
+RoInspectCapturedStackBackTrace@24
+RoInspectThreadErrorInfo@20
 RoOriginateError@8
 RoOriginateErrorW@12
 RoOriginateLanguageException@12
-RoReportFailedDelegate
+RoReportFailedDelegate@8
 RoReportUnhandledError@4
 RoSetErrorReportingFlags@4
 RoTransformError@12
