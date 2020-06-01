@@ -13453,8 +13453,26 @@ ExInitializeFastMutex(
   return;
 }
 
+typedef void *PEXT_CANCEL_PARAMETERS;
+
+typedef void (NTAPI EXT_DELETE_CALLBACK)(void *context);
+typedef EXT_DELETE_CALLBACK *PEXT_DELETE_CALLBACK;
+
+typedef struct _EXT_DELETE_PARAMETERS
+{
+    ULONG Version;
+    ULONG Reserved;
+    PEXT_DELETE_CALLBACK DeleteCallback;
+    void *DeleteContext;
+} EXT_DELETE_PARAMETERS, *PEXT_DELETE_PARAMETERS;
 
 #if (NTDDI_VERSION >= NTDDI_WIN2K)
+
+typedef struct _EX_TIMER *PEX_TIMER;
+
+typedef void (NTAPI EXT_CALLBACK)(PEX_TIMER, PVOID);
+typedef EXT_CALLBACK *PEXT_CALLBACK;
+
 NTKERNELAPI
 VOID
 FASTCALL
@@ -14070,6 +14088,13 @@ ExFreeToLookasideListEx(
 
 #if (NTDDI_VERSION >= NTDDI_WIN7)
 
+typedef struct _EXT_SET_PARAMETERS_V0
+{
+    ULONG Version;
+    ULONG Reserved;
+    LONGLONG NoWakeTolerance;
+} EXT_SET_PARAMETERS, *PEXT_SET_PARAMETERS, KT2_SET_PARAMETERS, *PKT2_SET_PARAMETERS;
+
 NTKERNELAPI
 VOID
 NTAPI
@@ -14081,6 +14106,30 @@ ExSetResourceOwnerPointerEx(
 #define FLAG_OWNER_POINTER_IS_THREAD 0x1
 
 #endif /* (NTDDI_VERSION >= NTDDI_WIN7) */
+
+#if NTDDI_VERSION >= NTDDI_WINBLUE
+
+#define EX_TIMER_HIGH_RESOLUTION 4
+#define EX_TIMER_NO_WAKE 8
+#define EX_TIMER_UNLIMITED_TOLERANCE ((LONGLONG)-1)
+#define EX_TIMER_NOTIFICATION (1ul << 31)
+
+NTKERNELAPI PEX_TIMER NTAPI ExAllocateTimer(PEXT_CALLBACK callback, void *context, ULONG attr);
+NTKERNELAPI BOOLEAN NTAPI ExCancelTimer(PEX_TIMER timer, PEXT_CANCEL_PARAMETERS params);
+NTKERNELAPI BOOLEAN NTAPI ExDeleteTimer(PEX_TIMER timer, BOOLEAN cancel, BOOLEAN wait, PEXT_DELETE_PARAMETERS params);
+NTKERNELAPI BOOLEAN NTAPI ExSetTimer(PEX_TIMER timer, LONGLONG due, LONGLONG period, EXT_SET_PARAMETERS *params);
+
+FORCEINLINE void KeInitializeTimer2SetParameters(KT2_SET_PARAMETERS *params)
+{
+    memset(params, 0, sizeof(*params));
+}
+
+FORCEINLINE void ExInitializeSetTimerParameters(EXT_SET_PARAMETERS *params)
+{
+    KeInitializeTimer2SetParameters(params);
+}
+
+#endif
 
 static __inline PVOID
 ExAllocateFromNPagedLookasideList(
