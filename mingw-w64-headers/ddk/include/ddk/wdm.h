@@ -2665,6 +2665,56 @@ NTSTATUS
   IN OUT PVOID Context OPTIONAL);
 typedef POWER_SETTING_CALLBACK *PPOWER_SETTING_CALLBACK;
 
+DECLARE_HANDLE(POHANDLE);
+
+#define PO_FX_VERSION_V1 1
+#define PO_FX_VERSION_V2 2
+#define PO_FX_VERSION PO_FX_VERSION_V2
+
+typedef void (NTAPI PO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK)(void *context, ULONG component);
+typedef PO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK *PPO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK;
+
+typedef void (NTAPI PO_FX_COMPONENT_IDLE_CONDITION_CALLBACK)(void *context, ULONG component);
+typedef PO_FX_COMPONENT_IDLE_CONDITION_CALLBACK *PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACK;
+
+typedef void (NTAPI PO_FX_COMPONENT_IDLE_STATE_CALLBACK)(void *context, ULONG component, ULONG state);
+typedef PO_FX_COMPONENT_IDLE_STATE_CALLBACK *PPO_FX_COMPONENT_IDLE_STATE_CALLBACK;
+
+typedef NTSTATUS (NTAPI PO_FX_POWER_CONTROL_CALLBACK)(void *context, const GUID *code, void *in, SIZE_T in_size, void *out, SIZE_T out_size, SIZE_T *ret_size);
+typedef PO_FX_POWER_CONTROL_CALLBACK *PPO_FX_POWER_CONTROL_CALLBACK;
+
+typedef struct _PO_FX_COMPONENT_IDLE_STATE
+{
+    ULONGLONG TransitionLatency;
+    ULONGLONG ResidencyRequirement;
+    ULONG NominalPower;
+} PO_FX_COMPONENT_IDLE_STATE, *PPO_FX_COMPONENT_IDLE_STATE;
+
+typedef struct _PO_FX_COMPONENT_V1
+{
+    GUID Id;
+    ULONG IdleStateCount;
+    ULONG DeepestWakeableIdleState;
+    PO_FX_COMPONENT_IDLE_STATE *IdleStates;
+} PO_FX_COMPONENT_V1, *PPO_FX_COMPONENT_V1;
+
+typedef struct _PO_FX_COMPONENT_V2
+{
+    GUID Id;
+    ULONGLONG Flags;
+    ULONG DeepestWakeableIdleState;
+    ULONG IdleStateCount;
+    PO_FX_COMPONENT_IDLE_STATE *IdleStates;
+    ULONG ProviderCount;
+    ULONG *Providers;
+} PO_FX_COMPONENT_V2, *PPO_FX_COMPONENT_V2;
+
+#if PO_FX_VERSION == PO_FX_VERSION_V1
+typedef PO_FX_COMPONENT_V1 PO_FX_COMPONENT, *PPO_FX_COMPONENT;
+#else
+typedef PO_FX_COMPONENT_V2 PO_FX_COMPONENT, *PPO_FX_COMPONENT;
+#endif
+
 /******************************************************************************
  *                            Configuration Manager Types                     *
  ******************************************************************************/
