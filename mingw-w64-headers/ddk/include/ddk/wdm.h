@@ -5820,6 +5820,14 @@ typedef struct _DMA_ADAPTER {
   struct _DMA_OPERATIONS* DmaOperations;
 } DMA_ADAPTER, *PDMA_ADAPTER;
 
+typedef enum
+{
+    DmaComplete,
+    DmaAborted,
+    DmaError,
+    DmaCancelled,
+} DMA_COMPLETION_STATUS;
+
 typedef VOID
 (NTAPI *PPUT_DMA_ADAPTER)(
   IN PDMA_ADAPTER DmaAdapter);
