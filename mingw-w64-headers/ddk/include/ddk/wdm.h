@@ -1366,9 +1366,8 @@ typedef enum _LOCK_OPERATION {
 
 #define KTIMER_ACTUAL_LENGTH (FIELD_OFFSET(KTIMER, Period) + sizeof(LONG))
 
-typedef BOOLEAN
-(NTAPI *PKSYNCHRONIZE_ROUTINE)(
-  IN PVOID SynchronizeContext);
+typedef BOOLEAN (NTAPI KSYNCHRONIZE_ROUTINE)(PVOID SynchronizeContext);
+typedef KSYNCHRONIZE_ROUTINE *PKSYNCHRONIZE_ROUTINE;
 
 typedef enum _POOL_TYPE {
   NonPagedPool,
