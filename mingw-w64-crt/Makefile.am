@@ -1524,7 +1524,6 @@ libarm32/libucrt.a: libarm32/ucrt.mri libarm32/libucrt_extra.a \
 dx32_DATA =
 dx32_DATA += libarm32/libxinput.a
 dx32_DATA += libarm32/libd3dcompiler.a
-libarm32_DATA += libarm32/libruntimeobject.a libarm32/libsynchronization.a
 
 libarm32/libxinput.a: lib-common/xinput1_4.def
 	$(DTDEFARM32) $<
@@ -1789,7 +1788,6 @@ libarm64/libucrt.a: libarm64/ucrt.mri libarm64/libucrt_extra.a \
 dx64_DATA =
 dx64_DATA += libarm64/libxinput.a
 dx64_DATA += libarm64/libd3dcompiler.a
-#libarm64_DATA += libarm64/libruntimeobject.a libarm64/libsynchronization.a
 
 libarm64/libxinput.a: lib-common/xinput1_4.def
 	$(DTDEFARM64) $<
@@ -1926,7 +1924,12 @@ endif
 %/libruntimeobject.a: lib-common/runtimeobject.mri \
 		%/libapi-ms-win-core-winrt-l1-1-0.a \
 		%/libapi-ms-win-core-winrt-error-l1-1-0.a \
-		%/libapi-ms-win-core-winrt-string-l1-1-0.a
+		%/libapi-ms-win-core-winrt-error-l1-1-1.a \
+		%/libapi-ms-win-core-winrt-registration-l1-1-0.a \
+		%/libapi-ms-win-core-winrt-robuffer-l1-1-0.a \
+		%/libapi-ms-win-core-winrt-roparameterizediid-l1-1-0.a \
+		%/libapi-ms-win-core-winrt-string-l1-1-0.a \
+		%/libapi-ms-win-ro-typeresolution-l1-1-0.a
 	rm -f $@
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(RANLIB) $@
