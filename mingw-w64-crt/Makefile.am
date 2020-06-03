@@ -430,7 +430,7 @@ src_libmingwex=\
   math/cephes_emath.h   math/cephes_mconf.h math/fp_consts.h     math/abs64.c \
   \
   misc/mb_wc_common.h \
-  misc/longjmp.S \
+  misc/mingw_longjmp.S \
   misc/mingw_getsp.S \
   misc/alarm.c \
   misc/basename.c        misc/btowc.c               misc/delay-f.c          misc/delay-n.c         \
