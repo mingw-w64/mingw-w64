@@ -241,6 +241,23 @@ src_ucrtbase=\
   stdio/ucrt_vsnprintf.c \
   stdio/ucrt_vsprintf.c
 
+src_ucrtapp=\
+  crt/__C_specific_handler.c \
+  misc/longjmp.S \
+  misc/setjmp.S \
+  string/memchr.c \
+  string/memcmp.c \
+  string/memcpy.c \
+  string/memmove.c \
+  string/memrchr.c \
+  string/strchr.c \
+  string/strchrnul.c \
+  string/strrchr.c \
+  string/strstr.c \
+  string/wcschr.c \
+  string/wcsrchr.c \
+  string/wcsstr.c
+
 src_msvcrt32=\
   $(src_msvcrt) \
   math/x86/_copysignf.c \
@@ -862,10 +879,12 @@ lib32_libucrtbase_a_AR = $(DTDEF32) lib32/ucrtbase.def && $(AR) $(ARFLAGS)
 lib32_libucrtbase_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 EXTRA_lib32_libucrtbase_a_DEPENDENCIES=lib32/ucrtbase.def
 
-lib32_DATA += lib32/libucrt.a
-noinst_LIBRARIES += lib32/libucrt_extra.a
+lib32_DATA += lib32/libucrt.a lib32/libucrtapp.a
+noinst_LIBRARIES += lib32/libucrt_extra.a lib32/libucrtapp_extra.a
 lib32_libucrt_extra_a_SOURCES = $(src_ucrtbase)
 lib32_libucrt_extra_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
+lib32_libucrtapp_extra_a_SOURCES = $(src_ucrtapp)
+lib32_libucrtapp_extra_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 
 lib32_DATA += lib32/libvcruntime140_app.a
 endif
@@ -1189,10 +1208,12 @@ lib64_libucrtbase_a_AR = $(DTDEF64) lib64/ucrtbase.def && $(AR) $(ARFLAGS)
 lib64_libucrtbase_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 EXTRA_lib64_libucrtbase_a_DEPENDENCIES=lib64/ucrtbase.def
 
-lib64_DATA += lib64/libucrt.a
-noinst_LIBRARIES += lib64/libucrt_extra.a
+lib64_DATA += lib64/libucrt.a lib64/libucrtapp.a
+noinst_LIBRARIES += lib64/libucrt_extra.a lib64/libucrtapp_extra.a
 lib64_libucrt_extra_a_SOURCES = $(src_ucrtbase)
 lib64_libucrt_extra_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
+lib64_libucrtapp_extra_a_SOURCES = $(src_ucrtapp)
+lib64_libucrtapp_extra_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 
 lib64_DATA += lib64/libvcruntime140_app.a
 endif
@@ -1476,10 +1497,12 @@ libarm32_libucrtbase_a_AR = $(DTDEFARM32) libarm32/ucrtbase.def && $(AR) $(ARFLA
 libarm32_libucrtbase_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 EXTRA_libarm32_libucrtbase_a_DEPENDENCIES=libarm32/ucrtbase.def
 
-libarm32_DATA += libarm32/libucrt.a
-noinst_LIBRARIES += libarm32/libucrt_extra.a
+libarm32_DATA += libarm32/libucrt.a libarm32/libucrtapp.a
+noinst_LIBRARIES += libarm32/libucrt_extra.a libarm32/libucrtapp_extra.a
 libarm32_libucrt_extra_a_SOURCES = $(src_ucrtbase)
 libarm32_libucrt_extra_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
+libarm32_libucrtapp_extra_a_SOURCES = $(src_ucrtapp)
+libarm32_libucrtapp_extra_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 
 libarm32_DATA += libarm32/libvcruntime140_app.a
 endif
@@ -1731,10 +1754,12 @@ libarm64_libucrtbase_a_AR = $(DTDEFARM64) libarm64/ucrtbase.def && $(AR) $(ARFLA
 libarm64_libucrtbase_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 EXTRA_libarm64_libucrtbase_a_DEPENDENCIES=libarm64/ucrtbase.def
 
-libarm64_DATA += libarm64/libucrt.a
-noinst_LIBRARIES += libarm64/libucrt_extra.a
+libarm64_DATA += libarm64/libucrt.a libarm64/libucrtapp.a
+noinst_LIBRARIES += libarm64/libucrt_extra.a libarm64/libucrtapp_extra.a
 libarm64_libucrt_extra_a_SOURCES = $(src_ucrtbase)
 libarm64_libucrt_extra_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
+libarm64_libucrtapp_extra_a_SOURCES = $(src_ucrtapp)
+libarm64_libucrtapp_extra_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 
 libarm64_DATA += libarm64/libvcruntime140_app.a
 endif
@@ -2066,6 +2091,18 @@ endif
 		%/libapi-ms-win-crt-conio-l1-1-0.a %/libapi-ms-win-crt-convert-l1-1-0.a %/libapi-ms-win-crt-environment-l1-1-0.a \
 		%/libapi-ms-win-crt-filesystem-l1-1-0.a %/libapi-ms-win-crt-heap-l1-1-0.a %/libapi-ms-win-crt-locale-l1-1-0.a \
 		%/libapi-ms-win-crt-math-l1-1-0.a %/libapi-ms-win-crt-multibyte-l1-1-0.a %/libapi-ms-win-crt-private-l1-1-0.a \
+		%/libapi-ms-win-crt-process-l1-1-0.a %/libapi-ms-win-crt-runtime-l1-1-0.a %/libapi-ms-win-crt-stdio-l1-1-0.a \
+		%/libapi-ms-win-crt-string-l1-1-0.a %/libapi-ms-win-crt-time-l1-1-0.a %/libapi-ms-win-crt-utility-l1-1-0.a
+	rm -f $@
+	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(RANLIB) $@
+
+# The same as libucrt.a above, but without the -private lib and with some more
+# statically linked functions.
+%/libucrtapp.a: lib-common/ucrtapp.mri %/libucrt_extra.a %/libucrtapp_extra.a \
+		%/libapi-ms-win-crt-conio-l1-1-0.a %/libapi-ms-win-crt-convert-l1-1-0.a %/libapi-ms-win-crt-environment-l1-1-0.a \
+		%/libapi-ms-win-crt-filesystem-l1-1-0.a %/libapi-ms-win-crt-heap-l1-1-0.a %/libapi-ms-win-crt-locale-l1-1-0.a \
+		%/libapi-ms-win-crt-math-l1-1-0.a %/libapi-ms-win-crt-multibyte-l1-1-0.a \
 		%/libapi-ms-win-crt-process-l1-1-0.a %/libapi-ms-win-crt-runtime-l1-1-0.a %/libapi-ms-win-crt-stdio-l1-1-0.a \
 		%/libapi-ms-win-crt-string-l1-1-0.a %/libapi-ms-win-crt-time-l1-1-0.a %/libapi-ms-win-crt-utility-l1-1-0.a
 	rm -f $@
