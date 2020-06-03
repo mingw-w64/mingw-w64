@@ -1,0 +1,19 @@
+CREATE libucrt.a
+ADDLIB libapi-ms-win-crt-conio-l1-1-0.a
+ADDLIB libapi-ms-win-crt-convert-l1-1-0.a
+ADDLIB libapi-ms-win-crt-environment-l1-1-0.a
+ADDLIB libapi-ms-win-crt-filesystem-l1-1-0.a
+ADDLIB libapi-ms-win-crt-heap-l1-1-0.a
+ADDLIB libapi-ms-win-crt-locale-l1-1-0.a
+ADDLIB libapi-ms-win-crt-math-l1-1-0.a
+ADDLIB libapi-ms-win-crt-multibyte-l1-1-0.a
+ADDLIB libapi-ms-win-crt-private-l1-1-0.a
+ADDLIB libapi-ms-win-crt-process-l1-1-0.a
+ADDLIB libapi-ms-win-crt-runtime-l1-1-0.a
+ADDLIB libapi-ms-win-crt-stdio-l1-1-0.a
+ADDLIB libapi-ms-win-crt-string-l1-1-0.a
+ADDLIB libapi-ms-win-crt-time-l1-1-0.a
+ADDLIB libapi-ms-win-crt-utility-l1-1-0.a
+ADDLIB libucrt_extra.a
+SAVE
+END

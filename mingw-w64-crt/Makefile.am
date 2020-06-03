@@ -862,7 +862,7 @@ lib32_libucrtbase_a_AR = $(DTDEF32) lib32/ucrtbase.def && $(AR) $(ARFLAGS)
 lib32_libucrtbase_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 EXTRA_lib32_libucrtbase_a_DEPENDENCIES=lib32/ucrtbase.def
 
-lib32_LIBRARIES += lib32/libucrt.a
+lib32_DATA += lib32/libucrt.a
 noinst_LIBRARIES += lib32/libucrt_extra.a
 lib32_libucrt_extra_a_SOURCES = $(src_ucrtbase)
 lib32_libucrt_extra_a_CPPFLAGS=$(CPPFLAGS32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
@@ -875,16 +875,6 @@ lib32/lib%.a: lib32/%.def
 
 lib32/lib%.a: lib-common/%.def
 	$(DTDEF32) $<
-
-lib32/libucrt.a: lib32/ucrt.mri lib32/libucrt_extra.a \
-		lib32/libapi-ms-win-crt-conio-l1-1-0.a lib32/libapi-ms-win-crt-convert-l1-1-0.a lib32/libapi-ms-win-crt-environment-l1-1-0.a \
-		lib32/libapi-ms-win-crt-filesystem-l1-1-0.a lib32/libapi-ms-win-crt-heap-l1-1-0.a lib32/libapi-ms-win-crt-locale-l1-1-0.a \
-		lib32/libapi-ms-win-crt-math-l1-1-0.a lib32/libapi-ms-win-crt-multibyte-l1-1-0.a lib32/libapi-ms-win-crt-private-l1-1-0.a \
-		lib32/libapi-ms-win-crt-process-l1-1-0.a lib32/libapi-ms-win-crt-runtime-l1-1-0.a lib32/libapi-ms-win-crt-stdio-l1-1-0.a \
-		lib32/libapi-ms-win-crt-string-l1-1-0.a lib32/libapi-ms-win-crt-time-l1-1-0.a lib32/libapi-ms-win-crt-utility-l1-1-0.a
-	rm -f $@
-	$(AR) -M < $<
-	$(RANLIB) $@
 
 dx32_DATA =
 dx32_DATA += lib32/libxinput.a
@@ -1199,7 +1189,7 @@ lib64_libucrtbase_a_AR = $(DTDEF64) lib64/ucrtbase.def && $(AR) $(ARFLAGS)
 lib64_libucrtbase_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 EXTRA_lib64_libucrtbase_a_DEPENDENCIES=lib64/ucrtbase.def
 
-lib64_LIBRARIES += lib64/libucrt.a
+lib64_DATA += lib64/libucrt.a
 noinst_LIBRARIES += lib64/libucrt_extra.a
 lib64_libucrt_extra_a_SOURCES = $(src_ucrtbase)
 lib64_libucrt_extra_a_CPPFLAGS=$(CPPFLAGS64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
@@ -1212,16 +1202,6 @@ lib64/lib%.a: lib64/%.def
 
 lib64/lib%.a: lib-common/%.def
 	$(DTDEF64) $<
-
-lib64/libucrt.a: lib64/ucrt.mri lib64/libucrt_extra.a \
-		lib64/libapi-ms-win-crt-conio-l1-1-0.a lib64/libapi-ms-win-crt-convert-l1-1-0.a lib64/libapi-ms-win-crt-environment-l1-1-0.a \
-		lib64/libapi-ms-win-crt-filesystem-l1-1-0.a lib64/libapi-ms-win-crt-heap-l1-1-0.a lib64/libapi-ms-win-crt-locale-l1-1-0.a \
-		lib64/libapi-ms-win-crt-math-l1-1-0.a lib64/libapi-ms-win-crt-multibyte-l1-1-0.a lib64/libapi-ms-win-crt-private-l1-1-0.a \
-		lib64/libapi-ms-win-crt-process-l1-1-0.a lib64/libapi-ms-win-crt-runtime-l1-1-0.a lib64/libapi-ms-win-crt-stdio-l1-1-0.a \
-		lib64/libapi-ms-win-crt-string-l1-1-0.a lib64/libapi-ms-win-crt-time-l1-1-0.a lib64/libapi-ms-win-crt-utility-l1-1-0.a
-	rm -f $@
-	$(AR) -M < $<
-	$(RANLIB) $@
 
 dx64_DATA =
 dx64_DATA += lib64/libxinput.a
@@ -1496,7 +1476,7 @@ libarm32_libucrtbase_a_AR = $(DTDEFARM32) libarm32/ucrtbase.def && $(AR) $(ARFLA
 libarm32_libucrtbase_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 EXTRA_libarm32_libucrtbase_a_DEPENDENCIES=libarm32/ucrtbase.def
 
-libarm32_LIBRARIES += libarm32/libucrt.a
+libarm32_DATA += libarm32/libucrt.a
 noinst_LIBRARIES += libarm32/libucrt_extra.a
 libarm32_libucrt_extra_a_SOURCES = $(src_ucrtbase)
 libarm32_libucrt_extra_a_CPPFLAGS=$(CPPFLAGSARM32) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
@@ -1510,16 +1490,6 @@ libarm32/lib%.a: libarm32/%.def
 libarm32/lib%.a: lib-common/%.def
 	$(DTDEFARM32) $<
 
-
-libarm32/libucrt.a: libarm32/ucrt.mri libarm32/libucrt_extra.a \
-		libarm32/libapi-ms-win-crt-conio-l1-1-0.a libarm32/libapi-ms-win-crt-convert-l1-1-0.a libarm32/libapi-ms-win-crt-environment-l1-1-0.a \
-		libarm32/libapi-ms-win-crt-filesystem-l1-1-0.a libarm32/libapi-ms-win-crt-heap-l1-1-0.a libarm32/libapi-ms-win-crt-locale-l1-1-0.a \
-		libarm32/libapi-ms-win-crt-math-l1-1-0.a libarm32/libapi-ms-win-crt-multibyte-l1-1-0.a libarm32/libapi-ms-win-crt-private-l1-1-0.a \
-		libarm32/libapi-ms-win-crt-process-l1-1-0.a libarm32/libapi-ms-win-crt-runtime-l1-1-0.a libarm32/libapi-ms-win-crt-stdio-l1-1-0.a \
-		libarm32/libapi-ms-win-crt-string-l1-1-0.a libarm32/libapi-ms-win-crt-time-l1-1-0.a libarm32/libapi-ms-win-crt-utility-l1-1-0.a
-	rm -f $@
-	$(AR) -M < $<
-	$(RANLIB) $@
 
 dx32_DATA =
 dx32_DATA += libarm32/libxinput.a
@@ -1761,7 +1731,7 @@ libarm64_libucrtbase_a_AR = $(DTDEFARM64) libarm64/ucrtbase.def && $(AR) $(ARFLA
 libarm64_libucrtbase_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
 EXTRA_libarm64_libucrtbase_a_DEPENDENCIES=libarm64/ucrtbase.def
 
-libarm64_LIBRARIES += libarm64/libucrt.a
+libarm64_DATA += libarm64/libucrt.a
 noinst_LIBRARIES += libarm64/libucrt_extra.a
 libarm64_libucrt_extra_a_SOURCES = $(src_ucrtbase)
 libarm64_libucrt_extra_a_CPPFLAGS=$(CPPFLAGSARM64) -D__LIBMSVCRT__ $(extra_include) $(sysincludes)
@@ -1774,16 +1744,6 @@ libarm64/lib%.a: libarm64/%.def
 
 libarm64/lib%.a: lib-common/%.def
 	$(DTDEFARM64) $<
-
-libarm64/libucrt.a: libarm64/ucrt.mri libarm64/libucrt_extra.a \
-		libarm64/libapi-ms-win-crt-conio-l1-1-0.a libarm64/libapi-ms-win-crt-convert-l1-1-0.a libarm64/libapi-ms-win-crt-environment-l1-1-0.a \
-		libarm64/libapi-ms-win-crt-filesystem-l1-1-0.a libarm64/libapi-ms-win-crt-heap-l1-1-0.a libarm64/libapi-ms-win-crt-locale-l1-1-0.a \
-		libarm64/libapi-ms-win-crt-math-l1-1-0.a libarm64/libapi-ms-win-crt-multibyte-l1-1-0.a libarm64/libapi-ms-win-crt-private-l1-1-0.a \
-		libarm64/libapi-ms-win-crt-process-l1-1-0.a libarm64/libapi-ms-win-crt-runtime-l1-1-0.a libarm64/libapi-ms-win-crt-stdio-l1-1-0.a \
-		libarm64/libapi-ms-win-crt-string-l1-1-0.a libarm64/libapi-ms-win-crt-time-l1-1-0.a libarm64/libapi-ms-win-crt-utility-l1-1-0.a
-	rm -f $@
-	$(AR) -M < $<
-	$(RANLIB) $@
 
 dx64_DATA =
 dx64_DATA += libarm64/libxinput.a
@@ -2098,6 +2058,16 @@ endif
 		%/libmsvfw32.a \
 		%/libavifil32.a \
 		%/libavicap32.a
+	rm -f $@
+	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(RANLIB) $@
+
+%/libucrt.a: lib-common/ucrt.mri %/libucrt_extra.a \
+		%/libapi-ms-win-crt-conio-l1-1-0.a %/libapi-ms-win-crt-convert-l1-1-0.a %/libapi-ms-win-crt-environment-l1-1-0.a \
+		%/libapi-ms-win-crt-filesystem-l1-1-0.a %/libapi-ms-win-crt-heap-l1-1-0.a %/libapi-ms-win-crt-locale-l1-1-0.a \
+		%/libapi-ms-win-crt-math-l1-1-0.a %/libapi-ms-win-crt-multibyte-l1-1-0.a %/libapi-ms-win-crt-private-l1-1-0.a \
+		%/libapi-ms-win-crt-process-l1-1-0.a %/libapi-ms-win-crt-runtime-l1-1-0.a %/libapi-ms-win-crt-stdio-l1-1-0.a \
+		%/libapi-ms-win-crt-string-l1-1-0.a %/libapi-ms-win-crt-time-l1-1-0.a %/libapi-ms-win-crt-utility-l1-1-0.a
 	rm -f $@
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(RANLIB) $@
