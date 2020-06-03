@@ -1924,8 +1924,9 @@ endif
 	$(RANLIB) $@
 
 %/libruntimeobject.a: lib-common/runtimeobject.mri \
-		%/libapi-ms-win-core-winrt-string-l1-1-0.a \
-		%/libapi-ms-win-core-winrt-l1-1-0.a
+		%/libapi-ms-win-core-winrt-l1-1-0.a \
+		%/libapi-ms-win-core-winrt-error-l1-1-0.a \
+		%/libapi-ms-win-core-winrt-string-l1-1-0.a
 	rm -f $@
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(RANLIB) $@
