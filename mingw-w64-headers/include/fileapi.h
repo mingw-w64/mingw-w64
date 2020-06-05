@@ -81,6 +81,10 @@ WINBASEAPI DWORD WINAPI SetFilePointer (HANDLE hFile, LONG lDistanceToMove, PLON
   WINBASEAPI DWORD WINAPI GetFullPathNameA (LPCSTR lpFileName, DWORD nBufferLength, LPSTR lpBuffer, LPSTR *lpFilePart);
   WINBASEAPI DWORD WINAPI GetFullPathNameW (LPCWSTR lpFileName, DWORD nBufferLength, LPWSTR lpBuffer, LPWSTR *lpFilePart);
   WINBASEAPI DWORD WINAPI GetLogicalDrives (VOID);
+#define FindFirstFile __MINGW_NAME_AW(FindFirstFile)
+#define GetDiskFreeSpace __MINGW_NAME_AW(GetDiskFreeSpace)
+#define GetDriveType __MINGW_NAME_AW(GetDriveType)
+#define GetFullPathName __MINGW_NAME_AW(GetFullPathName)
 #endif
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
   WINBASEAPI DWORD WINAPI GetLogicalDriveStringsW (DWORD nBufferLength, LPWSTR lpBuffer);
@@ -107,10 +111,6 @@ WINBASEAPI DWORD WINAPI SetFilePointer (HANDLE hFile, LONG lDistanceToMove, PLON
 #define GetVolumePathNamesForVolumeName GetVolumePathNamesForVolumeNameW
 #endif
 #define FindFirstChangeNotification __MINGW_NAME_AW(FindFirstChangeNotification)
-#define FindFirstFile __MINGW_NAME_AW(FindFirstFile)
-#define GetDiskFreeSpace __MINGW_NAME_AW(GetDiskFreeSpace)
-#define GetDriveType __MINGW_NAME_AW(GetDriveType)
-#define GetFullPathName __MINGW_NAME_AW(GetFullPathName)
 #define GetLongPathName __MINGW_NAME_AW(GetLongPathName)
 #define GetTempFileName __MINGW_NAME_AW(GetTempFileName)
 
