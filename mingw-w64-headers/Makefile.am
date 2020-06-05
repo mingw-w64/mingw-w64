@@ -96,6 +96,7 @@ IDL_SRCS = \
   include/d3d12shader.idl \
   include/d3dcommon.idl \
   include/dbgprop.idl \
+  include/dcommon.idl \
   include/dcompanimation.idl \
   include/ddstream.idl \
   include/dinputd.idl \
@@ -109,6 +110,10 @@ IDL_SRCS = \
   include/downloadmgr.idl \
   include/drmexternals.idl \
   include/dvdif.idl \
+  include/dwrite.idl \
+  include/dwrite_1.idl \
+  include/dwrite_2.idl \
+  include/dwrite_3.idl \
   include/dxgi.idl \
   include/dxgi1_2.idl \
   include/dxgi1_3.idl \

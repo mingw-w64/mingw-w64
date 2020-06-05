@@ -47,6 +47,7 @@ for f in \
 	amaudio.h \
 	audevcod.h \
 	corerror.h \
+	d2dbasetypes.h \
 	d3d10_1shader.h \
 	d3d10effect.h \
 	d3d10misc.h \
@@ -141,11 +142,16 @@ for f in \
 	d3d11sdklayers \
 	d3d12shader \
 	d3dcommon \
+	dcommon \
 	ddstream \
 	devicetopology \
 	downloadmgr \
 	drmexternals \
 	dvdif \
+	dwrite \
+	dwrite_1 \
+	dwrite_2 \
+	dwrite_3 \
 	dxgi \
 	dxgi1_2 \
 	dxgi1_3 \
@@ -158,7 +164,7 @@ for f in \
 	dxgitype \
 	dxva2api \
 	endpointvolume \
-        exdisp \
+	exdisp \
 	fusion \
 	icftypes \
 	mediaobj \
@@ -171,7 +177,7 @@ for f in \
 	objectarray \
 	optary \
 	qedit \
-        spatialaudioclient \
+	spatialaudioclient \
 	taskschd \
 	thumbcache \
 	uiautomationclient \

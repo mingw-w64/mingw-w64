@@ -396,6 +396,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/d3d12shader.idl \
 @HAVE_WIDL_TRUE@  include/d3dcommon.idl \
 @HAVE_WIDL_TRUE@  include/dbgprop.idl \
+@HAVE_WIDL_TRUE@  include/dcommon.idl \
 @HAVE_WIDL_TRUE@  include/dcompanimation.idl \
 @HAVE_WIDL_TRUE@  include/ddstream.idl \
 @HAVE_WIDL_TRUE@  include/dinputd.idl \
@@ -409,6 +410,10 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/downloadmgr.idl \
 @HAVE_WIDL_TRUE@  include/drmexternals.idl \
 @HAVE_WIDL_TRUE@  include/dvdif.idl \
+@HAVE_WIDL_TRUE@  include/dwrite.idl \
+@HAVE_WIDL_TRUE@  include/dwrite_1.idl \
+@HAVE_WIDL_TRUE@  include/dwrite_2.idl \
+@HAVE_WIDL_TRUE@  include/dwrite_3.idl \
 @HAVE_WIDL_TRUE@  include/dxgi.idl \
 @HAVE_WIDL_TRUE@  include/dxgi1_2.idl \
 @HAVE_WIDL_TRUE@  include/dxgi1_3.idl \
