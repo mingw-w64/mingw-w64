@@ -10,6 +10,6 @@
 
 int _vscprintf(const char * __restrict__ _Format, va_list _ArgList)
 {
-  return __stdio_common_vsprintf(UCRTBASE_PRINTF_STANDARD_SNPRINTF_BEHAVIOUR, NULL, 0, _Format, NULL, _ArgList);
+  return __stdio_common_vsprintf(_CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR, NULL, 0, _Format, NULL, _ArgList);
 }
 int __cdecl (*__MINGW_IMP_SYMBOL(_vscprintf))(const char *__restrict__, va_list) = _vscprintf;

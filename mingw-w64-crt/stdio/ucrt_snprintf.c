@@ -13,7 +13,7 @@ int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict_
   __builtin_va_list ap;
   int ret;
   __builtin_va_start(ap, __format);
-  ret = __stdio_common_vsprintf(UCRTBASE_PRINTF_STANDARD_SNPRINTF_BEHAVIOUR, __stream, __n, __format, NULL, ap);
+  ret = __stdio_common_vsprintf(_CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR, __stream, __n, __format, NULL, ap);
   __builtin_va_end(ap);
   return ret;
 }
