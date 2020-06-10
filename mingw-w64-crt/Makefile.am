@@ -287,6 +287,7 @@ src_msvcrtarm32=\
   misc/__p__fmode.c \
   misc/__p__wcmdln.c \
   misc/_getpid.c \
+  stdio/_setmaxstdio.c \
   stdio/gets.c
 
 if !ENABLE_SOFTMATH
@@ -381,6 +382,7 @@ src_msvcrtarm64=\
   misc/__p__fmode.c \
   misc/__p__wcmdln.c \
   misc/_getpid.c \
+  stdio/_setmaxstdio.c \
   stdio/gets.c
 
 src_msvcr80_64=\
