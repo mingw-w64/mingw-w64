@@ -110,15 +110,14 @@ am__dirstamp = $(am__leading_dot)dirstamp
 am_widl_OBJECTS = src/widl-client.$(OBJEXT) src/widl-expr.$(OBJEXT) \
 	src/widl-hash.$(OBJEXT) src/widl-header.$(OBJEXT) \
 	src/widl-parser.tab.$(OBJEXT) src/widl-parser.yy.$(OBJEXT) \
-	src/port/widl-getopt.$(OBJEXT) src/port/widl-getopt1.$(OBJEXT) \
-	src/port/widl-port.$(OBJEXT) src/widl-proxy.$(OBJEXT) \
-	src/widl-register.$(OBJEXT) src/widl-server.$(OBJEXT) \
-	src/widl-typegen.$(OBJEXT) src/widl-typelib.$(OBJEXT) \
-	src/widl-typetree.$(OBJEXT) src/widl-utils.$(OBJEXT) \
-	src/widl-widl.$(OBJEXT) src/widl-write_msft.$(OBJEXT) \
-	src/wpp/widl-ppl.yy.$(OBJEXT) src/wpp/widl-ppy.tab.$(OBJEXT) \
-	src/wpp/widl-preproc.$(OBJEXT) src/wpp/widl-wpp.$(OBJEXT) \
-	src/widl-pathtools.$(OBJEXT)
+	src/port/widl-getopt.$(OBJEXT) src/port/widl-port.$(OBJEXT) \
+	src/widl-proxy.$(OBJEXT) src/widl-register.$(OBJEXT) \
+	src/widl-server.$(OBJEXT) src/widl-typegen.$(OBJEXT) \
+	src/widl-typelib.$(OBJEXT) src/widl-typetree.$(OBJEXT) \
+	src/widl-utils.$(OBJEXT) src/widl-widl.$(OBJEXT) \
+	src/widl-write_msft.$(OBJEXT) src/wpp/widl-ppl.yy.$(OBJEXT) \
+	src/wpp/widl-ppy.tab.$(OBJEXT) src/wpp/widl-preproc.$(OBJEXT) \
+	src/wpp/widl-wpp.$(OBJEXT) src/widl-pathtools.$(OBJEXT)
 widl_OBJECTS = $(am_widl_OBJECTS)
 widl_LDADD = $(LDADD)
 widl_LINK = $(CCLD) $(widl_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
@@ -148,7 +147,6 @@ am__depfiles_remade = src/$(DEPDIR)/widl-client.Po \
 	src/$(DEPDIR)/widl-typetree.Po src/$(DEPDIR)/widl-utils.Po \
 	src/$(DEPDIR)/widl-widl.Po src/$(DEPDIR)/widl-write_msft.Po \
 	src/port/$(DEPDIR)/widl-getopt.Po \
-	src/port/$(DEPDIR)/widl-getopt1.Po \
 	src/port/$(DEPDIR)/widl-port.Po \
 	src/wpp/$(DEPDIR)/widl-ppl.yy.Po \
 	src/wpp/$(DEPDIR)/widl-ppy.tab.Po \
@@ -348,7 +346,6 @@ widl_SOURCES = src/widl.h \
   src/parser.tab.c \
   src/parser.yy.c \
   src/port/getopt.c \
-  src/port/getopt1.c \
   src/port/port.c \
   src/proxy.c \
   src/register.c \
@@ -510,8 +507,6 @@ src/port/$(DEPDIR)/$(am__dirstamp):
 	@: > src/port/$(DEPDIR)/$(am__dirstamp)
 src/port/widl-getopt.$(OBJEXT): src/port/$(am__dirstamp) \
 	src/port/$(DEPDIR)/$(am__dirstamp)
-src/port/widl-getopt1.$(OBJEXT): src/port/$(am__dirstamp) \
-	src/port/$(DEPDIR)/$(am__dirstamp)
 src/port/widl-port.$(OBJEXT): src/port/$(am__dirstamp) \
 	src/port/$(DEPDIR)/$(am__dirstamp)
 src/widl-proxy.$(OBJEXT): src/$(am__dirstamp) \
@@ -579,7 +574,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-widl.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/widl-write_msft.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/port/$(DEPDIR)/widl-getopt.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@src/port/$(DEPDIR)/widl-getopt1.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/port/$(DEPDIR)/widl-port.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/wpp/$(DEPDIR)/widl-ppl.yy.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/wpp/$(DEPDIR)/widl-ppy.tab.Po@am__quote@ # am--include-marker
@@ -705,20 +699,6 @@ src/port/widl-getopt.obj: src/port/getopt.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/port/getopt.c' object='src/port/widl-getopt.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/port/widl-getopt.obj `if test -f 'src/port/getopt.c'; then $(CYGPATH_W) 'src/port/getopt.c'; else $(CYGPATH_W) '$(srcdir)/src/port/getopt.c'; fi`
-
-src/port/widl-getopt1.o: src/port/getopt1.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/port/widl-getopt1.o -MD -MP -MF src/port/$(DEPDIR)/widl-getopt1.Tpo -c -o src/port/widl-getopt1.o `test -f 'src/port/getopt1.c' || echo '$(srcdir)/'`src/port/getopt1.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/port/$(DEPDIR)/widl-getopt1.Tpo src/port/$(DEPDIR)/widl-getopt1.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/port/getopt1.c' object='src/port/widl-getopt1.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/port/widl-getopt1.o `test -f 'src/port/getopt1.c' || echo '$(srcdir)/'`src/port/getopt1.c
-
-src/port/widl-getopt1.obj: src/port/getopt1.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/port/widl-getopt1.obj -MD -MP -MF src/port/$(DEPDIR)/widl-getopt1.Tpo -c -o src/port/widl-getopt1.obj `if test -f 'src/port/getopt1.c'; then $(CYGPATH_W) 'src/port/getopt1.c'; else $(CYGPATH_W) '$(srcdir)/src/port/getopt1.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/port/$(DEPDIR)/widl-getopt1.Tpo src/port/$(DEPDIR)/widl-getopt1.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/port/getopt1.c' object='src/port/widl-getopt1.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -c -o src/port/widl-getopt1.obj `if test -f 'src/port/getopt1.c'; then $(CYGPATH_W) 'src/port/getopt1.c'; else $(CYGPATH_W) '$(srcdir)/src/port/getopt1.c'; fi`
 
 src/port/widl-port.o: src/port/port.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(widl_CPPFLAGS) $(CPPFLAGS) $(widl_CFLAGS) $(CFLAGS) -MT src/port/widl-port.o -MD -MP -MF src/port/$(DEPDIR)/widl-port.Tpo -c -o src/port/widl-port.o `test -f 'src/port/port.c' || echo '$(srcdir)/'`src/port/port.c
@@ -1227,7 +1207,6 @@ distclean: distclean-am
 	-rm -f src/$(DEPDIR)/widl-widl.Po
 	-rm -f src/$(DEPDIR)/widl-write_msft.Po
 	-rm -f src/port/$(DEPDIR)/widl-getopt.Po
-	-rm -f src/port/$(DEPDIR)/widl-getopt1.Po
 	-rm -f src/port/$(DEPDIR)/widl-port.Po
 	-rm -f src/wpp/$(DEPDIR)/widl-ppl.yy.Po
 	-rm -f src/wpp/$(DEPDIR)/widl-ppy.tab.Po
@@ -1297,7 +1276,6 @@ maintainer-clean: maintainer-clean-am
 	-rm -f src/$(DEPDIR)/widl-widl.Po
 	-rm -f src/$(DEPDIR)/widl-write_msft.Po
 	-rm -f src/port/$(DEPDIR)/widl-getopt.Po
-	-rm -f src/port/$(DEPDIR)/widl-getopt1.Po
 	-rm -f src/port/$(DEPDIR)/widl-port.Po
 	-rm -f src/wpp/$(DEPDIR)/widl-ppl.yy.Po
 	-rm -f src/wpp/$(DEPDIR)/widl-ppy.tab.Po
