@@ -597,7 +597,7 @@ static void init_argv0_dir( const char *argv0 )
 
 int main(int argc,char *argv[])
 {
-  int i, optc;
+  int optc;
   int ret = 0;
   int opti = 0;
   char *output_name = NULL;
