@@ -11,10 +11,14 @@ typedef enum WHV_CAPABILITY_CODE {
     WHvCapabilityCodeFeatures = 0x00000001,
     WHvCapabilityCodeExtendedVmExits = 0x00000002,
     WHvCapabilityCodeExceptionExitBitmap = 0x00000003,
+    WHvCapabilityCodeX64MsrExitBitmap = 0x00000004,
     WHvCapabilityCodeProcessorVendor = 0x00001000,
     WHvCapabilityCodeProcessorFeatures = 0x00001001,
     WHvCapabilityCodeProcessorClFlushSize = 0x00001002,
-    WHvCapabilityCodeProcessorXsaveFeatures = 0x00001003
+    WHvCapabilityCodeProcessorXsaveFeatures = 0x00001003,
+    WHvCapabilityCodeProcessorClockFrequency = 0x00001004,
+    WHvCapabilityCodeInterruptClockFrequency = 0x00001005,
+    WHvCapabilityCodeProcessorFeaturesBanks = 0x00001006
 } WHV_CAPABILITY_CODE;
 
 typedef union WHV_CAPABILITY_FEATURES {
@@ -24,7 +28,9 @@ typedef union WHV_CAPABILITY_FEATURES {
         UINT64 Xsave : 1;
         UINT64 DirtyPageTracking : 1;
         UINT64 SpeculationControl : 1;
-        UINT64 Reserved : 59;
+        UINT64 ApicRemoteRead : 1;
+        UINT64 IdleSuspend : 1;
+        UINT64 Reserved : 57;
     };
     UINT64 AsUINT64;
 } WHV_CAPABILITY_FEATURES;
@@ -36,7 +42,11 @@ typedef union WHV_EXTENDED_VM_EXITS {
         UINT64 X64CpuidExit : 1;
         UINT64 X64MsrExit : 1;
         UINT64 ExceptionExit : 1;
-        UINT64 Reserved : 61;
+        UINT64 X64RdtscExit : 1;
+        UINT64 X64ApicSmiExitTrap : 1;
+        UINT64 HypercallExit : 1;
+        UINT64 X64ApicInitSipiExitTrap : 1;
+        UINT64 Reserved : 57;
     };
     UINT64 AsUINT64;
 } WHV_EXTENDED_VM_EXITS;
@@ -106,12 +116,44 @@ typedef union WHV_PROCESSOR_FEATURES {
         UINT64 Reserved4 : 1;
         UINT64 SsbNo : 1;
         UINT64 RsbANo : 1;
-        UINT64 Reserved5 : 8;
+        UINT64 Reserved5 : 1;
+        UINT64 RdPidSupport : 1;
+        UINT64 UmipSupport : 1;
+        UINT64 MdsNoSupport : 1;
+        UINT64 MdClearSupport : 1;
+        UINT64 Reserved6 : 3;
     };
     UINT64 AsUINT64;
 } WHV_PROCESSOR_FEATURES;
 
 C_ASSERT(sizeof(WHV_PROCESSOR_FEATURES) == sizeof(UINT64));
+
+typedef union WHV_PROCESSOR_FEATURES1 {
+    __C89_NAMELESS struct {
+        UINT64 Reserved1 : 2;
+        UINT64 ClZeroSupport : 1;
+        UINT64 Reserved2 : 61;
+    };
+    UINT64 AsUINT64;
+} WHV_PROCESSOR_FEATURES1;
+
+C_ASSERT(sizeof(WHV_PROCESSOR_FEATURES1) == sizeof(UINT64));
+
+#define WHV_PROCESSOR_FEATURES_BANKS_COUNT 2
+
+typedef struct WHV_PROCESSOR_FEATURES_BANKS {
+    UINT32 BanksCount;
+    UINT32 Reserved0;
+    __C89_NAMELESS union {
+        __C89_NAMELESS struct {
+            WHV_PROCESSOR_FEATURES Bank0;
+            WHV_PROCESSOR_FEATURES1 Bank1;
+        };
+        UINT64 AsUINT64[WHV_PROCESSOR_FEATURES_BANKS_COUNT];
+    };
+} WHV_PROCESSOR_FEATURES_BANKS;
+
+C_ASSERT(sizeof(WHV_PROCESSOR_FEATURES_BANKS) == sizeof(UINT64) * (WHV_PROCESSOR_FEATURES_BANKS_COUNT + 1));
 
 typedef union _WHV_PROCESSOR_XSAVE_FEATURES {
     __C89_NAMELESS struct {
@@ -138,12 +180,27 @@ typedef union _WHV_PROCESSOR_XSAVE_FEATURES {
         UINT64 VaesSupport : 1;
         UINT64 Avx512VPopcntdqSupport : 1;
         UINT64 VpclmulqdqSupport : 1;
-        UINT64 Reserved : 41;
+        UINT64 Avx512Bf16Support : 1;
+        UINT64 Avx512Vp2IntersectSupport : 1;
+        UINT64 Reserved : 39;
     };
     UINT64 AsUINT64;
 } WHV_PROCESSOR_XSAVE_FEATURES, *PWHV_PROCESSOR_XSAVE_FEATURES;
 
 C_ASSERT(sizeof(WHV_PROCESSOR_XSAVE_FEATURES) == sizeof(UINT64));
+
+typedef union WHV_X64_MSR_EXIT_BITMAP {
+    UINT64 AsUINT64;
+    __C89_NAMELESS struct {
+        UINT64 UnhandledMsrs : 1;
+        UINT64 TscMsrWrite : 1;
+        UINT64 TscMsrRead : 1;
+        UINT64 ApicBaseMsrWrite : 1;
+        UINT64 Reserved : 60;
+    };
+} WHV_X64_MSR_EXIT_BITMAP;
+
+C_ASSERT(sizeof(WHV_X64_MSR_EXIT_BITMAP) == sizeof(UINT64));
 
 typedef union WHV_CAPABILITY {
     WINBOOL HypervisorPresent;
@@ -154,6 +211,10 @@ typedef union WHV_CAPABILITY {
     WHV_PROCESSOR_XSAVE_FEATURES ProcessorXsaveFeatures;
     UINT8 ProcessorClFlushSize;
     UINT64 ExceptionExitBitmap;
+    WHV_X64_MSR_EXIT_BITMAP X64MsrExitBitmap;
+    UINT64 ProcessorClockFrequency;
+    UINT64 InterruptClockFrequency;
+    WHV_PROCESSOR_FEATURES_BANKS ProcessorFeaturesBanks;
 } WHV_CAPABILITY;
 
 typedef VOID* WHV_PARTITION_HANDLE;
@@ -162,12 +223,19 @@ typedef enum WHV_PARTITION_PROPERTY_CODE {
     WHvPartitionPropertyCodeExtendedVmExits = 0x00000001,
     WHvPartitionPropertyCodeExceptionExitBitmap = 0x00000002,
     WHvPartitionPropertyCodeSeparateSecurityDomain = 0x00000003,
+    WHvPartitionPropertyCodeNestedVirtualization = 0x00000004,
+    WHvPartitionPropertyCodeX64MsrExitBitmap = 0x00000005,
     WHvPartitionPropertyCodeProcessorFeatures = 0x00001001,
     WHvPartitionPropertyCodeProcessorClFlushSize = 0x00001002,
     WHvPartitionPropertyCodeCpuidExitList = 0x00001003,
     WHvPartitionPropertyCodeCpuidResultList = 0x00001004,
     WHvPartitionPropertyCodeLocalApicEmulationMode = 0x00001005,
     WHvPartitionPropertyCodeProcessorXsaveFeatures = 0x00001006,
+    WHvPartitionPropertyCodeProcessorClockFrequency = 0x00001007,
+    WHvPartitionPropertyCodeInterruptClockFrequency = 0x00001008,
+    WHvPartitionPropertyCodeApicRemoteReadSupport = 0x00001009,
+    WHvPartitionPropertyCodeProcessorFeaturesBanks = 0x0000100A,
+    WHvPartitionPropertyCodeReferenceTime = 0x0000100B,
     WHvPartitionPropertyCodeProcessorCount = 0x00001fff
 } WHV_PARTITION_PROPERTY_CODE;
 
@@ -202,7 +270,8 @@ typedef enum WHV_EXCEPTION_TYPE {
 
 typedef enum WHV_X64_LOCAL_APIC_EMULATION_MODE {
     WHvX64LocalApicEmulationModeNone,
-    WHvX64LocalApicEmulationModeXApic
+    WHvX64LocalApicEmulationModeXApic,
+    WHvX64LocalApicEmulationModeX2Apic
 } WHV_X64_LOCAL_APIC_EMULATION_MODE;
 
 typedef union WHV_PARTITION_PROPERTY {
@@ -216,6 +285,13 @@ typedef union WHV_PARTITION_PROPERTY {
     UINT64 ExceptionExitBitmap;
     WHV_X64_LOCAL_APIC_EMULATION_MODE LocalApicEmulationMode;
     WINBOOL SeparateSecurityDomain;
+    WINBOOL NestedVirtualization;
+    WHV_X64_MSR_EXIT_BITMAP X64MsrExitBitmap;
+    UINT64 ProcessorClockFrequency;
+    UINT64 InterruptClockFrequency;
+    WINBOOL ApicRemoteRead;
+    WHV_PROCESSOR_FEATURES_BANKS ProcessorFeaturesBanks;
+    UINT64 ReferenceTime;
 } WHV_PARTITION_PROPERTY;
 
 typedef UINT64 WHV_GUEST_PHYSICAL_ADDRESS;
@@ -338,6 +414,7 @@ typedef enum WHV_REGISTER_NAME {
     WHvX64RegisterLstar = 0x00002009,
     WHvX64RegisterCstar = 0x0000200A,
     WHvX64RegisterSfmask = 0x0000200B,
+    WHvX64RegisterInitialApicId = 0x0000200C,
     WHvX64RegisterMsrMtrrCap = 0x0000200D,
     WHvX64RegisterMsrMtrrDefType = 0x0000200E,
     WHvX64RegisterMsrMtrrPhysBase0 = 0x00002010,
@@ -386,13 +463,15 @@ typedef enum WHV_REGISTER_NAME {
     WHvX64RegisterTscAux = 0x0000207B,
     WHvX64RegisterSpecCtrl = 0x00002084,
     WHvX64RegisterPredCmd = 0x00002085,
+    WHvX64RegisterTscVirtualOffset = 0x00002087,
     WHvX64RegisterApicId = 0x00003002,
     WHvX64RegisterApicVersion = 0x00003003,
     WHvRegisterPendingInterruption = 0x80000000,
     WHvRegisterInterruptState = 0x80000001,
     WHvRegisterPendingEvent = 0x80000002,
     WHvX64RegisterDeliverabilityNotifications = 0x80000004,
-    WHvRegisterInternalActivityState = 0x80000005
+    WHvRegisterInternalActivityState = 0x80000005,
+    WHvX64RegisterPendingDebugException = 0x80000006
 } WHV_REGISTER_NAME;
 
 typedef union DECLSPEC_ALIGN(16) WHV_UINT128 {
@@ -547,6 +626,32 @@ typedef union WHV_X64_PENDING_EXT_INT_EVENT {
 
 C_ASSERT(sizeof(WHV_X64_PENDING_EXT_INT_EVENT) == sizeof(WHV_UINT128));
 
+typedef union WHV_INTERNAL_ACTIVITY_REGISTER {
+    __C89_NAMELESS struct {
+        UINT64 StartupSuspend : 1;
+        UINT64 HaltSuspend : 1;
+        UINT64 IdleSuspend : 1;
+        UINT64 Reserved :61;
+    };
+    UINT64 AsUINT64;
+} WHV_INTERNAL_ACTIVITY_REGISTER;
+
+C_ASSERT(sizeof(WHV_INTERNAL_ACTIVITY_REGISTER) == sizeof(UINT64));
+
+typedef union WHV_X64_PENDING_DEBUG_EXCEPTION {
+    UINT64 AsUINT64;
+    __C89_NAMELESS struct {
+        UINT64 Breakpoint0 : 1;
+        UINT64 Breakpoint1 : 1;
+        UINT64 Breakpoint2 : 1;
+        UINT64 Breakpoint3 : 1;
+        UINT64 SingleStep : 1;
+        UINT64 Reserved0 : 59;
+    };
+} WHV_X64_PENDING_DEBUG_EXCEPTION;
+
+C_ASSERT(sizeof(WHV_X64_PENDING_DEBUG_EXCEPTION) == sizeof(UINT64));
+
 typedef union WHV_REGISTER_VALUE {
     WHV_UINT128 Reg128;
     UINT64 Reg64;
@@ -563,6 +668,8 @@ typedef union WHV_REGISTER_VALUE {
     WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER DeliverabilityNotifications;
     WHV_X64_PENDING_EXCEPTION_EVENT ExceptionEvent;
     WHV_X64_PENDING_EXT_INT_EVENT ExtIntEvent;
+    WHV_INTERNAL_ACTIVITY_REGISTER InternalActivity;
+    WHV_X64_PENDING_DEBUG_EXCEPTION PendingDebugException;
 } WHV_REGISTER_VALUE;
 
 typedef enum WHV_RUN_VP_EXIT_REASON {
@@ -578,6 +685,10 @@ typedef enum WHV_RUN_VP_EXIT_REASON {
     WHvRunVpExitReasonX64MsrAccess = 0x00001000,
     WHvRunVpExitReasonX64Cpuid = 0x00001001,
     WHvRunVpExitReasonException = 0x00001002,
+    WHvRunVpExitReasonX64Rdtsc = 0x00001003,
+    WHvRunVpExitReasonX64ApicSmiTrap = 0x00001004,
+    WHvRunVpExitReasonHypercall = 0x00001005,
+    WHvRunVpExitReasonX64ApicInitSipiTrap = 0x00001006,
     WHvRunVpExitReasonCanceled = 0x00002001
 } WHV_RUN_VP_EXIT_REASON;
 
@@ -745,6 +856,45 @@ typedef struct WHV_X64_APIC_EOI_CONTEXT {
     UINT32 InterruptVector;
 } WHV_X64_APIC_EOI_CONTEXT;
 
+typedef union WHV_X64_RDTSC_INFO {
+    __C89_NAMELESS struct {
+        UINT64 IsRdtscp : 1;
+        UINT64 Reserved : 63;
+    };
+    UINT64 AsUINT64;
+} WHV_X64_RDTSC_INFO;
+
+typedef struct WHV_X64_RDTSC_CONTEXT {
+    UINT64 TscAux;
+    UINT64 VirtualOffset;
+    UINT64 Tsc;
+    UINT64 ReferenceTime;
+    WHV_X64_RDTSC_INFO RdtscInfo;
+} WHV_X64_RDTSC_CONTEXT;
+
+typedef struct WHV_X64_APIC_SMI_CONTEXT {
+    UINT64 ApicIcr;
+} WHV_X64_APIC_SMI_CONTEXT;
+
+#define WHV_HYPERCALL_CONTEXT_MAX_XMM_REGISTERS 6
+
+typedef struct _WHV_HYPERCALL_CONTEXT {
+    UINT64 Rax;
+    UINT64 Rbx;
+    UINT64 Rcx;
+    UINT64 Rdx;
+    UINT64 R8;
+    UINT64 Rsi;
+    UINT64 Rdi;
+    UINT64 Reserved0;
+    WHV_UINT128 XmmRegisters[WHV_HYPERCALL_CONTEXT_MAX_XMM_REGISTERS];
+    UINT64 Reserved1[2];
+} WHV_HYPERCALL_CONTEXT, *PWHV_HYPERCALL_CONTEXT;
+
+typedef struct WHV_X64_APIC_INIT_SIPI_CONTEXT {
+    UINT64 ApicIcr;
+} WHV_X64_APIC_INIT_SIPI_CONTEXT;
+
 typedef struct WHV_RUN_VP_EXIT_CONTEXT {
     WHV_RUN_VP_EXIT_REASON ExitReason;
     UINT32 Reserved;
@@ -759,6 +909,10 @@ typedef struct WHV_RUN_VP_EXIT_CONTEXT {
         WHV_X64_UNSUPPORTED_FEATURE_CONTEXT UnsupportedFeature;
         WHV_RUN_VP_CANCELED_CONTEXT CancelReason;
         WHV_X64_APIC_EOI_CONTEXT ApicEoi;
+        WHV_X64_RDTSC_CONTEXT ReadTsc;
+        WHV_X64_APIC_SMI_CONTEXT ApicSmi;
+        WHV_HYPERCALL_CONTEXT Hypercall;
+        WHV_X64_APIC_INIT_SIPI_CONTEXT ApicInitSipi;
     };
 } WHV_RUN_VP_EXIT_CONTEXT;
 
@@ -789,6 +943,15 @@ typedef struct WHV_INTERRUPT_CONTROL {
     UINT32 Destination;
     UINT32 Vector;
 } WHV_INTERRUPT_CONTROL;
+
+typedef struct WHV_DOORBELL_MATCH_DATA {
+    WHV_GUEST_PHYSICAL_ADDRESS GuestAddress;
+    UINT64 Value;
+    UINT32 Length;
+    UINT32 MatchOnValue : 1;
+    UINT32 MatchOnLength : 1;
+    UINT32 Reserved : 30;
+} WHV_DOORBELL_MATCH_DATA;
 
 typedef enum WHV_PARTITION_COUNTER_SET {
     WHvPartitionCounterSetMemory
@@ -845,4 +1008,4 @@ typedef struct WHV_PROCESSOR_APIC_COUNTERS {
     UINT64 SelfIpiCount;
 } WHV_PROCESSOR_APIC_COUNTERS;
 
-#endif
+#endif /* _WINHVAPIDEFS_H_ */

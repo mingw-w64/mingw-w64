@@ -44,11 +44,15 @@ HRESULT WINAPI WHvSetVirtualProcessorXsaveState(WHV_PARTITION_HANDLE Partition, 
 HRESULT WINAPI WHvQueryGpaRangeDirtyBitmap(WHV_PARTITION_HANDLE Partition, WHV_GUEST_PHYSICAL_ADDRESS GuestAddress, UINT64 RangeSizeInBytes, UINT64 *Bitmap, UINT32 BitmapSizeInBytes);
 HRESULT WINAPI WHvGetPartitionCounters(WHV_PARTITION_HANDLE Partition, WHV_PARTITION_COUNTER_SET CounterSet, VOID *Buffer, UINT32 BufferSizeInBytes, UINT32 *BytesWritten);
 HRESULT WINAPI WHvGetVirtualProcessorCounters(WHV_PARTITION_HANDLE Partition, UINT32 VpIndex, WHV_PROCESSOR_COUNTER_SET CounterSet, VOID *Buffer, UINT32 BufferSizeInBytes, UINT32 *BytesWritten);
+HRESULT WINAPI WHvGetVirtualProcessorInterruptControllerState2(WHV_PARTITION_HANDLE Partition, UINT32 VpIndex, VOID *State, UINT32 StateSize, UINT32 *WrittenSize);
+HRESULT WINAPI WHvSetVirtualProcessorInterruptControllerState2(WHV_PARTITION_HANDLE Partition, UINT32 VpIndex, const VOID *State, UINT32 StateSize);
+HRESULT WINAPI WHvRegisterPartitionDoorbellEvent(WHV_PARTITION_HANDLE Partition, const WHV_DOORBELL_MATCH_DATA *MatchData, HANDLE EventHandle);
+HRESULT WINAPI WHvUnregisterPartitionDoorbellEvent(WHV_PARTITION_HANDLE Partition, const WHV_DOORBELL_MATCH_DATA *MatchData);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 
-#endif
+#endif /* _WINHVAPI_H_ */
