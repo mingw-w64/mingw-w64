@@ -10,6 +10,7 @@ lib32_DATA += %reldir%/libavicap32.a
 lib32_DATA += %reldir%/libavifil32.a
 lib32_DATA += %reldir%/libavrt.a
 lib32_DATA += %reldir%/libbcrypt.a
+lib32_DATA += %reldir%/libbluetoothapis.a
 lib32_DATA += %reldir%/libbootvid.a
 lib32_DATA += %reldir%/libbrowcli.a
 lib32_DATA += %reldir%/libbthprops.a

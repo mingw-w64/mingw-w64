@@ -34,6 +34,7 @@ lib64_DATA += %reldir%/libazroles.a
 lib64_DATA += %reldir%/libbasesrv.a
 lib64_DATA += %reldir%/libbatmeter.a
 lib64_DATA += %reldir%/libbatt.a
+lib64_DATA += %reldir%/libbluetoothapis.a
 lib64_DATA += %reldir%/libbootvid.a
 lib64_DATA += %reldir%/libbrowser.a
 lib64_DATA += %reldir%/libbthci.a

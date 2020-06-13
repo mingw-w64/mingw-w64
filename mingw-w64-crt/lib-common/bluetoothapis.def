@@ -5,7 +5,6 @@
 ;
 LIBRARY "BluetoothApis.dll"
 EXPORTS
-ord_103 @103
 BluetoothAddressToString
 BluetoothDisconnectDevice
 BluetoothEnableDiscovery
@@ -78,6 +77,7 @@ BthpCleanupBRDeviceNode
 BthpCleanupDeviceLocalServices
 BthpCleanupDeviceRemoteServices
 BthpCleanupLEDeviceNodes
+BthpEnableA2DPIfPresent
 BthpEnableAllServices
 BthpEnableConnectableAndDiscoverable
 BthpEnableRadioSoftware
