@@ -1226,7 +1226,25 @@ interface ID2D1Multithread : public IUnknown
 #else
 
 typedef interface ID2D1Multithread ID2D1Multithread;
-/* FIXME: Add full C declaration */
+
+typedef struct ID2D1MultithreadVtbl {
+    IUnknownVtbl Base;
+
+    STDMETHOD_(BOOL, GetMultithreadProtected)(ID2D1Multithread *This) PURE;
+    STDMETHOD_(void, Enter)(ID2D1Multithread *This) PURE;
+    STDMETHOD_(void, Leave)(ID2D1Multithread *This) PURE;
+} ID2D1MultithreadVtbl;
+
+interface ID2D1Multithread {
+    ID2D1MultithreadVtbl *lpVtbl;
+};
+
+#define ID2D1Multithread_QueryInterface(this,A,B) (this)->lpVtbl->Base.QueryInterface((IUnknown *)(this),A,B)
+#define ID2D1Multithread_AddRef(this) (this)->lpVtbl->Base.AddRef((IUnknown *)(this))
+#define ID2D1Multithread_Release(this) (this)->lpVtbl->Base.Release((IUnknown *)(this))
+#define ID2D1Mutlithread_GetMultithreadProtected(this) (this)->lpVtbl->GetMultihreadProtected(this)
+#define ID2D1Multithread_Enter(this) (this)->lpVtbl->Enter(this)
+#define ID2D1Multithread_Leave(this) (this)->lpVtbl->Leave(this)
 
 #endif
 
