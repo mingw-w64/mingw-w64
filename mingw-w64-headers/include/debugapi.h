@@ -26,6 +26,9 @@ extern "C" {
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
   WINBASEAPI WINBOOL APIENTRY ContinueDebugEvent (DWORD dwProcessId, DWORD dwThreadId, DWORD dwContinueStatus);
   WINBASEAPI WINBOOL APIENTRY WaitForDebugEvent (LPDEBUG_EVENT lpDebugEvent, DWORD dwMilliseconds);
+#if WINVER >= _WIN32_WINNT_WIN10
+  WINBASEAPI WINBOOL APIENTRY WaitForDebugEventEx (LPDEBUG_EVENT lpDebugEvent, DWORD dwMilliseconds);
+#endif
   WINBASEAPI WINBOOL APIENTRY DebugActiveProcess (DWORD dwProcessId);
   WINBASEAPI WINBOOL APIENTRY DebugActiveProcessStop (DWORD dwProcessId);
   WINBASEAPI WINBOOL WINAPI CheckRemoteDebuggerPresent (HANDLE hProcess, PBOOL pbDebuggerPresent);
