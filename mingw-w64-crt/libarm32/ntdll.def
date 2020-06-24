@@ -5,14 +5,6 @@
 ;
 LIBRARY "ntdll.dll"
 EXPORTS
-ord_1 @1
-ord_2 @2
-ord_3 @3
-ord_4 @4
-ord_5 @5
-ord_6 @6
-ord_7 @7
-ord_8 @8
 A_SHAFinal
 A_SHAInit
 A_SHAUpdate
@@ -105,9 +97,6 @@ EtwpCreateEtwThread
 EtwpGetCpuSpeed
 EvtIntReportAuthzEventAndSourceAsync
 EvtIntReportEventAndSourceAsync
-ExpInterlockedPopEntrySListEnd
-ExpInterlockedPopEntrySListFault
-ExpInterlockedPopEntrySListResume
 KiRaiseUserExceptionDispatcher
 KiUserApcDispatcher
 KiUserCallbackDispatcher
@@ -141,7 +130,6 @@ LdrGetDllHandleEx
 LdrGetDllPath
 LdrGetFailureData
 LdrGetFileNameFromLoadAsDataTable
-LdrGetKnownDllSectionHandle
 LdrGetProcedureAddress
 LdrGetProcedureAddressEx
 LdrGetProcedureAddressForCaller
@@ -155,7 +143,6 @@ LdrLoadDll
 LdrLoadEnclaveModule
 LdrLockLoaderLock
 LdrOpenImageFileOptionsKey
-LdrProcessInitializationComplete
 LdrProcessRelocationBlock
 LdrProcessRelocationBlockEx
 LdrQueryImageFileExecutionOptions
@@ -226,7 +213,6 @@ NtAlertThreadByThreadId
 NtAllocateLocallyUniqueId
 NtAllocateReserveObject
 NtAllocateUserPhysicalPages
-NtAllocateUserPhysicalPagesEx
 NtAllocateUuids
 NtAllocateVirtualMemory
 NtAllocateVirtualMemoryEx
@@ -400,6 +386,7 @@ NtLoadDriver
 NtLoadEnclaveData
 NtLoadKey
 NtLoadKey2
+NtLoadKey3
 NtLoadKeyEx
 NtLockFile
 NtLockProductActivationKeys
@@ -464,7 +451,6 @@ NtPrivilegedServiceAuditAlarm
 NtPropagationComplete
 NtPropagationFailed
 NtProtectVirtualMemory
-NtPssCaptureVaSpaceBulk
 NtPulseEvent
 NtQueryAttributesFile
 NtQueryAuxiliaryCounterFrequency
@@ -666,6 +652,25 @@ NtWaitForWorkViaWorkerFactory
 NtWaitHighEventPair
 NtWaitLowEventPair
 NtWorkerFactoryWorkerReady
+NtWow64AllocateVirtualMemory64
+NtWow64CallFunction64
+NtWow64CsrAllocateCaptureBuffer
+NtWow64CsrAllocateMessagePointer
+NtWow64CsrCaptureMessageBuffer
+NtWow64CsrCaptureMessageString
+NtWow64CsrClientCallServer
+NtWow64CsrClientConnectToServer
+NtWow64CsrFreeCaptureBuffer
+NtWow64CsrGetProcessId
+NtWow64CsrIdentifyAlertableThread
+NtWow64CsrVerifyRegion
+NtWow64DebuggerCall
+NtWow64GetCurrentProcessorNumberEx
+NtWow64GetNativeSystemInformation
+NtWow64IsProcessorFeaturePresent
+NtWow64QueryInformationProcess64
+NtWow64ReadVirtualMemory64
+NtWow64WriteVirtualMemory64
 NtWriteFile
 NtWriteFileGather
 NtWriteRequestData
@@ -752,7 +757,6 @@ RtlAppxIsFileOwnedByTrustedInstaller
 RtlAreAllAccessesGranted
 RtlAreAnyAccessesGranted
 RtlAreBitsClear
-RtlAreBitsClearEx
 RtlAreBitsSet
 RtlAreLongPathsEnabled
 RtlAssert
@@ -778,11 +782,8 @@ RtlCheckTokenMembership
 RtlCheckTokenMembershipEx
 RtlCleanUpTEBLangLists
 RtlClearAllBits
-RtlClearAllBitsEx
 RtlClearBit
-RtlClearBitEx
 RtlClearBits
-RtlClearBitsEx
 RtlClearThreadWorkOnBehalfTicket
 RtlCloneMemoryStream
 RtlCloneUserProcess
@@ -797,7 +798,6 @@ RtlCompareMemoryUlong
 RtlCompareString
 RtlCompareUnicodeString
 RtlCompareUnicodeStrings
-RtlCompleteProcessCloning
 RtlCompressBuffer
 RtlComputeCrc32
 RtlComputeImportTableHash
@@ -926,7 +926,6 @@ RtlDosSearchPath_U
 RtlDosSearchPath_Ustr
 RtlDowncaseUnicodeChar
 RtlDowncaseUnicodeString
-RtlDrainNonVolatileFlush
 RtlDumpResource
 RtlDuplicateUnicodeString
 RtlEmptyAtomTable
@@ -972,7 +971,6 @@ RtlExtractBitMap
 RtlFillMemory
 RtlFillMemoryUlong
 RtlFillMemoryUlonglong
-RtlFillNonVolatileMemory
 RtlFinalReleaseOutOfProcessMemoryStream
 RtlFindAceByType
 RtlFindActivationContextSectionGuid
@@ -980,7 +978,6 @@ RtlFindActivationContextSectionString
 RtlFindCharInUnicodeString
 RtlFindClearBits
 RtlFindClearBitsAndSet
-RtlFindClearBitsEx
 RtlFindClearRuns
 RtlFindClosestEncodableLength
 RtlFindExportedRoutineByName
@@ -992,8 +989,6 @@ RtlFindMostSignificantBit
 RtlFindNextForwardRunClear
 RtlFindSetBits
 RtlFindSetBitsAndClear
-RtlFindSetBitsAndClearEx
-RtlFindSetBitsEx
 RtlFindUnicodeSubstring
 RtlFirstEntrySList
 RtlFirstFreeAce
@@ -1002,8 +997,6 @@ RtlFlsFree
 RtlFlsGetValue
 RtlFlsSetValue
 RtlFlushHeaps
-RtlFlushNonVolatileMemory
-RtlFlushNonVolatileMemoryRanges
 RtlFlushSecureMemoryCache
 RtlFormatCurrentUserKeyPath
 RtlFormatMessage
@@ -1013,11 +1006,9 @@ RtlFreeAnsiString
 RtlFreeHandle
 RtlFreeHeap
 RtlFreeMemoryBlockLookaside
-RtlFreeNonVolatileToken
 RtlFreeOemString
 RtlFreeSid
 RtlFreeThreadActivationContextStack
-RtlFreeUTF8String
 RtlFreeUnicodeString
 RtlFreeUserStack
 RtlGUIDFromString
@@ -1066,7 +1057,6 @@ RtlGetLongestNtPathLength
 RtlGetMultiTimePrecise
 RtlGetNativeSystemInformation
 RtlGetNextEntryHashTable
-RtlGetNonVolatileToken
 RtlGetNtGlobalFlags
 RtlGetNtProductType
 RtlGetNtSystemRoot
@@ -1125,14 +1115,11 @@ RtlInitOutOfProcessMemoryStream
 RtlInitString
 RtlInitStringEx
 RtlInitStrongEnumerationHashTable
-RtlInitUTF8String
-RtlInitUTF8StringEx
 RtlInitUnicodeString
 RtlInitUnicodeStringEx
 RtlInitWeakEnumerationHashTable
 RtlInitializeAtomPackage
 RtlInitializeBitMap
-RtlInitializeBitMapEx
 RtlInitializeConditionVariable
 RtlInitializeContext
 RtlInitializeCorrelationVector
@@ -1218,7 +1205,6 @@ RtlIsValidHandle
 RtlIsValidIndexHandle
 RtlIsValidLocaleName
 RtlIsValidProcessTrustLabelSid
-RtlIsZeroMemory
 RtlKnownExceptionFilter
 RtlLCIDToCultureName
 RtlLargeIntegerToChar
@@ -1266,19 +1252,15 @@ RtlNewSecurityObject
 RtlNewSecurityObjectEx
 RtlNewSecurityObjectWithMultipleInheritance
 RtlNormalizeProcessParams
-RtlNormalizeSecurityDescriptor
 RtlNormalizeString
 RtlNtPathNameToDosPathName
 RtlNtStatusToDosError
 RtlNtStatusToDosErrorNoTeb
-RtlNtdllName
 RtlNumberGenericTableElements
 RtlNumberGenericTableElementsAvl
 RtlNumberOfClearBits
-RtlNumberOfClearBitsEx
 RtlNumberOfClearBitsInRange
 RtlNumberOfSetBits
-RtlNumberOfSetBitsEx
 RtlNumberOfSetBitsInRange
 RtlNumberOfSetBitsUlongPtr
 RtlOemStringToUnicodeSize
@@ -1292,7 +1274,6 @@ RtlPinAtomInAtomTable
 RtlPopFrame
 RtlPrefixString
 RtlPrefixUnicodeString
-RtlPrepareForProcessCloning
 RtlProcessFlsData
 RtlProtectHeap
 RtlPublishWnfStateData
@@ -1385,7 +1366,6 @@ RtlRestoreBootStatusDefaults
 RtlRestoreContext
 RtlRestoreLastWin32Error
 RtlRestoreSystemBootStatusDefaults
-RtlRestoreThreadPreferredUILanguages
 RtlRetrieveNtUserPfn
 RtlRevertMemoryStream
 RtlRunDecodeUnicodeString
@@ -1401,12 +1381,9 @@ RtlSelfRelativeToAbsoluteSD
 RtlSelfRelativeToAbsoluteSD2
 RtlSendMsgToSm
 RtlSetAllBits
-RtlSetAllBitsEx
 RtlSetAttributesSecurityDescriptor
 RtlSetBit
-RtlSetBitEx
 RtlSetBits
-RtlSetBitsEx
 RtlSetControlSecurityDescriptor
 RtlSetCriticalSectionSpinCount
 RtlSetCurrentDirectory_U
@@ -1446,12 +1423,12 @@ RtlSetThreadIsCritical
 RtlSetThreadPlaceholderCompatibilityMode
 RtlSetThreadPoolStartFunc
 RtlSetThreadPreferredUILanguages
-RtlSetThreadPreferredUILanguages2
 RtlSetThreadSubProcessTag
 RtlSetThreadWorkOnBehalfTicket
 RtlSetTimeZoneInformation
 RtlSetTimer
 RtlSetUnhandledExceptionFilter
+RtlSetUserCallbackExceptionFilter
 RtlSetUserFlagsHeap
 RtlSetUserValueHeap
 RtlSidDominates
@@ -1478,7 +1455,6 @@ RtlSwitchedVVI
 RtlSystemTimeToLocalTime
 RtlTestAndPublishWnfStateData
 RtlTestBit
-RtlTestBitEx
 RtlTestProtectedAccess
 RtlTimeFieldsToTime
 RtlTimeToElapsedTimeFields
@@ -1498,7 +1474,6 @@ RtlTryAcquireSRWLockExclusive
 RtlTryAcquireSRWLockShared
 RtlTryConvertSRWLockSharedToExclusiveOrRelease
 RtlTryEnterCriticalSection
-RtlUTF8StringToUnicodeString
 RtlUTF8ToUnicodeN
 RtlUdiv128
 RtlUlongByteSwap
@@ -1511,7 +1486,6 @@ RtlUnicodeStringToCountedOemString
 RtlUnicodeStringToInteger
 RtlUnicodeStringToOemSize
 RtlUnicodeStringToOemString
-RtlUnicodeStringToUTF8String
 RtlUnicodeToCustomCPN
 RtlUnicodeToMultiByteN
 RtlUnicodeToMultiByteSize
@@ -1574,26 +1548,13 @@ RtlWnfDllUnloadCallback
 RtlWow64CallFunction64
 RtlWow64EnableFsRedirection
 RtlWow64EnableFsRedirectionEx
-RtlWow64GetCpuAreaInfo
-RtlWow64GetCurrentCpuArea
 RtlWow64GetCurrentMachine
 RtlWow64GetEquivalentMachineCHPE
 RtlWow64GetProcessMachines
 RtlWow64GetSharedInfoProcess
-RtlWow64GetThreadContext
-RtlWow64GetThreadSelectorEntry
 RtlWow64IsWowGuestMachineSupported
 RtlWow64LogMessageInEventLogger
-RtlWow64PopAllCrossProcessWorkFromWorkList
-RtlWow64PopCrossProcessWorkFromFreeList
-RtlWow64PushCrossProcessWorkOntoFreeList
-RtlWow64PushCrossProcessWorkOntoWorkList
-RtlWow64RequestCrossProcessHeavyFlush
-RtlWow64SetThreadContext
-RtlWow64SuspendProcess
-RtlWow64SuspendThread
 RtlWriteMemoryStream
-RtlWriteNonVolatileMemory
 RtlWriteRegistryValue
 RtlZeroHeap
 RtlZeroMemory
@@ -1630,7 +1591,6 @@ RtlpNtOpenKey
 RtlpNtQueryValueKey
 RtlpNtSetValueKey
 RtlpQueryDefaultUILanguage
-RtlpQueryProcessDebugInformationFromWow64
 RtlpQueryProcessDebugInformationRemote
 RtlpRefreshCachedUILanguage
 RtlpSetInstallLanguage
@@ -1641,7 +1601,6 @@ RtlpTimeToTimeFields
 RtlpUnWaitCriticalSection
 RtlpVerifyAndCommitUILanguageSettings
 RtlpWaitForCriticalSection
-RtlpWow64CtxFromArm64
 RtlxAnsiStringToUnicodeSize
 RtlxOemStringToUnicodeSize
 RtlxUnicodeStringToAnsiSize
@@ -1770,7 +1729,6 @@ ZwAlertThreadByThreadId
 ZwAllocateLocallyUniqueId
 ZwAllocateReserveObject
 ZwAllocateUserPhysicalPages
-ZwAllocateUserPhysicalPagesEx
 ZwAllocateUuids
 ZwAllocateVirtualMemory
 ZwAllocateVirtualMemoryEx
@@ -1943,6 +1901,7 @@ ZwLoadDriver
 ZwLoadEnclaveData
 ZwLoadKey
 ZwLoadKey2
+ZwLoadKey3
 ZwLoadKeyEx
 ZwLockFile
 ZwLockProductActivationKeys
@@ -2007,7 +1966,6 @@ ZwPrivilegedServiceAuditAlarm
 ZwPropagationComplete
 ZwPropagationFailed
 ZwProtectVirtualMemory
-ZwPssCaptureVaSpaceBulk
 ZwPulseEvent
 ZwQueryAttributesFile
 ZwQueryAuxiliaryCounterFrequency
@@ -2209,6 +2167,25 @@ ZwWaitForWorkViaWorkerFactory
 ZwWaitHighEventPair
 ZwWaitLowEventPair
 ZwWorkerFactoryWorkerReady
+ZwWow64AllocateVirtualMemory64
+ZwWow64CallFunction64
+ZwWow64CsrAllocateCaptureBuffer
+ZwWow64CsrAllocateMessagePointer
+ZwWow64CsrCaptureMessageBuffer
+ZwWow64CsrCaptureMessageString
+ZwWow64CsrClientCallServer
+ZwWow64CsrClientConnectToServer
+ZwWow64CsrFreeCaptureBuffer
+ZwWow64CsrGetProcessId
+ZwWow64CsrIdentifyAlertableThread
+ZwWow64CsrVerifyRegion
+ZwWow64DebuggerCall
+ZwWow64GetCurrentProcessorNumberEx
+ZwWow64GetNativeSystemInformation
+ZwWow64IsProcessorFeaturePresent
+ZwWow64QueryInformationProcess64
+ZwWow64ReadVirtualMemory64
+ZwWow64WriteVirtualMemory64
 ZwWriteFile
 ZwWriteFileGather
 ZwWriteRequestData

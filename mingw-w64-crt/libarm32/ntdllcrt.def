@@ -24,7 +24,6 @@ _itoa_s
 _itow
 _itow_s
 _lfind
-_local_unwind
 _ltoa
 _ltoa_s
 _ltow
