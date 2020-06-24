@@ -2279,3 +2279,5 @@ ZwWriteFileGather
 ZwWriteRequestData
 ZwWriteVirtualMemory
 ZwYieldExecution
+vDbgPrintEx
+vDbgPrintExWithPrefix

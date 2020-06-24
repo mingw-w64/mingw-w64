@@ -182,8 +182,6 @@ tolower
 toupper
 towlower
 towupper
-vDbgPrintEx@16
-vDbgPrintExWithPrefix@20
 vsprintf
 vsprintf_s
 vswprintf_s
