@@ -69,6 +69,7 @@ libarm64_DATA += %reldir%/libdimsroam.a
 #libarm64_DATA += %reldir%/libdinput.a    # Handled by custom rule
 #libarm64_DATA += %reldir%/libdinput8.a   # Handled by custom rule
 libarm64_DATA += %reldir%/libdiskcopy.a
+libarm64_DATA += %reldir%/libdismapi.a
 libarm64_DATA += %reldir%/libdmutil.a
 libarm64_DATA += %reldir%/libdnsapi.a
 libarm64_DATA += %reldir%/libdnsrslvr.a
