@@ -302,6 +302,7 @@ libarm64_DATA += %reldir%/libwebsocket.a
 libarm64_DATA += %reldir%/libwecapi.a
 libarm64_DATA += %reldir%/libwevtapi.a
 libarm64_DATA += %reldir%/libwiashext.a
+libarm64_DATA += %reldir%/libwimgapi.a
 libarm64_DATA += %reldir%/libwindowsapp.a
 libarm64_DATA += %reldir%/libwinhttp.a
 libarm64_DATA += %reldir%/libwininet.a

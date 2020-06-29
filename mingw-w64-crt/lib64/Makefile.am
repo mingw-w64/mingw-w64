@@ -810,6 +810,7 @@ lib64_DATA += %reldir%/libxaudio2_8.a
 lib64_DATA += %reldir%/libd3dcompiler_46.a
 lib64_DATA += %reldir%/libd3dcsx_46.a
 lib64_DATA += %reldir%/libd3dcompiler_47.a
+lib64_DATA += %reldir%/libwimgapi.a
 lib64_DATA += %reldir%/libwinhttp.a
 lib64_DATA += %reldir%/libruntimeobject.a
 lib64_DATA += %reldir%/libsynchronization.a
