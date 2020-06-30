@@ -170,6 +170,7 @@ lib32_DATA += %reldir%/libmfplat.a
 lib32_DATA += %reldir%/libmfreadwrite.a
 lib32_DATA += %reldir%/libmgmtapi.a
 lib32_DATA += %reldir%/libmincore.a
+lib32_DATA += %reldir%/libmmdevapi.a
 lib32_DATA += %reldir%/libmpr.a
 lib32_DATA += %reldir%/libmprapi.a
 lib32_DATA += %reldir%/libmqrt.a

@@ -229,6 +229,38 @@ interface IMMDeviceActivator : IUnknown
     );
 }
 
+[
+    object,
+    local,
+    uuid(72a22d78-cde4-431d-b8cc-843a71199b6d),
+    nonextensible,
+    pointer_default(unique)
+]
+interface IActivateAudioInterfaceAsyncOperation : IUnknown
+{
+    [id(1)] HRESULT GetActivateResult(
+        [out] HRESULT *activateResult,
+        [out] IUnknown **activatedInterface
+    );
+}
+
+[
+    object,
+    local,
+    uuid(41d949ab-9862-444a-80f6-c261334da5eb),
+    nonextensible,
+    pointer_default(unique)
+]
+interface IActivateAudioInterfaceCompletionHandler : IUnknown
+{
+    [id(1)] HRESULT ActivateCompleted(
+        [out] IActivateAudioInterfaceAsyncOperation *activateOperation
+    );
+}
+
+cpp_quote("HRESULT WINAPI ActivateAudioInterfaceAsync(LPCWSTR deviceInterfacePath, REFIID riid, PROPVARIANT *activationParams, IActivateAudioInterfaceCompletionHandler *completionHandler, IActivateAudioInterfaceAsyncOperation **activationOperation);")
+cpp_quote("")
+
 typedef struct _AudioExtensionParams
 {
     LPARAM AddPageParam;

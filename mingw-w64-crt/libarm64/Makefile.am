@@ -153,6 +153,7 @@ libarm64_DATA += %reldir%/libmgmtapi.a
 libarm64_DATA += %reldir%/libmidimap.a
 libarm64_DATA += %reldir%/libmincore.a
 libarm64_DATA += %reldir%/libmlang.a
+libarm64_DATA += %reldir%/libmmdevapi.a
 libarm64_DATA += %reldir%/libmodemui.a
 libarm64_DATA += %reldir%/libmpr.a
 libarm64_DATA += %reldir%/libmsacm32.a

@@ -306,6 +306,7 @@ lib64_DATA += %reldir%/libmlang.a
 lib64_DATA += %reldir%/libmll_hp.a
 lib64_DATA += %reldir%/libmll_mtf.a
 lib64_DATA += %reldir%/libmll_qic.a
+lib64_DATA += %reldir%/libmmdevapi.a
 lib64_DATA += %reldir%/libmmfutil.a
 lib64_DATA += %reldir%/libmmutilse.a
 lib64_DATA += %reldir%/libmobsync.a

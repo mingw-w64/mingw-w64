@@ -66,6 +66,22 @@ interface IMMDeviceActivator;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __IActivateAudioInterfaceAsyncOperation_FWD_DEFINED__
+#define __IActivateAudioInterfaceAsyncOperation_FWD_DEFINED__
+typedef interface IActivateAudioInterfaceAsyncOperation IActivateAudioInterfaceAsyncOperation;
+#ifdef __cplusplus
+interface IActivateAudioInterfaceAsyncOperation;
+#endif /* __cplusplus */
+#endif
+
+#ifndef __IActivateAudioInterfaceCompletionHandler_FWD_DEFINED__
+#define __IActivateAudioInterfaceCompletionHandler_FWD_DEFINED__
+typedef interface IActivateAudioInterfaceCompletionHandler IActivateAudioInterfaceCompletionHandler;
+#ifdef __cplusplus
+interface IActivateAudioInterfaceCompletionHandler;
+#endif /* __cplusplus */
+#endif
+
 #ifndef __MMDeviceEnumerator_FWD_DEFINED__
 #define __MMDeviceEnumerator_FWD_DEFINED__
 #ifdef __cplusplus
@@ -768,6 +784,164 @@ static FORCEINLINE HRESULT IMMDeviceActivator_Activate(IMMDeviceActivator* This,
 
 
 #endif  /* __IMMDeviceActivator_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IActivateAudioInterfaceAsyncOperation interface
+ */
+#ifndef __IActivateAudioInterfaceAsyncOperation_INTERFACE_DEFINED__
+#define __IActivateAudioInterfaceAsyncOperation_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IActivateAudioInterfaceAsyncOperation, 0x72a22d78, 0xcde4, 0x431d, 0xb8,0xcc, 0x84,0x3a,0x71,0x19,0x9b,0x6d);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("72a22d78-cde4-431d-b8cc-843a71199b6d")
+IActivateAudioInterfaceAsyncOperation : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE GetActivateResult(
+        HRESULT *activateResult,
+        IUnknown **activatedInterface) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IActivateAudioInterfaceAsyncOperation, 0x72a22d78, 0xcde4, 0x431d, 0xb8,0xcc, 0x84,0x3a,0x71,0x19,0x9b,0x6d)
+#endif
+#else
+typedef struct IActivateAudioInterfaceAsyncOperationVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IActivateAudioInterfaceAsyncOperation *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IActivateAudioInterfaceAsyncOperation *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IActivateAudioInterfaceAsyncOperation *This);
+
+    /*** IActivateAudioInterfaceAsyncOperation methods ***/
+    HRESULT (STDMETHODCALLTYPE *GetActivateResult)(
+        IActivateAudioInterfaceAsyncOperation *This,
+        HRESULT *activateResult,
+        IUnknown **activatedInterface);
+
+    END_INTERFACE
+} IActivateAudioInterfaceAsyncOperationVtbl;
+
+interface IActivateAudioInterfaceAsyncOperation {
+    CONST_VTBL IActivateAudioInterfaceAsyncOperationVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IActivateAudioInterfaceAsyncOperation_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IActivateAudioInterfaceAsyncOperation_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IActivateAudioInterfaceAsyncOperation_Release(This) (This)->lpVtbl->Release(This)
+/*** IActivateAudioInterfaceAsyncOperation methods ***/
+#define IActivateAudioInterfaceAsyncOperation_GetActivateResult(This,activateResult,activatedInterface) (This)->lpVtbl->GetActivateResult(This,activateResult,activatedInterface)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IActivateAudioInterfaceAsyncOperation_QueryInterface(IActivateAudioInterfaceAsyncOperation* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IActivateAudioInterfaceAsyncOperation_AddRef(IActivateAudioInterfaceAsyncOperation* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IActivateAudioInterfaceAsyncOperation_Release(IActivateAudioInterfaceAsyncOperation* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IActivateAudioInterfaceAsyncOperation methods ***/
+static FORCEINLINE HRESULT IActivateAudioInterfaceAsyncOperation_GetActivateResult(IActivateAudioInterfaceAsyncOperation* This,HRESULT *activateResult,IUnknown **activatedInterface) {
+    return This->lpVtbl->GetActivateResult(This,activateResult,activatedInterface);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IActivateAudioInterfaceAsyncOperation_INTERFACE_DEFINED__ */
+
+/*****************************************************************************
+ * IActivateAudioInterfaceCompletionHandler interface
+ */
+#ifndef __IActivateAudioInterfaceCompletionHandler_INTERFACE_DEFINED__
+#define __IActivateAudioInterfaceCompletionHandler_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_IActivateAudioInterfaceCompletionHandler, 0x41d949ab, 0x9862, 0x444a, 0x80,0xf6, 0xc2,0x61,0x33,0x4d,0xa5,0xeb);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("41d949ab-9862-444a-80f6-c261334da5eb")
+IActivateAudioInterfaceCompletionHandler : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE ActivateCompleted(
+        IActivateAudioInterfaceAsyncOperation *activateOperation) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(IActivateAudioInterfaceCompletionHandler, 0x41d949ab, 0x9862, 0x444a, 0x80,0xf6, 0xc2,0x61,0x33,0x4d,0xa5,0xeb)
+#endif
+#else
+typedef struct IActivateAudioInterfaceCompletionHandlerVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        IActivateAudioInterfaceCompletionHandler *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        IActivateAudioInterfaceCompletionHandler *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        IActivateAudioInterfaceCompletionHandler *This);
+
+    /*** IActivateAudioInterfaceCompletionHandler methods ***/
+    HRESULT (STDMETHODCALLTYPE *ActivateCompleted)(
+        IActivateAudioInterfaceCompletionHandler *This,
+        IActivateAudioInterfaceAsyncOperation *activateOperation);
+
+    END_INTERFACE
+} IActivateAudioInterfaceCompletionHandlerVtbl;
+
+interface IActivateAudioInterfaceCompletionHandler {
+    CONST_VTBL IActivateAudioInterfaceCompletionHandlerVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define IActivateAudioInterfaceCompletionHandler_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define IActivateAudioInterfaceCompletionHandler_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define IActivateAudioInterfaceCompletionHandler_Release(This) (This)->lpVtbl->Release(This)
+/*** IActivateAudioInterfaceCompletionHandler methods ***/
+#define IActivateAudioInterfaceCompletionHandler_ActivateCompleted(This,activateOperation) (This)->lpVtbl->ActivateCompleted(This,activateOperation)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT IActivateAudioInterfaceCompletionHandler_QueryInterface(IActivateAudioInterfaceCompletionHandler* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG IActivateAudioInterfaceCompletionHandler_AddRef(IActivateAudioInterfaceCompletionHandler* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG IActivateAudioInterfaceCompletionHandler_Release(IActivateAudioInterfaceCompletionHandler* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** IActivateAudioInterfaceCompletionHandler methods ***/
+static FORCEINLINE HRESULT IActivateAudioInterfaceCompletionHandler_ActivateCompleted(IActivateAudioInterfaceCompletionHandler* This,IActivateAudioInterfaceAsyncOperation *activateOperation) {
+    return This->lpVtbl->ActivateCompleted(This,activateOperation);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __IActivateAudioInterfaceCompletionHandler_INTERFACE_DEFINED__ */
+
+HRESULT WINAPI ActivateAudioInterfaceAsync(LPCWSTR deviceInterfacePath, REFIID riid, PROPVARIANT *activationParams, IActivateAudioInterfaceCompletionHandler *completionHandler, IActivateAudioInterfaceAsyncOperation **activationOperation);
 
 typedef struct _AudioExtensionParams {
     LPARAM AddPageParam;
