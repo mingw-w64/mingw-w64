@@ -31,7 +31,7 @@ do
 done
 
 for f in basetsd.h guiddef.h excpt.h ndrtypes.h poppack.h pshpack1.h pshpack2.h pshpack4.h pshpack8.h threadpoolapiset.h \
-        timezoneapi.h winbase.h windef.h winerror.h winnls.h winnt.h winnt.rh synchapi.h
+        timezoneapi.h winbase.h windef.h winerror.h winnls.h winnt.h winnt.rh synchapi.h winapifamily.h
 do
 	cp $WINE_DIR/include/$f include
 done
