@@ -78,6 +78,7 @@ for f in \
 	d3dx9shape.h \
 	d3dx9tex.h \
 	d3dx9xof.h \
+	devpkey.h \
 	dls1.h \
 	dls2.h \
 	dmerror.h \
@@ -118,7 +119,8 @@ for f in \
 	vfwmsgs.h \
 	winhttp.h \
 	winineti.h \
-        xinput.h; do
+	xapofx.h \
+	xinput.h; do
     import_header $f include
 done
 
@@ -181,6 +183,9 @@ for f in \
 	wmsbuffer \
 	wmsdkidl \
 	wpcapi \
+	xapo \
+	xaudio2 \
+	xaudio2fx \
 	xmllite; do
     import_idl $f.idl include
 done
