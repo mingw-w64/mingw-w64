@@ -93,6 +93,7 @@ IDL_SRCS = \
   include/d3d11_3.idl \
   include/d3d11_4.idl \
   include/d3d11sdklayers.idl \
+  include/d3d12shader.idl \
   include/d3dcommon.idl \
   include/dbgprop.idl \
   include/dcompanimation.idl \
