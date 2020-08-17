@@ -1475,6 +1475,8 @@ pthread_setcanceltype (int type, int *oldtype)
   return 0;
 }
 
+void _fpreset (void);
+
 #if defined(__i386__)
 /* Align ESP on 16-byte boundaries. */
 #  if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 2)
@@ -1486,6 +1488,8 @@ pthread_create_wrapper (void *args)
 {
   unsigned rslt = 0;
   struct _pthread_v *tv = (struct _pthread_v *)args;
+
+  _fpreset();
 
   pthread_mutex_lock (&mtx_pthr_locked);
   pthread_mutex_lock (&tv->p_clock);
