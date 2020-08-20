@@ -180,19 +180,18 @@ int WinMainCRTStartup (void)
 {
   int ret = 255;
 #ifdef SEH_INLINE_ASM
-  asm ("\t.l_startw:\n"
-    "\t.seh_handler __C_specific_handler, @except\n"
-    "\t.seh_handlerdata\n"
-    "\t.long 1\n"
-    "\t.rva .l_startw, .l_endw, _gnu_exception_handler ,.l_endw\n"
-    "\t.text"
-    );
+  asm ("\t.l_startw:\n");
 #endif
   mingw_app_type = 1;
   ret = __tmainCRTStartup ();
 #ifdef SEH_INLINE_ASM
   asm ("\tnop\n"
-    "\t.l_endw: nop\n");
+    "\t.l_endw: nop\n"
+    "\t.seh_handler __C_specific_handler, @except\n"
+    "\t.seh_handlerdata\n"
+    "\t.long 1\n"
+    "\t.rva .l_startw, .l_endw, _gnu_exception_handler ,.l_endw\n"
+    "\t.text");
 #endif
   return ret;
 }
@@ -207,19 +206,18 @@ int mainCRTStartup (void)
 {
   int ret = 255;
 #ifdef SEH_INLINE_ASM
-  asm ("\t.l_start:\n"
-    "\t.seh_handler __C_specific_handler, @except\n"
-    "\t.seh_handlerdata\n"
-    "\t.long 1\n"
-    "\t.rva .l_start, .l_end, _gnu_exception_handler ,.l_end\n"
-    "\t.text"
-    );
+  asm ("\t.l_start:\n");
 #endif
   mingw_app_type = 0;
   ret = __tmainCRTStartup ();
 #ifdef SEH_INLINE_ASM
   asm ("\tnop\n"
-    "\t.l_end: nop\n");
+    "\t.l_end: nop\n"
+    "\t.seh_handler __C_specific_handler, @except\n"
+    "\t.seh_handlerdata\n"
+    "\t.long 1\n"
+    "\t.rva .l_start, .l_end, _gnu_exception_handler ,.l_end\n"
+    "\t.text");
 #endif
   return ret;
 }
