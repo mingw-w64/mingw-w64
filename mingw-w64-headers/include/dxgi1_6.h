@@ -63,6 +63,9 @@ typedef enum DXGI_ADAPTER_FLAG3 {
     DXGI_ADAPTER_FLAG3_REMOTE = 0x1,
     DXGI_ADAPTER_FLAG3_SOFTWARE = 0x2,
     DXGI_ADAPTER_FLAG3_ACG_COMPATIBLE = 0x4,
+    DXGI_ADAPTER_FLAG3_SUPPORT_MONITORED_FENCES = 0x8,
+    DXGI_ADAPTER_FLAG3_SUPPORT_NON_MONITORED_FENCES = 0x10,
+    DXGI_ADAPTER_FLAG3_KEYED_MUTEX_CONFORMANCE = 0x20,
     DXGI_ADAPTER_FLAG3_FORCE_DWORD = 0xffffffff
 } DXGI_ADAPTER_FLAG3;
 typedef enum DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
@@ -777,7 +780,7 @@ typedef struct IDXGIFactory6Vtbl {
         HANDLE hResource,
         LUID *pLuid);
 
-    HRESULT (STDMETHODCALLTYPE *RegisterOcclusionStatusWindow)(
+    HRESULT (STDMETHODCALLTYPE *RegisterStereoStatusWindow)(
         IDXGIFactory6 *This,
         HWND WindowHandle,
         UINT wMsg,
@@ -792,7 +795,7 @@ typedef struct IDXGIFactory6Vtbl {
         IDXGIFactory6 *This,
         DWORD dwCookie);
 
-    HRESULT (STDMETHODCALLTYPE *RegisterStereoStatusWindow)(
+    HRESULT (STDMETHODCALLTYPE *RegisterOcclusionStatusWindow)(
         IDXGIFactory6 *This,
         HWND WindowHandle,
         UINT wMsg,
@@ -877,10 +880,10 @@ interface IDXGIFactory6 {
 #define IDXGIFactory6_CreateSwapChainForHwnd(This,pDevice,hWnd,pDesc,pFullscreenDesc,pRestrictToOutput,ppSwapChain) (This)->lpVtbl->CreateSwapChainForHwnd(This,pDevice,hWnd,pDesc,pFullscreenDesc,pRestrictToOutput,ppSwapChain)
 #define IDXGIFactory6_CreateSwapChainForCoreWindow(This,pDevice,pWindow,pDesc,pRestrictToOutput,ppSwapChain) (This)->lpVtbl->CreateSwapChainForCoreWindow(This,pDevice,pWindow,pDesc,pRestrictToOutput,ppSwapChain)
 #define IDXGIFactory6_GetSharedResourceAdapterLuid(This,hResource,pLuid) (This)->lpVtbl->GetSharedResourceAdapterLuid(This,hResource,pLuid)
-#define IDXGIFactory6_RegisterOcclusionStatusWindow(This,WindowHandle,wMsg,pdwCookie) (This)->lpVtbl->RegisterOcclusionStatusWindow(This,WindowHandle,wMsg,pdwCookie)
+#define IDXGIFactory6_RegisterStereoStatusWindow(This,WindowHandle,wMsg,pdwCookie) (This)->lpVtbl->RegisterStereoStatusWindow(This,WindowHandle,wMsg,pdwCookie)
 #define IDXGIFactory6_RegisterStereoStatusEvent(This,hEvent,pdwCookie) (This)->lpVtbl->RegisterStereoStatusEvent(This,hEvent,pdwCookie)
 #define IDXGIFactory6_UnregisterStereoStatus(This,dwCookie) (This)->lpVtbl->UnregisterStereoStatus(This,dwCookie)
-#define IDXGIFactory6_RegisterStereoStatusWindow(This,WindowHandle,wMsg,pdwCookie) (This)->lpVtbl->RegisterStereoStatusWindow(This,WindowHandle,wMsg,pdwCookie)
+#define IDXGIFactory6_RegisterOcclusionStatusWindow(This,WindowHandle,wMsg,pdwCookie) (This)->lpVtbl->RegisterOcclusionStatusWindow(This,WindowHandle,wMsg,pdwCookie)
 #define IDXGIFactory6_RegisterOcclusionStatusEvent(This,hEvent,pdwCookie) (This)->lpVtbl->RegisterOcclusionStatusEvent(This,hEvent,pdwCookie)
 #define IDXGIFactory6_UnregisterOcclusionStatus(This,dwCookie) (This)->lpVtbl->UnregisterOcclusionStatus(This,dwCookie)
 #define IDXGIFactory6_CreateSwapChainForComposition(This,pDevice,pDesc,pRestrictToOutput,ppSwapChain) (This)->lpVtbl->CreateSwapChainForComposition(This,pDevice,pDesc,pRestrictToOutput,ppSwapChain)
@@ -953,8 +956,8 @@ static FORCEINLINE HRESULT IDXGIFactory6_CreateSwapChainForCoreWindow(IDXGIFacto
 static FORCEINLINE HRESULT IDXGIFactory6_GetSharedResourceAdapterLuid(IDXGIFactory6* This,HANDLE hResource,LUID *pLuid) {
     return This->lpVtbl->GetSharedResourceAdapterLuid(This,hResource,pLuid);
 }
-static FORCEINLINE HRESULT IDXGIFactory6_RegisterOcclusionStatusWindow(IDXGIFactory6* This,HWND WindowHandle,UINT wMsg,DWORD *pdwCookie) {
-    return This->lpVtbl->RegisterOcclusionStatusWindow(This,WindowHandle,wMsg,pdwCookie);
+static FORCEINLINE HRESULT IDXGIFactory6_RegisterStereoStatusWindow(IDXGIFactory6* This,HWND WindowHandle,UINT wMsg,DWORD *pdwCookie) {
+    return This->lpVtbl->RegisterStereoStatusWindow(This,WindowHandle,wMsg,pdwCookie);
 }
 static FORCEINLINE HRESULT IDXGIFactory6_RegisterStereoStatusEvent(IDXGIFactory6* This,HANDLE hEvent,DWORD *pdwCookie) {
     return This->lpVtbl->RegisterStereoStatusEvent(This,hEvent,pdwCookie);
@@ -962,8 +965,8 @@ static FORCEINLINE HRESULT IDXGIFactory6_RegisterStereoStatusEvent(IDXGIFactory6
 static FORCEINLINE void IDXGIFactory6_UnregisterStereoStatus(IDXGIFactory6* This,DWORD dwCookie) {
     This->lpVtbl->UnregisterStereoStatus(This,dwCookie);
 }
-static FORCEINLINE HRESULT IDXGIFactory6_RegisterStereoStatusWindow(IDXGIFactory6* This,HWND WindowHandle,UINT wMsg,DWORD *pdwCookie) {
-    return This->lpVtbl->RegisterStereoStatusWindow(This,WindowHandle,wMsg,pdwCookie);
+static FORCEINLINE HRESULT IDXGIFactory6_RegisterOcclusionStatusWindow(IDXGIFactory6* This,HWND WindowHandle,UINT wMsg,DWORD *pdwCookie) {
+    return This->lpVtbl->RegisterOcclusionStatusWindow(This,WindowHandle,wMsg,pdwCookie);
 }
 static FORCEINLINE HRESULT IDXGIFactory6_RegisterOcclusionStatusEvent(IDXGIFactory6* This,HANDLE hEvent,DWORD *pdwCookie) {
     return This->lpVtbl->RegisterOcclusionStatusEvent(This,hEvent,pdwCookie);
@@ -1123,7 +1126,7 @@ typedef struct IDXGIFactory7Vtbl {
         HANDLE hResource,
         LUID *pLuid);
 
-    HRESULT (STDMETHODCALLTYPE *RegisterOcclusionStatusWindow)(
+    HRESULT (STDMETHODCALLTYPE *RegisterStereoStatusWindow)(
         IDXGIFactory7 *This,
         HWND WindowHandle,
         UINT wMsg,
@@ -1138,7 +1141,7 @@ typedef struct IDXGIFactory7Vtbl {
         IDXGIFactory7 *This,
         DWORD dwCookie);
 
-    HRESULT (STDMETHODCALLTYPE *RegisterStereoStatusWindow)(
+    HRESULT (STDMETHODCALLTYPE *RegisterOcclusionStatusWindow)(
         IDXGIFactory7 *This,
         HWND WindowHandle,
         UINT wMsg,
@@ -1233,10 +1236,10 @@ interface IDXGIFactory7 {
 #define IDXGIFactory7_CreateSwapChainForHwnd(This,pDevice,hWnd,pDesc,pFullscreenDesc,pRestrictToOutput,ppSwapChain) (This)->lpVtbl->CreateSwapChainForHwnd(This,pDevice,hWnd,pDesc,pFullscreenDesc,pRestrictToOutput,ppSwapChain)
 #define IDXGIFactory7_CreateSwapChainForCoreWindow(This,pDevice,pWindow,pDesc,pRestrictToOutput,ppSwapChain) (This)->lpVtbl->CreateSwapChainForCoreWindow(This,pDevice,pWindow,pDesc,pRestrictToOutput,ppSwapChain)
 #define IDXGIFactory7_GetSharedResourceAdapterLuid(This,hResource,pLuid) (This)->lpVtbl->GetSharedResourceAdapterLuid(This,hResource,pLuid)
-#define IDXGIFactory7_RegisterOcclusionStatusWindow(This,WindowHandle,wMsg,pdwCookie) (This)->lpVtbl->RegisterOcclusionStatusWindow(This,WindowHandle,wMsg,pdwCookie)
+#define IDXGIFactory7_RegisterStereoStatusWindow(This,WindowHandle,wMsg,pdwCookie) (This)->lpVtbl->RegisterStereoStatusWindow(This,WindowHandle,wMsg,pdwCookie)
 #define IDXGIFactory7_RegisterStereoStatusEvent(This,hEvent,pdwCookie) (This)->lpVtbl->RegisterStereoStatusEvent(This,hEvent,pdwCookie)
 #define IDXGIFactory7_UnregisterStereoStatus(This,dwCookie) (This)->lpVtbl->UnregisterStereoStatus(This,dwCookie)
-#define IDXGIFactory7_RegisterStereoStatusWindow(This,WindowHandle,wMsg,pdwCookie) (This)->lpVtbl->RegisterStereoStatusWindow(This,WindowHandle,wMsg,pdwCookie)
+#define IDXGIFactory7_RegisterOcclusionStatusWindow(This,WindowHandle,wMsg,pdwCookie) (This)->lpVtbl->RegisterOcclusionStatusWindow(This,WindowHandle,wMsg,pdwCookie)
 #define IDXGIFactory7_RegisterOcclusionStatusEvent(This,hEvent,pdwCookie) (This)->lpVtbl->RegisterOcclusionStatusEvent(This,hEvent,pdwCookie)
 #define IDXGIFactory7_UnregisterOcclusionStatus(This,dwCookie) (This)->lpVtbl->UnregisterOcclusionStatus(This,dwCookie)
 #define IDXGIFactory7_CreateSwapChainForComposition(This,pDevice,pDesc,pRestrictToOutput,ppSwapChain) (This)->lpVtbl->CreateSwapChainForComposition(This,pDevice,pDesc,pRestrictToOutput,ppSwapChain)
@@ -1312,8 +1315,8 @@ static FORCEINLINE HRESULT IDXGIFactory7_CreateSwapChainForCoreWindow(IDXGIFacto
 static FORCEINLINE HRESULT IDXGIFactory7_GetSharedResourceAdapterLuid(IDXGIFactory7* This,HANDLE hResource,LUID *pLuid) {
     return This->lpVtbl->GetSharedResourceAdapterLuid(This,hResource,pLuid);
 }
-static FORCEINLINE HRESULT IDXGIFactory7_RegisterOcclusionStatusWindow(IDXGIFactory7* This,HWND WindowHandle,UINT wMsg,DWORD *pdwCookie) {
-    return This->lpVtbl->RegisterOcclusionStatusWindow(This,WindowHandle,wMsg,pdwCookie);
+static FORCEINLINE HRESULT IDXGIFactory7_RegisterStereoStatusWindow(IDXGIFactory7* This,HWND WindowHandle,UINT wMsg,DWORD *pdwCookie) {
+    return This->lpVtbl->RegisterStereoStatusWindow(This,WindowHandle,wMsg,pdwCookie);
 }
 static FORCEINLINE HRESULT IDXGIFactory7_RegisterStereoStatusEvent(IDXGIFactory7* This,HANDLE hEvent,DWORD *pdwCookie) {
     return This->lpVtbl->RegisterStereoStatusEvent(This,hEvent,pdwCookie);
@@ -1321,8 +1324,8 @@ static FORCEINLINE HRESULT IDXGIFactory7_RegisterStereoStatusEvent(IDXGIFactory7
 static FORCEINLINE void IDXGIFactory7_UnregisterStereoStatus(IDXGIFactory7* This,DWORD dwCookie) {
     This->lpVtbl->UnregisterStereoStatus(This,dwCookie);
 }
-static FORCEINLINE HRESULT IDXGIFactory7_RegisterStereoStatusWindow(IDXGIFactory7* This,HWND WindowHandle,UINT wMsg,DWORD *pdwCookie) {
-    return This->lpVtbl->RegisterStereoStatusWindow(This,WindowHandle,wMsg,pdwCookie);
+static FORCEINLINE HRESULT IDXGIFactory7_RegisterOcclusionStatusWindow(IDXGIFactory7* This,HWND WindowHandle,UINT wMsg,DWORD *pdwCookie) {
+    return This->lpVtbl->RegisterOcclusionStatusWindow(This,WindowHandle,wMsg,pdwCookie);
 }
 static FORCEINLINE HRESULT IDXGIFactory7_RegisterOcclusionStatusEvent(IDXGIFactory7* This,HANDLE hEvent,DWORD *pdwCookie) {
     return This->lpVtbl->RegisterOcclusionStatusEvent(This,hEvent,pdwCookie);
