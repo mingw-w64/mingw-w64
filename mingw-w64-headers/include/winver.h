@@ -13,6 +13,7 @@
 extern "C" {
 #endif
 
+/* defines from verrsrc.h file */
 #define VS_FILE_INFO RT_VERSION
 #define VS_VERSION_INFO 1
 #define VS_USER_DEFINED 100
@@ -110,6 +111,10 @@ extern "C" {
 
 #ifndef RC_INVOKED
 
+#define FILE_VER_GET_LOCALISED 0x01
+#define FILE_VER_GET_NEUTRAL 0x02
+#define FILE_VER_GET_PREFETCHED 0x04
+
   typedef struct tagVS_FIXEDFILEINFO
   {
     DWORD dwSignature;
@@ -130,7 +135,9 @@ extern "C" {
 #define VerFindFile __MINGW_NAME_AW(VerFindFile)
 #define VerInstallFile __MINGW_NAME_AW(VerInstallFile)
 #define GetFileVersionInfoSize __MINGW_NAME_AW(GetFileVersionInfoSize)
+#define GetFileVersionInfoSizeEx __MINGW_NAME_AW(GetFileVersionInfoSizeEx)
 #define GetFileVersionInfo __MINGW_NAME_AW(GetFileVersionInfo)
+#define GetFileVersionInfoEx __MINGW_NAME_AW(GetFileVersionInfoEx)
 #define VerLanguageName __MINGW_NAME_AW(VerLanguageName)
 #define VerQueryValue __MINGW_NAME_AW(VerQueryValue)
 
@@ -141,8 +148,12 @@ extern "C" {
   DWORD WINAPI VerInstallFileW(DWORD uFlags,LPWSTR szSrcFileName,LPWSTR szDestFileName,LPWSTR szSrcDir,LPWSTR szDestDir,LPWSTR szCurDir,LPWSTR szTmpFile,PUINT lpuTmpFileLen);
   DWORD WINAPI GetFileVersionInfoSizeA(LPCSTR lptstrFilename,LPDWORD lpdwHandle);
   DWORD WINAPI GetFileVersionInfoSizeW(LPCWSTR lptstrFilename,LPDWORD lpdwHandle);
+  DWORD WINAPI GetFileVersionInfoSizeExA(DWORD dwFlags, LPCSTR lpwstrFilename, LPDWORD lpdwHandle);
+  DWORD WINAPI GetFileVersionInfoSizeExW(DWORD dwFlags, LPCWSTR lpwstrFilename, LPDWORD lpdwHandle);
   WINBOOL WINAPI GetFileVersionInfoA(LPCSTR lptstrFilename,DWORD dwHandle,DWORD dwLen,LPVOID lpData);
   WINBOOL WINAPI GetFileVersionInfoW(LPCWSTR lptstrFilename,DWORD dwHandle,DWORD dwLen,LPVOID lpData);
+  WINBOOL WINAPI GetFileVersionInfoExA(DWORD dwFlags, LPCSTR lpwstrFilename, DWORD dwHandle, DWORD dwLen, LPVOID lpData);
+  WINBOOL WINAPI GetFileVersionInfoExW(DWORD dwFlags, LPCWSTR lpwstrFilename, DWORD dwHandle, DWORD dwLen, LPVOID lpData);
 #endif
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_APP)
