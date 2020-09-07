@@ -393,6 +393,7 @@ EXTRA_HEADERS = \
 @HAVE_WIDL_TRUE@  include/d3d11_3.idl \
 @HAVE_WIDL_TRUE@  include/d3d11_4.idl \
 @HAVE_WIDL_TRUE@  include/d3d11sdklayers.idl \
+@HAVE_WIDL_TRUE@  include/d3d12.idl \
 @HAVE_WIDL_TRUE@  include/d3d12shader.idl \
 @HAVE_WIDL_TRUE@  include/d3dcommon.idl \
 @HAVE_WIDL_TRUE@  include/dbgprop.idl \
