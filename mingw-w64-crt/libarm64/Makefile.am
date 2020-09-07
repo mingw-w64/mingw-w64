@@ -213,6 +213,7 @@ libarm64_DATA += %reldir%/libperfproc.a
 libarm64_DATA += %reldir%/libperfts.a
 libarm64_DATA += %reldir%/libphotowiz.a
 libarm64_DATA += %reldir%/libpowrprof.a
+libarm64_DATA += %reldir%/libprntvpt.a
 libarm64_DATA += %reldir%/libpropsys.a
 libarm64_DATA += %reldir%/libpsapi.a
 libarm64_DATA += %reldir%/libpstorec.a
