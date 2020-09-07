@@ -26,6 +26,14 @@ interface ID3D10Blob;
 #endif /* __cplusplus */
 #endif
 
+#ifndef __ID3DDestructionNotifier_FWD_DEFINED__
+#define __ID3DDestructionNotifier_FWD_DEFINED__
+typedef interface ID3DDestructionNotifier ID3DDestructionNotifier;
+#ifdef __cplusplus
+interface ID3DDestructionNotifier;
+#endif /* __cplusplus */
+#endif
+
 #ifndef __ID3DInclude_FWD_DEFINED__
 #define __ID3DInclude_FWD_DEFINED__
 typedef interface ID3DInclude ID3DInclude;
@@ -138,6 +146,99 @@ typedef ID3D10Blob *LPD3D10BLOB;
 typedef ID3D10Blob ID3DBlob;
 typedef ID3DBlob *LPD3DBLOB;
 #define IID_ID3DBlob IID_ID3D10Blob
+typedef void (__stdcall *PFN_DESTRUCTION_CALLBACK)(void *data);
+/*****************************************************************************
+ * ID3DDestructionNotifier interface
+ */
+#ifndef __ID3DDestructionNotifier_INTERFACE_DEFINED__
+#define __ID3DDestructionNotifier_INTERFACE_DEFINED__
+
+DEFINE_GUID(IID_ID3DDestructionNotifier, 0xa06eb39a, 0x50da, 0x425b, 0x8c,0x31, 0x4e,0xec,0xd6,0xc2,0x70,0xf3);
+#if defined(__cplusplus) && !defined(CINTERFACE)
+MIDL_INTERFACE("a06eb39a-50da-425b-8c31-4eecd6c270f3")
+ID3DDestructionNotifier : public IUnknown
+{
+    virtual HRESULT STDMETHODCALLTYPE RegisterDestructionCallback(
+        PFN_DESTRUCTION_CALLBACK callback_func,
+        void *data,
+        UINT *callback_id) = 0;
+
+    virtual HRESULT STDMETHODCALLTYPE UnregisterDestructionCallback(
+        UINT callback_id) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ID3DDestructionNotifier, 0xa06eb39a, 0x50da, 0x425b, 0x8c,0x31, 0x4e,0xec,0xd6,0xc2,0x70,0xf3)
+#endif
+#else
+typedef struct ID3DDestructionNotifierVtbl {
+    BEGIN_INTERFACE
+
+    /*** IUnknown methods ***/
+    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
+        ID3DDestructionNotifier *This,
+        REFIID riid,
+        void **ppvObject);
+
+    ULONG (STDMETHODCALLTYPE *AddRef)(
+        ID3DDestructionNotifier *This);
+
+    ULONG (STDMETHODCALLTYPE *Release)(
+        ID3DDestructionNotifier *This);
+
+    /*** ID3DDestructionNotifier methods ***/
+    HRESULT (STDMETHODCALLTYPE *RegisterDestructionCallback)(
+        ID3DDestructionNotifier *This,
+        PFN_DESTRUCTION_CALLBACK callback_func,
+        void *data,
+        UINT *callback_id);
+
+    HRESULT (STDMETHODCALLTYPE *UnregisterDestructionCallback)(
+        ID3DDestructionNotifier *This,
+        UINT callback_id);
+
+    END_INTERFACE
+} ID3DDestructionNotifierVtbl;
+
+interface ID3DDestructionNotifier {
+    CONST_VTBL ID3DDestructionNotifierVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+#ifndef WIDL_C_INLINE_WRAPPERS
+/*** IUnknown methods ***/
+#define ID3DDestructionNotifier_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
+#define ID3DDestructionNotifier_AddRef(This) (This)->lpVtbl->AddRef(This)
+#define ID3DDestructionNotifier_Release(This) (This)->lpVtbl->Release(This)
+/*** ID3DDestructionNotifier methods ***/
+#define ID3DDestructionNotifier_RegisterDestructionCallback(This,callback_func,data,callback_id) (This)->lpVtbl->RegisterDestructionCallback(This,callback_func,data,callback_id)
+#define ID3DDestructionNotifier_UnregisterDestructionCallback(This,callback_id) (This)->lpVtbl->UnregisterDestructionCallback(This,callback_id)
+#else
+/*** IUnknown methods ***/
+static FORCEINLINE HRESULT ID3DDestructionNotifier_QueryInterface(ID3DDestructionNotifier* This,REFIID riid,void **ppvObject) {
+    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
+}
+static FORCEINLINE ULONG ID3DDestructionNotifier_AddRef(ID3DDestructionNotifier* This) {
+    return This->lpVtbl->AddRef(This);
+}
+static FORCEINLINE ULONG ID3DDestructionNotifier_Release(ID3DDestructionNotifier* This) {
+    return This->lpVtbl->Release(This);
+}
+/*** ID3DDestructionNotifier methods ***/
+static FORCEINLINE HRESULT ID3DDestructionNotifier_RegisterDestructionCallback(ID3DDestructionNotifier* This,PFN_DESTRUCTION_CALLBACK callback_func,void *data,UINT *callback_id) {
+    return This->lpVtbl->RegisterDestructionCallback(This,callback_func,data,callback_id);
+}
+static FORCEINLINE HRESULT ID3DDestructionNotifier_UnregisterDestructionCallback(ID3DDestructionNotifier* This,UINT callback_id) {
+    return This->lpVtbl->UnregisterDestructionCallback(This,callback_id);
+}
+#endif
+#endif
+
+#endif
+
+
+#endif  /* __ID3DDestructionNotifier_INTERFACE_DEFINED__ */
+
 typedef enum _D3D_INCLUDE_TYPE {
     D3D_INCLUDE_LOCAL = 0,
     D3D_INCLUDE_SYSTEM = 1,
@@ -333,6 +434,12 @@ typedef enum _D3D_SHADER_VARIABLE_TYPE {
     D3D_SVT_RWSTRUCTURED_BUFFER = 49,
     D3D_SVT_APPEND_STRUCTURED_BUFFER = 50,
     D3D_SVT_CONSUME_STRUCTURED_BUFFER = 51,
+    D3D_SVT_MIN8FLOAT = 52,
+    D3D_SVT_MIN10FLOAT = 53,
+    D3D_SVT_MIN16FLOAT = 54,
+    D3D_SVT_MIN12INT = 55,
+    D3D_SVT_MIN16INT = 56,
+    D3D_SVT_MIN16UINT = 57,
     D3D10_SVT_VOID = 0,
     D3D10_SVT_BOOL = 1,
     D3D10_SVT_INT = 2,
@@ -736,6 +843,9 @@ typedef enum D3D_NAME {
     D3D_NAME_FINAL_TRI_INSIDE_TESSFACTOR = 14,
     D3D_NAME_FINAL_LINE_DETAIL_TESSFACTOR = 15,
     D3D_NAME_FINAL_LINE_DENSITY_TESSFACTOR = 16,
+    D3D_NAME_BARYCENTRICS = 23,
+    D3D_NAME_SHADINGRATE = 24,
+    D3D_NAME_CULLPRIMITIVE = 25,
     D3D_NAME_TARGET = 64,
     D3D_NAME_DEPTH = 65,
     D3D_NAME_COVERAGE = 66,
@@ -777,6 +887,8 @@ typedef enum _D3D_SHADER_INPUT_TYPE {
     D3D_SIT_UAV_APPEND_STRUCTURED = 9,
     D3D_SIT_UAV_CONSUME_STRUCTURED = 10,
     D3D_SIT_UAV_RWSTRUCTURED_WITH_COUNTER = 11,
+    D3D_SIT_RTACCELERATIONSTRUCTURE = 12,
+    D3D_SIT_UAV_FEEDBACKTEXTURE = 13,
     D3D10_SIT_CBUFFER = 0,
     D3D10_SIT_TBUFFER = 1,
     D3D10_SIT_TEXTURE = 2,

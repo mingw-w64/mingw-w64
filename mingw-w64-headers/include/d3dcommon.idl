@@ -43,6 +43,26 @@ typedef ID3D10Blob ID3DBlob;
 typedef ID3DBlob* LPD3DBLOB;
 cpp_quote("#define IID_ID3DBlob IID_ID3D10Blob")
 
+typedef void(__stdcall *PFN_DESTRUCTION_CALLBACK)(void *data);
+
+[
+    object,
+    local,
+    uuid(a06eb39a-50da-425b-8c31-4eecd6c270f3),
+    pointer_default(unique)
+]
+interface ID3DDestructionNotifier : IUnknown
+{
+    HRESULT RegisterDestructionCallback(
+        [in] PFN_DESTRUCTION_CALLBACK callback_func,
+        [in] void *data,
+        [out] UINT *callback_id
+    );
+    HRESULT UnregisterDestructionCallback(
+        [in] UINT callback_id
+    );
+}
+
 typedef enum _D3D_INCLUDE_TYPE
 {
     D3D_INCLUDE_LOCAL = 0,
@@ -195,6 +215,12 @@ typedef enum _D3D_SHADER_VARIABLE_TYPE
     D3D_SVT_RWSTRUCTURED_BUFFER,
     D3D_SVT_APPEND_STRUCTURED_BUFFER,
     D3D_SVT_CONSUME_STRUCTURED_BUFFER,
+    D3D_SVT_MIN8FLOAT,
+    D3D_SVT_MIN10FLOAT,
+    D3D_SVT_MIN16FLOAT,
+    D3D_SVT_MIN12INT,
+    D3D_SVT_MIN16INT,
+    D3D_SVT_MIN16UINT,
     D3D10_SVT_VOID = 0,
     D3D10_SVT_BOOL,
     D3D10_SVT_INT,
@@ -622,6 +648,9 @@ typedef enum D3D_NAME
     D3D_NAME_FINAL_TRI_INSIDE_TESSFACTOR,
     D3D_NAME_FINAL_LINE_DETAIL_TESSFACTOR,
     D3D_NAME_FINAL_LINE_DENSITY_TESSFACTOR,
+    D3D_NAME_BARYCENTRICS = 23,
+    D3D_NAME_SHADINGRATE,
+    D3D_NAME_CULLPRIMITIVE,
     D3D_NAME_TARGET = 64,
     D3D_NAME_DEPTH,
     D3D_NAME_COVERAGE,
@@ -665,6 +694,8 @@ typedef enum _D3D_SHADER_INPUT_TYPE
     D3D_SIT_UAV_APPEND_STRUCTURED,
     D3D_SIT_UAV_CONSUME_STRUCTURED,
     D3D_SIT_UAV_RWSTRUCTURED_WITH_COUNTER,
+    D3D_SIT_RTACCELERATIONSTRUCTURE,
+    D3D_SIT_UAV_FEEDBACKTEXTURE,
     D3D10_SIT_CBUFFER = 0,
     D3D10_SIT_TBUFFER,
     D3D10_SIT_TEXTURE,
