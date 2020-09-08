@@ -928,6 +928,12 @@ typedef enum _HEAP_INFORMATION_CLASS {
 #define PF_RDPID_INSTRUCTION_AVAILABLE          33
 #define PF_ARM_V81_ATOMIC_INSTRUCTIONS_AVAILABLE 34
 #define PF_MONITORX_INSTRUCTION_AVAILABLE       35
+#define PF_SSSE3_INSTRUCTIONS_AVAILABLE         36
+#define PF_SSE4_1_INSTRUCTIONS_AVAILABLE        37
+#define PF_SSE4_2_INSTRUCTIONS_AVAILABLE        38
+#define PF_AVX_INSTRUCTIONS_AVAILABLE           39
+#define PF_AVX2_INSTRUCTIONS_AVAILABLE          40
+#define PF_AVX512F_INSTRUCTIONS_AVAILABLE       41
 
 
 /* Execution state flags */
@@ -1054,6 +1060,30 @@ typedef struct _LDT_ENTRY {
     } HighWord;
 } LDT_ENTRY, *PLDT_ENTRY, WOW64_LDT_ENTRY, *PWOW64_LDT_ENTRY;
 
+typedef struct DECLSPEC_ALIGN(16) _M128A {
+    ULONGLONG Low;
+    LONGLONG High;
+} M128A, *PM128A;
+
+typedef struct _XSAVE_FORMAT {
+    WORD ControlWord;        /* 000 */
+    WORD StatusWord;         /* 002 */
+    BYTE TagWord;            /* 004 */
+    BYTE Reserved1;          /* 005 */
+    WORD ErrorOpcode;        /* 006 */
+    DWORD ErrorOffset;       /* 008 */
+    WORD ErrorSelector;      /* 00c */
+    WORD Reserved2;          /* 00e */
+    DWORD DataOffset;        /* 010 */
+    WORD DataSelector;       /* 014 */
+    WORD Reserved3;          /* 016 */
+    DWORD MxCsr;             /* 018 */
+    DWORD MxCsr_Mask;        /* 01c */
+    M128A FloatRegisters[8]; /* 020 */
+    M128A XmmRegisters[16];  /* 0a0 */
+    BYTE Reserved4[96];      /* 1a0 */
+} XSAVE_FORMAT, *PXSAVE_FORMAT;
+
 /* x86-64 context definitions */
 #if defined(__x86_64__)
 
@@ -1072,29 +1102,7 @@ typedef struct _LDT_ENTRY {
 #define EXCEPTION_WRITE_FAULT   1
 #define EXCEPTION_EXECUTE_FAULT 8
 
-typedef struct DECLSPEC_ALIGN(16) _M128A {
-    ULONGLONG Low;
-    LONGLONG High;
-} M128A, *PM128A;
-
-typedef struct _XMM_SAVE_AREA32 {
-    WORD ControlWord;        /* 000 */
-    WORD StatusWord;         /* 002 */
-    BYTE TagWord;            /* 004 */
-    BYTE Reserved1;          /* 005 */
-    WORD ErrorOpcode;        /* 006 */
-    DWORD ErrorOffset;       /* 008 */
-    WORD ErrorSelector;      /* 00c */
-    WORD Reserved2;          /* 00e */
-    DWORD DataOffset;        /* 010 */
-    WORD DataSelector;       /* 014 */
-    WORD Reserved3;          /* 016 */
-    DWORD MxCsr;             /* 018 */
-    DWORD MxCsr_Mask;        /* 01c */
-    M128A FloatRegisters[8]; /* 020 */
-    M128A XmmRegisters[16];  /* 0a0 */
-    BYTE Reserved4[96];      /* 1a0 */
-} XMM_SAVE_AREA32, *PXMM_SAVE_AREA32;
+typedef XSAVE_FORMAT XMM_SAVE_AREA32, *PXMM_SAVE_AREA32;
 
 typedef struct DECLSPEC_ALIGN(16) _CONTEXT {
     DWORD64 P1Home;          /* 000 */
@@ -1288,6 +1296,64 @@ NTSYSAPI PVOID WINAPI RtlVirtualUnwind(ULONG,ULONG64,ULONG64,RUNTIME_FUNCTION*,C
 #define UNW_FLAG_CHAININFO 4
 
 #endif /* __x86_64__ */
+
+#define XSTATE_LEGACY_FLOATING_POINT 0
+#define XSTATE_LEGACY_SSE            1
+#define XSTATE_GSSE                  2
+#define XSTATE_AVX                   XSTATE_GSSE
+#define XSTATE_MPX_BNDREGS           3
+#define XSTATE_MPX_BNDCSR            4
+#define XSTATE_AVX512_KMASK          5
+#define XSTATE_AVX512_ZMM_H          6
+#define XSTATE_AVX512_ZMM            7
+#define XSTATE_IPT                   8
+#define XSTATE_CET_U                 11
+#define XSTATE_LWP                   62
+
+typedef struct _YMMCONTEXT
+{
+    M128A Ymm0;
+    M128A Ymm1;
+    M128A Ymm2;
+    M128A Ymm3;
+    M128A Ymm4;
+    M128A Ymm5;
+    M128A Ymm6;
+    M128A Ymm7;
+    M128A Ymm8;
+    M128A Ymm9;
+    M128A Ymm10;
+    M128A Ymm11;
+    M128A Ymm12;
+    M128A Ymm13;
+    M128A Ymm14;
+    M128A Ymm15;
+}
+YMMCONTEXT, *PYMMCONTEXT;
+
+typedef struct _XSTATE
+{
+    ULONG64 Mask;
+    ULONG64 CompactionMask;
+    ULONG64 Reserved[6];
+    YMMCONTEXT YmmContext;
+} XSTATE, *PXSTATE;
+
+typedef struct _CONTEXT_CHUNK
+{
+    LONG Offset;
+    ULONG Length;
+} CONTEXT_CHUNK, *PCONTEXT_CHUNK;
+
+typedef struct _CONTEXT_EX
+{
+    CONTEXT_CHUNK All;
+    CONTEXT_CHUNK Legacy;
+    CONTEXT_CHUNK XState;
+#ifdef _WIN64
+    ULONG64 align;
+#endif
+} CONTEXT_EX, *PCONTEXT_EX;
 
 /* IA64 context definitions */
 #ifdef __ia64__
@@ -1862,11 +1928,12 @@ NTSYSAPI PVOID WINAPI RtlVirtualUnwind(DWORD,DWORD,DWORD,RUNTIME_FUNCTION*,CONTE
 #define CONTEXT_INTEGER         (CONTEXT_ARM64 | 0x00000002)
 #define CONTEXT_FLOATING_POINT  (CONTEXT_ARM64 | 0x00000004)
 #define CONTEXT_DEBUG_REGISTERS (CONTEXT_ARM64 | 0x00000008)
+#define CONTEXT_ARM64_X18       (CONTEXT_ARM64 | 0x00000010)
 
 #define CONTEXT_UNWOUND_TO_CALL 0x20000000
 
-#define CONTEXT_FULL (CONTEXT_CONTROL | CONTEXT_INTEGER)
-#define CONTEXT_ALL  (CONTEXT_CONTROL | CONTEXT_INTEGER | CONTEXT_FLOATING_POINT | CONTEXT_DEBUG_REGISTERS)
+#define CONTEXT_FULL (CONTEXT_CONTROL | CONTEXT_INTEGER | CONTEXT_FLOATING_POINT)
+#define CONTEXT_ALL  (CONTEXT_CONTROL | CONTEXT_INTEGER | CONTEXT_FLOATING_POINT | CONTEXT_DEBUG_REGISTERS | CONTEXT_ARM64_X18)
 
 #define EXCEPTION_READ_FAULT    0
 #define EXCEPTION_WRITE_FAULT   1
@@ -6768,6 +6835,38 @@ static inline BOOLEAN BitScanReverse(DWORD *index, DWORD mask)
 }
 
 #endif
+
+#ifdef _WIN64
+
+#if defined(_MSC_VER)
+
+#define InterlockedCompareExchange128 _InterlockedCompareExchange128
+static inline unsigned char _InterlockedCompareExchange128(__int64 *dest, __int64 xchg_high, __int64 xchg_low, __int64 *compare);
+#pragma intrinsic(_InterlockedCompareExchange128)
+
+#elif defined(__x86_64__)
+
+static inline unsigned char InterlockedCompareExchange128(__int64 *dest, __int64 xchg_high, __int64 xchg_low, __int64 *compare)
+{
+    unsigned char ret;
+    __asm__ __volatile__( "lock cmpxchg16b %0; setz %b2"
+                          : "=m" (dest[0]), "=m" (dest[1]), "=r" (ret),
+                            "=a" (compare[0]), "=d" (compare[1])
+                          : "m" (dest[0]), "m" (dest[1]), "3" (compare[0]), "4" (compare[1]),
+                            "c" (xchg_high), "b" (xchg_low) );
+    return ret;
+}
+
+#elif defined(__GNUC__)
+
+static inline unsigned char InterlockedCompareExchange128(__int64 *dest, __int64 xchg_high, __int64 xchg_low, __int64 *compare)
+{
+    return __sync_bool_compare_and_swap( (__int128 *)dest, *(__int128 *)compare, ((__int128)xchg_high << 64) | xchg_low );
+}
+
+#endif
+
+#endif /* _WIN64 */
 
 #ifdef __cplusplus
 }

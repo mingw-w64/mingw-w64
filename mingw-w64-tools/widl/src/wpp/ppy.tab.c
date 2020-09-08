@@ -1,4 +1,4 @@
-/* A Bison parser, made by GNU Bison 3.6.2.  */
+/* A Bison parser, made by GNU Bison 3.6.4.  */
 
 /* Bison implementation for Yacc-like parsers in C
 
@@ -49,7 +49,7 @@
 #define YYBISON 1
 
 /* Bison version.  */
-#define YYBISON_VERSION "3.6.2"
+#define YYBISON_VERSION "3.6.4"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -230,7 +230,7 @@ extern int ppy_debug;
     tUNDEF = 274,                  /* tUNDEF  */
     tMACROEND = 275,               /* tMACROEND  */
     tCONCAT = 276,                 /* tCONCAT  */
-    tELIPSIS = 277,                /* tELIPSIS  */
+    tELLIPSIS = 277,               /* tELLIPSIS  */
     tSTRINGIZE = 278,              /* tSTRINGIZE  */
     tIDENT = 279,                  /* tIDENT  */
     tLITERAL = 280,                /* tLITERAL  */
@@ -316,7 +316,7 @@ enum yysymbol_kind_t
   YYSYMBOL_tUNDEF = 19,                    /* tUNDEF  */
   YYSYMBOL_tMACROEND = 20,                 /* tMACROEND  */
   YYSYMBOL_tCONCAT = 21,                   /* tCONCAT  */
-  YYSYMBOL_tELIPSIS = 22,                  /* tELIPSIS  */
+  YYSYMBOL_tELLIPSIS = 22,                 /* tELLIPSIS  */
   YYSYMBOL_tSTRINGIZE = 23,                /* tSTRINGIZE  */
   YYSYMBOL_tIDENT = 24,                    /* tIDENT  */
   YYSYMBOL_tLITERAL = 25,                  /* tLITERAL  */
@@ -737,7 +737,7 @@ static const yytype_int8 yytranslate[] =
 };
 
 #if YYDEBUG
-  /* YYRLINEYYN -- Source line where rule number YYN was defined.  */
+  /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int16 yyrline[] =
 {
        0,   181,   181,   182,   186,   187,   188,   189,   190,   210,
@@ -767,7 +767,7 @@ static const char *const yytname[] =
   "\"end of file\"", "error", "\"invalid token\"", "tRCINCLUDE", "tIF",
   "tIFDEF", "tIFNDEF", "tELSE", "tELIF", "tENDIF", "tDEFINED", "tNL",
   "tINCLUDE", "tLINE", "tGCCLINE", "tERROR", "tWARNING", "tPRAGMA",
-  "tPPIDENT", "tUNDEF", "tMACROEND", "tCONCAT", "tELIPSIS", "tSTRINGIZE",
+  "tPPIDENT", "tUNDEF", "tMACROEND", "tCONCAT", "tELLIPSIS", "tSTRINGIZE",
   "tIDENT", "tLITERAL", "tMACRO", "tDEFINE", "tDQSTRING", "tSQSTRING",
   "tIQSTRING", "tUINT", "tSINT", "tULONG", "tSLONG", "tULONGLONG",
   "tSLONGLONG", "tRCINCLUDEPATH", "'?'", "':'", "tLOGOR", "tLOGAND", "'|'",
@@ -810,7 +810,7 @@ static const yytype_int16 yytoknum[] =
 #define yytable_value_is_error(Yyn) \
   0
 
-  /* YYPACTSTATE-NUM -- Index in YYTABLE of the portion describing
+  /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
      STATE-NUM.  */
 static const yytype_int16 yypact[] =
 {
@@ -832,7 +832,7 @@ static const yytype_int16 yypact[] =
      -27,   291,   -27
 };
 
-  /* YYDEFACTSTATE-NUM -- Default reduction number in state STATE-NUM.
+  /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
      Performed when YYTABLE does not specify something else to do.  Zero
      means the default is an error.  */
 static const yytype_int8 yydefact[] =
@@ -855,21 +855,21 @@ static const yytype_int8 yydefact[] =
       19,     0,    20
 };
 
-  /* YYPGOTONTERM-NUM.  */
+  /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int16 yypgoto[] =
 {
      -27,   -27,   -27,   -11,   -27,   -27,   -27,   -27,   -27,   -27,
      -27,   163,    -8
 };
 
-  /* YYDEFGOTONTERM-NUM.  */
+  /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int16 yydefgoto[] =
 {
       -1,     1,    20,    50,    51,    56,   100,   101,   102,   139,
      140,   141,    36
 };
 
-  /* YYTABLEYYPACT[STATE-NUM] -- What to do in state STATE-NUM.  If
+  /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
      positive, shift that token.  If negative, reduce the rule whose
      number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_uint8 yytable[] =
@@ -942,7 +942,7 @@ static const yytype_uint8 yycheck[] =
       24,    11,    11,   140
 };
 
-  /* YYSTOSSTATE-NUM -- The (internal number of the) accessing
+  /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
      symbol of state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
@@ -964,7 +964,7 @@ static const yytype_int8 yystos[] =
       11,    32,    11
 };
 
-  /* YYR1YYN -- Symbol number of symbol that rule YYN derives.  */
+  /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_int8 yyr1[] =
 {
        0,    62,    63,    63,    64,    64,    64,    64,    64,    64,
@@ -978,7 +978,7 @@ static const yytype_int8 yyr1[] =
       74,    74,    74,    74,    74
 };
 
-  /* YYR2YYN -- Number of symbols on the right hand side of rule YYN.  */
+  /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
 static const yytype_int8 yyr2[] =
 {
        0,     2,     0,     2,     3,     3,     3,     3,     3,     3,

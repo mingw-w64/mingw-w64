@@ -1,4 +1,4 @@
-/* A Bison parser, made by GNU Bison 3.6.2.  */
+/* A Bison parser, made by GNU Bison 3.6.4.  */
 
 /* Bison interface for Yacc-like parsers in C
 
@@ -73,7 +73,7 @@ extern int ppy_debug;
     tUNDEF = 274,                  /* tUNDEF  */
     tMACROEND = 275,               /* tMACROEND  */
     tCONCAT = 276,                 /* tCONCAT  */
-    tELIPSIS = 277,                /* tELIPSIS  */
+    tELLIPSIS = 277,               /* tELLIPSIS  */
     tSTRINGIZE = 278,              /* tSTRINGIZE  */
     tIDENT = 279,                  /* tIDENT  */
     tLITERAL = 280,                /* tLITERAL  */

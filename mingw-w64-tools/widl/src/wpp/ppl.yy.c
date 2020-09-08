@@ -2466,7 +2466,7 @@ return ',';
 case 91:
 YY_RULE_SETUP
 #line 526 "ppl.l"
-return tELIPSIS;
+return tELLIPSIS;
 	YY_BREAK
 case 92:
 /* rule 92 can match eol */
