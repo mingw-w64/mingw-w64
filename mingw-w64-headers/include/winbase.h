@@ -1181,13 +1181,11 @@ extern "C" {
   WINBASEAPI LPVOID WINAPI ConvertThreadToFiberEx (LPVOID lpParameter, DWORD dwFlags);
 #endif
 
-#if _WIN32_WINNT >= 0x0602
   typedef enum _THREAD_INFORMATION_CLASS {
     ThreadMemoryPriority,
     ThreadAbsoluteCpuPriority,
     ThreadInformationClassMax
   } THREAD_INFORMATION_CLASS;
-#endif
 
 #if WINAPI_FAMILY_PARTITION (WINAPI_PARTITION_DESKTOP)
 
