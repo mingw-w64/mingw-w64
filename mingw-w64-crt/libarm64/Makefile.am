@@ -110,6 +110,7 @@ libarm64_DATA += %reldir%/libhbaapi.a
 libarm64_DATA += %reldir%/libhid.a
 libarm64_DATA += %reldir%/libhlink.a
 libarm64_DATA += %reldir%/libhotplug.a
+libarm64_DATA += %reldir%/libhtmlhelp.a
 libarm64_DATA += %reldir%/libhtui.a
 libarm64_DATA += %reldir%/libiashlpr.a
 libarm64_DATA += %reldir%/libiassam.a

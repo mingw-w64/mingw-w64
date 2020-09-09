@@ -291,6 +291,7 @@ libarm32_DATA += %reldir%/libhidserv.a
 libarm32_DATA += %reldir%/libhlink.a
 libarm32_DATA += %reldir%/libhnetcfg.a
 libarm32_DATA += %reldir%/libhotplug.a
+libarm32_DATA += %reldir%/libhtmlhelp.a
 libarm32_DATA += %reldir%/libhttpapi.a
 libarm32_DATA += %reldir%/libhttpprxm.a
 libarm32_DATA += %reldir%/libhttpprxp.a
