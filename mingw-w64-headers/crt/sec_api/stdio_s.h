@@ -72,6 +72,16 @@ extern "C" {
     return _Ret;
   }
 
+  __mingw_ovr int __cdecl scanf_s(const char *_Format, ...)
+  {
+    __builtin_va_list _ArgList;
+    int _Ret;
+    __builtin_va_start(_ArgList, _Format);
+    _Ret = _vfscanf_s_l(stdin, _Format, NULL, _ArgList);
+    __builtin_va_end(_ArgList);
+    return _Ret;
+  }
+
   __mingw_ovr int __cdecl _vfscanf_l(FILE *_File, const char *_Format, _locale_t _Locale, va_list _ArgList)
   {
     return __stdio_common_vfscanf(0, _File, _Format, _Locale, _ArgList);
@@ -487,6 +497,7 @@ extern "C" {
   int __cdecl printf_s(const char *_Format,...);
   _CRTIMP int __cdecl _scanf_l(const char *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _scanf_s_l(const char *_Format,_locale_t _Locale,...);
+  _CRTIMP int __cdecl scanf_s(const char *_Format, ...);
   _CRTIMP int __cdecl _snprintf_c(char *_DstBuf,size_t _MaxCount,const char *_Format,...);
   _CRTIMP int __cdecl _vsnprintf_c(char *_DstBuf,size_t _MaxCount,const char *_Format,va_list _ArgList);
 
