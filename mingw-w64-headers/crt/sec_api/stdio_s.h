@@ -608,6 +608,16 @@ extern "C" {
     return _Ret;
   }
 
+  __mingw_ovr int __cdecl wscanf_s(const wchar_t *_Format, ...)
+  {
+    __builtin_va_list _ArgList;
+    int _Ret;
+    __builtin_va_start(_ArgList, _Format);
+    _Ret = _vfwscanf_s_l(stdin, _Format, NULL, _ArgList);
+    __builtin_va_end(_ArgList);
+    return _Ret;
+  }
+
   __mingw_ovr int __cdecl _vswscanf_s_l(const wchar_t *_Src, const wchar_t *_Format, _locale_t _Locale, va_list _ArgList)
   {
     return __stdio_common_vswscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS | _CRT_INTERNAL_SCANF_SECURECRT, _Src, (size_t)-1, _Format, _Locale, _ArgList);
@@ -789,6 +799,7 @@ extern "C" {
   _CRTIMP int __cdecl _snwscanf_s(const wchar_t *_Src,size_t _MaxCount,const wchar_t *_Format,...);
   _CRTIMP int __cdecl _snwscanf_s_l(const wchar_t *_Src,size_t _MaxCount,const wchar_t *_Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _wscanf_s_l(const wchar_t *_Format,_locale_t _Locale,...);
+  _CRTIMP int __cdecl wscanf_s(const wchar_t *_Format, ...);
 #endif /* !_UCRT */
 
   __DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_2(int, vswprintf_s, wchar_t, _Dst, const wchar_t*, _Format, va_list, _ArgList)
