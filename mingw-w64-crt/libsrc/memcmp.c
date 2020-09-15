@@ -6,6 +6,7 @@
 
 #define __CRT__NO_INLINE
 #include <stddef.h>
+#include <string.h> /* for memcmp prototype */
 
 int __cdecl memcmp(const void *_S1, const void *_S2, size_t _N)
 {
