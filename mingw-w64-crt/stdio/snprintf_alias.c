@@ -13,6 +13,7 @@
 
 int __cdecl __ms_vsnprintf(char *buffer, size_t n, const char *format, va_list arg);
 
+int __cdecl snprintf(char *buffer, size_t n, const char *format, ...);
 int __cdecl snprintf(char *buffer, size_t n, const char *format, ...)
 {
   int retval;

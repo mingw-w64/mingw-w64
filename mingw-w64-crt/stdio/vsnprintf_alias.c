@@ -13,6 +13,7 @@
 
 int __cdecl __ms_vsnprintf(char *buffer, size_t n, const char *format, va_list arg);
 
+int __cdecl vsnprintf(char *buffer, size_t n, const char *format, va_list arg);
 int __cdecl vsnprintf(char *buffer, size_t n, const char *format, va_list arg)
 {
   return __ms_vsnprintf(buffer, n, format, arg);
