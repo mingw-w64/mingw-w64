@@ -92,6 +92,7 @@ IDL_SRCS = \
   include/d3d11_2.idl \
   include/d3d11_3.idl \
   include/d3d11_4.idl \
+  include/d3d11on12.idl \
   include/d3d11sdklayers.idl \
   include/d3d12.idl \
   include/d3d12shader.idl \

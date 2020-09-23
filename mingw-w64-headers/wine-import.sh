@@ -135,6 +135,7 @@ for f in \
 	d3d10_1 \
 	d3d10sdklayers \
 	d3d11 \
+	d3d11on12 \
 	d3d11_1 \
 	d3d11_2 \
 	d3d11_3 \
