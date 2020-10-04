@@ -138,14 +138,6 @@ interface ID3D12Device;
 #endif /* __cplusplus */
 #endif
 
-#ifndef __ID3D12Debug_FWD_DEFINED__
-#define __ID3D12Debug_FWD_DEFINED__
-typedef interface ID3D12Debug ID3D12Debug;
-#ifdef __cplusplus
-interface ID3D12Debug;
-#endif /* __cplusplus */
-#endif
-
 #ifndef __ID3D12RootSignatureDeserializer_FWD_DEFINED__
 #define __ID3D12RootSignatureDeserializer_FWD_DEFINED__
 typedef interface ID3D12RootSignatureDeserializer ID3D12RootSignatureDeserializer;
@@ -5136,82 +5128,6 @@ static FORCEINLINE LUID ID3D12Device_GetAdapterLuid(ID3D12Device* This) {
 
 
 #endif  /* __ID3D12Device_INTERFACE_DEFINED__ */
-
-/*****************************************************************************
- * ID3D12Debug interface
- */
-#ifndef __ID3D12Debug_INTERFACE_DEFINED__
-#define __ID3D12Debug_INTERFACE_DEFINED__
-
-DEFINE_GUID(IID_ID3D12Debug, 0x344488b7, 0x6846, 0x474b, 0xb9,0x89, 0xf0,0x27,0x44,0x82,0x45,0xe0);
-#if defined(__cplusplus) && !defined(CINTERFACE)
-MIDL_INTERFACE("344488b7-6846-474b-b989-f027448245e0")
-ID3D12Debug : public IUnknown
-{
-    virtual void STDMETHODCALLTYPE EnableDebugLayer(
-        ) = 0;
-
-};
-#ifdef __CRT_UUID_DECL
-__CRT_UUID_DECL(ID3D12Debug, 0x344488b7, 0x6846, 0x474b, 0xb9,0x89, 0xf0,0x27,0x44,0x82,0x45,0xe0)
-#endif
-#else
-typedef struct ID3D12DebugVtbl {
-    BEGIN_INTERFACE
-
-    /*** IUnknown methods ***/
-    HRESULT (STDMETHODCALLTYPE *QueryInterface)(
-        ID3D12Debug *This,
-        REFIID riid,
-        void **ppvObject);
-
-    ULONG (STDMETHODCALLTYPE *AddRef)(
-        ID3D12Debug *This);
-
-    ULONG (STDMETHODCALLTYPE *Release)(
-        ID3D12Debug *This);
-
-    /*** ID3D12Debug methods ***/
-    void (STDMETHODCALLTYPE *EnableDebugLayer)(
-        ID3D12Debug *This);
-
-    END_INTERFACE
-} ID3D12DebugVtbl;
-
-interface ID3D12Debug {
-    CONST_VTBL ID3D12DebugVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-#ifndef WIDL_C_INLINE_WRAPPERS
-/*** IUnknown methods ***/
-#define ID3D12Debug_QueryInterface(This,riid,ppvObject) (This)->lpVtbl->QueryInterface(This,riid,ppvObject)
-#define ID3D12Debug_AddRef(This) (This)->lpVtbl->AddRef(This)
-#define ID3D12Debug_Release(This) (This)->lpVtbl->Release(This)
-/*** ID3D12Debug methods ***/
-#define ID3D12Debug_EnableDebugLayer(This) (This)->lpVtbl->EnableDebugLayer(This)
-#else
-/*** IUnknown methods ***/
-static FORCEINLINE HRESULT ID3D12Debug_QueryInterface(ID3D12Debug* This,REFIID riid,void **ppvObject) {
-    return This->lpVtbl->QueryInterface(This,riid,ppvObject);
-}
-static FORCEINLINE ULONG ID3D12Debug_AddRef(ID3D12Debug* This) {
-    return This->lpVtbl->AddRef(This);
-}
-static FORCEINLINE ULONG ID3D12Debug_Release(ID3D12Debug* This) {
-    return This->lpVtbl->Release(This);
-}
-/*** ID3D12Debug methods ***/
-static FORCEINLINE void ID3D12Debug_EnableDebugLayer(ID3D12Debug* This) {
-    This->lpVtbl->EnableDebugLayer(This);
-}
-#endif
-#endif
-
-#endif
-
-
-#endif  /* __ID3D12Debug_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
  * ID3D12RootSignatureDeserializer interface

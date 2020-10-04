@@ -454,6 +454,11 @@ typedef struct DWRITE_FONT_PROPERTY {
     const WCHAR *propertyValue;
     const WCHAR *localeName;
 } DWRITE_FONT_PROPERTY;
+#ifdef __cplusplus
+#define DWRITE_MAKE_FONT_AXIS_TAG(a,b,c,d) (static_cast<DWRITE_FONT_AXIS_TAG>(DWRITE_MAKE_OPENTYPE_TAG(a,b,c,d)))
+#else
+#define DWRITE_MAKE_FONT_AXIS_TAG(a,b,c,d) (DWRITE_MAKE_OPENTYPE_TAG(a,b,c,d))
+#endif
 typedef enum DWRITE_FONT_AXIS_TAG {
     DWRITE_FONT_AXIS_TAG_WEIGHT = 0x74686777,
     DWRITE_FONT_AXIS_TAG_WIDTH = 0x68746477,
