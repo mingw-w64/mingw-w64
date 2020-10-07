@@ -1908,6 +1908,12 @@ endif
 	cd $(dir $@) && $(AR) -M < $(abspath $<)
 	$(RANLIB) $@
 
+%/libpathcch.a: lib-common/pathcch.mri \
+		%/libapi-ms-win-core-path-l1-1-0.a
+	rm -f $@
+	cd $(dir $@) && $(AR) -M < $(abspath $<)
+	$(RANLIB) $@
+
 %/libruntimeobject.a: lib-common/runtimeobject.mri \
 		%/libapi-ms-win-core-winrt-l1-1-0.a \
 		%/libapi-ms-win-core-winrt-error-l1-1-0.a \

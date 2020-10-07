@@ -449,6 +449,7 @@ lib64_DATA += %reldir%/liboledlg.a
 lib64_DATA += %reldir%/libolesvr32.a
 lib64_DATA += %reldir%/libopengl32.a
 lib64_DATA += %reldir%/libosuninst.a
+lib64_DATA += %reldir%/libpathcch.a
 lib64_DATA += %reldir%/libpautoenr.a
 lib64_DATA += %reldir%/libpdh.a
 lib64_DATA += %reldir%/libperfctrs.a

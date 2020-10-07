@@ -538,6 +538,7 @@ libarm32_DATA += %reldir%/libosuninst.a
 libarm32_DATA += %reldir%/libp2p.a
 libarm32_DATA += %reldir%/libp2pgraph.a
 libarm32_DATA += %reldir%/libp2psvc.a
+libarm32_DATA += %reldir%/libpathcch.a
 libarm32_DATA += %reldir%/libpautoenr.a
 libarm32_DATA += %reldir%/libpcacli.a
 libarm32_DATA += %reldir%/libpcaui.a

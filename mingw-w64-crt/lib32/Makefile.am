@@ -220,6 +220,7 @@ lib32_DATA += %reldir%/libopengl32.a
 lib32_DATA += %reldir%/libp2p.a
 lib32_DATA += %reldir%/libp2pcollab.a
 lib32_DATA += %reldir%/libp2pgraph.a
+lib32_DATA += %reldir%/libpathcch.a
 lib32_DATA += %reldir%/libpcwum.a
 lib32_DATA += %reldir%/libpdh.a
 lib32_DATA += %reldir%/libpdhui.a
