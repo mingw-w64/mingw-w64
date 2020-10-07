@@ -9,6 +9,23 @@ import "strmif.idl";
 
 [
     object,
+    uuid(e6a49e22-c099-421d-aad3-c061fb4ae85b),
+    pointer_default(unique)
+]
+interface IWMColorConvProps : IUnknown
+{
+    HRESULT SetMode([in] LONG mode);
+    HRESULT SetFullCroppingParam(
+        [in] LONG src_left,
+        [in] LONG src_top,
+        [in] LONG dst_left,
+        [in] LONG dst_top,
+        [in] LONG width,
+        [in] LONG height);
+}
+
+[
+    object,
     uuid(cee3def2-3808-414d-be66-fafd472210bc),
     pointer_default(unique)
 ]
