@@ -1395,6 +1395,22 @@ pthread_attr_getscope (const pthread_attr_t *a, int *flag)
 }
 
 int
+pthread_attr_getstack (const pthread_attr_t *attr, void **stack, size_t *size)
+{
+  *stack = (char *) attr->stack - attr->s_size;
+  *size = attr->s_size;
+  return 0;
+}
+
+int
+pthread_attr_setstack (pthread_attr_t *attr, void *stack, size_t size)
+{
+  attr->s_size = size;
+  attr->stack = (char *) stack + size;
+  return 0;
+}
+
+int
 pthread_attr_getstackaddr (const pthread_attr_t *attr, void **stack)
 {
   *stack = attr->stack;
