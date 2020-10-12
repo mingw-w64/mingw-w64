@@ -1,4 +1,4 @@
-/* A Bison parser, made by GNU Bison 3.6.4.  */
+/* A Bison parser, made by GNU Bison 3.7.2.  */
 
 /* Bison implementation for Yacc-like parsers in C
 
@@ -49,7 +49,7 @@
 #define YYBISON 1
 
 /* Bison version.  */
-#define YYBISON_VERSION "3.6.4"
+#define YYBISON_VERSION "3.7.2"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -74,7 +74,7 @@
 #define yychar          ppy_char
 
 /* First part of user prologue.  */
-#line 30 "ppy.y"
+#line 30 "libs/wpp/ppy.y"
 
 #include "config.h"
 #include "wine/port.h"
@@ -170,7 +170,7 @@ static marg_t **macro_args;	/* Macro parameters array while parsing */
 static int	nmacro_args;
 
 
-#line 174 "ppy.tab.c"
+#line 174 "libs/wpp/ppy.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -262,7 +262,7 @@ extern int ppy_debug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 126 "ppy.y"
+#line 126 "libs/wpp/ppy.y"
 
 	int		sint;
 	unsigned int	uint;
@@ -276,7 +276,7 @@ union YYSTYPE
 	marg_t		*marg;
 	mtext_t		*mtext;
 
-#line 280 "ppy.tab.c"
+#line 280 "libs/wpp/ppy.tab.c"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -689,6 +689,7 @@ union yyalloc
 /* YYNSTATES -- Number of states.  */
 #define YYNSTATES  153
 
+/* YYMAXUTOK -- Last valid token kind.  */
 #define YYMAXUTOK   300
 
 
@@ -1201,7 +1202,7 @@ yydestruct (const char *yymsg,
 }
 
 
-/* The lookahead symbol.  */
+/* Lookahead token kind.  */
 int yychar;
 
 /* The semantic value of the lookahead symbol.  */
@@ -1219,34 +1220,30 @@ int yynerrs;
 int
 yyparse (void)
 {
-    yy_state_fast_t yystate;
+    yy_state_fast_t yystate = 0;
     /* Number of tokens to shift before error messages enabled.  */
-    int yyerrstatus;
+    int yyerrstatus = 0;
 
-    /* The stacks and their tools:
-       'yyss': related to states.
-       'yyvs': related to semantic values.
-
-       Refer to the stacks through separate pointers, to allow yyoverflow
+    /* Refer to the stacks through separate pointers, to allow yyoverflow
        to reallocate them elsewhere.  */
 
     /* Their size.  */
-    YYPTRDIFF_T yystacksize;
+    YYPTRDIFF_T yystacksize = YYINITDEPTH;
 
-    /* The state stack.  */
+    /* The state stack: array, bottom, top.  */
     yy_state_t yyssa[YYINITDEPTH];
-    yy_state_t *yyss;
-    yy_state_t *yyssp;
+    yy_state_t *yyss = yyssa;
+    yy_state_t *yyssp = yyss;
 
-    /* The semantic value stack.  */
+    /* The semantic value stack: array, bottom, top.  */
     YYSTYPE yyvsa[YYINITDEPTH];
-    YYSTYPE *yyvs;
-    YYSTYPE *yyvsp;
+    YYSTYPE *yyvs = yyvsa;
+    YYSTYPE *yyvsp = yyvs;
 
   int yyn;
   /* The return value of yyparse.  */
   int yyresult;
-  /* Lookahead token as an internal (translated) token number.  */
+  /* Lookahead symbol kind.  */
   yysymbol_kind_t yytoken = YYSYMBOL_YYEMPTY;
   /* The variables used to return semantic value and location from the
      action routines.  */
@@ -1259,15 +1256,6 @@ yyparse (void)
   /* The number of symbols on the RHS of the reduced rule.
      Keep to zero when no symbol should be popped.  */
   int yylen = 0;
-
-  yynerrs = 0;
-  yystate = 0;
-  yyerrstatus = 0;
-
-  yystacksize = YYINITDEPTH;
-  yyssp = yyss = yyssa;
-  yyvsp = yyvs = yyvsa;
-
 
   YYDPRINTF ((stderr, "Starting parse\n"));
 
@@ -1469,32 +1457,32 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-  case 4:
-#line 186 "ppy.y"
+  case 4: /* preprocessor: tINCLUDE tDQSTRING tNL  */
+#line 186 "libs/wpp/ppy.y"
                                         { pp_do_include((yyvsp[-1].cptr), 1); }
-#line 1476 "ppy.tab.c"
+#line 1464 "libs/wpp/ppy.tab.c"
     break;
 
-  case 5:
-#line 187 "ppy.y"
+  case 5: /* preprocessor: tINCLUDE tIQSTRING tNL  */
+#line 187 "libs/wpp/ppy.y"
                                         { pp_do_include((yyvsp[-1].cptr), 0); }
-#line 1482 "ppy.tab.c"
+#line 1470 "libs/wpp/ppy.tab.c"
     break;
 
-  case 6:
-#line 188 "ppy.y"
+  case 6: /* preprocessor: tIF pp_expr tNL  */
+#line 188 "libs/wpp/ppy.y"
                                 { pp_next_if_state(boolean(&(yyvsp[-1].cval))); }
-#line 1488 "ppy.tab.c"
+#line 1476 "libs/wpp/ppy.tab.c"
     break;
 
-  case 7:
-#line 189 "ppy.y"
+  case 7: /* preprocessor: tIFDEF tIDENT tNL  */
+#line 189 "libs/wpp/ppy.y"
                                 { pp_next_if_state(pplookup((yyvsp[-1].cptr)) != NULL); free((yyvsp[-1].cptr)); }
-#line 1494 "ppy.tab.c"
+#line 1482 "libs/wpp/ppy.tab.c"
     break;
 
-  case 8:
-#line 190 "ppy.y"
+  case 8: /* preprocessor: tIFNDEF tIDENT tNL  */
+#line 190 "libs/wpp/ppy.y"
                                 {
 		int t = pplookup((yyvsp[-1].cptr)) == NULL;
 		if(pp_incl_state.state == 0 && t && !pp_incl_state.seen_junk)
@@ -1515,11 +1503,11 @@ yyreduce:
 			fprintf(stderr, "tIFNDEF: %s:%d: include_state=%d, include_ppp='%s', include_ifdepth=%d\n",
                                 pp_status.input, pp_status.line_number, pp_incl_state.state, pp_incl_state.ppp, pp_incl_state.ifdepth);
 		}
-#line 1519 "ppy.tab.c"
+#line 1507 "libs/wpp/ppy.tab.c"
     break;
 
-  case 9:
-#line 210 "ppy.y"
+  case 9: /* preprocessor: tELIF pp_expr tNL  */
+#line 210 "libs/wpp/ppy.y"
                                 {
 		pp_if_state_t s = pp_pop_if();
 		switch(s)
@@ -1544,11 +1532,11 @@ yyreduce:
 			pp_internal_error(__FILE__, __LINE__, "Invalid pp_if_state (%d) in #elif directive", s);
 		}
 		}
-#line 1548 "ppy.tab.c"
+#line 1536 "libs/wpp/ppy.tab.c"
     break;
 
-  case 10:
-#line 234 "ppy.y"
+  case 10: /* preprocessor: tELSE tNL  */
+#line 234 "libs/wpp/ppy.y"
                                 {
 		pp_if_state_t s = pp_pop_if();
 		switch(s)
@@ -1575,11 +1563,11 @@ yyreduce:
 			pp_internal_error(__FILE__, __LINE__, "Invalid pp_if_state (%d) in #else directive", s);
 		}
 		}
-#line 1579 "ppy.tab.c"
+#line 1567 "libs/wpp/ppy.tab.c"
     break;
 
-  case 11:
-#line 260 "ppy.y"
+  case 11: /* preprocessor: tENDIF tNL  */
+#line 260 "libs/wpp/ppy.y"
                                 {
 		if(pp_pop_if() != if_error)
 		{
@@ -1597,91 +1585,91 @@ yyreduce:
 					pp_status.input, pp_status.line_number, pp_incl_state.state, pp_incl_state.ppp, pp_incl_state.ifdepth);
 		}
 		}
-#line 1601 "ppy.tab.c"
+#line 1589 "libs/wpp/ppy.tab.c"
     break;
 
-  case 12:
-#line 277 "ppy.y"
+  case 12: /* preprocessor: tUNDEF tIDENT tNL  */
+#line 277 "libs/wpp/ppy.y"
                                 { pp_del_define((yyvsp[-1].cptr)); free((yyvsp[-1].cptr)); }
-#line 1607 "ppy.tab.c"
+#line 1595 "libs/wpp/ppy.tab.c"
     break;
 
-  case 13:
-#line 278 "ppy.y"
+  case 13: /* preprocessor: tDEFINE opt_text tNL  */
+#line 278 "libs/wpp/ppy.y"
                                 { pp_add_define((yyvsp[-2].cptr), (yyvsp[-1].cptr)); free((yyvsp[-2].cptr)); free((yyvsp[-1].cptr)); }
-#line 1613 "ppy.tab.c"
+#line 1601 "libs/wpp/ppy.tab.c"
     break;
 
-  case 14:
-#line 279 "ppy.y"
+  case 14: /* preprocessor: tMACRO res_arg allmargs tMACROEND opt_mtexts tNL  */
+#line 279 "libs/wpp/ppy.y"
                                                                 {
 		pp_add_macro((yyvsp[-5].cptr), macro_args, nmacro_args, (yyvsp[-1].mtext));
 		}
-#line 1621 "ppy.tab.c"
+#line 1609 "libs/wpp/ppy.tab.c"
     break;
 
-  case 15:
-#line 282 "ppy.y"
+  case 15: /* preprocessor: tLINE tSINT tDQSTRING tNL  */
+#line 282 "libs/wpp/ppy.y"
                                         { if((yyvsp[-1].cptr)) pp_writestring("# %d %s\n", (yyvsp[-2].sint) , (yyvsp[-1].cptr)); free((yyvsp[-1].cptr)); }
-#line 1627 "ppy.tab.c"
+#line 1615 "libs/wpp/ppy.tab.c"
     break;
 
-  case 16:
-#line 283 "ppy.y"
+  case 16: /* preprocessor: tGCCLINE tSINT tDQSTRING tNL  */
+#line 283 "libs/wpp/ppy.y"
                                         { if((yyvsp[-1].cptr)) pp_writestring("# %d %s\n", (yyvsp[-2].sint) , (yyvsp[-1].cptr)); free((yyvsp[-1].cptr)); }
-#line 1633 "ppy.tab.c"
+#line 1621 "libs/wpp/ppy.tab.c"
     break;
 
-  case 17:
-#line 285 "ppy.y"
+  case 17: /* preprocessor: tGCCLINE tSINT tDQSTRING tSINT tNL  */
+#line 285 "libs/wpp/ppy.y"
                 { if((yyvsp[-2].cptr)) pp_writestring("# %d %s %d\n", (yyvsp[-3].sint), (yyvsp[-2].cptr), (yyvsp[-1].sint)); free((yyvsp[-2].cptr)); }
-#line 1639 "ppy.tab.c"
+#line 1627 "libs/wpp/ppy.tab.c"
     break;
 
-  case 18:
-#line 287 "ppy.y"
+  case 18: /* preprocessor: tGCCLINE tSINT tDQSTRING tSINT tSINT tNL  */
+#line 287 "libs/wpp/ppy.y"
                 { if((yyvsp[-3].cptr)) pp_writestring("# %d %s %d %d\n", (yyvsp[-4].sint) ,(yyvsp[-3].cptr), (yyvsp[-2].sint), (yyvsp[-1].sint)); free((yyvsp[-3].cptr)); }
-#line 1645 "ppy.tab.c"
+#line 1633 "libs/wpp/ppy.tab.c"
     break;
 
-  case 19:
-#line 289 "ppy.y"
+  case 19: /* preprocessor: tGCCLINE tSINT tDQSTRING tSINT tSINT tSINT tNL  */
+#line 289 "libs/wpp/ppy.y"
                 { if((yyvsp[-4].cptr)) pp_writestring("# %d %s %d %d %d\n", (yyvsp[-5].sint) ,(yyvsp[-4].cptr) ,(yyvsp[-3].sint) ,(yyvsp[-2].sint), (yyvsp[-1].sint)); free((yyvsp[-4].cptr)); }
-#line 1651 "ppy.tab.c"
+#line 1639 "libs/wpp/ppy.tab.c"
     break;
 
-  case 20:
-#line 291 "ppy.y"
+  case 20: /* preprocessor: tGCCLINE tSINT tDQSTRING tSINT tSINT tSINT tSINT tNL  */
+#line 291 "libs/wpp/ppy.y"
                 { if((yyvsp[-5].cptr)) pp_writestring("# %d %s %d %d %d %d\n", (yyvsp[-6].sint) ,(yyvsp[-5].cptr) ,(yyvsp[-4].sint) ,(yyvsp[-3].sint), (yyvsp[-2].sint), (yyvsp[-1].sint)); free((yyvsp[-5].cptr)); }
-#line 1657 "ppy.tab.c"
+#line 1645 "libs/wpp/ppy.tab.c"
     break;
 
-  case 22:
-#line 293 "ppy.y"
+  case 22: /* preprocessor: tERROR opt_text tNL  */
+#line 293 "libs/wpp/ppy.y"
                                 { ppy_error("#error directive: '%s'", (yyvsp[-1].cptr)); free((yyvsp[-1].cptr)); }
-#line 1663 "ppy.tab.c"
+#line 1651 "libs/wpp/ppy.tab.c"
     break;
 
-  case 23:
-#line 294 "ppy.y"
+  case 23: /* preprocessor: tWARNING opt_text tNL  */
+#line 294 "libs/wpp/ppy.y"
                                 { ppy_warning("#warning directive: '%s'", (yyvsp[-1].cptr)); free((yyvsp[-1].cptr)); }
-#line 1669 "ppy.tab.c"
+#line 1657 "libs/wpp/ppy.tab.c"
     break;
 
-  case 24:
-#line 295 "ppy.y"
+  case 24: /* preprocessor: tPRAGMA opt_text tNL  */
+#line 295 "libs/wpp/ppy.y"
                                 { pp_writestring("#pragma %s\n", (yyvsp[-1].cptr) ? (yyvsp[-1].cptr) : ""); free((yyvsp[-1].cptr)); }
-#line 1675 "ppy.tab.c"
+#line 1663 "libs/wpp/ppy.tab.c"
     break;
 
-  case 25:
-#line 296 "ppy.y"
+  case 25: /* preprocessor: tPPIDENT opt_text tNL  */
+#line 296 "libs/wpp/ppy.y"
                                 { if(pp_status.pedantic) ppy_warning("#ident ignored (arg: '%s')", (yyvsp[-1].cptr)); free((yyvsp[-1].cptr)); }
-#line 1681 "ppy.tab.c"
+#line 1669 "libs/wpp/ppy.tab.c"
     break;
 
-  case 26:
-#line 297 "ppy.y"
+  case 26: /* preprocessor: tRCINCLUDE tRCINCLUDEPATH  */
+#line 297 "libs/wpp/ppy.y"
                                     {
                 if((yyvsp[0].cptr))
                 {
@@ -1695,160 +1683,160 @@ yyreduce:
                         free((yyvsp[0].cptr));
                 }
 	}
-#line 1699 "ppy.tab.c"
+#line 1687 "libs/wpp/ppy.tab.c"
     break;
 
-  case 27:
-#line 310 "ppy.y"
+  case 27: /* preprocessor: tRCINCLUDE tDQSTRING  */
+#line 310 "libs/wpp/ppy.y"
                                {
 		pp_do_include((yyvsp[0].cptr),1);
 	}
-#line 1707 "ppy.tab.c"
+#line 1695 "libs/wpp/ppy.tab.c"
     break;
 
-  case 28:
-#line 316 "ppy.y"
+  case 28: /* opt_text: %empty  */
+#line 316 "libs/wpp/ppy.y"
                         { (yyval.cptr) = NULL; }
-#line 1713 "ppy.tab.c"
+#line 1701 "libs/wpp/ppy.tab.c"
     break;
 
-  case 29:
-#line 317 "ppy.y"
+  case 29: /* opt_text: text  */
+#line 317 "libs/wpp/ppy.y"
                         { (yyval.cptr) = (yyvsp[0].cptr); }
-#line 1719 "ppy.tab.c"
+#line 1707 "libs/wpp/ppy.tab.c"
     break;
 
-  case 30:
-#line 320 "ppy.y"
+  case 30: /* text: tLITERAL  */
+#line 320 "libs/wpp/ppy.y"
                                 { (yyval.cptr) = (yyvsp[0].cptr); }
-#line 1725 "ppy.tab.c"
+#line 1713 "libs/wpp/ppy.tab.c"
     break;
 
-  case 31:
-#line 321 "ppy.y"
+  case 31: /* text: tDQSTRING  */
+#line 321 "libs/wpp/ppy.y"
                                 { (yyval.cptr) = (yyvsp[0].cptr); }
-#line 1731 "ppy.tab.c"
+#line 1719 "libs/wpp/ppy.tab.c"
     break;
 
-  case 32:
-#line 322 "ppy.y"
+  case 32: /* text: tSQSTRING  */
+#line 322 "libs/wpp/ppy.y"
                                 { (yyval.cptr) = (yyvsp[0].cptr); }
-#line 1737 "ppy.tab.c"
+#line 1725 "libs/wpp/ppy.tab.c"
     break;
 
-  case 33:
-#line 323 "ppy.y"
+  case 33: /* text: text tLITERAL  */
+#line 323 "libs/wpp/ppy.y"
                                 { (yyval.cptr) = merge_text((yyvsp[-1].cptr), (yyvsp[0].cptr)); }
-#line 1743 "ppy.tab.c"
+#line 1731 "libs/wpp/ppy.tab.c"
     break;
 
-  case 34:
-#line 324 "ppy.y"
+  case 34: /* text: text tDQSTRING  */
+#line 324 "libs/wpp/ppy.y"
                                 { (yyval.cptr) = merge_text((yyvsp[-1].cptr), (yyvsp[0].cptr)); }
-#line 1749 "ppy.tab.c"
+#line 1737 "libs/wpp/ppy.tab.c"
     break;
 
-  case 35:
-#line 325 "ppy.y"
+  case 35: /* text: text tSQSTRING  */
+#line 325 "libs/wpp/ppy.y"
                                 { (yyval.cptr) = merge_text((yyvsp[-1].cptr), (yyvsp[0].cptr)); }
-#line 1755 "ppy.tab.c"
+#line 1743 "libs/wpp/ppy.tab.c"
     break;
 
-  case 36:
-#line 328 "ppy.y"
+  case 36: /* res_arg: %empty  */
+#line 328 "libs/wpp/ppy.y"
                         { macro_args = NULL; nmacro_args = 0; }
-#line 1761 "ppy.tab.c"
+#line 1749 "libs/wpp/ppy.tab.c"
     break;
 
-  case 37:
-#line 331 "ppy.y"
+  case 37: /* allmargs: %empty  */
+#line 331 "libs/wpp/ppy.y"
                                 { (yyval.sint) = 0; macro_args = NULL; nmacro_args = 0; }
-#line 1767 "ppy.tab.c"
+#line 1755 "libs/wpp/ppy.tab.c"
     break;
 
-  case 38:
-#line 332 "ppy.y"
+  case 38: /* allmargs: emargs  */
+#line 332 "libs/wpp/ppy.y"
                                 { (yyval.sint) = nmacro_args; }
-#line 1773 "ppy.tab.c"
+#line 1761 "libs/wpp/ppy.tab.c"
     break;
 
-  case 39:
-#line 335 "ppy.y"
+  case 39: /* emargs: margs  */
+#line 335 "libs/wpp/ppy.y"
                                 { (yyval.marg) = (yyvsp[0].marg); }
-#line 1779 "ppy.tab.c"
+#line 1767 "libs/wpp/ppy.tab.c"
     break;
 
-  case 40:
-#line 336 "ppy.y"
+  case 40: /* emargs: margs ',' tELLIPSIS  */
+#line 336 "libs/wpp/ppy.y"
                                 { (yyval.marg) = add_new_marg(NULL, arg_list); nmacro_args *= -1; }
-#line 1785 "ppy.tab.c"
+#line 1773 "libs/wpp/ppy.tab.c"
     break;
 
-  case 41:
-#line 339 "ppy.y"
+  case 41: /* margs: margs ',' tIDENT  */
+#line 339 "libs/wpp/ppy.y"
                                 { (yyval.marg) = add_new_marg((yyvsp[0].cptr), arg_single); }
-#line 1791 "ppy.tab.c"
+#line 1779 "libs/wpp/ppy.tab.c"
     break;
 
-  case 42:
-#line 340 "ppy.y"
+  case 42: /* margs: tIDENT  */
+#line 340 "libs/wpp/ppy.y"
                                 { (yyval.marg) = add_new_marg((yyvsp[0].cptr), arg_single); }
-#line 1797 "ppy.tab.c"
+#line 1785 "libs/wpp/ppy.tab.c"
     break;
 
-  case 43:
-#line 344 "ppy.y"
+  case 43: /* opt_mtexts: %empty  */
+#line 344 "libs/wpp/ppy.y"
                         { (yyval.mtext) = NULL; }
-#line 1803 "ppy.tab.c"
+#line 1791 "libs/wpp/ppy.tab.c"
     break;
 
-  case 44:
-#line 345 "ppy.y"
+  case 44: /* opt_mtexts: mtexts  */
+#line 345 "libs/wpp/ppy.y"
                         {
 		for((yyval.mtext) = (yyvsp[0].mtext); (yyval.mtext) && (yyval.mtext)->prev; (yyval.mtext) = (yyval.mtext)->prev)
 			;
 		}
-#line 1812 "ppy.tab.c"
+#line 1800 "libs/wpp/ppy.tab.c"
     break;
 
-  case 45:
-#line 351 "ppy.y"
+  case 45: /* mtexts: mtext  */
+#line 351 "libs/wpp/ppy.y"
                         { (yyval.mtext) = (yyvsp[0].mtext); }
-#line 1818 "ppy.tab.c"
+#line 1806 "libs/wpp/ppy.tab.c"
     break;
 
-  case 46:
-#line 352 "ppy.y"
+  case 46: /* mtexts: mtexts mtext  */
+#line 352 "libs/wpp/ppy.y"
                         { (yyval.mtext) = combine_mtext((yyvsp[-1].mtext), (yyvsp[0].mtext)); }
-#line 1824 "ppy.tab.c"
+#line 1812 "libs/wpp/ppy.tab.c"
     break;
 
-  case 47:
-#line 355 "ppy.y"
+  case 47: /* mtext: tLITERAL  */
+#line 355 "libs/wpp/ppy.y"
                         { (yyval.mtext) = new_mtext((yyvsp[0].cptr), 0, exp_text); }
-#line 1830 "ppy.tab.c"
+#line 1818 "libs/wpp/ppy.tab.c"
     break;
 
-  case 48:
-#line 356 "ppy.y"
+  case 48: /* mtext: tDQSTRING  */
+#line 356 "libs/wpp/ppy.y"
                         { (yyval.mtext) = new_mtext((yyvsp[0].cptr), 0, exp_text); }
-#line 1836 "ppy.tab.c"
+#line 1824 "libs/wpp/ppy.tab.c"
     break;
 
-  case 49:
-#line 357 "ppy.y"
+  case 49: /* mtext: tSQSTRING  */
+#line 357 "libs/wpp/ppy.y"
                         { (yyval.mtext) = new_mtext((yyvsp[0].cptr), 0, exp_text); }
-#line 1842 "ppy.tab.c"
+#line 1830 "libs/wpp/ppy.tab.c"
     break;
 
-  case 50:
-#line 358 "ppy.y"
+  case 50: /* mtext: tCONCAT  */
+#line 358 "libs/wpp/ppy.y"
                         { (yyval.mtext) = new_mtext(NULL, 0, exp_concat); }
-#line 1848 "ppy.tab.c"
+#line 1836 "libs/wpp/ppy.tab.c"
     break;
 
-  case 51:
-#line 359 "ppy.y"
+  case 51: /* mtext: tSTRINGIZE tIDENT  */
+#line 359 "libs/wpp/ppy.y"
                                 {
 		int mat = marg_index((yyvsp[0].cptr));
 		if(mat < 0)
@@ -1856,11 +1844,11 @@ yyreduce:
 		else
 			(yyval.mtext) = new_mtext(NULL, mat, exp_stringize);
 		}
-#line 1860 "ppy.tab.c"
+#line 1848 "libs/wpp/ppy.tab.c"
     break;
 
-  case 52:
-#line 366 "ppy.y"
+  case 52: /* mtext: tIDENT  */
+#line 366 "libs/wpp/ppy.y"
                         {
 		int mat = marg_index((yyvsp[0].cptr));
 		if(mat >= 0)
@@ -1868,203 +1856,203 @@ yyreduce:
 		else if((yyvsp[0].cptr))
 			(yyval.mtext) = new_mtext((yyvsp[0].cptr), 0, exp_text);
 		}
-#line 1872 "ppy.tab.c"
+#line 1860 "libs/wpp/ppy.tab.c"
     break;
 
-  case 53:
-#line 375 "ppy.y"
+  case 53: /* pp_expr: tSINT  */
+#line 375 "libs/wpp/ppy.y"
                                         { (yyval.cval).type = cv_sint;  (yyval.cval).val.si = (yyvsp[0].sint); }
-#line 1878 "ppy.tab.c"
+#line 1866 "libs/wpp/ppy.tab.c"
     break;
 
-  case 54:
-#line 376 "ppy.y"
+  case 54: /* pp_expr: tUINT  */
+#line 376 "libs/wpp/ppy.y"
                                         { (yyval.cval).type = cv_uint;  (yyval.cval).val.ui = (yyvsp[0].uint); }
-#line 1884 "ppy.tab.c"
+#line 1872 "libs/wpp/ppy.tab.c"
     break;
 
-  case 55:
-#line 377 "ppy.y"
+  case 55: /* pp_expr: tSLONG  */
+#line 377 "libs/wpp/ppy.y"
                                         { (yyval.cval).type = cv_slong; (yyval.cval).val.sl = (yyvsp[0].slong); }
-#line 1890 "ppy.tab.c"
+#line 1878 "libs/wpp/ppy.tab.c"
     break;
 
-  case 56:
-#line 378 "ppy.y"
+  case 56: /* pp_expr: tULONG  */
+#line 378 "libs/wpp/ppy.y"
                                         { (yyval.cval).type = cv_ulong; (yyval.cval).val.ul = (yyvsp[0].ulong); }
-#line 1896 "ppy.tab.c"
+#line 1884 "libs/wpp/ppy.tab.c"
     break;
 
-  case 57:
-#line 379 "ppy.y"
+  case 57: /* pp_expr: tSLONGLONG  */
+#line 379 "libs/wpp/ppy.y"
                                         { (yyval.cval).type = cv_sll;   (yyval.cval).val.sll = (yyvsp[0].sll); }
-#line 1902 "ppy.tab.c"
+#line 1890 "libs/wpp/ppy.tab.c"
     break;
 
-  case 58:
-#line 380 "ppy.y"
+  case 58: /* pp_expr: tULONGLONG  */
+#line 380 "libs/wpp/ppy.y"
                                         { (yyval.cval).type = cv_ull;   (yyval.cval).val.ull = (yyvsp[0].ull); }
-#line 1908 "ppy.tab.c"
+#line 1896 "libs/wpp/ppy.tab.c"
     break;
 
-  case 59:
-#line 381 "ppy.y"
+  case 59: /* pp_expr: tDEFINED tIDENT  */
+#line 381 "libs/wpp/ppy.y"
                                         { (yyval.cval).type = cv_sint;  (yyval.cval).val.si = pplookup((yyvsp[0].cptr)) != NULL; }
-#line 1914 "ppy.tab.c"
+#line 1902 "libs/wpp/ppy.tab.c"
     break;
 
-  case 60:
-#line 382 "ppy.y"
+  case 60: /* pp_expr: tDEFINED '(' tIDENT ')'  */
+#line 382 "libs/wpp/ppy.y"
                                         { (yyval.cval).type = cv_sint;  (yyval.cval).val.si = pplookup((yyvsp[-1].cptr)) != NULL; }
-#line 1920 "ppy.tab.c"
+#line 1908 "libs/wpp/ppy.tab.c"
     break;
 
-  case 61:
-#line 383 "ppy.y"
+  case 61: /* pp_expr: tIDENT  */
+#line 383 "libs/wpp/ppy.y"
                                         { (yyval.cval).type = cv_sint;  (yyval.cval).val.si = 0; }
-#line 1926 "ppy.tab.c"
+#line 1914 "libs/wpp/ppy.tab.c"
     break;
 
-  case 62:
-#line 384 "ppy.y"
+  case 62: /* pp_expr: pp_expr tLOGOR pp_expr  */
+#line 384 "libs/wpp/ppy.y"
                                         { (yyval.cval).type = cv_sint; (yyval.cval).val.si = boolean(&(yyvsp[-2].cval)) || boolean(&(yyvsp[0].cval)); }
-#line 1932 "ppy.tab.c"
+#line 1920 "libs/wpp/ppy.tab.c"
     break;
 
-  case 63:
-#line 385 "ppy.y"
+  case 63: /* pp_expr: pp_expr tLOGAND pp_expr  */
+#line 385 "libs/wpp/ppy.y"
                                         { (yyval.cval).type = cv_sint; (yyval.cval).val.si = boolean(&(yyvsp[-2].cval)) && boolean(&(yyvsp[0].cval)); }
-#line 1938 "ppy.tab.c"
+#line 1926 "libs/wpp/ppy.tab.c"
     break;
 
-  case 64:
-#line 386 "ppy.y"
+  case 64: /* pp_expr: pp_expr tEQ pp_expr  */
+#line 386 "libs/wpp/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval), ==); }
-#line 1944 "ppy.tab.c"
+#line 1932 "libs/wpp/ppy.tab.c"
     break;
 
-  case 65:
-#line 387 "ppy.y"
+  case 65: /* pp_expr: pp_expr tNE pp_expr  */
+#line 387 "libs/wpp/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval), !=); }
-#line 1950 "ppy.tab.c"
+#line 1938 "libs/wpp/ppy.tab.c"
     break;
 
-  case 66:
-#line 388 "ppy.y"
+  case 66: /* pp_expr: pp_expr '<' pp_expr  */
+#line 388 "libs/wpp/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval),  <); }
-#line 1956 "ppy.tab.c"
+#line 1944 "libs/wpp/ppy.tab.c"
     break;
 
-  case 67:
-#line 389 "ppy.y"
+  case 67: /* pp_expr: pp_expr '>' pp_expr  */
+#line 389 "libs/wpp/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval),  >); }
-#line 1962 "ppy.tab.c"
+#line 1950 "libs/wpp/ppy.tab.c"
     break;
 
-  case 68:
-#line 390 "ppy.y"
+  case 68: /* pp_expr: pp_expr tLTE pp_expr  */
+#line 390 "libs/wpp/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval), <=); }
-#line 1968 "ppy.tab.c"
+#line 1956 "libs/wpp/ppy.tab.c"
     break;
 
-  case 69:
-#line 391 "ppy.y"
+  case 69: /* pp_expr: pp_expr tGTE pp_expr  */
+#line 391 "libs/wpp/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval), >=); }
-#line 1974 "ppy.tab.c"
+#line 1962 "libs/wpp/ppy.tab.c"
     break;
 
-  case 70:
-#line 392 "ppy.y"
+  case 70: /* pp_expr: pp_expr '+' pp_expr  */
+#line 392 "libs/wpp/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval),  +); }
-#line 1980 "ppy.tab.c"
+#line 1968 "libs/wpp/ppy.tab.c"
     break;
 
-  case 71:
-#line 393 "ppy.y"
+  case 71: /* pp_expr: pp_expr '-' pp_expr  */
+#line 393 "libs/wpp/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval),  -); }
-#line 1986 "ppy.tab.c"
+#line 1974 "libs/wpp/ppy.tab.c"
     break;
 
-  case 72:
-#line 394 "ppy.y"
+  case 72: /* pp_expr: pp_expr '^' pp_expr  */
+#line 394 "libs/wpp/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval),  ^); }
-#line 1992 "ppy.tab.c"
+#line 1980 "libs/wpp/ppy.tab.c"
     break;
 
-  case 73:
-#line 395 "ppy.y"
+  case 73: /* pp_expr: pp_expr '&' pp_expr  */
+#line 395 "libs/wpp/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval),  &); }
-#line 1998 "ppy.tab.c"
+#line 1986 "libs/wpp/ppy.tab.c"
     break;
 
-  case 74:
-#line 396 "ppy.y"
+  case 74: /* pp_expr: pp_expr '|' pp_expr  */
+#line 396 "libs/wpp/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval),  |); }
-#line 2004 "ppy.tab.c"
+#line 1992 "libs/wpp/ppy.tab.c"
     break;
 
-  case 75:
-#line 397 "ppy.y"
+  case 75: /* pp_expr: pp_expr '*' pp_expr  */
+#line 397 "libs/wpp/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval),  *); }
-#line 2010 "ppy.tab.c"
+#line 1998 "libs/wpp/ppy.tab.c"
     break;
 
-  case 76:
-#line 398 "ppy.y"
+  case 76: /* pp_expr: pp_expr '/' pp_expr  */
+#line 398 "libs/wpp/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval),  /); }
-#line 2016 "ppy.tab.c"
+#line 2004 "libs/wpp/ppy.tab.c"
     break;
 
-  case 77:
-#line 399 "ppy.y"
+  case 77: /* pp_expr: pp_expr tLSHIFT pp_expr  */
+#line 399 "libs/wpp/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval), <<); }
-#line 2022 "ppy.tab.c"
+#line 2010 "libs/wpp/ppy.tab.c"
     break;
 
-  case 78:
-#line 400 "ppy.y"
+  case 78: /* pp_expr: pp_expr tRSHIFT pp_expr  */
+#line 400 "libs/wpp/ppy.y"
                                         { promote_equal_size(&(yyvsp[-2].cval), &(yyvsp[0].cval)); BIN_OP((yyval.cval), (yyvsp[-2].cval), (yyvsp[0].cval), >>); }
-#line 2028 "ppy.tab.c"
+#line 2016 "libs/wpp/ppy.tab.c"
     break;
 
-  case 79:
-#line 401 "ppy.y"
+  case 79: /* pp_expr: '+' pp_expr  */
+#line 401 "libs/wpp/ppy.y"
                                         { (yyval.cval) =  (yyvsp[0].cval); }
-#line 2034 "ppy.tab.c"
+#line 2022 "libs/wpp/ppy.tab.c"
     break;
 
-  case 80:
-#line 402 "ppy.y"
+  case 80: /* pp_expr: '-' pp_expr  */
+#line 402 "libs/wpp/ppy.y"
                                         { UNARY_OP((yyval.cval), (yyvsp[0].cval), -); }
-#line 2040 "ppy.tab.c"
+#line 2028 "libs/wpp/ppy.tab.c"
     break;
 
-  case 81:
-#line 403 "ppy.y"
+  case 81: /* pp_expr: '~' pp_expr  */
+#line 403 "libs/wpp/ppy.y"
                                         { UNARY_OP((yyval.cval), (yyvsp[0].cval), ~); }
-#line 2046 "ppy.tab.c"
+#line 2034 "libs/wpp/ppy.tab.c"
     break;
 
-  case 82:
-#line 404 "ppy.y"
+  case 82: /* pp_expr: '!' pp_expr  */
+#line 404 "libs/wpp/ppy.y"
                                         { (yyval.cval).type = cv_sint; (yyval.cval).val.si = !boolean(&(yyvsp[0].cval)); }
-#line 2052 "ppy.tab.c"
+#line 2040 "libs/wpp/ppy.tab.c"
     break;
 
-  case 83:
-#line 405 "ppy.y"
+  case 83: /* pp_expr: '(' pp_expr ')'  */
+#line 405 "libs/wpp/ppy.y"
                                         { (yyval.cval) =  (yyvsp[-1].cval); }
-#line 2058 "ppy.tab.c"
+#line 2046 "libs/wpp/ppy.tab.c"
     break;
 
-  case 84:
-#line 406 "ppy.y"
+  case 84: /* pp_expr: pp_expr '?' pp_expr ':' pp_expr  */
+#line 406 "libs/wpp/ppy.y"
                                           { (yyval.cval) = boolean(&(yyvsp[-4].cval)) ? (yyvsp[-2].cval) : (yyvsp[0].cval); }
-#line 2064 "ppy.tab.c"
+#line 2052 "libs/wpp/ppy.tab.c"
     break;
 
 
-#line 2068 "ppy.tab.c"
+#line 2056 "libs/wpp/ppy.tab.c"
 
       default: break;
     }
@@ -2224,13 +2212,13 @@ yyabortlab:
 yyexhaustedlab:
   yyerror (YY_("memory exhausted"));
   yyresult = 2;
-  /* Fall through.  */
+  goto yyreturn;
 #endif
 
 
-/*-----------------------------------------------------.
-| yyreturn -- parsing is finished, return the result.  |
-`-----------------------------------------------------*/
+/*-------------------------------------------------------.
+| yyreturn -- parsing is finished, clean up and return.  |
+`-------------------------------------------------------*/
 yyreturn:
   if (yychar != YYEMPTY)
     {
@@ -2258,7 +2246,7 @@ yyreturn:
   return yyresult;
 }
 
-#line 409 "ppy.y"
+#line 409 "libs/wpp/ppy.y"
 
 
 /*

@@ -35,8 +35,8 @@
    especially those whose name start with YY_ or yy_.  They are
    private implementation details that can be changed or removed.  */
 
-#ifndef YY_PARSER_PARSER_TAB_H_INCLUDED
-# define YY_PARSER_PARSER_TAB_H_INCLUDED
+#ifndef YY_PARSER_TOOLS_WIDL_PARSER_TAB_H_INCLUDED
+# define YY_PARSER_TOOLS_WIDL_PARSER_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -249,7 +249,7 @@ extern int parser_debug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 132 "parser.y"
+#line 133 "tools/widl/parser.y"
 
 	attr_t *attr;
 	attr_list_t *attr_list;
@@ -278,7 +278,7 @@ union YYSTYPE
 	enum type_qualifier type_qualifier;
 	enum function_specifier function_specifier;
 
-#line 282 "parser.tab.h"
+#line 282 "tools/widl/parser.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -291,4 +291,4 @@ extern YYSTYPE parser_lval;
 
 int parser_parse (void);
 
-#endif /* !YY_PARSER_PARSER_TAB_H_INCLUDED  */
+#endif /* !YY_PARSER_TOOLS_WIDL_PARSER_TAB_H_INCLUDED  */
