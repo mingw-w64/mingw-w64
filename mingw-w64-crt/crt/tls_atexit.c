@@ -124,12 +124,12 @@ static void WINAPI tls_callback(HANDLE hDllHandle, DWORD dwReason, LPVOID __UNUS
      * main, or when a DLL is unloaded), and when exiting bypassing some of
      * the cleanup, by calling _exit or ExitProcess. In the latter cases,
      * destructors (both TLS and global) in loaded DLLs still get called,
-     * but only TLS destructors get called for the main executable, global
-     * variables' destructors don't run. (This matches what MSVC does with
-     * a dynamically linked CRT.)
+     * but none get called for the main executable. This matches what the
+     * standard says, but differs from what MSVC does with a dynamically
+     * linked CRT (which still runs TLS destructors for the main thread).
      */
-    run_dtor_list(&tls_dtors);
     if (__mingw_module_is_dll) {
+      run_dtor_list(&tls_dtors);
       /* For DLLs, run dtors when detached. For EXEs, run dtors via the
        * thread local atexit callback, to make sure they don't run when
        * exiting the process with _exit or ExitProcess. */
