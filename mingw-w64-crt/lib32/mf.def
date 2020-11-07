@@ -48,6 +48,7 @@ MFCreatePresentationDescriptorFromASFProfile@8
 MFCreateProxyLocator@12
 MFCreateRemoteDesktopPlugin@4
 MFCreateSAMIByteStreamPlugin@8
+MFCreateSampleCopierMFT@4
 MFCreateSampleGrabberSinkActivate@12
 MFCreateSecureHttpSchemePlugin@8
 MFCreateSequencerSegmentOffset@16
