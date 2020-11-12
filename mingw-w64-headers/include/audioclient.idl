@@ -70,7 +70,7 @@ typedef enum AUDCLNT_STREAMOPTIONS {
 cpp_quote("")
 typedef struct AudioClientProperties {
   UINT32 cbSize;
-  BOOL bIsOffload;
+  WINBOOL bIsOffload;
   AUDIO_STREAM_CATEGORY eCategory;
   AUDCLNT_STREAMOPTIONS Options;
 } AudioClientProperties;
@@ -95,9 +95,9 @@ interface IAudioClient : IUnknown {
 cpp_quote("")
 [object, local, uuid (726778cd-F60A-4eda-82de-E47610CD78AA), pointer_default (unique)]
 interface IAudioClient2 : IAudioClient {
-  HRESULT IsOffloadCapable ([in] AUDIO_STREAM_CATEGORY Category,[in] BOOL *pbOffloadCapable);
+  HRESULT IsOffloadCapable ([in] AUDIO_STREAM_CATEGORY Category,[in] WINBOOL *pbOffloadCapable);
   HRESULT SetClientProperties ([in] const AudioClientProperties *pProperties);
-  HRESULT GetBufferSizeLimits ([in] const WAVEFORMATEX *pFormat,[in] BOOL bEventDriven,[in] REFERENCE_TIME *phnsMinBufferDuration,[in] REFERENCE_TIME *phnsMaxBufferDuration);
+  HRESULT GetBufferSizeLimits ([in] const WAVEFORMATEX *pFormat,[in] WINBOOL bEventDriven,[in] REFERENCE_TIME *phnsMinBufferDuration,[in] REFERENCE_TIME *phnsMaxBufferDuration);
 }
 
 cpp_quote("")
@@ -147,8 +147,8 @@ cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
 interface ISimpleAudioVolume : IUnknown {
   HRESULT SetMasterVolume ([in] float fLevel,[in, unique] LPCGUID EventContext);
   HRESULT GetMasterVolume ([out] float *pfLevel);
-  HRESULT SetMute ([in] const BOOL bMute,[in, unique] LPCGUID EventContext);
-  HRESULT GetMute ([out] BOOL *pbMute);
+  HRESULT SetMute ([in] const WINBOOL bMute,[in, unique] LPCGUID EventContext);
+  HRESULT GetMute ([out] WINBOOL *pbMute);
 }
 cpp_quote("#endif")
 cpp_quote("")
