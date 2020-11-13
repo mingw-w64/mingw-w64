@@ -148,6 +148,7 @@ for f in \
 	dcommon \
 	ddstream \
 	devicetopology \
+	directmanipulation \
 	downloadmgr \
 	drmexternals \
 	dvdif \

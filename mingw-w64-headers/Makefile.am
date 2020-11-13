@@ -104,6 +104,7 @@ IDL_SRCS = \
   include/ddstream.idl \
   include/dinputd.idl \
   include/dimm.idl \
+  include/directmanipulation.idl \
   include/dispex.idl \
   include/dmodshow.idl \
   include/docobj.idl \
