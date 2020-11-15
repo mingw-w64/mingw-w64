@@ -1348,7 +1348,7 @@ IDirectXVideoProcessor : public IUnknown
         const DXVA2_VideoProcessBltParams *pBltParams,
         const DXVA2_VideoSample *pSamples,
         UINT NumSamples,
-        HANDLE *pHandleCompleteIDirect3DDeviceManager9) = 0;
+        HANDLE *pHandleComplete) = 0;
 
 };
 #ifdef __CRT_UUID_DECL
@@ -1402,7 +1402,7 @@ typedef struct IDirectXVideoProcessorVtbl {
         const DXVA2_VideoProcessBltParams *pBltParams,
         const DXVA2_VideoSample *pSamples,
         UINT NumSamples,
-        HANDLE *pHandleCompleteIDirect3DDeviceManager9);
+        HANDLE *pHandleComplete);
 
     END_INTERFACE
 } IDirectXVideoProcessorVtbl;
@@ -1423,7 +1423,7 @@ interface IDirectXVideoProcessor {
 #define IDirectXVideoProcessor_GetVideoProcessorCaps(This,pCaps) (This)->lpVtbl->GetVideoProcessorCaps(This,pCaps)
 #define IDirectXVideoProcessor_GetProcAmpRange(This,ProcAmpCap,pRange) (This)->lpVtbl->GetProcAmpRange(This,ProcAmpCap,pRange)
 #define IDirectXVideoProcessor_GetFilterPropertyRange(This,FilterSetting,pRange) (This)->lpVtbl->GetFilterPropertyRange(This,FilterSetting,pRange)
-#define IDirectXVideoProcessor_VideoProcessBlt(This,pRenderTarget,pBltParams,pSamples,NumSamples,pHandleCompleteIDirect3DDeviceManager9) (This)->lpVtbl->VideoProcessBlt(This,pRenderTarget,pBltParams,pSamples,NumSamples,pHandleCompleteIDirect3DDeviceManager9)
+#define IDirectXVideoProcessor_VideoProcessBlt(This,pRenderTarget,pBltParams,pSamples,NumSamples,pHandleComplete) (This)->lpVtbl->VideoProcessBlt(This,pRenderTarget,pBltParams,pSamples,NumSamples,pHandleComplete)
 #else
 /*** IUnknown methods ***/
 static FORCEINLINE HRESULT IDirectXVideoProcessor_QueryInterface(IDirectXVideoProcessor* This,REFIID riid,void **ppvObject) {
@@ -1451,8 +1451,8 @@ static FORCEINLINE HRESULT IDirectXVideoProcessor_GetProcAmpRange(IDirectXVideoP
 static FORCEINLINE HRESULT IDirectXVideoProcessor_GetFilterPropertyRange(IDirectXVideoProcessor* This,UINT FilterSetting,DXVA2_ValueRange *pRange) {
     return This->lpVtbl->GetFilterPropertyRange(This,FilterSetting,pRange);
 }
-static FORCEINLINE HRESULT IDirectXVideoProcessor_VideoProcessBlt(IDirectXVideoProcessor* This,IDirect3DSurface9 *pRenderTarget,const DXVA2_VideoProcessBltParams *pBltParams,const DXVA2_VideoSample *pSamples,UINT NumSamples,HANDLE *pHandleCompleteIDirect3DDeviceManager9) {
-    return This->lpVtbl->VideoProcessBlt(This,pRenderTarget,pBltParams,pSamples,NumSamples,pHandleCompleteIDirect3DDeviceManager9);
+static FORCEINLINE HRESULT IDirectXVideoProcessor_VideoProcessBlt(IDirectXVideoProcessor* This,IDirect3DSurface9 *pRenderTarget,const DXVA2_VideoProcessBltParams *pBltParams,const DXVA2_VideoSample *pSamples,UINT NumSamples,HANDLE *pHandleComplete) {
+    return This->lpVtbl->VideoProcessBlt(This,pRenderTarget,pBltParams,pSamples,NumSamples,pHandleComplete);
 }
 #endif
 #endif
