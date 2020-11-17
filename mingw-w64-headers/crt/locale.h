@@ -86,6 +86,8 @@ extern "C" {
   _locale_t __cdecl __create_locale(int _Category,const char *_Locale);
   void __cdecl __free_locale(_locale_t _Locale);
 
+  _CRTIMP unsigned int __cdecl ___lc_codepage_func(void);
+
 #ifndef _WLOCALE_DEFINED
 #define _WLOCALE_DEFINED
   _CRTIMP wchar_t *__cdecl _wsetlocale(int _Category,const wchar_t *_Locale);
