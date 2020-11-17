@@ -287,6 +287,7 @@ src_msvcrtarm32=\
   misc/__p__fmode.c \
   misc/__p__wcmdln.c \
   misc/_getpid.c \
+  misc/initenv.c \
   stdio/_setmaxstdio.c \
   stdio/gets.c
 
@@ -382,6 +383,7 @@ src_msvcrtarm64=\
   misc/__p__fmode.c \
   misc/__p__wcmdln.c \
   misc/_getpid.c \
+  misc/initenv.c \
   stdio/_setmaxstdio.c \
   stdio/gets.c
 
