@@ -532,15 +532,9 @@ float __cdecl __MINGW_NOTHROW strtof(const char * __restrict__ _Str,char ** __re
   void *__cdecl realloc(void *_Memory,size_t _NewSize);
   _CRTIMP void *__cdecl _recalloc(void *_Memory,size_t _Count,size_t _Size);
 /* Make sure that X86intrin.h doesn't produce here collisions.  */
-#if (!defined (_XMMINTRIN_H_INCLUDED) && !defined (_MM_MALLOC_H_INCLUDED)) || defined(_aligned_malloc)
-#pragma push_macro("_aligned_free")
-#pragma push_macro("_aligned_malloc")
-#undef _aligned_free
-#undef _aligned_malloc
+#if (!defined (_XMMINTRIN_H_INCLUDED) && !defined (_MM_MALLOC_H_INCLUDED))
   _CRTIMP void __cdecl _aligned_free(void *_Memory);
   _CRTIMP void *__cdecl _aligned_malloc(size_t _Size,size_t _Alignment);
-#pragma pop_macro("_aligned_free")
-#pragma pop_macro("_aligned_malloc")
 #endif
   _CRTIMP void *__cdecl _aligned_offset_malloc(size_t _Size,size_t _Alignment,size_t _Offset);
   _CRTIMP void *__cdecl _aligned_realloc(void *_Memory,size_t _Size,size_t _Alignment);
