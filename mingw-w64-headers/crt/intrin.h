@@ -60,7 +60,6 @@
   extern unsigned int __builtin_ia32_crc32hi (unsigned int, unsigned short);
   extern unsigned int __builtin_ia32_crc32si (unsigned int, unsigned int);
 #ifndef _MM_MALLOC_H_INCLUDED
-#define _MM_MALLOC_H_INCLUDED
 #include <stdlib.h>
 #include <errno.h>
 /* Make sure _mm_malloc and _mm_free are defined.  */
