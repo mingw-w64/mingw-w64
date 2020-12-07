@@ -21,7 +21,7 @@ do
 	fi
 done
 
-for f in ppl.l ppl.yy.c ppy.tab.c ppy.tab.h ppy.y preproc.c wpp.c wpp_private.h
+for f in ppl.l ppl.yy.c ppy.tab.c ppy.tab.h ppy.y wpp.c wpp_private.h
 do
 	if [ ! -f $WINE_DIR/libs/wpp/$f ] && [ -f $WINE_BUILD_DIR/libs/wpp/$f ]; then
 		cp $WINE_BUILD_DIR/libs/wpp/$f src/wpp

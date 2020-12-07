@@ -210,7 +210,7 @@ ul	[uUlL]|[uUlL][lL]|[lL][uU]|[lL][lL][uU]|[uU][lL][lL]|[lL][uU][lL]
 
 typedef struct bufferstackentry {
 	YY_BUFFER_STATE	bufferstate;	/* Buffer to switch back to */
-	void		*filehandle;    /* Handle to be used with wpp_callbacks->read */
+	FILE		*file;          /* File handle */
 	pp_entry_t	*define;	/* Points to expanding define or NULL if handling includes */
 	int		line_number;	/* Line that we were handling */
 	int		char_number;	/* The current position on that line */
@@ -302,7 +302,7 @@ include_state_t pp_incl_state =
     0      /* seen_junk */
 };
 
-includelogicentry_t *pp_includelogiclist = NULL;
+struct list pp_includelogiclist = LIST_INIT( pp_includelogiclist );
 
 #define YY_INPUT(buf,result,max_size)					     \
 	{								     \
@@ -322,8 +322,6 @@ void pp_writestring(const char *format, ...)
 	if(buffercapacity == 0)
 	{
 		buffer = pp_xmalloc(BUFFERINITIALCAPACITY);
-		if(buffer == NULL)
-			return;
 		buffercapacity = BUFFERINITIALCAPACITY;
 	}
 
@@ -498,7 +496,7 @@ void pp_writestring(const char *format, ...)
 	/*
 	 * Handle left side of #define
 	 */
-<pp_def>{cident}\(		ppy_lval.cptr = pp_xstrdup(ppy_text); if(ppy_lval.cptr) ppy_lval.cptr[ppy_leng-1] = '\0'; yy_pp_state(pp_macro);  return tMACRO;
+<pp_def>{cident}\(		ppy_lval.cptr = pp_xstrdup(ppy_text); ppy_lval.cptr[ppy_leng-1] = '\0'; yy_pp_state(pp_macro);  return tMACRO;
 <pp_def>{cident}		ppy_lval.cptr = pp_xstrdup(ppy_text); yy_pp_state(pp_define); return tDEFINE;
 <pp_def>{ws}+			;
 <pp_def>\\\r?\n			newline(0);
@@ -851,10 +849,6 @@ static void newline(int dowrite)
  *
  * FIXME:
  * The sizes of resulting 'int' and 'long' are compiler specific.
- * I depend on sizeof(int) > 2 here (although a relatively safe
- * assumption).
- * Long longs are not yet implemented because this is very compiler
- * specific and I don't want to think too much about the problems.
  *
  *-------------------------------------------------------------------------
  */
@@ -1225,10 +1219,6 @@ static void expand_macro(macexpstackentry_t *mep)
  */
 static void new_string(void)
 {
-#ifdef DEBUG
-	if(strbuf_idx)
-		ppy_warning("new_string: strbuf_idx != 0");
-#endif
 	strbuf_idx = 0;
 	str_startline = pp_status.line_number;
 }
@@ -1258,22 +1248,15 @@ static void add_string(const char *str, int len)
 static char *get_string(void)
 {
 	char *str = pp_xmalloc(strbuf_idx + 1);
-	if(!str)
-		return NULL;
+
 	memcpy(str, strbuffer, strbuf_idx);
 	str[strbuf_idx] = '\0';
-#ifdef DEBUG
-	strbuf_idx = 0;
-#endif
 	return str;
 }
 
 static void put_string(void)
 {
 	put_buffer(strbuffer, strbuf_idx);
-#ifdef DEBUG
-	strbuf_idx = 0;
-#endif
 }
 
 static int string_start(void)
@@ -1296,7 +1279,7 @@ static void push_buffer(pp_entry_t *ppp, char *filename, char *incname, int pop)
 
 	memset(&bufferstack[bufferstackidx], 0, sizeof(bufferstack[0]));
 	bufferstack[bufferstackidx].bufferstate	= YY_CURRENT_BUFFER;
-	bufferstack[bufferstackidx].filehandle  = pp_status.file;
+	bufferstack[bufferstackidx].file        = pp_status.file;
 	bufferstack[bufferstackidx].define	= ppp;
 	bufferstack[bufferstackidx].line_number	= pp_status.line_number;
 	bufferstack[bufferstackidx].char_number	= pp_status.char_number;
@@ -1350,20 +1333,13 @@ static bufferstackentry_t *pop_buffer(void)
 				if(ppp)
 				{
 					iep = pp_xmalloc(sizeof(includelogicentry_t));
-					if (iep)
-					{
-						iep->ppp = ppp;
-						ppp->iep = iep;
-						iep->filename = bufferstack[bufferstackidx].include_filename;
-						iep->prev = NULL;
-						iep->next = pp_includelogiclist;
-						if(iep->next)
-							iep->next->prev = iep;
-						pp_includelogiclist = iep;
-						if(pp_status.debug)
-							fprintf(stderr, "pop_buffer: %s:%d: includelogic added, include_ppp='%s', file='%s'\n",
-                                                                bufferstack[bufferstackidx].filename, bufferstack[bufferstackidx].line_number, pp_incl_state.ppp, iep->filename);
-					}
+					iep->ppp = ppp;
+					ppp->iep = iep;
+					iep->filename = bufferstack[bufferstackidx].include_filename;
+                                        list_add_head( &pp_includelogiclist, &iep->entry );
+					if(pp_status.debug)
+						fprintf(stderr, "pop_buffer: %s:%d: includelogic added, include_ppp='%s', file='%s'\n",
+                                                        bufferstack[bufferstackidx].filename, bufferstack[bufferstackidx].line_number, pp_incl_state.ppp, iep->filename);
 				}
 			}
 			free(pp_incl_state.ppp);
@@ -1393,7 +1369,7 @@ static bufferstackentry_t *pop_buffer(void)
 			bufferstack[bufferstackidx].filename,
 			bufferstack[bufferstackidx].should_pop);
 
-	pp_status.file = bufferstack[bufferstackidx].filehandle;
+	pp_status.file = bufferstack[bufferstackidx].file;
 	ppy__switch_to_buffer(bufferstack[bufferstackidx].bufferstate);
 
 	if(bufferstack[bufferstackidx].should_pop)
@@ -1423,8 +1399,6 @@ static void push_macro(pp_entry_t *ppp)
 	}
 
 	macexpstack[macexpstackidx] = pp_xmalloc(sizeof(macexpstack[0][0]));
-	if(!macexpstack[macexpstackidx])
-		return;
         memset( macexpstack[macexpstackidx], 0, sizeof(macexpstack[0][0]));
 	macexpstack[macexpstackidx]->ppp = ppp;
 	macexpstackidx++;
@@ -1479,30 +1453,15 @@ static void macro_add_arg(int last)
 {
 	int nnl = 0;
 	char *cptr;
-	char **new_args, **new_ppargs;
-	int *new_nnls;
 	macexpstackentry_t *mep = top_macro();
 
 	assert(mep->ppp->expanding == 0);
 
-	new_args = pp_xrealloc(mep->args, (mep->nargs+1) * sizeof(mep->args[0]));
-	if(!new_args)
-		return;
-	mep->args = new_args;
-
-	new_ppargs = pp_xrealloc(mep->ppargs, (mep->nargs+1) * sizeof(mep->ppargs[0]));
-	if(!new_ppargs)
-		return;
-	mep->ppargs = new_ppargs;
-
-	new_nnls = pp_xrealloc(mep->nnls, (mep->nargs+1) * sizeof(mep->nnls[0]));
-	if(!new_nnls)
-		return;
-	mep->nnls = new_nnls;
+	mep->args = pp_xrealloc(mep->args, (mep->nargs+1) * sizeof(mep->args[0]));
+	mep->ppargs = pp_xrealloc(mep->ppargs, (mep->nargs+1) * sizeof(mep->ppargs[0]));
+	mep->nnls = pp_xrealloc(mep->nnls, (mep->nargs+1) * sizeof(mep->nnls[0]));
 
 	mep->args[mep->nargs] = pp_xstrdup(mep->curarg ? mep->curarg : "");
-	if(!mep->args[mep->nargs])
-		return;
 	cptr = mep->args[mep->nargs]-1;
 	while((cptr = strchr(cptr+1, '\n')))
 	{
@@ -1580,7 +1539,7 @@ void pp_do_include(char *fname, int type)
 	if(!fname)
 		return;
 
-	for(iep = pp_includelogiclist; iep; iep = iep->next)
+	LIST_FOR_EACH_ENTRY( iep, &pp_includelogiclist, includelogicentry_t, entry )
 	{
 		if(!strcmp(iep->filename, fname))
 		{

@@ -33,7 +33,6 @@ widl_SOURCES = src/widl.h \
   src/wpp/ppy.tab.h \
   src/wpp/ppl.yy.c \
   src/wpp/ppy.tab.c \
-  src/wpp/preproc.c \
   src/wpp/wpp.c \
   src/pathtools.c \
   include/pshpack1.h \

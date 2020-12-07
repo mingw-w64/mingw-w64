@@ -374,6 +374,10 @@ enum typegen_type typegen_detect_type(const type_t *type, const attr_list_t *att
     case TYPE_ALIAS:
     case TYPE_BITFIELD:
         break;
+    case TYPE_APICONTRACT:
+        /* not supposed to be here */
+        assert(0);
+        break;
     }
     return TGT_INVALID;
 }
@@ -1966,6 +1970,7 @@ unsigned int type_memsize_and_alignment(const type_t *t, unsigned int *align)
     case TYPE_MODULE:
     case TYPE_FUNCTION:
     case TYPE_BITFIELD:
+    case TYPE_APICONTRACT:
         /* these types should not be encountered here due to language
          * restrictions (interface, void, coclass, module), logical
          * restrictions (alias - due to type_get_type call above) or
@@ -2067,6 +2072,7 @@ static unsigned int type_buffer_alignment(const type_t *t)
     case TYPE_MODULE:
     case TYPE_FUNCTION:
     case TYPE_BITFIELD:
+    case TYPE_APICONTRACT:
         /* these types should not be encountered here due to language
          * restrictions (interface, void, coclass, module), logical
          * restrictions (alias - due to type_get_type call above) or
@@ -2153,6 +2159,9 @@ static unsigned int write_nonsimple_pointer(FILE *file, const attr_list_t *attrs
         type_t *ref = type_pointer_get_ref_type(type);
         if(is_declptr(ref) && !is_user_type(ref))
             flags |= FC_POINTER_DEREF;
+        if (pointer_type != FC_RP) {
+            flags |= get_attrv(type->attrs, ATTR_ALLOCATE);
+        }
     }
 
     print_file(file, 2, "0x%x, 0x%x,\t\t/* %s",
@@ -2165,6 +2174,10 @@ static unsigned int write_nonsimple_pointer(FILE *file, const attr_list_t *attrs
             fprintf(file, " [allocated_on_stack]");
         if (flags & FC_POINTER_DEREF)
             fprintf(file, " [pointer_deref]");
+        if (flags & FC_DONT_FREE)
+            fprintf(file, " [dont_free]");
+        if (flags & FC_ALLOCATE_ALL_NODES)
+            fprintf(file, " [all_nodes]");
         fprintf(file, " */\n");
     }
 

@@ -31,6 +31,10 @@
 # endif /* STRICT */
 #endif /* NO_STRICT */
 
+#ifndef __has_attribute
+#define __has_attribute(x) 0
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -50,7 +54,8 @@ extern "C" {
 # endif
 #endif
 
-#if !defined(_MSC_VER) && !defined(__stdcall)
+#ifndef _MSC_VER
+# undef __stdcall
 # ifdef __i386__
 #  ifdef __GNUC__
 #   if (__GNUC__ > 4) || ((__GNUC__ == 4) && (__GNUC_MINOR__ >= 2)) || defined(__APPLE__)
@@ -62,7 +67,7 @@ extern "C" {
 #   error You need to define __stdcall for your compiler
 #  endif
 # elif defined(__x86_64__) && defined (__GNUC__)
-#  if (__GNUC__ > 5) || ((__GNUC__ == 5) && (__GNUC_MINOR__ >= 3))
+#  if __has_attribute(__force_align_arg_pointer__)
 #   define __stdcall __attribute__((ms_abi)) __attribute__((__force_align_arg_pointer__))
 #  else
 #   define __stdcall __attribute__((ms_abi))
@@ -76,27 +81,18 @@ extern "C" {
 # endif  /* __i386__ */
 #endif /* __stdcall */
 
-#if !defined(_MSC_VER) && !defined(__cdecl)
+#ifndef _MSC_VER
+# undef __cdecl
 # if defined(__i386__) && defined(__GNUC__)
-#   if (__GNUC__ > 4) || ((__GNUC__ == 4) && (__GNUC_MINOR__ >= 2)) || defined(__APPLE__)
+#  if (__GNUC__ > 4) || ((__GNUC__ == 4) && (__GNUC_MINOR__ >= 2)) || defined(__APPLE__)
 #   define __cdecl __attribute__((__cdecl__)) __attribute__((__force_align_arg_pointer__))
 #  else
 #   define __cdecl __attribute__((__cdecl__))
 #  endif
-# elif defined(__x86_64__) && defined (__GNUC__)
-#  if (__GNUC__ > 5) || ((__GNUC__ == 5) && (__GNUC_MINOR__ >= 3))
-#   define __cdecl __attribute__((ms_abi)) __attribute__((__force_align_arg_pointer__))
-#  else
-#   define __cdecl __attribute__((ms_abi))
-#  endif
-# elif defined(__arm__) && defined (__GNUC__) && !defined(__SOFTFP__)
-#   define __cdecl __attribute__((pcs("aapcs-vfp")))
-# elif defined(__aarch64__) && defined (__GNUC__)
-#  define __cdecl __attribute__((ms_abi))
 # else
-#  define __cdecl
+#  define __cdecl __stdcall
 # endif
-#endif /* __cdecl */
+#endif
 
 #if !defined(_MSC_VER) && !defined(__fastcall)
 # define __fastcall __stdcall

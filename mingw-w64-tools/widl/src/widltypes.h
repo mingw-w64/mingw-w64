@@ -37,6 +37,7 @@ typedef GUID UUID;
 
 typedef struct _loc_info_t loc_info_t;
 typedef struct _attr_t attr_t;
+typedef struct _attr_custdata_t attr_custdata_t;
 typedef struct _expr_t expr_t;
 typedef struct _type_t type_t;
 typedef struct _var_t var_t;
@@ -69,6 +70,7 @@ typedef struct list warning_list_t;
 enum attr_type
 {
     ATTR_AGGREGATABLE,
+    ATTR_ALLOCATE,
     ATTR_ANNOTATION,
     ATTR_APPOBJECT,
     ATTR_ASYNC,
@@ -82,7 +84,10 @@ enum attr_type
     ATTR_CODE,
     ATTR_COMMSTATUS,
     ATTR_CONTEXTHANDLE,
+    ATTR_CONTRACT,
+    ATTR_CONTRACTVERSION,
     ATTR_CONTROL,
+    ATTR_CUSTOM,
     ATTR_DECODE,
     ATTR_DEFAULT,
     ATTR_DEFAULTBIND,
@@ -337,6 +342,11 @@ struct _expr_t {
   struct list entry;
 };
 
+struct _attr_custdata_t {
+  GUID id;
+  expr_t *pval;
+};
+
 struct struct_details
 {
   var_list_t *fields;
@@ -431,6 +441,7 @@ enum type_type
     TYPE_POINTER,
     TYPE_ARRAY,
     TYPE_BITFIELD,
+    TYPE_APICONTRACT,
 };
 
 struct _type_t {
@@ -605,7 +616,8 @@ var_list_t *append_var(var_list_t *list, var_t *var);
 
 void init_loc_info(loc_info_t *);
 
-char *format_namespace(struct namespace *namespace, const char *prefix, const char *separator, const char *suffix);
+char *format_namespace(struct namespace *namespace, const char *prefix, const char *separator, const char *suffix,
+                       const char *abi_prefix);
 
 static inline enum type_type type_get_type_detect_alias(const type_t *type)
 {

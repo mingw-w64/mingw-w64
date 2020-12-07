@@ -108,8 +108,7 @@ static void cast_to_slong(cval_t *v);
 static void cast_to_ulong(cval_t *v);
 static void cast_to_sll(cval_t *v);
 static void cast_to_ull(cval_t *v);
-static marg_t *new_marg(char *str, def_arg_t type);
-static marg_t *add_new_marg(char *str, def_arg_t type);
+static char *add_new_marg(char *str);
 static int marg_index(char *id);
 static mtext_t *new_mtext(char *str, int idx, def_exp_t type);
 static mtext_t *combine_mtext(mtext_t *tail, mtext_t *mtp);
@@ -118,7 +117,7 @@ static char *merge_text(char *s1, char *s2);
 /*
  * Local variables
  */
-static marg_t **macro_args;	/* Macro parameters array while parsing */
+static char   **macro_args;	/* Macro parameters array while parsing */
 static int	nmacro_args;
 
 %}
@@ -133,7 +132,7 @@ static int	nmacro_args;
 	int		*iptr;
 	char		*cptr;
 	cval_t		cval;
-	marg_t		*marg;
+	char		*marg;
 	mtext_t		*mtext;
 }
 
@@ -295,17 +294,11 @@ preprocessor
 	| tPRAGMA opt_text tNL	{ pp_writestring("#pragma %s\n", $2 ? $2 : ""); free($2); }
 	| tPPIDENT opt_text tNL	{ if(pp_status.pedantic) ppy_warning("#ident ignored (arg: '%s')", $2); free($2); }
         | tRCINCLUDE tRCINCLUDEPATH {
-                if($2)
-                {
-                        int nl=strlen($2) +3;
-                        char *fn=pp_xmalloc(nl);
-                        if(fn)
-                        {
-                                sprintf(fn,"\"%s\"",$2);
-                                pp_do_include(fn,1);
-                        }
-                        free($2);
-                }
+                int nl=strlen($2) +3;
+                char *fn=pp_xmalloc(nl);
+                sprintf(fn,"\"%s\"",$2);
+                pp_do_include(fn,1);
+                free($2);
 	}
 	| tRCINCLUDE tDQSTRING {
 		pp_do_include($2,1);
@@ -333,11 +326,11 @@ allmargs: /* Empty */		{ $$ = 0; macro_args = NULL; nmacro_args = 0; }
 	;
 
 emargs	: margs			{ $$ = $1; }
-	| margs ',' tELLIPSIS	{ $$ = add_new_marg(NULL, arg_list); nmacro_args *= -1; }
+	| margs ',' tELLIPSIS	{ nmacro_args *= -1; }
 	;
 
-margs	: margs ',' tIDENT	{ $$ = add_new_marg($3, arg_single); }
-	| tIDENT		{ $$ = add_new_marg($1, arg_single); }
+margs	: margs ',' tIDENT	{ $$ = add_new_marg($3); }
+	| tIDENT		{ $$ = add_new_marg($1); }
 	;
 
 opt_mtexts
@@ -549,32 +542,11 @@ static int boolean(cval_t *v)
 	return 0;
 }
 
-static marg_t *new_marg(char *str, def_arg_t type)
+static char *add_new_marg(char *str)
 {
-	marg_t *ma = pp_xmalloc(sizeof(marg_t));
-	if(!ma)
-		return NULL;
-	ma->arg = str;
-	ma->type = type;
-	ma->nnl = 0;
-	return ma;
-}
-
-static marg_t *add_new_marg(char *str, def_arg_t type)
-{
-	marg_t **new_macro_args;
-	marg_t *ma;
-	if(!str)
-		return NULL;
-	new_macro_args = pp_xrealloc(macro_args, (nmacro_args+1) * sizeof(macro_args[0]));
-	if(!new_macro_args)
-		return NULL;
-	macro_args = new_macro_args;
-	ma = new_marg(str, type);
-	if(!ma)
-		return NULL;
-	macro_args[nmacro_args] = ma;
-	nmacro_args++;
+	char *ma;
+	macro_args = pp_xrealloc(macro_args, (nmacro_args+1) * sizeof(macro_args[0]));
+	macro_args[nmacro_args++] = ma = pp_xstrdup(str);
 	return ma;
 }
 
@@ -585,7 +557,7 @@ static int marg_index(char *id)
 		return -1;
 	for(t = 0; t < nmacro_args; t++)
 	{
-		if(!strcmp(id, macro_args[t]->arg))
+		if(!strcmp(id, macro_args[t]))
 			break;
 	}
 	return t < nmacro_args ? t : -1;
@@ -594,8 +566,7 @@ static int marg_index(char *id)
 static mtext_t *new_mtext(char *str, int idx, def_exp_t type)
 {
 	mtext_t *mt = pp_xmalloc(sizeof(mtext_t));
-	if(!mt)
-		return NULL;
+
 	if(str == NULL)
 		mt->subst.argidx = idx;
 	else
@@ -615,11 +586,7 @@ static mtext_t *combine_mtext(mtext_t *tail, mtext_t *mtp)
 
 	if(tail->type == exp_text && mtp->type == exp_text)
 	{
-		char *new_text;
-		new_text = pp_xrealloc(tail->subst.text, strlen(tail->subst.text)+strlen(mtp->subst.text)+1);
-		if(!new_text)
-			return mtp;
-		tail->subst.text = new_text;
+		tail->subst.text = pp_xrealloc(tail->subst.text, strlen(tail->subst.text)+strlen(mtp->subst.text)+1);
 		strcat(tail->subst.text, mtp->subst.text);
 		free(mtp->subst.text);
 		free(mtp);
@@ -683,22 +650,9 @@ static mtext_t *combine_mtext(mtext_t *tail, mtext_t *mtp)
 
 static char *merge_text(char *s1, char *s2)
 {
-	int l1;
-	int l2;
-	char *snew;
-	if(!s1)
-		return s2;
-	if(!s2)
-		return s1;
-	l1 = strlen(s1);
-	l2 = strlen(s2);
-	snew = pp_xrealloc(s1, l1+l2+1);
-	if(!snew)
-	{
-		free(s2);
-		return s1;
-	}
-	s1 = snew;
+	int l1 = strlen(s1);
+	int l2 = strlen(s2);
+	s1 = pp_xrealloc(s1, l1+l2+1);
 	memcpy(s1+l1, s2, l2+1);
 	free(s2);
 	return s1;
