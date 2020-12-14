@@ -381,7 +381,7 @@ namespace ABI {
     namespace Windows {
         namespace Foundation {
             MIDL_INTERFACE("5a648006-843a-4da9-865b-9d26e5dfad7b")
-            IASyncAction : public IInspectable
+            IASyncAction : public IAsyncInfo
             {
                 virtual HRESULT STDMETHODCALLTYPE put_Completed(
                     AsyncActionCompletedHandler *handler) = 0;
@@ -430,6 +430,25 @@ typedef struct __x_ABI_CWindows_CFoundation_CIASyncActionVtbl {
         __x_ABI_CWindows_CFoundation_CIASyncAction *This,
         TrustLevel *trustLevel);
 
+    /*** IAsyncInfo methods ***/
+    HRESULT (STDMETHODCALLTYPE *get_Id)(
+        __x_ABI_CWindows_CFoundation_CIASyncAction *This,
+        unsigned int *id);
+
+    HRESULT (STDMETHODCALLTYPE *get_Status)(
+        __x_ABI_CWindows_CFoundation_CIASyncAction *This,
+        enum __x_ABI_CWindows_CFoundation_CAsyncStatus *status);
+
+    HRESULT (STDMETHODCALLTYPE *get_ErrorCode)(
+        __x_ABI_CWindows_CFoundation_CIASyncAction *This,
+        HRESULT *errorCode);
+
+    HRESULT (STDMETHODCALLTYPE *Cancel)(
+        __x_ABI_CWindows_CFoundation_CIASyncAction *This);
+
+    HRESULT (STDMETHODCALLTYPE *Close)(
+        __x_ABI_CWindows_CFoundation_CIASyncAction *This);
+
     /*** IASyncAction methods ***/
     HRESULT (STDMETHODCALLTYPE *put_Completed)(
         __x_ABI_CWindows_CFoundation_CIASyncAction *This,
@@ -459,6 +478,12 @@ interface __x_ABI_CWindows_CFoundation_CIASyncAction {
 #define __x_ABI_CWindows_CFoundation_CIASyncAction_GetIids(This,iidCount,iids) (This)->lpVtbl->GetIids(This,iidCount,iids)
 #define __x_ABI_CWindows_CFoundation_CIASyncAction_GetRuntimeClassName(This,className) (This)->lpVtbl->GetRuntimeClassName(This,className)
 #define __x_ABI_CWindows_CFoundation_CIASyncAction_GetTrustLevel(This,trustLevel) (This)->lpVtbl->GetTrustLevel(This,trustLevel)
+/*** IAsyncInfo methods ***/
+#define __x_ABI_CWindows_CFoundation_CIASyncAction_get_Id(This,id) (This)->lpVtbl->get_Id(This,id)
+#define __x_ABI_CWindows_CFoundation_CIASyncAction_get_Status(This,status) (This)->lpVtbl->get_Status(This,status)
+#define __x_ABI_CWindows_CFoundation_CIASyncAction_get_ErrorCode(This,errorCode) (This)->lpVtbl->get_ErrorCode(This,errorCode)
+#define __x_ABI_CWindows_CFoundation_CIASyncAction_Cancel(This) (This)->lpVtbl->Cancel(This)
+#define __x_ABI_CWindows_CFoundation_CIASyncAction_Close(This) (This)->lpVtbl->Close(This)
 /*** IASyncAction methods ***/
 #define __x_ABI_CWindows_CFoundation_CIASyncAction_put_Completed(This,handler) (This)->lpVtbl->put_Completed(This,handler)
 #define __x_ABI_CWindows_CFoundation_CIASyncAction_get_Completed(This,handler) (This)->lpVtbl->get_Completed(This,handler)
@@ -483,6 +508,22 @@ static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIASyncAction_GetRuntime
 }
 static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIASyncAction_GetTrustLevel(__x_ABI_CWindows_CFoundation_CIASyncAction* This,TrustLevel *trustLevel) {
     return This->lpVtbl->GetTrustLevel(This,trustLevel);
+}
+/*** IAsyncInfo methods ***/
+static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIASyncAction_get_Id(__x_ABI_CWindows_CFoundation_CIASyncAction* This,unsigned int *id) {
+    return This->lpVtbl->get_Id(This,id);
+}
+static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIASyncAction_get_Status(__x_ABI_CWindows_CFoundation_CIASyncAction* This,enum __x_ABI_CWindows_CFoundation_CAsyncStatus *status) {
+    return This->lpVtbl->get_Status(This,status);
+}
+static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIASyncAction_get_ErrorCode(__x_ABI_CWindows_CFoundation_CIASyncAction* This,HRESULT *errorCode) {
+    return This->lpVtbl->get_ErrorCode(This,errorCode);
+}
+static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIASyncAction_Cancel(__x_ABI_CWindows_CFoundation_CIASyncAction* This) {
+    return This->lpVtbl->Cancel(This);
+}
+static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIASyncAction_Close(__x_ABI_CWindows_CFoundation_CIASyncAction* This) {
+    return This->lpVtbl->Close(This);
 }
 /*** IASyncAction methods ***/
 static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CIASyncAction_put_Completed(__x_ABI_CWindows_CFoundation_CIASyncAction* This,__x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler *handler) {
@@ -518,7 +559,7 @@ namespace ABI {
             AsyncActionCompletedHandler : public IUnknown
             {
                 virtual HRESULT STDMETHODCALLTYPE Invoke(
-                    IInspectable *asyncAction,
+                    IAsyncAction *asyncAction,
                     enum AsyncStatus status) = 0;
 
             };
@@ -548,7 +589,7 @@ typedef struct __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandlerVtbl {
     /*** AsyncActionCompletedHandler methods ***/
     HRESULT (STDMETHODCALLTYPE *Invoke)(
         __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler *This,
-        IInspectable *asyncAction,
+        __x_ABI_CWindows_CFoundation_CIAsyncAction *asyncAction,
         enum __x_ABI_CWindows_CFoundation_CAsyncStatus status);
 
     END_INTERFACE
@@ -578,7 +619,7 @@ static FORCEINLINE ULONG __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandl
     return This->lpVtbl->Release(This);
 }
 /*** AsyncActionCompletedHandler methods ***/
-static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler_Invoke(__x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler* This,IInspectable *asyncAction,enum __x_ABI_CWindows_CFoundation_CAsyncStatus status) {
+static FORCEINLINE HRESULT __x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler_Invoke(__x_ABI_CWindows_CFoundation_CAsyncActionCompletedHandler* This,__x_ABI_CWindows_CFoundation_CIAsyncAction *asyncAction,enum __x_ABI_CWindows_CFoundation_CAsyncStatus status) {
     return This->lpVtbl->Invoke(This,asyncAction,status);
 }
 #endif

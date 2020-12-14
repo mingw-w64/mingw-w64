@@ -55,7 +55,7 @@ namespace Windows {
     }
 
     [uuid(5A648006-843A-4DA9-865B-9D26E5DFAD7B)]
-    interface IASyncAction : IInspectable {
+    interface IASyncAction : IAsyncInfo {
       [propput] HRESULT Completed(AsyncActionCompletedHandler* handler);
       [propget] HRESULT Completed(AsyncActionCompletedHandler** handler);
       HRESULT GetResults();
@@ -64,7 +64,7 @@ namespace Windows {
     [uuid(A4ED5C81-76C9-40BD-8BE6-B1D90FB20AE7)]
     interface AsyncActionCompletedHandler : IUnknown {
       //FIXME: should support cyclic dependency
-      HRESULT Invoke(/*IAsyncAction*/ IInspectable *asyncAction, AsyncStatus status);
+      HRESULT Invoke(IAsyncAction *asyncAction, AsyncStatus status);
     }
 
     //FIXME: WHERE IS IT?
