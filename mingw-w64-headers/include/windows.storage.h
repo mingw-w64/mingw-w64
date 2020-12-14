@@ -359,13 +359,21 @@ namespace ABI {
 namespace ABI {
     namespace Windows {
         namespace Storage {
-            enum StorageDeleteOption;
+            enum NameCollisionOption {
+                NameCollisionOption_GenerateUniqueName = 0,
+                NameCollisionOption_ReplaceExisting = 1,
+                NameCollisionOption_FailIfExists = 2
+            };
         }
     }
 }
 extern "C" {
 #else
-enum __x_ABI_CWindows_CStorage_CStorageDeleteOption;
+enum __x_ABI_CWindows_CStorage_CNameCollisionOption {
+    NameCollisionOption_GenerateUniqueName = 0,
+    NameCollisionOption_ReplaceExisting = 1,
+    NameCollisionOption_FailIfExists = 2
+};
 #endif
 
 #ifdef __cplusplus
@@ -373,13 +381,19 @@ enum __x_ABI_CWindows_CStorage_CStorageDeleteOption;
 namespace ABI {
     namespace Windows {
         namespace Storage {
-            enum NameCollisionOption;
+            enum StorageDeleteOption {
+                StorageDeleteOption_Default = 0,
+                StorageDeleteOption_PermanentDelete = 1
+            };
         }
     }
 }
 extern "C" {
 #else
-enum __x_ABI_CWindows_CStorage_CNameCollisionOption;
+enum __x_ABI_CWindows_CStorage_CStorageDeleteOption {
+    StorageDeleteOption_Default = 0,
+    StorageDeleteOption_PermanentDelete = 1
+};
 #endif
 
 #ifdef __cplusplus
@@ -387,13 +401,21 @@ enum __x_ABI_CWindows_CStorage_CNameCollisionOption;
 namespace ABI {
     namespace Windows {
         namespace Storage {
-            enum StorageItemTypes;
+            enum StorageItemTypes {
+                StorageItemTypes_None = 0,
+                StorageItemTypes_File = 1,
+                StorageItemTypes_Folder = 2
+            };
         }
     }
 }
 extern "C" {
 #else
-enum __x_ABI_CWindows_CStorage_CStorageItemTypes;
+enum __x_ABI_CWindows_CStorage_CStorageItemTypes {
+    StorageItemTypes_None = 0,
+    StorageItemTypes_File = 1,
+    StorageItemTypes_Folder = 2
+};
 #endif
 
 #ifdef __cplusplus
@@ -401,13 +423,19 @@ enum __x_ABI_CWindows_CStorage_CStorageItemTypes;
 namespace ABI {
     namespace Windows {
         namespace Storage {
-            enum ApplicationDataLocality;
+            enum ApplicationDataCreateDisposition {
+                ApplicationDataCreateDisposition_Always = 0,
+                ApplicationDataCreateDisposition_Existing = 1
+            };
         }
     }
 }
 extern "C" {
 #else
-enum __x_ABI_CWindows_CStorage_CApplicationDataLocality;
+enum __x_ABI_CWindows_CStorage_CApplicationDataCreateDisposition {
+    ApplicationDataCreateDisposition_Always = 0,
+    ApplicationDataCreateDisposition_Existing = 1
+};
 #endif
 
 #ifdef __cplusplus
@@ -415,13 +443,21 @@ enum __x_ABI_CWindows_CStorage_CApplicationDataLocality;
 namespace ABI {
     namespace Windows {
         namespace Storage {
-            enum ApplicationDataCreateDisposition;
+            enum ApplicationDataLocality {
+                ApplicationDataLocality_Local = 0,
+                ApplicationDataLocality_Roaming = 1,
+                ApplicationDataLocality_Temporary = 2
+            };
         }
     }
 }
 extern "C" {
 #else
-enum __x_ABI_CWindows_CStorage_CApplicationDataCreateDisposition;
+enum __x_ABI_CWindows_CStorage_CApplicationDataLocality {
+    ApplicationDataLocality_Local = 0,
+    ApplicationDataLocality_Roaming = 1,
+    ApplicationDataLocality_Temporary = 2
+};
 #endif
 
 #ifdef __cplusplus
@@ -429,13 +465,25 @@ enum __x_ABI_CWindows_CStorage_CApplicationDataCreateDisposition;
 namespace ABI {
     namespace Windows {
         namespace Storage {
-            enum FileAttributes;
+            enum FileAttributes {
+                FileAttributes_Normal = 0,
+                FileAttributes_ReadOnly = 1,
+                FileAttributes_Directory = 2,
+                FileAttributes_Archive = 3,
+                FileAttributes_Temporary = 4
+            };
         }
     }
 }
 extern "C" {
 #else
-enum __x_ABI_CWindows_CStorage_CFileAttributes;
+enum __x_ABI_CWindows_CStorage_CFileAttributes {
+    FileAttributes_Normal = 0,
+    FileAttributes_ReadOnly = 1,
+    FileAttributes_Directory = 2,
+    FileAttributes_Archive = 3,
+    FileAttributes_Temporary = 4
+};
 #endif
 
 #ifdef __cplusplus
@@ -443,13 +491,23 @@ enum __x_ABI_CWindows_CStorage_CFileAttributes;
 namespace ABI {
     namespace Windows {
         namespace Storage {
-            enum CreationCollisionOption;
+            enum CreationCollisionOption {
+                CreationCollisionOption_GenerateUniqueName = 0,
+                CreationCollisionOption_ReplaceExisting = 1,
+                CreationCollisionOption_FailIfExists = 2,
+                CreationCollisionOption_OpenIfExists = 3
+            };
         }
     }
 }
 extern "C" {
 #else
-enum __x_ABI_CWindows_CStorage_CCreationCollisionOption;
+enum __x_ABI_CWindows_CStorage_CCreationCollisionOption {
+    CreationCollisionOption_GenerateUniqueName = 0,
+    CreationCollisionOption_ReplaceExisting = 1,
+    CreationCollisionOption_FailIfExists = 2,
+    CreationCollisionOption_OpenIfExists = 3
+};
 #endif
 
 /*****************************************************************************
@@ -474,7 +532,7 @@ namespace ABI {
 
                 virtual HRESULT STDMETHODCALLTYPE RenameAsync(
                     HSTRING desiredName,
-                    enum NameCollisionoption option,
+                    enum NameCollisionOption option,
                     IInspectable **action) = 0;
 
                 virtual HRESULT STDMETHODCALLTYPE DeleteAsyncOverloadDefaultOptions(
@@ -550,7 +608,7 @@ typedef struct __x_ABI_CWindows_CStorage_CIStorageItemVtbl {
     HRESULT (STDMETHODCALLTYPE *RenameAsync)(
         __x_ABI_CWindows_CStorage_CIStorageItem *This,
         HSTRING desiredName,
-        enum __x_ABI_CWindows_CStorage_CNameCollisionoption option,
+        enum __x_ABI_CWindows_CStorage_CNameCollisionOption option,
         IInspectable **action);
 
     HRESULT (STDMETHODCALLTYPE *DeleteAsyncOverloadDefaultOptions)(
@@ -640,7 +698,7 @@ static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CIStorageItem_GetTrustLevel
 static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CIStorageItem_RenameAsyncOverloadDefaultOptions(__x_ABI_CWindows_CStorage_CIStorageItem* This,HSTRING desiredName,IInspectable **action) {
     return This->lpVtbl->RenameAsyncOverloadDefaultOptions(This,desiredName,action);
 }
-static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CIStorageItem_RenameAsync(__x_ABI_CWindows_CStorage_CIStorageItem* This,HSTRING desiredName,enum __x_ABI_CWindows_CStorage_CNameCollisionoption option,IInspectable **action) {
+static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CIStorageItem_RenameAsync(__x_ABI_CWindows_CStorage_CIStorageItem* This,HSTRING desiredName,enum __x_ABI_CWindows_CStorage_CNameCollisionOption option,IInspectable **action) {
     return This->lpVtbl->RenameAsync(This,desiredName,option,action);
 }
 static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CIStorageItem_DeleteAsyncOverloadDefaultOptions(__x_ABI_CWindows_CStorage_CIStorageItem* This,IInspectable **action) {
