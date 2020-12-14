@@ -116,14 +116,14 @@ namespace ABI {
 #endif /* __cplusplus */
 #endif
 
-#ifndef ____x_ABI_CWindows_CStorage_CApplicationDataSetVersionHandler_FWD_DEFINED__
-#define ____x_ABI_CWindows_CStorage_CApplicationDataSetVersionHandler_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CStorage_CApplicationDataSetVersionHandler __x_ABI_CWindows_CStorage_CApplicationDataSetVersionHandler;
+#ifndef ____x_ABI_CWindows_CStorage_CIApplicationDataSetVersionHandler_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CIApplicationDataSetVersionHandler_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CIApplicationDataSetVersionHandler __x_ABI_CWindows_CStorage_CIApplicationDataSetVersionHandler;
 #ifdef __cplusplus
 namespace ABI {
     namespace Windows {
         namespace Storage {
-            interface ApplicationDataSetVersionHandler;
+            interface IApplicationDataSetVersionHandler;
         }
     }
 }
@@ -306,20 +306,6 @@ namespace ABI {
     namespace Windows {
         namespace Storage {
             interface ApplicationDataContainer;
-        }
-    }
-}
-#endif /* __cplusplus */
-#endif
-
-#ifndef ____x_ABI_CWindows_CStorage_CApplicationDataSetVersionHandler_FWD_DEFINED__
-#define ____x_ABI_CWindows_CStorage_CApplicationDataSetVersionHandler_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CStorage_CApplicationDataSetVersionHandler __x_ABI_CWindows_CStorage_CApplicationDataSetVersionHandler;
-#ifdef __cplusplus
-namespace ABI {
-    namespace Windows {
-        namespace Storage {
-            interface ApplicationDataSetVersionHandler;
         }
     }
 }
@@ -1334,7 +1320,7 @@ namespace ABI {
 
                 virtual HRESULT STDMETHODCALLTYPE SetVersionAsync(
                     int desiredVersion,
-                    ApplicationDataSetVersionHandler *handler,
+                    IApplicationDataSetVersionHandler *handler,
                     IInspectable **setVersionOperation) = 0;
 
                 virtual HRESULT STDMETHODCALLTYPE ClearAllAsync(
@@ -1414,7 +1400,7 @@ typedef struct __x_ABI_CWindows_CStorage_CIApplicationDataVtbl {
     HRESULT (STDMETHODCALLTYPE *SetVersionAsync)(
         __x_ABI_CWindows_CStorage_CIApplicationData *This,
         int desiredVersion,
-        __x_ABI_CWindows_CStorage_CApplicationDataSetVersionHandler *handler,
+        __x_ABI_CWindows_CStorage_CIApplicationDataSetVersionHandler *handler,
         IInspectable **setVersionOperation);
 
     HRESULT (STDMETHODCALLTYPE *ClearAllAsync)(
@@ -1512,7 +1498,7 @@ static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CIApplicationData_GetTrustL
 static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CIApplicationData_get_Version(__x_ABI_CWindows_CStorage_CIApplicationData* This,int *value) {
     return This->lpVtbl->get_Version(This,value);
 }
-static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CIApplicationData_SetVersionAsync(__x_ABI_CWindows_CStorage_CIApplicationData* This,int desiredVersion,__x_ABI_CWindows_CStorage_CApplicationDataSetVersionHandler *handler,IInspectable **setVersionOperation) {
+static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CIApplicationData_SetVersionAsync(__x_ABI_CWindows_CStorage_CIApplicationData* This,int desiredVersion,__x_ABI_CWindows_CStorage_CIApplicationDataSetVersionHandler *handler,IInspectable **setVersionOperation) {
     return This->lpVtbl->SetVersionAsync(This,desiredVersion,handler,setVersionOperation);
 }
 static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CIApplicationData_ClearAllAsync(__x_ABI_CWindows_CStorage_CIApplicationData* This,IInspectable **clearOperation) {
@@ -1779,22 +1765,22 @@ static FORCEINLINE HRESULT __x_ABI_CWindows_CStorage_CIApplicationDataStatics_ge
 #endif  /* ____x_ABI_CWindows_CStorage_CIApplicationDataStatics_INTERFACE_DEFINED__ */
 
 /*****************************************************************************
- * ApplicationDataSetVersionHandler interface
+ * IApplicationDataSetVersionHandler interface
  *
  */
-#ifndef ____x_ABI_CWindows_CStorage_CApplicationDataSetVersionHandler_INTERFACE_DEFINED__
-#define ____x_ABI_CWindows_CStorage_CApplicationDataSetVersionHandler_INTERFACE_DEFINED__
+#ifndef ____x_ABI_CWindows_CStorage_CIApplicationDataSetVersionHandler_INTERFACE_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CIApplicationDataSetVersionHandler_INTERFACE_DEFINED__
 
-DEFINE_GUID(IID___x_ABI_CWindows_CStorage_CApplicationDataSetVersionHandler, 0xa05791e6, 0xcc9f, 0x4687, 0xac,0xab, 0xa3,0x64,0xfd,0x78,0x54,0x63);
+DEFINE_GUID(IID___x_ABI_CWindows_CStorage_CIApplicationDataSetVersionHandler, 0xa05791e6, 0xcc9f, 0x4687, 0xac,0xab, 0xa3,0x64,0xfd,0x78,0x54,0x63);
 #if defined(__cplusplus) && !defined(CINTERFACE)
 } /* extern "C" */
 namespace ABI {
     namespace Windows {
         namespace Storage {
             MIDL_INTERFACE("a05791e6-cc9f-4687-acab-a364fd785463")
-            ApplicationDataSetVersionHandler : public IUnknown
+            IApplicationDataSetVersionHandler : public IUnknown
             {
-                virtual HRESULT STDMETHODCALLTYPE ApplicationDataSetVersionHandler(
+                virtual HRESULT STDMETHODCALLTYPE Invoke(
                     ISetVersionRequest *setVersionRequest) = 0;
 
             };

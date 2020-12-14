@@ -30,7 +30,7 @@ namespace Windows {
     interface IApplicationDataStatics;
     interface IApplicationDataSetVersionHandler;
     interface ApplicationDataContainer;
-    interface ApplicationDataSetVersionHandler; //delegate
+    // delegate  ApplicationDataSetVersionHandler;
     interface ISetVersionRequest;
     interface ISetVersionDeferral;
     typedef enum StorageDeleteOption StorageDeleteOption;
@@ -143,7 +143,7 @@ namespace Windows {
     [uuid(C3DA6FB7-B744-4B45-B0B8-223A0938D0DC)]
     interface IApplicationData : IInspectable {
       [propget] HRESULT Version(int* value);
-      HRESULT SetVersionAsync(int desiredVersion, ApplicationDataSetVersionHandler* handler, /*IAsyncAction*/ IInspectable** setVersionOperation);
+      HRESULT SetVersionAsync(int desiredVersion, IApplicationDataSetVersionHandler* handler, /*IAsyncAction*/ IInspectable** setVersionOperation);
       HRESULT ClearAllAsync(/*IAsyncAction*/ IInspectable** clearOperation);
       HRESULT ClearAsync(ApplicationDataLocality locality, /*IAsyncAction*/ IInspectable** clearOperation);
       [propget] HRESULT LocalSettings(IApplicationDataContainer** value);
@@ -168,8 +168,8 @@ namespace Windows {
     }
 
     [uuid(A05791E6-CC9F-4687-ACAB-A364FD785463)]
-    interface ApplicationDataSetVersionHandler : IUnknown {
-      HRESULT ApplicationDataSetVersionHandler(ISetVersionRequest* setVersionRequest);
+    interface IApplicationDataSetVersionHandler : IUnknown {
+      HRESULT Invoke(ISetVersionRequest* setVersionRequest);
     }
 
     [uuid(B9C76B9B-1056-4E69-8330-162619956F9B)]
