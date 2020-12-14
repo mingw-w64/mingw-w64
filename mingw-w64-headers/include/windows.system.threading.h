@@ -151,38 +151,6 @@ extern "C" {
 struct __x_ABI_CWindows_CFoundation_CTimeSpan;
 #endif
 
-#ifdef __cplusplus
-} /* extern "C" */
-namespace ABI {
-    namespace Windows {
-        namespace System {
-            namespace Threading {
-                enum WorkItemPriority;
-            }
-        }
-    }
-}
-extern "C" {
-#else
-enum __x_ABI_CWindows_CSystem_CThreading_CWorkItemPriority;
-#endif
-
-#ifdef __cplusplus
-} /* extern "C" */
-namespace ABI {
-    namespace Windows {
-        namespace System {
-            namespace Threading {
-                enum WorkItemOptions;
-            }
-        }
-    }
-}
-extern "C" {
-#else
-enum __x_ABI_CWindows_CSystem_CThreading_CWorkItemOptions;
-#endif
-
 #ifndef ____x_ABI_CWindows_CSystem_CThreading_CTimerElapsedHandler_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSystem_CThreading_CTimerElapsedHandler_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CSystem_CThreading_CTimerElapsedHandler __x_ABI_CWindows_CSystem_CThreading_CTimerElapsedHandler;
@@ -277,6 +245,52 @@ namespace ABI {
     }
 }
 #endif /* __cplusplus */
+#endif
+
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            namespace Threading {
+                enum WorkItemPriority {
+                    WorkItemPriority_Low = -1,
+                    WorkItemPriority_Normal = 0,
+                    WorkItemPriority_High = 1
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#else
+enum __x_ABI_CWindows_CSystem_CThreading_CWorkItemPriority {
+    WorkItemPriority_Low = -1,
+    WorkItemPriority_Normal = 0,
+    WorkItemPriority_High = 1
+};
+#endif
+
+#ifdef __cplusplus
+} /* extern "C" */
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            namespace Threading {
+                enum WorkItemOptions {
+                    WorkItemOptions_None = 0,
+                    WorkItemOptions_TimeSliced = 1
+                };
+            }
+        }
+    }
+}
+extern "C" {
+#else
+enum __x_ABI_CWindows_CSystem_CThreading_CWorkItemOptions {
+    WorkItemOptions_None = 0,
+    WorkItemOptions_TimeSliced = 1
+};
 #endif
 
 /*****************************************************************************

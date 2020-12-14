@@ -19,8 +19,8 @@ namespace Windows {
 
     namespace System {
         namespace Threading {
-            enum WorkItemPriority;
-            enum WorkItemOptions;
+            typedef enum WorkItemPriority WorkItemPriority;
+            typedef enum WorkItemOptions WorkItemOptions;
             interface TimerElapsedHandler;   //delegate
             interface TimerDestroyedHandler; //delegate
             interface WorkItemHandler;       //delegate
@@ -35,16 +35,16 @@ namespace Windows {
     namespace System {
         namespace Threading
         {
-            typedef enum WorkItemPriority {
+            enum WorkItemPriority {
                 Low    = -1,
                 Normal = 0,
                 High   = 1
-            } WorkItemPriority;
+            };
 
-            typedef enum WorkItemOptions {
+            enum WorkItemOptions {
                 None       = 0,
                 TimeSliced = 1
-            } WorkItemOptions;
+            };
 
             typedef struct TimeSpan {
                 INT64 Duration;
