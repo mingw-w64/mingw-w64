@@ -13,8 +13,10 @@ cpp_quote("#include <winapifamily.h>")
 
 cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
 
+#ifndef __WIDL__
 #ifndef FARPROC
 typedef int (__stdcall FARPROC) ();
+#endif
 #endif
 
 #ifndef PBYTE
