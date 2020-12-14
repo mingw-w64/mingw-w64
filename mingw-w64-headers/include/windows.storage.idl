@@ -16,7 +16,6 @@ namespace Windows {
   namespace Foundation {
     interface IAsyncAction;
     interface TypedEventHandler;
-    //struct DateTime;
     //struct EventRegistrationToken;
 
     namespace Collections {
@@ -100,7 +99,7 @@ namespace Windows {
       [propget] HRESULT Name(HSTRING *value);
       [propget] HRESULT Path(HSTRING *value);
       [propget] HRESULT Attributes(FileAttributes* value);
-      [propget] HRESULT DateCreated(DateTime* value);
+      [propget] HRESULT DateCreated(Windows.Foundation.DateTime* value);
       HRESULT IsOfType(StorageItemTypes itemType, boolean* value);
     }
 
