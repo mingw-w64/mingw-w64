@@ -470,63 +470,6 @@ static FORCEINLINE HRESULT IBDA_NetworkProvider_UnRegisterDeviceFilter(IBDA_Netw
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_NetworkProvider_PutSignalSource_Proxy(
-    IBDA_NetworkProvider* This,
-    ULONG ulSignalSource);
-void __RPC_STUB IBDA_NetworkProvider_PutSignalSource_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_NetworkProvider_GetSignalSource_Proxy(
-    IBDA_NetworkProvider* This,
-    ULONG *pulSignalSource);
-void __RPC_STUB IBDA_NetworkProvider_GetSignalSource_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_NetworkProvider_GetNetworkType_Proxy(
-    IBDA_NetworkProvider* This,
-    GUID *pguidNetworkType);
-void __RPC_STUB IBDA_NetworkProvider_GetNetworkType_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_NetworkProvider_PutTuningSpace_Proxy(
-    IBDA_NetworkProvider* This,
-    REFGUID guidTuningSpace);
-void __RPC_STUB IBDA_NetworkProvider_PutTuningSpace_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_NetworkProvider_GetTuningSpace_Proxy(
-    IBDA_NetworkProvider* This,
-    GUID *pguidTuingSpace);
-void __RPC_STUB IBDA_NetworkProvider_GetTuningSpace_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_NetworkProvider_RegisterDeviceFilter_Proxy(
-    IBDA_NetworkProvider* This,
-    IUnknown *pUnkFilterControl,
-    ULONG *ppvRegisitrationContext);
-void __RPC_STUB IBDA_NetworkProvider_RegisterDeviceFilter_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_NetworkProvider_UnRegisterDeviceFilter_Proxy(
-    IBDA_NetworkProvider* This,
-    ULONG pvRegistrationContext);
-void __RPC_STUB IBDA_NetworkProvider_UnRegisterDeviceFilter_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_NetworkProvider_INTERFACE_DEFINED__ */
 
@@ -651,48 +594,6 @@ static FORCEINLINE HRESULT IBDA_EthernetFilter_GetMulticastMode(IBDA_EthernetFil
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_EthernetFilter_GetMulticastListSize_Proxy(
-    IBDA_EthernetFilter* This,
-    ULONG *pulcbAddresses);
-void __RPC_STUB IBDA_EthernetFilter_GetMulticastListSize_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_EthernetFilter_PutMulticastList_Proxy(
-    IBDA_EthernetFilter* This,
-    ULONG ulcbAddresses,
-    BYTE pAddressList[]);
-void __RPC_STUB IBDA_EthernetFilter_PutMulticastList_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_EthernetFilter_GetMulticastList_Proxy(
-    IBDA_EthernetFilter* This,
-    ULONG *pulcbAddresses,
-    BYTE pAddressList[]);
-void __RPC_STUB IBDA_EthernetFilter_GetMulticastList_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_EthernetFilter_PutMulticastMode_Proxy(
-    IBDA_EthernetFilter* This,
-    ULONG ulModeMask);
-void __RPC_STUB IBDA_EthernetFilter_PutMulticastMode_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_EthernetFilter_GetMulticastMode_Proxy(
-    IBDA_EthernetFilter* This,
-    ULONG *pulModeMask);
-void __RPC_STUB IBDA_EthernetFilter_GetMulticastMode_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_EthernetFilter_INTERFACE_DEFINED__ */
 
@@ -817,48 +718,6 @@ static FORCEINLINE HRESULT IBDA_IPV4Filter_GetMulticastMode(IBDA_IPV4Filter* Thi
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_IPV4Filter_GetMulticastListSize_Proxy(
-    IBDA_IPV4Filter* This,
-    ULONG *pulcbAddresses);
-void __RPC_STUB IBDA_IPV4Filter_GetMulticastListSize_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_IPV4Filter_PutMulticastList_Proxy(
-    IBDA_IPV4Filter* This,
-    ULONG ulcbAddresses,
-    BYTE pAddressList[]);
-void __RPC_STUB IBDA_IPV4Filter_PutMulticastList_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_IPV4Filter_GetMulticastList_Proxy(
-    IBDA_IPV4Filter* This,
-    ULONG *pulcbAddresses,
-    BYTE pAddressList[]);
-void __RPC_STUB IBDA_IPV4Filter_GetMulticastList_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_IPV4Filter_PutMulticastMode_Proxy(
-    IBDA_IPV4Filter* This,
-    ULONG ulModeMask);
-void __RPC_STUB IBDA_IPV4Filter_PutMulticastMode_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_IPV4Filter_GetMulticastMode_Proxy(
-    IBDA_IPV4Filter* This,
-    ULONG *pulModeMask);
-void __RPC_STUB IBDA_IPV4Filter_GetMulticastMode_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_IPV4Filter_INTERFACE_DEFINED__ */
 
@@ -983,48 +842,6 @@ static FORCEINLINE HRESULT IBDA_IPV6Filter_GetMulticastMode(IBDA_IPV6Filter* Thi
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_IPV6Filter_GetMulticastListSize_Proxy(
-    IBDA_IPV6Filter* This,
-    ULONG *pulcbAddresses);
-void __RPC_STUB IBDA_IPV6Filter_GetMulticastListSize_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_IPV6Filter_PutMulticastList_Proxy(
-    IBDA_IPV6Filter* This,
-    ULONG ulcbAddresses,
-    BYTE pAddressList[]);
-void __RPC_STUB IBDA_IPV6Filter_PutMulticastList_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_IPV6Filter_GetMulticastList_Proxy(
-    IBDA_IPV6Filter* This,
-    ULONG *pulcbAddresses,
-    BYTE pAddressList[]);
-void __RPC_STUB IBDA_IPV6Filter_GetMulticastList_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_IPV6Filter_PutMulticastMode_Proxy(
-    IBDA_IPV6Filter* This,
-    ULONG ulModeMask);
-void __RPC_STUB IBDA_IPV6Filter_PutMulticastMode_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_IPV6Filter_GetMulticastMode_Proxy(
-    IBDA_IPV6Filter* This,
-    ULONG *pulModeMask);
-void __RPC_STUB IBDA_IPV6Filter_GetMulticastMode_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_IPV6Filter_INTERFACE_DEFINED__ */
 
@@ -1131,35 +948,6 @@ static FORCEINLINE HRESULT IBDA_DeviceControl_GetChangeState(IBDA_DeviceControl*
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_DeviceControl_StartChanges_Proxy(
-    IBDA_DeviceControl* This);
-void __RPC_STUB IBDA_DeviceControl_StartChanges_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DeviceControl_CheckChanges_Proxy(
-    IBDA_DeviceControl* This);
-void __RPC_STUB IBDA_DeviceControl_CheckChanges_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DeviceControl_CommitChanges_Proxy(
-    IBDA_DeviceControl* This);
-void __RPC_STUB IBDA_DeviceControl_CommitChanges_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DeviceControl_GetChangeState_Proxy(
-    IBDA_DeviceControl* This,
-    ULONG *pState);
-void __RPC_STUB IBDA_DeviceControl_GetChangeState_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_DeviceControl_INTERFACE_DEFINED__ */
 
@@ -1258,30 +1046,6 @@ static FORCEINLINE HRESULT IBDA_PinControl_RegistrationContext(IBDA_PinControl* 
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_PinControl_GetPinID_Proxy(
-    IBDA_PinControl* This,
-    ULONG *pulPinID);
-void __RPC_STUB IBDA_PinControl_GetPinID_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_PinControl_GetPinType_Proxy(
-    IBDA_PinControl* This,
-    ULONG *pulPinType);
-void __RPC_STUB IBDA_PinControl_GetPinType_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_PinControl_RegistrationContext_Proxy(
-    IBDA_PinControl* This,
-    ULONG *pulRegistrationCtx);
-void __RPC_STUB IBDA_PinControl_RegistrationContext_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_PinControl_INTERFACE_DEFINED__ */
 
@@ -1413,54 +1177,6 @@ static FORCEINLINE HRESULT IBDA_SignalProperties_GetTuningSpace(IBDA_SignalPrope
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_SignalProperties_PutNetworkType_Proxy(
-    IBDA_SignalProperties* This,
-    REFGUID guidNetworkType);
-void __RPC_STUB IBDA_SignalProperties_PutNetworkType_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_SignalProperties_GetNetworkType_Proxy(
-    IBDA_SignalProperties* This,
-    GUID *pguidNetworkType);
-void __RPC_STUB IBDA_SignalProperties_GetNetworkType_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_SignalProperties_PutSignalSource_Proxy(
-    IBDA_SignalProperties* This,
-    ULONG ulSignalSource);
-void __RPC_STUB IBDA_SignalProperties_PutSignalSource_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_SignalProperties_GetSignalSource_Proxy(
-    IBDA_SignalProperties* This,
-    ULONG *pulSignalSource);
-void __RPC_STUB IBDA_SignalProperties_GetSignalSource_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_SignalProperties_PutTuningSpace_Proxy(
-    IBDA_SignalProperties* This,
-    REFGUID guidTuningSpace);
-void __RPC_STUB IBDA_SignalProperties_PutTuningSpace_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_SignalProperties_GetTuningSpace_Proxy(
-    IBDA_SignalProperties* This,
-    GUID *pguidTuingSpace);
-void __RPC_STUB IBDA_SignalProperties_GetTuningSpace_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_SignalProperties_INTERFACE_DEFINED__ */
 
@@ -1636,86 +1352,6 @@ static FORCEINLINE HRESULT IBDA_SignalStatistics_get_SampleTime(IBDA_SignalStati
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_SignalStatistics_put_SignalStrength_Proxy(
-    IBDA_SignalStatistics* This,
-    LONG lDbStrength);
-void __RPC_STUB IBDA_SignalStatistics_put_SignalStrength_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_SignalStatistics_get_SignalStrength_Proxy(
-    IBDA_SignalStatistics* This,
-    LONG *plDbStrength);
-void __RPC_STUB IBDA_SignalStatistics_get_SignalStrength_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_SignalStatistics_put_SignalQuality_Proxy(
-    IBDA_SignalStatistics* This,
-    LONG lPercentQuality);
-void __RPC_STUB IBDA_SignalStatistics_put_SignalQuality_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_SignalStatistics_get_SignalQuality_Proxy(
-    IBDA_SignalStatistics* This,
-    LONG *plPercentQuality);
-void __RPC_STUB IBDA_SignalStatistics_get_SignalQuality_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_SignalStatistics_put_SignalPresent_Proxy(
-    IBDA_SignalStatistics* This,
-    BOOLEAN fPresent);
-void __RPC_STUB IBDA_SignalStatistics_put_SignalPresent_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_SignalStatistics_get_SignalPresent_Proxy(
-    IBDA_SignalStatistics* This,
-    BOOLEAN *pfPresent);
-void __RPC_STUB IBDA_SignalStatistics_get_SignalPresent_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_SignalStatistics_put_SignalLocked_Proxy(
-    IBDA_SignalStatistics* This,
-    BOOLEAN fLocked);
-void __RPC_STUB IBDA_SignalStatistics_put_SignalLocked_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_SignalStatistics_get_SignalLocked_Proxy(
-    IBDA_SignalStatistics* This,
-    BOOLEAN *pfLocked);
-void __RPC_STUB IBDA_SignalStatistics_get_SignalLocked_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_SignalStatistics_put_SampleTime_Proxy(
-    IBDA_SignalStatistics* This,
-    LONG lmsSampleTime);
-void __RPC_STUB IBDA_SignalStatistics_put_SampleTime_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_SignalStatistics_get_SampleTime_Proxy(
-    IBDA_SignalStatistics* This,
-    LONG *plmsSampleTime);
-void __RPC_STUB IBDA_SignalStatistics_get_SampleTime_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_SignalStatistics_INTERFACE_DEFINED__ */
 
@@ -1938,112 +1574,6 @@ static FORCEINLINE HRESULT IBDA_Topology_GetControlNode(IBDA_Topology* This,ULON
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_Topology_GetNodeTypes_Proxy(
-    IBDA_Topology* This,
-    ULONG *pulcNodeTypes,
-    ULONG ulcNodeTypesMax,
-    ULONG rgulNodeTypes[]);
-void __RPC_STUB IBDA_Topology_GetNodeTypes_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_Topology_GetNodeDescriptors_Proxy(
-    IBDA_Topology* This,
-    ULONG *ulcNodeDescriptors,
-    ULONG ulcNodeDescriptorsMax,
-    BDANODE_DESCRIPTOR rgNodeDescriptors[]);
-void __RPC_STUB IBDA_Topology_GetNodeDescriptors_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_Topology_GetNodeInterfaces_Proxy(
-    IBDA_Topology* This,
-    ULONG ulNodeType,
-    ULONG *pulcInterfaces,
-    ULONG ulcInterfacesMax,
-    GUID rgguidInterfaces[]);
-void __RPC_STUB IBDA_Topology_GetNodeInterfaces_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_Topology_GetPinTypes_Proxy(
-    IBDA_Topology* This,
-    ULONG *pulcPinTypes,
-    ULONG ulcPinTypesMax,
-    ULONG rgulPinTypes[]);
-void __RPC_STUB IBDA_Topology_GetPinTypes_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_Topology_GetTemplateConnections_Proxy(
-    IBDA_Topology* This,
-    ULONG *pulcConnections,
-    ULONG ulcConnectionsMax,
-    BDA_TEMPLATE_CONNECTION rgConnections[]);
-void __RPC_STUB IBDA_Topology_GetTemplateConnections_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_Topology_CreatePin_Proxy(
-    IBDA_Topology* This,
-    ULONG ulPinType,
-    ULONG *pulPinId);
-void __RPC_STUB IBDA_Topology_CreatePin_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_Topology_DeletePin_Proxy(
-    IBDA_Topology* This,
-    ULONG ulPinId);
-void __RPC_STUB IBDA_Topology_DeletePin_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_Topology_SetMediaType_Proxy(
-    IBDA_Topology* This,
-    ULONG ulPinId,
-    AM_MEDIA_TYPE *pMediaType);
-void __RPC_STUB IBDA_Topology_SetMediaType_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_Topology_SetMedium_Proxy(
-    IBDA_Topology* This,
-    ULONG ulPinId,
-    REGPINMEDIUM *pMedium);
-void __RPC_STUB IBDA_Topology_SetMedium_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_Topology_CreateTopology_Proxy(
-    IBDA_Topology* This,
-    ULONG ulInputPinId,
-    ULONG ulOutputPinId);
-void __RPC_STUB IBDA_Topology_CreateTopology_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_Topology_GetControlNode_Proxy(
-    IBDA_Topology* This,
-    ULONG ulInputPinId,
-    ULONG ulOutputPinId,
-    ULONG ulNodeType,
-    IUnknown **ppControlNode);
-void __RPC_STUB IBDA_Topology_GetControlNode_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_Topology_INTERFACE_DEFINED__ */
 
@@ -2129,20 +1659,6 @@ static FORCEINLINE HRESULT IBDA_VoidTransform_Stop(IBDA_VoidTransform* This) {
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_VoidTransform_Start_Proxy(
-    IBDA_VoidTransform* This);
-void __RPC_STUB IBDA_VoidTransform_Start_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_VoidTransform_Stop_Proxy(
-    IBDA_VoidTransform* This);
-void __RPC_STUB IBDA_VoidTransform_Stop_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_VoidTransform_INTERFACE_DEFINED__ */
 
@@ -2228,20 +1744,6 @@ static FORCEINLINE HRESULT IBDA_NullTransform_Stop(IBDA_NullTransform* This) {
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_NullTransform_Start_Proxy(
-    IBDA_NullTransform* This);
-void __RPC_STUB IBDA_NullTransform_Start_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_NullTransform_Stop_Proxy(
-    IBDA_NullTransform* This);
-void __RPC_STUB IBDA_NullTransform_Stop_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_NullTransform_INTERFACE_DEFINED__ */
 
@@ -2439,102 +1941,6 @@ static FORCEINLINE HRESULT IBDA_FrequencyFilter_get_FrequencyMultiplier(IBDA_Fre
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_FrequencyFilter_put_Autotune_Proxy(
-    IBDA_FrequencyFilter* This,
-    ULONG ulTransponder);
-void __RPC_STUB IBDA_FrequencyFilter_put_Autotune_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_FrequencyFilter_get_Autotune_Proxy(
-    IBDA_FrequencyFilter* This,
-    ULONG *pulTransponder);
-void __RPC_STUB IBDA_FrequencyFilter_get_Autotune_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_FrequencyFilter_put_Frequency_Proxy(
-    IBDA_FrequencyFilter* This,
-    ULONG ulFrequency);
-void __RPC_STUB IBDA_FrequencyFilter_put_Frequency_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_FrequencyFilter_get_Frequency_Proxy(
-    IBDA_FrequencyFilter* This,
-    ULONG *pulFrequency);
-void __RPC_STUB IBDA_FrequencyFilter_get_Frequency_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_FrequencyFilter_put_Polarity_Proxy(
-    IBDA_FrequencyFilter* This,
-    Polarisation Polarity);
-void __RPC_STUB IBDA_FrequencyFilter_put_Polarity_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_FrequencyFilter_get_Polarity_Proxy(
-    IBDA_FrequencyFilter* This,
-    Polarisation *pPolarity);
-void __RPC_STUB IBDA_FrequencyFilter_get_Polarity_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_FrequencyFilter_put_Range_Proxy(
-    IBDA_FrequencyFilter* This,
-    ULONG ulRange);
-void __RPC_STUB IBDA_FrequencyFilter_put_Range_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_FrequencyFilter_get_Range_Proxy(
-    IBDA_FrequencyFilter* This,
-    ULONG *pulRange);
-void __RPC_STUB IBDA_FrequencyFilter_get_Range_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_FrequencyFilter_put_Bandwidth_Proxy(
-    IBDA_FrequencyFilter* This,
-    ULONG ulBandwidth);
-void __RPC_STUB IBDA_FrequencyFilter_put_Bandwidth_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_FrequencyFilter_get_Bandwidth_Proxy(
-    IBDA_FrequencyFilter* This,
-    ULONG *pulBandwidth);
-void __RPC_STUB IBDA_FrequencyFilter_get_Bandwidth_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_FrequencyFilter_put_FrequencyMultiplier_Proxy(
-    IBDA_FrequencyFilter* This,
-    ULONG ulMultiplier);
-void __RPC_STUB IBDA_FrequencyFilter_put_FrequencyMultiplier_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_FrequencyFilter_get_FrequencyMultiplier_Proxy(
-    IBDA_FrequencyFilter* This,
-    ULONG *pulMultiplier);
-void __RPC_STUB IBDA_FrequencyFilter_get_FrequencyMultiplier_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_FrequencyFilter_INTERFACE_DEFINED__ */
 
@@ -2666,54 +2072,6 @@ static FORCEINLINE HRESULT IBDA_LNBInfo_get_HighLowSwitchFrequency(IBDA_LNBInfo*
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_LNBInfo_put_LocalOscilatorFrequencyLowBand_Proxy(
-    IBDA_LNBInfo* This,
-    ULONG ulLOFLow);
-void __RPC_STUB IBDA_LNBInfo_put_LocalOscilatorFrequencyLowBand_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_LNBInfo_get_LocalOscilatorFrequencyLowBand_Proxy(
-    IBDA_LNBInfo* This,
-    ULONG *pulLOFLow);
-void __RPC_STUB IBDA_LNBInfo_get_LocalOscilatorFrequencyLowBand_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_LNBInfo_put_LocalOscilatorFrequencyHighBand_Proxy(
-    IBDA_LNBInfo* This,
-    ULONG ulLOFHigh);
-void __RPC_STUB IBDA_LNBInfo_put_LocalOscilatorFrequencyHighBand_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_LNBInfo_get_LocalOscilatorFrequencyHighBand_Proxy(
-    IBDA_LNBInfo* This,
-    ULONG *pulLOFHigh);
-void __RPC_STUB IBDA_LNBInfo_get_LocalOscilatorFrequencyHighBand_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_LNBInfo_put_HighLowSwitchFrequency_Proxy(
-    IBDA_LNBInfo* This,
-    ULONG ulSwitchFrequency);
-void __RPC_STUB IBDA_LNBInfo_put_HighLowSwitchFrequency_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_LNBInfo_get_HighLowSwitchFrequency_Proxy(
-    IBDA_LNBInfo* This,
-    ULONG *pulSwitchFrequency);
-void __RPC_STUB IBDA_LNBInfo_get_HighLowSwitchFrequency_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_LNBInfo_INTERFACE_DEFINED__ */
 
@@ -2853,58 +2211,6 @@ static FORCEINLINE HRESULT IBDA_DiseqCommand_get_DiseqResponse(IBDA_DiseqCommand
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_DiseqCommand_put_EnableDiseqCommands_Proxy(
-    IBDA_DiseqCommand* This,
-    BOOLEAN bEnable);
-void __RPC_STUB IBDA_DiseqCommand_put_EnableDiseqCommands_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DiseqCommand_put_DiseqLNBSource_Proxy(
-    IBDA_DiseqCommand* This,
-    ULONG ulLNBSource);
-void __RPC_STUB IBDA_DiseqCommand_put_DiseqLNBSource_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DiseqCommand_put_DiseqUseToneBurst_Proxy(
-    IBDA_DiseqCommand* This,
-    BOOLEAN bUseToneBurst);
-void __RPC_STUB IBDA_DiseqCommand_put_DiseqUseToneBurst_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DiseqCommand_put_DiseqRepeats_Proxy(
-    IBDA_DiseqCommand* This,
-    ULONG ulRepeats);
-void __RPC_STUB IBDA_DiseqCommand_put_DiseqRepeats_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DiseqCommand_put_DiseqSendCommand_Proxy(
-    IBDA_DiseqCommand* This,
-    ULONG ulRequestId,
-    ULONG ulcbCommandLen,
-    BYTE *pbCommand);
-void __RPC_STUB IBDA_DiseqCommand_put_DiseqSendCommand_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DiseqCommand_get_DiseqResponse_Proxy(
-    IBDA_DiseqCommand* This,
-    ULONG ulRequestId,
-    ULONG *pulcbResponseLen,
-    BYTE pbResponse[]);
-void __RPC_STUB IBDA_DiseqCommand_get_DiseqResponse_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_DiseqCommand_INTERFACE_DEFINED__ */
 
@@ -2980,13 +2286,6 @@ static FORCEINLINE HRESULT IBDA_AutoDemodulate_put_AutoDemodulate(IBDA_AutoDemod
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_AutoDemodulate_put_AutoDemodulate_Proxy(
-    IBDA_AutoDemodulate* This);
-void __RPC_STUB IBDA_AutoDemodulate_put_AutoDemodulate_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_AutoDemodulate_INTERFACE_DEFINED__ */
 
@@ -3103,34 +2402,6 @@ static FORCEINLINE HRESULT IBDA_AutoDemodulateEx_get_AuxInputCount(IBDA_AutoDemo
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_AutoDemodulateEx_get_SupportedDeviceNodeTypes_Proxy(
-    IBDA_AutoDemodulateEx* This,
-    ULONG ulcDeviceNodeTypesMax,
-    ULONG *pulcDeviceNodeTypes,
-    GUID *pguidDeviceNodeTypes);
-void __RPC_STUB IBDA_AutoDemodulateEx_get_SupportedDeviceNodeTypes_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_AutoDemodulateEx_get_SupportedVideoFormats_Proxy(
-    IBDA_AutoDemodulateEx* This,
-    ULONG *pulAMTunerModeType,
-    ULONG *pulAnalogVideoStandard);
-void __RPC_STUB IBDA_AutoDemodulateEx_get_SupportedVideoFormats_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_AutoDemodulateEx_get_AuxInputCount_Proxy(
-    IBDA_AutoDemodulateEx* This,
-    ULONG *pulCompositeCount,
-    ULONG *pulSvideoCount);
-void __RPC_STUB IBDA_AutoDemodulateEx_get_AuxInputCount_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_AutoDemodulateEx_INTERFACE_DEFINED__ */
 
@@ -3350,118 +2621,6 @@ static FORCEINLINE HRESULT IBDA_DigitalDemodulator_get_SpectralInversion(IBDA_Di
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator_put_ModulationType_Proxy(
-    IBDA_DigitalDemodulator* This,
-    ModulationType *pModulationType);
-void __RPC_STUB IBDA_DigitalDemodulator_put_ModulationType_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator_get_ModulationType_Proxy(
-    IBDA_DigitalDemodulator* This,
-    ModulationType *pModulationType);
-void __RPC_STUB IBDA_DigitalDemodulator_get_ModulationType_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator_put_InnerFECMethod_Proxy(
-    IBDA_DigitalDemodulator* This,
-    FECMethod *pFECMethod);
-void __RPC_STUB IBDA_DigitalDemodulator_put_InnerFECMethod_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator_get_InnerFECMethod_Proxy(
-    IBDA_DigitalDemodulator* This,
-    FECMethod *pFECMethod);
-void __RPC_STUB IBDA_DigitalDemodulator_get_InnerFECMethod_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator_put_InnerFECRate_Proxy(
-    IBDA_DigitalDemodulator* This,
-    BinaryConvolutionCodeRate *pFECRate);
-void __RPC_STUB IBDA_DigitalDemodulator_put_InnerFECRate_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator_get_InnerFECRate_Proxy(
-    IBDA_DigitalDemodulator* This,
-    BinaryConvolutionCodeRate *pFECRate);
-void __RPC_STUB IBDA_DigitalDemodulator_get_InnerFECRate_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator_put_OuterFECMethod_Proxy(
-    IBDA_DigitalDemodulator* This,
-    FECMethod *pFECMethod);
-void __RPC_STUB IBDA_DigitalDemodulator_put_OuterFECMethod_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator_get_OuterFECMethod_Proxy(
-    IBDA_DigitalDemodulator* This,
-    FECMethod *pFECMethod);
-void __RPC_STUB IBDA_DigitalDemodulator_get_OuterFECMethod_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator_put_OuterFECRate_Proxy(
-    IBDA_DigitalDemodulator* This,
-    BinaryConvolutionCodeRate *pFECRate);
-void __RPC_STUB IBDA_DigitalDemodulator_put_OuterFECRate_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator_get_OuterFECRate_Proxy(
-    IBDA_DigitalDemodulator* This,
-    BinaryConvolutionCodeRate *pFECRate);
-void __RPC_STUB IBDA_DigitalDemodulator_get_OuterFECRate_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator_put_SymbolRate_Proxy(
-    IBDA_DigitalDemodulator* This,
-    ULONG *pSymbolRate);
-void __RPC_STUB IBDA_DigitalDemodulator_put_SymbolRate_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator_get_SymbolRate_Proxy(
-    IBDA_DigitalDemodulator* This,
-    ULONG *pSymbolRate);
-void __RPC_STUB IBDA_DigitalDemodulator_get_SymbolRate_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator_put_SpectralInversion_Proxy(
-    IBDA_DigitalDemodulator* This,
-    SpectralInversion *pSpectralInversion);
-void __RPC_STUB IBDA_DigitalDemodulator_put_SpectralInversion_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator_get_SpectralInversion_Proxy(
-    IBDA_DigitalDemodulator* This,
-    SpectralInversion *pSpectralInversion);
-void __RPC_STUB IBDA_DigitalDemodulator_get_SpectralInversion_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_DigitalDemodulator_INTERFACE_DEFINED__ */
 
@@ -3730,70 +2889,6 @@ static FORCEINLINE HRESULT IBDA_DigitalDemodulator2_get_Pilot(IBDA_DigitalDemodu
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator2_put_GuardInterval_Proxy(
-    IBDA_DigitalDemodulator2* This,
-    GuardInterval *pGuardInterval);
-void __RPC_STUB IBDA_DigitalDemodulator2_put_GuardInterval_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator2_get_GuardInterval_Proxy(
-    IBDA_DigitalDemodulator2* This,
-    GuardInterval *pGuardInterval);
-void __RPC_STUB IBDA_DigitalDemodulator2_get_GuardInterval_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator2_put_TransmissionMode_Proxy(
-    IBDA_DigitalDemodulator2* This,
-    TransmissionMode *pTransmissionMode);
-void __RPC_STUB IBDA_DigitalDemodulator2_put_TransmissionMode_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator2_get_TransmissionMode_Proxy(
-    IBDA_DigitalDemodulator2* This,
-    TransmissionMode *pTransmissionMode);
-void __RPC_STUB IBDA_DigitalDemodulator2_get_TransmissionMode_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator2_put_RollOff_Proxy(
-    IBDA_DigitalDemodulator2* This,
-    RollOff *pRollOff);
-void __RPC_STUB IBDA_DigitalDemodulator2_put_RollOff_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator2_get_RollOff_Proxy(
-    IBDA_DigitalDemodulator2* This,
-    RollOff *pRollOff);
-void __RPC_STUB IBDA_DigitalDemodulator2_get_RollOff_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator2_put_Pilot_Proxy(
-    IBDA_DigitalDemodulator2* This,
-    Pilot *pPilot);
-void __RPC_STUB IBDA_DigitalDemodulator2_put_Pilot_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator2_get_Pilot_Proxy(
-    IBDA_DigitalDemodulator2* This,
-    Pilot *pPilot);
-void __RPC_STUB IBDA_DigitalDemodulator2_get_Pilot_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_DigitalDemodulator2_INTERFACE_DEFINED__ */
 
@@ -4085,38 +3180,6 @@ static FORCEINLINE HRESULT IBDA_DigitalDemodulator3_get_PLPNumber(IBDA_DigitalDe
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator3_put_SignalTimeouts_Proxy(
-    IBDA_DigitalDemodulator3* This,
-    BDA_SIGNAL_TIMEOUTS *pSignalTimeouts);
-void __RPC_STUB IBDA_DigitalDemodulator3_put_SignalTimeouts_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator3_get_SignalTimeouts_Proxy(
-    IBDA_DigitalDemodulator3* This,
-    BDA_SIGNAL_TIMEOUTS *pSignalTimeouts);
-void __RPC_STUB IBDA_DigitalDemodulator3_get_SignalTimeouts_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator3_put_PLPNumber_Proxy(
-    IBDA_DigitalDemodulator3* This,
-    ULONG *pPLPNumber);
-void __RPC_STUB IBDA_DigitalDemodulator3_put_PLPNumber_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DigitalDemodulator3_get_PLPNumber_Proxy(
-    IBDA_DigitalDemodulator3* This,
-    ULONG *pPLPNumber);
-void __RPC_STUB IBDA_DigitalDemodulator3_get_PLPNumber_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_DigitalDemodulator3_INTERFACE_DEFINED__ */
 
@@ -4204,22 +3267,6 @@ static FORCEINLINE HRESULT ICCSubStreamFiltering_put_SubstreamTypes(ICCSubStream
 
 #endif
 
-HRESULT STDMETHODCALLTYPE ICCSubStreamFiltering_get_SubstreamTypes_Proxy(
-    ICCSubStreamFiltering* This,
-    LONG *pTypes);
-void __RPC_STUB ICCSubStreamFiltering_get_SubstreamTypes_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE ICCSubStreamFiltering_put_SubstreamTypes_Proxy(
-    ICCSubStreamFiltering* This,
-    LONG Types);
-void __RPC_STUB ICCSubStreamFiltering_put_SubstreamTypes_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __ICCSubStreamFiltering_INTERFACE_DEFINED__ */
 
@@ -4311,24 +3358,6 @@ static FORCEINLINE HRESULT IBDA_IPSinkControl_GetAdapterIPAddress(IBDA_IPSinkCon
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_IPSinkControl_GetMulticastList_Proxy(
-    IBDA_IPSinkControl* This,
-    ULONG *pulcbSize,
-    BYTE **pbBuffer);
-void __RPC_STUB IBDA_IPSinkControl_GetMulticastList_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_IPSinkControl_GetAdapterIPAddress_Proxy(
-    IBDA_IPSinkControl* This,
-    ULONG *pulcbSize,
-    BYTE **pbBuffer);
-void __RPC_STUB IBDA_IPSinkControl_GetAdapterIPAddress_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_IPSinkControl_INTERFACE_DEFINED__ */
 
@@ -4429,31 +3458,6 @@ static FORCEINLINE HRESULT IBDA_IPSinkInfo_get_AdapterDescription(IBDA_IPSinkInf
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_IPSinkInfo_get_MulticastList_Proxy(
-    IBDA_IPSinkInfo* This,
-    ULONG *pulcbAddresses,
-    BYTE **ppbAddressList);
-void __RPC_STUB IBDA_IPSinkInfo_get_MulticastList_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_IPSinkInfo_get_AdapterIPAddress_Proxy(
-    IBDA_IPSinkInfo* This,
-    BSTR *pbstrBuffer);
-void __RPC_STUB IBDA_IPSinkInfo_get_AdapterIPAddress_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_IPSinkInfo_get_AdapterDescription_Proxy(
-    IBDA_IPSinkInfo* This,
-    BSTR *pbstrBuffer);
-void __RPC_STUB IBDA_IPSinkInfo_get_AdapterDescription_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_IPSinkInfo_INTERFACE_DEFINED__ */
 
@@ -4566,39 +3570,6 @@ static FORCEINLINE HRESULT IEnumPIDMap_Clone(IEnumPIDMap* This,IEnumPIDMap **ppI
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IEnumPIDMap_Next_Proxy(
-    IEnumPIDMap* This,
-    ULONG cRequest,
-    PID_MAP *pPIDMap,
-    ULONG *pcReceived);
-void __RPC_STUB IEnumPIDMap_Next_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IEnumPIDMap_Skip_Proxy(
-    IEnumPIDMap* This,
-    ULONG cRecords);
-void __RPC_STUB IEnumPIDMap_Skip_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IEnumPIDMap_Reset_Proxy(
-    IEnumPIDMap* This);
-void __RPC_STUB IEnumPIDMap_Reset_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IEnumPIDMap_Clone_Proxy(
-    IEnumPIDMap* This,
-    IEnumPIDMap **ppIEnumPIDMap);
-void __RPC_STUB IEnumPIDMap_Clone_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IEnumPIDMap_INTERFACE_DEFINED__ */
 
@@ -4703,33 +3674,6 @@ static FORCEINLINE HRESULT IMPEG2PIDMap_EnumPIDMap(IMPEG2PIDMap* This,IEnumPIDMa
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IMPEG2PIDMap_MapPID_Proxy(
-    IMPEG2PIDMap* This,
-    ULONG culPID,
-    ULONG *pulPID,
-    MEDIA_SAMPLE_CONTENT MediaSampleContent);
-void __RPC_STUB IMPEG2PIDMap_MapPID_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IMPEG2PIDMap_UnmapPID_Proxy(
-    IMPEG2PIDMap* This,
-    ULONG culPID,
-    ULONG *pulPID);
-void __RPC_STUB IMPEG2PIDMap_UnmapPID_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IMPEG2PIDMap_EnumPIDMap_Proxy(
-    IMPEG2PIDMap* This,
-    IEnumPIDMap **pIEnumPIDMap);
-void __RPC_STUB IMPEG2PIDMap_EnumPIDMap_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IMPEG2PIDMap_INTERFACE_DEFINED__ */
 
@@ -4871,59 +3815,6 @@ static FORCEINLINE HRESULT IFrequencyMap_get_CountryCodeList(IFrequencyMap* This
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IFrequencyMap_get_FrequencyMapping_Proxy(
-    IFrequencyMap* This,
-    ULONG *ulCount,
-    ULONG **ppulList);
-void __RPC_STUB IFrequencyMap_get_FrequencyMapping_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IFrequencyMap_put_FrequencyMapping_Proxy(
-    IFrequencyMap* This,
-    ULONG ulCount,
-    ULONG pList[]);
-void __RPC_STUB IFrequencyMap_put_FrequencyMapping_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IFrequencyMap_get_CountryCode_Proxy(
-    IFrequencyMap* This,
-    ULONG *pulCountryCode);
-void __RPC_STUB IFrequencyMap_get_CountryCode_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IFrequencyMap_put_CountryCode_Proxy(
-    IFrequencyMap* This,
-    ULONG ulCountryCode);
-void __RPC_STUB IFrequencyMap_put_CountryCode_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IFrequencyMap_get_DefaultFrequencyMapping_Proxy(
-    IFrequencyMap* This,
-    ULONG ulCountryCode,
-    ULONG *pulCount,
-    ULONG **ppulList);
-void __RPC_STUB IFrequencyMap_get_DefaultFrequencyMapping_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IFrequencyMap_get_CountryCodeList_Proxy(
-    IFrequencyMap* This,
-    ULONG *pulCount,
-    ULONG **ppulList);
-void __RPC_STUB IFrequencyMap_get_CountryCodeList_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IFrequencyMap_INTERFACE_DEFINED__ */
 
@@ -5002,15 +3893,6 @@ static FORCEINLINE HRESULT IBDA_EasMessage_get_EasMessage(IBDA_EasMessage* This,
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_EasMessage_get_EasMessage_Proxy(
-    IBDA_EasMessage* This,
-    ULONG ulEventID,
-    IUnknown **ppEASObject);
-void __RPC_STUB IBDA_EasMessage_get_EasMessage_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_EasMessage_INTERFACE_DEFINED__ */
 
@@ -5087,14 +3969,6 @@ static FORCEINLINE HRESULT IBDA_TransportStreamInfo_get_PatTableTickCount(IBDA_T
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_TransportStreamInfo_get_PatTableTickCount_Proxy(
-    IBDA_TransportStreamInfo* This,
-    ULONG *pPatTickCount);
-void __RPC_STUB IBDA_TransportStreamInfo_get_PatTableTickCount_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_TransportStreamInfo_INTERFACE_DEFINED__ */
 
@@ -5298,100 +4172,6 @@ static FORCEINLINE HRESULT IBDA_ConditionalAccess_InformUIClosed(IBDA_Conditiona
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_ConditionalAccess_get_SmartCardStatus_Proxy(
-    IBDA_ConditionalAccess* This,
-    SmartCardStatusType *pCardStatus,
-    SmartCardAssociationType *pCardAssociation,
-    BSTR *pbstrCardError,
-    VARIANT_BOOL *pfOOBLocked);
-void __RPC_STUB IBDA_ConditionalAccess_get_SmartCardStatus_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_ConditionalAccess_get_SmartCardInfo_Proxy(
-    IBDA_ConditionalAccess* This,
-    BSTR *pbstrCardName,
-    BSTR *pbstrCardManufacturer,
-    VARIANT_BOOL *pfDaylightSavings,
-    BYTE *pbyRatingRegion,
-    LONG *plTimeZoneOffsetMinutes,
-    BSTR *pbstrLanguage,
-    EALocationCodeType *pEALocationCode);
-void __RPC_STUB IBDA_ConditionalAccess_get_SmartCardInfo_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_ConditionalAccess_get_SmartCardApplications_Proxy(
-    IBDA_ConditionalAccess* This,
-    ULONG *pulcApplications,
-    ULONG ulcApplicationsMax,
-    SmartCardApplication rgApplications[]);
-void __RPC_STUB IBDA_ConditionalAccess_get_SmartCardApplications_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_ConditionalAccess_get_Entitlement_Proxy(
-    IBDA_ConditionalAccess* This,
-    USHORT usVirtualChannel,
-    EntitlementType *pEntitlement);
-void __RPC_STUB IBDA_ConditionalAccess_get_Entitlement_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_ConditionalAccess_TuneByChannel_Proxy(
-    IBDA_ConditionalAccess* This,
-    USHORT usVirtualChannel);
-void __RPC_STUB IBDA_ConditionalAccess_TuneByChannel_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_ConditionalAccess_SetProgram_Proxy(
-    IBDA_ConditionalAccess* This,
-    USHORT usProgramNumber);
-void __RPC_STUB IBDA_ConditionalAccess_SetProgram_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_ConditionalAccess_AddProgram_Proxy(
-    IBDA_ConditionalAccess* This,
-    USHORT usProgramNumber);
-void __RPC_STUB IBDA_ConditionalAccess_AddProgram_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_ConditionalAccess_RemoveProgram_Proxy(
-    IBDA_ConditionalAccess* This,
-    USHORT usProgramNumber);
-void __RPC_STUB IBDA_ConditionalAccess_RemoveProgram_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_ConditionalAccess_GetModuleUI_Proxy(
-    IBDA_ConditionalAccess* This,
-    BYTE byDialogNumber,
-    BSTR *pbstrURL);
-void __RPC_STUB IBDA_ConditionalAccess_GetModuleUI_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_ConditionalAccess_InformUIClosed_Proxy(
-    IBDA_ConditionalAccess* This,
-    BYTE byDialogNumber,
-    UICloseReasonType CloseReason);
-void __RPC_STUB IBDA_ConditionalAccess_InformUIClosed_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_ConditionalAccess_INTERFACE_DEFINED__ */
 
@@ -5565,23 +4345,6 @@ static FORCEINLINE HRESULT IBDA_DRM_PerformDRMPairing(IBDA_DRM* This,WINBOOL fSy
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_DRM_GetDRMPairingStatus_Proxy(
-    IBDA_DRM* This,
-    DWORD *pdwStatus,
-    HRESULT *phError);
-void __RPC_STUB IBDA_DRM_GetDRMPairingStatus_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DRM_PerformDRMPairing_Proxy(
-    IBDA_DRM* This,
-    WINBOOL fSync);
-void __RPC_STUB IBDA_DRM_PerformDRMPairing_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_DRM_INTERFACE_DEFINED__ */
 
@@ -5694,37 +4457,6 @@ static FORCEINLINE HRESULT IBDA_NameValueService_SetValue(IBDA_NameValueService*
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_NameValueService_GetValueNameByIndex_Proxy(
-    IBDA_NameValueService* This,
-    ULONG ulIndex,
-    BSTR *pbstrName);
-void __RPC_STUB IBDA_NameValueService_GetValueNameByIndex_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_NameValueService_GetValue_Proxy(
-    IBDA_NameValueService* This,
-    BSTR bstrName,
-    BSTR bstrLanguage,
-    BSTR *pbstrValue);
-void __RPC_STUB IBDA_NameValueService_GetValue_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_NameValueService_SetValue_Proxy(
-    IBDA_NameValueService* This,
-    ULONG ulDialogRequest,
-    BSTR bstrLanguage,
-    BSTR bstrName,
-    BSTR bstrValue,
-    ULONG ulReserved);
-void __RPC_STUB IBDA_NameValueService_SetValue_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_NameValueService_INTERFACE_DEFINED__ */
 
@@ -5869,58 +4601,6 @@ static FORCEINLINE HRESULT IBDA_ConditionalAccessEx_CreateDialogRequestNumber(IB
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_ConditionalAccessEx_CheckEntitlementToken_Proxy(
-    IBDA_ConditionalAccessEx* This,
-    ULONG ulDialogRequest,
-    BSTR bstrLanguage,
-    BDA_CONDITIONALACCESS_REQUESTTYPE RequestType,
-    ULONG ulcbEntitlementTokenLen,
-    BYTE *pbEntitlementToken,
-    ULONG *pulDescrambleStatus);
-void __RPC_STUB IBDA_ConditionalAccessEx_CheckEntitlementToken_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_ConditionalAccessEx_SetCaptureToken_Proxy(
-    IBDA_ConditionalAccessEx* This,
-    ULONG ulcbCaptureTokenLen,
-    BYTE *pbCaptureToken);
-void __RPC_STUB IBDA_ConditionalAccessEx_SetCaptureToken_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_ConditionalAccessEx_OpenBroadcastMmi_Proxy(
-    IBDA_ConditionalAccessEx* This,
-    ULONG ulDialogRequest,
-    BSTR bstrLanguage,
-    ULONG EventId);
-void __RPC_STUB IBDA_ConditionalAccessEx_OpenBroadcastMmi_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_ConditionalAccessEx_CloseMmiDialog_Proxy(
-    IBDA_ConditionalAccessEx* This,
-    ULONG ulDialogRequest,
-    BSTR bstrLanguage,
-    ULONG ulDialogNumber,
-    BDA_CONDITIONALACCESS_MMICLOSEREASON ReasonCode,
-    ULONG *pulSessionResult);
-void __RPC_STUB IBDA_ConditionalAccessEx_CloseMmiDialog_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_ConditionalAccessEx_CreateDialogRequestNumber_Proxy(
-    IBDA_ConditionalAccessEx* This,
-    ULONG *pulDialogRequestNumber);
-void __RPC_STUB IBDA_ConditionalAccessEx_CreateDialogRequestNumber_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_ConditionalAccessEx_INTERFACE_DEFINED__ */
 
@@ -6001,16 +4681,6 @@ static FORCEINLINE HRESULT IBDA_ISDBConditionalAccess_SetIsdbCasRequest(IBDA_ISD
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_ISDBConditionalAccess_SetIsdbCasRequest_Proxy(
-    IBDA_ISDBConditionalAccess* This,
-    ULONG ulRequestId,
-    ULONG ulcbRequestBufferLen,
-    BYTE *pbRequestBuffer);
-void __RPC_STUB IBDA_ISDBConditionalAccess_SetIsdbCasRequest_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_ISDBConditionalAccess_INTERFACE_DEFINED__ */
 
@@ -6089,15 +4759,6 @@ static FORCEINLINE HRESULT IBDA_EventingService_CompleteEvent(IBDA_EventingServi
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_EventingService_CompleteEvent_Proxy(
-    IBDA_EventingService* This,
-    ULONG ulEventID,
-    ULONG ulEventResult);
-void __RPC_STUB IBDA_EventingService_CompleteEvent_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_EventingService_INTERFACE_DEFINED__ */
 
@@ -6195,27 +4856,6 @@ static FORCEINLINE HRESULT IBDA_AUX_EnumCapability(IBDA_AUX* This,DWORD dwIndex,
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_AUX_QueryCapabilities_Proxy(
-    IBDA_AUX* This,
-    DWORD *pdwNumAuxInputsBSTR);
-void __RPC_STUB IBDA_AUX_QueryCapabilities_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_AUX_EnumCapability_Proxy(
-    IBDA_AUX* This,
-    DWORD dwIndex,
-    DWORD *dwInputID,
-    GUID *pConnectorType,
-    DWORD *ConnTypeNum,
-    DWORD *NumVideoStds,
-    ULONGLONG *AnalogStds);
-void __RPC_STUB IBDA_AUX_EnumCapability_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_AUX_INTERFACE_DEFINED__ */
 
@@ -6410,83 +5050,6 @@ static FORCEINLINE HRESULT IBDA_Encoder_GetState(IBDA_Encoder* This,DWORD *Audio
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_Encoder_QueryCapabilities_Proxy(
-    IBDA_Encoder* This,
-    DWORD *NumAudioFmts,
-    DWORD *NumVideoFmts);
-void __RPC_STUB IBDA_Encoder_QueryCapabilities_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_Encoder_EnumAudioCapability_Proxy(
-    IBDA_Encoder* This,
-    DWORD FmtIndex,
-    DWORD *MethodID,
-    DWORD *AlgorithmType,
-    DWORD *SamplingRate,
-    DWORD *BitDepth,
-    DWORD *NumChannels);
-void __RPC_STUB IBDA_Encoder_EnumAudioCapability_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_Encoder_EnumVideoCapability_Proxy(
-    IBDA_Encoder* This,
-    DWORD FmtIndex,
-    DWORD *MethodID,
-    DWORD *AlgorithmType,
-    DWORD *VerticalSize,
-    DWORD *HorizontalSize,
-    DWORD *AspectRatio,
-    DWORD *FrameRateCode,
-    DWORD *ProgressiveSequence);
-void __RPC_STUB IBDA_Encoder_EnumVideoCapability_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_Encoder_SetParameters_Proxy(
-    IBDA_Encoder* This,
-    DWORD AudioBitrateMode,
-    DWORD AudioBitrate,
-    DWORD AudioMethodID,
-    DWORD AudioProgram,
-    DWORD VideoBitrateMode,
-    DWORD VideoBitrate,
-    DWORD VideoMethodID);
-void __RPC_STUB IBDA_Encoder_SetParameters_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_Encoder_GetState_Proxy(
-    IBDA_Encoder* This,
-    DWORD *AudioBitrateMax,
-    DWORD *AudioBitrateMin,
-    DWORD *AudioBitrateMode,
-    DWORD *AudioBitrateStepping,
-    DWORD *AudioBitrate,
-    DWORD *AudioMethodID,
-    DWORD *AvailableAudioPrograms,
-    DWORD *AudioProgram,
-    DWORD *VideoBitrateMax,
-    DWORD *VideoBitrateMin,
-    DWORD *VideoBitrateMode,
-    DWORD *VideoBitrate,
-    DWORD *VideoBitrateStepping,
-    DWORD *VideoMethodID,
-    DWORD *SignalSourceID,
-    ULONGLONG *SignalFormat,
-    WINBOOL *SignalLock,
-    LONG *SignalLevel,
-    DWORD *SignalToNoiseRatio);
-void __RPC_STUB IBDA_Encoder_GetState_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_Encoder_INTERFACE_DEFINED__ */
 
@@ -6651,73 +5214,6 @@ static FORCEINLINE HRESULT IBDA_FDC_GetTableSection(IBDA_FDC* This,DWORD *Pid,DW
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_FDC_GetStatus_Proxy(
-    IBDA_FDC* This,
-    DWORD *CurrentBitrate,
-    WINBOOL *CarrierLock,
-    DWORD *CurrentFrequency,
-    WINBOOL *CurrentSpectrumInversion,
-    BSTR *CurrentPIDList,
-    BSTR *CurrentTIDList,
-    WINBOOL *Overflow);
-void __RPC_STUB IBDA_FDC_GetStatus_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_FDC_RequestTables_Proxy(
-    IBDA_FDC* This,
-    BSTR TableIDs);
-void __RPC_STUB IBDA_FDC_RequestTables_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_FDC_AddPid_Proxy(
-    IBDA_FDC* This,
-    BSTR PidsToAdd,
-    DWORD *RemainingFilterEntries);
-void __RPC_STUB IBDA_FDC_AddPid_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_FDC_RemovePid_Proxy(
-    IBDA_FDC* This,
-    BSTR PidsToRemove);
-void __RPC_STUB IBDA_FDC_RemovePid_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_FDC_AddTid_Proxy(
-    IBDA_FDC* This,
-    BSTR TidsToAdd,
-    BSTR *CurrentTidList);
-void __RPC_STUB IBDA_FDC_AddTid_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_FDC_RemoveTid_Proxy(
-    IBDA_FDC* This,
-    BSTR TidsToRemove);
-void __RPC_STUB IBDA_FDC_RemoveTid_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_FDC_GetTableSection_Proxy(
-    IBDA_FDC* This,
-    DWORD *Pid,
-    DWORD MaxBufferSize,
-    DWORD *ActualSize,
-    BYTE *SecBuffer);
-void __RPC_STUB IBDA_FDC_GetTableSection_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_FDC_INTERFACE_DEFINED__ */
 
@@ -6858,58 +5354,6 @@ static FORCEINLINE HRESULT IBDA_GuideDataDeliveryService_GetServiceInfoFromTuneX
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_GuideDataDeliveryService_GetGuideDataType_Proxy(
-    IBDA_GuideDataDeliveryService* This,
-    GUID *pguidDataType);
-void __RPC_STUB IBDA_GuideDataDeliveryService_GetGuideDataType_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_GuideDataDeliveryService_GetGuideData_Proxy(
-    IBDA_GuideDataDeliveryService* This,
-    ULONG *pulcbBufferLen,
-    BYTE *pbBuffer,
-    ULONG *pulGuideDataPercentageProgress);
-void __RPC_STUB IBDA_GuideDataDeliveryService_GetGuideData_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_GuideDataDeliveryService_RequestGuideDataUpdate_Proxy(
-    IBDA_GuideDataDeliveryService* This);
-void __RPC_STUB IBDA_GuideDataDeliveryService_RequestGuideDataUpdate_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_GuideDataDeliveryService_GetTuneXmlFromServiceIdx_Proxy(
-    IBDA_GuideDataDeliveryService* This,
-    ULONG64 ul64ServiceIdx,
-    BSTR *pbstrTuneXml);
-void __RPC_STUB IBDA_GuideDataDeliveryService_GetTuneXmlFromServiceIdx_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_GuideDataDeliveryService_GetServices_Proxy(
-    IBDA_GuideDataDeliveryService* This,
-    ULONG *pulcbBufferLen,
-    BYTE *pbBuffer);
-void __RPC_STUB IBDA_GuideDataDeliveryService_GetServices_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_GuideDataDeliveryService_GetServiceInfoFromTuneXml_Proxy(
-    IBDA_GuideDataDeliveryService* This,
-    BSTR bstrTuneXml,
-    BSTR *pbstrServiceDescription);
-void __RPC_STUB IBDA_GuideDataDeliveryService_GetServiceInfoFromTuneXml_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_GuideDataDeliveryService_INTERFACE_DEFINED__ */
 
@@ -6999,23 +5443,6 @@ static FORCEINLINE HRESULT IBDA_DRMService_GetDRMStatus(IBDA_DRMService* This,BS
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_DRMService_SetDRM_Proxy(
-    IBDA_DRMService* This,
-    GUID *puuidNewDrm);
-void __RPC_STUB IBDA_DRMService_SetDRM_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DRMService_GetDRMStatus_Proxy(
-    IBDA_DRMService* This,
-    BSTR *pbstrDrmUuidList,
-    GUID *DrmUuid);
-void __RPC_STUB IBDA_DRMService_GetDRMStatus_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_DRMService_INTERFACE_DEFINED__ */
 
@@ -7213,92 +5640,6 @@ static FORCEINLINE HRESULT IBDA_WMDRMSession_GetKeyInfo(IBDA_WMDRMSession* This,
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_WMDRMSession_GetStatus_Proxy(
-    IBDA_WMDRMSession* This,
-    ULONG *MaxCaptureToken,
-    ULONG *MaxStreamingPid,
-    ULONG *MaxLicense,
-    ULONG *MinSecurityLevel,
-    ULONG *RevInfoSequenceNumber,
-    ULONGLONG *RevInfoIssuedTime,
-    ULONG *RevInfoTTL,
-    ULONG *RevListVersion,
-    ULONG *ulState);
-void __RPC_STUB IBDA_WMDRMSession_GetStatus_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_WMDRMSession_SetRevInfo_Proxy(
-    IBDA_WMDRMSession* This,
-    ULONG ulRevInfoLen,
-    BYTE *pbRevInfo);
-void __RPC_STUB IBDA_WMDRMSession_SetRevInfo_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_WMDRMSession_SetCrl_Proxy(
-    IBDA_WMDRMSession* This,
-    ULONG ulCrlLen,
-    BYTE *pbCrlLen);
-void __RPC_STUB IBDA_WMDRMSession_SetCrl_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_WMDRMSession_TransactMessage_Proxy(
-    IBDA_WMDRMSession* This,
-    ULONG ulcbRequest,
-    BYTE *pbRequest,
-    ULONG *pulcbResponse,
-    BYTE *pbResponse);
-void __RPC_STUB IBDA_WMDRMSession_TransactMessage_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_WMDRMSession_GetLicense_Proxy(
-    IBDA_WMDRMSession* This,
-    GUID *uuidKey,
-    ULONG *pulPackageLen,
-    BYTE *pbPackage);
-void __RPC_STUB IBDA_WMDRMSession_GetLicense_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_WMDRMSession_ReissueLicense_Proxy(
-    IBDA_WMDRMSession* This,
-    GUID *uuidKey);
-void __RPC_STUB IBDA_WMDRMSession_ReissueLicense_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_WMDRMSession_RenewLicense_Proxy(
-    IBDA_WMDRMSession* This,
-    ULONG ulInXmrLicenseLen,
-    BYTE *pbInXmrLicense,
-    ULONG ulEntitlementTokenLen,
-    BYTE *pbEntitlementToken,
-    ULONG *pulDescrambleStatus,
-    ULONG *pulOutXmrLicenseLen,
-    BYTE *pbOutXmrLicense);
-void __RPC_STUB IBDA_WMDRMSession_RenewLicense_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_WMDRMSession_GetKeyInfo_Proxy(
-    IBDA_WMDRMSession* This,
-    ULONG *pulKeyInfoLen,
-    BYTE *pbKeyInfo);
-void __RPC_STUB IBDA_WMDRMSession_GetKeyInfo_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_WMDRMSession_INTERFACE_DEFINED__ */
 
@@ -7450,64 +5791,6 @@ static FORCEINLINE HRESULT IBDA_WMDRMTuner_GetStartCodeProfile(IBDA_WMDRMTuner* 
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_WMDRMTuner_PurchaseEntitlement_Proxy(
-    IBDA_WMDRMTuner* This,
-    ULONG ulDialogRequest,
-    BSTR bstrLanguage,
-    ULONG ulPurchaseTokenLen,
-    BYTE *pbPurchaseToken,
-    ULONG *pulDescrambleStatus,
-    ULONG *pulCaptureTokenLen,
-    BYTE *pbCaptureToken);
-void __RPC_STUB IBDA_WMDRMTuner_PurchaseEntitlement_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_WMDRMTuner_CancelCaptureToken_Proxy(
-    IBDA_WMDRMTuner* This,
-    ULONG ulCaptureTokenLen,
-    BYTE *pbCaptureToken);
-void __RPC_STUB IBDA_WMDRMTuner_CancelCaptureToken_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_WMDRMTuner_SetPidProtection_Proxy(
-    IBDA_WMDRMTuner* This,
-    ULONG ulPid,
-    GUID *uuidKey);
-void __RPC_STUB IBDA_WMDRMTuner_SetPidProtection_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_WMDRMTuner_GetPidProtection_Proxy(
-    IBDA_WMDRMTuner* This,
-    ULONG pulPid,
-    GUID *uuidKey);
-void __RPC_STUB IBDA_WMDRMTuner_GetPidProtection_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_WMDRMTuner_SetSyncValue_Proxy(
-    IBDA_WMDRMTuner* This,
-    ULONG ulSyncValue);
-void __RPC_STUB IBDA_WMDRMTuner_SetSyncValue_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_WMDRMTuner_GetStartCodeProfile_Proxy(
-    IBDA_WMDRMTuner* This,
-    ULONG *pulStartCodeProfileLen,
-    BYTE *pbStartCodeProfile);
-void __RPC_STUB IBDA_WMDRMTuner_GetStartCodeProfile_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_WMDRMTuner_INTERFACE_DEFINED__ */
 
@@ -7608,31 +5891,6 @@ static FORCEINLINE HRESULT IBDA_DRIDRMService_GetPairingStatus(IBDA_DRIDRMServic
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_DRIDRMService_SetDRM_Proxy(
-    IBDA_DRIDRMService* This,
-    BSTR bstrNewDrm);
-void __RPC_STUB IBDA_DRIDRMService_SetDRM_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DRIDRMService_GetDRMStatus_Proxy(
-    IBDA_DRIDRMService* This,
-    BSTR *pbstrDrmUuidList,
-    GUID *DrmUuid);
-void __RPC_STUB IBDA_DRIDRMService_GetDRMStatus_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DRIDRMService_GetPairingStatus_Proxy(
-    IBDA_DRIDRMService* This,
-    BDA_DrmPairingError *penumPairingStatus);
-void __RPC_STUB IBDA_DRIDRMService_GetPairingStatus_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_DRIDRMService_INTERFACE_DEFINED__ */
 
@@ -7794,71 +6052,6 @@ static FORCEINLINE HRESULT IBDA_DRIWMDRMSession_GetLastCardeaError(IBDA_DRIWMDRM
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_DRIWMDRMSession_AcknowledgeLicense_Proxy(
-    IBDA_DRIWMDRMSession* This,
-    HRESULT hrLicenseAck);
-void __RPC_STUB IBDA_DRIWMDRMSession_AcknowledgeLicense_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DRIWMDRMSession_ProcessLicenseChallenge_Proxy(
-    IBDA_DRIWMDRMSession* This,
-    DWORD dwcbLicenseMessage,
-    BYTE *pbLicenseMessage,
-    DWORD *pdwcbLicenseResponse,
-    BYTE **ppbLicenseResponse);
-void __RPC_STUB IBDA_DRIWMDRMSession_ProcessLicenseChallenge_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DRIWMDRMSession_ProcessRegistrationChallenge_Proxy(
-    IBDA_DRIWMDRMSession* This,
-    DWORD dwcbRegistrationMessage,
-    BYTE *pbRegistrationMessage,
-    DWORD *pdwcbRegistrationResponse,
-    BYTE **ppbRegistrationResponse);
-void __RPC_STUB IBDA_DRIWMDRMSession_ProcessRegistrationChallenge_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DRIWMDRMSession_SetRevInfo_Proxy(
-    IBDA_DRIWMDRMSession* This,
-    DWORD dwRevInfoLen,
-    BYTE *pbRevInfo,
-    DWORD *pdwResponse);
-void __RPC_STUB IBDA_DRIWMDRMSession_SetRevInfo_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DRIWMDRMSession_SetCrl_Proxy(
-    IBDA_DRIWMDRMSession* This,
-    DWORD dwCrlLen,
-    BYTE *pbCrlLen,
-    DWORD *pdwResponse);
-void __RPC_STUB IBDA_DRIWMDRMSession_SetCrl_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DRIWMDRMSession_GetHMSAssociationData_Proxy(
-    IBDA_DRIWMDRMSession* This);
-void __RPC_STUB IBDA_DRIWMDRMSession_GetHMSAssociationData_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_DRIWMDRMSession_GetLastCardeaError_Proxy(
-    IBDA_DRIWMDRMSession* This,
-    DWORD *pdwError);
-void __RPC_STUB IBDA_DRIWMDRMSession_GetLastCardeaError_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_DRIWMDRMSession_INTERFACE_DEFINED__ */
 
@@ -7950,24 +6143,6 @@ static FORCEINLINE HRESULT IBDA_MUX_GetPidList(IBDA_MUX* This,ULONG *pulPidListC
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_MUX_SetPidList_Proxy(
-    IBDA_MUX* This,
-    ULONG ulPidListCount,
-    BDA_MUX_PIDLISTITEM *pbPidListBuffer);
-void __RPC_STUB IBDA_MUX_SetPidList_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_MUX_GetPidList_Proxy(
-    IBDA_MUX* This,
-    ULONG *pulPidListCount,
-    BDA_MUX_PIDLISTITEM *pbPidListBuffer);
-void __RPC_STUB IBDA_MUX_GetPidList_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_MUX_INTERFACE_DEFINED__ */
 
@@ -8057,23 +6232,6 @@ static FORCEINLINE HRESULT IBDA_TransportStreamSelector_GetTSInformation(IBDA_Tr
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_TransportStreamSelector_SetTSID_Proxy(
-    IBDA_TransportStreamSelector* This,
-    USHORT usTSID);
-void __RPC_STUB IBDA_TransportStreamSelector_SetTSID_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_TransportStreamSelector_GetTSInformation_Proxy(
-    IBDA_TransportStreamSelector* This,
-    ULONG *pulTSInformationBufferLen,
-    BYTE *pbTSInformationBuffer);
-void __RPC_STUB IBDA_TransportStreamSelector_GetTSInformation_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_TransportStreamSelector_INTERFACE_DEFINED__ */
 
@@ -8171,29 +6329,6 @@ static FORCEINLINE HRESULT IBDA_UserActivityService_UserActivityDetected(IBDA_Us
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IBDA_UserActivityService_SetCurrentTunerUseReason_Proxy(
-    IBDA_UserActivityService* This,
-    DWORD dwUseReason);
-void __RPC_STUB IBDA_UserActivityService_SetCurrentTunerUseReason_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_UserActivityService_GetUserActivityInterval_Proxy(
-    IBDA_UserActivityService* This,
-    DWORD *pdwActivityInterval);
-void __RPC_STUB IBDA_UserActivityService_GetUserActivityInterval_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE IBDA_UserActivityService_UserActivityDetected_Proxy(
-    IBDA_UserActivityService* This);
-void __RPC_STUB IBDA_UserActivityService_UserActivityDetected_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IBDA_UserActivityService_INTERFACE_DEFINED__ */
 

@@ -154,29 +154,6 @@ static FORCEINLINE ULONG IUnknown_Release(IUnknown* This) {
 
 #endif
 
-HRESULT STDMETHODCALLTYPE IUnknown_QueryInterface_Proxy(
-    IUnknown* This,
-    REFIID riid,
-    void **ppvObject);
-void __RPC_STUB IUnknown_QueryInterface_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-ULONG STDMETHODCALLTYPE IUnknown_AddRef_Proxy(
-    IUnknown* This);
-void __RPC_STUB IUnknown_AddRef_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-ULONG STDMETHODCALLTYPE IUnknown_Release_Proxy(
-    IUnknown* This);
-void __RPC_STUB IUnknown_Release_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __IUnknown_INTERFACE_DEFINED__ */
 
@@ -308,50 +285,6 @@ static FORCEINLINE ULONG AsyncIUnknown_Finish_Release(AsyncIUnknown* This) {
 
 #endif
 
-HRESULT STDMETHODCALLTYPE AsyncIUnknown_Begin_QueryInterface_Proxy(
-    AsyncIUnknown* This,
-    REFIID riid);
-void __RPC_STUB AsyncIUnknown_Begin_QueryInterface_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE AsyncIUnknown_Finish_QueryInterface_Proxy(
-    AsyncIUnknown* This,
-    void **ppvObject);
-void __RPC_STUB AsyncIUnknown_Finish_QueryInterface_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE AsyncIUnknown_Begin_AddRef_Proxy(
-    AsyncIUnknown* This);
-void __RPC_STUB AsyncIUnknown_Begin_AddRef_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-ULONG STDMETHODCALLTYPE AsyncIUnknown_Finish_AddRef_Proxy(
-    AsyncIUnknown* This);
-void __RPC_STUB AsyncIUnknown_Finish_AddRef_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-HRESULT STDMETHODCALLTYPE AsyncIUnknown_Begin_Release_Proxy(
-    AsyncIUnknown* This);
-void __RPC_STUB AsyncIUnknown_Begin_Release_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
-ULONG STDMETHODCALLTYPE AsyncIUnknown_Finish_Release_Proxy(
-    AsyncIUnknown* This);
-void __RPC_STUB AsyncIUnknown_Finish_Release_Stub(
-    IRpcStubBuffer* This,
-    IRpcChannelBuffer* pRpcChannelBuffer,
-    PRPC_MESSAGE pRpcMessage,
-    DWORD* pdwStubPhase);
 
 #endif  /* __AsyncIUnknown_INTERFACE_DEFINED__ */
 
