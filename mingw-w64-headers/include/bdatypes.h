@@ -55,11 +55,12 @@ typedef enum BDA_CHANGE_STATE {
   BDA_CHANGES_PENDING
 } BDA_CHANGE_STATE, *PBDA_CHANGE_STATE;
 
-typedef
 #ifdef __WIDL__
-  [v1_enum]
+typedef [v1_enum] enum MEDIA_SAMPLE_CONTENT
+#else
+typedef enum MEDIA_SAMPLE_CONTENT
 #endif
-  enum MEDIA_SAMPLE_CONTENT {
+{
   MEDIA_TRANSPORT_PACKET,
   MEDIA_ELEMENTARY_STREAM,
   MEDIA_MPEG2_PSI,
@@ -77,11 +78,12 @@ typedef enum MUX_PID_TYPE {
   PID_MPEG2_SECTION_PSI_SI
 } MUX_PID_TYPE;
 
-typedef
 #ifdef __WIDL__
-  [v1_enum]
+typedef [v1_enum] enum DVBSystemType
+#else
+typedef enum DVBSystemType
 #endif
-  enum DVBSystemType {
+{
   DVB_Cable,
   DVB_Terrestrial,
   DVB_Satellite,
@@ -93,11 +95,12 @@ typedef enum BDA_Channel {
   BDA_UNDEFINED_CHANNEL = -1
 } BDA_Channel;
 
-typedef
 #ifdef __WIDL__
-  [v1_enum]
+typedef [v1_enum] enum ComponentCategory
+#else
+typedef enum ComponentCategory
 #endif
-  enum ComponentCategory {
+{
   CategoryNotSet = -1,
   CategoryOther = 0,
   CategoryVideo,
@@ -110,21 +113,23 @@ typedef
   CATEGORY_COUNT
 } ComponentCategory;
 
-typedef
 #ifdef __WIDL__
-  [v1_enum]
+typedef [v1_enum] enum ComponentStatus
+#else
+typedef enum ComponentStatus
 #endif
-  enum ComponentStatus {
+{
   StatusActive,
   StatusInactive,
   StatusUnavailable
 } ComponentStatus;
 
-typedef
 #ifdef __WIDL__
-  [v1_enum]
+typedef [v1_enum] enum MPEG2StreamType
+#else
+typedef enum MPEG2StreamType
 #endif
-  enum MPEG2StreamType {
+{
   BDA_UNITIALIZED_MPEG2STREAMTYPE = -1,
   Reserved1 = 0x00,
   ISO_IEC_11172_2_VIDEO = 0x01,
@@ -165,11 +170,12 @@ typedef enum ATSCComponentTypeFlags {
   ATSCCT_AC3 = 0x1
 } ATSCComponentTypeFlags;
 
-typedef
 #ifdef __WIDL__
-  [v1_enum]
+typedef [v1_enum] enum BinaryConvolutionCodeRate
+#else
+typedef enum BinaryConvolutionCodeRate
 #endif
-  enum BinaryConvolutionCodeRate {
+{
   BDA_BCC_RATE_NOT_SET = -1,
   BDA_BCC_RATE_NOT_DEFINED = 0,
   BDA_BCC_RATE_1_2 = 1,
@@ -189,11 +195,12 @@ typedef
   BDA_BCC_RATE_MAX
 } BinaryConvolutionCodeRate;
 
-typedef
 #ifdef __WIDL__
-  [v1_enum]
+typedef [v1_enum] enum FECMethod
+#else
+typedef enum FECMethod
 #endif
-  enum FECMethod {
+{
   BDA_FEC_METHOD_NOT_SET = -1,
   BDA_FEC_METHOD_NOT_DEFINED = 0,
   BDA_FEC_VITERBI = 1,
@@ -204,11 +211,12 @@ typedef
   BDA_FEC_MAX
 } FECMethod;
 
-typedef
 #ifdef __WIDL__
-  [v1_enum]
+typedef [v1_enum] enum ModulationType
+#else
+typedef enum ModulationType
 #endif
-  enum ModulationType {
+{
   BDA_MOD_NOT_SET = -1,
   BDA_MOD_NOT_DEFINED = 0,
   BDA_MOD_16QAM = 1,
@@ -249,11 +257,12 @@ typedef
   BDA_MOD_MAX
 } ModulationType;
 
-typedef
 #ifdef __WIDL__
-  [v1_enum]
+typedef [v1_enum] enum tagScanModulationTypes
+#else
+typedef enum tagScanModulationTypes
 #endif
-  enum tagScanModulationTypes {
+{
   BDA_SCAN_MOD_16QAM = 0x00000001,
   BDA_SCAN_MOD_32QAM = 0x00000002,
   BDA_SCAN_MOD_64QAM = 0x00000004,
@@ -293,11 +302,12 @@ typedef
   BDA_SCAN_MOD_32APSK = 0x20000000,
 } ScanModulationTypes;
 
-typedef
 #ifdef __WIDL__
-  [v1_enum]
+typedef [v1_enum] enum SpectralInversion
+#else
+typedef enum SpectralInversion
 #endif
-  enum SpectralInversion {
+{
   BDA_SPECTRAL_INVERSION_NOT_SET = -1,
   BDA_SPECTRAL_INVERSION_NOT_DEFINED = 0,
   BDA_SPECTRAL_INVERSION_AUTOMATIC = 1,
@@ -306,11 +316,12 @@ typedef
   BDA_SPECTRAL_INVERSION_MAX
 } SpectralInversion;
 
-typedef
 #ifdef __WIDL__
-  [v1_enum]
+typedef [v1_enum] enum Polarisation
+#else
+typedef enum Polarisation
 #endif
-  enum Polarisation {
+{
   BDA_POLARISATION_NOT_SET = -1,
   BDA_POLARISATION_NOT_DEFINED = 0,
   BDA_POLARISATION_LINEAR_H = 1,
@@ -320,11 +331,12 @@ typedef
   BDA_POLARISATION_MAX
 } Polarisation;
 
-typedef
 #ifdef __WIDL__
-  [v1_enum]
+typedef [v1_enum] enum LNB_Source
+#else
+typedef enum LNB_Source
 #endif
-  enum LNB_Source {
+{
   BDA_LNB_SOURCE_NOT_SET = -1,
   BDA_LNB_SOURCE_NOT_DEFINED = 0,
   BDA_LNB_SOURCE_A = 1,
@@ -334,11 +346,12 @@ typedef
   BDA_LNB_SOURCE_MAX
 } LNB_Source;
 
-typedef
 #ifdef __WIDL__
-  [v1_enum]
+typedef [v1_enum] enum GuardInterval
+#else
+typedef enum GuardInterval
 #endif
-  enum GuardInterval {
+{
   BDA_GUARD_NOT_SET = -1,
   BDA_GUARD_NOT_DEFINED = 0,
   BDA_GUARD_1_32 = 1,
@@ -351,11 +364,12 @@ typedef
   BDA_GUARD_MAX
 } GuardInterval;
 
-typedef
 #ifdef __WIDL__
-  [v1_enum]
+typedef [v1_enum] enum HierarchyAlpha
+#else
+typedef enum HierarchyAlpha
 #endif
-  enum HierarchyAlpha {
+{
   BDA_HALPHA_NOT_SET = -1,
   BDA_HALPHA_NOT_DEFINED = 0,
   BDA_HALPHA_1 = 1,
@@ -364,11 +378,12 @@ typedef
   BDA_HALPHA_MAX
 } HierarchyAlpha;
 
-typedef
 #ifdef __WIDL__
-  [v1_enum]
+typedef [v1_enum] enum TransmissionMode
+#else
+typedef enum TransmissionMode
 #endif
-  enum TransmissionMode {
+{
   BDA_XMIT_MODE_NOT_SET = -1,
   BDA_XMIT_MODE_NOT_DEFINED = 0,
   BDA_XMIT_MODE_2K = 1,
@@ -382,11 +397,12 @@ typedef
   BDA_XMIT_MODE_MAX
 } TransmissionMode;
 
-typedef
 #ifdef __WIDL__
-  [v1_enum]
+typedef [v1_enum] enum RollOff
+#else
+typedef enum RollOff
 #endif
-  enum RollOff {
+{
   BDA_ROLL_OFF_NOT_SET = -1,
   BDA_ROLL_OFF_NOT_DEFINED = 0,
   BDA_ROLL_OFF_20 = 1,
@@ -395,11 +411,12 @@ typedef
   BDA_ROLL_OFF_MAX
 } RollOff;
 
-typedef
 #ifdef __WIDL__
-  [v1_enum]
+typedef [v1_enum] enum Pilot
+#else
+typedef enum Pilot
 #endif
-  enum Pilot {
+{
   BDA_PILOT_NOT_SET = -1,
   BDA_PILOT_NOT_DEFINED = 0,
   BDA_PILOT_OFF = 1,
@@ -446,22 +463,24 @@ typedef enum ApplicationTypeType {
   SCTE28_Reserved,
 } ApplicationTypeType;
 
-typedef
 #ifdef __WIDL__
-  [v1_enum]
+typedef [v1_enum] enum BDA_CONDITIONALACCESS_REQUESTTYPE
+#else
+typedef enum BDA_CONDITIONALACCESS_REQUESTTYPE
 #endif
-  enum BDA_CONDITIONALACCESS_REQUESTTYPE {
+{
   CONDITIONALACCESS_ACCESS_UNSPECIFIED = 0,
   CONDITIONALACCESS_ACCESS_NOT_POSSIBLE,
   CONDITIONALACCESS_ACCESS_POSSIBLE,
   CONDITIONALACCESS_ACCESS_POSSIBLE_NO_STREAMING_DISRUPTION
 } BDA_CONDITIONALACCESS_REQUESTTYPE;
 
-typedef
 #ifdef __WIDL__
-  [v1_enum]
+typedef [v1_enum] enum BDA_CONDITIONALACCESS_MMICLOSEREASON
+#else
+typedef enum BDA_CONDITIONALACCESS_MMICLOSEREASON
 #endif
-  enum BDA_CONDITIONALACCESS_MMICLOSEREASON {
+{
   CONDITIONALACCESS_UNSPECIFIED = 0,
   CONDITIONALACCESS_CLOSED_ITSELF,
   CONDITIONALACCESS_TUNER_REQUESTED_CLOSE,
