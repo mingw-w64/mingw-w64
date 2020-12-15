@@ -265,11 +265,14 @@ TLB_SRCS = \
 
 BUILT_SOURCES = $(IDL_SRCS:.idl=.h) $(TLB_SRCS:.idl=.tlb)
 
-.idl.h: crt/_mingw.h
+%.h: %.idl crt/_mingw.h
 	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -Icrt -I$(srcdir)/crt -h -o $@ $<
 
-.idl.tlb:
+%.tlb: %.idl
 	$(WIDL) -I$(srcdir)/include -t -o $@ $<
+
+%_i.c: %.idl crt/_mingw.h
+	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -Icrt -I$(srcdir)/crt -u -o $@ $<
 
 endif
 
