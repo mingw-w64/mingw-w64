@@ -274,6 +274,10 @@ BUILT_SOURCES = $(IDL_SRCS:.idl=.h) $(TLB_SRCS:.idl=.tlb)
 %_i.c: %.idl crt/_mingw.h
 	$(WIDL) -DBOOL=WINBOOL -I$(srcdir)/include -Icrt -I$(srcdir)/crt -u -o $@ $<
 
+# following headers are not meant to be generated from IDLs, so override default rule
+include/prsht.h: ;
+include/wincrypt.h: ;
+
 endif
 
 _mingw_ddk.h: $(srcdir)/crt/sdks/_mingw_ddk.h.in
