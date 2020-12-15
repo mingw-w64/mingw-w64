@@ -15,11 +15,7 @@
 
 typedef LONG PBDARESULT;
 
-typedef
-#ifdef __WIDL__
-  [v1_enum]
-#endif
-  enum BDA_EVENT_ID {
+typedef enum BDA_EVENT_ID {
   BDA_EVENT_SIGNAL_LOSS = 0,
   BDA_EVENT_SIGNAL_LOCK,
   BDA_EVENT_DATA_START,
@@ -42,31 +38,19 @@ typedef
   BDA_EVENT_SMART_CARD_REMOVED
 } BDA_EVENT_ID, *PBDA_EVENT_ID;
 
-typedef
-#ifdef __WIDL__
-  [v1_enum]
-#endif
-  enum BDA_MULTICAST_MODE {
+typedef enum BDA_MULTICAST_MODE {
   BDA_PROMISCUOUS_MULTICAST = 0,
   BDA_FILTERED_MULTICAST,
   BDA_NO_MULTICAST
 } BDA_MULTICAST_MODE, *PBDA_MULTICAST_MODE;
 
-typedef
-#ifdef __WIDL__
-  [v1_enum]
-#endif
-  enum BDA_SIGNAL_STATE {
+typedef enum BDA_SIGNAL_STATE {
   BDA_SIGNAL_UNAVAILABLE = 0,
   BDA_SIGNAL_INACTIVE,
   BDA_SIGNAL_ACTIVE
 } BDA_SIGNAL_STATE, *PBDA_SIGNAL_STATE;
 
-typedef
-#ifdef __WIDL__
-  [v1_enum]
-#endif
-  enum BDA_CHANGE_STATE {
+typedef enum BDA_CHANGE_STATE {
   BDA_CHANGES_COMPLETE = 0,
   BDA_CHANGES_PENDING
 } BDA_CHANGE_STATE, *PBDA_CHANGE_STATE;
@@ -82,20 +66,12 @@ typedef
   MEDIA_TRANSPORT_PAYLOAD
 } MEDIA_SAMPLE_CONTENT;
 
-typedef
-#ifdef __WIDL__
-  [v1_enum]
-#endif
-  enum ISDBCAS_REQUEST_ID {
+typedef enum ISDBCAS_REQUEST_ID {
   ISDBCAS_REQUEST_ID_EMG = 0x38,
   ISDBCAS_REQUEST_ID_EMD = 0x3a,
 } ISDBCAS_REQUEST_ID;
 
-typedef
-#ifdef __WIDL__
-  [v1_enum]
-#endif
-  enum MUX_PID_TYPE {
+typedef enum MUX_PID_TYPE {
   PID_OTHER = -1,
   PID_ELEMENTARY_STREAM,
   PID_MPEG2_SECTION_PSI_SI
@@ -113,11 +89,7 @@ typedef
   ISDB_Satellite
 } DVBSystemType;
 
-typedef
-#ifdef __WIDL__
-  [v1_enum]
-#endif
-  enum BDA_Channel {
+typedef enum BDA_Channel {
   BDA_UNDEFINED_CHANNEL = -1
 } BDA_Channel;
 
@@ -189,11 +161,7 @@ typedef
   DOLBY_DIGITAL_PLUS_AUDIO_ATSC = 0x87
 } MPEG2StreamType;
 
-typedef
-#ifdef __WIDL__
-  [v1_enum]
-#endif
-  enum ATSCComponentTypeFlags {
+typedef enum ATSCComponentTypeFlags {
   ATSCCT_AC3 = 0x1
 } ATSCComponentTypeFlags;
 
@@ -439,58 +407,34 @@ typedef
   BDA_PILOT_MAX
 } Pilot;
 
-typedef
-#ifdef __WIDL__
-  [v1_enum]
-#endif
-  enum BDA_Frequency {
+typedef enum BDA_Frequency {
   BDA_FREQUENCY_NOT_SET = -1,
   BDA_FREQUENCY_NOT_DEFINED = 0
 } BDA_Frequency;
 
-typedef
-#ifdef __WIDL__
-  [v1_enum]
-#endif
-  enum BDA_Range {
+typedef enum BDA_Range {
   BDA_RANGE_NOT_SET = -1,
   BDA_RANGE_NOT_DEFINED = 0
 } BDA_Range;
 
-typedef
-#ifdef __WIDL__
-  [v1_enum]
-#endif
-  enum BDA_Channel_Bandwidth {
+typedef enum BDA_Channel_Bandwidth {
   BDA_CHAN_BANDWITH_NOT_SET = -1,
   BDA_CHAN_BANDWITH_NOT_DEFINED = 0
 } BDA_Channel_Bandwidth;
 
-typedef
-#ifdef __WIDL__
-  [v1_enum]
-#endif
-  enum BDA_Frequency_Multiplier {
+typedef enum BDA_Frequency_Multiplier {
   BDA_FREQUENCY_MULTIPLIER_NOT_SET = -1,
   BDA_FREQUENCY_MULTIPLIER_NOT_DEFINED = 0
 } BDA_Frequency_Multiplier;
 
-typedef
-#ifdef __WIDL__
-  [v1_enum]
-#endif
-  enum BDA_Comp_Flags {
+typedef enum BDA_Comp_Flags {
   BDACOMP_NOT_DEFINED = 0x00000000,
   BDACOMP_EXCLUDE_TS_FROM_TR = 0x00000001,
   BDACOMP_INCLUDE_LOCATOR_IN_TR = 0x00000002,
   BDACOMP_INCLUDE_COMPONENTS_IN_TR = 0x00000004
 } BDA_Comp_Flags;
 
-typedef
-#ifdef __WIDL__
-  [v1_enum]
-#endif
-  enum ApplicationTypeType {
+typedef enum ApplicationTypeType {
   SCTE28_ConditionalAccess = 0,
   SCTE28_POD_Host_Binding_Information,
   SCTE28_IPService,
@@ -527,21 +471,13 @@ typedef
   CONDITIONALACCESS_DIALOG_USER_NOT_AVAILABLE
 } BDA_CONDITIONALACCESS_MMICLOSEREASON;
 
-typedef
-#ifdef __WIDL__
-  [v1_enum]
-#endif
-  enum BDA_CONDITIONALACCESS_SESSION_RESULT {
+typedef enum BDA_CONDITIONALACCESS_SESSION_RESULT {
   CONDITIONALACCESS_SUCCESSFULL = 0,
   CONDITIONALACCESS_ENDED_NOCHANGE,
   CONDITIONALACCESS_ABORTED
 } BDA_CONDITIONALACCESS_SESSION_RESULT;
 
-typedef
-#ifdef __WIDL__
-  [v1_enum]
-#endif
-  enum BDA_DISCOVERY_STATE {
+typedef enum BDA_DISCOVERY_STATE {
   BDA_DISCOVERY_UNSPECIFIED = 0,
   BDA_DISCOVERY_REQUIRED,
   BDA_DISCOVERY_COMPLETE
