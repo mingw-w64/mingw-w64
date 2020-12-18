@@ -172,6 +172,7 @@ for f in \
 	fusion \
 	icftypes \
 	mediaobj \
+	mfreadwrite \
 	mmdeviceapi \
 	mmstream \
 	mscoree \
