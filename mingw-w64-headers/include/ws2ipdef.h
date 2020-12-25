@@ -119,6 +119,11 @@ extern "C" {
 #define PROTECTION_LEVEL_DEFAULT ((UINT)-1)
 #endif
 
+typedef struct ip_mreq {
+  IN_ADDR imr_multiaddr;
+  IN_ADDR imr_interface;
+} IP_MREQ, *PIP_MREQ;
+
 typedef struct ipv6_mreq {
   struct in6_addr ipv6mr_multiaddr;
   unsigned int ipv6mr_interface;
