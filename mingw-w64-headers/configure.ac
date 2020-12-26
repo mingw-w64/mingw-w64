@@ -134,9 +134,9 @@ AC_SUBST([IDLHEAD_LIST])
 AC_MSG_CHECKING([default _WIN32_WINNT version])
 AC_ARG_WITH([default-win32-winnt],
   [AS_HELP_STRING([--with-default-win32-winnt=VER],
-    [Default value of _WIN32_WINNT (default: 0x502)])],
+    [Default value of _WIN32_WINNT (default: 0xa00)])],
   [],
-  [with_default_win32_winnt=0x502])
+  [with_default_win32_winnt=0xa00])
 AC_MSG_RESULT([$with_default_win32_winnt])
 AS_VAR_SET([DEFAULT_WIN32_WINNT],[$with_default_win32_winnt])
 AC_SUBST([DEFAULT_WIN32_WINNT])

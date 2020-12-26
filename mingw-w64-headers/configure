@@ -1353,7 +1353,7 @@ Optional Packages:
   --with-widl=PATH        use widl to update idl-based headers. Optionally
                           search for a compatible widl in PATH
   --with-default-win32-winnt=VER
-                          Default value of _WIN32_WINNT (default: 0x502)
+                          Default value of _WIN32_WINNT (default: 0xa00)
   --with-default-msvcrt=LIB
                           Default msvcrt to target (default: msvcrt)
 
@@ -2799,7 +2799,7 @@ $as_echo_n "checking default _WIN32_WINNT version... " >&6; }
 if test "${with_default_win32_winnt+set}" = set; then :
   withval=$with_default_win32_winnt;
 else
-  with_default_win32_winnt=0x502
+  with_default_win32_winnt=0xa00
 fi
 
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $with_default_win32_winnt" >&5
