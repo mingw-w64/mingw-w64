@@ -299,6 +299,7 @@ lib64_DATA += %reldir%/libmf3216.a
 lib64_DATA += %reldir%/libmfc42.a
 lib64_DATA += %reldir%/libmfc42u.a
 lib64_DATA += %reldir%/libmfreadwrite.a
+lib64_DATA += %reldir%/libmfsensorgroup.a
 lib64_DATA += %reldir%/libmgmtapi.a
 lib64_DATA += %reldir%/libmidimap.a
 lib64_DATA += %reldir%/libmigism.a

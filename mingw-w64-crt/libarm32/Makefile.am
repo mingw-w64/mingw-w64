@@ -379,6 +379,7 @@ libarm32_DATA += %reldir%/libmfnetsrc.a
 libarm32_DATA += %reldir%/libmfplat.a
 libarm32_DATA += %reldir%/libmfplay.a
 libarm32_DATA += %reldir%/libmfreadwrite.a
+libarm32_DATA += %reldir%/libmfsensorgroup.a
 libarm32_DATA += %reldir%/libmfsrcsnk.a
 libarm32_DATA += %reldir%/libmftranscode.a
 libarm32_DATA += %reldir%/libmincore.a
