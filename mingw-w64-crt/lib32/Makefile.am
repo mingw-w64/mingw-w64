@@ -167,6 +167,7 @@ lib32_DATA += %reldir%/liblz32.a
 lib32_DATA += %reldir%/libmapi32.a
 lib32_DATA += %reldir%/libmcd.a
 lib32_DATA += %reldir%/libmf.a
+lib32_DATA += %reldir%/libmfcore.a
 lib32_DATA += %reldir%/libmfcuia32.a
 lib32_DATA += %reldir%/libmfplat.a
 lib32_DATA += %reldir%/libmfreadwrite.a
