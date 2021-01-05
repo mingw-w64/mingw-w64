@@ -170,6 +170,7 @@ lib32_DATA += %reldir%/libmf.a
 lib32_DATA += %reldir%/libmfcore.a
 lib32_DATA += %reldir%/libmfcuia32.a
 lib32_DATA += %reldir%/libmfplat.a
+lib32_DATA += %reldir%/libmfplay.a
 lib32_DATA += %reldir%/libmfreadwrite.a
 lib32_DATA += %reldir%/libmgmtapi.a
 lib32_DATA += %reldir%/libmincore.a

@@ -151,6 +151,7 @@ libarm64_DATA += %reldir%/libmf3216.a
 libarm64_DATA += %reldir%/libmf.a
 libarm64_DATA += %reldir%/libmfcore.a
 libarm64_DATA += %reldir%/libmfplat.a
+libarm64_DATA += %reldir%/libmfplay.a
 libarm64_DATA += %reldir%/libmfreadwrite.a
 libarm64_DATA += %reldir%/libmgmtapi.a
 libarm64_DATA += %reldir%/libmidimap.a

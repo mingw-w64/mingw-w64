@@ -697,6 +697,7 @@ lib64_DATA += %reldir%/libktmw32.a
 lib64_DATA += %reldir%/libmf.a
 lib64_DATA += %reldir%/libmfcore.a
 lib64_DATA += %reldir%/libmfplat.a
+lib64_DATA += %reldir%/libmfplay.a
 lib64_DATA += %reldir%/libmsdrm.a
 lib64_DATA += %reldir%/libncrypt.a
 lib64_DATA += %reldir%/libwecapi.a
