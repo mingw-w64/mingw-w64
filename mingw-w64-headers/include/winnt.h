@@ -1846,6 +1846,9 @@ extern "C" {
 #define InterlockedCompareExchangePointerAcquire _InterlockedCompareExchangePointer
 #define InterlockedCompareExchangePointerRelease _InterlockedCompareExchangePointer
 
+#define YieldProcessor() __asm__ __volatile__("dmb ishst\n\tyield":::"memory")
+#define MemoryBarrier() __asm__ __volatile__("dmb":::"memory")
+
 #ifdef __cplusplus
   }
 #endif
@@ -2054,6 +2057,9 @@ extern "C" {
 #define InterlockedCompareExchangePointer _InterlockedCompareExchangePointer
 #define InterlockedCompareExchangePointerAcquire _InterlockedCompareExchangePointer
 #define InterlockedCompareExchangePointerRelease _InterlockedCompareExchangePointer
+
+#define YieldProcessor() __asm__ __volatile__("dmb ishst\n\tyield":::"memory")
+#define MemoryBarrier() __asm__ __volatile__("dmb sy":::"memory")
 
 #ifdef __cplusplus
   }
