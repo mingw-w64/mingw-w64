@@ -76,6 +76,7 @@ _splitpath_s
 _strcmpi
 _stricmp
 _strlwr
+strlwr == _strlwr
 _strlwr_s
 _strnicmp
 _strnset_s
@@ -102,6 +103,7 @@ _vsnwprintf_s
 _vswprintf
 _wcsicmp
 _wcslwr
+wcslwr == _wcslwr
 _wcslwr_s
 _wcsnicmp
 _wcsnset_s

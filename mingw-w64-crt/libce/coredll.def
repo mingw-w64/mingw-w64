@@ -1530,6 +1530,7 @@ _statusfp @1062 NONAME
 _strdup @1409 NONAME
 _stricmp @1410 NONAME
 _strlwr @1415 NONAME
+strlwr == _strlwr
 _strnicmp @1411 NONAME
 _strnset @1412 NONAME
 _strrev @1413 NONAME
@@ -1543,6 +1544,7 @@ _vsnwprintf @1132 NONAME
 _wcsdup @74 NONAME
 _wcsicmp @230 NONAME
 _wcslwr @231 NONAME
+wcslwr == _wcslwr
 _wcsnicmp @229 NONAME
 _wcsnset @67 NONAME
 _wcsrev @70 NONAME

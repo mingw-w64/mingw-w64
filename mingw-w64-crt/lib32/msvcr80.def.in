@@ -419,6 +419,7 @@ _strerror
 _stricmp
 _stricoll
 _strlwr
+strlwr == _strlwr
 _strncoll
 _strnicmp
 _strnicoll
@@ -459,6 +460,7 @@ _wcsdup
 _wcsicmp
 _wcsicoll
 _wcslwr
+wcslwr == _wcslwr
 _wcsncoll
 _wcsnicmp
 _wcsnicoll

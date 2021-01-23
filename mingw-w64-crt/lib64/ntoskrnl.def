@@ -2028,6 +2028,7 @@ _snwscanf_s
 _splitpath_s
 _stricmp
 _strlwr
+strlwr == _strlwr
 _strnicmp
 _strnset
 _strnset_s
@@ -2048,6 +2049,7 @@ _vsnwprintf_s
 _vswprintf
 _wcsicmp
 _wcslwr
+wcslwr == _wcslwr
 _wcsnicmp
 _wcsnset
 _wcsnset_s
