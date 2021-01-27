@@ -465,6 +465,7 @@ _fdopen
 _fflush_nolock
 _fgetchar
 _fgetwc_nolock
+_getwc_nolock == _fgetwc_nolock
 _fgetwchar
 _filbuf
 _filelength
@@ -559,6 +560,7 @@ _get_tzname
 _get_unexpected
 _get_wpgmptr
 _getc_nolock
+_fgetc_nolock == _getc_nolock
 _getch
 _getch_nolock
 _getche
