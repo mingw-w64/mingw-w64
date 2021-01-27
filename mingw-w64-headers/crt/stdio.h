@@ -1430,9 +1430,11 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
 
   _CRTIMP int __cdecl _wremove(const wchar_t *_Filename);
   _CRTIMP wchar_t *__cdecl _wtmpnam(wchar_t *_Buffer);
+#if __MSVCRT_VERSION__ >= 0x800
   _CRTIMP wint_t __cdecl _fgetwc_nolock(FILE *_File);
   _CRTIMP wint_t __cdecl _fputwc_nolock(wchar_t _Ch,FILE *_File);
   _CRTIMP wint_t __cdecl _ungetwc_nolock(wint_t _Ch,FILE *_File);
+#endif
 
 #undef _CRT_GETPUTWCHAR_NOINLINE
 
@@ -1446,8 +1448,10 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
 
 #define getwc(_stm) fgetwc(_stm)
 #define putwc(_c,_stm) fputwc(_c,_stm)
+#if __MSVCRT_VERSION__ >= 0x800
 #define _putwc_nolock(_c,_stm) _fputwc_nolock(_c,_stm)
 #define _getwc_nolock(_c) _fgetwc_nolock(_c)
+#endif
 #endif
 
 #define _STDIO_DEFINED
@@ -1471,6 +1475,7 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
 
   _CRTIMP void __cdecl _lock_file(FILE *_File);
   _CRTIMP void __cdecl _unlock_file(FILE *_File);
+#if __MSVCRT_VERSION__ >= 0x800
   _CRTIMP int __cdecl _fclose_nolock(FILE *_File);
   _CRTIMP int __cdecl _fflush_nolock(FILE *_File);
   _CRTIMP size_t __cdecl _fread_nolock(void * __restrict__ _DstBuf,size_t _ElementSize,size_t _Count,FILE * __restrict__ _File);
@@ -1480,6 +1485,7 @@ int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builti
   __MINGW_EXTENSION _CRTIMP __int64 __cdecl _ftelli64_nolock(FILE *_File);
   _CRTIMP size_t __cdecl _fwrite_nolock(const void * __restrict__ _DstBuf,size_t _Size,size_t _Count,FILE * __restrict__ _File);
   _CRTIMP int __cdecl _ungetc_nolock(int _Ch,FILE *_File);
+#endif
 
 #if !defined(NO_OLDNAMES) || !defined(_POSIX)
 #define P_tmpdir _P_tmpdir

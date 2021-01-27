@@ -122,10 +122,12 @@ extern "C" {
 
   _CRTIMP int __cdecl _putch(int _Ch);
   _CRTIMP int __cdecl _ungetch(int _Ch);
+#if __MSVCRT_VERSION__ >= 0x800
   _CRTIMP int __cdecl _getch_nolock(void);
   _CRTIMP int __cdecl _getche_nolock(void);
   _CRTIMP int __cdecl _putch_nolock(int _Ch);
   _CRTIMP int __cdecl _ungetch_nolock(int _Ch);
+#endif
 
 #ifndef _WCONIO_DEFINED
 #define _WCONIO_DEFINED
@@ -228,10 +230,12 @@ extern "C" {
   _CRTIMP int __cdecl _cwprintf_p_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,...);
   _CRTIMP int __cdecl _vcwprintf_p_l(const wchar_t * __restrict__ _Format,_locale_t _Locale,va_list _ArgList);
 #endif
+#if __MSVCRT_VERSION__ >= 0x800
   _CRTIMP wint_t __cdecl _putwch_nolock(wchar_t _WCh);
   _CRTIMP wint_t __cdecl _getwch_nolock(void);
   _CRTIMP wint_t __cdecl _getwche_nolock(void);
   _CRTIMP wint_t __cdecl _ungetwch_nolock(wint_t _WCh);
+#endif
 #endif
 
 #ifndef	NO_OLDNAMES
