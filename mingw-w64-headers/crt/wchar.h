@@ -270,11 +270,13 @@ extern FILE (* __MINGW_IMP_SYMBOL(_iob))[];	/* A pointer to an array of FILE */
   wint_t __cdecl towlower(wint_t _C);
   _CRTIMP wint_t __cdecl _towlower_l(wint_t _C,_locale_t _Locale);
   int __cdecl iswctype(wint_t _C,wctype_t _Type);
+#if __MSVCRT_VERSION__ >= 0x800
   _CRTIMP int __cdecl _iswctype_l(wint_t _C,wctype_t _Type,_locale_t _Locale);
   _CRTIMP int __cdecl __iswcsymf(wint_t _C);
   _CRTIMP int __cdecl _iswcsymf_l(wint_t _C,_locale_t _Locale);
   _CRTIMP int __cdecl __iswcsym(wint_t _C);
   _CRTIMP int __cdecl _iswcsym_l(wint_t _C,_locale_t _Locale);
+#endif
 #ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
   int __cdecl is_wctype(wint_t _C,wctype_t _Type);
 #endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
