@@ -229,6 +229,7 @@ IDL_SRCS = \
   include/wincodec.idl \
   include/wincodecsdk.idl \
   include/wmcontainer.idl \
+  include/wmp.idl \
   include/wmsbuffer.idl \
   include/wmsdkidl.idl \
   include/wsdattachment.idl \

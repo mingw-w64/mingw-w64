@@ -192,6 +192,7 @@ for f in \
 	wincodec \
 	wincodecsdk \
 	wmdrmsdk \
+	wmp \
 	wmsbuffer \
 	wmsdkidl \
 	wpcapi \
