@@ -35,6 +35,7 @@
 #include <windef.h>
 #include <windows.h>
 #include <windows.security.cryptography.h>
+#include <windows.storage.streams.h>
 #include <winstring.h>
 #include <roapi.h>
 #undef CertOpenSystemStore
@@ -93,12 +94,12 @@ BOOL WINAPI CryptGenRandom(HCRYPTPROV phProv, DWORD dwLen, BYTE *pbBuffer)
     unsigned char *rnd = NULL;
     hr = __x_ABI_CWindows_CSecurity_CCryptography_CICryptographicBufferStatics_CopyToByteArray(phProv, buffer, &olength, (BYTE**)&rnd);
     if (FAILED(hr)) {
-        IBuffer_Release(buffer);
+        __x_ABI_CWindows_CStorage_CStreams_CIBuffer_Release(buffer);
         return FALSE;
     }
     memcpy(pbBuffer, rnd, dwLen);
 
-    IBuffer_Release(buffer);
+    __x_ABI_CWindows_CStorage_CStreams_CIBuffer_Release(buffer);
     return TRUE;
 }
 
