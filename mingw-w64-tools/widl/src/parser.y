@@ -75,8 +75,7 @@ static void append_chain_callconv(type_t *chain, char *callconv);
 static warning_list_t *append_warning(warning_list_t *, int);
 
 static type_t *reg_typedefs(decl_spec_t *decl_spec, var_list_t *names, attr_list_t *attrs);
-static type_t *find_type_or_error(const char *name, int t);
-static type_t *find_type_or_error2(char *name, int t);
+static type_t *find_type_or_error(const char *name);
 
 static var_t *reg_const(var_t *var);
 
@@ -88,7 +87,6 @@ static void push_lookup_namespace(const char *name);
 static void check_arg_attrs(const var_t *arg);
 static void check_statements(const statement_list_t *stmts, int is_inside_library);
 static void check_all_user_types(const statement_list_t *stmts);
-static attr_list_t *check_iface_attrs(const char *name, attr_list_t *attrs);
 static attr_list_t *check_function_attrs(const char *name, attr_list_t *attrs);
 static attr_list_t *check_typedef_attrs(attr_list_t *attrs);
 static attr_list_t *check_enum_attrs(attr_list_t *attrs);
@@ -97,14 +95,8 @@ static attr_list_t *check_struct_attrs(attr_list_t *attrs);
 static attr_list_t *check_union_attrs(attr_list_t *attrs);
 static attr_list_t *check_field_attrs(const char *name, attr_list_t *attrs);
 static attr_list_t *check_library_attrs(const char *name, attr_list_t *attrs);
-static attr_list_t *check_dispiface_attrs(const char *name, attr_list_t *attrs);
-static attr_list_t *check_module_attrs(const char *name, attr_list_t *attrs);
-static attr_list_t *check_coclass_attrs(const char *name, attr_list_t *attrs);
-static attr_list_t *check_runtimeclass_attrs(const char *name, attr_list_t *attrs);
-static attr_list_t *check_apicontract_attrs(const char *name, attr_list_t *attrs);
 const char *get_attr_display_name(enum attr_type type);
 static void add_explicit_handle_if_necessary(const type_t *iface, var_t *func);
-static void check_def(const type_t *t);
 
 static void check_async_uuid(type_t *iface);
 
@@ -197,10 +189,12 @@ static typelib_t *current_typelib;
 %token tDLLNAME tDONTFREE tDOUBLE tDUAL
 %token tENABLEALLOCATE tENCODE tENDPOINT
 %token tENTRY tENUM tERRORSTATUST
+%token tEVENTADD tEVENTREMOVE
 %token tEXCLUSIVETO
 %token tEXPLICITHANDLE tEXTERN
 %token tFALSE
 %token tFASTCALL tFAULTSTATUS
+%token tFLAGS
 %token tFLOAT tFORCEALLOCATE
 %token tHANDLE
 %token tHANDLET
@@ -278,18 +272,19 @@ static typelib_t *current_typelib;
 %type <attr> attribute acf_attribute
 %type <attr_list> m_attributes attributes attrib_list
 %type <attr_list> acf_attributes acf_attribute_list
+%type <attr_list> dispattributes
 %type <str_list> str_list
 %type <expr> m_expr expr expr_const expr_int_const array m_bitfield
 %type <expr_list> m_exprs /* exprs expr_list */ expr_list_int_const
 %type <expr> contract_req
-%type <type> interfacehdr
 %type <stgclass> storage_cls_spec
 %type <type_qualifier> type_qualifier m_type_qual_list
 %type <function_specifier> function_specifier
 %type <declspec> decl_spec decl_spec_no_type m_decl_spec_no_type
-%type <type> inherit interface interfacedef interfacedec
-%type <type> dispinterface dispinterfacehdr dispinterfacedef
-%type <type> module modulehdr moduledef
+%type <type> inherit interface interfacedef
+%type <type> interfaceref
+%type <type> dispinterface dispinterfacedef
+%type <type> module moduledef
 %type <str> namespacedef
 %type <type> base_type int_std
 %type <type> enumdef structdef uniondef typedecl
@@ -305,12 +300,13 @@ static typelib_t *current_typelib;
 %type <declarator> m_any_declarator any_declarator any_declarator_no_direct any_direct_declarator
 %type <declarator> m_abstract_declarator abstract_declarator abstract_declarator_no_direct abstract_direct_declarator
 %type <declarator_list> declarator_list struct_declarator_list
-%type <type> coclass coclasshdr coclassdef
-%type <type> runtimeclass runtimeclass_hdr runtimeclass_def
-%type <type> apicontract
+%type <type> coclass coclassdef
+%type <type> runtimeclass runtimeclass_def
+%type <type> apicontract apicontract_def
 %type <num> contract_ver
 %type <num> pointer_type threading_type marshaling_behavior version
-%type <str> libraryhdr callconv cppquote importlib import t_ident
+%type <str> libraryhdr callconv cppquote importlib import
+%type <str> typename m_typename
 %type <uuid> uuid_string
 %type <import> import_start
 %type <typelib> library_start librarydef
@@ -357,7 +353,8 @@ m_acf: /* empty */ | aACF acf_statements
 gbl_statements:					{ $$ = NULL; }
 	| gbl_statements namespacedef '{' { push_namespace($2); } gbl_statements '}'
 						{ pop_namespace($2); $$ = append_statements($1, $5); }
-	| gbl_statements interfacedec		{ $$ = append_statement($1, make_statement_reference($2)); }
+	| gbl_statements interface ';'		{ $$ = append_statement($1, make_statement_reference($2)); }
+	| gbl_statements dispinterface ';'	{ $$ = append_statement($1, make_statement_reference($2)); }
 	| gbl_statements interfacedef		{ $$ = append_statement($1, make_statement_type_decl($2)); }
 	| gbl_statements coclass ';'		{ $$ = $1;
 						  reg_type($2, $2->name, current_namespace, 0);
@@ -365,8 +362,9 @@ gbl_statements:					{ $$ = NULL; }
 	| gbl_statements coclassdef		{ $$ = append_statement($1, make_statement_type_decl($2));
 						  reg_type($2, $2->name, current_namespace, 0);
 						}
-	| gbl_statements apicontract ';'        { $$ = append_statement($1, make_statement_type_decl($2));
-	                                          reg_type($2, $2->name, current_namespace, 0); }
+	| gbl_statements apicontract ';'	{ $$ = $1; reg_type($2, $2->name, current_namespace, 0); }
+	| gbl_statements apicontract_def	{ $$ = append_statement($1, make_statement_type_decl($2));
+						  reg_type($2, $2->name, current_namespace, 0); }
 	| gbl_statements runtimeclass ';'       { $$ = $1; reg_type($2, $2->name, current_namespace, 0); }
 	| gbl_statements runtimeclass_def       { $$ = append_statement($1, make_statement_type_decl($2));
 	                                          reg_type($2, $2->name, current_namespace, 0); }
@@ -376,7 +374,8 @@ gbl_statements:					{ $$ = NULL; }
 	;
 
 imp_statements:					{ $$ = NULL; }
-	| imp_statements interfacedec		{ $$ = append_statement($1, make_statement_reference($2)); }
+	| imp_statements interface ';'		{ $$ = append_statement($1, make_statement_reference($2)); }
+	| imp_statements dispinterface ';'	{ $$ = append_statement($1, make_statement_reference($2)); }
 	| imp_statements namespacedef '{' { push_namespace($2); } imp_statements '}'
 						{ pop_namespace($2); $$ = append_statements($1, $5); }
 	| imp_statements interfacedef		{ $$ = append_statement($1, make_statement_type_decl($2)); }
@@ -384,8 +383,9 @@ imp_statements:					{ $$ = NULL; }
 	| imp_statements coclassdef		{ $$ = append_statement($1, make_statement_type_decl($2));
 						  reg_type($2, $2->name, current_namespace, 0);
 						}
-	| imp_statements apicontract ';'        { $$ = append_statement($1, make_statement_type_decl($2));
-	                                          reg_type($2, $2->name, current_namespace, 0); }
+	| imp_statements apicontract ';'	{ $$ = $1; reg_type($2, $2->name, current_namespace, 0); }
+	| imp_statements apicontract_def	{ $$ = append_statement($1, make_statement_type_decl($2));
+						  reg_type($2, $2->name, current_namespace, 0); }
 	| imp_statements runtimeclass ';'       { $$ = $1; reg_type($2, $2->name, current_namespace, 0); }
 	| imp_statements runtimeclass_def       { $$ = append_statement($1, make_statement_type_decl($2));
 	                                          reg_type($2, $2->name, current_namespace, 0); }
@@ -460,8 +460,7 @@ importlib: tIMPORTLIB '(' aSTRING ')'
 	   semicolon_opt			{ $$ = $3; if(!parse_only) add_importlib($3, current_typelib); }
 	;
 
-libraryhdr: tLIBRARY aIDENTIFIER		{ $$ = $2; }
-	|   tLIBRARY aKNOWNTYPE			{ $$ = $2; }
+libraryhdr: tLIBRARY typename			{ $$ = $2; }
 	;
 library_start: attributes libraryhdr '{'	{ $$ = make_library($2, check_library_attrs($2, $1));
 						  if (!parse_only && do_typelib) current_typelib = $$;
@@ -571,11 +570,14 @@ attribute:					{ $$ = NULL; }
 	| tENCODE				{ $$ = make_attr(ATTR_ENCODE); }
 	| tENDPOINT '(' str_list ')'		{ $$ = make_attrp(ATTR_ENDPOINT, $3); }
 	| tENTRY '(' expr_const ')'		{ $$ = make_attrp(ATTR_ENTRY, $3); }
+	| tEVENTADD				{ $$ = make_attr(ATTR_EVENTADD); }
+	| tEVENTREMOVE				{ $$ = make_attr(ATTR_EVENTREMOVE); }
 	| tEXCLUSIVETO '(' decl_spec ')'	{ if ($3->type->type_type != TYPE_RUNTIMECLASS)
 						      error_loc("type %s is not a runtimeclass\n", $3->type->name);
 						  $$ = make_attrp(ATTR_EXCLUSIVETO, $3->type); }
 	| tEXPLICITHANDLE			{ $$ = make_attr(ATTR_EXPLICIT_HANDLE); }
 	| tFAULTSTATUS				{ $$ = make_attr(ATTR_FAULTSTATUS); }
+	| tFLAGS				{ $$ = make_attr(ATTR_FLAGS); }
 	| tFORCEALLOCATE			{ $$ = make_attr(ATTR_FORCEALLOCATE); }
 	| tHANDLE				{ $$ = make_attr(ATTR_HANDLE); }
 	| tHELPCONTEXT '(' expr_int_const ')'	{ $$ = make_attrp(ATTR_HELPCONTEXT, $3); }
@@ -713,7 +715,7 @@ enum:	  enum_member '=' expr_int_const	{ $$ = reg_const($1);
 						}
 	;
 
-enumdef: tENUM t_ident '{' enums '}'		{ $$ = type_new_enum($2, current_namespace, TRUE, $4); }
+enumdef: tENUM m_typename '{' enums '}'		{ $$ = type_new_enum($2, current_namespace, TRUE, $4); }
 	;
 
 m_exprs:  m_expr                                { $$ = append_expr( NULL, $1 ); }
@@ -845,27 +847,28 @@ m_ident:					{ $$ = NULL; }
 	| ident
 	;
 
-t_ident:					{ $$ = NULL; }
-	| aIDENTIFIER				{ $$ = $1; }
-	| aKNOWNTYPE				{ $$ = $1; }
+m_typename:					{ $$ = NULL; }
+	| typename
 	;
 
-ident:	  aIDENTIFIER				{ $$ = make_var($1); }
-/* some "reserved words" used in attributes are also used as field names in some MS IDL files */
-	| aKNOWNTYPE				{ $$ = make_var($<str>1); }
+typename: aIDENTIFIER
+	| aKNOWNTYPE
 	;
 
-base_type: tBYTE				{ $$ = find_type_or_error($<str>1, 0); }
-	| tWCHAR				{ $$ = find_type_or_error($<str>1, 0); }
+ident:	  typename				{ $$ = make_var($1); }
+	;
+
+base_type: tBYTE				{ $$ = find_type_or_error($<str>1); }
+	| tWCHAR				{ $$ = find_type_or_error($<str>1); }
 	| int_std
 	| tSIGNED int_std			{ $$ = type_new_int(type_basic_get_type($2), -1); }
 	| tUNSIGNED int_std			{ $$ = type_new_int(type_basic_get_type($2), 1); }
 	| tUNSIGNED				{ $$ = type_new_int(TYPE_BASIC_INT, 1); }
-	| tFLOAT				{ $$ = find_type_or_error($<str>1, 0); }
-	| tDOUBLE				{ $$ = find_type_or_error($<str>1, 0); }
-	| tBOOLEAN				{ $$ = find_type_or_error($<str>1, 0); }
-	| tERRORSTATUST				{ $$ = find_type_or_error($<str>1, 0); }
-	| tHANDLET				{ $$ = find_type_or_error($<str>1, 0); }
+	| tFLOAT				{ $$ = find_type_or_error($<str>1); }
+	| tDOUBLE				{ $$ = find_type_or_error($<str>1); }
+	| tBOOLEAN				{ $$ = find_type_or_error($<str>1); }
+	| tERRORSTATUST				{ $$ = find_type_or_error($<str>1); }
+	| tHANDLET				{ $$ = find_type_or_error($<str>1); }
 	;
 
 m_int:
@@ -884,58 +887,34 @@ int_std:  tINT					{ $$ = type_new_int(TYPE_BASIC_INT, 0); }
 	;
 
 qualified_seq:
-      aKNOWNTYPE      { $$ = find_type_or_error($1, 0); }
+      aKNOWNTYPE      { $$ = find_type_or_error($1); }
     | aIDENTIFIER '.' { push_lookup_namespace($1); } qualified_seq { $$ = $4; }
     ;
 
 qualified_type:
-      aKNOWNTYPE     { $$ = find_type_or_error($1, 0); }
+      aKNOWNTYPE     { $$ = find_type_or_error($1); }
     | aNAMESPACE '.' { init_lookup_namespace($1); } qualified_seq { $$ = $4; }
     ;
 
-coclass:  tCOCLASS aIDENTIFIER			{ $$ = type_new_coclass($2); }
-	| tCOCLASS aKNOWNTYPE			{ $$ = find_type($2, NULL, 0);
-						  if (type_get_type_detect_alias($$) != TYPE_COCLASS)
-						    error_loc("%s was not declared a coclass at %s:%d\n",
-							      $2, $$->loc_info.input_name,
-							      $$->loc_info.line_number);
-						}
+coclass:  tCOCLASS typename			{ $$ = type_coclass_declare($2); }
 	;
 
-coclasshdr: attributes coclass			{ $$ = $2;
-						  check_def($$);
-						  $$->attrs = check_coclass_attrs($2->name, $1);
-						}
+coclassdef: attributes coclass '{' class_interfaces '}' semicolon_opt
+						{ $$ = type_coclass_define($2, $1, $4); }
 	;
 
-coclassdef: coclasshdr '{' class_interfaces '}' semicolon_opt
-						{ $$ = type_coclass_define($1, $3); }
+runtimeclass: tRUNTIMECLASS typename		{ $$ = type_runtimeclass_declare($2, current_namespace); }
 	;
 
-runtimeclass:
-	  tRUNTIMECLASS aIDENTIFIER		{ $$ = type_new_runtimeclass($2, current_namespace); }
-	| tRUNTIMECLASS aKNOWNTYPE		{ $$ = find_type($2, NULL, 0);
-						  if (type_get_type_detect_alias($$) != TYPE_RUNTIMECLASS)
-						    error_loc("%s was not declared a runtimeclass at %s:%d\n", $2,
-						              $$->loc_info.input_name, $$->loc_info.line_number);
-						}
+runtimeclass_def: attributes runtimeclass '{' class_interfaces '}' semicolon_opt
+						{ $$ = type_runtimeclass_define($2, $1, $4); }
 	;
 
-runtimeclass_hdr: attributes runtimeclass	{ $$ = $2;
-						  check_def($$);
-						  $$->attrs = check_runtimeclass_attrs($2->name, $1);
-						}
+apicontract: tAPICONTRACT typename		{ $$ = type_apicontract_declare($2, current_namespace); }
 	;
 
-runtimeclass_def: runtimeclass_hdr '{' class_interfaces '}' semicolon_opt
-						{ $$ = type_runtimeclass_define($1, $3); }
-	;
-
-apicontract: attributes tAPICONTRACT aIDENTIFIER '{' '}'
-						{ $$ = get_type(TYPE_APICONTRACT, $3, current_namespace, 0);
-						  check_def($$);
-						  $$->attrs = check_apicontract_attrs($$->name, $1);
-						}
+apicontract_def: attributes apicontract '{' '}' semicolon_opt
+						{ $$ = type_apicontract_define($2, $1); }
 	;
 
 namespacedef: tNAMESPACE aIDENTIFIER		{ $$ = $2; }
@@ -947,20 +926,13 @@ class_interfaces:				{ $$ = NULL; }
 	;
 
 class_interface:
-	  m_attributes interfacedec		{ $$ = make_ifref($2); $$->attrs = $1; }
+	  m_attributes interfaceref ';'		{ $$ = make_ifref($2); $$->attrs = $1; }
 	;
 
-dispinterface: tDISPINTERFACE aIDENTIFIER	{ $$ = get_type(TYPE_INTERFACE, $2, current_namespace, 0); }
-	|      tDISPINTERFACE aKNOWNTYPE	{ $$ = get_type(TYPE_INTERFACE, $2, current_namespace, 0); }
+dispinterface: tDISPINTERFACE typename		{ $$ = type_dispinterface_declare($2); }
 	;
 
-dispinterfacehdr: attributes dispinterface	{ attr_t *attrs;
-						  $$ = $2;
-						  check_def($$);
-						  attrs = make_attr(ATTR_DISPINTERFACE);
-						  $$->attrs = append_attr( check_dispiface_attrs($2->name, $1), attrs );
-						  $$->defined = TRUE;
-						}
+dispattributes: attributes			{ $$ = append_attr($1, make_attr(ATTR_DISPINTERFACE)); }
 	;
 
 dispint_props: tPROPERTIES ':'			{ $$ = NULL; }
@@ -971,68 +943,42 @@ dispint_meths: tMETHODS ':'			{ $$ = NULL; }
 	| dispint_meths funcdef ';'		{ $$ = append_var( $1, $2 ); }
 	;
 
-dispinterfacedef: dispinterfacehdr '{'
-	  dispint_props
-	  dispint_meths
-	  '}'					{ $$ = $1;
-						  type_dispinterface_define($$, $3, $4);
-						}
-	| dispinterfacehdr
-	 '{' interface ';' '}' 			{ $$ = $1;
-						  type_dispinterface_define_from_iface($$, $3);
-						}
+dispinterfacedef:
+	  dispattributes dispinterface '{' dispint_props dispint_meths '}'
+						{ $$ = type_dispinterface_define($2, $1, $4, $5); }
+	| dispattributes dispinterface '{' interface ';' '}'
+						{ $$ = type_dispinterface_define_from_iface($2, $1, $4); }
 	;
 
 inherit:					{ $$ = NULL; }
 	| ':' qualified_type                    { $$ = $2; }
 	;
 
-interface: tINTERFACE aIDENTIFIER		{ $$ = get_type(TYPE_INTERFACE, $2, current_namespace, 0); }
-	|  tINTERFACE aKNOWNTYPE		{ $$ = get_type(TYPE_INTERFACE, $2, current_namespace, 0); }
+interface: tINTERFACE typename			{ $$ = type_interface_declare($2, current_namespace); }
 	;
 
-interfacehdr: attributes interface		{ $$ = $2;
-						  check_def($2);
-						  $2->attrs = check_iface_attrs($2->name, $1);
-						  $2->defined = TRUE;
-						}
-	;
-
-interfacedef: interfacehdr inherit
-	  '{' int_statements '}' semicolon_opt	{ $$ = $1;
-						  if($$ == $2)
-						    error_loc("Interface can't inherit from itself\n");
-						  type_interface_define($$, $2, $4);
+interfacedef: attributes interface inherit
+	  '{' int_statements '}' semicolon_opt	{ $$ = type_interface_define($2, $1, $3, $5);
 						  check_async_uuid($$);
 						}
 /* MIDL is able to import the definition of a base class from inside the
  * definition of a derived class, I'll try to support it with this rule */
-	| interfacehdr ':' aIDENTIFIER
+	| attributes interface ':' aIDENTIFIER
 	  '{' import int_statements '}'
-	   semicolon_opt			{ $$ = $1;
-						  type_interface_define($$, find_type_or_error2($3, 0), $6);
-						}
+	   semicolon_opt			{ $$ = type_interface_define($2, $1, find_type_or_error($4), $7); }
 	| dispinterfacedef semicolon_opt	{ $$ = $1; }
 	;
 
-interfacedec:
-	  interface ';'				{ $$ = $1; }
-	| dispinterface ';'			{ $$ = $1; }
+interfaceref:
+	  tINTERFACE typename			{ $$ = get_type(TYPE_INTERFACE, $2, current_namespace, 0); }
+	| tDISPINTERFACE typename		{ $$ = get_type(TYPE_INTERFACE, $2, current_namespace, 0); }
 	;
 
-module:   tMODULE aIDENTIFIER			{ $$ = type_new_module($2); }
-	| tMODULE aKNOWNTYPE			{ $$ = type_new_module($2); }
+module:   tMODULE typename			{ $$ = type_module_declare($2); }
 	;
 
-modulehdr: attributes module			{ $$ = $2;
-						  $$->attrs = check_module_attrs($2->name, $1);
-						}
-	;
-
-moduledef: modulehdr '{' int_statements '}'
-	   semicolon_opt			{ $$ = $1;
-                                                  type_module_define($$, $3);
-						}
+moduledef: attributes module '{' int_statements '}' semicolon_opt
+						{ $$ = type_module_define($2, $1, $4); }
 	;
 
 storage_cls_spec:
@@ -1196,7 +1142,7 @@ pointer_type:
 	| tPTR					{ $$ = FC_FP; }
 	;
 
-structdef: tSTRUCT t_ident '{' fields '}'	{ $$ = type_new_struct($2, current_namespace, TRUE, $4); }
+structdef: tSTRUCT m_typename '{' fields '}'	{ $$ = type_new_struct($2, current_namespace, TRUE, $4); }
 	;
 
 type:	  tVOID					{ $$ = type_new_void(); }
@@ -1218,9 +1164,9 @@ typedef: m_attributes tTYPEDEF m_attributes decl_spec declarator_list
 						}
 	;
 
-uniondef: tUNION t_ident '{' ne_union_fields '}'
+uniondef: tUNION m_typename '{' ne_union_fields '}'
 						{ $$ = type_new_nonencapsulated_union($2, TRUE, $4); }
-	| tUNION t_ident
+	| tUNION m_typename
 	  tSWITCH '(' s_field ')'
 	  m_ident '{' cases '}'			{ $$ = type_new_encapsulated_union($2, $5, $7, $9); }
 	;
@@ -1243,14 +1189,14 @@ acf_int_statements
 
 acf_int_statement
         : tTYPEDEF acf_attributes aKNOWNTYPE ';'
-                                                { type_t *type = find_type_or_error($3, 0);
+                                                { type_t *type = find_type_or_error($3);
                                                   type->attrs = append_attr_list(type->attrs, $2);
                                                 }
 	;
 
 acf_interface
         : acf_attributes tINTERFACE aKNOWNTYPE '{' acf_int_statements '}'
-                                                {  type_t *iface = find_type_or_error2($3, 0);
+                                                {  type_t *iface = find_type_or_error($3);
                                                    if (type_get_type(iface) != TYPE_INTERFACE)
                                                        error_loc("%s is not an interface\n", iface->name);
                                                    iface->attrs = append_attr_list(iface->attrs, $1);
@@ -2088,23 +2034,16 @@ type_t *find_type(const char *name, struct namespace *namespace, int t)
   return NULL;
 }
 
-static type_t *find_type_or_error(const char *name, int t)
+static type_t *find_type_or_error(const char *name)
 {
     type_t *type;
-    if (!(type = find_type(name, current_namespace, t)) &&
-        !(type = find_type(name, lookup_namespace, t)))
+    if (!(type = find_type(name, current_namespace, 0)) &&
+        !(type = find_type(name, lookup_namespace, 0)))
     {
         error_loc("type '%s' not found\n", name);
         return NULL;
     }
     return type;
-}
-
-static type_t *find_type_or_error2(char *name, int t)
-{
-  type_t *tp = find_type_or_error(name, t);
-  free(name);
-  return tp;
 }
 
 int is_type(const char *name)
@@ -2248,7 +2187,7 @@ struct allowed_attr allowed_attr[] =
     /* ATTR_DEFAULTVALUE */        { 0, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "defaultvalue" },
     /* ATTR_DEFAULTVTABLE */       { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, "defaultvtable" },
  /* ATTR_DISABLECONSISTENCYCHECK */{ 0, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "disable_consistency_check" },
-    /* ATTR_DISPINTERFACE */       { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL },
+    /* ATTR_DISPINTERFACE */       { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, NULL },
     /* ATTR_DISPLAYBIND */         { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "displaybind" },
     /* ATTR_DLLNAME */             { 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, "dllname" },
     /* ATTR_DUAL */                { 0, 0, 0,  1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "dual" },
@@ -2256,9 +2195,12 @@ struct allowed_attr allowed_attr[] =
     /* ATTR_ENCODE */              { 0, 0, 0,  1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "encode" },
     /* ATTR_ENDPOINT */            { 1, 0, 0,  1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "endpoint" },
     /* ATTR_ENTRY */               { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "entry" },
+    /* ATTR_EVENTADD */            { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "eventadd" },
+    /* ATTR_EVENTREMOVE */         { 0, 0, 0,  0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "eventremove" },
     /* ATTR_EXCLUSIVETO */         { 0, 0, 0,  1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "exclusive_to" },
     /* ATTR_EXPLICIT_HANDLE */     { 1, 1, 0,  1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "explicit_handle" },
     /* ATTR_FAULTSTATUS */         { 0, 0, 0,  0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "fault_status" },
+    /* ATTR_FLAGS */               { 0, 0, 0,  0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "flags" },
     /* ATTR_FORCEALLOCATE */       { 0, 0, 0,  0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "force_allocate" },
     /* ATTR_HANDLE */              { 1, 0, 0,  0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "handle" },
     /* ATTR_HELPCONTEXT */         { 0, 0, 0,  1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, "helpcontext" },
@@ -2358,7 +2300,7 @@ const char *get_attr_display_name(enum attr_type type)
     return allowed_attr[type].display_name;
 }
 
-static attr_list_t *check_iface_attrs(const char *name, attr_list_t *attrs)
+attr_list_t *check_interface_attrs(const char *name, attr_list_t *attrs)
 {
   const attr_t *attr;
   if (!attrs) return attrs;
@@ -2502,7 +2444,7 @@ static attr_list_t *check_library_attrs(const char *name, attr_list_t *attrs)
   return attrs;
 }
 
-static attr_list_t *check_dispiface_attrs(const char *name, attr_list_t *attrs)
+attr_list_t *check_dispiface_attrs(const char *name, attr_list_t *attrs)
 {
   const attr_t *attr;
   if (!attrs) return attrs;
@@ -2515,7 +2457,7 @@ static attr_list_t *check_dispiface_attrs(const char *name, attr_list_t *attrs)
   return attrs;
 }
 
-static attr_list_t *check_module_attrs(const char *name, attr_list_t *attrs)
+attr_list_t *check_module_attrs(const char *name, attr_list_t *attrs)
 {
   const attr_t *attr;
   if (!attrs) return attrs;
@@ -2528,7 +2470,7 @@ static attr_list_t *check_module_attrs(const char *name, attr_list_t *attrs)
   return attrs;
 }
 
-static attr_list_t *check_coclass_attrs(const char *name, attr_list_t *attrs)
+attr_list_t *check_coclass_attrs(const char *name, attr_list_t *attrs)
 {
   const attr_t *attr;
   if (!attrs) return attrs;
@@ -2541,7 +2483,7 @@ static attr_list_t *check_coclass_attrs(const char *name, attr_list_t *attrs)
   return attrs;
 }
 
-static attr_list_t *check_runtimeclass_attrs(const char *name, attr_list_t *attrs)
+attr_list_t *check_runtimeclass_attrs(const char *name, attr_list_t *attrs)
 {
     const attr_t *attr;
     if (!attrs) return attrs;
@@ -2552,7 +2494,7 @@ static attr_list_t *check_runtimeclass_attrs(const char *name, attr_list_t *attr
     return attrs;
 }
 
-static attr_list_t *check_apicontract_attrs(const char *name, attr_list_t *attrs)
+attr_list_t *check_apicontract_attrs(const char *name, attr_list_t *attrs)
 {
     const attr_t *attr;
     if (!attrs) return attrs;
@@ -2909,7 +2851,7 @@ static void add_explicit_handle_if_necessary(const type_t *iface, var_t *func)
          * function */
         var_t *idl_handle = make_var(xstrdup("IDL_handle"));
         idl_handle->attrs = append_attr(NULL, make_attr(ATTR_IN));
-        idl_handle->declspec.type = find_type_or_error("handle_t", 0);
+        idl_handle->declspec.type = find_type_or_error("handle_t");
         type_function_add_head_arg(func->declspec.type, idl_handle);
     }
 }
@@ -2929,6 +2871,8 @@ static void check_functions(const type_t *iface, int is_inside_library)
             {
                 if (func == func_iter) break;
                 if (strcmp(func->name, func_iter->name)) continue;
+                if (is_attr(func->attrs, ATTR_EVENTADD) != is_attr(func_iter->attrs, ATTR_EVENTADD)) continue;
+                if (is_attr(func->attrs, ATTR_EVENTREMOVE) != is_attr(func_iter->attrs, ATTR_EVENTREMOVE)) continue;
                 if (is_attr(func->attrs, ATTR_PROPGET) != is_attr(func_iter->attrs, ATTR_PROPGET)) continue;
                 if (is_attr(func->attrs, ATTR_PROPPUT) != is_attr(func_iter->attrs, ATTR_PROPPUT)) continue;
                 if (is_attr(func->attrs, ATTR_PROPPUTREF) != is_attr(func_iter->attrs, ATTR_PROPPUTREF)) continue;
@@ -2994,8 +2938,7 @@ static void check_async_uuid(type_t *iface)
     if (!inherit)
         error_loc("async_uuid applied to an interface with incompatible parent\n");
 
-    async_iface = get_type(TYPE_INTERFACE, strmake("Async%s", iface->name), iface->namespace, 0);
-    async_iface->attrs = map_attrs(iface->attrs, async_iface_attrs);
+    async_iface = type_interface_declare(strmake("Async%s", iface->name), iface->namespace);
 
     STATEMENTS_FOR_EACH_FUNC( stmt, type_iface_get_stmts(iface) )
     {
@@ -3026,7 +2969,7 @@ static void check_async_uuid(type_t *iface)
         stmts = append_statement(stmts, make_statement_declaration(finish_func));
     }
 
-    type_interface_define(async_iface, inherit, stmts);
+    type_interface_define(async_iface, map_attrs(iface->attrs, async_iface_attrs), inherit, stmts);
     iface->details.iface->async_iface = async_iface->details.iface->async_iface = async_iface;
 }
 
@@ -3198,7 +3141,7 @@ static statement_t *make_statement_typedef(declarator_list_t *decls, int declonl
     LIST_FOR_EACH_ENTRY_SAFE( decl, next, decls, declarator_t, entry )
     {
         var_t *var = decl->var;
-        type_t *type = find_type_or_error(var->name, 0);
+        type_t *type = find_type_or_error(var->name);
         *type_list = xmalloc(sizeof(type_list_t));
         (*type_list)->type = type;
         (*type_list)->next = NULL;
@@ -3244,11 +3187,4 @@ void init_loc_info(loc_info_t *i)
     i->input_name = input_name ? input_name : "stdin";
     i->line_number = line_number;
     i->near_text = parser_text;
-}
-
-static void check_def(const type_t *t)
-{
-    if (t->defined)
-        error_loc("%s: redefinition error; original definition was at %s:%d\n",
-                  t->name, t->loc_info.input_name, t->loc_info.line_number);
 }

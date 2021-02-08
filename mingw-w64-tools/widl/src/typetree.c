@@ -195,37 +195,6 @@ type_t *type_new_alias(const decl_spec_t *t, const char *name)
     return a;
 }
 
-type_t *type_new_module(char *name)
-{
-    type_t *type = get_type(TYPE_MODULE, name, NULL, 0);
-    if (type->type_type != TYPE_MODULE || type->defined)
-        error_loc("%s: redefinition error; original definition was at %s:%d\n",
-                  type->name, type->loc_info.input_name, type->loc_info.line_number);
-    type->name = name;
-    return type;
-}
-
-type_t *type_new_coclass(char *name)
-{
-    type_t *type = get_type(TYPE_COCLASS, name, NULL, 0);
-    if (type->type_type != TYPE_COCLASS || type->defined)
-        error_loc("%s: redefinition error; original definition was at %s:%d\n",
-                  type->name, type->loc_info.input_name, type->loc_info.line_number);
-    type->name = name;
-    return type;
-}
-
-type_t *type_new_runtimeclass(char *name, struct namespace *namespace)
-{
-    type_t *type = get_type(TYPE_RUNTIMECLASS, name, NULL, 0);
-    if (type->type_type != TYPE_RUNTIMECLASS || type->defined)
-        error_loc("%s: redefinition error; original definition was at %s:%d\n",
-                  type->name, type->loc_info.input_name, type->loc_info.line_number);
-    type->name = name;
-    type->namespace = namespace;
-    return type;
-}
-
 type_t *type_new_array(const char *name, const decl_spec_t *element, int declptr,
                        unsigned int dim, expr_t *size_is, expr_t *length_is)
 {
@@ -463,8 +432,24 @@ static unsigned int compute_method_indexes(type_t *iface)
     return idx;
 }
 
-void type_interface_define(type_t *iface, type_t *inherit, statement_list_t *stmts)
+type_t *type_interface_declare(char *name, struct namespace *namespace)
 {
+    type_t *type = get_type(TYPE_INTERFACE, name, namespace, 0);
+    if (type_get_type_detect_alias(type) != TYPE_INTERFACE)
+        error_loc("interface %s previously not declared an interface at %s:%d\n",
+                  type->name, type->loc_info.input_name, type->loc_info.line_number);
+    return type;
+}
+
+type_t *type_interface_define(type_t *iface, attr_list_t *attrs, type_t *inherit, statement_list_t *stmts)
+{
+    if (iface->defined)
+        error_loc("interface %s already defined at %s:%d\n",
+                  iface->name, iface->loc_info.input_name, iface->loc_info.line_number);
+    if (iface == inherit)
+        error_loc("interface %s can't inherit from itself\n",
+                  iface->name);
+    iface->attrs = check_interface_attrs(iface->name, attrs);
     iface->details.iface = xmalloc(sizeof(*iface->details.iface));
     iface->details.iface->disp_props = NULL;
     iface->details.iface->disp_methods = NULL;
@@ -474,10 +459,24 @@ void type_interface_define(type_t *iface, type_t *inherit, statement_list_t *stm
     iface->details.iface->async_iface = NULL;
     iface->defined = TRUE;
     compute_method_indexes(iface);
+    return iface;
 }
 
-void type_dispinterface_define(type_t *iface, var_list_t *props, var_list_t *methods)
+type_t *type_dispinterface_declare(char *name)
 {
+    type_t *type = get_type(TYPE_INTERFACE, name, NULL, 0);
+    if (type_get_type_detect_alias(type) != TYPE_INTERFACE)
+        error_loc("dispinterface %s previously not declared a dispinterface at %s:%d\n",
+                  type->name, type->loc_info.input_name, type->loc_info.line_number);
+    return type;
+}
+
+type_t *type_dispinterface_define(type_t *iface, attr_list_t *attrs, var_list_t *props, var_list_t *methods)
+{
+    if (iface->defined)
+        error_loc("dispinterface %s already defined at %s:%d\n",
+                  iface->name, iface->loc_info.input_name, iface->loc_info.line_number);
+    iface->attrs = check_dispiface_attrs(iface->name, attrs);
     iface->details.iface = xmalloc(sizeof(*iface->details.iface));
     iface->details.iface->disp_props = props;
     iface->details.iface->disp_methods = methods;
@@ -488,10 +487,15 @@ void type_dispinterface_define(type_t *iface, var_list_t *props, var_list_t *met
     iface->details.iface->async_iface = NULL;
     iface->defined = TRUE;
     compute_method_indexes(iface);
+    return iface;
 }
 
-void type_dispinterface_define_from_iface(type_t *dispiface, type_t *iface)
+type_t *type_dispinterface_define_from_iface(type_t *dispiface, attr_list_t *attrs, type_t *iface)
 {
+    if (dispiface->defined)
+        error_loc("dispinterface %s already defined at %s:%d\n",
+                  dispiface->name, dispiface->loc_info.input_name, dispiface->loc_info.line_number);
+    dispiface->attrs = check_dispiface_attrs(dispiface->name, attrs);
     dispiface->details.iface = xmalloc(sizeof(*dispiface->details.iface));
     dispiface->details.iface->disp_props = NULL;
     dispiface->details.iface->disp_methods = NULL;
@@ -502,30 +506,89 @@ void type_dispinterface_define_from_iface(type_t *dispiface, type_t *iface)
     dispiface->details.iface->async_iface = NULL;
     dispiface->defined = TRUE;
     compute_method_indexes(dispiface);
+    return dispiface;
 }
 
-void type_module_define(type_t *module, statement_list_t *stmts)
+type_t *type_module_declare(char *name)
 {
-    if (module->details.module) error_loc("multiple definition error\n");
+    type_t *type = get_type(TYPE_MODULE, name, NULL, 0);
+    if (type_get_type_detect_alias(type) != TYPE_MODULE)
+        error_loc("module %s previously not declared a module at %s:%d\n",
+                  type->name, type->loc_info.input_name, type->loc_info.line_number);
+    return type;
+}
+
+type_t *type_module_define(type_t* module, attr_list_t *attrs, statement_list_t *stmts)
+{
+    if (module->defined)
+        error_loc("module %s already defined at %s:%d\n",
+                  module->name, module->loc_info.input_name, module->loc_info.line_number);
+    module->attrs = check_module_attrs(module->name, attrs);
     module->details.module = xmalloc(sizeof(*module->details.module));
     module->details.module->stmts = stmts;
     module->defined = TRUE;
+    return module;
 }
 
-type_t *type_coclass_define(type_t *coclass, ifref_list_t *ifaces)
+type_t *type_coclass_declare(char *name)
 {
+    type_t *type = get_type(TYPE_COCLASS, name, NULL, 0);
+    if (type_get_type_detect_alias(type) != TYPE_COCLASS)
+        error_loc("coclass %s previously not declared a coclass at %s:%d\n",
+                  type->name, type->loc_info.input_name, type->loc_info.line_number);
+    return type;
+}
+
+type_t *type_coclass_define(type_t *coclass, attr_list_t *attrs, ifref_list_t *ifaces)
+{
+    if (coclass->defined)
+        error_loc("coclass %s already defined at %s:%d\n",
+                  coclass->name, coclass->loc_info.input_name, coclass->loc_info.line_number);
+    coclass->attrs = check_coclass_attrs(coclass->name, attrs);
     coclass->details.coclass.ifaces = ifaces;
     coclass->defined = TRUE;
     return coclass;
 }
 
-type_t *type_runtimeclass_define(type_t *runtimeclass, ifref_list_t *ifaces)
+type_t *type_runtimeclass_declare(char *name, struct namespace *namespace)
 {
+    type_t *type = get_type(TYPE_RUNTIMECLASS, name, namespace, 0);
+    if (type_get_type_detect_alias(type) != TYPE_RUNTIMECLASS)
+        error_loc("runtimeclass %s previously not declared a runtimeclass at %s:%d\n",
+                  type->name, type->loc_info.input_name, type->loc_info.line_number);
+    return type;
+}
+
+type_t *type_runtimeclass_define(type_t *runtimeclass, attr_list_t *attrs, ifref_list_t *ifaces)
+{
+    if (runtimeclass->defined)
+        error_loc("runtimeclass %s already defined at %s:%d\n",
+                  runtimeclass->name, runtimeclass->loc_info.input_name, runtimeclass->loc_info.line_number);
+    runtimeclass->attrs = check_runtimeclass_attrs(runtimeclass->name, attrs);
     runtimeclass->details.runtimeclass.ifaces = ifaces;
     runtimeclass->defined = TRUE;
     if (!type_runtimeclass_get_default_iface(runtimeclass))
         error_loc("missing default interface on runtimeclass %s\n", runtimeclass->name);
     return runtimeclass;
+}
+
+type_t *type_apicontract_declare(char *name, struct namespace *namespace)
+{
+    type_t *type = get_type(TYPE_APICONTRACT, name, namespace, 0);
+    if (type_get_type_detect_alias(type) != TYPE_APICONTRACT)
+        error_loc("apicontract %s previously not declared a apicontract at %s:%d\n",
+                  type->name, type->loc_info.input_name, type->loc_info.line_number);
+    return type;
+}
+
+type_t *type_apicontract_define(type_t *apicontract, attr_list_t *attrs)
+{
+    if (apicontract->defined)
+        error_loc("apicontract %s already defined at %s:%d\n",
+                  apicontract->name, apicontract->loc_info.input_name, apicontract->loc_info.line_number);
+    apicontract->attrs = check_apicontract_attrs(apicontract->name, attrs);
+    apicontract->defined = TRUE;
+    return apicontract;
 }
 
 int type_is_equal(const type_t *type1, const type_t *type2)

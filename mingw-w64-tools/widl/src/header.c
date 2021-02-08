@@ -185,6 +185,10 @@ const char *get_name(const var_t *v)
 {
     static char *buffer;
     free( buffer );
+    if (is_attr( v->attrs, ATTR_EVENTADD ))
+        return buffer = strmake( "add_%s", v->name );
+    if (is_attr( v->attrs, ATTR_EVENTREMOVE ))
+        return buffer = strmake( "remove_%s", v->name );
     if (is_attr( v->attrs, ATTR_PROPGET ))
         return buffer = strmake( "get_%s", v->name );
     if (is_attr( v->attrs, ATTR_PROPPUT ))
@@ -1698,6 +1702,7 @@ static void write_runtimeclass(FILE *header, type_t *runtimeclass)
 {
     expr_t *contract = get_attrp(runtimeclass->attrs, ATTR_CONTRACT);
     char *name, *c_name;
+    size_t i, len;
     name = format_namespace(runtimeclass->namespace, "", ".", runtimeclass->name, NULL);
     c_name = format_namespace(runtimeclass->namespace, "", "_", runtimeclass->name, NULL);
     fprintf(header, "/*\n");
@@ -1706,6 +1711,14 @@ static void write_runtimeclass(FILE *header, type_t *runtimeclass)
     if (contract) write_apicontract_guard_start(header, contract);
     fprintf(header, "#ifndef RUNTIMECLASS_%s_DEFINED\n", c_name);
     fprintf(header, "#define RUNTIMECLASS_%s_DEFINED\n", c_name);
+    fprintf(header, "#if defined(_MSC_VER) || defined(__MINGW32__)\n");
+    /* FIXME: MIDL generates extern const here but GCC warns if extern is initialized */
+    fprintf(header, "const DECLSPEC_SELECTANY WCHAR RuntimeClass_%s[] = L\"%s\";\n", c_name, name);
+    fprintf(header, "#else\n");
+    fprintf(header, "static const WCHAR RuntimeClass_%s[] = {", c_name);
+    for (i = 0, len = strlen(name); i < len; ++i) fprintf(header, "'%c',", name[i]);
+    fprintf(header, "0};\n");
+    fprintf(header, "#endif\n");
     fprintf(header, "#endif /* RUNTIMECLASS_%s_DEFINED */\n", c_name);
     free(c_name);
     free(name);
