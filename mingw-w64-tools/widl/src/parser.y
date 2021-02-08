@@ -75,14 +75,13 @@ static void append_chain_callconv(type_t *chain, char *callconv);
 static warning_list_t *append_warning(warning_list_t *, int);
 
 static type_t *reg_typedefs(decl_spec_t *decl_spec, var_list_t *names, attr_list_t *attrs);
-static type_t *find_type_or_error(const char *name);
+static type_t *find_type_or_error(struct namespace *parent, const char *name);
+static struct namespace *find_namespace_or_error(struct namespace *namespace, const char *name);
 
 static var_t *reg_const(var_t *var);
 
 static void push_namespace(const char *name);
 static void pop_namespace(const char *name);
-static void init_lookup_namespace(const char *name);
-static void push_lookup_namespace(const char *name);
 
 static void check_arg_attrs(const var_t *arg);
 static void check_statements(const statement_list_t *stmts, int is_inside_library);
@@ -120,7 +119,6 @@ static struct namespace global_namespace = {
 };
 
 static struct namespace *current_namespace = &global_namespace;
-static struct namespace *lookup_namespace = &global_namespace;
 
 static typelib_t *current_typelib;
 
@@ -152,10 +150,11 @@ static typelib_t *current_typelib;
 	enum storage_class stgclass;
 	enum type_qualifier type_qualifier;
 	enum function_specifier function_specifier;
+	struct namespace *namespace;
 }
 
 %token <str> aIDENTIFIER aPRAGMA
-%token <str> aKNOWNTYPE aNAMESPACE
+%token <str> aKNOWNTYPE
 %token <num> aNUM aHEXNUM
 %token <dbl> aDOUBLE
 %token <str> aSTRING aWSTRING aSQSTRING
@@ -280,15 +279,16 @@ static typelib_t *current_typelib;
 %type <stgclass> storage_cls_spec
 %type <type_qualifier> type_qualifier m_type_qual_list
 %type <function_specifier> function_specifier
-%type <declspec> decl_spec decl_spec_no_type m_decl_spec_no_type
+%type <declspec> decl_spec unqualified_decl_spec decl_spec_no_type m_decl_spec_no_type
 %type <type> inherit interface interfacedef
 %type <type> interfaceref
+%type <type> dispinterfaceref
 %type <type> dispinterface dispinterfacedef
 %type <type> module moduledef
 %type <str> namespacedef
 %type <type> base_type int_std
 %type <type> enumdef structdef uniondef typedecl
-%type <type> type qualified_seq qualified_type
+%type <type> type unqualified_type qualified_type
 %type <ifref> class_interface
 %type <ifref_list> class_interfaces
 %type <var> arg ne_union_field union_field s_field case enum enum_member declaration
@@ -314,6 +314,7 @@ static typelib_t *current_typelib;
 %type <stmt_list> gbl_statements imp_statements int_statements
 %type <warning_list> warnings
 %type <num> allocate_option_list allocate_option
+%type <namespace> namespace_pfx
 
 %left ','
 %right '?' ':'
@@ -763,9 +764,9 @@ expr:	  aNUM					{ $$ = make_exprl(EXPR_NUM, $1); }
 	| '*' expr %prec PPTR			{ $$ = make_expr1(EXPR_PPTR, $2); }
 	| expr MEMBERPTR aIDENTIFIER		{ $$ = make_expr2(EXPR_MEMBER, make_expr1(EXPR_PPTR, $1), make_exprs(EXPR_IDENTIFIER, $3)); }
 	| expr '.' aIDENTIFIER			{ $$ = make_expr2(EXPR_MEMBER, $1, make_exprs(EXPR_IDENTIFIER, $3)); }
-	| '(' decl_spec m_abstract_declarator ')' expr %prec CAST
+	| '(' unqualified_decl_spec m_abstract_declarator ')' expr %prec CAST
 						{ $$ = make_exprt(EXPR_CAST, declare_var(NULL, $2, $3, 0), $5); free($2); free($3); }
-	| tSIZEOF '(' decl_spec m_abstract_declarator ')'
+	| tSIZEOF '(' unqualified_decl_spec m_abstract_declarator ')'
 						{ $$ = make_exprt(EXPR_SIZEOF, declare_var(NULL, $3, $4, 0), NULL); free($3); free($4); }
 	| expr '[' expr ']'			{ $$ = make_expr2(EXPR_ARRAY, $1, $3); }
 	| '(' expr ')'				{ $$ = $2; }
@@ -858,17 +859,17 @@ typename: aIDENTIFIER
 ident:	  typename				{ $$ = make_var($1); }
 	;
 
-base_type: tBYTE				{ $$ = find_type_or_error($<str>1); }
-	| tWCHAR				{ $$ = find_type_or_error($<str>1); }
+base_type: tBYTE				{ $$ = find_type_or_error(NULL, $<str>1); }
+	| tWCHAR				{ $$ = find_type_or_error(NULL, $<str>1); }
 	| int_std
 	| tSIGNED int_std			{ $$ = type_new_int(type_basic_get_type($2), -1); }
 	| tUNSIGNED int_std			{ $$ = type_new_int(type_basic_get_type($2), 1); }
 	| tUNSIGNED				{ $$ = type_new_int(TYPE_BASIC_INT, 1); }
-	| tFLOAT				{ $$ = find_type_or_error($<str>1); }
-	| tDOUBLE				{ $$ = find_type_or_error($<str>1); }
-	| tBOOLEAN				{ $$ = find_type_or_error($<str>1); }
-	| tERRORSTATUST				{ $$ = find_type_or_error($<str>1); }
-	| tHANDLET				{ $$ = find_type_or_error($<str>1); }
+	| tFLOAT				{ $$ = find_type_or_error(NULL, $<str>1); }
+	| tDOUBLE				{ $$ = find_type_or_error(NULL, $<str>1); }
+	| tBOOLEAN				{ $$ = find_type_or_error(NULL, $<str>1); }
+	| tERRORSTATUST				{ $$ = find_type_or_error(NULL, $<str>1); }
+	| tHANDLET				{ $$ = find_type_or_error(NULL, $<str>1); }
 	;
 
 m_int:
@@ -886,15 +887,15 @@ int_std:  tINT					{ $$ = type_new_int(TYPE_BASIC_INT, 0); }
 	| tINT3264				{ $$ = type_new_int(TYPE_BASIC_INT3264, 0); }
 	;
 
-qualified_seq:
-      aKNOWNTYPE      { $$ = find_type_or_error($1); }
-    | aIDENTIFIER '.' { push_lookup_namespace($1); } qualified_seq { $$ = $4; }
-    ;
+namespace_pfx:
+	  aIDENTIFIER '.'			{ $$ = find_namespace_or_error(&global_namespace, $1); }
+	| namespace_pfx aIDENTIFIER '.'		{ $$ = find_namespace_or_error($1, $2); }
+	;
 
 qualified_type:
-      aKNOWNTYPE     { $$ = find_type_or_error($1); }
-    | aNAMESPACE '.' { init_lookup_namespace($1); } qualified_seq { $$ = $4; }
-    ;
+	  typename				{ $$ = find_type_or_error(current_namespace, $1); }
+	| namespace_pfx typename		{ $$ = find_type_or_error($1, $2); }
+	;
 
 coclass:  tCOCLASS typename			{ $$ = type_coclass_declare($2); }
 	;
@@ -918,7 +919,6 @@ apicontract_def: attributes apicontract '{' '}' semicolon_opt
 	;
 
 namespacedef: tNAMESPACE aIDENTIFIER		{ $$ = $2; }
-	| tNAMESPACE aNAMESPACE                 { $$ = $2; }
 	;
 
 class_interfaces:				{ $$ = NULL; }
@@ -927,6 +927,7 @@ class_interfaces:				{ $$ = NULL; }
 
 class_interface:
 	  m_attributes interfaceref ';'		{ $$ = make_ifref($2); $$->attrs = $1; }
+	| m_attributes dispinterfaceref ';'	{ $$ = make_ifref($2); $$->attrs = $1; }
 	;
 
 dispinterface: tDISPINTERFACE typename		{ $$ = type_dispinterface_declare($2); }
@@ -961,17 +962,16 @@ interfacedef: attributes interface inherit
 	  '{' int_statements '}' semicolon_opt	{ $$ = type_interface_define($2, $1, $3, $5);
 						  check_async_uuid($$);
 						}
-/* MIDL is able to import the definition of a base class from inside the
- * definition of a derived class, I'll try to support it with this rule */
-	| attributes interface ':' aIDENTIFIER
-	  '{' import int_statements '}'
-	   semicolon_opt			{ $$ = type_interface_define($2, $1, find_type_or_error($4), $7); }
 	| dispinterfacedef semicolon_opt	{ $$ = $1; }
 	;
 
 interfaceref:
 	  tINTERFACE typename			{ $$ = get_type(TYPE_INTERFACE, $2, current_namespace, 0); }
-	| tDISPINTERFACE typename		{ $$ = get_type(TYPE_INTERFACE, $2, current_namespace, 0); }
+	| tINTERFACE namespace_pfx typename	{ $$ = get_type(TYPE_INTERFACE, $3, $2, 0); }
+	;
+
+dispinterfaceref:
+	  tDISPINTERFACE typename		{ $$ = get_type(TYPE_INTERFACE, $2, current_namespace, 0); }
 	;
 
 module:   tMODULE typename			{ $$ = type_module_declare($2); }
@@ -1001,6 +1001,12 @@ m_type_qual_list:				{ $$ = 0; }
 
 decl_spec: type m_decl_spec_no_type		{ $$ = make_decl_spec($1, $2, NULL, STG_NONE, 0, 0); }
 	| decl_spec_no_type type m_decl_spec_no_type
+						{ $$ = make_decl_spec($2, $1, $3, STG_NONE, 0, 0); }
+	;
+
+unqualified_decl_spec: unqualified_type m_decl_spec_no_type
+						{ $$ = make_decl_spec($1, $2, NULL, STG_NONE, 0, 0); }
+	| decl_spec_no_type unqualified_type m_decl_spec_no_type
 						{ $$ = make_decl_spec($2, $1, $3, STG_NONE, 0, 0); }
 	;
 
@@ -1145,8 +1151,8 @@ pointer_type:
 structdef: tSTRUCT m_typename '{' fields '}'	{ $$ = type_new_struct($2, current_namespace, TRUE, $4); }
 	;
 
-type:	  tVOID					{ $$ = type_new_void(); }
-	| qualified_type                        { $$ = $1; }
+unqualified_type:
+	  tVOID					{ $$ = type_new_void(); }
 	| base_type				{ $$ = $1; }
 	| enumdef				{ $$ = $1; }
 	| tENUM aIDENTIFIER			{ $$ = type_new_enum($2, current_namespace, FALSE, NULL); }
@@ -1155,6 +1161,12 @@ type:	  tVOID					{ $$ = type_new_void(); }
 	| uniondef				{ $$ = $1; }
 	| tUNION aIDENTIFIER			{ $$ = type_new_nonencapsulated_union($2, FALSE, NULL); }
 	| tSAFEARRAY '(' type ')'		{ $$ = make_safearray($3); }
+	| aKNOWNTYPE				{ $$ = find_type_or_error(current_namespace, $1); }
+	;
+
+type:
+	  unqualified_type
+	| namespace_pfx typename		{ $$ = find_type_or_error($1, $2); }
 	;
 
 typedef: m_attributes tTYPEDEF m_attributes decl_spec declarator_list
@@ -1189,14 +1201,14 @@ acf_int_statements
 
 acf_int_statement
         : tTYPEDEF acf_attributes aKNOWNTYPE ';'
-                                                { type_t *type = find_type_or_error($3);
+                                                { type_t *type = find_type_or_error(current_namespace, $3);
                                                   type->attrs = append_attr_list(type->attrs, $2);
                                                 }
 	;
 
 acf_interface
         : acf_attributes tINTERFACE aKNOWNTYPE '{' acf_int_statements '}'
-                                                {  type_t *iface = find_type_or_error($3);
+                                                {  type_t *iface = find_type_or_error(current_namespace, $3);
                                                    if (type_get_type(iface) != TYPE_INTERFACE)
                                                        error_loc("%s is not an interface\n", iface->name);
                                                    iface->attrs = append_attr_list(iface->attrs, $1);
@@ -1911,20 +1923,6 @@ static void pop_namespace(const char *name)
   current_namespace = current_namespace->parent;
 }
 
-static void init_lookup_namespace(const char *name)
-{
-    if (!(lookup_namespace = find_sub_namespace(&global_namespace, name)))
-        error_loc("namespace '%s' not found\n", name);
-}
-
-static void push_lookup_namespace(const char *name)
-{
-    struct namespace *namespace;
-    if (!(namespace = find_sub_namespace(lookup_namespace, name)))
-        error_loc("namespace '%s' not found\n", name);
-    lookup_namespace = namespace;
-}
-
 struct rtype {
   const char *name;
   type_t *type;
@@ -2034,29 +2032,32 @@ type_t *find_type(const char *name, struct namespace *namespace, int t)
   return NULL;
 }
 
-static type_t *find_type_or_error(const char *name)
+static type_t *find_type_or_error(struct namespace *namespace, const char *name)
 {
     type_t *type;
-    if (!(type = find_type(name, current_namespace, 0)) &&
-        !(type = find_type(name, lookup_namespace, 0)))
+    if (!(type = find_type(name, namespace, 0)))
     {
-        error_loc("type '%s' not found\n", name);
+        error_loc("type '%s' not found in %s namespace\n", name, namespace && namespace->name ? namespace->name : "global");
         return NULL;
     }
     return type;
 }
 
-int is_type(const char *name)
+static struct namespace *find_namespace_or_error(struct namespace *parent, const char *name)
 {
-    return find_type(name, current_namespace, 0) != NULL ||
-           find_type(name, lookup_namespace, 0) != NULL;
+    struct namespace *namespace = NULL;
+
+    if (!winrt_mode)
+        error_loc("namespaces are only supported in winrt mode.\n");
+    else if (!(namespace = find_sub_namespace(parent, name)))
+        error_loc("namespace '%s' not found in '%s'\n", name, parent->name);
+
+    return namespace;
 }
 
-int is_namespace(const char *name)
+int is_type(const char *name)
 {
-    if (!winrt_mode) return 0;
-    return find_sub_namespace(current_namespace, name) != NULL ||
-           find_sub_namespace(&global_namespace, name) != NULL;
+    return find_type(name, current_namespace, 0) != NULL;
 }
 
 type_t *get_type(enum type_type type, char *name, struct namespace *namespace, int t)
@@ -2851,7 +2852,7 @@ static void add_explicit_handle_if_necessary(const type_t *iface, var_t *func)
          * function */
         var_t *idl_handle = make_var(xstrdup("IDL_handle"));
         idl_handle->attrs = append_attr(NULL, make_attr(ATTR_IN));
-        idl_handle->declspec.type = find_type_or_error("handle_t");
+        idl_handle->declspec.type = find_type_or_error(NULL, "handle_t");
         type_function_add_head_arg(func->declspec.type, idl_handle);
     }
 }
@@ -3141,7 +3142,7 @@ static statement_t *make_statement_typedef(declarator_list_t *decls, int declonl
     LIST_FOR_EACH_ENTRY_SAFE( decl, next, decls, declarator_t, entry )
     {
         var_t *var = decl->var;
-        type_t *type = find_type_or_error(var->name);
+        type_t *type = find_type_or_error(current_namespace, var->name);
         *type_list = xmalloc(sizeof(type_list_t));
         (*type_list)->type = type;
         (*type_list)->next = NULL;

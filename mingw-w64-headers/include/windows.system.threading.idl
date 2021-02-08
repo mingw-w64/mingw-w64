@@ -71,18 +71,18 @@ namespace Windows {
             {
                 HRESULT RunAsync(
                         WorkItemHandler* handler,
-                        IAsyncAction** operation);
+                        Windows.Foundation.IAsyncAction** operation);
 
                 HRESULT RunWithPriorityAsync(
                         WorkItemHandler* handler,
                         WorkItemPriority priority,
-                        IAsyncAction** operation);
+                        Windows.Foundation.IAsyncAction** operation);
 
                 HRESULT RunWithPriorityAndOptionsAsync(
                         WorkItemHandler* handler,
                         WorkItemPriority priority,
                         WorkItemOptions options,
-                        IAsyncAction** operation);
+                        Windows.Foundation.IAsyncAction** operation);
             }
 
             [uuid(594EBE78-55EA-4A88-A50D-3402AE1F9CF2)]

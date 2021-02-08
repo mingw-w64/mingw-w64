@@ -152,7 +152,7 @@ namespace Windows {
       [propget] HRESULT RoamingFolder(IStorageFolder** value);
       [propget] HRESULT TemporaryFolder(IStorageFolder** value);
       // [eventadd] HRESULT DataChanged(/*TypedEventHandler<ApplicationData*, IInspectable*>*/IInspectable* handler, EventRegistrationToken* token);
-      /* [eventremove] */ HRESULT DataChanged(EventRegistrationToken token);
+      /* [eventremove] */ HRESULT DataChanged(Windows.Foundation.EventRegistrationToken token);
       HRESULT SignalDataChanged();
       HRESULT RoamingStorageQuota(UINT64* value);
     }
