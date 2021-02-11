@@ -66,6 +66,7 @@
 #include <process.h>
 #include <limits.h>
 #include <signal.h>
+#include <time.h>
 
 #include <sys/timeb.h>
 
@@ -213,20 +214,6 @@ struct _pthread_cleanup
 /* Note that if async cancelling is used, then there is a race here */
 #define pthread_cleanup_pop(E)\
     (*pthread_getclean() = _pthread_cup.next, ((E) ? (_pthread_cup.func((pthread_once_t *)_pthread_cup.arg)) : (void)0));}
-
-/* Windows doesn't have this, so declare it ourselves. */
-#ifndef _TIMESPEC_DEFINED
-#define _TIMESPEC_DEFINED
-struct timespec {
-  time_t  tv_sec;   /* Seconds */
-  long    tv_nsec;  /* Nanoseconds */
-};
-
-struct itimerspec {
-  struct timespec  it_interval;  /* Timer period */
-  struct timespec  it_value;     /* Timer expiration */
-};
-#endif
 
 #ifndef SCHED_OTHER
 /* Some POSIX realtime extensions, mostly stubbed */
