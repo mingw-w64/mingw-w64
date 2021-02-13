@@ -98,6 +98,8 @@ static const char version_string[] = "Wine IDL Compiler version " PACKAGE_VERSIO
 enum target_cpu target_cpu = CPU_x86;
 #elif defined(__x86_64__)
 enum target_cpu target_cpu = CPU_x86_64;
+#elif defined(__powerpc64__)
+enum target_cpu target_cpu = CPU_POWERPC64;
 #elif defined(__powerpc__)
 enum target_cpu target_cpu = CPU_POWERPC;
 #elif defined(__arm__)
@@ -282,21 +284,23 @@ static void set_target( const char *target )
         enum target_cpu cpu;
     } cpu_names[] =
     {
-        { "i386",    CPU_x86 },
-        { "i486",    CPU_x86 },
-        { "i586",    CPU_x86 },
-        { "i686",    CPU_x86 },
-        { "i786",    CPU_x86 },
-        { "amd64",   CPU_x86_64 },
-        { "x86_64",  CPU_x86_64 },
-        { "powerpc", CPU_POWERPC },
-        { "arm",     CPU_ARM },
-        { "armv5",   CPU_ARM },
-        { "armv6",   CPU_ARM },
-        { "armv7",   CPU_ARM },
-        { "armv7a",  CPU_ARM },
-        { "arm64",   CPU_ARM64 },
-        { "aarch64", CPU_ARM64 },
+        { "i386",           CPU_x86 },
+        { "i486",           CPU_x86 },
+        { "i586",           CPU_x86 },
+        { "i686",           CPU_x86 },
+        { "i786",           CPU_x86 },
+        { "amd64",          CPU_x86_64 },
+        { "x86_64",         CPU_x86_64 },
+        { "powerpc",        CPU_POWERPC },
+        { "powerpc64",      CPU_POWERPC64 },
+        { "powerpc64le",    CPU_POWERPC64 },
+        { "arm",            CPU_ARM },
+        { "armv5",          CPU_ARM },
+        { "armv6",          CPU_ARM },
+        { "armv7",          CPU_ARM },
+        { "armv7a",         CPU_ARM },
+        { "arm64",          CPU_ARM64 },
+        { "aarch64",        CPU_ARM64 },
     };
 
     unsigned int i;
@@ -790,6 +794,10 @@ int main(int argc,char *argv[])
       if (pointer_size == 4) error( "Cannot build 32-bit code for this CPU\n" );
       pointer_size = 8;
       break;
+  case CPU_POWERPC64:
+      if (pointer_size == 4) error( "Cannot build 32-bit code for this CPU\n" );
+      pointer_size = 8;
+      break;
   default:
       if (pointer_size == 8) error( "Cannot build 64-bit code for this CPU\n" );
       pointer_size = 4;
@@ -817,19 +825,17 @@ int main(int argc,char *argv[])
     set_everything(TRUE);
   }
 
-  if (!output_name) output_name = dup_basename(input_name, ".idl");
-
   if (do_header + do_typelib + do_proxies + do_client +
-      do_server + do_regscript + do_idfile + do_dlldata == 1)
+      do_server + do_regscript + do_idfile + do_dlldata == 1 && output_name)
   {
-      if (do_header) header_name = output_name;
-      else if (do_typelib) typelib_name = output_name;
-      else if (do_proxies) proxy_name = output_name;
-      else if (do_client) client_name = output_name;
-      else if (do_server) server_name = output_name;
-      else if (do_regscript) regscript_name = output_name;
-      else if (do_idfile) idfile_name = output_name;
-      else if (do_dlldata) dlldata_name = output_name;
+      if (do_header && !header_name) header_name = output_name;
+      else if (do_typelib && !typelib_name) typelib_name = output_name;
+      else if (do_proxies && !proxy_name) proxy_name = output_name;
+      else if (do_client && !client_name) client_name = output_name;
+      else if (do_server && !server_name) server_name = output_name;
+      else if (do_regscript && !regscript_name) regscript_name = output_name;
+      else if (do_idfile && !idfile_name) idfile_name = output_name;
+      else if (do_dlldata && !dlldata_name) dlldata_name = output_name;
   }
 
   if (!dlldata_name && do_dlldata)

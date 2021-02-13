@@ -69,6 +69,7 @@ typedef struct list warning_list_t;
 
 enum attr_type
 {
+    ATTR_ACTIVATABLE,
     ATTR_AGGREGATABLE,
     ATTR_ALLOCATE,
     ATTR_ANNOTATION,
@@ -162,6 +163,7 @@ enum attr_type
     ATTR_RETVAL,
     ATTR_SIZEIS,
     ATTR_SOURCE,
+    ATTR_STATIC,
     ATTR_STRICTCONTEXTHANDLE,
     ATTR_STRING,
     ATTR_SWITCHIS,
@@ -384,6 +386,7 @@ struct iface_details
   struct _type_t *inherit;
   struct _type_t *disp_inherit;
   struct _type_t *async_iface;
+  ifref_list_t *requires;
 };
 
 struct module_details
@@ -433,6 +436,12 @@ struct runtimeclass_details
     ifref_list_t *ifaces;
 };
 
+struct parameterized_details
+{
+    type_t *type;
+    type_list_t *params;
+};
+
 #define HASHMAX 64
 
 struct namespace {
@@ -461,6 +470,8 @@ enum type_type
     TYPE_BITFIELD,
     TYPE_APICONTRACT,
     TYPE_RUNTIMECLASS,
+    TYPE_PARAMETERIZED_TYPE,
+    TYPE_PARAMETER,
 };
 
 struct _type_t {
@@ -482,6 +493,7 @@ struct _type_t {
     struct bitfield_details bitfield;
     struct alias_details alias;
     struct runtimeclass_details runtimeclass;
+    struct parameterized_details parameterized;
   } details;
   const char *c_name;
   unsigned int typestring_offset;
