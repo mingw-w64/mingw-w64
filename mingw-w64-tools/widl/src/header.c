@@ -776,7 +776,7 @@ static int for_each_serializable(const statement_list_t *stmts, FILE *header,
 {
     statement_t *stmt, *iface_stmt;
     statement_list_t *iface_stmts;
-    const type_list_t *type_entry;
+    typeref_t *ref;
 
     if (stmts) LIST_FOR_EACH_ENTRY( stmt, stmts, statement_t, entry )
     {
@@ -787,12 +787,12 @@ static int for_each_serializable(const statement_list_t *stmts, FILE *header,
         if (iface_stmts) LIST_FOR_EACH_ENTRY( iface_stmt, iface_stmts, statement_t, entry )
         {
             if (iface_stmt->type != STMT_TYPEDEF) continue;
-            for (type_entry = iface_stmt->u.type_list; type_entry; type_entry = type_entry->next)
+            if (iface_stmt->u.type_list) LIST_FOR_EACH_ENTRY(ref, iface_stmt->u.type_list, typeref_t, entry)
             {
-                if (!is_attr(type_entry->type->attrs, ATTR_ENCODE)
-                    && !is_attr(type_entry->type->attrs, ATTR_DECODE))
+                if (!is_attr(ref->type->attrs, ATTR_ENCODE)
+                    && !is_attr(ref->type->attrs, ATTR_DECODE))
                     continue;
-                if (!proc(header, type_entry->type))
+                if (!proc(header, ref->type))
                     return 0;
             }
         }
@@ -1479,7 +1479,8 @@ static void write_forward(FILE *header, type_t *iface)
   fprintf(header, "typedef interface %s %s;\n", iface->c_name, iface->c_name);
   fprintf(header, "#ifdef __cplusplus\n");
   write_namespace_start(header, iface->namespace);
-  write_line(header, 0, "interface %s;", iface->name);
+  if (strchr(iface->name, '<')) write_line(header, 0, "template<> struct %s;", iface->name);
+  else write_line(header, 0, "interface %s;", iface->name);
   write_namespace_end(header, iface->namespace);
   fprintf(header, "#endif /* __cplusplus */\n");
   fprintf(header, "#endif\n\n" );
@@ -1548,11 +1549,13 @@ static void write_com_interface_end(FILE *header, type_t *iface)
       write_namespace_start(header, iface->namespace);
   }
   if (uuid) {
+      if (strchr(iface->name, '<')) write_line(header, 0, "template<>");
       write_line(header, 0, "MIDL_INTERFACE(\"%s\")", uuid_string(uuid));
       indent(header, 0);
   }else {
       indent(header, 0);
-      fprintf(header, "interface ");
+      if (strchr(iface->name, '<')) fprintf(header, "template<> struct ");
+      else fprintf(header, "interface ");
   }
   if (type_iface_get_inherit(iface))
   {
@@ -1887,9 +1890,9 @@ static void write_header_stmts(FILE *header, const statement_list_t *stmts, cons
         break;
       case STMT_TYPEDEF:
       {
-        const type_list_t *type_entry = stmt->u.type_list;
-        for (; type_entry; type_entry = type_entry->next)
-          write_typedef(header, type_entry->type, stmt->declonly);
+        typeref_t *ref;
+        if (stmt->u.type_list) LIST_FOR_EACH_ENTRY(ref, stmt->u.type_list, typeref_t, entry)
+          write_typedef(header, ref->type, stmt->declonly);
         break;
       }
       case STMT_LIBRARY:

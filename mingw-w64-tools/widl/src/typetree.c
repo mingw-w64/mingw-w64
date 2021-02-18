@@ -100,13 +100,74 @@ static size_t append_namespace(char **buf, size_t *len, size_t pos, struct names
     return n;
 }
 
+static size_t append_namespaces(char **buf, size_t *len, size_t pos, struct namespace *namespace, const char *prefix,
+                                const char *separator, const char *suffix, const char *abi_prefix)
+{
+    size_t n = 0;
+    n += strappend(buf, len, pos + n, "%s", prefix);
+    n += append_namespace(buf, len, pos + n, namespace, separator, abi_prefix);
+    n += strappend(buf, len, pos + n, "%s", suffix);
+    return n;
+}
+
 char *format_namespace(struct namespace *namespace, const char *prefix, const char *separator, const char *suffix, const char *abi_prefix)
+{
+    size_t len = 0;
+    char *buf = NULL;
+    append_namespaces(&buf, &len, 0, namespace, prefix, separator, suffix, abi_prefix);
+    return buf;
+}
+
+char *format_parameterized_type_name(type_t *type, typeref_list_t *params)
 {
     size_t len = 0, pos = 0;
     char *buf = NULL;
-    pos += strappend(&buf, &len, pos, "%s", prefix);
-    pos += append_namespace(&buf, &len, pos, namespace, separator, abi_prefix);
-    pos += strappend(&buf, &len, pos, "%s", suffix);
+    typeref_t *ref;
+
+    pos += strappend(&buf, &len, pos, "%s<", type->name);
+    if (params) LIST_FOR_EACH_ENTRY(ref, params, typeref_t, entry)
+    {
+        for (type = ref->type; type->type_type == TYPE_POINTER; type = type_pointer_get_ref_type(type)) {}
+        pos += append_namespaces(&buf, &len, pos, type->namespace, "", "::", type->name, use_abi_namespace ? "ABI" : NULL);
+        for (type = ref->type; type->type_type == TYPE_POINTER; type = type_pointer_get_ref_type(type)) pos += strappend(&buf, &len, pos, "*");
+        if (list_next(params, &ref->entry)) pos += strappend(&buf, &len, pos, ",");
+    }
+    pos += strappend(&buf, &len, pos, ">");
+
+    return buf;
+}
+
+static char const *parameterized_type_shorthands[][2] = {
+    {"Windows_CFoundation_CCollections_C", "__F"},
+    {"Windows_CFoundation_C", "__F"},
+};
+
+static char *format_parameterized_type_c_name(type_t *type, typeref_list_t *params)
+{
+    size_t len = 0, pos = 0;
+    char *buf = NULL, *tmp;
+    int i, count = params ? list_count(params) : 0;
+    typeref_t *ref;
+
+    pos += append_namespaces(&buf, &len, pos, type->namespace, "__x_", "_C", type->name, use_abi_namespace ? "ABI" : NULL);
+    pos += strappend(&buf, &len, pos, "_%d", count);
+    if (params) LIST_FOR_EACH_ENTRY(ref, params, typeref_t, entry)
+    {
+        for (type = ref->type; type->type_type == TYPE_POINTER; type = type_pointer_get_ref_type(type)) {}
+        pos += append_namespaces(&buf, &len, pos, type->namespace, "_", "__C", type->name, NULL);
+    }
+
+    for (i = 0; i < ARRAY_SIZE(parameterized_type_shorthands); ++i)
+    {
+        if ((tmp = strstr(buf, parameterized_type_shorthands[i][0])) &&
+            (tmp - buf) == strlen(use_abi_namespace ? "__x_ABI_C" : "__x_C"))
+        {
+           tmp += strlen(parameterized_type_shorthands[i][0]);
+           strcpy(buf, parameterized_type_shorthands[i][1]);
+           memmove(buf + 3, tmp, len - (tmp - buf));
+        }
+    }
+
     return buf;
 }
 
@@ -425,7 +486,7 @@ type_t *type_interface_declare(char *name, struct namespace *namespace)
     return type;
 }
 
-type_t *type_interface_define(type_t *iface, attr_list_t *attrs, type_t *inherit, statement_list_t *stmts, ifref_list_t *requires)
+type_t *type_interface_define(type_t *iface, attr_list_t *attrs, type_t *inherit, statement_list_t *stmts, typeref_list_t *requires)
 {
     if (iface->defined)
         error_loc("interface %s already defined at %s:%d\n",
@@ -526,7 +587,7 @@ type_t *type_coclass_declare(char *name)
     return type;
 }
 
-type_t *type_coclass_define(type_t *coclass, attr_list_t *attrs, ifref_list_t *ifaces)
+type_t *type_coclass_define(type_t *coclass, attr_list_t *attrs, typeref_list_t *ifaces)
 {
     if (coclass->defined)
         error_loc("coclass %s already defined at %s:%d\n",
@@ -546,10 +607,10 @@ type_t *type_runtimeclass_declare(char *name, struct namespace *namespace)
     return type;
 }
 
-type_t *type_runtimeclass_define(type_t *runtimeclass, attr_list_t *attrs, ifref_list_t *ifaces)
+type_t *type_runtimeclass_define(type_t *runtimeclass, attr_list_t *attrs, typeref_list_t *ifaces)
 {
-    ifref_t *ifref, *required, *tmp;
-    ifref_list_t *requires;
+    typeref_t *ref, *required, *tmp;
+    typeref_list_t *requires;
 
     if (runtimeclass->defined)
         error_loc("runtimeclass %s already defined at %s:%d\n",
@@ -560,24 +621,24 @@ type_t *type_runtimeclass_define(type_t *runtimeclass, attr_list_t *attrs, ifref
     if (!type_runtimeclass_get_default_iface(runtimeclass))
         error_loc("missing default interface on runtimeclass %s\n", runtimeclass->name);
 
-    LIST_FOR_EACH_ENTRY(ifref, ifaces, ifref_t, entry)
+    LIST_FOR_EACH_ENTRY(ref, ifaces, typeref_t, entry)
     {
         /* FIXME: this should probably not be allowed, here or in coclass, */
         /* but for now there's too many places in Wine IDL where it is to */
         /* even print a warning. */
-        if (!(ifref->iface->defined)) continue;
-        if (!(requires = type_iface_get_requires(ifref->iface))) continue;
-        LIST_FOR_EACH_ENTRY(required, requires, ifref_t, entry)
+        if (!(ref->type->defined)) continue;
+        if (!(requires = type_iface_get_requires(ref->type))) continue;
+        LIST_FOR_EACH_ENTRY(required, requires, typeref_t, entry)
         {
             int found = 0;
 
-            LIST_FOR_EACH_ENTRY(tmp, ifaces, ifref_t, entry)
-                if ((found = type_is_equal(tmp->iface, required->iface))) break;
+            LIST_FOR_EACH_ENTRY(tmp, ifaces, typeref_t, entry)
+                if ((found = type_is_equal(tmp->type, required->type))) break;
 
             if (!found)
                 error_loc("interface '%s' also requires interface '%s', "
                           "but runtimeclass '%s' does not implement it.\n",
-                          ifref->iface->name, required->iface->name, runtimeclass->name);
+                          ref->type->name, required->type->name, runtimeclass->name);
         }
     }
 
@@ -603,7 +664,7 @@ type_t *type_apicontract_define(type_t *apicontract, attr_list_t *attrs)
     return apicontract;
 }
 
-type_t *type_parameterized_interface_declare(char *name, struct namespace *namespace, type_list_t *params)
+type_t *type_parameterized_interface_declare(char *name, struct namespace *namespace, typeref_list_t *params)
 {
     type_t *type = get_type(TYPE_PARAMETERIZED_TYPE, name, namespace, 0);
     if (type_get_type_detect_alias(type) != TYPE_PARAMETERIZED_TYPE)
@@ -614,7 +675,7 @@ type_t *type_parameterized_interface_declare(char *name, struct namespace *names
     return type;
 }
 
-type_t *type_parameterized_interface_define(type_t *type, attr_list_t *attrs, type_t *inherit, statement_list_t *stmts, ifref_list_t *requires)
+type_t *type_parameterized_interface_define(type_t *type, attr_list_t *attrs, type_t *inherit, statement_list_t *stmts, typeref_list_t *requires)
 {
     type_t *iface;
     if (type->defined)
@@ -640,6 +701,223 @@ type_t *type_parameterized_interface_define(type_t *type, attr_list_t *attrs, ty
 
     type->defined = TRUE;
     return type;
+}
+
+type_t *type_parameterized_type_specialize_partial(type_t *type, typeref_list_t *params)
+{
+    type_t *new_type = duptype(type, 0);
+    new_type->details.parameterized.type = type;
+    new_type->details.parameterized.params = params;
+    return new_type;
+}
+
+static type_t *replace_type_parameters_in_type(type_t *type, typeref_list_t *orig, typeref_list_t *repl);
+
+static typeref_list_t *replace_type_parameters_in_type_list(typeref_list_t *list, typeref_list_t *orig, typeref_list_t *repl)
+{
+    typeref_list_t *new_list = NULL;
+    typeref_t *ref;
+
+    if (!list) return list;
+
+    LIST_FOR_EACH_ENTRY(ref, list, typeref_t, entry)
+    {
+        type_t *new_type = replace_type_parameters_in_type(ref->type, orig, repl);
+        new_list = append_typeref(new_list, make_typeref(new_type));
+    }
+
+    return new_list;
+}
+
+static var_t *replace_type_parameters_in_var(var_t *var, typeref_list_t *orig, typeref_list_t *repl)
+{
+    var_t *new_var = xmalloc(sizeof(*new_var));
+    *new_var = *var;
+    list_init(&new_var->entry);
+    new_var->declspec.type = replace_type_parameters_in_type(var->declspec.type, orig, repl);
+    return new_var;
+}
+
+static var_list_t *replace_type_parameters_in_var_list(var_list_t *var_list, typeref_list_t *orig, typeref_list_t *repl)
+{
+    var_list_t *new_var_list;
+    var_t *var, *new_var;
+
+    if (!var_list) return var_list;
+
+    new_var_list = xmalloc(sizeof(*new_var_list));
+    list_init(new_var_list);
+
+    LIST_FOR_EACH_ENTRY(var, var_list, var_t, entry)
+    {
+        new_var = replace_type_parameters_in_var(var, orig, repl);
+        list_add_tail(new_var_list, &new_var->entry);
+    }
+
+    return new_var_list;
+}
+
+static statement_t *replace_type_parameters_in_statement(statement_t *stmt, typeref_list_t *orig, typeref_list_t *repl, loc_info_t *loc)
+{
+    statement_t *new_stmt = xmalloc(sizeof(*new_stmt));
+    *new_stmt = *stmt;
+    list_init(&new_stmt->entry);
+
+    switch (stmt->type)
+    {
+    case STMT_DECLARATION:
+        new_stmt->u.var = replace_type_parameters_in_var(stmt->u.var, orig, repl);
+        break;
+    case STMT_TYPE:
+    case STMT_TYPEREF:
+        new_stmt->u.type = replace_type_parameters_in_type(stmt->u.type, orig, repl);
+        break;
+    case STMT_TYPEDEF:
+        new_stmt->u.type_list = replace_type_parameters_in_type_list(stmt->u.type_list, orig, repl);
+        break;
+    case STMT_MODULE:
+    case STMT_LIBRARY:
+    case STMT_IMPORT:
+    case STMT_IMPORTLIB:
+    case STMT_PRAGMA:
+    case STMT_CPPQUOTE:
+        error_loc_info(loc, "unimplemented parameterized type replacement for statement type %d.\n", stmt->type);
+        break;
+    }
+
+    return new_stmt;
+}
+
+static statement_list_t *replace_type_parameters_in_statement_list(statement_list_t *stmt_list, typeref_list_t *orig, typeref_list_t *repl, loc_info_t *loc)
+{
+    statement_list_t *new_stmt_list;
+    statement_t *stmt, *new_stmt;
+
+    if (!stmt_list) return stmt_list;
+
+    new_stmt_list = xmalloc(sizeof(*new_stmt_list));
+    list_init(new_stmt_list);
+
+    LIST_FOR_EACH_ENTRY(stmt, stmt_list, statement_t, entry)
+    {
+        new_stmt = replace_type_parameters_in_statement(stmt, orig, repl, loc);
+        list_add_tail(new_stmt_list, &new_stmt->entry);
+    }
+
+    return new_stmt_list;
+}
+
+static type_t *replace_type_parameters_in_type(type_t *type, typeref_list_t *orig, typeref_list_t *repl)
+{
+    struct list *o, *r;
+    type_t *t;
+
+    if (!type) return type;
+    switch (type->type_type)
+    {
+    case TYPE_VOID:
+    case TYPE_BASIC:
+    case TYPE_ENUM:
+    case TYPE_BITFIELD:
+    case TYPE_INTERFACE:
+    case TYPE_RUNTIMECLASS:
+        return type;
+    case TYPE_PARAMETER:
+        if (!orig || !repl) return NULL;
+        for (o = list_head(orig), r = list_head(repl); o && r;
+             o = list_next(orig, o), r = list_next(repl, r))
+            if (type == LIST_ENTRY(o, typeref_t, entry)->type)
+                return LIST_ENTRY(r, typeref_t, entry)->type;
+        return type;
+    case TYPE_POINTER:
+        t = replace_type_parameters_in_type(type->details.pointer.ref.type, orig, repl);
+        if (t == type->details.pointer.ref.type) return type;
+        type = duptype(type, 0);
+        type->details.pointer.ref.type = t;
+        return type;
+    case TYPE_ALIAS:
+        t = replace_type_parameters_in_type(type->details.alias.aliasee.type, orig, repl);
+        if (t == type->details.alias.aliasee.type) return type;
+        type = duptype(type, 0);
+        type->details.alias.aliasee.type = t;
+        return type;
+    case TYPE_ARRAY:
+        t = replace_type_parameters_in_type(type->details.array.elem.type, orig, repl);
+        if (t == t->details.array.elem.type) return type;
+        type = duptype(type, 0);
+        t->details.array.elem.type = t;
+        return type;
+    case TYPE_FUNCTION:
+        t = duptype(type, 0);
+        t->details.function = xmalloc(sizeof(*t->details.function));
+        t->details.function->args = replace_type_parameters_in_var_list(type->details.function->args, orig, repl);
+        t->details.function->retval = replace_type_parameters_in_var(type->details.function->retval, orig, repl);
+        return t;
+    case TYPE_PARAMETERIZED_TYPE:
+        t = type->details.parameterized.type;
+        if (t->type_type != TYPE_PARAMETERIZED_TYPE) return find_parameterized_type(type, repl);
+        repl = replace_type_parameters_in_type_list(type->details.parameterized.params, orig, repl);
+        return replace_type_parameters_in_type(t, t->details.parameterized.params, repl);
+    case TYPE_STRUCT:
+    case TYPE_ENCAPSULATED_UNION:
+    case TYPE_UNION:
+    case TYPE_MODULE:
+    case TYPE_COCLASS:
+    case TYPE_APICONTRACT:
+        error_loc_info(&type->loc_info, "unimplemented parameterized type replacement for type %s of type %d.\n", type->name, type->type_type);
+        break;
+    }
+
+    return type;
+}
+
+static void type_parameterized_interface_specialize(type_t *tmpl, type_t *iface, typeref_list_t *orig, typeref_list_t *repl)
+{
+    iface->details.iface = xmalloc(sizeof(*iface->details.iface));
+    iface->details.iface->disp_methods = NULL;
+    iface->details.iface->disp_props = NULL;
+    iface->details.iface->stmts = replace_type_parameters_in_statement_list(tmpl->details.iface->stmts, orig, repl, &tmpl->loc_info);
+    iface->details.iface->inherit = replace_type_parameters_in_type(tmpl->details.iface->inherit, orig, repl);
+    iface->details.iface->disp_inherit = NULL;
+    iface->details.iface->async_iface = NULL;
+    iface->details.iface->requires = NULL;
+}
+
+type_t *type_parameterized_type_specialize_declare(type_t *type, typeref_list_t *params)
+{
+    type_t *tmpl = type->details.parameterized.type;
+    type_t *new_type = duptype(tmpl, 0);
+
+    new_type->namespace = type->namespace;
+    new_type->name = format_parameterized_type_name(type, params);
+    reg_type(new_type, new_type->name, new_type->namespace, 0);
+    new_type->c_name = format_parameterized_type_c_name(type, params);
+
+    return new_type;
+}
+
+type_t *type_parameterized_type_specialize_define(type_t *type)
+{
+    type_t *tmpl = type->details.parameterized.type;
+    typeref_list_t *orig = tmpl->details.parameterized.params;
+    typeref_list_t *repl = type->details.parameterized.params;
+    type_t *iface = find_parameterized_type(tmpl, repl);
+
+    if (type_get_type_detect_alias(type) != TYPE_PARAMETERIZED_TYPE ||
+        type_get_type_detect_alias(tmpl) != TYPE_PARAMETERIZED_TYPE)
+        error_loc("cannot define non-parameterized type %s, declared at %s:%d\n",
+                  type->name, type->loc_info.input_name, type->loc_info.line_number);
+
+    if (type_get_type_detect_alias(tmpl->details.parameterized.type) == TYPE_INTERFACE &&
+        type_get_type_detect_alias(iface) == TYPE_INTERFACE)
+        type_parameterized_interface_specialize(tmpl->details.parameterized.type, iface, orig, repl);
+    else
+        error_loc("pinterface %s previously not declared a pinterface at %s:%d\n",
+                  iface->name, iface->loc_info.input_name, iface->loc_info.line_number);
+
+    iface->defined = TRUE;
+    compute_method_indexes(iface);
+    return iface;
 }
 
 int type_is_equal(const type_t *type1, const type_t *type2)

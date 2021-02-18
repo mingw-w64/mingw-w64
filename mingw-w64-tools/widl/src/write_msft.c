@@ -2331,12 +2331,12 @@ static void add_typedef_typeinfo(msft_typelib_t *typelib, type_t *tdef)
 static void add_coclass_typeinfo(msft_typelib_t *typelib, type_t *cls)
 {
     msft_typeinfo_t *msft_typeinfo;
-    ifref_t *iref;
+    typeref_t *iref;
     int num_ifaces = 0, offset, i;
     MSFT_RefRecord *ref, *first = NULL, *first_source = NULL;
     int have_default = 0, have_default_source = 0;
     const attr_t *attr;
-    ifref_list_t *ifaces;
+    typeref_list_t *ifaces;
 
     if (-1 < cls->typelib_idx)
         return;
@@ -2345,17 +2345,17 @@ static void add_coclass_typeinfo(msft_typelib_t *typelib, type_t *cls)
     msft_typeinfo = create_msft_typeinfo(typelib, TKIND_COCLASS, cls->name, cls->attrs);
 
     ifaces = type_coclass_get_ifaces(cls);
-    if (ifaces) LIST_FOR_EACH_ENTRY( iref, ifaces, ifref_t, entry ) num_ifaces++;
+    if (ifaces) LIST_FOR_EACH_ENTRY( iref, ifaces, typeref_t, entry ) num_ifaces++;
 
     offset = msft_typeinfo->typeinfo->datatype1 = ctl2_alloc_segment(typelib, MSFT_SEG_REFERENCES,
                                                                      num_ifaces * sizeof(*ref), 0);
 
     i = 0;
-    if (ifaces) LIST_FOR_EACH_ENTRY( iref, ifaces, ifref_t, entry ) {
-        if(iref->iface->typelib_idx == -1)
-            add_interface_typeinfo(typelib, iref->iface);
+    if (ifaces) LIST_FOR_EACH_ENTRY( iref, ifaces, typeref_t, entry ) {
+        if(iref->type->typelib_idx == -1)
+            add_interface_typeinfo(typelib, iref->type);
         ref = (MSFT_RefRecord*) (typelib->typelib_segment_data[MSFT_SEG_REFERENCES] + offset + i * sizeof(*ref));
-        ref->reftype = typelib->typelib_typeinfo_offsets[iref->iface->typelib_idx];
+        ref->reftype = typelib->typelib_typeinfo_offsets[iref->type->typelib_idx];
         ref->flags = 0;
         ref->oCustData = -1;
         ref->onext = -1;
@@ -2479,14 +2479,14 @@ static void add_entry(msft_typelib_t *typelib, const statement_t *stmt)
         break;
     case STMT_TYPEDEF:
     {
-        const type_list_t *type_entry = stmt->u.type_list;
-        for (; type_entry; type_entry = type_entry->next) {
+        typeref_t *ref;
+        if (stmt->u.type_list) LIST_FOR_EACH_ENTRY(ref, stmt->u.type_list, typeref_t, entry) {
             /* if the type is public then add the typedef, otherwise attempt
              * to add the aliased type */
-            if (is_attr(type_entry->type->attrs, ATTR_PUBLIC))
-                add_typedef_typeinfo(typelib, type_entry->type);
+            if (is_attr(ref->type->attrs, ATTR_PUBLIC))
+                add_typedef_typeinfo(typelib, ref->type);
             else
-                add_type_typeinfo(typelib, type_alias_get_aliasee_type(type_entry->type));
+                add_type_typeinfo(typelib, type_alias_get_aliasee_type(ref->type));
         }
         break;
     }
